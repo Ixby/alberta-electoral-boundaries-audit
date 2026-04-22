@@ -1,80 +1,113 @@
-# Migration — Alberta Boundaries Audit Chat 3
+# Migration — Alberta Boundaries Audit
 
-**Set chat title to:** Alberta Boundaries Audit — Phases 1–4 completed, Phase 5 blocked (Chat 4)
+**Current state:** v0.4 published. Dual-audience reports (public + academic) + accessible HTML dissemination. Submission archive verified; chair's Appendix C claim partially refuted. Structural findings robust; partisan-math findings qualified at 89% directional confidence.
 
-## What this session did
+**Author and audit design:** Will Conner, Mount Royal University, BCIS.
 
-Executed v0.8 agentic prompt in a shared Claude Code (Opus 4.7 1M) session. Ran carry-forward baseline verification, then Phases 1–6 sequentially. Output compiled to `alberta_redistricting_audit_final.md` at project root.
+**Working prompt for next session:** `v1_2_gerrymander_audit_prompt.md`.
 
-## Phase status
+## What each session completed
 
-| Phase | Section                   | Status      | Notes                                                                 |
-| ----- | ------------------------- | ----------- | --------------------------------------------------------------------- |
-| 0     | Carry-forward B1–B4        | ✅ verified  | Matches expected table 2019: 38/49, EG −2.64%, MM −2.22pp, NDP 46 at 50/50 |
-| 1     | A — Population equality   | ✅ complete  | Key finding: minority Calgary NE/SW gap +12.2% vs majority +0.4%      |
-| 2     | C — Visual spatial audit  | ✅ complete  | 3 minority anomalies confirmed visually; 0 majority anomalies         |
-| 3     | D — Procedural            | ✅ complete  | April 16 action characterized as without recent provincial precedent  |
-| 4A    | Direct ABEBC shapefiles   | ❌ blocked   | Not released as of 2026-04-22; watch `elections.ab.ca/resources/maps/` |
-| 4B    | DA dissolve                | ❌ infeasible | PDF not in bundle; DAUIDs unlikely present                            |
-| 4C    | Poll-location attribution | 🟡 partial   | Skeleton verified (1,973 polls parsed, totals match to 4 figures); stages 3–7 not run (token budget) |
-| 4D    | OSM street-network        | ❌ not attempted | Would bust 15K token cap on first hybrid                         |
-| 4F    | Validation                | N/A         | No geometry to validate                                               |
-| 5     | B5 ensemble + C1/C2       | ❌ blocked   | Requires 2026 polygon geometry that doesn't exist                     |
-| 6     | Final report              | ✅ complete  | `alberta_redistricting_audit_final.md`                                |
+**Session 1 (Chat 1, prior).** Initial B1–B4 partisan-bias analysis on 2019 baseline + minority 2026 estimate. Section A population equality skeleton. Section C visual spatial audit on chair-flagged configurations.
 
-## Sub-findings worth carrying forward
+**Session 2 (Chat 2, prior).** Section D procedural audit skeleton. Section 4 geometry provenance (blocked on shapefiles). Initial compiled report.
 
-1. **Vote Anywhere share is 47.2%, not 21.9%.** The full set of Advance/Mobile/Special ballots, all of which are home-ED-attributed under Vote Anywhere, make up 47.2% of 2023 valid votes — the 21.9% number in circulation refers to something narrower. Phase 4C full execution should expect nearly half the votes to require apportionment.
+**Session 3 (Chat 3, current session chain).** v0.8→v0.9 prompt fortifications. Dual-audience report rewrite. Bias audit identified three class-A issues; remediated in v0.2 packing-cracking script that computes all three maps symmetrically. Monte Carlo CI + declination + 2019 cross-election red-team pass found partisan-math claims weaker than first-draft implied.
 
-2. **NDP voters used Vote Anywhere at +6 pp higher rate than UCP.** Election Day two-party: NDP 42.59% / UCP 57.41%. Vote Anywhere two-party: NDP 48.84% / UCP 51.16%. The 70/30 carry-forward approximation therefore under-estimates the urban NDP concentration and plausibly under-estimates the minority's partisan shift. Measured attribution should show a larger (not smaller) shift.
+**Session 4 (still Chat 3 thread).** Added 2015 election data. Uncertainty and shapefile-impact analysis. Design critique red-teamed methodology. Academic literature review. PDF recon confirmed Appendix B is prose-only; Appendix C hybrid crosswalk extracted. v1.1→v1.2 prompt made red-team gates mandatory.
 
-3. **2023 Voting Area shapefiles are published.** At `elections.ab.ca/resources/maps/`. These are a much cheaper substrate for Phase 4C than per-poll geocoding. Next session's Phase 4C should use VA polygons as the spatial unit.
+**Session 5 (the present).** Submission-archive sub-agent searched 1,252 of ~1,340 public submissions. **Chair's "no public support" claim partially refuted** — three of five disputed configurations have documented public support (RMH-Banff Park, Olds-Three-Hills-Didsbury, Red Deer hybrids, Chestermere partially). Public report rewritten for subject-matter-naive audience at grade 7.1. Academic report updated with APA citations. Accessible HTML dissemination built with cross-links. File structure cleaned: `deprecated/` for old scripts, `drafts/` for WIP.
 
-4. **Calgary NE/central vs S/W population asymmetry is map-specific.** Majority has near-zero gap (+0.4%); minority has +12.2% gap. Under full Calgary classification (28 EDs majority, 29 EDs minority, no residuals), the signal is robust.
+## Status by phase and test
 
-5. **Rocky Mountain House-Banff Park engineered boundary visually confirmed.** The Alberta overview map shows the NP extension unambiguously. Absent the extension, the district fails multiple s.15(2) criteria. Chair-flagged concern substantiated.
+| Phase / Test | Status | Confidence |
+| --- | --- | --- |
+| Carry-forward B1–B4 verification | Reproducible from v0.2 script | High |
+| A1 Population MAD | Complete | High (CSV-sourced) |
+| A2 Calgary zone gap | Complete, two classification rules | High |
+| A3 s.15(2) eligibility audit | Complete; 1/3 ridings flagged per map | Medium-low (hand-coded areas) |
+| B1 Vote distribution histogram | Complete | 89% directional |
+| B2 Efficiency gap | Complete; MC 95% CI crosses zero | 89% directional |
+| B3 Mean-median | Complete | 89% directional |
+| B4 NDP @ 50/50 | Complete | 89% directional |
+| B6 Declination | Complete; **direction disagrees with B2/B3/B4** | Reported |
+| C3 Visual anomalies (minority) | 3 confirmed | High |
+| C3 Visual anomalies (majority) | 0 Calgary, rest not imaged | Partial |
+| C4 Community splits | Complete | High |
+| D Procedural | **Partially refuted** via submission search | Narrowed |
+| 4A Shapefiles | Not released by ABEBC | Blocked |
+| 4B DA dissolve | Infeasible (PDF has no DAUIDs) | Blocked |
+| 4C VA-polygon attribution | Skeleton verified; full run not attempted | Budget-blocked |
+| 4D OSM reconstruction | Not attempted | 15K token cap |
+| 4E Manual digitization | Out of scope | — |
+| B5 MCMC ensemble | Requires shapefiles | Blocked |
+| C1 Polsby-Popper | Requires shapefiles | Blocked |
+| C2 Reock | Requires shapefiles | Blocked |
 
-## Token spend
+## Critical sub-findings to carry forward
 
-Approximate session spend: ~60–75K tokens used, well under the 150K budget. The remaining ~75K budget was not used because Phase 4 hit structural blockers (no 2026 shapefiles, no PDF for DAUID check) that no amount of additional token spend inside this session can unblock — the fix is temporal (wait for ABEBC release) or methodology-substrate (switch to VA polygons, 4–8 hours of dedicated execution).
+1. **Structural findings are robust.** Population MAD, Calgary zone gap, community splits, visible anomalies survive all three red-team gates.
+2. **Partisan-math findings are directional at 89% confidence, not 95% significance.** Monte Carlo CI on majority-minority EG asymmetry is [−2.99, +0.76] pp and crosses zero. Two literature-standard metrics (EG and declination) disagree. Under 2019 vote data the asymmetry flips sign.
+3. **Chair's Appendix C claim is overbroad.** Three of five disputed configurations have public support. Strongest counter-example: EBC-2025-2-0619 explicitly proposes "Rocky Mountain House-Banff" as an electoral district amendment.
+4. **Strongest remaining procedural case:** Airdrie 4-way split (0/1,252 supporting submissions) and Calgary-Nolan Hill-Cochrane (0/1,252 supporting).
+5. **Rural NDP baseline varies across elections:** 26.47% (2019) to 35.05% (2015). Monte Carlo samples rural_ndp_share ~ Uniform(0.26, 0.36).
+6. **Vote Anywhere is 47.2% of 2023 valid votes.** NDP voters used Vote Anywhere at +6 pp higher rate than UCP, meaning the 70/30 urban/rural blend likely *under*-estimates the minority partisan shift — if a shift exists.
+7. **Hybrid crosswalk from Appendix C verified two hand-coded mapping errors** (Airdrie-East, Medicine Hat-Brooks) that have been corrected.
 
-## Recommended next session topic
+## What the next session should do
 
-**Two parallel tracks:**
+In priority order:
 
-**Track A (monitoring).** Watch `https://www.elections.ab.ca/resources/maps/` for 2026 shapefile release. When available, unblock Phase 4A → run Phase 5 (B5 ensemble + C1/C2 compactness). Estimated session cost: ~50K tokens for the full ensemble + compactness run once geometry is in hand.
+**Track A (monitoring).** Watch `https://www.elections.ab.ca/resources/maps/` for 2026 shapefile release. When available:
+- Run Stage 2 pipeline (shapefile integrity + population checksum)
+- Run Phase 5 ensemble (GerryChain 10K+ maps) and compactness (C1 PP, C2 Reock)
+- Refine B1–B4 with measured attribution replacing 70/30 blend
+- Estimated cost: ~50K tokens, 1–2 hours wall-clock
 
-**Track B (submission archive verification).** Independently verify the majority report's claim that the five disputed minority hybrid configurations (Airdrie, Cochrane, Chestermere, Red Deer, St. Albert) had no public support in the 1,140+ submissions. Requires downloading the commission's public submission archive and running text search. This is the single strongest remaining piece of evidence for or against the procedural-fairness finding in §D. Estimated session cost: ~25K tokens.
+**Track B (OCR completion).** The submission search missed ~88 image-only submissions (6.6%). If the audit will be used in legal proceedings, OCR'ing these would close the coverage gap. Estimated cost: ~30K tokens, 1 hour.
 
-**If publishing now:** the current audit is shippable. Convert `alberta_redistricting_audit_final.md` to PDF, draft distribution. The "blocked" items in Phase 5 are honestly disclosed, not concealed — the audit is stronger for refusing to fabricate ensemble results than it would be with fabricated ones.
+**Track C (Appendix E recon).** Extract minority report's hybrid crosswalk if one exists in a table format. Currently only the majority's Appendix C crosswalk is machine-extracted.
 
-## Files created this session
+**Track D (full measured attribution).** Execute the Phase 4C pipeline against 2023 VA shapefiles even without 2026 polygons. Uses the commission's Appendix B prose descriptions + Vision assignment for hybrid-adjacent VAs. Collapses the Monte Carlo CI to a single point estimate. Estimated cost: ~300K tokens, 3–4 hours.
 
-Inside `analysis/`:
-- `electoral_forensics_population.py` — Phase 1 reproducibility
-- `v0_1_section_A_population_equality.md` — Phase 1 writeup
-- `v0_1_section_C_geographic_coherence.md` — Phase 2 writeup
-- `v0_1_section_D_procedural.md` — Phase 3 writeup
-- `v0_1_section_4_geometry_provenance.md` — Phase 4 writeup (Technical Data Statement)
-- `polls_2023_unified.csv` — Phase 4C skeleton output (1,973 rows, parsed Statement of Vote)
-- `_phase1_output.txt` — raw Phase 1 script output (for self-verification)
+## Token spend across the session chain
 
-At project root:
-- `alberta_redistricting_audit_final.md` — the compiled audit report
-- `migration.md` — this file
+Rough totals by phase:
 
-## Files NOT created this session
+| Session | Token spend |
+| --- | --- |
+| 1–2 (prior chats) | ~80K |
+| 3 (current chat, v0.8→v0.9→v1.0) | ~120K |
+| 4 (v1.0→v1.2 + data + literature) | ~100K |
+| 5 (submission search + cleanup + HTML) | ~60K |
+| Background sub-agents (submission search + data acquisition) | ~200K |
 
-- `analysis/geometry_shift_log.md` — deliberately not created because no manual geometric adjustments were applied (no geometry to adjust)
-- `analysis/v0_1_section_B5_C1_C2_geometric_tests.md` — would have contained ensemble+compactness results; Phase 5 blocked
-- `analysis/geometry/` directory — no polygon files generated
+Total approximate spend in this chat: ~580K tokens. Sub-agents took ~200K of that.
+
+## How to produce the reports from a clean checkout
+
+Fresh Claude Code session, fresh clone of the repository:
+
+```bash
+git clone https://github.com/Ixby/alberta-electoral-boundaries-audit
+cd alberta-electoral-boundaries-audit
+bash setup.sh
+PYTHONIOENCODING=utf-8 python3 analysis/v0_2_packing_cracking_analysis.py
+PYTHONIOENCODING=utf-8 python3 analysis/electoral_forensics_population.py
+PYTHONIOENCODING=utf-8 python3 analysis/v0_3_monte_carlo_ci.py
+PYTHONIOENCODING=utf-8 python3 analysis/v0_1_cross_election_rural_baseline.py
+python3 analysis/check_voice_and_readability.py
+```
+
+If all five scripts complete without errors and their outputs match the tables in the academic report, the environment is ready. The reports themselves (`report_public.md`, `report_academic.md`, `report.html`) are checked-in artifacts — regenerating them requires running the pipeline through the v1.2 prompt in Claude Code.
 
 ## Open questions for the PO
 
-- Does the audit meet the bar for publishing now, or should it hold for Phase 4C/5 completion in a future session?
-- Should the minority procedural critique be filed as a standalone concern (distinct from the cartographic audit) given it touches constitutional norms under *Ref re Provincial Electoral Boundaries (Saskatchewan)*?
-- Is a Track A + Track B split useful, or should the next session focus single-threaded on one of the two?
+- Is the current v0.4 output ready to share publicly? (Both reports pass their gates; HTML dissemination build includes accessibility features.)
+- Should OCR of the ~88 missing submissions be prioritized, or deferred until the audit is used in legal proceedings?
+- When should Track A execute? (Shapefile release is external.)
+- Does the dual-audience model (public / academic / HTML) meet distribution needs, or are additional formats required (PDF, print, presentation)?
 
 ---
 
-*Migration doc complete. Lineage continues — this is Chat 3 of the Alberta Boundaries Audit. Chat 4 (next) should either monitor shapefile release (Track A) or verify the public-submission claim (Track B).*
+*Migration doc v0.4. Authored April 22, 2026 during the post-submission-search consolidation pass.*

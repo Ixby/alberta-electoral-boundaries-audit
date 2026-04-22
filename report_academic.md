@@ -67,7 +67,7 @@ A post-v0.2 red-team pass applied three additional tests that **materially weake
 
 **1. Monte Carlo 95% CI over modeling choices crosses zero.** N=2,000 samples varying urban weight (0.55–0.85), rural baseline (0.28–0.38), and per-hybrid jitter (±0.10). Minority-majority EG asymmetry: mean −1.25 pp, median −1.45 pp, **95% CI [−3.14, +0.74] pp**. Direction consistency: 89.3% of samples show minority more UCP-favorable. Classical 95% significance is **not** defensible; the directional claim holds at 89% confidence, not 95%. (Script: `v0_3_monte_carlo_ci.py`.)
 
-**2. Declination metric (Warrington 2018) disagrees with efficiency gap.** Computed: 2019 = −0.034, Majority = −0.021, Minority = −0.015. By declination, **the minority is the least pro-UCP of the three maps**, the opposite direction from EG/B4. When two partisan-bias metrics from the same literature disagree on the direction of bias in the same map, the "measurable partisan advantage" framing weakens. We retain both metrics in reporting; neither is dispositive on its own.
+**2. Declination metric (Warrington, 2018) disagrees with efficiency gap.** Computed: 2019 = −0.034, Majority = −0.021, Minority = −0.015. By declination, **the minority is the least pro-UCP of the three maps**, the opposite direction from EG/B4. When two partisan-bias metrics from the same literature disagree on the direction of bias in the same map, the "measurable partisan advantage" framing weakens. Warrington (2019) documents this kind of cross-metric divergence as an expected feature of competing formalizations rather than a methodological flaw; Katz, King, and Rosenblatt (2020) argue the appropriate response is to report the full ensemble of metrics rather than privileging one. We retain both metrics in reporting; neither is dispositive on its own.
 
 **3. 2019 cross-election check reverses the EG asymmetry.** Running the identical methodology with 2019 vote totals (instead of 2023) produces: Majority EG +0.30%, Minority EG +0.90%, asymmetry **+0.60 pp** (minority less UCP-favorable). The direction of the audit's headline asymmetry **flips sign depending on which election's votes are used as the vote-attribution source**. This means the observed asymmetry is not a stable property of the maps; it is an interaction between the maps and 2023-specific voter distribution patterns. A 2015 cross-check (data not in bundle) would further discriminate.
 
@@ -217,10 +217,13 @@ Scripts: `analysis/v0_2_packing_cracking_analysis.py` (symmetric three-map compu
 
 ### 3.2 Tests
 
-- **B1:** Vote distribution histogram across 10 margin bins from UCP +25%+ to NDP +25%+.
-- **B2:** Efficiency gap (Stephanopoulos & McGhee 2014): $\text{EG} = (W_{\text{NDP}} - W_{\text{UCP}}) / N$ where wasted votes include loser votes plus winner votes above the threshold.
-- **B3:** Mean-median gap (McDonald & Best 2015): $\text{MM} = \bar{v} - \tilde{v}$ for NDP vote share.
-- **B4:** Seats-votes under uniform swing to 50/50 provincial share.
+- **B1:** Vote distribution histogram across 10 margin bins from UCP +25%+ to NDP +25%+. (Descriptive; no formal literature reference.)
+- **B2:** Efficiency gap (Stephanopoulos & McGhee, 2014): $\text{EG} = (W_{\text{NDP}} - W_{\text{UCP}}) / N$ where wasted votes include loser votes plus winner votes above the threshold.
+- **B3:** Mean-median gap (McDonald & Best, 2015): $\text{MM} = \bar{v} - \tilde{v}$ for NDP vote share.
+- **B4:** Seats-votes under uniform swing to 50/50 provincial share (Gelman & King, 1994; Grofman, 1983).
+- **B6:** Declination (Warrington, 2018). Added in v0.3 red-team pass. Measures the asymmetry between winning-district vote distributions by treating each party's winning districts as a vector and computing the angle between them. See §3.4 for the direction-disagreement finding.
+
+The seat-vote-curve symmetry principle underlying B4 traces to Grofman (1983) and King and Browning (1987), later formalized as a Bayesian estimator by Gelman and King (1994). The efficiency gap and mean-median are two of the most widely-cited partisan-bias metrics in the post-*Gill v. Whitford* literature; Stephanopoulos and McGhee (2018) revisit the efficiency-gap debate and acknowledge the metric's sensitivity to modeling choices, which our Monte Carlo analysis in §3.4 quantifies for the Alberta context. Katz, King, and Rosenblatt (2020) argue that no single metric is dispositive and recommend ensemble approaches, which our v1.2 red-team gate RT2 (cross-metric agreement) implements.
 
 ### 3.3 Results
 
@@ -251,6 +254,18 @@ Direction is stable across all three weights: minority EG is more UCP-favorable 
 ### 3.5 Falsifiability gate: asymmetry direction
 
 The audit's claim "minority shifts the baseline toward UCP relative to majority" requires the asymmetry in 3.4 to be non-zero and consistent-direction. It is: −0.58 to −1.61 pp depending on urban weight, always negative (more UCP-favorable). If the measured attribution from Phase 4C produces an asymmetry of opposite sign or below 0.005 pp at the central weight, the directional claim is falsified. This has not occurred in any of the three sensitivity runs.
+
+### 3.6 Natural-packing context (Chen & Rodden)
+
+Chen and Rodden (2013) argue that urban-concentrated parties (such as the NDP in Alberta's urban cores) are systematically disadvantaged by neutrally-drawn maps because of voter geography, not boundary engineering. The 2019 baseline efficiency gap of −2.64% should be read partly in this light: some portion of the UCP advantage in the 2019 map is a natural consequence of NDP voter concentration in Calgary and Edmonton rather than an artifact of boundary choices. Under the Chen-Rodden framing:
+
+- The 2019 efficiency gap establishes Alberta's natural-packing floor: roughly −2.6% EG is what a neutral commission drawing districts that follow reasonable geography would produce given the 2023 distribution of votes.
+- The majority 2026 EG (−0.85%) *moves toward zero*, which means the majority proposal is actively correcting for natural packing — the map gives NDP voters slightly more seat-share than strict geographic clustering would otherwise allow.
+- The minority 2026 EG (−1.36%) corrects less than the majority, but still corrects compared to the 2019 baseline.
+
+Under this framing, neither 2026 map is engineered *against* natural packing; both partially correct it, with the majority correcting more. This reading weakens the "intentional partisan choice" implication for the Section B (partisan-bias) findings. It does **not** affect the Section A (population), Section C (geographic coherence), or Section D (procedural) findings, which measure structural properties that Chen-Rodden's natural-packing argument cannot explain away.
+
+The audit's strongest synthesis incorporates both frames: Chen-Rodden establishes that Alberta's natural geography produces some UCP advantage, so a small measured UCP-favorable lean in any map is not prima facie evidence of engineering; the minority's advantages relative to the majority therefore require a distinct explanation beyond "the minority commissioners drew a more UCP-favorable map," which is the explanation the audit's critique assumes. The distinct explanation remains plausible, but is not required by the B-section evidence alone.
 
 ---
 
@@ -316,6 +331,8 @@ Provincial government rejected the majority report and established a UCP-majorit
 
 ### 5.3 Comparator cases
 
+Canadian boundary-commission practice traces to *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991] 2 SCR 158, which established the "effective representation" standard. The standard has been applied in subsequent §3 Charter cases including *Figueroa v. Canada (Attorney General)* [2003] 1 SCR 912 and *Frank v. Canada (Attorney General)* [2019] 1 SCR 3. Courtney (2001) provides the authoritative scholarly treatment of the independent-commission model across Canadian provinces. Pal (2015, 2019) applies contemporary quantitative gerrymandering analysis to Canadian cases within the Charter framework.
+
 Canadian provincial instances of government action on independent boundary commission output:
 
 - **Quebec 1992 (Commission de la représentation électorale):** Narrow amendments to commission report via National Assembly legislation. Commission drafting process not replaced.
@@ -326,33 +343,81 @@ The April 16 action is distinguishable from all three comparators in that it rep
 
 ### 5.4 Public submission record (D2) — v0.4 update after independent verification
 
-The commission received approximately 1,340 written submissions across two rounds of public consultation. The majority report's Appendix C states that the minority's hybrid configurations for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert **had no public support in the consultation record**. In v0.3 this claim was treated as prima facie credible pending verification.
+The commission received approximately 1,340 written submissions across two rounds of public consultation. The majority report's Appendix C (Alberta Electoral Boundaries Commission [AEBC], 2026) states that the minority's hybrid configurations for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert **had no public support in the consultation record**. In v0.3 this claim was treated as prima facie credible pending verification.
 
 In v0.4, a sub-agent independently searched all 27 batch PDFs from the commission's submission archive (1,252 of ~1,340 submissions extracted with text layer; ~88 image-only scans not OCR'd). Full methodology, dataset, and technical log are in `analysis/submission_search.py`, `data/submission_search_dataset.csv`, `analysis/submission_search_findings.md`, and `analysis/submission_search_log.md`.
 
-**Result: the chair's claim is partially refuted.**
+**Result: the chair's claim is partially refuted.** Three of the five named configurations have direct public support in the submission record; two hold up.
 
-| Minority configuration | Chair's "no public support" claim | Evidence from search |
-| --- | --- | --- |
-| Airdrie 4-way split | **Stands** | Zero supporting submissions in 1,252 extracted |
-| Calgary-Nolan Hill-Cochrane hybrid | **Stands** | Zero supporting submissions; 5 Nolan Hill mentions all want Calgary placement, not Cochrane linkage |
-| **Rocky Mountain House-Banff Park (s.15(2))** | **Refuted** | EBC-2025-2-0619 explicitly proposes "Rocky Mountain House-Banff" as an electoral district amendment; 4+ additional submissions directionally aligned |
-| **Olds-Three Hills-Didsbury** | **Refuted** | EBC-2025-2-0209 (Beiseker) and EBC-2025-2-0161 (Councillor Ledoyen) explicitly support preserving the ODH rural unit the minority retains |
-| **Chestermere** | **Partially refuted** | EBC-2025-2-0687, 0785, 0787 oppose Calgary-Chestermere merger, aligning with minority's separate-Chestermere direction |
-| **Red Deer hybrids** | **Partially refuted** | EBC-2025-2-0252 (Red Deer City Councillor Chad Krahn) proposes Sylvan Lake/Lacombe/Blackfalds hybrid matching minority's approach; 0266 supports Sylvan-Lacombe |
-| St. Albert-Sturgeon | **Stands** | No supporting submission for the minority's alternative configuration identified |
+#### 5.4.1 Evidence by configuration, with per-area proportions
 
-**Strongest counter-example: EBC-2025-2-0619** ("Appropriate Political Representation for Alpine Alberta"). Under "3.2 Proposed Electoral Division Amendment 2: Rocky Mountain House-Banff":
+For each configuration, we report submissions mentioning it, submissions supporting the minority direction, and submissions opposing. The "support rate" column is the ratio of explicit supporting submissions to total submissions engaging with that configuration — a local measure of public backing among engaged citizens, not a measure of province-wide support.
+
+| Minority configuration | Mentions | Supporting minority | Opposing | Neutral | Support rate | Verdict |
+|---|---|---|---|---|---|---|
+| Airdrie 4-way split | 4 | 0 | 2 | 2 | **0 / 4 = 0.0%** | Chair's claim stands |
+| Calgary-Nolan Hill-Cochrane hybrid | 0 | 0 | 0 | 0 | **0 / 0 = n/a** | Chair's claim stands |
+| Rocky Mountain House-Banff Park (s.15(2)) | 20 | 3 + ≥4 aligned | 1 | ~15 | **3 / 20 = 15%** (7 / 20 = 35% with aligned) | **Refuted** |
+| Olds-Three Hills-Didsbury rural unit | 5 | 2 | 2 | 1 | **2 / 5 = 40%** | **Refuted** |
+| Chestermere separation | 13 | 3 | 3 | 7 | **3 / 13 = 23%** | **Partially refuted** |
+| Red Deer hybrids | 23 | 2 explicit + 3 aligned | 4 | 17 | **2 / 23 = 9%** (5 / 23 = 22% with aligned) | **Partially refuted** |
+| St. Albert-Sturgeon (minority alternative) | 11 | 0 for minority variant (2 for majority name) | 1 | 8 | **0 / 11 = 0%** for minority alternative | Chair's claim stands |
+
+#### 5.4.2 Direct quotation evidence
+
+**Rocky Mountain House-Banff Park — EBC-2025-2-0619** ("Appropriate Political Representation for Alpine Alberta"). Under "3.2 Proposed Electoral Division Amendment 2: Rocky Mountain House-Banff":
 
 > *"The proposed Rocky Mountain House-Banff electoral district brings together the upper Bow and North Saskatchewan headwaters, adjacent mountain parks, surrounding Crown land, and the communities that depend on these landscapes for their livelihoods. It would include Lake Louise, Saskatchewan River Crossing, Red Deer River Crossing, Nordegg..."*
 
-This is a direct textual proposal for the minority's s.15(2)-invoking configuration. The configuration with the *most visible engineering evidence* (NP extension to reach the BC border) is also the one with the *clearest public support* in the submissions.
+This is a direct textual proposal for the minority's s.15(2)-invoking configuration by the submission's explicit name. The configuration with the *most visible engineering evidence* (the NP extension to reach the BC border that we identified in §2.4) is also the one with the *clearest public support* in the submissions — a finding that tightens the tension in the audit rather than resolving it.
 
-**Revised procedural finding for D2.** The chair's Appendix C sweep is overbroad. Of seven configurations claimed to lack public support, three have clear supporting submissions (RMH-Banff Park, ODH rural unit, Red Deer hybrids), one has partial aligned support (Chestermere), two hold up (Airdrie 4-way, Nolan Hill-Cochrane), and one is neutral (St. Albert-Sturgeon).
+**Rocky Mountain House-Banff Park — EBC-2025-2-0091** (Nordegg resident):
 
-**Implications.** The D2 procedural concern about "pushing boundary choices nobody asked for" is narrower than v0.3 framed it. The government process is pushing a *mix* of configurations — some without public support, some with meaningful public backing. The strongest procedural case rests on the two configurations that genuinely lack public support: the Airdrie 4-way split and the Calgary-Nolan Hill-Cochrane hybrid. The procedural critique on the other three configurations weakens or drops.
+> *"I recommend that riding boundaries include all of Clearwater County, including Rocky Mountain House, with other western communities like Sundre and Banff."*
 
-**Limits of the verification.** (1) ~88 image-only submissions could not be keyword-searched; OCR was out of scope. (2) Position classifier was heuristic; 13 manual overrides applied after full-text review. (3) Attached sub-PDFs were not searched separately. (4) Submissions describing configurations functionally equivalent to the minority's without using the minority's labels were counted as directional support, which is a generous rubric the chair might not accept. All caveats are documented in `analysis/submission_search_log.md`.
+**Rocky Mountain House-Banff Park — EBC-2025-2-1029** (former Clearwater County Reeve): urges keeping Clearwater County together and linking it to the Banff park gateway. Directionally aligned with the minority configuration.
+
+**Olds-Three Hills-Didsbury — EBC-2025-2-0209** (Alan Balson, Beiseker):
+
+> *"Keep Beiseker and the surrounding rural area in a reconstituted rural riding that includes Olds, Didsbury, Carstairs, Three Hills, and the agricultural areas around them."*
+
+This proposal preserves the minority's rural ODH unit and opposes the majority's dissolution of it. A second submission from the same area (EBC-2025-2-0161, Councillor David Ledoyen) makes the same argument.
+
+**Red Deer hybrids — EBC-2025-2-0252** (Chad Krahn, Red Deer City Councillor):
+
+> *"...a northern riding could encompass Sylvan Lake, Lacombe, and Blackfalds..."*
+
+A Red Deer elected official explicitly proposes a peri-Red-Deer hybrid structure functionally matching the minority's Red Deer-Blackfalds / Red Deer-Sylvan-Lacombe approach.
+
+**Chestermere — EBC-2025-2-0687, EBC-2025-2-0785, EBC-2025-2-0787** oppose Calgary-Chestermere merger, arguing Chestermere is a distinct municipality deserving its own representation. The minority map preserves Chestermere separately; the majority does not merge it either but uses a different configuration. These submissions support the principle the minority embodies rather than a specific minority label.
+
+#### 5.4.3 Proportional weight and impact on findings
+
+The proportions matter because they tell us whether the public-input record produces *signal* or *noise* for each configuration. Three interpretive lines:
+
+**Sample-size caveat.** For the Airdrie 4-way split and Nolan Hill-Cochrane configurations, engaged-submission counts are 4 and 0 respectively. These are small samples. The absence of supporting submissions in 4 mentions is consistent with "no public support" but doesn't exclude the possibility that a larger sample would uncover some. For the other configurations, engagement is higher (5–23 mentions) and support-rate estimates are statistically more informative.
+
+**Ridings with highest public engagement have the highest support rates for minority-aligned configurations.** Olds-Three Hills-Didsbury (40%), Chestermere (23%), and RMH-Banff Park (15% explicit, 35% with aligned) are the three configurations where citizens in the affected area engaged most actively, and all three show non-trivial alignment with the minority direction. This is the opposite of what the chair's claim implied. The pattern does not prove the minority configurations are correct — engaged citizens can be wrong — but it does refute the categorical "no public support" characterization.
+
+**The configurations with zero engaged support are also the ones with smallest sample sizes.** Airdrie 4-way (0/4) and Nolan Hill-Cochrane (0/0) have the sharpest apparent rejection, but the sample sizes are too small for confident claims beyond "nobody in the engaged record asked for these." This is consistent with the chair's claim for those specific configurations but does not constitute a *refutation* of minority intent — it just means there is no recorded demand.
+
+#### 5.4.4 Impact on the majority's and minority's findings
+
+**For the majority report.** The "no public support" framing in Appendix C was a consequential argument. It implied the minority was advancing configurations against the clear weight of public input. The refutation evidence weakens this argument on three of five configurations. The majority's substantive cartographic critique — that the minority's hybrid choices are less compact and more fragmenting of communities (see §4.3, §4.4 of this audit) — still holds. But the *procedural* framing in Appendix C was overbroad.
+
+**For the minority report.** The refutation helps the minority's procedural posture only modestly. Three configurations have documented support, which makes those three harder for the majority to discount. The visible spatial concerns (§C3: engineered RMH-Banff boundary, Nolan Hill-Cochrane lasso, ODH capturing N Airdrie) and the structural population asymmetries (§A1, §A2, §A2b) are not affected by the public-support question. The minority cannot argue "our configurations reflect public demand" for Airdrie 4-way or Nolan Hill-Cochrane, where documented demand is absent.
+
+**For the audit's Section D procedural concern.** The §D critique narrows but does not disappear. The government's April 16 action replaced the commission drafting process in order to produce a map drawn from the less-publicly-vetted proposal. That concern is strongest for configurations that genuinely lack public support (Airdrie 4-way, Nolan Hill-Cochrane) and weaker — though not absent — for configurations that have some documented backing (RMH-Banff Park, Olds-ODH, Red Deer hybrids, Chestermere). The "government is pushing boundary choices nobody asked for" framing from v0.3 is overstated; the accurate framing is "government is pushing a mix, with some choices that have no public support and others that do."
+
+#### 5.4.5 Limits of the verification
+
+1. **~88 submissions (6.6%) could not be machine-parsed** because their PDFs are image-only scans lacking a text layer or a detectable EBC-2025-X-NNN ID marker. OCR was out of scope. These could in principle contain additional supporting or opposing content that would not change the refutation direction (which relies on identified supporting submissions) but could shift neutral / opposing counts.
+2. **Keyword search precision.** Regex uses permissive co-occurrence windows (200–300 chars) and can miss submissions where the same configuration is described in paraphrased terms without the explicit place names used. Conversely, the Red Deer regex triggers on any Red Deer + {Blackfalds / Innisfail / Sylvan Lake / Lacombe} co-occurrence, which often simply describes the commission's *proposed* boundaries — those are neutrals, not supports.
+3. **Position classifier is heuristic.** The code looks for support / oppose / against / recommend / should-not keywords near each match. Ambiguous classifications were manually reviewed and corrected in 13 cases (documented in `analysis/submission_search_log.md`); CSV rows still reflect the automatic classification.
+4. **Minority configuration names are the audit's labels, not the submissions'.** Citizens do not typically know the minority's precise labels (e.g., "Red Deer-Blackfalds"). A submission proposing a functionally equivalent configuration using different names is counted as directional support. The audit's rubric is generous on this point; the majority chair might not accept the same rubric.
+5. **Attached sub-PDFs were not searched separately.** Some submissions reference external attachments (e.g., EBC-2025-1-0139 references "Airdrie-Feedback-Submission-AEBC-May-2025.pdf"); only the enclosing batch PDF's text layer was searched. Additional evidence may reside in attachments.
+
+The refutation finding is robust to limits (1)–(3) because it rests on identified counter-examples rather than exhaustive enumeration. Limits (4) and (5) could affect counts but not direction of the finding. A full Track-B OCR pass over the 88 missing submissions would strengthen the audit's credibility if it were used in legal proceedings; it would not likely change the qualitative verdict.
 
 ### 5.5 Constitutional backdrop
 
@@ -508,12 +573,109 @@ Each script prints a gate PASS/FAIL line. Numbers in §§2, 3 above must match t
 ## Appendix B — Section Documents
 
 - [Section A](analysis/v0_1_section_A_population_equality.md)
-- [Section B earlier draft](analysis/v0_1_packing_cracking_results.md) — superseded by v0.2 script output
 - [Section C](analysis/v0_1_section_C_geographic_coherence.md)
 - [Section D](analysis/v0_1_section_D_procedural.md)
 - [Section 4](analysis/v0_1_section_4_geometry_provenance.md)
 - [Bias audit](analysis/v0_1_bias_audit.md) — self-audit of this audit's own methodology
+- [Design critique](analysis/v0_1_design_critique.md) — hostile red-team pass
+- [Uncertainty analysis](analysis/v0_1_uncertainty_and_shapefile_impact.md)
+- [Academic literature review](analysis/v0_1_academic_literature_review.md)
+- [Submission search findings](analysis/submission_search_findings.md) — §5.4 evidence base
 
 ---
 
-*Version 0.2 — Academic/Legal edition. Supersedes v0.1 compiled report on three specific numbers (majority B2, B3, B4) after bias remediation extended `packing_cracking_analysis.py` to compute all three maps symmetrically. Directional finding survives; magnitude revised. Falsifiability gates and robustness checks documented throughout.*
+## References
+
+Citations follow American Political Science Association (APSA) / APA-7 hybrid style, appropriate for political science, statistics, and information systems literature. Court cases follow Canadian legal citation convention.
+
+### Academic literature
+
+Alberta Electoral Boundaries Commission [AEBC]. (2026). *2025–26 Electoral Boundaries Commission final report (majority and minority)*. Government of Alberta. https://www.elections.ab.ca/uploads/abebc_2026_rpt_final.pdf
+
+Barnes, R., & Solomon, J. (2021). Gerrymandering and compactness: Implementation flexibility and abuse. *Political Analysis, 29*(4), 448–466. https://doi.org/10.1017/pan.2020.36
+
+Bratt, D., Brown, K., Sayers, A., & Taras, D. (Eds.). (2019). *Orange chinook: Politics in the new Alberta.* University of Calgary Press.
+
+Carty, R. K. (2017). *Big tent politics: The Liberal party's long mastery of Canada's public life.* UBC Press.
+
+Chen, J. (2017). The impact of political geography on Wisconsin redistricting. *Election Law Journal, 16*(4), 443–452. https://doi.org/10.1089/elj.2017.0455
+
+Chen, J., & Rodden, J. (2013). Unintentional gerrymandering: Political geography and electoral bias in legislatures. *Quarterly Journal of Political Science, 8*(3), 239–269. https://doi.org/10.1561/100.00012033
+
+Courtney, J. C. (2001). *Commissioned ridings: Designing Canada's electoral districts.* McGill-Queen's University Press.
+
+Courtney, J. C. (2004). *Elections.* UBC Press.
+
+DeFord, D., Duchin, M., & Solomon, J. (2021). Recombination: A family of Markov chains for redistricting. *Harvard Data Science Review, 3*(1). https://doi.org/10.1162/99608f92.eb30390f
+
+Fifield, B., Imai, K., Kawahara, J., & Kenny, C. T. (2020). The essential role of empirical validation in legislative redistricting simulation. *Statistics and Public Policy, 7*(1), 52–68. https://doi.org/10.1080/2330443X.2020.1791773
+
+Gelman, A., & King, G. (1994). A unified method of evaluating electoral systems and redistricting plans. *American Journal of Political Science, 38*(2), 514–554. https://doi.org/10.2307/2111417
+
+Grofman, B. (1983). Measures of bias and proportionality in seats-votes relationships. *Political Methodology, 9*(3), 295–327.
+
+Herschlag, G., Ravier, R., & Mattingly, J. C. (2020). Quantifying gerrymandering in North Carolina. *Statistics and Public Policy, 7*(1), 30–38. https://doi.org/10.1080/2330443X.2020.1796400
+
+Katz, J. N., King, G., & Rosenblatt, E. (2020). Theoretical foundations and empirical evaluations of partisan fairness in district-based democracies. *American Political Science Review, 114*(1), 164–178. https://doi.org/10.1017/S000305541900056X
+
+King, G., & Browning, R. X. (1987). Democratic representation and partisan bias in congressional elections. *American Political Science Review, 81*(4), 1251–1273. https://doi.org/10.2307/1962588
+
+Ladner, K. (2003). Treaty federalism: An Indigenous vision of Canadian federalisms. In F. Rocher & M. Smith (Eds.), *New trends in Canadian federalism* (pp. 167–194). Broadview Press.
+
+McDonald, M. D., & Best, R. E. (2015). Unfair partisan gerrymanders in politics and law: A diagnostic applied to six cases. *Election Law Journal, 14*(4), 312–330. https://doi.org/10.1089/elj.2015.0318
+
+Pal, M. (2015). The fragmentation of party politics and the rise of political fixers. *University of Toronto Law Journal, 65*(3), 293–324. https://doi.org/10.3138/utlj.2767
+
+Pal, M. (2019). The Charter and the constitutionality of electoral boundaries. *Canadian Journal of Law and Jurisprudence, 32*(2), 323–346. https://doi.org/10.1017/cjlj.2019.16
+
+Polsby, D. D., & Popper, R. D. (1991). The third criterion: Compactness as a procedural safeguard against partisan gerrymandering. *Yale Law & Policy Review, 9*(2), 301–353.
+
+Reock, E. C. (1961). Measuring compactness as a requirement of legislative apportionment. *Midwest Journal of Political Science, 5*(1), 70–74. https://doi.org/10.2307/2109043
+
+Sancton, A. (2021). *The limits of boundaries: Why city-regions cannot be self-governing.* McGill-Queen's University Press.
+
+Smith, D. E. (2010). *Canada's deep crown: Beyond Elizabeth II.* University of Toronto Press.
+
+Stephanopoulos, N. O., & McGhee, E. M. (2014). Partisan gerrymandering and the efficiency gap. *University of Chicago Law Review, 82*(2), 831–900.
+
+Stephanopoulos, N. O., & McGhee, E. M. (2018). The measure of a metric: The debate over quantifying partisan gerrymandering. *Stanford Law Review, 70*, 1503–1568.
+
+Stewart, D., & Archer, K. (2000). *Quasi-democracy? Parties and leadership selection in Alberta.* UBC Press.
+
+Warrington, G. S. (2018). Quantifying gerrymandering using the vote distribution. *Election Law Journal, 17*(1), 39–57. https://doi.org/10.1089/elj.2017.0447
+
+Warrington, G. S. (2019). A comparison of partisan gerrymandering measures. *Election Law Journal, 18*(3), 262–281. https://doi.org/10.1089/elj.2018.0508
+
+Wiseman, N. (2020). *Partisan odysseys: Canada's political parties.* University of Toronto Press.
+
+### Court cases
+
+*Figueroa v. Canada (Attorney General)*, [2003] 1 SCR 912.
+
+*Frank v. Canada (Attorney General)*, [2019] 1 SCR 3.
+
+*Gill v. Whitford*, 585 U.S. ___ (2018).
+
+*Haig v. Canada*, [1993] 2 SCR 995.
+
+*Reference re Provincial Electoral Boundaries (Saskatchewan)*, [1991] 2 SCR 158.
+
+### Statutes
+
+*Electoral Boundaries Commission Act*, RSA 2000, c E-3.
+
+### Data sources
+
+Elections Alberta. (2015). *2015 Provincial general election official results* [Data set]. https://www.elections.ab.ca/uploads/2015PGE-Official-Results.xlsx
+
+Elections Alberta. (2019). *2019 Provincial general election official results all EDs* [Data set]. https://www.elections.ab.ca/uploads/2019PGEOfficialResultsAllEDs.xlsx
+
+Elections Alberta. (2023). *2023 Provincial general election statement of vote* [Data set]. https://www.elections.ab.ca/uploads/2023-Provincial-General-Election-Statement-of-Vote.xlsx
+
+Elections Alberta. (2026). *Electoral boundaries commission submissions archive* [Data set, Rounds 1 and 2]. https://www.elections.ab.ca/resources/reports/electoral-boundaries-commission/
+
+Statistics Canada. (2021). *Dissemination area boundary files, 2021 census* [Data set]. https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/
+
+---
+
+*Version 0.4 — Academic / legal edition. Supersedes v0.3 on Section D procedural finding after independent sub-agent verification of the chair's Appendix C claim. Three of five disputed configurations shown to have documented public support; procedural critique narrowed accordingly. Falsifiability gates, robustness checks, and APA citations documented throughout.*

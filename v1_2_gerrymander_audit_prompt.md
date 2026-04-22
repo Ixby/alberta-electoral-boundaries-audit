@@ -2,7 +2,7 @@
 
 **Opus 4.7 1M context. 450,000 token budget. 4-hour wall-clock budget.**
 
-**Changes from v1.1.** Six execution-readiness gaps closed based on the readiness assessment (`analysis/v0_1_prompt_readiness.md`). PDF recon converted a Stage 3 unknown into a known constraint. RT gates now have numeric thresholds. Publication gate adds readability and Wuff voice checks.
+**Changes from v1.1.** Six execution-readiness gaps closed based on the readiness assessment (`analysis/v0_1_prompt_readiness.md`). PDF recon converted a Stage 3 unknown into a known constraint. RT gates now have numeric thresholds. Publication gate adds readability and house voice checks.
 
 ---
 
@@ -147,7 +147,7 @@ Structural findings are reported as primary. Partisan-math findings are qualifie
 
 Additions beyond RT1-RT6:
 
-### PR1 — Wuff voice
+### PR1 — house voice
 
 **Check.** Run `python3 analysis/check_wuff_voice.py`.
 
@@ -201,7 +201,7 @@ Download commission PDF to `.temp/` (gitignored). Recon:
 
 ### Stage 6 (Final Report)
 
-Now runs PR1–PR4 as publication gates. Regeneration of both reports. Wuff voice applied. Grade 9 for public report. Reproducibility manifest. Changelog section.
+Now runs PR1–PR4 as publication gates. Regeneration of both reports. house voice applied. Grade 9 for public report. Reproducibility manifest. Changelog section.
 
 ---
 
@@ -210,7 +210,7 @@ Now runs PR1–PR4 as publication gates. Regeneration of both reports. Wuff voic
 Before triggering, verify:
 
 - [ ] Gate G0 passes: all 5 reproducibility scripts match carry-forward
-- [ ] Wuff voice checker exists and runs clean on current reports
+- [ ] house voice checker exists and runs clean on current reports
 - [ ] PDF recon pre-step runs successfully (needs internet)
 - [ ] `data/v0_1_majority_hybrid_crosswalk.csv` exists and was verified
 - [ ] `.gitignore` contains `.temp/` so PDF download doesn't get committed
@@ -245,7 +245,7 @@ At completion, report:
 
 - *Pre-Stage-3 PDF recon task now embedded; Appendix B confirmed prose-only; Appendix C crosswalk saved as data asset*
 - *RT1–RT6 numeric thresholds tightened with tie-breakers*
-- *PR1 Wuff voice check and PR2 readability check added as publication gates, with `check_wuff_voice.py` implementation*
+- *PR1 house voice check and PR2 readability check added as publication gates, with `check_wuff_voice.py` implementation*
 - *Vision budget explicit: ≤ 800 VA inspections at ~320K tokens*
 - *Total Vote Checksum now also checks joint variance*
 - *Rural baseline Uniform(0.26, 0.36) grounded in 2015/2019/2023 observed range*

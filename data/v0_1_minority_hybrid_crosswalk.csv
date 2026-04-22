@@ -1,0 +1,104 @@
+current_2019,proposed_2026,is_hybrid,minority_pop_2026,match_type
+Airdrie-East,Airdrie East,no,50797,jaccard=1.00
+Athabasca-Barrhead,Barrhead-Westlock-Athabasca,no,46892,jaccard=0.67
+Brooks-Medicine Hat,Medicine Hat-Brooks,no,54898,jaccard=1.00
+Calgary-Acadia,Calgary-Acadia,no,53346,exact
+Calgary-Beddington,Calgary-Beddington,no,61320,exact
+Calgary-Bow,Calgary-Bow-Springbank,yes,55560,jaccard=0.67
+Calgary-Buffalo,Calgary-Buffalo,no,66801,exact
+Calgary-Cross,Calgary-Cross,no,63064,exact
+Calgary-Currie,Calgary-Currie,no,60141,exact
+Calgary-East,Calgary-East,no,57107,exact
+Calgary-Edgemont,Calgary-Edgemont,no,56584,exact
+Calgary-Elbow,Calgary-Elbow,no,59034,exact
+Calgary-Falconridge,Calgary-Falconridge,no,63986,exact
+Calgary-Fish Creek,Calgary-Fish Creek,no,57894,exact
+Calgary-Foothills,Calgary-Foothills-Airdrie West,yes,58436,jaccard=0.50
+Calgary-Glenmore,Calgary-Glenmore,no,53096,exact
+Calgary-Hays,Calgary-Hays,no,52395,exact
+Calgary-Klein,Calgary-Klein,no,61817,exact
+Calgary-Lougheed,Calgary-Lougheed,no,56122,exact
+Calgary-McCall,Calgary-McCall-Bhullar,yes,66474,jaccard=0.67
+Calgary-Mountain View,Calgary-Mountain View,no,62634,exact
+Calgary-North,Calgary-North,no,56981,exact
+Calgary-North East,Calgary-North East,no,68145,exact
+Calgary-North West,Calgary-North West-Bearspaw,yes,57246,jaccard=0.75
+Calgary-Peigan,Calgary-Peigan-Chestermere,yes,52639,jaccard=0.67
+Calgary-South East,Calgary-South East,no,54045,exact
+Calgary-Varsity,Calgary-Varsity,no,64982,exact
+Calgary-West,Calgary-West-Tsuut’ina,yes,57827,jaccard=0.50
+Camrose,Camrose,no,48536,exact
+Central Peace-Notley,Central Peace-Notley,no,30446,exact
+Chestermere-Strathmore,Chestermere-Strathmore,no,52982,exact
+Cold Lake-St. Paul,Cold Lake-Bonnyville-St. Paul,no,55713,jaccard=0.80
+Cypress-Medicine Hat,Medicine Hat-Cypress,no,60690,jaccard=1.00
+Drayton Valley-Devon,Stony Plain-Drayton Valley,no,48032,jaccard=0.40
+Drumheller-Stettler,Drumheller-Stettler,no,51370,exact
+Edmonton-Beverly-Clareview,Edmonton-Beverly-Clareview,yes,57481,exact
+Edmonton-City Centre,Edmonton-City Centre,no,57312,exact
+Edmonton-Decore,Edmonton-Decore,no,57959,exact
+Edmonton-Ellerslie,Edmonton-Ellerslie,no,59760,exact
+Edmonton-Glenora,Edmonton-Glenora-Riverview,yes,59708,jaccard=0.67
+Edmonton-Gold Bar,Edmonton-Gold Bar,no,54981,exact
+Edmonton-Highlands-Norwood,Edmonton-Highlands-Norwood,yes,51806,exact
+Edmonton-Manning,Edmonton-Manning,no,56901,exact
+Edmonton-McClung,Edmonton-McClung,no,61859,exact
+Edmonton-Meadows,Edmonton-Meadows,no,56880,exact
+Edmonton-Mill Woods,Edmonton-Mill Woods,no,59673,exact
+Edmonton-North West,Edmonton-North West,no,61226,exact
+Edmonton-Rutherford,Edmonton-Rutherford,no,58082,exact
+Edmonton-South,Edmonton-South,no,60775,exact
+Edmonton-Strathcona,Edmonton-Strathcona,no,56165,exact
+Edmonton-West Henday,Edmonton-West Henday,no,62510,exact
+Edmonton-Whitemud,Edmonton-Whitemud,no,60347,exact
+Fort McMurray-Lac La Biche,Fort McMurray-Lac La Biche,no,44719,exact
+Fort McMurray-Wood Buffalo,Fort McMurray-Wood Buffalo,no,46721,exact
+Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,no,54274,exact
+Grande Prairie,Grande Prairie,no,50352,exact
+Grande Prairie-Wapiti,Grande Prairie-Wapiti,no,52041,exact
+Innisfail-Sylvan Lake,Red Deer-Sylvan Lake,no,52454,jaccard=0.40
+Lac Ste. Anne-Parkland,Lac Ste. Anne-Parkland,no,47017,exact
+Leduc-Beaumont,Leduc,no,52328,jaccard=0.50
+Lesser Slave Lake,Lesser Slave Lake,no,30011,exact
+Morinville-St. Albert,St. Albert-Sturgeon,yes,52334,jaccard=0.50
+Olds-Didsbury-Three Hills,Olds-Three Hills-Didsbury,no,49436,jaccard=1.00
+Peace River,Peace River,no,43408,exact
+Red Deer-North,Red Deer-Innisfail,no,52961,jaccard=0.50
+Red Deer-South,Red Deer-Blackfalds,no,52827,jaccard=0.50
+Rocky Mountain House-Sundre,Rocky Mountain House-Banff Park,no,38298,jaccard=0.50
+Sherwood Park,Sherwood Park,no,55311,exact
+Spruce Grove-Stony Plain,Edmonton-Spruce Grove,no,59524,jaccard=0.40
+St. Albert,St. Albert,no,54589,exact
+Strathcona-Sherwood Park,Sherwood Park-Strathcona,no,51826,jaccard=1.00
+Taber-Warner,Lethbridge-Taber-Warner,yes,60906,jaccard=0.67
+West Yellowhead,West Yellowhead,no,49766,exact
+(NEW),Calgary-Airdrie,yes,58820,new
+(NEW),Calgary-De Winton,no,47732,new
+(NEW),Calgary-Nolan Hill-Cochrane,yes,56282,new
+(NEW),Calgary-South,no,55134,new
+(NEW),Canmore-Kananaskis,no,49542,new
+(NEW),Edmonton-Beaumont,yes,55802,new
+(NEW),Edmonton-Castledowns,no,59612,new
+(NEW),Edmonton-Enoch-Devon,yes,55043,new
+(NEW),Edmonton-Windermere,no,56944,new
+(NEW),Highwood,no,54375,new
+(NEW),Lethbridge-Cardston,no,51831,new
+(NEW),Lethbridge-Fort MacLeod-Crowsnest Pass,yes,54564,new
+(NEW),Lethbridge-Little Bow,no,56212,new
+(NEW),Lloydminster-Wainwright,no,49365,new
+(NEW),Red Deer-Lacombe,no,56180,new
+(NEW),Wetaskawin-Ponoka-Maskwacis,no,48775,new
+Airdrie-Cochrane,(MERGED/ABSORBED),,,unmapped
+Banff-Kananaskis,(MERGED/ABSORBED),,,unmapped
+Calgary-Shaw,(MERGED/ABSORBED),,,unmapped
+Cardston-Siksika,(MERGED/ABSORBED),,,unmapped
+Edmonton-Castle Downs,(MERGED/ABSORBED),,,unmapped
+Edmonton-Riverview,(MERGED/ABSORBED),,,unmapped
+Edmonton-South West,(MERGED/ABSORBED),,,unmapped
+Lacombe-Ponoka,(MERGED/ABSORBED),,,unmapped
+Lethbridge-East,(MERGED/ABSORBED),,,unmapped
+Lethbridge-West,(MERGED/ABSORBED),,,unmapped
+Livingstone-Macleod,(MERGED/ABSORBED),,,unmapped
+Maskwacis-Wetaskiwin,(MERGED/ABSORBED),,,unmapped
+Okotoks-Sheep River,(MERGED/ABSORBED),,,unmapped
+Vermilion-Wainwright,(MERGED/ABSORBED),,,unmapped

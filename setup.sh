@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# setup.sh — Install Python dependencies for Phases 4–5
-# Idempotent — safe to re-run
+# setup.sh — Install Python dependencies for the Alberta Electoral
+# Boundaries Audit pipeline. Idempotent — safe to re-run.
 
 set -e
 
-echo "Alberta Boundaries Audit — dependency setup"
-echo "==========================================="
+echo "Alberta Electoral Boundaries Audit — dependency setup"
+echo "======================================================"
 
-python3 -c "import sys; assert sys.version_info >= (3, 9), 'Python 3.9+ required'" || {
-    echo "ERROR: Python 3.9 or higher required for geopandas."
+python3 -c "import sys; assert sys.version_info >= (3, 11), 'Python 3.11+ required'" || {
+    echo "ERROR: Python 3.11 or higher required."
     exit 1
 }
 
@@ -20,23 +20,26 @@ INSTALL() {
 echo "Installing core scientific stack..."
 INSTALL pandas numpy openpyxl
 
-echo "Installing GIS stack (Phase 4)..."
-INSTALL geopandas shapely fiona pyproj
+echo "Installing GIS stack (Phase 4, Stage 2/3)..."
+# Modern geopandas uses pyogrio as default backend; fiona not required.
+INSTALL geopandas pyogrio shapely pyproj
 
-echo "Installing geocoding (Phase 4C poll-location attribution)..."
+echo "Installing geocoding + fuzzy matching (Phase 4C poll attribution)..."
 INSTALL geopy rapidfuzz
 
 echo "Installing OSM network tools (Phase 4D fallback)..."
 INSTALL osmnx
 
-echo "Installing PDF extraction tools (Phase 4B PDF text parsing)..."
+echo "Installing PDF extraction tools (Appendix B/C/E parsing)..."
 INSTALL pdfplumber pypdf
 
 echo "Installing MCMC ensemble tools (Phase 5)..."
 INSTALL gerrychain || {
     echo "WARN: gerrychain install failed. Phase 5 (B5 ensemble) will be blocked."
-    echo "      You can fall back to R's redist package via MRU lab software."
 }
+
+echo "Installing publication gate tools (readability + voice checks)..."
+INSTALL textstat
 
 echo ""
 echo "Verifying critical imports..."
@@ -46,11 +49,13 @@ checks = [
     ('numpy', 'core'),
     ('openpyxl', 'Phase 4C Statement of Vote parsing'),
     ('geopandas', 'Phase 4 GIS'),
-    ('geopy', 'Phase 4C geocoding (Nominatim fallback)'),
-    ('rapidfuzz', 'Phase 4C landmark dictionary fuzzy matching'),
-    ('osmnx', 'Phase 4D street network'),
-    ('pdfplumber', 'Phase 4B PDF parsing'),
+    ('pyogrio', 'Phase 4 GIS IO backend'),
+    ('geopy', 'Phase 4C geocoding'),
+    ('rapidfuzz', 'Phase 4C landmark matching'),
+    ('osmnx', 'Phase 4D OSM reconstruction'),
+    ('pdfplumber', 'Appendix B/C/E parsing'),
     ('gerrychain', 'Phase 5 MCMC ensemble'),
+    ('textstat', 'Publication gate PR2 readability'),
 ]
 for mod, purpose in checks:
     try:
@@ -61,5 +66,22 @@ for mod, purpose in checks:
 PYEOF
 
 echo ""
-echo "Setup complete. Next: launch Claude Code with 'claude --effort xhigh'"
-echo "Claude Code will read CLAUDE.md and follow v0_8_gerrymander_audit_prompt.md"
+echo "Reproducibility check — running five baseline scripts:"
+echo ""
+
+for script in \
+    analysis/v0_2_packing_cracking_analysis.py \
+    analysis/electoral_forensics_population.py \
+    analysis/v0_3_monte_carlo_ci.py \
+    analysis/v0_1_cross_election_rural_baseline.py \
+    analysis/check_voice_and_readability.py
+do
+    echo "  $script"
+done
+
+echo ""
+echo "Setup complete. Next steps:"
+echo "  1. PYTHONIOENCODING=utf-8 python3 analysis/v0_2_packing_cracking_analysis.py"
+echo "  2. Verify output matches v1_2_gerrymander_audit_prompt.md carry-forward table."
+echo "  3. If matched, proceed with the stage pipeline in v1_2."
+echo "  4. If not matched, investigate drift before running downstream stages."
