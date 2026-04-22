@@ -1,6 +1,6 @@
 # Alberta Electoral Boundaries Audit — Claude Code Continuation Prompt v1.1
 
-**Opus 4.7 1M context. 500,000 token budget. 4-hour wall-clock budget.**
+**Opus 4.7 1M context. 450,000 token budget. 4-hour wall-clock budget.**
 
 **Changes from v1.0.** Red-team fortifications are now required, not optional. The v0.3 pass found three material weaknesses the original pipeline missed: Monte Carlo CI crosses zero, declination metric disagrees with EG, and 2019 cross-election check reverses the direction. v1.1 makes the tests that caught these mandatory and gates publication readiness on them.
 
@@ -188,7 +188,7 @@ Unchanged from v1.0. Every test applied identically to both 2026 proposals. Data
 
 ## Token and Wall-Clock Budget
 
-Unchanged from v1.0. 500K tokens, 4 hours. Per-phase sub-caps (Stage 5 ensemble ≤ 100K).
+Unchanged from v1.0. 450K tokens, 4 hours. Per-phase sub-caps (Stage 5 ensemble ≤ 100K).
 
 ---
 

@@ -6,7 +6,7 @@
 
 **Author and audit design:** Will Conner, Mount Royal University, BCIS
 
-**How this was made.** The analysis ran through an AI-assisted pipeline (Claude Sonnet 4.6 through Claude Code, plus Python open-source tools). The full tool list is in the [academic report](report_academic.md). This document is what the pipeline wrote. Nothing was rewritten afterward to sound better. If you run the scripts on the same public data, you should get the same numbers and the same words. That lets you check the work.
+**How this was made.** The analysis ran through an AI-assisted pipeline (Claude Opus 4.7 1M (Max subscription) through Claude Code, plus Python open-source tools). The full tool list is in the [academic report](report_academic.md). This document is what the pipeline wrote. Nothing was rewritten afterward to sound better. If you run the scripts on the same public data, you should get the same numbers and the same words. That lets you check the work.
 
 [Full technical report](report_academic.md) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 

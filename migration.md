@@ -4,7 +4,7 @@
 
 ## What this session did
 
-Executed v0.8 agentic prompt in a shared Claude Code (Sonnet 4.6) session. Ran carry-forward baseline verification, then Phases 1–6 sequentially. Output compiled to `alberta_redistricting_audit_final.md` at project root.
+Executed v0.8 agentic prompt in a shared Claude Code (Opus 4.7 1M) session. Ran carry-forward baseline verification, then Phases 1–6 sequentially. Output compiled to `alberta_redistricting_audit_final.md` at project root.
 
 ## Phase status
 

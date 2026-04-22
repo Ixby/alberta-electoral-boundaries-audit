@@ -1,6 +1,6 @@
 # Alberta Electoral Boundaries Audit — Claude Code Continuation Prompt v1.2
 
-**Opus 4.7 1M context. 500,000 token budget. 4-hour wall-clock budget.**
+**Opus 4.7 1M context. 450,000 token budget. 4-hour wall-clock budget.**
 
 **Changes from v1.1.** Six execution-readiness gaps closed based on the readiness assessment (`analysis/v0_1_prompt_readiness.md`). PDF recon converted a Stage 3 unknown into a known constraint. RT gates now have numeric thresholds. Publication gate adds readability and Wuff voice checks.
 
@@ -251,4 +251,4 @@ At completion, report:
 - *Rural baseline Uniform(0.26, 0.36) grounded in 2015/2019/2023 observed range*
 - *Execution-Ready Validation Matrix at the bottom confirms readiness before triggering*
 
-*Optimized for Opus 4.7 1M context with a 500K token budget and 4-hour wall-clock budget. Prior session executed v1.1 readiness assessment and closed four of six execution gaps; two remain (shapefiles release, submission-archive search), both external.*
+*Optimized for Opus 4.7 1M context with a 450K token budget and 4-hour wall-clock budget. Prior session executed v1.1 readiness assessment and closed four of six execution gaps; two remain (shapefiles release, submission-archive search), both external.*
