@@ -6,7 +6,7 @@ You are a fresh Claude Code instance arriving at a partially-completed multi-ses
 
 **What this project is.** A non-partisan, evidence-based forensic audit of Alberta's 2025–26 Electoral Boundaries Commission proposals. Three maps under evaluation: the 2019 boundaries currently in force, the independent commission's majority recommendation, and the government-appointed commissioners' minority recommendation.
 
-**Project owner.** Will Conner, Mount Royal University, BCIS. All published outputs credit Will Conner as author and audit designer.
+**Project owner.** Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student). All published outputs credit Will Conner as author and audit designer.
 
 **What's done.** Sessions 1–4 produced: symmetric B1–B6 partisan-bias analysis across all three maps with Monte Carlo CI and cross-election robustness; Section A population equality with Calgary zone-gap analysis under two classification rules; Section C visual spatial audit of chair-flagged and independently-scanned configurations; Section D procedural audit with sub-agent-verified submission archive search (1,252 of ~1,340 submissions) that partially refuted the chair's "no public support" claim; bias audit; design critique; uncertainty and shapefile-impact analysis; academic literature review; dual-audience reports (public + academic); v1.2 pipeline prompt with integrity and red-team gates.
 

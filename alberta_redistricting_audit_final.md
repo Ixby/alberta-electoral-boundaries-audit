@@ -13,6 +13,6 @@ See also:
 - [Uncertainty analysis](analysis/v0_1_uncertainty_and_shapefile_impact.md) — confidence-interval and shapefile-impact assessment
 - [Bias audit](analysis/v0_1_bias_audit.md) — self-audit that identified the class-A bias issues fixed in v0.2
 
-**Author and audit design:** Will Conner, Mount Royal University, BCIS
+**Author and audit design:** Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student)
 
 Repository: [Ixby/alberta-electoral-boundaries-audit](https://github.com/Ixby/alberta-electoral-boundaries-audit)
