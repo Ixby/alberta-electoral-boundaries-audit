@@ -1,0 +1,11 @@
+ed_name,population,deviation_pct,region_type,predecessors_2019,ucp_share_2019,ndp_share_2019,ucp_share_2023,ndp_share_2023,preds_matched_2019,preds_matched_2023
+Lesser Slave Lake,30011,-45.36,Rest-s15(2),Lesser Slave Lake,57.69,36.11,65.04,33.15,Lesser Slave Lake,Lesser Slave Lake
+Central Peace-Notley,30446,-44.57,Rest-s15(2),Central Peace-Notley,75.17,19.5,77.68,18.55,Central Peace-Notley,Central Peace-Notley
+Rocky Mountain House-Banff Park,38298,-30.28,Rest-s15(2),Rocky Mountain House-Sundre,81.64,9.1,69.46,13.91,Rocky Mountain House-Sundre,Rocky Mountain House-Sundre
+Peace River,43408,-20.97,Rest,Peace River,69.4,22.3,72.84,22.88,Peace River,Peace River
+Fort McMurray-Lac La Biche,44719,-18.59,Rest,Fort McMurray-Lac La Biche,66.33,24.51,73.57,24.5,Fort McMurray-Lac La Biche,Fort McMurray-Lac La Biche
+Fort McMurray-Wood Buffalo,46721,-14.94,Rest,Fort McMurray-Wood Buffalo,71.06,21.65,67.69,19.67,Fort McMurray-Wood Buffalo,Fort McMurray-Wood Buffalo
+Barrhead-Westlock-Athabasca,46892,-14.63,Rest,Athabasca-Barrhead,68.51,19.49,74.32,25.68,Athabasca-Barrhead,Athabasca-Barrhead
+Lac Ste. Anne-Parkland,47017,-14.40,Rest,Lac Ste. Anne-Parkland,65.74,23.4,68.96,27.12,Lac Ste. Anne-Parkland,Lac Ste. Anne-Parkland
+Stony Plain-Drayton Valley,48032,-12.56,Rest,Drayton Valley-Devon,71.12,16.64,73.7,22.33,Drayton Valley-Devon,Drayton Valley-Devon
+Camrose,48536,-11.64,Rest,Camrose,65.28,18.37,63.4,27.14,Camrose,Camrose
