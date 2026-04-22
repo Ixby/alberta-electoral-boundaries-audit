@@ -195,6 +195,24 @@ That one doesn't wait. Replacing an independent boundary commission with a gover
 
 ---
 
+## Signatures detected
+
+**Three gerrymander signatures appear under the minority map. None appear under the majority map.**
+
+Packing means a party's voters are crammed into fewer, larger districts so their extra votes are wasted. Cracking means a group's voters are split across so many districts that they are outnumbered in each. An engineered boundary is a line drawn to qualify for a rule rather than to represent a place.
+
+| Signature | Minority 2026 | Majority 2026 | Detail |
+|---|---|---|---|
+| Packing | Detected in Calgary Zone A | Not detected | NDP-leaning Calgary districts carry 6,656 more people each on average. About 113,000 extra NDP-leaning voters packed into existing districts. |
+| Cracking | Detected for Airdrie | Not detected | Airdrie (84,000 people) split across 4 districts. None are named Airdrie. Airdrie voters are outnumbered in each. |
+| Engineered boundary | Detected at Rocky Mountain House-Banff Park | Not detected | Boundary runs through empty Banff National Park land to qualify for a low-population rule. |
+
+These are not aesthetic calls. Each signature follows a short checklist laid out in the academic report. The minority map meets the checklist in three places. The majority map does not meet it anywhere this audit could verify.
+
+Cochrane's merger into a Calgary district looks like cracking but fails one test: Cochrane is too small (34,000 people) for its own district. The community concern is real; the formal signature is not.
+
+---
+
 ## Stacking the deck, or looking like it? A suspicion sort
 
 **Not every asymmetry in this audit is equally suspicious.** Some findings read as engineered on sight. Others look suspicious but have innocent explanations. The tabbed-list below sorts the audit's main findings by how much benefit of the doubt the data supports.
