@@ -274,6 +274,50 @@ Six of seven contested redraws had cleaner options. The minority did not take th
 
 ---
 
+## The hybrid count — and what the government says about it
+
+**Total hybrid counts are almost identical across the three maps. What changed is where the hybrids are. The minority concentrates them in Calgary.**
+
+A hybrid district is one that pairs part of a city with part of a surrounding rural area or another municipality. The commission's own Appendix C defines it.
+
+| Map | Total hybrid districts | Calgary hybrids | Edmonton hybrids | Rest-of-province hybrids |
+|---|---|---|---|---|
+| 2019 (current) | 19 | 0 | 0 | 19 (including Airdrie-Cochrane, Chestermere-Strathmore, several rural-town pairings) |
+| Majority 2026 | 19 | 4 | 2 | 13 |
+| Minority 2026 | 20 | **7** | 4 (one a merger) | 9 |
+
+The total count is roughly constant. The distribution is not.
+
+**The minority's seven Calgary hybrids** are the key shift:
+
+- Calgary-Bow-Springbank
+- Calgary-De Winton
+- Calgary-Foothills-Airdrie West
+- Calgary-Nolan Hill-Cochrane
+- Calgary-North West-Bearspaw
+- Calgary-Peigan-Chestermere
+- Calgary-West-Tsuut'ina
+
+Each one takes a rural community or small town — Bearspaw, Springbank, Cochrane, Chestermere, Airdrie-West, Tsuut'ina Nation — and pairs it with a Calgary neighbourhood. The Calgary side has more people. The rural side becomes a minority inside a Calgary-dominated district.
+
+The majority has only four Calgary hybrids. Three are narrow. Calgary-East extends just past city limits. Falconridge-Conrich adds a small adjacent community. West-Elbow Valley picks up a contiguous suburb. Glenmore-Tsuut'ina includes the Tsuut'ina Nation (both maps do this). The majority keeps Cochrane as its own district. It keeps Chestermere with Strathmore. It keeps Airdrie inside Airdrie-named districts.
+
+### The Red Deer contrast
+
+The same shift shows around Red Deer. The majority has **zero** Red Deer hybrids. It uses two Red Deer-only districts (Red Deer-North, Red Deer-South) and keeps rural districts separate. The minority has **four** Red Deer hybrids. Each takes part of Red Deer and pairs it with a nearby town or rural area. A city of 106,000 gets split four ways with no district of its own.
+
+### The government's stated reason
+
+Premier Smith's justification for rejecting the commission's work and pursuing a 91-seat alternative was that the commission "did not want to lose two rural ridings." The stated policy goal is preserving rural representation.
+
+That rationale aligns with the majority map. The majority keeps Cochrane standalone. It keeps Chestermere with Strathmore. It gives High River its own rural district. Rural communities sit in rural-named districts where rural voters are the majority.
+
+The minority map does the opposite. The seven Calgary hybrids pull rural and small-town communities into Calgary-dominated districts. Rural voters become a minority in those seats. The Calgary side sets the political character. That is the reverse of rural preservation. It dilutes rural voice into urban majorities.
+
+On the evidence, a government whose stated reason is rural preservation would support the majority's approach. The November committee's 91-seat map will tell us whether the stated reason matches the policy.
+
+---
+
 ## Stacking the deck, or looking like it? A suspicion sort
 
 **Not every asymmetry in this audit is equally suspicious.** Some findings read as engineered on sight. Others look suspicious but have innocent explanations. The tabbed-list below sorts the audit's main findings by how much benefit of the doubt the data supports.
