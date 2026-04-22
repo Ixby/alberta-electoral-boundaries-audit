@@ -1,0 +1,99 @@
+test,key,value
+T1_olds_three_hills_didsbury,included[0].GEO_NAME,"Kneehill County, Municipal district (MD)"
+T1_olds_three_hills_didsbury,included[0].population_2021,4992.0
+T1_olds_three_hills_didsbury,included[1].GEO_NAME,"Acme, Village (VL)"
+T1_olds_three_hills_didsbury,included[1].population_2021,606.0
+T1_olds_three_hills_didsbury,included[2].GEO_NAME,"Linden, Village (VL)"
+T1_olds_three_hills_didsbury,included[2].population_2021,704.0
+T1_olds_three_hills_didsbury,included[3].GEO_NAME,"Three Hills, Town (T)"
+T1_olds_three_hills_didsbury,included[3].population_2021,3042.0
+T1_olds_three_hills_didsbury,included[4].GEO_NAME,"Trochu, Town (T)"
+T1_olds_three_hills_didsbury,included[4].population_2021,998.0
+T1_olds_three_hills_didsbury,included[5].GEO_NAME,"Beiseker, Village (VL)"
+T1_olds_three_hills_didsbury,included[5].population_2021,754.0
+T1_olds_three_hills_didsbury,included[6].GEO_NAME,"Mountain View County, Municipal district (MD)"
+T1_olds_three_hills_didsbury,included[6].population_2021,12981.0
+T1_olds_three_hills_didsbury,included[7].GEO_NAME,"Carstairs, Town (T)"
+T1_olds_three_hills_didsbury,included[7].population_2021,4898.0
+T1_olds_three_hills_didsbury,included[8].GEO_NAME,"Cremona, Village (VL)"
+T1_olds_three_hills_didsbury,included[8].population_2021,437.0
+T1_olds_three_hills_didsbury,included[9].GEO_NAME,"Didsbury, Town (T)"
+T1_olds_three_hills_didsbury,included[9].population_2021,5070.0
+T1_olds_three_hills_didsbury,included[10].GEO_NAME,"Olds, Town (T)"
+T1_olds_three_hills_didsbury,included[10].population_2021,9209.0
+T1_olds_three_hills_didsbury,total_pop,43691
+T1_olds_three_hills_didsbury,quota_min,41197
+T1_olds_three_hills_didsbury,quota_max,68661
+T1_olds_three_hills_didsbury,verdict,FAIL (minority justification unsupported)
+T2_rmh_np_extension,km2_2019_predecessor,24468.4980469
+T2_rmh_np_extension,area_threshold,20000
+T2_rmh_np_extension,included_pop_rows[0].GEO_NAME,"Sundre, Town (T)"
+T2_rmh_np_extension,included_pop_rows[0].population_2021,2672.0
+T2_rmh_np_extension,included_pop_rows[1].GEO_NAME,"Ponoka County, Municipal district (MD)"
+T2_rmh_np_extension,included_pop_rows[1].population_2021,9998.0
+T2_rmh_np_extension,included_pop_rows[2].GEO_NAME,"Rimbey, Town (T)"
+T2_rmh_np_extension,included_pop_rows[2].population_2021,2470.0
+T2_rmh_np_extension,included_pop_rows[3].GEO_NAME,"Clearwater County, Municipal district (MD)"
+T2_rmh_np_extension,included_pop_rows[3].population_2021,11865.0
+T2_rmh_np_extension,included_pop_rows[4].GEO_NAME,"Caroline, Village (VL)"
+T2_rmh_np_extension,included_pop_rows[4].population_2021,470.0
+T2_rmh_np_extension,included_pop_rows[5].GEO_NAME,"Rocky Mountain House, Town (T)"
+T2_rmh_np_extension,included_pop_rows[5].population_2021,6765.0
+T2_rmh_np_extension,total_pop_no_np,34240
+T2_rmh_np_extension,verdict_area,FAIL (NP extension not needed for area criterion)
+T2_rmh_np_extension,verdict_pop,PASS (NP extension required for population)
+T3_airdrie_split,airdrie_pop,74100
+T3_airdrie_split,quota_min,41197
+T3_airdrie_split,quota_max,68661
+T3_airdrie_split,fits_single_district,False
+T3_airdrie_split,half_if_2way_split,37050.0
+T3_airdrie_split,non_airdrie_needed_per_half,4147.0
+T3_airdrie_split,quarter_if_4way_split,18525.0
+T3_airdrie_split,non_airdrie_needed_per_quarter,22672.0
+T3_airdrie_split,verdict,FAIL (4-way split is unforced by population)
+T4_red_deer,red_deer_pop,100844
+T4_red_deer,quota_max,68661
+T4_red_deer,min_districts_required,2
+T4_red_deer,majority_districts[0].ed_num,78
+T4_red_deer,majority_districts[0].ed_name,Red Deer-North
+T4_red_deer,majority_districts[0].population,53798
+T4_red_deer,majority_districts[0].deviation_pct,-2.06
+T4_red_deer,majority_districts[0].is_hybrid,False
+T4_red_deer,majority_districts[0].is_s15_2,False
+T4_red_deer,majority_districts[1].ed_num,79
+T4_red_deer,majority_districts[1].ed_name,Red Deer-South
+T4_red_deer,majority_districts[1].population,59123
+T4_red_deer,majority_districts[1].deviation_pct,7.64
+T4_red_deer,majority_districts[1].is_hybrid,False
+T4_red_deer,majority_districts[1].is_s15_2,False
+T4_red_deer,minority_districts[0].ed_name,Red Deer-Blackfalds
+T4_red_deer,minority_districts[0].population,52827
+T4_red_deer,minority_districts[0].region_type,Rest-hybrid
+T4_red_deer,minority_districts[0].deviation_pct,-3.83
+T4_red_deer,minority_districts[0].within_25pct,True
+T4_red_deer,minority_districts[1].ed_name,Red Deer-Innisfail
+T4_red_deer,minority_districts[1].population,52961
+T4_red_deer,minority_districts[1].region_type,Rest-hybrid
+T4_red_deer,minority_districts[1].deviation_pct,-3.58
+T4_red_deer,minority_districts[1].within_25pct,True
+T4_red_deer,minority_districts[2].ed_name,Red Deer-Lacombe
+T4_red_deer,minority_districts[2].population,56180
+T4_red_deer,minority_districts[2].region_type,Rest-hybrid
+T4_red_deer,minority_districts[2].deviation_pct,2.28
+T4_red_deer,minority_districts[2].within_25pct,True
+T4_red_deer,minority_districts[3].ed_name,Red Deer-Sylvan Lake
+T4_red_deer,minority_districts[3].population,52454
+T4_red_deer,minority_districts[3].region_type,Rest-hybrid
+T4_red_deer,minority_districts[3].deviation_pct,-4.51
+T4_red_deer,minority_districts[3].within_25pct,True
+T4_red_deer,quarter_of_red_deer,25211.0
+T4_red_deer,non_rd_needed_per_quarter,15986.0
+T4_red_deer,verdict,FAIL (4 Red Deer districts are unforced by population)
+T5_chestermere_split,chestermere_pop,22163
+T5_chestermere_split,strathmore_pop,14339
+T5_chestermere_split,wheatland_pop,8738
+T5_chestermere_split,natural_pair_total,45240
+T5_chestermere_split,calgary_peigan_chestermere_minority_pop,52639
+T5_chestermere_split,chestermere_strathmore_minority_pop,52982
+T5_chestermere_split,natural_pair_within_25pct,True
+T5_chestermere_split,verdict,FAIL (Chestermere split into Calgary is unforced; natural pair with Strathmore + Wheatland is population-viable)
