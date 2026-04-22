@@ -31,7 +31,9 @@
   }
 }
 * { box-sizing: border-box; }
-html { font-size: 18px; }
+html { font-size: 18px; scroll-behavior: smooth; scroll-padding-top: 4rem; }
+/* scroll-padding-top keeps the sticky nav from hiding anchor targets */
+:target { scroll-margin-top: 4rem; }
 body {
   font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
   color: var(--fg);

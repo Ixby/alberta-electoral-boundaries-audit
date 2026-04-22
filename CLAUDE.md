@@ -109,6 +109,38 @@ If any output differs by more than 0.05 pp or one seat from the expected values,
 
 See `setup.sh`. Python 3.11+ required. Installs pandas, numpy, openpyxl, geopandas+pyogrio, shapely, pyproj, osmnx, gerrychain, pdfplumber, geopy, rapidfuzz, textstat.
 
+## Use Sub-Agents Whenever Possible
+
+Prefer spawning sub-agents (via the `Agent` tool) over direct work for anything that fits one of these patterns:
+
+- **Multi-file research or scans.** Reading through many files to find a pattern, survey the codebase, or verify consistency — a sub-agent absorbs the file-read context cost while the parent session retains its room to plan.
+- **Web fetches that take unknown time.** Downloading PDFs, shapefiles, scraping archives. Sub-agents run in the background; the parent keeps working.
+- **Parallel independent tasks.** Two or more tasks that don't depend on each other — spawn them in the same message so they run concurrently.
+- **Fresh-eyes red-team passes.** A sub-agent hasn't seen the authoring reasoning and will catch framing bias the author misses.
+- **Validation passes on existing code or reports.** Clean-room reproducibility, citation spot-checks, cross-document consistency checks.
+- **Data-acquisition tasks.** Downloading, parsing, and filtering multi-source data into `data/`.
+- **OCR or text-extraction at scale.** Long PDFs, image-layer scans, submission archives.
+- **Any task likely to exceed 15K tokens.** Better to isolate in a sub-agent transcript than to consume the parent's main context window.
+
+When spawning sub-agents:
+
+- Write prompts that stand alone. The sub-agent has no memory of this conversation.
+- Include the working directory path explicitly.
+- Give a clear output contract (named files, specific formats).
+- Set a token budget and wall-clock budget inside the prompt.
+- Tell the sub-agent not to make git commits — the parent session commits.
+- For background agents, send them off and continue other work; don't poll.
+- Multiple independent sub-agents should be spawned in a single message for concurrency.
+
+Precedent sub-agents used in this audit chain:
+- Submission-archive keyword search (1,252 submissions searched)
+- Shapefile and census data acquisition
+- Clean-room reproducibility verification
+- Final red-team pass on design and prompt
+- Historical marginal-seat analysis
+- Phase 4C preparation (VA-polygon validation, hybrid-adjacent VA identification)
+- Data-closeout web fetches
+
 ## Critical Discipline Reminders
 
 - **Symmetry.** Every test, every map. If a pattern is flagged in one proposal, check the equivalent in others.
