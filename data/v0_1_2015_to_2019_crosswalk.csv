@@ -1,0 +1,128 @@
+ed_2015_2010boundaries,ed_2019_2017boundaries,change_type,population_weight,confidence,note
+Airdrie,Airdrie-East,split,0.5,high,Old Airdrie split into Airdrie-East + Airdrie-Cochrane (2017 EBC p37)
+Airdrie,Airdrie-Cochrane,split,0.5,high,Old Airdrie split into Airdrie-East + Airdrie-Cochrane (2017 EBC p37). Equal-weighted absent precise census split.
+Athabasca-Sturgeon-Redwater,Athabasca-Barrhead-Westlock,consolidation,0.4,medium,Central northeast 4->3 consolidation. Athabasca County + Town of Athabasca absorbed into Athabasca-Barrhead (EBC p50).
+Athabasca-Sturgeon-Redwater,Fort Saskatchewan-Vegreville,consolidation,0.3,medium,Central northeast 4->3 consolidation. Sturgeon/Redwater area folded into Fort Saskatchewan-Vegreville (EBC p52).
+Athabasca-Sturgeon-Redwater,Lesser Slave Lake,consolidation,0.1,medium,Calling Lake reserve moved from Athabasca-Sturgeon-Redwater into Lesser Slave Lake (EBC p53).
+Athabasca-Sturgeon-Redwater,Morinville-St. Albert,consolidation,0.2,medium,Central northeast 4->3; Morinville-St. Albert is new blended constituency pulling from Athabasca-Sturgeon-Redwater and Barrhead-Morinville-Westlock.
+Banff-Cochrane,Banff-Kananaskis,rename+boundary,1.0,high,Cochrane moved to new Airdrie-Cochrane; remainder renamed Banff-Kananaskis. Livingstone-Macleod section from Chestermere-Rocky View also added (EBC p34-35).
+Barrhead-Morinville-Westlock,Athabasca-Barrhead-Westlock,consolidation,0.7,medium,Morinville and adjacent area moved to new Morinville-St. Albert; remainder merged with Athabasca portion. Named Athabasca-Barrhead in 2017 final; de facto Athabasca-Barrhead-Westlock (EBC p49).
+Barrhead-Morinville-Westlock,Morinville-St. Albert,consolidation,0.3,medium,Morinville and adjacent area to new Morinville-St. Albert (EBC p49).
+Battle River-Wainwright,Vermilion-Lloydminster-Wainwright,consolidation,0.55,medium,Southeast 7->6 consolidation. Wainwright area + eastern Battle River merged with Vermilion-Lloydminster territory (EBC p58).
+Battle River-Wainwright,Camrose,consolidation,0.45,medium,Southeast 7->6 consolidation. Western Battle River-Wainwright area merged into new Camrose constituency (EBC p58).
+Bonnyville-Cold Lake,Bonnyville-Cold Lake-St. Paul,rename+boundary,0.7,medium,Renamed Cold Lake-St. Paul with added St. Paul area; western section moved to Athabasca-Barrhead (EBC p45-46).
+Bonnyville-Cold Lake,Athabasca-Barrhead-Westlock,consolidation,0.2,medium,Western Bonnyville-Cold Lake absorbed into proposed Athabasca-Barrhead (EBC p46).
+Bonnyville-Cold Lake,Fort McMurray-Lac La Biche,consolidation,0.1,medium,Some northeast area folded with Lac La Biche into Fort McMurray-Lac La Biche as part of 4->3 consolidation (EBC p50).
+Calgary-Acadia,Calgary-Acadia,boundary,1.0,high,Minor boundary adjustment: Chinook Park moved out to Calgary-Glenmore; Bow River now forms eastern boundary (EBC p36).
+Calgary-Bow,Calgary-Bow,boundary,1.0,high,Montgomery and Spruce Cliff communities added; Wildwood from Calgary-Currie absorbed (EBC p37).
+Calgary-Buffalo,Calgary-Buffalo,boundary,1.0,high,Added northeast downtown plus Ramsay/Inglewood from Calgary-Fort (EBC p37).
+Calgary-Cross,Calgary-Cross,boundary,1.0,high,Marlborough/Abbeydale swap with Calgary-East (EBC p38).
+Calgary-Currie,Calgary-Currie,boundary,1.0,high,Rutland Park moved in from Calgary-Elbow; Wildwood moved out to Calgary-Bow (EBC p38).
+Calgary-East,Calgary-East,boundary,1.0,high,Marlborough/Abbeydale swap; Dover split along 36 St SE (EBC p38). Interim name Calgary-Forest reverted to Calgary-East.
+Calgary-Elbow,Calgary-Elbow,boundary,1.0,high,North Glenmore Park / Kelvin Grove swaps with Calgary-Glenmore (EBC p38).
+Calgary-Fish Creek,Calgary-Fish Creek,boundary,1.0,high,Shared communities regrouped (EBC p39).
+Calgary-Foothills,Calgary-Foothills,boundary,1.0,high,Minor adjustments (EBC p39).
+Calgary-Fort,Calgary-Buffalo,boundary,0.6,medium,"Calgary-Fort discontinued. Ramsay/Inglewood/NE downtown to Calgary-Buffalo (EBC p37, 41)."
+Calgary-Fort,Calgary-Peigan,rename,0.4,medium,Balance of Calgary-Fort continues as Calgary-Peigan after removal of Fort Calgary area (EBC p41).
+Calgary-Glenmore,Calgary-Glenmore,boundary,1.0,high,Minor Kelvin Grove / Chinook Park regroupings (EBC p39).
+Calgary-Greenway,Calgary-Bhullar-McCall,boundary,0.4,medium,"Calgary-Greenway discontinued. Most of area went to new Calgary-Bhullar proposal, subsequently merged with Calgary-McCall (2017 EBC final name: Calgary-McCall; 2019 ballot listed Calgary-Bhullar-McCall) (EBC p40, 50)."
+Calgary-Greenway,Calgary-Falconridge,consolidation,0.35,medium,NE-Calgary portion of Calgary-Greenway contributed to new Calgary-Falconridge (EBC p39).
+Calgary-Greenway,Calgary-North East,consolidation,0.25,medium,Some northern area of Calgary-Greenway became part of new Calgary-North East (EBC p40).
+Calgary-Hawkwood,Calgary-Edgemont,rename+boundary,0.7,high,Much of Calgary-Hawkwood became Calgary-Edgemont (EBC p21). Dalhousie reunited here.
+Calgary-Hawkwood,Calgary-North,consolidation,0.3,medium,Remaining north-Calgary area contributed to new Calgary-North with Calgary-Northern Hills and Calgary-Mackay-Nose Hill (EBC p40).
+Calgary-Hays,Calgary-Hays,boundary,1.0,high,McKenzie Towne re-united with Calgary-Hays from Calgary-Peigan (EBC p39).
+Calgary-Klein,Calgary-Klein,boundary,1.0,high,Minor adjustments (EBC p39).
+Calgary-Lougheed,Calgary-Lougheed,boundary,1.0,high,Minor adjustments (EBC p39).
+Calgary-Mackay-Nose Hill,Calgary-North,consolidation,0.5,medium,Nose Hill name discontinued (EBC p39). Areas contributed to new Calgary-North and Calgary-Beddington.
+Calgary-Mackay-Nose Hill,Calgary-Beddington,consolidation,0.5,medium,Parts of Calgary-Mackay-Nose Hill and Calgary-Northern Hills used to form Calgary-Beddington (EBC p36).
+Calgary-McCall,Calgary-Bhullar-McCall,boundary,0.7,medium,2017 EBC final report keeps Calgary-McCall name (EBC p40). 2019 ballot listed Calgary-Bhullar-McCall after further naming in 2018; shapefile uses Calgary-McCall.
+Calgary-McCall,Calgary-Falconridge,consolidation,0.3,medium,NE portion of Calgary-McCall contributed to new Calgary-Falconridge (EBC p39).
+Calgary-Mountain View,Calgary-Mountain View,boundary,1.0,high,Dalhousie/West Hillhurst/Banff Trail swaps with Calgary-Varsity and Calgary-Edgemont (EBC p40).
+Calgary-North West,Calgary-North West,direct,1.0,high,Unchanged boundaries (EBC p41).
+Calgary-Northern Hills,Calgary-Beddington,consolidation,0.3,medium,Parts contributed to new Calgary-Beddington (EBC p36).
+Calgary-Northern Hills,Calgary-North,consolidation,0.3,medium,Northernmost areas formed new Calgary-North (EBC p40). Name Calgary-Northern Hills retired.
+Calgary-Northern Hills,Calgary-North East,consolidation,0.4,medium,Community of Livingstone + NE area moved to new Calgary-North East (EBC p40-41).
+Calgary-Shaw,Calgary-Shaw,boundary,1.0,high,Minor adjustments; contains high-growth area (EBC p41).
+Calgary-South East,Calgary-South East,boundary,1.0,high,Shrunk; contributed new territory to other constituencies (EBC p41). Was largest in province; now at/below average.
+Calgary-Varsity,Calgary-Varsity,boundary,1.0,high,Dalhousie/Banff Trail swaps with Calgary-Edgemont and Calgary-Mountain View (EBC p41).
+Calgary-West,Calgary-West,direct,1.0,high,Unchanged boundaries (EBC p42).
+Cardston-Taber-Warner,Cardston-Siksika,split+rename,0.5,medium,Southeast 7->6 consolidation. Renamed to reflect Siksika First Nation inclusion; Taber/Warner towns move out (EBC p42).
+Cardston-Taber-Warner,Taber-Warner,split+rename,0.5,medium,Southeast 7->6. Taber-Warner constituency carved from parts of Cardston-Taber-Warner + Taber-Vulcan proposals (EBC p58).
+Chestermere-Rocky View,Chestermere-Strathmore,rename+boundary,0.7,medium,Rocky View removed; Town of Strathmore added from Strathmore-Brooks. Formed from portions of former Chestermere-Rocky View and Strathmore-Brooks (EBC p42).
+Chestermere-Rocky View,Banff-Kananaskis,consolidation,0.2,medium,Livingstone-Macleod and Springbank areas moved from Chestermere-Rocky View into Banff-Kananaskis (EBC p34).
+Chestermere-Rocky View,Airdrie-Cochrane,consolidation,0.1,medium,Partial area contribution from Chestermere-Rocky View reconfiguration to accommodate Airdrie-Cochrane creation.
+Cypress-Medicine Hat,Cypress-Medicine Hat,boundary,1.0,medium,Reconfigured as blended constituency containing portion of City of Medicine Hat + rural Cypress (EBC p43-44).
+Drayton Valley-Devon,Drayton Valley-Devon,boundary,0.8,medium,Central-west 5->4 consolidation. Drayton Valley returned to this ED from interim Drayton Valley-Rocky Mountain House; northern Devon-Parkland area moved to Lac Ste. Anne-Parkland (EBC p44).
+Drayton Valley-Devon,Lac Ste. Anne-Parkland,consolidation,0.1,medium,"Northern portion of interim Devon-Parkland area moved to Lac Ste. Anne-Parkland (EBC p44, 53)."
+Drayton Valley-Devon,Maskwacis-Wetaskiwin,consolidation,0.1,medium,Portion of Drayton Valley-Devon moved into Maskwacis-Wetaskiwin (EBC p53).
+Drumheller-Stettler,Drumheller-Stettler,boundary,1.0,medium,Southeast 7->6. Stettler returned from interim Stettler-Wainwright; Strathmore moved out to Chestermere-Strathmore (EBC p44-45).
+Dunvegan-Central Peace-Notley,Central Peace-Notley,rename+boundary,1.0,high,Renamed and expanded. s.15(2) special-status constituency; boundaries expanded east into Grande Prairie-Smoky area (EBC p43). Lowest population variance in province.
+Edmonton-Beverly-Clareview,Edmonton-Beverly-Clareview,boundary,1.0,high,Western boundary shift of ~20 persons (EBC p46).
+Edmonton-Calder,Edmonton-North West,rename+boundary,1.0,high,"Calder neighborhood now outside constituency; renamed Edmonton-North West (EBC p22, 48). Wellington, Athlone added."
+Edmonton-Castle Downs,Edmonton-Castle Downs,boundary,1.0,high,Variance reduced from +11% by moving residents out (EBC p46).
+Edmonton-Centre,Edmonton-City Centre,rename,1.0,high,"Renamed Edmonton-City Centre, near-identical boundaries (EBC p46)."
+Edmonton-Decore,Edmonton-Decore,boundary,1.0,high,Minor adjustments (EBC p46).
+Edmonton-Ellerslie,Edmonton-Ellerslie,boundary,0.8,high,Western boundary moved east to accommodate new Edmonton-South (EBC p47). Southern shift for Beaumont annexation.
+Edmonton-Ellerslie,Edmonton-South,consolidation,0.2,medium,Portions of Edmonton-Ellerslie and Edmonton-South West used to form new Edmonton-South (EBC p48).
+Edmonton-Glenora,Edmonton-Glenora,boundary,1.0,high,Prince Rupert community added (EBC p47).
+Edmonton-Gold Bar,Edmonton-Gold Bar,name_restored,1.0,high,Interim name Edmonton-East reverted to Edmonton-Gold Bar; Bonnie Doon returned; Tamarack removed to Edmonton-Meadows (EBC p47).
+Edmonton-Highlands-Norwood,Edmonton-Highlands-Norwood,boundary,1.0,high,Area north of Yellowhead Trail removed (EBC p47).
+Edmonton-Manning,Edmonton-Manning,boundary,1.0,high,Western boundary moved to 66 Street from 56 Street (EBC p47).
+Edmonton-McClung,Edmonton-McClung,boundary,1.0,high,"Patricia Heights, Rio Terrace, Quesnell Heights moved to Edmonton-Riverview (EBC p47-48)."
+Edmonton-Meadowlark,Edmonton-Riverview,consolidation,0.7,medium,Meadowlark name discontinued. Population shifted into Edmonton-Riverview (EBC p48-49).
+Edmonton-Meadowlark,Edmonton-West Henday,consolidation,0.3,medium,Remainder absorbed into Edmonton-West Henday / other western constituencies.
+Edmonton-Mill Creek,Edmonton-Meadows,rename+boundary,1.0,high,"Interim Edmonton-Mill Woods East renamed Edmonton-Meadows after submissions about Tamarack/Meadows communities (EBC p29, 48)."
+Edmonton-Mill Woods,Edmonton-Mill Woods,boundary,1.0,high,Name retained after interim Mill Woods East decision (EBC p48).
+Edmonton-Riverview,Edmonton-Riverview,boundary,1.0,high,Absorbs Patricia Heights et al from Edmonton-McClung; Malmo Plains/Lendrum Place to Edmonton-Strathcona (EBC p48-49).
+Edmonton-Rutherford,Edmonton-Rutherford,boundary,1.0,high,Twin Brooks moved in from Edmonton-South West (EBC p49).
+Edmonton-South West,Edmonton-South West,boundary,0.8,high,Contributed territory to new Edmonton-South; Twin Brooks moved out to Edmonton-Rutherford (EBC p49).
+Edmonton-South West,Edmonton-South,consolidation,0.2,medium,Portions to new Edmonton-South (EBC p48-49).
+Edmonton-Strathcona,Edmonton-Strathcona,boundary,1.0,high,Bonnie Doon back to Edmonton-Gold Bar; Malmo Plains/Lendrum Place added from Edmonton-Riverview (EBC p49).
+Edmonton-Whitemud,Edmonton-Whitemud,boundary,1.0,high,Magrath/Mactaggart moved to Edmonton-South (EBC p49).
+Fort McMurray-Conklin,Fort McMurray-Lac La Biche,rename+boundary,0.8,high,Fort McMurray-Conklin reconfigured E-W rather than N-S; renamed to reflect Lac La Biche inclusion (EBC p50-51). Thickwood Boulevard boundary.
+Fort McMurray-Conklin,Fort McMurray-Wood Buffalo,boundary,0.2,medium,Boundary adjustment between two Fort McMurray EDs (EBC p51).
+Fort McMurray-Wood Buffalo,Fort McMurray-Wood Buffalo,boundary,1.0,high,Boundary with Fort McMurray-Lac La Biche changed to E-W alignment (EBC p51).
+Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,boundary,1.0,medium,Vegreville restored; St. Paul moved to Cold Lake-St. Paul; Lamont and Minburn counties fully within (EBC p52).
+Grande Prairie-Smoky,Grande Prairie,rename+boundary,0.55,medium,Grande Prairie-Smoky discontinued; City of Grande Prairie split into urban Grande Prairie + blended Grande Prairie-Wapiti (EBC p52-53). Most of City to new Grande Prairie constituency.
+Grande Prairie-Smoky,Central Peace-Notley,consolidation,0.3,medium,Significant area removed from Grande Prairie-Smoky into Central Peace-Notley (EBC p43).
+Grande Prairie-Smoky,Grande Prairie-Wapiti,consolidation,0.15,medium,Balance consolidated with Grande Prairie-Wapiti (EBC p53).
+Grande Prairie-Wapiti,Grande Prairie-Wapiti,boundary,0.7,medium,Balance retained. City of Grande Prairie portion to new Grande Prairie constituency; rural area reconfigured (EBC p53).
+Grande Prairie-Wapiti,Grande Prairie,consolidation,0.3,medium,Part of City of Grande Prairie area moved to new urban Grande Prairie ED (EBC p52).
+Highwood,Highwood,rename+boundary,1.0,high,Renamed Okotoks-Sheep River; area south of Bow River moved in from Chestermere area; southern Kananaskis to Banff-Kananaskis (EBC p54-55). Highwood River no longer in ED.
+Innisfail-Sylvan Lake,Innisfail-Sylvan Lake,boundary,1.0,high,Minor boundary change: SW corner moved to Rocky Mountain House-Sundre (EBC p53).
+Lac La Biche-St. Paul-Two Hills,Fort McMurray-Lac La Biche,consolidation,0.5,medium,Central northeast 4->3 consolidation. Lac La Biche + surrounding area absorbed into Fort McMurray-Lac La Biche (EBC p50-51).
+Lac La Biche-St. Paul-Two Hills,Bonnyville-Cold Lake-St. Paul,consolidation,0.3,medium,St. Paul area moved to new Cold Lake-St. Paul blended constituency (EBC p45).
+Lac La Biche-St. Paul-Two Hills,Fort Saskatchewan-Vegreville,consolidation,0.2,medium,Two Hills/western area absorbed into Fort Saskatchewan-Vegreville reconfiguration (EBC p52).
+Lacombe-Ponoka,Lacombe-Ponoka,boundary,1.0,high,Maskwacis reserves moved to renamed Maskwacis-Wetaskiwin; eastern boundary at Buffalo Lake (EBC p53).
+Leduc-Beaumont,Leduc-Beaumont,boundary,1.0,high,Accounts for City of Edmonton annexations; reduces positive variance (EBC p54). Airport moves in from Drayton Valley-Devon.
+Lesser Slave Lake,Lesser Slave Lake,boundary,1.0,high,s.15(2) special status retained. Calling Lake reserve added (EBC p54). Tall Cree reserves moved to Peace River.
+Lethbridge-East,Lethbridge-East,direct,1.0,high,Unchanged boundaries (EBC p54).
+Lethbridge-West,Lethbridge-West,direct,1.0,high,Unchanged boundaries (EBC p54).
+Little Bow,Livingstone-Macleod,consolidation,0.4,medium,"Southeast 7->6. Parts of Little Bow + Cardston-Taber-Warner + Livingstone-Macleod reconfigured (EBC p55, 58)."
+Little Bow,Cardston-Siksika,consolidation,0.4,medium,Portions of Little Bow + Cardston-Taber-Warner formed Cardston-Siksika (EBC p42).
+Little Bow,Taber-Warner,consolidation,0.2,medium,Residual Little Bow territory absorbed into Taber-Warner via southeast reconfiguration (EBC p59).
+Livingstone-Macleod,Livingstone-Macleod,boundary,1.0,high,Kananaskis Country tip moved to Banff-Kananaskis (~20 persons); Waterton moved in from Cardston-Taber-Warner (EBC p55).
+Medicine Hat,Brooks-Medicine Hat,rename+boundary,1.0,medium,Medicine Hat reconfigured as blended constituency (Brooks-Medicine Hat) containing portion of City of Medicine Hat + adjoining rural (EBC p43-44).
+Olds-Didsbury-Three Hills,Olds-Didsbury-Three Hills,boundary,1.0,medium,Northern Wheatland County absorbed from Strathmore-Brooks (EBC p55-56).
+Peace River,Peace River,boundary,1.0,high,Town of Grimshaw + Shaftesbury Settlement absorbed; Tall Cree reserves from Lesser Slave Lake added (EBC p56).
+Red Deer-North,Red Deer-North,boundary,1.0,high,Boundary within Red Deer adjusted to reunite Deer Park community (EBC p56-57).
+Red Deer-South,Red Deer-South,boundary,1.0,high,Boundary within Red Deer adjusted to reunite Deer Park community (EBC p57).
+Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre,rename+boundary,1.0,medium,Central-west 5->4 consolidation. Rimbey area left; Drayton Valley stayed with Drayton Valley-Devon (EBC p57).
+Sherwood Park,Sherwood Park,boundary,1.0,high,Small area from Fort Saskatchewan-Vegreville absorbed; orphaned area captured (EBC p57).
+Spruce Grove-St. Albert,St. Albert,rename+boundary,0.5,medium,"Blended Spruce Grove-St. Albert discontinued. St. Albert portion now St. Albert (EBC p58, 59)."
+Spruce Grove-St. Albert,Morinville-St. Albert,consolidation,0.3,medium,Northern part of St. Albert + Morinville combined into new Morinville-St. Albert (EBC p55).
+Spruce Grove-St. Albert,Spruce Grove-Stony Plain,consolidation,0.2,medium,Spruce Grove now combined with Stony Plain (EBC p58).
+St. Albert,St. Albert,boundary,1.0,high,Central St. Albert retained; reshaped with Morinville-St. Albert handling northern fringe (EBC p59).
+Stony Plain,Spruce Grove-Stony Plain,rename+boundary,1.0,medium,Central-west 5->4 consolidation. Combined with Spruce Grove after Spruce Grove-St. Albert dissolution (EBC p58).
+Strathcona-Sherwood Park,Strathcona-Sherwood Park,boundary,1.0,high,Unchanged except straightened northern boundary with Sherwood Park (EBC p59).
+Strathmore-Brooks,Chestermere-Strathmore,split+rename,0.4,medium,Southeast 7->6 / central reshuffle. Strathmore moved to new Chestermere-Strathmore (EBC p42).
+Strathmore-Brooks,Brooks-Medicine Hat,split+rename,0.4,medium,Brooks moved to new Brooks-Medicine Hat blended constituency (EBC p43-44).
+Strathmore-Brooks,Drumheller-Stettler,consolidation,0.1,medium,Central Wheatland back to Drumheller-Stettler (EBC p44-45).
+Strathmore-Brooks,Olds-Didsbury-Three Hills,consolidation,0.1,medium,Northern Wheatland to Olds-Didsbury-Three Hills (EBC p55-56).
+Vermilion-Lloydminster,Vermilion-Lloydminster-Wainwright,rename+boundary,0.6,medium,Southeast 7->6 reconfiguration. Eastern Vermilion area combined with Wainwright territory (EBC p59).
+Vermilion-Lloydminster,Camrose,consolidation,0.4,medium,Western portions moved into new Camrose constituency (EBC p41-42).
+West Yellowhead,West Yellowhead,boundary,1.0,medium,Central-west 5->4. Whitecourt added (EBC p59).
+Wetaskiwin-Camrose,Camrose,split+rename,0.45,medium,"Camrose separated into own constituency from Wetaskiwin-Camrose; reserves united in Maskwacis-Wetaskiwin (EBC p41-42, 55)."
+Wetaskiwin-Camrose,Maskwacis-Wetaskiwin,rename+boundary,0.55,medium,Wetaskiwin + Maskwacis reserves consolidated into Maskwacis-Wetaskiwin (EBC p55).
+Whitecourt-Ste. Anne,Lac Ste. Anne-Parkland,rename+boundary,0.6,medium,Central-west 5->4. Ste. Anne section renamed Lac Ste. Anne-Parkland; added Spruce Grove-adjacent area and Parkland fringe (EBC p53).
+Whitecourt-Ste. Anne,West Yellowhead,consolidation,0.4,medium,Whitecourt moved into West Yellowhead (EBC p59).
