@@ -36,13 +36,21 @@ You are a fresh Claude Code instance arriving at a partially-completed multi-ses
 │   ├── v0_1_alberta_2015_results.csv               # parsed 2015 election per-ED totals
 │   ├── v0_1_alberta_2019_results.csv               # 87 EDs, 2019 candidate-level
 │   ├── v0_1_alberta_2023_results.csv               # 87 EDs, 2023 candidate-level
+│   ├── v0_1_alberta_2019_populations.csv           # 87 EDs, 2019-baseline populations (from 2017 EBC report)
 │   ├── v0_1_majority_2026_populations.csv          # 89 majority-proposed EDs
 │   ├── v0_1_minority_2026_populations.csv          # 89 minority-proposed EDs
+│   ├── v0_1_minority_2026_populations_appendixE.csv # corroborating parse from Appendix E
 │   ├── v0_1_majority_hybrid_crosswalk.csv          # Appendix C extracted crosswalk
+│   ├── v0_1_minority_hybrid_crosswalk.csv          # heuristic minority crosswalk (2019->2026)
 │   ├── submission_search_dataset.csv               # per-submission keyword hit dataset
 │   ├── 2015_results.xlsx                           # raw 2015 Statement of Vote
 │   ├── 2023_results.xlsx                           # raw 2023 Statement of Vote
-│   └── (additional shapefile/DA data when acquired by Stage 1 sub-agent)
+│   ├── alberta_2019_eds/                           # Elections Alberta 2019 ED shapefile (87 polygons)
+│   ├── alberta_2023_vas/                           # Elections Alberta 2023 Voting Area shapefile (4,765 polygons)
+│   ├── alberta_2021_das.gpkg                       # StatsCan 2021 DA geometry filtered to Alberta (6,203 polygons)
+│   ├── calgary_wards.geojson                       # City of Calgary ward shapefile (14 wards)
+│   ├── alberta_shapefiles_README.md                # shapefile integrity summary
+│   └── data_acquisition_manifest.md                # acquisition log and source URLs
 ├── analysis/
 │   ├── v0_2_packing_cracking_analysis.py           # symmetric three-map B1–B6 (current)
 │   ├── v0_3_monte_carlo_ci.py                      # Monte Carlo CI + cross-election
@@ -63,6 +71,10 @@ You are a fresh Claude Code instance arriving at a partially-completed multi-ses
 │   ├── v0_1_academic_literature_review.md          # literature gap analysis
 │   ├── submission_search_findings.md               # refutation verdict write-up
 │   ├── submission_search_log.md                    # submission-search technical log
+│   ├── data_acquisition_log.md                     # data-acquisition subagent log
+│   ├── appendix_e_recon_log.md                     # Appendix E PDF recon log
+│   ├── v0_1_reproducibility_verification.md        # clean-room pipeline verification
+│   ├── v0_2_final_redteam.md                       # final red-team pass on design + prompt
 │   ├── v0_1_three_map_partisan_comparison.html     # B1–B4 visual from first session
 │   └── polls_2023_unified.csv                      # parsed Statement of Vote output
 ├── maps/

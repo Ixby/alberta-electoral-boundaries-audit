@@ -1,6 +1,6 @@
 # Alberta Electoral Boundaries Audit — Claude Code Continuation Prompt v1.2
 
-**Opus 4.7 1M context. 450,000 token budget. 4-hour wall-clock budget.**
+**Opus 4.7 1M context. 450,000 token budget (raise to 600K if Phase 4C Vision-on-VA-polygons is executed). 4-hour wall-clock budget.**
 
 **Changes from v1.1.** Six execution-readiness gaps closed based on the readiness assessment (`analysis/v0_1_prompt_readiness.md`). PDF recon converted a Stage 3 unknown into a known constraint. RT gates now have numeric thresholds. Publication gate adds readability and house voice checks.
 
@@ -20,7 +20,9 @@ Claude Code at xhigh or max effort with Auto mode. Filesystem, autonomous execut
 
 **The commission report PDF (pp 87–266, Appendix B) is prose, not tables.** Confirmed by direct inspection. It contains street-name-based boundary descriptions but no machine-readable VA→ED crosswalk. Stage 3a PDF crosswalk path is therefore not viable as a cheap extraction. Vision-on-maps (3c) is the primary path for 2026 attribution without shapefiles.
 
-**Appendix C (pg 269) has a hybrid-level crosswalk.** Extracted to `data/v0_1_majority_hybrid_crosswalk.csv`. Use this to verify hand-coded `MAJORITY_2026_MAPPING` entries; mismatches found in v0.3→v1.2 pass (Airdrie-East and Medicine Hat-Brooks were `blend` but should be `direct`). No analogous minority crosswalk found in the bundle.
+**Appendix C (pg 269) has the majority's hybrid-level crosswalk.** Extracted to `data/v0_1_majority_hybrid_crosswalk.csv`. Use this to verify hand-coded `MAJORITY_2026_MAPPING` entries; mismatches found in the v0.3→v1.2 pass (Airdrie-East and Medicine Hat-Brooks were `blend` but should be `direct`) have been corrected in `v0_2_packing_cracking_analysis.py`.
+
+**Minority crosswalk is heuristic.** `data/v0_1_minority_hybrid_crosswalk.csv` was built by a data-acquisition sub-agent using name-matching (73 confident mappings, 16 new names, 14 unmapped out of 89 proposed EDs). Appendix E contains no tabular crosswalk equivalent to Appendix C; the minority file is approximate and should be flagged as such when used.
 
 **2015 data is in the bundle.** `data/v0_1_alberta_2015_results.csv` with 87 pre-2017-commission EDs and NDP/PC/WRP/LIB totals. PC+WRP sums represent UCP-equivalent. RT3 (cross-election) now covers 2015/2019/2023 where boundary-mapping permits.
 
@@ -36,7 +38,7 @@ Claude Code at xhigh or max effort with Auto mode. Filesystem, autonomous execut
 - `analysis/electoral_forensics_population.py` — A1/A2/A3 + robustness check.
 - `analysis/parse_2015_results.py` — 2015 election parser (parsed shares match official within 0.13 pp).
 - `analysis/v0_1_cross_election_rural_baseline.py` — cross-election rural trend.
-- `analysis/check_wuff_voice.py` — voice + readability gate.
+- `analysis/check_voice_and_readability.py` — voice + readability gate.
 - `analysis/v0_1_poll_attribution_skeleton.py` — Phase 4C skeleton.
 - `analysis/v0_1_bias_audit.md`, `v0_1_design_critique.md`, `v0_1_uncertainty_and_shapefile_impact.md`, `v0_1_prompt_readiness.md` — self-audits.
 
@@ -71,7 +73,7 @@ python3 analysis/v0_2_packing_cracking_analysis.py
 python3 analysis/electoral_forensics_population.py
 python3 analysis/v0_3_monte_carlo_ci.py
 python3 analysis/v0_1_cross_election_rural_baseline.py
-python3 analysis/check_wuff_voice.py
+python3 analysis/check_voice_and_readability.py
 ```
 
 All five must run to completion with outputs matching the tables above. Gate G0 blocks downstream work if any number differs by more than 0.05 pp or one seat.
@@ -149,7 +151,7 @@ Additions beyond RT1-RT6:
 
 ### PR1 — house voice
 
-**Check.** Run `python3 analysis/check_wuff_voice.py`.
+**Check.** Run `python3 analysis/check_voice_and_readability.py`.
 
 **Pass condition.** Exit 0 for both reports. No "not X — Y" mirror reversals, no emoji, no editorializing reactions, no templated triads.
 
@@ -157,7 +159,7 @@ Additions beyond RT1-RT6:
 
 ### PR2 — Readability
 
-**Check.** Flesch-Kincaid approximation via `check_wuff_voice.py`.
+**Check.** Flesch-Kincaid approximation via `check_voice_and_readability.py`.
 
 **Thresholds:**
 - Public report: FKG ≤ 9.5 (target 9.0, tolerance +0.5)
@@ -245,7 +247,7 @@ At completion, report:
 
 - *Pre-Stage-3 PDF recon task now embedded; Appendix B confirmed prose-only; Appendix C crosswalk saved as data asset*
 - *RT1–RT6 numeric thresholds tightened with tie-breakers*
-- *PR1 house voice check and PR2 readability check added as publication gates, with `check_wuff_voice.py` implementation*
+- *PR1 house voice check and PR2 readability check added as publication gates, with `check_voice_and_readability.py` implementation*
 - *Vision budget explicit: ≤ 800 VA inspections at ~320K tokens*
 - *Total Vote Checksum now also checks joint variance*
 - *Rural baseline Uniform(0.26, 0.36) grounded in 2015/2019/2023 observed range*

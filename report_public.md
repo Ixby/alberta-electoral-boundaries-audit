@@ -208,7 +208,7 @@ After the commission tabled both maps, the government rejected the majority map 
 
 The commission heard from 1,340+ members of the public. The chair said the minority's specific configurations for five areas had no support in those submissions. An independent text search of the submissions found that three of the five actually do have public support. Two hold up. So the chair's claim was wrong on part of its scope.
 
-The strongest procedural concern is that the new process is government-controlled and is advancing two configurations (Airdrie 4-way, Nolan Hill-Cochrane) that the public did not ask for. That concern is narrower than the first draft of this audit suggested but is real.
+The strongest procedural concern is that the new process is government-controlled. Two of the minority's configurations (Airdrie 4-way, Nolan Hill-Cochrane) have no documented public support in the submissions. Whether the November committee keeps those configurations, changes them, or proposes something else entirely is not yet known. That concern is narrower than the first draft of this audit suggested but is real — contingent on what the committee actually produces.
 
 ---
 
