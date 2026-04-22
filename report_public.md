@@ -70,6 +70,8 @@ Inside Calgary the gap sharpens. Calgary has two rough political zones: a north-
 
 > **What is a gerrymander, in plain terms?** The word covers any map that uses district lines for partisan advantage. The usual techniques are "packing," where you cram an opposing party's voters into a few big districts where they win overwhelmingly and waste the rest of their votes, and "cracking," where you spread an opposing party's voters thinly across districts where they can't win any. The Calgary zone gap above is the signature of packing. The Airdrie four-way split is the signature of cracking.
 
+**A pattern, not a one-off.** The Airdrie four-way split looked like a one-city decision until a broader symmetric scan was run. Every Alberta city with 50,000 or more residents was checked for four-way splits on both maps. The majority splits none of them four ways. The minority splits three — Airdrie, **Lethbridge**, and **Red Deer**. Lethbridge goes to four districts under the minority (Lethbridge-Cardston, Lethbridge-Fort MacLeod-Crowsnest Pass, Lethbridge-Little Bow, Lethbridge-Taber-Warner) where the majority keeps it at two. Red Deer does the same. Three cities, same pattern, minority only. That is the audit's definition of a pattern. More at [analysis/v0_1_fortification_b1_b6.md](analysis/v0_1_fortification_b1_b6.md) and the raw counter-test data at [data/v0_1_majority_symmetry_counter_test.csv](data/v0_1_majority_symmetry_counter_test.csv).
+
 ---
 
 ## The chair's "no public support" claim, sorted
