@@ -229,6 +229,8 @@ When the committee tables its map in November, calling it a gerrymander requires
 
 **The honest test.** A sure-sign gerrymander in November looks like the three formal signatures surviving plus at least one new one added plus either the ensemble-outlier test or the documented-public-support inversion. Any one of those alone is a concern. All three together would be hard to read as anything but deliberate.
 
+**What the two existing maps score on this same checklist.** The audit scored the majority and minority against the checklist above, before the November map exists, as a calibration check. The majority scores zero on every signal that is testable today. The minority scores three strong signals (by definition — it is where the signatures were originally detected), two weak signals (the Calgary zone gap, the Nolan Hill-Cochrane retention), zero process signals at the commission stage, and three contradicted data-driven rationales. Neither map meets the sure-sign bar because neither crosses the US 7 percent efficiency-gap threshold and the ensemble-outlier test cannot run without 2026 shapefiles. The baseline scorecard is in [analysis/v0_1_track_c_checklist_baseline_scoring.md](analysis/v0_1_track_c_checklist_baseline_scoring.md); the November map will be scored on the same grid.
+
 ### The procedural question is different
 
 That one doesn't wait. Replacing an independent boundary commission with a government-majority committee of MLAs is the thing the independent-commission model exists to prevent. Quebec's government in 1992, Ontario's in 1996, and BC's in 2008 all amended commission recommendations after the fact. None of them replaced the commission itself with a legislative committee. Whether Alberta's April 16 step is unprecedented in all Canadian history is a broader question this audit didn't fully survey. It is more government-controlled than any of the three recent comparators.
@@ -434,6 +436,7 @@ This audit will be updated when Elections Alberta releases the digital boundary 
 - [Marginal-seats analysis and 2023 flip-zone list](analysis/v0_1_marginal_seats_findings.md)
 - [Rationale-by-rationale validation of the minority report's justifications](analysis/v0_1_minority_rationales_validation.md)
 - [Chair's Recommendation 5 addendum, close reading](analysis/v0_1_chair_recommendation_5_analysis.md)
+- [Track C checklist baseline scorecard (majority and minority)](analysis/v0_1_track_c_checklist_baseline_scoring.md)
 - [AI-use recommendations for the November committee](analysis/v0_1_ai_use_recommendations_for_committee.md)
 - [Source repository, data, and commit history](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 

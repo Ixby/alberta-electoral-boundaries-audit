@@ -322,6 +322,19 @@ Formal engineered-boundary detection applies the E1–E3 criteria (boundary thro
 
 Three formal signatures, one borderline pattern, all concentrated in the minority map. The detection is not "we think the minority looks engineered"; it is "apply P/C/E criteria mechanically, record what passes."
 
+### 3.11 Pre-registered checklist baseline scoring
+
+The "what a gerrymander would look like" checklist pre-registered in `report_public.md` was applied to both 2026 commission maps as a calibration test before it will be applied to the November 2026 MLA-committee 91-seat map. The scorecard, reproduced in full in `analysis/v0_1_track_c_checklist_baseline_scoring.md`:
+
+| Signal class | Majority 2026 | Minority 2026 |
+| --- | --- | --- |
+| Strong signals triggered (of 4 scorable; S3 and S5 deferred) | 0 | 1 (the S1 signature set, by construction) |
+| Weak signals triggered (of 2 scorable) | 0 | 2 (W2 Calgary zone gap, W3 Nolan Hill-Cochrane retention) |
+| Process signals triggered (of 5) | 0 | 0 |
+| Rationale-against-data contradictions (X2) | 0 | 3 (shared-schools x 2, Cochrane commuter-tie partial, plus five population-math tests failed) |
+
+Under the checklist's stated honest-test threshold ("three signatures plus at least one new signature plus ensemble-outlier or public-support-inversion"), neither map qualifies as a sure-sign gerrymander. The minority meets only the first of the three conjunctive clauses (signatures), fails to introduce new signatures, fails the ensemble-outlier clause because shapefiles are unreleased (test blocked rather than failed), and does not invert public support. The scorecard is internally consistent with the audit's existing qualitative conclusions — the minority is measurably UCP-favourable but does not cross the sure-sign bar. The scorecard's value going forward is twofold: it operationalises the pre-registered test for the November map, and it demonstrates that the test distinguishes the two known maps in the expected direction before any new map is drawn.
+
 ---
 
 ## 4. Geographic Coherence (Section C)
@@ -680,6 +693,7 @@ Each script prints a gate PASS/FAIL line. Numbers in §§2, 3 above must match t
 - [Academic literature review](analysis/v0_1_academic_literature_review.md)
 - [Submission search findings](analysis/submission_search_findings.md) — §5.4 evidence base
 - [Chair's Recommendation 5 analysis](analysis/v0_1_chair_recommendation_5_analysis.md) — §5.2 evidence base
+- [Track C checklist baseline scoring](analysis/v0_1_track_c_checklist_baseline_scoring.md) — §3.11 full scorecard and comparison template for the November map
 - [Minority rationales validation](analysis/v0_1_minority_rationales_validation.md) — §4.4 and §5.2 evidence base (25 rationales inventoried, 3 contradicted)
 - [Minority rationales inventory](analysis/v0_1_minority_rationales_inventory.md) — source quotes with citations
 - [Cochrane journey-to-work](analysis/v0_1_cochrane_journey_to_work.md) — §4.4 StatsCan 98-10-0459 pull
