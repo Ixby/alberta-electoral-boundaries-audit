@@ -1,0 +1,129 @@
+{
+  "phase2b_results": {},
+  "impact_summary": [
+    {
+      "ed_name": "Calgary-De Winton",
+      "boundary_description": "North edge, Calgary city limit (Stoney Trail / Anderson); South / East / West edges, township grid",
+      "v1_vs_v2_shift_m": 13.80238968748817,
+      "boundary_sensitive_vas": 1,
+      "boundary_sensitive_votes": 216.6,
+      "classification": "refinement-significant",
+      "orange_accept": false
+    },
+    {
+      "ed_name": "Calgary-South",
+      "boundary_description": "North edge, Glenmore Trail; East edge (exurban limb), Bow River; South edge, Highway 22X; West edge, Deerfoot/Macleod Trail",
+      "v1_vs_v2_shift_m": 37.35815888002544,
+      "boundary_sensitive_vas": 1,
+      "boundary_sensitive_votes": 216.6,
+      "classification": "refinement-significant",
+      "orange_accept": false
+    },
+    {
+      "ed_name": "Edmonton-Windermere",
+      "boundary_description": "North edge, Whitemud Drive; East edge, North Saskatchewan River (full length); South edge, Edmonton city boundary; West edge, Anthony Henday Drive",
+      "v1_vs_v2_shift_m": 55.39343988123946,
+      "boundary_sensitive_vas": 3,
+      "boundary_sensitive_votes": 795.75,
+      "classification": "refinement-significant",
+      "orange_accept": false
+    },
+    {
+      "ed_name": "Lethbridge-Little Bow",
+      "boundary_description": "North edge, Oldman River; East / West / South edges, township grid",
+      "v1_vs_v2_shift_m": 59.185095329464275,
+      "boundary_sensitive_vas": 0,
+      "boundary_sensitive_votes": 0.0,
+      "classification": "refinement-negligible",
+      "orange_accept": true
+    },
+    {
+      "ed_name": "Wetaskawin-Ponoka-Maskwacis",
+      "boundary_description": "North / East / West edges, township grid; Hwy 53 near Ponoka; Short Battle River segment",
+      "v1_vs_v2_shift_m": 30.456607670124594,
+      "boundary_sensitive_vas": 0,
+      "boundary_sensitive_votes": 0.0,
+      "classification": "refinement-negligible",
+      "orange_accept": true
+    }
+  ],
+  "phase4_log": [
+    {
+      "ed": "Calgary-De Winton",
+      "pass": 2,
+      "buffer_m": 300,
+      "spacing_m": 150,
+      "mean_shift": 8.73219038299089,
+      "max_shift": 299.0081765207426,
+      "class_hits": {
+        "admin": 1033,
+        "road": 623,
+        "river": 217,
+        "rail": 11,
+        "none": 178
+      }
+    },
+    {
+      "ed": "Calgary-South",
+      "pass": 2,
+      "buffer_m": 300,
+      "spacing_m": 150,
+      "mean_shift": 9.690013792402171,
+      "max_shift": 243.48895471536665,
+      "class_hits": {
+        "river": 59,
+        "admin": 266,
+        "road": 64,
+        "rail": 0,
+        "none": 2
+      }
+    },
+    {
+      "ed": "Calgary-South",
+      "pass": 3,
+      "buffer_m": 400,
+      "spacing_m": 100,
+      "strategy": "river-forced",
+      "mean_shift": 11.440470280746581,
+      "max_shift": 397.0705110627359,
+      "class_hits": {
+        "river": 92,
+        "admin": 395,
+        "road": 99,
+        "rail": 0,
+        "none": 0
+      }
+    },
+    {
+      "ed": "Edmonton-Windermere",
+      "pass": 2,
+      "buffer_m": 300,
+      "spacing_m": 150,
+      "mean_shift": 7.2997789666835375,
+      "max_shift": 131.75041766231064,
+      "class_hits": {
+        "river": 319,
+        "admin": 163,
+        "road": 79,
+        "rail": 0,
+        "none": 0
+      }
+    },
+    {
+      "ed": "Edmonton-Windermere",
+      "pass": 3,
+      "buffer_m": 400,
+      "spacing_m": 100,
+      "strategy": "river-forced",
+      "mean_shift": 7.199070563030426,
+      "max_shift": 157.75404850007055,
+      "class_hits": {
+        "river": 475,
+        "admin": 247,
+        "road": 111,
+        "rail": 0,
+        "none": 0
+      }
+    }
+  ]
+}
