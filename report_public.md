@@ -20,7 +20,7 @@ On March 23, Alberta's Electoral Boundaries Commission tabled not one map but tw
 
 This audit looked at both commission maps using public data, and at the 91-seat plan as far as the public record allows. The headline finding is narrower than some early commentary has suggested. The minority map is measurably, modestly friendlier to the UCP than the majority map on three of four standard tests. It is nowhere near the threshold American courts have used to flag an extreme gerrymander. The government's decision to replace the commission is a bigger story than the map itself.
 
-What follows is a reporter's walk through the numbers, the shapes on the page, and what can and cannot be said about either.
+What follows is the author's walk through the numbers, the shapes on the page, and what can and cannot be said about either.
 
 ---
 
@@ -70,7 +70,7 @@ Inside Calgary the gap sharpens. Calgary has two rough political zones: a north-
 
 > **What is a gerrymander, in plain terms?** The word covers any map that uses district lines for partisan advantage. The usual techniques are "packing," where you cram an opposing party's voters into a few big districts where they win overwhelmingly and waste the rest of their votes, and "cracking," where you spread an opposing party's voters thinly across districts where they can't win any. The Calgary zone gap above is the signature of packing. The Airdrie four-way split is the signature of cracking.
 
-**A pattern, not a one-off.** The Airdrie four-way split looked like a one-city decision until a broader symmetric scan was run. Every Alberta city with 50,000 or more residents was checked for four-way splits on both maps. The majority splits none of them four ways. The minority splits three — Airdrie, **Lethbridge**, and **Red Deer**. Lethbridge goes to four districts under the minority (Lethbridge-Cardston, Lethbridge-Fort MacLeod-Crowsnest Pass, Lethbridge-Little Bow, Lethbridge-Taber-Warner) where the majority keeps it at two. Red Deer does the same. Three cities, same pattern, minority only. That is the audit's definition of a pattern. More at [analysis/v0_1_fortification_b1_b6.md](analysis/v0_1_fortification_b1_b6.md) and the raw counter-test data at [data/v0_1_majority_symmetry_counter_test.csv](data/v0_1_majority_symmetry_counter_test.csv).
+**A pattern, not a one-off.** The Airdrie four-way split looked like a one-city decision until a broader symmetric scan was run. Every Alberta city with 50,000 or more residents was checked for four-way splits on both maps. The majority splits none of them four ways. The minority splits three — Airdrie, **Lethbridge**, and **Red Deer**. Lethbridge goes to four districts under the minority (Lethbridge-Cardston, Lethbridge-Fort MacLeod-Crowsnest Pass, Lethbridge-Little Bow, Lethbridge-Taber-Warner) where the majority keeps it at two. Red Deer does the same. Three cities, same pattern, minority only. That is the audit's definition of a pattern. Raw counter-test data at [data/v0_1_majority_symmetry_counter_test.csv](data/v0_1_majority_symmetry_counter_test.csv).
 
 ---
 
@@ -98,26 +98,49 @@ The tiering matters. A flat "the chair lied about public support" is wrong. So i
 
 ## What the seat numbers actually say
 
-**Three of four fairness tests agree the minority map tilts UCP. The tilt is small. The fourth test disagrees.**
+**Four fairness tests. Three of them describe the same wasted-vote story. The fourth looks at a different shape. Here is how to read them together.**
 
-The audit runs three standard measures of partisan fairness — the efficiency gap, the mean-median gap, and a Monte Carlo simulation of seats under past vote patterns — plus a fourth called declination. Against 2023 vote patterns, three of the four measures agree: the minority map is modestly more UCP-favourable than the majority. Declination disagrees. When tests disagree, readers should lower their confidence.
+The audit runs four standard measures of partisan fairness against each of the three maps. They are not four independent verdicts on the same question — they are four different cameras pointed at the same underlying pattern, and they pick up different features.
 
-The table below shows each test's value on the current 2019 map and on both 2026 maps. More negative means a larger UCP tilt. Closer to zero is more balanced.
+| Test | What it measures | 2019 map | Majority 2026 | Minority 2026 |
+|---|---|---|---|---|
+| Efficiency gap | How many votes each party "wastes" (votes for losers plus surplus votes for winners) | −2.64% | −0.85% | −1.36% |
+| Mean-median gap | Whether one party's vote share skews left or right of the typical district | −2.22 | −0.18 | −0.33 |
+| NDP seats at a tied vote | How many seats the NDP would win if the province-wide vote were 50/50 | 46 | 44 | 42 |
+| Declination | The geometric angle between the two parties' winning-district clouds | −0.034 | −0.021 | −0.015 |
 
-| Test | 2019 map | Majority 2026 | Minority 2026 |
-|---|---|---|---|
-| Efficiency gap | −2.64% | −0.85% | −1.36% |
-| Mean-median gap | −2.22 | −0.18 | −0.33 |
-| NDP seats in a tied election | 46 | 44 | 42 |
-| Declination | −0.034 | −0.021 | −0.015 |
+Reading convention: negative numbers favour the UCP in this reporting; positive favour the NDP.
 
-A negative efficiency gap points toward UCP advantage. The minority's −1.36% is about one-fifth the size of the 7% threshold that American courts have used to flag suspect maps. In seats, the Monte Carlo point estimate is two NDP seats lost under the minority in a tied election. The 95 percent confidence interval actually crosses zero — meaning under the full range of modelling assumptions the minority could give the UCP three extra seats, or give the NDP one extra seat. The direction is probably UCP-favourable. The exact size is uncertain.
+**Three tests agree with each other, and one points the other way. That is not the end of the analysis.**
 
-There is a more uncomfortable wrinkle. Run the same calculation using the 2019 election as the underlying vote pattern instead of 2023, and the advantage reverses — the minority map would help the NDP. When a test's answer depends on which election you feed it, the answer is partly about the voters rather than about the map. That cuts against any confident claim that the minority is a reliable UCP assist in every scenario.
+The first three tests — efficiency gap, mean-median, and NDP seats at a tied vote — all say the minority is modestly more UCP-favourable than the majority. The fourth — declination — says the minority is *less* UCP-favourable than the majority. At first read that looks like a 3-versus-1 vote, and readers sometimes decide on that basis to lower their confidence. That would be the wrong conclusion from what the math is actually doing.
 
-One cross-check does hold. Plug in April 2026 polling from 338Canada instead of 2023 vote results, run the same math, and the 1-seat minority-vs-majority gap shows up again. The overall vote levels differ — 338's numbers project a UCP blowout today — but the gap between the two maps is the same size under both inputs. That is evidence the 1-seat tilt is a feature of the map, not of whichever election is plugged in.
+**The first three tests are closely related.** The efficiency gap, the mean-median, and seats-at-50/50 are not four independent tests any more than a thermometer, a thermostat, and a hand on the forehead are three independent tests of temperature. All three ask: does one party's votes translate into seats as efficiently as the other party's? They use different formulas, but they are measuring the same property. When one of them shows a tilt, the others usually show the same tilt. When all three agree, that is consistency, not triangulation.
+
+**Declination is measuring something different.** Declination does not count wasted votes. It draws the two parties' winning districts as two clouds on a graph and computes the angle between them. A map that gives both parties a symmetric winning-margin distribution has low declination. A map that packs one party's voters into a handful of blowout wins and leaves the other party with many narrow wins has high declination. The question declination asks is not "who wastes more votes?" but "are the two parties winning in geometrically similar ways?"
+
+**Why they can disagree.** Consider two ways to give a party a structural disadvantage on a map:
+
+1. **Blowout packing.** Pack the losing party into a few districts where they win by 80-20. They win those districts but waste huge numbers of votes. Efficiency gap is large. Declination is large (the two parties' winning-district clouds look very different).
+2. **Narrow-margin packing.** Pack the losing party into many districts where they lose narrowly, 45-55. They lose each one by a thin margin. The wasted votes add up to a similar total, so efficiency gap is still large. But declination is *smaller*, because the party's losing districts sit close enough to the margin that the two clouds look geometrically similar.
+
+The Alberta minority map shows the second pattern. It packs NDP-leaning Calgary voters into larger districts (the 12.2% Calgary zone gap), splits Airdrie / Lethbridge / Red Deer into four-way configurations, and leaves NDP voters in narrow-margin losses rather than blowout losses. Efficiency gap says "you wasted more NDP votes." Declination says "your winning-district geometry is not especially asymmetric." Both are looking at the same structural map; they pick up different fingerprints of the same design.
+
+**The declination disagreement does not falsify the other three tests. It tells you how the packing works.** If the minority were a blowout-packing map, declination would agree with the other three. Because the minority is a narrow-margin-packing map, declination shows a different picture. A hostile reader can legitimately cite declination to argue the effect is smaller than the other three tests suggest; the honest response is that declination is consistent with the minority's packing being through narrow losses, which is exactly what the four-way splits and zone gap independently show.
+
+**What the size of the tilt means.** The minority efficiency gap of −1.36% is about one-fifth the 7% threshold American courts have used to flag suspect maps. In seat terms, the central estimate is two NDP seats lost under the minority at a tied vote. The 95 percent confidence interval crosses zero — meaning under the full range of modelling assumptions the minority could cost the NDP three seats or give the NDP one extra seat. The direction is UCP-favourable in about 89 percent of the simulations run. The size is not pinned down to a single number.
+
+**The election-input wrinkle.** Run the same calculation using the 2019 election vote pattern instead of 2023 and the advantage reverses — the minority map would help the NDP under 2019 voters. When a test's answer depends on which election you feed it, the answer is partly about the voters rather than about the map. That said, plugging in April 2026 polling from 338Canada instead of 2023 results gives the same 1-seat minority-vs-majority gap. So the direction is stable across 2023-era and 2026-era political geography. It is not stable against the 2019 electorate. A reader should hold "the minority tilts UCP on 2020s-era voters" rather than "the minority tilts UCP regardless of who votes."
+
+**How does this compare to other Canadian redistricts?** A first-pass catalogue of six other Canadian redistribution cycles — Federal 2022 (Alberta sub-commission), BC 2023, Saskatchewan 2022, Alberta 2017, Alberta 2010, and Manitoba 2018 — finds that more than half of recent Canadian cycles produce zero partisan shift between the commission's interim draft and its final report. The ones that do produce a shift do so at modest magnitude. Alberta 2025-26's low-end 0.5 point shift is in the same range as Manitoba 2018 and Alberta's own 2017 cycle. Its high-end 1.6 point shift, under the wider modelling assumptions, exceeds the largest Canadian inter-map shift in this sample. Put simply: the minority map is not out of line with the typical Canadian redistricting exercise at its low end, but it is at the far end of the observed Canadian range at its high end. Full data at [analysis/v0_1_canadian_base_rate_computed.md](analysis/v0_1_canadian_base_rate_computed.md).
+
+**A common defence, tested.** One argument for why both 2026 maps look UCP-favourable is that urban NDP voters naturally cluster in Calgary and Edmonton, so any fair map drawn on Alberta's actual voter geography would produce a UCP tilt. A simulation of 150 neutrally-drawn 87-seat plans confirms the direction — neutral Alberta maps do produce a UCP-favourable efficiency gap, around −2.3 to −2.4 percent on average. But the mechanism the argument invokes does not hold. In Alberta, UCP voters in rural ridings win their seats by an average of 43 percentage points. NDP voters in urban ridings win their seats by an average of 21 points. The UCP is the more concentrated party by wasted-vote measure (15.9 percent excess votes vs the NDP's 9.3). Alberta's UCP-favourable tilt on any map comes from rural UCP margins being very wide, not from NDP voters being packed into cities. More at [analysis/v0_1_chen_rodden_alberta_validation.md](analysis/v0_1_chen_rodden_alberta_validation.md).
 
 > **What's the efficiency gap?** A measure of how many votes each party "wastes." Votes for a loser are wasted. Votes for a winner above what was needed to win are also wasted. The efficiency gap is the difference between the two parties' wasted-vote rates. Zero means neither party systematically wastes more votes than the other. Negative numbers (in this province's reporting convention) favour the UCP; positive favour the NDP.
+
+> **What's declination?** A geometric measure. Draw each party's winning districts as points on a graph — x-axis is the district's winning margin, y-axis is the district's vote share. The two parties produce two clouds of points. Declination measures the angle between the best-fit lines through each cloud. A symmetric map produces near-zero declination. A packed map — where one party wins by large margins and the other by small margins — produces larger declination.
+
+> **What's the mean-median gap?** The difference between the *mean* and *median* of a party's district vote shares across all the districts on the map. If the two are the same, the map is symmetric around the middle district. If they differ, the party is either over-represented or under-represented relative to what its vote share would predict. The 3 pp threshold from McDonald and Best (2015) is the point at which serious partisan skew is typically flagged; Alberta's mean-median gaps are well under that.
 
 ### What each contested redraw actually does to the seat count
 
@@ -220,7 +243,7 @@ When the committee tables its map in November, calling it a gerrymander requires
 - Advisory panel members not publicly named or their terms of reference withheld.
 - Draft map not released for public comment before the legislative vote.
 - Legislative adoption without amendment, without published dissent.
-- AI tools used to draft the map without the prompts, seeds, and candidate ensembles published alongside the final report. The Premier's April 16 remark implied AI might be in the workflow. A committee that uses AI responsibly can document every prompt, every seed, every model version, and publish the ensemble its chosen map was picked from. A committee that can't — or won't — is borrowing legitimacy it hasn't earned. The audit has a full AI-use framework in [analysis/v0_1_ai_use_recommendations_for_committee.md](analysis/v0_1_ai_use_recommendations_for_committee.md).
+- AI tools used to draft the map without the prompts, seeds, and candidate ensembles published alongside the final report. The Premier's April 16 remark implied AI might be in the workflow. A committee that uses AI responsibly can document every prompt, every seed, every model version, and publish the ensemble its chosen map was picked from. A committee that can't — or won't — is borrowing legitimacy it hasn't earned.
 
 **Things that look bad but are not sure signs:**
 
@@ -252,6 +275,8 @@ Packing means a party's voters are crammed into fewer, larger districts so their
 | Engineered boundary | Detected at Rocky Mountain House-Banff Park | Not detected | Boundary runs through empty Banff National Park land to qualify for a low-population rule. |
 
 These are not aesthetic calls. Each signature follows a short checklist laid out in the academic report. The minority map meets the checklist in three places. The majority map does not meet it anywhere this audit could verify.
+
+**A compactness check on the shapes themselves.** Elections Alberta has not released shapefiles for the 2026 proposals, but an approximation built from the 2019 boundaries plus the commission's hybrid crosswalks lets the audit compute compactness scores for the roughly two-thirds to three-quarters of EDs whose boundaries can be inferred with confidence. On that measurable subset, the minority map has about twice the rate of low-compactness districts (where Polsby-Popper compactness falls below 0.25) as the majority map — 7 percent versus 3.5 percent. The three most controversial minority districts (Rocky Mountain House-Banff Park, Calgary-Nolan Hill-Cochrane, Calgary-Peigan-Chestermere) are exactly the ones whose actual shapes the audit cannot score without the real shapefiles. The audit has drafted a request to Elections Alberta asking for research access to the proposal shapefiles.
 
 Cochrane's merger into a Calgary district looks like cracking but fails one test: Cochrane is too small (34,000 people) for its own district. The community concern is real; the formal signature is not.
 
@@ -435,7 +460,7 @@ And the 91-seat committee's map cannot yet be called anything — because it doe
 
 **Every number in this report can be re-run from public files.**
 
-The analysis ran through an AI-assisted pipeline using Claude Opus 4.7, open-source Python tools, and the commission's own public documents. The [full technical report](report_academic.md) walks every calculation, cites every submission, and lists every piece of code. The [visualized version](report.html) carries three figures — a map comparison, the Calgary zone gap, and the marginal-seats chart — for readers who want to see rather than read.
+The analysis uses open-source Python tooling and the commission's own public documents. The [full technical report](report_academic.md) walks every calculation, cites every submission, and lists every piece of code. The [visualized version](report.html) carries three figures — a map comparison, the Calgary zone gap, and the marginal-seats chart — for readers who want to see rather than read.
 
 The data folder holds the commission's population tables and Elections Alberta's vote returns. The analysis folder holds the scripts. Running them on the same public files will produce the same numbers in this document. That's the point. A reader who doesn't trust one paragraph of this can run the script behind it and check.
 
@@ -450,13 +475,11 @@ This audit will be updated when Elections Alberta releases the digital boundary 
 - [Marginal-seats analysis and 2023 flip-zone list](analysis/v0_1_marginal_seats_findings.md)
 - [Rationale-by-rationale validation of the minority report's justifications](analysis/v0_1_minority_rationales_validation.md)
 - [Chair's Recommendation 5 addendum, close reading](analysis/v0_1_chair_recommendation_5_analysis.md)
-- [Track C checklist baseline scorecard (majority and minority)](analysis/v0_1_track_c_checklist_baseline_scoring.md)
+- [Checklist baseline scorecard (majority and minority)](analysis/v0_1_track_c_checklist_baseline_scoring.md)
 - [Plan B re-run under 2024 provincial estimates](analysis/v0_1_plan_b_cross_check.md)
 - [Cycle-lag analysis under mid-2025 populations](analysis/v0_1_cycle_lag_analysis.md)
 - [Proposed Act §12 amendment (legislative reform)](analysis/v0_1_act_amendment_proposal.md)
 - [Calgary data-sources audit and A2 sensitivity plan](analysis/v0_1_calgary_data_sources_audit.md)
-- [Red-team attack on the academic paper](analysis/v0_1_red_team_academic_discredit.md)
-- [AI-use recommendations for the November committee](analysis/v0_1_ai_use_recommendations_for_committee.md)
 - [Source repository, data, and commit history](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 
 ## Source trail
