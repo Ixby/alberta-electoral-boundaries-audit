@@ -12,9 +12,9 @@
 
 **Session 2 (Chat 2, prior).** Section D procedural audit skeleton. Section 4 geometry provenance (blocked on shapefiles). Initial compiled report.
 
-**Session 3 (Chat 3, current session chain).** v0.8→v0.9 prompt fortifications. Dual-audience report rewrite. Bias audit identified three class-A issues; remediated in v0.2 packing-cracking script that computes all three maps symmetrically. Monte Carlo CI + declination + 2019 cross-election red-team pass found partisan-math claims weaker than first-draft implied.
+**Session 3 (Chat 3, current session chain).** v0.8→v0.9 prompt fortifications. Dual-audience report rewrite. Bias audit identified three class-A issues; remediated in v0.2 packing-cracking script that computes all three maps symmetrically. Monte Carlo CI + declination + 2019 cross-election stress-test pass found partisan-math claims weaker than first-draft implied.
 
-**Session 4 (still Chat 3 thread).** Added 2015 election data. Uncertainty and shapefile-impact analysis. Design critique red-teamed methodology. Academic literature review. PDF recon confirmed Appendix B is prose-only; Appendix C hybrid crosswalk extracted. v1.1→v1.2 prompt made red-team gates mandatory.
+**Session 4 (still Chat 3 thread).** Added 2015 election data. Uncertainty and shapefile-impact analysis. Design critique stress-tested methodology. Academic literature review. PDF recon confirmed Appendix B is prose-only; Appendix C hybrid crosswalk extracted. v1.1→v1.2 prompt made stress-test gates mandatory.
 
 **Session 5 (the present).** Submission-archive sub-agent searched 1,252 of ~1,340 public submissions. **Chair's "no public support" claim partially refuted** — three of five disputed configurations have documented public support (RMH-Banff Park, Olds-Three-Hills-Didsbury, Red Deer hybrids, Chestermere partially). Public report rewritten for subject-matter-naive audience at grade 7.1. Academic report updated with APA citations. Accessible HTML dissemination built with cross-links. File structure cleaned: `deprecated/` for old scripts, `drafts/` for WIP.
 
@@ -46,7 +46,7 @@
 
 ## Critical sub-findings to carry forward
 
-1. **Structural findings are robust.** Population MAD, Calgary zone gap, community splits, visible anomalies survive all three red-team gates.
+1. **Structural findings are robust.** Population MAD, Calgary zone gap, community splits, visible anomalies survive all three stress-test gates.
 2. **Partisan-math findings are directional at 89% confidence, not 95% significance.** Monte Carlo CI on majority-minority EG asymmetry is [−2.99, +0.76] pp and crosses zero. Two literature-standard metrics (EG and declination) disagree. Under 2019 vote data the asymmetry flips sign.
 3. **Chair's Appendix C claim is overbroad.** Three of five disputed configurations have public support. Strongest counter-example: EBC-2025-2-0619 explicitly proposes "Rocky Mountain House-Banff" as an electoral district amendment.
 4. **Strongest remaining procedural case:** Airdrie 4-way split (0/1,252 supporting submissions) and Calgary-Nolan Hill-Cochrane (0/1,252 supporting).

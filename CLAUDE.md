@@ -8,7 +8,7 @@ You are a fresh Claude Code instance arriving at a partially-completed multi-ses
 
 **Project owner.** Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student). All published outputs credit Will Conner as author and audit designer.
 
-**What's done.** Sessions 1–4 produced: symmetric B1–B6 partisan-bias analysis across all three maps with Monte Carlo CI and cross-election robustness; Section A population equality with Calgary zone-gap analysis under two classification rules; Section C visual spatial audit of chair-flagged and independently-scanned configurations; Section D procedural audit with sub-agent-verified submission archive search (1,252 of ~1,340 submissions) that partially refuted the chair's "no public support" claim; bias audit; design critique; uncertainty and shapefile-impact analysis; academic literature review; dual-audience reports (public + academic); v1.2 pipeline prompt with integrity and red-team gates.
+**What's done.** Sessions 1–4 produced: symmetric B1–B6 partisan-bias analysis across all three maps with Monte Carlo CI and cross-election robustness; Section A population equality with Calgary zone-gap analysis under two classification rules; Section C visual spatial audit of chair-flagged and independently-scanned configurations; Section D procedural audit with sub-agent-verified submission archive search (1,252 of ~1,340 submissions) that partially refuted the chair's "no public support" claim; bias audit; design critique; uncertainty and shapefile-impact analysis; academic literature review; dual-audience reports (public + academic); v1.2 pipeline prompt with integrity and stress-test gates.
 
 **What's next.** The two external unknowns that are still outstanding: 2026 boundary shapefiles (not yet released by Elections Alberta) and full measured vote attribution via Phase 4C execution. Both would improve precision. Neither is required for the headline findings.
 
@@ -65,7 +65,7 @@ You are a fresh Claude Code instance arriving at a partially-completed multi-ses
 │   ├── v0_1_section_D_procedural.md                # §D writeup
 │   ├── v0_1_section_4_geometry_provenance.md       # §4 writeup
 │   ├── v0_1_bias_audit.md                          # self-audit of v0.1 methodology
-│   ├── v0_1_design_critique.md                     # hostile red-team pass
+│   ├── v0_1_design_critique.md                     # hostile stress-test pass
 │   ├── v0_1_uncertainty_and_shapefile_impact.md    # confidence intervals + shapefile scenarios
 │   ├── v0_1_prompt_readiness.md                    # v1.1→v1.2 execution-readiness assessment
 │   ├── v0_1_academic_literature_review.md          # literature gap analysis
@@ -74,7 +74,7 @@ You are a fresh Claude Code instance arriving at a partially-completed multi-ses
 │   ├── data_acquisition_log.md                     # data-acquisition subagent log
 │   ├── appendix_e_recon_log.md                     # Appendix E PDF recon log
 │   ├── v0_1_reproducibility_verification.md        # clean-room pipeline verification
-│   ├── v0_2_final_redteam.md                       # final red-team pass on design + prompt
+│   ├── v0_2_final_redteam.md                       # final stress-test pass on design + prompt
 │   ├── v0_1_three_map_partisan_comparison.html     # B1–B4 visual from first session
 │   └── polls_2023_unified.csv                      # parsed Statement of Vote output
 ├── maps/
@@ -116,7 +116,7 @@ Prefer spawning sub-agents (via the `Agent` tool) over direct work for anything 
 - **Multi-file research or scans.** Reading through many files to find a pattern, survey the codebase, or verify consistency — a sub-agent absorbs the file-read context cost while the parent session retains its room to plan.
 - **Web fetches that take unknown time.** Downloading PDFs, shapefiles, scraping archives. Sub-agents run in the background; the parent keeps working.
 - **Parallel independent tasks.** Two or more tasks that don't depend on each other — spawn them in the same message so they run concurrently.
-- **Fresh-eyes red-team passes.** A sub-agent hasn't seen the authoring reasoning and will catch framing bias the author misses.
+- **Fresh-eyes stress-test passes.** A sub-agent hasn't seen the authoring reasoning and will catch framing bias the author misses.
 - **Validation passes on existing code or reports.** Clean-room reproducibility, citation spot-checks, cross-document consistency checks.
 - **Data-acquisition tasks.** Downloading, parsing, and filtering multi-source data into `data/`.
 - **OCR or text-extraction at scale.** Long PDFs, image-layer scans, submission archives.
@@ -136,7 +136,7 @@ Precedent sub-agents used in this audit chain:
 - Submission-archive keyword search (1,252 submissions searched)
 - Shapefile and census data acquisition
 - Clean-room reproducibility verification
-- Final red-team pass on design and prompt
+- Final stress-test pass on design and prompt
 - Historical marginal-seat analysis
 - Phase 4C preparation (VA-polygon validation, hybrid-adjacent VA identification)
 - Data-closeout web fetches
@@ -145,7 +145,7 @@ Precedent sub-agents used in this audit chain:
 
 - **Symmetry.** Every test, every map. If a pattern is flagged in one proposal, check the equivalent in others.
 - **Vote Anywhere handling.** Only Election Day polls are spatially valid as proxies for where voters live. 2023 non-Election-Day votes make up 47.2% of total and must be apportioned by Election Day spatial share.
-- **Structural findings vs vote-based findings.** Report them separately. Structural findings (A1, A2, C3, C4, D) survive all three red-team tests (Monte Carlo CI, cross-metric agreement, cross-election stability). Vote-based findings (B1–B6) have 89% directional confidence, not 95% significance, and require explicit disclosure of Monte Carlo CI bounds, declination disagreement, and 2019 direction flip.
+- **Structural findings vs vote-based findings.** Report them separately. Structural findings (A1, A2, C3, C4, D) survive all three stress-test tests (Monte Carlo CI, cross-metric agreement, cross-election stability). Vote-based findings (B1–B6) have 89% directional confidence, not 95% significance, and require explicit disclosure of Monte Carlo CI bounds, declination disagreement, and 2019 direction flip.
 - **Honest blocking.** If a stage fails a gate, stop and report. Fabricated results from a failed gate are worse than a documented block.
 - **No "final" in filenames or claims.** Everything is a revision.
 
