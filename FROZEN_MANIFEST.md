@@ -128,6 +128,24 @@ truth for that audit. Where a Wayback or archive.ph snapshot exists, it
 is a second independent preservation layer — the snapshot URL is
 timestamped and cannot be mutated after capture.
 
+## Chrome-based archival retry (2026-04-22)
+
+A browser-driven retry of the six priority unarchived URLs was
+attempted via the Wayback public "Save Page Now" UI. All three of the
+URLs actually submitted (StatsCan journey-to-work zip, 2015 Statement
+of Vote xlsx, Calgary wards geojson) hit an IP-level daily bandwidth
+block: Wayback returned a `Sorry — Job failed` page with the message
+`You have reached your daily not-logged-in bandwidth limit.` The
+remaining three priority URLs (Economic Dashboard, open.alberta.ca
+dataset landing, StatsCan REST root) were not submitted because the
+block is account-wide and every subsequent call would fail the same
+way until the quota resets. No new snapshots were produced; the
+"unarchived" cells in the tables above stand. The full attempt trace
+and diagnosis is in `analysis/v0_1_url_archival_log.md` under the
+"Chrome-based pass" appendix. Any future archival pass for these six
+URLs requires a signed-in Internet Archive session (Bearer token or
+authenticated browser).
+
 ## How to extend
 
 When new analysis introduces a new URL, append it here with its last
