@@ -1,0 +1,121 @@
+Loaded 89 majority EDs, 89 minority EDs
+Provincial average (2026 basis): 54,929 per ED
+(Note: 2019 map (87 EDs) not analyzed for A1/A2 because 2019-era population data is not in the working bundle. Historical deviations for 2019 boundaries were within ±25% by the 2017 commission.)
+======================================================================
+A1 — Variance Distribution
+======================================================================
+
+Majority 2026
+  N districts:          89
+  Total population:     4,888,723
+  Mean population:      54,929
+  Median population:    55,791
+  Std deviation:        5,301
+  Mean abs dev from avg:3,180
+  Max positive dev:     +14.28%
+  Max negative dev:     -47.72%
+  EDs > +10%:           5
+  EDs > +15%:           0
+  EDs > +20%:           0
+  EDs > +25%:           0 (over statutory limit)
+  EDs < -10%:           5
+  EDs < -15%:           4
+  EDs < -20%:           4
+  EDs < -25%:           3 (s.15(2) only)
+
+Minority 2026
+  N districts:          89
+  Total population:     4,888,773
+  Mean population:      54,930
+  Median population:    55,713
+  Std deviation:        6,533
+  Mean abs dev from avg:4,707
+  Max positive dev:     +24.06%
+  Max negative dev:     -45.36%
+  EDs > +10%:           15
+  EDs > +15%:           5
+  EDs > +20%:           3
+  EDs > +25%:           0 (over statutory limit)
+  EDs < -10%:           13
+  EDs < -15%:           5
+  EDs < -20%:           4
+  EDs < -25%:           3 (s.15(2) only)
+
+======================================================================
+A2 — Geographic Asymmetry (Calgary NE/central vs S/W)
+======================================================================
+
+Majority 2026
+  Calgary EDs total: 28
+  NE/central classified: 17  (mean pop 56,460)
+  S/W classified:        11  (mean pop 56,255)
+  Unclassified:          0
+  Gap (NE/central - S/W): +205 (+0.36%)
+  -> NE/central EDs +0.4% LARGER than S/W (consistent with packing signal if directional across maps)
+
+Minority 2026
+  Calgary EDs total: 29
+  NE/central classified: 17  (mean pop 61,225)
+  S/W classified:        12  (mean pop 54,569)
+  Unclassified:          0
+  Gap (NE/central - S/W): +6,656 (+12.20%)
+  -> NE/central EDs +12.2% LARGER than S/W (consistent with packing signal if directional across maps)
+
+======================================================================
+A2b — Regional Breakdown (Calgary / Edmonton / Rest)
+======================================================================
+
+Majority 2026
+          count     mean      sum
+region                           
+Calgary      28  56379.0  1578616
+Edmonton     21  58041.0  1218856
+Rest         40  52281.0  2091251
+
+Minority 2026
+          count     mean      sum
+region                           
+Calgary      29  58470.0  1695644
+Edmonton     22  58198.0  1280350
+Rest         38  50336.0  1912779
+
+======================================================================
+A3 — s.15(2) Eligibility Audit
+======================================================================
+Riding                                           Dev%   Criteria      Verdict
+--------------------------------------------------------------------------------
+Central Peace-Notley (majority)                -47.7%   4/5                 PASS
+Lesser Slave Lake (majority)                   -45.4%   3/5                 PASS
+Canmore-Banff (majority)                       -27.2%   1/5   FAIL (engineered?)
+Central Peace-Notley (minority)                -44.6%   4/5                 PASS
+Lesser Slave Lake (minority)                   -45.4%   3/5                 PASS
+Rocky Mountain House-Banff Park (minority)     -30.3%   2/5   FAIL (engineered?)
+
+Detailed notes:
+
+  Central Peace-Notley (majority)  [4/5, PASS]
+    Peace River exceeds 4,000 threshold, so (c) fails. (a),(b),(d),(e) pass => 4/5 criteria met.
+
+  Lesser Slave Lake (majority)  [3/5, PASS]
+    (c) and (e) fail. (a),(b),(d) pass => 3/5 criteria met — minimum threshold, qualifies.
+
+  Canmore-Banff (majority)  [1/5, FAIL (engineered?)]
+    Area < 20,000 km² so (a) fails. Canmore + Banff both exceed 4,000 so (c) fails. Indigenous presence limited, so (d) contested. (b) borderline — Canmore is ~100km from Calgary. (e) passes. Only 1–2 of 5 criteria pass; DOES NOT MEET 3/5 threshold by standard reading. FLAG.
+
+  Central Peace-Notley (minority)  [4/5, PASS]
+    Same underlying geography as majority. 4/5 criteria met.
+
+  Lesser Slave Lake (minority)  [3/5, PASS]
+    Same geography as majority. 3/5 criteria met — minimum.
+
+  Rocky Mountain House-Banff Park (minority)  [2/5, FAIL (engineered?)]
+    Area (a) passes only due to extension through uninhabited Banff National Park — flagged by the commission chair as a boundary drawn to qualify. (b) borderline (~95km from Red Deer). (c) fails (Rocky Mountain House > 4,000). (d) contested. (e) passes only via the NP extension. Boundary appears ENGINEERED to meet (a) and (e). FLAG.
+
+======================================================================
+SYMMETRIC ASSESSMENT — Phase 1 summary
+======================================================================
+  MAD from provincial avg: Majority 3,180 vs Minority 4,707
+  Max deviation (pos):     Majority +14.3% vs Minority +24.1%
+  Max deviation (neg):     Majority -47.7% vs Minority -45.4%
+  Calgary NE/SW gap:       Majority +0.36% vs Minority +12.20%
+  s.15(2) protected that FAIL 3/5 test: Majority 1/3 vs Minority 1/3
