@@ -2,7 +2,13 @@
 
 **A plain-English audit of Alberta's 2026 electoral boundary proposals — with the stakes spelled out**
 
-*Published April 22, 2026 · Non-partisan, evidence-based · [Full technical report](report_academic.md) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)*
+*Published April 22, 2026 · Non-partisan, evidence-based*
+
+**Author and audit design:** Will Conner, Mount Royal University, BCIS
+
+**How this was made:** The analysis was executed by an AI-assisted pipeline (Claude Sonnet 4.6 via Claude Code, plus open-source Python scientific libraries — full tool list in the [academic report](report_academic.md)). **This document is the pipeline's unedited output.** Nothing was rewritten after generation to sound more convincing or less alarming; if you re-run the scripts against the same public data, the numbers and language should match. That's by design — it's how you check someone's work.
+
+*[Full technical report](report_academic.md) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)*
 
 ---
 
