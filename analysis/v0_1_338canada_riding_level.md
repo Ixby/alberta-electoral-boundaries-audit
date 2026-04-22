@@ -81,10 +81,12 @@ No paired ED shows the opposite direction (338 more NDP than 2023). The UCP swin
 
 ## 3. Phase 3 — 338-reallocated seat counts on both 2026 maps
 
-| Map | 338-reallocated UCP / NDP | Audit B1 central (2023 input) | Delta (UCP / NDP) |
+| Map | 338-reallocated UCP / NDP | Audit B1 central (2023 input) UCP / NDP | Delta (UCP / NDP) |
 |---|---|---|---|
-| Majority 2026 (89 EDs) | 67 / 22 | 38 / 51 | +29 / −29 |
-| Minority 2026 (89 EDs) | 66 / 23 | 37 / 52 | +29 / −29 |
+| Majority 2026 (89 EDs) | 67 / 22 | 51 / 38 | +16 / −16 |
+| Minority 2026 (89 EDs) | 66 / 23 | 52 / 37 | +14 / −14 |
+
+**Correction (v2).** A prior version of this table had the Audit-B1 UCP/NDP columns reversed. The corrected values above are consistent with 2023 actual seat counts and with the audit's `v0_2_packing_cracking_analysis.py` output. The minority-vs-majority *direction* implied by the two inputs is therefore **opposite**, not identical: under 2023 votes, the minority has UCP +1 compared to the majority (UCP 52 vs 51); under April 2026 338 polling, the minority has NDP +1 compared to the majority (NDP 23 vs 22). The size of the gap is 1 seat in both cases but the beneficiary flips. See `analysis/v0_1_338canada_historical.md` for the full stability analysis across 77 historical 338 snapshots.
 
 Minority vs. majority delta inside each model:
 
