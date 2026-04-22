@@ -1,0 +1,90 @@
+ed_name,pop_2021_census,pop_plan_b,drift_pct,dev_from_mean_plan_a_pct,dev_from_mean_plan_b_pct,legal_window_plan_a,legal_window_plan_b,status_change_flag,aggregation_method
+Airdrie East,50797,66028,29.984054176427744,-7.524178357227883,3.148612841032438,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Barrhead-Westlock-Athabasca,46892,55224,17.768489294549177,-14.633221873873062,-13.729342164942517,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Acadia,53346,63748,19.499118959247177,-2.883729721138623,-0.41319180665572414,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Airdrie,58820,69271,17.767766065963958,7.081674686061302,8.214811293862573,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-Beddington,61320,73278,19.500978473581213,11.632918934873835,14.474526742672428,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Bow-Springbank,55560,66394,19.499640028797696,1.146852185609757,3.7203762186876426,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-Buffalo,66801,79827,19.499708088202272,21.611066825970436,24.705341934650395,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Cross,63064,75362,19.50082455917798,14.80786692284546,17.730141166261078,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Currie,60141,71868,19.499176934204616,9.486552147133844,12.271831763181064,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-De Winton,47732,56213,17.76795441213442,-13.104003806272049,-12.184331289256733,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-East,57107,68242,19.498485299525452,3.9631621267749537,6.607312617340153,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Edgemont,56584,67618,19.500212074084548,3.011041829923371,5.632502924288656,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Elbow,59034,70546,19.5006267574618,7.471261193759654,10.206609945530296,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Falconridge,63986,76463,19.499578032694654,16.486365801807523,19.45011788428944,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Fish Creek,57894,69183,19.499429992745362,5.39589381630114,8.077338132021977,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Foothills-Airdrie West,58436,69830,19.498254500650283,6.382603569443697,9.08807831055454,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-Glenmore,53096,63450,19.500527346692785,-3.338854146019876,-0.8787259228886506,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Hays,52395,62612,19.499952285523428,-4.615023033386911,-2.1878453504161417,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Klein,61817,73870,19.4978727534497,12.537706291537768,15.399346195054617,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Lougheed,56122,67065,19.498592352375184,2.1699718927428147,4.768609077722185,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-McCall-Bhullar,66474,79436,19.49935313054728,21.015764078225757,24.094523681472296,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Mountain View,62634,74849,19.502187310406487,14.025052912049704,16.928735120531243,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Nolan Hill-Cochrane,56282,66282,17.76766994776305,2.461251524666817,3.5454103763450666,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-North,56981,68092,19.499482283568206,3.733779416634802,6.372983364202773,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-North East,68145,81434,19.50106390784357,24.057815734132053,27.215789333262187,pass,fail,True,commission Plan A + direct 2019-ED growth factor
+Calgary-North West-Bearspaw,57246,68397,19.47909024211299,4.216211307008931,6.849452845582111,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-Peigan-Chestermere,52639,62903,19.49885066205665,-4.170821594702807,-1.7332465993296262,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-South,55134,64930,17.767620705916496,0.37132016561210146,1.433322708066823,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Calgary-South East,54045,64584,19.500416319733553,-1.6112018291706383,0.8928032308299352,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-Varsity,64982,77653,19.499245945030932,18.299581510534434,21.309129959179316,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Calgary-West-Tsuut'ina,57827,68101,17.766787140954918,5.273920470432963,6.387043119391017,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Camrose,48536,51879,6.887671007087523,-11.640323655853939,-18.954884509906073,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Canmore-Kananaskis,49542,58344,17.766743369262443,-9.808902970131776,-8.855293699685033,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Central Peace-Notley,30446,32486,6.700387571437956,-44.57312704026143,-49.25053255052735,s15(2),s15(2),False,commission Plan A + direct 2019-ED growth factor
+Chestermere-Strathmore,52982,65341,23.32679023064437,-3.546390883765728,2.0753848616632418,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Cold Lake-Bonnyville-St. Paul,55713,65612,17.767845924649542,1.4253883336370843,2.4987397123314397,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Drumheller-Stettler,51370,54413,5.92369087015768,-6.48103317540005,-14.996282326905282,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Beaumont,55802,65717,17.768180351958712,1.5874126288948105,2.6627701895276052,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Edmonton-Beverly-Clareview,57481,69263,20.497207773003254,4.644028266397308,8.202313733695247,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Castledowns,59612,70204,17.768234583640876,8.523508864085112,9.672339248377071,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Edmonton-City Centre,57312,69062,20.50181462869905,4.336364155177582,7.888312534491158,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Decore,57959,69840,20.49897341223969,5.514226166770265,9.103700260763697,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Ellerslie,59760,72013,20.50368139223561,8.792942523614816,12.498350041213863,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Enoch-Devon,55043,64823,17.76792689351961,0.2056548749553252,1.266167840828826,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Edmonton-Glenora-Riverview,59708,71947,20.498090708112816,8.698276643239513,12.395245169833416,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Gold Bar,54981,66249,20.494352594532657,0.09278401758477436,3.493857940654843,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Highlands-Norwood,51806,62427,20.501486314326524,-5.687296178407144,-2.476851429285576,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Manning,56901,68566,20.500518444315567,3.5881396006728004,7.113463804116892,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-McClung,61859,74541,20.501463004574923,12.614167194917819,16.44757905408916,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Meadows,56880,68541,20.501054852320674,3.549909148982775,7.074408928593995,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Mill Woods,59673,71905,20.498382853216697,8.634559223756138,12.329632978954951,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-North West,61226,73758,20.46842844543168,11.461792151118484,15.22438035271204,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Rutherford,58082,69989,20.500327123721636,5.7381473838118415,9.33646731888016,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-South,60775,73234,20.500205676676263,10.640747688632702,14.40579016175213,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Spruce Grove,59524,68352,14.83099254082387,8.363305066526912,6.7791540696408985,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Edmonton-Strathcona,56165,67678,20.4985311136829,2.2482532938223905,5.726234625543607,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-West Henday,62510,75323,20.497520396736522,13.799311197308603,17.669215560445362,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Whitemud,60347,72719,20.501433376969857,9.861574673235998,13.60125972598046,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Edmonton-Windermere,56944,67062,17.76833380162967,3.666421001752376,4.763922492659438,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Fort McMurray-Lac La Biche,44719,44930,0.47183523781837694,-18.589163374940913,-29.810577710250385,pass,fail,True,commission Plan A + direct 2019-ED growth factor
+Fort McMurray-Wood Buffalo,46721,46297,-0.9075148220286381,-14.944526980491837,-27.675057116658408,pass,fail,True,commission Plan A + direct 2019-ED growth factor
+Fort Saskatchewan-Vegreville,54274,60235,10.983159523897262,-1.1943078559794102,-5.901182915133142,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Grande Prairie,50352,53625,6.500238322211629,-8.334299833516514,-16.22729200338698,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Grande Prairie-Wapiti,52041,55419,6.491035913990892,-5.259479219018766,-13.424714135863928,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Highwood,54375,64036,17.76735632183908,-1.0104375883273837,0.0367203593680437,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Lac Ste. Anne-Parkland,47017,51089,8.66069719463173,-14.405659661432434,-20.1890185764296,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Leduc,52328,62348,19.148448249503133,-4.736996379255086,-2.600264835937929,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Lesser Slave Lake,30011,31659,5.4913198493885576,-45.36504353955482,-50.54246783282477,s15(2),fail,True,commission Plan A + direct 2019-ED growth factor
+Lethbridge-Cardston,51831,61040,17.767359302348016,-5.641783735919018,-4.643615923295875,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Lethbridge-Fort MacLeod-Crowsnest Pass,54564,64259,17.768125503995307,-0.6663635231171563,0.3850898490322806,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Lethbridge-Little Bow,56212,66199,17.76666903863944,2.333816685700066,3.4157481896090496,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Lethbridge-Taber-Warner,60906,66041,8.431024857977867,10.879232887270481,3.1689213763043442,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Lloydminster-Wainwright,49365,58136,17.767649144130456,-10.131131062947702,-9.180230264035533,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Medicine Hat-Brooks,54898,59334,8.080440088892127,-0.058317291475801766,-7.308720628978333,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Medicine Hat-Cypress,60690,65435,7.818421486241556,10.486005384173078,2.2222311936293324,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Olds-Three Hills-Didsbury,49436,53292,7.7999838174609595,-10.001875726281426,-16.74750294535196,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Peace River,43408,45339,4.448488757832657,-20.975835859018208,-29.171639946695798,pass,fail,True,commission Plan A + direct 2019-ED growth factor
+Red Deer-Blackfalds,52827,58110,10.000567891419161,-3.828568027192105,-9.220847334579346,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Red Deer-Innisfail,52961,58258,10.001699363682711,-3.5846213354557532,-8.989642471483798,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Red Deer-Lacombe,56180,66162,17.767888928444286,2.275560759315266,3.357946973835163,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Red Deer-Sylvan Lake,52454,57951,10.479658367331377,-4.507613669114935,-9.469236342904967,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Rocky Mountain House-Banff Park,38298,45103,17.768551882604836,-30.27857910359103,-29.54031797163194,s15(2),s15(2),False,commission Plan A + direct 2019-ED growth factor
+Sherwood Park,55311,61397,11.003236245954692,0.6935482584280289,-4.085912300828912,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Sherwood Park-Strathcona,51826,57526,10.998340601242619,-5.650886224416643,-10.133169226794209,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+St. Albert,54589,60321,10.500283939987911,-0.620851080629031,-5.766834143334378,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+St. Albert-Sturgeon,52334,57671,10.197959261665456,-4.726073393057937,-9.906650948761408,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
+Stony Plain-Drayton Valley,48032,52135,8.542221852098601,-12.557854496414544,-18.554962584551614,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+West Yellowhead,49766,52283,5.05766989510911,-9.401111485438172,-18.323757721456065,pass,pass,False,commission Plan A + direct 2019-ED growth factor
+Wetaskawin-Ponoka-Maskwacis,48775,57441,17.767298821117375,-11.20522470566746,-10.265955803572057,pass,pass,False,commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)
