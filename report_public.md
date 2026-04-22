@@ -254,6 +254,24 @@ Cochrane's merger into a Calgary district looks like cracking but fails one test
 
 The minority chose Cochrane plus a Calgary neighbourhood across the city's northwest edge via a narrow corridor. Cochrane is separated from Nolan Hill by the Bow River valley, the Calgary city limits, and a different local government. The minority pairing ignores all three rural-west options above. The Calgary-Cochrane merger is not the best available geographic choice. It is a choice. Whether it was a partisan choice or a policy choice the audit cannot tell you from the map alone.
 
+### What about the rest of the contested cases?
+
+The same question applies to every disputed redraw: was the minority's choice the best available geographic option, or was a cleaner alternative on the table? The answer varies by case. The table below names the alternative where one exists.
+
+| Contested redraw | Was a cleaner alternative available? | What it would have been |
+|---|---|---|
+| **Cochrane merged with Calgary-Nolan Hill** | Yes | Cochrane plus Rocky View rural (as the majority does), or Cochrane plus the Bow Valley mountain corridor, or Cochrane plus the foothills-north belt. |
+| **Airdrie split four ways** | Yes | Airdrie is 84,000 people. Two Airdrie-named districts (what the majority does) is the minimum and maximum needed. Four districts is not forced by population or geography. |
+| **Rocky Mountain House-Banff Park (s.15(2))** | Yes | Rocky Mountain House plus Clearwater County plus Sundre fits a normal-sized rural district without invoking s.15(2) and without extending the boundary through uninhabited national-park land. Roughly what the majority's Lacombe-Clearwater does. |
+| **Olds-Three Hills-Didsbury reaching into Airdrie** | Yes | Olds plus Didsbury plus Three Hills plus Carstairs plus Beiseker plus Crossfield plus the surrounding agricultural belt adds up to a population-feasible rural district without the Airdrie slice. Rural anchors keep rural representation; Airdrie stays intact. |
+| **Chestermere partially split into Calgary** | Yes | Chestermere plus Strathmore (what the majority does) keeps both rural-edge communities whole in one district. Neither needs a Calgary attachment. |
+| **Red Deer split across four hybrids** | Yes | Red Deer (population 106,000) needs two districts. Two Red Deer-core districts plus separate adjacent-rural districts is the standard split. Four Red Deer-named hybrids dilutes city representation without population necessity. |
+| **St. Albert-Sturgeon variants** | No materially different option on the table | Both maps pair St. Albert with Sturgeon County rural territory. The variants differ on specific boundaries inside that pairing rather than on the pairing concept. |
+
+Six of seven contested redraws had cleaner options. The minority did not take them. The seventh (St. Albert-Sturgeon) has no real alternative. This is not a claim that every departure is engineered. It is an observation. When not forced by geography or population, the minority chose the less-natural option. The majority, with the same constraints, chose the natural option in all seven cases.
+
+> **Why this matters for the suspicion sort.** Each single redraw has an innocent explanation. The pattern — six unforced choices in the same direction — is what the audit can flag without claiming intent. A reader can read that as "different philosophies" or as "different politics" or as both. The audit gives the facts and lets the reader weigh.
+
 ---
 
 ## Stacking the deck, or looking like it? A suspicion sort
