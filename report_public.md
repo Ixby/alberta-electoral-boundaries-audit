@@ -206,7 +206,7 @@ When the committee tables its map in November, calling it a gerrymander requires
 
 - Two extra rural seats on their own. That is what Smith said would happen. Not a gerrymander signal on its own.
 - Calgary zone gap similar to the minority's. Could be inherited from the minority's structure rather than re-engineered.
-- Keeping the Nolan Hill-Cochrane hybrid alone. A committee could defend it as a rural-urban-hybrid philosophy even without public support for it specifically.
+- Keeping the Nolan Hill-Cochrane hybrid — but the usual "commuter-tie" defence does not hold up on inspection. Cochrane commuters travel to central Calgary job centres, not to suburban residential neighbourhoods like Nolan Hill. Nolan Hill is on the commute path, not at the destination. A committee that keeps this specific pairing would need a different justification than commuter ties.
 
 **Process signals (not about the map but still relevant):**
 
@@ -252,7 +252,11 @@ Cochrane's merger into a Calgary district looks like cracking but fails one test
 - **Cochrane plus the Bow Valley mountain corridor** (Canmore, Kananaskis, Morley/Stoney Nakoda). Shared Trans-Canada Highway economy and tourism base. The 2019 Banff-Kananaskis district covers this area already.
 - **Cochrane plus the foothills-north rural belt** (Sundre area, Didsbury edge). Longer geographic reach but unified rural identity.
 
-The minority chose Cochrane plus a Calgary neighbourhood across the city's northwest edge via a narrow corridor. Cochrane is separated from Nolan Hill by the Bow River valley, the Calgary city limits, and a different local government. The minority pairing ignores all three rural-west options above. The Calgary-Cochrane merger is not the best available geographic choice. It is a choice. Whether it was a partisan choice or a policy choice the audit cannot tell you from the map alone.
+The minority chose Cochrane plus a Calgary neighbourhood across the city's northwest edge via a narrow corridor. Cochrane is separated from Nolan Hill by the Bow River valley, the Calgary city limits, and a different local government. The minority pairing ignores all three rural-west options above.
+
+A common defence is the "commuter tie." Cochrane residents commute into Calgary, so pairing them with a Calgary district makes sense. The commuter argument points somewhere else. Cochrane commuters work in the central job core — downtown, Beltline, the airport and NE industrial, the SW business parks. Nolan Hill is a residential neighbourhood on Calgary's northwest edge. No office towers. No industrial zone. No commercial core. Cochrane commuters pass through the area on their way elsewhere. If commuter ties mattered, the natural pairing would be Cochrane plus central Calgary. Not Cochrane plus a neighbouring bedroom suburb. StatsCan journey-to-work data (table 98-10-0438) would put numbers to this for the next session.
+
+The Calgary-Cochrane merger is not the best available geographic choice. It is a choice. Whether it was a partisan choice, a policy choice with a rationale the audit hasn't seen stated, or something else, the audit cannot tell you from the map alone.
 
 ### What about the rest of the contested cases?
 
