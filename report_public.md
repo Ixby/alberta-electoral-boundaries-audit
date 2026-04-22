@@ -138,7 +138,11 @@ Apply a 1.5 percentage point swing toward the UCP — the middle of our map-effe
 
 The 2023 election wasn't close enough for a map effect of this size to change who formed government. The UCP won 49 seats to the NDP's 38 — an 11-seat gap. A 1-to-3 seat map shift is a rounding error at that spread.
 
-But the 2027 election, by most accounts, is expected to be closer. Several recent polls have shown the NDP and UCP within the margin of error provincially. If that holds, the difference between the two maps is exactly the size of the gap that decides a majority, a minority, or opposition. That's the stake. It is not whether the minority map is an extreme gerrymander. It is whether a shift equal to the margin in Calgary-Acadia in 2023 gets baked into the next map. That shift is small. It is also, by direct inspection, in a specific direction.
+What does 2027 look like from here? The 338Canada aggregator, which pools Alberta polling into a seat projection, had the UCP at 52 percent and the NDP at 38 percent as of its April 12, 2026 update, with a central projection of 63 UCP seats to 24 NDP and UCP majority odds above 99 percent (Fournier, 338Canada Alberta, accessed April 22, 2026). On those numbers, 2027 does not look close. A 1-to-3 seat map effect does not change a 39-seat gap.
+
+That matters for how to read this audit. The map effect is real and measurable. But whether it decides a 2027 election is a separate question from whether it decides an election. Alberta polling has moved more than 10 points inside a single cycle twice in the last decade — the NDP's 2015 win came out of a double-digit swing during the writ period; the UCP's 2023 result narrowed over months from a projected NDP lead. A 14-point April 2026 gap is not locked in.
+
+The adopted map is also in place for more than one election. If 2027 breaks the way 338Canada's April snapshot suggests, the map effect is an insurance policy rather than a live intervention. If 2031 or 2035 tightens, the same effect is waiting. That's the stake. It is not whether the minority map is an extreme gerrymander. It is whether a shift equal to the margin in Calgary-Acadia in 2023 gets baked into the next decade of Alberta maps. That shift is small. It is also, by direct inspection, in a specific direction.
 
 ---
 
@@ -206,7 +210,7 @@ The audit's seat-count finding (roughly 1 to 3 seats of UCP advantage under 2023
 
 **Doesn't matter — 2023-style blowout.** If 2027 looks like 2023 (UCP 49, NDP 38, an 11-seat gap), a 1 to 3 seat map effect does not change which party forms government. The 2023 election was already decided by ten more seats than the map effect could move.
 
-**Matters for government type — tight race.** If 2027 lands within 5 seats of a tie — which current polling in spring 2026 puts inside the range of plausible outcomes — the 1 to 3 seat map effect is exactly the size that decides whether a party governs with a majority, a minority, or from opposition. Eight of the 14 Calgary ridings that sat inside a 3-point margin in 2023 could flip with a 1.5-point swing.
+**Matters for government type — tight race.** If an election lands within 5 seats of a tie, the 1 to 3 seat map effect is exactly the size that decides whether a party governs with a majority, a minority, or from opposition. Eight of the 14 Calgary ridings that sat inside a 3-point margin in 2023 could flip with a 1.5-point swing. As of April 2026, 338Canada's aggregate projection does not show 2027 landing in this range — it shows a UCP majority around 63 seats — but Alberta polling has moved more than 10 points inside a single cycle twice in the last decade, and the map is in place for future elections as well.
 
 **Matters most — close Calgary race.** Seven of the 14 marginal 2023 Calgary ridings are ones the audit's Calgary zone-gap analysis identifies as packed under the minority map (more NDP voters per riding than the majority map has). If 2027 is close and those seats are where the race is decided, the map choice weighs directly.
 
