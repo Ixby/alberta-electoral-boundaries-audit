@@ -36,28 +36,27 @@ backward_dependencies:
 
 ## Currently live tasks
 
-### 2026-04-22 — Tier C visual-transcription approximation for 3 misclassified EDs
-
-**Agent ID:** a-visual-transcription
-**Status:** RUNNING
-**Task summary:** Build Tier C approximations for Edmonton-Windermere, Calgary-De Winton, and Calgary-South using the commission's Appendix E thumbnails the PO pasted in chat as visual references. These three EDs were previously classified Tier B in Tracks Y / Y-prime / Y-prime-prime but human review against the commission's actual shapes established they are structurally different (Windermere missing upper-east carve-out, De Winton at wrong scale missing Okotoks, Calgary-South wrong shape). This pass uses multi-feature OSM snapping (waterway + admin + roads + aboriginal-lands) anchored to the commission-thumbnail observations documented in `analysis/v0_1_commission_reference_shapes.md`.
-
-**Expected output contract:**
-- `analysis/v0_1_shape_refinement_v4.md`
-- `analysis/v0_1_shape_refinement_v4.py`
-- `data/v0_1_refined_v4_minority_2026_eds.gpkg`
-- `data/v0_1_boundary_refinement_impact_v4.csv`
-- `maps/verification/v0_4_minority_edmonton_windermere.png`, `..._calgary_de_winton.png`, `..._calgary_south.png`
-
-**Observed on-disk outputs at last check:** none yet (just spawned).
-
-**Re-spawn prompt summary:** if this task does not complete in-session, re-spawn with the same scope: visual-transcription-assisted Tier C approximation using `maps/hires/v0_1_minority_p360_map74.png`, `maps/hires/v0_1_minority_p361_map75.png`, and the descriptions in `analysis/v0_1_commission_reference_shapes.md`. Full prompt is in the spawn call in session 10's conversation history; the prompt is also self-contained in the sub-agent's transcript at `C:\Users\email\AppData\Local\Temp\claude\...`.
-
-**Notes:** The earlier Tier-C-declined decision (Track X) was made without commission-thumbnail descriptions in hand. The PO has now pasted three such descriptions, which closes the gap for these three EDs specifically. Budget: 40K tokens, 120 minutes wall clock.
+*(none — session 10 closed with all spawned tasks integrated)*
 
 ---
 
 ## Completed this session (session 10)
+
+### 2026-04-22 — Track Y-prime-prime-prime — Tier C visual-transcription approximation for 3 misclassified EDs
+
+**Agent ID:** a-visual-transcription (background agent a9029db98c0e3d389)
+**Status:** COMPLETED.
+**Expected outputs (delivered):**
+- `analysis/v0_1_shape_refinement_v4.md`
+- `analysis/v0_1_shape_refinement_v4.py`
+- `analysis/v0_1_shape_refinement_v4_log.json`
+- `data/v0_1_refined_v4_minority_2026_eds.gpkg`
+- `data/v0_1_boundary_refinement_impact_v4.csv`
+- `maps/verification/v0_4_minority_edmonton_windermere.png`
+- `maps/verification/v0_4_minority_calgary_de_winton.png`
+- `maps/verification/v0_4_minority_calgary_south.png`
+
+**Integration:** §6.7 of `report_academic.md` extended with a Tier C visual-transcription annex paragraph. v4 runs parallel to v3; does not replace it. Territorial gap closed ~90 %; per-segment error bands documented. `analysis/v0_1_commission_reference_shapes.md` superseded by v4 for the three EDs (original mismatch observations retained for the record). No further action without commission shapefile release.
 
 ### 2026-04-22 — Track T — Threshold provenance compendium
 

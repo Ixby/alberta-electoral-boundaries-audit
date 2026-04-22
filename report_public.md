@@ -8,11 +8,11 @@ By Will Conner, Mount Royal University, BSc Computer Information Systems (4th ye
 
 I am not a neutral observer of Alberta politics. Going into this project, I believed the UCP government's handling of boundary redistribution was worth scrutiny. That belief could have shaped what I looked for. The audit is designed to answer back: every test is applied the same way to both maps; every numeric claim traces to a script and data file anyone can re-run; an independent self-critique sits in the repository and flagged me when my own language overstated a finding. Three specific cases in this document are places where my prior was wrong and the numbers said so — those retractions are here because the methodology surfaced them.
 
-[Full technical report](report_academic.md) · [Visualized version with charts](report.html) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)
+[Full technical report](report_academic.md) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 
 ---
 
-> **The bottom line, in three sentences.** The minority map tilts UCP by a small, measurable amount. The shift is about 1 to 3 seats in a tied election, well under any published gerrymander cutoff. The bigger story is that the government rejected the commission's work and handed the drafting pencil to a committee of MLAs.
+> **The bottom line, in four sentences.** The minority map tilts UCP by a small, measurable amount in a tied election — about 1 to 3 seats, well under any published gerrymander cutoff. Several of the minority's distinctive choices — the Banff-park extension under s.15(2), the four-way Airdrie split, and the Nolan Hill-Cochrane corridor — fail their own stated rationales when tested against the census, the statutory population limits, and the commission's own public submissions. Six of the seven contested redraws had cleaner options the minority didn't take. The bigger story is that the government rejected the commission's work and handed the drafting pencil to a committee of MLAs.
 
 ---
 
@@ -460,7 +460,7 @@ And the 91-seat committee's map cannot yet be called anything — because it doe
 
 **Every number in this report can be re-run from public files.**
 
-The analysis uses open-source Python tooling and the commission's own public documents. The [full technical report](report_academic.md) walks every calculation, cites every submission, and lists every piece of code. The [visualized version](report.html) carries three figures — a map comparison, the Calgary zone gap, and the marginal-seats chart — for readers who want to see rather than read.
+The analysis uses open-source Python tooling and the commission's own public documents. The [full technical report](report_academic.md) walks every calculation, cites every submission, and lists every piece of code.
 
 The data folder holds the commission's population tables and Elections Alberta's vote returns. The analysis folder holds the scripts. Running them on the same public files will produce the same numbers in this document. That's the point. A reader who doesn't trust one paragraph of this can run the script behind it and check.
 
@@ -471,7 +471,6 @@ This audit will be updated when Elections Alberta releases the digital boundary 
 ## Further reading
 
 - [Full technical report with every calculation cited](report_academic.md)
-- [Visualized version with three interactive figures](report.html)
 - [Marginal-seats analysis and 2023 flip-zone list](analysis/v0_1_marginal_seats_findings.md)
 - [Rationale-by-rationale validation of the minority report's justifications](analysis/v0_1_minority_rationales_validation.md)
 - [Chair's Recommendation 5 addendum, close reading](analysis/v0_1_chair_recommendation_5_analysis.md)

@@ -27,7 +27,6 @@ You are a fresh Claude Code instance arriving at a partially-completed multi-ses
 ├── README.md                                       # human-facing setup notes
 ├── report_public.md                                # dual-audience primary (grade 9, subject-matter-naive)
 ├── report_academic.md                              # dual-audience secondary (technical, legal framing, APA)
-├── report.html                                     # accessible HTML dissemination build
 ├── migration.md                                    # handoff log for next session
 ├── v1_2_gerrymander_audit_prompt.md                # current execution prompt
 ├── alberta_redistricting_audit_final.md            # redirect pointer to the two reports
