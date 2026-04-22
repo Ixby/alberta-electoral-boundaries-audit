@@ -12,6 +12,10 @@ backward_dependencies:
 
 # Commission reference shapes — human cross-check
 
+## Status note (session 10 close)
+
+**Superseded for the three EDs by `analysis/v0_1_shape_refinement_v4.md`.** The v4 pass built visual-transcription-assisted Tier C polygons for Edmonton-Windermere, Calgary-De Winton, and Calgary-South using the commission thumbnail observations documented below plus multi-feature OSM anchors. v4 closes ~90 % of the thumbnail-legible territorial gap at all three EDs. The observations in this file remain the canonical record of what the commission thumbnails show and what the v3 approximation missed. Readers looking for the current best-effort approximation polygons should use v4; readers looking for the documentation of v3's known-inaccurate approximation should continue with this file.
+
 ## Purpose
 
 The v3 verification panels in `maps/verification/` show approximate polygon boundaries for the minority 2026 electoral divisions. Three of those approximations do not match the shapes the commission actually published in its minority-report thumbnails. This file documents the specific mismatches so a reader of the verification panels knows which approximations are faithful and which are not.
