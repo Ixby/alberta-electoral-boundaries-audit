@@ -61,6 +61,34 @@ Data and scripts: `analysis/*.py`, `data/*.csv`, `data/2023_results.xlsx`
 
 ---
 
+## Red-Team Update (v0.3 Fortifications)
+
+A post-v0.2 red-team pass applied three additional tests that **materially weaken the partisan-bias magnitude claim** while leaving structural findings intact. Findings documented here for intellectual honesty; full methodology in `analysis/v0_1_design_critique.md`.
+
+**1. Monte Carlo 95% CI over modeling choices crosses zero.** N=2,000 samples varying urban weight (0.55–0.85), rural baseline (0.28–0.38), and per-hybrid jitter (±0.10). Minority-majority EG asymmetry: mean −1.25 pp, median −1.45 pp, **95% CI [−3.14, +0.74] pp**. Direction consistency: 89.3% of samples show minority more UCP-favorable. Classical 95% significance is **not** defensible; the directional claim holds at 89% confidence, not 95%. (Script: `v0_3_monte_carlo_ci.py`.)
+
+**2. Declination metric (Warrington 2018) disagrees with efficiency gap.** Computed: 2019 = −0.034, Majority = −0.021, Minority = −0.015. By declination, **the minority is the least pro-UCP of the three maps**, the opposite direction from EG/B4. When two partisan-bias metrics from the same literature disagree on the direction of bias in the same map, the "measurable partisan advantage" framing weakens. We retain both metrics in reporting; neither is dispositive on its own.
+
+**3. 2019 cross-election check reverses the EG asymmetry.** Running the identical methodology with 2019 vote totals (instead of 2023) produces: Majority EG +0.30%, Minority EG +0.90%, asymmetry **+0.60 pp** (minority less UCP-favorable). The direction of the audit's headline asymmetry **flips sign depending on which election's votes are used as the vote-attribution source**. This means the observed asymmetry is not a stable property of the maps; it is an interaction between the maps and 2023-specific voter distribution patterns. A 2015 cross-check (data not in bundle) would further discriminate.
+
+**What survives these three tests unchanged:**
+- Section A1 population distribution variance (CSV-sourced, election-independent): minority MAD is 48% wider than majority.
+- Section A2 Calgary zone gap: minority 7.7–12.2%; majority 0.36–0.39%. Not vote-based.
+- Section C3 visual spatial anomalies: 3 minority anomalies confirmed on published maps.
+- Section C4 community splits: Airdrie 4 vs 2, Cochrane merged vs intact, Chestermere partial split vs intact.
+- Section D procedural concerns: government-controlled replacement of drafting process, qualitative.
+
+**What is now materially weakened:**
+- Section B partisan-bias *magnitude* claims. The point estimate of 0.58 pp is within Monte Carlo noise. The direction holds at 89.3% confidence across modeling uncertainty, which is a defensible frequentist claim but not at 95% significance.
+- The two-seat "in a tied election, minority gives UCP 2 more seats" line in the public report. Under Monte Carlo, minority NDP@50/50 has 95% CI [41, 47] vs majority [43, 46] — overlapping. The point difference is robust; the worst-case difference could be +3 or −3.
+- "Directionally consistent across six dimensions." Declination disagreement means the correct phrasing is "directionally consistent across five of six tested dimensions, with one partisan-bias metric (declination) pointing the opposite way."
+
+**Revised synthesis (the most-defensible claim, v0.3):**
+
+The minority 2026 proposal exhibits measurable structural differences from the majority 2026 proposal in population distribution (MAD 48% wider), Calgary geographic-zone balance (12.2% vs 0.4% gap, robust under two classification rules), community-of-interest treatment (Airdrie 4-way split vs 2), and visible boundary shape (three confirmed anomalies). These are not vote-based and do not depend on attribution modeling — they are robust. The partisan-bias consequences of these structural differences are directionally more UCP-favorable for the minority proposal in 89.3% of modeling-jitter samples using 2023 vote attribution, but this finding inverts when 2019 vote attribution is substituted, and one declination-based metric shows the minority as less partisan. **The audit's most defensible core claim is that the minority has more structural irregularities than the majority — not that it produces a guaranteed specific partisan seat shift.** The procedural concern about the April 16 government action is independent of these partisan-math questions.
+
+---
+
 ## Abstract
 
 This audit evaluates two competing 2026 electoral boundary proposals against the 2019 baseline currently in force in Alberta. Six dimensions are examined using public data and identical methodology applied to all three maps: (A) population equality, (B) partisan-bias metrics from the political-science literature, (C) visual geographic coherence, (D) procedural fairness, (4) geometric data provenance, and (5) MCMC ensemble comparison. Where data permit, the two 2026 proposals are shown to diverge systematically: the minority proposal exhibits wider population dispersion (MAD 4,707 vs 3,180), a 12.2% Calgary geographic-zone asymmetry vs the majority's 0.4%, three visible spatial anomalies flagged by the commission chair himself, fragmentation of Airdrie across four electoral divisions vs the majority's two, and a 0.6–1.6 percentage point more UCP-favorable efficiency gap under identical modeling methodology (sensitivity-tested across urban-weight parameters 0.60, 0.70, 0.80). Partisan-bias metrics remain within the 7% efficiency-gap threshold used in *Gill v. Whitford* (2018) for all three maps. The directional consistency of the minority's shift across six independent analytical dimensions — and the procedural departure of April 16, 2026 rejecting the majority recommendation in favor of a UCP-majority MLA committee drafting process — together support a finding of systematic partisan asymmetry at a magnitude below the US statistical-significance threshold but above the noise floor of non-partisan redistricting variance. Sections 4 (geometry) and 5 (MCMC ensemble) are blocked pending ABEBC release of 2026 polygon shapefiles.

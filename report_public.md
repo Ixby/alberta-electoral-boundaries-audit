@@ -12,6 +12,26 @@
 
 ---
 
+## Important Honesty Note (Added v0.3, April 22, 2026)
+
+After the first draft of this audit was written, we red-teamed our own methodology and found three ways our partisan-math claim was weaker than it first appeared:
+
+1. **The "2 seats" number in a tied election has a wider range than reported.** Under the full uncertainty of our modeling assumptions, the minority could give the UCP anywhere from 3 extra seats to 1 fewer seat in a tied election. The *direction* is still probably UCP-favorable (89% of our modeling runs said so), but "probably" is weaker than "measurably."
+
+2. **A second respected partisan-bias test (the "declination" metric) says the minority is actually the *least* pro-UCP of the three maps.** Two tests from the same academic literature disagree about the direction of bias. When experts disagree, you should believe the finding less than if they agreed.
+
+3. **If we use 2019 vote patterns instead of 2023, the direction of the partisan advantage flips.** The minority looks UCP-favorable using 2023 data, NDP-favorable using 2019 data. That means what we're measuring is partly about the map and partly about the specific 2023 electorate.
+
+**What these red-team results mean for your reading of this audit:**
+
+- The structural findings below — district sizes, Calgary zone gap, community splits, visible boundary shapes, procedural concerns — are **robust**. They don't depend on election data or modeling choices. You should trust them.
+- The specific partisan-math claim (minority gives UCP ~2 seats in a tied election) is **directional, not precise**. We're 89% confident the direction is UCP-favorable; we're not 95% confident of any specific seat number.
+- The overall judgment (minority is structurally more irregular than majority) **holds**. The judgment (minority will reliably produce UCP-favorable election outcomes) is **weaker than the first draft suggested**.
+
+We're putting this at the top rather than hiding it, because an audit you can't trust to admit its own weaknesses is an audit you can't trust.
+
+---
+
 ## Why This Matters To You
 
 Alberta is redrawing the lines that decide which voters elect which MLAs. You get one vote; the map decides how much that vote is worth. If you live inside a district with a lot of people, your MLA represents more voters and each voter gets a smaller piece of their attention. If the lines are drawn so that one party's voters are packed into fewer, larger districts while the other party's voters are spread across more, smaller ones, the math hands one party extra seats without one extra vote being cast.
