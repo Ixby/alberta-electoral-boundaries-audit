@@ -1,0 +1,6 @@
+ed_name,v1_vs_v2_vas,v1_vs_v2_votes,v2_vs_v3_vas,v2_vs_v3_votes,v1_vs_v3_vas,v1_vs_v3_votes,classification_v3,orange_accept_v3
+Calgary-De Winton,1,216.6,0,0.0,1,216.6,refinement-unresolvable-without-shapefile,False
+Calgary-South,1,216.6,0,0.0,1,216.6,refinement-unresolvable-without-shapefile,False
+Edmonton-Windermere,3,795.75,0,0.0,3,795.75,refinement-unresolvable-without-shapefile,False
+Lethbridge-Little Bow,0,0.0,0,0.0,0,0.0,refinement-negligible,True
+Wetaskawin-Ponoka-Maskwacis,0,0.0,0,0.0,0,0.0,refinement-negligible,True
