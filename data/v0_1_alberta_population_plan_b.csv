@@ -1,0 +1,40 @@
+municipality,csd_code,pop_2021_census,pop_latest_source,pop_latest_year,pop_latest_value,pct_change_2021_to_latest
+Airdrie,4806021,74100,TBF_regional_dashboard,2025,92544,24.89
+Airdrie,4806021,74100,municipal_census,2024,85805,15.80
+Calgary,4806016,1306784,TBF_regional_dashboard,2025,1600000,22.43
+Edmonton,4811061,1010899,TBF_regional_dashboard,2025,1200000,18.71
+Red Deer,4808011,100844,TBF_regional_dashboard,2025,115409,14.44
+St. Albert,4811062,68232,TBF_regional_dashboard,2025,74730,9.52
+Chestermere,4806017,22163,TBF_regional_dashboard,2025,31671,42.90
+Cochrane,4806019,32199,TBF_regional_dashboard,2025,39397,22.35
+Strathmore,4805018,14339,TBF_regional_dashboard,2025,16416,14.49
+Wheatland County,4805012,8738,TBF_regional_dashboard,2025,10150,16.16
+Mountain View County,4806028,12981,TBF_regional_dashboard,2025,14776,13.83
+Kneehill County,4805041,4992,TBF_regional_dashboard,2025,5037,0.90
+Olds,4806034,9209,TBF_regional_dashboard,2025,9679,5.10
+Didsbury,4806032,5070,TBF_regional_dashboard,2025,5185,2.27
+Three Hills,4805048,3042,TBF_regional_dashboard,2025,3564,17.16
+Carstairs,4806029,4898,TBF_regional_dashboard,2025,5248,7.15
+Trochu,4805049,998,TBF_regional_dashboard,2025,1191,19.34
+Acme,4805044,606,TBF_regional_dashboard,2025,651,7.43
+Beiseker,4806024,754,TBF_regional_dashboard,2025,787,4.38
+Linden,4805046,704,TBF_regional_dashboard,2025,911,29.40
+Cremona,4806031,437,TBF_regional_dashboard,2025,486,11.21
+Sundre,4806036,2672,TBF_regional_dashboard,2025,2683,0.41
+Rimbey,4808044,2470,TBF_regional_dashboard,2025,2502,1.30
+Rocky Mountain House,4809015,6765,TBF_regional_dashboard,2025,8144,20.38
+Clearwater County,4809002,11865,TBF_regional_dashboard,2025,12326,3.89
+Ponoka County,4808038,9998,TBF_regional_dashboard,2025,10670,6.72
+Red Deer County,4808001,19933,TBF_regional_dashboard,2025,22076,10.75
+Lacombe County,4808022,10283,TBF_regional_dashboard,2025,11072,7.67
+Lacombe,4808031,13396,TBF_regional_dashboard,2025,14733,9.98
+Sylvan Lake,4808012,15995,TBF_regional_dashboard,2025,17897,11.89
+Blackfalds,4808029,10470,TBF_regional_dashboard,2025,12258,17.08
+Innisfail,4808008,7985,TBF_regional_dashboard,2025,8736,9.41
+Sturgeon County,4811059,20061,TBF_regional_dashboard,2025,21035,4.86
+Rocky View County,4806014,41028,TBF_regional_dashboard,2025,50260,22.50
+Foothills County,4806001,23199,TBF_regional_dashboard,2025,25779,11.12
+Canmore,4815023,15990,TBF_regional_dashboard,2025,17341,8.45
+Banff,4815035,8305,TBF_regional_dashboard,2025,11402,37.29
+Crossfield,4806026,3599,TBF_regional_dashboard,2025,4075,13.23
+Irricana,4806022,1179,TBF_regional_dashboard,2025,1240,5.17

@@ -102,6 +102,27 @@ If the committee uses AI to draft justification text for the final report:
 - **Do not let an AI generate the committee's interpretation of legal or constitutional standards.** *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991] has a specific holding on "effective representation." AI summaries of Canadian constitutional law are generally unreliable and occasionally invert the holding.
 - **Publish the prompts used to generate any passage that appears in the final report.** A reader should be able to tell which paragraphs were human-written and which were AI-assisted.
 
+### 2.5 Data currency — handling the census / redistricting cycle lag
+
+*Added session-9 Track-L. See `analysis/v0_1_cycle_lag_analysis.md` for the quantification this subsection is based on.*
+
+The EBC Act requires the commission to use the most recent census as the population baseline. For the February-2025 commission that means the May-2021 Canadian census. By the first election under the new map (fall 2027) the baseline is 6.5 years old; by the final election before the next redistribution (~2035) it will be nearly 14 years old. Alberta's 2021–mid-2025 growth rate of roughly 17.8%, concentrated in the Calgary ring, means the legal baseline is not necessarily the best-available baseline at any point after the commission's drawing date.
+
+The Act places a floor under data quality. It does not cap it. A responsible committee can — and on the audit's Plan A / Plan B evidence, should — publish a secondary sensitivity analysis alongside the legal-baseline tables.
+
+**Recommendations.**
+
+- **Maintain the 2021 census as the legal baseline for every s.15(2) eligibility test, every ±25% determination, and every section 3 Charter argument.** The statutory baseline is what the Act requires and what a court will read.
+- **In parallel, publish a "Plan B" sensitivity table** using Alberta Treasury Board and Finance's most recent quarterly population estimates (reconciled against Statistics Canada Table 17-10-0009), applied at the CSD or DA level, aggregated to the committee's proposed EDs. Present this as advisory, not binding.
+- **Report any ED where Plan A and Plan B legal-window status disagree** — pass under one baseline and fail under the other, or s.15(2)-eligible under one and ineligible under the other. These status-change districts are the ones most exposed to the cycle lag and deserve the committee's written attention.
+- **Cite the TBF methodology document** (the quarterly population report's methodology section, published openly at `open.alberta.ca`, and the population projections 2025–2051 methodology and assumptions document from the same source) wherever Plan B is invoked. TBF's methodology is publicly documented: component-cohort-survival models calibrated against StatsCan vital statistics and migration records, with low/medium/high scenarios. The methodology document is the citation readers will need.
+- **Do not use Plan B to enlarge or shrink the ±25% window itself.** The 25% figure is statutory and does not vary with the baseline used.
+- **Treat Plan B as a flag, not a decision rule.** If a proposed ED passes Plan A but fails Plan B, that is a signal to the committee that the district is exposed to the cycle lag, not a reason to redraw it solely on Plan B grounds. Redraw-or-not is a judgment the committee makes, informed by but not compelled by the sensitivity table.
+
+The justification for the addendum is simple: the commission's own 2026 map will be used in elections for up to a decade-plus. A map that satisfies ±25% at drawing time against a four-year-old census but drifts outside that window by its first election is not, in substance, satisfying the spirit of the Act's population-equality guarantee. A committee that publishes both Plan A (legal, binding) and Plan B (advisory, transparent) gives readers what they need to evaluate the map at drawing time *and* across its lifespan — and protects the committee against the straightforward post-hoc critique that it used the stale baseline because the Act required it, without acknowledging that the Act requires a floor, not a cap.
+
+**On AI's specific role here.** A Plan B re-aggregation from published CSD-level estimates is a routine data-science task that AI assistance can accelerate substantially. The discipline required is the same as everywhere else in this document: publish the prompt, publish the growth factors, publish the reconciliation check, make the spreadsheet reproducible. What AI must not do is *replace* the TBF methodology citation with a model-generated growth estimate. Every cell of the Plan B table must trace back to a published TBF, StatsCan, or municipal-census figure; AI's job is to aggregate those figures to the committee's geography, not to invent them.
+
 ---
 
 ## Part 3 — What AI should not do
