@@ -522,7 +522,7 @@ The April 16 action is distinguishable from all three comparators in that it rep
 
 The commission received approximately 1,340 written submissions across two rounds of public consultation. The majority report's Appendix C (Alberta Electoral Boundaries Commission [AEBC], 2026) states that the minority's hybrid configurations for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert **had no public support in the consultation record**.
 
-A keyword search with manual review of the commission's submission archive — 1,252 of approximately 1,340 submissions extracted with machine-readable text and 14 recovered via OCR — tests this claim. Full methodology, dataset, and technical log are in `analysis/submission_search.py`, `data/submission_search_dataset.csv`, `analysis/submission_search_findings.md`, and `analysis/submission_search_log.md`.
+A keyword search with manual review of the commission's submission archive — 1,252 of approximately 1,340 submissions extracted with machine-readable text and 14 recovered via OCR — tests this claim. Full methodology, dataset, and technical log are in `analysis/submission_search.py`, `data/submission_search_dataset.csv`, `analysis/submission_search_findings.md`, and `deprecated/submission_search_log.md`.
 
 **Result: the chair's claim is partially refuted, with tiered severity.** A follow-on signal-strength analysis (`analysis/v0_1_claim_significance_analysis.md`) distinguishes between configurations where the chair was merely *precisely wrong* (a supporting submission exists, so "no support" is technically false) and where the chair was also *effectively wrong* (support is substantial enough that "no support" materially misrepresents the submission record).
 
@@ -607,7 +607,7 @@ The proportions matter because they tell us whether the public-input record prod
 
 1. **~88 submissions (6.6%) could not be machine-parsed** because their PDFs are image-only scans lacking a text layer or a detectable EBC-2025-X-NNN ID marker. OCR was out of scope. These could in principle contain additional supporting or opposing content that would not change the refutation direction (which relies on identified supporting submissions) but could shift neutral / opposing counts.
 2. **Keyword search precision.** Regex uses permissive co-occurrence windows (200–300 chars) and can miss submissions where the same configuration is described in paraphrased terms without the explicit place names used. Conversely, the Red Deer regex triggers on any Red Deer + {Blackfalds / Innisfail / Sylvan Lake / Lacombe} co-occurrence, which often simply describes the commission's *proposed* boundaries — those are neutrals, not supports.
-3. **Position classifier is heuristic.** The code looks for support / oppose / against / recommend / should-not keywords near each match. Ambiguous classifications were manually reviewed and corrected in 13 cases (documented in `analysis/submission_search_log.md`); CSV rows still reflect the automatic classification.
+3. **Position classifier is heuristic.** The code looks for support / oppose / against / recommend / should-not keywords near each match. Ambiguous classifications were manually reviewed and corrected in 13 cases (documented in `deprecated/submission_search_log.md`); CSV rows still reflect the automatic classification.
 4. **Minority configuration names are the audit's labels, not the submissions'.** Citizens do not typically know the minority's precise labels (e.g., "Red Deer-Blackfalds"). A submission proposing a functionally equivalent configuration using different names is counted as directional support. The audit's rubric is generous on this point; the majority chair might not accept the same rubric.
 5. **Attached sub-PDFs were not searched separately.** Some submissions reference external attachments (e.g., EBC-2025-1-0139 references "Airdrie-Feedback-Submission-AEBC-May-2025.pdf"); only the enclosing batch PDF's text layer was searched. Additional evidence may reside in attachments.
 
@@ -862,10 +862,7 @@ Each script prints a gate PASS/FAIL line. Numbers in §§2, 3 above must match t
 - [Cycle-lag analysis](analysis/v0_1_cycle_lag_analysis.md) — province-wide ED drift under mid-2025 populations
 - [Proposed Act §12 amendment](analysis/v0_1_act_amendment_proposal.md) — legislative reform proposal addressing the census / cycle-lag tension
 - [Calgary data-sources audit](analysis/v0_1_calgary_data_sources_audit.md) — 16 Calgary-specific sources catalogued; ward-level modelled A2 sensitivity is feasible from public data
-- [Red-team attack on this paper](analysis/v0_1_red_team_academic_discredit.md) — 21-attack adversarial critique; HIGH-severity attacks surfaced for fortification consideration
-- [Fortification defence — A1–A5 HIGH-severity attacks](analysis/v0_1_fortification_a1_a5.md) — peer-review-grade responses with narrowed claims and residual vulnerabilities
-- [Fortification defence — B1–B6 MEDIUM-severity attacks](analysis/v0_1_fortification_b1_b6.md) — includes symmetry counter-test revealing Lethbridge and Red Deer 4-way findings
-- [Fortification defence — C1–C10 LOW-severity attacks](analysis/v0_1_fortification_c1_c10.md) — literature-backed responses with reproducibility artifacts
+- Adversarial stress-test passes and their fortifications are preserved in `deprecated/` for historical reference (see `deprecated/README.md`).
 - [Chen-Rodden Alberta validation](analysis/v0_1_chen_rodden_alberta_validation.md) — mechanism-level test of the natural-packing argument
 - [Canadian redistribution base-rate catalogue](data/v0_1_canadian_redistribution_base_rate.csv) — C4 partial catalogue (quantitative acquisition flagged as future work)
 - [Alberta government database survey](analysis/v0_1_alberta_government_databases_survey.md) — Track N, composite-basis source recommendations for §12 reform
@@ -880,7 +877,7 @@ Each script prints a gate PASS/FAIL line. Numbers in §§2, 3 above must match t
 - [Cochrane journey-to-work](analysis/v0_1_cochrane_journey_to_work.md) — §4.4 StatsCan 98-10-0459 pull
 - [CSD-level community splits](analysis/v0_1_csd_community_splits.md) — §4.4 robustness check
 - [338Canada riding-level cross-validation](analysis/v0_1_338canada_riding_level.md) — §3.5 independent cross-check
-- [Submission OCR log](analysis/v0_1_submission_ocr_log.md) — §5.4 partial extension of the 88 non-text-layer submissions
+- Submission OCR log preserved at `deprecated/v0_1_submission_ocr_log.md` — §5.4 partial extension of the 88 non-text-layer submissions
 
 ---
 
