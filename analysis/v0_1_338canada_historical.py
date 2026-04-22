@@ -294,6 +294,9 @@ def wayback_pull_per_riding_window(ridings_index: List[Dict],
                                      max_ridings: int = 87) -> List[Dict]:
     """Pull per-riding pages from Wayback, choosing the LAST capture in the
     given window for each riding. Returns a list of per-riding dicts.
+
+    If the HTML cache for a riding already exists (keyed by `w{window_to}`),
+    skip the CDX query and parse the cached file directly.
     """
     rows: List[Dict] = []
     hit = miss = 0
@@ -301,10 +304,47 @@ def wayback_pull_per_riding_window(ridings_index: List[Dict],
         code = r['code']
         riding = r['riding']
         url = f"https://338canada.com/alberta/{code}e.htm"
+        cache = os.path.join(HIST_DIR, f'riding_{code}_w{window_to}.html')
+        if os.path.exists(cache) and os.path.getsize(cache) > 1000:
+            # Cache hit — skip CDX, parse directly.
+            with open(cache, encoding='utf-8') as f:
+                html = f.read()
+            snap_date = _extract_projection_date(html)
+            try:
+                parties = _parse_riding_html(html)
+                ucp_share = parties.get('UCP', {}).get('share')
+                ndp_share = parties.get('NDP', {}).get('share')
+                if ucp_share is None or ndp_share is None:
+                    rows.append({'district': riding, 'code': code,
+                                 'ucp_share': None, 'ndp_share': None,
+                                 'snap_date': snap_date,
+                                 'wayback_url': '(cached)', 'wayback_ts': '',
+                                 'note': 'parse missing UCP/NDP (cache)'})
+                    miss += 1
+                else:
+                    rows.append({'district': riding, 'code': code,
+                                 'ucp_share': round(ucp_share, 3),
+                                 'ndp_share': round(ndp_share, 3),
+                                 'snap_date': snap_date,
+                                 'wayback_url': '(cached)', 'wayback_ts': '',
+                                 'note': '(from cache)'})
+                    hit += 1
+            except Exception as e:
+                rows.append({'district': riding, 'code': code,
+                             'ucp_share': None, 'ndp_share': None,
+                             'snap_date': snap_date,
+                             'wayback_url': '(cached)', 'wayback_ts': '',
+                             'note': f'parse error (cache): {e}'})
+                miss += 1
+            if (i + 1) % 15 == 0:
+                print(f"  wayback (cache) {i+1}/{len(ridings_index[:max_ridings])} "
+                      f"(hit={hit}, miss={miss})", file=sys.stderr)
+            continue
         wb = wayback_cdx_last_before(url, window_from, window_to)
         if not wb:
             rows.append({'district': riding, 'code': code,
                          'ucp_share': None, 'ndp_share': None,
+                         'snap_date': '',
                          'wayback_url': '', 'wayback_ts': '',
                          'note': 'no capture in window'})
             miss += 1
@@ -312,15 +352,16 @@ def wayback_pull_per_riding_window(ridings_index: List[Dict],
         # Parse the wayback timestamp out of the URL
         ts_m = re.search(r'/web/(\d{14})/', wb)
         ts = ts_m.group(1) if ts_m else ''
-        cache = os.path.join(HIST_DIR, f'riding_{code}_w{window_to}.html')
         html = fetch_cached(wb, cache)
         if html.startswith('__FETCH_ERROR__'):
             rows.append({'district': riding, 'code': code,
                          'ucp_share': None, 'ndp_share': None,
+                         'snap_date': '',
                          'wayback_url': wb, 'wayback_ts': ts,
                          'note': html[:80]})
             miss += 1
             continue
+        snap_date = _extract_projection_date(html)
         try:
             parties = _parse_riding_html(html)
             ucp_share = parties.get('UCP', {}).get('share')
@@ -328,6 +369,7 @@ def wayback_pull_per_riding_window(ridings_index: List[Dict],
             if ucp_share is None or ndp_share is None:
                 rows.append({'district': riding, 'code': code,
                              'ucp_share': None, 'ndp_share': None,
+                             'snap_date': snap_date,
                              'wayback_url': wb, 'wayback_ts': ts,
                              'note': 'parse missing UCP/NDP'})
                 miss += 1
@@ -335,12 +377,14 @@ def wayback_pull_per_riding_window(ridings_index: List[Dict],
                 rows.append({'district': riding, 'code': code,
                              'ucp_share': round(ucp_share, 3),
                              'ndp_share': round(ndp_share, 3),
+                             'snap_date': snap_date,
                              'wayback_url': wb, 'wayback_ts': ts,
                              'note': ''})
                 hit += 1
         except Exception as e:
             rows.append({'district': riding, 'code': code,
                          'ucp_share': None, 'ndp_share': None,
+                         'snap_date': snap_date,
                          'wayback_url': wb, 'wayback_ts': ts,
                          'note': f'parse error: {e}'})
             miss += 1
@@ -350,6 +394,27 @@ def wayback_pull_per_riding_window(ridings_index: List[Dict],
                   f"{i+1}/{len(ridings_index[:max_ridings])} "
                   f"(hit={hit}, miss={miss})", file=sys.stderr)
     return rows
+
+
+MONTHS = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5,
+          'June': 6, 'July': 7, 'August': 8, 'September': 9, 'October': 10,
+          'November': 11, 'December': 12}
+
+
+def _extract_projection_date(html: str) -> str:
+    """Return ISO date of the projection printed on the archived page
+    (e.g. 'Latest projection: March 11, 2023'), or empty string.
+    """
+    m = re.search(r'Latest projection:\s+([A-Za-z]+)\s+(\d+),?\s+(\d{4})', html)
+    if not m:
+        m = re.search(r'338Canada Popular vote projection\s*\|\s*([A-Za-z]+)\s+(\d+),?\s+(\d{4})',
+                      html)
+    if m:
+        mon, day, year = m.group(1), int(m.group(2)), int(m.group(3))
+        mm = MONTHS.get(mon)
+        if mm:
+            return f"{year:04d}-{mm:02d}-{day:02d}"
+    return ''
 
 
 def _parse_riding_html(html: str) -> Dict[str, Dict[str, float]]:

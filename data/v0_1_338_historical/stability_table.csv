@@ -1,3 +1,3 @@
 snapshot_date,maj_ucp,maj_ndp,min_ucp,min_ndp,min_minus_maj_ucp,min_minus_maj_ndp,n_ridings_observed,source
 "2026-04-12 (current, full 87)",67,22,66,23,-1,1,87,current scrape
-pre-2023-election,,,,,,,0,wayback coverage insufficient
+pre-2023-election (338 last capture per riding in 20230301-20230529),48,39,49,39,1,0,87,wayback full 87 pre-2023 (missing filled 0 from current)
