@@ -274,6 +274,22 @@ The same question applies to every disputed redraw: was the minority's choice th
 
 Six of seven contested redraws had cleaner options. The minority did not take them. The seventh (St. Albert-Sturgeon) has no real alternative. This is not a claim that every departure is engineered. It is an observation. When not forced by geography or population, the minority chose the less-natural option. The majority, with the same constraints, chose the natural option in all seven cases.
 
+### Were the minority's configurations forced by population math?
+
+The five population-math tests that could be run from Statistics Canada 2021 Census data — tested against the minority's specific justifications — all came back the same way.
+
+| Minority's justification | Population-math verdict |
+|---|---|
+| Olds-Three Hills-Didsbury needs the Airdrie slice for population | **Fails.** Rural counties and towns (Mountain View + Kneehill + Olds + Didsbury + Three Hills + Carstairs + Beiseker + Crossfield) sum to 43,691 — above the 41,197 lower limit. The Airdrie slice is not needed. |
+| Rocky Mountain House-Banff Park needs the Banff NP extension for area | **Fails.** The 2019 predecessor district was already 24,468 km², above the 20,000 km² s.15(2) threshold. The NP extension is not load-bearing for the area criterion. |
+| Airdrie needs a 4-way split because 84,000 is too many for one district | **Fails.** Airdrie's 2021 population is 74,100 (the 84,000 figure is stale). A 2-way split of 37,000 each plus a small rural addition fits cleanly under the 68,661 upper limit. Four splits are not required. |
+| Red Deer needs 4 districts | **Fails.** Red Deer at 100,844 divided by the 68,661 upper limit rounds up to 2. Two Red Deer districts is the minimum, which is what the majority does. Four is unforced. |
+| Chestermere must be split into Calgary | **Fails.** Chestermere + Strathmore + Wheatland County = 45,240, a viable standalone hybrid. No part of Chestermere is mathematically required by the Calgary-Peigan-Chestermere district. |
+
+Five population-math justifications tested. Five failed. In plain language: none of these five contested minority configurations were required by the population rules they would invoke as defence. The configurations may be defensible on other grounds — community philosophy, commuter patterns, geographic intuition — but not on population math. The specific arithmetic defence is not available.
+
+Raw tables and the reproducible pipeline: [analysis/v0_1_justification_tests_findings.md](analysis/v0_1_justification_tests_findings.md). Census data used is the 2021 CSD population table (Statistics Canada).
+
 > **Why this matters for the suspicion sort.** Each single redraw has an innocent explanation. The pattern — six unforced choices in the same direction — is what the audit can flag without claiming intent. A reader can read that as "different philosophies" or as "different politics" or as both. The audit gives the facts and lets the reader weigh.
 
 ---
