@@ -61,9 +61,9 @@ Data and scripts: `analysis/*.py`, `data/*.csv`, `data/2023_results.xlsx`
 
 ---
 
-## Red-Team Update (v0.3 Fortifications)
+## Stress-Test Update (v0.3 Fortifications)
 
-A post-v0.2 red-team pass applied three additional tests that **materially weaken the partisan-bias magnitude claim** while leaving structural findings intact. Findings documented here for intellectual honesty; full methodology in `analysis/v0_1_design_critique.md`.
+A post-v0.2 stress-test pass applied three additional tests that **materially weaken the partisan-bias magnitude claim** while leaving structural findings intact. Findings documented here for intellectual honesty; full methodology in `analysis/v0_1_design_critique.md`.
 
 **1. Monte Carlo 95% CI over modeling choices crosses zero.** N=2,000 samples varying urban weight (0.55–0.85), rural baseline (0.28–0.38), and per-hybrid jitter (±0.10). Minority-majority EG asymmetry: mean −1.22 pp, median −1.44 pp, **95% CI [−2.99, +0.76] pp**. Direction consistency: 90.5% of samples show minority more UCP-favorable. Classical 95% significance is **not** defensible; the directional claim holds at 89% confidence, not 95%. (Script: `v0_3_monte_carlo_ci.py`.)
 
@@ -85,7 +85,7 @@ A post-v0.2 red-team pass applied three additional tests that **materially weake
 
 **Revised synthesis (the most-defensible claim, v0.3):**
 
-The minority 2026 proposal shows measurable structural differences from the majority in four areas: population distribution (MAD 48% wider), Calgary geographic-zone balance (12.2% gap vs 0.4%, robust across two classification rules), community-of-interest treatment (Airdrie split across 4 EDs vs 2), and visible boundary shape (three confirmed anomalies). None of these depend on vote data or attribution modeling, so they survive all three red-team tests unchanged. The partisan-bias consequences of these structural differences are directionally UCP-favorable for the minority in 90.5% of modeling-jitter samples using 2023 vote attribution. That finding inverts when 2019 vote attribution is substituted. One declination-based metric shows the minority as less partisan than the majority. The audit's most defensible core claim is that the minority has more structural irregularities than the majority. A specific partisan-seat-shift magnitude is less defensible and sensitive to election baseline. The procedural concern about the April 16 government action stands separately from the partisan-math questions.
+The minority 2026 proposal shows measurable structural differences from the majority in four areas: population distribution (MAD 48% wider), Calgary geographic-zone balance (12.2% gap vs 0.4%, robust across two classification rules), community-of-interest treatment (Airdrie split across 4 EDs vs 2), and visible boundary shape (three confirmed anomalies). None of these depend on vote data or attribution modeling, so they survive all three stress-test tests unchanged. The partisan-bias consequences of these structural differences are directionally UCP-favorable for the minority in 90.5% of modeling-jitter samples using 2023 vote attribution. That finding inverts when 2019 vote attribution is substituted. One declination-based metric shows the minority as less partisan than the majority. The audit's most defensible core claim is that the minority has more structural irregularities than the majority. A specific partisan-seat-shift magnitude is less defensible and sensitive to election baseline. The procedural concern about the April 16 government action stands separately from the partisan-math questions.
 
 ---
 
@@ -221,9 +221,9 @@ Scripts: `analysis/v0_2_packing_cracking_analysis.py` (symmetric three-map compu
 - **B2:** Efficiency gap (Stephanopoulos & McGhee, 2014): $\text{EG} = (W_{\text{NDP}} - W_{\text{UCP}}) / N$ where wasted votes include loser votes plus winner votes above the threshold.
 - **B3:** Mean-median gap (McDonald & Best, 2015): $\text{MM} = \bar{v} - \tilde{v}$ for NDP vote share.
 - **B4:** Seats-votes under uniform swing to 50/50 provincial share (Gelman & King, 1994; Grofman, 1983).
-- **B6:** Declination (Warrington, 2018). Added in v0.3 red-team pass. Measures the asymmetry between winning-district vote distributions by treating each party's winning districts as a vector and computing the angle between them. See §3.4 for the direction-disagreement finding.
+- **B6:** Declination (Warrington, 2018). Added in v0.3 stress-test pass. Measures the asymmetry between winning-district vote distributions by treating each party's winning districts as a vector and computing the angle between them. See §3.4 for the direction-disagreement finding.
 
-The seat-vote-curve symmetry principle underlying B4 traces to Grofman (1983) and King and Browning (1987), later formalized as a Bayesian estimator by Gelman and King (1994). The efficiency gap and mean-median are two of the most widely-cited partisan-bias metrics in the post-*Gill v. Whitford* literature; Stephanopoulos and McGhee (2018) revisit the efficiency-gap debate and acknowledge the metric's sensitivity to modeling choices, which our Monte Carlo analysis in §3.4 quantifies for the Alberta context. Katz, King, and Rosenblatt (2020) argue that no single metric is dispositive and recommend ensemble approaches, which our v1.2 red-team gate RT2 (cross-metric agreement) implements.
+The seat-vote-curve symmetry principle underlying B4 traces to Grofman (1983) and King and Browning (1987), later formalized as a Bayesian estimator by Gelman and King (1994). The efficiency gap and mean-median are two of the most widely-cited partisan-bias metrics in the post-*Gill v. Whitford* literature; Stephanopoulos and McGhee (2018) revisit the efficiency-gap debate and acknowledge the metric's sensitivity to modeling choices, which our Monte Carlo analysis in §3.4 quantifies for the Alberta context. Katz, King, and Rosenblatt (2020) argue that no single metric is dispositive and recommend ensemble approaches, which our v1.2 stress-test gate RT2 (cross-metric agreement) implements.
 
 ### 3.3 Results
 
@@ -499,7 +499,7 @@ Not executed — no candidate 2026 geometry to validate. Population checksum, to
 
 Six independent dimensions of evidence point in the same direction. None individually crosses a statistical significance threshold. Together, the directional consistency is the finding — the minority proposal, relative to the majority, shows more structural irregularities and, under 2023 voter geography, lower measured-partisan-neutrality at a sub-threshold magnitude, across six measurement frameworks.
 
-Three qualifications inherited from the red-team pass narrow this synthesis:
+Three qualifications inherited from the stress-test pass narrow this synthesis:
 
 - Under the Chen-Rodden (2013) natural-packing framing (see §3.6), some portion of the minority-to-majority partisan-bias gap is not attributable to engineering — it reflects how any neutral map interacts with Alberta's urban-NDP / rural-UCP geography. This lowers the claim from "the minority was engineered against the NDP" to "the minority produces more UCP-favourable results under 2023 voter geography." The structural findings (§A population equality, §A2 Calgary zone gap, §C3 visible anomalies, §C4 community splits, §D procedural) are not affected by the natural-packing caveat because they measure geographic and procedural properties the natural-packing argument does not address.
 - Under RT3 (cross-election stability), the vote-based asymmetry flips sign when 2019 votes replace 2023 votes. The six-dimension synthesis rests mostly on the structural dimensions; the single vote-based dimension (§B) is qualified accordingly.
@@ -600,7 +600,7 @@ Each script prints a gate PASS/FAIL line. Numbers in §§2, 3 above must match t
 - [Section D](analysis/v0_1_section_D_procedural.md)
 - [Section 4](analysis/v0_1_section_4_geometry_provenance.md)
 - [Bias audit](analysis/v0_1_bias_audit.md) — self-audit of this audit's own methodology
-- [Design critique](analysis/v0_1_design_critique.md) — hostile red-team pass
+- [Design critique](analysis/v0_1_design_critique.md) — hostile stress-test pass
 - [Uncertainty analysis](analysis/v0_1_uncertainty_and_shapefile_impact.md)
 - [Academic literature review](analysis/v0_1_academic_literature_review.md)
 - [Submission search findings](analysis/submission_search_findings.md) — §5.4 evidence base

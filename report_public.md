@@ -4,6 +4,10 @@
 
 By Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student).
 
+### Disclosure
+
+I am not a neutral observer of Alberta politics. Going into this project, I believed the UCP government's handling of boundary redistribution was worth scrutiny. That belief could have shaped what I looked for. The audit is designed to answer back: every test is applied the same way to both maps; every numeric claim traces to a script and data file anyone can re-run; an independent self-critique sits in the repository and flagged me when my own language overstated a finding. Three specific cases in this document are places where my prior was wrong and the numbers said so — those retractions are here because the methodology surfaced them.
+
 [Full technical report](report_academic.md) · [Visualized version with charts](report.html) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 
 ---
@@ -167,6 +171,56 @@ Whether the finished 91-seat map is a gerrymander. Nobody's seen it. The label n
 That one doesn't wait. Replacing an independent boundary commission with a government-majority committee of MLAs is the thing the independent-commission model exists to prevent. Quebec's government in 1992, Ontario's in 1996, and BC's in 2008 all amended commission recommendations after the fact. None of them replaced the commission itself with a legislative committee. Whether Alberta's April 16 step is unprecedented in all Canadian history is a broader question this audit didn't fully survey. It is more government-controlled than any of the three recent comparators.
 
 ---
+
+## Stacking the deck, or looking like it? A suspicion sort
+
+**Not every asymmetry in this audit is equally suspicious.** Some findings read as engineered on sight. Others look suspicious but have innocent explanations. The tabbed-list below sorts the audit's main findings by how much benefit of the doubt the data supports.
+
+**Genuinely suspicious (pattern is hard to explain as coincidence):**
+
+- **Rocky Mountain House-Banff Park's boundary through Banff National Park.** Empty parkland exists inside the district precisely because its inclusion is what lets the district qualify as a "special remote district." A drafter could have drawn a district with real inhabitants in it and accepted a higher population. This one was engineered.
+- **Calgary-Nolan Hill-Cochrane reaching across the city boundary through a narrow corridor.** Nobody in the commission's public record proposed this configuration. It skips the neighbouring Calgary communities that share Nolan Hill's services to reach Cochrane.
+- **Airdrie split four ways with no district named Airdrie.** A city of 84,000 appearing as a suffix on four different district names, none of which make Airdrie the primary constituency. Nobody in the public record asked for this split.
+
+**Looks suspicious, but the data says it's probably innocent:**
+
+- **The minority's rural districts are smaller on average (50,336 vs 52,281).** An earlier draft of this audit called this rural UCP packing. A deeper look shows it's mostly driven by one extra s.15(2) invocation — Rocky Mountain House-Banff Park uses the rule where the majority uses a normal rural district. Roughly a third of the gap comes from that single substitution. The two maps pack their ten smallest rural seats into almost-identical UCP territory.
+- **Alberta's 2019 map already tilts UCP.** Pre-existing political-science research (Chen and Rodden, 2013) shows that urban-concentrated parties get disadvantaged by any neutrally-drawn map. The 2019 UCP tilt of −2.64% on the efficiency gap is mostly this, not boundary engineering.
+- **The minority's efficiency gap shifts with election year.** Under 2023 data it's UCP-leaning. Under 2019 data it's NDP-leaning. Either this says the map is unstable in a concerning way, or it says that efficiency gap as a metric is noisy at this magnitude. The audit treats the flip as reason to be less confident in the partisan-math finding, not as evidence of engineering.
+
+**Genuinely innocent (both maps do the same thing):**
+
+- **Tsuut'ina Nation and Siksika Nation are kept intact in single named districts in both maps.** Where the commissioners agreed, they used sensible practice.
+- **Most direct-rename districts.** 59 of the 89 majority districts map one-for-one to a 2019 district with minor boundary tweaks. The same is broadly true of the minority.
+
+**Too early to say:**
+
+- **The 91-seat committee's output.** The map doesn't exist. Treating it as either a gerrymander or a benign technical adjustment is pre-commitment, not analysis.
+- **November committee output's relationship to the commission's minority.** The committee could stick close to the minority, dilute it, or produce something different. The audit's verdict will follow the data.
+
+This sort deliberately leaves room for good-faith disagreement with the government's process without alleging deliberate partisan engineering everywhere.
+
+## Under what scenarios does this matter
+
+The audit's seat-count finding (roughly 1 to 3 seats of UCP advantage under 2023 voter conditions) is abstract without political context. Here is when that advantage actually changes outcomes.
+
+**Doesn't matter — 2023-style blowout.** If 2027 looks like 2023 (UCP 49, NDP 38, an 11-seat gap), a 1 to 3 seat map effect does not change which party forms government. The 2023 election was already decided by ten more seats than the map effect could move.
+
+**Matters for government type — tight race.** If 2027 lands within 5 seats of a tie — which current polling in spring 2026 puts inside the range of plausible outcomes — the 1 to 3 seat map effect is exactly the size that decides whether a party governs with a majority, a minority, or from opposition. Eight of the 14 Calgary ridings that sat inside a 3-point margin in 2023 could flip with a 1.5-point swing.
+
+**Matters most — close Calgary race.** Seven of the 14 marginal 2023 Calgary ridings are ones the audit's Calgary zone-gap analysis identifies as packed under the minority map (more NDP voters per riding than the majority map has). If 2027 is close and those seats are where the race is decided, the map choice weighs directly.
+
+**Doesn't matter — the committee produces a different map.** The November 2026 committee could make any of this moot by producing a new map that resembles the majority more than the minority. The audit's findings apply to what the commission produced, not to whatever the committee does.
+
+## Policy decision, or partisan move?
+
+It is tempting to frame Alberta's April 16 action as either "the UCP is stacking the deck" or "the UCP is making a policy choice about rural representation the commission didn't get right." Both framings oversimplify. The evidence lets us say three specific things:
+
+- **The process change is real.** The government moved the drafting pencil from an independent commission to a UCP-majority MLA committee. That happened on April 16. Premier Smith's stated reason — "the commission did not want to lose two rural ridings" — is a policy rationale for the 91-seat plan.
+- **Three minority configurations that the chair said had no public support actually did** (Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, Chestermere). Two configurations the chair flagged genuinely lacked support (Airdrie 4-way, Nolan Hill-Cochrane). A policy-driven committee could keep the three publicly-supported ones and drop the two that weren't asked for. A partisan-driven committee might do the opposite.
+- **The audit cannot distinguish motive from evidence alone.** What it can do is tell you what to watch for in November. If the committee's map keeps Nolan Hill-Cochrane and the Airdrie 4-way split, that's a signal worth taking seriously. If the committee drops those two and retains only the publicly-supported configurations, the partisan-framing gets weaker.
+
+The responsible reader position here is patience with specifics. "The UCP is stacking the deck" may be true. Saying so now, before the map exists, requires a leap the data does not make. So does "the UCP is just making good-faith policy adjustments."
 
 ## What this audit does not say
 

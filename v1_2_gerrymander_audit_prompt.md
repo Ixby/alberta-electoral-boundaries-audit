@@ -10,9 +10,9 @@
 
 Claude Code at xhigh or max effort with Auto mode. Filesystem, autonomous execution, vision, web fetch. Write scripts to disk, run them, read outputs, compile results. The user reads the final report, not the intermediate steps.
 
-**Role.** Lead quantitative political scientist running a non-partisan, evidence-based assessment. Apply identical detection methods symmetrically to all three maps. Every number in the final report has to pass a stage-based falsifiability gate and a red-team gate.
+**Role.** Lead quantitative political scientist running a non-partisan, evidence-based assessment. Apply identical detection methods symmetrically to all three maps. Every number in the final report has to pass a stage-based falsifiability gate and a stress-test gate.
 
-**Core rule:** no number moves between steps without being provable. Every step also gets red-teamed before its output propagates.
+**Core rule:** no number moves between steps without being provable. Every step also gets stress-tested before its output propagates.
 
 ---
 
@@ -42,7 +42,7 @@ Claude Code at xhigh or max effort with Auto mode. Filesystem, autonomous execut
 - `analysis/v0_1_poll_attribution_skeleton.py` — Phase 4C skeleton.
 - `analysis/v0_1_bias_audit.md`, `v0_1_design_critique.md`, `v0_1_uncertainty_and_shapefile_impact.md`, `v0_1_prompt_readiness.md` — self-audits.
 
-**Structural findings (vote-data-independent, survive red-team):**
+**Structural findings (vote-data-independent, survive stress-test):**
 
 | Metric                               | Majority 2026 | Minority 2026 | Asymmetry           |
 | ------------------------------------ | ------------- | ------------- | ------------------- |
@@ -53,7 +53,7 @@ Claude Code at xhigh or max effort with Auto mode. Filesystem, autonomous execut
 | C3 visible anomalies (Calgary)       | 0             | 3             | minority 3 anomalies |
 | C4 Airdrie split                     | 2 EDs         | 4 EDs         | minority double split |
 
-**Vote-dependent findings (bracket from red-team):**
+**Vote-dependent findings (bracket from stress-test):**
 
 | Metric (2023 votes, 70/30 central)   | 2019     | Majority | Minority | MC 95% CI asymmetry |
 | ------------------------------------ | -------- | -------- | -------- | ------------------- |
@@ -80,7 +80,7 @@ All five must run to completion with outputs matching the tables above. Gate G0 
 
 ---
 
-## Two-Gate Discipline (Integrity + Red-Team)
+## Two-Gate Discipline (Integrity + Stress-Test)
 
 Every stage has two gates. Integrity gate checks output matches inputs. Red-team gate checks a hostile expert would accept the finding. Publication requires both gates pass OR the weakness disclosed at the top of both reports.
 
@@ -88,7 +88,7 @@ Structural findings are reported as primary. Partisan-math findings are qualifie
 
 ---
 
-## Red-Team Gates (v1.2, tightened thresholds)
+## Stress-Test Gates (v1.2, tightened thresholds)
 
 ### RT1 — Monte Carlo modeling uncertainty
 
@@ -144,6 +144,26 @@ Structural findings are reported as primary. Partisan-math findings are qualifie
 **Pass condition.** Documented; review required on each new run to check new assumptions were added if new code was written.
 
 ---
+
+## Defensibility Audit Gate (DA)
+
+Before any number or characterization reaches a published report, it must pass a defensibility check. "Defensible" means: a hostile expert presented with the claim, the source data, and the derivation code should be unable to find a genuine factual fault. Interpretation can be argued; calculation and citation must be unassailable.
+
+**DA1 — Trace.** Every numeric claim in either report traces to a specific script + data file combination. The combination is explicitly cited in the reproducibility manifest of the academic report (Appendix A). If a number appears in the reports but not in the manifest, add it or remove it — no orphans.
+
+**DA2 — Recomputability.** Running the cited script on the cited data must reproduce the claimed number within ±0.05 percentage point or ±1 seat, whichever is applicable. Gate G0 in the pipeline enforces this. A failed DA2 check halts publication until the claim is reconciled or retracted.
+
+**DA3 — Characterization provenance.** Every prose characterization (e.g., "engineered boundary," "materially wrong," "small but consistent") must either cite a specific observable feature of the data (with verbose description) or be labelled as an interpretation, conclusion, or inference. Interpretations can stand without hard provenance if they are labelled as such. Flat assertions cannot.
+
+**DA4 — Speculative claim labelling.** Any claim whose evidentiary basis does not yet exist (e.g., 91-seat map analysis, future election outcomes, commissioner intent) must be labelled as speculation, preliminary, or inference, with a confidence level (HIGH / MEDIUM / LOW / SPECULATION) attached. Fail if a speculative claim is presented as a finding.
+
+**DA5 — Legal-citation correctness.** Any court case, statute, or academic paper cited in the reports must be cited for its actual holding, not a related or superficially-similar proposition. Cross-check against authoritative summaries (for cases) or the paper's abstract (for academic work). A Pal (2015) citation used to support a gerrymandering claim where Pal (2015) is actually about party politics fails DA5.
+
+**DA6 — Author bias disclosure.** If the author holds a known prior on the politics of the subject matter, the disclosure appears in both reports. Methodology must be designed to produce the same numbers regardless of author opinion, and at least one case where the numbers overruled the author's prior must be cited (a proof-of-discipline).
+
+**DA7 — Alternative-framing acknowledgment.** For any claim whose interpretation depends on modeling choice or voter-geography assumption (Chen & Rodden natural packing, cross-election reversal, Monte Carlo CI), an alternative framing must be stated or explicitly considered in the relevant section. Suppressing a known alternative framing fails DA7.
+
+**Gate behaviour.** Run the defensibility audit as the last step before Stage 6 report publication. If DA1–DA7 all pass, publish. If any fails, the claim is either revised to the defensible form or removed. No claim enters a published report in a state that fails DA1–DA7.
 
 ## Publication-Readiness Gates (v1.2)
 
@@ -236,7 +256,7 @@ At completion, report:
 - Wall-clock spend
 - Token spend
 - Every integrity gate status (G0–G5, S0–S6)
-- Every red-team gate status (RT1–RT6)
+- Every stress-test gate status (RT1–RT6)
 - Every publication gate status (PR1–PR4)
 - Confidence level attached to each reported claim
 - Any files updated or created
