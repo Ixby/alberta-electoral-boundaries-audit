@@ -196,3 +196,5 @@ The repository is at v0.12. The next commit should increment the appropriate ver
 ---
 
 *Migration doc v0.12. Authored April 22, 2026 at the close of session 9. Tracks ordered by timeliness. If the next session diverges materially from the documented state, update this file first before making downstream changes.*
+
+**Known staleness:** `report.html` is the v0.11-state dissemination build. The session 9 edits (chair R5, Track J cross-validation, Track I shared-schools finding, Track H CSD bounding, Cochrane StatsCan refinement) are present in `report_public.md` and `report_academic.md` but not yet regenerated into HTML. A rebuild is a separate design task (SVG charts, palette, layout) and was not executed in session 9.
