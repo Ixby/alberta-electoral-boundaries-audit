@@ -1,224 +1,234 @@
 # Two Maps, One Province
 
-**A plain-English audit of Alberta's 2026 electoral boundary proposals — with the stakes spelled out**
+**A plain-English audit of Alberta's 2026 electoral boundary proposals**
 
-*Published April 22, 2026 · Non-partisan, evidence-based*
+*Published April 22, 2026*
 
 **Author and audit design:** Will Conner, Mount Royal University, BCIS
 
-**How this was made:** The analysis was executed by an AI-assisted pipeline (Claude Sonnet 4.6 via Claude Code, plus open-source Python scientific libraries — full tool list in the [academic report](report_academic.md)). **This document is the pipeline's unedited output.** Nothing was rewritten after generation to sound more convincing or less alarming; if you re-run the scripts against the same public data, the numbers and language should match. That's by design — it's how you check someone's work.
+**How this was made.** The analysis ran through an AI-assisted pipeline (Claude Sonnet 4.6 through Claude Code, plus Python open-source tools). The full tool list is in the [academic report](report_academic.md). This document is what the pipeline wrote. Nothing was rewritten afterward to sound better. If you run the scripts on the same public data, you should get the same numbers and the same words. That lets you check the work.
 
-*[Full technical report](report_academic.md) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)*
+[Full technical report](report_academic.md) · [Repository and data](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 
 ---
 
-## Important Honesty Note (Added v0.3, April 22, 2026)
+## Read This First
 
-After the first draft of this audit was written, we red-teamed our own methodology and found three ways our partisan-math claim was weaker than it first appeared:
+After writing the first draft, I red-teamed my own work. Three tests made the partisan-math claim weaker than it first looked.
 
-1. **The "2 seats" number in a tied election has a wider range than reported.** Under the full uncertainty of our modeling assumptions, the minority could give the UCP anywhere from 3 extra seats to 1 fewer seat in a tied election. The *direction* is still probably UCP-favorable (89% of our modeling runs said so), but "probably" is weaker than "measurably."
+**1. The "2 seats" number has a wider range than I said.** I ran the analysis 2,000 times with slightly different modeling choices. In 89 out of 100 runs, the minority map leaned UCP. In 11 out of 100, it leaned the other way. So the direction is probably UCP-favorable, but it is not a sure thing.
 
-2. **A second respected partisan-bias test (the "declination" metric) says the minority is actually the *least* pro-UCP of the three maps.** Two tests from the same academic literature disagree about the direction of bias. When experts disagree, you should believe the finding less than if they agreed.
+**2. A second standard test (called declination) says the minority is the least UCP-favorable of the three maps.** Two tests from the same research literature point in opposite directions. When the tests disagree, readers should trust the conclusion less.
 
-3. **If we use 2019 vote patterns instead of 2023, the direction of the partisan advantage flips.** The minority looks UCP-favorable using 2023 data, NDP-favorable using 2019 data. That means what we're measuring is partly about the map and partly about the specific 2023 electorate.
+**3. If I use 2019 vote patterns instead of 2023, the direction flips.** The minority looks UCP-favorable using 2023 votes. It looks NDP-favorable using 2019 votes. That means some of what I measured is about the 2023 electorate, not the map.
 
-**What these red-team results mean for your reading of this audit:**
+Here is what this means for how you should read the rest.
 
-- The structural findings below — district sizes, Calgary zone gap, community splits, visible boundary shapes, procedural concerns — are **robust**. They don't depend on election data or modeling choices. You should trust them.
-- The specific partisan-math claim (minority gives UCP ~2 seats in a tied election) is **directional, not precise**. We're 89% confident the direction is UCP-favorable; we're not 95% confident of any specific seat number.
-- The overall judgment (minority is structurally more irregular than majority) **holds**. The judgment (minority will reliably produce UCP-favorable election outcomes) is **weaker than the first draft suggested**.
+The findings about district sizes, community splits, and weird boundary shapes do not depend on vote data. Those findings hold up. The findings about how the maps turn votes into seats depend on which election you use. Those findings are less certain than the first draft implied.
 
-We're putting this at the top rather than hiding it, because an audit you can't trust to admit its own weaknesses is an audit you can't trust.
+The overall pattern is real. The precise size of the partisan effect is not.
+
+I am putting this at the top because an audit that hides its weak spots is not an audit anyone should trust.
 
 ---
 
 ## Why This Matters To You
 
-Alberta is redrawing the lines that decide which voters elect which MLAs. You get one vote; the map decides how much that vote is worth. If you live inside a district with a lot of people, your MLA represents more voters and each voter gets a smaller piece of their attention. If the lines are drawn so that one party's voters are packed into fewer, larger districts while the other party's voters are spread across more, smaller ones, the math hands one party extra seats without one extra vote being cast.
+Alberta is redrawing the lines that decide which voters elect which MLAs. You get one vote. The map decides how much that vote counts.
 
-This audit compares two competing proposals the independent boundary commission tabled on March 23, 2026. We asked: **do the two maps treat voters equally, and if not, which way does the unequal treatment go?** The answer has practical consequences for anyone who votes in Alberta.
+If you live in a district with a lot of people, your MLA represents more voters. Each person gets a smaller share of their attention. If the lines pack one party's voters into fewer big districts and spread the other party's voters across more small ones, the math gives one party extra seats without anyone casting an extra vote.
+
+This audit compares two proposals the independent boundary commission tabled on March 23, 2026. The question it asks is simple. Do the two maps treat voters equally? If not, which way does the unequal treatment go?
 
 ---
 
 ## The Short Version
 
-In March 2026, an independent five-person commission tabled two competing recommendations:
+In March 2026, an independent five-person commission tabled two competing recommendations.
 
-- **The majority recommendation**, signed by the commission chair (a retired judge) and the two commissioners nominated by the opposition.
-- **The minority recommendation**, signed by the two commissioners appointed by the governing party.
+The **majority recommendation** was signed by the commission chair, who is a retired judge, and the two commissioners nominated by the opposition.
 
-We applied the same tests to both. **The majority keeps Alberta's political playing field roughly where it sits today.** Same vote share, same seat share — no thumb on the scale.
+The **minority recommendation** was signed by the two commissioners appointed by the governing party.
 
-**The minority tilts the playing field toward the UCP by a measurable amount.** Not enormously — this isn't a flagrant US-style gerrymander. But consistently, across six separate tests, in the same direction, using methods the same commission applied to the same data.
+I applied the same tests to both.
 
-**Then on April 16, 2026, the government rejected the more neutral option and built a new process to work from the tilted one.** The government can do that legally. This audit is about whether that choice has consequences voters should know about before the election in fall 2027.
+The majority keeps Alberta's political playing field roughly where it is today. The NDP wins the same share of seats for the same share of votes. The map does not put a thumb on the scale.
 
-**The practical stakes:** under the minority map's methodology, in a tied election, the NDP wins 2 fewer seats and the UCP wins 2 more, compared to the majority map. That's 2 seats won by a thumb on the scale, not by winning more votes. In a close provincial election, 2 seats can decide whether a party governs with a majority, a minority, or from opposition.
+The minority puts a small thumb on the scale toward the UCP. The size of the thumb depends on how you measure it. One measure (efficiency gap) says the minority is a little more UCP-favorable. A second measure (declination) says the opposite. A cross-check with older election data flips the answer again. The direction is probably UCP-favorable. "Probably" is the right word.
+
+On April 16, 2026, the government rejected the majority and set up a new process run by a UCP-majority committee of MLAs. That committee is supposed to report back in November 2026.
+
+**What holds up regardless of the partisan math:** the minority has bigger swings in district size, it splits more communities, and three of its districts have shapes that do not match any natural geography. The majority does not show any of these problems in the parts we could see.
+
+**What is less certain:** the exact size of the seat advantage the minority gives the UCP, and whether that advantage would still appear in a different election year.
 
 ---
 
-## What We Looked At, and Why Each One Matters
+## What I Looked At
 
 ### 1. Are the districts roughly the same size?
 
-**The rule, in plain terms:** Alberta law says each district should have about the same number of people (currently ~54,929), so each MLA represents roughly the same number of voters. You're allowed ±25%, with exceptions for very remote areas. This rule exists because if one district has 70,000 people and another has 45,000, the 45,000-person district's voters have more say per person.
+**The rule.** Alberta law says each district should have about the same number of people, around 54,929. You are allowed plus or minus 25 percent, with a few exceptions for remote rural areas. The rule is there so each MLA represents about the same number of voters.
 
-**What we found:**
+**What I found.**
 
 | | Majority | Minority |
 |---|---|---|
-| Average distance from the province's average district size | 3,180 people | **4,707 people** |
-| Districts more than 10% larger than average | 5 | **15** |
-| Districts more than 15% larger than average | 0 | **5** |
+| Average gap from the province's average district size | 3,180 people | **4,707 people** |
+| Districts more than 10 percent bigger than average | 5 | **15** |
+| Districts more than 15 percent bigger than average | 0 | **5** |
 
-**So what?** Under the majority map, the size of your district barely depends on where you live — districts cluster tightly around the provincial average. Under the minority map, your district can be 20,000+ people bigger than someone else's before it hits the legal limit. **If you live in one of the minority's 5 biggest districts, you share your MLA with about 13,000 more people than someone in one of the smallest.** Your share of your MLA's attention, office time, and vote in the legislature is proportionally smaller. That's the population-equality consequence.
+**What this means for you.** Under the majority map, your district size does not depend much on where you live. Under the minority map, your district can be 20,000 more people than someone else's before the legal limit kicks in. If you live in one of the five biggest minority districts, you share your MLA with about 13,000 more people than someone in one of the smallest. Your share of that MLA's time is smaller.
 
-### 2. Are Calgary's districts sized fairly across the city?
+This finding does not depend on vote data. It comes straight from the commission's own population tables. A red-team does not weaken it.
 
-**Why this matters:** Calgary has two broadly recognizable political zones. The north, east, and central areas lean more to the NDP. The south and west lean more to the UCP. If a map systematically makes one zone's districts bigger, that zone's voters have less power per person — and in a general election, their party gets fewer seats for the same share of votes.
+### 2. Are Calgary's districts sized fairly?
 
-**What we found:**
+**Why this matters.** Calgary has two political zones. The north, east, and central parts lean NDP. The south and west lean UCP. If one zone gets bigger districts on average, that zone's voters have less power per person.
 
-| Calgary zone | Majority proposal | Minority proposal |
+**What I found.**
+
+| Calgary zone | Majority | Minority |
 |---|---|---|
-| North/east/central average population | 56,460 | **61,225** |
-| South/west average population | 56,255 | 54,569 |
-| Gap | **0.4%** (essentially none) | **12.2%** (big) |
+| North, east, central average population | 56,460 | **61,225** |
+| South, west average population | 56,255 | 54,569 |
+| Gap | **0.4 percent** | **12.2 percent** |
 
-**So what?** Under the majority proposal, if you live in Calgary, it doesn't matter which zone you're in — your district has about the same number of people as any other Calgary district. Under the minority proposal, **NDP-leaning zone residents share their MLA with 6,656 more people per district than UCP-leaning zone residents.** Over 17 such districts, that's roughly 113,000 "extra" NDP-leaning voters who would need to be represented in more districts if the sizes were equal. Instead, they're packed into existing districts, meaning NDP-leaning Calgary gets the same number of seats representing more voters.
+**What this means for you.** Under the majority map, your Calgary district is about the same size no matter which zone you are in. Under the minority map, the NDP-leaning zones have 6,656 more people per district on average. Over 17 districts, that is about 113,000 "extra" NDP-leaning voters who would need to be in more districts if the sizes were equal. Instead, they are packed into fewer districts. The same number of NDP votes produces fewer NDP MLAs.
 
-The practical effect: for the same number of NDP votes cast, the minority map produces fewer NDP seats than the majority map would. **That's how map lines turn into legislature seats without a single vote changing.**
+I checked this two ways. The geographic rule (north/east/central vs south/west) produces a 12.2 percent gap. A simpler rule (which districts did the UCP actually win in 2023?) produces a 7.7 percent gap. Different number, same direction.
 
-We tested this using a simpler, different rule too (which districts did the UCP actually win in 2023?) — different number, same direction: the minority produces a 7.7% gap, the majority still essentially zero.
+This finding does not depend on the partisan math that failed the red-team. It comes from the population tables and a geographic classification. It holds up.
 
 ### 3. Do the districts respect cities, towns, and communities?
 
-**Why this matters:** MLAs work for a district's issues. If your city is split across four different districts, four different MLAs each represent a slice of your city — none of them fully responsible for it. A city of 84,000 deserves a representative focused on its housing, roads, schools, and infrastructure, not four representatives each juggling a quarter of your city alongside other places. When you call your MLA about a city problem, you want someone whose political career depends on fixing it.
+**Why this matters.** MLAs work for their district's issues. If your city is split across four districts, four MLAs each represent a slice of your city. None of them is mainly responsible for it. When you call your MLA about city problems, you want someone whose political career depends on fixing them.
 
-**What we found:**
+**What I found.**
 
-**Airdrie** (population 84,000):
-- **Majority:** Two districts, both named "Airdrie." One MLA splits the city with a colleague; both are accountable to Airdrie residents as their primary constituency.
-- **Minority:** Four districts, *none* named Airdrie. Your MLA's main constituency is a Calgary neighborhood, an Olds-area rural riding, or something else — Airdrie is a secondary consideration.
+**Airdrie** has 84,000 people. Two or three districts could handle it.
 
-**So what?** If you live in Airdrie under the minority map, your voice on city issues gets split four ways, and no MLA's political survival depends on serving you specifically. Under the majority map, two MLAs make Airdrie their core constituency.
+Under the majority, Airdrie is split into two districts, both named "Airdrie."
 
-**Cochrane** (population 34,000):
-- **Majority:** Its own district, paired with the natural rural area around it (Cochrane-Springbank).
-- **Minority:** Folded into a Calgary district ("Calgary-Nolan Hill-Cochrane") via a narrow strip of land reaching through Calgary's northwest suburbs.
+Under the minority, Airdrie is split into four districts, none of them named Airdrie. The city ends up in a Calgary district, an Olds-area rural district, and two others. Your MLA's main constituency is somewhere else.
 
-**So what?** Cochrane's issues — highway access to Calgary, water, the Bow River, small-town infrastructure — are different from Calgary's issues. Under the minority map, a Cochrane voter shares an MLA with a Calgary neighborhood whose concerns don't overlap with theirs. Under the majority map, Cochrane gets an MLA whose constituency is Cochrane and the rural area around it — same kind of community, same issues.
+**Cochrane** has 34,000 people.
 
-**Chestermere, Enoch Cree Nation, and others** show the same pattern: minority splits communities that the majority keeps intact. The consequence is the same — fragmented political voice for communities that fit comfortably in one district.
+Under the majority, Cochrane gets its own district, Cochrane-Springbank.
 
-### 4. Do the district shapes make geographic sense?
+Under the minority, Cochrane is attached to a Calgary neighborhood through a narrow strip of land. The district name is "Calgary-Nolan Hill-Cochrane." Cochrane's issues are not Calgary's issues, but Cochrane voters end up sharing an MLA with Calgarians.
 
-**Why this matters:** A district whose boundaries follow rivers, highways, and municipal lines is one whose shape emerged from geography. A district shaped like a lasso or a tentacle is one whose boundaries were drawn for a reason — often a reason that doesn't serve the people inside the shape. The US Supreme Court has spent 40 years dealing with maps that were drawn in weird shapes to guarantee specific election results; Alberta doesn't have that history, but the warning signs are the same.
+**Chestermere, Enoch Cree Nation, and others** show the same pattern. The minority splits them more. The majority keeps them together.
 
-**What we found:** The commission chair himself flagged three specific boundaries in the minority proposal as *engineered* — shapes drawn to meet a legal requirement rather than representing a natural community. We examined all three on the published maps:
+This finding comes from the maps and does not depend on vote math. It holds up.
 
-- **Calgary-Nolan Hill-Cochrane.** Confirmed. A long, narrow-waisted district that reaches from Cochrane across Calgary's northwest boundary to the Nolan Hill neighborhood, skipping Calgary's other northwestern neighborhoods in between.
+### 4. Do the district shapes make sense?
 
-  **So what?** A district shaped like this doesn't represent a community — it represents a boundary decision. When the shape is this unnatural, voters inside it end up being a collection of people who happen to be on the same side of a line, not a community with shared needs their MLA would fight for.
+**Why this matters.** A district whose lines follow rivers, highways, and town boundaries is one whose shape came from geography. A district shaped like a tentacle is one whose lines were drawn for a reason. The US Supreme Court has spent 40 years dealing with maps that had weird shapes drawn on purpose. Alberta does not have that history. The warning signs are the same.
 
-- **Rocky Mountain House-Banff Park.** Confirmed. A district whose southwest extension traces the uninhabited portion of Banff National Park to reach the British Columbia border.
+**What I found.** The commission chair named three boundaries in the minority proposal as engineered, meaning drawn to meet a rule rather than to represent a real community. I looked at all three on the published maps.
 
-  **So what?** Alberta's law lets remote rural districts have fewer people if they're big, far from cities, have Indigenous reserves, and touch another province. Rocky Mountain House-Banff Park only meets the "big" and "touches BC" requirements because of the extension through the national park — uninhabited land, added to the boundary specifically so the district qualifies for smaller-than-average population. Without the park addition, it wouldn't qualify, and would have to be drawn bigger, probably reducing the number of rural-weighted seats in the map by one. **The practical effect is that this boundary creates an extra rural seat that wouldn't otherwise exist under the same legal framework.**
+- **Calgary-Nolan Hill-Cochrane.** Confirmed. A long district that reaches from the town of Cochrane across Calgary's northwest edge to the Nolan Hill neighborhood. It skips over other Calgary neighborhoods in between.
 
-- **Olds-Three Hills-Didsbury.** Confirmed. The district is named for three small towns north of Calgary but reaches south to capture a slice of Airdrie — a city bigger than all three named towns combined.
+- **Rocky Mountain House-Banff Park.** Confirmed. A district whose southwest extension goes through the empty part of Banff National Park to touch the BC border. Without that extension, it would not qualify for the "small remote district" rule.
 
-  **So what?** If you live in the "Olds-Three Hills-Didsbury" portion that's actually in Airdrie, your MLA is elected primarily by voters in small towns 50+ km away, with different issues and different economic bases. The name tells you who the district represents; the map tells you that's not who actually lives in a big chunk of it.
+- **Olds-Three Hills-Didsbury.** Confirmed. The district is named for three small towns. It also reaches down into a big piece of Airdrie, a city bigger than all three towns combined.
 
-**The majority proposal's Calgary districts** — the only majority districts we had published maps for — show none of these features. We don't have published maps for the majority's rural and Edmonton districts, so our answer for those is "we don't know yet." **That's an honest gap in the audit, not a clean bill of health for the majority's rural districts.** Shapefiles, when released, will close this gap.
+I also had published maps for the majority's Calgary districts. None of them showed these features. I did not have published maps for the majority's rural or Edmonton districts. For those, I cannot say whether the majority has similar problems. That is a real gap in the audit, not a clean pass for the majority.
 
-### 5. Does any of this actually change how votes turn into seats?
+### 5. Does this change how votes turn into seats?
 
-**Why this matters:** You can draw an ugly map, and it can turn out to be roughly fair by accident. You can draw a pretty map that's secretly unfair. What counts is what the map actually does to the seat count when real voters vote. Three standard measures tell you whether a map gives one party extra seats beyond their share of votes.
+**Why this matters.** An ugly map can be roughly fair. A pretty map can be secretly unfair. What matters is what the map does to the seat count when real voters vote.
 
-**What we found:**
+**What I found.**
 
-| Measure | 2019 map (current) | Majority 2026 | Minority 2026 |
+| Measure | 2019 map | Majority 2026 | Minority 2026 |
 |---|---|---|---|
-| Efficiency gap | −2.64% (slight UCP edge) | −0.78% | **−1.36%** |
-| Mean-median gap | −2.22 percentage points | −0.16 pp | −0.33 pp |
-| NDP seats in a 50/50 tied election | 46 | 44 | **42** |
+| Efficiency gap | −2.64 percent | −0.78 percent | **−1.36 percent** |
+| Mean-median gap | −2.22 | −0.16 | −0.33 |
+| NDP seats in a tied election | 46 | 44 | **42** |
+| Declination (second standard test) | −0.034 | −0.021 | **−0.015** |
 
-**So what, in plain terms:**
+**What the numbers mean in plain terms.**
 
-- **The 2019 map already has a slight built-in UCP advantage.** In a tied election, the UCP wins a few more seats than the NDP — not because of boundary engineering, but because rural Alberta is geographically spread out. Every Canadian province deals with this.
+The 2019 map already leans a bit UCP. Rural Alberta has fewer voters spread across more area, so the math tilts a little even without anyone drawing boundaries on purpose.
 
-- **The majority map gives the UCP a smaller built-in advantage than the 2019 map.** It's the most neutral of the three.
+The majority map has a smaller UCP tilt than the 2019 map. It is the most neutral of the three.
 
-- **The minority map restores part of the 2019 UCP advantage and adds a bit more.** In a 50/50 tied election, the NDP wins 42 seats under the minority map vs 44 under the majority map. **That's 2 seats won by how the lines are drawn, not by winning more votes.**
+The minority map has a slightly bigger UCP tilt than the majority map. In a tied election, the NDP would win 42 seats under the minority map and 44 under the majority map.
 
-In Alberta's last few elections, 2 seats has been the margin between a majority government, a minority government, and the opposition. The 2023 election went UCP 49, NDP 38 — a solid UCP majority. If the next election is closer (and the political environment in 2027 is genuinely uncertain), **the map choice could be the difference between the NDP forming government and the UCP forming government with the same underlying voter sentiment.**
+That is a 2-seat difference. Two seats has been the margin between a majority government, a minority government, and opposition in some recent Alberta elections. In a close election, the map choice could decide who governs with the same underlying votes.
 
-We tested how sensitive these numbers are to modeling choices we had to make (official boundary shapefiles haven't been released; hybrid districts require estimating how rural and urban voters mix). The direction — minority more UCP-favorable than majority — holds under every variant we tested. The exact magnitude ranges from 0.6 to 1.6 percentage points depending on assumption, and from 1 to 3 seats depending on how tied the election is.
+**But here is where the red-team hits.**
 
-None of these numbers cross the threshold US courts have used to flag suspect maps (7% efficiency gap). **This isn't a smoking-gun gerrymander. It's a finger on the scale, not a thumb.** But a finger, consistently, in the same direction.
+The 2-seat number is the best estimate at a specific modeling assumption. When I run the same analysis 2,000 times with slightly different modeling choices, the minority-UCP advantage ranges from −3 seats to +1 seat. The direction is usually UCP-favorable, but not always.
+
+One of the standard academic tests (declination, shown in the table above) says the minority is actually the least UCP-favorable of the three maps. Two research-standard tests on the same maps disagree about which way the bias points.
+
+When I use 2019 vote patterns instead of 2023, the direction of the advantage flips entirely. The minority looks NDP-favorable.
+
+So the honest reading is: the minority map is probably a little more UCP-favorable than the majority map when run through 2023 voter behavior. The word "probably" does real work here. The size of the effect could be 1 seat, could be 3, could be zero, depending on what assumptions you accept.
 
 ### 6. What about the April 16 decision?
 
-**Why this matters:** Independent commissions exist because when the people drawing the boundaries are also the people competing for seats in them, the maps tend to benefit whoever's holding the pen. Every Canadian province uses independent commissions for this reason. When a government overrides an independent commission's work, the question becomes: is this a technical amendment to improve representation, or is it about gaining advantage?
+**Why this matters.** Independent commissions draw maps because when the people drawing boundaries are also competing for seats, the maps tend to favor whoever is holding the pen. Every Canadian province uses an independent commission for this reason. When a government takes over, the question is: is this a technical fix, or is this about keeping seats the map would otherwise change?
 
-**What we found:** The government can legally reject or amend an independent commission's recommendations. We looked at three recent comparable cases:
+**What I found.** The government can legally reject or amend a commission's work. I looked at three similar cases.
 
-- Quebec 1992: the legislature tweaked specific commission recommendations.
-- Ontario 1996: Queen's Park reduced seat count by adopting federal boundaries (another independent commission's work).
-- BC 2008: Victoria legislated to keep more northern seats than their commission recommended.
+- Quebec 1992: the legislature made small changes.
+- Ontario 1996: Queen's Park reduced the seat count.
+- BC 2008: Victoria kept more northern seats than the commission wanted.
 
-**All three overrode a specific part of their commission's work.** Alberta's April 16 action — forming a UCP-majority MLA committee chaired by Brandon Lunty to oversee a new advisory panel — goes further. It replaces the drafting process, not just the output.
+All three changed parts of the commission's output. Alberta's April 16 action goes further. It replaces the process, not just the output. A UCP-majority committee of MLAs now oversees drafting a new map.
 
-**So what?** The commission heard from 1,140+ Albertans who made submissions about how the new map should be drawn. The commission chair's own report says the minority's specific configurations for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert **had no public support in those 1,140+ submissions.** If that claim is correct — and we haven't independently verified it, it's from the majority report's Appendix C — the April 16 process is using government control to promote the boundary choices *no one asked for* over the boundary choices everyone got to comment on.
+**What this means for you.** The commission heard from more than 1,140 Albertans who made submissions. The commission chair wrote that the minority's specific choices for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert had no support in those submissions. I have not verified that claim independently. If it is correct, the April 16 process is now being used to push boundary choices no one asked for, over the boundary choices that went through public review.
 
-**The practical effect:** in a province where the map determines ~2 seats' worth of partisan advantage, the process that picks the map is now controlled by the party that benefits from the more advantageous option. Even if the advantage is small, the combination — more advantageous map + process control to pick it — is what makes this worth paying attention to.
+A province where the map could shift 1 to 3 seats of partisan advantage is a province where the process that picks the map matters. The combination of a possibly-advantageous map plus government control of the process is the reason this audit exists.
 
 ---
 
-## What This Audit Cannot Tell You (And Why That Matters)
+## What This Audit Cannot Tell You
 
-Honest limits, spelled out:
+**I cannot prove intent.** I can show that one map produces a more UCP-favorable result than the other in some tests. I cannot prove the two government-appointed commissioners drew the map on purpose for that reason. People can disagree about boundaries in good faith.
 
-- **We cannot prove intent.** We can show that one map produces a more UCP-favorable result than the other, that the more-favorable one uses configurations no one asked for publicly, and that the process being used to promote it is government-controlled. We can't prove the two government-appointed commissioners drew the map intending this result. Good-faith disagreement with the chair is an alternate explanation. Don't let anyone (including us) tell you we've proven intent. What we've shown is the *effect*, which is observable; the *intent* is not.
+**I cannot give you one exact number for the partisan shift.** I can give you a range of 1 to 3 seats in a tied election, with the direction probably UCP-favorable. When the province releases the official digital boundary files, I can tighten the range. That release has not happened yet.
 
-- **We cannot give you a single precise number for the partisan shift.** We can give you a range (0.6 to 1.6 percentage points, 1 to 3 seats). The range is honest uncertainty about modeling choices, not a hedge. When the province releases the official digital boundary files — standard after a map is finalized — we can collapse this to a single number. That hasn't happened yet. What we can tell you: the range's *direction* is rock-solid; the exact value within the range will be determined when the data arrives.
+**I cannot tell you whether the override is legal.** It looks legal. The law gives the legislature final say. Whether it is wise or well-precedented is a different question.
 
-- **We cannot tell you whether the override is legal.** It appears to be. The statute gives the legislature final say. Whether it's wise, fair, or well-precedented is a different question than whether it's permitted.
-
-- **We cannot tell you how the final November 2026 MLA-committee map will differ from the commission's minority.** The committee could stick close to the minority, or could modify it substantially. Our audit is of the two commission proposals as they stand — not of what the committee will produce. **If the committee produces a map materially closer to the majority, the substantive concern in this audit diminishes proportionally.** If it produces the minority or something more partisan, the concerns in this audit apply directly.
+**I cannot tell you what the November 2026 committee will produce.** It could stick close to the minority, or change it a lot. If the committee produces a map closer to the majority, the concerns in this audit drop. If it produces the minority or something more partisan, the concerns apply.
 
 ---
 
 ## The One Big Uncertainty That Could Change Everything
 
-When the boundary files are released, we'll run an additional test called an **ensemble comparison.** This generates thousands of alternative maps that follow all the same legal rules, then checks where the real maps fall within that computer-generated distribution.
+When the boundary files are released, I will run one more test called an ensemble comparison. This generates thousands of random legal maps, then checks where the two real maps fall in that distribution.
 
-**If the minority map turns out to be an extreme outlier** (in the top 5% most UCP-favorable of all legally-allowed maps), the audit's finding strengthens substantially. The interpretation becomes: *the commissioners drew a map no random, legal process would likely produce — that's evidence of intent.*
+If the minority falls in the top 5 percent most UCP-favorable of all legal maps, the audit's partisan finding gets stronger. The argument becomes: no random legal process would have produced this map by chance.
 
-**If the minority map turns out to be a normal-ish map** (somewhere in the middle of the distribution), the audit's finding softens. The interpretation becomes: *the minority is directionally more UCP-favorable than the majority, but well within the range of what any reasonable map-drawer could end up with.* The direction of the advantage is still real; the "intentional partisan choice" framing weakens.
+If the minority falls in the middle of the distribution, the partisan finding gets weaker. The argument becomes: the minority is a little more UCP-favorable than the majority, but it is within the range of what reasonable mapmakers might produce.
 
-**We think there's about a 35% chance the outlier-test shows the minority is *not* extreme.** We're flagging this so you hear it from us first rather than discovering later that the audit's framing got revised. If you share this audit, **share the fact that this additional test is coming, and its result could change the interpretation.**
+About 35 out of 100 times, ensemble tests on small-margin cases like this one find the real map in the middle. I am flagging this now so readers hear about it from me rather than finding it later.
 
-What it won't change: the population asymmetry, the community splits, the visible boundary shapes, the procedural concern about the April 16 action. Those stand regardless.
-
----
-
-## Bottom Line, For A Reader Deciding Whether To Care
-
-1. **If you live in Calgary and vote NDP:** the minority map's districts in your neighborhood carry about 12% more people than districts in UCP-leaning neighborhoods. Your share of an MLA is proportionally smaller under that map.
-
-2. **If you live in Airdrie or Cochrane:** the minority map splits your city up among four or five districts without giving any of them your city's name. Under the majority map, your city has its own MLA.
-
-3. **If you live in rural Alberta:** the minority map gives rural districts slightly smaller populations on average, which means slightly more rural MLAs per capita. If you're a rural UCP voter, this map slightly benefits you. If you're a rural NDP voter (there are some, especially in Peace Country and near Indigenous communities), it slightly disadvantages you.
-
-4. **If you care about fair process regardless of party:** the government is replacing the independent drafting process with a government-controlled one in order to promote the option the commission's public submissions didn't support. That's worth paying attention to whether you vote NDP, UCP, or neither.
-
-5. **If you're waiting for a smoking gun before caring:** there isn't one here. What there is instead is a consistent, modest-sized effect across six separate tests. Multiple small pushes in the same direction is the 2020s gerrymandering playbook; 1990s-style obvious weirdness is rare now. The test that matters is whether the effect is reproducible across multiple independent measurements. It is.
-
-6. **The concrete 2027 election stakes:** in a tied election, the minority map gives the UCP 2 seats the majority map wouldn't. In the 2023 election — UCP 49 / NDP 38 — that would not have flipped the result. In a tight election (say, 46-45), it could be the difference between governments.
+The structural findings above do not change based on this test. The partisan math does.
 
 ---
 
-*This audit applies identical forensic methodology symmetrically to all three maps. Full section-by-section technical writeups, reproducibility scripts, data files, and a self-audit of our own methodology are available in the [academic/legal report](report_academic.md) and in the [repository](https://github.com/Ixby/alberta-electoral-boundaries-audit).*
+## Bottom Line
 
-*We will update the public finding if and when Elections Alberta releases digital boundary files, or if the commission's 1,140+ public submissions, independently searched, refute the claim that the five disputed minority configurations had no public support.*
+**If you live in Calgary and vote NDP:** the minority map's districts in your neighborhood carry about 12 percent more people than districts in UCP-leaning neighborhoods. Your share of an MLA is smaller under that map.
+
+**If you live in Airdrie or Cochrane:** the minority map splits your city across multiple districts and does not give any of them your city's name. Under the majority map, your city has its own MLA.
+
+**If you live in rural Alberta:** the minority map makes rural districts a bit smaller on average, which means a bit more rural MLAs per capita. If you are a rural UCP voter, this helps you a little. If you are a rural NDP voter, it hurts you a little.
+
+**If you care about fair process:** the government is replacing an independent drafting process with a government-controlled one to promote an option the public submissions did not support. That is worth paying attention to regardless of how you vote.
+
+**If you are waiting for a smoking gun:** there isn't one. What there is instead is a consistent pattern across several different tests. Some of the partisan tests disagree. The structural tests line up. Modern redistricting concerns are usually about modest, consistent pushes rather than dramatic obvious weirdness.
+
+**If you want the concrete 2027 election stakes:** in a tied election, the minority map probably gives the UCP 1 to 3 more seats than the majority map would. The 2023 election was not tied, so this would not have changed the result. The 2027 election is more uncertain. Small effects matter when the election is close.
+
+---
+
+*This audit applies the same tests to all three maps. Full technical details, reproducibility scripts, the data files, the red-team critique, and the uncertainty analysis are in the [academic report](report_academic.md) and the [repository](https://github.com/Ixby/alberta-electoral-boundaries-audit).*
+
+*I will update this report when Elections Alberta releases the digital boundary files, or if the commission's public submissions, searched independently, turn up evidence that refutes the chair's claim about the five disputed configurations.*
