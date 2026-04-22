@@ -684,6 +684,13 @@ Because the commission has not released 2026 shapefiles, this audit constructed 
 
 This misclassification is inherent to approximation-without-shapefile: every Tier B hybrid whose parent is carved rather than merged is subject to it. The impact-assessment above (0.06 % voter-impact residual) is conservative because it measures only v1-to-v3 symmetric difference, not the underlying approximation-to-reality gap for these Tier C-like EDs. The full voter-assignment gap for these EDs will be resolved only by shapefile release.
 
+**Calgary-De Winton and Calgary-South — scale-level and shape-level misclassifications.** Visual cross-reference against the commission's minority Calgary overview (Appendix E p. 74) and individual per-ED thumbnails shows:
+
+- **Calgary-De Winton** is a large south-Calgary / southern-suburban-rural hybrid that abuts the Tsuut'ina Nation reserve to the west, extends south past Calgary's city limits, and encompasses the Town of Okotoks (~32,000 residents) along with the De Winton community the district is named for. The v3 approximation renders as a small compact polygon internal to south Calgary — the approximation captures perhaps 10–15 % of the territory the commission actually assigned to this ED.
+- **Calgary-South** as drawn by the commission is a compact roughly-rounded shape with a notch on the right side. The v3 approximation is an elongated east-west shape with an eastern extension and a southern tail — general location correct, shape materially wrong.
+
+These are more severe misclassifications than Edmonton-Windermere (which had the general footprint correct with a missing peninsula). All three EDs are reclassified from Tier B to **Tier C awaiting shapefile**. The approximation's compactness scores for these three EDs should be read as known-inaccurate; the shared 217-vote residual between Calgary-De Winton and Calgary-South under the v3 symmetric-difference metric is a floor, not a ceiling, on the approximation-to-reality gap. Full mismatch documentation and commission-thumbnail observations at `analysis/v0_1_commission_reference_shapes.md`. Only commission shapefile release will resolve the gap. The §3.12 finding that Calgary-De Winton and Calgary-South "are measurable as Tier A/B" is withdrawn; §6.7's Tier count is revised downward by 3 measurable EDs on the minority side.
+
 **Confidence versus actual commission shapefiles** (after v2):
 - Tier A (57 majority / 65 minority EDs): high — geometry is the 2019 enacted shapefile, which is authoritative.
 - Tier B orange-accepted (2 of 5): high — residual geometric uncertainty does not affect voter assignment.
