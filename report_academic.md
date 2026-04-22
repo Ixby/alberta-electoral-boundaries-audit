@@ -65,7 +65,7 @@ Data and scripts: `analysis/*.py`, `data/*.csv`, `data/2023_results.xlsx`
 
 A post-v0.2 red-team pass applied three additional tests that **materially weaken the partisan-bias magnitude claim** while leaving structural findings intact. Findings documented here for intellectual honesty; full methodology in `analysis/v0_1_design_critique.md`.
 
-**1. Monte Carlo 95% CI over modeling choices crosses zero.** N=2,000 samples varying urban weight (0.55–0.85), rural baseline (0.28–0.38), and per-hybrid jitter (±0.10). Minority-majority EG asymmetry: mean −1.25 pp, median −1.45 pp, **95% CI [−3.14, +0.74] pp**. Direction consistency: 89.3% of samples show minority more UCP-favorable. Classical 95% significance is **not** defensible; the directional claim holds at 89% confidence, not 95%. (Script: `v0_3_monte_carlo_ci.py`.)
+**1. Monte Carlo 95% CI over modeling choices crosses zero.** N=2,000 samples varying urban weight (0.55–0.85), rural baseline (0.28–0.38), and per-hybrid jitter (±0.10). Minority-majority EG asymmetry: mean −1.22 pp, median −1.44 pp, **95% CI [−2.99, +0.76] pp**. Direction consistency: 90.5% of samples show minority more UCP-favorable. Classical 95% significance is **not** defensible; the directional claim holds at 89% confidence, not 95%. (Script: `v0_3_monte_carlo_ci.py`.)
 
 **2. Declination metric (Warrington, 2018) disagrees with efficiency gap.** Computed: 2019 = −0.034, Majority = −0.021, Minority = −0.015. By declination, **the minority is the least pro-UCP of the three maps**, the opposite direction from EG/B4. When two partisan-bias metrics from the same literature disagree on the direction of bias in the same map, the "measurable partisan advantage" framing weakens. Warrington (2019) documents this kind of cross-metric divergence as an expected feature of competing formalizations rather than a methodological flaw; Katz, King, and Rosenblatt (2020) argue the appropriate response is to report the full ensemble of metrics rather than privileging one. We retain both metrics in reporting; neither is dispositive on its own.
 
@@ -79,13 +79,13 @@ A post-v0.2 red-team pass applied three additional tests that **materially weake
 - Section D procedural concerns: government-controlled replacement of drafting process, qualitative.
 
 **What is now materially weakened:**
-- Section B partisan-bias *magnitude* claims. The point estimate of 0.58 pp is within Monte Carlo noise. The direction holds at 89.3% confidence across modeling uncertainty, which is a defensible frequentist claim but not at 95% significance.
+- Section B partisan-bias *magnitude* claims. The point estimate of 0.58 pp is within Monte Carlo noise. The direction holds at 90.5% confidence across modeling uncertainty, which is a defensible frequentist claim but not at 95% significance.
 - The two-seat "in a tied election, minority gives UCP 2 more seats" line in the public report. Under Monte Carlo, minority NDP@50/50 has 95% CI [41, 47] vs majority [43, 46] — overlapping. The point difference is robust; the worst-case difference could be +3 or −3.
 - "Directionally consistent across six dimensions." Declination disagreement means the correct phrasing is "directionally consistent across five of six tested dimensions, with one partisan-bias metric (declination) pointing the opposite way."
 
 **Revised synthesis (the most-defensible claim, v0.3):**
 
-The minority 2026 proposal shows measurable structural differences from the majority in four areas: population distribution (MAD 48% wider), Calgary geographic-zone balance (12.2% gap vs 0.4%, robust across two classification rules), community-of-interest treatment (Airdrie split across 4 EDs vs 2), and visible boundary shape (three confirmed anomalies). None of these depend on vote data or attribution modeling, so they survive all three red-team tests unchanged. The partisan-bias consequences of these structural differences are directionally UCP-favorable for the minority in 89.3% of modeling-jitter samples using 2023 vote attribution. That finding inverts when 2019 vote attribution is substituted. One declination-based metric shows the minority as less partisan than the majority. The audit's most defensible core claim is that the minority has more structural irregularities than the majority. A specific partisan-seat-shift magnitude is less defensible and sensitive to election baseline. The procedural concern about the April 16 government action stands separately from the partisan-math questions.
+The minority 2026 proposal shows measurable structural differences from the majority in four areas: population distribution (MAD 48% wider), Calgary geographic-zone balance (12.2% gap vs 0.4%, robust across two classification rules), community-of-interest treatment (Airdrie split across 4 EDs vs 2), and visible boundary shape (three confirmed anomalies). None of these depend on vote data or attribution modeling, so they survive all three red-team tests unchanged. The partisan-bias consequences of these structural differences are directionally UCP-favorable for the minority in 90.5% of modeling-jitter samples using 2023 vote attribution. That finding inverts when 2019 vote attribution is substituted. One declination-based metric shows the minority as less partisan than the majority. The audit's most defensible core claim is that the minority has more structural irregularities than the majority. A specific partisan-seat-shift magnitude is less defensible and sensitive to election baseline. The procedural concern about the April 16 government action stands separately from the partisan-math questions.
 
 ---
 
@@ -122,7 +122,7 @@ Each analytical stage produces a PASS/FAIL gate value before propagating downstr
 
 ### 1.4 Relationship to v0.1 carry-forward
 
-The prior session's carry-forward table (majority B2 = −0.47%, B3 = −2.15pp, B4 = 47) could not be reproduced from checked-in code during this audit's bias-remediation pass. Those numbers are **superseded** by the symmetric v0.2 computation (majority B2 = −0.78%, B3 = −0.16pp, B4 = 44), which uses identical methodology for both maps. The previous bias audit (`analysis/v0_1_bias_audit.md`) documents the provenance gap. All numbers in this report derive from `v0_2_packing_cracking_analysis.py` and `electoral_forensics_population.py`.
+The prior session's carry-forward table (majority B2 = −0.47%, B3 = −2.15pp, B4 = 47) could not be reproduced from checked-in code during this audit's bias-remediation pass. Those numbers are **superseded** by the symmetric v0.2 computation (majority B2 = −0.85%, B3 = −0.16pp, B4 = 44), which uses identical methodology for both maps. The previous bias audit (`analysis/v0_1_bias_audit.md`) documents the provenance gap. All numbers in this report derive from `v0_2_packing_cracking_analysis.py` and `electoral_forensics_population.py`.
 
 ---
 
@@ -232,7 +232,7 @@ The seat-vote-curve symmetry principle underlying B4 traces to Grofman (1983) an
 | Districts                                     | 87                | 89                 | 89                  |
 | Provincial two-party (NDP%)                   | 45.56%            | 45.84%             | 45.67%              |
 | Actual seats (NDP / UCP)                      | 38 / 49           | 38 / 51            | 37 / 52             |
-| **B2** Efficiency gap                         | **−2.64%**        | **−0.78%**         | **−1.36%**          |
+| **B2** Efficiency gap                         | **−2.64%**        | **−0.85%**         | **−1.36%**          |
 | **B3** Mean-median gap (NDP)                  | −2.22 pp          | −0.16 pp           | −0.33 pp            |
 | **B4** NDP seats at 50/50 uniform swing       | 46                | 44                 | 42                  |
 | Asymmetry at 50/50 (|NDP − UCP|)              | 5                 | 1                  | 5                   |
@@ -246,7 +246,7 @@ Efficiency gap under alternative urban weights (holding 2019 vote data and rural
 | Urban weight | Majority EG | Minority EG | Asymmetry (Min − Maj) |
 | ------------ | ----------- | ----------- | --------------------- |
 | 0.60         | +1.58%      | +0.22%      | **−1.36 pp**          |
-| 0.70         | −0.78%      | −1.36%      | −0.58 pp              |
+| 0.70         | −0.85%      | −1.36%      | −0.51 pp              |
 | 0.80         | −1.43%      | −3.04%      | **−1.61 pp**          |
 
 Direction is stable across all three weights: minority EG is more UCP-favorable than majority EG under every parameter setting. Magnitude ranges from 0.58 to 1.61 percentage points, with the central (0.70) case at 0.58 pp. **Report the range, not a point estimate**, until measured attribution replaces blending.
@@ -331,7 +331,7 @@ Provincial government rejected the majority report and established a UCP-majorit
 
 ### 5.3 Comparator cases
 
-Canadian boundary-commission practice traces to *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991] 2 SCR 158, which established the "effective representation" standard. The standard has been applied in subsequent §3 Charter cases including *Figueroa v. Canada (Attorney General)* [2003] 1 SCR 912 and *Frank v. Canada (Attorney General)* [2019] 1 SCR 3. Courtney (2001) provides the authoritative scholarly treatment of the independent-commission model across Canadian provinces. Pal (2015, 2019) applies contemporary quantitative gerrymandering analysis to Canadian cases within the Charter framework.
+Canadian boundary-commission practice traces to *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991] 2 SCR 158, which established the "effective representation" standard as the constitutional benchmark for provincial electoral boundaries. *Figueroa v. Canada (Attorney General)* [2003] 1 SCR 912 and *Frank v. Canada (Attorney General)* [2019] 1 SCR 3 developed the broader §3 Charter right to vote but did not directly apply the effective-representation standard to redistribution; they are listed in the References as context for the Charter jurisprudence surrounding electoral rights, not as authorities on boundary drawing. Courtney (2001) provides the authoritative scholarly treatment of the independent-commission model across Canadian provinces. Pal (2019) applies contemporary quantitative gerrymandering analysis to Canadian boundary cases within the Charter framework.
 
 Canadian provincial instances of government action on independent boundary commission output:
 
@@ -472,7 +472,7 @@ Not executed — no candidate 2026 geometry to validate. Population checksum, to
 | §A2 robustness (2023 winner-based)                 | (not run)    | +0.39%                 | **+7.71%**             | survives robustness check   |
 | §A2b Rest-of-province mean population              | (not run)    | 52,281                 | 50,336 (−3.9%)         | rural overrepresentation    |
 | §A3 s.15(2) failures engineered via visible boundary| 0           | 0 (Canmore-Banff undetermined) | 1 (RMH-Banff Park) | engineered qualifications   |
-| §B2 Efficiency gap                                 | −2.64%       | −0.78%                 | **−1.36%**             | +0.58 pp more UCP-favorable |
+| §B2 Efficiency gap                                 | −2.64%       | −0.85%                 | **−1.36%**             | +0.58 pp more UCP-favorable |
 | §B2 sensitivity range (urban weights 0.60–0.80)    | —            | [+1.58% to −1.43%]     | [+0.22% to −3.04%]     | +0.58 to +1.61 pp across range |
 | §B3 Mean-median gap                                | −2.22 pp     | −0.16 pp               | −0.33 pp               | directionally consistent    |
 | §B4 NDP seats at 50/50                             | 46           | 44                     | 42                     | 2-seat reduction for NDP    |
@@ -480,7 +480,13 @@ Not executed — no candidate 2026 geometry to validate. Population checksum, to
 | §C4 Airdrie splits                                 | —            | 2 EDs                  | 4 EDs                  | double split                |
 | §D Procedural                                      | —            | Standard override path  | Government-controlled drafting | departure from comparators |
 
-Six independent dimensions of evidence point in the same direction. None individually crosses a statistical significance threshold. Together, the directional consistency is the finding — the minority proposal, relative to the majority, is systematically more UCP-favorable at a sub-threshold magnitude, across six independent measurement frameworks.
+Six independent dimensions of evidence point in the same direction. None individually crosses a statistical significance threshold. Together, the directional consistency is the finding — the minority proposal, relative to the majority, shows more structural irregularities and, under 2023 voter geography, lower measured-partisan-neutrality at a sub-threshold magnitude, across six measurement frameworks.
+
+Three qualifications inherited from the red-team pass narrow this synthesis:
+
+- Under the Chen-Rodden (2013) natural-packing framing (see §3.6), some portion of the minority-to-majority partisan-bias gap is not attributable to engineering — it reflects how any neutral map interacts with Alberta's urban-NDP / rural-UCP geography. This lowers the claim from "the minority was engineered against the NDP" to "the minority produces more UCP-favourable results under 2023 voter geography." The structural findings (§A population equality, §A2 Calgary zone gap, §C3 visible anomalies, §C4 community splits, §D procedural) are not affected by the natural-packing caveat because they measure geographic and procedural properties the natural-packing argument does not address.
+- Under RT3 (cross-election stability), the vote-based asymmetry flips sign when 2019 votes replace 2023 votes. The six-dimension synthesis rests mostly on the structural dimensions; the single vote-based dimension (§B) is qualified accordingly.
+- Under the submission-archive verification (§5.4), the procedural concern is narrower than v0.3 stated. It now rests primarily on the two configurations without documented public support (Airdrie 4-way, Nolan Hill-Cochrane) rather than on the chair's five-item sweep.
 
 ---
 

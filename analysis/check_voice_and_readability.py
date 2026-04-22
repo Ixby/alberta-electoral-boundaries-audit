@@ -1,18 +1,19 @@
 """
-house voice and readability checker.
+House voice and readability checker.
 
-house voice rules (from project styles):
-- No mirrored 'not X — Y' reversals or 'not X, Y' constructions
+House voice rules (from project styles):
+- No mirrored 'not X — Y' reversals
 - No templated triads
 - No emoji
 - No editorializing reactions ("shockingly", "remarkably", etc.)
 - Plain, grounded, conversational prose
 
-Also checks grade level for public report using a Flesch-Kincaid
-approximation (textstat library, FOSS).
+Also checks grade level for public report using Flesch-Kincaid.
+Prefers the textstat library (installed via setup.sh) when available;
+falls back to a local approximation otherwise.
 
 Usage:
-  python3 analysis/check_wuff_voice.py report_public.md report_academic.md
+  python3 analysis/check_voice_and_readability.py report_public.md report_academic.md
 
 Exit status:
   0 - all checks pass
@@ -47,33 +48,37 @@ EDITORIALIZING_PHRASES = [
 ]
 
 
-def _approx_flesch_kincaid_grade(text: str) -> float | None:
-    """Approximate Flesch-Kincaid grade level without external deps.
-    FKG = 0.39*(words/sents) + 11.8*(syllables/words) - 15.59.
-    Using a rough syllable-count heuristic.
+def _flesch_kincaid_grade(text: str) -> tuple[float | None, str]:
+    """Compute Flesch-Kincaid grade level.
+
+    Returns (grade, method) where method is 'textstat' if the peer-
+    reviewed library was used, or 'approx' if the local fallback
+    approximation was used. Markdown syntax is stripped before scoring.
     """
-    # Remove markdown syntax that shouldn't count
     stripped = re.sub(r"[`*_#>|\[\]()]", " ", text)
     stripped = re.sub(r"!?\[[^\]]*\]\([^)]*\)", "", stripped)
-    # Split sentences
+
+    try:
+        import textstat as _ts
+        return float(_ts.flesch_kincaid_grade(stripped)), "textstat"
+    except ImportError:
+        pass
+
     sents = [s.strip() for s in re.split(r"[.!?]+", stripped) if s.strip()]
     if not sents:
-        return None
-    # Words
+        return None, "approx"
     words = re.findall(r"\b[A-Za-z][A-Za-z']*\b", stripped)
     if not words:
-        return None
-    # Syllable count by vowel-group heuristic
+        return None, "approx"
     total_syl = 0
     for w in words:
         w = w.lower()
         groups = re.findall(r"[aeiouy]+", w)
         syl = max(1, len(groups))
-        # Silent-e
         if w.endswith("e") and syl > 1 and not w.endswith("le"):
             syl -= 1
         total_syl += syl
-    return 0.39 * (len(words) / len(sents)) + 11.8 * (total_syl / len(words)) - 15.59
+    return 0.39 * (len(words) / len(sents)) + 11.8 * (total_syl / len(words)) - 15.59, "approx"
 
 
 def check_file(path: Path, target_grade: float | None = None) -> tuple[bool, list[str]]:
@@ -98,9 +103,10 @@ def check_file(path: Path, target_grade: float | None = None) -> tuple[bool, lis
             issues.append(f"  line {line_no}: filler phrase: '{phrase}'")
             idx = pos + len(phrase)
 
-    fkg = _approx_flesch_kincaid_grade(text)
+    fkg, method = _flesch_kincaid_grade(text)
     if fkg is not None:
-        issues.append(f"  [info] Approximate Flesch-Kincaid Grade: {fkg:.1f}")
+        label = "Flesch-Kincaid Grade" if method == "textstat" else "Approximate Flesch-Kincaid Grade"
+        issues.append(f"  [info] {label}: {fkg:.1f}  [method={method}]")
         if target_grade is not None and fkg > target_grade + 0.5:
             issues.append(
                 f"  FAIL: grade {fkg:.1f} exceeds target {target_grade:.1f} "
