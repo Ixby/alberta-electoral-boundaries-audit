@@ -153,6 +153,25 @@ def compute_metrics(districts: List[Dict], label: str, *, verbose: bool = True) 
     ndp_at_50 = sum(1 for s in swung if s > 0.5)
     ucp_at_50 = n - ndp_at_50
 
+    # B6: Declination (Warrington 2018)
+    # Measure asymmetry in winning-district distributions by computing
+    # the angle between two reference points (mean NDP-won share, mean
+    # UCP-won share) relative to the 50/50 line, normalized to [-1, 1].
+    ndp_won_shares = [s for s in shares if s > 0.5]
+    ucp_won_shares = [s for s in shares if s < 0.5]
+    if ndp_won_shares and ucp_won_shares:
+        import math
+        mean_ndp_won = statistics.mean(ndp_won_shares)
+        mean_ucp_won = statistics.mean(ucp_won_shares)
+        # Declination formula: angle between vectors (n_ndp_wins/n, mean_ndp_won - 0.5)
+        # and (n_ucp_wins/n, 0.5 - mean_ucp_won), normalized by pi/2.
+        # Positive = pro-NDP; negative = pro-UCP.
+        theta_ndp = math.atan2(mean_ndp_won - 0.5, n_ndp_wins / n)
+        theta_ucp = math.atan2(0.5 - mean_ucp_won, n_ucp_wins / n)
+        declination = (theta_ndp - theta_ucp) * 2 / math.pi
+    else:
+        declination = float('nan')  # one party swept
+
     if verbose:
         print(f"\n{'='*60}\n  {label}\n{'='*60}")
         print(f"  Districts: {n}")
@@ -169,6 +188,9 @@ def compute_metrics(districts: List[Dict], label: str, *, verbose: bool = True) 
               f"({'within' if abs(mm_gap) < 0.03 else 'EXCEEDS'} 3 pp threshold)")
         print(f"  B4: At 50/50 vote: NDP {ndp_at_50}, UCP {ucp_at_50} "
               f"(asymmetry: {abs(ndp_at_50-ucp_at_50)} seats)")
+        dec_str = f"{declination:+.4f}" if declination == declination else "N/A"
+        print(f"  B6: Declination (Warrington 2018) = {dec_str}  "
+              f"(negative = pro-UCP, positive = pro-NDP)")
 
     return {
         'label': label, 'n': n, 'prov_ndp': prov_ndp,
@@ -176,6 +198,7 @@ def compute_metrics(districts: List[Dict], label: str, *, verbose: bool = True) 
         'eg': eg, 'mm_gap': mm_gap,
         'ndp_at_50': ndp_at_50, 'ucp_at_50': ucp_at_50,
         'bin_counts': bin_counts,
+        'declination': declination,
     }
 
 
@@ -533,6 +556,7 @@ def main():
         print(f"  B2 Efficiency gap    | {m_2019['eg']*100:+6.2f}% | {m_maj['eg']*100:+7.2f}% | {m_min['eg']*100:+7.2f}%")
         print(f"  B3 Mean-median       | {m_2019['mm_gap']*100:+6.2f}pp| {m_maj['mm_gap']*100:+7.2f}pp| {m_min['mm_gap']*100:+7.2f}pp")
         print(f"  B4 NDP @ 50/50       | {m_2019['ndp_at_50']:>7d} | {m_maj['ndp_at_50']:>8d} | {m_min['ndp_at_50']:>8d}")
+        print(f"  B6 Declination       | {m_2019['declination']:+7.4f} | {m_maj['declination']:+8.4f} | {m_min['declination']:+8.4f}")
 
         # Sensitivity test under alternative urban weights
         print("\n" + "="*60)
