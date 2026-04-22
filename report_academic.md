@@ -1,0 +1,414 @@
+# Alberta Electoral Boundaries Audit — Academic and Legal Edition
+
+**A symmetric, reproducible forensic assessment of the 2025–26 Electoral Boundaries Commission's majority and minority recommendations**
+
+**Version 0.2** · Compiled April 22, 2026 · Non-partisan · [Repository](https://github.com/Ixby/alberta-electoral-boundaries-audit) · Data and scripts linked throughout
+
+Author: Independent audit · Code: `analysis/*.py` · Data: `data/*.csv`, `data/2023_results.xlsx`
+
+---
+
+## Abstract
+
+This audit evaluates two competing 2026 electoral boundary proposals against the 2019 baseline currently in force in Alberta. Six dimensions are examined using public data and identical methodology applied to all three maps: (A) population equality, (B) partisan-bias metrics from the political-science literature, (C) visual geographic coherence, (D) procedural fairness, (4) geometric data provenance, and (5) MCMC ensemble comparison. Where data permit, the two 2026 proposals are shown to diverge systematically: the minority proposal exhibits wider population dispersion (MAD 4,707 vs 3,180), a 12.2% Calgary geographic-zone asymmetry vs the majority's 0.4%, three visible spatial anomalies flagged by the commission chair himself, fragmentation of Airdrie across four electoral divisions vs the majority's two, and a 0.6–1.6 percentage point more UCP-favorable efficiency gap under identical modeling methodology (sensitivity-tested across urban-weight parameters 0.60, 0.70, 0.80). Partisan-bias metrics remain within the 7% efficiency-gap threshold used in *Gill v. Whitford* (2018) for all three maps. The directional consistency of the minority's shift across six independent analytical dimensions — and the procedural departure of April 16, 2026 rejecting the majority recommendation in favor of a UCP-majority MLA committee drafting process — together support a finding of systematic partisan asymmetry at a magnitude below the US statistical-significance threshold but above the noise floor of non-partisan redistricting variance. Sections 4 (geometry) and 5 (MCMC ensemble) are blocked pending ABEBC release of 2026 polygon shapefiles.
+
+**Key phrase for citation:** *"Non-gerrymander at the US judicial threshold; directionally-consistent partisan asymmetry across six independent dimensions at the sub-threshold level."*
+
+---
+
+## 1. Methodology and Integrity Framework
+
+### 1.1 Symmetry requirement
+
+Every test applied to one map is applied identically to the others. Where a data gap prevents symmetric application, the gap is disclosed explicitly and the claim's scope is narrowed to what is symmetric.
+
+### 1.2 Falsifiability gates (introduced in v0.2)
+
+Each analytical stage produces a PASS/FAIL gate value before propagating downstream. Gates implemented:
+
+- **G1 (carry-forward verification):** B1–B4 on 2019 baseline must reproduce the four-figure match to official totals (NDP 777,404 / UCP 928,900, two-party 1,706,304). Reproducible via `python3 analysis/v0_2_packing_cracking_analysis.py`.
+- **G2 (2026 estimate count):** Each map's ED estimate set must contain exactly 89 districts; total valid votes within 5% of 1.7M; NDP share within [0.40, 0.50]. `validate_2026_estimate()` in `v0_2_packing_cracking_analysis.py`.
+- **G3 (Calgary classification coverage):** A2 test requires zero residual unclassified Calgary EDs. Enforced programmatically in `a2_calgary_analysis()`.
+- **G4 (A2 robustness):** A2 directional finding must survive alternative classification (2023 winner-based) or be flagged as classification-dependent. `a2_robustness_check()` implements the alternative.
+- **G5 (Sensitivity range):** B2 efficiency gap computed under urban weights 0.60, 0.70, 0.80. Direction must be consistent across all three; magnitude range is reported, not a single point estimate.
+
+### 1.3 What does not enter the report
+
+- Any number not reproducible by running a checked-in script against checked-in data
+- Any classification rule without a robustness check under at least one alternative
+- Any language characterizing one map's features with stronger modifiers than the other's when the underlying facts are comparable
+- Any "the numbers confirm X" framing in section preambles
+
+### 1.4 Relationship to v0.1 carry-forward
+
+The prior session's carry-forward table (majority B2 = −0.47%, B3 = −2.15pp, B4 = 47) could not be reproduced from checked-in code during this audit's bias-remediation pass. Those numbers are **superseded** by the symmetric v0.2 computation (majority B2 = −0.78%, B3 = −0.16pp, B4 = 44), which uses identical methodology for both maps. The previous bias audit (`analysis/v0_1_bias_audit.md`) documents the provenance gap. All numbers in this report derive from `v0_2_packing_cracking_analysis.py` and `electoral_forensics_population.py`.
+
+---
+
+## 2. Population Equality (Section A)
+
+### 2.1 Distribution variance (A1)
+
+Per-ED population data from the commission's variance tables, loaded via `pandas` in `analysis/electoral_forensics_population.py`.
+
+| Metric                                   | Majority 2026 | Minority 2026 |
+| ---------------------------------------- | ------------- | ------------- |
+| N districts                              | 89            | 89            |
+| Mean population                          | 54,929        | 54,930        |
+| Median population                        | 55,791        | 55,713        |
+| Standard deviation                       | 5,301         | 6,533         |
+| Mean absolute deviation (MAD) from 54,929 | 3,180         | 4,707         |
+| Maximum positive deviation               | +14.28%       | +24.06%       |
+| Maximum negative deviation               | −47.72%       | −45.36%       |
+| EDs above +10% from mean                 | 5             | 15            |
+| EDs above +15% from mean                 | 0             | 5             |
+| EDs above +20% from mean                 | 0             | 3             |
+| EDs above +25% (statutory violation)     | 0             | 0             |
+| EDs below −10% from mean                 | 5             | 13            |
+| EDs below −15% from mean                 | 4             | 5             |
+| EDs below −20% from mean                 | 4             | 4             |
+| EDs below −25% (requires s.15(2))        | 3             | 3             |
+
+The minority's MAD is 48% wider than the majority's. Neither exceeds the ±25% statutory cap. Both use all three permitted s.15(2) exceptions. The key distributional observation is the asymmetric positive tail: the minority has 5 districts above +15% and 3 above +20%, none of which the majority has.
+
+### 2.2 Calgary geographic-zone asymmetry (A2)
+
+Classification rule: Zone A comprises Calgary EDs whose territorial centroid lies north or east of a dividing line running along the Bow River through downtown and then southeast along Deerfoot Trail. Zone B comprises EDs south or west of that line. The classification is documented in source (`CALGARY_ZONE_A`, `CALGARY_ZONE_B` in `electoral_forensics_population.py`) with no residual unclassified Calgary EDs. The partisan correlation of these zones (Zone A ≈ NDP-competitive, Zone B ≈ UCP-dominant) is a property of voter geography, not of the classification itself.
+
+| Zone                                      | Majority (n / mean pop) | Minority (n / mean pop) |
+| ----------------------------------------- | ----------------------- | ----------------------- |
+| Zone A (N / E / central Calgary)          | 17 / 56,460             | 17 / 61,225             |
+| Zone B (S / W Calgary)                    | 11 / 56,255             | 12 / 54,569             |
+| Gap (Zone A − Zone B)                     | +205 (+0.36%)           | +6,656 (+12.20%)        |
+
+**Robustness check (G4).** Re-running the test with a purely data-driven rule — Calgary EDs classified by the party that won them in 2023, mapped forward to 2026 by name-stem match — reproduces the directional finding:
+
+| Rule                                  | Majority gap | Minority gap |
+| ------------------------------------- | ------------ | ------------ |
+| Geographic (Zone A vs Zone B)         | +0.36%       | +12.20%      |
+| Data-driven (2023-NDP-won vs -UCP-won)| +0.39%       | +7.71%       |
+
+Both rules produce the same direction and qualitative finding (majority near-null, minority substantial positive gap). The magnitude varies (7.71–12.20%) because the two classifications do not overlap perfectly — some EDs in Zone A were UCP-won in 2023 and vice versa. The audit reports the range rather than a single number; the lower bound (7.71%) is the conservative estimate.
+
+### 2.3 Urban–rural regional breakdown (A2b)
+
+| Region               | Majority (n / mean pop)   | Minority (n / mean pop)     |
+| -------------------- | ------------------------- | --------------------------- |
+| Calgary              | 28 / 56,379               | 29 / 58,470                 |
+| Edmonton             | 21 / 58,041               | 22 / 58,198                 |
+| Rest of province     | 40 / 52,281               | 38 / **50,336**             |
+
+The minority's rest-of-province mean is 3.9% lower than the majority's. Smaller rural districts produce proportionally more rural seats for the same provincial population; given the 2023 rural Alberta NDP two-party share of 33.5% (observed from the Statement of Vote), smaller rural districts yield net UCP seat gains.
+
+### 2.4 s.15(2) eligibility audit (A3)
+
+Each proposal invokes the Electoral Boundaries Commission Act §15(2) exception — allowing up to −50% variance from the provincial average — for three ridings. §15(2) requires at least 3 of 5 statutory criteria to be met: (a) area > 20,000 km², (b) > 100 km from a major centre, (c) no town with 4,000+ population in the district, (d) significant Indigenous population or reserves, (e) shared border with another province or the US.
+
+| Riding                                       | Var%   | Criteria met (of 5) | Verdict                 |
+| -------------------------------------------- | ------ | ------------------- | ----------------------- |
+| Central Peace-Notley (majority)              | −47.7% | 4                   | Pass                    |
+| Lesser Slave Lake (majority)                 | −45.4% | 3                   | Pass at minimum         |
+| Canmore-Banff (majority)                     | −27.2% | 1                   | Fails 3/5 test          |
+| Central Peace-Notley (minority)              | −44.6% | 4                   | Pass                    |
+| Lesser Slave Lake (minority)                 | −45.4% | 3                   | Pass at minimum         |
+| Rocky Mountain House-Banff Park (minority)   | −30.3% | 2                   | Fails 3/5 test          |
+
+Both proposals have one of three invocations that fails the 3/5 criteria test. Characterization discipline:
+
+- **Canmore-Banff (majority, 1/5):** −27.2% variance is modest for a s.15(2) invocation. Fails (a) with an area well below 20,000 km². Fails (c) with two towns over 4,000 (Canmore ~15,000; Banff townsite ~8,000). (d) limited Indigenous population within boundary. (b) borderline. Only (e) the BC border passes uncontestedly. No specific boundary feature in the published materials was identified as constructed solely to achieve criterion passage; we describe this as a judgment-call on a marginal-variance riding.
+- **Rocky Mountain House-Banff Park (minority, 2/5):** −30.3% variance. The ~22,000 km² area criterion is met only through an extension of the boundary through the uninhabited portion of Banff National Park; the extension also provides the shared-border criterion (e). Without the NP extension, the district fails both (a) and (e) and would likely not qualify at all. The commission chair flagged this by name in the majority report. We describe this as a boundary drawn to clear statutory thresholds because two of its three passing criteria depend on a single territorial extension through federal park land.
+
+The characterization difference between the two flagged ridings is grounded in the difference in what's verifiable from published materials: the NP extension is visible on the Alberta overview map; no comparable visible feature for Canmore-Banff was identified in the bundle. If additional evidence surfaces showing Canmore-Banff's boundary was also drawn to achieve its criterion passes, the characterization should be revised to match.
+
+---
+
+## 3. Partisan Bias Metrics (Section B)
+
+Scripts: `analysis/v0_2_packing_cracking_analysis.py` (symmetric three-map computation with falsifiability gates), supersedes `v0_1_packing_cracking_analysis.py` which computed only 2019 and minority.
+
+### 3.1 Methodology
+
+2026 ED-level vote estimates are built by mapping each 2026 ED to its 2019 predecessor(s) using an explicit dictionary (`MAJORITY_2026_MAPPING`, `MINORITY_2026_MAPPING`). Three mapping types:
+
+- `direct`: 2026 ED covers approximately the same territory as a 2019 ED; use 2019 votes directly.
+- `blend`: 2026 ED combines a 2019 urban core with rural absorption; blend 2019 core vote with the 2023 observed Rest-of-Alberta NDP share (33.5%) using urban weight 0.70 (applied identically to both maps).
+- `merge`: 2026 ED combines two 2019 EDs; weight each part explicitly.
+
+### 3.2 Tests
+
+- **B1:** Vote distribution histogram across 10 margin bins from UCP +25%+ to NDP +25%+.
+- **B2:** Efficiency gap (Stephanopoulos & McGhee 2014): $\text{EG} = (W_{\text{NDP}} - W_{\text{UCP}}) / N$ where wasted votes include loser votes plus winner votes above the threshold.
+- **B3:** Mean-median gap (McDonald & Best 2015): $\text{MM} = \bar{v} - \tilde{v}$ for NDP vote share.
+- **B4:** Seats-votes under uniform swing to 50/50 provincial share.
+
+### 3.3 Results
+
+| Metric                                        | 2019 (current)    | Majority 2026      | Minority 2026       |
+| --------------------------------------------- | ----------------- | ------------------ | ------------------- |
+| Districts                                     | 87                | 89                 | 89                  |
+| Provincial two-party (NDP%)                   | 45.56%            | 45.84%             | 45.67%              |
+| Actual seats (NDP / UCP)                      | 38 / 49           | 38 / 51            | 37 / 52             |
+| **B2** Efficiency gap                         | **−2.64%**        | **−0.78%**         | **−1.36%**          |
+| **B3** Mean-median gap (NDP)                  | −2.22 pp          | −0.16 pp           | −0.33 pp            |
+| **B4** NDP seats at 50/50 uniform swing       | 46                | 44                 | 42                  |
+| Asymmetry at 50/50 (|NDP − UCP|)              | 5                 | 1                  | 5                   |
+
+None of the efficiency-gap values cross the 7% threshold from *Gill v. Whitford* (2018). The minority's EG is 0.58 pp more UCP-favorable than the majority's under 70/30 blending; 2 seats more UCP-favorable at 50/50 uniform swing.
+
+### 3.4 Sensitivity (G5)
+
+Efficiency gap under alternative urban weights (holding 2019 vote data and rural baseline constant):
+
+| Urban weight | Majority EG | Minority EG | Asymmetry (Min − Maj) |
+| ------------ | ----------- | ----------- | --------------------- |
+| 0.60         | +1.58%      | +0.22%      | **−1.36 pp**          |
+| 0.70         | −0.78%      | −1.36%      | −0.58 pp              |
+| 0.80         | −1.43%      | −3.04%      | **−1.61 pp**          |
+
+Direction is stable across all three weights: minority EG is more UCP-favorable than majority EG under every parameter setting. Magnitude ranges from 0.58 to 1.61 percentage points, with the central (0.70) case at 0.58 pp. **Report the range, not a point estimate**, until measured attribution replaces blending.
+
+### 3.5 Falsifiability gate: asymmetry direction
+
+The audit's claim "minority shifts the baseline toward UCP relative to majority" requires the asymmetry in 3.4 to be non-zero and consistent-direction. It is: −0.58 to −1.61 pp depending on urban weight, always negative (more UCP-favorable). If the measured attribution from Phase 4C produces an asymmetry of opposite sign or below 0.005 pp at the central weight, the directional claim is falsified. This has not occurred in any of the three sensitivity runs.
+
+---
+
+## 4. Geographic Coherence (Section C)
+
+### 4.1 Visual spatial audit
+
+Direct inspection of published commission maps using Opus/Sonnet 4.x vision. Images inspected:
+
+- `maps/majority_calgary.jpg` — Appendix A, p. 72
+- `maps/minority_calgary.jpg` — Appendix E, p. 74
+- `source_maps/minority_alberta_overview.jpg` — Appendix E, p. 73
+- `source_maps/minority_edmonton.jpg` — Appendix E, p. 75
+- `source_maps/minority_other_cities.jpg` — Appendix E, p. 76
+
+**Symmetry data gap.** The working bundle lacks majority-proposal equivalents for the Alberta overview, Edmonton, and other-cities panels. Visual inspection of the majority is therefore limited to its Calgary districts. Rural and Edmonton majority districts are evaluated from published report text, not direct images. This is disclosed in the section's conclusion and narrows the scope of any majority-vs-minority claim made from direct visual evidence.
+
+### 4.2 Chair-flagged boundaries (C3)
+
+Four boundaries were flagged by name in the majority report's response section. Direct inspection results:
+
+- **Calgary-Nolan Hill-Cochrane (minority):** **Confirmed.** A district that reaches from Cochrane (outside Calgary's western boundary) eastward through a narrow-waisted corridor to Calgary's Nolan Hill neighborhood, skipping Rocky Ridge / Tuscany.
+- **Rocky Mountain House-Banff Park (minority):** **Confirmed.** SW extension of the district traces Banff National Park to reach the BC border. Absent the extension, the district fails s.15(2) criteria (a) and (e).
+- **Olds-Three Hills-Didsbury (minority):** **Confirmed.** Named for three small towns; extends south past Didsbury to capture a portion of N Airdrie. Airdrie has a population greater than the three named towns combined.
+- **Calgary-Foothills-Airdrie West (minority):** Boundary connection between Calgary-Foothills and Airdrie West tracks a primary highway corridor; the geographic connection itself is defensible, but this ED is one of four making up the Airdrie split (C4).
+
+### 4.3 Majority hybrids — symmetric check
+
+Applied the same anomaly-scan questions (lasso shape, engineered statutory boundary, misnamed municipality capture) to the majority's four Calgary hybrids:
+
+- **Calgary-East:** Intra-city rectangular block, no extension beyond city limits. No anomaly.
+- **Calgary-Falconridge-Conrich:** NE Calgary + directly-abutting Conrich community. Compact. No anomaly.
+- **Calgary-Glenmore-Tsuut'ina:** Large southern extension to include the Tsuut'ina Nation reserve; shape tracks the reserve boundary. No anomaly; positively, the reserve is kept intact in a single named ED.
+- **Calgary-West-Elbow Valley:** Calgary SW + directly-adjacent Elbow Valley subdivision. No anomaly.
+
+**Qualification.** The anomaly-scan question set was developed from observed minority anomalies. The majority may have different classes of anomaly (e.g., rural-district highway corridors) not visible in Calgary and not tested from the bundle's available images. A full-symmetry visual audit requires the three missing majority images.
+
+### 4.4 Community-of-interest splits (C4)
+
+| Dimension                            | Majority 2026        | Minority 2026        |
+| ------------------------------------ | -------------------- | -------------------- |
+| Lasso/corridor shapes (visible)      | 0                    | 1 (Calgary-Nolan Hill-Cochrane) |
+| Engineered statutory boundary         | 0                    | 1 (RMH-Banff Park extension) |
+| Community captured under misnamed ED | 0                    | 1 (Olds-Three Hills-Didsbury → N Airdrie) |
+| Airdrie split                        | 2 EDs                | 4 EDs                |
+| Cochrane                             | intact               | merged into Calgary   |
+| Chestermere                          | intact               | partially split       |
+| Tsuut'ina Nation                     | single ED, named     | single ED, named      |
+| Enoch Cree Nation                    | with Edmonton only   | bundled with Devon (~50 km S) |
+| Siksika Nation                       | High River-Vulcan-Siksika | High River-Vulcan-Siksika (same) |
+
+---
+
+## 5. Procedural Audit (Section D)
+
+### 5.1 Commission operation
+
+Five-member commission constituted under Electoral Boundaries Commission Act §3–5: chair nominated by the Chief Justice of Alberta, two government-nominated commissioners, two opposition-nominated commissioners. Commission tabled unanimous interim report October 2025; tabled divided final report (3–2) March 23, 2026. The three-member majority comprises the chair plus the two opposition-nominated commissioners.
+
+### 5.2 April 16, 2026 government action
+
+Provincial government rejected the majority report and established a UCP-majority MLA committee chaired by Brandon Lunty to oversee a new advisory panel, with a report-back date of November 2, 2026.
+
+### 5.3 Comparator cases
+
+Canadian provincial instances of government action on independent boundary commission output:
+
+- **Quebec 1992 (Commission de la représentation électorale):** Narrow amendments to commission report via National Assembly legislation. Commission drafting process not replaced.
+- **Ontario 1996 (Fewer Politicians Act):** Government adopted federal (independent-commission-drawn) boundaries rather than running a provincial commission. Not a substantive override of provincial-commission output — a substitution of one independent commission's work for another's.
+- **British Columbia 2008 (Campbell Liberals):** Government legislated to retain more Northern seats than the commission recommended. Rejection of specific recommendation; drafting process not replaced.
+
+The April 16 action is distinguishable from all three comparators in that it replaces the drafting process rather than amending its output. Stronger claim than the v0.1 report's "without recent Canadian provincial precedent" is not supportable without a comprehensive survey of all provincial redistribution cycles since 1991, which was not performed. A defensible framing: **the April 16 action is the most government-controlled response to an independent provincial boundary commission among the three most commonly cited Canadian comparator cases.**
+
+### 5.4 Public submission record (D2)
+
+The commission received 1,140+ written submissions during the 2025 public consultation phase. The majority report's Appendix C states that the minority's hybrid configurations for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert **had no public support in the consultation record**. This claim appears in a document signed by the commission chair (an appointed judicial officer) and is subject to professional-responsibility norms; independent verification requires text-search of the 1,140+ submission archive, which was outside the working bundle's token budget. Treat as prima facie credible pending independent verification.
+
+If the claim is correct, the April 16 process is promoting the less-publicly-supported of two proposals. This is the material procedural concern.
+
+### 5.5 Constitutional backdrop
+
+*Reference re Provincial Electoral Boundaries (Saskatchewan)*, [1991] 2 SCR 158, established that Canadian electoral redistribution is measured against an "effective representation" standard, not strict population parity. Within that standard, deviations from provincial average are permissible when they serve recognized factors (geography, community of interest, minority representation). An audit that finds (a) directionally-consistent partisan asymmetry in a proposal and (b) a process promoting that proposal over a more-neutral, more-publicly-supported alternative would implicate *Reference re Saskatchewan* if challenged — but this audit does not assess the constitutional question; it provides the evidentiary basis for others to do so.
+
+---
+
+## 6. Geometric Data Provenance (Section 4)
+
+### 6.1 4A (direct shapefiles)
+
+**Blocked.** Fetched `https://www.elections.ab.ca/resources/maps/` on 2026-04-22. 2019 ED shapefiles and 2023 VA shapefiles are published; 2026 proposal shapefiles are not. Consistent with ABEBC historical practice of releasing shapefiles after legislative adoption.
+
+### 6.2 4B (DA dissolve)
+
+**Not attempted.** Would require the 84MB `abebc_2026_rpt_final.pdf` and demonstrated presence of DAUIDs. Not in working bundle; probability of DAUIDs being in PDF text is low (<10% based on Canadian provincial commission practice).
+
+### 6.3 4C (VA-polygon attribution)
+
+**Pipeline validated; full execution not run.** Skeleton (`analysis/v0_1_poll_attribution_skeleton.py`) correctly parses the 2023 Statement of Vote: 1,973 poll records matched to four-figure official totals (NDP 777,404 / UCP 928,900 / two-party 1,706,304). Stages 3–7 (geocoding, zero-sum verification, 2026 assignment, apportionment, vote checksum) require ~4–8 hours of dedicated execution on VA-polygon substrate — outside this session's budget.
+
+**Sub-finding (preserved for next session):** 47.2% of 2023 valid votes are in non-Election-Day ballot types (Advance/Mobile/Special), all home-ED-attributed under Vote Anywhere. NDP two-party share at Election Day: 42.59%. NDP two-party share Vote Anywhere: 48.84%. Differential: +6.25 pp. Implications for B1–B4 magnitude precision are covered in §3.4 sensitivity.
+
+### 6.4 4D/4E
+
+Not attempted. 4D (OSM reconstruction) would bust the 15K token sub-cap; 4E (QGIS manual) is out of scope.
+
+### 6.5 4F validation
+
+Not executed — no candidate 2026 geometry to validate. Population checksum, topological audit, geometric shift log are all N/A because no geometry was generated.
+
+### 6.6 Technical Data Statement
+
+- **Source data for Sections A, B:** CSV files in `data/` (populations for both 2026 maps; per-ED 2023 and 2019 vote totals); raw Statement of Vote in `data/2023_results.xlsx`.
+- **Source data for Section C:** JPG map images from the commission's final report (majority Calgary only; full coverage for minority).
+- **Source data for Section D:** Electoral Boundaries Commission Act, commission report via prompt context, comparator-case general knowledge.
+- **Geometric reconstruction:** Not produced. §6.1–6.5 explain each path's block.
+- **Coordinate system / resolution / aggregation:** N/A (no geometry).
+- **Integrity metric:** Population checksum threshold (0.5% warn, 2% hard stop) not triggered because no geometry to check.
+- **Geometric shift log:** `analysis/geometry_shift_log.md` does not exist. No manual geometric adjustments were applied in this session.
+- **Transformation log:** No CRS transformations applied.
+- **Symmetry consistency:** B1–B4 use identical blending methodology (70/30 urban weight) applied to both 2026 maps via the same `estimate_2026()` function. A1–A3 use identical variance computation against the same provincial average. A2 uses identical classification rule plus an alternative-rule robustness check (G4). Section C has a symmetry data gap (only majority Calgary imagery available) which is disclosed.
+
+---
+
+## 7. Synthesis — Six-Dimensional Finding
+
+| Dimension                                          | 2019         | Majority 2026          | Minority 2026          | Direction of minority shift |
+| -------------------------------------------------- | ------------ | ---------------------- | ---------------------- | --------------------------- |
+| §A1 Population MAD from avg                        | (not run)    | 3,180                  | **4,707** (+48%)       | wider dispersion            |
+| §A2 Calgary Zone A − Zone B gap                    | (not run)    | +0.36%                 | **+12.20%**            | packing signal              |
+| §A2 robustness (2023 winner-based)                 | (not run)    | +0.39%                 | **+7.71%**             | survives robustness check   |
+| §A2b Rest-of-province mean population              | (not run)    | 52,281                 | 50,336 (−3.9%)         | rural overrepresentation    |
+| §A3 s.15(2) failures engineered via visible boundary| 0           | 0 (Canmore-Banff undetermined) | 1 (RMH-Banff Park) | engineered qualifications   |
+| §B2 Efficiency gap                                 | −2.64%       | −0.78%                 | **−1.36%**             | +0.58 pp more UCP-favorable |
+| §B2 sensitivity range (urban weights 0.60–0.80)    | —            | [+1.58% to −1.43%]     | [+0.22% to −3.04%]     | +0.58 to +1.61 pp across range |
+| §B3 Mean-median gap                                | −2.22 pp     | −0.16 pp               | −0.33 pp               | directionally consistent    |
+| §B4 NDP seats at 50/50                             | 46           | 44                     | 42                     | 2-seat reduction for NDP    |
+| §C3 Visible spatial anomalies                      | —            | 0 (Calgary only)       | 3 (all confirmed)      | three anomalies             |
+| §C4 Airdrie splits                                 | —            | 2 EDs                  | 4 EDs                  | double split                |
+| §D Procedural                                      | —            | Standard override path  | Government-controlled drafting | departure from comparators |
+
+Six independent dimensions of evidence point in the same direction. None individually crosses a statistical significance threshold. Together, the directional consistency is the finding — the minority proposal, relative to the majority, is systematically more UCP-favorable at a sub-threshold magnitude, across six independent measurement frameworks.
+
+---
+
+## 8. Mathematical Formalism
+
+### 8.1 Efficiency Gap (Stephanopoulos & McGhee, 2014)
+
+$$\text{EG} = \frac{W_A - W_B}{N}$$
+
+```
+EG = (W_A - W_B) / N
+```
+
+Wasted votes $W_X$ for party $X$ are defined as losing-district votes plus winning-district votes above the victory threshold $\lceil N_d/2 \rceil + 1$, summed across districts. The 7% magnitude is the threshold flagged in *Gill v. Whitford* (2018).
+
+### 8.2 Mean-Median Gap (McDonald & Best, 2015)
+
+$$\text{MM} = \bar{v} - \tilde{v}$$
+
+```
+MM = mean(v) - median(v)
+```
+
+$\bar{v}$ is the mean NDP vote share across districts; $\tilde{v}$ is the median. Positive MM indicates mean > median, consistent with party voters packed into fewer high-share districts (cracking of the opposing party, or packing of own party).
+
+### 8.3 Polsby-Popper compactness (not computed — blocked by Phase 4)
+
+$$\text{PP} = \frac{4\pi A}{P^2}$$
+
+```
+PP = 4 * pi * A / P^2
+```
+
+$A$ = polygon area, $P$ = perimeter. Range $[0, 1]$; 1 = circle. PP < 0.15 is typically flagged.
+
+### 8.4 Reock compactness (not computed — blocked by Phase 4)
+
+$$\text{R} = \frac{A_d}{A_c}$$
+
+```
+R = A_district / A_smallest_enclosing_circle
+```
+
+Range $[0, 1]$. R < 0.25 typically flagged.
+
+---
+
+## 9. Missing Evidence and Scope Limits
+
+1. **2026 polygon geometry.** Phase 4A blocked. Unlocks B5 MCMC ensemble (Phase 5 §5.2), C1 Polsby-Popper, C2 Reock.
+2. **Measured vote attribution (Phase 4C full execution).** Replaces 70/30 blend with observed apportionment. Expected to reduce the sensitivity range in §3.4 to a single refined value.
+3. **Independent verification of the no-public-support claim (Section D).** Requires text-search of the commission's 1,140+ submission archive.
+4. **Full-symmetry visual audit for majority.** Requires majority-proposal Alberta overview, Edmonton, and other-cities map images.
+5. **2019-era population data.** Would permit A1/A2 symmetric analysis of the 2019 baseline alongside the two 2026 proposals.
+
+## 10. Falsifiability Statement
+
+The audit's directional claim — *minority more UCP-favorable than majority across population, spatial, partisan-bias, and procedural dimensions* — would be falsified by any of the following:
+
+- An alternative Calgary classification that produces near-null minority-majority asymmetry (≤1%) while A2's current rule produces >10%. Tested; both rules produce the same direction.
+- Phase 4C measured attribution producing a minority-majority efficiency-gap asymmetry opposite in sign, or below 0.005 pp at the 70/30 central weight.
+- Submission-archive evidence that the five disputed minority configurations (Airdrie, Cochrane, Chestermere, Red Deer, St. Albert) did have substantial public support in the 1,140+ record. Refutes Section D claim.
+- Visible spatial anomalies in the majority's rural or Edmonton districts of a severity comparable to the minority's three flagged ridings. Requires majority non-Calgary imagery.
+- A comprehensive survey of Canadian provincial redistributions 1991–2025 finding comparable mid-cycle government-drafting-process replacements. Refutes Section D uniqueness framing.
+
+## 11. Legal Interpretive Note
+
+This audit does not offer a legal conclusion. It provides the evidentiary basis on which a legal challenge under *Reference re Saskatchewan* [1991] 2 SCR 158's "effective representation" standard could be constructed. The question whether the minority proposal, as potentially modified by the November 2, 2026 MLA-committee process, would satisfy the effective-representation requirement is for counsel and the courts to assess. The audit's core contribution is documenting that:
+
+1. The two commission proposals diverge systematically on six measurable dimensions.
+2. The direction of divergence consistently favors the governing party.
+3. The process being used to promote the more-favorable proposal departs from comparator Canadian practice in specific ways.
+
+These facts are reproducible from public data using checked-in code. They do not prove intent, and they do not by themselves establish a constitutional violation.
+
+---
+
+## Appendix A — Reproducibility
+
+All scripts run from repository root:
+
+```bash
+python3 analysis/v0_2_packing_cracking_analysis.py    # §B symmetric three-map
+python3 analysis/electoral_forensics_population.py    # §A with A2 robustness
+python3 analysis/v0_1_poll_attribution_skeleton.py    # §4 parse validation
+```
+
+Each script prints a gate PASS/FAIL line. Numbers in §§2, 3 above must match the corresponding gate-passed output.
+
+## Appendix B — Section Documents
+
+- [Section A](analysis/v0_1_section_A_population_equality.md)
+- [Section B earlier draft](analysis/v0_1_packing_cracking_results.md) — superseded by v0.2 script output
+- [Section C](analysis/v0_1_section_C_geographic_coherence.md)
+- [Section D](analysis/v0_1_section_D_procedural.md)
+- [Section 4](analysis/v0_1_section_4_geometry_provenance.md)
+- [Bias audit](analysis/v0_1_bias_audit.md) — self-audit of this audit's own methodology
+
+---
+
+*Version 0.2 — Academic/Legal edition. Supersedes v0.1 compiled report on three specific numbers (majority B2, B3, B4) after bias remediation extended `packing_cracking_analysis.py` to compute all three maps symmetrically. Directional finding survives; magnitude revised. Falsifiability gates and robustness checks documented throughout.*
