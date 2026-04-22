@@ -1,0 +1,90 @@
+ed_name,population,region_type,deviation_pct,within_25pct
+Calgary-Acadia,53346,Calgary,-2.88,True
+Calgary-Airdrie,58820,Calgary,+7.08,True
+Calgary-Beddington,61320,Calgary,+11.64,True
+Calgary-Bow-Springbank,55560,Calgary-hybrid,+1.15,True
+Calgary-Buffalo,66801,Calgary,+21.61,True
+Calgary-Cross,63064,Calgary,+14.81,True
+Calgary-Currie,60141,Calgary,+9.49,True
+Calgary-De Winton,47732,Calgary-hybrid,-13.10,True
+Calgary-East,57107,Calgary,+3.97,True
+Calgary-Edgemont,56584,Calgary,+3.01,True
+Calgary-Elbow,59034,Calgary,+7.47,True
+Calgary-Falconridge,63986,Calgary,+16.49,True
+Calgary-Fish Creek,57894,Calgary,+5.40,True
+Calgary-Foothills-Airdrie West,58436,Calgary-hybrid,+6.38,True
+Calgary-Glenmore,53096,Calgary,-3.34,True
+Calgary-Hays,52395,Calgary,-4.61,True
+Calgary-Klein,61817,Calgary,+12.54,True
+Calgary-Lougheed,56122,Calgary,+2.17,True
+Calgary-McCall-Bhullar,66474,Calgary,+21.02,True
+Calgary-Mountain View,62634,Calgary,+14.03,True
+Calgary-Nolan Hill-Cochrane,56282,Calgary-hybrid,+2.46,True
+Calgary-North,56981,Calgary,+3.74,True
+Calgary-North East,68145,Calgary,+24.06,True
+Calgary-North West-Bearspaw,57246,Calgary-hybrid,+4.22,True
+Calgary-Peigan-Chestermere,52639,Calgary-hybrid,-4.17,True
+Calgary-South,55134,Calgary,+0.37,True
+Calgary-South East,54045,Calgary,-1.61,True
+Calgary-Varsity,64982,Calgary,+18.30,True
+Calgary-West-Tsuut'ina,57827,Calgary-hybrid,+5.28,True
+Edmonton-Beaumont,55802,Edmonton-hybrid,+1.59,True
+Edmonton-Beverly-Clareview,57481,Edmonton,+4.65,True
+Edmonton-Castledowns,59612,Edmonton,+8.53,True
+Edmonton-City Centre,57312,Edmonton,+4.34,True
+Edmonton-Decore,57959,Edmonton,+5.52,True
+Edmonton-Ellerslie,59760,Edmonton,+8.79,True
+Edmonton-Enoch-Devon,55043,Edmonton-hybrid,+0.21,True
+Edmonton-Glenora-Riverview,59708,Edmonton-merged,+8.70,True
+Edmonton-Gold Bar,54981,Edmonton,+0.09,True
+Edmonton-Highlands-Norwood,51806,Edmonton,-5.69,True
+Edmonton-Manning,56901,Edmonton,+3.59,True
+Edmonton-McClung,61859,Edmonton,+12.62,True
+Edmonton-Meadows,56880,Edmonton,+3.55,True
+Edmonton-Mill Woods,59673,Edmonton,+8.64,True
+Edmonton-North West,61226,Edmonton,+11.46,True
+Edmonton-Rutherford,58082,Edmonton,+5.74,True
+Edmonton-South,60775,Edmonton,+10.64,True
+Edmonton-Spruce Grove,59524,Edmonton-hybrid,+8.37,True
+Edmonton-Strathcona,56165,Edmonton,+2.25,True
+Edmonton-West Henday,62510,Edmonton,+13.80,True
+Edmonton-Whitemud,60347,Edmonton,+9.86,True
+Edmonton-Windermere,56944,Edmonton,+3.67,True
+Airdrie East,50797,Rest,-7.52,True
+Barrhead-Westlock-Athabasca,46892,Rest,-14.63,True
+Camrose,48536,Rest,-11.64,True
+Canmore-Kananaskis,49542,Rest,-9.81,True
+Cold Lake-Bonnyville-St. Paul,55713,Rest,+1.43,True
+Central Peace-Notley,30446,Rest-s15(2),-44.57,False
+Chestermere-Strathmore,52982,Rest,-3.54,True
+Drumheller-Stettler,51370,Rest,-6.48,True
+Fort McMurray-Lac La Biche,44719,Rest,-18.59,True
+Fort McMurray-Wood Buffalo,46721,Rest,-14.94,True
+Fort Saskatchewan-Vegreville,54274,Rest,-1.19,True
+Grande Prairie,50352,Rest,-8.33,True
+Grande Prairie-Wapiti,52041,Rest,-5.26,True
+Highwood,54375,Rest,-1.01,True
+Lac Ste. Anne-Parkland,47017,Rest,-14.40,True
+Leduc,52328,Rest,-4.74,True
+Lesser Slave Lake,30011,Rest-s15(2),-45.36,False
+Lethbridge-Cardston,51831,Rest-hybrid,-5.64,True
+Lethbridge-Fort MacLeod-Crowsnest Pass,54564,Rest-hybrid,-0.66,True
+Lethbridge-Little Bow,56212,Rest-hybrid,+2.34,True
+Lethbridge-Taber-Warner,60906,Rest-hybrid,+10.88,True
+Lloydminster-Wainwright,49365,Rest,-10.13,True
+Medicine Hat-Brooks,54898,Rest,-0.06,True
+Medicine Hat-Cypress,60690,Rest,+10.49,True
+Olds-Three Hills-Didsbury,49436,Rest,-10.00,True
+Peace River,43408,Rest,-20.97,True
+Red Deer-Blackfalds,52827,Rest-hybrid,-3.83,True
+Red Deer-Innisfail,52961,Rest-hybrid,-3.58,True
+Red Deer-Lacombe,56180,Rest-hybrid,+2.28,True
+Red Deer-Sylvan Lake,52454,Rest-hybrid,-4.51,True
+Rocky Mountain House-Banff Park,38298,Rest-s15(2),-30.28,False
+Sherwood Park,55311,Rest,+0.70,True
+St. Albert,54589,Rest,-0.62,True
+St. Albert-Sturgeon,52334,Rest-hybrid,-4.72,True
+Stony Plain-Drayton Valley,48032,Rest,-12.56,True
+Sherwood Park-Strathcona,51826,Rest,-5.65,True
+West Yellowhead,49766,Rest,-9.40,True
+Wetaskawin-Ponoka-Maskwacis,48775,Rest,-11.20,True

@@ -1,0 +1,90 @@
+ed_num,ed_name,population,deviation_pct,is_hybrid,is_s15_2
+1,Calgary-Acadia,55791,+1.57,False,False
+2,Calgary-Beddington,56024,+1.99,False,False
+3,Calgary-Bhullar-McCall,55887,+1.74,False,False
+4,Calgary-Bow,54981,+0.09,False,False
+5,Calgary-Buffalo,58777,+7.01,False,False
+6,Calgary-Confluence,58632,+6.74,False,False
+7,Calgary-Cross,59491,+8.31,False,False
+8,Calgary-Currie,58111,+5.79,False,False
+9,Calgary-East,58308,+6.15,True,False
+10,Calgary-Edgemont,55141,+0.39,False,False
+11,Calgary-Elbow,55297,+0.67,False,False
+12,Calgary-Falconridge-Conrich,56661,+3.15,True,False
+13,Calgary-Fish Creek,55403,+0.86,False,False
+14,Calgary-Glenmore-Tsuut'ina,56970,+3.72,True,False
+15,Calgary-Hays,52147,-5.06,False,False
+16,Calgary-Klein,56292,+2.48,False,False
+17,Calgary-Lougheed,59554,+8.42,False,False
+18,Calgary-McKenzie,62772,+14.28,False,False
+19,Calgary-Mountain View,54396,-0.97,False,False
+20,Calgary-North,57945,+5.49,False,False
+21,Calgary-North East,54541,-0.71,False,False
+22,Calgary-North West,52488,-4.44,False,False
+23,Calgary-Nose Creek,55155,+0.41,False,False
+24,Calgary-Shaw,58171,+5.90,False,False
+25,Calgary-South East,53551,-2.51,False,False
+26,Calgary-Symons Valley,54797,-0.24,False,False
+27,Calgary-Varsity,57166,+4.07,False,False
+28,Calgary-West-Elbow Valley,54167,-1.39,True,False
+29,Edmonton-Beaumont,55802,+1.59,True,False
+30,Edmonton-Beverly-Clareview,57481,+4.65,False,False
+31,Edmonton-Castle Downs,59612,+8.53,False,False
+32,Edmonton-City Centre,57312,+4.34,False,False
+33,Edmonton-Decore,57959,+5.52,False,False
+34,Edmonton-Ellerslie,59760,+8.79,False,False
+35,Edmonton-Enoch,56894,+3.58,True,False
+36,Edmonton-Glenora-Riverview,56622,+3.08,False,False
+37,Edmonton-Gold Bar,54981,+0.09,False,False
+38,Edmonton-Highlands-Norwood,51806,-5.69,False,False
+39,Edmonton-Manning,56901,+3.59,False,False
+40,Edmonton-McClung,61859,+12.62,False,False
+41,Edmonton-Meadows,56880,+3.55,False,False
+42,Edmonton-Mill Woods,59673,+8.64,False,False
+43,Edmonton-North West,61226,+11.46,False,False
+44,Edmonton-Rutherford,58082,+5.74,False,False
+45,Edmonton-South,60775,+10.64,False,False
+46,Edmonton-Strathcona,56165,+2.25,False,False
+47,Edmonton-West Henday,61775,+12.46,False,False
+48,Edmonton-Whitemud,60347,+9.86,False,False
+49,Edmonton-Windermere,56944,+3.67,False,False
+50,Airdrie-East,53809,-2.04,True,False
+51,Airdrie-West,48145,-12.35,True,False
+52,Barrhead-Westlock-Athabasca,52249,-4.88,False,False
+53,Camrose,54653,-0.50,False,False
+54,Canmore-Banff,39961,-27.25,False,True
+55,Central Peace-Notley,28715,-47.72,False,True
+56,Chestermere-Strathmore,56679,+3.19,True,False
+57,Cochrane-Springbank,56487,+2.84,True,False
+58,Cold Lake-Bonnyville-St. Paul,55809,+1.60,True,False
+59,Drumheller-Stettler,50626,-7.83,False,False
+60,Fort McMurray-Lac La Biche,52847,-3.79,True,False
+61,Fort McMurray-Wood Buffalo,49615,-9.67,False,False
+62,Fort Saskatchewan-Vegreville,54278,-1.19,False,False
+63,Grande Prairie,50352,-8.33,False,False
+64,Grande Prairie-Wapiti,53781,-2.09,False,False
+65,High River-Vulcan-Siksika,53351,-2.87,True,False
+66,Lacombe-Clearwater,55750,+1.49,False,False
+67,Leduc-Devon,56572,+2.99,True,False
+68,Lesser Slave Lake,30011,-45.36,False,True
+69,Lethbridge-East,57463,+4.61,True,False
+70,Lethbridge-West,54235,-1.26,True,False
+71,Livingstone-Macleod,50144,-8.71,False,False
+72,Lloydminster-Wainwright,50139,-8.72,False,False
+73,Medicine Hat-Brooks,54833,-0.17,True,False
+74,Medicine Hat-Cypress,54210,-1.31,False,False
+75,Mountain View-Kneehill,52432,-4.55,False,False
+76,Okotoks-Diamond Valley,55284,+0.65,True,False
+77,Peace River,43399,-20.99,False,False
+78,Red Deer-North,53798,-2.06,False,False
+79,Red Deer-South,59123,+7.64,False,False
+80,Sherwood Park,52475,-4.47,False,False
+81,Spruce Grove,55930,+1.82,False,False
+82,St. Albert,59935,+9.11,False,False
+83,St. Albert-Sturgeon,54214,-1.30,True,False
+84,Stony Plain-Drayton Valley,55743,+1.48,False,False
+85,Strathcona-Sherwood Park,51020,-7.12,False,False
+86,Sylvan Lake-Innisfail,55290,+0.66,False,False
+87,Taber-Cardston,54933,+0.01,False,False
+88,West Yellowhead,56562,+2.97,False,False
+89,Wetaskiwin-Ponoka-Maskwacis,56399,+2.68,False,False
