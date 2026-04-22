@@ -1,10 +1,14 @@
 # Migration — Alberta Boundaries Audit
 
-**Current state:** v0.14 published. Nine chat sessions in this chain. Dual-audience reports (public + academic) + accessible HTML. Formal signature detection (packing, cracking, engineered-boundary). Per-redraw seat-consequence breakdown. Alternatives-available analysis for all contested redraws. Population-math tests run against five minority justifications (all five fail). Hybrid-count vs government-rationale analysis. Pre-registered checklist for identifying a gerrymander in the November 91-seat map. Session 9 additions: 25-rationale inventory and validation with three contradicted claims (two shared-schools, one 91-seat framing); Cochrane journey-to-work from StatsCan Table 98-10-0459 (Calgary-bound 35.8% of out-commuters; within-Calgary destination not testable); CSD-level community-splits count as bounding null; 338Canada per-riding cross-validation confirming the 1-seat structural asymmetry survives both 2023 votes and April 2026 polling; close reading of Chair Miller's Recommendation 5 addendum identifying form-match / conditions-pending / intent-inverted relationship to the April 16 motion; AI-use framework for the November committee (non-partisan, five disciplines, nine-item disclosure checklist); partial OCR of the 88 non-text-layer submissions (14 recovered, 1 new hit supporting Rocky Mountain House-Banff configuration).
+**Current state:** v0.17 draft. Ten chat sessions in this chain. Dual-audience reports (public + academic) + accessible HTML. Formal signature detection (packing, cracking, engineered-boundary). Per-redraw seat-consequence breakdown. Alternatives-available analysis for all contested redraws. Population-math tests run against five minority justifications (all five fail). Hybrid-count vs government-rationale analysis. Pre-registered checklist for identifying a gerrymander in the November 91-seat map. Session 9 additions: 25-rationale inventory and validation with three contradicted claims (two shared-schools, one 91-seat framing); Cochrane journey-to-work from StatsCan Table 98-10-0459 (Calgary-bound 35.8% of out-commuters; within-Calgary destination not testable); CSD-level community-splits count as bounding null; 338Canada per-riding cross-validation confirming the 1-seat structural asymmetry survives both 2023 votes and April 2026 polling; close reading of Chair Miller's Recommendation 5 addendum identifying form-match / conditions-pending / intent-inverted relationship to the April 16 motion; AI-use framework for the November committee (non-partisan, five disciplines, nine-item disclosure checklist); partial OCR of the 88 non-text-layer submissions (14 recovered, 1 new hit supporting Rocky Mountain House-Banff configuration).
 
 **Working prompt for next session:** `v1_2_gerrymander_audit_prompt.md`.
 
 **Author and audit design:** Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student).
+
+## Session 10 in one paragraph
+
+Session 10 was the defensibility pass. Round-1 red-team (21 attacks) and round-2 red-team (17 attacks) were run, fortified, and closed. The Chen-Rodden framing was re-tested and found to transfer directionally but fail on mechanism (UCP is the more-packed party in Alberta, not NDP; minority is rural-dispersed-loss, not urban-packed). A full Canadian comparator base rate was computed (median Canadian inter-map asymmetry = 0). The 2015 election was added as a third cross-election input via a completed 87-of-87 crosswalk. A 77-snapshot 338Canada historical stability test was run and uncovered a UCP/NDP column inversion in the earlier §3 cross-validation table; the "1-seat structural asymmetry" claim was retracted in favour of a state-dependent characterisation. Shape refinement went through three passes (road snap → feature-class snap → noise-cleanup + orange-accepted tier) with 0.06% residual voter impact documented. All 38 red-team attacks are answered in the paper. The sign-convention question Track Z raised was resolved by a consistency audit: both conventions are mathematically valid, produce the same ordinal ranking, and no direction claim needed flipping. AI-provenance manifest and version labels were scrubbed from the reports per PO direction. Repository housekeeping moved draft-process artefacts to `deprecated/`, merged `source_maps/` into `maps/`, and untracked sub-agent cache. URL archival reached 70% coverage; the remaining 8 URLs need an authenticated Internet Archive SPN2 token to close. Outreach drafts (Elections Alberta, Duane Bratt) are ready for PO send. OSF pre-registration is submission-ready. The paper is defensibly drafted; remaining analytical gaps are either shapefile-dependent (3 red-classified EDs, Phase 5 ensemble, Polsby-Popper / Reock precision) or date-gated (November 91-seat map).
 
 ---
 
@@ -42,9 +46,39 @@ Order these by the next session's priorities.
 
 **Track H — Community-of-interest analysis at CSD level.** *Closed in session 9.* Per-map CSD splits: 2019 66 of 191 (34.6%); Majority 2026 66 of 191 (34.6%, inferred); Minority 2026 lower-bound 54 of 191 (28.3%) to upper-bound 66. Confident-only subset (n=139, excluding uncertainties): identical 40 splits under all three maps. Conclusion: majority-minority asymmetry in §C4 operates at within-ED partition resolution, not at CSD granularity, and is not measurable without 2026 shapefiles. Full method in `analysis/v0_1_csd_community_splits.md`.
 
-**Track D — OCR the 88 missing submissions.** Only do this if the audit is headed toward legal proceedings or a journal submission. The main findings do not depend on it; the chair's claim refutation rests on identified counter-examples. Estimated cost: ~30K tokens, 1 hour.
+**Track D — OCR the 88 missing submissions.** *Partial — session 9 recovered 14 of 88, 1 new support-configuration hit (RMH-Rocky Gas Co-Op).* Only extend further if legal proceedings or journal submission demands comprehensive coverage. Full methodology at `deprecated/v0_1_submission_ocr_log.md`.
 
-**Track F — Deeper academic citations.** Only if submitting to a journal. Expand APA references per `analysis/v0_1_academic_literature_review.md` with the full Chen-Rodden, Courtney, Pal, Stephanopoulos-McGhee set. Estimated cost: ~15K tokens, 45 minutes. Pure writing, no analysis.
+**Track F — Deeper academic citations.** Only if submitting to a journal. Expand APA references per `analysis/v0_1_academic_literature_review.md` with the full Chen-Rodden, Courtney, Pal, Stephanopoulos-McGhee, Magleby-Mosesson, Katz-King-Rosenblatt, Altman-McDonald set. Estimated cost: ~15K tokens, 45 minutes. Pure writing, no analysis.
+
+**Track T — Threshold provenance compendium.** *Closed in session 10.* 37 thresholds catalogued with statutory/literature/first-principles/modelling-convention provenance; ±20% sensitivity analysis confirms no finding direction flips at any threshold perturbation. Full file at `analysis/v0_1_threshold_provenance.md`.
+
+**Track U — Chen-Rodden Alberta validation.** *Closed in session 10.* Direction prediction holds: neutral-ensemble EG [−4.4%, −0.7%] brackets the 2019 baseline of −2.64%. Mechanism prediction fails: UCP is the more-packed party in Alberta (surplus-vote rate 15.9% vs NDP 9.3%; rural UCP wins at 43 pp vs urban NDP wins at 21.5 pp). NDP seat deficit comes from dispersed rural losses, not urban concentration. Moran's I = 0.7534, p<0.001. §3.6 revised to reflect the mechanism correction. Full method at `analysis/v0_1_chen_rodden_alberta_validation.md`.
+
+**Track V — Canadian comparator base rate.** *Closed in session 10, partial.* Proxy-based computation across 6 Canadian cycles + Alberta 2025-26 anchor (Federal 2022, BC 2023, Saskatchewan 2022, Alberta 2017, Alberta 2010, Manitoba 2018). Median inter-map asymmetry = 0.000 pp; more than half of sampled Canadian cycles produce zero projected-winner flip between interim and final. Alberta 2025-26's 0.51 pp sits at 71st percentile; high-end 1.60 pp exceeds the observed Canadian maximum. Direct per-ED EG computation across all cycles (4–8 hours per cycle) flagged as future work. Full write-up at `analysis/v0_1_canadian_base_rate_computed.md`.
+
+**Track W — OSF pre-registration draft.** *Closed in session 10, submission-ready.* Platform survey recommended OSF (free, timestamped, embargoable). Submission-ready document at `analysis/v0_1_pre_registration_draft.md`; step-by-step PO instructions at `analysis/v0_1_pre_registration_platform_analysis.md`. PO action: OSF account signup + upload + embargo to 2026-11-02 (≈30–45 min). DOI will become the time-stamped third-party custody record for the November checklist.
+
+**Track X — Approximate 2026 shapefiles + compactness.** *Closed in session 10, with Tier C declined.* Tier A (exact 2019 inheritance): 57 majority EDs, 65 minority EDs measurable. Tier B (merged parents): 0 majority, 5 minority. Tier C (hybrid approximation from JPGs): not attempted — visual-transcription error of ±20% on compactness per 10% perimeter error was judged too wide. Within the measurable 64–79% of each map, minority shows ~2× the rate of low-compactness EDs as majority (PP<0.25: 7.1% vs 3.5%).
+
+**Track Y — Iterative shape refinement (v1 → v2 → v3).** *Closed in session 10.* Three passes: v1 OSM road snap (mean shift 97 m); v2 feature-class-aware snap including waterway/railway/admin (Edmonton-Windermere PP 0.195→0.230 via North Saskatchewan River; Calgary-South PP 0.217→0.240 via Bow River); v3 noise-cleanup (strips near-zero-area interior rings that the boundary.plot renderer was drawing as spurious "internal borders"). Three-tier classification: green (Tier A exact), orange (Tier B voter-neutral, 2 EDs orange-accepted), red (refinement-unresolvable without shapefile, 3 EDs / 1,012 residual voter impact / 0.06% province-wide). See §6.7 of the academic report plus `analysis/v0_1_shape_refinement_v3.md`.
+
+**Track Z — 2015 cross-election extension.** *Closed in session 10.* Full 2015→2019 crosswalk built (87 of 87 mapped, 127 links, confidence ≥ medium) at `data/v0_1_2015_to_2019_crosswalk.csv`. Three-election asymmetry distribution under paper's sign convention: 2015 +0.03 pp (near-neutral reversal), 2019 +0.75 pp (clean reversal), 2023 −0.51 pp (supports headline). Headline direction supported under 2023 vote input; reversed under 2015 and 2019 pre-UCP-era electorates. See §3.5 of the academic report plus `analysis/v0_1_2015_cross_election_analysis.md`.
+
+**Track AA — 338Canada historical stability.** *Closed in session 10.* 77-snapshot aggregate time series (2020-02-23 through 2026-04-12). 87 pre-2023 per-riding Wayback snapshots retrieved (mixed March/May 2023 coverage). Pre-2023 validation against 2023 actual: Pearson r = 0.966, MAE = 3.74 pp, winner-call 81/87 (93.1%). **Material correction:** uncovered UCP/NDP column inversion in the previous §3 cross-validation table. The 1-seat "structural asymmetry" claim was retracted — 338's uniform-swing probe shows the direction of the minority-vs-majority gap flips between UCP-competitive environments (UCP +1 on minority) and UCP-landslide environments (NDP +1 on minority). §3.5 of the academic report rewritten accordingly. Full methodology at `analysis/v0_1_338canada_historical.md`.
+
+**School-division coherence check.** *Closed in session 10.* All 21 minority hybrids audited against Alberta Education school-division boundaries. 20 of 21 cross at least one school-division boundary — structurally systematic (a mathematical consequence of hybrid crossings + division-is-municipal mapping). The two explicit shared-schools claims Track I identified (R5 Bow-Springbank, R11 Red Deer-Sylvan Lake) are representative of the pattern, not exceptional. All four Red Deer hybrids cross a school-division boundary, not just Sylvan Lake. §5.4 extended. Full method at `analysis/v0_1_school_division_coherence.md`.
+
+**Track M — Act §12 reform proposal + Track N + Track O.** *Closed in session 9, reaffirmed session 10 under full integration.* Proposed amendment text with Option A (minor reform) and Option B (composite basis, author recommendation); Track N concrete composite-basis source specification (TBF primary; StatsCan 17-10-0009 tie-breaker at ±2%; AHCIP + CRA T1 cross-check; Chief Electoral Officer as certifying authority); Track O provenance audit (commission's 4,888,723 provincial total verified as StatsCan Q2 2024 postcensal estimate). Standalone file at `analysis/v0_1_act_amendment_proposal.md`.
+
+**URL archival (CDX + Chrome).** *Partial.* 19 of 27 critical URLs preserved via Wayback or archive.ph. 8 URLs remain unarchived because Wayback's anonymous Save-Page-Now endpoint requires authentication (daily IP quota on SPN reached during Chrome-based retry). Path forward: authenticated IA account with SPN2 Bearer token. Full log at `analysis/v0_1_url_archival_log.md`.
+
+**Consistency audit (session 10 final-pass).** *Closed.* Confirmed both sign conventions (paper's 1:1 proportional-seat / Stephanopoulos-McGhee 2:1 slope) are mathematically valid and produce the same ordinal ranking; sign-convention glossary footnote added at §3.2 and §8.1. 6 numerical drift corrections (89.3%→90.5% MC direction-consistency across 7 locations, Airdrie / Red Deer population vintage tags, Calgary-Airdrie type tag). 5 broken references fixed (source_maps/ → maps/ folder merge follow-up). Full audit at `analysis/v0_1_consistency_audit.md` plus `analysis/v0_1_sign_convention_resolution.md`.
+
+**Outreach drafts.** Two drafted but not yet sent (PO owns the send decision):
+- `analysis/v0_1_elections_alberta_shapefile_request.md` — research-access request to Elections Alberta GIS team + Chief Electoral Officer Gordon McClure for 2026 shapefiles.
+- `analysis/v0_1_duane_bratt_outreach_email.md` — collegial same-institution outreach to Prof. Bratt at Mount Royal asking for (i) 30-min methodological review, (ii) possible Elections Alberta introduction.
+
+**Red-team passes.** Round 1 (21 attacks) and Round 2 (17 attacks) on the paper committed to `deprecated/` along with the three fortification files (A1–A5, B1–B6, C1–C10). All 38 attacks addressed in-paper or conceded with explicit scope narrowing. See `deprecated/README.md`.
 
 ### Time-bounded — refresh before staleness
 
@@ -143,9 +177,10 @@ Estimated cost: ~80K tokens, 1–2 hours for the baseline re-audit; ~50K more if
 | 7 (seat-consequences + signatures + alternatives + hybrid analysis) | ~70K |
 | 8 (commuter examination + population-math tests) | ~50K |
 | 9 (tracks G/H/I/J parallel + chair R5 + AI recs) | ~100K parent |
-| Background sub-agents across all sessions | ~1.0M |
+| 10 (defensibility pass + red-team + Y-prime-prime + shape refinement + 2015 + 338 historical + school coherence + consistency audit) | ~400K parent |
+| Background sub-agents across all sessions | ~2.5M |
 
-Total approximate across this chat chain: ~1.7M tokens. Sub-agents absorbed ~1.0M, keeping parent sessions well inside budget.
+Total approximate across this chat chain: ~3.5M tokens. Sub-agents absorbed ~2.5M; parent-session consumption kept inside budget across all ten sessions. The 1M-context model accommodated the concurrent-sub-agent pattern used heavily in session 10.
 
 ---
 
@@ -169,33 +204,42 @@ Total approximate across this chat chain: ~1.7M tokens. Sub-agents absorbed ~1.0
 
 ---
 
-## Open questions for the PO
+## Open questions for the PO (handoff to session 11)
 
-1. Is v0.11 ready to share publicly, or should it hold for Track B/G/H completion? (Tracks A and C are external/date-gated.)
-2. If sharing now: which channel (print, social, academic submission, legal)? Each may inform a v1.0 revision.
-3. Should OCR of the 88 missing submissions be prioritized (Track D), or deferred until legal use emerges?
-4. Does the dual-audience model (public + academic + HTML) meet distribution needs, or is a fourth format needed?
-5. After Nov 2, 2026 is the committee's 91-seat map tabled? If yes, Track C is the top priority. If no, Track B or G.
+**PO-owned decisions.** These are waiting on the PO, not on more analysis.
+
+1. **Share v0.17 draft publicly — yes / no / after what changes?** The paper is defensibly drafted after a 38-attack red-team + full fortification pass. Remaining gaps are either date-gated (November committee) or shapefile-gated (Elections Alberta release).
+2. **If sharing:** which channel (print media, social media, academic submission to *Election Law Journal* or *Canadian Journal of Political Science*, legal counsel, or a combination)?
+3. **Send the Elections Alberta shapefile-request email?** Drafted at `analysis/v0_1_elections_alberta_shapefile_request.md`. PO sends from personal or institutional email.
+4. **Send the Duane Bratt outreach email?** Drafted at `analysis/v0_1_duane_bratt_outreach_email.md`. Collegial same-institution ask. PO sends from Mount Royal email.
+5. **Submit the OSF pre-registration?** Submission-ready at `analysis/v0_1_pre_registration_draft.md` with instructions at `analysis/v0_1_pre_registration_platform_analysis.md`. ~30–45 min of PO time. Embargo to 2026-11-02 matches the committee's deadline.
+6. **Commission an authenticated Wayback archival pass for the 6 remaining URLs?** Requires IA account with SPN2 Bearer token. 8 URLs currently unarchived; 19 of 27 preserved.
+7. **Regenerate `report.html`?** Currently stale (v0.11-state). A full rebuild with updated SVG charts, palette, and layout is a separate design task (est. 2–3 hours of focused work).
+8. **Resume Phase 4C VA-polygon vote attribution?** ~215K tokens, 2–4 hours. Value is now primarily cross-validation rather than primary measurement, since commission maps have been set aside. Possibly deferred until the November committee's map lands.
+9. **After Nov 2, 2026** — is the committee's 91-seat map tabled? If yes, Track C (re-audit) becomes top priority. The pre-registered checklist, the R5 conditions, the symmetric counter-test framework, and the baseline scorecard are all ready.
 
 ---
 
-## Fresh-chat instructions
+## Fresh-chat instructions (session 11 kickoff)
 
 1. Read `CLAUDE.md` first.
-2. Read `v1_2_gerrymander_audit_prompt.md` for execution steps.
-3. Run the six baseline scripts; confirm output matches documented tables.
-4. Check `https://www.elections.ab.ca/resources/maps/` for 2026 shapefile release status.
-5. Check whether the November committee has tabled its 91-seat map (news search or direct URL at the commission's page).
-6. Pick the active track from the timeliness-ordered list above.
-7. Consult the appropriate runbook (`phase_4c_runbook.md` for Track B; re-audit playbook in `report_public.md` §"What a gerrymander..." for Track C).
-8. Use sub-agents for multi-file research, parallel tasks, web fetches, validation passes, data acquisition, and anything over 15K tokens. See CLAUDE.md §"Use Sub-Agents Whenever Possible."
-9. Commit intermediate work as you go; never claim "final" — everything is versioned.
+2. Read this migration doc.
+3. Read `analysis/v0_1_live_tasks.md` — check for any sub-agent entries under "Currently live tasks" (these are handoffs from prior sessions that terminated before completion). Integrate or re-spawn as documented.
+4. Read `v1_2_gerrymander_audit_prompt.md` for execution steps.
+5. Run the five baseline scripts; confirm output matches documented tables to within the 0.05 pp / 1 seat tolerance.
+6. Check `https://www.elections.ab.ca/resources/maps/` for 2026 shapefile release status.
+7. Check whether the November committee has tabled its 91-seat map.
+8. Pick the active track from the Open Questions above.
+9. Consult the appropriate runbook.
+10. Use sub-agents for multi-file research, parallel tasks, web fetches, validation passes, data acquisition, and anything over 15K tokens. See CLAUDE.md §"Use Sub-Agents Whenever Possible."
+11. **When spawning any sub-agent that might not finish before the session hits a usage limit, add an entry to `analysis/v0_1_live_tasks.md`** under "Currently live tasks" with the full re-spawn prompt. This preserves the task for a future session to resume.
+12. Commit intermediate work as you go; never claim "final" — everything is versioned.
 
-The repository is at v0.14. The next commit should increment the appropriate version (v0.14 → v0.15 for revisions, v0.14 → v1.0 for a locked release).
+The repository is at v0.17 draft. Next commit should increment to v0.18 for revisions, or v1.0 for a locked release.
 
 ---
 
-*Migration doc v0.14. Authored April 22, 2026 at the close of session 9 (full defensibility pass). Tracks ordered by timeliness. If the next session diverges materially from the documented state, update this file first before making downstream changes.*
+*Migration doc v0.17. Authored April 22, 2026 at the close of session 10. Tracks ordered by timeliness. All 38 red-team attacks addressed; sign-convention resolved; full cross-election coverage (2015, 2019, 2023, April 2026 polling) integrated; shape refinement classified into three confidence tiers with 0.06 % residual voter impact documented; URL archival at 70 % coverage with path forward named. If the next session diverges materially from the documented state, update this file first before making downstream changes.*
 
 **Known staleness:** `report.html` is the v0.11-state dissemination build. All session 9 additions — chair R5, Track J cross-validation, Track I shared-schools finding, Track H CSD bounding, Cochrane StatsCan refinement, Plan B compliance audit (Track K), province-wide cycle-lag analysis (Track L), legislative reform proposal (Track M), Calgary data-sources audit, red-team attack on the academic paper, baseline scorecard (Track C applied to existing maps) — are present in `report_public.md` and `report_academic.md` but not yet regenerated into HTML. A rebuild is a separate design task (SVG charts, palette, layout) and was not executed in session 9.
 
