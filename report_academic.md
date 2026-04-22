@@ -402,8 +402,6 @@ The alignment between R5 and the April 16 motion is partial on three grounds, ad
 
 3. **Intent.** Chair Miller stated R5's purpose directly: it "is formulated for the express purpose of dissuading the Legislature from accepting the minority report" (AEBC, 2026, p. 66). The Chair further described the minority's hybrid configurations in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert as "not something that I can condone" (AEBC, 2026, p. 67). A committee output that reintroduces any of those minority configurations invokes the form of R5 while inverting its intent. The motion's silence on which starting map the committee uses, combined with the presence in the committee of the political faction that appointed the minority commissioners, is therefore procedurally distinct from R5's conditional.
 
-**AI-tool use.** The Premier's April 16 remark referring to an "AI academy" has been read in some reporting as signalling that the committee or its advisory panel may use AI tools in the drafting process (Calgary Journal, April 21, 2026). A concrete framework for responsible AI use in this context — covering prompt logging, ensemble publication, pre-registered evaluation criteria, and seat-of-responsibility assignment — is developed in `analysis/v0_1_ai_use_recommendations_for_committee.md` and summarized in §11.2 of this report.
-
 **Regional-economy framing.** Alberta's Regional Economic Development Alliance geography provides partial support for the minority's general hybrid doctrine. The Central Alberta REDA covers Red Deer, Innisfail, Blackfalds, Lacombe, and Sylvan Lake — the five municipalities at the heart of the minority's Red Deer hybrid proposals. The Calgary Regional Partnership covers Calgary, Airdrie, Cochrane, Chestermere, Okotoks, Rocky View, and High River — the catchment for the minority's Calgary hybrids. These are real, publicly-documented regional organisations. They are not, however, boundary prescriptions; any map grouping districts within these zones satisfies the zone-coherence criterion, and the zones do not by themselves justify the specific intra-zone configurations the minority proposed.
 
 ### 5.3 Comparator cases
@@ -656,10 +654,6 @@ This audit does not offer a legal conclusion. It provides the evidentiary basis 
 
 These facts are reproducible from public data using checked-in code. They do not prove intent, and they do not by themselves establish a constitutional violation.
 
-### 11.2 Technical recommendations for the November committee's AI-tool use
-
-Public statements on April 16, 2026 suggested that the Special Select Committee or its advisory panel may employ AI tools in the 91-seat drafting process. The audit takes no position on whether AI tools should be used; if they are, five disciplines minimize the risk of compounding the independence concerns already identified in §5.2: (1) named human accountability for every final boundary; (2) full publication of every prompt, model version, random seed, and output used in the workflow; (3) pre-registration of evaluation criteria before any draft map circulates; (4) independence testing via two or more independently-configured AI systems on any question whose answer materially affects the map; (5) purpose-built redistricting tooling (GerryChain; Dave's Redistricting App) rather than general-purpose large language models for the boundary-generation step. A nine-item public-disclosure checklist and a fuller risk analysis specific to the April 2026 context are in `analysis/v0_1_ai_use_recommendations_for_committee.md`. These recommendations are non-partisan and apply identically regardless of which political faction holds the drafting majority.
-
 ---
 
 ## Appendix A — Reproducibility
@@ -691,7 +685,6 @@ Each script prints a gate PASS/FAIL line. Numbers in §§2, 3 above must match t
 - [Cochrane journey-to-work](analysis/v0_1_cochrane_journey_to_work.md) — §4.4 StatsCan 98-10-0459 pull
 - [CSD-level community splits](analysis/v0_1_csd_community_splits.md) — §4.4 robustness check
 - [338Canada riding-level cross-validation](analysis/v0_1_338canada_riding_level.md) — §3.5 independent cross-check
-- [AI-use recommendations for the MLA committee](analysis/v0_1_ai_use_recommendations_for_committee.md) — §11.2 framework
 - [Submission OCR log](analysis/v0_1_submission_ocr_log.md) — §5.4 partial extension of the 88 non-text-layer submissions
 
 ---
