@@ -1,0 +1,29 @@
+{
+  "maj_rural_n": 40,
+  "min_rural_n": 38,
+  "maj_rural_mean_pop": 52281.3,
+  "min_rural_mean_pop": 50336.3,
+  "gap_pct_minority_vs_majority": -3.72,
+  "smallest10": {
+    "majority": {
+      "avg_pop": 44110.7,
+      "avg_ucp_2019": 67.98,
+      "avg_ndp_2019": 22.54,
+      "avg_ucp_2023": 67.92,
+      "avg_ndp_2023": 27.08
+    },
+    "minority": {
+      "avg_pop": 42408.0,
+      "avg_ucp_2019": 69.19,
+      "avg_ndp_2019": 21.11,
+      "avg_ucp_2023": 70.67,
+      "avg_ndp_2023": 23.49
+    }
+  },
+  "direction_tally": {
+    "minority_smaller": 24,
+    "NO_MIN_MATCH": 3,
+    "equal": 2,
+    "minority_larger": 11
+  }
+}

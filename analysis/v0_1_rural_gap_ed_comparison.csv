@@ -1,0 +1,41 @@
+majority_name,majority_pop,minority_name,minority_pop,delta_pop,direction
+Mountain View-Kneehill,52432,Rocky Mountain House-Banff Park,38298,-14134,minority_smaller
+Fort McMurray-Lac La Biche,52847,Fort McMurray-Lac La Biche,44719,-8128,minority_smaller
+Stony Plain-Drayton Valley,55743,Stony Plain-Drayton Valley,48032,-7711,minority_smaller
+Wetaskiwin-Ponoka-Maskwacis,56399,Wetaskawin-Ponoka-Maskwacis,48775,-7624,minority_smaller
+Okotoks-Diamond Valley,55284,Stony Plain-Drayton Valley,48032,-7252,minority_smaller
+West Yellowhead,56562,West Yellowhead,49766,-6796,minority_smaller
+Lethbridge-East,57463,Airdrie East,50797,-6666,minority_smaller
+Red Deer-South,59123,Red Deer-Blackfalds,52827,-6296,minority_smaller
+Camrose,54653,Camrose,48536,-6117,minority_smaller
+Barrhead-Westlock-Athabasca,52249,Barrhead-Westlock-Athabasca,46892,-5357,minority_smaller
+St. Albert,59935,St. Albert,54589,-5346,minority_smaller
+Leduc-Devon,56572,Leduc,52328,-4244,minority_smaller
+Chestermere-Strathmore,56679,Chestermere-Strathmore,52982,-3697,minority_smaller
+Taber-Cardston,54933,Lethbridge-Cardston,51831,-3102,minority_smaller
+Airdrie-East,53809,Airdrie East,50797,-3012,minority_smaller
+Fort McMurray-Wood Buffalo,49615,Fort McMurray-Wood Buffalo,46721,-2894,minority_smaller
+Sylvan Lake-Innisfail,55290,Red Deer-Sylvan Lake,52454,-2836,minority_smaller
+Lethbridge-West,54235,Lethbridge-Cardston,51831,-2404,minority_smaller
+St. Albert-Sturgeon,54214,St. Albert-Sturgeon,52334,-1880,minority_smaller
+Grande Prairie-Wapiti,53781,Grande Prairie-Wapiti,52041,-1740,minority_smaller
+Red Deer-North,53798,Red Deer-Blackfalds,52827,-971,minority_smaller
+Lloydminster-Wainwright,50139,Lloydminster-Wainwright,49365,-774,minority_smaller
+Cold Lake-Bonnyville-St. Paul,55809,Cold Lake-Bonnyville-St. Paul,55713,-96,minority_smaller
+Fort Saskatchewan-Vegreville,54278,Fort Saskatchewan-Vegreville,54274,-4,minority_smaller
+Cochrane-Springbank,56487,,,,NO_MIN_MATCH
+Grande Prairie,50352,Grande Prairie,50352,0,equal
+High River-Vulcan-Siksika,53351,,,,NO_MIN_MATCH
+Lesser Slave Lake,30011,Lesser Slave Lake,30011,0,equal
+Spruce Grove,55930,,,,NO_MIN_MATCH
+Peace River,43399,Peace River,43408,9,minority_larger
+Medicine Hat-Brooks,54833,Medicine Hat-Brooks,54898,65,minority_larger
+Lacombe-Clearwater,55750,Red Deer-Lacombe,56180,430,minority_larger
+Drumheller-Stettler,50626,Drumheller-Stettler,51370,744,minority_larger
+Strathcona-Sherwood Park,51020,Sherwood Park-Strathcona,51826,806,minority_larger
+Central Peace-Notley,28715,Central Peace-Notley,30446,1731,minority_larger
+Airdrie-West,48145,Airdrie East,50797,2652,minority_larger
+Sherwood Park,52475,Sherwood Park,55311,2836,minority_larger
+Livingstone-Macleod,50144,Lethbridge-Fort MacLeod-Crowsnest Pass,54564,4420,minority_larger
+Medicine Hat-Cypress,54210,Medicine Hat-Cypress,60690,6480,minority_larger
+Canmore-Banff,39961,Canmore-Kananaskis,49542,9581,minority_larger

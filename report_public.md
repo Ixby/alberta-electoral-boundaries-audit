@@ -94,6 +94,28 @@ Several claims are being made by different sides of this debate. Here is what th
 
 ---
 
+## If the 2027 Election Is Close
+
+The audit's seat-count difference between the two maps (1 to 3 seats in a tied election) sounds abstract. Here is what it actually means if the 2027 provincial election is a close race — which several recent polls and political analysts have suggested it will be.
+
+**What the data says about "close":**
+
+- **In 2023**, fourteen ridings were decided by less than three percentage points of two-party margin. That is almost double the seven seats within three points in 2019 and eight in 2015. The marginal seats in 2023 are almost entirely in Calgary.
+- **If the 2027 election is similar to 2023 in tightness,** a 1.5 percentage point swing (the midpoint of the audit's map-effect estimate) would flip six seats toward the UCP or four toward the NDP depending on direction.
+- **If the 2027 election is within 5 seats overall** — which the "slim majority or minority government" scenario implies — then the 1 to 3 seat map effect is exactly the size that decides whether a party governs alone, governs in a minority, or is in opposition.
+
+**The specific seats at stake in a close 2027 election** (based on 2023 margins under 3 points):
+
+- In Calgary: Acadia, Glenmore, Foothills, Edgemont, Beddington, North West, North, Bow, and several others. These are in the audit's Zone A (NDP-leaning) packing region.
+- In Edmonton: marginal seats are fewer but include some of the Edmonton-South / Edmonton-Ellerslie area.
+- In rural Alberta: Banff-Kananaskis, Lethbridge-East.
+
+**The honest caveat.** The audit cannot predict the 2027 election. The map effect is small, consistent, and in a specific direction (probably UCP-favourable). Whether it matters for which party forms government depends entirely on how close the actual vote is. If the NDP wins by 10 points, the map effect is a footnote. If the race is within 2 points, the map could decide it.
+
+**What reasonable people can disagree about:** whether a map effect of this size should be considered a democratic concern. Some argue any systematic advantage is worth addressing regardless of size. Others argue that an advantage this small is well within the noise of normal political geography and does not warrant treating the minority map as illegitimate. The audit does not take a position on this normative question. It provides the numbers.
+
+---
+
 ## What Is Missing From This Analysis
 
 This audit is incomplete in specific, documented ways. A reader should know these limits before drawing conclusions.

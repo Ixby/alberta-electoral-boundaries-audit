@@ -78,6 +78,24 @@ nav.audience-switch a[aria-current="page"], nav.audience-switch a:hover, nav.aud
 .skiplink:focus { position: static; display: inline-block; padding: 0.25rem 0.5rem; background: var(--focus); color: var(--bg); }
 .jump-between { background: var(--panel); border-left: 3px solid var(--focus); padding: 0.5rem 0.75rem; margin: 1rem 0; font-size: 0.9rem; }
 .jump-between a { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+figure.chart { margin: 1.5rem 0; padding: 1rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; }
+figure.chart svg { display: block; max-width: 100%; height: auto; }
+figure.chart figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; font-style: italic; }
+.chart .bar-majority { fill: #2c7fb8; }
+.chart .bar-minority { fill: #c35a44; }
+.chart .bar-2019 { fill: #767676; }
+.chart .bar-bg { fill: var(--panel); }
+.chart .axis { stroke: var(--fg); stroke-width: 1; }
+.chart text { font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; font-size: 13px; fill: var(--fg); }
+.chart .label-small { font-size: 11px; fill: var(--muted); }
+.chart .zero-line { stroke: var(--fg); stroke-width: 1; stroke-dasharray: 3 2; }
+.chart .ci-bar { stroke: var(--fg); stroke-width: 2; }
+.chart .ci-cap { stroke: var(--fg); stroke-width: 2; }
+@media (prefers-color-scheme: dark) {
+  .chart .bar-majority { fill: #5ca3d8; }
+  .chart .bar-minority { fill: #e07a64; }
+  .chart .bar-2019 { fill: #a0a0a0; }
+}
 footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.88rem; }
 @media print {
   nav.audience-switch { position: static; }
@@ -146,6 +164,31 @@ footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--bord
 <p><strong>Probable</strong> (directionally supported, with uncertainty): minority is modestly more UCP-favourable than majority under 2023 electorate; 1–3 seat difference in a tied election; Alberta's 2019 map has a mild UCP tilt largely from geography.</p>
 <p><strong>Unlikely</strong> (not supported, sometimes contradicted): "extreme gerrymander" (below US threshold); "no meaningful difference between maps" (six independent tests show differences); "majority is partisan for NDP" (evidence contradicts); "no public support for any minority configuration" (contradicted for three of five); "definite constitutional violation" (not established by this audit).</p>
 
+<h3 id="close-election">If the 2027 election is close</h3>
+<p>The audit's 1 to 3 seat map effect is abstract. Here is what it means in a close-election scenario, which recent polling and political analysts suggest is plausible for 2027.</p>
+<ul>
+<li>In 2023, 14 ridings were decided by less than 3 percentage points of two-party margin. That is roughly double 2019 (7) or 2015 (8). Most of the 14 are in Calgary.</li>
+<li>A 1.5 pp swing (the midpoint of the audit's map-effect estimate) applied to 2023 flips 6 seats UCP (Calgary-Acadia, Glenmore, Foothills, Edgemont, Beddington, Banff-Kananaskis) or 4 NDP (Calgary-North West, North, Bow, Lethbridge-East).</li>
+<li>If 2027 is within 5 seats of a tie, the 1–3 seat map effect is exactly the size that decides whether a party governs alone, governs in a minority, or sits in opposition.</li>
+</ul>
+<figure class="chart" aria-labelledby="chart-marginal-caption">
+<svg viewBox="0 0 600 220" role="img" aria-label="Bar chart of seats within three percentage points of the two-party flip line. 2023 has 14, 2019 has 7, 2015 has 8.">
+<title>Seats decided by less than 3 percentage points, by election</title>
+<line class="axis" x1="80" y1="180" x2="570" y2="180"/>
+<rect class="bar-2019" x="130" y="94" width="80" height="86"/>
+<rect class="bar-2019" x="280" y="72" width="80" height="108"/>
+<rect class="bar-minority" x="430" y="12" width="80" height="168"/>
+<text x="170" y="200" text-anchor="middle">2015</text>
+<text x="320" y="200" text-anchor="middle">2019</text>
+<text x="470" y="200" text-anchor="middle">2023</text>
+<text x="170" y="90" text-anchor="middle" font-weight="600">8</text>
+<text x="320" y="68" text-anchor="middle" font-weight="600">7</text>
+<text x="470" y="8" text-anchor="middle" font-weight="600">14</text>
+</svg>
+<figcaption id="chart-marginal-caption">Figure 3. Seats decided by less than 3 percentage points of two-party margin, across three Alberta general elections. The 2023 result had roughly twice as many razor-thin seats as the prior two. If 2027 resembles 2023 in tightness, the audit's 1–3 seat map effect is exactly the size that could decide which party forms government.</figcaption>
+</figure>
+<p>The audit cannot predict the 2027 election. The map effect is small, consistent, and directionally UCP-favourable under 2023 voter conditions. Whether it matters for government formation depends entirely on how close the actual vote is.</p>
+
 <h3 id="incomplete">What is missing from the dataset</h3>
 <p>The 2026 boundary shapefiles have not been released. About 88 of 1,340 public submissions are scans that the text search could not read. The audit does not have imagery for roughly three-quarters of the majority map outside Calgary. The partisan-bias numbers depend on a 70/30 urban/rural modelling assumption; testing across 0.60 / 0.70 / 0.80 shows direction stable but magnitude variable. The 2015 election used different district boundaries than 2019, so 2015 vote data could not plug directly into cross-election checks.</p>
 
@@ -167,6 +210,49 @@ footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--bord
 <p>Findings about district sizes, community splits, and unusual boundary shapes do not depend on vote data. They hold up. Findings about how the maps turn votes into seats depend on which election and which assumptions. They are less certain than the first draft implied. The overall pattern is real. The precise size of the partisan effect is not.</p>
 
 <h3 id="short-version">The short version</h3>
+
+<figure class="chart" aria-labelledby="chart-headline-caption">
+<svg viewBox="0 0 600 280" role="img" aria-label="Bar chart comparing population MAD, Calgary zone gap, and NDP seats at 50/50 across the three maps. Minority map has wider population spread and larger Calgary zone gap than the majority, while the 2019 baseline is labeled.">
+<title>Headline structural differences at a glance</title>
+<!-- MAD panel -->
+<text x="90" y="20" text-anchor="middle" font-weight="600">Population spread (MAD)</text>
+<text x="90" y="35" text-anchor="middle" class="label-small">people from average</text>
+<rect class="bar-bg" x="30" y="50" width="120" height="170"/>
+<rect class="bar-majority" x="50" y="146" width="30" height="74"/>
+<rect class="bar-minority" x="100" y="110" width="30" height="110"/>
+<text x="65" y="230" text-anchor="middle">3,180</text>
+<text x="115" y="230" text-anchor="middle">4,707</text>
+<text x="65" y="248" text-anchor="middle" class="label-small">Majority</text>
+<text x="115" y="248" text-anchor="middle" class="label-small">Minority</text>
+
+<!-- Zone gap panel -->
+<text x="300" y="20" text-anchor="middle" font-weight="600">Calgary Zone A vs B gap</text>
+<text x="300" y="35" text-anchor="middle" class="label-small">% larger (NDP-leaning vs UCP-leaning)</text>
+<rect class="bar-bg" x="240" y="50" width="120" height="170"/>
+<rect class="bar-majority" x="260" y="214" width="30" height="6"/>
+<rect class="bar-minority" x="310" y="35" width="30" height="185"/>
+<text x="275" y="230" text-anchor="middle">0.4%</text>
+<text x="325" y="230" text-anchor="middle">12.2%</text>
+<text x="275" y="248" text-anchor="middle" class="label-small">Majority</text>
+<text x="325" y="248" text-anchor="middle" class="label-small">Minority</text>
+
+<!-- Seats at 50/50 panel -->
+<text x="510" y="20" text-anchor="middle" font-weight="600">NDP seats at 50/50</text>
+<text x="510" y="35" text-anchor="middle" class="label-small">uniform-swing simulation</text>
+<rect class="bar-bg" x="450" y="50" width="120" height="170"/>
+<rect class="bar-2019" x="460" y="50" width="22" height="170"/>
+<rect class="bar-majority" x="492" y="59" width="22" height="161"/>
+<rect class="bar-minority" x="524" y="70" width="22" height="150"/>
+<text x="471" y="230" text-anchor="middle" font-size="12">46</text>
+<text x="503" y="230" text-anchor="middle" font-size="12">44</text>
+<text x="535" y="230" text-anchor="middle" font-size="12">42</text>
+<text x="471" y="248" text-anchor="middle" class="label-small">2019</text>
+<text x="503" y="248" text-anchor="middle" class="label-small">Maj</text>
+<text x="535" y="248" text-anchor="middle" class="label-small">Min</text>
+</svg>
+<figcaption id="chart-headline-caption">Figure 1. Three structural comparisons. Bigger population-spread and larger Calgary zone gap under the minority map; 2 fewer NDP seats in a tied election. Structural findings (left two panels) do not depend on vote-modelling choices and survive all red-team tests.</figcaption>
+</figure>
+
 <p>Both 2026 proposals satisfy Alberta's statutory requirements (district populations within ±25%, 89 divisions, tabled on time). They diverge on measurable dimensions of fairness.</p>
 <p><strong>Structural findings that hold up under every red-team test:</strong></p>
 <ul>
@@ -299,6 +385,32 @@ footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--bord
 </tbody>
 </table>
 <p>None of these efficiency-gap values cross the 7% threshold flagged in <i>Gill v. Whitford</i> (2018). Minority EG is 0.51 pp more UCP-favorable than majority at 70/30 central weight.</p>
+
+<figure class="chart" aria-labelledby="chart-eg-caption">
+<svg viewBox="0 0 600 240" role="img" aria-label="Efficiency gap comparison across three maps. Majority at minus 0.85 percent, minority at minus 1.36 percent, both well below the US 7 percent threshold marked by the red line.">
+<title>Efficiency gap: sub-threshold, with modest difference between maps</title>
+<line class="axis" x1="80" y1="200" x2="570" y2="200"/>
+<line x1="80" y1="200" x2="80" y2="30" class="axis"/>
+<!-- zero line -->
+<line class="zero-line" x1="80" y1="80" x2="570" y2="80"/>
+<text x="75" y="84" text-anchor="end" class="label-small">0%</text>
+<!-- 7% threshold line -->
+<line x1="80" y1="25" x2="570" y2="25" stroke="#c35a44" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="570" y="22" text-anchor="end" fill="#c35a44" class="label-small">US ±7% threshold (Gill v. Whitford)</text>
+<line x1="80" y1="135" x2="570" y2="135" stroke="#c35a44" stroke-width="1.5" stroke-dasharray="5 3"/>
+<!-- bars -->
+<rect class="bar-2019" x="160" y="80" width="80" height="33"/>
+<rect class="bar-majority" x="280" y="80" width="80" height="11"/>
+<rect class="bar-minority" x="400" y="80" width="80" height="17"/>
+<text x="200" y="125" text-anchor="middle" font-size="13">-2.64%</text>
+<text x="320" y="105" text-anchor="middle" font-size="13">-0.85%</text>
+<text x="440" y="112" text-anchor="middle" font-size="13">-1.36%</text>
+<text x="200" y="220" text-anchor="middle">2019 baseline</text>
+<text x="320" y="220" text-anchor="middle">Majority 2026</text>
+<text x="440" y="220" text-anchor="middle">Minority 2026</text>
+</svg>
+<figcaption id="chart-eg-caption">Figure 2. Efficiency gap on the three maps. Negative values favour UCP; positive would favour NDP. The US threshold at ±7% is shown for context — none of the three maps crosses it. The minority is modestly more UCP-favourable than the majority; whether that modest difference matters depends on how close the next election is. See §3.4 red-team for Monte Carlo bounds on this estimate.</figcaption>
+</figure>
 
 <h4 id="academic-section-B-red-team">§3.4 red-team</h4>
 <p><strong>Monte Carlo 95% CI crosses zero.</strong> N=2,000 samples varying urban weight, rural baseline, and per-hybrid jitter. Minority-majority EG asymmetry: mean −1.25 pp, 95% CI [−2.99, +0.76] pp. Direction consistency 89.3%. Under Katz, King, and Rosenblatt (2020), the appropriate reporting convention is to disclose CI bounds rather than privileging a point estimate.</p>
