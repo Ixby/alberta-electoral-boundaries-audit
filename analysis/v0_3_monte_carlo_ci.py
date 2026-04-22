@@ -8,8 +8,10 @@ is distinguishable from zero, given your modeling uncertainty?"
 
 Samples:
   - urban_weight ~ Uniform(0.55, 0.85)
-  - rural_ndp_share ~ Uniform(0.28, 0.38)  (empirical range of rural
-    Alberta NDP share across 2019 and 2023 elections)
+  - rural_ndp_share ~ Uniform(0.26, 0.36)  (empirical range of rural
+    Alberta NDP two-party share across 2015, 2019, 2023 elections.
+    Observed: 26.47% (2019), 33.47% (2023), 35.05% (2015).
+    See analysis/v0_1_cross_election_rural_baseline.py.)
   - per-hybrid jitter: each hybrid's urban_weight independently
     sampled from Uniform(urban_weight - 0.10, urban_weight + 0.10),
     clipped to [0.40, 0.95]
@@ -72,7 +74,7 @@ def run_monte_carlo(n_samples: int = 2000, seed: int = 42) -> dict:
 
     for i in range(n_samples):
         base_w = rng.uniform(0.55, 0.85)
-        rural = rng.uniform(0.28, 0.38)
+        rural = rng.uniform(0.26, 0.36)
         jitter = 0.10
 
         maj_map = jittered_mapping(MAJORITY_2026_MAPPING, base_w, jitter, rng)
@@ -123,7 +125,7 @@ def main():
     print()
     print("Sampling:")
     print("  base urban_weight ~ Uniform(0.55, 0.85)")
-    print("  rural_ndp_share ~ Uniform(0.28, 0.38)")
+    print("  rural_ndp_share ~ Uniform(0.26, 0.36)  [from 2015/2019/2023 observed]")
     print("  per-hybrid jitter ~ Uniform(-0.10, +0.10)")
     print("  N = 2,000 samples; seed = 42 (reproducible)")
     print()

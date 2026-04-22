@@ -90,4 +90,14 @@ This is **starter pack v0.7**. Internal:
 
 ## License & Provenance
 
-All input data extracted from official Elections Alberta and ABEBC sources, verified against published totals (2023: 38 NDP / 49 UCP, two-party total 1,706,304; 2019: 24 NDP / 63 UCP; majority 2026 populations sum to exact provincial total of 4,888,723). Maps are images from the publicly tabled commission report. Analysis is non-partisan and applies identical methodology symmetrically to all three maps.
+All input data extracted from official Elections Alberta and ABEBC sources. Verified against published totals:
+
+- **2023:** 38 NDP / 49 UCP, two-party total 1,706,304
+- **2019:** 24 NDP / 63 UCP, verified to published report
+- **2015:** 40.72% NDP / 27.79% PC / 24.09% WRP (matches official Elections Alberta 40.59%/27.79%/24.22% to within 0.13 pp per party); NDP formed majority government
+- **Majority 2026 populations:** sum to exact provincial total of 4,888,723
+- **Minority 2026 populations:** sum to 4,888,773 (50-person rounding drift in commission's own figures)
+
+Maps are images from the publicly tabled commission report. Analysis is non-partisan and applies identical methodology symmetrically to all three maps.
+
+**2015 data note.** The 2015 dataset uses pre-2017-commission boundaries that differ from 2019 and 2026 EDs. It is included for cross-election rural baseline analysis (see `analysis/v0_1_cross_election_rural_baseline.py`) and longitudinal context. Direct attribution of 2015 votes to 2019 or 2026 EDs requires a boundary crosswalk not included in this bundle.
