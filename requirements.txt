@@ -1,0 +1,37 @@
+# Alberta Electoral Boundaries Audit — pinned Python dependencies
+# Frozen 2026-04-22. Reproducible pipeline requires Python 3.14.3 on Windows 11.
+# See setup.md for interpreter pinning; see FROZEN_MANIFEST.md for external URLs.
+#
+# Install: python -m pip install -r requirements.txt
+# Versions below are the ones observed in the session that produced report_academic.md v0.2.
+
+# Core scientific stack
+pandas==3.0.2
+numpy==2.4.2
+openpyxl==3.1.5
+
+# GIS stack (used by Sections A/C geometric prep; full Phase 4 blocked on 2026 shapefiles)
+geopandas==1.1.3
+pyogrio==0.12.1
+shapely==2.1.2
+pyproj==3.7.2
+
+# Geocoding + fuzzy matching (Phase 4C landmark dictionary — stubs only)
+geopy==2.4.1
+rapidfuzz==3.14.5
+
+# OSM network tools (Phase 4D fallback — stubbed)
+osmnx==2.1.0
+
+# PDF extraction (Appendix B/C/E parsing; OCR submission recovery)
+pdfplumber==0.11.9
+pypdf>=4.0.0
+
+# MCMC ensemble (Phase 5 — blocked on shapefiles)
+gerrychain==0.3.2
+
+# Voice / readability gate
+textstat==0.7.13
+
+# Monte Carlo uncertainty analysis
+# (uses numpy + pandas only — no extra deps)

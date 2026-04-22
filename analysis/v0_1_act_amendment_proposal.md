@@ -944,3 +944,56 @@ audit recommends Option B.
   that the ambiguity is being resolved *ad hoc* at the cost of
   transparency, and proposes statutory language that resolves
   the ambiguity at the drafting level.
+
+---
+
+## Addendum (Session 9, Track N + Track O) — concrete Option B specification and disclosure-requirement clauses
+
+Phase 5's Option B drafted text specifies the statute's structure but leaves the composite-basis component sources implicit. Two parallel sub-tracks in session 9 — Track N (Alberta government database survey) and Track O (commission source provenance audit) — produced concrete recommendations that tighten Option B's §12(5) and add a new disclosure-requirement section §12(6)–(7). Neither addendum changes Phase 5's drafted text; both provide the specificity a legislative drafter would need to implement Option B.
+
+### A. Composite-basis source specification (Track N)
+
+**Context.** Track N's survey of Alberta government population-data sources (`analysis/v0_1_alberta_government_databases_survey.md`) tested eleven candidate systems for reliability, independence, completeness, and constitutional suitability. A critical finding: **census-based redistribution is not constitutionally required for provincial elections.** Constitution Act 1867 §51 governs federal redistribution only. Provincial boundary jurisdiction sits under §92(1) / §45 of the Constitution Act 1982. Charter §3 (via *Reference re Saskatchewan*) operates on output (effective representation) not input (data source). The data-source choice is a policy question.
+
+**Option B §12(5) concrete specification.** Track N ranks three sources for inclusion:
+
+1. **Primary — Alberta Treasury Board and Finance Quarterly Population Estimate (Office of Statistics and Information).** Best combination of CSD-level granularity, quarterly frequency, documented methodology (component-cohort-survival modelling calibrated to vital statistics and administrative records), and 100% population coverage by construction. The commission's 2025–26 practice already relied on this source for per-ED figures (verified by Track K and Track O). Statutory naming aligns the statute with existing commission practice rather than requiring a new data pipeline. §12(2)(c) in the drafted Option B should name TBF's Quarterly Population Estimate publication specifically.
+
+2. **Tie-breaker — Statistics Canada Table 17-10-0009 Quarterly Provincial Population Estimates.** ±2% divergence threshold. If TBF and StatsCan provincial totals differ by more than 2% for Alberta, the StatsCan estimate governs; divergence below 2% defaults to TBF. §12(2)(b) should name this table specifically. (Note: in the current cycle TBF and StatsCan agree by construction because OSI nests its provincial control in the StatsCan total — §12(2)(b) is therefore a forward-looking safeguard against future provincial-methodology drift.)
+
+3. **Mandatory cross-check — federal and independent administrative data.** AHCIP registrations (Alberta Health Care Insurance Plan, ~99% coverage at LGA sub-zone geography) and CRA T1 Family File taxfiler data (via StatsCan Table 11-10-0109, federally administered, FSA/CSD granularity). Material divergences (defined as per-ED variance exceeding 10% against the primary basis) must be publicly disclosed in the commission's final report with explanation.
+
+**Certifying authority.** The Chief Electoral Officer of Alberta is the recommended §12(8) certifier. The CEO is a statutorily-independent Officer of the Legislature under the *Election Act* with existing authority to retain external demographic expertise. Recommended over the Auditor General (outside the AG's core competency) and over a new Independent Statistics Officer (higher legislative cost; viable as a follow-up reform). §12(8) in Option B should specify the CEO as the certifier and grant explicit authority to retain independent statistical consultants.
+
+### B. Disclosure-requirement clauses (Track O)
+
+**Context.** Track O's provenance audit (`analysis/v0_1_commission_source_provenance.md`) extracted the commission's verbatim data-source disclosures and cross-checked them against the actual arithmetic in the commission's per-ED tables. The audit identified zero major inconsistencies but four material and three minor ones. The material inconsistencies include (i) the "2021 decennial census updated to July 2024" characterization when tables use the July 2024 OSI estimate directly with no visible decennial-census arithmetic, (ii) the absence of a published DA-level dataset and DA-to-ED crosswalk required for reproducibility, (iii) the absence of a visibly-disclosed Indian reserve population supplement required by §12(3)(b) and §12(4)(d), and (iv) a 50-person gap between the minority's stated provincial total and the sum of its per-ED table (4,888,723 vs 4,888,773; 0.001%, immaterial in effect but indicative of disclosure discipline).
+
+**Proposed §12(6) — Primary disclosure requirements.** A commission must publish, as part of its final report:
+
+- (a) **Source publication, date, catalogue number, and URL** for every dataset used in population calculation. For StatsCan: table number, DGUID level, release date. For TBF: quarterly publication, reference date, file name. For on-reserve supplement: CIRNAC file, reference date.
+- (b) **Separate disclosure of each source when a figure is a combination.** If the provincial total is a composite (e.g., "StatsCan provincial + CIRNAC reserve supplement"), the components must be disclosed separately with arithmetic.
+- (c) **Dissemination area to electoral division crosswalk.** The commission must publish the CSD-level and DA-level population counts it aggregated and the crosswalk used to assign them to EDs. The crosswalk must permit third-party reproduction of per-ED totals.
+- (d) **Versioned DA-level dataset release** in machine-readable format (CSV, with UTF-8 encoding and a schema document).
+- (e) **Per-First Nation reserve supplement breakdown** as required by the Act's §12(3)(b) / §12(4)(d) reference to populations on First Nations lands, with the CIRNAC file date and community-by-community counts.
+- (f) **Per-ED figures must sum exactly to the stated provincial total** (to the person); any rounding convention must be disclosed.
+- (g) **Basis characterization must match table arithmetic.** If tables use a postcensal estimate as the primary basis, the prose cannot describe the basis as "decennial census updated to" without showing the arithmetic of that update.
+
+**Proposed §12(7) — Reproducibility requirements.** A third party with only the published documents must be able to:
+
+- (a) Recover the provincial total from named external sources.
+- (b) Reproduce any per-ED figure from the published CSD/DA aggregation.
+- (c) Verify s.15(2) eligibility determinations with the published methodology.
+
+**Proposed §12(8) — Certification.** The Chief Electoral Officer of Alberta certifies compliance with §12(2), §12(6), and §12(7) before the commission's final report is tabled. Non-compliance triggers a 30-day remediation period; uncorrected non-compliance requires the commission to publish a supplement addressing the deficiencies.
+
+### C. Integration with Phase 5 Option B
+
+These addendum clauses attach to Option B's drafted structure as follows:
+
+- §12(2): add named-source specifications per (A) above.
+- §12(5): add the ±2% StatsCan tie-breaker and the mandatory cross-check clause per (A) above.
+- §12(6)–(7): add as new subsections per (B) above.
+- §12(8): add as new subsection per (A) above's certifying-authority recommendation.
+
+The Phase 5 drafted Option B text remains authoritative; this addendum specifies the statutory content that drafter annotations left abstract. Option A ("minor reform") is unaffected by this addendum. A drafter implementing Option B should treat Phase 5 as the structural template and this addendum as the content specification.

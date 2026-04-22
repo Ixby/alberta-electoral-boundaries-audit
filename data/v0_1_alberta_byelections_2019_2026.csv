@@ -1,0 +1,33 @@
+date,riding,reason,party,candidate,votes,share_pct,turnout_pct,prev_general_share_pct,delta_vs_general
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),UCP,Brian Jean,3717,63.64,23.99,66.33,-2.69
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),NDP,Ariana Mancini,1081,18.51,23.99,24.51,-6.00
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),WLC,Paul Hinman,628,10.75,23.99,,
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),LIB,Abdulhakim Hussein,211,3.61,23.99,,
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),AP,Michelle Landsiedel,98,1.68,23.99,5.78,-4.10
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),IND,Brian Deheer,57,0.98,23.99,,
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),AAP,Marilyn Burns,25,0.43,23.99,,
+2022-03-15,Fort McMurray-Lac La Biche,resignation (Goodridge ran federally),AIP,Steven Mellott,24,0.41,23.99,1.83,-1.42
+2022-11-08,Brooks-Medicine Hat,resignation (seat for Premier Smith),UCP,Danielle Smith,6919,54.51,35.51,60.66,-6.15
+2022-11-08,Brooks-Medicine Hat,resignation (seat for Premier Smith),NDP,Gwendoline Dirk,3394,26.74,35.51,17.89,8.85
+2022-11-08,Brooks-Medicine Hat,resignation (seat for Premier Smith),AP,Barry Morishita,2098,16.53,35.51,6.93,9.60
+2022-11-08,Brooks-Medicine Hat,resignation (seat for Premier Smith),AIP,Bob Blayone,225,1.77,35.51,,
+2022-11-08,Brooks-Medicine Hat,resignation (seat for Premier Smith),WLC,Jeevan Mangat,56,0.44,35.51,,
+2024-12-18,Lethbridge-West,resignation (Phillips personal),NDP,Rob Miyashiro,7238,53.35,36.06,53.92,-0.57
+2024-12-18,Lethbridge-West,resignation (Phillips personal),UCP,John Middleton-Hope,6093,44.91,36.06,42.51,2.40
+2024-12-18,Lethbridge-West,resignation (Phillips personal),AP,Layton Veverka,237,1.75,36.06,1.90,-0.15
+2025-06-23,Edmonton-Ellerslie,resignation (Loyola ran federally),NDP,Gurtej Singh Brar,4327,50.84,24.50,61.75,-10.91
+2025-06-23,Edmonton-Ellerslie,resignation (Loyola ran federally),UCP,Naresh Bhardwaj,3239,38.06,24.50,36.83,1.23
+2025-06-23,Edmonton-Ellerslie,resignation (Loyola ran federally),LIB,Manpreet Tiwana,410,4.82,24.50,,
+2025-06-23,Edmonton-Ellerslie,resignation (Loyola ran federally),REP,Fred Munn,291,3.42,24.50,,
+2025-06-23,Edmonton-Ellerslie,resignation (Loyola ran federally),AP,Caroline Currie,203,2.39,24.50,,
+2025-06-23,Edmonton-Ellerslie,resignation (Loyola ran federally),WLC,Pamela Henson,41,0.48,24.50,1.43,-0.95
+2025-06-23,Edmonton-Strathcona,resignation (Notley stepped down),NDP,Naheed Nenshi,7952,82.28,32.00,79.70,2.58
+2025-06-23,Edmonton-Strathcona,resignation (Notley stepped down),UCP,Darby-Rae Crouch,1314,13.60,32.00,17.30,-3.70
+2025-06-23,Edmonton-Strathcona,resignation (Notley stepped down),LIB,Don Slater,195,2.02,32.00,,
+2025-06-23,Edmonton-Strathcona,resignation (Notley stepped down),AP,Samuel Petrov,115,1.19,32.00,,
+2025-06-23,Edmonton-Strathcona,resignation (Notley stepped down),REP,Ravina Chand,65,0.67,32.00,,
+2025-06-23,Edmonton-Strathcona,resignation (Notley stepped down),WLC,Jesse Stretch,24,0.25,32.00,,
+2025-06-23,Olds-Didsbury-Three Hills,resignation (Cooper Washington role),UCP,Tara Sawyer,9363,61.12,38.80,75.29,-14.17
+2025-06-23,Olds-Didsbury-Three Hills,resignation (Cooper Washington role),NDP,Beverley Toews,3061,19.98,38.80,18.81,1.17
+2025-06-23,Olds-Didsbury-Three Hills,resignation (Cooper Washington role),REP,Cameron Davies,2705,17.66,38.80,,
+2025-06-23,Olds-Didsbury-Three Hills,resignation (Cooper Washington role),WLC,Bill Tufts,189,1.23,38.80,,
