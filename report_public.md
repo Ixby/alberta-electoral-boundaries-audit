@@ -34,13 +34,15 @@ That is the whole vocabulary you need. The rest of this report uses those terms 
 
 ## Read This First
 
-After writing the first draft, I checked my own work by running it through three extra tests. All three made one of my findings less certain than it first looked.
+After writing the first draft, I checked my own work by running it through three extra tests. All three made one of my findings less certain than it first looked. A fourth check — searching the 1,340 public submissions — found that one of my procedural claims was overbroad.
 
 **1. The "2 seats" number has a wider range than I said.** I ran the analysis 2,000 times with slightly different modelling choices. In 89 out of 100 runs, the minority map leaned UCP. In 11 out of 100, it leaned the other way. The direction is probably UCP-favourable. It is not a sure thing.
 
 **2. A second standard test (called declination) says the minority is the least UCP-favourable of the three maps.** Two tests from the same research literature point in opposite directions. When the tests disagree, you should trust the conclusion less than when they agree.
 
 **3. If I use 2019 vote patterns instead of 2023, the direction flips.** The minority looks UCP-favourable using 2023 votes. It looks NDP-favourable using 2019 votes. Some of what I measured is about the 2023 electorate, not the map.
+
+**4. The commission chair's claim that the minority's choices had "no public support" was partially wrong.** I searched all 1,340 public submissions. Two of the five configurations really did have no supporters. Three did have supporters — including one detailed submission that explicitly proposes the minority's Rocky Mountain House-Banff district by name. That changes the procedural part of this audit. The government is still pushing some boundary choices nobody asked for. But it is also pushing some that do have public backing. My first draft described this as one thing. It is two things.
 
 Here is what this means for the rest of the report.
 
@@ -205,9 +207,22 @@ When a government takes over the drafting, the question changes. Is this a techn
 
 All three changed parts of the commission's output through regular legislation. Alberta's April 16 action goes further. It replaces the drafting process, not just the output. A UCP-majority committee of MLAs now oversees a new drafting panel.
 
-**What this means for you.** The commission heard from more than 1,140 Albertans who made submissions. The commission chair wrote that the minority's specific choices for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert had no support in those submissions. I have not yet verified that claim by searching the submissions myself (that work is in progress). If the chair's claim is correct, the April 16 process is pushing forward boundary choices that no member of the public asked for, over boundary choices that went through months of public review.
+**What I found when I checked.** I searched all 1,340 public submissions to the commission (1,252 of them had text I could search automatically; about 88 were scanned images my search could not read). The chair's claim said five of the minority's specific configurations had no public support. After searching, three of the five actually do have public support:
 
-A province where the map might shift 1 to 3 seats of partisan advantage is a province where the process that picks the map matters. The combination of a possibly-advantageous map plus government control of the process is the reason this audit exists.
+- **Rocky Mountain House-Banff Park.** One submission explicitly proposes this district by name. Four other submissions propose functionally equivalent configurations. The chair's claim is wrong on this one.
+- **The Olds-Three Hills-Didsbury rural unit.** Two Beiseker-area submissions explicitly support keeping this rural district together, which is what the minority proposed and the majority dissolved.
+- **Red Deer hybrids.** A Red Deer city councillor and several area residents proposed Red Deer-Blackfalds and Red Deer-Sylvan-Lacombe hybrids in line with the minority's approach.
+
+Two of the five held up:
+
+- **Airdrie 4-way split.** Zero supporting submissions. Submissions about Airdrie either oppose any split or propose different splits.
+- **Calgary-Nolan Hill-Cochrane.** Zero supporting submissions. Nolan Hill residents want to stay inside a Calgary district, not be linked to Cochrane.
+
+**What this means.** The chair's claim was overbroad. Some of the minority's configurations lack public support. Others have real public support. The April 16 government process is pushing forward a mix — some boundary choices nobody asked for, alongside others that do have public backing. That makes the procedural concern real but narrower than the first draft of this report implied.
+
+The strongest single piece of evidence for the procedural concern is the Airdrie 4-way split. No member of the public asked for it. The new drafting process now being run by the government could keep it anyway.
+
+A province where the map might shift 1 to 3 seats of partisan advantage is a province where the process that picks the map matters. The combination of a possibly-advantageous map plus government control of the process is the reason this audit exists, even with the softened procedural finding.
 
 ---
 

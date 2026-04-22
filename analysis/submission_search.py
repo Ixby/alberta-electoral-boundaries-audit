@@ -78,9 +78,10 @@ def download_all(log):
 
 
 R1_ID_PATTERNS = [
-    # e.g. "Submission #1", "Submission 1", "Submission Number 1"
+    # actual format in PDFs: "EBC 2025-1-008" or "EBC-2025-1-010"
+    re.compile(r"\bEBC[-\s]?2025[-\s]?1[-\s]?0*(\d{1,3})\b", re.I),
+    # fallbacks
     re.compile(r"^\s*Submission\s*#?\s*(\d{1,3})\b", re.I | re.M),
-    re.compile(r"^\s*Submission\s*Number\s*:?\s*(\d{1,3})\b", re.I | re.M),
 ]
 R2_ID_PATTERN = re.compile(r"\bEBC[-\s]?2025[-\s]?2[-\s]?0*(\d{1,4})\b", re.I)
 
@@ -220,8 +221,12 @@ def parse_all(log):
 def build_patterns():
     return {
         "airdrie_4way_split": [
-            re.compile(r"airdrie[^.\n]{0,80}(four[-\s]?way|4[-\s]?way|split\s+into\s+four|split\s+into\s+4|four\s+districts|4\s+districts|split\s+airdrie)", re.I),
-            re.compile(r"(split(ting)?|divid(e|ing|ed)|carv(e|ing|ed))[^.\n]{0,40}airdrie[^.\n]{0,60}(four|4)", re.I),
+            # explicit 4-way
+            re.compile(r"airdrie[\s\S]{0,120}(four[-\s]?way|4[-\s]?way|split\s+into\s+four|split\s+into\s+4|four\s+districts|4\s+districts|four\s+ridings|4\s+ridings)", re.I),
+            re.compile(r"(split(ting)?|divid(e|ing|ed)|carv(e|ing|ed))[\s\S]{0,80}airdrie[\s\S]{0,120}(four|4)\b", re.I),
+            # any discussion of splitting/dividing Airdrie (broader — catches 2-way or 4-way critiques)
+            re.compile(r"(split(ting)?|divid(e|ing|ed)|carv(e|ing|ed)|break(ing)?\s+up|fragment)[\s\S]{0,60}(the\s+city\s+of\s+)?airdrie", re.I),
+            re.compile(r"airdrie[\s\S]{0,80}(should|must|can)\s*(not|n'?t)?\s*be\s*(split|divid|broken|fragment)", re.I),
         ],
         "nolan_hill_cochrane": [
             # Nolan Hill + Cochrane in same sentence / short window

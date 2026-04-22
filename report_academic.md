@@ -324,11 +324,35 @@ Canadian provincial instances of government action on independent boundary commi
 
 The April 16 action is distinguishable from all three comparators in that it replaces the drafting process rather than amending its output. Stronger claim than the v0.1 report's "without recent Canadian provincial precedent" is not supportable without a comprehensive survey of all provincial redistribution cycles since 1991, which was not performed. A defensible framing: **the April 16 action is the most government-controlled response to an independent provincial boundary commission among the three most commonly cited Canadian comparator cases.**
 
-### 5.4 Public submission record (D2)
+### 5.4 Public submission record (D2) — v0.4 update after independent verification
 
-The commission received 1,140+ written submissions during the 2025 public consultation phase. The majority report's Appendix C states that the minority's hybrid configurations for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert **had no public support in the consultation record**. This claim appears in a document signed by the commission chair (an appointed judicial officer) and is subject to professional-responsibility norms; independent verification requires text-search of the 1,140+ submission archive, which was outside the working bundle's token budget. Treat as prima facie credible pending independent verification.
+The commission received approximately 1,340 written submissions across two rounds of public consultation. The majority report's Appendix C states that the minority's hybrid configurations for Airdrie, Cochrane, Chestermere, Red Deer, and St. Albert **had no public support in the consultation record**. In v0.3 this claim was treated as prima facie credible pending verification.
 
-If the claim is correct, the April 16 process is promoting the less-publicly-supported of two proposals. This is the material procedural concern.
+In v0.4, a sub-agent independently searched all 27 batch PDFs from the commission's submission archive (1,252 of ~1,340 submissions extracted with text layer; ~88 image-only scans not OCR'd). Full methodology, dataset, and technical log are in `analysis/submission_search.py`, `data/submission_search_dataset.csv`, `analysis/submission_search_findings.md`, and `analysis/submission_search_log.md`.
+
+**Result: the chair's claim is partially refuted.**
+
+| Minority configuration | Chair's "no public support" claim | Evidence from search |
+| --- | --- | --- |
+| Airdrie 4-way split | **Stands** | Zero supporting submissions in 1,252 extracted |
+| Calgary-Nolan Hill-Cochrane hybrid | **Stands** | Zero supporting submissions; 5 Nolan Hill mentions all want Calgary placement, not Cochrane linkage |
+| **Rocky Mountain House-Banff Park (s.15(2))** | **Refuted** | EBC-2025-2-0619 explicitly proposes "Rocky Mountain House-Banff" as an electoral district amendment; 4+ additional submissions directionally aligned |
+| **Olds-Three Hills-Didsbury** | **Refuted** | EBC-2025-2-0209 (Beiseker) and EBC-2025-2-0161 (Councillor Ledoyen) explicitly support preserving the ODH rural unit the minority retains |
+| **Chestermere** | **Partially refuted** | EBC-2025-2-0687, 0785, 0787 oppose Calgary-Chestermere merger, aligning with minority's separate-Chestermere direction |
+| **Red Deer hybrids** | **Partially refuted** | EBC-2025-2-0252 (Red Deer City Councillor Chad Krahn) proposes Sylvan Lake/Lacombe/Blackfalds hybrid matching minority's approach; 0266 supports Sylvan-Lacombe |
+| St. Albert-Sturgeon | **Stands** | No supporting submission for the minority's alternative configuration identified |
+
+**Strongest counter-example: EBC-2025-2-0619** ("Appropriate Political Representation for Alpine Alberta"). Under "3.2 Proposed Electoral Division Amendment 2: Rocky Mountain House-Banff":
+
+> *"The proposed Rocky Mountain House-Banff electoral district brings together the upper Bow and North Saskatchewan headwaters, adjacent mountain parks, surrounding Crown land, and the communities that depend on these landscapes for their livelihoods. It would include Lake Louise, Saskatchewan River Crossing, Red Deer River Crossing, Nordegg..."*
+
+This is a direct textual proposal for the minority's s.15(2)-invoking configuration. The configuration with the *most visible engineering evidence* (NP extension to reach the BC border) is also the one with the *clearest public support* in the submissions.
+
+**Revised procedural finding for D2.** The chair's Appendix C sweep is overbroad. Of seven configurations claimed to lack public support, three have clear supporting submissions (RMH-Banff Park, ODH rural unit, Red Deer hybrids), one has partial aligned support (Chestermere), two hold up (Airdrie 4-way, Nolan Hill-Cochrane), and one is neutral (St. Albert-Sturgeon).
+
+**Implications.** The D2 procedural concern about "pushing boundary choices nobody asked for" is narrower than v0.3 framed it. The government process is pushing a *mix* of configurations — some without public support, some with meaningful public backing. The strongest procedural case rests on the two configurations that genuinely lack public support: the Airdrie 4-way split and the Calgary-Nolan Hill-Cochrane hybrid. The procedural critique on the other three configurations weakens or drops.
+
+**Limits of the verification.** (1) ~88 image-only submissions could not be keyword-searched; OCR was out of scope. (2) Position classifier was heuristic; 13 manual overrides applied after full-text review. (3) Attached sub-PDFs were not searched separately. (4) Submissions describing configurations functionally equivalent to the minority's without using the minority's labels were counted as directional support, which is a generous rubric the chair might not accept. All caveats are documented in `analysis/submission_search_log.md`.
 
 ### 5.5 Constitutional backdrop
 
