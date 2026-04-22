@@ -189,6 +189,41 @@ If both added seats are rural, the rural-district population mean will drop from
 
 Whether the finished 91-seat map is a gerrymander. Nobody's seen it. The label needs a map to test. When the Lunty committee tables one in November, this audit will re-run every test in it against the new boundaries, and the answers will be what they are.
 
+### What a gerrymander in the 91-seat map would actually look like
+
+When the committee tables its map in November, calling it a gerrymander requires evidence, not reflex. Here is what would count as a sure sign versus a weak signal.
+
+**Strong signals (high-confidence gerrymander):**
+
+- **The three minority signatures are preserved.** If the 91-seat map keeps Rocky Mountain House-Banff Park (or an equivalent s.15(2) district with an engineered boundary), keeps Airdrie split across four or more districts, and keeps Calgary NDP-leaning districts 10 percent or more larger than UCP-leaning ones — all three formal signatures detected in this audit carry forward into a map the committee produced. That is strong.
+- **New signatures appear.** If the committee introduces packing or cracking patterns beyond what the minority had — Edmonton NDP areas packed, new urban communities cracked, more engineered rural boundaries — that is independent evidence of deliberate choice.
+- **Both extra rural seats have engineered boundaries.** Two more rural seats is consistent with the premier's stated rationale. But if both new seats are drawn with negligible-population extensions to qualify for s.15(2), that is harder to explain as policy.
+- **The efficiency gap crosses the US 7 percent threshold.** Neither commission map crossed it. If the 91-seat version does, the map enters the zone American courts have used to flag unconstitutional partisan gerrymanders.
+- **The map falls in the top 5 percent UCP-favourable of computer-generated legal alternatives.** This is the MCMC ensemble test described in the academic report. It requires the committee to release shapefiles and the audit to run the ensemble. If the real map is a statistical outlier against thousands of rule-following alternatives, the partisan fingerprint is hard to miss.
+- **Publicly-supported configurations are dropped; unsupported ones are kept.** If the committee drops Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere (which have documented public support) while keeping Airdrie 4-way and Nolan Hill-Cochrane (which do not), that inversion tells a story.
+
+**Weak signals (ambiguous, could be policy-driven):**
+
+- Two extra rural seats on their own. That is what Smith said would happen. Not a gerrymander signal on its own.
+- Calgary zone gap similar to the minority's. Could be inherited from the minority's structure rather than re-engineered.
+- Keeping the Nolan Hill-Cochrane hybrid alone. A committee could defend it as a rural-urban-hybrid philosophy even without public support for it specifically.
+
+**Process signals (not about the map but still relevant):**
+
+- Committee proceedings closed to the public.
+- Advisory panel members not publicly named or their terms of reference withheld.
+- Draft map not released for public comment before the legislative vote.
+- Legislative adoption without amendment, without published dissent.
+
+**Things that look bad but are not sure signs:**
+
+- The UCP wins more seats under the new map. That could be the electorate moving, not the map.
+- Specific Calgary NDP ridings flip UCP. That could be 2023 voter patterns hardening, not boundary engineering.
+- Rural districts smaller than urban on average. That is Alberta's natural geography.
+- The map looks "weird" in places. Commission maps often look weird for legitimate reasons (river boundaries, First Nations land, protected areas).
+
+**The honest test.** A sure-sign gerrymander in November looks like the three formal signatures surviving plus at least one new one added plus either the ensemble-outlier test or the documented-public-support inversion. Any one of those alone is a concern. All three together would be hard to read as anything but deliberate.
+
 ### The procedural question is different
 
 That one doesn't wait. Replacing an independent boundary commission with a government-majority committee of MLAs is the thing the independent-commission model exists to prevent. Quebec's government in 1992, Ontario's in 1996, and BC's in 2008 all amended commission recommendations after the fact. None of them replaced the commission itself with a legislative committee. Whether Alberta's April 16 step is unprecedented in all Canadian history is a broader question this audit didn't fully survey. It is more government-controlled than any of the three recent comparators.
