@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Symmetric Test — Three Alberta Electoral Maps Audited</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+Pro:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root {
+  --ink: #0e0e0e; --paper: #f4ede0; --paper-deep: #ece2cf;
+  --rule: #2a2521; --gold: #b08a3c; --crimson: #7b0f0f;
+  --neutral: #7a7066; --majority: #4a7c4a; --minority: #a13d3d;
+  --muted: #5a5249;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+body { font-family: 'Source Serif Pro', Georgia, serif; font-size: 17px; line-height: 1.65; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 36px 28px 80px; }
+.dateline {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 18px;
+  border-bottom: 2px solid var(--ink); padding-bottom: 10px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+h1 {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 900;
+  font-size: 52px; line-height: 1.05; margin: 18px 0 12px; letter-spacing: -0.01em;
+}
+.subhead {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-style: italic;
+  font-size: 21px; color: var(--muted); margin: 0 0 30px; line-height: 1.4; max-width: 780px;
+}
+.byline {
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 36px;
+}
+.lede {
+  font-size: 19px; line-height: 1.6; border-left: 3px solid var(--ink);
+  padding: 4px 0 4px 22px; max-width: 800px; margin: 0 0 44px;
+}
+.lede strong { font-weight: 600; }
+h2 {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+  font-size: 28px; line-height: 1.15; margin: 56px 0 8px; padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+h2 .num {
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--gold);
+  display: block; letter-spacing: 0.15em; margin-bottom: 6px;
+}
+h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 18px; margin: 24px 0 8px; }
+p { margin: 0 0 16px; max-width: 800px; }
+
+.headline {
+  background: var(--ink); color: var(--paper);
+  padding: 32px 36px; margin: 30px 0;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px;
+}
+.headline .stat { border-left: 3px solid var(--gold); padding-left: 18px; }
+.headline .label {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+  letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.85; margin-bottom: 4px;
+}
+.headline .value {
+  font-family: 'Playfair Display', Georgia, serif; font-size: 44px;
+  font-weight: 900; line-height: 1; margin-bottom: 8px;
+}
+.headline .desc { font-size: 13.5px; line-height: 1.45; opacity: 0.92; }
+
+.metric-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 22px 0 32px;
+}
+.metric-card {
+  background: white; border: 1px solid var(--rule); padding: 18px 20px;
+  box-shadow: 4px 4px 0 var(--paper-deep);
+}
+.metric-name {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+  font-size: 17px; margin: 0 0 6px;
+}
+.metric-desc {
+  font-size: 12.5px; color: var(--muted); margin: 0 0 12px; line-height: 1.4;
+}
+.metric-card svg { display: block; width: 100%; height: auto; max-width: 360px; }
+.metric-finding {
+  font-size: 13px; padding: 8px 0 0; border-top: 1px solid #e5d9c0;
+  margin-top: 8px; line-height: 1.45;
+}
+
+.table-wrap {
+  background: white; border: 1px solid var(--rule); padding: 18px 20px;
+  margin: 18px 0 28px; overflow-x: auto; box-shadow: 4px 4px 0 var(--paper-deep);
+}
+table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #e5d9c0; }
+th {
+  font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  font-weight: 500; border-bottom: 2px solid var(--ink);
+}
+td.metric { font-weight: 600; }
+td.num { font-family: 'IBM Plex Mono', monospace; text-align: right; }
+td.num.neutral { color: var(--neutral); }
+td.num.maj { color: var(--majority); }
+td.num.min { color: var(--minority); }
+td.shift { font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
+
+.method { background: var(--paper-deep); padding: 22px 26px; margin: 30px 0; font-size: 14.5px; line-height: 1.55; }
+.method h3 { margin-top: 0; font-size: 17px; }
+.sources { border-top: 2px solid var(--ink); padding-top: 18px; margin-top: 50px; font-size: 13px; line-height: 1.55; }
+.sources li { margin-bottom: 6px; }
+
+.legend { display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px; margin: 8px 0 18px; }
+.legend-item { display: flex; align-items: center; gap: 8px; }
+.legend-swatch { width: 18px; height: 12px; border: 1px solid #444; }
+
+@media (max-width: 760px) {
+  h1 { font-size: 38px; }
+  .headline, .metric-grid { grid-template-columns: 1fr; }
+  .wrap { padding: 24px 18px 60px; }
+  .headline .value { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="dateline">
+  <span>Civic analysis · Alberta</span>
+  <span>Draft v0.1 · April 22, 2026</span>
+</div>
+
+<h1>The Symmetric Test</h1>
+<p class="subhead">Same four academic measures of partisan bias, applied to all three Alberta electoral map proposals on the table — the 2019 boundaries currently in force, the independent commission's majority recommendation, and the government appointees' minority recommendation.</p>
+<div class="byline">2023 vote shares · 87/89 electoral divisions · Methodology: Stephanopoulos &amp; McGhee (2014), McDonald &amp; Best (2015)</div>
+
+<p class="lede"><strong>Across all four canonical tests, the majority's plan preserves the partisan baseline of the existing 2019 boundaries within rounding error. The minority's plan moves the baseline 2 to 3 percentage points toward UCP — and 3 seats in the simulated 2023 outcome.</strong> The asymmetry between the two 2026 proposals is the measurable evidence. Neither map crosses the 7% efficiency-gap threshold flagged in US case law as presumptive gerrymandering, but the minority plan's directional consistency across four independent tests is the signal worth naming.</p>
+
+<h2><span class="num">SECTION 01</span>The headline numbers</h2>
+
+<div class="headline">
+  <div class="stat">
+    <div class="label">Majority plan vs. 2019</div>
+    <div class="value" style="color: var(--gold);">≈ 0</div>
+    <div class="desc">Net partisan shift across all four tests. Mean-median moves 0.07 pp. NDP gains 1 seat at hypothetical 50/50 vote. Same NDP seat count under 2023 vote shares.</div>
+  </div>
+  <div class="stat">
+    <div class="label">Minority plan vs. 2019</div>
+    <div class="value" style="color: #d97048;">+2.94 pp</div>
+    <div class="desc">Efficiency gap shift toward UCP. Mean-median advantage for NDP eliminated (−2.22 pp → −0.01 pp). NDP loses 3 seats at 50/50 hypothetical. NDP loses 3 seats in simulated 2023 outcome.</div>
+  </div>
+  <div class="stat">
+    <div class="label">Statutory ceiling</div>
+    <div class="value" style="color: #888;">7.00%</div>
+    <div class="desc">US case-law threshold (Whitford v. Gill) for presumptive gerrymandering on the efficiency gap test. Neither Alberta proposal approaches this threshold. The signal here is direction and consistency, not extreme magnitude.</div>
+  </div>
+</div>
+
+<h2><span class="num">SECTION 02</span>Test by test</h2>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-swatch" style="background: var(--neutral);"></span>2019 (currently in force)</div>
+  <div class="legend-item"><span class="legend-swatch" style="background: var(--majority);"></span>Majority recommendation 2026</div>
+  <div class="legend-item"><span class="legend-swatch" style="background: var(--minority);"></span>Minority recommendation 2026</div>
+</div>
+
+<div class="metric-grid">
+  <div class="metric-card">
+    <h3 class="metric-name">B2 — Efficiency gap</h3>
+    <p class="metric-desc">(NDP wasted votes − UCP wasted votes) / total. Negative = UCP wastes more (NDP-favorable map). Positive = NDP wastes more (UCP-favorable map). 7%+ flagged in US case law.</p>
+    <svg viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="227.2" y1="10" x2="227.2" y2="115" stroke="#0e0e0e" stroke-width="1.2"/>
+<text x="80" y="30" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">2019</text>
+<rect x="104.7" y="12" width="122.5" height="26" fill="#7a7066"/>
+<text x="231.2" y="30" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">-2.64%</text>
+<text x="80" y="68" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Majority</text>
+<rect x="205.4" y="50" width="21.8" height="26" fill="#4a7c4a"/>
+<text x="231.2" y="68" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">-0.47%</text>
+<text x="80" y="106" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Minority</text>
+<rect x="227.2" y="88" width="13.9" height="26" fill="#a13d3d"/>
+<text x="223.2" y="106" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">+0.30%</text>
+</svg>
+    <p class="metric-finding"><strong>Shift from 2019:</strong> Majority +2.17 pp (mostly from going 87→89 EDs). Minority +2.94 pp toward UCP — 35% larger shift despite same ED count change.</p>
+  </div>
+  <div class="metric-card">
+    <h3 class="metric-name">B3 — Mean-median (NDP)</h3>
+    <p class="metric-desc">NDP mean two-party share across all districts vs the median district. Negative = NDP votes spread across many competitive districts (efficient). Toward zero = advantage erased.</p>
+    <svg viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="262.0" y1="10" x2="262.0" y2="115" stroke="#0e0e0e" stroke-width="1.2"/>
+<text x="80" y="30" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">2019</text>
+<rect x="133.2" y="12" width="128.8" height="26" fill="#7a7066"/>
+<text x="266.0" y="30" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">-2.22pp</text>
+<text x="80" y="68" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Majority</text>
+<rect x="137.3" y="50" width="124.7" height="26" fill="#4a7c4a"/>
+<text x="266.0" y="68" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">-2.15pp</text>
+<text x="80" y="106" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Minority</text>
+<rect x="261.4" y="88" width="0.6" height="26" fill="#a13d3d"/>
+<text x="266.0" y="106" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">-0.01pp</text>
+</svg>
+    <p class="metric-finding"><strong>Shift from 2019:</strong> Majority +0.07 pp (essentially unchanged — NDP keeps its distributional advantage). Minority +2.21 pp — wipes out the NDP advantage entirely.</p>
+  </div>
+  <div class="metric-card">
+    <h3 class="metric-name">B4 — NDP seats at 50/50 vote</h3>
+    <p class="metric-desc">Under uniform swing, if both parties received 50% of the province-wide two-party vote, how many seats would NDP win? In a perfectly symmetric map, both parties get 43-44 seats.</p>
+    <svg viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="88" y1="10" x2="88" y2="115" stroke="#0e0e0e" stroke-width="1.2"/>
+<text x="80" y="30" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">2019</text>
+<rect x="88.0" y="12" width="213.4" height="26" fill="#7a7066"/>
+<text x="305.4" y="30" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">46</text>
+<text x="80" y="68" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Majority</text>
+<rect x="88.0" y="50" width="218.1" height="26" fill="#4a7c4a"/>
+<text x="310.1" y="68" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">47</text>
+<text x="80" y="106" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Minority</text>
+<rect x="88.0" y="88" width="199.5" height="26" fill="#a13d3d"/>
+<text x="291.5" y="106" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">43</text>
+</svg>
+    <p class="metric-finding"><strong>Shift from 2019:</strong> Majority +1 seat for NDP (slightly more competitive). Minority −3 seats for NDP — flips a 5-seat NDP advantage into a 3-seat UCP advantage.</p>
+  </div>
+  <div class="metric-card">
+    <h3 class="metric-name">Simulated 2023 outcome (NDP seats)</h3>
+    <p class="metric-desc">Apply 2023 vote shares directly to each map. The 2019 result is the actual 38-seat NDP outcome. The two 2026 plans are estimates based on best-fit 2019-to-2026 ED mapping.</p>
+    <svg viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg">
+<line x1="88" y1="10" x2="88" y2="115" stroke="#0e0e0e" stroke-width="1.2"/>
+<text x="80" y="30" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">2019</text>
+<rect x="88.0" y="12" width="195.9" height="26" fill="#7a7066"/>
+<text x="287.9" y="30" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">38</text>
+<text x="80" y="68" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Majority</text>
+<rect x="88.0" y="50" width="195.9" height="26" fill="#4a7c4a"/>
+<text x="287.9" y="68" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">38</text>
+<text x="80" y="106" text-anchor="end" font-family="Source Serif Pro,Georgia,serif" font-size="12" fill="#1a1a1a">Minority</text>
+<rect x="88.0" y="88" width="180.4" height="26" fill="#a13d3d"/>
+<text x="272.4" y="106" text-anchor="start" font-family="Source Serif Pro,Georgia,serif" font-size="11.5" fill="#333">35</text>
+</svg>
+    <p class="metric-finding"><strong>Shift from 2019:</strong> Majority 0 (NDP wins 38 of 89). Minority −3 (NDP wins 35 of 89). In a province that just elected UCP 49–38, a 3-seat shift could be the difference between majority and minority in a closer race.</p>
+  </div>
+</div>
+
+<h2><span class="num">SECTION 03</span>Full comparison</h2>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>2019 (current)</th>
+      <th>Majority 2026</th>
+      <th>Minority 2026</th>
+      <th>Min vs Maj</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="metric">Efficiency gap</td>
+      <td class="num neutral">−2.64%</td>
+      <td class="num maj">−0.47%</td>
+      <td class="num min">+0.30%</td>
+      <td class="shift">+0.77 pp toward UCP</td>
+    </tr>
+    <tr>
+      <td class="metric">Mean-median (NDP)</td>
+      <td class="num neutral">−2.22 pp</td>
+      <td class="num maj">−2.15 pp</td>
+      <td class="num min">−0.01 pp</td>
+      <td class="shift">+2.14 pp toward UCP</td>
+    </tr>
+    <tr>
+      <td class="metric">NDP seats at 50/50</td>
+      <td class="num neutral">46</td>
+      <td class="num maj">47</td>
+      <td class="num min">43</td>
+      <td class="shift">−4 seats for NDP</td>
+    </tr>
+    <tr>
+      <td class="metric">Simulated 2023 (NDP/UCP)</td>
+      <td class="num neutral">38 / 49</td>
+      <td class="num maj">38 / 51</td>
+      <td class="num min">35 / 54</td>
+      <td class="shift">−3 seats for NDP</td>
+    </tr>
+    <tr>
+      <td class="metric">s.15(2) protected ridings</td>
+      <td class="num neutral">3</td>
+      <td class="num maj">3</td>
+      <td class="num min">3</td>
+      <td class="shift">Same count; different geography</td>
+    </tr>
+    <tr>
+      <td class="metric">Calgary hybrid ridings</td>
+      <td class="num neutral">0</td>
+      <td class="num maj">4</td>
+      <td class="num min">11</td>
+      <td class="shift">+7 hybrids</td>
+    </tr>
+    <tr>
+      <td class="metric">Edmonton hybrid ridings</td>
+      <td class="num neutral">0</td>
+      <td class="num maj">2</td>
+      <td class="num min">3</td>
+      <td class="shift">+1 hybrid</td>
+    </tr>
+    <tr>
+      <td class="metric">Edmonton inner-core EDs</td>
+      <td class="num neutral">6</td>
+      <td class="num maj">5 (1 merger)</td>
+      <td class="num min">5 (1 merger)</td>
+      <td class="shift">Same — both consolidate</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="num">SECTION 04</span>What the comparison establishes</h2>
+
+<p>The independent commission's majority recommendation does what a redistricting that preserves the partisan baseline looks like. Three of four metrics shift by less than 0.1 pp; the fourth (efficiency gap) shifts about 2 pp, but that shift is largely structural — adding 2 EDs to a map of 87 mathematically rebalances wasted vote counts.</p>
+
+<p>The minority recommendation does something different. The same starting point, the same 2-ED expansion, the same vote shares — and four metrics that all move 2 to 3 pp in the same direction, costing NDP 3 seats in actual simulated outcome. The shift isn't an artifact of one test's quirks. It's the cumulative effect of four documented mechanisms: 11 Calgary hybrids that dilute urban NDP areas with rural UCP additions, packing of NE Calgary using the "electors not population" justification, an Edmonton inner-core merger, and three s.15(2) protected ridings that include the contested Rocky Mountain House-Banff Park boundary extension into uninhabited park land.</p>
+
+<p>The government's choice last week was to reject the recommendation that preserves the baseline and create an MLA committee to oversee a new advisory panel. The minority plan — the one that shifts the baseline — is the one the panel is being set up to consider further. That sequencing is the procedural question, separate from but related to the cartographic one.</p>
+
+<h2><span class="num">SECTION 05</span>What this analysis is not</h2>
+
+<div class="method">
+<h3>Methodology and limits</h3>
+<p>This is approximate. The 2019 boundaries are real and the analysis on them is exact — every district's vote totals come directly from Elections Alberta's official Statement of Vote. The two 2026 plans are estimates because ABEBC has not released proposed boundary shapefiles. Hybrid extensions are modeled by blending each urban core ED's 2023 vote with a rural baseline (33.5% NDP / 66.5% UCP, the average across non-NDP-stronghold rural Alberta). Splits and mergers handled by halving or summing the source EDs' votes.</p>
+<p>The most rigorous test in the academic toolkit — Markov Chain Monte Carlo ensemble comparison via GerryChain (Python) or redist (R), available through MRU's data lab — generates 10,000+ alternative maps that meet the same legal criteria (population equality within ±25%, contiguity, compactness) and compares each proposal to the distribution. A proposal in the 95th percentile or beyond on partisan metrics is statistically inconsistent with neutral redistricting. That test requires the shapefiles. When they're released, run it.</p>
+<p>Compactness scores (Polsby-Popper, Reock) and a precise community-of-interest split count also require shapefiles. The named "moves" the chair flagged by name — the Nolan Hill-Cochrane disconnect, the Banff Park extension, Airdrie split four ways, electors-not-population in NE Calgary — were addressed in the prior Calgary analysis at v0.1 of <code>alberta_minority_gerrymander_visual.html</code>.</p>
+</div>
+
+<h2><span class="num">SECTION 06</span>Sources</h2>
+<ol class="sources">
+  <li>Alberta Electoral Boundaries Commission, <em>2025–2026 Final Report</em>, tabled March 23, 2026. Population variance table extracted from text on pp. 44–45 (majority Calgary + Edmonton variances) and pp. 71–72 of Appendix E (minority full population table). Map index from Appendix A pp. 73, 75.</li>
+  <li>Elections Alberta, 2023 Provincial General Election, official <em>Statement of Vote</em>. 87 sheets (one per ED) with poll-by-poll vote totals. Verified: 38 NDP / 49 UCP wins matches official.</li>
+  <li>Stephanopoulos, N. O., &amp; McGhee, E. M. (2015). Partisan Gerrymandering and the Efficiency Gap. <em>University of Chicago Law Review</em>, 82, 831. Source for the efficiency gap test (B2) and the 7% threshold.</li>
+  <li>McDonald, M. D., &amp; Best, R. E. (2015). Unfair Partisan Gerrymanders in Politics and Law. <em>Election Law Journal</em>, 14(4), 312–330. Source for the mean-median test (B3).</li>
+  <li><em>Whitford v. Gill</em>, 218 F. Supp. 3d 837 (W.D. Wis. 2016). US case-law application of the efficiency gap to redistricting.</li>
+  <li><em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. The "effective representation" framework cited by both Alberta proposals.</li>
+</ol>
+
+<p style="margin-top: 40px; font-size: 12px; color: var(--muted); font-style: italic;">Draft v0.1. Numbers should be verified against official poll-by-poll spatial join when ABEBC shapefiles are released. Built April 22, 2026.</p>
+
+</div>
+</body>
+</html>

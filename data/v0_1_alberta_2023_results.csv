@@ -1,0 +1,88 @@
+ed_name,region,sheet_num,cand_1,cand_2,cand_3,cand_4,cand_5,cand_6,votes_1,votes_2,votes_3,votes_4,votes_5,votes_6,total_valid_votes,turnout_pct,winner_party,winner_pct,runner_up_party,runner_up_pct,margin_pct
+Calgary-Acadia,Calgary,01,Diana Batten (NDP),Paul Bechthold (GPA),Larry R. Heather (IND),Linda McClelland (SM),Donna Kathleen Scott (WLC),Tyler Shandro (UCP),10959,293,162,92,119,10937,22562,0.6526,NDP,48.57,UCP,48.48,0.10
+Calgary-Beddington,Calgary,02,Amanda Chapman (NDP),Wayne Jackson (AP),Josephine Pon (UCP),Zarnab Shahid Zafar (LIB),,,10269,473,9726,210,,,20678,0.6034,NDP,49.66,UCP,47.04,2.63
+Calgary-Bow,Calgary,03,Druh Farrell (NDP),Paul Godard (AP),Demetrios Nicolaides (UCP),Manuel Santos (SM),,,12552,670,13175,89,,,26486,0.6675,UCP,49.74,NDP,47.39,2.35
+Calgary-Buffalo,Calgary,04,Joe Ceci (NDP),Lona Henry (SM),Astrid Kuhn (UCP),Jonathan Parks (GPA),,,13221,125,7292,349,,,20987,0.5856,NDP,63.00,UCP,34.75,28.25
+Calgary-Cross,Calgary,05,Mickey Amery (UCP),Gurinder Singh Gill (NDP),Kathryn Lapp (SM),Aman Sandhu (GPA),,,7533,7019,202,254,,,15008,0.5046,UCP,50.19,NDP,46.77,3.42
+Calgary-Currie,Calgary,06,Jason Avramenko (AP),Janet Eremenko (NDP),Leila Keith (LIB),Nicholas Milliken (UCP),Dawid Pawlowski (SM),Lane Robson (GPA),409,12261,216,9181,83,222,22372,0.6379,NDP,54.81,UCP,41.04,13.77
+Calgary-East,Calgary,07,Jayden Baldonado (GPA),Garry Dirk (SM),Peter Singh (UCP),Rosman Valencia (NDP),,,403,166,7123,6425,,,14181,0.4516,UCP,50.23,NDP,45.31,4.92
+Calgary-Edgemont,Calgary,08,Nan Barron (WLC),Julia Hayter (NDP),Prasad Panda (UCP),Allen Schultz (AP),Miles Williams (SM),,66,11681,11397,488,64,,23696,0.6609,NDP,49.30,UCP,48.10,1.20
+Calgary-Elbow,Calgary,09,Kerry Cundal (AP),Chris Davis (UCP),Samir Kayande (NDP),Artur Pawlowski (SM),,,1136,11446,12189,99,,,24870,0.6905,NDP,49.01,UCP,46.02,2.99
+Calgary-Falconridge,Calgary,10,Parmeet Singh Boparai (NDP),Ahmed Hassan (GPA),Kyle Kennedy (IND),Devinder Toor (UCP),Evan Wilson (SM),,7786,203,252,5476,91,,13808,0.4888,NDP,56.39,UCP,39.66,16.73
+Calgary-Fish Creek,Calgary,11,Rebecca Bounsall (NDP),Charlie Heater (LIB),Dave Hughes (SM),Myles McDougall (UCP),,,11254,378,186,13743,,,25561,0.7020,UCP,53.77,NDP,44.03,9.74
+Calgary-Foothills,Calgary,12,Kami Dass (SM),Keenan Demontigny (IND),Court Ellingson (NDP),Jason Luan (UCP),,,105,190,11054,10793,,,22142,0.6165,NDP,49.92,UCP,48.74,1.18
+Calgary-Glenmore,Calgary,13,Nagwan Al-Guneid (NDP),Whitney Issik (UCP),Steven Maffioli (GPA),,,,12687,12639,422,,,,25748,0.7019,NDP,49.27,UCP,49.09,0.19
+Calgary-Hays,Calgary,14,Garry Leonhardt (SM),Richard William (Ric) McIver (UCP),Andrew Stewart (NDP),Evelyn Tanaka (GPA),,,118,11807,8987,321,,,21233,0.6103,UCP,55.61,NDP,42.33,13.28
+Calgary-Klein,Calgary,15,Kenneth Drysdale (GPA),Jeremy Nixon (UCP),Rob Oswin (SM),Lizette Tejada (NDP),,,353,9697,153,10564,,,20767,0.6049,NDP,50.87,UCP,46.69,4.17
+Calgary-Lougheed,Calgary,16,Eric Bouchard (UCP),Nathaniel Pawlowski (SM),Venkat Ravulaparthi (NDP),John Roggeveen (LIB),,,9690,184,6924,369,,,17167,0.6077,UCP,56.45,NDP,40.33,16.11
+Calgary-Bhullar-McCall,Calgary,17,Amanpreet Singh Gill (UCP),Irfan Sabir (NDP),,,,,5261,7265,,,,,12526,0.5383,NDP,58.00,UCP,42.00,16.00
+Calgary-Mountain View,Calgary,18,Kathleen Ganley (NDP),Lucas Hernandez (PAPA),Pamela Rath (UCP),Christopher Wedick (SM),Frances Woytkiw (LIB),,16516,90,8468,119,335,,25528,0.6720,NDP,64.70,UCP,33.17,31.53
+Calgary-North,Calgary,19,Rajesh Angral (NDP),Muhammad Yaseen (UCP),,,,,7798,7927,,,,,15725,0.5679,UCP,50.41,NDP,49.59,0.82
+Calgary-North East,Calgary,20,Gurinder Brar (NDP),Inder Grewal (UCP),,,,,11117,9078,,,,,20195,0.5806,NDP,55.05,UCP,44.95,10.10
+Calgary-North West,Calgary,21,Alain Habel (SM),Michael Lisboa-Smith (NDP),Rajan Sawhney (UCP),Serena Thomsen (IND),Jenny Yeremiy (AP),,45,11778,11921,153,778,,24675,0.6973,UCP,48.31,NDP,47.73,0.58
+Calgary-Peigan,Calgary,22,Tanya Fir (UCP),Shaun Pulsifer (GPA),Denis Ram (NDP),,,,11892,626,9095,,,,21613,0.6313,UCP,55.02,NDP,42.08,12.94
+Calgary-Shaw,Calgary,23,Pietro Cervo (SM),David Cloutier (NDP),Rebecca Schulz (UCP),,,,236,10591,13970,,,,24797,0.6335,UCP,56.34,NDP,42.71,13.63
+Calgary-South East,Calgary,24,Heinrich Friesen (SM),Justin Huseby (NDP),Matt Jones (UCP),Catriona Wright (GPA),,,104,9442,14087,318,,,23951,0.6290,UCP,58.82,NDP,39.42,19.39
+Calgary-Varsity,Calgary,25,Jason Copping (UCP),Oaklan Davidsen (WLC),Kent Liang (SM),Luanne Metz (NDP),,,9377,141,112,13449,,,23079,0.7134,NDP,58.27,UCP,40.63,17.64
+Calgary-West,Calgary,26,Joan Chand'oiseau (NDP),Mike Ellis (UCP),Jason McKee (GPA),,,,9468,12793,313,,,,22574,0.6666,UCP,56.67,NDP,41.94,14.73
+Edmonton-Beverly-Clareview,Edmonton,27,Andrzej (Andy) Gudanowski (IND),Michael Hunter (GPA),Luke Suvanto (UCP),Peggy Wright (NDP),,,222,337,5690,8510,,,14759,0.4918,NDP,57.66,UCP,38.55,19.11
+Edmonton-Castle Downs,Edmonton,28,Jon Dziadyk (UCP),Nicole Goehring (NDP),Patrick Stewart (AP),,,,7286,10044,707,,,,18037,0.5389,NDP,55.69,UCP,40.39,15.29
+Edmonton-City Centre,Edmonton,29,David Clark (GPA),David Shepherd (NDP),Richard Wong (UCP),,,,476,12431,3691,,,,16598,0.5291,NDP,74.89,UCP,22.24,52.66
+Edmonton-Decore,Edmonton,30,Sayid Ahmed (UCP),Sharif Haji (NDP),Donald Slater (LIB),Brent Tyson (AP),,,6326,8109,295,631,,,15361,0.4785,NDP,52.79,UCP,41.18,11.61
+Edmonton-Ellerslie,Edmonton,31,R. Singh Bath (UCP),Rod Loyola (NDP),Angela Stretch (WLC),,,,6817,11429,264,,,,18510,0.5595,NDP,61.75,UCP,36.83,24.92
+Edmonton-Glenora,Edmonton,32,David John Bohonos (SM),Melissa Crane (UCP),Sarah Hoffman (NDP),Julian Schulz (GPA),,,150,5056,12443,332,,,17981,0.5712,NDP,69.20,UCP,28.12,41.08
+Edmonton-Gold Bar,Edmonton,33,Miles Berry (UCP),Graham Lettner (IND),Ernestina Malheiro (GPA),Marlin Schmidt (NDP),,,6174,321,316,15508,,,22319,0.6468,NDP,69.48,UCP,27.66,41.82
+Edmonton-Highlands-Norwood,Edmonton,34,Janis Irwin (NDP),Nick Kalynchuk (UCP),Kristine Kowalchuk (GPA),,,,9491,3350,339,,,,13282,0.4625,NDP,71.46,UCP,25.22,46.24
+Edmonton-Manning,Edmonton,35,Albert Mazzocca (UCP),Heather Sweet (NDP),Derek Thompson (GPA),,,,6769,10547,333,,,,17649,0.5102,NDP,59.76,UCP,38.35,21.41
+Edmonton-McClung,Edmonton,36,Lorne Dach (NDP),Daniel Heikkinen (UCP),Andrew J. Lineker (IND),Terry Syvenky (GPA),,,9603,6029,309,199,,,16140,0.5755,NDP,59.50,UCP,37.35,22.14
+Edmonton-Meadows,Edmonton,37,Jasvir Deol (NDP),Amritpal Singh Matharu (UCP),,,,,11013,6378,,,,,17604,0.5540,NDP,62.56,UCP,36.23,26.33
+Edmonton-Mill Woods,Edmonton,38,Raman Athwal (UCP),Christina Gray (NDP),,,,,6869,11063,,,,,17932,0.5731,NDP,61.69,UCP,38.31,23.39
+Edmonton-North West,Edmonton,39,Tyler Beaulac (GPA),David Eggen (NDP),Ali Haymour (UCP),,,,335,9978,6388,,,,16701,0.5299,NDP,59.74,UCP,38.25,21.50
+Edmonton-Riverview,Edmonton,40,Eric Champagne (LIB),Robin George (GPA),Lori Sigurdson (NDP),Terry Vankka (UCP),,,413,347,12875,5564,,,19199,0.6365,NDP,67.06,UCP,28.98,38.08
+Edmonton-Rutherford,Edmonton,41,Jodi Calahoo Stonehouse (NDP),Laine Larson (UCP),Jordan Wilkie (GPA),,,,13012,6366,624,,,,20002,0.6419,NDP,65.05,UCP,31.83,33.23
+Edmonton-South,Edmonton,42,Joseph Angeles (UCP),Chryssy Beckmann (GPA),Rhiannon Hoyle (NDP),,,,9492,369,14171,,,,24032,0.6039,NDP,58.97,UCP,39.50,19.47
+Edmonton-South West,Edmonton,43,Jeff Cullihall (GPA),Nathan Ip (NDP),Kaycee Madu (UCP),,,,323,14380,10741,,,,25444,0.6178,NDP,56.52,UCP,42.21,14.30
+Edmonton-Strathcona,Edmonton,44,Emad El-Zein (UCP),Robert Gooding-Townsend (GPA),Andrew Jacobson (BPA),Robert Nielsen (WLC),Rachel Notley (NDP),,3032,324,106,93,13980,,17535,0.5932,NDP,79.73,UCP,17.29,62.44
+Edmonton-West Henday,Edmonton,45,Brooks Arcand-Paul (NDP),Dan Bildhauer (LIB),Slava Cravcenco (UCP),Kristina Howard (GPA),,,11495,391,7956,382,,,20224,0.5776,NDP,56.84,UCP,39.34,17.50
+Edmonton-Whitemud,Edmonton,46,Cheri Hawley (GPA),Rakhi Pancholi (NDP),Raj Sherman (UCP),Donna Wilson (LIB),,,221,12797,7799,370,,,21187,0.6498,NDP,60.40,UCP,36.81,23.59
+Airdrie-Cochrane,Calgary-area,47,Michael Andrusco (SM),Shaun Fluker (NDP),Michelle Overwater Giles (GPA),Peter Guthrie (UCP),Ron Voss (WLC),,199,11223,393,18074,183,,30072,0.6650,UCP,60.10,NDP,37.32,22.78
+Airdrie-East,Calgary-area,48,Michael Jacobsen (GPA),Dan Nelles (NDP),Angela Pitt (UCP),,,,623,8697,15215,,,,24535,0.6183,UCP,62.01,NDP,35.45,26.57
+Athabasca-Barrhead-Westlock,Rest of Alberta,49,Landen Tischer (NDP),Glenn Van Dijken (UCP),,,,,5401,15631,,,,,21032,0.6269,UCP,74.32,NDP,25.68,48.64
+Banff-Kananaskis,Rest of Alberta,50,Regan Boychuk (GPA),Sarah Elmeligi (NDP),Kyle Jubb (SM),Miranda Rosin (UCP),,,336,11562,105,11259,,,23262,0.6922,NDP,49.70,UCP,48.40,1.30
+Bonnyville-Cold Lake-St. Paul,Rest of Alberta,51,Caitlyn Blake (NDP),Scott Cyr (UCP),,,,,4327,13315,,,,,17642,0.5289,UCP,75.47,NDP,24.53,50.95
+Brooks-Medicine Hat,Rest of Alberta,52,Gwendoline Dirk (NDP),Barry Morishita (AP),Danielle Smith (UCP),,,,5477,1233,13315,,,,20025,0.5815,UCP,66.49,NDP,27.35,39.14
+Camrose,Rest of Alberta,53,Bob Blayone (IND),Richard Bruneau (NDP),Pamela Henson (WLC),Jackie Lovely (UCP),,,1740,5579,205,13032,,,20556,0.6325,UCP,63.40,NDP,27.14,36.26
+Cardston-Siksika,Rest of Alberta,54,Colleen Quintal (NDP),Joseph Schow (UCP),Angela Tabak (IND),Pär Wantenaar (SM),Terry Wolsey (TIP),,2527,10550,871,35,251,,14234,0.5613,UCP,74.12,NDP,17.75,56.37
+Central Peace-Notley,Rest of Alberta,55,Rodney Bowen (TIP),Megan Ciurysek (NDP),Lynn Lekisch (AP),Todd Loewen (UCP),Nancy O'Neill (SM),,238,2216,166,9280,46,,11946,0.6200,UCP,77.68,NDP,18.55,59.13
+Chestermere-Strathmore,Rest of Alberta,56,Chantelle De Jonge (UCP),Raj Jessel (NDP),Jed Laboucane (SM),Kerry Lambert (TIP),Terry Nicholls (IND),,15362,6119,45,264,258,,22048,0.5888,UCP,69.68,NDP,27.75,41.92
+Cypress-Medicine Hat,Rest of Alberta,57,Cody Ray Both (TIP),Cathy Hogg (NDP),Matt Orr (WLC),Justin Wright (UCP),,,287,7697,322,13489,,,21795,0.5762,UCP,61.89,NDP,35.32,26.57
+Drayton Valley-Devon,Rest of Alberta,58,Andrew Boitchenko (UCP),Jon Hokanson (WLC),Harry Singh (NDP),Gail Tookey (SM),Dale Withers (APA),,16532,580,5009,121,189,,22431,0.6330,UCP,73.70,NDP,22.33,51.37
+Drumheller-Stettler,Rest of Alberta,59,Carla Evers (SM),Juliet Franklin (NDP),Nate Horner (UCP),Shannon Packham (TIP),Hannah Stretch Viens (WLC),,104,2684,15270,382,150,,18590,0.6326,UCP,82.14,NDP,14.44,67.70
+Fort McMurray-Lac La Biche,Rest of Alberta,60,Calan William Simeon Hobbs (NDP),Brian Jean (UCP),KDM Kevin Johnston (IND),,,,2561,7692,202,,,,10455,0.4406,UCP,73.57,NDP,24.50,49.08
+Fort McMurray-Wood Buffalo,Rest of Alberta,61,Funky Banjoko (IND),Tanika Chaisson (NDP),Bradley Friesen (AP),Zulkifl Mujahid (IND),Tany Yao (UCP),,625,1884,255,331,6483,,9578,0.4196,UCP,67.69,NDP,19.67,48.02
+Fort Saskatchewan-Vegreville,Rest of Alberta,62,Jackie Armstrong-Homeniuk (UCP),Kathy Flett (IND),Granny Margaret Mackay (SM),Taneen Rudyk (NDP),Kelly Zeleny (APA),,14126,801,108,9064,227,,24326,0.6103,UCP,58.07,NDP,37.26,20.81
+Grande Prairie,Rest of Alberta,63,David Braun (TIP),Shane Diederich (GPA),Nolan Dyck (UCP),Kevin McLean (NDP),Preston Mildenberger (AP),,348,160,10001,4890,242,,15641,0.4974,UCP,63.94,NDP,31.26,32.68
+Grande Prairie-Wapiti,Rest of Alberta,64,Dustin Archibald (NDP),Brooklyn Biegel (TIP),Ron Wiebe (UCP),,,,4063,645,15093,,,,19801,0.5569,UCP,76.22,NDP,20.52,55.70
+Highwood,Rest of Alberta,65,Jessica Hallam (NDP),Mike Lorusso (WIPA),R.J. Sigurdson (UCP),,,,7540,580,17990,,,,26110,0.6746,UCP,68.90,NDP,28.88,40.02
+Innisfail-Sylvan Lake,Rest of Alberta,66,Devin Dreeshen (UCP),Jason Heistad (NDP),Jeevan Mangat (WIPA),Brandon Pringle (SM),David Reid (TIP),Randy Thorsteinson (REF),16385,5700,240,149,276,132,22882,0.6248,UCP,71.61,NDP,24.91,46.70
+Lac Ste. Anne-Parkland,Rest of Alberta,67,Marilyn Burns (APA),Oneil Carlier (NDP),Vanessa Diehl (GPA),Shane Getson (UCP),Janet Jabush (AP),,182,5868,205,14923,463,,21641,0.6278,UCP,68.96,NDP,27.12,41.84
+Lacombe-Ponoka,Rest of Alberta,68,Myles Chykerda (AP),Dave Dale (NDP),Daniel Jefferies (WLC),Jennifer Johnson (UCP),Nathan Leslie (SM),Taylor Lowery (GPA),1167,4995,444,14324,74,196,21200,0.6183,UCP,67.57,NDP,23.56,44.00
+Leduc-Beaumont,Rest of Alberta,69,Kirk Cayer (IND),Cam Heenan (NDP),Bill Kaufmann (SM),Brandon Lunty (UCP),Sharon Maclise (TIP),,292,10069,144,14118,257,,24880,0.6284,UCP,56.74,NDP,40.47,16.27
+Lesser Slave Lake,Rest of Alberta,70,Danielle Larivee (NDP),Bert (Bertrand) Seatter (SM),Scott Sinclair (UCP),,,,2636,144,5171,,,,7951,0.5096,UCP,65.04,NDP,33.15,31.88
+Lethbridge-East,Rest of Alberta,71,Helen McMenamin (LIB),Rob Miyashiro (NDP),Nathan Neudorf (UCP),,,,488,10362,10998,,,,21848,0.6201,UCP,50.34,NDP,47.43,2.91
+Lethbridge-West,Rest of Alberta,72,Pat Chizek (LIB),Braham Luddu (AP),Shannon Phillips (NDP),Cheryl Seaborn (UCP),,,375,425,12082,9525,,,22407,0.6153,NDP,53.92,UCP,42.51,11.41
+Livingstone-Macleod,Rest of Alberta,73,Erik Abildgaard (IND),Dylin Hauser (LIB),Chelsae Petrovic (UCP),Kevin Todd (AP),Corrie Reed Toone (TIP),Kevin Van Tighem (NDP),130,194,16491,975,353,6492,24635,0.6616,UCP,66.94,NDP,26.35,40.59
+Maskwacis-Wetaskiwin,Rest of Alberta,74,Justin Fuss (GPA),Suzanne Jubb (SM),Marie Rittenhouse (IND),Katherine Swampy (NDP),Rick Wilson (UCP),,187,86,520,4801,11640,,17234,0.5872,UCP,67.54,NDP,27.86,39.68
+Morinville-St. Albert,Rest of Alberta,75,Kurt Klingbeil (GPA),Dale Nally (UCP),Wayne Rufiange (AP),Karen Shaw (NDP),,,230,13472,590,11728,,,26020,0.6608,UCP,51.78,NDP,45.07,6.70
+Olds-Didsbury-Three Hills,Rest of Alberta,76,Judy Bridges (SM),Nathan Cooper (UCP),Cheryl Hunter Loewen (NDP),Katherine Kowalchuk (TIP),Cam Tatlock (WLC),,105,18228,4553,1140,183,,24209,0.6378,UCP,75.29,NDP,18.81,56.49
+Peace River,Rest of Alberta,77,Sharon Noullett (TIP),Conrad Nunweiler (IND),Liana Paiva (NDP),Dan Williams (UCP),,,194,290,2587,8236,,,11307,0.4910,UCP,72.84,NDP,22.88,49.96
+Red Deer-North,Rest of Alberta,78,Vicky Bayford (TIP),Kallie Dyck (SM),Adriana LaGrange (UCP),Heather Morigeau (GPA),Jaelene Tweedle (NDP),,281,183,10629,257,7144,,18494,0.5579,UCP,57.47,NDP,38.63,18.84
+Red Deer-South,Rest of Alberta,79,Michelle Baer (NDP),Pamela Liebenberg (SM),Ashley MacDonald (GPA),Jason Stephan (UCP),Jesse Stretch (WLC),,9976,146,274,13469,160,,24025,0.6249,UCP,56.06,NDP,41.52,14.54
+Rimbey-Rocky Mountain House-Sundre,Rest of Alberta,80,Vance Buchwald (NDP),Tim Hoven (IND),Jason Nixon (UCP),Carol Nordlund Kinsey (APA),Fred Schwieger (IND),Tami Tatlock (WLC),3118,3393,15571,103,135,96,22416,0.6593,UCP,69.46,IND,15.14,54.33
+Sherwood Park,Rest of Alberta,81,Kyle Kasawski (NDP),Jacob Stacey (LIB),Sue Timanson (AP),Jordan Walker (UCP),,,13108,225,1293,11447,,,26073,0.7027,NDP,50.27,UCP,43.90,6.37
+Spruce Grove-Stony Plain,Rest of Alberta,82,Daniel Birrell (GPA),Darlene Clarke (SM),Chantal Saramaga-McKenzie (NDP),Searle Turton (UCP),,,422,223,10197,14365,,,25207,0.6143,UCP,56.99,NDP,40.45,16.54
+St. Albert,Rest of Alberta,83,Cameron Jefferies (GPA),Marie Renaud (NDP),Angela Wood (UCP),,,,455,15021,10200,,,,25676,0.6663,NDP,58.50,UCP,39.73,18.78
+Strathcona-Sherwood Park,Rest of Alberta,84,Jody Balanko (IND),Nate Glubish (UCP),Bill Tonita (NDP),,,,614,13865,11646,,,,26125,0.6996,UCP,53.07,NDP,44.58,8.49
+Taber-Warner,Rest of Alberta,85,Brent Ginther (SM),Paul Hinman (WLC),Jazminn Hintz (NDP),Joel Hunt (GPA),Grant Hunter (UCP),Frank Kast (TIP),124,754,2817,239,12379,129,16442,0.5725,UCP,75.29,NDP,17.13,58.16
+Vermilion-Lloydminster-Wainwright,Rest of Alberta,86,Tigra-Lee Campbell (GPA),Darrell Dunn (AP),Dawn Flaata (NDP),Danny Hozack (WLC),Matthew Powell (IND),Garth Rowswell (UCP),146,475,3075,460,351,13097,17604,0.5503,UCP,74.40,NDP,17.47,56.93
+West Yellowhead,Rest of Alberta,87,Fred Kreiner (NDP),Martin Long (UCP),,,,,5679,14456,,,,,20135,0.5712,UCP,71.80,NDP,28.20,43.59
