@@ -347,7 +347,24 @@ The commission received approximately 1,340 written submissions across two round
 
 In v0.4, a sub-agent independently searched all 27 batch PDFs from the commission's submission archive (1,252 of ~1,340 submissions extracted with text layer; ~88 image-only scans not OCR'd). Full methodology, dataset, and technical log are in `analysis/submission_search.py`, `data/submission_search_dataset.csv`, `analysis/submission_search_findings.md`, and `analysis/submission_search_log.md`.
 
-**Result: the chair's claim is partially refuted.** Three of the five named configurations have direct public support in the submission record; two hold up.
+**Result: the chair's claim is partially refuted, with tiered severity.** A follow-on signal-strength analysis (`analysis/v0_1_claim_significance_analysis.md`) distinguishes between configurations where the chair was merely *precisely wrong* (a supporting submission exists, so "no support" is technically false) and where the chair was also *effectively wrong* (support is substantial enough that "no support" materially misrepresents the submission record).
+
+**Verdict by tier:**
+
+- **Precisely and effectively wrong** (three configurations where the minority adopted proposals *from* the public record, not despite it):
+  - Rocky Mountain House-Banff Park: 5 supporters, net +4, 25% of engaged submissions support the configuration
+  - Olds-Three Hills-Didsbury: 3 supporters, net +2, 60% of engaged submissions support
+  - Chestermere separation: 3 supporters, net +2, 23% of engaged submissions support
+- **Precisely wrong, effectively ambiguous** (support exists but is evenly matched by opposition):
+  - Red Deer hybrids: 4 supporters, 4 opposers, net 0, 22% of engaged submissions support
+- **Precisely wrong only / chair effectively correct** (support is negligible or zero):
+  - Airdrie 4-way: 0 supporters, 2 opposers, 0% of 4 engaged submissions
+  - Calgary-Nolan Hill-Cochrane: 0 submissions mention this configuration at all
+  - St. Albert-Sturgeon (minority variant): 0 clear supporters for the minority's alternative configuration; label-ambiguity caveat
+
+The tier distinction matters because the chair's Appendix C claim was an argument for procedural weight, not a technicality. A chair who said "no public support" when 25–60% of engaged citizens proposed the exact configuration has mischaracterized the public record on that specific point, not simply overlooked a dissenting voice or two. By contrast, a chair who said "no public support" for the Airdrie 4-way split is effectively correct — four engaged citizens discussed the configuration and none supported it.
+
+**Implication for the D2 procedural finding:** the claim narrows but does not dissolve. The chair's sweep was *materially* overbroad on three of seven named configurations, *ambiguous* on one, and *defensible* on three. The audit should report these tiers rather than treating Appendix C as uniformly unsupported or uniformly sound. This matters because readers on both sides of the debate have incentive to flatten the finding: critics will use "chair was wrong" without the tiering; defenders will use "some configurations did hold up" without naming the three that did not. The tiered verdict resists both flattenings.
 
 #### 5.4.1 Evidence by configuration, with per-area proportions
 
