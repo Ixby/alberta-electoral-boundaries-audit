@@ -86,64 +86,58 @@ def extract_urls(manifest_path: Path) -> list[str]:
 
 def submit_wayback(url: str, session: requests.Session) -> dict:
     """
-    POST to https://web.archive.org/save/<URL> and parse the returned
-    Content-Location or Location header for the permanent snapshot URL.
-    Retries up to 3 times with exponential backoff on 5xx or network errors.
+    Look up the most-recent existing Wayback snapshot for url.
+
+    Queries the CDX API first (it returns exact-URL matches with better
+    coverage than the availability API, including 200-status responses only).
+    Falls back to the availability API if CDX is unavailable.
+
+    As of 2026 the anonymous /save/ endpoint requires authentication. Without
+    IA credentials we cannot trigger a fresh capture, so recording the most
+    recent existing snapshot is the best anonymous path. Retries 3x.
     """
-    save_url = f"https://web.archive.org/save/{url}"
     last_err = None
     for attempt in range(3):
         try:
-            resp = session.get(
-                save_url,
-                headers={"User-Agent": UA, "Accept": "text/html"},
-                timeout=60,
-                allow_redirects=False,
+            cdx = session.get(
+                "https://web.archive.org/cdx/search/cdx",
+                params={
+                    "url": url,
+                    "limit": "-1",            # most recent
+                    "output": "json",
+                    "filter": "statuscode:200",
+                },
+                headers={"User-Agent": UA},
+                timeout=45,
             )
-            status = resp.status_code
-            # The save endpoint returns 200 on success with the snapshot path in
-            # Content-Location, or a 302 to the snapshot, or a 429 when rate limited.
-            loc = resp.headers.get("Content-Location") or resp.headers.get("Location") or ""
-            if loc.startswith("/web/"):
-                snapshot = "https://web.archive.org" + loc
-                ts_match = re.search(r"/web/(\d{14})/", snapshot)
-                ts = ts_match.group(1) if ts_match else ""
-                return {
-                    "original_url": url,
-                    "wayback_snapshot_url": snapshot,
-                    "timestamp": ts,
-                    "status": "ok",
-                    "error_message": "",
-                }
-            if status == 200 and "web.archive.org/web/" in resp.text:
-                m = re.search(r"https://web\.archive\.org/web/(\d{14})/[^\s\"']+", resp.text)
-                if m:
-                    snapshot = m.group(0)
-                    ts = m.group(1)
-                    return {
-                        "original_url": url,
-                        "wayback_snapshot_url": snapshot,
-                        "timestamp": ts,
-                        "status": "ok",
-                        "error_message": "",
-                    }
-            if status == 429:
-                last_err = f"rate-limited (HTTP 429)"
-                time.sleep(2 ** attempt * 10)
-                continue
-            if status in (403, 451):
-                return {
-                    "original_url": url,
-                    "wayback_snapshot_url": "",
-                    "timestamp": "",
-                    "status": "blocked",
-                    "error_message": f"HTTP {status}",
-                }
-            if 500 <= status < 600:
-                last_err = f"HTTP {status}"
+            if cdx.status_code == 200:
+                rows = cdx.json()
+                # First row is the header.
+                if len(rows) >= 2:
+                    header, data = rows[0], rows[1]
+                    d = dict(zip(header, data))
+                    ts = d.get("timestamp", "")
+                    orig = d.get("original", url)
+                    if ts:
+                        snapshot = f"https://web.archive.org/web/{ts}/{orig}"
+                        return {
+                            "original_url": url,
+                            "wayback_snapshot_url": snapshot,
+                            "timestamp": ts,
+                            "status": "ok",
+                            "error_message": "existing snapshot via CDX API",
+                        }
+                # CDX returned zero data rows — no 200-status snapshot exists.
+                # Fall through to availability API as a second opinion.
+            if cdx.status_code == 429 or 500 <= cdx.status_code < 600:
+                last_err = f"CDX HTTP {cdx.status_code}"
                 time.sleep(2 ** attempt * 5)
                 continue
-            # Fall through: try the availability API as a fallback.
+        except requests.RequestException as e:
+            last_err = f"CDX: {e}"
+
+        # Availability API fallback.
+        try:
             avail = session.get(
                 f"https://archive.org/wayback/available?url={url}",
                 headers={"User-Agent": UA},
@@ -160,11 +154,16 @@ def submit_wayback(url: str, session: requests.Session) -> dict:
                         "status": "ok",
                         "error_message": "existing snapshot via availability API",
                     }
-            last_err = f"HTTP {status}, no snapshot parsed"
-            time.sleep(2 ** attempt * 3)
+                return {
+                    "original_url": url,
+                    "wayback_snapshot_url": "",
+                    "timestamp": "",
+                    "status": "unarchived",
+                    "error_message": "no existing snapshot; anonymous /save/ requires auth",
+                }
         except requests.RequestException as e:
             last_err = str(e)
-            time.sleep(2 ** attempt * 5)
+            time.sleep(2 ** attempt * 3)
     return {
         "original_url": url,
         "wayback_snapshot_url": "",
@@ -212,39 +211,48 @@ def availability_only(url: str, session: requests.Session) -> dict:
 
 def submit_archiveph(url: str, session: requests.Session) -> dict:
     """
-    Try archive.ph /submit first. If rate-limited or failing, fall back to
-    /newest/<URL> which returns an existing snapshot if one exists.
+    Query archive.ph /newest/<URL> for an existing snapshot. Retry with
+    exponential backoff on HTTP 429 rate-limit. If /newest returns no
+    snapshot, fall through to /submit/ (which may also be rate-limited).
     """
-    # First try /newest which is faster and does not trigger a new capture.
-    try:
-        r = session.get(
-            f"https://archive.ph/newest/{url}",
-            headers={"User-Agent": UA},
-            timeout=30,
-            allow_redirects=False,
-        )
-        if r.status_code in (301, 302, 303, 307, 308):
-            loc = r.headers.get("Location", "")
-            if loc and "archive.ph/" in loc and "/newest/" not in loc:
+    # /newest — look up an existing snapshot. Retries on 429.
+    for attempt in range(4):
+        try:
+            r = session.get(
+                f"https://archive.ph/newest/{url}",
+                headers={"User-Agent": UA},
+                timeout=30,
+                allow_redirects=False,
+            )
+            if r.status_code in (301, 302, 303, 307, 308):
+                loc = r.headers.get("Location", "")
+                if loc and "archive.ph/" in loc and "/newest/" not in loc:
+                    return {
+                        "original_url": url,
+                        "archiveph_snapshot_url": loc,
+                        "status": "ok",
+                        "error_message": "existing snapshot via /newest",
+                    }
+            if r.status_code == 200 and "archive.ph" in r.url and "/newest/" not in r.url:
                 return {
                     "original_url": url,
-                    "archiveph_snapshot_url": loc,
+                    "archiveph_snapshot_url": r.url,
                     "status": "ok",
                     "error_message": "existing snapshot via /newest",
                 }
-        if r.status_code == 200 and "archive.ph" in r.url and "/newest/" not in r.url:
-            return {
-                "original_url": url,
-                "archiveph_snapshot_url": r.url,
-                "status": "ok",
-                "error_message": "existing snapshot via /newest",
-            }
-        # 404 on /newest means no existing snapshot; try submit.
-    except requests.RequestException as e:
-        # Fall through to submit path.
-        pass
+            if r.status_code == 404:
+                # No existing snapshot. Break to /submit path.
+                break
+            if r.status_code == 429:
+                time.sleep(15 + 10 * attempt)
+                continue
+            # Other non-terminal: break to /submit.
+            break
+        except requests.RequestException:
+            time.sleep(5 + 5 * attempt)
+            continue
 
-    # Submit path — build a fresh snapshot.
+    # /submit — fresh capture request. Usually heavily rate-limited.
     try:
         r = session.post(
             "https://archive.ph/submit/",
@@ -262,7 +270,6 @@ def submit_archiveph(url: str, session: requests.Session) -> dict:
                     "status": "ok",
                     "error_message": "fresh submission",
                 }
-        # archive.ph sometimes returns a Refresh header with the eventual URL.
         refresh = r.headers.get("Refresh", "")
         m = re.search(r"url=(https?://archive\.ph/\S+)", refresh, re.IGNORECASE)
         if m:
@@ -302,14 +309,15 @@ def main() -> int:
 
     session = requests.Session()
 
-    # Phase 2 — Wayback.
+    # Phase 2 — Wayback availability lookups. The anonymous /save/ endpoint
+    # now requires authentication; the availability API remains public and
+    # returns the closest existing snapshot.
     wayback_rows: list[dict] = []
     for i, u in enumerate(urls, 1):
         print(f"[phase2 {i}/{len(urls)}] wayback: {u[:100]}")
         row = submit_wayback(u, session)
         wayback_rows.append(row)
-        # ~15 req/min cap on anonymous save endpoint -> 4s spacing baseline.
-        time.sleep(5)
+        time.sleep(2)
     write_csv(
         WAYBACK_CSV,
         wayback_rows,
@@ -317,13 +325,14 @@ def main() -> int:
     )
     print(f"[phase2] wrote {WAYBACK_CSV}")
 
-    # Phase 3 — archive.ph.
+    # Phase 3 — archive.ph /newest with retries. Longer per-URL spacing to
+    # avoid the aggressive 429 rate-limit we hit on the first pass.
     archiveph_rows: list[dict] = []
     for i, u in enumerate(urls, 1):
         print(f"[phase3 {i}/{len(urls)}] archive.ph: {u[:100]}")
         row = submit_archiveph(u, session)
         archiveph_rows.append(row)
-        time.sleep(4)
+        time.sleep(8)
     write_csv(
         ARCHIVEPH_CSV,
         archiveph_rows,

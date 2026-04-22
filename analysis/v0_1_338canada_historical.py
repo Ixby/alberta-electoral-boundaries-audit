@@ -52,12 +52,14 @@ UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"
 ALBERTA_URL = "https://338canada.com/alberta/"
 
 # Key anchor dates for per-riding reconstruction via Wayback.
-# Hand-picked to cover pre-2023, mid-cycle, and recent.
+# Pre-2023 has full 87-riding coverage in Mar-May 2023; other windows
+# have sparse coverage and are handled via the landing-page aggregate sweep.
 WAYBACK_TARGETS = [
-    ("2023-05-28", "pre-2023-election (final pre-vote projection)"),
-    ("2024-07-07", "mid-cycle 2024"),
-    ("2025-09-28", "fall 2025"),
+    ("2023-05-29", "pre-2023-election (final capture before election day)"),
 ]
+# Window for the CDX search (used to find the last pre-election capture
+# for each riding). UTC dates, inclusive.
+PRE23_WINDOW = ("20230301", "20230529")  # March 1 to election day
 
 
 def fetch_cached(url: str, cache_path: str, force: bool = False) -> str:
@@ -168,19 +170,14 @@ def write_historical_aggregate_csv(landing: Dict, path: str) -> None:
 # ---------------------------------------------------------------------
 
 def alberta_2023_actual_aggregate() -> Dict[str, float]:
-    """Compute provincial UCP / NDP two-party vote share from the audit's
-    2023 per-ED CSV.
+    """Compute provincial UCP / NDP two-party vote share via the audit's
+    load_2023_results loader (handles cand_N/votes_N pair parsing).
     """
-    path = os.path.join(DATA, 'v0_1_alberta_2023_results.csv')
-    ucp = ndp = 0
-    total = 0
-    with open(path, encoding='utf-8') as f:
-        for r in csv.DictReader(f):
-            u = float(r.get('ucp', 0) or 0)
-            n = float(r.get('ndp', 0) or 0)
-            ucp += u
-            ndp += n
-            total += u + n
+    sys.path.insert(0, os.path.join(AUDIT_ROOT, 'analysis'))
+    from v0_2_packing_cracking_analysis import load_2023_results  # type: ignore
+    dists = load_2023_results()
+    ucp = sum(d['ucp'] for d in dists)
+    ndp = sum(d['ndp'] for d in dists)
     return {
         'ucp_actual_tp': 100.0 * ucp / (ucp + ndp),
         'ndp_actual_tp': 100.0 * ndp / (ucp + ndp),
@@ -189,19 +186,12 @@ def alberta_2023_actual_aggregate() -> Dict[str, float]:
 
 
 def alberta_2023_actual_seats() -> Dict[str, int]:
-    """Compute actual 2023 UCP/NDP seat counts from the per-ED CSV
-    (winner determined by max(ucp, ndp) per ED).
-    """
-    path = os.path.join(DATA, 'v0_1_alberta_2023_results.csv')
-    ucp = ndp = 0
-    with open(path, encoding='utf-8') as f:
-        for r in csv.DictReader(f):
-            u = float(r.get('ucp', 0) or 0)
-            n = float(r.get('ndp', 0) or 0)
-            if u > n:
-                ucp += 1
-            elif n > u:
-                ndp += 1
+    """Compute actual 2023 UCP/NDP seat counts using the audit's loader."""
+    sys.path.insert(0, os.path.join(AUDIT_ROOT, 'analysis'))
+    from v0_2_packing_cracking_analysis import load_2023_results  # type: ignore
+    dists = load_2023_results()
+    ucp = sum(1 for d in dists if d['ucp'] > d['ndp'])
+    ndp = sum(1 for d in dists if d['ndp'] > d['ucp'])
     return {'ucp_seats': ucp, 'ndp_seats': ndp}
 
 
@@ -226,6 +216,31 @@ def wayback_closest(url: str, yyyymmdd: str) -> Optional[str]:
     if snap.get('available') and snap.get('url'):
         return snap['url']
     return None
+
+
+def wayback_cdx_last_before(url: str, yyyymmdd_from: str,
+                             yyyymmdd_to: str) -> Optional[str]:
+    """Use the CDX search API to find the LAST capture of `url` in the
+    window [yyyymmdd_from, yyyymmdd_to] with status 200. Returns the
+    full Wayback URL to the capture, or None.
+    """
+    api = (f"http://web.archive.org/cdx/search/cdx?"
+           f"url={urllib.request.quote(url)}"
+           f"&output=json&from={yyyymmdd_from}&to={yyyymmdd_to}"
+           f"&filter=statuscode:200&fl=timestamp,original"
+           f"&limit=200")
+    req = urllib.request.Request(api, headers={'User-Agent': UA})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            arr = json.loads(r.read().decode('utf-8'))
+    except Exception as e:
+        print(f"  cdx query failed for {url}: {e}", file=sys.stderr)
+        return None
+    if len(arr) <= 1:
+        return None
+    # Last row = latest timestamp in window
+    ts, orig = arr[-1][0], arr[-1][1]
+    return f"https://web.archive.org/web/{ts}/{orig}"
 
 
 def wayback_pull_aggregate(date_iso: str) -> Optional[Dict]:
@@ -274,38 +289,38 @@ def wayback_pull_aggregate(date_iso: str) -> Optional[Dict]:
     }
 
 
-def wayback_pull_per_riding(date_iso: str, ridings_index: List[Dict],
-                             max_ridings: int = 87) -> Optional[List[Dict]]:
-    """Pull per-riding pages from Wayback for a target date. Returns a list
-    of per-riding dicts with ucp_share and ndp_share, or None if unreachable.
-
-    NOTE: Wayback coverage of /alberta/NNNNe.htm is spotty — many riding
-    pages have never been archived on specific dates. We return whatever
-    we can obtain and log a gap count.
+def wayback_pull_per_riding_window(ridings_index: List[Dict],
+                                     window_from: str, window_to: str,
+                                     max_ridings: int = 87) -> List[Dict]:
+    """Pull per-riding pages from Wayback, choosing the LAST capture in the
+    given window for each riding. Returns a list of per-riding dicts.
     """
-    yyyymmdd = date_iso.replace('-', '')
     rows: List[Dict] = []
     hit = miss = 0
     for i, r in enumerate(ridings_index[:max_ridings]):
         code = r['code']
         riding = r['riding']
         url = f"https://338canada.com/alberta/{code}e.htm"
-        wb = wayback_closest(url, yyyymmdd + '120000')
+        wb = wayback_cdx_last_before(url, window_from, window_to)
         if not wb:
             rows.append({'district': riding, 'code': code,
                          'ucp_share': None, 'ndp_share': None,
-                         'wayback_url': '', 'note': 'no wayback'})
+                         'wayback_url': '', 'wayback_ts': '',
+                         'note': 'no capture in window'})
             miss += 1
             continue
-        cache = os.path.join(HIST_DIR, f'riding_{code}_{yyyymmdd}.html')
+        # Parse the wayback timestamp out of the URL
+        ts_m = re.search(r'/web/(\d{14})/', wb)
+        ts = ts_m.group(1) if ts_m else ''
+        cache = os.path.join(HIST_DIR, f'riding_{code}_w{window_to}.html')
         html = fetch_cached(wb, cache)
         if html.startswith('__FETCH_ERROR__'):
             rows.append({'district': riding, 'code': code,
                          'ucp_share': None, 'ndp_share': None,
-                         'wayback_url': wb, 'note': html[:80]})
+                         'wayback_url': wb, 'wayback_ts': ts,
+                         'note': html[:80]})
             miss += 1
             continue
-        # Reuse the scraper's logic: find UCP and NDP shares (last point)
         try:
             parties = _parse_riding_html(html)
             ucp_share = parties.get('UCP', {}).get('share')
@@ -313,40 +328,110 @@ def wayback_pull_per_riding(date_iso: str, ridings_index: List[Dict],
             if ucp_share is None or ndp_share is None:
                 rows.append({'district': riding, 'code': code,
                              'ucp_share': None, 'ndp_share': None,
-                             'wayback_url': wb, 'note': 'parse missing UCP/NDP'})
+                             'wayback_url': wb, 'wayback_ts': ts,
+                             'note': 'parse missing UCP/NDP'})
                 miss += 1
             else:
                 rows.append({'district': riding, 'code': code,
                              'ucp_share': round(ucp_share, 3),
                              'ndp_share': round(ndp_share, 3),
-                             'wayback_url': wb, 'note': ''})
+                             'wayback_url': wb, 'wayback_ts': ts,
+                             'note': ''})
                 hit += 1
         except Exception as e:
             rows.append({'district': riding, 'code': code,
                          'ucp_share': None, 'ndp_share': None,
-                         'wayback_url': wb, 'note': f'parse error: {e}'})
+                         'wayback_url': wb, 'wayback_ts': ts,
+                         'note': f'parse error: {e}'})
             miss += 1
-        # Wayback rate-limiting is generous but still polite to pause.
         time.sleep(0.1)
         if (i + 1) % 15 == 0:
-            print(f"  wayback {date_iso}: {i+1}/{len(ridings_index[:max_ridings])} "
+            print(f"  wayback window {window_from}-{window_to}: "
+                  f"{i+1}/{len(ridings_index[:max_ridings])} "
                   f"(hit={hit}, miss={miss})", file=sys.stderr)
     return rows
 
 
 def _parse_riding_html(html: str) -> Dict[str, Dict[str, float]]:
-    """Mirror of v0_1_338canada_scraper.parse_page, simplified for this
-    historical-only pipeline.
+    """Extract UCP and NDP projected vote shares from a 338Canada riding
+    page.
+
+    Supports two page formats:
+
+      (A) Current (2025+) pages: JavaScript data blocks of the form
+          `key: 'UCP', ..., values: [...time series], moe: [...]`.
+          The last array entry is the current projection.
+
+      (B) Legacy (pre-2025) pages and Wayback archives thereof: the
+          projection is rendered as an inline SVG with text elements
+          like `<text ... fill="#366092">44% ± 8%</text>` for UCP and
+          `<text ... fill="#E17C0D">47% ± 8%</text>` for NDP.
+          (#366092 = UCP blue, #E17C0D = NDP orange per 338's palette.)
     """
+    out: Dict[str, Dict[str, float]] = {}
+
+    # Format A
     PARTY_WITH_MOE_RE = re.compile(
         r"key:\s*'([^']+)',[^}]*?values:\s*\[\s*([\-\d\.\s,]+)\],\s*moe:\s*\[\s*([\-\d\.\s,]+)\]",
         re.DOTALL,
     )
-    out: Dict[str, Dict[str, float]] = {}
     for key, vals, _moes in PARTY_WITH_MOE_RE.findall(html):
         v = [float(x) for x in vals.split(',') if x.strip()]
         if v and key not in out:
             out[key] = {'share': v[-1]}
+    if out:
+        return out
+
+    # Format B — parse the ridingvote SVG. The `ridingvote-N` suffix varies
+    # (N=0 for some pages, 1 for others, depending on page template).
+    m = re.search(r'<svg id="ridingvote-\d+"[^>]*>(.*?)</svg>', html, re.DOTALL)
+    if not m:
+        return out
+    svg = m.group(1)
+    # Extract text entries: fill + text
+    entries = re.findall(r'<text[^>]*fill="(#[0-9A-Fa-f]{6})"[^>]*>([^<]+)</text>',
+                         svg)
+    # Party color map (338's canonical palette)
+    COLOR_TO_PARTY = {
+        '#366092': 'UCP',
+        '#E17C0D': 'NDP',
+        '#12bbff': 'ABP',   # Alberta Party
+        '#84BD00': 'WIP',   # WildIndependence
+        '#3D9B35': 'GPA',   # Green
+        '#D71920': 'LIB',
+        '#A9A9A9': 'OTH',
+    }
+    # Find "N% ± M%" entries and associate with preceding-or-same-color label
+    # We walk entries: the pattern per party is [percent-text, label-text]
+    # in order. E.g. (#E17C0D, '47% ± 8%'), (#E17C0D, 'NDP').
+    pct_re = re.compile(r'(\d+(?:\.\d+)?)\s*%\s*(?:±|\+/-)?\s*(\d+(?:\.\d+)?)?')
+    for color, text in entries:
+        color_l = color.lower()
+        # Match against the map with case-insensitive comparison
+        party = None
+        for k, v in COLOR_TO_PARTY.items():
+            if k.lower() == color_l:
+                party = v
+                break
+        if not party:
+            continue
+        if '%' not in text:
+            continue
+        pm = pct_re.search(text)
+        if not pm:
+            continue
+        try:
+            share = float(pm.group(1))
+        except ValueError:
+            continue
+        # Only record the first share per party (the N% entry, not e.g. 'UCP 2019')
+        # '2019' or year-like labels should be skipped — check if nearby
+        # label text contains a year.
+        if party in out:
+            continue
+        # Skip 'UCP 2019' type entries — these come with labels starting with party name
+        # (already labels, no %). We're filtering via '%' check above.
+        out[party] = {'share': share}
     return out
 
 
@@ -440,20 +525,19 @@ def reallocate_snapshot(t338: Dict[str, Dict], mapping: Dict,
 # ---------------------------------------------------------------------
 
 def load_2023_actual_per_riding() -> Dict[str, Dict]:
-    path = os.path.join(DATA, 'v0_1_alberta_2023_results.csv')
+    sys.path.insert(0, os.path.join(AUDIT_ROOT, 'analysis'))
+    from v0_2_packing_cracking_analysis import load_2023_results  # type: ignore
     out = {}
-    with open(path, encoding='utf-8') as f:
-        for r in csv.DictReader(f):
-            u = float(r.get('ucp', 0) or 0)
-            n = float(r.get('ndp', 0) or 0)
-            if u + n == 0:
-                continue
-            out[r['ed']] = {
-                'ucp': u, 'ndp': n,
-                'ucp_pct_tp': 100.0 * u / (u + n),
-                'ndp_pct_tp': 100.0 * n / (u + n),
-                'region': r.get('region', ''),
-            }
+    for d in load_2023_results():
+        u = d['ucp']; n = d['ndp']
+        if u + n == 0:
+            continue
+        out[d['ed']] = {
+            'ucp': u, 'ndp': n,
+            'ucp_pct_tp': 100.0 * u / (u + n),
+            'ndp_pct_tp': 100.0 * n / (u + n),
+            'region': d.get('region', ''),
+        }
     return out
 
 
@@ -565,44 +649,16 @@ def main():
             print(f"  2023 actual seats:           UCP {seats_actual['ucp_seats']}  "
                   f"NDP {seats_actual['ndp_seats']}")
 
-    # ---- Phase 2b: wayback aggregate time-series check ----
-    print("\nPhase 2b: Wayback aggregate pulls at chosen anchor dates.")
-    wb_agg_rows = []
-    for date_iso, desc in WAYBACK_TARGETS:
-        print(f"  wayback: {date_iso} ({desc})")
-        r = wayback_pull_aggregate(date_iso)
-        if not r:
-            print(f"    unreachable / no capture")
-            wb_agg_rows.append({'target_date': date_iso, 'desc': desc,
-                                 'status': 'no capture'})
-            continue
-        if 'error' in r:
-            print(f"    error: {r['error'][:120]}")
-            wb_agg_rows.append({'target_date': date_iso, 'desc': desc,
-                                 'status': r['error'][:120]})
-            continue
-        row = {'target_date': date_iso, 'desc': desc,
-               'actual_date': r.get('actual_date'),
-               'snapshot_in_page': r.get('snapshot_date_in_page'),
-               'ucp_share': r.get('ucp_share'),
-               'ndp_share': r.get('ndp_share'),
-               'ucp_seats': r.get('ucp_seats'),
-               'ndp_seats': r.get('ndp_seats'),
-               'ucp_maj_prob': r.get('ucp_maj_prob'),
-               'ndp_maj_prob': r.get('ndp_maj_prob'),
-               'status': 'ok'}
-        wb_agg_rows.append(row)
-        print(f"    actual_capture={row['actual_date']}  "
-              f"page_last={row['snapshot_in_page']}")
-        print(f"    UCP share={row['ucp_share']}  NDP share={row['ndp_share']}  "
-              f"UCP seats={row['ucp_seats']}  NDP seats={row['ndp_seats']}")
+    # Note: Phase 2b wayback aggregate pulls are not required — the current
+    # landing page already embeds the full 77-snapshot time-series from
+    # 2020-02-23 onward, so we already have aggregate UCP/NDP/seat values
+    # at every historical date without needing a separate wayback query.
+    # Wayback is only used below for per-riding reconstruction, where the
+    # time-series is not embedded in the current site.
 
-    with open(os.path.join(HIST_DIR, 'wayback_aggregate_pulls.json'),
-              'w', encoding='utf-8') as f:
-        json.dump(wb_agg_rows, f, indent=2)
-
-    # ---- Phase 3: per-riding pulls at same anchors ----
-    print("\nPhase 3: per-riding Wayback pulls (this is the expensive step).")
+    # ---- Phase 3: per-riding pulls for pre-2023 window (full 87) ----
+    print("\nPhase 3: pre-2023 per-riding Wayback pulls (window = last capture "
+          f"per riding in {PRE23_WINDOW[0]}-{PRE23_WINDOW[1]}).")
     ridings_index_path = os.path.join(DATA, 'v0_1_338canada_ridings_index.csv')
     if not os.path.exists(ridings_index_path):
         print(f"  no ridings index at {ridings_index_path}; skipping per-riding phase.")
@@ -611,34 +667,29 @@ def main():
         ridings_index = list(csv.DictReader(f))
     print(f"  riding count: {len(ridings_index)}")
 
-    # To stay in time/token budget, we sample 20 ridings per target date.
-    SAMPLE_N = 20
-    # Stratified sample: 7 Edmonton + 7 Calgary + 6 rest
-    edm = [r for r in ridings_index if r.get('region') == 'Edmonton'][:7]
-    cal = [r for r in ridings_index if r.get('region') == 'Calgary'][:7]
-    rest = [r for r in ridings_index
-            if r.get('region') not in ('Edmonton', 'Calgary')][:6]
-    sample = edm + cal + rest
-    print(f"  stratified sample size: {len(sample)} "
-          f"(Edmonton {len(edm)}, Calgary {len(cal)}, rest {len(rest)})")
-
     per_riding_results: Dict[str, List[Dict]] = {}
-    for date_iso, desc in WAYBACK_TARGETS:
-        print(f"\n  --- {date_iso} ({desc}) ---")
-        rows = wayback_pull_per_riding(date_iso, sample, max_ridings=len(sample))
-        per_riding_results[date_iso] = rows or []
-        hit = sum(1 for r in rows if r.get('ucp_share') is not None) if rows else 0
-        miss = sum(1 for r in rows if r.get('ucp_share') is None) if rows else 0
-        print(f"    per-riding hit={hit} miss={miss}")
+    pre23_rows = wayback_pull_per_riding_window(
+        ridings_index, PRE23_WINDOW[0], PRE23_WINDOW[1], max_ridings=87)
+    per_riding_results['2023-05-29_pre_election'] = pre23_rows
+    pre_hit = sum(1 for r in pre23_rows if r.get('ucp_share') is not None)
+    pre_miss = sum(1 for r in pre23_rows if r.get('ucp_share') is None)
+    print(f"  pre-2023 per-riding: hit={pre_hit} miss={pre_miss} of {len(pre23_rows)}")
 
     # Save the raw per-riding table
     with open(os.path.join(HIST_DIR, 'per_riding_wayback.json'), 'w',
               encoding='utf-8') as f:
         json.dump(per_riding_results, f, indent=2)
+    # Also CSV for easier inspection
+    csv_path = os.path.join(HIST_DIR, 'per_riding_pre2023.csv')
+    with open(csv_path, 'w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=list(pre23_rows[0].keys()))
+        w.writeheader()
+        w.writerows(pre23_rows)
+    print(f"  wrote {csv_path}")
 
-    # ---- Phase 2b (per-riding accuracy) for pre-2023 sample ----
-    pre_sample = per_riding_results.get('2023-05-28', [])
-    pre_hits = [r for r in pre_sample if r.get('ucp_share') is not None]
+    # ---- Phase 2b (per-riding accuracy) for pre-2023 ----
+    pre_hits_local = [r for r in pre23_rows if r.get('ucp_share') is not None]
+    pre_hits = pre_hits_local
     if pre_hits:
         print(f"\nPhase 2b per-riding: {len(pre_hits)} pre-2023 ridings with data.")
         actuals = load_2023_actual_per_riding()
@@ -722,51 +773,64 @@ def main():
                         'n_ridings_observed': len(current_t338),
                         'source': 'current scrape'}]
 
-    for date_iso, desc in WAYBACK_TARGETS:
-        rows = per_riding_results.get(date_iso, [])
-        hits = [r for r in rows if r.get('ucp_share') is not None]
-        n_obs = len(hits)
-        if n_obs < len(sample) * 0.8:
-            # Not enough coverage to reallocate defensibly.
-            stability_table.append({
-                'snapshot_date': f'{date_iso} (sample, {n_obs}/{len(sample)})',
-                'maj_ucp': '', 'maj_ndp': '', 'min_ucp': '', 'min_ndp': '',
-                'min_minus_maj_ucp': '', 'min_minus_maj_ndp': '',
-                'n_ridings_observed': n_obs,
-                'source': f'wayback {date_iso}, insufficient coverage'})
-            continue
-        # Build a t338 dict from hits for the sampled EDs and use the CURRENT
-        # snapshot's rural baseline as a fallback for unsampled EDs, because
-        # the audit's crosswalk expects all 87 2019 EDs as sources. This is
-        # an approximation — we flag it in the report.
-        partial = dict(current_t338)  # start from current snapshot
-        for h in hits:
-            partial[h['district']] = {'ucp_share': h['ucp_share'],
+    # Pre-2023 full-87 reallocation
+    pre23_rows = per_riding_results.get('2023-05-29_pre_election', [])
+    pre23_hits = [r for r in pre23_rows if r.get('ucp_share') is not None]
+    n_obs = len(pre23_hits)
+    if n_obs >= 80:
+        pre23_t338 = {h['district']: {'ucp_share': h['ucp_share'],
                                        'ndp_share': h['ndp_share']}
-        # Rural baseline for rest-of-Alberta from partial
-        rural_ucp_h = statistics.mean(partial[n]['ucp_share']
-                                       for n in rural_names if n in partial)
-        rural_ndp_h = statistics.mean(partial[n]['ndp_share']
-                                       for n in rural_names if n in partial)
-        maj_h = reallocate_snapshot(partial, MAJ, pops, rural_ucp_h, rural_ndp_h)
-        min_h = reallocate_snapshot(partial, MIN, pops, rural_ucp_h, rural_ndp_h)
-        ucp_maj_h = sum(1 for r in maj_h if r['winner'] == 'UCP')
-        ndp_maj_h = sum(1 for r in maj_h if r['winner'] == 'NDP')
-        ucp_min_h = sum(1 for r in min_h if r['winner'] == 'UCP')
-        ndp_min_h = sum(1 for r in min_h if r['winner'] == 'NDP')
+                       for h in pre23_hits}
+        # Any ridings missing from pre23? Fall back to current to avoid
+        # dropping an ED in the crosswalk (flagged in MD).
+        missing_in_pre23 = [d for d in current_t338 if d not in pre23_t338]
+        for d in missing_in_pre23:
+            pre23_t338[d] = current_t338[d]
+        rural_ucp_pre = statistics.mean(pre23_t338[n]['ucp_share']
+                                         for n in rural_names if n in pre23_t338)
+        rural_ndp_pre = statistics.mean(pre23_t338[n]['ndp_share']
+                                         for n in rural_names if n in pre23_t338)
+        maj_pre = reallocate_snapshot(pre23_t338, MAJ, pops,
+                                       rural_ucp_pre, rural_ndp_pre)
+        min_pre = reallocate_snapshot(pre23_t338, MIN, pops,
+                                       rural_ucp_pre, rural_ndp_pre)
+        ucp_maj_pre = sum(1 for r in maj_pre if r['winner'] == 'UCP')
+        ndp_maj_pre = sum(1 for r in maj_pre if r['winner'] == 'NDP')
+        ucp_min_pre = sum(1 for r in min_pre if r['winner'] == 'UCP')
+        ndp_min_pre = sum(1 for r in min_pre if r['winner'] == 'NDP')
         stability_table.append({
-            'snapshot_date': f'{date_iso} (hybrid: {n_obs} sampled + '
-                             f'{len(current_t338) - n_obs} current)',
-            'maj_ucp': ucp_maj_h, 'maj_ndp': ndp_maj_h,
-            'min_ucp': ucp_min_h, 'min_ndp': ndp_min_h,
-            'min_minus_maj_ucp': ucp_min_h - ucp_maj_h,
-            'min_minus_maj_ndp': ndp_min_h - ndp_maj_h,
+            'snapshot_date': f'pre-2023-election (338 last capture per riding '
+                             f'in {PRE23_WINDOW[0]}-{PRE23_WINDOW[1]})',
+            'maj_ucp': ucp_maj_pre, 'maj_ndp': ndp_maj_pre,
+            'min_ucp': ucp_min_pre, 'min_ndp': ndp_min_pre,
+            'min_minus_maj_ucp': ucp_min_pre - ucp_maj_pre,
+            'min_minus_maj_ndp': ndp_min_pre - ndp_maj_pre,
             'n_ridings_observed': n_obs,
-            'source': f'wayback {date_iso} (partial; unsampled EDs filled '
-                      f'from current 2026-04-12 snapshot)'})
-        print(f"\n  {date_iso}: maj {ucp_maj_h}/{ndp_maj_h}, "
-              f"min {ucp_min_h}/{ndp_min_h}, "
-              f"asymmetry UCP {ucp_min_h - ucp_maj_h:+d} NDP {ndp_min_h - ndp_maj_h:+d}")
+            'source': f'wayback full 87 pre-2023 (missing filled '
+                      f'{len(missing_in_pre23)} from current)'})
+        print(f"\n  pre-2023 full 87: maj {ucp_maj_pre}/{ndp_maj_pre}, "
+              f"min {ucp_min_pre}/{ndp_min_pre}, "
+              f"asymmetry UCP {ucp_min_pre - ucp_maj_pre:+d} "
+              f"NDP {ndp_min_pre - ndp_maj_pre:+d}")
+        # Also record the per-ED pre-2023 reallocation for reporting
+        pre_maj_csv = os.path.join(HIST_DIR, 'pre2023_reallocated_majority.csv')
+        pre_min_csv = os.path.join(HIST_DIR, 'pre2023_reallocated_minority.csv')
+        for path, rows in [(pre_maj_csv, maj_pre), (pre_min_csv, min_pre)]:
+            with open(path, 'w', encoding='utf-8', newline='') as f:
+                w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+                w.writeheader()
+                w.writerows(rows)
+        print(f"  wrote {pre_maj_csv}")
+        print(f"  wrote {pre_min_csv}")
+    else:
+        print(f"\n  pre-2023 per-riding coverage insufficient ({n_obs}/87); "
+              f"skipping defensible pre-2023 full reallocation.")
+        stability_table.append({
+            'snapshot_date': 'pre-2023-election',
+            'maj_ucp': '', 'maj_ndp': '', 'min_ucp': '', 'min_ndp': '',
+            'min_minus_maj_ucp': '', 'min_minus_maj_ndp': '',
+            'n_ridings_observed': n_obs,
+            'source': 'wayback coverage insufficient'})
 
     # Write stability table
     stab_path = os.path.join(HIST_DIR, 'stability_table.csv')

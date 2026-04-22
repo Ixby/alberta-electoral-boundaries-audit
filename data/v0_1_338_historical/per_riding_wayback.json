@@ -1,0 +1,787 @@
+{
+  "2023-05-29_pre_election": [
+    {
+      "district": "Calgary-Acadia",
+      "code": "1001",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322222336/https://338canada.com/alberta/1001e.htm",
+      "wayback_ts": "20230322222336",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Beddington",
+      "code": "1002",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322225040/https://338canada.com/alberta/1002e.htm",
+      "wayback_ts": "20230322225040",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Bow",
+      "code": "1003",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230521202543/https://338canada.com/alberta/1003e.htm",
+      "wayback_ts": "20230521202543",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Buffalo",
+      "code": "1004",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322215340/https://338canada.com/alberta/1004e.htm",
+      "wayback_ts": "20230322215340",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Cross",
+      "code": "1005",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325104634/https://338canada.com/alberta/1005e.htm",
+      "wayback_ts": "20230325104634",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Currie",
+      "code": "1006",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "",
+      "wayback_ts": "",
+      "note": "no capture in window"
+    },
+    {
+      "district": "Calgary-East",
+      "code": "1007",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325114846/https://338canada.com/alberta/1007e.htm",
+      "wayback_ts": "20230325114846",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Edgemont",
+      "code": "1008",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230523142603/https://338canada.com/alberta/1008e.htm",
+      "wayback_ts": "20230523142603",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Elbow",
+      "code": "1009",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230520010611/https://338canada.com/alberta/1009e.htm",
+      "wayback_ts": "20230520010611",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Falconridge",
+      "code": "1010",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325112643/https://338canada.com/alberta/1010e.htm",
+      "wayback_ts": "20230325112643",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Fish Creek",
+      "code": "1011",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230521163007/https://338canada.com/alberta/1011e.htm",
+      "wayback_ts": "20230521163007",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Foothills",
+      "code": "1012",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230521202550/https://338canada.com/alberta/1012e.htm",
+      "wayback_ts": "20230521202550",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Glenmore",
+      "code": "1013",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325104745/https://338canada.com/alberta/1013e.htm",
+      "wayback_ts": "20230325104745",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Hays",
+      "code": "1014",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325112051/https://338canada.com/alberta/1014e.htm",
+      "wayback_ts": "20230325112051",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Klein",
+      "code": "1015",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322231531/https://338canada.com/alberta/1015e.htm",
+      "wayback_ts": "20230322231531",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Lougheed",
+      "code": "1016",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322214508/https://338canada.com/alberta/1016e.htm",
+      "wayback_ts": "20230322214508",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Bhullar-McCall",
+      "code": "1017",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230509181336/https://338canada.com/alberta/1017e.htm",
+      "wayback_ts": "20230509181336",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Mountain View",
+      "code": "1018",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322223924/https://338canada.com/alberta/1018e.htm",
+      "wayback_ts": "20230322223924",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-North",
+      "code": "1019",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518015048/https://338canada.com/alberta/1019e.htm",
+      "wayback_ts": "20230518015048",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-North East",
+      "code": "1020",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230402101640/https://338canada.com/alberta/1020e.htm",
+      "wayback_ts": "20230402101640",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-North West",
+      "code": "1021",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230401211845/https://338canada.com/alberta/1021e.htm",
+      "wayback_ts": "20230401211845",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Peigan",
+      "code": "1022",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230525060244/https://338canada.com/alberta/1022e.htm",
+      "wayback_ts": "20230525060244",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Shaw",
+      "code": "1023",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322231724/https://338canada.com/alberta/1023e.htm",
+      "wayback_ts": "20230322231724",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-South East",
+      "code": "1024",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518015048/https://338canada.com/alberta/1024e.htm",
+      "wayback_ts": "20230518015048",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-Varsity",
+      "code": "1025",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230505050031/https://338canada.com/alberta/1025e.htm",
+      "wayback_ts": "20230505050031",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Calgary-West",
+      "code": "1026",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230523185335/https://338canada.com/alberta/1026e.htm",
+      "wayback_ts": "20230523185335",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Beverly-Clareview",
+      "code": "1027",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327045528/https://338canada.com/alberta/1027e.htm",
+      "wayback_ts": "20230327045528",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Castle Downs",
+      "code": "1028",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230514071443/https://338canada.com/alberta/1028e.htm",
+      "wayback_ts": "20230514071443",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-City Centre",
+      "code": "1029",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327034703/https://338canada.com/alberta/1029e.htm",
+      "wayback_ts": "20230327034703",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Decore",
+      "code": "1030",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325112412/https://338canada.com/alberta/1030e.htm",
+      "wayback_ts": "20230325112412",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Ellerslie",
+      "code": "1031",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327050455/https://338canada.com/alberta/1031e.htm",
+      "wayback_ts": "20230327050455",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Glenora",
+      "code": "1032",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518015048/https://338canada.com/alberta/1032e.htm",
+      "wayback_ts": "20230518015048",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Gold Bar",
+      "code": "1033",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327035628/https://338canada.com/alberta/1033e.htm",
+      "wayback_ts": "20230327035628",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Highlands-Norwood",
+      "code": "1034",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230425125306/https://338canada.com/alberta/1034e.htm",
+      "wayback_ts": "20230425125306",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Manning",
+      "code": "1035",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327045823/https://338canada.com/alberta/1035e.htm",
+      "wayback_ts": "20230327045823",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-McClung",
+      "code": "1036",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322214257/https://338canada.com/alberta/1036e.htm",
+      "wayback_ts": "20230322214257",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Meadows",
+      "code": "1037",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327035049/https://338canada.com/alberta/1037e.htm",
+      "wayback_ts": "20230327035049",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Mill Woods",
+      "code": "1038",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "",
+      "wayback_ts": "",
+      "note": "no capture in window"
+    },
+    {
+      "district": "Edmonton-North West",
+      "code": "1039",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327044629/https://338canada.com/alberta/1039e.htm",
+      "wayback_ts": "20230327044629",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Riverview",
+      "code": "1040",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327033025/https://338canada.com/alberta/1040e.htm",
+      "wayback_ts": "20230327033025",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Rutherford",
+      "code": "1041",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230527172220/https://338canada.com/alberta/1041e.htm",
+      "wayback_ts": "20230527172220",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-South",
+      "code": "1042",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230502025418/https://338canada.com/alberta/1042e.htm",
+      "wayback_ts": "20230502025418",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-South West",
+      "code": "1043",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230529070408/https://338canada.com/alberta/1043e.htm",
+      "wayback_ts": "20230529070408",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Strathcona",
+      "code": "1044",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230529181958/https://338canada.com/alberta/1044e.htm",
+      "wayback_ts": "20230529181958",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-West Henday",
+      "code": "1045",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327035358/https://338canada.com/alberta/1045e.htm",
+      "wayback_ts": "20230327035358",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Edmonton-Whitemud",
+      "code": "1046",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518223300/https://338canada.com/alberta/1046e.htm",
+      "wayback_ts": "20230518223300",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Airdrie-Cochrane",
+      "code": "1047",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325114550/https://338canada.com/alberta/1047e.htm",
+      "wayback_ts": "20230325114550",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Airdrie-East",
+      "code": "1048",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322213536/https://338canada.com/alberta/1048e.htm",
+      "wayback_ts": "20230322213536",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Athabasca-Barrhead-Westlock",
+      "code": "1049",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325103708/https://338canada.com/alberta/1049e.htm",
+      "wayback_ts": "20230325103708",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Banff-Kananaskis",
+      "code": "1050",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230327042738/https://338canada.com/alberta/1050e.htm",
+      "wayback_ts": "20230327042738",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Bonnyville-Cold Lake-St. Paul",
+      "code": "1051",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325115037/https://338canada.com/alberta/1051e.htm",
+      "wayback_ts": "20230325115037",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Brooks-Medicine Hat",
+      "code": "1052",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "",
+      "wayback_ts": "",
+      "note": "no capture in window"
+    },
+    {
+      "district": "Camrose",
+      "code": "1053",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322221804/https://338canada.com/alberta/1053e.htm",
+      "wayback_ts": "20230322221804",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Cardston-Siksika",
+      "code": "1054",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325111638/https://338canada.com/alberta/1054e.htm",
+      "wayback_ts": "20230325111638",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Central Peace-Notley",
+      "code": "1055",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322231010/https://338canada.com/alberta/1055e.htm",
+      "wayback_ts": "20230322231010",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Chestermere-Strathmore",
+      "code": "1056",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518015048/https://338canada.com/alberta/1056e.htm",
+      "wayback_ts": "20230518015048",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Cypress-Medicine Hat",
+      "code": "1057",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322221156/https://338canada.com/alberta/1057e.htm",
+      "wayback_ts": "20230322221156",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Drayton Valley-Devon",
+      "code": "1058",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325111033/https://338canada.com/alberta/1058e.htm",
+      "wayback_ts": "20230325111033",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Drumheller-Stettler",
+      "code": "1059",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325113921/https://338canada.com/alberta/1059e.htm",
+      "wayback_ts": "20230325113921",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Fort McMurray-Lac La Biche",
+      "code": "1060",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322215132/https://338canada.com/alberta/1060e.htm",
+      "wayback_ts": "20230322215132",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Fort McMurray-Wood Buffalo",
+      "code": "1061",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230524054126/https://338canada.com/alberta/1061e.htm",
+      "wayback_ts": "20230524054126",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Fort Saskatchewan-Vegreville",
+      "code": "1062",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "",
+      "wayback_ts": "",
+      "note": "no capture in window"
+    },
+    {
+      "district": "Grande Prairie",
+      "code": "1063",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322231218/https://338canada.com/alberta/1063e.htm",
+      "wayback_ts": "20230322231218",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Grande Prairie-Wapiti",
+      "code": "1064",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230511031145/https://338canada.com/alberta/1064e.htm",
+      "wayback_ts": "20230511031145",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Highwood",
+      "code": "1065",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325103940/https://338canada.com/alberta/1065e.htm",
+      "wayback_ts": "20230325103940",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Innisfail-Sylvan Lake",
+      "code": "1066",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325111216/https://338canada.com/alberta/1066e.htm",
+      "wayback_ts": "20230325111216",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Lac Ste. Anne-Parkland",
+      "code": "1067",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325114149/https://338canada.com/alberta/1067e.htm",
+      "wayback_ts": "20230325114149",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Lacombe-Ponoka",
+      "code": "1068",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518023213/https://338canada.com/alberta/1068e.htm",
+      "wayback_ts": "20230518023213",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Leduc-Beaumont",
+      "code": "1069",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325103341/https://338canada.com/alberta/1069e.htm",
+      "wayback_ts": "20230325103341",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Lesser Slave Lake",
+      "code": "1070",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230522012329/https://338canada.com/alberta/1070e.htm",
+      "wayback_ts": "20230522012329",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Lethbridge-East",
+      "code": "1071",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322231413/https://338canada.com/alberta/1071e.htm",
+      "wayback_ts": "20230322231413",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Lethbridge-West",
+      "code": "1072",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518015048/https://338canada.com/alberta/1072e.htm",
+      "wayback_ts": "20230518015048",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Livingstone-Macleod",
+      "code": "1073",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518074227/https://338canada.com/alberta/1073e.htm",
+      "wayback_ts": "20230518074227",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Maskwacis-Wetaskiwin",
+      "code": "1074",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325111355/https://338canada.com/alberta/1074e.htm",
+      "wayback_ts": "20230325111355",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Morinville-St. Albert",
+      "code": "1075",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230521074132/https://338canada.com/alberta/1075e.htm",
+      "wayback_ts": "20230521074132",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Olds-Didsbury-Three Hills",
+      "code": "1076",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322213444/https://338canada.com/alberta/1076e.htm",
+      "wayback_ts": "20230322213444",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Peace River",
+      "code": "1077",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322220922/https://338canada.com/alberta/1077e.htm",
+      "wayback_ts": "20230322220922",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Red Deer-North",
+      "code": "1078",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "",
+      "wayback_ts": "",
+      "note": "no capture in window"
+    },
+    {
+      "district": "Red Deer-South",
+      "code": "1079",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230512184220/https://338canada.com/alberta/1079e.htm",
+      "wayback_ts": "20230512184220",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Rimbey-Rocky Mountain House-Sundre",
+      "code": "1080",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322214801/https://338canada.com/alberta/1080e.htm",
+      "wayback_ts": "20230322214801",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Sherwood Park",
+      "code": "1081",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322221726/https://338canada.com/alberta/1081e.htm",
+      "wayback_ts": "20230322221726",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Spruce Grove-Stony Plain",
+      "code": "1082",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230325111607/https://338canada.com/alberta/1082e.htm",
+      "wayback_ts": "20230325111607",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "St. Albert",
+      "code": "1083",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230521105502/https://338canada.com/alberta/1083e.htm",
+      "wayback_ts": "20230521105502",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Strathcona-Sherwood Park",
+      "code": "1084",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230513180838/https://338canada.com/alberta/1084e.htm",
+      "wayback_ts": "20230513180838",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Taber-Warner",
+      "code": "1085",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230518015048/https://338canada.com/alberta/1085e.htm",
+      "wayback_ts": "20230518015048",
+      "note": "parse missing UCP/NDP"
+    },
+    {
+      "district": "Vermilion-Lloydminster-Wainwright",
+      "code": "1086",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "",
+      "wayback_ts": "",
+      "note": "no capture in window"
+    },
+    {
+      "district": "West Yellowhead",
+      "code": "1087",
+      "ucp_share": null,
+      "ndp_share": null,
+      "wayback_url": "https://web.archive.org/web/20230322230430/https://338canada.com/alberta/1087e.htm",
+      "wayback_ts": "20230322230430",
+      "note": "parse missing UCP/NDP"
+    }
+  ]
+}

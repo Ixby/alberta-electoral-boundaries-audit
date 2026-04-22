@@ -101,4 +101,4 @@ Combined with the Section A population asymmetry (minority Calgary NE/central +1
 
 ---
 
-*Section C complete. Direct visual inspection of `maps/minority_calgary.jpg`, `source_maps/minority_alberta_overview.jpg`, `source_maps/minority_edmonton.jpg`, `source_maps/minority_other_cities.jpg`, and `maps/majority_calgary.jpg`. Majority non-Calgary districts evaluated from report text, not direct images (symmetry caveat noted). Phase 3 (Section D, procedural audit) next.*
+*Section C complete. Direct visual inspection of `maps/minority_calgary.jpg`, `maps/minority_alberta_overview.jpg`, `maps/minority_edmonton.jpg`, `maps/minority_other_cities.jpg`, and `maps/majority_calgary.jpg`. Majority non-Calgary districts evaluated from report text, not direct images (symmetry caveat noted). Phase 3 (Section D, procedural audit) next.*
