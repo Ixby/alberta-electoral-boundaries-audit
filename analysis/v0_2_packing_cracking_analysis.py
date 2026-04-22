@@ -303,9 +303,16 @@ MAJORITY_2026_MAPPING = {
     'Wetaskiwin-Ponoka-Maskwacis': ('direct', 'Maskwacis-Wetaskiwin'),
 
     # Rest-of-province hybrids
-    'Airdrie-East':               ('blend', 'Airdrie-Cochrane', URBAN_WEIGHT_DEFAULT),
+    # Mappings verified against Appendix C hybrid crosswalk (pg 269) where
+    # applicable. See data/v0_1_majority_hybrid_crosswalk.csv for the
+    # authoritative list. Corrections from earlier guesses:
+    #   Airdrie-East: Appendix C says current Airdrie-East -> proposed
+    #     Airdrie-East (direct rename, not a blend).
+    #   Medicine Hat-Brooks: current Brooks-Medicine Hat -> proposed
+    #     Medicine Hat-Brooks (direct rename; was 'blend' before).
+    'Airdrie-East':               ('direct', 'Airdrie-East'),
     'Airdrie-West':               ('blend', 'Airdrie-Cochrane', URBAN_WEIGHT_DEFAULT),
-    'Chestermere-Strathmore':     ('direct', 'Chestermere-Strathmore'),  # mostly unchanged
+    'Chestermere-Strathmore':     ('direct', 'Chestermere-Strathmore'),
     'Cochrane-Springbank':        ('blend', 'Airdrie-Cochrane', URBAN_WEIGHT_DEFAULT),
     'Cold Lake-Bonnyville-St. Paul': ('direct', 'Bonnyville-Cold Lake-St. Paul'),
     'Fort McMurray-Lac La Biche': ('direct', 'Fort McMurray-Lac La Biche'),
@@ -314,7 +321,7 @@ MAJORITY_2026_MAPPING = {
     'Leduc-Devon':                ('blend', 'Leduc-Beaumont', URBAN_WEIGHT_DEFAULT),
     'Lethbridge-East':            ('blend', 'Lethbridge-East', URBAN_WEIGHT_DEFAULT),
     'Lethbridge-West':            ('blend', 'Lethbridge-West', URBAN_WEIGHT_DEFAULT),
-    'Medicine Hat-Brooks':        ('blend', 'Brooks-Medicine Hat', URBAN_WEIGHT_DEFAULT),
+    'Medicine Hat-Brooks':        ('direct', 'Brooks-Medicine Hat'),
     'Medicine Hat-Cypress':       ('direct', 'Cypress-Medicine Hat'),
     'Okotoks-Diamond Valley':     ('blend', 'Highwood', URBAN_WEIGHT_DEFAULT),
     'St. Albert-Sturgeon':        ('blend', 'Morinville-St. Albert', URBAN_WEIGHT_DEFAULT),
