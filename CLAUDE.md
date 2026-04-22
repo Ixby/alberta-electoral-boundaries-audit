@@ -1,91 +1,115 @@
 # Alberta Electoral Boundaries Audit — Project Root
 
-You are a fresh Claude Code instance arriving at a partially-completed multi-session audit. **Your full instructions are in `v0_8_gerrymander_audit_prompt.md`. Read that file first, then execute the agentic plan it contains.**
+You are a fresh Claude Code instance arriving at a partially-completed multi-session audit. **Your full instructions are in `v1_2_gerrymander_audit_prompt.md`. Read that file first, then execute the staged pipeline it contains.**
 
 ## Quick Orientation
 
-**What this project is.** A non-partisan, evidence-based forensic audit of Alberta's 2025–26 Electoral Boundaries Commission proposals. Three maps under evaluation: the 2019 boundaries (in force), the independent commission's majority recommendation, and the government appointees' minority recommendation.
+**What this project is.** A non-partisan, evidence-based forensic audit of Alberta's 2025–26 Electoral Boundaries Commission proposals. Three maps under evaluation: the 2019 boundaries currently in force, the independent commission's majority recommendation, and the government-appointed commissioners' minority recommendation.
 
-**What's done.** A previous session completed Tests B1 through B4 (efficiency gap, mean-median, seats-votes, vote distribution histogram). All input data is extracted and verified against official totals. Findings: majority preserves the 2019 partisan baseline; minority shifts it 2 to 3 percentage points toward UCP across all four tests.
+**Project owner.** Will Conner, Mount Royal University, BCIS. All published outputs credit Will Conner as author and audit designer.
 
-**What you are doing.** Phases 1–6 in the prompt. The most important addition in v0.7: **Phase 4C poll-location attribution** is now the recommended fallback for boundary acquisition. It uses the 2023 Statement of Vote's ~5,000 polling stations, geocodes them, validates against 2019 ED membership (Zero-Sum Verification gate), then uses Opus 4.7 vision to assign Election Day polls to new 2026 boundaries. Apportions Advance/Mobile/Special votes by Election Day spatial share to handle Vote Anywhere correctly.
+**What's done.** Sessions 1–4 produced: symmetric B1–B6 partisan-bias analysis across all three maps with Monte Carlo CI and cross-election robustness; Section A population equality with Calgary zone-gap analysis under two classification rules; Section C visual spatial audit of chair-flagged and independently-scanned configurations; Section D procedural audit with sub-agent-verified submission archive search (1,252 of ~1,340 submissions) that partially refuted the chair's "no public support" claim; bias audit; design critique; uncertainty and shapefile-impact analysis; academic literature review; dual-audience reports (public + academic); v1.2 pipeline prompt with integrity and red-team gates.
 
-**Skeleton script provided.** `analysis/v0_1_poll_attribution_skeleton.py` does the data loading and dataframe structuring. Stages 3-7 are stubs with implementation guidance — start there rather than from scratch.
+**What's next.** The two external unknowns that are still outstanding: 2026 boundary shapefiles (not yet released by Elections Alberta) and full measured vote attribution via Phase 4C execution. Both would improve precision. Neither is required for the headline findings.
 
-## Repository Layout
+## House voice (for any new writing)
+
+- Plain, grounded, conversational prose.
+- No mirrored "not X — Y" reversals. No templated triads. No emoji. No editorializing reactions.
+- Versioning: `major.minor`. `x.0` is locked, `x.1+` is revisions. Files use the version as a filename prefix (`v0_1_filename.ext`). Never describe anything as "final."
+- Public outputs target Flesch-Kincaid grade 9 or lower. Academic outputs target grade 13 or lower. The `analysis/check_voice_and_readability.py` script is a publication gate.
+
+## Repository Layout (v1.2)
 
 ```
 .
-├── CLAUDE.md                                  # this file
-├── README.md                                  # human-facing setup notes
-├── v0_8_gerrymander_audit_prompt.md           # YOUR INSTRUCTIONS — READ FIRST
-├── setup.sh                                   # installs Python deps for Phases 4–5
+├── CLAUDE.md                                       # this file
+├── README.md                                       # human-facing setup notes
+├── report_public.md                                # dual-audience primary (grade 9, subject-matter-naive)
+├── report_academic.md                              # dual-audience secondary (technical, legal framing, APA)
+├── report.html                                     # accessible HTML dissemination build
+├── migration.md                                    # handoff log for next session
+├── v1_2_gerrymander_audit_prompt.md                # current execution prompt
+├── alberta_redistricting_audit_final.md            # redirect pointer to the two reports
+├── setup.sh                                        # installs Python deps (incl. textstat, pyogrio)
 ├── data/
-│   ├── v0_1_alberta_2023_results.csv          # 87 EDs, candidate-level 2023 totals
-│   ├── v0_1_alberta_2019_results.csv          # 87 EDs, 2019 baseline
-│   ├── v0_1_majority_2026_populations.csv     # 89 majority-proposed EDs
-│   ├── v0_1_minority_2026_populations.csv     # 89 minority-proposed EDs
-│   └── 2023_results.xlsx                      # raw Statement of Vote (87 sheets, poll-level)
+│   ├── v0_1_alberta_2015_results.csv               # parsed 2015 election per-ED totals
+│   ├── v0_1_alberta_2019_results.csv               # 87 EDs, 2019 candidate-level
+│   ├── v0_1_alberta_2023_results.csv               # 87 EDs, 2023 candidate-level
+│   ├── v0_1_majority_2026_populations.csv          # 89 majority-proposed EDs
+│   ├── v0_1_minority_2026_populations.csv          # 89 minority-proposed EDs
+│   ├── v0_1_majority_hybrid_crosswalk.csv          # Appendix C extracted crosswalk
+│   ├── submission_search_dataset.csv               # per-submission keyword hit dataset
+│   ├── 2015_results.xlsx                           # raw 2015 Statement of Vote
+│   ├── 2023_results.xlsx                           # raw 2023 Statement of Vote
+│   └── (additional shapefile/DA data when acquired by Stage 1 sub-agent)
 ├── analysis/
-│   ├── v0_1_packing_cracking_analysis.py      # B1–B4 reproducible (RUN FIRST to verify)
-│   ├── v0_1_packing_cracking_results.md       # B1–B4 written findings
-│   ├── v0_1_three_map_partisan_comparison.html  # B1–B4 visual
-│   └── v0_1_poll_attribution_skeleton.py      # Phase 4C starting framework (NEW in v0.6)
+│   ├── v0_2_packing_cracking_analysis.py           # symmetric three-map B1–B6 (current)
+│   ├── v0_3_monte_carlo_ci.py                      # Monte Carlo CI + cross-election
+│   ├── electoral_forensics_population.py           # A1/A2/A3 + robustness
+│   ├── parse_2015_results.py                       # 2015 election parser
+│   ├── submission_search.py                        # submission archive keyword search
+│   ├── v0_1_poll_attribution_skeleton.py           # Phase 4C skeleton
+│   ├── v0_1_cross_election_rural_baseline.py       # 2015/2019/2023 rural baseline check
+│   ├── check_voice_and_readability.py              # PR1/PR2 publication gate
+│   ├── v0_1_section_A_population_equality.md       # §A writeup
+│   ├── v0_1_section_C_geographic_coherence.md      # §C writeup
+│   ├── v0_1_section_D_procedural.md                # §D writeup
+│   ├── v0_1_section_4_geometry_provenance.md       # §4 writeup
+│   ├── v0_1_bias_audit.md                          # self-audit of v0.1 methodology
+│   ├── v0_1_design_critique.md                     # hostile red-team pass
+│   ├── v0_1_uncertainty_and_shapefile_impact.md    # confidence intervals + shapefile scenarios
+│   ├── v0_1_prompt_readiness.md                    # v1.1→v1.2 execution-readiness assessment
+│   ├── v0_1_academic_literature_review.md          # literature gap analysis
+│   ├── submission_search_findings.md               # refutation verdict write-up
+│   ├── submission_search_log.md                    # submission-search technical log
+│   ├── v0_1_three_map_partisan_comparison.html     # B1–B4 visual from first session
+│   └── polls_2023_unified.csv                      # parsed Statement of Vote output
 ├── maps/
-│   ├── majority_calgary.jpg                   # Appendix A, p. 72 of final report
-│   └── minority_calgary.jpg                   # Appendix E, p. 74
-└── source_maps/
-    ├── minority_alberta_overview.jpg          # Appendix E, p. 73
-    ├── minority_edmonton.jpg                  # Appendix E, p. 75
-    └── minority_other_cities.jpg              # Appendix E, p. 76
+│   ├── majority_calgary.jpg                        # Appendix A, p. 72
+│   └── minority_calgary.jpg                        # Appendix E, p. 74
+├── source_maps/
+│   ├── minority_alberta_overview.jpg               # Appendix E, p. 73
+│   ├── minority_edmonton.jpg                       # Appendix E, p. 75
+│   └── minority_other_cities.jpg                   # Appendix E, p. 76
+├── deprecated/                                     # prior-version scripts + prompts retained for audit trail
+│   └── README.md                                   # explains each file
+├── drafts/                                         # work-in-progress (typically empty)
+│   └── README.md
+└── .temp/                                          # gitignored; large downloads go here
 ```
 
 ## First Action (Verify the Baseline)
 
-Run `python3 analysis/v0_1_packing_cracking_analysis.py` and confirm the output matches:
+Run these five scripts. All must produce outputs matching the tables in `v1_2_gerrymander_audit_prompt.md`:
 
-```
-2019 BOUNDARIES (CURRENT) under 2023 vote shares
-  Districts: 87, NDP 38, UCP 49
-  B2 Efficiency gap: -2.64%
-  B3 Mean-median (NDP): -2.22 pp
-  B4 NDP at 50/50: 46
-
-MINORITY 2026 PROPOSAL (estimated) under 2023 vote shares
-  Districts: 89
-  B2 Efficiency gap: +0.30%
-  B3 Mean-median (NDP): -0.01 pp
-  B4 NDP at 50/50: 43
+```bash
+python3 analysis/v0_2_packing_cracking_analysis.py
+python3 analysis/electoral_forensics_population.py
+python3 analysis/v0_3_monte_carlo_ci.py
+python3 analysis/v0_1_cross_election_rural_baseline.py
+python3 analysis/check_voice_and_readability.py
 ```
 
-If the output matches, the carry-forward state is verified.
-
-## Second Action (Verify the Skeleton)
-
-Run `python3 analysis/v0_1_poll_attribution_skeleton.py` and confirm it parses 1973 poll records (1216 Election Day, 341 Advance, 242 Mobile, 174 Special Ballot) with two-party total 1,706,304. The stubs will print `[STUB] ... implement before running` — that's expected. Implement them as you proceed through Phase 4C.
+If any output differs by more than 0.05 pp or one seat from the expected values, do not proceed — investigate the drift first.
 
 ## Dependencies
 
-Carry-forward script: standard library only.
-
-Phase 4C skeleton parsing: needs `openpyxl` (run `bash setup.sh` to install).
-
-Phase 4C full pipeline + Phase 5: needs `geopandas`, `geopy`, `osmnx`, `gerrychain` etc. — also installed by `setup.sh`.
+See `setup.sh`. Python 3.11+ required. Installs pandas, numpy, openpyxl, geopandas+pyogrio, shapely, pyproj, osmnx, gerrychain, pdfplumber, geopy, rapidfuzz, textstat.
 
 ## Critical Discipline Reminders
 
-- **Symmetry.** Every test, every map. If you flag a packing/cracking signal in the minority plan, check whether the equivalent move appears in the majority plan and the 2019 baseline.
-- **Vote Anywhere handling.** Only Election Day polls are spatially valid. Advance/Mobile/Special votes are home-ED-attributed regardless of physical location and must be apportioned by Election Day spatial share, not direct geocoding.
-- **Zero-Sum Verification gate.** Every geocoded poll must fall within its known 2019 ED before propagating to 2026 attribution. If "Acadia Community Hall" geocodes to Edmonton, the geocoder is wrong — discard or re-geocode.
-- **Geometric shift logging.** Any manual adjustment to make a checksum pass goes in `analysis/geometry_shift_log.md` with delta and justification. No silent transformations.
-- **Honest blocking.** If Phase 4 fails the population checksum (variance >2%), do not proceed to Phase 5 with bad geometry. Report the block cleanly.
+- **Symmetry.** Every test, every map. If a pattern is flagged in one proposal, check the equivalent in others.
+- **Vote Anywhere handling.** Only Election Day polls are spatially valid as proxies for where voters live. 2023 non-Election-Day votes make up 47.2% of total and must be apportioned by Election Day spatial share.
+- **Structural findings vs vote-based findings.** Report them separately. Structural findings (A1, A2, C3, C4, D) survive all three red-team tests (Monte Carlo CI, cross-metric agreement, cross-election stability). Vote-based findings (B1–B6) have 89% directional confidence, not 95% significance, and require explicit disclosure of Monte Carlo CI bounds, declination disagreement, and 2019 direction flip.
+- **Honest blocking.** If a stage fails a gate, stop and report. Fabricated results from a failed gate are worse than a documented block.
+- **No "final" in filenames or claims.** Everything is a revision.
 
-## Style Notes for the Project Owner (Wuff / Will Conner)
+## Output Audiences
 
-- Plain, grounded, conversational prose. No mirrored "not X — Y" reversals. No templated triads. No emoji. No editorializing reactions.
-- Versioning convention: `major.minor`. `x.0` is locked, `x.1+` is revisions. Files use the version as a filename prefix (`v0_1_filename.ext`). Paired files share version. Never describe anything as "final."
-- When you finish, write outputs as markdown files into `analysis/`. The compiled report goes to project root as `alberta_redistricting_audit_final.md`.
+- **Public/Media:** grade-9 reading level, subject-matter-naive. Primary audience for the audit.
+- **Academic/Legal:** full technical detail, APA citations, falsifiability statements, constitutional framing under *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991].
 
 ## When You Are Done
 
-Write a brief migration MD at project root named `migration.md` containing: phases completed, phases blocked (with reason), token spend, and recommended next session topic. Title format: `Set chat title to: Alberta Boundaries Audit — [Phase] (Chat N)` where N increments from previous sessions (this is at minimum Chat 5 if continuing the lineage).
+Update `migration.md` at project root with: phases completed, phases blocked (with reason), token spend, and recommended next session topic. Do not rename or delete files without updating this CLAUDE.md and the `deprecated/README.md`.

@@ -51,7 +51,7 @@ Three sub-paths (3a PDF crosswalk, 3b centroid-in-polygon with 2026 shapefiles, 
 
 2. **Grade 9 readability check is asserted but not operationalized.** v1.2 should specify the tool (`textstat.flesch_kincaid_grade`) and the threshold (≤9.0 for public report).
 
-3. **Wuff voice check has no verifier.** The forbidden patterns (not X — Y, templated triads, emoji) can be grep-detected. v1.2 should include a check script.
+3. **house voice check has no verifier.** The forbidden patterns (not X — Y, templated triads, emoji) can be grep-detected. v1.2 should include a check script.
 
 ---
 
@@ -65,7 +65,7 @@ Six assumptions in the v1.1 pipeline that would be load-bearing in a real execut
 | 2019→2026 ED mappings in `MAJORITY_2026_MAPPING` / `MINORITY_2026_MAPPING` are correct | Partial (name-based guesses for some; uncertain entries not flagged) | v1.2 adds confidence field per entry |
 | 2023 VA shapefile contains VA numbers matching the Statement of Vote's voting_areas field | No | Download + verify first, gate Stage 3 on it |
 | 70/30 urban weight is a reasonable default | Sensitivity-tested; no per-hybrid grounding | Could improve with Census DA-based estimates per hybrid |
-| Grade 9 readability achievable in Wuff voice | No quantitative check | v1.2 adds textstat verification |
+| Grade 9 readability achievable in house voice | No quantitative check | v1.2 adds textstat verification |
 | A2 Calgary zone classification is falsifiable | Two classifications checked (geographic + 2023-winner); adding a third (Calgary wards) would strengthen | v1.2 could pre-build the ward dataset |
 
 ---
@@ -78,7 +78,7 @@ Closing four of the six gaps:
 
 **2. Readability verification.** `textstat` added to `setup.sh` dependencies. Stage 6 gate specifies Flesch-Kincaid grade threshold of ≤9.0 for the public report. Script added.
 
-**3. Wuff voice pattern checker.** `analysis/check_wuff_voice.py` added. Greps for "not X — Y" constructions, emoji, and templated triad markers. Publication gate in v1.2.
+**3. house voice pattern checker.** `analysis/check_wuff_voice.py` added. Greps for "not X — Y" constructions, emoji, and templated triad markers. Publication gate in v1.2.
 
 **4. RT gate threshold tightening.** Each of RT1-RT6 gets explicit pass/qualified-pass/fail numeric thresholds with tie-breaker rules. Carried into v1.2.
 
@@ -138,7 +138,7 @@ v1.2 incorporates:
 - Vision budget cap at 800 VAs total with hybrid-only prioritization
 - RT1-RT6 explicit numeric thresholds with tie-breakers
 - Textstat readability gate for public report (FKG ≤ 9.0)
-- Wuff voice pattern check script as publication gate
+- house voice pattern check script as publication gate
 - 2015 added to RT3 cross-election stability check (with boundary-caveat disclosure)
 - Confidence field annotations on 2019→2026 ED mappings where uncertain
 - VA shapefile parse verification gated before Stage 3 execution
