@@ -15,7 +15,7 @@ Tier C. Pure Tier A rows inherit 2019 geometry and are not snapped (by design).
    pdfplumber's `page.to_image(resolution=…)` at **600 DPI** (equivalent to
    5100 x 6601 pixel output for landscape letter-size map pages). Output:
    `maps/hires/` for the majority Appendix A maps (pages 71, 73, 75, 77, 79,
-   81, 83, 85), `source_maps/hires/` for the minority maps (pages 359–362,
+   81, 83, 85) and for the minority maps (pages 359–362,
    which the PDF embeds as bitmap images rather than vector artwork).
 2. **OSM road-snapping of Tier B polygons.** For every Tier B 2026 ED, sampled
    the polygon boundary at ~200 m spacing, fetched OSM drive-network edges

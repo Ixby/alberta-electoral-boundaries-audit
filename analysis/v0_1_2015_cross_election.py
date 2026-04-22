@@ -298,23 +298,33 @@ def main():
     print(f"  2023      | {m_2023_maj['eg']*100:+6.2f}% | {m_2023_min['eg']*100:+6.2f}% | {asym_2023:+6.2f} pp")
 
     # Direction verdict
+    # Sign convention, per compute_metrics formula in v0_2:
+    #   EG = (ndp_wasted - ucp_wasted) / total
+    #   POSITIVE EG means NDP wastes more votes -> pro-UCP bias
+    #   NEGATIVE EG means UCP wastes more votes -> pro-NDP bias
+    # Therefore (min_EG - maj_EG):
+    #   POSITIVE asymmetry = minority MORE pro-UCP than majority
+    #   NEGATIVE asymmetry = minority LESS pro-UCP (more pro-NDP) than majority
+    # N.B.: analysis/v0_3_monte_carlo_ci.py lines 158-159 print inverted
+    # labels and should be re-worded in a follow-up.
     signs = [asym_eg, asym_2019, asym_2023]
     same_sign_neg = all(s < 0 for s in signs)
     same_sign_pos = all(s > 0 for s in signs)
     print()
-    if same_sign_neg:
-        print("  DIRECTION: All three elections produce negative asymmetry")
-        print("             (minority more UCP-favorable than majority).")
+    if same_sign_pos:
+        print("  DIRECTION: All three elections produce POSITIVE asymmetry")
+        print("             (minority MORE pro-UCP than majority).")
         print("             Direction claim passes RT3 strongly (3/3).")
-    elif same_sign_pos:
-        print("  DIRECTION: All three elections produce positive asymmetry")
-        print("             (minority less UCP-favorable than majority).")
-        print("             Direction claim passes RT3 in the OPPOSITE direction (3/3).")
+    elif same_sign_neg:
+        print("  DIRECTION: All three elections produce NEGATIVE asymmetry")
+        print("             (minority LESS pro-UCP / more pro-NDP than majority).")
+        print("             Direction claim reversed (3/3 in opposite direction).")
     else:
-        neg_count = sum(1 for s in signs if s < 0)
         pos_count = sum(1 for s in signs if s > 0)
-        print(f"  DIRECTION: Mixed. {neg_count} negative (UCP-favorable), {pos_count} positive.")
-        if neg_count == 2 or pos_count == 2:
+        neg_count = sum(1 for s in signs if s < 0)
+        print(f"  DIRECTION: Mixed. {pos_count} positive (minority MORE pro-UCP),")
+        print(f"             {neg_count} negative (minority LESS pro-UCP).")
+        if pos_count == 2 or neg_count == 2:
             print("             Qualified pass on RT3 (2/3 agree).")
         else:
             print("             No dominant direction. RT3 fails; direction is")

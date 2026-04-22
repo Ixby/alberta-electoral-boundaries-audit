@@ -126,9 +126,9 @@ The full crosswalk extraction is part of the Phase 4C preparation; see `analysis
 ```
 maps/majority_calgary.jpg
 maps/minority_calgary.jpg
-source_maps/minority_alberta_overview.jpg
-source_maps/minority_edmonton.jpg
-source_maps/minority_other_cities.jpg
+maps/minority_alberta_overview.jpg
+maps/minority_edmonton.jpg
+maps/minority_other_cities.jpg
 ```
 
 **Known gap.** The majority's Alberta overview, Edmonton, and other-cities maps were not extracted from the bundle's working copy. Section C3 therefore covers the majority's Calgary districts only. This is disclosed as a symmetry data gap in the academic report.
