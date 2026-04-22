@@ -246,6 +246,14 @@ These are not aesthetic calls. Each signature follows a short checklist laid out
 
 Cochrane's merger into a Calgary district looks like cracking but fails one test: Cochrane is too small (34,000 people) for its own district. The community concern is real; the formal signature is not.
 
+**But the Calgary pairing is not the only option, and arguably not the natural one.** Cochrane sits in Rocky View County, northwest of Calgary, along the Bow Valley corridor. Three non-Calgary pairings are available:
+
+- **Cochrane plus surrounding Rocky View rural** (Springbank, Bearspaw, Bragg Creek). This is what the majority map does. Small town plus its commuter-shed. Standard Alberta hybrid.
+- **Cochrane plus the Bow Valley mountain corridor** (Canmore, Kananaskis, Morley/Stoney Nakoda). Shared Trans-Canada Highway economy and tourism base. The 2019 Banff-Kananaskis district covers this area already.
+- **Cochrane plus the foothills-north rural belt** (Sundre area, Didsbury edge). Longer geographic reach but unified rural identity.
+
+The minority chose Cochrane plus a Calgary neighbourhood across the city's northwest edge via a narrow corridor. Cochrane is separated from Nolan Hill by the Bow River valley, the Calgary city limits, and a different local government. The minority pairing ignores all three rural-west options above. The Calgary-Cochrane merger is not the best available geographic choice. It is a choice. Whether it was a partisan choice or a policy choice the audit cannot tell you from the map alone.
+
 ---
 
 ## Stacking the deck, or looking like it? A suspicion sort
