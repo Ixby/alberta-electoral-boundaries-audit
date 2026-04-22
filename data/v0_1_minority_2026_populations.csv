@@ -1,6 +1,6 @@
 ed_name,population,region_type,deviation_pct,within_25pct
 Calgary-Acadia,53346,Calgary,-2.88,True
-Calgary-Airdrie,58820,Calgary,+7.08,True
+Calgary-Airdrie,58820,Calgary-hybrid,+7.08,True
 Calgary-Beddington,61320,Calgary,+11.64,True
 Calgary-Bow-Springbank,55560,Calgary-hybrid,+1.15,True
 Calgary-Buffalo,66801,Calgary,+21.61,True
