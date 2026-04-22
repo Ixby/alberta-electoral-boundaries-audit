@@ -1,14 +1,20 @@
 """
-Alberta Electoral Boundaries — Rigorous Packing/Cracking Analysis
+Alberta Electoral Boundaries — Packing/Cracking Analysis (v0.1)
 ==================================================================
-v0.1 — April 22, 2026
+DEPRECATED — superseded by analysis/v0_2_packing_cracking_analysis.py
 
-Computes the four canonical academic tests for partisan gerrymandering 
-(Stephanopoulos & McGhee 2014; McDonald & Best 2015) on:
-  - 2019 boundaries (currently in force) under 2023 vote shares
-  - Minority 2026 proposal (estimated) under 2023 vote shares
+This script computes B1-B4 on only the 2019 baseline and the minority
+2026 proposal. It does not compute the majority 2026 proposal, which
+the audit's symmetry requirement demands. Use v0.2 for any new work.
 
-Tests:
+The v0.1 script is retained for carry-forward verification of the
+baseline rerun — its 2019 and minority numbers match v0.2. Its original
+docstring contained directional language ("conservative", "UCP
+strongholds") flagged in analysis/v0_1_bias_audit.md as class-A2; that
+framing has been removed. The script computes the same tests as v0.2
+for the two maps it covers.
+
+Tests (Stephanopoulos & McGhee 2014; McDonald & Best 2015):
   B1: Vote distribution histogram
   B2: Efficiency gap
   B3: Mean-median difference
@@ -18,21 +24,15 @@ Inputs:
   v0_1_alberta_2023_results.csv      — 87 EDs, candidate-level 2023 totals
   v0_1_minority_2026_populations.csv — 89 minority-proposed EDs
 
-Outputs:
-  Console summary of all four tests for both map proposals plus a
-  side-by-side comparison.
+Methodology note (moved from earlier docstring):
+  Without 2026 shapefiles, hybrid EDs are estimated by blending the 2019
+  urban core's vote with a rural baseline (NDP 33.5%, from the 2023
+  Rest-of-Alberta observed share). Urban weight = 0.70. The same blend
+  is applied symmetrically in v0.2 to both 2026 maps; sensitivity to the
+  0.70 choice is reported there.
 
-Limits:
-  - Without proposed boundary shapefiles, minority hybrid EDs are 
-    estimated by blending the urban core's 2023 vote with rural averages.
-  - Rural blend uses a 70/30 (urban/rural) weighting and a 33.5% NDP / 
-    66.5% UCP rural baseline. This is conservative — actual rural areas 
-    the minority absorbs (Bearspaw, Springbank, Cochrane town, Chestermere) 
-    are wealthier UCP strongholds, not average rural Alberta.
-  - Test B5 (Markov Chain Monte Carlo ensemble comparison via GerryChain) 
-    requires shapefiles ABEBC has not released. Not run.
-  - Majority 2026 plan not included — requires extraction of majority's 
-    per-ED populations from Appendix B (pp. 87–266) of the report PDF.
+Test B5 (GerryChain MCMC ensemble) requires shapefiles ABEBC has not
+released. Not run.
 """
 
 import csv

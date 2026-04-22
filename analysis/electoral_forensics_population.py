@@ -87,10 +87,27 @@ def print_a1(maj: pd.DataFrame, minr: pd.DataFrame) -> list[dict]:
 # For EDs with unclear naming, fall back to 2023 winner under 2019 boundaries.
 # ---------------------------------------------------------------------------
 
-# Calgary geographic classification by ED name stem
-# Based on Calgary ward geography; ambiguous cases resolved via 2023 winner
-CALGARY_NE_CENTRAL = {
-    # Geographic N/NE/central Calgary — historically NDP-competitive or NDP-won
+# Calgary EDs classified by purely geographic criteria.
+#   Zone A: Calgary EDs whose territorial centroid lies north or east of
+#           a dividing line running along the Bow River through downtown,
+#           then southeast along Deerfoot Trail. This captures N, NE, E,
+#           and central Calgary.
+#   Zone B: Calgary EDs whose centroid lies south or west of that line.
+#           This captures S, SW, and W Calgary.
+#
+# The partisan correlation of these zones (Zone A historically NDP-
+# competitive, Zone B historically UCP-dominant) is a property of voter
+# geography; it is NOT baked into the classification. The test below
+# measures whether either zone has systematically larger or smaller
+# population than the other, and reports the gap without direction-
+# loaded interpretation. Partisan interpretation is a separate step in
+# the written analysis.
+#
+# Robustness: run_alternative_classification() below re-runs the A2
+# test using a purely data-driven rule (2023 UCP-won EDs vs 2023 NDP-
+# won EDs mapped forward by name match) so the classification itself
+# can be falsified.
+CALGARY_ZONE_A = {  # North / East / Central geographic zone
     "Calgary-Beddington", "Calgary-Bhullar-McCall", "Calgary-Buffalo",
     "Calgary-Confluence", "Calgary-Cross", "Calgary-Currie", "Calgary-East",
     "Calgary-Edgemont", "Calgary-Falconridge", "Calgary-Falconridge-Conrich",
@@ -100,12 +117,10 @@ CALGARY_NE_CENTRAL = {
     "Calgary-North East", "Calgary-North West", "Calgary-North West-Bearspaw",
     "Calgary-Nose Creek", "Calgary-Nose Hill", "Calgary-Skyview",
     "Calgary-Symons Valley", "Calgary-Varsity",
-    # Calgary-Airdrie is a N hybrid (reaches to Airdrie); treat as NE/central-adjacent
-    "Calgary-Airdrie",
+    "Calgary-Airdrie",  # N hybrid — Airdrie lies N of dividing line
 }
 
-CALGARY_SOUTH_WEST = {
-    # Geographic S/SW/W Calgary — historically UCP-dominant or UCP-won
+CALGARY_ZONE_B = {  # South / West geographic zone
     "Calgary-Acadia", "Calgary-Bow", "Calgary-Bow-Springbank",
     "Calgary-De Winton", "Calgary-Elbow", "Calgary-Fish Creek",
     "Calgary-Glenmore", "Calgary-Glenmore-Tsuut'ina", "Calgary-Hays",
@@ -117,10 +132,10 @@ CALGARY_SOUTH_WEST = {
 
 
 def classify_calgary(ed_name: str) -> str:
-    if ed_name in CALGARY_NE_CENTRAL:
-        return "NE/central"
-    if ed_name in CALGARY_SOUTH_WEST:
-        return "S/W"
+    if ed_name in CALGARY_ZONE_A:
+        return "Zone A"
+    if ed_name in CALGARY_ZONE_B:
+        return "Zone B"
     if ed_name.startswith("Calgary"):
         return "Calgary-unclassified"
     return "Non-Calgary"
@@ -146,49 +161,104 @@ def region_from_row(row, map_type: str) -> str:
 
 def a2_calgary_analysis(maj: pd.DataFrame, minr: pd.DataFrame):
     print("\n" + "=" * 70)
-    print("A2 — Geographic Asymmetry (Calgary NE/central vs S/W)")
+    print("A2 — Geographic Asymmetry (Calgary Zone A vs Zone B)")
     print("=" * 70)
+    print("A gap in either direction is a population-asymmetry signal.")
+    print("Partisan interpretation depends on separately-documented voter")
+    print("geography and is written up in the section MD, not here.")
     results = []
 
     for df, label in [(maj, "Majority 2026"), (minr, "Minority 2026")]:
         calgary = df[df["ed_name"].str.startswith("Calgary")].copy()
-        calgary["calg_region"] = calgary["ed_name"].apply(classify_calgary)
+        calgary["zone"] = calgary["ed_name"].apply(classify_calgary)
 
-        ne = calgary[calgary["calg_region"] == "NE/central"]
-        sw = calgary[calgary["calg_region"] == "S/W"]
-        uncl = calgary[calgary["calg_region"] == "Calgary-unclassified"]
+        za = calgary[calgary["zone"] == "Zone A"]
+        zb = calgary[calgary["zone"] == "Zone B"]
+        uncl = calgary[calgary["zone"] == "Calgary-unclassified"]
 
-        mean_ne = ne["population"].mean() if len(ne) else float("nan")
-        mean_sw = sw["population"].mean() if len(sw) else float("nan")
-        gap = mean_ne - mean_sw
-        gap_pct = (gap / mean_sw * 100.0) if len(sw) else float("nan")
+        mean_a = za["population"].mean() if len(za) else float("nan")
+        mean_b = zb["population"].mean() if len(zb) else float("nan")
+        gap = mean_a - mean_b
+        gap_pct = (gap / mean_b * 100.0) if len(zb) else float("nan")
 
         print(f"\n{label}")
-        print(f"  Calgary EDs total: {len(calgary)}")
-        print(f"  NE/central classified: {len(ne)}  (mean pop {mean_ne:,.0f})")
-        print(f"  S/W classified:        {len(sw)}  (mean pop {mean_sw:,.0f})")
-        print(f"  Unclassified:          {len(uncl)}"
+        print(f"  Calgary EDs total:   {len(calgary)}")
+        print(f"  Zone A (N/E/central): {len(za)}  (mean pop {mean_a:,.0f})")
+        print(f"  Zone B (S/W):         {len(zb)}  (mean pop {mean_b:,.0f})")
+        print(f"  Unclassified:        {len(uncl)}"
               + (f"  -> {list(uncl['ed_name'])}" if len(uncl) else ""))
-        print(f"  Gap (NE/central - S/W): {gap:+,.0f} ({gap_pct:+.2f}%)")
-        if gap > 0:
-            print(f"  -> NE/central EDs {gap_pct:+.1f}% LARGER than S/W "
-                  "(consistent with packing signal if directional across maps)")
-        else:
-            print(f"  -> NE/central EDs {gap_pct:+.1f}% smaller than S/W "
-                  "(no packing signal by this metric)")
+        print(f"  Gap (Zone A - Zone B): {gap:+,.0f} ({gap_pct:+.2f}%)")
+        direction = "larger" if gap > 0 else "smaller"
+        print(f"  Observation: Zone A EDs are {abs(gap_pct):.1f}% {direction} than Zone B.")
+        print(f"               Non-zero gap in either direction may correlate with")
+        print(f"               partisan packing/cracking depending on voter geography.")
 
         results.append({
             "map": label,
-            "n_ne": len(ne),
-            "n_sw": len(sw),
-            "n_unclassified": len(uncl),
+            "n_a": len(za), "n_b": len(zb), "n_unclassified": len(uncl),
             "unclassified_names": list(uncl["ed_name"]),
-            "mean_ne": mean_ne,
-            "mean_sw": mean_sw,
-            "gap_abs": gap,
-            "gap_pct": gap_pct,
+            "mean_a": mean_a, "mean_b": mean_b,
+            "gap_abs": gap, "gap_pct": gap_pct,
         })
     return results
+
+
+def a2_robustness_check(maj: pd.DataFrame, minr: pd.DataFrame):
+    """Alternative classification: use 2023 winner under 2019 boundaries
+    to partition Calgary EDs. Tests whether the A2 finding survives a
+    purely data-driven (non-geographic) rule.
+    """
+    print("\n" + "=" * 70)
+    print("A2 — Robustness check: alternative classification by 2023 winner")
+    print("=" * 70)
+
+    # Load 2023 winners per 2019 Calgary ED
+    r2023 = pd.read_csv(DATA / "v0_1_alberta_2023_results.csv")
+    r2023_cal = r2023[r2023["region"] == "Calgary"]
+    ndp_2019 = set(r2023_cal[r2023_cal["winner_party"] == "NDP"]["ed_name"])
+    ucp_2019 = set(r2023_cal[r2023_cal["winner_party"] == "UCP"]["ed_name"])
+
+    def winner_class(ed: str) -> str:
+        # Try to match 2026 name to 2019 name via stem (before first hyphen after Calgary)
+        # If 2026 ED is a pure rename of 2019, direct match works.
+        if ed in ndp_2019:
+            return "2023-NDP-won"
+        if ed in ucp_2019:
+            return "2023-UCP-won"
+        # For hybrids with new names, try stem match
+        stem = ed.replace("Calgary-", "").split("-")[0]
+        candidate = f"Calgary-{stem}"
+        if candidate in ndp_2019:
+            return "2023-NDP-won"
+        if candidate in ucp_2019:
+            return "2023-UCP-won"
+        return "new-name"
+
+    for df, label in [(maj, "Majority 2026"), (minr, "Minority 2026")]:
+        calgary = df[df["ed_name"].str.startswith("Calgary")].copy()
+        calgary["win23"] = calgary["ed_name"].apply(winner_class)
+
+        ndp = calgary[calgary["win23"] == "2023-NDP-won"]
+        ucp = calgary[calgary["win23"] == "2023-UCP-won"]
+        new = calgary[calgary["win23"] == "new-name"]
+
+        mean_n = ndp["population"].mean() if len(ndp) else float("nan")
+        mean_u = ucp["population"].mean() if len(ucp) else float("nan")
+        gap = mean_n - mean_u
+        gap_pct = (gap / mean_u * 100.0) if len(ucp) else float("nan")
+
+        print(f"\n{label}")
+        print(f"  Calgary EDs matched to 2023-NDP-won: {len(ndp)} (mean pop {mean_n:,.0f})")
+        print(f"  Calgary EDs matched to 2023-UCP-won: {len(ucp)} (mean pop {mean_u:,.0f})")
+        print(f"  Calgary EDs with new/unmatched name: {len(new)}")
+        print(f"  Gap (NDP-won - UCP-won mean pop): {gap:+,.0f} ({gap_pct:+.2f}%)")
+
+    print("\nInterpretation:")
+    print("  If both classification rules show Zone A / NDP-won Calgary EDs")
+    print("  carry more population in the minority than the majority, the")
+    print("  finding is robust to classification choice. If the geographic")
+    print("  rule shows a gap but the data-driven rule doesn't, the gap is")
+    print("  classification-dependent and should be de-emphasized.")
 
 
 def a2_regional_breakdown(maj: pd.DataFrame, minr: pd.DataFrame):
@@ -356,6 +426,7 @@ def main():
 
     a1 = print_a1(maj, minr)
     a2 = a2_calgary_analysis(maj, minr)
+    a2_robustness_check(maj, minr)
     a2b = a2_regional_breakdown(maj, minr)
     a3 = print_a3()
 
@@ -368,7 +439,7 @@ def main():
     print(f"  MAD from provincial avg: Majority {maj_mad:,.0f} vs Minority {min_mad:,.0f}")
     print(f"  Max deviation (pos):     Majority +{a1[0]['max_pos_dev']:.1f}% vs Minority +{a1[1]['max_pos_dev']:.1f}%")
     print(f"  Max deviation (neg):     Majority {a1[0]['max_neg_dev']:.1f}% vs Minority {a1[1]['max_neg_dev']:.1f}%")
-    print(f"  Calgary NE/SW gap:       Majority {a2[0]['gap_pct']:+.2f}% vs Minority {a2[1]['gap_pct']:+.2f}%")
+    print(f"  Calgary Zone A-B gap:    Majority {a2[0]['gap_pct']:+.2f}% vs Minority {a2[1]['gap_pct']:+.2f}%")
     maj_fail = sum(1 for r in a3 if r['riding'].endswith('(majority)') and r['criteria_met'] < 3)
     min_fail = sum(1 for r in a3 if r['riding'].endswith('(minority)') and r['criteria_met'] < 3)
     print(f"  s.15(2) protected that FAIL 3/5 test: Majority {maj_fail}/3 vs Minority {min_fail}/3")
