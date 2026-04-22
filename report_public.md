@@ -60,7 +60,7 @@ Each of the five disputed districts below is discussed in turn after the table.
 
 **Calgary-Nolan Hill-Cochrane.** Reaches from the town of Cochrane across Calgary's northwest corner to the Nolan Hill neighbourhood, skipping intervening Calgary neighbourhoods. Chair Miller singled this one out in his own report.
 
-**Airdrie, four ways.** Airdrie is a city of about 84,000 just north of Calgary. The majority map puts Airdrie into two ridings — Airdrie-East and Airdrie-Cochrane — both of which carry the city's name. The minority splits it four ways, and no resulting district is named Airdrie. An Airdrie voter under the minority map would never see their city on their ballot.
+**Airdrie, four ways.** Airdrie is a city of about 74,100 in the 2021 census. (The minority's paperwork uses 84,000, the 2024 estimate.) The majority map puts Airdrie into two ridings — Airdrie-East and Airdrie-Cochrane — both of which carry the city's name. The minority splits it four ways, and no resulting district is named Airdrie. An Airdrie voter under the minority map would never see their city on their ballot. The city projects growth to about 128,000 by 2033. That is a real argument for more Airdrie-adjacent seats next time. It is not an argument for four-way splitting today; a two-way split fits the legal window and leaves room for the next redraw.
 
 **Chestermere.** A bedroom community of about 25,000 east of Calgary. The majority keeps it with its natural neighbour Strathmore. The minority splits it between Calgary and Chestermere-Strathmore.
 
@@ -112,6 +112,8 @@ The table below shows each test's value on the current 2019 map and on both 2026
 A negative efficiency gap points toward UCP advantage. The minority's −1.36% is about one-fifth the size of the 7% threshold that American courts have used to flag suspect maps. In seats, the Monte Carlo point estimate is two NDP seats lost under the minority in a tied election. The 95 percent confidence interval actually crosses zero — meaning under the full range of modelling assumptions the minority could give the UCP three extra seats, or give the NDP one extra seat. The direction is probably UCP-favourable. The exact size is uncertain.
 
 There is a more uncomfortable wrinkle. Run the same calculation using the 2019 election as the underlying vote pattern instead of 2023, and the advantage reverses — the minority map would help the NDP. When a test's answer depends on which election you feed it, the answer is partly about the voters rather than about the map. That cuts against any confident claim that the minority is a reliable UCP assist in every scenario.
+
+One cross-check does hold. Plug in April 2026 polling from 338Canada instead of 2023 vote results, run the same math, and the 1-seat minority-vs-majority gap shows up again. The overall vote levels differ — 338's numbers project a UCP blowout today — but the gap between the two maps is the same size under both inputs. That is evidence the 1-seat tilt is a feature of the map, not of whichever election is plugged in.
 
 > **What's the efficiency gap?** A measure of how many votes each party "wastes." Votes for a loser are wasted. Votes for a winner above what was needed to win are also wasted. The efficiency gap is the difference between the two parties' wasted-vote rates. Zero means neither party systematically wastes more votes than the other. Negative numbers (in this province's reporting convention) favour the UCP; positive favour the NDP.
 
@@ -173,6 +175,8 @@ Premier Danielle Smith's stated reason for rejecting the commission's work is th
 
 The government took that off-ramp. On April 16 the legislature passed the motion 44 to 36. A select committee, chaired by UCP MLA Brandon Lunty, now has until November 2 to recommend a 91-seat map, advised by an independent panel whose members and terms haven't been made public. Elections Alberta called the timeline "very challenging" — boundary changes are supposed to be in place at least 18 months before a general election, and the next one is in fall 2027.
 
+Miller's addendum was conditional in more ways than one. He said the 91-seat step should use the majority map as the starting point, add two rural seats, and leave the rest of the province alone. He also wrote four specific rules: no changes in Airdrie or south of it, no changes north of Edmonton's river, and a return of south-Edmonton districts to the earlier draft. And he said plainly his goal was "to dissuade the Legislature from accepting the minority report." The April 16 motion borrows his 91-seat number. It does not borrow the majority map, the four rules, or the goal. It sends the redraw to an MLA committee that could put the minority's configurations back on the table. The number traces to the chair. The rest is a separate set of choices.
+
 NDP Leader Naheed Nenshi called it "gerrymandering — a full-on assault on our democracy." NDP MLA Rakhi Pancholi said "changing electoral boundaries to give their own party an advantage is gerrymandering." Both framings assume a map that does not yet exist.
 
 Here is what can and can't be said honestly.
@@ -206,7 +210,7 @@ When the committee tables its map in November, calling it a gerrymander requires
 
 - Two extra rural seats on their own. That is what Smith said would happen. Not a gerrymander signal on its own.
 - Calgary zone gap similar to the minority's. Could be inherited from the minority's structure rather than re-engineered.
-- Keeping the Nolan Hill-Cochrane hybrid — but the usual "commuter-tie" defence does not hold up on inspection. Cochrane commuters travel to central Calgary job centres, not to suburban residential neighbourhoods like Nolan Hill. Nolan Hill is on the commute path, not at the destination. A committee that keeps this specific pairing would need a different justification than commuter ties.
+- Keeping the Nolan Hill-Cochrane hybrid — but the usual commuter-tie defence is weaker than it looks. Statistics Canada's 2021 journey-to-work data shows 49 percent of Cochrane workers work inside Cochrane, 36 percent commute somewhere in Calgary, and the rest scatter. The Cochrane-to-Calgary commute is real. It is still a minority of workers. And the data cannot say whether the Calgary-bound workers head to Nolan Hill; it groups all of Calgary as one destination. Nolan Hill is a quiet residential area with little employment. The leap from "Cochrane commutes to Calgary" to "Cochrane belongs in the Nolan Hill district" is not supported by the data. A committee that keeps this pairing would need a different justification.
 
 **Process signals (not about the map but still relevant):**
 
@@ -214,6 +218,7 @@ When the committee tables its map in November, calling it a gerrymander requires
 - Advisory panel members not publicly named or their terms of reference withheld.
 - Draft map not released for public comment before the legislative vote.
 - Legislative adoption without amendment, without published dissent.
+- AI tools used to draft the map without the prompts, seeds, and candidate ensembles published alongside the final report. The Premier's April 16 remark implied AI might be in the workflow. A committee that uses AI responsibly can document every prompt, every seed, every model version, and publish the ensemble its chosen map was picked from. A committee that can't — or won't — is borrowing legitimacy it hasn't earned. The audit has a full AI-use framework in [analysis/v0_1_ai_use_recommendations_for_committee.md](analysis/v0_1_ai_use_recommendations_for_committee.md).
 
 **Things that look bad but are not sure signs:**
 
@@ -289,6 +294,10 @@ The five population-math tests that could be run from Statistics Canada 2021 Cen
 Five population-math justifications tested. Five failed. In plain language: none of these five contested minority configurations were required by the population rules they would invoke as defence. The configurations may be defensible on other grounds — community philosophy, commuter patterns, geographic intuition — but not on population math. The specific arithmetic defence is not available.
 
 Raw tables and the reproducible pipeline: [analysis/v0_1_justification_tests_findings.md](analysis/v0_1_justification_tests_findings.md). Census data used is the 2021 CSD population table (Statistics Canada).
+
+**Two more rationales were checked against simple public data.** The minority defends Calgary-Bow-Springbank partly on the claim that Springbank and west Calgary share schools. They do not. Springbank is in Rocky View Schools; west Calgary is in the Calgary Board of Education. The same mismatch shows up for Red Deer-Sylvan Lake: Sylvan Lake is in Chinook's Edge; Red Deer city is in Red Deer Public. The "shared schools" argument does not hold in either case. The minority's broader regional-economy framing does fare better. Alberta has a Central REDA covering Red Deer, Innisfail, Blackfalds, Lacombe, and Sylvan Lake. It has a Calgary Regional Partnership covering Calgary, Airdrie, Cochrane, Chestermere, and the commuter ring. Those groupings are real. They do not pick specific boundaries, but they show the cities cluster for reasons other than partisan math.
+
+Raw tables for the rationale inventory and validation: [analysis/v0_1_minority_rationales_validation.md](analysis/v0_1_minority_rationales_validation.md).
 
 > **Why this matters for the suspicion sort.** Each single redraw has an innocent explanation. The pattern — six unforced choices in the same direction — is what the audit can flag without claiming intent. A reader can read that as "different philosophies" or as "different politics" or as both. The audit gives the facts and lets the reader weigh.
 
@@ -423,6 +432,9 @@ This audit will be updated when Elections Alberta releases the digital boundary 
 - [Full technical report with every calculation cited](report_academic.md)
 - [Visualized version with three interactive figures](report.html)
 - [Marginal-seats analysis and 2023 flip-zone list](analysis/v0_1_marginal_seats_findings.md)
+- [Rationale-by-rationale validation of the minority report's justifications](analysis/v0_1_minority_rationales_validation.md)
+- [Chair's Recommendation 5 addendum, close reading](analysis/v0_1_chair_recommendation_5_analysis.md)
+- [AI-use recommendations for the November committee](analysis/v0_1_ai_use_recommendations_for_committee.md)
 - [Source repository, data, and commit history](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 
 ## Source trail

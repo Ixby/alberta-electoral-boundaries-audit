@@ -1,6 +1,6 @@
 # Migration — Alberta Boundaries Audit
 
-**Current state:** v0.11 published. Eight chat sessions in this chain. Dual-audience reports (public + academic) + accessible HTML. Formal signature detection (packing, cracking, engineered-boundary). Per-redraw seat-consequence breakdown. Alternatives-available analysis for all contested redraws. Population-math tests run against five minority justifications (all five fail). Hybrid-count vs government-rationale analysis. Pre-registered checklist for identifying a gerrymander in the November 91-seat map.
+**Current state:** v0.12 published. Nine chat sessions in this chain. Dual-audience reports (public + academic) + accessible HTML. Formal signature detection (packing, cracking, engineered-boundary). Per-redraw seat-consequence breakdown. Alternatives-available analysis for all contested redraws. Population-math tests run against five minority justifications (all five fail). Hybrid-count vs government-rationale analysis. Pre-registered checklist for identifying a gerrymander in the November 91-seat map. Session 9 additions: 25-rationale inventory and validation with three contradicted claims (two shared-schools, one 91-seat framing); Cochrane journey-to-work from StatsCan Table 98-10-0459 (Calgary-bound 35.8% of out-commuters; within-Calgary destination not testable); CSD-level community-splits count as bounding null; 338Canada per-riding cross-validation confirming the 1-seat structural asymmetry survives both 2023 votes and April 2026 polling; close reading of Chair Miller's Recommendation 5 addendum identifying form-match / conditions-pending / intent-inverted relationship to the April 16 motion; AI-use framework for the November committee (non-partisan, five disciplines, nine-item disclosure checklist); partial OCR of the 88 non-text-layer submissions (14 recovered, 1 new hit supporting Rocky Mountain House-Banff configuration).
 
 **Working prompt for next session:** `v1_2_gerrymander_audit_prompt.md`.
 
@@ -36,11 +36,11 @@ Tracks are ordered by what can start first. Immediate tracks need no external da
 
 Order these by the next session's priorities.
 
-**Track G — StatsCan journey-to-work verification for Cochrane.** Highest value for cost. Download StatsCan table 98-10-0438 (journey-to-work flows by census subdivision) and compute Cochrane→central Calgary versus Cochrane→Nolan Hill/NW suburbs flows. If central Calgary dominates (expected), the commuter defence for the Nolan Hill-Cochrane minority hybrid is formally falsified. Estimated cost: ~25K tokens, 30 minutes. No dependencies.
+**Track G — StatsCan journey-to-work verification for Cochrane.** *Closed in session 9.* Correct table is StatsCan 98-10-0459 (98-10-0438 as listed in the v0.11 migration doc does not exist in the WDS catalogue; the correct PID was substituted on execution). Output: 49.2% of Cochrane workers work inside Cochrane, 35.8% commute to Calgary, 4.0% to Rocky View, 2.2% to Canmore, 1.5% to Airdrie. The CSD-level evidence **does not formally falsify** the minority's commuter-tie defence, contrary to the v0.11 migration doc's prediction: the 2021 public release collapses Calgary into a single CSD, so within-Calgary destination is not directly testable, and the inference that Cochrane→Calgary commuters do not target Nolan Hill rests on the separate fact that Nolan Hill is a quiet residential neighbourhood without significant employment. Verdict revised to INCONCLUSIVE at CSD resolution; prior against the minority's specific pairing but not formal refutation. Full method in `analysis/v0_1_cochrane_journey_to_work.md`.
 
-**Track B — Phase 4C Vision-assignment execution.** Substrate is ready: `data/va_polygons_with_2023_votes.gpkg` is validated (gates S3a/b/c all pass), `data/hybrid_adjacent_vas.csv` narrows the Vision work to 1,438 VAs (prioritize the 588 majority-hybrid-affected). Produces measured B1–B4 per map and collapses the Monte Carlo CI to a single value. Playbook in `analysis/phase_4c_runbook.md`. Estimated cost: ~215K tokens, 2–4 hours.
+**Track B — Phase 4C Vision-assignment execution.** *Still pending.* Substrate is ready: `data/va_polygons_with_2023_votes.gpkg` is validated (gates S3a/b/c all pass), `data/hybrid_adjacent_vas.csv` narrows the Vision work to 1,438 VAs (prioritize the 588 majority-hybrid-affected). Produces measured B1–B4 per map and collapses the Monte Carlo CI to a single value. Playbook in `analysis/phase_4c_runbook.md`. Estimated cost: ~215K tokens, 2–4 hours. **Value reassessment needed:** with the 89-seat commission proposals set aside by the April 16 motion, the precision gain on proposal-specific B1–B4 is marginal; the value of Phase 4C is now primarily cross-validation rather than primary measurement.
 
-**Track H — Community-of-interest analysis at CSD level.** New. Use `data/alberta_2021_csds.gpkg` + `data/alberta_2021_csd_populations.csv` + hybrid crosswalks to compute, per map, how many census subdivisions are split across multiple districts versus kept whole. Formalizes the community-of-interest discussion currently in §C4 with verifiable counts. Estimated cost: ~20K tokens, 30 minutes.
+**Track H — Community-of-interest analysis at CSD level.** *Closed in session 9.* Per-map CSD splits: 2019 66 of 191 (34.6%); Majority 2026 66 of 191 (34.6%, inferred); Minority 2026 lower-bound 54 of 191 (28.3%) to upper-bound 66. Confident-only subset (n=139, excluding uncertainties): identical 40 splits under all three maps. Conclusion: majority-minority asymmetry in §C4 operates at within-ED partition resolution, not at CSD granularity, and is not measurable without 2026 shapefiles. Full method in `analysis/v0_1_csd_community_splits.md`.
 
 **Track D — OCR the 88 missing submissions.** Only do this if the audit is headed toward legal proceedings or a journal submission. The main findings do not depend on it; the chair's claim refutation rests on identified counter-examples. Estimated cost: ~30K tokens, 1 hour.
 
@@ -98,9 +98,14 @@ Estimated cost: ~80K tokens, 1–2 hours for the baseline re-audit; ~50K more if
 | C1 Polsby-Popper | Requires shapefiles | Blocked |
 | C2 Reock | Requires shapefiles | Blocked |
 | 338Canada 2027 projection | Current snapshot cited (UCP blowout); refresh every 60-90 days | Useful as context |
+| 338Canada per-riding cross-validation (Track J) | Complete — r=0.960 per-riding, same 1-seat asymmetry under 2023 votes and April 2026 polling | Structural finding validated |
 | 91-seat proposal | Preliminary + pre-registered November checklist | LOW-SPECULATION quantitative; checklist ready |
-| Journey-to-work test (Nolan Hill-Cochrane) | Not yet run (Track G) | Ready to run |
-| CSD-level community splits (Track H) | Not yet run | Ready to run |
+| Journey-to-work test (Cochrane, Track G) | Complete — Calgary direction confirmed, within-Calgary not testable at CSD resolution | INCONCLUSIVE at CSD resolution |
+| CSD-level community splits (Track H) | Complete — all three maps split 34.6% of CSDs; asymmetry is within-ED, not CSD-level | Null symmetric across maps |
+| Minority rationales inventory and validation (Track I) | Complete — 25 rationales, 3 contradicted (2 shared-schools, 1 chair-misattribution) | New grade of failure documented |
+| Chair Miller's Recommendation 5 close reading | Complete — form-match, conditions-pending, intent-inverted | Reframes §5.2 procedural finding |
+| AI-use recommendations for November committee | Complete — 5 disciplines, 9-item disclosure checklist | Non-partisan technical contribution |
+| Submission OCR (Track D partial) | 14 of 88 recovered, 1 new keyword hit (Rocky Gas Co-Op supporting RMH) | Marginal update to chair's-claim refutation |
 
 ---
 
@@ -137,9 +142,10 @@ Estimated cost: ~80K tokens, 1–2 hours for the baseline re-audit; ~50K more if
 | 6 (reporter + designer + 338 + signal-strength + sus/innocent) | ~100K |
 | 7 (seat-consequences + signatures + alternatives + hybrid analysis) | ~70K |
 | 8 (commuter examination + population-math tests) | ~50K |
-| Background sub-agents across all sessions | ~600K |
+| 9 (tracks G/H/I/J parallel + chair R5 + AI recs) | ~100K parent |
+| Background sub-agents across all sessions | ~1.0M |
 
-Total approximate across this chat chain: ~1.18M tokens. Sub-agents absorbed ~600K, keeping parent sessions well inside budget.
+Total approximate across this chat chain: ~1.7M tokens. Sub-agents absorbed ~1.0M, keeping parent sessions well inside budget.
 
 ---
 
@@ -185,8 +191,8 @@ Total approximate across this chat chain: ~1.18M tokens. Sub-agents absorbed ~60
 8. Use sub-agents for multi-file research, parallel tasks, web fetches, validation passes, data acquisition, and anything over 15K tokens. See CLAUDE.md §"Use Sub-Agents Whenever Possible."
 9. Commit intermediate work as you go; never claim "final" — everything is versioned.
 
-The repository is at v0.11. The next commit should increment the appropriate version (v0.11 → v0.12 for revisions, v0.11 → v1.0 for a locked release).
+The repository is at v0.12. The next commit should increment the appropriate version (v0.12 → v0.13 for revisions, v0.12 → v1.0 for a locked release).
 
 ---
 
-*Migration doc v0.11. Authored April 22, 2026 at the close of session 8. Tracks ordered by timeliness. If the next session diverges materially from the documented state, update this file first before making downstream changes.*
+*Migration doc v0.12. Authored April 22, 2026 at the close of session 9. Tracks ordered by timeliness. If the next session diverges materially from the documented state, update this file first before making downstream changes.*

@@ -1,0 +1,88 @@
+code,riding,region
+1001,Calgary-Acadia,Calgary
+1002,Calgary-Beddington,Calgary
+1003,Calgary-Bow,Calgary
+1004,Calgary-Buffalo,Calgary
+1005,Calgary-Cross,Calgary
+1006,Calgary-Currie,Calgary
+1007,Calgary-East,Calgary
+1008,Calgary-Edgemont,Calgary
+1009,Calgary-Elbow,Calgary
+1010,Calgary-Falconridge,Calgary
+1011,Calgary-Fish Creek,Calgary
+1012,Calgary-Foothills,Calgary
+1013,Calgary-Glenmore,Calgary
+1014,Calgary-Hays,Calgary
+1015,Calgary-Klein,Calgary
+1016,Calgary-Lougheed,Calgary
+1017,Calgary-Bhullar-McCall,Calgary
+1018,Calgary-Mountain View,Calgary
+1019,Calgary-North,Calgary
+1020,Calgary-North East,Calgary
+1021,Calgary-North West,Calgary
+1022,Calgary-Peigan,Calgary
+1023,Calgary-Shaw,Calgary
+1024,Calgary-South East,Calgary
+1025,Calgary-Varsity,Calgary
+1026,Calgary-West,Calgary
+1027,Edmonton-Beverly-Clareview,Edmonton
+1028,Edmonton-Castle Downs,Edmonton
+1029,Edmonton-City Centre,Edmonton
+1030,Edmonton-Decore,Edmonton
+1031,Edmonton-Ellerslie,Edmonton
+1032,Edmonton-Glenora,Edmonton
+1033,Edmonton-Gold Bar,Edmonton
+1034,Edmonton-Highlands-Norwood,Edmonton
+1035,Edmonton-Manning,Edmonton
+1036,Edmonton-McClung,Edmonton
+1037,Edmonton-Meadows,Edmonton
+1038,Edmonton-Mill Woods,Edmonton
+1039,Edmonton-North West,Edmonton
+1040,Edmonton-Riverview,Edmonton
+1041,Edmonton-Rutherford,Edmonton
+1042,Edmonton-South,Edmonton
+1043,Edmonton-South West,Edmonton
+1044,Edmonton-Strathcona,Edmonton
+1045,Edmonton-West Henday,Edmonton
+1046,Edmonton-Whitemud,Edmonton
+1047,Airdrie-Cochrane,South
+1048,Airdrie-East,South
+1049,Athabasca-Barrhead-Westlock,North
+1050,Banff-Kananaskis,South
+1051,Bonnyville-Cold Lake-St. Paul,North
+1052,Brooks-Medicine Hat,South
+1053,Camrose,Central
+1054,Cardston-Siksika,South
+1055,Central Peace-Notley,North
+1056,Chestermere-Strathmore,South
+1057,Cypress-Medicine Hat,South
+1058,Drayton Valley-Devon,Central
+1059,Drumheller-Stettler,Central
+1060,Fort McMurray-Lac La Biche,North
+1061,Fort McMurray-Wood Buffalo,North
+1062,Fort Saskatchewan-Vegreville,North
+1063,Grande Prairie,North
+1064,Grande Prairie-Wapiti,North
+1065,Highwood,South
+1066,Innisfail-Sylvan Lake,Central
+1067,Lac Ste. Anne-Parkland,North
+1068,Lacombe-Ponoka,Central
+1069,Leduc-Beaumont,Central
+1070,Lesser Slave Lake,North
+1071,Lethbridge-East,South
+1072,Lethbridge-West,South
+1073,Livingstone-Macleod,South
+1074,Maskwacis-Wetaskiwin,Central
+1075,Morinville-St. Albert,North
+1076,Olds-Didsbury-Three Hills,Central
+1077,Peace River,North
+1078,Red Deer-North,Central
+1079,Red Deer-South,Central
+1080,Rimbey-Rocky Mountain House-Sundre,Central
+1081,Sherwood Park,North
+1082,Spruce Grove-Stony Plain,Central
+1083,St. Albert,Edmonton
+1084,Strathcona-Sherwood Park,Central
+1085,Taber-Warner,South
+1086,Vermilion-Lloydminster-Wainwright,Central
+1087,West Yellowhead,North

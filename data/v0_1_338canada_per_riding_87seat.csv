@@ -1,0 +1,88 @@
+district,ucp_share,ucp_moe,ucp_low,ucp_high,ndp_share,ndp_moe,ndp_low,ndp_high,other_share,leading_party,win_prob_leader,ucp_win_prob,ndp_win_prob,snapshot_date,source_url
+Calgary-Acadia,51.706,6.993,44.713,58.699,39.517,6.665,32.852,46.182,6.999,UCP,97.18,97.18,2.82,2026-04-12,https://338canada.com/alberta/1001e.htm
+Calgary-Beddington,48.4,7.142,41.258,55.542,41.254,6.93,34.324,48.184,9.128,UCP,85.94,85.94,14.06,2026-04-12,https://338canada.com/alberta/1002e.htm
+Calgary-Bow,50.242,6.903,43.339,57.145,38.332,6.444,31.888,44.776,10.231,UCP,97.43,97.43,2.57,2026-04-12,https://338canada.com/alberta/1003e.htm
+Calgary-Buffalo,36.715,6.719,29.996,43.434,53.245,7.216,46.029,60.461,8.792,NDP,99.41,0.59,99.41,2026-04-12,https://338canada.com/alberta/1004e.htm
+Calgary-Cross,52.751,7.643,45.108,60.394,37.415,7.203,30.212,44.618,8.626,UCP,98.68,98.68,1.32,2026-04-12,https://338canada.com/alberta/1005e.htm
+Calgary-Currie,43.202,7.008,36.194,50.21,46.443,7.095,39.348,53.538,9.13,NDP,69.0,31.0,69.0,2026-04-12,https://338canada.com/alberta/1006e.htm
+Calgary-East,53.297,7.873,45.424,61.17,36.532,7.275,29.257,43.807,8.963,UCP,99.17,99.17,0.83,2026-04-12,https://338canada.com/alberta/1007e.htm
+Calgary-Edgemont,49.466,6.858,42.608,56.324,39.818,6.602,33.216,46.42,9.226,UCP,93.68,93.68,6.32,2026-04-12,https://338canada.com/alberta/1008e.htm
+Calgary-Elbow,44.567,6.888,37.679,51.455,37.925,6.523,31.402,44.448,16.339,UCP,86.93,86.93,13.07,2026-04-12,https://338canada.com/alberta/1009e.htm
+Calgary-Falconridge,42.848,7.571,35.277,50.419,47.199,7.67,39.529,54.869,8.709,NDP,72.85,27.15,72.85,2026-04-12,https://338canada.com/alberta/1010e.htm
+Calgary-Fish Creek,57.446,6.696,50.75,64.142,36.47,6.331,30.139,42.801,4.535,UCP,99.96,99.96,0.04,2026-04-12,https://338canada.com/alberta/1011e.htm
+Calgary-Foothills,52.602,6.928,45.674,59.53,41.204,6.728,34.476,47.932,4.97,UCP,95.86,95.86,4.14,2026-04-12,https://338canada.com/alberta/1012e.htm
+Calgary-Glenmore,52.084,6.863,45.221,58.947,39.906,6.573,33.333,46.479,6.793,UCP,97.28,97.28,2.72,2026-04-12,https://338canada.com/alberta/1013e.htm
+Calgary-Hays,58.126,6.974,51.152,65.1,33.512,6.39,27.122,39.902,7.164,UCP,99.99,99.99,0.01,2026-04-12,https://338canada.com/alberta/1014e.htm
+Calgary-Klein,49.752,7.137,42.615,56.889,41.49,6.913,34.577,48.403,7.544,UCP,89.2,89.2,10.8,2026-04-12,https://338canada.com/alberta/1015e.htm
+Calgary-Lougheed,59.696,7.184,52.512,66.88,33.004,6.598,26.406,39.602,5.312,UCP,99.99,99.99,0.01,2026-04-12,https://338canada.com/alberta/1016e.htm
+Calgary-Bhullar-McCall,45.553,7.949,37.604,53.502,48.377,8.033,40.344,56.41,4.826,NDP,64.29,35.71,64.29,2026-04-12,https://338canada.com/alberta/1017e.htm
+Calgary-Mountain View,36.418,6.343,30.075,42.761,56.513,6.705,49.808,63.218,5.579,NDP,99.94,0.06,99.94,2026-04-12,https://338canada.com/alberta/1018e.htm
+Calgary-North,53.68,7.473,46.207,61.153,40.391,7.255,33.136,47.646,4.709,UCP,96.81,96.81,3.19,2026-04-12,https://338canada.com/alberta/1019e.htm
+Calgary-North East,48.415,7.126,41.289,55.541,45.582,7.056,38.526,52.638,4.772,UCP,65.97,65.97,34.03,2026-04-12,https://338canada.com/alberta/1020e.htm
+Calgary-North West,49.447,7.076,42.371,56.523,37.648,6.563,31.085,44.211,11.725,UCP,97.47,97.47,2.53,2026-04-12,https://338canada.com/alberta/1021e.htm
+Calgary-Peigan,57.362,7.217,50.145,64.579,33.196,6.427,26.769,39.623,8.248,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1022e.htm
+Calgary-Shaw,59.367,6.645,52.722,66.012,34.124,6.178,27.946,40.302,5.311,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1023e.htm
+Calgary-South East,61.587,6.693,54.894,68.28,30.931,6.008,24.923,36.939,6.29,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1024e.htm
+Calgary-Varsity,43.88,6.778,37.102,50.658,48.751,6.858,41.893,55.609,5.46,NDP,76.68,23.32,76.68,2026-04-12,https://338canada.com/alberta/1025e.htm
+Calgary-West,59.079,6.89,52.189,65.969,33.019,6.235,26.784,39.254,6.715,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1026e.htm
+Edmonton-Beverly-Clareview,45.906,7.544,38.362,53.45,45.409,7.518,37.891,52.927,7.498,UCP,52.67,52.67,47.33,2026-04-12,https://338canada.com/alberta/1027e.htm
+Edmonton-Castle Downs,47.168,7.224,39.944,54.392,42.494,7.092,35.402,49.586,9.175,UCP,75.92,75.92,24.07,2026-04-12,https://338canada.com/alberta/1028e.htm
+Edmonton-City Centre,28.355,6.34,22.015,34.695,61.816,7.463,54.353,69.279,8.586,NDP,100.0,0.0,100.0,2026-04-12,https://338canada.com/alberta/1029e.htm
+Edmonton-Decore,47.352,7.479,39.873,54.831,41.188,7.267,33.921,48.455,9.66,UCP,81.25,81.25,18.75,2026-04-12,https://338canada.com/alberta/1030e.htm
+Edmonton-Ellerslie,44.138,7.025,37.113,51.163,49.009,7.098,41.911,56.107,4.123,NDP,76.46,23.54,76.46,2026-04-12,https://338canada.com/alberta/1031e.htm
+Edmonton-Glenora,34.719,6.728,27.991,41.447,57.57,7.222,50.348,64.792,6.48,NDP,99.97,0.03,99.97,2026-04-12,https://338canada.com/alberta/1032e.htm
+Edmonton-Gold Bar,34.321,6.357,27.964,40.678,57.864,6.839,51.025,64.703,6.576,NDP,99.99,0.01,99.99,2026-04-12,https://338canada.com/alberta/1033e.htm
+Edmonton-Highlands-Norwood,30.707,6.978,23.729,37.685,60.574,7.775,52.799,68.349,7.471,NDP,100.0,0.0,100.0,2026-04-12,https://338canada.com/alberta/1034e.htm
+Edmonton-Manning,45.391,7.257,38.134,52.648,46.95,7.291,39.659,54.241,6.465,NDP,58.43,41.57,58.43,2026-04-12,https://338canada.com/alberta/1035e.htm
+Edmonton-McClung,44.811,7.314,37.497,52.125,47.417,7.365,40.052,54.782,6.572,NDP,64.1,35.9,64.1,2026-04-12,https://338canada.com/alberta/1036e.htm
+Edmonton-Meadows,44.082,7.21,36.872,51.292,50.349,7.272,43.077,57.621,4.355,NDP,80.93,19.07,80.93,2026-04-12,https://338canada.com/alberta/1037e.htm
+Edmonton-Mill Woods,46.051,7.147,38.904,53.198,48.64,7.142,41.498,55.782,4.116,NDP,64.37,35.63,64.37,2026-04-12,https://338canada.com/alberta/1038e.htm
+Edmonton-North West,44.931,7.328,37.603,52.259,47.267,7.399,39.868,54.666,6.615,NDP,62.74,37.26,62.74,2026-04-12,https://338canada.com/alberta/1039e.htm
+Edmonton-Riverview,35.138,6.72,28.418,41.858,54.875,7.318,47.557,62.193,8.777,NDP,99.88,0.12,99.88,2026-04-12,https://338canada.com/alberta/1040e.htm
+Edmonton-Rutherford,38.144,6.706,31.438,44.85,51.4,7.097,44.303,58.497,9.253,NDP,97.89,2.11,97.89,2026-04-12,https://338canada.com/alberta/1041e.htm
+Edmonton-South,46.59,6.807,39.783,53.397,46.211,6.794,39.417,53.005,6.014,UCP,52.29,52.29,47.71,2026-04-12,https://338canada.com/alberta/1042e.htm
+Edmonton-South West,49.496,6.744,42.752,56.24,43.702,6.642,37.06,50.344,5.63,UCP,81.39,81.39,18.61,2026-04-12,https://338canada.com/alberta/1043e.htm
+Edmonton-Strathcona,19.634,5.144,14.49,24.778,70.313,6.774,63.539,77.087,6.1,NDP,100.0,0.0,100.0,2026-04-12,https://338canada.com/alberta/1044e.htm
+Edmonton-West Henday,46.344,7.045,39.299,53.389,45.407,7.078,38.329,52.485,6.442,UCP,55.67,55.67,44.33,2026-04-12,https://338canada.com/alberta/1045e.htm
+Edmonton-Whitemud,44.064,6.899,37.165,50.963,48.775,6.986,41.789,55.761,5.453,NDP,75.71,24.29,75.71,2026-04-12,https://338canada.com/alberta/1046e.htm
+Airdrie-Cochrane,61.547,6.348,55.199,67.895,30.214,5.677,24.537,35.891,6.023,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1047e.htm
+Airdrie-East,62.201,6.784,55.417,68.985,28.159,5.773,22.386,33.932,8.043,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1048e.htm
+Athabasca-Barrhead-Westlock,64.381,6.901,57.48,71.282,26.241,5.762,20.479,32.003,7.833,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1049e.htm
+Banff-Kananaskis,40.665,6.705,33.96,47.37,49.104,6.947,42.157,56.051,8.691,NDP,90.76,9.24,90.76,2026-04-12,https://338canada.com/alberta/1050e.htm
+Bonnyville-Cold Lake-St. Paul,66.204,6.908,59.296,73.112,25.347,5.843,19.504,31.19,6.904,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1051e.htm
+Brooks-Medicine Hat,55.256,7.75,47.506,63.006,26.893,5.941,20.952,32.834,16.332,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1052e.htm
+Camrose,58.11,7.032,51.078,65.142,28.531,5.939,22.592,34.47,10.739,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1053e.htm
+Cardston-Siksika,68.152,7.124,61.028,75.276,20.368,5.492,14.876,25.86,9.934,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1054e.htm
+Central Peace-Notley,70.183,7.505,62.678,77.688,19.709,5.775,13.934,25.484,8.56,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1055e.htm
+Chestermere-Strathmore,72.065,6.044,66.021,78.109,21.481,5.167,16.314,26.648,4.876,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1056e.htm
+Cypress-Medicine Hat,53.768,7.007,46.761,60.775,36.234,6.517,29.717,42.751,6.9,UCP,99.68,99.68,0.32,2026-04-12,https://338canada.com/alberta/1057e.htm
+Drayton Valley-Devon,64.743,6.926,57.817,71.669,23.127,5.284,17.843,28.411,7.853,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1058e.htm
+Drumheller-Stettler,74.601,6.528,68.073,81.129,15.432,4.656,10.776,20.088,7.541,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1059e.htm
+Fort McMurray-Lac La Biche,64.252,7.855,56.397,72.107,25.391,6.764,18.627,32.155,8.815,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1060e.htm
+Fort McMurray-Wood Buffalo,62.295,8.76,53.535,71.055,21.593,6.583,15.01,28.176,14.568,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1061e.htm
+Fort Saskatchewan-Vegreville,50.487,6.792,43.695,57.279,38.521,6.412,32.109,44.933,9.445,UCP,97.42,97.42,2.58,2026-04-12,https://338canada.com/alberta/1062e.htm
+Grande Prairie,56.101,7.604,48.497,63.705,32.413,6.763,25.65,39.176,9.945,UCP,99.98,99.98,0.02,2026-04-12,https://338canada.com/alberta/1063e.htm
+Grande Prairie-Wapiti,68.082,6.604,61.478,74.686,21.519,5.227,16.292,26.746,8.858,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1064e.htm
+Highwood,59.089,6.805,52.284,65.894,29.257,5.765,23.492,35.022,7.808,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1065e.htm
+Innisfail-Sylvan Lake,63.829,6.536,57.293,70.365,26.252,5.56,20.692,31.812,8.369,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1066e.htm
+Lac Ste. Anne-Parkland,59.337,7.249,52.088,66.586,27.557,5.84,21.717,33.397,11.564,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1067e.htm
+Lacombe-Ponoka,55.242,7.799,47.443,63.041,22.833,5.391,17.442,28.224,18.366,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1068e.htm
+Leduc-Beaumont,62.707,6.48,56.227,69.187,30.616,5.937,24.679,36.553,5.166,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1069e.htm
+Lesser Slave Lake,56.607,9.014,47.593,65.621,34.396,8.431,25.965,42.827,7.462,UCP,99.64,99.64,0.36,2026-04-12,https://338canada.com/alberta/1070e.htm
+Lethbridge-East,42.831,7.004,35.827,49.835,45.183,7.102,38.081,52.285,10.448,NDP,64.45,35.55,64.45,2026-04-12,https://338canada.com/alberta/1071e.htm
+Lethbridge-West,37.5,6.641,30.859,44.141,51.003,7.116,43.887,58.119,9.88,NDP,98.39,1.61,98.39,2026-04-12,https://338canada.com/alberta/1072e.htm
+Livingstone-Macleod,58.087,7.164,50.923,65.251,27.034,5.627,21.407,32.661,13.835,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1073e.htm
+Maskwacis-Wetaskiwin,59.69,7.489,52.201,67.179,29.237,6.41,22.827,35.647,9.536,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1074e.htm
+Morinville-St. Albert,55.962,6.776,49.186,62.738,33.681,6.111,27.57,39.792,8.841,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1075e.htm
+Olds-Didsbury-Three Hills,67.161,6.541,60.62,73.702,19.882,4.768,15.114,24.65,10.555,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1076e.htm
+Peace River,64.848,7.791,57.057,72.639,24.032,6.49,17.542,30.522,9.59,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1077e.htm
+Red Deer-North,49.694,7.374,42.32,57.068,39.399,7.002,32.397,46.401,9.383,UCP,93.82,93.82,6.18,2026-04-12,https://338canada.com/alberta/1078e.htm
+Red Deer-South,47.187,6.935,40.252,54.122,41.41,6.753,34.657,48.163,9.03,UCP,81.65,81.65,18.35,2026-04-12,https://338canada.com/alberta/1079e.htm
+Rimbey-Rocky Mountain House-Sundre,68.469,6.616,61.853,75.085,16.022,4.521,11.501,20.543,13.464,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1080e.htm
+Sherwood Park,48.885,6.928,41.957,55.813,38.389,6.467,31.922,44.856,11.67,UCP,95.86,95.86,4.14,2026-04-12,https://338canada.com/alberta/1081e.htm
+Spruce Grove-Stony Plain,61.584,6.629,54.955,68.213,29.793,5.874,23.919,35.667,7.121,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1082e.htm
+St. Albert,45.755,6.711,39.044,52.466,46.17,6.766,39.404,52.936,6.541,NDP,52.34,47.66,52.34,2026-04-12,https://338canada.com/alberta/1083e.htm
+Strathcona-Sherwood Park,59.686,6.505,53.181,66.191,34.17,6.133,28.037,40.303,4.637,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1084e.htm
+Taber-Warner,62.728,7.946,54.782,70.674,16.939,4.816,12.123,21.755,14.199,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1085e.htm
+Vermilion-Lloydminster-Wainwright,65.654,7.621,58.033,73.275,18.366,4.991,13.375,23.357,11.662,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1086e.htm
+West Yellowhead,60.968,6.835,54.133,67.803,28.862,6.024,22.838,34.886,8.636,UCP,100.0,100.0,0.0,2026-04-12,https://338canada.com/alberta/1087e.htm

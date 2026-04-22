@@ -1,0 +1,192 @@
+csduid,csd_name,csd_type,population_2021,splits_2019,splits_majority_2026_est,splits_minority_2026_est,splits_minority_2026_upper,majority_uncertain,minority_uncertain,eds_2019,eds_majority_2026_est,eds_minority_2026_est
+4806016,"Calgary, City (CY)",CY,1306784,27,27,26,27,False,True,Calgary-Acadia; Calgary-Beddington; Calgary-Bow; Calgary-Buffalo; Calgary-Cross; Calgary-Currie; Calgary-East; Calgary-Edgemont; Calgary-Elbow; Calgary-Falconridge; Calgary-Fish Creek; Calgary-Foothills; Calgary-Glenmore; Calgary-Hays; Calgary-Klein; Calgary-Lougheed; Calgary-McCall; Calgary-Mountain View; Calgary-North; Calgary-North East; Calgary-North West; Calgary-Peigan; Calgary-Shaw; Calgary-South East; Calgary-Varsity; Calgary-West; Highwood,Calgary-Acadia; Calgary-Beddington; Calgary-Bow; Calgary-Buffalo; Calgary-Cross; Calgary-Currie; Calgary-East; Calgary-Edgemont; Calgary-Elbow; Calgary-Falconridge; Calgary-Fish Creek; Calgary-Foothills; Calgary-Glenmore; Calgary-Hays; Calgary-Klein; Calgary-Lougheed; Calgary-McCall; Calgary-Mountain View; Calgary-North; Calgary-North East; Calgary-North West; Calgary-Peigan; Calgary-Shaw; Calgary-South East; Calgary-Varsity; Calgary-West; Highwood,Calgary-Acadia; Calgary-Beddington; Calgary-Bow-Springbank; Calgary-Buffalo; Calgary-Cross; Calgary-Currie; Calgary-East; Calgary-Edgemont; Calgary-Elbow; Calgary-Falconridge; Calgary-Fish Creek; Calgary-Foothills-Airdrie West; Calgary-Glenmore; Calgary-Hays; Calgary-Klein; Calgary-Lougheed; Calgary-McCall-Bhullar; Calgary-Mountain View; Calgary-North; Calgary-North East; Calgary-North West-Bearspaw; Calgary-Peigan-Chestermere; Calgary-South East; Calgary-Varsity; Calgary-West-Tsuut’ina; Highwood
+4811061,"Edmonton, City (CY)",CY,1010899,20,20,17,20,False,True,Edmonton-Beverly-Clareview; Edmonton-Castle Downs; Edmonton-City Centre; Edmonton-Decore; Edmonton-Ellerslie; Edmonton-Glenora; Edmonton-Gold Bar; Edmonton-Highlands-Norwood; Edmonton-Manning; Edmonton-McClung; Edmonton-Meadows; Edmonton-Mill Woods; Edmonton-North West; Edmonton-Riverview; Edmonton-Rutherford; Edmonton-South; Edmonton-South West; Edmonton-Strathcona; Edmonton-West Henday; Edmonton-Whitemud,Edmonton-Beverly-Clareview; Edmonton-Castle Downs; Edmonton-City Centre; Edmonton-Decore; Edmonton-Ellerslie; Edmonton-Glenora; Edmonton-Gold Bar; Edmonton-Highlands-Norwood; Edmonton-Manning; Edmonton-McClung; Edmonton-Meadows; Edmonton-Mill Woods; Edmonton-North West; Edmonton-Riverview; Edmonton-Rutherford; Edmonton-South; Edmonton-South West; Edmonton-Strathcona; Edmonton-West Henday; Edmonton-Whitemud,Edmonton-Beverly-Clareview; Edmonton-City Centre; Edmonton-Decore; Edmonton-Ellerslie; Edmonton-Glenora-Riverview; Edmonton-Gold Bar; Edmonton-Highlands-Norwood; Edmonton-Manning; Edmonton-McClung; Edmonton-Meadows; Edmonton-Mill Woods; Edmonton-North West; Edmonton-Rutherford; Edmonton-South; Edmonton-Strathcona; Edmonton-West Henday; Edmonton-Whitemud
+4806014,"Rocky View County, Municipal district (MD)",MD,41028,5,5,3,5,False,True,Airdrie-Cochrane; Airdrie-East; Banff-Kananaskis; Chestermere-Strathmore; Olds-Didsbury-Three Hills,Airdrie-East; Airdrie-West; Banff-Kananaskis; Chestermere-Strathmore; Olds-Didsbury-Three Hills,Airdrie East; Chestermere-Strathmore; Olds-Three Hills-Didsbury
+4814003,"Yellowhead County, Municipal district (MD)",MD,10426,5,5,5,5,False,False,Central Peace-Notley; Drayton Valley-Devon; Lac Ste. Anne-Parkland; Rimbey-Rocky Mountain House-Sundre; West Yellowhead,Central Peace-Notley; Drayton Valley-Devon; Lac Ste. Anne-Parkland; Rimbey-Rocky Mountain House-Sundre; West Yellowhead,Central Peace-Notley; Lac Ste. Anne-Parkland; Rimbey-Rocky Mountain House-Sundre; Stony Plain-Drayton Valley; West Yellowhead
+4805012,"Wheatland County, Municipal district (MD)",MD,8738,5,5,4,5,False,True,Airdrie-East; Cardston-Siksika; Chestermere-Strathmore; Drumheller-Stettler; Olds-Didsbury-Three Hills,Airdrie-East; Cardston-Siksika; Chestermere-Strathmore; Drumheller-Stettler; Olds-Didsbury-Three Hills,Airdrie East; Chestermere-Strathmore; Drumheller-Stettler; Olds-Three Hills-Didsbury
+4818015,"Greenview No. 16, Municipal district (MD)",MD,8584,5,5,5,5,False,False,Athabasca-Barrhead-Westlock; Central Peace-Notley; Grande Prairie-Wapiti; Lesser Slave Lake; West Yellowhead,Athabasca-Barrhead-Westlock; Central Peace-Notley; Grande Prairie-Wapiti; Lesser Slave Lake; West Yellowhead,Athabasca-Barrhead-Westlock; Central Peace-Notley; Grande Prairie-Wapiti; Lesser Slave Lake; West Yellowhead
+4809002,"Clearwater County, Municipal district (MD)",MD,11865,4,4,3,4,False,True,Banff-Kananaskis; Drayton Valley-Devon; Rimbey-Rocky Mountain House-Sundre; West Yellowhead,Banff-Kananaskis; Drayton Valley-Devon; Rimbey-Rocky Mountain House-Sundre; West Yellowhead,Rimbey-Rocky Mountain House-Sundre; Stony Plain-Drayton Valley; West Yellowhead
+4808038,"Ponoka County, Municipal district (MD)",MD,9998,4,4,2,4,False,True,Camrose; Lacombe-Ponoka; Maskwacis-Wetaskiwin; Rimbey-Rocky Mountain House-Sundre,Camrose; Lacombe-Clearwater; Rimbey-Rocky Mountain House-Sundre; Wetaskiwin-Ponoka-Maskwacis,Camrose; Rimbey-Rocky Mountain House-Sundre
+4810001,"Camrose County, Municipal district (MD)",MD,8504,4,4,2,4,False,True,Camrose; Drumheller-Stettler; Lacombe-Ponoka; Maskwacis-Wetaskiwin,Camrose; Drumheller-Stettler; Lacombe-Clearwater; Wetaskiwin-Ponoka-Maskwacis,Camrose; Drumheller-Stettler
+4801003,"Cypress County, Municipal district (MD)",MD,7524,4,4,4,4,False,False,Brooks-Medicine Hat; Cypress-Medicine Hat; Drumheller-Stettler; Taber-Warner,Drumheller-Stettler; Medicine Hat-Brooks; Medicine Hat-Cypress; Taber-Warner,Drumheller-Stettler; Lethbridge-Taber-Warner; Medicine Hat-Brooks; Medicine Hat-Cypress
+4810016,"Beaver County, Municipal district (MD)",MD,5868,4,4,3,4,False,True,Camrose; Fort Saskatchewan-Vegreville; Maskwacis-Wetaskiwin; Strathcona-Sherwood Park,Camrose; Fort Saskatchewan-Vegreville; Strathcona-Sherwood Park; Wetaskiwin-Ponoka-Maskwacis,Camrose; Fort Saskatchewan-Vegreville; Sherwood Park-Strathcona
+4817027,"Big Lakes County, Municipal district (MD)",MD,4986,4,4,4,4,False,False,Athabasca-Barrhead-Westlock; Central Peace-Notley; Lesser Slave Lake; West Yellowhead,Athabasca-Barrhead-Westlock; Central Peace-Notley; Lesser Slave Lake; West Yellowhead,Athabasca-Barrhead-Westlock; Central Peace-Notley; Lesser Slave Lake; West Yellowhead
+4813029,"Woodlands County, Municipal district (MD)",MD,4558,4,4,4,4,False,False,Athabasca-Barrhead-Westlock; Central Peace-Notley; Lac Ste. Anne-Parkland; West Yellowhead,Athabasca-Barrhead-Westlock; Central Peace-Notley; Lac Ste. Anne-Parkland; West Yellowhead,Athabasca-Barrhead-Westlock; Central Peace-Notley; Lac Ste. Anne-Parkland; West Yellowhead
+4812022,"Smoky Lake County, Municipal district (MD)",MD,3874,4,4,4,4,False,False,Athabasca-Barrhead-Westlock; Bonnyville-Cold Lake-St. Paul; Fort McMurray-Lac La Biche; Fort Saskatchewan-Vegreville,Athabasca-Barrhead-Westlock; Cold Lake-Bonnyville-St. Paul; Fort McMurray-Lac La Biche; Fort Saskatchewan-Vegreville,Athabasca-Barrhead-Westlock; Bonnyville-Cold Lake-St. Paul; Fort McMurray-Lac La Biche; Fort Saskatchewan-Vegreville
+4811052,"Strathcona County, Specialized municipality (SM)",SM,99225,3,3,3,3,False,False,Fort Saskatchewan-Vegreville; Sherwood Park; Strathcona-Sherwood Park,Fort Saskatchewan-Vegreville; Sherwood Park; Strathcona-Sherwood Park,Fort Saskatchewan-Vegreville; Sherwood Park; Sherwood Park-Strathcona
+4816037,"Wood Buffalo, Specialized municipality (SM)",SM,72326,3,3,3,3,False,False,Fort McMurray-Lac La Biche; Fort McMurray-Wood Buffalo; Lesser Slave Lake,Fort McMurray-Lac La Biche; Fort McMurray-Wood Buffalo; Lesser Slave Lake,Fort McMurray-Lac La Biche; Fort McMurray-Wood Buffalo; Lesser Slave Lake
+4811034,"Parkland County, Municipal district (MD)",MD,32205,3,3,3,3,False,False,Drayton Valley-Devon; Lac Ste. Anne-Parkland; West Yellowhead,Drayton Valley-Devon; Lac Ste. Anne-Parkland; West Yellowhead,Lac Ste. Anne-Parkland; Stony Plain-Drayton Valley; West Yellowhead
+4819006,"Grande Prairie County No. 1, Municipal district (MD)",MD,23769,3,3,3,3,False,False,Central Peace-Notley; Grande Prairie; Grande Prairie-Wapiti,Central Peace-Notley; Grande Prairie; Grande Prairie-Wapiti,Central Peace-Notley; Grande Prairie; Grande Prairie-Wapiti
+4806001,"Foothills County, Municipal district (MD)",MD,23199,3,3,1,3,False,True,Banff-Kananaskis; Highwood; Livingstone-Macleod,Banff-Kananaskis; Highwood; Livingstone-Macleod,Highwood
+4811012,"Leduc County, Municipal district (MD)",MD,14416,3,3,2,3,False,True,Drayton Valley-Devon; Leduc-Beaumont; Maskwacis-Wetaskiwin,Drayton Valley-Devon; Leduc-Devon; Wetaskiwin-Ponoka-Maskwacis,Leduc; Stony Plain-Drayton Valley
+4806028,"Mountain View County, Municipal district (MD)",MD,12981,3,3,2,3,False,True,Banff-Kananaskis; Olds-Didsbury-Three Hills; Rimbey-Rocky Mountain House-Sundre,Banff-Kananaskis; Olds-Didsbury-Three Hills; Rimbey-Rocky Mountain House-Sundre,Olds-Three Hills-Didsbury; Rimbey-Rocky Mountain House-Sundre
+4817095,"Mackenzie County, Specialized municipality (SM)",SM,12804,3,3,3,3,False,False,Fort McMurray-Wood Buffalo; Lesser Slave Lake; Peace River,Fort McMurray-Wood Buffalo; Lesser Slave Lake; Peace River,Fort McMurray-Wood Buffalo; Lesser Slave Lake; Peace River
+4808022,"Lacombe County, Municipal district (MD)",MD,10283,3,3,2,3,False,True,Innisfail-Sylvan Lake; Lacombe-Ponoka; Rimbey-Rocky Mountain House-Sundre,Innisfail-Sylvan Lake; Lacombe-Clearwater; Rimbey-Rocky Mountain House-Sundre,Red Deer-Sylvan Lake; Rimbey-Rocky Mountain House-Sundre
+4812037,"Lac la Biche County, Specialized municipality (SM)",SM,7673,3,3,3,3,False,False,Bonnyville-Cold Lake-St. Paul; Fort McMurray-Lac La Biche; Lesser Slave Lake,Cold Lake-Bonnyville-St. Paul; Fort McMurray-Lac La Biche; Lesser Slave Lake,Bonnyville-Cold Lake-St. Paul; Fort McMurray-Lac La Biche; Lesser Slave Lake
+4802031,"Newell County, Municipal district (MD)",MD,7465,3,3,2,3,False,True,Brooks-Medicine Hat; Cardston-Siksika; Drumheller-Stettler,Cardston-Siksika; Drumheller-Stettler; Medicine Hat-Brooks,Drumheller-Stettler; Medicine Hat-Brooks
+4802021,"Taber, Municipal district (MD)",MD,7447,3,3,2,3,False,True,Brooks-Medicine Hat; Cardston-Siksika; Taber-Warner,Cardston-Siksika; Medicine Hat-Brooks; Taber-Warner,Lethbridge-Taber-Warner; Medicine Hat-Brooks
+4813044,"Athabasca County, Municipal district (MD)",MD,6959,3,3,3,3,False,False,Athabasca-Barrhead-Westlock; Fort McMurray-Lac La Biche; Lesser Slave Lake,Athabasca-Barrhead-Westlock; Fort McMurray-Lac La Biche; Lesser Slave Lake,Athabasca-Barrhead-Westlock; Fort McMurray-Lac La Biche; Lesser Slave Lake
+4813018,"Barrhead County No. 11, Municipal district (MD)",MD,5877,3,3,3,3,False,False,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland; West Yellowhead,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland; West Yellowhead,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland; West Yellowhead
+4803001,"Cardston County, Municipal district (MD)",MD,4856,3,3,1,3,False,True,Cardston-Siksika; Livingstone-Macleod; Taber-Warner,Cardston-Siksika; Livingstone-Macleod; Taber-Warner,Lethbridge-Taber-Warner
+4807049,"Wainwright No. 61, Municipal district (MD)",MD,4276,3,3,3,3,False,False,Camrose; Drumheller-Stettler; Vermilion-Lloydminster-Wainwright,Camrose; Drumheller-Stettler; Lloydminster-Wainwright,Camrose; Drumheller-Stettler; Vermilion-Lloydminster-Wainwright
+4817031,"Opportunity No. 17, Municipal district (MD)",MD,3382,3,3,3,3,False,False,Fort McMurray-Wood Buffalo; Lesser Slave Lake; Peace River,Fort McMurray-Wood Buffalo; Lesser Slave Lake; Peace River,Fort McMurray-Wood Buffalo; Lesser Slave Lake; Peace River
+4807001,"Provost No. 52, Municipal district (MD)",MD,2071,3,3,3,3,False,False,Camrose; Drumheller-Stettler; Vermilion-Lloydminster-Wainwright,Camrose; Drumheller-Stettler; Lloydminster-Wainwright,Camrose; Drumheller-Stettler; Vermilion-Lloydminster-Wainwright
+4817026,"Northern Sunrise County, Municipal district (MD)",MD,1711,3,3,3,3,False,False,Central Peace-Notley; Lesser Slave Lake; Peace River,Central Peace-Notley; Lesser Slave Lake; Peace River,Central Peace-Notley; Lesser Slave Lake; Peace River
+4819049,"Birch Hills County, Municipal district (MD)",MD,1516,3,3,3,3,False,False,Central Peace-Notley; Grande Prairie-Wapiti; Peace River,Central Peace-Notley; Grande Prairie-Wapiti; Peace River,Central Peace-Notley; Grande Prairie-Wapiti; Peace River
+4815032,"Improvement District No. 9 Banff, Improvement district (ID)",ID,1004,3,3,2,3,False,True,Banff-Kananaskis; Rimbey-Rocky Mountain House-Sundre; West Yellowhead,Banff-Kananaskis; Rimbey-Rocky Mountain House-Sundre; West Yellowhead,Rimbey-Rocky Mountain House-Sundre; West Yellowhead
+4808011,"Red Deer, City (CY)",CY,100844,2,2,2,2,False,False,Red Deer-North; Red Deer-South,Red Deer-North; Red Deer-South,Red Deer-Blackfalds; Red Deer-Innisfail
+4802012,"Lethbridge, City (CY)",CY,98406,2,2,0,2,False,True,Lethbridge-East; Lethbridge-West,Lethbridge-East; Lethbridge-West,
+4806021,"Airdrie, City (CY)",CY,74100,2,2,1,2,False,True,Airdrie-Cochrane; Airdrie-East,Airdrie-East; Airdrie-West,Airdrie East
+4811062,"St. Albert, City (CY)",CY,68232,2,2,2,2,False,False,Morinville-St. Albert; St. Albert,St. Albert; St. Albert-Sturgeon,St. Albert; St. Albert-Sturgeon
+4819012,"Grande Prairie, City (CY)",CY,64141,2,2,2,2,False,False,Grande Prairie; Grande Prairie-Wapiti,Grande Prairie; Grande Prairie-Wapiti,Grande Prairie; Grande Prairie-Wapiti
+4801006,"Medicine Hat, City (CY)",CY,63271,2,2,2,2,False,False,Brooks-Medicine Hat; Cypress-Medicine Hat,Medicine Hat-Brooks; Medicine Hat-Cypress,Medicine Hat-Brooks; Medicine Hat-Cypress
+4811049,"Spruce Grove, City (CY)",CY,37645,2,2,2,2,False,False,Drayton Valley-Devon; Spruce Grove-Stony Plain,Drayton Valley-Devon; Spruce Grove,Edmonton-Spruce Grove; Stony Plain-Drayton Valley
+4811059,"Sturgeon County, Municipal district (MD)",MD,20061,2,2,2,2,False,False,Lac Ste. Anne-Parkland; Morinville-St. Albert,Lac Ste. Anne-Parkland; St. Albert-Sturgeon,Lac Ste. Anne-Parkland; St. Albert-Sturgeon
+4808001,"Red Deer County, Municipal district (MD)",MD,19933,2,2,2,2,False,False,Innisfail-Sylvan Lake; Rimbey-Rocky Mountain House-Sundre,Innisfail-Sylvan Lake; Rimbey-Rocky Mountain House-Sundre,Red Deer-Sylvan Lake; Rimbey-Rocky Mountain House-Sundre
+4812004,"Bonnyville No. 87, Municipal district (MD)",MD,12897,2,2,2,2,False,False,Bonnyville-Cold Lake-St. Paul; Fort McMurray-Lac La Biche,Cold Lake-Bonnyville-St. Paul; Fort McMurray-Lac La Biche,Bonnyville-Cold Lake-St. Paul; Fort McMurray-Lac La Biche
+4811001,"Wetaskiwin County No. 10, Municipal district (MD)",MD,11212,2,2,1,2,False,True,Maskwacis-Wetaskiwin; Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre; Wetaskiwin-Ponoka-Maskwacis,Rimbey-Rocky Mountain House-Sundre
+4813001,"Lac Ste. Anne County, Municipal district (MD)",MD,10832,2,2,2,2,False,False,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland
+4802011,"Lethbridge County, Municipal district (MD)",MD,10120,2,2,1,2,False,True,Cardston-Siksika; Taber-Warner,Cardston-Siksika; Taber-Warner,Lethbridge-Taber-Warner
+4813028,"Westlock County, Municipal district (MD)",MD,7186,2,2,2,2,False,False,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland,Athabasca-Barrhead-Westlock; Lac Ste. Anne-Parkland
+4812014,"St. Paul County No. 19, Municipal district (MD)",MD,6306,2,2,2,2,False,False,Athabasca-Barrhead-Westlock; Bonnyville-Cold Lake-St. Paul,Athabasca-Barrhead-Westlock; Cold Lake-Bonnyville-St. Paul,Athabasca-Barrhead-Westlock; Bonnyville-Cold Lake-St. Paul
+4803018,"Willow Creek No. 26, Municipal district (MD)",MD,6081,2,2,0,2,False,True,Cardston-Siksika; Livingstone-Macleod,Cardston-Siksika; Livingstone-Macleod,
+4807019,"Stettler County No. 6, Municipal district (MD)",MD,5666,2,2,1,2,False,True,Drumheller-Stettler; Lacombe-Ponoka,Drumheller-Stettler; Lacombe-Clearwater,Drumheller-Stettler
+4805041,"Kneehill County, Municipal district (MD)",MD,4992,2,2,2,2,False,False,Drumheller-Stettler; Olds-Didsbury-Three Hills,Drumheller-Stettler; Olds-Didsbury-Three Hills,Drumheller-Stettler; Olds-Three Hills-Didsbury
+4803802,"Blood 148, Indian reserve (IRI)",IRI,4572,2,2,0,2,False,True,Cardston-Siksika; Livingstone-Macleod,Cardston-Siksika; Livingstone-Macleod,
+4805001,"Vulcan County, Municipal district (MD)",MD,4237,2,2,0,2,False,True,Cardston-Siksika; Livingstone-Macleod,Cardston-Siksika; Livingstone-Macleod,
+4801008,"Forty Mile County No. 8, Municipal district (MD)",MD,3471,2,2,2,2,False,False,Cypress-Medicine Hat; Taber-Warner,Medicine Hat-Cypress; Taber-Warner,Lethbridge-Taber-Warner; Medicine Hat-Cypress
+4810048,"Two Hills County No. 21, Municipal district (MD)",MD,3412,2,2,2,2,False,False,Bonnyville-Cold Lake-St. Paul; Fort Saskatchewan-Vegreville,Cold Lake-Bonnyville-St. Paul; Fort Saskatchewan-Vegreville,Bonnyville-Cold Lake-St. Paul; Fort Saskatchewan-Vegreville
+4803011,"Pincher Creek No. 9, Municipal district (MD)",MD,3240,2,2,0,2,False,True,Cardston-Siksika; Livingstone-Macleod,Cardston-Siksika; Livingstone-Macleod,
+4817062,"Clear Hills, Municipal district (MD)",MD,3006,2,2,2,2,False,False,Central Peace-Notley; Peace River,Central Peace-Notley; Peace River,Central Peace-Notley; Peace River
+4817033,"Lesser Slave River No. 124, Municipal district (MD)",MD,2861,2,2,2,2,False,False,Athabasca-Barrhead-Westlock; Lesser Slave Lake,Athabasca-Barrhead-Westlock; Lesser Slave Lake,Athabasca-Barrhead-Westlock; Lesser Slave Lake
+4819059,"Saddle Hills County, Municipal district (MD)",MD,2338,2,2,2,2,False,False,Central Peace-Notley; Grande Prairie-Wapiti,Central Peace-Notley; Grande Prairie-Wapiti,Central Peace-Notley; Grande Prairie-Wapiti
+4807011,"Paintearth County No. 18, Municipal district (MD)",MD,1990,2,2,2,2,False,False,Camrose; Drumheller-Stettler,Camrose; Drumheller-Stettler,Camrose; Drumheller-Stettler
+4804004,"Special Area No. 2, Special area (SA)",SA,1860,2,2,2,2,False,False,Brooks-Medicine Hat; Drumheller-Stettler,Drumheller-Stettler; Medicine Hat-Brooks,Drumheller-Stettler; Medicine Hat-Brooks
+4819041,"Smoky River No. 130, Municipal district (MD)",MD,1684,2,2,2,2,False,False,Central Peace-Notley; Lesser Slave Lake,Central Peace-Notley; Lesser Slave Lake,Central Peace-Notley; Lesser Slave Lake
+4815015,"Bighorn No. 8, Municipal district (MD)",MD,1598,2,2,1,2,False,True,Banff-Kananaskis; Rimbey-Rocky Mountain House-Sundre,Banff-Kananaskis; Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre
+4819071,"Peace No. 135, Municipal district (MD)",MD,1581,2,2,2,2,False,False,Central Peace-Notley; Peace River,Central Peace-Notley; Peace River,Central Peace-Notley; Peace River
+4811016,"Leduc, City (CY)",CY,34094,1,1,1,1,False,False,Leduc-Beaumont,Leduc-Devon,Leduc
+4806019,"Cochrane, Town (T)",T,32199,1,1,0,1,False,True,Airdrie-Cochrane,Airdrie-West,
+4806012,"Okotoks, Town (T)",T,30405,1,1,1,1,False,False,Highwood,Highwood,Highwood
+4811056,"Fort Saskatchewan, City (CY)",CY,27088,1,1,1,1,False,False,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville
+4806017,"Chestermere, City (CY)",CY,22163,1,1,1,1,False,False,Chestermere-Strathmore,Chestermere-Strathmore,Chestermere-Strathmore
+4811013,"Beaumont, City (CY)",CY,20888,1,1,1,1,False,False,Leduc-Beaumont,Leduc-Devon,Leduc
+4810039,"Lloydminster (Part), City (CY)",CY,19739,1,1,1,1,False,False,Vermilion-Lloydminster-Wainwright,Lloydminster-Wainwright,Vermilion-Lloydminster-Wainwright
+4810011,"Camrose, City (CY)",CY,18772,1,1,1,1,False,False,Camrose,Camrose,Camrose
+4811048,"Stony Plain, Town (T)",T,17993,1,1,1,1,False,False,Spruce Grove-Stony Plain,Spruce Grove,Edmonton-Spruce Grove
+4808012,"Sylvan Lake, Town (T)",T,15995,1,1,1,1,False,False,Innisfail-Sylvan Lake,Innisfail-Sylvan Lake,Red Deer-Sylvan Lake
+4815023,"Canmore, Town (T)",T,15990,1,1,0,1,False,True,Banff-Kananaskis,Banff-Kananaskis,
+4812002,"Cold Lake, City (CY)",CY,15661,1,1,1,1,False,False,Bonnyville-Cold Lake-St. Paul,Cold Lake-Bonnyville-St. Paul,Bonnyville-Cold Lake-St. Paul
+4802034,"Brooks, City (CY)",CY,14924,1,1,1,1,False,False,Brooks-Medicine Hat,Medicine Hat-Brooks,Medicine Hat-Brooks
+4805018,"Strathmore, Town (T)",T,14339,1,1,1,1,False,False,Chestermere-Strathmore,Chestermere-Strathmore,Chestermere-Strathmore
+4806006,"High River, Town (T)",T,14324,1,1,0,1,False,True,Livingstone-Macleod,Livingstone-Macleod,
+4808031,"Lacombe, City (CY)",CY,13396,1,1,0,1,False,True,Lacombe-Ponoka,Lacombe-Clearwater,
+4811002,"Wetaskiwin, City (CY)",CY,12594,1,1,0,1,False,True,Maskwacis-Wetaskiwin,Wetaskiwin-Ponoka-Maskwacis,
+4808029,"Blackfalds, Town (T)",T,10470,1,1,0,1,False,True,Lacombe-Ponoka,Lacombe-Clearwater,
+4811068,"Morinville, Town (T)",T,10385,1,1,1,1,False,False,Morinville-St. Albert,St. Albert-Sturgeon,St. Albert-Sturgeon
+4813030,"Whitecourt, Town (T)",T,9927,1,1,1,1,False,False,West Yellowhead,West Yellowhead,West Yellowhead
+4814019,"Hinton, Town (T)",T,9817,1,1,1,1,False,False,West Yellowhead,West Yellowhead,West Yellowhead
+4806034,"Olds, Town (T)",T,9209,1,1,1,1,False,False,Olds-Didsbury-Three Hills,Olds-Didsbury-Three Hills,Olds-Three Hills-Didsbury
+4802022,"Taber, Town (T)",T,8862,1,1,1,1,False,False,Taber-Warner,Taber-Warner,Lethbridge-Taber-Warner
+4802019,"Coaldale, Town (T)",T,8771,1,1,1,1,False,False,Taber-Warner,Taber-Warner,Lethbridge-Taber-Warner
+4814024,"Edson, Town (T)",T,8374,1,1,1,1,False,False,West Yellowhead,West Yellowhead,West Yellowhead
+4815035,"Banff, Town (T)",T,8305,1,1,0,1,False,True,Banff-Kananaskis,Banff-Kananaskis,
+4810036,"Vermilion River County, Municipal district (MD)",MD,7994,1,1,1,1,False,False,Vermilion-Lloydminster-Wainwright,Lloydminster-Wainwright,Vermilion-Lloydminster-Wainwright
+4808008,"Innisfail, Town (T)",T,7985,1,1,1,1,False,False,Innisfail-Sylvan Lake,Innisfail-Sylvan Lake,Red Deer-Sylvan Lake
+4805026,"Drumheller, Town (T)",T,7909,1,1,1,1,False,False,Drumheller-Stettler,Drumheller-Stettler,Drumheller-Stettler
+4808039,"Ponoka, Town (T)",T,7331,1,1,0,1,False,True,Lacombe-Ponoka,Lacombe-Clearwater,
+4811031,"Drayton Valley, Town (T)",T,7291,1,1,1,1,False,False,Drayton Valley-Devon,Drayton Valley-Devon,Stony Plain-Drayton Valley
+4811032,"Brazeau County, Municipal district (MD)",MD,7179,1,1,1,1,False,False,Drayton Valley-Devon,Drayton Valley-Devon,Stony Plain-Drayton Valley
+4817029,"Slave Lake, Town (T)",T,6836,1,1,1,1,False,False,Lesser Slave Lake,Lesser Slave Lake,Lesser Slave Lake
+4809015,"Rocky Mountain House, Town (T)",T,6765,1,1,1,1,False,False,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre
+4819038,"Peace River, Town (T)",T,6619,1,1,1,1,False,False,Peace River,Peace River,Peace River
+4807054,"Wainwright, Town (T)",T,6606,1,1,1,1,False,False,Vermilion-Lloydminster-Wainwright,Lloydminster-Wainwright,Vermilion-Lloydminster-Wainwright
+4811018,"Devon, Town (T)",T,6545,1,1,1,1,False,False,Drayton Valley-Devon,Drayton Valley-Devon,Stony Plain-Drayton Valley
+4812009,"Bonnyville, Town (T)",T,6404,1,1,1,1,False,False,Bonnyville-Cold Lake-St. Paul,Cold Lake-Bonnyville-St. Paul,Bonnyville-Cold Lake-St. Paul
+4812018,"St. Paul, Town (T)",T,5863,1,1,1,1,False,False,Bonnyville-Cold Lake-St. Paul,Cold Lake-Bonnyville-St. Paul,Bonnyville-Cold Lake-St. Paul
+4815007,"Crowsnest Pass, Specialized municipality (SM)",SM,5695,1,1,0,1,False,True,Livingstone-Macleod,Livingstone-Macleod,
+4807026,"Stettler, Town (T)",T,5695,1,1,1,1,False,False,Drumheller-Stettler,Drumheller-Stettler,Drumheller-Stettler
+4810028,"Vegreville, Town (T)",T,5689,1,1,1,1,False,False,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville
+4801018,"Redcliff, Town (T)",T,5581,1,1,1,1,False,False,Brooks-Medicine Hat,Medicine Hat-Brooks,Medicine Hat-Brooks
+4806032,"Didsbury, Town (T)",T,5070,1,1,1,1,False,False,Olds-Didsbury-Three Hills,Olds-Didsbury-Three Hills,Olds-Three Hills-Didsbury
+4813031,"Westlock, Town (T)",T,4921,1,1,1,1,False,False,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock
+4806029,"Carstairs, Town (T)",T,4898,1,1,1,1,False,False,Olds-Didsbury-Three Hills,Olds-Didsbury-Three Hills,Olds-Three Hills-Didsbury
+4815033,"Jasper, Specialized municipality (SM)",SM,4738,1,1,1,1,False,False,West Yellowhead,West Yellowhead,West Yellowhead
+4813019,"Barrhead, Town (T)",T,4320,1,1,1,1,False,False,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock
+4802001,"Warner County No. 5, Municipal district (MD)",MD,4290,1,1,1,1,False,False,Taber-Warner,Taber-Warner,Lethbridge-Taber-Warner
+4802008,"Raymond, Town (T)",T,4199,1,1,1,1,False,False,Taber-Warner,Taber-Warner,Lethbridge-Taber-Warner
+4817076,"Northern Lights County, Municipal district (MD)",MD,4152,1,1,1,1,False,False,Peace River,Peace River,Peace River
+4810042,"Vermilion, Town (T)",T,3948,1,1,1,1,False,False,Vermilion-Lloydminster-Wainwright,Lloydminster-Wainwright,Vermilion-Lloydminster-Wainwright
+4817093,"High Level, Town (T)",T,3922,1,1,1,1,False,False,Peace River,Peace River,Peace River
+4803022,"Claresholm, Town (T)",T,3804,1,1,0,1,False,True,Livingstone-Macleod,Livingstone-Macleod,
+4810058,"Lamont County, Municipal district (MD)",MD,3754,1,1,1,1,False,False,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville
+4803004,"Cardston, Town (T)",T,3724,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4807031,"Flagstaff County, Municipal district (MD)",MD,3694,1,1,1,1,False,False,Camrose,Camrose,Camrose
+4803014,"Pincher Creek, Town (T)",T,3622,1,1,0,1,False,True,Livingstone-Macleod,Livingstone-Macleod,
+4806026,"Crossfield, Town (T)",T,3599,1,1,1,1,False,False,Olds-Didsbury-Three Hills,Olds-Didsbury-Three Hills,Olds-Three Hills-Didsbury
+4805802,"Siksika 146, Indian reserve (IRI)",IRI,3576,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4808009,"Penhold, Town (T)",T,3484,1,1,1,1,False,False,Innisfail-Sylvan Lake,Innisfail-Sylvan Lake,Red Deer-Sylvan Lake
+4803019,"Fort Macleod, Town (T)",T,3297,1,1,0,1,False,True,Livingstone-Macleod,Livingstone-Macleod,
+4808811,"Samson 137, Indian reserve (IRI)",IRI,3252,1,1,0,1,False,True,Maskwacis-Wetaskiwin,Wetaskiwin-Ponoka-Maskwacis,
+4811064,"Gibbons, Town (T)",T,3218,1,1,1,1,False,False,Morinville-St. Albert,St. Albert-Sturgeon,St. Albert-Sturgeon
+4813036,"Thorhild County, Municipal district (MD)",MD,3042,1,1,1,1,False,False,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock
+4805048,"Three Hills, Town (T)",T,3042,1,1,1,1,False,False,Olds-Didsbury-Three Hills,Olds-Didsbury-Three Hills,Olds-Three Hills-Didsbury
+4810026,"Minburn County No. 27, Municipal district (MD)",MD,3014,1,1,1,1,False,False,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville
+4802013,"Coalhurst, Town (T)",T,2869,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4819068,"Fairview, Town (T)",T,2817,1,1,1,1,False,False,Central Peace-Notley,Central Peace-Notley,Central Peace-Notley
+4813048,"Athabasca, Town (T)",T,2759,1,1,1,1,False,False,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock
+4806011,"Black Diamond, Town (T)",T,2730,1,1,1,1,False,False,Highwood,Highwood,Highwood
+4806036,"Sundre, Town (T)",T,2672,1,1,1,1,False,False,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre
+4806009,"Turner Valley, Town (T)",T,2611,1,1,1,1,False,False,Highwood,Highwood,Highwood
+4819074,"Grimshaw, Town (T)",T,2601,1,1,1,1,False,False,Peace River,Peace River,Peace River
+4817835,"Fox Lake 162, Indian reserve (IRI)",IRI,2488,1,1,1,1,False,False,Peace River,Peace River,Peace River
+4803002,"Magrath, Town (T)",T,2481,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4808044,"Rimbey, Town (T)",T,2470,1,1,1,1,False,False,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre
+4819014,"Sexsmith, Town (T)",T,2427,1,1,1,1,False,False,Grande Prairie-Wapiti,Grande Prairie-Wapiti,Grande Prairie-Wapiti
+4804011,"Hanna, Town (T)",T,2394,1,1,1,1,False,False,Drumheller-Stettler,Drumheller-Stettler,Drumheller-Stettler
+4817021,"High Prairie, Town (T)",T,2380,1,1,1,1,False,False,Lesser Slave Lake,Lesser Slave Lake,Lesser Slave Lake
+4819009,"Beaverlodge, Town (T)",T,2271,1,1,1,1,False,False,Grande Prairie-Wapiti,Grande Prairie-Wapiti,Grande Prairie-Wapiti
+4811801,"Ermineskin 138, Indian reserve (IRI)",IRI,2256,1,1,0,1,False,True,Maskwacis-Wetaskiwin,Wetaskiwin-Ponoka-Maskwacis,
+4811019,"Calmar, Town (T)",T,2183,1,1,1,1,False,False,Drayton Valley-Devon,Drayton Valley-Devon,Stony Plain-Drayton Valley
+4803026,"Nanton, Town (T)",T,2167,1,1,0,1,False,True,Livingstone-Macleod,Livingstone-Macleod,
+4811065,"Redwater, Town (T)",T,2115,1,1,1,1,False,False,Morinville-St. Albert,St. Albert-Sturgeon,St. Albert-Sturgeon
+4810018,"Tofield, Town (T)",T,2045,1,1,1,1,False,False,Camrose,Camrose,Camrose
+4801014,"Bow Island, Town (T)",T,2036,1,1,1,1,False,False,Taber-Warner,Taber-Warner,Lethbridge-Taber-Warner
+4802018,"Picture Butte, Town (T)",T,1930,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4807002,"Provost, Town (T)",T,1900,1,1,1,1,False,False,Drumheller-Stettler,Drumheller-Stettler,Drumheller-Stettler
+4811011,"Millet, Town (T)",T,1890,1,1,0,1,False,True,Maskwacis-Wetaskiwin,Wetaskiwin-Ponoka-Maskwacis,
+4811804,"Enoch Cree Nation, Indian reserve (IRI)",IRI,1825,1,1,1,1,False,False,Drayton Valley-Devon,Drayton Valley-Devon,Stony Plain-Drayton Valley
+4805031,"Starland County, Municipal district (MD)",MD,1821,1,1,1,1,False,False,Drumheller-Stettler,Drumheller-Stettler,Drumheller-Stettler
+4805006,"Vulcan, Town (T)",T,1769,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4810064,"Lamont, Town (T)",T,1744,1,1,1,1,False,False,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville
+4818018,"Valleyview, Town (T)",T,1673,1,1,1,1,False,False,Central Peace-Notley,Central Peace-Notley,Central Peace-Notley
+4818002,"Fox Creek, Town (T)",T,1639,1,1,1,1,False,False,Central Peace-Notley,Central Peace-Notley,Central Peace-Notley
+4819066,"Fairview No. 136, Municipal district (MD)",MD,1580,1,1,1,1,False,False,Central Peace-Notley,Central Peace-Notley,Central Peace-Notley
+4803801,"Piikani 147, Indian reserve (IRI)",IRI,1550,1,1,0,1,False,True,Livingstone-Macleod,Livingstone-Macleod,
+4811066,"Bon Accord, Town (T)",T,1461,1,1,1,1,False,False,Morinville-St. Albert,St. Albert-Sturgeon,St. Albert-Sturgeon
+4802014,"Nobleford, Town (T)",T,1438,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4819011,"Wembley, Town (T)",T,1432,1,1,1,1,False,False,Grande Prairie-Wapiti,Grande Prairie-Wapiti,Grande Prairie-Wapiti
+4810052,"Two Hills, Town (T)",T,1416,1,1,1,1,False,False,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville
+4812016,"Elk Point, Town (T)",T,1399,1,1,1,1,False,False,Bonnyville-Cold Lake-St. Paul,Cold Lake-Bonnyville-St. Paul,Bonnyville-Cold Lake-St. Paul
+4810066,"Bruderheim, Town (T)",T,1329,1,1,1,1,False,False,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville
+4811803,"Louis Bull 138B, Indian reserve (IRI)",IRI,1321,1,1,0,1,False,True,Maskwacis-Wetaskiwin,Wetaskiwin-Ponoka-Maskwacis,
+4818816,"Sturgeon Lake 154, Indian reserve (IRI)",IRI,1291,1,1,1,1,False,False,Central Peace-Notley,Central Peace-Notley,Central Peace-Notley
+4802029,"Vauxhall, Town (T)",T,1286,1,1,0,1,False,True,Cardston-Siksika,Cardston-Siksika,
+4808006,"Bowden, Town (T)",T,1280,1,1,1,1,False,False,Innisfail-Sylvan Lake,Innisfail-Sylvan Lake,Red Deer-Sylvan Lake
+4813002,"Mayerthorpe, Town (T)",T,1259,1,1,1,1,False,False,Lac Ste. Anne-Parkland,Lac Ste. Anne-Parkland,Lac Ste. Anne-Parkland
+4804020,"Special Area No. 4, Special area (SA)",SA,1236,1,1,1,1,False,False,Drumheller-Stettler,Drumheller-Stettler,Drumheller-Stettler
+4811069,"Legal, Town (T)",T,1232,1,1,1,1,False,False,Morinville-St. Albert,St. Albert-Sturgeon,St. Albert-Sturgeon
+4802039,"Bassano, Town (T)",T,1216,1,1,1,1,False,False,Brooks-Medicine Hat,Medicine Hat-Brooks,Medicine Hat-Brooks
+4817024,"Swan Hills, Town (T)",T,1201,1,1,1,1,False,False,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock
+4806022,"Irricana, Town (T)",T,1179,1,1,1,1,False,False,Olds-Didsbury-Three Hills,Olds-Didsbury-Three Hills,Olds-Three Hills-Didsbury
+4802009,"Stirling, Village (VL)",VL,1164,1,1,1,1,False,False,Taber-Warner,Taber-Warner,Lethbridge-Taber-Warner
+4804012,"Special Area No. 3, Special area (SA)",SA,1142,1,1,1,1,False,False,Drumheller-Stettler,Drumheller-Stettler,Drumheller-Stettler
+4812029,"Smoky Lake, Town (T)",T,1127,1,1,1,1,False,False,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock,Athabasca-Barrhead-Westlock
+4817078,"Manning, Town (T)",T,1126,1,1,1,1,False,False,Peace River,Peace River,Peace River
+4812808,"White Fish Lake 128, Indian reserve (IRI)",IRI,1093,1,1,1,1,False,False,Fort McMurray-Lac La Biche,Fort McMurray-Lac La Biche,Fort McMurray-Lac La Biche
+4811805,"Alexander 134, Indian reserve (IRI)",IRI,1077,1,1,1,1,False,False,Lac Ste. Anne-Parkland,Lac Ste. Anne-Parkland,Lac Ste. Anne-Parkland
+4802036,"Duchess, Village (VL)",VL,1053,1,1,1,1,False,False,Brooks-Medicine Hat,Medicine Hat-Brooks,Medicine Hat-Brooks
+4808026,"Bentley, Town (T)",T,1042,1,1,1,1,False,False,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre
+4812811,"Kehewin 123, Indian reserve (IRI)",IRI,1038,1,1,1,1,False,False,Bonnyville-Cold Lake-St. Paul,Cold Lake-Bonnyville-St. Paul,Bonnyville-Cold Lake-St. Paul
+4808024,"Eckville, Town (T)",T,1014,1,1,1,1,False,False,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre,Rimbey-Rocky Mountain House-Sundre
+4819046,"Falher, Town (T)",T,1001,1,1,1,1,False,False,Central Peace-Notley,Central Peace-Notley,Central Peace-Notley
