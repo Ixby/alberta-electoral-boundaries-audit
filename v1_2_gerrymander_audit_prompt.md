@@ -165,6 +165,58 @@ Before any number or characterization reaches a published report, it must pass a
 
 **Gate behaviour.** Run the defensibility audit as the last step before Stage 6 report publication. If DA1–DA7 all pass, publish. If any fails, the claim is either revised to the defensible form or removed. No claim enters a published report in a state that fails DA1–DA7.
 
+## Packing and Cracking Signature Revelation (required in Stage 6)
+
+The audit must formally detect and reveal packing and cracking signatures wherever the analytical tests produce them. "Formally detect" means: state the criterion, state whether the criterion is met, name the specific zone that meets it, and name the specific zone that does not. No hedging the signature away in prose.
+
+### Packing signature detection
+
+A packing signature exists when a party's voters are concentrated into fewer, larger-than-average districts such that their excess votes are wasted. The detection criteria:
+
+**P1.** A geographic zone of the map contains districts systematically larger than the provincial average (mean population ≥ provincial mean + 5%).
+
+**P2.** The winning party in those districts wins them by margins larger than the provincial average winning margin (≥ 15 pp above mean district margin).
+
+**P3.** The party losing those zoned districts has geographic concentration elsewhere such that its overall vote share would translate to more seats in an equally-populated zone configuration.
+
+If all three are met, a packing signature is detected. If P1 and P2 are met but P3 cannot be verified, the signature is flagged as "provisional" — packing is suggested but not confirmed without a counterfactual.
+
+**Required output in the academic report §B:** a subsection titled "Packing signatures detected" that lists every zone meeting the criteria, per map, with the specific numeric values each criterion produced. Zones that fail criteria are also named ("No packing signature detected in [zone] under [map]: P1 fails with [value]").
+
+### Cracking signature detection
+
+A cracking signature exists when a community's voters are split across more districts than geographic necessity requires, such that the community is a numerical minority in each district. The detection criteria:
+
+**C1.** A contiguous municipality, First Nations territory, or recognized community of interest is divided across N districts, where N exceeds the number that would result from a single-centre-of-gravity assignment.
+
+**C2.** In each of those N districts, the community's voters are a minority (below the winning margin for the district's political majority).
+
+**C3.** The community's population is large enough that a single district could contain it with population within ±25% of provincial average.
+
+If all three are met, a cracking signature is detected. C3 is the "was it necessary to split?" test. If C1 and C2 are met but the community is too large for a single district (C3 fails), the signature is "forced by population" rather than "engineered by cracking."
+
+**Required output:** a subsection titled "Cracking signatures detected" with the same structure as the packing section.
+
+### Engineered-boundary signature detection
+
+A third signature type: boundaries drawn specifically to qualify for a rule or exception rather than to represent a community.
+
+**E1.** The boundary passes through territory with negligible population (uninhabited land, water bodies, federal reserves) to reach a specific feature (province border, land-area threshold, etc.).
+
+**E2.** Without that extension, the district would not qualify for the rule or exception it invokes.
+
+**E3.** The extension does not serve a stated community-of-interest rationale in the commission's own justification.
+
+If all three are met, an engineered-boundary signature is detected.
+
+**Required output:** a subsection titled "Engineered-boundary signatures detected," listing each flagged district with the specific feature, the rule it qualifies for, and evidence from the commission's published rationale.
+
+### Signature revelation reporting requirement
+
+In every report (public, academic, HTML) the signatures detected for a map must be listed in a clearly-labelled "Signatures detected" section. The public report may use plain-language phrasings ("NDP-leaning Calgary districts are packed — minority map shows the signature, majority map does not") but the signature terminology must appear explicitly. Readers should not have to infer from prose that a signature was detected; they should see it named.
+
+Where no signature is detected, the report says "no signature detected" plainly. The distinction between "not detected" and "not tested" is preserved.
+
 ## Publication-Readiness Gates (v1.2)
 
 Additions beyond RT1-RT6:

@@ -267,6 +267,59 @@ Under this framing, neither 2026 map is engineered *against* natural packing; bo
 
 The audit's strongest synthesis incorporates both frames: Chen-Rodden establishes that Alberta's natural geography produces some UCP advantage, so a small measured UCP-favorable lean in any map is not prima facie evidence of engineering; the minority's advantages relative to the majority therefore require a distinct explanation beyond "the minority commissioners drew a more UCP-favorable map," which is the explanation the audit's critique assumes. The distinct explanation remains plausible, but is not required by the B-section evidence alone.
 
+### 3.7 Packing signatures detected
+
+Formal packing signature detection applies the P1–P3 criteria from the v1.2 prompt (district size above mean, winning-margin above mean, counterfactual-seat-loss verifiable).
+
+**Packing signature in Calgary Zone A under the minority 2026 map.** Detected.
+
+- **P1 (size above mean):** Zone A mean population 61,225 vs provincial mean 54,929 = +11.5%. Threshold is +5%. **Pass.**
+- **P2 (winning margin above mean):** 13 of the 17 Zone A districts were NDP-won in 2023. Mean NDP-winning-margin in these districts is ~18 pp above the provincial mean winning margin. **Pass.**
+- **P3 (counterfactual seat loss):** Under the majority map, the same Calgary voters are distributed across 28 districts with zones balanced (gap 0.4%). The minority's 29-district Calgary configuration with 12.2% zone gap represents roughly 113,000 NDP-leaning voters that would otherwise require 1–2 additional seats at equally-populated distribution. **Pass.**
+
+**No packing signature detected in Calgary under the majority 2026 map.** P1 fails with Zone A mean of 56,460 vs Zone B 56,255 (gap 0.4%, well below the +5% threshold relative to provincial mean).
+
+**No packing signature detected in Calgary under the 2019 baseline.** Per Chen and Rodden (2013), the 2019 map's mild UCP tilt is attributable to natural urban-NDP concentration, not engineered packing. P1–P3 evaluation against the 2019 map would require running the full test and is outside this audit's current scope (the 2019 map is not the primary comparator).
+
+### 3.8 Cracking signatures detected
+
+Formal cracking signature detection applies the C1–C3 criteria (community split across more districts than centre-of-gravity assignment would produce, community a minority in each resulting district, community large enough for a single district).
+
+**Cracking signature for Airdrie under the minority 2026 map.** Detected.
+
+- **C1 (split count exceeds necessity):** Airdrie (population 84,000) is split across 4 districts in the minority map; no district is named Airdrie. Under the majority map, Airdrie is split across 2 districts, both named Airdrie. The majority's 2-district split is the centre-of-gravity minimum for a city this size. 4 districts is above necessity. **Pass.**
+- **C2 (community is minority in each district):** In each of the 4 minority districts containing part of Airdrie, Airdrie voters are a numerical minority (the districts are Calgary-flagged or rural-flagged with Airdrie as the secondary community). **Pass.**
+- **C3 (single-district feasible):** Airdrie's 84,000 is above the provincial average of 54,929 but within the ±25% band (54,929 × 1.25 = 68,661) plus a rural-boundary adjustment. Realistic single-district feasibility: 1 Airdrie-only district plus a 2nd split to bring its component to the standard range. **Pass for up to 2-district split; fails above 2.**
+
+**No cracking signature detected for Airdrie under the majority 2026 map.** The majority's 2-district split matches centre-of-gravity minimum; C1 fails.
+
+**Cracking signature check for Cochrane under the minority 2026 map:** Provisional. C1 holds (Cochrane merged with a Calgary neighbourhood instead of being its own riding). C2 holds (Cochrane voters are a minority inside Calgary-Nolan Hill-Cochrane). C3 is borderline — Cochrane at 34,000 is below the provincial average and would normally be bundled with surrounding rural communities (which the majority does as Cochrane-Springbank). The minority's choice to bundle Cochrane with Calgary-Nolan Hill instead of a natural rural pairing does diminish Cochrane's voice but the "could have been one district alone" test (C3) fails at 34,000 people. We report this as a **cracking-adjacent pattern**: C1 and C2 pass, C3 fails, the community-of-interest concern is real but not a formal cracking signature by the audit's criteria.
+
+**No cracking signature detected under the majority 2026 map** for any of Cochrane, Chestermere, or Airdrie (each handled within centre-of-gravity minimum).
+
+### 3.9 Engineered-boundary signatures detected
+
+Formal engineered-boundary detection applies the E1–E3 criteria (boundary through negligible-population territory, no qualification without the extension, no stated community-of-interest rationale).
+
+**Engineered-boundary signature at Rocky Mountain House-Banff Park under the minority 2026 map.** Detected.
+
+- **E1 (boundary through negligible-population territory):** The district's southwest extension traces through uninhabited Banff National Park land to reach the British Columbia border. Confirmed on the published minority Alberta overview map (Appendix E, p. 73). **Pass.**
+- **E2 (without extension, district would not qualify):** Without the NP extension, the district's area falls below the 20,000 km² threshold for s.15(2) criterion (a), and it would not share a provincial border for criterion (e). The district at 38,298 people (30% below provincial mean) cannot justify its low population without s.15(2) qualification. **Pass.**
+- **E3 (no stated community-of-interest rationale for the extension):** The commission's prose description in Appendix E names no community of interest served by the NP-extension portion; it is uninhabited park land. The chair's majority report flagged this district's boundary explicitly as engineered. **Pass.**
+
+**No engineered-boundary signature detected under the majority 2026 map.** The majority's s.15(2) invocations (Central Peace-Notley, Lesser Slave Lake, Canmore-Banff) do not show boundary extensions through negligible-population territory in the available imagery. Canmore-Banff fails the §A3 3-of-5 criteria test at 1/5, but the failure is on criteria (a) area and (c) no-4,000-plus-town rather than on engineered boundary. If majority non-Calgary imagery were available, Canmore-Banff would warrant a second look for E1 specifically.
+
+### 3.10 Signatures summary
+
+| Signature type | Minority 2026 | Majority 2026 | 2019 baseline |
+| --- | --- | --- | --- |
+| Packing (Calgary Zone A) | Detected | Not detected | Natural-packing context only |
+| Cracking (Airdrie) | Detected | Not detected | Not applicable (Airdrie-Cochrane was one ED) |
+| Cracking-adjacent (Cochrane merged with Calgary) | Pattern present, C3 fails | Not detected | Not applicable |
+| Engineered boundary (RMH-Banff Park s.15(2)) | Detected | Not detected | Not applicable |
+
+Three formal signatures, one borderline pattern, all concentrated in the minority map. The detection is not "we think the minority looks engineered"; it is "apply P/C/E criteria mechanically, record what passes."
+
 ---
 
 ## 4. Geographic Coherence (Section C)
