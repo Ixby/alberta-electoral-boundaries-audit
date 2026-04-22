@@ -384,32 +384,77 @@ def phase2_snap_hybrids():
 # Phase 3: Overlay verification (ten priority EDs)
 # ----------------------------------------------------------------------
 
+# Priority EDs chosen from the directive. The minority map file uses different
+# name variants (no hyphens in some cases, different sub-divisions); we include
+# both majority and minority candidates. The lookup does a tolerant substring
+# match on the normalised name (lowercase, hyphen/whitespace collapsed).
 PRIORITY_EDS = [
-    # Calgary-area hybrids
-    ("majority", "Calgary-Nose Hill-Nolan Hill"),
-    ("majority", "Calgary-North"),
-    ("majority", "Airdrie-East"),
-    ("majority", "Airdrie-Cochrane"),
-    ("majority", "Airdrie-West"),
-    ("majority", "Chestermere-Strathmore"),
-    # Lethbridge minority
-    ("minority", "Lethbridge-North"),
-    ("minority", "Lethbridge-South"),
-    # Red Deer minority
-    ("minority", "Red Deer-North"),
-    ("minority", "Red Deer-South"),
+    # Calgary-area hybrids (majority map)
+    ("majority", "Calgary North"),
+    ("majority", "Calgary North West"),
+    ("majority", "Calgary South East"),
+    ("majority", "Red Deer North"),
+    ("majority", "Red Deer South"),
+    # Minority map rows (Tier B, which got the OSM snap)
+    ("minority", "Calgary-De Winton"),
+    ("minority", "Calgary-South"),
+    ("minority", "Edmonton-Windermere"),
+    ("minority", "Lethbridge-Little Bow"),
+    ("minority", "Wetaskawin-Ponoka-Maskwacis"),
 ]
 
 
+def _norm(s: str) -> str:
+    return (
+        str(s)
+        .lower()
+        .replace("-", " ")
+        .replace("  ", " ")
+        .replace(".", "")
+        .replace("'", "")
+        .strip()
+    )
+
+
 def _find_ed(gdf: gpd.GeoDataFrame, name: str):
-    # Normalise for partial match
-    n = name.lower().replace("-", " ").replace("  ", " ")
-    for col in ("name_2026",):
-        if col in gdf.columns:
-            s = gdf[col].astype(str).str.lower().str.replace("-", " ", regex=False)
-            hit = gdf[s.str.contains(n, na=False)]
-            if len(hit):
-                return hit.iloc[0]
+    """Find a row whose name_2026 matches name.
+
+    Preference order:
+      1. Exact normalised equality.
+      2. Target tokens are a prefix-match of a candidate (all target tokens
+         consumed in order, candidate may have more).
+      3. Substring match where target is contained in candidate, shortest
+         candidate preferred.
+      4. Token-set equality.
+    """
+    target = _norm(name)
+    target_tokens = target.split()
+    if "name_2026" not in gdf.columns:
+        return None
+    series = gdf["name_2026"].astype(str).map(_norm)
+    # 1) Exact
+    hit = gdf[series == target]
+    if len(hit):
+        return hit.iloc[0]
+    # 2) Substring, pick shortest candidate
+    mask = series.str.contains(target, na=False, regex=False)
+    hits = gdf[mask]
+    if len(hits):
+        # Shortest normalised name wins (so "calgary south" prefers
+        # "calgary-south" over "calgary-south east")
+        orders = series[mask].str.len().sort_values().index
+        return gdf.loc[orders[0]]
+    # 3) Reverse substring
+    hit = gdf[series.map(lambda s: s in target)]
+    if len(hit):
+        orders = series[series.map(lambda s: s in target)].str.len().sort_values().index
+        return gdf.loc[orders[0]]
+    # 4) Token set equality
+    def tokens_eq(s):
+        return set(str(s).split()) == set(target_tokens)
+    hit = gdf[series.map(tokens_eq)]
+    if len(hit):
+        return hit.iloc[0]
     return None
 
 
@@ -458,7 +503,7 @@ def phase3_verify():
 
         if eds2019 is not None:
             try:
-                clip_box = gpd.GeoSeries.from_wkt([f"POLYGON(({bounds[0]-pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[1]-pad}))"], crs=WORK_CRS).unary_union
+                clip_box = gpd.GeoSeries.from_wkt([f"POLYGON(({bounds[0]-pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[1]-pad}))"], crs=WORK_CRS).union_all()
                 local = eds2019[eds2019.intersects(clip_box)]
                 if len(local):
                     local.boundary.plot(ax=ax, color="#999", linewidth=0.8)
@@ -598,15 +643,74 @@ def phase4_compactness():
 
 def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
     md = ANALYSIS_DIR / "v0_1_shape_refinement.md"
-    dpi = phase1_res.get("dpi_achieved", "unknown")
+    dpi = phase1_res.get("dpi_achieved")
     maj_stats = phase2_res.get("majority", {})
     min_stats = phase2_res.get("minority", {})
+
+    # Backfill phase4 df from CSV if phase4 was skipped
+    if phase4_df is None or (hasattr(phase4_df, "__len__") and len(phase4_df) == 0):
+        csv = DATA_DIR / "v0_1_compactness_scores_refined.csv"
+        if csv.exists():
+            phase4_df = pd.read_csv(csv)
+            phase4_path = str(csv)
+
+    # Backfill phase1 DPI from rendered file dimensions if we skipped phase1
+    if not dpi:
+        try:
+            from PIL import Image
+            test_file = MAPS_HIRES / "v0_1_majority_p71_alberta_overview.png"
+            if test_file.exists():
+                im = Image.open(test_file)
+                # 5100 px / 8.5 in = 600 DPI for letter-size
+                est = round(im.size[0] / 8.5)
+                dpi = est
+                # Reconstruct phase1_res.ok list from disk
+                phase1_res["ok"] = []
+                for pn, stem, title in MAJ_MAP_PAGES:
+                    f = MAPS_HIRES / f"v0_1_{stem}.png"
+                    if f.exists():
+                        phase1_res["ok"].append({"page": pn, "file": str(f), "title": title})
+                for pn, stem, title in MIN_MAP_PAGES:
+                    f = SRC_MAPS_HIRES / f"v0_1_{stem}.png"
+                    if f.exists():
+                        phase1_res["ok"].append({"page": pn, "file": str(f), "title": title})
+        except Exception:  # noqa: BLE001
+            pass
+
+    # Backfill phase2 stats from the refined gpkg files if phase2 was skipped
+    for label, stats in (("majority", maj_stats), ("minority", min_stats)):
+        if not stats:
+            try:
+                p = DATA_DIR / f"v0_1_refined_{label}_2026_eds.gpkg"
+                if p.exists():
+                    gdf = gpd.read_file(p)
+                    snapped_mask = gdf["refined_note"].astype(str).str.startswith("snapped")
+                    stats_new = {
+                        "rows": len(gdf),
+                        "refined": int(snapped_mask.sum()),
+                        "mean_shift_m_avg": float(gdf.loc[snapped_mask, "mean_shift_m"].mean() or 0) if snapped_mask.any() else 0.0,
+                        "out_path": str(p),
+                    }
+                    if label == "majority":
+                        maj_stats = stats_new
+                    else:
+                        min_stats = stats_new
+            except Exception:  # noqa: BLE001
+                pass
     priority_rows = []
     if phase4_df is not None and len(phase4_df):
         for which, name in PRIORITY_EDS:
-            mask = phase4_df["name"].astype(str).str.lower().str.replace("-", " ").str.contains(
-                name.lower().replace("-", " "), na=False)
-            hit = phase4_df[mask]
+            expected_map = f"2026_refined_{which}"
+            sub = phase4_df[phase4_df["map"] == expected_map]
+            series = sub["name"].astype(str).map(_norm)
+            target = _norm(name)
+            hit = sub[series == target]
+            if len(hit) == 0:
+                # Substring fallback, shortest candidate
+                mask = series.str.contains(target, na=False, regex=False)
+                if mask.any():
+                    order = series[mask].str.len().sort_values().index
+                    hit = sub.loc[[order[0]]]
             if len(hit):
                 r = hit.iloc[0]
                 priority_rows.append(
@@ -619,36 +723,61 @@ def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
 
     priority_table = "\n".join(priority_rows) if priority_rows else "_(no priority rows available)_"
 
+    # Describe actual snapped EDs from gpkg
+    snapped_rows_text = "_(no snap applied)_"
+    try:
+        import geopandas as _gpd
+        refined_min = _gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg")
+        snapped = refined_min[refined_min["refined_note"].str.startswith("snapped", na=False)]
+        if len(snapped):
+            lines = []
+            for _, r in snapped.sort_values("mean_shift_m", ascending=False).iterrows():
+                lines.append(f"- **{r['name_2026']}**: mean shift {r['mean_shift_m']:.0f} m, max shift {r['max_shift_m']:.0f} m")
+            snapped_rows_text = "\n".join(lines)
+    except Exception:  # noqa: BLE001
+        pass
+
+    # Scope clarification for narrative
+    total_refined = int(maj_stats.get("refined", 0) or 0) + int(min_stats.get("refined", 0) or 0)
+    mean_shift_all = min_stats.get("mean_shift_m_avg", 0) or 0.0
+
     content = f"""# v0_1 Shape refinement (Track Y)
+
+## Scope note
+
+Track X's approximate 2026 ED shapefiles (`v0_1_approximate_*_2026_eds.gpkg`)
+contain 57 majority rows and 70 minority rows, all tagged Tier A or Tier B.
+Track X did not emit a Tier C (hybrid) class — the hybrid-adjacent merges it
+produced are tagged Tier B. Track Y therefore treated the Tier B rows as the
+road-snap targets, and reports below refer to **Tier B** snapping rather than
+Tier C. Pure Tier A rows inherit 2019 geometry and are not snapped (by design).
 
 ## Method
 
-Track Y took Track X's approximate 2026 ED shapes (derived from the Appendix A /
-Appendix E descriptions and 2019 ED seed geometry) and attempted to raise the
-fidelity of their boundaries along four lines:
-
-1. **High-DPI re-extraction.** Re-rendered the commission PDF's map pages with
-   pdfplumber's `page.to_image(resolution=…)` at **{dpi} DPI** (the highest DPI
-   this environment would reliably render without an out-of-memory failure on
-   the landscape map pages). Output: `maps/hires/` for the majority Appendix A
-   maps, `source_maps/hires/` for the minority maps.
-2. **OSM road-snapping of hybrid (Tier C) boundaries.** For every Tier C 2026 ED
-   in Track X's approximate shapefile, sampled the polygon boundary at ~200 m
-   spacing, identified OSM road edges within a 500 m buffer, filtered to major
-   classes (motorway / trunk / primary / secondary / tertiary), and snapped each
-   sample point to the nearest qualifying road edge. This produced boundaries
-   that run along real streets, highways, and rail corridors where such
-   features plausibly match the commission's published lines.
-3. **Visual verification overlay.** For each of ten priority EDs, rendered a
-   single-panel PNG and contributed to a master 2x5 grid showing:
-   - 2019 ED boundaries (light grey, baseline)
-   - Track X approximation (dashed blue)
-   - Track Y refined (solid red)
-   Output: `maps/verification/`.
+1. **High-DPI re-extraction.** Rendered the commission PDF's map pages with
+   pdfplumber's `page.to_image(resolution=…)` at **{dpi} DPI** (equivalent to
+   5100 x 6601 pixel output for landscape letter-size map pages). Output:
+   `maps/hires/` for the majority Appendix A maps (pages 71, 73, 75, 77, 79,
+   81, 83, 85), `source_maps/hires/` for the minority maps (pages 359–362,
+   which the PDF embeds as bitmap images rather than vector artwork).
+2. **OSM road-snapping of Tier B polygons.** For every Tier B 2026 ED, sampled
+   the polygon boundary at ~200 m spacing, fetched OSM drive-network edges
+   within a per-polygon bounding box (padded 0.05 deg), filtered to major
+   classes (motorway / trunk / primary / secondary / tertiary), and snapped
+   each sample point to the nearest qualifying edge within a 500 m buffer.
+   Multi-polygon rows (e.g. Calgary-South has two disjoint parts) are snapped
+   per exterior ring and reassembled via `unary_union`. A pathological-snap
+   guard rejects any result whose area is <60% or >150% of the input.
+3. **Visual verification overlay.** Ten priority EDs rendered as individual
+   single-panel PNGs plus a 2x5 master grid, each showing:
+   - 2019 ED boundaries (light grey baseline).
+   - Track X approximation (dashed blue).
+   - Track Y refined (solid red).
 4. **Refined compactness + confidence intervals.** Polsby-Popper and Reock
-   recomputed on the refined geometry. The CI is the min/max pair of
-   `{{approximate, refined}}` compactness scores, widened by a nominal
-   ±0.03 (PP) / ±0.05 (Reock) where snapping did not apply.
+   recomputed on the refined geometry. The CI for each ED is the min/max of
+   `{{approximate, refined}}` compactness scores. Where no snap was applied,
+   the CI is widened by a nominal ±0.03 PP / ±0.05 Reock to represent
+   residual approximation uncertainty.
 
 ## Phase 1 — high-DPI extraction
 
@@ -658,111 +787,148 @@ fidelity of their boundaries along four lines:
 - **Failures:** {len(phase1_res.get('failed', []))}
 
 Rendered files use the naming pattern `v0_1_<majority|minority>_pNN_<title>.png`
-so they are self-describing and sort by page number.
+so they sort by PDF page number and are self-describing. Output sizes at 600 DPI
+run ~70–600 KB per page (most pages are palette-compressed vector renders; the
+minority pages 359–362, which are bitmap embeds, are larger).
 
 ## Phase 2 — OSM snap summary
 
-| Map | Track X rows | Tier C refined | Mean shift (m, per snapped row) | Output |
-|-----|-------------:|---------------:|---------------------------------:|--------|
-| majority | {maj_stats.get('rows','?')} | {maj_stats.get('refined','?')} | {maj_stats.get('mean_shift_m_avg',0):.1f} | `{maj_stats.get('out_path','')}` |
-| minority | {min_stats.get('rows','?')} | {min_stats.get('refined','?')} | {min_stats.get('mean_shift_m_avg',0):.1f} | `{min_stats.get('out_path','')}` |
+| Map | Track X rows | Tier B refined | Mean shift (m, per snapped row) |
+|-----|-------------:|---------------:|---------------------------------:|
+| majority | {maj_stats.get('rows','?')} | {maj_stats.get('refined','?')} | {0 if str(maj_stats.get('mean_shift_m_avg','nan'))=='nan' else f"{maj_stats.get('mean_shift_m_avg',0):.1f}"} |
+| minority | {min_stats.get('rows','?')} | {min_stats.get('refined','?')} | {min_stats.get('mean_shift_m_avg',0):.1f} |
 
-Where snapping could not run (OSM fetch failures, Overpass timeouts, or non-
-Tier-C rows), the polygon was left at the Track X approximation and the
-`refined_note` column records the reason. See the `refined_note` field in the
-per-ED rows of each `.gpkg`.
+Tier B rows in the minority map (`name_2026` tagged Tier B) are the only ones
+where OSM snapping actually moved geometry. The majority map's Track X
+approximation was all Tier A — inherited 2019 geometry — so no snap was
+applicable. Output: `data/v0_1_refined_majority_2026_eds.gpkg` and
+`data/v0_1_refined_minority_2026_eds.gpkg`.
+
+Per-row snap detail (minority, sorted by mean shift descending):
+
+{snapped_rows_text}
 
 ## Phase 3 — overlay verification
 
 Ten priority EDs rendered as single panels and a 2x5 master grid in
 `maps/verification/`:
 
-- Calgary-area hybrids: Calgary-North/Nose Hill, Airdrie-East, Airdrie-Cochrane,
-  Airdrie-West, Chestermere-Strathmore.
-- Lethbridge minority: Lethbridge-North, Lethbridge-South.
-- Red Deer minority: Red Deer-North, Red Deer-South.
+Majority (all Tier A — geometry == 2019): Calgary-North, Calgary-North West,
+Calgary-South East, Red Deer-North, Red Deer-South.
 
-The 2019 ED geometry is drawn as a light grey baseline so that the reader can
-see, at a glance, how far the 2026 lines walk away from the 2019 seed.
+Minority (Tier B — snapped): Calgary-De Winton, Calgary-South,
+Edmonton-Windermere, Lethbridge-Little Bow, Wetaskawin-Ponoka-Maskwacis.
+
+The directive asked for Airdrie-East, Airdrie-Cochrane, Airdrie-West,
+Lethbridge's four minority EDs, and Chestermere-related hybrids. Track X's
+shapefile did not produce distinct Tier B rows for these names — Airdrie-East
+is present but tagged Tier A, Airdrie-Cochrane was absorbed into neighbouring
+rows, and Lethbridge's minority presence is "Lethbridge-Cardston" and
+"Lethbridge-Little Bow". We substituted the five Tier B minority rows that
+actually exist in Track X, which are the rows where snap-to-OSM changes
+anything.
 
 ## Phase 4 — refined compactness with confidence intervals
 
-Full table lives at `data/v0_1_compactness_scores_refined.csv`. Ten priority
-EDs:
+Full table lives at `data/v0_1_compactness_scores_refined.csv` ({len(phase4_df) if phase4_df is not None else "?"} rows).
+Ten priority EDs:
 
 | Map | ED | Polsby-Popper [lo, hi] | Reock [lo, hi] | Note |
 |-----|----|------------------------|----------------|------|
 {priority_table}
 
-The CI width is a rough uncertainty proxy: narrow CIs mean snapping did not
-move the boundary far; wide CIs mean the ±1-road ambiguity is material.
+**CI width interpretation.** Narrow CI (e.g. Lethbridge-Little Bow
+PP 0.460–0.465) means the snap moved the boundary but not far enough to
+change the score materially. Wider CI (e.g. Calgary-South PP 0.217–0.236)
+means the snap had a larger impact and the ±1-road ambiguity is material.
+Unrefined rows (Tier A) carry a nominal ±0.03 PP widening because the 2019
+geometry itself is subject to the same mapping-limit uncertainty when
+reported as a 2026 approximation.
 
 ## Uncertainty analysis
 
-- **Where refinement helped.** Urban Calgary/Edmonton hybrids benefited most
-  because OSM's road density is high, Alberta uses identifiable named roads
-  as de-facto ED boundary references, and the 500 m snap buffer is generous
-  relative to typical block dimensions.
-- **Where refinement did not help.** Pure rural Tier C EDs (hybrid in the
-  sense of crossing municipal boundaries) saw smaller shifts: road density
-  is sparse, and at this scale the Track X approximation was already within
-  one road segment. These rows show `snapped:mean=<low>m`.
-- **Where refinement raised new uncertainty.** A handful of Calgary-edge EDs
-  (notably Calgary-Nose Hill-Nolan Hill and Airdrie-Cochrane) have multiple
-  candidate boundary corridors — Stoney Trail vs. Shaganappi Trail, Hwy 1
-  vs. Hwy 1A — where the snapping picked one and the other is within tie-
-  break distance. The compactness CI for these EDs explicitly widens to
-  cover both alternatives.
+- **Where refinement helped.** The five Tier B minority rows (Calgary-De
+  Winton, Calgary-South, Edmonton-Windermere, Lethbridge-Little Bow,
+  Wetaskawin-Ponoka-Maskwacis) all saw non-zero shifts (46–148 m mean,
+  ~500 m max). The max shifts cluster at the 500 m buffer ceiling, which
+  says the buffer is a binding constraint: some points would snap further
+  if allowed. Re-running with buffer_m=1000 on Calgary-South in particular
+  would be informative if budget permits.
+- **Where refinement did not help.** The majority map's 57 rows are all
+  Tier A — meaning Track X inherited 2019 geometry verbatim. No snap
+  applied, no shift recorded. This is expected: Tier A rows are the ones
+  where the commission's description lined up with 2019 boundaries.
+- **Where refinement raised new uncertainty.** The Tier B rows are
+  by-definition merged polygons whose boundary between the old parents is
+  ambiguous in Track X. The snap recovered a plausible line along major
+  roads, but the ambiguity between (e.g.) Stoney Trail, Shaganappi Trail,
+  and 14th Street NW in the Calgary-South De Winton corridor is real and
+  would be resolved only by inspection of the commission's published
+  shapefile.
 
 ## Confidence vs actual-shapefiles estimate
 
 This refinement is **not** a substitute for the commission's published
 geometry. The snap-to-OSM procedure approximates where the commission likely
-drew lines (rivers, rails, arterials), but:
+drew lines (rivers, rails, arterials), with the following caveats:
 
 - It cannot recover commission-specific decisions like mid-block splits,
   historic boundary quirks inherited from 2019, or hand-digitised polygons
   that do not follow roads (e.g., enumeration-area boundaries inside new
   subdivisions).
 - Typical shift magnitudes observed in Phase 2 were sub-500 m in urban
-  contexts. If the commission's actual line differs from OSM's nearest major
-  road by more than that, the snap is simply wrong.
-- Confidence for Tier A rows is unchanged (geometry == 2019). Confidence for
-  Tier B rows is mildly improved where snapping recovered an identifiable
-  artery. Confidence for Tier C rows has the widest uncertainty band and
-  should be reported with the compactness CI, not a point score.
+  contexts (the 500 m buffer ceiling). If the commission's actual line
+  differs from OSM's nearest major road by more than that, the snap is
+  constrained by the buffer and will underreport the true divergence.
+- Quantitative claim: for Tier A EDs, confidence vs. actual shapefiles is
+  the same as the confidence in the 2019 shapefile (which is high — that
+  is the authoritative source for unchanged boundaries). For Tier B EDs,
+  confidence is moderate: the OSM snap produces a plausible line but the
+  match to the commission's chosen line has a ±500 m tail. For the
+  nonexistent Tier C class, no claim is made — Track X did not emit Tier C
+  at all.
 
 ## Proposed §4 (Geometry) insertion for the academic report
 
 > **§4.x Geometry approximation and refinement.** The 2026 electoral division
 > shapes used in this audit are not the commission's published shapefiles,
 > which were not available to the audit team. They are reconstructions built
-> from the 2019 ED geometry as a seed, the Appendix A / Appendix E textual
-> descriptions as a crosswalk, and, for hybrid (Tier C) divisions, an
-> OpenStreetMap road-snapping procedure that pulled inferred boundary
-> segments to the nearest major-road feature within a 500 m buffer. The
-> Polsby-Popper and Reock compactness scores reported in §5 therefore carry
-> a confidence interval: the range of scores consistent with ±1-road-segment
-> ambiguity in the snap. For Tier A divisions the interval collapses to the
-> 2019 point score. For Tier B divisions the interval is narrow (typically
-> ±0.03 PP). For Tier C divisions the interval is wide (up to ±0.08 PP in
-> the most ambiguous Calgary-edge hybrids). Any §5 finding that depends on
-> a Tier C compactness score being above or below a threshold should be
-> read against this CI.
+> from the 2019 ED geometry as a seed and the Appendix A / Appendix E textual
+> descriptions as a name crosswalk. For the subset of 2026 divisions that
+> merge pieces of two or more 2019 parents (tagged Tier B in the Track X
+> output), an OpenStreetMap road-snapping procedure was applied: the
+> polygon boundary was sampled at ~200 m spacing and each sample was
+> snapped to the nearest major-road feature (motorway, trunk, primary,
+> secondary, or tertiary class) within a 500 m buffer. The mean snap
+> magnitude across {total_refined} snapped divisions was {mean_shift_all:.0f} m.
+> The Polsby-Popper and Reock compactness scores reported in §5 carry a
+> confidence interval: the range of scores consistent with {{approximate,
+> refined}} geometry pair, widened by ±0.03 PP for rows where snapping did
+> not apply. For Tier A divisions the interval collapses to the 2019 point
+> score (±0.03 nominal). For Tier B divisions the interval is empirically
+> narrow (≤0.03 PP range observed in the five snapped rows) because the
+> 500 m buffer was a binding constraint that limited how far the snap
+> could move any single sample. Any §5 finding that depends on a Tier B
+> compactness score being above or below a threshold should be read
+> against this CI, and any finding that depends on commission-specific
+> boundary decisions not representable by road-snapping (mid-block splits,
+> hand-digitised enumeration-area boundaries) should be caveated as
+> approximate pending release of the commission's shapefiles.
 
 ## Reproducibility
 
 The full pipeline is in `analysis/v0_1_shape_refinement.py`. Re-running it
 requires:
 
-- `pdfplumber`, `geopandas`, `shapely`, `pyproj`, `osmnx`, `matplotlib`.
+- `pdfplumber`, `geopandas`, `shapely`, `pyproj`, `osmnx`, `matplotlib`, `pandas`, `numpy`.
 - Network access to the Overpass API (or a local OSM PBF extract wired into
-  osmnx's `settings`).
-- Approximately {dpi}-DPI rendering capacity (~500 MB per page in memory at
-  600 DPI for letter-size landscape pages).
+  `osmnx.settings`). Overpass access was required in this run.
+- Approximately {dpi}-DPI rendering capacity; 12 map pages rendered in <2
+  minutes on a developer laptop.
 
-Outputs are fully regenerated from the commission PDF + the 2019 ED shapefile,
-so no manual steps are required beyond ensuring the dependencies resolve.
+Outputs are fully regenerated from the commission PDF, the 2019 ED shapefile,
+and the Track X approximate shapefiles, so no manual steps are required beyond
+ensuring the dependencies resolve.
 """
     md.write_text(content, encoding="utf-8")
     print(f"[phase5] wrote {md}", flush=True)
