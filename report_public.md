@@ -36,6 +36,8 @@ These findings come from public documents (the commission's own population table
 
 2. **The minority map splits Airdrie across four districts. The majority splits it across two.** Airdrie is a city of 84,000 people. Four districts means no single MLA has Airdrie as their main responsibility. [Details below.](#community-splits)
 
+**Clarification added after follow-up analysis.** An earlier draft read the minority's smaller rural mean (50,336 vs majority 52,281) as evidence of rural UCP packing. A deeper check said this was wrong. Both maps pack their ten smallest rural seats into almost the same UCP territory (68 to 70 percent). The real driver of the 3.9 percent gap is simpler. The minority uses one extra very-small-population seat. That seat is Rocky Mountain House-Banff Park, at 38,298 people. It is 30 percent below the provincial average. That one substitution drives about a third of the gap. The minority still gives rural Alberta slightly more seats per capita. But the audit no longer reads this as evidence of partisan intent. See [the rural-gap dissection](analysis/v0_1_rural_gap_findings.md) for details.
+
 3. **The minority map merges Cochrane with a Calgary neighbourhood through a narrow corridor. The majority gives Cochrane its own district.**
 
 4. **Three minority districts have shapes that the commission chair flagged in his own report as engineered** — drawn to satisfy a rule rather than to represent a real community. The three are Calgary-Nolan Hill-Cochrane, Rocky Mountain House-Banff Park, and Olds-Three Hills-Didsbury. Direct inspection of the published maps confirms the chair's description on all three.
@@ -91,6 +93,35 @@ Several claims are being made by different sides of this debate. Here is what th
 - **"The minority had no public support for any of its configurations."** Contradicted. Three of five disputed configurations have documented public support in the submissions. The chair was correct on the Airdrie 4-way and Nolan Hill-Cochrane configurations and wrong on the others.
 - **"The April 16 action is a clear constitutional violation."** Not established. It may or may not satisfy the effective-representation standard from the 1991 Saskatchewan Reference. That determination is for courts, not this audit.
 - **"The April 16 committee will definitely produce a partisan map."** Speculative. The committee has not yet reported. The audit cannot evaluate a map that does not yet exist.
+
+---
+
+## Preliminary: The 91-Seat Proposal
+
+Since the commission tabled its two maps on March 23, 2026, the government has signalled that the replacement may produce a 91-seat map. This started as an addendum by Chair Dallas Miller. The legislature passed a motion on April 16, 2026 (44 to 36) creating a select MLA committee. UCP MLA Brandon Lunty chairs it. It reports back by November 2, 2026. Premier Smith's stated reason: the commission "did not want to lose two rural ridings."
+
+**What is known for sure:**
+
+- No 91-seat map has been drafted yet.
+- The motion passed with UCP votes; the NDP voted against.
+- Elections Alberta called the timeline "very challenging."
+- The two extra seats appear to be rural, not urban.
+
+**What can be inferred (with lower confidence):**
+
+- If the two extra seats are rural, the rural mean would drop further below 52,281. Our rough estimate is around 49,800. That widens rural overrepresentation, not narrows it.
+- The Calgary zone-gap finding probably does not change. The 91-seat plan is about rural seats.
+- The efficiency gap would probably shift a bit more UCP-favourable. The audit cannot put a number on that without a map.
+
+**What the audit does not say:**
+
+- The audit does not publish B2 / B3 / B4 numbers for a 91-seat map. Those need the actual map, which does not exist.
+- The audit does not call the 91-seat plan a gerrymander. That label needs a map to test.
+- Some news outlets and political commentators have already used "gerrymander." The audit's view is that this is early. It may be right. It may not.
+
+**Reader guidance.** When the committee tables its report in November 2026, re-run this audit against the new map. If the minority's patterns carry over, the current findings apply. If the committee produces a more neutral layout, the findings weaken. The audit is built to measure either outcome without picking a side in advance.
+
+Full details and sources: [analysis/v0_1_91_seat_preliminary.md](analysis/v0_1_91_seat_preliminary.md).
 
 ---
 
