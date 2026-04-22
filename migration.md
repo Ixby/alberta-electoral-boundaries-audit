@@ -2,7 +2,7 @@
 
 **Current state:** v0.4 published. Dual-audience reports (public + academic) + accessible HTML dissemination. Submission archive verified; chair's Appendix C claim partially refuted. Structural findings robust; partisan-math findings qualified at 89% directional confidence.
 
-**Author and audit design:** Will Conner, Mount Royal University, BCIS.
+**Author and audit design:** Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student).
 
 **Working prompt for next session:** `v1_2_gerrymander_audit_prompt.md`.
 
