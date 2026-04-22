@@ -115,6 +115,25 @@ There is a more uncomfortable wrinkle. Run the same calculation using the 2019 e
 
 > **What's the efficiency gap?** A measure of how many votes each party "wastes." Votes for a loser are wasted. Votes for a winner above what was needed to win are also wasted. The efficiency gap is the difference between the two parties' wasted-vote rates. Zero means neither party systematically wastes more votes than the other. Negative numbers (in this province's reporting convention) favour the UCP; positive favour the NDP.
 
+### What each contested redraw actually does to the seat count
+
+The 1-to-3 seat range is the net effect of several specific redraws. Breaking it apart helps a reader see where the money actually moves.
+
+| Contested redraw | Mechanism in plain terms | Seat-count effect |
+|---|---|---|
+| **Rocky Mountain House-Banff Park** (minority s.15(2) invocation) | Minority adds one extra rural riding at 38,298 people — 30 percent below average — by extending the boundary through uninhabited national park land. The majority covers that same territory with a normally-sized rural riding. | One extra rural seat under minority. Since rural Alberta votes ~67 percent UCP, that's the largest single contributor to the minority's UCP tilt. Roughly +0.7 of the 1-to-3 seat gap. |
+| **Calgary Zone A-vs-B packing** (minority packs NDP-leaning Calgary 12 percent larger) | Minority's 17 NDP-leaning Calgary districts carry 6,656 more people each on average. That's about 113,000 NDP-leaning voters packed into existing districts rather than getting more districts. | About 1-2 fewer NDP Calgary seats in a tied election. The second-largest single contributor. Under 2023 results it's closer to 1 seat; under 2019 it would have flipped the other way. |
+| **Calgary-Nolan Hill-Cochrane** (minority hybrid) | Merges a Calgary NDP-leaning neighbourhood with the town of Cochrane via a narrow corridor. Creates one district where Nolan Hill voters (NDP-competitive) are diluted by Cochrane voters (strongly UCP). | One Calgary-flagged seat shifts from NDP-competitive to safe UCP. No direct seat count change; the partisan flavour of the seat shifts ~10 points UCP-ward. |
+| **Airdrie split four ways** (minority) | Airdrie's 84,000 residents are divided across four districts, none named Airdrie. Majority splits Airdrie across two Airdrie-named districts. | Zero seats flip. Airdrie voters lose primary representation; partisan math roughly neutral because Airdrie leans UCP in every configuration. |
+| **Olds-Three Hills-Didsbury with Airdrie addition** (minority rural unit keeps Airdrie chunk) | A rural district named for three small towns adds a slice of Airdrie. Rural voters outnumber the Airdrie slice ~3 to 1. | Zero seats flip. Airdrie voters inside this district are a permanent minority; the district's rural-UCP lean holds. |
+| **Chestermere split** (minority partial split vs majority intact) | Some Chestermere voters go to Calgary-Peigan-Chestermere, others to Chestermere-Strathmore. Majority keeps Chestermere whole inside Chestermere-Strathmore. | Zero seats flip. Chestermere voice diluted across two districts; partisan math unchanged. |
+| **Red Deer hybrids** (minority 4 peri-Red-Deer hybrids vs majority 3) | Minority adds one more Red Deer-adjacent hybrid district than majority. Both maps split Red Deer — the minority splits it more. | Roughly zero net seats flip. More splitting marginally reduces NDP ability to consolidate Red Deer urban voters. |
+| **St. Albert-Sturgeon variants** | Both maps pair St. Albert with Sturgeon County; specific boundaries differ. | Zero seats flip. Partisan math essentially identical. |
+
+**The net adds up.** One rural s.15(2) seat (roughly +0.7 UCP effective), plus 1 to 2 Calgary seats shifted through Zone A packing, equals roughly the 1-to-3 seat band the audit reports. The rest of the contested redraws mostly affect representation quality — who your MLA answers to — rather than the seat count. That is a distinction worth holding.
+
+**Which of these is "fixable" in the November committee's map?** The rural s.15(2) boundary and the Calgary zone packing are the two that actually move seat math. If the committee redraws Rocky Mountain House-Banff Park to a normally-sized rural district and equalizes the Calgary zone populations, most of the seat-count effect disappears even if other minority choices survive. If the committee keeps both, the seat effect stays.
+
 ---
 
 ## Why 2027 is where this actually lands
