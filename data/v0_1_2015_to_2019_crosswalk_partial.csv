@@ -1,0 +1,22 @@
+ed_2015_2010boundaries,ed_2019_2017boundaries,change_type,confidence,note
+Airdrie,Airdrie-East,split,high,Reformed into Airdrie-East + Airdrie-Cochrane (2017 report p37)
+Airdrie,Airdrie-Cochrane,split,high,Reformed into Airdrie-East + Airdrie-Cochrane (2017 report p37)
+Highwood,Okotoks-Sheep River,rename+boundary,high,2017 report p42/55
+Edmonton-Mill Creek,Edmonton-Meadows,rename+boundary,medium,2017 report p20 — former Edmonton-Mill Creek -> Edmonton-Meadows
+Edmonton-Gold Bar,Edmonton-Gold Bar,name_restored,high,Interim Edmonton-East reverted to Edmonton-Gold Bar (p31/46)
+Rimbey-Rocky Mountain House-Sundre,Rocky Mountain House-Sundre,consolidation,medium,"Part of 5->4+1 central-west consolidation (p52,57)"
+West Yellowhead,West Yellowhead,boundary,medium,Part of central-west consolidation (p57)
+Drayton Valley-Devon,Drayton Valley-Devon,boundary,medium,"Part of central-west consolidation (p54,57)"
+Whitecourt-Ste. Anne,Lac Ste. Anne-Parkland,rename+boundary,medium,Renamed to Lac Ste. Anne-Parkland (p52)
+Stony Plain,Spruce Grove-Stony Plain,rename+boundary,medium,Consolidated with Spruce Grove area (p57)
+Battle River-Wainwright,Vermilion-Wainwright,consolidation,medium,Southeast 7->6 (p58)
+Battle River-Wainwright,Camrose,consolidation,medium,Southeast 7->6 (p58)
+Drumheller-Stettler,Drumheller-Stettler,boundary,medium,Southeast 7->6 (p58)
+Strathmore-Brooks,Brooks-Medicine Hat,rename+boundary,medium,Southeast 7->6 (p58)
+Strathmore-Brooks,Chestermere-Strathmore,split,low,Southeast 7->6 (p58)
+Little Bow,Livingstone-Macleod,boundary,low,Southeast 7->6 (p58)
+Cardston-Taber-Warner,Cardston-Siksika,split+rename,medium,Southeast 7->6 (p58)
+Cardston-Taber-Warner,Taber-Warner,split+rename,medium,Southeast 7->6 (p58)
+Cypress-Medicine Hat,Cypress-Medicine Hat,boundary,medium,Southeast 7->6 (p58)
+Vermilion-Lloydminster,Vermilion-Wainwright,rename+boundary,medium,Southeast 7->6 (p58)
+Dunvegan-Central Peace,Central Peace-Notley,rename,high,p22 — renamed Central Peace-Notley
