@@ -1,6 +1,6 @@
 # Alberta Electoral Boundaries Audit — Claude Code Continuation Prompt v1.0
 
-**Opus 4.7 1M context. 500,000 token budget. 4-hour wall-clock budget.**
+**Opus 4.7 1M context. 450,000 token budget. 4-hour wall-clock budget.**
 
 **System Directive.** You are running in Claude Code at xhigh or max effort with Auto mode. You have file system access, autonomous execution, vision, and web fetch. Do not output code snippets for the user to run — write scripts to disk, execute them, read outputs, compile results. The user reads the final report, not the intermediate steps.
 
@@ -255,7 +255,7 @@ If every stage in a session produces a pattern confirming the prior, flag that i
 
 ## Ceilings and Abort Conditions
 
-- **Token ceiling: 500,000 tokens.** Opus 4.7 1M context allows this without context eviction.
+- **Token ceiling: 450,000 tokens.** Opus 4.7 1M context allows this without context eviction.
 - **Wall-clock ceiling: 4 hours.** The actual runaway guard — Nominatim rate-limits, HTTP downloads, polygon ops burn clock but not context.
 - **Per-phase sub-caps:** Stage 5 ensemble ≤ 100K tokens.
 - **Abort if:** same error >3 times; single stage >80K tokens; wall-clock >4 hours; user-visible exception in gate check.
@@ -298,4 +298,4 @@ Report at completion:
 - *Gate definitions include explicit pass/fail/warn thresholds with named output files for each failure mode*
 - *Symmetry discipline enforced at every gate, not just globally*
 
-*Optimized for Opus 4.7 1M context with a 500K token budget and 4-hour wall-clock budget. Prior session (v0.9, Chat 3–4) completed Phases 1–3, 6; Phases 4–5 blocked on shapefile release. v1.0 assumes that same starting state and gates every forward step.*
+*Optimized for Opus 4.7 1M context with a 450K token budget and 4-hour wall-clock budget. Prior session (v0.9, Chat 3–4) completed Phases 1–3, 6; Phases 4–5 blocked on shapefile release. v1.0 assumes that same starting state and gates every forward step.*

@@ -24,7 +24,7 @@
 ### Stage 3 — VA-Polygon Attribution (shapefiles absent)
 **Executable: partially. This is the weakest stage in v1.1.**
 
-Three sub-paths (3a PDF crosswalk, 3b centroid-in-polygon with 2026 shapefiles, 3c vision assignment). 3b requires shapefiles we don't have. 3a is untested — we don't know if the commission's Appendix B is machine-readable. 3c is budget-busting without scoping: ~3,600 VAs across the province at ~500 tokens per careful Vision inspection = ~1.8M tokens, vs the 500K budget.
+Three sub-paths (3a PDF crosswalk, 3b centroid-in-polygon with 2026 shapefiles, 3c vision assignment). 3b requires shapefiles we don't have. 3a is untested — we don't know if the commission's Appendix B is machine-readable. 3c is budget-busting without scoping: ~3,600 VAs across the province at ~500 tokens per careful Vision inspection = ~1.8M tokens, vs the 450K budget.
 
 **Four limits in Stage 3:**
 

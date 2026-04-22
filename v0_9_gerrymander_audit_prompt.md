@@ -5,7 +5,7 @@
 **Suggested invocation:** `claude --effort xhigh` (or `--effort max` for the hardest portions). Auto mode (Max subscribers) reduces permission prompts during the autonomous loop.
 
 **Task Budget.** Operate within:
-- **Token ceiling: 500,000 tokens** for the full agentic loop (raised from 150K in v0.8 to match Opus 4.7's 1M context — the old ceiling was writing for 200K-context models and was leaving roughly 350K of productive budget on the table).
+- **Token ceiling: 450,000 tokens** for the full agentic loop (raised from 150K in v0.8 to match Opus 4.7's 1M context — the old ceiling was writing for 200K-context models and was leaving roughly 350K of productive budget on the table).
 - **Wall-clock ceiling: 4 hours.** The real runaway guard is time, not tokens. Many Phase 4 sub-steps (Nominatim rate-limiting at 1 call/sec, HTTP downloads, polygon operations) consume clock but not context; they bust the audit's total cost while looking fine on a token counter.
 - **Per-phase sub-caps unchanged from v0.8** as sanity fuses: Phase 4D capped at 15K tokens for OSM reconstruction, Phase 5 ensemble capped at 100K tokens regardless of overall budget.
 - If either ceiling is exceeded **or** the loop is unproductive (same error >3 times, single phase >80K tokens), stop and report partial results rather than draining the budget. The audit is stronger with an honest "blocked at step X" than with results computed on rushed/bad geometry.
@@ -179,7 +179,7 @@ If 4A blocked and 4C insufficient for polygon-geometry tests: same as v0.8, capp
 
 - **C1, C2.** Polsby-Popper and Reock for every ED in both maps. Flag PP<0.15 or Reock<0.25.
 - **B5.** GerryChain ensemble, 10,000+ maps meeting ±25% + contiguity + s.15(2) protections. Each real map's partisan metrics vs ensemble distribution. >95th percentile = statistically inconsistent with neutral redistricting.
-- **Phase 5 token sub-cap: 100K** (separate from overall 500K ceiling). Gerrychain runs can balloon — the sub-cap forces early stopping if the ensemble is slow.
+- **Phase 5 token sub-cap: 100K** (separate from overall 450K ceiling). Gerrychain runs can balloon — the sub-cap forces early stopping if the ensemble is slow.
 
 If geometry not trustworthy: state explicitly "B5/C1/C2 blocked by Phase 4." Do not fabricate.
 
@@ -233,7 +233,7 @@ Before publishing any conclusion, verify:
 
 ## Trigger
 
-Begin at Phase 4A. If shapefiles are released, skip straight to 4F/5. If not, execute Phase 4C via the VA-polygon path (revised). Continue through Phase 6, updating the existing `alberta_redistricting_audit_final.md` rather than creating a new file. Stop when all phases are complete, when the token ceiling (500K) is exceeded, or when the wall-clock ceiling (4 hours) is exceeded — whichever comes first. Report token spend, wall-clock spend, and any ceiling trips at completion.
+Begin at Phase 4A. If shapefiles are released, skip straight to 4F/5. If not, execute Phase 4C via the VA-polygon path (revised). Continue through Phase 6, updating the existing `alberta_redistricting_audit_final.md` rather than creating a new file. Stop when all phases are complete, when the token ceiling (450K) is exceeded, or when the wall-clock ceiling (4 hours) is exceeded — whichever comes first. Report token spend, wall-clock spend, and any ceiling trips at completion.
 
 If the loop becomes unproductive (same error >3 attempts, single phase >80K tokens), stop and report partial results.
 
@@ -241,7 +241,7 @@ If the loop becomes unproductive (same error >3 attempts, single phase >80K toke
 
 *Prompt v0.9. Changes from v0.8:*
 
-- *Token ceiling raised 150K → 500K for Opus 4.7 1M context*
+- *Token ceiling raised 150K → 450K for Opus 4.7 1M context*
 - *Added 4-hour wall-clock ceiling as the actual runaway guard*
 - *Phase 4C pipeline revised to use 2023 VA shapefiles as spatial substrate (removes Nominatim geocoding, Zero-Sum Verification, landmark dictionary stages)*
 - *Vote Anywhere correction: 47.2% not 21.9%; apportion nearly half the votes*

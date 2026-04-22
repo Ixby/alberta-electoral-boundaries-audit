@@ -11,7 +11,7 @@
 ## Tools Used in the Academic Analysis
 
 **AI analysis and drafting:**
-- **Claude Sonnet 4.6** (Anthropic) via Claude Code CLI — primary analytical agent for this session: wrote and executed the symmetric three-map packing/cracking script, rewrote Calgary classification with geographic-zone rule + robustness check, performed visual inspection of commission map JPGs, identified bias issues in inherited v0.1 code, wrote the uncertainty analysis, and compiled this report. Opus 4.6/4.7 used in prior sessions for B1–B4 baseline analysis (see Section B carry-forward); outputs are documented in the repository's commit history.
+- **Claude Opus 4.7 1M (Max subscription)** (Anthropic) via Claude Code CLI — primary analytical agent for this session: wrote and executed the symmetric three-map packing/cracking script, rewrote Calgary classification with geographic-zone rule + robustness check, performed visual inspection of commission map JPGs, identified bias issues in inherited v0.1 code, wrote the uncertainty analysis, and compiled this report. Opus 4.6/4.7 used in prior sessions for B1–B4 baseline analysis (see Section B carry-forward); outputs are documented in the repository's commit history.
 - **Claude Code CLI** — agentic execution environment providing filesystem access, tool orchestration, git integration, web fetch, and background process management.
 
 **Computational stack:**
