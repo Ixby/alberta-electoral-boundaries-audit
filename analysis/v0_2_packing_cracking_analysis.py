@@ -449,38 +449,70 @@ def estimate_2026(dists_2019: List[Dict],
         blended_share = urban_w * ushare + rural_w * rural_ndp_share
         # Rural absorptions have slightly lower turnout → scale total.
         new_total = utot * (urban_w + rural_w * 0.7)
+        # CRIT-03: replaced int() floor-truncation with round(). int()
+        # truncates toward zero, systematically under-counting votes on
+        # both parties by up to 1 vote per row (~30 rows × 2 parties),
+        # which can flip close-margin seat calls. round() is unbiased.
         return {
-            'ndp': int(new_total * blended_share),
-            'ucp': int(new_total * (1 - blended_share)),
+            'ndp': round(new_total * blended_share),
+            'ucp': round(new_total * (1 - blended_share)),
         }
 
     out = []
+    # CRIT-05: track any mapping row that cannot be resolved. Previously
+    # a missing 2019 parent was silently dropped, producing fewer than
+    # 89 output rows. validate_2026_estimate() catches incomplete lists
+    # inside main(), but v0_3_monte_carlo_ci.py calls estimate_2026 in a
+    # tight loop without that gate. We now raise KeyError up front so
+    # every caller sees the problem.
+    missing: List[str] = []
     for new_ed, spec in mapping.items():
         kind = spec[0]
         if kind == 'direct':
             base = by_name.get(spec[1])
             if base:
                 out.append({'ed': new_ed, 'ndp': base['ndp'], 'ucp': base['ucp']})
+            else:
+                missing.append(f"{new_ed} <- direct({spec[1]})")
         elif kind == 'blend':
             base = by_name.get(spec[1])
             if base:
                 blended = blend(base, spec[2])
                 out.append({'ed': new_ed, **blended})
+            else:
+                missing.append(f"{new_ed} <- blend({spec[1]})")
         elif kind == 'merge':
             parts = [by_name.get(name) for name in spec[1]]
             weights = spec[2]
             if all(parts):
-                ndp = sum(int(p['ndp']*w) for p, w in zip(parts, weights))
-                ucp = sum(int(p['ucp']*w) for p, w in zip(parts, weights))
+                # CRIT-03: round() instead of int() for merge weights.
+                ndp = sum(round(p['ndp']*w) for p, w in zip(parts, weights))
+                ucp = sum(round(p['ucp']*w) for p, w in zip(parts, weights))
                 out.append({'ed': new_ed, 'ndp': ndp, 'ucp': ucp})
+            else:
+                missing_parents = [n for n, p in zip(spec[1], parts) if p is None]
+                missing.append(f"{new_ed} <- merge(missing: {missing_parents})")
         elif kind == 'split':
             base = by_name.get(spec[1])
             if base:
                 urban_w = spec[2]
                 fraction = spec[3]
-                scaled = {'ndp': int(base['ndp']*fraction), 'ucp': int(base['ucp']*fraction)}
+                # CRIT-03: round() instead of int() when scaling a
+                # fraction of a 2019 ED before blending.
+                scaled = {'ndp': round(base['ndp']*fraction),
+                          'ucp': round(base['ucp']*fraction)}
                 blended = blend(scaled, urban_w)
                 out.append({'ed': new_ed, **blended})
+            else:
+                missing.append(f"{new_ed} <- split({spec[1]})")
+    if missing:
+        # CRIT-05: surface missing parents instead of silently dropping
+        # the row. Currently passes because the 2019 names are frozen;
+        # a future data refresh will trip this assertion cleanly.
+        raise KeyError(
+            "estimate_2026: mapping rows could not be resolved: "
+            + "; ".join(missing)
+        )
     return out
 
 
@@ -571,10 +603,10 @@ def main():
         print("="*60)
         print(f"  Urban weight | Majority EG | Minority EG | Delta")
         for w in [0.60, 0.70, 0.80]:
-            maj_w = estimate_2026(dists_2019, MAJORITY_2026_MAPPING, rural_ndp, urban_weight=w)
-            min_w = estimate_2026(dists_2019, MINORITY_2026_MAPPING, rural_ndp, urban_weight=w)
-            # Re-blend with alternative weight requires overriding URBAN_WEIGHT_DEFAULT
-            # For this sensitivity check we rebuild mappings with override weight:
+            # MED-07: removed dead `estimate_2026` calls that preceded
+            # the override rebuild. The mapping tuples bake the weight
+            # into spec[2], so the `urban_weight=w` kwarg had no effect
+            # on blend rows. Only the override-mapping branch is live.
             override_maj = {k: (v[0], v[1], w) if v[0] == 'blend' else v
                             for k, v in MAJORITY_2026_MAPPING.items()}
             override_min = {k: (v[0], v[1], w) if v[0] == 'blend' else v

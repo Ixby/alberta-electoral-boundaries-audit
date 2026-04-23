@@ -126,93 +126,12 @@ def phase2_compare(t338: Dict, audit_ucp: Dict) -> Tuple[List[Dict], Dict]:
 # Phase 3: reallocate 338 shares to 2026 EDs through the audit's mapping
 # ---------------------------------------------------------------------
 
-def reallocate_338(t338: Dict, mapping: Dict, pop: Dict[str, int],
-                   rural_ucp_share: float) -> List[Dict]:
-    """For each 2026 ED in the mapping, reallocate 338's central UCP / NDP
-    shares through the audit's crosswalk.
-
-    Mapping spec mirrors v0_2_packing_cracking_analysis:
-      ('direct', ed2019)            -> copy 338's UCP/NDP from ed2019
-      ('blend', ed2019, urban_w)    -> urban_w * 338(ed2019) + (1-urban_w) * rural baseline
-      ('merge', [eds], [weights])   -> population-weighted mean of 338(eds) using 2019 pops * given weights
-      ('split', ed2019, urban_w, f) -> treat as single-source, apply blend (f drops out
-                                       in share space since we're not tracking vote totals).
-    """
-    out = []
-    for new_ed, spec in mapping.items():
-        kind = spec[0]
-        if kind == 'direct':
-            src = spec[1]
-            s = t338.get(src)
-            if not s:
-                out.append({'ed': new_ed, 'ucp': None, 'ndp': None,
-                            'kind': 'direct', 'sources': src,
-                            'note': f'338 missing source {src}'})
-                continue
-            out.append({'ed': new_ed, 'ucp': s['ucp_share'], 'ndp': s['ndp_share'],
-                        'kind': 'direct', 'sources': src, 'note': ''})
-        elif kind == 'blend':
-            src, urban_w = spec[1], spec[2]
-            s = t338.get(src)
-            if not s:
-                out.append({'ed': new_ed, 'ucp': None, 'ndp': None,
-                            'kind': 'blend', 'sources': src,
-                            'note': f'338 missing source {src}'})
-                continue
-            rural_w = 1 - urban_w
-            ucp = urban_w * s['ucp_share'] + rural_w * rural_ucp_share
-            # Keep NDP proportional inside the two-party space
-            urban_ndp = s['ndp_share']
-            urban_tp_ucp = s['ucp_share'] / (s['ucp_share'] + s['ndp_share']) if (s['ucp_share']+s['ndp_share'])>0 else 0.5
-            # Rural: use 338 rural average for NDP too (computed in main from rest-of-AB)
-            # Actually, we pass rural_ucp_share only; reconstruct rural_ndp = 100 - rural_ucp - rural_other
-            # Simpler: treat rural baseline as two-party, so NDP_rural = (1 - urban_tp_ucp_rural) * 100 *
-            # normalization -> but we don't have rural NDP explicitly. We rely on caller to pass a
-            # matched rural_ndp_share.
-            # Use 1:1 map: rural_ndp from caller. We extend the signature via closure below.
-            raise RuntimeError("blend path requires rural_ndp_share; see main()")
-        elif kind == 'merge':
-            eds, weights = spec[1], spec[2]
-            shares = []
-            ws = []
-            missing = []
-            for ed, w in zip(eds, weights):
-                s = t338.get(ed)
-                if not s:
-                    missing.append(ed)
-                    continue
-                pop_w = pop.get(ed, 50000) * w  # pop * given weight
-                shares.append(s)
-                ws.append(pop_w)
-            if missing or not shares:
-                out.append({'ed': new_ed, 'ucp': None, 'ndp': None,
-                            'kind': 'merge', 'sources': '|'.join(eds),
-                            'note': f'338 missing source(s): {missing}'})
-                continue
-            wsum = sum(ws)
-            ucp = sum(s['ucp_share'] * w for s, w in zip(shares, ws)) / wsum
-            ndp = sum(s['ndp_share'] * w for s, w in zip(shares, ws)) / wsum
-            out.append({'ed': new_ed, 'ucp': ucp, 'ndp': ndp,
-                        'kind': 'merge', 'sources': '|'.join(eds), 'note': ''})
-        elif kind == 'split':
-            src = spec[1]
-            s = t338.get(src)
-            if not s:
-                out.append({'ed': new_ed, 'ucp': None, 'ndp': None,
-                            'kind': 'split', 'sources': src,
-                            'note': f'338 missing source {src}'})
-                continue
-            # In share space, the split fraction doesn't change the share —
-            # we're projecting a fraction of the electorate with the same
-            # share. Skip the blend step here (treat urban_w=1.0 — split
-            # takes half the urban core; reallocation in the audit blends
-            # with rural baseline, but that is a modeling choice tied to
-            # vote-total projection. For share-level reallocation we flag
-            # this and copy the source share with an uncertainty note.)
-            out.append({'ed': new_ed, 'ucp': s['ucp_share'], 'ndp': s['ndp_share'],
-                        'kind': 'split', 'sources': src,
-                        'note': 'split treated as share-copy; caveat in MD'})
-    return out
+# CRIT-04: removed the broken v1 reallocate_338() function. It lacked
+# a rural_ndp_share parameter and unconditionally raised RuntimeError
+# on any 'blend' mapping row, so any external caller that imported it
+# would crash on the first blend. main() has always used v2 below and
+# no other module in the repo imports v1 (verified via grep). Kept the
+# deprecation marker here as a signpost for anyone searching for v1.
 
 
 def reallocate_338_v2(t338: Dict, mapping: Dict, pop: Dict[str, int],

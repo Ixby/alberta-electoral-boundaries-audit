@@ -32,6 +32,19 @@ BASE = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analys
 DATA = BASE / "data"
 ANALYSIS = BASE / "analysis"
 
+
+# MED-03: guard the top-level pipeline so importing this module for a
+# constant or helper does not trigger full execution. The previous
+# version ran the entire pipeline on `import`. We early-return before
+# any pipeline work when the module is imported rather than executed.
+if __name__ != "__main__":
+    raise ImportError(
+        "phase_4c_prep.py is a script, not a library module. "
+        "Run it directly via: python analysis/phase_4c_prep.py. "
+        "If you need a helper from this file, extract it to its own "
+        "module first."
+    )
+
 # ------------------------------------------------------------------
 # Load inputs
 # ------------------------------------------------------------------

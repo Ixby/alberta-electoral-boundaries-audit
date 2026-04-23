@@ -33,6 +33,11 @@ import random
 import statistics
 from copy import deepcopy
 
+# CRIT-01: numpy.quantile provides linearly-interpolated percentiles
+# (instead of int()-floor indexing), matching the convention documented
+# in the report headers.
+import numpy as np
+
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -71,6 +76,9 @@ def run_monte_carlo(n_samples: int = 2000, seed: int = 42) -> dict:
         'maj_dec': [],
         'min_dec': [],
     }
+    # CRIT-01: track how many samples were skipped so the reported n
+    # on the CI is explicit rather than silently truncated.
+    skipped = 0
 
     for i in range(n_samples):
         base_w = rng.uniform(0.55, 0.85)
@@ -84,7 +92,12 @@ def run_monte_carlo(n_samples: int = 2000, seed: int = 42) -> dict:
         minr = estimate_2026(dists_2019, min_map, rural)
 
         if len(maj) != 89 or len(minr) != 89:
-            continue  # skip invalid sample
+            # CRIT-01: replaced silent `continue` with a logged-warning
+            # counter. With the current mapping frozen at 89 EDs this
+            # branch should never fire; if it ever does, the final
+            # summary will surface the skipped count.
+            skipped += 1
+            continue
 
         m_maj = compute_metrics(maj, 'maj', verbose=False)
         m_min = compute_metrics(minr, 'min', verbose=False)
@@ -99,6 +112,10 @@ def run_monte_carlo(n_samples: int = 2000, seed: int = 42) -> dict:
         if m_min['declination'] == m_min['declination']:
             results['min_dec'].append(m_min['declination'])
 
+    # CRIT-01: surface skipped-sample count so the CI denominator is
+    # visible to callers instead of being hidden by a silent continue.
+    results['_n_skipped'] = skipped
+    results['_n_requested'] = n_samples
     return results
 
 
@@ -106,11 +123,15 @@ def summarize(label: str, values: list):
     if not values:
         print(f"  {label:<30s} : no samples")
         return
-    values_sorted = sorted(values)
-    n = len(values_sorted)
-    p025 = values_sorted[int(n * 0.025)]
-    p50  = values_sorted[int(n * 0.500)]
-    p975 = values_sorted[int(n * 0.975)]
+    # CRIT-01: replaced floor-truncation percentile indexing
+    # (`sorted[int(n * 0.025)]`) with np.quantile using linear
+    # interpolation. The previous version reported the 2.55th /
+    # 97.55th percentiles when n=2000 instead of the 2.5th / 97.5th.
+    arr = np.asarray(values)
+    p025 = float(np.quantile(arr, 0.025))
+    p50 = float(np.quantile(arr, 0.500))
+    p975 = float(np.quantile(arr, 0.975))
+    n = len(values)
     mn = statistics.mean(values)
     same_sign = sum(1 for v in values if (v > 0) == (mn > 0)) / n * 100
     print(f"  {label:<30s} : mean={mn:+.3f}  median={p50:+.3f}  "
@@ -132,7 +153,11 @@ def main():
 
     results = run_monte_carlo(n_samples=2000, seed=42)
 
-    print(f"Samples collected: {len(results['asymmetry'])}")
+    # CRIT-01: report the skipped-sample count explicitly.
+    n_skipped = results.get('_n_skipped', 0)
+    n_requested = results.get('_n_requested', len(results['asymmetry']))
+    print(f"Samples collected: {len(results['asymmetry'])} of {n_requested} requested"
+          f" (skipped: {n_skipped})")
     print()
     print("Per-map metrics:")
     summarize("Majority EG (%)", results['maj_eg'])
@@ -159,8 +184,11 @@ def main():
     print(f"  Samples with minority less UCP-favorable (positive): {pos}/{len(asym)} ({pos/len(asym)*100:.1f}%)")
     print(f"  Samples within +/- 0.05 pp of zero:                  {zero_cross}/{len(asym)} ({zero_cross/len(asym)*100:.1f}%)")
     if asym:
-        ci_lo = sorted(asym)[int(len(asym) * 0.025)]
-        ci_hi = sorted(asym)[int(len(asym) * 0.975)]
+        # CRIT-01: replaced floor-truncation indexing with np.quantile
+        # (linear interpolation, standard 95% CI convention).
+        asym_arr = np.asarray(asym)
+        ci_lo = float(np.quantile(asym_arr, 0.025))
+        ci_hi = float(np.quantile(asym_arr, 0.975))
         if ci_lo < 0 and ci_hi < 0:
             print(f"  VERDICT: 95% CI [{ci_lo:+.2f}, {ci_hi:+.2f}] pp is entirely negative.")
             print(f"           Directional claim DEFENSIBLE under modeling uncertainty.")
