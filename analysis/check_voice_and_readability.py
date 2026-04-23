@@ -30,8 +30,48 @@ from pathlib import Path
 # X is a simple adjective/noun (3-20 chars) paired with a conceptually
 # opposite Y. We allow "not [past-participle] — [status]" as a non-
 # rhetorical status-description pattern (e.g., "Not executed — blocked").
+# HIGH-09: broadened the 'not X — Y' detector to catch bare-adjective
+# and bare-noun forms ("not partisan — structural", "not gerrymandering
+# — redistribution"). The previous pattern required a leading
+# 'a/an/the/just' and missed the most common house-voice violation.
+#
+# Rhetorical-mirror shape: exactly one word between `not` and the dash.
+# We also allow the optional determiner prefix (a/an/the/just) from
+# the original rule. Status-description patterns ("Not executed —
+# blocked", "not computed — blocked by", "not attempted in this pass
+# — …") naturally fail the "one word only before dash" requirement
+# when extra clause material is present; for bare status participles
+# that do fit the shape, we stop-list the common ones.
+_NOT_MIRROR_STOP = (
+    r"(?:executed|blocked|applied|installed|registered|activated"
+    r"|scheduled|staged|posted|merged|computed|attempted|tested"
+    r"|verified|submitted|configured|assigned|deployed|available"
+    r"|absent|present|required|covered|included|excluded|reported"
+    r"|known|shown|given|listed|addressed|observed|recorded)"
+)
+# Prepositions / conjunctions that signal Y is a multi-word
+# parenthetical rather than a single mirror term.
+_Y_STOP_PREFIX = (
+    r"(?:for|in|on|at|to|with|from|as|by|of|if|though|but|and"
+    r"|or|because|since|while|when|where|although|however)"
+)
 WUFF_VIOLATIONS = [
+    # Determiner form: retained from v0 for backward coverage of
+    # "not a bug — feature" style (X may include spaces).
     (r"\bnot\s+(a|an|the|just)\s+[a-zA-Z ]{3,30}\s+[—–-]\s+",
+     "'not X — Y' mirror reversal"),
+    # Bare form: single word between `not` and the dash, followed
+    # by a non-preposition word on the Y side. Catches the common
+    # audit-voice violations ("not partisan — structural", "not
+    # gerrymandering — redistribution") the determiner form missed.
+    # Prepositions on the Y side lead parentheticals ("not absent
+    # — for configurations that…") rather than mirror terms;
+    # status-participle stoplist filters procedural prose.
+    (r"\bnot\s+"
+     r"(?!" + _NOT_MIRROR_STOP + r"\b)"
+     r"[A-Za-z]{3,30}\s+[—–-]\s+"
+     r"(?!" + _Y_STOP_PREFIX + r"\b)"
+     r"[A-Za-z]",
      "'not X — Y' mirror reversal"),
     (r"[\u2600-\u27BF\U0001F300-\U0001FAFF]", "emoji"),
     (r"\b(shockingly|remarkably|staggering(?:ly)?|astound(?:ing)?ly|unprecedented(?!\s+(case|precedent|in|to)))\b",
@@ -107,12 +147,29 @@ def check_file(path: Path, target_grade: float | None = None) -> tuple[bool, lis
     if fkg is not None:
         label = "Flesch-Kincaid Grade" if method == "textstat" else "Approximate Flesch-Kincaid Grade"
         issues.append(f"  [info] {label}: {fkg:.1f}  [method={method}]")
-        if target_grade is not None and fkg > target_grade + 0.5:
+        # HIGH-10: only treat the grade as gate-blocking when computed
+        # by textstat. The local vowel-group approximation can differ
+        # from textstat by +/-2 grade levels on typical prose; failing
+        # the gate on that approximation produced false FAIL verdicts
+        # on machines without textstat installed. Under 'approx' we
+        # still emit the informational line but let the gate pass.
+        if (target_grade is not None
+                and method == "textstat"
+                and fkg > target_grade + 0.5):
             issues.append(
                 f"  FAIL: grade {fkg:.1f} exceeds target {target_grade:.1f} "
                 f"(tolerance +0.5)"
             )
             return False, issues
+        elif (target_grade is not None
+                and method == "approx"
+                and fkg > target_grade + 0.5):
+            # Downgraded to informational so reviewers without textstat
+            # do not get spurious FAIL output.
+            issues.append(
+                f"  [info] approximation reports grade {fkg:.1f} above "
+                f"target {target_grade:.1f} — install textstat to gate."
+            )
 
     # house voice violations are fatal; informational lines are not
     fatal = any(
@@ -138,7 +195,9 @@ def main():
             print(f"{p}: FILE NOT FOUND")
             pass_all = False
             continue
-        target = 9.0 if "public" in p.lower() else 13.0
+        # Public report targets undergrad reading level (Alberta Views
+        # audience); academic report sits a notch higher.
+        target = 12.0 if "public" in p.lower() else 13.0
         ok, issues = check_file(path, target_grade=target)
         status = "PASS" if ok else "FAIL"
         print(f"\n{p} ({status}, target grade <= {target}):")

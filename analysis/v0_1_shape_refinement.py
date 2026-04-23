@@ -159,6 +159,15 @@ def _load_2019_eds():
     shp = list(tmp.rglob("*.shp")) + list(tmp.rglob("*.gpkg"))
     if not shp:
         raise FileNotFoundError("No 2019 ED shapefile found in 2019_eds.zip")
+    # MED-01: assert exactly one geospatial file. rglob order is
+    # filesystem-dependent, so if the zip ever contains two shapefiles
+    # (e.g., an ancillary provincial outline alongside the ED file)
+    # we would silently pick whichever one happens to sort first.
+    if len(shp) > 1:
+        raise RuntimeError(
+            f"MED-01: expected one .shp/.gpkg in 2019_eds.zip, found "
+            f"{len(shp)}: {[p.name for p in shp]}. Pick one explicitly."
+        )
     return gpd.read_file(shp[0])
 
 
@@ -195,11 +204,12 @@ def _snap_polygon_to_roads(poly, roads_proj: gpd.GeoDataFrame, buffer_m: float =
     For each ring (exterior + interior), sample at ~200 m spacing and snap
     each sample to the nearest major-road feature within buffer_m.
     """
+    # HIGH-04: early-return sentinels distinguish the reason for no-op.
     if poly is None or poly.is_empty:
-        return poly, 0.0, 0.0
+        return poly, 0.0, 0.0, 'snap_skipped_empty_poly'
 
     if roads_proj is None or len(roads_proj) == 0:
-        return poly, 0.0, 0.0
+        return poly, 0.0, 0.0, 'snap_skipped_no_roads'
 
     # Prefer major classes
     major = roads_proj
@@ -280,21 +290,35 @@ def _snap_polygon_to_roads(poly, roads_proj: gpd.GeoDataFrame, buffer_m: float =
         else:
             new_poly = poly
     else:
-        return poly, 0.0, 0.0
+        # HIGH-04: sentinel distinguishing unsupported geometry type.
+        return poly, 0.0, 0.0, 'snap_skipped_unsupported_geom'
 
     mean_shift = float(np.mean([s for s in all_shifts if s > 0])) if any(s > 0 for s in all_shifts) else 0.0
     max_shift = float(np.max(all_shifts)) if all_shifts else 0.0
 
     # Guard: reject pathological snaps
+    # HIGH-04: return a distinct status so callers can tell apart:
+    #   'snapped'            - snap ran and moved the boundary
+    #   'snapped_no_move'    - snap ran but no sample point shifted
+    #   'snap_rejected'      - pathological-area guard fired
+    #   'snap_error'         - exception while computing guard
+    # Previously all three rejection paths were collapsed into a silent
+    # (poly, 0, 0) return, indistinguishable in the gpkg output from a
+    # legitimate snap that happened not to move anything.
     try:
         orig_area = poly.area
         new_area = new_poly.area if new_poly and not new_poly.is_empty else 0.0
         if orig_area > 0 and (new_area / orig_area < 0.6 or new_area / orig_area > 1.5):
-            return poly, 0.0, 0.0
-    except Exception:  # noqa: BLE001
-        return poly, 0.0, 0.0
+            ratio = new_area / orig_area if orig_area > 0 else 0.0
+            print(f"[snap_guard] pathological area ratio {ratio:.3f} — rejected",
+                  flush=True)
+            return poly, 0.0, 0.0, 'snap_rejected'
+    except Exception as e:  # noqa: BLE001
+        print(f"[snap_guard] area-guard exception — rejected: {e}", flush=True)
+        return poly, 0.0, 0.0, 'snap_error'
 
-    return new_poly, mean_shift, max_shift
+    status = 'snapped' if max_shift > 0 else 'snapped_no_move'
+    return new_poly, mean_shift, max_shift, status
 
 
 def phase2_snap_hybrids():
@@ -357,12 +381,32 @@ def phase2_snap_hybrids():
 
             poly = gdf_proj.iloc[i].geometry
             try:
-                new_poly, mean_s, max_s = _snap_polygon_to_roads(poly, roads, buffer_m=500.0)
+                # HIGH-04: _snap_polygon_to_roads now returns a 4-tuple
+                # (poly, mean_shift, max_shift, status). Status values:
+                #   'snapped'             - moved at least one sample
+                #   'snapped_no_move'     - ran but nothing within buffer
+                #   'snap_rejected'       - pathological-area guard fired
+                #   'snap_error'          - area-guard exception
+                #   'snap_skipped_*'      - early-return (empty/no roads)
+                # Write status into refined_note verbatim so downstream
+                # stages can tell these cases apart rather than treating
+                # them all as a silent zero-shift snap.
+                new_poly, mean_s, max_s, status = _snap_polygon_to_roads(
+                    poly, roads, buffer_m=500.0
+                )
                 refined.at[i, "geometry"] = new_poly
                 refined.at[i, "mean_shift_m"] = mean_s
                 refined.at[i, "max_shift_m"] = max_s
-                refined.at[i, "refined_note"] = f"snapped:mean={mean_s:.1f}m,max={max_s:.1f}m"
-                print(f"[phase2/{label}] {name} mean_shift={mean_s:.1f}m max={max_s:.1f}m", flush=True)
+                if status == 'snapped':
+                    refined.at[i, "refined_note"] = (
+                        f"snapped:mean={mean_s:.1f}m,max={max_s:.1f}m"
+                    )
+                else:
+                    refined.at[i, "refined_note"] = (
+                        f"{status.upper()}:mean={mean_s:.1f}m,max={max_s:.1f}m"
+                    )
+                print(f"[phase2/{label}] {name} status={status} "
+                      f"mean_shift={mean_s:.1f}m max={max_s:.1f}m", flush=True)
             except Exception as e:  # noqa: BLE001
                 refined.at[i, "refined_note"] = f"SNAP_FAILED:{str(e)[:120]}"
                 print(f"[phase2/{label}] {name} FAILED: {e}", flush=True)

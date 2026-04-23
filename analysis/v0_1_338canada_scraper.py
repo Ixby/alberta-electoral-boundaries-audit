@@ -45,12 +45,17 @@ def fetch(code: str) -> str:
         return r.read().decode('utf-8', errors='replace')
 
 
+# CRIT-02: tighten the match window. 338's per-riding pages emit
+# {key: '...', label: '...', color: '...', values: [...], moe: [...]}
+# objects. We anchor on the `color:` sibling key so the lazy match
+# cannot cross object boundaries via pre-`color` fields that might
+# coincidentally contain `values:` tokens.
 PARTY_BLOCK_RE = re.compile(
-    r"key:\s*'([^']+)',[^}]*?values:\s*\[\s*([\-\d\.\s,]+)\]",
+    r"key:\s*'([^']+)',[^}]*?color:\s*'[^']*',\s*values:\s*\[\s*([\-\d\.\s,]+)\]",
     re.DOTALL,
 )
 PARTY_WITH_MOE_RE = re.compile(
-    r"key:\s*'([^']+)',[^}]*?values:\s*\[\s*([\-\d\.\s,]+)\],\s*moe:\s*\[\s*([\-\d\.\s,]+)\]",
+    r"key:\s*'([^']+)',[^}]*?color:\s*'[^']*',\s*values:\s*\[\s*([\-\d\.\s,]+)\],\s*moe:\s*\[\s*([\-\d\.\s,]+)\]",
     re.DOTALL,
 )
 
@@ -176,6 +181,39 @@ def main():
         print(f"\n{len(failures)} failures:")
         for code, riding, err in failures:
             print(f"  {code} {riding}: {err}")
+
+    # CRIT-02: fail loudly if we did not successfully scrape all 87
+    # Alberta ridings. Silent row-count drift would feed wrong shares
+    # into v0_1_338canada_reallocate.py.
+    expected_rows = 87
+    if len(rows_out) != expected_rows:
+        sys.stderr.write(
+            f"\nCRIT-02 INTEGRITY CHECK FAILED: got {len(rows_out)} rows,"
+            f" expected {expected_rows}.\n"
+            f"  Upstream 338Canada HTML schema may have drifted, or fetch"
+            f" failures occurred. Do not treat this output as authoritative.\n"
+        )
+        sys.exit(2)
+
+    # CRIT-02: sanity-check parsed shares and winner assignments.
+    lead_allowed = {'UCP', 'NDP', 'LIB', 'GRN', 'AB', 'ABP', 'OTH', ''}
+    anomalies = []
+    for r in rows_out:
+        if not (0.0 <= r['ucp_share'] <= 100.0):
+            anomalies.append(f"{r['district']}: ucp_share out of range ({r['ucp_share']})")
+        if not (0.0 <= r['ndp_share'] <= 100.0):
+            anomalies.append(f"{r['district']}: ndp_share out of range ({r['ndp_share']})")
+        total = r['ucp_share'] + r['ndp_share'] + r['other_share']
+        # Allow small rounding drift off 100.
+        if not (95.0 <= total <= 105.0):
+            anomalies.append(f"{r['district']}: share sum {total:.2f} outside [95, 105]")
+        if r['leading_party'] not in lead_allowed:
+            anomalies.append(f"{r['district']}: unexpected leading_party {r['leading_party']!r}")
+    if anomalies:
+        sys.stderr.write(
+            "\nCRIT-02 SANITY CHECK FAILED:\n  " + "\n  ".join(anomalies) + "\n"
+        )
+        sys.exit(3)
 
 
 if __name__ == '__main__':

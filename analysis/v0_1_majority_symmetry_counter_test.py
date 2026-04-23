@@ -168,6 +168,18 @@ def test_1_edmonton_packing(
         zc = edmonton[edmonton["zone"] == "Zone C"]
         zd = edmonton[edmonton["zone"] == "Zone D"]
         uncl = edmonton[edmonton["zone"] == "Edmonton-unclassified"]
+        # HIGH-12: fail loudly if any Edmonton ED falls through the
+        # hand-curated zone classifier. Silent unclassified rows made
+        # the counter-test incomplete — a data refresh that introduced
+        # a new Edmonton ED name would previously go unnoticed. The
+        # zone dicts above must be updated before this test can run.
+        if len(uncl) > 0:
+            unclassified_names = uncl["ed_name"].tolist()
+            raise ValueError(
+                f"HIGH-12: edmonton_zone_classifier missed {len(uncl)} "
+                f"ED(s) on {label}: {unclassified_names}. Update zone_c "
+                f"or zone_d dicts to cover these names before re-running."
+            )
 
         mean_c = zc["population"].mean() if len(zc) else float("nan")
         mean_d = zd["population"].mean() if len(zd) else float("nan")
