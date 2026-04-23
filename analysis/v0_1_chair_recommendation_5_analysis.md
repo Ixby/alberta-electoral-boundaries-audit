@@ -39,6 +39,16 @@ Chair's own framing of the problem (p. 66):
 
 > "The problem this Commission faced, in my view, is not the statutory criteria for drawing electoral districts. Rather, it is the fact that the size of the legislature was increased by only 2%, while the population increased by 20%."
 
+**Chair's admission in R5 that the majority did not agree with him (p. 66):**
+
+> "My majority colleagues do not agree with me on this point."
+
+This sentence is significant for the April 16 provenance framing. R5's opening is drafted in the voice of "the majority of the Commission," but Miller explicitly disavows that voice in the same document. The recommendation is Miller's personal addendum, not a collective majority proposal.
+
+**Corroboration from Commissioner Greg Clark (social-media, April 2026).** Commissioner Greg Clark, one of the two opposition-nominated majority commissioners (nominated by NDP Leader Naheed Nenshi), posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB; the substance is already established by Miller's own in-text admission above.
+
+**Corroborating news report.** CBC News Edmonton, April 16, 2026 ("MLA committee to review Alberta electoral boundaries after report is set aside") quotes Miller's "My majority colleagues do not agree with me on this point" and summarises: *"Miller's 91-seat recommendation was conditional on the legislature not accepting the majority report. It was not supported by the other majority members of the commission."* URL: `https://www.cbc.ca/news/canada/edmonton/alberta-boundaries-committee-motion-9.7172743`.
+
 ---
 
 ## Mapping to the April 16, 2026 government action
