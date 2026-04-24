@@ -1,103 +1,151 @@
-# Alberta Electoral Boundaries Audit — Naive Claude Code Bundle v0.7
+# Alberta Electoral Boundary Commission 2025–26 — Comprehensive Forensic Audit
 
-A self-contained, autonomous-execution bundle for continuing the Alberta electoral boundaries forensic audit in a fresh Claude Code session.
+A multi-session forensic audit of Alberta's 2025–26 Electoral Boundary Commission majority and minority recommendations, evaluating each map for structural asymmetry, partisan-bias signatures, geographic coherence, and procedural fairness.
 
-## What's New in v0.7
+**Version:** v0.19 (monograph) — Date: 2026-04-24
 
-- **Audit prompt v0.7** with hardened Phase 4C methodology: Vote Anywhere ballot-type handling, Zero-Sum Verification gate, landmark-dictionary geocoding strategy
-- **Skeleton script** `analysis/scripts/v0_1_poll_attribution_skeleton.py` — parses the 2023 Statement of Vote into a unified poll-level dataframe (1,973 records across 87 EDs), with stub functions for the geocoding/assignment/apportionment stages
-- **Raw Statement of Vote** `data/2023_results.xlsx` included so the skeleton runs offline
+---
 
-## How to Run
+## What the audit finds (short)
 
-1. Unzip somewhere clean: `unzip alberta_audit.zip && cd alberta_audit/`
-2. Install dependencies: `bash setup.sh`
-3. Launch Claude Code: `claude --effort xhigh` (or `--effort max` for hardest phases)
-4. Claude Code reads `CLAUDE.md` automatically and finds instructions in `v0_8_gerrymander_audit_prompt.md`
-5. Final report appears at `alberta_redistricting_audit_final.md` when the loop completes
+The minority 2026 recommendation shows **systematic structural asymmetry** relative to the majority recommendation across at least five non-partisan-bias dimensions:
 
-## What Is Already Done (Carry Forward)
+- **Population equality** — MAD 4,707 vs 3,180 persons (A1)
+- **Calgary geographic-zone asymmetry** — 12.2 % vs 0.4 % (A2)
+- **Airdrie 4-way cracking** — minority splits Airdrie across four EDs; majority splits across two (§5.3.2)
+- **Anchoring to reference geography** — 14.5 % / 16.5 % CSD+DA-anchored vs 71 % / 79.6 % on the majority (§5.8.5)
+- **Visible cartographic anomalies** — three chair-flagged anomalies under the minority (RMH–Banff Park, Nolan Hill–Cochrane lasso, Edmonton-Windermere stepped boundary)
 
-- Tests B1 through B4 (rigorous packing/cracking) — completed in prior session
-- Headline finding: majority preserves 2019 baseline; minority shifts it 2-3 pp toward UCP, costs NDP 3 seats in simulated 2023
-- All input data extracted and verified against official totals
+Partisan-bias metrics (§5.2) are **sign-dependent on vote-substrate and attribution method**; the paper reports them in full but does not lead with them. The B-family findings reinforce rather than singularly carry the headline.
 
-## What the New Session Will Do
+**The audit does not claim the minority map is a gerrymander in the intent sense.** It claims measurable structural divergence from the majority, at magnitudes below the US-judicial 7 % Efficiency Gap threshold, with explicit retraction conditions documented per finding.
 
-- **Phase 1:** Section A — population equality tests
-- **Phase 2:** Section C — visual spatial audit using Opus 4.7's vision on the map JPGs
-- **Phase 3:** Section D — procedural audit
-- **Phase 4:** Boundary geometry/attribution acquisition
-  - 4A: try direct ABEBC shapefile download
-  - 4B: DA dissolve (probably blocked — no DAUIDs in PDF text)
-  - 4C: poll-location attribution (recommended path) — uses skeleton script as starting point
-  - 4D: OSM street-network reconstruction (capped at 11 hybrids / 15K tokens)
-  - 4F: validation gate (population checksum, topological audit, geometric shift log)
-- **Phase 5:** MCMC ensemble (B5) and compactness (C1, C2) — only if Phase 4 produces trustworthy geometry
-- **Phase 6:** Final report compilation with Technical Data Statement and LaTeX formalism
+---
 
-## Phase 4C Skeleton Status
+## Core framing
 
-The skeleton implements stages 1-2 (parse Statement of Vote, structure dataframe). Stages 3-7 are stubs with implementation guidance:
+> There is no correct mathematical solution. The redistricting problem is **NP-hard**; the constraint set (±25 % population deviation + contiguity + compactness + community of interest + Indigenous representation + hearing input) does not admit a unique optimum. The audit therefore does not ask "is this map wrong?" It asks: **"given that no uniquely-correct map exists, how statistically improbable is this specific map within the constraint set, and how much of the asymmetry between the two 2026 recommendations is attributable to drawing choices rather than Alberta's voter geography?"**
 
-- **Stage 3:** Build alberta_landmarks.csv from school district / community center directories (faster than rate-limited geocoding)
-- **Stage 4:** Geocode unmatched polls via Nominatim (1 call/sec)
-- **Stage 5:** Zero-Sum Verification — check geocoded polls fall in their 2019 ED
-- **Stage 6:** Vision-based assignment to 2026 hybrid EDs
-- **Stage 7:** Apportion Advance/Mobile/Special votes by Election Day spatial share
+The audit's apparatus is deliberately over-engineered relative to the drawing process it audits. That is the point: the Commission draws with a broad brush; the auditor looks through a microscope. A microscope is what forces the distinction between an accidental brush-stroke and a systematic pattern. **Precision is armor.**
 
-Run the skeleton first to verify the parse stage:
+---
+
+## How to read this repository
+
+| File | Purpose |
+|---|---|
+| `report_academic.md` | The monograph. Executive summary, methods, results §§5.1–5.9, limitations, falsifiability hooks. |
+| `report_public.md` | Public-audience extract with the pre-registered gerrymander checklist. |
+| `analysis/methodology/v0_1_retraction_pathway.md` | **Named retraction conditions per finding.** Reviewer-usable: tells you in advance what data would break each claim. |
+| `analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md` | Pre-committed null hypotheses + three-axis Structural/Robust/Durable classification for every finding. |
+| `analysis/methodology/v0_1_test_apparatus_defense.md` | Per-test criticism + defense. Answers "are you making up metrics to have metrics?" |
+| `analysis/methodology/v0_1_test_selection_rationale.md` | Why these tests, why not others. |
+| `analysis/methodology/audit_dependency_graph_readme.md` | Machine-readable DAG of the apparatus: 234 nodes, 454 edges, acyclic, zero orphans. Query: `python analysis/scripts/v0_1_dependency_query.py --invalidate <node>` |
+
+If you are reviewing hostilely, start with **retraction pathway** (what would break a finding) and the **apparatus defense** document (what each test is vulnerable to). If you are reviewing as a reader, start with the monograph's **Executive Summary** and follow the reading-guide inside.
+
+---
+
+## The seven measurement layers of §5.2.7
+
+The partisan-bias direction between the two 2026 maps is reported across **seven** methodological layers, not collapsed to a single number:
+
+1. Aggregation-based (blended crosswalk)
+2. Centroid-in-polygon spatial
+3. MAUP area-weighted (v0_1 substrate, artefact layer)
+4. MAUP area-weighted (v0_2 topology-clean substrate, current primary)
+5. v0_2 DPG-perturbation flat ±500 m CI
+6. v0_2 DPG-perturbation tier-aware CI
+7. v0_5 DA-anchored MAUP rerun
+
+**The seven layers disagree on direction.** Rather than hide the disagreement behind a point estimate, the paper reports all seven and treats the cross-method disagreement itself as a finding. §4.1.4's **sunset clause** binds the audit to rerun all seven within 48 hours of Elections Alberta releasing official 2026 shapefiles.
+
+---
+
+## Apparatus dependency graph
+
+234 nodes (L0 raw data 32 / L1 constructed 53 / L2 scripts 75 / L3 findings 74) across 454 edges. Acyclic, zero orphan findings. The most load-bearing L0 is the 2023 Statement of Vote: invalidating it orphans 48 / 74 (65 %) of findings. But the **26 findings that survive invalidation of the Statement of Vote** span population equality, geographic coherence, procedural, and geometry-only signature-detection — this is the structurally-independent headline core.
+
+Query any invalidation scenario:
+
+```bash
+python analysis/scripts/v0_1_dependency_query.py --invalidate L0:data.2021_census_das
 ```
-python3 analysis/scripts/v0_1_poll_attribution_skeleton.py
-```
 
-Should output: `Parsed 1973 poll records across 87 EDs` with two-party total `1,706,304`.
+Outputs the cascade of orphaned findings and the surviving robust core.
 
-## What Could Block the Run
+---
 
-- **ABEBC shapefiles still not released:** Phase 4A blocked. Phase 4C is the recommended fallback and should produce measured (not approximated) vote totals for B1–B4 refinement, even without polygon geometry.
-- **Geocoding failures:** if landmark dictionary + Nominatim can't resolve >90% of poll locations, the Zero-Sum Verification will flag too many failures and Phase 4C produces unreliable output. Document the failure rate honestly.
-- **Network blocks:** Phase 4 needs internet for StatsCan downloads, OSM, Nominatim. Make sure the working environment allows outbound HTTPS.
-- **Token budget exhaustion:** Hard cap of 150,000 for the agentic loop. Each phase has internal caps (15K for Phase 4D OSM hybrid reconstruction).
+## Pre-commitment and retraction
 
-## Output Files (After the Run)
+The audit is **pre-committed** under several disciplines before each result was read:
 
-```
-alberta_redistricting_audit_final.md          # the compiled report
-migration.md                                  # session summary for next chat
-analysis/
-├── v0_1_section_A_population_equality.md
-├── v0_1_section_C_geographic_coherence.md
-├── v0_1_section_D_procedural.md
-├── v0_1_section_4_geometry_provenance.md     # Phase 4 results
-├── v0_1_section_B5_C1_C2_geometric_tests.md  # if Phase 5 succeeds
-├── geometry_shift_log.md                     # any manual adjustments
-├── borderline_poll_resolution.md             # vision-resolved hybrid edge cases
-├── poll_geocoding_cache.csv                  # cached Nominatim results
-├── alberta_landmarks.csv                     # built landmark dictionary
-├── polls_2023_unified.csv                    # parsed Statement of Vote dataframe
-├── electoral_forensics_population.py
-└── geometry/                                 # if Phase 4 produces polygons
-```
+- **Null hypotheses** for every test family (§2 of the exoneration-criteria document) — specific directional predictions from a "minority-was-drawn-against-NDP" intent hypothesis.
+- **Exoneration thresholds** — numeric thresholds that, if the observed data falls inside, exonerate the minority on that test (e.g., EG difference ≤ 2 pp; coupled chain signals ratio ≤ 1.5×).
+- **Retraction conditions** — for every load-bearing finding, named external data or arguments that would force retraction within 48 hours of becoming known.
+
+The exoneration framework has already fired once: the neighbour-drain adjacency test found **zero** coupled chain signals on the minority (vs three on both the majority and 2019), which exonerates the minority on that specific test pre-commitment. The paper reports this as a §5.3.5 EXONERATION row, not as a hidden-methodology dead end.
+
+---
+
+## Follow-up work (open Issues)
+
+| # | Title | Status |
+|---|---|---|
+| 1 | Precision Option D — FOIP request for official 2026 shapefiles | Open |
+| 2 | Precision Option E — DPG-perturbation sensitivity CI on headline numbers | Resolved (v2 tier-aware committed) |
+| 3 | Precision Option B — Population-calibrated parametric sweep | Resolved |
+| 4 | Precision Option C — Municipal-boundary anchoring | Resolved (v0_4 + v0_5 committed) |
+| 5 | Pre-registration 2h24m-separation provenance claim | PO-owned |
+| 6 | Gemini Phase B.2 — E2 post-hoc reformulation disclosure | Open |
+| 7 | Wayback authenticated SPN2 pass | PO-owned |
+| 8 | Publication-grade MCMC — 3 chains × 150k steps | Resolved |
+| 9 | Publication decision — v0.19/v0.20 public release channel | PO-owned |
+| 10 | Methods paper — DPG framework companion | PO-owned |
+| 11 | Empirical Audit paper — 10,000-word extract | PO-owned |
+| 12 | Policy Critique paper — April 16 pivot + Act §12 reform | PO-owned |
+| **13** | **Local-perturbation MCMC chain — seeded at 2019 enacted** | **Open (retraction-pathway §9 item 2)** |
+| **14** | **Trade-off Frontier — counter-map challenge for §5.8.5 anchoring** | **Open (retraction-pathway §9 item 3)** |
+| **15** | **Voter-elasticity model — counterfactual vote re-estimation** | **Open (retraction-pathway §9 item 4)** |
+
+---
+
+## Reproducibility
+
+- **Python 3.14** + `geopandas` + `shapely` + `gerrychain 0.3.2` + `numpy` + `pandas`.
+- Setup: `bash setup.sh` installs dependencies.
+- Main analyses: `analysis/scripts/v0_1_*.py` (phase pipelines) and `analysis/scripts/v0_2_*.py` (canonical-build pipelines).
+- Data: `data/` contains the 2023 Statement of Vote, 2021 Census DAs and CSDs, VA-level poll assignments, canonical DPG shapefiles v0_2 through v0_5, and MCMC sample outputs.
+- MCMC multi-chain run (150k × 3 chains): `python analysis/scripts/v0_1_mcmc_multichain_ensemble.py --steps 150000 --chains 3 --seed 42`. ~91 minutes on laptop.
+
+---
+
+## Provenance and license
+
+- **Input data.** 2023 Statement of Vote (Elections Alberta, public); 2021 Census DAs + CSDs (Statistics Canada, Open Government Licence); Commission final report 2026 + appendices (public record). All transformations documented in `analysis/methodology/`.
+- **Derived geometry.** Commission 2026 maps are published as 300-DPI rasters only; the audit reconstructs machine-readable polygons as **Derived Provisional Geometries** (DPGs) with Tier A/B/C `canon_source` classification and a §4.1.4 sunset clause tying every DPG-dependent finding to reruns against official shapefiles if released.
+- **Vote verification.** 2023: 38 NDP / 49 UCP, two-party total 1,706,304. 2019: 24 NDP / 63 UCP. 2015: 40.72 % NDP / 27.79 % PC / 24.09 % WRP. Majority 2026 population sum: 4,888,723. Minority 2026 population sum: 4,888,773 (50-person rounding drift in commission figures).
+
+The audit is non-partisan and applies identical methodology symmetrically to the majority, minority, and 2019 enacted maps. **Test-application symmetry** (same test, both maps) and **test-selection symmetry** (counter-tests §5.6) are both held as disciplines.
+
+---
 
 ## Versioning
 
-This is **starter pack v0.7**. Internal:
-- Audit prompt: v0.8 (Phase 4C methodology hardened with Vote Anywhere handling)
-- Data files: v0.1 (unchanged)
-- Carry-forward analysis: v0.1 (B1–B4 completed)
-- Phase 4C skeleton: v0.1 (parse stages working, geocoding/assignment/apportionment stubs)
+- **Monograph:** v0.19 (2026-04-24) — Comprehensive Forensic Audit Monograph with Executive Summary, retraction pathway, and dependency DAG.
+- **Audit prompt:** v0.8 (legacy; the prompt drove the early v0.1–v0.11 phases).
+- **Canonical DPG substrates:** v0_2 (topology-clean, primary) / v0_3 (population-calibrated sweep) / v0_4 (municipal-anchored) / v0_5 (DA-anchored).
+- **MCMC ensemble:** 150k × 3 chains, R-hat < 1.01 strict on 3 of 4 metrics; combined ESS 643–783.
 
-## License & Provenance
+---
 
-All input data extracted from official Elections Alberta and ABEBC sources. Verified against published totals:
+## How to challenge the audit
 
-- **2023:** 38 NDP / 49 UCP, two-party total 1,706,304
-- **2019:** 24 NDP / 63 UCP, verified to published report
-- **2015:** 40.72% NDP / 27.79% PC / 24.09% WRP (matches official Elections Alberta 40.59%/27.79%/24.22% to within 0.13 pp per party); NDP formed majority government
-- **Majority 2026 populations:** sum to exact provincial total of 4,888,723
-- **Minority 2026 populations:** sum to 4,888,773 (50-person rounding drift in commission's own figures)
+This audit welcomes adversarial review. Specifically:
 
-Maps are images from the publicly tabled commission report. Analysis is non-partisan and applies identical methodology symmetrically to all three maps.
+1. **Read the retraction pathway.** Find a finding's named retraction condition; produce the data or argument that triggers it.
+2. **Produce a counter-map** (Issue #14) that achieves the minority's COI claims with majority-comparable anchoring. A successful counter-map retracts §5.8.5.
+3. **Query the DAG** (`analysis/scripts/v0_1_dependency_query.py`) to see which findings survive if you invalidate any specific L0/L1 input.
+4. **Read the apparatus-defense document** for per-test criticism entries that anticipate the critiques reviewers are likely to raise.
 
-**2015 data note.** The 2015 dataset uses pre-2017-commission boundaries that differ from 2019 and 2026 EDs. It is included for cross-election rural baseline analysis (see `analysis/scripts/v0_1_cross_election_rural_baseline.py`) and longitudinal context. Direct attribution of 2015 votes to 2019 or 2026 EDs requires a boundary crosswalk not included in this bundle.
+Retraction conditions are public, concrete, and dated. The audit is falsifiable per-finding, not just per-test.
