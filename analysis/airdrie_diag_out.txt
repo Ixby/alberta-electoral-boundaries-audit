@@ -1,0 +1,172 @@
+======================================================================
+v0_1_airdrie_overlap_diagnostic.py
+Run at: 2026-04-23 21:11:45.456554
+======================================================================
+
+Loading minority EDs from:
+  C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_canonical_minority_2026_eds.gpkg
+  Loaded 89 EDs, CRS: EPSG:3401
+  Columns: ['name_2026', 'map', 'canon_tier', 'canon_source', 'canon_note', 'geometry']
+
+  All ED names in minority shapefile (89 EDs):
+    Airdrie East
+    Barrhead-Westlock-Athabasca
+    Calgary-Acadia
+    Calgary-Airdrie
+    Calgary-Beddington
+    Calgary-Bow-Springbank
+    Calgary-Buffalo
+    Calgary-Cross
+    Calgary-Currie
+    Calgary-De Winton
+    Calgary-East
+    Calgary-Edgemont
+    Calgary-Elbow
+    Calgary-Falconridge
+    Calgary-Fish Creek
+    Calgary-Foothills-Airdrie West
+    Calgary-Glenmore
+    Calgary-Hays
+    Calgary-Klein
+    Calgary-Lougheed
+    Calgary-McCall-Bhullar
+    Calgary-Mountain View
+    Calgary-Nolan Hill-Cochrane
+    Calgary-North
+    Calgary-North East
+    Calgary-North West-Bearspaw
+    Calgary-Peigan-Chestermere
+    Calgary-South
+    Calgary-South East
+    Calgary-Varsity
+    Calgary-West-Tsuut'ina
+    Camrose
+    Canmore-Kananaskis
+    Central Peace-Notley
+    Chestermere-Strathmore
+    Cold Lake-Bonnyville-St. Paul
+    Drumheller-Stettler
+    Edmonton-Beaumont
+    Edmonton-Beverly-Clareview
+    Edmonton-Castledowns
+    Edmonton-City Centre
+    Edmonton-Decore
+    Edmonton-Ellerslie
+    Edmonton-Enoch-Devon
+    Edmonton-Glenora-Riverview
+    Edmonton-Gold Bar
+    Edmonton-Highlands-Norwood
+    Edmonton-Manning
+    Edmonton-McClung
+    Edmonton-Meadows
+    Edmonton-Mill Woods
+    Edmonton-North West
+    Edmonton-Rutherford
+    Edmonton-South
+    Edmonton-Spruce Grove
+    Edmonton-Strathcona
+    Edmonton-West Henday
+    Edmonton-Whitemud
+    Edmonton-Windermere
+    Fort McMurray-Lac La Biche
+    Fort McMurray-Wood Buffalo
+    Fort Saskatchewan-Vegreville
+    Grande Prairie
+    Grande Prairie-Wapiti
+    Highwood
+    Lac Ste. Anne-Parkland
+    Leduc
+    Lesser Slave Lake
+    Lethbridge-Cardston
+    Lethbridge-Fort MacLeod-Crowsnest Pass
+    Lethbridge-Little Bow
+    Lethbridge-Taber-Warner
+    Lloydminster-Wainwright
+    Medicine Hat-Brooks
+    Medicine Hat-Cypress
+    Olds-Three Hills-Didsbury
+    Peace River
+    Red Deer-Blackfalds
+    Red Deer-Innisfail
+    Red Deer-Lacombe
+    Red Deer-Sylvan Lake
+    Rocky Mountain House-Banff Park
+    Sherwood Park
+    Sherwood Park-Strathcona
+    St. Albert
+    St. Albert-Sturgeon
+    Stony Plain-Drayton Valley
+    West Yellowhead
+    Wetaskawin-Ponoka-Maskwacis
+
+Loading VA polygons from:
+  C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\va_polygons_with_2023_votes.gpkg
+  Loaded 4,765 VAs, CRS: EPSG:3401
+  VA columns: ['OBJECTID', 'ED_NUM', 'ED_NAME', 'VA_NUMBER', 'va_ndp', 'va_ucp', 'va_other', 'parent_ed_2019', 'geometry']
+
+=== STEP 1: Inspecting Calgary-Airdrie polygon ===
+  ED name       : Calgary-Airdrie
+  Area          : 753.8 km²
+  Bounding box  : minx=32855, miny=5660104, maxx=69730, maxy=5694020
+  Centroid      : x=50528, y=5678153
+  Vertices      : 2,055
+  Dist centroid -> City of Airdrie (~52000, 5682000): 4.1 km
+  Is centroid near Airdrie (< 50 km)? YES
+
+=== STEP 2: Computing overlaps with adjacent EDs ===
+
+  Overlap: Calgary-Airdrie × Calgary-Nolan Hill-Cochrane
+    Adjacent ED area     : 704.8 km²
+    Intersection area    : 264.1 km²
+    % of Calgary-Airdrie : 35.0%
+    % of adjacent ED     : 37.5%
+
+  Overlap: Calgary-Airdrie × Olds-Three Hills-Didsbury
+    Adjacent ED area     : 5742.1 km²
+    Intersection area    : 197.4 km²
+    % of Calgary-Airdrie : 26.2%
+    % of adjacent ED     : 3.4%
+
+  Overlap: Calgary-Airdrie × Calgary-Foothills-Airdrie West
+    Adjacent ED area     : 89.6 km²
+    Intersection area    : 70.7 km²
+    % of Calgary-Airdrie : 9.4%
+    % of adjacent ED     : 78.9%
+
+  TOTAL overlap area    : 532.2 km²
+  % of Calgary-Airdrie  : 70.6%
+
+=== STEP 3: Proposing corrected boundaries ===
+
+  Option A (difference from overlap zones):
+    Area: 221.6 km²  (was 753.8 km²)
+    Reduction: 532.2 km² (70.6%)
+    VAs in original Calgary-Airdrie : 82
+    VAs in Option A                 : 22
+
+  Option B (radius clip around City of Airdrie centre x=52000, y=5682000):
+    r=20 km: area=729.6 km², VAs inside=56
+    r=25 km: area=753.8 km², VAs inside=82
+    r=30 km: area=753.8 km², VAs inside=82
+
+=== STEP 4: VAs in the overlap zone ===
+  VAs whose centroid falls in the overlap zone: 60
+  Available parent/ED columns: ['parent_ed_2019']
+
+  parent_ed_2019 distribution in overlap-zone VAs:
+    'Airdrie-Cochrane': 60
+
+  Vote columns found: ['va_ndp', 'va_ucp']
+
+  Total NDP votes in overlap zone : 3917.6452380952383
+  Total UCP votes in overlap zone : 6813.2095238095235
+
+  Any VA has parent containing 'Airdrie'? YES
+  If NO -> VAs are attributed to a different 2019 parent = confirms pixel-extraction error
+
+=== STEP 5: Writing report ===
+  Report written to: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\v0_1_airdrie_overlap_report.md
+
+======================================================================
+DIAGNOSTIC COMPLETE
+======================================================================

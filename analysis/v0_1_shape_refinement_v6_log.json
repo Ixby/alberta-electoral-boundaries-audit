@@ -1,0 +1,871 @@
+{
+  "version": "v6",
+  "timestamp": "2026-04-23T07:28:08.255543+00:00",
+  "thumbnails": {
+    "calgary_minority": {
+      "thumbnail": "v0_1_minority_p360_map74.png",
+      "orientation": "rot90cw",
+      "img_shape": [
+        5100,
+        6601
+      ],
+      "red_pixels": 1022389,
+      "affine": {
+        "M_px2geo": [
+          [
+            16.024800025160676,
+            0.005882266018254336,
+            500639.6163759766
+          ],
+          [
+            -0.0005623495243297261,
+            -15.999542881095126,
+            5688214.3957963
+          ]
+        ],
+        "cost_dt_mean_px": 21.56,
+        "pixel_dim_m": 16.01,
+        "n_boundary_pts": 3752
+      },
+      "per_ed": {
+        "Calgary-De Winton": {
+          "seed_px": [
+            3500,
+            4100
+          ],
+          "flood_fill": {
+            "area_px": 1606577,
+            "bbox_px": [
+              2114,
+              3048,
+              2349,
+              1380
+            ],
+            "seed": [
+              3500,
+              4100
+            ]
+          },
+          "contour_px_pts": 276,
+          "area_km2": 413.82,
+          "bounds": [
+            534534.0,
+            5617366.0,
+            572181.0,
+            5639430.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1542,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 163101,
+              "red_near_outline": 25157
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 162598,
+              "n_large_clusters": 16,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "results": [
+                {
+                  "constraint": "contains_okotoks",
+                  "pass": false
+                }
+              ],
+              "pass": false
+            },
+            "t4_neighbour_shared_edge": {
+              "shared_length_m": 42261.0,
+              "pass": true
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                534534.0,
+                5617366.0,
+                572181.0,
+                5639430.0
+              ],
+              "thumb_extent": [
+                500640.0,
+                5606613.0,
+                606449.0,
+                5688214.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 413.82,
+              "area_px_km2": 414.57,
+              "pct_diff": 0.18,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 4,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_minority_calgary_de_winton.png",
+          "verification_panel": "v0_6_minority_calgary_de_winton.png"
+        },
+        "Calgary-South": {
+          "seed_px": [
+            4337,
+            3289
+          ],
+          "flood_fill": {
+            "area_px": 63058,
+            "bbox_px": [
+              4119,
+              3094,
+              369,
+              385
+            ],
+            "seed": [
+              4337,
+              3289
+            ]
+          },
+          "contour_px_pts": 57,
+          "area_km2": 18.24,
+          "bounds": [
+            566665.0,
+            5632581.0,
+            572579.0,
+            5638709.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1618,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 31405,
+              "red_near_outline": 5081
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 37719,
+              "n_large_clusters": 7,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "results": [
+                {
+                  "constraint": "near_calgary_centre",
+                  "pass": true
+                },
+                {
+                  "constraint": "east_of_fish_creek",
+                  "pass": true
+                }
+              ],
+              "pass": true
+            },
+            "t4_neighbour_shared_edge": {
+              "shared_length_m": 4399.0,
+              "pass": true
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                566665.0,
+                5632581.0,
+                572579.0,
+                5638709.0
+              ],
+              "thumb_extent": [
+                500640.0,
+                5606613.0,
+                606449.0,
+                5688214.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 18.24,
+              "area_px_km2": 18.5,
+              "pct_diff": 1.46,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 5,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_minority_calgary_south.png",
+          "verification_panel": "v0_6_minority_calgary_south.png"
+        }
+      },
+      "elapsed_s": 1.9
+    },
+    "edmonton_minority": {
+      "thumbnail": "v0_1_minority_p361_map75.png",
+      "orientation": "native",
+      "img_shape": [
+        5100,
+        6601
+      ],
+      "red_pixels": 927996,
+      "affine": {
+        "M_px2geo": [
+          [
+            14.016136769655533,
+            -0.0011885643087804485,
+            541708.3868072693
+          ],
+          [
+            0.007506399780929879,
+            -14.00155949483672,
+            5966609.75991954
+          ]
+        ],
+        "cost_dt_mean_px": 30.44,
+        "pixel_dim_m": 14.01,
+        "n_boundary_pts": 2676
+      },
+      "per_ed": {
+        "Edmonton-Windermere": {
+          "seed_px": [
+            3350,
+            3700
+          ],
+          "flood_fill": {
+            "area_px": 395043,
+            "bbox_px": [
+              3096,
+              3404,
+              891,
+              1058
+            ],
+            "seed": [
+              3350,
+              3700
+            ]
+          },
+          "contour_px_pts": 225,
+          "area_km2": 79.69,
+          "bounds": [
+            585097.0,
+            5904159.0,
+            597586.0,
+            5918976.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1404,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 107871,
+              "red_near_outline": 15145
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 105923,
+              "n_large_clusters": 9,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "results": [
+                {
+                  "constraint": "south_of_river",
+                  "pass": true
+                }
+              ],
+              "pass": true
+            },
+            "t4_neighbour_shared_edge": {
+              "shared_length_m": 0.0,
+              "pass": false
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                585097.0,
+                5904159.0,
+                597586.0,
+                5918976.0
+              ],
+              "thumb_extent": [
+                541702.0,
+                5895202.0,
+                634229.0,
+                5966659.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 79.69,
+              "area_px_km2": 80.06,
+              "pct_diff": 0.47,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 4,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_minority_edmonton_windermere.png",
+          "verification_panel": "v0_6_minority_edmonton_windermere.png"
+        }
+      },
+      "elapsed_s": 1.2
+    },
+    "calgary_majority": {
+      "thumbnail": "v0_1_majority_p72_MAP_r600.png",
+      "orientation": "rot90cw",
+      "img_shape": [
+        5100,
+        6601
+      ],
+      "red_pixels": 1020197,
+      "affine": {
+        "M_px2geo": [
+          [
+            14.547321198670017,
+            0.0036330918394500973,
+            501212.7234501962
+          ],
+          [
+            2.056346898293488e-05,
+            -14.492783614585756,
+            5686101.059557345
+          ]
+        ],
+        "cost_dt_mean_px": 29.75,
+        "pixel_dim_m": 14.52,
+        "n_boundary_pts": 3752
+      },
+      "per_ed": {
+        "Calgary-East": {
+          "seed_px": [
+            4500,
+            2400
+          ],
+          "flood_fill": {
+            "area_px": 352359,
+            "bbox_px": [
+              4351,
+              2245,
+              695,
+              705
+            ],
+            "seed": [
+              4500,
+              2400
+            ]
+          },
+          "contour_px_pts": 62,
+          "area_km2": 77.48,
+          "bounds": [
+            564533.0,
+            5643347.0,
+            574629.0,
+            5653565.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1627,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 56479,
+              "red_near_outline": 9187
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 61654,
+              "n_large_clusters": 15,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "pass": true,
+              "note": "none"
+            },
+            "t4_neighbour_shared_edge": {
+              "pass": true,
+              "note": "no neighbour"
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                564533.0,
+                5643347.0,
+                574629.0,
+                5653565.0
+              ],
+              "thumb_extent": [
+                501213.0,
+                5612188.0,
+                597258.0,
+                5686101.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 77.48,
+              "area_px_km2": 77.76,
+              "pct_diff": 0.36,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 5,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_majority_calgary_east.png",
+          "verification_panel": "v0_6_majority_calgary_east.png"
+        },
+        "Calgary-Falconridge-Conrich": {
+          "seed_px": [
+            4700,
+            1600
+          ],
+          "flood_fill": {
+            "area_px": 280886,
+            "bbox_px": [
+              4491,
+              1224,
+              826,
+              601
+            ],
+            "seed": [
+              4700,
+              1600
+            ]
+          },
+          "contour_px_pts": 53,
+          "area_km2": 62.99,
+          "bounds": [
+            566551.0,
+            5659652.0,
+            578566.0,
+            5668362.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1283,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 75295,
+              "red_near_outline": 9660
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 75397,
+              "n_large_clusters": 21,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "pass": true,
+              "note": "none"
+            },
+            "t4_neighbour_shared_edge": {
+              "pass": true,
+              "note": "no neighbour"
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                566551.0,
+                5659652.0,
+                578566.0,
+                5668362.0
+              ],
+              "thumb_extent": [
+                501213.0,
+                5612188.0,
+                597258.0,
+                5686101.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 62.99,
+              "area_px_km2": 63.45,
+              "pct_diff": 0.73,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 5,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_majority_calgary_falconridge_conrich.png",
+          "verification_panel": "v0_6_majority_calgary_falconridge_conrich.png"
+        },
+        "Calgary-Glenmore-Tsuut'ina": {
+          "seed_px": [
+            2800,
+            2500
+          ],
+          "flood_fill": {
+            "area_px": 511230,
+            "bbox_px": [
+              1812,
+              2238,
+              1940,
+              450
+            ],
+            "seed": [
+              2800,
+              2500
+            ]
+          },
+          "contour_px_pts": 141,
+          "area_km2": 112.28,
+          "bounds": [
+            527582.0,
+            5647173.0,
+            555804.0,
+            5653666.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1885,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 87831,
+              "red_near_outline": 16556
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 79413,
+              "n_large_clusters": 9,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "pass": true,
+              "note": "none"
+            },
+            "t4_neighbour_shared_edge": {
+              "pass": true,
+              "note": "no neighbour"
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                527582.0,
+                5647173.0,
+                555804.0,
+                5653666.0
+              ],
+              "thumb_extent": [
+                501213.0,
+                5612188.0,
+                597258.0,
+                5686101.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 112.28,
+              "area_px_km2": 112.59,
+              "pct_diff": 0.28,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 5,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_majority_calgary_glenmore_tsuutina.png",
+          "verification_panel": "v0_6_majority_calgary_glenmore_tsuutina.png"
+        },
+        "Calgary-West-Elbow Valley": {
+          "seed_px": [
+            2500,
+            3200
+          ],
+          "flood_fill": {
+            "area_px": 2564184,
+            "bbox_px": [
+              569,
+              2557,
+              3631,
+              998
+            ],
+            "seed": [
+              2500,
+              3200
+            ]
+          },
+          "contour_px_pts": 94,
+          "area_km2": 544.4,
+          "bounds": [
+            509501.0,
+            5634579.0,
+            562324.0,
+            5649043.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1763,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 177592,
+              "red_near_outline": 31305
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 176134,
+              "n_large_clusters": 33,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "pass": true,
+              "note": "none"
+            },
+            "t4_neighbour_shared_edge": {
+              "pass": true,
+              "note": "no neighbour"
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                509501.0,
+                5634579.0,
+                562324.0,
+                5649043.0
+              ],
+              "thumb_extent": [
+                501213.0,
+                5612188.0,
+                597258.0,
+                5686101.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 544.4,
+              "area_px_km2": 545.28,
+              "pct_diff": 0.16,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 5,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_majority_calgary_west_elbow_valley.png",
+          "verification_panel": "v0_6_majority_calgary_west_elbow_valley.png"
+        }
+      },
+      "elapsed_s": 2.9
+    },
+    "edmonton_majority": {
+      "thumbnail": "v0_1_majority_p74_MAP_r600.png",
+      "orientation": "native",
+      "img_shape": [
+        6601,
+        5100
+      ],
+      "red_pixels": 951860,
+      "affine": {
+        "M_px2geo": [
+          [
+            14.000649886394742,
+            0.0009992805142107575,
+            559388.0334826013
+          ],
+          [
+            0.0018735022351647566,
+            -14.000362366405943,
+            5974972.355329468
+          ]
+        ],
+        "cost_dt_mean_px": 35.32,
+        "pixel_dim_m": 14.0,
+        "n_boundary_pts": 2676
+      },
+      "per_ed": {
+        "Edmonton-Beaumont": {
+          "seed_px": [
+            3796,
+            4193
+          ],
+          "flood_fill": {
+            "area_px": 135258,
+            "bbox_px": [
+              3612,
+              3922,
+              354,
+              569
+            ],
+            "seed": [
+              3796,
+              4193
+            ]
+          },
+          "contour_px_pts": 36,
+          "area_km2": 29.89,
+          "bounds": [
+            609962.0,
+            5912104.0,
+            614919.0,
+            5920070.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1315,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 41841,
+              "red_near_outline": 5501
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 44275,
+              "n_large_clusters": 9,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "pass": true,
+              "note": "none"
+            },
+            "t4_neighbour_shared_edge": {
+              "pass": true,
+              "note": "no neighbour"
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                609962.0,
+                5912104.0,
+                614919.0,
+                5920070.0
+              ],
+              "thumb_extent": [
+                559388.0,
+                5882556.0,
+                630798.0,
+                5974982.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 29.89,
+              "area_px_km2": 30.12,
+              "pct_diff": 0.76,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 5,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_majority_edmonton_beaumont.png",
+          "verification_panel": "v0_6_majority_edmonton_beaumont.png"
+        },
+        "Edmonton-Enoch": {
+          "seed_px": [
+            2400,
+            2800
+          ],
+          "flood_fill": {
+            "area_px": 273413,
+            "bbox_px": [
+              2049,
+              2735,
+              476,
+              924
+            ],
+            "seed": [
+              2400,
+              2800
+            ]
+          },
+          "contour_px_pts": 65,
+          "area_km2": 58.04,
+          "bounds": [
+            588079.0,
+            5923749.0,
+            594743.0,
+            5936686.0
+          ],
+          "disproof_attempts": {
+            "t1_red_coverage_local": {
+              "value": 0.1621,
+              "pass": false,
+              "target": ">=0.90",
+              "red_px_local": 59080,
+              "red_near_outline": 9575
+            },
+            "t2_overlay_visual_diff": {
+              "n_yellow_px": 61096,
+              "n_large_clusters": 17,
+              "pass": false
+            },
+            "t3_hard_constraints": {
+              "pass": true,
+              "note": "none"
+            },
+            "t4_neighbour_shared_edge": {
+              "pass": true,
+              "note": "no neighbour"
+            },
+            "t5_reverse_sampling": {
+              "inside_count": 20,
+              "pass": true
+            },
+            "t6_bbox_within_thumbnail": {
+              "pass": true,
+              "poly_bounds": [
+                588079.0,
+                5923749.0,
+                594743.0,
+                5936686.0
+              ],
+              "thumb_extent": [
+                559388.0,
+                5882556.0,
+                630798.0,
+                5974982.0
+              ]
+            },
+            "t7_area_scale_consistency": {
+              "area_shapely_km2": 58.04,
+              "area_px_km2": 58.31,
+              "pct_diff": 0.46,
+              "pass": true
+            },
+            "summary": {
+              "n_pass": 5,
+              "n_considered": 7
+            }
+          },
+          "status": "OK",
+          "overlay": "v0_6_overlay_majority_edmonton_enoch.png",
+          "verification_panel": "v0_6_majority_edmonton_enoch.png"
+        }
+      },
+      "elapsed_s": 1.8
+    }
+  },
+  "per_ed": {}
+}
