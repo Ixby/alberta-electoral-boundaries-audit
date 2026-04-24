@@ -10,4 +10,6 @@ build/
 .DS_Store
 .temp/
 cache/
+logs/
+private/
 maps/pdf_previews/
