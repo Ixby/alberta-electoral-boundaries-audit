@@ -21,6 +21,37 @@
 
 ---
 
+## Status update — 2026-04-23 (post-T0/T1/T2 remediation)
+
+Authoritative current-state view of the findings raised in this file against the remediation commits that landed 2026-04-23 (d25e659 T0, a62eb53 T1, de7c48e T2, afb3a4a + 3b7dbfb session-12 data pipeline).
+
+| Finding | Status | Fix location |
+|---|---|---|
+| S6-01 (CRITICAL) Pal (2015) broken DOI | PARTIAL | d25e659 corrected Rizzo universally to *Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 S.C.R. 27; the Pal (2015) replacement itself is not in T0/T1/T2 scope. Still open — must be replaced before submission. |
+| S6-02 (CRITICAL) Pal (2019) DOI resolves to different paper | NOT ADDRESSED | No remediation commit touches the Pal (2019) entry. Still open — must be replaced before submission. |
+| S6-03 (HIGH) Altman & McDonald (2011) ghost-cite | PARTIAL | de7c48e §6 Discussion explicitly invokes Altman-McDonald (2011) as authority for the multiple-comparison posture, providing one engaged use; full References entry still required. |
+| S6-04 / S6-05 (HIGH) Magleby & Mosesson 22% mis-attribution | NOT ADDRESSED | No remediation commit re-sources the 22% statistic. Still open. |
+| S6-06 / S6-07 / S6-08 (MED) ASA / Nosek / Munafò ghost-cites | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual cleanup for pre-submission pass. |
+| S6-09 (MED) Driedger 1983 ghost-cite | NOT ADDRESSED | Not in T0/T1/T2 scope; Rizzo citation form was corrected (d25e659) but Driedger reference entry still missing. |
+| S6-10 (LOW) Chen & Rodden year label | NOT APPLICABLE | File itself notes the discrepancy is in the framework prompt, not the audit. |
+| S6.4 missing-citations table (Pildes, Tam Cho, Courtney engagement, DeFord/Fifield/Herschlag/Becker, Altman-McDonald-Stout, Carty year fix, Alberta-specific commentary) | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual for pre-submission pass. |
+| S7-01 (HIGH) VA polygons carry only ~55% of 2023 two-party votes; MCMC ensemble substrate-dependent | ADDRESSED | afb3a4a + 3b7dbfb wire in the Advance-Vote Splat: Phase 4C two-party total now 1,706,249/1,706,233 against target 1,706,304 (>99.99% coverage); MCMC rescore reads canonical shapefiles. a62eb53 §5.4 further downgrades ESS-150 tail from p100/p1.6 to p95.35/p2.5 at chain effective precision. The VA-substrate bias S7-01 flagged is substantially closed. |
+| S7-02 (HIGH) 88 missed submissions non-random | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual finding. |
+| S7-03 (HIGH) 338Canada n=87 vs 2026 n=89 transparency | NOT ADDRESSED | Not in T0/T1/T2 scope (transparency fix; one-sentence disclosure still pending). |
+| S7-04 (MED) MCMC partial-coverage self-consistency caveat | ADDRESSED | afb3a4a + 3b7dbfb canonical-shapefile rescore closes the partial-coverage concern by scoring against the full canonical 89-ED set; a62eb53 also adds ESS downgrade + Core-vs-Margin VA partition documenting ~8–12% of two-party votes in Margin VAs with max ±1.5pp swing. |
+| S7-05 / S7-06 / S7-07 / S7-08 / S7-09 / S7-10 (MED/LOW) | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual housekeeping for pre-submission pass. |
+| S10-01 (HIGH) OSF pre-registration not filed | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S10-02 (HIGH) Methods/results fragmented | NOT ADDRESSED | Structural IMRaD restructure not in T0/T1/T2 scope. |
+| S10-03 through S10-10 (MED/LOW) formal captions, A/B/C/D labeling, Data-/Code-availability blocks, COI/funding/acknowledgements, figure numbering, Carty year | NOT ADDRESSED | Structural pre-submission cleanup; not in T0/T1/T2 scope. |
+| Implicit finding — sign-convention ambiguity across EG / MM / declination | ADDRESSED | a62eb53 §4.3 introduces universal sign-convention glossary (negative = UCP advantage, positive = NDP advantage). |
+| Implicit finding — Gill v. Whitford characterization | ADDRESSED | d25e659 corrects Gill v. Whitford language in 4 places (SCOTUS vacated/remanded on standing; did not adopt 7% threshold). |
+| Implicit finding — DPG localization uncertainty disclosure | ADDRESSED | d25e659 §4.1.4 adds central DPG disclaimer (perimeter-mode ±500m vs area-mode up to >100% on Tier-C) + 48-hour sunset clause against official Elections Alberta 2026 shapefiles. |
+| Implicit finding — two-measurement contradiction (−1.42pp vs +4.15pp) | ADDRESSED | d25e659 Abstract + §5.2.7 reframe as systematic spatial-resolution sensitivity, not contradiction. |
+
+Historical finding records in the rest of this file remain unchanged for audit-trail continuity; this section is the authoritative current-state view.
+
+---
+
 ## §S6 — Prior-art engagement
 
 ### §S6.1 Verification of audit's claimed citations

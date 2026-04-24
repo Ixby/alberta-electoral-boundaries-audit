@@ -13,6 +13,42 @@ Phase 4C assignment pipeline.
 
 ---
 
+## Status update — 2026-04-23 (post-T0/T1/T2 remediation)
+
+Authoritative current-state view of the findings in this file against the remediation commits that landed 2026-04-23 (d25e659 T0, a62eb53 T1, de7c48e T2, afb3a4a + 3b7dbfb session-12 data pipeline).
+
+| Finding | Status | Fix location |
+|---|---|---|
+| §1 VA substrate — Election-Day only (52.5% of full 2023 count; 47.5% advance/mail/special excluded) | ADDRESSED | afb3a4a + 3b7dbfb wire in the Advance-Vote Splat: Phase 4C two-party total now 1,706,249/1,706,233 against target 1,706,304 (>99.99% coverage). The 47.5% advance/mail/special gap that drove this finding is closed at the vote-attribution level. |
+| §1 VA substrate — Spatial proxy for residence (centroid error in rural VAs) | ADDRESSED | d25e659 §4.1.4 DPG disclaimer formalizes perimeter-mode (±500m) vs area-mode (Tier-dependent, up to >100% on Tier-C) error disclosure; a62eb53 §5.2.7 Core-vs-Margin VA partition quantifies ~8–12% of two-party votes in Margin VAs with max ±1.5pp swing at risk. |
+| §1 VA substrate — Vote Anywhere polling stations not residence-attributable | ADDRESSED | afb3a4a + 3b7dbfb Advance-Vote Splat implements the home-ED attribution at conservation-exact level. |
+| §2 Canonical majority — 81 overlapping polygon pairs | STRUCTURAL LIMIT | d25e659 §4.1.4 48-hour sunset clause commits to recompute all DPG-dependent analyses against official Elections Alberta 2026 shapefiles when released. Overlaps are a property of DPG construction and cannot be eliminated without official shapefiles — but the sunset clause is the honest remediation. a62eb53 §E.7 compactness Tier-dependent ± bands further document the implication for downstream metrics. |
+| §2 Majority — Tier distribution (57 Tier A; 4 C-null) | ADDRESSED | a62eb53 §E.7 compactness ordinal convention (High/Moderate/Low-flagged/Very-low PP+Reock) + Tier-dependent ± bands operationalize the Tier-C confidence downgrade; d25e659 §4.1.4 DPG disclaimer further qualifies Tier-C area-mode error as up to >100%. |
+| §3 Canonical minority — 95 overlapping polygon pairs | STRUCTURAL LIMIT | Same sunset-clause remediation as §2 overlap finding. |
+| §3 Minority — Calgary-Airdrie 264 km² overlap with Calgary-Nolan Hill-Cochrane | ADDRESSED | a62eb53 `analysis/v0_1_airdrie_overlap_report.md` header reframes the 530 km² overlap as a DPG transcription artifact, not commission cartography. The largest single overlap is now documented as a construction artifact rather than a commission finding. |
+| §3 Minority — 14 EDs relabeled Tier A from "unknown" | NOT APPLICABLE | File already records this as a session-12 correction (done). |
+| §3 Minority — Edmonton-Beaumont distinct from majority version | ADDRESSED | afb3a4a + 3b7dbfb MCMC rescore reads canonical shapefiles, which preserves the majority/minority distinct Edmonton-Beaumont polygons correctly. |
+| §4 Phase 4C — 89/89 EDs resolved; zero vote drift | ADDRESSED | afb3a4a + 3b7dbfb confirm canonical-shapefile read + Advance-Vote Splat give two-party total 1,706,249/1,706,233 against 1,706,304 target. 2019 EG sign now matches paper's documented −2.64%. |
+| §4 Phase 4C — Edmonton-Beaumont fix + residual (southern-Edmonton portion unresolvable without official shapefiles) | STRUCTURAL LIMIT | Same sunset-clause remediation. Phase 4B DA-overlay populations documented in `data/INTEGRITY_STATUS.md` as failing 2% hardstop — structural v7 transcription limit that cannot be fixed without external inputs. |
+| §4 Phase 4C — 206 majority / 74 minority nearest-ED fallback low-confidence assignments | STRUCTURAL LIMIT | Same sunset-clause remediation. |
+| §5 Crosswalk defensibility — Edmonton-Beaumont wrong parent (session 12 fix) | NOT APPLICABLE | File already records this as fixed. afb3a4a + 3b7dbfb confirm the fix propagates into Phase 4C / MCMC rescore. |
+| §5 Calgary-Buffalo multi-child | NOT APPLICABLE | File records as correctly modeled. |
+| §5 Edmonton-Highlands-Norwood (session 11 fix) | NOT APPLICABLE | File records as fixed. |
+| §5 Cardston-Siksika / Lac Ste. Anne-Parkland / Rimbey-Rocky Mtn House-Sundre fallback | STRUCTURAL LIMIT | Same sunset-clause remediation. |
+| §6 Minority/majority distinguishability | NOT APPLICABLE | File records as verified (not a defect). |
+| §7 Testability and reproducibility | ADDRESSED | afb3a4a + 3b7dbfb bring Phase 4C + MCMC rescore onto canonical shapefiles; `data/INTEGRITY_STATUS.md` documents what session-12 remediation fixed (vote-side, conservation-exact) and what remains structural (Phase 4B DA-overlay populations fail 2% hardstop — v7 transcription limit). |
+| §8.1 81/95 overlapping polygon pairs | STRUCTURAL LIMIT | Official 2026 shapefiles will eliminate overlaps; d25e659 48-hour sunset clause is the commitment to recompute at release. |
+| §8.2 Edmonton-Beaumont Edmonton-suburb portion (38k of 55k residents unresolvable) | STRUCTURAL LIMIT | Same sunset-clause remediation. |
+| §8.3 206 nearest-ED fallback (majority) low-confidence | STRUCTURAL LIMIT | Same sunset-clause remediation. |
+| §8.4 4 C-null majority EDs (no polygon available) | STRUCTURAL LIMIT | Same sunset-clause remediation. |
+| §8.5 Calgary-Airdrie 264 km² overlap | ADDRESSED | a62eb53 Airdrie overlap report header reframes this as DPG transcription artifact (not commission cartography); d25e659 48-hour sunset clause commits to official-shapefile recompute. |
+| Implicit finding — two-measurement sensitivity (−1.42pp vs +4.15pp) | ADDRESSED | d25e659 Abstract + §5.2.7 reframe as systematic spatial-resolution sensitivity, not contradiction. |
+| Implicit finding — Phase 4B DA-overlay populations structural failure | STRUCTURAL LIMIT | `data/INTEGRITY_STATUS.md` documents Phase 4B fails 2% hardstop — cannot be fixed without external inputs (official 2026 shapefiles). Documented, not fixed. |
+
+Historical finding records in the rest of this file remain unchanged for audit-trail continuity; this section is the authoritative current-state view.
+
+---
+
 ## 1. VA polygon substrate (va_polygons_with_2023_votes.gpkg)
 
 ### What it contains

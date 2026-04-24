@@ -12,6 +12,46 @@
 
 ---
 
+## Status update — 2026-04-23 (post-T0/T1/T2 remediation)
+
+Authoritative current-state view of the findings in this file against the remediation commits that landed 2026-04-23 (d25e659 T0, a62eb53 T1, de7c48e T2, afb3a4a + 3b7dbfb session-12 data pipeline).
+
+| Finding | Status | Fix location |
+|---|---|---|
+| S3-01 (HIGH) MCMC seed hardcoded in `v0_1_mcmc_ensemble.py` | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S3-02 (HIGH) MCMC ESS ≈148–160; p100 rests on ~150 effective draws | ADDRESSED | a62eb53 §5.4 ESS-150 tail downgrade paragraph: raw p100/p1.6 bounded to p95.35/p2.5 at chain effective precision; minority seats-at-50/50 retracted to p89.72. Directly implements S3-02's recommendation. |
+| S3-03 (MED) Urban-weight sensitivity range omits 50/50 and population-weighted alternatives | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S3-04 (HIGH) Full-coverage MCMC rescore downgrades minority p100 → p95.35 / p89.72; §3.11 stale | ADDRESSED | afb3a4a + 3b7dbfb MCMC rescore reads canonical shapefiles (`data/v0_1_canonical_{majority,minority}_2026_eds.gpkg`); a62eb53 ESS-150 downgrade aligns reported percentiles with effective precision. The falsifiability hook §3.11 set for itself is now resolved in-paper. |
+| S3-05 (HIGH) Declination sign-convention label vs Warrington | ADDRESSED | a62eb53 §4.3 universal sign-convention glossary (negative = UCP advantage, positive = NDP advantage) applies across all metrics including declination. |
+| S3-06 (MED) Compactness formulation swap (Convex-Hull, Schwartzberg) | PARTIAL | a62eb53 §E.7 adds Tier-dependent ± bands + ordinal convention (High/Moderate/Low-flagged/Very-low PP+Reock). Addresses band/uncertainty reporting; full alternative-formulation swap (Convex-Hull, Schwartzberg) still pending. |
+| S3-07 (LOW) VA centroid-in-polygon ±0.5% rounding | ADDRESSED | d25e659 §4.1.4 DPG disclaimer formalizes perimeter-mode (±500m) vs area-mode (Tier-dependent, up to >100% on Tier-C) error disclosure; a62eb53 §5.2.7 Core-vs-Margin VA partition quantifies ~8–12% of two-party votes in Margin VAs with max ±1.5pp swing at risk. |
+| S3-08 (HIGH) 2015-vote sign-convention stacking (`v0_1_2015_cross_election_analysis.md` vs paper) | ADDRESSED | a62eb53 §4.3 universal sign-convention glossary + d25e659 correction of 2019 EG sign (afb3a4a + 3b7dbfb confirm 2019 EG now matches paper's documented −2.64%) close the cross-document convention conflict. |
+| S4-01 (HIGH) Minority asymmetry falsification blocked on 2026 shapefile | STRUCTURAL LIMIT | d25e659 §4.1.4 adds 48-hour sunset clause committing to recompute against official Elections Alberta 2026 shapefiles when released; until then the underlying shapefile unavailability is a structural limit, but the DPG disclaimer + sunset clause is the honest remediation. |
+| S4-02 (MED) Calgary Zone A packing null (G4 robustness) | NOT ADDRESSED | Not in T0/T1/T2 scope; file notes null is already rejected on existing G4 evidence. |
+| S4-03 (MED) Airdrie 4-way cracking null | ADDRESSED | a62eb53 `analysis/v0_1_airdrie_overlap_report.md` header reframes 530 km² overlap as DPG transcription artifact, not commission cartography — sharpens the null engagement for the Airdrie finding. |
+| S4-04 (HIGH) RMH-Banff Park E2 reformulation | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual — the reformulation disclosure work is still pending. |
+| S4-05 (LOW) MCMC p100 falsification has fired | ADDRESSED | a62eb53 §5.4 ESS downgrade paragraph explicitly reports fired falsification: p100/p1.6 → p95.35/p2.5; minority seats-at-50/50 retracted to p89.72. |
+| S4-06 (HIGH) OCR 7% residual on public-support refutation | PARTIAL | d25e659 §5.9.4 softens Chair-claim language to "materially overstates the absence of public support" — narrowing the claim to one the 93% coverage can support. Full OCR backfill still residual. |
+| S4-07 (HIGH) Six-dimensions chance-agreement p-value uncomputed | ADDRESSED | de7c48e §6 Discussion adds paragraph explicitly naming FWER concern, explaining why Bonferroni/BH is the wrong response for consistency-of-correlated-dimensions frame, with Katz-King-Rosenblatt (2020) + Altman-McDonald (2011) authority. Directly engages the independence / effective-dimensions concern. |
+| S5-01 (MED) Chen-Rodden geography-vs-drawing decomposition | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual (requires paired GerryChain ensemble on post-shapefile substrate). |
+| S5-02 (HIGH) §7 synthesis table missing ", under 2023 votes" qualifier | PARTIAL | d25e659 Abstract + §5.2.7 two-measurement framing (blended crosswalk −1.42pp vs high-resolution spatial +4.15pp) reframes magnitude as systematic spatial-resolution sensitivity, which partly addresses the framing-finding mismatch at the measurement level; explicit ", under 2023 votes" propagation through headline tables still residual. |
+| S5-03 (MED) Turnout confound (2019 67% vs 2023 59%) | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S5-04 (MED) 2024-TBF vs 2021-census basis inline reminder | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual (file notes fix is one sentence at §2.1). |
+| S5-05 (HIGH) Hybrid-weight 50/50 and population-weighted alternatives | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S8-01 (LOW) 21 hybrid set ex ante | NOT APPLICABLE | Not a defect per the file's own assessment. |
+| S8-02 (MED) Focus regions — full 89-ED differ test not run | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S8-03 (MED) Intra-session pre-registration weakness | NOT ADDRESSED | Not in T0/T1/T2 scope; OSF pre-registration still queued. |
+| S8-04 (HIGH) E2 reformulation as post-hoc rescue | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S8-05 (MED) n=7 Canadian base rate shallow | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S8-06 (MED) 338Canada 77-snapshot window | NOT APPLICABLE | File notes this is audit-strengthening, not a defect. |
+| Implicit finding — two-measurement framing (−1.42pp vs +4.15pp contradiction risk) | ADDRESSED | d25e659 Abstract + §5.2.7 explicitly reframe as systematic spatial-resolution sensitivity, not contradiction. |
+| Implicit finding — Gill v. Whitford / 7% threshold | ADDRESSED | d25e659 corrects Gill v. Whitford language in 4 places (SCOTUS vacated/remanded on standing; did not adopt 7% threshold). |
+| Implicit finding — Rizzo citation | ADDRESSED | d25e659 corrects Rizzo universally to *Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 S.C.R. 27. |
+
+Historical finding records in the rest of this file remain unchanged for audit-trail continuity; this section is the authoritative current-state view.
+
+---
+
 ## Summary table — finding-level severity by dimension
 
 | ID | Dimension | Severity | Finding (one-line) |
