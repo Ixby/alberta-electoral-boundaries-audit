@@ -1,0 +1,100 @@
+{
+  "inputs": {
+    "majority_canonical": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_majority_2026_eds_da_anchored.gpkg",
+    "minority_canonical": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+  },
+  "outputs": {
+    "phase4b_majority_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_phase4b_majority_2021_populations.csv",
+    "phase4b_minority_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_phase4b_minority_2021_populations.csv",
+    "phase4f_combined_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_phase4f_validation_deltas.csv",
+    "summary_json": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_5_phase4f_summary.json"
+  },
+  "hardstops": {
+    "majority": {
+      "n_eds": 89,
+      "n_nonzero": 62,
+      "n_zero_pop": 27,
+      "n_warn_0p5pct": 60,
+      "n_hardstop_2pct": 56,
+      "max_abs_scaled_pct": 98.64694818401648,
+      "top5_hardstops": [
+        {
+          "ed_name": "Airdrie-West",
+          "pop_2021_from_das": 568.0,
+          "pop_commission": 48145,
+          "delta_scaled_pct": -98.64694818401648
+        },
+        {
+          "ed_name": "Calgary-Lougheed",
+          "pop_2021_from_das": 1302.0,
+          "pop_commission": 59554,
+          "delta_scaled_pct": -97.49263631538908
+        },
+        {
+          "ed_name": "Calgary-Symons Valley",
+          "pop_2021_from_das": 1428.0,
+          "pop_commission": 54797,
+          "delta_scaled_pct": -97.01125605905384
+        },
+        {
+          "ed_name": "Edmonton-McClung",
+          "pop_2021_from_das": 2502.0,
+          "pop_commission": 61859,
+          "delta_scaled_pct": -95.36124223669854
+        },
+        {
+          "ed_name": "Edmonton-Gold Bar",
+          "pop_2021_from_das": 2278.0,
+          "pop_commission": 54981,
+          "delta_scaled_pct": -95.24819763881817
+        }
+      ]
+    },
+    "minority": {
+      "n_eds": 89,
+      "n_nonzero": 67,
+      "n_zero_pop": 22,
+      "n_warn_0p5pct": 67,
+      "n_hardstop_2pct": 66,
+      "max_abs_scaled_pct": 407.7221907785375,
+      "top5_hardstops": [
+        {
+          "ed_name": "Edmonton-Beverly-Clareview",
+          "pop_2021_from_das": 254468.0,
+          "pop_commission": 57481,
+          "delta_scaled_pct": 407.7221907785375
+        },
+        {
+          "ed_name": "Edmonton-Highlands-Norwood",
+          "pop_2021_from_das": 105561.0,
+          "pop_commission": 51806,
+          "delta_scaled_pct": 133.69031734850003
+        },
+        {
+          "ed_name": "Edmonton-Rutherford",
+          "pop_2021_from_das": 336.0,
+          "pop_commission": 58082,
+          "delta_scaled_pct": -99.33653961141337
+        },
+        {
+          "ed_name": "Edmonton-McClung",
+          "pop_2021_from_das": 573.0,
+          "pop_commission": 61859,
+          "delta_scaled_pct": -98.9376466033686
+        },
+        {
+          "ed_name": "Edmonton-Mill Woods",
+          "pop_2021_from_das": 605.0,
+          "pop_commission": 59673,
+          "delta_scaled_pct": -98.83722740795555
+        }
+      ]
+    }
+  },
+  "v0_1_baseline": {
+    "hardstops": {
+      "majority": 81,
+      "minority": 87
+    }
+  }
+}

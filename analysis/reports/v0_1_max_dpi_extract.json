@@ -1,0 +1,377 @@
+{
+  "pdf": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\.temp\\commission_report.pdf",
+  "pages": [
+    {
+      "page": 72,
+      "label": "majority_calgary_MAP",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_majority_calgary_MAP_p72.png",
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "native_dpi": 388.4,
+          "placed_w_in": 7.225,
+          "placed_h_in": 9.35
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_calgary_MAP_p72_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 4690257
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_calgary_MAP_p72_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 3298046
+        }
+      ]
+    },
+    {
+      "page": 74,
+      "label": "majority_edmonton_MAP",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_majority_edmonton_MAP_p74.png",
+          "pixel_w": 2168,
+          "pixel_h": 2806,
+          "native_dpi": 300.1,
+          "placed_w_in": 7.225,
+          "placed_h_in": 9.35
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_edmonton_MAP_p74_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 4823161
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_edmonton_MAP_p74_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 3160199
+        }
+      ]
+    },
+    {
+      "page": 76,
+      "label": "majority_other_cities_MAP",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_majority_other_cities_MAP_p76.png",
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "native_dpi": 388.4,
+          "placed_w_in": 7.225,
+          "placed_h_in": 9.35
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_other_cities_MAP_p76_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 2245631
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_other_cities_MAP_p76_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 1821482
+        }
+      ]
+    },
+    {
+      "page": 78,
+      "label": "majority_near_calgary_MAP",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_majority_near_calgary_MAP_p78.png",
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "native_dpi": 388.4,
+          "placed_w_in": 7.225,
+          "placed_h_in": 9.35
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_near_calgary_MAP_p78_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 2713629
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_near_calgary_MAP_p78_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 2009420
+        }
+      ]
+    },
+    {
+      "page": 80,
+      "label": "majority_near_edmonton_MAP",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_majority_near_edmonton_MAP_p80.jpeg",
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "native_dpi": 388.4,
+          "placed_w_in": 7.225,
+          "placed_h_in": 9.35
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_near_edmonton_MAP_p80_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 10171880
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_near_edmonton_MAP_p80_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 4961728
+        }
+      ]
+    },
+    {
+      "page": 82,
+      "label": "majority_north_MAP",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_majority_north_MAP_p82.png",
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "native_dpi": 388.4,
+          "placed_w_in": 7.225,
+          "placed_h_in": 9.35
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_north_MAP_p82_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 5900176
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_north_MAP_p82_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 3836162
+        }
+      ]
+    },
+    {
+      "page": 84,
+      "label": "majority_central_MAP",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_majority_central_MAP_p84.png",
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "native_dpi": 388.4,
+          "placed_w_in": 7.225,
+          "placed_h_in": 9.35
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_central_MAP_p84_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 4930921
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_majority_central_MAP_p84_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 3434921
+        }
+      ]
+    },
+    {
+      "page": 91,
+      "label": "minority_min_map1",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_minority_min_map1_p91.jpeg",
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "native_dpi": 380.4,
+          "placed_w_in": 7.82,
+          "placed_h_in": 10.12
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map1_p91_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 5497866
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map1_p91_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 7993556
+        }
+      ]
+    },
+    {
+      "page": 93,
+      "label": "minority_min_map2",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_minority_min_map2_p93.jpeg",
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "native_dpi": 380.4,
+          "placed_w_in": 7.82,
+          "placed_h_in": 10.12
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map2_p93_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 3666737
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map2_p93_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 5416651
+        }
+      ]
+    },
+    {
+      "page": 95,
+      "label": "minority_min_map3",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_minority_min_map3_p95.jpeg",
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "native_dpi": 380.4,
+          "placed_w_in": 7.82,
+          "placed_h_in": 10.12
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map3_p95_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 5107171
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map3_p95_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 7403691
+        }
+      ]
+    },
+    {
+      "page": 101,
+      "label": "minority_min_map_calgary",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_minority_min_map_calgary_p101.jpeg",
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "native_dpi": 380.4,
+          "placed_w_in": 7.82,
+          "placed_h_in": 10.12
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map_calgary_p101_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 3388053
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map_calgary_p101_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 5310696
+        }
+      ]
+    },
+    {
+      "page": 107,
+      "label": "minority_min_map_edmonton",
+      "outputs": [
+        {
+          "kind": "native_extract",
+          "path": "maps\\hires_v2\\v0_2_native_minority_min_map_edmonton_p107.jpeg",
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "native_dpi": 380.4,
+          "placed_w_in": 7.82,
+          "placed_h_in": 10.12
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map_edmonton_p107_r600.png",
+          "render_dpi": 600,
+          "pixel_w": 5100,
+          "pixel_h": 6600,
+          "file_bytes": 5113594
+        },
+        {
+          "kind": "page_render",
+          "path": "maps\\hires_v2\\v0_2_render_minority_min_map_edmonton_p107_r1200.png",
+          "render_dpi": 1200,
+          "pixel_w": 10200,
+          "pixel_h": 13200,
+          "file_bytes": 7468508
+        }
+      ]
+    }
+  ]
+}

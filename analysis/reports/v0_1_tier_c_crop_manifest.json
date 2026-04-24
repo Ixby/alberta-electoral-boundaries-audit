@@ -1,0 +1,68 @@
+{
+  "crops": [
+    {
+      "ed": "fort_mcmurray_lac_la_biche",
+      "native_source": "maps\\hires_v2\\v0_2_native_majority_north_MAP_p82.png",
+      "render_source": "maps\\hires\\v0_1_majority_p81_north.png",
+      "native_crop_px": [
+        1122,
+        867
+      ],
+      "render_crop_px": [
+        2040,
+        2640
+      ],
+      "pixel_ratio": 1.82,
+      "out_native": "maps\\hires_v2\\tier_c_crops\\fort_mcmurray_lac_la_biche_native_raw.png",
+      "out_render": "maps\\hires_v2\\tier_c_crops\\fort_mcmurray_lac_la_biche_600dpi_render.png"
+    },
+    {
+      "ed": "chestermere_strathmore",
+      "native_source": "maps\\hires_v2\\v0_2_native_majority_near_calgary_MAP_p78.png",
+      "render_source": "maps\\hires\\v0_1_majority_p77_near_calgary.png",
+      "native_crop_px": [
+        1262,
+        759
+      ],
+      "render_crop_px": [
+        2295,
+        2310
+      ],
+      "pixel_ratio": 1.82,
+      "out_native": "maps\\hires_v2\\tier_c_crops\\chestermere_strathmore_native_raw.png",
+      "out_render": "maps\\hires_v2\\tier_c_crops\\chestermere_strathmore_600dpi_render.png"
+    },
+    {
+      "ed": "edmonton_beaumont",
+      "native_source": "maps\\hires_v2\\v0_2_native_majority_edmonton_MAP_p74.png",
+      "render_source": "maps\\hires\\v0_1_majority_p74_MAP_r600.png",
+      "native_crop_px": [
+        1192,
+        926
+      ],
+      "render_crop_px": [
+        2805,
+        2178
+      ],
+      "pixel_ratio": 2.35,
+      "out_native": "maps\\hires_v2\\tier_c_crops\\edmonton_beaumont_native_raw.png",
+      "out_render": "maps\\hires_v2\\tier_c_crops\\edmonton_beaumont_600dpi_render.png"
+    },
+    {
+      "ed": "lethbridge_taber_warner",
+      "native_source": "maps\\hires_v2\\v0_2_native_majority_central_MAP_p84.png",
+      "render_source": "maps\\hires\\v0_1_majority_p85_south.png",
+      "native_crop_px": [
+        1683,
+        932
+      ],
+      "render_crop_px": [
+        3060,
+        2838
+      ],
+      "pixel_ratio": 1.82,
+      "out_native": "maps\\hires_v2\\tier_c_crops\\lethbridge_taber_warner_native_raw.png",
+      "out_render": "maps\\hires_v2\\tier_c_crops\\lethbridge_taber_warner_600dpi_render.png"
+    }
+  ]
+}

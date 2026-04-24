@@ -1,0 +1,626 @@
+{
+  "pdf": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\.temp\\commission_report.pdf",
+  "pdf_n_pages": 362,
+  "majority": [
+    {
+      "page": 71,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 2,
+      "n_vector_paths": 1,
+      "n_vector_items": 8,
+      "text_chars": 58,
+      "dominant_image_frac": 0.689,
+      "max_native_dpi": 300.1,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        },
+        {
+          "xref": 261,
+          "pixel_w": 2118,
+          "pixel_h": 2741,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.058,
+              "placed_h_in": 9.134,
+              "dpi_x": 300.1,
+              "dpi_y": 300.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 72,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 2,
+      "n_vector_paths": 1,
+      "n_vector_items": 8,
+      "text_chars": 47,
+      "dominant_image_frac": 0.722,
+      "max_native_dpi": 388.4,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        },
+        {
+          "xref": 267,
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.225,
+              "placed_h_in": 9.35,
+              "dpi_x": 388.4,
+              "dpi_y": 231.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 73,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 149,
+      "n_vector_items": 157,
+      "text_chars": 703,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 300.0,
+      "content_type": "mostly-vector",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 74,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 2,
+      "n_vector_paths": 1,
+      "n_vector_items": 8,
+      "text_chars": 48,
+      "dominant_image_frac": 0.722,
+      "max_native_dpi": 300.1,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        },
+        {
+          "xref": 276,
+          "pixel_w": 2168,
+          "pixel_h": 2806,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.225,
+              "placed_h_in": 9.35,
+              "dpi_x": 300.1,
+              "dpi_y": 300.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 75,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 114,
+      "n_vector_items": 122,
+      "text_chars": 606,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 300.0,
+      "content_type": "mostly-vector",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 76,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 2,
+      "n_vector_paths": 1,
+      "n_vector_items": 8,
+      "text_chars": 52,
+      "dominant_image_frac": 0.722,
+      "max_native_dpi": 388.4,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        },
+        {
+          "xref": 285,
+          "pixel_w": 2806,
+          "pixel_h": 2168,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.225,
+              "placed_h_in": 9.35,
+              "dpi_x": 388.4,
+              "dpi_y": 231.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 77,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 34,
+      "n_vector_items": 42,
+      "text_chars": 247,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 300.0,
+      "content_type": "text-or-minimal",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 79,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 44,
+      "n_vector_items": 52,
+      "text_chars": 286,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 300.0,
+      "content_type": "mostly-vector",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 81,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 54,
+      "n_vector_items": 62,
+      "text_chars": 355,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 300.0,
+      "content_type": "mostly-vector",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 83,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 69,
+      "n_vector_items": 77,
+      "text_chars": 394,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 300.0,
+      "content_type": "mostly-vector",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 85,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 44,
+      "n_vector_items": 52,
+      "text_chars": 268,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 300.0,
+      "content_type": "mostly-vector",
+      "images": [
+        {
+          "xref": 1544,
+          "pixel_w": 45,
+          "pixel_h": 45,
+          "ext": "png",
+          "colorspace": 1,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 0.15,
+              "placed_h_in": 0.15,
+              "dpi_x": 300.0,
+              "dpi_y": 300.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "minority": [
+    {
+      "page": 294,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 1,
+      "n_vector_items": 1,
+      "text_chars": 2370,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 296,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 1,
+      "n_vector_items": 1,
+      "text_chars": 2986,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 322,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 1,
+      "n_vector_items": 1,
+      "text_chars": 2639,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 351,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 1,
+      "n_vector_items": 1,
+      "text_chars": 3091,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 352,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 1,
+      "n_vector_items": 1,
+      "text_chars": 3286,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 353,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 2,
+      "n_vector_items": 2,
+      "text_chars": 3116,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 354,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 1,
+      "n_vector_items": 1,
+      "text_chars": 3138,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 355,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 0,
+      "n_vector_paths": 1,
+      "n_vector_items": 1,
+      "text_chars": 1455,
+      "dominant_image_frac": 0.0,
+      "max_native_dpi": 0.0,
+      "content_type": "text-or-minimal",
+      "images": []
+    },
+    {
+      "page": 359,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 0,
+      "n_vector_items": 0,
+      "text_chars": 3,
+      "dominant_image_frac": 0.846,
+      "max_native_dpi": 300.1,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1505,
+          "pixel_w": 2347,
+          "pixel_h": 3037,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.82,
+              "placed_h_in": 10.12,
+              "dpi_x": 300.1,
+              "dpi_y": 300.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 360,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 0,
+      "n_vector_items": 0,
+      "text_chars": 3,
+      "dominant_image_frac": 0.846,
+      "max_native_dpi": 380.4,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1509,
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.82,
+              "placed_h_in": 10.12,
+              "dpi_x": 380.4,
+              "dpi_y": 227.2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 361,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 0,
+      "n_vector_items": 0,
+      "text_chars": 3,
+      "dominant_image_frac": 0.846,
+      "max_native_dpi": 380.4,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1513,
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.82,
+              "placed_h_in": 10.12,
+              "dpi_x": 380.4,
+              "dpi_y": 227.2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "page": 362,
+      "width_in": 8.5,
+      "height_in": 11.0,
+      "n_images": 1,
+      "n_vector_paths": 0,
+      "n_vector_items": 0,
+      "text_chars": 3,
+      "dominant_image_frac": 0.846,
+      "max_native_dpi": 380.4,
+      "content_type": "raster",
+      "images": [
+        {
+          "xref": 1517,
+          "pixel_w": 2975,
+          "pixel_h": 2299,
+          "ext": "png",
+          "colorspace": 4,
+          "bpc": 8,
+          "placements": [
+            {
+              "placed_w_in": 7.82,
+              "placed_h_in": 10.12,
+              "dpi_x": 380.4,
+              "dpi_y": 227.2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "inputs": {
+    "va_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\va_polygons_with_full_2023_votes.gpkg",
+    "majority_canonical": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_majority_2026_eds_da_anchored.gpkg",
+    "minority_canonical": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+  },
+  "outputs": {
+    "majority_votes_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_phase4c_majority_2023_votes_maup.csv",
+    "minority_votes_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_phase4c_minority_2023_votes_maup.csv",
+    "per_va_attribution_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_5_phase4c_va_to_2026_assignments_maup.csv",
+    "summary_json": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_5_phase4c_maup_summary.json"
+  },
+  "centroid_baseline_527": {
+    "majority_eg": -0.0233,
+    "minority_eg": 0.0182,
+    "asymmetry_pp": 4.15
+  },
+  "v0_2_topoclean": {
+    "majority_eg": -0.02346182160488602,
+    "minority_eg": 0.01002107484453266,
+    "asymmetry_pp": 3.348289644941868
+  },
+  "v0_5_da_anchored": {
+    "majority": {
+      "eg": 0.01102968541152427,
+      "mm_gap": -0.024921432763339524,
+      "ndp_seats": 38,
+      "ucp_seats": 51,
+      "two_party_total": 1706304.0556441026,
+      "coverage": {
+        "n_vas": 4765,
+        "n_rows_overlay": 4118,
+        "dpg_area_coverage_frac": 0.8675720120051095,
+        "va_area_weighted_coverage_frac": 0.8675720120051095,
+        "n_vas_fully_covered": 2314,
+        "n_vas_partial_cover": 1140,
+        "n_vas_zero_cover": 1311
+      },
+      "conservation": {
+        "pass": true,
+        "max_delta_ndp": 0.007613072102401475,
+        "max_delta_ucp": 0.012824744870698623,
+        "max_delta_other": 0.0011604743543607299,
+        "max_delta_weight": 6.0271803305145255e-05
+      }
+    },
+    "minority": {
+      "eg": -0.02540835053044994,
+      "mm_gap": -0.009871079139331607,
+      "ndp_seats": 36,
+      "ucp_seats": 53,
+      "two_party_total": 1706255.7732216297,
+      "coverage": {
+        "n_vas": 4765,
+        "n_rows_overlay": 3631,
+        "dpg_area_coverage_frac": 0.847612405452934,
+        "va_area_weighted_coverage_frac": 0.847612405452934,
+        "n_vas_fully_covered": 1784,
+        "n_vas_partial_cover": 1349,
+        "n_vas_zero_cover": 1632
+      },
+      "conservation": {
+        "pass": true,
+        "max_delta_ndp": 0.012318958600047836,
+        "max_delta_ucp": 0.009100365565672064,
+        "max_delta_other": 0.000363606030790109,
+        "max_delta_weight": 7.423268582806841e-05
+      }
+    },
+    "asymmetry_pp": -3.6438035941974216
+  },
+  "delta_v05_vs_v02_pp": {
+    "majority": 3.449150701641029,
+    "minority": -3.54294253749826,
+    "asymmetry": -6.99209323913929
+  },
+  "per_ed_shifts_top10": {
+    "majority": [
+      {
+        "ed_name": "Calgary-East",
+        "ndp_share_v05": 0.4827847253705442,
+        "ndp_share_v02": 0.5378256243330112,
+        "delta_pp": -5.5040898962467
+      },
+      {
+        "ed_name": "Calgary-Currie",
+        "ndp_share_v05": 0.5640397110046516,
+        "ndp_share_v02": 0.5101420025775869,
+        "delta_pp": 5.389770842706465
+      },
+      {
+        "ed_name": "Edmonton-Decore",
+        "ndp_share_v05": 0.6116884436020833,
+        "ndp_share_v02": 0.6617485623978758,
+        "delta_pp": -5.006011879579253
+      },
+      {
+        "ed_name": "Calgary-Buffalo",
+        "ndp_share_v05": 0.6079958523271857,
+        "ndp_share_v02": 0.5655033451449215,
+        "delta_pp": 4.249250718226416
+      },
+      {
+        "ed_name": "High River-Vulcan-Siksika",
+        "ndp_share_v05": 0.19346834025400175,
+        "ndp_share_v02": 0.22788520310808313,
+        "delta_pp": -3.4416862854081383
+      },
+      {
+        "ed_name": "Calgary-North West",
+        "ndp_share_v05": 0.4983923527596593,
+        "ndp_share_v02": 0.47111752303896826,
+        "delta_pp": 2.7274829720691063
+      },
+      {
+        "ed_name": "Calgary-Glenmore-Tsuut'ina",
+        "ndp_share_v05": 0.4584114685506517,
+        "ndp_share_v02": 0.4363813612620367,
+        "delta_pp": 2.2030107288614986
+      },
+      {
+        "ed_name": "Edmonton-Gold Bar",
+        "ndp_share_v05": 0.7123446969713095,
+        "ndp_share_v02": 0.6915182562480191,
+        "delta_pp": 2.082644072329043
+      },
+      {
+        "ed_name": "Calgary-Beddington",
+        "ndp_share_v05": 0.5172291250957987,
+        "ndp_share_v02": 0.5011019461347725,
+        "delta_pp": 1.6127178961026112
+      },
+      {
+        "ed_name": "Calgary-Fish Creek",
+        "ndp_share_v05": 0.4546412768349581,
+        "ndp_share_v02": 0.4689380575942164,
+        "delta_pp": -1.4296780759258332
+      }
+    ],
+    "minority": [
+      {
+        "ed_name": "Edmonton-Rutherford",
+        "ndp_share_v05": 0.6709547853778695,
+        "ndp_share_v02": 0.3941470265350276,
+        "delta_pp": 27.680775884284188
+      },
+      {
+        "ed_name": "Edmonton-North West",
+        "ndp_share_v05": 0.6094484588430619,
+        "ndp_share_v02": 0.4423226416025511,
+        "delta_pp": 16.712581724051077
+      },
+      {
+        "ed_name": "Stony Plain-Drayton Valley",
+        "ndp_share_v05": 0.31315989110006137,
+        "ndp_share_v02": 0.46652309776688716,
+        "delta_pp": -15.336320666682578
+      },
+      {
+        "ed_name": "Edmonton-Gold Bar",
+        "ndp_share_v05": 0.6573843065064918,
+        "ndp_share_v02": 0.5441975696722785,
+        "delta_pp": 11.318673683421332
+      },
+      {
+        "ed_name": "Edmonton-Enoch-Devon",
+        "ndp_share_v05": 0.6747244917406444,
+        "ndp_share_v02": 0.5993856908175341,
+        "delta_pp": 7.53388009231103
+      },
+      {
+        "ed_name": "Calgary-East",
+        "ndp_share_v05": 0.46781901354110017,
+        "ndp_share_v02": 0.5372910084261674,
+        "delta_pp": -6.9471994885067225
+      },
+      {
+        "ed_name": "Calgary-Buffalo",
+        "ndp_share_v05": 0.6445389823323078,
+        "ndp_share_v02": 0.5767934664589406,
+        "delta_pp": 6.774551587336719
+      },
+      {
+        "ed_name": "Lethbridge-Taber-Warner",
+        "ndp_share_v05": 0.21258027632672874,
+        "ndp_share_v02": 0.15329917457892264,
+        "delta_pp": 5.92811017478061
+      },
+      {
+        "ed_name": "Edmonton-Mill Woods",
+        "ndp_share_v05": 0.4627802043211247,
+        "ndp_share_v02": 0.4099789964442073,
+        "delta_pp": 5.280120787691739
+      },
+      {
+        "ed_name": "Calgary-Klein",
+        "ndp_share_v05": 0.5213381145258666,
+        "ndp_share_v02": 0.4726246654349869,
+        "delta_pp": 4.871344909087977
+      }
+    ]
+  },
+  "verdict": "v0_5 DA-anchoring moved asymmetry away from +4.15 pp centroid"
+}
