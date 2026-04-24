@@ -19,7 +19,7 @@ the asymmetry?" deserves an honest interval, not a fresh point estimate.
 
 For each of the two topology-clean DPG files
 (`data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg`, the
-outputs of Precision Option A) we generate **N = 3** perturbed realisations
+outputs of Precision Option A) we generate **N = 200** perturbed realisations
 by drawing an independent (dx, dy) pair per polygon from
 Uniform[-500, +500] m and applying
 `shapely.affinity.translate`. This mimics a reviewer wiggling every
@@ -50,7 +50,7 @@ tracing-uncertainty assumptions.
 
 ## 3. Validation — Conservation Gate
 
-3 / 3 realisations (100.0%) passed per-VA conservation on both maps.
+200 / 200 realisations (100.0%) passed per-VA conservation on both maps.
 
 A realisation is counted as passing if the MAUP-pipeline per-VA
 conservation check (max |Δ_votes| < 1.0 for every party) returns PASS on
@@ -58,31 +58,31 @@ both majority and minority maps.
 
 ## 4. Results — Per-Metric 90% Confidence Intervals
 
-Values below are computed across the 3 realisations. `point` is the
+Values below are computed across the 200 realisations. `point` is the
 §5.2.7 MAUP-v2 (fourth-layer) point estimate for comparison.
 
 | metric | p5 | p50 | p95 | mean | MAUP-v2 point |
 |---|---:|---:|---:|---:|---:|
-| Majority EG (%) | -2.342 | -2.255 | +0.739 | -1.178 | -2.346 |
-| Minority EG (%) | -2.495 | -2.426 | -2.415 | -2.448 | +1.002 |
-| Minority − Majority asymmetry (pp) | -3.164 | -0.159 | -0.152 | -1.269 | +3.348 |
-| Majority mean-median (pp) | -2.533 | -2.434 | -2.253 | -2.404 | -1.362 |
-| Minority mean-median (pp) | -0.972 | -0.961 | -0.840 | -0.920 | -1.593 |
-| Majority declination | -0.042 | -0.030 | -0.018 | -0.030 | – |
-| Minority declination | -0.031 | -0.030 | -0.027 | -0.029 | – |
-| Majority seats@50/50 (NDP) | 46.2 | 48.0 | 48.0 | 47.3 | – |
-| Minority seats@50/50 (NDP) | 44.0 | 44.0 | 45.8 | 44.7 | – |
-| Majority NDP seats (actual) | 38.1 | 39.0 | 39.9 | 39.0 | 40.0 |
-| Minority NDP seats (actual) | 37.0 | 37.0 | 37.0 | 37.0 | 33.0 |
+| Majority EG (%) | -2.512 | +0.598 | +1.192 | -0.404 | -2.346 |
+| Minority EG (%) | -2.725 | -2.458 | -2.136 | -2.403 | +1.002 |
+| Minority − Majority asymmetry (pp) | -3.763 | -2.959 | +0.178 | -1.999 | +3.348 |
+| Majority mean-median (pp) | -2.795 | -2.525 | -2.163 | -2.519 | -1.362 |
+| Minority mean-median (pp) | -1.555 | -1.079 | -0.448 | -1.072 | -1.593 |
+| Majority declination | -0.033 | -0.018 | -0.003 | -0.019 | – |
+| Minority declination | -0.040 | -0.027 | -0.016 | -0.025 | – |
+| Majority seats@50/50 (NDP) | 47.0 | 48.0 | 49.0 | 47.7 | – |
+| Minority seats@50/50 (NDP) | 43.0 | 45.0 | 46.0 | 44.9 | – |
+| Majority NDP seats (actual) | 37.0 | 38.0 | 39.0 | 38.1 | 40.0 |
+| Minority NDP seats (actual) | 36.0 | 37.0 | 38.0 | 36.7 | 33.0 |
 
 ## 5. Headline-Claim Verdict — Does the §5.2.7 Direction Survive?
 
-Of 3 valid realisations: 0 produced a positive
+Of 200 valid realisations: 18 produced a positive
 asymmetry (minority more NDP-favourable, matching the §5.2.7 headline),
-3 produced a negative asymmetry (minority more UCP-favourable),
-and 0 fell within ±0.05 pp of zero.
+182 produced a negative asymmetry (minority more UCP-favourable),
+and 11 fell within ±0.05 pp of zero.
 
-The 90% CI for the asymmetry is entirely negative ([p5=-3.164, p95=-0.152] pp), so the §5.2.7 direction **survives** DPG perimeter-tracing uncertainty.
+The 90% CI for the minority-vs-majority EG asymmetry **crosses zero** ([p5=-3.763, p95=+0.178] pp), so under ±500 m per-polygon boundary-tracing uncertainty the directional §5.2.7 claim (minority more NDP-favourable) is **not robust to DPG perimeter error alone**.
 
 ## 6. Paper-Ready Paragraph (Fifth Measurement Layer)
 
@@ -92,29 +92,29 @@ as the fifth measurement layer.*
 > **Fifth measurement — DPG perturbation sensitivity CI.** To quantify how
 > much of the asymmetry shown by the fourth (topology-cleaned MAUP) layer
 > is an artefact of one-pixel tracing uncertainty on the canonical DPGs,
-> we generated 3 perturbed realisations of each map by applying
+> we generated 200 perturbed realisations of each map by applying
 > an independent per-polygon translation drawn from Uniform[±500] m
 > (one 600-DPI-thumbnail pixel at published map scale) and re-ran the
 > MAUP-v2 area-weighted pipeline on each. Per-VA conservation held on
 > 100.0% of realisations. Across the ensemble, the
-> minority-majority EG asymmetry had median **-0.159 pp**
-> with a 90 % CI of **[-3.164, -0.152] pp**
+> minority-majority EG asymmetry had median **-2.959 pp**
+> with a 90 % CI of **[-3.763, +0.178] pp**
 > around the fourth-layer point estimate of +3.348 pp. The
 > mean-median gap and declination intervals for both maps are reported in
 > Table X. Under ±500 m per-polygon DPG-perimeter
 > uncertainty, the §5.2.7 directional claim (minority map measurably more
 > NDP-favourable than majority map on the 2023 substrate) is
-> **preserved**: the 90 % CI lies entirely on the positive side of zero.
-> Reviewer-reproducible via `python analysis/scripts/v0_1_dpg_perturbation_sensitivity.py --seed 42 --n 3 --offset-m 500`.
+> **not robust**: the 90 % CI crosses zero, meaning DPG tracing error alone is sufficient to erase the sign of the asymmetry.
+> Reviewer-reproducible via `python analysis/scripts/v0_1_dpg_perturbation_sensitivity.py --seed 42 --n 200 --offset-m 500`.
 
 ## 7. Reproducibility
 
 ```bash
 python analysis/scripts/v0_1_dpg_perturbation_sensitivity.py \
-    --n 3 --seed 42 --offset-m 500
+    --n 200 --seed 42 --offset-m 500
 ```
 
-Runtime ≈ 3 × 10 s = ~35 min on a 2024 laptop. Outputs:
+Runtime ≈ 200 × 10 s = ~35 min on a 2024 laptop. Outputs:
 - `data\v0_5_dpg_perturbation_samples.csv` — raw per-realisation metrics
 - `data\v0_5_dpg_perturbation_summary.json` — per-metric p5/p50/p95 summary
 - `analysis\reports\v0_5_dpg_perturbation_analysis.md` — this writeup

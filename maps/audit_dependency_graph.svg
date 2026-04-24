@@ -1,0 +1,1591 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1984" height="1206" viewBox="0 0 1984 1206" font-family="Helvetica, Arial, sans-serif">
+<defs>
+<marker id="arrow_required" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#444444" /></marker>
+<marker id="arrow_corroborating" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2a7f2a" /></marker>
+<marker id="arrow_validating" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8a6200" /></marker>
+</defs>
+<rect x="10" y="20" width="1964" height="172" fill="#d0e8f222" stroke="#2a7aa8" stroke-width="0.5" rx="8" />
+<text x="20" y="34" font-size="12" font-weight="bold" fill="#2a7aa8">L0 — Raw data</text>
+<rect x="10" y="214" width="1964" height="222" fill="#ddebbd22" stroke="#6a8e33" stroke-width="0.5" rx="8" />
+<text x="20" y="228" font-size="12" font-weight="bold" fill="#6a8e33">L1 — Constructed data</text>
+<rect x="10" y="458" width="1964" height="322" fill="#fce4a722" stroke="#b57c1b" stroke-width="0.5" rx="8" />
+<text x="20" y="472" font-size="12" font-weight="bold" fill="#b57c1b">L2 — Measurement scripts</text>
+<rect x="10" y="802" width="1964" height="322" fill="#f2c6c622" stroke="#b3403a" stroke-width="0.5" rx="8" />
+<text x="20" y="816" font-size="12" font-weight="bold" fill="#b3403a">L3 — Findings</text>
+<path d="M 1060.0,520 C 1060.0,499.0 380.0,499.0 380.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,720 C 652.0,599.0 380.0,599.0 380.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,280.0 380.0,280.0 380.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,132 C 244.0,305.0 380.0,305.0 380.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,132 C 108.0,305.0 380.0,305.0 380.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,520 C 108.0,499.0 516.0,499.0 516.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,280.0 108.0,280.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,377.0 108.0,377.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,402.0 108.0,402.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,326 C 788.0,402.0 108.0,402.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,276 C 516.0,377.0 108.0,377.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,276 C 380.0,377.0 108.0,377.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,280.0 108.0,280.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,452.0 1604.0,452.0 1604.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,520 C 1604.0,524.0 1332.0,524.0 1332.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,132 C 244.0,330.0 1332.0,330.0 1332.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,520 C 1740.0,524.0 1468.0,524.0 1468.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,720 C 652.0,624.0 1468.0,624.0 1468.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,570 C 1468.0,549.0 1740.0,549.0 1740.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,520 C 1740.0,524.0 1740.0,524.0 1740.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,570 C 1468.0,549.0 1604.0,549.0 1604.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,520 C 1740.0,524.0 1604.0,524.0 1604.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,276 C 788.0,377.0 788.0,377.0 788.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,276 C 788.0,377.0 652.0,377.0 652.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,276 C 1060.0,377.0 652.0,377.0 652.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,326 C 1604.0,402.0 516.0,402.0 516.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,376 C 108.0,427.0 516.0,427.0 516.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,276 C 788.0,377.0 516.0,377.0 516.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,402.0 516.0,402.0 516.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,280.0 516.0,280.0 516.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,276 C 788.0,427.0 244.0,427.0 244.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,276 C 1060.0,427.0 244.0,427.0 244.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,720 C 652.0,599.0 1604.0,599.0 1604.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,82 C 1876.0,280.0 1604.0,280.0 1604.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,132 C 244.0,305.0 244.0,305.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,132 C 108.0,305.0 244.0,305.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,276 C 244.0,377.0 244.0,377.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,326 C 1604.0,402.0 244.0,402.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,376 C 108.0,427.0 244.0,427.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,276 C 788.0,377.0 244.0,377.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,280.0 244.0,280.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,280.0 244.0,280.0 244.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,520 C 244.0,574.0 1332.0,574.0 1332.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,720 C 1468.0,599.0 1740.0,599.0 1740.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,520 C 244.0,499.0 1740.0,499.0 1740.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,276 C 924.0,377.0 1740.0,377.0 1740.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,520 C 1740.0,549.0 380.0,549.0 380.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,720 C 652.0,649.0 380.0,649.0 380.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,520 C 1740.0,549.0 516.0,549.0 516.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,620 C 380.0,599.0 516.0,599.0 516.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,520 C 1060.0,599.0 652.0,599.0 652.0,678" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,355.0 108.0,355.0 108.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,330.0 108.0,330.0 108.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,402.0 108.0,402.0 108.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,427.0 108.0,427.0 108.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,330.0 244.0,330.0 244.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,402.0 244.0,402.0 244.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,427.0 244.0,427.0 244.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,132 C 516.0,305.0 788.0,305.0 788.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,276 C 1060.0,377.0 788.0,377.0 788.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,520 C 788.0,402.0 652.0,402.0 652.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,132 C 516.0,305.0 652.0,305.0 652.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,520 C 652.0,402.0 516.0,402.0 516.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,520 C 516.0,402.0 244.0,402.0 244.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,330.0 788.0,330.0 788.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,276 C 788.0,402.0 788.0,402.0 788.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,570 C 788.0,402.0 924.0,402.0 924.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,570 C 788.0,427.0 924.0,427.0 924.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,82 C 1060.0,355.0 1196.0,355.0 1196.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,670 C 1196.0,355.0 244.0,355.0 244.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,355.0 652.0,355.0 652.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,132 C 516.0,355.0 652.0,355.0 652.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,620 C 652.0,427.0 788.0,427.0 788.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,620 C 652.0,427.0 1332.0,427.0 1332.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,330.0 1196.0,330.0 1196.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,305.0 1196.0,305.0 1196.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,570 C 1196.0,427.0 1196.0,427.0 1196.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,82 C 1876.0,280.0 1196.0,280.0 1196.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,280.0 1196.0,280.0 1196.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,427.0 1196.0,427.0 1196.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,520 C 1196.0,402.0 1060.0,402.0 1060.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,82 C 516.0,305.0 516.0,305.0 516.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,82 C 380.0,305.0 516.0,305.0 516.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,82 C 380.0,280.0 924.0,280.0 924.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,377.0 924.0,377.0 924.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,402.0 924.0,402.0 924.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,520 C 924.0,402.0 788.0,402.0 788.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,720 C 1060.0,477.0 1468.0,477.0 1468.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,720 C 1196.0,477.0 1468.0,477.0 1468.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,305.0 1468.0,305.0 1468.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,82 C 1604.0,280.0 1468.0,280.0 1468.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,82 C 244.0,280.0 1468.0,280.0 1468.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,520 C 1468.0,377.0 1876.0,377.0 1876.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,82 C 244.0,305.0 380.0,305.0 380.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,82 C 1196.0,305.0 380.0,305.0 380.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,570 C 380.0,402.0 1604.0,402.0 1604.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,132 C 108.0,330.0 652.0,330.0 652.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,305.0 652.0,305.0 652.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,570 C 652.0,305.0 108.0,305.0 108.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,132 C 108.0,305.0 1876.0,305.0 1876.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,132 C 1060.0,305.0 1876.0,305.0 1876.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,182 C 1060.0,330.0 1876.0,330.0 1876.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,355.0 1604.0,355.0 1604.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,670 C 1604.0,502.0 924.0,502.0 924.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,330.0 108.0,330.0 108.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,82 C 1740.0,330.0 108.0,330.0 108.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,620 C 108.0,452.0 1740.0,452.0 1740.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,132 C 1604.0,405.0 380.0,405.0 380.0,678" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,720 C 380.0,502.0 380.0,502.0 380.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1264.0,770 C 1264.0,430.0 1740.0,430.0 1740.0,90" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,380.0 516.0,380.0 516.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,670 C 516.0,477.0 1876.0,477.0 1876.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,326 C 1876.0,477.0 652.0,477.0 652.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,276 C 516.0,377.0 1060.0,377.0 1060.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,276 C 380.0,377.0 1060.0,377.0 1060.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,276 C 244.0,377.0 1060.0,377.0 1060.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,520 C 1060.0,427.0 1332.0,427.0 1332.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,427.0 108.0,427.0 108.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,520 C 108.0,402.0 1604.0,402.0 1604.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,520 C 108.0,427.0 108.0,427.0 108.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,276 C 516.0,452.0 1876.0,452.0 1876.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,670 C 1876.0,452.0 108.0,452.0 108.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,720 C 1604.0,477.0 108.0,477.0 108.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,720 C 1740.0,477.0 108.0,477.0 108.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,720 C 1876.0,477.0 108.0,477.0 108.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 720.0,770 C 720.0,502.0 108.0,502.0 108.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 856.0,770 C 856.0,502.0 380.0,502.0 380.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 856.0,770 C 856.0,502.0 108.0,502.0 108.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 992.0,770 C 992.0,502.0 380.0,502.0 380.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1128.0,770 C 1128.0,502.0 380.0,502.0 380.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,276 C 380.0,452.0 1740.0,452.0 1740.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,670 C 1740.0,452.0 244.0,452.0 244.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,276 C 516.0,402.0 1060.0,402.0 1060.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,276 C 380.0,402.0 1060.0,402.0 1060.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,570 C 1060.0,427.0 1332.0,427.0 1332.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,720 C 924.0,380.0 380.0,380.0 380.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,477.0 924.0,477.0 924.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,620 C 924.0,452.0 1468.0,452.0 1468.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,502.0 788.0,502.0 788.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,670 C 788.0,502.0 1196.0,502.0 1196.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,355.0 1740.0,355.0 1740.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,620 C 1740.0,427.0 244.0,427.0 244.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,82 C 1876.0,330.0 1876.0,330.0 1876.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,620 C 1876.0,427.0 244.0,427.0 244.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,276 C 516.0,402.0 924.0,402.0 924.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,330.0 924.0,330.0 924.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,405.0 516.0,405.0 516.0,678" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,720 C 516.0,527.0 1060.0,527.0 1060.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,132 C 1060.0,355.0 788.0,355.0 788.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,182 C 1060.0,380.0 788.0,380.0 788.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,82 C 244.0,280.0 1332.0,280.0 1332.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,82 C 1604.0,280.0 1332.0,280.0 1332.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,305.0 1332.0,305.0 1332.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,520 C 1332.0,377.0 1604.0,377.0 1604.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,380.0 380.0,380.0 380.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,670 C 380.0,452.0 1876.0,452.0 1876.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,380.0 1468.0,380.0 1468.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,670 C 1468.0,452.0 1332.0,452.0 1332.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,326 C 652.0,477.0 244.0,477.0 244.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,670 C 244.0,477.0 244.0,477.0 244.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,132 C 1604.0,405.0 108.0,405.0 108.0,678" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,720 C 108.0,502.0 380.0,502.0 380.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,326 C 380.0,502.0 244.0,502.0 244.0,678" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,502.0 924.0,502.0 924.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,502.0 1060.0,502.0 1060.0,628" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,477.0 1060.0,477.0 1060.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,376 C 1876.0,452.0 1876.0,452.0 1876.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 312.0,426 C 312.0,477.0 1876.0,477.0 1876.0,528" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,520 C 244.0,427.0 516.0,427.0 516.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,520 C 1740.0,377.0 652.0,377.0 652.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,620 C 380.0,427.0 652.0,427.0 652.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,620 C 516.0,427.0 652.0,427.0 652.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,520 C 1740.0,377.0 1196.0,377.0 1196.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,620 C 380.0,427.0 1196.0,427.0 1196.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,620 C 516.0,427.0 1196.0,427.0 1196.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,670 C 1332.0,502.0 380.0,502.0 380.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,570 C 924.0,452.0 788.0,452.0 788.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,376 C 1468.0,427.0 1604.0,427.0 1604.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,520 C 380.0,427.0 1468.0,427.0 1468.0,334" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1400.0,426 C 1400.0,452.0 380.0,452.0 380.0,478" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,132 C 1740.0,355.0 1332.0,355.0 1332.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,132 C 1740.0,355.0 1468.0,355.0 1468.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,132 C 1740.0,355.0 1196.0,355.0 1196.0,578" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,132 C 1740.0,405.0 788.0,405.0 788.0,678" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,527.0 924.0,527.0 924.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,821.0 924.0,821.0 924.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,527.0 1060.0,527.0 1060.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,821.0 1060.0,821.0 1060.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,527.0 1196.0,527.0 1196.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,821.0 1196.0,821.0 1196.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,132 C 108.0,477.0 652.0,477.0 652.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1060.0,132 C 1060.0,477.0 652.0,477.0 652.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1060.0,182 C 1060.0,502.0 652.0,502.0 652.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1876.0,520 C 1876.0,671.0 652.0,671.0 652.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,527.0 1332.0,527.0 1332.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,821.0 1332.0,821.0 1332.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,527.0 1468.0,527.0 1468.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,821.0 1468.0,821.0 1468.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,477.0 652.0,477.0 652.0,872" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 380.0,132 C 380.0,502.0 652.0,502.0 652.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,771.0 652.0,771.0 652.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,527.0 1604.0,527.0 1604.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,821.0 1604.0,821.0 1604.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,132 C 924.0,502.0 788.0,502.0 788.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,502.0 788.0,502.0 788.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,82 C 1740.0,477.0 788.0,477.0 788.0,872" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1468.0,132 C 1468.0,527.0 1604.0,527.0 1604.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,527.0 1604.0,527.0 1604.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,182 C 924.0,552.0 1604.0,552.0 1604.0,922" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1604.0,82 C 1604.0,527.0 1876.0,527.0 1876.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,771.0 1876.0,771.0 1876.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,502.0 1060.0,502.0 1060.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,574.0 1060.0,574.0 1060.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,721.0 1060.0,721.0 1060.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,502.0 1196.0,502.0 1196.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,599.0 1196.0,599.0 1196.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,721.0 1196.0,721.0 1196.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,574.0 1332.0,574.0 1332.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,599.0 1332.0,599.0 1332.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,721.0 1332.0,721.0 1332.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,570 C 244.0,721.0 1468.0,721.0 1468.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,574.0 1468.0,574.0 1468.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,599.0 1468.0,599.0 1468.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,527.0 380.0,527.0 380.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,276 C 1468.0,599.0 380.0,599.0 380.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,720 C 1196.0,821.0 380.0,821.0 380.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,502.0 1604.0,502.0 1604.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,574.0 1604.0,574.0 1604.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,721.0 1604.0,721.0 1604.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,502.0 1740.0,502.0 1740.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,599.0 1740.0,599.0 1740.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,721.0 1740.0,721.0 1740.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,502.0 1876.0,502.0 1876.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,574.0 1876.0,574.0 1876.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,721.0 1876.0,721.0 1876.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,527.0 108.0,527.0 108.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,624.0 108.0,624.0 108.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,746.0 108.0,746.0 108.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,527.0 244.0,527.0 244.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,624.0 244.0,624.0 244.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,746.0 244.0,746.0 244.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,570 C 244.0,721.0 924.0,721.0 924.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,574.0 924.0,574.0 924.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,599.0 924.0,599.0 924.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,82 C 1604.0,452.0 1060.0,452.0 1060.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,82 C 244.0,452.0 1060.0,452.0 1060.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,82 C 1196.0,452.0 1060.0,452.0 1060.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,570 C 380.0,696.0 1060.0,696.0 1060.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,82 C 380.0,452.0 924.0,452.0 924.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,82 C 516.0,452.0 924.0,452.0 924.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,570 C 516.0,696.0 924.0,696.0 924.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,326 C 788.0,574.0 924.0,574.0 924.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,132 C 1196.0,577.0 1740.0,577.0 1740.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,527.0 652.0,527.0 652.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,570 C 1196.0,746.0 652.0,746.0 652.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,624.0 652.0,624.0 652.0,922" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 380.0,132 C 380.0,577.0 244.0,577.0 244.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,570 C 1196.0,796.0 244.0,796.0 244.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,624.0 788.0,624.0 788.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,326 C 244.0,624.0 788.0,624.0 788.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,620 C 1604.0,771.0 788.0,771.0 788.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,574.0 788.0,574.0 788.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,326 C 244.0,574.0 788.0,574.0 788.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,620 C 1604.0,721.0 788.0,721.0 788.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,326 C 1196.0,574.0 788.0,574.0 788.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,674.0 652.0,674.0 652.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,620 C 1604.0,821.0 652.0,821.0 652.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,502.0 380.0,502.0 380.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,520 C 1468.0,696.0 380.0,696.0 380.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,276 C 1876.0,574.0 380.0,574.0 380.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,552.0 788.0,552.0 788.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,520 C 1468.0,746.0 788.0,746.0 788.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,276 C 1740.0,599.0 1196.0,599.0 1196.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,326 C 108.0,624.0 1196.0,624.0 1196.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,746.0 1196.0,746.0 1196.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,649.0 1740.0,649.0 1740.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,276 C 924.0,599.0 1740.0,599.0 1740.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,720 C 1332.0,821.0 1740.0,821.0 1740.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 856.0,426 C 856.0,624.0 1604.0,624.0 1604.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 992.0,426 C 992.0,624.0 1604.0,624.0 1604.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,720 C 652.0,771.0 1604.0,771.0 1604.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,620 C 380.0,721.0 1604.0,721.0 1604.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,502.0 244.0,502.0 244.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,624.0 244.0,624.0 244.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,376 C 1196.0,624.0 244.0,624.0 244.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,720 C 652.0,796.0 244.0,796.0 244.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1400.0,426 C 1400.0,674.0 1332.0,674.0 1332.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,376 C 1876.0,649.0 1332.0,649.0 1332.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,570 C 1468.0,746.0 1332.0,746.0 1332.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1400.0,426 C 1400.0,674.0 1468.0,674.0 1468.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 312.0,426 C 312.0,674.0 1468.0,674.0 1468.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,570 C 1604.0,746.0 1468.0,746.0 1468.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 448.0,426 C 448.0,724.0 380.0,724.0 380.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,570 C 1604.0,796.0 380.0,796.0 380.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1672.0,426 C 1672.0,624.0 516.0,624.0 516.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1128.0,426 C 1128.0,624.0 516.0,624.0 516.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 584.0,426 C 584.0,624.0 516.0,624.0 516.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 516.0,620 C 516.0,721.0 516.0,721.0 516.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,570 C 1740.0,696.0 516.0,696.0 516.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,477.0 1332.0,477.0 1332.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,326 C 1876.0,574.0 1332.0,574.0 1332.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,670 C 516.0,746.0 1332.0,746.0 1332.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,670 C 652.0,746.0 1332.0,746.0 1332.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,276 C 924.0,599.0 1060.0,599.0 1060.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,376 C 1332.0,649.0 1060.0,649.0 1060.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,720 C 1332.0,821.0 1060.0,821.0 1060.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,452.0 1876.0,452.0 1876.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,477.0 1876.0,477.0 1876.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,746.0 1876.0,746.0 1876.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,696.0 1876.0,696.0 1876.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 924.0,82 C 924.0,527.0 108.0,527.0 108.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,670 C 108.0,821.0 108.0,821.0 108.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,771.0 108.0,771.0 108.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,477.0 1468.0,477.0 1468.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,477.0 1468.0,477.0 1468.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,82 C 1740.0,452.0 1468.0,452.0 1468.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,696.0 1468.0,696.0 1468.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,527.0 924.0,527.0 924.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,82 C 1740.0,502.0 924.0,502.0 924.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,570 C 108.0,746.0 924.0,746.0 924.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,864 C 1876.0,918.0 652.0,918.0 652.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,864 C 1468.0,918.0 652.0,918.0 652.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,964 C 1604.0,968.0 652.0,968.0 652.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,574.0 1740.0,574.0 1740.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,326 C 244.0,574.0 1740.0,574.0 1740.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,376 C 108.0,599.0 1740.0,599.0 1740.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,520 C 516.0,671.0 1740.0,671.0 1740.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,624.0 1876.0,624.0 1876.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,326 C 244.0,624.0 1876.0,624.0 1876.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,520 C 516.0,721.0 1876.0,721.0 1876.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,674.0 516.0,674.0 516.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,520 C 652.0,771.0 516.0,771.0 516.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,376 C 1604.0,699.0 788.0,699.0 788.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,620 C 244.0,821.0 788.0,821.0 788.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,674.0 1468.0,674.0 1468.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,520 C 652.0,771.0 1468.0,771.0 1468.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,326 C 652.0,599.0 516.0,599.0 516.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,326 C 516.0,599.0 516.0,599.0 516.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,520 C 516.0,696.0 516.0,696.0 516.0,872" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 652.0,1014 C 652.0,993.0 244.0,993.0 244.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,864 C 1740.0,918.0 244.0,918.0 244.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,964 C 1876.0,968.0 244.0,968.0 244.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,1014 C 652.0,1018.0 924.0,1018.0 924.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,964 C 1876.0,993.0 924.0,993.0 924.0,1022" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 924.0,82 C 924.0,527.0 516.0,527.0 516.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,326 C 1740.0,649.0 516.0,649.0 516.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,620 C 108.0,796.0 516.0,796.0 516.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,502.0 108.0,502.0 108.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,82 C 1740.0,477.0 108.0,477.0 108.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,326 C 1740.0,599.0 108.0,599.0 108.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,620 C 108.0,746.0 108.0,746.0 108.0,872" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,914 C 1740.0,943.0 380.0,943.0 380.0,972" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 108.0,964 C 108.0,968.0 380.0,968.0 380.0,972" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 244.0,964 C 244.0,968.0 380.0,968.0 380.0,972" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1740.0,864 C 1740.0,943.0 1196.0,943.0 1196.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,964 C 1876.0,993.0 1196.0,993.0 1196.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,577.0 1604.0,577.0 1604.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,577.0 1604.0,577.0 1604.0,1022" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1468.0,132 C 1468.0,602.0 924.0,602.0 924.0,1072" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,82 C 1876.0,452.0 1196.0,452.0 1196.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,452.0 1196.0,452.0 1196.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,326 C 1060.0,574.0 1196.0,574.0 1196.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,520 C 1196.0,671.0 1196.0,671.0 1196.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,82 C 1876.0,452.0 380.0,452.0 380.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1400.0,426 C 1400.0,624.0 380.0,624.0 380.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1536.0,426 C 1536.0,624.0 380.0,624.0 380.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 720.0,426 C 720.0,624.0 380.0,624.0 380.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,520 C 1604.0,671.0 380.0,671.0 380.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,132 C 244.0,477.0 244.0,477.0 244.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1536.0,426 C 1536.0,624.0 244.0,624.0 244.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1672.0,426 C 1672.0,624.0 244.0,624.0 244.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1740.0,376 C 1740.0,599.0 244.0,599.0 244.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,570 C 1332.0,696.0 244.0,696.0 244.0,822" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,577.0 1332.0,577.0 1332.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,132 C 788.0,577.0 1332.0,577.0 1332.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1196.0,182 C 1196.0,602.0 1876.0,602.0 1876.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,602.0 788.0,602.0 788.0,1072" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,132 C 1876.0,602.0 1060.0,602.0 1060.0,1072" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,82 C 652.0,552.0 1060.0,552.0 1060.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1876.0,132 C 1876.0,577.0 1060.0,577.0 1060.0,1022" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1876.0,132 C 1876.0,552.0 1740.0,552.0 1740.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,552.0 1740.0,552.0 1740.0,972" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,132 C 1604.0,527.0 516.0,527.0 516.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,326 C 380.0,624.0 516.0,624.0 516.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,527.0 516.0,527.0 516.0,922" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1604.0,132 C 1604.0,577.0 108.0,577.0 108.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,326 C 380.0,674.0 108.0,674.0 108.0,1022" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 788.0,182 C 788.0,627.0 1196.0,627.0 1196.0,1072" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1060.0,1014 C 1060.0,918.0 108.0,918.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1468.0,1014 C 1468.0,918.0 108.0,918.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1604.0,1014 C 1604.0,918.0 108.0,918.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1332.0,914 C 1332.0,868.0 108.0,868.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 652.0,1014 C 652.0,918.0 108.0,918.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1604.0,1064 C 1604.0,943.0 108.0,943.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 380.0,864 C 380.0,843.0 108.0,843.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1740.0,1014 C 1740.0,918.0 108.0,918.0 108.0,822" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 652.0,132 C 652.0,183.0 1740.0,183.0 1740.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,158.0 1740.0,158.0 1740.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,208.0 108.0,208.0 108.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,183.0 108.0,183.0 108.0,284" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,183.0 516.0,183.0 516.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,183.0 516.0,183.0 516.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,82 C 1468.0,158.0 516.0,158.0 516.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,183.0 380.0,183.0 380.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,183.0 380.0,183.0 380.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,183.0 244.0,183.0 244.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1468.0,132 C 1468.0,183.0 244.0,183.0 244.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,183.0 788.0,183.0 788.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,132 C 516.0,183.0 788.0,183.0 788.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,132 C 380.0,183.0 924.0,183.0 924.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,132 C 516.0,183.0 924.0,183.0 924.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,132 C 108.0,183.0 1060.0,183.0 1060.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 244.0,132 C 244.0,183.0 1060.0,183.0 1060.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 516.0,132 C 516.0,183.0 1060.0,183.0 1060.0,234" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,86.0 924.0,86.0 924.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,86.0 788.0,86.0 788.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 652.0,132 C 652.0,86.0 652.0,86.0 652.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 1332.0,82 C 1332.0,61.0 108.0,61.0 108.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 108.0,132 C 108.0,86.0 108.0,86.0 108.0,40" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1060.0,82 C 1060.0,61.0 244.0,61.0 244.0,40" stroke="#444444" stroke-width="0.6" fill="none" opacity="0.55"  marker-end="url(#arrow_required)" />
+<path d="M 380.0,82 C 380.0,61.0 516.0,61.0 516.0,40" stroke="#2a7f2a" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="6,4" marker-end="url(#arrow_corroborating)" />
+<path d="M 1264.0,426 C 1264.0,380.0 244.0,380.0 244.0,334" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1264.0,426 C 1264.0,380.0 652.0,380.0 652.0,334" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 380.0,111.0 380.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 1060.0,86.0 1060.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 652.0,111.0 652.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 1332.0,86.0 1332.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 1468.0,111.0 1468.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 1468.0,86.0 1468.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 516.0,111.0 516.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 244.0,111.0 244.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 1876.0,86.0 1876.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 108.0,111.0 108.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 1740.0,86.0 1740.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,136.0 1060.0,136.0 1060.0,140" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,136.0 1196.0,136.0 1196.0,140" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 1060.0,111.0 1060.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 380.0,86.0 380.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 1332.0,111.0 1332.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 1604.0,111.0 1604.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 924.0,86.0 924.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 788.0,86.0 788.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 108.0,86.0 108.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 1604.0,86.0 1604.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 244.0,86.0 244.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 1196.0,111.0 1196.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 1196.0,86.0 1196.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 652.0,86.0 652.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 1876.0,111.0 1876.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,136.0 788.0,136.0 788.0,140" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 924.0,111.0 924.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,136.0 924.0,136.0 924.0,140" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,86.0 516.0,86.0 516.0,40" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<path d="M 1740.0,132 C 1740.0,111.0 788.0,111.0 788.0,90" stroke="#8a6200" stroke-width="0.6" fill="none" opacity="0.55" stroke-dasharray="2,3" marker-end="url(#arrow_validating)" />
+<g><title>2023 Statement of Vote [L0:data.2023_statement_of_vote]</title><rect x="316.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="321.0" y="103" font-size="8" fill="#222">2023 Statement of Vote</text>
+</g>
+<g><title>2015 Statement of Vote [L0:data.2015_statement_of_vote]</title><rect x="996.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1001.0" y="53" font-size="8" fill="#222">2015 Statement of Vote</text>
+</g>
+<g><title>2026 commission final report (majority + minority + chair addendum) [L0:data.commission_final_report_2026]</title><rect x="588.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="593.0" y="103" font-size="8" fill="#222">2026 commission final</text>
+<text x="593.0" y="112" font-size="8" fill="#222">report (majority +</text>
+<text x="593.0" y="121" font-size="8" fill="#222">minority + chair addendum)</text>
+</g>
+<g><title>2017 commission final report [L0:data.commission_final_report_2017]</title><rect x="1268.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1273.0" y="53" font-size="8" fill="#222">2017 commission final</text>
+<text x="1273.0" y="62" font-size="8" fill="#222">report</text>
+</g>
+<g><title>Commission map PNGs (majority + minority, Calgary/Edmonton/overview/other cities) [L0:data.commission_map_pngs]</title><rect x="1404.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1409.0" y="103" font-size="8" fill="#222">Commission map PNGs</text>
+<text x="1409.0" y="112" font-size="8" fill="#222">(majority + minority,</text>
+<text x="1409.0" y="121" font-size="8" fill="#222">Calgary/Edmonton/overview/other</text>
+<text x="1409.0" y="130" font-size="8" fill="#222">cities)</text>
+</g>
+<g><title>2019 Alberta electoral-division shapefile (87 EDs, Bill 33 enacted) [L0:data.2019_ed_shapefile]</title><rect x="1404.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1409.0" y="53" font-size="8" fill="#222">2019 Alberta</text>
+<text x="1409.0" y="62" font-size="8" fill="#222">electoral-division</text>
+<text x="1409.0" y="71" font-size="8" fill="#222">shapefile (87 EDs, Bill 33</text>
+<text x="1409.0" y="80" font-size="8" fill="#222">enacted)</text>
+</g>
+<g><title>2023 Voting-Area polygon shapefile (4,765 VAs) [L0:data.2023_va_shapefile]</title><rect x="452.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="457.0" y="103" font-size="8" fill="#222">2023 Voting-Area polygon</text>
+<text x="457.0" y="112" font-size="8" fill="#222">shapefile (4,765 VAs)</text>
+</g>
+<g><title>2021 Dissemination-Area cartographic boundaries [L0:data.2021_das_gpkg]</title><rect x="180.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="185.0" y="103" font-size="8" fill="#222">2021 Dissemination-Area</text>
+<text x="185.0" y="112" font-size="8" fill="#222">cartographic boundaries</text>
+</g>
+<g><title>2021 Census Sub-Division cartographic boundaries [L0:data.2021_csds_gpkg]</title><rect x="1812.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1817.0" y="53" font-size="8" fill="#222">2021 Census Sub-Division</text>
+<text x="1817.0" y="62" font-size="8" fill="#222">cartographic boundaries</text>
+</g>
+<g><title>2021 DA populations (98-401-X2021006) [L0:data.2021_da_populations]</title><rect x="44.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="49.0" y="103" font-size="8" fill="#222">2021 DA populations</text>
+<text x="49.0" y="112" font-size="8" fill="#222">(98-401-X2021006)</text>
+</g>
+<g><title>2021 CSD populations (98-401-X2021005) [L0:data.2021_csd_populations]</title><rect x="1676.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1681.0" y="53" font-size="8" fill="#222">2021 CSD populations</text>
+<text x="1681.0" y="62" font-size="8" fill="#222">(98-401-X2021005)</text>
+</g>
+<g><title>StatsCan Table 17-10-0009 quarterly population estimates [L0:data.statscan_1710000901]</title><rect x="996.0" y="140" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1001.0" y="153" font-size="8" fill="#222">StatsCan Table 17-10-0009</text>
+<text x="1001.0" y="162" font-size="8" fill="#222">quarterly population</text>
+<text x="1001.0" y="171" font-size="8" fill="#222">estimates</text>
+</g>
+<g><title>StatsCan Table 98-10-0459 journey-to-work (Cochrane CSD) [L0:data.cochrane_journey_to_work]</title><rect x="1132.0" y="140" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1137.0" y="153" font-size="8" fill="#222">StatsCan Table 98-10-0459</text>
+<text x="1137.0" y="162" font-size="8" fill="#222">journey-to-work (Cochrane</text>
+<text x="1137.0" y="171" font-size="8" fill="#222">CSD)</text>
+</g>
+<g><title>Alberta TBF / Economic Dashboard population estimates [L0:data.tbf_population_estimates]</title><rect x="996.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1001.0" y="103" font-size="8" fill="#222">Alberta TBF / Economic</text>
+<text x="1001.0" y="112" font-size="8" fill="#222">Dashboard population</text>
+<text x="1001.0" y="121" font-size="8" fill="#222">estimates</text>
+</g>
+<g><title>338Canada Alberta per-riding projections (87-seat) + historical snapshots [L0:data.338canada_snapshots]</title><rect x="316.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="321.0" y="53" font-size="8" fill="#222">338Canada Alberta</text>
+<text x="321.0" y="62" font-size="8" fill="#222">per-riding projections</text>
+<text x="321.0" y="71" font-size="8" fill="#222">(87-seat) + historical</text>
+<text x="321.0" y="80" font-size="8" fill="#222">snapshots</text>
+</g>
+<g><title>Calgary wards GeoJSON (14 ward polygons) [L0:data.calgary_wards_geojson]</title><rect x="1268.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1273.0" y="103" font-size="8" fill="#222">Calgary wards GeoJSON (14</text>
+<text x="1273.0" y="112" font-size="8" fill="#222">ward polygons)</text>
+</g>
+<g><title>Commission public submissions archive (~1,340 submissions) [L0:data.submission_archive]</title><rect x="1540.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1545.0" y="103" font-size="8" fill="#222">Commission public</text>
+<text x="1545.0" y="112" font-size="8" fill="#222">submissions archive</text>
+<text x="1545.0" y="121" font-size="8" fill="#222">(~1,340 submissions)</text>
+</g>
+<g><title>Commission-published per-ED populations (majority App A + minority App E) [L0:data.commission_published_populations]</title><rect x="860.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="865.0" y="53" font-size="8" fill="#222">Commission-published</text>
+<text x="865.0" y="62" font-size="8" fill="#222">per-ED populations</text>
+<text x="865.0" y="71" font-size="8" fill="#222">(majority App A + minority</text>
+<text x="865.0" y="80" font-size="8" fill="#222">App E)</text>
+</g>
+<g><title>Commission minority rationale text (Appendix E prose) [L0:data.commission_rationales]</title><rect x="724.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="729.0" y="53" font-size="8" fill="#222">Commission minority</text>
+<text x="729.0" y="62" font-size="8" fill="#222">rationale text (Appendix E</text>
+<text x="729.0" y="71" font-size="8" fill="#222">prose)</text>
+</g>
+<g><title>2019 ED populations (Appendix C legal baseline) [L0:data.2019_ed_populations]</title><rect x="44.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="49.0" y="53" font-size="8" fill="#222">2019 ED populations</text>
+<text x="49.0" y="62" font-size="8" fill="#222">(Appendix C legal</text>
+<text x="49.0" y="71" font-size="8" fill="#222">baseline)</text>
+</g>
+<g><title>2019 Alberta provincial election results (attributed to 2019 EDs) [L0:data.2019_election_results]</title><rect x="1540.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1545.0" y="53" font-size="8" fill="#222">2019 Alberta provincial</text>
+<text x="1545.0" y="62" font-size="8" fill="#222">election results</text>
+<text x="1545.0" y="71" font-size="8" fill="#222">(attributed to 2019 EDs)</text>
+</g>
+<g><title>2015 Alberta provincial election results [L0:data.2015_election_results]</title><rect x="180.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="185.0" y="53" font-size="8" fill="#222">2015 Alberta provincial</text>
+<text x="185.0" y="62" font-size="8" fill="#222">election results</text>
+</g>
+<g><title>Alberta byelections 2019-2026 [L0:data.byelections_2019_2026]</title><rect x="1132.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1137.0" y="103" font-size="8" fill="#222">Alberta byelections</text>
+<text x="1137.0" y="112" font-size="8" fill="#222">2019-2026</text>
+</g>
+<g><title>2015-to-2019 boundary crosswalk (partial) [L0:data.commission_rationales_text]</title><rect x="1132.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1137.0" y="53" font-size="8" fill="#222">2015-to-2019 boundary</text>
+<text x="1137.0" y="62" font-size="8" fill="#222">crosswalk (partial)</text>
+</g>
+<g><title>Chair Miller's Recommendation 5 (Majority Report addendum) [L0:data.commission_r5_addendum]</title><rect x="588.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="593.0" y="53" font-size="8" fill="#222">Chair Miller's</text>
+<text x="593.0" y="62" font-size="8" fill="#222">Recommendation 5 (Majority</text>
+<text x="593.0" y="71" font-size="8" fill="#222">Report addendum)</text>
+</g>
+<g><title>News coverage of April 16, 2026 government action (CBC / Calgary Journal / Rimbey) [L0:data.news_coverage_april_2026]</title><rect x="1812.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1817.0" y="103" font-size="8" fill="#222">News coverage of April 16,</text>
+<text x="1817.0" y="112" font-size="8" fill="#222">2026 government action</text>
+<text x="1817.0" y="121" font-size="8" fill="#222">(CBC / Calgary Journal /</text>
+<text x="1817.0" y="130" font-size="8" fill="#222">Rimbey)</text>
+</g>
+<g><title>Reference re Provincial Electoral Boundaries (Saskatchewan) [1991] 2 SCR 158 [L0:data.ref_saskatchewan_1991]</title><rect x="724.0" y="140" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="729.0" y="153" font-size="8" fill="#222">Reference re Provincial</text>
+<text x="729.0" y="162" font-size="8" fill="#222">Electoral Boundaries</text>
+<text x="729.0" y="171" font-size="8" fill="#222">(Saskatchewan) [1991] 2</text>
+<text x="729.0" y="180" font-size="8" fill="#222">SCR 158</text>
+</g>
+<g><title>Alberta Electoral Boundaries Commission Act (s.12, s.15, s.21) [L0:data.electoral_boundaries_act]</title><rect x="860.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="865.0" y="103" font-size="8" fill="#222">Alberta Electoral</text>
+<text x="865.0" y="112" font-size="8" fill="#222">Boundaries Commission Act</text>
+<text x="865.0" y="121" font-size="8" fill="#222">(s.12, s.15, s.21)</text>
+</g>
+<g><title>Rizzo &amp; Rizzo Shoes Ltd. (Re) [1998] 1 SCR 27 (purposive interpretation) [L0:data.rizzo_rizzo_1998]</title><rect x="860.0" y="140" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="865.0" y="153" font-size="8" fill="#222">Rizzo &amp; Rizzo Shoes Ltd.</text>
+<text x="865.0" y="162" font-size="8" fill="#222">(Re) [1998] 1 SCR 27</text>
+<text x="865.0" y="171" font-size="8" fill="#222">(purposive interpretation)</text>
+</g>
+<g><title>338Canada pre-2023 reallocated snapshot CSVs [L0:data.338_historical_snapshots_dir]</title><rect x="452.0" y="40" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="457.0" y="53" font-size="8" fill="#222">338Canada pre-2023</text>
+<text x="457.0" y="62" font-size="8" fill="#222">reallocated snapshot CSVs</text>
+</g>
+<g><title>Alberta Education school-division boundaries (R5 / R11 cross-reference) [L0:data.school_division_boundaries]</title><rect x="724.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="729.0" y="103" font-size="8" fill="#222">Alberta Education</text>
+<text x="729.0" y="112" font-size="8" fill="#222">school-division boundaries</text>
+<text x="729.0" y="121" font-size="8" fill="#222">(R5 / R11 cross-reference)</text>
+</g>
+<g><title>FROZEN_MANIFEST.md (reproducibility manifest) [L0:doc.frozen_manifest]</title><rect x="1676.0" y="90" width="128" height="42" rx="5" fill="#d0e8f2" stroke="#2a7aa8" stroke-width="1" />
+<text x="1681.0" y="103" font-size="8" fill="#222">FROZEN_MANIFEST.md</text>
+<text x="1681.0" y="112" font-size="8" fill="#222">(reproducibility manifest)</text>
+</g>
+<g><title>v0_1 canonical DPGs (majority + minority, tier-A/B/C hybrid) [L1:constructed.dpg_v0_1_canonical]</title><rect x="1268.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1273.0" y="347" font-size="8" fill="#222">v0_1 canonical DPGs</text>
+<text x="1273.0" y="356" font-size="8" fill="#222">(majority + minority,</text>
+<text x="1273.0" y="365" font-size="8" fill="#222">tier-A/B/C hybrid)</text>
+</g>
+<g><title>v0_2 topology-cleaned DPGs [L1:constructed.dpg_v0_2_topoclean]</title><rect x="1336.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1341.0" y="397" font-size="8" fill="#222">v0_2 topology-cleaned DPGs</text>
+</g>
+<g><title>v0_3 pop-swept DPGs [L1:constructed.dpg_v0_3_swept]</title><rect x="1404.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1409.0" y="347" font-size="8" fill="#222">v0_3 pop-swept DPGs</text>
+</g>
+<g><title>v0_4 municipal-anchored DPGs [L1:constructed.dpg_v0_4_municipal]</title><rect x="1472.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1477.0" y="397" font-size="8" fill="#222">v0_4 municipal-anchored</text>
+<text x="1477.0" y="406" font-size="8" fill="#222">DPGs</text>
+</g>
+<g><title>v0_5 DA-anchored DPGs [L1:constructed.dpg_v0_5_da_anchored]</title><rect x="1608.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1613.0" y="397" font-size="8" fill="#222">v0_5 DA-anchored DPGs</text>
+</g>
+<g><title>Approximate majority / minority 2026 EDs (direct-polygon tier) [L1:constructed.approximate_eds]</title><rect x="452.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="457.0" y="247" font-size="8" fill="#222">Approximate majority /</text>
+<text x="457.0" y="256" font-size="8" fill="#222">minority 2026 EDs</text>
+<text x="457.0" y="265" font-size="8" fill="#222">(direct-polygon tier)</text>
+</g>
+<g><title>Refined v6 majority / minority polygons (shape refinement chain) [L1:constructed.refined_eds_v6]</title><rect x="316.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="321.0" y="247" font-size="8" fill="#222">Refined v6 majority /</text>
+<text x="321.0" y="256" font-size="8" fill="#222">minority polygons (shape</text>
+<text x="321.0" y="265" font-size="8" fill="#222">refinement chain)</text>
+</g>
+<g><title>Derived v7 minority / majority 2026 ED polygons [L1:constructed.derived_v7_eds]</title><rect x="180.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="185.0" y="247" font-size="8" fill="#222">Derived v7 minority /</text>
+<text x="185.0" y="256" font-size="8" fill="#222">majority 2026 ED polygons</text>
+</g>
+<g><title>Composite majority / minority polygons (v0_1 workflow precursor) [L1:constructed.composite_eds]</title><rect x="1268.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1273.0" y="297" font-size="8" fill="#222">Composite majority /</text>
+<text x="1273.0" y="306" font-size="8" fill="#222">minority polygons (v0_1</text>
+<text x="1273.0" y="315" font-size="8" fill="#222">workflow precursor)</text>
+</g>
+<g><title>Majority 88-row full crosswalk (2019 → 2026 EDs) [L1:constructed.crosswalk_majority_full]</title><rect x="1540.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1545.0" y="297" font-size="8" fill="#222">Majority 88-row full</text>
+<text x="1545.0" y="306" font-size="8" fill="#222">crosswalk (2019 → 2026</text>
+<text x="1545.0" y="315" font-size="8" fill="#222">EDs)</text>
+</g>
+<g><title>Minority 88-row full crosswalk (2019 → 2026 EDs) [L1:constructed.crosswalk_minority_full]</title><rect x="44.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="49.0" y="347" font-size="8" fill="#222">Minority 88-row full</text>
+<text x="49.0" y="356" font-size="8" fill="#222">crosswalk (2019 → 2026</text>
+<text x="49.0" y="365" font-size="8" fill="#222">EDs)</text>
+</g>
+<g><title>Majority hybrid crosswalk (urban-weighted blend) [L1:constructed.crosswalk_majority_hybrid]</title><rect x="1676.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1681.0" y="247" font-size="8" fill="#222">Majority hybrid crosswalk</text>
+<text x="1681.0" y="256" font-size="8" fill="#222">(urban-weighted blend)</text>
+</g>
+<g><title>Minority hybrid crosswalk (urban-weighted blend) [L1:constructed.crosswalk_minority_hybrid]</title><rect x="44.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="49.0" y="297" font-size="8" fill="#222">Minority hybrid crosswalk</text>
+<text x="49.0" y="306" font-size="8" fill="#222">(urban-weighted blend)</text>
+</g>
+<g><title>VA vote substrate — Election-Day-only (pre-splat) [L1:constructed.va_substrate_elecday]</title><rect x="724.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="729.0" y="247" font-size="8" fill="#222">VA vote substrate —</text>
+<text x="729.0" y="256" font-size="8" fill="#222">Election-Day-only</text>
+<text x="729.0" y="265" font-size="8" fill="#222">(pre-splat)</text>
+</g>
+<g><title>VA vote substrate — full (election-day + advance-vote splatted) [L1:constructed.va_substrate_full]</title><rect x="860.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="865.0" y="247" font-size="8" fill="#222">VA vote substrate — full</text>
+<text x="865.0" y="256" font-size="8" fill="#222">(election-day +</text>
+<text x="865.0" y="265" font-size="8" fill="#222">advance-vote splatted)</text>
+</g>
+<g><title>VA-level 2021 DA-weighted population [L1:constructed.va_pop_from_das]</title><rect x="996.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1001.0" y="247" font-size="8" fill="#222">VA-level 2021 DA-weighted</text>
+<text x="1001.0" y="256" font-size="8" fill="#222">population</text>
+</g>
+<g><title>2023 polls unified (per-poll vote totals) [L1:constructed.polls_2023_unified]</title><rect x="1268.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1273.0" y="247" font-size="8" fill="#222">2023 polls unified</text>
+<text x="1273.0" y="256" font-size="8" fill="#222">(per-poll vote totals)</text>
+</g>
+<g><title>Advance-vote splat diagnostics [L1:constructed.advance_vote_diag]</title><rect x="860.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="865.0" y="297" font-size="8" fill="#222">Advance-vote splat</text>
+<text x="865.0" y="306" font-size="8" fill="#222">diagnostics</text>
+</g>
+<g><title>10k preliminary ReCom ensemble samples [L1:constructed.mcmc_ensemble_10k]</title><rect x="588.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="593.0" y="297" font-size="8" fill="#222">10k preliminary ReCom</text>
+<text x="593.0" y="306" font-size="8" fill="#222">ensemble samples</text>
+</g>
+<g><title>100k publication-grade ReCom ensemble samples + percentiles [L1:constructed.mcmc_ensemble_100k]</title><rect x="452.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="457.0" y="297" font-size="8" fill="#222">100k publication-grade</text>
+<text x="457.0" y="306" font-size="8" fill="#222">ReCom ensemble samples +</text>
+<text x="457.0" y="315" font-size="8" fill="#222">percentiles</text>
+</g>
+<g><title>Real-map scores under ensemble baselines (v0_1/v2/full/full_100k) [L1:constructed.mcmc_real_map_scores]</title><rect x="180.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="185.0" y="297" font-size="8" fill="#222">Real-map scores under</text>
+<text x="185.0" y="306" font-size="8" fill="#222">ensemble baselines</text>
+<text x="185.0" y="315" font-size="8" fill="#222">(v0_1/v2/full/full_100k)</text>
+</g>
+<g><title>3-chain ReCom multi-seed ensemble + R-hat diagnostic [L1:constructed.mcmc_multichain]</title><rect x="1540.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1545.0" y="347" font-size="8" fill="#222">3-chain ReCom multi-seed</text>
+<text x="1545.0" y="356" font-size="8" fill="#222">ensemble + R-hat</text>
+<text x="1545.0" y="365" font-size="8" fill="#222">diagnostic</text>
+</g>
+<g><title>Phase 4B per-2026-ED 2021 census populations (majority + minority) [L1:constructed.phase4b_pops]</title><rect x="180.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="185.0" y="347" font-size="8" fill="#222">Phase 4B per-2026-ED 2021</text>
+<text x="185.0" y="356" font-size="8" fill="#222">census populations</text>
+<text x="185.0" y="365" font-size="8" fill="#222">(majority + minority)</text>
+</g>
+<g><title>Phase 4C per-2026-ED 2023 vote totals (centroid) [L1:constructed.phase4c_votes]</title><rect x="588.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="593.0" y="347" font-size="8" fill="#222">Phase 4C per-2026-ED 2023</text>
+<text x="593.0" y="356" font-size="8" fill="#222">vote totals (centroid)</text>
+</g>
+<g><title>Phase 4C MAUP-v1 area-weighted vote totals (v0_1 DPG) [L1:constructed.phase4c_votes_maup_v1]</title><rect x="792.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="797.0" y="397" font-size="8" fill="#222">Phase 4C MAUP-v1</text>
+<text x="797.0" y="406" font-size="8" fill="#222">area-weighted vote totals</text>
+<text x="797.0" y="415" font-size="8" fill="#222">(v0_1 DPG)</text>
+</g>
+<g><title>Phase 4C MAUP-v2 vote totals (on v0_2 topology-clean DPG) [L1:constructed.phase4c_votes_maup_v2]</title><rect x="928.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="933.0" y="397" font-size="8" fill="#222">Phase 4C MAUP-v2 vote</text>
+<text x="933.0" y="406" font-size="8" fill="#222">totals (on v0_2</text>
+<text x="933.0" y="415" font-size="8" fill="#222">topology-clean DPG)</text>
+</g>
+<g><title>Phase 4C MAUP-v3 vote totals (on v0_5 DA-anchored DPG) [L1:constructed.phase4c_votes_maup_v05]</title><rect x="1064.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1069.0" y="397" font-size="8" fill="#222">Phase 4C MAUP-v3 vote</text>
+<text x="1069.0" y="406" font-size="8" fill="#222">totals (on v0_5</text>
+<text x="1069.0" y="415" font-size="8" fill="#222">DA-anchored DPG)</text>
+</g>
+<g><title>Phase 4B v0_5 populations (DA-anchored DPG) [L1:constructed.phase4b_v05_pops]</title><rect x="316.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="321.0" y="347" font-size="8" fill="#222">Phase 4B v0_5 populations</text>
+<text x="321.0" y="356" font-size="8" fill="#222">(DA-anchored DPG)</text>
+</g>
+<g><title>Phase 4F validation deltas (commission vs Phase 4B) [L1:constructed.phase4f_validation]</title><rect x="1200.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1205.0" y="397" font-size="8" fill="#222">Phase 4F validation deltas</text>
+<text x="1205.0" y="406" font-size="8" fill="#222">(commission vs Phase 4B)</text>
+</g>
+<g><title>Phase 4B/C/D/E/F execution summary JSON [L1:constructed.phase4bcdef_summary]</title><rect x="452.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="457.0" y="347" font-size="8" fill="#222">Phase 4B/C/D/E/F execution</text>
+<text x="457.0" y="356" font-size="8" fill="#222">summary JSON</text>
+</g>
+<g><title>VA-to-2026-ED assignments (centroid + MAUP) [L1:constructed.va_to_2026_assignments]</title><rect x="1132.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1137.0" y="247" font-size="8" fill="#222">VA-to-2026-ED assignments</text>
+<text x="1137.0" y="256" font-size="8" fill="#222">(centroid + MAUP)</text>
+</g>
+<g><title>Phase 4C MAUP summary JSON (v0_1/v0_2/v0_5) [L1:constructed.phase4c_maup_summary]</title><rect x="588.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="593.0" y="247" font-size="8" fill="#222">Phase 4C MAUP summary JSON</text>
+<text x="593.0" y="256" font-size="8" fill="#222">(v0_1/v0_2/v0_5)</text>
+</g>
+<g><title>Municipal anchoring summary (v0_4) [L1:constructed.municipal_anchoring_summary]</title><rect x="656.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="661.0" y="397" font-size="8" fill="#222">Municipal anchoring</text>
+<text x="661.0" y="406" font-size="8" fill="#222">summary (v0_4)</text>
+</g>
+<g><title>DA boundary anchoring summary (v0_5) [L1:constructed.da_anchoring_summary]</title><rect x="1676.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1681.0" y="347" font-size="8" fill="#222">DA boundary anchoring</text>
+<text x="1681.0" y="356" font-size="8" fill="#222">summary (v0_5)</text>
+</g>
+<g><title>Topology cleanup log (v0_1 → v0_2) [L1:constructed.topology_cleanup_log]</title><rect x="1132.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1137.0" y="347" font-size="8" fill="#222">Topology cleanup log (v0_1</text>
+<text x="1137.0" y="356" font-size="8" fill="#222">→ v0_2)</text>
+</g>
+<g><title>DPG perturbation samples (flat ±500m) [L1:constructed.dpg_perturbation_flat]</title><rect x="1812.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1817.0" y="347" font-size="8" fill="#222">DPG perturbation samples</text>
+<text x="1817.0" y="356" font-size="8" fill="#222">(flat ±500m)</text>
+</g>
+<g><title>DPG perturbation samples (tier-aware) [L1:constructed.dpg_perturbation_tiered]</title><rect x="248.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="253.0" y="397" font-size="8" fill="#222">DPG perturbation samples</text>
+<text x="253.0" y="406" font-size="8" fill="#222">(tier-aware)</text>
+</g>
+<g><title>DPG perturbation samples (tight tier-aware) [L1:constructed.dpg_perturbation_tight]</title><rect x="384.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="389.0" y="397" font-size="8" fill="#222">DPG perturbation samples</text>
+<text x="389.0" y="406" font-size="8" fill="#222">(tight tier-aware)</text>
+</g>
+<g><title>DPG perturbation samples (v0_5 DA-anchored substrate) [L1:constructed.dpg_perturbation_v05]</title><rect x="520.0" y="384" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="525.0" y="397" font-size="8" fill="#222">DPG perturbation samples</text>
+<text x="525.0" y="406" font-size="8" fill="#222">(v0_5 DA-anchored</text>
+<text x="525.0" y="415" font-size="8" fill="#222">substrate)</text>
+</g>
+<g><title>Polsby-Popper compactness scores (v0_1 + refined) [L1:constructed.compactness_scores]</title><rect x="724.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="729.0" y="347" font-size="8" fill="#222">Polsby-Popper compactness</text>
+<text x="729.0" y="356" font-size="8" fill="#222">scores (v0_1 + refined)</text>
+</g>
+<g><title>Chen-Rodden decomposition (pairwise + absolute) [L1:constructed.chen_rodden]</title><rect x="1132.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1137.0" y="297" font-size="8" fill="#222">Chen-Rodden decomposition</text>
+<text x="1137.0" y="306" font-size="8" fill="#222">(pairwise + absolute)</text>
+</g>
+<g><title>Cross-election asymmetry tables (3-way 2015/2019/2023) [L1:constructed.cross_election_asymmetry]</title><rect x="1540.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1545.0" y="247" font-size="8" fill="#222">Cross-election asymmetry</text>
+<text x="1545.0" y="256" font-size="8" fill="#222">tables (3-way</text>
+<text x="1545.0" y="265" font-size="8" fill="#222">2015/2019/2023)</text>
+</g>
+<g><title>Rural gap dissection — smallest-10 majority/minority EDs [L1:constructed.rural_gap_summary]</title><rect x="860.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="865.0" y="347" font-size="8" fill="#222">Rural gap dissection —</text>
+<text x="865.0" y="356" font-size="8" fill="#222">smallest-10</text>
+<text x="865.0" y="365" font-size="8" fill="#222">majority/minority EDs</text>
+</g>
+<g><title>Majority-symmetry counter-test (Edmonton zones + 4-way city splits) [L1:constructed.symmetry_counter_test]</title><rect x="1676.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1681.0" y="297" font-size="8" fill="#222">Majority-symmetry</text>
+<text x="1681.0" y="306" font-size="8" fill="#222">counter-test (Edmonton</text>
+<text x="1681.0" y="315" font-size="8" fill="#222">zones + 4-way city splits)</text>
+</g>
+<g><title>CSD community-of-interest splits [L1:constructed.csd_splits]</title><rect x="996.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1001.0" y="297" font-size="8" fill="#222">CSD community-of-interest</text>
+<text x="1001.0" y="306" font-size="8" fill="#222">splits</text>
+</g>
+<g><title>Submission archive keyword-search dataset + findings [L1:constructed.submission_search_results]</title><rect x="316.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="321.0" y="297" font-size="8" fill="#222">Submission archive</text>
+<text x="321.0" y="306" font-size="8" fill="#222">keyword-search dataset +</text>
+<text x="321.0" y="315" font-size="8" fill="#222">findings</text>
+</g>
+<g><title>Boundary refinement impact CSVs (v2–v6) [L1:constructed.boundary_refinement_impact]</title><rect x="44.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="49.0" y="247" font-size="8" fill="#222">Boundary refinement impact</text>
+<text x="49.0" y="256" font-size="8" fill="#222">CSVs (v2–v6)</text>
+</g>
+<g><title>338Canada reallocated to 2026 EDs (majority + minority) [L1:constructed.338canada_reallocated]</title><rect x="724.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="729.0" y="297" font-size="8" fill="#222">338Canada reallocated to</text>
+<text x="729.0" y="306" font-size="8" fill="#222">2026 EDs (majority +</text>
+<text x="729.0" y="315" font-size="8" fill="#222">minority)</text>
+</g>
+<g><title>Canadian redistribution base-rate comparator (n=6) [L1:constructed.canadian_base_rate]</title><rect x="1404.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1409.0" y="247" font-size="8" fill="#222">Canadian redistribution</text>
+<text x="1409.0" y="256" font-size="8" fill="#222">base-rate comparator (n=6)</text>
+</g>
+<g><title>Marginal-seats per-ED margins + uniform-swing flips [L1:constructed.marginal_seats]</title><rect x="1812.0" y="234" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1817.0" y="247" font-size="8" fill="#222">Marginal-seats per-ED</text>
+<text x="1817.0" y="256" font-size="8" fill="#222">margins + uniform-swing</text>
+<text x="1817.0" y="265" font-size="8" fill="#222">flips</text>
+</g>
+<g><title>Hybrid adjacent VAs (inter-ED boundary VA mapping) [L1:constructed.hybrid_adjacency]</title><rect x="1404.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1409.0" y="297" font-size="8" fill="#222">Hybrid adjacent VAs</text>
+<text x="1409.0" y="306" font-size="8" fill="#222">(inter-ED boundary VA</text>
+<text x="1409.0" y="315" font-size="8" fill="#222">mapping)</text>
+</g>
+<g><title>Tier-C parent-union reference + sweep summary [L1:constructed.tier_c_reference]</title><rect x="996.0" y="334" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1001.0" y="347" font-size="8" fill="#222">Tier-C parent-union</text>
+<text x="1001.0" y="356" font-size="8" fill="#222">reference + sweep summary</text>
+</g>
+<g><title>Max-DPI commission-map extractions (bottleneck audit) [L1:constructed.max_dpi_extract]</title><rect x="1812.0" y="284" width="128" height="42" rx="5" fill="#ddebbd" stroke="#6a8e33" stroke-width="1" />
+<text x="1817.0" y="297" font-size="8" fill="#222">Max-DPI commission-map</text>
+<text x="1817.0" y="306" font-size="8" fill="#222">extractions (bottleneck</text>
+<text x="1817.0" y="315" font-size="8" fill="#222">audit)</text>
+</g>
+<g><title>Build academic HTML [L2:build_academic_html]</title><rect x="1268.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1273.0" y="591" font-size="8" fill="#222">Build academic HTML</text>
+</g>
+<g><title>Build cover page [L2:build_cover]</title><rect x="1404.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1409.0" y="591" font-size="8" fill="#222">Build cover page</text>
+</g>
+<g><title>Build PDF [L2:build_pdf]</title><rect x="1132.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1137.0" y="591" font-size="8" fill="#222">Build PDF</text>
+</g>
+<g><title>Voice and readability checker [L2:check_voice_and_readability]</title><rect x="724.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="729.0" y="691" font-size="8" fill="#222">Voice and readability</text>
+<text x="729.0" y="700" font-size="8" fill="#222">checker</text>
+</g>
+<g><title>Electoral forensics — population equality (A1/A2/A2b) [L2:electoral_forensics_population]</title><rect x="44.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="49.0" y="641" font-size="8" fill="#222">Electoral forensics —</text>
+<text x="49.0" y="650" font-size="8" fill="#222">population equality</text>
+<text x="49.0" y="659" font-size="8" fill="#222">(A1/A2/A2b)</text>
+</g>
+<g><title>Parse 2015 Statement of Vote [L2:parse_2015_results]</title><rect x="1132.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1137.0" y="641" font-size="8" fill="#222">Parse 2015 Statement of</text>
+<text x="1137.0" y="650" font-size="8" fill="#222">Vote</text>
+</g>
+<g><title>Phase 4C preparation [L2:phase_4c_prep]</title><rect x="588.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="593.0" y="591" font-size="8" fill="#222">Phase 4C preparation</text>
+</g>
+<g><title>Submission archive keyword search [L2:submission_search]</title><rect x="316.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="321.0" y="691" font-size="8" fill="#222">Submission archive keyword</text>
+<text x="321.0" y="700" font-size="8" fill="#222">search</text>
+</g>
+<g><title>2015 cross-election extension [L2:v0_1_2015_cross_election]</title><rect x="316.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="321.0" y="541" font-size="8" fill="#222">2015 cross-election</text>
+<text x="321.0" y="550" font-size="8" fill="#222">extension</text>
+</g>
+<g><title>338Canada historical-snapshot reallocation [L2:v0_1_338canada_historical]</title><rect x="452.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="457.0" y="541" font-size="8" fill="#222">338Canada</text>
+<text x="457.0" y="550" font-size="8" fill="#222">historical-snapshot</text>
+<text x="457.0" y="559" font-size="8" fill="#222">reallocation</text>
+</g>
+<g><title>338Canada reallocation (majority + minority) [L2:v0_1_338canada_reallocate]</title><rect x="860.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="865.0" y="491" font-size="8" fill="#222">338Canada reallocation</text>
+<text x="865.0" y="500" font-size="8" fill="#222">(majority + minority)</text>
+</g>
+<g><title>338Canada scraper (87-seat per-riding) [L2:v0_1_338canada_scraper]</title><rect x="860.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="865.0" y="691" font-size="8" fill="#222">338Canada scraper (87-seat</text>
+<text x="865.0" y="700" font-size="8" fill="#222">per-riding)</text>
+</g>
+<g><title>A1 legal-baseline against 2019 EDs + 2021 census [L2:v0_1_a1_legal_baseline_2021_census]</title><rect x="588.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="593.0" y="541" font-size="8" fill="#222">A1 legal-baseline against</text>
+<text x="593.0" y="550" font-size="8" fill="#222">2019 EDs + 2021 census</text>
+</g>
+<g><title>Advance-vote splat (apportion Vote-Anywhere to VAs) [L2:v0_1_advance_vote_splat]</title><rect x="724.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="729.0" y="541" font-size="8" fill="#222">Advance-vote splat</text>
+<text x="729.0" y="550" font-size="8" fill="#222">(apportion Vote-Anywhere</text>
+<text x="729.0" y="559" font-size="8" fill="#222">to VAs)</text>
+</g>
+<g><title>Airdrie overlap diagnostic [L2:v0_1_airdrie_overlap_diagnostic]</title><rect x="860.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="865.0" y="591" font-size="8" fill="#222">Airdrie overlap diagnostic</text>
+</g>
+<g><title>Approximate shape analysis [L2:v0_1_approximate_shape_analysis]</title><rect x="860.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="865.0" y="541" font-size="8" fill="#222">Approximate shape analysis</text>
+</g>
+<g><title>Article figures v3 [L2:v0_1_build_article_figures_v3]</title><rect x="996.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1001.0" y="591" font-size="8" fill="#222">Article figures v3</text>
+</g>
+<g><title>Build canonical shapefiles (v0_1 canonical DPGs) [L2:v0_1_build_canonical_shapefiles]</title><rect x="996.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1001.0" y="491" font-size="8" fill="#222">Build canonical shapefiles</text>
+<text x="1001.0" y="500" font-size="8" fill="#222">(v0_1 canonical DPGs)</text>
+</g>
+<g><title>Build canonical shapefiles v2 (post-shape-refinement) [L2:v0_1_build_canonical_shapefiles_v2]</title><rect x="316.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="321.0" y="491" font-size="8" fill="#222">Build canonical shapefiles</text>
+<text x="321.0" y="500" font-size="8" fill="#222">v2 (post-shape-refinement)</text>
+</g>
+<g><title>Build composite shapefiles [L2:v0_1_build_composite_shapefiles]</title><rect x="996.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1001.0" y="541" font-size="8" fill="#222">Build composite shapefiles</text>
+</g>
+<g><title>Build 88-row full crosswalks [L2:v0_1_build_full_crosswalks]</title><rect x="44.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="49.0" y="491" font-size="8" fill="#222">Build 88-row full</text>
+<text x="49.0" y="500" font-size="8" fill="#222">crosswalks</text>
+</g>
+<g><title>Overlay figures v1 [L2:v0_1_build_overlay_figures]</title><rect x="860.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="865.0" y="641" font-size="8" fill="#222">Overlay figures v1</text>
+</g>
+<g><title>Overlay figures v2 [L2:v0_1_build_overlay_figures_v2]</title><rect x="996.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1001.0" y="641" font-size="8" fill="#222">Overlay figures v2</text>
+</g>
+<g><title>Canadian base-rate comparator compute [L2:v0_1_canadian_base_rate_compute]</title><rect x="996.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1001.0" y="691" font-size="8" fill="#222">Canadian base-rate</text>
+<text x="1001.0" y="700" font-size="8" fill="#222">comparator compute</text>
+</g>
+<g><title>Canadian base-rate recalibration (circular-inclusion fix) [L2:v0_1_canadian_base_rate_recalibrate]</title><rect x="1132.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1137.0" y="691" font-size="8" fill="#222">Canadian base-rate</text>
+<text x="1137.0" y="700" font-size="8" fill="#222">recalibration</text>
+<text x="1137.0" y="709" font-size="8" fill="#222">(circular-inclusion fix)</text>
+</g>
+<g><title>Chen-Rodden Alberta validation (neutral-ensemble decomposition) [L2:v0_1_chen_rodden_alberta]</title><rect x="1132.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1137.0" y="541" font-size="8" fill="#222">Chen-Rodden Alberta</text>
+<text x="1137.0" y="550" font-size="8" fill="#222">validation</text>
+<text x="1137.0" y="559" font-size="8" fill="#222">(neutral-ensemble</text>
+<text x="1137.0" y="568" font-size="8" fill="#222">decomposition)</text>
+</g>
+<g><title>Chen-Rodden pairwise + absolute decomposition [L2:v0_1_chen_rodden_decomposition]</title><rect x="1540.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1545.0" y="591" font-size="8" fill="#222">Chen-Rodden pairwise +</text>
+<text x="1545.0" y="600" font-size="8" fill="#222">absolute decomposition</text>
+</g>
+<g><title>Cross-election rural-baseline drift [L2:v0_1_cross_election_rural_baseline]</title><rect x="1268.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1273.0" y="491" font-size="8" fill="#222">Cross-election</text>
+<text x="1273.0" y="500" font-size="8" fill="#222">rural-baseline drift</text>
+</g>
+<g><title>CSD community-of-interest split analysis [L2:v0_1_csd_community_splits]</title><rect x="1132.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1137.0" y="491" font-size="8" fill="#222">CSD community-of-interest</text>
+<text x="1137.0" y="500" font-size="8" fill="#222">split analysis</text>
+</g>
+<g><title>DA-boundary anchoring (v0_4 → v0_5) [L2:v0_1_da_boundary_anchoring]</title><rect x="1268.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1273.0" y="541" font-size="8" fill="#222">DA-boundary anchoring</text>
+<text x="1273.0" y="550" font-size="8" fill="#222">(v0_4 → v0_5)</text>
+</g>
+<g><title>DPG perturbation sensitivity (flat ±500m) [L2:v0_1_dpg_perturbation_sensitivity]</title><rect x="1404.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1409.0" y="541" font-size="8" fill="#222">DPG perturbation</text>
+<text x="1409.0" y="550" font-size="8" fill="#222">sensitivity (flat ±500m)</text>
+</g>
+<g><title>DPG perturbation sensitivity (v0_5 DA-anchored) [L2:v0_1_dpg_perturbation_sensitivity_v05]</title><rect x="1676.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1681.0" y="541" font-size="8" fill="#222">DPG perturbation</text>
+<text x="1681.0" y="550" font-size="8" fill="#222">sensitivity (v0_5</text>
+<text x="1681.0" y="559" font-size="8" fill="#222">DA-anchored)</text>
+</g>
+<g><title>DPG perturbation sensitivity (tier-aware) [L2:v0_1_dpg_perturbation_sensitivity_v2]</title><rect x="1540.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1545.0" y="541" font-size="8" fill="#222">DPG perturbation</text>
+<text x="1545.0" y="550" font-size="8" fill="#222">sensitivity (tier-aware)</text>
+</g>
+<g><title>DPG perturbation writeup generator [L2:v0_1_dpg_perturbation_writeup]</title><rect x="1812.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1817.0" y="541" font-size="8" fill="#222">DPG perturbation writeup</text>
+<text x="1817.0" y="550" font-size="8" fill="#222">generator</text>
+</g>
+<g><title>Edmonton-Beaumont polygon trace [L2:v0_1_edmonton_beaumont_polygon]</title><rect x="1676.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1681.0" y="591" font-size="8" fill="#222">Edmonton-Beaumont polygon</text>
+<text x="1681.0" y="600" font-size="8" fill="#222">trace</text>
+</g>
+<g><title>Edmonton-Beaumont split [L2:v0_1_edmonton_beaumont_split]</title><rect x="1812.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1817.0" y="591" font-size="8" fill="#222">Edmonton-Beaumont split</text>
+</g>
+<g><title>Justification tests (blended-crosswalk sanity) [L2:v0_1_justification_tests]</title><rect x="316.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="321.0" y="641" font-size="8" fill="#222">Justification tests</text>
+<text x="321.0" y="650" font-size="8" fill="#222">(blended-crosswalk sanity)</text>
+</g>
+<g><title>Majority-symmetry counter-test [L2:v0_1_majority_symmetry_counter_test]</title><rect x="44.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="49.0" y="591" font-size="8" fill="#222">Majority-symmetry</text>
+<text x="49.0" y="600" font-size="8" fill="#222">counter-test</text>
+</g>
+<g><title>Marginal-seats + uniform-swing analysis [L2:v0_1_marginal_seats_analysis]</title><rect x="1404.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1409.0" y="491" font-size="8" fill="#222">Marginal-seats +</text>
+<text x="1409.0" y="500" font-size="8" fill="#222">uniform-swing analysis</text>
+</g>
+<g><title>Max-DPI extraction from commission PDF [L2:v0_1_max_dpi_extract]</title><rect x="452.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="457.0" y="641" font-size="8" fill="#222">Max-DPI extraction from</text>
+<text x="457.0" y="650" font-size="8" fill="#222">commission PDF</text>
+</g>
+<g><title>Max-DPI inspection [L2:v0_1_max_dpi_inspect]</title><rect x="588.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="593.0" y="641" font-size="8" fill="#222">Max-DPI inspection</text>
+</g>
+<g><title>10k ReCom ensemble (preliminary) [L2:v0_1_mcmc_ensemble]</title><rect x="724.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="729.0" y="491" font-size="8" fill="#222">10k ReCom ensemble</text>
+<text x="729.0" y="500" font-size="8" fill="#222">(preliminary)</text>
+</g>
+<g><title>100k ReCom ensemble (publication-grade) [L2:v0_1_mcmc_ensemble_100k]</title><rect x="588.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="593.0" y="491" font-size="8" fill="#222">100k ReCom ensemble</text>
+<text x="593.0" y="500" font-size="8" fill="#222">(publication-grade)</text>
+</g>
+<g><title>Full-coverage MCMC rescore [L2:v0_1_mcmc_full_coverage_rescore]</title><rect x="180.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="185.0" y="641" font-size="8" fill="#222">Full-coverage MCMC rescore</text>
+</g>
+<g><title>Full-coverage MCMC rescore (100k) [L2:v0_1_mcmc_full_coverage_rescore_100k]</title><rect x="452.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="457.0" y="491" font-size="8" fill="#222">Full-coverage MCMC rescore</text>
+<text x="457.0" y="500" font-size="8" fill="#222">(100k)</text>
+</g>
+<g><title>Full-coverage MCMC rescore v2 (spatial substrate) [L2:v0_1_mcmc_full_coverage_rescore_v2]</title><rect x="1268.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1273.0" y="691" font-size="8" fill="#222">Full-coverage MCMC rescore</text>
+<text x="1273.0" y="700" font-size="8" fill="#222">v2 (spatial substrate)</text>
+</g>
+<g><title>Multi-chain MCMC (3-seed R-hat) [L2:v0_1_mcmc_multichain_ensemble]</title><rect x="180.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="185.0" y="591" font-size="8" fill="#222">Multi-chain MCMC (3-seed</text>
+<text x="185.0" y="600" font-size="8" fill="#222">R-hat)</text>
+</g>
+<g><title>Municipal-boundary anchoring (v0_2 → v0_4) [L2:v0_1_municipal_anchoring]</title><rect x="1540.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1545.0" y="491" font-size="8" fill="#222">Municipal-boundary</text>
+<text x="1545.0" y="500" font-size="8" fill="#222">anchoring (v0_2 → v0_4)</text>
+</g>
+<g><title>Overlap-zone diagnostic [L2:v0_1_overlap_zone_diagnostic]</title><rect x="724.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="729.0" y="641" font-size="8" fill="#222">Overlap-zone diagnostic</text>
+</g>
+<g><title>Phase 4B/C/D/E/F execution pipeline [L2:v0_1_phase_4bcdef_execution]</title><rect x="180.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="185.0" y="491" font-size="8" fill="#222">Phase 4B/C/D/E/F execution</text>
+<text x="185.0" y="500" font-size="8" fill="#222">pipeline</text>
+</g>
+<g><title>Phase 4B+4F execution on v0_5 DA-anchored substrate [L2:v0_1_phase_4bf_v05]</title><rect x="1268.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1273.0" y="641" font-size="8" fill="#222">Phase 4B+4F execution on</text>
+<text x="1273.0" y="650" font-size="8" fill="#222">v0_5 DA-anchored substrate</text>
+</g>
+<g><title>Phase 4C centroid-in-polygon attribution [L2:v0_1_phase_4c_va_attribution]</title><rect x="1404.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1409.0" y="691" font-size="8" fill="#222">Phase 4C</text>
+<text x="1409.0" y="700" font-size="8" fill="#222">centroid-in-polygon</text>
+<text x="1409.0" y="709" font-size="8" fill="#222">attribution</text>
+</g>
+<g><title>Phase 4C MAUP-v1 area-weighted attribution [L2:v0_1_phase_4c_va_attribution_maup]</title><rect x="1676.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1681.0" y="491" font-size="8" fill="#222">Phase 4C MAUP-v1</text>
+<text x="1681.0" y="500" font-size="8" fill="#222">area-weighted attribution</text>
+</g>
+<g><title>Phase 4C MAUP-v2 on v0_2 topology-clean DPG [L2:v0_1_phase_4c_va_attribution_maup_v2]</title><rect x="316.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="321.0" y="591" font-size="8" fill="#222">Phase 4C MAUP-v2 on v0_2</text>
+<text x="321.0" y="600" font-size="8" fill="#222">topology-clean DPG</text>
+</g>
+<g><title>Phase 4C MAUP-v3 on v0_5 DA-anchored DPG [L2:v0_1_phase_4c_va_attribution_maup_v3_v05]</title><rect x="452.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="457.0" y="591" font-size="8" fill="#222">Phase 4C MAUP-v3 on v0_5</text>
+<text x="457.0" y="600" font-size="8" fill="#222">DA-anchored DPG</text>
+</g>
+<g><title>Plan-B population rerun (2021 census / 2024 OSI / 2025 TBF) [L2:v0_1_plan_b_rerun]</title><rect x="1812.0" y="478" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1817.0" y="491" font-size="8" fill="#222">Plan-B population rerun</text>
+<text x="1817.0" y="500" font-size="8" fill="#222">(2021 census / 2024 OSI /</text>
+<text x="1817.0" y="509" font-size="8" fill="#222">2025 TBF)</text>
+</g>
+<g><title>Poll-to-VA attribution skeleton [L2:v0_1_poll_attribution_skeleton]</title><rect x="1404.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1409.0" y="641" font-size="8" fill="#222">Poll-to-VA attribution</text>
+<text x="1409.0" y="650" font-size="8" fill="#222">skeleton</text>
+</g>
+<g><title>Rural gap dissection [L2:v0_1_rural_gap_dissection]</title><rect x="1540.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1545.0" y="641" font-size="8" fill="#222">Rural gap dissection</text>
+</g>
+<g><title>Shape refinement v1 [L2:v0_1_shape_refinement]</title><rect x="1812.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1817.0" y="641" font-size="8" fill="#222">Shape refinement v1</text>
+</g>
+<g><title>Shape refinement v2 [L2:v0_1_shape_refinement_v2]</title><rect x="1540.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1545.0" y="691" font-size="8" fill="#222">Shape refinement v2</text>
+</g>
+<g><title>Shape refinement v3 [L2:v0_1_shape_refinement_v3]</title><rect x="1676.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1681.0" y="691" font-size="8" fill="#222">Shape refinement v3</text>
+</g>
+<g><title>Shape refinement v4 [L2:v0_1_shape_refinement_v4]</title><rect x="1812.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1817.0" y="691" font-size="8" fill="#222">Shape refinement v4</text>
+</g>
+<g><title>Shape refinement v5 [L2:v0_1_shape_refinement_v5]</title><rect x="656.0" y="728" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="661.0" y="741" font-size="8" fill="#222">Shape refinement v5</text>
+</g>
+<g><title>Shape refinement v6 [L2:v0_1_shape_refinement_v6]</title><rect x="792.0" y="728" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="797.0" y="741" font-size="8" fill="#222">Shape refinement v6</text>
+</g>
+<g><title>Shape refinement v6 processors [L2:v0_1_shape_refinement_v6_processors]</title><rect x="928.0" y="728" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="933.0" y="741" font-size="8" fill="#222">Shape refinement v6</text>
+<text x="933.0" y="750" font-size="8" fill="#222">processors</text>
+</g>
+<g><title>Shape refinement v6 writer [L2:v0_1_shape_refinement_v6_writer]</title><rect x="1064.0" y="728" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1069.0" y="741" font-size="8" fill="#222">Shape refinement v6 writer</text>
+</g>
+<g><title>Submission OCR [L2:v0_1_submission_ocr]</title><rect x="44.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="49.0" y="691" font-size="8" fill="#222">Submission OCR</text>
+</g>
+<g><title>Submission OCR analyze [L2:v0_1_submission_ocr_analyze]</title><rect x="180.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="185.0" y="691" font-size="8" fill="#222">Submission OCR analyze</text>
+</g>
+<g><title>Tier-C crop generation [L2:v0_1_tier_c_crops]</title><rect x="452.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="457.0" y="691" font-size="8" fill="#222">Tier-C crop generation</text>
+</g>
+<g><title>Topology cleanup (v0_1 → v0_2) [L2:v0_1_topology_cleanup]</title><rect x="588.0" y="678" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="593.0" y="691" font-size="8" fill="#222">Topology cleanup (v0_1 →</text>
+<text x="593.0" y="700" font-size="8" fill="#222">v0_2)</text>
+</g>
+<g><title>Track-L population-drift analysis [L2:v0_1_track_l_drift]</title><rect x="724.0" y="578" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="729.0" y="591" font-size="8" fill="#222">Track-L population-drift</text>
+<text x="729.0" y="600" font-size="8" fill="#222">analysis</text>
+</g>
+<g><title>URL archival (Wayback + archive.ph) [L2:v0_1_url_archival]</title><rect x="1200.0" y="728" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1205.0" y="741" font-size="8" fill="#222">URL archival (Wayback +</text>
+<text x="1205.0" y="750" font-size="8" fill="#222">archive.ph)</text>
+</g>
+<g><title>v0_2 packing/cracking analysis (symmetric 3-map B2/B3/B4) [L2:v0_2_packing_cracking_analysis]</title><rect x="44.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="49.0" y="541" font-size="8" fill="#222">v0_2 packing/cracking</text>
+<text x="49.0" y="550" font-size="8" fill="#222">analysis (symmetric 3-map</text>
+<text x="49.0" y="559" font-size="8" fill="#222">B2/B3/B4)</text>
+</g>
+<g><title>v0_3 Monte Carlo CI (B-family 2000-sample sensitivity) [L2:v0_3_monte_carlo_ci]</title><rect x="180.0" y="528" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="185.0" y="541" font-size="8" fill="#222">v0_3 Monte Carlo CI</text>
+<text x="185.0" y="550" font-size="8" fill="#222">(B-family 2000-sample</text>
+<text x="185.0" y="559" font-size="8" fill="#222">sensitivity)</text>
+</g>
+<g><title>Shape derivation v7 (minority 89-ED derived set) [L2:v0_1_shape_derivation_v7]</title><rect x="1676.0" y="628" width="128" height="42" rx="5" fill="#fce4a7" stroke="#b57c1b" stroke-width="1" />
+<text x="1681.0" y="641" font-size="8" fill="#222">Shape derivation v7</text>
+<text x="1681.0" y="650" font-size="8" fill="#222">(minority 89-ED derived</text>
+<text x="1681.0" y="659" font-size="8" fill="#222">set)</text>
+</g>
+<g><title>§5.1.1 — A1 — Majority 2026 MAD = 3,180 [L3:finding.a1_mad_majority_3180]</title><rect x="860.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="865.0" y="985" font-size="8" fill="#222">§5.1.1 — A1 — Majority</text>
+<text x="865.0" y="994" font-size="8" fill="#222">2026 MAD = 3,180</text>
+</g>
+<g><title>§5.1.1 — A1 — Minority 2026 MAD = 4,707 (48% wider than majority) [L3:finding.a1_mad_minority_4707]</title><rect x="996.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1001.0" y="985" font-size="8" fill="#222">§5.1.1 — A1 — Minority</text>
+<text x="1001.0" y="994" font-size="8" fill="#222">2026 MAD = 4,707 (48%</text>
+<text x="1001.0" y="1003" font-size="8" fill="#222">wider than majority)</text>
+</g>
+<g><title>§5.1.1 — A1 — Minority has 5 EDs above +15% from mean (majority has 0) [L3:finding.a1_positive_tail_minority]</title><rect x="1132.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1137.0" y="985" font-size="8" fill="#222">§5.1.1 — A1 — Minority has</text>
+<text x="1137.0" y="994" font-size="8" fill="#222">5 EDs above +15% from mean</text>
+<text x="1137.0" y="1003" font-size="8" fill="#222">(majority has 0)</text>
+</g>
+<g><title>§5.1.1 — A1 — All §5.1 verdicts identical under 2021 census / 2024 OSI / 2025 TBF bases [L3:finding.a1_plan_b_robustness]</title><rect x="588.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="593.0" y="835" font-size="8" fill="#222">§5.1.1 — A1 — All §5.1</text>
+<text x="593.0" y="844" font-size="8" fill="#222">verdicts identical under</text>
+<text x="593.0" y="853" font-size="8" fill="#222">2021 census / 2024 OSI /</text>
+<text x="593.0" y="862" font-size="8" fill="#222">2025 TBF bases</text>
+</g>
+<g><title>§5.1.2 — A2 — Majority Calgary Zone A-vs-B gap = +0.36% [L3:finding.a2_calgary_majority_0_36]</title><rect x="1268.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1273.0" y="985" font-size="8" fill="#222">§5.1.2 — A2 — Majority</text>
+<text x="1273.0" y="994" font-size="8" fill="#222">Calgary Zone A-vs-B gap =</text>
+<text x="1273.0" y="1003" font-size="8" fill="#222">+0.36%</text>
+</g>
+<g><title>§5.1.2 — A2 — Minority Calgary Zone A-vs-B gap = +12.20% [L3:finding.a2_calgary_minority_12_20]</title><rect x="1404.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1409.0" y="985" font-size="8" fill="#222">§5.1.2 — A2 — Minority</text>
+<text x="1409.0" y="994" font-size="8" fill="#222">Calgary Zone A-vs-B gap =</text>
+<text x="1409.0" y="1003" font-size="8" fill="#222">+12.20%</text>
+</g>
+<g><title>§5.1.2 — A2 — Minority Calgary gap 7.71% under 2023-winner-based rule (G4 robustness) [L3:finding.a2_calgary_minority_robustness_7_71]</title><rect x="588.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="593.0" y="885" font-size="8" fill="#222">§5.1.2 — A2 — Minority</text>
+<text x="593.0" y="894" font-size="8" fill="#222">Calgary gap 7.71% under</text>
+<text x="593.0" y="903" font-size="8" fill="#222">2023-winner-based rule (G4</text>
+<text x="593.0" y="912" font-size="8" fill="#222">robustness)</text>
+</g>
+<g><title>§5.1.3 — A2b — Minority rest-of-province mean 50,336 (3.9% lower than majority) [L3:finding.a2b_rural_minority_smaller]</title><rect x="1540.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1545.0" y="985" font-size="8" fill="#222">§5.1.3 — A2b — Minority</text>
+<text x="1545.0" y="994" font-size="8" fill="#222">rest-of-province mean</text>
+<text x="1545.0" y="1003" font-size="8" fill="#222">50,336 (3.9% lower than</text>
+<text x="1545.0" y="1012" font-size="8" fill="#222">majority)</text>
+</g>
+<g><title>§5.1.4 — A3 — All 6 s.15(2) invocations pass the 3-of-5 statutory threshold under corrected thresholds [L3:finding.a3_s15_2_all_pass]</title><rect x="724.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="729.0" y="885" font-size="8" fill="#222">§5.1.4 — A3 — All 6</text>
+<text x="729.0" y="894" font-size="8" fill="#222">s.15(2) invocations pass</text>
+<text x="729.0" y="903" font-size="8" fill="#222">the 3-of-5 statutory</text>
+<text x="729.0" y="912" font-size="8" fill="#222">threshold under corrected</text>
+<text x="729.0" y="921" font-size="8" fill="#222">thresholds</text>
+</g>
+<g><title>§5.1.4/5.3.3 — Engineered-boundary signature: RMH-Banff Park (park extension chosen over populated alternatives) [L3:finding.a3_rmh_banff_engineered]</title><rect x="1540.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1545.0" y="935" font-size="8" fill="#222">§5.1.4/5.3.3 —</text>
+<text x="1545.0" y="944" font-size="8" fill="#222">Engineered-boundary</text>
+<text x="1545.0" y="953" font-size="8" fill="#222">signature: RMH-Banff Park</text>
+<text x="1545.0" y="962" font-size="8" fill="#222">(park extension chosen</text>
+<text x="1545.0" y="971" font-size="8" fill="#222">over populated</text>
+</g>
+<g><title>§5.2.1 — B2 — 2019 baseline efficiency gap = −2.64% [L3:finding.b2_eg_2019_minus_2_64]</title><rect x="1812.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1817.0" y="985" font-size="8" fill="#222">§5.2.1 — B2 — 2019</text>
+<text x="1817.0" y="994" font-size="8" fill="#222">baseline efficiency gap =</text>
+<text x="1817.0" y="1003" font-size="8" fill="#222">−2.64%</text>
+</g>
+<g><title>§5.2.1 — B2 — Majority 2026 efficiency gap = −1.29% (central w=0.85) [L3:finding.b2_eg_majority_minus_1_29]</title><rect x="996.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1001.0" y="885" font-size="8" fill="#222">§5.2.1 — B2 — Majority</text>
+<text x="1001.0" y="894" font-size="8" fill="#222">2026 efficiency gap =</text>
+<text x="1001.0" y="903" font-size="8" fill="#222">−1.29% (central w=0.85)</text>
+</g>
+<g><title>§5.2.1 — B2 — Minority 2026 efficiency gap = −2.71% (central w=0.85) [L3:finding.b2_eg_minority_minus_2_71]</title><rect x="1132.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1137.0" y="885" font-size="8" fill="#222">§5.2.1 — B2 — Minority</text>
+<text x="1137.0" y="894" font-size="8" fill="#222">2026 efficiency gap =</text>
+<text x="1137.0" y="903" font-size="8" fill="#222">−2.71% (central w=0.85)</text>
+</g>
+<g><title>§5.2.1 — B2 — Minority-majority EG asymmetry = −1.42 pp at central weight (crosswalk reading) [L3:finding.b2_asymmetry_minus_1_42]</title><rect x="1268.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1273.0" y="885" font-size="8" fill="#222">§5.2.1 — B2 —</text>
+<text x="1273.0" y="894" font-size="8" fill="#222">Minority-majority EG</text>
+<text x="1273.0" y="903" font-size="8" fill="#222">asymmetry = −1.42 pp at</text>
+<text x="1273.0" y="912" font-size="8" fill="#222">central weight (crosswalk</text>
+<text x="1273.0" y="921" font-size="8" fill="#222">reading)</text>
+</g>
+<g><title>§5.2.2 — B2 — Sensitivity range 0.49–1.50 pp across urban weights 0.60-0.90 [L3:finding.b2_eg_sensitivity_range_0_49_1_50]</title><rect x="1404.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1409.0" y="885" font-size="8" fill="#222">§5.2.2 — B2 — Sensitivity</text>
+<text x="1409.0" y="894" font-size="8" fill="#222">range 0.49–1.50 pp across</text>
+<text x="1409.0" y="903" font-size="8" fill="#222">urban weights 0.60-0.90</text>
+</g>
+<g><title>§5.2.1 — Canadian redistribution base-rate — Alberta 2025-26 at 67th percentile of n=6 comparator [L3:finding.b2_canadian_base_rate_67th]</title><rect x="316.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="321.0" y="935" font-size="8" fill="#222">§5.2.1 — Canadian</text>
+<text x="321.0" y="944" font-size="8" fill="#222">redistribution base-rate —</text>
+<text x="321.0" y="953" font-size="8" fill="#222">Alberta 2025-26 at 67th</text>
+<text x="321.0" y="962" font-size="8" fill="#222">percentile of n=6</text>
+<text x="321.0" y="971" font-size="8" fill="#222">comparator</text>
+</g>
+<g><title>§5.2.1 — B3 — Majority 2026 mean-median gap = −0.16 pp [L3:finding.b3_mean_median_majority]</title><rect x="1540.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1545.0" y="885" font-size="8" fill="#222">§5.2.1 — B3 — Majority</text>
+<text x="1545.0" y="894" font-size="8" fill="#222">2026 mean-median gap =</text>
+<text x="1545.0" y="903" font-size="8" fill="#222">−0.16 pp</text>
+</g>
+<g><title>§5.2.1 — B3 — Minority 2026 mean-median gap = −0.34 pp [L3:finding.b3_mean_median_minority]</title><rect x="1676.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1681.0" y="885" font-size="8" fill="#222">§5.2.1 — B3 — Minority</text>
+<text x="1681.0" y="894" font-size="8" fill="#222">2026 mean-median gap =</text>
+<text x="1681.0" y="903" font-size="8" fill="#222">−0.34 pp</text>
+</g>
+<g><title>§5.2.1 — B4 — Majority 2026 NDP seats at 50/50 uniform swing = 44 [L3:finding.b4_seats_at_50_majority]</title><rect x="1812.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1817.0" y="885" font-size="8" fill="#222">§5.2.1 — B4 — Majority</text>
+<text x="1817.0" y="894" font-size="8" fill="#222">2026 NDP seats at 50/50</text>
+<text x="1817.0" y="903" font-size="8" fill="#222">uniform swing = 44</text>
+</g>
+<g><title>§5.2.1 — B4 — Minority 2026 NDP seats at 50/50 = 42 [L3:finding.b4_seats_at_50_minority]</title><rect x="44.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="49.0" y="935" font-size="8" fill="#222">§5.2.1 — B4 — Minority</text>
+<text x="49.0" y="944" font-size="8" fill="#222">2026 NDP seats at 50/50 =</text>
+<text x="49.0" y="953" font-size="8" fill="#222">42</text>
+</g>
+<g><title>§5.2.4 — B6 — Declination shows minority is least UCP-favourable (disagrees with B2/B3/B4) [L3:finding.b6_declination_minority_lowest]</title><rect x="180.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="185.0" y="935" font-size="8" fill="#222">§5.2.4 — B6 — Declination</text>
+<text x="185.0" y="944" font-size="8" fill="#222">shows minority is least</text>
+<text x="185.0" y="953" font-size="8" fill="#222">UCP-favourable (disagrees</text>
+<text x="185.0" y="962" font-size="8" fill="#222">with B2/B3/B4)</text>
+</g>
+<g><title>§5.2.3 — B2 — 95% Monte Carlo CI [−3.04, +0.76] pp (crosses zero); 90.5% same sign [L3:finding.b2_monte_carlo_ci_crosses_zero]</title><rect x="860.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="865.0" y="885" font-size="8" fill="#222">§5.2.3 — B2 — 95% Monte</text>
+<text x="865.0" y="894" font-size="8" fill="#222">Carlo CI [−3.04, +0.76] pp</text>
+<text x="865.0" y="903" font-size="8" fill="#222">(crosses zero); 90.5% same</text>
+<text x="865.0" y="912" font-size="8" fill="#222">sign</text>
+</g>
+<g><title>§5.2.3 — B2 — Direction flips to +0.75 pp under 2019 votes; near-zero under 2015 votes [L3:finding.b2_reversal_2019_votes]</title><rect x="996.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1001.0" y="835" font-size="8" fill="#222">§5.2.3 — B2 — Direction</text>
+<text x="1001.0" y="844" font-size="8" fill="#222">flips to +0.75 pp under</text>
+<text x="1001.0" y="853" font-size="8" fill="#222">2019 votes; near-zero</text>
+<text x="1001.0" y="862" font-size="8" fill="#222">under 2015 votes</text>
+</g>
+<g><title>§5.2.3 — B-family — 1-seat gap direction is state-dependent (UCP-landslide flips it) [L3:finding.b_338_direction_state_dependent]</title><rect x="860.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="865.0" y="835" font-size="8" fill="#222">§5.2.3 — B-family — 1-seat</text>
+<text x="865.0" y="844" font-size="8" fill="#222">gap direction is</text>
+<text x="865.0" y="853" font-size="8" fill="#222">state-dependent</text>
+<text x="865.0" y="862" font-size="8" fill="#222">(UCP-landslide flips it)</text>
+</g>
+<g><title>§5.2.3 — B — Byelection coverage too sparse + candidate-specific to enter RT3 (6 of 87 EDs) [L3:finding.b_byelection_assessment]</title><rect x="1676.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1681.0" y="1035" font-size="8" fill="#222">§5.2.3 — B — Byelection</text>
+<text x="1681.0" y="1044" font-size="8" fill="#222">coverage too sparse +</text>
+<text x="1681.0" y="1053" font-size="8" fill="#222">candidate-specific to</text>
+<text x="1681.0" y="1062" font-size="8" fill="#222">enter RT3 (6 of 87 EDs)</text>
+</g>
+<g><title>§5.2.5 — Chen-Rodden direction prediction validates for Alberta (2019 baseline at centre of neutral distribution) [L3:finding.b2_chen_rodden_direction_validated]</title><rect x="588.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="593.0" y="935" font-size="8" fill="#222">§5.2.5 — Chen-Rodden</text>
+<text x="593.0" y="944" font-size="8" fill="#222">direction prediction</text>
+<text x="593.0" y="953" font-size="8" fill="#222">validates for Alberta</text>
+<text x="593.0" y="962" font-size="8" fill="#222">(2019 baseline at centre</text>
+<text x="593.0" y="971" font-size="8" fill="#222">of neutral distribution)</text>
+</g>
+<g><title>§5.2.5 — Chen-Rodden mechanism prediction fails: UCP is the more-packed party (15.9% vs 9.3% surplus) [L3:finding.b2_chen_rodden_mechanism_fails]</title><rect x="180.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="185.0" y="1035" font-size="8" fill="#222">§5.2.5 — Chen-Rodden</text>
+<text x="185.0" y="1044" font-size="8" fill="#222">mechanism prediction</text>
+<text x="185.0" y="1053" font-size="8" fill="#222">fails: UCP is the</text>
+<text x="185.0" y="1062" font-size="8" fill="#222">more-packed party (15.9%</text>
+<text x="185.0" y="1071" font-size="8" fill="#222">vs 9.3% surplus)</text>
+</g>
+<g><title>§5.2.5 — Chen-Rodden pairwise decomposition — minority-vs-majority gap is 100% drawing, 0% geography [L3:finding.b2_chen_rodden_pairwise_100_drawing]</title><rect x="724.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="729.0" y="935" font-size="8" fill="#222">§5.2.5 — Chen-Rodden</text>
+<text x="729.0" y="944" font-size="8" fill="#222">pairwise decomposition —</text>
+<text x="729.0" y="953" font-size="8" fill="#222">minority-vs-majority gap</text>
+<text x="729.0" y="962" font-size="8" fill="#222">is 100% drawing, 0%</text>
+<text x="729.0" y="971" font-size="8" fill="#222">geography</text>
+</g>
+<g><title>§5.2.5 — Absolute Chen-Rodden EG drawing components: 2019 −4.12, Majority −3.81, Minority +0.34 pp [L3:finding.b2_chen_rodden_absolute_draw_components]</title><rect x="724.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="729.0" y="835" font-size="8" fill="#222">§5.2.5 — Absolute</text>
+<text x="729.0" y="844" font-size="8" fill="#222">Chen-Rodden EG drawing</text>
+<text x="729.0" y="853" font-size="8" fill="#222">components: 2019 −4.12,</text>
+<text x="729.0" y="862" font-size="8" fill="#222">Majority −3.81, Minority</text>
+<text x="729.0" y="871" font-size="8" fill="#222">+0.34 pp</text>
+</g>
+<g><title>§5.2.5 — Minority adds +5.75 pp NDP responsiveness at 50/50 via asymmetric drawing [L3:finding.b2_chen_rodden_minority_seats_5_75]</title><rect x="588.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="593.0" y="1035" font-size="8" fill="#222">§5.2.5 — Minority adds</text>
+<text x="593.0" y="1044" font-size="8" fill="#222">+5.75 pp NDP</text>
+<text x="593.0" y="1053" font-size="8" fill="#222">responsiveness at 50/50</text>
+<text x="593.0" y="1062" font-size="8" fill="#222">via asymmetric drawing</text>
+</g>
+<g><title>§5.2.6 — 1.5 pp uniform swing flips 6 seats toward UCP + 4 toward NDP on 2023 results [L3:finding.b_marginal_seats_1_5pp_swing]</title><rect x="316.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="321.0" y="885" font-size="8" fill="#222">§5.2.6 — 1.5 pp uniform</text>
+<text x="321.0" y="894" font-size="8" fill="#222">swing flips 6 seats toward</text>
+<text x="321.0" y="903" font-size="8" fill="#222">UCP + 4 toward NDP on 2023</text>
+<text x="321.0" y="912" font-size="8" fill="#222">results</text>
+</g>
+<g><title>§5.2.6 — 14 of 87 ridings within 3 pp two-party margin in 2023 [L3:finding.b_marginal_seats_14_of_87]</title><rect x="724.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="729.0" y="985" font-size="8" fill="#222">§5.2.6 — 14 of 87 ridings</text>
+<text x="729.0" y="994" font-size="8" fill="#222">within 3 pp two-party</text>
+<text x="729.0" y="1003" font-size="8" fill="#222">margin in 2023</text>
+</g>
+<g><title>§5.2.7 — Crosswalk reading — minority-majority asymmetry = −1.42 pp (minority more UCP-favourable) [L3:finding.b2_crosswalk_reading]</title><rect x="1132.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1137.0" y="935" font-size="8" fill="#222">§5.2.7 — Crosswalk reading</text>
+<text x="1137.0" y="944" font-size="8" fill="#222">— minority-majority</text>
+<text x="1137.0" y="953" font-size="8" fill="#222">asymmetry = −1.42 pp</text>
+<text x="1137.0" y="962" font-size="8" fill="#222">(minority more</text>
+<text x="1137.0" y="971" font-size="8" fill="#222">UCP-favourable)</text>
+</g>
+<g><title>§5.2.7 — High-resolution spatial reading — asymmetry = +4.15 pp (minority more NDP-favourable) [L3:finding.b2_spatial_reading_positive_4_15]</title><rect x="1676.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1681.0" y="935" font-size="8" fill="#222">§5.2.7 — High-resolution</text>
+<text x="1681.0" y="944" font-size="8" fill="#222">spatial reading —</text>
+<text x="1681.0" y="953" font-size="8" fill="#222">asymmetry = +4.15 pp</text>
+<text x="1681.0" y="962" font-size="8" fill="#222">(minority more</text>
+<text x="1681.0" y="971" font-size="8" fill="#222">NDP-favourable)</text>
+</g>
+<g><title>§5.2.7 — MAUP-v1 −1.12 pp → +3.35 pp under topology cleanup (artefact exposed) [L3:finding.b2_maup_v1_topology_artefact]</title><rect x="1540.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1545.0" y="835" font-size="8" fill="#222">§5.2.7 — MAUP-v1 −1.12 pp</text>
+<text x="1545.0" y="844" font-size="8" fill="#222">→ +3.35 pp under topology</text>
+<text x="1545.0" y="853" font-size="8" fill="#222">cleanup (artefact exposed)</text>
+</g>
+<g><title>§5.2.7 — Topology cleanup — 2,754 km² majority / 16,734 km² minority inter-ED overlap (96 pairs) [L3:finding.b2_topology_cleanup_overlap_km2]</title><rect x="180.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="185.0" y="885" font-size="8" fill="#222">§5.2.7 — Topology cleanup</text>
+<text x="185.0" y="894" font-size="8" fill="#222">— 2,754 km² majority /</text>
+<text x="185.0" y="903" font-size="8" fill="#222">16,734 km² minority</text>
+<text x="185.0" y="912" font-size="8" fill="#222">inter-ED overlap (96</text>
+<text x="185.0" y="921" font-size="8" fill="#222">pairs)</text>
+</g>
+<g><title>§5.2.7 — DPG perturbation flat-±500m 90% CI [+1.69, +7.67] pp (200/200 positive) [L3:finding.b2_perturbation_flat_ci]</title><rect x="1268.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1273.0" y="935" font-size="8" fill="#222">§5.2.7 — DPG perturbation</text>
+<text x="1273.0" y="944" font-size="8" fill="#222">flat-±500m 90% CI [+1.69,</text>
+<text x="1273.0" y="953" font-size="8" fill="#222">+7.67] pp (200/200</text>
+<text x="1273.0" y="962" font-size="8" fill="#222">positive)</text>
+</g>
+<g><title>§5.2.7 — DPG perturbation tier-aware 90% CI [+2.76, +7.62] pp (200/200 positive) [L3:finding.b2_perturbation_tiered_ci]</title><rect x="1404.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1409.0" y="935" font-size="8" fill="#222">§5.2.7 — DPG perturbation</text>
+<text x="1409.0" y="944" font-size="8" fill="#222">tier-aware 90% CI [+2.76,</text>
+<text x="1409.0" y="953" font-size="8" fill="#222">+7.62] pp (200/200</text>
+<text x="1409.0" y="962" font-size="8" fill="#222">positive)</text>
+</g>
+<g><title>§5.2.7 — DPG perturbation tight tier-aware 90% CI [+2.89, +6.48] pp [L3:finding.b2_perturbation_tight_ci]</title><rect x="316.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="321.0" y="1035" font-size="8" fill="#222">§5.2.7 — DPG perturbation</text>
+<text x="321.0" y="1044" font-size="8" fill="#222">tight tier-aware 90% CI</text>
+<text x="321.0" y="1053" font-size="8" fill="#222">[+2.89, +6.48] pp</text>
+</g>
+<g><title>§5.2.7 — v0_5 DA-anchored MAUP rerun — sign flip to −3.64 pp (DPG-construction dominant) [L3:finding.b2_v05_signflip]</title><rect x="452.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="457.0" y="835" font-size="8" fill="#222">§5.2.7 — v0_5 DA-anchored</text>
+<text x="457.0" y="844" font-size="8" fill="#222">MAUP rerun — sign flip to</text>
+<text x="457.0" y="853" font-size="8" fill="#222">−3.64 pp (DPG-construction</text>
+<text x="457.0" y="862" font-size="8" fill="#222">dominant)</text>
+</g>
+<g><title>§5.2.7 — Commission-map DPI ceiling — native 300-388 DPI is bottleneck, not scan resolution [L3:finding.b2_dpi_ceiling]</title><rect x="1268.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1273.0" y="835" font-size="8" fill="#222">§5.2.7 — Commission-map</text>
+<text x="1273.0" y="844" font-size="8" fill="#222">DPI ceiling — native</text>
+<text x="1273.0" y="853" font-size="8" fill="#222">300-388 DPI is bottleneck,</text>
+<text x="1273.0" y="862" font-size="8" fill="#222">not scan resolution</text>
+</g>
+<g><title>§5.2.7 — Core-vs-Margin insulation test — disagreement is systematic, not a swing-VA artefact [L3:finding.b2_core_margin_insulation]</title><rect x="996.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1001.0" y="935" font-size="8" fill="#222">§5.2.7 — Core-vs-Margin</text>
+<text x="1001.0" y="944" font-size="8" fill="#222">insulation test —</text>
+<text x="1001.0" y="953" font-size="8" fill="#222">disagreement is</text>
+<text x="1001.0" y="962" font-size="8" fill="#222">systematic, not a swing-VA</text>
+<text x="1001.0" y="971" font-size="8" fill="#222">artefact</text>
+</g>
+<g><title>§5.3.1 — Packing signature detected — Minority Calgary Zone A (P1/P2/P3 pass) [L3:finding.packing_minority_calgary_zone_a]</title><rect x="1812.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1817.0" y="835" font-size="8" fill="#222">§5.3.1 — Packing signature</text>
+<text x="1817.0" y="844" font-size="8" fill="#222">detected — Minority</text>
+<text x="1817.0" y="853" font-size="8" fill="#222">Calgary Zone A (P1/P2/P3</text>
+<text x="1817.0" y="862" font-size="8" fill="#222">pass)</text>
+</g>
+<g><title>§5.3.1 — Packing signature NOT detected on majority Calgary (P1 fails) [L3:finding.packing_not_majority_calgary]</title><rect x="44.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="49.0" y="985" font-size="8" fill="#222">§5.3.1 — Packing signature</text>
+<text x="49.0" y="994" font-size="8" fill="#222">NOT detected on majority</text>
+<text x="49.0" y="1003" font-size="8" fill="#222">Calgary (P1 fails)</text>
+</g>
+<g><title>§5.3.2 — Cracking signature detected — Minority Airdrie 4-way split (C1/C2/C3 pass) [L3:finding.cracking_minority_airdrie]</title><rect x="1404.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1409.0" y="835" font-size="8" fill="#222">§5.3.2 — Cracking</text>
+<text x="1409.0" y="844" font-size="8" fill="#222">signature detected —</text>
+<text x="1409.0" y="853" font-size="8" fill="#222">Minority Airdrie 4-way</text>
+<text x="1409.0" y="862" font-size="8" fill="#222">split (C1/C2/C3 pass)</text>
+</g>
+<g><title>§5.3.2 — Cochrane cracking-adjacent: C1/C2 pass, C3 fails (pattern but not formal signature) [L3:finding.cracking_cochrane_c3_fails]</title><rect x="860.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="865.0" y="935" font-size="8" fill="#222">§5.3.2 — Cochrane</text>
+<text x="865.0" y="944" font-size="8" fill="#222">cracking-adjacent: C1/C2</text>
+<text x="865.0" y="953" font-size="8" fill="#222">pass, C3 fails (pattern</text>
+<text x="865.0" y="962" font-size="8" fill="#222">but not formal signature)</text>
+</g>
+<g><title>§5.3.4 — Three formal signatures, all concentrated in minority map (majority detects zero) [L3:finding.signatures_summary_three_minority]</title><rect x="588.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="593.0" y="985" font-size="8" fill="#222">§5.3.4 — Three formal</text>
+<text x="593.0" y="994" font-size="8" fill="#222">signatures, all</text>
+<text x="593.0" y="1003" font-size="8" fill="#222">concentrated in minority</text>
+<text x="593.0" y="1012" font-size="8" fill="#222">map (majority detects</text>
+<text x="593.0" y="1021" font-size="8" fill="#222">zero)</text>
+</g>
+<g><title>§5.4 — Minority 2026 at p95.35 on mean-median (UCP-favoured tail, ESS-downgraded) [L3:finding.mcmc_minority_mean_median_p95]</title><rect x="1676.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1681.0" y="835" font-size="8" fill="#222">§5.4 — Minority 2026 at</text>
+<text x="1681.0" y="844" font-size="8" fill="#222">p95.35 on mean-median</text>
+<text x="1681.0" y="853" font-size="8" fill="#222">(UCP-favoured tail,</text>
+<text x="1681.0" y="862" font-size="8" fill="#222">ESS-downgraded)</text>
+</g>
+<g><title>§5.4 — Minority 2026 at p1.6 on declination (NDP-favoured tail) [L3:finding.mcmc_minority_declination_p1_6]</title><rect x="1812.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1817.0" y="935" font-size="8" fill="#222">§5.4 — Minority 2026 at</text>
+<text x="1817.0" y="944" font-size="8" fill="#222">p1.6 on declination</text>
+<text x="1817.0" y="953" font-size="8" fill="#222">(NDP-favoured tail)</text>
+</g>
+<g><title>§5.4 — Ensemble median mean-median = −0.019, seats-at-50/50 = 0.448 — structural UCP floor [L3:finding.mcmc_structural_floor]</title><rect x="452.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="457.0" y="1035" font-size="8" fill="#222">§5.4 — Ensemble median</text>
+<text x="457.0" y="1044" font-size="8" fill="#222">mean-median = −0.019,</text>
+<text x="457.0" y="1053" font-size="8" fill="#222">seats-at-50/50 = 0.448 —</text>
+<text x="457.0" y="1062" font-size="8" fill="#222">structural UCP floor</text>
+</g>
+<g><title>§5.4 — Multi-chain R-hat &lt; 1.01 on 3/4 metrics, 1.0099 on mean-median (strict publication-grade) [L3:finding.mcmc_multichain_rhat]</title><rect x="724.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="729.0" y="1035" font-size="8" fill="#222">§5.4 — Multi-chain R-hat &lt;</text>
+<text x="729.0" y="1044" font-size="8" fill="#222">1.01 on 3/4 metrics,</text>
+<text x="729.0" y="1053" font-size="8" fill="#222">1.0099 on mean-median</text>
+<text x="729.0" y="1062" font-size="8" fill="#222">(strict publication-grade)</text>
+</g>
+<g><title>§5.4 — Tail claims downgraded — ESS ~150 per metric bounds p100/p1.6 to p95.35/p2.5 [L3:finding.mcmc_ess_150_downgrade]</title><rect x="1404.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1409.0" y="1035" font-size="8" fill="#222">§5.4 — Tail claims</text>
+<text x="1409.0" y="1044" font-size="8" fill="#222">downgraded — ESS ~150 per</text>
+<text x="1409.0" y="1053" font-size="8" fill="#222">metric bounds p100/p1.6 to</text>
+<text x="1409.0" y="1062" font-size="8" fill="#222">p95.35/p2.5</text>
+</g>
+<g><title>§5.4 — 10k-era 2019 mean-median + Majority seats-at-50/50 flags retracted under full-coverage rescore [L3:finding.mcmc_10k_flag_retraction]</title><rect x="452.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="457.0" y="885" font-size="8" fill="#222">§5.4 — 10k-era 2019</text>
+<text x="457.0" y="894" font-size="8" fill="#222">mean-median + Majority</text>
+<text x="457.0" y="903" font-size="8" fill="#222">seats-at-50/50 flags</text>
+<text x="457.0" y="912" font-size="8" fill="#222">retracted under</text>
+<text x="457.0" y="921" font-size="8" fill="#222">full-coverage rescore</text>
+</g>
+<g><title>§5.5 — Pre-registered checklist — minority has 3 signatures + MCMC outlier; majority has 0 [L3:finding.checklist_minority_3_sig_plus_mcmc]</title><rect x="180.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="185.0" y="985" font-size="8" fill="#222">§5.5 — Pre-registered</text>
+<text x="185.0" y="994" font-size="8" fill="#222">checklist — minority has 3</text>
+<text x="185.0" y="1003" font-size="8" fill="#222">signatures + MCMC outlier;</text>
+<text x="185.0" y="1012" font-size="8" fill="#222">majority has 0</text>
+</g>
+<g><title>§5.5 — Neither 2026 map crosses the sure-sign-gerrymander bar [L3:finding.checklist_neither_crosses_sure_sign]</title><rect x="860.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="865.0" y="1035" font-size="8" fill="#222">§5.5 — Neither 2026 map</text>
+<text x="865.0" y="1044" font-size="8" fill="#222">crosses the</text>
+<text x="865.0" y="1053" font-size="8" fill="#222">sure-sign-gerrymander bar</text>
+</g>
+<g><title>§5.6 — Symmetry counter-test 1 — Edmonton zone gap (+2.0 pp maj / +1.4 pp min) &lt;&lt; Calgary 12.2 pp [L3:finding.symmetry_edmonton_no_zone_gap]</title><rect x="452.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="457.0" y="985" font-size="8" fill="#222">§5.6 — Symmetry</text>
+<text x="457.0" y="994" font-size="8" fill="#222">counter-test 1 — Edmonton</text>
+<text x="457.0" y="1003" font-size="8" fill="#222">zone gap (+2.0 pp maj /</text>
+<text x="457.0" y="1012" font-size="8" fill="#222">+1.4 pp min) &lt;&lt; Calgary</text>
+<text x="457.0" y="1021" font-size="8" fill="#222">12.2 pp</text>
+</g>
+<g><title>§5.6 — Symmetry counter-test 2 — Lethbridge + Red Deer 4-way splits found in minority, 2-way in majority [L3:finding.symmetry_lethbridge_red_deer_4way]</title><rect x="44.0" y="872" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="49.0" y="885" font-size="8" fill="#222">§5.6 — Symmetry</text>
+<text x="49.0" y="894" font-size="8" fill="#222">counter-test 2 —</text>
+<text x="49.0" y="903" font-size="8" fill="#222">Lethbridge + Red Deer</text>
+<text x="49.0" y="912" font-size="8" fill="#222">4-way splits found in</text>
+<text x="49.0" y="921" font-size="8" fill="#222">minority, 2-way in</text>
+</g>
+<g><title>§5.7 — RT2 — B2/B3/B4 agree on direction; B6 declination opposes (mixed pass) [L3:finding.rt2_b_family_three_of_four]</title><rect x="316.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="321.0" y="985" font-size="8" fill="#222">§5.7 — RT2 — B2/B3/B4</text>
+<text x="321.0" y="994" font-size="8" fill="#222">agree on direction; B6</text>
+<text x="321.0" y="1003" font-size="8" fill="#222">declination opposes (mixed</text>
+<text x="321.0" y="1012" font-size="8" fill="#222">pass)</text>
+</g>
+<g><title>§5.7 — RT7 — MCMC outlier flag-pass on minority only [L3:finding.rt7_flag_pass_minority_only]</title><rect x="1132.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1137.0" y="1035" font-size="8" fill="#222">§5.7 — RT7 — MCMC outlier</text>
+<text x="1137.0" y="1044" font-size="8" fill="#222">flag-pass on minority only</text>
+</g>
+<g><title>§5.8.1/5.8.2 — Three visible spatial anomalies on minority (Nolan-Hill-Cochrane, RMH-Banff Park, Olds-TH-D) [L3:finding.c_visual_three_anomalies_minority]</title><rect x="1540.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1545.0" y="1035" font-size="8" fill="#222">§5.8.1/5.8.2 — Three</text>
+<text x="1545.0" y="1044" font-size="8" fill="#222">visible spatial anomalies</text>
+<text x="1545.0" y="1053" font-size="8" fill="#222">on minority</text>
+<text x="1545.0" y="1062" font-size="8" fill="#222">(Nolan-Hill-Cochrane,</text>
+<text x="1545.0" y="1071" font-size="8" fill="#222">RMH-Banff Park, Olds-TH-D)</text>
+</g>
+<g><title>§5.8.3 — Majority Calgary hybrids — no visible anomaly (symmetric check) [L3:finding.c_majority_calgary_symmetric]</title><rect x="860.0" y="1072" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="865.0" y="1085" font-size="8" fill="#222">§5.8.3 — Majority Calgary</text>
+<text x="865.0" y="1094" font-size="8" fill="#222">hybrids — no visible</text>
+<text x="865.0" y="1103" font-size="8" fill="#222">anomaly (symmetric check)</text>
+</g>
+<g><title>§5.8.4 — CSD-level split count — null symmetric across three maps (40-66 splits each) [L3:finding.c4_csd_splits_null_symmetric]</title><rect x="1132.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1137.0" y="835" font-size="8" fill="#222">§5.8.4 — CSD-level split</text>
+<text x="1137.0" y="844" font-size="8" fill="#222">count — null symmetric</text>
+<text x="1137.0" y="853" font-size="8" fill="#222">across three maps (40-66</text>
+<text x="1137.0" y="862" font-size="8" fill="#222">splits each)</text>
+</g>
+<g><title>§5.8.5 — Municipal-anchoring — majority 71.0% vs minority 14.5% (4.9× asymmetry) [L3:finding.c5_municipal_anchoring_asymmetry]</title><rect x="316.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="321.0" y="835" font-size="8" fill="#222">§5.8.5 —</text>
+<text x="321.0" y="844" font-size="8" fill="#222">Municipal-anchoring —</text>
+<text x="321.0" y="853" font-size="8" fill="#222">majority 71.0% vs minority</text>
+<text x="321.0" y="862" font-size="8" fill="#222">14.5% (4.9× asymmetry)</text>
+</g>
+<g><title>§5.8.5 — DA-anchoring extension — combined 79.6% majority vs 16.5% minority (5.1× asymmetry preserved) [L3:finding.c5_da_anchoring_extension]</title><rect x="180.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="185.0" y="835" font-size="8" fill="#222">§5.8.5 — DA-anchoring</text>
+<text x="185.0" y="844" font-size="8" fill="#222">extension — combined 79.6%</text>
+<text x="185.0" y="853" font-size="8" fill="#222">majority vs 16.5% minority</text>
+<text x="185.0" y="862" font-size="8" fill="#222">(5.1× asymmetry preserved)</text>
+</g>
+<g><title>§5.8.5 — Shared-schools community-of-interest claim refuted (R5 + R11); 20 of 21 minority hybrids cross school-division boundaries [L3:finding.c_shared_schools_refuted]</title><rect x="1268.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1273.0" y="1035" font-size="8" fill="#222">§5.8.5 — Shared-schools</text>
+<text x="1273.0" y="1044" font-size="8" fill="#222">community-of-interest</text>
+<text x="1273.0" y="1053" font-size="8" fill="#222">claim refuted (R5 + R11);</text>
+<text x="1273.0" y="1062" font-size="8" fill="#222">20 of 21 minority hybrids</text>
+<text x="1273.0" y="1071" font-size="8" fill="#222">cross school-division</text>
+</g>
+<g><title>§5.8.5 — Cochrane commuter-tie — partial support (35.8% commute to Calgary CY; sub-neighbourhood not testable) [L3:finding.c_cochrane_commuter_partial]</title><rect x="1812.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1817.0" y="1035" font-size="8" fill="#222">§5.8.5 — Cochrane</text>
+<text x="1817.0" y="1044" font-size="8" fill="#222">commuter-tie — partial</text>
+<text x="1817.0" y="1053" font-size="8" fill="#222">support (35.8% commute to</text>
+<text x="1817.0" y="1062" font-size="8" fill="#222">Calgary CY;</text>
+<text x="1817.0" y="1071" font-size="8" fill="#222">sub-neighbourhood not</text>
+</g>
+<g><title>§5.9.1 — Commission tabled divided final report (3-2, chair + opposition-nominated majority) [L3:finding.d_commission_3_2_split]</title><rect x="724.0" y="1072" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="729.0" y="1085" font-size="8" fill="#222">§5.9.1 — Commission tabled</text>
+<text x="729.0" y="1094" font-size="8" fill="#222">divided final report (3-2,</text>
+<text x="729.0" y="1103" font-size="8" fill="#222">chair +</text>
+<text x="729.0" y="1112" font-size="8" fill="#222">opposition-nominated</text>
+<text x="729.0" y="1121" font-size="8" fill="#222">majority)</text>
+</g>
+<g><title>§5.9.2 — Motion 19 passed 44-36 on April 16, 2026 — Select Committee established, no public hearings on draft [L3:finding.d_motion_19_passed]</title><rect x="996.0" y="1072" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1001.0" y="1085" font-size="8" fill="#222">§5.9.2 — Motion 19 passed</text>
+<text x="1001.0" y="1094" font-size="8" fill="#222">44-36 on April 16, 2026 —</text>
+<text x="1001.0" y="1103" font-size="8" fill="#222">Select Committee</text>
+<text x="1001.0" y="1112" font-size="8" fill="#222">established, no public</text>
+<text x="1001.0" y="1121" font-size="8" fill="#222">hearings on draft</text>
+</g>
+<g><title>§5.9.2 — R5 is chair Miller's personal recommendation, not commission-majority collective [L3:finding.d_r5_chair_only_not_majority]</title><rect x="996.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1001.0" y="1035" font-size="8" fill="#222">§5.9.2 — R5 is chair</text>
+<text x="1001.0" y="1044" font-size="8" fill="#222">Miller's personal</text>
+<text x="1001.0" y="1053" font-size="8" fill="#222">recommendation, not</text>
+<text x="1001.0" y="1062" font-size="8" fill="#222">commission-majority</text>
+<text x="1001.0" y="1071" font-size="8" fill="#222">collective</text>
+</g>
+<g><title>§5.9.3 — April 16 action is most government-controlled among 3 Canadian comparator cases [L3:finding.d_motion_19_most_gov_controlled]</title><rect x="1676.0" y="972" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1681.0" y="985" font-size="8" fill="#222">§5.9.3 — April 16 action</text>
+<text x="1681.0" y="994" font-size="8" fill="#222">is most</text>
+<text x="1681.0" y="1003" font-size="8" fill="#222">government-controlled</text>
+<text x="1681.0" y="1012" font-size="8" fill="#222">among 3 Canadian</text>
+<text x="1681.0" y="1021" font-size="8" fill="#222">comparator cases</text>
+</g>
+<g><title>§5.9.4 — Chair's 'no public support' Appendix C claim partially refuted (RMH-Banff, ODH, Chestermere) [L3:finding.d2_chair_claim_partially_refuted]</title><rect x="452.0" y="922" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="457.0" y="935" font-size="8" fill="#222">§5.9.4 — Chair's 'no</text>
+<text x="457.0" y="944" font-size="8" fill="#222">public support' Appendix C</text>
+<text x="457.0" y="953" font-size="8" fill="#222">claim partially refuted</text>
+<text x="457.0" y="962" font-size="8" fill="#222">(RMH-Banff, ODH,</text>
+<text x="457.0" y="971" font-size="8" fill="#222">Chestermere)</text>
+</g>
+<g><title>§5.9.4 — Chair claim stands for Airdrie 4-way + Nolan-Hill-Cochrane (no public support) [L3:finding.d2_airdrie_nolan_hill_no_support]</title><rect x="44.0" y="1022" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="49.0" y="1035" font-size="8" fill="#222">§5.9.4 — Chair claim</text>
+<text x="49.0" y="1044" font-size="8" fill="#222">stands for Airdrie 4-way +</text>
+<text x="49.0" y="1053" font-size="8" fill="#222">Nolan-Hill-Cochrane (no</text>
+<text x="49.0" y="1062" font-size="8" fill="#222">public support)</text>
+</g>
+<g><title>§5.9.5 — Reference re Saskatchewan effective-representation frame set out but not adjudicated [L3:finding.d5_effective_representation_not_adjudicated]</title><rect x="1132.0" y="1072" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="1137.0" y="1085" font-size="8" fill="#222">§5.9.5 — Reference re</text>
+<text x="1137.0" y="1094" font-size="8" fill="#222">Saskatchewan</text>
+<text x="1137.0" y="1103" font-size="8" fill="#222">effective-representation</text>
+<text x="1137.0" y="1112" font-size="8" fill="#222">frame set out but not</text>
+<text x="1137.0" y="1121" font-size="8" fill="#222">adjudicated</text>
+</g>
+<g><title>§6 — Synthesis — six independent dimensions point same direction (minority more UCP-favorable) [L3:finding.synthesis_six_dimensions]</title><rect x="44.0" y="822" width="128" height="42" rx="5" fill="#f2c6c6" stroke="#b3403a" stroke-width="1" />
+<text x="49.0" y="835" font-size="8" fill="#222">§6 — Synthesis — six</text>
+<text x="49.0" y="844" font-size="8" fill="#222">independent dimensions</text>
+<text x="49.0" y="853" font-size="8" fill="#222">point same direction</text>
+<text x="49.0" y="862" font-size="8" fill="#222">(minority more</text>
+<text x="49.0" y="871" font-size="8" fill="#222">UCP-favorable)</text>
+</g>
+<g font-size="10" transform="translate(20 1176)"><rect x="-4" y="-14" width="460" height="20" fill="white" opacity="0.7"/>
+<line x1="0" y1="0" x2="28" y2="0" stroke="#444444" stroke-width="2" /><text x="32" y="3" fill="#222">required</text>
+<line x1="140" y1="0" x2="168" y2="0" stroke="#2a7f2a" stroke-width="2" stroke-dasharray="6,4"/><text x="172" y="3" fill="#222">corroborating</text>
+<line x1="280" y1="0" x2="308" y2="0" stroke="#8a6200" stroke-width="2" stroke-dasharray="2,3"/><text x="312" y="3" fill="#222">validating</text>
+</g>
+</svg>
