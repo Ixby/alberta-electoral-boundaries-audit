@@ -10,7 +10,7 @@ Based on a review of the project's subfolders, here are four proposals to improv
 | **Phase A.2** — Chair-intent defamation softening | **ADDRESSED** (T0, commit d25e659) | `report_academic.md` §5.9.4 — "materially overstates the absence of public support"; objective-framing note |
 | **Phase A.3** — Rizzo Canadian citation format | **ADDRESSED** (T0, commit d25e659) | `report_academic.md` universal replacement: *Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 S.C.R. 27 |
 | **Phase B.1** — MCMC tail claims downgrade | **ADDRESSED** (T1, commit a62eb53) | `report_academic.md` §5.4 — explicit ESS-150 tail-downgrade paragraph; p100 / p1.6 bounded to p95.35 / p2.5; minority seats-at-50/50 retracted to p89.72 |
-| **Phase B.2** — E2 post-hoc reformulation disclosure | **DEFERRED** (T3 queue) | Not yet inline in §5.3.3; the reformulation is documented in `analysis/v0_1_claim_significance_analysis.md` but needs explicit paper-level disclosure |
+| **Phase B.2** — E2 post-hoc reformulation disclosure | **DEFERRED** (T3 queue) | Not yet inline in §5.3.3; the reformulation is documented in `analysis/reports/v0_1_claim_significance_analysis.md` but needs explicit paper-level disclosure |
 | **Phase B.3** — Geometric precision fallacy / DPG rebrand | **ADDRESSED** (T0, commit d25e659) | `report_academic.md` §4.1.4 — Derived Provisional Geometries disclosure with perimeter-mode and area-mode error disclosure; Appendix §E.7 compactness converted to Tier-dependent bands + ordinal categories (T1, commit a62eb53) |
 | **Phase C.1** — Sign convention consistency | **ADDRESSED** (T1, commit a62eb53) | `report_academic.md` §4.3 — universal glossary block before B1 definition; cross-references S-M inversion |
 | **Phase C.2** — Freeze archives / Wayback for 27 PDFs + historical sources | **PARTIAL** (session-12 work) | 19 of 27 URLs preserved via Wayback/archive.ph; 8 remain blocked by Wayback anonymous SPN quota; authenticated SPN2 Bearer-token pass queued. See `FROZEN_MANIFEST.md` + private `v0_1_url_archival_log.md` |
@@ -19,11 +19,11 @@ Based on a review of the project's subfolders, here are four proposals to improv
 | **Phase E.1** — Pal citation hallucinations | **NOT APPLICABLE** (verified T1) | `report_academic.md` does not cite Pal at all; flagged refs appear only in self-critical red-team docs and literature-review planning targets. No paper-facing correction needed |
 | **Phase E.2** — Canadian base-rate circularity | **DEFERRED** (T3 queue) | Recalibration with an independent distribution (not calibrated on Alberta 2026 anchor); or soften to ordinal ranking |
 | **Phase E.3** — Chen-Rodden geography-vs-drawing decomposition | **DEFERRED** (T3 queue) | Quantitative split of the 0.51 pp gap between natural packing and drawing choices |
-| **Phase F.1** — int() truncation bias | **ALREADY ADDRESSED** (earlier red-team pass, confirmed T2) | `analysis/v0_2_packing_cracking_analysis.py` lines 461, 497, 509 — CRIT-03 fixes using `round()` throughout |
-| **Phase F.2** — Airdrie overlap hardcoding + MAUP | **PARTIAL** (user-landed edit visible in working tree) | The hardcoded `OVERLAP_EDS` list has been replaced with dynamic intersection in `analysis/v0_1_airdrie_overlap_diagnostic.py` (not in my commits). MAUP area-weighted interpolation still on centroid-in-polygon — can be queued for T3 |
-| **Phase F.3** — Deterministic seeding (hash → hashlib) | **ALREADY ADDRESSED** (earlier red-team pass, confirmed T2) | `analysis/v0_1_shape_refinement_v6.py` lines 248–256 — `hashlib.sha256` digest replaces `hash() %`; no other analysis/*.py script uses `hash()` as an RNG seed |
+| **Phase F.1** — int() truncation bias | **ALREADY ADDRESSED** (earlier red-team pass, confirmed T2) | `analysis/scripts/v0_2_packing_cracking_analysis.py` lines 461, 497, 509 — CRIT-03 fixes using `round()` throughout |
+| **Phase F.2** — Airdrie overlap hardcoding + MAUP | **PARTIAL** (user-landed edit visible in working tree) | The hardcoded `OVERLAP_EDS` list has been replaced with dynamic intersection in `analysis/scripts/v0_1_airdrie_overlap_diagnostic.py` (not in my commits). MAUP area-weighted interpolation still on centroid-in-polygon — can be queued for T3 |
+| **Phase F.3** — Deterministic seeding (hash → hashlib) | **ALREADY ADDRESSED** (earlier red-team pass, confirmed T2) | `analysis/scripts/v0_1_shape_refinement_v6.py` lines 248–256 — `hashlib.sha256` digest replaces `hash() %`; no other analysis/*.py script uses `hash()` as an RNG seed |
 
-**Items 1–4 at the top of this file (Reorganize `analysis/`, Apply Airdrie correction programmatically, Synthesize red-team findings, Status-report utility):** structural cleanup proposals. Item 3 was partially accomplished via `analysis/red_team_consolidated.md` (23 files merged). Items 1, 2, and 4 remain open as low-priority housekeeping.
+**Items 1–4 at the top of this file (Reorganize `analysis/`, Apply Airdrie correction programmatically, Synthesize red-team findings, Status-report utility):** structural cleanup proposals. Item 3 was partially accomplished via `analysis/methodology/red_team_consolidated.md` (23 files merged). Items 1, 2, and 4 remain open as low-priority housekeeping.
 
 ---
 
@@ -41,7 +41,7 @@ This would make the project structure more intuitive and align with common pract
 
 ### 2. Apply the Airdrie Shapefile Overlap Correction
 
-The script `analysis/v0_1_airdrie_overlap_diagnostic.py` identifies a critical data quality issue: the `Calgary-Airdrie` minority ED polygon overlaps significantly with three of its neighbors. The script generates a report recommending a fix ("Option A") but does not apply it, leaving a known geometric error in the canonical dataset.
+The script `analysis/scripts/v0_1_airdrie_overlap_diagnostic.py` identifies a critical data quality issue: the `Calgary-Airdrie` minority ED polygon overlaps significantly with three of its neighbors. The script generates a report recommending a fix ("Option A") but does not apply it, leaving a known geometric error in the canonical dataset.
 
 **Proposal:**
 Create a new script, `analysis/v0_2_apply_shapefile_corrections.py`, that programmatically applies the recommended fix. This script would:
@@ -91,7 +91,7 @@ This plan outlines the specific steps required to patch the remaining high-sever
 3.  **Address the Geometric Precision Fallacy:** Universally rename "2026 shapefiles" to "Derived Provisional Geometries (DPG)" or "High-DPI Reconstructed Geometries". Insert a prominent methodology disclaimer acknowledging the ±500m positional uncertainty, and convert point-estimate compactness scores (Polsby-Popper/Reock) for hybrid districts into confidence intervals or ordinal risk bands.
 
 **Phase C: Data Integrity & Cross-Validation**
-1.  **Enforce Sign Convention Consistency:** Add a glossary footnote to `report_academic.md` defining the paper's sign convention ("negative EG = UCP advantage"). Update `analysis/v0_1_2015_cross_election_analysis.md` to match this convention, or add a prominent disclaimer that it uses the inverted standard.
+1.  **Enforce Sign Convention Consistency:** Add a glossary footnote to `report_academic.md` defining the paper's sign convention ("negative EG = UCP advantage"). Update `analysis/reports/v0_1_2015_cross_election_analysis.md` to match this convention, or add a prominent disclaimer that it uses the inverted standard.
 2.  **Freeze Primary Sources:** Update `FROZEN_MANIFEST.md` to include stable archive links (e.g., Wayback Machine) for the 27 PDFs of public submissions, the 2019 Statement of Vote Excel files, and the historical 338Canada snapshots to prevent link rot from destroying the evidentiary chain.
 
 **Phase D: Advanced Statistical Fortification**

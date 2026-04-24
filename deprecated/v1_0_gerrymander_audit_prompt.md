@@ -30,10 +30,10 @@ The user's rule: **"Nothing should move between steps without being provable."**
 Prior sessions produced:
 
 ### Integrity-verified outputs (carry forward unchanged)
-- `analysis/v0_2_packing_cracking_analysis.py` — symmetric three-map B1–B4 with gates G1, G2, G5
-- `analysis/electoral_forensics_population.py` — A1/A2/A3 with gate G3 (no unclassified EDs) and G4 (A2 robustness via alternative classification)
-- `analysis/v0_1_poll_attribution_skeleton.py` — Phase 4C skeleton with parse-stage gate
-- `analysis/v0_1_bias_audit.md` — self-audit of the audit
+- `analysis/scripts/v0_2_packing_cracking_analysis.py` — symmetric three-map B1–B4 with gates G1, G2, G5
+- `analysis/scripts/electoral_forensics_population.py` — A1/A2/A3 with gate G3 (no unclassified EDs) and G4 (A2 robustness via alternative classification)
+- `analysis/scripts/v0_1_poll_attribution_skeleton.py` — Phase 4C skeleton with parse-stage gate
+- `analysis/reports/v0_1_bias_audit.md` — self-audit of the audit
 
 ### Carry-forward headline numbers (all reproducible)
 From `v0_2_packing_cracking_analysis.py` under gate G2 (estimate validation) and G5 (sensitivity):
@@ -61,8 +61,8 @@ From `electoral_forensics_population.py` under gate G3:
 
 ### Reproducibility check (first action)
 ```bash
-python3 analysis/v0_2_packing_cracking_analysis.py
-python3 analysis/electoral_forensics_population.py
+python3 analysis/scripts/v0_2_packing_cracking_analysis.py
+python3 analysis/scripts/electoral_forensics_population.py
 ```
 Output must match the tables above. **Gate G0:** if either mismatches, halt — downstream stages are working against a changed baseline.
 
@@ -80,8 +80,8 @@ Each stage below has inputs, a process, a gate, and outputs. The gate's pass con
 
 **Gate S0:**
 - [ ] All 10 library imports succeed in `python3 -c "import ..."`
-- [ ] `python3 analysis/v0_2_packing_cracking_analysis.py` reproduces carry-forward table above
-- [ ] `python3 analysis/electoral_forensics_population.py` reproduces carry-forward A-series table
+- [ ] `python3 analysis/scripts/v0_2_packing_cracking_analysis.py` reproduces carry-forward table above
+- [ ] `python3 analysis/scripts/electoral_forensics_population.py` reproduces carry-forward A-series table
 - [ ] FAIL ACTION: If numbers differ, do not proceed. Report environmental or data drift.
 
 **Outputs:** reproducibility verified.

@@ -1,7 +1,7 @@
 """
 Alberta Electoral Boundaries — Packing/Cracking Analysis (v0.1)
 ==================================================================
-DEPRECATED — superseded by analysis/v0_2_packing_cracking_analysis.py
+DEPRECATED — superseded by analysis/scripts/v0_2_packing_cracking_analysis.py
 
 This script computes B1-B4 on only the 2019 baseline and the minority
 2026 proposal. It does not compute the majority 2026 proposal, which
@@ -10,7 +10,7 @@ the audit's symmetry requirement demands. Use v0.2 for any new work.
 The v0.1 script is retained for carry-forward verification of the
 baseline rerun — its 2019 and minority numbers match v0.2. Its original
 docstring contained directional language ("conservative", "UCP
-strongholds") flagged in analysis/v0_1_bias_audit.md as class-A2; that
+strongholds") flagged in analysis/reports/v0_1_bias_audit.md as class-A2; that
 framing has been removed. The script computes the same tests as v0.2
 for the two maps it covers.
 

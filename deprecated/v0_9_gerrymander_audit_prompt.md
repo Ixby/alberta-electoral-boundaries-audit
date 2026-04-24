@@ -28,10 +28,10 @@ The previous sessions completed Tests B1 through B4 (the rigorous packing/cracki
 
 - `analysis/v0_1_packing_cracking_results.md` — B1–B4 written findings
 - `analysis/v0_1_three_map_partisan_comparison.html` — B1–B4 visual
-- `analysis/v0_1_section_A_population_equality.md` — Section A (Population Equality)
-- `analysis/v0_1_section_C_geographic_coherence.md` — Section C (Visual Spatial Audit)
-- `analysis/v0_1_section_D_procedural.md` — Section D (Procedural)
-- `analysis/v0_1_section_4_geometry_provenance.md` — Section 4 (Geometry provenance + Phase 5 block)
+- `analysis/reports/v0_1_section_A_population_equality.md` — Section A (Population Equality)
+- `analysis/reports/v0_1_section_C_geographic_coherence.md` — Section C (Visual Spatial Audit)
+- `analysis/reports/v0_1_section_D_procedural.md` — Section D (Procedural)
+- `analysis/reports/v0_1_section_4_geometry_provenance.md` — Section 4 (Geometry provenance + Phase 5 block)
 - `alberta_redistricting_audit_final.md` — compiled audit report at project root
 
 **Headline table (B1–B4 + key A/C results):**
@@ -51,7 +51,7 @@ Majority preserves the 2019 baseline within rounding error. Minority shifts it 2
 
 **Reproducibility check (first action for any re-run):**
 1. `python3 analysis/v0_1_packing_cracking_analysis.py` — must reproduce the B1–B4 table above
-2. `python3 analysis/electoral_forensics_population.py` — must reproduce A1/A2/A3 numbers
+2. `python3 analysis/scripts/electoral_forensics_population.py` — must reproduce A1/A2/A3 numbers
 
 If either check fails, debug before trusting downstream work — the rest of the report depends on this baseline.
 
@@ -96,18 +96,16 @@ analysis/
 
 maps/
 ├── majority_calgary.jpg                    (Appendix A, p. 72)
-└── minority_calgary.jpg                    (Appendix E, p. 74)
-
-source_maps/
+├── minority_calgary.jpg                    (Appendix E, p. 74)
 ├── minority_alberta_overview.jpg           (Appendix E, p. 73)
 ├── minority_edmonton.jpg                   (Appendix E, p. 75)
 └── minority_other_cities.jpg               (Appendix E, p. 76)
 
 alberta_redistricting_audit_final.md        (compiled audit — current v0.1 published)
+
 ```
 
 ## Agentic Execution Plan
-
 Phases 1–3 and 6 are complete. Phases 4 and 5 are the active work. If ABEBC has released 2026 shapefiles, Phase 4 unblocks entirely and Phase 5 runs clean. If not, Phase 4C via VA polygons is the recommended path.
 
 ### Phase 4 — Boundary Geometry & Attribution
@@ -146,7 +144,7 @@ If DAUIDs ARE present:
 
    **3a. Crosswalk-from-PDF path.** Extract from `abebc_2026_rpt_final.pdf` Appendix B (which lists VAs per 2026 ED for both maps, if formatted similarly to prior Alberta boundary reports). Use `pdfplumber` to parse tables. If present, this is a machine-readable crosswalk and requires no vision.
 
-   **3b. Vision-on-VA-polygons path.** For each VA polygon centroid, overlay on `maps/majority_calgary.jpg` / `source_maps/minority_*.jpg` and use Opus 4.7 vision to determine which 2026 ED contains the centroid. Each VA is ~40-60 per ED (vs ~200+ polls) — order of magnitude cheaper than per-poll Vision assignment.
+   **3b. Vision-on-VA-polygons path.** For each VA polygon centroid, overlay on `maps/majority_calgary.jpg` / `maps/minority_*.jpg` and use Opus 4.7 vision to determine which 2026 ED contains the centroid. Each VA is ~40-60 per ED (vs ~200+ polls) — order of magnitude cheaper than per-poll Vision assignment.
 
 4. **Apportion Advance/Mobile/Special votes.** For each 2019 ED: compute what fraction of its Election Day VA polygons were assigned to each 2026 ED. Apportion the 2019 ED's non-ED vote totals by that fraction.
 

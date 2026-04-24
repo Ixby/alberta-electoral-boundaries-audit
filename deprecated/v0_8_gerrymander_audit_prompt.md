@@ -60,14 +60,14 @@ source_maps/
 
 ### Phase 1 — Population Equality (Section A)
 
-**Action:** Create `analysis/electoral_forensics_population.py` using pandas. Compute and self-verify before moving on.
+**Action:** Create `analysis/scripts/electoral_forensics_population.py` using pandas. Compute and self-verify before moving on.
 
 For each of the three maps:
 - **A1. Variance distribution.** Mean absolute deviation from 54,929 provincial average. Standard deviation. Maximum positive and negative deviation. Count of EDs above +10%, +15%, +20%, +25% and below the same negative thresholds. The ±25% line is the statutory limit; s.15(2) protected ridings can go to −50%.
 - **A2. Geographic asymmetry.** Group EDs by region (Calgary, Edmonton, rural). Within Calgary specifically, partition NE/central from S/W and compute mean populations for each. Test the hypothesis that NDP-leaning Calgary regions are systematically larger (a packing signal) under each map.
 - **A3. s.15(2) eligibility audit.** For the three protected ridings each map proposes — majority: Central Peace-Notley (−47.7%), Lesser Slave Lake (−45.4%), Canmore-Banff (−27.2%); minority: Central Peace-Notley (−44.6%), Lesser Slave Lake (−45.4%), Rocky Mountain House-Banff Park (−30.3%) — verify at least 3 of 5 statutory criteria are met independently of the boundary drawing: (a) area >20,000 km², (b) >100 km from major centre, (c) no town with 4,000+ population, (d) significant Indigenous population/reserves, (e) shared border with another province or US. Flag any riding whose boundary appears drawn into existence to qualify.
 
-**Output:** Write results to `analysis/v0_1_section_A_population_equality.md` with comparison tables and the symmetric assessment.
+**Output:** Write results to `analysis/reports/v0_1_section_A_population_equality.md` with comparison tables and the symmetric assessment.
 
 ### Phase 2 — Visual Spatial Audit (Section C, partial)
 
@@ -83,7 +83,7 @@ For each of the three maps:
 
 - **C4. Community of interest splits.** Count for each map: municipalities split across two or more EDs (the minority is reported to split Airdrie across 4 ridings; verify), First Nations reserves split or moved between EDs, school divisions split. The majority report names Tsuut'ina, Enoch, and Siksika specifically — check both maps' treatment.
 
-**Output:** Write findings to `analysis/v0_1_section_C_geographic_coherence.md`.
+**Output:** Write findings to `analysis/reports/v0_1_section_C_geographic_coherence.md`.
 
 ### Phase 3 — Procedural Audit (Section D)
 
@@ -94,7 +94,7 @@ For each of the three maps:
 - **D3.** Procedural fairness. Did either proposal radically depart from the unanimous interim report (October 2025) without public notice? Trace interim → final.
 - **D4.** Override mechanism comparisons. When have other Canadian provincial governments overridden independent boundary commission reports? Quebec 1992, Ontario 1998, BC 2008 are useful comparators.
 
-**Output:** Write findings to `analysis/v0_1_section_D_procedural.md`.
+**Output:** Write findings to `analysis/reports/v0_1_section_D_procedural.md`.
 
 ### Phase 4 — Boundary Geometry & Attribution Acquisition (PRECONDITION FOR B5/C1/C2)
 
@@ -159,7 +159,7 @@ The 2023 Statement of Vote (`https://www.elections.ab.ca/uploads/2023-Provincial
     - If variance exceeds 0.1%: there's a real leak in the pipeline (votes dropped, double-counted, or polls assigned to no ED). Investigate before continuing.
     - If variance exceeds 1%: do not proceed. The apportionment isn't trustworthy.
 
-**Skeleton script available:** `analysis/v0_1_poll_attribution_skeleton.py` provides the data loading and dataframe structure as a starting point. Modify rather than rewrite from scratch.
+**Skeleton script available:** `analysis/scripts/v0_1_poll_attribution_skeleton.py` provides the data loading and dataframe structure as a starting point. Modify rather than rewrite from scratch.
 
 #### 4D. Street-network reconstruction (last resort, expensive)
 
@@ -181,7 +181,7 @@ If 4A–4D all fail or are insufficient: report the failure cleanly. Do not fabr
 - **Geometric shift logging.** **CRITICAL.** If you applied any manual geometric adjustment to make the population checksum pass — moving a boundary, snapping endpoints, removing a sliver, dissolving a stray polygon — log it in `analysis/geometry_shift_log.md` with: which polygon, what you changed, the population delta the change produced, and why you believe the change is justified. Do not apply silent adjustments. The reader needs to know what's measured vs what's reconstructed.
 - **Symmetry consistency.** Whatever method was used, apply it identically to majority and minority proposals to eliminate algorithmic bias in the comparison. Document the method in plain prose.
 
-**Output:** Write geometry files to `analysis/geometry/` (if produced) and the validation report to `analysis/v0_1_section_4_geometry_provenance.md` containing the Technical Data Statement.
+**Output:** Write geometry files to `analysis/geometry/` (if produced) and the validation report to `analysis/reports/v0_1_section_4_geometry_provenance.md` containing the Technical Data Statement.
 
 ### Phase 5 — MCMC Ensemble & Compactness (B5, C1, C2)
 

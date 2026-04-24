@@ -38,7 +38,7 @@ catalogued.
 
 ## Full-prompt tier (load-bearing analyses)
 
-### 1. `analysis/v0_1_bias_audit.md`
+### 1. `analysis/reports/v0_1_bias_audit.md`
 
 **Prompt pattern.** Read the prompt, code, and written findings
 looking for baked-in partisan framing, asymmetric scrutiny, loaded
@@ -60,14 +60,14 @@ of "my methodology is symmetric."
 author errors, not validations of the author's finding. The parent
 honoured all three.
 
-### 2. `analysis/v0_1_plan_b_cross_check.md`
+### 2. `analysis/reports/v0_1_plan_b_cross_check.md`
 
 **Prompt pattern.** Two goals. First, determine what population data
 the Alberta Electoral Boundaries Commission Act requires the
 commission to use, and compare that to what each side of the
 commission says it used and what each side actually used in its
 variance tables. Second, re-run the five justification tests from
-`analysis/v0_1_justification_tests_findings.md` using the most-recent-
+`analysis/reports/v0_1_justification_tests_findings.md` using the most-recent-
 available population data, so that the audit's findings can be tested
 independently of any data-source question.
 
@@ -104,7 +104,7 @@ wider dispersion translates to 5 legal-window status changes vs the
 majority's 0. This supports the parent's prior. The prompt did not
 presuppose this outcome; the computation produced it.
 
-### 4. `analysis/v0_1_338canada_riding_level.md`
+### 4. `analysis/methodology/v0_1_338canada_riding_level.md`
 
 **Prompt pattern.** Pull 338 Canada's April 2026 per-riding projection
 for all 87 Alberta electoral districts. Reallocate through the
@@ -123,7 +123,7 @@ also produced a Pearson r=0.960 agreement which is lower than 1.0 and
 documents the limits of cross-validation. The two-model-stacking
 concern (C5) was surfaced in the process.
 
-### 5. `analysis/v0_2_packing_cracking_analysis.py` (the script; prompts embedded)
+### 5. `analysis/scripts/v0_2_packing_cracking_analysis.py` (the script; prompts embedded)
 
 **Prompt pattern.** Implement B1-B4 symmetrically for all three maps
 (2019 baseline, majority 2026, minority 2026). Include falsifiability
@@ -144,7 +144,7 @@ corrected the author's v0.1 carry-forward majority B2 from −0.47% to
 −0.85% (less pro-UCP than the prior assumed) and majority B3 from
 −2.15 pp to −0.16 pp (same direction of correction).
 
-### 6. `analysis/v0_3_monte_carlo_ci.py`
+### 6. `analysis/scripts/v0_3_monte_carlo_ci.py`
 
 **Prompt pattern.** Compute a 95% confidence interval on the
 minority-majority EG asymmetry by Monte Carlo sampling over modeling
@@ -162,7 +162,7 @@ zero, which the author's prior had not fully appreciated; the
 "qualified pass at 89%" concession in report_academic.md §3.5 is a
 direct consequence of this sub-agent run.
 
-### 7. `analysis/v0_1_minority_rationales_validation.md`
+### 7. `analysis/methodology/v0_1_minority_rationales_validation.md`
 
 **Prompt pattern.** For each minority-side rationale (community-of-
 interest, commuter ties, shared-schools, s.15(2) geographic claims,
@@ -209,7 +209,7 @@ support" claim. If the search found zero supporting submissions, the
 chair's claim would stand; if non-zero, it would be refuted on
 configurations where support exists. Either outcome is reported.
 
-### `analysis/v0_1_alberta_government_databases_survey.md`
+### `analysis/methodology/v0_1_alberta_government_databases_survey.md`
 
 **Summary.** Inventory provincial and federal administrative datasets
 that could serve as a legislatively-recognised population base for a
@@ -220,7 +220,7 @@ constitutional suitability. Recommend composite-basis structure.
 have returned "no dataset suitable" — which would have been a
 constraint on the §12 reform proposal.
 
-### `analysis/v0_1_calgary_data_sources_audit.md`
+### `analysis/methodology/v0_1_calgary_data_sources_audit.md`
 
 **Summary.** Identify every publicly available data source that could
 support Calgary-specific redistricting analysis (ward boundaries, VA
@@ -230,7 +230,7 @@ is not available for Calgary.
 
 **Framing.** Data-discovery only; no analytical claim.
 
-### `analysis/v0_1_csd_community_splits.py`
+### `analysis/scripts/v0_1_csd_community_splits.py`
 
 **Summary.** Compute the number of populated CSDs (population >= 1,000)
 that span two or more electoral divisions under each of the three
@@ -244,7 +244,7 @@ interest concern operates at CSD granularity or at within-ED resolution.
 (all three maps have 40 CSD splits on the confident-only subset). The
 parent honoured this null finding in §4.4.
 
-### `analysis/v0_1_cochrane_journey_to_work.md`
+### `analysis/methodology/v0_1_cochrane_journey_to_work.md`
 
 **Summary.** Parse StatsCan Table 98-10-0459 (journey-to-work) for
 Cochrane CSD origins. Quantify the Calgary-destination commuter share.
@@ -259,7 +259,7 @@ with the minority's defence, not against it.
 commuter-tie rationale to be weakly supported or refutable; the
 sub-agent found genuine 35.8% Calgary-bound commuter signal.
 
-### `analysis/v0_1_marginal_seats_analysis.py`
+### `analysis/scripts/v0_1_marginal_seats_analysis.py`
 
 **Summary.** Translate the audit's partisan-shift range (0.5-1.6 pp)
 into contextual scale: how many historically marginal seats exist in

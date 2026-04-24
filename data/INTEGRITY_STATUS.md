@@ -168,9 +168,9 @@ remediation pass.
 - `analysis/v0_1_advance_vote_splat_diagnostics.csv`
 
 **Edited:**
-- `analysis/v0_1_advance_vote_splat.py` — cp1252 encoding
-- `analysis/v0_1_phase_4bcdef_execution.py` — canonical shapefiles + full-VA
-- `analysis/v0_1_mcmc_full_coverage_rescore_v2.py` — canonical + full-VA
+- `analysis/scripts/v0_1_advance_vote_splat.py` — cp1252 encoding
+- `analysis/scripts/v0_1_phase_4bcdef_execution.py` — canonical shapefiles + full-VA
+- `analysis/scripts/v0_1_mcmc_full_coverage_rescore_v2.py` — canonical + full-VA
 
 **Rewritten by rerun:**
 - `data/v0_1_phase4b_majority_2021_populations.csv`

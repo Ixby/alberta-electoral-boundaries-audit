@@ -6,7 +6,7 @@ forward_dependencies:
 backward_dependencies:
   - analysis/v0_1_red_team_academic_discredit.md — attacks C1-C10 verbatim
   - analysis/v0_1_fortification_a1_a5.md — defence structure
-  - analysis/v0_1_bias_audit.md — author-bias self-audit (used for C1)
+  - analysis/reports/v0_1_bias_audit.md — author-bias self-audit (used for C1)
   - report_academic.md v0.2 — paper under attack
   - requirements.txt (repo root) — pinned libraries for C9
   - setup.md (repo root) — pinned interpreter for C9
@@ -66,7 +66,7 @@ falsify the prior. Disclosure alone cannot distinguish the two.
 
 ### (iii) Defence with citations
 
-**Defence 1 — The existing bias audit (`analysis/v0_1_bias_audit.md`)
+**Defence 1 — The existing bias audit (`analysis/reports/v0_1_bias_audit.md`)
 is the primary cure, not the disclosure itself.** The bias audit
 identified three class-A issues in the v0.1 inheritance (unreproducible
 majority B1-B4 numbers; "conservative" framing in the rural-baseline
@@ -105,7 +105,7 @@ because they are *numeric corrections in the direction opposite to the
 author's stated prior*. A confirmation-biased pipeline would not
 produce corrections like this. The existence of all three is
 verifiable by running `python3
-analysis/v0_2_packing_cracking_analysis.py` against the checked-in data.
+analysis/scripts/v0_2_packing_cracking_analysis.py` against the checked-in data.
 
 **Defence 3 — An independent-reviewer statement would be the
 gold-standard response; propose retaining one if feasible.** The
@@ -134,7 +134,7 @@ v0.1 carry-forward) after the existing text:
 > handling was worth scrutiny — influenced the test set chosen, the
 > thresholds set, and the comparators cited. The cure takes three
 > forms. First, the retrospective bias audit at
-> `analysis/v0_1_bias_audit.md` identified three class-A issues in the
+> `analysis/reports/v0_1_bias_audit.md` identified three class-A issues in the
 > v0.1 inheritance (unreproducible majority B1-B4 numbers;
 > 'conservative' framing in the rural-baseline docstring; partisan
 > labels in Calgary classification source code) and documents their
@@ -187,7 +187,7 @@ Quebec 1992, Ontario 1996, and BC 2008 are the three most commonly
 cited Canadian comparators in electoral-law literature. They are the
 three most widely discussed in academic and press coverage because
 they are the best-documented; they are not necessarily the three most
-*intrusive*. The existing bias audit (`analysis/v0_1_bias_audit.md`
+*intrusive*. The existing bias audit (`analysis/reports/v0_1_bias_audit.md`
 class-B4) flagged this exact issue and recommended softening the
 "without recent Canadian provincial precedent" characterisation. The
 §5.3 "without recent precedent" claim has already been softened to
@@ -392,7 +392,7 @@ not be pretextual. *Cassista v. Canada (Attorney General)* [2014] FC
 post-1991 cases establish that Saskatchewan Reference is not a blanket
 endorsement of any geography-citing minority justification — the
 pretext test is live jurisprudence. The audit's empirical scrutiny of
-the minority's specific justifications (see `analysis/v0_1_minority_rationales_validation.md`
+the minority's specific justifications (see `analysis/methodology/v0_1_minority_rationales_validation.md`
 which finds two of the minority's shared-schools community-of-interest
 claims are not supported by school-district boundary data) is the kind
 of scrutiny the pretext test contemplates.
@@ -426,7 +426,7 @@ Proposed addition at the end of §11:
 > Saskatchewan Reference is not absolute; the pretext test is live.
 > The audit's empirical scrutiny of the minority's specific
 > justifications (see
-> `analysis/v0_1_minority_rationales_validation.md`) is the kind of
+> `analysis/methodology/v0_1_minority_rationales_validation.md`) is the kind of
 > evidence the pretext test contemplates."**
 
 ### (v) Residual vulnerability
@@ -502,7 +502,7 @@ hours per cycle for the spatial crosswalk alone.
 
 **Defence 2 — The 338 Canada cross-validation provides a
 within-audit structural replication that substitutes partially for the
-missing base rate.** `analysis/v0_1_338canada_riding_level.md`
+missing base rate.** `analysis/methodology/v0_1_338canada_riding_level.md`
 reports that the 1-seat majority-minority asymmetry is invariant across
 two independent vote inputs (2023 actual ballots vs April 2026
 polling). The structural 1-seat asymmetry replicates. This is not a
@@ -539,7 +539,7 @@ base-rate gap explicitly. Proposed insertion at §3.3 final paragraph:
 > the minority-majority EG asymmetry is roughly 0.5 pp and the
 > within-cycle seat asymmetry is roughly 1 seat (under 2023 vote and
 > April 2026 polling inputs; see
-> `analysis/v0_1_338canada_riding_level.md`) is a within-Alberta-2025-26
+> `analysis/methodology/v0_1_338canada_riding_level.md`) is a within-Alberta-2025-26
 > finding, not a finding benchmarked against an empirically calibrated
 > expectation. A cross-Canadian base rate would require analysing
 > preliminary-to-final partisan asymmetries in at least: Alberta federal
@@ -654,7 +654,7 @@ methodological point.
 
 **Defence 3 — Magnitude uncertainty from stacked models is separately
 bounded by the Monte Carlo analysis.** The 95% CI of [−3.04, +0.76] pp
-from `analysis/v0_3_monte_carlo_ci.py` is computed over the crosswalk
+from `analysis/scripts/v0_3_monte_carlo_ci.py` is computed over the crosswalk
 parameters (urban weight, rural baseline, per-hybrid jitter), which is
 the dominant source of uncertainty in the audit's pipeline. The 338
 cross-validation is not used to claim a tighter magnitude than the
@@ -751,13 +751,13 @@ whether its prompt presupposed the finding.
 parent's falsification discipline.** Three of the sub-agent-produced
 analyses contain findings that run *against* the parent's prior:
 
-- `analysis/v0_1_cochrane_journey_to_work.md` finds that 35.8% of
+- `analysis/methodology/v0_1_cochrane_journey_to_work.md` finds that 35.8% of
   Cochrane workers commute to Calgary CY — a result that partially
   *supports* the minority's commuter-tie rationale for the
   Calgary-Nolan Hill-Cochrane hybrid. The sub-agent's analysis did not
   refute the minority's claim; it found partial support. The parent
   session reported this in §4.4 rather than suppressing it.
-- `analysis/v0_1_csd_community_splits.py` produces a CSD-level
+- `analysis/scripts/v0_1_csd_community_splits.py` produces a CSD-level
   community-splits finding that is *null* across the three maps (all
   three have 40 CSD splits on the confident-only subset). This is a
   null finding that does not support the audit's community-of-interest
@@ -765,7 +765,7 @@ analyses contain findings that run *against* the parent's prior:
   explicit language "the minority's community-of-interest disadvantage
   operates at within-ED partition resolution... a resolution not
   encoded in the ED-level crosswalks."
-- `analysis/v0_1_plan_b_cross_check.md` finds that three of the five
+- `analysis/reports/v0_1_plan_b_cross_check.md` finds that three of the five
   minority justifications become *more decisively* FAIL under 2025 TBF
   data than under 2021 census — a finding that supports the parent's
   prior. But the same sub-agent also identified that the majority
@@ -817,9 +817,9 @@ Proposed insertion in report_academic.md §Appendix (Reproducibility):
 > that materially affect a headline finding. Published in summary: data-
 > acquisition sub-agent prompts. Three sub-agent outputs ran against
 > the parent's prior and were honoured in the paper:
-> `analysis/v0_1_cochrane_journey_to_work.md` (partial support for the
-> minority's commuter-tie claim), `analysis/v0_1_csd_community_splits.py`
-> (null at CSD granularity), `analysis/v0_1_plan_b_cross_check.md` (data-
+> `analysis/methodology/v0_1_cochrane_journey_to_work.md` (partial support for the
+> minority's commuter-tie claim), `analysis/scripts/v0_1_csd_community_splits.py`
+> (null at CSD granularity), `analysis/reports/v0_1_plan_b_cross_check.md` (data-
 > basis reframing). Reproducibility-decay-resistant publication of
 > prompts permits external audit of framing."**
 
@@ -1057,7 +1057,7 @@ does not trigger* because it is pre-registered.** A checklist that is
 applied before the November map exists cannot be tuned to the November
 map. Whatever verdict the checklist returns — sure-sign, partial, or
 no-trigger — is the pre-registered verdict, not a post-hoc judgment.
-The audit's calibration test (`analysis/v0_1_track_c_checklist_baseline_scoring.md`)
+The audit's calibration test (`analysis/reports/v0_1_track_c_checklist_baseline_scoring.md`)
 applied the checklist to the majority and minority 2026 maps, which
 were already known, before the November map was drawn. The majority
 triggered 0 strong signals; the minority triggered 1 (the signature
@@ -1441,14 +1441,14 @@ of the paper.
 
 Red-team attacks: `analysis/v0_1_red_team_academic_discredit.md`
 HIGH-severity fortification: `analysis/v0_1_fortification_a1_a5.md`
-Bias audit: `analysis/v0_1_bias_audit.md`
-Plan B cross-check: `analysis/v0_1_plan_b_cross_check.md`
+Bias audit: `analysis/reports/v0_1_bias_audit.md`
+Plan B cross-check: `analysis/reports/v0_1_plan_b_cross_check.md`
 Cycle-lag analysis: `analysis/v0_1_cycle_lag_analysis.md`
-338 Canada cross-validation: `analysis/v0_1_338canada_riding_level.md`
-Minority rationales validation: `analysis/v0_1_minority_rationales_validation.md`
-Checklist baseline scoring: `analysis/v0_1_track_c_checklist_baseline_scoring.md`
-Journey-to-work: `analysis/v0_1_cochrane_journey_to_work.md`
-CSD splits: `analysis/v0_1_csd_community_splits.py`
+338 Canada cross-validation: `analysis/methodology/v0_1_338canada_riding_level.md`
+Minority rationales validation: `analysis/methodology/v0_1_minority_rationales_validation.md`
+Checklist baseline scoring: `analysis/reports/v0_1_track_c_checklist_baseline_scoring.md`
+Journey-to-work: `analysis/methodology/v0_1_cochrane_journey_to_work.md`
+CSD splits: `analysis/scripts/v0_1_csd_community_splits.py`
 Base-rate catalogue: `data/v0_1_canadian_redistribution_base_rate.csv`
 Reproducibility pinning: `requirements.txt`, `setup.md`,
 `FROZEN_MANIFEST.md` at repo root.

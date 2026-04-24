@@ -78,8 +78,8 @@ Manually reviewed all 70 row-hits against their full text in `.temp/submissions/
 ## Output files
 
 - `data/submission_search_dataset.csv` — 70 hit rows + 1 summary row. Columns as specified in the task prompt. Summary row stores per-configuration counts in the `mentions_*` integer fields.
-- `analysis/submission_search_findings.md` — written verdict.
-- `analysis/submission_search.py` — reproducible pipeline.
+- `analysis/reports/submission_search_findings.md` — written verdict.
+- `analysis/scripts/submission_search.py` — reproducible pipeline.
 - `.temp/submissions/submission_meta.json` — start_page / end_page / source_file per submission id.
 - `.temp/submissions/search_result.json` — intermediate dump of all hits with snippets.
 - `.temp/submissions/text/EBC-2025-*.txt` — 1,252 per-submission text files (gitignored).
@@ -95,9 +95,9 @@ Manually reviewed all 70 row-hits against their full text in `.temp/submissions/
 
 ```bash
 cd alberta_audit
-python analysis/submission_search.py --phase=download   # ~5 min
-python analysis/submission_search.py --phase=parse      # ~2 min
-python analysis/submission_search.py --phase=search     # <30 sec
+python analysis/scripts/submission_search.py --phase=download   # ~5 min
+python analysis/scripts/submission_search.py --phase=parse      # ~2 min
+python analysis/scripts/submission_search.py --phase=search     # <30 sec
 ```
 
 All outputs land in `data/`, `analysis/`, and `.temp/submissions/`.

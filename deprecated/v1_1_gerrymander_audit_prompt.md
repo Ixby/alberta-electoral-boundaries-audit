@@ -19,13 +19,13 @@ Claude Code at xhigh or max effort with Auto mode. Filesystem, autonomous execut
 ## Prior Work — Integrity Status (v0.3)
 
 **Verified and reproducible:**
-- `analysis/v0_2_packing_cracking_analysis.py` — symmetric three-map B1–B6 (now including declination); gates G1, G2, G5
-- `analysis/v0_3_monte_carlo_ci.py` — Monte Carlo CI over modeling choices; 2019 cross-election check
-- `analysis/electoral_forensics_population.py` — A1/A2/A3 with A2 robustness under two classifications; gate G3
-- `analysis/v0_1_poll_attribution_skeleton.py` — Phase 4C skeleton, parse-stage gate
-- `analysis/v0_1_bias_audit.md` — self-audit finding 3 class-A bias issues, all remediated in v0.2
-- `analysis/v0_1_uncertainty_and_shapefile_impact.md` — shapefile-impact scenarios
-- `analysis/v0_1_design_critique.md` — red-team pass, 25+ concerns documented
+- `analysis/scripts/v0_2_packing_cracking_analysis.py` — symmetric three-map B1–B6 (now including declination); gates G1, G2, G5
+- `analysis/scripts/v0_3_monte_carlo_ci.py` — Monte Carlo CI over modeling choices; 2019 cross-election check
+- `analysis/scripts/electoral_forensics_population.py` — A1/A2/A3 with A2 robustness under two classifications; gate G3
+- `analysis/scripts/v0_1_poll_attribution_skeleton.py` — Phase 4C skeleton, parse-stage gate
+- `analysis/reports/v0_1_bias_audit.md` — self-audit finding 3 class-A bias issues, all remediated in v0.2
+- `analysis/methodology/v0_1_uncertainty_and_shapefile_impact.md` — shapefile-impact scenarios
+- `analysis/reports/v0_1_design_critique.md` — red-team pass, 25+ concerns documented
 
 **Structural findings (vote-data-independent, survive red-team):**
 
@@ -54,9 +54,9 @@ Red-team outcomes:
 
 **Reproducibility check first:**
 ```bash
-python3 analysis/v0_2_packing_cracking_analysis.py
-python3 analysis/electoral_forensics_population.py
-python3 analysis/v0_3_monte_carlo_ci.py
+python3 analysis/scripts/v0_2_packing_cracking_analysis.py
+python3 analysis/scripts/electoral_forensics_population.py
+python3 analysis/scripts/v0_3_monte_carlo_ci.py
 ```
 
 All three must reproduce the tables above. Gate G0 blocks downstream work if any number differs.
@@ -140,7 +140,7 @@ Publication readiness requires:
 
 **Check.** Document every load-bearing assumption. For each, state what would invalidate it.
 
-**Pass condition.** Every assumption in `analysis/v0_1_uncertainty_and_shapefile_impact.md` §4 is explicitly listed with validation status. Every ambiguity that is a blocker is named.
+**Pass condition.** Every assumption in `analysis/methodology/v0_1_uncertainty_and_shapefile_impact.md` §4 is explicitly listed with validation status. Every ambiguity that is a blocker is named.
 
 **Current status:** documented. RT6 passes. Two assumptions flagged as currently unsupported (no majority non-Calgary imagery; rural absorptions assumed = provincial rural average). Two ambiguities flagged as blockers (§A3 Canmore-Banff engineering, §D2 no-public-support claim verification).
 
