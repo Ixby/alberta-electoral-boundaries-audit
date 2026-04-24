@@ -1,0 +1,53 @@
+{
+  "majority": {
+    "label": "majority",
+    "n_eds": 89,
+    "orig_union_area_km2": 607840.115126495,
+    "orig_sum_area_km2_double_counted": 610539.2213006093,
+    "clean_total_area_km2": 607840.1151381241,
+    "area_drift_frac_vs_union": 1.9131923183788072e-11,
+    "area_conservation_pass": true,
+    "overlap_km2_resolved": 2753.617610434906,
+    "overlap_pairs_resolved": 86,
+    "residual_overlap_km2": 2.4385629941861707e-06,
+    "residual_overlap_max_m2": 2.438562994186171,
+    "no_overlap_pass": true,
+    "n_eds_erased": 0,
+    "no_erased_pass": true,
+    "net_delta_km2": -2699.1061624852196,
+    "n_eds_gained": 0,
+    "n_eds_lost": 49
+  },
+  "minority": {
+    "label": "minority",
+    "n_eds": 89,
+    "orig_union_area_km2": 593532.4272279862,
+    "orig_sum_area_km2_double_counted": 610009.8363396024,
+    "clean_total_area_km2": 593532.4272283366,
+    "area_drift_frac_vs_union": 5.902656380734318e-13,
+    "area_conservation_pass": true,
+    "overlap_km2_resolved": 16733.672765910163,
+    "overlap_pairs_resolved": 96,
+    "residual_overlap_km2": 0.0,
+    "residual_overlap_max_m2": 0.0,
+    "no_overlap_pass": true,
+    "n_eds_erased": 0,
+    "no_erased_pass": true,
+    "net_delta_km2": -16477.409111265835,
+    "n_eds_gained": 0,
+    "n_eds_lost": 45
+  },
+  "outputs": {
+    "majority_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_canonical_majority_2026_eds_topoclean.gpkg",
+    "minority_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_canonical_minority_2026_eds_topoclean.gpkg",
+    "per_ed_log_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_1_topology_cleanup_log.csv"
+  },
+  "gates_passed": {
+    "majority_no_overlap": true,
+    "majority_no_erased": true,
+    "majority_area_conservation": true,
+    "minority_no_overlap": true,
+    "minority_no_erased": true,
+    "minority_area_conservation": true
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "inputs": {
+    "va_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\va_polygons_with_full_2023_votes.gpkg",
+    "majority_canonical_clean": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_canonical_majority_2026_eds_topoclean.gpkg",
+    "minority_canonical_clean": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+  },
+  "outputs": {
+    "majority_votes_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_phase4c_majority_2023_votes_maup.csv",
+    "minority_votes_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_phase4c_minority_2023_votes_maup.csv",
+    "per_va_attribution_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\phase_4c_va_to_2026_assignments_maup_v2.csv",
+    "summary_json": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_2_phase4c_maup_summary.json"
+  },
+  "centroid_baseline_527": {
+    "majority_eg": -0.0233,
+    "minority_eg": 0.0182,
+    "asymmetry_pp": 4.15
+  },
+  "maup_v1_raw_canonical": {
+    "majority_eg": -0.03251765,
+    "minority_eg": -0.02135434,
+    "asymmetry_pp": 1.1163310000000002
+  },
+  "maup_v2_topoclean": {
+    "majority": {
+      "eg": -0.02346182160488602,
+      "mm_gap": -0.013621963732590225,
+      "ndp_seats": 40,
+      "ucp_seats": 49,
+      "two_party_total": 1706303.9979520054,
+      "coverage": {
+        "n_vas": 4765,
+        "n_rows_overlay": 5733,
+        "dpg_area_coverage_frac": 0.9090268867106774,
+        "va_area_weighted_coverage_frac": 0.9090268867106774,
+        "n_vas_fully_covered": 3912,
+        "n_vas_partial_cover": 529,
+        "n_vas_zero_cover": 324
+      },
+      "conservation": {
+        "pass": true,
+        "max_delta_ndp": 9.451470862131828e-05,
+        "max_delta_ucp": 0.00014277168395437911,
+        "max_delta_other": 6.901580290374909e-06,
+        "max_delta_weight": 5.942857785878886e-07
+      }
+    },
+    "minority": {
+      "eg": 0.01002107484453266,
+      "mm_gap": -0.01593104719367827,
+      "ndp_seats": 33,
+      "ucp_seats": 56,
+      "two_party_total": 1706303.998127916,
+      "coverage": {
+        "n_vas": 4765,
+        "n_rows_overlay": 5177,
+        "dpg_area_coverage_frac": 0.8954553744831003,
+        "va_area_weighted_coverage_frac": 0.8954553744831003,
+        "n_vas_fully_covered": 3175,
+        "n_vas_partial_cover": 818,
+        "n_vas_zero_cover": 772
+      },
+      "conservation": {
+        "pass": true,
+        "max_delta_ndp": 9.416784959626057e-05,
+        "max_delta_ucp": 0.0001533944626714856,
+        "max_delta_other": 6.901580290374909e-06,
+        "max_delta_weight": 8.566437980084274e-07
+      }
+    },
+    "asymmetry_pp": 3.348289644941868
+  },
+  "delta_v2_vs_v1_pp": {
+    "majority": 0.9055828395113982,
+    "minority": 3.1375414844532656,
+    "asymmetry": 2.231958644941868
+  },
+  "verdict": "MAUP-v2 widens \u00a75.2.7 gap"
+}
