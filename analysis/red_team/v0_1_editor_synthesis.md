@@ -116,7 +116,7 @@ All three reviewers converge on a single verdict (**Accept with major revisions*
 
 ### LOW
 
-28. **[LOW]** Collapse § E.7 v4-residual-gap to 2-paragraph summary plus pointer to companion `analysis/v0_1_commission_reference_shapes.md` (Methods m10). **30 min.**
+28. **[LOW]** Collapse § E.7 v4-residual-gap to 2-paragraph summary plus pointer to companion `analysis/methodology/v0_1_commission_reference_shapes.md` (Methods m10). **30 min.**
 29. **[LOW]** Citation-format hybrid cleanup — batched (Methods m11, m12 + Legal m3, m12 + Canadian m4, m7). Resolve Chen and Rodden 2013/2015; pick neutral-form-first with SCR parallel consistently; Saskatchewan Reference form consistency; Warrington (2019) primary at §5.2.4; *Rizzo* paragraph pin-cite (Legal m4). **1.5 h.**
 30. **[LOW]** Pincite and terminology pass — batched (Canadian m2, m5, m6 + Legal §10). Courtney chs. 6–7 and 10–11 pincites; independent vs non-partisan terminology; EBCA section-level pincites where §12, §15 are heavily invoked. **1 h.**
 31. **[LOW]** Unused or misaligned References — batched (Canadian m9, m12 + Legal §7). §"The Argument" stale cross-reference check; Sancton (2021) and Smith (2010) engage-or-remove; *Haig* resolution (duplicates item 21 — drop duplicate). **45 min.**

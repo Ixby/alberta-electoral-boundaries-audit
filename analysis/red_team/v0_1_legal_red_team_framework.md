@@ -72,18 +72,18 @@ Predictions (e.g., "the November 2026 MLA committee map will likely…") must be
    - `requirements.txt`
    - `setup.md`
 3. **Analysis documents underpinning named-actor characterisations**
-   - `analysis/v0_1_minority_rationales_validation.md`
-   - `analysis/v0_1_school_division_coherence.md`
-   - `analysis/v0_1_section_C_geographic_coherence.md`
-   - `analysis/v0_1_bias_audit.md`
-   - `analysis/v0_1_design_critique.md`
+   - `analysis/methodology/v0_1_minority_rationales_validation.md`
+   - `analysis/methodology/v0_1_school_division_coherence.md`
+   - `analysis/reports/v0_1_section_C_geographic_coherence.md`
+   - `analysis/reports/v0_1_bias_audit.md`
+   - `analysis/reports/v0_1_design_critique.md`
 4. **Scripts producing numerical claims in the reports**
-   - `analysis/v0_2_packing_cracking_analysis.py`
-   - `analysis/v0_3_monte_carlo_ci.py`
-   - `analysis/v0_1_338canada_scraper.py`
-   - `analysis/v0_1_338canada_reallocate.py`
-   - `analysis/v0_1_mcmc_ensemble.py`
-   - `analysis/v0_1_mcmc_full_coverage_rescore.py`
+   - `analysis/scripts/v0_2_packing_cracking_analysis.py`
+   - `analysis/scripts/v0_3_monte_carlo_ci.py`
+   - `analysis/scripts/v0_1_338canada_scraper.py`
+   - `analysis/scripts/v0_1_338canada_reallocate.py`
+   - `analysis/scripts/v0_1_mcmc_ensemble.py`
+   - `analysis/scripts/v0_1_mcmc_full_coverage_rescore.py`
 5. **Data artifacts**
    - `data/*.gpkg`, `data/*.csv` (each must trace to a source in `FROZEN_MANIFEST.md`)
 6. **Remaining analysis documents, scripts, and auxiliary files**

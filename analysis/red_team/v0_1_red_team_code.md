@@ -23,7 +23,7 @@ All line numbers refer to the file at the time of review. All findings are
 
 ### CRIT-01. Monte Carlo CI uses wrong numpy percentile convention (empirical fractional index without interpolation) and has a silent `continue` that can drop samples, leaving a non-2,000 sample set feeding the "95% CI" claim.
 
-**File/line:** `analysis/v0_3_monte_carlo_ci.py:86-89, 109-118, 162-163`
+**File/line:** `analysis/scripts/v0_3_monte_carlo_ci.py:86-89, 109-118, 162-163`
 **Evidence:**
 ```python
 for i in range(n_samples):
@@ -48,7 +48,7 @@ ci_hi = sorted(asym)[int(len(asym) * 0.975)]
 
 ### CRIT-02. 338Canada scraper regex is non-anchored, uses non-greedy `[^}]*?` with a character class `[^}]` that matches newlines — producing false-match blocks when 338's HTML contains multiple stacked JS objects with `values:` keys that do not correspond to the intended party-share/MoE/win-prob structure.
 
-**File/line:** `analysis/v0_1_338canada_scraper.py:48-55, 62-101`
+**File/line:** `analysis/scripts/v0_1_338canada_scraper.py:48-55, 62-101`
 **Evidence:**
 ```python
 PARTY_BLOCK_RE = re.compile(
@@ -77,7 +77,7 @@ for key, vals in all_value_blocks:
 
 ### CRIT-03. The packing/cracking `estimate_2026` integer-truncates blended NDP / UCP votes, producing systematic downward bias in both seat counts and EG.
 
-**File/line:** `analysis/v0_2_packing_cracking_analysis.py:445-455, 469-484`
+**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:445-455, 469-484`
 **Evidence:**
 ```python
 def blend(base: Dict, urban_w: float) -> Dict:
@@ -108,7 +108,7 @@ elif kind == 'merge':
 
 ### CRIT-04. 338 reallocate v1 function has a `raise RuntimeError("blend path requires rural_ndp_share; see main()")` that will fire in-production if anyone calls the v1 rather than v2 function — yet v1 is still exported and looks like the primary entry point from the top of the file.
 
-**File/line:** `analysis/v0_1_338canada_reallocate.py:129-215` (especially line 173)
+**File/line:** `analysis/scripts/v0_1_338canada_reallocate.py:129-215` (especially line 173)
 **Evidence:**
 ```python
 def reallocate_338(t338: Dict, mapping: Dict, pop: Dict[str, int],
@@ -132,7 +132,7 @@ def reallocate_338(t338: Dict, mapping: Dict, pop: Dict[str, int],
 
 ### CRIT-05. `v0_2_packing_cracking_analysis.py`'s `MAJORITY_2026_MAPPING` silently drops rows when `'merge'` has a missing 2019 parent; `estimate_2026` then returns fewer than 89 EDs, and `validate_2026_estimate` catches it — but the unused `out` still contains the partial list that gets returned if validation is skipped.
 
-**File/line:** `analysis/v0_2_packing_cracking_analysis.py:469-484, 491-512`
+**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:469-484, 491-512`
 **Evidence:**
 ```python
 elif kind == 'merge':
@@ -162,7 +162,7 @@ def validate_2026_estimate(estimates: List[Dict], label: str,
 
 ### HIGH-01. The shape-refinement v6 pipeline uses `hash(ed_name) % (2**32)` as a per-ED RNG seed, meaning Python hash randomization (on by default for strings in Python 3.3+) makes runs non-reproducible unless `PYTHONHASHSEED` is pinned — and it is not set anywhere in the pipeline.
 
-**File/line:** `analysis/v0_1_shape_refinement_v6.py:247`
+**File/line:** `analysis/scripts/v0_1_shape_refinement_v6.py:247`
 **Evidence:**
 ```python
 # T5: reverse sampling
@@ -182,7 +182,7 @@ while hits < 20 and tries < 2000:
 
 ### HIGH-02. The `optimise_affine_dt` brute-force pre-search in v6 processors uses `np.arange` over three nested floating-point ranges with small step sizes — the number of combinations is 100k+, each of which calls `cost()`. Performance is one issue; more importantly, `np.arange` on floats is known to produce off-by-one boundary points (e.g. `np.arange(0, 0.3, 0.1)` may return 4 elements instead of 3). This can cause the grid search to silently miss the documented boundary tx/ty.
 
-**File/line:** `analysis/v0_1_shape_refinement_v6_processors.py:72-80`
+**File/line:** `analysis/scripts/v0_1_shape_refinement_v6_processors.py:72-80`
 **Evidence:**
 ```python
 # Brute-force pre-search for good initial tx/ty
@@ -204,7 +204,7 @@ for tx_try in np.arange(initial_tx - 50000, initial_tx + 50000, 10000):
 
 ### HIGH-03. Shape-refinement v4-v5 builds Calgary-De Winton and Edmonton-Windermere from hand-coded bounding boxes with magic-number pixel coordinates that are **not validated against the 2019 shapefile** — `hays_miny + 0.85 * (hays_maxy - hays_miny)` depends on Calgary-Hays's 2019 extents. If the 2019 shapefile were ever re-issued with minor corrections, the hardcoded percentages silently produce wrong polygons without error.
 
-**File/line:** `analysis/v0_1_shape_refinement_v4.py:555-647`, `analysis/v0_1_shape_refinement_v5.py:930-971`
+**File/line:** `analysis/scripts/v0_1_shape_refinement_v4.py:555-647`, `analysis/scripts/v0_1_shape_refinement_v5.py:930-971`
 **Evidence:**
 ```python
 west_x = 72000
@@ -226,7 +226,7 @@ notch_h = 1200
 
 ### HIGH-04. `v0_1_shape_refinement.py` phase 2 OSM-snap pathological-snap guard rejects new polygons outside [0.6, 1.5] × original area — silently falling back to the original polygon. This is reported as a non-failure in the output gpkg (the row's `refined_note` still says "snapped:…" unless we look at `mean_shift_m = 0.0`). The guard's log line is `[phase2/{label}] {name} FAILED: {e}` — but pathological guards fail without exception, and there's no dedicated log message.
 
-**File/line:** `analysis/v0_1_shape_refinement.py:288-298`
+**File/line:** `analysis/scripts/v0_1_shape_refinement.py:288-298`
 **Evidence:**
 ```python
 # Guard: reject pathological snaps
@@ -249,7 +249,7 @@ return new_poly, mean_shift, max_shift
 
 ### HIGH-05. Chen-Rodden ensemble (`v0_1_chen_rodden_alberta.py` Test 2) uses `random.Random(42)` as the walk RNG but also calls `np.random.default_rng(seed)` in Test 1 and `dev.shuffle(v)` in Test 1's permutation — different RNG objects. Different numpy versions change the default RNG implementation silently in minor releases.
 
-**File/line:** `analysis/v0_1_chen_rodden_alberta.py:133-156, 403-404`
+**File/line:** `analysis/scripts/v0_1_chen_rodden_alberta.py:133-156, 403-404`
 **Evidence:**
 ```python
 def morans_i_permutation_test(values: np.ndarray, W: np.ndarray,
@@ -268,7 +268,7 @@ rng = random.Random(42)
 
 ### HIGH-06. `v0_1_cross_election_rural_baseline.py` uses ED-name-prefix heuristic ("Calgary-*", "Edmonton-*", else "Rest of Alberta") for 2015 regional classification. The 2015 boundaries differ from 2019, so a 2015 ED named "Calgary-Buffalo" may include territory that 2019 assigned to a non-Calgary ED (and vice versa). The docstring acknowledges this as "closely matches … but is not boundary-accurate", but the script itself does not quantify or flag the drift. The output is fed into the v0.3 Monte Carlo as the rural range.
 
-**File/line:** `analysis/v0_1_cross_election_rural_baseline.py:27-33, 86-96`
+**File/line:** `analysis/scripts/v0_1_cross_election_rural_baseline.py:27-33, 86-96`
 **Evidence:**
 ```python
 def region_from_name(ed_name: str) -> str:
@@ -293,7 +293,7 @@ def load_2015() -> list:
 
 ### HIGH-07. `build_cover.py` regenerates `report_public.pdf` by running `build_pdf.py` as a subprocess and then `replace()`-ing it to `report_public_article.pdf` — but this design has a race condition if `report_public.pdf` is open in a viewer, and the call `env={**os.environ, "PYTHONIOENCODING": "utf-8"}` overrides the entire environment without preserving `PATH`, `PROGRAMFILES`, and other Windows-critical vars (on Windows, missing PROGRAMFILES breaks geopandas's GDAL loader).
 
-**File/line:** `analysis/build_cover.py:488-502`
+**File/line:** `analysis/scripts/build_cover.py:488-502`
 **Evidence:**
 ```python
 build_pdf_py = REPO_ROOT / "analysis" / "build_pdf.py"
@@ -315,7 +315,7 @@ if OUT_PDF.exists():
 
 ### HIGH-08. Chrome headless PDF invocation uses `--no-sandbox` (security flag) which on CI or locked-down systems could fail silently; `--virtual-time-budget=15000` is arbitrary (15s) and has no dynamic check that fonts/images loaded. Print-to-PDF always writes a file — but if Chrome silently renders without the Google Fonts (network outage), the PDF degrades to system-serif and the report looks wrong without any error.
 
-**File/line:** `analysis/build_pdf.py:513-534`, `analysis/build_cover.py:420-437`
+**File/line:** `analysis/scripts/build_pdf.py:513-534`, `analysis/scripts/build_cover.py:420-437`
 **Evidence:**
 ```python
 cmd = [
@@ -341,7 +341,7 @@ if result.returncode != 0:
 
 ### HIGH-09. `check_voice_and_readability.py` "not X — Y" rule is too narrow — it only matches `\bnot\s+(a|an|the|just)\s+[a-zA-Z ]{3,30}\s+[—–-]\s+`, so phrases like "not partisan — structural", "not gerrymandering — redistribution", "not surprising — expected" (no leading `a/an/the/just`) slip through. The docstring claims to catch "mirrored 'not X — Y' reversals" generally.
 
-**File/line:** `analysis/check_voice_and_readability.py:33-42`
+**File/line:** `analysis/scripts/check_voice_and_readability.py:33-42`
 **Evidence:**
 ```python
 WUFF_VIOLATIONS = [
@@ -359,7 +359,7 @@ WUFF_VIOLATIONS = [
 
 ### HIGH-10. `check_voice_and_readability.py` Flesch-Kincaid fallback approximation uses `re.findall(r"[aeiouy]+", w)` to count syllables — this is a crude vowel-group heuristic that systematically undercounts syllables for words ending in 'e' (handled) but **silently overcounts** compound words like "re-examine" (the hyphen is stripped on the strip step, producing "reexamine" with vowel-group count 4 when the real syllable count is 4 — OK in this case, but "queue" returns 2 via `[aeiouy]+` match = `queue` → `ueue` = 1 group, giving 1 syllable when the real count is 1-2 depending on dialect).
 
-**File/line:** `analysis/check_voice_and_readability.py:70-81`
+**File/line:** `analysis/scripts/check_voice_and_readability.py:70-81`
 **Evidence:**
 ```python
 words = re.findall(r"\b[A-Za-z][A-Za-z']*\b", stripped)
@@ -384,7 +384,7 @@ return 0.39 * (len(words) / len(sents)) + 11.8 * (total_syl / len(words)) - 15.5
 
 ### HIGH-11. `v0_1_a1_legal_baseline_2021_census.py` reprojects CSD / DA polygons to EPSG:3401 and computes `.area` — this is correct. But the DA-population file handling `df["population_2021"].fillna(0).astype(int)` silently **zeroes out suppressed DAs** without documenting how many. The docstring acknowledges CSD-level suppression but is silent about DA-level.
 
-**File/line:** `analysis/v0_1_a1_legal_baseline_2021_census.py:110-123`
+**File/line:** `analysis/scripts/v0_1_a1_legal_baseline_2021_census.py:110-123`
 **Evidence:**
 ```python
 def load_da_populations() -> pd.DataFrame:
@@ -406,7 +406,7 @@ def load_da_populations() -> pd.DataFrame:
 
 ### HIGH-12. `v0_1_majority_symmetry_counter_test.py` has a hand-coded Edmonton zone classifier that lists hybrid naming variants (both `Edmonton-Castle Downs` and `Edmonton-Castledowns`, both `Edmonton-Enoch` and `Edmonton-Enoch-Devon`) — but the majority/minority 2026 population CSVs use their respective canonical names, and a future data refresh that adds a new Edmonton ED would silently fall into `"Edmonton-unclassified"` and be skipped from the test. The script logs `unclassified_count` but does not fail on nonzero.
 
-**File/line:** `analysis/v0_1_majority_symmetry_counter_test.py:108-153, 170-220`
+**File/line:** `analysis/scripts/v0_1_majority_symmetry_counter_test.py:108-153, 170-220`
 **Evidence:**
 ```python
 def edmonton_zone_classifier(ed_name: str) -> str:
@@ -445,7 +445,7 @@ def test_1_edmonton_packing(...) -> list[dict]:
 
 ### MED-01. `v0_1_shape_refinement.py` silently accepts the zip-extracted path for the 2019 ED shapefile. If two `.shp` files exist in `.temp/2019_eds.zip` (for example, if the zip contains both a state-level and ED-level file), the code picks the first one returned by `rglob` — non-deterministic on some filesystems.
 
-**File/line:** `analysis/v0_1_shape_refinement.py:154-162`
+**File/line:** `analysis/scripts/v0_1_shape_refinement.py:154-162`
 **Evidence:**
 ```python
 def _load_2019_eds():
@@ -467,13 +467,13 @@ def _load_2019_eds():
 
 ### MED-02. `v0_1_shape_refinement.py` phase 2's OSM fetch is wrapped in a retry loop with exponential backoff `time.sleep(2 ** i)` for `retries=2`. That's one retry after 1 second. If Overpass is experiencing a rate-limit spike, one-second retry is insufficient. Subsequent failures surface as `OSM_UNAVAILABLE` and the row carries the 2019 geometry unchanged — silent fallback.
 
-**File/line:** `analysis/v0_1_shape_refinement.py:165-189, 346-356`
+**File/line:** `analysis/scripts/v0_1_shape_refinement.py:165-189, 346-356`
 
 ---
 
 ### MED-03. `phase_4c_prep.py` imports and runs top-level code at module load (not inside `main()`), meaning any `import` of this module by a different script triggers full pipeline execution. Tagged `from __future__ import annotations` and has no `if __name__ == "__main__":` guard.
 
-**File/line:** `analysis/phase_4c_prep.py:36-end`
+**File/line:** `analysis/scripts/phase_4c_prep.py:36-end`
 **Evidence:**
 ```python
 print("[1/5] Loading inputs...")
@@ -487,7 +487,7 @@ eds19 = gpd.read_file(DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.
 
 ### MED-04. `phase_4c_prep.py` uses `encoding="latin-1"` for the `polls_2023_unified.csv` loader but every other file in the audit uses `utf-8`. A mix-up could silently corrupt candidate names containing UTF-8 characters (e.g., diacritics in French names, `'` apostrophes).
 
-**File/line:** `analysis/phase_4c_prep.py:41`
+**File/line:** `analysis/scripts/phase_4c_prep.py:41`
 **Evidence:**
 ```python
 polls = pd.read_csv(ANALYSIS / "polls_2023_unified.csv", encoding="latin-1")
@@ -498,7 +498,7 @@ polls = pd.read_csv(ANALYSIS / "polls_2023_unified.csv", encoding="latin-1")
 
 ### MED-05. `electoral_forensics_population.py` s.15(2) criteria are hand-typed with magic numbers (area, distance to major centre) for 6 ridings. The docstring says these are from "publicly available sources (Natural Resources Canada atlas, StatsCan 2021 census, Treaty maps)" but no URLs or retrieval dates. If any number is wrong, the "FAIL 3/5" verdict for Canmore-Banff and Rocky Mountain House-Banff Park is wrong.
 
-**File/line:** `analysis/electoral_forensics_population.py:293-371`
+**File/line:** `analysis/scripts/electoral_forensics_population.py:293-371`
 **Evidence:**
 ```python
 S15_2_CRITERIA = {
@@ -518,13 +518,13 @@ S15_2_CRITERIA = {
 
 ### MED-06. `v0_1_chen_rodden_alberta.py` population proxy uses 2023 two-party vote total as a proxy for population — acknowledged in docstring, but the ±25% constraint `lo = target_pop * 0.75; hi = target_pop * 1.25` is then enforced in *vote-total* space, not *population* space. Vote-to-population ratio varies across EDs (rural turnout lower, urban higher), so the random-walk ensemble is sampling from a slightly different population-constrained plan space than the one claimed. Docstring acknowledges this but does not quantify the bias.
 
-**File/line:** `analysis/v0_1_chen_rodden_alberta.py:331-337`
+**File/line:** `analysis/scripts/v0_1_chen_rodden_alberta.py:331-337`
 
 ---
 
 ### MED-07. `v0_2_packing_cracking_analysis.py` sensitivity test re-computes `maj_w`, `min_w` twice in the same loop iteration (once from the unchanged mapping, once from an overridden mapping). The first computation is dead code — but it burns compute and suggests the original intent was different. A maintainer could accidentally swap the semantics later.
 
-**File/line:** `analysis/v0_2_packing_cracking_analysis.py:572-586`
+**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:572-586`
 **Evidence:**
 ```python
 for w in [0.60, 0.70, 0.80]:
@@ -545,7 +545,7 @@ for w in [0.60, 0.70, 0.80]:
 
 ### MED-08. `v0_1_canadian_base_rate_compute.py` deflates seat-share asymmetry to EG asymmetry using a hardcoded `0.455` factor derived from one cycle's ratio (Alberta 2026: 0.51 EG / 1.12 seat-share). Applied to 6 other cycles with different seat counts, party compositions, and election contexts. Docstring acknowledges this but the benchmark distribution (mean, median, percentile) is computed on those deflated values and cited as a "Canadian base rate."
 
-**File/line:** `analysis/v0_1_canadian_base_rate_compute.py:76-98, 412-453`
+**File/line:** `analysis/scripts/v0_1_canadian_base_rate_compute.py:76-98, 412-453`
 **Evidence:**
 ```python
 @property
@@ -564,32 +564,32 @@ def eg_asymmetry_proxy_pp(self) -> float | None:
 
 ### MED-09. Shape refinement v5's `process_calgary_south` fallback path is entered when cleaning removes the polygon, but the fallback itself uses `hays.centroid` and a bbox — this produces a centered rectangle that is guaranteed to be inside Hays but may bear no resemblance to the actual Calgary-South. The `v5_method` column is not updated to reflect the fallback.
 
-**File/line:** `analysis/v0_1_shape_refinement_v4.py:620-630`
+**File/line:** `analysis/scripts/v0_1_shape_refinement_v4.py:620-630`
 
 ---
 
 ### MED-10. `v0_1_track_l_drift.py` uses hand-coded growth factors per CSD. The docstring cites "Alberta TBF and StatsCan-published annual growth rates" but no explicit URL/retrieval date per CSD. Default growth by CSDTYPE is `1.075` — a single flat number regardless of whether the CSD is, e.g., Wood Buffalo (explicitly override to 0.990). Any new CSD not in the hand-coded dict gets the flat default.
 
-**File/line:** `analysis/v0_1_track_l_drift.py:51-177`
+**File/line:** `analysis/scripts/v0_1_track_l_drift.py:51-177`
 
 ---
 
 ### MED-11. `v0_1_build_overlay_figures.py` hardcodes the v5 → v4 fallback order. If v5 is broken / not yet regenerated and v4 is stale, the publication figures silently use v4 and the caption says "v4" — but the report text may still reference "v5 shapes." There's no cross-check that the text and figures match.
 
-**File/line:** `analysis/v0_1_build_overlay_figures.py:289-292`
+**File/line:** `analysis/scripts/v0_1_build_overlay_figures.py:289-292`
 
 ---
 
 ### MED-12. `v0_1_chen_rodden_alberta.py` Moran's I permutation test shuffles `values` in-place (`rng.shuffle(v)`) where `v = values.copy()`. The copy is shuffled but the original `values` is untouched — correct. However, the calculation compares `abs(perm_I - expected) >= abs(I_obs - expected)` — using `expected` from the formula `-1/(n-1)`, not the permutation mean. Under standard Moran's I theory, the null distribution mean equals `expected` only asymptotically; using it for a two-sided p-value is conservative but not standard.
 
-**File/line:** `analysis/v0_1_chen_rodden_alberta.py:133-156`
+**File/line:** `analysis/scripts/v0_1_chen_rodden_alberta.py:133-156`
 **Fix recommendation:** Compare to `perm_I.mean()` (empirical null) rather than theoretical `expected`.
 
 ---
 
 ### MED-13. Chen-Rodden Test 2 `compute_plan_metrics` function has a degenerate case when a plan has only one district (NDP-swept or UCP-swept) — `n_ndp_wins = 87, n_ucp_wins = 0`. The declination formula returns `float('nan')` but the efficiency gap still computes as `(ndp_wasted - ucp_wasted) / total`. If `ucp_wasted = 0` (all UCP voters in losing districts), the EG still equals `(NDP_surplus - 0) / total` and is reported, but interpreting this EG as "gerrymandering signal" vs "natural-sweep" requires a separate sweep check.
 
-**File/line:** `analysis/v0_1_chen_rodden_alberta.py:228-242`
+**File/line:** `analysis/scripts/v0_1_chen_rodden_alberta.py:228-242`
 
 ---
 
@@ -597,43 +597,43 @@ def eg_asymmetry_proxy_pp(self) -> float | None:
 
 ### LOW-01. `build_pdf.py` regex `r"(<hr\s*/?>\s*)<p>"` matches the FIRST `<hr>` in the rendered HTML — but the markdown author may include the first `<hr>` for a different purpose (e.g., a horizontal rule between sections rather than after the masthead block). If the masthead markdown changes, the lede class may attach to the wrong paragraph.
 
-**File/line:** `analysis/build_pdf.py:494-500`
+**File/line:** `analysis/scripts/build_pdf.py:494-500`
 
 ---
 
 ### LOW-02. `v0_2_packing_cracking_analysis.py`'s `compute_metrics` uses `tt // 2 + 1` as the majority threshold, which assumes all EDs have even vote counts and that "majority" means >50%. For an odd-count ED, `(tt // 2) + 1` gives the actual vote threshold. For an even-count ED where the vote is tied, the EG treats the NDP-won outcome as requiring strict inequality. This is consistent with standard EG (Stephanopoulos-McGhee) but is worth noting.
 
-**File/line:** `analysis/v0_2_packing_cracking_analysis.py:131-142`
+**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:131-142`
 
 ---
 
 ### LOW-03. Multiple scripts use `float("nan")` in the rounding chain (e.g., `round(v, 2) if v == v else ''`) — the `v == v` test is Python-idiomatic NaN detection, but `math.isnan(v)` is clearer and handles infinities. Minor style.
 
-**File/line:** `analysis/v0_1_338canada_scraper.py:146-157, 173-174`, `analysis/v0_1_338canada_reallocate.py:47-60` and scattered.
+**File/line:** `analysis/scripts/v0_1_338canada_scraper.py:146-157, 173-174`, `analysis/scripts/v0_1_338canada_reallocate.py:47-60` and scattered.
 
 ---
 
 ### LOW-04. Chen-Rodden `_votes` helper in Test 3 uses `for i in range(1, 7)` — the 2019 results file has up to 8 candidates (the `v0_1_cross_election_rural_baseline.py` loader uses `range(1, 9)`). So Test 3 silently stops at candidate 6, missing candidates 7 and 8 for some EDs. In practice Alberta's major parties are NDP and UCP and the 2-party vote is captured, but this is a silent schema mismatch.
 
-**File/line:** `analysis/v0_1_chen_rodden_alberta.py:533-548`, compare `analysis/v0_1_cross_election_rural_baseline.py:66` (`range(1, 9)`).
+**File/line:** `analysis/scripts/v0_1_chen_rodden_alberta.py:533-548`, compare `analysis/scripts/v0_1_cross_election_rural_baseline.py:66` (`range(1, 9)`).
 
 ---
 
 ### LOW-05. `v0_1_shape_refinement.py`'s `_snap_polygon_to_roads` sample-spacing is `max(int(line.length / 200.0) + 1, 8)` — that's at least 8 samples per ring even for rings shorter than 1.6 km. Reasonable for small urban EDs but may produce 200+ samples on long rural rings, which is fine.
 
-**File/line:** `analysis/v0_1_shape_refinement.py:219-220`
+**File/line:** `analysis/scripts/v0_1_shape_refinement.py:219-220`
 
 ---
 
 ### LOW-06. `v0_1_a1_legal_baseline_2021_census.py` does not pin its CRS assumption — it asserts `TARGET_CRS = "EPSG:3401"` but does not verify the input shapefile's declared CRS matches (it just reprojects). If the input has a wrong declared CRS (wrong EPSG tag but correct coords), `to_crs` would silently "reproject" nonsense.
 
-**File/line:** `analysis/v0_1_a1_legal_baseline_2021_census.py:146-154`
+**File/line:** `analysis/scripts/v0_1_a1_legal_baseline_2021_census.py:146-154`
 
 ---
 
 ### LOW-07. `v0_1_majority_symmetry_counter_test.py` `count_eds_containing_city` uses string matching which has edge cases: for `city = "Fort McMurray"`, the ED named `Fort McMurray-Wood Buffalo` matches. But `city = "Red Deer"` with ED `Red Deer County` (doesn't exist in 2026 but could in future data) would also match. More critically: for `Calgary` the script *excludes* big-city-prefix suffixes — the inverted logic at line 238-243 is confusing and bug-prone.
 
-**File/line:** `analysis/v0_1_majority_symmetry_counter_test.py:223-244`
+**File/line:** `analysis/scripts/v0_1_majority_symmetry_counter_test.py:223-244`
 
 ---
 
@@ -641,7 +641,7 @@ def eg_asymmetry_proxy_pp(self) -> float | None:
 
 ### INFO-01. EPSG:3401 description disagreement. `v0_1_shape_refinement.py:58` and all shape-refinement files label `EPSG:3401` as "3TM 115 (Calgary/Edmonton corridor)", but `v0_1_data_preparation.md:170` labels it as "NAD83 3TM 114°W for Alberta". The correct authority: EPSG:3401 is NAD83 3TM Zone 114°W (it covers all of Alberta — not a corridor). The scripts are not actually using the wrong CRS (calls to `.area` work correctly because the coordinates are stored in the shapefile), but the docstrings are misleading.
 
-**File/line:** `analysis/v0_1_shape_refinement.py:56-58` and the v2-v5 headers.
+**File/line:** `analysis/scripts/v0_1_shape_refinement.py:56-58` and the v2-v5 headers.
 
 ---
 

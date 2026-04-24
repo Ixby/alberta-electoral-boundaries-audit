@@ -16,7 +16,7 @@
 - **Total flagged claims:** 24
 - **Needs manual verification:** 3 (Hansard-sourced and X-post quotes)
 
-Overall posture: the two reports are substantially reproducible from the checked-in pipeline. The structural findings (MAD, Calgary zone gap, Airdrie 4-way, RMH-Banff extension) hold exactly as stated when the scripts are rerun. The issues are concentrated in three areas: (a) the §3.4 sensitivity-table values in `report_academic.md` do not match the script's current output at two of three weight points; (b) `report_public.md` still attributes "+0.7 of a seat" to the RMH-Banff §15(2) invocation after that attribution was retracted in `analysis/v0_1_s15_2_reaudit.md` §5.3; (c) direct-quotation wording is imprecise in several places (Nenshi quote stitched from two places in the source; Notley paraphrase presented as a direct quote).
+Overall posture: the two reports are substantially reproducible from the checked-in pipeline. The structural findings (MAD, Calgary zone gap, Airdrie 4-way, RMH-Banff extension) hold exactly as stated when the scripts are rerun. The issues are concentrated in three areas: (a) the §3.4 sensitivity-table values in `report_academic.md` do not match the script's current output at two of three weight points; (b) `report_public.md` still attributes "+0.7 of a seat" to the RMH-Banff §15(2) invocation after that attribution was retracted in `analysis/methodology/v0_1_s15_2_reaudit.md` §5.3; (c) direct-quotation wording is imprecise in several places (Nenshi quote stitched from two places in the source; Notley paraphrase presented as a direct quote).
 
 ---
 
@@ -28,7 +28,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 - 0.60 urban-weight: Majority EG +1.58%, Asymmetry −1.36 pp
 - 0.80 urban-weight: Majority EG −1.43%, Asymmetry −1.61 pp
 
-**Verified values (from `PYTHONIOENCODING=utf-8 python analysis/v0_2_packing_cracking_analysis.py` run on 2026-04-23):**
+**Verified values (from `PYTHONIOENCODING=utf-8 python analysis/scripts/v0_2_packing_cracking_analysis.py` run on 2026-04-23):**
 - 0.60: Majority EG **+1.53%**, Minority EG +0.22%, Asymmetry **−1.31 pp**
 - 0.70: Majority EG −0.85%, Minority EG −1.36%, Asymmetry −0.51 pp (matches)
 - 0.80: Majority EG **−1.52%**, Minority EG −3.04%, Asymmetry **−1.52 pp**
@@ -41,14 +41,14 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### CRIT-02. `report_public.md` still attributes "+0.7 of a seat" to RMH-Banff Park after the internal re-audit retracted the attribution
 **Claim (verbatim):** "The extra rural seat at Rocky Mountain House-Banff Park accounts for roughly 0.7 of the one-to-three-seat gap between the two maps." — `report_public.md` line 140
 **Stated value:** +0.7 seat attributable to the RMH-Banff §15(2) invocation.
-**Source of truth:** `analysis/v0_1_s15_2_reaudit.md` §5.3, which concludes: *"The +0.7 seat attribution collapses. The rural-seat gap must be re-attributed to other features of the two maps (e.g., Canmore-Banff adding a rural seat the minority does not create, Lesser Slave Lake's specific boundary, or — more likely — the minority's rest-of-province mean being 3.9% lower than the majority's via other EDs)."* The re-audit is explicit that the engineered-boundary-qualification theory that underwrote the attribution is factually wrong (RMH-Banff passes 4/5 §15(2) criteria without the NP extension; the extension is not load-bearing).
+**Source of truth:** `analysis/methodology/v0_1_s15_2_reaudit.md` §5.3, which concludes: *"The +0.7 seat attribution collapses. The rural-seat gap must be re-attributed to other features of the two maps (e.g., Canmore-Banff adding a rural seat the minority does not create, Lesser Slave Lake's specific boundary, or — more likely — the minority's rest-of-province mean being 3.9% lower than the majority's via other EDs)."* The re-audit is explicit that the engineered-boundary-qualification theory that underwrote the attribution is factually wrong (RMH-Banff passes 4/5 §15(2) criteria without the NP extension; the extension is not load-bearing).
 **Delta:** The public report retains a number the internal audit says it must drop. The §3.10 academic signatures summary was revised to show RMH-Banff as "retracted under corrected §15(2) thresholds" in §5.2 of the re-audit, but the public report's seat-attribution line was not carried forward.
 **Recommendation:** Either delete the "+0.7" line from `report_public.md`, or reframe as "the rest-of-province average population gap (3.9%) accounts for most of the 1–3 seat gap between the two maps." Noting: `report_public.md` lines 136–138 already reflect the re-audit qualitatively — they acknowledge the test "was tempting to retract" — but the numeric attribution two lines later is stale.
 
 ### CRIT-03. The "materially wrong on three of them" framing in `report_public.md` misrepresents the scope
 **Claim (verbatim):** "the chair's own claim that five minority configurations had 'no public support' turned out to be materially wrong on three of them" — `report_public.md` line 25
 **Stated value:** 3 of 5 Miller-named configurations were materially wrong.
-**Source of truth:** `analysis/submission_search_findings.md` and `analysis/v0_1_claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
+**Source of truth:** `analysis/reports/submission_search_findings.md` and `analysis/reports/v0_1_claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
 **Delta:** The public report's intro promises "three of five" but the support refutation actually hits one of Miller's five (Chestermere) plus two configurations Miller did not specifically disavow in Appendix C. The in-body Table 2 (line 147–154) lists all seven correctly, but the intro's phrasing inflates the hit rate against what Miller specifically claimed.
 **Recommendation:** Tighten the intro to "the chair's own claim that five minority configurations had no public support turned out to be materially wrong on Chestermere, and his broader 'no public support' framing mischaracterized the record on two additional configurations the minority adopted from the submissions." Or equivalent.
 
@@ -59,7 +59,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### HIGH-01. 2019 cross-election asymmetry: academic preamble says +0.60 pp, §3.5 and script say +0.75 pp
 **Claim (verbatim):** "Running identical methodology with 2019 vote totals (instead of 2023) produces Majority EG +0.30%, Minority EG +0.90%, asymmetry **+0.60 pp**" — `report_academic.md` line 72 (stress-test preamble)
 **Stated values:** Majority +0.30%, Asymmetry +0.60 pp
-**Verified values (from `python analysis/v0_3_monte_carlo_ci.py` cross-election cross-check and `python analysis/v0_1_2015_cross_election.py`):**
+**Verified values (from `python analysis/scripts/v0_3_monte_carlo_ci.py` cross-election cross-check and `python analysis/scripts/v0_1_2015_cross_election.py`):**
 - Majority 2026 under 2019 votes: EG **+0.16%** (v0_3) / +0.16% (v0_1_2015 script)
 - Minority 2026 under 2019 votes: EG +0.90%
 - Asymmetry **+0.75 pp** (reported identically in `report_academic.md` §3.5 line 263)
@@ -69,12 +69,12 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### HIGH-02. Monte Carlo median asymmetry: academic says −1.44, script says −1.40
 **Claim (verbatim):** "Minority-majority EG asymmetry: mean −1.22 pp, median **−1.44 pp**, **95% CI [−3.04, +0.76] pp**. Direction consistency: 90.5% of samples" — `report_academic.md` lines 68
 **Stated value:** Mean −1.22, median −1.44
-**Verified values (from `python analysis/v0_3_monte_carlo_ci.py` run, seed=42 N=2000):**
+**Verified values (from `python analysis/scripts/v0_3_monte_carlo_ci.py` run, seed=42 N=2000):**
 - Mean: **−1.233** (rounds to −1.23, not −1.22)
 - Median: **−1.401** (rounds to −1.40, not −1.44)
 - 95% CI: [−3.038, +0.764] (matches academic's [−3.04, +0.76])
 - Direction consistency: **90.5%** (matches)
-**Source of truth:** Full script output at /analysis/v0_3_monte_carlo_ci.py with hard-coded seed=42, n_samples=2000 in the `run_monte_carlo()` function (line 94).
+**Source of truth:** Full script output at /analysis/scripts/v0_3_monte_carlo_ci.py with hard-coded seed=42, n_samples=2000 in the `run_monte_carlo()` function (line 94).
 **Delta:** Median off by 0.04 pp; mean off by 0.01 pp.
 **Recommendation:** Update the preamble from "−1.22 pp" / "−1.44 pp" to "−1.23 pp" / "−1.40 pp". The 95% CI and the 90.5% directional consistency are already correct.
 
@@ -82,8 +82,8 @@ Overall posture: the two reports are substantially reproducible from the checked
 **Claim (verbatim):** "The commission took 1,345 written submissions across two rounds of hearings. I was able to keyword-search 1,252 of them." — `report_public.md` line 144
 **Stated value:** 1,345
 **Verified value:**
-- `analysis/submission_search_findings.md` line 3: "~1,340 public submissions"
-- `analysis/submission_search_findings.md` line 7: "1,252 of ~1,340 (93.4%)"
+- `analysis/reports/submission_search_findings.md` line 3: "~1,340 public submissions"
+- `analysis/reports/submission_search_findings.md` line 7: "1,252 of ~1,340 (93.4%)"
 - `report_academic.md` line 538: "approximately 1,340"
 **Source of truth:** No source in the repo gives 1,345; every internal reference uses "~1,340" or "approximately 1,340."
 **Recommendation:** Change "1,345" to "approximately 1,340" in `report_public.md` to match the academic report and the submission search findings, or cite the specific source if 1,345 is the actual commission-reported count.
@@ -117,19 +117,19 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-02. "I've been asking every member to look at page 66 of the report and the judge's addendum to the majority report" — no accessible source in repo or web
 **Claim (verbatim):** "'I've been asking every member to look at page 66 of the report and the judge's addendum to the majority report,' she said." — `report_public.md` line 39
-**Verified source:** Attempted fetches of multiple April 17, 2026 articles about Smith's Question Period remarks. Parliamentum.org (2026-04-21) and albertacounselnews.com both paraphrase Smith but do not reproduce the "I've been asking every member..." verbatim line. The Alberta Hansard direct-transcript site returned 403 on attempted WebFetch per `analysis/v0_1_minority_rationales_inventory.md` line 276. The public report cites "Premier Smith's April 17 legislature statement" in its "source trail" (line 348) without a URL anchor.
+**Verified source:** Attempted fetches of multiple April 17, 2026 articles about Smith's Question Period remarks. Parliamentum.org (2026-04-21) and albertacounselnews.com both paraphrase Smith but do not reproduce the "I've been asking every member..." verbatim line. The Alberta Hansard direct-transcript site returned 403 on attempted WebFetch per `analysis/methodology/v0_1_minority_rationales_inventory.md` line 276. The public report cites "Premier Smith's April 17 legislature statement" in its "source trail" (line 348) without a URL anchor.
 **Delta:** The quote is plausible and consistent with every paraphrased summary of Smith's Question Period statements, but I cannot reproduce the exact words from any accessible source.
 **Recommendation:** Mark as "needs manual verification" against Hansard for April 17, 2026 Day 17 sitting; supply a URL if Hansard is indexed and accessible.
 
 ### MED-03. Greg Clark "In Canada, we don't want elected officials drawing their own election maps" — not verified from X
 **Claim (verbatim):** "Commissioner Greg Clark, one of the two opposition-nominated majority members — Clark had been nominated by NDP leader Naheed Nenshi — posted on X after the report dropped. 'In Canada,' he wrote, 'we don't want elected officials drawing their own election maps.'" — `report_public.md` line 230
-**Verified source:** `analysis/v0_1_chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
+**Verified source:** `analysis/reports/v0_1_chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
 **Delta:** The direction of Clark's view is internally corroborated (Miller's own text in the PDF disavows majority endorsement of R5). The specific "In Canada, we don't want..." wording is not archival-verified in the repo.
 **Recommendation:** Mark as "needs manual verification" against the X thread (Wayback capture or direct archive URL).
 
 ### MED-04. "five Indian reserves are inside it — Big Horn 144A, O'Chiese, three Stoney reserves, Sunchild"
 **Claim (verbatim):** "Five named Indian reserves are inside it — Big Horn 144A, O'Chiese, three Stoney reserves, Sunchild." — `report_public.md` line 126
-**Verified source:** `analysis/v0_1_s15_2_reaudit.md` §3.4 and commission PDF p. 352 list the reserves as: "Big Horn No. 144A, O'Chiese No. 203, Stoney nos. 142, 143, 144, Stoney No. 142B and Sunchild No. 202" — that is **four** Stoney reserves (142, 143, 144, plus 142B), not three.
+**Verified source:** `analysis/methodology/v0_1_s15_2_reaudit.md` §3.4 and commission PDF p. 352 list the reserves as: "Big Horn No. 144A, O'Chiese No. 203, Stoney nos. 142, 143, 144, Stoney No. 142B and Sunchild No. 202" — that is **four** Stoney reserves (142, 143, 144, plus 142B), not three.
 **Delta:** The public report says "three Stoney reserves"; the commission and the re-audit both enumerate four. Counting five distinct named reserves (Big Horn, O'Chiese, 142-143-144 as a block, 142B, Sunchild) yields five if 142/143/144 are grouped as "the three numbered Stoney" plus 142B. But the commission's list as written distinguishes "Stoney nos. 142, 143, 144" and "Stoney No. 142B" as separate entries.
 **Recommendation:** Either "four Stoney reserves" or "the numbered Stoney Nakoda reserves" would be accurate.
 
@@ -148,7 +148,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 | Chestermere as its own unit | 3 support, 1 oppose |
 | Red Deer hybrids | 4 support, 4 oppose, 15 neutral |
 
-**Verified value (from `analysis/submission_search_findings.md` and `report_academic.md` §5.4.1):**
+**Verified value (from `analysis/reports/submission_search_findings.md` and `report_academic.md` §5.4.1):**
 - RMH-Banff Park: **3 explicit supporters + ≥4 aligned = 7 total leaning-support**, 1 oppose, ~15 neutral (20 total mentions)
 - ODH: **2 supporters**, 2 opposers, 1 neutral (5 total mentions)
 - Chestermere: 3 supporters, **3 opposers** (not 1), 7 neutral (13 total)
@@ -162,7 +162,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-07. "four of five criteria pass without the park" in `report_public.md` line 126 — audit says (b) is "qualified" pass
 **Claim (verbatim):** "Four of the Act's five criteria pass without the park." — `report_public.md` line 126
-**Verified source:** `analysis/v0_1_s15_2_reaudit.md` §3.5 counterfactual: 4/5 pass without NP extension, but criterion (b) is qualified with: *"Rimbey ~143 km from Edmonton (Wikipedia); Rocky Mountain House ~215 km (rome2rio, ViaMichelin). On a 'nearest boundary' conservative reading this is borderline."* §7 open question 1 reiterates: "Criterion (b) for RMH-Banff Park is borderline. Rimbey sits at ~143 km from the Edmonton Legislature by road; the NE corner of Clearwater County may be marginally closer to 150 km."
+**Verified source:** `analysis/methodology/v0_1_s15_2_reaudit.md` §3.5 counterfactual: 4/5 pass without NP extension, but criterion (b) is qualified with: *"Rimbey ~143 km from Edmonton (Wikipedia); Rocky Mountain House ~215 km (rome2rio, ViaMichelin). On a 'nearest boundary' conservative reading this is borderline."* §7 open question 1 reiterates: "Criterion (b) for RMH-Banff Park is borderline. Rimbey sits at ~143 km from the Edmonton Legislature by road; the NE corner of Clearwater County may be marginally closer to 150 km."
 **Delta:** The 4/5 pass claim depends on (b) being credited; the internal re-audit flags (b) as "qualified pass" and notes that under a strict reading (b) may fail, in which case without the NP extension the district passes only 3/5. The 3/5 still clears the statutory threshold, but the public report's "four of five" is the upper-bound reading, not the conservative one.
 **Recommendation:** Soften to "four of the Act's five criteria pass without the park (three cleanly, one borderline)" to match the re-audit's own qualifier.
 
@@ -177,7 +177,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 **Recommendation:** Preserve source punctuation inside direct quotation marks.
 
 ### LOW-03. Metis settlement spelling — statute uses "Metis" without accent; audit text sometimes uses "Métis"
-**Claim (verbatim):** `report_public.md` line 57 uses "Métis settlements" (with accent); the statute text quoted verbatim in `analysis/v0_1_s15_2_reaudit.md` §1 uses "Metis settlement" (no accent).
+**Claim (verbatim):** `report_public.md` line 57 uses "Métis settlements" (with accent); the statute text quoted verbatim in `analysis/methodology/v0_1_s15_2_reaudit.md` §1 uses "Metis settlement" (no accent).
 **Delta:** Stylistic. Both are accepted. Match source if quoting verbatim.
 
 ### LOW-04. Seven reserves in RMH enumerated as "five named" — covered in MED-04
@@ -190,7 +190,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 Script output confirms 2015 EG asymmetry is +0.03 pp (essentially zero). This is reported in academic §3.5 but is not in the Abstract or §7 six-dimensions table.
 
 ### INFO-02. Three comparator cases (Quebec 1992, Ontario 1996, BC 2008) are internally documented but without academic citation
-`analysis/v0_1_academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `analysis/v0_1_bias_audit.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `v0_1_section_D_procedural.md` comparators but could use a cited academic source.
+`analysis/methodology/v0_1_academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `analysis/reports/v0_1_bias_audit.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `v0_1_section_D_procedural.md` comparators but could use a cited academic source.
 
 ### INFO-03. "1.5-point swing" as "the middle of the map-effect estimate" (public report line 270)
 The Monte Carlo mean is −1.23 pp; the median is −1.40 pp; the sensitivity range is 0.51 to 1.52 pp. 1.5 pp is at the upper end of the range, not the middle (which is closer to 1.0 pp). "Midpoint of 1.0 to 1.5" would be technically more accurate; "middle of the estimate" reads like a point-estimate midpoint.
@@ -224,10 +224,10 @@ The 0.05 pp drift at 0.60 and 0.09 pp at 0.80 (CRIT-01) only appears in the acad
 
 ## What I verified and is correct
 
-- Monte Carlo parameters (seed=42, N=2,000, urban-weight 0.55–0.85, rural baseline 0.26–0.36, jitter ±0.10) — verified from `analysis/v0_3_monte_carlo_ci.py` lines 11–17, 94.
+- Monte Carlo parameters (seed=42, N=2,000, urban-weight 0.55–0.85, rural baseline 0.26–0.36, jitter ±0.10) — verified from `analysis/scripts/v0_3_monte_carlo_ci.py` lines 11–17, 94.
 - 90.5% directional consistency — reproduced exactly from script.
 - 95% CI [−3.04, +0.76] pp — reproduced exactly from script.
-- Calgary Zone A mean 61,225 / Zone B mean 54,569 / gap +12.20% under the minority — `analysis/electoral_forensics_population.py` output.
+- Calgary Zone A mean 61,225 / Zone B mean 54,569 / gap +12.20% under the minority — `analysis/scripts/electoral_forensics_population.py` output.
 - Calgary Zone gap under the majority (+0.36%) — `electoral_forensics_population.py` output.
 - A1 MAD: Majority 3,180 / Minority 4,707 — `electoral_forensics_population.py`.
 - 113,000 voters excess ≈ 17 × (61,225 − 54,569) = 113,152, matches public-report rounding.

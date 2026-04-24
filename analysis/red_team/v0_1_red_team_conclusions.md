@@ -52,7 +52,7 @@ The audit's strongest material is §A1 population distribution (structural, elec
 And `report_academic.md:361`:
 > "The E2 criterion was initially framed as a statutory-eligibility test ('without extension, ED would not qualify') and the §15(2) re-audit against corrected thresholds failed that narrow test. On review the test is reformulated to match the signature the audit was actually trying to measure..."
 
-**Evidence:** `analysis/v0_1_s15_2_reaudit.md:118` — under corrected thresholds, RMH-Banff Park passes 5/5 *with* the park extension and 4/5 *without* it. The park is not statutorily necessary. The academic paper (`:205`) says flatly: "Engineered-boundary characterization: retracted."
+**Evidence:** `analysis/methodology/v0_1_s15_2_reaudit.md:118` — under corrected thresholds, RMH-Banff Park passes 5/5 *with* the park extension and 4/5 *without* it. The park is not statutorily necessary. The academic paper (`:205`) says flatly: "Engineered-boundary characterization: retracted."
 
 **Gap:** The academic paper's §2.4 explicitly **retracts** the engineered-boundary characterization on the narrow statutory test. It then in §3.9 **reinstates** a signature under a reformulated E2 criterion ("chosen over populated alternatives") that was not pre-registered before the re-audit surfaced the retraction. The pre-registration timestamp (`report_academic.md:327`: git commit `5b0bc06` at 2026-04-22 08:32:20) is **2 hours 24 minutes** before the detection runs. The E2 reformulation happened *after* the first signature failed. This is textbook ad-hoc rescue: a hypothesis fails its pre-registered test, the test is re-written to be softer, the hypothesis passes the softened test, and the paper reports it as a detection. The magazine does not even acknowledge the reformulation happened — it frames the test as a resilient finding ("the question underneath it was not").
 
@@ -221,7 +221,7 @@ Further: the academic paper (`:534`) admits "the stronger claim 'without recent 
 - "...the sentence a paragraph later: 'My majority colleagues do not agree with me on this point.'"
 - "The defence that 'the commission endorsed this' does not survive a reading of the commission's own paperwork."
 
-**Evidence:** `analysis/v0_1_chair_recommendation_5_analysis.md:45`:
+**Evidence:** `analysis/reports/v0_1_chair_recommendation_5_analysis.md:45`:
 > "My majority colleagues do not agree with me on this point."
 
 Note: I could not find evidence in the source files I reviewed for the phrase "That is why I am alone in making this recommendation." The chair analysis doc quotes only "My majority colleagues do not agree with me on this point." The magazine's opening paragraph attributes a two-sentence quotation to Miller with the second sentence appearing to be supplied by the magazine itself, not the chair.
