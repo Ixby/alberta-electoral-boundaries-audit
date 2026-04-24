@@ -214,9 +214,13 @@ def compute_metrics(districts: List[Dict], label: str, *, verbose: bool = True) 
 #   ('split', '<2019 ED>', urban_weight, split_fraction)
 #       -> take a fraction of a 2019 ED, then apply blending
 #
-# urban_weight = 0.70 for all non-special blends (applied symmetrically).
+# urban_weight = 0.85 for all non-special blends (applied symmetrically).
+# Derived from commission-published population targets: for each hybrid ED,
+# parent_2019_pop / total_2026_pop. Majority hybrid mean = 0.876, minority
+# mean = 0.830. Flat 0.85 is the best single-value estimate. Prior value 0.70
+# was arbitrary. Sensitivity analysis covers 0.70 / 0.85 / 0.90.
 
-URBAN_WEIGHT_DEFAULT = 0.70
+URBAN_WEIGHT_DEFAULT = 0.85
 
 MAJORITY_2026_MAPPING = {
     # Calgary direct renames (cover same urban neighborhood)
@@ -273,7 +277,10 @@ MAJORITY_2026_MAPPING = {
     'Edmonton-Glenora-Riverview': ('merge', ['Edmonton-Glenora', 'Edmonton-Riverview'], [1.0, 0.4]),
 
     # Edmonton hybrids
-    'Edmonton-Beaumont':          ('blend', 'Edmonton-South', URBAN_WEIGHT_DEFAULT),
+    # Edmonton-Beaumont draws from Leduc-Beaumont 2019 (City of Beaumont is in
+    # that district; Edmonton-South 2026 is an identical rename of Edmonton-South
+    # 2019, so no territory crosses over).
+    'Edmonton-Beaumont':          ('blend', 'Leduc-Beaumont', URBAN_WEIGHT_DEFAULT),
     'Edmonton-Enoch':             ('blend', 'Edmonton-West Henday', URBAN_WEIGHT_DEFAULT),
 
     # Rest-of-province direct renames
@@ -384,7 +391,9 @@ MINORITY_2026_MAPPING = {
     'Edmonton-Glenora-Riverview': ('merge', ['Edmonton-Glenora', 'Edmonton-Riverview'], [1.0, 0.6]),
 
     # Edmonton hybrids
-    'Edmonton-Beaumont':     ('blend', 'Edmonton-South', URBAN_WEIGHT_DEFAULT),
+    # Edmonton-Beaumont draws from Leduc-Beaumont 2019 (City of Beaumont);
+    # Edmonton-South 2026 is an identical rename with no territory split.
+    'Edmonton-Beaumont':     ('blend', 'Leduc-Beaumont', URBAN_WEIGHT_DEFAULT),
     'Edmonton-Enoch-Devon':  ('blend', 'Edmonton-West Henday', URBAN_WEIGHT_DEFAULT),
     'Edmonton-Spruce Grove': ('blend', 'Spruce Grove-Stony Plain', URBAN_WEIGHT_DEFAULT),
 
@@ -602,7 +611,7 @@ def main():
         print("  SENSITIVITY: B2 efficiency gap under alternative weights")
         print("="*60)
         print(f"  Urban weight | Majority EG | Minority EG | Delta")
-        for w in [0.60, 0.70, 0.80]:
+        for w in [0.60, 0.70, 0.80, 0.85, 0.90]:
             # MED-07: removed dead `estimate_2026` calls that preceded
             # the override rebuild. The mapping tuples bake the weight
             # into spec[2], so the `urban_weight=w` kwarg had no effect
