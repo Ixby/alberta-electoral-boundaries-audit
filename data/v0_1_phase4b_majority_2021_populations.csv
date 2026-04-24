@@ -1,0 +1,90 @@
+ed_name,pop_2021_from_das,polygon_source
+Calgary-Acadia,50214.0,approx
+Calgary-Beddington,47231.0,approx
+Calgary-Bhullar-McCall,40610.0,v7
+Calgary-Bow,53656.0,approx
+Calgary-Buffalo,55556.0,approx
+Calgary-Confluence,0.0,none
+Calgary-Cross,48284.0,approx
+Calgary-Currie,50145.0,approx
+Calgary-East,45332.0,v7
+Calgary-Edgemont,48224.0,approx
+Calgary-Elbow,46247.0,approx
+Calgary-Falconridge-Conrich,0.0,v7
+Calgary-Fish Creek,44333.0,approx
+Calgary-Glenmore-Tsuut'ina,17003.0,v7
+Calgary-Hays,52843.0,approx
+Calgary-Klein,47435.0,approx
+Calgary-Lougheed,42711.0,approx
+Calgary-McKenzie,48000.0,v7
+Calgary-Mountain View,53187.0,approx
+Calgary-North,48182.0,approx
+Calgary-North East,31251.0,approx
+Calgary-North West,46614.0,approx
+Calgary-Nose Creek,56716.0,2019_identity_from_Calgary-Foothills
+Calgary-Shaw,19360.0,approx
+Calgary-South East,46477.0,approx
+Calgary-Symons Valley,1632.0,v7
+Calgary-Varsity,45792.0,approx
+Calgary-West-Elbow Valley,23480.0,v7
+Edmonton-Beaumont,638.0,v7
+Edmonton-Beverly-Clareview,46440.0,approx
+Edmonton-Castle Downs,50513.0,approx
+Edmonton-City Centre,48547.0,approx
+Edmonton-Decore,48424.0,approx
+Edmonton-Ellerslie,67996.0,approx
+Edmonton-Enoch,91811.0,v7
+Edmonton-Glenora-Riverview,0.0,v7
+Edmonton-Gold Bar,44086.0,approx
+Edmonton-Highlands-Norwood,40719.0,approx
+Edmonton-Manning,56390.0,approx
+Edmonton-McClung,3341.0,approx
+Edmonton-Meadows,54395.0,approx
+Edmonton-Mill Woods,47748.0,approx
+Edmonton-North West,50218.0,approx
+Edmonton-Rutherford,45511.0,approx
+Edmonton-South,68749.0,approx
+Edmonton-Strathcona,44347.0,approx
+Edmonton-West Henday,41236.0,approx
+Edmonton-Whitemud,42273.0,approx
+Edmonton-Windermere,59556.0,2019_identity_from_Edmonton-South West
+Airdrie-East,55728.0,2019_identity_from_Airdrie-East
+Airdrie-West,62437.0,2019_identity_from_Airdrie-Cochrane
+Barrhead-Westlock-Athabasca,46101.0,2019_identity_from_Athabasca-Barrhead-Westlock
+Camrose,43143.0,approx
+Canmore-Banff,41014.0,2019_identity_from_Banff-Kananaskis
+Central Peace-Notley,27092.0,approx
+Chestermere-Strathmore,52109.0,2019_identity_from_Chestermere-Strathmore
+Cochrane-Springbank,0.0,none
+Cold Lake-Bonnyville-St. Paul,49485.0,2019_identity_from_Bonnyville-Cold Lake-St. Paul
+Drumheller-Stettler,40070.0,approx
+Fort McMurray-Lac La Biche,41240.0,2019_identity_from_Fort McMurray-Lac La Biche
+Fort McMurray-Wood Buffalo,44440.0,approx
+Fort Saskatchewan-Vegreville,53997.0,approx
+Grande Prairie,46612.0,approx
+Grande Prairie-Wapiti,50242.0,approx
+High River-Vulcan-Siksika,44227.0,2019_identity_from_Cardston-Siksika
+Lacombe-Clearwater,46536.0,approx
+Leduc-Devon,56639.0,2019_identity_from_Leduc-Beaumont
+Lesser Slave Lake,27330.0,approx
+Lethbridge-East,44387.0,2019_identity_from_Lethbridge-East
+Lethbridge-West,54019.0,2019_identity_from_Lethbridge-West
+Livingstone-Macleod,50143.0,approx
+Lloydminster-Wainwright,45418.0,approx
+Medicine Hat-Brooks,52137.0,2019_identity_from_Brooks-Medicine Hat
+Medicine Hat-Cypress,49267.0,approx
+Mountain View-Kneehill,51208.0,2019_identity_from_Olds-Didsbury-Three Hills
+Okotoks-Diamond Valley,50410.0,2019_identity_from_Highwood
+Peace River,39968.0,approx
+Red Deer-North,47425.0,approx
+Red Deer-South,53419.0,approx
+Sherwood Park,47359.0,approx
+Spruce Grove,55638.0,approx
+St. Albert,49569.0,approx
+St. Albert-Sturgeon,51371.0,2019_identity_from_Morinville-St. Albert
+Stony Plain-Drayton Valley,45847.0,2019_identity_from_Drayton Valley-Devon
+Strathcona-Sherwood Park,47187.0,approx
+Sylvan Lake-Innisfail,48296.0,2019_identity_from_Innisfail-Sylvan Lake
+Taber-Cardston,44691.0,2019_identity_from_Taber-Warner
+West Yellowhead,49424.0,approx
+Wetaskiwin-Ponoka-Maskwacis,43492.0,approx
