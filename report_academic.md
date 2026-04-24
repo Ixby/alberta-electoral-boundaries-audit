@@ -757,13 +757,28 @@ The audit reports each gate's outcome literally (pass / qualified / fail) rather
 
 Direct inspection of published commission maps using Opus/Sonnet 4.x vision. Images inspected:
 
-- `maps/majority_calgary.jpg` — Appendix A, p. 72
-- `maps/minority_calgary.jpg` — Appendix E, p. 74
-- `maps/minority_alberta_overview.jpg` — Appendix E, p. 73
-- `maps/minority_edmonton.jpg` — Appendix E, p. 75
-- `maps/minority_other_cities.jpg` — Appendix E, p. 76
+**Majority — Appendix A (eight panels, full provincial coverage):**
 
-**Symmetry data gap.** The working bundle lacks majority-proposal equivalents for the Alberta overview, Edmonton, and other-cities panels. Visual inspection of the majority is therefore limited to its Calgary districts. Rural and Edmonton majority districts are evaluated from published report text, not direct images. This is disclosed in the section's conclusion and narrows the scope of any majority-vs-minority claim made from direct visual evidence.
+- `maps/hires/v0_1_majority_p71_alberta_overview.png` — Alberta overview
+- `maps/hires/v0_1_majority_p73_calgary.png` — Calgary detail
+- `maps/hires/v0_1_majority_p75_edmonton.png` — Edmonton detail
+- `maps/hires/v0_1_majority_p77_near_calgary.png` — near-Calgary
+- `maps/hires/v0_1_majority_p79_near_edmonton.png` — near-Edmonton
+- `maps/hires/v0_1_majority_p81_north.png` — north Alberta
+- `maps/hires/v0_1_majority_p83_central.png` — central Alberta
+- `maps/hires/v0_1_majority_p85_south.png` — south Alberta
+- `maps/hires_v2/v0_2_render_majority_calgary_MAP_p72_r1200.png` — 1200-DPI render, primary inspection source for majority Calgary
+
+**Minority — Appendix E:**
+
+- `maps/hires/v0_1_minority_p359_map73.png` — Appendix E map 73
+- `maps/hires/v0_1_minority_p360_map74.png` — Appendix E map 74
+- `maps/hires/v0_1_minority_p361_map75.png` — Appendix E map 75
+- `maps/hires/v0_1_minority_p362_map76.png` — Appendix E map 76
+- `maps/hires_v2/v0_2_native_minority_min_map_calgary_p101.jpeg` — native extraction, minority Calgary
+- `maps/hires_v2/v0_2_native_minority_min_map_edmonton_p107.jpeg` — native extraction, minority Edmonton
+
+Full majority panel coverage across all eight Appendix A panels was extracted in sessions 11–12 (Tier-0 raster pipeline). The §5.8.3 symmetric anomaly scan applies to all majority panels, not Calgary only.
 
 #### 5.8.2 Chair-flagged boundaries (C3)
 
@@ -783,7 +798,7 @@ Applied the same anomaly-scan questions (lasso shape, engineered statutory bound
 - **Calgary-Glenmore-Tsuut'ina:** Large southern extension to include the Tsuut'ina Nation reserve; shape tracks the reserve boundary. No anomaly; positively, the reserve is kept intact in a single named ED.
 - **Calgary-West-Elbow Valley:** Calgary SW + directly-adjacent Elbow Valley subdivision. No anomaly.
 
-**Qualification.** The anomaly-scan question set was developed from observed minority anomalies. The majority may have different classes of anomaly (e.g., rural-district highway corridors) not visible in Calgary and not tested from the bundle's available images. A full-symmetry visual audit requires the three missing majority images.
+**Qualification.** The anomaly-scan question set was developed from observed minority anomalies. The majority may have different classes of anomaly (e.g., rural-district highway corridors) not detected by the scan criteria applied here. All eight Appendix A panels have been inspected; the limitation is the question set, not the imagery.
 
 #### 5.8.4 Community-of-interest splits (C4)
 
@@ -949,6 +964,48 @@ The refutation finding is robust to limits (1)–(3) because it rests on identif
 #### 5.9.5 Constitutional backdrop
 
 *Reference re Provincial Electoral Boundaries (Saskatchewan)*, [1991] 2 SCR 158, established that Canadian electoral redistribution is measured against an "effective representation" standard, not strict population parity. Within that standard, deviations from provincial average are permissible when they serve recognized factors (geography, community of interest, minority representation). An audit that finds (a) directionally-consistent partisan asymmetry in a proposal and (b) a process promoting that proposal over a more-neutral, more-publicly-supported alternative would implicate *Reference re Saskatchewan* if challenged — but this audit does not assess the constitutional question; it provides the evidentiary basis for others to do so.
+
+### 5.10 Forward-looking AI-use recommendations for the Lunty committee
+
+**Audience and scope.** The Special Select Committee of MLAs chaired by Brandon Lunty (MLA, Leduc-Beaumont) carries the November 2, 2026 mandate to produce a 91-seat Alberta map. This subsection is a technical, non-partisan framework for how that committee — or its advisory panel, or any future Alberta redistricting body — can use AI tools responsibly if it chooses to. It does not take a position on whether the committee *should* use AI tools. It does take a position on what disciplines any such use must follow. The position is not novel; it is the same methodological discipline this audit applies to itself (reproducibility, transparency, pre-registration, named accountability).
+
+**Why this section exists in this paper.** The April 16 "AI academy" remark (Premier Smith, Calgary Journal 2026-04-21) signalled that AI use is on the table for the committee. An audit that documents procedural departures from Canadian independent-commission practice (§5.9.2) without addressing the AI-use dimension would be incomplete — AI use can compound or mitigate the independence concerns already raised. A boundary map has legal and constitutional effect for up to a decade; the workflow that produces it is part of its defensibility.
+
+**Seven core principles.** Each is a discipline the committee's workflow must enforce, regardless of which tool is used:
+
+1. **Humans decide; AI assists.** Every boundary in the final map must have at least one named committee member or advisor of record who will answer for it in public. *"The algorithm converged"* is not a defence.
+2. **Transparency over opacity.** Every prompt, input dataset, model version, random seed, and output used in drafting must be logged, timestamped, and publicly released with the final report. Redact for personal privacy only, not for reputation.
+3. **Reproducibility over one-shot generation.** Any AI output used in the map must be reproducible by an independent third party given the same inputs. Stochastic methods (MCMC, simulated annealing, LLM completions) require published seeds and pinned model versions.
+4. **Pre-registration over post-hoc justification.** Evaluation criteria (population equality targets, COI priorities, compactness thresholds) must be published before any map draft is circulated, and treated as gates the map must clear — not as framing added after the draft.
+5. **Independence tests over single-model reliance.** Any AI output on a load-bearing decision must be generated by at least two independent tools. Disagreements between tools are signals for human adjudication, not noise to average away.
+6. **Falsifiability over rhetoric.** Every claim attached to the final map ("this preserves community of interest," "this reflects commuter ties") must be stated in a form that names the dataset which would confirm or refute it. Claims that cannot be falsified must be labelled as opinion.
+7. **Auditability over ease of use.** The cheapest workflow (an MLA types a question into a chatbot) is also the least auditable and therefore inadequate for a constitutional decision. The workflow that makes every step reproducible, even when slower, is the one the committee must adopt.
+
+**Specific technical recommendations (abbreviated; full text in the companion document).**
+
+- **Generation.** Use purpose-built redistricting software (GerryChain, Dave's Redistricting App, Maptitude for Redistricting), not a general-purpose chatbot. Publish the ensemble, not only the chosen map — a single map says nothing about whether the committee's choice is typical or an outlier within the constraint set. Do not use an LLM to write boundary descriptions directly; LLMs hallucinate street names and invert cardinal directions.
+- **Evaluation.** Apply the same partisan-fairness metrics used in the academic literature (efficiency gap, mean-median difference, declination, seats-votes curve) against vote data from the three most recent provincial elections, not one. Run a Chen-Rodden natural-packing test: if the proposed map falls outside the 95th percentile of a constraint-bound ensemble in either direction, it requires a stated, testable explanation. Compute and publish Polsby-Popper and Reock compactness on every district.
+- **Public input.** Publish the input corpus (redacted for personal information) so independent researchers can reproduce any AI-assisted theme coding. Do not rank submissions by length or signature count — electoral boundary decisions weigh arguments, not volume. Flag the *absence* of input as well as its presence.
+- **Justification drafting.** Every factual claim in AI-drafted prose must be human-verified against a cited source. Do not let an AI generate the committee's interpretation of *Reference re Saskatchewan* [1991] or s.15(2) — Canadian constitutional-law summaries from general-purpose LLMs are unreliable and occasionally invert the holding. Publish the prompts used for any passage that appears in the final report.
+- **Data currency (census cycle lag).** Maintain the 2021 census as the statutory baseline for every s.15(2) test and every ±25 % determination (the Act requires it). *In parallel*, publish a "Plan B" sensitivity table using Alberta Treasury Board and Finance quarterly estimates. Report any ED whose legal-window status disagrees between Plan A and Plan B. AI's role in Plan B is limited to routine data-aggregation acceleration; every cell must trace back to a published TBF, StatsCan, or municipal-census figure. Full rationale at `analysis/reports/v0_1_cycle_lag_commentary.md` + `analysis/reports/v0_1_ai_use_recommendations_for_committee.md` §2.5.
+
+**What AI should not do — even with human review.**
+
+- Final decisions on district boundaries (a committee member signs each district, not a model).
+- Weighing constitutional considerations (s.3 Charter analysis, *Saskatchewan Reference* application, s.15(2) criteria).
+- Determining community of interest (lived experience is not retrievable from a census table).
+- Drafting the committee's reasoning on contested districts (Airdrie, Chestermere, Nolan Hill–Cochrane, RMH–Banff Park, and any new 91-seat flashpoint).
+- Assessing partisan intent (evidence cannot distinguish motive; AI cannot either).
+
+**Nine-item public-disclosure checklist.** Before publishing the final map, the committee must be able to answer each of the following publicly: (1) which AI tools were used, by name and version; (2) what prompts and inputs were given to each; (3) which outputs were used in the final map and which were discarded; (4) what random seeds, configurations, and parameters were set; (5) which committee member or advisor takes personal responsibility for each district's boundary; (6) what evaluation criteria were established before drafting began; (7) what ensemble of alternative maps was generated and where the final map sits in that ensemble; (8) what Charter and statutory analyses were performed and by whom; (9) which claims in the final report are AI-drafted and human-verified, which are human-drafted, and which are AI-drafted without human verification. A committee that can answer all nine publicly has used AI responsibly. A committee that cannot has not, regardless of tooling sophistication.
+
+**Three risks specific to the April 2026 context.**
+
+1. **Independence-washing.** The April 16 mandate includes an advisory panel with the three-party chair-plus-two structure. If the panel uses AI tools whose outputs are filtered through a UCP-majority MLA committee, the panel's independence is nominal. Remedy: publish the panel's AI outputs *in full* before the MLA committee acts on them, and require a written explanation for any substantive committee deviation from panel recommendations.
+2. **Legitimacy-by-association.** An AI tool's output inherits only as much legitimacy as its inputs and operators provide. A map presented as "algorithmically generated" without disclosed prompts and constraint sets is borrowing technical legitimacy it has not earned. Remedy: the nine-item checklist above as a minimum disclosure standard.
+3. **Acceleration past deliberation.** AI can generate thousands of candidate maps in hours and short-circuit the slow deliberative work a committee is supposed to do. Remedy: a proposed boundary is not adopted on the strength of a model run alone, even a well-designed one. Speed is not a virtue in redistricting.
+
+**Relationship to §5.9's procedural findings.** The seven principles above do not replace §5.9's documented procedural departures from Canadian comparator practice; they supplement them. A committee that adopts the AI-use disciplines and *also* operates under the April 16 government-controlled drafting structure retains the §5.9.2 procedural critique regardless of its AI workflow. AI discipline is necessary but not sufficient for a defensible process. The full AI-use document (211 lines, with reference implementations and dataset pointers) is at [analysis/reports/v0_1_ai_use_recommendations_for_committee.md](alberta_audit/analysis/reports/v0_1_ai_use_recommendations_for_committee.md). Suggested citation: Conner, W., *AI-use recommendations for the Alberta Electoral Boundaries MLA Committee*, Alberta Electoral Boundaries Audit, v0.1, 2026-04-22.
 
 ---
 
