@@ -206,7 +206,9 @@ This is the single most-requested item from the methodological reflection, and w
 
 **Operational definition.** For each ED X, compute surplus-vote rate for the losing party. For each adjacent ED Y, compute party-Y margin. Define the pair (X, Y) as an **adjacency-chain signal** if X's surplus rate ≥ 15 % AND Y's party-Y share is within 5 pp of the losing threshold. Count such (X, Y) pairs per map. Higher count = more systematic packing-cracking coupling.
 
-**Status.** Not yet implemented. Straightforward; ~2 days of work. Would strengthen the §5.3 signature analysis significantly.
+**Refinement (PO critique 2026-04-24).** Rather than single-point threshold counts, **visualise the full 2D phase space**: x-axis = $s_X$ (losing party surplus rate in X), y-axis = $m_Y$ (losing party margin in Y). Plot every adjacent pair as a point, coloured by map (majority vs minority). A neutral map produces a uniform-random scatter; a gerrymandered map produces a hot spot in the upper-left quadrant ($s_X > 0.15$, $m_Y < 0.05$). This pre-empts the "arbitrary threshold" critique because the heat-map shows whether *any* threshold separates the two maps, not just the specific $0.15 / 0.05$ chosen in the definition. The "so-what" framing for the paper: the chain signature proves the Airdrie four-way split is not an isolated incident but a repeatable *design pattern* applied across the minority map.
+
+**Status.** Not yet implemented. Straightforward; ~2 days of work including the 2D heat-map visualisation. Would strengthen the §5.3 signature analysis significantly.
 
 ### 6.2 Boundary-chain test (systemic vs ad-hoc)
 
@@ -214,7 +216,9 @@ This is the single most-requested item from the methodological reflection, and w
 
 **Operational definition.** Identify all boundary chains of 3+ consecutive ED boundaries passing through a single city or municipal area. For each chain, compute the partisan outcome (NDP seats won) under 2023 votes + an alternative partition (same city, different commissioner-proposed split). If the minority's chain systematically produces NDP-disadvantageous outcomes across 3+ chains, that's a pattern, not an accident.
 
-**Status.** Not yet implemented. ~4–6 days. Would catch systematic gerrymander patterns that per-boundary tests miss.
+**Refinement (PO critique 2026-04-24).** Use the 2019 partition as the null-hypothesis baseline as planned, but **control for population growth**: if a chain boundary shifted significantly because a Calgary-ring suburb grew 20 % since 2021, the shift is demographic necessity rather than partisan choice. Operational control: for each chain boundary that moved relative to 2019, compute the population the new boundary would have under the 2019 partition shape versus the commission's new partition; if the 2019 shape exceeds the ±25 % quota band for either side at 2024 population, the boundary was *forced* to move, and the chain-asymmetry contribution is flagged as demographic-compelled rather than partisan-chosen. **Visualisation:** a "Chain Map" overlay showing the minority's chain boundaries in red, the majority's in orange, and the 2019 boundaries in blue would be the single most impactful graphic in the paper — readers can see the chain pattern at a glance.
+
+**Status.** Not yet implemented. ~4–6 days including population-growth controls and chain-map visualisation. Would catch systematic gerrymander patterns that per-boundary tests miss.
 
 ### 6.3 Temporal-compound durability test
 
@@ -222,7 +226,9 @@ This is the single most-requested item from the methodological reflection, and w
 
 **Operational definition.** Use 338Canada's uniform-swing model to project provincial vote shares for scenarios spanning UCP 40/60 to 60/40. For each scenario, recompute B2-B4 asymmetry. Report the maximum-over-scenarios asymmetry.
 
-**Status.** Partial — §5.2.6 already has a marginal-seat analysis. The systematic durability test would extend that to the full B-family and aggregate over the whole swing space.
+**Refinement (PO critique 2026-04-24) — pivot to geographic-heterogeneous swing as PRIMARY.** Alberta's swings are demonstrably non-uniform; the "Donut" effect (urban NDP vs rural UCP) means a 5 pp provincial swing historically manifests as ~10 pp in Calgary and ~1 pp in rural south. Use the 2015→2019→2023 observed regional-swing pattern to parametrise a *geographically-heterogeneous* swing function, then sweep the provincial aggregate across the 0.40–0.60 range with the regional structure preserved at each point. **The specific finding to watch for is a "responsiveness gerrymander"**: a map that remains neutral-to-UCP-favourable at UCP-plus-10 leads but becomes a "fortress" (unresponsive to additional swing, NDP cannot gain seats through extra votes) once the NDP crosses ~48 %. A responsiveness gerrymander is constitutionally suspect under *Reference re Saskatchewan* (1991) because it breaks the seat-vote responsiveness that effective representation requires. Uniform-swing results kept as a robustness baseline; heterogeneous-swing is the primary.
+
+**Status.** Partial — §5.2.6 already has a marginal-seat analysis. The systematic durability test would extend that to the full B-family and aggregate over the whole swing space, with geographic heterogeneity as primary.
 
 ### 6.4 Compactness-weighted partisan bias
 
@@ -230,15 +236,19 @@ This is the single most-requested item from the methodological reflection, and w
 
 **Operational definition.** $\text{EG}_{cw} = \sum_i w_i \cdot \text{EG}_i$ where $w_i = (1 - PP_i / \text{median}(PP))$, bounded to [0, 1]. High $\text{EG}_{cw}$ means the partisan asymmetry is concentrated in the map's least-compact districts.
 
-**Status.** Not implemented. Blocked on Tier-C compactness scoring, which is itself blocked on official 2026 shapefiles. Queued for post-FOIP work.
+**Refinement (PO critique 2026-04-24).** Tier-C Polsby-Popper is blocked on FOIP, but **convex-hull ratio and Reock scores are both computable from the vertex data we already have** in the v0_2 / v0_3 / v0_4 / v0_5 canonical shapefiles. Use these as Tier-C proxies while waiting for FOIP: $\text{Reock}_i = \text{area}(i) / \text{area}(\text{min-enclosing-circle}(i))$; $\text{ConvexHull}_i = \text{area}(i) / \text{area}(\text{convex-hull}(i))$. A compactness-weighted EG using Reock or convex-hull ratios is partially defensible now and fully defensible once Polsby-Popper becomes available. **Framing for the paper**: "The bias is not coming from the districts that look like squares; it is coming from the districts that look like dragons." That one sentence is the most difficult argument for a commission to defend, because the commission's own drawing discretion is proportional to polygon irregularity.
 
-### 6.5 Combined Chen-Rodden + drawing decomposition
+**Status.** Reock / convex-hull version implementable now. Polsby-Popper version blocked on Tier-C shapefiles (FOIP, Issue #1). Queued; executable under the refinement.
+
+### 6.5 Combined Chen-Rodden + drawing decomposition (absolute-level)
 
 **Motivation.** §5.2.5 validates Chen-Rodden direction + mechanism correction. §5.2.5 geography-vs-drawing decomposition shows the minority-vs-majority gap is 100 % drawing. Combining these: what fraction of the *absolute* minority partisan lean is natural-geography vs drawing? (Not the gap — the level.) Answer would calibrate the minority's gerrymander-relative-to-neutral-drawing claim.
 
 **Operational definition.** $\text{Draw}_{min} = \text{EG}_{min, \text{actual}} - \text{EG}_{neutral, \text{median}}$. Similarly for the majority. Report both as "drawing-attributable" EG. If Majority drawing-attributable EG is 0 and Minority drawing-attributable EG is +2 pp, that's a clean story.
 
-**Status.** Partial — §5.2.5 has the per-pair decomposition. Absolute-level version is a small extension of the existing decomposition script.
+**Refinement (PO critique 2026-04-24) — this is the audit's most honest metric.** Acknowledging the ~−2.2 % structural EG floor that any Alberta map produces under 2023 votes *gains massive credibility*. It stops the audit from sounding partisan and starts making it sound like a geographer. **The intended headline**: *"The minority map does not just reflect Alberta's lopsided geography; it actively tips the scales by an additional 0.7 % through specific drawing choices."* That framing converts the decomposition from a technical result into a clear causal argument that reviewers can inspect and disagree with on specific grounds (the ensemble median, the substrate, the 90 % band) rather than on genre (is the audit partisan).
+
+**Status.** Absolute-level version is a ~50-line extension of the existing `v0_1_chen_rodden_decomposition.py` script. **Recommendation: execute first among the five combined tests.** Highest value-to-effort ratio; no dependencies; produces a headline-grade result.
 
 ## 7. Defense-in-depth framing
 
