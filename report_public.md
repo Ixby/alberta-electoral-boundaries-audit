@@ -9,11 +9,11 @@
 
 Alberta's Electoral Boundary Commission finished its work on March 23, 2026. It could not agree. The majority of commissioners produced one map. The minority produced a different one. Both maps are legal. This audit measured both using the same methods, applied identically to each. Three findings stand out.
 
-**The two maps diverge systematically.** The minority map differs from the majority on six measurable dimensions: population spread, geographic concentration of voters, city fragmentation, municipal-boundary anchoring, map shape, and commission-chair-flagged anomalies. The differences are consistent across all six and none of the six require election results to calculate.
+1. **The two maps diverge systematically.** The minority map differs from the majority on six measurable dimensions: population spread, geographic concentration of voters, city fragmentation, municipal-boundary anchoring, map shape, and commission-chair-flagged anomalies. The differences are consistent across all six and none of the six require election results to calculate.
 
-**The direction runs against the places where the governing party is weakest.** Communities most affected by the structural differences in the minority map — Calgary's northwest quadrant, the City of Airdrie, urban areas with well-established municipal boundaries — are the communities where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.
+2. **The direction runs against the places where the governing party is weakest.** Communities most affected by the structural differences in the minority map — Calgary's northwest quadrant, the City of Airdrie, urban areas with well-established municipal boundaries — are the communities where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.
 
-**The process now promoting the minority map departs from Canadian practice.** On April 16, the government set both commission maps aside and assigned redistricting to a five-MLA committee, three from the governing UCP. Most Canadian provinces either require the assembly to consider the commission report first or give commission maps automatic effect unless overridden. Alberta does neither. The process is its own finding, separate from the maps.
+3. **The process now promoting the minority map departs from Canadian practice.** On April 16, the government set both commission maps aside and assigned redistricting to a five-MLA committee, three from the governing UCP. Most Canadian provinces either require the assembly to consider the commission report first or give commission maps automatic effect unless overridden. Alberta does neither. The process is its own finding, separate from the maps.
 
 ---
 
@@ -116,13 +116,16 @@ The audit's procedural review found that this referral followed the letter of th
 
 ## What you can do
 
-**Read the full findings.** The monograph ([report_academic.md](report_academic.md)) contains every number, every source, and every caveat. If you find a factual error, the [retraction conditions](analysis/methodology/v0_1_retraction_pathway.md) tell you exactly what evidence would change each conclusion.
+1. **Read the full findings.** The monograph ([report_academic.md](report_academic.md)) contains every number, every source, and every caveat. If you find a factual error, the [retraction conditions](analysis/methodology/v0_1_retraction_pathway.md) tell you exactly what evidence would change each conclusion.
 
-**Ask your MLA what the committee's process will be.** Specifically: Will the committee publish the criteria it uses before drawing a single line? Will it release the range of maps it considered, not just the one it chose? Will it publish any prompts or inputs given to AI tools?
+2. **Ask your MLA what the committee's process will be.** Specifically:
+   - Will the committee publish the evaluation criteria it uses *before* drawing a single line?
+   - Will it release the range of maps it considered, not just the one it chose?
+   - Will it publish any prompts or inputs given to AI tools?
 
-**Request the official shapefiles.** Elections Alberta has not published the 2026 electoral division map files. Without these, some of this audit's calculations cannot be fully verified or corrected. A Freedom of Information request would require their release.
+3. **Request the official shapefiles.** Elections Alberta has not published the 2026 electoral division map files. Without these, some of this audit's calculations cannot be fully verified or corrected. A Freedom of Information and Protection of Privacy Act request would require their release.
 
-**Share this report.** The full monograph is written for researchers and journalists. This report is written for everyone else. If you think the commission's process matters, share what you found here.
+4. **Share this report.** The full monograph is written for researchers and journalists. This report is written for everyone else. If you think the commission's process matters, share what you found here.
 
 ---
 
