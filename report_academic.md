@@ -1,8 +1,30 @@
-# Alberta Electoral Boundaries Audit — Academic and Legal Edition
+# Alberta Electoral Boundaries Audit — Comprehensive Forensic Audit Monograph
 
 **A symmetric, reproducible forensic assessment of the 2025–26 Electoral Boundaries Commission's majority and minority recommendations**
 
 *Draft — April 2026 · Non-partisan · [Repository](https://github.com/Ixby/alberta-electoral-boundaries-audit) · Data and scripts linked throughout*
+
+---
+
+## Executive summary and reading guide
+
+This document is a **comprehensive forensic audit monograph**, not a single-topic journal article. It covers three distinct lines of work that share a single dataset and methodology, and it runs substantially longer than a standard journal submission. Readers short on time should use the guide below to jump directly to the part that matches their question. Readers who need the full evidentiary chain should read end-to-end.
+
+**Headline finding (read this if you read nothing else).** The minority 2026 proposal differs from the majority 2026 proposal on five measurable non-partisan-bias dimensions (population dispersion, Calgary geographic-zone asymmetry, Airdrie fragmentation, municipal-boundary anchoring, commission-chair-flagged anomalies) and on one partisan-bias dimension whose sign is measurement-resolution-dependent. All five non-partisan signals run in the same direction and survive every stress-test applied. The partisan-bias magnitude sits below the US judicial-significance threshold. The directional consistency is the finding; no single dimension crosses a classical significance threshold on its own. See §1.1 for the plain-language summary, §1.2 for the modelling-uncertainty caveats, and §6 for the synthesis.
+
+**Reading guide by question.** The monograph has three parts, each answering a different question and each referencing the others:
+
+| If you are here to answer… | Read | Covers |
+|---|---|---|
+| **Part I — Empirical audit.** *Do the two 2026 maps differ in measurable, reproducible ways?* | Abstract, §1.1, §5.1 (population equality), §5.2 (partisan bias), §5.3 (signatures), §5.4 (MCMC ensemble), §5.6 (symmetry counter-test), §5.7 (stress-test grades), §5.8 (geographic coherence) | Core quantitative findings — the empirical redistricting audit. |
+| **Part II — Procedural and policy critique.** *What does the April 16 legislative pivot mean; how does the commission's methodology compare to Canadian norms; what statutory reforms follow?* | §5.9 (procedural), Appendix F (constitutional framing), `analysis/reports/v0_1_act_amendment_proposal.md` (statutory reform), `analysis/reports/v0_1_cycle_lag_commentary.md` §2 (forward-modelling consequences for commissions) | The Canadian comparative and legal-procedural layer. |
+| **Part III — Data provenance and methodological warnings.** *Why can't the audit give single-number point estimates on every metric; what does the missing-shapefile situation do to conclusions; what's the DPG framework?* | §4.1.4 (DPG + sunset clause), §3.3 (cycle-lag robustness + dataset-construction consequences), §5.2.7 (four-measurement-layer reporting), Appendix E (approximate geometry), `analysis/reports/v0_1_cycle_lag_commentary.md` §1 (three-vintage sandwich), `analysis/reports/v0_1_methods_paper_draft.md` (companion methodology paper in draft) | The GIS and data-provenance methodology — the part that justifies every qualified finding in Parts I and II. |
+
+**Three companion papers are extractable** from this monograph (and in various stages of draft). Each targets a different publication venue: (a) the Empirical Audit as a ~10,000-word *Canadian Journal of Political Science* or *Election Law Journal* submission; (b) the DPG Methodology Paper as a *Political Analysis* or *Journal of Open Research Software* methods paper (skeleton at `analysis/reports/v0_1_methods_paper_draft.md`); (c) the Policy Critique as an *Alberta Views*–length feature or public-policy brief. This monograph is the master record; the extracted papers are the scoped journal-ready artifacts.
+
+**What to believe.** Every number in this document is reproducible by running a script in `analysis/scripts/` against a dataset in `data/`. Every qualitative claim is anchored in a primary source pinned in `FROZEN_MANIFEST.md`. Where a finding depends on Derived Provisional Geometries (DPG — traced from commission map thumbnails because Elections Alberta had not released official shapefiles at the time of writing), the dependency is disclosed via the §4.1.4 sunset clause which binds the audit to re-run the finding within 48 hours of official shapefile release.
+
+---
 
 ## Abstract
 
