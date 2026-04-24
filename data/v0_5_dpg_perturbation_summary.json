@@ -1,0 +1,156 @@
+{
+  "method": {
+    "n_perturbations_requested": 3,
+    "n_perturbations_collected": 3,
+    "seed": 42,
+    "offset_meters": 500.0,
+    "perturbation": "per-polygon independent translate(dx, dy) with dx, dy ~ Uniform(-offset_m, +offset_m); topology overlap handled by MAUP per-VA weight renormalisation.",
+    "inputs": {
+      "va_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\va_polygons_with_full_2023_votes.gpkg",
+      "majority_canonical_clean": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_majority_2026_eds_da_anchored.gpkg",
+      "minority_canonical_clean": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+    }
+  },
+  "conservation_gate": {
+    "n_pass": 3,
+    "n_total": 3,
+    "pass_rate": 1.0,
+    "all_realisations_conserved": true
+  },
+  "point_estimates_maup_v2": {
+    "majority_eg_pct": -2.346182160488602,
+    "minority_eg_pct": 1.002107484453266,
+    "asymmetry_pp": 3.348289644941868,
+    "majority_mm_pp": -1.3621963732590225,
+    "minority_mm_pp": -1.5931047193678272,
+    "majority_ndp_seats": 40,
+    "minority_ndp_seats": 33
+  },
+  "metrics": {
+    "majority_eg_pct": {
+      "n": 3,
+      "mean": -1.1780730844130902,
+      "std": 1.9493031450781306,
+      "p5": -2.3420120341356827,
+      "p50": -2.254582224291376,
+      "p95": 0.7394222632243017,
+      "min": -2.3517264574517167,
+      "max": 1.0720894285038218
+    },
+    "minority_eg_pct": {
+      "n": 3,
+      "mean": -2.447550164323047,
+      "std": 0.0486146288293016,
+      "p5": -2.4954938466001213,
+      "p50": -2.425980716216884,
+      "p95": -2.414705095720286,
+      "min": -2.5032175277538142,
+      "max": -2.413452248998442
+    },
+    "asymmetry_pp": {
+      "n": 3,
+      "mean": -1.2694770799099564,
+      "std": 1.9300217352750084,
+      "p5": -3.164150132719342,
+      "p50": -0.1588700247070661,
+      "p95": -0.15222896574259445,
+      "min": -3.498070144720706,
+      "max": -0.1514910703020976
+    },
+    "majority_mm_pp": {
+      "n": 3,
+      "mean": -2.4035579737240518,
+      "std": 0.15755470340238262,
+      "p5": -2.5328956735120998,
+      "p50": -2.433600321935475,
+      "p95": -2.2531906301880076,
+      "min": -2.543928490353947,
+      "max": -2.2331451088827334
+    },
+    "minority_mm_pp": {
+      "n": 3,
+      "mean": -0.919999920652853,
+      "std": 0.08118393766004067,
+      "p5": -0.9716404493770375,
+      "p50": -0.9606093816106109,
+      "p95": -0.8399327692582381,
+      "min": -0.9728661235733072,
+      "max": -0.8265242567746411
+    },
+    "majority_declination": {
+      "n": 3,
+      "mean": -0.03026410935642611,
+      "std": 0.013400276850344187,
+      "p5": -0.042424058652028286,
+      "p50": -0.029973159757332724,
+      "p95": -0.018307824780189316,
+      "min": -0.043807491862550015,
+      "max": -0.017011676449395604
+    },
+    "minority_declination": {
+      "n": 3,
+      "mean": -0.029240886164008013,
+      "std": 0.002404179127439757,
+      "p5": -0.030860387563384335,
+      "p50": -0.030314700781777913,
+      "p95": -0.026869714532192755,
+      "min": -0.03092101942800727,
+      "max": -0.02648693828223885
+    },
+    "majority_seats_at_50_ndp": {
+      "n": 3,
+      "mean": 47.333333333333336,
+      "std": 1.1547005383792517,
+      "p5": 46.2,
+      "p50": 48.0,
+      "p95": 48.0,
+      "min": 46.0,
+      "max": 48.0
+    },
+    "minority_seats_at_50_ndp": {
+      "n": 3,
+      "mean": 44.666666666666664,
+      "std": 1.1547005383792517,
+      "p5": 44.0,
+      "p50": 44.0,
+      "p95": 45.8,
+      "min": 44.0,
+      "max": 46.0
+    },
+    "majority_ndp_seats": {
+      "n": 3,
+      "mean": 39.0,
+      "std": 1.0,
+      "p5": 38.1,
+      "p50": 39.0,
+      "p95": 39.9,
+      "min": 38.0,
+      "max": 40.0
+    },
+    "minority_ndp_seats": {
+      "n": 3,
+      "mean": 37.0,
+      "std": 0.0,
+      "p5": 37.0,
+      "p50": 37.0,
+      "p95": 37.0,
+      "min": 37.0,
+      "max": 37.0
+    }
+  },
+  "direction_stats": {
+    "n_samples": 3,
+    "n_positive": 0,
+    "n_negative": 3,
+    "n_near_zero_abs_lt_0p05": 0,
+    "fraction_positive": 0.0,
+    "p5_asymmetry": -3.164150132719342,
+    "p95_asymmetry": -0.15222896574259445,
+    "ci90_crosses_zero": false
+  },
+  "outputs": {
+    "samples_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_dpg_perturbation_samples.csv",
+    "summary_json": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_dpg_perturbation_summary.json",
+    "writeup": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_5_dpg_perturbation_analysis.md"
+  }
+}

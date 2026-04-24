@@ -1,0 +1,90 @@
+ed_name,pop_2021_from_das,polygon_source
+Calgary-Acadia,58260.0,da-anchored
+Calgary-Beddington,0.0,none
+Calgary-Bhullar-McCall,40610.0,da-anchored
+Calgary-Bow,50744.0,da-anchored
+Calgary-Buffalo,11399.0,da-anchored
+Calgary-Confluence,48995.0,da-anchored
+Calgary-Cross,46556.0,da-anchored
+Calgary-Currie,0.0,da-anchored
+Calgary-East,0.0,da-anchored
+Calgary-Edgemont,59750.0,da-anchored
+Calgary-Elbow,45888.0,da-anchored
+Calgary-Falconridge-Conrich,0.0,none
+Calgary-Fish Creek,0.0,da-anchored
+Calgary-Glenmore-Tsuut'ina,17003.0,v7
+Calgary-Hays,0.0,v7
+Calgary-Klein,0.0,da-anchored
+Calgary-Lougheed,1302.0,v7
+Calgary-McKenzie,25234.0,da-anchored
+Calgary-Mountain View,53793.0,da-anchored
+Calgary-North,0.0,da-anchored
+Calgary-North East,0.0,none
+Calgary-North West,0.0,da-anchored
+Calgary-Nose Creek,47231.0,da-anchored
+Calgary-Shaw,57113.0,da-anchored
+Calgary-South East,62354.0,v7
+Calgary-Symons Valley,1428.0,da-anchored
+Calgary-Varsity,45186.0,da-anchored
+Calgary-West-Elbow Valley,36838.0,v7
+Edmonton-Beaumont,21470.0,osm-municipal-buffered
+Edmonton-Beverly-Clareview,0.0,da-anchored
+Edmonton-Castle Downs,89354.0,da-anchored
+Edmonton-City Centre,79101.0,da-anchored
+Edmonton-Decore,2567.0,da-anchored
+Edmonton-Ellerslie,60185.0,da-anchored
+Edmonton-Enoch,89334.0,da-anchored
+Edmonton-Glenora-Riverview,0.0,da-anchored
+Edmonton-Gold Bar,2278.0,da-anchored
+Edmonton-Highlands-Norwood,40719.0,da-anchored
+Edmonton-Manning,0.0,da-anchored
+Edmonton-McClung,2502.0,da-anchored
+Edmonton-Meadows,54395.0,da-anchored
+Edmonton-Mill Woods,47748.0,da-anchored
+Edmonton-North West,0.0,da-anchored
+Edmonton-Rutherford,0.0,none
+Edmonton-South,0.0,da-anchored
+Edmonton-Strathcona,44347.0,da-anchored
+Edmonton-West Henday,0.0,da-anchored
+Edmonton-Whitemud,42273.0,da-anchored
+Edmonton-Windermere,0.0,da-anchored
+Airdrie-East,55728.0,da-anchored
+Airdrie-West,568.0,da-anchored
+Barrhead-Westlock-Athabasca,46101.0,municipal-anchored
+Camrose,43143.0,municipal-anchored
+Canmore-Banff,0.0,none
+Central Peace-Notley,27092.0,municipal-anchored
+Chestermere-Strathmore,52109.0,municipal-anchored
+Cochrane-Springbank,63501.0,da-anchored
+Cold Lake-Bonnyville-St. Paul,49485.0,municipal-anchored
+Drumheller-Stettler,40070.0,municipal-anchored
+Fort McMurray-Lac La Biche,41240.0,municipal-anchored
+Fort McMurray-Wood Buffalo,44440.0,municipal-anchored
+Fort Saskatchewan-Vegreville,53997.0,municipal-anchored
+Grande Prairie,46612.0,municipal-anchored
+Grande Prairie-Wapiti,7300.0,v7
+High River-Vulcan-Siksika,0.0,sweep
+Lacombe-Clearwater,0.0,municipal-anchored
+Leduc-Devon,35751.0,municipal-anchored
+Lesser Slave Lake,27330.0,municipal-anchored
+Lethbridge-East,0.0,municipal-anchored
+Lethbridge-West,54019.0,municipal-anchored
+Livingstone-Macleod,50143.0,municipal-anchored
+Lloydminster-Wainwright,45418.0,municipal-anchored
+Medicine Hat-Brooks,52137.0,municipal-anchored
+Medicine Hat-Cypress,49267.0,municipal-anchored
+Mountain View-Kneehill,51208.0,municipal-anchored
+Okotoks-Diamond Valley,35305.0,sweep
+Peace River,39968.0,municipal-anchored
+Red Deer-North,47425.0,municipal-anchored
+Red Deer-South,0.0,da-anchored
+Sherwood Park,47359.0,da-anchored
+Spruce Grove,55638.0,municipal-anchored
+St. Albert,48999.0,municipal-anchored
+St. Albert-Sturgeon,0.0,municipal-anchored
+Stony Plain-Drayton Valley,0.0,municipal-anchored
+Strathcona-Sherwood Park,0.0,da-anchored
+Sylvan Lake-Innisfail,48296.0,municipal-anchored
+Taber-Cardston,44691.0,municipal-anchored
+West Yellowhead,49424.0,municipal-anchored
+Wetaskiwin-Ponoka-Maskwacis,0.0,municipal-anchored
