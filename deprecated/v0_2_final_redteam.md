@@ -90,7 +90,7 @@ The even-handed treatment is mostly good: the §5.4.3 sample-size caveat is hone
 
 The academic report adds APA citations; spot-check against specific claims:
 
-**Pal (2015). "The fragmentation of party politics and the rise of political fixers."** Cited at line 334 as "applies contemporary quantitative gerrymandering analysis to Canadian cases within the Charter framework." The title of the paper does not suggest a gerrymandering-specific analysis; it is a party-politics paper. The v0.1 literature review (`analysis/v0_1_academic_literature_review.md:43`) more modestly describes it as "work on the design and legal constraints of Canadian boundary commissions" — still a stretch. Pal's 2019 paper (The Charter and the constitutionality of electoral boundaries) is directly on-topic; Pal 2015 is not. The sentence should cite Pal (2019) and drop Pal (2015).
+**Pal (2015). "The fragmentation of party politics and the rise of political fixers."** Cited at line 334 as "applies contemporary quantitative gerrymandering analysis to Canadian cases within the Charter framework." The title of the paper does not suggest a gerrymandering-specific analysis; it is a party-politics paper. The v0.1 literature review (`analysis/methodology/v0_1_academic_literature_review.md:43`) more modestly describes it as "work on the design and legal constraints of Canadian boundary commissions" — still a stretch. Pal's 2019 paper (The Charter and the constitutionality of electoral boundaries) is directly on-topic; Pal 2015 is not. The sentence should cite Pal (2019) and drop Pal (2015).
 
 **Figueroa v. Canada (2003) and Frank v. Canada (2019).** Cited at line 334 as §3 Charter cases "applying the effective representation standard." Figueroa is about party registration thresholds; Frank is about the 5-year expatriate voting rule. Neither applies the effective-representation standard from the 1991 Saskatchewan Reference to redistribution. They are §3 Charter cases but on different §3 issues. Citing them as a lineage applying the effective-representation standard to redistribution is incorrect. The accurate statement is that they are other §3 cases in the Charter democratic-rights family.
 
@@ -114,7 +114,7 @@ The author is identified as "Mount Royal University, BSc Computer Information Sy
 
 ### 2.1 BLOCKER — Prompt references a script that does not exist
 
-The v1.2 prompt at line 40 and Gate G0 (line 74) specifies `python3 analysis/check_wuff_voice.py`. The actual checked-in script is `analysis/check_voice_and_readability.py`. The script's own docstring (line 15) even says "Usage: python3 analysis/check_wuff_voice.py report_public.md report_academic.md" — so the script was renamed but its docstring and the prompt both still reference the old name.
+The v1.2 prompt at line 40 and Gate G0 (line 74) specifies `python3 analysis/check_wuff_voice.py`. The actual checked-in script is `analysis/scripts/check_voice_and_readability.py`. The script's own docstring (line 15) even says "Usage: python3 analysis/check_wuff_voice.py report_public.md report_academic.md" — so the script was renamed but its docstring and the prompt both still reference the old name.
 
 A cold-start agent running Gate G0 verbatim will get `FileNotFoundError` and either (a) improvise, violating "no mid-run improvisation," or (b) fail the gate and stop.
 

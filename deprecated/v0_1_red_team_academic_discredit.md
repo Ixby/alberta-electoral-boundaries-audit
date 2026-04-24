@@ -5,8 +5,8 @@ forward_dependencies:
   - A follow-up fortification pass that addresses each HIGH-severity attack (if the PO directs)
 backward_dependencies:
   - report_academic.md v0.12 state (committed aa57424)
-  - analysis/v0_1_bias_audit.md (self-audit; this goes further and harder)
-  - analysis/v0_1_design_critique.md (prior stress-test pass)
+  - analysis/reports/v0_1_bias_audit.md (self-audit; this goes further and harder)
+  - analysis/reports/v0_1_design_critique.md (prior stress-test pass)
 ---
 
 # Red-team attack on the academic paper

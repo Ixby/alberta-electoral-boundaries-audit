@@ -5,7 +5,7 @@ A self-contained, autonomous-execution bundle for continuing the Alberta elector
 ## What's New in v0.7
 
 - **Audit prompt v0.7** with hardened Phase 4C methodology: Vote Anywhere ballot-type handling, Zero-Sum Verification gate, landmark-dictionary geocoding strategy
-- **Skeleton script** `analysis/v0_1_poll_attribution_skeleton.py` — parses the 2023 Statement of Vote into a unified poll-level dataframe (1,973 records across 87 EDs), with stub functions for the geocoding/assignment/apportionment stages
+- **Skeleton script** `analysis/scripts/v0_1_poll_attribution_skeleton.py` — parses the 2023 Statement of Vote into a unified poll-level dataframe (1,973 records across 87 EDs), with stub functions for the geocoding/assignment/apportionment stages
 - **Raw Statement of Vote** `data/2023_results.xlsx` included so the skeleton runs offline
 
 ## How to Run
@@ -48,7 +48,7 @@ The skeleton implements stages 1-2 (parse Statement of Vote, structure dataframe
 
 Run the skeleton first to verify the parse stage:
 ```
-python3 analysis/v0_1_poll_attribution_skeleton.py
+python3 analysis/scripts/v0_1_poll_attribution_skeleton.py
 ```
 
 Should output: `Parsed 1973 poll records across 87 EDs` with two-party total `1,706,304`.
@@ -100,4 +100,4 @@ All input data extracted from official Elections Alberta and ABEBC sources. Veri
 
 Maps are images from the publicly tabled commission report. Analysis is non-partisan and applies identical methodology symmetrically to all three maps.
 
-**2015 data note.** The 2015 dataset uses pre-2017-commission boundaries that differ from 2019 and 2026 EDs. It is included for cross-election rural baseline analysis (see `analysis/v0_1_cross_election_rural_baseline.py`) and longitudinal context. Direct attribution of 2015 votes to 2019 or 2026 EDs requires a boundary crosswalk not included in this bundle.
+**2015 data note.** The 2015 dataset uses pre-2017-commission boundaries that differ from 2019 and 2026 EDs. It is included for cross-election rural baseline analysis (see `analysis/scripts/v0_1_cross_election_rural_baseline.py`) and longitudinal context. Direct attribution of 2015 votes to 2019 or 2026 EDs requires a boundary crosswalk not included in this bundle.

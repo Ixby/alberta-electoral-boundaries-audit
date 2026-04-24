@@ -9,9 +9,9 @@ Both reports were updated in v0.3 with a red-team findings section at the top �
 
 See also:
 
-- [Design critique](analysis/v0_1_design_critique.md) — hostile red-team pass against the audit's own methodology
-- [Uncertainty analysis](analysis/v0_1_uncertainty_and_shapefile_impact.md) — confidence-interval and shapefile-impact assessment
-- [Bias audit](analysis/v0_1_bias_audit.md) — self-audit that identified the class-A bias issues fixed in v0.2
+- [Design critique](analysis/reports/v0_1_design_critique.md) — hostile red-team pass against the audit's own methodology
+- [Uncertainty analysis](analysis/methodology/v0_1_uncertainty_and_shapefile_impact.md) — confidence-interval and shapefile-impact assessment
+- [Bias audit](analysis/reports/v0_1_bias_audit.md) — self-audit that identified the class-A bias issues fixed in v0.2
 
 **Author and audit design:** Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student)
 

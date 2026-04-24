@@ -25,11 +25,11 @@ They are stored in `private/` or other gitignored locations.
 
 ## Red team consolidation (2026-04-23)
 
-23 red team files consolidated into `analysis/red_team_consolidated.md`:
+23 red team files consolidated into `analysis/methodology/red_team_consolidated.md`:
 - `analysis/red_team/` (14 files) — untracked, deleted after merge
 - `analysis/v0_1_science_red_team_*.md` (3 files) — untracked, deleted after merge
-- `analysis/v0_1_design_critique.md` — untracked, deleted after merge
-- `analysis/v0_1_editorial_pass_log.md` — untracked, deleted after merge
+- `analysis/reports/v0_1_design_critique.md` — untracked, deleted after merge
+- `analysis/methodology/v0_1_editorial_pass_log.md` — untracked, deleted after merge
 - `deprecated/v0_1_red_team_academic_discredit.md` — tracked, untracked + deleted after merge
 - `deprecated/v0_1_red_team_round_2.md` — tracked, untracked + deleted after merge
 - `deprecated/v0_2_final_redteam.md` — tracked, untracked + deleted after merge

@@ -43,7 +43,7 @@ import pandas as pd
 from shapely.geometry import Point, Polygon
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "analysis"))
+sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 # Reuse v6 primitives without modifying them
 from v0_1_shape_refinement_v6 import (  # noqa: E402

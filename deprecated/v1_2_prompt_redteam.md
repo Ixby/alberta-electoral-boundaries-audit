@@ -22,7 +22,7 @@ Prompt references `analysis/check_wuff_voice.py` in three places:
 - Line 74 (Gate G0 reproducibility check command list)
 - Line 156 (PR1 publication gate)
 
-Actual file: `analysis/check_voice_and_readability.py`. Content-wise the script matches the prompt's description. The script's own docstring line 15 still says "Usage: python3 analysis/check_wuff_voice.py..." so the rename happened on disk but was not propagated to the prompt or the docstring.
+Actual file: `analysis/scripts/check_voice_and_readability.py`. Content-wise the script matches the prompt's description. The script's own docstring line 15 still says "Usage: python3 analysis/check_wuff_voice.py..." so the rename happened on disk but was not propagated to the prompt or the docstring.
 
 **Fix:** rename file OR update 4 locations (3 prompt + 1 docstring).
 
