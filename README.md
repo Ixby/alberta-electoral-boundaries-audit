@@ -16,6 +16,8 @@ These are three of five structural dimensions where the audit finds the minority
 
 This audit was produced as a personal research project by Will Conner, a Mount Royal University student, following the April 16, 2026 government decision to refer the commission's work to a Special Select Committee of MLAs. It is not affiliated with any political party, campaign, or advocacy organization. All code, data, and methodology are published here in reproducible form. The audit applies identical methodology to both maps.
 
+> **New here? Read [`report_public.md`](report_public.md) first** — a plain-language summary covering the five findings, the gerrymander checklist, and what you can do. The full technical monograph is [`report_academic.md`](report_academic.md).
+
 ---
 
 ## What the audit finds
@@ -107,7 +109,7 @@ This audit is not finished. The following are genuinely unresolved.
 
 **Request the official shapefiles.** File a Freedom of Information and Protection of Privacy Act request with Elections Alberta for the official 2026 electoral division shapefiles. This is the single piece of external data that would resolve the §5.2.7 method-sensitivity disagreement and allow the audit's sunset-clause reruns.
 
-**Share the public-audience report.** `report_public.md` is written for a general audience. It contains the pre-registered gerrymander checklist and the structural findings in plain language.
+**Share the public-audience report.** [`report_public.md`](report_public.md) is written for a general audience. It covers the five findings, the gerrymander checklist, and what the April 16 pivot means — without requiring any background in electoral systems or statistics.
 
 The audit is a measurement, not an advocacy document. It does not argue for either recommendation to be adopted. The Lunty committee has the authority to produce a new map entirely; the audit's job is to document what the commission's two proposals look like under systematic measurement.
 
@@ -129,8 +131,8 @@ The audit is most usefully challenged by people with expertise in electoral geog
 
 ## Deeper reading
 
+- **[report_public.md](report_public.md)** — **Start here.** Plain-language summary for a general audience: the five findings, the gerrymander checklist, what the April 16 pivot means, and what you can do. No prior knowledge required.
 - **[report_academic.md](report_academic.md)** — The full monograph (v0.19, 2026-04-24): executive summary, methods, §§5.1–5.10 results, seven measurement layers, dependency DAG, limitations, and falsifiability hooks. Start here to challenge a specific finding.
-- **[report_public.md](report_public.md)** — Public-audience extract with the pre-registered gerrymander checklist and plain-language structural findings. Start here to explain the audit to someone else.
 - **[analysis/methodology/v0_1_retraction_pathway.md](analysis/methodology/v0_1_retraction_pathway.md)** — Named retraction conditions per finding. The fastest path to either retracting a claim or confirming it holds.
 - **[analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md](analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md)** — Pre-committed null hypotheses, exoneration thresholds, and Structural/Robust/Durable classification for every finding.
 - **[analysis/methodology/v0_1_test_apparatus_defense.md](analysis/methodology/v0_1_test_apparatus_defense.md)** — Per-test criticism and response. Answers "are you making up metrics to have metrics?"
