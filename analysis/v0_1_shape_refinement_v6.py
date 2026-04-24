@@ -42,7 +42,7 @@ from shapely.ops import unary_union
 
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
-ROOT = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+ROOT = Path(__file__).resolve().parent.parent
 MAPS_HIRES = ROOT / "maps" / "hires"
 VERIFY_DIR = ROOT / "maps" / "verification"
 DATA_DIR = ROOT / "data"

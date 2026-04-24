@@ -40,7 +40,7 @@ warnings.filterwarnings("ignore", message=".*GEOSException.*")
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 
-ROOT = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 ANALYSIS = ROOT / "analysis"
 

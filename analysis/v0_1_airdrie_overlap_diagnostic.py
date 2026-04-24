@@ -28,6 +28,7 @@ import math
 import os
 import sys
 from datetime import datetime
+from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
@@ -39,7 +40,7 @@ from shapely.ops import unary_union
 
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
-ROOT = r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit"
+ROOT = str(Path(__file__).resolve().parent.parent)
 DATA_DIR = os.path.join(ROOT, "data")
 ANALYSIS_DIR = os.path.join(ROOT, "analysis")
 
@@ -54,11 +55,6 @@ AIRDRIE_X = 52_000
 AIRDRIE_Y = 5_682_000
 
 TARGET_ED = "Calgary-Airdrie"
-OVERLAP_EDS = [
-    "Calgary-Nolan Hill-Cochrane",
-    "Olds-Three Hills-Didsbury",
-    "Calgary-Foothills-Airdrie West",
-]
 
 
 # ---------------------------------------------------------------------------
@@ -143,23 +139,18 @@ def step2_intersections(eds: gpd.GeoDataFrame, airdrie_info: dict) -> list[dict]
 
     airdrie_geom = airdrie_info["geom"]
     airdrie_area = airdrie_info["area_km2"]
+    airdrie_idx = airdrie_info["idx"]
 
     results = []
-    for ed_name in OVERLAP_EDS:
-        mask = eds["name_2026"].str.strip().str.lower() == ed_name.lower()
-        if not mask.any():
-            # Fuzzy
-            mask = eds["name_2026"].str.contains(ed_name.split("-")[0], case=False, na=False)
-            if mask.sum() > 1:
-                # Narrow further
-                mask2 = eds["name_2026"].str.contains(ed_name.split("-")[-1], case=False, na=False)
-                mask = mask & mask2
-        if not mask.any():
-            print(f"  WARNING: Could not find '{ed_name}' — skipping")
+    # Dynamically find all intersecting EDs except the target itself
+    for idx, row in eds.iterrows():
+        if idx == airdrie_idx:
             continue
-
-        row = eds[mask].iloc[0]
+            
         geom = row.geometry
+        if not airdrie_geom.intersects(geom) or airdrie_geom.intersection(geom).area < 1.0: # ignore point touches
+            continue
+            
         adj_area_km2 = km2(geom.area)
 
         intersection = airdrie_geom.intersection(geom)
