@@ -1,0 +1,79 @@
+{
+  "phase_4b": {
+    "majority": {
+      "n_eds": 89,
+      "total_pop_2021_from_das": 3912570.0,
+      "source_counts": {
+        "approx": 57,
+        "2019_identity": 20,
+        "v7": 10,
+        "none": 2
+      }
+    },
+    "minority": {
+      "n_eds": 89,
+      "total_pop_2021_from_das": 3915262.0,
+      "source_counts": {
+        "approx": 70,
+        "v7": 14,
+        "2019_identity": 5
+      }
+    },
+    "province_2021_from_das": 4262635.0,
+    "majority_sum_vs_province": 0.9178759147804116,
+    "minority_sum_vs_province": 0.9185074490309398
+  },
+  "phase_4c": {
+    "majority": {
+      "n_eds": 89,
+      "ucp_total": 514702,
+      "ndp_total": 381925,
+      "other_total": 35514,
+      "two_party_total": 896627,
+      "all_votes": 932141
+    },
+    "minority": {
+      "n_eds": 89,
+      "ucp_total": 514691,
+      "ndp_total": 381915,
+      "other_total": 35501,
+      "two_party_total": 896606,
+      "all_votes": 932107
+    }
+  },
+  "phase_4f": {
+    "province_2021_from_das": 4262635.0,
+    "commission_total_tbf_jul2024": 4888723.0,
+    "growth_factor": 1.1468781633895466,
+    "majority": {
+      "n": 89,
+      "n_nonzero_pop": 85,
+      "mean_delta_raw": -10968.011235955057,
+      "median_delta_raw": -7966.0,
+      "max_abs_delta_raw": 58632.0,
+      "rms_delta_raw": 19531.174034854517,
+      "mean_delta_scaled_nonzero": -2036.2341678466062,
+      "median_delta_scaled_nonzero": 99.62777906154224,
+      "max_abs_delta_scaled_nonzero": 58027.28005611552,
+      "rms_delta_scaled_nonzero": 14866.607294101996,
+      "max_abs_delta_scaled_pct_nonzero": 98.68874185828011,
+      "n_warn_0p5pct_scaled_nonzero": 81,
+      "n_hardstop_2pct_scaled_nonzero": 76
+    },
+    "minority": {
+      "n": 89,
+      "n_nonzero_pop": 89,
+      "mean_delta_raw": -10938.32584269663,
+      "median_delta_raw": -9447.0,
+      "max_abs_delta_raw": 207227.0,
+      "rms_delta_raw": 32308.06976366636,
+      "mean_delta_scaled_nonzero": -4476.9045870912005,
+      "median_delta_scaled_nonzero": -1722.1163315648664,
+      "max_abs_delta_scaled_nonzero": 246106.82487452013,
+      "rms_delta_scaled_nonzero": 35033.67001025052,
+      "max_abs_delta_scaled_pct_nonzero": 428.15334610483484,
+      "n_warn_0p5pct_scaled_nonzero": 89,
+      "n_hardstop_2pct_scaled_nonzero": 83
+    }
+  }
+}
