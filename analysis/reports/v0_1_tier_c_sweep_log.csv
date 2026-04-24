@@ -1,0 +1,40 @@
+map,ed_name,canon_source_before,sweep_param,converged_value,residual_pct,iterations,status,method,ed_partner,pop_da_after,pop_commission
+majority,Airdrie-West,sweep,pair-line [Cochrane-Springbank] buf=0km,angle=30° pos=0.448 side=A,0.8809706955736066,40,CONVERGED_ACCEPTABLE,pair-line,Cochrane-Springbank,42349.0,48145.0
+majority,Cochrane-Springbank,sweep,radial-retry,radial k=47/139 bufr=40km,0.21758306319687268,47,CONVERGED_TIGHT,radial-retry,Airdrie-West,49360.0,56487.0
+majority,Edmonton-Beaumont,osm-municipal-buffered,radial-retry,radial k=53/190 bufr=40km,0.05664433298650556,53,CONVERGED_TIGHT,radial-retry,Leduc-Devon,48628.0,55802.0
+majority,Leduc-Devon,2019-parent,radial-retry,radial k=53/138 bufr=40km,0.6141641059019785,53,CONVERGED_ACCEPTABLE,radial-retry,Edmonton-Beaumont,49024.0,56572.0
+majority,Lethbridge-East,2019-parent,pair-line [Lethbridge-West] buf=3km,angle=0° pos=0.522 side=B,0.49129966528666236,40,CONVERGED_TIGHT,pair-line,Lethbridge-West,50350.0,57463.0
+majority,Lethbridge-West,2019-parent,radial-retry,radial k=70/101 bufr=40km,0.08509939708179064,70,CONVERGED_TIGHT,radial-retry,Lethbridge-East,47249.0,54235.0
+majority,Calgary-West-Elbow Valley,v7,pair-line [High River-Vulcan-Siksika] buf=0km,angle=30° pos=0.473 side=A,1.480095802052129,40,CONVERGED_ACCEPTABLE,pair-line,High River-Vulcan-Siksika,47929.0,54167.0
+majority,High River-Vulcan-Siksika,sweep,radial-retry,radial k=63/108 bufr=40km,0.375217115233274,63,CONVERGED_TIGHT,radial-retry,Calgary-West-Elbow Valley,46693.0,53351.0
+majority,Cold Lake-Bonnyville-St. Paul,2019-parent,pair-line [Fort McMurray-Lac La Biche] buf=30km,angle=0° pos=0.603 side=B,0.2931756356547979,40,CONVERGED_TIGHT,pair-line,Fort McMurray-Lac La Biche,48519.0,55809.0
+majority,Fort McMurray-Lac La Biche,2019-parent,radial-retry,radial k=92/92 bufr=40km,9.414268703913065,92,NOT_CONVERGED,radial-retry,Cold Lake-Bonnyville-St. Paul,41741.0,52847.0
+majority,Okotoks-Diamond Valley,sweep,pair-line [Chestermere-Strathmore] buf=0km,angle=30° pos=0.579 side=B,0.5893719456485329,40,CONVERGED_ACCEPTABLE,pair-line,Chestermere-Strathmore,48488.0,55284.0
+majority,Chestermere-Strathmore,2019-parent,radial-retry,radial k=62/201 bufr=40km,3.685220806332099,62,NOT_CONVERGED,radial-retry,Okotoks-Diamond Valley,47599.0,56679.0
+majority,Calgary-Falconridge-Conrich,v7,pair-line [Airdrie-East] buf=0km,angle=0° pos=0.377 side=A,0.08187428530406048,40,CONVERGED_TIGHT,pair-line,Airdrie-East,49445.0,56661.0
+majority,Airdrie-East,2019-parent,radial-retry,radial k=35/176 bufr=40km,0.28304767942176706,35,CONVERGED_TIGHT,radial-retry,Calgary-Falconridge-Conrich,46785.0,53809.0
+majority,Calgary-East,v7,radial,radial k=90/331 bufr=30km,0.579019834198505,90,CONVERGED_ACCEPTABLE,radial,,51135.0,58308.0
+majority,Edmonton-Enoch,v7,radial,radial k=82/329 bufr=30km,0.07718441248187007,82,CONVERGED_TIGHT,radial,,49646.0,56894.0
+majority,Calgary-Glenmore-Tsuut'ina,v7,radial,radial k=62/228 bufr=30km,1.1856860628824037,62,CONVERGED_ACCEPTABLE,radial,,49085.0,56970.0
+majority,St. Albert-Sturgeon,2019-parent,radial,radial k=63/216 bufr=30km,0.2579434728045676,63,CONVERGED_TIGHT,radial,,47149.0,54214.0
+majority,Medicine Hat-Brooks,2019-parent,radial,radial k=77/96 bufr=30km,0.18334471679584022,77,CONVERGED_TIGHT,radial,,47723.0,54833.0
+minority,Edmonton-Enoch-Devon,v7,pair-line [St. Albert-Sturgeon] buf=8km,angle=45° pos=0.482 side=A,1.0485443923892965,40,CONVERGED_ACCEPTABLE,pair-line,St. Albert-Sturgeon,48497.0,55043.0
+minority,St. Albert-Sturgeon,2019-parent,radial-retry,radial k=66/128 bufr=40km,0.1001491262355811,66,CONVERGED_TIGHT,radial-retry,Edmonton-Enoch-Devon,45586.0,52334.0
+minority,Red Deer-Innisfail,v7,pair-line [Red Deer-Blackfalds] buf=3km,angle=0° pos=0.353 side=B,0.4907029174145368,40,CONVERGED_TIGHT,pair-line,Red Deer-Blackfalds,46405.0,52961.0
+minority,Red Deer-Blackfalds,v7,radial-retry,radial k=92/109 bufr=40km,0.9431674805693342,92,CONVERGED_ACCEPTABLE,radial-retry,Red Deer-Innisfail,46496.0,52827.0
+minority,Calgary-Foothills-Airdrie West,v7,pair-line [Calgary-Airdrie] buf=0km,angle=15° pos=0.626 side=B,0.43525075860199525,40,CONVERGED_TIGHT,pair-line,Calgary-Airdrie,51174.0,58436.0
+minority,Calgary-Airdrie,2019-parent,radial-retry,radial k=53/502 bufr=40km,0.14028492608590162,53,CONVERGED_TIGHT,radial-retry,Calgary-Foothills-Airdrie West,51359.0,58820.0
+minority,Calgary-Nolan Hill-Cochrane,v7,radial,radial k=56/697 bufr=30km,0.13059452805216176,56,CONVERGED_TIGHT,radial,,49010.0,56282.0
+minority,Calgary-North West-Bearspaw,2019-parent,pair-line [Calgary-Bow-Springbank] buf=3km,angle=45° pos=0.643 side=B,0.5236326140409722,40,CONVERGED_ACCEPTABLE,pair-line,Calgary-Bow-Springbank,50176.0,57246.0
+minority,Calgary-Bow-Springbank,v7,radial-retry,radial k=87/372 bufr=40km,0.0011415636371493437,87,CONVERGED_TIGHT,radial-retry,Calgary-North West-Bearspaw,48444.0,55560.0
+minority,Lethbridge-Little Bow,v7,radial,radial k=76/247 bufr=30km,0.038872950424378036,76,CONVERGED_TIGHT,radial,,48994.0,56212.0
+minority,Edmonton-Beaumont,v7,radial-retry,radial k=48/95 bufr=40km,2.532987733733018,48,NOT_CONVERGED,radial-retry,,49888.0,55802.0
+minority,Red Deer-Sylvan Lake,v7,radial,radial k=69/221 bufr=30km,0.2805900867990234,69,CONVERGED_TIGHT,radial,,45608.0,52454.0
+minority,Lethbridge-Cardston,v7,radial,radial k=78/232 bufr=30km,0.17011915001597025,78,CONVERGED_TIGHT,radial,,45270.0,51831.0
+minority,Red Deer-Lacombe,v7,radial,radial k=69/179 bufr=30km,0.7427740924007448,69,CONVERGED_ACCEPTABLE,radial,,49349.0,56180.0
+minority,Calgary-West-Tsuut'ina,2019-parent,radial,radial k=53/575 bufr=30km,0.07492217558083936,53,CONVERGED_TIGHT,radial,,50459.0,57827.0
+minority,Edmonton-Spruce Grove,v7,radial,radial k=55/127 bufr=30km,0.256465213714924,55,CONVERGED_TIGHT,radial,,52034.0,59524.0
+minority,Calgary-Peigan-Chestermere,v7,radial-retry,radial k=75/476 bufr=40km,1.1075971242905411,75,CONVERGED_ACCEPTABLE,radial-retry,,46406.0,52639.0
+minority,Lethbridge-Taber-Warner,v7,radial-retry,radial k=49/49 bufr=40km,41.36245032024681,49,NOT_CONVERGED,radial-retry,,31140.0,60906.0
+minority,Lethbridge-Fort MacLeod-Crowsnest Pass,v7,radial,radial k=69/185 bufr=30km,0.18473861850185655,69,CONVERGED_TIGHT,radial,,47664.0,54564.0
+minority,Calgary-De Winton,v7,radial,radial k=27/553 bufr=30km,0.3242077310130127,27,CONVERGED_TIGHT,radial,,41754.0,47732.0
