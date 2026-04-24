@@ -1,0 +1,122 @@
+{
+  "method": {
+    "snap_tolerance_m": 150.0,
+    "vertex_densify_m": 25.0,
+    "contiguity_min_vertices": 4,
+    "contiguity_min_meters": 100.0,
+    "muni_mask_tolerance_m": 500.0,
+    "smart_restriction": "Approach (b): vertices already within MUNI_MASK_TOL_M of a CSD edge are excluded from DA snapping. DA anchoring operates only on perimeter segments that are NOT already municipally anchored. This keeps municipal and DA anchoring disjoint by construction."
+  },
+  "sources": {
+    "majority_input": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_4_canonical_majority_2026_eds_anchored.gpkg",
+    "minority_input": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_4_canonical_minority_2026_eds_anchored.gpkg",
+    "da_boundaries": {
+      "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\alberta_2021_das.gpkg",
+      "provenance": "StatsCan 2021 Dissemination Areas (Alberta)",
+      "n_das_alberta": 6203,
+      "network_length_km": 61894.120063156624
+    },
+    "csd_boundaries_for_muni_mask": {
+      "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\alberta_2021_csds.gpkg",
+      "n_csds_alberta": 423,
+      "network_length_km": 26289.52126722032
+    }
+  },
+  "baseline_v0_4": {
+    "majority_anchored_pct": 71.04819356923515,
+    "minority_anchored_pct": 14.458051533569382
+  },
+  "majority": {
+    "n_eds": 89,
+    "total_perimeter_km": 21551.66944526131,
+    "da_anchored_perimeter_km": 1666.207780677996,
+    "muni_anchored_perimeter_km_v0_4": 15478.37146952649,
+    "da_anchored_pct_overall": 7.731223722180626,
+    "muni_anchored_pct_overall_recomputed": 71.81982587863888,
+    "new_total_anchored_pct_overall": 79.55104960081951,
+    "mean_per_ed_da_anchored_pct": 37.02303748622638,
+    "median_per_ed_da_anchored_pct": 25.745055096369875,
+    "mean_pre_da_error_m": 33.2333007466061,
+    "top5_biggest_da_improvement": [
+      {
+        "name_2026": "Calgary-Klein",
+        "da_anchored_pct": 100.0,
+        "new_total_anchored_pct": 100.0
+      },
+      {
+        "name_2026": "Edmonton-Glenora-Riverview",
+        "da_anchored_pct": 100.0,
+        "new_total_anchored_pct": 100.0
+      },
+      {
+        "name_2026": "Edmonton-West Henday",
+        "da_anchored_pct": 100.0,
+        "new_total_anchored_pct": 100.0
+      },
+      {
+        "name_2026": "Edmonton-Strathcona",
+        "da_anchored_pct": 97.5462706617981,
+        "new_total_anchored_pct": 97.5462706617981
+      },
+      {
+        "name_2026": "Edmonton-McClung",
+        "da_anchored_pct": 97.47760977429165,
+        "new_total_anchored_pct": 97.47760977429165
+      }
+    ],
+    "residual_overlap_pairs": 18,
+    "residual_overlap_km2": 0.11287728167046861
+  },
+  "minority": {
+    "n_eds": 89,
+    "total_perimeter_km": 20572.37204427245,
+    "da_anchored_perimeter_km": 1350.718869530045,
+    "muni_anchored_perimeter_km_v0_4": 2037.0797288162835,
+    "da_anchored_pct_overall": 6.5656933805360485,
+    "muni_anchored_pct_overall_recomputed": 9.902016765166495,
+    "new_total_anchored_pct_overall": 16.467710145702544,
+    "mean_per_ed_da_anchored_pct": 31.005780239948216,
+    "median_per_ed_da_anchored_pct": 19.95820547091748,
+    "mean_pre_da_error_m": 52.9459935613029,
+    "top5_biggest_da_improvement": [
+      {
+        "name_2026": "Calgary-South East",
+        "da_anchored_pct": 100.0,
+        "new_total_anchored_pct": 100.0
+      },
+      {
+        "name_2026": "Edmonton-Whitemud",
+        "da_anchored_pct": 100.0,
+        "new_total_anchored_pct": 100.0
+      },
+      {
+        "name_2026": "Edmonton-Strathcona",
+        "da_anchored_pct": 97.54139697866509,
+        "new_total_anchored_pct": 97.54139697866509
+      },
+      {
+        "name_2026": "Calgary-Varsity",
+        "da_anchored_pct": 97.23799277821549,
+        "new_total_anchored_pct": 97.23799277821549
+      },
+      {
+        "name_2026": "Calgary-Mountain View",
+        "da_anchored_pct": 91.29628684679142,
+        "new_total_anchored_pct": 91.29628684679142
+      }
+    ],
+    "residual_overlap_pairs": 1,
+    "residual_overlap_km2": 0.017664058059288834
+  },
+  "validation_gates": {
+    "n_eds_preserved_majority": true,
+    "n_eds_preserved_minority": true,
+    "no_new_big_overlap_majority": true,
+    "no_new_big_overlap_minority": true
+  },
+  "outputs": {
+    "majority_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_majority_2026_eds_da_anchored.gpkg",
+    "minority_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_minority_2026_eds_da_anchored.gpkg",
+    "log_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_1_da_anchoring_log.csv"
+  }
+}
