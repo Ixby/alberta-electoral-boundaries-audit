@@ -1,0 +1,367 @@
+{
+  "ensemble": {
+    "efficiency_gap": {
+      "mean": 0.014945143526510404,
+      "median": 0.0148631102765353,
+      "std": 0.014842469649831732,
+      "p05": -0.0096530946439604,
+      "p50": 0.0148631102765353,
+      "p95": 0.03943994061312091,
+      "n": 100000
+    },
+    "mean_median": {
+      "mean": -0.018825163897618718,
+      "median": -0.01911215949935335,
+      "std": 0.007583326556199861,
+      "p05": -0.03125510456654778,
+      "p50": -0.01911215949935335,
+      "p95": -0.006095613807177869,
+      "n": 100000
+    },
+    "declination": {
+      "mean": 0.0010744334394279917,
+      "median": 0.0032950607766048497,
+      "std": 0.03254584843083559,
+      "p05": -0.05029823693474519,
+      "p50": 0.0032950607766048497,
+      "p95": 0.05602443882944572,
+      "n": 100000
+    },
+    "seats_at_50_50": {
+      "mean": 0.45162448275862066,
+      "median": 0.4482758620689655,
+      "std": 0.015971702331565404,
+      "p05": 0.425287356321839,
+      "p50": 0.4482758620689655,
+      "p95": 0.4827586206896552,
+      "n": 100000
+    }
+  },
+  "substrate_v2_full_va": {
+    "per_map": {
+      "2019": {
+        "efficiency_gap": {
+          "real": -0.026364586849705562,
+          "geography": 0.0148631102765353,
+          "drawing": -0.04122769712624086,
+          "real_reconstructed": -0.02636458684970556
+        },
+        "mean_median": {
+          "real": -0.02215491339662612,
+          "geography": -0.01911215949935335,
+          "drawing": -0.0030427538972727687,
+          "real_reconstructed": -0.02215491339662612
+        },
+        "declination": {
+          "real": 0.05701176055727874,
+          "geography": 0.0032950607766048497,
+          "drawing": 0.053716699780673886,
+          "real_reconstructed": 0.05701176055727874
+        },
+        "seats_at_50_50": {
+          "real": 0.47126436781609193,
+          "geography": 0.4482758620689655,
+          "drawing": 0.02298850574712641,
+          "real_reconstructed": 0.47126436781609193
+        }
+      },
+      "majority": {
+        "efficiency_gap": {
+          "real": -0.023261565068687776,
+          "geography": 0.0148631102765353,
+          "drawing": -0.038124675345223076,
+          "real_reconstructed": -0.023261565068687776
+        },
+        "mean_median": {
+          "real": -0.016245189131634308,
+          "geography": -0.01911215949935335,
+          "drawing": 0.0028669703677190427,
+          "real_reconstructed": -0.016245189131634308
+        },
+        "declination": {
+          "real": 0.041847005513148905,
+          "geography": 0.0032950607766048497,
+          "drawing": 0.03855194473654405,
+          "real_reconstructed": 0.041847005513148905
+        },
+        "seats_at_50_50": {
+          "real": 0.4659090909090909,
+          "geography": 0.4482758620689655,
+          "drawing": 0.01763322884012536,
+          "real_reconstructed": 0.4659090909090909
+        }
+      },
+      "minority": {
+        "efficiency_gap": {
+          "real": 0.018221798255422063,
+          "geography": 0.0148631102765353,
+          "drawing": 0.0033586879788867624,
+          "real_reconstructed": 0.018221798255422063
+        },
+        "mean_median": {
+          "real": -0.013902057812669066,
+          "geography": -0.01911215949935335,
+          "drawing": 0.005210101686684284,
+          "real_reconstructed": -0.013902057812669066
+        },
+        "declination": {
+          "real": -0.030488484741184013,
+          "geography": 0.0032950607766048497,
+          "drawing": -0.033783545517788865,
+          "real_reconstructed": -0.030488484741184017
+        },
+        "seats_at_50_50": {
+          "real": 0.5057471264367817,
+          "geography": 0.4482758620689655,
+          "drawing": 0.05747126436781613,
+          "real_reconstructed": 0.5057471264367817
+        }
+      }
+    },
+    "gaps": {
+      "2019_to_majority": {
+        "efficiency_gap": {
+          "real_gap": 0.003103021781017786,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.0031030217810177826,
+          "pct_drawing": 99.9999999999999
+        },
+        "mean_median": {
+          "real_gap": 0.005909724264991811,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.005909724264991811,
+          "pct_drawing": 100.0
+        },
+        "declination": {
+          "real_gap": -0.015164755044129834,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.015164755044129834,
+          "pct_drawing": 100.0
+        },
+        "seats_at_50_50": {
+          "real_gap": -0.00535527690700105,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.00535527690700105,
+          "pct_drawing": 100.0
+        }
+      },
+      "2019_to_minority": {
+        "efficiency_gap": {
+          "real_gap": 0.04458638510512762,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.04458638510512762,
+          "pct_drawing": 100.0
+        },
+        "mean_median": {
+          "real_gap": 0.008252855583957053,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.008252855583957053,
+          "pct_drawing": 100.0
+        },
+        "declination": {
+          "real_gap": -0.08750024529846276,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.08750024529846276,
+          "pct_drawing": 99.99999999999999
+        },
+        "seats_at_50_50": {
+          "real_gap": 0.034482758620689724,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.034482758620689724,
+          "pct_drawing": 100.0
+        }
+      },
+      "majority_to_minority": {
+        "efficiency_gap": {
+          "real_gap": 0.04148336332410984,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.04148336332410984,
+          "pct_drawing": 100.0
+        },
+        "mean_median": {
+          "real_gap": 0.0023431313189652414,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.0023431313189652414,
+          "pct_drawing": 100.0
+        },
+        "declination": {
+          "real_gap": -0.07233549025433292,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.07233549025433292,
+          "pct_drawing": 100.0
+        },
+        "seats_at_50_50": {
+          "real_gap": 0.039838035527690774,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.039838035527690774,
+          "pct_drawing": 100.0
+        }
+      }
+    },
+    "note": "Session-12 canonical polygons + full-VA (Election-Day + Vote-Anywhere splat) substrate. Ensemble is on Election-Day-only substrate; this decomposition is therefore CROSS-SUBSTRATE and the geography baseline is imperfect. Reported per task spec; see ed-only cross-check."
+  },
+  "substrate_election_day": {
+    "per_map": {
+      "2019": {
+        "efficiency_gap": {
+          "real": 0.024119940578423545,
+          "geography": 0.0148631102765353,
+          "drawing": 0.009256830301888244,
+          "real_reconstructed": 0.024119940578423545
+        },
+        "mean_median": {
+          "real": -0.007671760176883757,
+          "geography": -0.01911215949935335,
+          "drawing": 0.011440399322469593,
+          "real_reconstructed": -0.007671760176883757
+        },
+        "declination": {
+          "real": -0.04509237880431511,
+          "geography": 0.0032950607766048497,
+          "drawing": -0.04838743958091996,
+          "real_reconstructed": -0.04509237880431511
+        },
+        "seats_at_50_50": {
+          "real": 0.45977011494252873,
+          "geography": 0.4482758620689655,
+          "drawing": 0.011494252873563204,
+          "real_reconstructed": 0.45977011494252873
+        }
+      },
+      "majority": {
+        "efficiency_gap": {
+          "real": 0.024119940578423545,
+          "geography": 0.0148631102765353,
+          "drawing": 0.009256830301888244,
+          "real_reconstructed": 0.024119940578423545
+        },
+        "mean_median": {
+          "real": -0.00766964936075476,
+          "geography": -0.01911215949935335,
+          "drawing": 0.01144251013859859,
+          "real_reconstructed": -0.00766964936075476
+        },
+        "declination": {
+          "real": -0.04659474896803661,
+          "geography": 0.0032950607766048497,
+          "drawing": -0.04988980974464146,
+          "real_reconstructed": -0.04659474896803661
+        },
+        "seats_at_50_50": {
+          "real": 0.4588235294117647,
+          "geography": 0.4482758620689655,
+          "drawing": 0.01054766734279916,
+          "real_reconstructed": 0.4588235294117647
+        }
+      },
+      "minority": {
+        "efficiency_gap": {
+          "real": 0.035864847141117324,
+          "geography": 0.0148631102765353,
+          "drawing": 0.021001736864582024,
+          "real_reconstructed": 0.035864847141117324
+        },
+        "mean_median": {
+          "real": -0.0009301349063708386,
+          "geography": -0.01911215949935335,
+          "drawing": 0.018182024592982512,
+          "real_reconstructed": -0.0009301349063708386
+        },
+        "declination": {
+          "real": -0.0704058308129219,
+          "geography": 0.0032950607766048497,
+          "drawing": -0.07370089158952675,
+          "real_reconstructed": -0.0704058308129219
+        },
+        "seats_at_50_50": {
+          "real": 0.4823529411764706,
+          "geography": 0.4482758620689655,
+          "drawing": 0.03407707910750507,
+          "real_reconstructed": 0.4823529411764706
+        }
+      }
+    },
+    "gaps": {
+      "2019_to_majority": {
+        "efficiency_gap": {
+          "real_gap": 0.0,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.0,
+          "pct_drawing": 100.0
+        },
+        "mean_median": {
+          "real_gap": 2.110816128997328e-06,
+          "geography_gap": 0.0,
+          "drawing_gap": 2.110816128997328e-06,
+          "pct_drawing": 100.0
+        },
+        "declination": {
+          "real_gap": -0.0015023701637214976,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.0015023701637214976,
+          "pct_drawing": 100.0
+        },
+        "seats_at_50_50": {
+          "real_gap": -0.0009465855307640436,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.0009465855307640436,
+          "pct_drawing": 100.0
+        }
+      },
+      "2019_to_minority": {
+        "efficiency_gap": {
+          "real_gap": 0.01174490656269378,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.01174490656269378,
+          "pct_drawing": 100.0
+        },
+        "mean_median": {
+          "real_gap": 0.006741625270512919,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.006741625270512919,
+          "pct_drawing": 100.0
+        },
+        "declination": {
+          "real_gap": -0.02531345200860679,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.02531345200860679,
+          "pct_drawing": 99.99999999999999
+        },
+        "seats_at_50_50": {
+          "real_gap": 0.022582826233941866,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.022582826233941866,
+          "pct_drawing": 99.99999999999999
+        }
+      },
+      "majority_to_minority": {
+        "efficiency_gap": {
+          "real_gap": 0.01174490656269378,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.01174490656269378,
+          "pct_drawing": 100.0
+        },
+        "mean_median": {
+          "real_gap": 0.006739514454383921,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.006739514454383921,
+          "pct_drawing": 100.0
+        },
+        "declination": {
+          "real_gap": -0.02381108184488529,
+          "geography_gap": 0.0,
+          "drawing_gap": -0.02381108184488529,
+          "pct_drawing": 100.0
+        },
+        "seats_at_50_50": {
+          "real_gap": 0.02352941176470591,
+          "geography_gap": 0.0,
+          "drawing_gap": 0.02352941176470591,
+          "pct_drawing": 100.0
+        }
+      }
+    },
+    "note": "Pre-remediation Election-Day-only VA substrate. SUBSTRATE-MATCHED to ensemble; decomposition is apples-to-apples here. Cross-check for the v2 primary."
+  },
+  "paper_sign_note": "All values use the ensemble-native convention (positive EG = NDP wastes more than UCP, which \u00a75.4 labels 'UCP-favoured'). The paper (\u00a74.3) reader-facing convention flips EG sign (negative = UCP advantage in seat-outcome terms); the sign-flip affects labelling only. Ordinal rankings and decomposition proportions are invariant."
+}
