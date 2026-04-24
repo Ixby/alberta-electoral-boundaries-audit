@@ -1,0 +1,144 @@
+{
+  "method": {
+    "snap_tolerance_m": 500.0,
+    "vertex_densify_m": 50.0,
+    "min_segment_coverage_m": 1000.0
+  },
+  "sources": {
+    "majority_input": {
+      "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_canonical_majority_2026_eds_topoclean.gpkg",
+      "vintage": "v0_2"
+    },
+    "minority_input": {
+      "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_2_canonical_minority_2026_eds_topoclean.gpkg",
+      "vintage": "v0_2"
+    },
+    "municipal_boundaries": {
+      "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\alberta_2021_csds.gpkg",
+      "provenance": "StatsCan 2021 Census Sub-Division (AMA-equivalent)",
+      "downloaded_from": "https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/files-fichiers/lcsd000a21a_e.zip",
+      "n_csds_alberta": 423
+    }
+  },
+  "majority": {
+    "n_eds": 89,
+    "total_perimeter_km": 23361.23542740887,
+    "anchored_perimeter_km": 16597.73576663019,
+    "anchored_pct_overall": 71.04819356923515,
+    "mean_per_ed_anchored_pct": 40.0093227061802,
+    "median_per_ed_anchored_pct": 34.96665725853673,
+    "mean_pre_ama_error_m": 75.40304913185525,
+    "top5_most_anchored": [
+      {
+        "name_2026": "Drumheller-Stettler",
+        "anchored_pct": 99.27958028660905
+      },
+      {
+        "name_2026": "Lloydminster-Wainwright",
+        "anchored_pct": 98.9769972330791
+      },
+      {
+        "name_2026": "Fort Saskatchewan-Vegreville",
+        "anchored_pct": 95.2346670090028
+      },
+      {
+        "name_2026": "Spruce Grove",
+        "anchored_pct": 91.9820220131597
+      },
+      {
+        "name_2026": "Cold Lake-Bonnyville-St. Paul",
+        "anchored_pct": 91.49172166929044
+      }
+    ],
+    "bottom5_least_anchored": [
+      {
+        "name_2026": "Calgary-Acadia",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-Beddington",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-Buffalo",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-Confluence",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-East",
+        "anchored_pct": 0.0
+      }
+    ],
+    "residual_overlap_pairs": 21,
+    "residual_overlap_km2": 0.11450979467012382
+  },
+  "minority": {
+    "n_eds": 89,
+    "total_perimeter_km": 23127.67607657212,
+    "anchored_perimeter_km": 3343.8113256677943,
+    "anchored_pct_overall": 14.458051533569382,
+    "mean_per_ed_anchored_pct": 21.423617330875185,
+    "median_per_ed_anchored_pct": 11.28666893922941,
+    "mean_pre_ama_error_m": 137.28124032760633,
+    "top5_most_anchored": [
+      {
+        "name_2026": "Edmonton-Spruce Grove",
+        "anchored_pct": 91.9820220131597
+      },
+      {
+        "name_2026": "Canmore-Kananaskis",
+        "anchored_pct": 82.49501042443397
+      },
+      {
+        "name_2026": "St. Albert",
+        "anchored_pct": 82.215146367354
+      },
+      {
+        "name_2026": "St. Albert-Sturgeon",
+        "anchored_pct": 81.28765924060582
+      },
+      {
+        "name_2026": "Medicine Hat-Cypress",
+        "anchored_pct": 74.17886688145408
+      }
+    ],
+    "bottom5_least_anchored": [
+      {
+        "name_2026": "Calgary-Acadia",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-Beddington",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-Buffalo",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-Currie",
+        "anchored_pct": 0.0
+      },
+      {
+        "name_2026": "Calgary-Mountain View",
+        "anchored_pct": 0.0
+      }
+    ],
+    "residual_overlap_pairs": 4,
+    "residual_overlap_km2": 0.015592224838474195
+  },
+  "validation_gates": {
+    "n_eds_preserved_majority": true,
+    "n_eds_preserved_minority": true,
+    "no_overlap_majority": false,
+    "no_overlap_minority": false
+  },
+  "outputs": {
+    "majority_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_4_canonical_majority_2026_eds_anchored.gpkg",
+    "minority_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_4_canonical_minority_2026_eds_anchored.gpkg",
+    "log_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\reports\\v0_1_municipal_anchoring_log.csv"
+  }
+}
