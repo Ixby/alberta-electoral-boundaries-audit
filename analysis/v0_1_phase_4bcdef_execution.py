@@ -58,15 +58,13 @@ DAS_GPKG = DATA / "alberta_2021_das.gpkg"
 DA_POPS_CSV = DATA / "alberta_2021_da_populations.csv"
 EDS_2019_SHP = DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
 
-MAJ_APPROX_GPKG = DATA / "v0_1_approximate_majority_2026_eds.gpkg"
-MAJ_V7_GPKG = DATA / "v0_1_derived_v7_majority_2026_eds.gpkg"
-MIN_V6_GPKG = DATA / "v0_1_refined_v6_minority_2026_eds.gpkg"
-MIN_V7_GPKG = DATA / "v0_1_derived_v7_minority_2026_eds.gpkg"
+MAJ_CANON_GPKG = DATA / "v0_1_canonical_majority_2026_eds.gpkg"
+MIN_CANON_GPKG = DATA / "v0_1_canonical_minority_2026_eds.gpkg"
 
 MAJ_XWALK_CSV = DATA / "v0_1_majority_full_crosswalk.csv"
 MIN_XWALK_CSV = DATA / "v0_1_minority_full_crosswalk.csv"
 
-VA_GPKG = DATA / "va_polygons_with_2023_votes.gpkg"
+VA_GPKG = DATA / "va_polygons_with_full_2023_votes.gpkg"
 
 MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
 MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
@@ -99,85 +97,56 @@ def load_2019_eds_by_name() -> gpd.GeoDataFrame:
 
 
 def build_coverage_polygons(
-    approx: gpd.GeoDataFrame,
-    v7: gpd.GeoDataFrame,
-    eds2019: gpd.GeoDataFrame,
+    canon: gpd.GeoDataFrame,
     target_names: list[str],
-    xwalk: dict[str, str],
     target_crs,
     map_label: str,
 ) -> tuple[gpd.GeoDataFrame, dict[str, str]]:
-    """Build a single 89-row polygon coverage per 2026 ED name.
+    """Align canonical 2026 ED shapefile to the target name list.
 
-    Priority: approx (refined) -> v7 derived -> 2019 identity fallback
-    (for Tier A EDs where the name matches an identity-mapped 2019 ED).
+    Session 11 canonical shapefiles deliver 89 EDs with all polygons populated
+    and per-ED tier/source metadata under `canon_source`. This function
+    reprojects, normalises names, and orders rows against the commission
+    `ed_name` list so downstream assign / summarise code can consume
+    `polys` + `sources` unchanged.
 
     Returns: (GeoDataFrame with name_2026 + geometry, source dict)
     """
-    approx = approx.to_crs(target_crs).copy()
-    v7 = v7.to_crs(target_crs).copy()
-    eds2019 = eds2019.to_crs(target_crs).copy()
+    canon = canon.to_crs(target_crs).copy()
+    canon["_name_norm"] = canon["name_2026"].apply(norm)
+    if "canon_source" not in canon.columns:
+        canon["canon_source"] = "canonical"
 
-    # normalized lookups
-    approx["_name_norm"] = approx["name_2026"].apply(norm)
-    v7["_name_norm"] = v7["name_2026"].apply(norm)
-    eds2019["_name_norm_2019"] = eds2019["EDName2017"].apply(norm)
+    canon_by_name = {
+        n: (row.geometry, row.get("canon_source", "canonical"))
+        for n, row in canon.set_index("_name_norm").iterrows()
+        if row.geometry is not None and not row.geometry.is_empty
+    }
 
-    # Reverse crosswalk: for each 2026 ED, list of 2019 EDs mapping to it
-    reverse_xwalk: dict[str, list[str]] = {}
-    for k, v in xwalk.items():
-        reverse_xwalk.setdefault(v, []).append(k)
-
-    # Select first valid polygon for each 2026 ED
-    approx_by_name = {n: row.geometry for n, row in approx.set_index("_name_norm").iterrows()
-                      if row.geometry is not None and not row.geometry.is_empty}
-    v7_by_name = {n: row.geometry for n, row in v7.set_index("_name_norm").iterrows()
-                  if row.geometry is not None and not row.geometry.is_empty}
-    eds2019_by_name = {n: row.geometry for n, row in eds2019.set_index("_name_norm_2019").iterrows()
-                       if row.geometry is not None and not row.geometry.is_empty}
-
-    rows = []
+    rows: list[dict] = []
     sources: dict[str, str] = {}
+    missing: list[str] = []
     for name in target_names:
         nm = norm(name)
-        if nm in approx_by_name:
+        if nm in canon_by_name:
+            geom, src = canon_by_name[nm]
             rows.append({"name_2026": name, "_name_norm": nm,
-                         "geometry": approx_by_name[nm], "source": "approx"})
-            sources[nm] = "approx"
-        elif nm in v7_by_name:
-            rows.append({"name_2026": name, "_name_norm": nm,
-                         "geometry": v7_by_name[nm], "source": "v7"})
-            sources[nm] = "v7"
+                         "geometry": geom, "source": str(src)})
+            sources[nm] = str(src)
         else:
-            # Tier A fallback: if a 2019 ED maps identity-style, use its shape
-            parents = reverse_xwalk.get(nm, [])
-            # For identity, the 2019 name equals the 2026 name
-            matched_2019 = None
-            if nm in eds2019_by_name:
-                matched_2019 = nm
-            else:
-                for p in parents:
-                    if p in eds2019_by_name:
-                        matched_2019 = p
-                        break
-            if matched_2019 is not None:
-                rows.append({"name_2026": name, "_name_norm": nm,
-                             "geometry": eds2019_by_name[matched_2019],
-                             "source": f"2019_identity_from_{matched_2019}"})
-                sources[nm] = f"2019_identity_from_{matched_2019}"
-            else:
-                # No polygon available — will fall through to crosswalk-only
-                rows.append({"name_2026": name, "_name_norm": nm,
-                             "geometry": None, "source": "none"})
-                sources[nm] = "none"
+            rows.append({"name_2026": name, "_name_norm": nm,
+                         "geometry": None, "source": "none"})
+            sources[nm] = "none"
+            missing.append(name)
 
     gdf = gpd.GeoDataFrame(rows, crs=target_crs)
-    # filter to those that have a geometry for polygon-based assignment
-    print(f"  [{map_label}] coverage: "
-          f"approx={sum(1 for v in sources.values() if v == 'approx')}, "
-          f"v7={sum(1 for v in sources.values() if v == 'v7')}, "
-          f"2019_identity={sum(1 for v in sources.values() if v.startswith('2019_identity'))}, "
-          f"none={sum(1 for v in sources.values() if v == 'none')}")
+    source_counts = {}
+    for s in sources.values():
+        source_counts[s] = source_counts.get(s, 0) + 1
+    print(f"  [{map_label}] canonical coverage (n={len(target_names)}): "
+          + ", ".join(f"{k}={v}" for k, v in sorted(source_counts.items())))
+    if missing:
+        print(f"  [{map_label}] missing canonical rows for: {missing}")
     return gdf, sources
 
 
@@ -210,24 +179,21 @@ def run_phase_4b() -> tuple[pd.DataFrame, pd.DataFrame]:
     das = das.merge(da_pops[["DAUID", "population_2021"]], on="DAUID", how="left")
     print(f"  DAs: {len(das)}, total pop: {das['population_2021'].sum():,.0f}")
 
-    print("[Phase 4B] Loading crosswalks and polygons...")
+    print("[Phase 4B] Loading crosswalks and canonical polygons...")
     maj_xwalk = load_crosswalk(MAJ_XWALK_CSV)
     min_xwalk = load_crosswalk(MIN_XWALK_CSV)
-    eds2019 = load_2019_eds_by_name()
 
-    maj_approx = gpd.read_file(MAJ_APPROX_GPKG)
-    maj_v7 = gpd.read_file(MAJ_V7_GPKG)
-    min_v6 = gpd.read_file(MIN_V6_GPKG)
-    min_v7 = gpd.read_file(MIN_V7_GPKG)
+    maj_canon = gpd.read_file(MAJ_CANON_GPKG)
+    min_canon = gpd.read_file(MIN_CANON_GPKG)
 
     maj_names = pd.read_csv(MAJ_POPS_CSV)["ed_name"].tolist()
     min_names = pd.read_csv(MIN_POPS_CSV)["ed_name"].tolist()
 
-    # Build 89-row polygon coverage per map
+    # Align canonical 89-row coverage to commission name order
     maj_polys, maj_sources = build_coverage_polygons(
-        maj_approx, maj_v7, eds2019, maj_names, maj_xwalk, das.crs, "majority")
+        maj_canon, maj_names, das.crs, "majority")
     min_polys, min_sources = build_coverage_polygons(
-        min_v6, min_v7, eds2019, min_names, min_xwalk, das.crs, "minority")
+        min_canon, min_names, das.crs, "minority")
 
     # Assign DAs to 2026 EDs (polygon-based)
     print("[Phase 4B] Assigning DAs to majority 2026 EDs...")
@@ -277,28 +243,25 @@ def run_phase_4b() -> tuple[pd.DataFrame, pd.DataFrame]:
 
 def run_phase_4c() -> tuple[pd.DataFrame, pd.DataFrame]:
     """Phase 4C — VA polygons centroid-in-2026-ED, sum 2023 vote totals per ED."""
-    print("[Phase 4C] Loading VA polygons with 2023 votes...")
+    print("[Phase 4C] Loading VA polygons with full (Election-Day + splat) 2023 votes...")
     vas = gpd.read_file(VA_GPKG)
-    print(f"  VAs: {len(vas)}, UCP: {vas['va_ucp'].sum():,}, "
-          f"NDP: {vas['va_ndp'].sum():,}, Other: {vas['va_other'].sum():,}, "
-          f"two-party: {vas['va_ucp'].sum() + vas['va_ndp'].sum():,}")
+    print(f"  VAs: {len(vas)}, UCP: {vas['va_ucp_full'].sum():,.0f}, "
+          f"NDP: {vas['va_ndp_full'].sum():,.0f}, Other: {vas['va_other_full'].sum():,.0f}, "
+          f"two-party: {vas['va_ucp_full'].sum() + vas['va_ndp_full'].sum():,.0f}")
 
     maj_xwalk = load_crosswalk(MAJ_XWALK_CSV)
     min_xwalk = load_crosswalk(MIN_XWALK_CSV)
-    eds2019 = load_2019_eds_by_name()
 
-    maj_approx = gpd.read_file(MAJ_APPROX_GPKG)
-    maj_v7 = gpd.read_file(MAJ_V7_GPKG)
-    min_v6 = gpd.read_file(MIN_V6_GPKG)
-    min_v7 = gpd.read_file(MIN_V7_GPKG)
+    maj_canon = gpd.read_file(MAJ_CANON_GPKG)
+    min_canon = gpd.read_file(MIN_CANON_GPKG)
 
     maj_names = pd.read_csv(MAJ_POPS_CSV)["ed_name"].tolist()
     min_names = pd.read_csv(MIN_POPS_CSV)["ed_name"].tolist()
 
     maj_polys, maj_sources = build_coverage_polygons(
-        maj_approx, maj_v7, eds2019, maj_names, maj_xwalk, vas.crs, "majority")
+        maj_canon, maj_names, vas.crs, "majority")
     min_polys, min_sources = build_coverage_polygons(
-        min_v6, min_v7, eds2019, min_names, min_xwalk, vas.crs, "minority")
+        min_canon, min_names, vas.crs, "minority")
 
     def assign_and_summarize(polys: gpd.GeoDataFrame, xwalk: dict[str, str],
                              names: list[str], sources: dict[str, str],
@@ -322,8 +285,8 @@ def run_phase_4c() -> tuple[pd.DataFrame, pd.DataFrame]:
         vas_["ed_2026"] = vas_["_assigned_poly"].fillna(vas_["_assigned_xwalk"])
 
         agg = (vas_.groupby("ed_2026")
-               .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"),
-                    other=("va_other", "sum")).reset_index())
+               .agg(ucp=("va_ucp_full", "sum"), ndp=("va_ndp_full", "sum"),
+                    other=("va_other_full", "sum")).reset_index())
         agg["ed_2026_norm"] = agg["ed_2026"].apply(norm)
 
         rows = []
@@ -448,12 +411,7 @@ def compute_summary(maj_4b, min_4b, maj_4c, min_4c, combined_4f) -> dict:
         summary["phase_4b"][label] = {
             "n_eds": int(len(df)),
             "total_pop_2021_from_das": float(df["pop_2021_from_das"].sum()),
-            "source_counts": df["polygon_source"].apply(
-                lambda s: "approx" if s == "approx"
-                else "v7" if s == "v7"
-                else "2019_identity" if s.startswith("2019_identity")
-                else "none"
-            ).value_counts().to_dict(),
+            "source_counts": df["polygon_source"].value_counts().to_dict(),
         }
     # Province total
     maj_total = maj_4b["pop_2021_from_das"].sum()

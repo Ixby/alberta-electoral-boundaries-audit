@@ -50,7 +50,7 @@ print("=" * 70)
 print("STEP 1 — Loading polls file")
 print("=" * 70)
 
-polls = pd.read_csv(POLLS_CSV, dtype={"sheet_num": str, "voting_areas": str})
+polls = pd.read_csv(POLLS_CSV, dtype={"sheet_num": str, "voting_areas": str}, encoding="cp1252")
 
 # Coerce vote columns to numeric (in case of blanks)
 for col in ("ndp_votes", "ucp_votes", "other_votes", "valid_votes"):
