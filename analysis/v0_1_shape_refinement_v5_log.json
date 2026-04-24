@@ -1,0 +1,586 @@
+{
+  "pipeline_version": "v5",
+  "target_eds": [
+    "Edmonton-Windermere",
+    "Calgary-De Winton",
+    "Calgary-South"
+  ],
+  "po_corrections_to_v4": [
+    "De Winton: Okotoks INCLUDED (v4 wrongly subtracted)",
+    "De Winton: polygon extended to target 1400-1700 km^2",
+    "Windermere: eastern arm added (v4 omitted)",
+    "Windermere: southern boundary extended",
+    "Calgary-South: polygon expanded to target 15-25 km^2",
+    "Calgary-South: NW curve approximated instead of straight cut"
+  ],
+  "po_additional_directives_addressed": {
+    "contiguity": "Every v5 polygon coalesced to a single Polygon; gap-closure via buffer(N).buffer(-N) at N in [100, 200, 300, 500] m documented in contiguity_ops_log.",
+    "overlay_verification": "Side-by-side overlay panels rendered against maps/hires/v0_1_minority_p360_map74.png and p361_map75.png at v0_5_overlay_minority_*.png.",
+    "no_boundary_islands": "simplify(tolerance=50 m) applied to each v5 polygon to remove spikes/spurs.",
+    "final_validation": "Each v5 polygon checked for is_valid, single Polygon, interior-ring justification, and compactness ratio < 8; per-ED results in validation_log."
+  },
+  "contiguity_ops_log": {
+    "Edmonton-Windermere": {
+      "input_geom_type": "Polygon",
+      "operations": [
+        "simplified_tol_50m"
+      ],
+      "output_geom_type": "Polygon",
+      "output_area_km2": 70.01
+    },
+    "Calgary-De Winton": {
+      "input_geom_type": "Polygon",
+      "operations": [
+        "simplified_tol_50m"
+      ],
+      "output_geom_type": "Polygon",
+      "output_area_km2": 1519.51
+    },
+    "Calgary-South": {
+      "input_geom_type": "Polygon",
+      "operations": [
+        "simplified_tol_50m"
+      ],
+      "output_geom_type": "Polygon",
+      "output_area_km2": 17.55
+    }
+  },
+  "validation_log": {
+    "Edmonton-Windermere": {
+      "name": "Edmonton-Windermere",
+      "is_valid": true,
+      "is_single_polygon": true,
+      "has_no_holes_or_has_justified_holes": true,
+      "compactness_ratio": 6.17,
+      "compactness_pass": true,
+      "all_pass": true,
+      "n_interior_rings": 0,
+      "hole_note": "no interior rings"
+    },
+    "Calgary-De Winton": {
+      "name": "Calgary-De Winton",
+      "is_valid": true,
+      "is_single_polygon": true,
+      "has_no_holes_or_has_justified_holes": true,
+      "compactness_ratio": 5.45,
+      "compactness_pass": true,
+      "all_pass": true,
+      "n_interior_rings": 0,
+      "hole_note": "no interior rings"
+    },
+    "Calgary-South": {
+      "name": "Calgary-South",
+      "is_valid": true,
+      "is_single_polygon": true,
+      "has_no_holes_or_has_justified_holes": true,
+      "compactness_ratio": 5.17,
+      "compactness_pass": true,
+      "all_pass": true,
+      "n_interior_rings": 0,
+      "hole_note": "no interior rings"
+    }
+  },
+  "all_validations_pass": true,
+  "six_pass_refinement_log": {
+    "Edmonton-Windermere": {
+      "pass_1_and_2_coarse_plus_feature_snap": {
+        "area_km2": 69.94,
+        "geom_type": "Polygon",
+        "anchors": {
+          "west_edge_anchor": "North Saskatchewan River (OSM waterway, v3 inheritance)",
+          "north_edge_anchor": "Whitemud Drive alignment with peninsula carve-out (2019 parent)",
+          "east_edge_main_body_anchor": "ESW 2019 eastern boundary (no OSM feature)",
+          "arm_extension_anchor": "rectangular arm into Edmonton-South (visually transcribed from PO-painted reference)",
+          "south_edge_anchor": "ESW 2019 southern boundary (Anthony Henday proxy)"
+        },
+        "errors_m": {
+          "west_edge_err_m": 150,
+          "north_edge_err_m": 500,
+          "east_edge_main_body_err_m": 700,
+          "arm_extension_east_err_m": 1000,
+          "arm_north_south_err_m": 700,
+          "south_edge_err_m": 500
+        },
+        "notes": "Pass 1 (init from v4 + coarse corrections) and Pass 2 (OSM feature snap for reserve/city/river/county) applied as a single build step; feature anchors come from osmnx fetches documented above."
+      },
+      "pass_3_initial_scoring_vs_thumbnail": {
+        "thumbnail": "v0_1_minority_p361_map75.png",
+        "scores": {
+          "aspect_ratio_wh": 1.02,
+          "solidity": 0.62,
+          "compactness_p_over_sqrt_a": 6.29,
+          "bbox_area_km2": 113.11,
+          "polygon_area_km2": 69.94,
+          "west_river_edge": {
+            "score": 8,
+            "note": "river-snapped via v3 inheritance; serrated boundary visible in panel"
+          },
+          "north_stepped_edge": {
+            "score": 6,
+            "note": "partial stepped pattern captured via ESW north boundary intersection; peninsula carve-out not fully modelled"
+          },
+          "east_main_body_edge": {
+            "score": 7,
+            "note": "ESW 2019 eastern boundary; commission may shift by 0.5-0.7 km"
+          },
+          "eastern_arm_presence": {
+            "score": 7,
+            "note": "arm present and unioned with main body (structurally matches PO reference); arm east extent uncertain to +/- 1 km"
+          },
+          "south_edge": {
+            "score": 7,
+            "note": "ESW southern boundary; Anthony Henday Drive as proxy; +/- 0.5 km"
+          },
+          "overall_score": 7.0
+        }
+      },
+      "pass_4_gap_targeted_refinement": {
+        "ops": {
+          "input_geom_type": "Polygon",
+          "operations": [
+            "simplified_tol_50m"
+          ],
+          "output_geom_type": "Polygon",
+          "output_area_km2": 70.01
+        },
+        "area_km2": 70.01,
+        "geom_type": "Polygon"
+      },
+      "pass_5_interior_scrub": {
+        "n_interior_rings": 0,
+        "ops": {
+          "input_geom_type": "Polygon",
+          "operations": [
+            "simplified_tol_30m"
+          ],
+          "output_geom_type": "Polygon",
+          "output_area_km2": 70.01
+        },
+        "red_only_constraint": "Pipeline uses vector OSM and 2019 parent polygons only; no raster-trace from thumbnails. Thus non-red interior lines (roads/rail/rivers drawn for reader orientation) cannot have been encoded as ED boundary.",
+        "red_mask_available": true
+      },
+      "pass_6_final_verification": {
+        "thumbnail": "v0_1_minority_p361_map75.png",
+        "scores": {
+          "aspect_ratio_wh": 1.02,
+          "solidity": 0.62,
+          "compactness_p_over_sqrt_a": 6.17,
+          "bbox_area_km2": 113.11,
+          "polygon_area_km2": 70.01,
+          "west_river_edge": {
+            "score": 8,
+            "note": "river-snapped via v3 inheritance; serrated boundary visible in panel"
+          },
+          "north_stepped_edge": {
+            "score": 6,
+            "note": "partial stepped pattern captured via ESW north boundary intersection; peninsula carve-out not fully modelled"
+          },
+          "east_main_body_edge": {
+            "score": 7,
+            "note": "ESW 2019 eastern boundary; commission may shift by 0.5-0.7 km"
+          },
+          "eastern_arm_presence": {
+            "score": 7,
+            "note": "arm present and unioned with main body (structurally matches PO reference); arm east extent uncertain to +/- 1 km"
+          },
+          "south_edge": {
+            "score": 7,
+            "note": "ESW southern boundary; Anthony Henday Drive as proxy; +/- 0.5 km"
+          },
+          "overall_score": 7.0
+        },
+        "residual_uncertainty_segments": [
+          {
+            "segment": "north_stepped_edge",
+            "score": 6,
+            "reason": "partial stepped pattern captured via ESW north boundary intersection; peninsula carve-out not fully modelled"
+          },
+          {
+            "segment": "east_main_body_edge",
+            "score": 7,
+            "reason": "ESW 2019 eastern boundary; commission may shift by 0.5-0.7 km"
+          },
+          {
+            "segment": "eastern_arm_presence",
+            "score": 7,
+            "reason": "arm present and unioned with main body (structurally matches PO reference); arm east extent uncertain to +/- 1 km"
+          },
+          {
+            "segment": "south_edge",
+            "score": 7,
+            "reason": "ESW southern boundary; Anthony Henday Drive as proxy; +/- 0.5 km"
+          }
+        ],
+        "overall_score": 7.0
+      }
+    },
+    "Calgary-De Winton": {
+      "pass_1_and_2_coarse_plus_feature_snap": {
+        "area_km2": 1519.75,
+        "geom_type": "Polygon",
+        "anchors": {
+          "west_edge_anchor": "near Tsuut'ina reserve east edge, soft cut at r_maxx - 5 km",
+          "north_edge_anchor": "Calgary southern city limits (OSM admin_level=8)",
+          "south_edge_anchor": "Livingstone-Macleod northern extent (10 km south of Highwood effective southern edge)",
+          "east_edge_anchor": "Highwood 2019 eastern extent (roughly Foothills County east, OSM level=6)",
+          "subtracts_tsuutina": "Tsuut'ina Nation 145 reserve + 200 m buffer (OSM aboriginal_lands)",
+          "subtracts_ed29_rural": "narrow rectangle south of reserve (6 km south, reserve-bounded)",
+          "includes_okotoks": "YES \u2014 Okotoks is inside De Winton at SE edge (v5 correction vs v4)",
+          "southward_extension": "into Livingstone-Macleod 2019, ~10 km south of Highwood effective southern edge"
+        },
+        "errors_m": {
+          "west_edge_err_m": 1500,
+          "north_edge_err_m": 500,
+          "south_edge_err_m": 1500,
+          "east_edge_err_m": 1000,
+          "tsuutina_subtraction_err_m": 300,
+          "ed29_rural_cut_err_m": 1500,
+          "southward_extension_err_m": 2000,
+          "okotoks_inclusion": "confirmed via PO 2026-04-23 painted reference"
+        },
+        "notes": "Pass 1 (init from v4 + coarse corrections) and Pass 2 (OSM feature snap for reserve/city/river/county) applied as a single build step; feature anchors come from osmnx fetches documented above."
+      },
+      "pass_3_initial_scoring_vs_thumbnail": {
+        "thumbnail": "v0_1_minority_p360_map74.png",
+        "scores": {
+          "aspect_ratio_wh": 1.43,
+          "solidity": 0.82,
+          "compactness_p_over_sqrt_a": 5.47,
+          "bbox_area_km2": 1849.91,
+          "polygon_area_km2": 1519.75,
+          "west_edge": {
+            "score": 5,
+            "note": "soft cut at r_maxx - 5 km; commission's exact line unknown to +/- 1.5 km"
+          },
+          "north_edge_calgary_limit": {
+            "score": 8,
+            "note": "Calgary admin_level=8 boundary (OSM authoritative); small thickline tolerance"
+          },
+          "east_edge": {
+            "score": 6,
+            "note": "Highwood 2019 eastern extent ~= Foothills County east; +/- 1 km"
+          },
+          "south_edge": {
+            "score": 4,
+            "note": "southward extension into Liv-Macleod; rural serrated boundary approximated as a rectangle, residual +/- 2 km"
+          },
+          "tsuutina_exclusion": {
+            "score": 9,
+            "note": "OSM aboriginal_lands polygon; authoritative"
+          },
+          "okotoks_inclusion": {
+            "score": 10,
+            "note": "hard constraint per PO 2026-04-23; confirmed inside polygon at SE edge"
+          },
+          "ed29_rural_subtraction": {
+            "score": 5,
+            "note": "narrow 6 km rectangle south of reserve; actual ED 29 alignment +/- 1.5 km"
+          },
+          "overall_score": 6.7
+        }
+      },
+      "pass_4_gap_targeted_refinement": {
+        "ops": {
+          "input_geom_type": "Polygon",
+          "operations": [
+            "simplified_tol_50m"
+          ],
+          "output_geom_type": "Polygon",
+          "output_area_km2": 1519.51
+        },
+        "area_km2": 1519.51,
+        "geom_type": "Polygon"
+      },
+      "pass_5_interior_scrub": {
+        "n_interior_rings": 0,
+        "ops": {
+          "input_geom_type": "Polygon",
+          "operations": [
+            "simplified_tol_30m"
+          ],
+          "output_geom_type": "Polygon",
+          "output_area_km2": 1519.51
+        },
+        "red_only_constraint": "Pipeline uses vector OSM and 2019 parent polygons only; no raster-trace from thumbnails. Thus non-red interior lines (roads/rail/rivers drawn for reader orientation) cannot have been encoded as ED boundary.",
+        "red_mask_available": true
+      },
+      "pass_6_final_verification": {
+        "thumbnail": "v0_1_minority_p360_map74.png",
+        "scores": {
+          "aspect_ratio_wh": 1.43,
+          "solidity": 0.82,
+          "compactness_p_over_sqrt_a": 5.45,
+          "bbox_area_km2": 1849.9,
+          "polygon_area_km2": 1519.51,
+          "west_edge": {
+            "score": 5,
+            "note": "soft cut at r_maxx - 5 km; commission's exact line unknown to +/- 1.5 km"
+          },
+          "north_edge_calgary_limit": {
+            "score": 8,
+            "note": "Calgary admin_level=8 boundary (OSM authoritative); small thickline tolerance"
+          },
+          "east_edge": {
+            "score": 6,
+            "note": "Highwood 2019 eastern extent ~= Foothills County east; +/- 1 km"
+          },
+          "south_edge": {
+            "score": 4,
+            "note": "southward extension into Liv-Macleod; rural serrated boundary approximated as a rectangle, residual +/- 2 km"
+          },
+          "tsuutina_exclusion": {
+            "score": 9,
+            "note": "OSM aboriginal_lands polygon; authoritative"
+          },
+          "okotoks_inclusion": {
+            "score": 10,
+            "note": "hard constraint per PO 2026-04-23; confirmed inside polygon at SE edge"
+          },
+          "ed29_rural_subtraction": {
+            "score": 5,
+            "note": "narrow 6 km rectangle south of reserve; actual ED 29 alignment +/- 1.5 km"
+          },
+          "overall_score": 6.7
+        },
+        "residual_uncertainty_segments": [
+          {
+            "segment": "west_edge",
+            "score": 5,
+            "reason": "soft cut at r_maxx - 5 km; commission's exact line unknown to +/- 1.5 km"
+          },
+          {
+            "segment": "east_edge",
+            "score": 6,
+            "reason": "Highwood 2019 eastern extent ~= Foothills County east; +/- 1 km"
+          },
+          {
+            "segment": "south_edge",
+            "score": 4,
+            "reason": "southward extension into Liv-Macleod; rural serrated boundary approximated as a rectangle, residual +/- 2 km"
+          },
+          {
+            "segment": "ed29_rural_subtraction",
+            "score": 5,
+            "reason": "narrow 6 km rectangle south of reserve; actual ED 29 alignment +/- 1.5 km"
+          }
+        ],
+        "overall_score": 6.7
+      }
+    },
+    "Calgary-South": {
+      "pass_1_and_2_coarse_plus_feature_snap": {
+        "area_km2": 17.43,
+        "geom_type": "Polygon",
+        "anchors": {
+          "west_edge_anchor": "Calgary-Fish Creek 2019 eastern boundary (stepped curve approximation)",
+          "north_edge_anchor": "~95% Y-line across Calgary-Hays 2019 (transcribed from PO reference)",
+          "south_edge_anchor": "Calgary southern city limit (Hays 2019 southern edge)",
+          "east_edge_anchor": "~72% X-line across Calgary-Hays 2019 (transcribed)",
+          "nw_curve": "3-step diagonal approximation of Fish Creek abutment curve",
+          "ne_notch": "900 m x 800 m notch (smaller than v4)"
+        },
+        "errors_m": {
+          "west_edge_err_m": 500,
+          "north_edge_err_m": 700,
+          "east_edge_err_m": 700,
+          "south_edge_err_m": 300,
+          "nw_curve_err_m": 500,
+          "ne_notch_err_m": 500
+        },
+        "notes": "Pass 1 (init from v4 + coarse corrections) and Pass 2 (OSM feature snap for reserve/city/river/county) applied as a single build step; feature anchors come from osmnx fetches documented above."
+      },
+      "pass_3_initial_scoring_vs_thumbnail": {
+        "thumbnail": "v0_1_minority_p360_map74.png",
+        "scores": {
+          "aspect_ratio_wh": 1.88,
+          "solidity": 0.57,
+          "compactness_p_over_sqrt_a": 5.21,
+          "bbox_area_km2": 30.71,
+          "polygon_area_km2": 17.43,
+          "west_edge_fish_creek": {
+            "score": 7,
+            "note": "Calgary-Fish Creek 2019 boundary; stepped curve approximation of abutment"
+          },
+          "north_edge": {
+            "score": 5,
+            "note": "~95% Y-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+          },
+          "east_edge": {
+            "score": 5,
+            "note": "~72% X-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+          },
+          "south_edge_calgary_limit": {
+            "score": 9,
+            "note": "Calgary admin_level=8 boundary; authoritative"
+          },
+          "nw_curve_approximation": {
+            "score": 6,
+            "note": "2-step diagonal carve; commission's curve is smoother"
+          },
+          "ne_notch": {
+            "score": 6,
+            "note": "900 m x 800 m rectangular notch; commission's notch may differ in shape"
+          },
+          "overall_score": 6.3
+        }
+      },
+      "pass_4_gap_targeted_refinement": {
+        "ops": {
+          "input_geom_type": "Polygon",
+          "operations": [
+            "simplified_tol_50m"
+          ],
+          "output_geom_type": "Polygon",
+          "output_area_km2": 17.55
+        },
+        "area_km2": 17.55,
+        "geom_type": "Polygon"
+      },
+      "pass_5_interior_scrub": {
+        "n_interior_rings": 0,
+        "ops": {
+          "input_geom_type": "Polygon",
+          "operations": [
+            "simplified_tol_30m"
+          ],
+          "output_geom_type": "Polygon",
+          "output_area_km2": 17.55
+        },
+        "red_only_constraint": "Pipeline uses vector OSM and 2019 parent polygons only; no raster-trace from thumbnails. Thus non-red interior lines (roads/rail/rivers drawn for reader orientation) cannot have been encoded as ED boundary.",
+        "red_mask_available": true
+      },
+      "pass_6_final_verification": {
+        "thumbnail": "v0_1_minority_p360_map74.png",
+        "scores": {
+          "aspect_ratio_wh": 1.88,
+          "solidity": 0.57,
+          "compactness_p_over_sqrt_a": 5.17,
+          "bbox_area_km2": 30.63,
+          "polygon_area_km2": 17.55,
+          "west_edge_fish_creek": {
+            "score": 7,
+            "note": "Calgary-Fish Creek 2019 boundary; stepped curve approximation of abutment"
+          },
+          "north_edge": {
+            "score": 5,
+            "note": "~95% Y-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+          },
+          "east_edge": {
+            "score": 5,
+            "note": "~72% X-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+          },
+          "south_edge_calgary_limit": {
+            "score": 9,
+            "note": "Calgary admin_level=8 boundary; authoritative"
+          },
+          "nw_curve_approximation": {
+            "score": 6,
+            "note": "2-step diagonal carve; commission's curve is smoother"
+          },
+          "ne_notch": {
+            "score": 6,
+            "note": "900 m x 800 m rectangular notch; commission's notch may differ in shape"
+          },
+          "overall_score": 6.3
+        },
+        "residual_uncertainty_segments": [
+          {
+            "segment": "west_edge_fish_creek",
+            "score": 7,
+            "reason": "Calgary-Fish Creek 2019 boundary; stepped curve approximation of abutment"
+          },
+          {
+            "segment": "north_edge",
+            "score": 5,
+            "reason": "~95% Y-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+          },
+          {
+            "segment": "east_edge",
+            "score": 5,
+            "reason": "~72% X-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+          },
+          {
+            "segment": "nw_curve_approximation",
+            "score": 6,
+            "reason": "2-step diagonal carve; commission's curve is smoother"
+          },
+          {
+            "segment": "ne_notch",
+            "score": 6,
+            "reason": "900 m x 800 m rectangular notch; commission's notch may differ in shape"
+          }
+        ],
+        "overall_score": 6.3
+      }
+    }
+  },
+  "notes": {
+    "Edmonton-Windermere": {
+      "anchors": {
+        "west_edge_anchor": "North Saskatchewan River (OSM waterway, v3 inheritance)",
+        "north_edge_anchor": "Whitemud Drive alignment with peninsula carve-out (2019 parent)",
+        "east_edge_main_body_anchor": "ESW 2019 eastern boundary (no OSM feature)",
+        "arm_extension_anchor": "rectangular arm into Edmonton-South (visually transcribed from PO-painted reference)",
+        "south_edge_anchor": "ESW 2019 southern boundary (Anthony Henday proxy)"
+      },
+      "errors_m": {
+        "west_edge_err_m": 150,
+        "north_edge_err_m": 500,
+        "east_edge_main_body_err_m": 700,
+        "arm_extension_east_err_m": 1000,
+        "arm_north_south_err_m": 700,
+        "south_edge_err_m": 500
+      },
+      "v4_area_km2": 36.76,
+      "v5_area_km2": 70.01,
+      "target_footprint_km2": "55-70"
+    },
+    "Calgary-De Winton": {
+      "anchors": {
+        "west_edge_anchor": "near Tsuut'ina reserve east edge, soft cut at r_maxx - 5 km",
+        "north_edge_anchor": "Calgary southern city limits (OSM admin_level=8)",
+        "south_edge_anchor": "Livingstone-Macleod northern extent (10 km south of Highwood effective southern edge)",
+        "east_edge_anchor": "Highwood 2019 eastern extent (roughly Foothills County east, OSM level=6)",
+        "subtracts_tsuutina": "Tsuut'ina Nation 145 reserve + 200 m buffer (OSM aboriginal_lands)",
+        "subtracts_ed29_rural": "narrow rectangle south of reserve (6 km south, reserve-bounded)",
+        "includes_okotoks": "YES \u2014 Okotoks is inside De Winton at SE edge (v5 correction vs v4)",
+        "southward_extension": "into Livingstone-Macleod 2019, ~10 km south of Highwood effective southern edge"
+      },
+      "errors_m": {
+        "west_edge_err_m": 1500,
+        "north_edge_err_m": 500,
+        "south_edge_err_m": 1500,
+        "east_edge_err_m": 1000,
+        "tsuutina_subtraction_err_m": 300,
+        "ed29_rural_cut_err_m": 1500,
+        "southward_extension_err_m": 2000,
+        "okotoks_inclusion": "confirmed via PO 2026-04-23 painted reference"
+      },
+      "v4_area_km2": 835.22,
+      "v5_area_km2": 1519.51,
+      "target_footprint_km2": "1400-1700"
+    },
+    "Calgary-South": {
+      "anchors": {
+        "west_edge_anchor": "Calgary-Fish Creek 2019 eastern boundary (stepped curve approximation)",
+        "north_edge_anchor": "~95% Y-line across Calgary-Hays 2019 (transcribed from PO reference)",
+        "south_edge_anchor": "Calgary southern city limit (Hays 2019 southern edge)",
+        "east_edge_anchor": "~72% X-line across Calgary-Hays 2019 (transcribed)",
+        "nw_curve": "3-step diagonal approximation of Fish Creek abutment curve",
+        "ne_notch": "900 m x 800 m notch (smaller than v4)"
+      },
+      "errors_m": {
+        "west_edge_err_m": 500,
+        "north_edge_err_m": 700,
+        "east_edge_err_m": 700,
+        "south_edge_err_m": 300,
+        "nw_curve_err_m": 500,
+        "ne_notch_err_m": 500
+      },
+      "v4_area_km2": 8.83,
+      "v5_area_km2": 17.55,
+      "target_footprint_km2": "15-25"
+    }
+  },
+  "elapsed_sec": 30.5
+}
