@@ -3,6 +3,12 @@
 **Script:** `analysis/v0_1_airdrie_overlap_diagnostic.py`
 **Source:** `data/v0_1_canonical_minority_2026_eds.gpkg`
 
+## Framing — pixel-extraction artifact, not commission cartography
+
+This report documents a ~530 km² overlap between the minority canonical Derived Provisional Geometry (DPG) for Calgary-Airdrie and three neighbouring DPG polygons (Calgary-Nolan Hill-Cochrane, Olds-Three Hills-Didsbury, Calgary-Foothills-Airdrie West). **This overlap is a DPG transcription artifact, not a claim that the Alberta Electoral Boundaries Commission intentionally drew overlapping districts.** The commission's published map shows a thickly-drawn single boundary in the Airdrie / Balzac / Rocky View corridor; the DPG construction pipeline (affine transformation + OSM road-snapping from 600-DPI PNG extractions of the commission thumbnail) cannot resolve that boundary to a single centreline at the resolution available without an official shapefile. The adjacent DPG polygons each claim the ambiguous corridor, producing the overlap documented below.
+
+The overlap therefore **proves the commission's in-report boundary is ambiguous or thickly drawn**, which is already disclosed by the sunset clause in §4.1.4 of `report_academic.md`. It does not prove — and this report does not claim — any intentional cartographic fault on the commission's part. VA assignment in the overlap zone falls back to the `parent_ed_2019` crosswalk, which preserves the correct geographic parent (Airdrie-Cochrane) for every VA in the zone (§2, §3 below). The diagnostic's purpose is to quantify how much 2023 vote weight sits under the ambiguous corridor so §5.2.7 of the academic report can make a bounded "Margin VA" insulation argument.
+
 ## 1. Summary of the Over-Extension
 
 The `Calgary-Airdrie` polygon in the canonical minority shapefile covers **753.8 km²**, with its centroid at (x=50528, y=5678153) in EPSG:3401.
