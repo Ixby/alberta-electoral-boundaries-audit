@@ -1,6 +1,6 @@
 # Code red team — fixes log
 
-Companion to `analysis/v0_1_red_team_code.md`. Each section below cites
+Companion to `analysis/red_team/v0_1_red_team_code.md`. Each section below cites
 a finding ID from the original report, shows the before/after code, and
 records any numeric drift introduced by the fix.
 
