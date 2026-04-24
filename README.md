@@ -16,7 +16,7 @@ These are three of five structural dimensions where the audit finds the minority
 
 This audit was produced as a personal research project by Will Conner, a Mount Royal University student, following the April 16, 2026 government decision to refer the commission's work to a Special Select Committee of MLAs. It is not affiliated with any political party, campaign, or advocacy organization. All code, data, and methodology are published here in reproducible form. The audit applies identical methodology to both maps.
 
-> **New here? Read [`report_public.md`](report_public.md) first** — a plain-language summary covering the five findings, the gerrymander checklist, and what you can do. The full technical monograph is [`report_academic.md`](report_academic.md).
+> **New here? Start with the public report — [PDF](report_public.pdf) · [Web](report_public.md)** — a plain-language summary covering the five findings, the gerrymander checklist, and what you can do. The full technical monograph is [`report_academic.md`](report_academic.md).
 
 ---
 
