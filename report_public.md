@@ -56,6 +56,26 @@ The last row is where the minority map actually looks *better* than the majority
 
 ---
 
+## The scorecard
+
+Rows of measurements are hard to weigh against each other. Here is an editorial synthesis: a four-category rubric, with weights tied to the principles that redistricting law and democratic theory say should matter most.
+
+| Category | Weight | What it measures | Majority | Minority |
+|---|---|---|---|---|
+| Voter equality | 25% | Population spread; whether any area concentrates voters above the packing threshold | B | D |
+| Community recognition | 35% | How much the map follows city and town lines; how many pieces a single city is split into | B | F |
+| Map coherence | 25% | Whether district shapes have obvious explanations; chair-flagged anomalies | A | D |
+| Partisan fairness | 15% | Efficiency gap; packing signature; neighbour-drain exoneration | B | B |
+| **Overall** | — | — | **B (87/100)** | **F (47/100)** |
+
+**Why these weights.** Community recognition carries the most weight (35%) because the *Saskatchewan Reference* — the Supreme Court decision that defines what redistricting is for — holds that effective representation requires more than population parity: it requires districts that communities can identify as their own. The Act's ±25% population band grounds voter equality at 25%. Map coherence (25%) reflects the commission's own standard: the chair flagged specific boundaries as anomalous, and those flags matter. Partisan fairness is real but weighted lowest (15%) because both maps fall below any published gerrymander threshold on this metric, and the direction of the finding reverses depending on which measurement method you use.
+
+**What the minority map's F means.** Both maps are legal. This grade is not a finding of illegality — it is a synthesis judgment about representation quality. The minority map earns an F primarily on community recognition (10/35): 14.5% municipal-boundary anchoring means 85 out of every 100 kilometres of its border cuts through territory voters don't recognize from any other civic map — their school division boundary, their property-tax bill, their local election ward. The majority's equivalent figure is 71%. Splitting Airdrie's 84,000 residents into four districts each identified with a different surrounding region compounds that. Three chair-flagged anomalies — including a lasso-shaped corridor and a boundary extension through an uninhabited national park — pull the map-coherence score down further.
+
+**Where the minority map scores well.** On partisan fairness, the two maps are comparable. The minority earns partial credit from the neighbour-drain exoneration (§5.3.5 of the full audit): it eliminates the packed-district / cracked-district adjacency pattern that exists on both the 2019 map and the majority map. The majority earns comparable credit from a smaller efficiency-gap figure. Neither map has a serious partisan-fairness problem by any published standard. The minority's overall grade is not about partisan manipulation — it is about the structural cost to voters of a map that is hard to navigate and hard to recognize.
+
+---
+
 ## What the audit does not claim
 
 This audit does not say the minority map was drawn to help the UCP win more seats. Proving intent is not possible from maps alone. What it does say is that the minority map differs from the majority in ways that are measurable, consistent, and not explained by Alberta's geography.
