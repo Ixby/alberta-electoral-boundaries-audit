@@ -63,7 +63,7 @@ from v0_1_mcmc_ensemble import (
 
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"
-MAPS = ROOT / "maps" / "mcmc"
+MAPS = ROOT / "data" / "maps" / "mcmc"
 MAPS.mkdir(parents=True, exist_ok=True)
 
 SAMPLES_CSV_100K = DATA / "v0_1_mcmc_ensemble_samples_100k.csv"

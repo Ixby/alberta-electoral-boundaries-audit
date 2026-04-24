@@ -461,15 +461,15 @@ def main() -> None:
 
     # --- Load shapefiles ---
     print("\nLoading shapefiles...")
-    shp_2019 = gpd.read_file(out_data_dir / 'alberta_2019_eds' / 'EDS_ENACTED_BILL33_15DEC2017.shp')
+    shp_2019 = gpd.read_file(out_data_dir / 'shapefiles' / 'reference' / 'alberta_2019_eds' / 'EDS_ENACTED_BILL33_15DEC2017.shp')
     # Remap shapefile name 'Calgary-McCall' -> 'Calgary-Bhullar-McCall' to match CSV
     shp_2019['ed_name'] = shp_2019['EDName2017'].replace(NAME_REMAP_2019_SHP_TO_CSV)
     print(f"  2019: {len(shp_2019)} polygons  CRS={shp_2019.crs}")
 
-    shp_maj = gpd.read_file(out_data_dir / 'v0_2_canonical_majority_2026_eds_topoclean.gpkg')
+    shp_maj = gpd.read_file(out_data_dir / 'shapefiles' / 'derived' / 'v0_2_canonical_majority_2026_eds_topoclean.gpkg')
     print(f"  Majority 2026: {len(shp_maj)} polygons  CRS={shp_maj.crs}")
 
-    shp_min = gpd.read_file(out_data_dir / 'v0_2_canonical_minority_2026_eds_topoclean.gpkg')
+    shp_min = gpd.read_file(out_data_dir / 'shapefiles' / 'derived' / 'v0_2_canonical_minority_2026_eds_topoclean.gpkg')
     print(f"  Minority 2026: {len(shp_min)} polygons  CRS={shp_min.crs}")
 
     # --- Run per-map pipeline ---

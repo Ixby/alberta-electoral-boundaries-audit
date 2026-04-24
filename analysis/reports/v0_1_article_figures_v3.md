@@ -127,10 +127,10 @@ produce identical geometry with the designer's choice of typeface.
 
 ## Outputs
 
-- `maps/article/figure_airdrie_v3.png` — 2100 × 1401 px, 300 dpi
-- `maps/article/figure_lethbridge_v3.png` — 2100 × 1401 px, 300 dpi
-- `maps/article/figure_reddeer_v3.png` — 2100 × 1401 px, 300 dpi
-- `maps/article/figure_calgary_v3.png` — 2100 × 1401 px, 300 dpi
+- `data/maps/article/figure_airdrie_v3.png` — 2100 × 1401 px, 300 dpi
+- `data/maps/article/figure_lethbridge_v3.png` — 2100 × 1401 px, 300 dpi
+- `data/maps/article/figure_reddeer_v3.png` — 2100 × 1401 px, 300 dpi
+- `data/maps/article/figure_calgary_v3.png` — 2100 × 1401 px, 300 dpi
 
 v2 overlays (`overlay_*_v2.png`) are retained on disk per the task
 directive and are no longer referenced by `report_public.md`.

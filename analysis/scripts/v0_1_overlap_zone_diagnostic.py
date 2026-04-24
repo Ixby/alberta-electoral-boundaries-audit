@@ -44,9 +44,9 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 ANALYSIS = ROOT / "analysis"
 
-MAJ_GPKG = DATA / "v0_1_canonical_majority_2026_eds.gpkg"
-MIN_GPKG = DATA / "v0_1_canonical_minority_2026_eds.gpkg"
-VA_GPKG  = DATA / "va_polygons_with_2023_votes.gpkg"
+MAJ_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
+MIN_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
+VA_GPKG  = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 TOTALS_CSV = ANALYSIS / "phase_4c_2026_synthetic_totals.csv"
 
 REPORT_OUT = ANALYSIS / "v0_1_overlap_zone_report.md"

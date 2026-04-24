@@ -207,7 +207,7 @@ counts, ±1% for populations.
 | F1 | `source_maps/minority_alberta_overview.jpg` | `report_academic.md:437`, `v0_1_section_C_geographic_coherence.md:104`, `v0_1_data_preparation.md:129` | `maps/minority_alberta_overview.jpg` | MEDIUM — three files have wrong directory prefix |
 | F2 | `source_maps/minority_edmonton.jpg` | `report_academic.md:438`, `v0_1_section_C_geographic_coherence.md:104`, `v0_1_data_preparation.md:130` | `maps/minority_edmonton.jpg` | MEDIUM |
 | F3 | `source_maps/minority_other_cities.jpg` | `report_academic.md:439`, `v0_1_section_C_geographic_coherence.md:104`, `v0_1_data_preparation.md:131` | `maps/minority_other_cities.jpg` | MEDIUM |
-| F4 | `source_maps/hires/` | `v0_1_shape_refinement.md:18` | `maps/hires/` | LOW |
+| F4 | `source_data/maps/hires/` | `v0_1_shape_refinement.md:18` | `data/maps/hires/` | LOW |
 | F5 | `source_maps/*.jpg` (glob) | `report_academic.md:25` in data-sources section | `maps/` | MEDIUM — top-level repository map is wrong |
 
 **Cause.** The `source_maps/` directory appears to have been renamed /

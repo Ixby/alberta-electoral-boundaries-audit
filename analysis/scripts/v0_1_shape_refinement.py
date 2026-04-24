@@ -46,9 +46,9 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 PDF_PATH = ROOT / ".temp" / "commission_report.pdf"
-MAPS_HIRES = ROOT / "maps" / "hires"
+MAPS_HIRES = ROOT / "data" / "maps" / "hires"
 SRC_MAPS_HIRES = ROOT / "source_maps" / "hires"
-VERIFICATION_DIR = ROOT / "maps" / "verification"
+VERIFICATION_DIR = ROOT / "data" / "maps" / "verification"
 DATA_DIR = ROOT / "data"
 ANALYSIS_DIR = ROOT / "analysis"
 

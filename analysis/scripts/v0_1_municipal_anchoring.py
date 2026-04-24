@@ -94,15 +94,15 @@ DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
 # Prefer v0_3 (Issue #3) if present; otherwise v0_2.
-V0_3_MAJ = DATA / "v0_3_canonical_majority_2026_eds_swept.gpkg"
-V0_3_MIN = DATA / "v0_3_canonical_minority_2026_eds_swept.gpkg"
-V0_2_MAJ = DATA / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-V0_2_MIN = DATA / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+V0_3_MAJ = DATA / "shapefiles" / "derived" / "v0_3_canonical_majority_2026_eds_swept.gpkg"
+V0_3_MIN = DATA / "shapefiles" / "derived" / "v0_3_canonical_minority_2026_eds_swept.gpkg"
+V0_2_MAJ = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+V0_2_MIN = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
 
-CSD_GPKG = DATA / "alberta_2021_csds.gpkg"
+CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
-MAJ_OUT = DATA / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
-MIN_OUT = DATA / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
+MIN_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
 
 LOG_CSV = REPORTS / "v0_1_municipal_anchoring_log.csv"
 SUMMARY_JSON = DATA / "v0_1_municipal_anchoring_summary.json"

@@ -27,7 +27,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT_DIR = ROOT / "maps" / "hires_v2" / "tier_c_crops"
+OUT_DIR = ROOT / "data" / "maps" / "hires_v2" / "tier_c_crops"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Each crop: (ed_label, native_png, native_box, render_png, render_box)
@@ -40,32 +40,32 @@ TARGETS = [
     # Fort McMurray-Lac La Biche is in the north-east of AB — top-right of p82
     dict(
         ed="fort_mcmurray_lac_la_biche",
-        native=ROOT / "maps" / "hires_v2" / "v0_2_native_majority_north_MAP_p82.png",
-        render=ROOT / "maps" / "hires" / "v0_1_majority_p81_north.png",
+        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_north_MAP_p82.png",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p81_north.png",
         box_frac=(0.55, 0.05, 0.95, 0.45),
     ),
     # Chestermere-Strathmore — near-Calgary
     dict(
         ed="chestermere_strathmore",
-        native=ROOT / "maps" / "hires_v2" / "v0_2_native_majority_near_calgary_MAP_p78.png",
-        render=ROOT / "maps" / "hires" / "v0_1_majority_p77_near_calgary.png",
+        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_near_calgary_MAP_p78.png",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p77_near_calgary.png",
         box_frac=(0.5, 0.35, 0.95, 0.7),
     ),
     # Edmonton-Beaumont — south of Edmonton, visible on near-edmonton p80 and
     # edmonton p74
     dict(
         ed="edmonton_beaumont",
-        native=ROOT / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.jpeg"
-        if (ROOT / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.jpeg").exists()
-        else ROOT / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.png",
-        render=ROOT / "maps" / "hires" / "v0_1_majority_p74_MAP_r600.png",
+        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.jpeg"
+        if (ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.jpeg").exists()
+        else ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.png",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p74_MAP_r600.png",
         box_frac=(0.3, 0.65, 0.85, 0.98),
     ),
     # Lethbridge-Taber-Warner — south
     dict(
         ed="lethbridge_taber_warner",
-        native=ROOT / "maps" / "hires_v2" / "v0_2_native_majority_central_MAP_p84.png",
-        render=ROOT / "maps" / "hires" / "v0_1_majority_p85_south.png",
+        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_central_MAP_p84.png",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p85_south.png",
         box_frac=(0.05, 0.55, 0.65, 0.98),
     ),
 ]

@@ -49,8 +49,8 @@ if __name__ != "__main__":
 # Load inputs
 # ------------------------------------------------------------------
 print("[1/5] Loading inputs...")
-vas = gpd.read_file(DATA / "alberta_2023_vas")
-eds19 = gpd.read_file(DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
+vas = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2023_vas")
+eds19 = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
 polls = pd.read_csv(ANALYSIS / "polls_2023_unified.csv", encoding="latin-1")
 maj_cw = pd.read_csv(DATA / "v0_1_majority_hybrid_crosswalk.csv")
 mino_cw = pd.read_csv(DATA / "v0_1_minority_hybrid_crosswalk.csv")
@@ -112,7 +112,7 @@ print(f"  VAs with no matching poll record: {len(unmatched)} / {len(vas_out)}")
 # Drop merge artefact
 vas_out = vas_out.drop(columns=["ed_2019"])
 
-gpkg_path = DATA / "va_polygons_with_2023_votes.gpkg"
+gpkg_path = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 vas_out.to_file(gpkg_path, driver="GPKG", layer="va_2023_votes")
 print(f"  Wrote {gpkg_path}")
 

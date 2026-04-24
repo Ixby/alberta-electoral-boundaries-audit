@@ -74,19 +74,19 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
-OUT = ROOT / "maps" / "article"
+OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_2019 = DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-PATH_MAJ = DATA / "v0_1_approximate_majority_2026_eds.gpkg"
-PATH_MIN_V6 = DATA / "v0_1_refined_v6_minority_2026_eds.gpkg"
+PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+PATH_MAJ = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
+PATH_MIN_V6 = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
 # v7-derived gpkgs carry the FULL 89-ED partitioning with proper hybrid names
 # (e.g. "Calgary-Peigan-Chestermere", "Lethbridge-Fort MacLeod-Crowsnest Pass",
 # "Red Deer-Blackfalds"). They include some null-geometry rows for Tier-C EDs
 # we couldn't transcribe from thumbnails; for those we fall back to the
 # approximate_majority gpkg, then to 2019 crosswalk proxies.
-PATH_MAJ_V7 = DATA / "v0_1_derived_v7_majority_2026_eds.gpkg"
-PATH_MIN_V7 = DATA / "v0_1_derived_v7_minority_2026_eds.gpkg"
+PATH_MAJ_V7 = DATA / "shapefiles" / "derived" / "v0_1_derived_v7_majority_2026_eds.gpkg"
+PATH_MIN_V7 = DATA / "shapefiles" / "derived" / "v0_1_derived_v7_minority_2026_eds.gpkg"
 PATH_MAJ_XWALK = DATA / "v0_1_majority_full_crosswalk.csv"
 PATH_MIN_XWALK = DATA / "v0_1_minority_full_crosswalk.csv"
 

@@ -69,9 +69,9 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 ANALYSIS = ROOT / "analysis"
 
-VA_GPKG = DATA / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_CANON_GPKG = DATA / "v0_1_canonical_majority_2026_eds.gpkg"
-MIN_CANON_GPKG = DATA / "v0_1_canonical_minority_2026_eds.gpkg"
+VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
+MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
+MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
 MAJ_XWALK_CSV = DATA / "v0_1_majority_full_crosswalk.csv"
 MIN_XWALK_CSV = DATA / "v0_1_minority_full_crosswalk.csv"
 MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"

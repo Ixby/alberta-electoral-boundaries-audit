@@ -28,9 +28,9 @@ from v0_1_mcmc_full_coverage_rescore_100k import (
 import geopandas as gpd
 import pandas as pd
 
-MAJ_CANON_GPKG = DATA / "v0_1_canonical_majority_2026_eds.gpkg"
-MIN_CANON_GPKG = DATA / "v0_1_canonical_minority_2026_eds.gpkg"
-VA_GPKG_FULL = DATA / "va_polygons_with_full_2023_votes.gpkg"
+MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
+MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
+VA_GPKG_FULL = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 
 ENSEMBLE_10K = DATA / "v0_1_mcmc_ensemble_samples.csv"
 OUT_SCORES_JSON = DATA / "v0_1_mcmc_real_map_scores_full_v2.json"

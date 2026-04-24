@@ -33,7 +33,7 @@ from typing import Any, Dict, List, Tuple
 ROOT = Path(__file__).resolve().parent.parent.parent
 GRAPH_JSON = ROOT / "analysis" / "methodology" / "audit_dependency_graph.json"
 GRAPH_DOT = ROOT / "analysis" / "methodology" / "audit_dependency_graph.dot"
-OUT_SVG = ROOT / "maps" / "audit_dependency_graph.svg"
+OUT_SVG = ROOT / "data" / "maps" / "audit_dependency_graph.svg"
 
 
 LAYER_FILL = {

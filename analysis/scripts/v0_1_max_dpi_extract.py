@@ -20,7 +20,7 @@ import pymupdf
 
 ROOT = Path(__file__).resolve().parents[2]
 PDF = ROOT / ".temp" / "commission_report.pdf"
-OUT_DIR = ROOT / "maps" / "hires_v2"
+OUT_DIR = ROOT / "data" / "maps" / "hires_v2"
 OUT_JSON = ROOT / "analysis" / "reports" / "v0_1_max_dpi_extract.json"
 
 # Tier-C non-converged EDs from Issue #3 — need extra attention

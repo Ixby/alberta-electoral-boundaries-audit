@@ -92,14 +92,14 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
-V0_4_MAJ = DATA / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
-V0_4_MIN = DATA / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+V0_4_MAJ = DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
+V0_4_MIN = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
 
-DA_GPKG = DATA / "alberta_2021_das.gpkg"
-CSD_GPKG = DATA / "alberta_2021_csds.gpkg"
+DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
+CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
-MAJ_OUT = DATA / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
-MIN_OUT = DATA / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
+MIN_OUT = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
 
 LOG_CSV = REPORTS / "v0_1_da_anchoring_log.csv"
 SUMMARY_JSON = DATA / "v0_1_da_anchoring_summary.json"

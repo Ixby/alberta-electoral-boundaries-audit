@@ -54,17 +54,17 @@ DATA = ROOT / "data"
 ANALYSIS = ROOT / "analysis"
 
 # --- inputs ---
-DAS_GPKG = DATA / "alberta_2021_das.gpkg"
+DAS_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 DA_POPS_CSV = DATA / "alberta_2021_da_populations.csv"
-EDS_2019_SHP = DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
 
-MAJ_CANON_GPKG = DATA / "v0_1_canonical_majority_2026_eds.gpkg"
-MIN_CANON_GPKG = DATA / "v0_1_canonical_minority_2026_eds.gpkg"
+MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
+MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
 
 MAJ_XWALK_CSV = DATA / "v0_1_majority_full_crosswalk.csv"
 MIN_XWALK_CSV = DATA / "v0_1_minority_full_crosswalk.csv"
 
-VA_GPKG = DATA / "va_polygons_with_full_2023_votes.gpkg"
+VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 
 MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
 MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
