@@ -1,10 +1,10 @@
 {
   "2019 enacted (full)": {
-    "efficiency_gap": 0.024119940578423545,
-    "mean_median": -0.007671760176883757,
-    "declination": -0.04509237880431511,
-    "seats_at_50_50": 0.45977011494252873,
-    "ucp_seats": 57,
+    "efficiency_gap": -0.026364586849705562,
+    "mean_median": -0.02215491339662612,
+    "declination": 0.05701176055727874,
+    "seats_at_50_50": 0.47126436781609193,
+    "ucp_seats": 49,
     "n_districts_scored": 87,
     "n_expected": 87,
     "n_via_polygon": 4765,
@@ -12,51 +12,43 @@
     "coverage_polygon_pct": 1.0,
     "eds_missing": [],
     "eds_extra": [],
-    "ucp_vote_share": 0.5740427639062995
+    "ucp_vote_share": 0.5443930272682945
   },
-  "majority 2026 (full coverage)": {
-    "efficiency_gap": 0.024119940578423545,
-    "mean_median": -0.00766964936075476,
-    "declination": -0.04659474896803661,
-    "seats_at_50_50": 0.4588235294117647,
-    "ucp_seats": 56,
-    "n_districts_scored": 85,
+  "majority 2026 (canonical, full-VA)": {
+    "efficiency_gap": -0.023261565068687776,
+    "mean_median": -0.016245189131634308,
+    "declination": 0.041847005513148905,
+    "seats_at_50_50": 0.4659090909090909,
+    "ucp_seats": 51,
+    "n_districts_scored": 88,
     "n_expected": 89,
-    "n_via_polygon": 3040,
-    "n_via_crosswalk": 1725,
-    "coverage_polygon_pct": 0.6379853095487933,
+    "n_via_polygon": 4279,
+    "n_via_crosswalk": 486,
+    "coverage_polygon_pct": 0.89800629590766,
     "eds_missing": [
-      "Calgary-Confluence",
-      "Calgary-Symons Valley",
-      "Cochrane-Springbank",
-      "Edmonton-Beaumont"
+      "Edmonton-Highlands-Norwood"
     ],
     "eds_extra": [],
-    "ucp_vote_share": 0.5740427639062995,
-    "total_votes": 896644
+    "ucp_vote_share": 0.5443930272682945,
+    "total_votes": 1706304
   },
-  "minority 2026 v6 (full coverage)": {
-    "efficiency_gap": 0.035864847141117324,
-    "mean_median": -0.0009301349063708386,
-    "declination": -0.0704058308129219,
-    "seats_at_50_50": 0.4823529411764706,
-    "ucp_seats": 57,
-    "n_districts_scored": 85,
+  "minority 2026 (canonical, full-VA)": {
+    "efficiency_gap": 0.018221798255422063,
+    "mean_median": -0.013902057812669066,
+    "declination": -0.030488484741184013,
+    "seats_at_50_50": 0.5057471264367817,
+    "ucp_seats": 56,
+    "n_districts_scored": 87,
     "n_expected": 89,
-    "n_via_polygon": 3759,
-    "n_via_crosswalk": 1006,
-    "coverage_polygon_pct": 0.7888772298006296,
+    "n_via_polygon": 3822,
+    "n_via_crosswalk": 943,
+    "coverage_polygon_pct": 0.8020986358866736,
     "eds_missing": [
-      "Calgary-McCall-Bhullar",
-      "Calgary-Nolan Hill-Cochrane",
-      "Edmonton-Beaumont",
-      "Edmonton-Enoch-Devon",
-      "Lethbridge-Taber-Warner"
+      "Calgary-South",
+      "Edmonton-Manning"
     ],
-    "eds_extra": [
-      "Calgary-Bhullar-McCall"
-    ],
-    "ucp_vote_share": 0.5740427639062995,
-    "total_votes": 896644
+    "eds_extra": [],
+    "ucp_vote_share": 0.5443930272682945,
+    "total_votes": 1706304
   }
 }
