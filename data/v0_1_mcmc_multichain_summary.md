@@ -1,32 +1,32 @@
 # Multi-chain MCMC convergence summary
 
-**Script:** `analysis/v0_1_mcmc_multichain_ensemble.py`
+**Script:** `analysis/scripts/v0_1_mcmc_multichain_ensemble.py`
 
 **Seeds:** [42, 101, 2024]  
 
 **Chains:** 3  
 
-**Steps per chain:** 50,000  
+**Steps per chain:** 150,000  
 
 **Burn-in fraction:** 10%  
 
-**Common thinning factor (pooled CSV):** 79  
+**Common thinning factor (pooled CSV):** 81  
 
-**Total runtime:** 1487s (24.8 min)
+**Total runtime:** 5474s (91.2 min)
 
 
 ## Per-metric diagnostics
 
 | Metric | R-hat (split) | Per-chain ESS | Combined ESS | Thin | Verdict |
 |---|---:|---|---:|---:|---|
-| efficiency_gap | 1.0295 | [80, 96, 99] | 275 | 56 | UNDER-SAMPLED (combined ESS 275 < 1000) |
-| mean_median | 1.0177 | [78, 115, 105] | 297 | 57 | UNDER-SAMPLED (combined ESS 297 < 1000) |
-| declination | 1.0348 | [75, 102, 95] | 272 | 59 | UNDER-SAMPLED (combined ESS 272 < 1000) |
-| seats_at_50_50 | 1.0293 | [57, 77, 83] | 217 | 79 | UNDER-SAMPLED (combined ESS 217 < 1000) |
+| efficiency_gap | 1.0075 | [226, 243, 178] | 648 | 75 | UNDER-SAMPLED (combined ESS 648 < 1000) |
+| mean_median | 1.0099 | [228, 264, 291] | 783 | 59 | UNDER-SAMPLED (combined ESS 783 < 1000) |
+| declination | 1.0076 | [234, 243, 165] | 643 | 81 | UNDER-SAMPLED (combined ESS 643 < 1000) |
+| seats_at_50_50 | 1.0014 | [173, 251, 224] | 647 | 78 | UNDER-SAMPLED (combined ESS 647 < 1000) |
 
 ## Overall verdict
 
-**NOT CONVERGED.** Max R-hat = 1.0348 (threshold 1.05), or one or more metrics have combined ESS < 1000. The paper's S5.4 percentile claims cannot rest on this ensemble alone; either extend each chain (more ReCom proposals per chain — ESS scales roughly linearly with chain length) or add additional seeds. A practical escalation is to increase `--steps` by 3-10x and re-run.
+**NOT CONVERGED.** Max R-hat = 1.0099 (threshold 1.05), or one or more metrics have combined ESS < 1000. The paper's S5.4 percentile claims cannot rest on this ensemble alone; either extend each chain (more ReCom proposals per chain — ESS scales roughly linearly with chain length) or add additional seeds. A practical escalation is to increase `--steps` by 3-10x and re-run.
 
 
 ## Threshold rationale
@@ -45,7 +45,7 @@ The paper's S5.4 percentile claims should be held until the ensemble converges. 
 ## Reproducibility
 
 ```bash
-python analysis/v0_1_mcmc_multichain_ensemble.py --seeds 42,101,2024 --steps 50000 --burnin 0.1
+python analysis/scripts/v0_1_mcmc_multichain_ensemble.py --seeds 42,101,2024 --steps 150000 --burnin 0.1
 ```
 
 Independent seeds ensure a peer reviewer can rerun with any permutation of seeds and, if the ensemble has converged, obtain statistically indistinguishable percentile ranks.
