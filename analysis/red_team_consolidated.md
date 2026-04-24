@@ -13,6 +13,60 @@ This file consolidates 23 separate red team, peer review, and editorial QA docum
 **Overall finding:** No CRITICAL findings unresolved at publication. Primary residuals: Gill v. Whitford 7% threshold misattribution (ACA-01); citation ghosts for 6 references (ACA-03–05, ACA-35); E2 engineered-boundary ad-hoc rescue disclosure (CRIT-02); direction-flip integration in public report (CRIT-01).
 
 ---
+
+## Status update — 2026-04-23 (post-T0/T1/T2 remediation)
+
+The tables below summarise which red-team findings have been addressed by the T0/T1/T2 remediation commits landed on 2026-04-23 (see `data/INTEGRITY_STATUS.md` for the session-12 data-pipeline fixes). Historical finding records throughout the rest of this file remain unchanged for audit-trail continuity; this section is the authoritative current-state view.
+
+### Addressed in T0 (commit d25e659) — DPG disclosure + sunset clause + legal fixes
+
+| Finding | Status | Fix location |
+|---|---|---|
+| ACA-01 — Gill v. Whitford 7% threshold misattribution | **ADDRESSED** | `report_academic.md` abstract, §2, §5.2.1, Appendix D.1 — SCOTUS vacated/remanded on standing, did not adopt 7%; threshold attributed to Stephanopoulos & McGhee academic-literature authority |
+| ACA-legal — *Rizzo v. Rizzo Shoes* incorrect Canadian citation format | **ADDRESSED** | `report_academic.md` §5.1.4 preamble, §5.3.3 — universal replacement to *Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 S.C.R. 27 |
+| ACA-defamation — Chair-intent language on submission audit | **ADDRESSED** | `report_academic.md` §5.9.4 — softened "materially misrepresents" → "materially overstates the absence of public support"; added explicit objective-framing note |
+| SCI-precision-01 — geometric precision fallacy (2026 "shapefiles" language) | **ADDRESSED** | `report_academic.md` §4.1.4 — new "Derived Provisional Geometries (DPG) and localization uncertainty" subsection with perimeter-mode vs area-mode disclosure |
+| SCI-falsifiability-01 — no binding commitment to recompute on official geometry | **ADDRESSED** | `report_academic.md` §4.1.4 + pre-registration amendment Change 6 — 48-hour recompute commitment on official Elections Alberta shapefile release; public disclosure of any sign-flip or material magnitude change |
+| CRIT-01 — asymmetry-direction disagreement not integrated | **ADDRESSED** | `report_academic.md` new §5.2.7 — both measurements reported side-by-side; blended crosswalk (−1.42 pp) vs high-resolution spatial (+4.15 pp) framed as systematic methodology-resolution sensitivity, not contradiction |
+
+### Addressed in T1 (commit a62eb53) — compactness bands + ESS downgrade + Core/Margin
+
+| Finding | Status | Fix location |
+|---|---|---|
+| SCI-precision-02 — point estimates on Tier B/C compactness imply false precision | **ADDRESSED** | `report_academic.md` §E.7 — Tier-dependent ± bands; new ordinal High/Moderate/Low-flagged/Very-low band convention for headline per-ED claims |
+| SCI-stats-01 — MCMC p100 / p1.6 tail claims not supported by ESS ≈ 150 | **ADDRESSED** | `report_academic.md` §5.4 — explicit tail-downgrade paragraph; raw p100 and p1.6 bounded to p95.35 and p2.5 at chain effective precision; minority seats-at-50/50 retracted to p89.72 |
+| SCI-attribution-01 — swing-VA exposure not quantified | **ADDRESSED** | `report_academic.md` §5.2.7 — new Core-vs-Margin VA partition paragraph; upper-bound ±1.5 pp swing at risk from Margin VAs, insufficient to bridge −1.42 pp ↔ +4.15 pp gap |
+| SCI-glossary-01 — sign-convention not defined prominently | **ADDRESSED** | `report_academic.md` §4.3 — glossary block before B1 definition: negative = UCP advantage, positive = NDP advantage, universal; cross-convention reconciliation with S-M literature |
+| ACA-airdrie — 530 km² Airdrie overlap could be misread as commission error | **ADDRESSED** | `analysis/v0_1_airdrie_overlap_report.md` header — framed as DPG transcription artifact; VA assignment falls back to correct `parent_ed_2019` crosswalk; feeds §5.2.7 Margin-VA insulation |
+| SCI-citations-01 — Pal 2015 / Pal 2019 fabricated citations | **NOT APPLICABLE** | Verified: `report_academic.md` does not cite Pal at all; the flagged references appear only in self-critical red-team docs (this file) and in the planning-target literature-review doc. No paper-facing correction needed |
+
+### Addressed in T2 (commit de7c48e) — multiple-comparison posture
+
+| Finding | Status | Fix location |
+|---|---|---|
+| SCI-stats-02 — 20+ statistical tests without FWER correction | **ADDRESSED** | `report_academic.md` §6 Discussion — new "Multiple-comparison posture" paragraph: explicitly not applying Bonferroni/BH because the frame is consistency-across-correlated-dimensions, not independent-significance-claims; documents Katz-King-Rosenblatt (2020) + Altman-McDonald (2011) authority for the choice; notes the FWER-adjusted reader gets the same posture because the audit does not rest on individual-metric significance |
+| CRIT-03 — int() truncation bias in vote scaling | **ALREADY ADDRESSED** (earlier red-team pass) | `analysis/v0_2_packing_cracking_analysis.py` lines 461, 497, 509 — all vote-scaling ops use `round()`; CRIT-03 fix-note comments in place |
+| HIGH-01 — `hash(ed_name) % 2^32` non-reproducible RNG seeding | **ALREADY ADDRESSED** (earlier red-team pass) | `analysis/v0_1_shape_refinement_v6.py` lines 248–256 — replaced with `int.from_bytes(hashlib.sha256(ed_name.encode()).digest()[:4], 'big')` |
+
+### Addressed by session-12 data pipeline remediation (commit afb3a4a, 3b7dbfb)
+
+| Finding | Status | Fix location |
+|---|---|---|
+| SHAPE-rt-01 — canonical shapefiles built but unused downstream | **ADDRESSED** | Phase 4B/4C/4F + MCMC rescore now read `data/v0_1_canonical_{majority,minority}_2026_eds.gpkg`. See `data/INTEGRITY_STATUS.md` |
+| SHAPE-rt-02 — Phase 4C two-party total 52.5% of documented 2023 figure | **ADDRESSED** | Advance Vote Splat wired into pipeline; Phase 4C now sums to 1,706,249/1,706,233 (within 55 votes of 1,706,304 target) |
+| SHAPE-rt-03 — MCMC 2019 EG sign-flipped from paper documented value | **ADDRESSED** | Canonical + full-VA rescore: 2019 EG = −0.0264 (matches paper's documented −2.64% to three decimals) |
+
+### Residual / deferred to T3 (future work)
+
+| Finding | Status |
+|---|---|
+| SCI-stats-ess — ESS ≈ 150 is sufficient for policy-comparison framing, not peer-review-grade significance claims | **DEFERRED** (T3 work queued): multi-chain ReCom with Gelman-Rubin R-hat convergence test to raise combined ESS > 1,000 |
+| SCI-base-rate — Canadian comparator base rate n=7 includes Alberta 2026 anchor | **DEFERRED** (T3 work queued): recalibration with independent distribution |
+| SCI-chen-rodden — geography-vs-drawing decomposition of 0.51 pp gap not quantified | **DEFERRED** (T3 work queued) |
+| PHASE-4B — DA-overlay per-ED populations fail 2% hardstop (81/86 maj, 87/89 min) | **STRUCTURAL LIMIT** (not fixable without official Elections Alberta shapefiles; see `data/INTEGRITY_STATUS.md` and the §4.1.4 sunset clause) |
+| E2 ad-hoc-rescue disclosure (CRIT-02) | **DEFERRED** (Gemini Phase B2 — add explicit disclosure that E2 criterion was reformulated from eligibility-only to alternatives-over-negligible-territory after the narrow test failed; not yet inline in §5.3.3) |
+
+---
 ## Part 1: Frameworks
 
 ### 1.1 Legal Defensibility Framework (D1–D10)

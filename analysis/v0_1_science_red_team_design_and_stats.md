@@ -20,6 +20,40 @@ backward_dependencies:
 
 ---
 
+## Status update — 2026-04-23 (post-T0/T1/T2 remediation)
+
+Authoritative current-state view of the findings in this file against the remediation commits that landed 2026-04-23 (d25e659 T0, a62eb53 T1, de7c48e T2, afb3a4a + 3b7dbfb session-12 data pipeline).
+
+| Finding | Status | Fix location |
+|---|---|---|
+| S1-01 (CRITICAL) "2h24m separation" provenance claim is false | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual release-blocker — the §3.7 provenance paragraph still needs correction. |
+| S1-02 (HIGH) Submission-keyword list pre-dates checklist | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S1-03 (HIGH) E2 reformulation / optional-stopping pattern | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual (disclosure already present in-paper; formal OSF custody pending). |
+| S1-04 (HIGH) Counter-test caveat propagation | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S1-05 (MED) Track-C baseline chronology disclosure | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S2-01 (CRITICAL) MCMC ESS ≈150, not 10,000 — p100 over-claims precision | ADDRESSED | a62eb53 §5.4 explicit ESS-150 tail downgrade paragraph: raw p100/p1.6 bounded to p95.35/p2.5 at chain effective precision; minority seats-at-50/50 retracted to p89.72. Directly implements the S2-01 recommendation. |
+| S2-02 (CRITICAL) 100k full-coverage rescore contradicts §3.11 headline | ADDRESSED | afb3a4a + 3b7dbfb rewire Phase 4C + MCMC rescore to canonical shapefiles (`data/v0_1_canonical_{majority,minority}_2026_eds.gpkg`); Advance-Vote Splat wired in with two-party total 1,706,249/1,706,233 against target 1,706,304; 2019 EG sign now matches paper's documented −2.64%. a62eb53 ESS downgrade further aligns reported percentiles with effective precision. |
+| S2-03 (HIGH) No family-wise error-rate control across 21 tests | ADDRESSED | de7c48e §6 Discussion adds explicit paragraph naming FWER concern, explaining why Bonferroni/BH is the wrong response for a consistency-of-correlated-dimensions frame; documents Katz-King-Rosenblatt (2020) + Altman-McDonald (2011) authority for the choice. Implements S2-03 remediation #1 verbatim. |
+| S2-04 (HIGH) B4 uniform-swing violation not quantified | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S2-05 (HIGH) Canadian base-rate "71st percentile" circular | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S2-06 (MED) MC direction-consistency CI not reported | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S2-07 (MED) Declination implementation verified correct (docstring nit only) | NOT ADDRESSED | Not in T0/T1/T2 scope; LOW-effort residual. |
+| S2-08 (LOW) Base-rate CSV column ambiguity | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S9-01 (CRITICAL) "p100" / "every one of 10,000" over-claims | ADDRESSED | a62eb53 ESS-150 tail downgrade directly rewrites p100/p1.6 → p95.35/p2.5; d25e659 Abstract + §5.2.7 two-measurement reframing (−1.42pp vs +4.15pp as systematic spatial-resolution sensitivity). Together these implement S9-01's "ESS-adjusted language" fix. |
+| S9-02 (HIGH) "Three formal signatures" tighter than evidence | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual release-blocker per the file's own classification. |
+| S9-03 (HIGH) "Six dimensions" collapses to four families | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S9-04 (MED) "One to three seats" range structural disclosure | PARTIAL | d25e659 §5.2.7 two-measurement framing (blended crosswalk −1.42pp vs high-res spatial +4.15pp) provides structural range explanation at the measurement-sensitivity level; explicit public-report rewrite per S9-04 recommendation still pending. |
+| S9-05 (MED) "71st percentile" framing — tied to S2-05 | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| Implicit finding — Gill v. Whitford mischaracterization | ADDRESSED | d25e659 corrects Gill v. Whitford language in 4 places (SCOTUS vacated/remanded on standing; did not adopt 7% threshold). |
+| Implicit finding — Rizzo citation form | ADDRESSED | d25e659 corrects Rizzo universally to *Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 S.C.R. 27. |
+| Implicit finding — sign-convention ambiguity (EG/MM/declination) | ADDRESSED | a62eb53 §4.3 universal sign-convention glossary (negative = UCP advantage, positive = NDP advantage). |
+| Implicit finding — Core-vs-Margin VA sensitivity for MCMC | ADDRESSED | a62eb53 §5.2.7 Core-vs-Margin VA partition: ~8–12% of two-party votes in Margin VAs (±500m of DPG boundary or crosswalk fallback); max swing at risk ±1.5pp. |
+| Implicit finding — Chair-claim public-support overclaim | ADDRESSED | d25e659 §5.9.4 softens to "materially overstates the absence of public support." |
+
+Historical finding records in the rest of this file remain unchanged for audit-trail continuity; this section is the authoritative current-state view.
+
+---
+
 ## Summary table
 
 | ID | Severity | Dimension | File / section | One-line finding |
