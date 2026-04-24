@@ -42,7 +42,7 @@ import numpy as np
 import pandas as pd
 from shapely.geometry import Point, Polygon
 
-ROOT = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "analysis"))
 
 # Reuse v6 primitives without modifying them

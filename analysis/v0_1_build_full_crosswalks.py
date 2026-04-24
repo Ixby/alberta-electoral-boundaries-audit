@@ -40,7 +40,7 @@ import geopandas as gpd
 from pathlib import Path
 import unicodedata
 
-ROOT = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
 

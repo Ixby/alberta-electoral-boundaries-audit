@@ -28,7 +28,7 @@ import pandas as pd
 if sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8")
 
-BASE = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+BASE = Path(__file__).resolve().parent.parent
 DATA = BASE / "data"
 ANALYSIS = BASE / "analysis"
 

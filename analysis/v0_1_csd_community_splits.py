@@ -18,12 +18,14 @@ Dependencies (forward): analysis/v0_1_csd_community_splits.md
 
 import os
 import sys
+from pathlib import Path
+
 import pandas as pd
 import geopandas as gpd
 
 os.environ["PYTHONIOENCODING"] = "utf-8"
 
-ROOT = r"C:/Users/email/Documents/Claude/Projects/Electoral Boundary Analysis/alberta_audit"
+ROOT = str(Path(__file__).resolve().parent.parent)
 DATA = os.path.join(ROOT, "data")
 
 POP_THRESHOLD = 1000

@@ -46,6 +46,7 @@ import math
 import os
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
@@ -58,7 +59,7 @@ from shapely.ops import unary_union
 
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
-ROOT = r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit"
+ROOT = str(Path(__file__).resolve().parent.parent)
 SHP_2019 = os.path.join(ROOT, "data", "alberta_2019_eds", "EDS_ENACTED_BILL33_15DEC2017.shp")
 MAJ_POP_CSV = os.path.join(ROOT, "data", "v0_1_majority_2026_populations.csv")
 MIN_CROSSWALK_CSV = os.path.join(ROOT, "data", "v0_1_minority_hybrid_crosswalk.csv")

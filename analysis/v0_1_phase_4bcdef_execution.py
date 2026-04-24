@@ -49,7 +49,7 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 
-ROOT = Path(r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit")
+ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 ANALYSIS = ROOT / "analysis"
 
