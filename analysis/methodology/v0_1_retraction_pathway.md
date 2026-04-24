@@ -131,7 +131,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 ### 7.2 "Minority map is a gerrymander" implicit claim
 
-- **Retraction condition.** The paper does NOT currently claim the minority map is a gerrymander in the intent sense (§4.5 explicitly). The paper claims "systematic structural asymmetry at a magnitude below the US judicial-significance threshold." This implicit claim is retracted if any of the following hold:
+- **Retraction condition.** The paper does NOT currently claim the minority map is a gerrymander in the intent sense (§4.5 explicitly). The paper claims "systematic structural asymmetry at a magnitude below the 7 % EG threshold proposed in the Stephanopoulos & McGhee (2014/2015) academic literature" — a threshold cited in litigation but never judicially adopted (US Supreme Court vacated *Gill v. Whitford* on standing without ruling on the threshold). This implicit claim is retracted if any of the following hold:
   - **§5.3 signatures all receive COI-compelled rationalisation** (retraction conditions 3.1 A+B, 3.2 A+B, 3.3 A)
   - **Absolute Chen-Rodden narrowing** (already committed: 3-of-4-in-band) is extended to 4-of-4 under any rerun
   - **Neighbour-drain exoneration** (already recorded) is compounded by boundary-chain or compactness-weighted null results in the same direction
