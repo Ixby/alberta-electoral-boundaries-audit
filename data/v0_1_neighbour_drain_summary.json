@@ -1,0 +1,143 @@
+{
+  "2019": {
+    "n_eds": 87,
+    "n_undirected_pairs": 243,
+    "n_directed_pairs": 486,
+    "chain_signals_total": 8,
+    "coupled_signals": 3,
+    "uncoupled_signals": 5,
+    "chain_signal_rate": 0.01646090534979424,
+    "sensitivity_grid": [
+      {
+        "s_threshold": 0.1,
+        "m_threshold": 0.08,
+        "chain_signals": 24,
+        "coupled_signals": 13
+      },
+      {
+        "s_threshold": 0.15,
+        "m_threshold": 0.05,
+        "chain_signals": 8,
+        "coupled_signals": 3
+      },
+      {
+        "s_threshold": 0.2,
+        "m_threshold": 0.03,
+        "chain_signals": 6,
+        "coupled_signals": 1
+      }
+    ],
+    "adjacency_meta": {
+      "strict_pairs": 243,
+      "fallback_pairs": 0,
+      "total_pairs": 243,
+      "isolated_after_strict": 0
+    },
+    "isolated_after_strict_count": 0,
+    "isolated_after_strict_names": []
+  },
+  "majority": {
+    "n_eds": 89,
+    "n_undirected_pairs": 263,
+    "n_directed_pairs": 526,
+    "chain_signals_total": 7,
+    "coupled_signals": 3,
+    "uncoupled_signals": 4,
+    "chain_signal_rate": 0.013307984790874524,
+    "sensitivity_grid": [
+      {
+        "s_threshold": 0.1,
+        "m_threshold": 0.08,
+        "chain_signals": 24,
+        "coupled_signals": 14
+      },
+      {
+        "s_threshold": 0.15,
+        "m_threshold": 0.05,
+        "chain_signals": 7,
+        "coupled_signals": 3
+      },
+      {
+        "s_threshold": 0.2,
+        "m_threshold": 0.03,
+        "chain_signals": 3,
+        "coupled_signals": 0
+      }
+    ],
+    "adjacency_meta": {
+      "strict_pairs": 260,
+      "fallback_pairs": 3,
+      "total_pairs": 263,
+      "isolated_after_strict": 1
+    },
+    "isolated_after_strict_count": 1,
+    "isolated_after_strict_names": [
+      "Grande Prairie"
+    ]
+  },
+  "minority": {
+    "n_eds": 89,
+    "n_undirected_pairs": 240,
+    "n_directed_pairs": 480,
+    "chain_signals_total": 5,
+    "coupled_signals": 0,
+    "uncoupled_signals": 5,
+    "chain_signal_rate": 0.010416666666666666,
+    "sensitivity_grid": [
+      {
+        "s_threshold": 0.1,
+        "m_threshold": 0.08,
+        "chain_signals": 25,
+        "coupled_signals": 14
+      },
+      {
+        "s_threshold": 0.15,
+        "m_threshold": 0.05,
+        "chain_signals": 5,
+        "coupled_signals": 0
+      },
+      {
+        "s_threshold": 0.2,
+        "m_threshold": 0.03,
+        "chain_signals": 3,
+        "coupled_signals": 0
+      }
+    ],
+    "adjacency_meta": {
+      "strict_pairs": 199,
+      "fallback_pairs": 41,
+      "total_pairs": 240,
+      "isolated_after_strict": 17
+    },
+    "isolated_after_strict_count": 17,
+    "isolated_after_strict_names": [
+      "Barrhead-Westlock-Athabasca",
+      "Cold Lake-Bonnyville-St. Paul",
+      "Central Peace-Notley",
+      "Fort McMurray-Lac La Biche",
+      "Fort McMurray-Wood Buffalo",
+      "Lac Ste. Anne-Parkland",
+      "Lesser Slave Lake",
+      "Lethbridge-Cardston",
+      "Lethbridge-Fort MacLeod-Crowsnest Pass",
+      "Lethbridge-Little Bow",
+      "Lloydminster-Wainwright",
+      "Medicine Hat-Brooks",
+      "Peace River",
+      "Red Deer-Lacombe",
+      "Red Deer-Sylvan Lake",
+      "West Yellowhead",
+      "Wetaskawin-Ponoka-Maskwacis"
+    ]
+  },
+  "thresholds": {
+    "s_threshold_default": 0.15,
+    "m_threshold_default": 0.05,
+    "adjacency_buffer_m": 600.0
+  },
+  "ratios": {
+    "minority_over_majority_coupled": 0.0,
+    "minority_over_2019_coupled": 0.0,
+    "majority_over_2019_coupled": 1.0
+  }
+}
