@@ -1,12 +1,13 @@
 ---
 name: Canadian inter-map EG asymmetry base rate (proxy computation)
-description: Track V deliverable. Acquires a Canadian benchmark for inter-map partisan-asymmetry magnitude against which to calibrate the Alberta 2025-26 audit's 0.5-1.6 pp efficiency-gap asymmetry finding. Uses a seat-share-asymmetry proxy for the efficiency-gap asymmetry when both commission reports (interim and final) are scored against the same election's votes. Covers Alberta 2010, Alberta 2017, Federal 2022 (Alberta sub-commission), British Columbia 2023, Saskatchewan 2022, Manitoba 2018, and Alberta 2025-26 as the anchor; Nova Scotia 2019 is excluded as not structurally comparable. Produces a benchmark distribution and positions Alberta 2025-26 against it.
+description: Track V deliverable. Acquires a Canadian benchmark for inter-map partisan-asymmetry magnitude against which to calibrate the Alberta 2025-26 audit's 0.5-1.6 pp efficiency-gap asymmetry finding. Uses a seat-share-asymmetry proxy for the efficiency-gap asymmetry when both commission reports (interim and final) are scored against the same election's votes. Covers Alberta 2010, Alberta 2017, Federal 2022 (Alberta sub-commission), British Columbia 2023, Saskatchewan 2022, Manitoba 2018, and Alberta 2025-26 as the anchor; Nova Scotia 2019 is excluded as not structurally comparable. Produces a benchmark distribution and positions Alberta 2025-26 against it. Recalibrated 2026-04-23 (§7A) to remove the circularity flagged by Gemini Phase E.2 — Alberta 2025-26 excluded from the comparator distribution; see §7A for the corrected positioning (Approach A: 67th percentile n=6; Approach B: ordinal ranking among non-zero cycles, recommended primary framing).
 forward_dependencies:
   - analysis/v0_1_fortification_c1_c10.md — §C4 (base-rate gap discussion; this file closes the gap)
   - data/v0_1_canadian_redistribution_base_rate.csv — updated with quantified rows
-  - report_academic.md (§3.3 can cite this file if parent chooses)
+  - report_academic.md (§3.3 can cite this file if parent chooses; §5.2.1 consumes the §7A recalibration)
 backward_dependencies:
-  - analysis/v0_1_canadian_base_rate_compute.py (the computation)
+  - analysis/v0_1_canadian_base_rate_compute.py (the original n=7 computation)
+  - analysis/v0_1_canadian_base_rate_recalibrate.py (the 2026-04-23 recalibration)
   - analysis/v0_2_packing_cracking_analysis.py (EG formula used in audit)
   - data/v0_1_338canada_reallocated_majority.csv, data/v0_1_338canada_reallocated_minority.csv (audit's Alberta 2025-26 anchor)
 ---
@@ -324,6 +325,187 @@ seven-cycle sample."
 6. **Future federal sub-commissions.** Building similar proxy estimates
    for the other nine provincial federal commissions in the 2022 cycle
    would expand the federal anchor from n=1 (Alberta) to n=10.
+
+## 7A. Recalibration (2026-04-23) — circularity fix
+
+### 7A.1 The circularity
+
+The §5.1 claim above — "Alberta 2025-26's 0.51 pp EG asymmetry sits at
+the 71st percentile of the n=7 distribution" — is circular. Alberta
+2025-26 is the anchor case the audit is evaluating, and it is a member
+of the n=7 distribution used to rank it. A reviewer can legitimately
+say: "you scored Alberta 2026 at p71 on a distribution that contains
+Alberta 2026 as one of seven data points, and you calibrated the
+compression factor (0.455) from Alberta 2026." Both operations
+contaminate the benchmark. Gemini's red-team Phase E.2 flagged this.
+
+Two independent issues:
+
+1. **Inclusion.** The comparator distribution used to place Alberta
+   2025-26 should not itself contain Alberta 2025-26.
+2. **Compression calibration.** The 0.455 deflator that maps
+   seat-share asymmetry to EG-proxy was fit from Alberta 2025-26
+   alone. Other cycles' EG-proxy values (0.52 for Alberta 2017, 0.80
+   for Manitoba 2018) inherit that calibration. We mitigate by
+   reporting the raw seat-share asymmetry (factor-free, closed-form
+   exact under constant votes) alongside the compressed EG-proxy.
+
+This section supersedes §5.1's percentile claim. The original n=7
+computation is retained above as historical record; the numbers below
+are the corrected positioning.
+
+### 7A.2 Approach A — exclude Alberta 2025-26 from the distribution
+
+Computing the comparator distribution over the six OTHER cycles
+(Federal-AB 2022, BC 2023, Saskatchewan 2022, Alberta 2017, Alberta
+2010, Manitoba 2018) and placing Alberta 2025-26's 0.51 pp against it:
+
+| Statistic    | EG-proxy pp (n=6) | Seat-share asymmetry pp (n=6) |
+| ------------ | ----------------: | ----------------------------: |
+| Mean         |             0.220 |                         0.483 |
+| Median       |             0.000 |                         0.000 |
+| Min          |             0.000 |                         0.000 |
+| Max          |             0.800 |                         1.754 |
+| Population σ |             0.321 |                         0.705 |
+
+Sorted EG-proxy comparator: `[0.00, 0.00, 0.00, 0.00, 0.52, 0.80]`.
+
+**Alberta 2025-26 (0.51 pp) against this n=6 comparator:**
+
+- Weak percentile: **66.7%** (4 of 6 comparator cycles fall strictly
+  below; the two non-zero cycles Alberta 2017 and Manitoba 2018 fall
+  strictly above).
+- High-end (1.60 pp): **100%** (exceeds Manitoba 2018's 0.80 pp
+  maximum in the comparator).
+- Seat-share asymmetry (1.12 pp, factor-free): **66.7%** against the
+  n=6 seat-share distribution (4 below, 2 above).
+
+The revised point-estimate percentile is 67% rather than 71%. This is
+**not a material change** — the anchor remains in the upper third of
+the Canadian distribution under either framing, and the high-end
+headline (1.60 pp exceeds the Canadian maximum) is unchanged. But the
+new number is defensible against the circularity objection.
+
+### 7A.3 Approach B — ordinal ranking among non-zero cycles
+
+Three of the seven cycles produce non-zero inter-map asymmetry under
+the proxy method (Alberta 2017, Alberta 2025-26, Manitoba 2018). The
+other four (Federal-AB 2022, BC 2023, Saskatchewan 2022, Alberta 2010)
+are estimated at zero.
+
+Ranked by EG-proxy magnitude, the three non-zero cycles are:
+
+| Rank | Cycle                    | EG-proxy pp | Seat-share asym. pp |
+| ---: | ------------------------ | ----------: | ------------------: |
+|    1 | Alberta 2025-26 (anchor) |        0.51 |                1.12 |
+|    2 | Alberta 2017             |        0.52 |                1.15 |
+|    3 | Manitoba 2018            |        0.80 |                1.75 |
+
+Framing: "Alberta 2025-26 is one of three Canadian redistribution
+cycles in the sample that produced any inter-map projected-winner
+asymmetry. Its magnitude (0.51 pp / 1.12 pp seat-share) is
+approximately equal to Alberta 2017's (0.52 pp / 1.15 pp seat-share,
+Lesser Slave Lake restoration) and below Manitoba 2018's (0.80 pp /
+1.75 pp seat-share, rural-to-Winnipeg reallocation)."
+
+No percentile claim. Defensible in a small-sample setting where
+n=6 does not really support percentile arithmetic to two decimal
+places.
+
+### 7A.4 Recommended primary framing
+
+**Approach B (ordinal) should be the primary framing in the paper.**
+Reasoning:
+
+1. n=6 is too small to support meaningful percentile claims;
+   quartile-scale resolution is what a 6-point sample can deliver.
+2. Both non-zero non-anchor cycles are documented single-seat
+   commission changes (rural seat restored, rural-to-urban seat
+   reallocated). Alberta 2025-26 is also a single-seat change under
+   the point estimate. The ordinal framing surfaces this structural
+   similarity — all three cycles are "single-seat commission
+   changes" — which the percentile framing obscures.
+3. The compression-factor calibration problem (0.455 from Alberta
+   2026 alone) contaminates the EG-proxy ordering less than it
+   contaminates the EG-proxy percentile. Ordering of 0.51 vs 0.52 vs
+   0.80 survives any reasonable compression factor; percentile
+   precision does not.
+
+Approach A is retained as a sensitivity: if a reviewer demands a
+numerical percentile, 67th percentile (n=6 excluding the anchor) is
+the defensible number. The original 71st percentile should not be
+used.
+
+### 7A.5 Why n=6 is the practical ceiling
+
+Possible extensions and why they weren't added in this pass:
+
+- **Nova Scotia 2019.** Remains excluded as menu-of-four-alternatives;
+  not structurally comparable. Including it would require a different
+  comparison (e.g., final vs. alternative-3) and a different method
+  design, not a drop-in extension.
+- **Federal 2022 other nine provinces.** Feasible in principle —
+  transposition of 2021 votes onto proposal and final maps is in the
+  Elections Canada crosswalk. But 4–8 hours per province to reconstruct
+  seat flips; ten provinces' worth of that is the kind of work the
+  original computation document deferred as out of scope. Would expand
+  the federal anchor from n=1 (Alberta) to n=10.
+- **Pre-2010 provincial cycles.** Public commission reports exist but
+  interim-vs-final diffs are harder to recover from archival material;
+  most news coverage does not preserve the interim map. Feasible with
+  archival research, not feasible in the current session.
+- **Government-override cycles (Ontario 1996, Quebec 1992, BC 2008,
+  Manitoba 1989).** Already flagged in the catalogue as "not
+  interim-vs-final commission comparisons." A separate comparator
+  class that cannot be folded into this one without a second method
+  design.
+- **New Brunswick 2023.** In the catalogue but not acquired in the
+  original pass. Could plausibly be added with comparable effort to
+  Saskatchewan 2022. Would take the comparator from n=6 to n=7.
+
+For this recalibration, we accept n=6 as the practical ceiling and
+report Approach B (ordinal) as primary.
+
+### 7A.6 Suggested replacement paragraph for report_academic.md §5.2.1
+
+The existing "Canadian comparative base rate" paragraph in §5.2.1
+reports the circular p71 claim. The replacement paragraph below
+incorporates §7A.1–§7A.4 and should be substituted for the existing
+paragraph. Word count ~285.
+
+> **Canadian comparative base rate.** A first-catalogue computation
+> of inter-map partisan-asymmetry magnitude across recent Canadian
+> provincial and federal redistributions is reported in
+> `analysis/v0_1_canadian_base_rate_computed.md` and
+> `data/v0_1_canadian_redistribution_base_rate.csv`. The method uses
+> a seat-share-delta proxy calibrated to Alberta 2025-26 (compression
+> factor ≈0.455, acknowledged approximation). Seven comparable
+> cycles were scored: Federal 2022 Alberta sub-commission, BC 2023,
+> Saskatchewan 2022, Alberta 2017, Alberta 2010, Manitoba 2018, and
+> Alberta 2025-26. Because Alberta 2025-26 is both the case under
+> audit and the cycle from which the compression factor is fit, it
+> is excluded from the comparator distribution used to position it
+> (an earlier version of this paper reported a "71st percentile"
+> placement against an n=7 distribution that included Alberta
+> 2025-26; that claim was circular and has been retracted). Against
+> the n=6 comparator, four cycles (Federal-AB 2022, BC 2023,
+> Saskatchewan 2022, Alberta 2010) produce zero inter-map
+> projected-winner asymmetry; two produce non-zero asymmetry —
+> Alberta 2017 at 0.52 pp (Lesser Slave Lake restoration) and
+> Manitoba 2018 at 0.80 pp (rural-to-Winnipeg seat reallocation).
+> Alberta 2025-26's 0.51 pp point-estimate is ordinally equivalent
+> to Alberta 2017 and below Manitoba 2018; the high-end 1.52 pp from
+> the weight-sensitivity range exceeds the observed Canadian maximum
+> in this sample. The defensible statement is therefore: **Alberta
+> 2025-26 is one of three Canadian redistribution cycles (of seven
+> sampled) that produced any inter-map projected-winner asymmetry;
+> at the low-end point estimate it is ordinally equivalent to
+> Alberta 2017 and below Manitoba 2018; at the high-end it exceeds
+> the observed Canadian maximum in this sample.** If a quantitative
+> placement is required, Alberta 2025-26 sits at the 67th percentile
+> of the n=6 comparator. Method details and the full recalibration
+> at §7A of the computation document. The sample is small and
+> proxy-based; direct per-ED EG computation remains future work.
 
 ## 8. References
 
