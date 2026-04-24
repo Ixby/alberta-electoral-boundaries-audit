@@ -72,7 +72,7 @@ Before the technical caveats below, the audit's structural findings summarise cl
 - The **minority map's Calgary districts** show a 12.2 percentage-point geographic-zone asymmetry (urban-core districts smaller, suburban-ring districts larger) versus 0.4 pp on the majority map.
 - The **minority map splits the City of Airdrie four ways** across different electoral divisions; the majority map splits it two ways.
 - The **minority map follows existing municipal boundaries** on only 14.5 % of its total perimeter, versus the majority's 71.0 % — a 4.9-fold departure from the Canadian-commission norm of preserving community-of-interest via municipal-edge alignment.
-- **Three geographic anomalies** on the minority map were flagged by the commission chair himself (Rocky Mountain House–Banff Park extension; Calgary-Nolan Hill–Cochrane lasso; Edmonton-Windermere stepped boundary); zero were flagged on the majority map.
+- **Three geographic anomalies** on the minority map were flagged by the commission chair (Rocky Mountain House–Banff Park extension; Calgary-Nolan Hill–Cochrane lasso; Olds-Three Hills-Didsbury → N Airdrie community capture); zero were flagged on the majority map.
 - The **minority's own 25 published rationales** are, on six of seven contested configurations, options the minority did not take when cleaner statutory-compliant alternatives were available.
 
 These five non-partisan-bias signals all point in the same direction and all survive the stress-tests documented in §1.2 below. The partisan-bias signal (the extent to which the maps would produce different seat counts from the same votes) is reported in the abstract as a two-measurement disagreement; §1.2 explains the caveats that constrain the magnitude claim.
