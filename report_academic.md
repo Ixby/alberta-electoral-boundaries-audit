@@ -579,6 +579,19 @@ Until shapefile release, this paper's readable summary is: *the non-partisan-bia
 
 Under the pre-remediation Election-Day-only VA substrate, 2023 two-party votes held in Margin VAs sum to roughly 8–12 % of the provincial two-party total per map. Under the post-splat full-VA substrate the fraction is similar because the splat apportions non-Election-Day votes by Election-Day weight and preserves per-VA totals. The **maximum partisan swing at risk** if every Margin VA's assignment were reversed in the worst-case direction is on the order of ±1.5 pp on the minority-majority EG asymmetry — not enough to drive the −1.42 pp crosswalk reading to the +4.15 pp spatial reading, or vice versa. The measurement disagreement documented above is therefore a *systematic* methodological difference, not a swing-VA artefact, and would not collapse under stricter boundary-handling conventions on the Margin VA set. Formal Core/Margin per-ED tabulation is queued for follow-up work against the official 2026 shapefiles under the §4.1.4 sunset clause; the insulation test above is an upper-bound argument, not a precision measurement.
 
+#### 5.2.8 EG threshold provenance — three Alberta-calibrated alternatives
+
+The 7 % Efficiency Gap threshold originates in Stephanopoulos and McGhee (2015), historically calibrated to US Congressional delegation sizes in the period 1972–2010. It was prominently cited in *Gill v. Whitford*, 585 U.S. ___ (2018), but the Supreme Court vacated on standing grounds and did not adopt any numerical threshold. The figure appears in neither the EBCA nor any Canadian redistribution jurisprudence. Three Alberta-calibrated alternatives are documented and defended in `analysis/methodology/v0_1_threshold_provenance.md §B.2.1` (Options A–C):
+
+| Option | Threshold | Provenance | Both 2026 absolute EGs below? | Audit asymmetry (1.42 pp) below? |
+|---|---|---|---|---|
+| Reference (S&M 2015) | 7 % | US historical calibration | Yes (−1.29 %, −2.71 %) | Yes |
+| A — Assembly-size sensitivity | ≈ 2.2 % (2/89 seats) | First-principles scaling, S&M §III.B | Majority yes; minority borderline (−2.71 %) | No (1.42 pp exceeds floor) |
+| B — EBCA statutory-proportional | 5 % (one-fifth of ±25 % band) | EBCA § 14 proportional anchoring | Yes | Yes |
+| C — Alberta historical-swing | 5–9 % (provisional) | Issue #16 — pending computation | Yes (provisional) | Yes (provisional) |
+
+**Reading.** Against the EBCA-anchored Option B (5 %), both maps' absolute EGs are sub-threshold and the inter-map asymmetry is sub-threshold. Against the assembly-size-sensitivity Option A (2.2 %), the minority's −2.71 % absolute EG exceeds the minimum-detectable-signal floor — though "above the signal floor" is not equivalent to "gerrymander candidate": the 2.2 % value marks where EG variation stops being within assembly-size rounding noise, not where a pattern becomes legally or structurally significant. The audit's headline (*directionally-consistent sub-threshold asymmetry*) is accurate under the reference 7 %, the EBCA-proportional 5 %, and the provisional Alberta historical range 5–9 %; under Option A it requires the qualification that the signal exceeds the detection floor while remaining sub-threshold on every other calibration. The "sub-threshold" characterisation does not depend on the US-calibrated 7 % figure. Option C requires computing EG for 2015, 2019, and 2023 elections under prior-cycle Alberta boundaries; this is tracked as Issue #16.
+
 ### 5.3 Signature detection
 
 #### 5.3.1 Packing signatures detected

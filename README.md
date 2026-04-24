@@ -107,6 +107,7 @@ The exoneration framework has already fired once: the neighbour-drain adjacency 
 | **13** | **Local-perturbation MCMC chain — seeded at 2019 enacted** | **Open (retraction-pathway §9 item 2)** |
 | **14** | **Trade-off Frontier — counter-map challenge for §5.8.5 anchoring** | **Open (retraction-pathway §9 item 3)** |
 | **15** | **Voter-elasticity model — counterfactual vote re-estimation** | **Open (retraction-pathway §9 item 4)** |
+| **16** | **Alberta historical-swing EG — compute EG for 2015/2019/2023 under prior-cycle boundaries** | **Open (§5.2.8 Option C provenance; threshold_provenance.md §B.2.1.C)** |
 
 ---
 
