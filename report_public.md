@@ -7,13 +7,13 @@
 
 ## The short version
 
-Alberta's Electoral Boundary Commission finished its work on March 23, 2026. It could not agree. The majority of commissioners produced one map. The minority produced a different one. Both maps create 89 electoral divisions. Both follow the law.
+Alberta's Electoral Boundary Commission finished its work on March 23, 2026. It could not agree. The majority of commissioners produced one map. The minority produced a different one. Both maps are legal. This audit measured both using the same methods, applied identically to each. Three findings stand out.
 
-This audit looked at both maps using the same measurements, applied identically to each. It found that the two maps are not just different — they differ in a consistent direction, across five separate measures, none of which involve which party gets more seats.
+**The two maps diverge systematically.** The minority map differs from the majority on six measurable dimensions: population spread, geographic concentration of voters, city fragmentation, municipal-boundary anchoring, map shape, and commission-chair-flagged anomalies. The differences are consistent across all six and none of the six require election results to calculate.
 
-Then on April 16, the government set the commission's work aside and gave the job to a committee of five MLAs. Three of them are from the governing party.
+**The direction runs against the places where the governing party is weakest.** Communities most affected by the structural differences in the minority map — Calgary's northwest quadrant, the City of Airdrie, urban areas with well-established municipal boundaries — are the communities where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.
 
-This report explains what the audit found and what it means for you.
+**The process now promoting the minority map departs from Canadian practice.** On April 16, the government set both commission maps aside and assigned redistricting to a five-MLA committee, three from the governing UCP. Most Canadian provinces either require the assembly to consider the commission report first or give commission maps automatic effect unless overridden. Alberta does neither. The process is its own finding, separate from the maps.
 
 ---
 
