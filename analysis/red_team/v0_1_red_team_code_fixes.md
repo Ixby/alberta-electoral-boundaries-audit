@@ -50,7 +50,7 @@ direction of the asymmetry (minority more UCP-favorable) and the
 
 ### CRIT-01 — Monte Carlo quantile convention + silent `continue`
 
-**File:** `analysis/v0_3_monte_carlo_ci.py`
+**File:** `analysis/scripts/v0_3_monte_carlo_ci.py`
 
 Before:
 ```python
@@ -87,7 +87,7 @@ Verified output: `Samples collected: 2000 of 2000 requested (skipped: 0)`. The C
 
 ### CRIT-02 — 338Canada scraper: non-anchored regex + no 87-row integrity check
 
-**File:** `analysis/v0_1_338canada_scraper.py`
+**File:** `analysis/scripts/v0_1_338canada_scraper.py`
 
 Before:
 ```python
@@ -126,7 +126,7 @@ Scraper was not re-run in this pass (it hits the live 338Canada API; requires PO
 
 ### CRIT-03 — Packing/cracking `int()` truncation in blend/merge
 
-**File:** `analysis/v0_2_packing_cracking_analysis.py`
+**File:** `analysis/scripts/v0_2_packing_cracking_analysis.py`
 
 Before:
 ```python
@@ -160,7 +160,7 @@ Verified output (70/30 central): **EG −0.85% / −1.36% match report exactly.*
 
 ### CRIT-04 — Broken v1 `reallocate_338` function
 
-**File:** `analysis/v0_1_338canada_reallocate.py`
+**File:** `analysis/scripts/v0_1_338canada_reallocate.py`
 
 Before (lines 129–215, 87 lines):
 ```python
@@ -177,7 +177,7 @@ After: function deleted (no other module imports it; verified via grep across th
 
 ### CRIT-05 — `estimate_2026` silently drops merge rows with missing parents
 
-**File:** `analysis/v0_2_packing_cracking_analysis.py`
+**File:** `analysis/scripts/v0_2_packing_cracking_analysis.py`
 
 Before:
 ```python
@@ -217,7 +217,7 @@ Verified `main()` still runs clean — no missing parents in the current mapping
 
 ### HIGH-01 — Non-reproducible `hash()` seeding in shape refinement v6
 
-**File:** `analysis/v0_1_shape_refinement_v6.py`
+**File:** `analysis/scripts/v0_1_shape_refinement_v6.py`
 
 Before:
 ```python
@@ -236,7 +236,7 @@ Python's built-in `hash()` is randomized per process by default. sha256 is deter
 
 ### HIGH-02 — `np.arange` on floats in v6 processors grid search
 
-**File:** `analysis/v0_1_shape_refinement_v6_processors.py`
+**File:** `analysis/scripts/v0_1_shape_refinement_v6_processors.py`
 
 Before:
 ```python
@@ -261,7 +261,7 @@ The grid expands by one cell per axis (endpoint-inclusive) but removes the float
 
 ### HIGH-04 — Silent OSM-snap fallback
 
-**File:** `analysis/v0_1_shape_refinement.py`
+**File:** `analysis/scripts/v0_1_shape_refinement.py`
 
 Before (5 early-return paths in `_snap_polygon_to_roads`):
 ```python
@@ -287,7 +287,7 @@ Caller in `phase2_snap_hybrids` updated to write the status into `refined_note` 
 
 ### HIGH-07 — `OUT_PDF.replace()` silent failure on Windows
 
-**File:** `analysis/build_cover.py`
+**File:** `analysis/scripts/build_cover.py`
 
 After:
 ```python
@@ -303,7 +303,7 @@ if not ARTICLE_PDF.exists():
 
 ### HIGH-09 — Voice-check regex too narrow
 
-**File:** `analysis/check_voice_and_readability.py`
+**File:** `analysis/scripts/check_voice_and_readability.py`
 
 Before:
 ```python
@@ -328,7 +328,7 @@ Both reports now PASS the voice + readability gate after the fix (see §7).
 
 ### HIGH-10 — FK fallback false-FAILs the grade gate
 
-**File:** `analysis/check_voice_and_readability.py`
+**File:** `analysis/scripts/check_voice_and_readability.py`
 
 Before: failed the gate if `fkg > target_grade + 0.5`, regardless of whether `method == "textstat"` or `"approx"`.
 
@@ -336,7 +336,7 @@ After: only fails the gate under `textstat`; under `"approx"` the over-target re
 
 ### HIGH-12 — Unclassified Edmonton EDs silently skipped
 
-**File:** `analysis/v0_1_majority_symmetry_counter_test.py`
+**File:** `analysis/scripts/v0_1_majority_symmetry_counter_test.py`
 
 After:
 ```python
@@ -357,7 +357,7 @@ Current run: no unclassified EDs, so the assertion does not fire.
 
 ### MED-01 — `_load_2019_eds()` non-deterministic `rglob` pick
 
-**File:** `analysis/v0_1_shape_refinement.py`
+**File:** `analysis/scripts/v0_1_shape_refinement.py`
 
 After:
 ```python
@@ -370,14 +370,14 @@ if len(shp) > 1:
 
 ### MED-03 — `phase_4c_prep.py` runs on `import`
 
-**File:** `analysis/phase_4c_prep.py`
+**File:** `analysis/scripts/phase_4c_prep.py`
 
 After (guard right after the module-level constants):
 ```python
 if __name__ != "__main__":
     raise ImportError(
         "phase_4c_prep.py is a script, not a library module. "
-        "Run it directly via: python analysis/phase_4c_prep.py. "
+        "Run it directly via: python analysis/scripts/phase_4c_prep.py. "
         "If you need a helper from this file, extract it to its own "
         "module first."
     )
@@ -387,7 +387,7 @@ Preserves the original top-level script style (no 300-line re-indent) while maki
 
 ### MED-07 — Dead `estimate_2026` calls in sensitivity loop
 
-**File:** `analysis/v0_2_packing_cracking_analysis.py`
+**File:** `analysis/scripts/v0_2_packing_cracking_analysis.py`
 
 Removed the two `estimate_2026(..., urban_weight=w)` calls that preceded the override-mapping rebuild. The mapping tuples bake the weight into `spec[2]`, so the `urban_weight=w` kwarg had no effect on blend rows — only the override-mapping branch produced the published numbers.
 
@@ -412,7 +412,7 @@ Removed the two `estimate_2026(..., urban_weight=w)` calls that preceded the ove
 
 All three primary pipelines ran to completion under `PYTHONIOENCODING=utf-8` after the fixes. Headline outputs captured below.
 
-### `analysis/v0_2_packing_cracking_analysis.py`
+### `analysis/scripts/v0_2_packing_cracking_analysis.py`
 
 ```
   B2 Efficiency gap    |  -2.64% |   -0.85% |   -1.36%
@@ -426,7 +426,7 @@ All three primary pipelines ran to completion under `PYTHONIOENCODING=utf-8` aft
   VERDICT: minority shifts -0.51 pp relative to majority.
 ```
 
-### `analysis/v0_3_monte_carlo_ci.py`
+### `analysis/scripts/v0_3_monte_carlo_ci.py`
 
 ```
 Samples collected: 2000 of 2000 requested (skipped: 0)
@@ -437,7 +437,7 @@ Samples collected: 2000 of 2000 requested (skipped: 0)
   CROSS-CHECK: Minority-Majority EG asymmetry under 2019 votes: +0.75 pp
 ```
 
-### `analysis/v0_1_338canada_reallocate.py`
+### `analysis/scripts/v0_1_338canada_reallocate.py`
 
 ```
 === PHASE 2 === Pearson r: 0.9603, MAE 6.04 pp
@@ -446,7 +446,7 @@ Samples collected: 2000 of 2000 requested (skipped: 0)
   MINORITY proposal (89 EDs total):  UCP wins: 66, NDP wins: 23
 ```
 
-### `analysis/check_voice_and_readability.py`
+### `analysis/scripts/check_voice_and_readability.py`
 
 ```
 report_public.md (PASS, target grade <= 12.0):

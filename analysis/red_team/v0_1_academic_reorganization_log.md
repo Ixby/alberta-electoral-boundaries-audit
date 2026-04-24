@@ -131,7 +131,7 @@ The red-team files are historical critiques written against v0.1 with specific L
 ## Voice + readability gate
 
 ```
-$ python3 analysis/check_voice_and_readability.py report_academic.md
+$ python3 analysis/scripts/check_voice_and_readability.py report_academic.md
 report_academic.md (PASS, target grade <= 13.0):
   [info] Flesch-Kincaid Grade: 12.9  [method=textstat]
 ```

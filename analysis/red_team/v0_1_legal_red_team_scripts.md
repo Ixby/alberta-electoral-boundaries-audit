@@ -111,7 +111,7 @@ code red-team (CRIT-01 through CRIT-05) are all fixed and verified.
 
 ### HIGH-D4-RESCORE-CROSSWALK — 19-row crosswalk produces phantom districts in full-coverage MCMC rescore
 
-**File:** `analysis/v0_1_mcmc_full_coverage_rescore.py` (L216-229)
+**File:** `analysis/scripts/v0_1_mcmc_full_coverage_rescore.py` (L216-229)
 **Severity:** HIGH
 **Dimension:** D4
 
@@ -154,7 +154,7 @@ scores identically to the 2019 baseline. That implies your methodology
 is scoring the 2019 map under a new label. How do you defend that?"*
 
 **Note.** A successor script exists:
-`analysis/v0_1_mcmc_full_coverage_rescore_100k.py` uses the augmented
+`analysis/scripts/v0_1_mcmc_full_coverage_rescore_100k.py` uses the augmented
 87-row full crosswalks from `v0_1_build_full_crosswalks.py` plus
 Unicode normalization. Running it via the v2 wrapper
 (`v0_1_mcmc_full_coverage_rescore_v2.py`) against the 10k ensemble
@@ -256,7 +256,7 @@ requests>=2.31
 
 ### HIGH-D4-LIVE-FONT-URL — Google Fonts live-URL dependency in PDF rendering
 
-**Files:** `analysis/build_pdf.py:56`, `analysis/build_cover.py:159`
+**Files:** `analysis/scripts/build_pdf.py:56`, `analysis/scripts/build_cover.py:159`
 **Severity:** HIGH
 **Dimension:** D4 / D1
 
@@ -284,14 +284,14 @@ route is the stronger fix.
 
 ### HIGH-D4-VOICE-DRIFT — `report_academic.md` FK grade reads 12.9 today vs. 13.0 in fixes log
 
-**File:** `analysis/check_voice_and_readability.py` (the report file itself)
+**File:** `analysis/scripts/check_voice_and_readability.py` (the report file itself)
 **Severity:** HIGH (flagged; defensible on closer look)
 **Dimension:** D4
 
 **Evidence.**
 
 ```
-$ python analysis/check_voice_and_readability.py
+$ python analysis/scripts/check_voice_and_readability.py
 report_public.md (PASS, target grade <= 12.0):
   [info] Flesch-Kincaid Grade: 9.3  [method=textstat]
 report_academic.md (PASS, target grade <= 13.0):
@@ -317,21 +317,21 @@ currently 12.9 on commit XXXX]" so future drift is bounded.
 ## 4. MEDIUM findings
 
 ### MED-D4-PLATFORM-CHROME
-**Files:** `analysis/build_pdf.py:33-38`, `analysis/build_cover.py:43-48`
+**Files:** `analysis/scripts/build_pdf.py:33-38`, `analysis/scripts/build_cover.py:43-48`
 
 Chrome/Edge path list is Windows-only. No `which chromium` /
 `/usr/bin/google-chrome` path for Linux. A reviewer on Linux cannot run
 the PDF pipeline without editing the script.
 
 ### MED-D4-OSM-LIVE
-**File:** `analysis/v0_1_shape_refinement.py` (phase 2 OSM snap)
+**File:** `analysis/scripts/v0_1_shape_refinement.py` (phase 2 OSM snap)
 
 Overpass API fetch (`overpass-api.de`) is a live-URL dependency not
 listed in `FROZEN_MANIFEST.md`. On an Overpass outage, the snap silently
 falls back to the 2019 geometry. Prior RT flagged as MED-02 (deferred).
 
 ### MED-D4-338SCRAPER-OFFLINE
-**File:** `analysis/v0_1_338canada_scraper.py`
+**File:** `analysis/scripts/v0_1_338canada_scraper.py`
 
 The scraper fetches 338Canada live. The docstring notes the April 12
 snapshot, but running the scraper today pulls 2026-04-23+ data — not
@@ -343,7 +343,7 @@ finds the script, assumes running it reproduces the published numbers,
 and gets a newer snapshot with slightly different seat counts.
 
 ### MED-D4-URLARCHIVAL-DRIFT
-**File:** `analysis/v0_1_url_archival.py`
+**File:** `analysis/scripts/v0_1_url_archival.py`
 
 Calls `archive.org/wayback/available`, `web.archive.org/cdx/search/cdx`,
 `archive.ph` — all live-URL. A reviewer running this gets different
@@ -353,7 +353,7 @@ but it should carry a top-line comment explaining that its output
 varies by run date.
 
 ### MED-D4-PHASE4C-HARDCODED
-**File:** `analysis/phase_4c_prep.py:31`
+**File:** `analysis/scripts/phase_4c_prep.py:31`
 
 Uses `BASE = Path(r"C:\Users\email\...\alberta_audit")` instead of the
 `REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))`
@@ -362,7 +362,7 @@ imported — but the hardcoded path still breaks execution on any other
 machine. (Subset of HIGH-D4-HARDCODED-PATHS.)
 
 ### MED-D4-CHENRODDEN-NUMPY
-**File:** `analysis/v0_1_chen_rodden_alberta.py:133-156, 403-404`
+**File:** `analysis/scripts/v0_1_chen_rodden_alberta.py:133-156, 403-404`
 
 Prior HIGH-05 deferred in fixes log. Uses `np.random.default_rng(42)`
 (Test 1) and `random.Random(42)` (Test 2); both are reproducible under
@@ -371,20 +371,20 @@ pin. Re-flagging as MED because the framework requires the seed + RNG
 version be documented together for defensibility.
 
 ### MED-D4-MAGICBBOX
-**Files:** `analysis/v0_1_shape_refinement_v4.py:555-647`, `v5:930-971`
+**Files:** `analysis/scripts/v0_1_shape_refinement_v4.py:555-647`, `v5:930-971`
 
 Prior HIGH-03 deferred. Magic-number pixel coordinates (`west_x = 72000`,
 etc.) for Calgary-De Winton, Edmonton-Windermere derivation. Fragile if
 the 2019 shapefile reissues with re-projection.
 
 ### MED-D5-SUPPRESSED-DA
-**File:** `analysis/v0_1_a1_legal_baseline_2021_census.py:110-123`
+**File:** `analysis/scripts/v0_1_a1_legal_baseline_2021_census.py:110-123`
 
 Prior HIGH-11 deferred. Suppressed DAs zeroed without propagating
 uncertainty; s.15(2)-protected districts affected.
 
 ### MED-D4-CHROMESEC
-**Files:** `analysis/build_pdf.py:513-534`, `analysis/build_cover.py:420-437`
+**Files:** `analysis/scripts/build_pdf.py:513-534`, `analysis/scripts/build_cover.py:420-437`
 
 Prior HIGH-08 deferred. `--no-sandbox` + `--virtual-time-budget=15000`
 lack post-hoc PDF validation (font loaded?). Overlaps with
