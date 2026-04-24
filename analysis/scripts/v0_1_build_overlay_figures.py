@@ -65,13 +65,13 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
-OUT = ROOT / "maps" / "article"
+OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_2019 = DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-PATH_MAJ = DATA / "v0_1_approximate_majority_2026_eds.gpkg"
-PATH_MIN_V5 = DATA / "v0_1_refined_v5_minority_2026_eds.gpkg"
-PATH_MIN_V4 = DATA / "v0_1_refined_v4_minority_2026_eds.gpkg"
+PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+PATH_MAJ = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
+PATH_MIN_V5 = DATA / "shapefiles" / "derived" / "v0_1_refined_v5_minority_2026_eds.gpkg"
+PATH_MIN_V4 = DATA / "shapefiles" / "derived" / "v0_1_refined_v4_minority_2026_eds.gpkg"
 PATH_MAJ_POPS = DATA / "v0_1_majority_2026_populations.csv"
 PATH_MAJ_XWALK = DATA / "v0_1_majority_hybrid_crosswalk.csv"
 

@@ -59,12 +59,12 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
-OUT = ROOT / "maps" / "article"
+OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_MIN_V7 = DATA / "v0_1_derived_v7_minority_2026_eds.gpkg"
-PATH_CSDS = DATA / "alberta_2021_csds.gpkg"
-PATH_2019 = DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+PATH_MIN_V7 = DATA / "shapefiles" / "derived" / "v0_1_derived_v7_minority_2026_eds.gpkg"
+PATH_CSDS = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
+PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
 
 CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest, metres
 

@@ -115,15 +115,15 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
-MAJ_IN = DATA / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-MIN_IN = DATA / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
-MAJ_OUT = DATA / "v0_3_canonical_majority_2026_eds_swept.gpkg"
-MIN_OUT = DATA / "v0_3_canonical_minority_2026_eds_swept.gpkg"
+MAJ_IN = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+MIN_IN = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_3_canonical_majority_2026_eds_swept.gpkg"
+MIN_OUT = DATA / "shapefiles" / "derived" / "v0_3_canonical_minority_2026_eds_swept.gpkg"
 
 MAJ_POP_CSV = DATA / "v0_1_majority_2026_populations.csv"
 MIN_POP_CSV = DATA / "v0_1_minority_2026_populations.csv"
 
-DAS_GPKG = DATA / "alberta_2021_das.gpkg"
+DAS_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 DA_POPS_CSV = DATA / "alberta_2021_da_populations.csv"
 
 SWEEP_LOG_CSV = REPORTS / "v0_1_tier_c_sweep_log.csv"

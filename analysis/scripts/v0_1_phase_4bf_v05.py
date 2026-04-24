@@ -49,8 +49,8 @@ sys.modules["p4bcdef"] = m
 spec.loader.exec_module(m)
 
 # Redirect inputs to v0_5 DPG
-m.MAJ_CANON_GPKG = DATA / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
-m.MIN_CANON_GPKG = DATA / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+m.MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
+m.MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
 
 # Redirect outputs to v0_5 paths
 m.OUT_4B_MAJ = DATA / "v0_5_phase4b_majority_2021_populations.csv"

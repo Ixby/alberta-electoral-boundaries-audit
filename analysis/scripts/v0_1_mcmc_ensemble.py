@@ -83,14 +83,14 @@ from functools import partial
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"
-MAPS = ROOT / "maps" / "mcmc"
+MAPS = ROOT / "data" / "maps" / "mcmc"
 MAPS.mkdir(parents=True, exist_ok=True)
 
-VA_PATH = DATA / "va_polygons_with_2023_votes.gpkg"
-ED2019_PATH = DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_PATH = DATA / "v0_1_approximate_majority_2026_eds.gpkg"
-MIN_V6_PATH = DATA / "v0_1_refined_v6_minority_2026_eds.gpkg"
-MIN_V5_PATH = DATA / "v0_1_refined_v5_minority_2026_eds.gpkg"
+VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+ED2019_PATH = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+MAJ_PATH = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
+MIN_V6_PATH = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
+MIN_V5_PATH = DATA / "shapefiles" / "derived" / "v0_1_refined_v5_minority_2026_eds.gpkg"
 
 SAMPLES_CSV = DATA / "v0_1_mcmc_ensemble_samples.csv"
 

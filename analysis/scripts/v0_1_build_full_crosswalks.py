@@ -57,7 +57,7 @@ def norm(s: str) -> str:
 
 
 def build_majority_crosswalk() -> pd.DataFrame:
-    eds_2019 = gpd.read_file(DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
+    eds_2019 = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
     eds_2019_set = set(norm(n) for n in eds_2019["EDName2017"].unique())
 
     maj_pops = pd.read_csv(DATA / "v0_1_majority_2026_populations.csv")
@@ -65,7 +65,7 @@ def build_majority_crosswalk() -> pd.DataFrame:
     # Population lookup for tiebreak
     maj_pop_by_name = {norm(r["ed_name"]): int(r["population"]) for _, r in maj_pops.iterrows()}
 
-    gpkg = gpd.read_file(DATA / "v0_1_approximate_majority_2026_eds_full.gpkg")
+    gpkg = gpd.read_file(DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds_full.gpkg")
     hyb = pd.read_csv(DATA / "v0_1_majority_hybrid_crosswalk.csv")
     reall = pd.read_csv(DATA / "v0_1_338canada_reallocated_majority.csv")
 
@@ -196,14 +196,14 @@ def build_majority_crosswalk() -> pd.DataFrame:
 
 
 def build_minority_crosswalk() -> pd.DataFrame:
-    eds_2019 = gpd.read_file(DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
+    eds_2019 = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
     eds_2019_set = set(norm(n) for n in eds_2019["EDName2017"].unique())
 
     min_pops = pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
     min_2026_set = set(norm(n) for n in min_pops["ed_name"])
     min_pop_by_name = {norm(r["ed_name"]): int(r["population"]) for _, r in min_pops.iterrows()}
 
-    gpkg = gpd.read_file(DATA / "v0_1_refined_v6_minority_2026_eds_full.gpkg")
+    gpkg = gpd.read_file(DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds_full.gpkg")
     hyb = pd.read_csv(DATA / "v0_1_minority_hybrid_crosswalk.csv")
     reall = pd.read_csv(DATA / "v0_1_338canada_reallocated_minority.csv")
 

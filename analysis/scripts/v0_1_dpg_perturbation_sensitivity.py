@@ -95,9 +95,9 @@ m1 = importlib.util.module_from_spec(spec)
 sys.modules["maup_v1"] = m1
 spec.loader.exec_module(m1)
 
-VA_GPKG = DATA / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_CLEAN_GPKG = DATA / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-MIN_CLEAN_GPKG = DATA / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
+MAJ_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+MIN_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
 MAJ_XWALK_CSV = DATA / "v0_1_majority_full_crosswalk.csv"
 MIN_XWALK_CSV = DATA / "v0_1_minority_full_crosswalk.csv"
 MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"

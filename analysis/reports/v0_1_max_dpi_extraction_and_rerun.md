@@ -2,7 +2,7 @@
 
 *Analysis date: 2026-04-24*
 
-*Backward: `.temp/commission_report.pdf`, `maps/hires/`, `data/v0_2_canonical_*_2026_eds_topoclean.gpkg`, `data/v0_5_canonical_*_2026_eds_da_anchored.gpkg`*
+*Backward: `.temp/commission_report.pdf`, `data/maps/hires/`, `data/v0_2_canonical_*_2026_eds_topoclean.gpkg`, `data/v0_5_canonical_*_2026_eds_da_anchored.gpkg`*
 
 *Forward: paper §4.1.4 DPG discussion / §E provenance; future DPG revisions beyond v0_5*
 
@@ -35,7 +35,7 @@ All target pages were inspected; the raw per-page manifest is written to `analys
 | MIN per-ED pages (full scan) | 89 per-ED maps | raster | 300 on odd pages, **380** on even pages | capped at 300 / 380 |
 | MIN pages without images (294, 296, 322, 351-355) | text-only appendix tables | vector text | n/a | no map to extract |
 
-**Critical finding.** The existing `maps/hires/v0_1_majority_p72_MAP_r600.png` was rendered at 600 DPI against a source that is natively 388 DPI. The render is ~1.55-1.82x pixel-linear above native. Downsampling the 600-DPI render back to native size and comparing to the native extract yields PSNR ≈ 35 dB for one test page (p74) — i.e. they are essentially the same image, the 600-DPI render carries zero extra information, only interpolation.
+**Critical finding.** The existing `data/maps/hires/v0_1_majority_p72_MAP_r600.png` was rendered at 600 DPI against a source that is natively 388 DPI. The render is ~1.55-1.82x pixel-linear above native. Downsampling the 600-DPI render back to native size and comparing to the native extract yields PSNR ≈ 35 dB for one test page (p74) — i.e. they are essentially the same image, the 600-DPI render carries zero extra information, only interpolation.
 
 For the other test pages (p72, p76) PSNR is lower (13-15 dB) but this is due to orientation artifacts in the quick-check test harness (PyMuPDF `get_pixmap(clip=rect)` does not apply the image's internal rotation); the conclusion still stands because those images are still rendered above their native pixel count.
 
@@ -49,12 +49,12 @@ For the other test pages (p72, p76) PSNR is lower (13-15 dB) but this is due to 
 
 Script: `analysis/scripts/v0_1_max_dpi_extract.py`
 Manifest: `analysis/reports/v0_1_max_dpi_extract.json`
-Outputs: `maps/hires_v2/*`
+Outputs: `data/maps/hires_v2/*`
 
 For each of the 7 majority Appendix A map pages and 5 minority map pages, we saved:
 
 - `v0_2_native_<label>_p<N>.{png,jpeg}` — the **raw embedded image**, bit-exact at native pixel count (e.g. Calgary p72 at 2806×2168 px = 388 DPI on 7.23×5.59 in page region).
-- `v0_2_render_<label>_p<N>_r600.png` — 600-DPI full-page render (parity with `maps/hires/v0_1_*_r600.png`).
+- `v0_2_render_<label>_p<N>_r600.png` — 600-DPI full-page render (parity with `data/maps/hires/v0_1_*_r600.png`).
 - `v0_2_render_<label>_p<N>_r1200.png` — 1200-DPI full-page render (for qualitative zoom; contains no new cartographic information beyond native).
 
 We did **not** render map pages at 2400 DPI because the map content is raster-capped; such renders would be pure interpolation and consume disk space disproportionately.
@@ -62,7 +62,7 @@ We did **not** render map pages at 2400 DPI because the map content is raster-ca
 ## Investigation 3 — Does higher DPI reveal boundary features?
 
 Script: `analysis/scripts/v0_1_tier_c_crops.py`
-Outputs: `maps/hires_v2/tier_c_crops/`
+Outputs: `data/maps/hires_v2/tier_c_crops/`
 Manifest: `analysis/reports/v0_1_tier_c_crop_manifest.json`
 
 For each of the 4 Tier-C non-converged EDs from Issue #3 (Fort McMurray-Lac La Biche, Chestermere-Strathmore, Edmonton-Beaumont, Lethbridge-Taber-Warner) we cropped the same fractional region from (a) the native-raster extract and (b) the 600-DPI render and saved both at 1:1 pixel scale.
@@ -213,10 +213,10 @@ The CI is actually *tighter* on v0_5 than on v0_2 (3.62 pp vs 5.98 pp width), bu
 - `analysis/reports/v0_1_max_dpi_extraction_and_rerun.md` (this file)
 
 **Data created:**
-- `maps/hires_v2/v0_2_native_*.{png,jpeg}` — 12 native-raster extracts
-- `maps/hires_v2/v0_2_render_*_r600.png` — 12 parity 600-DPI renders
-- `maps/hires_v2/v0_2_render_*_r1200.png` — 12 over-native 1200-DPI renders (for zoom only)
-- `maps/hires_v2/tier_c_crops/*.png` — 8 Tier-C visual-comparison crops
+- `data/maps/hires_v2/v0_2_native_*.{png,jpeg}` — 12 native-raster extracts
+- `data/maps/hires_v2/v0_2_render_*_r600.png` — 12 parity 600-DPI renders
+- `data/maps/hires_v2/v0_2_render_*_r1200.png` — 12 over-native 1200-DPI renders (for zoom only)
+- `data/maps/hires_v2/tier_c_crops/*.png` — 8 Tier-C visual-comparison crops
 - `data/v0_5_phase4c_majority_2023_votes_maup.csv`
 - `data/v0_5_phase4c_minority_2023_votes_maup.csv`
 - `data/v0_5_phase4b_majority_2021_populations.csv`

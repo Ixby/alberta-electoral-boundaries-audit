@@ -348,8 +348,8 @@ def main():
     polls = geocode_via_nominatim(polls)
     verification_report = zero_sum_verification(polls, "boundaries_2019.geojson")
     polls = assign_to_2026_eds_via_vision(polls, {
-        'majority_calgary': '../maps/majority_calgary.jpg',
-        'minority_calgary': '../maps/minority_calgary.jpg',
+        'majority_calgary': '../data/maps/majority_calgary.jpg',
+        'minority_calgary': '../data/maps/minority_calgary.jpg',
         'minority_other_cities': '../source_maps/minority_other_cities.jpg',
     })
     polls = apportion_special_ballots(polls)

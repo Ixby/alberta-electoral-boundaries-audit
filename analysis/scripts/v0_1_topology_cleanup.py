@@ -62,10 +62,10 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
-MAJ_IN = DATA / "v0_1_canonical_majority_2026_eds.gpkg"
-MIN_IN = DATA / "v0_1_canonical_minority_2026_eds.gpkg"
-MAJ_OUT = DATA / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-MIN_OUT = DATA / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+MAJ_IN = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
+MIN_IN = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
+MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+MIN_OUT = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
 LOG_CSV = REPORTS / "v0_1_topology_cleanup_log.csv"
 SUMMARY_JSON = REPORTS / "v0_1_topology_cleanup_summary.json"
 

@@ -35,7 +35,7 @@ APPROX_MAJ = REPO_ROOT / "data" / "v0_1_approximate_majority_2026_eds.gpkg"
 APPROX_MIN_V6 = REPO_ROOT / "data" / "v0_1_refined_v6_minority_2026_eds.gpkg"
 APPROX_MIN_V5 = REPO_ROOT / "data" / "v0_1_refined_v5_minority_2026_eds.gpkg"
 
-COVER_ART_PNG = REPO_ROOT / "maps" / "cover_art.png"
+COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
 OUT_PDF = REPO_ROOT / "report_public.pdf"
 ARTICLE_PDF = REPO_ROOT / "report_public_article.pdf"  # temp intermediate
 

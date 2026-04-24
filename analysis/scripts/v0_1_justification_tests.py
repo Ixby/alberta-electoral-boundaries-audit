@@ -45,7 +45,7 @@ def load_csd_populations() -> pd.DataFrame:
 
 
 def load_csd_geo() -> gpd.GeoDataFrame:
-    g = gpd.read_file(DATA / "alberta_2021_csds.gpkg")
+    g = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg")
     return g
 
 
@@ -58,7 +58,7 @@ def load_majority() -> pd.DataFrame:
 
 
 def load_2019_eds() -> gpd.GeoDataFrame:
-    return gpd.read_file(DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
+    return gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
 
 
 # ---------------------------------------------------------------------------

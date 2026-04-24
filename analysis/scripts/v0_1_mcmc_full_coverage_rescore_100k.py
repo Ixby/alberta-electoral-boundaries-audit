@@ -42,14 +42,14 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
-EDS_2019_SHP = DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_APPROX_GPKG = DATA / "v0_1_approximate_majority_2026_eds.gpkg"
-MIN_V6_GPKG = DATA / "v0_1_refined_v6_minority_2026_eds.gpkg"
+EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+MAJ_APPROX_GPKG = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
+MIN_V6_GPKG = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
 MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
 MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
 MAJ_XWALK_CSV_FULL = DATA / "v0_1_majority_full_crosswalk.csv"
 MIN_XWALK_CSV_FULL = DATA / "v0_1_minority_full_crosswalk.csv"
-VA_GPKG = DATA / "va_polygons_with_2023_votes.gpkg"
+VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 ENSEMBLE_CSV_100K = DATA / "v0_1_mcmc_ensemble_samples_100k.csv"
 
 OUT_SCORES_JSON = DATA / "v0_1_mcmc_real_map_scores_full_100k.json"
