@@ -18,7 +18,7 @@ The minority 2026 recommendation shows **systematic structural asymmetry** relat
 
 Partisan-bias metrics (§5.2) are **sign-dependent on vote-substrate and attribution method**; the paper reports them in full but does not lead with them. The B-family findings reinforce rather than singularly carry the headline.
 
-**The audit does not claim the minority map is a gerrymander in the intent sense.** It claims measurable structural divergence from the majority, at magnitudes below the US-judicial 7 % Efficiency Gap threshold, with explicit retraction conditions documented per finding.
+**The audit does not claim the minority map is a gerrymander in the intent sense.** It claims measurable structural divergence from the majority, at magnitudes below the 7 % Efficiency Gap threshold **proposed in the academic literature** by Stephanopoulos & McGhee (2014/2015) — a threshold cited in US litigation (notably *Gill v. Whitford*, vacated on standing without a ruling) but **never adopted as a judicial standard** in the United States or in Canada. Retraction conditions are documented per finding.
 
 ---
 
