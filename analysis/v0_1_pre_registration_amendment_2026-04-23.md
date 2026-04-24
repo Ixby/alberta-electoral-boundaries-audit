@@ -10,7 +10,7 @@ type: project
 **Author:** Will Conner.  
 **Original upload:** 2026-04-23, 06:22 PM MT.  
 **This amendment filed:** 2026-04-23.  
-**Reason for amendment:** Five corrections and additions identified after initial upload. No thresholds or hypotheses were altered. Changes 1–4 correct stale weight parameters that were not updated when the central urban-weight estimate was revised from 0.70 to 0.85 earlier in the analysis session. Change 5 adds a toolstack disclosure that should have been present at initial submission.
+**Reason for amendment:** Six corrections and additions identified after initial upload. No thresholds or hypotheses were altered. Changes 1–4 correct stale weight parameters that were not updated when the central urban-weight estimate was revised from 0.70 to 0.85 earlier in the analysis session. Change 5 adds a toolstack disclosure that should have been present at initial submission. Change 6 adds a Derived Provisional Geometries (DPG) disclosure and a 48-hour sunset-clause commitment to re-run all DPG-dependent analyses against Elections Alberta's official 2026 shapefiles when released.
 
 ---
 
@@ -81,6 +81,25 @@ type: project
 
 ---
 
+## Change 6 — Derived Provisional Geometries (DPG) disclosure and sunset clause
+
+**Location:** new Appendix A to the pre-registered protocol, and a corresponding disclosure in §4 Methods of `report_academic.md` (now §4.1.4 "Derived Provisional Geometries (DPG) and localization uncertainty").
+
+**Added:**
+> **Derived Provisional Geometries (DPG).** All 2026 ED boundary geometries referenced in this pre-registration are DPG, reconstructed from the commission's 600-DPI PNG extractions of Appendix A (majority) and Appendix E (minority) via affine transformation, OpenStreetMap feature-class snapping, and — for territorially contested hybrids — population-calibrated parametric sweep. Two error modes are distinguished: (1) perimeter-mode uncertainty (±500 m typical) affects Polsby-Popper and Reock compactness scores; (2) area-mode uncertainty (Tier-dependent) can exceed 100 % on individual Tier-C hybrid EDs where polygon-territory mismatch is documented. Tier A (2019-inheritance) EDs retain shapefile-grade fidelity. Full error-mode breakdown and the per-ED validation deltas are in `data/v0_1_phase4f_validation_deltas.csv` and `data/INTEGRITY_STATUS.md`.
+>
+> **Sunset clause.** All DPG-dependent metrics in the pre-registered scorecard — specifically the Polsby-Popper band thresholds (C1), the Reock band thresholds (C2), the Phase 4C per-ED measured vote totals, the MCMC real-map percentile placements, and any claim that depends on spatial attribution of 2023 Voting Areas to 2026 ED polygons — are **provisional** until Elections Alberta publishes official 2026 topological shapefiles. The audit commits to:
+>
+> 1. Re-running all DPG-dependent analyses against the official shapefiles within 48 hours of public release.
+> 2. Publicly disclosing, in a dated amendment to this pre-registration, any sign-flip or material magnitude change (>0.5 pp on partisan-bias metrics; >0.05 on compactness scores; >5 percentile points on MCMC tail placements) that results from the official geometry.
+> 3. Treating the official-shapefile recomputation as the **authoritative** result for every DPG-dependent metric. The DPG results reported in the current paper are observational heuristics pending that recomputation.
+>
+> The sunset clause binds the audit symmetrically: it applies to both the blended-crosswalk and the high-resolution-spatial measurements reported in §5.2.7 of the academic report, and it does not privilege whichever measurement currently favours the audit's directional interpretation.
+
+**Reason:** The geometric precision fallacy — inviting the reader to interpret DPG-derived point estimates as statutory-grade measurements — is pre-empted by (a) explicit naming (DPG, not "shapefile" or "polygon"), (b) two-error-mode disclosure, and (c) a dated public commitment to recompute-and-disclose when official geometry exists. Gemini red-team Phase B3 and the geometric-precision-fallacy remediation plan both identified this disclosure as necessary for publication-grade defensibility.
+
+---
+
 ## Summary
 
 | # | Section | Nature | Effect on findings |
@@ -90,5 +109,6 @@ type: project
 | 3 | §2 Study design | Correction — parameter count and list | None; aligns text with scripts |
 | 4 | §3 S4 threshold | Correction — sensitivity range | None; aligns text with §11 |
 | 5 | §15 Toolstack | Addition — AI use disclosure | None; additive disclosure only |
+| 6 | App. A DPG disclosure + sunset clause | Addition — methodology disclosure + recompute commitment | None immediate; binds future recomputation on shapefile release |
 
 No hypotheses, thresholds, research questions, scoring rules, or data inclusion/exclusion criteria were changed. The pre-registered 7% EG threshold (S4), the 10% zone-gap threshold (S1/RQ1), the four-division Airdrie threshold (S1/RQ2), and the p95 ensemble threshold (RQ5) are unchanged.
