@@ -336,14 +336,28 @@ def run_ensemble(graph: Graph, initial_assignment: dict, n_steps: int, pop_devia
             print(f"  2019 seed exceeds +/-{pop_deviation:.0%} rule "
                   f"(max dev {seed_max_indiv_dev:.2%}); generating fresh tight seed "
                   f"via recursive_tree_part...")
+        from functools import partial as _partial
+        from gerrychain.tree import bipartition_tree as _bpt
+        import random as _random
+        # Use a fixed init seed so recursive_tree_part succeeds regardless of
+        # chain seed. The Markov chain seed is restored immediately after, so
+        # chains with different seeds diverge via proposals, not from the
+        # initial partition (which is the correct design for convergence tests).
+        _rng_state_np = np.random.get_state()
+        _rng_state_py = _random.getstate()
+        np.random.seed(42)
+        _random.seed(42)
         new_assignment = recursive_tree_part(
             graph,
             parts=list(range(num_dist)),
             pop_target=ideal_pop,
             pop_col="pop_2021",
             epsilon=pop_deviation / 2.0,
-            node_repeats=3,
+            node_repeats=5,
+            method=_partial(_bpt, max_attempts=50000),
         )
+        np.random.set_state(_rng_state_np)
+        _random.setstate(_rng_state_py)
         initial_partition = Partition(graph, new_assignment, my_updaters)
         seed_pops = list(initial_partition["population"].values())
         min_p, max_p = min(seed_pops), max(seed_pops)
