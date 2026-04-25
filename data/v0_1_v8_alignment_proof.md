@@ -3,7 +3,7 @@
 Programmatic verification that the refined v0_8 GPKGs match the
 Alberta Electoral Boundaries Commission's published maps.
 
-## Majority (`v0_8_canonical_majority_2026_eds.gpkg`)
+## Majority (`v0_8_refined_majority_2026_eds.gpkg`)
 
 ### Topology
 - ED count: **89** (expected 89) — ✓
@@ -12,7 +12,7 @@ Alberta Electoral Boundaries Commission's published maps.
 
   Empty EDs:
   - Calgary-Currie  (0.0000 km²)
-  - Calgary-East  (0.0002 km²)
+  - Calgary-East  (0.0001 km²)
   - Calgary-Fish Creek  (0.0000 km²)
   - Calgary-Hays  (0.0000 km²)
   - Calgary-Klein  (0.0000 km²)
@@ -32,7 +32,7 @@ Alberta Electoral Boundaries Commission's published maps.
   - Stony Plain-Drayton Valley  (0.0000 km²)
   - Strathcona-Sherwood Park  (0.0023 km²)
   - Wetaskiwin-Ponoka-Maskwacis  (0.0000 km²)
-- Residual overlaps > 1 m²: **66** (157.096294 km² total)
+- Residual overlaps > 1 m²: **0** (0.000000 km² total)
 - Coverage: **100.0427%** of provincial area (662864.2 / 662581.1 km²)
 
 ### City-centre landmark check

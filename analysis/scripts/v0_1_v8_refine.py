@@ -172,10 +172,27 @@ def refine(plan: str) -> dict:
         gw, gl = geoms[wi], geoms[li]
         clipped = _clean(gl.difference(gw))
 
-        if clipped.is_empty or clipped.area < ANTI_ERASURE * gl.area:
+        # Detect nested case: loser is fully (or near-fully) inside winner.
+        # In that case we INVERT ownership — the loser keeps its full polygon,
+        # and the winner gets a hole carved out. This is the only sane resolution
+        # for a nested ED — splitting or erasing it would destroy electoral data.
+        loser_fully_nested = (inter.area / gl.area) > 0.95 if gl.area > 0 else False
+
+        if loser_fully_nested:
+            # Carve the loser polygon out of the winner; loser keeps its original
+            new_winner = _clean(gw.difference(gl))
+            if not new_winner.is_empty and new_winner.area >= ANTI_ERASURE * gw.area:
+                geoms[wi] = new_winner
+                # geoms[li] (loser) keeps its full original polygon, untouched
+                method = "nested_invert"
+            else:
+                # Even inverted, the winner would be erased — keep both as-is
+                # and accept the residual overlap (data is fundamentally bad).
+                method = "unresolvable_keep_both"
+        elif clipped.is_empty or clipped.area < ANTI_ERASURE * gl.area:
             # Anti-erasure trigger — midline split instead
             l_keep, w_extra = _midline_split(gl, gw, inter)
-            if l_keep is None:
+            if l_keep is None or l_keep.is_empty:
                 # Degenerate — give everything to winner; loser becomes empty (rare)
                 geoms[li] = clipped
                 method = "anti_erasure_winner_take_all"

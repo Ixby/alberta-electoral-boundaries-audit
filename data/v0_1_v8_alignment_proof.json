@@ -1,7 +1,7 @@
 {
   "plans": {
     "majority": {
-      "source": "v0_8_canonical_majority_2026_eds.gpkg",
+      "source": "v0_8_refined_majority_2026_eds.gpkg",
       "topology": {
         "n_eds": 89,
         "expected_n": 89,
@@ -14,7 +14,7 @@
           },
           {
             "name": "Calgary-East",
-            "area_km2": 0.00015635486416428116
+            "area_km2": 0.0001454462118382051
           },
           {
             "name": "Calgary-Fish Creek",
@@ -46,7 +46,7 @@
           },
           {
             "name": "Edmonton-Manning",
-            "area_km2": 1.0999772491420983e-05
+            "area_km2": 9.524032037513553e-06
           },
           {
             "name": "Edmonton-North West",
@@ -94,8 +94,8 @@
           }
         ],
         "n_with_geometry": 68,
-        "overlap_pairs_gt_1m2": 66,
-        "overlap_total_km2": 157.0962942512682,
+        "overlap_pairs_gt_1m2": 0,
+        "overlap_total_km2": 0.0,
         "coverage_km2": 662864.2100471605,
         "province_reference_km2": 662581.0574335157,
         "coverage_pct": 100.04273478851653
