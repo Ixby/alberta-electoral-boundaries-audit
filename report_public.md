@@ -191,6 +191,22 @@ That is the observed effect. One explanation that would produce it is structural
 
 ---
 
+## What this audit is now for
+
+In policy terms, the verdicts above are essentially moot. On April 16, the government set both commission maps aside. The map Alberta will use for the 2027 election will come from the Lunty committee, not from the commission. Whatever the audit found about the minority and majority maps, neither is a candidate to become law.
+
+That does not make the work moot. The commission audit was a framework-building exercise — calibrating Alberta-specific thresholds, structural-irregularity tests, anchoring comparators, and the 100,000-plan computer ensemble against three real Alberta maps (the 2019 enacted boundaries plus the two 2026 commission proposals, applied symmetrically to all three). That framework now exists, is documented, and will be re-pointed at the Lunty committee map as soon as it is published. The November 2026 audit will be reported as fulsomely and as faithfully as you see in this article.
+
+> **SIDEBAR — TWO REMINDERS FOR THE NOVEMBER AUDIT**
+>
+> *Alberta's geography will always favour conservatives.* NDP voters concentrate in city cores; UCP voters spread across efficient-margin rural ridings. A neutrally-drawn Alberta map produces a UCP-favourable efficiency gap as a starting point — that's geography, not gerrymandering.
+>
+> *Many things count as gerrymandering, and not all show up in the partisan-fairness numbers.* The minority map sat sub-threshold on every Alberta-calibrated EG line while crossing every structural threshold by a wide margin. A drafting process that wants to engineer outcomes without leaving an EG fingerprint has the structural lane available — community splits, off-reference borders, anchoring departures, chair-flagged shapes.
+
+The standard the November audit will hold the Lunty committee map to is the same one this audit held the commission to: *skew toward neutrality wherever the constraint set permits.* Document the choices when the constraints force a departure. Be ready to defend any departure from comparator Canadian practice with evidence stronger than aesthetic preference.
+
+Whether the new map meets that standard is a question this audit cannot pre-judge. It is a question the same scripts will answer publicly, against the same thresholds, with the same restraint on intent — because we'll see if it doesn't.
+
 ## The April 16 decision
 
 The *Electoral Boundaries Commission Act* lets the government refer the commission's recommendations to a legislative committee. On April 16, the government did this. The new committee has five members — three from the governing UCP and one each from the NDP and the Alberta Party. The committee must report by November 2, 2026, with a 91-seat map.

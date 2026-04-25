@@ -1488,6 +1488,29 @@ Third, can the April 16 pivot be evaluated against a pre-registered falsifiabili
 
 **What stands in the evidentiary record.** The audit's contribution is documenting that two commission proposals diverge systematically on six measurable dimensions, that the direction of divergence consistently favors the governing party under the available vote inputs, and that the process being used to promote the more-favorable proposal departs from comparator Canadian practice in specific ways. These facts are reproducible from public data using checked-in code. They do not prove intent, and they do not by themselves establish a constitutional violation. What they do provide is the evidentiary substrate on which such judgments — by counsel, by courts, by voters, and by future commissioners — can be constructed.
 
+### 8.1 Postscript — the audit as framework for the held-out test
+
+In policy terms, the verdicts in §5 and §6.2 are now substantially moot. On April 16, 2026 the Alberta government set both commission proposals aside and assigned redistricting to a five-MLA committee chaired by Brandon Lunty (UCP, Leduc-Beaumont). The map this audit measured is no longer a candidate to become law. Whatever Alberta uses for the 2027 election will come from the Lunty committee, not from either commission proposal.
+
+That does not make the work in §§4–7 unnecessary. The commission audit was a framework-building exercise. It produced — and calibrated against three real Alberta maps (the 2019 enacted baseline, the majority 2026 proposal, and the minority 2026 proposal, applied symmetrically to all three) — the artefacts the next audit will need:
+
+1. The four Alberta-calibrated EG thresholds (§5.2.8), including the 4.37 % MCMC-derived 95th percentile.
+2. The 100k constraint-bound ReCom ensemble on Alberta's 2019 substrate (§5.4), against which any 89- or 91-seat Alberta map can be percentile-placed for the four partisan-bias metrics.
+3. The structural-irregularity scorecard (anchoring %, MAD, Calgary geographic-zone gap, Airdrie-class community-split count, chair-anomaly count), with majority-comparable benchmarks documented for every test.
+4. The pre-registered rationale-failure framework that classifies a contested redraw symmetrically across maps (§5.6).
+5. The DPG construction pipeline (§4.1.5–§4.1.6), now extended through stage v0_8 with the perfecter and the nested-polygon ownership-inversion refinement, and the alignment-proof toolkit, all of which will accept the Lunty committee map without modification when its data is published.
+6. The two-lane verdict structure (§6.2) that distinguishes partisan-bias-magnitude readings from cumulative-structural-pattern readings, so the next audit can report both lanes honestly even if they disagree.
+
+When the Lunty committee tables its 91-seat map on or before November 2, 2026, this audit's apparatus will be re-pointed at the new map and re-run as fulsomely and as faithfully as it was for the commission proposals. The pre-registered scorecard at `analysis/reports/v0_1_pre_registration_draft.md` and its OSF time-stamped binding (§5.5) are the audit's commitment to that follow-through; the directional flag the §6.2 verdict places on the November map will be made on the same evidence, against the same thresholds, with the same restraint on intent.
+
+**Two contextual reminders for the November audit.**
+
+*Alberta's natural geography will always give conservative voters an edge.* The province's NDP supporters concentrate in city cores; UCP supporters spread across suburbs and rural ridings that win by efficient margins. Any neutrally-drawn Alberta map will produce a UCP-favourable efficiency gap as a structural starting point. The Chen-Rodden decomposition in §5.2.5 quantifies how much of any given map's partisan-bias signal is geography-derived versus drawing-derived; a future map cannot escape the geography component, only manage the drawing component. The audit's job is to separate the two clearly enough that legitimate criticism cannot be brushed off as "you're complaining about geography."
+
+*There are many ways to gerrymander, and not all of them register on the partisan-bias-magnitude lane.* The minority 2026 proposal demonstrated this empirically: it sat sub-threshold on every Alberta-calibrated EG line while crossing every structural-pattern threshold by a wide margin. A drafting process that wants to engineer outcomes without leaving an EG fingerprint has the structural lane available — community splits, off-reference borders, anchoring departures, chair-flagged shapes — and the audit will be looking at both lanes when the Lunty committee map arrives. Sub-threshold on Lane 1 is necessary for a clean verdict, but not sufficient.
+
+The standard the November audit will hold the Lunty committee map to is the same standard this audit held the commission proposals to: skew toward neutrality wherever the constraint set permits, document the choices when the constraints force a departure, and be prepared to defend any departure from comparator Canadian practice with evidence stronger than aesthetic preference. Whether the new map meets that standard is a question this audit cannot pre-judge. It is a question the same scripts will answer publicly, on the same timeline, against the same evidence base — because the held-out test is the entire reason the framework was built.
+
 ---
 
 ## References
