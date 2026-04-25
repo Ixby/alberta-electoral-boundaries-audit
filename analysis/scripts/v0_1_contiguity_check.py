@@ -54,19 +54,27 @@ from shapely.geometry import MultiPolygon, Polygon
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
+def _pick(plan: str) -> Path:
+    base = ROOT / "data" / "shapefiles" / "derived"
+    for fname in (
+        f"v0_8_refined_{plan}_2026_eds.gpkg",
+        f"v0_8_canonical_{plan}_2026_eds.gpkg",
+        f"v0_7_canonical_{plan}_2026_eds.gpkg",
+        f"v0_3_canonical_{plan}_2026_eds_swept.gpkg",
+    ):
+        p = base / fname
+        if p.exists():
+            return p
+    return base / f"v0_3_canonical_{plan}_2026_eds_swept.gpkg"
+
+
 MAPS = {
     "2019_enacted": (
         ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
         / "EDS_ENACTED_BILL33_15DEC2017.shp"
     ),
-    "majority_2026": (
-        ROOT / "data" / "shapefiles" / "derived"
-        / "v0_3_canonical_majority_2026_eds_swept.gpkg"
-    ),
-    "minority_2026": (
-        ROOT / "data" / "shapefiles" / "derived"
-        / "v0_3_canonical_minority_2026_eds_swept.gpkg"
-    ),
+    "majority_2026": _pick("majority"),
+    "minority_2026": _pick("minority"),
 }
 
 EXPECTED_COUNTS = {

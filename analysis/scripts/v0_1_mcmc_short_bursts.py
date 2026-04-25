@@ -46,7 +46,25 @@ from v0_1_mcmc_ensemble import (
     pct_rank,
     MAJ_V7_PATH,
     MIN_V7_PATH,
+    MAJ_V8_PATH,
+    MIN_V8_PATH,
+    MAJ_V8_CANON_PATH,
+    MIN_V8_CANON_PATH,
 )
+
+
+def _pick_path(plan: str):
+    """Prefer v0_8 refined, then v0_8 canonical, then v0_7 canonical."""
+    if plan == "majority":
+        for p in (MAJ_V8_PATH, MAJ_V8_CANON_PATH, MAJ_V7_PATH):
+            if p.exists():
+                return p
+        return MAJ_V7_PATH
+    else:
+        for p in (MIN_V8_PATH, MIN_V8_CANON_PATH, MIN_V7_PATH):
+            if p.exists():
+                return p
+        return MIN_V7_PATH
 
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"
@@ -104,8 +122,12 @@ def main(n_bursts: int = N_BURSTS, burst_len: int = BURST_LEN,
     ).reset_index()
     m_2019 = seat_results(agg_2019["ucp"].values, agg_2019["ndp"].values)
 
-    m_maj = score_exogenous_map(va, MAJ_V7_PATH) if MAJ_V7_PATH.exists() else None
-    m_min = score_exogenous_map(va, MIN_V7_PATH) if MIN_V7_PATH.exists() else None
+    maj_path = _pick_path("majority")
+    min_path = _pick_path("minority")
+    print(f"  using majority: {maj_path.name}")
+    print(f"  using minority: {min_path.name}")
+    m_maj = score_exogenous_map(va, maj_path) if maj_path.exists() else None
+    m_min = score_exogenous_map(va, min_path) if min_path.exists() else None
 
     # Run bursts
     print(f"\nRunning {n_bursts} bursts × {burst_len} steps...")
