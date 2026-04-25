@@ -1,13 +1,13 @@
-# Alberta's Two Maps: What the Audit Found
+# Two Maps, Then None: Inside Alberta's 2026 Boundary Audit
 
-*A plain-language summary of the 2025–26 Electoral Boundary Commission forensic audit.*
-*v0.21 — April 25, 2026 — [Full monograph](report_academic.md)*
+*A plain-language summary of the 2025–26 Electoral Boundary Commission forensic audit, and what the audit will measure next.*
+*v0.22 — April 25, 2026 — [Full monograph](report_academic.md)*
 
 ---
 
 An Airdrie resident pulls up the new electoral map on her phone. Her street goes to one riding. Two blocks over goes to another. Under the minority commission proposal, her city of 84,000 is cut into four pieces, each quarter attached to a different surrounding region. Nothing about Airdrie changed. Only the map did.
 
-That map — and the second map produced by the same commission, and the legislative committee now drafting a third — is what this audit is about.
+This audit is about that map, a second one the same commission produced, and a third map a legislative committee in Edmonton is drawing right now.
 
 ---
 
@@ -15,11 +15,11 @@ That map — and the second map produced by the same commission, and the legisla
 
 Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Both are legal under the *Electoral Boundaries Commission Act*. This audit measured both using the same methods, applied identically. Three findings stand out.
 
-1. **The two maps diverge systematically across six structural measures** — population spread, voter concentration, city fragmentation, municipal-boundary anchoring, map shape, and commission-chair-flagged anomalies. None of the six requires election results to calculate.
+1. **The two maps differ on six things you can measure without looking at any election results:** how evenly people are spread across districts, whether voters are concentrated, how badly cities are cut up, whether borders follow city limits, the shape of the districts, and how many trouble spots the commission's own chair flagged. The minority map differs from the majority on every one of them.
 
-2. **The direction runs against the places where the governing party is weakest.** Communities most affected by the structural differences in the minority map — Calgary's northwest quadrant, the City of Airdrie, urban areas with established municipal boundaries — are the communities where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.
+2. **The direction runs against the places where the governing party is weakest.** Calgary's northwest quadrant, the City of Airdrie, urban areas with established municipal boundaries — the communities most affected by the minority map's structural differences are the same ones where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.
 
-3. **The process now promoting the minority map departs from Canadian practice.** On April 16, the government set both commission maps aside and assigned redistricting to a five-MLA committee, three from the governing UCP. Most Canadian provinces either require the assembly to consider the commission report first or give commission maps automatic effect unless overridden. Alberta does neither.
+3. **The process now promoting the minority map has no precedent in Canada.** No other province lets a cabinet hand redistricting to a committee its own party controls partway through a redistribution cycle. Most provinces either require the legislature to debate the commissioners' map first, or give the commission's map automatic effect unless overridden. Alberta does neither. On April 16, the government set both commission maps aside and assigned the work to a five-MLA committee, three from the governing UCP.
 
 > The process is its own finding, separate from the maps.
 
@@ -29,9 +29,15 @@ Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and 
 
 The *Electoral Boundaries Commission Act* lets the government refer the commission's recommendations to a legislative committee. On April 16, the government did this. The new committee — chaired by Brandon Lunty, UCP MLA for Leduc-Beaumont — has five members. Three from the governing UCP, one from the NDP, one from the Alberta Party. It must report by November 2, 2026 with a 91-seat map.
 
-The referral followed the letter of the Act. It also confirms Alberta's outlier status among Canadian provinces in two specific ways. Most provinces require the legislative assembly to consider a commission report before any referral can take effect; Alberta does not. Most provincial commissions are chaired by a sitting or retired judge whose tenure is protected; Alberta's chair is a public appointee who can be replaced mid-mandate by a simple cabinet decision.
+The referral followed the letter of the Act. It also confirms Alberta's outlier status: most provinces require the legislative assembly to consider a commission report before any referral can take effect; Alberta does not. Most provincial commissions are chaired by a sitting or retired judge whose tenure is protected; Alberta's chair is a public appointee who can be replaced mid-mandate by a cabinet decision.
 
-Three Canadian comparator cases inform what "departing from norm" looks like in practice. In Quebec 1992 the National Assembly debated and amended a commission report rather than replacing the drafting process; the resulting map followed the commission's structure with targeted changes documented in committee transcripts. In Ontario 1996 a Conservative government collapsed 130 ridings to 103 by adopting the federal map, a structural rather than partisan change with bipartisan committee participation. In British Columbia 2008 a tied commission saw both reports tabled in the legislature with no government substitution; the assembly chose between them on a free vote. None of the three substituted a government-chaired drafting body for an independent commission's drafting process during the same redistribution cycle, which is what Alberta's April 16 motion did.
+Three Canadian comparator pivots show what "departing from norm" looks like in practice:
+
+- **Quebec, 1992:** the National Assembly debated and amended the commission's report, then passed it. The drafting process stayed with the commissioners; the legislature only changed specific lines, on the record.
+- **Ontario, 1996:** Mike Harris's government cut 130 ridings to 103 by adopting the federal map. A structural change, not a partisan one, with cross-party committee participation.
+- **British Columbia, 2008:** a tied commission tabled both reports; MLAs picked one on a free vote. The drafting was not handed to a new body.
+
+None of the three substituted a government-chaired drafting body for the commission partway through the cycle. That is what Alberta did on April 16.
 
 ---
 
@@ -43,13 +49,13 @@ Three Canadian comparator cases inform what "departing from norm" looks like in 
 >
 > Majority map: 2 divisions. Minority map: 4 — each quarter attached to a different surrounding region.
 
-**It splits the City of Airdrie into four pieces.** The law caps each electoral division at one-and-a-quarter times the provincial average, so Airdrie needs at least two divisions. The majority map gives it two. The minority map gives it four — North Airdrie attached to Olds–Three Hills–Didsbury, East Airdrie to Calgary-Falconridge–Conrich, West Airdrie to Cochrane-Springbank, and the urban core attached to Calgary-Foothills. An Airdrie resident with a question for her MLA has to know which quarter of the city she lives in before she can identify which legislative office to call. Her neighbours two blocks away will give her three different answers depending on which quarter they live in.
+**It splits the City of Airdrie into four pieces.** The law caps each electoral division at one-and-a-quarter times the provincial average, so Airdrie needs at least two divisions. The majority map gives it two. The minority gives it four — North, East, West, and centre — each one stapled to a different rural or Calgary-edge district. An Airdrie resident with a question for her MLA has to know which quarter of the city she lives in before she can call the right office. Her neighbours two blocks over will give her three different answers.
 
 > Both maps are legal. The four-way split is a choice.
 
-**It ignores municipal boundaries.** When electoral maps follow the edge of a city or town, voters recognize where their division begins and ends — the property-tax line, the school-division line, the local-election ward line, and the provincial-election line all coincide. The majority map traces municipal boundaries on 71 out of every 100 kilometres of its border. The minority map traces them on only 15 out of every 100. This number has nothing to do with which party benefits — it is measured from publicly available maps, not election results. Statistics Canada's Census Subdivision (CSD) layer is the survey-grade reference geography that any Canadian map-maker inherits for free. Drawing 85% of a province's electoral border off-reference is, in the Canadian commission literature, a deliberate methodological choice that requires explicit justification. The minority report offers none.
+**It ignores municipal boundaries.** When electoral maps follow the edge of a city or town, voters recognize where their division begins and ends — the property-tax line, the school-division line, the local-election ward line, and the provincial-election line all coincide. These maps already exist. Statistics Canada publishes the city and town boundaries; any redistricting commission gets them for free. The majority map traces them on 71 of every 100 kilometres of its border. The minority traces them on 15 of 100 — and offers no published reason for the departure.
 
-**One area of Calgary is carved up to concentrate NDP voters into larger-than-average divisions.** In Calgary's northwest quadrant, the minority map's divisions average 11.5% above the province-wide population — versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. Concentrating voters into oversized divisions dilutes their weight per ballot; redistricting analysts call it *packing* (see vocabulary sidebar).
+**One area of Calgary is carved up to concentrate NDP voters into larger-than-average divisions.** In Calgary's northwest quadrant, the minority map's divisions average 11.5% above the province-wide population — versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. Packing more voters into fewer, larger districts is one of the two classic gerrymandering moves: it dilutes how much each ballot weighs.
 
 Two further structural measures show the same pattern: the minority map's overall population spread is 48% wider than the majority's (median absolute deviation 4,707 vs 3,180), and the commission chair flagged three boundaries on the minority map as geographically anomalous (Rocky Mountain House–Banff Park's extension into uninhabited national park land; the Calgary-Nolan Hill–Cochrane lasso-shaped corridor; the Olds–Three Hills–Didsbury reach into north Airdrie). The majority received zero such flags from the same chair.
 
@@ -59,19 +65,11 @@ Two further structural measures show the same pattern: the minority map's overal
 
 > **SIDEBAR — VOCABULARY**
 >
-> **Efficiency gap (EG).** A wasted-vote count comparing the two parties. Above 7% in US case law has been argued (and rejected) as a gerrymander threshold. The Alberta-calibrated threshold is 4.37% (see methodology).
+> **Packing / cracking.** Packing concentrates one party's voters into a few high-margin wins (wasting their surplus). Cracking spreads them thinly across districts they narrowly lose. Both shrink the party's seat count below its vote share.
 >
-> **Mean-median.** The gap between the average and median district vote share. A persistent skew suggests one party's votes are systematically packed.
+> **Anchoring.** The fraction of an electoral border that lies on a pre-existing administrative line — a city limit, a school-division boundary, a Statistics Canada census line. The reference geography is published; commissions get it for free.
 >
-> **Declination.** Treats the seats-votes relationship as an angle. Asymmetric angles flag districts engineered to win by narrow margins on one side and lose by blowouts on the other.
->
-> **Packing / cracking.** Packing concentrates one party's voters into a few high-margin wins (wasting their surplus). Cracking spreads them thinly across districts they narrowly lose. Both reduce the party's seat count below its vote share.
->
-> **Anchoring.** The fraction of an electoral border that lies on a pre-existing administrative line — Statistics Canada CSDs, dissemination areas, school-division boundaries, municipal limits.
->
-> **MCMC ensemble.** A computer simulation that draws 100,000 different legal Alberta maps from the same constraints the commission worked under. Real maps that fall outside the 95th percentile of the simulation are statistical outliers.
->
-> **Pre-registered pass.** A test the audit committed to in writing *before* looking at the data. When the minority map then passed it, the result was recorded as a pass — the audit does not cherry-pick.
+> **Computer simulation.** The audit generated 250,000 different legal Alberta maps under the same statutory rules the commission worked under, then compared the real maps to the simulated distribution. A real map at the 95th percentile or beyond sits in the outermost 5% of what those constraints can produce.
 
 The table compares the two maps. None of the top six rows uses election results.
 
@@ -142,20 +140,22 @@ The honest answer needs two lanes.
 
 ### Lane 1 — the partisan-fairness numbers
 
-Where the two 2026 maps land against the Alberta-derived 4.37% threshold (the strongest of four Alberta-calibrated alternatives — see methodology), under the audit's full-coverage geometry (89 of 89 EDs measurable):
+The 4.37% number we keep referring to is not a "threshold" the way Whitford v. Gill called 7% a threshold. It is the 95th percentile of the efficiency gap across 250,000 different legal Alberta maps the audit's computer simulation generated. Anything above it sits in the outermost 5% of what Alberta's redistricting rules can produce. That is informative, but it is a *percentile*, not a legal cut-off.
 
-| Map | Efficiency gap | Above Alberta 4.37%? | Percentile vs 250k computer simulation |
+Where the two 2026 maps land against the simulation's 95th percentile (4.37%):
+
+| Map | Efficiency gap | Above the p95 line? | Honest percentile reading |
 |---|---|---|---|
-| Majority 2026 | +6.4% | **Yes — 2.0 pp over** | **p99.9 (UCP-favoured tail)** |
-| Minority 2026 | +9.2% | **Yes — 4.8 pp over** | **p100 (UCP-favoured tail)** |
+| Majority 2026 | +6.4% | Yes — 2.0 pp over | beyond p95 (likely p98+) |
+| Minority 2026 | +9.2% | Yes — 4.8 pp over | beyond p95 (likely p99+) |
 
-**On Lane 1, both maps now exceed the Alberta-derived gerrymander threshold.** This is a recent and consequential update. The earlier reading — that both maps were sub-threshold — used partial-coverage geometry (only 67 of 89 EDs) which under-counted votes in rural-UCP regions. The full-coverage 89-of-89 geometry the audit now publishes (built via 2019-Tier-A inheritance for the 21 majority + 12 minority EDs whose 2026 boundaries the commission's published maps did not allow direct reconstruction of) shifts the EG reading from sub-threshold to outlier on both maps.
+**Why "likely" instead of an exact number.** The chains' effective sample size is in the high hundreds, which means the audit can confidently say a map is past p95 but cannot reliably distinguish p99 from p99.9 from p100. The point estimate is in the data; the precision the audit *can* claim stops at "outside the 95–5 band."
 
-The honest framing: under partial-coverage attribution, neither map is a gerrymander on EG. Under full-coverage attribution, both are. The methods paper formalises this kind of cross-method disagreement; the audit reports both readings rather than picking one as authoritative. Until Elections Alberta releases the official 2026 shapefiles, the truth lies between the two readings.
+**Why the verdict moved.** An earlier version of this audit measured 67 of 89 ridings — the 22 it skipped were mostly rural UCP strongholds whose 2026 boundaries the commission's published maps did not let the audit reconstruct from public data. Filling those in (using their 2019 boundaries as a stand-in until Elections Alberta releases the official files) pushed both maps over the line. The earlier reading wasn't wrong — it was incomplete. The honest framing: the partial-coverage and the inheritance-filled full-coverage readings *both* have measurement noise; until the official shapefiles drop, neither is authoritative. They agree on direction (both maps lean UCP) and disagree on magnitude.
 
 ### Lane 2 — the structural pattern
 
-Partisan-fairness numbers are not the only way to spot engineering. The audit applied nine further tests of *how the map was drawn* — all measurable from public maps, none dependent on election results.
+Lane 1 depends on which election and which version of the audit's geometry you use. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.
 
 | Test | Majority map | Minority map |
 |---|---|---|
@@ -164,39 +164,39 @@ Partisan-fairness numbers are not the only way to spot engineering. The audit ap
 | NW Calgary population concentration above average | 0.4% | **12.2%** |
 | Boundaries flagged by the commission's own chair | 0 | **3** |
 | Airdrie split (constraint minimum: 2) | 2 pieces | **4 pieces** |
-| Minority's published reasons checked symmetrically | n/a | **6 of 7 fail** |
-| Contested choices with documented public-submission support | n/a | **2 have none** |
 | Pre-registered structural-irregularity count (4 of 5 = outlier) | 0 of 5 | **5 of 5** |
 | Mean-median percentile vs computer simulation | At the 95th-percentile boundary | At the 95th-percentile boundary |
 
+A separate finding — applied only to the minority because the minority is the map whose contested redraws are public — is that **six of seven of the minority commissioners' published reasons fail under independent check**, and **two of the contested redraws have no documented public-submission support** in the commission's archive of 1,140+ submissions. These rows are not in the table because they cannot be applied symmetrically: the majority did not publish a contested-redraw rationale list. They are reported here as a single flag, not as two more rows in the structural-irregularity count.
+
 **On Lane 2, the majority crosses zero structural thresholds. The minority crosses every one of them by a wide margin.**
 
-### The six-of-seven rationale failures
+### Six of seven of the minority's published reasons fail under check
 
-The minority report includes published rationales for its seven most contested redraws. Symmetric audit checks each rationale against the data the rationale itself invokes. Six of seven fail.
+The minority report includes published rationales for its seven most contested redraws. The audit checks each one against the data the rationale itself invokes. Six fail; one stands.
 
-- **Airdrie 4-way split** is justified by "rural and urban character differs across Airdrie's quadrants." Statistics Canada population profiles show Airdrie's four quadrants are within 8% of each other on every demographic measure the commission considers. Rationale fails.
-- **Cochrane attached to Calgary-Foothills via the Nolan Hill lasso** is justified by "commuter community of interest." Journey-to-work data shows Cochrane's modal commuter destination is Cochrane itself; among out-of-town commuters, Calgary-Centre is named more often than Foothills. Rationale fails on the commute claim and on the geography claim.
-- **Rocky Mountain House extended into Banff National Park** is justified by "ranching community of interest." The extended polygon contains zero year-round residents and zero working ranches. Rationale fails as stated.
-- **Olds-Three Hills-Didsbury reaching into North Airdrie** is justified by "linked agricultural service centres." North Airdrie is suburban; Olds and Didsbury are rural service centres. The connection is geographic adjacency, not COI. Rationale fails.
-- **Lethbridge split between Lethbridge-East and Taber-Warner** is justified by "matches federal boundary." The federal boundary it claims to match was retired in 2013. Rationale fails as stated.
-- **Red Deer attached to Sylvan Lake** is justified by "shared school division." The shared school division contains 8% of Red Deer's school-aged population. Rationale fails on magnitude.
-- **St. Albert-Sturgeon** is justified by "population balancing on Edmonton-corridor constraints." This rationale survives audit — the population deviation constraint, plus the Edmonton-corridor commute geography, leaves no other configuration that satisfies both the COI and the ±25% rule simultaneously. **Rationale stands.**
+- **Airdrie split four ways.** *Minority commissioners said:* rural and urban character differs across Airdrie's quadrants. *Statistics Canada says:* the four quadrants are within 8% of each other on every demographic measure the commission considers. **Fail.**
+- **Cochrane attached to Calgary-Foothills via the Nolan Hill lasso.** *Minority commissioners said:* commuter community of interest. *Journey-to-work data says:* Cochrane's most common commuter destination is Cochrane itself; among out-of-town commuters, Calgary-Centre is named more often than Foothills. **Fail.**
+- **Rocky Mountain House extended into Banff National Park.** *Minority commissioners said:* ranching community of interest. *The extended polygon contains:* zero year-round residents and zero working ranches. **Fail.**
+- **Olds-Three Hills-Didsbury reaching into North Airdrie.** *Minority commissioners said:* linked agricultural service centres. *Census-of-agriculture data says:* North Airdrie is suburban; Olds and Didsbury are rural service centres. The connection is geographic adjacency, not common interest. **Fail.**
+- **Lethbridge split between Lethbridge-East and Taber-Warner.** *Minority commissioners said:* matches federal boundary. *Elections Canada records say:* the federal boundary they claim to match was retired in 2013. **Fail.**
+- **Red Deer attached to Sylvan Lake.** *Minority commissioners said:* shared school division. *The shared school division contains:* 8% of Red Deer's school-aged population. **Fail (on magnitude).**
+- **St. Albert-Sturgeon.** *Minority commissioners said:* population balancing on Edmonton-corridor constraints. *The constraint check confirms:* with the population-deviation rule and the Edmonton-corridor commute geography, no other configuration satisfies both the community-of-interest and the ±25% rule simultaneously. **Stands.**
 
-The six-failure / one-stand pattern matters. A symmetric audit that found 0/7 or 7/7 failures would suggest either no rationale problem or a methodology bias. A 6/7 pattern with the seventh being a constraint-forced configuration is the engineered/forced ratio that distinguishes deliberate boundary choice from constraint trade-off.
+The six-failure / one-stand pattern matters. A symmetric audit finding 0 of 7 or 7 of 7 would suggest either no rationale problem or a methodology bias. A 6 of 7 pattern with the seventh being constraint-forced is the engineered-versus-forced ratio that distinguishes deliberate boundary choice from a trade-off the constraints made unavoidable.
 
 ### Verdict
 
 | | Lane 1: Numbers (full coverage) | Lane 2: Structure |
 |---|:--:|:--:|
-| **Majority 2026** | EG +6.4% (over threshold) | not a gerrymander |
-| **Minority 2026** | EG +9.2% (over threshold) | exhibits a gerrymander signature |
+| **Majority 2026** | EG +6.4% (beyond p95) | clean — crosses no structural threshold |
+| **Minority 2026** | EG +9.2% (beyond p95) | crosses every structural threshold by a wide margin |
 
-Lane 1 verdict shifted with the move from partial to full coverage. Under partial coverage, neither map was over threshold; under full coverage, both are. The ENGINEERING DIFFERENCE that distinguishes the two maps lives in Lane 2, not Lane 1 — both maps inherit Alberta's structural rural-UCP advantage on EG; only the minority crosses every structural threshold by wide margins.
+The Lane 1 reading moved when the audit went from 67-of-89 to 89-of-89 coverage; under the earlier partial reading, neither map was beyond p95. Both readings agree on direction (both maps lean UCP) and on which map leans further (the minority). The *engineering difference* that distinguishes the two maps lives in Lane 2, not Lane 1 — both maps inherit Alberta's structural rural-UCP advantage on partisan-fairness numbers; only the minority crosses every structural threshold.
 
-> **OPINION — THE EFFECTS, REPORTED PLAINLY.** The measurement work returns a coverage-sensitive result on Lane 1 (under partial-coverage attribution both maps were sub-threshold; under full-coverage attribution both exceed the Alberta-derived 4.37% EG threshold) and an unambiguous result on Lane 2 (the minority crosses every structural threshold by wide margins; the majority crosses none). Each individual structural signal has an innocent explanation available; the cumulative pattern is what the academic redistricting literature treats as a gerrymander signature. Whether the pattern's most parsimonious explanation is engineering, unlucky drafting, or some combination is the inference the reader is invited to weigh. The audit measures the effects; it does not claim to read the drafters' minds.
+> **THE PLAIN READING.** On the numbers, both maps now look like outliers — once you measure all 89 ridings instead of 67. On the structural pattern, only the minority map crosses every line by a wide margin. Each of those structural choices has an innocent explanation on its own; together, they form the kind of pattern redistricting researchers flag for further inquiry. Whether the cause was deliberate engineering, unlucky drafting, or both is a judgement call the audit puts in the reader's hands.
 >
-> **Bottom line:** Lane 1 finds both maps now above the Alberta-derived gerrymander threshold under full coverage (a recent and consequential update from earlier partial-coverage readings); Lane 2 finds only the minority crosses every structural threshold. The literature weights the cumulative structural pattern more heavily than any single magnitude metric; the monograph (§6.2) sets out the cross-method disagreement explicitly without picking one reading as authoritative.
+> We measured the effects. We can't read minds.
 
 ### How close did the minority map come?
 
@@ -228,7 +228,7 @@ The work itself is not moot. The commission audit calibrated Alberta-specific th
 >
 > *Many things count as gerrymandering, and not all show up in the partisan-fairness numbers.* The minority map sat sub-threshold on every Alberta-calibrated EG line while crossing every structural threshold by a wide margin. A drafting process that wants to engineer outcomes without leaving an EG fingerprint has the structural lane available — community splits, off-reference borders, anchoring departures, chair-flagged shapes.
 
-The standard for November is the standard applied here: *skew toward neutrality wherever the constraints permit, document the departures, and defend them with evidence stronger than aesthetic preference.* The same scripts will answer, publicly, against the same thresholds — because we'll see if they don't.
+The standard for November is the standard applied here: *skew toward neutrality wherever the constraints permit, document the departures, and defend them with evidence stronger than aesthetic preference.* When the Lunty committee publishes its map in November, this audit will measure it the same way, with the same code, against the same thresholds. The results will be public the day the map is.
 
 ---
 
@@ -252,7 +252,7 @@ The audit used publicly available data: Elections Alberta's 2023 Statement of Vo
 
 The Elections Alberta shapefiles for the 2026 proposed boundaries have not been released. The audit reconstructs them from the commission's 600-DPI map images using a derived-provisional-geometry pipeline (eight stages, documented in monograph §4.1.5–§4.1.6). The reconstruction has documented ±500m perimeter precision and Tier-dependent area precision; every metric in this article that depends on geometry carries that caveat in the full monograph. A sunset clause binds the audit to recompute all geometry-dependent findings within 48 hours of any official shapefile release.
 
-An AI assistant (Claude, made by Anthropic) helped draft and check the text, including this sentence. All factual claims were verified by the author against primary sources. The audit declares this openly because the same standard it applies to the commission — transparency about process — applies to the audit itself.
+*AI assistance disclosed: Claude (Anthropic) helped draft and check the text. All factual claims were verified by the author against primary sources.*
 
 ---
 
@@ -260,13 +260,11 @@ An AI assistant (Claude, made by Anthropic) helped draft and check the text, inc
 
 1. **Read the full findings.** The monograph ([report_academic.md](report_academic.md)) contains every number, every source, and every caveat. The retraction conditions tell you exactly what evidence would change each conclusion.
 
-2. **Ask your MLA what the committee's process will be.**
-   - Will the committee publish the evaluation criteria it uses *before* drawing a single line?
-   - Will it release the range of maps it considered, not just the one it chose?
-   - Will it publish any prompts or inputs given to AI tools?
+2. **Ask your MLA three questions about the committee.**
+   - Will it publish the criteria it's using *before* it draws a single line?
+   - Will it release the other maps it considered, not just the one it picked?
+   - Will it disclose any AI tools it used and the prompts given to them?
 
-3. **Request the official shapefiles.** Elections Alberta has not published the 2026 electoral division map files. Without these, some of this audit's calculations cannot be fully verified or corrected. A FOIP request would require their release.
-
-4. **Share this report.** The full monograph is written for researchers and journalists. This report is written for everyone else. If you think the commission's process matters, share what you found here.
+3. **Request the official shapefiles.** Elections Alberta has not published the 2026 electoral division map files. Without these, some of this audit's calculations cannot be fully verified or corrected. A Freedom of Information request would require their release.
 
 The full technical monograph, with all methods, caveats, and source citations, is at [report_academic.md](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/report_academic.md).
