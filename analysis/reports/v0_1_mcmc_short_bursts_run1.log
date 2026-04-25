@@ -1,0 +1,46 @@
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+[short bursts] 500 × 10 steps  seed=42
+[22:56:27] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[22:56:27] building adjacency graph (4765 VAs)...
+  built in 18.2s: 4765 nodes, 13385 edges
+Scoring real maps...
+
+Running 500 bursts × 10 steps...
+  burst 0/500...
+  burst 50/500...
+  burst 100/500...
+  burst 150/500...
+  burst 200/500...
+  burst 250/500...
+  burst 300/500...
+  burst 350/500...
+  burst 400/500...
+  burst 450/500...
+  Wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_short_bursts.csv (500 burst endpoints)
+
+--- BURST-ENDPOINT DISTRIBUTION ---
+  efficiency_gap          mean=+0.0070  [p5=+0.0009 p50=+0.0044 p95=+0.0189]  range=[-0.0125, +0.0292]
+  mean_median             mean=-0.0132  [p5=-0.0226 p50=-0.0125 p95=-0.0086]  range=[-0.0337, +0.0003]
+  declination             mean=+0.0264  [p5=+0.0070 p50=+0.0321 p95=+0.0363]  range=[-0.0187, +0.0587]
+  seats_at_50_50          mean=+0.4569  [p5=+0.4477 p50=+0.4598 p95=+0.4713]  range=[+0.4253, +0.4828]
+
+--- REAL MAP RANKS WITHIN BURST DISTRIBUTION ---
+  2019_enacted               efficiency_gap          val=+0.0241  burst_pct=98.0
+  2019_enacted               mean_median             val=-0.0077  burst_pct=98.2
+  2019_enacted               declination             val=-0.0451  burst_pct=0.0
+  2019_enacted               seats_at_50_50          val=+0.4598  burst_pct=30.8
+  majority_2026_v7           efficiency_gap          val=-0.0024  burst_pct=3.0
+  majority_2026_v7           mean_median             val=+0.0080  burst_pct=100.0
+  majority_2026_v7           declination             val=-0.0203  burst_pct=0.0
+  majority_2026_v7           seats_at_50_50          val=+0.5152  burst_pct=100.0
+  minority_2026_v7           efficiency_gap          val=-0.0102  burst_pct=0.8
+  minority_2026_v7           mean_median             val=-0.0108  burst_pct=84.2
+  minority_2026_v7           declination             val=-0.0941  burst_pct=0.0
+  minority_2026_v7           seats_at_50_50          val=+0.5493  burst_pct=100.0
+
+Wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_short_bursts_summary.json
+Wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\reports\v0_1_mcmc_short_bursts.md
+
+Done in 4181s
