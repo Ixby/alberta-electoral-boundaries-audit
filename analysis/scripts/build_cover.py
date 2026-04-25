@@ -197,45 +197,44 @@ def build_cover_art() -> Path:
     ax.set_aspect("equal")
     ax.axis("off")
 
-    # Province silhouette in the original (pre-eruption) position — kept
-    # confident enough to read as Alberta at a glance. The eruption
-    # happens INSIDE this anchor outline so the shape stays recognisable.
-    gpd.GeoSeries([province_orig], crs=3401).plot(
-        ax=ax, facecolor="none", edgecolor="#0e0e0e",
-        linewidth=1.4, linestyle="-", alpha=0.55, zorder=1,
-    )
-    # Plus a fainter dashed echo just outside it to add depth
-    gpd.GeoSeries([province_orig.buffer(8000)], crs=3401).plot(
-        ax=ax, facecolor="none", edgecolor="#0e0e0e",
-        linewidth=0.4, linestyle=(0, (1, 3)), alpha=0.25, zorder=1,
-    )
+    # No backdrop wireframe — Alberta's silhouette is carried by the
+    # displaced ED pieces themselves. The maximum 9% radial displacement
+    # keeps the shape readable.
 
     no_vote_color = "#cfcbc4"
+
+    # Render EDs largest-first so smaller EDs land ON TOP of larger ones.
+    # Small urban EDs (Calgary, Edmonton) would otherwise be hidden under
+    # the rural giants (West Yellowhead, Peace River, etc.).
+    eds_sorted = eds.assign(_area=eds.geometry.area).sort_values(
+        "_area", ascending=False
+    )
 
     # 7a. Motion ghosts — for each ED, draw GHOST_STEPS faint copies trailing
     #     from near-Edmonton out to the just-before-final position. Innermost
     #     ghost is faintest, outermost ghost (frame just before final) is the
-    #     boldest of the ghosts.
-    for _, row in eds.iterrows():
+    #     boldest of the ghosts. Same large-first ordering.
+    for _, row in eds_sorted.iterrows():
         g = row.geometry  # original (pre-explode)
         dx, dy = row["disp"]
         if abs(dx) < 1.0 and abs(dy) < 1.0:
-            continue  # essentially static — no ghosts needed
+            continue
         if row["total"] > 0:
             color = cmap(norm(row["ucp_share"]))
         else:
             color = no_vote_color
         for k in range(1, GHOST_STEPS + 1):
-            frac = k / (GHOST_STEPS + 1)  # 0.25, 0.5, 0.75 for GHOST_STEPS=3
+            frac = k / (GHOST_STEPS + 1)
             ghost = shapely.affinity.translate(g, dx * frac, dy * frac)
-            ghost_alpha = GHOST_ALPHA_BASE * frac  # later ghosts brighter
+            ghost_alpha = GHOST_ALPHA_BASE * frac
             gpd.GeoSeries([ghost], crs=3401).plot(
                 ax=ax, facecolor=color, edgecolor="none",
                 alpha=ghost_alpha, zorder=2,
             )
 
-    # 7b. Final exploded EDs on top of their motion ghosts
-    for _, row in eds.iterrows():
+    # 7b. Final exploded EDs on top of their motion ghosts, large-first so
+    #     small EDs render on top.
+    for _, row in eds_sorted.iterrows():
         g = row["exploded"]
         if g is None or g.is_empty:
             continue
