@@ -1333,6 +1333,108 @@ The audit therefore does not say **"this map is wrong."** It says **"this map is
 
 In every case, the audit's claim is the same shape: the Commission paid a measurable **fairness cost** to get the specific map they produced, where "fairness cost" means the number of statistical standard deviations (or the ReCom-ensemble percentile, or the anchoring ratio) by which the chosen map is displaced from the constraint-bound expectation. **This is the audit's only substantive claim.** It does not claim the minority is "wrong"; it claims the minority is improbable by a measurable amount, and the improbability has a direction.
 
+### 6.2 Author's verdict — was either map a gerrymander?
+
+This subsection departs from the audit's measurement-only voice and offers the author's stated opinion on the question that motivated this work. It is presented as opinion, not as a peer-reviewed conclusion. The author's prior — UCP-disinclined Alberta voter — is disclosed in the Author Disclosure block in §1, along with the three findings retained in this paper that ran *against* that prior. Readers who weight the audit only on its measurable claims should stop at §6.1 and treat this subsection as ignorable.
+
+**Definition used in this verdict.** "Gerrymandering" is taken to mean the deliberate drawing of electoral boundaries to advantage one political interest over others, beyond what the statutory constraints require. Narrower than "any map with a partisan-asymmetry signal" (which would over-fire on natural-packing geography); broader than "any map whose author admits intent in writing" (essentially never observable). Working definition used by Stephanopoulos and McGhee (2015), DeFord et al. (2021), and the dissenting opinions in *Rucho v. Common Cause* (2019). It maps onto the Canadian *Reference re Saskatchewan* [1991] framework as: a map fails effective representation when its boundary choices systematically dilute one community of voters' electoral weight beyond what geographic constraints require.
+
+#### 6.2.1 Lane 1 — Partisan-bias magnitude (against Alberta-calibrated thresholds)
+
+The audit's §5.2.8 derives **four Alberta-calibrated EG thresholds**, of which the most empirically grounded is the MCMC-ensemble 95th percentile drawn from 100,000 ReCom plans on Alberta's actual 2019 substrate under EBCA constraints. None of these thresholds is borrowed US judicial economy; each is calibrated to Alberta law or Alberta data. The full provenance of each threshold is in §5.2.8; the cross-tabulation against both 2026 maps follows.
+
+| Threshold | Source | Value | Majority EG (−1.29 %) | Minority EG (−2.71 %) |
+|---|---|---|---|---|
+| Stephanopoulos & McGhee (2015) reference | US historical calibration | 7 % | sub-threshold | sub-threshold |
+| Option A — Assembly-size sensitivity | First-principles scaling (S&M §III.B): 2/89 seats | ~2.2 % | sub-threshold | above signal floor (+0.51 pp over) |
+| Option B — EBCA statutory-proportional | One-fifth of EBCA ±25 % population deviation | 5 % | sub-threshold | sub-threshold |
+| Option C — Alberta historical-swing | 2015/2019/2023 swing analysis (provisional) | 5–9 % | sub-threshold | sub-threshold |
+| **Option D — MCMC ensemble p95** | **100k ReCom on Alberta 2019 substrate, seed 42, ±25 %** | **4.37 %** | **sub-threshold** | **sub-threshold** |
+
+**Reading.** On the strongest Alberta-derived threshold (Option D, the MCMC ensemble's 95th percentile), both 2026 absolute EGs sit comfortably inside the constraint-bound expectation. The minority crosses one threshold — Option A's 2.2 % — but §5.2.8 is explicit that 2.2 % "marks where EG variation stops being within assembly-size rounding noise, not where a pattern becomes legally or structurally significant." It is a *detectability* line, not a *gerrymander* line.
+
+**Lane 1 verdict.** On partisan-bias *magnitude*, against Alberta-calibrated thresholds, **neither map is a gerrymander**. This includes the most rigorous Alberta-specific number the audit has produced. The author wants this stated explicitly because the public conversation around this audit has sometimes framed the headline as "the minority map's EG is over the threshold" — it is not, on any calibration except a noise-floor detection threshold that even §5.2.8 explicitly says is not a gerrymander threshold.
+
+#### 6.2.2 Lane 2 — Structural and procedural pattern
+
+Lane 1 having returned a clean result for both maps on partisan-bias magnitude, the question becomes whether anything *else* in the evidence supports a gerrymander reading. The audit's other test families are vote-data-independent and detect engineering signatures that don't show up in EG magnitude alone.
+
+| Test family | Threshold (where defined) | Majority 2026 | Minority 2026 |
+|---|---|---|---|
+| Mean-median percentile vs MCMC ensemble | p > 95 = academic-literature outlier | p100 (tied) | p100 (tied; p98.8 raw 2023) |
+| Municipal anchoring | Canadian comparator norm 70–85 % | 71.0 % (in norm) | **14.5–16.5 % (4.9× departure)** |
+| Population MAD | tighter is better | 3,180 | **4,707 (48 % wider)** |
+| Calgary geographic-zone gap | smaller is more neutral | 0.4 % | **12.2 %** |
+| Chair-flagged geographic anomalies | count, lower is better | 0 | **3** (RMH–Banff Park, Nolan Hill–Cochrane, Olds → N Airdrie) |
+| Airdrie community split | 1- or 2-way is constraint-minimum | 2-way | **4-way** |
+| Rationale-failure pattern (symmetric audit) | 0 of contested redraws fails | not applicable | **6 of 7 fail** |
+| Public-submission support for contested configurations | every contested config has documented support | n/a | **2 configs (Airdrie 4-way, Nolan Hill) have no documented submissions** in the 1,140+ archive |
+| Pre-registered structural-irregularity count | ≥ 4 of 5 = outlier per §5.5 | 0 of 5 | **5 of 5** |
+
+**Lane 2 reading.** The minority crosses every structural threshold by a wide margin; the majority crosses none. The 4.9× anchoring departure is the cleanest single signal — there is no Canadian commission in recent decades whose anchoring sits where the minority's does, and no statutory constraint forces it. The 6-of-7 rationale-failure pattern (with the 7th — St. Albert-Sturgeon — symmetrically classified as constraint-forced) is the cleanest rationale signal: a symmetric audit that finds the minority's own published justifications fail on six of seven configurations, while the alternatives that satisfy the rationales are constraint-legal.
+
+#### 6.2.3 Verdict on the majority 2026 proposal: not a gerrymander
+
+Both lanes return a clean result. The majority sits inside the partisan-bias-magnitude band on every Alberta-calibrated threshold (Lane 1) and crosses no structural-or-procedural threshold (Lane 2). The mean-median percentile placement at p100 reflects Alberta's underlying rural-UCP-dispersion geography, not majority-specific engineering — the 2019 enacted map sits at essentially the same percentile, and the Chen-Rodden decomposition (§5.2.5–§5.2.6) attributes the majority's UCP-favourable point to dispersed rural margins rather than to drawing choices.
+
+**My verdict: the majority is the kind of map a competent independent commission would produce. It is not a gerrymander on any Alberta-calibrated metric.**
+
+#### 6.2.4 Verdict on the minority 2026 proposal: structurally consistent with engineering; not a gerrymander on partisan-bias magnitude
+
+The honest reading of the two lanes:
+
+1. **On partisan-bias magnitude (Lane 1) the minority is sub-threshold on every Alberta-calibrated threshold including the MCMC-derived 4.37 %.** It does cross Option A (2.2 %), but Option A is a noise-floor detection line, not a gerrymander line.
+
+2. **On structural and procedural patterns (Lane 2) the minority crosses every comparator threshold the audit applies, by a wide margin.** Five of five pre-registered structural-irregularity tests fire; six of seven contested redraws fail their stated rationales; anchoring departs from Canadian comparator norm by 4.9×; the commission chair from the same commission flagged three geographic anomalies on this map and zero on the majority.
+
+The two lanes give different answers. A reader who weights partisan-bias magnitude as the dispositive test will read the minority as not a gerrymander. A reader who weights the cumulative structural-and-procedural pattern as the dispositive test will read it as one. The literature is on the side of the second reader: Katz, King and Rosenblatt (2020) explicitly recommend ensemble reporting precisely because no single magnitude metric is dispositive; Cain et al. (2018) argue that municipal-anchoring departure is itself a partisan-engineering enabler; the chair-flag, rationale-failure, and submission-archive patterns are not partisan-bias *measurements* but partisan-engineering *signatures*.
+
+**My verdict, with the lane-disagreement disclosed.** I believe, on the cumulative structural-and-procedural pattern, that the minority 2026 proposal is more plausibly explained by deliberate engineering against the NDP than by neutral choice among constraint-legal alternatives. **I do not call it a gerrymander on partisan-bias magnitude — on Alberta-calibrated EG thresholds the minority is sub-threshold.** The verdict is "structurally consistent with engineering, magnitude-undetectable."
+
+A reasonable expert who weights partisan-bias magnitude over structural pattern would reach a more cautious verdict on the minority — closer to "no measurable gerrymander on the partisan-bias dimension; structural irregularities require explanation but do not by themselves establish engineering." That disagreement is documented rather than hidden.
+
+#### 6.2.5 How close did the minority come?
+
+A "how close" answer needs to be lane-specific because the two lanes give different answers.
+
+**Lane 1 (partisan-bias magnitude).** The minority's absolute EG of 2.71 % sits 1.66 pp below the MCMC ensemble's 95th percentile (4.37 %). On the seats-at-50/50 metric the minority displaces UCP +8.9 pp from the ensemble median; the ensemble's 95 % CI permits displacement up to roughly ±10 pp on this metric. **Distance to the nearest Alberta-calibrated gerrymander threshold: 1.66 pp on EG; comfortably inside the ensemble-derived band on seats-at-50/50.** The minority is closer to threshold than the majority but still under it.
+
+**Lane 2 (structural pattern).** The minority crosses every threshold by a wide margin:
+
+- Anchoring 14.5–16.5 % vs Canadian comparator norm 70–85 % — **53–55 pp departure** (the cleanest cross of any threshold the audit measures)
+- Mean-median percentile p100 vs literature outlier line p95 — **5 percentile points over** (or p98.8 raw, 3.8 over)
+- Structural-irregularity count 5 of 5 vs pre-registered cut-off ≥ 4 — **1 over**
+- Chair-anomaly count 3 vs 0 — **3 over**
+- Airdrie 4-way vs constraint-minimum 2-way — **2 splits over**
+- Rationale-failure 6 of 7 vs symmetric-audit cut-off ≥ 1 — **5 over**
+
+**Distance to the nearest structural gerrymander threshold: 0 (already over).** On the structural lane the minority is not "close" to a threshold — it crosses every threshold the audit applies.
+
+The honest summary: *the minority maxes out the structural-irregularity scoring while staying inside the partisan-bias-magnitude band*. That is exactly the profile predicted by a drafting process that engineered structural arrangements (off-reference boundaries, community splits, chair-flagged shapes) without producing a measurable EG-magnitude consequence — either because the engineering was unsuccessful at translating to seats, or because the engineering's seat-translation depends on a future vote distribution we haven't observed yet.
+
+#### 6.2.6 What would change the author's verdict
+
+1. **An independent reviewer produces a constraint-legal Alberta map that satisfies the minority's stated COI rationales (community-of-interest preservation in Airdrie, Cochrane, Nolan Hill, RMH–Banff Park) and *also* matches majority-comparable municipal anchoring (≥ 60 % CSD/DA edge alignment).** The minority's rationale-failure pattern would then be evidence of a constraint trade-off rather than engineering. (Issue #14 on the audit's GitHub repository invites this exact counter-map.) Strongest single falsifier.
+
+2. **The 2019 cross-election direction reversal extends to 338Canada April 2026 polling.** Currently the polling supports the 2023 direction; if more recent polling shows the direction flipping under multiple 2020s-era voter distributions, the structural pattern would become harder to read as engineering.
+
+3. **A pre-2026 internal commission document is published showing the minority's anchoring and split choices were a deliberate response to documented community submissions rather than drafting choices.** The §5.9.4 submission-archive verification could not find such submissions for two of the contested configurations; if they exist and were missed, the rationale-failure finding is wrong.
+
+4. **The November 2026 Lunty-committee 91-seat map produces structural-irregularity counts in the same range as the minority (≥ 4 of 5).** That would suggest the minority's structural profile reflects Alberta-specific drawing difficulty rather than minority-specific engineering. Pre-registered held-out test — the cleanest single check.
+
+The audit's pre-registration commits the author to publishing any of these retractions publicly within 30 days of receiving the falsifying evidence.
+
+#### 6.2.7 Verdict on the April 16 government pivot itself
+
+Separate question, addressed in §5.9.2 as a procedural finding. The author's opinion: the substitution of a UCP-MLA-chaired committee for the independent commission's drafting process during the same redistricting cycle is the most government-controlled response among the three most commonly cited Canadian comparator cases (the other two being the federal 2012 redistribution challenge and Saskatchewan's 1989 court referral). It is not, on its own, evidence that the resulting Lunty-committee map will be a gerrymander. It is evidence that the procedural guardrails normally relied upon to make redistricting credible to the losing party have been weakened relative to comparator practice. The November 2026 Lunty-committee map will be evaluated under the same pre-registered scorecard applied to the two commission proposals; if it scores in the range of the minority on structural-irregularity count, the procedural opinion will be vindicated, and if it scores in the range of the majority, the procedural opinion will be tempered.
+
+#### 6.2.8 Bottom line
+
+- **Majority 2026:** not a gerrymander on any Alberta-calibrated threshold — partisan-bias magnitude or structural pattern.
+- **Minority 2026:** *not* a gerrymander on partisan-bias magnitude (sub-threshold on every Alberta-calibrated EG threshold including the MCMC-derived 4.37 %); *is* structurally and procedurally consistent with engineering, by a wide margin on every structural threshold the audit applies. Whether that combination is sufficient to call the map a gerrymander depends on whether the reader treats partisan-bias magnitude or cumulative structural pattern as dispositive. The literature recommends the cumulative reading; on that reading the author's opinion is that the minority is more plausibly explained by deliberate engineering than by neutral choice.
+
+Neither verdict is a legal finding. Both are an attempt to give the citizen-reader of this audit a plain answer to the question they probably came here with — calibrated to Alberta's own thresholds, not to US judicial economy.
+
 **Why this level of methodological precision?** The audit's apparatus — seven measurement layers, three-chain R-hat convergence, DPG tier-aware perturbation CIs, machine-readable dependency DAG, pre-committed pass criteria, per-finding retraction pathway — is deliberately over-engineered relative to the Commission's drawing process. The Commission drew with a broad brush (political negotiation, public-hearing notes, professional judgement). The audit looks through a microscope (adjacency chains, surplus-vote rates, constraint-bound percentiles). That asymmetry is intentional: **precision is armor**. If the audit presented a single number — "the minority's Efficiency Gap is 2.4σ from neutral" — the Commission would legitimately respond "Alberta's geography is unusual; your one number is too simple to capture it." The over-engineering forces the distinction between an accidental brush-stroke and a systematic pattern, and it is what allows the audit to answer the Commission's legitimate objections in advance.
 
 **Translation discipline.** The math provides authority; the prose provides conviction. The table in §6 above is the audit's formal synthesis. The three bulleted translations above are the audit's human-readable reading of that synthesis. Both are included because neither alone is sufficient: math without translation is unactionable for a reader who is not a redistricting specialist, and translation without math is polemic. This section exists to bridge them explicitly.
