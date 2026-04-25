@@ -7,9 +7,9 @@ Ensemble percentile ranks from 10k ReCom MCMC samples (seed 42, ±25%).
 
 | Map | N EDs | Partisan Bias | PB pct | Lopsided-t | Lopsided-p | Partisan Gini | Responsiveness |
 |-----|-------|--------------|--------|-----------|-----------|--------------|----------------|
-| 2019_enacted | 87 | -0.0057 | +97.6 | +3.070 | 0.003 | +0.0252 | 2.87 |
-| majority_2026 | 66 | +0.0152 | +100.0 | +3.428 | 0.001 | +0.0286 | 0.76 |
-| minority_2026 | 71 | -0.0211 | +93.6 | +3.054 | 0.004 | +0.0375 | 1.41 |
+| 2019_enacted | 87 | -0.0057 | +99.4 | +3.070 | 0.003 | +0.0252 | 2.87 |
+| majority_2026 | 66 | -0.0152 | +99.4 | +2.716 | 0.009 | +0.0253 | 0.00 |
+| minority_2026 | 71 | -0.0352 | +76.8 | +3.259 | 0.002 | +0.0370 | 2.11 |
 
 ## Interpretation
 
@@ -18,4 +18,4 @@ Ensemble percentile ranks from 10k ReCom MCMC samples (seed 42, ±25%).
 **Partisan Gini**: Positive = asymmetry favours UCP across the full seats-votes curve.
 **Responsiveness**: How many extra seats per 1% vote swing. Lower = more entrenched.
 
-_Generated 2026-04-24 22:28 — elapsed 1s_
+_Generated 2026-04-25 07:25 — elapsed 5s_

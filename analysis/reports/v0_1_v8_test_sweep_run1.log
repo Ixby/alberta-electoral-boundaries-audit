@@ -1,0 +1,51 @@
+[v0_8 test sweep] launching 8 test scripts with 8 parallel workers
+  scripts directory: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts
+  working directory: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit
+  ▶ START   Extended partisan metrics       (v0_1_extended_partisan_metrics.py)
+  ▶ START   Gerrymetrics comparison         (v0_1_gerrymetrics_comparison.py)
+  ▶ START   Compactness metrics             (v0_1_compactness_metrics.py)
+  ▶ START   v0_8 alignment proof            (v0_1_v8_alignment_proof.py)
+  ▶ START   v0_8 overlap diagnostic         (v0_1_v8_overlap_diagnostic.py)
+  ▶ START   Contiguity check                (v0_1_contiguity_check.py)
+  ▶ START   Symmetry counter test           (v0_1_majority_symmetry_counter_test.py)
+  ▶ START   Justification tests             (v0_1_justification_tests.py)
+  ✓ DONE    Symmetry counter test           (2s)
+  ✗ FAILED  Justification tests             exit=1  (3s)
+  ✗ FAILED  Contiguity check                exit=1  (3s)
+  ✓ DONE    Compactness metrics             (5s)
+  ✓ DONE    Extended partisan metrics       (24s)
+  ✓ DONE    Gerrymetrics comparison         (25s)
+  ✓ DONE    v0_8 overlap diagnostic         (51s)
+  ✓ DONE    v0_8 alignment proof            (238s)
+
+[v0_8 test sweep] all 8 scripts complete in 238s
+
+=== SUMMARY ===
+  STATUS    ELAPSED   LABEL
+  --------------------------------------------------
+  ✓ pass       238s  v0_8 alignment proof
+  ✓ pass        51s  v0_8 overlap diagnostic
+  ✓ pass        25s  Gerrymetrics comparison
+  ✓ pass        24s  Extended partisan metrics
+  ✓ pass         5s  Compactness metrics
+  ✗ fail         3s  Contiguity check
+  ✗ fail         3s  Justification tests
+  ✓ pass         2s  Symmetry counter test
+
+  2 script(s) failed — full stderr tails:
+
+  --- Justification tests (v0_1_justification_tests.py) ---
+    exit=1
+     "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\io\common.py", line 926, in get_handle
+        handle = open(
+            handle,
+        ...<3 lines>...
+            newline="",
+        )
+    FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\analysis\\data\\alberta_2021_csd_populations.csv'
+
+  --- Contiguity check (v0_1_contiguity_check.py) ---
+    exit=1
+    Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_contiguity_check.py", line 111, in _detect_name_column
+        raise ValueError(f"Cannot identify name column. Columns: {list(gdf.columns)}")
+    ValueError: Cannot identify name column. Columns: ['EDNumber20', 'EDName2017', 'Km2', 'Hectares', 'Acres', 'Authority', 'Shape_Leng', 'Shape_Area', 'geometry']

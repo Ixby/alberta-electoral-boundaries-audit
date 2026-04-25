@@ -205,19 +205,31 @@ def build_cover_art() -> Path:
 
     no_vote_color = "#cfcbc4"
 
-    # Render EDs largest-first so smaller EDs land ON TOP of larger ones.
-    # Small urban EDs (Calgary, Edmonton) would otherwise be hidden under
-    # the rural giants (West Yellowhead, Peace River, etc.).
+    # Force-perspective z-ordering: large EDs sit "back" (drawn first),
+    # smaller EDs sit "closer to the viewer" on the z-axis (drawn last,
+    # rendered on top). Small EDs are also scaled up slightly so they're
+    # clearly distinguishable, with a touch of transparency so they
+    # don't fully occlude the rural giants behind them — preserving a
+    # sense of proportionality.
     eds_sorted = eds.assign(_area=eds.geometry.area).sort_values(
         "_area", ascending=False
-    )
+    ).reset_index(drop=True)
 
-    # 7a. Motion ghosts — for each ED, draw GHOST_STEPS faint copies trailing
-    #     from near-Edmonton out to the just-before-final position. Innermost
-    #     ghost is faintest, outermost ghost (frame just before final) is the
-    #     boldest of the ghosts. Same large-first ordering.
+    # Per-ED scale-up: smaller EDs scale up MORE (perspective: closer →
+    # appears larger). Capped to avoid overwhelming neighbours.
+    areas = eds_sorted["_area"].values
+    a_min = areas[areas > 0].min() if (areas > 0).any() else 1.0
+    a_max = areas.max() if len(areas) else 1.0
+    def _scale_factor(area):
+        if area <= 0:
+            return 1.0
+        # Map area: small ED → 1.6x, large ED → 1.0x (no scale)
+        log_ratio = math.log(a_max / max(area, a_min)) / math.log(a_max / a_min)
+        return 1.0 + 0.6 * min(1.0, log_ratio)  # 1.0 → 1.6
+
+    # 7a. Motion ghosts (large-first ordering)
     for _, row in eds_sorted.iterrows():
-        g = row.geometry  # original (pre-explode)
+        g = row.geometry
         dx, dy = row["disp"]
         if abs(dx) < 1.0 and abs(dy) < 1.0:
             continue
@@ -234,27 +246,27 @@ def build_cover_art() -> Path:
                 alpha=ghost_alpha, zorder=2,
             )
 
-    # 7b. Final exploded EDs on top of their motion ghosts, large-first so
-    #     small EDs render on top.
+    # 7b. Final exploded EDs — large-first, scaled to forced perspective.
+    #     Small EDs rendered with slight transparency (0.85) so the rural
+    #     giants behind them remain visible.
     for _, row in eds_sorted.iterrows():
         g = row["exploded"]
         if g is None or g.is_empty:
             continue
+        sf = _scale_factor(row["_area"])
+        # Scale around the ED's own centroid so it doesn't drift further
+        gc = g.centroid
+        g_scaled = shapely.affinity.scale(g, xfact=sf, yfact=sf, origin=(gc.x, gc.y))
         if row["total"] > 0:
             color = cmap(norm(row["ucp_share"]))
         else:
             color = no_vote_color
-        gpd.GeoSeries([g], crs=3401).plot(
+        # Smaller EDs (sf > 1.2) get a touch of transparency
+        alpha = 0.95 if sf < 1.2 else 0.85
+        gpd.GeoSeries([g_scaled], crs=3401).plot(
             ax=ax, facecolor=color, edgecolor="#1a1a1a",
-            linewidth=0.35, alpha=0.95, zorder=3,
+            linewidth=0.35, alpha=alpha, zorder=3,
         )
-
-    # 7c. Tiny epicentre marker at Edmonton — subtle dark dot to anchor the eruption
-    ax.scatter(
-        [EDMONTON[0]], [EDMONTON[1]],
-        s=18, c="#0e0e0e", marker="o", zorder=4,
-        edgecolors="none", alpha=0.7,
-    )
 
     ax.margins(0.005)
     plt.tight_layout(pad=0)
@@ -502,7 +514,6 @@ html, body {
 
   <div class="legend">
     <span><span class="swatch swatch-ucp"></span>UCP-leaning</span>
-    <span><span class="swatch swatch-tied"></span>50/50</span>
     <span><span class="swatch swatch-ndp"></span>NDP-leaning</span>
   </div>
 

@@ -30,7 +30,8 @@ import pandas as pd
 import geopandas as gpd
 
 
-REPO = Path(__file__).resolve().parents[1]
+# Script lives at <repo>/analysis/scripts/, so parents[2] = <repo>
+REPO = Path(__file__).resolve().parents[2]
 DATA = REPO / "data"
 
 # Provincial quota reference (54,929 avg) and +/-25% window
