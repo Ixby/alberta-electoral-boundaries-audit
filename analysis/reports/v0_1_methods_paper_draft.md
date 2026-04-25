@@ -124,6 +124,13 @@ Brief summary referencing the main audit paper. Focus on methodological lessons:
 - Multi-chain ReCom MCMC achieved R-hat 1.013–1.017 on the 4,765-VA graph
 - Headline finding: residual 4.8 pp cross-method asymmetry disagreement stands as a *genuine* cross-method property, not a geometry artefact
 
+**v0_7 full-coverage update (2026-04-24).** The DPG pipeline reached canonical v0_7 status (89 EDs per map; v0_5 da-anchored as primary source; v0_3 swept geometry as fallback for 5 null-geom EDs per map; `v3_fallback` boolean column for transparency). Key v0_7 metrics:
+
+- *Compactness (Polsby-Popper):* Majority 2026 mean PP = 0.304 (41/89 EDs below 0.30); minority 2026 mean PP = 0.356 ≈ 2019 baseline (0.355). All maps pass mean PP gate (> 0.15). The majority's lower compactness reflects its hybrid-split doctrine producing geometrically complex boundaries — invisible in the Tier-A/B-only pass.
+- *Municipal fragmentation:* Minority 2026 splits 11 significant municipalities across ≥2 EDs (+1 vs 2019); majority splits 8 (−2). Strathcona County (SM, ~105,000 pop.) is split across 10 EDs under the minority (+7 vs 3 in 2019) — the single largest municipal fragmentation event in the dataset.
+- *Extended partisan metrics:* Majority PB = +0.0152 (100th ensemble percentile); minority responsiveness = 1.41 (nearly 2× majority's 0.76). All three maps show statistically significant lopsided margins (Wang 2016 t > 3, p < 0.005) — a structural property of Alberta political geography, not a drawing artefact.
+- *MCMC Alberta threshold:* Ensemble 95th-percentile EG = 3.86 %; both 2026 maps' absolute EGs remain sub-threshold under this Alberta-calibrated reference, replacing the US-derived 7 % figure as the primary citation in threshold discussions.
+
 ### 8. Open-source release (~0.5 pages)
 
 Scripts released under [LICENSE TBD] at `github.com/Ixby/alberta-electoral-boundaries-audit`:
