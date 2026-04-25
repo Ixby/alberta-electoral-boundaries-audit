@@ -49,10 +49,14 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest (metres, no false easting)
 
-# v0_8 if available, else v0_7
+# v0_8 if available (canonical name from perfecter, or derived name), else v0_7
 def _gpkg(version_label: str, plan: str) -> Path:
-    for v in ("v8", "v7"):
-        p = DATA / "shapefiles" / "derived" / f"v0_1_derived_{v}_{plan}_2026_eds.gpkg"
+    candidates = [
+        DATA / "shapefiles" / "derived" / f"v0_8_canonical_{plan}_2026_eds.gpkg",
+        DATA / "shapefiles" / "derived" / f"v0_1_derived_v8_{plan}_2026_eds.gpkg",
+        DATA / "shapefiles" / "derived" / f"v0_1_derived_v7_{plan}_2026_eds.gpkg",
+    ]
+    for p in candidates:
         if p.exists():
             return p
     raise FileNotFoundError(f"No gpkg found for {plan}")
@@ -270,7 +274,8 @@ def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
     gdf_full = plans.get(spec.plan, gpd.GeoDataFrame())
     gdf = clip_plan(gdf_full, spec.extent)
 
-    version_label = "v0_8" if "v8" in str(_gpkg("auto", spec.plan)) else "v0_7"
+    _src = str(_gpkg("auto", spec.plan))
+    version_label = "v0_8" if ("v8" in _src or "canonical" in _src) else "v0_7"
 
     # --- 1. Side-by-side ---
     fig, (ax_our, ax_com) = plt.subplots(1, 2, figsize=(16, 10), dpi=150)
