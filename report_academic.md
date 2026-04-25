@@ -684,9 +684,9 @@ The 7 % Efficiency Gap threshold originates in Stephanopoulos and McGhee (2015),
 | A — Assembly-size sensitivity | ≈ 2.2 % (2/89 seats) | First-principles scaling, S&M §III.B | Majority yes; minority borderline (−2.71 %) | No (1.42 pp exceeds floor) |
 | B — EBCA statutory-proportional | 5 % (one-fifth of ±25 % band) | EBCA § 14 proportional anchoring | Yes | Yes |
 | C — Alberta historical-swing | 5–9 % (provisional) | Issue #16 — pending computation | Yes (provisional) | Yes (provisional) |
-| D — MCMC ensemble 95th percentile | **3.86 %** | 10k ReCom ensemble on 2019 substrate (seed 42, ±25 %; `data/v0_1_mcmc_ensemble_samples.csv`): 95th pct EG = +0.0386 | Yes (+0.0129 %, +0.0271 % both below 0.0386) | Yes (1.42 pp < 3.86 pp) |
+| D — MCMC ensemble 95th percentile | **4.37 %** | 100k ReCom ensemble on 2019 substrate (seed 42, ±25 %; `data/v0_1_mcmc_ensemble_samples_100k.csv`): 95th pct EG = +0.0437. (10k preliminary was 3.86 %.) | Yes (Run #3 v0_7 centroid EG −0.0024, −0.0102 both sub-threshold in absolute value) | Yes (absolute EG < 4.37 %) |
 
-**Reading.** Against the EBCA-anchored Option B (5 %), both maps' absolute EGs are sub-threshold and the inter-map asymmetry is sub-threshold. Against the assembly-size-sensitivity Option A (2.2 %), the minority's −2.71 % absolute EG exceeds the minimum-detectable-signal floor — though "above the signal floor" is not equivalent to "gerrymander candidate": the 2.2 % value marks where EG variation stops being within assembly-size rounding noise, not where a pattern becomes legally or structurally significant. The audit's headline (*directionally-consistent sub-threshold asymmetry*) is accurate under the reference 7 %, the EBCA-proportional 5 %, and the provisional Alberta historical range 5–9 %; under Option A it requires the qualification that the signal exceeds the detection floor while remaining sub-threshold on every other calibration. The "sub-threshold" characterisation does not depend on the US-calibrated 7 % figure. **Against the Alberta-derived Option D (3.86 % — the ensemble's own 95th percentile on UCP-favoured EG), both maps' absolute EGs remain sub-threshold.** Option C requires computing EG for 2015, 2019, and 2023 elections under prior-cycle Alberta boundaries; this is tracked as Issue #16.
+**Reading.** Against the EBCA-anchored Option B (5 %), both maps' absolute EGs are sub-threshold and the inter-map asymmetry is sub-threshold. Against the assembly-size-sensitivity Option A (2.2 %), the minority's −2.71 % absolute EG exceeds the minimum-detectable-signal floor — though "above the signal floor" is not equivalent to "gerrymander candidate": the 2.2 % value marks where EG variation stops being within assembly-size rounding noise, not where a pattern becomes legally or structurally significant. The audit's headline (*directionally-consistent sub-threshold asymmetry*) is accurate under the reference 7 %, the EBCA-proportional 5 %, and the provisional Alberta historical range 5–9 %; under Option A it requires the qualification that the signal exceeds the detection floor while remaining sub-threshold on every other calibration. The "sub-threshold" characterisation does not depend on the US-calibrated 7 % figure. **Against the Alberta-derived Option D (4.37 % — the 100k ensemble's 95th percentile on UCP-favoured EG, updated from the 10k preliminary of 3.86 %), both maps' absolute EGs remain sub-threshold.** Option C requires computing EG for 2015, 2019, and 2023 elections under prior-cycle Alberta boundaries; this is tracked as Issue #16.
 
 ---
 
@@ -830,7 +830,39 @@ Combined ESS across the three chains is 643–783 per metric (per-chain ESS 165�
 
 **Coverage caveats.** Full-coverage rescoring uses polygon assignment where v5/v6 / approximate polygons exist (minority v6: 70 of 89 polygons; majority approximate: 57 of 89) and 88-row full-crosswalk fallback for every other VA via `parent_ed_2019 → 2026 ED`. Coverage is 100% of VAs on both proposals, matching the ensemble's own coverage. A small number of pure Tier-C 2026 EDs with no 2019 parent (4 majority, 5 minority) are not populated by either polygon or crosswalk and are enumerated in the JSON output; the missing EDs are inside the cities where polygon-based scoring is authoritative, so their absence from the crosswalk layer does not affect aggregated metrics.
 
-**Run #3 — full 89-ED v0_7 geometry (in progress, 2026-04-24).** A third production-grade 100,000-plan ReCom run was initiated against the v0_7 canonical DPGs (89 EDs per map, full province coverage, mean anchoring 74.2 % majority / 47.0 % minority; `data/shapefiles/derived/v0_7_canonical_{majority,minority}_2026_eds.gpkg`). This run replaces the v5/v6 approximate polygons in the real-map scoring with full-coverage v0_7 geometry and is expected to improve VA coverage from the crosswalk-hybrid level to ≥ 85 % centroid-in-polygon. Results will update the §5.4 table and convergence diagnostics when complete; the §4.1.4 sunset clause treats this run as the authoritative pre-official-shapefile MCMC estimate.
+**Run #3 — full 89-ED v0_7 geometry (completed 2026-04-24/25; log `analysis/reports/v0_1_mcmc_run3_v7_100k.log`).** A third production-grade 100,000-plan ReCom run was completed against the v0_7 canonical DPGs (89 EDs per map; `data/shapefiles/derived/v0_7_canonical_{majority,minority}_2026_eds.gpkg`). The ensemble uses the same 4,765-VA substrate (2023 votes, 2021 population) as previous runs; real-map scoring uses centroid-in-polygon attribution against the v0_7 polygons (majority: 66 of 89 EDs scored, 66.4 % VA coverage; minority: 71 of 89 EDs, 60.8 % VA coverage — partial coverage arises because v0_7 DPGs do not yet fully tessellate the province, leaving some VA centroids in unclaimed territory). Convergence: ESS 123–219, τ 457–810 (consistent with prior runs). Updated Alberta EG threshold: ensemble 95th-percentile EG = **+4.37 %** (previously 3.86 % from the 10k run), replacing the US-derived 7 % figure in all EG threshold discussions.
+
+Run #3 per-metric percentiles against the 100k ensemble:
+
+| Metric | 2019 enacted | Majority 2026 v7 | Minority 2026 v7 | Ensemble p5 / p50 / p95 |
+|---|---|---|---|---|
+| Efficiency gap | +0.0241 (p67.7) | −0.0024 (p12.0) | −0.0102 (p5.3) | −0.0107 / +0.0168 / +0.0437 |
+| Mean-median | −0.0077 (p93.2) | **+0.0080 (p99.98)** | −0.0108 (p86.7) | −0.0307 / −0.0194 / −0.0065 |
+| Declination | −0.0451 (p11.6) | −0.0203 (p29.1) | **−0.0941 (p0.9)** | −0.0663 / −0.0053 / +0.0555 |
+| Seats at 50/50 | +0.460 (p63.2) | **+0.515 (p100.0)** | **+0.549 (p100.0)** | +0.425 / +0.460 / +0.483 |
+
+Outlier flags (≥95th or ≤5th percentile): majority MM at p99.98 and s50 at p100; minority declination at p0.9 and s50 at p100. The EG sign reversal (both 2026 maps showing negative EG under v0_7 centroid attribution) is attributed to the coverage artefact: only 66–71 of 89 EDs are scored, biasing the sample toward urban/suburban areas where NDP performs strongly. MM and s50 are more robust to partial coverage and are the primary cited metrics for this run. The §4.1.4 sunset clause treats Run #3 as the authoritative pre-official-shapefile MCMC estimate, pending the v0_8 tessellation run (Run #4, pending DPG perfecter completion).
+
+**Short-burst analysis (completed 2026-04-25; `data/v0_1_mcmc_short_bursts.csv`, `analysis/reports/v0_1_mcmc_short_bursts.md`).** 500 independent 10-step ReCom chains were run from the 2019 enacted baseline, each with a unique seed, to characterise the *reachable neighbourhood* of the 2019 map. This supplements the ensemble by answering: is the 2026 map's score achievable within 10 random redistricting steps from 2019, or does it require a long, directed walk?
+
+Burst-endpoint distribution (500 × 10-step chains from 2019 baseline):
+
+| Metric | Burst p5 | Burst p50 | Burst p95 |
+| --- | --- | --- | --- |
+| Efficiency gap | +0.0009 | +0.0044 | +0.0189 |
+| Mean-median | −0.0226 | −0.0125 | −0.0086 |
+| Declination | +0.0070 | +0.0321 | +0.0363 |
+| Seats at 50/50 | +0.4477 | +0.4598 | +0.4713 |
+
+Real map percentile ranks within the burst distribution:
+
+| Map | EG | MM | Declination | s50 |
+| --- | --- | --- | --- | --- |
+| 2019 enacted | p98.0 | p98.2 | p0.0 | p30.8 |
+| Majority 2026 v7 | p3.0 | **p100.0** | p0.0 | **p100.0** |
+| Minority 2026 v7 | p0.8 | p84.2 | p0.0 | **p100.0** |
+
+Key finding: the majority map's MM=+0.0080 and both 2026 maps' s50 values are at **p100 of the burst distribution** — no 10-step random walk from the 2019 baseline reached these values. The minority's declination=−0.0941 is at p0 in both the 100k ensemble and the burst distribution. This confirms that the 2026 boundary changes on these metrics represent a directed departure from the 2019 baseline rather than random redistricting drift. The 2019 enacted itself sits at p98 on EG and MM within its own reachable neighbourhood — consistent with its status as a deliberately drawn boundary at the edge of the random-walk space around it.
 
 **Falsifiability hook (resolved and revised).** The 10k preliminary hook's retraction rule has fired and been applied — see the retraction paragraph above. Revised hooks for the remaining claims: if a later commission-shapefile-driven re-run moves the minority map's mean-median below p95 on a 2026-seed ensemble, the mean-median flag is retracted and the minority is reclassified as inside-band on that metric. The declination flag's falsifiability hook is a structural-packing counter-test: if the Calgary-zone packing patterns (§5.6) are independently contradicted — e.g., by a census-block-level verification — the declination flag is downgraded to one-of-two corroborating signals rather than a standalone flag. The 2019-seed ensemble used here is conservative against the minority's held flags; a 2026-seed ensemble would more closely match the minority's own geometry and would deepen the minority's percentile tails rather than narrow them.
 
@@ -891,7 +923,7 @@ The paper reports stress-test outcomes against the gates RT1–RT6 listed above.
 | RT4 — Structural vs vote-based separation | Clear labelling required | Labelling present in §4, § E | Pass |
 | RT5 — Independent test selection | No test run and discarded | Audit-trail clean; counter-test §5.6 added | Pass |
 | RT6 — Assumption inventory | Listed in `analysis/methodology/v0_1_uncertainty_and_shapefile_impact.md` | Current | Pass |
-| RT7 — MCMC neutral-ensemble outlier | Any real map outside 5–95 band on ≥1 metric for flagged pass | Minority p98.8 mean-median + p1.6 declination (100k, full-coverage). 10k-era 2019 and Majority flags retracted under full-coverage rescore (see §5.4 update note, 2026-04-23) | Flagged pass on minority map only; held pending commission-shapefile re-run with 2026 seed |
+| RT7 — MCMC neutral-ensemble outlier | Any real map outside 5–95 band on ≥1 metric for flagged pass | Run #3 (100k, v0_7 centroid-in-polygon): Majority MM p99.98 + s50 p100; Minority Decl p0.9 + s50 p100. Short-burst corroboration: Majority MM and both-map s50 at burst p100 (unreachable in 10 steps from 2019). Updated Alberta EG threshold: 4.37% (ensemble p95). | Flagged pass on both maps; majority flag new under Run #3. Held pending v0_8 tessellation Run #4 and commission shapefile. |
 
 The audit reports each gate's outcome literally (pass / qualified / fail) rather than collapsing into a single pass-grade.
 
