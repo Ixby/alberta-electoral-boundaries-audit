@@ -94,9 +94,9 @@ column is consistently 2x or more the majority column across the grid.
 ## Phase-space heatmap commentary
 
 Density plots at:
-- `data/maps/neighbour_drain_phase_space_2019.png`
-- `data/maps/neighbour_drain_phase_space_majority.png`
-- `data/maps/neighbour_drain_phase_space_minority.png`
+- `maps/neighbour_drain_phase_space_2019.png`
+- `maps/neighbour_drain_phase_space_majority.png`
+- `maps/neighbour_drain_phase_space_minority.png`
 
 Axes: $s_X$ (horizontal, 0.00 to 0.40) vs $m_Y$ (vertical, 0.00 to 0.50).
 Each point is one directed adjacent pair. Coupled pairs are red; uncoupled are
@@ -115,10 +115,10 @@ other two maps across all threshold pairs in the sensitivity grid.
 
 ## Paper-ready paragraph (for §5.3.5)
 
-Tests B2 and B3 (§5.3.1, §5.3.2) measure packing and cracking as separable whole-map statistics. They do not, however, answer whether the two phenomena are spatially *coupled* — whether a packed ED tends to sit next door to a cracked one, as would be expected under a partisan-drain design. We operationalise coupling via a neighbour-drain adjacency test: for each directed pair (X, Y) of EDs sharing a common polygon boundary (substrate-gap-tolerant buffered intersection; see methods), we flag a *chain signal* when X's losing-party surplus $s_X \geq 0.15$ and Y's winning margin $m_Y \leq 0.05$, with the further restriction that the losing party in X must equal the losing party in Y (a *coupled* signal). On the 2023 vote substrate, the 2019 enacted map produces 3 coupled chain signals, the majority 2026 map produces 3 (preserving two of the 2019 pairs plus one new Calgary-Mountain-View/Calgary-Acadia adjacency), and the minority 2026 map produces 0. The direction of this difference is the *opposite* of what a systematic partisan-drain design would produce: the minority map eliminates the packed→cracked adjacencies present in 2019 and preserved by the majority, primarily by (a) merging packed rural EDs with their urban neighbours (Taber-Warner folded into Lethbridge-Taber-Warner; the 2019 Taber-Warner→Lethbridge-East NDP chain becomes an internal hybrid), and (b) rewiring central-Calgary adjacencies so that Calgary-Mountain-View no longer sits next to Calgary-Klein. The phase-space density plots (data/maps/neighbour_drain_phase_space_*.png) confirm visually: the minority map's upper-left chain-signal quadrant is empty of coupled (red) points. We note this is a *per-directive* finding — the adjacency-chain reduction does not automatically mean the minority map is structurally fairer in a systemic sense (see §5.3.1, §5.3.2 for the whole-map statistics, which continue to show asymmetries in the opposite direction).
+Tests B2 and B3 (§5.3.1, §5.3.2) measure packing and cracking as separable whole-map statistics. They do not, however, answer whether the two phenomena are spatially *coupled* — whether a packed ED tends to sit next door to a cracked one, as would be expected under a partisan-drain design. We operationalise coupling via a neighbour-drain adjacency test: for each directed pair (X, Y) of EDs sharing a common polygon boundary (substrate-gap-tolerant buffered intersection; see methods), we flag a *chain signal* when X's losing-party surplus $s_X \geq 0.15$ and Y's winning margin $m_Y \leq 0.05$, with the further restriction that the losing party in X must equal the losing party in Y (a *coupled* signal). On the 2023 vote substrate, the 2019 enacted map produces 3 coupled chain signals, the majority 2026 map produces 3 (preserving two of the 2019 pairs plus one new Calgary-Mountain-View/Calgary-Acadia adjacency), and the minority 2026 map produces 0. The direction of this difference is the *opposite* of what a systematic partisan-drain design would produce: the minority map eliminates the packed→cracked adjacencies present in 2019 and preserved by the majority, primarily by (a) merging packed rural EDs with their urban neighbours (Taber-Warner folded into Lethbridge-Taber-Warner; the 2019 Taber-Warner→Lethbridge-East NDP chain becomes an internal hybrid), and (b) rewiring central-Calgary adjacencies so that Calgary-Mountain-View no longer sits next to Calgary-Klein. The phase-space density plots (maps/neighbour_drain_phase_space_*.png) confirm visually: the minority map's upper-left chain-signal quadrant is empty of coupled (red) points. We note this is a *per-directive* finding — the adjacency-chain reduction does not automatically mean the minority map is structurally fairer in a systemic sense (see §5.3.1, §5.3.2 for the whole-map statistics, which continue to show asymmetries in the opposite direction).
 
 ## Outputs
 
 - Per-pair log: `analysis/reports/v0_1_neighbour_drain_log.csv`
 - Summary JSON: `data/v0_1_neighbour_drain_summary.json`
-- Phase-space plots: `data/maps/neighbour_drain_phase_space_{2019,majority,minority}.png`
+- Phase-space plots: `maps/neighbour_drain_phase_space_{2019,majority,minority}.png`

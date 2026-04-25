@@ -26,7 +26,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 ### 1.1 A1 MAD (minority 4,707 vs majority 3,180)
 
-- **Retraction condition A.** If Elections Alberta publishes per-ED populations that differ materially (> 10 %) from the commission's variance tables we sourced from, the MAD finding is recomputed. If the new MAD on minority ≤ new MAD on majority + 500 persons (the pre-committed exoneration threshold from `v0_1_null_hypothesis_and_exoneration_criteria.md` §1.1), the finding is retracted.
+- **Retraction condition A.** If Elections Alberta publishes per-ED populations that differ materially (> 10 %) from the commission's variance tables we sourced from, the MAD finding is recomputed. If the new MAD on minority ≤ new MAD on majority + 500 persons (the pre-committed pass threshold from `v0_1_null_hypothesis_and_exoneration_criteria.md` §1.1), the finding is retracted.
 - **Retraction condition B.** If the commission publishes a methodology note stating that the variance-table populations we used were draft/misprint, superseded values are used and the above re-check runs.
 
 ### 1.2 A2 Calgary geographic-zone asymmetry (12.2 % vs 0.4 %)
@@ -81,10 +81,10 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 - **Retraction condition.** Same as A3 (see §1.3 above) — judicial or statutory clarification on park-extension s.15(2) eligibility.
 
-### 3.4 §5.3.5 Neighbour-drain adjacency (EXONERATION already recorded)
+### 3.4 §5.3.5 Neighbour-drain adjacency (pre-registered pass already recorded)
 
-- **Status.** Already exonerating for the minority on pre-commitment. No retraction needed; finding is "the minority map is LESS adjacency-coupled than either the 2019 or majority map."
-- **Retraction condition on the exoneration.** If a rerun on the v0_5 DA-anchored substrate (with its better adjacency topology, after the v0_2 substrate-defect flagged in the writeup) produces a minority coupled count > 1.5× majority count, the exoneration is retracted.
+- **Status.** Already a pre-registered pass for the minority on pre-commitment. No retraction needed; finding is "the minority map is LESS adjacency-coupled than either the 2019 or majority map."
+- **Retraction condition on the pre-registered pass.** If a rerun on the v0_5 DA-anchored substrate (with its better adjacency topology, after the v0_2 substrate-defect flagged in the writeup) produces a minority coupled count > 1.5× majority count, the pre-registered pass is retracted.
 
 ## 4. Geographic-coherence findings (§5.8)
 
@@ -134,7 +134,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 - **Retraction condition.** The paper does NOT currently claim the minority map is a gerrymander in the intent sense (§4.5 explicitly). The paper claims "systematic structural asymmetry at a magnitude below the 7 % EG threshold proposed in the Stephanopoulos & McGhee (2014/2015) academic literature" — a threshold cited in litigation but never judicially adopted (US Supreme Court vacated *Gill v. Whitford* on standing without ruling on the threshold). This implicit claim is retracted if any of the following hold:
   - **§5.3 signatures all receive COI-compelled rationalisation** (retraction conditions 3.1 A+B, 3.2 A+B, 3.3 A)
   - **Absolute Chen-Rodden narrowing** (already committed: 3-of-4-in-band) is extended to 4-of-4 under any rerun
-  - **Neighbour-drain exoneration** (already recorded) is compounded by boundary-chain or compactness-weighted null results in the same direction
+  - **Neighbour-drain pre-registered pass** (already recorded) is compounded by boundary-chain or compactness-weighted null results in the same direction
 
 If 3 of these 4 compound, the structural-asymmetry claim is retracted and the paper reports "the minority map shows structural differences from the majority, but those differences are either COI-compelled, statistically inside the constraint-bound expectation, or not spatially coupled — no defensible gerrymander claim remains."
 

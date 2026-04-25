@@ -28,7 +28,7 @@ import markdown
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 SRC_MD = REPO_ROOT / "report_public.md"
-OUT_PDF = REPO_ROOT / "report_public.pdf"
+OUT_PDF = REPO_ROOT / "article.pdf"
 
 CHROME_CANDIDATES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",

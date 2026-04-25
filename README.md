@@ -34,7 +34,7 @@ This audit was produced as a personal research project by Will Conner, a Mount R
 
 **Partisan-bias metrics (§5.2).** Efficiency gap, mean-median difference, and declination are measured across seven methodological layers and disagree on direction depending on the spatial-attribution method. The crosswalk-blended layer shows the minority 1.42 percentage points more UCP-favourable than the majority; the spatial-attribution layers show the minority 3–4 pp more NDP-favourable. Both directions are below the 7% efficiency-gap threshold proposed in the academic literature — a threshold that has never been adopted as a judicial standard in any Canadian or US court. The audit reports all seven layers and treats the method-disagreement itself as a finding.
 
-**One exoneration (§5.3.5).** The neighbour-drain adjacency test — which asks whether packed and cracked districts of the same party sit next to each other — finds zero coupled chain signals under the minority map, compared to three under both the majority and the 2019 enacted map. This is a pre-registered exoneration of the minority on that specific test. It appears in the paper as a result.
+**One pre-registered pass (§5.3.5).** The neighbour-drain adjacency test — which asks whether packed and cracked districts of the same party sit next to each other — finds zero coupled chain signals under the minority map, compared to three under both the majority and the 2019 enacted map. This is a pre-registered pass of the minority on that specific test. It appears in the paper as a result.
 
 The audit does not claim the minority map is a gerrymander in the intent sense. It claims measurable structural divergence from the majority, at magnitudes that are unlikely to be explained by the ±25% population + contiguity + compactness constraint set alone.
 
@@ -63,7 +63,7 @@ Both maps satisfy the law. The table below states the structural distance betwee
 | CSD + DA combined anchoring | 79.6% | 16.5% | 4.8× majority advantage |
 | Chair-flagged cartographic anomalies | 0 | 3 | — |
 | Efficiency gap (crosswalk method) | −1.29% | −2.71% | Both below 7% reference; direction method-sensitive |
-| Coupled packing-cracking adjacencies | 3 (matches 2019 baseline) | 0 (pre-registered exoneration) | Minority eliminates the signature |
+| Coupled packing-cracking adjacencies | 3 (matches 2019 baseline) | 0 (pre-registered pass) | Minority eliminates the signature |
 
 The first six rows are vote-independent. They are measurable against public official records and do not change if the partisan substrate changes. The last two rows depend on vote data; the seventh row's direction is not robust to the choice of spatial-attribution method; the eighth row is a finding in favour of the minority map.
 
@@ -75,11 +75,11 @@ The status quo cost — of not auditing — is the alternative: accepting or rej
 
 ## What makes this different
 
-**The predictions came before the results.** Every test family in the audit was committed with a directional null hypothesis and a pre-specified exoneration threshold before the results were read. The commit timestamp separating the pre-registration from the first detection run is 2 hours and 24 minutes. A methodology that only finds what it was looking for, after it looked, is not a methodology — it is a post-hoc justification. Pre-registration prevents that.
+**The predictions came before the results.** Every test family in the audit was committed with a directional null hypothesis and a pre-specified pass threshold before the results were read. The commit timestamp separating the pre-registration from the first detection run is 2 hours and 24 minutes. A methodology that only finds what it was looking for, after it looked, is not a methodology — it is a post-hoc justification. Pre-registration prevents that.
 
 **Each finding has a named retraction condition.** For every load-bearing finding, the audit documents what data or argument would force a retraction within 48 hours of it becoming available. The conditions are in `analysis/methodology/v0_1_retraction_pathway.md`. A reviewer who objects to a specific finding does not need to argue in the abstract — they can find that finding's retraction condition and produce the triggering evidence.
 
-**The exonerations are reported as prominently as the findings.** The neighbour-drain test result — zero coupled adjacencies under the minority, where three exist under both the majority and 2019 — is reported as a §5.3.5 EXONERATION, not buried in a supplementary table. An audit that hides its non-findings is not an audit.
+**The pre-registered passes are reported as prominently as the findings.** The neighbour-drain test result — zero coupled adjacencies under the minority, where three exist under both the majority and 2019 — is reported as a §5.3.5 PASS, not buried in a supplementary table. An audit that hides its non-findings is not an audit.
 
 **The same tests run on both maps.** Every metric applied to the minority recommendation is applied identically to the majority and to the 2019 enacted map. There is no test in this audit that runs only on the minority. This is the discipline the paper calls test-application symmetry.
 
@@ -134,7 +134,7 @@ The audit is most usefully challenged by people with expertise in electoral geog
 - **[report_public.md](report_public.md)** — **Start here.** Plain-language summary for a general audience: the five findings, the gerrymander checklist, what the April 16 pivot means, and what you can do. No prior knowledge required.
 - **[report_academic.md](report_academic.md)** — The full monograph (v0.19, 2026-04-24): executive summary, methods, §§5.1–5.10 results, seven measurement layers, dependency DAG, limitations, and falsifiability hooks. Start here to challenge a specific finding.
 - **[analysis/methodology/v0_1_retraction_pathway.md](analysis/methodology/v0_1_retraction_pathway.md)** — Named retraction conditions per finding. The fastest path to either retracting a claim or confirming it holds.
-- **[analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md](analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md)** — Pre-committed null hypotheses, exoneration thresholds, and Structural/Robust/Durable classification for every finding.
+- **[analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md](analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md)** — Pre-committed null hypotheses, pass thresholds, and Structural/Robust/Durable classification for every finding.
 - **[analysis/methodology/v0_1_test_apparatus_defense.md](analysis/methodology/v0_1_test_apparatus_defense.md)** — Per-test criticism and response. Answers "are you making up metrics to have metrics?"
 - **[analysis/methodology/v0_1_threshold_provenance.md](analysis/methodology/v0_1_threshold_provenance.md)** — Every numeric threshold traced to a statutory source, a literature citation, or a first-principles derivation. 41 thresholds catalogued, including three Alberta-calibrated EG alternatives.
 - **[analysis/methodology/audit_dependency_graph_readme.md](analysis/methodology/audit_dependency_graph_readme.md)** — The 234-node, 454-edge dependency graph: schema, worked examples, and the `--invalidate` query CLI.
