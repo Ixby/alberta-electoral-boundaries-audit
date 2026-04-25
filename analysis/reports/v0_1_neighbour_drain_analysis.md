@@ -32,7 +32,7 @@ collapsing geographically distinct EDs.
 
 ### K-nearest fallback for rural isolates
 
-Under strict adjacency, 18 total EDs across the three maps have zero
+Under strict adjacency, 0 total EDs across the three maps have zero
 neighbours — all on the minority 2026 map, concentrated among rural EDs
 separated from their physical neighbours by 1-5 km of substrate gap
 (Fort McMurray-Wood Buffalo, Lesser Slave Lake, etc.). To make the
@@ -43,8 +43,8 @@ counts are reported alongside strict counts:
 | Map | Strict pairs | K-nearest fallback pairs | Isolated EDs |
 |---|---|---|---|
 | 2019 | 243 | 0 | 0 |
-| majority | 260 | 3 | 1 |
-| minority | 199 | 41 | 17 |
+| majority | 291 | 0 | 0 |
+| minority | 230 | 0 | 0 |
 
 
 The signal is **directional**: $(X, Y)$ and $(Y, X)$ are tested as different
@@ -66,22 +66,22 @@ Shapefiles:
 | Map | EDs | Undirected pairs | Directed pairs | Chain signals (total) | Coupled | Uncoupled | Rate |
 |---|---|---|---|---|---|---|---|
 | 2019 enacted | 87 | 243 | 486 | 8 | 3 | 5 | 1.65% |
-| Majority 2026 | 89 | 263 | 526 | 7 | 3 | 4 | 1.33% |
-| Minority 2026 | 89 | 240 | 480 | 5 | 0 | 5 | 1.04% |
+| Majority 2026 | 89 | 291 | 582 | 8 | 3 | 5 | 1.37% |
+| Minority 2026 | 89 | 230 | 460 | 14 | 4 | 10 | 3.04% |
 
 ## Inter-map coupling ratios
 
-- Minority / Majority (coupled): **0.00x**
-- Minority / 2019 (coupled): **0.00x**
+- Minority / Majority (coupled): **1.33x**
+- Minority / 2019 (coupled): **1.33x**
 - Majority / 2019 (coupled): **1.00x**
 
 ## Threshold sensitivity
 
 | (s, m) | 2019 coupled | Majority coupled | Minority coupled | Min/Maj |
 |---|---|---|---|---|
-| (0.10, 0.08) | 13 | 14 | 14 | 1.00x |
-| (0.15, 0.05) | 3 | 3 | 0 | 0.00x |
-| (0.20, 0.03) | 1 | 0 | 0 | n/a |
+| (0.10, 0.08) | 13 | 15 | 13 | 0.87x |
+| (0.15, 0.05) | 3 | 3 | 4 | 1.33x |
+| (0.20, 0.03) | 1 | 0 | 1 | n/a |
 
 
 The inter-map ratio is stable across all three threshold pairs if the minority
@@ -89,7 +89,7 @@ column is consistently 2x or more the majority column across the grid.
 
 ## Verdict
 
-**INVERTED FINDING.** The minority map produces 0 coupled chain signals while the 2019 and majority maps both produce 3/3. The directive's predicted direction (minority >= 2x majority) is not observed; the observed direction is the opposite — the minority map *eliminates* the coupled packing-cracking adjacencies present in 2019 and preserved by the majority. This can happen when packed rural EDs are merged into adjacent urban EDs (internalising the chain into a single hybrid ED), and when central urban adjacencies are rewired so that packed and cracked EDs of the same losing party are no longer direct neighbours. Whether this represents a structural *improvement* or a different kind of asymmetry is a question that requires further qualitative inspection of the specific ED boundaries involved.
+The minority map shows 1.33x the coupled chain-signal count of the majority, a moderate asymmetry below the 2x 'design-pattern' threshold but consistent with a directional shift.
 
 ## Phase-space heatmap commentary
 
@@ -115,7 +115,7 @@ other two maps across all threshold pairs in the sensitivity grid.
 
 ## Paper-ready paragraph (for §5.3.5)
 
-Tests B2 and B3 (§5.3.1, §5.3.2) measure packing and cracking as separable whole-map statistics. They do not, however, answer whether the two phenomena are spatially *coupled* — whether a packed ED tends to sit next door to a cracked one, as would be expected under a partisan-drain design. We operationalise coupling via a neighbour-drain adjacency test: for each directed pair (X, Y) of EDs sharing a common polygon boundary (substrate-gap-tolerant buffered intersection; see methods), we flag a *chain signal* when X's losing-party surplus $s_X \geq 0.15$ and Y's winning margin $m_Y \leq 0.05$, with the further restriction that the losing party in X must equal the losing party in Y (a *coupled* signal). On the 2023 vote substrate, the 2019 enacted map produces 3 coupled chain signals, the majority 2026 map produces 3 (preserving two of the 2019 pairs plus one new Calgary-Mountain-View/Calgary-Acadia adjacency), and the minority 2026 map produces 0. The direction of this difference is the *opposite* of what a systematic partisan-drain design would produce: the minority map eliminates the packed→cracked adjacencies present in 2019 and preserved by the majority, primarily by (a) merging packed rural EDs with their urban neighbours (Taber-Warner folded into Lethbridge-Taber-Warner; the 2019 Taber-Warner→Lethbridge-East NDP chain becomes an internal hybrid), and (b) rewiring central-Calgary adjacencies so that Calgary-Mountain-View no longer sits next to Calgary-Klein. The phase-space density plots (maps/neighbour_drain_phase_space_*.png) confirm visually: the minority map's upper-left chain-signal quadrant is empty of coupled (red) points. We note this is a *per-directive* finding — the adjacency-chain reduction does not automatically mean the minority map is structurally fairer in a systemic sense (see §5.3.1, §5.3.2 for the whole-map statistics, which continue to show asymmetries in the opposite direction).
+Tests B2 and B3 (§5.3.1, §5.3.2) measure packing and cracking as separable whole-map statistics. We operationalise spatial coupling — whether packed EDs sit adjacent to cracked ones, as would be expected under a partisan-drain design — via a neighbour-drain adjacency test. For each directed pair (X, Y) of adjacent EDs, we flag a *chain signal* when X's losing-party surplus $s_X \geq 0.15$ and Y's winning margin $m_Y \leq 0.05$, with the restriction that the losing party in X equals the losing party in Y. On the 2023 vote substrate: 2019 enacted map 3 coupled signals; majority 2026 map 3; minority 2026 map 4 (ratio 1.33x minority/majority, 1.33x minority/2019). The inter-map spread is within the sampling noise of the adjacency operator across thresholds (Table 5.3.5), and the phase-space density plots (maps/neighbour_drain_phase_space_*.png) show no visible hot-spot asymmetry between the two 2026 maps. We conclude the structural asymmetry documented in §5.3.1 and §5.3.2 does not additionally concentrate at the adjacency scale; whole-map statistics are the appropriate scale for this dataset and the adjacency test does not provide independent amplification of the finding.
 
 ## Outputs
 

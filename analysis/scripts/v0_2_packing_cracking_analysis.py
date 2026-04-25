@@ -72,7 +72,9 @@ from typing import Dict, List, Optional, Tuple
 
 def _find_data(filename: str) -> str:
     here = os.path.dirname(os.path.abspath(__file__))
-    for p in [os.path.join(here, '..', 'data', filename),
+    # Script lives at <repo>/analysis/scripts/, so '../../data' = <repo>/data
+    for p in [os.path.join(here, '..', '..', 'data', filename),
+              os.path.join(here, '..', 'data', filename),
               os.path.join(here, 'data', filename),
               os.path.join('data', filename),
               filename]:

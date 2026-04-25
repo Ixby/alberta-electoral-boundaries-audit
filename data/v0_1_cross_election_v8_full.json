@@ -1,0 +1,50 @@
+[
+  {
+    "ucp_seats": 65,
+    "n_districts": 89,
+    "ucp_vote_share": 0.6280597080072013,
+    "efficiency_gap": 0.018669065516026134,
+    "mean_median": -0.005396475974597359,
+    "declination": -0.046891218818765595,
+    "seats_at_50_50": 0.4943820224719101,
+    "map": "majority",
+    "election": "2019",
+    "attribution": "area-proportional from 2019 enacted polygons"
+  },
+  {
+    "ucp_seats": 55,
+    "n_districts": 87,
+    "ucp_vote_share": 0.5740427639062995,
+    "efficiency_gap": 0.06456966198402041,
+    "mean_median": 0.017907710110963038,
+    "declination": -0.007738759514438978,
+    "seats_at_50_50": 0.4367816091954023,
+    "map": "majority",
+    "election": "2023",
+    "attribution": "VA-centroid in v0_8 polygon"
+  },
+  {
+    "ucp_seats": 67,
+    "n_districts": 89,
+    "ucp_vote_share": 0.6280568532063073,
+    "efficiency_gap": 0.016782162036754648,
+    "mean_median": -0.005841583785529458,
+    "declination": -0.041846098039326526,
+    "seats_at_50_50": 0.5617977528089888,
+    "map": "minority",
+    "election": "2019",
+    "attribution": "area-proportional from 2019 enacted polygons"
+  },
+  {
+    "ucp_seats": 59,
+    "n_districts": 83,
+    "ucp_vote_share": 0.5740427639062994,
+    "efficiency_gap": 0.09334585409594003,
+    "mean_median": 0.010735175235186079,
+    "declination": -0.06107752136648714,
+    "seats_at_50_50": 0.5421686746987951,
+    "map": "minority",
+    "election": "2023",
+    "attribution": "VA-centroid in v0_8 polygon"
+  }
+]

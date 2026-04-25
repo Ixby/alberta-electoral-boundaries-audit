@@ -1,0 +1,58 @@
+============================================================
+  Neighbour-drain Adjacency Test (Test 3A)
+============================================================
+
+Loading 2023 two-party vote totals per 2019 ED...
+  Rural NDP share (used for blending): 33.5%
+
+Estimating 2023 two-party votes on Majority 2026 EDs...
+  89 majority EDs estimated
+
+Estimating 2023 two-party votes on Minority 2026 EDs...
+  89 minority EDs estimated
+
+Loading shapefiles...
+  2019: 87 polygons  CRS=EPSG:3401
+  Majority 2026: 89 polygons  CRS=EPSG:3401  source=v0_8_full_refined_majority_2026_eds.gpkg
+  Minority 2026: 89 polygons  CRS=EPSG:3401  source=v0_8_full_refined_minority_2026_eds.gpkg
+
+--- 2019 ---
+  computing adjacency graph (87 polygons)...
+  found 243 undirected adjacent pairs (243 strict + 0 K-nearest fallback)
+  directed pairs: 486
+  chain signals total: 8 (3 coupled + 5 uncoupled)
+  chain-signal rate: 1.65%
+
+--- majority ---
+  computing adjacency graph (89 polygons)...
+  found 291 undirected adjacent pairs (291 strict + 0 K-nearest fallback)
+  directed pairs: 582
+  chain signals total: 8 (3 coupled + 5 uncoupled)
+  chain-signal rate: 1.37%
+
+--- minority ---
+  computing adjacency graph (89 polygons)...
+  found 230 undirected adjacent pairs (230 strict + 0 K-nearest fallback)
+  directed pairs: 460
+  chain signals total: 14 (4 coupled + 10 uncoupled)
+  chain-signal rate: 3.04%
+
+Wrote per-pair log: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\reports\v0_1_neighbour_drain_log.csv
+Wrote summary JSON: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_neighbour_drain_summary.json
+Wrote heatmap: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\maps\neighbour_drain_phase_space_2019.png
+Wrote heatmap: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\maps\neighbour_drain_phase_space_majority.png
+Wrote heatmap: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\maps\neighbour_drain_phase_space_minority.png
+Wrote analysis: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\reports\v0_1_neighbour_drain_analysis.md
+
+============================================================
+  NEIGHBOUR-DRAIN ADJACENCY TEST — SUMMARY
+============================================================
+  Map            Pairs  Signals  Coupled  Uncoupled    Rate
+  2019             486        8        3          5   1.65%
+  majority         582        8        3          5   1.37%
+  minority         460       14        4         10   3.04%
+
+  Ratios (coupled signals):
+    minority / majority = 1.33x
+    minority / 2019     = 1.33x
+    majority / 2019     = 1.00x

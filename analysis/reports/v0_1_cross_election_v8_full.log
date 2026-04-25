@@ -1,0 +1,26 @@
+[15:38:49] [v0_8 cross-election re-check] start
+  loading 2023 VA votes from va_polygons_with_2023_votes.gpkg
+  loading 2019 ED-level votes from v0_1_alberta_2019_results.csv + EDS_ENACTED_BILL33_15DEC2017.shp
+  loaded 2019 votes for 87 2019 EDs
+  loaded 87 2019 enacted polygons CRS=EPSG:3401
+
+  === majority (source: v0_8_full_refined_majority_2026_eds.gpkg) ===
+    2019 → seats=65/89  EG=+0.0187  MM=-0.0054  decl=-0.0469  s50=0.494  (51.7s)
+    2023 → seats=55/87  EG=+0.0646  MM=+0.0179  decl=-0.0077  s50=0.437  (0.3s)
+
+  === minority (source: v0_8_full_refined_minority_2026_eds.gpkg) ===
+    2019 → seats=67/89  EG=+0.0168  MM=-0.0058  decl=-0.0418  s50=0.562  (215.1s)
+    2023 → seats=59/83  EG=+0.0933  MM=+0.0107  decl=-0.0611  s50=0.542  (0.3s)
+
+  wrote v0_1_cross_election_v8_full.csv and v0_1_cross_election_v8_full.json
+
+=== DIRECTION STABILITY (2019 vs 2023, per map per metric) ===
+  majority   efficiency_gap     2019=+0.0187  2023=+0.0646  STABLE
+  majority   mean_median        2019=-0.0054  2023=+0.0179  DIRECTION-FLIP
+  majority   declination        2019=-0.0469  2023=-0.0077  STABLE
+  majority   seats_at_50_50     2019=+0.4944  2023=+0.4368  STABLE
+  minority   efficiency_gap     2019=+0.0168  2023=+0.0933  STABLE
+  minority   mean_median        2019=-0.0058  2023=+0.0107  DIRECTION-FLIP
+  minority   declination        2019=-0.0418  2023=-0.0611  STABLE
+  minority   seats_at_50_50     2019=+0.5618  2023=+0.5422  STABLE
+[15:43:17] [v0_8 cross-election re-check] done in 267.9s
