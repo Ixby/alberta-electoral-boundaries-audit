@@ -13,3 +13,4 @@ cache/
 logs/
 private/
 maps/pdf_previews/
+analysis/scripts/*.csv
