@@ -53,10 +53,11 @@ from shapely.ops import unary_union, snap
 
 warnings.filterwarnings("ignore")
 
-# Cap workers — beyond ~8 the GIL contention from Python-level overhead in
-# shapely wrappers starts to outweigh the GEOS C-side parallelism. Override
-# via DPG_WORKERS env var if needed.
-WORKERS = int(os.environ.get("DPG_WORKERS", min(8, (os.cpu_count() or 4))))
+# Cap workers — shapely 2.x releases the GIL for GEOS calls, so threading
+# scales reasonably up to ~10 on a 16-core box (the remaining cores absorb
+# Python-level overhead in shapely wrappers + room for OS/IO). Override via
+# DPG_WORKERS env var if needed.
+WORKERS = int(os.environ.get("DPG_WORKERS", min(10, (os.cpu_count() or 4))))
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
