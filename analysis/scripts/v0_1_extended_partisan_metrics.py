@@ -43,9 +43,22 @@ DATA   = ROOT / "data"
 RPTS   = ROOT / "analysis" / "reports"
 RPTS.mkdir(parents=True, exist_ok=True)
 
+def _pick(plan: str):
+    base = DATA / "shapefiles" / "derived"
+    for fname in (
+        f"v0_8_refined_{plan}_2026_eds.gpkg",
+        f"v0_8_canonical_{plan}_2026_eds.gpkg",
+        f"v0_7_canonical_{plan}_2026_eds.gpkg",
+    ):
+        p = base / fname
+        if p.exists():
+            return p
+    return base / f"v0_7_canonical_{plan}_2026_eds.gpkg"
+
+
 VA_PATH     = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-MAJ_V7      = DATA / "shapefiles" / "derived" / "v0_7_canonical_majority_2026_eds.gpkg"
-MIN_V7      = DATA / "shapefiles" / "derived" / "v0_7_canonical_minority_2026_eds.gpkg"
+MAJ_V7      = _pick("majority")
+MIN_V7      = _pick("minority")
 ENSEMBLE_CSV = DATA / "v0_1_mcmc_ensemble_samples_100k.csv"
 
 OUT_JSON = DATA / "v0_1_extended_partisan_metrics.json"

@@ -60,20 +60,28 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
+def _pick(plan: str) -> Path:
+    """Prefer v0_8 refined, then v0_8 canonical, then v0_7 canonical."""
+    base = ROOT / "data" / "shapefiles" / "derived"
+    for fname in (
+        f"v0_8_refined_{plan}_2026_eds.gpkg",
+        f"v0_8_canonical_{plan}_2026_eds.gpkg",
+        f"v0_7_canonical_{plan}_2026_eds.gpkg",
+    ):
+        p = base / fname
+        if p.exists():
+            return p
+    return base / f"v0_7_canonical_{plan}_2026_eds.gpkg"
+
+
 MAPS = {
     # Use v0_2 topoclean as 2019 proxy (same geometry, clean topology)
     "2019_enacted": (
         ROOT / "data" / "shapefiles" / "derived"
         / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
     ),
-    "majority_2026": (
-        ROOT / "data" / "shapefiles" / "derived"
-        / "v0_7_canonical_majority_2026_eds.gpkg"
-    ),
-    "minority_2026": (
-        ROOT / "data" / "shapefiles" / "derived"
-        / "v0_7_canonical_minority_2026_eds.gpkg"
-    ),
+    "majority_2026": _pick("majority"),
+    "minority_2026": _pick("minority"),
 }
 
 EXPECTED_COUNTS = {
