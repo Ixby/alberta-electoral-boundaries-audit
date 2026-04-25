@@ -32,6 +32,7 @@ import json
 import os
 import sys
 import time
+from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -59,6 +60,75 @@ from v0_1_mcmc_ensemble import (
 )
 from v0_1_mcmc_ensemble_100k import autocorrelation_ess, plot_running_mean
 
+
+def _run_chain_chunked(args):
+    """Worker: runs one chain in checkpointed chunks.
+
+    Each chunk is an independent mini-burst from the 2019 baseline with a
+    deterministic (base_seed, chain_idx, chunk_idx)-derived seed. The chain
+    CSV is appended after each chunk completes — on crash, we lose at most
+    `chunk_size` samples and can resume by re-reading the CSV row count.
+
+    Rebuilding the graph per worker (~15s) is cheaper than pickling the
+    4,765-node NetworkX graph + the gerrychain Partition object across the
+    process boundary. The chunked approach is statistically defensible
+    (independent mini-chains pool into a clean ensemble) and crash-safe.
+    """
+    chain_idx, n_steps_total, base_seed, pop_deviation, chain_csv_path, chunk_size = args
+    import random as _random
+    import numpy as _np
+
+    chain_csv_path = Path(chain_csv_path)
+    chain_csv_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Resume detection
+    if chain_csv_path.exists():
+        existing = pd.read_csv(chain_csv_path)
+        n_done = len(existing)
+        del existing
+    else:
+        n_done = 0
+
+    if n_done >= n_steps_total:
+        print(f"  [chain {chain_idx}] already complete ({n_done} samples) — skipping",
+              flush=True)
+        return str(chain_csv_path)
+
+    chunks_done = n_done // chunk_size
+    n_chunks = (n_steps_total + chunk_size - 1) // chunk_size
+    print(f"  [chain {chain_idx}] {n_done}/{n_steps_total} done; "
+          f"resuming from chunk {chunks_done}/{n_chunks}", flush=True)
+
+    # Build graph once per worker
+    va, graph = build_va_graph()
+    assignment = initial_assignment_2019(va)
+
+    t_chain_start = time.time()
+    for chunk_idx in range(chunks_done, n_chunks):
+        chunk_seed = base_seed * 100_000 + chain_idx * 1_000 + chunk_idx
+        _np.random.seed(chunk_seed)
+        _random.seed(chunk_seed)
+        chunk_steps = min(chunk_size, n_steps_total - chunk_idx * chunk_size)
+        t_chunk = time.time()
+        rows = run_ensemble(graph, assignment, chunk_steps,
+                            pop_deviation=pop_deviation, verbose=False)
+        for r in rows:
+            r["chain"] = chain_idx
+            r["chunk"] = chunk_idx
+        # Append (write header on first chunk only; if file is empty/non-existent
+        # we always write the header)
+        write_header = (not chain_csv_path.exists()) or chain_csv_path.stat().st_size == 0
+        pd.DataFrame(rows).to_csv(
+            chain_csv_path, mode='a', header=write_header, index=False
+        )
+        print(f"  [chain {chain_idx}] chunk {chunk_idx+1}/{n_chunks} "
+              f"({len(rows)} samples in {time.time()-t_chunk:.0f}s) → {chain_csv_path.name}",
+              flush=True)
+
+    print(f"  [chain {chain_idx}] complete in {time.time()-t_chain_start:.0f}s",
+          flush=True)
+    return str(chain_csv_path)
+
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"
 MAPS = ROOT / "data" / "maps" / "mcmc"
@@ -68,6 +138,7 @@ SAMPLES_CSV = DATA / "v0_1_mcmc_ensemble_samples_250k_v0_8.csv"
 SCORES_JSON = DATA / "v0_1_mcmc_real_map_scores_250k_v0_8.json"
 PERCENTILES_CSV = DATA / "v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv"
 CONVERGENCE_JSON = DATA / "v0_1_mcmc_convergence_diagnostics_250k_v0_8.json"
+CHECKPOINT_DIR = DATA / "mcmc_checkpoints_250k_v0_8"
 
 
 def _select_v8_or_v7(plan: str):
@@ -85,21 +156,28 @@ def _select_v8_or_v7(plan: str):
         return MIN_V7_PATH, "minority 2026 v7 (89 EDs)"
 
 
-def main(n_steps: int = 250000, seed: int = 42, pop_deviation: float = 0.25):
+def main(n_steps: int = 250000, seed: int = 42, pop_deviation: float = 0.25,
+         n_chains: int = 4, chunk_size: int = 5000):
     np.random.seed(seed)
     import random as _random
     _random.seed(seed)
 
     t_start = time.time()
+    n_steps_per_chain = (n_steps + n_chains - 1) // n_chains
+    actual_total = n_steps_per_chain * n_chains
     label_run = f"250k v0_8 rigorous ensemble"
-    print(f"[{time.strftime('%H:%M:%S')}] {label_run} starting — "
-          f"n_steps={n_steps}, seed={seed}, pop_deviation=±{pop_deviation:.0%}")
+    print(f"[{time.strftime('%H:%M:%S')}] {label_run} starting", flush=True)
+    print(f"  n_steps requested={n_steps}, n_chains={n_chains}, "
+          f"steps/chain={n_steps_per_chain}, total={actual_total}", flush=True)
+    print(f"  chunk_size={chunk_size} samples (checkpoint granularity)", flush=True)
+    print(f"  base_seed={seed}, pop_deviation=±{pop_deviation:.0%}", flush=True)
+    print(f"  checkpoint dir: {CHECKPOINT_DIR}", flush=True)
 
     va, graph = build_va_graph()
 
     assignment = initial_assignment_2019(va)
     districts_2019 = set(assignment.values())
-    print(f"  2019 baseline districts: {len(districts_2019)}")
+    print(f"  2019 baseline districts: {len(districts_2019)}", flush=True)
 
     agg = va.groupby("parent_ed_2019").agg(
         ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
@@ -127,11 +205,38 @@ def main(n_steps: int = 250000, seed: int = 42, pop_deviation: float = 0.25):
               f"ucp_share={m['ucp_vote_share']:.3f}  cov={m['coverage_pct']:.2%}")
 
     print()
-    print(f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps)...")
-    rows = run_ensemble(graph, assignment, n_steps, pop_deviation=pop_deviation)
-    df = pd.DataFrame(rows)
+    print(f"[{time.strftime('%H:%M:%S')}] launching {n_chains} parallel chains × "
+          f"{n_steps_per_chain} steps with checkpointed chunks...", flush=True)
+
+    CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
+    chain_paths = [CHECKPOINT_DIR / f"chain{i}_samples.csv" for i in range(n_chains)]
+    work_items = [
+        (i, n_steps_per_chain, seed, pop_deviation,
+         str(chain_paths[i]), chunk_size)
+        for i in range(n_chains)
+    ]
+
+    # Free the parent's heavy graph before spawning workers — each worker rebuilds
+    # its own. Saves a few hundred MB of RSS shared into each child on Windows.
+    del graph
+    del va
+
+    with ProcessPoolExecutor(max_workers=n_chains) as ex:
+        for completed_path in ex.map(_run_chain_chunked, work_items):
+            print(f"  ↳ chain file ready: {Path(completed_path).name}", flush=True)
+
+    # Concatenate per-chain CSVs into the canonical samples file
+    parts = [pd.read_csv(p) for p in chain_paths if p.exists()]
+    if not parts:
+        raise RuntimeError("All chain CSVs missing — nothing to concatenate.")
+    df = pd.concat(parts, ignore_index=True)
     df.to_csv(SAMPLES_CSV, index=False)
-    print(f"  wrote {SAMPLES_CSV.name} ({len(df)} samples) in {time.time()-t_start:.0f}s total")
+    print(f"  wrote {SAMPLES_CSV.name} ({len(df)} samples from {n_chains} chains) "
+          f"in {time.time()-t_start:.0f}s total", flush=True)
+
+    # Reload the parent's graph for the post-run analysis (real-map scores etc.
+    # don't need it, but plot_metric calls real_vals dict from above which
+    # doesn't depend on graph either — so the analysis below runs without graph)
 
     print()
     print("  --- Convergence diagnostics (full 250k) ---")
@@ -223,9 +328,16 @@ def main(n_steps: int = 250000, seed: int = 42, pop_deviation: float = 0.25):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--n-steps", type=int, default=250000)
-    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--n-steps", type=int, default=250000,
+                        help="Total samples across all chains (default: 250000)")
+    parser.add_argument("--n-chains", type=int, default=4,
+                        help="Number of parallel chains (default: 4)")
+    parser.add_argument("--chunk-size", type=int, default=5000,
+                        help="Checkpoint granularity in samples per chunk (default: 5000)")
+    parser.add_argument("--seed", type=int, default=42,
+                        help="Base seed; per-chunk seed = base*100k + chain*1k + chunk")
     parser.add_argument("--pop-deviation", type=float, default=0.25)
     args = parser.parse_args()
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
-    main(n_steps=args.n_steps, seed=args.seed, pop_deviation=args.pop_deviation)
+    main(n_steps=args.n_steps, seed=args.seed, pop_deviation=args.pop_deviation,
+         n_chains=args.n_chains, chunk_size=args.chunk_size)
