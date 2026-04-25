@@ -392,7 +392,7 @@ html, body {
     </div>
     <div class="locator">
       Full technical report
-      <span class="url">willconner.ca/ab_ed/26_04_analysis</span>
+      <span class="url">github.com/Ixby/alberta-electoral-boundaries-audit</span>
     </div>
   </div>
 

@@ -1,0 +1,193 @@
+pass,donor,receiver,donor_pct,receiver_pct,pct_diff,shared_length_m,vertices_snapped
+1,Calgary-West-Elbow Valley,Calgary-Bhullar-McCall,87.93,70.5,17.43,1616.4,12
+1,Cochrane-Springbank,Calgary-Bhullar-McCall,100.0,70.5,29.5,95.3,18
+1,Cochrane-Springbank,Calgary-Cross,100.0,83.34,16.66,233.0,23
+1,Calgary-Currie,Calgary-West-Elbow Valley,100.0,87.93,12.07,165.4,32
+1,Calgary-Currie,Canmore-Banff,100.0,83.18,16.82,72.4,15
+1,Calgary-Shaw,Calgary-Lougheed,93.06,28.41,64.64,2449.2,46
+1,Okotoks-Diamond Valley,Calgary-South East,85.19,49.82,35.38,7120.0,124
+1,Edmonton-McClung,Edmonton-Windermere,100.0,84.1,15.9,224.8,54
+1,St. Albert,Edmonton-North West,100.0,85.91,14.09,209.6,4
+1,Edmonton-Rutherford,Edmonton-Windermere,100.0,84.1,15.9,99.9,19
+1,Edmonton-Whitemud,Edmonton-Windermere,99.37,84.1,15.27,238.4,74
+1,Airdrie-West,Mountain View-Kneehill,86.14,68.43,17.71,649.8,80
+1,St. Albert-Sturgeon,Barrhead-Westlock-Athabasca,97.19,80.43,16.77,372.0,46
+1,Chestermere-Strathmore,Mountain View-Kneehill,79.35,68.43,10.93,1542.9,40
+1,Drumheller-Stettler,Mountain View-Kneehill,99.28,68.43,30.85,637.4,54
+1,Drumheller-Stettler,Lacombe-Clearwater,99.28,82.5,16.79,7911.5,187
+1,West Yellowhead,Grande Prairie-Wapiti,73.99,6.61,67.38,17173.1,376
+1,Lethbridge-East,Taber-Cardston,100.0,81.93,18.07,627.7,185
+1,Medicine Hat-Brooks,Mountain View-Kneehill,91.27,68.43,22.85,200.4,56
+1,Okotoks-Diamond Valley,Mountain View-Kneehill,85.19,68.43,16.77,1027.8,30
+1,Sylvan Lake-Innisfail,Mountain View-Kneehill,88.01,68.43,19.59,349.2,68
+1,Spruce Grove,Stony Plain-Drayton Valley,96.76,81.12,15.65,484.1,76
+2,Cochrane-Springbank,Calgary-Bhullar-McCall,100.0,70.5,29.5,481.8,49
+2,Cochrane-Springbank,Calgary-Cross,100.0,83.34,16.66,673.8,49
+2,Calgary-Currie,Calgary-West-Elbow Valley,100.0,87.93,12.07,552.9,39
+2,Calgary-Currie,Canmore-Banff,100.0,83.18,16.82,72.4,15
+2,Calgary-Shaw,Calgary-Lougheed,93.06,28.41,64.64,2449.2,46
+2,Okotoks-Diamond Valley,Calgary-South East,85.19,49.82,35.38,7120.0,124
+2,Edmonton-McClung,Edmonton-Windermere,100.0,84.1,15.9,2412.8,166
+2,Edmonton-Whitemud,Edmonton-Windermere,99.37,84.1,15.27,2982.9,222
+2,Airdrie-West,Mountain View-Kneehill,86.14,68.43,17.71,2831.2,232
+2,St. Albert-Sturgeon,Barrhead-Westlock-Athabasca,97.19,80.43,16.77,372.0,46
+2,Chestermere-Strathmore,Mountain View-Kneehill,79.35,68.43,10.93,1542.9,35
+2,Drumheller-Stettler,Mountain View-Kneehill,99.28,68.43,30.85,26084.4,2050
+2,Drumheller-Stettler,Lacombe-Clearwater,99.28,82.5,16.79,18869.0,460
+2,West Yellowhead,Grande Prairie-Wapiti,73.99,6.61,67.38,49925.7,1225
+2,Lethbridge-East,Taber-Cardston,100.0,81.93,18.07,13599.9,673
+2,Medicine Hat-Brooks,Mountain View-Kneehill,91.27,68.43,22.85,59725.5,1592
+2,Okotoks-Diamond Valley,Mountain View-Kneehill,85.19,68.43,16.77,17538.6,376
+2,Sylvan Lake-Innisfail,Mountain View-Kneehill,88.01,68.43,19.59,349.2,68
+2,Spruce Grove,Stony Plain-Drayton Valley,96.76,81.12,15.65,16083.8,506
+3,Cochrane-Springbank,Calgary-Bhullar-McCall,100.0,70.5,29.5,478.6,51
+3,Cochrane-Springbank,Calgary-Cross,100.0,83.34,16.66,662.4,47
+3,Calgary-Currie,Calgary-West-Elbow Valley,100.0,87.93,12.07,544.4,42
+3,Calgary-Currie,Canmore-Banff,100.0,83.18,16.82,72.4,15
+3,Calgary-Shaw,Calgary-Lougheed,93.06,28.41,64.64,2449.2,46
+3,Okotoks-Diamond Valley,Calgary-South East,85.19,49.82,35.38,7120.0,124
+3,Edmonton-McClung,Edmonton-Windermere,100.0,84.1,15.9,2564.2,155
+3,Edmonton-Whitemud,Edmonton-Windermere,99.37,84.1,15.27,2895.2,217
+3,Airdrie-West,Mountain View-Kneehill,86.14,68.43,17.71,13852.5,402
+3,St. Albert-Sturgeon,Barrhead-Westlock-Athabasca,97.19,80.43,16.77,372.0,46
+3,Chestermere-Strathmore,Mountain View-Kneehill,79.35,68.43,10.93,1343.8,33
+3,Drumheller-Stettler,Mountain View-Kneehill,99.28,68.43,30.85,16338.0,1644
+3,Drumheller-Stettler,Lacombe-Clearwater,99.28,82.5,16.79,17516.6,475
+3,West Yellowhead,Grande Prairie-Wapiti,73.99,6.61,67.38,44317.0,1307
+3,Lethbridge-East,Taber-Cardston,100.0,81.93,18.07,17673.0,714
+3,Medicine Hat-Brooks,Mountain View-Kneehill,91.27,68.43,22.85,62941.9,1633
+3,Okotoks-Diamond Valley,Mountain View-Kneehill,85.19,68.43,16.77,9033.4,367
+3,Sylvan Lake-Innisfail,Mountain View-Kneehill,88.01,68.43,19.59,349.2,68
+3,Spruce Grove,Stony Plain-Drayton Valley,96.76,81.12,15.65,14998.8,526
+4,Cochrane-Springbank,Calgary-Bhullar-McCall,100.0,70.5,29.5,501.7,51
+4,Cochrane-Springbank,Calgary-Cross,100.0,83.34,16.66,662.5,49
+4,Calgary-Currie,Calgary-West-Elbow Valley,100.0,87.93,12.07,614.1,44
+4,Calgary-Currie,Canmore-Banff,100.0,83.18,16.82,72.4,15
+4,Calgary-Shaw,Calgary-Lougheed,93.06,28.41,64.64,2487.6,46
+4,Okotoks-Diamond Valley,Calgary-South East,85.19,49.82,35.38,7120.0,124
+4,Edmonton-McClung,Edmonton-Windermere,100.0,84.1,15.9,2564.2,154
+4,Edmonton-Whitemud,Edmonton-Windermere,99.37,84.1,15.27,2898.1,217
+4,Airdrie-West,Mountain View-Kneehill,86.14,68.43,17.71,8498.2,402
+4,St. Albert-Sturgeon,Barrhead-Westlock-Athabasca,97.19,80.43,16.77,372.0,46
+4,Chestermere-Strathmore,Mountain View-Kneehill,79.35,68.43,10.93,1294.1,32
+4,Drumheller-Stettler,Mountain View-Kneehill,99.28,68.43,30.85,16458.0,1679
+4,Drumheller-Stettler,Lacombe-Clearwater,99.28,82.5,16.79,17516.6,482
+4,West Yellowhead,Grande Prairie-Wapiti,73.99,6.61,67.38,44317.0,1364
+4,Lethbridge-East,Taber-Cardston,100.0,81.93,18.07,17714.4,714
+4,Medicine Hat-Brooks,Mountain View-Kneehill,91.27,68.43,22.85,63538.4,1635
+4,Okotoks-Diamond Valley,Mountain View-Kneehill,85.19,68.43,16.77,8963.4,367
+4,Sylvan Lake-Innisfail,Mountain View-Kneehill,88.01,68.43,19.59,349.2,68
+4,Spruce Grove,Stony Plain-Drayton Valley,96.76,81.12,15.65,15672.9,533
+5,Cochrane-Springbank,Calgary-Bhullar-McCall,100.0,70.5,29.5,501.7,51
+5,Cochrane-Springbank,Calgary-Cross,100.0,83.34,16.66,662.4,49
+5,Calgary-Currie,Calgary-West-Elbow Valley,100.0,87.93,12.07,683.8,45
+5,Calgary-Currie,Canmore-Banff,100.0,83.18,16.82,72.4,15
+5,Calgary-Shaw,Calgary-Lougheed,93.06,28.41,64.64,2487.6,46
+5,Okotoks-Diamond Valley,Calgary-South East,85.19,49.82,35.38,7120.0,124
+5,Edmonton-McClung,Edmonton-Windermere,100.0,84.1,15.9,2564.2,154
+5,Edmonton-Whitemud,Edmonton-Windermere,99.37,84.1,15.27,2898.1,217
+5,Airdrie-West,Mountain View-Kneehill,86.14,68.43,17.71,8498.2,402
+5,St. Albert-Sturgeon,Barrhead-Westlock-Athabasca,97.19,80.43,16.77,372.0,46
+5,Chestermere-Strathmore,Mountain View-Kneehill,79.35,68.43,10.93,1294.1,32
+5,Drumheller-Stettler,Mountain View-Kneehill,99.28,68.43,30.85,16521.3,1678
+5,Drumheller-Stettler,Lacombe-Clearwater,99.28,82.5,16.79,17516.6,488
+5,West Yellowhead,Grande Prairie-Wapiti,73.99,6.61,67.38,44317.0,1406
+5,Lethbridge-East,Taber-Cardston,100.0,81.93,18.07,14807.4,714
+5,Medicine Hat-Brooks,Mountain View-Kneehill,91.27,68.43,22.85,63538.4,1635
+5,Okotoks-Diamond Valley,Mountain View-Kneehill,85.19,68.43,16.77,8963.4,367
+5,Sylvan Lake-Innisfail,Mountain View-Kneehill,88.01,68.43,19.59,349.2,68
+5,Spruce Grove,Stony Plain-Drayton Valley,96.76,81.12,15.65,15672.9,540
+1,Calgary-Acadia,Calgary-South,100.0,87.58,12.42,115.3,13
+1,Calgary-Airdrie,Olds-Three Hills-Didsbury,98.05,12.22,85.83,548.2,16
+1,Calgary-Airdrie,Calgary-Falconridge,98.05,86.64,11.41,2646.8,55
+1,Calgary-Falconridge,Airdrie East,86.64,46.18,40.46,583.6,29
+1,Calgary-Peigan-Chestermere,Calgary-Klein,94.82,73.66,21.16,1034.9,38
+1,Calgary-Peigan-Chestermere,Highwood,94.82,68.93,25.89,1846.1,80
+1,Calgary-South East,Highwood,92.82,68.93,23.89,599.5,145
+1,Edmonton-South,Edmonton-Beaumont,79.93,55.79,24.14,362.6,48
+1,Edmonton-Highlands-Norwood,Edmonton-Ellerslie,98.44,66.35,32.1,1954.0,59
+1,Edmonton-Enoch-Devon,Lac Ste. Anne-Parkland,76.9,15.8,61.1,10110.5,218
+1,Edmonton-Enoch-Devon,Barrhead-Westlock-Athabasca,76.9,10.91,66.0,554.9,26
+1,Edmonton-Highlands-Norwood,Edmonton-South,98.44,79.93,18.51,3485.6,82
+1,Edmonton-South,Edmonton-Rutherford,79.93,22.15,57.78,77.4,19
+1,Airdrie East,Olds-Three Hills-Didsbury,46.18,12.22,33.96,1138.6,48
+1,Lethbridge-Little Bow,Lethbridge-Taber-Warner,92.64,45.84,46.81,186.5,32
+1,Medicine Hat-Cypress,Lethbridge-Taber-Warner,86.56,45.84,40.72,146846.3,3153
+1,Red Deer-Blackfalds,Red Deer-Innisfail,100.0,64.14,35.86,198.1,27
+1,Red Deer-Lacombe,Red Deer-Innisfail,91.79,64.14,27.65,1261.0,192
+1,Red Deer-Sylvan Lake,Red Deer-Innisfail,100.0,64.14,35.86,303.8,52
+1,Red Deer-Lacombe,Wetaskawin-Ponoka-Maskwacis,91.79,11.07,80.72,28035.1,595
+2,Calgary-Acadia,Calgary-South,100.0,87.58,12.42,282.4,26
+2,Calgary-Airdrie,Olds-Three Hills-Didsbury,98.05,12.22,85.83,5617.5,173
+2,Calgary-Airdrie,Calgary-Falconridge,98.05,86.64,11.41,1857.3,44
+2,Calgary-Falconridge,Airdrie East,86.64,46.18,40.46,6849.4,245
+2,Calgary-Peigan-Chestermere,Calgary-Klein,94.82,73.66,21.16,3014.4,117
+2,Calgary-Peigan-Chestermere,Highwood,94.82,68.93,25.89,1094.8,43
+2,Calgary-South East,Highwood,92.82,68.93,23.89,3767.8,327
+2,Edmonton-South,Edmonton-Beaumont,79.93,55.79,24.14,3198.4,267
+2,Edmonton-Highlands-Norwood,Edmonton-Ellerslie,98.44,66.35,32.1,2141.9,59
+2,Edmonton-Enoch-Devon,Lac Ste. Anne-Parkland,76.9,15.8,61.1,4109.2,214
+2,Edmonton-Enoch-Devon,Barrhead-Westlock-Athabasca,76.9,10.91,66.0,7061.8,154
+2,Edmonton-Highlands-Norwood,Edmonton-South,98.44,79.93,18.51,3144.7,79
+2,Edmonton-South,Edmonton-Rutherford,79.93,22.15,57.78,2029.2,122
+2,Airdrie East,Olds-Three Hills-Didsbury,46.18,12.22,33.96,19188.2,517
+2,Lethbridge-Little Bow,Lethbridge-Taber-Warner,92.64,45.84,46.81,44194.4,951
+2,Medicine Hat-Cypress,Lethbridge-Taber-Warner,86.56,45.84,40.72,131417.8,3152
+2,Red Deer-Blackfalds,Red Deer-Innisfail,100.0,64.14,35.86,198.1,27
+2,Red Deer-Lacombe,Red Deer-Innisfail,91.79,64.14,27.65,30736.2,1297
+2,Red Deer-Sylvan Lake,Red Deer-Innisfail,100.0,64.14,35.86,303.8,52
+2,Red Deer-Lacombe,Wetaskawin-Ponoka-Maskwacis,91.79,11.07,80.72,4732.0,586
+3,Calgary-Acadia,Calgary-South,100.0,87.58,12.42,528.8,31
+3,Calgary-Airdrie,Olds-Three Hills-Didsbury,98.05,12.22,85.83,548.2,16
+3,Calgary-Airdrie,Calgary-Falconridge,98.05,86.64,11.41,1912.7,43
+3,Calgary-Falconridge,Airdrie East,86.64,46.18,40.46,8418.2,252
+3,Calgary-Peigan-Chestermere,Calgary-Klein,94.82,73.66,21.16,2855.5,104
+3,Calgary-Peigan-Chestermere,Highwood,94.82,68.93,25.89,1094.8,43
+3,Calgary-South East,Highwood,92.82,68.93,23.89,5250.8,329
+3,Edmonton-South,Edmonton-Beaumont,79.93,55.79,24.14,4102.3,270
+3,Edmonton-Highlands-Norwood,Edmonton-Ellerslie,98.44,66.35,32.1,2177.4,59
+3,Edmonton-Enoch-Devon,Lac Ste. Anne-Parkland,76.9,15.8,61.1,4102.9,214
+3,Edmonton-Highlands-Norwood,Edmonton-South,98.44,79.93,18.51,3118.8,78
+3,Airdrie East,Olds-Three Hills-Didsbury,46.18,12.22,33.96,19899.8,517
+3,Lethbridge-Little Bow,Lethbridge-Taber-Warner,92.64,45.84,46.81,37105.8,943
+3,Medicine Hat-Cypress,Lethbridge-Taber-Warner,86.56,45.84,40.72,131417.8,3152
+3,Red Deer-Blackfalds,Red Deer-Innisfail,100.0,64.14,35.86,216.7,27
+3,Red Deer-Lacombe,Red Deer-Innisfail,91.79,64.14,27.65,17204.0,1200
+3,Red Deer-Sylvan Lake,Red Deer-Innisfail,100.0,64.14,35.86,33280.9,947
+3,Red Deer-Lacombe,Wetaskawin-Ponoka-Maskwacis,91.79,11.07,80.72,4752.0,584
+4,Calgary-Acadia,Calgary-South,100.0,87.58,12.42,642.7,31
+4,Calgary-Airdrie,Olds-Three Hills-Didsbury,98.05,12.22,85.83,548.2,16
+4,Calgary-Airdrie,Calgary-Falconridge,98.05,86.64,11.41,1912.7,43
+4,Calgary-Falconridge,Airdrie East,86.64,46.18,40.46,8684.8,258
+4,Calgary-Peigan-Chestermere,Calgary-Klein,94.82,73.66,21.16,2644.1,105
+4,Calgary-Peigan-Chestermere,Highwood,94.82,68.93,25.89,1094.8,43
+4,Calgary-South East,Highwood,92.82,68.93,23.89,5329.4,334
+4,Edmonton-Highlands-Norwood,Edmonton-Ellerslie,98.44,66.35,32.1,2177.4,59
+4,Edmonton-Enoch-Devon,Lac Ste. Anne-Parkland,76.9,15.8,61.1,4102.9,214
+4,Edmonton-Highlands-Norwood,Edmonton-South,98.44,79.93,18.51,3105.0,77
+4,Edmonton-South,Edmonton-Rutherford,79.93,22.15,57.78,685.6,118
+4,Lethbridge-Little Bow,Lethbridge-Taber-Warner,92.64,45.84,46.81,37105.8,943
+4,Medicine Hat-Cypress,Lethbridge-Taber-Warner,86.56,45.84,40.72,131417.8,3152
+4,Red Deer-Blackfalds,Red Deer-Innisfail,100.0,64.14,35.86,216.7,27
+4,Red Deer-Lacombe,Red Deer-Innisfail,91.79,64.14,27.65,17204.0,1213
+4,Red Deer-Sylvan Lake,Red Deer-Innisfail,100.0,64.14,35.86,25173.5,953
+4,Red Deer-Lacombe,Wetaskawin-Ponoka-Maskwacis,91.79,11.07,80.72,4768.3,580
+5,Calgary-Acadia,Calgary-South,100.0,87.58,12.42,642.7,31
+5,Calgary-Airdrie,Olds-Three Hills-Didsbury,98.05,12.22,85.83,548.2,16
+5,Calgary-Airdrie,Calgary-Falconridge,98.05,86.64,11.41,1912.7,43
+5,Calgary-Falconridge,Airdrie East,86.64,46.18,40.46,8696.8,256
+5,Calgary-Peigan-Chestermere,Calgary-Klein,94.82,73.66,21.16,2656.4,106
+5,Calgary-Peigan-Chestermere,Highwood,94.82,68.93,25.89,1094.8,43
+5,Calgary-South East,Highwood,92.82,68.93,23.89,5386.7,340
+5,Edmonton-South,Edmonton-Beaumont,79.93,55.79,24.14,4102.3,273
+5,Edmonton-Highlands-Norwood,Edmonton-Ellerslie,98.44,66.35,32.1,2177.4,59
+5,Edmonton-Enoch-Devon,Lac Ste. Anne-Parkland,76.9,15.8,61.1,4102.9,214
+5,Edmonton-Highlands-Norwood,Edmonton-South,98.44,79.93,18.51,3105.0,77
+5,Edmonton-South,Edmonton-Rutherford,79.93,22.15,57.78,685.6,118
+5,Airdrie East,Olds-Three Hills-Didsbury,46.18,12.22,33.96,19899.8,517
+5,Lethbridge-Little Bow,Lethbridge-Taber-Warner,92.64,45.84,46.81,37105.8,943
+5,Medicine Hat-Cypress,Lethbridge-Taber-Warner,86.56,45.84,40.72,131417.8,3152
+5,Red Deer-Blackfalds,Red Deer-Innisfail,100.0,64.14,35.86,216.7,27
+5,Red Deer-Lacombe,Red Deer-Innisfail,91.79,64.14,27.65,17204.0,1219
+5,Red Deer-Sylvan Lake,Red Deer-Innisfail,100.0,64.14,35.86,25173.5,960
+5,Red Deer-Lacombe,Wetaskawin-Ponoka-Maskwacis,91.79,11.07,80.72,4752.0,580

@@ -1,5 +1,5 @@
 """Build a standalone HTML version of the academic technical report for web
-deployment at https://willconner.ca/ab_ed/26_04_analysis.
+deployment at https://github.com/Ixby/alberta-electoral-boundaries-audit.
 
 Pipeline:
 1. Read report_academic.md.
@@ -11,7 +11,7 @@ Run:  PYTHONIOENCODING=utf-8 python analysis/scripts/build_academic_html.py
 Output: dist/26_04_analysis/index.html at the repo root.
 
 Deployment: the user uploads the `dist/26_04_analysis/` directory contents to
-their web host so that `https://willconner.ca/ab_ed/26_04_analysis` (and the
+their web host so that `https://github.com/Ixby/alberta-electoral-boundaries-audit` (and the
 `/index.html` path) serves this file.
 
 Dependencies: markdown (pip install markdown). No browser or other tooling
@@ -351,7 +351,7 @@ MASTHEAD = """<div class="masthead">
 """
 
 FOOTER = """<footer>
-  <p><strong>Cite this document:</strong> Conner, W. (2026). <em>Alberta Electoral Boundaries Audit</em>. Mount Royal University. <a href="https://willconner.ca/ab_ed/26_04_analysis">willconner.ca/ab_ed/26_04_analysis</a></p>
+  <p><strong>Cite this document:</strong> Conner, W. (2026). <em>Alberta Electoral Boundaries Audit</em>. Mount Royal University. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a></p>
   <p>Repository, data, and commit history: <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a></p>
   <p>Contact and corrections via the repository issue tracker.</p>
 </footer>
@@ -365,7 +365,7 @@ HTML_TEMPLATE = """<!doctype html>
 <title>Alberta Electoral Boundaries Audit — Technical Report (April 2026)</title>
 <meta name="description" content="Full technical report of the Alberta 2025-26 Electoral Boundaries Commission audit. Partisan-bias metrics, signature detection, procedural audit, rationale validation, and pre-registered November checklist.">
 <meta name="author" content="Will Conner">
-<link rel="canonical" href="https://willconner.ca/ab_ed/26_04_analysis">
+<link rel="canonical" href="https://github.com/Ixby/alberta-electoral-boundaries-audit">
 <style>
 {css}
 </style>
@@ -419,7 +419,7 @@ def main() -> int:
     print(
         "[build_academic_html] Deploy: upload the contents of "
         f"{OUT_DIR.relative_to(REPO_ROOT)}/ to "
-        "willconner.ca/ab_ed/26_04_analysis/"
+        "github.com/Ixby/alberta-electoral-boundaries-audit/"
     )
     return 0
 

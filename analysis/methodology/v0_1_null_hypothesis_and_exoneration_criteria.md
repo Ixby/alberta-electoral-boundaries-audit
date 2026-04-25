@@ -1,62 +1,62 @@
 ---
-name: Null hypotheses and exoneration criteria — pre-commitment register
-description: Pre-commits what "not guilty" looks like for each test in the audit's battery, including the five combined novel tests. Responds directly to the 2026-04-24 hard-audit critique that any test without a stated exoneration criterion is a prosecution tool, not a neutral measurement. Ties into the OSF pre-registration.
+name: Null hypotheses and pass criteria — pre-commitment register
+description: Pre-commits what "not guilty" looks like for each test in the audit's battery, including the five combined novel tests. Responds directly to the 2026-04-24 hard-audit critique that any test without a stated pass criterion is a prosecution tool, not a neutral measurement. Ties into the OSF pre-registration.
 type: methodology
 ---
 
-# Null hypotheses and exoneration criteria — pre-commitment register
+# Null hypotheses and pass criteria — pre-commitment register
 
 **Date of pre-commitment:** 2026-04-24
 **Author:** Will Conner
-**Trigger:** The 2026-04-24 hard-audit critique ("Texas Sharpshooter fallacy") named six meta-level attacks on the audit's methodology. Five of the six have specific test-level counter-strikes; all six collectively require pre-committing what "not guilty" (exoneration) looks like for each test before the test's result is consulted.
+**Trigger:** The 2026-04-24 hard-audit critique ("Texas Sharpshooter fallacy") named six meta-level attacks on the audit's methodology. Five of the six have specific test-level counter-strikes; all six collectively require pre-committing what "not guilty" (a pre-registered pass) looks like for each test before the test's result is consulted.
 
-This document is the pre-commitment. It exists to prevent any subsequent interpretation of the tests from drifting toward "select the reading that supports the conclusion." A test without a pre-stated exoneration criterion is a prosecution instrument; a test with one is a forensic instrument.
+This document is the pre-commitment. It exists to prevent any subsequent interpretation of the tests from drifting toward "select the reading that supports the conclusion." A test without a pre-stated pass criterion is a prosecution instrument; a test with one is a forensic instrument.
 
 ## 0. Why pre-commitment matters at the meta-level
 
-Individual-test pre-registration is already in place (OSF Track W, filed 2026-04-23, amended the same day). What the hard-audit correctly identifies is that pre-registering *specific thresholds* is insufficient: if the audit keeps *adding tests* after each one returns a neutral verdict, the thresholds are irrelevant — the apparatus itself becomes the p-hacking mechanism. The Katz-King-Rosenblatt (2020) consistency-across-metrics discipline is the defense against this, but it requires that every test be *exoneration-capable* in its own right: a result that would force the audit to retract a directional claim must be namable *before* the test runs.
+Individual-test pre-registration is already in place (OSF Track W, filed 2026-04-23, amended the same day). What the hard-audit correctly identifies is that pre-registering *specific thresholds* is insufficient: if the audit keeps *adding tests* after each one returns a neutral verdict, the thresholds are irrelevant — the apparatus itself becomes the p-hacking mechanism. The Katz-King-Rosenblatt (2020) consistency-across-metrics discipline is the defense against this, but it requires that every test be *pass-capable* in its own right: a result that would force the audit to retract a directional claim must be namable *before* the test runs.
 
 **The test of any test:** if you cannot articulate what result would make you retract, the test is biased.
 
-## 1. Exoneration criteria for existing test families
+## 1. Pass criteria for existing test families
 
 ### 1.1 A-family (population equality — §5.1)
 
-- **A1 MAD**: **EXONERATING** if minority MAD ≤ majority MAD + 500 (i.e., the minority is within 500 persons of the majority's variance). Current result: minority 4,707 vs majority 3,180 (Δ = 1,527). Not exonerating.
-- **A2 Calgary zone asymmetry**: **EXONERATING** if minority zone-gap ≤ 2 × majority zone-gap. Current: 12.2% vs 0.4% (30× ratio). Not exonerating.
-- **A3 s.15(2) eligibility**: **EXONERATING** if minority's engineered-boundary count is equal to or less than majority's. Current: 1 (RMH-Banff Park) vs 0. Not exonerating.
+- **A1 MAD**: **PASSING** if minority MAD ≤ majority MAD + 500 (i.e., the minority is within 500 persons of the majority's variance). Current result: minority 4,707 vs majority 3,180 (Δ = 1,527). Not passing.
+- **A2 Calgary zone asymmetry**: **PASSING** if minority zone-gap ≤ 2 × majority zone-gap. Current: 12.2% vs 0.4% (30× ratio). Not passing.
+- **A3 s.15(2) eligibility**: **PASSING** if minority's engineered-boundary count is equal to or less than majority's. Current: 1 (RMH-Banff Park) vs 0. Not passing.
 
 ### 1.2 B-family (partisan bias — §5.2)
 
-- **B2 EG**: **EXONERATING** if blended-crosswalk asymmetry CI crosses zero by ≥ 5 % of samples. Current result: 7.0 % of samples at opposite-sign. **This is within the exoneration threshold** — the paper reports this, and classical significance at 95 % is NOT claimed.
-- **B3 Mean-median**: **EXONERATING** if the direction reverses under 2019 vote input. Current: direction reverses (2019 = +0.75 pp, 2023 = −0.51 pp). **This IS exonerating for stability across elections**; the paper reports the sign reversal and narrows the claim to "stable across 2020s-era voter geography."
-- **B4 Seats at 50/50**: **EXONERATING** if both 2026 maps produce ≤ 1 seat difference. Current: 47 / 45 / 45 — Δ = 2 seats majority-vs-minority, 1 seat otherwise. Marginal; the audit reports "≤ 5 seats across all tested inputs" rather than a specific seat-difference claim.
-- **B5 MCMC percentile**: **EXONERATING** if minority's percentile is within the ensemble 5–95 band on ≥ 3 of 4 metrics. Current: mean-median p95.35, declination p2.5, EG p92.1, seats-at-50/50 p89.72 under ESS-150 downgrade. Two of four are at the 5/95 band edge (MM and declination); the paper flags these explicitly.
-- **B6 Declination**: **EXONERATING** (for the "map is gerrymandered" narrative) if sign agrees with B2. Current: B6 disagrees with B2. **This IS exonerating for a symmetric-pro-party claim**; the paper reports the disagreement and reframes as asymmetric-packing mechanism.
+- **B2 EG**: **PASSING** if blended-crosswalk asymmetry CI crosses zero by ≥ 5 % of samples. Current result: 7.0 % of samples at opposite-sign. **This is within the pass threshold** — the paper reports this, and classical significance at 95 % is NOT claimed.
+- **B3 Mean-median**: **PASSING** if the direction reverses under 2019 vote input. Current: direction reverses (2019 = +0.75 pp, 2023 = −0.51 pp). **This IS passing for stability across elections**; the paper reports the sign reversal and narrows the claim to "stable across 2020s-era voter geography."
+- **B4 Seats at 50/50**: **PASSING** if both 2026 maps produce ≤ 1 seat difference. Current: 47 / 45 / 45 — Δ = 2 seats majority-vs-minority, 1 seat otherwise. Marginal; the audit reports "≤ 5 seats across all tested inputs" rather than a specific seat-difference claim.
+- **B5 MCMC percentile**: **PASSING** if minority's percentile is within the ensemble 5–95 band on ≥ 3 of 4 metrics. Current: mean-median p95.35, declination p2.5, EG p92.1, seats-at-50/50 p89.72 under ESS-150 downgrade. Two of four are at the 5/95 band edge (MM and declination); the paper flags these explicitly.
+- **B6 Declination**: **PASSING** (for the "map is gerrymandered" narrative) if sign agrees with B2. Current: B6 disagrees with B2. **This IS passing for a symmetric-pro-party claim**; the paper reports the disagreement and reframes as asymmetric-packing mechanism.
 
 ### 1.3 C-family (geographic coherence — §5.8)
 
-- **C3 visible anomalies**: **EXONERATING** if minority's count ≤ majority's count. Current: 3 vs 0. Not exonerating.
-- **C4 CSD splits**: **EXONERATING** by null design; the metric is symmetric across maps. Current: null symmetric result confirmed. Paper reports CSD-level as inconclusive.
-- **C5 municipal anchoring (§5.8.5)**: **EXONERATING** if majority/minority ratio ≤ 2. Current: 4.9× (v0_4) / 5.1× (v0_5). Not exonerating.
+- **C3 visible anomalies**: **PASSING** if minority's count ≤ majority's count. Current: 3 vs 0. Not passing.
+- **C4 CSD splits**: **PASSING** by null design; the metric is symmetric across maps. Current: null symmetric result confirmed. Paper reports CSD-level as inconclusive.
+- **C5 municipal anchoring (§5.8.5)**: **PASSING** if majority/minority ratio ≤ 2. Current: 4.9× (v0_4) / 5.1× (v0_5). Not passing.
 
 ### 1.4 D-family (procedural — §5.9)
 
-- **EXONERATING** if ≥ 4 of 7 contested minority configurations have documented public support matching the chair's "no support" claim. Current: 4 of 7 have documented support (Canmore-Banff, Chestermere, RMH-Rocky Gas Co-Op plus one). **Partial exoneration**; the chair's claim is partially upheld; §5.9.4 reports this tiered refutation.
+- **PASSING** if ≥ 4 of 7 contested minority configurations have documented public support matching the chair's "no support" claim. Current: 4 of 7 have documented support (Canmore-Banff, Chestermere, RMH-Rocky Gas Co-Op plus one). **Partial pre-registered pass**; the chair's claim is partially upheld; §5.9.4 reports this tiered refutation.
 
-**Summary for existing test families.** Eight of fifteen tests are *not* exonerating; three are *fully exonerating* (where the audit has already retracted or narrowed the claim); four are *partially exonerating* (the paper reports the partial exoneration honestly). The audit is NOT a one-sided prosecution; it documents both confirming and exonerating results.
+**Summary for existing test families.** Eight of fifteen tests are *not* passing; three are *fully passing* (where the audit has already retracted or narrowed the claim); four are *partially passing* (the paper reports the partial pre-registered pass honestly). The audit is NOT a one-sided prosecution; it documents both confirming and passing results.
 
-## 2. Null hypotheses + exoneration criteria for the five combined novel tests
+## 2. Null hypotheses + pass criteria for the five combined novel tests
 
 ### 2.1 Neighbour-drain adjacency test (§2.1 of apparatus-defense)
 
 **Null hypothesis (Commission innocent).** Under neutral drawing, adjacent pairs $(X, Y)$ are distributed uniformly in the $(s_X, m_Y)$ phase space. A gerrymandered map produces a hot spot in the upper-left quadrant ($s_X \geq 0.15, m_Y \leq 0.05$) where the same party is both packed in X and cracked in Y. A neutral map produces a roughly uniform scatter across both quadrants (coupled and uncoupled).
 
-**Exoneration criterion (pre-committed 2026-04-24, before the N=? subagent result is read):**
+**Pass criterion (pre-committed 2026-04-24, before the N=? subagent result is read):**
 
-1. **Count exoneration**: EXONERATING if minority's **coupled** chain-signal count (same party packed in X + cracked in Y) is ≤ 1.5× the majority's coupled count. Below 1.5× means the minority shows no material over-concentration of coupled signals.
-2. **Ratio stability**: EXONERATING if the inter-map ratio is threshold-dependent (i.e., at $s \in \{0.10, 0.15, 0.20\}$ AND $m \in \{0.03, 0.05, 0.08\}$, the minority/majority ratio crosses 1.5 or the sign of the difference flips). Threshold-dependence means we chose the threshold to produce the finding.
-3. **Cross-party symmetry**: EXONERATING if coupled signals where UCP is the losing party (i.e., reverse-direction gerrymander, UCP packed + cracked) are comparable in count to NDP-losing signals. A one-directional finding is suspect.
+1. **Count pass**: PASSING if minority's **coupled** chain-signal count (same party packed in X + cracked in Y) is ≤ 1.5× the majority's coupled count. Below 1.5× means the minority shows no material over-concentration of coupled signals.
+2. **Ratio stability**: PASSING if the inter-map ratio is threshold-dependent (i.e., at $s \in \{0.10, 0.15, 0.20\}$ AND $m \in \{0.03, 0.05, 0.08\}$, the minority/majority ratio crosses 1.5 or the sign of the difference flips). Threshold-dependence means we chose the threshold to produce the finding.
+3. **Cross-party symmetry**: PASSING if coupled signals where UCP is the losing party (i.e., reverse-direction gerrymander, UCP packed + cracked) are comparable in count to NDP-losing signals. A one-directional finding is suspect.
 
 **Red-team counter-strike (addressing the "custom-built snare" attack on the related Boundary-chain test):**
 - The test is applied **symmetrically to all three maps** (2019, majority 2026, minority 2026), not just the minority
@@ -68,11 +68,11 @@ Individual-test pre-registration is already in place (OSF Track W, filed 2026-04
 
 **Null hypothesis.** Under neutral drawing, the 2026 boundaries between adjacent EDs differ from the 2019 boundaries only by amounts explainable by population growth (demographic necessity). A gerrymandered map shifts boundaries beyond demographic necessity in ways that systematically favour one party.
 
-**Exoneration criterion:**
+**Pass criterion:**
 
-1. **Demographic-necessity filter**: Every chain boundary that moved because the 2019 shape would exceed the ±25 % quota under 2024 populations is excluded from the chain-asymmetry calculation. EXONERATING if after the filter, ≥ 80 % of the minority's remaining boundary shifts are demographically-compelled or commission-rationale-supported.
-2. **Province-wide application** (responding to the "Airdrie circularity" attack): apply the test to EVERY 2019-to-2026 boundary shift, including rural areas where the shift might favour the NDP. **EXONERATING** if chain-asymmetry signs distribute roughly 50/50 between pro-UCP and pro-NDP across all chains (i.e., the minority does not systematically draw in one direction).
-3. **Magnitude test**: EXONERATING if the absolute-maximum chain-asymmetry on the minority is ≤ 1 seat. A ≤ 1-seat chain is within rounding error of neutral drawing.
+1. **Demographic-necessity filter**: Every chain boundary that moved because the 2019 shape would exceed the ±25 % quota under 2024 populations is excluded from the chain-asymmetry calculation. PASSING if after the filter, ≥ 80 % of the minority's remaining boundary shifts are demographically-compelled or commission-rationale-supported.
+2. **Province-wide application** (responding to the "Airdrie circularity" attack): apply the test to EVERY 2019-to-2026 boundary shift, including rural areas where the shift might favour the NDP. **PASSING** if chain-asymmetry signs distribute roughly 50/50 between pro-UCP and pro-NDP across all chains (i.e., the minority does not systematically draw in one direction).
+3. **Magnitude test**: PASSING if the absolute-maximum chain-asymmetry on the minority is ≤ 1 seat. A ≤ 1-seat chain is within rounding error of neutral drawing.
 
 **Red-team counter-strike for the "custom-built snare" critique:**
 - The test will NOT run only on the 4–6 cities we suspect; it will run on **every** 2019→2026 multi-boundary shift
@@ -83,10 +83,10 @@ Individual-test pre-registration is already in place (OSF Track W, filed 2026-04
 
 **Null hypothesis.** Under neutral drawing, the minority-majority EG asymmetry is stable across the historical-swing range [2015 NDP wave → 2019 UCP wave → 2023 UCP re-election → April 2026 UCP landslide polling]. Stability means the maps are neutral; sign reversal across historical regimes means the asymmetry is electorate-contingent.
 
-**Exoneration criterion (PO refinement: historical-cluster swings, not uniform):**
+**Pass criterion (PO refinement: historical-cluster swings, not uniform):**
 
-1. **Historical-cluster pass**: Run the B-family against four historical scenarios — (a) 2015 Orange Crush (NDP 40.7 % province-wide), (b) 2019 Blue Wave (UCP 55 % province-wide), (c) 2023 re-election (UCP 52.6 %), (d) April 2026 polling (UCP ~57 %). **EXONERATING** if the minority-majority EG asymmetry changes sign across at least two of these four historical scenarios AND the 2023 reading is not the outlier. The sign-change pattern means the finding is electorate-specific.
-2. **Responsiveness-gerrymander test** (PO flagged): EXONERATING if the map remains responsive to additional vote swing in the NDP-favoured direction — specifically, if at 48 % NDP provincial share the minority seat count is ≥ 43 NDP seats (competitive). Non-responsive at 48 % = fortress-like asymmetry = gerrymander.
+1. **Historical-cluster pass**: Run the B-family against four historical scenarios — (a) 2015 Orange Crush (NDP 40.7 % province-wide), (b) 2019 Blue Wave (UCP 55 % province-wide), (c) 2023 re-election (UCP 52.6 %), (d) April 2026 polling (UCP ~57 %). **PASSING** if the minority-majority EG asymmetry changes sign across at least two of these four historical scenarios AND the 2023 reading is not the outlier. The sign-change pattern means the finding is electorate-specific.
+2. **Responsiveness-gerrymander test** (PO flagged): PASSING if the map remains responsive to additional vote swing in the NDP-favoured direction — specifically, if at 48 % NDP provincial share the minority seat count is ≥ 43 NDP seats (competitive). Non-responsive at 48 % = fortress-like asymmetry = gerrymander.
 
 **Red-team counter-strike for the "uniform swing strawman":**
 - Historical cluster swings are the PRIMARY finding; uniform-swing is retained as a robustness baseline only
@@ -96,11 +96,11 @@ Individual-test pre-registration is already in place (OSF Track W, filed 2026-04
 
 **Null hypothesis.** Under neutral drawing, low-compactness districts are not disproportionately associated with partisan asymmetry. A gerrymandered map has its partisan signal concentrated in the irregularly-shaped districts — the districts where commissioner drawing discretion is highest.
 
-**Exoneration criterion (PO refinement: MGA-relative compactness, not absolute):**
+**Pass criterion (PO refinement: MGA-relative compactness, not absolute):**
 
-1. **MGA-deficit filter**: For each low-compactness ED, compute its compactness deficit *relative to the constraints imposed by the Municipal Government Act (MGA) and natural features* (rivers, First Nation boundaries, mountain parks). If the ED's non-compactness is fully explained by following an MGA-gazetted boundary or a natural feature, it is *not* weighted. **EXONERATING** if ≥ 80 % of the low-compactness weight on the minority is MGA/natural-feature explainable.
-2. **Within-map baseline**: EXONERATING if $\text{EG}_{cw} / \text{EG}$ ≤ 1.5 on both maps. Ratio above 1.5 means the partisan signal is concentrated in the irregular districts; below 1.5 means it is distributed.
-3. **Cross-map ratio**: EXONERATING if the minority's $\text{EG}_{cw} / \text{EG}$ ratio is not materially larger than the majority's. If both maps have similarly elevated ratios, the effect is structural not drawing-specific.
+1. **MGA-deficit filter**: For each low-compactness ED, compute its compactness deficit *relative to the constraints imposed by the Municipal Government Act (MGA) and natural features* (rivers, First Nation boundaries, mountain parks). If the ED's non-compactness is fully explained by following an MGA-gazetted boundary or a natural feature, it is *not* weighted. **PASSING** if ≥ 80 % of the low-compactness weight on the minority is MGA/natural-feature explainable.
+2. **Within-map baseline**: PASSING if $\text{EG}_{cw} / \text{EG}$ ≤ 1.5 on both maps. Ratio above 1.5 means the partisan signal is concentrated in the irregular districts; below 1.5 means it is distributed.
+3. **Cross-map ratio**: PASSING if the minority's $\text{EG}_{cw} / \text{EG}$ ratio is not materially larger than the majority's. If both maps have similarly elevated ratios, the effect is structural not drawing-specific.
 
 **Red-team counter-strike for the "compactness-weighting trap":**
 - The weight is applied *only* to residual non-compactness after MGA/natural-feature explanations are subtracted
@@ -111,10 +111,10 @@ Individual-test pre-registration is already in place (OSF Track W, filed 2026-04
 
 **Null hypothesis.** Under neutral drawing, the minority's drawing-attributable EG component (actual EG − ensemble median EG) is within the ensemble 5–95 percentile band. A gerrymandered minority map has drawing components that fall outside the band on at least one metric.
 
-**Exoneration criterion (retroactively pre-committed; retrospective application follows):**
+**Pass criterion (retroactively pre-committed; retrospective application follows):**
 
-1. **Single-metric exoneration**: EXONERATING if the minority's drawing component on any of EG, MM, Decl, seats@50 is in the ensemble 5–95 band.
-2. **Full-panel exoneration**: EXONERATING if the minority's drawing components are inside the 5–95 band on all four metrics.
+1. **Single-metric pass**: PASSING if the minority's drawing component on any of EG, MM, Decl, seats@50 is in the ensemble 5–95 band.
+2. **Full-panel pass**: PASSING if the minority's drawing components are inside the 5–95 band on all four metrics.
 
 **Result check (2026-04-24 execution, commit f42804a):**
 
@@ -125,21 +125,21 @@ Individual-test pre-registration is already in place (OSF Track W, filed 2026-04
 | Decl | −0.034 | −0.054 | +0.053 | ✓ YES (inside) |
 | Seats@50 | +0.058 (5.8 pp) | −0.023 | +0.034 | ✗ OUTSIDE (upper tail — NDP-favoured draw) |
 
-**Interpretation under pre-commitment.** Three of four metrics fall inside the ensemble 5–95 band. Under the single-metric exoneration criterion, **the minority map is partially exonerated on EG, MM, and declination** — the observed values are within what neutral drawing could produce. Only seats-at-50/50 is outside the band (upper/NDP-tail).
+**Interpretation under pre-commitment.** Three of four metrics fall inside the ensemble 5–95 band. Under the single-metric pass criterion, **the minority map partially passed on EG, MM, and declination** — the observed values are within what neutral drawing could produce. Only seats-at-50/50 is outside the band (upper/NDP-tail).
 
 **This finding MUST be reported honestly.** The audit's headline previously framed the minority as drawing toward NDP on seats-at-50/50 (+5.8 pp). The pre-commitment criterion says: this is ONE metric outside the band. Three others are inside. The correct reading is *"the minority map's drawing signature is isolated to seats-at-50/50 asymmetric packing, not a systematic pro-one-party tilt across all partisan-bias metrics."* This is weaker than a blanket gerrymander claim but matches the data.
 
 **Red-team counter-strike for the "ensemble median as neutral" attack:**
 - Rename "ensemble median" to **"geometric baseline"** throughout the paper
 - Acknowledge that a drawing component of +0.5 pp may reflect *community-of-interest preservation* (the "cost of community cohesion") rather than partisan intent
-- The single-metric exoneration result above (3 of 4 in-band) supports this reading
+- The single-metric pass result above (3 of 4 in-band) supports this reading
 
 ## 3. Red-team counter-strikes at the apparatus level
 
 ### 3.1 Attack 1 — Metric Creep (Gardener's Critique)
 
 **Counter-strike:**
-1. **This document** pre-commits exoneration criteria for all novel tests. No new test may be added to the battery without a pre-stated exoneration criterion.
+1. **This document** pre-commits pass criteria for all novel tests. No new test may be added to the battery without a pre-stated pass criterion.
 2. The apparatus-defense §1.3 already lists the audit's three places of exposure. This document makes those explicit.
 3. **Pre-commitment publication**: this file is committed to master on 2026-04-24 BEFORE the neighbour-drain test result is read. The commit hash becomes the audit's pre-commitment timestamp.
 
@@ -185,7 +185,7 @@ Four concrete commitments the audit takes on by publishing this file:
 
 1. **Absolute Chen-Rodden retrospective**: the §5.2.5 paragraph in `report_academic.md` will be updated (next commit) to acknowledge that 3 of 4 metrics are inside the ensemble 5–95 band. The previous "+5.75 pp NDP-favouring responsiveness" claim needs to be narrowed to **"isolated to seats-at-50/50 asymmetric packing"**, not a blanket NDP-favouring drawing claim.
 
-2. **Neighbour-drain retrospective** (when the subagent returns): the result must be compared against the §2.1 exoneration criteria in this file. If the minority/majority ratio is ≤ 1.5× on coupled signals, the finding is exonerating and the paper must say so.
+2. **Neighbour-drain retrospective** (when the subagent returns): the result must be compared against the §2.1 pass criteria in this file. If the minority/majority ratio is ≤ 1.5× on coupled signals, the finding is a pre-registered pass and the paper must say so.
 
 3. **Geometric baseline rename**: the "ensemble median" language throughout `report_academic.md` §5.2.5 and §5.4 must be replaced with "geometric baseline" in the next commit.
 
@@ -193,13 +193,13 @@ Four concrete commitments the audit takes on by publishing this file:
 
 ## 5. Relationship to the pre-registration
 
-OSF Track W pre-registered the audit's original B1–B6 thresholds and the November-2026 committee-map checklist. This file extends the pre-registration to the five combined tests and the apparatus-level exoneration criteria. A formal amendment to the OSF pre-registration will be filed citing this document as Change 7 (after the 2026-04-23 Change 6 covering DPG + sunset-clause).
+OSF Track W pre-registered the audit's original B1–B6 thresholds and the November-2026 committee-map checklist. This file extends the pre-registration to the five combined tests and the apparatus-level pass criteria. A formal amendment to the OSF pre-registration will be filed citing this document as Change 7 (after the 2026-04-23 Change 6 covering DPG + sunset-clause).
 
 ## 6. Bottom line
 
-**A test without a pre-stated exoneration criterion is a prosecution tool, not a forensic instrument.** This document makes every test in the battery — including the five novel combined tests and the existing A/B/C/D families — exoneration-capable by naming the result that would force retraction.
+**A test without a pre-stated pass criterion is a prosecution tool, not a forensic instrument.** This document makes every test in the battery — including the five novel combined tests and the existing A/B/C/D families — pass-capable by naming the result that would force retraction.
 
-The audit's apparatus is defensible under the hard-audit critique *if and only if* it honors these pre-commitments when the results come in. The single-metric exoneration finding on Absolute Chen-Rodden (3 of 4 metrics in-band) is the first concrete test case: the paper's §5.2.5 text must be narrowed in the next commit, and the narrowing is itself evidence that the apparatus works as an honest forensic framework rather than a prosecution instrument.
+The audit's apparatus is defensible under the hard-audit critique *if and only if* it honors these pre-commitments when the results come in. The single-metric pre-registered pass finding on Absolute Chen-Rodden (3 of 4 metrics in-band) is the first concrete test case: the paper's §5.2.5 text must be narrowed in the next commit, and the narrowing is itself evidence that the apparatus works as an honest forensic framework rather than a prosecution instrument.
 
 ---
 

@@ -1,0 +1,27 @@
+{
+  "elapsed_seconds": 83.7,
+  "propagate_tol_m": 200.0,
+  "pct_threshold": 10.0,
+  "max_passes": 5,
+  "buffer_adjacency_m": 1.0,
+  "maps": [
+    {
+      "label": "majority",
+      "n_eds": 77,
+      "passes_run": 5,
+      "total_pairs_propagated": 98,
+      "total_shared_boundary_improved_km": 903.146,
+      "mean_anchored_pct_before": 89.2923,
+      "mean_anchored_pct_after_note": "municipal_anchored_pct unchanged \u2014 reflects v0_4 input quality. Run v0_1_municipal_anchoring.py on v0_6 output to recompute."
+    },
+    {
+      "label": "minority",
+      "n_eds": 77,
+      "passes_run": 5,
+      "total_pairs_propagated": 94,
+      "total_shared_boundary_improved_km": 1272.51,
+      "mean_anchored_pct_before": 66.8473,
+      "mean_anchored_pct_after_note": "municipal_anchored_pct unchanged \u2014 reflects v0_4 input quality. Run v0_1_municipal_anchoring.py on v0_6 output to recompute."
+    }
+  ]
+}

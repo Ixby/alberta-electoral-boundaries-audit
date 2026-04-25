@@ -5,6 +5,12 @@
 
 ---
 
+An Airdrie resident in her thirties pulls up the new electoral map on her phone. She has lived in Airdrie for seven years. She knows her city — 84,000 people, larger than Red Deer, one city council, one property-tax bill. Under the majority commission proposal, Airdrie sits in two electoral divisions. Under the minority proposal, it is cut into four, each quarter attached to a different surrounding region. Her street goes to one riding. Two blocks over goes to another. Nothing about Airdrie changed. Only the map did.
+
+That map is what this audit is about.
+
+---
+
 ## The short version
 
 Alberta's Electoral Boundary Commission finished its work on March 23, 2026. It could not agree. The majority of commissioners produced one map. The minority produced a different one. Both maps are legal. This audit measured both using the same methods, applied identically to each. Three findings stand out.
@@ -48,11 +54,11 @@ The table below compares the two maps. None of the top six rows use election res
 | Borders anchored to Statistics Canada census boundaries | 80% | 17% |
 | Boundaries flagged by the commission chair | 0 | 3 |
 | Efficiency gap (an election-fairness measure) | −1.3% | −2.7% |
-| Packing-cracking neighbourhood pattern | 3 (same as 2019) | 0 — *exoneration* |
+| Packing-cracking neighbourhood pattern | 3 (same as 2019) | 0 — *pre-registered pass* |
 
 The bottom two rows use election results and are less certain. The efficiency-gap numbers mean both maps favour the UCP relative to a perfectly neutral outcome — which is expected in Alberta because NDP voters are concentrated in cities, and this tends to produce a structural UCP advantage under any map. Both numbers are far below the threshold where researchers say a map looks like a deliberate gerrymander.
 
-The last row is where the minority map actually looks *better* than the majority. One specific test — whether packed districts tend to sit next to cracked districts — found zero such pairs on the minority map, compared to three on the majority and three under the current 2019 map. The audit committed to this test before looking at the results, and when the minority map passed, it recorded the pass. That finding is called an **exoneration**.
+The last row is where the minority map actually looks *better* than the majority. One specific test — whether packed districts tend to sit next to cracked districts — found zero such pairs on the minority map, compared to three on the majority and three under the current 2019 map. The audit committed to this test before looking at the results, and when the minority map passed, it recorded the pass. That finding is called a **pre-registered pass**.
 
 ---
 
@@ -65,14 +71,14 @@ Rows of measurements are hard to weigh against each other. One defensible approa
 | Voter equality | 25% | Population spread; whether any area concentrates voters above the packing threshold | B | D |
 | Community recognition | 35% | How much the map follows city and town lines; how many pieces a single city is split into | B | F |
 | Map coherence | 25% | Whether district shapes have obvious explanations; chair-flagged anomalies | A | D |
-| Partisan fairness | 15% | Efficiency gap; packing signature; neighbour-drain exoneration | B | B |
+| Partisan fairness | 15% | Efficiency gap; packing signature; neighbour-drain pre-registered pass | B | B |
 | **Under this rubric** | — | — | **B (87/100)** | **F (47/100)** |
 
 **Why these particular weights.** Community recognition carries the most weight (35%) because the *Saskatchewan Reference* — the Supreme Court decision that defines what redistricting is for — holds that effective representation requires more than population parity: it requires districts that communities can identify as their own. The Act's ±25% population band grounds voter equality at 25%. Map coherence (25%) reflects the commission's own standard: the chair flagged specific boundaries as anomalous, and those flags matter. Partisan fairness is weighted lowest (15%) because both maps fall below any published gerrymander threshold, and the direction of the finding reverses depending on which measurement method you use. A reader who weighted partisan fairness more heavily would get different grades; the measurements supporting each category are in the table above this one.
 
 **What produces the minority map's F under this rubric.** Both maps are legal. The F is not about intent — it reflects what the map produces for voters on the ground. On community recognition (10/35 under these weights), 14.5% municipal-boundary anchoring means 85 out of every 100 kilometres of the minority map's border cuts through territory voters do not recognize from any other civic map — not their school division boundary, not their property-tax bill, not their local election ward. The majority's equivalent figure is 71%. Splitting Airdrie's 84,000 residents into four districts each identified with a different surrounding region has a similar effect: Airdrie voters navigate four different legislative offices, each primarily identified with somewhere else. Three chair-flagged anomalies — a lasso-shaped corridor, a boundary extension through uninhabited national park land, and a district named for communities that together are smaller than the community it actually captures — pull the map-coherence score down further.
 
-**Where the minority map scores comparably.** On partisan fairness, the two maps are close. The minority map produces zero packed-district / cracked-district adjacency pairs — a pattern present on both the 2019 map and the majority. (This finding is reported as a §5.3.5 exoneration in the full audit, committed before the results were read.) The majority map produces a slightly smaller efficiency-gap figure by one measurement method. Neither map has a serious partisan-fairness problem by any published standard. Under this rubric's lowest-weighted category, the two maps are effectively tied.
+**Where the minority map scores comparably.** On partisan fairness, the two maps are close. The minority map produces zero packed-district / cracked-district adjacency pairs — a pattern present on both the 2019 map and the majority. (This finding is reported as a §5.3.5 pre-registered pass in the full audit, committed before the results were read.) The majority map produces a slightly smaller efficiency-gap figure by one measurement method. Neither map has a serious partisan-fairness problem by any published standard. Under this rubric's lowest-weighted category, the two maps are effectively tied.
 
 ---
 
@@ -98,7 +104,7 @@ Here is the checklist, applied to both maps:
 | Cracking signature (close-loss divisions concentrated nearby) | Not detected | Partial — held pending more data |
 | Geographic anomaly (lasso shape, extension through empty land) | Not detected | **Detected** (Nolan Hill–Cochrane lasso; RMH–Banff Park extension) |
 | Community incorrectly claimed in justification | Not detected | **Detected** (school-division crossings, Cochrane commuter claim overstated) |
-| Packing-cracking neighbourhood pairs | 3 present | 0 present — *exoneration* |
+| Packing-cracking neighbourhood pairs | 3 present | 0 present — *pre-registered pass* |
 
 Under the checklist's threshold ("three signals plus an outlier on the statistical ensemble"), the minority map comes close but does not clearly cross the line. It meets three of the signals, and it sits outside the 95th percentile on one statistical measure. It does not introduce new types of anomalies, and it does not clearly overturn the public submissions received by the commission.
 
@@ -137,4 +143,4 @@ The audit used publicly available data: Elections Alberta's 2023 Statement of Vo
 
 An AI assistant (Claude, made by Anthropic) helped draft and check the text. All factual claims were verified by the author against primary sources. The audit declares this openly because the same standard it applies to the commission — transparency about process — applies to the audit itself.
 
-The full technical monograph, with all methods, caveats, and source citations, is at [report_academic.md](report_academic.md).
+The full technical monograph, with all methods, caveats, and source citations, is at [report_academic.md](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/report_academic.md).

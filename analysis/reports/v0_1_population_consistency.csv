@@ -1,0 +1,266 @@
+map,ed_name,commission_pop,da_sum_pop,delta_persons,delta_pct,within_tolerance
+majority_2026,Calgary-Acadia,55791.0,59582.0,3791.0,6.795,False
+majority_2026,Calgary-Beddington,56024.0,66513.0,10489.0,18.722,False
+majority_2026,Calgary-Bhullar-McCall,55887.0,39239.0,-16648.0,-29.789,False
+majority_2026,Calgary-Bow,54981.0,50669.0,-4312.0,-7.843,False
+majority_2026,Calgary-Buffalo,58777.0,16162.0,-42615.0,-72.503,False
+majority_2026,Calgary-Confluence,58632.0,48995.0,-9637.0,-16.436,False
+majority_2026,Calgary-Cross,59491.0,45947.0,-13544.0,-22.766,False
+majority_2026,Calgary-Currie,58111.0,62070.0,3959.0,6.813,False
+majority_2026,Calgary-East,58308.0,48079.0,-10229.0,-17.543,False
+majority_2026,Calgary-Edgemont,55141.0,59750.0,4609.0,8.359,False
+majority_2026,Calgary-Elbow,55297.0,46711.0,-8586.0,-15.527,False
+majority_2026,Calgary-Falconridge-Conrich,56661.0,49846.0,-6815.0,-12.028,False
+majority_2026,Calgary-Fish Creek,55403.0,77898.0,22495.0,40.602,False
+majority_2026,Calgary-Glenmore-Tsuut'ina,56970.0,45950.0,-11020.0,-19.344,False
+majority_2026,Calgary-Hays,52147.0,59427.0,7280.0,13.961,False
+majority_2026,Calgary-Klein,56292.0,62804.0,6512.0,11.568,False
+majority_2026,Calgary-Lougheed,59554.0,1302.0,-58252.0,-97.814,False
+majority_2026,Calgary-McKenzie,62772.0,27759.0,-35013.0,-55.778,False
+majority_2026,Calgary-Mountain View,54396.0,53187.0,-1209.0,-2.223,True
+majority_2026,Calgary-North,57945.0,12579.0,-45366.0,-78.291,False
+majority_2026,Calgary-North East,54541.0,39277.0,-15264.0,-27.986,False
+majority_2026,Calgary-North West,52488.0,30069.0,-22419.0,-42.713,False
+majority_2026,Calgary-Nose Creek,55155.0,47231.0,-7924.0,-14.367,False
+majority_2026,Calgary-Shaw,58171.0,56462.0,-1709.0,-2.938,True
+majority_2026,Calgary-South East,53551.0,59938.0,6387.0,11.927,False
+majority_2026,Calgary-Symons Valley,54797.0,1428.0,-53369.0,-97.394,False
+majority_2026,Calgary-Varsity,57166.0,46369.0,-10797.0,-18.887,False
+majority_2026,Calgary-West-Elbow Valley,54167.0,47543.0,-6624.0,-12.229,False
+majority_2026,Edmonton-Beaumont,55802.0,44005.0,-11797.0,-21.141,False
+majority_2026,Edmonton-Beverly-Clareview,57481.0,47012.0,-10469.0,-18.213,False
+majority_2026,Edmonton-Castle Downs,59612.0,95053.0,35441.0,59.453,False
+majority_2026,Edmonton-City Centre,57312.0,77857.0,20545.0,35.848,False
+majority_2026,Edmonton-Decore,57959.0,29551.0,-28408.0,-49.014,False
+majority_2026,Edmonton-Ellerslie,59760.0,63060.0,3300.0,5.522,False
+majority_2026,Edmonton-Enoch,56894.0,49646.0,-7248.0,-12.739,False
+majority_2026,Edmonton-Glenora-Riverview,56622.0,0.0,-56622.0,-100.0,False
+majority_2026,Edmonton-Gold Bar,54981.0,41321.0,-13660.0,-24.845,False
+majority_2026,Edmonton-Highlands-Norwood,51806.0,40719.0,-11087.0,-21.401,False
+majority_2026,Edmonton-Manning,56901.0,24603.0,-32298.0,-56.762,False
+majority_2026,Edmonton-McClung,61859.0,2502.0,-59357.0,-95.955,False
+majority_2026,Edmonton-Meadows,56880.0,54395.0,-2485.0,-4.369,True
+majority_2026,Edmonton-Mill Woods,59673.0,47748.0,-11925.0,-19.984,False
+majority_2026,Edmonton-North West,61226.0,67146.0,5920.0,9.669,False
+majority_2026,Edmonton-Rutherford,58082.0,54428.0,-3654.0,-6.291,False
+majority_2026,Edmonton-South,60775.0,59815.0,-960.0,-1.58,True
+majority_2026,Edmonton-Strathcona,56165.0,44347.0,-11818.0,-21.042,False
+majority_2026,Edmonton-West Henday,61775.0,31269.0,-30506.0,-49.382,False
+majority_2026,Edmonton-Whitemud,60347.0,42906.0,-17441.0,-28.901,False
+majority_2026,Edmonton-Windermere,56944.0,62872.0,5928.0,10.41,False
+majority_2026,Airdrie-East,53809.0,46785.0,-7024.0,-13.054,False
+majority_2026,Airdrie-West,48145.0,42667.0,-5478.0,-11.378,False
+majority_2026,Barrhead-Westlock-Athabasca,52249.0,45583.0,-6666.0,-12.758,False
+majority_2026,Camrose,54653.0,43143.0,-11510.0,-21.06,False
+majority_2026,Canmore-Banff,39961.0,40646.0,685.0,1.714,True
+majority_2026,Central Peace-Notley,28715.0,27092.0,-1623.0,-5.652,False
+majority_2026,Chestermere-Strathmore,56679.0,19805.0,-36874.0,-65.058,False
+majority_2026,Cochrane-Springbank,56487.0,43315.0,-13172.0,-23.319,False
+majority_2026,Cold Lake-Bonnyville-St. Paul,55809.0,48519.0,-7290.0,-13.062,False
+majority_2026,Drumheller-Stettler,50626.0,39570.0,-11056.0,-21.839,False
+majority_2026,Fort McMurray-Lac La Biche,52847.0,41798.0,-11049.0,-20.908,False
+majority_2026,Fort McMurray-Wood Buffalo,49615.0,43882.0,-5733.0,-11.555,False
+majority_2026,Fort Saskatchewan-Vegreville,54278.0,53997.0,-281.0,-0.518,True
+majority_2026,Grande Prairie,50352.0,46164.0,-4188.0,-8.317,False
+majority_2026,Grande Prairie-Wapiti,53781.0,6361.0,-47420.0,-88.172,False
+majority_2026,High River-Vulcan-Siksika,53351.0,43979.0,-9372.0,-17.567,False
+majority_2026,Lacombe-Clearwater,55750.0,46536.0,-9214.0,-16.527,False
+majority_2026,Leduc-Devon,56572.0,44805.0,-11767.0,-20.8,False
+majority_2026,Lesser Slave Lake,30011.0,27330.0,-2681.0,-8.933,False
+majority_2026,Lethbridge-East,57463.0,50350.0,-7113.0,-12.378,False
+majority_2026,Lethbridge-West,54235.0,47249.0,-6986.0,-12.881,False
+majority_2026,Livingstone-Macleod,50144.0,50143.0,-1.0,-0.002,True
+majority_2026,Lloydminster-Wainwright,50139.0,45418.0,-4721.0,-9.416,False
+majority_2026,Medicine Hat-Brooks,54833.0,47723.0,-7110.0,-12.967,False
+majority_2026,Medicine Hat-Cypress,54210.0,49267.0,-4943.0,-9.118,False
+majority_2026,Mountain View-Kneehill,52432.0,51215.0,-1217.0,-2.321,True
+majority_2026,Okotoks-Diamond Valley,55284.0,48488.0,-6796.0,-12.293,False
+majority_2026,Peace River,43399.0,39968.0,-3431.0,-7.906,False
+majority_2026,Red Deer-North,53798.0,47425.0,-6373.0,-11.846,False
+majority_2026,Red Deer-South,59123.0,53419.0,-5704.0,-9.648,False
+majority_2026,Sherwood Park,52475.0,46577.0,-5898.0,-11.24,False
+majority_2026,Spruce Grove,55930.0,55638.0,-292.0,-0.522,True
+majority_2026,St. Albert,59935.0,49146.0,-10789.0,-18.001,False
+majority_2026,St. Albert-Sturgeon,54214.0,46354.0,-7860.0,-14.498,False
+majority_2026,Stony Plain-Drayton Valley,55743.0,45847.0,-9896.0,-17.753,False
+majority_2026,Strathcona-Sherwood Park,51020.0,48199.0,-2821.0,-5.529,False
+majority_2026,Sylvan Lake-Innisfail,55290.0,48713.0,-6577.0,-11.895,False
+majority_2026,Taber-Cardston,54933.0,45543.0,-9390.0,-17.094,False
+majority_2026,West Yellowhead,56562.0,49424.0,-7138.0,-12.62,False
+majority_2026,Wetaskiwin-Ponoka-Maskwacis,56399.0,43108.0,-13291.0,-23.566,False
+minority_2026,Calgary-Acadia,53346.0,50558.0,-2788.0,-5.226,False
+minority_2026,Calgary-Airdrie,58820.0,50588.0,-8232.0,-13.995,False
+minority_2026,Calgary-Beddington,61320.0,50165.0,-11155.0,-18.191,False
+minority_2026,Calgary-Bow-Springbank,55560.0,48226.0,-7334.0,-13.2,False
+minority_2026,Calgary-Buffalo,66801.0,45928.0,-20873.0,-31.247,False
+minority_2026,Calgary-Cross,63064.0,48284.0,-14780.0,-23.437,False
+minority_2026,Calgary-Currie,60141.0,44581.0,-15560.0,-25.873,False
+minority_2026,Calgary-De Winton,47732.0,38555.0,-9177.0,-19.226,False
+minority_2026,Calgary-East,57107.0,59556.0,2449.0,4.288,True
+minority_2026,Calgary-Edgemont,56584.0,0.0,-56584.0,-100.0,False
+minority_2026,Calgary-Elbow,59034.0,3394.0,-55640.0,-94.251,False
+minority_2026,Calgary-Falconridge,63986.0,87496.0,23510.0,36.742,False
+minority_2026,Calgary-Fish Creek,57894.0,0.0,-57894.0,-100.0,False
+minority_2026,Calgary-Foothills-Airdrie West,58436.0,51174.0,-7262.0,-12.427,False
+minority_2026,Calgary-Glenmore,53096.0,47275.0,-5821.0,-10.963,False
+minority_2026,Calgary-Hays,52395.0,45069.0,-7326.0,-13.982,False
+minority_2026,Calgary-Klein,61817.0,46240.0,-15577.0,-25.199,False
+minority_2026,Calgary-Lougheed,56122.0,41926.0,-14196.0,-25.295,False
+minority_2026,Calgary-McCall-Bhullar,66474.0,57733.0,-8741.0,-13.15,False
+minority_2026,Calgary-Mountain View,62634.0,53187.0,-9447.0,-15.083,False
+minority_2026,Calgary-Nolan Hill-Cochrane,56282.0,49781.0,-6501.0,-11.551,False
+minority_2026,Calgary-North,56981.0,1317.0,-55664.0,-97.689,False
+minority_2026,Calgary-North East,68145.0,29199.0,-38946.0,-57.152,False
+minority_2026,Calgary-North West-Bearspaw,57246.0,48165.0,-9081.0,-15.863,False
+minority_2026,Calgary-Peigan-Chestermere,52639.0,40456.0,-12183.0,-23.144,False
+minority_2026,Calgary-South,55134.0,38167.0,-16967.0,-30.774,False
+minority_2026,Calgary-South East,54045.0,35802.0,-18243.0,-33.755,False
+minority_2026,Calgary-Varsity,64982.0,46369.0,-18613.0,-28.643,False
+minority_2026,Calgary-West-Tsuut'ina,57827.0,50067.0,-7760.0,-13.419,False
+minority_2026,Edmonton-Beaumont,55802.0,16028.0,-39774.0,-71.277,False
+minority_2026,Edmonton-Beverly-Clareview,57481.0,256600.0,199119.0,346.408,False
+minority_2026,Edmonton-Castledowns,59612.0,16459.0,-43153.0,-72.39,False
+minority_2026,Edmonton-City Centre,57312.0,61841.0,4529.0,7.902,False
+minority_2026,Edmonton-Decore,57959.0,2939.0,-55020.0,-94.929,False
+minority_2026,Edmonton-Ellerslie,59760.0,3736.0,-56024.0,-93.748,False
+minority_2026,Edmonton-Enoch-Devon,55043.0,44308.0,-10735.0,-19.503,False
+minority_2026,Edmonton-Glenora-Riverview,59708.0,96528.0,36820.0,61.667,False
+minority_2026,Edmonton-Gold Bar,54981.0,22545.0,-32436.0,-58.995,False
+minority_2026,Edmonton-Highlands-Norwood,51806.0,104289.0,52483.0,101.307,False
+minority_2026,Edmonton-Manning,56901.0,0.0,-56901.0,-100.0,False
+minority_2026,Edmonton-McClung,61859.0,77705.0,15846.0,25.616,False
+minority_2026,Edmonton-Meadows,56880.0,66796.0,9916.0,17.433,False
+minority_2026,Edmonton-Mill Woods,59673.0,605.0,-59068.0,-98.986,False
+minority_2026,Edmonton-North West,61226.0,14506.0,-46720.0,-76.307,False
+minority_2026,Edmonton-Rutherford,58082.0,336.0,-57746.0,-99.422,False
+minority_2026,Edmonton-South,60775.0,25950.0,-34825.0,-57.302,False
+minority_2026,Edmonton-Spruce Grove,59524.0,52034.0,-7490.0,-12.583,False
+minority_2026,Edmonton-Strathcona,56165.0,44347.0,-11818.0,-21.042,False
+minority_2026,Edmonton-West Henday,62510.0,43189.0,-19321.0,-30.909,False
+minority_2026,Edmonton-Whitemud,60347.0,45481.0,-14866.0,-24.634,False
+minority_2026,Edmonton-Windermere,56944.0,7401.0,-49543.0,-87.003,False
+minority_2026,Airdrie East,50797.0,45889.0,-4908.0,-9.662,False
+minority_2026,Barrhead-Westlock-Athabasca,46892.0,39280.0,-7612.0,-16.233,False
+minority_2026,Camrose,48536.0,43983.0,-4553.0,-9.381,False
+minority_2026,Canmore-Kananaskis,49542.0,34885.0,-14657.0,-29.585,False
+minority_2026,Cold Lake-Bonnyville-St. Paul,55713.0,52092.0,-3621.0,-6.499,False
+minority_2026,Central Peace-Notley,30446.0,28141.0,-2305.0,-7.571,False
+minority_2026,Chestermere-Strathmore,52982.0,45217.0,-7765.0,-14.656,False
+minority_2026,Drumheller-Stettler,51370.0,49461.0,-1909.0,-3.716,True
+minority_2026,Fort McMurray-Lac La Biche,44719.0,10477.0,-34242.0,-76.571,False
+minority_2026,Fort McMurray-Wood Buffalo,46721.0,10882.0,-35839.0,-76.709,False
+minority_2026,Fort Saskatchewan-Vegreville,54274.0,31968.0,-22306.0,-41.099,False
+minority_2026,Grande Prairie,50352.0,46164.0,-4188.0,-8.317,False
+minority_2026,Grande Prairie-Wapiti,52041.0,49157.0,-2884.0,-5.542,False
+minority_2026,Highwood,54375.0,41676.0,-12699.0,-23.354,False
+minority_2026,Lac Ste. Anne-Parkland,47017.0,35524.0,-11493.0,-24.444,False
+minority_2026,Leduc,52328.0,4578.0,-47750.0,-91.251,False
+minority_2026,Lesser Slave Lake,30011.0,29127.0,-884.0,-2.946,True
+minority_2026,Lethbridge-Cardston,51831.0,43663.0,-8168.0,-15.759,False
+minority_2026,Lethbridge-Fort MacLeod-Crowsnest Pass,54564.0,42506.0,-12058.0,-22.099,False
+minority_2026,Lethbridge-Little Bow,56212.0,50008.0,-6204.0,-11.037,False
+minority_2026,Lethbridge-Taber-Warner,60906.0,5099.0,-55807.0,-91.628,False
+minority_2026,Lloydminster-Wainwright,49365.0,27222.0,-22143.0,-44.856,False
+minority_2026,Medicine Hat-Brooks,54898.0,27463.0,-27435.0,-49.974,False
+minority_2026,Medicine Hat-Cypress,60690.0,49267.0,-11423.0,-18.822,False
+minority_2026,Olds-Three Hills-Didsbury,49436.0,42021.0,-7415.0,-14.999,False
+minority_2026,Peace River,43408.0,38155.0,-5253.0,-12.101,False
+minority_2026,Red Deer-Blackfalds,52827.0,46496.0,-6331.0,-11.984,False
+minority_2026,Red Deer-Innisfail,52961.0,45604.0,-7357.0,-13.891,False
+minority_2026,Red Deer-Lacombe,56180.0,49349.0,-6831.0,-12.159,False
+minority_2026,Red Deer-Sylvan Lake,52454.0,45608.0,-6846.0,-13.051,False
+minority_2026,Rocky Mountain House-Banff Park,38298.0,27323.0,-10975.0,-28.657,False
+minority_2026,Sherwood Park,55311.0,46577.0,-8734.0,-15.791,False
+minority_2026,St. Albert,54589.0,49146.0,-5443.0,-9.971,False
+minority_2026,St. Albert-Sturgeon,52334.0,42255.0,-10079.0,-19.259,False
+minority_2026,Stony Plain-Drayton Valley,48032.0,147723.0,99691.0,207.551,False
+minority_2026,Sherwood Park-Strathcona,51826.0,32154.0,-19672.0,-37.958,False
+minority_2026,West Yellowhead,49766.0,47407.0,-2359.0,-4.74,True
+minority_2026,Wetaskawin-Ponoka-Maskwacis,48775.0,37888.0,-10887.0,-22.321,False
+2019,Lethbridge-West,46525.0,54410.0,7885.0,16.948,False
+2019,Lethbridge-East,46204.0,43996.0,-2208.0,-4.779,True
+2019,Cardston-Siksika,42655.0,43375.0,720.0,1.688,True
+2019,Livingstone-Macleod,48120.0,50143.0,2023.0,4.204,True
+2019,Taber-Warner,42625.0,45543.0,2918.0,6.846,False
+2019,Highwood,,50410.0,,,False
+2019,Brooks-Medicine Hat,51070.0,52137.0,1067.0,2.089,True
+2019,Chestermere-Strathmore,48203.0,52109.0,3906.0,8.103,False
+2019,Airdrie-East,49978.0,56016.0,6038.0,12.081,False
+2019,Airdrie-Cochrane,51170.0,64099.0,12929.0,25.267,False
+2019,Olds-Didsbury-Three Hills,49418.0,51215.0,1797.0,3.636,True
+2019,Red Deer-South,52743.0,53419.0,676.0,1.282,True
+2019,Banff-Kananaskis,46824.0,44574.0,-2250.0,-4.805,True
+2019,Drumheller-Stettler,41535.0,39570.0,-1965.0,-4.731,True
+2019,Red Deer-North,47672.0,47425.0,-247.0,-0.518,True
+2019,Innisfail-Sylvan Lake,46717.0,48713.0,1996.0,4.273,True
+2019,Lacombe-Ponoka,44898.0,46536.0,1638.0,3.648,True
+2019,Maskwacis-Wetaskiwin,43798.0,43492.0,-306.0,-0.699,True
+2019,Rimbey-Rocky Mountain House-Sundre,,45259.0,,,False
+2019,Leduc-Beaumont,48337.0,56639.0,8302.0,17.175,False
+2019,Camrose,44082.0,43143.0,-939.0,-2.13,True
+2019,Sherwood Park,45992.0,46577.0,585.0,1.272,True
+2019,Strathcona-Sherwood Park,47853.0,48607.0,754.0,1.576,True
+2019,Drayton Valley-Devon,46637.0,45847.0,-790.0,-1.694,True
+2019,St. Albert,47745.0,49146.0,1401.0,2.934,True
+2019,Vermilion-Lloydminster-Wainwright,,45418.0,,,False
+2019,Spruce Grove-Stony Plain,51267.0,55638.0,4371.0,8.526,False
+2019,Fort Saskatchewan-Vegreville,52141.0,53997.0,1856.0,3.56,True
+2019,Lac Ste. Anne-Parkland,46546.0,44822.0,-1724.0,-3.704,True
+2019,West Yellowhead,50604.0,49424.0,-1180.0,-2.332,True
+2019,Morinville-St. Albert,50225.0,51794.0,1569.0,3.124,True
+2019,Athabasca-Barrhead-Westlock,,45583.0,,,False
+2019,Grande Prairie,46343.0,46164.0,-179.0,-0.386,True
+2019,Bonnyville-Cold Lake-St. Paul,,50003.0,,,False
+2019,Lesser Slave Lake,27818.0,27330.0,-488.0,-1.754,True
+2019,Central Peace-Notley,28993.0,27092.0,-1901.0,-6.557,False
+2019,Fort McMurray-Wood Buffalo,41420.0,43882.0,2462.0,5.944,False
+2019,Fort McMurray-Lac La Biche,44166.0,41798.0,-2368.0,-5.362,False
+2019,Peace River,39974.0,39968.0,-6.0,-0.015,True
+2019,Edmonton-South,45801.0,69924.0,24123.0,52.669,False
+2019,Edmonton-Ellerslie,48024.0,67996.0,19972.0,41.588,False
+2019,Edmonton-Rutherford,47353.0,44336.0,-3017.0,-6.371,False
+2019,Edmonton-Mill Woods,50265.0,47748.0,-2517.0,-5.007,False
+2019,Edmonton-Meadows,51776.0,54395.0,2619.0,5.058,False
+2019,Edmonton-Whitemud,46833.0,45481.0,-1352.0,-2.887,True
+2019,Edmonton-South West,45901.0,65999.0,20098.0,43.786,False
+2019,Edmonton-McClung,44625.0,42072.0,-2553.0,-5.721,False
+2019,Edmonton-Strathcona,46578.0,44347.0,-2231.0,-4.79,True
+2019,Edmonton-Riverview,45214.0,43640.0,-1574.0,-3.481,True
+2019,Edmonton-Gold Bar,45446.0,44086.0,-1360.0,-2.993,True
+2019,Edmonton-City Centre,47715.0,49798.0,2083.0,4.366,True
+2019,Edmonton-Glenora,45519.0,43325.0,-2194.0,-4.82,True
+2019,Edmonton-Highlands-Norwood,43550.0,40719.0,-2831.0,-6.501,False
+2019,Edmonton-West Henday,43046.0,55048.0,12002.0,27.882,False
+2019,Edmonton-Beverly-Clareview,46496.0,47012.0,516.0,1.11,True
+2019,Edmonton-Decore,48927.0,48424.0,-503.0,-1.028,True
+2019,Edmonton-North West,45523.0,50218.0,4695.0,10.313,False
+2019,Edmonton-Castle Downs,46112.0,50513.0,4401.0,9.544,False
+2019,Edmonton-Manning,48376.0,55818.0,7442.0,15.384,False
+2019,Calgary-South East,40309.0,56724.0,16415.0,40.723,False
+2019,Calgary-Shaw,45169.0,56462.0,11293.0,25.002,False
+2019,Calgary-Hays,50782.0,52843.0,2061.0,4.059,True
+2019,Calgary-Lougheed,42956.0,42711.0,-245.0,-0.57,True
+2019,Calgary-Fish Creek,47691.0,44984.0,-2707.0,-5.676,False
+2019,Calgary-Glenmore,49543.0,47275.0,-2268.0,-4.578,True
+2019,Calgary-Elbow,48618.0,47182.0,-1436.0,-2.954,True
+2019,Calgary-Acadia,48966.0,50214.0,1248.0,2.549,True
+2019,Calgary-Peigan,45810.0,45709.0,-101.0,-0.22,True
+2019,Calgary-Buffalo,49907.0,55556.0,5649.0,11.319,False
+2019,Calgary-West,46266.0,46309.0,43.0,0.093,True
+2019,Calgary-East,50838.0,47046.0,-3792.0,-7.459,False
+2019,Calgary-Currie,48403.0,50436.0,2033.0,4.2,True
+2019,Calgary-Mountain View,49442.0,53187.0,3745.0,7.575,False
+2019,Calgary-Cross,50634.0,48284.0,-2350.0,-4.641,True
+2019,Calgary-Klein,50338.0,49957.0,-381.0,-0.757,True
+2019,Calgary-Bow,51358.0,52062.0,704.0,1.371,True
+2019,Calgary-Varsity,45742.0,46369.0,627.0,1.371,True
+2019,Calgary-Falconridge,52688.0,48861.0,-3827.0,-7.264,False
+2019,Calgary-Edgemont,50803.0,48224.0,-2579.0,-5.076,False
+2019,Calgary-North West,48766.0,46296.0,-2470.0,-5.065,False
+2019,Calgary-North,39120.0,48182.0,9062.0,23.165,False
+2019,Calgary-Beddington,50220.0,47231.0,-2989.0,-5.952,False
+2019,Calgary-McCall,48735.0,57733.0,8998.0,18.463,False
+2019,Calgary-Foothills,45715.0,56716.0,11001.0,24.064,False
+2019,Calgary-North East,40366.0,59913.0,19547.0,48.424,False
+2019,Grande Prairie-Wapiti,48481.0,50690.0,2209.0,4.556,True
+2019,Cypress-Medicine Hat,50109.0,49267.0,-842.0,-1.68,True

@@ -1,0 +1,266 @@
+map,name,neighbor_count,touches_airdrie,airdrie_fragment_area_pct
+2019,Lethbridge-West,3,False,0.0
+2019,Lethbridge-East,2,False,0.0
+2019,Cardston-Siksika,7,False,0.0
+2019,Livingstone-Macleod,3,False,0.0
+2019,Taber-Warner,5,False,0.0
+2019,Highwood,7,False,0.0
+2019,Brooks-Medicine Hat,5,False,0.0
+2019,Chestermere-Strathmore,12,False,0.0
+2019,Airdrie-East,4,True,69.998
+2019,Airdrie-Cochrane,7,True,30.002
+2019,Olds-Didsbury-Three Hills,9,False,0.0
+2019,Red Deer-South,2,False,0.0
+2019,Banff-Kananaskis,12,False,0.0
+2019,Drumheller-Stettler,6,False,0.0
+2019,Red Deer-North,2,False,0.0
+2019,Innisfail-Sylvan Lake,6,False,0.0
+2019,Lacombe-Ponoka,5,False,0.0
+2019,Maskwacis-Wetaskiwin,7,False,0.0
+2019,Rimbey-Rocky Mountain House-Sundre,7,False,0.0
+2019,Leduc-Beaumont,5,False,0.0
+2019,Camrose,6,False,0.0
+2019,Sherwood Park,4,False,0.0
+2019,Strathcona-Sherwood Park,7,False,0.0
+2019,Drayton Valley-Devon,9,False,0.0
+2019,St. Albert,4,False,0.0
+2019,Vermilion-Lloydminster-Wainwright,4,False,0.0
+2019,Spruce Grove-Stony Plain,2,False,0.0
+2019,Fort Saskatchewan-Vegreville,9,False,0.0
+2019,Lac Ste. Anne-Parkland,7,False,0.0
+2019,West Yellowhead,7,False,0.0
+2019,Morinville-St. Albert,7,False,0.0
+2019,Athabasca-Barrhead-Westlock,8,False,0.0
+2019,Grande Prairie,1,False,0.0
+2019,Bonnyville-Cold Lake-St. Paul,4,False,0.0
+2019,Lesser Slave Lake,5,False,0.0
+2019,Central Peace-Notley,5,False,0.0
+2019,Fort McMurray-Wood Buffalo,3,False,0.0
+2019,Fort McMurray-Lac La Biche,4,False,0.0
+2019,Peace River,3,False,0.0
+2019,Edmonton-South,7,False,0.0
+2019,Edmonton-Ellerslie,6,False,0.0
+2019,Edmonton-Rutherford,6,False,0.0
+2019,Edmonton-Mill Woods,6,False,0.0
+2019,Edmonton-Meadows,4,False,0.0
+2019,Edmonton-Whitemud,5,False,0.0
+2019,Edmonton-South West,6,False,0.0
+2019,Edmonton-McClung,4,False,0.0
+2019,Edmonton-Strathcona,6,False,0.0
+2019,Edmonton-Riverview,7,False,0.0
+2019,Edmonton-Gold Bar,9,False,0.0
+2019,Edmonton-City Centre,7,False,0.0
+2019,Edmonton-Glenora,4,False,0.0
+2019,Edmonton-Highlands-Norwood,6,False,0.0
+2019,Edmonton-West Henday,8,False,0.0
+2019,Edmonton-Beverly-Clareview,6,False,0.0
+2019,Edmonton-Decore,6,False,0.0
+2019,Edmonton-North West,8,False,0.0
+2019,Edmonton-Castle Downs,4,False,0.0
+2019,Edmonton-Manning,5,False,0.0
+2019,Calgary-South East,5,False,0.0
+2019,Calgary-Shaw,5,False,0.0
+2019,Calgary-Hays,5,False,0.0
+2019,Calgary-Lougheed,6,False,0.0
+2019,Calgary-Fish Creek,6,False,0.0
+2019,Calgary-Glenmore,4,False,0.0
+2019,Calgary-Elbow,6,False,0.0
+2019,Calgary-Acadia,6,False,0.0
+2019,Calgary-Peigan,6,False,0.0
+2019,Calgary-Buffalo,7,False,0.0
+2019,Calgary-West,4,False,0.0
+2019,Calgary-East,5,False,0.0
+2019,Calgary-Currie,6,False,0.0
+2019,Calgary-Mountain View,4,False,0.0
+2019,Calgary-Cross,4,False,0.0
+2019,Calgary-Klein,8,False,0.0
+2019,Calgary-Bow,5,False,0.0
+2019,Calgary-Varsity,8,False,0.0
+2019,Calgary-Falconridge,4,False,0.0
+2019,Calgary-Edgemont,4,False,0.0
+2019,Calgary-North West,6,False,0.0
+2019,Calgary-North,4,False,0.0
+2019,Calgary-Beddington,7,False,0.0
+2019,Calgary-McCall,5,False,0.0
+2019,Calgary-Foothills,6,False,0.0
+2019,Calgary-North East,6,False,0.0
+2019,Grande Prairie-Wapiti,3,False,0.0
+2019,Cypress-Medicine Hat,2,False,0.0
+majority_2026,Calgary-Acadia,11,False,0.0
+majority_2026,Calgary-Beddington,10,False,0.0
+majority_2026,Calgary-Bhullar-McCall,8,False,0.0
+majority_2026,Calgary-Bow,9,False,0.0
+majority_2026,Calgary-Buffalo,10,False,0.0
+majority_2026,Calgary-Confluence,5,False,0.0
+majority_2026,Calgary-Cross,6,False,0.0
+majority_2026,Calgary-Currie,9,False,0.0
+majority_2026,Calgary-East,10,False,0.0
+majority_2026,Calgary-Edgemont,6,False,0.0
+majority_2026,Calgary-Elbow,9,False,0.0
+majority_2026,Calgary-Falconridge-Conrich,5,True,84.811
+majority_2026,Calgary-Fish Creek,8,False,0.0
+majority_2026,Calgary-Glenmore-Tsuut'ina,19,False,0.0
+majority_2026,Calgary-Hays,6,False,0.0
+majority_2026,Calgary-Klein,10,False,0.0
+majority_2026,Calgary-Lougheed,2,False,0.0
+majority_2026,Calgary-McKenzie,6,False,0.0
+majority_2026,Calgary-Mountain View,8,False,0.0
+majority_2026,Calgary-North,4,False,0.0
+majority_2026,Calgary-North East,8,False,0.0
+majority_2026,Calgary-North West,5,False,0.0
+majority_2026,Calgary-Nose Creek,8,False,0.0
+majority_2026,Calgary-Shaw,5,False,0.0
+majority_2026,Calgary-South East,5,False,0.0
+majority_2026,Calgary-Symons Valley,5,False,0.0
+majority_2026,Calgary-Varsity,8,False,0.0
+majority_2026,Calgary-West-Elbow Valley,13,False,0.0
+majority_2026,Edmonton-Beaumont,9,False,0.0
+majority_2026,Edmonton-Beverly-Clareview,7,False,0.0
+majority_2026,Edmonton-Castle Downs,5,False,0.0
+majority_2026,Edmonton-City Centre,8,False,0.0
+majority_2026,Edmonton-Decore,9,False,0.0
+majority_2026,Edmonton-Ellerslie,7,False,0.0
+majority_2026,Edmonton-Enoch,4,False,0.0
+majority_2026,Edmonton-Glenora-Riverview,8,False,0.0
+majority_2026,Edmonton-Gold Bar,13,False,0.0
+majority_2026,Edmonton-Highlands-Norwood,5,False,0.0
+majority_2026,Edmonton-Manning,4,False,0.0
+majority_2026,Edmonton-McClung,4,False,0.0
+majority_2026,Edmonton-Meadows,5,False,0.0
+majority_2026,Edmonton-Mill Woods,7,False,0.0
+majority_2026,Edmonton-North West,7,False,0.0
+majority_2026,Edmonton-Rutherford,12,False,0.0
+majority_2026,Edmonton-South,8,False,0.0
+majority_2026,Edmonton-Strathcona,7,False,0.0
+majority_2026,Edmonton-West Henday,9,False,0.0
+majority_2026,Edmonton-Whitemud,5,False,0.0
+majority_2026,Edmonton-Windermere,8,False,0.0
+majority_2026,Airdrie-East,6,True,15.186
+majority_2026,Airdrie-West,10,False,0.003
+majority_2026,Barrhead-Westlock-Athabasca,7,False,0.0
+majority_2026,Camrose,6,False,0.0
+majority_2026,Canmore-Banff,9,False,0.0
+majority_2026,Central Peace-Notley,4,False,0.0
+majority_2026,Chestermere-Strathmore,7,False,0.0
+majority_2026,Cochrane-Springbank,11,False,0.0
+majority_2026,Cold Lake-Bonnyville-St. Paul,3,False,0.0
+majority_2026,Drumheller-Stettler,6,False,0.0
+majority_2026,Fort McMurray-Lac La Biche,3,False,0.0
+majority_2026,Fort McMurray-Wood Buffalo,3,False,0.0
+majority_2026,Fort Saskatchewan-Vegreville,9,False,0.0
+majority_2026,Grande Prairie,0,False,0.0
+majority_2026,Grande Prairie-Wapiti,1,False,0.0
+majority_2026,High River-Vulcan-Siksika,12,False,0.0
+majority_2026,Lacombe-Clearwater,4,False,0.0
+majority_2026,Leduc-Devon,13,False,0.0
+majority_2026,Lesser Slave Lake,5,False,0.0
+majority_2026,Lethbridge-East,2,False,0.0
+majority_2026,Lethbridge-West,2,False,0.0
+majority_2026,Livingstone-Macleod,4,False,0.0
+majority_2026,Lloydminster-Wainwright,4,False,0.0
+majority_2026,Medicine Hat-Brooks,4,False,0.0
+majority_2026,Medicine Hat-Cypress,2,False,0.0
+majority_2026,Mountain View-Kneehill,8,False,0.0
+majority_2026,Okotoks-Diamond Valley,5,False,0.0
+majority_2026,Peace River,3,False,0.0
+majority_2026,Red Deer-North,2,False,0.0
+majority_2026,Red Deer-South,2,False,0.0
+majority_2026,Sherwood Park,5,False,0.0
+majority_2026,Spruce Grove,1,False,0.0
+majority_2026,St. Albert,3,False,0.0
+majority_2026,St. Albert-Sturgeon,6,False,0.0
+majority_2026,Stony Plain-Drayton Valley,7,False,0.0
+majority_2026,Strathcona-Sherwood Park,8,False,0.0
+majority_2026,Sylvan Lake-Innisfail,5,False,0.0
+majority_2026,Taber-Cardston,4,False,0.0
+majority_2026,West Yellowhead,5,False,0.0
+majority_2026,Wetaskiwin-Ponoka-Maskwacis,6,False,0.0
+minority_2026,Calgary-Acadia,7,False,0.0
+minority_2026,Calgary-Airdrie,7,False,0.0
+minority_2026,Calgary-Beddington,8,False,0.0
+minority_2026,Calgary-Bow-Springbank,13,False,0.0
+minority_2026,Calgary-Buffalo,6,False,0.0
+minority_2026,Calgary-Cross,4,False,0.0
+minority_2026,Calgary-Currie,3,False,0.0
+minority_2026,Calgary-De Winton,10,False,0.0
+minority_2026,Calgary-East,7,False,0.0
+minority_2026,Calgary-Edgemont,7,False,0.0
+minority_2026,Calgary-Elbow,8,False,0.0
+minority_2026,Calgary-Falconridge,10,True,15.233
+minority_2026,Calgary-Fish Creek,5,False,0.0
+minority_2026,Calgary-Foothills-Airdrie West,9,False,0.0
+minority_2026,Calgary-Glenmore,4,False,0.0
+minority_2026,Calgary-Hays,8,False,0.0
+minority_2026,Calgary-Klein,9,False,0.0
+minority_2026,Calgary-Lougheed,7,False,0.0
+minority_2026,Calgary-McCall-Bhullar,7,False,0.0
+minority_2026,Calgary-Mountain View,3,False,0.0
+minority_2026,Calgary-Nolan Hill-Cochrane,7,False,0.0
+minority_2026,Calgary-North,6,False,0.0
+minority_2026,Calgary-North East,9,False,0.0
+minority_2026,Calgary-North West-Bearspaw,10,True,19.622
+minority_2026,Calgary-Peigan-Chestermere,14,False,0.0
+minority_2026,Calgary-South,6,False,0.0
+minority_2026,Calgary-South East,8,False,0.0
+minority_2026,Calgary-Varsity,7,False,0.0
+minority_2026,Calgary-West-Tsuut'ina,3,False,0.0
+minority_2026,Edmonton-Beaumont,7,False,0.0
+minority_2026,Edmonton-Beverly-Clareview,11,False,0.0
+minority_2026,Edmonton-Castledowns,7,False,0.0
+minority_2026,Edmonton-City Centre,7,False,0.0
+minority_2026,Edmonton-Decore,6,False,0.0
+minority_2026,Edmonton-Ellerslie,7,False,0.0
+minority_2026,Edmonton-Enoch-Devon,8,False,0.0
+minority_2026,Edmonton-Glenora-Riverview,5,False,0.0
+minority_2026,Edmonton-Gold Bar,9,False,0.0
+minority_2026,Edmonton-Highlands-Norwood,8,False,0.0
+minority_2026,Edmonton-Manning,4,False,0.0
+minority_2026,Edmonton-McClung,9,False,0.0
+minority_2026,Edmonton-Meadows,6,False,0.0
+minority_2026,Edmonton-Mill Woods,5,False,0.0
+minority_2026,Edmonton-North West,6,False,0.0
+minority_2026,Edmonton-Rutherford,5,False,0.0
+minority_2026,Edmonton-South,7,False,0.0
+minority_2026,Edmonton-Spruce Grove,2,False,0.0
+minority_2026,Edmonton-Strathcona,5,False,0.0
+minority_2026,Edmonton-West Henday,5,False,0.0
+minority_2026,Edmonton-Whitemud,4,False,0.0
+minority_2026,Edmonton-Windermere,4,False,0.0
+minority_2026,Airdrie East,6,True,64.41
+minority_2026,Barrhead-Westlock-Athabasca,1,False,0.0
+minority_2026,Camrose,1,False,0.0
+minority_2026,Canmore-Kananaskis,7,False,0.0
+minority_2026,Cold Lake-Bonnyville-St. Paul,0,False,0.0
+minority_2026,Central Peace-Notley,0,False,0.0
+minority_2026,Chestermere-Strathmore,12,False,0.0
+minority_2026,Drumheller-Stettler,2,False,0.0
+minority_2026,Fort McMurray-Lac La Biche,0,False,0.0
+minority_2026,Fort McMurray-Wood Buffalo,0,False,0.0
+minority_2026,Fort Saskatchewan-Vegreville,2,False,0.0
+minority_2026,Grande Prairie,1,False,0.0
+minority_2026,Grande Prairie-Wapiti,1,False,0.0
+minority_2026,Highwood,8,False,0.0
+minority_2026,Lac Ste. Anne-Parkland,1,False,0.0
+minority_2026,Leduc,5,False,0.0
+minority_2026,Lesser Slave Lake,0,False,0.0
+minority_2026,Lethbridge-Cardston,7,False,0.0
+minority_2026,Lethbridge-Fort MacLeod-Crowsnest Pass,2,False,0.0
+minority_2026,Lethbridge-Little Bow,3,False,0.0
+minority_2026,Lethbridge-Taber-Warner,2,False,0.0
+minority_2026,Lloydminster-Wainwright,0,False,0.0
+minority_2026,Medicine Hat-Brooks,1,False,0.0
+minority_2026,Medicine Hat-Cypress,1,False,0.0
+minority_2026,Olds-Three Hills-Didsbury,2,False,0.0
+minority_2026,Peace River,0,False,0.0
+minority_2026,Red Deer-Blackfalds,3,False,0.0
+minority_2026,Red Deer-Innisfail,3,False,0.0
+minority_2026,Red Deer-Lacombe,4,False,0.0
+minority_2026,Red Deer-Sylvan Lake,3,False,0.0
+minority_2026,Rocky Mountain House-Banff Park,1,False,0.0
+minority_2026,Sherwood Park,6,False,0.0
+minority_2026,St. Albert,4,False,0.0
+minority_2026,St. Albert-Sturgeon,12,False,0.0
+minority_2026,Stony Plain-Drayton Valley,22,False,0.0
+minority_2026,Sherwood Park-Strathcona,9,False,0.0
+minority_2026,West Yellowhead,0,False,0.0
+minority_2026,Wetaskawin-Ponoka-Maskwacis,1,False,0.0

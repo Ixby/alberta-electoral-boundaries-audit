@@ -23,6 +23,18 @@ on population inputs drawn from the same 2021 census, the 2021-vintage CSD
 boundaries are the precise set of municipal edges the commission treated as
 immutable when drawing its proposed ED perimeters.
 
+**DA supplement (USE_DA_SUPPLEMENT = True).** Calgary is a single CSD, so
+interior Calgary EDs get 0 % CSD-edge anchoring even when their perimeters
+faithfully follow street grids or section lines. When USE_DA_SUPPLEMENT is
+True, 2021 Dissemination Area (DA) boundaries are loaded from
+`data/shapefiles/reference/alberta_2021_das.gpkg` and merged into the same
+edge network as the CSD boundaries. DA edges are survey-grade and cover urban
+street/section-line interiors that CSD boundaries omit. They are added as
+additional reference lines in the STR tree; no separate pass or tolerance is
+applied — the same SNAP_TOL_M (500 m) governs all snapping, ensuring the fix
+is minimally invasive. A `da_supplemented` boolean is recorded in the summary
+JSON.
+
 **Method.**
 
 1. Load v0_3 canonical shapefiles if they exist (topology-clean + pop-swept
@@ -30,15 +42,16 @@ immutable when drawing its proposed ED perimeters.
 2. Load the 2021 CSD polygons, reproject to EPSG:3401 to match the DPGs,
    merge boundaries into a single reference MultiLineString. A shared
    municipal-boundary edge appears once in the union regardless of how many
-   CSDs sit on either side.
+   CSDs sit on either side. If USE_DA_SUPPLEMENT is True, also load the 2021
+   DA polygons and union their boundaries into the same edge network.
 3. For each DPG polygon, walk its boundary at a fine sampling density and
-   snap each vertex to the nearest point on the municipal-edge network when
+   snap each vertex to the nearest point on the combined edge network when
    the distance is < SNAP_TOL (default 500 m — matching the ±500 m DPG
    error budget from the 600-DPI thumbnail tracing). Vertices farther than
    SNAP_TOL keep their original DPG location.
 4. For every snapped vertex, record the arc-length fraction of the polygon
-   perimeter that has been pulled onto the municipal-edge network. Polygons
-   where > 40 % of the perimeter snapped are "highly anchored"; < 10 %
+   perimeter that has been pulled onto the edge network. Polygons where
+   > 40 % of the perimeter snapped are "highly anchored"; < 10 %
    "lightly anchored". The column `municipal_anchored_pct` records this
    fraction per polygon.
 5. Rebuild each polygon from the snapped boundary (LinearRing → Polygon,
@@ -62,6 +75,8 @@ Backward:
   data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg
   data/alberta_2021_csds.gpkg  (StatsCan 2021 CSD — AMA-equivalent; see
                                  FROZEN_MANIFEST.md)
+  data/shapefiles/reference/alberta_2021_das.gpkg  (StatsCan 2021 DA;
+                                 supplemental edge source for urban interiors)
 """
 
 from __future__ import annotations
@@ -100,6 +115,7 @@ V0_2_MAJ = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_t
 V0_2_MIN = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
 
 CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
+DA_GPKG  = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 
 MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
 MIN_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
@@ -109,8 +125,15 @@ SUMMARY_JSON = DATA / "v0_1_municipal_anchoring_summary.json"
 
 # Snapping configuration
 SNAP_TOL_M = 500.0        # max vertex-to-municipal-edge distance for snapping
+DA_SNAP_TOL_M = 150.0     # reference only — DA edges are added to the same network;
+                           # actual snapping still uses SNAP_TOL_M for all edges
 MIN_SEGMENT_COVERAGE_M = 1000.0  # min contiguous snapped length to count as anchored segment
 VERTEX_DENSIFY_M = 50.0   # re-densify boundary to this spacing before snapping
+
+# DA supplement: merge 2021 DA boundaries into the CSD edge network so that
+# urban-interior EDs (e.g. Calgary, which is a single CSD) can snap to the
+# street/section-line grid that DA boundaries trace.
+USE_DA_SUPPLEMENT = True
 
 # Precedence order for canon_source (higher index = stronger evidence)
 SOURCE_PRECEDENCE = {
@@ -146,23 +169,56 @@ def pick_input(label: str) -> tuple[Path, str]:
     return (V0_3_MIN, "v0_3") if V0_3_MIN.exists() else (V0_2_MIN, "v0_2")
 
 
-def load_municipal_edges(target_crs) -> MultiLineString:
-    """Union of every CSD boundary, merged to a MultiLineString in target CRS."""
-    csd = gpd.read_file(CSD_GPKG)
-    csd = csd.to_crs(target_crs)
-    # Build one MultiLineString of all boundaries; duplicates across
-    # adjacent CSDs are collapsed by unary_union.
-    edges = unary_union([g.boundary for g in csd.geometry if g is not None and not g.is_empty])
-    # linemerge to get the longest continuous strings possible; aids snap
-    # performance and measurement of "contiguous anchored" segments.
+def _normalise_edges(edges) -> MultiLineString:
+    """Collapse a geometry to a clean MultiLineString; drop non-linear parts."""
     if edges.geom_type == "MultiLineString":
         edges = linemerge(edges)
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
-    # Keep only linear components
     if edges.geom_type == "GeometryCollection":
         lines = [g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")]
         edges = unary_union(lines)
+    return edges
+
+
+def load_municipal_edges(target_crs) -> MultiLineString:
+    """Union of every CSD boundary (+ DA boundaries when USE_DA_SUPPLEMENT is
+    True), merged to a MultiLineString in target CRS.
+
+    DA boundaries are added as supplemental reference lines so that urban-
+    interior EDs inside a single CSD (e.g. Calgary) can snap to the survey-
+    grade street/section-line grid that DA edges trace. The same SNAP_TOL_M
+    tolerance is used for all edges; no separate DA-specific pass is needed.
+    """
+    # --- CSD edges ---
+    csd = gpd.read_file(CSD_GPKG)
+    csd = csd.to_crs(target_crs)
+    # Build one MultiLineString of all boundaries; duplicates across
+    # adjacent CSDs are collapsed by unary_union.
+    csd_edges = unary_union(
+        [g.boundary for g in csd.geometry if g is not None and not g.is_empty]
+    )
+    print(f"  [edges] CSD boundaries loaded: {len(csd):,} polygons")
+
+    all_boundary_geoms = [csd_edges]
+
+    # --- DA edges (supplemental) ---
+    if USE_DA_SUPPLEMENT and DA_GPKG.exists():
+        da = gpd.read_file(DA_GPKG)
+        da = da.to_crs(target_crs)
+        da_edges = unary_union(
+            [g.boundary for g in da.geometry if g is not None and not g.is_empty]
+        )
+        print(f"  [edges] DA boundaries loaded: {len(da):,} polygons (supplement)")
+        all_boundary_geoms.append(da_edges)
+    elif USE_DA_SUPPLEMENT:
+        print(f"  [edges] WARNING: DA_GPKG not found at {DA_GPKG}; skipping DA supplement")
+
+    # Merge all sources into one network
+    edges = unary_union(all_boundary_geoms)
+    # linemerge to get the longest continuous strings possible; aids snap
+    # performance and measurement of "contiguous anchored" segments.
+    edges = _normalise_edges(edges)
     return edges
 
 
@@ -349,7 +405,16 @@ def anchor_map(
             })
             continue
 
-        parts = list(g.geoms) if g.geom_type == "MultiPolygon" else [g]
+        if g.geom_type == "MultiPolygon":
+            parts = list(g.geoms)
+        elif g.geom_type == "GeometryCollection":
+            parts = [s for s in g.geoms if s.geom_type == "Polygon"] + \
+                    [sp for s in g.geoms if s.geom_type == "MultiPolygon" for sp in s.geoms]
+            if not parts:
+                new_geoms.append(g)
+                continue
+        else:
+            parts = [g]
         new_parts = []
         perim_sum = 0.0
         anchored_sum = 0.0
@@ -555,8 +620,10 @@ def main():
     summary = {
         "method": {
             "snap_tolerance_m": SNAP_TOL_M,
+            "da_snap_tol_m_reference": DA_SNAP_TOL_M,
             "vertex_densify_m": VERTEX_DENSIFY_M,
             "min_segment_coverage_m": MIN_SEGMENT_COVERAGE_M,
+            "da_supplemented": USE_DA_SUPPLEMENT and DA_GPKG.exists(),
         },
         "sources": {
             "majority_input": {"path": str(maj_in), "vintage": maj_tag},
@@ -568,6 +635,11 @@ def main():
                                     "2021/geo/sip-pis/boundary-limites/files-fichiers/"
                                     "lcsd000a21a_e.zip"),
                 "n_csds_alberta": 423,
+            },
+            "da_boundaries": {
+                "path": str(DA_GPKG),
+                "provenance": "StatsCan 2021 Dissemination Areas (supplemental urban-interior edges)",
+                "used": USE_DA_SUPPLEMENT and DA_GPKG.exists(),
             },
         },
         "majority": {
