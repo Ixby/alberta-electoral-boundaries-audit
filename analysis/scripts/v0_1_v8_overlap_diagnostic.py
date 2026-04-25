@@ -17,10 +17,13 @@ Dependencies:
 from __future__ import annotations
 
 import sys
+import time
 from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
+
+def _ts(): return time.strftime("%H:%M:%S")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
@@ -33,6 +36,8 @@ def diagnose(plan: str) -> pd.DataFrame:
         print(f"  [skip] {src.name} not found")
         return pd.DataFrame()
 
+    t0 = time.time()
+    print(f"[{_ts()}] [{plan}] diagnose start", flush=True)
     g = gpd.read_file(src)
     name_col = "name_2026" if "name_2026" in g.columns else g.columns[0]
     geoms = g.geometry.values
@@ -76,13 +81,17 @@ def diagnose(plan: str) -> pd.DataFrame:
         print(f"    {r['overlap_km2']:>10.4f} km²  {r['ed_a']:<35s} ∩ {r['ed_b']:<35s}  "
               f"frac_of_smaller={r['frac_of_smaller']:.4f}")
     print(f"  wrote {out.name}")
+    print(f"[{_ts()}] [{plan}] diagnose done in {time.time()-t0:.2f}s", flush=True)
     return df
 
 
 def main() -> int:
-    print("[v0_8 overlap diagnostic]")
+    t_start = time.time()
+    print(f"[{_ts()}] [v0_8 overlap diagnostic] START", flush=True)
     for plan in ("majority", "minority"):
         diagnose(plan)
+    print(f"[{_ts()}] [v0_8 overlap diagnostic] DONE — total {time.time()-t_start:.2f}s",
+          flush=True)
     return 0
 
 

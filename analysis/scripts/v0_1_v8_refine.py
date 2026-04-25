@@ -36,12 +36,15 @@ Dependencies:
 from __future__ import annotations
 
 import sys
+import time
 from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
 from shapely.geometry import LineString, MultiLineString
 from shapely.ops import unary_union, split
+
+def _ts(): return time.strftime("%H:%M:%S")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
@@ -118,6 +121,8 @@ def refine(plan: str) -> dict:
         print(f"  [skip] {src.name} not found")
         return {"plan": plan, "skipped": True}
 
+    t0 = time.time()
+    print(f"[{_ts()}] [{plan}] refine start", flush=True)
     g = gpd.read_file(src)
     if "canon_source" not in g.columns:
         g["canon_source"] = "v7"
@@ -243,6 +248,7 @@ def refine(plan: str) -> dict:
     print(f"  wrote {log_path.name}")
     print(f"  residual overlaps after refinement: {residual_n} pairs, "
           f"{residual_area/1e6:.6f} km²")
+    print(f"[{_ts()}] [{plan}] refine done in {time.time()-t0:.2f}s", flush=True)
 
     return {
         "plan": plan,
@@ -256,7 +262,9 @@ def refine(plan: str) -> dict:
 
 
 def main() -> int:
-    print("[v0_8 refinement: resolving residual overlaps]")
+    t_start = time.time()
+    print(f"[{_ts()}] [v0_8 refinement] START — resolving residual overlaps",
+          flush=True)
     results = []
     for plan in ("majority", "minority"):
         results.append(refine(plan))
@@ -269,6 +277,8 @@ def main() -> int:
         print(f"  {r['plan']}: resolved {r['n_pairs_resolved']} pairs  "
               f"(methods: {r['method_counts']})  "
               f"→ residual {r['residual_pairs']} pairs / {r['residual_km2']:.6f} km²")
+    print(f"[{_ts()}] [v0_8 refinement] DONE — total {time.time()-t_start:.2f}s",
+          flush=True)
     return 0
 
 

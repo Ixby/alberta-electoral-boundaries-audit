@@ -91,7 +91,13 @@ def _clean(geom):
 # Phase 1 — Pairwise overlap resolution
 # ---------------------------------------------------------------------------
 
+def _ts() -> str:
+    return time.strftime("%H:%M:%S")
+
+
 def topology_cleanup(eds: gpd.GeoDataFrame, label: str) -> gpd.GeoDataFrame:
+    print(f"[{_ts()}] [{label}] Phase 1 start (topology cleanup)", flush=True)
+    t0 = time.time()
     eds = eds.copy()
     if "canon_source" not in eds.columns:
         eds["canon_source"] = "v7"
@@ -141,7 +147,8 @@ def topology_cleanup(eds: gpd.GeoDataFrame, label: str) -> gpd.GeoDataFrame:
     eds["geometry"] = new_geoms
     eds = eds.drop(columns=["__rank"])
     eds = eds.sort_values("name_2026").reset_index(drop=True)
-    print(f"  [{label}] Phase 1: {overlap_count} overlapping pairs resolved", flush=True)
+    print(f"[{_ts()}] [{label}] Phase 1 done in {time.time()-t0:.1f}s "
+          f"— {overlap_count} overlapping pairs resolved", flush=True)
     return eds
 
 
@@ -163,6 +170,8 @@ def edge_snap(eds: gpd.GeoDataFrame, label: str,
     """
     SNAP_AREA_WARN = 0.05  # flag if area changes by >5% from snapping
 
+    print(f"[{_ts()}] [{label}] Phase 2 start (edge snap, tol={tolerance}m)", flush=True)
+    t0 = time.time()
     eds = eds.copy()
     if "canon_source" not in eds.columns:
         eds["canon_source"] = "v7"
@@ -233,8 +242,9 @@ def edge_snap(eds: gpd.GeoDataFrame, label: str,
     eds_ord["geometry"] = new_geoms
     eds_ord = eds_ord.drop(columns=["__rank"])
     eds_ord = eds_ord.sort_values("name_2026").reset_index(drop=True)
-    print(f"  [{label}] Phase 2: {snap_count} EDs snapped, "
-          f"{revert_count} reverted (tolerance={tolerance:.0f} m)", flush=True)
+    print(f"[{_ts()}] [{label}] Phase 2 done in {time.time()-t0:.1f}s "
+          f"— {snap_count} EDs snapped, {revert_count} reverted "
+          f"(tol={tolerance:.0f}m)", flush=True)
     return eds_ord
 
 
@@ -253,6 +263,8 @@ def final_precision_pass(eds: gpd.GeoDataFrame, label: str,
     j's snap to k), but at ≤1m tolerance on provincial-scale polygons this is
     negligible — the convergence is local, not global.
     """
+    print(f"[{_ts()}] [{label}] Phase 4 start (1m precision pass, {WORKERS} workers)",
+          flush=True)
     t_start = time.time()
     eds = eds.copy()
     geoms = [_clean(row.geometry) for _, row in eds.iterrows()]
@@ -286,8 +298,8 @@ def final_precision_pass(eds: gpd.GeoDataFrame, label: str,
             new_geoms[i] = g
 
     eds["geometry"] = new_geoms
-    print(f"  [{label}] Phase 4: 1m precision pass complete "
-          f"({time.time()-t_start:.1f}s, {WORKERS} workers)", flush=True)
+    print(f"[{_ts()}] [{label}] Phase 4 done in {time.time()-t_start:.1f}s "
+          f"({WORKERS} workers, {n} EDs processed)", flush=True)
     return eds
 
 
@@ -311,12 +323,15 @@ def gap_fill(eds: gpd.GeoDataFrame, provincial_boundary,
     """
     BOUNDARY_THRESHOLD = 200   # switch to spatial-index for large gap counts
 
+    print(f"[{_ts()}] [{label}] Phase 3 start (gap fill)", flush=True)
+    t0 = time.time()
     eds = eds.copy()
     eds_union = unary_union(eds.geometry.tolist())
     gap = provincial_boundary.difference(eds_union)
 
     if gap.is_empty:
-        print(f"  [{label}] Phase 3: no gaps — full coverage", flush=True)
+        print(f"[{_ts()}] [{label}] Phase 3 done in {time.time()-t0:.1f}s "
+              f"— no gaps, full coverage", flush=True)
         return eds
 
     gap_area_km2 = gap.area / 1e6
@@ -363,8 +378,9 @@ def gap_fill(eds: gpd.GeoDataFrame, provincial_boundary,
             combined = unary_union([new_geoms[ed_i]] + polys)
             new_geoms[ed_i] = _clean(combined)
 
-        print(f"  [{label}] Phase 3: assigned via spatial index "
-              f"({len(buckets)} EDs received gaps)", flush=True)
+        print(f"[{_ts()}] [{label}] Phase 3 done in {time.time()-t0:.1f}s "
+              f"— {len(gap_polys)} gaps ({gap_area_km2:.0f} km²) assigned "
+              f"to {len(buckets)} EDs via spatial index", flush=True)
 
     else:
         # Accurate path: boundary-intersection assignment
@@ -384,6 +400,9 @@ def gap_fill(eds: gpd.GeoDataFrame, provincial_boundary,
                 dists = [gap_c.distance(g.centroid) for g in new_geoms]
                 best_idx = int(np.argmin(dists))
             new_geoms[best_idx] = _clean(new_geoms[best_idx].union(gap_poly))
+        print(f"[{_ts()}] [{label}] Phase 3 done in {time.time()-t0:.1f}s "
+              f"— {len(gap_polys)} gaps ({gap_area_km2:.0f} km²) assigned "
+              f"via boundary-intersection", flush=True)
 
     eds["geometry"] = new_geoms
     return eds
@@ -447,7 +466,7 @@ def validate(eds: gpd.GeoDataFrame, original: gpd.GeoDataFrame,
 def process_map(v7_path: Path, v8_path: Path, provincial_boundary,
                 label: str) -> gpd.GeoDataFrame:
     t0 = time.time()
-    print(f"\n=== {label} ===", flush=True)
+    print(f"\n[{_ts()}] === {label} START ===", flush=True)
     original = gpd.read_file(v7_path)
     if original.crs.to_epsg() != 3401:
         original = original.to_crs("EPSG:3401")
@@ -494,7 +513,8 @@ def process_map(v7_path: Path, v8_path: Path, provincial_boundary,
     validate(eds, original, provincial_boundary, label)
 
     eds.to_file(v8_path, driver="GPKG")
-    print(f"  wrote {v8_path.name}  ({time.time()-t0:.1f}s)", flush=True)
+    print(f"[{_ts()}] [{label}] wrote {v8_path.name}  "
+          f"(plan total {time.time()-t0:.1f}s)", flush=True)
 
     # Clean up checkpoints once final write succeeds
     for p in ckpt.values():
@@ -511,7 +531,7 @@ def process_map(v7_path: Path, v8_path: Path, provincial_boundary,
 def main():
     skip_existing = "--skip-existing" in sys.argv
     t0 = time.time()
-    print("[dpg_perfecter] v0_7 → v0_8 pipeline", flush=True)
+    print(f"[{_ts()}] [dpg_perfecter] v0_7 → v0_8 pipeline START", flush=True)
     print(f"  snap tolerance: {SNAP_TOLERANCE} m  |  anti-erasure: {ANTI_ERASURE*100:.0f}%  |  workers: {WORKERS}",
           flush=True)
     if skip_existing:
@@ -535,7 +555,8 @@ def main():
             continue
         process_map(v7_path, v8_path, provincial_boundary, label)
 
-    print(f"\n[dpg_perfecter] done in {time.time()-t0:.1f}s", flush=True)
+    print(f"\n[{_ts()}] [dpg_perfecter] DONE — pipeline total {time.time()-t0:.1f}s",
+          flush=True)
     print(f"  outputs: {MAJ_V8.name}, {MIN_V8.name}", flush=True)
 
 
