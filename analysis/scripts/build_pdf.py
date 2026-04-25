@@ -348,15 +348,10 @@ blockquote.sidebar {
   page-break-inside: avoid;
 }
 
-/* The first sidebar after an h2 has no body text above it to wrap around;
-   render it as a full-width banner instead of a tight right-float. */
-h2 + blockquote.sidebar {
-  float: none;
-  clear: both;
-  width: auto;
-  max-height: none;
-  margin: 0.6em 0 1em 0;
-}
+/* Sidebar after an h2: keep the float so following body text wraps
+   around it instead of leaving a column of whitespace beside it.
+   The h2's own clear:both already prevents it from collapsing into a
+   previous section's float. */
 
 blockquote.sidebar p {
   text-align: left;
@@ -380,36 +375,26 @@ blockquote.sidebar strong:first-child {
   margin-bottom: 0.2em;
 }
 
-/* ----- Scorecard (clip-and-save tear-out card) ----- */
+/* ----- Scorecard (compact tinted callout) ----- */
 blockquote.scorecard {
   background: #fdf6f7;
-  border-left: none;
-  border-right: none;
-  border-top: 1.5pt dashed #7b2d3e;
-  border-bottom: 1.5pt dashed #7b2d3e;
-  padding: 0.4em 0.55em 0.45em;
+  border: none;
+  border-left: 3pt solid #7b2d3e;
+  padding: 0.4em 0.7em 0.4em 0.85em;
   font-family: "Lora", Georgia, serif;
   font-style: normal;
   font-size: 8.5pt;
   line-height: 1.35;
   text-align: left;
-  margin: 0.12in 0;
+  margin: 0.1in 0;
   color: #1a1a1a;
   page-break-inside: avoid;
-  page-break-before: avoid;
   box-sizing: border-box;
 }
 
+/* No "fold here" ornament — it was reading as ugly on the printed page */
 blockquote.scorecard::before {
-  content: "\2702  fold here";
-  display: block;
-  font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
-  font-size: 6.5pt;
-  color: #7b2d3e;
-  letter-spacing: 1.5pt;
-  text-transform: uppercase;
-  margin-bottom: 0.25em;
-  opacity: 0.6;
+  content: none;
 }
 
 blockquote.scorecard p {
@@ -534,14 +519,28 @@ table + p {
   letter-spacing: 0.2pt;
 }
 
-/* ----- Horizontal rule as ornamental three-dot divider ----- */
+/* ----- Horizontal rule (markdown ---) ----- */
 hr {
   border: 0;
-  border-top: 1px solid #ddd;
-  margin: 1em 0;
+  border-top: 0.5pt solid #ccc;
+  margin: 1.4em 0 0 0;
   height: 0;
   clear: both;
   page-break-after: avoid;
+}
+
+/* When an hr precedes an h2, the h2's own top rule is redundant.
+   Suppress the h2 rule so we don't get two stacked lines. */
+hr + h2 {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0.5em;
+}
+
+/* When an hr is the very first thing after an h1 deck (the title block
+   ends with hr / lede), give the deck more breathing room. */
+hr + p.lede {
+  margin-top: 1.0em;
 }
 
 /* ----- Links ----- */
@@ -628,6 +627,24 @@ blockquote.opinion strong:first-child {
    COLLISION-PREVENTION RULES (layout-artist review, 2026-04-25)
    ============================================================ */
 
+/* Section integrity: keep headings with at least 2 lines of following
+   body. Page breaks should land between paragraphs, not orphan a
+   subsection title at the bottom of a page. */
+h2, h3, h3.verdict {
+  page-break-after: avoid;
+  break-after: avoid;
+}
+h2 + p, h3 + p, h3.verdict + p {
+  page-break-before: avoid;
+  break-before: avoid;
+  orphans: 3;
+  widows: 3;
+}
+h2 + blockquote, h3 + blockquote {
+  page-break-before: avoid;
+  break-before: avoid;
+}
+
 /* Opinion blocks always start fresh — never wrap around a float */
 blockquote.opinion {
   clear: both;
@@ -676,11 +693,6 @@ blockquote.scorecard tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* Banner sidebar (full-width after h2) needs different padding than the
-   floated variant */
-h2 + blockquote.sidebar {
-  padding: 0.7em 0.9em;
-}
 
 /* ----- Emphasis ----- */
 em { font-style: italic; }

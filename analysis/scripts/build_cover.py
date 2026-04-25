@@ -181,12 +181,14 @@ def build_cover_art() -> Path:
         for g, (dx, dy) in zip(eds.geometry, eds["disp"])
     ]
 
-    # 5. Divergent colormap NDP-orange ↔ white ↔ UCP-blue
+    # 5. Direct UCP-blue → NDP-orange interpolation. No white midpoint —
+    #    50/50 districts render as the natural colour-mix midpoint
+    #    (a muted purple-brown). Removes the blank-band ambiguity the
+    #    white midpoint introduced.
     ndp_orange = (0.92, 0.45, 0.10)
     ucp_blue   = (0.13, 0.36, 0.62)
-    white      = (0.97, 0.96, 0.94)
     cmap = mcolors.LinearSegmentedColormap.from_list(
-        "ucp_ndp_div", [ndp_orange, white, ucp_blue], N=256
+        "ucp_ndp_direct", [ndp_orange, ucp_blue], N=256
     )
     norm = mcolors.Normalize(vmin=0.30, vmax=0.70)
 
