@@ -2,66 +2,52 @@ winner,loser,overlap_km2,method
 Airdrie-East,Calgary-Falconridge-Conrich,141.94456442473955,nested_invert
 Canmore-Banff,Calgary-West-Elbow Valley,15.016265686121564,clip
 Canmore-Banff,Calgary-Glenmore-Tsuut'ina,0.1322496595847549,clip
-Edmonton-Rutherford,Edmonton-Whitemud,0.0005342790595384704,clip
+Edmonton-Whitemud,Edmonton-Rutherford,0.0005342786569428485,clip
 Airdrie-East,Calgary-North East,0.0005312545010381343,clip
-Calgary-McKenzie,Calgary-West-Elbow Valley,0.00042994966779271793,clip
+Calgary-McKenzie,Calgary-West-Elbow Valley,0.0004299496677927178,clip
 Calgary-McKenzie,High River-Vulcan-Siksika,0.00021245187077438015,clip
-Edmonton-City Centre,West Yellowhead,0.00014677781689463915,clip
 Cochrane-Springbank,Calgary-Beddington,0.0001250360873867603,clip
-Edmonton-Rutherford,West Yellowhead,0.00011167862166556691,clip
+Edmonton-Rutherford,West Yellowhead,0.00011167862166556478,clip
 West Yellowhead,Fort Saskatchewan-Vegreville,0.0001017761705363834,clip
 Calgary-Buffalo,Calgary-Glenmore-Tsuut'ina,9.814446213354343e-05,clip
-Calgary-Mountain View,Calgary-Lougheed,8.878671162486178e-05,clip
 Calgary-Lougheed,Calgary-South East,6.59195307447051e-05,clip
-Calgary-Bow,Calgary-Edgemont,6.572852982720594e-05,clip
 Airdrie-East,Calgary-Beddington,6.477773723671914e-05,clip
+Edmonton-City Centre,West Yellowhead,6.35030564805946e-05,clip
 Cold Lake-Bonnyville-St. Paul,Lloydminster-Wainwright,4.932578899107407e-05,clip
 Cochrane-Springbank,Airdrie-West,4.328742056676678e-05,clip
-Edmonton-Mill Woods,West Yellowhead,3.882435030662626e-05,clip
-Edmonton-Rutherford,Edmonton-Strathcona,3.752438954326249e-05,clip
-Edmonton-Enoch,Edmonton-Whitemud,3.595885306251922e-05,clip
-Calgary-East,Calgary-Lougheed,3.5701415659449245e-05,clip
+Edmonton-Rutherford,Edmonton-Strathcona,3.752438955217386e-05,clip
+Edmonton-Mill Woods,West Yellowhead,3.670959735826148e-05,clip
 Calgary-Beddington,Calgary-Bow,3.275866417915671e-05,clip
+Calgary-Edgemont,Calgary-Bow,3.190833034217862e-05,clip
 Cochrane-Springbank,Canmore-Banff,2.795733593637284e-05,clip
 Edmonton-Decore,West Yellowhead,1.9992725568744146e-05,clip
-Calgary-North West,Calgary-Glenmore-Tsuut'ina,1.9173393762111385e-05,clip
 Mountain View-Kneehill,Sylvan Lake-Innisfail,1.738458748538621e-05,clip
-Edmonton-Beverly-Clareview,Fort Saskatchewan-Vegreville,1.3170263649319567e-05,clip
-Sherwood Park,West Yellowhead,1.4867884152431477e-05,clip
 Airdrie-East,Mountain View-Kneehill,5.545508296734419e-06,clip
-Strathcona-Sherwood Park,West Yellowhead,1.3328704021877578e-05,clip
 Sherwood Park,Fort Saskatchewan-Vegreville,1.3029334528305505e-05,clip
 Calgary-Acadia,Calgary-Confluence,1.2945068217662775e-05,clip
 Cochrane-Springbank,Mountain View-Kneehill,1.1066282369934794e-05,clip
-Calgary-Acadia,Calgary-East,1.0908652326079588e-05,clip
-Calgary-Shaw,Calgary-McKenzie,9.998731909886864e-06,clip
+Calgary-Shaw,Calgary-McKenzie,9.99873190988685e-06,clip
 Medicine Hat-Brooks,Mountain View-Kneehill,9.913554740606703e-06,clip
-Edmonton-Mill Woods,Edmonton-Gold Bar,9.700950537182224e-06,clip
-West Yellowhead,Barrhead-Westlock-Athabasca,9.636830248177776e-06,clip
-Edmonton-Strathcona,West Yellowhead,9.614528334995226e-06,clip
+Edmonton-Mill Woods,Edmonton-Gold Bar,9.700950535759246e-06,clip
+West Yellowhead,Barrhead-Westlock-Athabasca,9.636830248177771e-06,clip
 Taber-Cardston,Medicine Hat-Cypress,9.584372661068948e-06,clip
-Edmonton-Manning,Fort Saskatchewan-Vegreville,8.18316225192746e-06,clip
 Mountain View-Kneehill,Calgary-Falconridge-Conrich,7.786618461997555e-06,clip
-Calgary-Mountain View,Calgary-Buffalo,7.551643705469952e-06,clip
 West Yellowhead,Drumheller-Stettler,7.505936484486856e-06,clip
 Calgary-Acadia,Calgary-Mountain View,7.4454505709075214e-06,clip
-Edmonton-Highlands-Norwood,Edmonton-Decore,6.67993218045529e-06,clip
-Edmonton-Whitemud,West Yellowhead,6.651812926415858e-06,clip
-Edmonton-Highlands-Norwood,West Yellowhead,6.118683018975224e-06,clip
+Calgary-Mountain View,Calgary-Buffalo,6.704444877026656e-06,clip
+Edmonton-Highlands-Norwood,Edmonton-Decore,6.6799321804552874e-06,clip
+Edmonton-Whitemud,West Yellowhead,6.651812925919248e-06,clip
+Edmonton-Highlands-Norwood,West Yellowhead,6.118683018975223e-06,clip
 Grande Prairie,Grande Prairie-Wapiti,5.779277270539078e-06,clip
 Lesser Slave Lake,Fort McMurray-Lac La Biche,5.6887821093797815e-06,clip
 Barrhead-Westlock-Athabasca,Cold Lake-Bonnyville-St. Paul,5.580678213890403e-06,clip
 Peace River,Central Peace-Notley,5.293548512271698e-06,clip
-Edmonton-Beverly-Clareview,West Yellowhead,4.455066749836538e-06,clip
-Calgary-Acadia,Calgary-Lougheed,4.270762322593318e-06,clip
 Edmonton-Ellerslie,Edmonton-Meadows,4.1306238659580234e-06,clip
 Lesser Slave Lake,Barrhead-Westlock-Athabasca,3.706269677856542e-06,clip
-West Yellowhead,Grande Prairie-Wapiti,3.1910452106041703e-06,clip
-West Yellowhead,Spruce Grove,2.9413251348394766e-06,clip
+West Yellowhead,Grande Prairie-Wapiti,3.191045210701922e-06,clip
+West Yellowhead,Spruce Grove,2.9129854591814033e-06,clip
 Central Peace-Notley,Grande Prairie-Wapiti,2.755886969655834e-06,clip
-Drumheller-Stettler,Sylvan Lake-Innisfail,2.3273536511454792e-06,clip
-Edmonton-Manning,West Yellowhead,1.3408697856873197e-06,clip
+Drumheller-Stettler,Sylvan Lake-Innisfail,2.3273537005423803e-06,clip
 Drumheller-Stettler,Mountain View-Kneehill,1.5983203861065214e-06,clip
-West Yellowhead,Central Peace-Notley,1.5286128570531458e-06,clip
-Edmonton-Beverly-Clareview,Edmonton-Manning,1.475740453682346e-06,clip
-Sylvan Lake-Innisfail,Red Deer-North,1.3792701244273043e-06,clip
+West Yellowhead,Central Peace-Notley,1.5286128570531484e-06,clip
+Sylvan Lake-Innisfail,Red Deer-North,1.379270124427295e-06,clip

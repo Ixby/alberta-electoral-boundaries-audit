@@ -1,0 +1,33 @@
+[v0_8 test sweep] launching 8 test scripts with 8 parallel workers
+  scripts directory: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts
+  working directory: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit
+  ▶ START   Extended partisan metrics       (v0_1_extended_partisan_metrics.py)
+  ▶ START   Gerrymetrics comparison         (v0_1_gerrymetrics_comparison.py)
+  ▶ START   Compactness metrics             (v0_1_compactness_metrics.py)
+  ▶ START   v0_8 alignment proof            (v0_1_v8_alignment_proof.py)
+  ▶ START   v0_8 overlap diagnostic         (v0_1_v8_overlap_diagnostic.py)
+  ▶ START   Contiguity check                (v0_1_contiguity_check.py)
+  ▶ START   Symmetry counter test           (v0_1_majority_symmetry_counter_test.py)
+  ▶ START   Justification tests             (v0_1_justification_tests.py)
+  ✓ DONE    Symmetry counter test           (1s)
+  ✓ DONE    Justification tests             (2s)
+  ✓ DONE    Contiguity check                (2s)
+  ✓ DONE    Compactness metrics             (3s)
+  ✓ DONE    Extended partisan metrics       (7s)
+  ✓ DONE    Gerrymetrics comparison         (8s)
+  ✓ DONE    v0_8 overlap diagnostic         (32s)
+  ✓ DONE    v0_8 alignment proof            (356s)
+
+[v0_8 test sweep] all 8 scripts complete in 356s
+
+=== SUMMARY ===
+  STATUS    ELAPSED   LABEL
+  --------------------------------------------------
+  ✓ pass       356s  v0_8 alignment proof
+  ✓ pass        32s  v0_8 overlap diagnostic
+  ✓ pass         8s  Gerrymetrics comparison
+  ✓ pass         7s  Extended partisan metrics
+  ✓ pass         3s  Compactness metrics
+  ✓ pass         2s  Contiguity check
+  ✓ pass         2s  Justification tests
+  ✓ pass         1s  Symmetry counter test

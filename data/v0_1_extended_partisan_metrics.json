@@ -13,26 +13,26 @@
   },
   "majority_2026": {
     "label": "majority_2026",
-    "n_districts": 66,
-    "mean_ucp_vote_share": 0.5691598995992421,
-    "ucp_wins": 43,
-    "partisan_bias": -0.015151515151515138,
-    "lopsided_t": 2.716076960247404,
-    "lopsided_p": 0.008600061376292193,
-    "partisan_gini": 0.025348085780132482,
-    "responsiveness": 0.0,
-    "partisan_bias_percentile": 99.399
+    "n_districts": 87,
+    "mean_ucp_vote_share": 0.5631152089092325,
+    "ucp_wins": 55,
+    "partisan_bias": -0.04022988505747127,
+    "lopsided_t": 3.157683711982128,
+    "lopsided_p": 0.002202779895120431,
+    "partisan_gini": 0.022665991711316693,
+    "responsiveness": 1.1494252873563204,
+    "partisan_bias_percentile": 76.766
   },
   "minority_2026": {
     "label": "minority_2026",
-    "n_districts": 71,
-    "mean_ucp_vote_share": 0.601732022962856,
-    "ucp_wins": 52,
-    "partisan_bias": -0.03521126760563381,
-    "lopsided_t": 3.2590863082606583,
-    "lopsided_p": 0.001997059186413368,
-    "partisan_gini": 0.036963518334020375,
-    "responsiveness": 2.112676056338028,
-    "partisan_bias_percentile": 76.766
+    "n_districts": 83,
+    "mean_ucp_vote_share": 0.5923376542877368,
+    "ucp_wins": 59,
+    "partisan_bias": -0.042168674698795205,
+    "lopsided_t": 3.4911306613264155,
+    "lopsided_p": 0.0008249545314935785,
+    "partisan_gini": 0.03260159810310442,
+    "responsiveness": 2.409638554216867,
+    "partisan_bias_percentile": 49.66
   }
 }

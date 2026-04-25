@@ -2,17 +2,16 @@ winner,loser,overlap_km2,method
 Stony Plain-Drayton Valley,Edmonton-Manning,0.29875340925731103,clip
 Stony Plain-Drayton Valley,Edmonton-Decore,0.26691200549975785,clip
 Sherwood Park-Strathcona,Edmonton-Beaumont,0.03365449453519833,clip
-Chestermere-Strathmore,Calgary-Fish Creek,0.010643349887567695,clip
-Calgary-Hays,Calgary-Fish Creek,0.00925807891633573,clip
-Calgary-Elbow,Calgary-De Winton,0.008668379484528527,clip
+Chestermere-Strathmore,Calgary-Fish Creek,0.010186271408823465,clip
+Calgary-Hays,Calgary-Fish Creek,0.009258078916204757,clip
 Calgary-Edgemont,Peace River,0.000801111116190806,clip
 Peace River,Olds-Three Hills-Didsbury,0.0006258505530098573,clip
 Peace River,Edmonton-Beaumont,0.0004748213290271055,clip
 Calgary-Falconridge,Peace River,0.00035971160021684663,clip
-Stony Plain-Drayton Valley,Peace River,0.00032608703964530106,clip
+Stony Plain-Drayton Valley,Peace River,0.000326087039645301,clip
 Edmonton-Beverly-Clareview,Edmonton-Enoch-Devon,0.00019978504598232552,clip
 Calgary-Beddington,Peace River,0.00019390062468818315,clip
-Edmonton-Glenora-Riverview,Peace River,0.00018116471840286485,clip
+Edmonton-Glenora-Riverview,Peace River,0.00018116471840286483,clip
 Sherwood Park-Strathcona,Edmonton-Mill Woods,0.00014835194758600144,clip
 Peace River,Calgary-East,0.00013137617095965702,clip
 Peace River,Leduc,0.00012696310208724993,clip
@@ -20,12 +19,12 @@ Edmonton-Highlands-Norwood,Edmonton-Beaumont,0.00012396195364481935,clip
 Airdrie East,Calgary-Foothills-Airdrie West,8.253653325458166e-05,clip
 Edmonton-Highlands-Norwood,Stony Plain-Drayton Valley,2.7154232794098442e-05,clip
 Calgary-Varsity,Calgary-Mountain View,2.672667120436346e-05,clip
-Canmore-Kananaskis,Peace River,2.5421828064904473e-05,clip
+Canmore-Kananaskis,Peace River,2.5421827920434707e-05,clip
 Calgary-Varsity,Peace River,2.4484543273213513e-05,clip
 Airdrie East,Peace River,2.4099093989077207e-05,clip
 Edmonton-West Henday,Edmonton-Enoch-Devon,2.217708557351694e-05,clip
 Calgary-Acadia,Peace River,2.191504726109652e-05,clip
-Calgary-Mountain View,Peace River,7.102406923324914e-06,clip
+Calgary-Mountain View,Peace River,7.102407244048144e-06,clip
 Calgary-North,Calgary-North East,1.769235205259452e-05,clip
 Calgary-Acadia,Calgary-South,1.4337881067801359e-05,clip
 Canmore-Kananaskis,Calgary-Nolan Hill-Cochrane,1.2037583870392076e-05,clip
@@ -33,19 +32,16 @@ Sherwood Park-Strathcona,Edmonton-Gold Bar,1.105241119351142e-05,clip
 Airdrie East,Calgary-Airdrie,1.0507165135261816e-05,clip
 Airdrie East,Calgary-Falconridge,1.0346018786962409e-05,clip
 Edmonton-Gold Bar,Stony Plain-Drayton Valley,9.441509051278777e-06,clip
-Calgary-Elbow,Calgary-South East,9.159158761259334e-06,nested_invert
-Canmore-Kananaskis,Calgary-Lougheed,8.891312252062247e-06,clip
+Canmore-Kananaskis,Calgary-Lougheed,8.891312252062243e-06,clip
 Calgary-South,Peace River,8.545442919962141e-06,clip
-Calgary-Elbow,Peace River,8.101533597500215e-06,clip
 Edmonton-Beverly-Clareview,Edmonton-West Henday,7.799728168411804e-06,clip
-Chestermere-Strathmore,Calgary-Peigan-Chestermere,7.503875227426155e-06,clip
 Calgary-Lougheed,Peace River,7.003061885849729e-06,clip
 Calgary-Nolan Hill-Cochrane,Peace River,5.693572281628496e-06,clip
-Highwood,Calgary-Peigan-Chestermere,5.600392925663895e-06,nested_invert
 Leduc,Edmonton-Ellerslie,5.42660901370097e-06,clip
 Highwood,Peace River,4.775889405115314e-06,clip
 Edmonton-West Henday,Edmonton-Glenora-Riverview,4.556543572179975e-06,clip
-Edmonton-Spruce Grove,Peace River,2.9413251348394766e-06,clip
+Peace River,Calgary-De Winton,4.2347274497413734e-06,clip
+Edmonton-Spruce Grove,Peace River,2.9413251368810454e-06,clip
 Calgary-Falconridge,Calgary-Airdrie,2.6483283475782365e-06,clip
 Edmonton-Mill Woods,Leduc,2.1568067834759796e-06,clip
 Sherwood Park-Strathcona,Sherwood Park,1.5560100236536816e-06,clip

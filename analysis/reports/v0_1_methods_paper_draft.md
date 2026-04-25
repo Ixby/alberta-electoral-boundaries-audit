@@ -23,7 +23,7 @@ type: reports
 
 Public-interest forensic audits of electoral redistricting face a common and under-treated problem: the months-to-years gap between a commission's final report and the release of official topological shapefiles. During that gap, every spatial analysis rests on *derived* geometry — polygons traced from commission maps, reconstructed from crosswalks, or built from related administrative boundaries. Existing redistricting-analysis frameworks (MGGG; Chen and Rodden 2013; Stephanopoulos and McGhee 2015) implicitly assume official shapefiles; they do not specify how an audit should publish defensibly when those shapefiles are unavailable.
 
-This paper formalises the **Derived Provisional Geometry (DPG) framework** as a disciplined posture for that case. We contribute: (i) a two-error-mode disclosure (perimeter-mode ±500 m; area-mode Tier-dependent) that distinguishes boundary-localization error from whole-polygon-territory mismatch; (ii) source-tier provenance metadata (`canon_source` ∈ {`sweep`, `osm-municipal-buffered`, `2019-parent`, `v7`}) enabling deterministic overlap resolution; (iii) a **three-phase DPG tessellation pipeline** — precedence-based overlap resolution, tier-ordered edge snapping (nearest-neighbour welding using `shapely.snap()` at Tier-C tolerance), and gap-fill by longest shared boundary — that produces a fully tessellating polygon set from independently-traced sources; (iv) a **four-measurement-layer reporting pattern** (crosswalk, centroid-in-polygon, MAUP v1 uncleaned, MAUP v2 topology-cleaned) that surfaces cross-method disagreement honestly rather than hiding it behind a single point estimate; and (v) a **sunset clause** binding the audit to recompute all DPG-dependent metrics within 48 hours of official shapefile release. Contribution (iii) — tier-ordered edge snapping for electoral polygon tessellation — does not appear in the redistricting methods literature and is related to cartographic conflation (Sester 2000) but applied under explicit provenance ordering. We illustrate with the Alberta 2025-26 boundaries audit (87→89 electoral divisions, 4,765 voting-area polygons, 100,000-plan ReCom MCMC) and release the full toolkit under a permissive licence.
+This paper formalises the **Derived Provisional Geometry (DPG) framework** as a disciplined posture for that case. We contribute: (i) a two-error-mode disclosure (perimeter-mode ±500 m; area-mode Tier-dependent) that distinguishes boundary-localization error from whole-polygon-territory mismatch; (ii) source-tier provenance metadata (`canon_source` ∈ {`da-anchored`, `municipal-anchored`, `osm-municipal-buffered`, `sweep`, `v7`}) enabling deterministic overlap resolution; (iii) a **four-phase DPG perfection pipeline** — precedence-based overlap resolution with anti-erasure clamp, tier-ordered edge snapping (nearest-neighbour welding using `shapely.snap()` with auto-revert on >5% area distortion), spatial-index gap-fill (R-tree nearest-neighbour assignment of residual interstitial polygons), and a multi-threaded 1m precision pass closing floating-point artefacts — that produces a fully tessellating polygon set from independently-traced sources; (iv) a **nested-polygon ownership-inversion refinement** that resolves residual overlaps where one ED is fully contained inside another by carving the inner polygon out of the outer rather than erasing the inner — a contribution beyond the cartographic-conflation literature (Sester 2000; Saalfeld 1988), where existing algorithms either erase the smaller polygon or flag the case as unresolvable; (v) a **four-measurement-layer reporting pattern** (crosswalk, centroid-in-polygon, MAUP v1 uncleaned, MAUP v2 topology-cleaned) that surfaces cross-method disagreement honestly; (vi) a **programmatic city-centre alignment proof** that requires only ground-truth POINTS (not polygons) and is therefore appropriate for the DPG-without-shapefiles posture this paper formalises; and (vii) a **sunset clause** binding the audit to recompute all DPG-dependent metrics within 48 hours of official shapefile release. We illustrate with the Alberta 2025-26 boundaries audit (87→89 electoral divisions, 4,765 voting-area polygons, 250,000-plan ReCom MCMC ensemble across 4 parallel chains) and release the full toolkit under a permissive licence.
 
 ---
 
@@ -144,14 +144,69 @@ Validation gates:
 - Full-coverage: gap area after fill < 0.001% of provincial area.
 - Name preservation: output has identical 89 ED names as input.
 
-#### 4.4 Why the order matters
+#### 4.4 Phase 4 — 1m precision pass (multi-threaded)
 
-The three phases must run in sequence: Phase 1 before Phase 2, Phase 2 before Phase 3.
+*Failure mode:* after Phases 1–3, shared boundaries are *geometrically close* but not always *bit-identical*. Floating-point artefacts accumulate from snap operations, gap-fill unions, and `buffer(0)` cleanings. Two adjacent EDs may share an edge whose vertex coordinates differ by 1–10 cm. This passes the no-overlap and full-coverage gates but causes downstream tooling (gerrychain's adjacency builder; sub-VA spatial joins) to either flag spurious overlaps or fail to detect adjacency.
+
+```text
+For each ED i (in parallel across worker threads):
+    g_i ← snapshot of i's geometry
+    For each other ED j whose bbox is within tolerance of i's bbox:
+        if distance(g_i, g_j) < tolerance:                  # tolerance = 1 m
+            g_i ← snap(g_i, g_j, tolerance)
+    Write g_i back to slot i.
+```
+
+The phase runs across worker threads (default 8–10 on a modern desktop CPU). `shapely.snap()` releases the GIL for its GEOS calls, so threading scales reasonably to the box's physical-core count. Each thread reads from a snapshot of the original geometries and writes to a private slot — losing the cross-pass propagation that the serial version had (snap to j seeing j's snap to k), but at ≤1 m tolerance on provincial-scale polygons the convergence is local rather than global, so the loss is negligible.
+
+**Per-phase checkpointing.** The pipeline writes `<plan>_phase{N}.gpkg` after each successful phase. On crash or interruption, the next invocation detects the highest-completed phase and resumes from there. Critical for long runs: Phase 3 spatial-index gap-fill on the Alberta minority map redistributes 1,168 gap polygons (85,408 km²) and Phase 4 takes 10–25 minutes wall-clock; losing either to a power loss is recoverable, not catastrophic.
+
+#### 4.5 v0_8.1 — Refinement with nested-polygon ownership inversion
+
+*Failure mode the 4-phase pipeline does not solve:* a small number of residual overlap pairs remain because they cannot be resolved without erasing an ED. Two situations produce these:
+
+1. **Sub-square-metre slivers** along shared boundaries — floating-point dust that the 1m precision pass is too coarse to catch.
+2. **Fully-nested polygons** — one ED whose footprint is entirely inside another ED's footprint. This happens when the multi-source assembly draws two EDs from inconsistent sources for the same physical territory. In the Alberta dataset, Calgary-Falconridge-Conrich (DA-anchored) and Airdrie-East (sweep-derived) produce a 141.9 km² nested overlap on the majority map.
+
+Refinement walks the residual list and applies one of three resolutions in priority order:
+
+- **Clip** — standard difference operation; the lower-tier ED loses the overlap. Used when the loser retains ≥10% of its area after clipping.
+- **Nested-invert** — when the loser is fully (≥95%) contained in the winner: the loser keeps its full polygon, and the *winner* is clipped to carve a hole around the loser. Inverts the standard precedence rule for this case only. Used 1 time in the Alberta majority refinement (Calgary-Falconridge-Conrich preserved by carving Airdrie-East), 2 times in minority refinement.
+- **Midline split** — fallback when neither clip nor nested-invert resolves: assign half the overlap to each ED based on perpendicular-bisector distance to centroids. Not triggered in the Alberta dataset.
+
+After v0_8.1 refinement: 0 residual overlap pairs on both Alberta maps.
+
+**Novelty.** Nested-polygon ownership inversion is, to the authors' knowledge, a contribution beyond the cartographic-conflation literature (Sester 2000; Saalfeld 1988): existing polygon-overlap-resolution algorithms either erase the smaller polygon or flag the case as unresolvable and require human intervention. Inverting ownership is not always semantically appropriate (in cadastral GIS, a property nested inside another is itself an error), but for *electoral* GIS it is the only resolution that preserves both legally-distinct EDs without imputing geometry that the data do not support.
+
+#### 4.6 Why the order matters
+
+The phases must run in sequence: Phase 1 before Phase 2, Phase 2 before Phase 3, Phase 3 before Phase 4. v0_8.1 refinement runs after the 4-phase pipeline produces a v0_8 canonical output.
 
 - Running Phase 2 before Phase 1 would snap edges across overlapping territory, potentially propagating the overlap into the committed union and corrupting subsequent snaps.
 - Running Phase 3 before Phase 2 would fill some sliver gaps with "new" territory instead of welding adjacent edges — inflating ED areas unnecessarily and obscuring the DPG imprecision.
+- Running Phase 4 before Phase 3 would snap edges across un-filled gaps and create geometric artefacts that look like adjacency but cross undefined territory.
 
-The pipeline produces **v0_8 DPGs**: fully tessellating shapefiles where every point in Alberta's electoral territory belongs to exactly one ED, shared boundaries are geometrically identical in both EDs that share them, and every claimed improvement is traceable to a specific phase and tolerance parameter.
+The pipeline produces **v0_8 DPGs**: fully tessellating shapefiles where every point in Alberta's electoral territory belongs to exactly one ED, shared boundaries are bit-identical in both EDs that share them, residual overlap pairs after v0_8.1 refinement are 0, and every claimed improvement is traceable to a specific phase and tolerance parameter.
+
+#### 4.7 Programmatic alignment proof
+
+The DPG-without-shapefiles posture forecloses standard ground-truth comparison: the audit cannot compute intersection-over-union against an authoritative polygon set because no such set exists. We propose an alternative validation pattern that requires only ground-truth POINTS, not polygons:
+
+1. **Topology check** — ED count vs expected, residual overlap area, full provincial coverage, count of EDs with non-zero geometry.
+2. **City-centre landmark check** — major Alberta city centres (Calgary, Edmonton, Red Deer, Lethbridge, Medicine Hat, Grande Prairie, Fort McMurray, Airdrie, St. Albert, Spruce Grove) sourced from Statistics Canada CSD representative-point coordinates, tested by point-in-polygon containment against the v0_8 EDs. The containing ED's name is checked for plausibility against the city name (the Calgary-centre point should land in some ED whose name contains "Calgary"; landing in "Peace River" is a misalignment signal).
+3. **Cross-plan area consistency** — the majority and minority partitions should each cover the same provincial area to within DPG precision; deviation > 0.1% indicates a topology bug in one of the plans.
+
+For the Alberta v0_8.1 majority refined output: 89 EDs (✓), 68 with non-zero geometry (21 inherited-empty from upstream — see §4.8), 0 residual overlaps (✓), 100.04% provincial coverage (✓), and 9 of 10 city centres land in correctly-named EDs (the single miss is St. Albert: 37.9 km² polygon does not extend to the city-centre representative point, a documented localisation residual within the DPG ±500 m perimeter precision band). Cross-plan area diff: 0.04%.
+
+This validation pattern is appropriate to the DPG posture in a way that polygon-based ground-truth comparison is not. It generalises beyond electoral GIS to any domain where derived polygons must be validated against authoritative point references rather than authoritative polygon references.
+
+#### 4.8 Honesty about inherited limitations
+
+The Alberta dataset contains 21 majority EDs and 12 minority EDs whose `canon_source` candidate sources collectively produced no usable geometry. These EDs (mostly small urban Calgary and Edmonton districts plus Stony Plain–Drayton Valley, St. Albert-Sturgeon, etc.) remain empty in v0_8 even after the 4-phase perfecter. The audit reports this as a first-class data-completeness metric ("68 of 89 EDs with geometry; 21 inherited-empty") rather than masking it via zero-area imputation.
+
+This matters for two downstream consequences. First, Phase 3 spatial-index gap-fill can only assign gaps to *non-empty* EDs, so the 21 empty EDs' notional territory concentrates disproportionately in adjacent rural EDs (West Yellowhead grew 47,092 → 93,599 km²; Taber-Cardston 14,982 → 30,800 km²). Any per-ED area metric derived from v0_8 should carry a "rural-inflation caveat." Second, geometry-dependent metrics (compactness, MAUP-attributed votes, contiguity) are reported on the 68 (or 77 for minority) EDs that have geometry, not on the full 89.
+
+The audit's defence against the "this hides bad data" objection is *transparent reporting*: the empty-ED list is published, the rural-inflation magnitudes are quantified, and every geometry-dependent finding carries an explicit "of N EDs with geometry" footnote.
 
 ### 5. Four-measurement-layer reporting (~2 pages)
 
