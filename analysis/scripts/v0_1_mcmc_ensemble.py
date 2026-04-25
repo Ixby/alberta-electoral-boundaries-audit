@@ -94,6 +94,11 @@ MIN_V5_PATH = DATA / "shapefiles" / "derived" / "v0_1_refined_v5_minority_2026_e
 # v0_7 — full 89-ED coverage (canonical final; v0_5 + v0_3 fallback, 2026-04-24)
 MAJ_V7_PATH = DATA / "shapefiles" / "derived" / "v0_7_canonical_majority_2026_eds.gpkg"
 MIN_V7_PATH = DATA / "shapefiles" / "derived" / "v0_7_canonical_minority_2026_eds.gpkg"
+# v0_8 — perfecter pipeline output (refined preferred; canonical fallback, 2026-04-25)
+MAJ_V8_PATH = DATA / "shapefiles" / "derived" / "v0_8_refined_majority_2026_eds.gpkg"
+MIN_V8_PATH = DATA / "shapefiles" / "derived" / "v0_8_refined_minority_2026_eds.gpkg"
+MAJ_V8_CANON_PATH = DATA / "shapefiles" / "derived" / "v0_8_canonical_majority_2026_eds.gpkg"
+MIN_V8_CANON_PATH = DATA / "shapefiles" / "derived" / "v0_8_canonical_minority_2026_eds.gpkg"
 
 SAMPLES_CSV = DATA / "v0_1_mcmc_ensemble_samples.csv"
 
