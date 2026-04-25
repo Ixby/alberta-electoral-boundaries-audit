@@ -1,0 +1,27 @@
+{
+  "elapsed_seconds": 825.3,
+  "propagate_tol_m": 200.0,
+  "pct_threshold": 10.0,
+  "pct_col_used": "new_total_anchored_pct",
+  "max_passes": 5,
+  "maps": [
+    {
+      "label": "majority",
+      "n_eds": 89,
+      "n_v3_fallback": 5,
+      "passes_run": 5,
+      "total_pairs_propagated": 222,
+      "total_shared_boundary_improved_km": 5286.625,
+      "mean_anchored_pct_before": 74.183
+    },
+    {
+      "label": "minority",
+      "n_eds": 89,
+      "n_v3_fallback": 5,
+      "passes_run": 5,
+      "total_pairs_propagated": 171,
+      "total_shared_boundary_improved_km": 1096.605,
+      "mean_anchored_pct_before": 47.026
+    }
+  ]
+}
