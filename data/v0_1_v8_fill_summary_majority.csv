@@ -1,0 +1,22 @@
+ed,source,area_km2,carved_from
+Calgary-Currie,exact_2019_match,15.929957553319152,Calgary-Buffalo; Calgary-Confluence; Calgary-Elbow; Calgary-Glenmore-Tsuut'ina; Calgary-Mountain View; Calgary-Varsity
+Calgary-East,exact_2019_match,25.15164105099542,Calgary-Acadia; Calgary-Lougheed; Chestermere-Strathmore
+Calgary-Fish Creek,exact_2019_match,28.17790663729473,Calgary-Lougheed; Calgary-McKenzie; Calgary-Shaw
+Calgary-Hays,exact_2019_match,24.01215878914779,Calgary-Lougheed; Calgary-McKenzie; Calgary-Shaw; Calgary-South East; Chestermere-Strathmore
+Calgary-Klein,exact_2019_match,37.41797656835653,Calgary-Acadia; Calgary-Buffalo; Calgary-Lougheed; Calgary-Mountain View; Calgary-Nose Creek; Calgary-Varsity
+Calgary-North,exact_2019_match,21.197383564875114,Calgary-Beddington; Calgary-North East; Calgary-Nose Creek
+Calgary-North West,exact_2019_match,26.21978737790168,Calgary-Bow; Calgary-Edgemont; Calgary-Glenmore-Tsuut'ina; Calgary-Varsity; Cochrane-Springbank
+Edmonton-Beverly-Clareview,exact_2019_match,39.30130261358411,Edmonton-Castle Downs; Edmonton-Decore; Edmonton-Highlands-Norwood; Sherwood Park; West Yellowhead
+Edmonton-Glenora-Riverview,rename_map (2 2019 parts),50.28472816105693,Edmonton-City Centre; Edmonton-Enoch; Edmonton-Rutherford; Edmonton-Strathcona; West Yellowhead
+Edmonton-Manning,exact_2019_match,115.33191511035201,Edmonton-Castle Downs; Fort Saskatchewan-Vegreville; West Yellowhead
+Edmonton-North West,exact_2019_match,29.92862690131793,Edmonton-Castle Downs; Edmonton-City Centre; Edmonton-Highlands-Norwood; St. Albert; West Yellowhead
+Edmonton-South,exact_2019_match,72.70419484010623,Edmonton-Beaumont; Edmonton-Ellerslie; Edmonton-Rutherford; Edmonton-Whitemud; Leduc-Devon; West Yellowhead
+Edmonton-West Henday,exact_2019_match,76.50250538154609,Edmonton-City Centre; Edmonton-Enoch; St. Albert; West Yellowhead
+Edmonton-Windermere,rename_map (2 2019 parts),5.933126394746686,Edmonton-Enoch; Edmonton-Gold Bar (midline → kept by neighbour); Edmonton-McClung; Edmonton-Mill Woods; Edmonton-Rutherford (midline → kept by neighbour); Edmonton-Strathcona; Edmonton-Whitemud (midline → kept by neighbour); West Yellowhead
+Lacombe-Clearwater,rename_map (1 2019 parts),24468.49823777569,Canmore-Banff; Mountain View-Kneehill; Sylvan Lake-Innisfail; West Yellowhead
+Lethbridge-East,exact_2019_match,49.627894682001866,Lethbridge-West; Taber-Cardston
+Red Deer-South,exact_2019_match,35.04143599512211,Red Deer-North; Sylvan Lake-Innisfail
+St. Albert-Sturgeon,rename_map (2 2019 parts),2.1358631130614434,Spruce Grove (midline → kept by neighbour); St. Albert (midline → kept by neighbour); West Yellowhead
+Stony Plain-Drayton Valley,rename_map (1 2019 parts),6153.826877844268,Leduc-Devon; Spruce Grove; West Yellowhead
+Strathcona-Sherwood Park,exact_2019_match,642.6042363172501,Camrose; Edmonton-Ellerslie; Edmonton-Meadows; Fort Saskatchewan-Vegreville; Sherwood Park; West Yellowhead
+Wetaskiwin-Ponoka-Maskwacis,rename_map (1 2019 parts),3666.0907729194273,Camrose; Drumheller-Stettler; Sylvan Lake-Innisfail; West Yellowhead
