@@ -174,11 +174,11 @@ h2 {
   letter-spacing: -0.3pt;
   line-height: 1.15;
   color: #111;
-  margin: 1.0em 0 0.5em 0;
-  padding-top: 0.55em;
+  margin: 1.4em 0 0.55em 0;
+  padding-top: 0.6em;
   border: none;
   border-top: 0.5pt solid #111;
-  clear: both;
+  clear: both !important;       /* force float context to close above the rule */
   page-break-after: avoid;
   page-break-inside: avoid;
   text-align: left;
@@ -186,10 +186,24 @@ h2 {
   string-set: chapter content();
 }
 
+/* Float-killer: anything above the h2's top rule must close above it.
+   Without this, the previous section's right-floated sidebar can extend
+   below the rule and visually collide with the new section's title. */
+h2::before {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+}
+
 h2:first-of-type {
   margin-top: 0.6em;
   border-top: none;
   padding-top: 0;
+}
+
+h2:first-of-type::before {
+  content: none;
 }
 
 /* ----- Section subheads (h3 after the disclosure) ----- */
@@ -257,7 +271,7 @@ blockquote {
   line-height: 1.4;
   color: #333;
   text-align: center;
-  page-break-inside: avoid;
+  /* page-break-inside intentionally not set — let pull quotes break if they need to */
 }
 
 blockquote p {
@@ -316,7 +330,9 @@ blockquote.deck strong:first-child {
 blockquote.sidebar {
   float: right;
   clear: right;
-  width: 32%;
+  width: 30%;
+  max-height: 3.4in;          /* prevents tall sidebars from extending past their section */
+  overflow: hidden;
   background: #f0f7f7;
   border: none;
   border-left: 3px solid #2a8a8a;
@@ -330,6 +346,16 @@ blockquote.sidebar {
   color: #1a1a1a;
   box-sizing: border-box;
   page-break-inside: avoid;
+}
+
+/* The first sidebar after an h2 has no body text above it to wrap around;
+   render it as a full-width banner instead of a tight right-float. */
+h2 + blockquote.sidebar {
+  float: none;
+  clear: both;
+  width: auto;
+  max-height: none;
+  margin: 0.6em 0 1em 0;
 }
 
 blockquote.sidebar p {
@@ -464,10 +490,14 @@ table {
   margin: 0.7em 0 0.3em 0;
   font-family: "Lora", Georgia, serif;
   font-size: 9.5pt;
-  page-break-inside: avoid;
-  break-inside: avoid;
   font-variant-numeric: tabular-nums lining-nums;
+  clear: both;                /* never overlap a floated sidebar */
 }
+
+/* Tables can break across pages but rows should not split, and the
+   header should repeat on the new page. */
+thead { display: table-header-group; }
+tbody tr { page-break-inside: avoid; break-inside: avoid; }
 
 thead th {
   background: transparent;
@@ -592,6 +622,64 @@ blockquote.opinion strong:first-child {
   display: block;
   margin-bottom: 0.55em;
   font-style: normal;
+}
+
+/* ============================================================
+   COLLISION-PREVENTION RULES (layout-artist review, 2026-04-25)
+   ============================================================ */
+
+/* Opinion blocks always start fresh — never wrap around a float */
+blockquote.opinion {
+  clear: both;
+}
+
+/* Drop-cap clearance below deck box — was colliding when deck wraps tall */
+blockquote.deck + p.lede {
+  margin-top: 1.0em;
+  clear: both;
+}
+p.lede::first-letter {
+  shape-outside: margin-box;
+}
+
+/* Heading collision: h2 + h3 / h2 + verdict-h3 — collapse the second
+   heading's top decoration when it follows another heading directly */
+h2 + h3 {
+  margin-top: 0.5em;
+}
+h2 + h3.verdict {
+  margin-top: 0.6em;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Verdict-callout breathing room from the previous paragraph's last line */
+p + h3.verdict {
+  margin-top: 2em;
+}
+h3.verdict + p + h3.verdict {
+  margin-top: 1.8em;
+  padding-top: 0.7em;
+  border-top: 1px solid #ddd;   /* lighter rule when verdicts stack */
+}
+
+/* Scorecards must not stack — visually crowds the tear-out metaphor */
+blockquote.scorecard + blockquote.scorecard {
+  margin-top: 1.4em;
+  page-break-before: always;
+  break-before: page;
+}
+
+/* Override the global tbody:last-child border on tables INSIDE scorecards
+   (the heavy black bar fights the dashed maroon border) */
+blockquote.scorecard tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Banner sidebar (full-width after h2) needs different padding than the
+   floated variant */
+h2 + blockquote.sidebar {
+  padding: 0.7em 0.9em;
 }
 
 /* ----- Emphasis ----- */
