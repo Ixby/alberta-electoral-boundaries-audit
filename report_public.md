@@ -144,6 +144,8 @@ The 4.37% number we keep referring to is not a "threshold" the way Whitford v. G
 
 Where the two 2026 maps land against the simulation's 95th percentile (4.37%):
 
+![Lane 1: efficiency gap before/after the coverage shift. Faded dots show the partial-coverage reading (Majority −1.29%, Minority −2.71%); bold dots show the full-coverage reading (Majority +6.43%, Minority +9.21%). Arrows mark the partial→full shift. Both bold dots sit beyond the dashed p95 = 4.37% line.](data/maps/article/lane1_dotplot.png)
+
 | Map | Efficiency gap | Above the p95 line? | Honest percentile reading |
 |---|---|---|---|
 | Majority 2026 | +6.4% | Yes — 2.0 pp over | beyond p95 (likely p98+) |
@@ -156,6 +158,8 @@ Where the two 2026 maps land against the simulation's 95th percentile (4.37%):
 ### Lane 2 — the structural pattern
 
 Lane 1 depends on which election and which version of the audit's geometry you use. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.
+
+![Lane 2: structural-irregularity tests, majority (blue) vs minority (orange). Each row's dashed red mark shows that test's threshold; the minority bars (orange) extend visibly past every threshold; the majority bars (blue) are flush with zero or well within the norm.](data/maps/article/lane2_bars.png)
 
 | Test | Majority map | Minority map |
 |---|---|---|
@@ -186,6 +190,8 @@ The minority report includes published rationales for its seven most contested r
 The six-failure / one-stand pattern matters. A symmetric audit finding 0 of 7 or 7 of 7 would suggest either no rationale problem or a methodology bias. A 6 of 7 pattern with the seventh being constraint-forced is the engineered-versus-forced ratio that distinguishes deliberate boundary choice from a trade-off the constraints made unavoidable.
 
 ### Verdict
+
+![Two-by-two verdict quadrant. Lane 1 (efficiency gap) on the x-axis; Lane 2 (structural-irregularity count out of 5) on the y-axis. The 2019 baseline sits in the bottom-left (clean on both lanes). The Majority 2026 dot sits beyond the EG p95 line but at zero on the structural axis. The Minority 2026 dot sits in the top-right corner — beyond threshold on both lanes.](data/maps/article/verdict_quadrant.png)
 
 | | Lane 1: Numbers (full coverage) | Lane 2: Structure |
 |---|:--:|:--:|

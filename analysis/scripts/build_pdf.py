@@ -723,8 +723,23 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 1.2em auto 0.3em;
+  margin: 1.0em auto 0.4em;
   page-break-inside: avoid;
+  break-inside: avoid;
+  clear: both;
+}
+
+/* Captions: markdown image alt text doesn't render; use a following <em>
+   for caption text. Style follows Lora italic, smaller, grey. */
+img + em, p > img + em, p:has(img) + p > em {
+  display: block;
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-size: 8pt;
+  line-height: 1.35;
+  color: #666;
+  text-align: left;
+  margin: 0.3em 0 1.2em 0;
 }
 
 /* ----- Author bio at end ----- */
