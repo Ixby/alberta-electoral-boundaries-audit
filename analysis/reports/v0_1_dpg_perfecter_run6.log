@@ -27,3 +27,14 @@ Loading VA polygons for provincial boundary...
   [minority 2026] Phase 2: 19 EDs snapped, 1 reverted (tolerance=500 m)
   [minority 2026] Phase 3: 1168 gap polygons, 85408.43 km²
   [minority 2026] Phase 3: assigned via spatial index (50 EDs received gaps)
+  [minority 2026] Phase 4: 1m precision pass complete
+  [WARN] minority 2026: residual overlap Airdrie East ∩ Calgary-Airdrie = 0.0000 km²
+  [WARN] minority 2026: residual overlap Airdrie East ∩ Calgary-Falconridge = 0.0000 km²
+  [WARN] minority 2026: residual overlap Airdrie East ∩ Calgary-Foothills-Airdrie West = 0.0001 km²
+  [WARN] minority 2026: 47 residual overlap pairs
+  [PASS] minority 2026: coverage gap < 0.001%
+  [PASS] minority 2026: all 89 ED names preserved
+  wrote v0_8_canonical_minority_2026_eds.gpkg  (18280.9s)
+
+[dpg_perfecter] done in 24900.4s
+  outputs: v0_8_canonical_majority_2026_eds.gpkg, v0_8_canonical_minority_2026_eds.gpkg

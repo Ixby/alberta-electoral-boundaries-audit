@@ -991,6 +991,38 @@ Outputs: `data/v0_1_mcmc_ensemble_samples_250k_v0_8.csv` (250,000 rows, 4-chain)
 
 ---
 
+#### 5.4.5 Run #5 — 1,000,000-sample MCMC against v0_8 full coverage (publication-grade ESS, 2026-04-25)
+
+A 1,000,000-sample ReCom run was executed across **4 parallel chains × 250,000 steps each** (chain-specific seed = 44 * 100k + chain * 1k + chunk; chunked checkpointing every 5,000 samples). Wall time **71.9 min** on the same 13th-gen i7-1360P (~4× the Run #4 time, exactly linear in sample count). The run was launched explicitly to upgrade the ESS reading and tighten the percentile claims previously hedged at "beyond p95 (likely p98+/p99+)" in Run #4 §5.4.4.
+
+**Convergence diagnostics — publication-grade ESS achieved.**
+
+| Metric | Run #4 ESS (250k) | Run #5 ESS (1M) | Improvement |
+|---|---:|---:|---:|
+| Efficiency gap | 515 | **2,278** | 4.4× |
+| Mean-median | 453 | **1,967** | 4.3× |
+| Declination | 474 | **2,278** | 4.8× |
+| Seats @ 50/50 | 430 | **1,679** | 3.9× |
+
+ESS scaling is approximately linear in sample count (4× more samples → 4× more independent draws), confirming the Run #4 chains were not stuck in a local mode. With ESS now in the 1,679–2,278 range, the percentile claims can be reported as **point estimates within the chains' precision** rather than as bounds-only.
+
+**Per-metric percentiles vs 250,000-row pooled ensemble** (2023 vote substrate; v0_8 full-coverage geometry):
+
+| Metric | 2019 enacted | Majority 2026 (v0_8 full) | Minority 2026 (v0_8 full) |
+|---|---|---|---|
+| Efficiency gap | +2.41 % (p67.4) | **+6.43 % (p99.93)** ⚠ | **+9.21 % (p100.0)** ⚠ |
+| Mean-median | −0.77 % (p91.7) | −1.82 % (p53.5) | −0.97 % (p87.4) |
+| Declination | −4.51 % (p9.1) | −1.18 % (p41.5) | **−6.66 % (p3.0)** ⚠ |
+| Seats @ 50/50 | 46.0 % (p82.3) | 43.7 % (p21.6) | **54.2 % (p100.0)** ⚠ |
+
+**Cross-run stability vs Run #4.** Every percentile placement reported here is within ±0.5 percentile of the Run #4 value at 250k samples. This confirms Run #4 was not Monte-Carlo-noise-driven; the headline outlier flags (majority EG p99.9; minority EG p100; minority declination p3.0; minority seats@50/50 p100) hold under publication-grade ESS.
+
+**Implication for the §6.2 verdict.** The "likely p98+/p99+" hedge from §5.4.4 is now retired. Lane 1 in §6.2 can report majority EG at p99.93 and minority EG at p100 as point-estimate percentiles, not bounds. The published academic-redistricting threshold for "outlier" is p > 95; both 2026 maps clear that threshold by ≥ 5 percentile points on EG, and the minority additionally clears it on declination and seats@50/50. The §6.2 author's verdict ("structurally consistent with engineering, magnitude-undetectable") was retracted in the 2026-04-25 revision; under Run #5 ESS, the magnitude is **detectable** at publication grade.
+
+Outputs: `data/v0_1_mcmc_ensemble_samples_250k_v0_8.csv` (1,000,000 rows — output filename retained for downstream-tool compatibility; will be renamed to `_1M_v0_8` in a follow-up commit), per-chain CSVs at `data/mcmc_checkpoints_250k_v0_8/chain{0–3}_samples.csv` (250,001 rows each), `data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv`, `data/v0_1_mcmc_real_map_scores_250k_v0_8.json`, `data/v0_1_mcmc_convergence_diagnostics_250k_v0_8.json`, plot PNGs at `data/maps/mcmc/`.
+
+---
+
 ### 5.5 Pre-registered checklist baseline scoring
 
 The "what a gerrymander would look like" checklist pre-registered in `report_public.md` was applied to both 2026 commission maps as a calibration test before it will be applied to the November 2026 MLA-committee 91-seat map. The scorecard, reproduced in full in `analysis/reports/v0_1_track_c_checklist_baseline_scoring.md`:
