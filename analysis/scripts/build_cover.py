@@ -29,15 +29,23 @@ import pypdf
 from shapely.ops import unary_union
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-ALBERTA_EDS = REPO_ROOT / "data" / "alberta_2019_eds"
-APPROX_MAJ = REPO_ROOT / "data" / "v0_1_approximate_majority_2026_eds.gpkg"
-# Prefer v5 (then v6 when available) for the minority polygons
-APPROX_MIN_V6 = REPO_ROOT / "data" / "v0_1_refined_v6_minority_2026_eds.gpkg"
-APPROX_MIN_V5 = REPO_ROOT / "data" / "v0_1_refined_v5_minority_2026_eds.gpkg"
+ALBERTA_EDS = REPO_ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
+DERIVED = REPO_ROOT / "data" / "shapefiles" / "derived"
+# Prefer v0_8 refined → v0_8 canonical → v0_7 canonical for the boundary art
+APPROX_MAJ_CANDIDATES = [
+    DERIVED / "v0_8_refined_majority_2026_eds.gpkg",
+    DERIVED / "v0_8_canonical_majority_2026_eds.gpkg",
+    DERIVED / "v0_7_canonical_majority_2026_eds.gpkg",
+]
+APPROX_MIN_CANDIDATES = [
+    DERIVED / "v0_8_refined_minority_2026_eds.gpkg",
+    DERIVED / "v0_8_canonical_minority_2026_eds.gpkg",
+    DERIVED / "v0_7_canonical_minority_2026_eds.gpkg",
+]
 
 COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
-OUT_PDF = REPO_ROOT / "report_public.pdf"
-ARTICLE_PDF = REPO_ROOT / "report_public_article.pdf"  # temp intermediate
+OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article
+ARTICLE_PDF = REPO_ROOT / "article.pdf"     # already produced by build_pdf.py
 
 CHROME_CANDIDATES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -70,27 +78,31 @@ def build_cover_art() -> Path:
     from matplotlib.patches import PathPatch
     from matplotlib.path import Path as MplPath
 
-    alberta = gpd.read_file(ALBERTA_EDS).to_crs(3400)
+    alberta = gpd.read_file(ALBERTA_EDS).to_crs(3401)
 
     # Province boundary: dissolve all 87 EDs into one polygon
     alberta_union = unary_union(alberta.geometry.values)
-    alberta_shape = gpd.GeoDataFrame(geometry=[alberta_union], crs=3400)
+    alberta_shape = gpd.GeoDataFrame(geometry=[alberta_union], crs=3401)
 
-    # Load the 2026 approximations (clipped to province boundary to stop
-    # any sliver lines spilling outside the silhouette)
+    def _pick(candidates):
+        for p in candidates:
+            if p.exists():
+                return p
+        return None
+
     def _clip(gdf):
         if gdf is None:
             return None
-        clipped = gpd.clip(gdf, alberta_shape, keep_geom_type=False)
-        return clipped
+        return gpd.clip(gdf, alberta_shape, keep_geom_type=False)
 
-    maj = _clip(gpd.read_file(APPROX_MAJ).to_crs(3400)) if APPROX_MAJ.exists() else None
-    if APPROX_MIN_V6.exists():
-        minor = _clip(gpd.read_file(APPROX_MIN_V6).to_crs(3400))
-    elif APPROX_MIN_V5.exists():
-        minor = _clip(gpd.read_file(APPROX_MIN_V5).to_crs(3400))
-    else:
-        minor = None
+    maj_path = _pick(APPROX_MAJ_CANDIDATES)
+    min_path = _pick(APPROX_MIN_CANDIDATES)
+    maj = _clip(gpd.read_file(maj_path).to_crs(3401)) if maj_path else None
+    minor = _clip(gpd.read_file(min_path).to_crs(3401)) if min_path else None
+    if maj_path:
+        print(f"[build_cover] Majority boundary source: {maj_path.name}")
+    if min_path:
+        print(f"[build_cover] Minority boundary source: {min_path.name}")
 
     # Figure: generous aspect ratio that matches Alberta's own (~0.6 wide).
     # Transparent background so the cream page colour shows through.
@@ -175,10 +187,10 @@ html, body {
 .cover {
   position: relative;
   width: 8.5in;
-  height: 11in;
+  height: 10.95in;        /* 0.05in shy of letter to defeat Chrome's blank-page heuristic */
   background: #f5ede0;
   overflow: hidden;
-  padding: 0.75in 0.85in;
+  padding: 0.7in 0.8in;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -444,13 +456,18 @@ def render_cover_pdf(cover_html_path: Path, out_pdf: Path) -> None:
 
 def merge_pdfs(cover_pdf: Path, article_pdf: Path, out_pdf: Path) -> None:
     writer = pypdf.PdfWriter()
-    writer.append(str(cover_pdf))
+    # Take only the first page of the cover — Chrome's PDF renderer
+    # sometimes appends a blank trailing page when content fits exactly to
+    # the @page boundary.
+    cover_reader = pypdf.PdfReader(str(cover_pdf))
+    writer.add_page(cover_reader.pages[0])
     writer.append(str(article_pdf))
     with open(out_pdf, "wb") as f:
         writer.write(f)
     print(
         f"[build_cover] Merged final PDF {out_pdf.relative_to(REPO_ROOT)} "
-        f"({out_pdf.stat().st_size/1024:.1f} KB)"
+        f"({out_pdf.stat().st_size/1024:.1f} KB, "
+        f"{len(cover_reader.pages)} cover page(s) → first page only)"
     )
 
 
@@ -484,41 +501,27 @@ def main() -> int:
         except OSError:
             pass
 
-    # 4. Article PDF (regenerate via the existing article pipeline)
+    # 4. Article PDF — regenerate via the existing pipeline (writes article.pdf)
     print("[build_cover] Regenerating article body...")
-    build_pdf_py = REPO_ROOT / "analysis" / "build_pdf.py"
-    # The existing build_pdf.py writes to report_public.pdf; we temporarily
-    # rename after the run so we can keep article and final distinct.
+    build_pdf_py = REPO_ROOT / "analysis" / "scripts" / "build_pdf.py"
     subprocess.run(
         [sys.executable, str(build_pdf_py)],
         check=True,
         env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"},
     )
-    # build_pdf.py wrote to OUT_PDF (report_public.pdf). Move it aside.
-    if OUT_PDF.exists():
-        OUT_PDF.replace(ARTICLE_PDF)
-
-    # HIGH-07: verify the rename succeeded. On Windows, .replace() can
-    # silently fail if OUT_PDF is held open by a PDF viewer. Without
-    # this assert the merge step would fall through to a stale
-    # ARTICLE_PDF from the previous run.
     if not ARTICLE_PDF.exists():
         raise RuntimeError(
-            f"HIGH-07: build_pdf.py did not produce {ARTICLE_PDF}. "
-            "Possible cause: report_public.pdf held open by another "
-            "process (close any open viewers and re-run)."
+            f"build_pdf.py did not produce {ARTICLE_PDF}. "
+            "Possible cause: article.pdf held open by another process."
         )
 
     # 5. Merge cover + article into final report_public.pdf
     merge_pdfs(cover_pdf_path, ARTICLE_PDF, OUT_PDF)
 
-    # Cleanup
+    # Cleanup the cover-only intermediate (keep article.pdf — it's the
+    # standalone artefact that build_pdf.py advertises as its output).
     try:
         cover_pdf_path.unlink()
-    except OSError:
-        pass
-    try:
-        ARTICLE_PDF.unlink()
     except OSError:
         pass
 

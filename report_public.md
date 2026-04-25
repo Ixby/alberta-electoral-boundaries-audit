@@ -161,13 +161,13 @@ The two lanes give different answers. Which one matters more is the heart of the
 
 ### Verdict on the minority map
 
-The audit's measurement work returns a split result that the author summarises this way, in plain language:
+The audit's measurement work returns a split result. The author reports the *effects* and lets the question of intent suggest itself to the reader from the documented evidence — intent is not observable from public data, and asking the audit to judge it would exceed what the evidence can support.
 
-> **OPINION — THE AUTHOR SPEAKING DIRECTLY.** On the partisan-fairness numbers, the minority map is not a gerrymander. It is below every Alberta-calibrated threshold I could derive, including the strongest one (4.37% from the computer simulation).
+> **OPINION — THE EFFECTS, REPORTED PLAINLY.** On the partisan-fairness numbers, the minority map does not exhibit a gerrymander signature. It is below every Alberta-calibrated threshold (including the strongest one, 4.37% from the computer simulation).
 >
-> On the structural pattern, the minority map looks like a gerrymander. It crosses every structural threshold the audit applies — anchoring 4.9 times below Canadian norm; population spread 48% wider than the majority; the same commission's own chair flagged three geographic anomalies on this map and zero on the other; six of the seven contested redraws fail the minority's own published reasons when checked independently; two of the contested redraws have no public submissions supporting them. Each individual signal has an innocent explanation. The combination does not.
+> On the structural pattern, it does exhibit one. The minority map crosses every structural threshold the audit applies — anchoring 4.9 times below Canadian norm; population spread 48% wider than the majority; the same commission's own chair flagged three geographic anomalies on this map and zero on the other; six of the seven contested redraws fail the *minority's own published reasons* when checked independently; two of the contested redraws have no public submissions supporting them. Each individual signal has a non-engineering explanation available. Whether the cumulative pattern's most parsimonious explanation is engineering, unlucky drafting, or some combination is the inference the reader is invited to weigh. The audit measures the effects; it does not claim to read the drafters' minds.
 >
-> My stated opinion, with the lane disagreement disclosed: I believe, based on the cumulative structural pattern, that the minority map is more plausibly explained by deliberate engineering against the NDP than by neutral choice among the legal alternatives the commission had available. I do not call it a gerrymander on the partisan-fairness numbers — those numbers don't support that call. The verdict is *structurally consistent with engineering, but sub-threshold on the partisan-fairness numbers.* A reader who weights the partisan-fairness numbers above the structural pattern would reach a more cautious verdict; that disagreement is honest and is documented in the full monograph (§6.2).
+> The bottom line, with the lane disagreement disclosed: on the partisan-fairness numbers the minority is not a gerrymander; on the cumulative structural-and-procedural pattern it exhibits the constellation of effects the academic literature treats as a gerrymander signature. A reader who weights the partisan-fairness numbers above the structural pattern will read this as no gerrymander; a reader who weights the cumulative structural pattern more heavily — as the academic literature recommends — will read the signature as present. The full monograph (§6.2) sets out both readings without picking one.
 
 ### How close did the minority map come?
 
@@ -178,7 +178,7 @@ It depends on the lane:
 
 > *The minority map maxes out the structural-irregularity scoring while staying inside the partisan-fairness numbers band.*
 
-That is what a map looks like when the drafting choices put pieces in unusual places (off-reference borders, four-way city splits, chair-flagged shapes) without producing a measurable seat-count consequence — either because the engineering didn't translate into seats, or because the seat translation depends on a future election distribution we haven't seen.
+That is the observed effect. One explanation that would produce it is structural drafting choices (off-reference borders, four-way city splits, chair-flagged shapes) whose seat-count consequence isn't measurable on current vote distributions. There may be other explanations. The audit reports the pattern and leaves the inference to the reader.
 
 > **SCORECARD — RETRACTION CONDITIONS**
 >

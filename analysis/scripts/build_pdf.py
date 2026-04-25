@@ -57,7 +57,7 @@ CSS = r"""
 
 @page {
   size: Letter;
-  margin: 0.9in 1.05in 1in 1.05in;
+  margin: 0.65in 0.85in 0.75in 0.85in;
   @bottom-center {
     content: counter(page);
     font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
@@ -93,7 +93,7 @@ CSS = r"""
 html {
   font-family: "Lora", "Georgia", "Liberation Serif", serif;
   font-size: 10pt;
-  line-height: 1.55;
+  line-height: 1.5;
   color: #1a1a1a;
   background: #fff;
   font-feature-settings: "kern" 1, "liga" 1, "onum" 1, "pnum" 1;
@@ -174,8 +174,8 @@ h2 {
   letter-spacing: -0.3pt;
   line-height: 1.15;
   color: #111;
-  margin: 1.6em 0 0.6em 0;
-  padding-top: 0.9em;
+  margin: 1.0em 0 0.5em 0;
+  padding-top: 0.55em;
   border: none;
   border-top: 0.5pt solid #111;
   clear: both;
@@ -187,7 +187,7 @@ h2 {
 }
 
 h2:first-of-type {
-  margin-top: 1em;
+  margin-top: 0.6em;
   border-top: none;
   padding-top: 0;
 }
@@ -201,13 +201,13 @@ h3:not(:first-of-type) {
   letter-spacing: 0;
   color: #222;
   text-transform: none;
-  margin: 1.2em 0 0.4em 0;
+  margin: 0.85em 0 0.3em 0;
   page-break-after: avoid;
 }
 
 /* ----- Body paragraphs ----- */
 p {
-  margin: 0 0 0.7em 0;
+  margin: 0 0 0.55em 0;
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -281,13 +281,13 @@ blockquote p > strong:first-child {
 blockquote.deck {
   font-family: "Lora", Georgia, serif;
   font-style: normal;
-  font-size: 10.5pt;
-  line-height: 1.55;
+  font-size: 10pt;
+  line-height: 1.5;
   text-align: left;
   border: none;
   background: #f5e8cf;
-  padding: 1.25em 1.4em;
-  margin: 1.2em 0 1.5em 0;
+  padding: 0.9em 1.1em;
+  margin: 0.8em 0 1em 0;
   color: #222;
   page-break-inside: avoid;
 }
@@ -316,17 +316,17 @@ blockquote.deck strong:first-child {
 blockquote.sidebar {
   float: right;
   clear: right;
-  width: 38%;
+  width: 32%;
   background: #f0f7f7;
   border: none;
   border-left: 3px solid #2a8a8a;
-  padding: 0.55em 0.7em 0.55em 0.65em;
+  padding: 0.5em 0.65em 0.5em 0.6em;
   font-family: "Lora", Georgia, serif;
   font-style: normal;
-  font-size: 8.5pt;
-  line-height: 1.45;
+  font-size: 8pt;
+  line-height: 1.4;
   text-align: left;
-  margin: 0.15in 0 0.2in 0.22in;
+  margin: 0.1in 0 0.15in 0.2in;
   color: #1a1a1a;
   box-sizing: border-box;
   page-break-inside: avoid;
@@ -359,15 +359,15 @@ blockquote.scorecard {
   background: #fdf6f7;
   border-left: none;
   border-right: none;
-  border-top: 2px dashed #7b2d3e;
-  border-bottom: 2px dashed #7b2d3e;
-  padding: 0.45em 0.6em;
+  border-top: 1.5pt dashed #7b2d3e;
+  border-bottom: 1.5pt dashed #7b2d3e;
+  padding: 0.4em 0.55em 0.45em;
   font-family: "Lora", Georgia, serif;
   font-style: normal;
   font-size: 8.5pt;
-  line-height: 1.38;
+  line-height: 1.35;
   text-align: left;
-  margin: 0.15in 0;
+  margin: 0.12in 0;
   color: #1a1a1a;
   page-break-inside: avoid;
   page-break-before: avoid;
@@ -461,7 +461,7 @@ blockquote.scorecard table tbody td:last-child {
 table {
   border-collapse: collapse;
   width: 100%;
-  margin: 1.2em 0 0.4em 0;
+  margin: 0.7em 0 0.3em 0;
   font-family: "Lora", Georgia, serif;
   font-size: 9.5pt;
   page-break-inside: avoid;
@@ -483,10 +483,10 @@ thead th {
 }
 
 tbody td {
-  padding: 0.55em 0.7em;
+  padding: 0.4em 0.7em;
   border-bottom: 1px solid #d8d8d8;
   vertical-align: top;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 tbody tr:last-child td { border-bottom: 2px solid #111; }
@@ -600,13 +600,13 @@ strong { font-weight: 700; }
 
 /* ----- Lists ----- */
 ul, ol {
-  margin: 0.6em 0 1.1em 0;
+  margin: 0.4em 0 0.8em 0;
   padding-left: 1.4em;
 }
 
 ul li, ol li {
-  margin-bottom: 0.4em;
-  line-height: 1.55;
+  margin-bottom: 0.25em;
+  line-height: 1.5;
 }
 
 li strong:first-child {
