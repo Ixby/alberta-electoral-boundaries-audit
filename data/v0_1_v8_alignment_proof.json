@@ -1,0 +1,173 @@
+{
+  "plans": {
+    "majority": {
+      "source": "v0_8_canonical_majority_2026_eds.gpkg",
+      "topology": {
+        "n_eds": 89,
+        "expected_n": 89,
+        "n_match": true,
+        "n_empty_eds": 21,
+        "empty_eds": [
+          {
+            "name": "Calgary-Currie",
+            "area_km2": 2.069337666317575e-10
+          },
+          {
+            "name": "Calgary-East",
+            "area_km2": 0.00015635486416428116
+          },
+          {
+            "name": "Calgary-Fish Creek",
+            "area_km2": 6.423600563357918e-15
+          },
+          {
+            "name": "Calgary-Hays",
+            "area_km2": 2.621006880518874e-10
+          },
+          {
+            "name": "Calgary-Klein",
+            "area_km2": 3.8077639441386743e-16
+          },
+          {
+            "name": "Calgary-North",
+            "area_km2": 0.0014502990365408083
+          },
+          {
+            "name": "Calgary-North West",
+            "area_km2": 3.876447439870378e-05
+          },
+          {
+            "name": "Edmonton-Beverly-Clareview",
+            "area_km2": 0.00038536650480279516
+          },
+          {
+            "name": "Edmonton-Glenora-Riverview",
+            "area_km2": 1.312315536239339e-13
+          },
+          {
+            "name": "Edmonton-Manning",
+            "area_km2": 1.0999772491420983e-05
+          },
+          {
+            "name": "Edmonton-North West",
+            "area_km2": 1.4438472164897864e-15
+          },
+          {
+            "name": "Edmonton-South",
+            "area_km2": 0.0
+          },
+          {
+            "name": "Edmonton-West Henday",
+            "area_km2": 9.581985871420784e-15
+          },
+          {
+            "name": "Edmonton-Windermere",
+            "area_km2": 1.1651196441357051e-07
+          },
+          {
+            "name": "Lacombe-Clearwater",
+            "area_km2": 0.010039812138887206
+          },
+          {
+            "name": "Lethbridge-East",
+            "area_km2": 2.687461868826409e-06
+          },
+          {
+            "name": "Red Deer-South",
+            "area_km2": 2.2763608453981315e-07
+          },
+          {
+            "name": "St. Albert-Sturgeon",
+            "area_km2": 1.1942264721414967e-08
+          },
+          {
+            "name": "Stony Plain-Drayton Valley",
+            "area_km2": 1.5515197972034196e-09
+          },
+          {
+            "name": "Strathcona-Sherwood Park",
+            "area_km2": 0.0023078250072280384
+          },
+          {
+            "name": "Wetaskiwin-Ponoka-Maskwacis",
+            "area_km2": 5.301479095046604e-06
+          }
+        ],
+        "n_with_geometry": 68,
+        "overlap_pairs_gt_1m2": 66,
+        "overlap_total_km2": 157.0962942512682,
+        "coverage_km2": 662864.2100471605,
+        "province_reference_km2": 662581.0574335157,
+        "coverage_pct": 100.04273478851653
+      },
+      "landmarks": [
+        {
+          "city": "Calgary",
+          "ed": "Calgary-Lougheed",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Edmonton",
+          "ed": "Edmonton-City Centre",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Red Deer",
+          "ed": "Red Deer-North",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Lethbridge",
+          "ed": "Lethbridge-West",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Medicine Hat",
+          "ed": "Medicine Hat-Brooks",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Grande Prairie",
+          "ed": "Grande Prairie-Wapiti",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Fort McMurray",
+          "ed": "Fort McMurray-Wood Buffalo",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Airdrie",
+          "ed": "Airdrie-East",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "St. Albert",
+          "ed": "West Yellowhead",
+          "match": false,
+          "note": "ED name does not contain 'st.'"
+        },
+        {
+          "city": "Spruce Grove",
+          "ed": "Spruce Grove",
+          "match": true,
+          "note": "ok"
+        }
+      ]
+    },
+    "minority": {
+      "skipped": true
+    }
+  },
+  "cross_plan_consistency": {
+    "available": false
+  }
+}

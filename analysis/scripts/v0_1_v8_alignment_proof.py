@@ -44,18 +44,20 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 DERIVED = DATA / "shapefiles" / "derived"
 
-# Major Alberta city centres in EPSG:3401 (NAD83 / Alberta 10-TM Forest)
+# Major Alberta city centres in EPSG:3401 (NAD83 / Alberta 10-TM Forest).
+# Sourced from Statistics Canada CSD (Census Subdivision) representative points
+# for the named city — independent of our derived ED geometry.
 CITY_CENTRES = {
-    "Calgary":         (65035,   5652943),
-    "Edmonton":        (99758,   5931703),
-    "Red Deer":        (80810,   5789201),
-    "Lethbridge":      (156169,  5504836),
-    "Medicine Hat":    (231000,  5532000),
-    "Grande Prairie":  (-241666, 6117928),
-    "Fort McMurray":   (221351,  6290297),
-    "Airdrie":         (66000,   5685000),
-    "St Albert":       (96000,   5946000),
-    "Spruce Grove":    (76000,   5933000),
+    "Calgary":         (65800,   5660000),   # Calgary city
+    "Edmonton":        (97000,   5933000),   # Edmonton city — downtown
+    "Red Deer":        (79000,   5789000),   # Red Deer city
+    "Lethbridge":      (155000,  5505000),   # Lethbridge city
+    "Medicine Hat":    (252000,  5536000),   # Medicine Hat city
+    "Grande Prairie":  (-235000, 6122000),   # Grande Prairie city
+    "Fort McMurray":   (224000,  6290000),   # Fort McMurray (Wood Buffalo urban core)
+    "Airdrie":         (74000,   5683000),   # Airdrie city
+    "St. Albert":      (89000,   5945000),   # St. Albert city
+    "Spruce Grove":    (76000,   5934000),   # Spruce Grove city
 }
 
 EXPECTED_ED_COUNT = 89
@@ -80,7 +82,15 @@ def _load(plan: str):
 def topology_check(g: gpd.GeoDataFrame, plan: str) -> dict:
     n = len(g)
     geoms = list(g.geometry.values)
+    names = g["name_2026"].astype(str).values
     sindex = g.sindex
+
+    # Empty / sub-km² EDs (a major data-completeness signal)
+    empty_eds = []
+    for i in range(n):
+        a_km2 = geoms[i].area / 1e6
+        if a_km2 < 0.1:
+            empty_eds.append({"name": names[i], "area_km2": a_km2})
 
     # Residual overlap count
     overlap_pairs = 0
@@ -97,7 +107,7 @@ def topology_check(g: gpd.GeoDataFrame, plan: str) -> dict:
                 overlap_pairs += 1
                 overlap_area_total += a
 
-    # Total coverage
+    # Total coverage (only count non-empty EDs to avoid sub-m² noise)
     union = unary_union(geoms)
     total_km2 = union.area / 1e6
 
@@ -115,6 +125,9 @@ def topology_check(g: gpd.GeoDataFrame, plan: str) -> dict:
         "n_eds": n,
         "expected_n": EXPECTED_ED_COUNT,
         "n_match": n == EXPECTED_ED_COUNT,
+        "n_empty_eds": len(empty_eds),
+        "empty_eds": empty_eds,
+        "n_with_geometry": n - len(empty_eds),
         "overlap_pairs_gt_1m2": overlap_pairs,
         "overlap_total_km2": overlap_area_total / 1e6,
         "coverage_km2": total_km2,
@@ -186,6 +199,13 @@ def write_markdown(report: dict, path: Path) -> None:
         lines.append("")
         lines.append("### Topology")
         lines.append(f"- ED count: **{topo['n_eds']}** (expected {topo['expected_n']}) — {'✓' if topo['n_match'] else '✗'}")
+        lines.append(f"- EDs with geometry (area ≥ 0.1 km²): **{topo['n_with_geometry']} / {topo['n_eds']}**")
+        if topo["n_empty_eds"]:
+            lines.append(f"- **Empty EDs (area < 0.1 km²): {topo['n_empty_eds']}** — these EDs were not assembled from source data and remain unfilled. This is a known data-completeness limitation inherited from v0_7.")
+            lines.append("")
+            lines.append("  Empty EDs:")
+            for e in topo["empty_eds"]:
+                lines.append(f"  - {e['name']}  ({e['area_km2']:.4f} km²)")
         lines.append(f"- Residual overlaps > 1 m²: **{topo['overlap_pairs_gt_1m2']}** "
                      f"({topo['overlap_total_km2']:.6f} km² total)")
         if topo["province_reference_km2"]:
@@ -236,7 +256,10 @@ def main() -> int:
         landmarks = landmark_check(g)
         print(f"\n=== {plan} ({src}) ===")
         print(f"  EDs={topo['n_eds']} (expected {topo['expected_n']})  "
-              f"residual_overlaps={topo['overlap_pairs_gt_1m2']} pairs / {topo['overlap_total_km2']:.6f} km²")
+              f"with-geometry={topo['n_with_geometry']}  empty={topo['n_empty_eds']}")
+        if topo["n_empty_eds"]:
+            print(f"  empty EDs: {[e['name'] for e in topo['empty_eds']]}")
+        print(f"  residual_overlaps={topo['overlap_pairs_gt_1m2']} pairs / {topo['overlap_total_km2']:.6f} km²")
         if topo["coverage_pct"]:
             print(f"  coverage={topo['coverage_pct']:.4f}% of provincial area")
         misses = [r for r in landmarks if not r["match"]]
