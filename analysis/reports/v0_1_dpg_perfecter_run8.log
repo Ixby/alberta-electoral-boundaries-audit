@@ -1,0 +1,16 @@
+[dpg_perfecter] v0_7 → v0_8 pipeline
+  snap tolerance: 500 m  |  anti-erasure: 10%  |  workers: 8
+  --skip-existing: will skip any plan whose v0_8 output already exists
+
+Loading VA polygons for provincial boundary...
+  provincial boundary: 662.6 × 10³ km²
+
+=== majority 2026 === SKIPPED (v0_8_canonical_majority_2026_eds.gpkg already exists)
+
+=== minority 2026 ===
+  loaded 89 EDs | canon_source: {'da-anchored': 44, 'v7': 35, 'municipal-anchored': 10}
+  [minority 2026] Phase 1: 48 overlapping pairs resolved
+  [WARN] minority 2026: snap reverted for Edmonton-Ellerslie — area change 58.6% > 5% threshold (possible false weld)
+  [minority 2026] Phase 2: 19 EDs snapped, 1 reverted (tolerance=500 m)
+  [minority 2026] Phase 3: 1168 gap polygons, 85408.43 km²
+  [minority 2026] Phase 3: assigned via spatial index (50 EDs received gaps)
