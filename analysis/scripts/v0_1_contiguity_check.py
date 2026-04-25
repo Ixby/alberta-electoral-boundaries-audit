@@ -96,7 +96,8 @@ CONTIGUITY_THRESHOLD = 0.95
 def _detect_name_column(gdf: gpd.GeoDataFrame) -> str:
     """Return the column most likely to hold ED names."""
     candidates = [
-        "ed_name", "ED_NAME", "name", "NAME", "EDS_NAME", "eds_name",
+        "name_2026", "ed_name", "ED_NAME", "EDName2017", "EDName2010",
+        "name", "NAME", "EDS_NAME", "eds_name",
         "ENAME", "ename", "DISTRICT_N", "district_n", "DIV_NAME", "div_name",
         "RIDING_NAM", "riding_nam",
     ]

@@ -1,0 +1,58 @@
+{
+  "maps": [
+    {
+      "map": "2019_enacted",
+      "total_eds": 87,
+      "contiguous_eds": 87,
+      "fragmented_eds": 0,
+      "fragmented_ed_names": []
+    },
+    {
+      "map": "majority_2026",
+      "total_eds": 89,
+      "contiguous_eds": 74,
+      "fragmented_eds": 15,
+      "fragmented_ed_names": [
+        "Calgary-Bhullar-McCall",
+        "Calgary-Bow",
+        "Calgary-Buffalo",
+        "Calgary-Currie",
+        "Calgary-East",
+        "Calgary-Fish Creek",
+        "Calgary-Hays",
+        "Edmonton-Beverly-Clareview",
+        "Edmonton-Decore",
+        "Edmonton-Glenora-Riverview",
+        "Edmonton-Rutherford",
+        "Edmonton-South",
+        "Edmonton-Windermere",
+        "Red Deer-South",
+        "Stony Plain-Drayton Valley"
+      ]
+    },
+    {
+      "map": "minority_2026",
+      "total_eds": 89,
+      "contiguous_eds": 73,
+      "fragmented_eds": 16,
+      "fragmented_ed_names": [
+        "Calgary-Currie",
+        "Calgary-Elbow",
+        "Calgary-Falconridge",
+        "Calgary-Nolan Hill-Cochrane",
+        "Calgary-North",
+        "Calgary-North East",
+        "Calgary-South",
+        "Calgary-South East",
+        "Calgary-Varsity",
+        "Chestermere-Strathmore",
+        "Edmonton-Beverly-Clareview",
+        "Edmonton-Enoch-Devon",
+        "Peace River",
+        "Red Deer-Blackfalds",
+        "St. Albert-Sturgeon",
+        "Stony Plain-Drayton Valley"
+      ]
+    }
+  ]
+}
