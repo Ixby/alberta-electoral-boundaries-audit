@@ -466,11 +466,28 @@ def main() -> None:
     shp_2019['ed_name'] = shp_2019['EDName2017'].replace(NAME_REMAP_2019_SHP_TO_CSV)
     print(f"  2019: {len(shp_2019)} polygons  CRS={shp_2019.crs}")
 
-    shp_maj = gpd.read_file(out_data_dir / 'shapefiles' / 'derived' / 'v0_2_canonical_majority_2026_eds_topoclean.gpkg')
-    print(f"  Majority 2026: {len(shp_maj)} polygons  CRS={shp_maj.crs}")
+    # Prefer v0_8 full_refined (89/89 EDs from 2019-Tier-A inheritance fill);
+    # fall back to refined → canonical → v0_2 topoclean.
+    def _pick_shp(plan: str):
+        base = out_data_dir / 'shapefiles' / 'derived'
+        for fname in (
+            f'v0_8_full_refined_{plan}_2026_eds.gpkg',
+            f'v0_8_refined_{plan}_2026_eds.gpkg',
+            f'v0_8_canonical_{plan}_2026_eds.gpkg',
+            f'v0_2_canonical_{plan}_2026_eds_topoclean.gpkg',
+        ):
+            p = base / fname
+            if p.exists():
+                return p
+        return base / f'v0_2_canonical_{plan}_2026_eds_topoclean.gpkg'
 
-    shp_min = gpd.read_file(out_data_dir / 'shapefiles' / 'derived' / 'v0_2_canonical_minority_2026_eds_topoclean.gpkg')
-    print(f"  Minority 2026: {len(shp_min)} polygons  CRS={shp_min.crs}")
+    maj_path = _pick_shp('majority')
+    min_path = _pick_shp('minority')
+    shp_maj = gpd.read_file(maj_path)
+    print(f"  Majority 2026: {len(shp_maj)} polygons  CRS={shp_maj.crs}  source={maj_path.name}")
+
+    shp_min = gpd.read_file(min_path)
+    print(f"  Minority 2026: {len(shp_min)} polygons  CRS={shp_min.crs}  source={min_path.name}")
 
     # --- Run per-map pipeline ---
     results = {}

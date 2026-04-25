@@ -485,10 +485,14 @@ map,X,Y,s_X,m_Y,losing_party_X,losing_party_Y,winner_X,winner_Y,chain_signal,cou
 2019,West Yellowhead,Rimbey-Rocky Mountain House-Sundre,0.21787931462627266,0.6663277863984162,NDP,NDP,UCP,UCP,False,True
 2019,Sherwood Park,Strathcona-Sherwood Park,0.03376094481775606,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
 2019,Strathcona-Sherwood Park,Sherwood Park,0.04343224491395868,0.06764406434534719,NDP,UCP,UCP,NDP,False,False
+majority,Airdrie-East,Calgary-Beddington,0.1362495817999331,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Beddington,Airdrie-East,0.01350337584396099,0.2725828036132486,UCP,NDP,NDP,UCP,False,False
 majority,Airdrie-East,Calgary-Bhullar-McCall,0.1362495817999331,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Bhullar-McCall,Airdrie-East,0.07991377933897494,0.2725828036132486,UCP,NDP,NDP,UCP,False,False
 majority,Airdrie-East,Calgary-Falconridge-Conrich,0.1362495817999331,0.09846032372680616,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Falconridge-Conrich,Airdrie-East,0.04911172522700355,0.2725828036132486,UCP,NDP,NDP,UCP,False,False
+majority,Airdrie-East,Calgary-Lougheed,0.1362495817999331,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Airdrie-East,0.08318285783074515,0.2725828036132486,NDP,NDP,UCP,UCP,False,True
 majority,Airdrie-East,Calgary-North East,0.1362495817999331,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-North East,Airdrie-East,0.050408516959643476,0.2725828036132486,UCP,NDP,NDP,UCP,False,False
 majority,Airdrie-East,Chestermere-Strathmore,0.1362495817999331,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
@@ -513,24 +517,18 @@ majority,Barrhead-Westlock-Athabasca,Fort Saskatchewan-Vegreville,0.243153290224
 majority,Fort Saskatchewan-Vegreville,Barrhead-Westlock-Athabasca,0.10909874946097456,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
 majority,Barrhead-Westlock-Athabasca,Lesser Slave Lake,0.24315329022441992,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
 majority,Lesser Slave Lake,Barrhead-Westlock-Athabasca,0.16216216216216217,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
-majority,Barrhead-Westlock-Athabasca,St. Albert-Sturgeon,0.24315329022441992,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
-majority,St. Albert-Sturgeon,Barrhead-Westlock-Athabasca,0.05418432643563534,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
 majority,Barrhead-Westlock-Athabasca,West Yellowhead,0.24315329022441992,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
 majority,West Yellowhead,Barrhead-Westlock-Athabasca,0.21787931462627266,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-Acadia,Calgary-Buffalo,0.0004567044208987943,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Buffalo,Calgary-Acadia,0.14444498610637158,0.0010047497259773476,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Acadia,Calgary-Confluence,0.0004567044208987943,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Confluence,Calgary-Acadia,0.14444498610637158,0.0010047497259773476,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Acadia,Calgary-East,0.0004567044208987943,0.09336837223682176,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-East,Calgary-Acadia,0.046606894419539344,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Acadia,Calgary-Elbow,0.0004567044208987943,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Elbow,Calgary-Acadia,0.015654749312460334,0.0010047497259773476,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Acadia,Calgary-Fish Creek,0.0004567044208987943,0.09957194863383606,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-Fish Creek,Calgary-Acadia,0.049725967116053926,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Acadia,Calgary-Hays,0.0004567044208987943,0.1356160430893527,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-Hays,Calgary-Acadia,0.0677599307492546,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Acadia,Calgary-Klein,0.0004567044208987943,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Klein,Calgary-Acadia,0.0213217511475248,0.0010047497259773476,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Acadia,Calgary-Lougheed,0.0004567044208987943,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Calgary-Acadia,0.08318285783074515,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Acadia,Calgary-Mountain View,0.0004567044208987943,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Mountain View,Calgary-Acadia,0.16102305475504322,0.0010047497259773476,UCP,UCP,NDP,NDP,True,True
 majority,Calgary-Acadia,Calgary-South East,0.0004567044208987943,0.19741595477920865,UCP,NDP,NDP,UCP,False,False
@@ -541,8 +539,6 @@ majority,Calgary-Beddington,Calgary-Bow,0.01350337584396099,0.024215804407820576
 majority,Calgary-Bow,Calgary-Beddington,0.012049597698915537,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Beddington,Calgary-Edgemont,0.01350337584396099,0.01230609238235549,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Edgemont,Calgary-Beddington,0.006109714879972268,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Beddington,Calgary-Falconridge-Conrich,0.01350337584396099,0.09846032372680616,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Falconridge-Conrich,Calgary-Beddington,0.04911172522700355,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Beddington,Calgary-North,0.01350337584396099,0.00820349761526232,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-North,Calgary-Beddington,0.004006359300476947,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Beddington,Calgary-North East,0.01350337584396099,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
@@ -553,24 +549,26 @@ majority,Calgary-Beddington,Calgary-Symons Valley,0.01350337584396099,0.00603400
 majority,Calgary-Symons Valley,Calgary-Beddington,0.0029537111270517744,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Beddington,Calgary-Varsity,0.01350337584396099,0.17839306054499254,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Varsity,Calgary-Beddington,0.08915272058179269,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Beddington,Cochrane-Springbank,0.01350337584396099,0.2483648450623682,UCP,NDP,NDP,UCP,False,False
+majority,Cochrane-Springbank,Calgary-Beddington,0.1241288108938847,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Bhullar-McCall,Calgary-Cross,0.07991377933897494,0.03532160527762507,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-Cross,Calgary-Bhullar-McCall,0.017592083562396922,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Bhullar-McCall,Calgary-Falconridge-Conrich,0.07991377933897494,0.09846032372680616,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Falconridge-Conrich,Calgary-Bhullar-McCall,0.04911172522700355,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Bhullar-McCall,Calgary-Klein,0.07991377933897494,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Klein,Calgary-Bhullar-McCall,0.0213217511475248,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Bhullar-McCall,Calgary-Lougheed,0.07991377933897494,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Calgary-Bhullar-McCall,0.08318285783074515,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Bhullar-McCall,Calgary-North East,0.07991377933897494,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-North East,Calgary-Bhullar-McCall,0.050408516959643476,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Bhullar-McCall,Calgary-Nose Creek,0.07991377933897494,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Nose Creek,Calgary-Bhullar-McCall,0.01350337584396099,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Bhullar-McCall,Chestermere-Strathmore,0.07991377933897494,0.4302872305758577,UCP,NDP,NDP,UCP,False,False
 majority,Chestermere-Strathmore,Calgary-Bhullar-McCall,0.21507378613658582,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Bow,Calgary-Buffalo,0.012049597698915537,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Buffalo,Calgary-Bow,0.14444498610637158,0.024215804407820576,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-Bow,Calgary-Currie,0.012049597698915537,0.143643316854771,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Currie,Calgary-Bow,0.07177502098684824,0.024215804407820576,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-Bow,Calgary-Edgemont,0.012049597698915537,0.01230609238235549,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Edgemont,Calgary-Bow,0.006109714879972268,0.024215804407820576,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Bow,Calgary-Glenmore-Tsuut'ina,0.012049597698915537,0.047961630695443645,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Bow,0.023939469114363683,0.024215804407820576,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Bow,Calgary-North West,0.012049597698915537,0.006034009873834339,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-North West,Calgary-Bow,0.0029537111270517744,0.024215804407820576,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Bow,Calgary-Nose Creek,0.012049597698915537,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
@@ -583,24 +581,34 @@ majority,Calgary-Buffalo,Calgary-Confluence,0.14444498610637158,0.28903622093306
 majority,Calgary-Confluence,Calgary-Buffalo,0.14444498610637158,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Buffalo,Calgary-Currie,0.14444498610637158,0.143643316854771,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Currie,Calgary-Buffalo,0.07177502098684824,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Buffalo,Calgary-East,0.14444498610637158,0.09336837223682176,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-East,Calgary-Buffalo,0.046606894419539344,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Buffalo,Calgary-Elbow,0.14444498610637158,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Elbow,Calgary-Buffalo,0.015654749312460334,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Buffalo,Calgary-Glenmore-Tsuut'ina,0.14444498610637158,0.047961630695443645,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Buffalo,0.023939469114363683,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Buffalo,Calgary-Klein,0.14444498610637158,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Klein,Calgary-Buffalo,0.0213217511475248,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Buffalo,Calgary-Lougheed,0.14444498610637158,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Calgary-Buffalo,0.08318285783074515,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Buffalo,Calgary-Mountain View,0.14444498610637158,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Mountain View,Calgary-Buffalo,0.16102305475504322,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Buffalo,Calgary-Varsity,0.14444498610637158,0.17839306054499254,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Varsity,Calgary-Buffalo,0.08915272058179269,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Confluence,Calgary-Currie,0.14444498610637158,0.143643316854771,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Currie,Calgary-Confluence,0.07177502098684824,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Confluence,Calgary-East,0.14444498610637158,0.09336837223682176,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-East,Calgary-Confluence,0.046606894419539344,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Confluence,Calgary-Elbow,0.14444498610637158,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Elbow,Calgary-Confluence,0.015654749312460334,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Confluence,Calgary-Glenmore-Tsuut'ina,0.14444498610637158,0.047961630695443645,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Confluence,0.023939469114363683,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Confluence,Calgary-Klein,0.14444498610637158,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Klein,Calgary-Confluence,0.0213217511475248,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Confluence,Calgary-Lougheed,0.14444498610637158,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Calgary-Confluence,0.08318285783074515,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Confluence,Calgary-Mountain View,0.14444498610637158,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Mountain View,Calgary-Confluence,0.16102305475504322,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Cross,Calgary-Klein,0.017592083562396922,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Klein,Calgary-Cross,0.0213217511475248,0.03532160527762507,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Cross,Calgary-East,0.017592083562396922,0.09336837223682176,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-East,Calgary-Cross,0.046606894419539344,0.03532160527762507,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Cross,Calgary-Lougheed,0.017592083562396922,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Calgary-Cross,0.08318285783074515,0.03532160527762507,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Cross,Chestermere-Strathmore,0.017592083562396922,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 majority,Chestermere-Strathmore,Calgary-Cross,0.21507378613658582,0.03532160527762507,NDP,NDP,UCP,UCP,True,True
 majority,Calgary-Currie,Calgary-Elbow,0.07177502098684824,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
@@ -609,68 +617,62 @@ majority,Calgary-Currie,Calgary-Glenmore-Tsuut'ina,0.07177502098684824,0.0479616
 majority,Calgary-Glenmore-Tsuut'ina,Calgary-Currie,0.023939469114363683,0.143643316854771,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Currie,Calgary-Mountain View,0.07177502098684824,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Mountain View,Calgary-Currie,0.16102305475504322,0.143643316854771,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Currie,Calgary-North West,0.07177502098684824,0.006034009873834339,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-North West,Calgary-Currie,0.0029537111270517744,0.143643316854771,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Currie,Calgary-West-Elbow Valley,0.07177502098684824,0.1765369960957712,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-West-Elbow Valley,Calgary-Currie,0.0881979396961287,0.143643316854771,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Currie,Canmore-Banff,0.07177502098684824,0.01327724464309189,UCP,UCP,NDP,NDP,False,True
-majority,Canmore-Banff,Calgary-Currie,0.006572893387669252,0.143643316854771,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-East,Calgary-Elbow,0.046606894419539344,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Elbow,Calgary-East,0.015654749312460334,0.09336837223682176,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-East,Calgary-Fish Creek,0.046606894419539344,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-Fish Creek,Calgary-East,0.049725967116053926,0.09336837223682176,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-East,Calgary-Hays,0.046606894419539344,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-Hays,Calgary-East,0.0677599307492546,0.09336837223682176,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Currie,Calgary-Varsity,0.07177502098684824,0.17839306054499254,UCP,UCP,NDP,NDP,False,True
+majority,Calgary-Varsity,Calgary-Currie,0.08915272058179269,0.143643316854771,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-East,Calgary-Klein,0.046606894419539344,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Klein,Calgary-East,0.0213217511475248,0.09336837223682176,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-East,Calgary-Mountain View,0.046606894419539344,0.3221261607428754,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Mountain View,Calgary-East,0.16102305475504322,0.09336837223682176,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-East,Calgary-South East,0.046606894419539344,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-South East,Calgary-East,0.0986442262739598,0.09336837223682176,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-East,Calgary-Lougheed,0.046606894419539344,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Calgary-East,0.08318285783074515,0.09336837223682176,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-East,Chestermere-Strathmore,0.046606894419539344,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
+majority,Chestermere-Strathmore,Calgary-East,0.21507378613658582,0.09336837223682176,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Edgemont,Calgary-North West,0.006109714879972268,0.006034009873834339,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-North West,Calgary-Edgemont,0.0029537111270517744,0.01230609238235549,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Edgemont,Calgary-Symons Valley,0.006109714879972268,0.006034009873834339,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-Symons Valley,Calgary-Edgemont,0.0029537111270517744,0.01230609238235549,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Edgemont,Calgary-Varsity,0.006109714879972268,0.17839306054499254,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Varsity,Calgary-Edgemont,0.08915272058179269,0.01230609238235549,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Edgemont,Cochrane-Springbank,0.006109714879972268,0.2483648450623682,UCP,NDP,NDP,UCP,False,False
 majority,Cochrane-Springbank,Calgary-Edgemont,0.1241288108938847,0.01230609238235549,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Elbow,Calgary-Fish Creek,0.015654749312460334,0.09957194863383606,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-Fish Creek,Calgary-Elbow,0.049725967116053926,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Elbow,Calgary-Glenmore-Tsuut'ina,0.015654749312460334,0.047961630695443645,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Elbow,0.023939469114363683,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Elbow,Calgary-Lougheed,0.015654749312460334,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Calgary-Elbow,0.08318285783074515,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Elbow,Calgary-West-Elbow Valley,0.015654749312460334,0.1765369960957712,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-West-Elbow Valley,Calgary-Elbow,0.0881979396961287,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
-majority,Calgary-Elbow,Canmore-Banff,0.015654749312460334,0.01327724464309189,UCP,UCP,NDP,NDP,False,True
-majority,Canmore-Banff,Calgary-Elbow,0.006572893387669252,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Falconridge-Conrich,Calgary-Klein,0.04911172522700355,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Klein,Calgary-Falconridge-Conrich,0.0213217511475248,0.09846032372680616,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Falconridge-Conrich,Calgary-North East,0.04911172522700355,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-North East,Calgary-Falconridge-Conrich,0.050408516959643476,0.09846032372680616,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Falconridge-Conrich,Calgary-Nose Creek,0.04911172522700355,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Nose Creek,Calgary-Falconridge-Conrich,0.01350337584396099,0.09846032372680616,UCP,UCP,NDP,NDP,False,True
-majority,Calgary-Falconridge-Conrich,Chestermere-Strathmore,0.04911172522700355,0.4302872305758577,UCP,NDP,NDP,UCP,False,False
-majority,Chestermere-Strathmore,Calgary-Falconridge-Conrich,0.21507378613658582,0.09846032372680616,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Falconridge-Conrich,Mountain View-Kneehill,0.04911172522700355,0.600280935867609,UCP,NDP,NDP,UCP,False,False
+majority,Mountain View-Kneehill,Calgary-Falconridge-Conrich,0.3000746235898336,0.09846032372680616,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Fish Creek,Calgary-Hays,0.049725967116053926,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Hays,Calgary-Fish Creek,0.0677599307492546,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Fish Creek,Calgary-Lougheed,0.049725967116053926,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Calgary-Fish Creek,0.08318285783074515,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Fish Creek,Calgary-McKenzie,0.049725967116053926,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-McKenzie,Calgary-Fish Creek,0.0677599307492546,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Fish Creek,Calgary-Shaw,0.049725967116053926,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Shaw,Calgary-Fish Creek,0.06872684336956965,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-Fish Creek,Calgary-West-Elbow Valley,0.049725967116053926,0.1765369960957712,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-West-Elbow Valley,Calgary-Fish Creek,0.0881979396961287,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-Fish Creek,High River-Vulcan-Siksika,0.049725967116053926,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
-majority,High River-Vulcan-Siksika,Calgary-Fish Creek,0.19867929945449325,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Mountain View,0.023939469114363683,0.3221261607428754,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Mountain View,Calgary-Glenmore-Tsuut'ina,0.16102305475504322,0.047961630695443645,UCP,NDP,NDP,UCP,True,False
 majority,Calgary-Glenmore-Tsuut'ina,Calgary-North West,0.023939469114363683,0.006034009873834339,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-North West,Calgary-Glenmore-Tsuut'ina,0.0029537111270517744,0.047961630695443645,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Varsity,0.023939469114363683,0.17839306054499254,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Varsity,Calgary-Glenmore-Tsuut'ina,0.08915272058179269,0.047961630695443645,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-Glenmore-Tsuut'ina,Calgary-West-Elbow Valley,0.023939469114363683,0.1765369960957712,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-West-Elbow Valley,Calgary-Glenmore-Tsuut'ina,0.0881979396961287,0.047961630695443645,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Glenmore-Tsuut'ina,Canmore-Banff,0.023939469114363683,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
 majority,Canmore-Banff,Calgary-Glenmore-Tsuut'ina,0.006572893387669252,0.047961630695443645,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Glenmore-Tsuut'ina,Cochrane-Springbank,0.023939469114363683,0.2483648450623682,NDP,NDP,UCP,UCP,False,True
+majority,Cochrane-Springbank,Calgary-Glenmore-Tsuut'ina,0.1241288108938847,0.047961630695443645,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Hays,Calgary-Lougheed,0.0677599307492546,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Calgary-Hays,0.08318285783074515,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Hays,Calgary-McKenzie,0.0677599307492546,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-McKenzie,Calgary-Hays,0.0677599307492546,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Hays,Calgary-Shaw,0.0677599307492546,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Shaw,Calgary-Hays,0.06872684336956965,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Hays,Calgary-South East,0.0677599307492546,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-South East,Calgary-Hays,0.0986442262739598,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-Hays,High River-Vulcan-Siksika,0.0677599307492546,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
-majority,High River-Vulcan-Siksika,Calgary-Hays,0.19867929945449325,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Hays,Chestermere-Strathmore,0.0677599307492546,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
+majority,Chestermere-Strathmore,Calgary-Hays,0.21507378613658582,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Klein,Calgary-Lougheed,0.0213217511475248,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Calgary-Klein,0.08318285783074515,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-Klein,Calgary-Mountain View,0.0213217511475248,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Mountain View,Calgary-Klein,0.16102305475504322,0.04279157001135186,UCP,UCP,NDP,NDP,True,True
 majority,Calgary-Klein,Calgary-Nose Creek,0.0213217511475248,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
@@ -679,12 +681,28 @@ majority,Calgary-Klein,Calgary-Varsity,0.0213217511475248,0.17839306054499254,UC
 majority,Calgary-Varsity,Calgary-Klein,0.08915272058179269,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Lougheed,Calgary-McKenzie,0.08318285783074515,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-McKenzie,Calgary-Lougheed,0.0677599307492546,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Calgary-Mountain View,0.08318285783074515,0.3221261607428754,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Mountain View,Calgary-Lougheed,0.16102305475504322,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Calgary-Nose Creek,0.08318285783074515,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Nose Creek,Calgary-Lougheed,0.01350337584396099,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-Lougheed,Calgary-Shaw,0.08318285783074515,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Shaw,Calgary-Lougheed,0.06872684336956965,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Calgary-South East,0.08318285783074515,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-South East,Calgary-Lougheed,0.0986442262739598,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Calgary-Varsity,0.08318285783074515,0.17839306054499254,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Varsity,Calgary-Lougheed,0.08915272058179269,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-Lougheed,Calgary-West-Elbow Valley,0.08318285783074515,0.1765369960957712,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-West-Elbow Valley,Calgary-Lougheed,0.0881979396961287,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Canmore-Banff,0.08318285783074515,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
+majority,Canmore-Banff,Calgary-Lougheed,0.006572893387669252,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
+majority,Calgary-Lougheed,Chestermere-Strathmore,0.08318285783074515,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
+majority,Chestermere-Strathmore,Calgary-Lougheed,0.21507378613658582,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Lougheed,High River-Vulcan-Siksika,0.08318285783074515,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
 majority,High River-Vulcan-Siksika,Calgary-Lougheed,0.19867929945449325,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Livingstone-Macleod,0.08318285783074515,0.43506069703694034,NDP,NDP,UCP,UCP,False,True
+majority,Livingstone-Macleod,Calgary-Lougheed,0.21746508288735153,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-Lougheed,Okotoks-Diamond Valley,0.08318285783074515,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
+majority,Okotoks-Diamond Valley,Calgary-Lougheed,0.19867929945449325,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-McKenzie,Calgary-Shaw,0.0677599307492546,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Shaw,Calgary-McKenzie,0.06872684336956965,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-McKenzie,Calgary-West-Elbow Valley,0.0677599307492546,0.1765369960957712,NDP,NDP,UCP,UCP,False,True
@@ -695,14 +713,16 @@ majority,Calgary-Mountain View,Calgary-Varsity,0.16102305475504322,0.17839306054
 majority,Calgary-Varsity,Calgary-Mountain View,0.08915272058179269,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-North,Calgary-North East,0.004006359300476947,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
 majority,Calgary-North East,Calgary-North,0.050408516959643476,0.00820349761526232,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-North,Calgary-Symons Valley,0.004006359300476947,0.006034009873834339,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-Symons Valley,Calgary-North,0.0029537111270517744,0.00820349761526232,NDP,NDP,UCP,UCP,False,True
+majority,Calgary-North,Calgary-Nose Creek,0.004006359300476947,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Nose Creek,Calgary-North,0.01350337584396099,0.00820349761526232,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-North,Cochrane-Springbank,0.004006359300476947,0.2483648450623682,NDP,NDP,UCP,UCP,False,True
 majority,Cochrane-Springbank,Calgary-North,0.1241288108938847,0.00820349761526232,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-North East,Calgary-Nose Creek,0.050408516959643476,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-Nose Creek,Calgary-North East,0.01350337584396099,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
 majority,Calgary-North East,Cochrane-Springbank,0.050408516959643476,0.2483648450623682,UCP,NDP,NDP,UCP,False,False
 majority,Cochrane-Springbank,Calgary-North East,0.1241288108938847,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-North West,Calgary-Varsity,0.0029537111270517744,0.17839306054499254,NDP,UCP,UCP,NDP,False,False
+majority,Calgary-Varsity,Calgary-North West,0.08915272058179269,0.006034009873834339,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-North West,Canmore-Banff,0.0029537111270517744,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
 majority,Canmore-Banff,Calgary-North West,0.006572893387669252,0.006034009873834339,UCP,NDP,NDP,UCP,False,False
 majority,Calgary-North West,Cochrane-Springbank,0.0029537111270517744,0.2483648450623682,NDP,NDP,UCP,UCP,False,True
@@ -713,50 +733,46 @@ majority,Calgary-Shaw,High River-Vulcan-Siksika,0.06872684336956965,0.3974816455
 majority,High River-Vulcan-Siksika,Calgary-Shaw,0.19867929945449325,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-South East,Chestermere-Strathmore,0.0986442262739598,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 majority,Chestermere-Strathmore,Calgary-South East,0.21507378613658582,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
-majority,Calgary-South East,High River-Vulcan-Siksika,0.0986442262739598,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
-majority,High River-Vulcan-Siksika,Calgary-South East,0.19867929945449325,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-Symons Valley,Cochrane-Springbank,0.0029537111270517744,0.2483648450623682,NDP,NDP,UCP,UCP,False,True
 majority,Cochrane-Springbank,Calgary-Symons Valley,0.1241288108938847,0.006034009873834339,NDP,NDP,UCP,UCP,False,True
 majority,Calgary-West-Elbow Valley,Canmore-Banff,0.0881979396961287,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
 majority,Canmore-Banff,Calgary-West-Elbow Valley,0.006572893387669252,0.1765369960957712,UCP,NDP,NDP,UCP,False,False
-majority,Calgary-West-Elbow Valley,High River-Vulcan-Siksika,0.0881979396961287,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
-majority,High River-Vulcan-Siksika,Calgary-West-Elbow Valley,0.19867929945449325,0.1765369960957712,NDP,NDP,UCP,UCP,False,True
 majority,Camrose,Drumheller-Stettler,0.200150448659395,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
 majority,Drumheller-Stettler,Camrose,0.3504511529464186,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
 majority,Camrose,Fort Saskatchewan-Vegreville,0.200150448659395,0.21828374299266926,NDP,NDP,UCP,UCP,False,True
 majority,Fort Saskatchewan-Vegreville,Camrose,0.10909874946097456,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
-majority,Camrose,Lacombe-Clearwater,0.200150448659395,0.4828924892592784,NDP,NDP,UCP,UCP,False,True
-majority,Lacombe-Clearwater,Camrose,0.24136860085925774,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
 majority,Camrose,Lloydminster-Wainwright,0.200150448659395,0.6197130843433094,NDP,NDP,UCP,UCP,False,True
 majority,Lloydminster-Wainwright,Camrose,0.30979470690081623,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
 majority,Camrose,Strathcona-Sherwood Park,0.200150448659395,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
 majority,Strathcona-Sherwood Park,Camrose,0.04343224491395868,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
+majority,Camrose,West Yellowhead,0.200150448659395,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Camrose,0.21787931462627266,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
 majority,Camrose,Wetaskiwin-Ponoka-Maskwacis,0.200150448659395,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
 majority,Wetaskiwin-Ponoka-Maskwacis,Camrose,0.20789489690408125,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
 majority,Canmore-Banff,Cochrane-Springbank,0.006572893387669252,0.2483648450623682,UCP,NDP,NDP,UCP,False,False
 majority,Cochrane-Springbank,Canmore-Banff,0.1241288108938847,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
-majority,Canmore-Banff,High River-Vulcan-Siksika,0.006572893387669252,0.39748164554366106,UCP,NDP,NDP,UCP,False,False
-majority,High River-Vulcan-Siksika,Canmore-Banff,0.19867929945449325,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
+majority,Canmore-Banff,Lacombe-Clearwater,0.006572893387669252,0.4828924892592784,UCP,NDP,NDP,UCP,False,False
+majority,Lacombe-Clearwater,Canmore-Banff,0.24136860085925774,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
 majority,Canmore-Banff,Livingstone-Macleod,0.006572893387669252,0.43506069703694034,UCP,NDP,NDP,UCP,False,False
 majority,Livingstone-Macleod,Canmore-Banff,0.21746508288735153,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
 majority,Canmore-Banff,Mountain View-Kneehill,0.006572893387669252,0.600280935867609,UCP,NDP,NDP,UCP,False,False
 majority,Mountain View-Kneehill,Canmore-Banff,0.3000746235898336,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
 majority,Canmore-Banff,West Yellowhead,0.006572893387669252,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
 majority,West Yellowhead,Canmore-Banff,0.21787931462627266,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
-majority,Central Peace-Notley,Grande Prairie,0.3071503131524008,0.3432274528238533,NDP,NDP,UCP,UCP,False,True
-majority,Grande Prairie,Central Peace-Notley,0.17151299442616347,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
+majority,Central Peace-Notley,Grande Prairie-Wapiti,0.3071503131524008,0.5757987053664648,NDP,NDP,UCP,UCP,False,True
+majority,Grande Prairie-Wapiti,Central Peace-Notley,0.287847149718104,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
 majority,Central Peace-Notley,Lesser Slave Lake,0.3071503131524008,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
 majority,Lesser Slave Lake,Central Peace-Notley,0.16216216216216217,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
 majority,Central Peace-Notley,Peace River,0.3071503131524008,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
 majority,Peace River,Central Peace-Notley,0.2608334103298531,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
 majority,Central Peace-Notley,West Yellowhead,0.3071503131524008,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
 majority,West Yellowhead,Central Peace-Notley,0.21787931462627266,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
-majority,Chestermere-Strathmore,High River-Vulcan-Siksika,0.21507378613658582,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
-majority,High River-Vulcan-Siksika,Chestermere-Strathmore,0.19867929945449325,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 majority,Chestermere-Strathmore,Mountain View-Kneehill,0.21507378613658582,0.600280935867609,NDP,NDP,UCP,UCP,False,True
 majority,Mountain View-Kneehill,Chestermere-Strathmore,0.3000746235898336,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 majority,Chestermere-Strathmore,Okotoks-Diamond Valley,0.21507378613658582,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
 majority,Okotoks-Diamond Valley,Chestermere-Strathmore,0.19867929945449325,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
+majority,Chestermere-Strathmore,Taber-Cardston,0.21507378613658582,0.6292445380363253,NDP,NDP,UCP,UCP,False,True
+majority,Taber-Cardston,Chestermere-Strathmore,0.3145564622269018,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 majority,Cochrane-Springbank,Mountain View-Kneehill,0.1241288108938847,0.600280935867609,NDP,NDP,UCP,UCP,False,True
 majority,Mountain View-Kneehill,Cochrane-Springbank,0.3000746235898336,0.2483648450623682,NDP,NDP,UCP,UCP,False,True
 majority,Cold Lake-Bonnyville-St. Paul,Fort McMurray-Lac La Biche,0.25467634055095795,0.5004388959328977,NDP,NDP,UCP,UCP,False,True
@@ -765,8 +781,6 @@ majority,Cold Lake-Bonnyville-St. Paul,Fort Saskatchewan-Vegreville,0.2546763405
 majority,Fort Saskatchewan-Vegreville,Cold Lake-Bonnyville-St. Paul,0.10909874946097456,0.5094660469334542,NDP,NDP,UCP,UCP,False,True
 majority,Cold Lake-Bonnyville-St. Paul,Lloydminster-Wainwright,0.25467634055095795,0.6197130843433094,NDP,NDP,UCP,UCP,False,True
 majority,Lloydminster-Wainwright,Cold Lake-Bonnyville-St. Paul,0.30979470690081623,0.5094660469334542,NDP,NDP,UCP,UCP,False,True
-majority,Drumheller-Stettler,Lacombe-Clearwater,0.3504511529464186,0.4828924892592784,NDP,NDP,UCP,UCP,False,True
-majority,Lacombe-Clearwater,Drumheller-Stettler,0.24136860085925774,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
 majority,Drumheller-Stettler,Lloydminster-Wainwright,0.3504511529464186,0.6197130843433094,NDP,NDP,UCP,UCP,False,True
 majority,Lloydminster-Wainwright,Drumheller-Stettler,0.30979470690081623,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
 majority,Drumheller-Stettler,Medicine Hat-Brooks,0.3504511529464186,0.4170923797360579,NDP,NDP,UCP,UCP,False,True
@@ -775,12 +789,18 @@ majority,Drumheller-Stettler,Mountain View-Kneehill,0.3504511529464186,0.6002809
 majority,Mountain View-Kneehill,Drumheller-Stettler,0.3000746235898336,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
 majority,Drumheller-Stettler,Sylvan Lake-Innisfail,0.3504511529464186,0.48381254244962646,NDP,NDP,UCP,UCP,False,True
 majority,Sylvan Lake-Innisfail,Drumheller-Stettler,0.24183835182250396,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
+majority,Drumheller-Stettler,West Yellowhead,0.3504511529464186,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Drumheller-Stettler,0.21787931462627266,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
+majority,Drumheller-Stettler,Wetaskiwin-Ponoka-Maskwacis,0.3504511529464186,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
+majority,Wetaskiwin-Ponoka-Maskwacis,Drumheller-Stettler,0.20789489690408125,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
 majority,Edmonton-Beaumont,Edmonton-Ellerslie,0.09589574854965797,0.2527677299134057,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Ellerslie,Edmonton-Beaumont,0.1263290584237641,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
+majority,Edmonton-Beaumont,Edmonton-South,0.09589574854965797,0.19773486033047374,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-South,Edmonton-Beaumont,0.0988040400625449,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
 majority,Edmonton-Beaumont,Leduc-Devon,0.09589574854965797,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
 majority,Leduc-Devon,Edmonton-Beaumont,0.09589574854965797,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
-majority,Edmonton-Beaumont,Wetaskiwin-Ponoka-Maskwacis,0.09589574854965797,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-majority,Wetaskiwin-Ponoka-Maskwacis,Edmonton-Beaumont,0.20789489690408125,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
+majority,Edmonton-Beaumont,West Yellowhead,0.09589574854965797,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Edmonton-Beaumont,0.21787931462627266,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
 majority,Edmonton-Beverly-Clareview,Edmonton-Castle Downs,0.09922535211267605,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Castle Downs,Edmonton-Beverly-Clareview,0.07951529140219273,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Beverly-Clareview,Edmonton-Decore,0.09922535211267605,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
@@ -795,62 +815,48 @@ majority,Edmonton-Beverly-Clareview,Fort Saskatchewan-Vegreville,0.0992253521126
 majority,Fort Saskatchewan-Vegreville,Edmonton-Beverly-Clareview,0.10909874946097456,0.19859154929577466,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Beverly-Clareview,Sherwood Park,0.09922535211267605,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
 majority,Sherwood Park,Edmonton-Beverly-Clareview,0.03376094481775606,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Castle Downs,Edmonton-Decore,0.07951529140219273,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Decore,Edmonton-Castle Downs,0.06165569795635608,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Beverly-Clareview,West Yellowhead,0.09922535211267605,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Beverly-Clareview,0.21787931462627266,0.19859154929577466,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Castle Downs,Edmonton-Manning,0.07951529140219273,0.21817971817971818,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Manning,Edmonton-Castle Downs,0.10903210903210903,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Castle Downs,Edmonton-North West,0.07951529140219273,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-North West,Edmonton-Castle Downs,0.10961749969448857,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Castle Downs,St. Albert-Sturgeon,0.07951529140219273,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
-majority,St. Albert-Sturgeon,Edmonton-Castle Downs,0.05418432643563534,0.1591459896133872,NDP,UCP,UCP,NDP,False,False
-majority,Edmonton-City Centre,Edmonton-Decore,0.27099615432328494,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Decore,Edmonton-City Centre,0.06165569795635608,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-City Centre,Edmonton-Enoch,0.27099615432328494,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Enoch,Edmonton-City Centre,0.052487080103359174,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Castle Downs,West Yellowhead,0.07951529140219273,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Castle Downs,0.21787931462627266,0.1591459896133872,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-City Centre,Edmonton-Glenora-Riverview,0.27099615432328494,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Glenora-Riverview,Edmonton-City Centre,0.20719597989949748,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-City Centre,Edmonton-Highlands-Norwood,0.27099615432328494,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Highlands-Norwood,Edmonton-City Centre,0.23900007787555486,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-City Centre,Edmonton-North West,0.27099615432328494,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-North West,Edmonton-City Centre,0.10961749969448857,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-City Centre,Edmonton-Rutherford,0.27099615432328494,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Rutherford,Edmonton-City Centre,0.17143152028073072,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-City Centre,Edmonton-Strathcona,0.27099615432328494,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Strathcona,Edmonton-City Centre,0.3217140841758758,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-City Centre,Edmonton-West Henday,0.27099615432328494,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-West Henday,Edmonton-City Centre,0.09089506966222816,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Decore,Edmonton-Gold Bar,0.06165569795635608,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Gold Bar,Edmonton-Decore,0.21520154967253943,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-City Centre,West Yellowhead,0.27099615432328494,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-City Centre,0.21787931462627266,0.5421163627341521,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Decore,Edmonton-Highlands-Norwood,0.06165569795635608,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Highlands-Norwood,Edmonton-Decore,0.23900007787555486,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Decore,Edmonton-North West,0.06165569795635608,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-North West,Edmonton-Decore,0.10961749969448857,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Decore,Edmonton-Strathcona,0.06165569795635608,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Strathcona,Edmonton-Decore,0.3217140841758758,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Decore,Edmonton-West Henday,0.06165569795635608,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-West Henday,Edmonton-Decore,0.09089506966222816,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Decore,Sherwood Park,0.06165569795635608,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
 majority,Sherwood Park,Edmonton-Decore,0.03376094481775606,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Ellerslie,Edmonton-Gold Bar,0.1263290584237641,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Gold Bar,Edmonton-Ellerslie,0.21520154967253943,0.2527677299134057,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Decore,West Yellowhead,0.06165569795635608,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Decore,0.21787931462627266,0.12351922410807066,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Ellerslie,Edmonton-Meadows,0.1263290584237641,0.2665171640503709,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Meadows,Edmonton-Ellerslie,0.13317233051578403,0.2527677299134057,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Ellerslie,Edmonton-Mill Woods,0.1263290584237641,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Mill Woods,Edmonton-Ellerslie,0.11688601383002453,0.2527677299134057,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Ellerslie,Edmonton-Rutherford,0.1263290584237641,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Rutherford,Edmonton-Ellerslie,0.17143152028073072,0.2527677299134057,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Ellerslie,Edmonton-South,0.1263290584237641,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-South,Edmonton-Ellerslie,0.0988040400625449,0.2527677299134057,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Ellerslie,Leduc-Devon,0.1263290584237641,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
 majority,Leduc-Devon,Edmonton-Ellerslie,0.09589574854965797,0.2527677299134057,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Ellerslie,Strathcona-Sherwood Park,0.1263290584237641,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
 majority,Strathcona-Sherwood Park,Edmonton-Ellerslie,0.04343224491395868,0.2527677299134057,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Ellerslie,West Yellowhead,0.1263290584237641,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Ellerslie,0.21787931462627266,0.2527677299134057,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Enoch,Edmonton-Glenora-Riverview,0.052487080103359174,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Glenora-Riverview,Edmonton-Enoch,0.20719597989949748,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Enoch,Edmonton-McClung,0.052487080103359174,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-McClung,Edmonton-Enoch,0.11425281473899693,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Enoch,Edmonton-North West,0.052487080103359174,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-North West,Edmonton-Enoch,0.10961749969448857,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Enoch,Edmonton-Rutherford,0.052487080103359174,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Rutherford,Edmonton-Enoch,0.17143152028073072,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Enoch,Edmonton-West Henday,0.052487080103359174,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
@@ -859,58 +865,74 @@ majority,Edmonton-Enoch,Edmonton-Whitemud,0.052487080103359174,0.242668479316372
 majority,Edmonton-Whitemud,Edmonton-Enoch,0.12128568654107594,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Enoch,Edmonton-Windermere,0.052487080103359174,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Windermere,Edmonton-Enoch,0.07236973050435891,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Glenora-Riverview,Edmonton-McClung,0.20719597989949748,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-McClung,Edmonton-Glenora-Riverview,0.11425281473899693,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Enoch,West Yellowhead,0.052487080103359174,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Enoch,0.21787931462627266,0.10508182601205857,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Glenora-Riverview,Edmonton-North West,0.20719597989949748,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-North West,Edmonton-Glenora-Riverview,0.10961749969448857,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Glenora-Riverview,Edmonton-Rutherford,0.20719597989949748,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Rutherford,Edmonton-Glenora-Riverview,0.17143152028073072,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Glenora-Riverview,Edmonton-Strathcona,0.20719597989949748,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Strathcona,Edmonton-Glenora-Riverview,0.3217140841758758,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Glenora-Riverview,Edmonton-West Henday,0.20719597989949748,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-West Henday,Edmonton-Glenora-Riverview,0.09089506966222816,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Glenora-Riverview,Edmonton-Whitemud,0.20719597989949748,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Whitemud,Edmonton-Glenora-Riverview,0.12128568654107594,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Glenora-Riverview,Edmonton-Windermere,0.20719597989949748,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Windermere,Edmonton-Glenora-Riverview,0.07236973050435891,0.41451256281407034,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Gold Bar,Edmonton-Highlands-Norwood,0.21520154967253943,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Highlands-Norwood,Edmonton-Gold Bar,0.23900007787555486,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Gold Bar,Edmonton-Meadows,0.21520154967253943,0.2665171640503709,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Meadows,Edmonton-Gold Bar,0.13317233051578403,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Glenora-Riverview,West Yellowhead,0.20719597989949748,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Glenora-Riverview,0.21787931462627266,0.41451256281407034,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Gold Bar,Edmonton-Mill Woods,0.21520154967253943,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Mill Woods,Edmonton-Gold Bar,0.11688601383002453,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Gold Bar,Edmonton-Rutherford,0.21520154967253943,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Rutherford,Edmonton-Gold Bar,0.17143152028073072,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Gold Bar,Edmonton-South,0.21520154967253943,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-South,Edmonton-Gold Bar,0.0988040400625449,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Gold Bar,Edmonton-Strathcona,0.21520154967253943,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Strathcona,Edmonton-Gold Bar,0.3217140841758758,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Gold Bar,Edmonton-Windermere,0.21520154967253943,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Windermere,Edmonton-Gold Bar,0.07236973050435891,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Gold Bar,Sherwood Park,0.21520154967253943,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
 majority,Sherwood Park,Edmonton-Gold Bar,0.03376094481775606,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Gold Bar,Strathcona-Sherwood Park,0.21520154967253943,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
-majority,Strathcona-Sherwood Park,Edmonton-Gold Bar,0.04343224491395868,0.4304953417581404,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Gold Bar,West Yellowhead,0.21520154967253943,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Gold Bar,0.21787931462627266,0.4304953417581404,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Highlands-Norwood,Edmonton-North West,0.23900007787555486,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-North West,Edmonton-Highlands-Norwood,0.10961749969448857,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Highlands-Norwood,Edmonton-Strathcona,0.23900007787555486,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Strathcona,Edmonton-Highlands-Norwood,0.3217140841758758,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Highlands-Norwood,West Yellowhead,0.23900007787555486,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Highlands-Norwood,0.21787931462627266,0.4782337824156997,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Manning,Fort Saskatchewan-Vegreville,0.10903210903210903,0.21828374299266926,UCP,NDP,NDP,UCP,False,False
 majority,Fort Saskatchewan-Vegreville,Edmonton-Manning,0.10909874946097456,0.21817971817971818,NDP,UCP,UCP,NDP,False,False
-majority,Edmonton-Manning,St. Albert-Sturgeon,0.10903210903210903,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
-majority,St. Albert-Sturgeon,Edmonton-Manning,0.05418432643563534,0.21817971817971818,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Manning,West Yellowhead,0.10903210903210903,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Manning,0.21787931462627266,0.21817971817971818,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-McClung,Edmonton-Whitemud,0.11425281473899693,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Whitemud,Edmonton-McClung,0.12128568654107594,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-McClung,Edmonton-Windermere,0.11425281473899693,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Windermere,Edmonton-McClung,0.07236973050435891,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-McClung,West Yellowhead,0.11425281473899693,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-McClung,0.21787931462627266,0.22863357215967248,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Meadows,Edmonton-Mill Woods,0.13317233051578403,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Mill Woods,Edmonton-Meadows,0.11688601383002453,0.2665171640503709,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Meadows,Strathcona-Sherwood Park,0.13317233051578403,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
 majority,Strathcona-Sherwood Park,Edmonton-Meadows,0.04343224491395868,0.2665171640503709,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Meadows,West Yellowhead,0.13317233051578403,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Meadows,0.21787931462627266,0.2665171640503709,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Mill Woods,Edmonton-Rutherford,0.11688601383002453,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Rutherford,Edmonton-Mill Woods,0.17143152028073072,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Mill Woods,Edmonton-South,0.11688601383002453,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-South,Edmonton-Mill Woods,0.0988040400625449,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Mill Woods,Edmonton-Strathcona,0.11688601383002453,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Strathcona,Edmonton-Mill Woods,0.3217140841758758,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Mill Woods,Edmonton-Windermere,0.11688601383002453,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Windermere,Edmonton-Mill Woods,0.07236973050435891,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Mill Woods,West Yellowhead,0.11688601383002453,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Mill Woods,0.21787931462627266,0.23388356011599376,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-North West,Edmonton-West Henday,0.10961749969448857,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-West Henday,Edmonton-North West,0.09089506966222816,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-North West,St. Albert,0.10961749969448857,0.19115023194956585,UCP,UCP,NDP,NDP,False,True
 majority,St. Albert,Edmonton-North West,0.09551564172713216,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-North West,St. Albert-Sturgeon,0.10961749969448857,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
 majority,St. Albert-Sturgeon,Edmonton-North West,0.05418432643563534,0.2193572039594281,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-North West,West Yellowhead,0.10961749969448857,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-North West,0.21787931462627266,0.2193572039594281,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Rutherford,Edmonton-South,0.17143152028073072,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-South,Edmonton-Rutherford,0.0988040400625449,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Rutherford,Edmonton-Strathcona,0.17143152028073072,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
@@ -919,6 +941,8 @@ majority,Edmonton-Rutherford,Edmonton-Whitemud,0.17143152028073072,0.24266847931
 majority,Edmonton-Whitemud,Edmonton-Rutherford,0.12128568654107594,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Rutherford,Edmonton-Windermere,0.17143152028073072,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Windermere,Edmonton-Rutherford,0.07236973050435891,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Rutherford,West Yellowhead,0.17143152028073072,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Rutherford,0.21787931462627266,0.3429662503870368,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-South,Edmonton-Whitemud,0.0988040400625449,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Whitemud,Edmonton-South,0.12128568654107594,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-South,Edmonton-Windermere,0.0988040400625449,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
@@ -927,18 +951,26 @@ majority,Edmonton-South,Leduc-Devon,0.0988040400625449,0.19187808468265652,UCP,N
 majority,Leduc-Devon,Edmonton-South,0.09589574854965797,0.19773486033047374,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-South,Stony Plain-Drayton Valley,0.0988040400625449,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 majority,Stony Plain-Drayton Valley,Edmonton-South,0.26739705677545145,0.19773486033047374,NDP,UCP,UCP,NDP,False,False
-majority,Edmonton-West Henday,Edmonton-Windermere,0.09089506966222816,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Windermere,Edmonton-West Henday,0.07236973050435891,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-South,West Yellowhead,0.0988040400625449,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-South,0.21787931462627266,0.19773486033047374,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Strathcona,Edmonton-Windermere,0.3217140841758758,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Windermere,Edmonton-Strathcona,0.07236973050435891,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-Strathcona,West Yellowhead,0.3217140841758758,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Strathcona,0.21787931462627266,0.6435457324241711,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-West Henday,St. Albert,0.09089506966222816,0.19115023194956585,UCP,UCP,NDP,NDP,False,True
 majority,St. Albert,Edmonton-West Henday,0.09551564172713216,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
+majority,Edmonton-West Henday,St. Albert-Sturgeon,0.09089506966222816,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
+majority,St. Albert-Sturgeon,Edmonton-West Henday,0.05418432643563534,0.18194437303994654,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-West Henday,Stony Plain-Drayton Valley,0.09089506966222816,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 majority,Stony Plain-Drayton Valley,Edmonton-West Henday,0.26739705677545145,0.18194437303994654,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-West Henday,West Yellowhead,0.09089506966222816,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-West Henday,0.21787931462627266,0.18194437303994654,NDP,UCP,UCP,NDP,False,False
 majority,Edmonton-Whitemud,Edmonton-Windermere,0.12128568654107594,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
 majority,Edmonton-Windermere,Edmonton-Whitemud,0.07236973050435891,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
-majority,Edmonton-Windermere,Leduc-Devon,0.07236973050435891,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
-majority,Leduc-Devon,Edmonton-Windermere,0.09589574854965797,0.14485888300624974,NDP,UCP,UCP,NDP,False,False
-majority,Edmonton-Windermere,Stony Plain-Drayton Valley,0.07236973050435891,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-majority,Stony Plain-Drayton Valley,Edmonton-Windermere,0.26739705677545145,0.14485888300624974,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Whitemud,West Yellowhead,0.12128568654107594,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Whitemud,0.21787931462627266,0.24266847931637212,NDP,UCP,UCP,NDP,False,False
+majority,Edmonton-Windermere,West Yellowhead,0.07236973050435891,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Edmonton-Windermere,0.21787931462627266,0.14485888300624974,NDP,UCP,UCP,NDP,False,False
 majority,Fort McMurray-Lac La Biche,Fort McMurray-Wood Buffalo,0.25007314932214963,0.5496593761204733,NDP,NDP,UCP,UCP,False,True
 majority,Fort McMurray-Wood Buffalo,Fort McMurray-Lac La Biche,0.27465041233417,0.5004388959328977,NDP,NDP,UCP,UCP,False,True
 majority,Fort McMurray-Lac La Biche,Lesser Slave Lake,0.25007314932214963,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
@@ -951,28 +983,28 @@ majority,Fort Saskatchewan-Vegreville,Lloydminster-Wainwright,0.1090987494609745
 majority,Lloydminster-Wainwright,Fort Saskatchewan-Vegreville,0.30979470690081623,0.21828374299266926,NDP,NDP,UCP,UCP,False,True
 majority,Fort Saskatchewan-Vegreville,Sherwood Park,0.10909874946097456,0.06764406434534719,NDP,UCP,UCP,NDP,False,False
 majority,Sherwood Park,Fort Saskatchewan-Vegreville,0.03376094481775606,0.21828374299266926,UCP,NDP,NDP,UCP,False,False
-majority,Fort Saskatchewan-Vegreville,St. Albert-Sturgeon,0.10909874946097456,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
-majority,St. Albert-Sturgeon,Fort Saskatchewan-Vegreville,0.05418432643563534,0.21828374299266926,NDP,NDP,UCP,UCP,False,True
 majority,Fort Saskatchewan-Vegreville,Strathcona-Sherwood Park,0.10909874946097456,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
 majority,Strathcona-Sherwood Park,Fort Saskatchewan-Vegreville,0.04343224491395868,0.21828374299266926,NDP,NDP,UCP,UCP,False,True
+majority,Fort Saskatchewan-Vegreville,West Yellowhead,0.10909874946097456,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Fort Saskatchewan-Vegreville,0.21787931462627266,0.21828374299266926,NDP,NDP,UCP,UCP,False,True
 majority,Grande Prairie,Grande Prairie-Wapiti,0.17151299442616347,0.5757987053664648,NDP,NDP,UCP,UCP,False,True
 majority,Grande Prairie-Wapiti,Grande Prairie,0.287847149718104,0.3432274528238533,NDP,NDP,UCP,UCP,False,True
-majority,Grande Prairie,West Yellowhead,0.17151299442616347,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
-majority,West Yellowhead,Grande Prairie,0.21787931462627266,0.3432274528238533,NDP,NDP,UCP,UCP,False,True
 majority,Grande Prairie-Wapiti,West Yellowhead,0.287847149718104,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
 majority,West Yellowhead,Grande Prairie-Wapiti,0.21787931462627266,0.5757987053664648,NDP,NDP,UCP,UCP,False,True
-majority,High River-Vulcan-Siksika,Livingstone-Macleod,0.19867929945449325,0.43506069703694034,NDP,NDP,UCP,UCP,False,True
-majority,Livingstone-Macleod,High River-Vulcan-Siksika,0.21746508288735153,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
-majority,High River-Vulcan-Siksika,Okotoks-Diamond Valley,0.19867929945449325,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
-majority,Okotoks-Diamond Valley,High River-Vulcan-Siksika,0.19867929945449325,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
+majority,Lacombe-Clearwater,Mountain View-Kneehill,0.24136860085925774,0.600280935867609,NDP,NDP,UCP,UCP,False,True
+majority,Mountain View-Kneehill,Lacombe-Clearwater,0.3000746235898336,0.4828924892592784,NDP,NDP,UCP,UCP,False,True
+majority,Lacombe-Clearwater,Stony Plain-Drayton Valley,0.24136860085925774,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
+majority,Stony Plain-Drayton Valley,Lacombe-Clearwater,0.26739705677545145,0.4828924892592784,NDP,NDP,UCP,UCP,False,True
 majority,Lacombe-Clearwater,Sylvan Lake-Innisfail,0.24136860085925774,0.48381254244962646,NDP,NDP,UCP,UCP,False,True
 majority,Sylvan Lake-Innisfail,Lacombe-Clearwater,0.24183835182250396,0.4828924892592784,NDP,NDP,UCP,UCP,False,True
+majority,Lacombe-Clearwater,West Yellowhead,0.24136860085925774,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Lacombe-Clearwater,0.21787931462627266,0.4828924892592784,NDP,NDP,UCP,UCP,False,True
 majority,Lacombe-Clearwater,Wetaskiwin-Ponoka-Maskwacis,0.24136860085925774,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
 majority,Wetaskiwin-Ponoka-Maskwacis,Lacombe-Clearwater,0.20789489690408125,0.4828924892592784,NDP,NDP,UCP,UCP,False,True
 majority,Leduc-Devon,Stony Plain-Drayton Valley,0.09589574854965797,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
 majority,Stony Plain-Drayton Valley,Leduc-Devon,0.26739705677545145,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
-majority,Leduc-Devon,Wetaskiwin-Ponoka-Maskwacis,0.09589574854965797,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-majority,Wetaskiwin-Ponoka-Maskwacis,Leduc-Devon,0.20789489690408125,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
+majority,Leduc-Devon,West Yellowhead,0.09589574854965797,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Leduc-Devon,0.21787931462627266,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
 majority,Lesser Slave Lake,Peace River,0.16216216216216217,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
 majority,Peace River,Lesser Slave Lake,0.2608334103298531,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
 majority,Lethbridge-East,Lethbridge-West,0.03740562800274537,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
@@ -983,6 +1015,8 @@ majority,Lethbridge-West,Taber-Cardston,0.02544220983765447,0.6292445380363253,U
 majority,Taber-Cardston,Lethbridge-West,0.3145564622269018,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
 majority,Livingstone-Macleod,Okotoks-Diamond Valley,0.21746508288735153,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
 majority,Okotoks-Diamond Valley,Livingstone-Macleod,0.19867929945449325,0.43506069703694034,NDP,NDP,UCP,UCP,False,True
+majority,Livingstone-Macleod,Taber-Cardston,0.21746508288735153,0.6292445380363253,NDP,NDP,UCP,UCP,False,True
+majority,Taber-Cardston,Livingstone-Macleod,0.3145564622269018,0.43506069703694034,NDP,NDP,UCP,UCP,False,True
 majority,Medicine Hat-Brooks,Medicine Hat-Cypress,0.20849297573435505,0.27338808647219864,NDP,NDP,UCP,UCP,False,True
 majority,Medicine Hat-Cypress,Medicine Hat-Brooks,0.1366468422543189,0.4170923797360579,NDP,NDP,UCP,UCP,False,True
 majority,Medicine Hat-Brooks,Mountain View-Kneehill,0.20849297573435505,0.600280935867609,NDP,NDP,UCP,UCP,False,True
@@ -993,6 +1027,12 @@ majority,Medicine Hat-Cypress,Taber-Cardston,0.1366468422543189,0.62924453803632
 majority,Taber-Cardston,Medicine Hat-Cypress,0.3145564622269018,0.27338808647219864,NDP,NDP,UCP,UCP,False,True
 majority,Mountain View-Kneehill,Sylvan Lake-Innisfail,0.3000746235898336,0.48381254244962646,NDP,NDP,UCP,UCP,False,True
 majority,Sylvan Lake-Innisfail,Mountain View-Kneehill,0.24183835182250396,0.600280935867609,NDP,NDP,UCP,UCP,False,True
+majority,Mountain View-Kneehill,Taber-Cardston,0.3000746235898336,0.6292445380363253,NDP,NDP,UCP,UCP,False,True
+majority,Taber-Cardston,Mountain View-Kneehill,0.3145564622269018,0.600280935867609,NDP,NDP,UCP,UCP,False,True
+majority,Mountain View-Kneehill,West Yellowhead,0.3000746235898336,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Mountain View-Kneehill,0.21787931462627266,0.600280935867609,NDP,NDP,UCP,UCP,False,True
+majority,Okotoks-Diamond Valley,Taber-Cardston,0.19867929945449325,0.6292445380363253,NDP,NDP,UCP,UCP,False,True
+majority,Taber-Cardston,Okotoks-Diamond Valley,0.3145564622269018,0.39748164554366106,NDP,NDP,UCP,UCP,False,True
 majority,Red Deer-North,Red Deer-South,0.0979575760985765,0.1489869908296012,NDP,NDP,UCP,UCP,False,True
 majority,Red Deer-South,Red Deer-North,0.07442951588824909,0.196083947560907,NDP,NDP,UCP,UCP,False,True
 majority,Red Deer-North,Sylvan Lake-Innisfail,0.0979575760985765,0.48381254244962646,NDP,NDP,UCP,UCP,False,True
@@ -1001,110 +1041,92 @@ majority,Red Deer-South,Sylvan Lake-Innisfail,0.07442951588824909,0.483812542449
 majority,Sylvan Lake-Innisfail,Red Deer-South,0.24183835182250396,0.1489869908296012,NDP,NDP,UCP,UCP,False,True
 majority,Sherwood Park,Strathcona-Sherwood Park,0.03376094481775606,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
 majority,Strathcona-Sherwood Park,Sherwood Park,0.04343224491395868,0.06764406434534719,NDP,UCP,UCP,NDP,False,False
+majority,Sherwood Park,West Yellowhead,0.03376094481775606,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,Sherwood Park,0.21787931462627266,0.06764406434534719,NDP,UCP,UCP,NDP,False,False
+majority,Spruce Grove,St. Albert-Sturgeon,0.0848057975734875,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
+majority,St. Albert-Sturgeon,Spruce Grove,0.05418432643563534,0.1696930217409006,NDP,NDP,UCP,UCP,False,True
 majority,Spruce Grove,Stony Plain-Drayton Valley,0.0848057975734875,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
 majority,Stony Plain-Drayton Valley,Spruce Grove,0.26739705677545145,0.1696930217409006,NDP,NDP,UCP,UCP,False,True
+majority,Spruce Grove,West Yellowhead,0.0848057975734875,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Spruce Grove,0.21787931462627266,0.1696930217409006,NDP,NDP,UCP,UCP,False,True
 majority,St. Albert,St. Albert-Sturgeon,0.09551564172713216,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
 majority,St. Albert-Sturgeon,St. Albert,0.05418432643563534,0.19115023194956585,NDP,UCP,UCP,NDP,False,False
+majority,St. Albert,West Yellowhead,0.09551564172713216,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
+majority,West Yellowhead,St. Albert,0.21787931462627266,0.19115023194956585,NDP,UCP,UCP,NDP,False,False
+majority,St. Albert-Sturgeon,Stony Plain-Drayton Valley,0.05418432643563534,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
+majority,Stony Plain-Drayton Valley,St. Albert-Sturgeon,0.26739705677545145,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
+majority,St. Albert-Sturgeon,West Yellowhead,0.05418432643563534,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,St. Albert-Sturgeon,0.21787931462627266,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
 majority,Stony Plain-Drayton Valley,West Yellowhead,0.26739705677545145,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
 majority,West Yellowhead,Stony Plain-Drayton Valley,0.21787931462627266,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
-majority,Stony Plain-Drayton Valley,Wetaskiwin-Ponoka-Maskwacis,0.26739705677545145,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-majority,Wetaskiwin-Ponoka-Maskwacis,Stony Plain-Drayton Valley,0.20789489690408125,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
-majority,Strathcona-Sherwood Park,Wetaskiwin-Ponoka-Maskwacis,0.04343224491395868,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-majority,Wetaskiwin-Ponoka-Maskwacis,Strathcona-Sherwood Park,0.20789489690408125,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
+majority,Strathcona-Sherwood Park,West Yellowhead,0.04343224491395868,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Strathcona-Sherwood Park,0.21787931462627266,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
+majority,Sylvan Lake-Innisfail,West Yellowhead,0.24183835182250396,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Sylvan Lake-Innisfail,0.21787931462627266,0.48381254244962646,NDP,NDP,UCP,UCP,False,True
+majority,Sylvan Lake-Innisfail,Wetaskiwin-Ponoka-Maskwacis,0.24183835182250396,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
+majority,Wetaskiwin-Ponoka-Maskwacis,Sylvan Lake-Innisfail,0.20789489690408125,0.48381254244962646,NDP,NDP,UCP,UCP,False,True
+majority,West Yellowhead,Wetaskiwin-Ponoka-Maskwacis,0.21787931462627266,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
+majority,Wetaskiwin-Ponoka-Maskwacis,West Yellowhead,0.20789489690408125,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
 minority,Airdrie East,Calgary-Airdrie,0.1168720346793187,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Airdrie,Airdrie East,0.12408863473909935,0.2338464689217326,NDP,NDP,UCP,UCP,False,True
-minority,Airdrie East,Calgary-Edgemont,0.1168720346793187,0.01230609238235549,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Edgemont,Airdrie East,0.006109714879972268,0.2338464689217326,UCP,NDP,NDP,UCP,False,False
 minority,Airdrie East,Calgary-Falconridge,0.1168720346793187,0.17418187302066054,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Falconridge,Airdrie East,0.08701553310209621,0.2338464689217326,UCP,NDP,NDP,UCP,False,False
 minority,Airdrie East,Calgary-Foothills-Airdrie West,0.1168720346793187,0.03939800613496933,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Foothills-Airdrie West,Airdrie East,0.019651073619631903,0.2338464689217326,NDP,NDP,UCP,UCP,False,True
-minority,Airdrie East,Calgary-North East,0.1168720346793187,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-North East,Airdrie East,0.050408516959643476,0.2338464689217326,UCP,NDP,NDP,UCP,False,False
-minority,Airdrie East,Chestermere-Strathmore,0.1168720346793187,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
-minority,Chestermere-Strathmore,Airdrie East,0.21507378613658582,0.2338464689217326,NDP,NDP,UCP,UCP,False,True
+minority,Airdrie East,Calgary-Peigan-Chestermere,0.1168720346793187,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Peigan-Chestermere,Airdrie East,0.08137910388184812,0.2338464689217326,NDP,NDP,UCP,UCP,False,True
 minority,Airdrie East,Olds-Three Hills-Didsbury,0.1168720346793187,0.600280935867609,NDP,NDP,UCP,UCP,False,True
 minority,Olds-Three Hills-Didsbury,Airdrie East,0.3000746235898336,0.2338464689217326,NDP,NDP,UCP,UCP,False,True
-minority,Barrhead-Westlock-Athabasca,Cold Lake-Bonnyville-St. Paul,0.24315329022441992,0.5094660469334542,NDP,NDP,UCP,UCP,False,True
-minority,Cold Lake-Bonnyville-St. Paul,Barrhead-Westlock-Athabasca,0.25467634055095795,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
-minority,Barrhead-Westlock-Athabasca,Fort McMurray-Lac La Biche,0.24315329022441992,0.5004388959328977,NDP,NDP,UCP,UCP,False,True
-minority,Fort McMurray-Lac La Biche,Barrhead-Westlock-Athabasca,0.25007314932214963,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
-minority,Barrhead-Westlock-Athabasca,Lesser Slave Lake,0.24315329022441992,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
-minority,Lesser Slave Lake,Barrhead-Westlock-Athabasca,0.16216216216216217,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
-minority,Barrhead-Westlock-Athabasca,St. Albert-Sturgeon,0.24315329022441992,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
-minority,St. Albert-Sturgeon,Barrhead-Westlock-Athabasca,0.05418432643563534,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
+minority,Airdrie East,Peace River,0.1168720346793187,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Airdrie East,0.2608334103298531,0.2338464689217326,NDP,NDP,UCP,UCP,False,True
+minority,Barrhead-Westlock-Athabasca,Peace River,0.24315329022441992,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Barrhead-Westlock-Athabasca,0.2608334103298531,0.48640167364016734,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Acadia,Calgary-Currie,0.0004567044208987943,0.143643316854771,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Currie,Calgary-Acadia,0.07177502098684824,0.0010047497259773476,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Acadia,Calgary-De Winton,0.0004567044208987943,0.13421581769436997,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-De Winton,Calgary-Acadia,0.06706601876675604,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Acadia,Calgary-Elbow,0.0004567044208987943,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Elbow,Calgary-Acadia,0.015654749312460334,0.0010047497259773476,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Acadia,Calgary-Hays,0.0004567044208987943,0.1356160430893527,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Hays,Calgary-Acadia,0.0677599307492546,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Acadia,Calgary-Klein,0.0004567044208987943,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Klein,Calgary-Acadia,0.0213217511475248,0.0010047497259773476,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Acadia,Calgary-South,0.0004567044208987943,0.13757583160294776,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-South,Calgary-Acadia,0.06872684336956965,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Acadia,Calgary-South East,0.0004567044208987943,0.19741595477920865,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-South East,Calgary-Acadia,0.0986442262739598,0.0010047497259773476,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Airdrie,Calgary-Bow-Springbank,0.12408863473909935,0.07016687016687016,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Bow-Springbank,Calgary-Airdrie,0.03504273504273504,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Acadia,Peace River,0.0004567044208987943,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Acadia,0.2608334103298531,0.0010047497259773476,NDP,UCP,UCP,NDP,True,False
 minority,Calgary-Airdrie,Calgary-Falconridge,0.12408863473909935,0.17418187302066054,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Falconridge,Calgary-Airdrie,0.08701553310209621,0.24832022873481058,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Airdrie,Calgary-Foothills-Airdrie West,0.12408863473909935,0.03939800613496933,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Foothills-Airdrie West,Calgary-Airdrie,0.019651073619631903,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Airdrie,Calgary-Lougheed,0.12408863473909935,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Lougheed,Calgary-Airdrie,0.08318285783074515,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Airdrie,Calgary-Nolan Hill-Cochrane,0.12408863473909935,0.03911070780399274,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Nolan Hill-Cochrane,Calgary-Airdrie,0.019509981851179675,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Airdrie,Calgary-North,0.12408863473909935,0.00820349761526232,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-North,Calgary-Airdrie,0.004006359300476947,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Airdrie,Calgary-North East,0.12408863473909935,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-North East,Calgary-Airdrie,0.050408516959643476,0.24832022873481058,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Airdrie,Calgary-North West-Bearspaw,0.12408863473909935,0.054701307882644046,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-North West-Bearspaw,Calgary-Airdrie,0.02730646871686108,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Airdrie,Canmore-Kananaskis,0.12408863473909935,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
-minority,Canmore-Kananaskis,Calgary-Airdrie,0.006572893387669252,0.24832022873481058,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Airdrie,Olds-Three Hills-Didsbury,0.12408863473909935,0.600280935867609,NDP,NDP,UCP,UCP,False,True
-minority,Olds-Three Hills-Didsbury,Calgary-Airdrie,0.3000746235898336,0.24832022873481058,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Beddington,Calgary-Falconridge,0.01350337584396099,0.17418187302066054,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Falconridge,Calgary-Beddington,0.08701553310209621,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Beddington,Calgary-Foothills-Airdrie West,0.01350337584396099,0.03939800613496933,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Foothills-Airdrie West,Calgary-Beddington,0.019651073619631903,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Beddington,Calgary-McCall-Bhullar,0.01350337584396099,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-McCall-Bhullar,Calgary-Beddington,0.07991377933897494,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Beddington,Calgary-North,0.01350337584396099,0.00820349761526232,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-North,Calgary-Beddington,0.004006359300476947,0.027156789197299323,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Beddington,Calgary-North East,0.01350337584396099,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-North East,Calgary-Beddington,0.050408516959643476,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Beddington,Calgary-Varsity,0.01350337584396099,0.17839306054499254,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Varsity,Calgary-Beddington,0.08915272058179269,0.027156789197299323,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Bow-Springbank,Calgary-Foothills-Airdrie West,0.03504273504273504,0.03939800613496933,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Foothills-Airdrie West,Calgary-Bow-Springbank,0.019651073619631903,0.07016687016687016,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Bow-Springbank,Calgary-Nolan Hill-Cochrane,0.03504273504273504,0.03911070780399274,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Nolan Hill-Cochrane,Calgary-Bow-Springbank,0.019509981851179675,0.07016687016687016,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Beddington,Peace River,0.01350337584396099,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Beddington,0.2608334103298531,0.027156789197299323,NDP,UCP,UCP,NDP,True,False
 minority,Calgary-Bow-Springbank,Calgary-North West-Bearspaw,0.03504273504273504,0.054701307882644046,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-North West-Bearspaw,Calgary-Bow-Springbank,0.02730646871686108,0.07016687016687016,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Buffalo,Calgary-Cross,0.14444498610637158,0.03532160527762507,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Cross,Calgary-Buffalo,0.017592083562396922,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Buffalo,Calgary-East,0.14444498610637158,0.0515205196338943,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-East,Calgary-Buffalo,0.025686448184233834,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Buffalo,Calgary-Edgemont,0.14444498610637158,0.01230609238235549,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Edgemont,Calgary-Buffalo,0.006109714879972268,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Buffalo,Calgary-Klein,0.14444498610637158,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Klein,Calgary-Buffalo,0.0213217511475248,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Bow-Springbank,Peace River,0.03504273504273504,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Bow-Springbank,0.2608334103298531,0.07016687016687016,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Buffalo,Calgary-Elbow,0.14444498610637158,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Elbow,Calgary-Buffalo,0.015654749312460334,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Buffalo,Calgary-Mountain View,0.14444498610637158,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Mountain View,Calgary-Buffalo,0.16102305475504322,0.28903622093306686,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Buffalo,Peace River,0.14444498610637158,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Buffalo,0.2608334103298531,0.28903622093306686,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Cross,Calgary-East,0.017592083562396922,0.0515205196338943,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-East,Calgary-Cross,0.025686448184233834,0.03532160527762507,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Cross,Calgary-Edgemont,0.017592083562396922,0.01230609238235549,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Edgemont,Calgary-Cross,0.006109714879972268,0.03532160527762507,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-Cross,Calgary-Peigan-Chestermere,0.017592083562396922,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Peigan-Chestermere,Calgary-Cross,0.08137910388184812,0.03532160527762507,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Cross,Peace River,0.017592083562396922,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Cross,0.2608334103298531,0.03532160527762507,NDP,NDP,UCP,UCP,True,True
 minority,Calgary-Currie,Calgary-De Winton,0.07177502098684824,0.13421581769436997,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-De Winton,Calgary-Currie,0.06706601876675604,0.143643316854771,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Currie,Calgary-Glenmore,0.07177502098684824,0.0018952854773750297,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Glenmore,Calgary-Currie,0.000908157624575535,0.143643316854771,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-De Winton,Calgary-Elbow,0.06706601876675604,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Elbow,Calgary-De Winton,0.015654749312460334,0.13421581769436997,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-Currie,Peace River,0.07177502098684824,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Currie,0.2608334103298531,0.143643316854771,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-De Winton,Calgary-South,0.06706601876675604,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-South,Calgary-De Winton,0.06872684336956965,0.13421581769436997,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-De Winton,Calgary-South East,0.06706601876675604,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
@@ -1113,56 +1135,52 @@ minority,Calgary-De Winton,Canmore-Kananaskis,0.06706601876675604,0.013277244643
 minority,Canmore-Kananaskis,Calgary-De Winton,0.006572893387669252,0.13421581769436997,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-De Winton,Highwood,0.06706601876675604,0.409322365844105,NDP,NDP,UCP,UCP,False,True
 minority,Highwood,Calgary-De Winton,0.2046220133176655,0.13421581769436997,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-East,Calgary-Edgemont,0.025686448184233834,0.01230609238235549,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Edgemont,Calgary-East,0.006109714879972268,0.0515205196338943,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-De Winton,Peace River,0.06706601876675604,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-De Winton,0.2608334103298531,0.13421581769436997,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-East,Calgary-Klein,0.025686448184233834,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Klein,Calgary-East,0.0213217511475248,0.0515205196338943,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-East,Calgary-McCall-Bhullar,0.025686448184233834,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-McCall-Bhullar,Calgary-East,0.07991377933897494,0.0515205196338943,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-East,Chestermere-Strathmore,0.025686448184233834,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
-minority,Chestermere-Strathmore,Calgary-East,0.21507378613658582,0.0515205196338943,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Edgemont,Calgary-Falconridge,0.006109714879972268,0.17418187302066054,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Falconridge,Calgary-Edgemont,0.08701553310209621,0.01230609238235549,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-East,Calgary-Peigan-Chestermere,0.025686448184233834,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Peigan-Chestermere,Calgary-East,0.08137910388184812,0.0515205196338943,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-East,Peace River,0.025686448184233834,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-East,0.2608334103298531,0.0515205196338943,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Edgemont,Calgary-McCall-Bhullar,0.006109714879972268,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-McCall-Bhullar,Calgary-Edgemont,0.07991377933897494,0.01230609238235549,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Edgemont,Calgary-North East,0.006109714879972268,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-North East,Calgary-Edgemont,0.050408516959643476,0.01230609238235549,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Elbow,Calgary-Hays,0.015654749312460334,0.1356160430893527,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Hays,Calgary-Elbow,0.0677599307492546,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Elbow,Calgary-Klein,0.015654749312460334,0.04279157001135186,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Klein,Calgary-Elbow,0.0213217511475248,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-Elbow,Calgary-Peigan-Chestermere,0.015654749312460334,0.1628579982037721,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Peigan-Chestermere,Calgary-Elbow,0.08137910388184812,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Elbow,Calgary-South,0.015654749312460334,0.13757583160294776,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-South,Calgary-Elbow,0.06872684336956965,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Elbow,Calgary-South East,0.015654749312460334,0.19741595477920865,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-South East,Calgary-Elbow,0.0986442262739598,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
-minority,Calgary-Elbow,Highwood,0.015654749312460334,0.409322365844105,UCP,NDP,NDP,UCP,False,False
-minority,Highwood,Calgary-Elbow,0.2046220133176655,0.031436429024751425,NDP,UCP,UCP,NDP,True,False
-minority,Calgary-Falconridge,Calgary-Foothills-Airdrie West,0.08701553310209621,0.03939800613496933,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-Foothills-Airdrie West,Calgary-Falconridge,0.019651073619631903,0.17418187302066054,NDP,UCP,UCP,NDP,False,False
+minority,Calgary-Edgemont,Peace River,0.006109714879972268,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Edgemont,0.2608334103298531,0.01230609238235549,NDP,UCP,UCP,NDP,True,False
+minority,Calgary-Elbow,Calgary-Glenmore,0.015654749312460334,0.0018952854773750297,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Glenmore,Calgary-Elbow,0.000908157624575535,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Elbow,Calgary-West-Tsuut'ina,0.015654749312460334,0.1765369960957712,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-West-Tsuut'ina,Calgary-Elbow,0.0881979396961287,0.031436429024751425,NDP,UCP,UCP,NDP,False,False
+minority,Calgary-Elbow,Canmore-Kananaskis,0.015654749312460334,0.01327724464309189,UCP,UCP,NDP,NDP,False,True
+minority,Canmore-Kananaskis,Calgary-Elbow,0.006572893387669252,0.031436429024751425,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Elbow,Peace River,0.015654749312460334,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Elbow,0.2608334103298531,0.031436429024751425,NDP,UCP,UCP,NDP,True,False
 minority,Calgary-Falconridge,Calgary-McCall-Bhullar,0.08701553310209621,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-McCall-Bhullar,Calgary-Falconridge,0.07991377933897494,0.17418187302066054,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Falconridge,Calgary-North,0.08701553310209621,0.00820349761526232,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-North,Calgary-Falconridge,0.004006359300476947,0.17418187302066054,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Falconridge,Calgary-North East,0.08701553310209621,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-North East,Calgary-Falconridge,0.050408516959643476,0.17418187302066054,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Falconridge,Peace River,0.08701553310209621,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Falconridge,0.2608334103298531,0.17418187302066054,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Fish Creek,Calgary-Hays,0.049725967116053926,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Hays,Calgary-Fish Creek,0.0677599307492546,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Fish Creek,Calgary-Klein,0.049725967116053926,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Klein,Calgary-Fish Creek,0.0213217511475248,0.09957194863383606,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-Fish Creek,Calgary-Peigan-Chestermere,0.049725967116053926,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Peigan-Chestermere,Calgary-Fish Creek,0.08137910388184812,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Fish Creek,Calgary-South East,0.049725967116053926,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-South East,Calgary-Fish Creek,0.0986442262739598,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Fish Creek,Chestermere-Strathmore,0.049725967116053926,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 minority,Chestermere-Strathmore,Calgary-Fish Creek,0.21507378613658582,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Foothills-Airdrie West,Calgary-Nolan Hill-Cochrane,0.019651073619631903,0.03911070780399274,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Nolan Hill-Cochrane,Calgary-Foothills-Airdrie West,0.019509981851179675,0.03939800613496933,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Foothills-Airdrie West,Calgary-North,0.019651073619631903,0.00820349761526232,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-North,Calgary-Foothills-Airdrie West,0.004006359300476947,0.03939800613496933,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Fish Creek,Peace River,0.049725967116053926,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Fish Creek,0.2608334103298531,0.09957194863383606,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Foothills-Airdrie West,Peace River,0.019651073619631903,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Foothills-Airdrie West,0.2608334103298531,0.03939800613496933,NDP,NDP,UCP,UCP,True,True
 minority,Calgary-Glenmore,Canmore-Kananaskis,0.000908157624575535,0.01327724464309189,UCP,UCP,NDP,NDP,False,True
 minority,Canmore-Kananaskis,Calgary-Glenmore,0.006572893387669252,0.0018952854773750297,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Glenmore,Peace River,0.000908157624575535,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Glenmore,0.2608334103298531,0.0018952854773750297,NDP,UCP,UCP,NDP,True,False
 minority,Calgary-Hays,Calgary-Klein,0.0677599307492546,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Klein,Calgary-Hays,0.0213217511475248,0.1356160430893527,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-Hays,Calgary-Peigan-Chestermere,0.0677599307492546,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
@@ -1171,14 +1189,16 @@ minority,Calgary-Hays,Calgary-South,0.0677599307492546,0.13757583160294776,NDP,N
 minority,Calgary-South,Calgary-Hays,0.06872684336956965,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Hays,Calgary-South East,0.0677599307492546,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-South East,Calgary-Hays,0.0986442262739598,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
-minority,Calgary-Hays,Chestermere-Strathmore,0.0677599307492546,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
-minority,Chestermere-Strathmore,Calgary-Hays,0.21507378613658582,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Hays,Peace River,0.0677599307492546,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Hays,0.2608334103298531,0.1356160430893527,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Klein,Calgary-Peigan-Chestermere,0.0213217511475248,0.1628579982037721,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-Peigan-Chestermere,Calgary-Klein,0.08137910388184812,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Klein,Calgary-South,0.0213217511475248,0.13757583160294776,UCP,NDP,NDP,UCP,False,False
 minority,Calgary-South,Calgary-Klein,0.06872684336956965,0.04279157001135186,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Klein,Chestermere-Strathmore,0.0213217511475248,0.4302872305758577,UCP,NDP,NDP,UCP,False,False
 minority,Chestermere-Strathmore,Calgary-Klein,0.21507378613658582,0.04279157001135186,NDP,UCP,UCP,NDP,True,False
+minority,Calgary-Klein,Peace River,0.0213217511475248,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Klein,0.2608334103298531,0.04279157001135186,NDP,UCP,UCP,NDP,True,False
 minority,Calgary-Lougheed,Calgary-Nolan Hill-Cochrane,0.08318285783074515,0.03911070780399274,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Nolan Hill-Cochrane,Calgary-Lougheed,0.019509981851179675,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Lougheed,Calgary-North West-Bearspaw,0.08318285783074515,0.054701307882644046,NDP,NDP,UCP,UCP,False,True
@@ -1189,78 +1209,90 @@ minority,Calgary-Lougheed,Calgary-West-Tsuut'ina,0.08318285783074515,0.176536996
 minority,Calgary-West-Tsuut'ina,Calgary-Lougheed,0.0881979396961287,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Lougheed,Canmore-Kananaskis,0.08318285783074515,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
 minority,Canmore-Kananaskis,Calgary-Lougheed,0.006572893387669252,0.16648609606356085,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-McCall-Bhullar,Calgary-North East,0.07991377933897494,0.10096558554097548,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-North East,Calgary-McCall-Bhullar,0.050408516959643476,0.15998722656873704,UCP,UCP,NDP,NDP,False,True
-minority,Calgary-McCall-Bhullar,Chestermere-Strathmore,0.07991377933897494,0.4302872305758577,UCP,NDP,NDP,UCP,False,False
-minority,Chestermere-Strathmore,Calgary-McCall-Bhullar,0.21507378613658582,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
+minority,Calgary-Lougheed,Peace River,0.08318285783074515,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Lougheed,0.2608334103298531,0.16648609606356085,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-McCall-Bhullar,Calgary-Peigan-Chestermere,0.07991377933897494,0.1628579982037721,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-Peigan-Chestermere,Calgary-McCall-Bhullar,0.08137910388184812,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
+minority,Calgary-McCall-Bhullar,Peace River,0.07991377933897494,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-McCall-Bhullar,0.2608334103298531,0.15998722656873704,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Mountain View,Calgary-Varsity,0.16102305475504322,0.17839306054499254,UCP,UCP,NDP,NDP,False,True
 minority,Calgary-Varsity,Calgary-Mountain View,0.08915272058179269,0.3221261607428754,UCP,UCP,NDP,NDP,False,True
+minority,Calgary-Mountain View,Peace River,0.16102305475504322,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Mountain View,0.2608334103298531,0.3221261607428754,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Nolan Hill-Cochrane,Canmore-Kananaskis,0.019509981851179675,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
 minority,Canmore-Kananaskis,Calgary-Nolan Hill-Cochrane,0.006572893387669252,0.03911070780399274,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-Nolan Hill-Cochrane,Peace River,0.019509981851179675,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Nolan Hill-Cochrane,0.2608334103298531,0.03911070780399274,NDP,NDP,UCP,UCP,True,True
 minority,Calgary-North,Calgary-North East,0.004006359300476947,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-North East,Calgary-North,0.050408516959643476,0.00820349761526232,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-North East,Chestermere-Strathmore,0.050408516959643476,0.4302872305758577,UCP,NDP,NDP,UCP,False,False
-minority,Chestermere-Strathmore,Calgary-North East,0.21507378613658582,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
+minority,Calgary-North,Peace River,0.004006359300476947,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-North,0.2608334103298531,0.00820349761526232,NDP,NDP,UCP,UCP,True,True
+minority,Calgary-North East,Peace River,0.050408516959643476,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-North East,0.2608334103298531,0.10096558554097548,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-North West-Bearspaw,Calgary-Varsity,0.02730646871686108,0.17839306054499254,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-Varsity,Calgary-North West-Bearspaw,0.08915272058179269,0.054701307882644046,UCP,NDP,NDP,UCP,False,False
-minority,Calgary-North West-Bearspaw,Canmore-Kananaskis,0.02730646871686108,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
-minority,Canmore-Kananaskis,Calgary-North West-Bearspaw,0.006572893387669252,0.054701307882644046,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-North West-Bearspaw,Peace River,0.02730646871686108,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-North West-Bearspaw,0.2608334103298531,0.054701307882644046,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Peigan-Chestermere,Calgary-South East,0.08137910388184812,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-South East,Calgary-Peigan-Chestermere,0.0986442262739598,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Peigan-Chestermere,Chestermere-Strathmore,0.08137910388184812,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 minority,Chestermere-Strathmore,Calgary-Peigan-Chestermere,0.21507378613658582,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Peigan-Chestermere,Drumheller-Stettler,0.08137910388184812,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
+minority,Drumheller-Stettler,Calgary-Peigan-Chestermere,0.3504511529464186,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-Peigan-Chestermere,Highwood,0.08137910388184812,0.409322365844105,NDP,NDP,UCP,UCP,False,True
 minority,Highwood,Calgary-Peigan-Chestermere,0.2046220133176655,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Peigan-Chestermere,Lethbridge-Taber-Warner,0.08137910388184812,0.5844818081587652,NDP,NDP,UCP,UCP,False,True
+minority,Lethbridge-Taber-Warner,Calgary-Peigan-Chestermere,0.2921719955898567,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Peigan-Chestermere,Peace River,0.08137910388184812,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-Peigan-Chestermere,0.2608334103298531,0.1628579982037721,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-South,Calgary-South East,0.06872684336956965,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-South East,Calgary-South,0.0986442262739598,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-South,Peace River,0.06872684336956965,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-South,0.2608334103298531,0.13757583160294776,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-South East,Chestermere-Strathmore,0.0986442262739598,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 minority,Chestermere-Strathmore,Calgary-South East,0.21507378613658582,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
 minority,Calgary-South East,Highwood,0.0986442262739598,0.409322365844105,NDP,NDP,UCP,UCP,False,True
 minority,Highwood,Calgary-South East,0.2046220133176655,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-South East,Peace River,0.0986442262739598,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-South East,0.2608334103298531,0.19741595477920865,NDP,NDP,UCP,UCP,False,True
+minority,Calgary-Varsity,Peace River,0.08915272058179269,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Calgary-Varsity,0.2608334103298531,0.17839306054499254,NDP,UCP,UCP,NDP,False,False
 minority,Calgary-West-Tsuut'ina,Canmore-Kananaskis,0.0881979396961287,0.01327724464309189,NDP,UCP,UCP,NDP,False,False
 minority,Canmore-Kananaskis,Calgary-West-Tsuut'ina,0.006572893387669252,0.1765369960957712,UCP,NDP,NDP,UCP,False,False
+minority,Calgary-West-Tsuut'ina,Peace River,0.0881979396961287,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Calgary-West-Tsuut'ina,0.2608334103298531,0.1765369960957712,NDP,NDP,UCP,UCP,False,True
 minority,Camrose,Leduc,0.200150448659395,0.1674039773432009,NDP,NDP,UCP,UCP,False,True
 minority,Leduc,Camrose,0.08363997188572374,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
-minority,Camrose,Wetaskawin-Ponoka-Maskwacis,0.200150448659395,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-minority,Wetaskawin-Ponoka-Maskwacis,Camrose,0.20789489690408125,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
+minority,Camrose,Peace River,0.200150448659395,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Camrose,0.2608334103298531,0.4004620923109989,NDP,NDP,UCP,UCP,False,True
 minority,Canmore-Kananaskis,Highwood,0.006572893387669252,0.409322365844105,UCP,NDP,NDP,UCP,False,False
 minority,Highwood,Canmore-Kananaskis,0.2046220133176655,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
-minority,Canmore-Kananaskis,Lethbridge-Fort MacLeod-Crowsnest Pass,0.006572893387669252,0.05102980373152411,UCP,UCP,NDP,NDP,False,True
-minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Canmore-Kananaskis,0.02544220983765447,0.01327724464309189,UCP,UCP,NDP,NDP,False,True
+minority,Canmore-Kananaskis,Peace River,0.006572893387669252,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Canmore-Kananaskis,0.2608334103298531,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
 minority,Canmore-Kananaskis,Rocky Mountain House-Banff Park,0.006572893387669252,0.6663277863984162,UCP,NDP,NDP,UCP,False,False
 minority,Rocky Mountain House-Banff Park,Canmore-Kananaskis,0.3330836320830435,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
-minority,Canmore-Kananaskis,West Yellowhead,0.006572893387669252,0.4359076235410976,UCP,NDP,NDP,UCP,False,False
-minority,West Yellowhead,Canmore-Kananaskis,0.21787931462627266,0.01327724464309189,NDP,UCP,UCP,NDP,True,False
-minority,Central Peace-Notley,Lesser Slave Lake,0.3071503131524008,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
-minority,Lesser Slave Lake,Central Peace-Notley,0.16216216216216217,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
 minority,Central Peace-Notley,Peace River,0.3071503131524008,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
 minority,Peace River,Central Peace-Notley,0.2608334103298531,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
-minority,Central Peace-Notley,West Yellowhead,0.3071503131524008,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
-minority,West Yellowhead,Central Peace-Notley,0.21787931462627266,0.6144745998608212,NDP,NDP,UCP,UCP,False,True
-minority,Chestermere-Strathmore,Drumheller-Stettler,0.21507378613658582,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
-minority,Drumheller-Stettler,Chestermere-Strathmore,0.3504511529464186,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
 minority,Chestermere-Strathmore,Highwood,0.21507378613658582,0.409322365844105,NDP,NDP,UCP,UCP,False,True
 minority,Highwood,Chestermere-Strathmore,0.2046220133176655,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
-minority,Chestermere-Strathmore,Lethbridge-Cardston,0.21507378613658582,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
-minority,Lethbridge-Cardston,Chestermere-Strathmore,0.02544220983765447,0.4302872305758577,UCP,NDP,NDP,UCP,False,False
-minority,Cold Lake-Bonnyville-St. Paul,Fort McMurray-Lac La Biche,0.25467634055095795,0.5004388959328977,NDP,NDP,UCP,UCP,False,True
-minority,Fort McMurray-Lac La Biche,Cold Lake-Bonnyville-St. Paul,0.25007314932214963,0.5094660469334542,NDP,NDP,UCP,UCP,False,True
-minority,Cold Lake-Bonnyville-St. Paul,Lloydminster-Wainwright,0.25467634055095795,0.6197130843433094,NDP,NDP,UCP,UCP,False,True
-minority,Lloydminster-Wainwright,Cold Lake-Bonnyville-St. Paul,0.30979470690081623,0.5094660469334542,NDP,NDP,UCP,UCP,False,True
-minority,Drumheller-Stettler,Lloydminster-Wainwright,0.3504511529464186,0.6197130843433094,NDP,NDP,UCP,UCP,False,True
-minority,Lloydminster-Wainwright,Drumheller-Stettler,0.30979470690081623,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
-minority,Drumheller-Stettler,Medicine Hat-Brooks,0.3504511529464186,0.4170923797360579,NDP,NDP,UCP,UCP,False,True
-minority,Medicine Hat-Brooks,Drumheller-Stettler,0.20849297573435505,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
+minority,Chestermere-Strathmore,Peace River,0.21507378613658582,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Chestermere-Strathmore,0.2608334103298531,0.4302872305758577,NDP,NDP,UCP,UCP,False,True
+minority,Cold Lake-Bonnyville-St. Paul,Peace River,0.25467634055095795,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Cold Lake-Bonnyville-St. Paul,0.2608334103298531,0.5094660469334542,NDP,NDP,UCP,UCP,False,True
+minority,Drumheller-Stettler,Lethbridge-Taber-Warner,0.3504511529464186,0.5844818081587652,NDP,NDP,UCP,UCP,False,True
+minority,Lethbridge-Taber-Warner,Drumheller-Stettler,0.2921719955898567,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
+minority,Drumheller-Stettler,Peace River,0.3504511529464186,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Drumheller-Stettler,0.2608334103298531,0.7010137016820764,NDP,NDP,UCP,UCP,False,True
 minority,Edmonton-Beaumont,Edmonton-Ellerslie,0.09589574854965797,0.2527677299134057,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Ellerslie,Edmonton-Beaumont,0.1263290584237641,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
 minority,Edmonton-Beaumont,Edmonton-Highlands-Norwood,0.09589574854965797,0.4782337824156997,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Highlands-Norwood,Edmonton-Beaumont,0.23900007787555486,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
-minority,Edmonton-Beaumont,Edmonton-Rutherford,0.09589574854965797,0.3429662503870368,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Rutherford,Edmonton-Beaumont,0.17143152028073072,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
 minority,Edmonton-Beaumont,Edmonton-South,0.09589574854965797,0.19773486033047374,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-South,Edmonton-Beaumont,0.0988040400625449,0.19187808468265652,UCP,NDP,NDP,UCP,False,False
 minority,Edmonton-Beaumont,Leduc,0.09589574854965797,0.1674039773432009,NDP,NDP,UCP,UCP,False,True
 minority,Leduc,Edmonton-Beaumont,0.08363997188572374,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
+minority,Edmonton-Beaumont,Peace River,0.09589574854965797,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Edmonton-Beaumont,0.2608334103298531,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
 minority,Edmonton-Beaumont,Sherwood Park-Strathcona,0.09589574854965797,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
 minority,Sherwood Park-Strathcona,Edmonton-Beaumont,0.04343224491395868,0.19187808468265652,NDP,NDP,UCP,UCP,False,True
 minority,Edmonton-Beaumont,Stony Plain-Drayton Valley,0.09589574854965797,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
@@ -1275,46 +1307,28 @@ minority,Edmonton-Beverly-Clareview,Edmonton-Enoch-Devon,0.09922535211267605,0.1
 minority,Edmonton-Enoch-Devon,Edmonton-Beverly-Clareview,0.052487080103359174,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Beverly-Clareview,Edmonton-Glenora-Riverview,0.09922535211267605,0.41222603459141516,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Glenora-Riverview,Edmonton-Beverly-Clareview,0.20607800574189483,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Beverly-Clareview,Edmonton-Gold Bar,0.09922535211267605,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Gold Bar,Edmonton-Beverly-Clareview,0.21520154967253943,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Beverly-Clareview,Edmonton-North West,0.09922535211267605,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-North West,Edmonton-Beverly-Clareview,0.10961749969448857,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Beverly-Clareview,Edmonton-Strathcona,0.09922535211267605,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Strathcona,Edmonton-Beverly-Clareview,0.3217140841758758,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Beverly-Clareview,Edmonton-West Henday,0.09922535211267605,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-West Henday,Edmonton-Beverly-Clareview,0.09089506966222816,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Beverly-Clareview,Peace River,0.09922535211267605,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Beverly-Clareview,0.2608334103298531,0.19859154929577466,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Beverly-Clareview,Sherwood Park,0.09922535211267605,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
 minority,Sherwood Park,Edmonton-Beverly-Clareview,0.03376094481775606,0.19859154929577466,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Beverly-Clareview,Stony Plain-Drayton Valley,0.09922535211267605,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-Beverly-Clareview,0.26739705677545145,0.19859154929577466,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Castledowns,Edmonton-Decore,0.07951529140219273,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Decore,Edmonton-Castledowns,0.06165569795635608,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Castledowns,Edmonton-Enoch-Devon,0.07951529140219273,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Enoch-Devon,Edmonton-Castledowns,0.052487080103359174,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Castledowns,Edmonton-Manning,0.07951529140219273,0.21817971817971818,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Manning,Edmonton-Castledowns,0.10903210903210903,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Castledowns,St. Albert,0.07951529140219273,0.19115023194956585,UCP,UCP,NDP,NDP,False,True
-minority,St. Albert,Edmonton-Castledowns,0.09551564172713216,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Castledowns,St. Albert-Sturgeon,0.07951529140219273,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
-minority,St. Albert-Sturgeon,Edmonton-Castledowns,0.05418432643563534,0.1591459896133872,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Castledowns,Stony Plain-Drayton Valley,0.07951529140219273,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-Castledowns,0.26739705677545145,0.1591459896133872,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-City Centre,Edmonton-Gold Bar,0.27099615432328494,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Gold Bar,Edmonton-City Centre,0.21520154967253943,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-City Centre,Edmonton-Highlands-Norwood,0.27099615432328494,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Highlands-Norwood,Edmonton-City Centre,0.23900007787555486,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-City Centre,Edmonton-McClung,0.27099615432328494,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-McClung,Edmonton-City Centre,0.11425281473899693,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Castledowns,Edmonton-North West,0.07951529140219273,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-North West,Edmonton-Castledowns,0.10961749969448857,0.1591459896133872,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Castledowns,Peace River,0.07951529140219273,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Castledowns,0.2608334103298531,0.1591459896133872,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-City Centre,Edmonton-Strathcona,0.27099615432328494,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Strathcona,Edmonton-City Centre,0.3217140841758758,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-City Centre,Sherwood Park,0.27099615432328494,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
-minority,Sherwood Park,Edmonton-City Centre,0.03376094481775606,0.5421163627341521,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-City Centre,Stony Plain-Drayton Valley,0.27099615432328494,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-City Centre,0.26739705677545145,0.5421163627341521,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-City Centre,Peace River,0.27099615432328494,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-City Centre,0.2608334103298531,0.5421163627341521,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Decore,Edmonton-Manning,0.06165569795635608,0.21817971817971818,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Manning,Edmonton-Decore,0.10903210903210903,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Decore,Edmonton-North West,0.06165569795635608,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-North West,Edmonton-Decore,0.10961749969448857,0.12351922410807066,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Decore,Peace River,0.06165569795635608,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Decore,0.2608334103298531,0.12351922410807066,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Decore,Stony Plain-Drayton Valley,0.06165569795635608,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 minority,Stony Plain-Drayton Valley,Edmonton-Decore,0.26739705677545145,0.12351922410807066,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Ellerslie,Edmonton-Highlands-Norwood,0.1263290584237641,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
@@ -1333,58 +1347,50 @@ minority,Edmonton-Enoch-Devon,Edmonton-Glenora-Riverview,0.052487080103359174,0.
 minority,Edmonton-Glenora-Riverview,Edmonton-Enoch-Devon,0.20607800574189483,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Enoch-Devon,Edmonton-West Henday,0.052487080103359174,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-West Henday,Edmonton-Enoch-Devon,0.09089506966222816,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Enoch-Devon,St. Albert,0.052487080103359174,0.19115023194956585,UCP,UCP,NDP,NDP,False,True
-minority,St. Albert,Edmonton-Enoch-Devon,0.09551564172713216,0.10508182601205857,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Enoch-Devon,St. Albert-Sturgeon,0.052487080103359174,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
-minority,St. Albert-Sturgeon,Edmonton-Enoch-Devon,0.05418432643563534,0.10508182601205857,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Enoch-Devon,Stony Plain-Drayton Valley,0.052487080103359174,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-Enoch-Devon,0.26739705677545145,0.10508182601205857,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Enoch-Devon,Peace River,0.052487080103359174,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Enoch-Devon,0.2608334103298531,0.10508182601205857,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Glenora-Riverview,Edmonton-McClung,0.20607800574189483,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-McClung,Edmonton-Glenora-Riverview,0.11425281473899693,0.41222603459141516,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Glenora-Riverview,Edmonton-West Henday,0.20607800574189483,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-West Henday,Edmonton-Glenora-Riverview,0.09089506966222816,0.41222603459141516,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Glenora-Riverview,Edmonton-Whitemud,0.20607800574189483,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Whitemud,Edmonton-Glenora-Riverview,0.12128568654107594,0.41222603459141516,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Glenora-Riverview,Stony Plain-Drayton Valley,0.20607800574189483,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-Glenora-Riverview,0.26739705677545145,0.41222603459141516,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Glenora-Riverview,Edmonton-Windermere,0.20607800574189483,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Windermere,Edmonton-Glenora-Riverview,0.07236973050435891,0.41222603459141516,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Glenora-Riverview,Peace River,0.20607800574189483,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Glenora-Riverview,0.2608334103298531,0.41222603459141516,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Gold Bar,Edmonton-Meadows,0.21520154967253943,0.2665171640503709,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Meadows,Edmonton-Gold Bar,0.13317233051578403,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Gold Bar,Edmonton-Mill Woods,0.21520154967253943,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Mill Woods,Edmonton-Gold Bar,0.11688601383002453,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Gold Bar,Edmonton-North West,0.21520154967253943,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-North West,Edmonton-Gold Bar,0.10961749969448857,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Gold Bar,Edmonton-Strathcona,0.21520154967253943,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Strathcona,Edmonton-Gold Bar,0.3217140841758758,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Gold Bar,Sherwood Park,0.21520154967253943,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
 minority,Sherwood Park,Edmonton-Gold Bar,0.03376094481775606,0.4304953417581404,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Gold Bar,Sherwood Park-Strathcona,0.21520154967253943,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
 minority,Sherwood Park-Strathcona,Edmonton-Gold Bar,0.04343224491395868,0.4304953417581404,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Gold Bar,Stony Plain-Drayton Valley,0.21520154967253943,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 minority,Stony Plain-Drayton Valley,Edmonton-Gold Bar,0.26739705677545145,0.4304953417581404,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Highlands-Norwood,Edmonton-McClung,0.23900007787555486,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-McClung,Edmonton-Highlands-Norwood,0.11425281473899693,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Highlands-Norwood,Edmonton-Meadows,0.23900007787555486,0.2665171640503709,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Meadows,Edmonton-Highlands-Norwood,0.13317233051578403,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Highlands-Norwood,Edmonton-South,0.23900007787555486,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-South,Edmonton-Highlands-Norwood,0.0988040400625449,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Highlands-Norwood,Edmonton-Strathcona,0.23900007787555486,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Strathcona,Edmonton-Highlands-Norwood,0.3217140841758758,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Highlands-Norwood,Edmonton-Windermere,0.23900007787555486,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Windermere,Edmonton-Highlands-Norwood,0.07236973050435891,0.4782337824156997,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Highlands-Norwood,Peace River,0.23900007787555486,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Highlands-Norwood,0.2608334103298531,0.4782337824156997,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Highlands-Norwood,Stony Plain-Drayton Valley,0.23900007787555486,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 minority,Stony Plain-Drayton Valley,Edmonton-Highlands-Norwood,0.26739705677545145,0.4782337824156997,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Manning,St. Albert-Sturgeon,0.10903210903210903,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
-minority,St. Albert-Sturgeon,Edmonton-Manning,0.05418432643563534,0.21817971817971818,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Manning,Peace River,0.10903210903210903,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Manning,0.2608334103298531,0.21817971817971818,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Manning,Stony Plain-Drayton Valley,0.10903210903210903,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 minority,Stony Plain-Drayton Valley,Edmonton-Manning,0.26739705677545145,0.21817971817971818,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-McClung,Edmonton-Rutherford,0.11425281473899693,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Rutherford,Edmonton-McClung,0.17143152028073072,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-McClung,Edmonton-South,0.11425281473899693,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-South,Edmonton-McClung,0.0988040400625449,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-McClung,Edmonton-Strathcona,0.11425281473899693,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Strathcona,Edmonton-McClung,0.3217140841758758,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-McClung,Edmonton-Whitemud,0.11425281473899693,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Whitemud,Edmonton-McClung,0.12128568654107594,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-McClung,Edmonton-Windermere,0.11425281473899693,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Windermere,Edmonton-McClung,0.07236973050435891,0.22863357215967248,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-McClung,Stony Plain-Drayton Valley,0.11425281473899693,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-McClung,0.26739705677545145,0.22863357215967248,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Meadows,Edmonton-Mill Woods,0.13317233051578403,0.23388356011599376,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Mill Woods,Edmonton-Meadows,0.11688601383002453,0.2665171640503709,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Meadows,Sherwood Park-Strathcona,0.13317233051578403,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
@@ -1395,99 +1401,129 @@ minority,Edmonton-Mill Woods,Leduc,0.11688601383002453,0.1674039773432009,UCP,ND
 minority,Leduc,Edmonton-Mill Woods,0.08363997188572374,0.23388356011599376,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Mill Woods,Sherwood Park-Strathcona,0.11688601383002453,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
 minority,Sherwood Park-Strathcona,Edmonton-Mill Woods,0.04343224491395868,0.23388356011599376,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-North West,Fort Saskatchewan-Vegreville,0.10961749969448857,0.21828374299266926,UCP,NDP,NDP,UCP,False,False
-minority,Fort Saskatchewan-Vegreville,Edmonton-North West,0.10909874946097456,0.2193572039594281,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-North West,Sherwood Park,0.10961749969448857,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
-minority,Sherwood Park,Edmonton-North West,0.03376094481775606,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-North West,Edmonton-West Henday,0.10961749969448857,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-West Henday,Edmonton-North West,0.09089506966222816,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-North West,Peace River,0.10961749969448857,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-North West,0.2608334103298531,0.2193572039594281,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-North West,St. Albert,0.10961749969448857,0.19115023194956585,UCP,UCP,NDP,NDP,False,True
+minority,St. Albert,Edmonton-North West,0.09551564172713216,0.2193572039594281,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-North West,St. Albert-Sturgeon,0.10961749969448857,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
 minority,St. Albert-Sturgeon,Edmonton-North West,0.05418432643563534,0.2193572039594281,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Rutherford,Edmonton-South,0.17143152028073072,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-South,Edmonton-Rutherford,0.0988040400625449,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Rutherford,Edmonton-Windermere,0.17143152028073072,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Windermere,Edmonton-Rutherford,0.07236973050435891,0.3429662503870368,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-Rutherford,Stony Plain-Drayton Valley,0.17143152028073072,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-Rutherford,0.26739705677545145,0.3429662503870368,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Rutherford,Peace River,0.17143152028073072,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Rutherford,0.2608334103298531,0.3429662503870368,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-South,Edmonton-Whitemud,0.0988040400625449,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Whitemud,Edmonton-South,0.12128568654107594,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-South,Edmonton-Windermere,0.0988040400625449,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Windermere,Edmonton-South,0.07236973050435891,0.19773486033047374,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-South,Stony Plain-Drayton Valley,0.0988040400625449,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-South,0.26739705677545145,0.19773486033047374,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Spruce Grove,Lac Ste. Anne-Parkland,0.09685808074348809,0.435524986773123,NDP,NDP,UCP,UCP,False,True
-minority,Lac Ste. Anne-Parkland,Edmonton-Spruce Grove,0.21769034678466645,0.1938440550795072,NDP,NDP,UCP,UCP,False,True
-minority,Edmonton-Spruce Grove,Stony Plain-Drayton Valley,0.09685808074348809,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
-minority,Stony Plain-Drayton Valley,Edmonton-Spruce Grove,0.26739705677545145,0.1938440550795072,NDP,NDP,UCP,UCP,False,True
+minority,Edmonton-South,Peace River,0.0988040400625449,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-South,0.2608334103298531,0.19773486033047374,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Spruce Grove,Peace River,0.09685808074348809,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Edmonton-Spruce Grove,0.2608334103298531,0.1938440550795072,NDP,NDP,UCP,UCP,False,True
+minority,Edmonton-Spruce Grove,St. Albert-Sturgeon,0.09685808074348809,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
+minority,St. Albert-Sturgeon,Edmonton-Spruce Grove,0.05418432643563534,0.1938440550795072,NDP,NDP,UCP,UCP,False,True
+minority,Edmonton-Strathcona,Edmonton-Windermere,0.3217140841758758,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Windermere,Edmonton-Strathcona,0.07236973050435891,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Strathcona,Peace River,0.3217140841758758,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Strathcona,0.2608334103298531,0.6435457324241711,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Strathcona,Sherwood Park,0.3217140841758758,0.06764406434534719,UCP,UCP,NDP,NDP,False,True
+minority,Sherwood Park,Edmonton-Strathcona,0.03376094481775606,0.6435457324241711,UCP,UCP,NDP,NDP,False,True
 minority,Edmonton-Strathcona,Stony Plain-Drayton Valley,0.3217140841758758,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 minority,Stony Plain-Drayton Valley,Edmonton-Strathcona,0.26739705677545145,0.6435457324241711,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-West Henday,Peace River,0.09089506966222816,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-West Henday,0.2608334103298531,0.18194437303994654,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-West Henday,St. Albert,0.09089506966222816,0.19115023194956585,UCP,UCP,NDP,NDP,False,True
 minority,St. Albert,Edmonton-West Henday,0.09551564172713216,0.18194437303994654,UCP,UCP,NDP,NDP,False,True
-minority,Edmonton-West Henday,Stony Plain-Drayton Valley,0.09089506966222816,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-West Henday,0.26739705677545145,0.18194437303994654,NDP,UCP,UCP,NDP,False,False
-minority,Edmonton-Whitemud,Stony Plain-Drayton Valley,0.12128568654107594,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
-minority,Stony Plain-Drayton Valley,Edmonton-Whitemud,0.26739705677545145,0.24266847931637212,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-West Henday,St. Albert-Sturgeon,0.09089506966222816,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
+minority,St. Albert-Sturgeon,Edmonton-West Henday,0.05418432643563534,0.18194437303994654,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Whitemud,Edmonton-Windermere,0.12128568654107594,0.14485888300624974,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Windermere,Edmonton-Whitemud,0.07236973050435891,0.24266847931637212,UCP,UCP,NDP,NDP,False,True
+minority,Edmonton-Whitemud,Peace River,0.12128568654107594,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Whitemud,0.2608334103298531,0.24266847931637212,NDP,UCP,UCP,NDP,False,False
+minority,Edmonton-Windermere,Peace River,0.07236973050435891,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Edmonton-Windermere,0.2608334103298531,0.14485888300624974,NDP,UCP,UCP,NDP,False,False
 minority,Edmonton-Windermere,Stony Plain-Drayton Valley,0.07236973050435891,0.5349333828513068,UCP,NDP,NDP,UCP,False,False
 minority,Stony Plain-Drayton Valley,Edmonton-Windermere,0.26739705677545145,0.14485888300624974,NDP,UCP,UCP,NDP,False,False
-minority,Fort McMurray-Lac La Biche,Fort McMurray-Wood Buffalo,0.25007314932214963,0.5496593761204733,NDP,NDP,UCP,UCP,False,True
-minority,Fort McMurray-Wood Buffalo,Fort McMurray-Lac La Biche,0.27465041233417,0.5004388959328977,NDP,NDP,UCP,UCP,False,True
-minority,Fort McMurray-Lac La Biche,Lesser Slave Lake,0.25007314932214963,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
-minority,Lesser Slave Lake,Fort McMurray-Lac La Biche,0.16216216216216217,0.5004388959328977,NDP,NDP,UCP,UCP,False,True
-minority,Fort McMurray-Wood Buffalo,Lesser Slave Lake,0.27465041233417,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
-minority,Lesser Slave Lake,Fort McMurray-Wood Buffalo,0.16216216216216217,0.5496593761204733,NDP,NDP,UCP,UCP,False,True
+minority,Fort McMurray-Lac La Biche,Peace River,0.25007314932214963,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Fort McMurray-Lac La Biche,0.2608334103298531,0.5004388959328977,NDP,NDP,UCP,UCP,False,True
 minority,Fort McMurray-Wood Buffalo,Peace River,0.27465041233417,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
 minority,Peace River,Fort McMurray-Wood Buffalo,0.2608334103298531,0.5496593761204733,NDP,NDP,UCP,UCP,False,True
-minority,Fort Saskatchewan-Vegreville,Lloydminster-Wainwright,0.10909874946097456,0.6197130843433094,NDP,NDP,UCP,UCP,False,True
-minority,Lloydminster-Wainwright,Fort Saskatchewan-Vegreville,0.30979470690081623,0.21828374299266926,NDP,NDP,UCP,UCP,False,True
+minority,Fort Saskatchewan-Vegreville,Peace River,0.10909874946097456,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Fort Saskatchewan-Vegreville,0.2608334103298531,0.21828374299266926,NDP,NDP,UCP,UCP,False,True
 minority,Grande Prairie,Grande Prairie-Wapiti,0.17151299442616347,0.5757987053664648,NDP,NDP,UCP,UCP,False,True
 minority,Grande Prairie-Wapiti,Grande Prairie,0.287847149718104,0.3432274528238533,NDP,NDP,UCP,UCP,False,True
-minority,Grande Prairie-Wapiti,West Yellowhead,0.287847149718104,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
-minority,West Yellowhead,Grande Prairie-Wapiti,0.21787931462627266,0.5757987053664648,NDP,NDP,UCP,UCP,False,True
-minority,Highwood,Lethbridge-Cardston,0.2046220133176655,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
-minority,Lethbridge-Cardston,Highwood,0.02544220983765447,0.409322365844105,UCP,NDP,NDP,UCP,False,False
-minority,Lac Ste. Anne-Parkland,St. Albert,0.21769034678466645,0.19115023194956585,NDP,UCP,UCP,NDP,False,False
-minority,St. Albert,Lac Ste. Anne-Parkland,0.09551564172713216,0.435524986773123,UCP,NDP,NDP,UCP,False,False
-minority,Lac Ste. Anne-Parkland,St. Albert-Sturgeon,0.21769034678466645,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
-minority,St. Albert-Sturgeon,Lac Ste. Anne-Parkland,0.05418432643563534,0.435524986773123,NDP,NDP,UCP,UCP,False,True
+minority,Grande Prairie-Wapiti,Peace River,0.287847149718104,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Grande Prairie-Wapiti,0.2608334103298531,0.5757987053664648,NDP,NDP,UCP,UCP,False,True
+minority,Highwood,Lethbridge-Taber-Warner,0.2046220133176655,0.5844818081587652,NDP,NDP,UCP,UCP,False,True
+minority,Lethbridge-Taber-Warner,Highwood,0.2921719955898567,0.409322365844105,NDP,NDP,UCP,UCP,False,True
+minority,Highwood,Peace River,0.2046220133176655,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Highwood,0.2608334103298531,0.409322365844105,NDP,NDP,UCP,UCP,False,True
+minority,Lac Ste. Anne-Parkland,Peace River,0.21769034678466645,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Lac Ste. Anne-Parkland,0.2608334103298531,0.435524986773123,NDP,NDP,UCP,UCP,False,True
+minority,Leduc,Peace River,0.08363997188572374,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Leduc,0.2608334103298531,0.1674039773432009,NDP,NDP,UCP,UCP,False,True
 minority,Leduc,Sherwood Park-Strathcona,0.08363997188572374,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
 minority,Sherwood Park-Strathcona,Leduc,0.04343224491395868,0.1674039773432009,NDP,NDP,UCP,UCP,False,True
 minority,Lesser Slave Lake,Peace River,0.16216216216216217,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
 minority,Peace River,Lesser Slave Lake,0.2608334103298531,0.32470859485077497,NDP,NDP,UCP,UCP,False,True
-minority,Lethbridge-Cardston,Lethbridge-Fort MacLeod-Crowsnest Pass,0.02544220983765447,0.05102980373152411,UCP,UCP,NDP,NDP,False,True
-minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Lethbridge-Cardston,0.02544220983765447,0.05102980373152411,UCP,UCP,NDP,NDP,False,True
-minority,Lethbridge-Cardston,Lethbridge-Little Bow,0.02544220983765447,0.07490930483380724,UCP,NDP,NDP,UCP,False,False
-minority,Lethbridge-Little Bow,Lethbridge-Cardston,0.03740562800274537,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
-minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Lethbridge-Little Bow,0.02544220983765447,0.07490930483380724,UCP,NDP,NDP,UCP,False,False
-minority,Lethbridge-Little Bow,Lethbridge-Fort MacLeod-Crowsnest Pass,0.03740562800274537,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
+minority,Lethbridge-Cardston,Lethbridge-Taber-Warner,0.02544220983765447,0.5844818081587652,UCP,NDP,NDP,UCP,False,False
+minority,Lethbridge-Taber-Warner,Lethbridge-Cardston,0.2921719955898567,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
+minority,Lethbridge-Cardston,Peace River,0.02544220983765447,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Lethbridge-Cardston,0.2608334103298531,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
+minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Lethbridge-Taber-Warner,0.02544220983765447,0.5844818081587652,UCP,NDP,NDP,UCP,False,False
+minority,Lethbridge-Taber-Warner,Lethbridge-Fort MacLeod-Crowsnest Pass,0.2921719955898567,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
+minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Peace River,0.02544220983765447,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Lethbridge-Fort MacLeod-Crowsnest Pass,0.2608334103298531,0.05102980373152411,NDP,UCP,UCP,NDP,False,False
 minority,Lethbridge-Little Bow,Lethbridge-Taber-Warner,0.03740562800274537,0.5844818081587652,NDP,NDP,UCP,UCP,False,True
 minority,Lethbridge-Taber-Warner,Lethbridge-Little Bow,0.2921719955898567,0.07490930483380724,NDP,NDP,UCP,UCP,False,True
-minority,Lethbridge-Little Bow,Medicine Hat-Brooks,0.03740562800274537,0.4170923797360579,NDP,NDP,UCP,UCP,False,True
-minority,Medicine Hat-Brooks,Lethbridge-Little Bow,0.20849297573435505,0.07490930483380724,NDP,NDP,UCP,UCP,False,True
-minority,Lethbridge-Taber-Warner,Medicine Hat-Brooks,0.2921719955898567,0.4170923797360579,NDP,NDP,UCP,UCP,False,True
-minority,Medicine Hat-Brooks,Lethbridge-Taber-Warner,0.20849297573435505,0.5844818081587652,NDP,NDP,UCP,UCP,False,True
+minority,Lethbridge-Little Bow,Peace River,0.03740562800274537,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Lethbridge-Little Bow,0.2608334103298531,0.07490930483380724,NDP,NDP,UCP,UCP,False,True
 minority,Lethbridge-Taber-Warner,Medicine Hat-Cypress,0.2921719955898567,0.27338808647219864,NDP,NDP,UCP,UCP,False,True
 minority,Medicine Hat-Cypress,Lethbridge-Taber-Warner,0.1366468422543189,0.5844818081587652,NDP,NDP,UCP,UCP,False,True
-minority,Medicine Hat-Brooks,Medicine Hat-Cypress,0.20849297573435505,0.27338808647219864,NDP,NDP,UCP,UCP,False,True
-minority,Medicine Hat-Cypress,Medicine Hat-Brooks,0.1366468422543189,0.4170923797360579,NDP,NDP,UCP,UCP,False,True
+minority,Lethbridge-Taber-Warner,Peace River,0.2921719955898567,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Lethbridge-Taber-Warner,0.2608334103298531,0.5844818081587652,NDP,NDP,UCP,UCP,False,True
+minority,Lloydminster-Wainwright,Peace River,0.30979470690081623,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Lloydminster-Wainwright,0.2608334103298531,0.6197130843433094,NDP,NDP,UCP,UCP,False,True
+minority,Medicine Hat-Brooks,Peace River,0.20849297573435505,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Medicine Hat-Brooks,0.2608334103298531,0.4170923797360579,NDP,NDP,UCP,UCP,False,True
+minority,Medicine Hat-Cypress,Peace River,0.1366468422543189,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Medicine Hat-Cypress,0.2608334103298531,0.27338808647219864,NDP,NDP,UCP,UCP,False,True
+minority,Olds-Three Hills-Didsbury,Peace River,0.3000746235898336,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Olds-Three Hills-Didsbury,0.2608334103298531,0.600280935867609,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Red Deer-Blackfalds,0.2608334103298531,0.28298039215686277,NDP,NDP,UCP,UCP,False,True
+minority,Red Deer-Blackfalds,Peace River,0.14141176470588235,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Red Deer-Innisfail,0.2608334103298531,0.4608126689109099,NDP,NDP,UCP,UCP,False,True
+minority,Red Deer-Innisfail,Peace River,0.23033521407235313,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Red Deer-Lacombe,0.2608334103298531,0.4600542005420054,NDP,NDP,UCP,UCP,False,True
+minority,Red Deer-Lacombe,Peace River,0.2299728997289973,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Red Deer-Sylvan Lake,0.2608334103298531,0.26989317636799653,NDP,NDP,UCP,UCP,False,True
+minority,Red Deer-Sylvan Lake,Peace River,0.13489208633093525,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Rocky Mountain House-Banff Park,0.2608334103298531,0.6663277863984162,NDP,NDP,UCP,UCP,False,True
+minority,Rocky Mountain House-Banff Park,Peace River,0.3330836320830435,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Sherwood Park,0.2608334103298531,0.06764406434534719,NDP,UCP,UCP,NDP,False,False
+minority,Sherwood Park,Peace River,0.03376094481775606,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,Sherwood Park-Strathcona,0.2608334103298531,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
+minority,Sherwood Park-Strathcona,Peace River,0.04343224491395868,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,St. Albert,0.2608334103298531,0.19115023194956585,NDP,UCP,UCP,NDP,False,False
+minority,St. Albert,Peace River,0.09551564172713216,0.5219440081308325,UCP,NDP,NDP,UCP,False,False
+minority,Peace River,St. Albert-Sturgeon,0.2608334103298531,0.10845175766641735,NDP,NDP,UCP,UCP,False,True
+minority,St. Albert-Sturgeon,Peace River,0.05418432643563534,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Stony Plain-Drayton Valley,0.2608334103298531,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
+minority,Stony Plain-Drayton Valley,Peace River,0.26739705677545145,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,West Yellowhead,0.2608334103298531,0.4359076235410976,NDP,NDP,UCP,UCP,False,True
+minority,West Yellowhead,Peace River,0.21787931462627266,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
+minority,Peace River,Wetaskawin-Ponoka-Maskwacis,0.2608334103298531,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
+minority,Wetaskawin-Ponoka-Maskwacis,Peace River,0.20789489690408125,0.5219440081308325,NDP,NDP,UCP,UCP,False,True
 minority,Red Deer-Blackfalds,Red Deer-Innisfail,0.14141176470588235,0.4608126689109099,NDP,NDP,UCP,UCP,False,True
 minority,Red Deer-Innisfail,Red Deer-Blackfalds,0.23033521407235313,0.28298039215686277,NDP,NDP,UCP,UCP,False,True
 minority,Red Deer-Blackfalds,Red Deer-Lacombe,0.14141176470588235,0.4600542005420054,NDP,NDP,UCP,UCP,False,True
 minority,Red Deer-Lacombe,Red Deer-Blackfalds,0.2299728997289973,0.28298039215686277,NDP,NDP,UCP,UCP,False,True
 minority,Red Deer-Blackfalds,Red Deer-Sylvan Lake,0.14141176470588235,0.26989317636799653,NDP,NDP,UCP,UCP,False,True
 minority,Red Deer-Sylvan Lake,Red Deer-Blackfalds,0.13489208633093525,0.28298039215686277,NDP,NDP,UCP,UCP,False,True
-minority,Red Deer-Innisfail,Red Deer-Lacombe,0.23033521407235313,0.4600542005420054,NDP,NDP,UCP,UCP,False,True
-minority,Red Deer-Lacombe,Red Deer-Innisfail,0.2299728997289973,0.4608126689109099,NDP,NDP,UCP,UCP,False,True
-minority,Red Deer-Innisfail,Red Deer-Sylvan Lake,0.23033521407235313,0.26989317636799653,NDP,NDP,UCP,UCP,False,True
-minority,Red Deer-Sylvan Lake,Red Deer-Innisfail,0.13489208633093525,0.4608126689109099,NDP,NDP,UCP,UCP,False,True
-minority,Red Deer-Lacombe,Wetaskawin-Ponoka-Maskwacis,0.2299728997289973,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-minority,Wetaskawin-Ponoka-Maskwacis,Red Deer-Lacombe,0.20789489690408125,0.4600542005420054,NDP,NDP,UCP,UCP,False,True
-minority,Red Deer-Sylvan Lake,Rocky Mountain House-Banff Park,0.13489208633093525,0.6663277863984162,NDP,NDP,UCP,UCP,False,True
-minority,Rocky Mountain House-Banff Park,Red Deer-Sylvan Lake,0.3330836320830435,0.26989317636799653,NDP,NDP,UCP,UCP,False,True
-minority,Rocky Mountain House-Banff Park,Wetaskawin-Ponoka-Maskwacis,0.3330836320830435,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-minority,Wetaskawin-Ponoka-Maskwacis,Rocky Mountain House-Banff Park,0.20789489690408125,0.6663277863984162,NDP,NDP,UCP,UCP,False,True
 minority,Sherwood Park,Sherwood Park-Strathcona,0.03376094481775606,0.08698208615891184,UCP,NDP,NDP,UCP,False,False
 minority,Sherwood Park-Strathcona,Sherwood Park,0.04343224491395868,0.06764406434534719,NDP,UCP,UCP,NDP,False,False
 minority,Sherwood Park-Strathcona,Stony Plain-Drayton Valley,0.04343224491395868,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
 minority,Stony Plain-Drayton Valley,Sherwood Park-Strathcona,0.26739705677545145,0.08698208615891184,NDP,NDP,UCP,UCP,False,True
 minority,St. Albert,St. Albert-Sturgeon,0.09551564172713216,0.10845175766641735,UCP,NDP,NDP,UCP,False,False
 minority,St. Albert-Sturgeon,St. Albert,0.05418432643563534,0.19115023194956585,NDP,UCP,UCP,NDP,False,False
-minority,Stony Plain-Drayton Valley,Wetaskawin-Ponoka-Maskwacis,0.26739705677545145,0.4159722644607992,NDP,NDP,UCP,UCP,False,True
-minority,Wetaskawin-Ponoka-Maskwacis,Stony Plain-Drayton Valley,0.20789489690408125,0.5349333828513068,NDP,NDP,UCP,UCP,False,True
