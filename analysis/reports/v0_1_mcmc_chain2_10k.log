@@ -1,0 +1,64 @@
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+[20:38:48] 100k ensemble run starting — n_steps=10000, seed=2, pop_deviation=±25%
+[20:38:48] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[20:38:48] building adjacency graph (4765 VAs)...
+  built in 16.4s: 4765 nodes, 13385 edges
+  2019 baseline districts (from parent_ed_2019): 87
+
+  --- Real-map scores (pre-ensemble) ---
+    2019 enacted: seats=57/87  EG=+0.0241  MM=-0.0077  decl=-0.0451  s50=0.460  ucp_share=0.574  cov=100.00%
+    majority 2026 approx: seats=33/57  EG=+0.0066  MM=-0.0308  decl=+0.0049  s50=0.421  ucp_share=0.541  cov=63.80%
+    minority 2026 v6 (approx): seats=46/70  EG=+0.0170  MM=-0.0028  decl=-0.0259  s50=0.486  ucp_share=0.582  cov=80.78%
+
+[20:39:05] running ReCom chain (10000 steps)...
+  87 districts, total pop = 4,262,572, ideal = 48,995
+  2019 seed pop: 27,060 - 69,028  (envelope=85.66%, max-indiv-dev=44.77%)
+  2019 seed exceeds +/-25% rule (max dev 44.77%); generating fresh tight seed via recursive_tree_part...
+  tight seed pop: 43,357 - 54,992  (max-indiv-dev=12.24%)
+    step 1013/10000  elapsed 10s  eta 89s
+    step 1863/10000  elapsed 20s  eta 87s
+    step 2777/10000  elapsed 30s  eta 78s
+    step 3689/10000  elapsed 40s  eta 69s
+    step 4598/10000  elapsed 50s  eta 59s
+    step 5711/10000  elapsed 60s  eta 45s
+    step 6744/10000  elapsed 70s  eta 34s
+    step 7814/10000  elapsed 80s  eta 22s
+    step 8780/10000  elapsed 90s  eta 13s
+    step 9889/10000  elapsed 100s  eta 1s
+  chain finished in 101s, collected 10000 samples
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_ensemble_samples_100k.csv (10000 samples) in 126s total
+
+  --- Convergence diagnostics (full 100k) ---
+    efficiency_gap     n=10000  tau=995.34  n_eff=10  rho1=+0.991  rho10=+0.917  rho100=+0.500  max_lag=2000
+    mean_median        n=10000  tau=636.14  n_eff=16  rho1=+0.983  rho10=+0.848  rho100=+0.413  max_lag=1755
+    declination        n=10000  tau=1172.93  n_eff=9  rho1=+0.992  rho10=+0.930  rho100=+0.553  max_lag=2000
+    seats_at_50_50     n=10000  tau=742.13  n_eff=13  rho1=+0.991  rho10=+0.914  rho100=+0.490  max_lag=1613
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_convergence_diagnostics_100k.json
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_ensemble_percentiles_100k.csv
+
+  --- Per-metric percentiles (real maps vs 100k ensemble) ---
+        metric                       map   value  percentile  ensemble_p5  ensemble_p50  ensemble_p95
+efficiency_gap              2019 enacted +0.0241    +68.0600      -0.0136       +0.0136       +0.0402
+efficiency_gap    majority 2026 (approx) +0.0066    +33.4600      -0.0136       +0.0136       +0.0402
+efficiency_gap minority 2026 v6 (approx) +0.0170    +54.7300      -0.0136       +0.0136       +0.0402
+   mean_median              2019 enacted -0.0077    +97.2200      -0.0300       -0.0192       -0.0092
+   mean_median    majority 2026 (approx) -0.0308     +4.4800      -0.0300       -0.0192       -0.0092
+   mean_median minority 2026 v6 (approx) -0.0028    +98.7700      -0.0300       -0.0192       -0.0092
+   declination              2019 enacted -0.0451    +13.0900      -0.0619       +0.0076       +0.0644
+   declination    majority 2026 (approx) +0.0049    +48.0200      -0.0619       +0.0076       +0.0644
+   declination minority 2026 v6 (approx) -0.0259    +25.7200      -0.0619       +0.0076       +0.0644
+seats_at_50_50              2019 enacted +0.4598    +72.8400      +0.4253       +0.4483       +0.4713
+seats_at_50_50    majority 2026 (approx) +0.4211     +4.4000      +0.4253       +0.4483       +0.4713
+seats_at_50_50 minority 2026 v6 (approx) +0.4857    +99.9500      +0.4253       +0.4483       +0.4713
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_real_map_scores_100k.json
+
+  *** OUTLIER FLAGS (>=95th or <=5th percentile) ***
+    2019 enacted                     mean_median        value=-0.0077  p=97.2
+    majority 2026 (approx)           mean_median        value=-0.0308  p=4.5
+    minority 2026 v6 (approx)        mean_median        value=-0.0028  p=98.8
+    majority 2026 (approx)           seats_at_50_50     value=+0.4211  p=4.4
+    minority 2026 v6 (approx)        seats_at_50_50     value=+0.4857  p=100.0
+
+[20:40:55] done. total wall time 127s
