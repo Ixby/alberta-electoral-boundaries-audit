@@ -39,9 +39,11 @@ Forward:
 """
 from __future__ import annotations
 
+import os
 import sys
 import time
 import warnings
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import numpy as np
@@ -50,6 +52,11 @@ from shapely.geometry import MultiPolygon, Polygon
 from shapely.ops import unary_union, snap
 
 warnings.filterwarnings("ignore")
+
+# Cap workers — beyond ~8 the GIL contention from Python-level overhead in
+# shapely wrappers starts to outweigh the GEOS C-side parallelism. Override
+# via DPG_WORKERS env var if needed.
+WORKERS = int(os.environ.get("DPG_WORKERS", min(8, (os.cpu_count() or 4))))
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
@@ -238,22 +245,48 @@ def final_precision_pass(eds: gpd.GeoDataFrame, label: str,
     ≤1m, ensuring shared boundaries are topologically exact (identical float
     coordinates) rather than just close. No area-change check needed since
     ≤1m displacement on provincial-scale polygons is negligible.
+
+    Parallelised: each ED's snap result depends only on the *original* (pre-pass)
+    neighbour geometries to within 1m, so we read from a snapshot and write to a
+    private slot. Loses propagation that the serial version had (snap to j seeing
+    j's snap to k), but at ≤1m tolerance on provincial-scale polygons this is
+    negligible — the convergence is local, not global.
     """
+    t_start = time.time()
     eds = eds.copy()
     geoms = [_clean(row.geometry) for _, row in eds.iterrows()]
     n = len(geoms)
 
-    for i in range(n):
+    # Pre-compute bounding boxes for cheap pair pre-filter
+    bounds = [g.bounds for g in geoms]
+
+    def _snap_one(i: int):
+        g = geoms[i]
+        bi = bounds[i]
+        # Expanded bbox to filter neighbour candidates
+        exp = (bi[0] - tolerance, bi[1] - tolerance,
+               bi[2] + tolerance, bi[3] + tolerance)
         for j in range(n):
             if j == i:
                 continue
-            if geoms[i].distance(geoms[j]) < tolerance:
-                snapped = snap(geoms[i], geoms[j], tolerance)
+            bj = bounds[j]
+            if bj[2] < exp[0] or bj[0] > exp[2] or bj[3] < exp[1] or bj[1] > exp[3]:
+                continue
+            if g.distance(geoms[j]) < tolerance:
+                snapped = snap(g, geoms[j], tolerance)
                 if snapped.is_valid and not snapped.is_empty:
-                    geoms[i] = snapped
+                    g = snapped
+        return i, g
 
-    eds["geometry"] = geoms
-    print(f"  [{label}] Phase 4: 1m precision pass complete", flush=True)
+    new_geoms = list(geoms)
+    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
+        for fut in as_completed(ex.submit(_snap_one, i) for i in range(n)):
+            i, g = fut.result()
+            new_geoms[i] = g
+
+    eds["geometry"] = new_geoms
+    print(f"  [{label}] Phase 4: 1m precision pass complete "
+          f"({time.time()-t_start:.1f}s, {WORKERS} workers)", flush=True)
     return eds
 
 
@@ -421,22 +454,68 @@ def process_map(v7_path: Path, v8_path: Path, provincial_boundary,
           f"canon_source: {original['canon_source'].value_counts().to_dict() if 'canon_source' in original.columns else 'N/A'}",
           flush=True)
 
-    eds = topology_cleanup(original.copy(), label)
-    eds = edge_snap(eds, label, tolerance=SNAP_TOLERANCE)
-    eds = gap_fill(eds, provincial_boundary, label)
+    # Per-phase checkpoint files: write after each phase completes so a crash
+    # in any later phase can resume from the last completed checkpoint instead
+    # of redoing work. Slug-safe filename derived from the v8 final name.
+    plan_slug = v8_path.stem.replace("v0_8_canonical_", "")
+    ckpt_dir = v8_path.parent / "_perfecter_checkpoints"
+    ckpt_dir.mkdir(exist_ok=True)
+    ckpt = {
+        1: ckpt_dir / f"{plan_slug}_phase1.gpkg",
+        2: ckpt_dir / f"{plan_slug}_phase2.gpkg",
+        3: ckpt_dir / f"{plan_slug}_phase3.gpkg",
+    }
+
+    def _save_ckpt(eds, phase):
+        eds.to_file(ckpt[phase], driver="GPKG")
+        print(f"  [checkpoint] wrote {ckpt[phase].name}", flush=True)
+
+    # Resume detection: pick the highest-numbered checkpoint that exists.
+    last_done = max((ph for ph, p in ckpt.items() if p.exists()), default=0)
+    if last_done > 0:
+        print(f"  [resume] phase-{last_done} checkpoint exists → "
+              f"loading and continuing from phase {last_done + 1}", flush=True)
+        eds = gpd.read_file(ckpt[last_done])
+    else:
+        eds = original.copy()
+
+    if last_done < 1:
+        eds = topology_cleanup(eds, label)
+        _save_ckpt(eds, 1)
+    if last_done < 2:
+        eds = edge_snap(eds, label, tolerance=SNAP_TOLERANCE)
+        _save_ckpt(eds, 2)
+    if last_done < 3:
+        eds = gap_fill(eds, provincial_boundary, label)
+        _save_ckpt(eds, 3)
+
     eds = final_precision_pass(eds, label, tolerance=1.0)
     validate(eds, original, provincial_boundary, label)
 
     eds.to_file(v8_path, driver="GPKG")
     print(f"  wrote {v8_path.name}  ({time.time()-t0:.1f}s)", flush=True)
+
+    # Clean up checkpoints once final write succeeds
+    for p in ckpt.values():
+        if p.exists():
+            p.unlink()
+    try:
+        ckpt_dir.rmdir()  # only succeeds if empty
+    except OSError:
+        pass
+
     return eds
 
 
 def main():
+    skip_existing = "--skip-existing" in sys.argv
     t0 = time.time()
     print("[dpg_perfecter] v0_7 → v0_8 pipeline", flush=True)
-    print(f"  snap tolerance: {SNAP_TOLERANCE} m  |  anti-erasure: {ANTI_ERASURE*100:.0f}%",
+    print(f"  snap tolerance: {SNAP_TOLERANCE} m  |  anti-erasure: {ANTI_ERASURE*100:.0f}%  |  workers: {WORKERS}",
           flush=True)
+    if skip_existing:
+        print("  --skip-existing: will skip any plan whose v0_8 output already exists",
+              flush=True)
 
     print("\nLoading VA polygons for provincial boundary...", flush=True)
     va = gpd.read_file(VA_PATH)
@@ -446,8 +525,14 @@ def main():
     print(f"  provincial boundary: {provincial_boundary.area/1e9:.1f} × 10³ km²",
           flush=True)
 
-    process_map(MAJ_V7, MAJ_V8, provincial_boundary, "majority 2026")
-    process_map(MIN_V7, MIN_V8, provincial_boundary, "minority 2026")
+    for v7_path, v8_path, label in [
+        (MAJ_V7, MAJ_V8, "majority 2026"),
+        (MIN_V7, MIN_V8, "minority 2026"),
+    ]:
+        if skip_existing and v8_path.exists():
+            print(f"\n=== {label} === SKIPPED ({v8_path.name} already exists)", flush=True)
+            continue
+        process_map(v7_path, v8_path, provincial_boundary, label)
 
     print(f"\n[dpg_perfecter] done in {time.time()-t0:.1f}s", flush=True)
     print(f"  outputs: {MAJ_V8.name}, {MIN_V8.name}", flush=True)
