@@ -1,0 +1,55 @@
+{
+  "maps": [
+    {
+      "map": "2019_enacted",
+      "count": 89,
+      "mean": 0.355225,
+      "median": 0.373581,
+      "std_dev": 0.151445,
+      "min": 0.002233,
+      "max": 0.938348,
+      "count_below_0_3": 32,
+      "count_below_0_4": 54,
+      "convex_hull_mean": 0.715593,
+      "convex_hull_median": 0.77955,
+      "convex_hull_min": 0.00363,
+      "schwartzberg_mean": 0.577728,
+      "schwartzberg_median": 0.611213,
+      "schwartzberg_min": 0.047255
+    },
+    {
+      "map": "majority_2026",
+      "count": 89,
+      "mean": 0.303748,
+      "median": 0.321613,
+      "std_dev": 0.201326,
+      "min": 0.0,
+      "max": 0.890283,
+      "count_below_0_3": 41,
+      "count_below_0_4": 55,
+      "convex_hull_mean": 0.633215,
+      "convex_hull_median": 0.768285,
+      "convex_hull_min": 0.0,
+      "schwartzberg_mean": 0.493121,
+      "schwartzberg_median": 0.57002,
+      "schwartzberg_min": 0.0
+    },
+    {
+      "map": "minority_2026",
+      "count": 89,
+      "mean": 0.355812,
+      "median": 0.37325,
+      "std_dev": 0.191227,
+      "min": 0.0,
+      "max": 0.776212,
+      "count_below_0_3": 27,
+      "count_below_0_4": 49,
+      "convex_hull_mean": 0.699937,
+      "convex_hull_median": 0.776913,
+      "convex_hull_min": 0.0,
+      "schwartzberg_mean": 0.553381,
+      "schwartzberg_median": 0.610942,
+      "schwartzberg_min": 0.0
+    }
+  ]
+}

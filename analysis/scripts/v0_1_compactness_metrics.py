@@ -61,17 +61,18 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
 MAPS = {
+    # Use v0_2 topoclean as 2019 proxy (same geometry, clean topology)
     "2019_enacted": (
-        ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
-        / "EDS_ENACTED_BILL33_15DEC2017.shp"
+        ROOT / "data" / "shapefiles" / "derived"
+        / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
     ),
     "majority_2026": (
         ROOT / "data" / "shapefiles" / "derived"
-        / "v0_3_canonical_majority_2026_eds_swept.gpkg"
+        / "v0_7_canonical_majority_2026_eds.gpkg"
     ),
     "minority_2026": (
         ROOT / "data" / "shapefiles" / "derived"
-        / "v0_3_canonical_minority_2026_eds_swept.gpkg"
+        / "v0_7_canonical_minority_2026_eds.gpkg"
     ),
 }
 
@@ -101,7 +102,7 @@ LOW_THRESHOLD_2 = 0.40
 def _detect_name_column(gdf: gpd.GeoDataFrame) -> str:
     """Return the column most likely to hold ED names."""
     candidates = [
-        "ed_name", "ED_NAME", "name", "NAME", "EDS_NAME", "eds_name",
+        "name_2026", "ed_name", "ED_NAME", "name", "NAME", "EDS_NAME", "eds_name",
         "ENAME", "ename", "DISTRICT_N", "district_n", "DIV_NAME", "div_name",
         "RIDING_NAM", "riding_nam",
     ]
@@ -122,6 +123,37 @@ def polsby_popper(area_m2: float, perimeter_m: float) -> float:
     if perimeter_m <= 0:
         return 0.0
     return (4.0 * math.pi * area_m2) / (perimeter_m ** 2)
+
+
+def reock_score(geom) -> float:
+    """Area / area of minimum bounding circle."""
+    if geom is None or geom.is_empty:
+        return float("nan")
+    try:
+        mbc = geom.minimum_bounding_circle()
+        if mbc is None or mbc.is_empty or mbc.area == 0:
+            return float("nan")
+        return float(geom.area / mbc.area)
+    except Exception:
+        return float("nan")
+
+
+def convex_hull_ratio(geom) -> float:
+    """Area / convex hull area."""
+    if geom is None or geom.is_empty:
+        return float("nan")
+    hull = geom.convex_hull
+    if hull is None or hull.area == 0:
+        return float("nan")
+    return float(geom.area / hull.area)
+
+
+def schwartzberg_score(area_m2: float, perimeter_m: float) -> float:
+    """Ratio of perimeter to circumference of equal-area circle. Inverted: 1 = circle."""
+    if perimeter_m <= 0 or area_m2 <= 0:
+        return float("nan")
+    r_equiv = math.sqrt(area_m2 / math.pi)
+    return float((2 * math.pi * r_equiv) / perimeter_m)
 
 
 def percentile_rank(values: List[float], value: float) -> float:
@@ -172,6 +204,9 @@ def compute_compactness(map_label: str, path: Path) -> List[Dict]:
             "area_km2": area_m2 / 1e6,
             "perimeter_km": perimeter_m / 1e3,
             "polsby_popper": pp,
+            "reock": reock_score(geom),
+            "convex_hull": convex_hull_ratio(geom),
+            "schwartzberg": schwartzberg_score(area_m2, perimeter_m),
         })
 
     # Add percentile ranks within this map
@@ -180,6 +215,18 @@ def compute_compactness(map_label: str, path: Path) -> List[Dict]:
         r["pp_percentile_rank"] = percentile_rank(pp_values, r["polsby_popper"])
 
     return rows
+
+
+def summarise_extended(map_label: str, rows: List[Dict]) -> Dict:
+    """Summary including all four compactness metrics."""
+    base = summarise(map_label, rows)
+    for metric in ["reock", "convex_hull", "schwartzberg"]:
+        vals = [r[metric] for r in rows if r.get(metric) == r.get(metric)]  # exclude nan
+        if vals:
+            base[f"{metric}_mean"]   = round(sum(vals) / len(vals), 6)
+            base[f"{metric}_median"] = round(sorted(vals)[len(vals)//2], 6)
+            base[f"{metric}_min"]    = round(min(vals), 6)
+    return base
 
 
 # ---------------------------------------------------------------------------
@@ -306,7 +353,7 @@ def main() -> None:
         rows = compute_compactness(map_label, path)
         print(f"{len(rows)} EDs")
         all_rows.extend(rows)
-        summaries.append(summarise(map_label, rows))
+        summaries.append(summarise_extended(map_label, rows))
 
     write_csv(all_rows)
     write_json(summaries)
