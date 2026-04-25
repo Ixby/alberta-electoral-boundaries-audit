@@ -1,0 +1,45 @@
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py:704: BipartitionWarning: 
+Failed to find a balanced cut after 1000 attempts.
+If possible, consider enabling pair reselection within your
+MarkovChain proposal method to allow the algorithm to select
+a different pair of districts for recombination.
+  warnings.warn(
+[19:52:25] 100k ensemble run starting — n_steps=10000, seed=42, pop_deviation=±15%
+[19:52:25] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[19:52:26] building adjacency graph (4765 VAs)...
+  built in 13.5s: 4765 nodes, 13385 edges
+  2019 baseline districts (from parent_ed_2019): 87
+
+  --- Real-map scores (pre-ensemble) ---
+    2019 enacted: seats=57/87  EG=+0.0241  MM=-0.0077  decl=-0.0451  s50=0.460  ucp_share=0.574  cov=100.00%
+    majority 2026 approx: seats=33/57  EG=+0.0066  MM=-0.0308  decl=+0.0049  s50=0.421  ucp_share=0.541  cov=63.80%
+    minority 2026 v6 (approx): seats=46/70  EG=+0.0170  MM=-0.0028  decl=-0.0259  s50=0.486  ucp_share=0.582  cov=80.78%
+
+[19:52:40] running ReCom chain (10000 steps)...
+  87 districts, total pop = 4,262,572, ideal = 48,995
+  2019 seed pop: 27,060 - 69,028  (envelope=85.66%, max-indiv-dev=44.77%)
+  2019 seed exceeds +/-15% rule (max dev 44.77%); generating fresh tight seed via recursive_tree_part...
+Traceback (most recent call last):
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_mcmc_ensemble_100k.py", line 315, in <module>
+    main(n_steps=args.n_steps, seed=args.seed, thin_every=args.thin_every, pop_deviation=args.pop_deviation)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_mcmc_ensemble_100k.py", line 200, in main
+    rows = run_ensemble(graph, assignment, n_steps, pop_deviation=pop_deviation)
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_mcmc_ensemble.py", line 339, in run_ensemble
+    new_assignment = recursive_tree_part(
+        graph,
+    ...<4 lines>...
+        node_repeats=3,
+    )
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py", line 1054, in recursive_tree_part
+    nodes = method(
+        graph.subgraph(remaining_nodes),
+    ...<4 lines>...
+        one_sided_cut=False,
+    )
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py", line 718, in bipartition_tree
+    raise RuntimeError(f"Could not find a possible cut after {max_attempts} attempts.")
+RuntimeError: Could not find a possible cut after 10000 attempts.

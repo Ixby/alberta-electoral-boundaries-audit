@@ -1,0 +1,12 @@
+[dpg_perfecter] v0_7 → v0_8 pipeline
+  snap tolerance: 500 m  |  anti-erasure: 10%
+
+Loading VA polygons for provincial boundary...
+  provincial boundary: 662.6 × 10³ km²
+
+=== majority 2026 ===
+  loaded 89 EDs | canon_source: {'da-anchored': 47, 'municipal-anchored': 32, 'v7': 7, 'sweep': 2, 'osm-municipal-buffered': 1}
+  [majority 2026] Phase 1: 67 overlapping pairs resolved
+  [WARN] majority 2026: snap reverted for Stony Plain-Drayton Valley — area change 911.8% > 5% threshold (possible false weld)
+  [majority 2026] Phase 2: 20 EDs snapped, 1 reverted (tolerance=500 m)
+  [majority 2026] Phase 3: 16955 gap polygons, 72252.49 km²
