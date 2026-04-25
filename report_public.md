@@ -19,15 +19,27 @@ Alberta's Electoral Boundary Commission finished its work on March 23, 2026. It 
 
 2. **The direction runs against the places where the governing party is weakest.** Communities most affected by the structural differences in the minority map — Calgary's northwest quadrant, the City of Airdrie, urban areas with well-established municipal boundaries — are the communities where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.
 
-3. **The process now promoting the minority map departs from Canadian practice.** On April 16, the government set both commission maps aside and assigned redistricting to a five-MLA committee, three from the governing UCP. Most Canadian provinces either require the assembly to consider the commission report first or give commission maps automatic effect unless overridden. Alberta does neither. The process is its own finding, separate from the maps.
+3. **The process now promoting the minority map departs from Canadian practice.** On April 16, the government set both commission maps aside and assigned redistricting to a five-MLA committee, three from the governing UCP. Most Canadian provinces either require the assembly to consider the commission report first or give commission maps automatic effect unless overridden. Alberta does neither.
+
+> The process is its own finding, separate from the maps.
 
 ---
 
 ## Three things the minority map does differently
 
+> **SIDEBAR — WHY AIRDRIE MATTERS**
+>
+> Population 84,000. Larger than Red Deer. One city council, one property-tax bill, one school division.
+>
+> Majority map: 2 electoral divisions.
+>
+> Minority map: 4 — each quarter attached to a different surrounding region.
+
 **It splits the City of Airdrie into four pieces.**
 
-Airdrie is a city of about 84,000 people — larger than Red Deer. The law says each electoral division can hold at most one-and-a-quarter times the provincial average, so Airdrie needs at least two. The majority map puts Airdrie in two divisions. The minority map puts it in four — attaching each quarter to a different surrounding region. Both maps are legal. The four-way split is a choice.
+Airdrie is a city of about 84,000 people — larger than Red Deer. The law says each electoral division can hold at most one-and-a-quarter times the provincial average, so Airdrie needs at least two. The majority map puts Airdrie in two divisions. The minority map puts it in four — attaching each quarter to a different surrounding region.
+
+> Both maps are legal. The four-way split is a choice.
 
 **It ignores municipal boundaries.**
 
@@ -42,6 +54,10 @@ These three cases are illustrative. The audit found two more measures where the 
 ---
 
 ## What the audit found across five measures
+
+> **SIDEBAR — WHAT IS A "PRE-REGISTERED PASS"?**
+>
+> Before looking at any results, the audit committed in writing to a list of tests and what would count as passing. When the minority map then *passed* one of those tests (zero packing-cracking neighbour pairs), the result was recorded as a pass. Pre-registration is the strongest evidence the audit isn't cherry-picking — you can't accuse a researcher of fishing if they declared their hypothesis before they had the data.
 
 The table below compares the two maps. None of the top six rows use election results.
 
@@ -66,13 +82,17 @@ The last row is where the minority map actually looks *better* than the majority
 
 Rows of measurements are hard to weigh against each other. One defensible approach is a four-category rubric — weights drawn from the principles that redistricting law and democratic theory say should matter most. This is a proposed synthesis, not a finding. Other weightings are possible; the individual measurements do not change.
 
-| Category | Weight | What it measures | Majority | Minority |
-|---|---|---|---|---|
-| Voter equality | 25% | Population spread; whether any area concentrates voters above the packing threshold | B | D |
-| Community recognition | 35% | How much the map follows city and town lines; how many pieces a single city is split into | B | F |
-| Map coherence | 25% | Whether district shapes have obvious explanations; chair-flagged anomalies | A | D |
-| Partisan fairness | 15% | Efficiency gap; packing signature; neighbour-drain pre-registered pass | B | B |
-| **Under this rubric** | — | — | **B (87/100)** | **F (47/100)** |
+> **SCORECARD — ONE WAY TO READ THE TWO MAPS**
+>
+> *A proposed synthesis with explicit weights — not a finding. Other weightings give different grades.*
+>
+> | Category | Weight | Majority | Minority |
+> |---|---|---|---|
+> | Voter equality | 25% | B | D |
+> | Community recognition | 35% | B | F |
+> | Map coherence | 25% | A | D |
+> | Partisan fairness | 15% | B | B |
+> | **OVERALL** | — | **B (87/100)** | **F (47/100)** |
 
 **Why these particular weights.** Community recognition carries the most weight (35%) because the *Saskatchewan Reference* — the Supreme Court decision that defines what redistricting is for — holds that effective representation requires more than population parity: it requires districts that communities can identify as their own. The Act's ±25% population band grounds voter equality at 25%. Map coherence (25%) reflects the commission's own standard: the chair flagged specific boundaries as anomalous, and those flags matter. Partisan fairness is weighted lowest (15%) because both maps fall below any published gerrymander threshold, and the direction of the finding reverses depending on which measurement method you use. A reader who weighted partisan fairness more heavily would get different grades; the measurements supporting each category are in the table above this one.
 
@@ -96,32 +116,42 @@ The partisan-fairness numbers (the efficiency gap and related metrics) are sensi
 
 This is the question most readers came here to answer. The honest answer needs two lanes.
 
-**Lane 1 — the partisan-fairness numbers.** The most-cited US measurement, the *efficiency gap*, has a 7% threshold researchers use to flag a map for closer look. But that 7% number was calibrated for US Congressional elections, not for Alberta. The audit derived four Alberta-calibrated alternatives, the strongest of which comes from running 100,000 different legal Alberta maps through a computer simulation: the 95th-percentile efficiency gap on those simulated maps comes out to 4.37%. Anything above 4.37% would mean the map is more partisan-skewed than 95 of every 100 legal Alberta maps drawn at random.
+> **SIDEBAR — WHAT IS THE EFFICIENCY GAP?**
+>
+> A wasted-vote count comparing the two parties. The most-cited US redistricting measure, with a 7% threshold researchers use to flag a map. The audit derived four Alberta-calibrated alternatives. The strongest: 4.37%, from running 100,000 different legal Alberta maps through a computer simulation.
 
-The two 2026 maps:
+### Lane 1 — the partisan-fairness numbers
 
-| Map | Efficiency gap (absolute) | Above the Alberta 4.37% threshold? |
-|---|---|---|
-| Majority 2026 | 1.29% | No — well under |
-| Minority 2026 | 2.71% | No — under |
+The 7% US threshold was calibrated for US Congressional elections, not for Alberta. The Alberta-derived 4.37% threshold means: anything above it would be more partisan-skewed than 95 of every 100 legal Alberta maps a computer would draw at random. Where the two 2026 maps land:
 
-On the partisan-fairness numbers, **neither map is a gerrymander**. The minority is closer to the threshold (about 1.7 percentage points away), but still inside the band a non-partisan computer simulation would produce.
+> **SCORECARD — LANE 1: PARTISAN-FAIRNESS NUMBERS**
+>
+> | Map | Efficiency gap (absolute) | Above Alberta 4.37%? |
+> |---|---|---|
+> | Majority 2026 | 1.29% | No — well under |
+> | Minority 2026 | 2.71% | No — under |
+>
+> **Verdict on Lane 1: neither map is a gerrymander.** The minority is closer to the threshold (about 1.7 percentage points away), but still inside the band a non-partisan computer simulation would produce.
 
-**Lane 2 — the structural pattern.** Partisan-fairness numbers are not the only way to spot engineering. The audit applied nine other tests that look at *how the map was drawn*, not at what election results would come out of it. These tests are all measurable from publicly-available maps — no election data needed.
+### Lane 2 — the structural pattern
 
-| Test | Threshold | Majority map | Minority map |
-|---|---|---|---|
-| Map sits inside the 95th percentile of computer-simulated legal maps (mean-median measure) | yes is the norm | At the boundary | At the boundary |
-| Border follows existing municipal lines | 70–85% is the Canadian norm | 71% — within norm | **15% — 4.9× below norm** |
-| Population spread (variance from average) | tighter is better | 3,180 | **4,707 — 48% wider** |
-| NW Calgary population concentration above average | smaller is more neutral | 0.4% | **12.2%** |
-| Boundaries flagged by the commission's own chair | zero is the norm | 0 | **3** |
-| Airdrie split into pieces | 1 or 2 is the constraint minimum | 2 pieces | **4 pieces** |
-| Minority's own published reasons for contested redraws checked symmetrically | should hold up | n/a | **6 of 7 fail** |
-| Public submissions supporting each contested choice | should exist | n/a | **2 contested choices have no documented support in the 1,140+ submission archive** |
-| Pre-registered structural-irregularity count | 4 of 5 = outlier | 0 of 5 | **5 of 5** |
+Partisan-fairness numbers are not the only way to spot engineering. The audit applied nine other tests that look at *how the map was drawn*, not at what election results would come out of it. These tests are all measurable from publicly-available maps — no election data needed.
 
-On the structural lane, **the majority map crosses zero of these thresholds. The minority crosses every one of them, by a wide margin in most cases.**
+> **SCORECARD — LANE 2: STRUCTURAL PATTERN (9 OF 9 CROSSED ON THE MINORITY)**
+>
+> | Test | Majority map | Minority map |
+> |---|---|---|
+> | Border follows existing municipal lines (70–85% is Canadian norm) | 71% — within norm | **15% — 4.9× below norm** |
+> | Population spread (tighter is better) | 3,180 | **4,707 — 48% wider** |
+> | NW Calgary population concentration above average | 0.4% | **12.2%** |
+> | Boundaries flagged by the commission's own chair | 0 | **3** |
+> | Airdrie split into pieces (constraint minimum: 2) | 2 pieces | **4 pieces** |
+> | Minority's published reasons checked symmetrically | n/a | **6 of 7 fail** |
+> | Contested choices with documented public-submission support | n/a | **2 have none** |
+> | Pre-registered structural-irregularity count (4 of 5 = outlier) | 0 of 5 | **5 of 5** |
+> | Mean-median percentile vs computer simulation | At the 95th percentile boundary | At the 95th percentile boundary |
+>
+> **Verdict on Lane 2: the majority crosses zero. The minority crosses every threshold by a wide margin.**
 
 The two lanes give different answers. Which one matters more is the heart of the question.
 
@@ -133,11 +163,11 @@ The two lanes give different answers. Which one matters more is the heart of the
 
 The audit's measurement work returns a split result that the author summarises this way, in plain language:
 
-> **On the partisan-fairness numbers, the minority map is not a gerrymander.** It is below every Alberta-calibrated threshold the audit could derive, including the strongest one (4.37% from the computer simulation).
+> **OPINION — THE AUTHOR SPEAKING DIRECTLY.** On the partisan-fairness numbers, the minority map is not a gerrymander. It is below every Alberta-calibrated threshold I could derive, including the strongest one (4.37% from the computer simulation).
 >
-> **On the structural pattern, the minority map looks like a gerrymander.** It crosses every structural threshold the audit applies — anchoring 4.9 times below Canadian norm; population spread 48% wider than the majority; the same commission's own chair flagged three geographic anomalies on this map and zero on the other one; six of the seven contested redraws fail the minority's own published reasons when an independent reviewer checks them; two of the contested redraws have no public submissions supporting them. Each individual signal has an innocent explanation. The combination does not.
+> On the structural pattern, the minority map looks like a gerrymander. It crosses every structural threshold the audit applies — anchoring 4.9 times below Canadian norm; population spread 48% wider than the majority; the same commission's own chair flagged three geographic anomalies on this map and zero on the other; six of the seven contested redraws fail the minority's own published reasons when checked independently; two of the contested redraws have no public submissions supporting them. Each individual signal has an innocent explanation. The combination does not.
 >
-> **The author's stated opinion**, with the lane disagreement disclosed: I believe, based on the cumulative structural pattern, that the minority map is more plausibly explained by deliberate engineering against the NDP than by neutral choice among the legal alternatives the commission had available. I do not call it a gerrymander on the partisan-fairness numbers — those numbers don't support that call. The verdict is "structurally consistent with engineering, but sub-threshold on the partisan-fairness numbers." A reader who weights the partisan-fairness numbers above the structural pattern would reach a more cautious verdict; that disagreement is honest and is documented in the full monograph (§6.2).
+> My stated opinion, with the lane disagreement disclosed: I believe, based on the cumulative structural pattern, that the minority map is more plausibly explained by deliberate engineering against the NDP than by neutral choice among the legal alternatives the commission had available. I do not call it a gerrymander on the partisan-fairness numbers — those numbers don't support that call. The verdict is *structurally consistent with engineering, but sub-threshold on the partisan-fairness numbers.* A reader who weights the partisan-fairness numbers above the structural pattern would reach a more cautious verdict; that disagreement is honest and is documented in the full monograph (§6.2).
 
 ### How close did the minority map come?
 
@@ -146,16 +176,18 @@ It depends on the lane:
 - **On the partisan-fairness numbers:** about 1.7 percentage points under the Alberta-calibrated 4.37% threshold. Closer to the line than the majority, but still under.
 - **On the structural pattern:** already over every threshold the audit applies, and over by wide margins. The 4.9× anchoring departure from Canadian norm is not "close" — it is the largest single departure the audit measured.
 
-The honest summary: *the minority map maxes out the structural-irregularity scoring while staying inside the partisan-fairness numbers band.* That is what a map looks like when the drafting choices put pieces in unusual places (off-reference borders, four-way city splits, chair-flagged shapes) without producing a measurable seat-count consequence — either because the engineering didn't translate into seats, or because the seat translation depends on a future election distribution we haven't seen.
+> *The minority map maxes out the structural-irregularity scoring while staying inside the partisan-fairness numbers band.*
 
-### What would change the author's verdict
+That is what a map looks like when the drafting choices put pieces in unusual places (off-reference borders, four-way city splits, chair-flagged shapes) without producing a measurable seat-count consequence — either because the engineering didn't translate into seats, or because the seat translation depends on a future election distribution we haven't seen.
 
-If any of these turn out to be true, the verdict above is wrong and gets retracted publicly within 30 days:
-
-1. Someone produces a legal Alberta map that satisfies the minority's own community-of-interest reasons (Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park) *and* anchors on municipal boundaries at majority-comparable rates. (Open challenge — Issue #14 on the audit's GitHub repository.)
-2. The November 2026 Lunty-committee 91-seat map produces structural-irregularity counts in the same range as the minority. That would suggest the minority's profile reflects Alberta-specific drawing difficulty rather than minority-specific engineering.
-3. A pre-2026 internal commission document is published showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices. The audit could not find such submissions for two of the contested configurations; if they exist and were missed, the rationale-failure finding is wrong.
-4. The 2019 cross-election direction reversal is shown to extend to recent polling. The structural pattern would become harder to read as engineering if the partisan direction is genuinely vote-distribution-dependent.
+> **SCORECARD — RETRACTION CONDITIONS**
+>
+> *If any of these turn out to be true, the verdict above is wrong and gets retracted publicly within 30 days.*
+>
+> 1. **A counter-map exists.** Someone produces a legal Alberta map that satisfies the minority's own community-of-interest reasons (Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park) *and* anchors on municipal boundaries at majority-comparable rates. Open challenge — Issue #14 on the audit's GitHub repository.
+> 2. **The Lunty committee map looks like the minority.** The November 2026 Lunty-committee 91-seat map produces structural-irregularity counts in the same range as the minority — suggesting the minority's profile reflects Alberta-specific drawing difficulty, not minority-specific engineering.
+> 3. **A pre-2026 internal commission document surfaces.** Showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices. The audit could not find such submissions for two of the contested configurations; if they exist and were missed, the rationale-failure finding is wrong.
+> 4. **The cross-election reversal extends to recent polling.** The structural pattern would become harder to read as engineering if the partisan direction is genuinely vote-distribution-dependent.
 
 ---
 
