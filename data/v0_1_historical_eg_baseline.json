@@ -1,0 +1,75 @@
+{
+  "description": "Alberta historical efficiency gap baseline. code_eg sign convention: (NDP_wasted - RBC_wasted) / total_2p. Negative => RBC wasted more (paper convention: negative = UCP-favourable). See v0_1_sign_convention_resolution.md for full reconciliation.",
+  "elections": [
+    {
+      "label": "2015 (pre-2017 map, 87 EDs)",
+      "n_districts": 87,
+      "ndp_votes": 583892,
+      "rbc_votes": 743891,
+      "total_2p": 1327783,
+      "ndp_share_pct": 43.975,
+      "rbc_share_pct": 56.025,
+      "ndp_wins": 53,
+      "rbc_wins": 34,
+      "ndp_seat_share_pct": 60.9195,
+      "ndp_wasted": 205646,
+      "rbc_wasted": 492790,
+      "code_eg_pct": -21.6258,
+      "eg_sm_ndp_pct": 22.9696
+    },
+    {
+      "label": "2019 (Bill 33 map, 87 EDs)",
+      "n_districts": 87,
+      "ndp_votes": 619921,
+      "rbc_votes": 1040563,
+      "total_2p": 1660484,
+      "ndp_share_pct": 37.3338,
+      "rbc_share_pct": 62.6662,
+      "ndp_wins": 24,
+      "rbc_wins": 63,
+      "ndp_seat_share_pct": 27.5862,
+      "ndp_wasted": 402643,
+      "rbc_wasted": 427531,
+      "code_eg_pct": -1.4988,
+      "eg_sm_ndp_pct": 2.9187
+    },
+    {
+      "label": "2023 (Bill 33 map, 87 EDs)",
+      "n_districts": 87,
+      "ndp_votes": 777404,
+      "rbc_votes": 928900,
+      "total_2p": 1706304,
+      "ndp_share_pct": 45.5607,
+      "rbc_share_pct": 54.4393,
+      "ndp_wins": 38,
+      "rbc_wins": 49,
+      "ndp_seat_share_pct": 43.6782,
+      "ndp_wasted": 404054,
+      "rbc_wasted": 449035,
+      "code_eg_pct": -2.6362,
+      "eg_sm_ndp_pct": 2.5568
+    }
+  ],
+  "alberta_historical_range": {
+    "min_pct": -21.6258,
+    "max_pct": -1.4988,
+    "range_pct": 20.127,
+    "elections_included": [
+      "2015 (pre-2017 map, 87 EDs)",
+      "2019 (Bill 33 map, 87 EDs)",
+      "2023 (Bill 33 map, 87 EDs)"
+    ]
+  },
+  "comparison_2026": {
+    "majority_eg_pct": -0.4,
+    "minority_eg_pct": -1.81,
+    "note": "2026 EG values from v0_2_packing_cracking_analysis.py at urban_weight=0.85 (canonical run). Source: THREE-MAP COMPARISON table, B2 Efficiency gap row.",
+    "majority_within_historical_range": false,
+    "minority_within_historical_range": true
+  },
+  "threshold_analysis": {
+    "us_threshold_pct": 7.0,
+    "alberta_suggested_threshold_pct": 3.0,
+    "rationale": "The S&M 7% threshold was calibrated to US Congressional elections 1972-2010. Alberta's three-election historical range spans -21.63% to -1.50% (code_eg). The largest observed deviation is 21.63% (2015 NDP landslide under pre-2017 map). The 2019 and 2023 enacted-map elections produced EG values between -1.5% and -2.7%, well within the 7% US threshold. A province-specific threshold calibrated to the Alberta historical maximum of the 2019/2023 range (approximately 3%) would be more appropriate than the US 7% standard for Alberta context. The 2015 outlier reflects a unique multi-party vote-split environment and should not anchor the threshold for standard two-party conditions."
+  }
+}
