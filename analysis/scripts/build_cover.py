@@ -67,81 +67,194 @@ def find_browser() -> str:
 # ==========================================================
 
 
+VA_VOTES_PATH = REPO_ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+
+
+def _pick(candidates):
+    for p in candidates:
+        if p.exists():
+            return p
+    return None
+
+
 def build_cover_art() -> Path:
-    """Render the Alberta silhouette hero image.
+    """Cover hero: v0_8 EDs erupting outward from Edmonton, colour-coded
+    by 2023 two-party vote share.
 
-    - Province outline only (no fill) in dark ink
-    - Majority 2026 and minority 2026 boundaries rendered as confident
-      coloured strokes clipped to the province interior
-    - 2019 hairlines omitted (they cluttered without adding signal)
+    Motion:
+    - Edmonton is the eruption epicentre. Each ED is displaced radially
+      outward from Edmonton by a NON-LINEAR factor — far EDs blow much
+      further than near ones, producing the "eruption" feel rather than
+      a uniform exploded-diagram pull-apart.
+    - Each ED leaves three motion-trail ghost copies trailing back
+      toward Edmonton at decreasing opacity, conveying the sense the
+      pieces are mid-flight.
+    - Edmonton's own ED stays in place (or moves only minimally) to
+      visually anchor the epicentre.
+
+    Colour:
+    - Divergent NDP-orange ↔ white ↔ UCP-blue, centred on 50/50.
+      Canadian convention: UCP/Conservative blue, NDP orange.
+    - VA centroids spatially joined into v0_8 EDs for per-ED 2023
+      totals. EDs catching zero VAs (inherited-empty from v0_7) get
+      neutral grey fill.
     """
-    from matplotlib.patches import PathPatch
-    from matplotlib.path import Path as MplPath
+    import math
+    import shapely.affinity
+    import matplotlib.colors as mcolors
 
-    alberta = gpd.read_file(ALBERTA_EDS).to_crs(3401)
+    # Edmonton city-centre coordinates in EPSG:3401 (NAD83 / AB 10-TM Forest).
+    # These match the landmark anchors used in the alignment proof.
+    EDMONTON = (97000.0, 5933000.0)
 
-    # Province boundary: dissolve all 87 EDs into one polygon
-    alberta_union = unary_union(alberta.geometry.values)
-    alberta_shape = gpd.GeoDataFrame(geometry=[alberta_union], crs=3401)
+    # Eruption strength parameters — tuned so Alberta remains visually
+    # recognisable. The faint dotted backdrop outline of the original
+    # (un-exploded) province carries the shape; the displaced pieces
+    # carry the motion.
+    BASE_PUSH_FRAC = 0.025       # tiny baseline push (every ED nudges)
+    POWER_PUSH_COEF = 0.09       # max displacement ≈ 9% of radius for the farthest ED
+    POWER = 1.3                  # exponent: <1 = uniform, 1 = linear, >1 = explosive
+    GHOST_STEPS = 3              # number of motion-trail ghost copies per ED
+    GHOST_ALPHA_BASE = 0.16      # opacity of the brightest motion ghost
 
-    def _pick(candidates):
-        for p in candidates:
-            if p.exists():
-                return p
-        return None
-
-    def _clip(gdf):
-        if gdf is None:
-            return None
-        return gpd.clip(gdf, alberta_shape, keep_geom_type=False)
-
+    # 1. Pick map (prefer v0_8 refined → canonical → v0_7)
     maj_path = _pick(APPROX_MAJ_CANDIDATES)
-    min_path = _pick(APPROX_MIN_CANDIDATES)
-    maj = _clip(gpd.read_file(maj_path).to_crs(3401)) if maj_path else None
-    minor = _clip(gpd.read_file(min_path).to_crs(3401)) if min_path else None
-    if maj_path:
-        print(f"[build_cover] Majority boundary source: {maj_path.name}")
-    if min_path:
-        print(f"[build_cover] Minority boundary source: {min_path.name}")
+    if maj_path is None:
+        raise FileNotFoundError("No majority GPKG candidate available")
+    print(f"[build_cover] Hero ED source: {maj_path.name}")
 
-    # Figure: generous aspect ratio that matches Alberta's own (~0.6 wide).
-    # Transparent background so the cream page colour shows through.
+    eds = gpd.read_file(maj_path).to_crs(3401)
+    name_col = "name_2026" if "name_2026" in eds.columns else eds.columns[0]
+    eds = eds[eds.geometry.area > 1e6].copy().reset_index(drop=True)
+    print(f"[build_cover] {len(eds)} non-empty EDs to render")
+
+    # 2. Per-ED 2023 vote share via VA-centroid spatial join
+    if VA_VOTES_PATH.exists():
+        va = gpd.read_file(VA_VOTES_PATH).to_crs(3401)
+        va_pts = gpd.GeoDataFrame(
+            {"va_ucp": va["va_ucp"].fillna(0),
+             "va_ndp": va["va_ndp"].fillna(0)},
+            geometry=va.geometry.centroid,
+            crs=3401,
+        )
+        joined = gpd.sjoin(
+            va_pts, eds[[name_col, "geometry"]],
+            how="left", predicate="within",
+        )
+        agg = joined.groupby(name_col).agg(
+            ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
+        ).reset_index()
+        agg["total"] = (agg["ucp"] + agg["ndp"]).clip(lower=1)
+        agg["ucp_share"] = agg["ucp"] / agg["total"]
+        eds = eds.merge(agg[[name_col, "ucp_share", "total"]],
+                        on=name_col, how="left")
+    else:
+        print(f"[build_cover] WARN: {VA_VOTES_PATH.name} not found; "
+              f"all EDs will render as neutral 50/50")
+        eds["ucp_share"] = 0.5
+        eds["total"] = 0
+    eds["ucp_share"] = eds["ucp_share"].fillna(0.5)
+    eds["total"] = eds["total"].fillna(0)
+    print(f"[build_cover] {int((eds['total'] > 0).sum())}/{len(eds)} EDs received VA votes")
+
+    # 3. Province silhouette (faint backdrop) — dissolve all renderable EDs in
+    #    their ORIGINAL positions before exploding
+    province_orig = unary_union(eds.geometry.values)
+
+    # 4. Compute per-ED radial displacement vector from Edmonton.
+    #    Distance is measured ED-centroid to Edmonton; final translation
+    #    distance scales as: radius * (BASE + POWER_COEF * (radius/R_max)^POWER)
+    centroids = [(g.centroid.x, g.centroid.y) for g in eds.geometry]
+    radii = [math.hypot(cx - EDMONTON[0], cy - EDMONTON[1]) for cx, cy in centroids]
+    R_max = max(radii) if radii else 1.0
+
+    def _displacement(cx, cy, r):
+        if r < 1.0:  # avoid div-by-zero for an ED whose centroid IS Edmonton
+            return (0.0, 0.0)
+        ux, uy = (cx - EDMONTON[0]) / r, (cy - EDMONTON[1]) / r  # unit vector
+        push_distance = r * (BASE_PUSH_FRAC + POWER_PUSH_COEF * (r / R_max) ** POWER)
+        return (ux * push_distance, uy * push_distance)
+
+    eds["disp"] = [_displacement(cx, cy, r) for (cx, cy), r in zip(centroids, radii)]
+    eds["exploded"] = [
+        shapely.affinity.translate(g, dx, dy)
+        for g, (dx, dy) in zip(eds.geometry, eds["disp"])
+    ]
+
+    # 5. Divergent colormap NDP-orange ↔ white ↔ UCP-blue
+    ndp_orange = (0.92, 0.45, 0.10)
+    ucp_blue   = (0.13, 0.36, 0.62)
+    white      = (0.97, 0.96, 0.94)
+    cmap = mcolors.LinearSegmentedColormap.from_list(
+        "ucp_ndp_div", [ndp_orange, white, ucp_blue], N=256
+    )
+    norm = mcolors.Normalize(vmin=0.30, vmax=0.70)
+
+    # 6. Render
     fig, ax = plt.subplots(figsize=(6, 9), dpi=300)
     fig.patch.set_alpha(0)
     ax.set_facecolor("none")
     ax.set_aspect("equal")
     ax.axis("off")
 
-    # Majority 2026 boundaries — warm orange, readable weight
-    if maj is not None and not maj.empty:
-        maj.boundary.plot(
-            ax=ax,
-            linewidth=0.5,
-            color="#e87722",
-            alpha=0.95,
-            zorder=2,
-        )
-
-    # Minority 2026 boundaries — dusty blue, dashed
-    if minor is not None and not minor.empty:
-        minor.boundary.plot(
-            ax=ax,
-            linewidth=0.6,
-            color="#335c81",
-            alpha=0.95,
-            linestyle=(0, (3.5, 2)),
-            zorder=3,
-        )
-
-    # Province outline on top — clean dark stroke, no fill
-    alberta_shape.boundary.plot(
-        ax=ax,
-        linewidth=2.2,
-        color="#0e0e0e",
-        zorder=5,
+    # Province silhouette in the original (pre-eruption) position — kept
+    # confident enough to read as Alberta at a glance. The eruption
+    # happens INSIDE this anchor outline so the shape stays recognisable.
+    gpd.GeoSeries([province_orig], crs=3401).plot(
+        ax=ax, facecolor="none", edgecolor="#0e0e0e",
+        linewidth=1.4, linestyle="-", alpha=0.55, zorder=1,
+    )
+    # Plus a fainter dashed echo just outside it to add depth
+    gpd.GeoSeries([province_orig.buffer(8000)], crs=3401).plot(
+        ax=ax, facecolor="none", edgecolor="#0e0e0e",
+        linewidth=0.4, linestyle=(0, (1, 3)), alpha=0.25, zorder=1,
     )
 
-    # Trim whitespace
+    no_vote_color = "#cfcbc4"
+
+    # 7a. Motion ghosts — for each ED, draw GHOST_STEPS faint copies trailing
+    #     from near-Edmonton out to the just-before-final position. Innermost
+    #     ghost is faintest, outermost ghost (frame just before final) is the
+    #     boldest of the ghosts.
+    for _, row in eds.iterrows():
+        g = row.geometry  # original (pre-explode)
+        dx, dy = row["disp"]
+        if abs(dx) < 1.0 and abs(dy) < 1.0:
+            continue  # essentially static — no ghosts needed
+        if row["total"] > 0:
+            color = cmap(norm(row["ucp_share"]))
+        else:
+            color = no_vote_color
+        for k in range(1, GHOST_STEPS + 1):
+            frac = k / (GHOST_STEPS + 1)  # 0.25, 0.5, 0.75 for GHOST_STEPS=3
+            ghost = shapely.affinity.translate(g, dx * frac, dy * frac)
+            ghost_alpha = GHOST_ALPHA_BASE * frac  # later ghosts brighter
+            gpd.GeoSeries([ghost], crs=3401).plot(
+                ax=ax, facecolor=color, edgecolor="none",
+                alpha=ghost_alpha, zorder=2,
+            )
+
+    # 7b. Final exploded EDs on top of their motion ghosts
+    for _, row in eds.iterrows():
+        g = row["exploded"]
+        if g is None or g.is_empty:
+            continue
+        if row["total"] > 0:
+            color = cmap(norm(row["ucp_share"]))
+        else:
+            color = no_vote_color
+        gpd.GeoSeries([g], crs=3401).plot(
+            ax=ax, facecolor=color, edgecolor="#1a1a1a",
+            linewidth=0.35, alpha=0.95, zorder=3,
+        )
+
+    # 7c. Tiny epicentre marker at Edmonton — subtle dark dot to anchor the eruption
+    ax.scatter(
+        [EDMONTON[0]], [EDMONTON[1]],
+        s=18, c="#0e0e0e", marker="o", zorder=4,
+        edgecolors="none", alpha=0.7,
+    )
+
     ax.margins(0.005)
     plt.tight_layout(pad=0)
 
@@ -367,9 +480,9 @@ html, body {
   vertical-align: middle;
 }
 
-.legend .swatch-maj { background: #e87722; }
-.legend .swatch-min { background: #335c81; border-top: 1px dashed #335c81; }
-.legend .swatch-2019 { background: #bbb; }
+.legend .swatch-ucp { background: #225d9e; }
+.legend .swatch-tied { background: #f4efe6; border: 0.5pt solid #888; }
+.legend .swatch-ndp { background: #ea7414; }
 </style>
 </head>
 <body>
@@ -387,9 +500,9 @@ html, body {
   </div>
 
   <div class="legend">
-    <span><span class="swatch swatch-2019"></span>2019 baseline</span>
-    <span><span class="swatch swatch-maj"></span>Majority 2026</span>
-    <span><span class="swatch swatch-min"></span>Minority 2026</span>
+    <span><span class="swatch swatch-ucp"></span>UCP-leaning</span>
+    <span><span class="swatch swatch-tied"></span>50/50</span>
+    <span><span class="swatch swatch-ndp"></span>NDP-leaning</span>
   </div>
 
   <div class="title-block">
