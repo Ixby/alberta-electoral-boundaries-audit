@@ -53,7 +53,7 @@ def find_browser() -> str:
 # pull quotes. Ornamental section dividers. Letter page with folio and
 # running head.
 CSS = r"""
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,opsz,wght@0,5..1200,400..900;1,5..1200,400..900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap');
 
 @page {
   size: Letter;
@@ -94,10 +94,12 @@ html {
   font-family: "Lora", "Georgia", "Liberation Serif", serif;
   font-size: 10pt;
   line-height: 1.5;
+  letter-spacing: 0.01em;
   color: #1a1a1a;
   background: #fff;
   font-feature-settings: "kern" 1, "liga" 1, "onum" 1, "pnum" 1;
   font-variant-numeric: oldstyle-nums proportional-nums;
+  font-optical-sizing: auto;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -225,9 +227,8 @@ p {
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
-  hyphenate-limit-chars: 7 3 3;
+  hyphenate-limit-chars: 6 3 2;
   hyphenate-limit-lines: 2;
-  word-spacing: -0.02em;
   orphans: 2;
   widows: 3;
 }
@@ -242,11 +243,12 @@ p.lede::first-letter {
   float: left;
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 900;
-  font-size: 6.2em;
+  font-size: 5.8em;
   line-height: 0.78;
-  padding: 0 0.10em 0 0;
+  padding: 0 0.14em 0 0;
   color: #8a2a2a;
-  margin-top: 0.04em;
+  margin-top: -0.08em;
+  padding-top: 0.02em;
 }
 
 /* ----- Bold standfirst at paragraph start ----- */
@@ -262,12 +264,12 @@ blockquote {
   margin: 1.6em 1em;
   padding: 1.1em 1.2em;
   border-left: none;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
+  border-top: 0.5pt solid #888;
+  border-bottom: 0.5pt solid #888;
   background: transparent;
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
-  font-size: 14pt;
+  font-size: 13pt;
   line-height: 1.4;
   color: #333;
   text-align: center;
@@ -331,12 +333,13 @@ blockquote.sidebar {
   float: right;
   clear: right;
   width: 30%;
-  max-height: 3.4in;          /* prevents tall sidebars from extending past their section */
-  overflow: hidden;
+  /* No max-height + overflow:hidden — we will not silently amputate copy.
+     If a sidebar is too tall to flow inside its section, the layout below
+     handles it via page-break-inside:avoid. */
   background: #f0f7f7;
   border: none;
   border-left: 3px solid #2a8a8a;
-  padding: 0.5em 0.65em 0.5em 0.6em;
+  padding: 0.55em 0.7em 0.55em 0.65em;
   font-family: "Lora", Georgia, serif;
   font-style: normal;
   font-size: 8pt;
@@ -346,6 +349,7 @@ blockquote.sidebar {
   color: #1a1a1a;
   box-sizing: border-box;
   page-break-inside: avoid;
+  contain: layout;
 }
 
 /* Sidebar after an h2: keep the float so following body text wraps
@@ -488,13 +492,13 @@ thead th {
   background: transparent;
   color: #111;
   font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   text-align: left;
   padding: 0.6em 0.7em 0.4em;
   font-size: 8pt;
-  letter-spacing: 1.5pt;
+  letter-spacing: 0.8pt;
   text-transform: uppercase;
-  border-bottom: 2px solid #111;
+  border-bottom: 0.5pt solid #111;
 }
 
 tbody td {
@@ -504,9 +508,9 @@ tbody td {
   line-height: 1.4;
 }
 
-tbody tr:last-child td { border-bottom: 2px solid #111; }
+tbody tr:last-child td { border-bottom: 0.5pt solid #111; }
 
-tbody td strong { color: #7b2d3e; font-weight: 700; }
+tbody td strong { color: #7b2d3e; font-weight: 600; }
 
 /* Table caption (italic paragraph right after a table) */
 table + p {
@@ -767,29 +771,48 @@ def post_process_html(html: str) -> str:
     # 1. First blockquote → deck
     html = re.sub(r"<blockquote>", '<blockquote class="deck">', html, count=1)
 
-    # 2. Any remaining <blockquote> whose first strong text begins with SIDEBAR → sidebar.
-    #    Pattern: <blockquote>\s*<p><strong>SIDEBAR  (case-insensitive)
+    # 2. Any remaining <blockquote> containing <strong>SIDEBAR → sidebar.
+    def _tag_sidebar(m: re.Match) -> str:
+        body = m.group(0)
+        if 'class="' in body[:30]:  # already tagged (deck/scorecard)
+            return body
+        if re.search(r"<strong>SIDEBAR", body, flags=re.IGNORECASE):
+            return body.replace("<blockquote>", '<blockquote class="sidebar">', 1)
+        return body
     html = re.sub(
-        r"<blockquote>(\s*<p><strong>SIDEBAR)",
-        r'<blockquote class="sidebar">\1',
+        r"<blockquote(?:\s+class=\"[^\"]*\")?>[\s\S]*?</blockquote>",
+        _tag_sidebar,
         html,
-        flags=re.IGNORECASE,
     )
 
-    # 2b. Blockquotes whose first strong begins with SCORECARD → scorecard.
+    # 2b. Blockquotes containing <strong>SCORECARD anywhere → scorecard.
+    # The earlier regex required SCORECARD to be the FIRST strong-paragraph,
+    # which broke when the markdown put a leading italic standfirst inside the
+    # same blockquote (markdown's lazy continuation merges the two paragraphs).
+    # Use a search-and-replace per blockquote that matches anywhere.
+    def _tag_scorecard(m: re.Match) -> str:
+        body = m.group(0)
+        if re.search(r"<strong>SCORECARD", body, flags=re.IGNORECASE):
+            return body.replace("<blockquote>", '<blockquote class="scorecard">', 1)
+        return body
     html = re.sub(
-        r"<blockquote>(\s*<p><strong>SCORECARD)",
-        r'<blockquote class="scorecard">\1',
+        r"<blockquote>[\s\S]*?</blockquote>",
+        _tag_scorecard,
         html,
-        flags=re.IGNORECASE,
     )
 
-    # 2c. Blockquotes whose first strong begins with OPINION → author opinion.
+    # 2c. Blockquotes containing <strong>OPINION or "THE PLAIN READING" anywhere → opinion.
+    def _tag_opinion(m: re.Match) -> str:
+        body = m.group(0)
+        if 'class="' in body[:30]:
+            return body
+        if re.search(r"<strong>(OPINION|THE PLAIN READING)", body, flags=re.IGNORECASE):
+            return body.replace("<blockquote>", '<blockquote class="opinion">', 1)
+        return body
     html = re.sub(
-        r"<blockquote>(\s*<p><strong>OPINION)",
-        r'<blockquote class="opinion">\1',
+        r"<blockquote(?:\s+class=\"[^\"]*\")?>[\s\S]*?</blockquote>",
+        _tag_opinion,
         html,
-        flags=re.IGNORECASE,
     )
 
     # 2d. <h3>Verdict on …</h3> → verdict callout.
