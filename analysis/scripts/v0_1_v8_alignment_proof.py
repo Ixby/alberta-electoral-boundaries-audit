@@ -67,11 +67,14 @@ EXPECTED_ED_COUNT = 89
 
 
 def _load(plan: str):
-    src = DERIVED / f"v0_8_refined_{plan}_2026_eds.gpkg"
-    if not src.exists():
-        # Fall back to canonical if refined doesn't exist yet
-        src = DERIVED / f"v0_8_canonical_{plan}_2026_eds.gpkg"
-    if not src.exists():
+    # Prefer v0_8 full_refined (89/89 with inheritance fill) → refined → canonical
+    for fname in (f"v0_8_full_refined_{plan}_2026_eds.gpkg",
+                  f"v0_8_refined_{plan}_2026_eds.gpkg",
+                  f"v0_8_canonical_{plan}_2026_eds.gpkg"):
+        src = DERIVED / fname
+        if src.exists():
+            break
+    else:
         return None, None
     g = gpd.read_file(src)
     if "name_2026" not in g.columns:

@@ -52,9 +52,11 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest (metres, no false easting)
 
-# v0_8 if available (canonical name from perfecter, or derived name), else v0_7
+# Prefer v0_8 full_refined (89/89), then refined, then canonical, then v0_7
 def _gpkg(version_label: str, plan: str) -> Path:
     candidates = [
+        DATA / "shapefiles" / "derived" / f"v0_8_full_refined_{plan}_2026_eds.gpkg",
+        DATA / "shapefiles" / "derived" / f"v0_8_refined_{plan}_2026_eds.gpkg",
         DATA / "shapefiles" / "derived" / f"v0_8_canonical_{plan}_2026_eds.gpkg",
         DATA / "shapefiles" / "derived" / f"v0_1_derived_v8_{plan}_2026_eds.gpkg",
         DATA / "shapefiles" / "derived" / f"v0_1_derived_v7_{plan}_2026_eds.gpkg",

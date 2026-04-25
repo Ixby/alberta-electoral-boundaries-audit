@@ -61,9 +61,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
 def _pick(plan: str) -> Path:
-    """Prefer v0_8 refined, then v0_8 canonical, then v0_7 canonical."""
+    """Prefer v0_8 full_refined (89/89 with inheritance fill), then refined,
+    then canonical, then v0_7 canonical."""
     base = ROOT / "data" / "shapefiles" / "derived"
     for fname in (
+        f"v0_8_full_refined_{plan}_2026_eds.gpkg",
         f"v0_8_refined_{plan}_2026_eds.gpkg",
         f"v0_8_canonical_{plan}_2026_eds.gpkg",
         f"v0_7_canonical_{plan}_2026_eds.gpkg",

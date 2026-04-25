@@ -116,13 +116,20 @@ def _midline_split(loser_geom, winner_geom, overlap):
 
 
 def refine(plan: str) -> dict:
-    src = DERIVED / f"v0_8_canonical_{plan}_2026_eds.gpkg"
-    if not src.exists():
-        print(f"  [skip] {src.name} not found")
+    # Prefer v0_8_full (100% coverage from 2019-inheritance fill) over
+    # v0_8_canonical (perfecter output that may have inherited-empty EDs).
+    full_src = DERIVED / f"v0_8_full_{plan}_2026_eds.gpkg"
+    canon_src = DERIVED / f"v0_8_canonical_{plan}_2026_eds.gpkg"
+    if full_src.exists():
+        src = full_src
+    elif canon_src.exists():
+        src = canon_src
+    else:
+        print(f"  [skip] no v0_8 source for {plan}")
         return {"plan": plan, "skipped": True}
 
     t0 = time.time()
-    print(f"[{_ts()}] [{plan}] refine start", flush=True)
+    print(f"[{_ts()}] [{plan}] refine start (source: {src.name})", flush=True)
     g = gpd.read_file(src)
     if "canon_source" not in g.columns:
         g["canon_source"] = "v7"
@@ -218,7 +225,12 @@ def refine(plan: str) -> dict:
         })
 
     g["geometry"] = geoms
-    out = DERIVED / f"v0_8_refined_{plan}_2026_eds.gpkg"
+    # Output naming: v0_8_refined comes from v0_8_canonical (no inheritance);
+    # v0_8_full_refined comes from v0_8_full (with inheritance). Keep both
+    # available to downstream consumers via the prefer-chain.
+    out_name = (f"v0_8_full_refined_{plan}_2026_eds.gpkg"
+                if "full" in src.name else f"v0_8_refined_{plan}_2026_eds.gpkg")
+    out = DERIVED / out_name
     g.to_file(out, driver="GPKG")
 
     # Re-validate: any residual overlaps?
