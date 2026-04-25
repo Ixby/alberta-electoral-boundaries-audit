@@ -28,6 +28,7 @@ Dependencies:
 from __future__ import annotations
 
 import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -37,6 +38,8 @@ import matplotlib.patches as mpatches
 import numpy as np
 from PIL import Image
 from shapely.geometry import box, Point
+
+def _ts(): return time.strftime("%H:%M:%S")
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -268,6 +271,7 @@ def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
         print(f"  [skip] {spec.png} not found")
         return {"slug": spec.slug, "skipped": True}
 
+    t_spec = time.time()
     img = load_png(png_path)
     h, w = img.shape[:2]
 
@@ -315,7 +319,9 @@ def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
     fig2.savefig(ov_path, dpi=150, bbox_inches="tight", facecolor="white")
     plt.close(fig2)
 
-    print(f"  [{spec.slug}] {len(gdf)} EDs visible  →  {sb_path.name}, {ov_path.name}")
+    print(f"  [{_ts()}] [{spec.slug}] {len(gdf)} EDs visible "
+          f"({time.time()-t_spec:.1f}s)  →  {sb_path.name}, {ov_path.name}",
+          flush=True)
     return {"slug": spec.slug, "n_eds": len(gdf),
             "sidebyside": str(sb_path), "overlay": str(ov_path)}
 
@@ -324,6 +330,8 @@ def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
 # Main
 
 def main() -> int:
+    t_start = time.time()
+    print(f"[{_ts()}] [commission overlay] START", flush=True)
     print("Loading plans...")
     plans: dict[str, gpd.GeoDataFrame] = {}
     for plan in ("majority", "minority"):
@@ -336,6 +344,7 @@ def main() -> int:
             plans[plan] = gpd.GeoDataFrame()
 
     results = []
+    print(f"[{_ts()}] processing {len(MAP_SPECS)} commission map specs", flush=True)
     for spec in MAP_SPECS:
         print(f"\n{spec.label}")
         r = process_spec(spec, plans, OUT)
@@ -355,6 +364,8 @@ def main() -> int:
     print("  1. Open v0_8_commission_sidebyside_*.png — visually confirm boundary shapes match")
     print("  2. Open v0_8_commission_overlay_*.png — if lines are shifted, adjust the 'extent'")
     print("     in MAP_SPECS. Move xmin left / xmax right to stretch horizontally, etc.")
+    print(f"\n[{_ts()}] [commission overlay] DONE — total {time.time()-t_start:.2f}s",
+          flush=True)
     return 0
 
 

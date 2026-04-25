@@ -34,11 +34,14 @@ from __future__ import annotations
 
 import json
 import sys
+import time
 from pathlib import Path
 
 import geopandas as gpd
 from shapely.geometry import Point
 from shapely.ops import unary_union
+
+def _ts(): return time.strftime("%H:%M:%S")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
@@ -242,11 +245,13 @@ def write_markdown(report: dict, path: Path) -> None:
 
 
 def main() -> int:
-    print("[v0_8 alignment proof]")
+    t_start = time.time()
+    print(f"[{_ts()}] [v0_8 alignment proof] START", flush=True)
 
     report = {"plans": {}}
     plans_g = {}
     for plan in ("majority", "minority"):
+        t_plan = time.time()
         g, src = _load(plan)
         if g is None:
             report["plans"][plan] = {"skipped": True}
@@ -254,7 +259,7 @@ def main() -> int:
         plans_g[plan] = g
         topo = topology_check(g, plan)
         landmarks = landmark_check(g)
-        print(f"\n=== {plan} ({src}) ===")
+        print(f"\n[{_ts()}] === {plan} ({src}) ===")
         print(f"  EDs={topo['n_eds']} (expected {topo['expected_n']})  "
               f"with-geometry={topo['n_with_geometry']}  empty={topo['n_empty_eds']}")
         if topo["n_empty_eds"]:
@@ -269,6 +274,8 @@ def main() -> int:
         report["plans"][plan] = {
             "source": src, "topology": topo, "landmarks": landmarks,
         }
+        print(f"[{_ts()}] [{plan}] alignment-proof block done in "
+              f"{time.time()-t_plan:.2f}s", flush=True)
 
     cross = cross_plan_consistency(plans_g.get("majority"), plans_g.get("minority"))
     report["cross_plan_consistency"] = cross
@@ -283,6 +290,8 @@ def main() -> int:
     write_markdown(report, md_path)
 
     print(f"\nWrote {json_path.name} and {md_path.name}")
+    print(f"[{_ts()}] [v0_8 alignment proof] DONE — total {time.time()-t_start:.2f}s",
+          flush=True)
     return 0
 
 
