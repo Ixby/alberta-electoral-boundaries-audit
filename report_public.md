@@ -92,23 +92,70 @@ The partisan-fairness numbers (the efficiency gap and related metrics) are sensi
 
 ---
 
-## The gerrymander checklist
+## Was either map a gerrymander?
 
-Before looking at either map's results, the audit committed to a checklist for what a gerrymander would look like. This is called pre-registration — you write down what you expect to find before you look, so no one can accuse you of cherry-picking.
+This is the question most readers came here to answer. The honest answer needs two lanes.
 
-Here is the checklist, applied to both maps:
+**Lane 1 — the partisan-fairness numbers.** The most-cited US measurement, the *efficiency gap*, has a 7% threshold researchers use to flag a map for closer look. But that 7% number was calibrated for US Congressional elections, not for Alberta. The audit derived four Alberta-calibrated alternatives, the strongest of which comes from running 100,000 different legal Alberta maps through a computer simulation: the 95th-percentile efficiency gap on those simulated maps comes out to 4.37%. Anything above 4.37% would mean the map is more partisan-skewed than 95 of every 100 legal Alberta maps drawn at random.
 
-| Signal | Majority map | Minority map |
+The two 2026 maps:
+
+| Map | Efficiency gap (absolute) | Above the Alberta 4.37% threshold? |
 |---|---|---|
-| Packing signature (large divisions concentrated in one area) | Not detected | **Detected** (NW Calgary) |
-| Cracking signature (close-loss divisions concentrated nearby) | Not detected | Partial — held pending more data |
-| Geographic anomaly (lasso shape, extension through empty land) | Not detected | **Detected** (Nolan Hill–Cochrane lasso; RMH–Banff Park extension) |
-| Community incorrectly claimed in justification | Not detected | **Detected** (school-division crossings, Cochrane commuter claim overstated) |
-| Packing-cracking neighbourhood pairs | 3 present | 0 present — *pre-registered pass* |
+| Majority 2026 | 1.29% | No — well under |
+| Minority 2026 | 2.71% | No — under |
 
-Under the checklist's threshold ("three signals plus an outlier on the statistical ensemble"), the minority map comes close but does not clearly cross the line. It meets three of the signals, and it sits outside the 95th percentile on one statistical measure. It does not introduce new types of anomalies, and it does not clearly overturn the public submissions received by the commission.
+On the partisan-fairness numbers, **neither map is a gerrymander**. The minority is closer to the threshold (about 1.7 percentage points away), but still inside the band a non-partisan computer simulation would produce.
 
-**The honest scorecard: the minority map has more anomalies than the majority, and those anomalies are consistent with a UCP-favouring pattern, but do not clearly meet the threshold for a definitive gerrymander finding.**
+**Lane 2 — the structural pattern.** Partisan-fairness numbers are not the only way to spot engineering. The audit applied nine other tests that look at *how the map was drawn*, not at what election results would come out of it. These tests are all measurable from publicly-available maps — no election data needed.
+
+| Test | Threshold | Majority map | Minority map |
+|---|---|---|---|
+| Map sits inside the 95th percentile of computer-simulated legal maps (mean-median measure) | yes is the norm | At the boundary | At the boundary |
+| Border follows existing municipal lines | 70–85% is the Canadian norm | 71% — within norm | **15% — 4.9× below norm** |
+| Population spread (variance from average) | tighter is better | 3,180 | **4,707 — 48% wider** |
+| NW Calgary population concentration above average | smaller is more neutral | 0.4% | **12.2%** |
+| Boundaries flagged by the commission's own chair | zero is the norm | 0 | **3** |
+| Airdrie split into pieces | 1 or 2 is the constraint minimum | 2 pieces | **4 pieces** |
+| Minority's own published reasons for contested redraws checked symmetrically | should hold up | n/a | **6 of 7 fail** |
+| Public submissions supporting each contested choice | should exist | n/a | **2 contested choices have no documented support in the 1,140+ submission archive** |
+| Pre-registered structural-irregularity count | 4 of 5 = outlier | 0 of 5 | **5 of 5** |
+
+On the structural lane, **the majority map crosses zero of these thresholds. The minority crosses every one of them, by a wide margin in most cases.**
+
+The two lanes give different answers. Which one matters more is the heart of the question.
+
+### Verdict on the majority map
+
+**Not a gerrymander.** It sits inside the band on the partisan-fairness numbers and crosses no structural threshold. It is the kind of map a competent independent commission would produce.
+
+### Verdict on the minority map
+
+The audit's measurement work returns a split result that the author summarises this way, in plain language:
+
+> **On the partisan-fairness numbers, the minority map is not a gerrymander.** It is below every Alberta-calibrated threshold the audit could derive, including the strongest one (4.37% from the computer simulation).
+>
+> **On the structural pattern, the minority map looks like a gerrymander.** It crosses every structural threshold the audit applies — anchoring 4.9 times below Canadian norm; population spread 48% wider than the majority; the same commission's own chair flagged three geographic anomalies on this map and zero on the other one; six of the seven contested redraws fail the minority's own published reasons when an independent reviewer checks them; two of the contested redraws have no public submissions supporting them. Each individual signal has an innocent explanation. The combination does not.
+>
+> **The author's stated opinion**, with the lane disagreement disclosed: I believe, based on the cumulative structural pattern, that the minority map is more plausibly explained by deliberate engineering against the NDP than by neutral choice among the legal alternatives the commission had available. I do not call it a gerrymander on the partisan-fairness numbers — those numbers don't support that call. The verdict is "structurally consistent with engineering, but sub-threshold on the partisan-fairness numbers." A reader who weights the partisan-fairness numbers above the structural pattern would reach a more cautious verdict; that disagreement is honest and is documented in the full monograph (§6.2).
+
+### How close did the minority map come?
+
+It depends on the lane:
+
+- **On the partisan-fairness numbers:** about 1.7 percentage points under the Alberta-calibrated 4.37% threshold. Closer to the line than the majority, but still under.
+- **On the structural pattern:** already over every threshold the audit applies, and over by wide margins. The 4.9× anchoring departure from Canadian norm is not "close" — it is the largest single departure the audit measured.
+
+The honest summary: *the minority map maxes out the structural-irregularity scoring while staying inside the partisan-fairness numbers band.* That is what a map looks like when the drafting choices put pieces in unusual places (off-reference borders, four-way city splits, chair-flagged shapes) without producing a measurable seat-count consequence — either because the engineering didn't translate into seats, or because the seat translation depends on a future election distribution we haven't seen.
+
+### What would change the author's verdict
+
+If any of these turn out to be true, the verdict above is wrong and gets retracted publicly within 30 days:
+
+1. Someone produces a legal Alberta map that satisfies the minority's own community-of-interest reasons (Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park) *and* anchors on municipal boundaries at majority-comparable rates. (Open challenge — Issue #14 on the audit's GitHub repository.)
+2. The November 2026 Lunty-committee 91-seat map produces structural-irregularity counts in the same range as the minority. That would suggest the minority's profile reflects Alberta-specific drawing difficulty rather than minority-specific engineering.
+3. A pre-2026 internal commission document is published showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices. The audit could not find such submissions for two of the contested configurations; if they exist and were missed, the rationale-failure finding is wrong.
+4. The 2019 cross-election direction reversal is shown to extend to recent polling. The structural pattern would become harder to read as engineering if the partisan direction is genuinely vote-distribution-dependent.
 
 ---
 
