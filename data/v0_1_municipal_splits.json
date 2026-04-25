@@ -1,0 +1,68 @@
+{
+  "summary": {
+    "2019_enacted": {
+      "n_splits": 10
+    },
+    "majority_2026": {
+      "n_splits": 8,
+      "delta_vs_2019": -2
+    },
+    "minority_2026": {
+      "n_splits": 11,
+      "delta_vs_2019": 1
+    }
+  },
+  "new_splits_majority": [
+    {
+      "csd_name": "Cochrane",
+      "csd_type": "T",
+      "va_votes": 7307,
+      "n_eds_2019": 1,
+      "n_eds_maj": 2
+    },
+    {
+      "csd_name": "Lac la Biche County",
+      "csd_type": "SM",
+      "va_votes": 1688,
+      "n_eds_2019": 1,
+      "n_eds_maj": 3
+    }
+  ],
+  "new_splits_minority": [
+    {
+      "csd_name": "Strathcona County",
+      "csd_type": "SM",
+      "va_votes": 27862,
+      "n_eds_2019": 3,
+      "n_eds_min": 10
+    },
+    {
+      "csd_name": "Airdrie",
+      "csd_type": "CY",
+      "va_votes": 15401,
+      "n_eds_2019": 2,
+      "n_eds_min": 3
+    },
+    {
+      "csd_name": "Okotoks",
+      "csd_type": "T",
+      "va_votes": 6498,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Beaumont",
+      "csd_type": "CY",
+      "va_votes": 4313,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    },
+    {
+      "csd_name": "Lac la Biche County",
+      "csd_type": "SM",
+      "va_votes": 1688,
+      "n_eds_2019": 1,
+      "n_eds_min": 2
+    }
+  ]
+}
