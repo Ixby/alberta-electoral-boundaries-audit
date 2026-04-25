@@ -104,7 +104,7 @@ The audit handles both problems with three layered tools.
 
 **A 100,000-map computer simulation.** Using a redistricting algorithm called *ReCom* (Recombination Markov Chain Monte Carlo), the audit generates 100,000 different legal Alberta maps from the same statutory constraints the commission worked under. Each simulated map is scored on the four standard partisan-bias metrics. The real maps' scores are then placed into this distribution: a real map at the 5th or 95th percentile is a statistical outlier; a map between the 25th and 75th percentile sits in the typical range. The minority sits at the 95th-percentile boundary on mean-median; the majority sits at the same boundary. The 2019 enacted map sits at the same boundary. This tells the audit what is geography (all three baselines tilt the same way) versus what is drawing (the minority's structural irregularities, where the majority and 2019 do not show the same pattern).
 
-**Four Alberta-calibrated thresholds for the efficiency-gap test.** The famous 7% threshold from US case law was calibrated to US Congressional delegation sizes and never adopted by any court. The audit derives four Alberta-specific alternatives: a first-principles assembly-size sensitivity threshold (~2.2%), an EBCA statutory-proportional threshold (5%), an Alberta historical-swing threshold (5–9% provisional), and the strongest — the MCMC ensemble's 95th-percentile EG of 4.37%, drawn from Alberta's actual 2019 substrate under EBCA constraints. Both 2026 maps' absolute EGs fall below all four thresholds.
+**Four Alberta-calibrated thresholds for the efficiency-gap test.** The famous 7% threshold from US case law was calibrated to US Congressional delegation sizes and never adopted by any court. The audit derives four Alberta-specific alternatives: a first-principles assembly-size sensitivity threshold (~2.2%), an EBCA statutory-proportional threshold (5%), an Alberta historical-swing threshold (5–9% provisional), and the strongest — the MCMC ensemble's 95th-percentile EG of 4.37%, drawn from Alberta's actual 2019 substrate under EBCA constraints. Under partial-coverage geometry (67 of 89 EDs measurable), both 2026 maps fell below all four thresholds. Under the audit's now-current full-coverage geometry (89 of 89, via 2019-Tier-A inheritance fill for the 33 EDs whose 2026 boundaries could not be directly reconstructed), both maps exceed the 4.37% threshold (majority 6.4%, minority 9.2%) and both score in the top 0.1% of a 250,000-plan computer simulation. Multi-method disagreement on this magnitude is itself a finding — see Lane 1 below.
 
 **A pre-registered structural-irregularity scorecard.** Five tests, committed to in writing before any results were read: anchoring departure from Canadian comparator norm, population MAD widening, geographic-zone gap, chair-flagged anomaly count, and rationale-failure count under symmetric audit. A map crossing four of five qualifies as a structural-irregularity outlier under the audit's own pre-registered rule. The minority crosses five of five. The majority crosses zero of five.
 
@@ -142,14 +142,16 @@ The honest answer needs two lanes.
 
 ### Lane 1 — the partisan-fairness numbers
 
-Where the two 2026 maps land against the Alberta-derived 4.37% threshold (the strongest of four Alberta-calibrated alternatives — see methodology):
+Where the two 2026 maps land against the Alberta-derived 4.37% threshold (the strongest of four Alberta-calibrated alternatives — see methodology), under the audit's full-coverage geometry (89 of 89 EDs measurable):
 
-| Map | Efficiency gap (absolute) | Above Alberta 4.37%? |
-|---|---|---|
-| Majority 2026 | 1.29% | No — well under |
-| Minority 2026 | 2.71% | No — under |
+| Map | Efficiency gap | Above Alberta 4.37%? | Percentile vs 250k computer simulation |
+|---|---|---|---|
+| Majority 2026 | +6.4% | **Yes — 2.0 pp over** | **p99.9 (UCP-favoured tail)** |
+| Minority 2026 | +9.2% | **Yes — 4.8 pp over** | **p100 (UCP-favoured tail)** |
 
-**On Lane 1, neither map is a gerrymander.** The minority is closer to the line (about 1.7 percentage points away), but still inside the band a non-partisan computer simulation produces.
+**On Lane 1, both maps now exceed the Alberta-derived gerrymander threshold.** This is a recent and consequential update. The earlier reading — that both maps were sub-threshold — used partial-coverage geometry (only 67 of 89 EDs) which under-counted votes in rural-UCP regions. The full-coverage 89-of-89 geometry the audit now publishes (built via 2019-Tier-A inheritance for the 21 majority + 12 minority EDs whose 2026 boundaries the commission's published maps did not allow direct reconstruction of) shifts the EG reading from sub-threshold to outlier on both maps.
+
+The honest framing: under partial-coverage attribution, neither map is a gerrymander on EG. Under full-coverage attribution, both are. The methods paper formalises this kind of cross-method disagreement; the audit reports both readings rather than picking one as authoritative. Until Elections Alberta releases the official 2026 shapefiles, the truth lies between the two readings.
 
 ### Lane 2 — the structural pattern
 
@@ -185,18 +187,20 @@ The six-failure / one-stand pattern matters. A symmetric audit that found 0/7 or
 
 ### Verdict
 
-| | Lane 1: Numbers | Lane 2: Structure |
+| | Lane 1: Numbers (full coverage) | Lane 2: Structure |
 |---|:--:|:--:|
-| **Majority 2026** | not a gerrymander | not a gerrymander |
-| **Minority 2026** | not a gerrymander | exhibits a gerrymander signature |
+| **Majority 2026** | EG +6.4% (over threshold) | not a gerrymander |
+| **Minority 2026** | EG +9.2% (over threshold) | exhibits a gerrymander signature |
 
-> **OPINION — THE EFFECTS, REPORTED PLAINLY.** The measurement work returns a split result: the minority sits below threshold on the partisan-fairness numbers and above threshold on the structural pattern. Each individual structural signal has an innocent explanation available; the cumulative pattern is what the academic redistricting literature treats as a gerrymander signature. Whether the pattern's most parsimonious explanation is engineering, unlucky drafting, or some combination is the inference the reader is invited to weigh. The audit measures the effects; it does not claim to read the drafters' minds.
+Lane 1 verdict shifted with the move from partial to full coverage. Under partial coverage, neither map was over threshold; under full coverage, both are. The ENGINEERING DIFFERENCE that distinguishes the two maps lives in Lane 2, not Lane 1 — both maps inherit Alberta's structural rural-UCP advantage on EG; only the minority crosses every structural threshold by wide margins.
+
+> **OPINION — THE EFFECTS, REPORTED PLAINLY.** The measurement work returns a coverage-sensitive result on Lane 1 (under partial-coverage attribution both maps were sub-threshold; under full-coverage attribution both exceed the Alberta-derived 4.37% EG threshold) and an unambiguous result on Lane 2 (the minority crosses every structural threshold by wide margins; the majority crosses none). Each individual structural signal has an innocent explanation available; the cumulative pattern is what the academic redistricting literature treats as a gerrymander signature. Whether the pattern's most parsimonious explanation is engineering, unlucky drafting, or some combination is the inference the reader is invited to weigh. The audit measures the effects; it does not claim to read the drafters' minds.
 >
-> **Bottom line:** below threshold on the numbers; above threshold on the structure. The literature weights the structural pattern more heavily; the monograph (§6.2) sets out both readings without picking one.
+> **Bottom line:** Lane 1 finds both maps now above the Alberta-derived gerrymander threshold under full coverage (a recent and consequential update from earlier partial-coverage readings); Lane 2 finds only the minority crosses every structural threshold. The literature weights the cumulative structural pattern more heavily than any single magnitude metric; the monograph (§6.2) sets out the cross-method disagreement explicitly without picking one reading as authoritative.
 
 ### How close did the minority map come?
 
-- **On the partisan-fairness numbers:** about 1.7 percentage points under the Alberta-calibrated 4.37% threshold. Closer to the line than the majority, but still under.
+- **On the partisan-fairness numbers (full coverage):** about 4.8 percentage points OVER the Alberta-calibrated 4.37% threshold (minority EG +9.2%). The majority is also over by 2.0 pp (+6.4%). Both maps land in the top 0.1% of a 250,000-plan computer simulation. Note that the partial-coverage reading put both maps under threshold; the full-coverage shift is itself a finding.
 - **On the structural pattern:** already over every threshold the audit applies, by wide margins. The 4.9× anchoring departure from Canadian norm is the single largest threshold cross the audit measured.
 
 > *The minority map maxes out the structural-irregularity scoring while staying inside the partisan-fairness numbers band.*

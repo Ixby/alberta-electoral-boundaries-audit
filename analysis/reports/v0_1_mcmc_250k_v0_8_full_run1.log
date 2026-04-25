@@ -1,0 +1,142 @@
+[08:49:02] 250k v0_8 rigorous ensemble starting
+  n_steps requested=250000, n_chains=4, steps/chain=62500, total=250000
+  chunk_size=5000 samples (checkpoint granularity)
+  base_seed=43, pop_deviation=±25%
+  checkpoint dir: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\mcmc_checkpoints_250k_v0_8
+[08:49:02] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[08:49:02] building adjacency graph (4765 VAs)...
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+  built in 12.2s: 4765 nodes, 13385 edges
+  2019 baseline districts: 87
+  using majority: v0_8_full_refined_majority_2026_eds.gpkg
+  using minority: v0_8_full_refined_minority_2026_eds.gpkg
+
+  --- Real-map scores (pre-ensemble) ---
+    2019 enacted: seats=57/87  EG=+0.0241  MM=-0.0077  decl=-0.0451  s50=0.460  ucp_share=0.574  cov=100.00%
+    majority 2026 v8 refined (89 EDs): seats=55/87  EG=+0.0643  MM=-0.0182  decl=-0.0118  s50=0.437  ucp_share=0.574  cov=100.00%
+    minority 2026 v8 refined (89 EDs): seats=58/83  EG=+0.0921  MM=-0.0097  decl=-0.0666  s50=0.542  ucp_share=0.574  cov=100.00%
+
+[08:49:16] launching 4 parallel chains × 62500 steps with checkpointed chunks...
+  [chain 0] 0/62500 done; resuming from chunk 0/13
+[08:49:18] loading VA polygons...
+  [chain 1] 0/62500 done; resuming from chunk 0/13
+[08:49:18] loading VA polygons...
+  [chain 2] 0/62500 done; resuming from chunk 0/13
+[08:49:18] loading VA polygons...
+  [chain 3] 0/62500 done; resuming from chunk 0/13
+[08:49:18] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[08:49:18] building adjacency graph (4765 VAs)...
+  total 2021 pop across VAs: 4,262,572
+[08:49:18] building adjacency graph (4765 VAs)...
+  total 2021 pop across VAs: 4,262,572
+[08:49:18] building adjacency graph (4765 VAs)...
+  total 2021 pop across VAs: 4,262,572
+[08:49:18] building adjacency graph (4765 VAs)...
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+  built in 18.1s: 4765 nodes, 13385 edges
+  built in 18.2s: 4765 nodes, 13385 edges
+  built in 18.2s: 4765 nodes, 13385 edges
+  built in 18.3s: 4765 nodes, 13385 edges
+  [chain 1] chunk 1/13 (5000 samples in 83s) → chain1_samples.csv
+  [chain 3] chunk 1/13 (5000 samples in 83s) → chain3_samples.csv
+  [chain 2] chunk 1/13 (5000 samples in 86s) → chain2_samples.csv
+  [chain 0] chunk 1/13 (5000 samples in 89s) → chain0_samples.csv
+  [chain 3] chunk 2/13 (5000 samples in 82s) → chain3_samples.csv
+  [chain 1] chunk 2/13 (5000 samples in 89s) → chain1_samples.csv
+  [chain 0] chunk 2/13 (5000 samples in 86s) → chain0_samples.csv
+  [chain 2] chunk 2/13 (5000 samples in 88s) → chain2_samples.csv
+  [chain 1] chunk 3/13 (5000 samples in 86s) → chain1_samples.csv
+  [chain 3] chunk 3/13 (5000 samples in 93s) → chain3_samples.csv
+  [chain 0] chunk 3/13 (5000 samples in 87s) → chain0_samples.csv
+  [chain 2] chunk 3/13 (5000 samples in 96s) → chain2_samples.csv
+  [chain 3] chunk 4/13 (5000 samples in 90s) → chain3_samples.csv
+  [chain 1] chunk 4/13 (5000 samples in 92s) → chain1_samples.csv
+  [chain 0] chunk 4/13 (5000 samples in 98s) → chain0_samples.csv
+  [chain 2] chunk 4/13 (5000 samples in 95s) → chain2_samples.csv
+  [chain 3] chunk 5/13 (5000 samples in 91s) → chain3_samples.csv
+  [chain 1] chunk 5/13 (5000 samples in 92s) → chain1_samples.csv
+  [chain 0] chunk 5/13 (5000 samples in 91s) → chain0_samples.csv
+  [chain 2] chunk 5/13 (5000 samples in 97s) → chain2_samples.csv
+  [chain 3] chunk 6/13 (5000 samples in 87s) → chain3_samples.csv
+  [chain 1] chunk 6/13 (5000 samples in 88s) → chain1_samples.csv
+  [chain 0] chunk 6/13 (5000 samples in 87s) → chain0_samples.csv
+  [chain 2] chunk 6/13 (5000 samples in 90s) → chain2_samples.csv
+  [chain 3] chunk 7/13 (5000 samples in 82s) → chain3_samples.csv
+  [chain 1] chunk 7/13 (5000 samples in 81s) → chain1_samples.csv
+  [chain 0] chunk 7/13 (5000 samples in 83s) → chain0_samples.csv
+  [chain 2] chunk 7/13 (5000 samples in 83s) → chain2_samples.csv
+  [chain 3] chunk 8/13 (5000 samples in 74s) → chain3_samples.csv
+  [chain 1] chunk 8/13 (5000 samples in 76s) → chain1_samples.csv
+  [chain 0] chunk 8/13 (5000 samples in 71s) → chain0_samples.csv
+  [chain 2] chunk 8/13 (5000 samples in 74s) → chain2_samples.csv
+  [chain 3] chunk 9/13 (5000 samples in 72s) → chain3_samples.csv
+  [chain 1] chunk 9/13 (5000 samples in 75s) → chain1_samples.csv
+  [chain 0] chunk 9/13 (5000 samples in 76s) → chain0_samples.csv
+  [chain 2] chunk 9/13 (5000 samples in 72s) → chain2_samples.csv
+  [chain 3] chunk 10/13 (5000 samples in 72s) → chain3_samples.csv
+  [chain 1] chunk 10/13 (5000 samples in 72s) → chain1_samples.csv
+  [chain 0] chunk 10/13 (5000 samples in 75s) → chain0_samples.csv
+  [chain 2] chunk 10/13 (5000 samples in 74s) → chain2_samples.csv
+  [chain 3] chunk 11/13 (5000 samples in 71s) → chain3_samples.csv
+  [chain 1] chunk 11/13 (5000 samples in 70s) → chain1_samples.csv
+  [chain 0] chunk 11/13 (5000 samples in 72s) → chain0_samples.csv
+  [chain 2] chunk 11/13 (5000 samples in 69s) → chain2_samples.csv
+  [chain 3] chunk 12/13 (5000 samples in 74s) → chain3_samples.csv
+  [chain 1] chunk 12/13 (5000 samples in 70s) → chain1_samples.csv
+  [chain 0] chunk 12/13 (5000 samples in 73s) → chain0_samples.csv
+  [chain 2] chunk 12/13 (5000 samples in 71s) → chain2_samples.csv
+  [chain 3] chunk 13/13 (2500 samples in 40s) → chain3_samples.csv
+  [chain 3] complete in 1011s
+  [chain 1] chunk 13/13 (2500 samples in 40s) → chain1_samples.csv
+  [chain 1] complete in 1015s
+  [chain 0] chunk 13/13 (2500 samples in 39s) → chain0_samples.csv
+  [chain 0] complete in 1026s
+  ↳ chain file ready: chain0_samples.csv
+  ↳ chain file ready: chain1_samples.csv
+  [chain 2] chunk 13/13 (2500 samples in 35s) → chain2_samples.csv
+  [chain 2] complete in 1029s
+  ↳ chain file ready: chain2_samples.csv
+  ↳ chain file ready: chain3_samples.csv
+  wrote v0_1_mcmc_ensemble_samples_250k_v0_8.csv (250000 samples from 4 chains) in 1066s total
+
+  --- Convergence diagnostics (full 250k) ---
+    efficiency_gap     n=250000  tau=508.12  n_eff=492  rho1=+0.990  rho10=+0.904  rho100=+0.452
+    mean_median        n=250000  tau=501.24  n_eff=499  rho1=+0.987  rho10=+0.886  rho100=+0.480
+    declination        n=250000  tau=508.66  n_eff=491  rho1=+0.990  rho10=+0.904  rho100=+0.456
+    seats_at_50_50     n=250000  tau=501.50  n_eff=499  rho1=+0.991  rho10=+0.915  rho100=+0.521
+  wrote v0_1_mcmc_convergence_diagnostics_250k_v0_8.json
+  wrote v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv
+
+  --- Per-metric percentiles (real maps vs 250k ensemble) ---
+        metric                               map   value  percentile  ensemble_p5  ensemble_p50  ensemble_p95
+efficiency_gap                      2019 enacted +0.0241    +66.3260      -0.0070       +0.0178       +0.0420
+efficiency_gap majority 2026 v8 refined (89 EDs) +0.0643    +99.9352      -0.0070       +0.0178       +0.0420
+efficiency_gap minority 2026 v8 refined (89 EDs) +0.0921   +100.0000      -0.0070       +0.0178       +0.0420
+   mean_median                      2019 enacted -0.0077    +91.8284      -0.0312       -0.0185       -0.0054
+   mean_median majority 2026 v8 refined (89 EDs) -0.0182    +51.4912      -0.0312       -0.0185       -0.0054
+   mean_median minority 2026 v8 refined (89 EDs) -0.0097    +86.8552      -0.0312       -0.0185       -0.0054
+   declination                      2019 enacted -0.0451     +9.4020      -0.0610       -0.0055       +0.0478
+   declination majority 2026 v8 refined (89 EDs) -0.0118    +42.9612      -0.0610       -0.0055       +0.0478
+   declination minority 2026 v8 refined (89 EDs) -0.0666     +2.8984      -0.0610       -0.0055       +0.0478
+seats_at_50_50                      2019 enacted +0.4598    +82.8944      +0.4253       +0.4483       +0.4713
+seats_at_50_50 majority 2026 v8 refined (89 EDs) +0.4368    +22.6904      +0.4253       +0.4483       +0.4713
+seats_at_50_50 minority 2026 v8 refined (89 EDs) +0.5422   +100.0000      +0.4253       +0.4483       +0.4713
+  wrote v0_1_mcmc_real_map_scores_250k_v0_8.json
+
+  *** OUTLIER FLAGS (>=95th or <=5th percentile) ***
+    majority 2026 v8 refined (89 EDs)                efficiency_gap     value=+0.0643  p=99.9
+    minority 2026 v8 refined (89 EDs)                efficiency_gap     value=+0.0921  p=100.0
+    minority 2026 v8 refined (89 EDs)                declination        value=-0.0666  p=2.9
+    minority 2026 v8 refined (89 EDs)                seats_at_50_50     value=+0.5422  p=100.0
+
+[09:06:51] done. total wall time 1068s
