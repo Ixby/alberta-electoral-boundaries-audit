@@ -239,10 +239,11 @@ def build_verdict_quadrant() -> Path:
     """2×2 verdict quadrant: x = Lane 1 EG (full coverage); y =
     structural-irregularity count. Three dots: 2019 baseline, Majority
     2026, Minority 2026. Labels in plain English so it reads at a
-    glance."""
+    glance. Percentile placements come from the 1M-sample Run #5."""
     fig, ax = plt.subplots(figsize=(5.2, 4.6), dpi=300)
 
-    # x = Lane 1 EG (signed); y = Lane 2 structural count (0-5)
+    # x = Lane 1 EG (signed; v0_8 full coverage, Run #5 1M MCMC);
+    # y = Lane 2 structural count (0-5)
     points = [
         ("2019 enacted",  2.41, 0,   NEUTRAL_2019),
         ("Majority 2026", 6.43, 0,   UCP_BLUE),
@@ -326,15 +327,15 @@ def build_verdict_quadrant() -> Path:
 
 
 def main() -> int:
-    print("[article figures] generating embedded charts…")
+    print("[article figures] generating embedded charts...")
     print(f"  output dir: {OUT}")
     p1 = build_lane1_dotplot()
-    print(f"  ✓ {p1.relative_to(ROOT)}")
+    print(f"  [ok] {p1.relative_to(ROOT)}")
     p2 = build_lane2_bars()
-    print(f"  ✓ {p2.relative_to(ROOT)}")
+    print(f"  [ok] {p2.relative_to(ROOT)}")
     p3 = build_verdict_quadrant()
-    print(f"  ✓ {p3.relative_to(ROOT)}")
-    print("[article figures] done — embed via standard markdown image syntax")
+    print(f"  [ok] {p3.relative_to(ROOT)}")
+    print("[article figures] done -- embed via standard markdown image syntax")
     return 0
 
 

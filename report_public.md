@@ -146,12 +146,12 @@ Where the two 2026 maps land against the simulation's 95th percentile (4.37%):
 
 ![Lane 1: efficiency gap before/after the coverage shift. Faded dots show the partial-coverage reading (Majority −1.29%, Minority −2.71%); bold dots show the full-coverage reading (Majority +6.43%, Minority +9.21%). Arrows mark the partial→full shift. Both bold dots sit beyond the dashed p95 = 4.37% line.](data/maps/article/lane1_dotplot.png)
 
-| Map | Efficiency gap | Above the p95 line? | Honest percentile reading |
+| Map | Efficiency gap | Above the p95 line? | Percentile vs 1,000,000-map simulation |
 |---|---|---|---|
-| Majority 2026 | +6.4% | Yes — 2.0 pp over | beyond p95 (likely p98+) |
-| Minority 2026 | +9.2% | Yes — 4.8 pp over | beyond p95 (likely p99+) |
+| Majority 2026 | +6.4% | Yes — 2.0 pp over | **p99.93** (UCP-favoured tail) |
+| Minority 2026 | +9.2% | Yes — 4.8 pp over | **p100** (UCP-favoured tail) |
 
-**Why "likely" instead of an exact number.** The chains' effective sample size is in the high hundreds, which means the audit can confidently say a map is past p95 but cannot reliably distinguish p99 from p99.9 from p100. The point estimate is in the data; the precision the audit *can* claim stops at "outside the 95–5 band."
+**The percentile readings are now point estimates, not bounds.** A subsequent 1,000,000-sample run (4 parallel chains × 250,000 each) lifted the chains' effective sample size from the high hundreds into the high thousands — the precision range published-grade redistricting analyses use. Both 2026 maps cross the p95 line by ≥ 5 percentile points; the minority is at the simulation's ceiling.
 
 **Why the verdict moved.** An earlier version of this audit measured 67 of 89 ridings — the 22 it skipped were mostly rural UCP strongholds whose 2026 boundaries the commission's published maps did not let the audit reconstruct from public data. Filling those in (using their 2019 boundaries as a stand-in until Elections Alberta releases the official files) pushed both maps over the line. The earlier reading wasn't wrong — it was incomplete. The honest framing: the partial-coverage and the inheritance-filled full-coverage readings *both* have measurement noise; until the official shapefiles drop, neither is authoritative. They agree on direction (both maps lean UCP) and disagree on magnitude.
 

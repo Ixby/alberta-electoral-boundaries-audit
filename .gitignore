@@ -24,3 +24,6 @@ data/mcmc_checkpoints_*/
 # here when the working directory is wrong; the canonical copy lives in
 # data/maps/.
 /maps/
+
+# MCMC raw sample CSVs >100MB — keep percentiles + diagnostics + log instead
+data/v0_1_mcmc_ensemble_samples_*.csv

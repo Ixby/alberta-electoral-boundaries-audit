@@ -1,0 +1,320 @@
+[15:38:37] 250k v0_8 rigorous ensemble starting
+  n_steps requested=1000000, n_chains=4, steps/chain=250000, total=1000000
+  chunk_size=5000 samples (checkpoint granularity)
+  base_seed=44, pop_deviation=±25%
+  checkpoint dir: C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\mcmc_checkpoints_250k_v0_8
+[15:38:37] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[15:38:37] building adjacency graph (4765 VAs)...
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+  built in 22.9s: 4765 nodes, 13385 edges
+  2019 baseline districts: 87
+  using majority: v0_8_full_refined_majority_2026_eds.gpkg
+  using minority: v0_8_full_refined_minority_2026_eds.gpkg
+
+  --- Real-map scores (pre-ensemble) ---
+    2019 enacted: seats=57/87  EG=+0.0241  MM=-0.0077  decl=-0.0451  s50=0.460  ucp_share=0.574  cov=100.00%
+    majority 2026 v8 refined (89 EDs): seats=55/87  EG=+0.0643  MM=-0.0182  decl=-0.0118  s50=0.437  ucp_share=0.574  cov=100.00%
+    minority 2026 v8 refined (89 EDs): seats=58/83  EG=+0.0921  MM=-0.0097  decl=-0.0666  s50=0.542  ucp_share=0.574  cov=100.00%
+
+[15:39:03] launching 4 parallel chains × 250000 steps with checkpointed chunks...
+  [chain 0] 0/250000 done; resuming from chunk 0/50
+[15:39:05] loading VA polygons...
+  [chain 1] 0/250000 done; resuming from chunk 0/50
+[15:39:05] loading VA polygons...
+  [chain 2] 0/250000 done; resuming from chunk 0/50
+[15:39:05] loading VA polygons...
+  [chain 3] 0/250000 done; resuming from chunk 0/50
+[15:39:06] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[15:39:06] building adjacency graph (4765 VAs)...
+  total 2021 pop across VAs: 4,262,572
+[15:39:06] building adjacency graph (4765 VAs)...
+  total 2021 pop across VAs: 4,262,572
+[15:39:06] building adjacency graph (4765 VAs)...
+  total 2021 pop across VAs: 4,262,572
+[15:39:06] building adjacency graph (4765 VAs)...
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+  built in 29.3s: 4765 nodes, 13385 edges
+  built in 29.3s: 4765 nodes, 13385 edges
+  built in 29.5s: 4765 nodes, 13385 edges
+  built in 29.4s: 4765 nodes, 13385 edges
+  [chain 1] chunk 1/50 (5000 samples in 116s) → chain1_samples.csv
+  [chain 0] chunk 1/50 (5000 samples in 120s) → chain0_samples.csv
+  [chain 2] chunk 1/50 (5000 samples in 121s) → chain2_samples.csv
+  [chain 3] chunk 1/50 (5000 samples in 121s) → chain3_samples.csv
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py:704: BipartitionWarning: 
+Failed to find a balanced cut after 1000 attempts.
+If possible, consider enabling pair reselection within your
+MarkovChain proposal method to allow the algorithm to select
+a different pair of districts for recombination.
+  warnings.warn(
+  [chain 1] chunk 2/50 (5000 samples in 115s) → chain1_samples.csv
+  [chain 2] chunk 2/50 (5000 samples in 116s) → chain2_samples.csv
+  [chain 3] chunk 2/50 (5000 samples in 120s) → chain3_samples.csv
+  [chain 0] chunk 2/50 (5000 samples in 121s) → chain0_samples.csv
+  [chain 1] chunk 3/50 (5000 samples in 102s) → chain1_samples.csv
+  [chain 3] chunk 3/50 (5000 samples in 92s) → chain3_samples.csv
+  [chain 2] chunk 3/50 (5000 samples in 97s) → chain2_samples.csv
+  [chain 0] chunk 3/50 (5000 samples in 97s) → chain0_samples.csv
+  [chain 3] chunk 4/50 (5000 samples in 92s) → chain3_samples.csv
+  [chain 1] chunk 4/50 (5000 samples in 96s) → chain1_samples.csv
+  [chain 2] chunk 4/50 (5000 samples in 95s) → chain2_samples.csv
+  [chain 0] chunk 4/50 (5000 samples in 96s) → chain0_samples.csv
+  [chain 3] chunk 5/50 (5000 samples in 102s) → chain3_samples.csv
+  [chain 1] chunk 5/50 (5000 samples in 98s) → chain1_samples.csv
+  [chain 2] chunk 5/50 (5000 samples in 100s) → chain2_samples.csv
+  [chain 0] chunk 5/50 (5000 samples in 108s) → chain0_samples.csv
+  [chain 3] chunk 6/50 (5000 samples in 96s) → chain3_samples.csv
+  [chain 2] chunk 6/50 (5000 samples in 95s) → chain2_samples.csv
+  [chain 1] chunk 6/50 (5000 samples in 98s) → chain1_samples.csv
+  [chain 0] chunk 6/50 (5000 samples in 97s) → chain0_samples.csv
+  [chain 3] chunk 7/50 (5000 samples in 96s) → chain3_samples.csv
+  [chain 2] chunk 7/50 (5000 samples in 96s) → chain2_samples.csv
+  [chain 1] chunk 7/50 (5000 samples in 98s) → chain1_samples.csv
+  [chain 0] chunk 7/50 (5000 samples in 91s) → chain0_samples.csv
+  [chain 3] chunk 8/50 (5000 samples in 96s) → chain3_samples.csv
+  [chain 2] chunk 8/50 (5000 samples in 96s) → chain2_samples.csv
+  [chain 1] chunk 8/50 (5000 samples in 103s) → chain1_samples.csv
+  [chain 0] chunk 8/50 (5000 samples in 100s) → chain0_samples.csv
+  [chain 2] chunk 9/50 (5000 samples in 95s) → chain2_samples.csv
+  [chain 3] chunk 9/50 (5000 samples in 96s) → chain3_samples.csv
+  [chain 1] chunk 9/50 (5000 samples in 97s) → chain1_samples.csv
+  [chain 0] chunk 9/50 (5000 samples in 95s) → chain0_samples.csv
+  [chain 3] chunk 10/50 (5000 samples in 93s) → chain3_samples.csv
+  [chain 2] chunk 10/50 (5000 samples in 98s) → chain2_samples.csv
+  [chain 0] chunk 10/50 (5000 samples in 92s) → chain0_samples.csv
+  [chain 1] chunk 10/50 (5000 samples in 97s) → chain1_samples.csv
+  [chain 3] chunk 11/50 (5000 samples in 92s) → chain3_samples.csv
+  [chain 2] chunk 11/50 (5000 samples in 92s) → chain2_samples.csv
+  [chain 0] chunk 11/50 (5000 samples in 88s) → chain0_samples.csv
+  [chain 1] chunk 11/50 (5000 samples in 88s) → chain1_samples.csv
+  [chain 3] chunk 12/50 (5000 samples in 84s) → chain3_samples.csv
+  [chain 2] chunk 12/50 (5000 samples in 84s) → chain2_samples.csv
+  [chain 1] chunk 12/50 (5000 samples in 82s) → chain1_samples.csv
+  [chain 0] chunk 12/50 (5000 samples in 87s) → chain0_samples.csv
+  [chain 3] chunk 13/50 (5000 samples in 90s) → chain3_samples.csv
+  [chain 2] chunk 13/50 (5000 samples in 89s) → chain2_samples.csv
+  [chain 1] chunk 13/50 (5000 samples in 91s) → chain1_samples.csv
+  [chain 0] chunk 13/50 (5000 samples in 91s) → chain0_samples.csv
+  [chain 3] chunk 14/50 (5000 samples in 82s) → chain3_samples.csv
+  [chain 2] chunk 14/50 (5000 samples in 82s) → chain2_samples.csv
+  [chain 1] chunk 14/50 (5000 samples in 80s) → chain1_samples.csv
+  [chain 0] chunk 14/50 (5000 samples in 83s) → chain0_samples.csv
+  [chain 3] chunk 15/50 (5000 samples in 83s) → chain3_samples.csv
+  [chain 2] chunk 15/50 (5000 samples in 85s) → chain2_samples.csv
+  [chain 1] chunk 15/50 (5000 samples in 80s) → chain1_samples.csv
+  [chain 0] chunk 15/50 (5000 samples in 83s) → chain0_samples.csv
+  [chain 3] chunk 16/50 (5000 samples in 85s) → chain3_samples.csv
+  [chain 2] chunk 16/50 (5000 samples in 87s) → chain2_samples.csv
+  [chain 1] chunk 16/50 (5000 samples in 94s) → chain1_samples.csv
+  [chain 0] chunk 16/50 (5000 samples in 88s) → chain0_samples.csv
+  [chain 3] chunk 17/50 (5000 samples in 87s) → chain3_samples.csv
+  [chain 2] chunk 17/50 (5000 samples in 83s) → chain2_samples.csv
+  [chain 1] chunk 17/50 (5000 samples in 84s) → chain1_samples.csv
+  [chain 0] chunk 17/50 (5000 samples in 88s) → chain0_samples.csv
+  [chain 3] chunk 18/50 (5000 samples in 79s) → chain3_samples.csv
+  [chain 2] chunk 18/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 1] chunk 18/50 (5000 samples in 80s) → chain1_samples.csv
+  [chain 0] chunk 18/50 (5000 samples in 80s) → chain0_samples.csv
+  [chain 3] chunk 19/50 (5000 samples in 76s) → chain3_samples.csv
+  [chain 2] chunk 19/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 1] chunk 19/50 (5000 samples in 78s) → chain1_samples.csv
+  [chain 0] chunk 19/50 (5000 samples in 84s) → chain0_samples.csv
+  [chain 3] chunk 20/50 (5000 samples in 78s) → chain3_samples.csv
+  [chain 2] chunk 20/50 (5000 samples in 84s) → chain2_samples.csv
+  [chain 1] chunk 20/50 (5000 samples in 83s) → chain1_samples.csv
+  [chain 0] chunk 20/50 (5000 samples in 79s) → chain0_samples.csv
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py:704: BipartitionWarning: 
+Failed to find a balanced cut after 1000 attempts.
+If possible, consider enabling pair reselection within your
+MarkovChain proposal method to allow the algorithm to select
+a different pair of districts for recombination.
+  warnings.warn(
+  [chain 3] chunk 21/50 (5000 samples in 89s) → chain3_samples.csv
+  [chain 2] chunk 21/50 (5000 samples in 89s) → chain2_samples.csv
+  [chain 1] chunk 21/50 (5000 samples in 95s) → chain1_samples.csv
+  [chain 0] chunk 21/50 (5000 samples in 93s) → chain0_samples.csv
+  [chain 3] chunk 22/50 (5000 samples in 82s) → chain3_samples.csv
+  [chain 2] chunk 22/50 (5000 samples in 79s) → chain2_samples.csv
+  [chain 1] chunk 22/50 (5000 samples in 80s) → chain1_samples.csv
+  [chain 0] chunk 22/50 (5000 samples in 80s) → chain0_samples.csv
+  [chain 3] chunk 23/50 (5000 samples in 83s) → chain3_samples.csv
+  [chain 2] chunk 23/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 1] chunk 23/50 (5000 samples in 77s) → chain1_samples.csv
+  [chain 0] chunk 23/50 (5000 samples in 81s) → chain0_samples.csv
+  [chain 3] chunk 24/50 (5000 samples in 81s) → chain3_samples.csv
+  [chain 2] chunk 24/50 (5000 samples in 80s) → chain2_samples.csv
+  [chain 1] chunk 24/50 (5000 samples in 81s) → chain1_samples.csv
+  [chain 0] chunk 24/50 (5000 samples in 80s) → chain0_samples.csv
+  [chain 2] chunk 25/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 3] chunk 25/50 (5000 samples in 79s) → chain3_samples.csv
+  [chain 1] chunk 25/50 (5000 samples in 79s) → chain1_samples.csv
+  [chain 0] chunk 25/50 (5000 samples in 79s) → chain0_samples.csv
+  [chain 2] chunk 26/50 (5000 samples in 78s) → chain2_samples.csv
+  [chain 3] chunk 26/50 (5000 samples in 80s) → chain3_samples.csv
+  [chain 1] chunk 26/50 (5000 samples in 79s) → chain1_samples.csv
+  [chain 0] chunk 26/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 2] chunk 27/50 (5000 samples in 79s) → chain2_samples.csv
+  [chain 3] chunk 27/50 (5000 samples in 80s) → chain3_samples.csv
+  [chain 1] chunk 27/50 (5000 samples in 81s) → chain1_samples.csv
+  [chain 0] chunk 27/50 (5000 samples in 76s) → chain0_samples.csv
+  [chain 3] chunk 28/50 (5000 samples in 77s) → chain3_samples.csv
+  [chain 2] chunk 28/50 (5000 samples in 81s) → chain2_samples.csv
+  [chain 1] chunk 28/50 (5000 samples in 78s) → chain1_samples.csv
+  [chain 0] chunk 28/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 3] chunk 29/50 (5000 samples in 81s) → chain3_samples.csv
+  [chain 2] chunk 29/50 (5000 samples in 81s) → chain2_samples.csv
+  [chain 1] chunk 29/50 (5000 samples in 73s) → chain1_samples.csv
+  [chain 0] chunk 29/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 2] chunk 30/50 (5000 samples in 76s) → chain2_samples.csv
+  [chain 3] chunk 30/50 (5000 samples in 78s) → chain3_samples.csv
+  [chain 1] chunk 30/50 (5000 samples in 80s) → chain1_samples.csv
+  [chain 0] chunk 30/50 (5000 samples in 77s) → chain0_samples.csv
+  [chain 2] chunk 31/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 3] chunk 31/50 (5000 samples in 77s) → chain3_samples.csv
+  [chain 1] chunk 31/50 (5000 samples in 79s) → chain1_samples.csv
+  [chain 0] chunk 31/50 (5000 samples in 76s) → chain0_samples.csv
+  [chain 2] chunk 32/50 (5000 samples in 80s) → chain2_samples.csv
+  [chain 3] chunk 32/50 (5000 samples in 80s) → chain3_samples.csv
+  [chain 0] chunk 32/50 (5000 samples in 77s) → chain0_samples.csv
+  [chain 1] chunk 32/50 (5000 samples in 81s) → chain1_samples.csv
+  [chain 2] chunk 33/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 3] chunk 33/50 (5000 samples in 83s) → chain3_samples.csv
+  [chain 1] chunk 33/50 (5000 samples in 75s) → chain1_samples.csv
+  [chain 0] chunk 33/50 (5000 samples in 79s) → chain0_samples.csv
+  [chain 2] chunk 34/50 (5000 samples in 78s) → chain2_samples.csv
+  [chain 3] chunk 34/50 (5000 samples in 77s) → chain3_samples.csv
+  [chain 0] chunk 34/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 1] chunk 34/50 (5000 samples in 78s) → chain1_samples.csv
+  [chain 2] chunk 35/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 3] chunk 35/50 (5000 samples in 78s) → chain3_samples.csv
+  [chain 0] chunk 35/50 (5000 samples in 77s) → chain0_samples.csv
+  [chain 1] chunk 35/50 (5000 samples in 80s) → chain1_samples.csv
+  [chain 2] chunk 36/50 (5000 samples in 74s) → chain2_samples.csv
+  [chain 3] chunk 36/50 (5000 samples in 80s) → chain3_samples.csv
+  [chain 0] chunk 36/50 (5000 samples in 81s) → chain0_samples.csv
+  [chain 1] chunk 36/50 (5000 samples in 81s) → chain1_samples.csv
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py:704: BipartitionWarning: 
+Failed to find a balanced cut after 1000 attempts.
+If possible, consider enabling pair reselection within your
+MarkovChain proposal method to allow the algorithm to select
+a different pair of districts for recombination.
+  warnings.warn(
+  [chain 2] chunk 37/50 (5000 samples in 81s) → chain2_samples.csv
+  [chain 3] chunk 37/50 (5000 samples in 77s) → chain3_samples.csv
+  [chain 0] chunk 37/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 1] chunk 37/50 (5000 samples in 82s) → chain1_samples.csv
+  [chain 2] chunk 38/50 (5000 samples in 76s) → chain2_samples.csv
+  [chain 3] chunk 38/50 (5000 samples in 76s) → chain3_samples.csv
+  [chain 0] chunk 38/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 1] chunk 38/50 (5000 samples in 82s) → chain1_samples.csv
+  [chain 2] chunk 39/50 (5000 samples in 79s) → chain2_samples.csv
+  [chain 3] chunk 39/50 (5000 samples in 77s) → chain3_samples.csv
+  [chain 0] chunk 39/50 (5000 samples in 77s) → chain0_samples.csv
+  [chain 1] chunk 39/50 (5000 samples in 80s) → chain1_samples.csv
+  [chain 2] chunk 40/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 3] chunk 40/50 (5000 samples in 80s) → chain3_samples.csv
+  [chain 0] chunk 40/50 (5000 samples in 77s) → chain0_samples.csv
+  [chain 1] chunk 40/50 (5000 samples in 77s) → chain1_samples.csv
+  [chain 2] chunk 41/50 (5000 samples in 79s) → chain2_samples.csv
+  [chain 3] chunk 41/50 (5000 samples in 75s) → chain3_samples.csv
+  [chain 0] chunk 41/50 (5000 samples in 76s) → chain0_samples.csv
+  [chain 1] chunk 41/50 (5000 samples in 77s) → chain1_samples.csv
+  [chain 2] chunk 42/50 (5000 samples in 79s) → chain2_samples.csv
+  [chain 3] chunk 42/50 (5000 samples in 77s) → chain3_samples.csv
+  [chain 0] chunk 42/50 (5000 samples in 80s) → chain0_samples.csv
+  [chain 1] chunk 42/50 (5000 samples in 79s) → chain1_samples.csv
+  [chain 2] chunk 43/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 3] chunk 43/50 (5000 samples in 79s) → chain3_samples.csv
+  [chain 0] chunk 43/50 (5000 samples in 77s) → chain0_samples.csv
+  [chain 1] chunk 43/50 (5000 samples in 79s) → chain1_samples.csv
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py:704: BipartitionWarning: 
+Failed to find a balanced cut after 1000 attempts.
+If possible, consider enabling pair reselection within your
+MarkovChain proposal method to allow the algorithm to select
+a different pair of districts for recombination.
+  warnings.warn(
+  [chain 3] chunk 44/50 (5000 samples in 75s) → chain3_samples.csv
+  [chain 0] chunk 44/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 2] chunk 44/50 (5000 samples in 99s) → chain2_samples.csv
+  [chain 1] chunk 44/50 (5000 samples in 75s) → chain1_samples.csv
+  [chain 3] chunk 45/50 (5000 samples in 79s) → chain3_samples.csv
+  [chain 0] chunk 45/50 (5000 samples in 77s) → chain0_samples.csv
+  [chain 2] chunk 45/50 (5000 samples in 80s) → chain2_samples.csv
+  [chain 1] chunk 45/50 (5000 samples in 76s) → chain1_samples.csv
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\tree.py:704: BipartitionWarning: 
+Failed to find a balanced cut after 1000 attempts.
+If possible, consider enabling pair reselection within your
+MarkovChain proposal method to allow the algorithm to select
+a different pair of districts for recombination.
+  warnings.warn(
+  [chain 3] chunk 46/50 (5000 samples in 79s) → chain3_samples.csv
+  [chain 2] chunk 46/50 (5000 samples in 79s) → chain2_samples.csv
+  [chain 0] chunk 46/50 (5000 samples in 86s) → chain0_samples.csv
+  [chain 1] chunk 46/50 (5000 samples in 79s) → chain1_samples.csv
+  [chain 3] chunk 47/50 (5000 samples in 77s) → chain3_samples.csv
+  [chain 2] chunk 47/50 (5000 samples in 78s) → chain2_samples.csv
+  [chain 0] chunk 47/50 (5000 samples in 78s) → chain0_samples.csv
+  [chain 1] chunk 47/50 (5000 samples in 79s) → chain1_samples.csv
+  [chain 3] chunk 48/50 (5000 samples in 78s) → chain3_samples.csv
+  [chain 2] chunk 48/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 0] chunk 48/50 (5000 samples in 80s) → chain0_samples.csv
+  [chain 1] chunk 48/50 (5000 samples in 78s) → chain1_samples.csv
+  [chain 3] chunk 49/50 (5000 samples in 78s) → chain3_samples.csv
+  [chain 2] chunk 49/50 (5000 samples in 77s) → chain2_samples.csv
+  [chain 0] chunk 49/50 (5000 samples in 80s) → chain0_samples.csv
+  [chain 1] chunk 49/50 (5000 samples in 83s) → chain1_samples.csv
+  [chain 3] chunk 50/50 (5000 samples in 78s) → chain3_samples.csv
+  [chain 3] complete in 4209s
+  [chain 2] chunk 50/50 (5000 samples in 76s) → chain2_samples.csv
+  [chain 2] complete in 4224s
+  [chain 0] chunk 50/50 (5000 samples in 76s) → chain0_samples.csv
+  [chain 0] complete in 4233s
+  ↳ chain file ready: chain0_samples.csv
+  [chain 1] chunk 50/50 (5000 samples in 77s) → chain1_samples.csv
+  [chain 1] complete in 4240s
+  ↳ chain file ready: chain1_samples.csv
+  ↳ chain file ready: chain2_samples.csv
+  ↳ chain file ready: chain3_samples.csv
+  wrote v0_1_mcmc_ensemble_samples_250k_v0_8.csv (1000000 samples from 4 chains) in 4308s total
+
+  --- Convergence diagnostics (full 250k) ---
+    efficiency_gap     n=1000000  tau=438.90  n_eff=2278  rho1=+0.990  rho10=+0.908  rho100=+0.475
+    mean_median        n=1000000  tau=508.46  n_eff=1967  rho1=+0.987  rho10=+0.890  rho100=+0.489
+    declination        n=1000000  tau=439.03  n_eff=2278  rho1=+0.990  rho10=+0.909  rho100=+0.478
+    seats_at_50_50     n=1000000  tau=595.60  n_eff=1679  rho1=+0.991  rho10=+0.918  rho100=+0.532
+  wrote v0_1_mcmc_convergence_diagnostics_250k_v0_8.json
+  wrote v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv
+
+  --- Per-metric percentiles (real maps vs 250k ensemble) ---
+        metric                               map   value  percentile  ensemble_p5  ensemble_p50  ensemble_p95
+efficiency_gap                      2019 enacted +0.0241    +67.4349      -0.0083       +0.0173       +0.0424
+efficiency_gap majority 2026 v8 refined (89 EDs) +0.0643    +99.9326      -0.0083       +0.0173       +0.0424
+efficiency_gap minority 2026 v8 refined (89 EDs) +0.0921   +100.0000      -0.0083       +0.0173       +0.0424
+   mean_median                      2019 enacted -0.0077    +91.7448      -0.0311       -0.0188       -0.0053
+   mean_median majority 2026 v8 refined (89 EDs) -0.0182    +53.4512      -0.0311       -0.0188       -0.0053
+   mean_median minority 2026 v8 refined (89 EDs) -0.0097    +87.3697      -0.0311       -0.0188       -0.0053
+   declination                      2019 enacted -0.0451     +9.1187      -0.0599       -0.0031       +0.0532
+   declination majority 2026 v8 refined (89 EDs) -0.0118    +41.5118      -0.0599       -0.0031       +0.0532
+   declination minority 2026 v8 refined (89 EDs) -0.0666     +2.9999      -0.0599       -0.0031       +0.0532
+seats_at_50_50                      2019 enacted +0.4598    +82.2701      +0.4253       +0.4483       +0.4828
+seats_at_50_50 majority 2026 v8 refined (89 EDs) +0.4368    +21.6004      +0.4253       +0.4483       +0.4828
+seats_at_50_50 minority 2026 v8 refined (89 EDs) +0.5422   +100.0000      +0.4253       +0.4483       +0.4828
+  wrote v0_1_mcmc_real_map_scores_250k_v0_8.json
+
+  *** OUTLIER FLAGS (>=95th or <=5th percentile) ***
+    majority 2026 v8 refined (89 EDs)                efficiency_gap     value=+0.0643  p=99.9
+    minority 2026 v8 refined (89 EDs)                efficiency_gap     value=+0.0921  p=100.0
+    minority 2026 v8 refined (89 EDs)                declination        value=-0.0666  p=3.0
+    minority 2026 v8 refined (89 EDs)                seats_at_50_50     value=+0.5422  p=100.0
+
+[16:50:33] done. total wall time 4316s
