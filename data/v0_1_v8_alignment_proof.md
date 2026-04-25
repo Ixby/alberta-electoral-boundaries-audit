@@ -52,4 +52,47 @@ Alberta Electoral Boundaries Commission's published maps.
 
 **1 landmark check(s) failed** — likely misalignment or ED-naming mismatch.
 
-## Minority — SKIPPED
+## Minority (`v0_8_refined_minority_2026_eds.gpkg`)
+
+### Topology
+- ED count: **89** (expected 89) — ✓
+- EDs with geometry (area ≥ 0.1 km²): **77 / 89**
+- **Empty EDs (area < 0.1 km²): 12** — these EDs were not assembled from source data and remain unfilled. This is a known data-completeness limitation inherited from v0_7.
+
+  Empty EDs:
+  - Calgary-Buffalo  (0.0000 km²)
+  - Calgary-Elbow  (0.0842 km²)
+  - Calgary-Glenmore  (0.0013 km²)
+  - Calgary-North West-Bearspaw  (0.0001 km²)
+  - Calgary-Peigan-Chestermere  (0.0000 km²)
+  - Calgary-South East  (0.0000 km²)
+  - Edmonton-Castledowns  (0.0000 km²)
+  - Edmonton-North West  (0.0000 km²)
+  - Edmonton-Windermere  (0.0000 km²)
+  - Lethbridge-Taber-Warner  (0.0000 km²)
+  - Red Deer-Blackfalds  (0.0000 km²)
+  - St. Albert-Sturgeon  (0.0000 km²)
+- Residual overlaps > 1 m²: **0** (0.000000 km² total)
+- Coverage: **100.0004%** of provincial area (662583.5 / 662581.1 km²)
+
+### City-centre landmark check
+
+| City | ED containing centre | Match |
+|------|---------------------|-------|
+| Calgary | Peace River | ✗ |
+| Edmonton | Edmonton-Beverly-Clareview | ✓ |
+| Red Deer | Peace River | ✗ |
+| Lethbridge | Peace River | ✗ |
+| Medicine Hat | Peace River | ✗ |
+| Grande Prairie | Grande Prairie-Wapiti | ✓ |
+| Fort McMurray | Peace River | ✗ |
+| Airdrie | Airdrie East | ✓ |
+| St. Albert | Peace River | ✗ |
+| Spruce Grove | Edmonton-Spruce Grove | ✓ |
+
+**6 landmark check(s) failed** — likely misalignment or ED-naming mismatch.
+
+## Cross-plan consistency
+- Majority area: 662864.21 km²
+- Minority area: 662583.55 km²
+- Absolute diff: 280.6647 km² (0.0423%)

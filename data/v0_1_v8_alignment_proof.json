@@ -164,10 +164,138 @@
       ]
     },
     "minority": {
-      "skipped": true
+      "source": "v0_8_refined_minority_2026_eds.gpkg",
+      "topology": {
+        "n_eds": 89,
+        "expected_n": 89,
+        "n_match": true,
+        "n_empty_eds": 12,
+        "empty_eds": [
+          {
+            "name": "Calgary-Buffalo",
+            "area_km2": 4.89857789602695e-07
+          },
+          {
+            "name": "Calgary-Elbow",
+            "area_km2": 0.08416226646977007
+          },
+          {
+            "name": "Calgary-Glenmore",
+            "area_km2": 0.0012558623339522942
+          },
+          {
+            "name": "Calgary-North West-Bearspaw",
+            "area_km2": 7.076417508237267e-05
+          },
+          {
+            "name": "Calgary-Peigan-Chestermere",
+            "area_km2": 5.600392926405419e-06
+          },
+          {
+            "name": "Calgary-South East",
+            "area_km2": 9.159158761767736e-06
+          },
+          {
+            "name": "Edmonton-Castledowns",
+            "area_km2": 1.9173569398844846e-15
+          },
+          {
+            "name": "Edmonton-North West",
+            "area_km2": 7.239347289100751e-09
+          },
+          {
+            "name": "Edmonton-Windermere",
+            "area_km2": 2.5850382868512727e-05
+          },
+          {
+            "name": "Lethbridge-Taber-Warner",
+            "area_km2": 1.47452544558683e-06
+          },
+          {
+            "name": "Red Deer-Blackfalds",
+            "area_km2": 4.3541431665940995e-07
+          },
+          {
+            "name": "St. Albert-Sturgeon",
+            "area_km2": 1.5419095952162092e-06
+          }
+        ],
+        "n_with_geometry": 77,
+        "overlap_pairs_gt_1m2": 0,
+        "overlap_total_km2": 0.0,
+        "coverage_km2": 662583.5453272406,
+        "province_reference_km2": 662581.0574335157,
+        "coverage_pct": 100.00037548518736
+      },
+      "landmarks": [
+        {
+          "city": "Calgary",
+          "ed": "Peace River",
+          "match": false,
+          "note": "ED name does not contain 'calgary'"
+        },
+        {
+          "city": "Edmonton",
+          "ed": "Edmonton-Beverly-Clareview",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Red Deer",
+          "ed": "Peace River",
+          "match": false,
+          "note": "ED name does not contain 'red'"
+        },
+        {
+          "city": "Lethbridge",
+          "ed": "Peace River",
+          "match": false,
+          "note": "ED name does not contain 'lethbridge'"
+        },
+        {
+          "city": "Medicine Hat",
+          "ed": "Peace River",
+          "match": false,
+          "note": "ED name does not contain 'medicine'"
+        },
+        {
+          "city": "Grande Prairie",
+          "ed": "Grande Prairie-Wapiti",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "Fort McMurray",
+          "ed": "Peace River",
+          "match": false,
+          "note": "ED name does not contain 'fort'"
+        },
+        {
+          "city": "Airdrie",
+          "ed": "Airdrie East",
+          "match": true,
+          "note": "ok"
+        },
+        {
+          "city": "St. Albert",
+          "ed": "Peace River",
+          "match": false,
+          "note": "ED name does not contain 'st.'"
+        },
+        {
+          "city": "Spruce Grove",
+          "ed": "Edmonton-Spruce Grove",
+          "match": true,
+          "note": "ok"
+        }
+      ]
     }
   },
   "cross_plan_consistency": {
-    "available": false
+    "available": true,
+    "majority_km2": 662864.2100471605,
+    "minority_km2": 662583.5453272406,
+    "abs_diff_km2": 280.6647199199219,
+    "rel_diff_pct": 0.042341208903095486
   }
 }
