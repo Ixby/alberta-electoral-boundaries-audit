@@ -90,30 +90,30 @@ majority_2026,Airdrie-East,MultiPolygon,4,99.9996,True
 majority_2026,Airdrie-West,Polygon,1,100.0,True
 majority_2026,Barrhead-Westlock-Athabasca,MultiPolygon,2,100.0,True
 majority_2026,Calgary-Acadia,Polygon,1,100.0,True
-majority_2026,Calgary-Beddington,Polygon,1,100.0,True
+majority_2026,Calgary-Beddington,MultiPolygon,7,83.8094,False
 majority_2026,Calgary-Bhullar-McCall,GeometryCollection,1,0.0,False
-majority_2026,Calgary-Bow,MultiPolygon,2,87.3322,False
-majority_2026,Calgary-Buffalo,MultiPolygon,2,60.7978,False
+majority_2026,Calgary-Bow,MultiPolygon,15,78.3763,False
+majority_2026,Calgary-Buffalo,MultiPolygon,14,73.1765,False
 majority_2026,Calgary-Confluence,MultiPolygon,2,100.0,True
 majority_2026,Calgary-Cross,MultiPolygon,2,99.9992,True
-majority_2026,Calgary-Currie,MultiPolygon,2,80.5569,False
-majority_2026,Calgary-East,MultiPolygon,71,75.7117,False
-majority_2026,Calgary-Edgemont,MultiPolygon,2,100.0,True
-majority_2026,Calgary-Elbow,Polygon,1,100.0,True
+majority_2026,Calgary-Currie,Polygon,1,100.0,True
+majority_2026,Calgary-East,Polygon,1,100.0,True
+majority_2026,Calgary-Edgemont,Polygon,1,100.0,True
+majority_2026,Calgary-Elbow,MultiPolygon,2,100.0,True
 majority_2026,Calgary-Falconridge-Conrich,MultiPolygon,2,100.0,True
-majority_2026,Calgary-Fish Creek,MultiPolygon,3,76.5366,False
-majority_2026,Calgary-Glenmore-Tsuut'ina,Polygon,1,100.0,True
-majority_2026,Calgary-Hays,MultiPolygon,24,16.6163,False
-majority_2026,Calgary-Klein,MultiPolygon,2,99.2011,True
-majority_2026,Calgary-Lougheed,Polygon,1,100.0,True
-majority_2026,Calgary-McKenzie,MultiPolygon,3,99.9911,True
-majority_2026,Calgary-Mountain View,Polygon,1,100.0,True
+majority_2026,Calgary-Fish Creek,Polygon,1,100.0,True
+majority_2026,Calgary-Glenmore-Tsuut'ina,MultiPolygon,47,99.4945,True
+majority_2026,Calgary-Hays,Polygon,1,100.0,True
+majority_2026,Calgary-Klein,Polygon,1,100.0,True
+majority_2026,Calgary-Lougheed,MultiPolygon,28,95.7228,True
+majority_2026,Calgary-McKenzie,MultiPolygon,27,90.0869,False
+majority_2026,Calgary-Mountain View,MultiPolygon,2,100.0,True
 majority_2026,Calgary-North,Polygon,1,100.0,True
-majority_2026,Calgary-North East,MultiPolygon,2,100.0,True
-majority_2026,Calgary-North West,MultiPolygon,2,98.9255,True
+majority_2026,Calgary-North East,MultiPolygon,4,100.0,True
+majority_2026,Calgary-North West,Polygon,1,100.0,True
 majority_2026,Calgary-Nose Creek,MultiPolygon,4,100.0,True
-majority_2026,Calgary-Shaw,Polygon,1,100.0,True
-majority_2026,Calgary-South East,Polygon,1,100.0,True
+majority_2026,Calgary-Shaw,MultiPolygon,2,100.0,True
+majority_2026,Calgary-South East,MultiPolygon,2,63.1418,False
 majority_2026,Calgary-Symons Valley,MultiPolygon,2,99.9985,True
 majority_2026,Calgary-Varsity,MultiPolygon,2,100.0,True
 majority_2026,Calgary-West-Elbow Valley,MultiPolygon,2,100.0,True
@@ -125,36 +125,36 @@ majority_2026,Cochrane-Springbank,MultiPolygon,3,100.0,True
 majority_2026,Cold Lake-Bonnyville-St. Paul,Polygon,1,100.0,True
 majority_2026,Drumheller-Stettler,MultiPolygon,39,99.9992,True
 majority_2026,Edmonton-Beaumont,Polygon,1,100.0,True
-majority_2026,Edmonton-Beverly-Clareview,MultiPolygon,5,89.7026,False
-majority_2026,Edmonton-Castle Downs,MultiPolygon,2,100.0,True
-majority_2026,Edmonton-City Centre,Polygon,1,100.0,True
-majority_2026,Edmonton-Decore,MultiPolygon,11,83.9663,False
-majority_2026,Edmonton-Ellerslie,MultiPolygon,2,100.0,True
-majority_2026,Edmonton-Enoch,Polygon,1,100.0,True
-majority_2026,Edmonton-Glenora-Riverview,MultiPolygon,5,65.0108,False
-majority_2026,Edmonton-Gold Bar,MultiPolygon,5,99.9986,True
+majority_2026,Edmonton-Beverly-Clareview,Polygon,1,100.0,True
+majority_2026,Edmonton-Castle Downs,Polygon,1,100.0,True
+majority_2026,Edmonton-City Centre,MultiPolygon,14,99.9489,True
+majority_2026,Edmonton-Decore,MultiPolygon,11,83.9543,False
+majority_2026,Edmonton-Ellerslie,MultiPolygon,2,99.9999,True
+majority_2026,Edmonton-Enoch,MultiPolygon,4,99.9994,True
+majority_2026,Edmonton-Glenora-Riverview,Polygon,1,100.0,True
+majority_2026,Edmonton-Gold Bar,MultiPolygon,6,99.9986,True
 majority_2026,Edmonton-Highlands-Norwood,MultiPolygon,2,100.0,True
 majority_2026,Edmonton-Manning,Polygon,1,100.0,True
 majority_2026,Edmonton-McClung,Polygon,1,100.0,True
 majority_2026,Edmonton-Meadows,Polygon,1,100.0,True
-majority_2026,Edmonton-Mill Woods,MultiPolygon,4,100.0,True
+majority_2026,Edmonton-Mill Woods,MultiPolygon,19,100.0,True
 majority_2026,Edmonton-North West,Polygon,1,100.0,True
 majority_2026,Edmonton-Rutherford,GeometryCollection,1,0.0,False
-majority_2026,Edmonton-South,LineString,1,0.0,False
-majority_2026,Edmonton-Strathcona,MultiPolygon,2,99.3689,True
+majority_2026,Edmonton-South,Polygon,1,100.0,True
+majority_2026,Edmonton-Strathcona,Polygon,1,100.0,True
 majority_2026,Edmonton-West Henday,Polygon,1,100.0,True
-majority_2026,Edmonton-Whitemud,MultiPolygon,3,97.5122,True
-majority_2026,Edmonton-Windermere,MultiPolygon,3,50.5362,False
+majority_2026,Edmonton-Whitemud,MultiPolygon,4,97.512,True
+majority_2026,Edmonton-Windermere,MultiPolygon,20,51.7856,False
 majority_2026,Fort McMurray-Lac La Biche,Polygon,1,100.0,True
 majority_2026,Fort McMurray-Wood Buffalo,MultiPolygon,2,100.0,True
-majority_2026,Fort Saskatchewan-Vegreville,MultiPolygon,4,100.0,True
+majority_2026,Fort Saskatchewan-Vegreville,MultiPolygon,6,100.0,True
 majority_2026,Grande Prairie,Polygon,1,100.0,True
 majority_2026,Grande Prairie-Wapiti,MultiPolygon,2,100.0,True
 majority_2026,High River-Vulcan-Siksika,Polygon,1,100.0,True
-majority_2026,Lacombe-Clearwater,MultiPolygon,7,99.9708,True
+majority_2026,Lacombe-Clearwater,Polygon,1,100.0,True
 majority_2026,Leduc-Devon,MultiPolygon,2,100.0,True
 majority_2026,Lesser Slave Lake,MultiPolygon,2,100.0,True
-majority_2026,Lethbridge-East,MultiPolygon,9,99.9891,True
+majority_2026,Lethbridge-East,Polygon,1,100.0,True
 majority_2026,Lethbridge-West,MultiPolygon,8,100.0,True
 majority_2026,Livingstone-Macleod,Polygon,1,100.0,True
 majority_2026,Lloydminster-Wainwright,Polygon,1,100.0,True
@@ -164,17 +164,17 @@ majority_2026,Mountain View-Kneehill,Polygon,1,100.0,True
 majority_2026,Okotoks-Diamond Valley,Polygon,1,100.0,True
 majority_2026,Peace River,Polygon,1,100.0,True
 majority_2026,Red Deer-North,MultiPolygon,6,100.0,True
-majority_2026,Red Deer-South,MultiPolygon,6,72.4208,False
-majority_2026,Sherwood Park,Polygon,1,100.0,True
+majority_2026,Red Deer-South,Polygon,1,100.0,True
+majority_2026,Sherwood Park,MultiPolygon,2,99.9989,True
 majority_2026,Spruce Grove,Polygon,1,100.0,True
 majority_2026,St. Albert,MultiPolygon,4,99.9686,True
-majority_2026,St. Albert-Sturgeon,MultiPolygon,2,99.1319,True
-majority_2026,Stony Plain-Drayton Valley,MultiPolygon,2,81.89,False
-majority_2026,Strathcona-Sherwood Park,MultiPolygon,4,99.9398,True
-majority_2026,Sylvan Lake-Innisfail,MultiPolygon,2,100.0,True
-majority_2026,Taber-Cardston,Polygon,1,100.0,True
-majority_2026,West Yellowhead,MultiPolygon,4,100.0,True
-majority_2026,Wetaskiwin-Ponoka-Maskwacis,MultiPolygon,4,99.7949,True
+majority_2026,St. Albert-Sturgeon,MultiPolygon,108,26.2092,False
+majority_2026,Stony Plain-Drayton Valley,Polygon,1,100.0,True
+majority_2026,Strathcona-Sherwood Park,Polygon,1,100.0,True
+majority_2026,Sylvan Lake-Innisfail,GeometryCollection,1,0.0,False
+majority_2026,Taber-Cardston,MultiPolygon,12,99.9998,True
+majority_2026,West Yellowhead,GeometryCollection,1,0.0,False
+majority_2026,Wetaskiwin-Ponoka-Maskwacis,Polygon,1,100.0,True
 minority_2026,Airdrie East,Polygon,1,100.0,True
 minority_2026,Barrhead-Westlock-Athabasca,MultiPolygon,8,100.0,True
 minority_2026,Calgary-Acadia,MultiPolygon,6,100.0,True
@@ -184,14 +184,14 @@ minority_2026,Calgary-Bow-Springbank,Polygon,1,100.0,True
 minority_2026,Calgary-Buffalo,Polygon,1,100.0,True
 minority_2026,Calgary-Cross,MultiPolygon,3,100.0,True
 minority_2026,Calgary-Currie,GeometryCollection,1,0.0,False
-minority_2026,Calgary-De Winton,MultiPolygon,2,99.9992,True
+minority_2026,Calgary-De Winton,Polygon,1,100.0,True
 minority_2026,Calgary-East,Polygon,1,100.0,True
 minority_2026,Calgary-Edgemont,Polygon,1,100.0,True
-minority_2026,Calgary-Elbow,MultiPolygon,2,63.1126,False
+minority_2026,Calgary-Elbow,Polygon,1,100.0,True
 minority_2026,Calgary-Falconridge,GeometryCollection,1,0.0,False
-minority_2026,Calgary-Fish Creek,Polygon,1,100.0,True
+minority_2026,Calgary-Fish Creek,MultiPolygon,2,98.9846,True
 minority_2026,Calgary-Foothills-Airdrie West,Polygon,1,100.0,True
-minority_2026,Calgary-Glenmore,MultiPolygon,2,100.0,True
+minority_2026,Calgary-Glenmore,Polygon,1,100.0,True
 minority_2026,Calgary-Hays,Polygon,1,100.0,True
 minority_2026,Calgary-Klein,Polygon,1,100.0,True
 minority_2026,Calgary-Lougheed,MultiPolygon,3,99.9727,True
@@ -201,17 +201,17 @@ minority_2026,Calgary-Nolan Hill-Cochrane,MultiPolygon,2,81.9098,False
 minority_2026,Calgary-North,MultiPolygon,11,90.9937,False
 minority_2026,Calgary-North East,MultiPolygon,8,65.8517,False
 minority_2026,Calgary-North West-Bearspaw,Polygon,1,100.0,True
-minority_2026,Calgary-Peigan-Chestermere,MultiPolygon,2,100.0,True
+minority_2026,Calgary-Peigan-Chestermere,MultiPolygon,13,99.9998,True
 minority_2026,Calgary-South,GeometryCollection,1,0.0,False
-minority_2026,Calgary-South East,MultiPolygon,4,76.4478,False
+minority_2026,Calgary-South East,Polygon,1,100.0,True
 minority_2026,Calgary-Varsity,GeometryCollection,1,0.0,False
 minority_2026,Calgary-West-Tsuut'ina,Polygon,1,100.0,True
 minority_2026,Camrose,Polygon,1,100.0,True
 minority_2026,Canmore-Kananaskis,Polygon,1,100.0,True
 minority_2026,Central Peace-Notley,Polygon,1,100.0,True
-minority_2026,Chestermere-Strathmore,MultiPolygon,216,34.1282,False
+minority_2026,Chestermere-Strathmore,MultiPolygon,215,34.1284,False
 minority_2026,Cold Lake-Bonnyville-St. Paul,Polygon,1,100.0,True
-minority_2026,Drumheller-Stettler,Polygon,1,100.0,True
+minority_2026,Drumheller-Stettler,MultiPolygon,3,100.0,True
 minority_2026,Edmonton-Beaumont,Polygon,1,100.0,True
 minority_2026,Edmonton-Beverly-Clareview,GeometryCollection,1,0.0,False
 minority_2026,Edmonton-Castledowns,Polygon,1,100.0,True
@@ -221,7 +221,7 @@ minority_2026,Edmonton-Ellerslie,Polygon,1,100.0,True
 minority_2026,Edmonton-Enoch-Devon,MultiPolygon,2,55.0923,False
 minority_2026,Edmonton-Glenora-Riverview,Polygon,1,100.0,True
 minority_2026,Edmonton-Gold Bar,MultiPolygon,2,100.0,True
-minority_2026,Edmonton-Highlands-Norwood,Polygon,1,100.0,True
+minority_2026,Edmonton-Highlands-Norwood,MultiPolygon,2,99.9623,True
 minority_2026,Edmonton-Manning,Polygon,1,100.0,True
 minority_2026,Edmonton-McClung,Polygon,1,100.0,True
 minority_2026,Edmonton-Meadows,Polygon,1,100.0,True
@@ -231,9 +231,9 @@ minority_2026,Edmonton-Rutherford,Polygon,1,100.0,True
 minority_2026,Edmonton-South,Polygon,1,100.0,True
 minority_2026,Edmonton-Spruce Grove,MultiPolygon,3,100.0,True
 minority_2026,Edmonton-Strathcona,MultiPolygon,5,100.0,True
-minority_2026,Edmonton-West Henday,Polygon,1,100.0,True
+minority_2026,Edmonton-West Henday,MultiPolygon,2,100.0,True
 minority_2026,Edmonton-Whitemud,MultiPolygon,2,100.0,True
-minority_2026,Edmonton-Windermere,MultiPolygon,5,99.8416,True
+minority_2026,Edmonton-Windermere,MultiPolygon,57,99.2845,True
 minority_2026,Fort McMurray-Lac La Biche,Polygon,1,100.0,True
 minority_2026,Fort McMurray-Wood Buffalo,MultiPolygon,6,100.0,True
 minority_2026,Fort Saskatchewan-Vegreville,MultiPolygon,3,100.0,True
@@ -244,7 +244,7 @@ minority_2026,Lac Ste. Anne-Parkland,Polygon,1,100.0,True
 minority_2026,Leduc,Polygon,1,100.0,True
 minority_2026,Lesser Slave Lake,Polygon,1,100.0,True
 minority_2026,Lethbridge-Cardston,Polygon,1,100.0,True
-minority_2026,Lethbridge-Fort MacLeod-Crowsnest Pass,Polygon,1,100.0,True
+minority_2026,Lethbridge-Fort MacLeod-Crowsnest Pass,MultiPolygon,3,99.9994,True
 minority_2026,Lethbridge-Little Bow,MultiPolygon,2,100.0,True
 minority_2026,Lethbridge-Taber-Warner,Polygon,1,100.0,True
 minority_2026,Lloydminster-Wainwright,MultiPolygon,2,100.0,True
@@ -252,15 +252,15 @@ minority_2026,Medicine Hat-Brooks,Polygon,1,100.0,True
 minority_2026,Medicine Hat-Cypress,Polygon,1,100.0,True
 minority_2026,Olds-Three Hills-Didsbury,Polygon,1,100.0,True
 minority_2026,Peace River,GeometryCollection,1,0.0,False
-minority_2026,Red Deer-Blackfalds,MultiPolygon,6,63.496,False
+minority_2026,Red Deer-Blackfalds,Polygon,1,100.0,True
 minority_2026,Red Deer-Innisfail,Polygon,1,100.0,True
-minority_2026,Red Deer-Lacombe,Polygon,1,100.0,True
-minority_2026,Red Deer-Sylvan Lake,Polygon,1,100.0,True
+minority_2026,Red Deer-Lacombe,MultiPolygon,2,99.8201,True
+minority_2026,Red Deer-Sylvan Lake,MultiPolygon,2,99.3124,True
 minority_2026,Rocky Mountain House-Banff Park,Polygon,1,100.0,True
 minority_2026,Sherwood Park,MultiPolygon,10,99.9978,True
 minority_2026,Sherwood Park-Strathcona,MultiPolygon,4,99.9915,True
-minority_2026,St. Albert,MultiPolygon,4,99.9687,True
-minority_2026,St. Albert-Sturgeon,MultiPolygon,2,54.9186,False
+minority_2026,St. Albert,MultiPolygon,4,99.9686,True
+minority_2026,St. Albert-Sturgeon,MultiPolygon,106,26.2467,False
 minority_2026,Stony Plain-Drayton Valley,MultiPolygon,3,78.4903,False
 minority_2026,West Yellowhead,Polygon,1,100.0,True
 minority_2026,Wetaskawin-Ponoka-Maskwacis,Polygon,1,100.0,True
