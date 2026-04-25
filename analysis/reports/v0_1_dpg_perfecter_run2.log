@@ -7,3 +7,16 @@ Loading VA polygons for provincial boundary...
 === majority 2026 ===
   loaded 89 EDs | canon_source: {'da-anchored': 47, 'municipal-anchored': 32, 'v7': 7, 'sweep': 2, 'osm-municipal-buffered': 1}
   [majority 2026] Phase 1: 67 overlapping pairs resolved
+  [majority 2026] Phase 2: 3 EDs snapped (tolerance=500 m)
+  [majority 2026] Phase 3: 16951 gap polygons, 72252.51 km²
+Traceback (most recent call last):
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_dpg_perfecter.py", line 343, in <module>
+    except Exception:
+    
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_dpg_perfecter.py", line 334, in main
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_dpg_perfecter.py", line 312, in process_map
+    # sindex.nearest returns index of nearest geometry for each query
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_dpg_perfecter.py", line 230, in gap_fill
+    return eds_ord
+    
+AttributeError: 'NoneType' object has no attribute 'length'

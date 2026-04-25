@@ -10,14 +10,15 @@ Loading VA polygons for provincial boundary...
   [WARN] majority 2026: snap reverted for Stony Plain-Drayton Valley — area change 911.8% > 5% threshold (possible false weld)
   [majority 2026] Phase 2: 20 EDs snapped, 1 reverted (tolerance=500 m)
   [majority 2026] Phase 3: 16955 gap polygons, 72252.49 km²
+  [majority 2026] Phase 3: assigned via spatial index (63 EDs received gaps)
   [majority 2026] Phase 4: 1m precision pass complete
   [WARN] majority 2026: residual overlap Airdrie-East ∩ Calgary-Beddington = 0.0001 km²
-  [WARN] majority 2026: residual overlap Airdrie-East ∩ Calgary-Bhullar-McCall = 0.0000 km²
   [WARN] majority 2026: residual overlap Airdrie-East ∩ Calgary-Falconridge-Conrich = 141.9446 km²
-  [WARN] majority 2026: 67 residual overlap pairs
+  [WARN] majority 2026: residual overlap Airdrie-East ∩ Calgary-North East = 0.0005 km²
+  [WARN] majority 2026: 66 residual overlap pairs
   [PASS] majority 2026: coverage gap < 0.001%
   [PASS] majority 2026: all 89 ED names preserved
-  wrote v0_8_canonical_majority_2026_eds.gpkg  (7255.3s)
+  wrote v0_8_canonical_majority_2026_eds.gpkg  (6350.4s)
 
 === minority 2026 ===
   loaded 89 EDs | canon_source: {'da-anchored': 44, 'v7': 35, 'municipal-anchored': 10}
@@ -25,3 +26,4 @@ Loading VA polygons for provincial boundary...
   [WARN] minority 2026: snap reverted for Edmonton-Ellerslie — area change 58.6% > 5% threshold (possible false weld)
   [minority 2026] Phase 2: 19 EDs snapped, 1 reverted (tolerance=500 m)
   [minority 2026] Phase 3: 1168 gap polygons, 85408.43 km²
+  [minority 2026] Phase 3: assigned via spatial index (50 EDs received gaps)
