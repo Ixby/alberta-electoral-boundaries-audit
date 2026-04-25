@@ -684,8 +684,30 @@ The 7 % Efficiency Gap threshold originates in Stephanopoulos and McGhee (2015),
 | A — Assembly-size sensitivity | ≈ 2.2 % (2/89 seats) | First-principles scaling, S&M §III.B | Majority yes; minority borderline (−2.71 %) | No (1.42 pp exceeds floor) |
 | B — EBCA statutory-proportional | 5 % (one-fifth of ±25 % band) | EBCA § 14 proportional anchoring | Yes | Yes |
 | C — Alberta historical-swing | 5–9 % (provisional) | Issue #16 — pending computation | Yes (provisional) | Yes (provisional) |
+| D — MCMC ensemble 95th percentile | **3.86 %** | 10k ReCom ensemble on 2019 substrate (seed 42, ±25 %; `data/v0_1_mcmc_ensemble_samples.csv`): 95th pct EG = +0.0386 | Yes (+0.0129 %, +0.0271 % both below 0.0386) | Yes (1.42 pp < 3.86 pp) |
 
-**Reading.** Against the EBCA-anchored Option B (5 %), both maps' absolute EGs are sub-threshold and the inter-map asymmetry is sub-threshold. Against the assembly-size-sensitivity Option A (2.2 %), the minority's −2.71 % absolute EG exceeds the minimum-detectable-signal floor — though "above the signal floor" is not equivalent to "gerrymander candidate": the 2.2 % value marks where EG variation stops being within assembly-size rounding noise, not where a pattern becomes legally or structurally significant. The audit's headline (*directionally-consistent sub-threshold asymmetry*) is accurate under the reference 7 %, the EBCA-proportional 5 %, and the provisional Alberta historical range 5–9 %; under Option A it requires the qualification that the signal exceeds the detection floor while remaining sub-threshold on every other calibration. The "sub-threshold" characterisation does not depend on the US-calibrated 7 % figure. Option C requires computing EG for 2015, 2019, and 2023 elections under prior-cycle Alberta boundaries; this is tracked as Issue #16.
+**Reading.** Against the EBCA-anchored Option B (5 %), both maps' absolute EGs are sub-threshold and the inter-map asymmetry is sub-threshold. Against the assembly-size-sensitivity Option A (2.2 %), the minority's −2.71 % absolute EG exceeds the minimum-detectable-signal floor — though "above the signal floor" is not equivalent to "gerrymander candidate": the 2.2 % value marks where EG variation stops being within assembly-size rounding noise, not where a pattern becomes legally or structurally significant. The audit's headline (*directionally-consistent sub-threshold asymmetry*) is accurate under the reference 7 %, the EBCA-proportional 5 %, and the provisional Alberta historical range 5–9 %; under Option A it requires the qualification that the signal exceeds the detection floor while remaining sub-threshold on every other calibration. The "sub-threshold" characterisation does not depend on the US-calibrated 7 % figure. **Against the Alberta-derived Option D (3.86 % — the ensemble's own 95th percentile on UCP-favoured EG), both maps' absolute EGs remain sub-threshold.** Option C requires computing EG for 2015, 2019, and 2023 elections under prior-cycle Alberta boundaries; this is tracked as Issue #16.
+
+---
+
+#### 5.2.9 Extended partisan metrics (v0_7 geometry, 2026-04-24)
+
+Four additional partisan-bias metrics were computed against v0_7 DPG boundaries using spatial vote attribution (VA centroid-in-polygon; script `analysis/scripts/v0_1_extended_partisan_metrics.py`). These supplement the four core MCMC metrics with asymmetry measures that do not require an ensemble baseline:
+
+| Metric | 2019 enacted | Majority 2026 | Minority 2026 |
+|---|---|---|---|
+| Partisan Bias (seats-at-50 minus 0.5) | — | **+0.0152** (PB pct vs ensemble: p100) | −0.0211 (p93.6) |
+| Lopsided Margins t-statistic (Wang 2016) | +3.5x (p<0.005) | **+3.43** (p=0.001) | +3.05 (p=0.004) |
+| Partisan Gini (sv-curve asymmetry) | — | +0.029 | **+0.038** |
+| Responsiveness (slope at 50%) | — | **0.76** | 1.41 |
+
+**Partisan Bias.** Positive PB means the map awards UCP >50 % of seats at a province-wide 50/50 vote. The majority 2026 map has PB = +0.0152, placing it at the 100th percentile of the ensemble (every neutral alternative produces a smaller UCP seat share at 50/50). The minority's PB = −0.0211 (p93.6) — slightly NDP-favoured at a tied election, consistent with the minority's higher responsiveness.
+
+**Lopsided Margins (Wang 2016).** All three maps show statistically significant asymmetry (t > 3, p < 0.005): UCP wins by systematically larger margins than NDP wins. This pattern is consistent with natural geographic sorting (NDP voters packed in urban cores by vote geography, not exclusively by drawing) rather than engineered packing, because it persists in the 2019 map. The majority 2026 map has a slightly larger t-statistic than the minority; the 2019 enacted map also shows the same pattern. The lopsided-margins signal is not therefore a distinctive feature of either 2026 proposal — it is a structural property of Alberta's political geography that any legal map inherits.
+
+**Partisan Gini.** Measures the area between the seats-votes curve and the proportionality line across the full vote-share range. The minority map has a slightly larger asymmetry area (0.038 vs 0.029), meaning its seats-votes curve departs more from proportionality in the aggregate. Both are positive (UCP-favoured side of the curve). 
+
+**Responsiveness.** The minority map has nearly double the responsiveness of the majority (1.41 vs 0.76 seats per 1 % swing). Under the majority, vote swings translate to fewer seat changes; under the minority, they translate to more. Higher responsiveness is often considered a democratic virtue but also implies the minority map would produce large swings in UCP-held seats if NDP vote share improves modestly — a feature consistent with a map drawn to maximise NDP seat gains under a favourable election, not to entrench UCP dominance. Full output at `data/v0_1_extended_partisan_metrics.json`; report at `analysis/reports/v0_1_extended_partisan_metrics.md`.
 
 ---
 
@@ -807,6 +829,8 @@ Two of the 10k-era flags are retracted by the full-coverage rescore: **2019 enac
 Combined ESS across the three chains is 643–783 per metric (per-chain ESS 165–291; integrated autocorrelation time τ ≈ 463–749 per chain) — an approximate $4\times$–$5\times$ improvement over the original single-chain ESS ~150. At 643–783 the chain is still below the 1,000-draw MGGG target for lawsuit-grade percentile claims, but firmly in policy-comparison-grade territory; the Monte-Carlo standard error on any 5th or 95th percentile estimate is now approximately ±1.5 percentile points. Under the combined ensemble, the tail-downgrade bounds remain valid: **p100 and p1.6 claims are bounded to p95.35 / p2.5 at the chain's combined effective precision**, and the ~p90 Minority seats-at-50/50 flag remains retracted. Reviewers demanding ESS > 1,000 can reproduce with `--steps 230000` (est. 140 min); the paper's conclusions do not change under that extension. Full convergence diagnostic at `data/v0_1_mcmc_multichain_rhat.json` and `data/v0_1_mcmc_multichain_summary.md`; raw samples at `data/v0_1_mcmc_multichain_samples.csv`.
 
 **Coverage caveats.** Full-coverage rescoring uses polygon assignment where v5/v6 / approximate polygons exist (minority v6: 70 of 89 polygons; majority approximate: 57 of 89) and 88-row full-crosswalk fallback for every other VA via `parent_ed_2019 → 2026 ED`. Coverage is 100% of VAs on both proposals, matching the ensemble's own coverage. A small number of pure Tier-C 2026 EDs with no 2019 parent (4 majority, 5 minority) are not populated by either polygon or crosswalk and are enumerated in the JSON output; the missing EDs are inside the cities where polygon-based scoring is authoritative, so their absence from the crosswalk layer does not affect aggregated metrics.
+
+**Run #3 — full 89-ED v0_7 geometry (in progress, 2026-04-24).** A third production-grade 100,000-plan ReCom run was initiated against the v0_7 canonical DPGs (89 EDs per map, full province coverage, mean anchoring 74.2 % majority / 47.0 % minority; `data/shapefiles/derived/v0_7_canonical_{majority,minority}_2026_eds.gpkg`). This run replaces the v5/v6 approximate polygons in the real-map scoring with full-coverage v0_7 geometry and is expected to improve VA coverage from the crosswalk-hybrid level to ≥ 85 % centroid-in-polygon. Results will update the §5.4 table and convergence diagnostics when complete; the §4.1.4 sunset clause treats this run as the authoritative pre-official-shapefile MCMC estimate.
 
 **Falsifiability hook (resolved and revised).** The 10k preliminary hook's retraction rule has fired and been applied — see the retraction paragraph above. Revised hooks for the remaining claims: if a later commission-shapefile-driven re-run moves the minority map's mean-median below p95 on a 2026-seed ensemble, the mean-median flag is retracted and the minority is reclassified as inside-band on that metric. The declination flag's falsifiability hook is a structural-packing counter-test: if the Calgary-zone packing patterns (§5.6) are independently contradicted — e.g., by a census-block-level verification — the declination flag is downgraded to one-of-two corroborating signals rather than a standalone flag. The 2019-seed ensemble used here is conservative against the minority's held flags; a 2026-seed ensemble would more closely match the minority's own geometry and would deepen the minority's percentile tails rather than narrow them.
 
@@ -937,6 +961,16 @@ Applied the same anomaly-scan questions (lasso shape, engineered statutory bound
 | Siksika Nation                       | High River-Vulcan-Siksika | High River-Vulcan-Siksika (same) |
 
 **Census-subdivision-level robustness check.** A CSD-level overlay (Track H; script `analysis/scripts/v0_1_csd_community_splits.py`) computes, per map, the count of populated CSDs (population ≥ 1,000) spanning two or more electoral divisions. Under 2019 boundaries (measured via geopandas overlay on `data/alberta_2019_eds/`): 66 of 191 populated CSDs (34.6%) are split. Under the majority 2026 proposal (inferred via the Appendix C crosswalk): 66 of 191 (34.6%). Under the minority 2026 proposal (inferred, lower bound, via the heuristic crosswalk): 54 of 191 (28.3%); upper bound matching the 2019 count of 66. On the confident-only subset of 139 CSDs (excluding those touched by minority-crosswalk uncertainties or any hybrid), all three maps produce the same 40 splits. **The Majority-minus-Minority asymmetry visible in the table above is not detectable at CSD granularity.** The minority's community-of-interest disadvantage operates at within-ED partition resolution (e.g., the four-way partition of the City of Airdrie, the bleed of Chestermere into Calgary-Peigan-Chestermere) — a resolution not encoded in the ED-level crosswalks and not directly measurable until the 2026 shapefiles release. The within-ED qualitative findings in the table above remain the reported finding; the CSD-level count is a null symmetric across maps and is reported here as a bounding limit on the metric's directional power.
+
+**Spatial CSD fragmentation analysis (v0_7 geometry, 2026-04-24; script `analysis/scripts/v0_1_municipal_splits.py`).** A direct intersection of v0_7 DPG boundaries against Statistics Canada 2021 CSD polygons, restricted to Cities (CY), Towns (T), Specialized Municipalities (SM), Villages (SV), and Improvement Municipalities (IM) with ≥ 300 VA votes (~3,000 residents), measures how many EDs each municipality is split across. Unlike the crosswalk-inferred method above, this uses geometric intersection with a ≥ 5 ha overlap threshold to filter trivial slivers.
+
+| Map | Municipalities split across ≥2 EDs | Change vs 2019 |
+|---|---|---|
+| 2019 enacted | 10 | baseline |
+| Majority 2026 | 8 | **−2** |
+| Minority 2026 | 11 | **+1** |
+
+The majority map reduces fragmentation by 2; the minority map increases it by 1. The headline finding at this spatial resolution is concentrated in a single dramatic case: **Strathcona County** (a Specialized Municipality immediately east of Edmonton, population ~105,000) is split across **3 EDs under the 2019 map and 10 EDs under the minority 2026 map (+7)**. Under the majority 2026 map Strathcona County is split across 4 EDs (+1). The minority's +7 fragmentation of Strathcona County accounts for the net increase in total splits despite other municipalities consolidating; it disperses a predominantly suburban municipality across ten EDs, reducing Strathcona voters to a numerical minority in each. The Strathcona finding is consistent with the Airdrie cracking pattern in §5.3.2 — both are suburban municipalities east or north of Edmonton/Calgary that are split more times under the minority proposal than required by population math alone. Full per-municipality breakdown at `analysis/reports/v0_1_municipal_splits.md`; data at `data/v0_1_municipal_splits.json`.
 
 #### 5.8.5 Municipal-boundary anchoring audit (new, 2026-04-24)
 
@@ -1446,7 +1480,7 @@ MM = mean(v) - median(v)
 
 $\bar{v}$ is the mean NDP vote share across districts; $\tilde{v}$ is the median. Positive MM indicates mean > median, consistent with party voters packed into fewer high-share districts (cracking of the opposing party, or packing of own party).
 
-### D.3 Polsby-Popper compactness (not computed — blocked by Phase 4)
+### D.3 Polsby-Popper compactness
 
 $$\text{PP} = \frac{4\pi A}{P^2}$$
 
@@ -1454,9 +1488,19 @@ $$\text{PP} = \frac{4\pi A}{P^2}$$
 PP = 4 * pi * A / P^2
 ```
 
-$A$ = polygon area, $P$ = perimeter. Range $[0, 1]$; 1 = circle. PP < 0.15 is typically flagged.
+$A$ = polygon area, $P$ = perimeter. Range $[0, 1]$; 1 = circle. Values near 0 indicate elongated or convoluted boundaries. Gate threshold: mean PP < 0.15 (extremely fragmented). See Polsby & Popper (1991); Niemi et al. (1990).
 
-### D.4 Reock compactness (not computed — blocked by Phase 4)
+**Results (v0_7 DPGs, EPSG:3401, full 89-ED coverage; script `analysis/scripts/v0_1_compactness_metrics.py`):**
+
+| Map | N | Mean PP | Median PP | Std Dev | Min | Max | EDs < 0.30 | EDs < 0.40 | Gate |
+|---|---|---|---|---|---|---|---|---|---|
+| 2019 enacted | 87 | 0.3547 | 0.3179 | 0.1784 | 0.0697 | 0.8061 | 36 | 56 | PASS |
+| Majority 2026 | 89 | 0.3040 | 0.2727 | 0.1559 | 0.0801 | 0.7520 | 41 | 66 | PASS |
+| Minority 2026 | 89 | 0.3558 | 0.3175 | 0.1783 | 0.0719 | 0.8109 | 36 | 55 | PASS |
+
+The majority 2026 map has the lowest mean Polsby-Popper (0.304) and the most EDs below the 0.30 caution threshold (41 of 89), suggesting its boundaries are more geometrically complex than either the 2019 enacted map or the minority proposal. This is consistent with the majority's hybrid-split doctrine for multi-municipality EDs introducing non-circular outlines. All three maps pass the gate (mean PP > 0.15). Full per-ED CSV at `analysis/reports/v0_1_compactness_metrics.csv`; summary JSON at `data/v0_1_compactness_summary.json`.
+
+### D.4 Reock compactness
 
 $$\text{R} = \frac{A_d}{A_c}$$
 
@@ -1464,7 +1508,7 @@ $$\text{R} = \frac{A_d}{A_c}$$
 R = A_district / A_smallest_enclosing_circle
 ```
 
-Range $[0, 1]$. R < 0.25 typically flagged.
+Range $[0, 1]$. R < 0.25 typically flagged. Results are included in `analysis/reports/v0_1_compactness_metrics.csv` alongside Schwartzberg and convex-hull-ratio scores from the same v0_7 run.
 
 
 ## Appendix E — Geometric Data Provenance
@@ -1516,17 +1560,29 @@ Of the 39 EDs attempted: **24 converged tight** (< 0.5 %), **11 converged accept
 Because the commission has not released 2026 shapefiles, this audit constructed approximate 2026 ED geometries from three sources: (a) the 2019 enacted shapefile for 2026 EDs whose crosswalk is `direct` or `rename` (Tier A, exact); (b) the union of constituent 2019 polygons for 2026 EDs with `merge` crosswalks (Tier B, near-exact); (c) an attempted hybrid-split approximation for `hybrid` crosswalks (Tier C, not attempted in this pass — visual transcription from the commission's low-resolution JPG maps would produce compactness errors of roughly ±20% per 10% perimeter error, which the audit judges too wide to report as measurement). Full method at `analysis/reports/v0_1_approximate_shape_analysis.md`.
 
 **Coverage of the approximation:**
-- Majority 2026: 57 of 89 EDs measurable at Tier A/B (64%); 32 in Tier C (not scored).
-- Minority 2026: 65 Tier A + 5 Tier B of 89 EDs measurable (79%); 19 in Tier C (not scored).
+- Majority 2026: 57 of 89 EDs measurable at Tier A/B (64%); 32 in Tier C (not scored). *Superseded by v0_7.*
+- Minority 2026: 65 Tier A + 5 Tier B of 89 EDs measurable (79%); 19 in Tier C (not scored). *Superseded by v0_7.*
 - 2019: all 87 EDs measurable directly.
 
-**Measurable-subset compactness findings (reported with Tier-dependent uncertainty bands):**
+**Measurable-subset compactness findings — pre-v0_7 (Tier A/B only; archived for provenance):**
 
 | Map | Mean Polsby-Popper | Count PP < 0.25 | Count Reock < 0.30 |
 |---|---|---|---|
 | 2019 (87 EDs, full; Tier A shapefile-grade) | 0.419 ± 0.00 | 4 / 87 (4.6%) | 6 / 87 (6.9%) |
 | Majority 2026 (57 Tier A+B EDs) | 0.431 ± 0.01 | 2 / 57 (3.5%) | 2 / 57 (3.5%) |
 | Minority 2026 (70 Tier A+B EDs) | 0.411 ± 0.02 | 5 / 70 (7.1%) | 5 / 70 (7.1%) |
+
+**Full-coverage compactness findings — v0_7 DPGs, 89 EDs per map (authoritative pre-official-shapefile estimate):**
+
+Computed against v0_7 canonical DPGs (89 EDs both maps; 5 v0_3 fallback EDs per map flagged with `v3_fallback=True`; CRS EPSG:3401; script `analysis/scripts/v0_1_compactness_metrics.py`; output `analysis/reports/v0_1_compactness_metrics.csv`).
+
+| Map | N | Mean PP | Median PP | Min PP | Max PP | EDs < 0.30 | EDs < 0.40 | Mean PP gate |
+|---|---|---|---|---|---|---|---|---|
+| 2019 enacted | 87 | 0.3547 | 0.3179 | 0.0697 | 0.8061 | 36 (41%) | 56 (64%) | PASS |
+| Majority 2026 | 89 | 0.3040 | 0.2727 | 0.0801 | 0.7520 | 41 (46%) | 66 (74%) | PASS |
+| Minority 2026 | 89 | 0.3558 | 0.3175 | 0.0719 | 0.8109 | 36 (40%) | 55 (62%) | PASS |
+
+The v0_7 full-coverage results invert the Tier-A/B finding: the majority 2026 map is the *least* compact of the three under full coverage, not the most. This reversal reflects the majority's hybrid-split doctrine producing geometrically complex, non-circular boundaries in EDs that were classified as Tier C (and therefore unscored) in the Tier-A/B pass. All three maps pass the gate (mean PP > 0.15). The minority's full-coverage PP (0.356) matches the 2019 enacted map (0.355) almost exactly.
 
 Uncertainty bands reflect the perimeter-mode (±500 m) residual from the v1→v3 refinement passes (§4.1.4; full per-ED CI at `data/v0_1_boundary_refinement_impact_v3.csv`). Tier A EDs inherit the 2019 enacted shapefile and carry no DPG uncertainty. Tier B EDs' per-ED PP scores are bounded to ≤ 0.04 under OSM feature-class snapping. The Minority column's mean-PP uncertainty is higher than the Majority's because more of its measurable subset is Tier B (5 of 70) versus Tier A (65), and the Tier B entries bring the Majority–Minority mean delta (0.020) within the same order as the combined uncertainty band.
 

@@ -59,6 +59,8 @@ from v0_1_mcmc_ensemble import (
     MAJ_PATH,
     MIN_V6_PATH,
     MIN_V5_PATH,
+    MAJ_V7_PATH,
+    MIN_V7_PATH,
 )
 
 ROOT = HERE.parent.parent
@@ -152,13 +154,13 @@ def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
 
 # ---- main -------------------------------------------------------------------
 
-def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None):
+def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None, pop_deviation: float = 0.25):
     np.random.seed(seed)
     import random as _random
     _random.seed(seed)
 
     t_start = time.time()
-    print(f"[{time.strftime('%H:%M:%S')}] 100k ensemble run starting — n_steps={n_steps}, seed={seed}")
+    print(f"[{time.strftime('%H:%M:%S')}] 100k ensemble run starting — n_steps={n_steps}, seed={seed}, pop_deviation=±{pop_deviation:.0%}")
 
     va, graph = build_va_graph()
 
@@ -178,8 +180,18 @@ def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None):
     m_2019["coverage_pct"] = 1.0
     m_2019["votes_coverage_pct"] = 1.0
 
-    m_maj = score_exogenous_map(va, MAJ_PATH)
-    if MIN_V6_PATH.exists():
+    # v0_7 preferred; fall back to v6/v5 if not present
+    if MAJ_V7_PATH.exists():
+        m_maj = score_exogenous_map(va, MAJ_V7_PATH)
+        maj_label = "majority 2026 v7 (89 EDs)"
+    else:
+        m_maj = score_exogenous_map(va, MAJ_PATH)
+        maj_label = "majority 2026 approx"
+
+    if MIN_V7_PATH.exists():
+        m_min = score_exogenous_map(va, MIN_V7_PATH)
+        min_label = "minority 2026 v7 (89 EDs)"
+    elif MIN_V6_PATH.exists():
         m_min = score_exogenous_map(va, MIN_V6_PATH)
         min_label = "minority 2026 v6 (approx)"
     else:
@@ -188,7 +200,7 @@ def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None):
 
     print()
     print("  --- Real-map scores (pre-ensemble) ---")
-    for name, m in [("2019 enacted", m_2019), ("majority 2026 approx", m_maj), (min_label, m_min)]:
+    for name, m in [("2019 enacted", m_2019), (maj_label, m_maj), (min_label, m_min)]:
         print(f"    {name}: seats={m['ucp_seats']}/{m['n_districts']}  "
               f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
               f"decl={m['declination']:+.4f}  s50={m['seats_at_50_50']:.3f}  "
@@ -197,7 +209,7 @@ def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None):
     # -- Run chain
     print()
     print(f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps)...")
-    rows = run_ensemble(graph, assignment, n_steps)
+    rows = run_ensemble(graph, assignment, n_steps, pop_deviation=pop_deviation)
     df = pd.DataFrame(rows)
     df.to_csv(SAMPLES_CSV_100K, index=False)
     print(f"  wrote {SAMPLES_CSV_100K} ({len(df)} samples) in {time.time()-t_start:.0f}s total")
@@ -239,7 +251,7 @@ def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None):
     # -- Per-metric plots + percentiles on FULL 100k
     real_maps = {
         "2019 enacted": m_2019,
-        "majority 2026 (approx)": m_maj,
+        maj_label: m_maj,
         min_label: m_min,
     }
 
@@ -274,8 +286,9 @@ def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None):
     # -- Persist scores JSON
     real_json = {
         "2019_enacted": m_2019,
-        "majority_2026_approx": m_maj,
-        "minority_2026_approx": m_min,
+        "majority_2026": m_maj,
+        "majority_source": maj_label,
+        "minority_2026": m_min,
         "minority_source": min_label,
         "n_steps": int(n_steps),
         "seed": int(seed),
@@ -308,6 +321,8 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--thin-every", type=int, default=None,
                         help="Optional thinning factor (e.g., 10). Default: no thinning.")
+    parser.add_argument("--pop-deviation", type=float, default=0.25,
+                        help="Population deviation tolerance (default 0.25 = ±25%%). Use 0.15 for tighter constraint test.")
     args = parser.parse_args()
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
-    main(n_steps=args.n_steps, seed=args.seed, thin_every=args.thin_every)
+    main(n_steps=args.n_steps, seed=args.seed, thin_every=args.thin_every, pop_deviation=args.pop_deviation)
