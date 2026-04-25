@@ -57,29 +57,30 @@ CSS = r"""
 
 @page {
   size: Letter;
-  margin: 0.9in 0.85in 1in 0.85in;
+  margin: 0.9in 1.05in 1in 1.05in;
   @bottom-center {
     content: counter(page);
     font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
     font-size: 9pt;
-    color: #999;
+    color: #666;
     font-weight: 400;
   }
   @top-left {
     content: "THE QUIET PART";
     font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
     font-size: 7.5pt;
-    color: #b0b0b0;
-    letter-spacing: 2.5pt;
+    color: #7a7a7a;
+    letter-spacing: 2pt;
     font-weight: 600;
   }
   @top-right {
-    content: "AN ELECTORAL BOUNDARIES AUDIT";
+    content: string(chapter);
     font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
     font-size: 7.5pt;
-    color: #b0b0b0;
-    letter-spacing: 2.5pt;
+    color: #7a7a7a;
+    letter-spacing: 2pt;
     font-weight: 600;
+    text-transform: uppercase;
   }
 }
 
@@ -91,10 +92,14 @@ CSS = r"""
 
 html {
   font-family: "Lora", "Georgia", "Liberation Serif", serif;
-  font-size: 10.5pt;
-  line-height: 1.6;
+  font-size: 10pt;
+  line-height: 1.55;
   color: #1a1a1a;
   background: #fff;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1, "pnum" 1;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body { margin: 0; padding: 0; }
@@ -164,19 +169,21 @@ h3 {
 /* ----- Part headings (h2) ----- */
 h2 {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 22pt;
+  font-size: 20pt;
   font-weight: 900;
   letter-spacing: -0.3pt;
   line-height: 1.15;
   color: #111;
-  margin: 1.2em 0 0.55em 0;
-  padding-top: 0.25em;
+  margin: 1.6em 0 0.6em 0;
+  padding-top: 0.9em;
   border: none;
-  border-top: 2px solid #111;
+  border-top: 0.5pt solid #111;
   clear: both;
   page-break-after: avoid;
   page-break-inside: avoid;
   text-align: left;
+  text-wrap: balance;
+  string-set: chapter content();
 }
 
 h2:first-of-type {
@@ -203,7 +210,11 @@ p {
   margin: 0 0 0.7em 0;
   text-align: justify;
   hyphens: auto;
-  orphans: 3;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
+  hyphenate-limit-lines: 2;
+  word-spacing: -0.02em;
+  orphans: 2;
   widows: 3;
 }
 
@@ -217,11 +228,11 @@ p.lede::first-letter {
   float: left;
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 900;
-  font-size: 5.8em;
-  line-height: 0.85;
-  padding: 0.05em 0.14em 0 0;
+  font-size: 6.2em;
+  line-height: 0.78;
+  padding: 0 0.10em 0 0;
   color: #8a2a2a;
-  margin-top: 0.02em;
+  margin-top: 0.04em;
 }
 
 /* ----- Bold standfirst at paragraph start ----- */
@@ -454,6 +465,8 @@ table {
   font-family: "Lora", Georgia, serif;
   font-size: 9.5pt;
   page-break-inside: avoid;
+  break-inside: avoid;
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
 thead th {
@@ -478,7 +491,7 @@ tbody td {
 
 tbody tr:last-child td { border-bottom: 2px solid #111; }
 
-tbody td strong { color: #111; font-weight: 700; }
+tbody td strong { color: #7b2d3e; font-weight: 700; }
 
 /* Table caption (italic paragraph right after a table) */
 table + p {
@@ -505,7 +518,80 @@ hr {
 a {
   color: #7a1f1f;
   text-decoration: none;
-  border-bottom: 1px solid rgba(122, 31, 31, 0.35);
+  border-bottom: 0.5pt solid #b56a6a;
+  text-underline-offset: 2pt;
+}
+
+/* ----- Verdict callout (h3 wrapped via post-processor) ----- */
+h3.verdict {
+  font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 3pt;
+  text-transform: uppercase;
+  color: #5c1f2d;
+  border-top: 3px double #5c1f2d;
+  padding-top: 0.7em;
+  margin-top: 1.6em;
+  margin-bottom: 0.3em;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+h3.verdict + p {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 16pt;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.28;
+  color: #1a1a1a;
+  margin: 0.3em 0 0.9em 0;
+  text-align: left;
+  page-break-before: avoid;
+  break-before: avoid;
+}
+
+h3.verdict + p strong {
+  font-style: italic;
+  font-weight: 700;
+  color: #5c1f2d;
+}
+
+/* ----- Author opinion blockquote (post-processor tags) ----- */
+blockquote.opinion {
+  border-top: none;
+  border-bottom: none;
+  border-left: 3pt solid #8a2a2a;
+  background: #faf6f0;
+  padding: 1em 1.3em;
+  font-style: normal;
+  font-family: "Lora", Georgia, serif;
+  font-size: 10pt;
+  line-height: 1.55;
+  text-align: left;
+  margin: 1em 0 1.4em 0;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+blockquote.opinion p {
+  text-align: left;
+  font-style: normal;
+  font-family: "Lora", Georgia, serif;
+  font-size: 10pt;
+  line-height: 1.55;
+}
+
+blockquote.opinion strong:first-child {
+  font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 2.2pt;
+  color: #8a2a2a;
+  display: block;
+  margin-bottom: 0.55em;
+  font-style: normal;
 }
 
 /* ----- Emphasis ----- */
@@ -594,6 +680,22 @@ def post_process_html(html: str) -> str:
     html = re.sub(
         r"<blockquote>(\s*<p><strong>SCORECARD)",
         r'<blockquote class="scorecard">\1',
+        html,
+        flags=re.IGNORECASE,
+    )
+
+    # 2c. Blockquotes whose first strong begins with OPINION → author opinion.
+    html = re.sub(
+        r"<blockquote>(\s*<p><strong>OPINION)",
+        r'<blockquote class="opinion">\1',
+        html,
+        flags=re.IGNORECASE,
+    )
+
+    # 2d. <h3>Verdict on …</h3> → verdict callout.
+    html = re.sub(
+        r"<h3>(Verdict on [^<]+)</h3>",
+        r'<h3 class="verdict">\1</h3>',
         html,
         flags=re.IGNORECASE,
     )
