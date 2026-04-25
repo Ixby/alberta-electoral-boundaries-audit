@@ -25,3 +25,14 @@ Loading VA polygons for provincial boundary...
   [WARN] minority 2026: snap reverted for Edmonton-Ellerslie — area change 58.6% > 5% threshold (possible false weld)
   [minority 2026] Phase 2: 19 EDs snapped, 1 reverted (tolerance=500 m)
   [minority 2026] Phase 3: 1168 gap polygons, 85408.43 km²
+  [minority 2026] Phase 4: 1m precision pass complete
+  [WARN] minority 2026: residual overlap Airdrie East ∩ Calgary-Airdrie = 0.0000 km²
+  [WARN] minority 2026: residual overlap Airdrie East ∩ Calgary-Falconridge = 0.0000 km²
+  [WARN] minority 2026: residual overlap Airdrie East ∩ Calgary-Foothills-Airdrie West = 0.0001 km²
+  [WARN] minority 2026: 55 residual overlap pairs
+  [PASS] minority 2026: coverage gap < 0.001%
+  [PASS] minority 2026: all 89 ED names preserved
+  wrote v0_8_canonical_minority_2026_eds.gpkg  (15526.3s)
+
+[dpg_perfecter] done in 22787.3s
+  outputs: v0_8_canonical_majority_2026_eds.gpkg, v0_8_canonical_minority_2026_eds.gpkg

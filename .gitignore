@@ -14,3 +14,13 @@ logs/
 private/
 maps/pdf_previews/
 analysis/scripts/*.csv
+
+# Pipeline-internal scratch directories — final outputs are written
+# elsewhere and these are deleted on successful completion.
+data/shapefiles/derived/_perfecter_checkpoints/
+data/mcmc_checkpoints_*/
+
+# Orphan output directory — scripts that target data/maps/ sometimes land
+# here when the working directory is wrong; the canonical copy lives in
+# data/maps/.
+/maps/
