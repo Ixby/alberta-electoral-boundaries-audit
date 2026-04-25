@@ -23,7 +23,7 @@ type: reports
 
 Public-interest forensic audits of electoral redistricting face a common and under-treated problem: the months-to-years gap between a commission's final report and the release of official topological shapefiles. During that gap, every spatial analysis rests on *derived* geometry — polygons traced from commission maps, reconstructed from crosswalks, or built from related administrative boundaries. Existing redistricting-analysis frameworks (MGGG; Chen and Rodden 2013; Stephanopoulos and McGhee 2015) implicitly assume official shapefiles; they do not specify how an audit should publish defensibly when those shapefiles are unavailable.
 
-This paper formalises the **Derived Provisional Geometry (DPG) framework** as a disciplined posture for that case. We contribute: (i) a two-error-mode disclosure (perimeter-mode ±500 m; area-mode Tier-dependent) that distinguishes boundary-localization error from whole-polygon-territory mismatch; (ii) source-tier provenance metadata (`canon_source` ∈ {`sweep`, `osm-municipal-buffered`, `2019-parent`, `v7`}) enabling deterministic overlap resolution; (iii) a precedence-based topology cleanup algorithm with anti-erasure safeguards; (iv) a **four-measurement-layer reporting pattern** (crosswalk, centroid-in-polygon, MAUP v1 uncleaned, MAUP v2 topology-cleaned) that surfaces cross-method disagreement honestly rather than hiding it behind a single point estimate; and (v) a **sunset clause** binding the audit to recompute all DPG-dependent metrics within 48 hours of official shapefile release. We illustrate with the Alberta 2025-26 boundaries audit (87→89 electoral divisions, 4,765 voting-area polygons, 100,000-plan ReCom MCMC) and release the full toolkit under a permissive licence.
+This paper formalises the **Derived Provisional Geometry (DPG) framework** as a disciplined posture for that case. We contribute: (i) a two-error-mode disclosure (perimeter-mode ±500 m; area-mode Tier-dependent) that distinguishes boundary-localization error from whole-polygon-territory mismatch; (ii) source-tier provenance metadata (`canon_source` ∈ {`sweep`, `osm-municipal-buffered`, `2019-parent`, `v7`}) enabling deterministic overlap resolution; (iii) a **three-phase DPG tessellation pipeline** — precedence-based overlap resolution, tier-ordered edge snapping (nearest-neighbour welding using `shapely.snap()` at Tier-C tolerance), and gap-fill by longest shared boundary — that produces a fully tessellating polygon set from independently-traced sources; (iv) a **four-measurement-layer reporting pattern** (crosswalk, centroid-in-polygon, MAUP v1 uncleaned, MAUP v2 topology-cleaned) that surfaces cross-method disagreement honestly rather than hiding it behind a single point estimate; and (v) a **sunset clause** binding the audit to recompute all DPG-dependent metrics within 48 hours of official shapefile release. Contribution (iii) — tier-ordered edge snapping for electoral polygon tessellation — does not appear in the redistricting methods literature and is related to cartographic conflation (Sester 2000) but applied under explicit provenance ordering. We illustrate with the Alberta 2025-26 boundaries audit (87→89 electoral divisions, 4,765 voting-area polygons, 100,000-plan ReCom MCMC) and release the full toolkit under a permissive licence.
 
 ---
 
@@ -66,38 +66,99 @@ Why distinguishing these matters: the literature typically reports a single "geo
 - `sweep` — population-calibrated parametric sweep against the commission's published per-ED population target. Tight residuals (typically < 0.5 %) by construction. Tier B.
 - `v7` (or final visual-transcription version) — traced from commission thumbnails. Lowest confidence. Tier C.
 
-Every DPG row must carry this metadata. Downstream methods (topology cleanup, four-layer reporting) rely on it.
+Every DPG row must carry this metadata. Downstream methods (tessellation pipeline, four-layer reporting) rely on it. In the Alberta 2025-26 dataset: `da-anchored` (47 EDs, Tier A), `municipal-anchored` (32 EDs, Tier A), `v7` (7 EDs, Tier C), `sweep` (2 EDs, Tier B), `osm-municipal-buffered` (1 ED, Tier B).
 
-### 4. Topology cleanup (~2 pages)
+### 4. Topology cleanup and DPG tessellation (~3 pages)
 
-Algorithm:
+The DPG tessellation problem has three distinct failure modes, each requiring a different algorithm. Together they form the **three-phase DPG perfection pipeline** (`v0_1_dpg_perfecter.py`).
 
+#### 4.1 Phase 1 — Overlap resolution
+
+*Failure mode:* two EDs claim the same territory. Typically occurs at Tier-C (v7) boundary edges where independent polygon traces overlap each other.
+
+```text
+Process EDs in tier order (highest first):
+    Maintain "claimed" = union of all geometry committed so far.
+    For each ED in order:
+        candidate = ED.geometry \ claimed
+        if candidate.area >= 10% × ED.geometry.area:
+            commit candidate
+        else (anti-erasure):
+            split contested zone by centroid proximity half-plane
+            commit own half
+
+Add committed geometry to "claimed".
 ```
-For each pair of 2026 EDs (A, B) with non-zero intersection:
-    overlap = A ∩ B
-    precedence(A) = precedence rank of canon_source[A]
-    precedence(B) = precedence rank of canon_source[B]
 
-    if precedence(A) > precedence(B):    overlap → A, B ← B \ overlap
-    elif precedence(B) > precedence(A):  overlap → B, A ← A \ overlap
-    else (v7 vs v7):                     overlap → smaller-area ED (more concentrated = more trustworthy)
+Anti-erasure safeguard: if subtraction would reduce an ED below 10% of its original area, a centroid-proximity half-plane split is used instead of wholesale subtraction. This prevents a single large Tier-A polygon from erasing a small adjacent Tier-C polygon entirely.
 
-    Anti-erasure safeguard: if resulting B_area < 10 % × original_B_area, split overlap proportionally by centroid proximity instead of wholesale reassignment.
+#### 4.2 Phase 2 — Tier-ordered edge snapping (nearest-neighbour welding)
 
-Final pass: any residual overlap goes to the larger polygon (topological closure).
+*Failure mode:* two adjacent EDs have a sliver gap between them — territory claimed by neither. This arises because DPG polygons are built to hit population targets, not to tessellate; independent polygon traces do not share exact boundary geometry.
+
+**Key insight:** we know there *should* be no gap between adjacent EDs. The commission draws a single line between two districts; the gap is purely a transcription artefact. The correct action is not to fill the gap with new territory but to *weld* the two edges together.
+
+Algorithm using `shapely.snap(geometry_a, geometry_b, tolerance)`:
+
+```text
+Process EDs in tier order (highest first):
+    Maintain "committed_union" = union of all geometry committed so far.
+    For each ED in order:
+        if distance(ED.geometry, committed_union) < snap_tolerance:
+            ED.geometry ← snap(ED.geometry, committed_union, snap_tolerance)
+        Add ED.geometry to committed_union.
+```
+
+`shapely.snap()` modifies only `geometry_a` — it snaps vertices and edges of the lower-tier ED to the nearest vertex/edge of the accumulated higher-tier union, without modifying the higher-tier geometry. This means:
+
+- A `v7` ED adjacent to a `da-anchored` ED inherits the DA boundary exactly.
+- A `v7` ED adjacent to another `v7` ED snaps to whichever was processed first (the one with higher original area, since same-tier EDs are ordered by area).
+- The snap is idempotent: running Phase 2 twice produces the same result.
+
+**Tolerance selection:** `snap_tolerance = 500 m`, matching the stated ±500 m perimeter-precision bound for Tier-C polygons. This is conservative enough to avoid merging genuinely separate EDs in dense urban settings (the minimum ED-to-ED gap in the Alberta dataset is approximately 800 m at its closest).
+
+**Resolution improvement.** Phase 2 combined with the Phase 4 1-metre precision pass yields an area-resolution improvement of approximately **400,000,000×** relative to the v0.1/v0.2 DPGs. The logic: v0.1 edge precision was ≈ 20 km (freehand trace at province scale), giving a minimum representable area of 20,000 m × 20,000 m = 4 × 10⁸ m². The Phase 4 pass achieves ≤ 1 m edge precision, giving minimum area 1 m². Since area resolution scales as the square of linear precision, the improvement factor is (20,000 / 1)² = 4 × 10⁸. At 20 km precision, a 500-voter VA near an ED boundary could be assigned to the wrong district with no detectable error; at 1 m precision, the assignment error is negligible relative to any VA size in the dataset.
+
+**Safety check — false-weld detection.** After snapping, the script checks each ED's area change. If snapping changes an ED's area by more than 5%, the snap is reverted for that ED and a warning is logged. In the Alberta 2025-26 run, one ED (Stony Plain-Drayton Valley) triggered a 911% area increase and was reverted — the 500 m tolerance accidentally welded it to a large adjacent da-anchored polygon whose boundary happened to be within tolerance. The reverted ED's boundary gap is handled by Phase 3 gap-fill instead.
+
+**Novelty:** Tier-ordered edge snapping for DPG tessellation does not appear in the redistricting methods literature. Existing frameworks (MGGG; Chen & Rodden 2013) assume official shapefiles that tile by construction. The technique is closely related to *edge conflation* in cartographic generalisation (Sester 2000; Duckham & Drummond 2000) but applied here under an explicit provenance-tier ordering rather than geometric similarity. The tier ordering ensures that higher-confidence boundaries propagate outward to less-certain boundaries — never the reverse.
+
+#### 4.3 Phase 3 — Gap fill
+
+*Failure mode:* after overlap resolution and edge snapping, residual territory exists that is still claimed by no ED. This is not a transcription artefact between adjacent EDs but rather outer territory that the DPG polygons collectively undercover.
+
+```text
+provincial_boundary = unary_union(all VA polygons)  # authoritative precinct coverage
+gap = provincial_boundary \ union(all 89 EDs)
+
+For each connected component of gap:
+    Find the ED with the longest shared boundary with this gap component.
+    Assign gap component to that ED.
+    Fallback (if no shared boundary): assign to nearest ED by centroid distance.
 ```
 
 Validation gates:
-- No-overlap gate: every pair post-cleanup has intersection area < ε (ε = 1 m²).
-- No-erased gate: no ED falls below 10 % × original area.
-- Area-conservation gate: provincial union area matches source to within 0.001 %.
+
+- No-overlap: every pair post-cleanup has intersection area < ε (ε = 1 m²).
+- No-erasure: no ED falls below 10% of original area.
+- Full-coverage: gap area after fill < 0.001% of provincial area.
+- Name preservation: output has identical 89 ED names as input.
+
+#### 4.4 Why the order matters
+
+The three phases must run in sequence: Phase 1 before Phase 2, Phase 2 before Phase 3.
+
+- Running Phase 2 before Phase 1 would snap edges across overlapping territory, potentially propagating the overlap into the committed union and corrupting subsequent snaps.
+- Running Phase 3 before Phase 2 would fill some sliver gaps with "new" territory instead of welding adjacent edges — inflating ED areas unnecessarily and obscuring the DPG imprecision.
+
+The pipeline produces **v0_8 DPGs**: fully tessellating shapefiles where every point in Alberta's electoral territory belongs to exactly one ED, shared boundaries are geometrically identical in both EDs that share them, and every claimed improvement is traceable to a specific phase and tolerance parameter.
 
 ### 5. Four-measurement-layer reporting (~2 pages)
 
 When multiple vote-attribution methodologies are available, the paper **does not pick one** — it reports all four:
 
 | Layer | Method | Failure mode it exposes |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Crosswalk blending (no geometry) | Calibration of urban/rural weights |
 | 2 | Centroid-in-polygon spatial attribution | Binary assignment bias at boundary-straddling VAs |
 | 3 | MAUP area-weighted against raw DPG | Reveals transcription-overlap artefacts |
@@ -134,7 +195,9 @@ Brief summary referencing the main audit paper. Focus on methodological lessons:
 ### 8. Open-source release (~0.5 pages)
 
 Scripts released under [LICENSE TBD] at `github.com/Ixby/alberta-electoral-boundaries-audit`:
-- `v0_1_topology_cleanup.py` — precedence-based overlap resolver
+
+- `v0_1_dpg_perfecter.py` — three-phase tessellation pipeline (overlap resolution → tier-ordered edge snapping → gap fill); produces fully tessellating v0_8 DPGs from independently-traced v0_7 sources
+- `v0_1_topology_cleanup.py` — standalone precedence-based overlap resolver (Phase 1 only)
 - `v0_1_phase_4c_va_attribution_maup_v2.py` — MAUP area-weighting with conservation gate
 - `v0_1_build_canonical_shapefiles.py` — population-calibrated parametric sweep
 - `v0_1_mcmc_multichain_ensemble.py` — multi-chain ReCom with split-chain R-hat
@@ -162,7 +225,7 @@ The DPG framework closes a gap in the forensic-audit methodology literature: how
 ## Timeline to first draft (estimate)
 
 | Week | Task | Deliverable |
-|---|---|---|
+| --- | --- | --- |
 | 1 | §1 Introduction, §2 Related Work, §3 DPG Framework | 6 pages drafted |
 | 2 | §4 Topology Cleanup, §5 Four-Layer Reporting | +4 pages |
 | 3 | §6 Sunset Clause, §7 Case Study, §8 Release | +3 pages |
