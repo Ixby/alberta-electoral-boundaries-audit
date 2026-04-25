@@ -1,0 +1,172 @@
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+[22:54:08] 100k ensemble run starting — n_steps=100000, seed=42, pop_deviation=±25%
+[22:54:08] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[22:54:08] building adjacency graph (4765 VAs)...
+  built in 14.4s: 4765 nodes, 13385 edges
+  2019 baseline districts (from parent_ed_2019): 87
+
+  --- Real-map scores (pre-ensemble) ---
+    2019 enacted: seats=57/87  EG=+0.0241  MM=-0.0077  decl=-0.0451  s50=0.460  ucp_share=0.574  cov=100.00%
+    majority 2026 v7 (89 EDs): seats=43/66  EG=-0.0024  MM=+0.0080  decl=-0.0203  s50=0.515  ucp_share=0.574  cov=66.40%
+    minority 2026 v7 (89 EDs): seats=51/71  EG=-0.0102  MM=-0.0108  decl=-0.0941  s50=0.549  ucp_share=0.582  cov=60.78%
+
+[22:54:24] running ReCom chain (100000 steps)...
+  87 districts, total pop = 4,262,572, ideal = 48,995
+  2019 seed pop: 27,060 - 69,028  (envelope=85.66%, max-indiv-dev=44.77%)
+  2019 seed exceeds +/-25% rule (max dev 44.77%); generating fresh tight seed via recursive_tree_part...
+  tight seed pop: 43,357 - 54,992  (max-indiv-dev=12.24%)
+    step 1046/100000  elapsed 10s  eta 946s
+    step 2113/100000  elapsed 20s  eta 927s
+    step 3120/100000  elapsed 30s  eta 932s
+    step 3894/100000  elapsed 40s  eta 998s
+    step 4760/100000  elapsed 50s  eta 1009s
+    step 5524/100000  elapsed 60s  eta 1034s
+    step 6458/100000  elapsed 70s  eta 1020s
+    step 7260/100000  elapsed 80s  eta 1028s
+    step 8192/100000  elapsed 90s  eta 1014s
+    step 9073/100000  elapsed 100s  eta 1007s
+    step 9906/100000  elapsed 110s  eta 1005s
+    step 10829/100000  elapsed 120s  eta 992s
+    step 11487/100000  elapsed 131s  eta 1007s
+    step 12413/100000  elapsed 141s  eta 993s
+    step 13181/100000  elapsed 151s  eta 993s
+    step 13876/100000  elapsed 161s  eta 998s
+    step 14866/100000  elapsed 171s  eta 978s
+    step 15659/100000  elapsed 181s  eta 974s
+    step 16444/100000  elapsed 191s  eta 969s
+    step 17284/100000  elapsed 201s  eta 961s
+    step 18080/100000  elapsed 211s  eta 955s
+    step 19034/100000  elapsed 221s  eta 939s
+    step 19958/100000  elapsed 231s  eta 926s
+    step 20732/100000  elapsed 241s  eta 921s
+    step 21703/100000  elapsed 251s  eta 905s
+    step 22524/100000  elapsed 261s  eta 897s
+    step 23534/100000  elapsed 271s  eta 880s
+    step 24529/100000  elapsed 281s  eta 864s
+    step 25421/100000  elapsed 291s  eta 853s
+    step 26311/100000  elapsed 301s  eta 843s
+    step 27405/100000  elapsed 311s  eta 824s
+    step 28408/100000  elapsed 321s  eta 809s
+    step 29547/100000  elapsed 331s  eta 789s
+    step 30550/100000  elapsed 341s  eta 775s
+    step 31503/100000  elapsed 351s  eta 763s
+    step 32494/100000  elapsed 361s  eta 750s
+    step 33437/100000  elapsed 371s  eta 739s
+    step 34315/100000  elapsed 381s  eta 729s
+    step 35086/100000  elapsed 391s  eta 723s
+    step 36066/100000  elapsed 401s  eta 711s
+    step 37022/100000  elapsed 411s  eta 699s
+    step 38020/100000  elapsed 421s  eta 686s
+    step 38963/100000  elapsed 431s  eta 676s
+    step 39952/100000  elapsed 441s  eta 663s
+    step 40778/100000  elapsed 451s  eta 656s
+    step 41728/100000  elapsed 461s  eta 644s
+    step 42662/100000  elapsed 471s  eta 634s
+    step 43638/100000  elapsed 481s  eta 622s
+    step 44553/100000  elapsed 491s  eta 612s
+    step 45422/100000  elapsed 501s  eta 603s
+    step 46319/100000  elapsed 512s  eta 593s
+    step 47241/100000  elapsed 522s  eta 582s
+    step 48151/100000  elapsed 532s  eta 572s
+    step 48931/100000  elapsed 542s  eta 565s
+    step 49573/100000  elapsed 552s  eta 561s
+    step 50394/100000  elapsed 562s  eta 553s
+    step 51188/100000  elapsed 572s  eta 545s
+    step 52007/100000  elapsed 582s  eta 537s
+    step 52824/100000  elapsed 592s  eta 528s
+    step 53621/100000  elapsed 602s  eta 520s
+    step 54288/100000  elapsed 612s  eta 515s
+    step 54998/100000  elapsed 622s  eta 509s
+    step 55822/100000  elapsed 632s  eta 500s
+    step 56622/100000  elapsed 642s  eta 492s
+    step 57359/100000  elapsed 652s  eta 484s
+    step 58281/100000  elapsed 662s  eta 474s
+    step 59248/100000  elapsed 672s  eta 462s
+    step 60190/100000  elapsed 682s  eta 451s
+    step 61233/100000  elapsed 692s  eta 438s
+    step 62280/100000  elapsed 702s  eta 425s
+    step 63306/100000  elapsed 712s  eta 413s
+    step 64310/100000  elapsed 722s  eta 401s
+    step 65301/100000  elapsed 732s  eta 389s
+    step 66223/100000  elapsed 742s  eta 378s
+    step 67185/100000  elapsed 752s  eta 367s
+    step 68111/100000  elapsed 762s  eta 357s
+    step 68948/100000  elapsed 772s  eta 348s
+    step 69929/100000  elapsed 782s  eta 336s
+    step 70882/100000  elapsed 792s  eta 325s
+    step 71749/100000  elapsed 802s  eta 316s
+    step 72524/100000  elapsed 812s  eta 308s
+    step 73328/100000  elapsed 822s  eta 299s
+    step 74076/100000  elapsed 832s  eta 291s
+    step 74996/100000  elapsed 842s  eta 281s
+    step 75803/100000  elapsed 852s  eta 272s
+    step 76662/100000  elapsed 862s  eta 262s
+    step 77451/100000  elapsed 872s  eta 254s
+    step 78381/100000  elapsed 882s  eta 243s
+    step 79231/100000  elapsed 892s  eta 234s
+    step 79991/100000  elapsed 902s  eta 226s
+    step 80551/100000  elapsed 912s  eta 220s
+    step 81319/100000  elapsed 922s  eta 212s
+    step 82075/100000  elapsed 932s  eta 204s
+    step 82638/100000  elapsed 942s  eta 198s
+    step 83449/100000  elapsed 952s  eta 189s
+    step 84271/100000  elapsed 962s  eta 180s
+    step 85150/100000  elapsed 972s  eta 170s
+    step 85776/100000  elapsed 982s  eta 163s
+    step 86491/100000  elapsed 992s  eta 155s
+    step 87329/100000  elapsed 1002s  eta 145s
+    step 88149/100000  elapsed 1012s  eta 136s
+    step 89014/100000  elapsed 1022s  eta 126s
+    step 89793/100000  elapsed 1032s  eta 117s
+    step 90454/100000  elapsed 1042s  eta 110s
+    step 91127/100000  elapsed 1052s  eta 102s
+    step 91585/100000  elapsed 1062s  eta 98s
+    step 92176/100000  elapsed 1072s  eta 91s
+    step 92694/100000  elapsed 1082s  eta 85s
+    step 93301/100000  elapsed 1092s  eta 78s
+    step 93844/100000  elapsed 1102s  eta 72s
+    step 94538/100000  elapsed 1112s  eta 64s
+    step 95357/100000  elapsed 1122s  eta 55s
+    step 96026/100000  elapsed 1132s  eta 47s
+    step 96589/100000  elapsed 1142s  eta 40s
+    step 97359/100000  elapsed 1152s  eta 31s
+    step 97910/100000  elapsed 1162s  eta 25s
+    step 98467/100000  elapsed 1172s  eta 18s
+    step 99023/100000  elapsed 1182s  eta 12s
+    step 99582/100000  elapsed 1192s  eta 5s
+  chain finished in 1198s, collected 100000 samples
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_ensemble_samples_100k.csv (100000 samples) in 1222s total
+
+  --- Convergence diagnostics (full 100k) ---
+    efficiency_gap     n=100000  tau=614.64  n_eff=163  rho1=+0.991  rho10=+0.918  rho100=+0.528  max_lag=2000
+    mean_median        n=100000  tau=457.27  n_eff=219  rho1=+0.986  rho10=+0.882  rho100=+0.496  max_lag=1565
+    declination        n=100000  tau=654.82  n_eff=153  rho1=+0.992  rho10=+0.923  rho100=+0.549  max_lag=2000
+    seats_at_50_50     n=100000  tau=809.73  n_eff=123  rho1=+0.992  rho10=+0.921  rho100=+0.561  max_lag=2000
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_convergence_diagnostics_100k.json
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_ensemble_percentiles_100k.csv
+
+  --- Per-metric percentiles (real maps vs 100k ensemble) ---
+        metric                       map   value  percentile  ensemble_p5  ensemble_p50  ensemble_p95
+efficiency_gap              2019 enacted +0.0241    +67.7310      -0.0107       +0.0168       +0.0437
+efficiency_gap majority 2026 v7 (89 EDs) -0.0024    +12.0480      -0.0107       +0.0168       +0.0437
+efficiency_gap minority 2026 v7 (89 EDs) -0.0102     +5.2850      -0.0107       +0.0168       +0.0437
+   mean_median              2019 enacted -0.0077    +93.2100      -0.0307       -0.0194       -0.0065
+   mean_median majority 2026 v7 (89 EDs) +0.0080    +99.9800      -0.0307       -0.0194       -0.0065
+   mean_median minority 2026 v7 (89 EDs) -0.0108    +86.7000      -0.0307       -0.0194       -0.0065
+   declination              2019 enacted -0.0451    +11.5720      -0.0663       -0.0053       +0.0555
+   declination majority 2026 v7 (89 EDs) -0.0203    +29.0750      -0.0663       -0.0053       +0.0555
+   declination minority 2026 v7 (89 EDs) -0.0941     +0.9010      -0.0663       -0.0053       +0.0555
+seats_at_50_50              2019 enacted +0.4598    +63.2130      +0.4253       +0.4598       +0.4828
+seats_at_50_50 majority 2026 v7 (89 EDs) +0.5152   +100.0000      +0.4253       +0.4598       +0.4828
+seats_at_50_50 minority 2026 v7 (89 EDs) +0.5493   +100.0000      +0.4253       +0.4598       +0.4828
+  wrote C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_real_map_scores_100k.json
+
+  *** OUTLIER FLAGS (>=95th or <=5th percentile) ***
+    majority 2026 v7 (89 EDs)        mean_median        value=+0.0080  p=100.0
+    minority 2026 v7 (89 EDs)        declination        value=-0.0941  p=0.9
+    majority 2026 v7 (89 EDs)        seats_at_50_50     value=+0.5152  p=100.0
+    minority 2026 v7 (89 EDs)        seats_at_50_50     value=+0.5493  p=100.0
+
+[23:14:34] done. total wall time 1227s

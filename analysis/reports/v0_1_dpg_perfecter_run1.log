@@ -1,0 +1,10 @@
+[dpg_perfecter] v0_7 → v0_8 pipeline
+  snap tolerance: 500 m
+  anti-erasure threshold: 10%
+
+Loading VA polygons for provincial boundary...
+  provincial boundary area: 662.6 × 10³ km²
+
+=== majority 2026 ===
+  loaded 89 EDs from v0_7_canonical_majority_2026_eds.gpkg
+  canon_source distribution: {'da-anchored': 47, 'municipal-anchored': 32, 'v7': 7, 'sweep': 2, 'osm-municipal-buffered': 1}
