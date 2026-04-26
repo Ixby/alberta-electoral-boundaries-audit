@@ -1,0 +1,19 @@
+{
+  "best_seats_at_50_50": 0.3793103448275862,
+  "best_metrics": {
+    "efficiency_gap": 0.025656360273108945,
+    "mean_median": -0.020234712472796623,
+    "declination": -0.01515493981681717,
+    "seats_at_50_50": 0.3793103448275862,
+    "ucp_seats": 56.0,
+    "n_districts": 87.0,
+    "ucp_vote_share": 0.5740427639062996
+  },
+  "n_bursts": 800,
+  "burst_length": 50,
+  "total_steps": 40000,
+  "elapsed_seconds": 357.35186791419983,
+  "seed": 137,
+  "pop_deviation": 0.25,
+  "objective": "minimise UCP seats@50/50 (NDP-maximization symmetric mirror)"
+}

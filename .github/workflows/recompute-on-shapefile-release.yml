@@ -1,0 +1,175 @@
+name: Recompute against official shapefiles
+
+# Triggers the audit's full re-run pipeline when Elections Alberta releases
+# official 2026 shapefiles. Honors the pre-registration amendment 2026-04-26
+# Change 11 sunset clause (recompute within two weeks of release).
+#
+# Three trigger paths:
+#   1. Manual: workflow_dispatch from the Actions UI (with shapefile URLs)
+#   2. Webhook: repository_dispatch event from ChangeDetection.io or any
+#      external watcher that detects an Elections Alberta release
+#   3. Schedule: weekly poll as a backstop in case the watcher misses a
+#      release (Sundays at 06:00 UTC)
+#
+# What this workflow DOES:
+#   - Downloads the new shapefiles
+#   - Re-runs the audit's full pipeline against them (~90 min)
+#   - Computes deltas vs published values
+#   - Generates a stub pre-registration amendment file
+#   - Opens a draft PR with the regenerated artefacts for maintainer review
+#
+# What this workflow does NOT do:
+#   - Auto-merge the PR (maintainer reviews and merges manually)
+#   - Update the public-report prose (maintainer rewrites the few paragraphs
+#     that need new numbers)
+#   - File the OSF amendment (maintainer uploads manually)
+
+on:
+  workflow_dispatch:
+    inputs:
+      majority_url:
+        description: "URL or path of the official majority 2026 shapefile (.gpkg or .zip)"
+        required: true
+        type: string
+      minority_url:
+        description: "URL or path of the official minority 2026 shapefile (.gpkg or .zip)"
+        required: true
+        type: string
+      release_date:
+        description: "Date Elections Alberta released the shapefile (ISO 8601, optional)"
+        required: false
+        type: string
+
+  repository_dispatch:
+    types:
+      - elections-alberta-shapefile-released
+
+  schedule:
+    # Weekly Sunday 06:00 UTC backstop poll. The actual watcher should fire
+    # the repository_dispatch event when it detects a release; this schedule
+    # is the safety net.
+    - cron: '0 6 * * 0'
+
+jobs:
+  recompute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install GDAL system dependencies (geopandas/pyogrio prereq)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgdal-dev gdal-bin
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Resolve shapefile inputs
+        id: shapefiles
+        env:
+          MAJORITY_INPUT: ${{ github.event.inputs.majority_url || github.event.client_payload.majority_url || '' }}
+          MINORITY_INPUT: ${{ github.event.inputs.minority_url || github.event.client_payload.minority_url || '' }}
+        run: |
+          set -euo pipefail
+          mkdir -p .temp/inbound
+          if [ -z "$MAJORITY_INPUT" ] || [ -z "$MINORITY_INPUT" ]; then
+            echo "::warning::No shapefile URLs provided. This is the scheduled backstop run; checking for new releases via the polling script."
+            python analysis/scripts/automation/poll_elections_alberta.py \
+              --output-dir .temp/inbound || {
+                echo "::notice::Polling found no new shapefiles. Exiting cleanly."
+                exit 0
+              }
+            MAJORITY_PATH="$(ls .temp/inbound/*majority*.gpkg 2>/dev/null | head -1)"
+            MINORITY_PATH="$(ls .temp/inbound/*minority*.gpkg 2>/dev/null | head -1)"
+          else
+            echo "Downloading majority shapefile: $MAJORITY_INPUT"
+            curl -fsSL "$MAJORITY_INPUT" -o .temp/inbound/majority_input.gpkg
+            MAJORITY_PATH=".temp/inbound/majority_input.gpkg"
+            echo "Downloading minority shapefile: $MINORITY_INPUT"
+            curl -fsSL "$MINORITY_INPUT" -o .temp/inbound/minority_input.gpkg
+            MINORITY_PATH=".temp/inbound/minority_input.gpkg"
+          fi
+          if [ ! -f "$MAJORITY_PATH" ] || [ ! -f "$MINORITY_PATH" ]; then
+            echo "::error::Shapefile resolution failed."
+            exit 1
+          fi
+          echo "majority_path=$MAJORITY_PATH" >> "$GITHUB_OUTPUT"
+          echo "minority_path=$MINORITY_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: Run audit recompute wrapper
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          bash analysis/scripts/recompute_against_official_shapefiles.sh \
+            "${{ steps.shapefiles.outputs.majority_path }}" \
+            "${{ steps.shapefiles.outputs.minority_path }}"
+
+      - name: Stage regenerated artefacts on a new branch
+        id: branch
+        run: |
+          BRANCH="recompute-official-$(date -u +%Y%m%d-%H%M%S)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add -A
+          git commit -m "Auto-recompute against official Elections Alberta shapefiles ($(date -u +%Y-%m-%d))" || {
+            echo "::notice::No changes after recompute; not opening a PR."
+            exit 0
+          }
+          git push origin "$BRANCH"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Open draft PR for maintainer review
+        if: steps.branch.outputs.branch != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --base master \
+            --head "${{ steps.branch.outputs.branch }}" \
+            --draft \
+            --title "Auto-recompute: official Elections Alberta shapefiles" \
+            --body "$(cat <<'PRBODY'
+          This PR contains the audit's automatic re-run against newly-released Elections Alberta official 2026 shapefiles, per the standing pre-registration sunset-clause commitment.
+
+          ## Maintainer review checklist
+
+          - [ ] Review delta report at `analysis/reports/v0_1_official_recompute_deltas_*.md`
+          - [ ] Fill in the amendment stub at `analysis/reports/v0_1_pre_registration_amendment_*-official-shapefiles.md`
+          - [ ] Update `report_public.md` prose where headline numbers moved
+          - [ ] Manually rebuild PDF: `python analysis/scripts/build_cover.py`
+          - [ ] Verify shapefile hashes against Elections Alberta's published checksums
+          - [ ] File the amendment to OSF
+          - [ ] Mark this PR ready for review and merge
+
+          ## Pipeline log
+
+          See the GitHub Actions run for full output.
+
+          PRBODY
+          )"
+
+      - name: Send notification
+        if: always() && steps.branch.outputs.branch != ''
+        env:
+          NOTIFY_WEBHOOK: ${{ secrets.NOTIFY_WEBHOOK_URL }}
+        run: |
+          if [ -n "$NOTIFY_WEBHOOK" ]; then
+            curl -fsSL -X POST -H 'Content-Type: application/json' \
+              -d "{\"text\":\"Audit recompute against official shapefiles complete. PR ready for review on branch ${{ steps.branch.outputs.branch }}.\"}" \
+              "$NOTIFY_WEBHOOK" || true
+          fi

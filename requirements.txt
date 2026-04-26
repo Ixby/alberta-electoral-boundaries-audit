@@ -27,11 +27,17 @@ osmnx==2.1.0
 pdfplumber==0.11.9
 pypdf>=4.0.0
 
-# MCMC ensemble (Phase 5 — blocked on shapefiles)
+# MCMC ensemble (the audit's authoritative 2,000,000-map run uses this version)
 gerrychain==0.3.2
 
 # Voice / readability gate
 textstat==0.7.13
+
+# Plotting (article figures)
+matplotlib==3.9.2
+
+# Markdown -> HTML pipeline (build_pdf.py)
+markdown==3.7
 
 # Monte Carlo uncertainty analysis
 # (uses numpy + pandas only — no extra deps)
