@@ -1,0 +1,49 @@
+[14:04:58] short-bursts NDP-maximization start (symmetric mirror of UCP run)
+  burst length = 50, n_bursts = 800, total steps = 40000
+  seed = 137, objective: minimise UCP seats@50/50
+C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\gerrychain\graph\adjacency.py:112: UserWarning: Found overlaps among the given polygons. Indices of overlaps: {(1087, 2495), (970, 3032), (1087, 1494), (39, 2376), (180, 4637), (39, 640), (1045, 4435), (1087, 3245), (444, 4615), (1087, 4212), (49, 1087), (39, 4508), (172, 2890), (180, 4615), (4152, 4762), (39, 2717), (1015, 2499), (180, 444), (1045, 3836), (4255, 4637), (39, 2631), (180, 1414), (1414, 4615), (1414, 3840), (905, 4637), (3032, 4764), (260, 616), (510, 1087), (172, 2370), (260, 2492), (905, 4255), (4056, 4152), (510, 2191), (4056, 4762), (2154, 2499)}
+  warnings.warn(
+[14:04:58] loading VA polygons...
+  total 2021 pop across VAs: 4,262,572
+[14:04:58] building adjacency graph (4765 VAs)...
+  built in 13.1s: 4765 nodes, 13385 edges
+  graph built: 4765 nodes, 13385 edges
+  2019 seed exceeds +/-25%; regenerating tight seed
+  initial seats@50/50 = 0.4598  (ucp_seats=54/87)
+[14:05:19] burst 1/800  best so far (LOWEST UCP s@50) = 0.4598  (50 steps, 124.3 steps/s, eta 5.4 min)
+[14:05:31] burst 25/800  best so far (LOWEST UCP s@50) = 0.3793  (1,250 steps, 101.3 steps/s, eta 6.4 min)
+[14:05:42] burst 50/800  best so far (LOWEST UCP s@50) = 0.3793  (2,500 steps, 106.9 steps/s, eta 5.8 min)
+[14:05:52] burst 75/800  best so far (LOWEST UCP s@50) = 0.3793  (3,750 steps, 110.2 steps/s, eta 5.5 min)
+[14:06:04] burst 100/800  best so far (LOWEST UCP s@50) = 0.3793  (5,000 steps, 109.6 steps/s, eta 5.3 min)
+[14:06:15] burst 125/800  best so far (LOWEST UCP s@50) = 0.3793  (6,250 steps, 109.9 steps/s, eta 5.1 min)
+[14:06:27] burst 150/800  best so far (LOWEST UCP s@50) = 0.3793  (7,500 steps, 108.9 steps/s, eta 5.0 min)
+[14:06:38] burst 175/800  best so far (LOWEST UCP s@50) = 0.3793  (8,750 steps, 109.5 steps/s, eta 4.8 min)
+[14:06:49] burst 200/800  best so far (LOWEST UCP s@50) = 0.3793  (10,000 steps, 110.0 steps/s, eta 4.5 min)
+[14:07:00] burst 225/800  best so far (LOWEST UCP s@50) = 0.3793  (11,250 steps, 110.5 steps/s, eta 4.3 min)
+[14:07:11] burst 250/800  best so far (LOWEST UCP s@50) = 0.3793  (12,500 steps, 111.0 steps/s, eta 4.1 min)
+[14:07:21] burst 275/800  best so far (LOWEST UCP s@50) = 0.3793  (13,750 steps, 111.5 steps/s, eta 3.9 min)
+[14:07:34] burst 300/800  best so far (LOWEST UCP s@50) = 0.3793  (15,000 steps, 110.3 steps/s, eta 3.8 min)
+[14:07:45] burst 325/800  best so far (LOWEST UCP s@50) = 0.3793  (16,250 steps, 110.7 steps/s, eta 3.6 min)
+[14:07:57] burst 350/800  best so far (LOWEST UCP s@50) = 0.3793  (17,500 steps, 110.5 steps/s, eta 3.4 min)
+[14:08:08] burst 375/800  best so far (LOWEST UCP s@50) = 0.3793  (18,750 steps, 110.5 steps/s, eta 3.2 min)
+[14:08:19] burst 400/800  best so far (LOWEST UCP s@50) = 0.3793  (20,000 steps, 110.5 steps/s, eta 3.0 min)
+[14:08:31] burst 425/800  best so far (LOWEST UCP s@50) = 0.3793  (21,250 steps, 110.5 steps/s, eta 2.8 min)
+[14:08:41] burst 450/800  best so far (LOWEST UCP s@50) = 0.3793  (22,500 steps, 110.8 steps/s, eta 2.6 min)
+[14:08:52] burst 475/800  best so far (LOWEST UCP s@50) = 0.3793  (23,750 steps, 111.0 steps/s, eta 2.4 min)
+[14:09:02] burst 500/800  best so far (LOWEST UCP s@50) = 0.3793  (25,000 steps, 111.5 steps/s, eta 2.2 min)
+[14:09:13] burst 525/800  best so far (LOWEST UCP s@50) = 0.3793  (26,250 steps, 111.9 steps/s, eta 2.0 min)
+[14:09:24] burst 550/800  best so far (LOWEST UCP s@50) = 0.3793  (27,500 steps, 112.0 steps/s, eta 1.9 min)
+[14:09:34] burst 575/800  best so far (LOWEST UCP s@50) = 0.3793  (28,750 steps, 112.5 steps/s, eta 1.7 min)
+[14:09:44] burst 600/800  best so far (LOWEST UCP s@50) = 0.3793  (30,000 steps, 112.7 steps/s, eta 1.5 min)
+[14:09:55] burst 625/800  best so far (LOWEST UCP s@50) = 0.3793  (31,250 steps, 112.7 steps/s, eta 1.3 min)
+[14:10:06] burst 650/800  best so far (LOWEST UCP s@50) = 0.3793  (32,500 steps, 113.0 steps/s, eta 1.1 min)
+[14:10:17] burst 675/800  best so far (LOWEST UCP s@50) = 0.3793  (33,750 steps, 113.0 steps/s, eta 0.9 min)
+[14:10:28] burst 700/800  best so far (LOWEST UCP s@50) = 0.3793  (35,000 steps, 112.8 steps/s, eta 0.7 min)
+[14:10:40] burst 725/800  best so far (LOWEST UCP s@50) = 0.3793  (36,250 steps, 112.8 steps/s, eta 0.6 min)
+[14:10:53] burst 750/800  best so far (LOWEST UCP s@50) = 0.3793  (37,500 steps, 111.9 steps/s, eta 0.4 min)
+[14:11:05] burst 775/800  best so far (LOWEST UCP s@50) = 0.3793  (38,750 steps, 111.8 steps/s, eta 0.2 min)
+[14:11:16] burst 800/800  best so far (LOWEST UCP s@50) = 0.3793  (40,000 steps, 111.9 steps/s, eta 0.0 min)
+[14:11:16] done in 357.4s (5.96 min)
+  BEST (lowest) seats@50/50: 0.3793
+  BEST metrics: {'efficiency_gap': 0.025656360273108945, 'mean_median': -0.020234712472796623, 'declination': -0.01515493981681717, 'seats_at_50_50': 0.3793103448275862, 'ucp_seats': 56, 'n_districts': 87, 'ucp_vote_share': 0.5740427639062996}
+  wrote v0_1_targeted_burst_ndp_trace.csv and v0_1_targeted_burst_ndp_best.json

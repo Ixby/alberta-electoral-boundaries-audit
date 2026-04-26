@@ -81,7 +81,7 @@ These changes strengthen the evidentiary basis of pre-registered tests without a
 
 **After:** Audit uses v0_8 full-coverage polygons (89 of 89 EDs for both maps via 2019-Tier-A inheritance fill for districts whose 2026 boundaries the commission's published images did not let the audit reconstruct directly). Wherever Phase 4F validation flags an over-extended polygon (e.g., the v0_8 minority's "Peace River" polygon), the disclosure remains in `data/INTEGRITY_STATUS.md`.
 
-**Reason:** v0_8 did not exist at the original pre-registration date. Using v0_8 over v0_7 is methodological improvement, not hypothesis change. The DPG sunset clause from the 2026-04-23 amendment continues to apply: all geometry-dependent metrics will be recomputed against Elections Alberta's official 2026 shapefiles within 48 hours of release.
+**Reason:** v0_8 did not exist at the original pre-registration date. Using v0_8 over v0_7 is methodological improvement, not hypothesis change. The DPG sunset clause from the 2026-04-23 amendment continues to apply (with the duration revision noted in Change 11 below): all geometry-dependent metrics will be recomputed against Elections Alberta's official 2026 shapefiles within two weeks of release.
 
 ---
 
@@ -149,6 +149,18 @@ These changes affect what specific findings the audit reports. They are properly
 
 ---
 
+### Change 11 — Sunset-clause window relaxed: 48 hours → two weeks
+
+**Location:** Appendix A (DPG sunset clause), and `report_academic.md` §4.1.4, §5.2.7, abstract block, executive summary.
+
+**Before:** *"The audit commits to: 1. Re-running all DPG-dependent analyses against the official shapefiles within 48 hours of public release."*
+
+**After:** *"The audit commits to: 1. Re-running all DPG-dependent analyses against the official shapefiles within two weeks of public release."*
+
+**Reason:** The original 48-hour window is achievable only with a built-out automation pipeline (continuous monitoring of Elections Alberta release endpoints, automated ingest, re-run, and disclosure). Such a pipeline is on the audit's roadmap but not yet built. A 48-hour commitment from a solo researcher with no automation in place is unrealistic — it would be honoured if the release happens during a clear week and broken if it lands during travel, illness, or any of the ordinary delays that affect any individual researcher. A two-week window covers both the automated and the manual case honestly, and is in line with practice in academic redistricting research. The recompute commitment itself, the requirement to publicly disclose any sign-flip or magnitude change > 0.5pp, and the symmetric application to whichever measurement currently favours the audit's interpretation, are unchanged. The audit will tighten the window if and when the automation pipeline is operational; until then, two weeks is the honest commitment.
+
+---
+
 ## Bucket C — Prospective component (RQ8–9): unchanged
 
 The 17-test grid (S1–S6, W1–W3, P1–P5, X1–X3) that will be applied to the November 2026 Lunty committee map is **unchanged from the 2026-04-23 amendment**. All numeric thresholds (10% Calgary zone gap, 4-way Airdrie split, p95 ensemble outlier, US 7% efficiency gap, four R5 conditions) are unchanged. The 72-hour scoring commitment after the November map's release is unchanged.
@@ -171,8 +183,9 @@ The only addition affecting the prospective component: the ~5% Alberta-calibrate
 | 8 | B | §1 mitigation #3 | Retraction — cross-election direction-flip | Original v0_7 finding retracted; v0_8 result authoritative |
 | 9 | B | S6 (St. Albert sub-claim) | Test-result revision — evidentiary basis updated | Verdict ("Stands") unchanged; convergence framing more defensible |
 | 10 | B | §3 S4 | Addition — Alberta-calibrated ~5% line | Additive; pre-registered US 7% line still reported |
-| 11 | C | §3 Prospective (RQ8–9) | No change | The November-map test grid is the contract; intact |
+| 11 | B | App. A sunset clause | Window relaxation — 48 hours → two weeks | Honesty-of-commitment correction; recompute commitment itself unchanged |
+| 12 | C | §3 Prospective (RQ8–9) | No change | The November-map test grid is the contract; intact |
 
 No pre-registered hypotheses, scoring rules, or data inclusion/exclusion criteria for the prospective (RQ8–9) component were changed. The retrospective component (RQ1–7) evolved as documented above; all evolution is traceable to either methodological improvement (Bucket A) or evidence-driven test-result revision (Bucket B), with cited methodology files for each.
 
-The audit's standing commitments hold: (a) the 17-test grid will be applied without modification to the November 2026 Lunty committee map within 72 hours of release; (b) all geometry-dependent metrics will be recomputed against Elections Alberta's official 2026 shapefiles within 48 hours of release, with any sign-flip or magnitude change >0.5pp publicly disclosed in a dated amendment.
+The audit's standing commitments hold: (a) the 17-test grid will be applied without modification to the November 2026 Lunty committee map within 72 hours of release; (b) all geometry-dependent metrics will be recomputed against Elections Alberta's official 2026 shapefiles within two weeks of release (revised from 48 hours per Change 11), with any sign-flip or magnitude change >0.5pp publicly disclosed in a dated amendment.
