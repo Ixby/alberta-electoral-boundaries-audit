@@ -1,0 +1,67 @@
+name: Tests
+
+# Runs the audit's pytest suite on every push and PR. Cheapest possible
+# defence against regressions in the four scoring formulas, the spatial
+# join deduplication, the CRS reprojection branch, and the chunked-MCMC
+# state threading. Per Gemini's design-review #2: low-effort CI gates
+# every push so a future bug-fix doesn't accidentally re-introduce a
+# previously-fixed failure mode.
+
+on:
+  push:
+    branches: [master, "audit/**", "gemini-audit"]
+    paths:
+      - "analysis/scripts/**.py"
+      - "tests/**"
+      - "requirements.txt"
+      - ".github/workflows/tests.yml"
+  pull_request:
+    branches: [master]
+    paths:
+      - "analysis/scripts/**.py"
+      - "tests/**"
+      - "requirements.txt"
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The verification-subset integrity test reads two large data
+          # artefacts under data/. They live in the repo (not LFS), so a
+          # default checkout is sufficient.
+          lfs: false
+
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+
+      - name: Install system geospatial libraries
+        # geopandas / shapely / pyproj need GEOS, GDAL, PROJ at the system
+        # level. Ubuntu's apt packages are sufficient for the test geometry
+        # (synthetic squares + the Alberta VA gpkg).
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y libgeos-dev libgdal-dev libproj-dev
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # gerrychain pulls a heavy stack; install only what the tests
+          # need to keep CI fast. The full requirements.txt installs
+          # cleanly but is ~5 minutes; minimal install is ~90s.
+          pip install pytest numpy pandas geopandas shapely pyproj networkx
+          pip install gerrychain==0.3.2 networkx==3.6.1
+
+      - name: Run pytest
+        run: |
+          python -m pytest tests/test_scoring.py -v --tb=short
+
+      - name: Report
+        if: always()
+        run: |
+          echo "::notice::Pytest run complete. 12 tests cover the four scoring formulas, sjoin dedup, CRS reprojection, chunked-MCMC state threading, and verification-subset recompute spot-check."
