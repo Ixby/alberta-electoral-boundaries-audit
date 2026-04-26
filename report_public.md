@@ -127,19 +127,19 @@ Rows of measurements are hard to weigh against each other. One defensible synthe
 >
 > *A proposed synthesis with explicit weights — not a finding. Other weightings give different grades.*
 >
-> Letter grades convert to points (A=95, B=85, C=75, D=65, F=45). The overall is each grade × its weight, summed.
+> Letter-to-point conversion uses Mount Royal University's full-letter-range midpoints: A = 90, B = 75, C = 65, D = 55, F = 25 (per the MRU undergraduate grading scale: A range 80–100, B range 70–79, C range 60–69, D range 50–59, F range 0–49). The audit author is an MRU undergraduate; using the institution's own grading scale is the most defensible single conversion choice. The overall is each grade × its weight, summed.
 >
 > | Category | Weight | Majority grade | Majority points | Minority grade | Minority points |
 > |---|---:|:---:|---:|:---:|---:|
-> | Voter equality | 25% | B | 21.3 | D | 16.3 |
-> | Community recognition | 35% | B | 29.8 | F | 15.8 |
-> | Map coherence | 25% | A | 23.8 | D | 16.3 |
-> | Partisan fairness | 15% | B | 12.8 | B | 12.8 |
-> | **OVERALL** | — | **B (88/100)** | | **F (61/100)** | |
+> | Voter equality | 25% | B | 18.75 | D | 13.75 |
+> | Community recognition | 35% | B | 26.25 | F | 8.75 |
+> | Map coherence | 25% | A | 22.50 | D | 13.75 |
+> | Partisan fairness | 15% | B | 11.25 | B | 11.25 |
+> | **OVERALL** | — | **B (79/100)** | | **F (48/100)** | |
 
 **Why these weights.** Community recognition carries the most (35%) because *Reference re Saskatchewan* — the Supreme Court decision defining what redistricting is for — holds that effective representation requires districts that communities can identify as their own. The Act's ±25% population band grounds voter equality at 25%. Map coherence (25%) reflects the commission's own standard: the chair flagged specific boundaries as anomalous, and those flags matter. Partisan fairness is weighted lowest (15%) because both maps clear the audit's Alberta-calibrated ~5% line, but only the minority clears the older US 7% line — the partisan-fairness lane is real but not the lane that distinguishes the maps most sharply.
 
-**What produces the minority's F.** On community recognition (15.8 of 35 under these weights), 15% municipal anchoring means 85 out of every 100 kilometres of the minority map's border cuts through territory voters do not recognize from any other civic map — not their school division boundary, not their property-tax bill, not their local election ward. The majority's equivalent is 71%. The Airdrie four-way split compounds the effect — residents must navigate four legislative offices, each primarily identified with somewhere else. Three chair-flagged anomalies — a lasso-shaped corridor, a boundary extension through uninhabited national park land, and a district named for communities together smaller than the community it actually captures — pull the map-coherence score down further.
+**What produces the minority's F.** On community recognition (8.75 of 35 under these weights — the lowest single-category score in the table), 15% municipal anchoring means 85 out of every 100 kilometres of the minority map's border cuts through territory voters do not recognize from any other civic map — not their school division boundary, not their property-tax bill, not their local election ward. The majority's equivalent is 71%. The Airdrie four-way split compounds the effect — residents must navigate four legislative offices, each primarily identified with somewhere else. Three chair-flagged anomalies — a lasso-shaped corridor, a boundary extension through uninhabited national park land, and a district named for communities together smaller than the community it actually captures — pull the map-coherence score down further.
 
 **Where the maps score comparably.** Under the lowest-weighted category — partisan fairness — the two maps are effectively tied (both clear the Alberta-calibrated line), even though only the minority clears the US line.
 
