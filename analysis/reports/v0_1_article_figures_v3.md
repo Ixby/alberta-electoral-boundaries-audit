@@ -1,7 +1,7 @@
 # Article figures v3 — design note
 
 Brief design note for the four magazine-ready article figures produced by
-`analysis/scripts/v0_1_build_article_figures_v3.py`. Replaces the v2 two-panel
+`analysis/scripts/build_article_figures_v3.py`. Replaces the v2 two-panel
 geographic overlays, which were rejected for being informationally dense
 and hard to read at column width.
 

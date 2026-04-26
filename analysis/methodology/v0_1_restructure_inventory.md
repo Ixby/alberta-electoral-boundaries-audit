@@ -22,7 +22,7 @@ type: methodology
 
 Zero-reference files (safe move, Phase A): 12.
 3+ incoming-reference files (coordinated move, Phase C): 15.
-Largest individual-file rewrite surface: `v0_1_shape_refinement.py/.md` at 140 incoming refs each.
+Largest individual-file rewrite surface: `shape_refinement.py/.md` at 140 incoming refs each.
 
 ---
 
@@ -30,64 +30,64 @@ Largest individual-file rewrite surface: `v0_1_shape_refinement.py/.md` at 140 i
 
 | Filename | Purpose | Incoming refs |
 |---|---|---|
-| v0_1_shape_refinement.py | Core shapefile refinement pipeline | 140 |
+| shape_refinement.py | Core shapefile refinement pipeline | 140 |
 | v0_2_packing_cracking_analysis.py | Gerrymandering detection via packing/cracking metrics | 114 |
-| v0_1_mcmc_ensemble.py | ReCom MCMC ensemble simulation for baseline gerrymandering test | 101 |
+| mcmc_ensemble.py | ReCom MCMC ensemble simulation for baseline gerrymandering test | 101 |
 | submission_search.py | OCR and full-text search over boundary submission documents | 83 |
 | v0_3_monte_carlo_ci.py | Monte Carlo CI computation for partisan-bias metrics | 68 |
-| v0_1_chen_rodden_alberta.py | Chen-Rodden partisan bias decomposition analysis | 58 |
+| chen_rodden_alberta.py | Chen-Rodden partisan bias decomposition analysis | 58 |
 | phase_4c_prep.py | Phase 4C preparation pipeline (vote attribution setup) | 48 |
 | build_pdf.py | Compiles analysis outputs into final PDF report | 46 |
 | check_voice_and_readability.py | Editorial QA: voice consistency + readability scoring | 45 |
-| v0_1_338canada_reallocate.py | 338Canada polling data reallocation to 2026 ED boundaries | 45 |
+| 338canada_reallocate.py | 338Canada polling data reallocation to 2026 ED boundaries | 45 |
 | build_cover.py | Generates cover page and front matter for report PDF | 43 |
-| v0_1_mcmc_full_coverage_rescore.py | MCMC ensemble rescoring with 100% geographic coverage | 37 |
-| v0_1_canadian_base_rate_compute.py | Computes baseline partisan bias from Canadian historical cycles | 36 |
-| v0_1_build_overlay_figures_v2.py | Boundary comparison overlay-map generator (v2) | 33 |
-| v0_1_mcmc_ensemble_100k.py | Extended MCMC ensemble run with 100k samples | 30 |
-| v0_1_338canada_scraper.py | Scrapes and parses 338Canada polling data | 29 |
-| v0_1_mcmc_full_coverage_rescore_100k.py | Full-coverage MCMC rescore at 100k iterations | 28 |
-| v0_1_csd_community_splits.py | Community separation analysis via school-district boundaries | 26 |
-| v0_1_chen_rodden_decomposition.py | Geography-vs-drawing decomposition of Chen-Rodden metric | 25 |
-| v0_1_build_canonical_shapefiles.py | Authoritative canonical-shapefile compilation pipeline | 24 |
-| v0_1_shape_refinement_v2.py | Shapefile refinement v2 iteration | 24 |
-| v0_1_shape_refinement_v3.py | Shapefile refinement v3 iteration | 22 |
-| v0_1_shape_refinement_v4.py | Shapefile refinement v4 iteration (major revision) | 22 |
-| v0_1_build_full_crosswalks.py | 2019→2026 boundary-change crosswalk builder | 21 |
-| v0_1_2015_cross_election.py | Cross-election comparison with 2015 Alberta election | 20 |
-| v0_1_shape_refinement_v5.py | Shapefile refinement v5 iteration | 20 |
-| v0_1_mcmc_multichain_ensemble.py | Multi-chain variant of MCMC ensemble with Gelman-Rubin | 19 |
-| v0_1_approximate_shape_analysis.py | Geometric analysis of approximate boundary proposals | 19 |
-| v0_1_build_article_figures_v3.py | Figure generation for article (v3) | 18 |
-| v0_1_canadian_base_rate_recalibrate.py | Recalibration of Canadian base-rate computation | 18 |
-| v0_1_338canada_historical.py | Historical polling archive from 338Canada | 18 |
-| v0_1_overlap_zone_diagnostic.py | Diagnostic analysis of boundary overlap zones | 18 |
-| v0_1_mcmc_full_coverage_rescore_v2.py | MCMC full-coverage rescore v2 refinement | 17 |
-| v0_1_advance_vote_splat.py | Vote-Anywhere apportionment (ED→VA splat) | 16 |
-| v0_1_justification_tests.py | Statistical tests validating boundary-design claims | 16 |
-| v0_1_majority_symmetry_counter_test.py | Partisan-symmetry test (counter-example case) | 15 |
-| v0_1_cross_election_rural_baseline.py | Rural-area baseline comparison across elections | 15 |
-| v0_1_build_overlay_figures.py | Initial boundary-comparison overlay-map generator | 14 |
-| v0_1_build_composite_shapefiles.py | Composite shapefile assembly from parts | 14 |
-| v0_1_shape_refinement_v6.py | Shapefile refinement v6 (production version) | 13 |
-| v0_1_shape_refinement_v6_processors.py | v6 refinement modular processor components | 12 |
-| v0_1_airdrie_overlap_diagnostic.py | Airdrie-specific boundary-overlap analysis | 12 |
+| mcmc_full_coverage_rescore.py | MCMC ensemble rescoring with 100% geographic coverage | 37 |
+| canadian_base_rate_compute.py | Computes baseline partisan bias from Canadian historical cycles | 36 |
+| build_overlay_figures_v2.py | Boundary comparison overlay-map generator (v2) | 33 |
+| mcmc_ensemble_100k.py | Extended MCMC ensemble run with 100k samples | 30 |
+| 338canada_scraper.py | Scrapes and parses 338Canada polling data | 29 |
+| mcmc_full_coverage_rescore_100k.py | Full-coverage MCMC rescore at 100k iterations | 28 |
+| csd_community_splits.py | Community separation analysis via school-district boundaries | 26 |
+| chen_rodden_decomposition.py | Geography-vs-drawing decomposition of Chen-Rodden metric | 25 |
+| build_canonical_shapefiles.py | Authoritative canonical-shapefile compilation pipeline | 24 |
+| shape_refinement_v2.py | Shapefile refinement v2 iteration | 24 |
+| shape_refinement_v3.py | Shapefile refinement v3 iteration | 22 |
+| shape_refinement_v4.py | Shapefile refinement v4 iteration (major revision) | 22 |
+| build_full_crosswalks.py | 2019→2026 boundary-change crosswalk builder | 21 |
+| 2015_cross_election.py | Cross-election comparison with 2015 Alberta election | 20 |
+| shape_refinement_v5.py | Shapefile refinement v5 iteration | 20 |
+| mcmc_multichain_ensemble.py | Multi-chain variant of MCMC ensemble with Gelman-Rubin | 19 |
+| approximate_shape_analysis.py | Geometric analysis of approximate boundary proposals | 19 |
+| build_article_figures_v3.py | Figure generation for article (v3) | 18 |
+| canadian_base_rate_recalibrate.py | Recalibration of Canadian base-rate computation | 18 |
+| 338canada_historical.py | Historical polling archive from 338Canada | 18 |
+| overlap_zone_diagnostic.py | Diagnostic analysis of boundary overlap zones | 18 |
+| mcmc_full_coverage_rescore_v2.py | MCMC full-coverage rescore v2 refinement | 17 |
+| advance_vote_splat.py | Vote-Anywhere apportionment (ED→VA splat) | 16 |
+| justification_tests.py | Statistical tests validating boundary-design claims | 16 |
+| majority_symmetry_counter_test.py | Partisan-symmetry test (counter-example case) | 15 |
+| cross_election_rural_baseline.py | Rural-area baseline comparison across elections | 15 |
+| build_overlay_figures.py | Initial boundary-comparison overlay-map generator | 14 |
+| build_composite_shapefiles.py | Composite shapefile assembly from parts | 14 |
+| shape_refinement_v6.py | Shapefile refinement v6 (production version) | 13 |
+| shape_refinement_v6_processors.py | v6 refinement modular processor components | 12 |
+| airdrie_overlap_diagnostic.py | Airdrie-specific boundary-overlap analysis | 12 |
 | electoral_forensics_population.py | Population-equality A1/A2/A3 audit framework | 11 |
-| v0_1_rural_gap_dissection.py | Rural-urban voting-gap component analysis | 11 |
-| v0_1_shape_refinement_v6_writer.py | v6 refinement output writer module | 10 |
-| v0_1_edmonton_beaumont_polygon.py | Edmonton-Beaumont specific boundary polygon work | 10 |
-| v0_1_marginal_seats_analysis.py | Swing-seat vulnerability analysis | 10 |
-| v0_1_track_l_drift.py | Track L: post-implementation boundary drift detector | 9 |
-| v0_1_a1_legal_baseline_2021_census.py | Legal-compliance baseline from 2021 census | 9 |
-| v0_1_phase_4bcdef_execution.py | Phases 4B–4F audit execution pipeline | 8 |
-| v0_1_plan_b_rerun.py | Alternative plan (Plan B) recomputation | 8 |
-| v0_1_edmonton_beaumont_split.py | Edmonton-Beaumont split analysis | 7 |
-| v0_1_poll_attribution_skeleton.py | Phase 4C poll-location vote-attribution framework | 6 |
+| rural_gap_dissection.py | Rural-urban voting-gap component analysis | 11 |
+| shape_refinement_v6_writer.py | v6 refinement output writer module | 10 |
+| edmonton_beaumont_polygon.py | Edmonton-Beaumont specific boundary polygon work | 10 |
+| marginal_seats_analysis.py | Swing-seat vulnerability analysis | 10 |
+| track_l_drift.py | Track L: post-implementation boundary drift detector | 9 |
+| a1_legal_baseline_2021_census.py | Legal-compliance baseline from 2021 census | 9 |
+| phase_4bcdef_execution.py | Phases 4B–4F audit execution pipeline | 8 |
+| plan_b_rerun.py | Alternative plan (Plan B) recomputation | 8 |
+| edmonton_beaumont_split.py | Edmonton-Beaumont split analysis | 7 |
+| poll_attribution_skeleton.py | Phase 4C poll-location vote-attribution framework | 6 |
 | parse_2015_results.py | 2015 Alberta election results parsing | 5 |
-| v0_1_phase_4c_va_attribution.py | Phase 4C voting-area attribution pipeline | 5 |
-| v0_1_submission_ocr.py | OCR processing of scanned submission documents | 5 |
-| v0_1_submission_ocr_analyze.py | Analysis of OCR-extracted submission text | 4 |
-| v0_1_url_archival.py | Wayback Machine archival of submission URLs | 3 |
+| phase_4c_va_attribution.py | Phase 4C voting-area attribution pipeline | 5 |
+| submission_ocr.py | OCR processing of scanned submission documents | 5 |
+| submission_ocr_analyze.py | Analysis of OCR-extracted submission text | 4 |
+| url_archival.py | Wayback Machine archival of submission URLs | 3 |
 | build_academic_html.py | HTML compilation for academic output format | 2 |
 
 ---
@@ -200,21 +200,21 @@ Largest individual-file rewrite surface: `v0_1_shape_refinement.py/.md` at 140 i
 
 | Filename | Category | Incoming refs | Risk |
 |---|---|---|---|
-| v0_1_shape_refinement.py | scripts | 140 | CRITICAL |
+| shape_refinement.py | scripts | 140 | CRITICAL |
 | v0_1_shape_refinement.md | methodology | 140 | CRITICAL |
 | v0_2_packing_cracking_analysis.py | scripts | 114 | CRITICAL |
-| v0_1_mcmc_ensemble.py | scripts | 101 | CRITICAL |
+| mcmc_ensemble.py | scripts | 101 | CRITICAL |
 | v0_1_mcmc_ensemble.md | methodology | 101 | CRITICAL |
 | submission_search.py | scripts | 83 | HIGH |
 | v0_3_monte_carlo_ci.py | scripts | 68 | HIGH |
-| v0_1_chen_rodden_alberta.py | scripts | 58 | HIGH |
+| chen_rodden_alberta.py | scripts | 58 | HIGH |
 | phase_4c_prep.py | scripts | 48 | HIGH |
 | build_pdf.py | scripts | 46 | HIGH |
 | check_voice_and_readability.py | scripts | 45 | HIGH |
-| v0_1_338canada_reallocate.py | scripts | 45 | HIGH |
+| 338canada_reallocate.py | scripts | 45 | HIGH |
 | build_cover.py | scripts | 43 | HIGH |
-| v0_1_mcmc_full_coverage_rescore.py | scripts | 37 | MEDIUM |
-| v0_1_canadian_base_rate_compute.py | scripts | 36 | MEDIUM |
+| mcmc_full_coverage_rescore.py | scripts | 37 | MEDIUM |
+| canadian_base_rate_compute.py | scripts | 36 | MEDIUM |
 
 ---
 

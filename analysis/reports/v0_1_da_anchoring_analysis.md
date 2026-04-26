@@ -6,7 +6,7 @@ type: reports
 
 # DA-boundary anchoring analysis (Precision Option C-extended)
 
-**Companion script:** `analysis/scripts/v0_1_da_boundary_anchoring.py`
+**Companion script:** `analysis/scripts/da_boundary_anchoring.py`
 **Outputs:** `data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg`; per-ED log at `analysis/reports/v0_1_da_anchoring_log.csv`; summary at `data/v0_1_da_anchoring_summary.json`.
 **Date:** 2026-04-24.
 
@@ -14,9 +14,9 @@ type: reports
 
 | Layer | Script | Output GPKGs | Precision floor |
 |---|---|---|---|
-| v0_2 topology-clean canonical | `v0_1_topology_cleanup.py` | `v0_2_canonical_*_eds_topoclean.gpkg` | ±100-300 m (v7-traced interior) |
+| v0_2 topology-clean canonical | `topology_cleanup.py` | `v0_2_canonical_*_eds_topoclean.gpkg` | ±100-300 m (v7-traced interior) |
 | v0_3 population-calibrated sweep | `v0_1_tier_c_sweep.py` | `v0_3_canonical_*_eds_swept.gpkg` | tier-C hybrids sweep-corrected |
-| v0_4 municipal (CSD) anchoring | `v0_1_municipal_anchoring.py` | `v0_4_canonical_*_eds_anchored.gpkg` | ±1-5 m on CSD-anchored segments (71% maj / 14.5% min) |
+| v0_4 municipal (CSD) anchoring | `municipal_anchoring.py` | `v0_4_canonical_*_eds_anchored.gpkg` | ±1-5 m on CSD-anchored segments (71% maj / 14.5% min) |
 | **v0_5 DA-boundary anchoring** | **this file** | **`v0_5_canonical_*_eds_da_anchored.gpkg`** | **±1-5 m on DA-anchored segments (extends anchored fraction)** |
 
 The DA pass is the logical complement of the CSD pass: CSDs cover only municipal-gazette boundaries (city limits, MD borders, reserves), which inside a large city like Calgary or Edmonton are single polygons. DAs partition those cities at the census block level, following street centrelines, section lines, and creek beds — the same micro-features the commission used to draw intra-city boundaries. Combining the two passes gives full urban + rural anchoring coverage.
@@ -158,7 +158,7 @@ The minority's Stony Plain-Drayton Valley ED DA-anchors 67 % of its perimeter ag
 
 | Path | Size | Purpose |
 |---|---|---|
-| `analysis/scripts/v0_1_da_boundary_anchoring.py` | ~28 KB (~755 lines) | The pipeline |
+| `analysis/scripts/da_boundary_anchoring.py` | ~28 KB (~755 lines) | The pipeline |
 | `data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg` | 12.9 MB | DA-anchored majority shapefile |
 | `data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg` | 12.5 MB | DA-anchored minority shapefile |
 | `analysis/reports/v0_1_da_anchoring_log.csv` | 26 KB | Per-ED DA-anchoring log (178 rows) |

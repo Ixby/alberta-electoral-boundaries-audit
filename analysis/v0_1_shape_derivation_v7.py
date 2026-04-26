@@ -46,7 +46,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 # Reuse v6 primitives without modifying them
-from v0_1_shape_refinement_v6 import (  # noqa: E402
+from shape_refinement_v6 import (  # noqa: E402
     MAPS_HIRES, DATA_DIR, ANALYSIS_DIR,
     AREA_CRS, WORK_CRS, EDS_2019_PATH,
     load_and_orient, extract_red_mask,
@@ -76,7 +76,7 @@ def _get_interior_mask_v7(
     k_dil = cv2.getStructuringElement(cv2.MORPH_RECT, (dilate_px, dilate_px))
     red_d = cv2.dilate(red_closed, k_dil, iterations=1)
     return (red_d == 0).astype(np.uint8) * 255
-from v0_1_shape_refinement_v6_processors import (  # noqa: E402
+from shape_refinement_v6_processors import (  # noqa: E402
     optimise_affine_dt, collect_boundary_points, _safe_slug,
 )
 

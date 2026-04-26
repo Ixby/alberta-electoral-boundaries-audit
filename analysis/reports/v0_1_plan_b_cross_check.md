@@ -462,8 +462,8 @@ equivalent in the public report:
 ## Reproducibility
 
 - Plan B consolidated table: `data/v0_1_alberta_population_plan_b.csv`
-- Plan B re-run script: `analysis/scripts/v0_1_plan_b_rerun.py`
-- Run: `PYTHONIOENCODING=utf-8 python3 analysis/scripts/v0_1_plan_b_rerun.py`
+- Plan B re-run script: `analysis/scripts/plan_b_rerun.py`
+- Run: `PYTHONIOENCODING=utf-8 python3 analysis/scripts/plan_b_rerun.py`
 - Commission report PDF: `.temp/commission_report.pdf` (pp. 27–29 for
   majority §III, pp. 295–297 for minority §III)
 - Alberta Treasury Board Municipal Affairs 2024 list PDF:

@@ -10,7 +10,7 @@ commission's hybrid crosswalks.
 possible from the 2019 geometry + crosswalks alone, and it is explicit about
 what is measured (Tier A/B) vs what cannot be measured without visual
 transcription from JPGs (Tier C). No visual-transcription geometry was
-fabricated. The script `v0_1_approximate_shape_analysis.py` is reproducible end-
+fabricated. The script `approximate_shape_analysis.py` is reproducible end-
 to-end.
 
 ---
@@ -93,7 +93,7 @@ Source files:
   hybrid detail.
 
 Construction rules (implemented in
-`analysis/scripts/v0_1_approximate_shape_analysis.py`):
+`analysis/scripts/approximate_shape_analysis.py`):
 
 - **Majority**: If the 2026 name equals a 2019 name and `is_hybrid=False` → Tier
   A (identity). Otherwise, if the rename CSV maps the 2026 name to a single
@@ -387,7 +387,7 @@ very low regardless of where the split is drawn.
   87 + 89 + 89 = 265 rows, with Tier C rows having NULL compactness cells
 - `data/v0_1_tierC_parent_union_reference.csv` — 35 Tier C EDs with identified
   parents, plus parent-union PP and ±10 % perimeter band
-- `analysis/scripts/v0_1_approximate_shape_analysis.py` — reproducible pipeline
+- `analysis/scripts/approximate_shape_analysis.py` — reproducible pipeline
 - `analysis/reports/v0_1_approximate_shape_analysis.md` — this document
 
 ---

@@ -7,14 +7,14 @@
 **Baseline:** 2019 enacted electoral divisions (87 EDs) as the starting partition
 **Runtime:** ~12 min for the 100k chain on a laptop
 **Forward:** report_academic.md §3.11, report_public.md (methods appendix)
-**Backward:** analysis/methodology/v0_1_mcmc_ensemble.md (10k preliminary); analysis/scripts/v0_1_build_full_crosswalks.py (crosswalks); analysis/scripts/v0_1_mcmc_ensemble_100k.py (chain); analysis/scripts/v0_1_mcmc_full_coverage_rescore_100k.py (rescore)
+**Backward:** analysis/methodology/v0_1_mcmc_ensemble.md (10k preliminary); analysis/scripts/build_full_crosswalks.py (crosswalks); analysis/scripts/mcmc_ensemble_100k.py (chain); analysis/scripts/mcmc_full_coverage_rescore_100k.py (rescore)
 
 ## Method — what changed from the 10k preliminary
 
 Two changes, both in the direction the 10k write-up flagged as pending:
 
 1. **Chain length 10,000 → 100,000.** Same ReCom proposal, same ±25% constraint, same seed 42, same initial tight-seed regeneration via `recursive_tree_part`. 10× the samples; identical distribution target. Convergence diagnostics (effective sample size per metric, running-mean trace plots) were added to the 100k artefacts.
-2. **Exogenous scoring: polygon-only → polygon + full-crosswalk fallback.** The 10k run used centroid-in-polygon joins against the partial-coverage 2026 gpkgs (majority 57 / 89, minority v6 70 / 89), so 36% (majority) / 19% (minority) of VAs were dropped from each proposal's metric. The 100k run uses an 88-row majority crosswalk and 88-row minority crosswalk (built by `v0_1_build_full_crosswalks.py`) as a fallback: every VA outside a scored polygon is assigned to a 2026 ED via its `parent_ed_2019` → full-crosswalk entry. Coverage is now 100% of VAs for both proposals (though both still miss a small number of *destination* 2026 EDs that are pure Tier-C constructs with no 2019 parent — 4 majority EDs and 5 minority EDs are not populated by either polygon or crosswalk; these are enumerated in the JSON output).
+2. **Exogenous scoring: polygon-only → polygon + full-crosswalk fallback.** The 10k run used centroid-in-polygon joins against the partial-coverage 2026 gpkgs (majority 57 / 89, minority v6 70 / 89), so 36% (majority) / 19% (minority) of VAs were dropped from each proposal's metric. The 100k run uses an 88-row majority crosswalk and 88-row minority crosswalk (built by `build_full_crosswalks.py`) as a fallback: every VA outside a scored polygon is assigned to a 2026 ED via its `parent_ed_2019` → full-crosswalk entry. Coverage is now 100% of VAs for both proposals (though both still miss a small number of *destination* 2026 EDs that are pure Tier-C constructs with no 2019 parent — 4 majority EDs and 5 minority EDs are not populated by either polygon or crosswalk; these are enumerated in the JSON output).
 
 Nothing else changed: same metrics (EG, MM, declination, seats-at-50/50), same sign convention (+ = UCP-favoured), same 2023 vote attribution, same 2021 DA-weighted population, same VA graph.
 
@@ -119,7 +119,7 @@ Two sentences in `report_academic.md` §3.11 require revision. Do **NOT** modify
 ### Recommendation 2 — Replace the falsifiability-hook resolution
 
 **Before** (lines 405–407):
-> A follow-up full-coverage rescore using the hybrid crosswalks (`data/v0_1_majority_hybrid_crosswalk.csv` and `data/v0_1_minority_hybrid_crosswalk.csv`) for VAs not in a scored polygon is tracked in `analysis/scripts/v0_1_mcmc_full_coverage_rescore.py`; a 100,000-sample publication-grade MCMC run, with full-coverage rescore and convergence diagnostics (effective sample size per metric, trace plots), is in progress and will be reported in `analysis/methodology/v0_1_mcmc_100k_and_full_coverage.md`. If either artifact shifts the tail-percentile verdicts, §3.11 will be revised and a change note added.
+> A follow-up full-coverage rescore using the hybrid crosswalks (`data/v0_1_majority_hybrid_crosswalk.csv` and `data/v0_1_minority_hybrid_crosswalk.csv`) for VAs not in a scored polygon is tracked in `analysis/scripts/mcmc_full_coverage_rescore.py`; a 100,000-sample publication-grade MCMC run, with full-coverage rescore and convergence diagnostics (effective sample size per metric, trace plots), is in progress and will be reported in `analysis/methodology/v0_1_mcmc_100k_and_full_coverage.md`. If either artifact shifts the tail-percentile verdicts, §3.11 will be revised and a change note added.
 >
 > **Falsifiability hook.** If the 100k-sample full-coverage rescore, or a later commission-shapefile-driven re-run, moves either 2026 map off its p ≥ 95 or p ≤ 5 tail on the flagged metric, the claim for that map is retracted and the map is reclassified as inside-band. The three flags are held as preliminary-but-defensible pending the publication-grade re-run.
 
@@ -154,9 +154,9 @@ Two sentences in `report_academic.md` §3.11 require revision. Do **NOT** modify
 ## Artefacts produced
 
 Scripts:
-- `analysis/scripts/v0_1_mcmc_ensemble_100k.py` — the 100k chain + running-mean plots + ESS diagnostics
-- `analysis/scripts/v0_1_build_full_crosswalks.py` — builds the 88-row majority and 88-row minority full crosswalks
-- `analysis/scripts/v0_1_mcmc_full_coverage_rescore_100k.py` — rescores with polygon + crosswalk fallback, computes percentiles vs. 100k ensemble
+- `analysis/scripts/mcmc_ensemble_100k.py` — the 100k chain + running-mean plots + ESS diagnostics
+- `analysis/scripts/build_full_crosswalks.py` — builds the 88-row majority and 88-row minority full crosswalks
+- `analysis/scripts/mcmc_full_coverage_rescore_100k.py` — rescores with polygon + crosswalk fallback, computes percentiles vs. 100k ensemble
 
 Data:
 - `data/v0_1_mcmc_ensemble_samples_100k.csv` — 100,000 rows, per-sample metrics
@@ -174,8 +174,8 @@ Plots (maps/mcmc/):
 
 ## Reproducibility
 
-- Chain: `python analysis/scripts/v0_1_mcmc_ensemble_100k.py --n-steps 100000 --seed 42`
-- Rescore: `python analysis/scripts/v0_1_mcmc_full_coverage_rescore_100k.py`
+- Chain: `python analysis/scripts/mcmc_ensemble_100k.py --n-steps 100000 --seed 42`
+- Rescore: `python analysis/scripts/mcmc_full_coverage_rescore_100k.py`
 - Deterministic given seed 42, gerrychain 0.3.2, geopandas ≥ 0.14, and the three input gpkg files (VA polygons, approximate-majority, refined-v6-minority).
 - Wall time (laptop): ~12 min chain + ~15 s rescore + ~2 s plots = ~13 min end-to-end.
 

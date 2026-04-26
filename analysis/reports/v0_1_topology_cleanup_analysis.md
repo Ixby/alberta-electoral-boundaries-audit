@@ -11,7 +11,7 @@ shared boundaries. Measured overlap totals:
 * **Minority:** 16,733.7 km² of inter-ED overlap across 96 pairs; 1,722
   VAs had raw total DPG coverage > 1.0 (maximum 3.95×).
 
-Under MAUP area-weighted attribution (`v0_1_phase_4c_va_attribution_maup.py`),
+Under MAUP area-weighted attribution (`phase_4c_va_attribution_maup.py`),
 this overlap forced the script to renormalise per-VA weights and pushed
 Stony Plain-Drayton Valley to a **24.8 pp UCP→NDP flip** on the minority
 map — a Tier-C transcription artefact, not a real commission intent. The
@@ -27,7 +27,7 @@ for §5.2.7.
 
 ## Method
 
-**Script:** `analysis/scripts/v0_1_topology_cleanup.py` (521 lines).
+**Script:** `analysis/scripts/topology_cleanup.py` (521 lines).
 
 For each map independently, the pipeline:
 
@@ -118,7 +118,7 @@ against the winner, so "winner area" doesn't grow beyond the union.
 
 ## Results — MAUP re-run on cleaned DPGs
 
-`analysis/scripts/v0_1_phase_4c_va_attribution_maup_v2.py` re-runs the
+`analysis/scripts/phase_4c_va_attribution_maup_v2.py` re-runs the
 area-weighted attribution pipeline against `v0_2_*_topoclean.gpkg`.
 
 ### Three-measurement comparison table
@@ -203,7 +203,7 @@ use v0_2 cleaned geometry.
 > regions claimed by two or more electoral divisions. To isolate the
 > contribution of this transcription artefact from any genuine spatial
 > signal we ran a precedence-based topology cleanup
-> (`v0_1_topology_cleanup.py`) that awards each overlap region to the
+> (`topology_cleanup.py`) that awards each overlap region to the
 > ED with stronger source evidence
 > (`sweep > osm-municipal-buffered > 2019-parent > v7`, with
 > smaller-area v7 winning ties) and re-ran MAUP against the cleaned
@@ -227,9 +227,9 @@ use v0_2 cleaned geometry.
 
 ## References
 
-* Cleanup script: `analysis/scripts/v0_1_topology_cleanup.py`
-* MAUP-v2 script: `analysis/scripts/v0_1_phase_4c_va_attribution_maup_v2.py`
-* MAUP-v1 script (historical baseline, unchanged): `analysis/scripts/v0_1_phase_4c_va_attribution_maup.py`
+* Cleanup script: `analysis/scripts/topology_cleanup.py`
+* MAUP-v2 script: `analysis/scripts/phase_4c_va_attribution_maup_v2.py`
+* MAUP-v1 script (historical baseline, unchanged): `analysis/scripts/phase_4c_va_attribution_maup.py`
 * MAUP-v1 summary (historical): `analysis/reports/v0_1_phase4c_maup_summary.json`
 * MAUP-v2 summary: `analysis/reports/v0_2_phase4c_maup_summary.json`
 * Cleanup summary: `analysis/reports/v0_1_topology_cleanup_summary.json`

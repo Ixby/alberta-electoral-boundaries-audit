@@ -222,5 +222,5 @@
   "r_hat_fail_threshold": 1.1,
   "combined_ess_target": 1000,
   "total_runtime_sec": 5474.192431688309,
-  "script_version": "v0_1_mcmc_multichain_ensemble.py"
+  "script_version": "mcmc_multichain_ensemble.py"
 }

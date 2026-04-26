@@ -18,7 +18,7 @@ Authoritative current-state view of the findings in this file against the remedi
 
 | Finding | Status | Fix location |
 |---|---|---|
-| S3-01 (HIGH) MCMC seed hardcoded in `v0_1_mcmc_ensemble.py` | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
+| S3-01 (HIGH) MCMC seed hardcoded in `mcmc_ensemble.py` | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
 | S3-02 (HIGH) MCMC ESS ≈148–160; p100 rests on ~150 effective draws | ADDRESSED | a62eb53 §5.4 ESS-150 tail downgrade paragraph: raw p100/p1.6 bounded to p95.35/p2.5 at chain effective precision; minority seats-at-50/50 retracted to p89.72. Directly implements S3-02's recommendation. |
 | S3-03 (MED) Urban-weight sensitivity range omits 50/50 and population-weighted alternatives | NOT ADDRESSED | Not in T0/T1/T2 scope. Residual. |
 | S3-04 (HIGH) Full-coverage MCMC rescore downgrades minority p100 → p95.35 / p89.72; §3.11 stale | ADDRESSED | afb3a4a + 3b7dbfb MCMC rescore reads canonical shapefiles (`data/v0_1_canonical_{majority,minority}_2026_eds.gpkg`); a62eb53 ESS-150 downgrade aligns reported percentiles with effective precision. The falsifiability hook §3.11 set for itself is now resolved in-paper. |
@@ -56,17 +56,17 @@ Historical finding records in the rest of this file remain unchanged for audit-t
 
 | ID | Dimension | Severity | Finding (one-line) |
 |---|---|---|---|
-| S3-01 | Reproducibility | HIGH | MCMC ensemble seed is hardcoded (seed=42 in `v0_1_mcmc_ensemble.py:439`); CLI takes only `n_steps`. A reviewer who wants to stress-test seed invariance must edit source. |
+| S3-01 | Reproducibility | HIGH | MCMC ensemble seed is hardcoded (seed=42 in `mcmc_ensemble.py:439`); CLI takes only `n_steps`. A reviewer who wants to stress-test seed invariance must edit source. |
 | S3-02 | Reproducibility | HIGH | 100k-sample convergence diagnostics show **effective sample size ≈ 148–160** across all four metrics (autocorrelation τ ≈ 624–674). p100 and p1.7 tail claims rest on ~150 effectively-independent draws, not 100,000. |
 | S3-03 | Reproducibility | MED | Hybrid urban-weight sensitivity range (0.55–0.85 Monte Carlo; 0.60–0.80 point) **does not cover a straight 50/50 or a population-weighted alternative**. Canonical methodologist would ask for one. |
 | S3-04 | Reproducibility | HIGH | Full-coverage MCMC rescore (`v0_1_mcmc_ensemble_percentiles_full.csv`) **shifts the minority 2026 map from p100 to p95.35 on mean-median and puts seats-at-50/50 at p89.72 (inside the ensemble)** — a downgrade the paper's §3.11 text has not absorbed. |
 | S3-05 | Reproducibility | HIGH | Stephanopoulos-Warrington declination swap: the audit implements declination but reports a positive-for-NDP / negative-for-UCP convention that is internally consistent yet cites Warrington (2018) as formula authority, whose sign convention is opposite on winning-district treatment. The ordinal ranking survives; the sign label does not. |
 | S3-06 | Reproducibility | MED | Compactness is computed only under Polsby-Popper and Reock. Convex-Hull and Schwartzberg are named in the literature review but not reported. Calgary Zone A packing is *not* a compactness claim so swap doesn't affect it; the §6.7 "mean Polsby-Popper" differences are directionally stable but magnitude-sensitive. |
 | S3-07 | Reproducibility | LOW | VA centroid-in-polygon attribution: paper claims ±0.5% rounding error on border VAs. Consistent with MCMC §3.11 note; no swap-test executed, but order of magnitude is defensible. |
-| S3-08 | Reproducibility | HIGH | 2015-vote rerun is executed (`v0_1_2015_cross_election.py`), but the derived value (+0.03 pp) is reported under a sign convention the sibling doc `v0_1_sign_convention_resolution.md` resolves *differently* from `v0_1_2015_cross_election_analysis.md`. The paper's headline ("2015 gives +0.03 pp") is correct in magnitude; the direction interpretation is doubly-flipped. |
+| S3-08 | Reproducibility | HIGH | 2015-vote rerun is executed (`2015_cross_election.py`), but the derived value (+0.03 pp) is reported under a sign convention the sibling doc `v0_1_sign_convention_resolution.md` resolves *differently* from `v0_1_2015_cross_election_analysis.md`. The paper's headline ("2015 gives +0.03 pp") is correct in magnitude; the direction interpretation is doubly-flipped. |
 | S4-01 | Falsifiability | HIGH | "Minority more UCP-favourable than majority by 0.51–1.52 pp" — the paper's §3.5 states a falsification condition (Phase 4C measured attribution with opposite sign at central weight), but the condition **cannot be executed without the 2026 shapefile**, making this falsifiability hook not currently testable. |
 | S4-02 | Falsifiability | MED | "Calgary Zone A packing: 12.2% gap vs 0.4%" — null ("gap is a property of classification rule, not the minority's drawing") is engaged via G4 robustness (2023-winner-based rule yields 7.71% — still >10×  majority); residual: no null statistic is reported, only the rule comparison. |
-| S4-03 | Falsifiability | MED | "Airdrie 4-way is a cracking pattern" — null is "split is forced by population arithmetic." The counter-test script (`v0_1_majority_symmetry_counter_test.py`) engages this by setting the 3-quota (205,983) force-threshold; Airdrie (84k) fits under one or two EDs at ±25%. Null is rejected on population-arithmetic grounds. Defensible. |
+| S4-03 | Falsifiability | MED | "Airdrie 4-way is a cracking pattern" — null is "split is forced by population arithmetic." The counter-test script (`majority_symmetry_counter_test.py`) engages this by setting the 3-quota (205,983) force-threshold; Airdrie (84k) fits under one or two EDs at ±25%. Null is rejected on population-arithmetic grounds. Defensible. |
 | S4-04 | Falsifiability | HIGH | "Engineered boundary at RMH-Banff Park" — §3.9 **reformulates E2 mid-audit** from "without extension the ED would not qualify" (fails) to "alternatives existed and were not taken" (passes). The reformulation is disclosed and audit-trail-documented, but a reviewer will read this as post-hoc criterion-softening. Null framing is correspondingly softened. |
 | S4-05 | Falsifiability | LOW | MCMC p100 flags against neutral ensemble — null is "minority inside ReCom-reachable distribution on that metric." Clearly rejected for mean-median and seats-at-50/50 on the 10k run. DOWNGRADED to p95.35 / p89.72 on full-coverage rescore (see S3-04). |
 | S4-06 | Falsifiability | HIGH | "Three of five 'no public support' characterisations materially fail" — null is "zero genuine supporting submissions for all five." OCR/regex coverage is 93%; the remaining 7% cannot disconfirm. The verdict is defensible *conditional on the found counter-examples*; a disciplined reviewer will ask for the 88 unscanned submissions. |
@@ -101,7 +101,7 @@ No CRITICAL findings — the audit is internally coherent and honest about its l
 
 ### S3 — Reproducibility (conceptual)
 
-**S3-01 MCMC seed plumbing.** The ensemble script hardcodes `seed=42` at `analysis/scripts/v0_1_mcmc_ensemble.py:439` with the CLI only exposing `n_steps`:
+**S3-01 MCMC seed plumbing.** The ensemble script hardcodes `seed=42` at `analysis/scripts/mcmc_ensemble.py:439` with the CLI only exposing `n_steps`:
 
 ```python
 def main(n_steps: int = 5000, seed: int = 42):
@@ -146,7 +146,7 @@ A finding-by-finding audit. For each the null, the falsification condition, and 
 |---|---|---|---|---|
 | "Minority more UCP-favourable than majority by 0.51–1.52 pp" (§3.3) | No inter-map partisan-bias asymmetry beyond natural-ensemble noise | Phase 4C measured attribution with opposite sign at 0.70 central weight | **No — blocked on 2026 shapefile** | S4-01 HIGH |
 | "Calgary Zone A packing: 12.2% gap vs 0.4%" (§A2) | The 12.2% gap is an artefact of the classification rule (Bow/Deerfoot line) | G4 2023-winner-based classification produces near-null | Yes — G4 test produces 7.71%, still >10× majority | S4-02 MED |
-| "Airdrie 4-way is a cracking pattern" (§3.8) | Airdrie's 4-way split is forced by population arithmetic | Airdrie (84k, 2025 est) fits in ≤2 EDs at ±25% | Yes — `v0_1_justification_tests.py` | S4-03 MED |
+| "Airdrie 4-way is a cracking pattern" (§3.8) | Airdrie's 4-way split is forced by population arithmetic | Airdrie (84k, 2025 est) fits in ≤2 EDs at ±25% | Yes — `justification_tests.py` | S4-03 MED |
 | "Engineered boundary at RMH-Banff Park" (§3.9) | Purposive reading of §15(2) supports NP extension / extension is statutorily needed | Under narrow E2: re-audit finds ED qualifies 4/5 without extension (narrow E2 fails). Under substantive E2: alternative populated territories (Caroline, Nordegg, etc.) existed and were not taken | Yes, under substantive E2; narrow E2 has failed | S4-04 HIGH (criterion reformulated mid-audit) |
 | MCMC p100 on minority (§3.11) | Minority 2026 inside the ReCom-reachable neighbourhood distribution | Minority percentile drops below 95 on the full-coverage rescore | **Yes — the full-coverage rescore has shifted to p95.35 mean-median and p89.72 seats-at-50/50** | S4-05 LOW — but see S3-04: falsification fired for seats-at-50/50 |
 | "Three of five 'no public support' chair characterisations materially fail" (§5.4) | All five have zero genuine supporting submissions | 1,252 of 1,340 submissions with text layer, searched via regex + manual review; counter-examples identified for three | Yes, conditional on text-searchable subset (93%) | S4-06 HIGH for residual 7% OCR gap |
@@ -281,7 +281,7 @@ To be honest with the methodology review: the audit has done a substantial amoun
 
 6. **Hybrid-weight additional swap (S3-03, S5-05).** Report the 0.50 straight case and the population-weighted case in §3.4. Expected outcome: magnitude narrows further; direction remains.
 
-7. **MCMC seed plumbing (S3-01).** Add `argparse` seed support to `v0_1_mcmc_ensemble.py`. One-liner, supports reviewer replication.
+7. **MCMC seed plumbing (S3-01).** Add `argparse` seed support to `mcmc_ensemble.py`. One-liner, supports reviewer replication.
 
 8. **Sign-convention internal consistency (S3-08).** Update `v0_1_2015_cross_election_analysis.md` to use the paper's 1:1 proportional convention (per resolution in `v0_1_sign_convention_resolution.md`), or add a prominent top-of-doc note that the 2015 doc uses the S-M 2:1-slope convention for framing purposes.
 

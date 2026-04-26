@@ -2,7 +2,7 @@
 
 **Date run:** 2026-04-22
 **Source:** https://338canada.com/alberta/ landing page (embedded 77-point time-series) plus Wayback Machine captures of per-riding pages in the 2023-03-01 to 2023-05-29 window.
-**Pipeline:** `analysis/scripts/v0_1_338canada_historical.py`
+**Pipeline:** `analysis/scripts/338canada_historical.py`
 
 This file documents Track AA: historical 338Canada Alberta projections, a pre-2023 model-accuracy validation against the actual 2023 Statement of Vote, and a stability test of the minority-vs-majority seat asymmetry across historical snapshots.
 
@@ -18,7 +18,7 @@ The 338Canada Alberta landing page embeds a JavaScript time-series covering ever
 - UCP / NDP central seat projections (integer).
 - UCP majority, UCP plurality, NDP majority, NDP plurality probabilities (%).
 
-Extraction: `extract_landing_series()` in `v0_1_338canada_historical.py` walks the `parties:` block after `rangeOptions` and emits all 11 series aligned to the 77-date x-axis. Output: `data/v0_1_338canada_historical_snapshots.csv`. This is the full aggregate history — no Wayback access needed.
+Extraction: `extract_landing_series()` in `338canada_historical.py` walks the `parties:` block after `rangeOptions` and emits all 11 series aligned to the 77-date x-axis. Output: `data/v0_1_338canada_historical_snapshots.csv`. This is the full aggregate history — no Wayback access needed.
 
 ### 1.2 Wayback coverage of per-riding pages
 
@@ -58,7 +58,7 @@ Current 338 riding pages embed JavaScript `values:` arrays; the 2023-era archive
 
 ### 1.5 Reallocation — two methods, cross-checked
 
-- **Share-level reallocation** (my `reallocate_snapshot`): mirrors `v0_1_338canada_reallocate.py` — percentage shares flow through the hybrid crosswalks; rural baseline is the mean of the 39 Rest-of-Alberta 2019 EDs for the given snapshot.
+- **Share-level reallocation** (my `reallocate_snapshot`): mirrors `338canada_reallocate.py` — percentage shares flow through the hybrid crosswalks; rural baseline is the mean of the 39 Rest-of-Alberta 2019 EDs for the given snapshot.
 - **Vote-total reallocation via audit's own `estimate_2026`**: uses 2023 turnout as the scale for 338's projected shares, applies the audit's 0.7 rural-turnout scaling.
 
 Both methods were run for every snapshot case below; they agree on the seat-asymmetry direction.
@@ -160,7 +160,7 @@ The audit's §3.5 two-model-stack caveat (compounding 338's model error with the
 
 ### 4.1 Pre-2023 full-87 per-riding reallocation
 
-Running the 87 pre-2023 338 per-riding shares through the audit's hybrid crosswalks (`analysis/scripts/v0_1_338canada_historical.py` Phase 4; parallel-verified via the audit's own `estimate_2026`):
+Running the 87 pre-2023 338 per-riding shares through the audit's hybrid crosswalks (`analysis/scripts/338canada_historical.py` Phase 4; parallel-verified via the audit's own `estimate_2026`):
 
 | Snapshot | UCP two-party share | Majority seats (UCP/NDP) | Minority seats (UCP/NDP) | Asymmetry (min − maj) |
 |---|---|---|---|---|
@@ -293,7 +293,7 @@ The table at §3 of the riding-level file has UCP and NDP columns swapped in the
 - `data/v0_1_338_historical/stability_table.csv` — two-row summary: current snapshot vs pre-2023 full reallocation.
 - `data/v0_1_338_historical/alberta_landing_raw.html` — cached landing-page HTML.
 - `data/v0_1_338_historical/riding_NNNN_w20230529.html` × 87 — cached Wayback captures of pre-2023 per-riding pages.
-- `analysis/scripts/v0_1_338canada_historical.py` — reproducible pipeline.
+- `analysis/scripts/338canada_historical.py` — reproducible pipeline.
 - `analysis/methodology/v0_1_338canada_historical.md` — this file.
 
 ---

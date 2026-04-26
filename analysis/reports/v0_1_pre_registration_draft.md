@@ -97,7 +97,7 @@ This study uses no human subjects and no primary data collection in the conventi
 
 **Commission report primary text.** Source: AEBC Final Report (March 23, 2026), 362 pages, including Appendix C (chair's majority rationale), Appendix E (minority rationale and boundary descriptions), and the chair's Addendum Recommendation 5 (pp. 66–67). Acquired as `commission_report.pdf` (80 MB, gitignored in `.temp/`); tables and text extracted via pdfplumber. Full document; no sampling.
 
-**338Canada riding-level projections.** Source: 338Canada Alberta landing page, April 2026 snapshot. Per-riding projections scraped via `analysis/scripts/v0_1_338canada_scraper.py` and reallocated to 2026 proposed ED configurations via `analysis/scripts/v0_1_338canada_reallocate.py`. 87 current ridings; April 2026 snapshot. A 77-snapshot historical stability probe covers 2020-02-23 through 2026-04-12.
+**338Canada riding-level projections.** Source: 338Canada Alberta landing page, April 2026 snapshot. Per-riding projections scraped via `analysis/scripts/338canada_scraper.py` and reallocated to 2026 proposed ED configurations via `analysis/scripts/338canada_reallocate.py`. 87 current ridings; April 2026 snapshot. A 77-snapshot historical stability probe covers 2020-02-23 through 2026-04-12.
 
 **Prospective data (RQ8–9).** The November 2026 MLA Special Select Committee 91-seat map does not yet exist. When the committee releases its map (target date 2026-11-02), the audit will acquire the map's boundary descriptions from the committee's official published materials and, if available, Elections Alberta's official shapefile release. No data will be collected or analysed before the map is publicly released. The 72-hour scoring window begins at first public release.
 
@@ -288,11 +288,11 @@ Three structured gaps exist and are handled as follows:
 
 **Cross-election stability probe.** The EG and MM are computed substituting 2019 and 2015 vote totals for 2023 (with appropriate crosswalk reallocation). This is a planned analysis documented in `analysis/scripts/v0_3_monte_carlo_ci.py` and `analysis/reports/v0_1_2015_cross_election_analysis.md`. Results are reported alongside the 2023-baseline findings; the directional reversal under 2019 is a registered finding, not a post-hoc anomaly.
 
-**338Canada per-riding cross-validation.** The minority-majority seat gap is recomputed using 338Canada April 2026 per-riding projections reallocated through the audit's crosswalk dictionaries. This is test X3 in §9 and is a planned analysis documented in `analysis/scripts/v0_1_338canada_reallocate.py`.
+**338Canada per-riding cross-validation.** The minority-majority seat gap is recomputed using 338Canada April 2026 per-riding projections reallocated through the audit's crosswalk dictionaries. This is test X3 in §9 and is a planned analysis documented in `analysis/scripts/338canada_reallocate.py`.
 
 **Symmetry-of-test-selection audit.** Every test applied to detect a minority-specific pattern is applied to the majority map asking the same question. Results are reported in §5.6 of the academic report. This is a planned analysis, not a post-hoc robustness check.
 
-**Natural-packing (Chen-Rodden) validation.** A test of whether the Chen-Rodden (2013) urban-packing mechanism operates in Alberta, using wasted-vote decomposition and Moran's I on NDP two-party share. Documented in `analysis/scripts/v0_1_chen_rodden_alberta.py`. Results are used to frame the partisan-bias findings (whether the EG difference between the two 2026 maps reflects geography or design) and are a planned analysis registered here.
+**Natural-packing (Chen-Rodden) validation.** A test of whether the Chen-Rodden (2013) urban-packing mechanism operates in Alberta, using wasted-vote decomposition and Moran's I on NDP two-party share. Documented in `analysis/scripts/chen_rodden_alberta.py`. Results are used to frame the partisan-bias findings (whether the EG difference between the two 2026 maps reflects geography or design) and are a planned analysis registered here.
 
 ---
 

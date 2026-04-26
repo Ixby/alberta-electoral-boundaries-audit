@@ -178,6 +178,6 @@ does not attribute motive.
 
 ## Reproducibility
 
-- Script: `analysis/scripts/v0_1_justification_tests.py`
+- Script: `analysis/scripts/justification_tests.py`
 - Input table: `data/v0_1_justification_test_inputs.csv`
-- Run: `python analysis/scripts/v0_1_justification_tests.py`
+- Run: `python analysis/scripts/justification_tests.py`

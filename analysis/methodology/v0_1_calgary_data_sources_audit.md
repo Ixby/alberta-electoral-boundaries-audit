@@ -24,7 +24,7 @@ The gap is narrower than Track L framed. A 2026 federal census is scheduled; det
 | 12 | Calgary Transit Ridership (Socrata `iema-jbc4`) | System-level | Live monthly | **UNUSABLE for A2**; useful for Track G (Cochrane) | No station-level or O-D detail in the public release |
 | 13 | CMRB Regional Housing Needs Assessment 2024 | CMRB region / member municipalities | 2024 | **PARTIAL** | Member-municipality rollup, not Calgary sub-city |
 | 14 | AHS population by AHS Zone | Calgary AHS Zone (whole southern AB) | Annual | **UNUSABLE** | Calgary Zone > City of Calgary; too coarse |
-| 15 | Airdrie 2025 Municipal Census | City of Airdrie | 2025 | **USABLE** for Track L | Calibrates `AIRDRIE_GROWTH = 1.168` used in `v0_1_track_l_drift.py` |
+| 15 | Airdrie 2025 Municipal Census | City of Airdrie | 2025 | **USABLE** for Track L | Calibrates `AIRDRIE_GROWTH = 1.168` used in `track_l_drift.py` |
 | 16 | Cochrane / Chestermere / Okotoks 2024/2025 estimates | Individual CSD | 2025 | **USABLE** for Track L | Calibrates ring-town growth factors in Track L Plan B |
 
 ## Sources checked, in detail

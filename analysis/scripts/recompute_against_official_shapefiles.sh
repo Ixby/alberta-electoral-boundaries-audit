@@ -153,28 +153,28 @@ echo "  v0_8 reconstructions backed up to .pre-official-backup"
 # ----- Step 4: Re-run the audit -----
 echo ""
 echo "[$(date -u +%H:%M:%SZ)] Step 4a/7: MCMC ensemble re-run (1,000,000 maps)"
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_mcmc_ensemble_250k_v0_8.py \
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_250k_v0_8.py \
     --n-steps 1000000 --n-chains 4 --chunk-size 5000 --seed 88 \
     > "analysis/reports/v0_1_mcmc_official_$TIMESTAMP.log" 2>&1
 
 echo ""
 echo "[$(date -u +%H:%M:%SZ)] Step 4b/7: Targeted-burst (UCP-maximization)"
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_targeted_gerrymander_burst.py \
+PYTHONIOENCODING=utf-8 python analysis/scripts/targeted_gerrymander_burst.py \
     > "analysis/reports/v0_1_targeted_burst_official_$TIMESTAMP.log" 2>&1
 
 echo ""
 echo "[$(date -u +%H:%M:%SZ)] Step 4c/7: Targeted-burst (NDP-maximization, symmetric)"
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_targeted_gerrymander_burst_ndp.py \
+PYTHONIOENCODING=utf-8 python analysis/scripts/targeted_gerrymander_burst_ndp.py \
     > "analysis/reports/v0_1_targeted_burst_ndp_official_$TIMESTAMP.log" 2>&1
 
 echo ""
 echo "[$(date -u +%H:%M:%SZ)] Step 4d/7: Verification subset (10,000 steps with full assignments)"
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_mcmc_verification_subset.py \
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_verification_subset.py \
     > "analysis/reports/v0_1_mcmc_verification_official_$TIMESTAMP.log" 2>&1
 
 echo ""
 echo "[$(date -u +%H:%M:%SZ)] Step 5/7: Regenerating article figures"
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_article_figures.py \
+PYTHONIOENCODING=utf-8 python analysis/scripts/article_figures.py \
     > "analysis/reports/v0_1_figures_official_$TIMESTAMP.log" 2>&1
 
 # ----- Step 6: Compute deltas -----

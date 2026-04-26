@@ -70,7 +70,7 @@ Every DPG row must carry this metadata. Downstream methods (tessellation pipelin
 
 ### 4. Topology cleanup and DPG tessellation (~3 pages)
 
-The DPG tessellation problem has three distinct failure modes, each requiring a different algorithm. Together they form the **three-phase DPG perfection pipeline** (`v0_1_dpg_perfecter.py`).
+The DPG tessellation problem has three distinct failure modes, each requiring a different algorithm. Together they form the **three-phase DPG perfection pipeline** (`dpg_perfecter.py`).
 
 #### 4.1 Phase 1 — Overlap resolution
 
@@ -251,11 +251,11 @@ Brief summary referencing the main audit paper. Focus on methodological lessons:
 
 Scripts released under [LICENSE TBD] at `github.com/Ixby/alberta-electoral-boundaries-audit`:
 
-- `v0_1_dpg_perfecter.py` — three-phase tessellation pipeline (overlap resolution → tier-ordered edge snapping → gap fill); produces fully tessellating v0_8 DPGs from independently-traced v0_7 sources
-- `v0_1_topology_cleanup.py` — standalone precedence-based overlap resolver (Phase 1 only)
-- `v0_1_phase_4c_va_attribution_maup_v2.py` — MAUP area-weighting with conservation gate
-- `v0_1_build_canonical_shapefiles.py` — population-calibrated parametric sweep
-- `v0_1_mcmc_multichain_ensemble.py` — multi-chain ReCom with split-chain R-hat
+- `dpg_perfecter.py` — three-phase tessellation pipeline (overlap resolution → tier-ordered edge snapping → gap fill); produces fully tessellating v0_8 DPGs from independently-traced v0_7 sources
+- `topology_cleanup.py` — standalone precedence-based overlap resolver (Phase 1 only)
+- `phase_4c_va_attribution_maup_v2.py` — MAUP area-weighting with conservation gate
+- `build_canonical_shapefiles.py` — population-calibrated parametric sweep
+- `mcmc_multichain_ensemble.py` — multi-chain ReCom with split-chain R-hat
 
 ### 9. Limitations (~1 page)
 

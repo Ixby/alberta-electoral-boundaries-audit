@@ -5,7 +5,7 @@ forward_dependencies:
   - report_academic.md — candidate for integration as Appendix C (parent session decides)
   - analysis/v0_1_fortification_a1_a5.md — fulfills F7 (A4 narrowed-claim appendix)
 backward_dependencies:
-  - analysis/scripts/v0_1_a1_legal_baseline_2021_census.py (this computation)
+  - analysis/scripts/a1_legal_baseline_2021_census.py (this computation)
   - data/v0_1_a1_legal_baseline_2019eds_2021census.csv (per-ED output)
   - data/alberta_2021_da_populations.csv, data/alberta_2021_das.gpkg (2021 Census at DA level)
   - data/alberta_2021_csd_populations.csv, data/alberta_2021_csds.gpkg (secondary aggregation)
@@ -93,7 +93,7 @@ apportioned by area-share of the DA inside each ED. 4,821 of 6,203 DAs
 population to that ED.
 
 **Computation provenance.** Full code in
-`analysis/scripts/v0_1_a1_legal_baseline_2021_census.py`; per-ED results in
+`analysis/scripts/a1_legal_baseline_2021_census.py`; per-ED results in
 `data/v0_1_a1_legal_baseline_2019eds_2021census.csv`.
 
 ## C.3 Results
@@ -183,7 +183,7 @@ by this appendix independent of the §12(3)-vs-§12(5) question.
 
 ## C.5 Cross-check against Track L mid-2025
 
-`analysis/scripts/v0_1_track_l_drift.py` reports 5 of 87 2019 EDs outside ±25 %
+`analysis/scripts/track_l_drift.py` reports 5 of 87 2019 EDs outside ±25 %
 under the mid-2025 TBF estimate. This appendix reports 7 of 87 under
 2021 Census. The two counts are not directly comparable (different
 population basis; different vintage) but are ordinally consistent: the
@@ -271,7 +271,7 @@ against the decennial census on the 2019 boundary set.
 
 ## C.8 Replication
 
-- Script: `analysis/scripts/v0_1_a1_legal_baseline_2021_census.py`
+- Script: `analysis/scripts/a1_legal_baseline_2021_census.py`
 - Inputs: listed in §C.2
 - Output: `data/v0_1_a1_legal_baseline_2019eds_2021census.csv` (per-ED
   table with ed_name, pop_2021_census, dev_from_quota, dev_pct,
@@ -279,7 +279,7 @@ against the decennial census on the 2019 boundary set.
 - Runtime: approximately 60 s on a modern workstation (dominated by the
   DA-level overlay).
 - Reproducibility: `PYTHONIOENCODING=utf-8 python
-  analysis/scripts/v0_1_a1_legal_baseline_2021_census.py` from the repository
+  analysis/scripts/a1_legal_baseline_2021_census.py` from the repository
   root reproduces the figures in this appendix.
 
 *Appendix drafted v0.1. Companion to `analysis/v0_1_fortification_a1_a5.md`

@@ -201,6 +201,6 @@ the audit's §D (Procedural) section:
   yet published as of 2026-04-22).
 - If and when a 91-seat map is tabled, rerun:
   - LH index on the full 91-seat allocation,
-  - the rural-mean gap script (`v0_1_rural_gap_dissection.py`) against the
+  - the rural-mean gap script (`rural_gap_dissection.py`) against the
     new map,
   - the Monte Carlo CI run in `analysis/scripts/v0_3_monte_carlo_ci.py` with n=91.

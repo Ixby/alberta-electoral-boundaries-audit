@@ -13,7 +13,7 @@ Two tasks from the PO after Track Y-prime:
    plus the 2x5 priority grid at a `v0_3_` prefix.
 
 Both tasks are delivered in one pipeline
-(`analysis/scripts/v0_1_shape_refinement_v3.py`). Track Y (v1) and Track Y-prime (v2)
+(`analysis/scripts/shape_refinement_v3.py`). Track Y (v1) and Track Y-prime (v2)
 files are preserved untouched.
 
 ## Task B first — root cause of the internal-border bug
@@ -65,7 +65,7 @@ handle on its own merits.
 
 ### Fix
 
-In `v0_1_shape_refinement_v3.py`:
+In `shape_refinement_v3.py`:
 
 - `clean_polygon_noise(geom, min_part_area_m2=1e6, min_hole_area_m2=1e5)`:
   removes MultiPolygon parts smaller than 1 km^2 (noise threshold three
@@ -213,7 +213,7 @@ rather than as a to-be-fixed residual.
 
 | Path | Purpose |
 |---|---|
-| `analysis/scripts/v0_1_shape_refinement_v3.py` | Reproducible pipeline |
+| `analysis/scripts/shape_refinement_v3.py` | Reproducible pipeline |
 | `analysis/v0_1_shape_refinement_v3_log.json` | Pass log + impact |
 | `data/v0_1_refined_v3_majority_2026_eds.gpkg` | v3 majority polygons (noise-cleaned v2) |
 | `data/v0_1_refined_v3_minority_2026_eds.gpkg` | v3 minority polygons (noise-cleaned v2 + pass 3/4 snaps on red EDs) |
@@ -223,7 +223,7 @@ rather than as a to-be-fixed residual.
 ## Reproducibility
 
 ```
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_shape_refinement_v3.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/shape_refinement_v3.py
 ```
 
 Phases can be skipped via CLI args: `pass`, `impact`, `render`. Same

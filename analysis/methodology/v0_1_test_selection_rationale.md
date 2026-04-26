@@ -29,18 +29,18 @@ Five families of tests, each answering a different question. The ladder below sh
 | B2 | Efficiency Gap (EG) — wasted-vote asymmetry | Stephanopoulos & McGhee 2014, 2015 | same |
 | B3 | Mean-median gap — distributional skew | McDonald & Best 2015 | same |
 | B4 | Seats-at-50/50 under uniform swing | Gelman & King 1994 (via Grofman 1983) | same |
-| B5 | MCMC neutral-ensemble outlier percentile | ReCom (DeFord, Duchin, Solomon 2021) | `v0_1_mcmc_ensemble.py`, `_100k`, `_multichain_ensemble.py` |
+| B5 | MCMC neutral-ensemble outlier percentile | ReCom (DeFord, Duchin, Solomon 2021) | `mcmc_ensemble.py`, `_100k`, `_multichain_ensemble.py` |
 | B6 | Declination — winning-district-margin angle | Warrington 2018, 2019 | embedded in `v0_2_packing_cracking_analysis.py` |
 
 ### C-family — Geographic coherence (§5.8)
 
 | Test | What it measures | Source | Script |
 |---|---|---|---|
-| C1 | Polsby-Popper compactness | Polsby & Popper 1991 | `v0_1_approximate_shape_analysis.py` (Tier A/B only; Tier C blocked) |
+| C1 | Polsby-Popper compactness | Polsby & Popper 1991 | `approximate_shape_analysis.py` (Tier A/B only; Tier C blocked) |
 | C2 | Reock compactness | Reock 1961 | same |
 | C3 | Visual anomalies (chair-flagged) | commission chair's own §5 | visual inspection + Appendix E parse |
-| C4 | Community-of-interest splits (CSD overlay) | Track H | `v0_1_csd_community_splits.py` |
-| C5 | Municipal-boundary anchoring (v0_4) + DA-boundary anchoring (v0_5) | StatsCan CSDs + DAs | `v0_1_municipal_anchoring.py`, `v0_1_da_boundary_anchoring.py` |
+| C4 | Community-of-interest splits (CSD overlay) | Track H | `csd_community_splits.py` |
+| C5 | Municipal-boundary anchoring (v0_4) + DA-boundary anchoring (v0_5) | StatsCan CSDs + DAs | `municipal_anchoring.py`, `da_boundary_anchoring.py` |
 
 ### D-family — Procedural / legal defensibility (§5.9 + D1–D10)
 
@@ -248,7 +248,7 @@ This is the single most-requested item from the methodological reflection, and w
 
 **Refinement (PO critique 2026-04-24) — this is the audit's most honest metric.** Acknowledging the ~−2.2 % structural EG floor that any Alberta map produces under 2023 votes *gains massive credibility*. It stops the audit from sounding partisan and starts making it sound like a geographer. **The intended headline**: *"The minority map does not just reflect Alberta's lopsided geography; it actively tips the scales by an additional 0.7 % through specific drawing choices."* That framing converts the decomposition from a technical result into a clear causal argument that reviewers can inspect and disagree with on specific grounds (the ensemble median, the substrate, the 90 % band) rather than on genre (is the audit partisan).
 
-**Status.** Absolute-level version is a ~50-line extension of the existing `v0_1_chen_rodden_decomposition.py` script. **Recommendation: execute first among the five combined tests.** Highest value-to-effort ratio; no dependencies; produces a headline-grade result.
+**Status.** Absolute-level version is a ~50-line extension of the existing `chen_rodden_decomposition.py` script. **Recommendation: execute first among the five combined tests.** Highest value-to-effort ratio; no dependencies; produces a headline-grade result.
 
 ## 7. Defense-in-depth framing
 

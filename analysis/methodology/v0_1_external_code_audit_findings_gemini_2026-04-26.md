@@ -16,7 +16,7 @@ The audit author (Will Conner) verified each finding against the actual codebase
 
 ### CRITICAL #1 — MCMC chain state resets to 2019 baseline on every chunk
 
-**Status:** Confirmed against `analysis/scripts/v0_1_mcmc_ensemble_250k_v0_8.py` lines 104, 107, 113.
+**Status:** Confirmed against `analysis/scripts/mcmc_ensemble_250k_v0_8.py` lines 104, 107, 113.
 
 **Description.** Inside `_run_chain_chunked()`, the worker calls `assignment = initial_assignment_2019(va)` exactly once at the top (line 104). Inside the chunked loop (line 107), each call to `run_ensemble(graph, assignment, chunk_steps, ...)` (line 113) passes the SAME 2019 baseline assignment. The `assignment` variable is never updated to reflect the final partition of the previous chunk. The chain therefore restarts from the 2019 baseline at the start of every chunk.
 
@@ -32,7 +32,7 @@ The audit author (Will Conner) verified each finding against the actual codebase
 
 ### CRITICAL #2 — Parallel array extraction relies on implicit dict iteration order
 
-**Status:** Confirmed against `analysis/scripts/v0_1_mcmc_ensemble.py` lines 404-405.
+**Status:** Confirmed against `analysis/scripts/mcmc_ensemble.py` lines 404-405.
 
 **Description.** Inside `run_ensemble()`, after each ReCom step:
 ```python
@@ -52,7 +52,7 @@ ndp = np.array([part["ndp"][k] for k in keys])
 
 ### HIGH — Spatial joins double-count votes on overlapping polygons
 
-**Status:** Confirmed against `analysis/scripts/v0_1_mcmc_ensemble.py` lines 273-280.
+**Status:** Confirmed against `analysis/scripts/mcmc_ensemble.py` lines 273-280.
 
 **Description.** `score_exogenous_map()` performs `gpd.sjoin(centroids, proposed, how="left", predicate="within")` against the v0_8 reconstructed polygons. The author has documented elsewhere that the v0_8 inheritance-fill carve-out occasionally produces sliver polygons. If a VA centroid falls within an overlapping sliver of two poorly dissolved districts, `sjoin` returns two rows for that single centroid. The subsequent `groupby(id_col).agg(sum)` then credits that VA's votes to both districts.
 
@@ -103,11 +103,11 @@ This is the failure mode the brief was designed to surface. The findings are wor
 
 ## Part 2 — additional audit pass against verification subset and rural test
 
-After the initial four findings (above), Gemini was given access to two further scripts that had not been included in the first pass: `analysis/scripts/v0_1_mcmc_verification_subset.py` (the court-defensibility byte-verifiable forensic artefact generator) and `analysis/scripts/v0_1_rural_protection_test.py` (the rural-population fairness check). Three additional findings: 2 critical, 1 medium. All three confirmed against the actual code.
+After the initial four findings (above), Gemini was given access to two further scripts that had not been included in the first pass: `analysis/scripts/mcmc_verification_subset.py` (the court-defensibility byte-verifiable forensic artefact generator) and `analysis/scripts/rural_protection_test.py` (the rural-population fairness check). Three additional findings: 2 critical, 1 medium. All three confirmed against the actual code.
 
 ### CRITICAL #3 — Verification subset crashes on step 0 due to type mismatch
 
-**Status:** Confirmed against `analysis/scripts/v0_1_mcmc_verification_subset.py` lines 121, 128.
+**Status:** Confirmed against `analysis/scripts/mcmc_verification_subset.py` lines 121, 128.
 
 **Description.** The script pre-allocates `assignment_arr = np.zeros((N_STEPS, n_va), dtype=np.int8)` but then writes `assignment_arr[step_i, va_id_to_idx[vid]] = partition.assignment[vid]` where `partition.assignment[vid]` is a *string* ED name ("Calgary-Bow", etc.) inherited from `initial_assignment_2019()`. Pushing a string into an `int8` array raises `ValueError` at step 0.
 
@@ -127,7 +127,7 @@ After the initial four findings (above), Gemini was given access to two further 
 
 ### MEDIUM — Rural-protection classifier silently buckets unknown EDs as "rural"
 
-**Status:** Confirmed against `analysis/scripts/v0_1_rural_protection_test.py` line 97 (now removed).
+**Status:** Confirmed against `analysis/scripts/rural_protection_test.py` line 97 (now removed).
 
 **Description.** The `classify()` function defaulted to `return "rural"` when no marker matched. Running the strict-replacement (`raise ValueError`) against the actual datasets surfaced **seven previously-silent misclassifications**: `Brooks-Medicine Hat`, `Cypress-Medicine Hat`, `Highwood`, `Lac Ste. Anne-Parkland`, `Medicine Hat-Brooks`, `Medicine Hat-Cypress`, `Mountain View-Kneehill`. Five of those were *small-city + rural-ring* hybrids being silently counted as pure rural, biasing the rural population average downward (Medicine Hat is a 63k-population small city, not a rural town).
 
@@ -139,7 +139,7 @@ After the initial four findings (above), Gemini was given access to two further 
 
 ## Part 3 — population data sanity check
 
-Gemini also reviewed the `data/va_pop_from_das.csv` underlying the graph. Result: **no findings, no fix required.** The float `pop_2021` values are the expected output of areal-weighted DA→VA population apportionment, and the single zero-population VA is already safeguarded by the `np.maximum(va["pop_2021"], 1.0)` clamp in `v0_1_mcmc_ensemble.py`. The data extraction is sound.
+Gemini also reviewed the `data/va_pop_from_das.csv` underlying the graph. Result: **no findings, no fix required.** The float `pop_2021` values are the expected output of areal-weighted DA→VA population apportionment, and the single zero-population VA is already safeguarded by the `np.maximum(va["pop_2021"], 1.0)` clamp in `mcmc_ensemble.py`. The data extraction is sound.
 
 ---
 
@@ -151,7 +151,7 @@ All seven code-level findings (4 from Part 1 + 3 from Part 2) are remediated in 
 
 ## Part 4 — test suite + symmetric-mirror script + dependency review
 
-Gemini was given `tests/test_scoring.py`, `analysis/scripts/v0_1_targeted_gerrymander_burst_ndp.py`, and `requirements.txt`. Two findings: 1 high, 1 medium.
+Gemini was given `tests/test_scoring.py`, `analysis/scripts/targeted_gerrymander_burst_ndp.py`, and `requirements.txt`. Two findings: 1 high, 1 medium.
 
 ### HIGH — Test suite did not exercise the geoprocessing pipeline
 

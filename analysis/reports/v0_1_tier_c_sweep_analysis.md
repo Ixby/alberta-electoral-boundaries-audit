@@ -1,14 +1,14 @@
 # Tier-C Parametric Sweep Extension — v0_3 Canonical Build
 
 **Generated:** 2026-04-24T00:46:33
-**Script:** `analysis/scripts/v0_1_build_canonical_shapefiles_v2.py`
+**Script:** `analysis/scripts/build_canonical_shapefiles_v2.py`
 **Inputs:** `data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg`
 **Outputs:** `data/v0_3_canonical_{majority,minority}_2026_eds_swept.gpkg`,
 `data/v0_1_phase4f_validation_deltas_v2.csv`
 
 ## 1. Method
 
-The session-11 build (`v0_1_build_canonical_shapefiles.py`) introduced a
+The session-11 build (`build_canonical_shapefiles.py`) introduced a
 population-calibrated parametric line sweep on four Tier-C hybrid majority EDs
 (Airdrie-West + Cochrane-Springbank from the Airdrie-Cochrane parent;
 High River-Vulcan-Siksika + Okotoks-Diamond Valley from the Highwood parent)

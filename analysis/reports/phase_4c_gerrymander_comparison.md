@@ -207,4 +207,4 @@ Neither is blocked by anything other than the shapefile release (Track A).
 
 - `phase_4c_va_to_2026_assignments.csv` — 4,765 rows, per-VA assignment
 - `phase_4c_2026_synthetic_totals.csv` — per-ED vote totals (both maps)
-- `v0_1_phase_4c_va_attribution.py` — execution script
+- `phase_4c_va_attribution.py` — execution script

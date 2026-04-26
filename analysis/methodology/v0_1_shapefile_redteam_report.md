@@ -87,7 +87,7 @@ with 2023 Statement of Vote Election-Day NDP and UCP vote totals per VA.
 
 ## 2. Canonical majority shapefile (v0_1_canonical_majority_2026_eds.gpkg)
 
-### Checks run (v0_1_edmonton_beaumont_polygon.py)
+### Checks run (edmonton_beaumont_polygon.py)
 
 | Check | Result |
 |---|---|
@@ -274,10 +274,10 @@ No script shares a file between the two maps.
 | Artifact | Reproducible? |
 |---|---|
 | VA polygon substrate | Yes — from Elections Alberta 2023 VA shapefile + Statement of Vote |
-| Canonical majority shapefile | Yes — `v0_1_build_canonical_shapefiles.py` from scratch (2019 ED shapefile + v7 pixel extractions + OSM) |
+| Canonical majority shapefile | Yes — `build_canonical_shapefiles.py` from scratch (2019 ED shapefile + v7 pixel extractions + OSM) |
 | Canonical minority shapefile | Yes — same script |
-| Edmonton-Beaumont polygon | Yes — `v0_1_edmonton_beaumont_polygon.py` (OSM geocode + 2km buffer) |
-| Phase 4C assignments | Yes — `v0_1_phase_4c_va_attribution.py` (deterministic; no random seed) |
+| Edmonton-Beaumont polygon | Yes — `edmonton_beaumont_polygon.py` (OSM geocode + 2km buffer) |
+| Phase 4C assignments | Yes — `phase_4c_va_attribution.py` (deterministic; no random seed) |
 | Phase 4C Monte Carlo CIs | Yes — same script, seed=42, N=2000 |
 
 All scripts are in `analysis/`. Required inputs are in `data/` (Elections Alberta

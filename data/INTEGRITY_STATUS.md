@@ -3,8 +3,8 @@
 **Date:** 2026-04-23 (Option-B remediation)
 **Context:** Post-session-12 validation sweep of the three pipelines that produce
 published-quality numbers for the audit: (1) packing/cracking (`v0_2_packing_cracking_analysis.py`),
-(2) Phase 4B/C/F execution (`v0_1_phase_4bcdef_execution.py`), and (3) MCMC
-rescore (`v0_1_mcmc_full_coverage_rescore_v2.py`).
+(2) Phase 4B/C/F execution (`phase_4bcdef_execution.py`), and (3) MCMC
+rescore (`mcmc_full_coverage_rescore_v2.py`).
 
 This file is an honest audit of what passes integrity gates and what does not,
 as of the commit that introduced it.
@@ -34,7 +34,7 @@ Elections Alberta 2026 shapefiles.
 - Before: Phase 4C totals summed to 896,627 two-party (52.5% of the 1,706,304
   documented 2023 total). Root cause: the VA polygon substrate contained only
   Election-Day votes; the 47.2% non-Election-Day share was never apportioned.
-- Fix: `v0_1_advance_vote_splat.py` ran clean, wrote
+- Fix: `advance_vote_splat.py` ran clean, wrote
   `data/va_polygons_with_full_2023_votes.gpkg` with `va_{ucp,ndp,other}_full`
   columns. Conservation gate: exact (0-vote delta across all three categories).
   Province-wide NDP share moved from 42.60% (Election-Day only) to 45.56%
@@ -130,7 +130,7 @@ remediation pass.
 | 2019 EG = -2.64%, MM = -2.22 pp, B4 seats = 46 | v0.2 packing/cracking | ✓ Reproducible (G0 gate passes exactly) |
 | MC CI [-2.74, +0.60] pp, 93% direction consistency | v0.3 Monte Carlo CI | ✓ Reproducible |
 | A1/A2/A3 population equality (MAD 3,180 vs 4,707; Calgary Zone A-B 0.36% vs 12.20%) | `electoral_forensics_population.py` | ✓ Uses commission published pops, not DA overlay |
-| 5/5 minority justification tests FAIL population math | `v0_1_justification_tests.py` | ✓ Uses CSD populations, not polygon overlay |
+| 5/5 minority justification tests FAIL population math | `justification_tests.py` | ✓ Uses CSD populations, not polygon overlay |
 | **Asymmetry -1.41 pp (minority more pro-UCP)** at 85% urban weight | v0.2 packing/cracking (crosswalk) | ✓ Reproducible — **but see next row** |
 | **Asymmetry +4.1 pp (minority LESS pro-UCP)** from MCMC canonical | `mcmc_full_coverage_rescore_v2.py` | ⚠ Different direction from crosswalk approach — needs reconciliation before publication |
 | 2019 map at 0th percentile on EG; minority at 60.3rd | MCMC canonical | ⚠ New result; crosswalk-assigned 10–20% of VAs could swing this |
@@ -168,9 +168,9 @@ remediation pass.
 - `analysis/v0_1_advance_vote_splat_diagnostics.csv`
 
 **Edited:**
-- `analysis/scripts/v0_1_advance_vote_splat.py` — cp1252 encoding
-- `analysis/scripts/v0_1_phase_4bcdef_execution.py` — canonical shapefiles + full-VA
-- `analysis/scripts/v0_1_mcmc_full_coverage_rescore_v2.py` — canonical + full-VA
+- `analysis/scripts/advance_vote_splat.py` — cp1252 encoding
+- `analysis/scripts/phase_4bcdef_execution.py` — canonical shapefiles + full-VA
+- `analysis/scripts/mcmc_full_coverage_rescore_v2.py` — canonical + full-VA
 
 **Rewritten by rerun:**
 - `data/v0_1_phase4b_majority_2021_populations.csv`

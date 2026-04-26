@@ -12,7 +12,7 @@
       "total_pairs_propagated": 98,
       "total_shared_boundary_improved_km": 903.146,
       "mean_anchored_pct_before": 89.2923,
-      "mean_anchored_pct_after_note": "municipal_anchored_pct unchanged \u2014 reflects v0_4 input quality. Run v0_1_municipal_anchoring.py on v0_6 output to recompute."
+      "mean_anchored_pct_after_note": "municipal_anchored_pct unchanged \u2014 reflects v0_4 input quality. Run municipal_anchoring.py on v0_6 output to recompute."
     },
     {
       "label": "minority",
@@ -21,7 +21,7 @@
       "total_pairs_propagated": 94,
       "total_shared_boundary_improved_km": 1272.51,
       "mean_anchored_pct_before": 66.8473,
-      "mean_anchored_pct_after_note": "municipal_anchored_pct unchanged \u2014 reflects v0_4 input quality. Run v0_1_municipal_anchoring.py on v0_6 output to recompute."
+      "mean_anchored_pct_after_note": "municipal_anchored_pct unchanged \u2014 reflects v0_4 input quality. Run municipal_anchoring.py on v0_6 output to recompute."
     }
   ]
 }

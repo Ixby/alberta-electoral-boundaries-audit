@@ -59,7 +59,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### HIGH-01. 2019 cross-election asymmetry: academic preamble says +0.60 pp, §3.5 and script say +0.75 pp
 **Claim (verbatim):** "Running identical methodology with 2019 vote totals (instead of 2023) produces Majority EG +0.30%, Minority EG +0.90%, asymmetry **+0.60 pp**" — `report_academic.md` line 72 (stress-test preamble)
 **Stated values:** Majority +0.30%, Asymmetry +0.60 pp
-**Verified values (from `python analysis/scripts/v0_3_monte_carlo_ci.py` cross-election cross-check and `python analysis/scripts/v0_1_2015_cross_election.py`):**
+**Verified values (from `python analysis/scripts/v0_3_monte_carlo_ci.py` cross-election cross-check and `python analysis/scripts/2015_cross_election.py`):**
 - Majority 2026 under 2019 votes: EG **+0.16%** (v0_3) / +0.16% (v0_1_2015 script)
 - Minority 2026 under 2019 votes: EG +0.90%
 - Asymmetry **+0.75 pp** (reported identically in `report_academic.md` §3.5 line 263)
@@ -248,7 +248,7 @@ The 0.05 pp drift at 0.60 and 0.09 pp at 0.80 (CRIT-01) only appears in the acad
 - "historical precedent of portions of Banff National Park" on p. 352 — verified from commission PDF p. 352.
 - Clearwater County area 18,692 km² — Wikipedia, matches audit claim.
 - Rocky Mountain House town 6,765 (2021 census) and Canmore 15,990 / Banff 8,305 — StatCan profiles.
-- 12 of 14 marginal 2023 ridings are in Calgary — verified from `v0_1_marginal_seats_analysis.py` output (Calgary-Acadia, -Glenmore, -North West, -North, -Foothills, -Edgemont, -Bow, -Beddington, -Elbow, -Cross, -Klein, -East = 12 Calgary + Banff-Kananaskis + Lethbridge-East = 14).
+- 12 of 14 marginal 2023 ridings are in Calgary — verified from `marginal_seats_analysis.py` output (Calgary-Acadia, -Glenmore, -North West, -North, -Foothills, -Edgemont, -Bow, -Beddington, -Elbow, -Cross, -Klein, -East = 12 Calgary + Banff-Kananaskis + Lethbridge-East = 14).
 - Calgary-Acadia 0.05 pp margin in 2023 and Calgary-North West UCP 0.30 pp — verified.
 - 1.5 pp UCP-swing flips 6 (5 Calgary + Banff-Kananaskis); 1.5 pp NDP-swing flips 4 (Calgary-Bow, Calgary-North, Calgary-North West, Lethbridge-East) — verified.
 - RMH-Banff Park §15(2) re-audit: 5/5 as drawn, 4/5 without NP extension; Canmore-Banff 3/5 under corrected thresholds — verified from `v0_1_s15_2_reaudit.md` against commission PDF pages 212, 236, 248, 341, 345, 352.

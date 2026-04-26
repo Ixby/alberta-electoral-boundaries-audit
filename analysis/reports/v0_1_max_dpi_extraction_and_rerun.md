@@ -47,7 +47,7 @@ For the other test pages (p72, p76) PSNR is lower (13-15 dB) but this is due to 
 
 ## Investigation 2 — Extraction at max useful resolution
 
-Script: `analysis/scripts/v0_1_max_dpi_extract.py`
+Script: `analysis/scripts/max_dpi_extract.py`
 Manifest: `analysis/reports/v0_1_max_dpi_extract.json`
 Outputs: `data/maps/hires_v2/*`
 
@@ -61,7 +61,7 @@ We did **not** render map pages at 2400 DPI because the map content is raster-ca
 
 ## Investigation 3 — Does higher DPI reveal boundary features?
 
-Script: `analysis/scripts/v0_1_tier_c_crops.py`
+Script: `analysis/scripts/tier_c_crops.py`
 Outputs: `data/maps/hires_v2/tier_c_crops/`
 Manifest: `analysis/reports/v0_1_tier_c_crop_manifest.json`
 
@@ -77,7 +77,7 @@ This is a clean negative result: **the Tier-C non-convergence is not a DPI probl
 
 ## Rerun — MAUP-v3 on v0_5 DA-anchored DPG
 
-Script: `analysis/scripts/v0_1_phase_4c_va_attribution_maup_v3_v05.py`
+Script: `analysis/scripts/phase_4c_va_attribution_maup_v3_v05.py`
 Inputs: `data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg`
 Outputs:
 - `data/v0_5_phase4c_majority_2023_votes_maup.csv`
@@ -131,7 +131,7 @@ These empties first appeared in v0_4 (3 majority / 1 minority) and grew in v0_5.
 
 ## Rerun — Phase 4F hardstop validation on v0_5
 
-Script: `analysis/scripts/v0_1_phase_4bf_v05.py`
+Script: `analysis/scripts/phase_4bf_v05.py`
 Outputs:
 - `data/v0_5_phase4b_majority_2021_populations.csv`
 - `data/v0_5_phase4b_minority_2021_populations.csv`
@@ -157,7 +157,7 @@ These outliers say: v0_5 has improved on the "median" ED but degraded on a long 
 
 ## Rerun — DPG-perturbation 90% CI on v0_5
 
-Script: `analysis/scripts/v0_1_dpg_perturbation_sensitivity_v05.py`
+Script: `analysis/scripts/dpg_perturbation_sensitivity_v05.py`
 Inputs: `data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg`
 Parameters: flat ±500 m, seed 42, N=200
 
@@ -195,12 +195,12 @@ The CI is actually *tighter* on v0_5 than on v0_2 (3.62 pp vs 5.98 pp width), bu
 ## File inventory
 
 **Scripts created:**
-- `analysis/scripts/v0_1_max_dpi_inspect.py` — investigation 1
-- `analysis/scripts/v0_1_max_dpi_extract.py` — investigation 2 extraction
-- `analysis/scripts/v0_1_tier_c_crops.py` — investigation 3 visual comparison
-- `analysis/scripts/v0_1_phase_4c_va_attribution_maup_v3_v05.py` — MAUP-v3 rerun
-- `analysis/scripts/v0_1_phase_4bf_v05.py` — Phase 4B/4F rerun
-- `analysis/scripts/v0_1_dpg_perturbation_sensitivity_v05.py` — DPG-perturbation rerun (monkeypatch)
+- `analysis/scripts/max_dpi_inspect.py` — investigation 1
+- `analysis/scripts/max_dpi_extract.py` — investigation 2 extraction
+- `analysis/scripts/tier_c_crops.py` — investigation 3 visual comparison
+- `analysis/scripts/phase_4c_va_attribution_maup_v3_v05.py` — MAUP-v3 rerun
+- `analysis/scripts/phase_4bf_v05.py` — Phase 4B/4F rerun
+- `analysis/scripts/dpg_perturbation_sensitivity_v05.py` — DPG-perturbation rerun (monkeypatch)
 
 **Reports and manifests created:**
 - `analysis/reports/v0_1_max_dpi_inspect.json`

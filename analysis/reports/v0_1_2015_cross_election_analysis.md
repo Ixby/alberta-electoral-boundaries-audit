@@ -368,7 +368,7 @@ Proposed paragraph body:
 - `data/v0_1_cross_election_asymmetry_3way.csv` (three-election
   minority-majority asymmetry comparison on EG, mean-median, B4,
   declination).
-- `analysis/scripts/v0_1_2015_cross_election.py` (reproducible pipeline).
+- `analysis/scripts/2015_cross_election.py` (reproducible pipeline).
 - `analysis/reports/v0_1_2015_cross_election_analysis.md` (this document).
 
 ## Caveats

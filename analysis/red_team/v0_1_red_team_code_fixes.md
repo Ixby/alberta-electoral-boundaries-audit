@@ -87,7 +87,7 @@ Verified output: `Samples collected: 2000 of 2000 requested (skipped: 0)`. The C
 
 ### CRIT-02 — 338Canada scraper: non-anchored regex + no 87-row integrity check
 
-**File:** `analysis/scripts/v0_1_338canada_scraper.py`
+**File:** `analysis/scripts/338canada_scraper.py`
 
 Before:
 ```python
@@ -160,7 +160,7 @@ Verified output (70/30 central): **EG −0.85% / −1.36% match report exactly.*
 
 ### CRIT-04 — Broken v1 `reallocate_338` function
 
-**File:** `analysis/scripts/v0_1_338canada_reallocate.py`
+**File:** `analysis/scripts/338canada_reallocate.py`
 
 Before (lines 129–215, 87 lines):
 ```python
@@ -217,7 +217,7 @@ Verified `main()` still runs clean — no missing parents in the current mapping
 
 ### HIGH-01 — Non-reproducible `hash()` seeding in shape refinement v6
 
-**File:** `analysis/scripts/v0_1_shape_refinement_v6.py`
+**File:** `analysis/scripts/shape_refinement_v6.py`
 
 Before:
 ```python
@@ -236,7 +236,7 @@ Python's built-in `hash()` is randomized per process by default. sha256 is deter
 
 ### HIGH-02 — `np.arange` on floats in v6 processors grid search
 
-**File:** `analysis/scripts/v0_1_shape_refinement_v6_processors.py`
+**File:** `analysis/scripts/shape_refinement_v6_processors.py`
 
 Before:
 ```python
@@ -261,7 +261,7 @@ The grid expands by one cell per axis (endpoint-inclusive) but removes the float
 
 ### HIGH-04 — Silent OSM-snap fallback
 
-**File:** `analysis/scripts/v0_1_shape_refinement.py`
+**File:** `analysis/scripts/shape_refinement.py`
 
 Before (5 early-return paths in `_snap_polygon_to_roads`):
 ```python
@@ -336,7 +336,7 @@ After: only fails the gate under `textstat`; under `"approx"` the over-target re
 
 ### HIGH-12 — Unclassified Edmonton EDs silently skipped
 
-**File:** `analysis/scripts/v0_1_majority_symmetry_counter_test.py`
+**File:** `analysis/scripts/majority_symmetry_counter_test.py`
 
 After:
 ```python
@@ -357,7 +357,7 @@ Current run: no unclassified EDs, so the assertion does not fire.
 
 ### MED-01 — `_load_2019_eds()` non-deterministic `rglob` pick
 
-**File:** `analysis/scripts/v0_1_shape_refinement.py`
+**File:** `analysis/scripts/shape_refinement.py`
 
 After:
 ```python
@@ -437,7 +437,7 @@ Samples collected: 2000 of 2000 requested (skipped: 0)
   CROSS-CHECK: Minority-Majority EG asymmetry under 2019 votes: +0.75 pp
 ```
 
-### `analysis/scripts/v0_1_338canada_reallocate.py`
+### `analysis/scripts/338canada_reallocate.py`
 
 ```
 === PHASE 2 === Pearson r: 0.9603, MAE 6.04 pp
@@ -467,9 +467,9 @@ Per PO directive, every published number in the two reports was re-verified agai
 |---|---|---|
 | `v0_2_packing_cracking_analysis.py` | PASS | Full output captured §6. 89-row gates PASS. |
 | `v0_3_monte_carlo_ci.py` | PASS | 2000 samples, 0 skipped. CI bounds reproducible. |
-| `v0_1_338canada_reallocate.py` | PASS | Phase 2 + Phase 3 run to completion. |
-| `v0_1_justification_tests.py` | PASS | All T1–T5 verdicts match published findings. |
-| `v0_1_majority_symmetry_counter_test.py` | PASS | HIGH-12 assertion did not fire (no unclassified EDs). |
+| `338canada_reallocate.py` | PASS | Phase 2 + Phase 3 run to completion. |
+| `justification_tests.py` | PASS | All T1–T5 verdicts match published findings. |
+| `majority_symmetry_counter_test.py` | PASS | HIGH-12 assertion did not fire (no unclassified EDs). |
 | `check_voice_and_readability.py` | PASS | Both reports pass the voice + FK gate. |
 
 ### 7.2 Published-vs-regenerated numbers

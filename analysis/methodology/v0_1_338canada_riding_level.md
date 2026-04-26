@@ -16,7 +16,7 @@ This file documents Track J: a per-riding pull of 338Canada's April 12, 2026 Alb
 - For each of the 87 ridings, fetched the HTML and parsed the embedded JavaScript data block. Each page has two stacked arrays of per-party entries:
   1. First set: `{key, label, color, values:[vote-share time series], moe:[MoE time series]}`. The last entry in each array is the April 12, 2026 projection.
   2. Second set: `{key, label, color, values:[riding-win-probability time series]}`. The last entry is the win probability at the April 12 snapshot.
-- Script: `analysis/scripts/v0_1_338canada_scraper.py`. Output: `data/v0_1_338canada_per_riding_87seat.csv` (87 rows).
+- Script: `analysis/scripts/338canada_scraper.py`. Output: `data/v0_1_338canada_per_riding_87seat.csv` (87 rows).
 - Columns: `district`, `ucp_share`, `ucp_moe`, `ucp_low`, `ucp_high`, `ndp_share`, `ndp_moe`, `ndp_low`, `ndp_high`, `other_share`, `leading_party`, `win_prob_leader`, `ucp_win_prob`, `ndp_win_prob`, `snapshot_date`, `source_url`.
 - The 87-riding leader-count (UCP 63, NDP 24) matches 338's provincial seat projection (63–24) displayed on the Alberta landing page, confirming the per-riding pull is internally consistent with the aggregate.
 
@@ -164,6 +164,6 @@ Report impact: **no change required** to the structural findings. The per-riding
 - `data/v0_1_338canada_reallocated_majority.csv` — 89 majority-proposed EDs with reallocated 338 UCP/NDP shares and inferred winner.
 - `data/v0_1_338canada_reallocated_minority.csv` — 89 minority-proposed EDs (same columns).
 - `data/v0_1_338canada_ridings_index.csv` — the (code, riding, region) index used by the scraper.
-- `analysis/scripts/v0_1_338canada_scraper.py` — Phase 1 scraper.
-- `analysis/scripts/v0_1_338canada_reallocate.py` — Phases 2 and 3.
+- `analysis/scripts/338canada_scraper.py` — Phase 1 scraper.
+- `analysis/scripts/338canada_reallocate.py` — Phases 2 and 3.
 - `analysis/methodology/v0_1_338canada_riding_level.md` — this file.

@@ -73,7 +73,7 @@ for script in \
     analysis/scripts/v0_2_packing_cracking_analysis.py \
     analysis/scripts/electoral_forensics_population.py \
     analysis/scripts/v0_3_monte_carlo_ci.py \
-    analysis/scripts/v0_1_cross_election_rural_baseline.py \
+    analysis/scripts/cross_election_rural_baseline.py \
     analysis/scripts/check_voice_and_readability.py
 do
     echo "  $script"

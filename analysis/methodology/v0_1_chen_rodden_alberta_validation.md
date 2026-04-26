@@ -34,7 +34,7 @@ This report tests whether the Chen-Rodden mechanism is present in Alberta using 
 - **Vote data:** 2023 Alberta Statement of Vote at the Voting Area (VA) level. The VA polygons dataset (`data/va_polygons_with_2023_votes.gpkg`, 4,765 VAs) covers **election-day polls only**, ≈53% of the total 2023 two-party vote (896,644 of 1,706,304); advance and absentee ballots do not have spatial polygons. This reduces computed baseline absolute values but preserves the spatial pattern for Tests 1 and 3. Full-vote ED-level data is used for Test 2.
 - **Geography:** 2019 enacted Alberta electoral division boundaries (`EDS_ENACTED_BILL33_15DEC2017.shp`, 87 EDs, EPSG:3401) and 2021 Dissemination Area boundaries (`alberta_2021_das.gpkg`, 6,203 DAs, EPSG:3347).
 - **Metrics:** efficiency gap (EG), mean–median difference (MM), NDP seat count, Moran's I of NDP two-party share with queen contiguity weights.
-- **Ensemble method:** seeded single-unit random-walk using VAs as atomic units, preserving connectivity of each district and ±25% population band (vote-count proxy for population). 2,000-step burn-in, then 500 accepted swaps between each of 150 recorded plans. Random seed = 42. Full pipeline in `analysis/scripts/v0_1_chen_rodden_alberta.py`.
+- **Ensemble method:** seeded single-unit random-walk using VAs as atomic units, preserving connectivity of each district and ±25% population band (vote-count proxy for population). 2,000-step burn-in, then 500 accepted swaps between each of 150 recorded plans. Random seed = 42. Full pipeline in `analysis/scripts/chen_rodden_alberta.py`.
 - **Reproducibility:** `PYTHONIOENCODING=utf-8`, 999 permutations for Moran's I inference, `CR_N_PLANS=150` environment variable.
 
 **Known limitations of the ensemble method.** The random-walk uses single-unit VA flips rather than the ReCom (recombination) algorithm used by GerryChain and in Chen-Rodden's published work. A single-unit flip walk is a valid Markov chain but mixes slowly: 500 steps per plan leaves plans autocorrelated with their seed, and the walk cannot easily break up strongly-connected district cores, so the ensemble may over-represent plans close to the 2019 enacted plan. A GerryChain ReCom run on DA units is the higher-confidence version of this test; that version is deferred pending infrastructure (10,000-plan ensemble: 8–24 h runtime). Direction-of-findings is reported here; confident magnitude requires the stronger method.
@@ -165,7 +165,7 @@ The implication for the audit's §3.6 framing is nuanced:
 
 ## 8. Files
 
-- `analysis/scripts/v0_1_chen_rodden_alberta.py` — reproducible pipeline.
+- `analysis/scripts/chen_rodden_alberta.py` — reproducible pipeline.
 - `data/v0_1_chen_rodden_simulation.csv` — per-plan ensemble metrics (150 plans, Test 3).
 - `data/v0_1_chen_rodden_summary.json` — structured summary (Tests 1, 2, 3).
 

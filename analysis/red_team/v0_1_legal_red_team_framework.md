@@ -80,10 +80,10 @@ Predictions (e.g., "the November 2026 MLA committee map will likely…") must be
 4. **Scripts producing numerical claims in the reports**
    - `analysis/scripts/v0_2_packing_cracking_analysis.py`
    - `analysis/scripts/v0_3_monte_carlo_ci.py`
-   - `analysis/scripts/v0_1_338canada_scraper.py`
-   - `analysis/scripts/v0_1_338canada_reallocate.py`
-   - `analysis/scripts/v0_1_mcmc_ensemble.py`
-   - `analysis/scripts/v0_1_mcmc_full_coverage_rescore.py`
+   - `analysis/scripts/338canada_scraper.py`
+   - `analysis/scripts/338canada_reallocate.py`
+   - `analysis/scripts/mcmc_ensemble.py`
+   - `analysis/scripts/mcmc_full_coverage_rescore.py`
 5. **Data artifacts**
    - `data/*.gpkg`, `data/*.csv` (each must trace to a source in `FROZEN_MANIFEST.md`)
 6. **Remaining analysis documents, scripts, and auxiliary files**
