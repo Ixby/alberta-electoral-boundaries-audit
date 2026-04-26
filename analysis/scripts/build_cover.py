@@ -26,7 +26,6 @@ from pathlib import Path
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import pypdf
-from shapely.ops import unary_union
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ALBERTA_EDS = REPO_ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
@@ -78,42 +77,19 @@ def _pick(candidates):
 
 
 def build_cover_art() -> Path:
-    """Cover hero: v0_8 EDs erupting outward from Edmonton, colour-coded
-    by 2023 two-party vote share.
+    """Cover hero: the 2026 minority commission map, rendered in its actual
+    geographic positions, with each ED coloured by 2023 two-party vote share.
 
-    Motion:
-    - Edmonton is the eruption epicentre. Each ED is displaced radially
-      outward from Edmonton by a NON-LINEAR factor — far EDs blow much
-      further than near ones, producing the "eruption" feel rather than
-      a uniform exploded-diagram pull-apart.
-    - Each ED leaves three motion-trail ghost copies trailing back
-      toward Edmonton at decreasing opacity, conveying the sense the
-      pieces are mid-flight.
-    - Edmonton's own ED stays in place (or moves only minimally) to
-      visually anchor the epicentre.
+    No radial displacement, no exploded-diagram pull-apart, no perspective
+    scaling — just the map as the minority commissioners proposed it.
 
     Colour:
-    - Divergent NDP-orange ↔ white ↔ UCP-blue, centred on 50/50.
+    - Direct UCP-blue ↔ NDP-orange interpolation, centred on 50/50.
       Canadian convention: UCP/Conservative blue, NDP orange.
-    - VA centroids spatially joined into v0_8 EDs for per-ED 2023
-      totals. EDs catching zero VAs (inherited-empty from v0_7) get
-      neutral grey fill.
+    - VA centroids spatially joined into v0_8 EDs for per-ED 2023 totals.
+      EDs catching zero VAs (inherited-empty from v0_7) get neutral grey.
     """
-    import math
-    import shapely.affinity
     import matplotlib.colors as mcolors
-
-    # Edmonton city-centre coordinates in EPSG:3401 (NAD83 / AB 10-TM Forest).
-    # These match the landmark anchors used in the alignment proof.
-    EDMONTON = (97000.0, 5933000.0)
-
-    # Eruption strength parameters — tuned so Alberta remains visually
-    # recognisable. The faint dotted backdrop outline of the original
-    # (un-exploded) province carries the shape; the displaced pieces
-    # carry the motion.
-    BASE_PUSH_FRAC = 0.008       # tiny baseline push (every ED nudges)
-    POWER_PUSH_COEF = 0.025      # max displacement ≈ 2.5% of radius for the farthest ED
-    POWER = 1.3                  # exponent: <1 = uniform, 1 = linear, >1 = explosive
 
     # 1. Pick map (prefer v0_8 refined → canonical → v0_7).
     # Use the MINORITY map: this is the map the audit ends up critiquing,
@@ -157,34 +133,8 @@ def build_cover_art() -> Path:
     eds["total"] = eds["total"].fillna(0)
     print(f"[build_cover] {int((eds['total'] > 0).sum())}/{len(eds)} EDs received VA votes")
 
-    # 3. Province silhouette (faint backdrop) — dissolve all renderable EDs in
-    #    their ORIGINAL positions before exploding
-    province_orig = unary_union(eds.geometry.values)
-
-    # 4. Compute per-ED radial displacement vector from Edmonton.
-    #    Distance is measured ED-centroid to Edmonton; final translation
-    #    distance scales as: radius * (BASE + POWER_COEF * (radius/R_max)^POWER)
-    centroids = [(g.centroid.x, g.centroid.y) for g in eds.geometry]
-    radii = [math.hypot(cx - EDMONTON[0], cy - EDMONTON[1]) for cx, cy in centroids]
-    R_max = max(radii) if radii else 1.0
-
-    def _displacement(cx, cy, r):
-        if r < 1.0:  # avoid div-by-zero for an ED whose centroid IS Edmonton
-            return (0.0, 0.0)
-        ux, uy = (cx - EDMONTON[0]) / r, (cy - EDMONTON[1]) / r  # unit vector
-        push_distance = r * (BASE_PUSH_FRAC + POWER_PUSH_COEF * (r / R_max) ** POWER)
-        return (ux * push_distance, uy * push_distance)
-
-    eds["disp"] = [_displacement(cx, cy, r) for (cx, cy), r in zip(centroids, radii)]
-    eds["exploded"] = [
-        shapely.affinity.translate(g, dx, dy)
-        for g, (dx, dy) in zip(eds.geometry, eds["disp"])
-    ]
-
-    # 5. Direct UCP-blue → NDP-orange interpolation. No white midpoint —
-    #    50/50 districts render as the natural colour-mix midpoint
-    #    (a muted purple-brown). Removes the blank-band ambiguity the
-    #    white midpoint introduced.
+    # 3. Direct UCP-blue → NDP-orange interpolation. 50/50 districts render
+    #    as the natural mid-tone (a muted purple-brown).
     ndp_orange = (0.92, 0.45, 0.10)
     ucp_blue   = (0.13, 0.36, 0.62)
     cmap = mcolors.LinearSegmentedColormap.from_list(
@@ -192,66 +142,27 @@ def build_cover_art() -> Path:
     )
     norm = mcolors.Normalize(vmin=0.30, vmax=0.70)
 
-    # 6. Render
+    # 4. Render — ED polygons in their actual positions
     fig, ax = plt.subplots(figsize=(6, 9), dpi=300)
     fig.patch.set_alpha(0)
     ax.set_facecolor("none")
     ax.set_aspect("equal")
     ax.axis("off")
 
-    # No backdrop wireframe — Alberta's silhouette is carried by the
-    # displaced ED pieces themselves. The maximum 9% radial displacement
-    # keeps the shape readable.
-
     no_vote_color = "#cfcbc4"
 
-    # Force-perspective z-ordering: large EDs sit "back" (drawn first),
-    # smaller EDs sit "closer to the viewer" on the z-axis (drawn last,
-    # rendered on top). Small EDs are also scaled up slightly so they're
-    # clearly distinguishable, with a touch of transparency so they
-    # don't fully occlude the rural giants behind them — preserving a
-    # sense of proportionality.
-    eds_sorted = eds.assign(_area=eds.geometry.area).sort_values(
-        "_area", ascending=False
-    ).reset_index(drop=True)
-
-    # Per-ED scale-up: smaller EDs scale up MORE (perspective: closer →
-    # appears larger). Capped to avoid overwhelming neighbours.
-    areas = eds_sorted["_area"].values
-    a_min = areas[areas > 0].min() if (areas > 0).any() else 1.0
-    a_max = areas.max() if len(areas) else 1.0
-    def _scale_factor(area):
-        if area <= 0:
-            return 1.0
-        # Map area: small ED → 1.3x, large ED → 1.0x (no scale)
-        log_ratio = math.log(a_max / max(area, a_min)) / math.log(a_max / a_min)
-        return 1.0 + 0.3 * min(1.0, log_ratio)  # 1.0 → 1.3
-
-    # Motion ghosts removed — they read as visual noise rather than
-    # motion blur at this density. The exploded positions alone carry
-    # the eruption-from-Edmonton metaphor cleanly.
-
-    # Final exploded EDs — large-first, scaled to forced perspective.
-    # Per-ED black borders kept: they help the eye separate adjacent
-    # EDs. All EDs rendered fully opaque so rural-giant borders
-    # underneath don't bleed through small urban EDs and read as a
-    # wireframe hatch pattern.
-    for _, row in eds_sorted.iterrows():
-        g = row["exploded"]
-        if g is None or g.is_empty:
-            continue
-        sf = _scale_factor(row["_area"])
-        # Scale around the ED's own centroid so it doesn't drift further
-        gc = g.centroid
-        g_scaled = shapely.affinity.scale(g, xfact=sf, yfact=sf, origin=(gc.x, gc.y))
-        if row["total"] > 0:
-            color = cmap(norm(row["ucp_share"]))
-        else:
-            color = no_vote_color
-        gpd.GeoSeries([g_scaled], crs=3401).plot(
-            ax=ax, facecolor=color, edgecolor="#1a1a1a",
-            linewidth=0.35, alpha=1.0, zorder=3,
-        )
+    # Convert every fill to a hex string so geopandas's per-row colour
+    # array stays homogeneous (mixing RGBA tuples and hex strings raises).
+    eds["_fill"] = [
+        mcolors.to_hex(cmap(norm(s))) if t > 0 else no_vote_color
+        for s, t in zip(eds["ucp_share"], eds["total"])
+    ]
+    eds.plot(
+        ax=ax,
+        color=eds["_fill"].tolist(),
+        edgecolor="#1a1a1a",
+        linewidth=0.35,
+    )
 
     ax.margins(0.005)
     plt.tight_layout(pad=0)
