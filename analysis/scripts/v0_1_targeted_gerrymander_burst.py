@@ -48,8 +48,10 @@ def _ts():
 
 
 def score(partition):
-    ucp = np.array(list(partition["ucp"].values()), dtype=float)
-    ndp = np.array(list(partition["ndp"].values()), dtype=float)
+    # Gemini Code Audit Finding: CRITICAL - explicit key alignment to prevent dict iteration order bugs
+    keys = list(partition.parts.keys())
+    ucp = np.array([partition["ucp"][k] for k in keys], dtype=float)
+    ndp = np.array([partition["ndp"][k] for k in keys], dtype=float)
     s = seat_results(ucp, ndp)
     return s["seats_at_50_50"], s
 

@@ -18,6 +18,8 @@ joined = gpd.sjoin(centroids[['va_ucp', 'va_ndp', 'geometry']],
                    minority[['name_2026', 'geometry']],
                    how='left', predicate='within')
 covered = joined.dropna(subset=['name_2026'])
+# Gemini Code Audit Finding: HIGH - missing deduplication for overlapping polygon slivers
+covered = covered[~covered.index.duplicated(keep="first")]
 agg = covered.groupby('name_2026').agg(ucp=('va_ucp', 'sum'),
                                          ndp=('va_ndp', 'sum')).reset_index()
 covered_eds = set(agg['name_2026'])
