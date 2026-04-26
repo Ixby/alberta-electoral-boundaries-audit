@@ -1,0 +1,15 @@
+{
+  "n_steps": 10000,
+  "n_va": 4765,
+  "n_districts": 87,
+  "seed": 44,
+  "pop_deviation": 0.25,
+  "elapsed_seconds": 99.99665236473083,
+  "purpose": "Court-defensibility forensic spot-check. Each row in the metrics CSV corresponds to one row in the assignments array; both are indexed by step. To verify any step's metrics: load the assignment vector for that step, reconstruct a Partition, recompute metrics, confirm they match.",
+  "verify_command": "python -c 'import numpy as np; d = np.load(\"data/v0_1_mcmc_verification_assignments.npz\"); print(\"assignments shape:\", d[\"assignments\"].shape, \"va_ids count:\", d[\"va_ids\"].shape)'",
+  "outputs": {
+    "metrics_csv": "v0_1_mcmc_verification_metrics.csv",
+    "assignments_npz": "v0_1_mcmc_verification_assignments.npz",
+    "meta_json": "v0_1_mcmc_verification_meta.json"
+  }
+}

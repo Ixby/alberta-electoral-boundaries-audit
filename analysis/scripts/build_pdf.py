@@ -28,7 +28,13 @@ import markdown
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 SRC_MD = REPO_ROOT / "report_public.md"
-OUT_PDF = REPO_ROOT / "article.pdf"
+import tempfile as _tempfile
+# Write the intermediate article PDF + HTML to .temp/ rather than the
+# repo root; only the merged report_public.pdf is the published artefact.
+_TMP_DIR = REPO_ROOT / ".temp"
+_TMP_DIR.mkdir(exist_ok=True)
+OUT_PDF = _TMP_DIR / "article.pdf"
+OUT_HTML = _TMP_DIR / "article.html"
 
 CHROME_CANDIDATES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -229,8 +235,8 @@ p {
   -webkit-hyphens: auto;
   hyphenate-limit-chars: 6 3 2;
   hyphenate-limit-lines: 2;
-  orphans: 2;
-  widows: 3;
+  orphans: 1;
+  widows: 1;
 }
 
 /* Drop cap on the lede paragraph */
@@ -691,6 +697,42 @@ blockquote.scorecard + blockquote.scorecard {
   break-before: page;
 }
 
+/* Section openers that should always start fresh on a new page */
+h2.new-page {
+  page-break-before: always;
+  break-before: page;
+}
+
+/* Inline-floating figure: behaves like a sidebar (right-floated, content
+   wraps around it) instead of taking the full text column. Used for
+   secondary inline figures. */
+img.inline-float {
+  float: right;
+  clear: right;
+  width: 50%;
+  max-width: 4in;
+  max-height: 4in;
+  margin: 0.05in 0 0.15in 0.25in;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Hero figure for the verdict quadrant — the article's primary
+   rhetorical visual. Full-width, takes roughly 1/3 to 1/2 of the
+   page so it commands attention. */
+img.verdict-hero {
+  display: block;
+  width: 95%;
+  max-width: 6.5in;
+  max-height: 5.4in;            /* ~1/2 page on a Letter sheet */
+  margin: 0.25in auto 0.2in auto;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  clear: both;
+}
+/* Defeat the global figure max-height cap for the verdict-hero figure */
+img.verdict-hero { max-height: 5.4in !important; }
+
 /* Override the global tbody:last-child border on tables INSIDE scorecards
    (the heavy black bar fights the dashed maroon border) */
 blockquote.scorecard tbody tr:last-child td {
@@ -721,6 +763,7 @@ li strong:first-child {
 /* ----- Figures (images with captions) ----- */
 img {
   max-width: 100%;
+  max-height: 3.4in;          /* keep figures from forcing big orphan-whitespace pushes */
   height: auto;
   display: block;
   margin: 1.0em auto 0.4em;
@@ -763,6 +806,7 @@ HTML_TEMPLATE = """<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<base href="{base_href}">
 <title>The Quiet Part — An Alberta Electoral Boundaries Audit</title>
 <style>
 {css}
@@ -786,33 +830,34 @@ def post_process_html(html: str) -> str:
     # 1. First blockquote → deck
     html = re.sub(r"<blockquote>", '<blockquote class="deck">', html, count=1)
 
-    # 2. Any remaining <blockquote> containing <strong>SIDEBAR → sidebar.
-    def _tag_sidebar(m: re.Match) -> str:
-        body = m.group(0)
-        if 'class="' in body[:30]:  # already tagged (deck/scorecard)
-            return body
-        if re.search(r"<strong>SIDEBAR", body, flags=re.IGNORECASE):
-            return body.replace("<blockquote>", '<blockquote class="sidebar">', 1)
-        return body
-    html = re.sub(
-        r"<blockquote(?:\s+class=\"[^\"]*\")?>[\s\S]*?</blockquote>",
-        _tag_sidebar,
-        html,
+    # 2. Tag callouts by the all-caps title in the first <strong> tag.
+    # Editorial convention: a blockquote whose first <strong> is an
+    # all-caps title is a callout. Whether it renders as a floated sidebar
+    # or as a full-width scorecard is determined by title membership.
+    SCORECARD_TITLES = {
+        "ONE WAY TO READ THE TWO MAPS",
+        "RETRACTION CONDITIONS",
+    }
+    callout_title_re = re.compile(
+        r"<blockquote(?:\s+class=\"[^\"]*\")?>\s*<p>\s*<strong>"
+        r"([A-Z][A-Z0-9 \-—'&/]{2,})"
+        r"</strong>"
     )
 
-    # 2b. Blockquotes containing <strong>SCORECARD anywhere → scorecard.
-    # The earlier regex required SCORECARD to be the FIRST strong-paragraph,
-    # which broke when the markdown put a leading italic standfirst inside the
-    # same blockquote (markdown's lazy continuation merges the two paragraphs).
-    # Use a search-and-replace per blockquote that matches anywhere.
-    def _tag_scorecard(m: re.Match) -> str:
+    def _tag_callout(m: re.Match) -> str:
         body = m.group(0)
-        if re.search(r"<strong>SCORECARD", body, flags=re.IGNORECASE):
-            return body.replace("<blockquote>", '<blockquote class="scorecard">', 1)
-        return body
+        if 'class="' in body[:30]:
+            return body
+        title_match = callout_title_re.match(body)
+        if not title_match:
+            return body
+        title = title_match.group(1).strip().rstrip("—").strip()
+        cls = "scorecard" if title in SCORECARD_TITLES else "sidebar"
+        return body.replace("<blockquote>", f'<blockquote class="{cls}">', 1)
+
     html = re.sub(
-        r"<blockquote>[\s\S]*?</blockquote>",
-        _tag_scorecard,
+        r"<blockquote(?:\s+class=\"[^\"]*\")?>[\s\S]*?</blockquote>",
+        _tag_callout,
         html,
     )
 
@@ -858,7 +903,8 @@ def md_to_html(src_path: Path) -> str:
     )
     body = md.convert(text)
     body = post_process_html(body)
-    return HTML_TEMPLATE.format(css=CSS, body=body)
+    base_href = src_path.resolve().parent.as_uri() + "/"
+    return HTML_TEMPLATE.format(css=CSS, body=body, base_href=base_href)
 
 
 def run_browser_print(browser_path: str, html_path: Path, out_pdf: Path) -> None:
@@ -889,23 +935,18 @@ def main() -> int:
         raise FileNotFoundError(f"Source markdown not found: {SRC_MD}")
     browser = find_browser()
     html = md_to_html(SRC_MD)
-    with tempfile.NamedTemporaryFile(
-        mode="w", encoding="utf-8", suffix=".html", delete=False
-    ) as tmp:
-        tmp.write(html)
-        tmp_path = Path(tmp.name)
-    try:
-        run_browser_print(browser, tmp_path, OUT_PDF)
-        size_kb = OUT_PDF.stat().st_size / 1024
-        print(
-            f"[build_pdf] Wrote {OUT_PDF.name} "
-            f"({size_kb:.1f} KB) at {OUT_PDF.resolve()}"
-        )
-    finally:
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
+    OUT_HTML.write_text(html, encoding="utf-8")
+    html_kb = OUT_HTML.stat().st_size / 1024
+    print(
+        f"[build_pdf] Wrote {OUT_HTML.name} "
+        f"({html_kb:.1f} KB) at {OUT_HTML.resolve()}"
+    )
+    run_browser_print(browser, OUT_HTML, OUT_PDF)
+    pdf_kb = OUT_PDF.stat().st_size / 1024
+    print(
+        f"[build_pdf] Wrote {OUT_PDF.name} "
+        f"({pdf_kb:.1f} KB) at {OUT_PDF.resolve()}"
+    )
     return 0
 
 

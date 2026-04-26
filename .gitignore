@@ -1,6 +1,13 @@
 __pycache__/
 *.pyc
 *.pyo
+
+# Build-pipeline intermediate outputs — only the merged report_public.pdf
+# is the published artefact; article.pdf and article.html are regenerated
+# on every build and create commit noise.
+article.pdf
+article.html
+archive/
 .env
 venv/
 .venv/
@@ -19,6 +26,9 @@ analysis/scripts/*.csv
 # elsewhere and these are deleted on successful completion.
 data/shapefiles/derived/_perfecter_checkpoints/
 data/mcmc_checkpoints_*/
+# But preserve the per-chain metric CSVs via Git LFS — these are the
+# actual numerical record of every ReCom step in the published ensembles.
+!data/mcmc_checkpoints_*/chain*_samples.csv
 
 # Orphan output directory — scripts that target data/maps/ sometimes land
 # here when the working directory is wrong; the canonical copy lives in
