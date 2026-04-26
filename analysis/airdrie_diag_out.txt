@@ -1,5 +1,5 @@
 ======================================================================
-v0_1_airdrie_overlap_diagnostic.py
+airdrie_overlap_diagnostic.py
 Run at: 2026-04-23 21:11:45.456554
 ======================================================================
 
@@ -106,7 +106,7 @@ Loading VA polygons from:
 
 === STEP 1: Inspecting Calgary-Airdrie polygon ===
   ED name       : Calgary-Airdrie
-  Area          : 753.8 km²
+  Area          : 753.8 kmï¿½
   Bounding box  : minx=32855, miny=5660104, maxx=69730, maxy=5694020
   Centroid      : x=50528, y=5678153
   Vertices      : 2,055
@@ -115,39 +115,39 @@ Loading VA polygons from:
 
 === STEP 2: Computing overlaps with adjacent EDs ===
 
-  Overlap: Calgary-Airdrie × Calgary-Nolan Hill-Cochrane
-    Adjacent ED area     : 704.8 km²
-    Intersection area    : 264.1 km²
+  Overlap: Calgary-Airdrie ï¿½ Calgary-Nolan Hill-Cochrane
+    Adjacent ED area     : 704.8 kmï¿½
+    Intersection area    : 264.1 kmï¿½
     % of Calgary-Airdrie : 35.0%
     % of adjacent ED     : 37.5%
 
-  Overlap: Calgary-Airdrie × Olds-Three Hills-Didsbury
-    Adjacent ED area     : 5742.1 km²
-    Intersection area    : 197.4 km²
+  Overlap: Calgary-Airdrie ï¿½ Olds-Three Hills-Didsbury
+    Adjacent ED area     : 5742.1 kmï¿½
+    Intersection area    : 197.4 kmï¿½
     % of Calgary-Airdrie : 26.2%
     % of adjacent ED     : 3.4%
 
-  Overlap: Calgary-Airdrie × Calgary-Foothills-Airdrie West
-    Adjacent ED area     : 89.6 km²
-    Intersection area    : 70.7 km²
+  Overlap: Calgary-Airdrie ï¿½ Calgary-Foothills-Airdrie West
+    Adjacent ED area     : 89.6 kmï¿½
+    Intersection area    : 70.7 kmï¿½
     % of Calgary-Airdrie : 9.4%
     % of adjacent ED     : 78.9%
 
-  TOTAL overlap area    : 532.2 km²
+  TOTAL overlap area    : 532.2 kmï¿½
   % of Calgary-Airdrie  : 70.6%
 
 === STEP 3: Proposing corrected boundaries ===
 
   Option A (difference from overlap zones):
-    Area: 221.6 km²  (was 753.8 km²)
-    Reduction: 532.2 km² (70.6%)
+    Area: 221.6 kmï¿½  (was 753.8 kmï¿½)
+    Reduction: 532.2 kmï¿½ (70.6%)
     VAs in original Calgary-Airdrie : 82
     VAs in Option A                 : 22
 
   Option B (radius clip around City of Airdrie centre x=52000, y=5682000):
-    r=20 km: area=729.6 km², VAs inside=56
-    r=25 km: area=753.8 km², VAs inside=82
-    r=30 km: area=753.8 km², VAs inside=82
+    r=20 km: area=729.6 kmï¿½, VAs inside=56
+    r=25 km: area=753.8 kmï¿½, VAs inside=82
+    r=30 km: area=753.8 kmï¿½, VAs inside=82
 
 === STEP 4: VAs in the overlap zone ===
   VAs whose centroid falls in the overlap zone: 60

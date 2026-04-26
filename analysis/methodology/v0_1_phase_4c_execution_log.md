@@ -67,7 +67,7 @@ Without 2026 shapefiles, the split boundary is unknown.
 | `analysis/phase_4c_va_to_2026_assignments.csv` | 4,765 rows | Per-VA assignment with method and confidence |
 | `analysis/phase_4c_2026_synthetic_totals.csv` | 172 rows | Per-ED vote totals (86 majority + 86 minority) |
 | `analysis/reports/phase_4c_gerrymander_comparison.md` | — | v0.2 vs 4C comparison with methodological notes |
-| `analysis/scripts/v0_1_phase_4c_va_attribution.py` | ~340 lines | Execution script |
+| `analysis/scripts/phase_4c_va_attribution.py` | ~340 lines | Execution script |
 
 ## Gates
 

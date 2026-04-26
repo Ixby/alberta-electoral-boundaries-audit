@@ -24,7 +24,7 @@ Format: Excel workbook, 87 sheets (one per electoral division), ~462 KB, poll-le
 ```bash
 curl -sLo data/2023_results.xlsx \
   https://www.elections.ab.ca/uploads/2023-Provincial-General-Election-Statement-of-Vote.xlsx
-python3 analysis/scripts/v0_1_poll_attribution_skeleton.py   # generates polls_2023_unified.csv
+python3 analysis/scripts/poll_attribution_skeleton.py   # generates polls_2023_unified.csv
 ```
 
 **Integrity check.** Sum of NDP and UCP totals across all polls should match the official 2023 provincial counts:
@@ -275,13 +275,13 @@ The 70/30 blend is applied identically to both maps. Sensitivity across 0.60 / 0
 
 ### Cross-election rural baseline
 
-**Script:** `analysis/scripts/v0_1_cross_election_rural_baseline.py`
+**Script:** `analysis/scripts/cross_election_rural_baseline.py`
 **Inputs:** 2015, 2019, 2023 results CSVs.
 **Output:** rural NDP two-party share per election (26.5% / 33.5% / 35.1%), informing the Monte Carlo sampling range.
 
 ### Marginal-seat historical analysis
 
-**Script:** `analysis/scripts/v0_1_marginal_seats_analysis.py`
+**Script:** `analysis/scripts/marginal_seats_analysis.py`
 **Output:** per-election list of seats within 1 / 3 / 5 pp of the two-party flip line; seats that flip under ±1.5 and ±3.0 pp uniform swings; Calgary Zone-A NDP-held watch list.
 
 ---
@@ -297,8 +297,8 @@ bash setup.sh
 python3 analysis/scripts/v0_2_packing_cracking_analysis.py
 python3 analysis/scripts/electoral_forensics_population.py
 python3 analysis/scripts/v0_3_monte_carlo_ci.py
-python3 analysis/scripts/v0_1_cross_election_rural_baseline.py
-python3 analysis/scripts/v0_1_marginal_seats_analysis.py
+python3 analysis/scripts/cross_election_rural_baseline.py
+python3 analysis/scripts/marginal_seats_analysis.py
 python3 analysis/scripts/check_voice_and_readability.py
 
 # If the above match the academic report's tables, the environment is good.

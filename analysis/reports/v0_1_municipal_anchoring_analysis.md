@@ -6,7 +6,7 @@ type: reports
 
 # Municipal-boundary anchoring analysis (Precision Option C, Issue #4)
 
-**Companion script:** `analysis/scripts/v0_1_municipal_anchoring.py`
+**Companion script:** `analysis/scripts/municipal_anchoring.py`
 **Outputs:** `data/v0_4_canonical_{majority,minority}_2026_eds_anchored.gpkg`; per-ED log at `analysis/reports/v0_1_municipal_anchoring_log.csv`; summary at `data/v0_1_municipal_anchoring_summary.json`.
 **Date:** 2026-04-24.
 
@@ -91,7 +91,7 @@ The session-topology-cleanup analysis (Issue A, commit 452f841) identified Stony
 
 | Path | Size | Purpose |
 |---|---|---|
-| `analysis/scripts/v0_1_municipal_anchoring.py` | ~27 KB | The pipeline |
+| `analysis/scripts/municipal_anchoring.py` | ~27 KB | The pipeline |
 | `data/v0_4_canonical_majority_2026_eds_anchored.gpkg` | 7.7 MB | Anchored majority shapefile |
 | `data/v0_4_canonical_minority_2026_eds_anchored.gpkg` | 6.8 MB | Anchored minority shapefile |
 | `analysis/reports/v0_1_municipal_anchoring_log.csv` | 17 KB | Per-ED anchoring log (178 rows) |

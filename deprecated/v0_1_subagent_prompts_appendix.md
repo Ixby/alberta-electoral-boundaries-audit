@@ -230,7 +230,7 @@ is not available for Calgary.
 
 **Framing.** Data-discovery only; no analytical claim.
 
-### `analysis/scripts/v0_1_csd_community_splits.py`
+### `analysis/scripts/csd_community_splits.py`
 
 **Summary.** Compute the number of populated CSDs (population >= 1,000)
 that span two or more electoral divisions under each of the three
@@ -259,7 +259,7 @@ with the minority's defence, not against it.
 commuter-tie rationale to be weakly supported or refutable; the
 sub-agent found genuine 35.8% Calgary-bound commuter signal.
 
-### `analysis/scripts/v0_1_marginal_seats_analysis.py`
+### `analysis/scripts/marginal_seats_analysis.py`
 
 **Summary.** Translate the audit's partisan-shift range (0.5-1.6 pp)
 into contextual scale: how many historically marginal seats exist in

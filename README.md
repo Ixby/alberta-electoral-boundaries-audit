@@ -83,7 +83,7 @@ The status quo cost — of not auditing — is the alternative: accepting or rej
 
 **The same tests run on both maps.** Every metric applied to the minority recommendation is applied identically to the majority and to the 2019 enacted map. There is no test in this audit that runs only on the minority. This is the discipline the paper calls test-application symmetry.
 
-**The apparatus has a dependency graph.** 234 analytical nodes across 454 directed edges — acyclic, zero orphan findings. Any dataset can be invalidated and the cascade of orphaned findings is computable in real time: `python analysis/scripts/v0_1_dependency_query.py --invalidate L0:data.2023_statement_of_vote`. Invalidating the entire 2023 vote dataset orphans 48 of 74 findings — but leaves 26 that span population, geography, procedural, and geometry-only dimensions. The audit's headline does not collapse if the partisan-vote data is challenged.
+**The apparatus has a dependency graph.** 234 analytical nodes across 454 directed edges — acyclic, zero orphan findings. Any dataset can be invalidated and the cascade of orphaned findings is computable in real time: `python analysis/scripts/dependency_query.py --invalidate L0:data.2023_statement_of_vote`. Invalidating the entire 2023 vote dataset orphans 48 of 74 findings — but leaves 26 that span population, geography, procedural, and geometry-only dimensions. The audit's headline does not collapse if the partisan-vote data is challenged.
 
 ---
 

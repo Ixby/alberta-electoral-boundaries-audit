@@ -107,14 +107,14 @@ The prior text-layer pass already refuted the chair's claim for 6 of the 7 confi
 - `.temp/submissions/ocr_text/EBC-2025-*.txt` — 14 recovered per-submission stitched OCR texts (gitignored).
 - `.temp/submissions/ocr_analysis.json` — summary state.
 - `data/submission_search_dataset.csv` — now includes a `source` column; 70 prior rows tagged `text_layer`, 1 new row tagged `ocr` (EBC-2025-2-0141).
-- `analysis/scripts/v0_1_submission_ocr.py` — OCR run script.
-- `analysis/scripts/v0_1_submission_ocr_analyze.py` — standalone analyzer that reads the OCR page files and rebuilds submission text + runs the keyword search (safe to re-run if more OCR pages arrive).
+- `analysis/scripts/submission_ocr.py` — OCR run script.
+- `analysis/scripts/submission_ocr_analyze.py` — standalone analyzer that reads the OCR page files and rebuilds submission text + runs the keyword search (safe to re-run if more OCR pages arrive).
 
 ## How to reproduce
 
 ```bash
 cd alberta_audit
 pip install easyocr pymupdf
-python analysis/scripts/v0_1_submission_ocr.py          # OCR the 73 planned pages (~45-60 min CPU)
-python analysis/scripts/v0_1_submission_ocr_analyze.py  # Stitch + keyword search (~10 s)
+python analysis/scripts/submission_ocr.py          # OCR the 73 planned pages (~45-60 min CPU)
+python analysis/scripts/submission_ocr_analyze.py  # Stitch + keyword search (~10 s)
 ```

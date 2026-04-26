@@ -1,8 +1,8 @@
 # MAUP Area-Weighted VA Attribution — Alternative to Centroid-in-Polygon
 
 **Generated:** 2026-04-23
-**Pipeline:** `analysis/v0_1_phase_4c_va_attribution_maup.py`
-**Companion (not modified):** `analysis/scripts/v0_1_phase_4c_va_attribution.py`, `analysis/scripts/v0_1_phase_4bcdef_execution.py`
+**Pipeline:** `analysis/phase_4c_va_attribution_maup.py`
+**Companion (not modified):** `analysis/scripts/phase_4c_va_attribution.py`, `analysis/scripts/phase_4bcdef_execution.py`
 
 Forward: `report_academic.md` §5.2.7 (suggested insertion at end)
 Backward: `data/va_polygons_with_full_2023_votes.gpkg`, `data/v0_1_canonical_{majority,minority}_2026_eds.gpkg`, `data/v0_1_{majority,minority}_full_crosswalk.csv`
@@ -11,7 +11,7 @@ Backward: `data/va_polygons_with_full_2023_votes.gpkg`, `data/v0_1_canonical_{ma
 
 ## 1. Problem statement
 
-The existing Phase 4C pipeline (`v0_1_phase_4c_va_attribution.py` + the corresponding VA-polygon branch of `v0_1_phase_4bcdef_execution.py`) assigns each of 4,765 Voting Area polygons **wholesale to a single 2026 ED** based on the VA polygon's `representative_point()` (its interior centroid). When a VA polygon straddles a DPG ED boundary — i.e., when part of it lies inside ED_A and part inside ED_B — 100 % of the VA's 2023 votes are attributed to whichever ED the centroid happens to fall in. If a VA is split 60/40 across two EDs, the ED on the 60 % side gets all of it and the other ED gets nothing.
+The existing Phase 4C pipeline (`phase_4c_va_attribution.py` + the corresponding VA-polygon branch of `phase_4bcdef_execution.py`) assigns each of 4,765 Voting Area polygons **wholesale to a single 2026 ED** based on the VA polygon's `representative_point()` (its interior centroid). When a VA polygon straddles a DPG ED boundary — i.e., when part of it lies inside ED_A and part inside ED_B — 100 % of the VA's 2023 votes are attributed to whichever ED the centroid happens to fall in. If a VA is split 60/40 across two EDs, the ED on the 60 % side gets all of it and the other ED gets nothing.
 
 This is the classical **Modifiable Areal Unit Problem** (MAUP) in its binary form: the choice of a single-point aggregator introduces systematic bias at boundary-straddling units. The PO's 2026-04-22 vulnerability message (section 3) flagged this as a material source of potential error in the §5.2.7 partisan-bias measurement.
 
@@ -133,7 +133,7 @@ My recommended language (§8 below) is reading **3** — present both spatial me
 
 ## 7. Absolute paths of files created
 
-- `C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\v0_1_phase_4c_va_attribution_maup.py`
+- `C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\phase_4c_va_attribution_maup.py`
 - `C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_phase4c_majority_2023_votes_maup.csv`
 - `C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_phase4c_minority_2023_votes_maup.csv`
 - `C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\phase_4c_va_to_2026_assignments_maup.csv` (15,723 rows)
@@ -146,7 +146,7 @@ The paragraph below (≈215 words) is designed to slot in as a third measurement
 
 ---
 
-> **MAUP area-weighted attribution (third measurement layer).** The centroid-in-polygon spatial method reported above assigns each of 4,765 VAs wholesale to one 2026 ED based on the VA polygon's interior centroid, which introduces binary-assignment bias at boundary-straddling VAs. A higher-fidelity alternative computes the fractional area-overlap of each VA polygon with each 2026 ED polygon (Modifiable Areal Unit Problem area-weighted interpolation) and apportions the VA's 2023 votes across EDs by those fractions. The implementation is in `analysis/v0_1_phase_4c_va_attribution_maup.py`; conservation is exact to ±0.001 votes per VA, and provincial two-party totals match the centroid pipeline at 1,706,304 on both maps. Under MAUP, majority 2026 EG = **−3.25 %**, minority 2026 EG = **−2.14 %**, and the minority-majority asymmetry is **+1.12 pp** (direction preserved: minority more NDP-favourable, but magnitude collapsed from +4.15 pp to +1.12 pp). The gap between the blended-crosswalk asymmetry (−1.42 pp) and the spatial-high-resolution asymmetry narrows from 5.57 pp (centroid) to **2.54 pp (MAUP)**. Approximately 3 of the 5.57 pp of the original §5.2.7 disagreement was therefore a centroid-assignment artifact. The residual 2.54 pp disagreement is attributable to DPG polygon-tier transcription uncertainty — particularly a ~1,200 km² overlap between the Stony Plain-Drayton Valley minority polygon and multiple metropolitan Edmonton polygons — which will collapse under the §4.1.4 sunset-clause re-run once official 2026 shapefiles are released.
+> **MAUP area-weighted attribution (third measurement layer).** The centroid-in-polygon spatial method reported above assigns each of 4,765 VAs wholesale to one 2026 ED based on the VA polygon's interior centroid, which introduces binary-assignment bias at boundary-straddling VAs. A higher-fidelity alternative computes the fractional area-overlap of each VA polygon with each 2026 ED polygon (Modifiable Areal Unit Problem area-weighted interpolation) and apportions the VA's 2023 votes across EDs by those fractions. The implementation is in `analysis/phase_4c_va_attribution_maup.py`; conservation is exact to ±0.001 votes per VA, and provincial two-party totals match the centroid pipeline at 1,706,304 on both maps. Under MAUP, majority 2026 EG = **−3.25 %**, minority 2026 EG = **−2.14 %**, and the minority-majority asymmetry is **+1.12 pp** (direction preserved: minority more NDP-favourable, but magnitude collapsed from +4.15 pp to +1.12 pp). The gap between the blended-crosswalk asymmetry (−1.42 pp) and the spatial-high-resolution asymmetry narrows from 5.57 pp (centroid) to **2.54 pp (MAUP)**. Approximately 3 of the 5.57 pp of the original §5.2.7 disagreement was therefore a centroid-assignment artifact. The residual 2.54 pp disagreement is attributable to DPG polygon-tier transcription uncertainty — particularly a ~1,200 km² overlap between the Stony Plain-Drayton Valley minority polygon and multiple metropolitan Edmonton polygons — which will collapse under the §4.1.4 sunset-clause re-run once official 2026 shapefiles are released.
 
 ---
 
@@ -154,9 +154,9 @@ The paragraph below (≈215 words) is designed to slot in as a third measurement
 
 ```bash
 cd "c:/Users/email/Documents/Claude/Projects/Electoral Boundary Analysis/alberta_audit"
-PYTHONIOENCODING=utf-8 python analysis/v0_1_phase_4c_va_attribution_maup.py
+PYTHONIOENCODING=utf-8 python analysis/phase_4c_va_attribution_maup.py
 # smoke test (50 VAs):
-PYTHONIOENCODING=utf-8 python analysis/v0_1_phase_4c_va_attribution_maup.py --smoke 50
+PYTHONIOENCODING=utf-8 python analysis/phase_4c_va_attribution_maup.py --smoke 50
 ```
 
 Runtime: ~10 s for the full 4,765-VA × 89-ED run (both maps). No network or external dependencies beyond the read-only inputs listed in §1 of the script docstring.

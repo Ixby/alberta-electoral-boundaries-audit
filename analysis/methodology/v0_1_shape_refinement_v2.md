@@ -321,7 +321,7 @@ widening and are implicitly green).
 
 ## Reproducibility
 
-Pipeline: `analysis/scripts/v0_1_shape_refinement_v2.py`.
+Pipeline: `analysis/scripts/shape_refinement_v2.py`.
 
 Dependencies (same as Track Y v1 plus no new additions):
 - `osmnx ≥ 2.0` with `features_from_bbox` helper.
@@ -332,7 +332,7 @@ Network access to the Overpass API required. Cache lives in
 laptop: 2-3 minutes (cached) / 8-10 minutes (cold Overpass).
 
 Phases 2b / 3b / 4b / 5b can be run independently: pass the phases to skip
-as CLI args (e.g. `python analysis/scripts/v0_1_shape_refinement_v2.py phase4 phase5`
+as CLI args (e.g. `python analysis/scripts/shape_refinement_v2.py phase4 phase5`
 to run only phase 2b and 3b).
 
 ## Summary: what Track Y-prime changed

@@ -42,7 +42,7 @@ majority-symmetry counter-test) run to completion and produce output
 matching the academic and public reports within the drift ranges
 documented in `v0_1_red_team_code_fixes.md` §1. Seeds reproduce
 bit-identical between two consecutive runs (verified for
-`v0_3_monte_carlo_ci.py` and `v0_1_chen_rodden_alberta.py`).
+`v0_3_monte_carlo_ci.py` and `chen_rodden_alberta.py`).
 
 ---
 
@@ -50,19 +50,19 @@ bit-identical between two consecutive runs (verified for
 
 | Script | Sev | Dim | Finding |
 |---|---|---|---|
-| `v0_1_mcmc_full_coverage_rescore.py` | HIGH | D4 | 19-row crosswalk produces 20 missing + 18 extra EDs for majority; EG collapses to 2019 value because 63.8% of VAs fall through to Tier-A identity map. Successor `_100k` script fixes this but is not cited in the report. |
+| `mcmc_full_coverage_rescore.py` | HIGH | D4 | 19-row crosswalk produces 20 missing + 18 extra EDs for majority; EG collapses to 2019 value because 63.8% of VAs fall through to Tier-A identity map. Successor `_100k` script fixes this but is not cited in the report. |
 | Multiple (14 files) | HIGH | D4 | Hard-coded absolute path `C:\Users\email\Documents\Claude\...` breaks reproduction on any other machine. |
 | `requirements.txt` | HIGH | D4 | 5 imported libraries absent from pin file: `cv2`, `matplotlib`, `scipy`, `markdown`, `requests`. 8 scripts will `ImportError` on a clean install. |
 | `build_pdf.py`, `build_cover.py`, `build_academic_html.py` | HIGH | D4/D1 | Google Fonts `@import` at render time is a live-URL dependency not in `FROZEN_MANIFEST.md`; reviewer on an air-gapped machine gets a font-fallback PDF silently. |
 | `check_voice_and_readability.py` | HIGH | D4 | `report_academic.md` regenerated FK grade = **12.9** (fixes-log claimed 13.0); grade-gate pass/fail on report_academic is knife-edge at the target of 13.0. |
 | `build_pdf.py:34-38` | MED | D4 | Chrome/Edge path list is Windows-only; no Linux (`which chromium`) fallback. |
 | `phase_4c_prep.py:31` | MED | D4 | Hard-coded absolute `BASE = Path(r"C:\Users\email\...\alberta_audit")` shadows `REPO_ROOT` pattern used elsewhere. |
-| `v0_1_shape_refinement.py` | MED | D4 | Overpass OSM fetch is live-URL dependency not in `FROZEN_MANIFEST.md`; no cached fallback artefact. |
-| `v0_1_338canada_scraper.py` | MED | D4 | Scraper is live-URL-only (no `--offline` flag); reproducer who runs the scraper gets 2026-04-23+ data, not the April 12 snapshot cited. Frozen CSV is the intended artefact; scraper should document that explicitly at top. |
-| `v0_1_url_archival.py` | MED | D5 | `archive.org/wayback/available` and `archive.ph` live calls have no retry / offline-mode semantics; reproducer can observe different snapshots on re-run. |
-| `v0_1_chen_rodden_alberta.py:403` | MED | D4 | Prior finding HIGH-05 (mixed RNG types) deferred in fixes log; no numpy-version pin in docstring added. |
-| `v0_1_shape_refinement_v4.py:555-647`, `v5:930-971` | MED | D4 | Prior finding HIGH-03 (magic-number bbox coordinates) deferred. Fragile if 2019 shapefile is reissued. |
-| `v0_1_a1_legal_baseline_2021_census.py:110-123` | MED | D5 | Prior finding HIGH-11 (suppressed-DA uncertainty) deferred. |
+| `shape_refinement.py` | MED | D4 | Overpass OSM fetch is live-URL dependency not in `FROZEN_MANIFEST.md`; no cached fallback artefact. |
+| `338canada_scraper.py` | MED | D4 | Scraper is live-URL-only (no `--offline` flag); reproducer who runs the scraper gets 2026-04-23+ data, not the April 12 snapshot cited. Frozen CSV is the intended artefact; scraper should document that explicitly at top. |
+| `url_archival.py` | MED | D5 | `archive.org/wayback/available` and `archive.ph` live calls have no retry / offline-mode semantics; reproducer can observe different snapshots on re-run. |
+| `chen_rodden_alberta.py:403` | MED | D4 | Prior finding HIGH-05 (mixed RNG types) deferred in fixes log; no numpy-version pin in docstring added. |
+| `shape_refinement_v4.py:555-647`, `v5:930-971` | MED | D4 | Prior finding HIGH-03 (magic-number bbox coordinates) deferred. Fragile if 2019 shapefile is reissued. |
+| `a1_legal_baseline_2021_census.py:110-123` | MED | D5 | Prior finding HIGH-11 (suppressed-DA uncertainty) deferred. |
 | `build_pdf.py:513-534`, `build_cover.py:420-437` | MED | D4 | Prior finding HIGH-08 (Chrome `--no-sandbox`, `--virtual-time-budget`) deferred. |
 | Various | LOW | — | See §5. Style-only; no gate-blocking impact. |
 | Various | INFO | — | See §7. Observations. |
@@ -80,18 +80,18 @@ Grep receipts:
 | Finding | File | Evidence (line) |
 |---|---|---|
 | CRIT-01 | `v0_3_monte_carlo_ci.py` | L131-133: `p025 = float(np.quantile(arr, 0.025))`; L99: `skipped += 1` |
-| CRIT-02 | `v0_1_338canada_scraper.py` | L54, L58: `color:\s*'[^']*'` anchor; L191: `CRIT-02 INTEGRITY CHECK FAILED` |
+| CRIT-02 | `338canada_scraper.py` | L54, L58: `color:\s*'[^']*'` anchor; L191: `CRIT-02 INTEGRITY CHECK FAILED` |
 | CRIT-03 | `v0_2_packing_cracking_analysis.py` | L457-458: `round(new_total * blended_share)`; L489: `round(p['ndp']*w)`; L502: `round(base['ndp']*fraction)` |
-| CRIT-04 | `v0_1_338canada_reallocate.py` | L129-131: "removed the broken v1 reallocate_338() function" marker comment; `def reallocate_338_v2(` is sole survivor |
+| CRIT-04 | `338canada_reallocate.py` | L129-131: "removed the broken v1 reallocate_338() function" marker comment; `def reallocate_338_v2(` is sole survivor |
 | CRIT-05 | `v0_2_packing_cracking_analysis.py` | L462-514: `missing: List[str] = []` accumulator; L508-513: `raise KeyError(...)` |
-| HIGH-01 | `v0_1_shape_refinement_v6.py` | L29, L253-256: `hashlib.sha256(ed_name.encode('utf-8')).digest()[:4]` |
-| HIGH-02 | `v0_1_shape_refinement_v6_processors.py` | L83-85: `np.linspace(initial_tx - 50000, initial_tx + 50000, 11)` |
-| HIGH-04 | `v0_1_shape_refinement.py` | L209-320: 4-tuple return with `'snap_skipped_*'`, `'snap_rejected'`, `'snap_error'`, `'snapped'`, `'snapped_no_move'` |
+| HIGH-01 | `shape_refinement_v6.py` | L29, L253-256: `hashlib.sha256(ed_name.encode('utf-8')).digest()[:4]` |
+| HIGH-02 | `shape_refinement_v6_processors.py` | L83-85: `np.linspace(initial_tx - 50000, initial_tx + 50000, 11)` |
+| HIGH-04 | `shape_refinement.py` | L209-320: 4-tuple return with `'snap_skipped_*'`, `'snap_rejected'`, `'snap_error'`, `'snapped'`, `'snapped_no_move'` |
 | HIGH-07 | `build_cover.py` | L505-509: `if not ARTICLE_PDF.exists(): raise RuntimeError(...)` |
 | HIGH-09 | `check_voice_and_readability.py` | L33-72: bare-adjective `'not X — Y'` regex; `_NOT_MIRROR_STOP` / `_Y_STOP_PREFIX` stop-lists |
 | HIGH-10 | `check_voice_and_readability.py` | L150-171: gate only fails under `method == "textstat"`; approx is downgraded to `[info]` |
-| HIGH-12 | `v0_1_majority_symmetry_counter_test.py` | L177-182: `raise ValueError(f"HIGH-12: edmonton_zone_classifier missed ...")` |
-| MED-01 | `v0_1_shape_refinement.py` | L162-170: `raise RuntimeError(f"MED-01: expected one .shp/.gpkg ...")` |
+| HIGH-12 | `majority_symmetry_counter_test.py` | L177-182: `raise ValueError(f"HIGH-12: edmonton_zone_classifier missed ...")` |
+| MED-01 | `shape_refinement.py` | L162-170: `raise RuntimeError(f"MED-01: expected one .shp/.gpkg ...")` |
 | MED-03 | `phase_4c_prep.py` | L40-45: `if __name__ != "__main__": raise ImportError(...)`; verified empirically (`python -c "import phase_4c_prep"` → ImportError) |
 | MED-07 | `v0_2_packing_cracking_analysis.py` | L606-614: dead `estimate_2026(..., urban_weight=w)` removed; only override-mapping path survives |
 
@@ -111,7 +111,7 @@ code red-team (CRIT-01 through CRIT-05) are all fixed and verified.
 
 ### HIGH-D4-RESCORE-CROSSWALK — 19-row crosswalk produces phantom districts in full-coverage MCMC rescore
 
-**File:** `analysis/scripts/v0_1_mcmc_full_coverage_rescore.py` (L216-229)
+**File:** `analysis/scripts/mcmc_full_coverage_rescore.py` (L216-229)
 **Severity:** HIGH
 **Dimension:** D4
 
@@ -154,10 +154,10 @@ scores identically to the 2019 baseline. That implies your methodology
 is scoring the 2019 map under a new label. How do you defend that?"*
 
 **Note.** A successor script exists:
-`analysis/scripts/v0_1_mcmc_full_coverage_rescore_100k.py` uses the augmented
-87-row full crosswalks from `v0_1_build_full_crosswalks.py` plus
+`analysis/scripts/mcmc_full_coverage_rescore_100k.py` uses the augmented
+87-row full crosswalks from `build_full_crosswalks.py` plus
 Unicode normalization. Running it via the v2 wrapper
-(`v0_1_mcmc_full_coverage_rescore_v2.py`) against the 10k ensemble
+(`mcmc_full_coverage_rescore_v2.py`) against the 10k ensemble
 produces:
 
 ```
@@ -178,7 +178,7 @@ fallback still dominates. The fundamental methodological issue — a
 map with 63.8% of its territory labelled by 2019 names produces a
 score dominated by 2019 — is unchanged.
 
-**Recommendation.** Either (a) drop `v0_1_mcmc_full_coverage_rescore.py`
+**Recommendation.** Either (a) drop `mcmc_full_coverage_rescore.py`
 (the 19-row version) and migrate all report references to the 100k
 successor, adding an explicit note that the majority-2026 EG ≈ 2019 EG
 result is an artefact of the 63.8% Tier-A identity mapping; or (b) add a
@@ -192,19 +192,19 @@ with no surrounding context would draw wrong conclusions.
 
 **Files / line:**
 - `phase_4c_prep.py:31` (`BASE = Path(r"C:\Users\email\...\alberta_audit")`)
-- `v0_1_approximate_shape_analysis.py:61`
-- `v0_1_csd_community_splits.py:26`
-- `v0_1_build_full_crosswalks.py:43`
-- `v0_1_mcmc_full_coverage_rescore.py:42`
-- `v0_1_mcmc_full_coverage_rescore_100k.py:42`
-- `v0_1_track_l_drift.py:37`
-- `v0_1_shape_refinement.py:47`
+- `approximate_shape_analysis.py:61`
+- `csd_community_splits.py:26`
+- `build_full_crosswalks.py:43`
+- `mcmc_full_coverage_rescore.py:42`
+- `mcmc_full_coverage_rescore_100k.py:42`
+- `track_l_drift.py:37`
+- `shape_refinement.py:47`
 - `v0_1_shape_derivation_v7.py:45`
-- `v0_1_shape_refinement_v3.py:69`
-- `v0_1_shape_refinement_v2.py:43`
-- `v0_1_shape_refinement_v5.py:50`
-- `v0_1_shape_refinement_v4.py:50`
-- `v0_1_shape_refinement_v6.py:45`
+- `shape_refinement_v3.py:69`
+- `shape_refinement_v2.py:43`
+- `shape_refinement_v5.py:50`
+- `shape_refinement_v4.py:50`
+- `shape_refinement_v6.py:45`
 
 **Severity:** HIGH
 **Dimension:** D4
@@ -219,7 +219,7 @@ self-contained. But your scripts hard-code your personal laptop's path.
 How does the peer reviewer run this?"*
 
 **Recommendation.** Replace with the `REPO_ROOT = Path(__file__).resolve().parent.parent`
-pattern used correctly by `v0_1_canadian_base_rate_compute.py:49` and
+pattern used correctly by `canadian_base_rate_compute.py:49` and
 `v0_2_packing_cracking_analysis.py` (and several others). Zero downside;
 all scripts should follow one of the two conventions (relative-from-file
 or `os.environ["ALBERTA_AUDIT_ROOT"]`).
@@ -234,11 +234,11 @@ or `os.environ["ALBERTA_AUDIT_ROOT"]`).
 
 | Library | Used by | Required for |
 |---|---|---|
-| `cv2` (opencv-python) | `v0_1_shape_refinement_v6.py`, `v0_1_shape_refinement_v6_processors.py`, `v0_1_shape_derivation_v7.py` | Shape-refinement v6/v7 pipelines |
-| `matplotlib` | `v0_1_build_overlay_figures.py`, `v0_1_mcmc_ensemble.py`, `v0_1_mcmc_ensemble_100k.py`, `build_cover.py`, `v0_1_shape_refinement*.py` (all versions) | Every figure generation, MCMC diagnostics |
-| `scipy` (scipy.optimize.minimize) | `v0_1_shape_refinement_v6_processors.py` | v6 affine optimization |
+| `cv2` (opencv-python) | `shape_refinement_v6.py`, `shape_refinement_v6_processors.py`, `v0_1_shape_derivation_v7.py` | Shape-refinement v6/v7 pipelines |
+| `matplotlib` | `build_overlay_figures.py`, `mcmc_ensemble.py`, `mcmc_ensemble_100k.py`, `build_cover.py`, `v0_1_shape_refinement*.py` (all versions) | Every figure generation, MCMC diagnostics |
+| `scipy` (scipy.optimize.minimize) | `shape_refinement_v6_processors.py` | v6 affine optimization |
 | `markdown` | `build_pdf.py`, `build_academic_html.py` | PDF/HTML report rendering |
-| `requests` | `v0_1_url_archival.py` | URL archival pipeline |
+| `requests` | `url_archival.py` | URL archival pipeline |
 
 **Impact.** A reviewer following `setup.md` (`pip install -r requirements.txt`)
 cannot reproduce figures, PDFs, or the shape-refinement pipeline without
@@ -324,14 +324,14 @@ Chrome/Edge path list is Windows-only. No `which chromium` /
 the PDF pipeline without editing the script.
 
 ### MED-D4-OSM-LIVE
-**File:** `analysis/scripts/v0_1_shape_refinement.py` (phase 2 OSM snap)
+**File:** `analysis/scripts/shape_refinement.py` (phase 2 OSM snap)
 
 Overpass API fetch (`overpass-api.de`) is a live-URL dependency not
 listed in `FROZEN_MANIFEST.md`. On an Overpass outage, the snap silently
 falls back to the 2019 geometry. Prior RT flagged as MED-02 (deferred).
 
 ### MED-D4-338SCRAPER-OFFLINE
-**File:** `analysis/scripts/v0_1_338canada_scraper.py`
+**File:** `analysis/scripts/338canada_scraper.py`
 
 The scraper fetches 338Canada live. The docstring notes the April 12
 snapshot, but running the scraper today pulls 2026-04-23+ data — not
@@ -343,7 +343,7 @@ finds the script, assumes running it reproduces the published numbers,
 and gets a newer snapshot with slightly different seat counts.
 
 ### MED-D4-URLARCHIVAL-DRIFT
-**File:** `analysis/scripts/v0_1_url_archival.py`
+**File:** `analysis/scripts/url_archival.py`
 
 Calls `archive.org/wayback/available`, `web.archive.org/cdx/search/cdx`,
 `archive.ph` — all live-URL. A reviewer running this gets different
@@ -362,7 +362,7 @@ imported — but the hardcoded path still breaks execution on any other
 machine. (Subset of HIGH-D4-HARDCODED-PATHS.)
 
 ### MED-D4-CHENRODDEN-NUMPY
-**File:** `analysis/scripts/v0_1_chen_rodden_alberta.py:133-156, 403-404`
+**File:** `analysis/scripts/chen_rodden_alberta.py:133-156, 403-404`
 
 Prior HIGH-05 deferred in fixes log. Uses `np.random.default_rng(42)`
 (Test 1) and `random.Random(42)` (Test 2); both are reproducible under
@@ -371,14 +371,14 @@ pin. Re-flagging as MED because the framework requires the seed + RNG
 version be documented together for defensibility.
 
 ### MED-D4-MAGICBBOX
-**Files:** `analysis/scripts/v0_1_shape_refinement_v4.py:555-647`, `v5:930-971`
+**Files:** `analysis/scripts/shape_refinement_v4.py:555-647`, `v5:930-971`
 
 Prior HIGH-03 deferred. Magic-number pixel coordinates (`west_x = 72000`,
 etc.) for Calgary-De Winton, Edmonton-Windermere derivation. Fragile if
 the 2019 shapefile reissues with re-projection.
 
 ### MED-D5-SUPPRESSED-DA
-**File:** `analysis/scripts/v0_1_a1_legal_baseline_2021_census.py:110-123`
+**File:** `analysis/scripts/a1_legal_baseline_2021_census.py:110-123`
 
 Prior HIGH-11 deferred. Suppressed DAs zeroed without propagating
 uncertainty; s.15(2)-protected districts affected.
@@ -398,15 +398,15 @@ HIGH-D4-LIVE-FONT-URL.
   `encoding="latin-1"` for `polls_2023_unified.csv` — inconsistent with
   every other loader in the repo (which uses UTF-8). Prior MED-04
   deferred.
-- **LOW-D4-GROWTHFACTORS.** `v0_1_track_l_drift.py:51-177` hand-coded
+- **LOW-D4-GROWTHFACTORS.** `track_l_drift.py:51-177` hand-coded
   growth factors per CSD; default 1.075. Prior MED-10.
-- **LOW-D4-OVERLAYFALLBACK.** `v0_1_build_overlay_figures.py:289-292`
+- **LOW-D4-OVERLAYFALLBACK.** `build_overlay_figures.py:289-292`
   v5→v4 fallback is silent. Prior MED-11.
-- **LOW-D4-FROZENPROXY.** `v0_1_canadian_base_rate_compute.py` deflator
+- **LOW-D4-FROZENPROXY.** `canadian_base_rate_compute.py` deflator
   0.455 is a single-point estimate; prior MED-08.
-- **LOW-D4-CHENRODDEN-DEGEN.** `v0_1_chen_rodden_alberta.py:228-242`
+- **LOW-D4-CHENRODDEN-DEGEN.** `chen_rodden_alberta.py:228-242`
   sweep-degenerate case; prior MED-13.
-- **LOW-D4-REDEER-STRINGMATCH.** `v0_1_majority_symmetry_counter_test.py:223-244`
+- **LOW-D4-REDEER-STRINGMATCH.** `majority_symmetry_counter_test.py:223-244`
   string-match city counter; prior LOW-07.
 
 ---
@@ -427,9 +427,9 @@ the committed code at `commit 7ae3d2c` on branch
 
 - **INFO-D4-SEED-DISCIPLINE.** Seed discipline is now consistent for
   the B2/B3/MCMC pipelines (`v0_3_monte_carlo_ci.py` seed=42;
-  `v0_1_chen_rodden_alberta.py` seed=42; `v0_1_shape_refinement_v6.py`
-  sha256 per ED; `v0_1_mcmc_ensemble.py` seed=42;
-  `v0_1_mcmc_ensemble_100k.py` seed=42). Two consecutive runs of
+  `chen_rodden_alberta.py` seed=42; `shape_refinement_v6.py`
+  sha256 per ED; `mcmc_ensemble.py` seed=42;
+  `mcmc_ensemble_100k.py` seed=42). Two consecutive runs of
   Monte Carlo CI reproduced bit-identical output. Two consecutive runs
   of Chen-Rodden reproduced bit-identical output. Good RNG hygiene
   post-fix.
@@ -454,20 +454,20 @@ the committed code at `commit 7ae3d2c` on branch
 
 - **INFO-D4-RUNTIME-GATED.** Skipped from this pass (long runtime or
   external-dep-gated):
-  - `v0_1_mcmc_ensemble.py` (5,000-sample gerrychain run;
+  - `mcmc_ensemble.py` (5,000-sample gerrychain run;
     prior report cites 10,000-sample output already in `data/`)
-  - `v0_1_mcmc_ensemble_100k.py` (100,000-sample gerrychain; in-progress per report §3.11)
-  - `v0_1_shape_refinement_v6.py` + `_processors.py` + `_writer.py`
+  - `mcmc_ensemble_100k.py` (100,000-sample gerrychain; in-progress per report §3.11)
+  - `shape_refinement_v6.py` + `_processors.py` + `_writer.py`
     (OpenCV image processing pipeline; existing v6 gpkg in `data/`
     predates HIGH-01/HIGH-02 fixes but is the canonical artefact)
   - `v0_1_shape_refinement_v2/v3/v4/v5.py` (superseded by v6; retained
     for provenance)
-  - `v0_1_mcmc_full_coverage_rescore_100k.py` (requires 100k ensemble
+  - `mcmc_full_coverage_rescore_100k.py` (requires 100k ensemble
     output which is blocked by the prior line)
-  - `v0_1_338canada_scraper.py` (requires 87 live HTTP fetches to
+  - `338canada_scraper.py` (requires 87 live HTTP fetches to
     338Canada; frozen CSV is canonical)
-  - `v0_1_submission_ocr.py` (PDF OCR pipeline; superseded by
-    `v0_1_submission_ocr_analyze.py`)
+  - `submission_ocr.py` (PDF OCR pipeline; superseded by
+    `submission_ocr_analyze.py`)
   - `build_pdf.py`, `build_cover.py`, `build_academic_html.py`
     (PDF render; Chrome-headless dependency)
   - `v0_1_shape_derivation_v7.py` (experimental, not referenced in

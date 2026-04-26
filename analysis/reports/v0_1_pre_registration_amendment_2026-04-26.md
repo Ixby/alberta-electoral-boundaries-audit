@@ -43,7 +43,7 @@ These changes strengthen the evidentiary basis of pre-registered tests without a
 
 **Reason:** This addresses the methodological caveat that ReCom samples have a known bias toward compact maps; the targeted procedure tests whether the minority's territory is reachable by non-neutral means. *Result:* 52.87% best `seats@50/50` reached in 40,000 steps — within rounding of the minority map's 52.8%. This is supplementary evidence; it does not replace any pre-registered test.
 
-**Outputs:** `analysis/scripts/v0_1_targeted_gerrymander_burst.py`, `data/v0_1_targeted_burst_best.json`, `data/v0_1_targeted_burst_trace.csv`, `analysis/reports/v0_1_targeted_burst.log`.
+**Outputs:** `analysis/scripts/targeted_gerrymander_burst.py`, `data/v0_1_targeted_burst_best.json`, `data/v0_1_targeted_burst_trace.csv`, `analysis/reports/v0_1_targeted_burst.log`.
 
 ---
 
@@ -55,7 +55,7 @@ These changes strengthen the evidentiary basis of pre-registered tests without a
 
 **Reason:** Pre-empts the strongest rhetorical defence of the minority map's hybrid pattern (the rural-protection-via-hybridization argument articulated in the minority commissioners' Appendix E pp. 302–303). The analysis is supplementary to the pre-registered structural tests; it does not replace any of them.
 
-**Outputs:** `analysis/scripts/v0_1_rural_protection_test.py` and a new section in `report_public.md` ("The rural-representation question").
+**Outputs:** `analysis/scripts/rural_protection_test.py` and a new section in `report_public.md` ("The rural-representation question").
 
 ---
 
@@ -69,7 +69,7 @@ These changes strengthen the evidentiary basis of pre-registered tests without a
 
 **Reason:** Defensibility improvement on the same metric. The pre-registered hypothesis (the minority map produces an outlier `seats_at_50_50` value relative to the simulation distribution) is unchanged; the attribution is more rigorous. Both the historical 54.2% (83 of 89) reading and the new 52.8% (89 of 89) reading are preserved in the monograph for traceability.
 
-**Outputs:** `analysis/scripts/v0_1_fuzz_missing_eds.py` and §5.4.7 of `report_academic.md`.
+**Outputs:** `analysis/scripts/fuzz_missing_eds.py` and §5.4.7 of `report_academic.md`.
 
 ---
 

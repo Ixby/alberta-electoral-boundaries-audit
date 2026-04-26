@@ -27,7 +27,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
-from v0_1_mcmc_ensemble import seat_results
+from mcmc_ensemble import seat_results
 
 
 # ============================================================
@@ -270,7 +270,7 @@ def test_score_exogenous_map_sjoin_deduplicates_overlap():
     from shapely.geometry import Polygon, Point
     import tempfile, os
 
-    from v0_1_mcmc_ensemble import score_exogenous_map
+    from mcmc_ensemble import score_exogenous_map
 
     # One VA, sitting at (5, 5), with 100 UCP / 100 NDP votes
     va = gpd.GeoDataFrame(
@@ -313,7 +313,7 @@ def test_score_exogenous_map_enforces_crs_alignment():
     from shapely.geometry import Polygon, Point
     import tempfile
 
-    from v0_1_mcmc_ensemble import score_exogenous_map
+    from mcmc_ensemble import score_exogenous_map
 
     # VA frame in EPSG:3401 (Alberta-relevant projected metres)
     va = gpd.GeoDataFrame(
@@ -365,7 +365,7 @@ def test_run_ensemble_state_persistence_across_chunks():
     from gerrychain import Graph
     import networkx as nx
 
-    from v0_1_mcmc_ensemble import run_ensemble
+    from mcmc_ensemble import run_ensemble
 
     g = nx.grid_2d_graph(6, 6)  # 36 nodes — small but enough for ReCom moves
     g = nx.convert_node_labels_to_integers(g)

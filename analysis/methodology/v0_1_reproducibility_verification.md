@@ -53,7 +53,7 @@ Cross-election 2019 asymmetry: +0.75 pp (flips direction, confirms RT3 fail)
 CI bounds within 0.05 pp of carry-forward ([-2.99, +0.76]; current [-3.04, +0.76]).
 Direction consistency 90.5% vs documented 89.3% — within tolerance and still in the qualified-pass band.
 
-### 1.4 `analysis/scripts/v0_1_cross_election_rural_baseline.py` — PASS
+### 1.4 `analysis/scripts/cross_election_rural_baseline.py` — PASS
 
 Exit code 0. Rural NDP shares match constraint:
 

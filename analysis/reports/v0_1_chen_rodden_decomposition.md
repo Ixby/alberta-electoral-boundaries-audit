@@ -7,7 +7,7 @@ under Chen-Rodden 2013 framing) and a **drawing component** (how far the
 real map departs from neutral). Then decomposes each pairwise gap into
 geography-share and drawing-share.
 
-Script: `analysis/scripts/v0_1_chen_rodden_decomposition.py`.
+Script: `analysis/scripts/chen_rodden_decomposition.py`.
 Machine-readable outputs: `data/v0_1_chen_rodden_decomposition.csv`,
 `data/v0_1_chen_rodden_decomposition.json`.
 
@@ -320,7 +320,7 @@ advantage).
 
 ## 7. Files produced
 
-- `analysis/scripts/v0_1_chen_rodden_decomposition.py` — reproducible script.
+- `analysis/scripts/chen_rodden_decomposition.py` — reproducible script.
 - `analysis/reports/v0_1_chen_rodden_decomposition.md` — this writeup.
 - `data/v0_1_chen_rodden_decomposition.csv` — per-map and per-gap table
   (both substrates, machine-readable, 48 rows).

@@ -10,7 +10,7 @@ the partisan spectrum?
 **Method.** Stdlib Python; inputs are `v0_1_majority_2026_populations.csv`,
 `v0_1_minority_2026_populations.csv`, the two hybrid crosswalks, the Appendix-E
 minority crosswalk, and 2019 / 2023 official results. Script:
-`analysis/scripts/v0_1_rural_gap_dissection.py`.
+`analysis/scripts/rural_gap_dissection.py`.
 
 ---
 

@@ -44,7 +44,7 @@ python -m pip install -r requirements.txt
 This is the cleanest single verification: 10,000 ReCom steps with full per-step partition assignments serialized to disk. You can pick any of the 10,000 saved partitions, recompute its metrics from scratch, and confirm they match what the audit reports.
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_mcmc_verification_subset.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_verification_subset.py
 ```
 
 Expected output: `data/v0_1_mcmc_verification_metrics.csv` (10,000 rows of metrics) + `data/v0_1_mcmc_verification_assignments.npz` (compressed int8 array of 10,000 partition vectors).
@@ -67,7 +67,7 @@ saved_metrics = m.iloc[step_idx]
 saved_assignment = assignments[step_idx]   # shape (n_va,) int8 array
 
 # Recompute metrics from scratch using the saved assignment
-# (see analysis/scripts/v0_1_mcmc_ensemble.py:seat_results for the formula)
+# (see analysis/scripts/mcmc_ensemble.py:seat_results for the formula)
 # ... your independent reimplementation here ...
 
 # Confirm match
@@ -83,7 +83,7 @@ If your independent reimplementation produces the same `efficiency_gap`, `seats_
 This is the audit's authoritative simulation. Outputs all five files the article cites.
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_mcmc_ensemble_250k_v0_8.py \
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_250k_v0_8.py \
     --n-steps 2000000 --n-chains 4 --chunk-size 5000 --seed 88
 ```
 
@@ -105,10 +105,10 @@ This is the symmetry test that confirms a non-neutral procedure can reach the mi
 
 ```bash
 # UCP-maximizing direction: confirms a non-neutral procedure can reach 52.87% (within rounding of the minority's 52.8%)
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_targeted_gerrymander_burst.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/targeted_gerrymander_burst.py
 
 # NDP-maximizing direction (symmetric mirror): confirms targeted procedures can drive seats@50/50 down to 37.93% (well below the majority's 43.7%)
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_targeted_gerrymander_burst_ndp.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/targeted_gerrymander_burst_ndp.py
 ```
 
 Each takes ~6 min. Outputs at `data/v0_1_targeted_burst_*.json` and `_trace.csv`.
@@ -122,7 +122,7 @@ Method: Cannon, Goldbloom-Helzner, Gupta, Matthews, Suwal (2022) short-bursts hi
 Computes per-voter representation weight for rural vs urban districts under all three maps; counts hybrid EDs and s.15(2) declarations.
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_rural_protection_test.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/rural_protection_test.py
 ```
 
 Wall time: <30 seconds. Headline numbers to verify:
@@ -138,7 +138,7 @@ Wall time: <30 seconds. Headline numbers to verify:
 Tests how sensitive the seats@50/50 finding is to different attribution choices for the 6 minority-map districts that don't catch a 2023 voting-area centroid.
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_fuzz_missing_eds.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/fuzz_missing_eds.py
 ```
 
 Wall time: ~30 seconds. Headline numbers to verify:

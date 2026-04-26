@@ -65,7 +65,7 @@ If you cloned the repo with `git lfs pull`, all four are already on your disk. O
 
 ### Step 1.4 — Save the cross-validation script
 
-In RStudio, **File → New File → R Script**. Paste the entire block below into the empty top-left pane and save it as `analysis/scripts/v0_1_redist_crossvalidation.R`.
+In RStudio, **File → New File → R Script**. Paste the entire block below into the empty top-left pane and save it as `analysis/scripts/redist_crossvalidation.R`.
 
 ```r
 # ============================================================

@@ -24,7 +24,7 @@ Three minority 2026 EDs whose v3 approximations were structurally wrong:
 - **Calgary-De Winton** (ED 8)
 - **Calgary-South** (ED 26)
 
-The v3 pipeline (`v0_1_shape_refinement_v3.py`) had classified these as
+The v3 pipeline (`shape_refinement_v3.py`) had classified these as
 `refinement-unresolvable-without-shapefile`, correctly noting that the
 OSM-snap family cannot reconstruct a carve boundary that follows no OSM
 feature class. That classification remains true at the *shapefile-level*
@@ -263,7 +263,7 @@ replications, base-rate comparisons) a choice: use v3 for conservative
 
 | Path | Purpose |
 |---|---|
-| `analysis/scripts/v0_1_shape_refinement_v4.py` | Reproducible pipeline |
+| `analysis/scripts/shape_refinement_v4.py` | Reproducible pipeline |
 | `analysis/v0_1_shape_refinement_v4_log.json` | Per-ED anchors + error bands (machine-readable) |
 | `data/v0_1_refined_v4_minority_2026_eds.gpkg` | v4 minority polygons (three EDs updated, rest unchanged from v3) |
 | `data/v0_1_boundary_refinement_impact_v4.csv` | Per-ED v3-to-v4 VA-impact table |
@@ -274,7 +274,7 @@ replications, base-rate comparisons) a choice: use v3 for conservative
 ## Reproducibility
 
 ```
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_shape_refinement_v4.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/shape_refinement_v4.py
 ```
 
 Depends on `osmnx >= 2.0`, `geopandas`, `shapely >= 2.0`, `pyproj`,

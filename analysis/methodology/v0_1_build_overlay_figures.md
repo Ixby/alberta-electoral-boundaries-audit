@@ -1,7 +1,7 @@
 # Article Overlay Figures — Majority vs Minority 2026 ED Proposals
 
 **Generated:** 2026-04-22
-**Script:** `analysis/scripts/v0_1_build_overlay_figures.py`
+**Script:** `analysis/scripts/build_overlay_figures.py`
 **Output directory:** `maps/article/`
 
 ## Purpose
@@ -239,7 +239,7 @@ wide-reaching dashed-navy perimeter.
 
 ```
 cd alberta_audit
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_build_overlay_figures.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/build_overlay_figures.py
 ```
 
 Outputs are deterministic given the input gpkgs; no random seeds involved.

@@ -1,6 +1,6 @@
 # Multi-chain MCMC convergence summary
 
-**Script:** `analysis/scripts/v0_1_mcmc_multichain_ensemble.py`
+**Script:** `analysis/scripts/mcmc_multichain_ensemble.py`
 
 **Seeds:** [42, 101, 2024]  
 
@@ -45,7 +45,7 @@ The paper's S5.4 percentile claims should be held until the ensemble converges. 
 ## Reproducibility
 
 ```bash
-python analysis/scripts/v0_1_mcmc_multichain_ensemble.py --seeds 42,101,2024 --steps 150000 --burnin 0.1
+python analysis/scripts/mcmc_multichain_ensemble.py --seeds 42,101,2024 --steps 150000 --burnin 0.1
 ```
 
 Independent seeds ensure a peer reviewer can rerun with any permutation of seeds and, if the ensemble has converged, obtain statistically indistinguishable percentile ranks.

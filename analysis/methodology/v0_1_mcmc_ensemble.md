@@ -121,8 +121,8 @@ The uncovered VAs are in areas the proposals did not cover (majority is a Tier A
 
 ## Reproducibility
 
-- **Script:** `analysis/scripts/v0_1_mcmc_ensemble.py`
-- **Usage:** `PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_mcmc_ensemble.py [n_steps]` (default 5000)
+- **Script:** `analysis/scripts/mcmc_ensemble.py`
+- **Usage:** `PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble.py [n_steps]` (default 5000)
 - **Seed:** 42 (numpy + stdlib random both seeded)
 - **Samples CSV:** `data/v0_1_mcmc_ensemble_samples.csv` (10,000 rows, seven columns including UCP-seats and vote-share)
 - **Percentile summary CSV:** `data/v0_1_mcmc_ensemble_percentiles.csv`

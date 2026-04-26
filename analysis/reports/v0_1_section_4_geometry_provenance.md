@@ -25,7 +25,7 @@ The final report PDF is not included in this working bundle (84 MB — outside t
 
 ## 4C — Poll-Location-Based Vote Attribution
 
-**Pipeline status.** The skeleton (`analysis/scripts/v0_1_poll_attribution_skeleton.py`) correctly implements stages 1–2 (parse the 2023 Statement of Vote, structure the dataframe). Verified in this session:
+**Pipeline status.** The skeleton (`analysis/scripts/poll_attribution_skeleton.py`) correctly implements stages 1–2 (parse the 2023 Statement of Vote, structure the dataframe). Verified in this session:
 
 ```
 Parsed 1,973 poll records across 87 EDs

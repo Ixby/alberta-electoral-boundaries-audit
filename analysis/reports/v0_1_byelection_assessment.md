@@ -7,7 +7,7 @@ forward_dependencies:
 backward_dependencies:
   - data/v0_1_alberta_byelections_2019_2026.csv — byelection vote data
   - analysis/scripts/v0_3_monte_carlo_ci.py — RT3 framework this assessment tests against
-  - analysis/scripts/v0_1_cross_election_rural_baseline.py — 2015/2019/2023 rural baseline
+  - analysis/scripts/cross_election_rural_baseline.py — 2015/2019/2023 rural baseline
   - analysis/v0_1_fortification_a1_a5.md §A1 — the CI-crosses-zero concern this track was to address
 ---
 

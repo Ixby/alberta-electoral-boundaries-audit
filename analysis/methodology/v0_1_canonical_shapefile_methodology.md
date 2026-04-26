@@ -301,4 +301,4 @@ exact spatial path of the boundary cannot be verified without official shapefile
 | `data/v0_1_canonical_majority_2026_eds.gpkg` | 89 majority district polygons, EPSG:3401, with tier metadata |
 | `data/v0_1_canonical_minority_2026_eds.gpkg` | 89 minority district polygons, EPSG:3401, with tier metadata |
 | `analysis/methodology/v0_1_canonical_shapefile_log.md` | Full build log with per-district provenance |
-| `analysis/scripts/v0_1_build_canonical_shapefiles.py` | Reproducible construction script |
+| `analysis/scripts/build_canonical_shapefiles.py` | Reproducible construction script |

@@ -316,7 +316,7 @@ gaps, not hallucinations.**
   this figure. Not independently verified in this session.
 - **338Canada April 12, 2026 snapshot (63 UCP / 24 NDP / UCP majority
   >99%):** Cited from `analysis/methodology/v0_1_338canada_riding_level.md` which
-  depends on `analysis/scripts/v0_1_338canada_scraper.py`. The scraper's output
+  depends on `analysis/scripts/338canada_scraper.py`. The scraper's output
   is in `data/v0_1_338canada_historical_snapshots.csv` and
   `data/v0_1_338canada_per_riding_87seat.csv`. Not re-verified this
   session but provenance is traceable.

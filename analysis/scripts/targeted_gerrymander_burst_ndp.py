@@ -1,0 +1,176 @@
+"""Symmetric short-bursts targeted-gerrymander test: NDP direction.
+
+Mirror of `v0_1_targeted_gerrymander_burst.py`. Same Cannon et al. 2022
+short-bursts methodology, same statutory constraints, same seed, same
+40,000-step budget — but the hill-climbing objective is *minimise*
+UCP seats@50/50 (equivalently, maximise NDP seats@50/50). Tests
+whether a non-neutral but legal procedure can reach the majority
+map's `seats@50/50` territory, mirroring the test that showed the
+targeted procedure CAN reach the minority map's UCP-favouring
+territory (52.87%).
+
+This is the symmetry check the audit's own discipline requires: every
+test applied to one map must be applied to the others.
+"""
+# Version: 0.1 series  (last updated 2026-04-26)
+
+import sys
+sys.path.insert(0, 'analysis/scripts')
+import time
+import json
+from pathlib import Path
+from functools import partial
+
+import numpy as np
+import pandas as pd
+
+from mcmc_ensemble import (
+    build_va_graph, initial_assignment_2019, seat_results,
+)
+from gerrychain import Graph, Partition, MarkovChain, accept, constraints, updaters
+from gerrychain.proposals import recom
+from gerrychain.tree import recursive_tree_part, bipartition_tree
+
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
+OUT_DIR = REPO_ROOT / "data"
+OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_targeted_burst_ndp.log"
+OUT_TRACE = OUT_DIR / "v0_1_targeted_burst_ndp_trace.csv"
+OUT_BEST = OUT_DIR / "v0_1_targeted_burst_ndp_best.json"
+
+POP_DEVIATION = 0.25
+BURST_LENGTH = 50
+N_BURSTS = 800
+SEED = 137  # same seed as the UCP-maximization run for symmetry
+
+
+def _ts():
+    return time.strftime("%H:%M:%S")
+
+
+def score(partition):
+    """Return (score, metrics). For the NDP-maximizing variant, we
+    minimise seats@50/50 — i.e. the most-NDP-favouring map has the
+    LOWEST seats@50/50, and we hill-climb DOWNWARD."""
+    ucp = np.array(list(partition["ucp"].values()), dtype=float)
+    ndp = np.array(list(partition["ndp"].values()), dtype=float)
+    s = seat_results(ucp, ndp)
+    return s["seats_at_50_50"], s
+
+
+def main():
+    print(f"[{_ts()}] short-bursts NDP-maximization start (symmetric mirror of UCP run)", flush=True)
+    print(f"  burst length = {BURST_LENGTH}, n_bursts = {N_BURSTS}, "
+          f"total steps = {BURST_LENGTH * N_BURSTS}", flush=True)
+    print(f"  seed = {SEED}, objective: minimise UCP seats@50/50", flush=True)
+
+    np.random.seed(SEED)
+    import random as _random
+    _random.seed(SEED)
+
+    va, graph = build_va_graph()
+    print(f"  graph built: {len(graph.nodes())} nodes, {len(graph.edges())} edges", flush=True)
+
+    assignment = initial_assignment_2019(va)
+    num_dist = len(set(assignment.values()))
+    total_pop = sum(graph.nodes[n]["pop_2021"] for n in graph.nodes())
+    ideal_pop = total_pop / num_dist
+
+    my_updaters = {
+        "population": updaters.Tally("pop_2021", alias="population"),
+        "ucp": updaters.Tally("va_ucp", alias="ucp"),
+        "ndp": updaters.Tally("va_ndp", alias="ndp"),
+        "cut_edges": updaters.cut_edges,
+    }
+    seed_part = Partition(graph, assignment, my_updaters)
+    seed_pops = list(seed_part["population"].values())
+    seed_max_dev = max(abs(p - ideal_pop) for p in seed_pops) / ideal_pop
+    if seed_max_dev > POP_DEVIATION:
+        print(f"  2019 seed exceeds +/-{POP_DEVIATION:.0%}; regenerating tight seed", flush=True)
+        np.random.seed(42)
+        _random.seed(42)
+        new_assignment = recursive_tree_part(
+            graph, parts=list(range(num_dist)),
+            pop_target=ideal_pop, pop_col="pop_2021",
+            epsilon=POP_DEVIATION / 2.0, node_repeats=5,
+            method=partial(bipartition_tree, max_attempts=50000),
+        )
+        np.random.seed(SEED)
+        _random.seed(SEED)
+        seed_part = Partition(graph, new_assignment, my_updaters)
+        seed_pops = list(seed_part["population"].values())
+
+    pop_constraint = constraints.within_percent_of_ideal_population(seed_part, POP_DEVIATION)
+    proposal = partial(
+        recom, pop_col="pop_2021", pop_target=ideal_pop,
+        epsilon=POP_DEVIATION / 2.0, node_repeats=2,
+    )
+
+    current = seed_part
+    cur_score, cur_metrics = score(current)
+    print(f"  initial seats@50/50 = {cur_score:.4f}  "
+          f"(ucp_seats={cur_metrics['ucp_seats']}/{cur_metrics['n_districts']})", flush=True)
+
+    best_score = cur_score
+    best_metrics = cur_metrics
+    trace = []
+    t_start = time.time()
+
+    for burst_i in range(N_BURSTS):
+        chain = MarkovChain(
+            proposal=proposal,
+            constraints=[pop_constraint],
+            accept=accept.always_accept,
+            initial_state=current,
+            total_steps=BURST_LENGTH,
+        )
+
+        # NDP-maximization: lowest seats@50/50 wins
+        burst_best_score = cur_score
+        burst_best_part = current
+        for part in chain:
+            s_score, s_metrics = score(part)
+            if s_score < burst_best_score:
+                burst_best_score = s_score
+                burst_best_part = part
+                if s_score < best_score:
+                    best_score = s_score
+                    best_metrics = s_metrics
+
+        current = burst_best_part
+        cur_score = burst_best_score
+        trace.append({"burst": burst_i, "best_so_far": best_score, "burst_best": burst_best_score})
+
+        if (burst_i + 1) % 25 == 0 or burst_i == 0:
+            elapsed = time.time() - t_start
+            steps_done = (burst_i + 1) * BURST_LENGTH
+            rate = steps_done / elapsed if elapsed > 0 else 0
+            eta_s = (N_BURSTS - burst_i - 1) * BURST_LENGTH / rate if rate > 0 else 0
+            print(f"[{_ts()}] burst {burst_i+1}/{N_BURSTS}  "
+                  f"best so far (LOWEST UCP s@50) = {best_score:.4f}  "
+                  f"({steps_done:,} steps, {rate:.1f} steps/s, eta {eta_s/60:.1f} min)",
+                  flush=True)
+
+    elapsed = time.time() - t_start
+    print(f"[{_ts()}] done in {elapsed:.1f}s ({elapsed/60:.2f} min)", flush=True)
+    print(f"  BEST (lowest) seats@50/50: {best_score:.4f}", flush=True)
+    print(f"  BEST metrics: {best_metrics}", flush=True)
+
+    pd.DataFrame(trace).to_csv(OUT_TRACE, index=False)
+    with open(OUT_BEST, "w") as f:
+        json.dump({
+            "best_seats_at_50_50": best_score,
+            "best_metrics": {k: float(v) if isinstance(v, (int, float)) else v
+                              for k, v in best_metrics.items()},
+            "n_bursts": N_BURSTS,
+            "burst_length": BURST_LENGTH,
+            "total_steps": N_BURSTS * BURST_LENGTH,
+            "elapsed_seconds": elapsed,
+            "seed": SEED,
+            "pop_deviation": POP_DEVIATION,
+            "objective": "minimise UCP seats@50/50 (NDP-maximization symmetric mirror)",
+        }, f, indent=2)
+    print(f"  wrote {OUT_TRACE.name} and {OUT_BEST.name}", flush=True)
+
+
+if __name__ == "__main__":
+    main()

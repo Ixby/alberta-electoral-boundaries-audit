@@ -7,7 +7,7 @@ specific past elections, so a general reader can see whether that kind
 of shift is the kind that matters.
 
 **Inputs.** `data/v0_1_alberta_{2015,2019,2023}_results.csv`.
-**Script.** `analysis/scripts/v0_1_marginal_seats_analysis.py`.
+**Script.** `analysis/scripts/marginal_seats_analysis.py`.
 
 **Method.** For each election, compute each ED's two-party NDP share
 (NDP ÷ (NDP + UCP); for 2015, PC+WRP stands in for UCP). Signed margin

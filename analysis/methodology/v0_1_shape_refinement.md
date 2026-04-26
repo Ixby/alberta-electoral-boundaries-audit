@@ -187,7 +187,7 @@ drew lines (rivers, rails, arterials), with the following caveats:
 
 ## Reproducibility
 
-The full pipeline is in `analysis/scripts/v0_1_shape_refinement.py`. Re-running it
+The full pipeline is in `analysis/scripts/shape_refinement.py`. Re-running it
 requires:
 
 - `pdfplumber`, `geopandas`, `shapely`, `pyproj`, `osmnx`, `matplotlib`, `pandas`, `numpy`.

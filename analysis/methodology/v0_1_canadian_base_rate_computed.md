@@ -6,8 +6,8 @@ forward_dependencies:
   - data/v0_1_canadian_redistribution_base_rate.csv — updated with quantified rows
   - report_academic.md (§3.3 can cite this file if parent chooses; §5.2.1 consumes the §7A recalibration)
 backward_dependencies:
-  - analysis/scripts/v0_1_canadian_base_rate_compute.py (the original n=7 computation)
-  - analysis/scripts/v0_1_canadian_base_rate_recalibrate.py (the 2026-04-23 recalibration)
+  - analysis/scripts/canadian_base_rate_compute.py (the original n=7 computation)
+  - analysis/scripts/canadian_base_rate_recalibrate.py (the 2026-04-23 recalibration)
   - analysis/scripts/v0_2_packing_cracking_analysis.py (EG formula used in audit)
   - data/v0_1_338canada_reallocated_majority.csv, data/v0_1_338canada_reallocated_minority.csv (audit's Alberta 2025-26 anchor)
 ---
@@ -276,7 +276,7 @@ acknowledges the base-rate gap and notes that Stephanopoulos-McGhee
 > asymmetry of 0.5 pp is within the Canadian range; Alberta 2025-26's
 > high-end estimate of 1.6 pp is above it. Method:
 > `analysis/methodology/v0_1_canadian_base_rate_computed.md` and
-> `analysis/scripts/v0_1_canadian_base_rate_compute.py`."
+> `analysis/scripts/canadian_base_rate_compute.py`."
 
 ### 6.1 Does the base rate support or weaken the audit's headline?
 

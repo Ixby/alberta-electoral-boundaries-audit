@@ -757,7 +757,7 @@ analyses contain findings that run *against* the parent's prior:
   Calgary-Nolan Hill-Cochrane hybrid. The sub-agent's analysis did not
   refute the minority's claim; it found partial support. The parent
   session reported this in §4.4 rather than suppressing it.
-- `analysis/scripts/v0_1_csd_community_splits.py` produces a CSD-level
+- `analysis/scripts/csd_community_splits.py` produces a CSD-level
   community-splits finding that is *null* across the three maps (all
   three have 40 CSD splits on the confident-only subset). This is a
   null finding that does not support the audit's community-of-interest
@@ -818,7 +818,7 @@ Proposed insertion in report_academic.md §Appendix (Reproducibility):
 > acquisition sub-agent prompts. Three sub-agent outputs ran against
 > the parent's prior and were honoured in the paper:
 > `analysis/methodology/v0_1_cochrane_journey_to_work.md` (partial support for the
-> minority's commuter-tie claim), `analysis/scripts/v0_1_csd_community_splits.py`
+> minority's commuter-tie claim), `analysis/scripts/csd_community_splits.py`
 > (null at CSD granularity), `analysis/reports/v0_1_plan_b_cross_check.md` (data-
 > basis reframing). Reproducibility-decay-resistant publication of
 > prompts permits external audit of framing."**
@@ -1448,7 +1448,7 @@ Cycle-lag analysis: `analysis/v0_1_cycle_lag_analysis.md`
 Minority rationales validation: `analysis/methodology/v0_1_minority_rationales_validation.md`
 Checklist baseline scoring: `analysis/reports/v0_1_track_c_checklist_baseline_scoring.md`
 Journey-to-work: `analysis/methodology/v0_1_cochrane_journey_to_work.md`
-CSD splits: `analysis/scripts/v0_1_csd_community_splits.py`
+CSD splits: `analysis/scripts/csd_community_splits.py`
 Base-rate catalogue: `data/v0_1_canadian_redistribution_base_rate.csv`
 Reproducibility pinning: `requirements.txt`, `setup.md`,
 `FROZEN_MANIFEST.md` at repo root.

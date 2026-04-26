@@ -7,7 +7,7 @@ forward_dependencies:
 backward_dependencies:
   - analysis/methodology/v0_1_commission_reference_shapes.md (PO 2026-04-23 corrections recorded here)
   - analysis/methodology/v0_1_shape_refinement_v4.md (the superseded Tier C approximation)
-  - analysis/scripts/v0_1_shape_refinement_v4.py (pipeline v5 extends)
+  - analysis/scripts/shape_refinement_v4.py (pipeline v5 extends)
   - maps/hires/v0_1_minority_p360_map74.png (commission Calgary overview, 600 DPI)
   - maps/hires/v0_1_minority_p361_map75.png (commission Edmonton overview, 600 DPI)
   - data/alberta_2019_eds/ (2019 parent polygons)
@@ -202,7 +202,7 @@ If the report authors wish to keep v4 visible, a parallel-annex posture is defen
 
 | Path | Purpose |
 |---|---|
-| `analysis/scripts/v0_1_shape_refinement_v5.py` | Reproducible pipeline |
+| `analysis/scripts/shape_refinement_v5.py` | Reproducible pipeline |
 | `analysis/v0_1_shape_refinement_v5_log.json` | Per-ED anchors + error bands (machine-readable) |
 | `data/v0_1_refined_v5_minority_2026_eds.gpkg` | v5 minority polygons (three EDs updated, 67 carry forward from v4) |
 | `data/v0_1_boundary_refinement_impact_v5.csv` | Per-ED v4-to-v5 VA-impact table |
@@ -216,7 +216,7 @@ If the report authors wish to keep v4 visible, a parallel-annex posture is defen
 ## Reproducibility
 
 ```
-PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_shape_refinement_v5.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/shape_refinement_v5.py
 ```
 
 Depends on `osmnx >= 2.0`, `geopandas`, `shapely >= 2.0`, `pyproj`, `numpy`, `pandas`, `matplotlib`. Network access to Overpass API required on first run; OSM query results are cached in the v4 OSM cache.

@@ -19,9 +19,9 @@ CLI instead of a paragraph of prose.
 | `analysis/methodology/audit_dependency_graph.json` | Machine-readable DAG (nodes, edges, metadata). |
 | `analysis/methodology/audit_dependency_graph.dot` | Graphviz DOT source, generated from the JSON. |
 | `maps/audit_dependency_graph.svg` | Rendered visualisation (via `dot -Tsvg` or the pure-Python fallback). |
-| `analysis/scripts/v0_1_dependency_graph_build.py` | Builder — produces the JSON and the DOT from the repo state. |
-| `analysis/scripts/v0_1_dependency_graph_render.py` | Renderer — emits the SVG (prefers Graphviz; falls back to pure-Python). |
-| `analysis/scripts/v0_1_dependency_query.py` | Query CLI — answers invalidation questions. |
+| `analysis/scripts/dependency_graph_build.py` | Builder — produces the JSON and the DOT from the repo state. |
+| `analysis/scripts/dependency_graph_render.py` | Renderer — emits the SVG (prefers Graphviz; falls back to pure-Python). |
+| `analysis/scripts/dependency_query.py` | Query CLI — answers invalidation questions. |
 
 ## 2. Schema
 
@@ -68,10 +68,10 @@ calls produced during construction, and the topological-sort result.
    ensembles, Chen-Rodden decomposition, perturbation samples).
 3. **L2 (scripts)**: union of (a) all `analysis/scripts/*.py` carrying a
    `Forward:` / `Backward:` docstring header, and (b) the curated manifest
-   inside `v0_1_dependency_graph_build.py` that names scripts without
+   inside `dependency_graph_build.py` that names scripts without
    headers so nothing drops out of the graph. Graph-meta scripts
-   (`v0_1_dependency_graph_build.py`, `v0_1_dependency_graph_render.py`,
-   `v0_1_dependency_query.py`) are deliberately excluded — they operate
+   (`dependency_graph_build.py`, `dependency_graph_render.py`,
+   `dependency_query.py`) are deliberately excluded — they operate
    on the DAG, not on the audit's evidentiary chain.
 4. **L3 (findings)**: hand-encoded from `report_academic.md` §5.1 through
    §5.9. Each discrete quantitative result or signature verdict becomes a
@@ -90,8 +90,8 @@ Rebuild from scratch (with repo at a committed state):
 
 ```bash
 cd alberta_audit
-python analysis/scripts/v0_1_dependency_graph_build.py
-python analysis/scripts/v0_1_dependency_graph_render.py
+python analysis/scripts/dependency_graph_build.py
+python analysis/scripts/dependency_graph_render.py
 ```
 
 The build script prints counts, top-5 in/out-degree nodes, orphans, and
@@ -103,7 +103,7 @@ With Graphviz installed (`apt install graphviz` / `brew install
 graphviz`), rendering uses `dot -Tsvg`:
 
 ```bash
-python analysis/scripts/v0_1_dependency_graph_render.py
+python analysis/scripts/dependency_graph_render.py
 ```
 
 Without Graphviz, the renderer emits a pure-Python SVG that bands the
@@ -113,30 +113,30 @@ by type (solid/dashed/dotted for required/corroborating/validating). To
 force the pure-Python path even when Graphviz is present:
 
 ```bash
-python analysis/scripts/v0_1_dependency_graph_render.py --pure
+python analysis/scripts/dependency_graph_render.py --pure
 ```
 
 ## 5. Invalidation queries
 
 ```bash
 # Single-node invalidation
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --invalidate L1:constructed.dpg_v0_2_topoclean
 
 # Multi-node invalidation (pass --invalidate twice)
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --invalidate L0:data.2021_da_populations \
     --invalidate L0:data.2021_das_gpkg
 
 # Describe a node's incoming and outgoing edges
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --describe L3:finding.mcmc_minority_declination_p1_6
 
 # List all findings
-python analysis/scripts/v0_1_dependency_query.py --list-findings
+python analysis/scripts/dependency_query.py --list-findings
 
 # Run the canonical five worked examples (see §6)
-python analysis/scripts/v0_1_dependency_query.py --run-worked-examples
+python analysis/scripts/dependency_query.py --run-worked-examples
 ```
 
 ### Semantics
@@ -162,13 +162,13 @@ The robustness rate is the fraction of §5 findings that survive.
 ## 6. Worked examples
 
 All five queries reported below are reproducible with
-`v0_1_dependency_query.py --run-worked-examples` against the committed
+`dependency_query.py --run-worked-examples` against the committed
 graph. Counts are against **74 total L3 findings**.
 
 ### 6.1 Invalidate v0_2 topology-clean DPG
 
 ```bash
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --invalidate L1:constructed.dpg_v0_2_topoclean
 ```
 
@@ -190,7 +190,7 @@ ensemble, and procedural evidence are entirely insulated.
 ### 6.2 Invalidate 2023 Statement of Vote
 
 ```bash
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --invalidate L0:data.2023_statement_of_vote
 ```
 
@@ -218,7 +218,7 @@ on votes provide the irreducible evidentiary core.
 ### 6.3 Invalidate commission map PNGs
 
 ```bash
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --invalidate L0:data.commission_map_pngs
 ```
 
@@ -247,7 +247,7 @@ and procedural findings — is insulated.
 ### 6.4 Invalidate 2021 census DAs (DA populations + DA geometry)
 
 ```bash
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --invalidate L0:data.2021_da_populations \
     --invalidate L0:data.2021_das_gpkg
 ```
@@ -273,7 +273,7 @@ Commission-population + vote-only + CSD-level findings survive.
 ### 6.5 Invalidate the 100k MCMC ensemble
 
 ```bash
-python analysis/scripts/v0_1_dependency_query.py \
+python analysis/scripts/dependency_query.py \
     --invalidate L1:constructed.mcmc_ensemble_100k
 ```
 
@@ -305,7 +305,7 @@ The following 148-word paragraph can be inserted directly into §4.6
 > 234 nodes / 429 edges across four layers: raw data, constructed data,
 > measurement scripts, findings). The graph supports an invalidation
 > query — "if reviewer rejects node X, which §5 findings survive?" —
-> implemented as a CLI (`v0_1_dependency_query.py`). Running the query
+> implemented as a CLI (`dependency_query.py`). Running the query
 > against each of the five most-exposed attack surfaces shows that no
 > single invalidation orphans more than 65 % of findings: invalidating
 > the 2023 Statement of Vote (the most load-bearing L0 source) preserves
@@ -333,7 +333,7 @@ pass. They fall into three categories, all documented in the graph's
 2. **Unresolved braced variants** — script headers occasionally
    reference sibling variant files (e.g., `_full.gpkg` forms) that have
    no dedicated L1 node. These are aliased via a curated table in
-   `v0_1_dependency_graph_build.py`; any remaining unresolved references
+   `dependency_graph_build.py`; any remaining unresolved references
    are captured in `judgment_calls` for PO review.
 3. **Commentary lines inside headers** — a handful of scripts break
    `Backward:` across multiple indented lines whose tail carries a
@@ -377,7 +377,7 @@ scope are now present:
   (`audit_dependency_graph.json`, 164 KB, 234 nodes / 429 edges).
 - **Item 2 (Graphviz DOT render)** → done
   (`audit_dependency_graph.dot` + `maps/audit_dependency_graph.svg`).
-- **Item 3 (query script)** → done (`v0_1_dependency_query.py`).
+- **Item 3 (query script)** → done (`dependency_query.py`).
 - **Item 4 (methods-paper appendix)** → paragraph in §7 of this readme.
 
 Item 5 of the original scope (iterate the graph after a peer-review

@@ -196,7 +196,7 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 
 **S7-09 (LOW). Submission dataset columns include `round` with value 0 for one row — likely a data-entry artefact since rounds are 1 and 2. Clean up or document.**
 
-**S7-10 (LOW). 6,203 DAs: the audit loads this at `data/alberta_2021_da_populations.csv` and uses it in Appendix C. The one-row-per-DA convention is consistent throughout. LOW note: the `DAUID` column is a pure string ID; casting to numeric would break. Script `v0_1_a1_legal_baseline_2021_census.py` appears to preserve string typing (not verified in this pass).**
+**S7-10 (LOW). 6,203 DAs: the audit loads this at `data/alberta_2021_da_populations.csv` and uses it in Appendix C. The one-row-per-DA convention is consistent throughout. LOW note: the `DAUID` column is a pure string ID; casting to numeric would break. Script `a1_legal_baseline_2021_census.py` appears to preserve string typing (not verified in this pass).**
 
 ---
 

@@ -291,7 +291,7 @@ A defensible audit is one where **every finding at the top has multiple independ
 - **Layer 3 (synthesis).** §5.1 through §5.9 of the monograph.
 - **Layer 4 (defensibility).** §6 discussion + §4.1 integrity framework.
 
-Each layer has a **forward/backward dependency header** in many analysis scripts. Examples in the repo: the script `v0_1_phase_4bcdef_execution.py` lists its backward dependencies (input data paths) and forward dependencies (downstream writeups) explicitly.
+Each layer has a **forward/backward dependency header** in many analysis scripts. Examples in the repo: the script `phase_4bcdef_execution.py` lists its backward dependencies (input data paths) and forward dependencies (downstream writeups) explicitly.
 
 But the dependency structure is not **machine-readable as a whole**. You can grep a script to see what it depends on; you cannot easily ask the repo "if `2023_results.xlsx` is questioned, what findings survive?" or "which findings share a dependency on the v0_2 DPG specifically?"
 
@@ -311,7 +311,7 @@ All of the above. Concretely:
 
 1. A `analysis/methodology/audit_dependency_graph.json` file with nodes + edges + metadata. ~600 lines of JSON; derivable semi-automatically from the existing script headers + the 87 findings in the monograph.
 2. A Graphviz DOT render (`.dot` file) produced by a small script that reads the JSON. Visualisation goes in `maps/dependency_graph.svg`.
-3. A query script `analysis/scripts/v0_1_dependency_query.py` that answers: "if I invalidate X, list all consequences."
+3. A query script `analysis/scripts/dependency_query.py` that answers: "if I invalidate X, list all consequences."
 4. An appendix in the methods paper (Issue #10) describing the DAG framework as a genuine novel contribution (I don't know of another public-interest audit that has published this).
 
 **Effort**: 1–2 weeks of focused work to enumerate all nodes + edges carefully and build the query tooling. Not blocked on any external data. Good work for a follow-up contract or a graduate student.
