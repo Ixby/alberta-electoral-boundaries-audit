@@ -11,8 +11,10 @@ This document walks through cross-validating the audit using three tools the uni
 | Phase | Tool | What it adds | Time | Cost |
 |---|---|---|---|---|
 | **1** | **R + `redist` package** | Independent algorithm in a different language reproduces the headline `seats@50/50` finding | 1 evening setup + ~90 min run | Free |
-| **2** | **QGIS** | Visual inspection of the v0_8 polygon reconstructions against commission map images | 2 hours setup + 1 afternoon inspection | Free |
-| **3** | **ArcGIS** | Polished publication-grade figures for journal submission (optional) | 1 hour setup + 1 day work | Free via MRU site licence |
+| **2** | **QGIS** *or* **ArcGIS Pro via MRU vLab** | Visual inspection of the v0_8 polygon reconstructions against commission map images | 2 hours setup + 1 afternoon inspection | Free; MRU is an Esri campus, ArcGIS Pro is the supported standard via the vLab |
+| **3** | **ArcGIS Pro** for figures | Polished publication-grade figures for journal submission (optional) | 1 hour setup + 1 day work | Free via MRU vLab (Apporto) |
+
+**Note on Maptitude.** Mount Royal University does not have institutional access to Maptitude for Redistricting (Caliper Corporation), confirmed via the MRU software directory. MRU is an Esri-stack campus: the supported GIS tools through the MRU vLab (powered by Apporto) are ArcGIS Pro and ArcGIS Online, plus ENVI, geoScout, and CS Land for adjacent specialties. Maptitude would have to be purchased out of pocket (academic-pricing inquiries to Caliper directly) or accessed at a different institution. The plan below uses ArcGIS Pro (or QGIS as the open-source equivalent) for all GIS work.
 
 You can stop after Phase 1 and the audit gains a meaningful credibility boost. Phase 2 is high-value but requires more domain knowledge of the geography. Phase 3 is only worth doing if you decide to submit the work to an academic journal.
 
