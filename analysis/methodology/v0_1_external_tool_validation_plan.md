@@ -14,7 +14,7 @@ This document walks through cross-validating the audit using three tools the uni
 | **2** | **QGIS** *or* **ArcGIS Pro via MRU vLab** | Visual inspection of the v0_8 polygon reconstructions against commission map images | 2 hours setup + 1 afternoon inspection | Free; MRU is an Esri campus, ArcGIS Pro is the supported standard via the vLab |
 | **3** | **ArcGIS Pro** for figures | Polished publication-grade figures for journal submission (optional) | 1 hour setup + 1 day work | Free via MRU vLab (Apporto) |
 
-**Note on Maptitude.** Mount Royal University does not have institutional access to Maptitude for Redistricting (Caliper Corporation), confirmed via the MRU software directory. MRU is an Esri-stack campus: the supported GIS tools through the MRU vLab (powered by Apporto) are ArcGIS Pro and ArcGIS Online, plus ENVI, geoScout, and CS Land for adjacent specialties. Maptitude would have to be purchased out of pocket (academic-pricing inquiries to Caliper directly) or accessed at a different institution. The plan below uses ArcGIS Pro (or QGIS as the open-source equivalent) for all GIS work.
+**Note on Maptitude.** Mount Royal University does not have institutional access to Maptitude for Redistricting (Caliper Corporation), confirmed via the MRU software directory. MRU is an Esri-stack campus: the supported GIS tools through the MRU vLab (powered by Apporto) are ArcGIS Pro and ArcGIS Online, plus ENVI, geoScout, and CS Land for adjacent specialties. **Caliper does offer a 14-day free trial of Maptitude for Redistricting**, which is enough time for a focused measurement-cross-validation pass (Phase 2.5 below). The free trial is the practical way to add Maptitude as a validator without acquiring the licence.
 
 You can stop after Phase 1 and the audit gains a meaningful credibility boost. Phase 2 is high-value but requires more domain knowledge of the geography. Phase 3 is only worth doing if you decide to submit the work to an academic journal.
 
@@ -270,6 +270,54 @@ For the audit to be considered "visually validated":
 - For any ED that deviates significantly, the deviation is documented in `data/INTEGRITY_STATUS.md` and the audit's findings citing that ED carry the deviation as a caveat
 
 If 5 or 6 EDs align within tolerance, the visual inspection is a clean pass. If only 4 align, document the two that don't. If 3 or fewer align, **stop** and investigate the geometry pipeline — there's a systematic bug.
+
+---
+
+## Phase 2.5 — Maptitude measurement cross-validation (free-trial scope)
+
+**Goal:** independently re-measure the audit's three real maps (2019 enacted, 2026 majority, 2026 minority) in Maptitude for Redistricting — the industry-standard commercial tool — and confirm the measurements match the audit's published values. This cross-validates the **measurement layer** (efficiency gap, compactness, anchoring percentages, voter-equality scores) using a completely different toolchain. It does NOT cross-validate the simulation ensemble (Maptitude doesn't generate ensembles); R `redist` is the right tool for that.
+
+**Why this is worth doing if you have access:** Maptitude is what US redistricting commissions actually use. A hostile expert reviewing the audit can no longer say "you only used academic-research tools" if the headline measurements come out the same in Maptitude as in the audit's Python pipeline.
+
+**Scope (sized to fit a 14-day free trial):** measurement re-run only. Do NOT use the trial to build counter-maps, run plan-evaluation suites, or explore Maptitude's interactive drawing features. The narrow scope keeps the work to one focused 4-hour session.
+
+### Step 2.5.1 — Get the free trial
+
+1. Visit <https://www.caliper.com/maptovu.htm> and click "Try Maptitude for Redistricting Free."
+2. Fill out the request form (Caliper requires a brief description of intended use — "academic cross-validation of an electoral-audit project, scope: measurement of three pre-existing maps" is the honest description and what they expect).
+3. Wait for the download link (typically arrives within 1 business day).
+4. Install on Windows. Plan ~30 minutes for the install + initial setup.
+
+### Step 2.5.2 — Load the audit's three maps
+
+In Maptitude, **File → Open** the GeoPackage files:
+
+- 2019 enacted: `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
+- 2026 majority: `data/shapefiles/derived/v0_8_full_refined_majority_2026_eds.gpkg`
+- 2026 minority: `data/shapefiles/derived/v0_8_full_refined_minority_2026_eds.gpkg`
+
+Maptitude will treat each one as a separate redistricting plan. Set the population layer to the StatsCan 2021 DA file (`data/shapefiles/reference/alberta_2021_das.gpkg`).
+
+### Step 2.5.3 — Run Maptitude's built-in measurement tools
+
+For each plan:
+
+1. **Population deviation report:** Maptitude → Districting → Population Statistics. Compare to the audit's published values (majority within ±7%; minority within ±12.7%).
+2. **Compactness report:** Maptitude → Districting → Compactness Measures. Maptitude reports Polsby-Popper, Reock, Schwartzberg by default. Compare per-district scores against the audit's `analysis/scripts/v0_1_compactness.py` outputs (run that script first if you don't already have the values).
+3. **Partisan-bias report:** Load 2023 vote data via Maptitude's Election Data import. Run the built-in efficiency-gap and seats-votes-curve reports. Compare to the audit's published efficiency gap (majority +6.4%, minority +9.2%).
+
+### Step 2.5.4 — Pass criterion + write-up
+
+For each metric on each map, the Maptitude value should be within ±0.5pp of the audit's published value. Document the comparison as `analysis/methodology/v0_1_maptitude_cross_validation.md` with:
+
+- Maptitude version and trial period dates
+- Per-metric, per-map comparison table
+- Any deviation > 0.5pp flagged with a maintainer-investigation note
+- Screenshots of the Maptitude reports for archival
+
+If everything matches: the measurement layer is independently validated by the industry-standard tool. Open a GitHub issue at `https://github.com/Ixby/alberta-electoral-boundaries-audit/issues` with the comparison table.
+
+If anything materially diverges: the most likely cause is a methodology difference (e.g., Maptitude's default efficiency gap may use the Stephanopoulos-McGhee 2014 formula vs. the modified Cover-McGhee 2019 update). Document the difference; investigate; do not silently update the audit.
 
 ---
 
