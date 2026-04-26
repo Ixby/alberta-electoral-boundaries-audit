@@ -116,11 +116,19 @@ def _run_chain_chunked(args):
     # final Partition from the previous chunk via return_final_partition=True.
     current_state = initial_assignment_2019(va)
 
+    # Seed RNG ONCE at the start of the chain (not per-chunk) so the chain
+    # consumes a single continuous stream of random numbers — matching the
+    # statistical assumptions of the Markov chain. Per-chunk reseeding
+    # (the prior pattern) created an artificial periodicity in the RNG
+    # phase space every `chunk_size` steps. Resume-from-crash already has
+    # an explicit state discontinuity (logged above), so per-chunk
+    # determinism wasn't delivering what it appeared to anyway.
+    chain_seed = base_seed * 100_000 + chain_idx * 1_000
+    _np.random.seed(chain_seed)
+    _random.seed(chain_seed)
+
     t_chain_start = time.time()
     for chunk_idx in range(chunks_done, n_chunks):
-        chunk_seed = base_seed * 100_000 + chain_idx * 1_000 + chunk_idx
-        _np.random.seed(chunk_seed)
-        _random.seed(chunk_seed)
         chunk_steps = min(chunk_size, n_steps_total - chunk_idx * chunk_size)
         t_chunk = time.time()
         rows, current_state = run_ensemble(

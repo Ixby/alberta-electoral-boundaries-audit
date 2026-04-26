@@ -197,7 +197,12 @@ def seat_results(
     # also matches v0_1_fuzz_missing_eds.py for cross-script consistency.
     shifted = np.clip(ucp_share + swing, 0.0, 1.0)
     # at 0.5 tied: treat as NDP win for symmetry (rounding).
-    ucp_wins_at_50 = int((shifted > 0.5).sum())
+    # The +1e-9 epsilon absorbs floating-point drift around exact ties so a
+    # district that should be exactly 0.5 doesn't get credited to UCP via
+    # rounding noise (e.g., shifted=0.5000000000000001). Real-data ties are
+    # vanishingly rare given large vote totals; the epsilon is purely for
+    # bit-level robustness.
+    ucp_wins_at_50 = int((shifted > 0.5 + 1e-9).sum())
     seats_at_50_50 = ucp_wins_at_50 / n
 
     return dict(
