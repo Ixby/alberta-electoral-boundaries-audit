@@ -107,16 +107,25 @@ SAMPLES_CSV = DATA / "v0_1_mcmc_ensemble_samples.csv"
 
 # ---- metrics ----------------------------------------------------------------
 
-def seat_results(ucp, ndp):
+def seat_results(
+    ucp: "np.ndarray",
+    ndp: "np.ndarray",
+) -> "dict[str, object]":
     """Given per-district UCP and NDP totals (numpy arrays), return dict of metrics.
 
-    Metrics:
-      - efficiency_gap (UCP perspective: positive = UCP-favoured)
-      - mean_median (median UCP share minus mean UCP share; positive = UCP-favoured)
-      - declination (in radians; positive = UCP-favoured)
-      - seats_at_50_50 (uniform swing: UCP seat share at province-wide 50/50 vote)
-      - ucp_seats (count of UCP wins at actual 2023 share)
-      - n_districts
+    Args:
+        ucp: per-district UCP vote totals (length = n_districts)
+        ndp: per-district NDP vote totals (length = n_districts)
+        Both arrays must be the same length and non-negative.
+
+    Returns dict with keys:
+        - efficiency_gap (float) — UCP perspective: positive = UCP-favoured
+        - mean_median (float)    — median UCP share minus mean UCP share
+        - declination (float)    — in radians; positive = UCP-favoured (NaN if either party wins 0 seats)
+        - seats_at_50_50 (float) — uniform-swing UCP seat share at province-wide 50/50
+        - ucp_seats (int)        — count of UCP wins at actual provincial share
+        - n_districts (int)      — number of districts after dropping any with zero total votes
+        - ucp_vote_share (float) — provincial UCP share as a fraction
     """
     ucp = np.asarray(ucp, dtype=float)
     ndp = np.asarray(ndp, dtype=float)
