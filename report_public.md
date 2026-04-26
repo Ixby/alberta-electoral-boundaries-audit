@@ -43,6 +43,10 @@ Three Canadian comparator pivots show what "departing from norm" looks like in p
 
 None of the three substituted a government-chaired drafting body for the commission partway through the cycle. That is what Alberta did on April 16.
 
+**Six days after the Alberta motion, the Supreme Court of Canada ruled against Quebec for doing something parallel.** On April 22, 2026, the SCC dismissed Quebec's appeal of a Quebec Court of Appeal ruling that had struck down the Legault government's 2024 law blocking Quebec's independent electoral-boundaries commission from redrawing the provincial map. The ruling was delivered from the bench — without reserved judgment — by a 7–2 majority. The Court of Appeal's holding the SCC upheld: the freeze law violated sections of the Charter that guarantee democratic representation by allowing significant disparities in voter weight to persist. The freeze had been justified on rural-representation grounds (Quebec's CAQ government and other parties argued the redrawing would weaken Gaspé and other rural ridings). The constitutional doctrine: a provincial legislature cannot block an independent commission's redistricting work in order to preserve voter-weight disparities, even when the justification is regional representation.
+
+Alberta's April 16 motion is now operating against a constitutional landscape that has, six days later, become significantly less hospitable to legislative override of independent commission work. Whether the Alberta situation is constitutionally distinguishable from Quebec's is for the courts to decide; the audit's own framing simply notes that the parallel has now been adjudicated against.
+
 ---
 
 ## How the audit measures gerrymandering
@@ -197,9 +201,9 @@ Before going further, the audit owes a direct answer to the strongest defence of
 
 > *Hybrid constituencies are not only a good reflection of Alberta, but also the best available instrument for preserving rural and suburban representation in the face of sustained urban growth. They avoid the false choice between (a) underrepresenting Calgary and Edmonton, and (b) creating ever-larger purely rural districts that become geographically unmanageable.*
 
-That argument deserves a fair test against the data.
+That argument deserves a fair test against the data — and it has now also been adjudicated. The Supreme Court of Canada, on April 22, 2026, dismissed Quebec's appeal of a Quebec Court of Appeal ruling that struck down Quebec's 2024 attempt to freeze its electoral map on similar regional-representation grounds. The 7–2 ruling, delivered from the bench, held that legislative interference with independent commission redistricting work — even when justified on regional-protection grounds — violates Charter section 3 by allowing significant disparities in voter weight to persist. The minority commissioners' rural-protection argument is now operating against Canadian constitutional doctrine that has, in the most recent SCC ruling on the question, gone the other way.
 
-That argument deserves a fair test against the data. There are two ways a map can protect rural representation. The first is the way the *Electoral Boundaries Commission Act* itself provides for: section 15(2) lets up to four electoral divisions be drawn with population *up to 50% below* the provincial average — a deliberate over-representation tool, baked into the statute, specifically to keep small rural communities from being arithmetically swamped. The second is by under-populating rural districts in general (without invoking 15(2)), giving rural voters more weight per ballot. Both mechanisms are visible in the population data the commission published.
+There are two ways a map can protect rural representation. The first is the way the *Electoral Boundaries Commission Act* itself provides for: section 15(2) lets up to four electoral divisions be drawn with population *up to 50% below* the provincial average — a deliberate over-representation tool, baked into the statute, specifically to keep small rural communities from being arithmetically swamped. The second is by under-populating rural districts in general (without invoking 15(2)), giving rural voters more weight per ballot. Both mechanisms are visible in the population data the commission published.
 
 How each map handles rural representation:
 
@@ -331,6 +335,7 @@ Both maps lean UCP on the partisan-fairness numbers, and the minority leans furt
 > 2. **The Lunty committee map looks like the minority.** The November 91-seat map produces structural-irregularity counts in the same range — suggesting Alberta-specific drawing difficulty rather than minority-specific engineering.
 > 3. **A pre-2026 internal commission document surfaces.** Showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices.
 > 4. **The 2027 election result, fought on either of these maps, contradicts the percentile readings.** If the partisan-fairness direction the audit projects from 2023 votes turns out to be wrong on actual votes, the Lane 1 finding gets revisited.
+> 5. **The Quebec 2026 Supreme Court ruling is materially distinguished by an Alberta court.** If a court reviewing the April 16 Alberta motion finds the Alberta situation is constitutionally distinct from Quebec's — for example, because the Lunty committee is structured differently from a legislative-freeze law, or because Alberta's effective-representation analysis differs from Quebec's — the audit's procedural critique of the motion weakens.
 
 ---
 
@@ -356,7 +361,7 @@ This article makes an inferential case. It is worth being precise about what tha
 
 **What the article rules out.** "Geography did this" is ruled out — the 2019 enacted map and the 2026 majority map operate under the same Alberta geography and the same statutory constraints, and neither produces the minority's structural pattern. "Random drafting noise" is ruled out at the level of cumulative directional consistency — five-of-five tests firing in the same direction is statistically distinguishable from chance. "The minority commissioners broke the law" is ruled out — both maps satisfy the *Electoral Boundaries Commission Act*.
 
-**What's outside the audit's scope.** The audit does not reach a constitutional conclusion. The *Reference re Saskatchewan* [1991] effective-representation framework is the standard a court would apply; whether the evidence here supports a challenge under that standard is for counsel and the courts to assess. The audit also does not project specific 2027 election outcomes — the partisan-fairness numbers are scored against 2023 votes (the most recent result) and the full monograph also reports the 2019-vote and current-polling readings; all of them are inputs to a verdict, not predictions.
+**What's outside the audit's scope.** The audit does not reach a constitutional conclusion. The standard a court would apply is the *Reference re Saskatchewan* [1991] effective-representation framework, reaffirmed and arguably strengthened by the Supreme Court of Canada's April 22, 2026 ruling on Quebec's electoral map (a 7–2 decision from the bench upholding the Quebec Court of Appeal's finding that legislative interference with independent commission redistricting violates Charter section 3). Whether the evidence in this audit supports a Charter challenge to either the minority commission map or the April 16 Alberta motion is for counsel and the courts to assess. The audit also does not project specific 2027 election outcomes — the partisan-fairness numbers are scored against 2023 votes (the most recent result) and the full monograph also reports the 2019-vote and current-polling readings; all of them are inputs to a verdict, not predictions.
 
 ---
 
