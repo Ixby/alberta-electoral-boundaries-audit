@@ -121,7 +121,13 @@ def seat_results(
     Returns dict with keys:
         - efficiency_gap (float) — UCP perspective: positive = UCP-favoured
         - mean_median (float)    — median UCP share minus mean UCP share
-        - declination (float)    — in radians; positive = UCP-favoured (NaN if either party wins 0 seats)
+        - declination (float)    — Warrington (2018), in (-1, 1).
+                                   Sign convention used here: NEGATIVE = UCP-favoured
+                                   (UCP wins many seats by small margins while NDP votes
+                                   are packed into a few high-share districts). POSITIVE =
+                                   NDP-favoured (mirror image). NaN if either party wins
+                                   0 seats. All empirical interpretation in the report
+                                   uses this negative-equals-UCP-favoured convention.
         - seats_at_50_50 (float) — uniform-swing UCP seat share at province-wide 50/50
         - ucp_seats (int)        — count of UCP wins at actual provincial share
         - n_districts (int)      — number of districts after dropping any with zero total votes
@@ -158,9 +164,14 @@ def seat_results(
 
     # --- Declination (Warrington 2018) ---
     # Order districts by UCP share ascending. Let R = UCP-won count, D = NDP-won count.
-    # theta_R = atan2(mean UCP share in UCP-won - 0.5, R/n)
-    # theta_D = atan2(0.5 - mean UCP share in NDP-won, D/n)
-    # declination = 2/pi * (theta_R - theta_D). Positive => UCP-favoured.
+    # theta_R = atan2(mean UCP share in UCP-won - 0.5, R/(2n))
+    # theta_D = atan2(0.5 - mean UCP share in NDP-won, D/(2n))
+    # declination = 2/pi * (theta_R - theta_D).
+    # In a UCP-favoured map, UCP wins many seats by small margins (mean UCP
+    # share in UCP-won close to 0.5 -> small theta_R) while NDP voters are
+    # packed (mean UCP share in NDP-won well below 0.5 -> larger theta_D).
+    # theta_R - theta_D is therefore NEGATIVE for UCP-favoured maps.
+    # Convention used throughout the report: NEGATIVE declination = UCP-favoured.
     R = ucp_wins
     D = n - R
     if R == 0 or D == 0:
@@ -180,7 +191,11 @@ def seat_results(
     # and count how many districts remain UCP wins. Express as seat share (UCP seats / n).
     province_ucp = ucp.sum() / total.sum()
     swing = 0.5 - province_ucp
-    shifted = ucp_share + swing
+    # Clip to [0, 1] for forward-compatibility: the boolean check below is
+    # robust to unclipped values, but any future caller measuring margin of
+    # victory from `shifted` would otherwise see impossible vote shares. This
+    # also matches v0_1_fuzz_missing_eds.py for cross-script consistency.
+    shifted = np.clip(ucp_share + swing, 0.0, 1.0)
     # at 0.5 tied: treat as NDP win for symmetry (rounding).
     ucp_wins_at_50 = int((shifted > 0.5).sum())
     seats_at_50_50 = ucp_wins_at_50 / n
@@ -278,6 +293,11 @@ def score_exogenous_map(va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str =
     )
 
     covered = joined.dropna(subset=[id_col])
+    # Deduplicate by source-VA index: if a centroid falls inside an overlapping
+    # sliver of two polygons (possible with v0_8 inheritance-fill carve-outs),
+    # sjoin returns one row per match. Without dedup the subsequent groupby/sum
+    # would double-credit that VA's votes to both districts.
+    covered = covered[~covered.index.duplicated(keep="first")]
     coverage_n = len(covered)
     total_n = len(va)
 
@@ -301,8 +321,8 @@ def score_exogenous_map(va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str =
 
 # ---- Ensemble ---------------------------------------------------------------
 
-def run_ensemble(graph: Graph, initial_assignment: dict, n_steps: int, pop_deviation: float = 0.25,
-                 verbose: bool = True):
+def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float = 0.25,
+                 verbose: bool = True, return_final_partition: bool = False):
     """Run ReCom chain for n_steps; return list of per-step metric dicts.
 
     pop_deviation: maximum allowed fractional deviation from ideal per district. The
@@ -310,10 +330,27 @@ def run_ensemble(graph: Graph, initial_assignment: dict, n_steps: int, pop_devia
     2019 seed violates this constraint (which it does — 7 of 87 EDs are outside ±25%
     under the Act's special-rural provisions), we fall back to a fresh seed generated
     by recursive tree partition at the given epsilon.
+
+    initial_state: either a dict (legacy: assignment dict; the function builds a
+        Partition from it) or a gerrychain Partition object (chain state from a
+        previous chunk; the function continues the chain from this state without
+        reseeding to the 2019 baseline). Passing a Partition is required to maintain
+        chain continuity across chunked runs (Gemini audit finding 2026-04-26
+        CRITICAL #1).
+
+    return_final_partition: if True, return (rows, final_partition) tuple so the
+        caller can pass final_partition into the next chunk's run_ensemble call.
+        Default False preserves the legacy single-return-value API for callers that
+        don't need state-carrying.
     """
 
     total_pop = sum(graph.nodes[n]["pop_2021"] for n in graph.nodes())
-    num_dist = len(set(initial_assignment.values()))
+    if hasattr(initial_state, "assignment"):
+        # initial_state is already a Partition
+        num_dist = len(set(initial_state.assignment.values()))
+    else:
+        # initial_state is a dict
+        num_dist = len(set(initial_state.values()))
     ideal_pop = total_pop / num_dist
 
     if verbose:
@@ -327,7 +364,13 @@ def run_ensemble(graph: Graph, initial_assignment: dict, n_steps: int, pop_devia
         "cut_edges": updaters.cut_edges,
     }
 
-    initial_partition = Partition(graph, initial_assignment, my_updaters)
+    if hasattr(initial_state, "assignment"):
+        # Caller passed in a Partition already (continued chain from previous chunk).
+        # Use it directly; do not rebuild from dict.
+        initial_partition = initial_state
+    else:
+        # Caller passed in an assignment dict (start of chain).
+        initial_partition = Partition(graph, initial_state, my_updaters)
 
     # Verify seed partition
     seed_pops = list(initial_partition["population"].values())
@@ -400,12 +443,18 @@ def run_ensemble(graph: Graph, initial_assignment: dict, n_steps: int, pop_devia
     rows = []
     t0 = time.time()
     last_report = t0
+    final_partition = initial_partition  # in case n_steps == 0
     for i, part in enumerate(chain):
-        ucp = np.array(list(part["ucp"].values()))
-        ndp = np.array(list(part["ndp"].values()))
+        # Force explicit key alignment to defend against any future divergence in
+        # how gerrychain's separate Tally updaters iterate. Both arrays are now
+        # ordered by part.parts.keys() (Gemini audit finding 2026-04-26 CRITICAL #2).
+        keys = list(part.parts.keys())
+        ucp = np.array([part["ucp"][k] for k in keys], dtype=float)
+        ndp = np.array([part["ndp"][k] for k in keys], dtype=float)
         m = seat_results(ucp, ndp)
         m["step"] = i
         rows.append(m)
+        final_partition = part
         if verbose and time.time() - last_report > 10:
             elapsed = time.time() - t0
             eta = elapsed / (i + 1) * (n_steps - i - 1)
@@ -413,6 +462,8 @@ def run_ensemble(graph: Graph, initial_assignment: dict, n_steps: int, pop_devia
             last_report = time.time()
     if verbose:
         print(f"  chain finished in {time.time()-t0:.0f}s, collected {len(rows)} samples")
+    if return_final_partition:
+        return rows, final_partition
     return rows
 
 

@@ -77,6 +77,19 @@ def main():
     ideal_pop = total_pop / num_dist
     print(f"  starting: {num_dist} districts, ideal pop {ideal_pop:,.0f}", flush=True)
 
+    # District-name → integer mapping. initial_assignment_2019() returns string
+    # ED names (e.g. "Calgary-Bow"), but we serialise the per-step assignment
+    # vector as int8 for compactness. The mapping is preserved in the meta
+    # JSON so a verifier can reconstruct the integer-to-name map and rebuild
+    # any saved Partition exactly.
+    unique_districts = sorted(set(assignment.values()))
+    if len(unique_districts) > 127:
+        raise ValueError(
+            f"int8 cannot encode {len(unique_districts)} districts; widen dtype"
+        )
+    dist_to_int = {name: i for i, name in enumerate(unique_districts)}
+    int_to_dist = {i: name for name, i in dist_to_int.items()}
+
     my_updaters = {
         "population": updaters.Tally("pop_2021", alias="population"),
         "ucp": updaters.Tally("va_ucp", alias="ucp"),
@@ -123,12 +136,18 @@ def main():
     t_start = time.time()
 
     for step_i, partition in enumerate(chain):
-        # Serialise this step's assignment
+        # Serialise this step's assignment via the int mapping (district names
+        # are strings, but the array is int8 for compactness).
         for vid in va_ids:
-            assignment_arr[step_i, va_id_to_idx[vid]] = partition.assignment[vid]
+            assignment_arr[step_i, va_id_to_idx[vid]] = dist_to_int[partition.assignment[vid]]
 
-        ucp = np.array(list(partition["ucp"].values()), dtype=float)
-        ndp = np.array(list(partition["ndp"].values()), dtype=float)
+        # Explicit key alignment: gerrychain Tally updaters are independent
+        # dicts and their iteration order is not contractually identical.
+        # Indexing by the same key list guarantees ucp[i] and ndp[i] refer
+        # to the same district.
+        keys = list(partition.parts.keys())
+        ucp = np.array([partition["ucp"][k] for k in keys], dtype=float)
+        ndp = np.array([partition["ndp"][k] for k in keys], dtype=float)
         m = seat_results(ucp, ndp)
         metrics_rows.append({
             "step": step_i,
@@ -169,8 +188,9 @@ def main():
         "seed": SEED,
         "pop_deviation": POP_DEVIATION,
         "elapsed_seconds": elapsed,
-        "purpose": "Court-defensibility forensic spot-check. Each row in the metrics CSV corresponds to one row in the assignments array; both are indexed by step. To verify any step's metrics: load the assignment vector for that step, reconstruct a Partition, recompute metrics, confirm they match.",
-        "verify_command": "python -c 'import numpy as np; d = np.load(\"data/v0_1_mcmc_verification_assignments.npz\"); print(\"assignments shape:\", d[\"assignments\"].shape, \"va_ids count:\", d[\"va_ids\"].shape)'",
+        "purpose": "Court-defensibility forensic spot-check. Each row in the metrics CSV corresponds to one row in the assignments array; both are indexed by step. To verify any step's metrics: load the assignment vector for that step, map ints back to ED names via int_to_district, reconstruct a Partition, recompute metrics, confirm they match.",
+        "verify_command": "python -c 'import numpy as np, json; d = np.load(\"data/v0_1_mcmc_verification_assignments.npz\"); m = json.load(open(\"data/v0_1_mcmc_verification_meta.json\")); print(\"assignments shape:\", d[\"assignments\"].shape, \"districts:\", len(m[\"int_to_district\"]))'",
+        "int_to_district": int_to_dist,
         "outputs": {
             "metrics_csv": str(OUT_METRICS.name),
             "assignments_npz": str(OUT_ASSIGNMENTS.name),
