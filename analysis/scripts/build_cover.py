@@ -44,8 +44,8 @@ APPROX_MIN_CANDIDATES = [
 ]
 
 COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
-OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article
-ARTICLE_PDF = REPO_ROOT / "article.pdf"     # already produced by build_pdf.py
+OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article (the only PDF in the repo root)
+ARTICLE_PDF = REPO_ROOT / ".temp" / "article.pdf"   # intermediate, written by build_pdf.py to .temp/
 
 CHROME_CANDIDATES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -111,19 +111,19 @@ def build_cover_art() -> Path:
     # recognisable. The faint dotted backdrop outline of the original
     # (un-exploded) province carries the shape; the displaced pieces
     # carry the motion.
-    BASE_PUSH_FRAC = 0.025       # tiny baseline push (every ED nudges)
-    POWER_PUSH_COEF = 0.09       # max displacement ≈ 9% of radius for the farthest ED
+    BASE_PUSH_FRAC = 0.008       # tiny baseline push (every ED nudges)
+    POWER_PUSH_COEF = 0.025      # max displacement ≈ 2.5% of radius for the farthest ED
     POWER = 1.3                  # exponent: <1 = uniform, 1 = linear, >1 = explosive
-    GHOST_STEPS = 3              # number of motion-trail ghost copies per ED
-    GHOST_ALPHA_BASE = 0.16      # opacity of the brightest motion ghost
 
-    # 1. Pick map (prefer v0_8 refined → canonical → v0_7)
-    maj_path = _pick(APPROX_MAJ_CANDIDATES)
-    if maj_path is None:
-        raise FileNotFoundError("No majority GPKG candidate available")
-    print(f"[build_cover] Hero ED source: {maj_path.name}")
+    # 1. Pick map (prefer v0_8 refined → canonical → v0_7).
+    # Use the MINORITY map: this is the map the audit ends up critiquing,
+    # so it's the one the cover should put in front of the reader.
+    map_path = _pick(APPROX_MIN_CANDIDATES)
+    if map_path is None:
+        raise FileNotFoundError("No minority GPKG candidate available")
+    print(f"[build_cover] Hero ED source: {map_path.name}")
 
-    eds = gpd.read_file(maj_path).to_crs(3401)
+    eds = gpd.read_file(map_path).to_crs(3401)
     name_col = "name_2026" if "name_2026" in eds.columns else eds.columns[0]
     eds = eds[eds.geometry.area > 1e6].copy().reset_index(drop=True)
     print(f"[build_cover] {len(eds)} non-empty EDs to render")
@@ -223,32 +223,19 @@ def build_cover_art() -> Path:
     def _scale_factor(area):
         if area <= 0:
             return 1.0
-        # Map area: small ED → 1.6x, large ED → 1.0x (no scale)
+        # Map area: small ED → 1.3x, large ED → 1.0x (no scale)
         log_ratio = math.log(a_max / max(area, a_min)) / math.log(a_max / a_min)
-        return 1.0 + 0.6 * min(1.0, log_ratio)  # 1.0 → 1.6
+        return 1.0 + 0.3 * min(1.0, log_ratio)  # 1.0 → 1.3
 
-    # 7a. Motion ghosts (large-first ordering)
-    for _, row in eds_sorted.iterrows():
-        g = row.geometry
-        dx, dy = row["disp"]
-        if abs(dx) < 1.0 and abs(dy) < 1.0:
-            continue
-        if row["total"] > 0:
-            color = cmap(norm(row["ucp_share"]))
-        else:
-            color = no_vote_color
-        for k in range(1, GHOST_STEPS + 1):
-            frac = k / (GHOST_STEPS + 1)
-            ghost = shapely.affinity.translate(g, dx * frac, dy * frac)
-            ghost_alpha = GHOST_ALPHA_BASE * frac
-            gpd.GeoSeries([ghost], crs=3401).plot(
-                ax=ax, facecolor=color, edgecolor="none",
-                alpha=ghost_alpha, zorder=2,
-            )
+    # Motion ghosts removed — they read as visual noise rather than
+    # motion blur at this density. The exploded positions alone carry
+    # the eruption-from-Edmonton metaphor cleanly.
 
-    # 7b. Final exploded EDs — large-first, scaled to forced perspective.
-    #     Small EDs rendered with slight transparency (0.85) so the rural
-    #     giants behind them remain visible.
+    # Final exploded EDs — large-first, scaled to forced perspective.
+    # Per-ED black borders kept: they help the eye separate adjacent
+    # EDs. All EDs rendered fully opaque so rural-giant borders
+    # underneath don't bleed through small urban EDs and read as a
+    # wireframe hatch pattern.
     for _, row in eds_sorted.iterrows():
         g = row["exploded"]
         if g is None or g.is_empty:
@@ -261,11 +248,9 @@ def build_cover_art() -> Path:
             color = cmap(norm(row["ucp_share"]))
         else:
             color = no_vote_color
-        # Smaller EDs (sf > 1.2) get a touch of transparency
-        alpha = 0.95 if sf < 1.2 else 0.85
         gpd.GeoSeries([g_scaled], crs=3401).plot(
             ax=ax, facecolor=color, edgecolor="#1a1a1a",
-            linewidth=0.35, alpha=alpha, zorder=3,
+            linewidth=0.35, alpha=1.0, zorder=3,
         )
 
     ax.margins(0.005)
@@ -306,6 +291,7 @@ html, body {
   padding: 0;
   width: 8.5in;
   height: 11in;
+  background: #f5ede0;        /* full-bleed cream */
   font-family: "Lora", Georgia, serif;
   color: #1a1a1a;
 }
@@ -323,13 +309,20 @@ html, body {
   justify-content: space-between;
 }
 
-/* Vertical accent bar on the left */
-.cover::before {
+/* Vertical accent bar on the left — anchored at the BODY level so it
+   extends the full 11in page height (full bleed). The .cover element
+   is intentionally 0.05in shy of letter height to avoid Chrome's
+   blank-page heuristic; if the bar were anchored to .cover, it would
+   stop short of the bottom edge by that 0.05in. Anchoring to body
+   guarantees full edge-to-edge bleed. */
+body::before {
   content: "";
   position: absolute;
-  left: 0; top: 0; bottom: 0;
+  left: 0; top: 0;
   width: 0.28in;
+  height: 11in;
   background: linear-gradient(to bottom, #7a1f1f 0%, #7a1f1f 32%, #e87722 32%, #e87722 66%, #335c81 66%, #335c81 100%);
+  z-index: 1;
 }
 
 /* ----- Kicker ----- */
@@ -356,16 +349,43 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.1in 0 0.25in 0;
+  /* Negative horizontal margin lets the hero bleed past the .cover's
+     0.8in side padding all the way to the page edges. */
+  margin: 0.1in -0.8in 0.25in -0.52in;   /* leave 0.28in for the left accent bar */
   min-height: 0;
 }
 
 .hero img {
-  max-width: 78%;
-  max-height: 4.2in;
+  max-width: 100%;           /* fills the bleed area */
+  max-height: 5.0in;         /* +20% from 4.2in */
   height: auto;
   object-fit: contain;
   display: block;
+}
+
+.hero-caption {
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-size: 7pt;
+  line-height: 1.4;
+  color: #8a8074;
+  text-align: right;
+  margin: 0.18in 0 0 0;
+  padding: 0.1in 0 0 0;
+  border-top: 0.4pt solid #d3cabd;
+  letter-spacing: 0.1pt;
+}
+
+.hero-caption::before {
+  content: "Cover map · ";
+  font-family: "Source Sans 3", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 6.5pt;
+  letter-spacing: 1.5pt;
+  text-transform: uppercase;
+  color: #7a1f1f;
+  margin-right: 0.3em;
 }
 
 /* ----- Title block ----- */
@@ -456,7 +476,9 @@ html, body {
   font-size: 9pt;
   margin-top: 0.04in;
   font-family: "Lora", Georgia, serif;
+  text-decoration: none;
 }
+.locator .url:hover { text-decoration: underline; }
 
 /* Subtle lines at top-right = issue identifier */
 .issue-marker {
@@ -509,7 +531,7 @@ html, body {
   </div>
 
   <div class="hero">
-    <img src="{hero_src}" alt="Alberta with overlaid 2026 electoral boundary proposals: 2019 baseline, majority map in orange, minority map in dashed blue.">
+    <img src="{hero_src}" alt="Alberta with the 2026 minority commission map overlaid, each electoral district coloured by 2023 vote share.">
   </div>
 
   <div class="legend">
@@ -528,10 +550,12 @@ html, body {
       <span class="contact">wconn161@mtroyal.ca</span>
     </div>
     <div class="locator">
-      Full technical report
-      <span class="url">github.com/Ixby/alberta-electoral-boundaries-audit</span>
+      Audit executive summary
+      <a class="url" href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
     </div>
   </div>
+
+  <p class="hero-caption">The 2026 minority commission proposal — the map this audit ends up critiquing. Each district is coloured by its 2023 UCP–NDP vote share.</p>
 
 </div>
 </body>
@@ -592,7 +616,7 @@ def merge_pdfs(cover_pdf: Path, article_pdf: Path, out_pdf: Path) -> None:
     print(
         f"[build_cover] Merged final PDF {out_pdf.relative_to(REPO_ROOT)} "
         f"({out_pdf.stat().st_size/1024:.1f} KB, "
-        f"{len(cover_reader.pages)} cover page(s) → first page only)"
+        f"{len(cover_reader.pages)} cover page(s) -> first page only)"
     )
 
 

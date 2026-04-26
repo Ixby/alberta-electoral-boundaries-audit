@@ -47,6 +47,6 @@
     "source": "v0_8_full_refined_minority_2026_eds.gpkg"
   },
   "minority_source": "minority 2026 v8 refined (89 EDs)",
-  "n_steps": 1000000,
-  "seed": 44
+  "n_steps": 2000000,
+  "seed": 88
 }
