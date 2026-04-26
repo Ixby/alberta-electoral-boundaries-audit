@@ -131,28 +131,114 @@ def build_cover_art() -> Path:
         eds["total"] = 0
     eds["ucp_share"] = eds["ucp_share"].fillna(0.5)
     eds["total"] = eds["total"].fillna(0)
+    eds["inferred"] = False
     print(f"[build_cover] {int((eds['total'] > 0).sum())}/{len(eds)} EDs received VA votes")
 
-    # 3. Direct UCP-blue → NDP-orange interpolation. 50/50 districts render
-    #    as the natural mid-tone (a muted purple-brown).
+    # 2b. Crosswalk-inheritance fallback for EDs the centroid-join missed.
+    # The v0_8 reconstruction inherits some 2026 minority polygons from v0_7
+    # (which itself inherits from 2019), and a handful end up in physical
+    # positions where no 2023 VA centroid falls inside them. For those we
+    # look up the 2019 parent ED(s) via v0_1_minority_hybrid_crosswalk.csv
+    # and aggregate the VAs that belonged to those parents — yielding the
+    # 2019-vote-distribution-projected-onto-this-2026-name share. This
+    # CANNOT model the partisan effect of the boundary shift; it's an
+    # illustrative fill, not a quantitative claim, and the cover caption
+    # discloses it.
+    crosswalk_path = REPO_ROOT / "data" / "v0_1_minority_hybrid_crosswalk.csv"
+    if VA_VOTES_PATH.exists() and crosswalk_path.exists():
+        import pandas as pd
+        cw = pd.read_csv(crosswalk_path)
+        # 2026-name -> list of 2019 parents (drop "(NEW)" sentinel rows)
+        cw_real = cw[cw["current_2019"].astype(str) != "(NEW)"]
+        parents_by_2026 = (
+            cw_real.groupby("proposed_2026")["current_2019"]
+            .apply(lambda s: [p for p in s.dropna().unique()])
+            .to_dict()
+        )
+        miss_mask = eds["total"] == 0
+        n_inferred = 0
+        for idx in eds.index[miss_mask]:
+            ed_name = eds.at[idx, name_col]
+            parents = parents_by_2026.get(ed_name, [])
+            if not parents:
+                continue
+            inh = va[va["parent_ed_2019"].isin(parents)]
+            ucp_sum = float(inh["va_ucp"].fillna(0).sum())
+            ndp_sum = float(inh["va_ndp"].fillna(0).sum())
+            if (ucp_sum + ndp_sum) <= 0:
+                continue
+            eds.at[idx, "ucp_share"] = ucp_sum / (ucp_sum + ndp_sum)
+            eds.at[idx, "total"] = ucp_sum + ndp_sum
+            eds.at[idx, "inferred"] = True
+            n_inferred += 1
+        print(f"[build_cover] inferred 2019-parent vote share for "
+              f"{n_inferred} EDs missed by centroid-join")
+
+        # 2c. Final fallback for any ED still grey (genuinely new 2026
+        # creations with no 2019 parent in the crosswalk, or parent rows
+        # whose VAs all aggregated to zero votes). Use the K nearest VA
+        # centroids to the ED's own centroid. Crude, but guarantees the
+        # cover renders no grey districts.
+        from shapely.geometry import Point
+        K = 25
+        still_missing = eds["total"] == 0
+        n_nearest = 0
+        if still_missing.any():
+            va_centroids = list(zip(
+                va.geometry.centroid.x.values,
+                va.geometry.centroid.y.values,
+                va["va_ucp"].fillna(0).values,
+                va["va_ndp"].fillna(0).values,
+            ))
+            for idx in eds.index[still_missing]:
+                gc = eds.at[idx, "geometry"].centroid
+                dists = [
+                    (((cx - gc.x) ** 2 + (cy - gc.y) ** 2), u, n)
+                    for cx, cy, u, n in va_centroids
+                ]
+                dists.sort(key=lambda t: t[0])
+                near = dists[:K]
+                ucp_sum = float(sum(u for _, u, _ in near))
+                ndp_sum = float(sum(n for _, _, n in near))
+                if (ucp_sum + ndp_sum) <= 0:
+                    continue
+                eds.at[idx, "ucp_share"] = ucp_sum / (ucp_sum + ndp_sum)
+                eds.at[idx, "total"] = ucp_sum + ndp_sum
+                eds.at[idx, "inferred"] = True
+                n_nearest += 1
+            print(f"[build_cover] nearest-{K}-VA fallback used for "
+                  f"{n_nearest} EDs with no crosswalk parent")
+
+    # 3. Direct UCP-blue → NDP-orange interpolation. The norm window is
+    #    narrowed so only genuinely-competitive districts (45–55% UCP)
+    #    occupy the mid-tone band; anything beyond that snaps to a fully
+    #    saturated party colour. The wider vmin=0.30/vmax=0.70 produced
+    #    a steel-grey wash across most of rural Alberta because the
+    #    median ED is ~59% UCP, which sat mid-ramp. The narrow window
+    #    pushes 65%+ UCP ridings to deep blue and keeps the cover vivid.
     ndp_orange = (0.92, 0.45, 0.10)
     ucp_blue   = (0.13, 0.36, 0.62)
     cmap = mcolors.LinearSegmentedColormap.from_list(
         "ucp_ndp_direct", [ndp_orange, ucp_blue], N=256
     )
-    norm = mcolors.Normalize(vmin=0.30, vmax=0.70)
+    norm = mcolors.Normalize(vmin=0.45, vmax=0.55, clip=True)
 
-    # 4. Render — ED polygons in their actual positions
+    # 4. Render — ED polygons in their actual positions. Background matches
+    #    the cover HTML's ivory (#f5ede0) so the inevitable sliver-gaps
+    #    between adjacent v0_8 reconstructed polygons fill seamlessly into
+    #    the cover layout instead of showing through as transparent grey.
+    cover_ivory = "#f5ede0"
     fig, ax = plt.subplots(figsize=(6, 9), dpi=300)
-    fig.patch.set_alpha(0)
-    ax.set_facecolor("none")
+    fig.patch.set_facecolor(cover_ivory)
+    ax.set_facecolor(cover_ivory)
     ax.set_aspect("equal")
     ax.axis("off")
 
+    # After the centroid-join + crosswalk + nearest-VA cascade above, every
+    # ED should have a vote-share fill. The grey safety colour is retained
+    # only as a last-resort if a row genuinely has zero votes after all
+    # three passes — which should not happen on the live cover.
     no_vote_color = "#cfcbc4"
-
-    # Convert every fill to a hex string so geopandas's per-row colour
-    # array stays homogeneous (mixing RGBA tuples and hex strings raises).
     eds["_fill"] = [
         mcolors.to_hex(cmap(norm(s))) if t > 0 else no_vote_color
         for s, t in zip(eds["ucp_share"], eds["total"])
@@ -161,7 +247,7 @@ def build_cover_art() -> Path:
         ax=ax,
         color=eds["_fill"].tolist(),
         edgecolor="#1a1a1a",
-        linewidth=0.35,
+        linewidth=0.18,
     )
 
     ax.margins(0.005)
@@ -173,7 +259,7 @@ def build_cover_art() -> Path:
         dpi=300,
         bbox_inches="tight",
         pad_inches=0.02,
-        transparent=True,
+        facecolor=cover_ivory,
     )
     plt.close(fig)
     print(f"[build_cover] Wrote hero art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
