@@ -127,21 +127,21 @@ Rows of measurements are hard to weigh against each other. One defensible synthe
 >
 > *A proposed synthesis with explicit weights — not a finding. Other weightings give different grades.*
 >
-> Letter-to-point conversion uses Mount Royal University's full-letter-range midpoints: A = 90, B = 75, C = 65, D = 55, F = 25 (per the MRU undergraduate grading scale: A range 80–100, B range 70–79, C range 60–69, D range 50–59, F range 0–49). The audit author is an MRU undergraduate; using the institution's own grading scale is the most defensible single conversion choice. The overall is each grade × its weight, summed.
+> Letter-to-point conversion uses Mount Royal University's full undergraduate +/- grading scale (A+ 95–100, A 90–94, A- 85–89, B+ 80–84, B 75–79, B- 70–74, C+ 65–69, C 60–64, C- 55–59, D+ 52–54, D 50–51, F 0–49). Each grade converts to its range midpoint (A+ = 97, A = 92, A- = 87, B+ = 82, B = 77, B- = 72, C+ = 67, C = 62, C- = 57, D+ = 53, D = 50, F = 25). The audit author is an MRU undergraduate; using the institution's published grading scale is the most defensible single conversion choice. The overall is each grade × its weight, summed.
 >
 > | Category | Weight | Majority grade | Majority points | Minority grade | Minority points |
 > |---|---:|:---:|---:|:---:|---:|
-> | Voter equality | 25% | B | 18.75 | D | 13.75 |
-> | Community recognition | 35% | B | 26.25 | F | 8.75 |
-> | Map coherence | 25% | A | 22.50 | D | 13.75 |
-> | Partisan fairness | 15% | B | 11.25 | B | 11.25 |
-> | **OVERALL** | — | **B (79/100)** | | **F (48/100)** | |
+> | Voter equality | 25% | B | 19.25 | D | 12.50 |
+> | Community recognition | 35% | B | 26.95 | F | 8.75 |
+> | Map coherence | 25% | A | 23.00 | D | 12.50 |
+> | Partisan fairness | 15% | B | 11.55 | C+ | 10.05 |
+> | **OVERALL** | — | **B+ (81/100)** | | **F (44/100)** | |
 
 **Why these weights.** Community recognition carries the most (35%) because *Reference re Saskatchewan* — the Supreme Court decision defining what redistricting is for — holds that effective representation requires districts that communities can identify as their own. The Act's ±25% population band grounds voter equality at 25%. Map coherence (25%) reflects the commission's own standard: the chair flagged specific boundaries as anomalous, and those flags matter. Partisan fairness is weighted lowest (15%) because both maps clear the audit's Alberta-calibrated ~5% line, but only the minority clears the older US 7% line — the partisan-fairness lane is real but not the lane that distinguishes the maps most sharply.
 
 **What produces the minority's F.** On community recognition (8.75 of 35 under these weights — the lowest single-category score in the table), 15% municipal anchoring means 85 out of every 100 kilometres of the minority map's border cuts through territory voters do not recognize from any other civic map — not their school division boundary, not their property-tax bill, not their local election ward. The majority's equivalent is 71%. The Airdrie four-way split compounds the effect — residents must navigate four legislative offices, each primarily identified with somewhere else. Three chair-flagged anomalies — a lasso-shaped corridor, a boundary extension through uninhabited national park land, and a district named for communities together smaller than the community it actually captures — pull the map-coherence score down further.
 
-**Where the maps score comparably.** Under the lowest-weighted category — partisan fairness — the two maps are effectively tied (both clear the Alberta-calibrated line), even though only the minority clears the US line.
+**Where the maps differ less sharply.** Under the lowest-weighted category — partisan fairness — both maps clear the Alberta-calibrated ~5% line, so neither passes cleanly, but only the minority also clears the older US 7% line and sits at the simulation's ceiling on the seats-at-50/50 test. The +/- distinction the MRU scale supports captures this asymmetry: the majority earns a B (clears one line), the minority a C+ (clears both, plus the seats-at-50/50 result). Both grades are above passing; the minority's grade is closer to the cut-off.
 
 ---
 
