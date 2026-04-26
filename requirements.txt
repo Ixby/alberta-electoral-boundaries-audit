@@ -29,6 +29,12 @@ pypdf>=4.0.0
 
 # MCMC ensemble (the audit's authoritative 2,000,000-map run uses this version)
 gerrychain==0.3.2
+# Hidden but load-bearing dep of gerrychain. networkx 3.x changed several
+# iteration semantics (notably for graph node sets), and gerrychain 0.3.2 is
+# sensitive to those changes. Pinned to the exact version that produced the
+# headline 2M ensemble so a fresh `pip install -r requirements.txt` on any
+# machine resolves the same graph behaviour we did.
+networkx==3.6.1
 
 # Voice / readability gate
 textstat==0.7.13

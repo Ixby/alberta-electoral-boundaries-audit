@@ -53,9 +53,16 @@ def classify(name, region_type=None):
             return "rural"
     name_l = name.lower() if isinstance(name, str) else ""
     # Hybrid markers
+    # NOTE: any ED name that doesn't trigger one of these markers will hit the
+    # ValueError at the bottom — there is no silent rural fallback. When
+    # auditing a new map, add the ED name explicitly and document why.
     hybrid_markers = ["airdrie", "chestermere", "cochrane", "okotoks",
                       "peigan", "bearspaw", "sturgeon", "sherwood park",
-                      "fort saskatchewan"]
+                      "fort saskatchewan",
+                      # Small-city + rural pairings (city anchors a rural ring)
+                      "medicine hat",         # Brooks/Cypress + Medicine Hat
+                      "lac ste. anne", "lac ste anne",  # Lac Ste. Anne-Parkland
+                      "parkland"]             # Parkland County wraps west Edmonton
     rural_only = ["banff", "kananaskis", "athabasca", "barrhead", "westlock",
                   "battle river", "bonnyville", "cold lake", "innisfail",
                   "lacombe", "drumheller", "drayton", "stony plain",
@@ -67,7 +74,11 @@ def classify(name, region_type=None):
                   "vulcan", "high river", "livingstone", "macleod", "spruce grove",
                   "leduc", "nisku", "sundre", "clearwater", "rimbey",
                   "grande prairie", "smoky", "wabasca", "lac la biche",
-                  "two hills", "vegreville", "redwater", "camrose"]
+                  "two hills", "vegreville", "redwater", "camrose",
+                  # Pure-rural EDs the bare county name didn't catch above
+                  "highwood",         # Highwood (south-central rural)
+                  "mountain view",    # Mountain View-Kneehill
+                  "kneehill"]
     if any(h in name_l for h in hybrid_markers):
         # Calgary-Airdrie, Calgary-Peigan-Chestermere, Calgary-Foothills-Airdrie West, etc.
         if "calgary" in name_l or "edmonton" in name_l:
@@ -94,7 +105,14 @@ def classify(name, region_type=None):
         if "sturgeon" in name_l:
             return "hybrid"
         return "urban"
-    return "rural"  # fallback
+    # No silent rural fallback. If a 2026 proposal introduces a new naming
+    # convention (e.g. a brand-new suburban district), we must categorise it
+    # explicitly rather than letting it drift into the rural bucket and
+    # contaminate the rural-vs-urban population averages this test relies on.
+    raise ValueError(
+        f"Unclassified ED name: {name!r} (region_type={region_type!r}). "
+        "Add it to hybrid_markers, rural_only, or an explicit branch above."
+    )
 
 
 def annotate(df, name_col="ed_name", pop_col="population"):

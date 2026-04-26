@@ -62,17 +62,20 @@ from v0_1_mcmc_ensemble_100k import autocorrelation_ess, plot_running_mean
 
 
 def _run_chain_chunked(args):
-    """Worker: runs one chain in checkpointed chunks.
+    """Worker: runs one chain in checkpointed chunks, carrying state across chunks.
 
-    Each chunk is an independent mini-burst from the 2019 baseline with a
-    deterministic (base_seed, chain_idx, chunk_idx)-derived seed. The chain
-    CSV is appended after each chunk completes — on crash, we lose at most
-    `chunk_size` samples and can resume by re-reading the CSV row count.
+    The chain state (final Partition) is threaded from one chunk to the next
+    via run_ensemble's return_final_partition flag, so the chain advances
+    continuously across chunk boundaries. The CSV is appended after each
+    chunk — on crash, we lose at most `chunk_size` samples.
+
+    Resume caveat: if a partial CSV exists, the chain restarts from the 2019
+    baseline (the in-memory Partition is gone). This means resume produces a
+    discontinuity at the resume point. For the headline ensemble we re-run
+    from scratch (delete CSVs first) to guarantee continuous chains.
 
     Rebuilding the graph per worker (~15s) is cheaper than pickling the
-    4,765-node NetworkX graph + the gerrychain Partition object across the
-    process boundary. The chunked approach is statistically defensible
-    (independent mini-chains pool into a clean ensemble) and crash-safe.
+    4,765-node NetworkX graph + Partition across the process boundary.
     """
     chain_idx, n_steps_total, base_seed, pop_deviation, chain_csv_path, chunk_size = args
     import random as _random
@@ -98,10 +101,20 @@ def _run_chain_chunked(args):
     n_chunks = (n_steps_total + chunk_size - 1) // chunk_size
     print(f"  [chain {chain_idx}] {n_done}/{n_steps_total} done; "
           f"resuming from chunk {chunks_done}/{n_chunks}", flush=True)
+    if chunks_done > 0:
+        print(f"  [chain {chain_idx}] WARNING: resume after crash restarts "
+              f"chain from 2019 baseline (state discontinuity at sample "
+              f"{chunks_done * chunk_size}). For headline ensemble, delete "
+              f"CSV and re-run from chunk 0 for continuous chain.",
+              flush=True)
 
     # Build graph once per worker
     va, graph = build_va_graph()
-    assignment = initial_assignment_2019(va)
+    # Chain state is carried across chunks so the chain advances continuously
+    # rather than resetting to the 2019 baseline at every chunk boundary.
+    # First chunk receives a dict assignment; subsequent chunks receive the
+    # final Partition from the previous chunk via return_final_partition=True.
+    current_state = initial_assignment_2019(va)
 
     t_chain_start = time.time()
     for chunk_idx in range(chunks_done, n_chunks):
@@ -110,8 +123,11 @@ def _run_chain_chunked(args):
         _random.seed(chunk_seed)
         chunk_steps = min(chunk_size, n_steps_total - chunk_idx * chunk_size)
         t_chunk = time.time()
-        rows = run_ensemble(graph, assignment, chunk_steps,
-                            pop_deviation=pop_deviation, verbose=False)
+        rows, current_state = run_ensemble(
+            graph, current_state, chunk_steps,
+            pop_deviation=pop_deviation, verbose=False,
+            return_final_partition=True,
+        )
         for r in rows:
             r["chain"] = chain_idx
             r["chunk"] = chunk_idx
