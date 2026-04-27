@@ -50,7 +50,7 @@ Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and 
 
 3. **The process now promoting the minority map has no precedent in Canada.** No other province lets a cabinet hand redistricting to a committee its own party controls partway through a redistribution cycle. Most provinces either require the legislature to debate the commissioners' map first, or give the commission's map automatic effect unless overridden. Alberta does neither. On April 16, the government set both commission maps aside and assigned the work to a five-member committee of MLAs (Members of the Legislative Assembly), three from the governing United Conservative Party (UCP).
 
-> The process is its own finding, separate from the maps.
+**The process is its own finding, separate from the maps.**
 
 ---
 
@@ -227,7 +227,9 @@ The audit also tested the chair's separate, blanket assertion in Appendix C that
 
 Before going further, the audit owes a direct answer to the strongest defence of the minority map's hybrid urban–rural districts. The minority commissioners themselves state it cleanly in their Appendix E to the commission's final report (pp. 302–303):
 
-> *Hybrid constituencies are not only a good reflection of Alberta, but also the best available instrument for preserving rural and suburban representation in the face of sustained urban growth. They avoid the false choice between (a) underrepresenting Calgary and Edmonton, and (b) creating ever-larger purely rural districts that become geographically unmanageable.*
+> *"Hybrid constituencies are not only a good reflection of Alberta, but also the best available instrument for preserving rural and suburban representation in the face of sustained urban growth. They avoid the false choice between (a) underrepresenting Calgary and Edmonton, and (b) creating ever-larger purely rural districts that become geographically unmanageable."*
+>
+> — Minority commissioners, *Final Report* Appendix E (pp. 302–303)
 
 That argument deserves a fair test against the data — and it has now also been adjudicated. The Supreme Court of Canada, on April 22, 2026, dismissed Quebec's appeal of a Quebec Court of Appeal ruling that struck down Quebec's 2024 attempt to freeze its electoral map on similar regional-representation grounds. The 7–2 ruling, delivered from the bench, held that legislative interference with independent commission redistricting work — even when justified on regional-protection grounds — violates Charter section 3 by allowing significant disparities in voter weight to persist. The minority commissioners' rural-protection argument is now operating against Canadian constitutional doctrine that has, in the most recent SCC ruling on the question, gone the other way.
 
