@@ -4,7 +4,7 @@ score_anchoring.py — Lane-2 Dangerzone metric #1 (municipal anchoring %)
 
 Wraps the operational definition documented in
 `analysis/scripts/municipal_anchoring.py` (and validated against 2019 in
-`analysis/scripts/v0_9_municipal_anchoring_2019_baseline.py`) as a
+`analysis/scripts/municipal_anchoring_2019_baseline.py`) as a
 single-input CLI scoring function suitable for batch evaluation across the
 100,000-plan ReCom ensemble.
 
@@ -43,11 +43,11 @@ Output:
     A single line on stdout: anchored_pct as a float (e.g. "71.0").
 
 Forward:
-    analysis/reports/v0_9_dangerzone_metric_definitions.md
+    analysis/reports/dangerzone_metric_definitions.md
     analysis/scripts/score_hybridization.py
 Backward:
     analysis/scripts/municipal_anchoring.py
-    analysis/scripts/v0_9_municipal_anchoring_2019_baseline.py
+    analysis/scripts/municipal_anchoring_2019_baseline.py
     data/shapefiles/reference/alberta_2021_csds.gpkg
 """
 # Version: 0.9 (2026-04-26)

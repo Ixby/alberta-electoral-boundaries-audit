@@ -10,12 +10,12 @@ Depends on:
     data/alberta_2021_csds.gpkg
     data/alberta_2021_csd_populations.csv
     data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
-    data/v0_1_minority_2026_populations.csv
-    data/v0_1_majority_2026_populations.csv
+    data/minority_2026_populations.csv
+    data/majority_2026_populations.csv
 
 Outputs:
-    data/v0_1_justification_test_inputs.csv   (intermediate tables)
-    analysis/reports/v0_1_justification_tests_findings.md (written verdicts)
+    data/justification_test_inputs.csv   (intermediate tables)
+    analysis/reports/justification_tests_findings.md (written verdicts)
 
 Run:
     python analysis/scripts/v0_1_justification_tests.py
@@ -53,11 +53,11 @@ def load_csd_geo() -> gpd.GeoDataFrame:
 
 
 def load_minority() -> pd.DataFrame:
-    return pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
+    return pd.read_csv(DATA / "minority_2026_populations.csv")
 
 
 def load_majority() -> pd.DataFrame:
-    return pd.read_csv(DATA / "v0_1_majority_2026_populations.csv")
+    return pd.read_csv(DATA / "majority_2026_populations.csv")
 
 
 def load_2019_eds() -> gpd.GeoDataFrame:
@@ -315,7 +315,7 @@ def main():
         print()
 
     df = _flatten_for_csv(results)
-    out_csv = DATA / "v0_1_justification_test_inputs.csv"
+    out_csv = DATA / "justification_test_inputs.csv"
     df.to_csv(out_csv, index=False, encoding="utf-8")
     print(f"Wrote {out_csv} ({len(df)} rows)")
 

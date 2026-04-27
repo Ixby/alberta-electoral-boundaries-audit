@@ -92,7 +92,7 @@ Per the PO's pre-registered criterion at the time the tests were designed: *"If 
 
 The data falls on the "drop the thesis" side. The strong claim that *"the minority map's UCP-favourable seat advantage is mechanically inseparable from the unusual non-compact geometry the chair flagged"* is not supported by the falsification tests.
 
-**2026-04-26 evening update — v0_9 direct measurement converges on the same answer.** After this falsification was published, the PO ran a direct Polsby-Popper measurement on the v0_9 topological substrate (script `analysis/scripts/v0_9_polsby_popper.py`, verdict at `analysis/reports/v0_9_polsby_popper_verdict.md`). The chair's named lassos themselves score in the *moderate* compactness band: **Calgary-Nolan Hill-Cochrane PP = 0.402, Rocky Mountain House-Banff Park PP = 0.414** (PP > 0.40 is "high compactness"). Two independent methodologies — the SMC-ensemble falsification and direct measurement on the real maps under the cleanest available substrate — point to the same mechanistic interpretation: **the minority commission did not break Area/Perimeter ratio to build their tipping-point firewall.** The corridors are drawn thick enough that PP looks innocent. The mechanism lives in *what the corridors connect* (city blocks extracted across municipal limits into suburban districts), not in the corridor shape itself. The audit's Lane 2 case rests on the two substrate-stable measurements: **municipal anchoring** (minority 14.5%, majority 71%) and **urban hybridization** (minority 25 hybrid EDs, majority 9, 12 of the minority's *new*) — both computed off the v0_9 substrate, both sampler-independent, both stable across substrate generations.
+**2026-04-26 evening update — v0_9 direct measurement converges on the same answer.** After this falsification was published, the PO ran a direct Polsby-Popper measurement on the v0_9 topological substrate (script `analysis/scripts/polsby_popper.py`, verdict at `analysis/reports/polsby_popper_verdict.md`). The chair's named lassos themselves score in the *moderate* compactness band: **Calgary-Nolan Hill-Cochrane PP = 0.402, Rocky Mountain House-Banff Park PP = 0.414** (PP > 0.40 is "high compactness"). Two independent methodologies — the SMC-ensemble falsification and direct measurement on the real maps under the cleanest available substrate — point to the same mechanistic interpretation: **the minority commission did not break Area/Perimeter ratio to build their tipping-point firewall.** The corridors are drawn thick enough that PP looks innocent. The mechanism lives in *what the corridors connect* (city blocks extracted across municipal limits into suburban districts), not in the corridor shape itself. The audit's Lane 2 case rests on the two substrate-stable measurements: **municipal anchoring** (minority 14.5%, majority 71%) and **urban hybridization** (minority 25 hybrid EDs, majority 9, 12 of the minority's *new*) — both computed off the v0_9 substrate, both sampler-independent, both stable across substrate generations.
 
 The audit retains:
 
@@ -144,7 +144,7 @@ This is a more cautious headline than the public report currently carries. The c
 
 - R script: `analysis/scripts/redist_crossvalidation.R`
 - R run log: `analysis/reports/redist_crossvalidation_run.log`
-- R output: `data/v0_1_redist_crossvalidation_s50.csv` and `.rds`
+- R output: `data/redist_crossvalidation_s50.csv` and `.rds`
 - Python ensemble samples: `data/v0_1_mcmc_ensemble_samples_250k_v0_8.csv` (regenerated 2026-04-26 evening)
-- v0_9 real-map scores: `data/v0_1_v0_9_real_map_scores.json`
-- v0_9 percentile placements: `data/v0_1_v0_9_percentile_placement.json`
+- v0_9 real-map scores: `data/final_real_map_scores.json`
+- v0_9 percentile placements: `data/final_percentile_placement.json`

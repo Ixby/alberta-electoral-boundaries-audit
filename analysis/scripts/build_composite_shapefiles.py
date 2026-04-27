@@ -15,7 +15,7 @@ ED is a subset of the 2019 parent).  The fallback tier is recorded as
 Outputs:
   data/v0_1_composite_majority_2026_eds.gpkg
   data/v0_1_composite_minority_2026_eds.gpkg
-  analysis/methodology/v0_1_composite_shapefiles_log.md
+  analysis/methodology/composite_shapefiles_log.md
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -244,7 +244,7 @@ def main():
     log_lines.append(f'\nOutput: {out_min}')
 
     # ── Write log ─────────────────────────────────────────────────────────────
-    log_path = os.path.join(ANALYSIS_DIR, 'v0_1_composite_shapefiles_log.md')
+    log_path = os.path.join(ANALYSIS_DIR, 'composite_shapefiles_log.md')
     with open(log_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(log_lines))
     print(f'  Log: {log_path}')

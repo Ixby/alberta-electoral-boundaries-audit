@@ -55,8 +55,8 @@ sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 ALBERTA_CSDS = ROOT / "data" / "shapefiles" / "reference" / "alberta_csds.gpkg"  # may not exist
-RECOM_SAMPLES = ROOT / "data" / "v0_1_mcmc_ensemble_samples_250k_v0_9.csv"
-SMC_OUTPUT = ROOT / "data" / "v0_1_redist_crossvalidation_s50.csv"
+RECOM_SAMPLES = ROOT / "data" / "simulated_ensemble_raw_samples_250k.csv"
+SMC_OUTPUT = ROOT / "data" / "redist_crossvalidation_s50.csv"
 
 # Pre-registered tripwire thresholds (committed to before the Lunty
 # committee began work).

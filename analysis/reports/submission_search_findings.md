@@ -110,4 +110,4 @@ For Section D of the audit: the chair's Appendix C sweep is **overbroad**. Three
 
 - Have Section D cite **EBC-2025-2-0619** directly as an explicit counter-example to Appendix C's "no public support" claim.
 - Consider running OCR on the ~88 missing submissions if the audit's credibility requires 100% coverage — but Section D's argument is already established by identified counter-examples, so additional OCR is *nice to have*, not required.
-- Cross-reference with `v0_1_section_D_procedural.md` to adjust the audit's procedural critique from "prima facie credible" to "partially refuted on the specific RMH-Banff, ODH, Red Deer, and Chestermere configurations."
+- Cross-reference with `section_D_procedural.md` to adjust the audit's procedural critique from "prima facie credible" to "partially refuted on the specific RMH-Banff, ODH, Red Deer, and Chestermere configurations."

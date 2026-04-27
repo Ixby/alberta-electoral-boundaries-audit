@@ -33,7 +33,7 @@ def main():
     vas['va_id'] = vas['parent_ed_2019'] + '|' + vas['VA_NUMBER'].astype(str).str.zfill(3)
 
     # 2. Load the Phase 4C assignments
-    assign_path = os.path.join(ROOT, 'analysis', 'phase_4c_va_to_2026_assignments.csv')
+    assign_path = os.path.join(ROOT, 'analysis', 'assignment_va_to_2026_assignments.csv')
     print(f"Loading Phase 4C assignments from {assign_path}...")
     assignments = pd.read_csv(assign_path)
 

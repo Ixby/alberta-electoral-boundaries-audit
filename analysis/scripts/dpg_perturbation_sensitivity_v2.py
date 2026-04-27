@@ -24,10 +24,10 @@ behaviour for regression testing.
 Inputs are identical to v1 (same topoclean substrate). Outputs are
 sibling files with the suffix ``_v2_tiered`` so v1 artefacts are preserved.
 
-Forward: analysis/reports/v0_1_dpg_perturbation_tiered_analysis.md
+Forward: analysis/reports/dpg_perturbation_tiered_analysis.md
 Backward:
   analysis/scripts/v0_1_dpg_perturbation_sensitivity.py  (v1 flat-sigma run)
-  analysis/scripts/v0_1_phase_4c_va_attribution_maup.py  (MAUP helpers)
+  analysis/scripts/v0_1_assignment_va_attribution_maup.py  (MAUP helpers)
   data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -68,7 +68,7 @@ _v1 = importlib.util.module_from_spec(v1_spec)
 sys.modules["dpg_v1"] = _v1
 v1_spec.loader.exec_module(_v1)
 
-m1 = _v1.m1  # MAUP helpers from v0_1_phase_4c_va_attribution_maup.py
+m1 = _v1.m1  # MAUP helpers from v0_1_assignment_va_attribution_maup.py
 compute_declination = _v1.compute_declination
 compute_seats_at_50 = _v1.compute_seats_at_50
 summarise_metric = _v1.summarise_metric

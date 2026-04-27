@@ -17,7 +17,7 @@ the reader can zoom in and compare detail.
 
 Outputs:
   maps/hires_v2/tier_c_crops/<ed>_<kind>.png
-  analysis/reports/v0_1_tier_c_crop_manifest.json
+  analysis/reports/tier_c_crop_manifest.json
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -114,7 +114,7 @@ def main():
         )
         print(f"{t['ed']}: native={native_crop.size}  render={render_crop.size}  "
               f"render/native={render_crop.size[0]/native_crop.size[0]:.2f}x")
-    out_json = ROOT / "analysis" / "reports" / "v0_1_tier_c_crop_manifest.json"
+    out_json = ROOT / "analysis" / "reports" / "tier_c_crop_manifest.json"
     out_json.write_text(json.dumps(manifest, indent=2))
     print(f"\nWrote {out_json}")
 

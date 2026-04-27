@@ -1,12 +1,12 @@
 ---
 name: Census-lag commentary — dataset construction + commission growth modelling
-description: Commentary on how the 2021-census / 2024-TBF / 2035-retirement cycle lag manifests in audit dataset construction and constrains commissions' ability to model forward growth. Companion to v0_1_cycle_lag_analysis.md (§12 statutory-interpretation focus) and report_academic.md §3.3 (robustness focus). This file adds the construction and forward-modelling angles.
+description: Commentary on how the 2021-census / 2024-TBF / 2035-retirement cycle lag manifests in audit dataset construction and constrains commissions' ability to model forward growth. Companion to cycle_lag_analysis.md (§12 statutory-interpretation focus) and report_academic.md §3.3 (robustness focus). This file adds the construction and forward-modelling angles.
 type: reports
 ---
 
 # Census-lag commentary — dataset construction and commission growth modelling
 
-**Companion to:** `analysis/v0_1_cycle_lag_analysis.md` (statutory-interpretation + numerical-robustness focus), `report_academic.md §3.3` (robustness summary), and `analysis/reports/v0_1_act_amendment_proposal.md` (legislative reform proposal).
+**Companion to:** `analysis/cycle_lag_analysis.md` (statutory-interpretation + numerical-robustness focus), `report_academic.md §3.3` (robustness summary), and `analysis/reports/act_amendment_proposal.md` (legislative reform proposal).
 
 **This file adds two angles that the existing material does not cover in detail:**
 
@@ -63,7 +63,7 @@ Alberta's redistribution cycle, counted from most-stale input to boundary-retire
 
 The same story applies at smaller scale to Chestermere, Cochrane, Okotoks, Beaumont, Leduc, Spruce Grove, Fort Saskatchewan, and Sherwood Park — a ring of high-growth municipalities around Calgary and Edmonton where the 4-year gap between commission data basis and first-election date already moves the quota by 10–15 %, and the 14-year gap to boundary retirement moves it by 40 %+ on current rates.
 
-**Slow-decline rural areas.** The mirror-image problem. Peace River, Central Peace-Notley, Lesser Slave Lake, and several northern constituencies have essentially flat or slightly declining populations. Commissions invoke §15(2) (the ±25 % special-rural exception) to keep these districts viable. The §15(2) eligibility ratio the commission computes against 2024 population shifts under mid-2025 data — `analysis/v0_1_cycle_lag_analysis.md` documents Lesser Slave Lake's s.15(2) qualifying ratio dropping past −50 % of provincial mean under the mid-2025 substitution. If the ratio drift persists into 2028–30, a §15(2) protection established under 2024 data may be unavailable by the time the boundary is litigated — a commission has locked in a legal basis for the district that does not survive its own cycle.
+**Slow-decline rural areas.** The mirror-image problem. Peace River, Central Peace-Notley, Lesser Slave Lake, and several northern constituencies have essentially flat or slightly declining populations. Commissions invoke §15(2) (the ±25 % special-rural exception) to keep these districts viable. The §15(2) eligibility ratio the commission computes against 2024 population shifts under mid-2025 data — `analysis/cycle_lag_analysis.md` documents Lesser Slave Lake's s.15(2) qualifying ratio dropping past −50 % of provincial mean under the mid-2025 substitution. If the ratio drift persists into 2028–30, a §15(2) protection established under 2024 data may be unavailable by the time the boundary is litigated — a commission has locked in a legal basis for the district that does not survive its own cycle.
 
 **Indigenous communities and on-reserve populations.** The decennial census chronically under-counts on-reserve populations (undercount estimates in the 3–10 % range per cycle). A commission using the raw census as its basis treats these communities as smaller than they actually are for district-sizing purposes; a commission using TBF estimates inherits the TBF's own treatment of reserves (which varies). The 6–14-year lag amplifies this: a reserve that grew 20 % between 2021 and 2031 but was counted 10 % short at the 2021 anchor spends its entire cycle under-represented relative to its true population.
 
@@ -74,11 +74,11 @@ Commissions can choose:
 1. **Census-only (the statutory baseline).** Maximally conservative, most legally defensible, most stale.
 2. **Census-plus-estimate blend (Alberta 2026 approach).** Less stale but introduces a statutory-interpretation question about the §12(5) "in conjunction with" clause. Creates a legal attack vector.
 3. **Projection-based ("mid-cycle midpoint").** Choose the projected population at the midpoint of the boundaries' effective window. Statistically sound (minimises mean squared deviation from actual populations across the cycle) but not permitted under current Act §12.
-4. **Composite basis with published provenance.** `analysis/reports/v0_1_act_amendment_proposal.md` proposes this: TBF primary + StatsCan tie-breaker at ±2 % + AHCIP + CRA T1 cross-check + CEO as certifying authority. Would require Act amendment.
+4. **Composite basis with published provenance.** `analysis/reports/act_amendment_proposal.md` proposes this: TBF primary + StatsCan tie-breaker at ±2 % + AHCIP + CRA T1 cross-check + CEO as certifying authority. Would require Act amendment.
 
 No Canadian commission currently uses option 3. BC (2023), Saskatchewan (2022), and Federal (2022) used option 1. Alberta 2026 used option 2.
 
-**The audit's position on this is deliberately narrow:** we do not argue the commission's choice was wrong, because it is a policy choice the Act permits. We do document (1) that the choice has real numerical consequences for which districts drift out of ±25 % during the cycle, (2) that the statutory question about §12(5) is unresolved, and (3) that a future amendment to §12 formalising a composite basis would reduce the attack surface on both sides. See §3.3, Appendix E.8, and `analysis/reports/v0_1_act_amendment_proposal.md`.
+**The audit's position on this is deliberately narrow:** we do not argue the commission's choice was wrong, because it is a policy choice the Act permits. We do document (1) that the choice has real numerical consequences for which districts drift out of ±25 % during the cycle, (2) that the statutory question about §12(5) is unresolved, and (3) that a future amendment to §12 formalising a composite basis would reduce the attack surface on both sides. See §3.3, Appendix E.8, and `analysis/reports/act_amendment_proposal.md`.
 
 ## 3. Proposed paper insertions
 
@@ -90,14 +90,14 @@ The existing §3.3 treats cycle-lag as a robustness-of-verdict property. The add
 
 ### New subsection for `report_academic.md §9` (procedural) — "§9.X Cycle-lag as a structural audit-policy question"
 
-> **Cycle-lag as a policy question beyond the audit's scope.** The commission operates under Act §12, which mandates a decennial-census baseline. The boundaries the commission draws will govern elections 4–14 years after that baseline. For fast-growth municipalities around Calgary and Edmonton this lag moves per-ED quotas by 10–40 % during the cycle; for slow-declining rural districts it erodes §15(2) protection ratios. The audit's verdicts are robust to the choice within the current Act (§3.3 cycle-lag robustness test); the audit does not, however, resolve whether §12 itself should be amended to allow a composite basis that reduces the attack surface. The legislative-reform proposal in `analysis/reports/v0_1_act_amendment_proposal.md` sets out one possible composite-basis amendment. That proposal is offered as a policy contribution, not a finding.
+> **Cycle-lag as a policy question beyond the audit's scope.** The commission operates under Act §12, which mandates a decennial-census baseline. The boundaries the commission draws will govern elections 4–14 years after that baseline. For fast-growth municipalities around Calgary and Edmonton this lag moves per-ED quotas by 10–40 % during the cycle; for slow-declining rural districts it erodes §15(2) protection ratios. The audit's verdicts are robust to the choice within the current Act (§3.3 cycle-lag robustness test); the audit does not, however, resolve whether §12 itself should be amended to allow a composite basis that reduces the attack surface. The legislative-reform proposal in `analysis/reports/act_amendment_proposal.md` sets out one possible composite-basis amendment. That proposal is offered as a policy contribution, not a finding.
 
 ## 4. References
 
-- Existing cycle-lag analysis: `analysis/v0_1_cycle_lag_analysis.md`
+- Existing cycle-lag analysis: `analysis/cycle_lag_analysis.md`
 - §3.3 robustness summary in `report_academic.md`
 - Appendix E.8 in `report_academic.md`
-- Plan B cross-check: `analysis/reports/v0_1_plan_b_cross_check.md`
-- Act §12 amendment proposal: `analysis/reports/v0_1_act_amendment_proposal.md`
-- Commission source provenance: `analysis/methodology/v0_1_commission_source_provenance.md`
-- Phase 4F validation: `data/v0_1_phase4f_validation_deltas.csv` + `data/INTEGRITY_STATUS.md`
+- Plan B cross-check: `analysis/reports/plan_b_cross_check.md`
+- Act §12 amendment proposal: `analysis/reports/act_amendment_proposal.md`
+- Commission source provenance: `analysis/methodology/commission_source_provenance.md`
+- Phase 4F validation: `data/v0_1_validation_deltas.csv` + `data/INTEGRITY_STATUS.md`

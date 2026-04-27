@@ -13,9 +13,9 @@ They are stored in `private/` or other gitignored locations.
 | `report_public.md` | Build scaffold for magazine PDF — not a standalone science output |
 | `report_public.pdf` | Magazine PDF — kept private |
 | `analysis/v0_1_duane_bratt_outreach_email.md` | Draft personal outreach email |
-| `analysis/v0_1_live_tasks.md` | Live session task tracker |
+| `analysis/live_tasks.md` | Live session task tracker |
 | `analysis/v0_1_elections_alberta_shapefile_request.md` | FOIP correspondence with Elections Alberta |
-| `analysis/v0_1_url_archival_log.md` | URL archival execution log |
+| `analysis/url_archival_log.md` | URL archival execution log |
 
 ## Deleted (2026-04-23)
 
@@ -28,9 +28,9 @@ They are stored in `private/` or other gitignored locations.
 23 red team files consolidated into `analysis/methodology/red_team_consolidated.md`:
 - `analysis/red_team/` (14 files) — untracked, deleted after merge
 - `analysis/v0_1_science_red_team_*.md` (3 files) — untracked, deleted after merge
-- `analysis/reports/v0_1_design_critique.md` — untracked, deleted after merge
-- `analysis/methodology/v0_1_editorial_pass_log.md` — untracked, deleted after merge
-- `deprecated/v0_1_red_team_academic_discredit.md` — tracked, untracked + deleted after merge
-- `deprecated/v0_1_red_team_round_2.md` — tracked, untracked + deleted after merge
-- `deprecated/v0_2_final_redteam.md` — tracked, untracked + deleted after merge
-- `deprecated/v1_2_prompt_redteam.md` — tracked, untracked + deleted after merge
+- `analysis/reports/design_critique.md` — untracked, deleted after merge
+- `analysis/methodology/editorial_pass_log.md` — untracked, deleted after merge
+- `historical/v0_1_red_team_academic_discredit.md` — tracked, untracked + deleted after merge
+- `historical/v0_1_red_team_round_2.md` — tracked, untracked + deleted after merge
+- `historical/v0_2_final_redteam.md` — tracked, untracked + deleted after merge
+- `historical/v1_2_prompt_redteam.md` — tracked, untracked + deleted after merge

@@ -553,7 +553,7 @@ def phase3b_impact_assessment():
         print(f"[phase3b] {target_name}: {n_vas} sensitive VAs, {total_votes:.0f} votes -> {classification}", flush=True)
 
     df = pd.DataFrame(rows)
-    out = DATA_DIR / "v0_1_boundary_refinement_impact.csv"
+    out = DATA_DIR / "boundary_refinement_impact.csv"
     df.to_csv(out, index=False)
     print(f"\n[phase3b] wrote {out}", flush=True)
     return df
@@ -859,7 +859,7 @@ def main(skip=()):
         "impact_summary": impact_df.to_dict("records") if impact_df is not None else None,
         "phase4_log": phase4_log,
     }
-    out_log = ANALYSIS_DIR / "v0_1_shape_refinement_v2_log.json"
+    out_log = ANALYSIS_DIR / "shape_refinement_v2_log.json"
     out_log.write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
     print("=== SUMMARY ===", flush=True)
     print(json.dumps(summary, indent=2, default=str), flush=True)

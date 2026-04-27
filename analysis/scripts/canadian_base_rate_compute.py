@@ -2,11 +2,11 @@
 Canadian inter-map EG asymmetry base rate — Track V proxy computation.
 
 forward_dependencies:
-  - analysis/methodology/v0_1_canadian_base_rate_computed.md (write-up consumes the table below)
-  - data/v0_1_canadian_redistribution_base_rate.csv (CSV is updated with quantified rows)
+  - analysis/methodology/canadian_base_rate_computed.md (write-up consumes the table below)
+  - data/canadian_redistribution_base_rate.csv (CSV is updated with quantified rows)
 backward_dependencies:
   - analysis/v0_1_fortification_c1_c10.md (C4 attack motivates the base rate)
-  - analysis/scripts/v0_2_packing_cracking_analysis.py (EG formula used in audit)
+  - analysis/scripts/packing_cracking_analysis.py (EG formula used in audit)
 
 Method.
   The audit's inter-map EG-asymmetry value for Alberta 2025-26 (0.51 pp)
@@ -33,7 +33,7 @@ Method.
 Output.
   - Prints per-cycle proxy EG asymmetry and seat-share asymmetry.
   - Prints benchmark distribution statistics.
-  - Emits data/v0_1_canadian_redistribution_base_rate.csv with quantified rows.
+  - Emits data/canadian_redistribution_base_rate.csv with quantified rows.
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -50,7 +50,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-CSV_PATH = os.path.join(REPO_ROOT, "data", "v0_1_canadian_redistribution_base_rate.csv")
+CSV_PATH = os.path.join(REPO_ROOT, "data", "canadian_redistribution_base_rate.csv")
 
 
 @dataclass

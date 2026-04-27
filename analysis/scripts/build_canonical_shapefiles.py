@@ -23,7 +23,7 @@ All other EDs use the priority hierarchy from the plan:
 Outputs:
   data/v0_1_canonical_majority_2026_eds.gpkg
   data/v0_1_canonical_minority_2026_eds.gpkg
-  analysis/methodology/v0_1_canonical_shapefile_log.md
+  analysis/methodology/canonical_shapefile_log.md
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -403,7 +403,7 @@ def load_data():
 
     eds_2019_lookup = dict(zip(eds_2019['EDName2017'], eds_2019['geometry']))
 
-    maj_pop = pd.read_csv(os.path.join(DATA_DIR, 'v0_1_majority_2026_populations.csv'))
+    maj_pop = pd.read_csv(os.path.join(DATA_DIR, 'majority_2026_populations.csv'))
     maj_pop_lookup = dict(zip(maj_pop['ed_name'], maj_pop['population']))
 
     return va, eds_2019_lookup, v7_maj, v7_min, v6_min, maj_pop_lookup
@@ -667,7 +667,7 @@ def main():
     print(f'Written: {out_maj}')
     print(f'Written: {out_min}')
 
-    log_path = os.path.join(ANALYSIS_DIR, 'v0_1_canonical_shapefile_log.md')
+    log_path = os.path.join(ANALYSIS_DIR, 'canonical_shapefile_log.md')
     with open(log_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(log))
     print(f'Log: {log_path}')

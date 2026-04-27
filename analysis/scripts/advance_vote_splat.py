@@ -18,7 +18,7 @@ Step 4  Validate conservation; print province-wide NDP-share comparison.
 Outputs
 -------
   data/va_polygons_with_full_2023_votes.gpkg
-  analysis/v0_1_advance_vote_splat_diagnostics.csv
+  analysis/advance_vote_splat_diagnostics.csv
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -41,7 +41,7 @@ ROOT = os.path.join(HERE, "..", "..")
 POLLS_CSV   = os.path.join(HERE, "polls_2023_unified.csv")
 VA_GPKG_IN  = os.path.join(ROOT, "data", "va_polygons_with_2023_votes.gpkg")
 VA_GPKG_OUT = os.path.join(ROOT, "data", "va_polygons_with_full_2023_votes.gpkg")
-DIAG_CSV    = os.path.join(HERE, "v0_1_advance_vote_splat_diagnostics.csv")
+DIAG_CSV    = os.path.join(HERE, "advance_vote_splat_diagnostics.csv")
 
 
 # ===========================================================================
@@ -105,7 +105,7 @@ print(f"  VA substrate: {len(va_gdf):,} rows, CRS={va_gdf.crs}")
 print(f"  Columns: {list(va_gdf.columns)}")
 
 # Identify vote columns in VA file
-# Standard names from v0_1_phase_4c_va_attribution.py: va_ndp, va_ucp, va_other
+# Standard names from v0_1_assignment_va_attribution.py: va_ndp, va_ucp, va_other
 # Double-check they exist
 for col in ("va_ndp", "va_ucp", "va_other"):
     if col not in va_gdf.columns:

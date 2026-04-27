@@ -22,7 +22,7 @@ This writeup reports what Track Y-prime did and what it found.
 
 Each of the five Tier B minority EDs was transcribed segment-by-segment from
 the 600-DPI commission PNG (`maps/hires/v0_1_minority_p35[9-60-61-62]_*.png`).
-Full transcription lives at `analysis/methodology/v0_1_boundary_transcription.md`. Summary:
+Full transcription lives at `analysis/methodology/boundary_transcription.md`. Summary:
 
 | ED | Water-body segment | Dominant feature class(es) | Priority |
 |---|---|---|---|
@@ -126,7 +126,7 @@ other) for those VAs were summed.
 
 **Total boundary-sensitive votes across all v1→v2 transitions: 1,229.**
 
-Full CSV: `data/v0_1_boundary_refinement_impact.csv`.
+Full CSV: `data/boundary_refinement_impact.csv`.
 
 **Important observation.** Calgary-De Winton and Calgary-South each list the
 same 1 sensitive VA with 216.6 votes — these two EDs share a boundary
@@ -218,7 +218,7 @@ Panels at `maps/verification/v0_2_<majority|minority>_<ed-slug>.png` plus a
 
 ## Final compactness scores with three-tier confidence
 
-Full table: `data/v0_1_compactness_scores_refined.csv` (carried over from
+Full table: `data/compactness_scores_refined.csv` (carried over from
 Track Y v1) + a v2 column for the five snapped Tier B rows.
 
 ### Tier B comparison, v1 vs v2
@@ -338,7 +338,7 @@ to run only phase 2b and 3b).
 ## Summary: what Track Y-prime changed
 
 - **Transcribed** each Tier B ED boundary from the commission PNG
-  (`analysis/methodology/v0_1_boundary_transcription.md`).
+  (`analysis/methodology/boundary_transcription.md`).
 - **Re-snapped** 3 of 5 Tier B EDs that have water-body segments using
   multi-feature OSM priority queries; 2 of 5 admin-dominated EDs also
   re-snapped for consistency.

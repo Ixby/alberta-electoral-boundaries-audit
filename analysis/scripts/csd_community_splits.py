@@ -7,13 +7,13 @@ Computes, per populated CSD:
 - Approximate number of minority-2026 EDs (via hybrid crosswalk).
 
 Outputs:
-- data/v0_1_csd_splits_summary.csv
+- data/csd_splits_summary.csv
 - Console summary consumed by the markdown writer.
 
 Dependencies (backward): alberta_2021_csds.gpkg, alberta_2021_csd_populations.csv,
-alberta_2019_eds/*.shp, v0_1_majority_hybrid_crosswalk.csv,
-v0_1_minority_hybrid_crosswalk.csv
-Dependencies (forward): analysis/methodology/v0_1_csd_community_splits.md
+alberta_2019_eds/*.shp, majority_hybrid_crosswalk.csv,
+minority_hybrid_crosswalk.csv
+Dependencies (forward): analysis/methodology/csd_community_splits.md
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -84,8 +84,8 @@ def main():
     )
 
     # Load crosswalks
-    maj = pd.read_csv(os.path.join(DATA, "v0_1_majority_hybrid_crosswalk.csv"))
-    mnr = pd.read_csv(os.path.join(DATA, "v0_1_minority_hybrid_crosswalk.csv"))
+    maj = pd.read_csv(os.path.join(DATA, "majority_hybrid_crosswalk.csv"))
+    mnr = pd.read_csv(os.path.join(DATA, "minority_hybrid_crosswalk.csv"))
 
     # Build 2019->set-of-2026 maps. If a 2019 ED appears twice (hybrid splitting
     # into multiple 2026 EDs), include both 2026 EDs.
@@ -197,7 +197,7 @@ def main():
     out = pd.DataFrame(rows).sort_values(
         ["splits_2019", "population_2021"], ascending=[False, False]
     )
-    out_path = os.path.join(DATA, "v0_1_csd_splits_summary.csv")
+    out_path = os.path.join(DATA, "csd_splits_summary.csv")
     out.to_csv(out_path, index=False, encoding="utf-8")
 
     # Console summary

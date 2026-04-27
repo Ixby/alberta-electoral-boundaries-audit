@@ -15,19 +15,19 @@ and runs three structural tests:
   B1c — Neighbor-count distribution: per-ED count of adjacent EDs.
 
 Outputs:
-  analysis/reports/v0_1_adjacency_analysis.csv
+  analysis/reports/adjacency_analysis.csv
       per-ED rows: map, name, neighbor_count, touches_airdrie,
                    airdrie_fragment_area_pct
-  data/v0_1_adjacency_summary.json
+  data/adjacency_summary.json
       per-map: mean_neighbor_count, fully_connected, airdrie_ed_count,
                airdrie_split_exceeds_4
 
 Author: v0.1 audit pipeline — Test B1. Generated 2026-04-24.
 
 Forward deps:
-  - analysis/reports/v0_1_adjacency_analysis.csv consumed by
+  - analysis/reports/adjacency_analysis.csv consumed by
     report_academic.md §B (adjacency structural findings)
-  - data/v0_1_adjacency_summary.json consumed by summary dashboard
+  - data/adjacency_summary.json consumed by summary dashboard
 
 Backward deps:
   - data/shapefiles/derived/v0_3_canonical_majority_2026_eds_swept.gpkg
@@ -302,12 +302,12 @@ def main() -> None:
         all_summaries.append(summary)
 
     # --- Write outputs ---
-    out_csv = REPORTS / "v0_1_adjacency_analysis.csv"
+    out_csv = REPORTS / "adjacency_analysis.csv"
     combined = pd.concat(all_rows, ignore_index=True)
     combined.to_csv(out_csv, index=False)
     print(f"\nWrote {len(combined)} rows to {out_csv}")
 
-    out_json = DATA / "v0_1_adjacency_summary.json"
+    out_json = DATA / "adjacency_summary.json"
     with open(out_json, "w") as fh:
         json.dump(all_summaries, fh, indent=2, default=str)
     print(f"Wrote summary to {out_json}")

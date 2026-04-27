@@ -1,11 +1,11 @@
 """
-Generator for ``v0_1_dpg_perturbation_tiered_analysis.md``.
+Generator for ``dpg_perturbation_tiered_analysis.md``.
 
 Consumes the v1 summary JSON (flat ±500 m) and the v2/v3 tier-aware summary
 JSONs and produces the comparison writeup at
-``analysis/reports/v0_1_dpg_perturbation_tiered_analysis.md``.
+``analysis/reports/dpg_perturbation_tiered_analysis.md``.
 
-Forward: analysis/reports/v0_1_dpg_perturbation_tiered_analysis.md
+Forward: analysis/reports/dpg_perturbation_tiered_analysis.md
 Backward:
   analysis/scripts/v0_1_dpg_perturbation_sensitivity.py (v1 flat ±500m)
   analysis/scripts/v0_1_dpg_perturbation_sensitivity_v2.py (v2 tier-aware)
@@ -23,9 +23,9 @@ DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
 V1_JSON = DATA / "v0_1_dpg_perturbation_summary.json"
-V2_JSON = DATA / "v0_1_dpg_perturbation_summary_v2_tiered.json"
-V3_JSON = DATA / "v0_1_dpg_perturbation_summary_v3_tight.json"
-OUT_MD = REPORTS / "v0_1_dpg_perturbation_tiered_analysis.md"
+V2_JSON = DATA / "dpg_perturbation_summary_v2_tiered.json"
+V3_JSON = DATA / "dpg_perturbation_summary_v3_tight.json"
+OUT_MD = REPORTS / "dpg_perturbation_tiered_analysis.md"
 
 METRIC_LABELS = [
     ("majority_eg_pct", "Majority EG (%)"),
@@ -268,8 +268,8 @@ python analysis/scripts/v0_1_dpg_perturbation_sensitivity.py \\
 ```
 
 Outputs:
-- `data/v0_1_dpg_perturbation_samples_v2_tiered.csv` / `..._summary_v2_tiered.json`
-- `data/v0_1_dpg_perturbation_samples_v3_tight.csv` / `..._summary_v3_tight.json`
+- `data/dpg_perturbation_samples_v2_tiered.csv` / `..._summary_v2_tiered.json`
+- `data/dpg_perturbation_samples_v3_tight.csv` / `..._summary_v3_tight.json`
 - `data/v0_1_dpg_perturbation_samples.csv` / `..._summary.json` (v1)
 """
     OUT_MD.write_text(md, encoding="utf-8")

@@ -32,10 +32,10 @@ Inputs (read-only):
 Outputs:
   data/v0_2_canonical_majority_2026_eds_topoclean.gpkg
   data/v0_2_canonical_minority_2026_eds_topoclean.gpkg
-  analysis/reports/v0_1_topology_cleanup_log.csv  (per-ED before/after)
-  analysis/reports/v0_1_topology_cleanup_summary.json
+  analysis/reports/topology_cleanup_log.csv  (per-ED before/after)
+  analysis/reports/topology_cleanup_summary.json
 
-Forward: analysis/scripts/v0_1_phase_4c_va_attribution_maup_v2.py
+Forward: analysis/scripts/v0_1_assignment_va_attribution_maup_v2.py
 Backward:
   analysis/scripts/v0_1_build_canonical_shapefiles.py
   data/v0_1_canonical_{majority,minority}_2026_eds.gpkg
@@ -68,8 +68,8 @@ MAJ_IN = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpk
 MIN_IN = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
 MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
 MIN_OUT = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
-LOG_CSV = REPORTS / "v0_1_topology_cleanup_log.csv"
-SUMMARY_JSON = REPORTS / "v0_1_topology_cleanup_summary.json"
+LOG_CSV = REPORTS / "topology_cleanup_log.csv"
+SUMMARY_JSON = REPORTS / "topology_cleanup_summary.json"
 
 # Precedence order for canon_source (higher index = stronger evidence)
 SOURCE_PRECEDENCE = {

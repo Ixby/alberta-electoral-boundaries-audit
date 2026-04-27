@@ -24,8 +24,8 @@ so NDP plays the role of "Dem."  Under this mapping:
   mann_whitney_u      test_stat d > r (NDP)           negate → ours
 
 Outputs:
-  analysis/reports/v0_1_gerrymetrics_comparison.md
-  data/v0_1_gerrymetrics_comparison.json
+  analysis/reports/gerrymetrics_comparison.md
+  data/gerrymetrics_comparison.json
 
 Backward:
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
@@ -78,8 +78,8 @@ VA_PATH  = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 MAJ_V7   = _pick("majority")
 MIN_V7   = _pick("minority")
 
-OUT_MD   = RPTS / "v0_1_gerrymetrics_comparison.md"
-OUT_JSON = DATA / "v0_1_gerrymetrics_comparison.json"
+OUT_MD   = RPTS / "gerrymetrics_comparison.md"
+OUT_JSON = DATA / "gerrymetrics_comparison.json"
 
 
 # ---------------------------------------------------------------------------

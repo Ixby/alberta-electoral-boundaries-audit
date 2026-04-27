@@ -63,14 +63,14 @@ Usage
 
 Dependencies
 ------------
-Forward: analysis/reports/v0_9_regional_swing_robustness.md (interprets output)
+Forward: analysis/reports/regional_swing_robustness.md (interprets output)
 Backward:
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
-  data/v0_1_alberta_2019_results.csv
-  data/v0_1_alberta_2023_results.csv
+  data/alberta_2019_results.csv
+  data/alberta_2023_results.csv
   data/v0_9_topological_majority_2026_eds.gpkg
   data/v0_9_topological_minority_2026_eds.gpkg
-  data/v0_1_mcmc_verification_assignments.npz  (for the ensemble re-rank)
+  data/verification_assignments_raw.npz  (for the ensemble re-rank)
   numpy, pandas, geopandas
 """
 # Version: 0.9 series  (last updated 2026-04-26)
@@ -93,8 +93,8 @@ ROOT = HERE.parent.parent
 DATA = ROOT / "data"
 
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-RESULTS_2019 = DATA / "v0_1_alberta_2019_results.csv"
-RESULTS_2023 = DATA / "v0_1_alberta_2023_results.csv"
+RESULTS_2019 = DATA / "alberta_2019_results.csv"
+RESULTS_2023 = DATA / "alberta_2023_results.csv"
 
 MAJ_V9 = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
 MIN_V9 = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"

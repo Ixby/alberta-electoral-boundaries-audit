@@ -180,7 +180,7 @@ cat("  weighted % >= 0.4831 (v0_9 minority): ",
     round(100 * sum(weights[s50_values >= 0.4831]) / sum(weights), 2), "%\n")
 cat("\n")
 cat("Python ensemble published values (post-audit reference):\n")
-cat("  See analysis/reports/v0_1_post_audit_recompute_deltas.md for the\n")
+cat("  See analysis/reports/post_audit_recompute_deltas.md for the\n")
 cat("  corrected percentile placements from the 100k pre-registered\n")
 cat("  baseline ensemble. The earlier 2M exploratory enlargement was\n")
 cat("  cancelled in favour of the standard 100k after diagnostics\n")
@@ -236,7 +236,7 @@ saveRDS(list(s50 = s50_values, weights = weights, pp = mean_pp_per_plan),
 write.csv(
   data.frame(seats_at_50_50 = s50_values, weight = weights,
              polsby_popper = mean_pp_per_plan),
-  file = "data/v0_1_redist_crossvalidation_s50.csv",
+  file = "data/redist_crossvalidation_s50.csv",
   row.names = FALSE
 )
-cat("Wrote data/v0_1_redist_crossvalidation_s50.csv\n")
+cat("Wrote data/redist_crossvalidation_s50.csv\n")

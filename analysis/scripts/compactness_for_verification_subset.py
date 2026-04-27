@@ -1,7 +1,7 @@
 """Polsby-Popper compactness for the Python ReCom verification subset.
 
 Computes per-plan PP for each of the 10,000 saved partition assignments in
-data/v0_1_mcmc_verification_assignments.npz, using the cut-edge trick so
+data/verification_assignments_raw.npz, using the cut-edge trick so
 we don't have to do 870,000 polygon dissolves.
 
 For each VA we precompute:
@@ -17,7 +17,7 @@ For each saved partition:
   - PP per district = 4 * pi * area / perimeter^2
   - mean PP across districts is the per-plan summary
 
-Output: data/v0_1_python_recom_polsby_popper.csv with one row per plan.
+Output: data/python_recom_polsby_popper.csv with one row per plan.
 
 This pairs with the R `redist` SMC compactness output for the
 falsification tests proposed by the PO ("the mechanism is the geometry").
@@ -39,9 +39,9 @@ warnings.simplefilter("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 VA_GPKG = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-NPZ = ROOT / "data" / "v0_1_mcmc_verification_assignments.npz"
-METRICS_CSV = ROOT / "data" / "v0_1_mcmc_verification_metrics.csv"
-OUT_CSV = ROOT / "data" / "v0_1_python_recom_polsby_popper.csv"
+NPZ = ROOT / "data" / "verification_assignments_raw.npz"
+METRICS_CSV = ROOT / "data" / "simulation_verification_metrics.csv"
+OUT_CSV = ROOT / "data" / "python_recom_polsby_popper.csv"
 
 
 def main() -> int:

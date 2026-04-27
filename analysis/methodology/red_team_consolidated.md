@@ -37,7 +37,7 @@ The tables below summarise which red-team findings have been addressed by the T0
 | SCI-stats-01 — MCMC p100 / p1.6 tail claims not supported by ESS ≈ 150 | **ADDRESSED** | `report_academic.md` §5.4 — explicit tail-downgrade paragraph; raw p100 and p1.6 bounded to p95.35 and p2.5 at chain effective precision; minority seats-at-50/50 retracted to p89.72 |
 | SCI-attribution-01 — swing-VA exposure not quantified | **ADDRESSED** | `report_academic.md` §5.2.7 — new Core-vs-Margin VA partition paragraph; upper-bound ±1.5 pp swing at risk from Margin VAs, insufficient to bridge −1.42 pp ↔ +4.15 pp gap |
 | SCI-glossary-01 — sign-convention not defined prominently | **ADDRESSED** | `report_academic.md` §4.3 — glossary block before B1 definition: negative = UCP advantage, positive = NDP advantage, universal; cross-convention reconciliation with S-M literature |
-| ACA-airdrie — 530 km² Airdrie overlap could be misread as commission error | **ADDRESSED** | `analysis/reports/v0_1_airdrie_overlap_report.md` header — framed as DPG transcription artifact; VA assignment falls back to correct `parent_ed_2019` crosswalk; feeds §5.2.7 Margin-VA insulation |
+| ACA-airdrie — 530 km² Airdrie overlap could be misread as commission error | **ADDRESSED** | `analysis/reports/airdrie_overlap_report.md` header — framed as DPG transcription artifact; VA assignment falls back to correct `parent_ed_2019` crosswalk; feeds §5.2.7 Margin-VA insulation |
 | SCI-citations-01 — Pal 2015 / Pal 2019 fabricated citations | **NOT APPLICABLE** | Verified: `report_academic.md` does not cite Pal at all; the flagged references appear only in self-critical red-team docs (this file) and in the planning-target literature-review doc. No paper-facing correction needed |
 
 ### Addressed in T2 (commit de7c48e) — multiple-comparison posture
@@ -45,8 +45,8 @@ The tables below summarise which red-team findings have been addressed by the T0
 | Finding | Status | Fix location |
 |---|---|---|
 | SCI-stats-02 — 20+ statistical tests without FWER correction | **ADDRESSED** | `report_academic.md` §6 Discussion — new "Multiple-comparison posture" paragraph: explicitly not applying Bonferroni/BH because the frame is consistency-across-correlated-dimensions, not independent-significance-claims; documents Katz-King-Rosenblatt (2020) + Altman-McDonald (2011) authority for the choice; notes the FWER-adjusted reader gets the same posture because the audit does not rest on individual-metric significance |
-| CRIT-03 — int() truncation bias in vote scaling | **ALREADY ADDRESSED** (earlier red-team pass) | `analysis/scripts/v0_2_packing_cracking_analysis.py` lines 461, 497, 509 — all vote-scaling ops use `round()`; CRIT-03 fix-note comments in place |
-| HIGH-01 — `hash(ed_name) % 2^32` non-reproducible RNG seeding | **ALREADY ADDRESSED** (earlier red-team pass) | `analysis/scripts/shape_refinement_v6.py` lines 248–256 — replaced with `int.from_bytes(hashlib.sha256(ed_name.encode()).digest()[:4], 'big')` |
+| CRIT-03 — int() truncation bias in vote scaling | **ALREADY ADDRESSED** (earlier red-team pass) | `analysis/scripts/packing_cracking_analysis.py` lines 461, 497, 509 — all vote-scaling ops use `round()`; CRIT-03 fix-note comments in place |
+| HIGH-01 — `hash(ed_name) % 2^32` non-reproducible RNG seeding | **ALREADY ADDRESSED** (earlier red-team pass) | `analysis/scripts/refine_boundaries.py` lines 248–256 — replaced with `int.from_bytes(hashlib.sha256(ed_name.encode()).digest()[:4], 'big')` |
 
 ### Addressed by session-12 data pipeline remediation (commit afb3a4a, 3b7dbfb)
 
@@ -71,13 +71,13 @@ The tables below summarise which red-team findings have been addressed by the T0
 
 ### 1.1 Legal Defensibility Framework (D1–D10)
 
-*Source: `analysis/red_team/v0_1_legal_red_team_framework.md`*
+*Source: `analysis/red_team/legal_red_team_framework.md`*
 
 # Legal-standard red-team framework
 
 **Directive:** red-team every file in the repo to a standard defensible in a court of law (2026-04-23).
 
-**Scope:** all files under `alberta_audit/` excluding `deprecated/` and `.temp/`. Approximately 150+ files across primary outputs, analysis documents, data artifacts, scripts, and reproducibility infrastructure.
+**Scope:** all files under `alberta_audit/` excluding `historical/` and `.temp/`. Approximately 150+ files across primary outputs, analysis documents, data artifacts, scripts, and reproducibility infrastructure.
 
 **Posture:** this framework treats the audit as evidence that could be tendered in (a) a Charter-based boundary-drawing challenge, (b) a defamation proceeding arising from any adverse characterisation of a named commissioner / MLA / premier, (c) expert-witness testimony before a parliamentary committee, or (d) a journalistic defamation action responding to magazine publication. The standard is not "convincing on the face" but "survivable under hostile cross-examination."
 
@@ -147,14 +147,14 @@ Predictions (e.g., "the November 2026 MLA committee map will likely…") must be
    - `requirements.txt`
    - `setup.md`
 3. **Analysis documents underpinning named-actor characterisations**
-   - `analysis/methodology/v0_1_minority_rationales_validation.md`
-   - `analysis/methodology/v0_1_school_division_coherence.md`
-   - `analysis/reports/v0_1_section_C_geographic_coherence.md`
-   - `analysis/reports/v0_1_bias_audit.md`
-   - `analysis/reports/v0_1_design_critique.md`
+   - `analysis/methodology/minority_rationales_validation.md`
+   - `analysis/methodology/school_division_coherence.md`
+   - `analysis/reports/section_C_geographic_coherence.md`
+   - `analysis/reports/bias_audit.md`
+   - `analysis/reports/design_critique.md`
 4. **Scripts producing numerical claims in the reports**
-   - `analysis/scripts/v0_2_packing_cracking_analysis.py`
-   - `analysis/scripts/v0_3_monte_carlo_ci.py`
+   - `analysis/scripts/packing_cracking_analysis.py`
+   - `analysis/scripts/monte_carlo_ci.py`
    - `analysis/scripts/338canada_scraper.py`
    - `analysis/scripts/338canada_reallocate.py`
    - `analysis/scripts/mcmc_ensemble.py`
@@ -162,18 +162,18 @@ Predictions (e.g., "the November 2026 MLA committee map will likely…") must be
 5. **Data artifacts**
    - `data/*.gpkg`, `data/*.csv` (each must trace to a source in `FROZEN_MANIFEST.md`)
 6. **Remaining analysis documents, scripts, and auxiliary files**
-7. **Scope exclusions** — `deprecated/`, `.temp/`, and any file with `deprecated_` prefix are reviewed only to confirm they are not cited in primary outputs.
+7. **Scope exclusions** — `historical/`, `.temp/`, and any file with `deprecated_` prefix are reviewed only to confirm they are not cited in primary outputs.
 
 ## Findings output
 
 Each file class produces a red-team findings file:
 
-- `analysis/red_team/v0_1_legal_red_team_report_public.md`
-- `analysis/red_team/v0_1_legal_red_team_report_academic.md`
+- `analysis/red_team/legal_red_team_report_public.md`
+- `analysis/red_team/legal_red_team_report_academic.md`
 - `analysis/red_team/v0_1_legal_red_team_frozen_manifest.md`
 - `analysis/red_team/v0_1_legal_red_team_analysis_docs.md`
-- `analysis/red_team/v0_1_legal_red_team_scripts.md`
-- `analysis/red_team/v0_1_legal_red_team_data_artifacts.md`
+- `analysis/red_team/legal_red_team_scripts.md`
+- `analysis/red_team/legal_red_team_data_artifacts.md`
 
 Each findings file follows the template:
 
@@ -204,13 +204,13 @@ Until then, this framework document and the `report_public.md` first-pass findin
 
 ### 1.2 Scientific Validity Framework (S1–S10)
 
-*Source: `analysis/red_team/v0_1_science_red_team_framework.md`*
+*Source: `analysis/red_team/science_red_team_framework.md`*
 
 # Science-standard red-team framework
 
 **Directive:** red-team every file in the repo to a standard defensible under peer review (2026-04-23).
 
-**Scope:** all files under `alberta_audit/` excluding `deprecated/` and `.temp/`. Companion to `analysis/red_team/v0_1_legal_red_team_framework.md`. Where the legal framework asks "would this survive cross-examination?", the science framework asks "would this survive a methods-paper peer review?"
+**Scope:** all files under `alberta_audit/` excluding `historical/` and `.temp/`. Companion to `analysis/red_team/legal_red_team_framework.md`. Where the legal framework asks "would this survive cross-examination?", the science framework asks "would this survive a methods-paper peer review?"
 
 **Posture:** the audit is evaluated as if being submitted as a methods paper to a peer-reviewed political-science / statistics journal (candidate venues: *Election Law Journal*, *Statistics and Public Policy*, *Journal of Quantitative Description*, *PNAS Nexus*). Reviewers will hunt for the same pathologies they hunt for in any social-science paper: pre-registration, researcher degrees of freedom, cherry-picked metrics, confounder control, statistical power, prior-literature engagement, and calibration of claim strength to evidence.
 
@@ -300,9 +300,9 @@ Limitations: does the paper have a dedicated limitations section? Yes (§7 in ac
 ## Findings output
 
 Three findings files, one per agent:
-- `analysis/red_team/v0_1_science_red_team_design_and_stats.md` — S1, S2, S9
-- `analysis/red_team/v0_1_science_red_team_reproducibility_and_falsifiability.md` — S3, S4, S5, S8
-- `analysis/red_team/v0_1_science_red_team_data_priorart_peerreview.md` — S6, S7, S10
+- `analysis/red_team/science_red_team_design_and_stats.md` — S1, S2, S9
+- `analysis/red_team/science_red_team_reproducibility_and_falsifiability.md` — S3, S4, S5, S8
+- `analysis/red_team/science_red_team_data_priorart_peerreview.md` — S6, S7, S10
 
 Each findings file follows the template:
 
@@ -332,7 +332,7 @@ A finding triggered by both frameworks gets both severity labels — e.g., "HIGH
 
 ### 2.1 Code Red Team
 
-*Source: `analysis/red_team/v0_1_red_team_code.md`*
+*Source: `analysis/red_team/red_team_code.md`*
 
 # Code red team — findings
 
@@ -351,7 +351,7 @@ All line numbers refer to the file at the time of review. All findings are
 - LOW: 7 findings
 - INFO: 6 findings
 - Total scripts reviewed: 21 (of 39 `.py` files in `analysis/`)
-- Scripts skimmed / not exhaustively reviewed: `338canada_historical.py` (partial, 44 KB), `shape_refinement_v2.py`, `shape_refinement_v3.py` (partial), `v0_1_submission_ocr*.py`, `submission_search.py`, `justification_tests.py`, `poll_attribution_skeleton.py`, `marginal_seats_analysis.py`, `plan_b_rerun.py`, `rural_gap_dissection.py`, `url_archival.py`, `csd_community_splits.py`, `2015_cross_election.py`, `build_academic_html.py`, `phase_4c_prep.py` (partial).
+- Scripts skimmed / not exhaustively reviewed: `338canada_historical.py` (partial, 44 KB), `shape_refinement_v2.py`, `shape_refinement_v3.py` (partial), `v0_1_submission_ocr*.py`, `submission_search.py`, `justification_tests.py`, `poll_attribution_skeleton.py`, `marginal_seats_analysis.py`, `plan_b_rerun.py`, `rural_gap_dissection.py`, `url_archival.py`, `csd_community_splits.py`, `2015_cross_election.py`, `build_academic_html.py`, `assignment_prep.py` (partial).
 
 ---
 
@@ -359,7 +359,7 @@ All line numbers refer to the file at the time of review. All findings are
 
 ### CRIT-01. Monte Carlo CI uses wrong numpy percentile convention (empirical fractional index without interpolation) and has a silent `continue` that can drop samples, leaving a non-2,000 sample set feeding the "95% CI" claim.
 
-**File/line:** `analysis/scripts/v0_3_monte_carlo_ci.py:86-89, 109-118, 162-163`
+**File/line:** `analysis/scripts/monte_carlo_ci.py:86-89, 109-118, 162-163`
 **Evidence:**
 ```python
 for i in range(n_samples):
@@ -413,7 +413,7 @@ for key, vals in all_value_blocks:
 
 ### CRIT-03. The packing/cracking `estimate_2026` integer-truncates blended NDP / UCP votes, producing systematic downward bias in both seat counts and EG.
 
-**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:445-455, 469-484`
+**File/line:** `analysis/scripts/packing_cracking_analysis.py:445-455, 469-484`
 **Evidence:**
 ```python
 def blend(base: Dict, urban_w: float) -> Dict:
@@ -466,9 +466,9 @@ def reallocate_338(t338: Dict, mapping: Dict, pop: Dict[str, int],
 
 ---
 
-### CRIT-05. `v0_2_packing_cracking_analysis.py`'s `MAJORITY_2026_MAPPING` silently drops rows when `'merge'` has a missing 2019 parent; `estimate_2026` then returns fewer than 89 EDs, and `validate_2026_estimate` catches it — but the unused `out` still contains the partial list that gets returned if validation is skipped.
+### CRIT-05. `packing_cracking_analysis.py`'s `MAJORITY_2026_MAPPING` silently drops rows when `'merge'` has a missing 2019 parent; `estimate_2026` then returns fewer than 89 EDs, and `validate_2026_estimate` catches it — but the unused `out` still contains the partial list that gets returned if validation is skipped.
 
-**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:469-484, 491-512`
+**File/line:** `analysis/scripts/packing_cracking_analysis.py:469-484, 491-512`
 **Evidence:**
 ```python
 elif kind == 'merge':
@@ -487,7 +487,7 @@ def validate_2026_estimate(estimates: List[Dict], label: str,
         msgs.append(f"FAIL: {label} has {n} EDs, expected {expected_n}")
         ok = False
 ```
-**Behaviour:** If `by_name.get(name)` returns `None` for any parent in a merge, the row is silently dropped. `main()` does call `validate_2026_estimate` and aborts metrics computation — but `estimate_2026` is also called from `v0_3_monte_carlo_ci.py` and `338canada_reallocate.py`, neither of which calls `validate_2026_estimate`. If a future 2019-ED name change (or a typo) breaks a merge key, the Monte Carlo will silently run on 88-ED estimates, altering efficiency gap denominators.
+**Behaviour:** If `by_name.get(name)` returns `None` for any parent in a merge, the row is silently dropped. `main()` does call `validate_2026_estimate` and aborts metrics computation — but `estimate_2026` is also called from `monte_carlo_ci.py` and `338canada_reallocate.py`, neither of which calls `validate_2026_estimate`. If a future 2019-ED name change (or a typo) breaks a merge key, the Monte Carlo will silently run on 88-ED estimates, altering efficiency gap denominators.
 **Expected:** Raise explicitly if any mapping row cannot be resolved. Log the skipped name.
 **Impact:** Breaks reproducibility of the Monte Carlo CI if the data gets touched. Currently passes because the 2019 names are frozen.
 **Fix recommendation:** Change silent `continue`/drop patterns to explicit `raise KeyError(new_ed)` and catch at top level with a clear log.
@@ -498,7 +498,7 @@ def validate_2026_estimate(estimates: List[Dict], label: str,
 
 ### HIGH-01. The shape-refinement v6 pipeline uses `hash(ed_name) % (2**32)` as a per-ED RNG seed, meaning Python hash randomization (on by default for strings in Python 3.3+) makes runs non-reproducible unless `PYTHONHASHSEED` is pinned — and it is not set anywhere in the pipeline.
 
-**File/line:** `analysis/scripts/shape_refinement_v6.py:247`
+**File/line:** `analysis/scripts/refine_boundaries.py:247`
 **Evidence:**
 ```python
 # T5: reverse sampling
@@ -807,9 +807,9 @@ def _load_2019_eds():
 
 ---
 
-### MED-03. `phase_4c_prep.py` imports and runs top-level code at module load (not inside `main()`), meaning any `import` of this module by a different script triggers full pipeline execution. Tagged `from __future__ import annotations` and has no `if __name__ == "__main__":` guard.
+### MED-03. `assignment_prep.py` imports and runs top-level code at module load (not inside `main()`), meaning any `import` of this module by a different script triggers full pipeline execution. Tagged `from __future__ import annotations` and has no `if __name__ == "__main__":` guard.
 
-**File/line:** `analysis/scripts/phase_4c_prep.py:36-end`
+**File/line:** `analysis/scripts/assignment_prep.py:36-end`
 **Evidence:**
 ```python
 print("[1/5] Loading inputs...")
@@ -821,9 +821,9 @@ eds19 = gpd.read_file(DATA / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.
 
 ---
 
-### MED-04. `phase_4c_prep.py` uses `encoding="latin-1"` for the `polls_2023_unified.csv` loader but every other file in the audit uses `utf-8`. A mix-up could silently corrupt candidate names containing UTF-8 characters (e.g., diacritics in French names, `'` apostrophes).
+### MED-04. `assignment_prep.py` uses `encoding="latin-1"` for the `polls_2023_unified.csv` loader but every other file in the audit uses `utf-8`. A mix-up could silently corrupt candidate names containing UTF-8 characters (e.g., diacritics in French names, `'` apostrophes).
 
-**File/line:** `analysis/scripts/phase_4c_prep.py:41`
+**File/line:** `analysis/scripts/assignment_prep.py:41`
 **Evidence:**
 ```python
 polls = pd.read_csv(ANALYSIS / "polls_2023_unified.csv", encoding="latin-1")
@@ -858,9 +858,9 @@ S15_2_CRITERIA = {
 
 ---
 
-### MED-07. `v0_2_packing_cracking_analysis.py` sensitivity test re-computes `maj_w`, `min_w` twice in the same loop iteration (once from the unchanged mapping, once from an overridden mapping). The first computation is dead code — but it burns compute and suggests the original intent was different. A maintainer could accidentally swap the semantics later.
+### MED-07. `packing_cracking_analysis.py` sensitivity test re-computes `maj_w`, `min_w` twice in the same loop iteration (once from the unchanged mapping, once from an overridden mapping). The first computation is dead code — but it burns compute and suggests the original intent was different. A maintainer could accidentally swap the semantics later.
 
-**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:572-586`
+**File/line:** `analysis/scripts/packing_cracking_analysis.py:572-586`
 **Evidence:**
 ```python
 for w in [0.60, 0.70, 0.80]:
@@ -937,9 +937,9 @@ def eg_asymmetry_proxy_pp(self) -> float | None:
 
 ---
 
-### LOW-02. `v0_2_packing_cracking_analysis.py`'s `compute_metrics` uses `tt // 2 + 1` as the majority threshold, which assumes all EDs have even vote counts and that "majority" means >50%. For an odd-count ED, `(tt // 2) + 1` gives the actual vote threshold. For an even-count ED where the vote is tied, the EG treats the NDP-won outcome as requiring strict inequality. This is consistent with standard EG (Stephanopoulos-McGhee) but is worth noting.
+### LOW-02. `packing_cracking_analysis.py`'s `compute_metrics` uses `tt // 2 + 1` as the majority threshold, which assumes all EDs have even vote counts and that "majority" means >50%. For an odd-count ED, `(tt // 2) + 1` gives the actual vote threshold. For an even-count ED where the vote is tied, the EG treats the NDP-won outcome as requiring strict inequality. This is consistent with standard EG (Stephanopoulos-McGhee) but is worth noting.
 
-**File/line:** `analysis/scripts/v0_2_packing_cracking_analysis.py:131-142`
+**File/line:** `analysis/scripts/packing_cracking_analysis.py:131-142`
 
 ---
 
@@ -975,7 +975,7 @@ def eg_asymmetry_proxy_pp(self) -> float | None:
 
 ## Info / observations
 
-### INFO-01. EPSG:3401 description disagreement. `shape_refinement.py:58` and all shape-refinement files label `EPSG:3401` as "3TM 115 (Calgary/Edmonton corridor)", but `v0_1_data_preparation.md:170` labels it as "NAD83 3TM 114°W for Alberta". The correct authority: EPSG:3401 is NAD83 3TM Zone 114°W (it covers all of Alberta — not a corridor). The scripts are not actually using the wrong CRS (calls to `.area` work correctly because the coordinates are stored in the shapefile), but the docstrings are misleading.
+### INFO-01. EPSG:3401 description disagreement. `shape_refinement.py:58` and all shape-refinement files label `EPSG:3401` as "3TM 115 (Calgary/Edmonton corridor)", but `data_preparation.md:170` labels it as "NAD83 3TM 114°W for Alberta". The correct authority: EPSG:3401 is NAD83 3TM Zone 114°W (it covers all of Alberta — not a corridor). The scripts are not actually using the wrong CRS (calls to `.area` work correctly because the coordinates are stored in the shapefile), but the docstrings are misleading.
 
 **File/line:** `analysis/scripts/shape_refinement.py:56-58` and the v2-v5 headers.
 
@@ -985,15 +985,15 @@ def eg_asymmetry_proxy_pp(self) -> float | None:
 
 ---
 
-### INFO-03. Every shape-refinement version except v6 uses `WORK_CRS = "EPSG:3401"` and reprojects at various points. v6 switches to `AREA_CRS = "EPSG:3400"` for area computation and `WORK_CRS = "EPSG:3401"` for writing. The rationale (per `v0_1_data_preparation.md`) is that 3400 preserves area across Alberta while 3401 is the native shapefile CRS. Both are Alberta 3TM variants; area differences between them are sub-percent. Acceptable in practice but the inconsistency across versions is a readability hazard.
+### INFO-03. Every shape-refinement version except v6 uses `WORK_CRS = "EPSG:3401"` and reprojects at various points. v6 switches to `AREA_CRS = "EPSG:3400"` for area computation and `WORK_CRS = "EPSG:3401"` for writing. The rationale (per `data_preparation.md`) is that 3400 preserves area across Alberta while 3401 is the native shapefile CRS. Both are Alberta 3TM variants; area differences between them are sub-percent. Acceptable in practice but the inconsistency across versions is a readability hazard.
 
 ---
 
-### INFO-04. `shape_refinement_v6.py:389-399` carries a 40+-line block of commented-out anchor-finding logic with semi-structured debugging notes ("Let me use more reliable anchors…", "Actually, looking more carefully…"). This is working-memory comments that made it into the committed file; it should be squashed to just the final anchor list. Not a bug but a readability / review-quality concern.
+### INFO-04. `refine_boundaries.py:389-399` carries a 40+-line block of commented-out anchor-finding logic with semi-structured debugging notes ("Let me use more reliable anchors…", "Actually, looking more carefully…"). This is working-memory comments that made it into the committed file; it should be squashed to just the final anchor list. Not a bug but a readability / review-quality concern.
 
 ---
 
-### INFO-05. `v0_3_monte_carlo_ci.py:61-62` seeds `random.Random(42)` — a specific integer, documented. Good RNG discipline. But the `jittered_mapping` function called per sample uses the same `rng` across iterations, so the sample's `(base_w, rural, urban_weight_for_ed_X)` tuple depends on all previous draws. The n=2000 trajectory is correctly reproducible given the seed. This is stated in the docstring.
+### INFO-05. `monte_carlo_ci.py:61-62` seeds `random.Random(42)` — a specific integer, documented. Good RNG discipline. But the `jittered_mapping` function called per sample uses the same `rng` across iterations, so the sample's `(base_w, rural, urban_weight_for_ed_X)` tuple depends on all previous draws. The n=2000 trajectory is correctly reproducible given the seed. This is stated in the docstring.
 
 ---
 
@@ -1004,9 +1004,9 @@ def eg_asymmetry_proxy_pp(self) -> float | None:
 ## Cross-cutting observations
 
 1. **Silent fallback is pervasive.** Multiple pipelines (shape refinement v3-v5, OSM fetch, 338 scraper) fall back to a default / previous polygon / zero on any failure, logged at best via a `print()` line. Reviewers and downstream consumers have no machine-readable way to distinguish "successful refinement" from "silent fallback." Proposal: emit a status code column (`status in {"ok", "fallback", "error"}`) in every output artifact.
-2. **Seed discipline is inconsistent.** `v0_3_monte_carlo_ci.py` pins `seed=42`. `chen_rodden_alberta.py` pins `seed=42` for Moran's I and `random.Random(42)` for the walk. `shape_refinement_v6.py` uses `hash(ed_name) % (2**32)` — hash randomization-dependent. No single canonical seed convention across the repo.
+2. **Seed discipline is inconsistent.** `monte_carlo_ci.py` pins `seed=42`. `chen_rodden_alberta.py` pins `seed=42` for Moran's I and `random.Random(42)` for the walk. `refine_boundaries.py` uses `hash(ed_name) % (2**32)` — hash randomization-dependent. No single canonical seed convention across the repo.
 3. **CRS metadata in docstrings is stale.** EPSG:3401 is consistently referred to as "3TM 115 Calgary/Edmonton corridor" in the shape refinement files — it is actually NAD83 3TM 114°W covering all of Alberta. Does not affect correctness but trips reviewers.
-4. **No integrity assertions at stage boundaries.** 87 2019 EDs → 89 2026 EDs is the canonical count. Most scripts trust that inputs are correct. `v0_2_packing_cracking_analysis.py:validate_2026_estimate` is the rare counter-example — extend that pattern.
+4. **No integrity assertions at stage boundaries.** 87 2019 EDs → 89 2026 EDs is the canonical count. Most scripts trust that inputs are correct. `packing_cracking_analysis.py:validate_2026_estimate` is the rare counter-example — extend that pattern.
 5. **Build pipeline assumes Chrome/Edge on Windows paths.** `build_pdf.py:33-38` hardcodes Program Files paths. No Linux fallback (`chromium`, `google-chrome` via `which`). The directive says Chrome is the canonical renderer — but reviewers on Linux cannot reproduce without modifying the script.
 6. **338Canada depends on an unstable external HTML schema.** The regex-based parser has no version check. A 338 redesign would silently change parsed numbers. Proposal: compute a hash of `html[:10000]` and flag if it changes between runs; or (better) save raw HTML to a `.cache/` directory for audit-trail purposes.
 
@@ -1024,7 +1024,7 @@ The following were read in part or skimmed; a second-pass review is recommended:
 - `justification_tests.py`, `plan_b_rerun.py`, `poll_attribution_skeleton.py`, `marginal_seats_analysis.py`, `rural_gap_dissection.py`, `csd_community_splits.py`, `2015_cross_election.py` (statistical / analysis scripts)
 - `url_archival.py` (URL archival utility)
 - `build_academic_html.py` (HTML builder for academic report)
-- `phase_4c_prep.py` (Phase 4C preparation — top-level code rather than main, flagged MED-03)
+- `assignment_prep.py` (Phase 4C preparation — top-level code rather than main, flagged MED-03)
 
 End of findings.
 
@@ -1032,11 +1032,11 @@ End of findings.
 
 ### 2.2 Code Fixes and Numeric Drift
 
-*Source: `analysis/red_team/v0_1_red_team_code_fixes.md`*
+*Source: `analysis/red_team/red_team_code_fixes.md`*
 
 # Code red team — fixes log
 
-Companion to `analysis/red_team/v0_1_red_team_code.md`. Each section below cites
+Companion to `analysis/red_team/red_team_code.md`. Each section below cites
 a finding ID from the original report, shows the before/after code, and
 records any numeric drift introduced by the fix.
 
@@ -1086,7 +1086,7 @@ direction of the asymmetry (minority more UCP-favorable) and the
 
 ### CRIT-01 — Monte Carlo quantile convention + silent `continue`
 
-**File:** `analysis/scripts/v0_3_monte_carlo_ci.py`
+**File:** `analysis/scripts/monte_carlo_ci.py`
 
 Before:
 ```python
@@ -1158,11 +1158,11 @@ for r in rows_out:
         anomalies.append(...)
 ```
 
-Scraper was not re-run in this pass (it hits the live 338Canada API; requires PO approval for re-scraping). The downstream CSV at `data/v0_1_338canada_per_riding_87seat.csv` has 87 rows and feeds the reallocator cleanly.
+Scraper was not re-run in this pass (it hits the live 338Canada API; requires PO approval for re-scraping). The downstream CSV at `data/338canada_per_riding_87seat.csv` has 87 rows and feeds the reallocator cleanly.
 
 ### CRIT-03 — Packing/cracking `int()` truncation in blend/merge
 
-**File:** `analysis/scripts/v0_2_packing_cracking_analysis.py`
+**File:** `analysis/scripts/packing_cracking_analysis.py`
 
 Before:
 ```python
@@ -1213,7 +1213,7 @@ After: function deleted (no other module imports it; verified via grep across th
 
 ### CRIT-05 — `estimate_2026` silently drops merge rows with missing parents
 
-**File:** `analysis/scripts/v0_2_packing_cracking_analysis.py`
+**File:** `analysis/scripts/packing_cracking_analysis.py`
 
 Before:
 ```python
@@ -1253,7 +1253,7 @@ Verified `main()` still runs clean — no missing parents in the current mapping
 
 ### HIGH-01 — Non-reproducible `hash()` seeding in shape refinement v6
 
-**File:** `analysis/scripts/shape_refinement_v6.py`
+**File:** `analysis/scripts/refine_boundaries.py`
 
 Before:
 ```python
@@ -1293,7 +1293,7 @@ for tx_try in tx_grid:
             ...
 ```
 
-The grid expands by one cell per axis (endpoint-inclusive) but removes the float-accumulation drop-the-endpoint hazard. Shape-refinement v6 was not re-run end-to-end in this pass (it depends on OpenCV-based image processing and OSM fetches). The v6 log at `data/v0_1_shape_refinement_v6_log.json` predates these fixes and remains the canonical audit artifact; the fix takes effect on the next regeneration.
+The grid expands by one cell per axis (endpoint-inclusive) but removes the float-accumulation drop-the-endpoint hazard. Shape-refinement v6 was not re-run end-to-end in this pass (it depends on OpenCV-based image processing and OSM fetches). The v6 log at `data/shape_refinement_v6_log.json` predates these fixes and remains the canonical audit artifact; the fix takes effect on the next regeneration.
 
 ### HIGH-04 — Silent OSM-snap fallback
 
@@ -1404,16 +1404,16 @@ if len(shp) > 1:
     )
 ```
 
-### MED-03 — `phase_4c_prep.py` runs on `import`
+### MED-03 — `assignment_prep.py` runs on `import`
 
-**File:** `analysis/scripts/phase_4c_prep.py`
+**File:** `analysis/scripts/assignment_prep.py`
 
 After (guard right after the module-level constants):
 ```python
 if __name__ != "__main__":
     raise ImportError(
-        "phase_4c_prep.py is a script, not a library module. "
-        "Run it directly via: python analysis/scripts/phase_4c_prep.py. "
+        "assignment_prep.py is a script, not a library module. "
+        "Run it directly via: python analysis/scripts/assignment_prep.py. "
         "If you need a helper from this file, extract it to its own "
         "module first."
     )
@@ -1423,7 +1423,7 @@ Preserves the original top-level script style (no 300-line re-indent) while maki
 
 ### MED-07 — Dead `estimate_2026` calls in sensitivity loop
 
-**File:** `analysis/scripts/v0_2_packing_cracking_analysis.py`
+**File:** `analysis/scripts/packing_cracking_analysis.py`
 
 Removed the two `estimate_2026(..., urban_weight=w)` calls that preceded the override-mapping rebuild. The mapping tuples bake the weight into `spec[2]`, so the `urban_weight=w` kwarg had no effect on blend rows — only the override-mapping branch produced the published numbers.
 
@@ -1448,7 +1448,7 @@ Removed the two `estimate_2026(..., urban_weight=w)` calls that preceded the ove
 
 All three primary pipelines ran to completion under `PYTHONIOENCODING=utf-8` after the fixes. Headline outputs captured below.
 
-### `analysis/scripts/v0_2_packing_cracking_analysis.py`
+### `analysis/scripts/packing_cracking_analysis.py`
 
 ```
   B2 Efficiency gap    |  -2.64% |   -0.85% |   -1.36%
@@ -1462,7 +1462,7 @@ All three primary pipelines ran to completion under `PYTHONIOENCODING=utf-8` aft
   VERDICT: minority shifts -0.51 pp relative to majority.
 ```
 
-### `analysis/scripts/v0_3_monte_carlo_ci.py`
+### `analysis/scripts/monte_carlo_ci.py`
 
 ```
 Samples collected: 2000 of 2000 requested (skipped: 0)
@@ -1501,8 +1501,8 @@ Per PO directive, every published number in the two reports was re-verified agai
 
 | Pipeline | Status | Evidence |
 |---|---|---|
-| `v0_2_packing_cracking_analysis.py` | PASS | Full output captured §6. 89-row gates PASS. |
-| `v0_3_monte_carlo_ci.py` | PASS | 2000 samples, 0 skipped. CI bounds reproducible. |
+| `packing_cracking_analysis.py` | PASS | Full output captured §6. 89-row gates PASS. |
+| `monte_carlo_ci.py` | PASS | 2000 samples, 0 skipped. CI bounds reproducible. |
 | `338canada_reallocate.py` | PASS | Phase 2 + Phase 3 run to completion. |
 | `justification_tests.py` | PASS | All T1–T5 verdicts match published findings. |
 | `majority_symmetry_counter_test.py` | PASS | HIGH-12 assertion did not fire (no unclassified EDs). |
@@ -1537,7 +1537,7 @@ The following numbers shifted by more than the 0.05-pp / 1-seat flag threshold a
 
 - **"1-seat asymmetry" finding**: confirmed. Majority 38 NDP / 51 UCP, Minority 37 NDP / 52 UCP under 2023 votes (regenerated: identical). 338 reallocation gives majority 22 NDP / 67 UCP, minority 23 NDP / 66 UCP under April 2026 polling (regenerated: identical).
 - **"1 to 3 seats" band**: Monte Carlo at 70/30 central produces NDP @ 50/50 asymmetry spanning 1–5 seats with median 1 (B4 majority 44, minority 42 → |44 − 42| = 2; but sensitivity @ 0.60 gives asymmetry 1, @ 0.80 gives asymmetry 5). "1 to 3" remains a defensible band summary; no change.
-- **s15(2) re-audit**: No dedicated script changed in this pass. The re-audit markdown was not re-derived programmatically; ED-by-ED pass counts in `v0_1_s15_2_reaudit.md` refer to population and area thresholds, which are not affected by any of the fixes in this pass.
+- **s15(2) re-audit**: No dedicated script changed in this pass. The re-audit markdown was not re-derived programmatically; ED-by-ED pass counts in `s15_2_reaudit.md` refer to population and area thresholds, which are not affected by any of the fixes in this pass.
 
 ### 7.5 Verdict
 
@@ -1555,7 +1555,7 @@ One atomic commit on branch `claude/admiring-spence-ea847e`:
 ```
 Fix code red-team findings (CRIT/HIGH/MEDIUM)
 
-Addresses findings from analysis/v0_1_red_team_code.md:
+Addresses findings from analysis/red_team_code.md:
 - CRIT-01 Monte Carlo quantile + silent continue
 - CRIT-02 338Canada scraper regex + 87-row integrity
 - CRIT-03 int()→round() in blend/merge
@@ -1577,7 +1577,7 @@ Addresses findings from analysis/v0_1_red_team_code.md:
 
 ### 2.3 Legal Red Team — Scripts
 
-*Source: `analysis/red_team/v0_1_legal_red_team_scripts.md`*
+*Source: `analysis/red_team/legal_red_team_scripts.md`*
 
 # Legal red team — analysis scripts
 
@@ -1597,7 +1597,7 @@ cv2 4.13.0, matplotlib 3.10.8, scipy 1.17.1, markdown, requests.
 **Scope.** 45 Python files under `analysis/*.py`. Each was (a) statically
 read for imports / seeds / URL deps / hard-coded paths, (b) re-run
 end-to-end where runtime allowed, and (c) re-verified against the
-"After:" snippets in `v0_1_red_team_code_fixes.md`.
+"After:" snippets in `red_team_code_fixes.md`.
 
 ---
 
@@ -1612,7 +1612,7 @@ end-to-end where runtime allowed, and (c) re-verified against the
 | INFO | 4 | 4 new |
 
 **Prior-pass fix verification.** All 5 CRIT and 8 of 12 HIGH fixes from
-`v0_1_red_team_code_fixes.md` §2-§3 landed in the tree exactly as
+`red_team_code_fixes.md` §2-§3 landed in the tree exactly as
 described in the fixes log. The 3 MEDIUM fixes (MED-01, MED-03, MED-07)
 also landed. No fix-drift between the fixes log and the committed code
 for any CRIT/HIGH item. Section 6 below contains the fix-by-fix receipt.
@@ -1621,9 +1621,9 @@ for any CRIT/HIGH item. Section 6 below contains the fix-by-fix receipt.
 cracking, B3 Monte Carlo CI, 338 reallocator, justification tests,
 majority-symmetry counter-test) run to completion and produce output
 matching the academic and public reports within the drift ranges
-documented in `v0_1_red_team_code_fixes.md` §1. Seeds reproduce
+documented in `red_team_code_fixes.md` §1. Seeds reproduce
 bit-identical between two consecutive runs (verified for
-`v0_3_monte_carlo_ci.py` and `chen_rodden_alberta.py`).
+`monte_carlo_ci.py` and `chen_rodden_alberta.py`).
 
 ---
 
@@ -1637,7 +1637,7 @@ bit-identical between two consecutive runs (verified for
 | `build_pdf.py`, `build_cover.py`, `build_academic_html.py` | HIGH | D4/D1 | Google Fonts `@import` at render time is a live-URL dependency not in `FROZEN_MANIFEST.md`; reviewer on an air-gapped machine gets a font-fallback PDF silently. |
 | `check_voice_and_readability.py` | HIGH | D4 | `report_academic.md` regenerated FK grade = **12.9** (fixes-log claimed 13.0); grade-gate pass/fail on report_academic is knife-edge at the target of 13.0. |
 | `build_pdf.py:34-38` | MED | D4 | Chrome/Edge path list is Windows-only; no Linux (`which chromium`) fallback. |
-| `phase_4c_prep.py:31` | MED | D4 | Hard-coded absolute `BASE = Path(r"C:\Users\email\...\alberta_audit")` shadows `REPO_ROOT` pattern used elsewhere. |
+| `assignment_prep.py:31` | MED | D4 | Hard-coded absolute `BASE = Path(r"C:\Users\email\...\alberta_audit")` shadows `REPO_ROOT` pattern used elsewhere. |
 | `shape_refinement.py` | MED | D4 | Overpass OSM fetch is live-URL dependency not in `FROZEN_MANIFEST.md`; no cached fallback artefact. |
 | `338canada_scraper.py` | MED | D4 | Scraper is live-URL-only (no `--offline` flag); reproducer who runs the scraper gets 2026-04-23+ data, not the April 12 snapshot cited. Frozen CSV is the intended artefact; scraper should document that explicitly at top. |
 | `url_archival.py` | MED | D5 | `archive.org/wayback/available` and `archive.ph` live calls have no retry / offline-mode semantics; reproducer can observe different snapshots on re-run. |
@@ -1652,7 +1652,7 @@ bit-identical between two consecutive runs (verified for
 
 ## 2. Fix-drift audit (prior-pass fixes vs. committed code)
 
-**Finding: no fix-drift for any CRIT/HIGH item in `v0_1_red_team_code_fixes.md` §2–§3.**
+**Finding: no fix-drift for any CRIT/HIGH item in `red_team_code_fixes.md` §2–§3.**
 
 Each "After:" code block in the fixes log matches the committed code at
 `commit 7ae3d2c` (current HEAD of `claude/admiring-spence-ea847e`).
@@ -1660,12 +1660,12 @@ Grep receipts:
 
 | Finding | File | Evidence (line) |
 |---|---|---|
-| CRIT-01 | `v0_3_monte_carlo_ci.py` | L131-133: `p025 = float(np.quantile(arr, 0.025))`; L99: `skipped += 1` |
+| CRIT-01 | `monte_carlo_ci.py` | L131-133: `p025 = float(np.quantile(arr, 0.025))`; L99: `skipped += 1` |
 | CRIT-02 | `338canada_scraper.py` | L54, L58: `color:\s*'[^']*'` anchor; L191: `CRIT-02 INTEGRITY CHECK FAILED` |
-| CRIT-03 | `v0_2_packing_cracking_analysis.py` | L457-458: `round(new_total * blended_share)`; L489: `round(p['ndp']*w)`; L502: `round(base['ndp']*fraction)` |
+| CRIT-03 | `packing_cracking_analysis.py` | L457-458: `round(new_total * blended_share)`; L489: `round(p['ndp']*w)`; L502: `round(base['ndp']*fraction)` |
 | CRIT-04 | `338canada_reallocate.py` | L129-131: "removed the broken v1 reallocate_338() function" marker comment; `def reallocate_338_v2(` is sole survivor |
-| CRIT-05 | `v0_2_packing_cracking_analysis.py` | L462-514: `missing: List[str] = []` accumulator; L508-513: `raise KeyError(...)` |
-| HIGH-01 | `shape_refinement_v6.py` | L29, L253-256: `hashlib.sha256(ed_name.encode('utf-8')).digest()[:4]` |
+| CRIT-05 | `packing_cracking_analysis.py` | L462-514: `missing: List[str] = []` accumulator; L508-513: `raise KeyError(...)` |
+| HIGH-01 | `refine_boundaries.py` | L29, L253-256: `hashlib.sha256(ed_name.encode('utf-8')).digest()[:4]` |
 | HIGH-02 | `shape_refinement_v6_processors.py` | L83-85: `np.linspace(initial_tx - 50000, initial_tx + 50000, 11)` |
 | HIGH-04 | `shape_refinement.py` | L209-320: 4-tuple return with `'snap_skipped_*'`, `'snap_rejected'`, `'snap_error'`, `'snapped'`, `'snapped_no_move'` |
 | HIGH-07 | `build_cover.py` | L505-509: `if not ARTICLE_PDF.exists(): raise RuntimeError(...)` |
@@ -1673,8 +1673,8 @@ Grep receipts:
 | HIGH-10 | `check_voice_and_readability.py` | L150-171: gate only fails under `method == "textstat"`; approx is downgraded to `[info]` |
 | HIGH-12 | `majority_symmetry_counter_test.py` | L177-182: `raise ValueError(f"HIGH-12: edmonton_zone_classifier missed ...")` |
 | MED-01 | `shape_refinement.py` | L162-170: `raise RuntimeError(f"MED-01: expected one .shp/.gpkg ...")` |
-| MED-03 | `phase_4c_prep.py` | L40-45: `if __name__ != "__main__": raise ImportError(...)`; verified empirically (`python -c "import phase_4c_prep"` → ImportError) |
-| MED-07 | `v0_2_packing_cracking_analysis.py` | L606-614: dead `estimate_2026(..., urban_weight=w)` removed; only override-mapping path survives |
+| MED-03 | `assignment_prep.py` | L40-45: `if __name__ != "__main__": raise ImportError(...)`; verified empirically (`python -c "import phase_4c_prep"` → ImportError) |
+| MED-07 | `packing_cracking_analysis.py` | L606-614: dead `estimate_2026(..., urban_weight=w)` removed; only override-mapping path survives |
 
 **One minor drift (not in fixes log):** `check_voice_and_readability.py`
 reports `report_academic.md` FK grade = **12.9** today vs. the fixes
@@ -1711,7 +1711,7 @@ majority 2026 (full coverage):
                                           'Calgary-Foothills', 'Calgary-Glenmore']
 ```
 
-The majority-2026 crosswalk CSV (`data/v0_1_majority_hybrid_crosswalk.csv`)
+The majority-2026 crosswalk CSV (`data/majority_hybrid_crosswalk.csv`)
 only has 19 rows — the hybrid renames. Tier-A unchanged EDs fall through
 the `assign_vas_to_2026_ed` fallback (`xwalk.get(p, p)`) as their 2019
 name. The 2019 shapefile's 87 EDs vs. the majority 2026 populations
@@ -1726,7 +1726,7 @@ majority 2026**, **identical to the 2019 enacted baseline** — because
 the arithmetic is dominated by 2019-named VAs. The academic report's
 §3.11 acknowledges the coverage caveat and cites the *partial-coverage*
 result (`EG = +0.0066`, p24.6) from the earlier
-`v0_1_mcmc_real_map_scores.json`. The full-coverage rescore as
+`simulation_real_map_scores.json`. The full-coverage rescore as
 published does not reproduce the §3.11 numbers and is not cited as the
 authoritative artifact.
 
@@ -1765,14 +1765,14 @@ successor, adding an explicit note that the majority-2026 EG ≈ 2019 EG
 result is an artefact of the 63.8% Tier-A identity mapping; or (b) add a
 top-of-file docstring warning that this script is superseded and its
 output numbers should not be cited. Either way, the script as it stands
-writes to `data/v0_1_mcmc_real_map_scores_full.json` — a path name that
+writes to `data/simulation_real_map_scores_full.json` — a path name that
 implies authoritative full-coverage results. A reader finding that JSON
 with no surrounding context would draw wrong conclusions.
 
 ### HIGH-D4-HARDCODED-PATHS — 14 scripts reference the author's home directory
 
 **Files / line:**
-- `phase_4c_prep.py:31` (`BASE = Path(r"C:\Users\email\...\alberta_audit")`)
+- `assignment_prep.py:31` (`BASE = Path(r"C:\Users\email\...\alberta_audit")`)
 - `approximate_shape_analysis.py:61`
 - `csd_community_splits.py:26`
 - `build_full_crosswalks.py:43`
@@ -1780,12 +1780,12 @@ with no surrounding context would draw wrong conclusions.
 - `mcmc_full_coverage_rescore_100k.py:42`
 - `track_l_drift.py:37`
 - `shape_refinement.py:47`
-- `v0_1_shape_derivation_v7.py:45`
+- `derive_boundaries.py:45`
 - `shape_refinement_v3.py:69`
 - `shape_refinement_v2.py:43`
 - `shape_refinement_v5.py:50`
 - `shape_refinement_v4.py:50`
-- `shape_refinement_v6.py:45`
+- `refine_boundaries.py:45`
 
 **Severity:** HIGH
 **Dimension:** D4
@@ -1801,7 +1801,7 @@ How does the peer reviewer run this?"*
 
 **Recommendation.** Replace with the `REPO_ROOT = Path(__file__).resolve().parent.parent`
 pattern used correctly by `canadian_base_rate_compute.py:49` and
-`v0_2_packing_cracking_analysis.py` (and several others). Zero downside;
+`packing_cracking_analysis.py` (and several others). Zero downside;
 all scripts should follow one of the two conventions (relative-from-file
 or `os.environ["ALBERTA_AUDIT_ROOT"]`).
 
@@ -1815,7 +1815,7 @@ or `os.environ["ALBERTA_AUDIT_ROOT"]`).
 
 | Library | Used by | Required for |
 |---|---|---|
-| `cv2` (opencv-python) | `shape_refinement_v6.py`, `shape_refinement_v6_processors.py`, `v0_1_shape_derivation_v7.py` | Shape-refinement v6/v7 pipelines |
+| `cv2` (opencv-python) | `refine_boundaries.py`, `shape_refinement_v6_processors.py`, `derive_boundaries.py` | Shape-refinement v6/v7 pipelines |
 | `matplotlib` | `build_overlay_figures.py`, `mcmc_ensemble.py`, `mcmc_ensemble_100k.py`, `build_cover.py`, `v0_1_shape_refinement*.py` (all versions) | Every figure generation, MCMC diagnostics |
 | `scipy` (scipy.optimize.minimize) | `shape_refinement_v6_processors.py` | v6 affine optimization |
 | `markdown` | `build_pdf.py`, `build_academic_html.py` | PDF/HTML report rendering |
@@ -1879,7 +1879,7 @@ report_academic.md (PASS, target grade <= 13.0):
   [info] Flesch-Kincaid Grade: 12.9  [method=textstat]
 ```
 
-The fixes log (`v0_1_red_team_code_fixes.md` §6) reports
+The fixes log (`red_team_code_fixes.md` §6) reports
 `report_academic.md ... [info] Flesch-Kincaid Grade: 13.0`.
 
 **Analysis.** The target is ≤13.0. Both 12.9 (today) and 13.0
@@ -1917,7 +1917,7 @@ falls back to the 2019 geometry. Prior RT flagged as MED-02 (deferred).
 The scraper fetches 338Canada live. The docstring notes the April 12
 snapshot, but running the scraper today pulls 2026-04-23+ data — not
 the audit-cited projection. `FROZEN_MANIFEST.md` correctly identifies
-the frozen CSV (`data/v0_1_338canada_per_riding_87seat.csv`) as the
+the frozen CSV (`data/338canada_per_riding_87seat.csv`) as the
 authoritative artefact, but the scraper script itself has no top-line
 comment saying "**do not re-run; frozen CSV supersedes**". A reader
 finds the script, assumes running it reproduces the published numbers,
@@ -1934,7 +1934,7 @@ but it should carry a top-line comment explaining that its output
 varies by run date.
 
 ### MED-D4-PHASE4C-HARDCODED
-**File:** `analysis/scripts/phase_4c_prep.py:31`
+**File:** `analysis/scripts/assignment_prep.py:31`
 
 Uses `BASE = Path(r"C:\Users\email\...\alberta_audit")` instead of the
 `REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))`
@@ -1975,7 +1975,7 @@ HIGH-D4-LIVE-FONT-URL.
 
 ## 5. LOW findings
 
-- **LOW-D4-PHASE4C-LATIN1.** `phase_4c_prep.py:41` uses
+- **LOW-D4-PHASE4C-LATIN1.** `assignment_prep.py:41` uses
   `encoding="latin-1"` for `polls_2023_unified.csv` — inconsistent with
   every other loader in the repo (which uses UTF-8). Prior MED-04
   deferred.
@@ -1998,7 +1998,7 @@ The only identified fix-drift is the 0.1-grade FK voice-gate drift
 (HIGH-D4-VOICE-DRIFT, §3). Within textstat noise for a document of this
 length; not gate-blocking. No other fix-drift detected.
 
-Every "After:" snippet in `v0_1_red_team_code_fixes.md` §2-§4 matches
+Every "After:" snippet in `red_team_code_fixes.md` §2-§4 matches
 the committed code at `commit 7ae3d2c` on branch
 `claude/admiring-spence-ea847e`.
 
@@ -2007,8 +2007,8 @@ the committed code at `commit 7ae3d2c` on branch
 ## 7. INFO / observations
 
 - **INFO-D4-SEED-DISCIPLINE.** Seed discipline is now consistent for
-  the B2/B3/MCMC pipelines (`v0_3_monte_carlo_ci.py` seed=42;
-  `chen_rodden_alberta.py` seed=42; `shape_refinement_v6.py`
+  the B2/B3/MCMC pipelines (`monte_carlo_ci.py` seed=42;
+  `chen_rodden_alberta.py` seed=42; `refine_boundaries.py`
   sha256 per ED; `mcmc_ensemble.py` seed=42;
   `mcmc_ensemble_100k.py` seed=42). Two consecutive runs of
   Monte Carlo CI reproduced bit-identical output. Two consecutive runs
@@ -2017,7 +2017,7 @@ the committed code at `commit 7ae3d2c` on branch
 
 - **INFO-D4-SCRIPTS-RUN-CLEAN.** 18 analysis scripts ran to completion
   without error under the pinned environment. Detailed run list:
-  `v0_2_packing_cracking_analysis` (B2/3/4/6), `v0_3_monte_carlo_ci`,
+  `packing_cracking_analysis` (B2/3/4/6), `monte_carlo_ci`,
   `v0_1_338canada_reallocate`, `check_voice_and_readability`,
   `v0_1_justification_tests`, `v0_1_majority_symmetry_counter_test`,
   `v0_1_canadian_base_rate_compute`, `v0_1_chen_rodden_alberta`,
@@ -2038,7 +2038,7 @@ the committed code at `commit 7ae3d2c` on branch
   - `mcmc_ensemble.py` (5,000-sample gerrychain run;
     prior report cites 10,000-sample output already in `data/`)
   - `mcmc_ensemble_100k.py` (100,000-sample gerrychain; in-progress per report §3.11)
-  - `shape_refinement_v6.py` + `_processors.py` + `_writer.py`
+  - `refine_boundaries.py` + `_processors.py` + `_writer.py`
     (OpenCV image processing pipeline; existing v6 gpkg in `data/`
     predates HIGH-01/HIGH-02 fixes but is the canonical artefact)
   - `v0_1_shape_refinement_v2/v3/v4/v5.py` (superseded by v6; retained
@@ -2051,7 +2051,7 @@ the committed code at `commit 7ae3d2c` on branch
     `submission_ocr_analyze.py`)
   - `build_pdf.py`, `build_cover.py`, `build_academic_html.py`
     (PDF render; Chrome-headless dependency)
-  - `v0_1_shape_derivation_v7.py` (experimental, not referenced in
+  - `derive_boundaries.py` (experimental, not referenced in
     reports)
 
   All runtime-gated scripts statically loaded imports and hit module
@@ -2069,7 +2069,7 @@ the committed code at `commit 7ae3d2c` on branch
 1. **Migrate all references to the 100k rescore**
    (HIGH-D4-RESCORE-CROSSWALK). Either delete the 19-row version or
    add a deprecation banner; the script currently writes to
-   `data/v0_1_mcmc_real_map_scores_full.json` and any unaware reader
+   `data/simulation_real_map_scores_full.json` and any unaware reader
    would cite it.
 2. **Delete hard-coded `C:\Users\email\...` paths**
    (HIGH-D4-HARDCODED-PATHS). Every occurrence replaceable by
@@ -2079,7 +2079,7 @@ the committed code at `commit 7ae3d2c` on branch
 4. **Inline Google Fonts** (HIGH-D4-LIVE-FONT-URL) or add to
    FROZEN_MANIFEST. Inline is stronger.
 5. **Document voice-gate drift** (HIGH-D4-VOICE-DRIFT). One-line note
-   in `v0_1_red_team_code_fixes.md` §6.
+   in `red_team_code_fixes.md` §6.
 6. **MEDs & LOWs** — defer to a focused cleanup pass. None are
    gate-blocking for the reports.
 
@@ -2088,7 +2088,7 @@ the committed code at `commit 7ae3d2c` on branch
 ## 9. Scope note
 
 This pass did not re-audit:
-- `analysis/deprecated/` — scope exclusion per framework §7.
+- `analysis/historical/` — scope exclusion per framework §7.
 - `analysis/*.md` analysis documents — separate legal pass.
 - `analysis/*.html`, `analysis/*.json`, `analysis/*.csv` — separate
   data-artifact pass.
@@ -2109,18 +2109,18 @@ flagged with dual-dimension labels where applicable.
 
 ### 3.1 Legal Red Team — Data Artifacts
 
-*Source: `analysis/red_team/v0_1_legal_red_team_data_artifacts.md`*
+*Source: `analysis/red_team/legal_red_team_data_artifacts.md`*
 
 # Legal red-team findings — `data/` artifact provenance
 
-**Framework:** `analysis/red_team/v0_1_legal_red_team_framework.md` Dimension **D5** (Data provenance).
+**Framework:** `analysis/red_team/legal_red_team_framework.md` Dimension **D5** (Data provenance).
 **Scope:** every file directly under `data/` plus sub-directories `data/alberta_2019_eds/`, `data/alberta_2023_vas/`, `data/v0_1_338_historical/` (as specified by the directive). Generated 2026-04-23.
 **Total artifacts reviewed:** 88 (56 CSVs, 15 GPKGs, 1 GeoJSON, 6 JSONs, 2 XLSXs, 1 shapefile set (8 files), 1 VA shapefile set (5 files), 89 cached HTMLs and auxiliary files in `data/v0_1_338_historical/`, 2 internal README / manifest docs).
-**Reference manifests consulted:** `FROZEN_MANIFEST.md`, `data/data_acquisition_manifest.md`, `data/alberta_shapefiles_README.md`, `analysis/methodology/v0_1_data_preparation.md`.
+**Reference manifests consulted:** `FROZEN_MANIFEST.md`, `data/data_acquisition_manifest.md`, `data/alberta_shapefiles_README.md`, `analysis/methodology/data_preparation.md`.
 
 **Severity counts:** CRITICAL = 0, HIGH = 7, MEDIUM = 11, LOW = 5.
 
-> CRITICAL findings (per D5 rules) would require (a) an artifact with no documented source anywhere in the repo, or (b) a documented source that does not match the actual contents. No artifact reviewed meets either bar — every artifact has at least a partial chain traceable through `v0_1_data_preparation.md` and the schema contents match the source claims. HIGH findings below identify the broken links in the chain to `FROZEN_MANIFEST.md`.
+> CRITICAL findings (per D5 rules) would require (a) an artifact with no documented source anywhere in the repo, or (b) a documented source that does not match the actual contents. No artifact reviewed meets either bar — every artifact has at least a partial chain traceable through `data_preparation.md` and the schema contents match the source claims. HIGH findings below identify the broken links in the chain to `FROZEN_MANIFEST.md`.
 
 ---
 
@@ -2128,29 +2128,29 @@ flagged with dual-dimension labels where applicable.
 
 | # | File | Sev | One-line finding | Proposed fix |
 |---|------|-----|------------------|--------------|
-| 1 | `data/2015_results.xlsx` | HIGH | FROZEN_MANIFEST lists filename `2015-Provincial-General-Election-Statement-of-Vote.xlsx`; `v0_1_data_preparation.md` and `parse_2015_results.py` reference `2015PGE-Official-Results.xlsx`. One of the two is the wrong URL for the bytes actually in `data/2015_results.xlsx`. | Verify which URL actually served the xlsx on 2026-04-22, then correct the other document. Both should reference identical URL. |
-| 2 | `data/v0_1_alberta_2019_results.csv` | HIGH | Source URL `https://www.elections.ab.ca/uploads/2019PGEOfficialResultsAllEDs.xlsx` is cited only in `v0_1_data_preparation.md`; NOT in `FROZEN_MANIFEST.md`. No archive. Manual per-sheet extraction, no parser script committed. | Add row to `FROZEN_MANIFEST.md`; archive the URL to Wayback; commit a parser analogous to `parse_2015_results.py`. |
+| 1 | `data/2015_results.xlsx` | HIGH | FROZEN_MANIFEST lists filename `2015-Provincial-General-Election-Statement-of-Vote.xlsx`; `data_preparation.md` and `parse_2015_results.py` reference `2015PGE-Official-Results.xlsx`. One of the two is the wrong URL for the bytes actually in `data/2015_results.xlsx`. | Verify which URL actually served the xlsx on 2026-04-22, then correct the other document. Both should reference identical URL. |
+| 2 | `data/alberta_2019_results.csv` | HIGH | Source URL `https://www.elections.ab.ca/uploads/2019PGEOfficialResultsAllEDs.xlsx` is cited only in `data_preparation.md`; NOT in `FROZEN_MANIFEST.md`. No archive. Manual per-sheet extraction, no parser script committed. | Add row to `FROZEN_MANIFEST.md`; archive the URL to Wayback; commit a parser analogous to `parse_2015_results.py`. |
 | 3 | `data/submission_search_dataset.csv` | HIGH | Upstream source is 27 EBC submission batch PDFs at `https://www.elections.ab.ca/uploads/EBC2025Submissions{start}-{end}ForPosting.pdf`. None of these 27 URLs appear in `FROZEN_MANIFEST.md`. This file directly underpins `report_public.md:162` submission-count claims. | Add a table row to `FROZEN_MANIFEST.md` that either enumerates the 27 URLs or captures the pattern with a dated archival probe. |
-| 4 | `data/v0_1_majority_2026_populations.csv`, `data/v0_1_minority_2026_populations.csv` | HIGH | "Manually extracted" from commission PDF pp. 44-45 and Appendix E. No parser script committed; extraction is not mechanically reproducible. `FROZEN_MANIFEST.md` references the 80 MB PDF but no script binds PDF→CSV. | Commit `analysis/parse_commission_populations.py` (pdfplumber-based) and note the page-range in each CSV header. |
-| 5 | `data/v0_1_minority_hybrid_crosswalk.csv` | HIGH | File is a heuristic output (Jaccard token overlap ≥0.4 plus exact match) per `data/data_acquisition_manifest.md`. 16 proposed EDs unmapped, 14 current EDs unmapped. `data_acquisition_manifest.md` warns "review manually before using for statistical claims" — but the file is an input to downstream scripts (MCMC rescore, build_full_crosswalks). | Either (a) freeze a manually-verified version alongside the heuristic, or (b) document in the CSV header exactly which rows are heuristic-only vs. manually verified. |
-| 6 | `data/v0_1_338canada_per_riding_87seat.csv` | HIGH | Scraped from `338canada.com/alberta/NNNNe.htm` on 2026-04-12. FROZEN_MANIFEST row records three probe URLs archived on Wayback (1001, 1044, 1087) — the remaining 84 URLs are unarchived at the per-page level. Track J relies on the frozen CSV, but per-row cross-check against a Wayback snapshot is available for only 3/87 ridings. | Submit the remaining 84 per-riding URLs to `web.archive.org/save/` (this was attempted in `v0_1_url_archival_log.md` but IP-blocked). |
+| 4 | `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv` | HIGH | "Manually extracted" from commission PDF pp. 44-45 and Appendix E. No parser script committed; extraction is not mechanically reproducible. `FROZEN_MANIFEST.md` references the 80 MB PDF but no script binds PDF→CSV. | Commit `analysis/parse_commission_populations.py` (pdfplumber-based) and note the page-range in each CSV header. |
+| 5 | `data/minority_hybrid_crosswalk.csv` | HIGH | File is a heuristic output (Jaccard token overlap ≥0.4 plus exact match) per `data/data_acquisition_manifest.md`. 16 proposed EDs unmapped, 14 current EDs unmapped. `data_acquisition_manifest.md` warns "review manually before using for statistical claims" — but the file is an input to downstream scripts (MCMC rescore, build_full_crosswalks). | Either (a) freeze a manually-verified version alongside the heuristic, or (b) document in the CSV header exactly which rows are heuristic-only vs. manually verified. |
+| 6 | `data/338canada_per_riding_87seat.csv` | HIGH | Scraped from `338canada.com/alberta/NNNNe.htm` on 2026-04-12. FROZEN_MANIFEST row records three probe URLs archived on Wayback (1001, 1044, 1087) — the remaining 84 URLs are unarchived at the per-page level. Track J relies on the frozen CSV, but per-row cross-check against a Wayback snapshot is available for only 3/87 ridings. | Submit the remaining 84 per-riding URLs to `web.archive.org/save/` (this was attempted in `url_archival_log.md` but IP-blocked). |
 | 7 | `data/v0_1_338_historical/*.html` (87 per-riding Wayback HTML dumps) + `per_riding_pre2023.csv`, `uniform_swing_stability.csv`, `stability_table.csv`, `alberta_landing_raw.html`, `alberta_landing_xaxis.json`, `per_riding_wayback.json`, `pre2023_per_riding_validation.json` | HIGH | Entire sub-directory (pre-2023 338Canada historical snapshots) has no row in `FROZEN_MANIFEST.md`. The HTMLs carry Wayback timestamps in their filenames (w20230529) but the chain "which per-riding Wayback URLs were scraped? on what date?" is only in `analysis/scripts/338canada_historical.py` — not cross-indexed in the manifest. | Add a table to FROZEN_MANIFEST listing the 87 pre-2023 Wayback URLs, or at minimum reference the generating script's output manifest. |
 | 8 | `data/v0_1_approximate_majority_2026_eds.gpkg`, `_approximate_minority_2026_eds.gpkg`, `_approximate_majority_2026_eds_full.gpkg` | MED | Derived from 2019 shapefile + commission Appendix A/C mappings via `approximate_shape_analysis.py`. Source chain documented. But: file suffix `_full` is the 63-row partial, while the 57-row is labelled default — naming is inverted from what a reviewer would expect. | Add a header-line CSV alongside each GPKG documenting the row-count rationale; or rename. |
 | 9 | `data/v0_1_refined_{majority,minority,v2,v3,v4,v5,v6}_2026_eds.gpkg` (12 files) | MED | Refinement chain v1→v2→v3→v4→v5→v6 exists across `shape_refinement.py`, `_v2.py`, `_v3.py`, `_v4.py`, `_v5.py`, `_v6.*`. All scripts committed. But the minority has refinements v1→v6 while the majority stops at v3 (except v6). Reader cannot tell from filename alone which is "current". | See "Supersession / deprecation candidates" below. |
-| 10 | `data/v0_1_derived_v7_majority_2026_eds.gpkg`, `_minority_v7.gpkg` | MED | New 89-row schema (vs. 57/70 in v6) via `v0_1_shape_derivation_v7.py`. Columns `source_thumbnail`, `affine_rms_m`, `disproof_n_pass` suggest this is a photo-derivation pass over commission maps — a different provenance chain than v1-v6. | Document the v7 derivation input source (which commission map thumbnails?) in a header comment in the script. |
-| 11 | `data/va_polygons_with_2023_votes.gpkg` | MED | 4,765-VA substrate derived from `alberta_2023_vas/` shapefile + `analysis/polls_2023_unified.csv`. Chain documented in `v0_1_data_preparation.md` §4 and `phase_4c_prep.py`. But the file is the MCMC ensemble substrate, `polls_2023_unified.csv` is in `analysis/` not `data/`, and the integrity gates are reported in `va_spatial_integrity_report.md`. Three-hop chain for a critical artifact. | Add the integrity-gate numbers as attributes on the GPKG (or a sidecar `.json`). |
-| 12 | `data/v0_1_mcmc_ensemble_samples.csv`, `_samples_100k.csv`, `_percentiles.csv`, `_percentiles_100k.csv`, `_percentiles_full.csv`, `_percentiles_full_v2.csv`, `v0_1_mcmc_real_map_scores*.json` (4 versions) | MED | Stochastic outputs. `v0_1_mcmc_real_map_scores.json` records `seed: 42` and `n_steps: 10000`; the 100k variants are at `seed: 42` (per script). But the chain between "samples → percentiles → real_map_scores" runs through multiple scripts (`mcmc_ensemble.py`, `_100k.py`, `_full_coverage_rescore.py`, `_full_coverage_rescore_v2.py`, `_full_coverage_rescore_100k.py`) producing five percentile variants. Reviewer cannot tell which is canonical. | Document in a README which percentile file is the canonical report input. Deprecate the rest. |
-| 13 | `data/v0_1_338canada_historical_snapshots.csv` | MED | 77 snapshot rows from `338canada.com/alberta/` landing page via `338canada_historical.py`. FROZEN_MANIFEST row for the `/alberta/` landing page has both Wayback and archive.ph snapshots, so the provenance chain is complete. But the CSV has no header-line provenance annotation. | Add a `source` column or header comment with the snapshot URL. |
-| 14 | `data/v0_1_338canada_reallocated_majority.csv`, `_minority.csv` | MED | Reallocated 2026 projections from 338 data. Script `338canada_reallocate.py` is committed. Inputs (87-seat per-riding CSV, audit 2023 baseline, 2019 populations) are all traceable. Chain complete. But the note column is empty on nearly all rows, so a reviewer cannot distinguish direct-mapping from reallocation at a glance. | Populate `note` column for non-direct mappings. |
-| 15 | `data/v0_1_2015_to_2019_crosswalk.csv`, `_partial.csv` | MED | Partial crosswalk built from commission report prose (2017 report pp. 37 etc.). Referenced in `v0_1_data_preparation.md` §7 as "Elections Alberta does not publish pre-2017 shapefiles" gap. Chain is prose-only. | Header comment in CSV naming page-range and prose source per row; already partially present in the `note` column. Upgrade to full-row coverage. |
-| 16 | `data/v0_1_boundary_refinement_impact.csv`, `_v3.csv`, `_v4.csv`, `_v5.csv`, `_v6.csv` (missing `_v2`) | MED | Version chain v1→v3→v4→v5→v6 with v2 skipped in filenames (v2 is described as a pass-through in `shape_refinement_v2.py:350`). Reviewer sees a discontinuous versioning. | Rename v1 → v1, clarify in a README that v2 is intentionally absent. |
-| 17 | `data/v0_1_mcmc_convergence_diagnostics_100k.json` | MED | Per-metric autocorrelation diagnostics. No `seed` or `n_steps` recorded (inferred from `mcmc_ensemble_100k.py`). Reviewer would have to open the script. | Write `seed` and `run_timestamp` into the JSON. |
-| 18 | `data/v0_1_a1_legal_baseline_2019eds_2021census.csv` | MED | Produced by `a1_legal_baseline_2021_census.py`; inputs are `data/v0_1_alberta_2019_populations.csv` (commission's 2017 report pp. 60-61) + `alberta_2021_csds.gpkg` + DA pops. Chain complete. CSV has no header annotation. | One-line header comment. |
-| 19 | `data/va_pop_from_das.csv` | LOW | Cache file generated once by `mcmc_ensemble.py` (area-weighted DA→VA overlay). Totals to StatCan 4.26M. Chain documented in `v0_1_mcmc_ensemble.md:131`. | Add a one-line source annotation in a sidecar. |
-| 20 | `data/v0_1_chen_rodden_simulation.csv`, `_summary.json` | LOW | Chen-Rodden 500-plan simulation by `chen_rodden_alberta.py`. `summary.json` records 150-plan rerun; the CSV is 500-plan. Version mismatch suggests a re-run where one file was regenerated but not the other. | Verify 500 vs 150 plan counts; regenerate both from a single seed. |
+| 10 | `data/v0_1_derived_v7_majority_2026_eds.gpkg`, `_minority_v7.gpkg` | MED | New 89-row schema (vs. 57/70 in v6) via `derive_boundaries.py`. Columns `source_thumbnail`, `affine_rms_m`, `disproof_n_pass` suggest this is a photo-derivation pass over commission maps — a different provenance chain than v1-v6. | Document the v7 derivation input source (which commission map thumbnails?) in a header comment in the script. |
+| 11 | `data/va_polygons_with_2023_votes.gpkg` | MED | 4,765-VA substrate derived from `alberta_2023_vas/` shapefile + `analysis/polls_2023_unified.csv`. Chain documented in `data_preparation.md` §4 and `assignment_prep.py`. But the file is the MCMC ensemble substrate, `polls_2023_unified.csv` is in `analysis/` not `data/`, and the integrity gates are reported in `va_spatial_integrity_report.md`. Three-hop chain for a critical artifact. | Add the integrity-gate numbers as attributes on the GPKG (or a sidecar `.json`). |
+| 12 | `data/simulated_ensemble_raw_samples.csv`, `_samples_100k.csv`, `_percentiles.csv`, `_percentiles_100k.csv`, `_percentiles_full.csv`, `_percentiles_full_v2.csv`, `v0_1_mcmc_real_map_scores*.json` (4 versions) | MED | Stochastic outputs. `simulation_real_map_scores.json` records `seed: 42` and `n_steps: 10000`; the 100k variants are at `seed: 42` (per script). But the chain between "samples → percentiles → real_map_scores" runs through multiple scripts (`mcmc_ensemble.py`, `_100k.py`, `_full_coverage_rescore.py`, `_full_coverage_rescore_v2.py`, `_full_coverage_rescore_100k.py`) producing five percentile variants. Reviewer cannot tell which is canonical. | Document in a README which percentile file is the canonical report input. Deprecate the rest. |
+| 13 | `data/338canada_historical_snapshots.csv` | MED | 77 snapshot rows from `338canada.com/alberta/` landing page via `338canada_historical.py`. FROZEN_MANIFEST row for the `/alberta/` landing page has both Wayback and archive.ph snapshots, so the provenance chain is complete. But the CSV has no header-line provenance annotation. | Add a `source` column or header comment with the snapshot URL. |
+| 14 | `data/338canada_reallocated_majority.csv`, `_minority.csv` | MED | Reallocated 2026 projections from 338 data. Script `338canada_reallocate.py` is committed. Inputs (87-seat per-riding CSV, audit 2023 baseline, 2019 populations) are all traceable. Chain complete. But the note column is empty on nearly all rows, so a reviewer cannot distinguish direct-mapping from reallocation at a glance. | Populate `note` column for non-direct mappings. |
+| 15 | `data/2015_to_2019_crosswalk.csv`, `_partial.csv` | MED | Partial crosswalk built from commission report prose (2017 report pp. 37 etc.). Referenced in `data_preparation.md` §7 as "Elections Alberta does not publish pre-2017 shapefiles" gap. Chain is prose-only. | Header comment in CSV naming page-range and prose source per row; already partially present in the `note` column. Upgrade to full-row coverage. |
+| 16 | `data/boundary_refinement_impact.csv`, `_v3.csv`, `_v4.csv`, `_v5.csv`, `_v6.csv` (missing `_v2`) | MED | Version chain v1→v3→v4→v5→v6 with v2 skipped in filenames (v2 is described as a pass-through in `shape_refinement_v2.py:350`). Reviewer sees a discontinuous versioning. | Rename v1 → v1, clarify in a README that v2 is intentionally absent. |
+| 17 | `data/simulation_convergence_diagnostics_100k.json` | MED | Per-metric autocorrelation diagnostics. No `seed` or `n_steps` recorded (inferred from `mcmc_ensemble_100k.py`). Reviewer would have to open the script. | Write `seed` and `run_timestamp` into the JSON. |
+| 18 | `data/a1_legal_baseline_2019eds_2021census.csv` | MED | Produced by `a1_legal_baseline_2021_census.py`; inputs are `data/alberta_2019_populations.csv` (commission's 2017 report pp. 60-61) + `alberta_2021_csds.gpkg` + DA pops. Chain complete. CSV has no header annotation. | One-line header comment. |
+| 19 | `data/va_pop_from_das.csv` | LOW | Cache file generated once by `mcmc_ensemble.py` (area-weighted DA→VA overlay). Totals to StatCan 4.26M. Chain documented in `mcmc_ensemble.md:131`. | Add a one-line source annotation in a sidecar. |
+| 20 | `data/chen_rodden_simulation.csv`, `_summary.json` | LOW | Chen-Rodden 500-plan simulation by `chen_rodden_alberta.py`. `summary.json` records 150-plan rerun; the CSV is 500-plan. Version mismatch suggests a re-run where one file was regenerated but not the other. | Verify 500 vs 150 plan counts; regenerate both from a single seed. |
 | 21 | `data/v0_1_province_wide_drift_*.csv` (3 files) | LOW | Per `track_l_drift.py`. CSV is well-annotated with aggregation method in the `aggregation_method` column. Chain complete. | No action. |
-| 22 | `data/v0_1_canadian_redistribution_base_rate.csv` | LOW | Per `canadian_base_rate_compute.py`. Row-level `primary_source` column is populated. Chain complete. | No action. |
-| 23 | `data/v0_1_cochrane_journey_to_work.csv` | LOW | StatsCan Table 98-10-0459 Cochrane filter. URL is in FROZEN_MANIFEST marked "unarchived". | Submit to Wayback. |
+| 22 | `data/canadian_redistribution_base_rate.csv` | LOW | Per `canadian_base_rate_compute.py`. Row-level `primary_source` column is populated. Chain complete. | No action. |
+| 23 | `data/cochrane_journey_to_work.csv` | LOW | StatsCan Table 98-10-0459 Cochrane filter. URL is in FROZEN_MANIFEST marked "unarchived". | Submit to Wayback. |
 | 24 | Remaining well-documented artifacts (housekeeping) | LOW | See closing list. | — |
 
 ---
@@ -2163,7 +2163,7 @@ flagged with dual-dimension labels where applicable.
 **Dimension:** D5 + D1 (evidentiary chain)
 **Observation.**
 - `FROZEN_MANIFEST.md` row 36 names the source as `https://www.elections.ab.ca/uploads/2015-Provincial-General-Election-Statement-of-Vote.xlsx`.
-- `analysis/methodology/v0_1_data_preparation.md` L50 names the source as `https://www.elections.ab.ca/uploads/2015PGE-Official-Results.xlsx`.
+- `analysis/methodology/data_preparation.md` L50 names the source as `https://www.elections.ab.ca/uploads/2015PGE-Official-Results.xlsx`.
 - `analysis/scripts/parse_2015_results.py` header L4 names the source as `2015PGE-Official-Results.xlsx`.
 
 The two filename forms refer to potentially different files (the second looks like the 2017 commission's redistribute-era filename; the first is the official post-election Statement of Vote style). A third party reproducing the audit cannot tell which URL actually produced the 1,104,073-byte file in `data/`. The xlsx loaded cleanly with 87 sheets matching ED01-ED87 naming, so contents are internally consistent. But the URL is the one evidentiary claim a cross-examiner tests first.
@@ -2174,15 +2174,15 @@ The two filename forms refer to potentially different files (the second looks li
 
 ---
 
-### HIGH-2. `data/v0_1_alberta_2019_results.csv` upstream URL not in FROZEN_MANIFEST
+### HIGH-2. `data/alberta_2019_results.csv` upstream URL not in FROZEN_MANIFEST
 
-**Files:** `data/v0_1_alberta_2019_results.csv`
+**Files:** `data/alberta_2019_results.csv`
 **Dimension:** D5
 **Observation.**
-- `v0_1_data_preparation.md` L40 names source as `https://www.elections.ab.ca/uploads/2019PGEOfficialResultsAllEDs.xlsx`.
+- `data_preparation.md` L40 names source as `https://www.elections.ab.ca/uploads/2019PGEOfficialResultsAllEDs.xlsx`.
 - `FROZEN_MANIFEST.md` contains rows for 2015 and 2023 Statements of Vote but **no row for the 2019 xlsx**.
 - No raw `data/2019_results.xlsx` is committed (only the parsed CSV).
-- Extraction method: "manual per-sheet CSV extraction" per `v0_1_data_preparation.md` — no parser script.
+- Extraction method: "manual per-sheet CSV extraction" per `data_preparation.md` — no parser script.
 
 The 2019 CSV underpins every cross-election statement in the audit. Without a URL archived in FROZEN_MANIFEST and a parser script committed, a third party cannot re-derive the 87-row CSV from the upstream.
 
@@ -2223,14 +2223,14 @@ Submit all 27 URLs to `web.archive.org/save/` once IP quota resets.
 
 ---
 
-### HIGH-4. `v0_1_majority_2026_populations.csv` and `_minority_2026_populations.csv` — no parser script for the commission-PDF extraction
+### HIGH-4. `majority_2026_populations.csv` and `_minority_2026_populations.csv` — no parser script for the commission-PDF extraction
 
-**Files:** `data/v0_1_majority_2026_populations.csv`, `data/v0_1_minority_2026_populations.csv`
+**Files:** `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv`
 **Dimension:** D4 (methodology reproducibility) + D5
 **Observation.**
-- Both files are per `v0_1_data_preparation.md` "manually extracted from pp. 44-45" (majority) and "manually extracted from Appendix E variance table" (minority).
+- Both files are per `data_preparation.md` "manually extracted from pp. 44-45" (majority) and "manually extracted from Appendix E variance table" (minority).
 - No parser script committed. A reproducer must open the 80 MB PDF, find the correct tables, and retype 89 rows × 4 columns.
-- `data/v0_1_minority_2026_populations_appendixE.csv` is a second extraction that "corroborates the first with minor rounding differences" — but that second file exists only because someone else re-extracted; it's a one-off corroboration, not a mechanical replay.
+- `data/minority_2026_populations_appendixE.csv` is a second extraction that "corroborates the first with minor rounding differences" — but that second file exists only because someone else re-extracted; it's a one-off corroboration, not a mechanical replay.
 - These two files are inputs to A1 legal baseline, packing/cracking, marginal seats, MCMC, Chen-Rodden — the entire Section A/B apparatus.
 
 **Cross-exam question.** "You base your Section A population-equality findings on two CSVs that were typed by hand from a 80-megabyte PDF. Where is the parser that a reproducer would run?"
@@ -2239,14 +2239,14 @@ Submit all 27 URLs to `web.archive.org/save/` once IP quota resets.
 
 ---
 
-### HIGH-5. `v0_1_minority_hybrid_crosswalk.csv` — heuristic output labelled as data
+### HIGH-5. `minority_hybrid_crosswalk.csv` — heuristic output labelled as data
 
-**Files:** `data/v0_1_minority_hybrid_crosswalk.csv` (also the `_appendixE.csv` variant)
+**Files:** `data/minority_hybrid_crosswalk.csv` (also the `_appendixE.csv` variant)
 **Dimension:** D5 + D4
 **Observation.**
 - Generated by Jaccard token overlap (threshold 0.4) + exact match per `data/data_acquisition_manifest.md` L35.
 - Of 89 minority-proposed EDs: 73 mapped confidently, 16 new names, 14 current EDs unmapped. The manifest explicitly warns: "review manually before using for statistical claims."
-- But the file IS an input to `build_full_crosswalks.py`, `v0_1_mcmc_full_coverage_rescore*.py`, `approximate_shape_analysis.py`, and `phase_4c_prep.py`. All of these produce statistical claims.
+- But the file IS an input to `build_full_crosswalks.py`, `v0_1_mcmc_full_coverage_rescore*.py`, `approximate_shape_analysis.py`, and `assignment_prep.py`. All of these produce statistical claims.
 - No manually-verified override file exists.
 
 **Cross-exam question.** "Your own data-acquisition manifest tells readers not to use this file for statistical claims, yet five downstream scripts that produce statistical claims read it as input. Explain the discrepancy."
@@ -2258,9 +2258,9 @@ Submit all 27 URLs to `web.archive.org/save/` once IP quota resets.
 
 ---
 
-### HIGH-6. `v0_1_338canada_per_riding_87seat.csv` — per-riding archive coverage is 3/87
+### HIGH-6. `338canada_per_riding_87seat.csv` — per-riding archive coverage is 3/87
 
-**Files:** `data/v0_1_338canada_per_riding_87seat.csv`
+**Files:** `data/338canada_per_riding_87seat.csv`
 **Dimension:** D1 + D5
 **Observation.**
 - FROZEN_MANIFEST row 63 records three probe URLs (1001, 1044, 1087) archived on Wayback on April 12, 2026.
@@ -2297,7 +2297,7 @@ All MEDIUM items are captured in rows 8-18 of the summary table above. None bloc
 
 ## LOW / housekeeping
 
-- `va_pop_from_das.csv`, `v0_1_chen_rodden_simulation.csv`, `v0_1_chen_rodden_summary.json`, `v0_1_province_wide_drift_*.csv` (3), `v0_1_canadian_redistribution_base_rate.csv`, `v0_1_cochrane_journey_to_work.csv` — provenance chain is complete; add one-line source annotations in file headers where absent.
+- `va_pop_from_das.csv`, `chen_rodden_simulation.csv`, `chen_rodden_summary.json`, `v0_1_province_wide_drift_*.csv` (3), `canadian_redistribution_base_rate.csv`, `cochrane_journey_to_work.csv` — provenance chain is complete; add one-line source annotations in file headers where absent.
 - Root-level `data/alberta_shapefiles_README.md` and `data/data_acquisition_manifest.md` are the two internal docs that already do most of the provenance heavy lifting. Keeping them both is fine — but they disagree on file scope (the manifest says 7 files were acquired in the 2026-04-22 session, the shapefile README describes 2019 EDs and 2023 VAs only). Consider merging.
 - `data/v0_1_338_historical/pre2023_per_riding_validation.json` — small JSON with a pearson_r coefficient; no header comment naming what is being validated.
 - CPG files (`.cpg`) in both shapefile directories are 5-byte UTF-8 declarations — correct and standard, noted for completeness only.
@@ -2307,7 +2307,7 @@ All MEDIUM items are captured in rows 8-18 of the summary table above. None bloc
 
 ## Supersession / deprecation candidates
 
-The following files are superseded by later versions of the same analysis and are candidates for `deprecated/`:
+The following files are superseded by later versions of the same analysis and are candidates for `historical/`:
 
 | File | Superseded by | Rationale |
 |------|---------------|-----------|
@@ -2321,14 +2321,14 @@ The following files are superseded by later versions of the same analysis and ar
 | `data/v0_1_refined_v5_minority_2026_eds.gpkg` | `v6`, `v7` | Intermediate step. |
 | `data/v0_1_approximate_majority_2026_eds_full.gpkg` (63 rows) | `v0_1_refined_v6_majority_2026_eds.gpkg` (89 rows) or `v0_1_derived_v7_majority_2026_eds.gpkg` (89 rows) | "_full" suffix is misleading; 63-row version is superseded by 89-row derived. |
 | `data/v0_1_approximate_minority_2026_eds.gpkg` (70 rows) | `v0_1_refined_v6_minority_2026_eds.gpkg` | Earlier refinement step. |
-| `data/v0_1_boundary_refinement_impact.csv`, `_v3.csv`, `_v4.csv`, `_v5.csv` | `_v6.csv` | v6 is the current. |
-| `data/v0_1_compactness_scores.csv` | `v0_1_compactness_scores_refined.csv` | `_refined` supersedes. |
-| `data/v0_1_mcmc_ensemble_percentiles.csv`, `_full.csv`, `_full_v2.csv` | `_100k.csv` (100k-step canonical) and `_full_v2.csv` (full coverage v2) | Keep `_100k.csv` and `_full_v2.csv`; deprecate the other two. Or: pick one canonical and document in a README. |
-| `data/v0_1_mcmc_real_map_scores.json`, `_full.json`, `_full_v2.json` | `_100k.json` (canonical) + `_full_v2.json` (full coverage) | Same rationale. |
-| `data/v0_1_2015_to_2019_crosswalk_partial.csv` | `v0_1_2015_to_2019_crosswalk.csv` | Partial was upgraded to full; partial can be moved to `deprecated/` or left as a diff reference. |
-| `data/v0_1_minority_hybrid_crosswalk_appendixE.csv` | `v0_1_minority_hybrid_crosswalk.csv` (heuristic) or a new verified variant | Two minority crosswalks in `data/` without a canonical-selector. |
+| `data/boundary_refinement_impact.csv`, `_v3.csv`, `_v4.csv`, `_v5.csv` | `_v6.csv` | v6 is the current. |
+| `data/compactness_scores.csv` | `compactness_scores_refined.csv` | `_refined` supersedes. |
+| `data/simulated_ensemble_percentiles.csv`, `_full.csv`, `_full_v2.csv` | `_100k.csv` (100k-step canonical) and `_full_v2.csv` (full coverage v2) | Keep `_100k.csv` and `_full_v2.csv`; deprecate the other two. Or: pick one canonical and document in a README. |
+| `data/simulation_real_map_scores.json`, `_full.json`, `_full_v2.json` | `_100k.json` (canonical) + `_full_v2.json` (full coverage) | Same rationale. |
+| `data/2015_to_2019_crosswalk_partial.csv` | `2015_to_2019_crosswalk.csv` | Partial was upgraded to full; partial can be moved to `historical/` or left as a diff reference. |
+| `data/minority_hybrid_crosswalk_appendixE.csv` | `minority_hybrid_crosswalk.csv` (heuristic) or a new verified variant | Two minority crosswalks in `data/` without a canonical-selector. |
 
-**Before moving to `deprecated/`:** verify each file is not still read as input by an active script. The check is one `Grep` sweep per filename. Several of these intermediate GPKGs ARE read by intermediate shape refinement scripts (`shape_refinement_v3.py` reads v2's output, etc.). That's expected for a refinement chain. Moving means breaking the chain; keep the intermediates in place and mark them "pipeline stage N of 7" in a manifest, not in `deprecated/`.
+**Before moving to `historical/`:** verify each file is not still read as input by an active script. The check is one `Grep` sweep per filename. Several of these intermediate GPKGs ARE read by intermediate shape refinement scripts (`shape_refinement_v3.py` reads v2's output, etc.). That's expected for a refinement chain. Moving means breaking the chain; keep the intermediates in place and mark them "pipeline stage N of 7" in a manifest, not in `historical/`.
 
 ---
 
@@ -2344,13 +2344,13 @@ The following files are superseded by later versions of the same analysis and ar
 
 ### 4.1 Legal Review — Academic Report
 
-*Source: `analysis/red_team/v0_1_legal_red_team_report_academic.md`*
+*Source: `analysis/red_team/legal_red_team_report_academic.md`*
 
 # Legal red-team — `report_academic.md`
 
 **Standard:** defensible under hostile cross-examination in a court of law.
-**Framework:** `analysis/red_team/v0_1_legal_red_team_framework.md` (ten dimensions D1–D10).
-**Reference pass:** `analysis/red_team/v0_1_legal_red_team_report_public.md` (same template).
+**Framework:** `analysis/red_team/legal_red_team_framework.md` (ten dimensions D1–D10).
+**Reference pass:** `analysis/red_team/legal_red_team_report_public.md` (same template).
 **Date:** 2026-04-23
 **Scope:** `report_academic.md`, 1,049 lines, draft dated April 2026. Extends —
 does not duplicate — the assertions / references / conclusions / latent-bias /
@@ -2375,27 +2375,27 @@ and beyond what the earlier passes already flagged.
 | ACA-08 | HIGH | D3, D6 | L568 | "the chair's claim is partially refuted" … "materially misrepresents the submission record" — this is an adverse characterisation of a sitting judge's reasoning in a public document. Defensible under fair comment if (a) grounded in reproducible submission-search data (it is: §5.4.1 table) and (b) labelled as the audit's finding, not the chair's position (it is). HIGH rather than CRITICAL because the tiered verdict at L570–583 is precise: three tiers, specific counts, submission IDs cited. A hostile reader will still test whether "materially misrepresents" is a fact-claim (requires proof the chair knew) or an opinion-claim (defensible without intent). Recommend reframing "materially misrepresents" → "materially overbroad" or "substantively overbroad" to stay clearly on the fact/effect side rather than the intent side. |
 | ACA-09 | HIGH | D3, D6 | L538 | "the Premier's framing of R5 as 'the commission's own recommendation' elides this distinction" — "elides" is a verb of selective concealment and a hostile reader can construe it as imputing deceptive intent to the Premier. The academic paper's surrounding sentences are careful ("accurate as to the chair's personal position; overstates the recommendation's provenance if read as a collective endorsement"). Recommend swapping "elides" for "does not carry" or "omits" to stay on the fact/effect side. |
 | ACA-10 | HIGH | D1, D5 | L92 Abstract | "fragmentation of Airdrie across four electoral divisions vs the majority's two" — Abstract asserts as fact; Airdrie population at three different vintages (74,100 / ~84,000 / 90,044) is cited at §3.8 L347 with StatCan and municipal-census anchors. Abstract itself has no inline cite. Standard D1 fix: footnote anchor to §3.8 or to `data/alberta_2021_da_populations.csv`. |
-| ACA-11 | HIGH | D1, D5 | L267 | "338's model accuracy against the 2023 actual result: per-riding Pearson r = 0.966, MAE = 3.74 pp, winner-call 81 of 87 (93.1 %)" — four specific statistics presented without inline link to the analysis doc. Paper references `analysis/methodology/v0_1_338canada_historical.md` at L271 but the numbers at L267 are quoted without a per-statistic anchor. Third-party reproducer cannot confirm without the anchor. |
+| ACA-11 | HIGH | D1, D5 | L267 | "338's model accuracy against the 2023 actual result: per-riding Pearson r = 0.966, MAE = 3.74 pp, winner-call 81 of 87 (93.1 %)" — four specific statistics presented without inline link to the analysis doc. Paper references `analysis/methodology/338canada_historical.md` at L271 but the numbers at L267 are quoted without a per-statistic anchor. Third-party reproducer cannot confirm without the anchor. |
 | ACA-12 | HIGH | D1, D5 | L267, L269 | "338 systematically under-projected UCP in rural Alberta by ~4.77 pp in 2023 (largest errors 11–14 pp in Peace River, Fort McMurray-Lac La Biche, Maskwacis-Wetaskiwin)" — three named ridings with specific error magnitudes. Adverse claim about a public-facing polling aggregator with a commercial reputation. Needs inline cite to the per-riding comparison artifact in the repo. If the artifact does not yet exist, the claim is D1 unsourced. |
-| ACA-13 | HIGH | D1 | L245 | "Canadian comparative base rate … n=7 including the Alberta 2025-26 anchor: Federal 2022 Alberta sub-commission, BC 2023, Saskatchewan 2022, Alberta 2017, Alberta 2010, Manitoba 2018, Alberta 2025-26. Distribution: mean proxy ΔEG 0.262 pp, median 0.000 pp, maximum 0.798 pp (Manitoba 2018)." — Seven-cycle composite statistical claim. Paper flags the proxy limitation. The D1 question is whether each of the seven cycles' inputs traces to archived primary sources. Pass label cites `data/v0_1_canadian_redistribution_base_rate.csv` and the `.md` computation. Third-party reproducer needs FROZEN_MANIFEST entries for each of seven commission reports + vote data sets. |
-| ACA-14 | HIGH | D1, D5 | L386, L388–L393 | MCMC percentile table cites "4,765 Voting Area polygons (Elections Alberta 2023)", "10,000 samples", seed 42, 89 s runtime. Per-map percentiles (p96.1 / p6.6 / p100 / p24.6 / p57.4 / p1.7) are the load-bearing number for three of the paper's most consequential claims (structural floor; majority NDP tail; minority UCP tail). D4 reproducibility gate: the MCMC script must produce *these exact percentiles* on a fresh run. `data/v0_1_mcmc_ensemble_percentiles.csv` is the claimed artifact; needs author-verified reproduction check before release. Also: §3.11 acknowledges partial-coverage (57 / 70 / 87 districts) which means the majority p1.7 and minority p100 are NOT evaluated on identical substrate as the ensemble distribution. A hostile cross-examiner will ask why a p100 result against 87-district ensemble distributions is treated as comparable to a real map evaluated on a 70-district subset. The paper flags this but does not adjust the percentile label. |
+| ACA-13 | HIGH | D1 | L245 | "Canadian comparative base rate … n=7 including the Alberta 2025-26 anchor: Federal 2022 Alberta sub-commission, BC 2023, Saskatchewan 2022, Alberta 2017, Alberta 2010, Manitoba 2018, Alberta 2025-26. Distribution: mean proxy ΔEG 0.262 pp, median 0.000 pp, maximum 0.798 pp (Manitoba 2018)." — Seven-cycle composite statistical claim. Paper flags the proxy limitation. The D1 question is whether each of the seven cycles' inputs traces to archived primary sources. Pass label cites `data/canadian_redistribution_base_rate.csv` and the `.md` computation. Third-party reproducer needs FROZEN_MANIFEST entries for each of seven commission reports + vote data sets. |
+| ACA-14 | HIGH | D1, D5 | L386, L388–L393 | MCMC percentile table cites "4,765 Voting Area polygons (Elections Alberta 2023)", "10,000 samples", seed 42, 89 s runtime. Per-map percentiles (p96.1 / p6.6 / p100 / p24.6 / p57.4 / p1.7) are the load-bearing number for three of the paper's most consequential claims (structural floor; majority NDP tail; minority UCP tail). D4 reproducibility gate: the MCMC script must produce *these exact percentiles* on a fresh run. `data/simulated_ensemble_percentiles.csv` is the claimed artifact; needs author-verified reproduction check before release. Also: §3.11 acknowledges partial-coverage (57 / 70 / 87 districts) which means the majority p1.7 and minority p100 are NOT evaluated on identical substrate as the ensemble distribution. A hostile cross-examiner will ask why a p100 result against 87-district ensemble distributions is treated as comparable to a real map evaluated on a 70-district subset. The paper flags this but does not adjust the percentile label. |
 | ACA-15 | HIGH | D1, D5 | L270 | "A 77-snapshot historical 338 stability probe (2020-02-23 through 2026-04-12)" — source URLs for 77 snapshots not in FROZEN_MANIFEST. 338Canada's archive pages' retention policy is unknown; this is a D1 archive risk analogous to the X-post risk (PUB-08 in the public-report pass). |
 | ACA-16 | MED | D2 | L202 | "Rocky Mountain House at 6,765 (StatCan 2021)" — StatCan 2021 Census figure; a hostile checker will want the specific table (97-10-X or equivalent CSD-level). MED not HIGH because the number is readily verifiable and the paper already cites StatCan 2021 Census as the general source. |
 | ACA-17 | MED | D2 | L536 | "CBC Edmonton, April 16, 2026; Calgary Journal, April 21, 2026" — two news citations without URLs. Academic-paper edition should include URL + archive snapshot per D1 standard. |
 | ACA-18 | MED | D2 | L538 | "Corroboration: CBC News Edmonton, April 16, 2026 ('Miller adding: \"My majority colleagues do not agree with me on this point\"')" — nested quote attributed to CBC reporting; no URL. The underlying Miller quote is verified verbatim in references-pass; the CBC's reproduction of it is secondary. Needs URL + archive. |
-| ACA-19 | MED | D1 | L264 | "the full 2015-to-2019 crosswalk at `data/v0_1_2015_to_2019_crosswalk.csv`" — file exists in repo per framework file-inventory; 2015 vote attribution is a load-bearing input to the 2015 cross-election asymmetry (+0.03 pp). The crosswalk's construction methodology (per-precinct mapping, vote-share interpolation rules) needs a documented methodology trace. If the crosswalk file's header lacks provenance, D5. |
+| ACA-19 | MED | D1 | L264 | "the full 2015-to-2019 crosswalk at `data/2015_to_2019_crosswalk.csv`" — file exists in repo per framework file-inventory; 2015 vote attribution is a load-bearing input to the 2015 cross-election asymmetry (+0.03 pp). The crosswalk's construction methodology (per-precinct mapping, vote-share interpolation rules) needs a documented methodology trace. If the crosswalk file's header lacks provenance, D5. |
 | ACA-20 | MED | D2 | L303 | "Chen and Rodden (2013) argue that urban-concentrated parties are systematically disadvantaged by neutrally-drawn maps through a *packing mechanism*" — paraphrase of the Chen-Rodden thesis. The DOI citation at L971 is verified (references-pass INFO); the paraphrase direction is correct. MED because the paraphrase is defensible; a more-exact summary would say Chen-Rodden argue residential segregation produces this effect for Democrats in US urban contexts, and the transfer to Canadian / NDP context is the audit's own empirical question. The paper does clarify this at §3.6 L311, so the MED is downgraded to a style note. |
 | ACA-21 | MED | D2 | L229 | "Stephanopoulos and McGhee (2018) revisit the efficiency-gap debate and acknowledge the metric's sensitivity to modeling choices" — this citation supports the audit's Monte Carlo framing; the 2018 Stanford Law Review piece is in References at L1009. Check whether S&M 2018 specifically "acknowledges sensitivity to modeling choices" as the audit claims, or whether they defend the metric against critics. MED because the citation is real and broadly consistent; precision on what S&M 2018 actually argue would tighten the chain. |
-| ACA-22 | MED | D3, D6 | L568–L583 | "tiered verdict" on the chair's "no public support" claim — the tier labels *precisely wrong* / *effectively wrong* / *precisely and effectively wrong* / *defensible* are novel coinages. Defensible as the audit's own analytic framework, but a hostile reader will test whether the coinage was pre-registered or invented during analysis. Recommend adding a line: "These tier labels were specified in `analysis/reports/v0_1_claim_significance_analysis.md` before running the search" (if true); or label as "post-hoc analytic categorisation" (if not). |
+| ACA-22 | MED | D3, D6 | L568–L583 | "tiered verdict" on the chair's "no public support" claim — the tier labels *precisely wrong* / *effectively wrong* / *precisely and effectively wrong* / *defensible* are novel coinages. Defensible as the audit's own analytic framework, but a hostile reader will test whether the coinage was pre-registered or invented during analysis. Recommend adding a line: "These tier labels were specified in `analysis/reports/claim_significance_analysis.md` before running the search" (if true); or label as "post-hoc analytic categorisation" (if not). |
 | ACA-23 | MED | D1 | L514 | "A CSD-level overlay (Track H; script `analysis/scripts/csd_community_splits.py`) computes, per map, the count of populated CSDs (population ≥ 1,000) spanning two or more electoral divisions" — script exists per file inventory; results (66/191, 66/191, 54/191 lower bound) are load-bearing for a "metric is a null symmetric" finding that constrains the C-section claim. D4 reproducibility check needed. |
-| ACA-24 | MED | D1 | L520 | "StatsCan Table 98-10-0459 (2021 Census journey-to-work) disaggregates Cochrane CSD commute destinations: of 8,550 Cochrane workers with an Alberta place of work, 4,205 (49.2%) work within Cochrane, 3,065 (35.8%) commute to Calgary CY" — specific numbers from StatsCan table. Table reference is named; specific number extraction needs artifact link (`analysis/methodology/v0_1_cochrane_journey_to_work.md`; the paper does reference this file). MED because the cite chain exists but the journey-to-work doc itself should be verified to carry the same numbers. |
-| ACA-25 | MED | D1, D6 | L518 | "20 of 21 cross at least one school-division boundary" — adverse finding against the minority report's school-district rationales. Anchors to `analysis/methodology/v0_1_school_division_coherence.md`. Load-bearing for the paper's "structural school-district crossings" claim. D1 passes if the school-division-coherence analysis file enumerates the 21 hybrids + their boundary crossings with Alberta Education primary-source link. |
+| ACA-24 | MED | D1 | L520 | "StatsCan Table 98-10-0459 (2021 Census journey-to-work) disaggregates Cochrane CSD commute destinations: of 8,550 Cochrane workers with an Alberta place of work, 4,205 (49.2%) work within Cochrane, 3,065 (35.8%) commute to Calgary CY" — specific numbers from StatsCan table. Table reference is named; specific number extraction needs artifact link (`analysis/methodology/cochrane_journey_to_work.md`; the paper does reference this file). MED because the cite chain exists but the journey-to-work doc itself should be verified to carry the same numbers. |
+| ACA-25 | MED | D1, D6 | L518 | "20 of 21 cross at least one school-division boundary" — adverse finding against the minority report's school-district rationales. Anchors to `analysis/methodology/school_division_coherence.md`. Load-bearing for the paper's "structural school-district crossings" claim. D1 passes if the school-division-coherence analysis file enumerates the 21 hybrids + their boundary crossings with Alberta Education primary-source link. |
 | ACA-26 | MED | D4 | L305 | "a neutral-ensemble simulation of 150 random-walk-generated 87-seat plans (±25% population band, queen-contiguity, 2023 votes) plus a wasted-vote decomposition and Moran's I on NDP share" — N=150 is below DeFord, Duchin & Solomon (2021) recommended minimum for stable CI. Paper anticipates this concern at L317 ("A full GerryChain ReCom ensemble … would produce a tighter CI"). MED because the paper is self-aware of the limit. |
 | ACA-27 | MED | D6 | L520 | "The interpretive inference — that Nolan Hill is a residential neighbourhood without significant employment and is therefore unlikely to be the commute destination for the 35.8% Calgary-bound flow — is consistent with the city's land-use profile but does not derive from the StatsCan data directly" — good fact/opinion labelling in the paper. MED is not a finding so much as a note that the self-label format (inference → opinion, data → fact) should be applied throughout §4–§5. |
 | ACA-28 | MED | D3, D6 | L518 | "R5 and R11 invoked the most verifiable class of community-of-interest claim and got it wrong" — adverse characterisation of minority-report reasoning. Fact-vs-opinion boundary is sharp here: "invoked" is factual; "got it wrong" is a conclusion that rests on the school-division-boundary data. Defensible if the school-division analysis file supports. Paper does the anchor work. MED only because "got it wrong" is punchy rhetoric in an academic register; an academic-edition alternative: "do not survive primary-source verification against Alberta Education school-division boundaries." |
 | ACA-29 | MED | D2 | L858 | "McLachlin J (as she then was) wrote that the guarantee of §3 is 'the right to effective representation' (para. 26), and that 'relative parity of voting power' must be weighed against other factors 'including geography, community history, community interests and minority representation' (para. 33)." — two verbatim quotations from *Reference re Saskatchewan* [1991] 2 SCR 158. Quotation accuracy verified by references-pass INFO (L334). Paragraph references given. Pass for verbatim accuracy; MED because an academic-edition citation should include the reporter page number or pin-cite form, not just the paragraph. |
 | ACA-30 | MED | D1 | L539 | "Alberta's Regional Economic Development Alliance geography provides partial support for the minority's general hybrid doctrine. The Central Alberta REDA covers Red Deer, Innisfail, Blackfalds, Lacombe, and Sylvan Lake — the five municipalities at the heart of the minority's Red Deer hybrid proposals. The Calgary Regional Partnership covers Calgary, Airdrie, Cochrane, Chestermere, Okotoks, Rocky View, and High River" — REDA catchment claims need URL + archive. D1 standard: every substantive factual claim traces. |
-| ACA-31 | MED | D1, D5 | L867 | "2026 minority, 5 of 89 (Calgary-North East, Fort McMurray-Lac La Biche, Fort McMurray-Wood Buffalo, Peace River all pass → fail; Lesser Slave Lake's s.15(2) ratio to the updated mean drops past −50 %)" — named-riding statutory-compliance claim under mid-2025 populations. Anchors to `analysis/v0_1_cycle_lag_analysis.md`. D4 reproducibility gate: the overlay script must produce exactly this 0/0/5 split on a fresh run. |
+| ACA-31 | MED | D1, D5 | L867 | "2026 minority, 5 of 89 (Calgary-North East, Fort McMurray-Lac La Biche, Fort McMurray-Wood Buffalo, Peace River all pass → fail; Lesser Slave Lake's s.15(2) ratio to the updated mean drops past −50 %)" — named-riding statutory-compliance claim under mid-2025 populations. Anchors to `analysis/cycle_lag_analysis.md`. D4 reproducibility gate: the overlay script must produce exactly this 0/0/5 split on a fresh run. |
 | ACA-32 | MED | D3 | L124 | "Going into this project, the author held the prior that the UCP government's handling of boundary redistribution warranted scrutiny." — author's D7 disclosure. Better than the public report (which has no disclosure). Partial: names the prior direction and names three findings that ran against it. Does not disclose party-donation history, prior commission or election-administration involvement, or any consulting work related to Alberta redistricting. Recommend expanding §1.4 with the D7 checklist: (a) political-party donation history, (b) prior employment related to electoral administration, (c) any party or commission member consulted during the audit, (d) whether the author is a current candidate for any office, (e) academic-supervisor affiliation if any. |
 | ACA-33 | MED | D10 | L407 | "If the 100k-sample full-coverage rescore, or a later commission-shapefile-driven re-run, moves either 2026 map off its p ≥ 95 or p ≤ 5 tail on the flagged metric, the claim for that map is retracted and the map is reclassified as inside-band." — concrete falsifiability hook. PASS by D10 standard. MED is note-only: name a date by which the 100k run will be reported (the paper says "in progress") so that the hook is time-stamped, not open-ended. |
 | ACA-34 | MED | D10 | L422 | "the checklist is prepared for submission to the Open Science Framework Registrations platform (`https://osf.io`) with embargoed release scheduled for 2026-11-02" — concrete date. PASS by D10 standard. MED is note-only: update status (submitted / DOI assigned / embargoed) when achieved. |
@@ -2403,7 +2403,7 @@ and beyond what the earlier passes already flagged.
 | ACA-36 | MED | D2 | L550 | "Canadian boundary-commission practice traces to *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991] 2 SCR 158, which established the 'effective representation' standard" — Saskatchewan Reference is correctly cited; para numbers at L858 are in the style academic readers expect. MED because the audit's at-a-glance claim that commissions "trace to" 1991 SCC is loose — Canadian redistribution commissions pre-date the case; the case established the *constitutional standard* for evaluating their work. Tightening: "Canadian boundary-commission jurisprudence traces to…" or "the constitutional standard evaluating Canadian boundary commissions traces to…". |
 | ACA-37 | MED | D2 | L552 | "*Figueroa v. Canada (Attorney General)* [2003] 1 SCR 912 and *Frank v. Canada (Attorney General)* [2019] 1 SCR 3 developed the broader §3 Charter right to vote but did not directly apply the effective-representation standard to redistribution; they are listed in the References as context for the Charter jurisprudence surrounding electoral rights, not as authorities on boundary drawing." — accurate characterisation. Figueroa was about political-party registration thresholds; Frank was about expatriate voting. Both §3 cases, neither boundary-drawing cases. PASS. |
 | ACA-38 | MED | D2 | L552 | "Courtney (2001) provides the authoritative scholarly treatment of the independent-commission model across Canadian provinces. Pal (2019) applies contemporary quantitative gerrymandering analysis to Canadian boundary cases within the Charter framework." — Courtney and Pal are both in References. Characterisation of each work as "authoritative" and "applies contemporary quantitative" is an editorial claim. MED because the characterisation is defensible; academic readers may want pin-cites to specific claims. |
-| ACA-39 | MED | D1 | L870–L878 | "Open questions raised by the data" (numbered 1–6 under §11 appendix) — each raises genuine interpretive questions. Question 2 ("Operative force of §12(3)") describes the statutory-interpretation question well but stops short of a legal conclusion ("The question is for counsel and, if litigated, for courts"). PASS for the fact/opinion labelling. MED is a note: question 1 ("Current-map statutory status. Observed: 5 of 87 EDs sit outside the window under DA-level aggregation of mid-2025 populations") is a load-bearing fact claim requiring verifiable DA-level aggregation artifact — needs inline link to `analysis/v0_1_cycle_lag_analysis.md`. |
+| ACA-39 | MED | D1 | L870–L878 | "Open questions raised by the data" (numbered 1–6 under §11 appendix) — each raises genuine interpretive questions. Question 2 ("Operative force of §12(3)") describes the statutory-interpretation question well but stops short of a legal conclusion ("The question is for counsel and, if litigated, for courts"). PASS for the fact/opinion labelling. MED is a note: question 1 ("Current-map statutory status. Observed: 5 of 87 EDs sit outside the window under DA-level aggregation of mid-2025 populations") is a load-bearing fact claim requiring verifiable DA-level aggregation artifact — needs inline link to `analysis/cycle_lag_analysis.md`. |
 | ACA-40 | MED | D1, D5 | L893 | Appendix C table "2019 map on 2021 Census (this appendix) \| 48,996 \| **4,745** \| This computation" — new number (4,745) introduced in Appendix C, differing from the 2026 minority MAD of 4,707 by only 38 (0.8%). The closeness of these two numbers is the backbone of the appendix's "minority reproduces 2019-on-2021-Census distribution-tightness" argument. D4: the Appendix C computation script must be reproducible from `analysis/scripts/a1_legal_baseline_2021_census.py` plus the named inputs. |
 | ACA-41 | LOW | D7 | L7 | "Author and audit design: Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student)" — better than the public report (which has no author bio). The degree + institution affiliation is stated. D7 is partially closed. See ACA-32 for the expansion recommendation. |
 | ACA-42 | LOW | D8 | L24–L31 | Data-sources list includes several URLs (Elections Alberta Statement of Vote, Treasury Board estimates, StatsCan tables). All appear to be public-domain government data. Fair-dealing risk is minimal. PASS. |
@@ -2459,11 +2459,11 @@ All three are self-contained within the repo + public datasets. The framework's 
 
 ### D5 Data provenance
 
-Most CSVs and GPKGs cited by name in the academic paper have a documented path: `data/v0_1_mcmc_ensemble_samples.csv`, `data/v0_1_mcmc_ensemble_percentiles.csv`, `data/v0_1_338canada_historical_snapshots.csv`, `data/v0_1_alberta_byelections_2019_2026.csv`, `data/alberta_2021_da_populations.csv`, etc. Each needs a provenance header pointing at FROZEN_MANIFEST per the framework standard. The D5 parallel-agent pass (framework.md L124) is the correct venue.
+Most CSVs and GPKGs cited by name in the academic paper have a documented path: `data/simulated_ensemble_raw_samples.csv`, `data/simulated_ensemble_percentiles.csv`, `data/338canada_historical_snapshots.csv`, `data/alberta_byelections_2019_2026.csv`, `data/alberta_2021_da_populations.csv`, etc. Each needs a provenance header pointing at FROZEN_MANIFEST per the framework standard. The D5 parallel-agent pass (framework.md L124) is the correct venue.
 
 Two artifact-names in the academic paper do not appear in the current data inventory from this pass's file listing:
-- `data/v0_1_canadian_redistribution_base_rate.csv` (ACA-13) — needed for the seven-cycle base-rate claim
-- `data/v0_1_2015_to_2019_crosswalk.csv` (ACA-19) — needed for 2015 cross-election attribution
+- `data/canadian_redistribution_base_rate.csv` (ACA-13) — needed for the seven-cycle base-rate claim
+- `data/2015_to_2019_crosswalk.csv` (ACA-19) — needed for 2015 cross-election attribution
 
 Both should be confirmed present + documented in the D5 parallel pass.
 
@@ -2500,9 +2500,9 @@ Plus the §3.5 cross-election contingency disclosure at L261–L271 (asymmetry r
 
 This pass extends, not duplicates, earlier passes.
 
-- **References red-team** (`v0_1_red_team_references.md`, dated 2026-04-23): its CRIT-01 (Gill v. Whitford 7%) extends to the academic paper at ACA-01. Its HIGH-04 (Rizzo case-name) extends to ACA-06. Its HIGH-03 (submission total count) is an internal inconsistency between reports — academic paper uses 1,340 at L564 and 1,140+ at L846, which is internal to the academic paper. Framework-level fix (pick one number and use consistently).
-- **Conclusions red-team** (`v0_1_red_team_conclusions.md`): its CRIT-02 (engineered-boundary retract-and-rescue) informs ACA-07. Its CRIT-01 (2019 direction-reversal internal contradiction) is a public-report framing concern; academic paper handles the same issue more carefully at §3.5 L261 and §7 L778–L780 but still carries the Abstract's "directionally-consistent across six dimensions" claim, which should be footnoted to name the two conditions under which the direction reverses.
-- **Latent-bias red-team** (`v0_1_red_team_latent_bias.md`): CRIT-01 (mis-counting Miller among "NDP-nominated") is a public-report concern; academic paper's §5.2 at L538 handles the distinction correctly. Academic paper does not have the same bias.
+- **References red-team** (`red_team_references.md`, dated 2026-04-23): its CRIT-01 (Gill v. Whitford 7%) extends to the academic paper at ACA-01. Its HIGH-04 (Rizzo case-name) extends to ACA-06. Its HIGH-03 (submission total count) is an internal inconsistency between reports — academic paper uses 1,340 at L564 and 1,140+ at L846, which is internal to the academic paper. Framework-level fix (pick one number and use consistently).
+- **Conclusions red-team** (`red_team_conclusions.md`): its CRIT-02 (engineered-boundary retract-and-rescue) informs ACA-07. Its CRIT-01 (2019 direction-reversal internal contradiction) is a public-report framing concern; academic paper handles the same issue more carefully at §3.5 L261 and §7 L778–L780 but still carries the Abstract's "directionally-consistent across six dimensions" claim, which should be footnoted to name the two conditions under which the direction reverses.
+- **Latent-bias red-team** (`red_team_latent_bias.md`): CRIT-01 (mis-counting Miller among "NDP-nominated") is a public-report concern; academic paper's §5.2 at L538 handles the distinction correctly. Academic paper does not have the same bias.
 - **Assertions red-team** and **Code red-team** (not read in this pass) should be cross-checked for residuals before release.
 
 ## Recommended next actions
@@ -2532,9 +2532,9 @@ This pass extends, not duplicates, earlier passes.
 
 When rate limits reset, four agents run in parallel:
 
-1. **Quote verification** — verify every in-text citation (see D2 discussion). Produces `analysis/red_team/v0_1_quote_verification_log.md`.
-2. **Data provenance** — confirm every `data/*.csv|gpkg|json` artifact has a documented provenance chain per D5. Produces `analysis/red_team/v0_1_legal_red_team_data_artifacts.md`.
-3. **Script reproducibility** — re-run `v0_2_packing_cracking_analysis.py`, `v0_3_monte_carlo_ci.py`, `mcmc_ensemble.py`, `chen_rodden_alberta.py`, `a1_legal_baseline_2021_census.py`, `338canada_reallocate.py`, `csd_community_splits.py`, `v0_1_cochrane_journey_to_work.py` (if exists), and confirm numbers match the paper. Produces `analysis/red_team/v0_1_legal_red_team_scripts.md`.
+1. **Quote verification** — verify every in-text citation (see D2 discussion). Produces `analysis/red_team/quote_verification_log.md`.
+2. **Data provenance** — confirm every `data/*.csv|gpkg|json` artifact has a documented provenance chain per D5. Produces `analysis/red_team/legal_red_team_data_artifacts.md`.
+3. **Script reproducibility** — re-run `packing_cracking_analysis.py`, `monte_carlo_ci.py`, `mcmc_ensemble.py`, `chen_rodden_alberta.py`, `a1_legal_baseline_2021_census.py`, `338canada_reallocate.py`, `csd_community_splits.py`, `v0_1_cochrane_journey_to_work.py` (if exists), and confirm numbers match the paper. Produces `analysis/red_team/legal_red_team_scripts.md`.
 4. **Analysis-doc consistency** — for each of the ~25 `analysis/v0_1_*.md` files cited by name in the academic paper, spot-check that the file's own headline or findings match what the paper attributes. Produces `analysis/red_team/v0_1_legal_red_team_analysis_docs.md` (framework assignment 3 overlaps).
 
 The conductor consolidation (framework.md L123 "seventh agent") should apply a blocking rule: any CRITICAL across the six findings files blocks release; any HIGH count above an agreed threshold (framework does not specify; suggest 15 aggregate across the six files) triggers a second editing pass before release.
@@ -2547,12 +2547,12 @@ The conductor consolidation (framework.md L123 "seventh agent") should apply a b
 
 ### 4.2 Legal Review — Public Report
 
-*Source: `analysis/red_team/v0_1_legal_red_team_report_public.md`*
+*Source: `analysis/red_team/legal_red_team_report_public.md`*
 
 # Legal red-team — `report_public.md`
 
 **Standard:** defensible under hostile cross-examination in a court of law.
-**Framework:** `analysis/red_team/v0_1_legal_red_team_framework.md` (ten dimensions D1–D10).
+**Framework:** `analysis/red_team/legal_red_team_framework.md` (ten dimensions D1–D10).
 **Date:** 2026-04-23
 **Scope:** a first-pass review of the public-facing magazine article. This
 document flags findings; it does not rewrite. Each finding carries a
@@ -2585,7 +2585,7 @@ dimension, severity, specific line reference, and a proposed fix.
 | PUB-19 | MED | D2 | L402 | "Premier Smith's April 17 legislature statement and April 16 Rimbey Review quote" — Rimbey Review quote is referenced but not reproduced verbatim in the audit body. Needs either verbatim reproduction or removal of the Rimbey citation until a specific quote is anchored |
 | PUB-20 | MED | D1 | L262 (schools rebuttal, recently revised) | "about 375 Sylvan Lake students — about a third of the town's grades-nine-to-twelve population — are bussed into Red Deer Catholic schools each morning" — derives from an educationnewscanada.com article and Chinook's Edge planning documents. Neither URL is in `FROZEN_MANIFEST.md`. New citation needed |
 | PUB-21 | MED | D1 | L262 | "Springbank Community High…lists 'parts of Calgary's western edge' in its declared service area" — derives from the school's own website. URL not in manifest. New citation needed |
-| PUB-22 | MED | D4 | L203 (neutral-ensemble test, recently inserted) | Percentile numbers (100th, 1.7th, 96th) cite the MCMC ensemble script and the 10k sample data. D4 reproducibility gate: the script must produce the cited percentiles exactly on a fresh run. Currently covered under `analysis/red_team/v0_1_red_team_code_fixes.md` which verified reproduction |
+| PUB-22 | MED | D4 | L203 (neutral-ensemble test, recently inserted) | Percentile numbers (100th, 1.7th, 96th) cite the MCMC ensemble script and the 10k sample data. D4 reproducibility gate: the script must produce the cited percentiles exactly on a fresh run. Currently covered under `analysis/red_team/red_team_code_fixes.md` which verified reproduction |
 | PUB-23 | LOW | D10 | L203 | "A hundred-thousand-sample version is in progress" — prospective claim. Adequate as labelled. |
 | PUB-24 | MED | D3 | L35 | Pancholi characterisation ("cheating to secure themselves a supermajority") as a direct quote — needs Hansard / press conference / social-media date anchor |
 | PUB-25 | LOW | D7 | Throughout | Author's standing (no visible disclosure of Alberta political affiliation or past commission involvement beyond "wconn161@mtroyal.ca" byline). If author has a public-record party donation history or prior commission role, disclosure section at bottom of article (before THE SOURCE TRAIL) would close the gap |
@@ -2600,7 +2600,7 @@ The single largest class of findings. Most adverse factual claims about named ac
 
 ### D2 Attribution accuracy
 
-Every direct quote attributed to a named person (10+ instances) needs verbatim verification against the primary source (Hansard for MLA floor statements, commission PDF for Miller's addendum, the actual op-ed / X post for media attributions). Without this verification, any of the 10+ quotes could be paraphrase-creep from an earlier draft. Proposed fix: a single verification pass producing `analysis/red_team/v0_1_quote_verification_log.md` where every direct quote is paired with the primary-source extract. This is a one-time mechanical check; low effort, high return.
+Every direct quote attributed to a named person (10+ instances) needs verbatim verification against the primary source (Hansard for MLA floor statements, commission PDF for Miller's addendum, the actual op-ed / X post for media attributions). Without this verification, any of the 10+ quotes could be paraphrase-creep from an earlier draft. Proposed fix: a single verification pass producing `analysis/red_team/quote_verification_log.md` where every direct quote is paired with the primary-source extract. This is a one-time mechanical check; low effort, high return.
 
 ### D3 Individual-actor characterisation
 
@@ -2671,16 +2671,16 @@ This first-pass focuses on the highest-risk classes (named-actor quotes and char
 ## Parallel-agent assignment (for 4:30am restart)
 
 When rate limits reset, four agents run in parallel:
-1. **Quote verification** — fetch Hansard / commission PDF / social-media primary sources, produce `analysis/red_team/v0_1_quote_verification_log.md`, report any paraphrase drift as CRITICAL or HIGH per D2.
-2. **Data provenance** — walk every `data/*.csv` and `data/*.gpkg`, confirm each file has a provenance header pointing at `FROZEN_MANIFEST.md`, produce `analysis/red_team/v0_1_legal_red_team_data_artifacts.md`.
-3. **Script reproducibility** — re-run each script in the triage list from the framework, compare outputs against the numbers cited in the public report, produce `analysis/red_team/v0_1_legal_red_team_scripts.md`.
-4. **Academic-report parallel pass** — apply this same framework to `report_academic.md`, produce `analysis/red_team/v0_1_legal_red_team_report_academic.md`.
+1. **Quote verification** — fetch Hansard / commission PDF / social-media primary sources, produce `analysis/red_team/quote_verification_log.md`, report any paraphrase drift as CRITICAL or HIGH per D2.
+2. **Data provenance** — walk every `data/*.csv` and `data/*.gpkg`, confirm each file has a provenance header pointing at `FROZEN_MANIFEST.md`, produce `analysis/red_team/legal_red_team_data_artifacts.md`.
+3. **Script reproducibility** — re-run each script in the triage list from the framework, compare outputs against the numbers cited in the public report, produce `analysis/red_team/legal_red_team_scripts.md`.
+4. **Academic-report parallel pass** — apply this same framework to `report_academic.md`, produce `analysis/red_team/legal_red_team_report_academic.md`.
 
 ---
 
 ### 4.3 Science Red Team — Design and Statistics (S1/S2/S9)
 
-*Source: `analysis/methodology/v0_1_science_red_team_design_and_stats.md`*
+*Source: `analysis/methodology/science_red_team_design_and_stats.md`*
 
 # Science red-team — design, statistics, and claim calibration
 
@@ -2698,15 +2698,15 @@ When rate limits reset, four agents run in parallel:
 | S1-02 | **HIGH** | S1 | §5.4 submission-search; `analysis/scripts/submission_search.py` build_patterns | Submission-archive keyword list (seven regex patterns) was created in commit `42d2925` **before** the `"what a gerrymander would look like"` checklist was written (`2838028`). S6 of the checklist depends on a keyword classification whose rules were fixed pre-checklist; pattern-shaping during the 88-comment manual-review stage is a researcher degree of freedom that was not disclosed. |
 | S1-03 | **HIGH** | S1 / S9 | §3.9 E2 reformulation | E2 was reformulated from "narrow eligibility" to "substantive choice-over-alternatives" after the §15(2) re-audit showed the narrow test would fail. Disclosed in-paper, but the reformulation fits the Hauke–Kerridge optional-stopping pattern (rule changed after observing data crossed the threshold). Keeping the signature in the formal count without an external committed criteria set risks Type-I inflation in the three-signature headline. |
 | S1-04 | **HIGH** | S1 / S9 | §3.13 counter-tests (Lethbridge, Red Deer 4-way splits) | Paper acknowledges "specified and executed in the same analytical pass" and excludes them from the formal signature count. Caveat is present but the adjacent §3.10 "signatures summary" table and the §7 synthesis still list "three formal signatures"; if these counter-tests were added, the count would be five, and the §3.12 checklist's S2 "new signatures appear beyond the minority's set" result would change from "0 new" to "2 candidate new." Keep current caveat, but flag that the paper's `S2 = 0` claim is partly an artefact of the separation rule. |
-| S1-05 | **MED** | S1 | `analysis/reports/v0_1_track_c_checklist_baseline_scoring.md` | The Track-C baseline scoring was committed `59d5984 2026-04-22 13:13:48` — after the packing/cracking detection (`282bc6d 10:56:11`) and after the submission-search tier analysis (`339b72e 10:11:27`). The checklist was written with knowledge of how the 89-seat maps would score; "pre-registered for the November map" is correct but "calibrated before looking at the data" is not. |
-| S2-01 | **CRITICAL** | S2 | §3.11 MCMC headline percentiles | `data/v0_1_mcmc_convergence_diagnostics_100k.json`: autocorrelation time τ = 624–674, **effective sample size per metric = 148–160**. The paper reports p100 on mean-median and seats-at-50/50 against "10,000 alternatives" but the effective independent sample is ≈150. The p100 claim is statistically ≈ one-effective-sample resolution; the defensible language is p ≥ 95 or "no observed sample was more extreme." |
-| S2-02 | **CRITICAL** | S2 / S9 | §3.11 MCMC headline percentiles | The untracked `data/v0_1_mcmc_ensemble_percentiles_full_100k.csv` (100k samples, full-coverage rescore) **already exists** and produces materially different numbers: minority mean-median p98.76 (not p100), minority seats@50/50 **p94.27** (below the 95 threshold; no longer an outlier), majority mean-median **p92.66** (paper says p6.6 — opposite tail), majority seats@50/50 **p57.86** (paper says p1.7 — no longer NDP-favoured outlier), minority declination **p1.56** (strongly NDP-favoured by declination). The paper's §3.11 headline is stale. |
+| S1-05 | **MED** | S1 | `analysis/reports/track_c_checklist_baseline_scoring.md` | The Track-C baseline scoring was committed `59d5984 2026-04-22 13:13:48` — after the packing/cracking detection (`282bc6d 10:56:11`) and after the submission-search tier analysis (`339b72e 10:11:27`). The checklist was written with knowledge of how the 89-seat maps would score; "pre-registered for the November map" is correct but "calibrated before looking at the data" is not. |
+| S2-01 | **CRITICAL** | S2 | §3.11 MCMC headline percentiles | `data/simulation_convergence_diagnostics_100k.json`: autocorrelation time τ = 624–674, **effective sample size per metric = 148–160**. The paper reports p100 on mean-median and seats-at-50/50 against "10,000 alternatives" but the effective independent sample is ≈150. The p100 claim is statistically ≈ one-effective-sample resolution; the defensible language is p ≥ 95 or "no observed sample was more extreme." |
+| S2-02 | **CRITICAL** | S2 / S9 | §3.11 MCMC headline percentiles | The untracked `data/simulated_ensemble_percentiles_full_100k.csv` (100k samples, full-coverage rescore) **already exists** and produces materially different numbers: minority mean-median p98.76 (not p100), minority seats@50/50 **p94.27** (below the 95 threshold; no longer an outlier), majority mean-median **p92.66** (paper says p6.6 — opposite tail), majority seats@50/50 **p57.86** (paper says p1.7 — no longer NDP-favoured outlier), minority declination **p1.56** (strongly NDP-favoured by declination). The paper's §3.11 headline is stale. |
 | S2-03 | **HIGH** | S2 | §3.3, §3.4, §3.5, §3.11, §3.12 — family of tests | The audit runs at least 13 distinct statistical tests on overlapping 2023 vote data (listed in §"Explicit test inventory" below). No family-wise error-rate control is reported. Under Bonferroni at α=0.05, per-test threshold is 0.0038; under Benjamini-Hochberg, at least one claimed finding (the MCMC p100 claim) does not survive when corrected. |
 | S2-04 | **HIGH** | S2 | §3.3 B4 seats-at-50/50 uniform-swing assumption | The paper notes the 2019→2023 swing was not uniform (NDP gained more in Edmonton than Calgary) but does not quantify the consequence for the seat-count headline. A non-uniform swing analysis against observed 2019→2023 regional deltas would shift the B4 central estimate by an untested amount; the audit should compute it. |
-| S2-05 | **HIGH** | S2 | `analysis/methodology/v0_1_canadian_base_rate_computed.md` | Compression factor 0.455 is calibrated from **n=1 data point** (Alberta 2025–26 itself). The claim "Alberta sits at the 71st percentile of the Canadian distribution" is then computed against a sample that *includes the anchor cycle*, creating a circularity. Recomputed percentile excluding the anchor (n=6): Alberta's 0.51 pp sits above three of six (Alberta 2017 0.52, Manitoba 2018 0.80 at or above; BC 2023, SK 2022, Federal-AB 2022, Alberta 2010 all at 0.00). That is ≈ 50th percentile among non-Alberta cycles, not 71st. |
+| S2-05 | **HIGH** | S2 | `analysis/methodology/canadian_base_rate_computed.md` | Compression factor 0.455 is calibrated from **n=1 data point** (Alberta 2025–26 itself). The claim "Alberta sits at the 71st percentile of the Canadian distribution" is then computed against a sample that *includes the anchor cycle*, creating a circularity. Recomputed percentile excluding the anchor (n=6): Alberta's 0.51 pp sits above three of six (Alberta 2017 0.52, Manitoba 2018 0.80 at or above; BC 2023, SK 2022, Federal-AB 2022, Alberta 2010 all at 0.00). That is ≈ 50th percentile among non-Alberta cycles, not 71st. |
 | S2-06 | **MED** | S2 | §3.5 Monte Carlo CI | The "90.5% direction consistency in 2,000 MC samples" is reported but the 2,000 samples share the same underlying vote data and crosswalk — it is a modelling-uncertainty estimate, not a sampling-uncertainty estimate. The 90.5% figure's CI is `binomial(n=2000, p=0.905)`, so ±1.3 pp at 95% confidence: i.e., 89.2–91.8% direction consistency. The paper reports the point estimate only. |
 | S2-07 | **MED** | S2 | `analysis/scripts/mcmc_ensemble.py` declination | Verified against Warrington (2018) Eq. 2 and the author's reference Python (arXiv 1803.04799). The audit uses `atan2(mean_ucp_in_ucp_won − 0.5, R/(2n))` which algebraically equals Warrington's `arctan((1 − 2·mean_Rwin) · n/R)` up to a global sign flip that also propagates through theta_D and cancels in `(theta_R − theta_D)`. Implementation is mathematically equivalent. No finding other than: add a unit test against a published Warrington benchmark to lock in reproducibility. |
-| S2-08 | **LOW** | S2 | `data/v0_1_canadian_redistribution_base_rate.csv` | Column `seats_changed_between_a_and_b` is `3` for the Alberta 2025–26 anchor while the paper uses `Δs=1`. Different concepts (boundary-changed EDs vs. partisan-winner-flip seats) but same column name; a peer reviewer will ask. Add a second column or rename. |
+| S2-08 | **LOW** | S2 | `data/canadian_redistribution_base_rate.csv` | Column `seats_changed_between_a_and_b` is `3` for the Alberta 2025–26 anchor while the paper uses `Δs=1`. Different concepts (boundary-changed EDs vs. partisan-winner-flip seats) but same column name; a peer reviewer will ask. Add a second column or rename. |
 | S9-01 | **CRITICAL** | S9 | §3.11, §7 synthesis, public-report headlines | "p100" and "more UCP-favoured than every one of 10,000 alternatives" both over-claim precision. The defensible version is "p ≥ 95 within an MCMC ensemble of effective sample size ~150 per metric" or "no observed sample among the 10,000 was more UCP-favoured; a one-effective-sample tail statement." The current magnitude language does not survive the ESS diagnostic. |
 | S9-02 | **HIGH** | S9 | §3.10 "three formal signatures detected" | With E2 reformulated mid-audit (S1-03), calling the RMH-Banff Park finding a "formal" signature where "formal" implies "passed pre-registered thresholds" is tighter than the evidence. Replace "formal" with "three signatures on the reformulated test set" or "two formal (Airdrie cracking, Calgary Zone-A packing) plus one reformulation-dependent (RMH-Banff Park)." |
 | S9-03 | **HIGH** | S9 | Abstract / §7 "directional consistency across six dimensions" | The six dimensions are not independent: §A1 (MAD), §A2 (Calgary zone), §A2b (rest-of-province population), and the §A3 counterfactual are all population-math tests that collapse into a single "wider population dispersion in minority" finding. The honest count is four independent families: population-math (collapses A1/A2/A2b/A3), partisan-bias (B2/B3/B4/B6 — themselves entangled, see §3.5.1), spatial (C3/C4), procedural (D). The paper's own §3.5.1 admits B2/B3/B4 are closely related; the same collapsing should be applied symmetrically to the A-family. |
@@ -2737,7 +2737,7 @@ Verified via `git show 5b0bc06:v1_2_gerrymander_audit_prompt.md`: commit `5b0bc0
 The actual separation between criteria specification and detection run is therefore **zero minutes**, not 2 hours 24 minutes. The paper's provenance claim is false in its precise form. A peer reviewer who checks `git show` will flag this immediately, and the finding does damage to the entire §3.7–3.10 pre-registration framing.
 
 **Recommendation.** Three concurrent fixes:
-1. Retract the "2 hours 24 minutes" claim in §3.7 verbatim and replace with "The P/C/E criteria and the signature-detection analysis were committed in the same commit (`282bc6d`). The only temporal separation between criteria-specification and detection-run is intra-session (order of operations within one commit). The November-map pre-registration (`analysis/reports/v0_1_pre_registration_draft.md`) is the remediation that closes this gap for future scoring; the 89-seat-map signatures should be characterised as 'retrospectively defined' not 'pre-registered.'"
+1. Retract the "2 hours 24 minutes" claim in §3.7 verbatim and replace with "The P/C/E criteria and the signature-detection analysis were committed in the same commit (`282bc6d`). The only temporal separation between criteria-specification and detection-run is intra-session (order of operations within one commit). The November-map pre-registration (`analysis/reports/pre_registration_draft.md`) is the remediation that closes this gap for future scoring; the 89-seat-map signatures should be characterised as 'retrospectively defined' not 'pre-registered.'"
 2. In §3.10 summary, replace "three formal signatures" with "three retrospectively-defined signatures" until OSF submission is complete.
 3. Add explicit statement that S1-derived findings become pre-registered from the OSF submission date forward, not backward.
 
@@ -2745,7 +2745,7 @@ The actual separation between criteria specification and detection run is theref
 
 `git log --all --follow analysis/scripts/submission_search.py` shows creation in commit `42d2925 2026-04-22 08:58:29`. The "What a gerrymander in the 91-seat map would actually look like" checklist — which contains S6 (publicly-supported configurations dropped / unsupported ones kept) — was written in commit `2838028 2026-04-22 11:02:06`. That is **two hours after** the keyword list shipped and the submission-archive search ran.
 
-S6 is scored using the public-support tiers produced by `submission_search.py`. If the checklist had been written first, a reviewer could check whether the keyword patterns were shaped to the checklist's needs. As-is, the keyword patterns were shaped to the exercise "refute the chair's Appendix C claim" and the checklist was retrofitted to use the tier outputs. The 13 manual-review corrections (documented in `deprecated/submission_search_log.md`) are a researcher-degree-of-freedom vector: the classification heuristic's support/oppose regex was the output, but the 13 hand-corrections were inputs to the final tier table without a committed rule for how ambiguous classifications got reassigned.
+S6 is scored using the public-support tiers produced by `submission_search.py`. If the checklist had been written first, a reviewer could check whether the keyword patterns were shaped to the checklist's needs. As-is, the keyword patterns were shaped to the exercise "refute the chair's Appendix C claim" and the checklist was retrofitted to use the tier outputs. The 13 manual-review corrections (documented in `historical/submission_search_log.md`) are a researcher-degree-of-freedom vector: the classification heuristic's support/oppose regex was the output, but the 13 hand-corrections were inputs to the final tier table without a committed rule for how ambiguous classifications got reassigned.
 
 **Recommendation.**
 1. Treat S6 in the baseline scoring as "retrospectively defined on the keyword-search output" and explicitly state that the November map's S6 scoring will use the frozen keyword set plus a pre-declared re-classification rule (e.g., "any ambiguous-leaning-support classification re-scored as supporting only if the snippet names the configuration explicitly").
@@ -2788,9 +2788,9 @@ Chronology (verified via `git log --follow --format='%h %ci'`):
 - `2838028 2026-04-22 11:02:06` — checklist written into `report_public.md`
 - `59d5984 2026-04-22 13:13:48` — Track-C baseline scoring executed
 
-Every element of the checklist's scoring was known before the checklist was written. The self-calibration paragraph in `v0_1_track_c_checklist_baseline_scoring.md` ("Running the checklist against the two maps whose content is already known confirms the checklist distinguishes them in the expected direction") is candid about this. The residual concern is that a reader who does not trace the commits will assume the checklist was drafted before the scoring exercise.
+Every element of the checklist's scoring was known before the checklist was written. The self-calibration paragraph in `track_c_checklist_baseline_scoring.md` ("Running the checklist against the two maps whose content is already known confirms the checklist distinguishes them in the expected direction") is candid about this. The residual concern is that a reader who does not trace the commits will assume the checklist was drafted before the scoring exercise.
 
-**Recommendation.** Add a one-paragraph "chronology" note at the top of `v0_1_track_c_checklist_baseline_scoring.md` listing the commit timestamps in order, with the framing "The checklist was drafted with full knowledge of the 89-seat scoring outputs; its methodological guarantee applies to future maps (November) and not to the baseline scoring on the two maps whose content was already known."
+**Recommendation.** Add a one-paragraph "chronology" note at the top of `track_c_checklist_baseline_scoring.md` listing the commit timestamps in order, with the framing "The checklist was drafted with full knowledge of the 89-seat scoring outputs; its methodological guarantee applies to future maps (November) and not to the baseline scoring on the two maps whose content was already known."
 
 ---
 
@@ -2830,7 +2830,7 @@ The practical bite: the paper's single "90.5% direction consistency" framing giv
 
 ### S2-01 CRITICAL — MCMC effective sample size is ~150, not 10,000
 
-`data/v0_1_mcmc_convergence_diagnostics_100k.json` reports, per metric:
+`data/simulation_convergence_diagnostics_100k.json` reports, per metric:
 
 | Metric | n (raw) | τ (autocorr. time) | n_eff (ESS) | ρ lag-100 |
 |---|---:|---:|---:|---:|
@@ -2850,7 +2850,7 @@ A Monte Carlo standard error on a proportion p at ESS = 150 is approximately `sq
 
 ### S2-02 CRITICAL — 100k full-coverage rescore data exists and changes headline numbers materially
 
-`data/v0_1_mcmc_ensemble_percentiles_full_100k.csv` contains a 100,000-sample MCMC run with the full-coverage hybrid-crosswalk rescore (the same remediation §3.11 describes as "in progress"). Key differences between that CSV and the paper's §3.11 table:
+`data/simulated_ensemble_percentiles_full_100k.csv` contains a 100,000-sample MCMC run with the full-coverage hybrid-crosswalk rescore (the same remediation §3.11 describes as "in progress"). Key differences between that CSV and the paper's §3.11 table:
 
 | Metric | Map | Paper §3.11 (10k, partial) | data/...full_100k.csv (100k, full) | Change |
 |---|---|---|---|---|
@@ -2883,13 +2883,13 @@ Already detailed in the test inventory above. Two concrete remediations:
 
 §3.5.1 notes: *"B4 assumes uniform swing. Alberta elections have historically swung uniformly enough that this is defensible, but the 2019→2023 swing was not uniform (NDP gained more in Edmonton than in Calgary); the counterfactual should be read with that caveat."*
 
-Disclosure is to the audit's credit. The peer-review objection: "how much does the headline seat-count change under a regionally-weighted swing?" is unanswered. A regional-swing-adjusted B4 can be computed from the same script (`v0_2_packing_cracking_analysis.py`) in under an hour: compute Edmonton-specific vs Calgary-specific vs rural-specific swing coefficients from the 2019→2023 regional shifts, apply them separately, re-count seats. Until done, the "42 NDP seats at 50/50 under minority" number in Table §3.3 is a point estimate with unmeasured sensitivity.
+Disclosure is to the audit's credit. The peer-review objection: "how much does the headline seat-count change under a regionally-weighted swing?" is unanswered. A regional-swing-adjusted B4 can be computed from the same script (`packing_cracking_analysis.py`) in under an hour: compute Edmonton-specific vs Calgary-specific vs rural-specific swing coefficients from the 2019→2023 regional shifts, apply them separately, re-count seats. Until done, the "42 NDP seats at 50/50 under minority" number in Table §3.3 is a point estimate with unmeasured sensitivity.
 
 **Recommendation.** Run the regional-swing counterfactual. Report the range. If the range shifts the minority's seat count by more than 1, the "2-seat reduction for NDP" line in the §7 table narrows.
 
 ### S2-05 HIGH — Canadian base-rate "71st percentile" claim is circular
 
-`data/v0_1_canadian_redistribution_base_rate.csv` has n=7 cycles of which 1 is the Alberta 2025–26 anchor (the cycle being assessed). The `v0_1_canadian_base_rate_computed.md` file computes the compression factor 0.455 from the anchor itself (1 data point) and then reports Alberta 2025–26 at the "71st percentile" of the 7-cycle distribution that includes the anchor.
+`data/canadian_redistribution_base_rate.csv` has n=7 cycles of which 1 is the Alberta 2025–26 anchor (the cycle being assessed). The `canadian_base_rate_computed.md` file computes the compression factor 0.455 from the anchor itself (1 data point) and then reports Alberta 2025–26 at the "71st percentile" of the 7-cycle distribution that includes the anchor.
 
 Two independent circularities:
 
@@ -2919,7 +2919,7 @@ No finding. Small improvement: the audit's docstring says "theta_R = atan2(mean 
 
 ### S2-08 LOW — base-rate CSV column name ambiguity
 
-`data/v0_1_canadian_redistribution_base_rate.csv` column `seats_changed_between_a_and_b` is `3` for Alberta 2025–26 but `1` is the partisan-flip count used in the analysis. The difference is benign (the "3" refers to EDs with boundary changes), but the column name invites misreading. Rename to `ed_boundary_changes_between_a_and_b` and add a separate `partisan_flip_count` column.
+`data/canadian_redistribution_base_rate.csv` column `seats_changed_between_a_and_b` is `3` for Alberta 2025–26 but `1` is the partisan-flip count used in the analysis. The difference is benign (the "3" refers to EDs with boundary changes), but the column name invites misreading. Rename to `ed_boundary_changes_between_a_and_b` and add a separate `partisan_flip_count` column.
 
 ---
 
@@ -2969,7 +2969,7 @@ Already specified in S2-05. Under S9 lens: the "71st percentile" framing is tigh
 
 ## Proposed pre-registration improvements for OSF submission
 
-The current `analysis/reports/v0_1_pre_registration_draft.md` for the November 91-seat map is solid but would close additional S1 findings if the following were added:
+The current `analysis/reports/pre_registration_draft.md` for the November 91-seat map is solid but would close additional S1 findings if the following were added:
 
 1. **Add an "S0 — scorable set" definition.** Commit that if the committee publishes only the final map with no per-ED rationale, the S6, X2, W3 tests are scored as BLOCKED (not FAIL). Currently stated per-test; consolidating into a scorable-set definition reduces the ambiguity a reviewer will find.
 2. **Add the 21-test inventory and a family-wise statement.** Currently the pre-registration commits to 17 tests for the November scoring; the repository's headline also cites partisan-bias tests, counter-tests, and MCMC runs that are run on the baseline. Adding the full inventory and committing to no new post-hoc tests closes S2-03 for the November cycle.
@@ -3012,7 +3012,7 @@ The current `analysis/reports/v0_1_pre_registration_draft.md` for the November 9
 
 - Legal-framework D4 (reproducibility) overlaps with S2-02 (MCMC full-coverage data exists but is not in the paper). Same fix closes both.
 - Legal-framework D10 (time-stamping) overlaps with S1-01, S1-02, S1-05. The OSF submission is the single remediation that closes the time-stamping and pre-registration concerns for future scoring.
-- The audit's own `v0_1_design_critique.md` and `v0_1_bias_audit.md` already anticipate several of these findings; the red-team value is in pinning severity and block-vs-limit classification.
+- The audit's own `design_critique.md` and `bias_audit.md` already anticipate several of these findings; the red-team value is in pinning severity and block-vs-limit classification.
 
 ---
 
@@ -3022,15 +3022,15 @@ The current `analysis/reports/v0_1_pre_registration_draft.md` for the November 9
 
 ### 4.4 Science Red Team — Reproducibility and Falsifiability (S3/S4/S5/S8)
 
-*Source: `analysis/methodology/v0_1_science_red_team_reproducibility_and_falsifiability.md`*
+*Source: `analysis/methodology/science_red_team_reproducibility_and_falsifiability.md`*
 
 # Science red-team — Reproducibility (S3), Falsifiability (S4), Confounder control (S5), Researcher degrees of freedom (S8)
 
-**Directive anchor:** `analysis/v0_1_science_red_team_framework.md`
+**Directive anchor:** `analysis/science_red_team_framework.md`
 **Companion files:**
-- `analysis/methodology/v0_1_science_red_team_design_and_stats.md` (S1, S2, S9) — sibling
-- `analysis/methodology/v0_1_science_red_team_data_priorart_peerreview.md` (S6, S7, S10) — sibling
-- `analysis/v0_1_legal_red_team_framework.md` (D4 conceptual reproducibility overlaps)
+- `analysis/methodology/science_red_team_design_and_stats.md` (S1, S2, S9) — sibling
+- `analysis/methodology/science_red_team_data_priorart_peerreview.md` (S6, S7, S10) — sibling
+- `analysis/legal_red_team_framework.md` (D4 conceptual reproducibility overlaps)
 
 **Posture.** This file is written in the voice of a methods-paper reviewer for *Election Law Journal*, *Statistics and Public Policy*, or *PNAS Nexus*. It asks: do the audit's central findings survive when a competent reviewer swaps a metric formulation, a seed, a weighting rule, or an election; are the null hypotheses and falsification conditions cleanly stated for every finding; have both the Chen-Rodden geography confounder and the 2023-electorate confounder been fully characterised; and are the researcher degrees of freedom (hybrid set, focus cities, thresholds, n=7 base rate) pre-committed or post-hoc? Where the audit survives, the audit survives; where it does not, this file says so.
 
@@ -3045,11 +3045,11 @@ The current `analysis/reports/v0_1_pre_registration_draft.md` for the November 9
 | S3-01 | Reproducibility | HIGH | MCMC ensemble seed is hardcoded (seed=42 in `mcmc_ensemble.py:439`); CLI takes only `n_steps`. A reviewer who wants to stress-test seed invariance must edit source. |
 | S3-02 | Reproducibility | HIGH | 100k-sample convergence diagnostics show **effective sample size ≈ 148–160** across all four metrics (autocorrelation τ ≈ 624–674). p100 and p1.7 tail claims rest on ~150 effectively-independent draws, not 100,000. |
 | S3-03 | Reproducibility | MED | Hybrid urban-weight sensitivity range (0.55–0.85 Monte Carlo; 0.60–0.80 point) **does not cover a straight 50/50 or a population-weighted alternative**. Canonical methodologist would ask for one. |
-| S3-04 | Reproducibility | HIGH | Full-coverage MCMC rescore (`v0_1_mcmc_ensemble_percentiles_full.csv`) **shifts the minority 2026 map from p100 to p95.35 on mean-median and puts seats-at-50/50 at p89.72 (inside the ensemble)** — a downgrade the paper's §3.11 text has not absorbed. |
+| S3-04 | Reproducibility | HIGH | Full-coverage MCMC rescore (`simulated_ensemble_percentiles_full.csv`) **shifts the minority 2026 map from p100 to p95.35 on mean-median and puts seats-at-50/50 at p89.72 (inside the ensemble)** — a downgrade the paper's §3.11 text has not absorbed. |
 | S3-05 | Reproducibility | HIGH | Stephanopoulos-Warrington declination swap: the audit implements declination but reports a positive-for-NDP / negative-for-UCP convention that is internally consistent yet cites Warrington (2018) as formula authority, whose sign convention is opposite on winning-district treatment. The ordinal ranking survives; the sign label does not. |
 | S3-06 | Reproducibility | MED | Compactness is computed only under Polsby-Popper and Reock. Convex-Hull and Schwartzberg are named in the literature review but not reported. Calgary Zone A packing is *not* a compactness claim so swap doesn't affect it; the §6.7 "mean Polsby-Popper" differences are directionally stable but magnitude-sensitive. |
 | S3-07 | Reproducibility | LOW | VA centroid-in-polygon attribution: paper claims ±0.5% rounding error on border VAs. Consistent with MCMC §3.11 note; no swap-test executed, but order of magnitude is defensible. |
-| S3-08 | Reproducibility | HIGH | 2015-vote rerun is executed (`2015_cross_election.py`), but the derived value (+0.03 pp) is reported under a sign convention the sibling doc `v0_1_sign_convention_resolution.md` resolves *differently* from `v0_1_2015_cross_election_analysis.md`. The paper's headline ("2015 gives +0.03 pp") is correct in magnitude; the direction interpretation is doubly-flipped. |
+| S3-08 | Reproducibility | HIGH | 2015-vote rerun is executed (`2015_cross_election.py`), but the derived value (+0.03 pp) is reported under a sign convention the sibling doc `sign_convention_resolution.md` resolves *differently* from `2015_cross_election_analysis.md`. The paper's headline ("2015 gives +0.03 pp") is correct in magnitude; the direction interpretation is doubly-flipped. |
 | S4-01 | Falsifiability | HIGH | "Minority more UCP-favourable than majority by 0.51–1.52 pp" — the paper's §3.5 states a falsification condition (Phase 4C measured attribution with opposite sign at central weight), but the condition **cannot be executed without the 2026 shapefile**, making this falsifiability hook not currently testable. |
 | S4-02 | Falsifiability | MED | "Calgary Zone A packing: 12.2% gap vs 0.4%" — null ("gap is a property of classification rule, not the minority's drawing") is engaged via G4 robustness (2023-winner-based rule yields 7.71% — still >10×  majority); residual: no null statistic is reported, only the rule comparison. |
 | S4-03 | Falsifiability | MED | "Airdrie 4-way is a cracking pattern" — null is "split is forced by population arithmetic." The counter-test script (`majority_symmetry_counter_test.py`) engages this by setting the 3-quota (205,983) force-threshold; Airdrie (84k) fits under one or two EDs at ±25%. Null is rejected on population-arithmetic grounds. Defensible. |
@@ -3057,16 +3057,16 @@ The current `analysis/reports/v0_1_pre_registration_draft.md` for the November 9
 | S4-05 | Falsifiability | LOW | MCMC p100 flags against neutral ensemble — null is "minority inside ReCom-reachable distribution on that metric." Clearly rejected for mean-median and seats-at-50/50 on the 10k run. DOWNGRADED to p95.35 / p89.72 on full-coverage rescore (see S3-04). |
 | S4-06 | Falsifiability | HIGH | "Three of five 'no public support' characterisations materially fail" — null is "zero genuine supporting submissions for all five." OCR/regex coverage is 93%; the remaining 7% cannot disconfirm. The verdict is defensible *conditional on the found counter-examples*; a disciplined reviewer will ask for the 88 unscanned submissions. |
 | S4-07 | Falsifiability | HIGH | "Six dimensions directionally consistent" — null is "chance directional agreement across six binary signs." **Paper does not compute the under-chance p-value** (6 binary = 1/64 two-sided, 1/32 one-sided). Nor does it address the correlation between the six dimensions (e.g., MAD and Calgary zone gap are not independent). Missing computation plus missing independence justification is HIGH. |
-| S5-01 | Confounders | MED | Chen-Rodden natural-packing confounder engagement is genuine (§3.6 + `v0_1_chen_rodden_alberta_validation.md`) — but the paper's statement that both 2026 maps sit inside the neutral range [−4.4%, −0.7%] weakens the §B partisan-bias finding to a directional-only claim without the follow-through discipline §3.6's Revision C would require. |
+| S5-01 | Confounders | MED | Chen-Rodden natural-packing confounder engagement is genuine (§3.6 + `chen_rodden_alberta_validation.md`) — but the paper's statement that both 2026 maps sit inside the neutral range [−4.4%, −0.7%] weakens the §B partisan-bias finding to a directional-only claim without the follow-through discipline §3.6's Revision C would require. |
 | S5-02 | Confounders | HIGH | 2023-electorate confounder: §3.5 engages this via cross-election stability (2015 +0.03 / 2019 +0.75 / 2023 −0.51 / April 2026 polling matches 2023). The headline survives in the §3.5 bracket; **but the academic paper's Stress-Test Preamble bullet 3 and the §7 synthesis table continue to report 0.51–1.52 pp as a property of "the minority map" rather than as a property of "the minority map scored against 2023 votes"**. This is a framing vs. finding mismatch. |
 | S5-03 | Confounders | MED | Turnout confound (2019 67% vs 2023 59%): the cross-election test takes ED-level vote totals as given; selection-into-voting differences between the two elections are *not* modelled. A hostile reviewer will say "the 2023 electorate's ~8-pp lower turnout is partly *why* the asymmetry shows up under 2023 votes — a lower-turnout electorate selects more partisan and more UCP, producing the asymmetry even under identical boundaries." Not fatal; worth explicit disclosure. |
-| S5-04 | Confounders | MED | 2024-TBF vs 2021-census basis: §12(3) discussion is thorough (`v0_1_plan_b_cross_check.md`, `v0_1_cycle_lag_analysis.md`). The Plan-B cross-check shows every justification verdict is invariant to basis choice, which resolves the most plausible confound. Worth explicit note in §3 rather than only in the footer paragraph. |
+| S5-04 | Confounders | MED | 2024-TBF vs 2021-census basis: §12(3) discussion is thorough (`plan_b_cross_check.md`, `cycle_lag_analysis.md`). The Plan-B cross-check shows every justification verdict is invariant to basis choice, which resolves the most plausible confound. Worth explicit note in §3 rather than only in the footer paragraph. |
 | S5-05 | Confounders | HIGH | Hybrid urban/rural weight (70/30) sensitivity: the tested range 0.55–0.85 omits straight 50/50 (area-weighted for roughly-equal-territory hybrids) and population-weighted (where absorbed rural territory contains 10–20% of population). The audit's §3.4 range is defensible against a ±15pp jitter attack but not against an "assume hybrids are half-urban-by-population" attack. |
-| S8-01 | Researcher DoF | LOW | 21 hybrids in school-division coherence audit: defined ex ante as "every minority ED with `-hybrid` or `-merged` in the `region_type` column of `v0_1_minority_2026_populations.csv`." That's a data-driven, non-arbitrary filter. Not a cherry-pick. |
+| S8-01 | Researcher DoF | LOW | 21 hybrids in school-division coherence audit: defined ex ante as "every minority ED with `-hybrid` or `-merged` in the `region_type` column of `minority_2026_populations.csv`." That's a data-driven, non-arbitrary filter. Not a cherry-pick. |
 | S8-02 | Researcher DoF | MED | "Focus regions" Calgary / Edmonton / Red Deer / Lethbridge / Airdrie / St. Albert / RMH-Banff: these are the regions where the two commission maps *visibly differ*. The majority symmetry counter-test (§3.13) demonstrates the Edmonton null holds and discovers Red Deer and Lethbridge 4-way patterns (added to the finding list honestly). Residual: **the audit never runs a full ED-level `differ-by-polygon` test** (as flagged in the framework) — the §3.13 counter-test checks city-level 4-way splits but not all 89 EDs for minority/majority geographic divergence. |
 | S8-03 | Researcher DoF | MED | P1/P2/P3, C1/C2/C3, E1/E2/E3 numeric thresholds: the paper's §3.7 pre-registration-provenance paragraph documents that `v1_2_gerrymander_audit_prompt.md` committed the thresholds at `5b0bc06` (2026-04-22 08:32:20) and the detection run at `282bc6d` (same day 10:56:11). **Intra-session pre-registration (2h 24m separation, single author, no third-party custody)** is a weak pre-registration. The OSF plan closes this for the November map; it does not close it retroactively. |
 | S8-04 | Researcher DoF | HIGH | E2 reformulation from "eligibility-only" to "alternatives-over-negligible-territory" happened *after* the corrected §15(2) re-audit showed the narrow test fails. The paper discloses this at §3.9 end, but a reviewer will read this as a post-hoc rescue of the engineered-boundary signature. The substantive E2 test is itself reasonable; the *move from narrow-E2 to substantive-E2 under pressure* is the cherry-picking concern. |
-| S8-05 | Researcher DoF | MED | n=7 Canadian base-rate sample: `v0_1_canadian_base_rate_computed.md` exclusion criteria are methodologically principled (Nova Scotia 2019's menu-of-four structure is not structurally comparable) but the sample is shallow. Limits section admits pre-2010 cycles and federal cycles outside Alberta are absent. A methods reviewer will say: "expand first, then cite the position in the distribution." |
+| S8-05 | Researcher DoF | MED | n=7 Canadian base-rate sample: `canadian_base_rate_computed.md` exclusion criteria are methodologically principled (Nova Scotia 2019's menu-of-four structure is not structurally comparable) but the sample is shallow. Limits section admits pre-2010 cycles and federal cycles outside Alberta are absent. A methods reviewer will say: "expand first, then cite the position in the distribution." |
 | S8-06 | Researcher DoF | MED | 338Canada 77-snapshot historical stability probe: snapshot window (2020-02-23 → 2026-04-12) captures the 2019→2026 era; it does not extend back to 2015 or 2017. The audit uses this correctly to qualify the "1-seat gap is structural" claim (it's state-dependent), which *strengthens* the paper, not weakens it. But the window is a selection. |
 
 **Severity counts:**
@@ -3103,26 +3103,26 @@ if __name__ == "__main__":
 
 A reviewer who wants to verify seed-invariance of the p100 flags must edit source. For a publication-grade methodology paper this is a routine ask. The fix is a one-line `argparse` addition.
 
-**S3-02 MCMC effective sample size.** The 100k run's convergence diagnostics (`data/v0_1_mcmc_convergence_diagnostics_100k.json`) show autocorrelation integrated time τ ≈ 624–674 across the four metrics, giving `n_eff ≈ 148–160`. This is the load-bearing number for tail-percentile claims. At `n_eff ≈ 150` the standard error on a tail percentile is materially wider than 1/100,000. The audit's §3.11 language ("100,000-sample publication-grade MCMC run") implies the naive 100k SE; the honest SE is the τ-corrected one. A reviewer will ask: "what does p100 mean when you have 150 effective draws?" The answer is that both the 2019 mean-median p96.1 and the minority p100 flags rest on the right tail of a distribution with ~150 independent samples, which is lab-worthy but not lawsuit-worthy.
+**S3-02 MCMC effective sample size.** The 100k run's convergence diagnostics (`data/simulation_convergence_diagnostics_100k.json`) show autocorrelation integrated time τ ≈ 624–674 across the four metrics, giving `n_eff ≈ 148–160`. This is the load-bearing number for tail-percentile claims. At `n_eff ≈ 150` the standard error on a tail percentile is materially wider than 1/100,000. The audit's §3.11 language ("100,000-sample publication-grade MCMC run") implies the naive 100k SE; the honest SE is the τ-corrected one. A reviewer will ask: "what does p100 mean when you have 150 effective draws?" The answer is that both the 2019 mean-median p96.1 and the minority p100 flags rest on the right tail of a distribution with ~150 independent samples, which is lab-worthy but not lawsuit-worthy.
 
 **S3-03 Urban-weight sensitivity range gap.** The tested range is 0.55–0.85 (Monte Carlo) and 0.60–0.80 (point). A reviewer familiar with the political-geography literature will ask: "what about a straight 50/50, or a population-weighted alternative?" The `threshold_provenance.md` Part C sensitivity range is defended as "±10 pp about central 0.70" — this anchors on the audit's choice rather than on the empirical hybrid composition. A straight 50/50 is off-range by 10 pp on the low side and would produce a materially different picture for minority 2026 hybrids with heavy rural content. The audit does not report this swap.
 
-**S3-04 Full-coverage rescore moves the minority off p100.** This is the single most-important finding of this red-team, because it directly touches the paper's headline §3.11 claim. The full-coverage rescore file (`data/v0_1_mcmc_ensemble_percentiles_full.csv`) shows:
+**S3-04 Full-coverage rescore moves the minority off p100.** This is the single most-important finding of this red-team, because it directly touches the paper's headline §3.11 claim. The full-coverage rescore file (`data/simulated_ensemble_percentiles_full.csv`) shows:
 
 | Metric | Paper §3.11 (partial coverage) | Full-coverage rescore |
 |---|---|---|
 | Mean-median (minority 2026 v6) | **p100.0** | **p95.35** |
 | Seats-at-50/50 (minority 2026 v6) | **p100.0** | **p89.72** |
 
-The paper's §3.11 states "a 100,000-sample publication-grade MCMC run, with full-coverage rescore and convergence diagnostics (effective sample size per metric, trace plots), is in progress and will be reported in `analysis/methodology/v0_1_mcmc_100k_and_full_coverage.md`" and further states "If either artifact shifts the tail-percentile verdicts, §3.11 will be revised and a change note added." The artifact *has* shifted a verdict (mean-median p100 → p95.35; seats-at-50/50 p100 → p89.72 — inside the 5–95 band), and §3.11 has not yet been revised. For a paper submission, this is a hard blocker. The falsifiability hook the paper set for itself has fired.
+The paper's §3.11 states "a 100,000-sample publication-grade MCMC run, with full-coverage rescore and convergence diagnostics (effective sample size per metric, trace plots), is in progress and will be reported in `analysis/methodology/mcmc_100k_and_full_coverage.md`" and further states "If either artifact shifts the tail-percentile verdicts, §3.11 will be revised and a change note added." The artifact *has* shifted a verdict (mean-median p100 → p95.35; seats-at-50/50 p100 → p89.72 — inside the 5–95 band), and §3.11 has not yet been revised. For a paper submission, this is a hard blocker. The falsifiability hook the paper set for itself has fired.
 
-**S3-05 Declination sign/convention swap.** The sign-convention resolution doc (`v0_1_sign_convention_resolution.md`) is detailed and correct on the EG convention, but the audit does not produce the same analysis for declination. Warrington (2018) defines positive declination as favouring the first-party; the audit's code (`compute_metrics()`, lines 156–173) calls this "positive = pro-NDP; negative = pro-UCP" via its own derivation. The ordinal ranking of the three maps survives a sign flip; the label does not. A reviewer citing Warrington (2018) from memory will read the paper's declination direction opposite to its actual label. Needs a matching footnote.
+**S3-05 Declination sign/convention swap.** The sign-convention resolution doc (`sign_convention_resolution.md`) is detailed and correct on the EG convention, but the audit does not produce the same analysis for declination. Warrington (2018) defines positive declination as favouring the first-party; the audit's code (`compute_metrics()`, lines 156–173) calls this "positive = pro-NDP; negative = pro-UCP" via its own derivation. The ordinal ranking of the three maps survives a sign flip; the label does not. A reviewer citing Warrington (2018) from memory will read the paper's declination direction opposite to its actual label. Needs a matching footnote.
 
 **S3-06 Compactness formulation swap.** The audit reports Polsby-Popper and Reock (§6.7). The literature also commonly reports Convex-Hull (ratio of district area to convex hull area) and Schwartzberg (perimeter / circumference of equal-area circle). A reviewer may ask whether the "minority's mean Polsby-Popper is modestly lower" finding survives under Schwartzberg; the audit does not engage this. The underlying claim about Calgary Zone A **does not depend on compactness** — it depends on population-zone gap — so the swap-risk is local to §6.7 rather than to the headline. MED not HIGH.
 
 **S3-07 VA centroid-in-polygon.** Paper states "centroid-in-polygon assignment. VAs that straddle proposed-ED boundaries get assigned by their interior point, not split. This introduces rounding error on the order of the boundary-VA vote totals. For Alberta where VAs are small relative to EDs this error is <0.5% on every metric." Reasonable in magnitude (VAs are much smaller than EDs and border-crossing VAs are a small fraction). A swap test with half-VA edge bias is not executed but the error is plausibly capped. LOW.
 
-**S3-08 2015-vote sign-convention stacking.** The 2015-vote rerun was executed; result +0.03 pp. Paper's §3.5 reports "2015 +0.03 pp under this paper's convention: positive asymmetry = minority less UCP-favourable." The companion analysis (`v0_1_2015_cross_election_analysis.md`) reads this under the S-M convention as "minority MORE pro-UCP than majority." The sign-convention-resolution doc (`v0_1_sign_convention_resolution.md`) resolves the conflict in the paper's favour but the 2015 analysis doc has not been updated. A reviewer reading the 2015 analysis doc first will find two mutually-contradictory "verdicts" in the audit bundle. The paper's text is defensible (+0.03 pp in the NDP-advantage direction under the paper's 1:1 proportional convention = essentially neutral). The companion analysis needs a sign-convention note or retraction of its "MORE pro-UCP" reading.
+**S3-08 2015-vote sign-convention stacking.** The 2015-vote rerun was executed; result +0.03 pp. Paper's §3.5 reports "2015 +0.03 pp under this paper's convention: positive asymmetry = minority less UCP-favourable." The companion analysis (`2015_cross_election_analysis.md`) reads this under the S-M convention as "minority MORE pro-UCP than majority." The sign-convention-resolution doc (`sign_convention_resolution.md`) resolves the conflict in the paper's favour but the 2015 analysis doc has not been updated. A reviewer reading the 2015 analysis doc first will find two mutually-contradictory "verdicts" in the audit bundle. The paper's text is defensible (+0.03 pp in the NDP-advantage direction under the paper's 1:1 proportional convention = essentially neutral). The companion analysis needs a sign-convention note or retraction of its "MORE pro-UCP" reading.
 
 ### S4 — Null hypothesis + falsifiability framing
 
@@ -3146,7 +3146,7 @@ The **6-of-6 directional-consistency claim (§7) needs the most attention**. Und
 
 Two confounders the audit MUST address (per the science framework):
 
-**1. Chen-Rodden natural geographic packing.** Engagement is genuine and detailed (`v0_1_chen_rodden_alberta_validation.md`). The audit finds:
+**1. Chen-Rodden natural geographic packing.** Engagement is genuine and detailed (`chen_rodden_alberta_validation.md`). The audit finds:
 
 - Direction prediction transfers: neutral 87-seat Alberta maps produce UCP-favourable EG centered near the 2019 baseline of −2.64% (CI [−4.4%, −0.7%] after advance-ballot scaling).
 - Mechanism prediction fails: Alberta's UCP-favourable floor is not produced by NDP urban packing (NDP surplus 9.3%) but by UCP rural dispersion (UCP surplus 15.9%; rural UCP winning margins 43.0 pp vs urban NDP 21.5 pp).
@@ -3179,7 +3179,7 @@ The paper's §3.5 states this contingency honestly. The academic paper's **Stres
 
 ### S8 — Cherry-picking / researcher degrees of freedom
 
-**S8-01 Hybrid count of 21.** Defined ex ante via the `region_type` column in `data/v0_1_minority_2026_populations.csv` (any ED flagged `-hybrid` or `-merged`). This is a data-driven, non-arbitrary filter. A reviewer who asks "why 21?" gets the answer: "that's how many hybrids the minority map has; the filter is mechanical." Not cherry-picking. LOW.
+**S8-01 Hybrid count of 21.** Defined ex ante via the `region_type` column in `data/minority_2026_populations.csv` (any ED flagged `-hybrid` or `-merged`). This is a data-driven, non-arbitrary filter. A reviewer who asks "why 21?" gets the answer: "that's how many hybrids the minority map has; the filter is mechanical." Not cherry-picking. LOW.
 
 **S8-02 Focus regions (Calgary, Edmonton, Red Deer, Lethbridge, Airdrie, St. Albert, RMH-Banff).** Defensible as "where the two maps visibly differ." The majority symmetry counter-test (§3.13) demonstrates the Edmonton null holds (zone gap 1.4–2.0 pp vs Calgary's 12.2 pp) and discovers Red Deer and Lethbridge 4-way patterns (added honestly and pre-registration-caveated). The Edmonton null is the crucial symmetric check. Residual: **the framework asked for a `differ-by-polygon` test across all 89 EDs**, which the §3.13 counter-test does not run. The city-level 4-way split test is a subset of the full polygon-level differ test. Running the full differ test would confirm the focus regions capture all materially-different EDs. MED. Not fatal — the counter-test at §3.13 is a reasonable proxy — but a reviewer will ask.
 
@@ -3216,10 +3216,10 @@ The appropriate peer-review response is not to retract the engineered-boundary f
 
 | Confounder | Engagement location | Quantitative decomposition present? | Residual risk | Severity |
 |---|---|---|---|---|
-| Chen-Rodden natural packing | §3.6 + `v0_1_chen_rodden_alberta_validation.md` | Partial — absolute level (both 2026 maps inside neutral range) present; decomposition of 0.51 pp gap into geography vs drawing is missing | A reviewer may push for full GerryChain ReCom decomposition of the 0.51 pp gap | MED |
+| Chen-Rodden natural packing | §3.6 + `chen_rodden_alberta_validation.md` | Partial — absolute level (both 2026 maps inside neutral range) present; decomposition of 0.51 pp gap into geography vs drawing is missing | A reviewer may push for full GerryChain ReCom decomposition of the 0.51 pp gap | MED |
 | 2023-electorate effect | §3.5 + Stress-Test Preamble bullet 3 | Present via cross-election stability (2015, 2019, 2023, April 2026 polling) | §7 synthesis table does not carry the ", under 2023 votes" qualifier; framing-finding mismatch | HIGH |
 | Turnout (2019 67% vs 2023 59%) | Not modelled | No | Differential selection-into-voting is conceptually different from "electorate shifted" | MED |
-| 2024-TBF vs 2021-census basis | §12 discussion + `v0_1_plan_b_cross_check.md` | Thorough — Plan-B shows verdicts basis-invariant | §2 / §7 tables inherit 2024-TBF basis without inline reminder | MED |
+| 2024-TBF vs 2021-census basis | §12 discussion + `plan_b_cross_check.md` | Thorough — Plan-B shows verdicts basis-invariant | §2 / §7 tables inherit 2024-TBF basis without inline reminder | MED |
 | Urban/rural hybrid weight | §3.4 sensitivity (0.60–0.80) + Monte Carlo (0.55–0.85) | Present, but not covering 0.50 straight / population-weighted / area-weighted | A reviewer can ask: "what if hybrids are half-urban-by-population?" — not currently reported | HIGH |
 
 ---
@@ -3241,11 +3241,11 @@ The appropriate peer-review response is not to retract the engineered-boundary f
 
 To be honest with the methodology review: the audit has done a substantial amount of work in each of these dimensions that a reviewer will value.
 
-- The sign-convention resolution doc (`v0_1_sign_convention_resolution.md`) is the kind of internal-discipline artefact methodology papers rarely produce. It is diligent and correct on EG.
+- The sign-convention resolution doc (`sign_convention_resolution.md`) is the kind of internal-discipline artefact methodology papers rarely produce. It is diligent and correct on EG.
 - The three-election cross-election test (2015 + 2019 + 2023 + April 2026 polling) is the kind of hard test that takes hours to execute and that the audit ran. The verdict (state-dependent direction, structural invariance retracted) is a stronger finding than the pre-execution hypothesis.
 - The Chen-Rodden validation is a 150-plan ensemble with Moran's I and margin-asymmetry decomposition. The mechanism correction (UCP rural dispersion, not NDP urban packing) is a peer-quality finding that tightens the audit rather than dissolving it.
 - The symmetry-of-test-selection counter-test (§3.13) is good methodology practice. It *discovered* two new findings (Lethbridge and Red Deer 4-way) and reported them separately from the pre-registered Airdrie cracking signature.
-- The Canadian base-rate computation (`v0_1_canadian_base_rate_computed.md`), despite its n=7 limit, is the correct *kind* of external anchoring for a methodology paper.
+- The Canadian base-rate computation (`canadian_base_rate_computed.md`), despite its n=7 limit, is the correct *kind* of external anchoring for a methodology paper.
 - The submission-search verification of the chair's "no public support" claim (§5.4) is labour-intensive and tiered into "precisely wrong" vs "effectively wrong," a discipline many political-analysis reports do not observe.
 - The threshold provenance compendium is paper-grade and defends each numeric choice against a hostile reviewer.
 
@@ -3269,7 +3269,7 @@ To be honest with the methodology review: the audit has done a substantial amoun
 
 7. **MCMC seed plumbing (S3-01).** Add `argparse` seed support to `mcmc_ensemble.py`. One-liner, supports reviewer replication.
 
-8. **Sign-convention internal consistency (S3-08).** Update `v0_1_2015_cross_election_analysis.md` to use the paper's 1:1 proportional convention (per resolution in `v0_1_sign_convention_resolution.md`), or add a prominent top-of-doc note that the 2015 doc uses the S-M 2:1-slope convention for framing purposes.
+8. **Sign-convention internal consistency (S3-08).** Update `2015_cross_election_analysis.md` to use the paper's 1:1 proportional convention (per resolution in `sign_convention_resolution.md`), or add a prominent top-of-doc note that the 2015 doc uses the S-M 2:1-slope convention for framing purposes.
 
 9. **Decomposition of 0.51 pp gap (S5-01).** For revise-and-resubmit, the paired GerryChain ReCom ensemble on both 2026 substrates (when shapefiles arrive) will enable a geography-vs-drawing decomposition of the minority-vs-majority asymmetry. Commit to this in the limitations / future work section.
 
@@ -3296,12 +3296,12 @@ To be honest with the methodology review: the audit has done a substantial amoun
 
 ### 4.5 Science Red Team — Data, Prior Art and Peer Review (S6/S7/S10)
 
-*Source: `analysis/methodology/v0_1_science_red_team_data_priorart_peerreview.md`*
+*Source: `analysis/methodology/science_red_team_data_priorart_peerreview.md`*
 
 # Science red-team: S6 prior art, S7 data quality, S10 peer-review readiness
 
 **Scope:** Alberta Electoral Boundaries Audit, `report_academic.md` and supporting data artifacts (as of 2026-04-23).
-**Framework:** `analysis/v0_1_science_red_team_framework.md`, dimensions S6, S7, S10.
+**Framework:** `analysis/science_red_team_framework.md`, dimensions S6, S7, S10.
 **Method:** read `report_academic.md` end-to-end; WebSearch/WebFetch every cited author-year; compute per-artifact coverage/integrity using pandas + geopandas; walk every report section against a standard IMRaD + reproducibility checklist.
 
 ---
@@ -3357,7 +3357,7 @@ For each citation in the "audit cites…" list from the framework prompt, the ta
 
 ### §S6.3 HIGH / MED — Citation ghosts (in-text cites with no References entry)
 
-Identified by audit's own `v0_1_red_team_references.md` and independently reproduced here. Each needs a References entry before submission.
+Identified by audit's own `red_team_references.md` and independently reproduced here. Each needs a References entry before submission.
 
 | Finding | In-text cite | References entry? | Severity |
 |---|---|---|---|
@@ -3401,13 +3401,13 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 
 | Artifact | Expected | Observed | Status |
 |---|---|---|---|
-| `data/v0_1_alberta_2023_results.csv` | 87 rows (2019 EDs), two-party total 1,706,304 | 87 rows, `total_valid_votes` sum matches when including all parties | PASS |
-| `data/v0_1_alberta_2015_results.csv` | 87 rows | 87 rows, total votes 1,433,745; NDP 583,892 | PASS |
+| `data/alberta_2023_results.csv` | 87 rows (2019 EDs), two-party total 1,706,304 | 87 rows, `total_valid_votes` sum matches when including all parties | PASS |
+| `data/alberta_2015_results.csv` | 87 rows | 87 rows, total votes 1,433,745; NDP 583,892 | PASS |
 | `data/alberta_2021_da_populations.csv` | 6,203 DAs summing to 4,262,635 | 6,203 DAs, sum = 4,262,635 | PASS (exact match to StatsCan Alberta 2021 count) |
 | `data/alberta_2021_csd_populations.csv` | ~421 CSDs summing to 4,262,635 | 423 CSDs, sum = 4,262,635 | PASS |
 | `data/va_polygons_with_2023_votes.gpkg` | 4,765 polygons, all 2023 votes | 4,765 polygons, 87 unique EDs, zero null geometries, zero duplicates on (ED_NUM, VA_NUMBER) | PASS on polygon count; **FAIL on vote coverage** — see S7-01. |
 | `data/submission_search_dataset.csv` | per `submission_search_findings.md`, 1,252 of ~1,340 submissions searched | 71 rows in CSV (= subset with at least one configuration hit); 70 with ≥1 hit. Per-configuration counts (Airdrie 4, RMH 20, ODH 5, Chestermere 13, Red Deer 23, St. Albert 11, Nolan Hill-Cochrane 0) exactly match `submission_search_findings.md`. | PASS — the CSV is the hits-only subset, which is the correct representation; the 1,252 figure is the denominator, not the CSV row count. |
-| `data/v0_1_338canada_per_riding_87seat.csv` | 87 rows (2019 EDs) | 87 rows; UCP mean share 52.4 % (consistent with April 2026 snapshot in §3.5) | PASS |
+| `data/338canada_per_riding_87seat.csv` | 87 rows (2019 EDs) | 87 rows; UCP mean share 52.4 % (consistent with April 2026 snapshot in §3.5) | PASS |
 
 ### §S7.1 HIGH — VA polygon vote coverage
 
@@ -3425,12 +3425,12 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 - **Observed:** 1,252 of 1,345 (93.4 %) searched; 88 (6.6 %) are image-only scans with no text layer and no EBC-ID marker. The audit's §5.4.5 limits list this but does not characterise the *content* of the 88.
 - **Reviewer objection:** If the 88 are concentrated in one geographic / configuration area (e.g., all handwritten RMH-area submissions, or all city-of-Airdrie feedback attachments), the per-configuration support-rate columns in §5.4.1 shift. The audit's Rocky Mountain House-Banff Park refutation rests on 3 explicit supporting submissions out of 20 mentions; if 10 additional RMH submissions are in the OCR-missed 88, the 15 % explicit-support rate could move either direction by 5–10 percentage points.
 - **Severity:** HIGH.
-- **Recommendation:** (a) Sample 20 of the 88 missed submissions manually, classify each by likely configuration based on source-file batch number and submitting party, and report whether the missing ones are geographically concentrated. (b) If concentrated, apply a sensitivity band around the §5.4.1 per-configuration verdicts (e.g., "Rocky Mountain House-Banff Park: 15–25 % explicit support rate under the worst-case 88-missed assumption"). (c) If the OCR backfill in `deprecated/v0_1_submission_ocr_log.md` has already recovered some of the 88, incorporate those into the main dataset. 14 were already recovered per `submission_search_findings.md` L7.
+- **Recommendation:** (a) Sample 20 of the 88 missed submissions manually, classify each by likely configuration based on source-file batch number and submitting party, and report whether the missing ones are geographically concentrated. (b) If concentrated, apply a sensitivity band around the §5.4.1 per-configuration verdicts (e.g., "Rocky Mountain House-Banff Park: 15–25 % explicit support rate under the worst-case 88-missed assumption"). (c) If the OCR backfill in `historical/v0_1_submission_ocr_log.md` has already recovered some of the 88, incorporate those into the main dataset. 14 were already recovered per `submission_search_findings.md` L7.
 
 ### §S7.3 HIGH — 338Canada per-riding projection cross-check vs 2019 ED count
 
 **S7-03 (HIGH). Audit uses 87 rows for 338Canada; this is the *2019* ED count, not the *2026* proposal count (89 each).**
-- **Observed:** `data/v0_1_338canada_per_riding_87seat.csv` has 87 rows.
+- **Observed:** `data/338canada_per_riding_87seat.csv` has 87 rows.
 - **Reviewer objection:** 338Canada projections for Alberta publish at the 2019-boundary level because the 2026 proposals have no 338-model history. The audit's Phase 4C design attempts to reallocate these to 2026 via hybrid crosswalks. A reviewer checking that 338 gave 87 projections, not 89, is correct; but the audit needs to say so explicitly where it cites 338 projections.
 - **Severity:** HIGH for transparency; LOW for correctness (the audit's reallocation math is on the right side of the issue per §3.5's 67/22 and 66/23 seat counts — 89 seats post-reallocation — but the disclosure is implicit).
 - **Recommendation:** Add one sentence to §3.5 stating "338Canada projects at the 2019-ED level (n=87); the 67/22 and 66/23 counts in this paragraph reflect reallocation through the majority and minority hybrid crosswalks, producing 89-seat outputs."
@@ -3439,13 +3439,13 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 
 | Artifact | Coverage % | Selection-bias assessment | Measurement-error magnitude | Time-stamp currency |
 |---|---|---|---|---|
-| 2023 Statement of Vote (`data/2023_results.xlsx`, `data/v0_1_alberta_2023_results.csv`) | 100 % of cast ballots (Elections Alberta publishes official SoV) | None — universal enumeration. Spoiled and rejected ballots reported separately per §B1 structure; audit uses valid votes only. | Near-zero for aggregate vote counts (official count); ~0.1 % rounding / party-name-mapping error in crosstabs. | 2023-05-29 (election day); 2023-06-21 (official return). 3-year currency window; not a concern. |
-| 2015 Statement of Vote (`data/2015_results.xlsx`, `data/v0_1_alberta_2015_results.csv`) | 100 % of cast ballots | None | Same as 2023; additional crosswalk-transformation error into 2019 EDs is tracked at `data/v0_1_2015_to_2019_crosswalk.csv` (partial rows also captured). | 2015-05-05 (election day). 11-year-old data used for cross-election stability probe; currency is a *feature* of the test, not a defect. |
+| 2023 Statement of Vote (`data/2023_results.xlsx`, `data/alberta_2023_results.csv`) | 100 % of cast ballots (Elections Alberta publishes official SoV) | None — universal enumeration. Spoiled and rejected ballots reported separately per §B1 structure; audit uses valid votes only. | Near-zero for aggregate vote counts (official count); ~0.1 % rounding / party-name-mapping error in crosstabs. | 2023-05-29 (election day); 2023-06-21 (official return). 3-year currency window; not a concern. |
+| 2015 Statement of Vote (`data/2015_results.xlsx`, `data/alberta_2015_results.csv`) | 100 % of cast ballots | None | Same as 2023; additional crosswalk-transformation error into 2019 EDs is tracked at `data/2015_to_2019_crosswalk.csv` (partial rows also captured). | 2015-05-05 (election day). 11-year-old data used for cross-election stability probe; currency is a *feature* of the test, not a defect. |
 | 2021 Census DA populations (`data/alberta_2021_da_populations.csv`) | 100 % of DAs (6,203 in Alberta matches StatsCan count); total pop 4,262,635 matches StatsCan provincial count to the person | Small-area data is subject to StatsCan random-rounding and area-suppression for DAs under 40 residents; minimal impact on aggregate. | ±5 per DA (random rounding); aggregate error <0.1 % at ED level. | 2021-05-11 (census day); 5-year-old data is §12(3)-operative. |
 | 2021 Census CSD populations (`data/alberta_2021_csd_populations.csv`) | 100 % of CSDs (423) | None | Negligible | 2021-05-11 |
 | 4,765 VA polygons with 2023 votes (`data/va_polygons_with_2023_votes.gpkg`) | **100 % of Elections Alberta's published 2023 VA list** (confirmed: 87 unique EDs; no null geometries; no duplicates on (ED_NUM, VA_NUMBER)) — but only **52.5 % of total 2023 two-party votes** because Advance/Mobile/Special ballots are home-ED-attributed at the EA-published-SoV level, not attributable to VAs. See S7-01. | Election Day voters only; systematically skewed against Advance / Mobile / Special voters. Per §6.3 those voter populations differ by +6.25 pp NDP share. | Polygon assignment: ~0.5 % of VAs near ED borders have centroid-in-polygon mismatch (audit's §3.6 notes the issue and flags it as acceptable). Vote attribution: 0 % measurement error for the 52.5 % captured; the remaining 47.5 % is systematically excluded, which is a coverage issue rather than a measurement-error issue. | 2023-05-29 |
-| Submission search dataset (`data/submission_search_dataset.csv`) | **93.4 % (1,252 of ~1,340 submissions searched, OCR-recovered 14 of the initial 88 missed).** The 71-row CSV = hit subset; per-configuration counts reproduce `submission_search_findings.md` exactly. | **Probable non-uniformity.** The 88 image-only scans are systematically over-represented by handwritten and unstructured submissions, which may correlate with older or rural submitters. See S7-02. | Regex keyword match rate is high-precision; position classifier (support/oppose/neutral) has ~10 % residual classification error per `deprecated/submission_search_log.md` (13 of 71 manual corrections). | 2025-05 (Round 1), 2025-10 (Round 2). Current. |
-| 338Canada per-riding projections (`data/v0_1_338canada_per_riding_87seat.csv`) | 100 % of 2019 EDs (87 rows); **matches 2019 ED count, not 2026** — see S7-03. | 338 model has documented +4.77 pp UCP-underprediction bias in rural Alberta (§3.5); audit applies a +7 pp compound-uncertainty band to rural reallocation. | MAE 3.74 pp per-riding (2023 validation); winner-call 81/87 (93.1 %). | 2026-04-12 (latest snapshot); 2020-02-23 (oldest in 77-snapshot series). Current. |
+| Submission search dataset (`data/submission_search_dataset.csv`) | **93.4 % (1,252 of ~1,340 submissions searched, OCR-recovered 14 of the initial 88 missed).** The 71-row CSV = hit subset; per-configuration counts reproduce `submission_search_findings.md` exactly. | **Probable non-uniformity.** The 88 image-only scans are systematically over-represented by handwritten and unstructured submissions, which may correlate with older or rural submitters. See S7-02. | Regex keyword match rate is high-precision; position classifier (support/oppose/neutral) has ~10 % residual classification error per `historical/submission_search_log.md` (13 of 71 manual corrections). | 2025-05 (Round 1), 2025-10 (Round 2). Current. |
+| 338Canada per-riding projections (`data/338canada_per_riding_87seat.csv`) | 100 % of 2019 EDs (87 rows); **matches 2019 ED count, not 2026** — see S7-03. | 338 model has documented +4.77 pp UCP-underprediction bias in rural Alberta (§3.5); audit applies a +7 pp compound-uncertainty band to rural reallocation. | MAE 3.74 pp per-riding (2023 validation); winner-call 81/87 (93.1 %). | 2026-04-12 (latest snapshot); 2020-02-23 (oldest in 77-snapshot series). Current. |
 | MCMC ensemble (approx majority 57/89; minority v6 70/89) | **63.8 % and 80.8 % of VA-polygon coverage respectively** (explicitly flagged in §3.11 and the full-coverage rescore is in progress). | Incomplete-coverage bias: the scored subset may be systematically different (Tier A unchanged EDs vs Tier B/C) from the full 89-ED set. §3.11's "ratios not counts" defence is correct but partial — see S7-04. | ReCom sampler is documented (`gerrychain` 0.3.2, seed 42); ensemble CI is computed at each percentile. | 2026-04 (the 10k run); the 100k run and full-coverage rescore are committed-to-be-completed before publication per §3.11. |
 | Commission-map approximations (v5, v6, v7-pending) | Tier A (majority 57; minority 65): exact. Tier B (majority 0 additional; minority 5): ±500 m boundary residual → ≤0.06 % vote-share residual per §6.7 v3 refinement. Tier C (majority 32; minority 19): NOT scored (commission shapefiles unreleased). | The priority hybrid EDs (RMH-Banff Park, Calgary-Nolan Hill-Cochrane, Calgary-Peigan-Chestermere) are all Tier C. Audit correctly flags this at §6.7. | v4 residual gap identified by PO-painted references 2026-04-23: Calgary-De Winton approximation at 60 % of true territorial footprint; Calgary-South at ~50 %; Edmonton-Windermere too small. Quantitative boundary-residual-to-vote-residual: at v4, ~318 VAs / ~62,000 votes. See §6.7 v4 residual gap discussion. | 2026-04-23 (hand-painted references; documented in §6.7). |
 
@@ -3459,9 +3459,9 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 
 **S7-06 (MED). 338Canada per-riding n=87 matches 2019 ED count. Stated implicitly throughout §3.5; made explicit is a one-sentence fix. See S7-03.**
 
-**S7-07 (MED). 2015 results crosswalk to 2019 EDs is "full" per `data/v0_1_2015_to_2019_crosswalk.csv`; "partial" at `…_crosswalk_partial.csv`. Audit uses the full crosswalk in §3.5 for the 2015 reversal test. The partial version is deprecated — confirm via file size / row count and remove the partial file to avoid two-file confusion.**
+**S7-07 (MED). 2015 results crosswalk to 2019 EDs is "full" per `data/2015_to_2019_crosswalk.csv`; "partial" at `…_crosswalk_partial.csv`. Audit uses the full crosswalk in §3.5 for the 2015 reversal test. The partial version is deprecated — confirm via file size / row count and remove the partial file to avoid two-file confusion.**
 
-**S7-08 (MED). Alberta Treasury Board 2024 quarterly population estimate (4,888,723): verified at `analysis/methodology/v0_1_commission_source_provenance.md` (per L866 audit) against StatsCan Table 17-10-0009 Q2 2024 postcensal. Integrity passes.**
+**S7-08 (MED). Alberta Treasury Board 2024 quarterly population estimate (4,888,723): verified at `analysis/methodology/commission_source_provenance.md` (per L866 audit) against StatsCan Table 17-10-0009 Q2 2024 postcensal. Integrity passes.**
 
 **S7-09 (LOW). Submission dataset columns include `round` with value 0 for one row — likely a data-entry artefact since rounds are 1 and 2. Clean up or document.**
 
@@ -3497,7 +3497,7 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 ### §S10.2 HIGH S10 findings
 
 **S10-01 (HIGH). Pre-registration is not yet filed.**
-- **Claim:** §3.12 says "submission-ready document is in `analysis/reports/v0_1_pre_registration_draft.md`; the platform survey and submission instructions are in `analysis/reports/v0_1_pre_registration_platform_analysis.md`. Once submitted, the OSF-assigned DOI will appear in §3.12 and the audit's README as the time-stamped third-party custody record." Embargoed release scheduled for 2026-11-02.
+- **Claim:** §3.12 says "submission-ready document is in `analysis/reports/pre_registration_draft.md`; the platform survey and submission instructions are in `analysis/reports/pre_registration_platform_analysis.md`. Once submitted, the OSF-assigned DOI will appear in §3.12 and the audit's README as the time-stamped third-party custody record." Embargoed release scheduled for 2026-11-02.
 - **Reviewer objection:** A methods paper claiming pre-registration protection for P/C/E signature thresholds cannot cite an OSF DOI that doesn't exist yet. Intra-session git-timestamp provenance (§3.7 at "2 hours 24 minutes before the detection runs") is weaker than third-party OSF custody; a reviewer will ask where the DOI is.
 - **Recommendation:** **File the OSF pre-registration before submission** (embargoed or not). Backdate the claim in §3.12 to cite the actual DOI. If OSF filing is genuinely tied to 2026-11-02 deadline, either (a) submit the paper after 2026-11-02 or (b) file without embargo now and simply note "embargoed for 2026-11-02 map release" is not necessary for the paper's pre-registration protection — you just need the DOI.
 
@@ -3651,23 +3651,23 @@ To bring prior-art engagement to peer-review-ready state, add the following to t
 
 1. **S6 citation verification.** For each cited author-year in the audit's References and in-text cites, WebSearch on `"<author>" "<year>" <key-topic-words> <venue>`. DOIs were fetched via WebFetch to confirm they resolve to the claimed paper. Two DOIs (Pal 2015 10.3138/utlj.2767 and Pal 2019 10.1017/cjlj.2019.16) returned HTTP 404 or resolved to a different paper — confirmed via Cambridge Core product identifier for the second.
 2. **S7 data-quality reproduction.** Pandas / geopandas used to reproduce each headline count in `report_academic.md`:
-   - `data/v0_1_alberta_2023_results.csv`: `pd.read_csv(...)`, assert shape == (87, 22), sum `total_valid_votes`.
+   - `data/alberta_2023_results.csv`: `pd.read_csv(...)`, assert shape == (87, 22), sum `total_valid_votes`.
    - `data/alberta_2021_da_populations.csv`: `pd.read_csv(dtype=str)` to preserve DAUID; coerce `population_2021` to numeric and assert sum == 4,262,635.
    - `data/alberta_2021_csd_populations.csv`: same; 423 rows, sum == 4,262,635.
    - `data/va_polygons_with_2023_votes.gpkg`: `gpd.read_file(...)`, 4,765 polygons, `va_ndp + va_ucp` sum = 896,644 vs reported 2023 two-party 1,706,304 — hence S7-01.
    - `data/submission_search_dataset.csv`: 71 rows, per-configuration mention counts reproduce `submission_search_findings.md` L11–L19 exactly.
-   - `data/v0_1_338canada_per_riding_87seat.csv`: 87 rows, matches 2019 ED count (not 2026).
+   - `data/338canada_per_riding_87seat.csv`: 87 rows, matches 2019 ED count (not 2026).
 3. **S10 structural audit.** Walked `report_academic.md` section-by-section against a standard IMRaD + reproducibility + COI checklist for *Election Law Journal* / *Statistics and Public Policy* submission. Flagged every missing block against journal convention.
 
 ---
 
-*Findings file. 2026-04-23. S6 / S7 / S10 science red-team pass per `analysis/v0_1_science_red_team_framework.md`. 30 findings: 2 CRITICAL, 8 HIGH, 15 MED, 5 LOW.*
+*Findings file. 2026-04-23. S6 / S7 / S10 science red-team pass per `analysis/science_red_team_framework.md`. 30 findings: 2 CRITICAL, 8 HIGH, 15 MED, 5 LOW.*
 
 ---
 
 ### 4.6 Design Self-Critique
 
-*Source: `analysis/reports/v0_1_design_critique.md`*
+*Source: `analysis/reports/design_critique.md`*
 
 # Design Critique — Alberta Electoral Boundaries Audit
 
@@ -3687,7 +3687,7 @@ To bring prior-art engagement to peer-review-ready state, add the following to t
 
 **Fixable with FOSS?** Partially. Full frequentist inference requires either (a) repeated sampling (we have one election), (b) a parameterized model with likelihood (we don't have one), or (c) Monte Carlo simulation over modeling parameters (we can do this).
 
-**Fix applied.** Implementing Monte Carlo bootstrap in `v0_3_monte_carlo_ci.py`. Samples urban weights from U(0.55, 0.85), rural-baseline NDP share from U(0.28, 0.38), and per-hybrid weight jitter, then reports the empirical distribution of minority-majority EG asymmetry. Produces a proper 95% CI range.
+**Fix applied.** Implementing Monte Carlo bootstrap in `monte_carlo_ci.py`. Samples urban weights from U(0.55, 0.85), rural-baseline NDP share from U(0.28, 0.38), and per-hybrid weight jitter, then reports the empirical distribution of minority-majority EG asymmetry. Produces a proper 95% CI range.
 
 **Residual concern.** Monte Carlo over modeling choices is not a statistical significance test in the inferential sense — it's a sensitivity envelope. The underlying question "is the asymmetry real?" is about whether two specific map proposals differ, not whether a random sample differs from a population. Inferential significance isn't quite the right frame. But the expanded CI output is more defensible than a single point estimate.
 
@@ -3701,7 +3701,7 @@ To bring prior-art engagement to peer-review-ready state, add the following to t
 
 **Fix applied.** None possible in-session. Prompt v1.0 Stage 5 is gated on shapefile release; will run when available.
 
-**Residual concern.** Until ensemble runs, the "minority is systematically partisan" claim is weaker than it would be with ensemble support. The uncertainty analysis (`v0_1_uncertainty_and_shapefile_impact.md` §4) flags a ~35% probability that the minority falls within the 25th–75th percentile of its ensemble — in which case our "intentional partisan choice" framing weakens even while direction holds.
+**Residual concern.** Until ensemble runs, the "minority is systematically partisan" claim is weaker than it would be with ensemble support. The uncertainty analysis (`uncertainty_and_shapefile_impact.md` §4) flags a ~35% probability that the minority falls within the 25th–75th percentile of its ensemble — in which case our "intentional partisan choice" framing weakens even while direction holds.
 
 ### 1.3 Only four partisan-bias metrics (B1–B4)
 
@@ -3711,7 +3711,7 @@ To bring prior-art engagement to peer-review-ready state, add the following to t
 
 **Fixable with FOSS?** Yes. Declination (Warrington 2018) is a simple formula we can implement. Partisan bias is computable from the seat-vote curve. GEO metric requires geographic weighting we don't have without shapefiles.
 
-**Fix applied.** Adding declination to `v0_2_packing_cracking_analysis.py` as metric B6. Reporting it alongside B2/B3/B4 in the comparison table.
+**Fix applied.** Adding declination to `packing_cracking_analysis.py` as metric B6. Reporting it alongside B2/B3/B4 in the comparison table.
 
 **Residual concern.** Adding tests changes the multiple-comparisons picture: if we run N tests, the probability that at least one shows asymmetry by chance grows. Conversely, if all N tests show asymmetry in the same direction, that's stronger evidence than one test. We report all test results, consistent with the "directional consistency across multiple measures is the finding" frame.
 
@@ -3739,7 +3739,7 @@ To bring prior-art engagement to peer-review-ready state, add the following to t
 
 **Fixable with FOSS?** Yes, partially. Can look up specific 2019 poll-level results in the areas being absorbed and compute per-hybrid rural baselines.
 
-**Fix applied.** In `v0_3_monte_carlo_ci.py`, add a "per-hybrid rural-baseline override" sensitivity run: drop the suburban-absorption rural baseline from 33.5% to 22.5% (empirical suburban Calgary UCP-area baseline) for minority-specific hybrids with suburban absorptions. Report the effect on measured EG asymmetry.
+**Fix applied.** In `monte_carlo_ci.py`, add a "per-hybrid rural-baseline override" sensitivity run: drop the suburban-absorption rural baseline from 33.5% to 22.5% (empirical suburban Calgary UCP-area baseline) for minority-specific hybrids with suburban absorptions. Report the effect on measured EG asymmetry.
 
 **Residual concern.** The choice of 22.5% is also a judgment call, derived from 2019 poll-level results in Bearspaw/Springbank which are in the 20–25% NDP range. A more rigorous approach would use measured attribution from Phase 4C.
 
@@ -3775,7 +3775,7 @@ To bring prior-art engagement to peer-review-ready state, add the following to t
 
 **Fixable with FOSS?** Yes — 2019 results are in the bundle. Can run B1–B4 on both maps using 2019 vote shares and check if the minority-majority asymmetry is stable across elections.
 
-**Fix applied.** Adding a `run_on_2019_votes()` cross-check in `v0_2_packing_cracking_analysis.py`. Reports B1–B4 for both 2026 maps using 2019 votes as input. If the asymmetry direction and magnitude are similar across 2019 and 2023, that's cross-temporal robustness. If they differ, the 2023-specific idiosyncrasies dominated our finding and the audit's magnitude claim weakens.
+**Fix applied.** Adding a `run_on_2019_votes()` cross-check in `packing_cracking_analysis.py`. Reports B1–B4 for both 2026 maps using 2019 votes as input. If the asymmetry direction and magnitude are similar across 2019 and 2023, that's cross-temporal robustness. If they differ, the 2023-specific idiosyncrasies dominated our finding and the audit's magnitude claim weakens.
 
 **Residual concern.** Two elections is still a small baseline. 2015 data exists but isn't in the bundle.
 
@@ -3891,7 +3891,7 @@ Results of the independent scan (done in this pass):
 
 **Fixable with FOSS?** Yes. Implement declination and partisan bias as additional metrics.
 
-**Fix applied.** Adding declination (Warrington 2018) as metric B6 in `v0_2_packing_cracking_analysis.py`. Declination measures the asymmetry between winning districts' vote distributions; positive declination favors one party, negative favors the other. If declination agrees with EG direction, the finding is reinforced. If not, we have a methodological discrepancy to investigate.
+**Fix applied.** Adding declination (Warrington 2018) as metric B6 in `packing_cracking_analysis.py`. Declination measures the asymmetry between winning districts' vote distributions; positive declination favors one party, negative favors the other. If declination agrees with EG direction, the finding is reinforced. If not, we have a methodological discrepancy to investigate.
 
 ---
 
@@ -4003,8 +4003,8 @@ Summary of fortifications achievable without new external data releases:
 
 See commits after this document is pushed:
 
-1. **`v0_3_monte_carlo_ci.py`** — Monte Carlo over urban weights, rural baseline, per-hybrid jitter. Produces 95% CI on minority-majority EG asymmetry.
-2. **Declination metric (B6)** added to `v0_2_packing_cracking_analysis.py`.
+1. **`monte_carlo_ci.py`** — Monte Carlo over urban weights, rural baseline, per-hybrid jitter. Produces 95% CI on minority-majority EG asymmetry.
+2. **Declination metric (B6)** added to `packing_cracking_analysis.py`.
 3. **Per-hybrid rural-baseline override** added to the sensitivity runs.
 4. **2019-election cross-check** — running B1–B4 with 2019 vote data as input to both maps; reporting whether asymmetry direction and magnitude are stable across elections.
 5. **Calgary ward-based classification (third rule)** added to `electoral_forensics_population.py` robustness check.
@@ -4037,7 +4037,7 @@ That claim is what we can defend with the data and methods currently in the bund
 
 ### 5.1 Assertions and Numeric Claims Audit
 
-*Source: `analysis/red_team/v0_1_red_team_assertions.md`*
+*Source: `analysis/red_team/red_team_assertions.md`*
 
 # Assertions red team — findings
 
@@ -4057,7 +4057,7 @@ That claim is what we can defend with the data and methods currently in the bund
 - **Total flagged claims:** 24
 - **Needs manual verification:** 3 (Hansard-sourced and X-post quotes)
 
-Overall posture: the two reports are substantially reproducible from the checked-in pipeline. The structural findings (MAD, Calgary zone gap, Airdrie 4-way, RMH-Banff extension) hold exactly as stated when the scripts are rerun. The issues are concentrated in three areas: (a) the §3.4 sensitivity-table values in `report_academic.md` do not match the script's current output at two of three weight points; (b) `report_public.md` still attributes "+0.7 of a seat" to the RMH-Banff §15(2) invocation after that attribution was retracted in `analysis/methodology/v0_1_s15_2_reaudit.md` §5.3; (c) direct-quotation wording is imprecise in several places (Nenshi quote stitched from two places in the source; Notley paraphrase presented as a direct quote).
+Overall posture: the two reports are substantially reproducible from the checked-in pipeline. The structural findings (MAD, Calgary zone gap, Airdrie 4-way, RMH-Banff extension) hold exactly as stated when the scripts are rerun. The issues are concentrated in three areas: (a) the §3.4 sensitivity-table values in `report_academic.md` do not match the script's current output at two of three weight points; (b) `report_public.md` still attributes "+0.7 of a seat" to the RMH-Banff §15(2) invocation after that attribution was retracted in `analysis/methodology/s15_2_reaudit.md` §5.3; (c) direct-quotation wording is imprecise in several places (Nenshi quote stitched from two places in the source; Notley paraphrase presented as a direct quote).
 
 ---
 
@@ -4069,12 +4069,12 @@ Overall posture: the two reports are substantially reproducible from the checked
 - 0.60 urban-weight: Majority EG +1.58%, Asymmetry −1.36 pp
 - 0.80 urban-weight: Majority EG −1.43%, Asymmetry −1.61 pp
 
-**Verified values (from `PYTHONIOENCODING=utf-8 python analysis/scripts/v0_2_packing_cracking_analysis.py` run on 2026-04-23):**
+**Verified values (from `PYTHONIOENCODING=utf-8 python analysis/scripts/packing_cracking_analysis.py` run on 2026-04-23):**
 - 0.60: Majority EG **+1.53%**, Minority EG +0.22%, Asymmetry **−1.31 pp**
 - 0.70: Majority EG −0.85%, Minority EG −1.36%, Asymmetry −0.51 pp (matches)
 - 0.80: Majority EG **−1.52%**, Minority EG −3.04%, Asymmetry **−1.52 pp**
 
-**Source of truth:** `v0_2_packing_cracking_analysis.py` lines 573–586 (the `for w in [0.60, 0.70, 0.80]:` sensitivity loop).
+**Source of truth:** `packing_cracking_analysis.py` lines 573–586 (the `for w in [0.60, 0.70, 0.80]:` sensitivity loop).
 **Delta:** +0.05 pp on the 0.60 Majority EG; +0.09 pp on the 0.80 Majority EG. Both rows' asymmetry columns drift correspondingly.
 **Downstream impact:** The §3.3 headline "Magnitude ranges from 0.58 to 1.61 percentage points" is derived from the overstated table. Using the script's actual output, the range is 0.51 to 1.52 pp. The §7 row "§B2 sensitivity range (urban weights 0.60–0.80)" table also carries the stale numbers ("[+1.58% to −1.43%]" vs actual [+1.53% to −1.52%]).
 **Recommendation:** Rerun the sensitivity loop and update Table 3.4, §7, and the text "0.58 to 1.61 percentage points" to match the script.
@@ -4082,14 +4082,14 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### CRIT-02. `report_public.md` still attributes "+0.7 of a seat" to RMH-Banff Park after the internal re-audit retracted the attribution
 **Claim (verbatim):** "The extra rural seat at Rocky Mountain House-Banff Park accounts for roughly 0.7 of the one-to-three-seat gap between the two maps." — `report_public.md` line 140
 **Stated value:** +0.7 seat attributable to the RMH-Banff §15(2) invocation.
-**Source of truth:** `analysis/methodology/v0_1_s15_2_reaudit.md` §5.3, which concludes: *"The +0.7 seat attribution collapses. The rural-seat gap must be re-attributed to other features of the two maps (e.g., Canmore-Banff adding a rural seat the minority does not create, Lesser Slave Lake's specific boundary, or — more likely — the minority's rest-of-province mean being 3.9% lower than the majority's via other EDs)."* The re-audit is explicit that the engineered-boundary-qualification theory that underwrote the attribution is factually wrong (RMH-Banff passes 4/5 §15(2) criteria without the NP extension; the extension is not load-bearing).
+**Source of truth:** `analysis/methodology/s15_2_reaudit.md` §5.3, which concludes: *"The +0.7 seat attribution collapses. The rural-seat gap must be re-attributed to other features of the two maps (e.g., Canmore-Banff adding a rural seat the minority does not create, Lesser Slave Lake's specific boundary, or — more likely — the minority's rest-of-province mean being 3.9% lower than the majority's via other EDs)."* The re-audit is explicit that the engineered-boundary-qualification theory that underwrote the attribution is factually wrong (RMH-Banff passes 4/5 §15(2) criteria without the NP extension; the extension is not load-bearing).
 **Delta:** The public report retains a number the internal audit says it must drop. The §3.10 academic signatures summary was revised to show RMH-Banff as "retracted under corrected §15(2) thresholds" in §5.2 of the re-audit, but the public report's seat-attribution line was not carried forward.
 **Recommendation:** Either delete the "+0.7" line from `report_public.md`, or reframe as "the rest-of-province average population gap (3.9%) accounts for most of the 1–3 seat gap between the two maps." Noting: `report_public.md` lines 136–138 already reflect the re-audit qualitatively — they acknowledge the test "was tempting to retract" — but the numeric attribution two lines later is stale.
 
 ### CRIT-03. The "materially wrong on three of them" framing in `report_public.md` misrepresents the scope
 **Claim (verbatim):** "the chair's own claim that five minority configurations had 'no public support' turned out to be materially wrong on three of them" — `report_public.md` line 25
 **Stated value:** 3 of 5 Miller-named configurations were materially wrong.
-**Source of truth:** `analysis/reports/submission_search_findings.md` and `analysis/reports/v0_1_claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
+**Source of truth:** `analysis/reports/submission_search_findings.md` and `analysis/reports/claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
 **Delta:** The public report's intro promises "three of five" but the support refutation actually hits one of Miller's five (Chestermere) plus two configurations Miller did not specifically disavow in Appendix C. The in-body Table 2 (line 147–154) lists all seven correctly, but the intro's phrasing inflates the hit rate against what Miller specifically claimed.
 **Recommendation:** Tighten the intro to "the chair's own claim that five minority configurations had no public support turned out to be materially wrong on Chestermere, and his broader 'no public support' framing mischaracterized the record on two additional configurations the minority adopted from the submissions." Or equivalent.
 
@@ -4100,7 +4100,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### HIGH-01. 2019 cross-election asymmetry: academic preamble says +0.60 pp, §3.5 and script say +0.75 pp
 **Claim (verbatim):** "Running identical methodology with 2019 vote totals (instead of 2023) produces Majority EG +0.30%, Minority EG +0.90%, asymmetry **+0.60 pp**" — `report_academic.md` line 72 (stress-test preamble)
 **Stated values:** Majority +0.30%, Asymmetry +0.60 pp
-**Verified values (from `python analysis/scripts/v0_3_monte_carlo_ci.py` cross-election cross-check and `python analysis/scripts/2015_cross_election.py`):**
+**Verified values (from `python analysis/scripts/monte_carlo_ci.py` cross-election cross-check and `python analysis/scripts/2015_cross_election.py`):**
 - Majority 2026 under 2019 votes: EG **+0.16%** (v0_3) / +0.16% (v0_1_2015 script)
 - Minority 2026 under 2019 votes: EG +0.90%
 - Asymmetry **+0.75 pp** (reported identically in `report_academic.md` §3.5 line 263)
@@ -4110,12 +4110,12 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### HIGH-02. Monte Carlo median asymmetry: academic says −1.44, script says −1.40
 **Claim (verbatim):** "Minority-majority EG asymmetry: mean −1.22 pp, median **−1.44 pp**, **95% CI [−3.04, +0.76] pp**. Direction consistency: 90.5% of samples" — `report_academic.md` lines 68
 **Stated value:** Mean −1.22, median −1.44
-**Verified values (from `python analysis/scripts/v0_3_monte_carlo_ci.py` run, seed=42 N=2000):**
+**Verified values (from `python analysis/scripts/monte_carlo_ci.py` run, seed=42 N=2000):**
 - Mean: **−1.233** (rounds to −1.23, not −1.22)
 - Median: **−1.401** (rounds to −1.40, not −1.44)
 - 95% CI: [−3.038, +0.764] (matches academic's [−3.04, +0.76])
 - Direction consistency: **90.5%** (matches)
-**Source of truth:** Full script output at /analysis/scripts/v0_3_monte_carlo_ci.py with hard-coded seed=42, n_samples=2000 in the `run_monte_carlo()` function (line 94).
+**Source of truth:** Full script output at /analysis/scripts/monte_carlo_ci.py with hard-coded seed=42, n_samples=2000 in the `run_monte_carlo()` function (line 94).
 **Delta:** Median off by 0.04 pp; mean off by 0.01 pp.
 **Recommendation:** Update the preamble from "−1.22 pp" / "−1.44 pp" to "−1.23 pp" / "−1.40 pp". The 95% CI and the 90.5% directional consistency are already correct.
 
@@ -4158,19 +4158,19 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-02. "I've been asking every member to look at page 66 of the report and the judge's addendum to the majority report" — no accessible source in repo or web
 **Claim (verbatim):** "'I've been asking every member to look at page 66 of the report and the judge's addendum to the majority report,' she said." — `report_public.md` line 39
-**Verified source:** Attempted fetches of multiple April 17, 2026 articles about Smith's Question Period remarks. Parliamentum.org (2026-04-21) and albertacounselnews.com both paraphrase Smith but do not reproduce the "I've been asking every member..." verbatim line. The Alberta Hansard direct-transcript site returned 403 on attempted WebFetch per `analysis/methodology/v0_1_minority_rationales_inventory.md` line 276. The public report cites "Premier Smith's April 17 legislature statement" in its "source trail" (line 348) without a URL anchor.
+**Verified source:** Attempted fetches of multiple April 17, 2026 articles about Smith's Question Period remarks. Parliamentum.org (2026-04-21) and albertacounselnews.com both paraphrase Smith but do not reproduce the "I've been asking every member..." verbatim line. The Alberta Hansard direct-transcript site returned 403 on attempted WebFetch per `analysis/methodology/minority_rationales_inventory.md` line 276. The public report cites "Premier Smith's April 17 legislature statement" in its "source trail" (line 348) without a URL anchor.
 **Delta:** The quote is plausible and consistent with every paraphrased summary of Smith's Question Period statements, but I cannot reproduce the exact words from any accessible source.
 **Recommendation:** Mark as "needs manual verification" against Hansard for April 17, 2026 Day 17 sitting; supply a URL if Hansard is indexed and accessible.
 
 ### MED-03. Greg Clark "In Canada, we don't want elected officials drawing their own election maps" — not verified from X
 **Claim (verbatim):** "Commissioner Greg Clark, one of the two opposition-nominated majority members — Clark had been nominated by NDP leader Naheed Nenshi — posted on X after the report dropped. 'In Canada,' he wrote, 'we don't want elected officials drawing their own election maps.'" — `report_public.md` line 230
-**Verified source:** `analysis/reports/v0_1_chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
+**Verified source:** `analysis/reports/chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
 **Delta:** The direction of Clark's view is internally corroborated (Miller's own text in the PDF disavows majority endorsement of R5). The specific "In Canada, we don't want..." wording is not archival-verified in the repo.
 **Recommendation:** Mark as "needs manual verification" against the X thread (Wayback capture or direct archive URL).
 
 ### MED-04. "five Indian reserves are inside it — Big Horn 144A, O'Chiese, three Stoney reserves, Sunchild"
 **Claim (verbatim):** "Five named Indian reserves are inside it — Big Horn 144A, O'Chiese, three Stoney reserves, Sunchild." — `report_public.md` line 126
-**Verified source:** `analysis/methodology/v0_1_s15_2_reaudit.md` §3.4 and commission PDF p. 352 list the reserves as: "Big Horn No. 144A, O'Chiese No. 203, Stoney nos. 142, 143, 144, Stoney No. 142B and Sunchild No. 202" — that is **four** Stoney reserves (142, 143, 144, plus 142B), not three.
+**Verified source:** `analysis/methodology/s15_2_reaudit.md` §3.4 and commission PDF p. 352 list the reserves as: "Big Horn No. 144A, O'Chiese No. 203, Stoney nos. 142, 143, 144, Stoney No. 142B and Sunchild No. 202" — that is **four** Stoney reserves (142, 143, 144, plus 142B), not three.
 **Delta:** The public report says "three Stoney reserves"; the commission and the re-audit both enumerate four. Counting five distinct named reserves (Big Horn, O'Chiese, 142-143-144 as a block, 142B, Sunchild) yields five if 142/143/144 are grouped as "the three numbered Stoney" plus 142B. But the commission's list as written distinguishes "Stoney nos. 142, 143, 144" and "Stoney No. 142B" as separate entries.
 **Recommendation:** Either "four Stoney reserves" or "the numbered Stoney Nakoda reserves" would be accurate.
 
@@ -4203,7 +4203,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-07. "four of five criteria pass without the park" in `report_public.md` line 126 — audit says (b) is "qualified" pass
 **Claim (verbatim):** "Four of the Act's five criteria pass without the park." — `report_public.md` line 126
-**Verified source:** `analysis/methodology/v0_1_s15_2_reaudit.md` §3.5 counterfactual: 4/5 pass without NP extension, but criterion (b) is qualified with: *"Rimbey ~143 km from Edmonton (Wikipedia); Rocky Mountain House ~215 km (rome2rio, ViaMichelin). On a 'nearest boundary' conservative reading this is borderline."* §7 open question 1 reiterates: "Criterion (b) for RMH-Banff Park is borderline. Rimbey sits at ~143 km from the Edmonton Legislature by road; the NE corner of Clearwater County may be marginally closer to 150 km."
+**Verified source:** `analysis/methodology/s15_2_reaudit.md` §3.5 counterfactual: 4/5 pass without NP extension, but criterion (b) is qualified with: *"Rimbey ~143 km from Edmonton (Wikipedia); Rocky Mountain House ~215 km (rome2rio, ViaMichelin). On a 'nearest boundary' conservative reading this is borderline."* §7 open question 1 reiterates: "Criterion (b) for RMH-Banff Park is borderline. Rimbey sits at ~143 km from the Edmonton Legislature by road; the NE corner of Clearwater County may be marginally closer to 150 km."
 **Delta:** The 4/5 pass claim depends on (b) being credited; the internal re-audit flags (b) as "qualified pass" and notes that under a strict reading (b) may fail, in which case without the NP extension the district passes only 3/5. The 3/5 still clears the statutory threshold, but the public report's "four of five" is the upper-bound reading, not the conservative one.
 **Recommendation:** Soften to "four of the Act's five criteria pass without the park (three cleanly, one borderline)" to match the re-audit's own qualifier.
 
@@ -4218,7 +4218,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 **Recommendation:** Preserve source punctuation inside direct quotation marks.
 
 ### LOW-03. Metis settlement spelling — statute uses "Metis" without accent; audit text sometimes uses "Métis"
-**Claim (verbatim):** `report_public.md` line 57 uses "Métis settlements" (with accent); the statute text quoted verbatim in `analysis/methodology/v0_1_s15_2_reaudit.md` §1 uses "Metis settlement" (no accent).
+**Claim (verbatim):** `report_public.md` line 57 uses "Métis settlements" (with accent); the statute text quoted verbatim in `analysis/methodology/s15_2_reaudit.md` §1 uses "Metis settlement" (no accent).
 **Delta:** Stylistic. Both are accepted. Match source if quoting verbatim.
 
 ### LOW-04. Seven reserves in RMH enumerated as "five named" — covered in MED-04
@@ -4231,7 +4231,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 Script output confirms 2015 EG asymmetry is +0.03 pp (essentially zero). This is reported in academic §3.5 but is not in the Abstract or §7 six-dimensions table.
 
 ### INFO-02. Three comparator cases (Quebec 1992, Ontario 1996, BC 2008) are internally documented but without academic citation
-`analysis/methodology/v0_1_academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `analysis/reports/v0_1_bias_audit.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `v0_1_section_D_procedural.md` comparators but could use a cited academic source.
+`analysis/methodology/academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `analysis/reports/bias_audit.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `section_D_procedural.md` comparators but could use a cited academic source.
 
 ### INFO-03. "1.5-point swing" as "the middle of the map-effect estimate" (public report line 270)
 The Monte Carlo mean is −1.23 pp; the median is −1.40 pp; the sensitivity range is 0.51 to 1.52 pp. 1.5 pp is at the upper end of the range, not the middle (which is closer to 1.0 pp). "Midpoint of 1.0 to 1.5" would be technically more accurate; "middle of the estimate" reads like a point-estimate midpoint.
@@ -4265,22 +4265,22 @@ The 0.05 pp drift at 0.60 and 0.09 pp at 0.80 (CRIT-01) only appears in the acad
 
 ## What I verified and is correct
 
-- Monte Carlo parameters (seed=42, N=2,000, urban-weight 0.55–0.85, rural baseline 0.26–0.36, jitter ±0.10) — verified from `analysis/scripts/v0_3_monte_carlo_ci.py` lines 11–17, 94.
+- Monte Carlo parameters (seed=42, N=2,000, urban-weight 0.55–0.85, rural baseline 0.26–0.36, jitter ±0.10) — verified from `analysis/scripts/monte_carlo_ci.py` lines 11–17, 94.
 - 90.5% directional consistency — reproduced exactly from script.
 - 95% CI [−3.04, +0.76] pp — reproduced exactly from script.
 - Calgary Zone A mean 61,225 / Zone B mean 54,569 / gap +12.20% under the minority — `analysis/scripts/electoral_forensics_population.py` output.
 - Calgary Zone gap under the majority (+0.36%) — `electoral_forensics_population.py` output.
 - A1 MAD: Majority 3,180 / Minority 4,707 — `electoral_forensics_population.py`.
 - 113,000 voters excess ≈ 17 × (61,225 − 54,569) = 113,152, matches public-report rounding.
-- Efficiency gaps: 2019 −2.64%, Majority −0.85%, Minority −1.36% — `v0_2_packing_cracking_analysis.py` at urban weight 0.70.
-- Declination: 2019 −0.0341, Majority −0.0210, Minority −0.0150 — `v0_2_packing_cracking_analysis.py`.
-- NDP seats @ 50/50: 2019 46, Majority 44, Minority 42 — `v0_2_packing_cracking_analysis.py`.
-- Mean-median gap: 2019 −2.22 pp, Majority −0.18 pp, Minority −0.33 pp — `v0_2_packing_cracking_analysis.py`. (Academic report §3.3 shows Majority −0.16 pp, which is a minor rounding drift to note but within one-digit precision.)
+- Efficiency gaps: 2019 −2.64%, Majority −0.85%, Minority −1.36% — `packing_cracking_analysis.py` at urban weight 0.70.
+- Declination: 2019 −0.0341, Majority −0.0210, Minority −0.0150 — `packing_cracking_analysis.py`.
+- NDP seats @ 50/50: 2019 46, Majority 44, Minority 42 — `packing_cracking_analysis.py`.
+- Mean-median gap: 2019 −2.22 pp, Majority −0.18 pp, Minority −0.33 pp — `packing_cracking_analysis.py`. (Academic report §3.3 shows Majority −0.16 pp, which is a minor rounding drift to note but within one-digit precision.)
 - 2023 outcome UCP 49 / NDP 38 — Statement of Vote.
-- 338Canada April 2026 snapshot: UCP 63 / NDP 24 — `data/v0_1_338canada_historical_snapshots.csv` row 2026-04-12.
+- 338Canada April 2026 snapshot: UCP 63 / NDP 24 — `data/338canada_historical_snapshots.csv` row 2026-04-12.
 - Airdrie 2021 population 74,100; 2025 municipal census 90,044 — consistent across all audit references, StatCan CY census tables.
 - Red Deer 2021 population 100,844 — StatCan Census table, CSD 4808011.
-- RMH-Banff Park population 38,298 (−30.3% variance) — Minority report p. 358, reproduced in `data/v0_1_minority_2026_populations.csv`.
+- RMH-Banff Park population 38,298 (−30.3% variance) — Minority report p. 358, reproduced in `data/minority_2026_populations.csv`.
 - Provincial total 4,888,723 — Majority/Minority report tables, equals StatsCan Q2 2024 postcensal estimate for Alberta.
 - Commission tabled March 23, 2026 — verified across multiple internal docs.
 - April 16 motion passed 44–36, Brandon Lunty (Leduc-Beaumont) chair, November 2, 2026 deadline — verified from CBC and DiscoverAirdrie.
@@ -4292,7 +4292,7 @@ The 0.05 pp drift at 0.60 and 0.09 pp at 0.80 (CRIT-01) only appears in the acad
 - 12 of 14 marginal 2023 ridings are in Calgary — verified from `marginal_seats_analysis.py` output (Calgary-Acadia, -Glenmore, -North West, -North, -Foothills, -Edgemont, -Bow, -Beddington, -Elbow, -Cross, -Klein, -East = 12 Calgary + Banff-Kananaskis + Lethbridge-East = 14).
 - Calgary-Acadia 0.05 pp margin in 2023 and Calgary-North West UCP 0.30 pp — verified.
 - 1.5 pp UCP-swing flips 6 (5 Calgary + Banff-Kananaskis); 1.5 pp NDP-swing flips 4 (Calgary-Bow, Calgary-North, Calgary-North West, Lethbridge-East) — verified.
-- RMH-Banff Park §15(2) re-audit: 5/5 as drawn, 4/5 without NP extension; Canmore-Banff 3/5 under corrected thresholds — verified from `v0_1_s15_2_reaudit.md` against commission PDF pages 212, 236, 248, 341, 345, 352.
+- RMH-Banff Park §15(2) re-audit: 5/5 as drawn, 4/5 without NP extension; Canmore-Banff 3/5 under corrected thresholds — verified from `s15_2_reaudit.md` against commission PDF pages 212, 236, 248, 341, 345, 352.
 - Shared-schools claims (Rocky View Schools vs CBE for Bow-Springbank; Chinook's Edge vs Red Deer Public for Red Deer-Sylvan Lake) — verified against Alberta Education school-division boundaries.
 - Three intro-promised counterexamples are surfaced: (i) majority's Canmore-Banff flips FAIL→PASS under corrected thresholds (verified); (ii) 2019-vote direction reversal (verified at +0.75 pp, modulo the stale preamble figure); (iii) chair's "no public support" materially wrong on Chestermere + two added configurations (verified, modulo the CRIT-03 scope reframing).
 
@@ -4309,7 +4309,7 @@ The 0.05 pp drift at 0.60 and 0.09 pp at 0.80 (CRIT-01) only appears in the acad
 
 ### 5.2 Conclusions Adversarial Review
 
-*Source: `analysis/red_team/v0_1_red_team_conclusions.md`*
+*Source: `analysis/red_team/red_team_conclusions.md`*
 
 # Conclusions / synthesis red team — findings
 
@@ -4365,7 +4365,7 @@ The audit's strongest material is §A1 population distribution (structural, elec
 And `report_academic.md:361`:
 > "The E2 criterion was initially framed as a statutory-eligibility test ('without extension, ED would not qualify') and the §15(2) re-audit against corrected thresholds failed that narrow test. On review the test is reformulated to match the signature the audit was actually trying to measure..."
 
-**Evidence:** `analysis/methodology/v0_1_s15_2_reaudit.md:118` — under corrected thresholds, RMH-Banff Park passes 5/5 *with* the park extension and 4/5 *without* it. The park is not statutorily necessary. The academic paper (`:205`) says flatly: "Engineered-boundary characterization: retracted."
+**Evidence:** `analysis/methodology/s15_2_reaudit.md:118` — under corrected thresholds, RMH-Banff Park passes 5/5 *with* the park extension and 4/5 *without* it. The park is not statutorily necessary. The academic paper (`:205`) says flatly: "Engineered-boundary characterization: retracted."
 
 **Gap:** The academic paper's §2.4 explicitly **retracts** the engineered-boundary characterization on the narrow statutory test. It then in §3.9 **reinstates** a signature under a reformulated E2 criterion ("chosen over populated alternatives") that was not pre-registered before the re-audit surfaced the retraction. The pre-registration timestamp (`report_academic.md:327`: git commit `5b0bc06` at 2026-04-22 08:32:20) is **2 hours 24 minutes** before the detection runs. The E2 reformulation happened *after* the first signature failed. This is textbook ad-hoc rescue: a hypothesis fails its pre-registered test, the test is re-written to be softer, the hypothesis passes the softened test, and the paper reports it as a detection. The magazine does not even acknowledge the reformulation happened — it frames the test as a resilient finding ("the question underneath it was not").
 
@@ -4534,7 +4534,7 @@ Further: the academic paper (`:534`) admits "the stronger claim 'without recent 
 - "...the sentence a paragraph later: 'My majority colleagues do not agree with me on this point.'"
 - "The defence that 'the commission endorsed this' does not survive a reading of the commission's own paperwork."
 
-**Evidence:** `analysis/reports/v0_1_chair_recommendation_5_analysis.md:45`:
+**Evidence:** `analysis/reports/chair_recommendation_5_analysis.md:45`:
 > "My majority colleagues do not agree with me on this point."
 
 Note: I could not find evidence in the source files I reviewed for the phrase "That is why I am alone in making this recommendation." The chair analysis doc quotes only "My majority colleagues do not agree with me on this point." The magazine's opening paragraph attributes a two-sentence quotation to Miller with the second sentence appearing to be supplied by the magazine itself, not the chair.
@@ -4710,7 +4710,7 @@ The threshold was set to **survive a sub-threshold-but-still-bad November map** 
 
 ### INFO-02. The academic paper's §1.4 bias audit is unusually strong compared to the magazine's handling of the same material
 
-The academic paper disclosures run deeper (explicit "three findings retained against prior," Gates G0–G5, Monte Carlo, retraction tracking in `deprecated/`). The magazine summarises this as "contradicting the direction I expected" and loses most of the structural bias-correction signal. Readers who only see the magazine get less of the discipline than readers of the academic paper.
+The academic paper disclosures run deeper (explicit "three findings retained against prior," Gates G0–G5, Monte Carlo, retraction tracking in `historical/`). The magazine summarises this as "contradicting the direction I expected" and loses most of the structural bias-correction signal. Readers who only see the magazine get less of the discipline than readers of the academic paper.
 
 ### INFO-03. The audit correctly distinguishes process from map in the Hypothesis 2 resolution
 
@@ -4810,7 +4810,7 @@ Single most impactful edit if time allows only one: reconcile the "concentrated 
 
 ### 5.3 Latent Bias Checklist
 
-*Source: `analysis/red_team/v0_1_red_team_latent_bias.md`*
+*Source: `analysis/red_team/red_team_latent_bias.md`*
 
 # Latent-bias red team — findings
 
@@ -5155,7 +5155,7 @@ The residual bias flagged above is mostly in language, framing order, and one fa
 
 ### 5.4 Citation Integrity
 
-*Source: `analysis/red_team/v0_1_red_team_references.md`*
+*Source: `analysis/red_team/red_team_references.md`*
 
 # References red team — findings
 
@@ -5234,7 +5234,7 @@ Four rationale themes, of which "historical precedent" is the last. The subseque
 
 **Severity:** CRITICAL because the rhetorical weight of the passage rests on "not community of interest... because-we-did-it-before," and the source text contradicts both halves of that framing.
 
-**Recommendation:** Rewrite the passage to acknowledge the four themes, then argue that (a) the economic-corridor and Clearwater-hub rationales could be served by populated alternatives (Caroline, Nordegg, Mountain View, Bighorn, Sundre) without the NP extension, and (b) the NP extension specifically is justified only by historical precedent. This is closer to the `v0_1_s15_2_reaudit.md` analysis, which already handles this distinction correctly — the public report has to match the internal analysis.
+**Recommendation:** Rewrite the passage to acknowledge the four themes, then argue that (a) the economic-corridor and Clearwater-hub rationales could be served by populated alternatives (Caroline, Nordegg, Mountain View, Bighorn, Sundre) without the NP extension, and (b) the NP extension specifically is justified only by historical precedent. This is closer to the `s15_2_reaudit.md` analysis, which already handles this distinction correctly — the public report has to match the internal analysis.
 
 ---
 
@@ -5319,7 +5319,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 
 **Citation in audit:**
 - `report_public.md:268` "On the night of May 29, 2023, a vote count in Calgary-Acadia came in five one-hundredths of a percentage point apart."
-- `analysis/reports/v0_1_marginal_seats_findings.md:55` shows Calgary-Acadia at NDP +0.05 pp.
+- `analysis/reports/marginal_seats_findings.md:55` shows Calgary-Acadia at NDP +0.05 pp.
 
 **What the source says:** Public reports (e.g., daveberta.substack.com "Top 12 closest races of Alberta's 2023 election") and Global News describe Calgary-Acadia as NDP +7 votes, with an all-candidate margin of approximately 0.03 percentage points.
 
@@ -5336,7 +5336,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 **Citation in audit:**
 - `report_public.md:230` "Commissioner Greg Clark, one of the two opposition-nominated majority members — Clark had been nominated by NDP leader Naheed Nenshi — posted on X after the report dropped. 'In Canada,' he wrote, 'we don't want elected officials drawing their own election maps.'"
 - `report_public.md:349` "Commissioner Greg Clark's post on X, April 2026, referenced at rabble.ca and albertapolitics.substack.com"
-- `analysis/reports/v0_1_chair_recommendation_5_analysis.md:48` "Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB."
+- `analysis/reports/chair_recommendation_5_analysis.md:48` "Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB."
 
 **What the source says:** WebFetch to `https://x.com/GregClarkAB` returned a 402 (paywall / rate limit). WebSearch for the exact phrase "In Canada, we don't want elected officials drawing their own election maps" attributed to Clark did not return the X post directly; `albertapolitics.ca` April 16/22 articles and `daveberta.ca` did not contain the quote in the fetched content. The internal analysis file even flags "Full citation pending direct archival retrieval."
 
@@ -5351,7 +5351,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 ### MED-03. Miller's "substantively unreasonable" and "s. 3 Charter" framings conflated with the chair alone
 
 **Citation in audit:**
-- `analysis/reports/v0_1_chair_recommendation_5_analysis.md:77` "The chair's Addendum specifically described the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert as 'not something that I can condone' and said the minority report was 'substantively unreasonable' and 'likely to offend s. 3 of the Charter.'"
+- `analysis/reports/chair_recommendation_5_analysis.md:77` "The chair's Addendum specifically described the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert as 'not something that I can condone' and said the minority report was 'substantively unreasonable' and 'likely to offend s. 3 of the Charter.'"
 
 **What the source says:** PDF p. 67 (Miller's addendum) contains: "This is unlike the other hybrids the minority has proposed in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert. The minority's radical about face and substantive unreasonableness regarding these hybrids, to say nothing about the many other administrative and constitutional law problems with their report, is not something that I can condone." Verified verbatim.
 
@@ -5437,11 +5437,11 @@ The phrase "cheating to secure themselves a supermajority" — the audit quotes 
 
 ### LOW-03. `report_public.md:338–340` internal analysis links are relative paths
 
-**Citation:** The further-reading list uses relative paths like `analysis/reports/v0_1_marginal_seats_findings.md`. These resolve when viewing from the repo root but break when the file is rendered via the `willconner.ca` URL or any other mirror.
+**Citation:** The further-reading list uses relative paths like `analysis/reports/marginal_seats_findings.md`. These resolve when viewing from the repo root but break when the file is rendered via the `willconner.ca` URL or any other mirror.
 
 **Severity:** LOW.
 
-**Recommendation:** Use GitHub blob URLs (e.g., `https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/analysis/reports/v0_1_marginal_seats_findings.md`) so the links resolve when the piece is hosted off-repo.
+**Recommendation:** Use GitHub blob URLs (e.g., `https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/analysis/reports/marginal_seats_findings.md`) so the links resolve when the piece is hosted off-repo.
 
 ---
 
@@ -5450,16 +5450,16 @@ The phrase "cheating to secure themselves a supermajority" — the audit quotes 
 ### INFO-01. All six internal `analysis/v0_1_*.md` cross-references in `report_public.md:335–340` resolve to files that exist
 
 Verified by `ls -la analysis/`:
-- `v0_1_marginal_seats_findings.md` — exists (8,136 bytes)
-- `v0_1_minority_rationales_validation.md` — exists (31,015 bytes)
-- `v0_1_chair_recommendation_5_analysis.md` — exists (12,725 bytes)
-- `v0_1_terms_of_reference_audit.md` — exists (31,937 bytes)
-- `v0_1_s15_2_reaudit.md` — exists (35,951 bytes)
+- `marginal_seats_findings.md` — exists (8,136 bytes)
+- `minority_rationales_validation.md` — exists (31,015 bytes)
+- `chair_recommendation_5_analysis.md` — exists (12,725 bytes)
+- `terms_of_reference_audit.md` — exists (31,937 bytes)
+- `s15_2_reaudit.md` — exists (35,951 bytes)
 - Plus the scripts and data directories referenced in `report_academic.md`.
 
 The internal cross-references are a closed loop; the audit's forward-reading path resolves without breaks.
 
-### INFO-02. Source for the Calgary-Acadia +0.05 pp margin (`report_public.md:268`) is correctly grounded in `analysis/reports/v0_1_marginal_seats_findings.md:55`, which in turn grounds in `data/v0_1_alberta_2023_results.csv`
+### INFO-02. Source for the Calgary-Acadia +0.05 pp margin (`report_public.md:268`) is correctly grounded in `analysis/reports/marginal_seats_findings.md:55`, which in turn grounds in `data/alberta_2023_results.csv`
 
 The audit's internal grounding is consistent, even where it differs from public reporting's 0.03 figure (see MED-01).
 
@@ -5467,16 +5467,16 @@ The audit's internal grounding is consistent, even where it differs from public 
 
 ## Verified references (short list for confidence)
 
-1. **Miller "My majority colleagues do not agree with me on this point"** — `report_public.md:13`, `report_academic.md:512`, `v0_1_chair_recommendation_5_analysis.md:44`. Verified verbatim against `.temp/commission_report.pdf` p. 66. PASS.
+1. **Miller "My majority colleagues do not agree with me on this point"** — `report_public.md:13`, `report_academic.md:512`, `chair_recommendation_5_analysis.md:44`. Verified verbatim against `.temp/commission_report.pdf` p. 66. PASS.
 2. **Miller "That is why I am alone in making this recommendation"** — `report_public.md:13`. Verified verbatim p. 66. PASS.
 3. **Miller "This fifth recommendation is formulated for the express purpose of dissuading the Legislature from accepting the minority report"** — `report_public.md:232`, `report_academic.md:520`. Verified verbatim p. 66. PASS.
-4. **Miller "not something that I can condone"** — `analysis/reports/v0_1_chair_recommendation_5_analysis.md:77`. Verified verbatim p. 67. PASS.
-5. **Recommendation 5 text (a–d)** — `analysis/reports/v0_1_chair_recommendation_5_analysis.md:25–32`. Verified verbatim p. 66. PASS.
+4. **Miller "not something that I can condone"** — `analysis/reports/chair_recommendation_5_analysis.md:77`. Verified verbatim p. 67. PASS.
+5. **Recommendation 5 text (a–d)** — `analysis/reports/chair_recommendation_5_analysis.md:25–32`. Verified verbatim p. 66. PASS.
 6. **Nenshi "full-on assault on our democracy"** — `report_public.md:17`. Verified against Rimbey Review, Lacombe Express, Stettler Independent, DiscoverAirdrie — all three mirrors carry the same quote verbatim. PASS with the caveat that the quote is from the floor of the legislature and is consistently reproduced.
 7. **Smith "I've been asking every member to look at page 66"** — `report_public.md:39`. Verified verbatim against DiscoverAirdrie April 17, 2026. PASS.
 8. **Pancholi "89 seats that the UCP gave them to work with"** — `report_public.md:(implicit)`. Verified verbatim against DiscoverAirdrie. PASS.
 9. **Miller "substantive unreasonableness... not something that I can condone" with city list (Airdrie, Calgary, Chestermere, Cochrane, Red Deer, St. Albert)** — Verified verbatim p. 67. PASS.
-10. **Electoral Boundaries Commission Act §15(2) five-criterion text** — Verified via CanLII and the commission's own reproduction pp. 15–16, 291–292 against `v0_1_s15_2_reaudit.md:17–27`. PASS.
+10. **Electoral Boundaries Commission Act §15(2) five-criterion text** — Verified via CanLII and the commission's own reproduction pp. 15–16, 291–292 against `s15_2_reaudit.md:17–27`. PASS.
 11. **Reference re Provincial Electoral Boundaries (Saskatchewan), [1991] 2 SCR 158 — "effective representation" standard** — Verified via CanLII 1991 SCC 61; McLachlin J's para. 26 and para. 33 are correctly referenced by `report_academic.md:832`. PASS.
 12. **Stephanopoulos & McGhee (2014/2015) efficiency gap** — Verified; the audit cites the concept correctly. The error is only in how the 7% threshold's legal status is characterised (see CRIT-01).
 13. **Chen & Rodden (2013) "Unintentional gerrymandering"** — Verified via DOI `10.1561/100.00012033`. PASS.
@@ -5546,7 +5546,7 @@ These could not be fully resolved in this pass. They are marked "blocked," not "
 
 ### 6.1 Reviewer 1 — Quantitative Political Science
 
-*Source: `analysis/red_team/v0_1_peer_review_methods.md`*
+*Source: `analysis/red_team/peer_review_methods.md`*
 
 # Peer review — Reviewer #1 (methods)
 
@@ -5605,7 +5605,7 @@ The methodology is meticulous, the evidentiary chain is unusually transparent, a
 
 **m9. §5.4 "ESS 148–160."** Report the specific ESS per metric (not a range); the range disguises whether mean-median (the metric carrying the p98.8 claim) is near 148 or 160. Running-mean stability claim "drift < 0.0003 across the latter 50k" should cite the specific drift number for each metric.
 
-**m10. § E.7 v4 residual gap (L1092).** The honesty about v4's under-approximation of Calgary-De Winton ("835 km² vs 1,400–1,700 km² true footprint") is commendable, but the Tier B to Tier C reclassification in § E.7 is fragmentary and runs to ~800 words of dense geometry discussion. Consider collapsing to a 2-paragraph summary plus pointer to the companion document `analysis/methodology/v0_1_commission_reference_shapes.md`. The methods reviewer does not need the blow-by-blow.
+**m10. § E.7 v4 residual gap (L1092).** The honesty about v4's under-approximation of Calgary-De Winton ("835 km² vs 1,400–1,700 km² true footprint") is commendable, but the Tier B to Tier C reclassification in § E.7 is fragmentary and runs to ~800 words of dense geometry discussion. Consider collapsing to a 2-paragraph summary plus pointer to the companion document `analysis/methodology/commission_reference_shapes.md`. The methods reviewer does not need the blow-by-blow.
 
 **m11. References: missing one.** Chen and Rodden (2015) is cited at §5.6 (L464) as a source for "test-selection symmetry" but not listed in References. Chen and Rodden (2013) is listed; please confirm the 2015 citation is a separate paper or correct to 2013.
 
@@ -5613,7 +5613,7 @@ The methodology is meticulous, the evidentiary chain is unusually transparent, a
 
 ## Specific strengths
 
-- **Sign-convention resolution** (`analysis/methodology/v0_1_sign_convention_resolution.md`, flagged at §4.3 L146). I rarely see a paper disclose EG-sign choice with this precision. The 1:1 proportional-seat baseline vs the Stephanopoulos-McGhee 2:1 slope baseline produces opposite-sign labels for the same ordinal finding, and most papers silently pick one. Disclosing this resolves an entire class of reader confusion before it arises.
+- **Sign-convention resolution** (`analysis/methodology/sign_convention_resolution.md`, flagged at §4.3 L146). I rarely see a paper disclose EG-sign choice with this precision. The 1:1 proportional-seat baseline vs the Stephanopoulos-McGhee 2:1 slope baseline produces opposite-sign labels for the same ordinal finding, and most papers silently pick one. Disclosing this resolves an entire class of reader confusion before it arises.
 - **Cross-election reversal disclosure** (§5.2.3). The honest reporting of the 2019-vote sign flip and the careful framing of "state-dependent rather than structural" is exactly the discipline a quantitative political-science paper should exercise and very rarely does. The paper retracts a structural-invariance claim based on its own historical stability test — I want to see more of this in the field.
 - **Pre-registration discipline, warts and all.** §5.3.1 retracts an earlier claim of 2-hour commit separation between criteria and detection after a verifying `git diff`, and substitutes the honest "intra-session, minutes not hours" framing. This is unusual and correct.
 - **Counter-test as method discipline** (§5.6). The symmetric test-selection audit, implemented in `analysis/scripts/majority_symmetry_counter_test.py`, is a reusable discipline that generated two new findings (Lethbridge, Red Deer 4-way splits). The paper also disciplines itself on the counter-test — flagging that Lethbridge/Red Deer were found by a same-pass counter-test and should not be counted as formal signatures until the C1-C3 thresholds are run.
@@ -5631,7 +5631,7 @@ The manuscript is a *methods and empirical application* paper rather than a pure
 
 ### 6.2 Reviewer 2 — Election Law
 
-*Source: `analysis/red_team/v0_1_peer_review_legal.md`*
+*Source: `analysis/red_team/peer_review_legal.md`*
 
 # Peer Review — Reviewer #2 (legal-institutional)
 
@@ -5757,7 +5757,7 @@ The References entry "Driedger, E. A. (1983). *Construction of Statutes* (2nd ed
 
 ### 6. Fabricated-Pal-citation residual check
 
-I searched the paper for "Pal" references. None. Removal of the two fabricated Pal citations (2015 UTLJ, 2019 CJLJ) appears complete. Note that `analysis/red_team/v0_1_legal_red_team_report_academic.md` at ACA-38 still references "Courtney and Pal are both in References" — residual from an earlier draft. Analysis-doc cleanup only, not paper-facing.
+I searched the paper for "Pal" references. None. Removal of the two fabricated Pal citations (2015 UTLJ, 2019 CJLJ) appears complete. Note that `analysis/red_team/legal_red_team_report_academic.md` at ACA-38 still references "Courtney and Pal are both in References" — residual from an earlier draft. Analysis-doc cleanup only, not paper-facing.
 
 ### 7. "materially misrepresents" / "elides" / "got it wrong"
 
@@ -5817,7 +5817,7 @@ This paper is better-placed at *Election Law Journal* or *Canadian Journal of La
 
 ### 7.1 Three-Voice Editorial Pass
 
-*Source: `analysis/methodology/v0_1_editorial_pass_log.md`*
+*Source: `analysis/methodology/editorial_pass_log.md`*
 
 # v0.1 Editorial Pass — report_public.md
 
@@ -5893,7 +5893,7 @@ No other ambiguities were introduced or left unresolved. All other numeric claim
 
 ### 8.1 Round 1 — Academic Discredit (Archived)
 
-*Source: `deprecated/v0_1_red_team_academic_discredit.md`*
+*Source: `historical/v0_1_red_team_academic_discredit.md`*
 
 # Red-team attack on the academic paper
 
@@ -6008,7 +6008,7 @@ More fundamentally: the chair's "no public support" statement is about *active a
 
 You pitched §5 as establishing the April 16 process was a government-controlled replacement of an independent commission, distinguished from Quebec 1992, Ontario 1996, and BC 2008. Then you discovered (Session 9) that the commission chair himself proposed a 91-seat Select Special Committee as a fallback in his Addendum, with specific conditions. The April 16 motion invokes chair R5's vehicle.
 
-You wrote a close reading (`v0_1_chair_recommendation_5_analysis.md`) concluding "form match, conditions pending, intent inverted." A hostile reader reads this as: the chair himself proposed the committee, the government accepted it, and the audit is now reduced to arguing about whether the committee will honour the chair's conditions — which is an argument about a map that does not yet exist. Your procedural critique has become conditional: *if* the November map violates R5(a)–(d), the procedural critique stands; *if* it honours them, the procedural critique evaporates.
+You wrote a close reading (`chair_recommendation_5_analysis.md`) concluding "form match, conditions pending, intent inverted." A hostile reader reads this as: the chair himself proposed the committee, the government accepted it, and the audit is now reduced to arguing about whether the committee will honour the chair's conditions — which is an argument about a map that does not yet exist. Your procedural critique has become conditional: *if* the November map violates R5(a)–(d), the procedural critique stands; *if* it honours them, the procedural critique evaporates.
 
 **Severity: MEDIUM.** Undermines a core framing — and you are stuck with it because the paper is public.
 
@@ -6126,7 +6126,7 @@ A fortification pass is not commissioned by this document. This document is the 
 
 ### 8.2 Round 2 — Post-Fortification (Archived)
 
-*Source: `deprecated/v0_1_red_team_round_2.md`*
+*Source: `historical/v0_1_red_team_round_2.md`*
 
 # Red-team round 2 — v0.14
 
@@ -6380,7 +6380,7 @@ Note that D1, D2, and D3 were each *created* by the fortifications. A round-3 fo
 
 ### 8.3 Final Pre-Publication Readiness (Archived)
 
-*Source: `deprecated/v0_2_final_redteam.md`*
+*Source: `historical/v0_2_final_redteam.md`*
 
 # v0.2 Final Red-Team — Pre-Publication Clean-Room Readiness
 
@@ -6417,7 +6417,7 @@ Line references:
 
 This is not a rounding artifact (0.07 pp gap). One of the numbers is from a superseded pipeline. The v0.4 outputs should settle on a single canonical value before publication; if the current scripts now emit −0.85% at the 70/30 central weight, §3.3 and §3.4 of the academic report and the §7 synthesis table all need updating. If they emit −0.78%, then the public report, HTML, v1.2 prompt, migration, and CLAUDE.md all need updating.
 
-**Action required before clean-room publication:** re-run `v0_2_packing_cracking_analysis.py` and either correct the academic report or correct every other downstream artefact.
+**Action required before clean-room publication:** re-run `packing_cracking_analysis.py` and either correct the academic report or correct every other downstream artefact.
 
 ### 1.2 BLOCKER — Monte Carlo CI reported as two different intervals
 
@@ -6431,7 +6431,7 @@ Migration.md: CI **[−2.99, +0.76] pp**.
 
 The academic report is an outlier. Same mean, different bounds — this is either a prior Monte Carlo run carried forward without update, or a different seed. Either way, a reader who checks the academic report against the HTML gets inconsistent numbers, and a re-execution will not match one of them. The −3.14 and +0.74 values appear only in the academic report (plus the deprecated v1.1 prompt copy); every other up-to-date artefact uses −2.99 / +0.76.
 
-**Action required:** reconcile to whichever the current `v0_3_monte_carlo_ci.py` run produces and correct the stale one.
+**Action required:** reconcile to whichever the current `monte_carlo_ci.py` run produces and correct the stale one.
 
 ### 1.3 MATERIAL — Chen & Rodden framing is applied asymmetrically inside the academic report
 
@@ -6474,7 +6474,7 @@ The even-handed treatment is mostly good: the §5.4.3 sample-size caveat is hone
 
 The academic report adds APA citations; spot-check against specific claims:
 
-**Pal (2015). "The fragmentation of party politics and the rise of political fixers."** Cited at line 334 as "applies contemporary quantitative gerrymandering analysis to Canadian cases within the Charter framework." The title of the paper does not suggest a gerrymandering-specific analysis; it is a party-politics paper. The v0.1 literature review (`analysis/methodology/v0_1_academic_literature_review.md:43`) more modestly describes it as "work on the design and legal constraints of Canadian boundary commissions" — still a stretch. Pal's 2019 paper (The Charter and the constitutionality of electoral boundaries) is directly on-topic; Pal 2015 is not. The sentence should cite Pal (2019) and drop Pal (2015).
+**Pal (2015). "The fragmentation of party politics and the rise of political fixers."** Cited at line 334 as "applies contemporary quantitative gerrymandering analysis to Canadian cases within the Charter framework." The title of the paper does not suggest a gerrymandering-specific analysis; it is a party-politics paper. The v0.1 literature review (`analysis/methodology/academic_literature_review.md:43`) more modestly describes it as "work on the design and legal constraints of Canadian boundary commissions" — still a stretch. Pal's 2019 paper (The Charter and the constitutionality of electoral boundaries) is directly on-topic; Pal 2015 is not. The sentence should cite Pal (2019) and drop Pal (2015).
 
 **Figueroa v. Canada (2003) and Frank v. Canada (2019).** Cited at line 334 as §3 Charter cases "applying the effective representation standard." Figueroa is about party registration thresholds; Frank is about the 5-year expatriate voting rule. Neither applies the effective-representation standard from the 1991 Saskatchewan Reference to redistribution. They are §3 Charter cases but on different §3 issues. Citing them as a lineage applying the effective-representation standard to redistribution is incorrect. The accurate statement is that they are other §3 cases in the Charter democratic-rights family.
 
@@ -6508,7 +6508,7 @@ A cold-start agent running Gate G0 verbatim will get `FileNotFoundError` and eit
 
 v1.2 prompt line 23: *"No analogous minority crosswalk found in the bundle."*
 
-But `data/v0_1_minority_hybrid_crosswalk.csv` exists (per `ls data/` and `data_acquisition_manifest.md`). A cold-start agent following the prompt will not discover and use this asset, or will be confused when it finds it contradicting the prompt.
+But `data/minority_hybrid_crosswalk.csv` exists (per `ls data/` and `data_acquisition_manifest.md`). A cold-start agent following the prompt will not discover and use this asset, or will be confused when it finds it contradicting the prompt.
 
 **Action required:** Either confirm the minority crosswalk file is canonical and update the prompt to instruct using it, or explain in the prompt why it is not being used.
 
@@ -6544,7 +6544,7 @@ Known Constraint #1 says "The commission report PDF (pp 87–266, Appendix B) is
 
 Line 23: "mismatches found in v0.3→v1.2 pass (Airdrie-East and Medicine Hat-Brooks were `blend` but should be `direct`)." This is correct scholarly process, but the prompt doesn't state whether those two mismatches have been *fixed* in the mappings or just identified. A cold-start agent needs to know.
 
-**Action recommended:** State whether `MAJORITY_2026_MAPPING` in `v0_2_packing_cracking_analysis.py` has been corrected or still contains the two identified errors.
+**Action recommended:** State whether `MAJORITY_2026_MAPPING` in `packing_cracking_analysis.py` has been corrected or still contains the two identified errors.
 
 ### 2.8 COSMETIC — "Token budget 450K" vs Opus 4.7 1M
 
@@ -6640,7 +6640,7 @@ After those fixes, v1.2 can execute cold. Budget tightness (§2.5) and RT1 logic
 
 ### 8.4 Execution Prompt Readiness (Archived)
 
-*Source: `deprecated/v1_2_prompt_redteam.md`*
+*Source: `historical/v1_2_prompt_redteam.md`*
 
 # v1.2 Prompt Red-Team — Clean-Room Execution Readiness
 
@@ -6674,7 +6674,7 @@ Actual file: `analysis/scripts/check_voice_and_readability.py`. Content-wise the
 
 Prompt line 23: *"No analogous minority crosswalk found in the bundle."*
 
-`data/v0_1_minority_hybrid_crosswalk.csv` exists. Listed in `data/data_acquisition_manifest.md`. A cold-start agent that reads the prompt first will not discover it; an agent that reads the data dir first will be confused.
+`data/minority_hybrid_crosswalk.csv` exists. Listed in `data/data_acquisition_manifest.md`. A cold-start agent that reads the prompt first will not discover it; an agent that reads the data dir first will be confused.
 
 **Fix:** either delete the file if it is stale / incorrect / unused, or update the prompt line to state how the minority crosswalk is to be used (and for what RT gate).
 

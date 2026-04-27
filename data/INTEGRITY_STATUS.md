@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-23 (Option-B remediation)
 **Context:** Post-session-12 validation sweep of the three pipelines that produce
-published-quality numbers for the audit: (1) packing/cracking (`v0_2_packing_cracking_analysis.py`),
+published-quality numbers for the audit: (1) packing/cracking (`packing_cracking_analysis.py`),
 (2) Phase 4B/C/F execution (`phase_4bcdef_execution.py`), and (3) MCMC
 rescore (`mcmc_full_coverage_rescore_v2.py`).
 
@@ -165,7 +165,7 @@ remediation pass.
 
 **New:**
 - `data/va_polygons_with_full_2023_votes.gpkg` (from splat)
-- `analysis/v0_1_advance_vote_splat_diagnostics.csv`
+- `analysis/advance_vote_splat_diagnostics.csv`
 
 **Edited:**
 - `analysis/scripts/advance_vote_splat.py` — cp1252 encoding
@@ -173,11 +173,11 @@ remediation pass.
 - `analysis/scripts/mcmc_full_coverage_rescore_v2.py` — canonical + full-VA
 
 **Rewritten by rerun:**
-- `data/v0_1_phase4b_majority_2021_populations.csv`
-- `data/v0_1_phase4b_minority_2021_populations.csv`
-- `data/v0_1_phase4c_majority_2023_votes.csv`
-- `data/v0_1_phase4c_minority_2023_votes.csv`
-- `data/v0_1_phase4f_validation_deltas.csv`
-- `data/v0_1_phase_4bcdef_summary.json`
-- `data/v0_1_mcmc_real_map_scores_full_v2.json`
-- `data/v0_1_mcmc_ensemble_percentiles_full_v2.csv`
+- `data/v0_1_population_2021_majority.csv`
+- `data/v0_1_population_2021_minority.csv`
+- `data/votes_2023_majority.csv`
+- `data/votes_2023_minority.csv`
+- `data/v0_1_validation_deltas.csv`
+- `data/pipeline_summary.json`
+- `data/simulation_real_map_scores_full_v2.json`
+- `data/simulated_ensemble_percentiles_full_v2.csv`

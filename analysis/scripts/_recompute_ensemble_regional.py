@@ -2,14 +2,14 @@
 One-shot helper for the regional-swing robustness check.
 
 Loads the 10k verification ensemble (full per-VA assignments preserved at
-data/v0_1_mcmc_verification_assignments.npz), recomputes seats@50/50 under
+data/verification_assignments_raw.npz), recomputes seats@50/50 under
 both uniform and regional swing for every plan, and writes the result CSV.
 The 10k verification ensemble was generated from the same 2019 baseline /
 gerrychain configuration as the 100k production ensemble, so it is a
 valid stand-in for percentile rankings (both draw from the same target
 distribution; the 100k just has tighter Monte Carlo error).
 
-Output: data/v0_9_regional_swing_ensemble.csv with columns
+Output: data/regional_swing_ensemble.csv with columns
     step, s50_uniform, s50_regional
 
 Run:
@@ -38,8 +38,8 @@ from seats_at_50_50_regional import (  # noqa: E402
     seats_at_50_50_regional,
 )
 
-ASSIGN_NPZ = DATA / "v0_1_mcmc_verification_assignments.npz"
-OUT_CSV = DATA / "v0_9_regional_swing_ensemble.csv"
+ASSIGN_NPZ = DATA / "verification_assignments_raw.npz"
+OUT_CSV = DATA / "regional_swing_ensemble.csv"
 
 
 def main():

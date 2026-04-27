@@ -7,8 +7,8 @@ analysis/scripts/v0_1_build_full_crosswalks.py and compares against the 100k
 ensemble.
 
 Outputs:
-  - data/v0_1_mcmc_real_map_scores_full_100k.json
-  - data/v0_1_mcmc_ensemble_percentiles_full_100k.csv
+  - data/simulation_real_map_scores_full_100k.json
+  - data/simulated_ensemble_percentiles_full_100k.csv
 
 Assignment logic (per VA):
   1. Primary: centroid-in-polygon over the 2026 gpkg (v6 for minority,
@@ -19,14 +19,14 @@ This preserves all VAs in the province (4,765 of them), so the metric
 is computed over 100% of 2023 votes under the commission's own
 population assignment (from the 89-ED populations CSV).
 
-Forward: analysis/methodology/v0_1_mcmc_100k_and_full_coverage.md
+Forward: analysis/methodology/mcmc_100k_and_full_coverage.md
 Backward:
-  data/v0_1_majority_full_crosswalk.csv
-  data/v0_1_minority_full_crosswalk.csv
+  data/majority_full_crosswalk.csv
+  data/minority_full_crosswalk.csv
   data/v0_1_approximate_majority_2026_eds.gpkg
   data/v0_1_refined_v6_minority_2026_eds.gpkg
   data/va_polygons_with_2023_votes.gpkg
-  data/v0_1_mcmc_ensemble_samples_100k.csv  (must exist)
+  data/simulated_ensemble_raw_samples_100k.csv  (must exist)
   data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -47,15 +47,15 @@ DATA = ROOT / "data"
 EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
 MAJ_APPROX_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
 MIN_V6_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
-MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
-MAJ_XWALK_CSV_FULL = DATA / "v0_1_majority_full_crosswalk.csv"
-MIN_XWALK_CSV_FULL = DATA / "v0_1_minority_full_crosswalk.csv"
+MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
+MIN_POPS_CSV = DATA / "minority_2026_populations.csv"
+MAJ_XWALK_CSV_FULL = DATA / "majority_full_crosswalk.csv"
+MIN_XWALK_CSV_FULL = DATA / "minority_full_crosswalk.csv"
 VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-ENSEMBLE_CSV_100K = DATA / "v0_1_mcmc_ensemble_samples_100k.csv"
+ENSEMBLE_CSV_100K = DATA / "simulated_ensemble_raw_samples_100k.csv"
 
-OUT_SCORES_JSON = DATA / "v0_1_mcmc_real_map_scores_full_100k.json"
-OUT_PERCENTILES_CSV = DATA / "v0_1_mcmc_ensemble_percentiles_full_100k.csv"
+OUT_SCORES_JSON = DATA / "simulation_real_map_scores_full_100k.json"
+OUT_PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_full_100k.csv"
 
 
 def norm(s: str) -> str:

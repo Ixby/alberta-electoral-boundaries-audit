@@ -37,7 +37,7 @@ def region_from_name(ed_name: str) -> str:
 
 def load_2023() -> list:
     out = []
-    with open(DATA / "v0_1_alberta_2023_results.csv") as f:
+    with open(DATA / "alberta_2023_results.csv") as f:
         for r in csv.DictReader(f):
             ndp = ucp = 0
             for i in range(1, 7):
@@ -62,7 +62,7 @@ def load_2023() -> list:
 
 def load_2019() -> list:
     out = []
-    with open(DATA / "v0_1_alberta_2019_results.csv") as f:
+    with open(DATA / "alberta_2019_results.csv") as f:
         for r in csv.DictReader(f):
             ndp = ucp = 0
             for i in range(1, 9):
@@ -87,7 +87,7 @@ def load_2019() -> list:
 
 def load_2015() -> list:
     out = []
-    with open(DATA / "v0_1_alberta_2015_results.csv") as f:
+    with open(DATA / "alberta_2015_results.csv") as f:
         for r in csv.DictReader(f):
             ndp = int(r["ndp"])
             ucp_equiv = int(r["ucp_equiv"])

@@ -63,9 +63,9 @@ JSON.
 **Outputs.**
   * data/v0_4_canonical_majority_2026_eds_anchored.gpkg
   * data/v0_4_canonical_minority_2026_eds_anchored.gpkg
-  * analysis/reports/v0_1_municipal_anchoring_log.csv
+  * analysis/reports/municipal_anchoring_log.csv
   * data/v0_1_municipal_anchoring_summary.json
-  * analysis/reports/v0_1_municipal_anchoring_analysis.md  (written by a
+  * analysis/reports/municipal_anchoring_analysis.md  (written by a
     sibling writeup step — this script emits only data and a summary JSON)
 
 Forward:
@@ -120,7 +120,7 @@ DA_GPKG  = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
 MIN_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
 
-LOG_CSV = REPORTS / "v0_1_municipal_anchoring_log.csv"
+LOG_CSV = REPORTS / "municipal_anchoring_log.csv"
 SUMMARY_JSON = DATA / "v0_1_municipal_anchoring_summary.json"
 
 # Snapping configuration

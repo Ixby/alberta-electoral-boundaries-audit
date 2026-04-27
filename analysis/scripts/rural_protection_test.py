@@ -32,9 +32,9 @@ import numpy as np
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
-en19 = pd.read_csv(DATA / "v0_1_alberta_2019_populations.csv")
-maj = pd.read_csv(DATA / "v0_1_majority_2026_populations.csv")
-mino = pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
+en19 = pd.read_csv(DATA / "alberta_2019_populations.csv")
+maj = pd.read_csv(DATA / "majority_2026_populations.csv")
+mino = pd.read_csv(DATA / "minority_2026_populations.csv")
 
 print("Files loaded:")
 print(f"  2019 enacted: {len(en19)} EDs, columns: {list(en19.columns)}")

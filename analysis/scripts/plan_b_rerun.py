@@ -33,7 +33,7 @@ QUOTA = 54929
 FLOOR = 41197  # -25%
 CEILING = 68661  # +25%
 
-plan_b = pd.read_csv(os.path.join(DATA, "v0_1_alberta_population_plan_b.csv"))
+plan_b = pd.read_csv(os.path.join(DATA, "alberta_population_plan_b.csv"))
 
 
 def pop_latest(name):

@@ -41,9 +41,9 @@ from gerrychain.tree import recursive_tree_part, bipartition_tree
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OUT_DIR = REPO_ROOT / "data"
-OUT_METRICS = OUT_DIR / "v0_1_mcmc_verification_metrics.csv"
-OUT_ASSIGNMENTS = OUT_DIR / "v0_1_mcmc_verification_assignments.npz"
-OUT_META = OUT_DIR / "v0_1_mcmc_verification_meta.json"
+OUT_METRICS = OUT_DIR / "simulation_verification_metrics.csv"
+OUT_ASSIGNMENTS = OUT_DIR / "verification_assignments_raw.npz"
+OUT_META = OUT_DIR / "mcmc_verification_meta.json"
 OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_mcmc_verification_subset.log"
 
 from drand_seed import get_canonical_seed
@@ -193,7 +193,7 @@ def main():
         "pop_deviation": POP_DEVIATION,
         "elapsed_seconds": elapsed,
         "purpose": "Court-defensibility forensic spot-check. Each row in the metrics CSV corresponds to one row in the assignments array; both are indexed by step. To verify any step's metrics: load the assignment vector for that step, map ints back to ED names via int_to_district, reconstruct a Partition, recompute metrics, confirm they match.",
-        "verify_command": "python -c 'import numpy as np, json; d = np.load(\"data/v0_1_mcmc_verification_assignments.npz\"); m = json.load(open(\"data/v0_1_mcmc_verification_meta.json\")); print(\"assignments shape:\", d[\"assignments\"].shape, \"districts:\", len(m[\"int_to_district\"]))'",
+        "verify_command": "python -c 'import numpy as np, json; d = np.load(\"data/verification_assignments_raw.npz\"); m = json.load(open(\"data/mcmc_verification_meta.json\")); print(\"assignments shape:\", d[\"assignments\"].shape, \"districts:\", len(m[\"int_to_district\"]))'",
         "int_to_district": int_to_dist,
         "outputs": {
             "metrics_csv": str(OUT_METRICS.name),

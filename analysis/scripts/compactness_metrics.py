@@ -22,10 +22,10 @@ Inputs:
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 
 Outputs:
-  analysis/reports/v0_1_compactness_metrics.csv
+  analysis/reports/compactness_metrics.csv
       Columns: map, name, area_km2, perimeter_km, polsby_popper,
                pp_percentile_rank
-  data/v0_1_compactness_summary.json
+  data/compactness_summary.json
       Per-map: mean, median, std_dev, min, max, count_below_0_3,
                count_below_0_4
   stdout: summary table
@@ -34,8 +34,8 @@ Author: v0.1 audit pipeline — geometry analysis per test-selection-rationale
 §6.1 / apparatus-defense §2.1. Generated 2026-04-24.
 
 Forward deps:
-  - analysis/reports/v0_1_compactness_metrics.csv (consumed by section MD)
-  - data/v0_1_compactness_summary.json (consumed by report_academic.md §5.x)
+  - analysis/reports/compactness_metrics.csv (consumed by section MD)
+  - data/compactness_summary.json (consumed by report_academic.md §5.x)
 
 Backward deps:
   - data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
@@ -94,8 +94,8 @@ EXPECTED_COUNTS = {
     "minority_2026": 89,
 }
 
-OUT_CSV = ROOT / "analysis" / "reports" / "v0_1_compactness_metrics.csv"
-OUT_JSON = ROOT / "data" / "v0_1_compactness_summary.json"
+OUT_CSV = ROOT / "analysis" / "reports" / "compactness_metrics.csv"
+OUT_JSON = ROOT / "data" / "compactness_summary.json"
 
 # Alberta TM — EPSG:3401 (NAD83 / Alberta 10-TM Forest)
 ALBERTA_CRS = "EPSG:3401"

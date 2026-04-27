@@ -7,7 +7,7 @@ successor under each map.
 
 Sources of truth (priority order):
   1. `parents_2019` column in the 2026 gpkg (when 2026 ED exists there)
-  2. Explicit `data/v0_1_majority_hybrid_crosswalk.csv` / `_minority_hybrid_crosswalk.csv`
+  2. Explicit `data/majority_hybrid_crosswalk.csv` / `_minority_hybrid_crosswalk.csv`
   3. 338canada reallocation files (`data/v0_1_338canada_reallocated_*.csv`)
      which map every 2026 ED back to its 2019 source (primary) — reverse
      this for unique 2019->2026 assignment; for 2019 EDs that appear as
@@ -16,20 +16,20 @@ Sources of truth (priority order):
   4. Manual commission-report splits fallback.
 
 Outputs:
-  - data/v0_1_majority_full_crosswalk.csv
-  - data/v0_1_minority_full_crosswalk.csv
+  - data/majority_full_crosswalk.csv
+  - data/minority_full_crosswalk.csv
 
 Each file has columns: current_2019, proposed_2026, type, source
 where type in {hybrid, rename, identity, split_primary, merge, absorb}.
 
 Forward: analysis/scripts/v0_1_mcmc_full_coverage_rescore_100k.py
 Backward:
-  data/v0_1_majority_2026_populations.csv
-  data/v0_1_minority_2026_populations.csv
-  data/v0_1_majority_hybrid_crosswalk.csv
-  data/v0_1_minority_hybrid_crosswalk.csv
-  data/v0_1_338canada_reallocated_majority.csv
-  data/v0_1_338canada_reallocated_minority.csv
+  data/majority_2026_populations.csv
+  data/minority_2026_populations.csv
+  data/majority_hybrid_crosswalk.csv
+  data/minority_hybrid_crosswalk.csv
+  data/338canada_reallocated_majority.csv
+  data/338canada_reallocated_minority.csv
   data/v0_1_approximate_majority_2026_eds_full.gpkg
   data/v0_1_refined_v6_minority_2026_eds_full.gpkg
   data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
@@ -62,14 +62,14 @@ def build_majority_crosswalk() -> pd.DataFrame:
     eds_2019 = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
     eds_2019_set = set(norm(n) for n in eds_2019["EDName2017"].unique())
 
-    maj_pops = pd.read_csv(DATA / "v0_1_majority_2026_populations.csv")
+    maj_pops = pd.read_csv(DATA / "majority_2026_populations.csv")
     maj_2026_set = set(norm(n) for n in maj_pops["ed_name"])
     # Population lookup for tiebreak
     maj_pop_by_name = {norm(r["ed_name"]): int(r["population"]) for _, r in maj_pops.iterrows()}
 
     gpkg = gpd.read_file(DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds_full.gpkg")
-    hyb = pd.read_csv(DATA / "v0_1_majority_hybrid_crosswalk.csv")
-    reall = pd.read_csv(DATA / "v0_1_338canada_reallocated_majority.csv")
+    hyb = pd.read_csv(DATA / "majority_hybrid_crosswalk.csv")
+    reall = pd.read_csv(DATA / "338canada_reallocated_majority.csv")
 
     # map 2019 -> list of candidate 2026 assignments with priority/type
     candidates: dict[str, list[tuple[int, str, str]]] = {n: [] for n in eds_2019_set}
@@ -138,7 +138,7 @@ def build_majority_crosswalk() -> pd.DataFrame:
 
     # Manual commission-report fallbacks — 2019 EDs that may still be unassigned
     # or need explicit overrides due to known majority restructuring.
-    # Based on analysis/reports/v0_1_91_seat_preliminary.md F6: Calgary +2 (Nose Creek, Confluence, McKenzie; Peigan eliminated)
+    # Based on analysis/reports/91_seat_preliminary.md F6: Calgary +2 (Nose Creek, Confluence, McKenzie; Peigan eliminated)
     # Peigan 2019 was absorbed; the 2026 area is split between Calgary-Peigan-adjacent EDs.
     manual = {
         # 2019 -> (2026 successor, note)
@@ -201,13 +201,13 @@ def build_minority_crosswalk() -> pd.DataFrame:
     eds_2019 = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
     eds_2019_set = set(norm(n) for n in eds_2019["EDName2017"].unique())
 
-    min_pops = pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
+    min_pops = pd.read_csv(DATA / "minority_2026_populations.csv")
     min_2026_set = set(norm(n) for n in min_pops["ed_name"])
     min_pop_by_name = {norm(r["ed_name"]): int(r["population"]) for _, r in min_pops.iterrows()}
 
     gpkg = gpd.read_file(DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds_full.gpkg")
-    hyb = pd.read_csv(DATA / "v0_1_minority_hybrid_crosswalk.csv")
-    reall = pd.read_csv(DATA / "v0_1_338canada_reallocated_minority.csv")
+    hyb = pd.read_csv(DATA / "minority_hybrid_crosswalk.csv")
+    reall = pd.read_csv(DATA / "338canada_reallocated_minority.csv")
 
     candidates: dict[str, list[tuple[int, str, str]]] = {n: [] for n in eds_2019_set}
 
@@ -358,27 +358,27 @@ def build_minority_crosswalk() -> pd.DataFrame:
 if __name__ == "__main__":
     print("Building full majority crosswalk...")
     maj_df = build_majority_crosswalk()
-    out_maj = DATA / "v0_1_majority_full_crosswalk.csv"
+    out_maj = DATA / "majority_full_crosswalk.csv"
     maj_df.to_csv(out_maj, index=False)
     print(f"  wrote {out_maj} ({len(maj_df)} rows)")
     print("  type counts:", maj_df["type"].value_counts().to_dict())
 
     print("\nBuilding full minority crosswalk...")
     min_df = build_minority_crosswalk()
-    out_min = DATA / "v0_1_minority_full_crosswalk.csv"
+    out_min = DATA / "minority_full_crosswalk.csv"
     min_df.to_csv(out_min, index=False)
     print(f"  wrote {out_min} ({len(min_df)} rows)")
     print("  type counts:", min_df["type"].value_counts().to_dict())
 
     # Audit: any rows whose 2026 target is NOT in the populations list?
-    maj_pops = pd.read_csv(DATA / "v0_1_majority_2026_populations.csv")
+    maj_pops = pd.read_csv(DATA / "majority_2026_populations.csv")
     maj_set = set(maj_pops["ed_name"].astype(str).str.strip())
     bad_maj = maj_df[~maj_df["proposed_2026"].isin(maj_set)]
     if len(bad_maj):
         print("\nMAJORITY: 2019 rows mapping to non-2026 ED names (", len(bad_maj), "):")
         print(bad_maj.to_string(index=False))
 
-    min_pops = pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
+    min_pops = pd.read_csv(DATA / "minority_2026_populations.csv")
     min_set = set(norm(n) for n in min_pops["ed_name"])
     bad_min = min_df[~min_df["proposed_2026"].apply(lambda x: norm(x) in min_set)]
     if len(bad_min):

@@ -47,7 +47,7 @@ APPROX_MIN_CANDIDATES = [
 # Phase 4C VA→2026-ED assignments (conservation-exact crosswalk authored by
 # the topological resolver). Used by the heatmap fill to assign each VA
 # its parent 2026 ED.
-VA_TO_2026_ASSIGNMENTS = REPO_ROOT / "analysis" / "phase_4c_va_to_2026_assignments.csv"
+VA_TO_2026_ASSIGNMENTS = REPO_ROOT / "analysis" / "assignment_va_to_2026_assignments.csv"
 
 COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
 OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article (the only PDF in the repo root)
@@ -145,13 +145,13 @@ def build_cover_art() -> Path:
     # The v0_8 reconstruction inherits some 2026 minority polygons from v0_7
     # (which itself inherits from 2019), and a handful end up in physical
     # positions where no 2023 VA centroid falls inside them. For those we
-    # look up the 2019 parent ED(s) via v0_1_minority_hybrid_crosswalk.csv
+    # look up the 2019 parent ED(s) via minority_hybrid_crosswalk.csv
     # and aggregate the VAs that belonged to those parents — yielding the
     # 2019-vote-distribution-projected-onto-this-2026-name share. This
     # CANNOT model the partisan effect of the boundary shift; it's an
     # illustrative fill, not a quantitative claim, and the cover caption
     # discloses it.
-    crosswalk_path = REPO_ROOT / "data" / "v0_1_minority_hybrid_crosswalk.csv"
+    crosswalk_path = REPO_ROOT / "data" / "minority_hybrid_crosswalk.csv"
     if VA_VOTES_PATH.exists() and crosswalk_path.exists():
         import pandas as pd
         cw = pd.read_csv(crosswalk_path)

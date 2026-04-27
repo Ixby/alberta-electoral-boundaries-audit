@@ -2,9 +2,9 @@
 v0_1_338canada_scraper.py
 Pulls 338Canada per-riding projections for all 87 Alberta ridings.
 
-Track J, Phase 1. Reads data/v0_1_338canada_ridings_index.csv (code,riding,region),
+Track J, Phase 1. Reads data/338canada_ridings_index.csv (code,riding,region),
 fetches https://338canada.com/alberta/<code>e.htm for each, parses the embedded
-JavaScript data block, and writes data/v0_1_338canada_per_riding_87seat.csv.
+JavaScript data block, and writes data/338canada_per_riding_87seat.csv.
 
 Per-page structure (as of scrape):
   Two sibling JS arrays, each with per-party entries:
@@ -32,8 +32,8 @@ from typing import Dict, List, Tuple, Optional
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 AUDIT_ROOT = os.path.dirname(os.path.dirname(HERE))
-INDEX_CSV = os.path.join(AUDIT_ROOT, 'data', 'v0_1_338canada_ridings_index.csv')
-OUT_CSV = os.path.join(AUDIT_ROOT, 'data', 'v0_1_338canada_per_riding_87seat.csv')
+INDEX_CSV = os.path.join(AUDIT_ROOT, 'data', '338canada_ridings_index.csv')
+OUT_CSV = os.path.join(AUDIT_ROOT, 'data', '338canada_per_riding_87seat.csv')
 
 URL_TMPL = "https://338canada.com/alberta/{code}e.htm"
 UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"

@@ -45,7 +45,7 @@ The 100k ensemble samples CSV uses the script-native convention:
 
 The paper (§4.3) uses the reader-facing convention:
   "negative EG = UCP advantage", reconciled with S-M literature in
-  `analysis/methodology/v0_1_sign_convention_resolution.md`.
+  `analysis/methodology/sign_convention_resolution.md`.
 
 For THIS decomposition, we use the ensemble-native convention throughout
 because that is the substrate the decomposition lives on. All numbers
@@ -54,27 +54,27 @@ the end showing the sign-flipped paper convention for EG.
 
 Inputs
 ------
-- data/v0_1_mcmc_ensemble_samples_100k.csv (100,000 ensemble samples)
-- data/v0_1_mcmc_real_map_scores_full_v2.json (session-12 canonical + full-VA
+- data/simulated_ensemble_raw_samples_100k.csv (100,000 ensemble samples)
+- data/simulation_real_map_scores_full_v2.json (session-12 canonical + full-VA
   rescore; PRIMARY per task spec, but the ensemble substrate is
   election-day-only so strictly speaking the decomposition is
   cross-substrate for this input)
-- data/v0_1_mcmc_real_map_scores_full_100k.json (pre-remediation
+- data/simulation_real_map_scores_full_100k.json (pre-remediation
   election-day-only rescore; SUBSTRATE-MATCHED to the ensemble and used as
   cross-check)
 
 Outputs
 -------
-- analysis/reports/v0_1_chen_rodden_decomposition.md (writeup)
-- data/v0_1_chen_rodden_decomposition.csv (decomposition table,
+- analysis/reports/chen_rodden_decomposition.md (writeup)
+- data/chen_rodden_decomposition.csv (decomposition table,
   machine-readable)
-- data/v0_1_chen_rodden_decomposition.json (structured summary)
+- data/chen_rodden_decomposition.json (structured summary)
 
-Forward: analysis/reports/v0_1_chen_rodden_decomposition.md
+Forward: analysis/reports/chen_rodden_decomposition.md
 Backward:
-  data/v0_1_mcmc_ensemble_samples_100k.csv
-  data/v0_1_mcmc_real_map_scores_full_v2.json
-  data/v0_1_mcmc_real_map_scores_full_100k.json
+  data/simulated_ensemble_raw_samples_100k.csv
+  data/simulation_real_map_scores_full_v2.json
+  data/simulation_real_map_scores_full_100k.json
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -89,12 +89,12 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
-ENSEMBLE_CSV = DATA / "v0_1_mcmc_ensemble_samples_100k.csv"
-SCORES_V2 = DATA / "v0_1_mcmc_real_map_scores_full_v2.json"
-SCORES_FULL100K = DATA / "v0_1_mcmc_real_map_scores_full_100k.json"
+ENSEMBLE_CSV = DATA / "simulated_ensemble_raw_samples_100k.csv"
+SCORES_V2 = DATA / "simulation_real_map_scores_full_v2.json"
+SCORES_FULL100K = DATA / "simulation_real_map_scores_full_100k.json"
 
-OUT_CSV = DATA / "v0_1_chen_rodden_decomposition.csv"
-OUT_JSON = DATA / "v0_1_chen_rodden_decomposition.json"
+OUT_CSV = DATA / "chen_rodden_decomposition.csv"
+OUT_JSON = DATA / "chen_rodden_decomposition.json"
 
 METRICS = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
 METRIC_LABELS = {

@@ -7,14 +7,14 @@ compactness.
 
 Dependencies
   Forward  : data/alberta_2019_eds/*.shp (authoritative 2019 87-ED polygons)
-             data/v0_1_majority_2026_populations.csv (89 majority 2026 ED list)
-             data/v0_1_minority_hybrid_crosswalk.csv (minority crosswalk)
-             data/v0_1_minority_hybrid_crosswalk_appendixE.csv (Calgary/minority)
-             data/v0_1_majority_hybrid_crosswalk.csv (partial majority renames)
-  Backward : analysis/reports/v0_1_approximate_shape_analysis.md (method + results)
+             data/majority_2026_populations.csv (89 majority 2026 ED list)
+             data/minority_hybrid_crosswalk.csv (minority crosswalk)
+             data/minority_hybrid_crosswalk_appendixE.csv (Calgary/minority)
+             data/majority_hybrid_crosswalk.csv (partial majority renames)
+  Backward : analysis/reports/approximate_shape_analysis.md (method + results)
              data/v0_1_approximate_majority_2026_eds.gpkg (if Tier C attempted)
              data/v0_1_approximate_minority_2026_eds.gpkg (if Tier C attempted)
-             data/v0_1_compactness_scores.csv (per-ED compactness for all maps)
+             data/compactness_scores.csv (per-ED compactness for all maps)
 
 Approach
   Tier A (exact rename) : 2026 ED == single 2019 ED with same or renamed boundary.
@@ -63,14 +63,14 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = str(Path(__file__).resolve().parent.parent.parent)
 SHP_2019 = os.path.join(ROOT, "data", "alberta_2019_eds", "EDS_ENACTED_BILL33_15DEC2017.shp")
-MAJ_POP_CSV = os.path.join(ROOT, "data", "v0_1_majority_2026_populations.csv")
-MIN_CROSSWALK_CSV = os.path.join(ROOT, "data", "v0_1_minority_hybrid_crosswalk.csv")
-MIN_APPENDIX_E = os.path.join(ROOT, "data", "v0_1_minority_hybrid_crosswalk_appendixE.csv")
-MAJ_CROSSWALK_CSV = os.path.join(ROOT, "data", "v0_1_majority_hybrid_crosswalk.csv")
+MAJ_POP_CSV = os.path.join(ROOT, "data", "majority_2026_populations.csv")
+MIN_CROSSWALK_CSV = os.path.join(ROOT, "data", "minority_hybrid_crosswalk.csv")
+MIN_APPENDIX_E = os.path.join(ROOT, "data", "minority_hybrid_crosswalk_appendixE.csv")
+MAJ_CROSSWALK_CSV = os.path.join(ROOT, "data", "majority_hybrid_crosswalk.csv")
 
 OUT_MAJ_GPKG = os.path.join(ROOT, "data", "v0_1_approximate_majority_2026_eds.gpkg")
 OUT_MIN_GPKG = os.path.join(ROOT, "data", "v0_1_approximate_minority_2026_eds.gpkg")
-OUT_CSV = os.path.join(ROOT, "data", "v0_1_compactness_scores.csv")
+OUT_CSV = os.path.join(ROOT, "data", "compactness_scores.csv")
 
 
 # ---------------------------------------------------------------------------
@@ -131,9 +131,9 @@ class CrosswalkEntry:
 
 # ---- MAJORITY 2026 (89 EDs) ----
 #
-# Based on data/v0_1_majority_2026_populations.csv (which lists all 89 EDs)
+# Based on data/majority_2026_populations.csv (which lists all 89 EDs)
 # cross-referenced with the partial rename crosswalk at
-# data/v0_1_majority_hybrid_crosswalk.csv.
+# data/majority_hybrid_crosswalk.csv.
 #
 # Tier A (direct or rename, single 2019 parent):
 #   rename pairs where the 2026 name differs only in ordering or minor edit.
@@ -557,7 +557,7 @@ def main():
             "pp_plus10pct_perim": (4 * math.pi * union.area) / ((union.length * 1.1) ** 2),
         })
     tc_df = pd.DataFrame(tierC_rows)
-    tc_csv = os.path.join(ROOT, "data", "v0_1_tierC_parent_union_reference.csv")
+    tc_csv = os.path.join(ROOT, "data", "tierC_parent_union_reference.csv")
     tc_df.to_csv(tc_csv, index=False)
     print(f"  Wrote {tc_csv} ({len(tc_df)} Tier-C EDs with at least one identified parent)")
     print("\nDone.")

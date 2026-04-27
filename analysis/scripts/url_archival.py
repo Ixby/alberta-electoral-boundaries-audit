@@ -16,7 +16,7 @@ Forward dependencies:
   - FROZEN_MANIFEST.md (input)
   - requests (HTTP)
 Backward dependencies:
-  - analysis/v0_1_url_archival_log.md (summary consumes the CSVs)
+  - analysis/url_archival_log.md (summary consumes the CSVs)
   - FROZEN_MANIFEST.md (rewrite step consumes the CSVs)
 """
 # Version: 0.1 series  (last updated 2026-04-26)

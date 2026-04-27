@@ -17,24 +17,24 @@ already computed in electoral_forensics_population.py.  The focus here is
 the commission-vs-census consistency check only.
 
 Outputs:
-  analysis/reports/v0_1_population_consistency.csv
+  analysis/reports/population_consistency.csv
       per-ED rows: map, ed_name, commission_pop, da_sum_pop,
                    delta_persons, delta_pct, within_tolerance
-  data/v0_1_population_consistency_summary.json
+  data/population_consistency_summary.json
       per-map: mean_delta_pct, max_delta_pct, eds_outside_tolerance,
                provincial_quota, mad_persons, mad_pct
 
 Author: v0.1 audit pipeline — Test B2. Generated 2026-04-24.
 
 Forward deps:
-  - analysis/reports/v0_1_population_consistency.csv consumed by
+  - analysis/reports/population_consistency.csv consumed by
     report_academic.md §B (population data provenance)
-  - data/v0_1_population_consistency_summary.json consumed by summary dashboard
+  - data/population_consistency_summary.json consumed by summary dashboard
 
 Backward deps:
-  - data/v0_1_majority_2026_populations.csv
-  - data/v0_1_minority_2026_populations.csv
-  - data/v0_1_alberta_2019_populations.csv
+  - data/majority_2026_populations.csv
+  - data/minority_2026_populations.csv
+  - data/alberta_2019_populations.csv
   - data/alberta_2021_da_populations.csv   (Census DA totals)
   - data/shapefiles/reference/alberta_2021_das.gpkg
   - data/shapefiles/derived/v0_3_canonical_majority_2026_eds_swept.gpkg
@@ -75,7 +75,7 @@ ED_LAYERS = {
     "majority_2026": {
         "path": DATA / "shapefiles/derived/v0_3_canonical_majority_2026_eds_swept.gpkg",
         "name_col": "name_2026",
-        "commission_csv": DATA / "v0_1_majority_2026_populations.csv",
+        "commission_csv": DATA / "majority_2026_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population",
         "provincial_quota": PROVINCIAL_QUOTA_2026,
@@ -84,7 +84,7 @@ ED_LAYERS = {
     "minority_2026": {
         "path": DATA / "shapefiles/derived/v0_3_canonical_minority_2026_eds_swept.gpkg",
         "name_col": "name_2026",
-        "commission_csv": DATA / "v0_1_minority_2026_populations.csv",
+        "commission_csv": DATA / "minority_2026_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population",
         "provincial_quota": PROVINCIAL_QUOTA_2026,
@@ -93,7 +93,7 @@ ED_LAYERS = {
     "2019": {
         "path": DATA / "shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp",
         "name_col": "EDName2017",
-        "commission_csv": DATA / "v0_1_alberta_2019_populations.csv",
+        "commission_csv": DATA / "alberta_2019_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population_2017_report",
         "provincial_quota": None,  # computed from data
@@ -364,11 +364,11 @@ def main() -> None:
 
     # Write outputs
     combined = pd.concat(all_rows, ignore_index=True)
-    out_csv = REPORTS / "v0_1_population_consistency.csv"
+    out_csv = REPORTS / "population_consistency.csv"
     combined.to_csv(out_csv, index=False)
     print(f"\nWrote {len(combined)} rows to {out_csv}")
 
-    out_json = DATA / "v0_1_population_consistency_summary.json"
+    out_json = DATA / "population_consistency_summary.json"
     with open(out_json, "w") as fh:
         json.dump(all_summaries, fh, indent=2, default=str)
     print(f"Wrote summary to {out_json}")

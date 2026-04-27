@@ -20,9 +20,9 @@ DAs are joined to CSDs by spatial containment (DA centroid in CSD polygon);
 the CSD identity carries the per-CSD growth rate.
 
 Outputs:
-- data/v0_1_province_wide_drift_2019.csv
-- data/v0_1_province_wide_drift_majority.csv
-- data/v0_1_province_wide_drift_minority.csv
+- data/province_wide_drift_2019.csv
+- data/province_wide_drift_majority.csv
+- data/province_wide_drift_minority.csv
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -323,14 +323,14 @@ def run_2019_map():
         "legal_window_plan_a", "legal_window_plan_b",
         "status_change_flag", "aggregation_method",
     ]].sort_values("ed_name").reset_index(drop=True)
-    out.to_csv(os.path.join(DATA, "v0_1_province_wide_drift_2019.csv"), index=False)
+    out.to_csv(os.path.join(DATA, "province_wide_drift_2019.csv"), index=False)
     return out, mean_a, mean_b
 
 
 def run_2026_map(crosswalk_csv, commission_pop_csv, out_csv, s152_names,
                  hybrid_col=None):
     cross = pd.read_csv(crosswalk_csv)
-    drift_2019_path = os.path.join(DATA, "v0_1_province_wide_drift_2019.csv")
+    drift_2019_path = os.path.join(DATA, "province_wide_drift_2019.csv")
     drift_2019 = pd.read_csv(drift_2019_path)
     growth_by_2019 = dict(zip(
         drift_2019["ed_name"],
@@ -443,9 +443,9 @@ def main():
 
     maj_s152 = {"Central Peace-Notley", "Lesser Slave Lake", "Canmore-Banff"}
     out_maj, mean_a_m, mean_b_m = run_2026_map(
-        crosswalk_csv=os.path.join(DATA, "v0_1_majority_hybrid_crosswalk.csv"),
-        commission_pop_csv=os.path.join(DATA, "v0_1_majority_2026_populations.csv"),
-        out_csv=os.path.join(DATA, "v0_1_province_wide_drift_majority.csv"),
+        crosswalk_csv=os.path.join(DATA, "majority_hybrid_crosswalk.csv"),
+        commission_pop_csv=os.path.join(DATA, "majority_2026_populations.csv"),
+        out_csv=os.path.join(DATA, "province_wide_drift_majority.csv"),
         s152_names=maj_s152,
         hybrid_col="is_hybrid",
     )
@@ -454,9 +454,9 @@ def main():
     min_s152 = {"Central Peace-Notley", "Lesser Slave Lake",
                 "Rocky Mountain House-Banff Park"}
     out_min, mean_a_n, mean_b_n = run_2026_map(
-        crosswalk_csv=os.path.join(DATA, "v0_1_minority_hybrid_crosswalk.csv"),
-        commission_pop_csv=os.path.join(DATA, "v0_1_minority_2026_populations.csv"),
-        out_csv=os.path.join(DATA, "v0_1_province_wide_drift_minority.csv"),
+        crosswalk_csv=os.path.join(DATA, "minority_hybrid_crosswalk.csv"),
+        commission_pop_csv=os.path.join(DATA, "minority_2026_populations.csv"),
+        out_csv=os.path.join(DATA, "province_wide_drift_minority.csv"),
         s152_names=min_s152,
         hybrid_col=None,
     )

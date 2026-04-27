@@ -17,16 +17,16 @@ For each metric, computes:
 Uses v0_7 shapefiles for 2026 maps (89 EDs, full coverage).
 
 Outputs:
-  analysis/reports/v0_1_extended_partisan_metrics.md
-  data/v0_1_extended_partisan_metrics.json
+  analysis/reports/extended_partisan_metrics.md
+  data/extended_partisan_metrics.json
 
 Backward:
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
   data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg
   data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg
-  data/v0_1_mcmc_ensemble_samples_100k.csv
+  data/simulated_ensemble_raw_samples_100k.csv
 Forward:
-  analysis/reports/v0_1_extended_partisan_metrics.md
+  analysis/reports/extended_partisan_metrics.md
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -62,10 +62,10 @@ def _pick(plan: str):
 VA_PATH     = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 MAJ_V7      = _pick("majority")
 MIN_V7      = _pick("minority")
-ENSEMBLE_CSV = DATA / "v0_1_mcmc_ensemble_samples_100k.csv"
+ENSEMBLE_CSV = DATA / "simulated_ensemble_raw_samples_100k.csv"
 
-OUT_JSON = DATA / "v0_1_extended_partisan_metrics.json"
-OUT_MD   = RPTS / "v0_1_extended_partisan_metrics.md"
+OUT_JSON = DATA / "extended_partisan_metrics.json"
+OUT_MD   = RPTS / "extended_partisan_metrics.md"
 
 
 # ---------------------------------------------------------------------------

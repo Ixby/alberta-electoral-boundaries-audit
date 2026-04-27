@@ -6,7 +6,7 @@ For both 2026 maps (majority, minority), score Lane 1 metrics
   (a) centroid-in-polygon attribution (existing baseline; uses
       mcmc_ensemble.score_exogenous_map → seat_results)
   (b) area-weighted attribution (this commit's
-      v0_9_va_attribution_area_weighted.py output CSVs)
+      va_attribution_area_weighted.py output CSVs)
 
 Both branches converge on `seat_results(ucp, ndp)` from mcmc_ensemble.py
 so the metric math is identical — only the per-ED ucp/ndp inputs change.
@@ -14,14 +14,14 @@ so the metric math is identical — only the per-ED ucp/ndp inputs change.
 Output: prints a 4-row delta table and writes a JSON summary.
 
 Type: project
-Forward: analysis/reports/v0_9_maup_centroid_sensitivity.md
+Forward: analysis/reports/maup_centroid_sensitivity.md
 Backward:
-  analysis/scripts/v0_9_va_attribution_area_weighted.py
+  analysis/scripts/va_attribution_area_weighted.py
   analysis/scripts/mcmc_ensemble.py
   data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
   data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
-  data/v0_9_phase4c_majority_2023_votes_area_weighted.csv
-  data/v0_9_phase4c_minority_2023_votes_area_weighted.csv
+  data/votes_2023_majority_area_weighted.csv
+  data/votes_2023_minority_area_weighted.csv
 """
 
 from __future__ import annotations
@@ -49,10 +49,10 @@ from mcmc_ensemble import seat_results, score_exogenous_map  # type: ignore
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 MAJ_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
 MIN_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-MAJ_AW_CSV = DATA / "v0_9_phase4c_majority_2023_votes_area_weighted.csv"
-MIN_AW_CSV = DATA / "v0_9_phase4c_minority_2023_votes_area_weighted.csv"
+MAJ_AW_CSV = DATA / "votes_2023_majority_area_weighted.csv"
+MIN_AW_CSV = DATA / "votes_2023_minority_area_weighted.csv"
 
-OUT_JSON = DATA / "v0_9_maup_centroid_sensitivity.json"
+OUT_JSON = DATA / "maup_centroid_sensitivity.json"
 
 
 def metrics_centroid(va: gpd.GeoDataFrame, gpkg: Path) -> dict:

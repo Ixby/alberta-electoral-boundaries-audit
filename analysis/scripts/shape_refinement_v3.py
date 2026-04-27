@@ -598,7 +598,7 @@ def compute_final_impact():
         })
 
     df = pd.DataFrame(rows)
-    df.to_csv(DATA_DIR / "v0_1_boundary_refinement_impact_v3.csv", index=False)
+    df.to_csv(DATA_DIR / "boundary_refinement_impact_v3.csv", index=False)
     return df
 
 
@@ -826,7 +826,7 @@ def main(skip=()):
         "passes_log": passes_log,
         "impact": impact_df.to_dict("records") if impact_df is not None else None,
     }
-    out_log = ANALYSIS_DIR / "v0_1_shape_refinement_v3_log.json"
+    out_log = ANALYSIS_DIR / "shape_refinement_v3_log.json"
     out_log.write_text(json.dumps(summary, indent=2, default=str), encoding="utf-8")
     print("\n=== v3 SUMMARY ===", flush=True)
     print(json.dumps(summary, indent=2, default=str), flush=True)

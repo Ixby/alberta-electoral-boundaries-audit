@@ -11,7 +11,7 @@ Thank you for your interest in contributing! This project is an open, reproducib
 
 ### 1. Challenging a Finding
 This is the most valuable form of contribution. 
-* Every load-bearing finding has a public retraction condition documented in `analysis/methodology/v0_1_retraction_pathway.md`. 
+* Every load-bearing finding has a public retraction condition documented in `analysis/methodology/retraction_pathway.md`. 
 * If you have data or an argument that triggers one of these conditions, please **open an Issue** detailing the finding number (e.g., §5.8.5) and your evidence.
 
 ### 2. Code and Data Corrections

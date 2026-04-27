@@ -36,11 +36,11 @@ computed via geometric intersection and filtered to linear geometry (length > 0)
 **Outputs.**
   data/shapefiles/derived/v0_6_canonical_majority_2026_eds_propagated.gpkg
   data/shapefiles/derived/v0_6_canonical_minority_2026_eds_propagated.gpkg
-  analysis/reports/v0_1_boundary_propagation_log.csv  (per-pair detail)
-  analysis/reports/v0_1_boundary_propagation_summary.json
+  analysis/reports/boundary_propagation_log.csv  (per-pair detail)
+  analysis/reports/boundary_propagation_summary.json
 
 Forward:
-  analysis/scripts/v0_1_phase_4c_va_attribution_maup_v2.py  (consumes derived
+  analysis/scripts/v0_1_assignment_va_attribution_maup_v2.py  (consumes derived
       geometries for MAUP area-weighted attribution)
 Backward:
   analysis/scripts/v0_1_municipal_anchoring.py
@@ -87,8 +87,8 @@ MIN_IN = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anc
 MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_6_canonical_majority_2026_eds_propagated.gpkg"
 MIN_OUT = DATA / "shapefiles" / "derived" / "v0_6_canonical_minority_2026_eds_propagated.gpkg"
 
-LOG_CSV = REPORTS / "v0_1_boundary_propagation_log.csv"
-SUMMARY_JSON = REPORTS / "v0_1_boundary_propagation_summary.json"
+LOG_CSV = REPORTS / "boundary_propagation_log.csv"
+SUMMARY_JSON = REPORTS / "boundary_propagation_summary.json"
 
 # ---------------------------------------------------------------------------
 # Configuration

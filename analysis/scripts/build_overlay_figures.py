@@ -30,13 +30,13 @@ Dependencies
              data/v0_1_approximate_majority_2026_eds.gpkg
              data/v0_1_refined_v5_minority_2026_eds.gpkg  (preferred)
              data/v0_1_refined_v4_minority_2026_eds.gpkg  (fallback)
-             data/v0_1_majority_2026_populations.csv  (89-ED list)
-             data/v0_1_majority_hybrid_crosswalk.csv   (rename lineage)
+             data/majority_2026_populations.csv  (89-ED list)
+             data/majority_hybrid_crosswalk.csv   (rename lineage)
   Backward : maps/article/overlay_calgary.png
              maps/article/overlay_reddeer.png
              maps/article/overlay_airdrie.png
              maps/article/overlay_lethbridge.png
-             analysis/methodology/v0_1_build_overlay_figures.md
+             analysis/methodology/build_overlay_figures.md
 
 Run
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_build_overlay_figures.py
@@ -74,14 +74,14 @@ PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTE
 PATH_MAJ = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
 PATH_MIN_V5 = DATA / "shapefiles" / "derived" / "v0_1_refined_v5_minority_2026_eds.gpkg"
 PATH_MIN_V4 = DATA / "shapefiles" / "derived" / "v0_1_refined_v4_minority_2026_eds.gpkg"
-PATH_MAJ_POPS = DATA / "v0_1_majority_2026_populations.csv"
-PATH_MAJ_XWALK = DATA / "v0_1_majority_hybrid_crosswalk.csv"
+PATH_MAJ_POPS = DATA / "majority_2026_populations.csv"
+PATH_MAJ_XWALK = DATA / "majority_hybrid_crosswalk.csv"
 
 CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest, metres
 
 # Map of 2019 ED -> majority 2026 ED used when the majority gpkg omits the Tier C
 # entry and we want to attribute the 2019 polygon to the renamed 2026 ED.
-# Built lazily from v0_1_majority_hybrid_crosswalk.csv at load time.
+# Built lazily from majority_hybrid_crosswalk.csv at load time.
 
 COLOR_MAJ = "#e87722"     # UCP-ish orange
 COLOR_MIN = "#335c81"     # dusty blue
@@ -201,7 +201,7 @@ SPECS: list[FigSpec] = [
 
 # Where the approximate majority gpkg omits a Tier C 2026 ED, we map the
 # corresponding 2019 polygon(s) onto the 2026 name as a proxy.  Built from
-# v0_1_majority_hybrid_crosswalk.csv + best-guess inheritance for EDs the
+# majority_hybrid_crosswalk.csv + best-guess inheritance for EDs the
 # crosswalk doesn't explicitly list (we just pass the 2019 name through if it
 # equals the 2026 name).
 MAJORITY_TIER_C_2019_PROXIES: dict[str, list[str]] = {

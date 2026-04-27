@@ -8,7 +8,7 @@ and also render the full page at 600 DPI for direct comparison with the prior
 hires/ set. Then we note that rendering above ~400 DPI gives no real new detail,
 only interpolation.
 
-Forward deps: maps/hires_v2/*.png, analysis/reports/v0_1_max_dpi_extract.json
+Forward deps: maps/hires_v2/*.png, analysis/reports/max_dpi_extract.json
 Backward deps: .temp/commission_report.pdf
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -23,7 +23,7 @@ import pymupdf
 ROOT = Path(__file__).resolve().parents[2]
 PDF = ROOT / ".temp" / "commission_report.pdf"
 OUT_DIR = ROOT / "data" / "maps" / "hires_v2"
-OUT_JSON = ROOT / "analysis" / "reports" / "v0_1_max_dpi_extract.json"
+OUT_JSON = ROOT / "analysis" / "reports" / "max_dpi_extract.json"
 
 # Tier-C non-converged EDs from Issue #3 — need extra attention
 # (identified commission map coverage)

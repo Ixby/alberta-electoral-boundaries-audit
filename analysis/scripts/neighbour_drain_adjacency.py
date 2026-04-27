@@ -17,18 +17,18 @@ A genuine partisan-drain signature requires coupling — the same party being
 packed in X and cracked in Y.
 
 Outputs:
-  - analysis/reports/v0_1_neighbour_drain_log.csv (per-pair metadata)
-  - data/v0_1_neighbour_drain_summary.json (aggregate stats)
+  - analysis/reports/neighbour_drain_log.csv (per-pair metadata)
+  - data/neighbour_drain_summary.json (aggregate stats)
   - maps/neighbour_drain_phase_space_{2019,majority,minority}.png (heatmaps)
-  - analysis/reports/v0_1_neighbour_drain_analysis.md (writeup)
+  - analysis/reports/neighbour_drain_analysis.md (writeup)
 
 Author: v0.1 audit pipeline — Test 3A per test-selection-rationale §6.1 /
 apparatus-defense §2.1. Generated 2026-04-24.
 
 Forward deps: report_academic.md §5.3.5 (to be added)
 Backward deps:
-  - analysis/scripts/v0_2_packing_cracking_analysis.py (2026 vote estimates)
-  - data/v0_1_alberta_2023_results.csv (per-ED 2023 two-party totals)
+  - analysis/scripts/packing_cracking_analysis.py (2026 vote estimates)
+  - data/alberta_2023_results.csv (per-ED 2023 two-party totals)
   - data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp (2019 polygons)
   - data/v0_2_canonical_majority_2026_eds_topoclean.gpkg
   - data/v0_2_canonical_minority_2026_eds_topoclean.gpkg
@@ -53,7 +53,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
 # Reuse the existing symmetric estimator so we match §5.3 substrate exactly.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from v0_2_packing_cracking_analysis import (  # noqa: E402
+from packing_cracking_analysis import (  # noqa: E402
     load_2023_results,
     estimate_2026,
     MAJORITY_2026_MAPPING,
@@ -502,7 +502,7 @@ def main() -> None:
         [results[k]['pair_df'] for k in ('2019', 'majority', 'minority')],
         ignore_index=True,
     )
-    log_csv = out_reports_dir / 'v0_1_neighbour_drain_log.csv'
+    log_csv = out_reports_dir / 'neighbour_drain_log.csv'
     all_pairs.to_csv(log_csv, index=False)
     print(f"\nWrote per-pair log: {log_csv}")
 
@@ -543,7 +543,7 @@ def main() -> None:
             summary['2019']['coupled_signals']),
     }
 
-    summary_json = out_data_dir / 'v0_1_neighbour_drain_summary.json'
+    summary_json = out_data_dir / 'neighbour_drain_summary.json'
     with open(summary_json, 'w') as f:
         json.dump(summary, f, indent=2)
     print(f"Wrote summary JSON: {summary_json}")
@@ -555,7 +555,7 @@ def main() -> None:
         print(f"Wrote heatmap: {outpath}")
 
     # --- Writeup markdown ---
-    writeup = out_reports_dir / 'v0_1_neighbour_drain_analysis.md'
+    writeup = out_reports_dir / 'neighbour_drain_analysis.md'
     write_analysis_md(writeup, summary, results)
     print(f"Wrote analysis: {writeup}")
 
@@ -779,7 +779,7 @@ and cracked in Y. A genuine partisan-drain signature requires coupling. We
 report both total and coupled counts.
 
 Vote substrate: 2023 two-party (NDP + UCP) totals per ED, attributed via the
-§5.3 symmetric-blending pipeline (`v0_2_packing_cracking_analysis.py`).
+§5.3 symmetric-blending pipeline (`packing_cracking_analysis.py`).
 
 Shapefiles:
 - 2019: `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
@@ -839,8 +839,8 @@ other two maps across all threshold pairs in the sensitivity grid.
 
 ## Outputs
 
-- Per-pair log: `analysis/reports/v0_1_neighbour_drain_log.csv`
-- Summary JSON: `data/v0_1_neighbour_drain_summary.json`
+- Per-pair log: `analysis/reports/neighbour_drain_log.csv`
+- Summary JSON: `data/neighbour_drain_summary.json`
 - Phase-space plots: `maps/neighbour_drain_phase_space_{{2019,majority,minority}}.png`
 """
     path.write_text(content, encoding='utf-8')
