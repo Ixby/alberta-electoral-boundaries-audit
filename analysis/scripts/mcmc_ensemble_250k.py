@@ -63,8 +63,9 @@ from mcmc_ensemble import (
     seat_results,
     pct_rank,
     plot_metric,
+    autocorrelation_ess,
+    plot_running_mean,
 )
-from mcmc_ensemble_100k import autocorrelation_ess, plot_running_mean
 
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"

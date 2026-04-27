@@ -25,6 +25,18 @@ Following the initial post-audit review (April 26), three major structural refin
 **Registered Tripwire:** The Drain Pattern (Mid-Sized City Integrity). The audit flags an extreme structural anomaly if mid-sized cities (Airdrie, Red Deer, Lethbridge, St. Albert) are split into more than their population-dictated expected seats with >2% area overlap each. This is structurally unjustified by their populations and mirrors the engineered fractionation detected in the 2026 minority recommendation. 
 **Discarded Tripwire:** The Lasso Pattern (Polsby-Popper Compactness). This test was removed from the automated tripwires. As documented in prior retractions, Polsby-Popper discrepancies evaporated under the mathematically-strict `v0_9` substrate. Using a known-brittle metric as a tripwire is scientifically dishonest and has been struck from the evaluation pipeline.
 
+### Change 5 — Clarification on Qualitative Outliers (The "Absolute Magnitude Fallacy")
+**Context:** Critics may falsely claim that updating the minority map's `seats@50/50` metric from 52.8% to 48.31% represents a "shift toward neutrality" or a reversal of the packing finding since it drops below 50%.
+**Defense:** This is the Absolute Magnitude Fallacy. Under the strict statutory constraints of Alberta's mapping rules and the 2023 vote distributions, a perfectly neutral (median) map yields only **46.1%**. Therefore, 48.31% is not "neutral"—it remains an extreme top-1.5% structural outlier (p98.5). The qualitative finding of severe geometric fortification remains absolutely unchanged.
+
+### Change 6 — Effective Sample Size (ESS) vs Autocorrelation
+**Context:** The audit officially reports an Effective Sample Size (ESS) of roughly 375 independent draws extracted from the 250,000 total maps.
+**Defense:** ReCom Markov chains operating on highly-constrained 89-node graphs inherently possess massive autocorrelation (integrated autocorrelation time τ > 300). The audit explicitly recognizes this mathematical reality. This high autocorrelation is precisely *why* the chain was scaled to 250,000 steps instead of the academic standard of 10,000. Extracting 375 perfectly independent draws from 250,000 highly-correlated steps provides statistically robust resolution for the 95th percentile.
+
+### Change 7 — Cryptographic Seeding for Future November Testing
+**Context:** The script `drand_seed.py` was locked to round 6062459 (April 27, 2026).
+**Defense:** This drand seed is exclusively bound to the *future* randomized testing of the forthcoming November 91-seat map. It is explicitly locked on April 27 to pre-commit randomness six months *before* the November data exists. The historical 250k simulation uses deterministic, hardcoded seeds (e.g., Seed 42) to ensure anyone can download the repository and achieve bit-identical mathematical reproduction of the published distributions.
+
 ## Archival and Namespace Clean-Up
 To ensure procedural transparency, all historical code and data artifacts (v0.1 through v0.8) have been preserved in `historical/` subdirectories. The active project namespace has been completely de-versioned. All references to scripts (e.g. `v0_9_cross_election.py` → `cross_election.py`) have been streamlined to maintain a pristine, current-state working directory for independent auditors.
 

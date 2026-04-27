@@ -669,3 +669,82 @@ if __name__ == "__main__":
         n = int(sys.argv[1])
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
     main(n_steps=n)
+
+
+# ---- convergence diagnostics -----------------------------------------------
+
+def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
+    """Compute integrated autocorrelation time and effective sample size.
+
+    Uses the standard n_eff = n / tau formula where
+    tau = 1 + 2 * sum_{k=1..M} rho_k  (Geyer initial positive sequence).
+
+    We truncate the sum at the first lag where rho_k <= 0 (Geyer 1992).
+    """
+    x = np.asarray(x, dtype=float)
+    x = x[~np.isnan(x)]
+    n = len(x)
+    if n < 4:
+        return {"n": int(n), "tau": float("nan"), "n_eff": float("nan"),
+                "max_lag_used": 0}
+
+    x_centered = x - x.mean()
+    var0 = np.dot(x_centered, x_centered) / n
+    if var0 == 0 or not np.isfinite(var0):
+        return {"n": int(n), "tau": float("nan"), "n_eff": float("nan"),
+                "max_lag_used": 0}
+
+    if max_lag is None:
+        max_lag = min(n // 4, 2000)
+
+    # FFT-based autocovariance is faster for long chains
+    # but a simple lag loop is fine at O(n * max_lag) when max_lag is bounded.
+    acf = np.empty(max_lag + 1, dtype=float)
+    acf[0] = 1.0
+    for k in range(1, max_lag + 1):
+        cov = np.dot(x_centered[:-k], x_centered[k:]) / n
+        acf[k] = cov / var0
+
+    # Geyer initial positive sequence: truncate at first k where acf[k] <= 0
+    tau = 1.0
+    used_lag = max_lag
+    for k in range(1, max_lag + 1):
+        if acf[k] <= 0:
+            used_lag = k - 1
+            break
+        tau += 2.0 * acf[k]
+
+    n_eff = n / tau if tau > 0 else float("nan")
+    return {
+        "n": int(n),
+        "tau": float(tau),
+        "n_eff": float(n_eff),
+        "max_lag_used": int(used_lag),
+        "rho_lag_1": float(acf[1]) if max_lag >= 1 else float("nan"),
+        "rho_lag_10": float(acf[10]) if max_lag >= 10 else float("nan"),
+        "rho_lag_100": float(acf[100]) if max_lag >= 100 else float("nan"),
+    }
+
+
+def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
+                      label: str):
+    v = np.asarray(values, dtype=float)
+    v = v[~np.isnan(v)]
+    if len(v) == 0:
+        return
+    idx = np.arange(1, len(v) + 1)
+    rmean = np.cumsum(v) / idx
+
+    fig, ax = plt.subplots(figsize=(9, 4.5))
+    ax.plot(idx, rmean, color="#1f2937", linewidth=1.0)
+    ax.axhline(v.mean(), linestyle="--", color="#888", linewidth=0.8,
+               label=f"final mean = {v.mean():+.5f}")
+    ax.set_xlabel("Sample index")
+    ax.set_ylabel(f"Running mean of {label}")
+    ax.set_title(f"Running mean — {label}  (100k ReCom samples, seed 42)")
+    ax.grid(axis="both", linestyle=":", linewidth=0.5, alpha=0.6)
+    ax.legend(loc="best", fontsize=9)
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=130)
+    plt.close(fig)
+
