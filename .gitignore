@@ -38,5 +38,11 @@ data/mcmc_checkpoints_*/
 # MCMC raw sample CSVs >100MB — keep percentiles + diagnostics + log instead
 data/v0_1_mcmc_ensemble_samples_*.csv
 
+# OSM debug-only raw Overpass JSONs — the GPKG (3x smaller) is the
+# canonical committed cache; the JSON preserves raw tag dictionaries for
+# future filtering work and is regenerated on demand by
+# analysis/scripts/_fetch_osm_natural.py.
+data/osm/*.json
+
 # Outreach emails — drafts and sent log; never committed (contain personal contact details)
 emails/
