@@ -102,9 +102,7 @@ from shapely.geometry import (
 from shapely.ops import linemerge, nearest_points, unary_union
 from shapely import make_valid
 
-warnings.filterwarnings("ignore", category=FutureWarning)
-warnings.filterwarnings("ignore", category=UserWarning, module="geopandas")
-warnings.filterwarnings("ignore", message=".*GEOS.*")
+# Warnings are no longer globally suppressed to ensure geometry validity issues are visible
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
@@ -127,8 +125,6 @@ SUMMARY_JSON = DATA / "v0_1_municipal_anchoring_summary.json"
 
 # Snapping configuration
 SNAP_TOL_M = 500.0        # max vertex-to-municipal-edge distance for snapping
-DA_SNAP_TOL_M = 150.0     # reference only — DA edges are added to the same network;
-                           # actual snapping still uses SNAP_TOL_M for all edges
 MIN_SEGMENT_COVERAGE_M = 1000.0  # min contiguous snapped length to count as anchored segment
 VERTEX_DENSIFY_M = 50.0   # re-densify boundary to this spacing before snapping
 
@@ -622,7 +618,6 @@ def main():
     summary = {
         "method": {
             "snap_tolerance_m": SNAP_TOL_M,
-            "da_snap_tol_m_reference": DA_SNAP_TOL_M,
             "vertex_densify_m": VERTEX_DENSIFY_M,
             "min_segment_coverage_m": MIN_SEGMENT_COVERAGE_M,
             "da_supplemented": USE_DA_SUPPLEMENT and DA_GPKG.exists(),

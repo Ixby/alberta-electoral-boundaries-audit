@@ -399,94 +399,41 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
     frozen_districts = set()
     
     if frozen_districts:
-        if verbose:
-            print(f"  Freezing {len(frozen_districts)} s15(2) districts exceeding pop deviation: {frozen_districts}")
-        
-        # Pull assignment dict from initial_state
-        if hasattr(initial_state, "assignment"):
-            assign_dict = dict(initial_state.assignment)
-        else:
-            assign_dict = initial_state
-            
-        frozen_nodes = {n for n in graph.nodes if assign_dict[n] in frozen_districts}
-        subgraph = graph.subgraph([n for n in graph.nodes if n not in frozen_nodes]).copy()
-        
-        # Save fixed vote totals for frozen districts
-        frozen_ucp = {dist: initial_partition["ucp"][dist] for dist in frozen_districts}
-        frozen_ndp = {dist: initial_partition["ndp"][dist] for dist in frozen_districts}
-        
-        # Re-instantiate partition on subgraph
-        sub_assign = {n: assign_dict[n] for n in subgraph.nodes}
-        initial_partition = Partition(subgraph, sub_assign, my_updaters)
-        num_dist_mcmc = len(set(sub_assign.values()))
-        pop_mcmc = sum(subgraph.nodes[n]["pop_2021"] for n in subgraph.nodes)
-        ideal_pop_mcmc = pop_mcmc / num_dist_mcmc
-        
-        if verbose:
-            print(f"  Subgraph built: {num_dist_mcmc} districts, {len(subgraph.nodes)} VAs. New ideal pop: {ideal_pop_mcmc:,.0f}")
-            
-        # Run tight seed generation ONLY if the unfrozen subgraph STILL violates the envelope
-        sub_pops = list(initial_partition["population"].values())
-        if sub_pops:
-            sub_min_p, sub_max_p = min(sub_pops), max(sub_pops)
-            sub_max_indiv_dev = max(abs(sub_max_p - ideal_pop_mcmc), abs(sub_min_p - ideal_pop_mcmc)) / ideal_pop_mcmc
-            if sub_max_indiv_dev > pop_deviation:
-                if verbose:
-                    print(f"  Unfrozen subgraph exceeds +/-{pop_deviation:.0%} rule (max dev {sub_max_indiv_dev:.2%}).")
-                    print("  Generating fresh tight seed for unfrozen districts via recursive_tree_part...")
-                from functools import partial as _partial
-                from gerrychain.tree import bipartition_tree as _bpt
-                import random as _random
-                _rng_state_np = np.random.get_state()
-                _rng_state_py = _random.getstate()
-                np.random.seed(seed + 999)
-                _random.seed(seed + 999)
-                new_assignment = recursive_tree_part(
-                    subgraph,
-                    parts=list(set(sub_assign.values())),
-                    pop_target=ideal_pop_mcmc,
-                    pop_col="pop_2021",
-                    epsilon=pop_deviation / 2.0,
-                    node_repeats=5,
-                    method=_partial(_bpt, max_attempts=50000),
-                )
-                np.random.set_state(_rng_state_np)
-                _random.setstate(_rng_state_py)
-                initial_partition = Partition(subgraph, new_assignment, my_updaters)
-    else:
-        frozen_ucp = {}
-        frozen_ndp = {}
-        ideal_pop_mcmc = ideal_pop
+        raise NotImplementedError("Subgraph freezing is currently unsupported.")
 
-        # Original pre-Gemini-freeze fallback: if the 2019 seed exceeds the
-        # MCMC tolerance, regenerate a tight seed via recursive_tree_part on
-        # the FULL graph. Restored 2026-04-26 evening because the Gemini
-        # subgraph-freeze approach left this code path unreachable; without
-        # it, the chain rejects the high-deviation 2019 seed immediately.
-        if seed_max_indiv_dev > pop_deviation:
-            if verbose:
-                print(f"  2019 seed exceeds +/-{pop_deviation:.0%} rule "
-                      f"(max dev {seed_max_indiv_dev:.2%}); generating fresh tight seed "
-                      f"via recursive_tree_part on full graph...")
-            from functools import partial as _partial
-            from gerrychain.tree import bipartition_tree as _bpt
-            import random as _random
-            _rng_state_np = np.random.get_state()
-            _rng_state_py = _random.getstate()
-            np.random.seed(seed + 999)
-            _random.seed(seed + 999)
-            new_assignment = recursive_tree_part(
-                graph,
-                parts=list(range(num_dist)),
-                pop_target=ideal_pop,
-                pop_col="pop_2021",
-                epsilon=pop_deviation / 2.0,
-                node_repeats=5,
-                method=_partial(_bpt, max_attempts=50000),
-            )
-            np.random.set_state(_rng_state_np)
-            _random.setstate(_rng_state_py)
-            initial_partition = Partition(graph, new_assignment, my_updaters)
+    frozen_ucp = {}
+    frozen_ndp = {}
+    ideal_pop_mcmc = ideal_pop
+
+    # Original pre-Gemini-freeze fallback: if the 2019 seed exceeds the
+    # MCMC tolerance, regenerate a tight seed via recursive_tree_part on
+    # the FULL graph. Restored 2026-04-26 evening because the Gemini
+    # subgraph-freeze approach left this code path unreachable; without
+    # it, the chain rejects the high-deviation 2019 seed immediately.
+    if seed_max_indiv_dev > pop_deviation:
+        if verbose:
+            print(f"  2019 seed exceeds +/-{pop_deviation:.0%} rule "
+                  f"(max dev {seed_max_indiv_dev:.2%}); generating fresh tight seed "
+                  f"via recursive_tree_part on full graph...")
+        from functools import partial as _partial
+        from gerrychain.tree import bipartition_tree as _bpt
+        import random as _random
+        _rng_state_np = np.random.get_state()
+        _rng_state_py = _random.getstate()
+        np.random.seed(seed + 999)
+        _random.seed(seed + 999)
+        new_assignment = recursive_tree_part(
+            graph,
+            parts=list(range(num_dist)),
+            pop_target=ideal_pop,
+            pop_col="pop_2021",
+            epsilon=pop_deviation / 2.0,
+            node_repeats=5,
+            method=_partial(_bpt, max_attempts=50000),
+        )
+        np.random.set_state(_rng_state_np)
+        _random.setstate(_rng_state_py)
+        initial_partition = Partition(graph, new_assignment, my_updaters)
 
     proposal = partial(
         recom,
@@ -519,11 +466,6 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
         keys = list(part.parts.keys())
         ucp_list = [part["ucp"][k] for k in keys]
         ndp_list = [part["ndp"][k] for k in keys]
-        
-        # Inject fixed totals from frozen s15(2) districts
-        for dist in frozen_ucp:
-            ucp_list.append(frozen_ucp[dist])
-            ndp_list.append(frozen_ndp[dist])
 
         ucp = np.array(ucp_list, dtype=float)
         ndp = np.array(ndp_list, dtype=float)
