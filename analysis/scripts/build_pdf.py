@@ -553,11 +553,18 @@ hr + p.lede {
   margin-top: 1.0em;
 }
 
-/* ----- Links ----- */
+/* ----- Links -----
+   Underline: 0.8pt solid #1a1a1a (the body-text colour) so the link
+   marker survives a grayscale render on e-ink readers (Kindle, Kobo,
+   reMarkable). Pre-2026-04-27 the underline was 0.5pt #b56a6a (a faint
+   pink) which collapses to a near-invisible gray on monochrome devices;
+   the link colour #7a1f1f also collapses to mid-gray on grayscale, so
+   underline carries the link signal on e-ink while colour carries it on
+   print/screen. */
 a {
   color: #7a1f1f;
   text-decoration: none;
-  border-bottom: 0.5pt solid #b56a6a;
+  border-bottom: 0.8pt solid #1a1a1a;
   text-underline-offset: 2pt;
 }
 
