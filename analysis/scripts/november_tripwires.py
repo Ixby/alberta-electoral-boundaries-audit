@@ -36,7 +36,7 @@ def run_tripwires(eds_gdf_path, cities_gdf_path=None):
     # ---------------------------------------------------------
     # TRIPWIRE 1: Mid-Sized City Integrity (The Drain Pattern)
     # ---------------------------------------------------------
-    print("\n[Tripwire 2: The Drain Pattern (City Splitting)]")
+    print("\n[Tripwire 1: The Drain Pattern (City Splitting)]")
     
     if cities_gdf_path and os.path.exists(cities_gdf_path):
         cities = gpd.read_file(cities_gdf_path)
