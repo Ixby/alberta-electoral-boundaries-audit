@@ -337,6 +337,16 @@ def build_cover_art() -> Path:
         linewidth=0.20,
     )
 
+    # 4d. Provincial outline: dissolve all EDs to a single Alberta polygon
+    #     and trace its outer edge in the same accent red as the title's
+    #     period so the silhouette pops off the grey backdrop.
+    province = eds.dissolve()
+    province.boundary.plot(
+        ax=ax,
+        edgecolor="#7a1f1f",   # title-accent red
+        linewidth=0.65,
+    )
+
     ax.margins(0.005)
     plt.tight_layout(pad=0)
 
