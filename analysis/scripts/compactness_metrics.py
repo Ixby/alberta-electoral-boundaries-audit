@@ -169,12 +169,13 @@ def schwartzberg_score(area_m2: float, perimeter_m: float) -> float:
 
 
 def percentile_rank(values: List[float], value: float) -> float:
-    """Return percentile rank (0–100) of `value` within `values`."""
+    """Return percentile rank (0–100) of `value` within `values` (midrank)."""
     n = len(values)
     if n == 0:
         return 0.0
     count_below = sum(1 for v in values if v < value)
-    return 100.0 * count_below / n
+    count_equal = sum(1 for v in values if v == value)
+    return 100.0 * (count_below + 0.5 * count_equal) / n
 
 
 # ---------------------------------------------------------------------------

@@ -183,7 +183,9 @@ def seat_results(
     province_ucp = ucp.sum() / two_party_total.sum()
     swing = 0.5 - province_ucp
     shifted = np.clip(ucp_share + swing, 0.0, 1.0)
-    ucp_wins_at_50 = int((shifted > 0.5 + 1e-9).sum())
+    wins = (shifted > 0.5 + 1e-9).sum()
+    ties = (np.abs(shifted - 0.5) <= 1e-9).sum()
+    ucp_wins_at_50 = float(wins + 0.5 * ties)
     seats_at_50_50 = ucp_wins_at_50 / n
 
     return dict(
@@ -317,7 +319,7 @@ def score_exogenous_map(va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str =
 # ---- Ensemble ---------------------------------------------------------------
 
 def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float = 0.25,
-                 verbose: bool = True, return_final_partition: bool = False):
+                 verbose: bool = True, return_final_partition: bool = False, seed: int = 42):
     """Run ReCom chain for n_steps; return list of per-step metric dicts.
 
     pop_deviation: maximum allowed fractional deviation from ideal per district. The
@@ -437,8 +439,8 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
                 import random as _random
                 _rng_state_np = np.random.get_state()
                 _rng_state_py = _random.getstate()
-                np.random.seed(42)
-                _random.seed(42)
+                np.random.seed(seed + 999)
+                _random.seed(seed + 999)
                 new_assignment = recursive_tree_part(
                     subgraph,
                     parts=list(set(sub_assign.values())),
@@ -471,8 +473,8 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
             import random as _random
             _rng_state_np = np.random.get_state()
             _rng_state_py = _random.getstate()
-            np.random.seed(42)
-            _random.seed(42)
+            np.random.seed(seed + 999)
+            _random.seed(seed + 999)
             new_assignment = recursive_tree_part(
                 graph,
                 parts=list(range(num_dist)),
@@ -594,7 +596,9 @@ def plot_metric(metric_key: str, metric_label: str, ensemble_values: np.ndarray,
 
 # ---- Orchestration ----------------------------------------------------------
 
-def main(n_steps: int = 5000, seed: int = 42):
+def main(n_steps: int = 5000, seed: int = None):
+    from drand_seed import get_canonical_seed
+    seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble")
     np.random.seed(seed)
     import random as _random
     _random.seed(seed)
@@ -639,8 +643,8 @@ def main(n_steps: int = 5000, seed: int = 42):
 
     # -- Run chain
     print()
-    print(f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps)...")
-    rows = run_ensemble(graph, assignment, n_steps)
+    print(f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps, seed {seed})...")
+    rows = run_ensemble(graph, assignment, n_steps, seed=seed)
     df = pd.DataFrame(rows)
     df.to_csv(SAMPLES_CSV, index=False)
     print(f"  wrote {SAMPLES_CSV} ({len(df)} samples)")
