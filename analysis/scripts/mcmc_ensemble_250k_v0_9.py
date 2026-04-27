@@ -155,7 +155,7 @@ def _run_chain_chunked(args):
         rows, current_state = run_ensemble(
             graph, current_state, chunk_steps,
             pop_deviation=pop_deviation, verbose=False,
-            return_final_partition=True,
+            return_final_partition=True, seed=chain_seed,
         )
         for r in rows:
             r["chain"] = chain_idx
@@ -193,8 +193,10 @@ def _select_v9(plan: str):
         return MIN_V9_PATH, "minority 2026 v0_9 topological"
 
 
-def main(n_steps: int = 250000, seed: int = 42, pop_deviation: float = 0.25,
+def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
          n_chains: int = 4, chunk_size: int = 5000):
+    from drand_seed import get_canonical_seed
+    seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble_250k_v0_9")
     np.random.seed(seed)
     import random as _random
     _random.seed(seed)
