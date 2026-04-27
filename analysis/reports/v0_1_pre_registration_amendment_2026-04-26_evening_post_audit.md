@@ -86,5 +86,21 @@ The next file in this sequence will be `v0_1_post_audit_recompute_deltas.md` (cr
 - Findings memo with verification status and remediation: `analysis/methodology/v0_1_external_code_audit_findings_gemini_2026-04-26.md`
 - Remediation commit: `73544a3` ([github](https://github.com/Ixby/alberta-electoral-boundaries-audit/commit/73544a3))
 - Buggy-version artefacts preserved at `data/*.buggy_pre_audit_2026-04-26.*` and `data/mcmc_checkpoints_250k_v0_8.buggy_pre_audit_2026-04-26/`
-- Post-audit re-run log: `analysis/reports/v0_1_mcmc_2M_post_audit_rerun.log` (in progress at filing time)
-- Forthcoming: `analysis/reports/v0_1_post_audit_recompute_deltas.md` (will be created when re-run completes)
+- Post-audit re-run log: `analysis/reports/v0_1_mcmc_2M_post_audit_rerun.killed_at_400k_per_chain.log` (cancelled mid-run; see postscript below)
+- `analysis/reports/v0_1_post_audit_recompute_deltas.md` (created post-100k-rerun)
+
+---
+
+## Postscript — recalibration to the pre-registered 100k baseline (2026-04-26 late-evening)
+
+After this amendment was filed, three additional events shifted the methodology:
+
+1. **Gemini Part 4-5 + a separate Gemini design review** (logged in `analysis/methodology/v0_1_external_code_audit_findings_gemini_2026-04-26.md` and `analysis/reports/gemini_code_audit_findings.md`) confirmed the per-chain ESS + Gelman-Rubin Rhat diagnostics on the partial 2M run at 480k samples (24% complete) showed gold-standard convergence already (Rhat 1.0001-1.0018 across all four metrics). 2M was determined to be statistical overkill.
+
+2. **The v0_9 topological VA-dissolve** (atomic-assembly resolver authored by Gemini 3.1 Pro and committed at `7cf47a4`) produced a planar partition with zero overlapping coverage, fully eliminating the 81/95 pixel-traced polygon overlaps without requiring official-shapefile release. This addressed the largest single source of uncertainty in the audit's geometric pipeline. Re-scoring real maps against v0_9 produced material headline-shifting deltas (minority `seats@50/50` 0.5422 → 0.4831).
+
+3. **Recalibration decision**: the audit recalibrated back to the pre-registered 100k baseline ensemble. The 2M run was cancelled at 1.6M samples (80% complete) and the 100k baseline restarted from scratch on the corrected pipeline + v0_9-aware substrate. Rationale: the morning amendment's Bucket-A enlargement to 2M was a defensibility experiment whose primary motivation (tighter percentile confidence intervals) is overstated when convergence is already at gold-standard at much smaller sample sizes; reverting to the pre-registered 100k restores methodological discipline. The cancelled 2M partial samples are preserved at `data/mcmc_checkpoints_partial_2m_killed_2026-04-26/` for any future curiosity-driven re-analysis.
+
+**Net effect on the pre-registration**: the morning amendment's Bucket-A change 1 ("MCMC ensemble enlargement: 100,000 → 2,000,000 maps") is rescinded. Ensemble size returns to 100,000. The Bucket-A claim of "100k → 250k → 1M → 2M produced consistent percentile placements within ±0.5pp" remains true historically but is no longer the basis of the published headline.
+
+**Updated AI-use disclosure** (cf. the public report's Behind-the-audit section): Gemini 3.1 Pro (Google) is added alongside Claude (Anthropic) as a load-bearing AI contributor. Five passes of independent adversarial code review (Parts 1-5 of the findings memo plus the design review and the topological resolver) were authored by Gemini. Total bug findings: nine, all remediated.

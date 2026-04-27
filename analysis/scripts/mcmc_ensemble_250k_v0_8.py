@@ -249,7 +249,7 @@ def main(n_steps: int = 250000, seed: int = 42, pop_deviation: float = 0.25,
 
     with ProcessPoolExecutor(max_workers=n_chains) as ex:
         for completed_path in ex.map(_run_chain_chunked, work_items):
-            print(f"  ↳ chain file ready: {Path(completed_path).name}", flush=True)
+            print(f"  -> chain file ready: {Path(completed_path).name}", flush=True)
 
     # Concatenate per-chain CSVs into the canonical samples file
     parts = [pd.read_csv(p) for p in chain_paths if p.exists()]

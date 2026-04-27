@@ -155,3 +155,35 @@ a different pair of districts for recombination.
   [chain 2] chunk 16/25 (20000 samples in 352s) → chain2_samples.csv
   [chain 1] chunk 17/25 (20000 samples in 353s) → chain1_samples.csv
   [chain 3] chunk 17/25 (20000 samples in 361s) → chain3_samples.csv
+  [chain 2] chunk 17/25 (20000 samples in 360s) → chain2_samples.csv
+  [chain 0] chunk 17/25 (20000 samples in 374s) → chain0_samples.csv
+  [chain 1] chunk 18/25 (20000 samples in 334s) → chain1_samples.csv
+  [chain 3] chunk 18/25 (20000 samples in 308s) → chain3_samples.csv
+  [chain 2] chunk 18/25 (20000 samples in 305s) → chain2_samples.csv
+  [chain 0] chunk 18/25 (20000 samples in 312s) → chain0_samples.csv
+  [chain 1] chunk 19/25 (20000 samples in 284s) → chain1_samples.csv
+  [chain 3] chunk 19/25 (20000 samples in 275s) → chain3_samples.csv
+  [chain 2] chunk 19/25 (20000 samples in 283s) → chain2_samples.csv
+  [chain 0] chunk 19/25 (20000 samples in 278s) → chain0_samples.csv
+  [chain 3] chunk 20/25 (20000 samples in 299s) → chain3_samples.csv
+  [chain 1] chunk 20/25 (20000 samples in 319s) → chain1_samples.csv
+  [chain 0] chunk 20/25 (20000 samples in 305s) → chain0_samples.csv
+  [chain 2] chunk 20/25 (20000 samples in 312s) → chain2_samples.csv
+Traceback (most recent call last):
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_mcmc_ensemble_250k_v0_8.py", line 358, in <module>
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\v0_1_mcmc_ensemble_250k_v0_8.py", line 241, in main
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\process.py", line 617, in _chain_from_iterable_of_lists
+    for element in iterable:
+                   ^^^^^^^^
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 639, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 311, in _result_or_cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 450, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.
