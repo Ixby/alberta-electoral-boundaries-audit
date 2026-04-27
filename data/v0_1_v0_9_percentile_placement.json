@@ -1,0 +1,154 @@
+{
+  "v0_8_minority": {
+    "efficiency_gap": {
+      "real_value": 0.09207674180701376,
+      "percentile": 100.0,
+      "ensemble_p5": -0.0107788882823624,
+      "ensemble_p50": 0.0144256372775718,
+      "ensemble_p95": 0.0390241968684471,
+      "ensemble_p99": 0.0501060980891047,
+      "ensemble_max": 0.0645774606652057
+    },
+    "mean_median": {
+      "real_value": -0.009697961790394616,
+      "percentile": 85.126,
+      "ensemble_p5": -0.029905744372932003,
+      "ensemble_p50": -0.01809701908934695,
+      "ensemble_p95": -0.004191515150891816,
+      "ensemble_p99": 0.003766315320413209,
+      "ensemble_max": 0.0142573256813344
+    },
+    "declination": {
+      "real_value": -0.06662214758176674,
+      "percentile": 2.176,
+      "ensemble_p5": -0.051629170043184874,
+      "ensemble_p50": 0.00436022700291725,
+      "ensemble_p95": 0.05655563432277344,
+      "ensemble_p99": 0.07782725510440887,
+      "ensemble_max": 0.1208051414542352
+    },
+    "seats_at_50_50": {
+      "real_value": 0.5421686746987951,
+      "percentile": 100.0,
+      "ensemble_p5": 0.425287356321839,
+      "ensemble_p50": 0.4482758620689655,
+      "ensemble_p95": 0.4827586206896552,
+      "ensemble_p99": 0.4942528735632184,
+      "ensemble_max": 0.5057471264367817
+    }
+  },
+  "v0_9_minority": {
+    "efficiency_gap": {
+      "real_value": 0.017455936485701956,
+      "percentile": 57.54,
+      "ensemble_p5": -0.0107788882823624,
+      "ensemble_p50": 0.0144256372775718,
+      "ensemble_p95": 0.0390241968684471,
+      "ensemble_p99": 0.0501060980891047,
+      "ensemble_max": 0.0645774606652057
+    },
+    "mean_median": {
+      "real_value": -0.017938114847363518,
+      "percentile": 50.962,
+      "ensemble_p5": -0.029905744372932003,
+      "ensemble_p50": -0.01809701908934695,
+      "ensemble_p95": -0.004191515150891816,
+      "ensemble_p99": 0.003766315320413209,
+      "ensemble_max": 0.0142573256813344
+    },
+    "declination": {
+      "real_value": 0.010510016514877743,
+      "percentile": 58.389,
+      "ensemble_p5": -0.051629170043184874,
+      "ensemble_p50": 0.00436022700291725,
+      "ensemble_p95": 0.05655563432277344,
+      "ensemble_p99": 0.07782725510440887,
+      "ensemble_max": 0.1208051414542352
+    },
+    "seats_at_50_50": {
+      "real_value": 0.48314606741573035,
+      "percentile": 98.574,
+      "ensemble_p5": 0.425287356321839,
+      "ensemble_p50": 0.4482758620689655,
+      "ensemble_p95": 0.4827586206896552,
+      "ensemble_p99": 0.4942528735632184,
+      "ensemble_max": 0.5057471264367817
+    }
+  },
+  "v0_8_majority": {
+    "efficiency_gap": {
+      "real_value": 0.06431336476984474,
+      "percentile": 99.986,
+      "ensemble_p5": -0.0107788882823624,
+      "ensemble_p50": 0.0144256372775718,
+      "ensemble_p95": 0.0390241968684471,
+      "ensemble_p99": 0.0501060980891047,
+      "ensemble_max": 0.0645774606652057
+    },
+    "mean_median": {
+      "real_value": -0.018158061174911366,
+      "percentile": 49.629,
+      "ensemble_p5": -0.029905744372932003,
+      "ensemble_p50": -0.01809701908934695,
+      "ensemble_p95": -0.004191515150891816,
+      "ensemble_p99": 0.003766315320413209,
+      "ensemble_max": 0.0142573256813344
+    },
+    "declination": {
+      "real_value": -0.01175738654996796,
+      "percentile": 35.078,
+      "ensemble_p5": -0.051629170043184874,
+      "ensemble_p50": 0.00436022700291725,
+      "ensemble_p95": 0.05655563432277344,
+      "ensemble_p99": 0.07782725510440887,
+      "ensemble_max": 0.1208051414542352
+    },
+    "seats_at_50_50": {
+      "real_value": 0.4367816091954023,
+      "percentile": 23.554,
+      "ensemble_p5": 0.425287356321839,
+      "ensemble_p50": 0.4482758620689655,
+      "ensemble_p95": 0.4827586206896552,
+      "ensemble_p99": 0.4942528735632184,
+      "ensemble_max": 0.5057471264367817
+    }
+  },
+  "v0_9_majority": {
+    "efficiency_gap": {
+      "real_value": 0.01436228021483706,
+      "percentile": 49.808,
+      "ensemble_p5": -0.0107788882823624,
+      "ensemble_p50": 0.0144256372775718,
+      "ensemble_p95": 0.0390241968684471,
+      "ensemble_p99": 0.0501060980891047,
+      "ensemble_max": 0.0645774606652057
+    },
+    "mean_median": {
+      "real_value": -0.007854675550633905,
+      "percentile": 89.934,
+      "ensemble_p5": -0.029905744372932003,
+      "ensemble_p50": -0.01809701908934695,
+      "ensemble_p95": -0.004191515150891816,
+      "ensemble_p99": 0.003766315320413209,
+      "ensemble_max": 0.0142573256813344
+    },
+    "declination": {
+      "real_value": -0.028228298763724593,
+      "percentile": 18.265,
+      "ensemble_p5": -0.051629170043184874,
+      "ensemble_p50": 0.00436022700291725,
+      "ensemble_p95": 0.05655563432277344,
+      "ensemble_p99": 0.07782725510440887,
+      "ensemble_max": 0.1208051414542352
+    },
+    "seats_at_50_50": {
+      "real_value": 0.4606741573033708,
+      "percentile": 76.876,
+      "ensemble_p5": 0.425287356321839,
+      "ensemble_p50": 0.4482758620689655,
+      "ensemble_p95": 0.4827586206896552,
+      "ensemble_p99": 0.4942528735632184,
+      "ensemble_max": 0.5057471264367817
+    }
+  }
+}

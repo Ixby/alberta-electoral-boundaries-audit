@@ -30,17 +30,24 @@ import pypdf
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ALBERTA_EDS = REPO_ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
 DERIVED = REPO_ROOT / "data" / "shapefiles" / "derived"
-# Prefer v0_8 refined → v0_8 canonical → v0_7 canonical for the boundary art
+# Prefer v0_9 (topological VA-dissolve, gapless by construction) →
+# v0_8 refined → v0_8 canonical → v0_7 canonical
 APPROX_MAJ_CANDIDATES = [
+    DERIVED / "v0_9_topological_majority_2026_eds.gpkg",
     DERIVED / "v0_8_refined_majority_2026_eds.gpkg",
     DERIVED / "v0_8_canonical_majority_2026_eds.gpkg",
     DERIVED / "v0_7_canonical_majority_2026_eds.gpkg",
 ]
 APPROX_MIN_CANDIDATES = [
+    DERIVED / "v0_9_topological_minority_2026_eds.gpkg",
     DERIVED / "v0_8_refined_minority_2026_eds.gpkg",
     DERIVED / "v0_8_canonical_minority_2026_eds.gpkg",
     DERIVED / "v0_7_canonical_minority_2026_eds.gpkg",
 ]
+# Phase 4C VA→2026-ED assignments (conservation-exact crosswalk authored by
+# the topological resolver). Used by the heatmap fill to assign each VA
+# its parent 2026 ED.
+VA_TO_2026_ASSIGNMENTS = REPO_ROOT / "analysis" / "phase_4c_va_to_2026_assignments.csv"
 
 COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
 OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article (the only PDF in the repo root)
@@ -212,10 +219,7 @@ def build_cover_art() -> Path:
     # 3. Direct UCP-blue → NDP-orange interpolation. The norm window is
     #    narrowed so only genuinely-competitive districts (45–55% UCP)
     #    occupy the mid-tone band; anything beyond that snaps to a fully
-    #    saturated party colour. The wider vmin=0.30/vmax=0.70 produced
-    #    a steel-grey wash across most of rural Alberta because the
-    #    median ED is ~59% UCP, which sat mid-ramp. The narrow window
-    #    pushes 65%+ UCP ridings to deep blue and keeps the cover vivid.
+    #    saturated party colour.
     ndp_orange = (0.92, 0.45, 0.10)
     ucp_blue   = (0.13, 0.36, 0.62)
     cmap = mcolors.LinearSegmentedColormap.from_list(
@@ -223,31 +227,150 @@ def build_cover_art() -> Path:
     )
     norm = mcolors.Normalize(vmin=0.45, vmax=0.55, clip=True)
 
-    # 4. Render — ED polygons in their actual positions. Background matches
-    #    the cover HTML's ivory (#f5ede0) so the inevitable sliver-gaps
-    #    between adjacent v0_8 reconstructed polygons fill seamlessly into
-    #    the cover layout instead of showing through as transparent grey.
+    # 4. Render — VA-level fill with population-density lightness modulation.
+    #    Each VA gets the partisan colour of its assigned 2026 ED (hue), and
+    #    a lightness scaled by VA-local population density (paler = sparse,
+    #    darker = dense). This gives the reader two signals in a single
+    #    image: the partisan-leaning hue (blue/orange) and the population-
+    #    centre heatmap (where within an ED the people actually are). The
+    #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
+    #    the 89-district structure remains visible.
     cover_ivory = "#f5ede0"
-    fig, ax = plt.subplots(figsize=(6, 9), dpi=300)
+    # Three-tile composition: v0_7 outline ghost (left), v0_9 colored
+    # heatmap (centre, focal), v0_8 outline ghost (right). The two
+    # ghosts are a visual record of how the audit's reconstruction
+    # refined from pixel-traced boundaries (v0_7) through manual
+    # refinement (v0_8) to the topological VA-dissolve (v0_9). Reader
+    # sees three versions side-by-side; the centre tile is the result
+    # the article actually uses.
+    fig, (ax_l, ax, ax_r) = plt.subplots(
+        1, 3, figsize=(7.0, 9), dpi=300,
+        gridspec_kw={"width_ratios": [1, 3.2, 1], "wspace": 0.02},
+    )
     fig.patch.set_facecolor(cover_ivory)
-    ax.set_facecolor(cover_ivory)
-    ax.set_aspect("equal")
-    ax.axis("off")
+    for _ax in (ax_l, ax, ax_r):
+        _ax.set_facecolor(cover_ivory)
+        _ax.set_aspect("equal")
+        _ax.axis("off")
 
-    # After the centroid-join + crosswalk + nearest-VA cascade above, every
-    # ED should have a vote-share fill. The grey safety colour is retained
-    # only as a last-resort if a row genuinely has zero votes after all
-    # three passes — which should not happen on the live cover.
-    no_vote_color = "#cfcbc4"
-    eds["_fill"] = [
-        mcolors.to_hex(cmap(norm(s))) if t > 0 else no_vote_color
-        for s, t in zip(eds["ucp_share"], eds["total"])
+    # Render the side-tile ghosts: outlines only, faint grey, no fill.
+    # Use the same shapely projection (3401) for visual continuity.
+    GHOST_LINE = "#7a7166"  # warm taupe — shows on ivory without competing
+    GHOST_LW = 0.18
+    GHOST_ALPHA = 0.55
+    v07_path = DERIVED / "v0_7_canonical_minority_2026_eds.gpkg"
+    v08_path = DERIVED / "v0_8_full_refined_minority_2026_eds.gpkg"
+    if v07_path.exists():
+        v07 = gpd.read_file(v07_path).to_crs(3401)
+        v07.boundary.plot(ax=ax_l, color=GHOST_LINE,
+                          linewidth=GHOST_LW, alpha=GHOST_ALPHA)
+    ax_l.text(0.5, 0.02, "v0.7", transform=ax_l.transAxes,
+              ha="center", va="bottom", fontsize=8,
+              color=GHOST_LINE, family="serif", style="italic")
+    if v08_path.exists():
+        v08 = gpd.read_file(v08_path).to_crs(3401)
+        v08.boundary.plot(ax=ax_r, color=GHOST_LINE,
+                          linewidth=GHOST_LW, alpha=GHOST_ALPHA)
+    ax_r.text(0.5, 0.02, "v0.8", transform=ax_r.transAxes,
+              ha="center", va="bottom", fontsize=8,
+              color=GHOST_LINE, family="serif", style="italic")
+    # Centre-tile label is shown as part of the main render footer
+    # (article references "v0_9" explicitly in the methodology).
+
+    # Build the per-VA dataframe with parent-2026-ED + per-VA partisan hue
+    import pandas as pd
+    if VA_TO_2026_ASSIGNMENTS.exists():
+        assignments = pd.read_csv(VA_TO_2026_ASSIGNMENTS)
+        # Build the va_id key the assignments file uses (same recipe as
+        # the topological_shape_resolution.py script).
+        va["va_id"] = va["parent_ed_2019"].astype(str) + "|" + \
+                       va["VA_NUMBER"].astype(str).str.zfill(3)
+        va_render = va.merge(
+            assignments[["va_id", "assigned_2026_minority"]],
+            on="va_id", how="left",
+        )
+        # Look up the parent ED's UCP share for hue
+        ucp_share_lookup = dict(zip(eds[name_col], eds["ucp_share"]))
+        va_render["parent_ucp_share"] = va_render["assigned_2026_minority"].map(
+            ucp_share_lookup
+        ).fillna(0.5)
+    else:
+        # Fall back to centroid-in-polygon assignment if the Phase 4C CSV
+        # isn't present (degraded but functional path).
+        print(f"[build_cover] WARN: {VA_TO_2026_ASSIGNMENTS.name} missing; "
+              f"falling back to centroid-in-polygon assignment for VA hues")
+        va_centroids_pts = gpd.GeoDataFrame(
+            {}, geometry=va.geometry.centroid, crs=3401
+        )
+        va_centroids_pts["_idx"] = range(len(va_centroids_pts))
+        joined = gpd.sjoin(
+            va_centroids_pts, eds[[name_col, "ucp_share", "geometry"]],
+            how="left", predicate="within",
+        )
+        joined = joined.drop_duplicates(subset=["_idx"]).sort_values("_idx")
+        va_render = va.copy()
+        va_render["parent_ucp_share"] = joined["ucp_share"].fillna(0.5).values
+
+    # Per-VA population density and lightness modulation.
+    # pop_2021 is on the va frame from the centroid build above; if missing,
+    # fall back to vote-weighted proxy.
+    if "pop_2021" in va_render.columns:
+        pop = va_render["pop_2021"].fillna(0).clip(lower=0)
+    else:
+        pop = (va_render["va_ucp"].fillna(0) + va_render["va_ndp"].fillna(0)
+               + va_render["va_other"].fillna(0))
+    area_m2 = va_render.geometry.area.clip(lower=1.0)
+    density = pop / area_m2  # people per m^2
+    # Heatmap-style: log-scale density; blend each VA's partisan colour
+    # with cover-ivory by a lightness weight in [0, 1].
+    # weight=0 -> pure ivory (very low density), weight=1 -> full saturated
+    # partisan colour (very high density).
+    import numpy as np
+    log_d = np.log10(density.replace(0, np.nan)).fillna(-12.0)
+    # Empirical density range on the Alberta substrate: roughly -8 (one
+    # person per 100 km^2) to -2 (very dense urban). Map [-7, -2.5] to
+    # [0.20, 1.0] so even very rural VAs retain some saturated colour
+    # rather than vanishing into the ivory background.
+    d_min, d_max = -7.0, -2.5
+    weight = ((log_d - d_min) / (d_max - d_min)).clip(0.20, 1.0)
+
+    ivory_rgb = np.array(mcolors.to_rgb(cover_ivory))
+
+    def _va_fill(ucp_share, w):
+        base = np.array(cmap(norm(ucp_share)))[:3]
+        blended = (1 - w) * ivory_rgb + w * base
+        return mcolors.to_hex(blended)
+
+    va_render["_fill"] = [
+        _va_fill(s, w) for s, w in zip(va_render["parent_ucp_share"], weight.values)
+    ]
+
+    # 4a. Base layer: v0_9 EDs at low saturation (weight=0.20 floor) so
+    #     park / uninhabited areas where no VA exists still show their
+    #     parent ED's partisan colour rather than an ivory gap.
+    eds["_base_fill"] = [
+        _va_fill(s, 0.20) for s in eds["ucp_share"]
     ]
     eds.plot(
         ax=ax,
-        color=eds["_fill"].tolist(),
+        color=eds["_base_fill"].tolist(),
+        linewidth=0,
+    )
+
+    # 4b. VA layer on top — heatmap-modulated fills carry the population-
+    #     density signal where VAs exist (i.e. where people actually live).
+    va_render.plot(
+        ax=ax,
+        color=va_render["_fill"].tolist(),
+        linewidth=0,
+    )
+
+    # 4c. ED boundaries overlaid last so the 89-district structure
+    #     remains readable through the heatmap.
+    eds.boundary.plot(
+        ax=ax,
         edgecolor="#1a1a1a",
-        linewidth=0.18,
+        linewidth=0.20,
     )
 
     ax.margins(0.005)

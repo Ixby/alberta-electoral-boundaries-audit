@@ -1,0 +1,52 @@
+{
+  "2019_enacted": {
+    "efficiency_gap": 0.024119940578423545,
+    "mean_median": -0.007671760176883757,
+    "declination": -0.04509237880431511,
+    "seats_at_50_50": 0.45977011494252873,
+    "ucp_seats": 57,
+    "n_districts": 87,
+    "ucp_vote_share": 0.5740427639062995,
+    "source": "2019_enacted_VA_agg",
+    "coverage_vas": 4765,
+    "coverage_vas_total": 4765,
+    "coverage_pct": 1.0,
+    "votes_coverage_pct": 1.0
+  },
+  "majority_2026": {
+    "efficiency_gap": 0.06431336476984474,
+    "mean_median": -0.018158061174911366,
+    "declination": -0.01175738654996796,
+    "seats_at_50_50": 0.4367816091954023,
+    "ucp_seats": 55,
+    "n_districts": 87,
+    "ucp_vote_share": 0.5740427639062996,
+    "coverage_vas": 4765,
+    "coverage_vas_total": 4765,
+    "coverage_pct": 1.0,
+    "covered_votes": 932164.0,
+    "all_vote_total": 932164.0,
+    "votes_coverage_pct": 1.0,
+    "source": "v0_8_full_refined_majority_2026_eds.gpkg"
+  },
+  "majority_source": "majority 2026 v8 refined (89 EDs)",
+  "minority_2026": {
+    "efficiency_gap": 0.09207674180701376,
+    "mean_median": -0.009697961790394616,
+    "declination": -0.06662214758176674,
+    "seats_at_50_50": 0.5421686746987951,
+    "ucp_seats": 58,
+    "n_districts": 83,
+    "ucp_vote_share": 0.5740427639062995,
+    "coverage_vas": 4765,
+    "coverage_vas_total": 4765,
+    "coverage_pct": 1.0,
+    "covered_votes": 932164.0,
+    "all_vote_total": 932164.0,
+    "votes_coverage_pct": 1.0,
+    "source": "v0_8_full_refined_minority_2026_eds.gpkg"
+  },
+  "minority_source": "minority 2026 v8 refined (89 EDs)",
+  "n_steps": 100000,
+  "seed": 42
+}
