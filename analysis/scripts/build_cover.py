@@ -234,27 +234,18 @@ def build_cover_art() -> Path:
     #    a lightness scaled by VA-local population density (paler = sparse,
     #    darker = dense). This gives the reader two signals in a single
     #    image: the partisan-leaning hue (blue/orange) and the population-
-    #    centre heatmap (where within an ED the people actually are).
-    #
-    # Theme is dark by default; flip COVER_DARK_MODE=False at the top of
-    # this function for the warm-ivory variant.
-    DARK_MODE = True
-    if DARK_MODE:
-        cover_bg = "#0e0e0e"      # near-black backdrop
-        ed_line = "#f5ede0"        # ivory ED outlines for contrast
-        ed_line_w = 0.20
-        ed_line_alpha = 0.55
-        frame_color = "#ffffff"    # thin white border around the map
-    else:
-        cover_bg = "#f5ede0"
-        ed_line = "#1a1a1a"
-        ed_line_w = 0.20
-        ed_line_alpha = 1.0
-        frame_color = None
-
+    #    centre heatmap (where within an ED the people actually are). The
+    #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
+    #    the 89-district structure remains visible.
+    cover_ivory = "#f5ede0"
+    # Single-hero composition: the v0_9 minority map fills the canvas.
+    # The earlier 3-tile version (v0_7 ghost / v0_9 hero / v0_8 ghost)
+    # was visually elegant but the per-VA texture and the line-drawing
+    # detail of the minority commission's choices need every pixel of
+    # the hero to read at print scale.
     fig, ax = plt.subplots(figsize=(6.0, 9), dpi=300)
-    fig.patch.set_facecolor(cover_bg)
-    ax.set_facecolor(cover_bg)
+    fig.patch.set_facecolor(cover_ivory)
+    ax.set_facecolor(cover_ivory)
     ax.set_aspect("equal")
     ax.axis("off")
 
@@ -294,30 +285,25 @@ def build_cover_art() -> Path:
     d_min, d_max = -8.0, -3.0
     weight = ((log_d - d_min) / (d_max - d_min)).clip(0.10, 1.0)
 
-    bg_rgb = np.array(mcolors.to_rgb(cover_bg))
+    ivory_rgb = np.array(mcolors.to_rgb(cover_ivory))
 
     def _va_fill(ucp_share, w):
-        # Three-stop blend: cover-background (very low density) → partisan
-        # colour (moderate density) → contrast-direction (very high
-        # density). In light mode "contrast-direction" darkens the
-        # partisan colour; in dark mode it brightens it. Either way the
-        # high-density cores get distinct visual punch from the cmap's
-        # saturated mid-tone.
+        # Three-stop blend: ivory (very low density) → partisan colour
+        # (moderate density) → darkened partisan colour (very high
+        # density). The darken-at-top-end gives the cover real contrast
+        # in the Calgary/Edmonton cores instead of capping at the
+        # cmap's saturated colour.
         base = np.array(cmap(norm(ucp_share)))[:3]
+        # Linear two-segment interpolation through `base` at w=0.5
         if w < 0.5:
-            t = w / 0.5
-            blended = (1 - t) * bg_rgb + t * base
+            t = w / 0.5  # 0..1
+            blended = (1 - t) * ivory_rgb + t * base
         else:
-            t = (w - 0.5) / 0.5
-            if DARK_MODE:
-                # Brighten toward white for high-density urban cores
-                light = base + (1.0 - base) * 0.55
-                blended = (1 - t) * base + t * light
-            else:
-                # Darken toward 30% of base for high-density urban cores
-                dark = 0.30 * base
-                blended = (1 - t) * base + t * dark
-        return mcolors.to_hex(blended.clip(0.0, 1.0))
+            t = (w - 0.5) / 0.5  # 0..1
+            # Darken: scale toward 30% of original (preserves hue)
+            dark = 0.30 * base
+            blended = (1 - t) * base + t * dark
+        return mcolors.to_hex(blended)
 
     va_render["_fill"] = [
         _va_fill(s, w) for s, w in zip(va_render["parent_ucp_share"], weight.values)
@@ -347,32 +333,9 @@ def build_cover_art() -> Path:
     #     remains readable through the heatmap.
     eds.boundary.plot(
         ax=ax,
-        edgecolor=ed_line,
-        linewidth=ed_line_w,
-        alpha=ed_line_alpha,
+        edgecolor="#1a1a1a",
+        linewidth=0.20,
     )
-
-    # 4d. Thin frame around the map's bounding box for visual
-    #     separation from the cover background — most useful in dark
-    #     mode where a hairline white edge gives the map a defined
-    #     silhouette.
-    if frame_color is not None:
-        # Use the union bounds of the rendered EDs so the frame hugs
-        # Alberta's silhouette region rather than the full data extent.
-        from matplotlib.patches import Rectangle
-        minx, miny, maxx, maxy = eds.total_bounds
-        pad = max(maxx - minx, maxy - miny) * 0.005
-        rect = Rectangle(
-            (minx - pad, miny - pad),
-            (maxx - minx) + 2 * pad,
-            (maxy - miny) + 2 * pad,
-            linewidth=0.6,
-            edgecolor=frame_color,
-            facecolor="none",
-            alpha=0.90,
-            zorder=10,
-        )
-        ax.add_patch(rect)
 
     ax.margins(0.005)
     plt.tight_layout(pad=0)
@@ -383,7 +346,7 @@ def build_cover_art() -> Path:
         dpi=300,
         bbox_inches="tight",
         pad_inches=0.02,
-        facecolor=cover_bg,
+        facecolor=cover_ivory,
     )
     plt.close(fig)
     print(f"[build_cover] Wrote hero art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
@@ -412,18 +375,18 @@ html, body {
   padding: 0;
   width: 8.5in;
   height: 11in;
-  background: #0e0e0e;        /* full-bleed near-black */
+  background: #f5ede0;        /* full-bleed cream */
   font-family: "Lora", Georgia, serif;
-  color: #e8e2d4;
+  color: #1a1a1a;
 }
 
 .cover {
   position: relative;
   width: 8.5in;
   height: 10.95in;        /* 0.05in shy of letter to defeat Chrome's blank-page heuristic */
-  background: #0e0e0e;
+  background: #f5ede0;
   overflow: hidden;
-  padding: 0.45in 0.55in;  /* tighter: more room for the dominant map */
+  padding: 0.7in 0.8in;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -446,39 +409,39 @@ body::before {
   z-index: 1;
 }
 
-/* ----- Kicker (compact, the map dominates) ----- */
+/* ----- Kicker ----- */
 .kicker {
   font-family: "Source Sans 3", sans-serif;
-  font-size: 8pt;
+  font-size: 9pt;
   font-weight: 700;
   letter-spacing: 4pt;
   text-transform: uppercase;
-  color: #d96049;             /* warm rust against the dark backdrop */
-  margin: 0 0 0.10in 0;
-  padding-top: 0.05in;
+  color: #7a1f1f;
+  margin: 0 0 0.3in 0;
+  padding-top: 0.1in;
 }
 
 .kicker .issue {
-  color: #e8e2d4;             /* ivory text on dark */
+  color: #1a1a1a;
   font-weight: 400;
   letter-spacing: 3pt;
 }
 
-/* ----- Hero image (DOMINANT) ----- */
+/* ----- Hero image ----- */
 .hero {
-  flex: 1 1 auto;             /* take all available vertical space */
+  flex: 0 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   /* Negative horizontal margin lets the hero bleed past the .cover's
      0.8in side padding all the way to the page edges. */
-  margin: 0.05in -0.8in 0.10in -0.52in;
+  margin: 0.1in -0.8in 0.25in -0.52in;   /* leave 0.28in for the left accent bar */
   min-height: 0;
 }
 
 .hero img {
   max-width: 100%;           /* fills the bleed area */
-  max-height: 8.0in;         /* dominant; was 5.0in */
+  max-height: 5.0in;         /* +20% from 4.2in */
   height: auto;
   object-fit: contain;
   display: block;
@@ -489,11 +452,11 @@ body::before {
   font-style: italic;
   font-size: 7pt;
   line-height: 1.4;
-  color: #998d75;
+  color: #8a8074;
   text-align: right;
   margin: 0.18in 0 0 0;
   padding: 0.1in 0 0 0;
-  border-top: 0.4pt solid #3a3530;
+  border-top: 0.4pt solid #d3cabd;
   letter-spacing: 0.1pt;
 }
 
@@ -505,29 +468,29 @@ body::before {
   font-size: 6.5pt;
   letter-spacing: 1.5pt;
   text-transform: uppercase;
-  color: #d96049;
+  color: #7a1f1f;
   margin-right: 0.3em;
 }
 
 /* ----- Title block ----- */
 .title-block {
-  margin: 0 0 0.05in 0;
+  margin: 0 0 0.15in 0;
 }
 
 .title {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 900;
-  font-size: 44pt;             /* down from 68pt; map gets the room */
-  letter-spacing: -1.0pt;
+  font-size: 68pt;
+  letter-spacing: -1.5pt;
   line-height: 1.0;
-  color: #f5ede0;
-  margin: 0 0 0.10in 0;
+  color: #0e0e0e;
+  margin: 0 0 0.2in 0;
   padding: 0;
   white-space: nowrap;
 }
 
 .title .accent {
-  color: #d96049;
+  color: #7a1f1f;
 }
 
 .title .tick {
@@ -539,11 +502,11 @@ body::before {
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 11pt;             /* down from 15pt */
-  line-height: 1.30;
-  color: #c4bdaa;
+  font-size: 15pt;
+  line-height: 1.35;
+  color: #3a3a3a;
   max-width: 5.8in;
-  margin: 0 0 0.12in 0;
+  margin: 0 0 0.25in 0;
 }
 
 /* ----- Footer: byline + locator ----- */
@@ -551,7 +514,7 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-top: 1px solid #3a3530;
+  border-top: 1px solid #1a1a1a;
   padding-top: 0.18in;
   margin-top: 0.1in;
 }
@@ -562,7 +525,7 @@ body::before {
   font-weight: 700;
   letter-spacing: 2pt;
   text-transform: uppercase;
-  color: #e8e2d4;
+  color: #1a1a1a;
 }
 
 .byline .contact {
@@ -570,7 +533,7 @@ body::before {
   font-weight: 400;
   letter-spacing: 1pt;
   text-transform: none;
-  color: #998d75;
+  color: #555;
   font-size: 8.5pt;
   margin-top: 0.04in;
   font-family: "Lora", Georgia, serif;
@@ -583,14 +546,14 @@ body::before {
   font-weight: 600;
   letter-spacing: 1.5pt;
   text-transform: uppercase;
-  color: #998d75;
+  color: #555;
   text-align: right;
   line-height: 1.5;
 }
 
 .locator .url {
   display: block;
-  color: #d96049;
+  color: #7a1f1f;
   font-weight: 700;
   letter-spacing: 0.5pt;
   text-transform: none;
@@ -609,7 +572,7 @@ body::before {
   font-family: "Source Sans 3", sans-serif;
   font-size: 7.5pt;
   letter-spacing: 3pt;
-  color: #6b6357;
+  color: #888;
   text-transform: uppercase;
   text-align: right;
   font-weight: 600;
