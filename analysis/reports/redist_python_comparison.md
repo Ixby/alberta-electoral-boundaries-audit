@@ -90,15 +90,19 @@ After the initial discrepancy was surfaced, the PO proposed four falsification t
 
 Per the PO's pre-registered criterion at the time the tests were designed: *"If the SMC maps that hit the UCP advantage are significantly less compact than the ReCom maps, the 'Surgical Fortification / Mechanism is the Geometry' thesis is locked in as hard science. If they aren't, drop the thesis and default to Option C (Investigate further) or Option D (Lead entirely with Lane 2)."*
 
-The data falls on the "drop the thesis" side. The strong claim that *"the minority map's UCP-favourable seat advantage is mechanically inseparable from the unusual non-compact geometry the chair flagged"* is not supported by the falsification tests. The audit retains:
+The data falls on the "drop the thesis" side. The strong claim that *"the minority map's UCP-favourable seat advantage is mechanically inseparable from the unusual non-compact geometry the chair flagged"* is not supported by the falsification tests.
+
+**2026-04-26 evening update — v0_9 direct measurement converges on the same answer.** After this falsification was published, the PO ran a direct Polsby-Popper measurement on the v0_9 topological substrate (script `analysis/scripts/v0_9_polsby_popper.py`, verdict at `analysis/reports/v0_9_polsby_popper_verdict.md`). The chair's named lassos themselves score in the *moderate* compactness band: **Calgary-Nolan Hill-Cochrane PP = 0.402, Rocky Mountain House-Banff Park PP = 0.414** (PP > 0.40 is "high compactness"). Two independent methodologies — the SMC-ensemble falsification and direct measurement on the real maps under the cleanest available substrate — point to the same mechanistic interpretation: **the minority commission did not break Area/Perimeter ratio to build their tipping-point firewall.** The corridors are drawn thick enough that PP looks innocent. The mechanism lives in *what the corridors connect* (city blocks extracted across municipal limits into suburban districts), not in the corridor shape itself. The audit's Lane 2 case rests on the two substrate-stable measurements: **municipal anchoring** (minority 14.5%, majority 71%) and **urban hybridization** (minority 25 hybrid EDs, majority 9, 12 of the minority's *new*) — both computed off the v0_9 substrate, both sampler-independent, both stable across substrate generations.
+
+The audit retains:
 
 - The empirical fact that R SMC reaches the minority's value more often than Python ReCom (the magnitude is run-stochastic; see "Stability caveat" below). That fact is real and defensible.
-- The Lane 2 structural-irregularity finding (5 of 5 pre-registered tests fired). That finding is unaffected by the falsification.
+- The Lane 2 structural-irregularity finding (5 of 5 pre-registered tests fired). That finding is unaffected by the falsification — and is in fact *strengthened* by H3's rejection, because it now stands on the two substrate-stable mechanisms (anchoring + hybridization) rather than on PP.
 - The Lane 1 ReCom percentile (98.6 — top 1.5%). Still defensible as a single-sampler statement.
 
 The audit does NOT retain:
 
-- The claim that compactness specifically is the mechanism through which the minority commissioners reached 0.4831. If there is a geometric mechanism, it isn't mean-Polsby-Popper. Candidates for further investigation: per-district min PP (the "weakest district" being non-compact rather than the average), city-cracking patterns, urban-rural hybridization specifically, or a non-compactness feature like cut-edge density.
+- The claim that compactness specifically is the mechanism through which the minority commissioners reached 0.4831. The remaining open question is which sub-feature of hybridization (city-cracking patterns specifically, urban-rural composition splits, or cut-edge density across municipal lines) carries the most signal; the audit does not claim to have decomposed it further.
 
 ### Stability caveat — R SMC results are run-stochastic
 

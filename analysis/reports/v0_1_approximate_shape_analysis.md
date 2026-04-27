@@ -1,5 +1,8 @@
 # Track X — Approximate 2026 ED Shape Analysis (Polsby-Popper & Reock)
 
+> **Status (2026-04-26 revision): SUPERSEDED for the lasso/non-compactness claim.**
+> The v0_1 Tier A/B "minority shows roughly double the rate of low-compactness EDs as the majority (7.1% vs 3.5%)" headline does **not** survive the v0_9 topological substrate. Direct PP measurement on v0_9 found two of the three chair-named lassos in the *moderate* compactness band (Calgary-Nolan Hill-Cochrane PP = 0.40, Rocky Mountain House-Banff Park PP = 0.41). The audit no longer treats Polsby-Popper as load-bearing for Lane 2; it leans on municipal anchoring and urban hybridization, both of which are substrate-stable. Full verdict at [`v0_9_polsby_popper_verdict.md`](v0_9_polsby_popper_verdict.md). This document is preserved as historical provenance and to make the audit's revision trail legible.
+
 **Purpose.** Compute compactness scores for the three Alberta electoral maps
 (2019 in-force; proposed 2026 majority; proposed 2026 minority) using approximate
 2026 polygons constructed from the authoritative 2019 shapefile plus the
