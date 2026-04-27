@@ -21,14 +21,6 @@ import geopandas as gpd
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..', '..')
 
-def calculate_polsby_popper(geometry):
-    """Calculate the Polsby-Popper compactness score (4*pi*Area / Perimeter^2)."""
-    area = geometry.area
-    perimeter = geometry.length
-    if perimeter == 0:
-        return 0
-    return (4 * math.pi * area) / (perimeter ** 2)
-
 def run_tripwires(eds_gdf_path, cities_gdf_path=None):
     print("=" * 60)
     print("  NOVEMBER 91-SEAT MAP TRIPWIRES")
@@ -42,26 +34,7 @@ def run_tripwires(eds_gdf_path, cities_gdf_path=None):
     print(f"Loaded {len(eds)} Electoral Districts.")
 
     # ---------------------------------------------------------
-    # TRIPWIRE 1: Polsby-Popper / The Lasso Detection
-    # ---------------------------------------------------------
-    eds['polsby_popper'] = eds.geometry.apply(calculate_polsby_popper)
-    
-    # Bottom 10% compactness threshold
-    pp_threshold = eds['polsby_popper'].quantile(0.10)
-    
-    print("\n[Tripwire 1: The Lasso Pattern]")
-    print(f"Bottom 10% Polsby-Popper Threshold: {pp_threshold:.4f}")
-    
-    lassos = eds[eds['polsby_popper'] <= pp_threshold].copy()
-    print(f"Flagged {len(lassos)} highly non-compact districts.")
-    
-    if len(lassos) > 0:
-        for _, row in lassos.iterrows():
-            name = row.get('name_2026', row.get('ed_name', 'Unknown ED'))
-            print(f"  - {name} (PP: {row['polsby_popper']:.4f})")
-            
-    # ---------------------------------------------------------
-    # TRIPWIRE 2: Mid-Sized City Integrity (The Drain Pattern)
+    # TRIPWIRE 1: Mid-Sized City Integrity (The Drain Pattern)
     # ---------------------------------------------------------
     print("\n[Tripwire 2: The Drain Pattern (City Splitting)]")
     
