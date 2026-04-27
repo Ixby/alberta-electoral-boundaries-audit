@@ -536,7 +536,7 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
 # ---- Plotting ---------------------------------------------------------------
 
 def pct_rank(values: np.ndarray, x: float) -> float:
-    """Percentile of x within values (0-100). Uses strict 'less than' like scipy.percentileofscore(kind='mean')."""
+    """Percentile of x within values (0-100). Uses the midrank method like scipy.percentileofscore(kind='mean')."""
     values = np.asarray(values, dtype=float)
     values = values[~np.isnan(values)]
     if len(values) == 0 or np.isnan(x):

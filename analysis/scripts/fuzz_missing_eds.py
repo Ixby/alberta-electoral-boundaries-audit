@@ -58,8 +58,8 @@ def seats_at_50_50(ucp_arr, ndp_arr):
 def efficiency_gap(ucp_arr, ndp_arr):
     total = ucp_arr + ndp_arr
     won = ucp_arr > ndp_arr
-    wasted_ucp = np.where(won, ucp_arr - (total / 2 + 1), ucp_arr)
-    wasted_ndp = np.where(won, ndp_arr, ndp_arr - (total / 2 + 1))
+    wasted_ucp = np.where(won, ucp_arr - (total / 2), ucp_arr)
+    wasted_ndp = np.where(won, ndp_arr, ndp_arr - (total / 2))
     return float((wasted_ndp.sum() - wasted_ucp.sum()) / total.sum())
 
 

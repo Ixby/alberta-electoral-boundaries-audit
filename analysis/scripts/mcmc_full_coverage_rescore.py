@@ -67,10 +67,10 @@ def efficiency_gap(per_district: pd.DataFrame) -> float:
     ucp_share = per_district["ucp"] / total
     ucp_wins = ucp_share > 0.5
     ucp_wasted = np.where(ucp_wins,
-                          per_district["ucp"] - (total / 2 + 0.5),
+                          per_district["ucp"] - (total / 2),
                           per_district["ucp"])
     ndp_wasted = np.where(~ucp_wins,
-                          per_district["ndp"] - (total / 2 + 0.5),
+                          per_district["ndp"] - (total / 2),
                           per_district["ndp"])
     return float((ndp_wasted.sum() - ucp_wasted.sum()) / total.sum())
 
