@@ -31,6 +31,7 @@ if (dir.exists(user_lib)) {
 }
 
 library(redist)
+library(redistmetrics)
 library(sf)
 library(dplyr)
 
@@ -191,11 +192,56 @@ cat("    median: 0.4483, p5: 0.4253, p95: 0.4828, max: 0.5172\n")
 cat("\n")
 cat("Pass criterion: R values within +/-0.5pp of corrected Python values.\n")
 
-# Save outputs for the audit's record (s50 value + importance weight per plan)
-saveRDS(list(s50 = s50_values, weights = weights),
+# Compute Polsby-Popper compactness per plan for the falsification tests
+# proposed by the PO ("the mechanism is the geometry"). Mean PP across the
+# plan's districts is the per-plan summary; we keep the full per-district
+# values too so distributions can be inspected later.
+cat("Computing Polsby-Popper compactness across all plans...\n")
+pp_per_plan_district <- redistmetrics::comp_polsby(
+  plans = plan_matrix,
+  shp = va,
+  district_col = NULL,
+  perim_df = NULL,
+  use_Rcpp = TRUE
+)
+# pp_per_plan_district is a numeric vector of length (n_districts * n_plans);
+# reshape to (n_districts x n_plans) and average per plan.
+pp_matrix <- matrix(pp_per_plan_district, nrow = n_districts, ncol = n_plans)
+mean_pp_per_plan <- colMeans(pp_matrix)
+cat("Polsby-Popper distribution across plans:\n")
+cat("  median: ", round(median(mean_pp_per_plan), 4), "\n")
+cat("  p5:     ", round(quantile(mean_pp_per_plan, 0.05), 4), "\n")
+cat("  p95:    ", round(quantile(mean_pp_per_plan, 0.95), 4), "\n")
+
+# FALSIFICATION TESTS (PO design):
+# Test #2: do the SMC plans that reach the minority's 0.4831 seats@50/50
+# have systematically lower compactness than the rest?
+# Test #4: how do the SMC compactness distribution and the Python ReCom
+# compactness distribution compare? (Python comparison done in a separate
+# script.)
+high_ucp_mask <- s50_values >= 0.4831
+if (sum(high_ucp_mask) > 0) {
+  high_pp <- mean_pp_per_plan[high_ucp_mask]
+  low_pp  <- mean_pp_per_plan[!high_ucp_mask]
+  cat("Falsification Test #2 — does high-UCP-advantage need non-compact geometry?\n")
+  cat(sprintf("  N high-UCP plans (s50 >= 0.4831): %d\n", sum(high_ucp_mask)))
+  cat(sprintf("  Mean PP, high-UCP plans:  %.4f (lower = less compact)\n",
+              mean(high_pp)))
+  cat(sprintf("  Mean PP, other plans:     %.4f\n", mean(low_pp)))
+  cat(sprintf("  Difference: %.4f  (negative => high-UCP plans ARE less compact)\n",
+              mean(high_pp) - mean(low_pp)))
+  if (length(low_pp) > 0 && length(high_pp) > 0) {
+    t_test <- t.test(high_pp, low_pp)
+    cat(sprintf("  Welch t-test p-value: %.4g\n", t_test$p.value))
+  }
+}
+
+# Save outputs for the audit's record
+saveRDS(list(s50 = s50_values, weights = weights, pp = mean_pp_per_plan),
         file = "data/v0_1_redist_crossvalidation_s50.rds")
 write.csv(
-  data.frame(seats_at_50_50 = s50_values, weight = weights),
+  data.frame(seats_at_50_50 = s50_values, weight = weights,
+             polsby_popper = mean_pp_per_plan),
   file = "data/v0_1_redist_crossvalidation_s50.csv",
   row.names = FALSE
 )

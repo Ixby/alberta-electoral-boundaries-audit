@@ -246,8 +246,8 @@ def build_cover_art() -> Path:
     # sees three versions side-by-side; the centre tile is the result
     # the article actually uses.
     fig, (ax_l, ax, ax_r) = plt.subplots(
-        1, 3, figsize=(7.0, 9), dpi=300,
-        gridspec_kw={"width_ratios": [1, 3.2, 1], "wspace": 0.02},
+        1, 3, figsize=(8.4, 9), dpi=300,
+        gridspec_kw={"width_ratios": [3, 5, 3], "wspace": 0.02},
     )
     fig.patch.set_facecolor(cover_ivory)
     for _ax in (ax_l, ax, ax_r):
@@ -255,63 +255,43 @@ def build_cover_art() -> Path:
         _ax.set_aspect("equal")
         _ax.axis("off")
 
+    # Ghosts at 90% of the hero height (5% padding above + below) so the
+    # eye reads them as supporting context to the centre piece, not as
+    # equal partners.
+    for _gax in (ax_l, ax_r):
+        bbox = _gax.get_position()
+        new_h = bbox.height * 0.90
+        new_y = bbox.y0 + (bbox.height - new_h) / 2
+        _gax.set_position([bbox.x0, new_y, bbox.width, new_h])
+
     # Render the side-tile ghosts: outlines only, faint grey, no fill.
     # Use the same shapely projection (3401) for visual continuity.
-    GHOST_LINE = "#7a7166"  # warm taupe — shows on ivory without competing
-    GHOST_LW = 0.18
-    GHOST_ALPHA = 0.55
+    GHOST_LINE = "#000000"  # 80% black via alpha (darker, clearer ghosts)
+    GHOST_LW = 0.20
+    GHOST_ALPHA = 0.80
     v07_path = DERIVED / "v0_7_canonical_minority_2026_eds.gpkg"
     v08_path = DERIVED / "v0_8_full_refined_minority_2026_eds.gpkg"
     if v07_path.exists():
         v07 = gpd.read_file(v07_path).to_crs(3401)
         v07.boundary.plot(ax=ax_l, color=GHOST_LINE,
                           linewidth=GHOST_LW, alpha=GHOST_ALPHA)
-    ax_l.text(0.5, 0.02, "v0.7", transform=ax_l.transAxes,
-              ha="center", va="bottom", fontsize=8,
-              color=GHOST_LINE, family="serif", style="italic")
     if v08_path.exists():
         v08 = gpd.read_file(v08_path).to_crs(3401)
         v08.boundary.plot(ax=ax_r, color=GHOST_LINE,
                           linewidth=GHOST_LW, alpha=GHOST_ALPHA)
-    ax_r.text(0.5, 0.02, "v0.8", transform=ax_r.transAxes,
-              ha="center", va="bottom", fontsize=8,
-              color=GHOST_LINE, family="serif", style="italic")
-    # Centre-tile label is shown as part of the main render footer
-    # (article references "v0_9" explicitly in the methodology).
 
-    # Build the per-VA dataframe with parent-2026-ED + per-VA partisan hue
+    # Build the per-VA dataframe. Hue is determined by EACH VA's OWN 2023
+    # partisan share (not the parent ED's average), so a UCP stronghold
+    # inside an NDP-leaning ED renders as a blue cluster on an orange
+    # field, and an NDP stronghold inside a UCP ED renders as orange
+    # inside the surrounding blue. ED-level partisan lean still emerges
+    # naturally because most VAs in an ED tend to lean the same way.
     import pandas as pd
-    if VA_TO_2026_ASSIGNMENTS.exists():
-        assignments = pd.read_csv(VA_TO_2026_ASSIGNMENTS)
-        # Build the va_id key the assignments file uses (same recipe as
-        # the topological_shape_resolution.py script).
-        va["va_id"] = va["parent_ed_2019"].astype(str) + "|" + \
-                       va["VA_NUMBER"].astype(str).str.zfill(3)
-        va_render = va.merge(
-            assignments[["va_id", "assigned_2026_minority"]],
-            on="va_id", how="left",
-        )
-        # Look up the parent ED's UCP share for hue
-        ucp_share_lookup = dict(zip(eds[name_col], eds["ucp_share"]))
-        va_render["parent_ucp_share"] = va_render["assigned_2026_minority"].map(
-            ucp_share_lookup
-        ).fillna(0.5)
-    else:
-        # Fall back to centroid-in-polygon assignment if the Phase 4C CSV
-        # isn't present (degraded but functional path).
-        print(f"[build_cover] WARN: {VA_TO_2026_ASSIGNMENTS.name} missing; "
-              f"falling back to centroid-in-polygon assignment for VA hues")
-        va_centroids_pts = gpd.GeoDataFrame(
-            {}, geometry=va.geometry.centroid, crs=3401
-        )
-        va_centroids_pts["_idx"] = range(len(va_centroids_pts))
-        joined = gpd.sjoin(
-            va_centroids_pts, eds[[name_col, "ucp_share", "geometry"]],
-            how="left", predicate="within",
-        )
-        joined = joined.drop_duplicates(subset=["_idx"]).sort_values("_idx")
-        va_render = va.copy()
-        va_render["parent_ucp_share"] = joined["ucp_share"].fillna(0.5).values
+    va_render = va.copy()
+    va_ucp_total = va_render["va_ucp"].fillna(0)
+    va_ndp_total = va_render["va_ndp"].fillna(0)
+    va_two_party = (va_ucp_total + va_ndp_total).clip(lower=1.0)
+    va_render["parent_ucp_share"] = va_ucp_total / va_two_party
 
     # Per-VA population density and lightness modulation.
     # pop_2021 is on the va frame from the centroid build above; if missing,
@@ -329,18 +309,31 @@ def build_cover_art() -> Path:
     # partisan colour (very high density).
     import numpy as np
     log_d = np.log10(density.replace(0, np.nan)).fillna(-12.0)
-    # Empirical density range on the Alberta substrate: roughly -8 (one
-    # person per 100 km^2) to -2 (very dense urban). Map [-7, -2.5] to
-    # [0.20, 1.0] so even very rural VAs retain some saturated colour
-    # rather than vanishing into the ivory background.
-    d_min, d_max = -7.0, -2.5
-    weight = ((log_d - d_min) / (d_max - d_min)).clip(0.20, 1.0)
+    # Wider range gives a more gradual spillover from rural-pale to
+    # urban-saturated, and the curve maps to [0.10, 1.0] so very-low-
+    # density rural VAs are pale (without vanishing) and very-high-
+    # density urban VAs hit max intensity.
+    d_min, d_max = -8.0, -3.0
+    weight = ((log_d - d_min) / (d_max - d_min)).clip(0.10, 1.0)
 
     ivory_rgb = np.array(mcolors.to_rgb(cover_ivory))
 
     def _va_fill(ucp_share, w):
+        # Three-stop blend: ivory (very low density) → partisan colour
+        # (moderate density) → darkened partisan colour (very high
+        # density). The darken-at-top-end gives the cover real contrast
+        # in the Calgary/Edmonton cores instead of capping at the
+        # cmap's saturated colour.
         base = np.array(cmap(norm(ucp_share)))[:3]
-        blended = (1 - w) * ivory_rgb + w * base
+        # Linear two-segment interpolation through `base` at w=0.5
+        if w < 0.5:
+            t = w / 0.5  # 0..1
+            blended = (1 - t) * ivory_rgb + t * base
+        else:
+            t = (w - 0.5) / 0.5  # 0..1
+            # Darken: scale toward 30% of original (preserves hue)
+            dark = 0.30 * base
+            blended = (1 - t) * base + t * dark
         return mcolors.to_hex(blended)
 
     va_render["_fill"] = [
