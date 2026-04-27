@@ -103,9 +103,13 @@ def run_tripwires(eds_gdf_path, cities_gdf_path=None):
         print("  (Skipping Mid-Sized City Integrity: No cities reference file provided.)")
 
 if __name__ == '__main__':
-    # Usage Example:
-    # run_tripwires(
-    #     eds_gdf_path=os.path.join(ROOT, 'data', 'v0_9_topological_majority_2026_eds.gpkg'),
-    #     cities_gdf_path=os.path.join(ROOT, 'data', 'shapefiles', 'reference', 'alberta_2021_csds.gpkg')
-    # )
-    pass
+    import argparse
+    parser = argparse.ArgumentParser(description="November 91-Seat Map Tripwire Checks")
+    parser.add_argument('--shapefile', type=str, required=True, help="Path to the November 91-seat GPKG or Shapefile")
+    parser.add_argument('--cities', type=str, default=os.path.join(ROOT, 'data', 'shapefiles', 'reference', 'alberta_2021_csds.gpkg'), help="Path to reference cities GPKG")
+    args = parser.parse_args()
+    
+    if not os.path.exists(args.shapefile):
+        print(f"Error: Shapefile not found at {args.shapefile}")
+    else:
+        run_tripwires(eds_gdf_path=args.shapefile, cities_gdf_path=args.cities)

@@ -146,34 +146,26 @@ def seat_results(
         return dict(efficiency_gap=np.nan, mean_median=np.nan, declination=np.nan,
                     seats_at_50_50=np.nan, ucp_seats=np.nan, n_districts=0)
 
-    ucp_share = ucp / total
+    # Use strict two-party totals for margin calculations so independent candidates don't break the math.
+    two_party_total = ucp + ndp
+    # Avoid division by zero by setting empty two-party sums to 1 (mask already dropped true empty districts)
+    two_party_total = np.where(two_party_total == 0, 1.0, two_party_total)
+
+    ucp_share = ucp / two_party_total
     ucp_win = ucp > ndp
     ucp_wins = int(ucp_win.sum())
 
     # --- Efficiency gap (UCP - NDP wasted votes) / total ---
-    # A vote is wasted if (a) cast for the loser, or (b) over 50% for the winner.
     # Sign convention: positive EG means NDP wastes more than UCP -> UCP-favoured.
-    ucp_wasted = np.where(ucp_win, ucp - total / 2, ucp)
-    ndp_wasted = np.where(~ucp_win, ndp - total / 2, ndp)
-    # (ndp_wasted - ucp_wasted) / total_votes = UCP-favoured EG
-    eg = (ndp_wasted.sum() - ucp_wasted.sum()) / total.sum()
+    ucp_wasted = np.where(ucp_win, ucp - two_party_total / 2, ucp)
+    ndp_wasted = np.where(~ucp_win, ndp - two_party_total / 2, ndp)
+    eg = (ndp_wasted.sum() - ucp_wasted.sum()) / two_party_total.sum()
 
     # --- Mean-median (UCP share) ---
-    # Positive value = median district UCP share > mean -> UCP packed into safe districts? No:
-    # Standard convention: (median - mean). Positive means more districts below mean -> skewed
-    # in favour of the party whose share is median>mean — so positive = UCP-favoured.
+    # Positive value = median district UCP share > mean -> UCP-favoured.
     mean_median = float(np.median(ucp_share) - np.mean(ucp_share))
 
     # --- Declination (Warrington 2018) ---
-    # Order districts by UCP share ascending. Let R = UCP-won count, D = NDP-won count.
-    # theta_R = atan2(mean UCP share in UCP-won - 0.5, R/(2n))
-    # theta_D = atan2(0.5 - mean UCP share in NDP-won, D/(2n))
-    # declination = 2/pi * (theta_R - theta_D).
-    # In a UCP-favoured map, UCP wins many seats by small margins (mean UCP
-    # share in UCP-won close to 0.5 -> small theta_R) while NDP voters are
-    # packed (mean UCP share in NDP-won well below 0.5 -> larger theta_D).
-    # theta_R - theta_D is therefore NEGATIVE for UCP-favoured maps.
-    # Convention used throughout the report: NEGATIVE declination = UCP-favoured.
     R = ucp_wins
     D = n - R
     if R == 0 or D == 0:
@@ -189,21 +181,9 @@ def seat_results(
         declination = (2.0 / math.pi) * (theta_R - theta_D)
 
     # --- Seats at 50/50 (uniform partisan swing) ---
-    # Compute province-wide UCP share; shift all UCP shares by (0.5 - province_share)
-    # and count how many districts remain UCP wins. Express as seat share (UCP seats / n).
-    province_ucp = ucp.sum() / total.sum()
+    province_ucp = ucp.sum() / two_party_total.sum()
     swing = 0.5 - province_ucp
-    # Clip to [0, 1] for forward-compatibility: the boolean check below is
-    # robust to unclipped values, but any future caller measuring margin of
-    # victory from `shifted` would otherwise see impossible vote shares. This
-    # also matches v0_1_fuzz_missing_eds.py for cross-script consistency.
     shifted = np.clip(ucp_share + swing, 0.0, 1.0)
-    # at 0.5 tied: treat as NDP win for symmetry (rounding).
-    # The +1e-9 epsilon absorbs floating-point drift around exact ties so a
-    # district that should be exactly 0.5 doesn't get credited to UCP via
-    # rounding noise (e.g., shifted=0.5000000000000001). Real-data ties are
-    # vanishingly rare given large vote totals; the epsilon is purely for
-    # bit-level robustness.
     ucp_wins_at_50 = int((shifted > 0.5 + 1e-9).sum())
     seats_at_50_50 = ucp_wins_at_50 / n
 
@@ -388,52 +368,79 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
         print(f"  2019 seed pop: {min_p:,.0f} - {max_p:,.0f}  "
               f"(envelope={seed_dev_envelope:.2%}, max-indiv-dev={seed_max_indiv_dev:.2%})")
 
-    # ReCom proposal: pop tolerance = half the deviation budget.
+    # Find legally protected s15(2) seats that exceed the standard tolerance.
+    frozen_districts = {
+        dist for dist, pop in initial_partition["population"].items()
+        if abs(pop - ideal_pop) / ideal_pop > pop_deviation
+    }
+    
+    if frozen_districts:
+        if verbose:
+            print(f"  Freezing {len(frozen_districts)} s15(2) districts exceeding pop deviation: {frozen_districts}")
+        
+        # Pull assignment dict from initial_state
+        if hasattr(initial_state, "assignment"):
+            assign_dict = dict(initial_state.assignment)
+        else:
+            assign_dict = initial_state
+            
+        frozen_nodes = {n for n in graph.nodes if assign_dict[n] in frozen_districts}
+        subgraph = graph.subgraph([n for n in graph.nodes if n not in frozen_nodes]).copy()
+        
+        # Save fixed vote totals for frozen districts
+        frozen_ucp = {dist: initial_partition["ucp"][dist] for dist in frozen_districts}
+        frozen_ndp = {dist: initial_partition["ndp"][dist] for dist in frozen_districts}
+        
+        # Re-instantiate partition on subgraph
+        sub_assign = {n: assign_dict[n] for n in subgraph.nodes}
+        initial_partition = Partition(subgraph, sub_assign, my_updaters)
+        num_dist_mcmc = len(set(sub_assign.values()))
+        pop_mcmc = sum(subgraph.nodes[n]["pop_2021"] for n in subgraph.nodes)
+        ideal_pop_mcmc = pop_mcmc / num_dist_mcmc
+        
+        if verbose:
+            print(f"  Subgraph built: {num_dist_mcmc} districts, {len(subgraph.nodes)} VAs. New ideal pop: {ideal_pop_mcmc:,.0f}")
+            
+        # Run tight seed generation ONLY if the unfrozen subgraph STILL violates the envelope
+        sub_pops = list(initial_partition["population"].values())
+        if sub_pops:
+            sub_min_p, sub_max_p = min(sub_pops), max(sub_pops)
+            sub_max_indiv_dev = max(abs(sub_max_p - ideal_pop_mcmc), abs(sub_min_p - ideal_pop_mcmc)) / ideal_pop_mcmc
+            if sub_max_indiv_dev > pop_deviation:
+                if verbose:
+                    print(f"  Unfrozen subgraph exceeds +/-{pop_deviation:.0%} rule (max dev {sub_max_indiv_dev:.2%}).")
+                    print("  Generating fresh tight seed for unfrozen districts via recursive_tree_part...")
+                from functools import partial as _partial
+                from gerrychain.tree import bipartition_tree as _bpt
+                import random as _random
+                _rng_state_np = np.random.get_state()
+                _rng_state_py = _random.getstate()
+                np.random.seed(42)
+                _random.seed(42)
+                new_assignment = recursive_tree_part(
+                    subgraph,
+                    parts=list(set(sub_assign.values())),
+                    pop_target=ideal_pop_mcmc,
+                    pop_col="pop_2021",
+                    epsilon=pop_deviation / 2.0,
+                    node_repeats=5,
+                    method=_partial(_bpt, max_attempts=50000),
+                )
+                np.random.set_state(_rng_state_np)
+                _random.setstate(_rng_state_py)
+                initial_partition = Partition(subgraph, new_assignment, my_updaters)
+    else:
+        frozen_ucp = {}
+        frozen_ndp = {}
+        ideal_pop_mcmc = ideal_pop
+
     proposal = partial(
         recom,
         pop_col="pop_2021",
-        pop_target=ideal_pop,
+        pop_target=ideal_pop_mcmc,
         epsilon=pop_deviation / 2.0,
         node_repeats=2,
     )
-
-    # If the 2019 seed violates the ±25% constraint, we regenerate a tight seed via
-    # recursive tree partition. This is standard practice in gerrychain analyses where
-    # the enacted map uses a looser statutory tolerance than the MCMC constraint.
-    if seed_max_indiv_dev > pop_deviation:
-        if verbose:
-            print(f"  2019 seed exceeds +/-{pop_deviation:.0%} rule "
-                  f"(max dev {seed_max_indiv_dev:.2%}); generating fresh tight seed "
-                  f"via recursive_tree_part...")
-        from functools import partial as _partial
-        from gerrychain.tree import bipartition_tree as _bpt
-        import random as _random
-        # Use a fixed init seed so recursive_tree_part succeeds regardless of
-        # chain seed. The Markov chain seed is restored immediately after, so
-        # chains with different seeds diverge via proposals, not from the
-        # initial partition (which is the correct design for convergence tests).
-        _rng_state_np = np.random.get_state()
-        _rng_state_py = _random.getstate()
-        np.random.seed(42)
-        _random.seed(42)
-        new_assignment = recursive_tree_part(
-            graph,
-            parts=list(range(num_dist)),
-            pop_target=ideal_pop,
-            pop_col="pop_2021",
-            epsilon=pop_deviation / 2.0,
-            node_repeats=5,
-            method=_partial(_bpt, max_attempts=50000),
-        )
-        np.random.set_state(_rng_state_np)
-        _random.setstate(_rng_state_py)
-        initial_partition = Partition(graph, new_assignment, my_updaters)
-        seed_pops = list(initial_partition["population"].values())
-        min_p, max_p = min(seed_pops), max(seed_pops)
-        seed_max_indiv_dev = max(abs(max_p - ideal_pop), abs(min_p - ideal_pop)) / ideal_pop
-        if verbose:
-            print(f"  tight seed pop: {min_p:,.0f} - {max_p:,.0f}  "
-                  f"(max-indiv-dev={seed_max_indiv_dev:.2%})")
 
     pop_constraint = constraints.within_percent_of_ideal_population(
         initial_partition, pop_deviation
@@ -456,8 +463,16 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
         # how gerrychain's separate Tally updaters iterate. Both arrays are now
         # ordered by part.parts.keys() (Gemini audit finding 2026-04-26 CRITICAL #2).
         keys = list(part.parts.keys())
-        ucp = np.array([part["ucp"][k] for k in keys], dtype=float)
-        ndp = np.array([part["ndp"][k] for k in keys], dtype=float)
+        ucp_list = [part["ucp"][k] for k in keys]
+        ndp_list = [part["ndp"][k] for k in keys]
+        
+        # Inject fixed totals from frozen s15(2) districts
+        for dist in frozen_ucp:
+            ucp_list.append(frozen_ucp[dist])
+            ndp_list.append(frozen_ndp[dist])
+
+        ucp = np.array(ucp_list, dtype=float)
+        ndp = np.array(ndp_list, dtype=float)
         m = seat_results(ucp, ndp)
         m["step"] = i
         rows.append(m)
