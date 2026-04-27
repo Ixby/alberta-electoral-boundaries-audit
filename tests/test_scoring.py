@@ -59,8 +59,9 @@ def test_seat_results_clean_majority():
     assert m["n_districts"] == 3
     assert abs(m["ucp_vote_share"] - 0.6) < 1e-9
     # All three districts have UCP at exactly 50/50 after uniform
-    # shift to provincial 50/50, which is NOT > 0.5 — so seats@50/50 = 0.
-    assert m["seats_at_50_50"] == 0.0
+    # shift to provincial 50/50. With fractional tie-splitting, each
+    # tie is worth 0.5 seats. 3 districts * 0.5 = 1.5 / 3 = 0.5 share.
+    assert m["seats_at_50_50"] == 0.5
 
 
 def test_seat_results_packing_signal():
@@ -81,12 +82,13 @@ def test_seat_results_packing_signal():
 
 def test_seats_at_50_50_uniform_swing():
     """Verify the uniform-swing math. Three districts where UCP gets
-    60%, 50%, 40%. Provincial UCP share = 50%, so no shift is applied.
-    UCP wins exactly 1 of 3 districts (the 60% one) → seats_at_50_50 = 1/3."""
+    60%, 50%, 40%. Provincial UCP share = 50%, so no shift is applied."""
     ucp = np.array([60.0, 50.0, 40.0])
     ndp = np.array([40.0, 50.0, 60.0])
     m = seat_results(ucp, ndp)
-    assert abs(m["seats_at_50_50"] - 1.0 / 3.0) < 1e-9
+    # UCP wins 1 of 3 (60%), ties 1 of 3 (50%), loses 1 of 3 (40%).
+    # Total wins = 1.0 + 0.5 = 1.5. Share = 1.5 / 3.0 = 0.5.
+    assert abs(m["seats_at_50_50"] - 0.5) < 1e-9
 
 
 def test_seats_at_50_50_swing_required():
@@ -97,9 +99,9 @@ def test_seats_at_50_50_swing_required():
     ndp = np.array([30.0, 30.0, 30.0])
     m = seat_results(ucp, ndp)
     # After shift to 50/50 provincial: each district's UCP share = 0.5
-    # The seats@50/50 metric uses > 0.5 (strict), so 0.5 doesn't count.
-    # Result: seats_at_50_50 = 0.0
-    assert m["seats_at_50_50"] == 0.0
+    # The seats@50/50 metric fractionalizes ties, so each district counts
+    # as 0.5. Result: 3 * 0.5 / 3 = 0.5
+    assert m["seats_at_50_50"] == 0.5
 
 
 def test_efficiency_gap_proportional():
