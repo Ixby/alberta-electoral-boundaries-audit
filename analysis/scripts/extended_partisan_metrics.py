@@ -122,7 +122,9 @@ def seats_votes_curve(ucp_shares: np.ndarray, swing_range: np.ndarray) -> np.nda
     seat_fracs = []
     for s in swing_range:
         swung = ucp_shares + s
-        seat_fracs.append((swung > 0.5).mean())
+        wins = (swung > 0.5 + 1e-9).sum()
+        ties = (np.abs(swung - 0.5) <= 1e-9).sum()
+        seat_fracs.append((wins + 0.5 * ties) / len(swung))
     return np.array(seat_fracs)
 
 
@@ -136,7 +138,9 @@ def partisan_bias(ucp_shares: np.ndarray) -> float:
     mean_share = np.nanmean(ucp_shares)
     swing = 0.5 - mean_share
     swung = ucp_shares + swing
-    ucp_seats_at_50 = (swung > 0.5).mean()
+    wins = (swung > 0.5 + 1e-9).sum()
+    ties = (np.abs(swung - 0.5) <= 1e-9).sum()
+    ucp_seats_at_50 = (wins + 0.5 * ties) / len(swung)
     return float(ucp_seats_at_50 - 0.5)
 
 
@@ -148,8 +152,8 @@ def lopsided_margins(ucp_shares: np.ndarray) -> tuple[float, float]:
     UCP wins by abnormally large margins → packing signal.
     Returns (t_statistic, p_value). Positive t = UCP wins by larger margins.
     """
-    ucp_wins  = ucp_shares[ucp_shares > 0.5] - 0.5   # margins for UCP wins
-    ndp_wins  = 0.5 - ucp_shares[ucp_shares < 0.5]    # margins for NDP wins
+    ucp_wins  = ucp_shares[ucp_shares > 0.5 + 1e-9] - 0.5   # margins for UCP wins
+    ndp_wins  = 0.5 - ucp_shares[ucp_shares < 0.5 - 1e-9]    # margins for NDP wins
     if len(ucp_wins) < 3 or len(ndp_wins) < 3:
         return float("nan"), float("nan")
     t, p = scipy_stats.ttest_ind(ucp_wins, ndp_wins, equal_var=False)
