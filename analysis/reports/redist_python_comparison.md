@@ -48,7 +48,69 @@ R SMC's median sits at the Python ReCom p95. Said differently: half of R-SMC pla
 | Outlier framing | "top 1.5% — surgical fortification" | "near-median — ordinary" |
 | Pass criterion (±0.5pp) | — | **FAIL** — gap is ~26pp |
 
-## Verdict
+## Falsification tests (PO-designed, 2026-04-26 evening)
+
+After the initial discrepancy was surfaced, the PO proposed four falsification tests for the "mechanism is the geometry" hypothesis (the claim that the SMC plans reach the minority's `seats@50/50` more often than the ReCom plans because SMC explores less-compact territory). Two of the four (Tests #2 and #4) are runnable directly against the data already in hand. Both ran on 2026-04-26 evening; results below.
+
+### Test #4 — Compactness distributions should differ between samplers
+
+**Prediction:** SMC's Polsby-Popper distribution should be left-shifted (less compact) compared to Python ReCom's. If the two distributions overlap perfectly, the "SMC explores less-compact territory" assumption is wrong and the whole thesis collapses.
+
+**Method:**
+- Python ReCom: re-used the 10,000-plan verification subset and computed mean Polsby-Popper per plan via `analysis/scripts/compactness_for_verification_subset.py` (precomputed shared-edge lengths, ~30s for the full subset).
+- R SMC: added `redistmetrics::comp_polsby` to `analysis/scripts/redist_crossvalidation.R`, ran on the 5,000-plan SMC ensemble.
+
+**Result:**
+
+| Statistic | Python ReCom (10k verification subset) | R SMC (5k weighted plans) | Δ |
+|---|---|---|---|
+| mean PP — median across plans | 0.2501 | 0.2357 | -0.0144 (SMC ~5.7% less compact) |
+| mean PP — p5 | 0.2380 | 0.2288 | -0.0092 |
+| mean PP — p95 | 0.2645 | 0.2468 | -0.0177 |
+
+**Verdict:** WEAKLY supports the hypothesis. SMC plans are *slightly* less compact than ReCom plans on average, but the distributions overlap heavily. SMC is not exploring a meaningfully different region of compactness-space; both samplers produce relatively compact maps with very similar PP distributions.
+
+### Test #2 — High-UCP-advantage SMC plans should be less compact than other SMC plans
+
+**Prediction:** Within the SMC ensemble, the plans that reach the minority map's 0.4831 `seats@50/50` value should have systematically lower mean PP (less compact) than the plans that don't. If the high-UCP-advantage plans are equally or more compact, the "you can't reach 0.4831 without breaking compactness" claim is factually false.
+
+**Result:**
+
+| | Plans with seats@50/50 ≥ 0.4831 | Other SMC plans |
+|---|---|---|
+| N | 2,762 | 2,238 |
+| Mean Polsby-Popper | **0.2391** | **0.2339** |
+
+**Difference: +0.0051** (positive = high-UCP plans are *more* compact than other plans).
+**Welch t-test p-value: 7.7 × 10⁻²³⁴** (rock-solid statistical significance, in the *opposite* direction from the prediction).
+
+**Verdict:** **REFUTES the hypothesis.** The SMC plans that reach the minority's `seats@50/50` are not less compact — they are very slightly *more* compact than the SMC plans that don't reach it. The "non-compact geometry is what makes the high-UCP-advantage reachable" claim does not survive the test.
+
+### What this means for the "mechanism is the geometry" thesis
+
+Per the PO's pre-registered criterion at the time the tests were designed: *"If the SMC maps that hit the UCP advantage are significantly less compact than the ReCom maps, the 'Surgical Fortification / Mechanism is the Geometry' thesis is locked in as hard science. If they aren't, drop the thesis and default to Option C (Investigate further) or Option D (Lead entirely with Lane 2)."*
+
+The data falls on the "drop the thesis" side. The strong claim that *"the minority map's UCP-favourable seat advantage is mechanically inseparable from the unusual non-compact geometry the chair flagged"* is not supported by the falsification tests. The audit retains:
+
+- The empirical fact that R SMC reaches the minority's value more often than Python ReCom (the magnitude is run-stochastic; see "Stability caveat" below). That fact is real and defensible.
+- The Lane 2 structural-irregularity finding (5 of 5 pre-registered tests fired). That finding is unaffected by the falsification.
+- The Lane 1 ReCom percentile (98.6 — top 1.5%). Still defensible as a single-sampler statement.
+
+The audit does NOT retain:
+
+- The claim that compactness specifically is the mechanism through which the minority commissioners reached 0.4831. If there is a geometric mechanism, it isn't mean-Polsby-Popper. Candidates for further investigation: per-district min PP (the "weakest district" being non-compact rather than the average), city-cracking patterns, urban-rural hybridization specifically, or a non-compactness feature like cut-edge density.
+
+### Stability caveat — R SMC results are run-stochastic
+
+Across three runs of the R SMC script with the same nominal `set.seed(88)`, `nsims=5000`, `resample=FALSE`, `pop_temper=0`, but different library-load orderings, the fraction of plans reaching the minority's 0.4831 was:
+
+| Run | Library load order | % of weighted plans ≥ 0.4831 |
+|---|---|---|
+| 1st | redist only | 28% |
+| 2nd | redist + redistmetrics (no `comp_polsby` call) | 5.6% |
+| 3rd | redist + redistmetrics + `comp_polsby` call | 57.9% |
+
+This is an artefact of `library(redistmetrics)` consuming RNG state before the SMC sampler runs, shifting the random-consumption path. The qualitative finding (SMC reaches the value more often than ReCom's 1.4%) is stable across all three runs; the magnitude is not. A future re-run with explicit `set.seed()` immediately before `redist_smc()` (rather than once at the top of the script) would resolve this.
 
 The cross-validation does **NOT** pass the ±0.5pp tolerance. The two samplers produce materially different distributions, and the v0_9 minority's percentile placement depends on which sampler one uses:
 - Under Python ReCom (gerrychain): the minority value is a **top-1.5% outlier** (the surgical-fortification finding the public report leads with).
