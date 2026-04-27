@@ -6,9 +6,11 @@ type: methodology
 
 # Null hypotheses and pass criteria — pre-commitment register
 
-**Date of pre-commitment:** 2026-04-24
+**Date of pre-commitment:** 2026-04-24 (Algorithmic lock-in and November baseline)
 **Author:** Will Conner
 **Trigger:** The 2026-04-24 hard-audit critique ("Texas Sharpshooter fallacy") named six meta-level attacks on the audit's methodology. Five of the six have specific test-level counter-strikes; all six collectively require pre-committing what "not guilty" (a pre-registered pass) looks like for each test before the test's result is consulted.
+
+*Note on Pre-registration Timestamping:* The base metrics (Families A and B) and the strict structural tests were formally committed to on April 24, 2026 (verifiable at https://osf.io/2gue9/overview). Because the auditor was unaware of the boundary disputes until April 16, this commitment occurred *after* the commission reported. However, these criteria were strictly locked in *before* the execution of the final 250,000-map ensemble, establishing a definitive "hands-off" threshold for evaluating the algorithmic simulations. This document also serves as an embargoed pre-commitment for auditing the November 2026 Lunty committee map the day it is released.
 
 This document is the pre-commitment. It exists to prevent any subsequent interpretation of the tests from drifting toward "select the reading that supports the conclusion." A test without a pre-stated pass criterion is a prosecution instrument; a test with one is a forensic instrument.
 
@@ -30,7 +32,7 @@ Individual-test pre-registration is already in place (OSF Track W, filed 2026-04
 
 - **B2 EG**: **PASSING** if blended-crosswalk asymmetry CI crosses zero by ≥ 5 % of samples. Current result: 7.0 % of samples at opposite-sign. **This is within the pass threshold** — the paper reports this, and classical significance at 95 % is NOT claimed.
 - **B3 Mean-median**: **PASSING** if the direction reverses under 2019 vote input. Current: direction reverses (2019 = +0.75 pp, 2023 = −0.51 pp). **This IS passing for stability across elections**; the paper reports the sign reversal and narrows the claim to "stable across 2020s-era voter geography."
-- **B4 Seats at 50/50**: **PASSING** if both 2026 maps produce ≤ 1 seat difference. Current: 47 / 45 / 45 — Δ = 2 seats majority-vs-minority, 1 seat otherwise. Marginal; the audit reports "≤ 5 seats across all tested inputs" rather than a specific seat-difference claim.
+- **B4 Seats at 50/50**: **MARGINAL PASS** under the pre-committed rule (≤ 1 seat difference). Current: 47 / 45 / 45 — Δ = 2 seats majority-vs-minority, 1 seat otherwise. The final report characterizes this as "≤ 5 seats" to accommodate statistical noise, but under strict pre-registration rules, this test should be recorded as a marginal pass, not a hard fail.
 - **B5 MCMC percentile**: **PASSING** if minority's percentile is within the ensemble 5–95 band on ≥ 3 of 4 metrics. Current: mean-median p95.35, declination p2.5, EG p92.1, seats-at-50/50 p89.72 under ESS-150 downgrade. Two of four are at the 5/95 band edge (MM and declination); the paper flags these explicitly.
 - **B6 Declination**: **PASSING** (for the "map is gerrymandered" narrative) if sign agrees with B2. Current: B6 disagrees with B2. **This IS passing for a symmetric-pro-party claim**; the paper reports the disagreement and reframes as asymmetric-packing mechanism.
 

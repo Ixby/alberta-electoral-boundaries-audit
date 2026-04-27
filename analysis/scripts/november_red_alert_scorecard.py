@@ -29,7 +29,7 @@ Outputs:
 
 This scorecard is one of the prospective components of the
 pre-registered audit (RQ8-9): the threshold-firing logic was
-committed to in writing on March 14 2026, before the Lunty
+committed to in writing on April 24 2026, before the Lunty
 committee began its work, so post-hoc redrawing of thresholds
 to fit the data is impossible.
 """
