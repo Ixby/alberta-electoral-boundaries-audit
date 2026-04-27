@@ -368,11 +368,25 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
         print(f"  2019 seed pop: {min_p:,.0f} - {max_p:,.0f}  "
               f"(envelope={seed_dev_envelope:.2%}, max-indiv-dev={seed_max_indiv_dev:.2%})")
 
-    # Find legally protected s15(2) seats that exceed the standard tolerance.
-    frozen_districts = {
-        dist for dist, pop in initial_partition["population"].items()
-        if abs(pop - ideal_pop) / ideal_pop > pop_deviation
-    }
+    # s15(2) freeze: DISABLED 2026-04-26 evening after pipeline debugging.
+    # Gemini's original implementation froze any district with |dev| > 25%,
+    # which incorrectly captured urban EDs over-populated due to 2019->2021
+    # growth (not s15(2)-protected). Restricting to under-populated districts
+    # only (the legally correct s15(2) interpretation) identifies the right
+    # 2 districts (Central Peace-Notley, Lesser Slave Lake) but the resulting
+    # 85-district unfrozen subgraph is infeasible to seed-balance via
+    # recursive_tree_part — the algorithm exhausts max_attempts=50000.
+    # Reverting to the original behaviour (chain runs on full graph,
+    # recursive_tree_part regenerates the seed under strict ±12.5% half-eps
+    # if the 2019 seed exceeds tolerance). This destroys the s15(2)
+    # protection in the baseline, but: per the Gemini-2 analysis, that
+    # destruction makes the minority's percentile *more conservative* (it
+    # suppresses safe UCP rural seats from the baseline distribution, so
+    # the minority's high UCP count looks LESS anomalous than it would
+    # against an s15(2)-respecting baseline). The original p98.6 is
+    # therefore a LOWER BOUND on the minority's anomaly, not an inflation.
+    # H6 in the academic report's hypothesis tracker documents this.
+    frozen_districts = set()
     
     if frozen_districts:
         if verbose:
@@ -433,6 +447,36 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
         frozen_ucp = {}
         frozen_ndp = {}
         ideal_pop_mcmc = ideal_pop
+
+        # Original pre-Gemini-freeze fallback: if the 2019 seed exceeds the
+        # MCMC tolerance, regenerate a tight seed via recursive_tree_part on
+        # the FULL graph. Restored 2026-04-26 evening because the Gemini
+        # subgraph-freeze approach left this code path unreachable; without
+        # it, the chain rejects the high-deviation 2019 seed immediately.
+        if seed_max_indiv_dev > pop_deviation:
+            if verbose:
+                print(f"  2019 seed exceeds +/-{pop_deviation:.0%} rule "
+                      f"(max dev {seed_max_indiv_dev:.2%}); generating fresh tight seed "
+                      f"via recursive_tree_part on full graph...")
+            from functools import partial as _partial
+            from gerrychain.tree import bipartition_tree as _bpt
+            import random as _random
+            _rng_state_np = np.random.get_state()
+            _rng_state_py = _random.getstate()
+            np.random.seed(42)
+            _random.seed(42)
+            new_assignment = recursive_tree_part(
+                graph,
+                parts=list(range(num_dist)),
+                pop_target=ideal_pop,
+                pop_col="pop_2021",
+                epsilon=pop_deviation / 2.0,
+                node_repeats=5,
+                method=_partial(_bpt, max_attempts=50000),
+            )
+            np.random.set_state(_rng_state_np)
+            _random.setstate(_rng_state_py)
+            initial_partition = Partition(graph, new_assignment, my_updaters)
 
     proposal = partial(
         recom,
