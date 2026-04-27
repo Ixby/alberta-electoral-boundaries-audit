@@ -1,0 +1,98 @@
+{
+  "method": {
+    "snap_tolerance_m": 500.0,
+    "vertex_densify_m": 50.0,
+    "features": [
+      "highways",
+      "rivers"
+    ],
+    "highway_classes": [
+      "motorway",
+      "primary",
+      "secondary",
+      "trunk"
+    ],
+    "parity_note": "Snap tolerance and vertex densification held identical to score_anchoring.py (the audit's headline CSD-anchoring run that produced 71.0% / 14.5% / 75.2%)."
+  },
+  "sources": {
+    "input": {
+      "path": "data\\shapefiles\\derived\\v0_9_topological_majority_2026_eds.gpkg",
+      "label": "majority_2026",
+      "n_eds": 89,
+      "name_column": "name_2026"
+    },
+    "highways": {
+      "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\osm\\alberta_osm_highways.gpkg",
+      "provenance": "OpenStreetMap via Overpass API (motorway|trunk|primary|secondary)",
+      "fetcher": "analysis/scripts/_fetch_osm_natural.py",
+      "used": true
+    },
+    "rivers": {
+      "path": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\osm\\alberta_osm_rivers.gpkg",
+      "provenance": "OpenStreetMap via Overpass API (waterway=river)",
+      "fetcher": "analysis/scripts/_fetch_osm_natural.py",
+      "used": true
+    },
+    "counties": {
+      "path": null,
+      "provenance": "Alberta Municipal Affairs county/MD layer is distributed via AltaLIS (non-anonymous registration; no stable URL). Not on disk; not included in this run. Note that AB MD/SM/SA jurisdictions are already covered in the StatCan 2021 CSD layer used by score_anchoring.py, so any 'county-line' anchoring the minority map performs is captured by the headline 14.5% number.",
+      "used": false
+    }
+  },
+  "totals": {
+    "n_eds": 89,
+    "total_perimeter_km": 25087.273271938036,
+    "anchored_perimeter_km": 9639.96085518701,
+    "anchored_pct_overall": 38.42570195131576,
+    "mean_per_ed_anchored_pct": 66.15654503371424,
+    "median_per_ed_anchored_pct": 71.09565674193131,
+    "top5_most_anchored": [
+      {
+        "name": "Calgary-Buffalo",
+        "anchored_pct": 100.0
+      },
+      {
+        "name": "Calgary-Confluence",
+        "anchored_pct": 100.0
+      },
+      {
+        "name": "Calgary-Edgemont",
+        "anchored_pct": 100.0
+      },
+      {
+        "name": "Calgary-McKenzie",
+        "anchored_pct": 100.0
+      },
+      {
+        "name": "Edmonton-Highlands-Norwood",
+        "anchored_pct": 100.0
+      }
+    ],
+    "bottom5_least_anchored": [
+      {
+        "name": "Peace River",
+        "anchored_pct": 7.402429709944899
+      },
+      {
+        "name": "Cold Lake-Bonnyville-St. Paul",
+        "anchored_pct": 15.70033156259422
+      },
+      {
+        "name": "Medicine Hat-Cypress",
+        "anchored_pct": 18.15583970538045
+      },
+      {
+        "name": "Fort McMurray-Wood Buffalo",
+        "anchored_pct": 20.53717060502694
+      },
+      {
+        "name": "Lloydminster-Wainwright",
+        "anchored_pct": 21.575906594485865
+      }
+    ]
+  },
+  "outputs": {
+    "log_csv": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_9_natural_anchoring_majority_2026.csv",
+    "summary_json": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_9_natural_anchoring_majority_2026.json"
+  }
+}
