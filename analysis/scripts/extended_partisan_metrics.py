@@ -214,7 +214,12 @@ def all_metrics(ucp_shares: np.ndarray, label: str) -> dict:
 
 
 def pct_rank(arr: np.ndarray, val: float) -> float:
-    return float(100.0 * (arr < val).mean())
+    \"\"\"Midrank percentile: 100 * (P(X < x) + 0.5 * P(X == x)).\"\"\"
+    if len(arr) == 0:
+        return float("nan")
+    less = (arr < val - 1e-9).sum()
+    equal = (np.abs(arr - val) <= 1e-9).sum()
+    return float(100.0 * (less + 0.5 * equal) / len(arr))
 
 
 # ---------------------------------------------------------------------------
