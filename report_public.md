@@ -54,7 +54,7 @@ Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and 
 
 ---
 
-## The April 16 decision
+## The April 16 decision {.new-page}
 
 The *Electoral Boundaries Commission Act* lets the government refer the commission's recommendations to a legislative committee. On April 16, the government did this. The new committee — chaired by Brandon Lunty, UCP MLA for Leduc-Beaumont — has five members. Three from the governing UCP, one from the New Democratic Party (NDP), one from the Alberta Party. It must report by November 2, 2026 with a 91-seat map.
 
@@ -74,7 +74,7 @@ Alberta's April 16 motion is now operating against a constitutional landscape th
 
 ---
 
-## How the audit measures gerrymandering
+## How the audit measures gerrymandering {.new-page}
 
 A gerrymander is a deliberate boundary choice that advantages one political interest over others, beyond what the statutory constraints require. Two methodological problems make this hard to measure honestly.
 
@@ -363,7 +363,7 @@ The 338Canada projection on April 12, 2026 (UCP 52.5% / NDP 37.6%) gives the que
 
 The 338-projection numbers in the right-hand column were computed against the v0_8 substrate and have not yet been re-scored on the corrected v0_9 substrate; the audit treats them as draft until that re-score lands. The left-hand column (2023 actuals on v0_9) is what the corrected pipeline produces. Even with the right column held in place pending re-score, the conclusion is consistent: under any single electorate, Lane 1 efficiency gap flickers a few percentage points either way; *the 50/50 test above doesn't flicker, the structural-fairness pattern in Lane 2 doesn't flicker, and the 250,000 corrected simulated maps under the same Alberta rules don't move when the polls do.* Those are the pieces of the verdict the audit will defend in any year.
 
-### Verdict
+### Verdict {.new-page}
 
 The audit's central finding is geometric. **Lane 2 — the structural-irregularity scorecard — is the foundation; Lane 1 is the proof that the geometry is doing partisan work.**
 
@@ -430,7 +430,7 @@ None of this lets the minority map's pattern off the hook. The structural-irregu
 
 ---
 
-## Behind the audit
+## Behind the audit {.new-page}
 
 This audit was produced by Will Conner, a fourth-year computer information systems student at Mount Royal University in Calgary. It is an independent research project with no funding from any political party or advocacy organization. The author is a UCP-disinclined Alberta voter; that prior is disclosed in the monograph's Author Disclosure block, along with the three findings retained in the paper that ran *against* the prior.
 

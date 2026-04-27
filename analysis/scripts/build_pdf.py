@@ -235,8 +235,8 @@ p {
   -webkit-hyphens: auto;
   hyphenate-limit-chars: 6 3 2;
   hyphenate-limit-lines: 2;
-  orphans: 1;
-  widows: 1;
+  orphans: 2;
+  widows: 2;
 }
 
 /* Drop cap on the lede paragraph */
@@ -705,7 +705,7 @@ blockquote.scorecard + blockquote.scorecard {
 }
 
 /* Section openers that should always start fresh on a new page */
-h2.new-page {
+h2.new-page, h3.new-page {
   page-break-before: always;
   break-before: page;
 }
