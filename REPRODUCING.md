@@ -129,7 +129,7 @@ Wall time: <30 seconds. Headline numbers to verify:
 
 - **2019 enacted:** rural voters carry 4.4% more weight than urban
 - **2026 majority:** 11.9% more weight; 3 EDs declared under s.15(2) (Canmore-Banff, Central Peace-Notley, Lesser Slave Lake)
-- **2026 minority:** 22.9% more weight; 0 s.15(2) declarations; 25 hybrid EDs (vs majority's 9)
+- **2026 minority:** 22.9% more weight; 0 s.15(2) declarations; 17 hybrid EDs under the operational area-share rule (vs majority's 14, vs 2019 baseline 8). The narrative manual count published in earlier drafts (25 vs 9) was not reproducible by an automated rule and has been superseded — see `analysis/reports/v0_9_dangerzone_metric_definitions.md`.
 
 ---
 
