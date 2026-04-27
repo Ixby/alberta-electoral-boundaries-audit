@@ -93,20 +93,33 @@ def load_2023_results() -> List[Dict]:
             ndp = ucp = 0
             for i in range(1, 7):
                 cand = r.get(f'cand_{i}', '') or ''
-                votes = r.get(f'votes_{i}', '') or ''
-                if not cand or not votes:
+                votes_str = r.get(f'votes_{i}', '') or ''
+                if not cand or not votes_str:
                     continue
                 try:
-                    votes = int(votes)
+                    votes = int(votes_str)
                 except ValueError:
                     continue
-                cand_upper = cand.upper()
-                if '(NDP)' in cand_upper or cand_upper.endswith(' NDP'):
+                    
+                import re
+                # Exact matches for party affilation, preventing "Independent - UCP" false positives
+                # Regex anchors to end of string or matches exact parentheticals
+                cand_upper = cand.strip().upper()
+                is_ndp = re.search(r'(\(NDP\)$|\bNDP$|ALBERTA NDP|NEW DEMOCRATIC PARTY)', cand_upper)
+                is_ucp = re.search(r'(\(UCP\)$|\bUCP$|UNITED CONSERVATIVE PARTY)', cand_upper)
+                
+                # Exclude independent candidates who happen to have the letters
+                if "INDEPENDENT" in cand_upper:
+                    continue
+                    
+                if is_ndp:
                     ndp = votes
-                elif '(UCP)' in cand_upper or cand_upper.endswith(' UCP'):
+                elif is_ucp:
                     ucp = votes
-            if ndp + ucp == 0:
-                continue
+                    
+            # Critical validation: We MUST have detected a valid 2-party race
+            assert ndp + ucp > 0, f"Failed to parse votes for 2023 ED: {r['ed_name']}. NDP={ndp}, UCP={ucp}"
+            
             out.append({
                 'ed': r['ed_name'], 'region': r['region'],
                 'ndp': ndp, 'ucp': ucp,
