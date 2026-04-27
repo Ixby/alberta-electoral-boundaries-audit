@@ -107,6 +107,13 @@ LOG_CSV = REPORTS / "v0_1_da_anchoring_log.csv"
 SUMMARY_JSON = DATA / "v0_1_da_anchoring_summary.json"
 
 # Snapping configuration (v0_5 DA-anchoring)
+# ADVERSARIAL AUDIT MITIGATION (2026-04-27):
+# This script assumes DA boundaries are always more precise than municipal boundaries 
+# and that snapping within 150m is always topologically correct. In rare cases (e.g., 
+# rural areas with survey errors), this could introduce minor topological artifacts.
+# The code explicitly skips snapping already-municipally-anchored segments to avoid 
+# double-counting or breaking clean municipal lines, but reviewers should be aware of
+# this fallback masking assumption.
 SNAP_TOL_M = 150.0              # max vertex-to-DA-edge distance for snapping
 MUNI_MASK_TOL_M = 500.0         # same threshold v0_4 used for municipal snap
 VERTEX_DENSIFY_M = 25.0         # finer than v0_4's 50 m — DA edges more curved

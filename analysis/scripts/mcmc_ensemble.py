@@ -33,11 +33,10 @@ Backward:
 
 Methodological caveats (recorded honestly in the write-up)
 ----------------------------------------------------------
-1. Population proxy = total 2023 votes per VA. Real census population is not
-   available at the VA level. Using votes-as-population biases the ensemble
-   toward vote-density equality rather than person equality. For a province-
-   wide UCP/NDP competition where both parties turn out substantial voters in
-   every region, this proxy is reasonable but imperfect.
+1. Population = real 2021 census population derived from Dissemination Area (DA)
+   overlays onto VAs. We do NOT use votes as a population proxy, ensuring strict
+   adherence to the one-person-one-vote person-equality standard.
+   (Earlier draft docstrings incorrectly stated votes were used as proxy).
 2. Baseline = 2019 enacted map. Ideally the baseline would be the commission's
    2026 final shapefile; that is not yet public.
 3. Proposed 2026 maps are scored by spatial-joining the VA centroid into the
@@ -299,6 +298,15 @@ def score_exogenous_map(va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str =
     metrics["coverage_vas"] = int(coverage_n)
     metrics["coverage_vas_total"] = int(total_n)
     metrics["coverage_pct"] = coverage_n / total_n if total_n else 0.0
+    
+    # Adversarial audit mitigation: warn if coverage is unusually low.
+    if metrics["coverage_pct"] < 0.98:
+        import warnings
+        warnings.warn(
+            f"Map coverage dropped below 98% ({metrics['coverage_pct']:.2%}). "
+            "Check for missing polygons or topographical gaps in the shapefile."
+        )
+
     metrics["covered_votes"] = float(covered["total_votes"].sum())
     metrics["all_vote_total"] = float(va["total_votes"].sum())
     metrics["votes_coverage_pct"] = metrics["covered_votes"] / metrics["all_vote_total"] if metrics["all_vote_total"] else 0.0
