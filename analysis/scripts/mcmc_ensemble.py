@@ -89,12 +89,12 @@ MAPS.mkdir(parents=True, exist_ok=True)
 
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 ED2019_PATH = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_PATH = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
-MIN_V6_PATH = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
-MIN_V5_PATH = DATA / "shapefiles" / "derived" / "v0_1_refined_v5_minority_2026_eds.gpkg"
-# v0_7 — full 89-ED coverage (canonical final; v0_5 + v0_3 fallback, 2026-04-24)
-MAJ_V7_PATH = DATA / "shapefiles" / "derived" / "v0_7_canonical_majority_2026_eds.gpkg"
-MIN_V7_PATH = DATA / "shapefiles" / "derived" / "v0_7_canonical_minority_2026_eds.gpkg"
+MAJ_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+MIN_V6_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+MIN_V5_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+
+MAJ_V7_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+MIN_V7_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
 # v0_8 — perfecter pipeline output (full_refined preferred for 89/89
 # coverage from 2019-Tier-A inheritance fill; refined fallback if fill
 # not run; canonical fallback if refine not run, 2026-04-25)

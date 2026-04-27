@@ -57,12 +57,13 @@ adj <- redist.adjacency(va)
 cat("Built adjacency: ", length(adj), " nodes, ",
     sum(sapply(adj, length)) / 2, " edges\n", sep = "")
 
-# ----- Step C: Set up the redistricting problem ---------------------
-# Population proxy: total votes per VA (same as Python pipeline)
 # Note: Python uses pop_2021 from the StatsCan DA file. R previously used
 # a vote-weighted proxy but now correctly uses rounded pop_2021 to properly
 # validate population-balanced maps rather than vote-balanced maps,
 # resolving Bug E from the code audit.
+# Load population from the Python-generated cache
+pop_cache <- read.csv("data/va_pop_from_das.csv")
+va$pop_2021 <- pop_cache$pop_2021[match(seq_len(nrow(va)) - 1, pop_cache$va_row_idx)]
 va$pop <- pmax(round(va$pop_2021), 1)
 n_districts <- 87  # 2019 substrate count, matching the Python ensemble
 

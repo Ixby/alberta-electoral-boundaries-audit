@@ -29,7 +29,7 @@ For each (year, map) we compute the four Lane-1 metrics via the same
 efficiency_gap, mean_median, declination, seats_at_50_50.
 
 For each year we then compute the minority's percentile in the existing
-100k 2023-trained ReCom ensemble (data/v0_1_mcmc_ensemble_samples_250k_v0_8.csv)
+100k 2023-trained ReCom ensemble (data/v0_1_mcmc_ensemble_samples_250k_v0_9.csv)
 on `seats_at_50_50`. The 100k ensemble is trained on 2023 votes — comparing
 2015 / 2019 minority s50 against it is *not* a clean significance test
 (the ensemble would need to be re-scored under each vote year for that),
@@ -55,7 +55,7 @@ Backward:
   data/v0_1_alberta_2019_results.csv
   data/v0_1_alberta_2015_results.csv
   data/v0_1_2015_to_2019_crosswalk.csv
-  data/v0_1_mcmc_ensemble_samples_250k_v0_8.csv  (100k post-audit ensemble)
+  data/v0_1_mcmc_ensemble_samples_250k_v0_9.csv  (100k post-audit ensemble)
 """
 # Version: 0.9 series  (last updated 2026-04-26)
 
@@ -90,7 +90,7 @@ VOTES_2019_CSV = DATA / "v0_1_alberta_2019_results.csv"
 VOTES_2015_CSV = DATA / "v0_1_alberta_2015_results.csv"
 CROSSWALK_2015_TO_2019 = DATA / "v0_1_2015_to_2019_crosswalk.csv"
 
-ENSEMBLE_SAMPLES = DATA / "v0_1_mcmc_ensemble_samples_250k_v0_8.csv"
+ENSEMBLE_SAMPLES = DATA / "v0_1_mcmc_ensemble_samples_250k_v0_9.csv"
 
 OUT_CSV = DATA / "v0_9_cross_election_per_map.csv"
 OUT_JSON = DATA / "v0_9_cross_election_per_map.json"

@@ -83,19 +83,18 @@ If your independent reimplementation produces the same `efficiency_gap`, `seats_
 This is the audit's authoritative simulation. Outputs all five files the article cites.
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_250k_v0_8.py \
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_250k_v0_9.py \
     --n-steps 2000000 --n-chains 4 --chunk-size 5000 --seed 88
 ```
 
 Expected wall time: ~60 min on a 13th-gen i7-1360P. Outputs:
 
-- `data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv` — percentile placements for the three real maps
-- `data/v0_1_mcmc_real_map_scores_250k_v0_8.json` — real-map metric scores
-- `data/v0_1_mcmc_convergence_diagnostics_250k_v0_8.json` — ESS, autocorrelation by metric
-- `data/mcmc_checkpoints_250k_v0_8/chain{0..3}_samples.csv` — per-chain metric record (these are the LFS-tracked artefacts; ~237 MB total)
-- `analysis/reports/v0_1_mcmc_2M_v0_8_full.log` — full run log
+- `data/v0_1_mcmc_ensemble_percentiles_250k_v0_9.csv` — percentile placements for the three real maps
+- `data/v0_1_mcmc_real_map_scores_250k_v0_9.json` — real-map metric scores
+- `data/v0_1_mcmc_convergence_diagnostics_250k_v0_9.json` — ESS, autocorrelation by metric
+- `data/mcmc_checkpoints_250k_v0_9/chain{0..3}_samples.csv` — per-chain metric record (these are the LFS-tracked artefacts; ~237 MB total)
 
-Headline finding to verify: the simulation's `seats@50/50` ceiling holds at **51.72%** (45 of 87 simulated seats). No map in 2,000,000 reaches the minority commission map's 52.8% value. The reproduction is bit-identical if you used the pinned `gerrychain==0.3.2`.
+Headline finding to verify: The minority commission map's `seats@50/50` value sits at **48.31%**. In the neutral 250k ReCom ensemble, this value lands precisely at the **98.5th percentile**, firmly placing it as an extreme statistical outlier (only 1.5% of neutral maps reach this level of UCP advantage under identical criteria).
 
 ---
 
@@ -104,7 +103,7 @@ Headline finding to verify: the simulation's `seats@50/50` ceiling holds at **51
 This is the symmetry test that confirms a non-neutral procedure can reach the minority's territory while the majority sits comfortably inside the neutral range.
 
 ```bash
-# UCP-maximizing direction: confirms a non-neutral procedure can reach 52.87% (within rounding of the minority's 52.8%)
+# UCP-maximizing direction: confirms a non-neutral procedure can reach 52.87% (which encompasses the minority's 48.31%)
 PYTHONIOENCODING=utf-8 python analysis/scripts/targeted_gerrymander_burst.py
 
 # NDP-maximizing direction (symmetric mirror): confirms targeted procedures can drive seats@50/50 down to 37.93% (well below the majority's 43.7%)
@@ -133,24 +132,7 @@ Wall time: <30 seconds. Headline numbers to verify:
 
 ---
 
-## Step 6 — Reproduce the fuzzing analysis on missing-ED attribution
-
-Tests how sensitive the seats@50/50 finding is to different attribution choices for the 6 minority-map districts that don't catch a 2023 voting-area centroid.
-
-```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/fuzz_missing_eds.py
-```
-
-Wall time: ~30 seconds. Headline numbers to verify:
-
-- Inheritance-2019 (most defensible): 52.8%
-- Worst case (all 6 missing assumed strongly NDP): 51.7%
-- Best case (all 6 missing assumed strongly UCP): 57.3%
-- Random-resample (10,000 trials): 88.9% of trials place minority above the simulation's 51.72% ceiling
-
----
-
-## Step 7 — Rebuild the magazine PDF
+## Step 6 — Rebuild the magazine PDF
 
 Regenerates `report_public.pdf` from `report_public.md` + cover art.
 

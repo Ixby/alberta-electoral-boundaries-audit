@@ -38,8 +38,8 @@ Forward deps:
   - data/v0_1_compactness_summary.json (consumed by report_academic.md §5.x)
 
 Backward deps:
-  - data/shapefiles/derived/v0_3_canonical_majority_2026_eds_swept.gpkg
-  - data/shapefiles/derived/v0_3_canonical_minority_2026_eds_swept.gpkg
+  - data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
+  - data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -67,6 +67,7 @@ def _pick(plan: str) -> Path:
     then canonical, then v0_7 canonical."""
     base = ROOT / "data" / "shapefiles" / "derived"
     for fname in (
+        f"v0_9_topological_{plan}_2026_eds.gpkg",
         f"v0_8_full_refined_{plan}_2026_eds.gpkg",
         f"v0_8_refined_{plan}_2026_eds.gpkg",
         f"v0_8_canonical_{plan}_2026_eds.gpkg",
@@ -115,7 +116,7 @@ def _detect_name_column(gdf: gpd.GeoDataFrame) -> str:
     candidates = [
         "name_2026", "ed_name", "ED_NAME", "name", "NAME", "EDS_NAME", "eds_name",
         "ENAME", "ename", "DISTRICT_N", "district_n", "DIV_NAME", "div_name",
-        "RIDING_NAM", "riding_nam",
+        "RIDING_NAM", "riding_nam", "EDName2017",
     ]
     for c in candidates:
         if c in gdf.columns:

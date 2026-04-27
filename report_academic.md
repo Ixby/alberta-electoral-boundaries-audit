@@ -2051,11 +2051,11 @@ $A$ = polygon area, $P$ = perimeter. Range $[0, 1]$; 1 = circle. Values near 0 i
 
 | Map | N | Mean PP | Median PP | Std Dev | Min | Max | EDs < 0.30 | EDs < 0.40 | Gate |
 |---|---|---|---|---|---|---|---|---|---|
-| 2019 enacted | 87 | 0.3547 | 0.3179 | 0.1784 | 0.0697 | 0.8061 | 36 | 56 | PASS |
-| Majority 2026 | 89 | 0.3040 | 0.2727 | 0.1559 | 0.0801 | 0.7520 | 41 | 66 | PASS |
-| Minority 2026 | 89 | 0.3558 | 0.3175 | 0.1783 | 0.0719 | 0.8109 | 36 | 55 | PASS |
+| 2019 enacted | 87 | 0.4186 | 0.3994 | 0.1189 | 0.1717 | 0.7691 | 16 | 44 | PASS |
+| Majority 2026 | 89 | 0.3564 | 0.3591 | 0.1375 | 0.0902 | 0.6910 | 29 | 60 | PASS |
+| Minority 2026 | 89 | 0.3344 | 0.3374 | 0.1470 | 0.0652 | 0.6994 | 39 | 63 | PASS |
 
-The majority 2026 map has the lowest mean Polsby-Popper (0.304) and the most EDs below the 0.30 caution threshold (41 of 89), suggesting its boundaries are more geometrically complex than either the 2019 enacted map or the minority proposal. This is consistent with the majority's hybrid-split doctrine for multi-municipality EDs introducing non-circular outlines. All three maps pass the gate (mean PP > 0.15). Full per-ED CSV at `analysis/reports/v0_1_compactness_metrics.csv`; summary JSON at `data/v0_1_compactness_summary.json`.
+The minority 2026 map has the lowest mean Polsby-Popper (0.334) and the most EDs below the 0.30 caution threshold (39 of 89), suggesting its boundaries are more geometrically complex than either the 2019 enacted map or the majority proposal. This is consistent with the minority's hybridization. All three maps pass the gate (mean PP > 0.15). Full per-ED CSV at `analysis/reports/v0_1_compactness_metrics.csv`; summary JSON at `data/v0_1_compactness_summary.json`.
 
 ### D.4 Reock compactness
 
