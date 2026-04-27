@@ -156,7 +156,9 @@ def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
 
 # ---- main -------------------------------------------------------------------
 
-def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None, pop_deviation: float = 0.25):
+def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None, pop_deviation: float = 0.25):
+    from drand_seed import get_canonical_seed
+    seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble_100k")
     np.random.seed(seed)
     import random as _random
     _random.seed(seed)
@@ -211,7 +213,7 @@ def main(n_steps: int = 100000, seed: int = 42, thin_every: int | None = None, p
     # -- Run chain
     print()
     print(f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps)...")
-    rows = run_ensemble(graph, assignment, n_steps, pop_deviation=pop_deviation)
+    rows = run_ensemble(graph, assignment, n_steps, pop_deviation=pop_deviation, seed=seed)
     df = pd.DataFrame(rows)
     df.to_csv(SAMPLES_CSV_100K, index=False)
     print(f"  wrote {SAMPLES_CSV_100K} ({len(df)} samples) in {time.time()-t_start:.0f}s total")
