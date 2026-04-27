@@ -7,7 +7,7 @@ Alberta-specific historical range. Resolves Issue #16.
 
 Background
 ----------
-The audit's packing/cracking analysis (v0_2_packing_cracking_analysis.py)
+The audit's packing/cracking analysis (packing_cracking_analysis.py)
 applies a 7% EG threshold from Stephanopoulos & McGhee (2015), calibrated to
 US Congressional elections 1972-2010. That threshold has never been validated
 for Alberta. This script computes EG for three enacted-map elections to
@@ -45,13 +45,13 @@ Formula (Stephanopoulos & McGhee 2015 wasted-vote form)
 
   code_eg = (NDP_wasted - RBC_wasted) / total_2p_provincial
 
-Sign convention (matching v0_2_packing_cracking_analysis.py)
+Sign convention (matching packing_cracking_analysis.py)
 ------------------------------------------------------------
   code_eg < 0  =>  RBC wastes more votes in absolute terms.
                    In the paper's raw-proportionality reading,
                    "negative = UCP (RBC) advantage" because NDP seats-to-votes
                    ratio is below 1:1 even when EG is negative under the paper's
-                   framing. See analysis/methodology/v0_1_sign_convention_resolution.md
+                   framing. See analysis/methodology/sign_convention_resolution.md
                    for the full reconciliation with S-M 2:1-slope convention.
 
   This script uses the same formula as v0_2 (code_eg). All comparisons with
@@ -60,25 +60,25 @@ Sign convention (matching v0_2_packing_cracking_analysis.py)
 
 Inputs
 ------
-  data/v0_1_alberta_2015_results.csv  — 87 pre-2017 EDs, NDP/PC/WRP/Lib/other votes
-  data/v0_1_alberta_2019_results.csv  — 87 Bill 33 EDs, candidate-level 2019
-  data/v0_1_alberta_2023_results.csv  — 87 Bill 33 EDs, candidate-level 2023
+  data/alberta_2015_results.csv  — 87 pre-2017 EDs, NDP/PC/WRP/Lib/other votes
+  data/alberta_2019_results.csv  — 87 Bill 33 EDs, candidate-level 2019
+  data/alberta_2023_results.csv  — 87 Bill 33 EDs, candidate-level 2023
 
 Outputs
 -------
-  data/v0_1_historical_eg_baseline.json
-  analysis/reports/v0_1_historical_eg_baseline.md
+  data/historical_eg_baseline.json
+  analysis/reports/historical_eg_baseline.md
 
 Dependencies
 ------------
 Forward:
-  data/v0_1_historical_eg_baseline.json
-  analysis/reports/v0_1_historical_eg_baseline.md
+  data/historical_eg_baseline.json
+  analysis/reports/historical_eg_baseline.md
 Backward:
-  data/v0_1_alberta_2015_results.csv  (from analysis/scripts/parse_2015_results.py)
-  data/v0_1_alberta_2019_results.csv
-  data/v0_1_alberta_2023_results.csv
-  analysis/scripts/v0_2_packing_cracking_analysis.py  (sign convention reference)
+  data/alberta_2015_results.csv  (from analysis/scripts/parse_2015_results.py)
+  data/alberta_2019_results.csv
+  data/alberta_2023_results.csv
+  analysis/scripts/packing_cracking_analysis.py  (sign convention reference)
 
 Usage
 -----
@@ -134,7 +134,7 @@ def load_2015() -> List[Dict]:
     Actual winner determined by plurality across all parties (ndp, pc, wrp, lib, other).
     """
     rows = []
-    with open(_find('v0_1_alberta_2015_results.csv'), newline='', encoding='utf-8') as f:
+    with open(_find('alberta_2015_results.csv'), newline='', encoding='utf-8') as f:
         for r in csv.DictReader(f):
             try:
                 ndp  = int(r['ndp'])
@@ -165,7 +165,7 @@ def load_2019() -> List[Dict]:
     Actual winner from winner_party column.
     """
     rows = []
-    with open(_find('v0_1_alberta_2019_results.csv'), newline='', encoding='utf-8') as f:
+    with open(_find('alberta_2019_results.csv'), newline='', encoding='utf-8') as f:
         for r in csv.DictReader(f):
             ndp = ucp = 0
             for i in range(1, 9):
@@ -206,7 +206,7 @@ def load_2023() -> List[Dict]:
     Actual winner from winner_party column.
     """
     rows = []
-    with open(_find('v0_1_alberta_2023_results.csv'), newline='', encoding='utf-8') as f:
+    with open(_find('alberta_2023_results.csv'), newline='', encoding='utf-8') as f:
         for r in csv.DictReader(f):
             ndp = ucp = 0
             for i in range(1, 7):
@@ -324,7 +324,7 @@ def _sign_label(eg_pct: float) -> str:
     Human-readable wasted-vote label.
     code_eg < 0 means NDP wasted fewer votes than RBC in absolute terms.
     Use a neutral phrasing; the 'advantage' interpretation depends on context
-    (see v0_1_sign_convention_resolution.md).
+    (see sign_convention_resolution.md).
     """
     if abs(eg_pct) < 0.5:
         return "roughly balanced wasted votes"
@@ -360,7 +360,7 @@ def write_json(results: List[Dict], eg_2026_majority_pct: float,
             "Alberta historical efficiency gap baseline. "
             "code_eg sign convention: (NDP_wasted - RBC_wasted) / total_2p. "
             "Negative => RBC wasted more (paper convention: negative = UCP-favourable). "
-            "See v0_1_sign_convention_resolution.md for full reconciliation."
+            "See sign_convention_resolution.md for full reconciliation."
         ),
         "elections": results,
         "alberta_historical_range": {
@@ -373,7 +373,7 @@ def write_json(results: List[Dict], eg_2026_majority_pct: float,
             "majority_eg_pct": eg_2026_majority_pct,
             "minority_eg_pct": eg_2026_minority_pct,
             "note": (
-                "2026 EG values from v0_2_packing_cracking_analysis.py "
+                "2026 EG values from packing_cracking_analysis.py "
                 "at urban_weight=0.85 (canonical run). "
                 "Source: THREE-MAP COMPARISON table, B2 Efficiency gap row."
             ),
@@ -404,7 +404,7 @@ def write_json(results: List[Dict], eg_2026_majority_pct: float,
         },
     }
 
-    path = _out('v0_1_historical_eg_baseline.json')
+    path = _out('historical_eg_baseline.json')
     with open(path, 'w', encoding='utf-8') as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
     return path
@@ -437,7 +437,7 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
         "## Sign convention",
         "",
         "All EG values use the `code_eg` convention from "
-        "`v0_2_packing_cracking_analysis.py`:",
+        "`packing_cracking_analysis.py`:",
         "",
         "```",
         "code_eg = (NDP_wasted − RBC_wasted) / total_two_party_votes",
@@ -446,7 +446,7 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
         "Negative values mean RBC (right-bloc conservative) wastes more votes "
         "in absolute terms. Under the paper's raw-proportionality reading, "
         "negative = UCP-favourable. See "
-        "`analysis/methodology/v0_1_sign_convention_resolution.md` for the full "
+        "`analysis/methodology/sign_convention_resolution.md` for the full "
         "reconciliation with the Stephanopoulos-McGhee 2:1-slope convention.",
         "",
         "## Results by election",
@@ -488,7 +488,7 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
         "## Comparison with 2026 proposed maps",
         "",
         "EG values for the 2026 proposals are taken from "
-        "`v0_2_packing_cracking_analysis.py` (urban_weight = 0.85 canonical run):",
+        "`packing_cracking_analysis.py` (urban_weight = 0.85 canonical run):",
         "",
         f"| Map | EG (code_eg) | Within 2019-2023 range? | Within full historical range? |",
         "|---|---|---|---|",
@@ -545,9 +545,9 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
         "   in many of those seats. This is the correct input to the wasted-vote formula.",
         "",
         "4. **Data sources:**",
-        "   - 2015: `data/v0_1_alberta_2015_results.csv` (from `parse_2015_results.py`)",
-        "   - 2019: `data/v0_1_alberta_2019_results.csv`",
-        "   - 2023: `data/v0_1_alberta_2023_results.csv`",
+        "   - 2015: `data/alberta_2015_results.csv` (from `parse_2015_results.py`)",
+        "   - 2019: `data/alberta_2019_results.csv`",
+        "   - 2023: `data/alberta_2023_results.csv`",
         "",
         "5. **Cross-check:** The 2023 EG computed here (-2.64%) matches the v0_2 "
         "   script's \"2019 BOUNDARIES (CURRENT) under 2023 vote shares\" result "
@@ -558,7 +558,7 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
         "Do not edit manually — re-run the script to regenerate.*",
     ]
 
-    path = _out('v0_1_historical_eg_baseline.md')
+    path = _out('historical_eg_baseline.md')
     with open(path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
     return path
@@ -568,7 +568,7 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
 # Main
 # ---------------------------------------------------------------------------
 
-# 2026 proposed map EG values from v0_2_packing_cracking_analysis.py
+# 2026 proposed map EG values from packing_cracking_analysis.py
 # canonical run (urban_weight=0.85, THREE-MAP COMPARISON table):
 #   Majority 2026: -0.40%
 #   Minority 2026: -1.81%

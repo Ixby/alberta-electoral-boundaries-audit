@@ -18,13 +18,13 @@ Inputs
 
 Outputs
 -------
-- data/v0_1_mcmc_ensemble_samples.csv
+- data/simulated_ensemble_raw_samples.csv
 - maps/mcmc/ensemble_distribution_*.png (one per metric)
-- analysis/methodology/v0_1_mcmc_ensemble.md (write-up — produced by separate run)
+- analysis/methodology/mcmc_ensemble.md (write-up — produced by separate run)
 
 Dependencies
 ------------
-Forward: analysis/methodology/v0_1_mcmc_ensemble.md (interprets outputs)
+Forward: analysis/methodology/mcmc_ensemble.md (interprets outputs)
 Backward:
   data/va_polygons_with_2023_votes.gpkg
   data/v0_1_approximate_majority_2026_eds.gpkg
@@ -103,7 +103,7 @@ MIN_V8_PATH = DATA / "shapefiles" / "derived" / "v0_8_full_refined_minority_2026
 MAJ_V8_CANON_PATH = DATA / "shapefiles" / "derived" / "v0_8_canonical_majority_2026_eds.gpkg"
 MIN_V8_CANON_PATH = DATA / "shapefiles" / "derived" / "v0_8_canonical_minority_2026_eds.gpkg"
 
-SAMPLES_CSV = DATA / "v0_1_mcmc_ensemble_samples.csv"
+SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples.csv"
 
 
 # ---- metrics ----------------------------------------------------------------
@@ -623,7 +623,7 @@ def main(n_steps: int = 5000, seed: int = None):
             })
 
     summary_df = pd.DataFrame(summary)
-    summary_csv = DATA / "v0_1_mcmc_ensemble_percentiles.csv"
+    summary_csv = DATA / "simulated_ensemble_percentiles.csv"
     summary_df.to_csv(summary_csv, index=False)
     print(f"  wrote {summary_csv}")
 
@@ -643,7 +643,7 @@ def main(n_steps: int = 5000, seed: int = None):
         "n_steps": int(n_steps),
         "seed": int(seed),
     }
-    with open(DATA / "v0_1_mcmc_real_map_scores.json", "w", encoding="utf-8") as f:
+    with open(DATA / "simulation_real_map_scores.json", "w", encoding="utf-8") as f:
         json.dump(real_json, f, indent=2, default=float)
 
     # Flag outliers

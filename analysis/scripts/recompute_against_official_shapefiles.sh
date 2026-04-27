@@ -68,7 +68,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$REPO_ROOT"
 
 TIMESTAMP="$(date -u +%Y-%m-%dT%H-%M-%SZ)"
-SNAPSHOT_DIR="$REPO_ROOT/archive/recompute_$TIMESTAMP"
+SNAPSHOT_DIR="$REPO_ROOT/pipeline_snapshots/recompute_$TIMESTAMP"
 mkdir -p "$SNAPSHOT_DIR"
 
 echo "==============================================================="
@@ -120,8 +120,8 @@ echo "[$(date -u +%H:%M:%SZ)] Step 2/7: Snapshotting current outputs to $SNAPSHO
 cp -v data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv "$SNAPSHOT_DIR/" 2>/dev/null || true
 cp -v data/v0_1_mcmc_real_map_scores_250k_v0_8.json "$SNAPSHOT_DIR/" 2>/dev/null || true
 cp -v data/v0_1_mcmc_convergence_diagnostics_250k_v0_8.json "$SNAPSHOT_DIR/" 2>/dev/null || true
-cp -v data/v0_1_targeted_burst_best.json "$SNAPSHOT_DIR/" 2>/dev/null || true
-cp -v data/v0_1_targeted_burst_ndp_best.json "$SNAPSHOT_DIR/" 2>/dev/null || true
+cp -v data/targeted_burst_best.json "$SNAPSHOT_DIR/" 2>/dev/null || true
+cp -v data/targeted_burst_ndp_best.json "$SNAPSHOT_DIR/" 2>/dev/null || true
 cp -v data/shapefiles/derived/v0_8_full_refined_majority_2026_eds.gpkg "$SNAPSHOT_DIR/" 2>/dev/null || true
 cp -v data/shapefiles/derived/v0_8_full_refined_minority_2026_eds.gpkg "$SNAPSHOT_DIR/" 2>/dev/null || true
 
@@ -275,8 +275,8 @@ type: project
 **Author:** Will Conner.
 **Original upload:** 2026-04-23, 06:22 PM MT (OSF Registrations).
 **Prior amendments:**
-  - \`v0_1_pre_registration_amendment_2026-04-23.md\` (DPG sunset clause + 5 other changes)
-  - \`v0_1_pre_registration_amendment_2026-04-26.md\` (11 changes including window relaxation)
+  - \`pre_registration_amendment_2026-04-23.md\` (DPG sunset clause + 5 other changes)
+  - \`pre_registration_amendment_2026-04-26.md\` (11 changes including window relaxation)
 **This amendment filed:** $DATE_TODAY.
 **Reason for amendment:** Recomputation of all geometry-dependent metrics against Elections Alberta's official 2026 shapefiles, per the standing sunset-clause commitment.
 

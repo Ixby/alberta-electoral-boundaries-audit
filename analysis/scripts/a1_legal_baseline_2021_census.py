@@ -2,8 +2,8 @@
 v0.1 A1 Legal-Baseline — 2021-census-direct on the 87 existing 2019 EDs.
 
 forward_dependencies:
-  - data/v0_1_a1_legal_baseline_2019eds_2021census.csv (written)
-  - analysis/methodology/v0_1_appendix_c_legal_baseline.md (consumes printed summary)
+  - data/a1_legal_baseline_2019eds_2021census.csv (written)
+  - analysis/methodology/appendix_c_legal_baseline.md (consumes printed summary)
   - analysis/v0_1_fortification_a1_a5.md (A4 narrowed-claim appendix spec — F7)
   - report_academic.md — parent session decides whether to integrate as Appendix C
 backward_dependencies:
@@ -12,8 +12,8 @@ backward_dependencies:
   - data/alberta_2021_da_populations.csv (2021 Census, 6,203 DAs in Alberta)
   - data/alberta_2021_das.gpkg (DA polygons, EPSG:3347)
   - data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp (87 EDs, EPSG:3401)
-  - data/v0_1_alberta_2019_populations.csv (commission's 2017-report 2019-ED values)
-  - analysis/reports/v0_1_plan_b_cross_check.md (data-basis discussion; statutory §12)
+  - data/alberta_2019_populations.csv (commission's 2017-report 2019-ED values)
+  - analysis/reports/plan_b_cross_check.md (data-basis discussion; statutory §12)
   - analysis/v0_1_fortification_a1_a5.md (A4 specification)
 
 Purpose. Compute A1 MAD (Mean Absolute Deviation from the provincial quota)
@@ -74,9 +74,9 @@ CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 DA_POP_CSV = DATA / "alberta_2021_da_populations.csv"
 DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 ED_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-ED_2019_COMM_CSV = DATA / "v0_1_alberta_2019_populations.csv"
+ED_2019_COMM_CSV = DATA / "alberta_2019_populations.csv"
 
-OUT_CSV = DATA / "v0_1_a1_legal_baseline_2019eds_2021census.csv"
+OUT_CSV = DATA / "a1_legal_baseline_2019eds_2021census.csv"
 
 # Common projection for the spatial overlay — EPSG:3401 is the 10TM AEP
 # Forest projection used by Alberta Environment and Parks for the ED

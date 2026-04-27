@@ -17,13 +17,13 @@ the two-party universe (Liberal, AP, Green, IND) are ignored; see
 caveats in the findings MD.
 
 Inputs:
-    data/v0_1_alberta_2023_results.csv
-    data/v0_1_alberta_2019_results.csv
-    data/v0_1_alberta_2015_results.csv
+    data/alberta_2023_results.csv
+    data/alberta_2019_results.csv
+    data/alberta_2015_results.csv
 
 Outputs:
     Stdout summary tables + a short findings block that is also written
-    into analysis/reports/v0_1_marginal_seats_findings.md by a sibling task.
+    into analysis/reports/marginal_seats_findings.md by a sibling task.
 
 No pandas/numpy dependency — stdlib only.
 """
@@ -41,9 +41,9 @@ from statistics import mean
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.normpath(os.path.join(HERE, "..", "..", "data"))
 
-F_2023 = os.path.join(DATA, "v0_1_alberta_2023_results.csv")
-F_2019 = os.path.join(DATA, "v0_1_alberta_2019_results.csv")
-F_2015 = os.path.join(DATA, "v0_1_alberta_2015_results.csv")
+F_2023 = os.path.join(DATA, "alberta_2023_results.csv")
+F_2019 = os.path.join(DATA, "alberta_2019_results.csv")
+F_2015 = os.path.join(DATA, "alberta_2015_results.csv")
 
 PARTY_RE = re.compile(r"\(([^)]+)\)\s*$")
 

@@ -123,8 +123,8 @@ def test_efficiency_gap_proportional():
 # Layer 2: Verification-subset integrity check
 # ============================================================
 
-VERIFICATION_METRICS = ROOT / "data" / "v0_1_mcmc_verification_metrics.csv"
-VERIFICATION_ASSIGNMENTS = ROOT / "data" / "v0_1_mcmc_verification_assignments.npz"
+VERIFICATION_METRICS = ROOT / "data" / "outputs" / "mcmc" / "simulation_verification_metrics.csv"
+VERIFICATION_ASSIGNMENTS = ROOT / "data" / "outputs" / "mcmc" / "verification_assignments_raw.npz"
 VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 
 

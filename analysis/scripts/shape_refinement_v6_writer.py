@@ -58,7 +58,7 @@ def write_outputs(results: dict[str, Polygon], log: dict):
     # ---------- MAJORITY ----------
     approx_maj = gpd.read_file(DATA_DIR / "v0_1_approximate_majority_2026_eds.gpkg").to_crs(AREA_CRS)
     # Get population file to know all 89 majority EDs
-    pop = pd.read_csv(DATA_DIR / "v0_1_majority_2026_populations.csv")
+    pop = pd.read_csv(DATA_DIR / "majority_2026_populations.csv")
     # Build rows: start from approx (57 Tier A), add v6 polygons for matched Tier C
     rows = []
     seen = set()
@@ -151,12 +151,12 @@ def write_outputs(results: dict[str, Polygon], log: dict):
         })
 
     impact_df = pd.DataFrame(impact_rows)
-    impact_csv_path = DATA_DIR / "v0_1_boundary_refinement_impact_v6.csv"
+    impact_csv_path = DATA_DIR / "boundary_refinement_impact_v6.csv"
     impact_df.to_csv(impact_csv_path, index=False)
     print(f"[WRITE] {impact_csv_path.name}: {len(impact_df)} rows")
 
     # ---------- LOG JSON ----------
-    log_path = ANALYSIS_DIR / "v0_1_shape_refinement_v6_log.json"
+    log_path = ANALYSIS_DIR / "shape_refinement_v6_log.json"
     with open(log_path, "w", encoding="utf-8") as f:
         json.dump(log, f, indent=2, default=str)
     print(f"[WRITE] {log_path.name}")

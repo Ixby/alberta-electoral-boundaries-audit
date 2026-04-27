@@ -17,11 +17,11 @@ Methodology follows v0_1_mcmc_full_coverage_rescore_100k.py:
       84 having geometry) + Tier A 2019 identity shapes.
 
 Outputs:
-  data/v0_1_phase4b_majority_2021_populations.csv
-  data/v0_1_phase4b_minority_2021_populations.csv
-  data/v0_1_phase4c_majority_2023_votes.csv
-  data/v0_1_phase4c_minority_2023_votes.csv
-  data/v0_1_phase4f_validation_deltas.csv
+  data/v0_1_population_2021_majority.csv
+  data/v0_1_population_2021_minority.csv
+  data/votes_2023_majority.csv
+  data/votes_2023_minority.csv
+  data/v0_1_validation_deltas.csv
   analysis/v0_1_phase_4bcdef_execution.md  (companion write-up)
 
 Forward: analysis/v0_1_phase_4bcdef_execution.md
@@ -31,11 +31,11 @@ Backward:
   data/v0_1_approximate_majority_2026_eds.gpkg
   data/v0_1_refined_v6_minority_2026_eds.gpkg
   data/v0_1_derived_v7_minority_2026_eds.gpkg
-  data/v0_1_majority_full_crosswalk.csv
-  data/v0_1_minority_full_crosswalk.csv
+  data/majority_full_crosswalk.csv
+  data/minority_full_crosswalk.csv
   data/va_polygons_with_2023_votes.gpkg
-  data/v0_1_majority_2026_populations.csv
-  data/v0_1_minority_2026_populations.csv
+  data/majority_2026_populations.csv
+  data/minority_2026_populations.csv
   data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -63,20 +63,20 @@ EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENA
 MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
 MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
 
-MAJ_XWALK_CSV = DATA / "v0_1_majority_full_crosswalk.csv"
-MIN_XWALK_CSV = DATA / "v0_1_minority_full_crosswalk.csv"
+MAJ_XWALK_CSV = DATA / "majority_full_crosswalk.csv"
+MIN_XWALK_CSV = DATA / "minority_full_crosswalk.csv"
 
 VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 
-MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
-MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
+MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
+MIN_POPS_CSV = DATA / "minority_2026_populations.csv"
 
 # --- outputs ---
-OUT_4B_MAJ = DATA / "v0_1_phase4b_majority_2021_populations.csv"
-OUT_4B_MIN = DATA / "v0_1_phase4b_minority_2021_populations.csv"
-OUT_4C_MAJ = DATA / "v0_1_phase4c_majority_2023_votes.csv"
-OUT_4C_MIN = DATA / "v0_1_phase4c_minority_2023_votes.csv"
-OUT_4F = DATA / "v0_1_phase4f_validation_deltas.csv"
+OUT_4B_MAJ = DATA / "v0_1_population_2021_majority.csv"
+OUT_4B_MIN = DATA / "v0_1_population_2021_minority.csv"
+OUT_4C_MAJ = DATA / "votes_2023_majority.csv"
+OUT_4C_MIN = DATA / "votes_2023_minority.csv"
+OUT_4F = DATA / "v0_1_validation_deltas.csv"
 
 
 def norm(s: str) -> str:
@@ -480,7 +480,7 @@ def main():
     print(f"  [Phase 4F elapsed: {time.time()-t2:.1f}s]")
 
     summary = compute_summary(maj_4b, min_4b, maj_4c, min_4c, combined_4f)
-    summary_path = DATA / "v0_1_phase_4bcdef_summary.json"
+    summary_path = DATA / "pipeline_summary.json"
     with open(summary_path, "w") as f:
         json.dump(summary, f, indent=2, default=str)
     print(f"[SUMMARY] Wrote {summary_path.name}")

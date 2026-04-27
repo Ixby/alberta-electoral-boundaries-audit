@@ -214,7 +214,7 @@ def a2_robustness_check(maj: pd.DataFrame, minr: pd.DataFrame):
     print("=" * 70)
 
     # Load 2023 winners per 2019 Calgary ED
-    r2023 = pd.read_csv(DATA / "v0_1_alberta_2023_results.csv")
+    r2023 = pd.read_csv(DATA / "alberta_2023_results.csv")
     r2023_cal = r2023[r2023["region"] == "Calgary"]
     ndp_2019 = set(r2023_cal[r2023_cal["winner_party"] == "NDP"]["ed_name"])
     ucp_2019 = set(r2023_cal[r2023_cal["winner_party"] == "UCP"]["ed_name"])
@@ -416,8 +416,8 @@ def print_a3():
 # ---------------------------------------------------------------------------
 
 def main():
-    maj = pd.read_csv(DATA / "v0_1_majority_2026_populations.csv")
-    minr = pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
+    maj = pd.read_csv(DATA / "majority_2026_populations.csv")
+    minr = pd.read_csv(DATA / "minority_2026_populations.csv")
 
     print(f"Loaded {len(maj)} majority EDs, {len(minr)} minority EDs")
     prov_avg = maj["population"].sum() / len(maj)

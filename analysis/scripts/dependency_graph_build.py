@@ -1,7 +1,7 @@
 """Build the Alberta audit dependency DAG.
 
 This script produces the machine-readable directed acyclic graph of the
-Alberta audit specified in ``analysis/methodology/v0_1_test_apparatus_defense.md``
+Alberta audit specified in ``analysis/methodology/test_apparatus_defense.md``
 section 3 and the PO synthesis ("Novel Combined Test: The Dependency Graph").
 
 Nodes are organized into four layers:
@@ -178,7 +178,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "StatsCan Table 98-10-0459 journey-to-work (Cochrane CSD)",
         "type": "raw_data",
-        "path": "data/v0_1_cochrane_journey_to_work.csv",
+        "path": "data/cochrane_journey_to_work.csv",
         "provenance": "Statistics Canada",
         "frozen_manifest_row": "StatsCan / Journey-to-work STC98-10-0459",
     },
@@ -198,7 +198,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "338Canada Alberta per-riding projections (87-seat) + historical snapshots",
         "type": "raw_data",
-        "path": "data/v0_1_338canada_per_riding_87seat.csv, data/v0_1_338canada_historical_snapshots.csv, data/v0_1_338_historical/",
+        "path": "data/338canada_per_riding_87seat.csv, data/338canada_historical_snapshots.csv, data/v0_1_338_historical/",
         "provenance": "338Canada",
         "frozen_manifest_row": "Projections / 338Canada per-riding + historical",
     },
@@ -228,7 +228,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "Commission-published per-ED populations (majority App A + minority App E)",
         "type": "raw_data",
-        "path": "data/v0_1_majority_2026_populations.csv, data/v0_1_minority_2026_populations.csv, data/v0_1_minority_2026_populations_appendixE.csv",
+        "path": "data/majority_2026_populations.csv, data/minority_2026_populations.csv, data/minority_2026_populations_appendixE.csv",
         "provenance": "Commission final report, variance tables",
         "frozen_manifest_row": "Primary / 2026 commission final report (Appendix A/E tables)",
     },
@@ -237,7 +237,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "Commission minority rationale text (Appendix E prose)",
         "type": "raw_data",
-        "path": "data/v0_1_minority_rationales.csv",
+        "path": "data/minority_rationales.csv",
         "provenance": "Commission final report Appendix E",
         "frozen_manifest_row": "Primary / 2026 commission final report (Appendix E rationales)",
     },
@@ -246,7 +246,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "2019 ED populations (Appendix C legal baseline)",
         "type": "raw_data",
-        "path": "data/v0_1_alberta_2019_populations.csv, data/v0_1_a1_legal_baseline_2019eds_2021census.csv",
+        "path": "data/alberta_2019_populations.csv, data/a1_legal_baseline_2019eds_2021census.csv",
         "provenance": "Commission 2017 final report + 2021 Census DA roll-up",
         "frozen_manifest_row": "Primary / 2017 commission final report + StatsCan DA populations",
     },
@@ -255,7 +255,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "2019 Alberta provincial election results (attributed to 2019 EDs)",
         "type": "raw_data",
-        "path": "data/v0_1_alberta_2019_results.csv",
+        "path": "data/alberta_2019_results.csv",
         "provenance": "Elections Alberta",
         "frozen_manifest_row": "Primary / Elections Alberta prior-cycle results",
     },
@@ -264,7 +264,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "2015 Alberta provincial election results",
         "type": "raw_data",
-        "path": "data/v0_1_alberta_2015_results.csv",
+        "path": "data/alberta_2015_results.csv",
         "provenance": "Elections Alberta",
         "frozen_manifest_row": "Primary / 2015 Statement of Vote (parsed)",
     },
@@ -273,7 +273,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "Alberta byelections 2019-2026",
         "type": "raw_data",
-        "path": "data/v0_1_alberta_byelections_2019_2026.csv",
+        "path": "data/alberta_byelections_2019_2026.csv",
         "provenance": "Elections Alberta",
         "frozen_manifest_row": "Primary / Elections Alberta byelection records",
     },
@@ -282,7 +282,7 @@ L0_NODES: List[Dict[str, Any]] = [
         "layer": "L0",
         "name": "2015-to-2019 boundary crosswalk (partial)",
         "type": "raw_data",
-        "path": "data/v0_1_2015_to_2019_crosswalk.csv, data/v0_1_2015_to_2019_crosswalk_partial.csv",
+        "path": "data/2015_to_2019_crosswalk.csv, data/2015_to_2019_crosswalk_partial.csv",
         "provenance": "Commission 2017 final report text",
         "frozen_manifest_row": "Primary / 2017 commission final report",
     },
@@ -443,28 +443,28 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Majority 88-row full crosswalk (2019 → 2026 EDs)",
         "type": "crosswalk",
-        "path": "data/v0_1_majority_full_crosswalk.csv",
+        "path": "data/majority_full_crosswalk.csv",
     },
     {
         "id": "L1:constructed.crosswalk_minority_full",
         "layer": "L1",
         "name": "Minority 88-row full crosswalk (2019 → 2026 EDs)",
         "type": "crosswalk",
-        "path": "data/v0_1_minority_full_crosswalk.csv",
+        "path": "data/minority_full_crosswalk.csv",
     },
     {
         "id": "L1:constructed.crosswalk_majority_hybrid",
         "layer": "L1",
         "name": "Majority hybrid crosswalk (urban-weighted blend)",
         "type": "crosswalk",
-        "path": "data/v0_1_majority_hybrid_crosswalk.csv",
+        "path": "data/majority_hybrid_crosswalk.csv",
     },
     {
         "id": "L1:constructed.crosswalk_minority_hybrid",
         "layer": "L1",
         "name": "Minority hybrid crosswalk (urban-weighted blend)",
         "type": "crosswalk",
-        "path": "data/v0_1_minority_hybrid_crosswalk.csv, data/v0_1_minority_hybrid_crosswalk_appendixE.csv",
+        "path": "data/minority_hybrid_crosswalk.csv, data/minority_hybrid_crosswalk_appendixE.csv",
     },
     # VA-level substrates
     {
@@ -500,7 +500,7 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Advance-vote splat diagnostics",
         "type": "derived_data",
-        "path": "analysis/v0_1_advance_vote_splat_diagnostics.csv",
+        "path": "analysis/advance_vote_splat_diagnostics.csv",
     },
     # MCMC ensemble artefacts
     {
@@ -508,14 +508,14 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "10k preliminary ReCom ensemble samples",
         "type": "mcmc_ensemble",
-        "path": "data/v0_1_mcmc_ensemble_samples.csv, data/v0_1_mcmc_ensemble_percentiles.csv",
+        "path": "data/simulated_ensemble_raw_samples.csv, data/simulated_ensemble_percentiles.csv",
     },
     {
         "id": "L1:constructed.mcmc_ensemble_100k",
         "layer": "L1",
         "name": "100k publication-grade ReCom ensemble samples + percentiles",
         "type": "mcmc_ensemble",
-        "path": "data/v0_1_mcmc_ensemble_samples_100k.csv, data/v0_1_mcmc_ensemble_percentiles_100k.csv, data/v0_1_mcmc_ensemble_percentiles_full_100k.csv, data/v0_1_mcmc_convergence_diagnostics_100k.json",
+        "path": "data/simulated_ensemble_raw_samples_100k.csv, data/simulated_ensemble_percentiles_100k.csv, data/simulated_ensemble_percentiles_full_100k.csv, data/simulation_convergence_diagnostics_100k.json",
     },
     {
         "id": "L1:constructed.mcmc_real_map_scores",
@@ -529,7 +529,7 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "3-chain ReCom multi-seed ensemble + R-hat diagnostic",
         "type": "mcmc_ensemble",
-        "path": "data/v0_1_mcmc_multichain_samples.csv, data/v0_1_mcmc_multichain_pooled.csv, data/v0_1_mcmc_multichain_rhat.json, data/v0_1_mcmc_multichain_summary.md",
+        "path": "data/simulation_multichain_samples.csv, data/simulation_multichain_pooled.csv, data/simulation_multichain_rhat.json, data/simulation_multichain_summary.md",
     },
     # Phase 4B / 4C outputs
     {
@@ -579,28 +579,28 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Phase 4F validation deltas (commission vs Phase 4B)",
         "type": "validation_gate",
-        "path": "data/v0_1_phase4f_validation_deltas.csv, data/v0_1_phase4f_validation_deltas_v2.csv, data/v0_5_phase4f_validation_deltas.csv",
+        "path": "data/v0_1_validation_deltas.csv, data/validation_deltas_v2.csv, data/validation_deltas.csv",
     },
     {
         "id": "L1:constructed.phase4bcdef_summary",
         "layer": "L1",
         "name": "Phase 4B/C/D/E/F execution summary JSON",
         "type": "phase4_output",
-        "path": "data/v0_1_phase_4bcdef_summary.json",
+        "path": "data/pipeline_summary.json",
     },
     {
         "id": "L1:constructed.va_to_2026_assignments",
         "layer": "L1",
         "name": "VA-to-2026-ED assignments (centroid + MAUP)",
         "type": "phase4_output",
-        "path": "analysis/phase_4c_va_to_2026_assignments.csv, analysis/reports/phase_4c_va_to_2026_assignments_maup.csv, analysis/reports/phase_4c_va_to_2026_assignments_maup_v2.csv, analysis/reports/v0_5_phase4c_va_to_2026_assignments_maup.csv",
+        "path": "analysis/assignment_va_to_2026_assignments.csv, analysis/reports/assignment_va_to_2026_assignments_maup.csv, analysis/reports/assignment_va_to_2026_assignments_maup_v2.csv, analysis/reports/phase4c_va_to_2026_assignments_maup.csv",
     },
     {
         "id": "L1:constructed.phase4c_maup_summary",
         "layer": "L1",
         "name": "Phase 4C MAUP summary JSON (v0_1/v0_2/v0_5)",
         "type": "phase4_output",
-        "path": "analysis/reports/v0_1_phase4c_maup_summary.json, analysis/reports/v0_2_phase4c_maup_summary.json, analysis/reports/v0_5_phase4c_maup_summary.json",
+        "path": "analysis/reports/v0_1_phase4c_maup_summary.json, analysis/reports/v0_2_phase4c_maup_summary.json, analysis/reports/phase4c_maup_summary.json",
     },
     # Anchoring summaries
     {
@@ -608,21 +608,21 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Municipal anchoring summary (v0_4)",
         "type": "anchoring_output",
-        "path": "data/v0_1_municipal_anchoring_summary.json, analysis/reports/v0_1_municipal_anchoring_log.csv",
+        "path": "data/v0_1_municipal_anchoring_summary.json, analysis/reports/municipal_anchoring_log.csv",
     },
     {
         "id": "L1:constructed.da_anchoring_summary",
         "layer": "L1",
         "name": "DA boundary anchoring summary (v0_5)",
         "type": "anchoring_output",
-        "path": "data/v0_1_da_anchoring_summary.json, analysis/reports/v0_1_da_anchoring_log.csv",
+        "path": "data/v0_1_da_anchoring_summary.json, analysis/reports/da_anchoring_log.csv",
     },
     {
         "id": "L1:constructed.topology_cleanup_log",
         "layer": "L1",
         "name": "Topology cleanup log (v0_1 → v0_2)",
         "type": "anchoring_output",
-        "path": "data/v0_1_tier_c_sweep_summary.json, analysis/reports/v0_1_topology_cleanup_summary.json, analysis/reports/v0_1_topology_cleanup_log.csv",
+        "path": "data/tier_c_sweep_summary.json, analysis/reports/topology_cleanup_summary.json, analysis/reports/topology_cleanup_log.csv",
     },
     # Perturbation samples
     {
@@ -637,21 +637,21 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "DPG perturbation samples (tier-aware)",
         "type": "perturbation_output",
-        "path": "data/v0_1_dpg_perturbation_samples_v2_tiered.csv, data/v0_1_dpg_perturbation_summary_v2_tiered.json",
+        "path": "data/dpg_perturbation_samples_v2_tiered.csv, data/dpg_perturbation_summary_v2_tiered.json",
     },
     {
         "id": "L1:constructed.dpg_perturbation_tight",
         "layer": "L1",
         "name": "DPG perturbation samples (tight tier-aware)",
         "type": "perturbation_output",
-        "path": "data/v0_1_dpg_perturbation_samples_v3_tight.csv, data/v0_1_dpg_perturbation_summary_v3_tight.json",
+        "path": "data/dpg_perturbation_samples_v3_tight.csv, data/dpg_perturbation_summary_v3_tight.json",
     },
     {
         "id": "L1:constructed.dpg_perturbation_v05",
         "layer": "L1",
         "name": "DPG perturbation samples (v0_5 DA-anchored substrate)",
         "type": "perturbation_output",
-        "path": "data/v0_5_dpg_perturbation_samples.csv, data/v0_5_dpg_perturbation_summary.json",
+        "path": "data/dpg_perturbation_samples.csv, data/dpg_perturbation_summary.json",
     },
     # Other derived products
     {
@@ -659,42 +659,42 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Polsby-Popper compactness scores (v0_1 + refined)",
         "type": "derived_metric",
-        "path": "data/v0_1_compactness_scores.csv, data/v0_1_compactness_scores_refined.csv",
+        "path": "data/compactness_scores.csv, data/compactness_scores_refined.csv",
     },
     {
         "id": "L1:constructed.chen_rodden",
         "layer": "L1",
         "name": "Chen-Rodden decomposition (pairwise + absolute)",
         "type": "derived_metric",
-        "path": "data/v0_1_chen_rodden_decomposition.csv, data/v0_1_chen_rodden_decomposition.json, data/v0_1_chen_rodden_absolute_decomposition.json, data/v0_1_chen_rodden_simulation.csv, data/v0_1_chen_rodden_summary.json",
+        "path": "data/chen_rodden_decomposition.csv, data/chen_rodden_decomposition.json, data/chen_rodden_absolute_decomposition.json, data/chen_rodden_simulation.csv, data/chen_rodden_summary.json",
     },
     {
         "id": "L1:constructed.cross_election_asymmetry",
         "layer": "L1",
         "name": "Cross-election asymmetry tables (3-way 2015/2019/2023)",
         "type": "derived_metric",
-        "path": "data/v0_1_cross_election_asymmetry_3way.csv, data/v0_1_2015_cross_election_summary.csv, data/v0_1_province_wide_drift_*.csv",
+        "path": "data/cross_election_asymmetry_3way.csv, data/2015_cross_election_summary.csv, data/v0_1_province_wide_drift_*.csv",
     },
     {
         "id": "L1:constructed.rural_gap_summary",
         "layer": "L1",
         "name": "Rural gap dissection — smallest-10 majority/minority EDs",
         "type": "derived_metric",
-        "path": "analysis/v0_1_rural_gap_summary.json, analysis/v0_1_rural_gap_ed_comparison.csv, analysis/v0_1_rural_gap_smallest10_majority.csv, analysis/v0_1_rural_gap_smallest10_minority.csv",
+        "path": "analysis/rural_gap_summary.json, analysis/rural_gap_ed_comparison.csv, analysis/rural_gap_smallest10_majority.csv, analysis/rural_gap_smallest10_minority.csv",
     },
     {
         "id": "L1:constructed.symmetry_counter_test",
         "layer": "L1",
         "name": "Majority-symmetry counter-test (Edmonton zones + 4-way city splits)",
         "type": "derived_metric",
-        "path": "data/v0_1_majority_symmetry_counter_test.csv",
+        "path": "data/majority_symmetry_counter_test.csv",
     },
     {
         "id": "L1:constructed.csd_splits",
         "layer": "L1",
         "name": "CSD community-of-interest splits",
         "type": "derived_metric",
-        "path": "data/v0_1_csd_splits_summary.csv",
+        "path": "data/csd_splits_summary.csv",
     },
     {
         "id": "L1:constructed.submission_search_results",
@@ -715,21 +715,21 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "338Canada reallocated to 2026 EDs (majority + minority)",
         "type": "derived_data",
-        "path": "data/v0_1_338canada_reallocated_majority.csv, data/v0_1_338canada_reallocated_minority.csv, data/v0_1_338canada_ridings_index.csv",
+        "path": "data/338canada_reallocated_majority.csv, data/338canada_reallocated_minority.csv, data/338canada_ridings_index.csv",
     },
     {
         "id": "L1:constructed.canadian_base_rate",
         "layer": "L1",
         "name": "Canadian redistribution base-rate comparator (n=6)",
         "type": "derived_data",
-        "path": "data/v0_1_canadian_redistribution_base_rate.csv",
+        "path": "data/canadian_redistribution_base_rate.csv",
     },
     {
         "id": "L1:constructed.marginal_seats",
         "layer": "L1",
         "name": "Marginal-seats per-ED margins + uniform-swing flips",
         "type": "derived_data",
-        "path": "data/v0_1_justification_test_inputs.csv",
+        "path": "data/justification_test_inputs.csv",
     },
     {
         "id": "L1:constructed.hybrid_adjacency",
@@ -743,14 +743,14 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Tier-C parent-union reference + sweep summary",
         "type": "derived_data",
-        "path": "data/v0_1_tierC_parent_union_reference.csv, data/v0_1_tier_c_sweep_summary.json",
+        "path": "data/tierC_parent_union_reference.csv, data/tier_c_sweep_summary.json",
     },
     {
         "id": "L1:constructed.max_dpi_extract",
         "layer": "L1",
         "name": "Max-DPI commission-map extractions (bottleneck audit)",
         "type": "derived_data",
-        "path": "analysis/reports/v0_1_max_dpi_extract.json, analysis/reports/v0_1_max_dpi_inspect.json",
+        "path": "analysis/reports/max_dpi_extract.json, analysis/reports/max_dpi_inspect.json",
     },
 ]
 
@@ -771,7 +771,7 @@ L2_MANIFEST: List[Dict[str, Any]] = [
         "role": "Produces L1:dpg_v0_1_canonical from approximate + refined + derived EDs.",
     },
     {
-        "path": "analysis/scripts/v0_1_build_canonical_shapefiles_v2.py",
+        "path": "analysis/scripts/v0_1_generate_topological_boundaries.py",
         "name": "Build canonical shapefiles v2 (post-shape-refinement)",
         "role": "Second-pass canonical shapefile builder.",
     },
@@ -811,12 +811,12 @@ L2_MANIFEST: List[Dict[str, Any]] = [
         "role": "Polygon refinement pass (v5).",
     },
     {
-        "path": "analysis/scripts/v0_1_shape_refinement_v6.py",
+        "path": "analysis/scripts/v0_1_refine_boundaries.py",
         "name": "Shape refinement v6",
         "role": "Polygon refinement pass (v6) — minority v6 canonical source.",
     },
     {
-        "path": "analysis/v0_1_shape_derivation_v7.py",
+        "path": "analysis/derive_boundaries.py",
         "name": "Shape derivation v7 (minority 89-ED derived set)",
         "role": "Produces derived v7 minority polygon set.",
     },
@@ -853,27 +853,27 @@ L2_MANIFEST: List[Dict[str, Any]] = [
     },
     # Phase 4
     {
-        "path": "analysis/scripts/phase_4c_prep.py",
+        "path": "analysis/scripts/assignment_prep.py",
         "name": "Phase 4C preparation",
         "role": "Builds VA substrates for Phase 4C.",
     },
     {
-        "path": "analysis/scripts/v0_1_phase_4c_va_attribution.py",
+        "path": "analysis/scripts/v0_1_assignment_va_attribution.py",
         "name": "Phase 4C centroid-in-polygon attribution",
         "role": "Centroid-based 2023-vote assignment to 2026 EDs.",
     },
     {
-        "path": "analysis/scripts/v0_1_phase_4c_va_attribution_maup.py",
+        "path": "analysis/scripts/v0_1_assignment_va_attribution_maup.py",
         "name": "Phase 4C MAUP-v1 area-weighted attribution",
         "role": "Area-weighted VA → 2026-ED assignment on v0_1 DPG.",
     },
     {
-        "path": "analysis/scripts/v0_1_phase_4c_va_attribution_maup_v2.py",
+        "path": "analysis/scripts/v0_1_assignment_va_attribution_maup_v2.py",
         "name": "Phase 4C MAUP-v2 on v0_2 topology-clean DPG",
         "role": "Area-weighted attribution on cleaned geometry.",
     },
     {
-        "path": "analysis/scripts/v0_1_phase_4c_va_attribution_maup_v3_v05.py",
+        "path": "analysis/scripts/v0_1_assignment_va_attribution_maup_v3_v05.py",
         "name": "Phase 4C MAUP-v3 on v0_5 DA-anchored DPG",
         "role": "Area-weighted attribution on DA-anchored geometry.",
     },
@@ -910,12 +910,12 @@ L2_MANIFEST: List[Dict[str, Any]] = [
     },
     # B-family (partisan bias) core
     {
-        "path": "analysis/scripts/v0_2_packing_cracking_analysis.py",
+        "path": "analysis/scripts/packing_cracking_analysis.py",
         "name": "v0_2 packing/cracking analysis (symmetric 3-map B2/B3/B4)",
         "role": "Efficiency gap, mean-median, seats@50/50, and declination on three maps.",
     },
     {
-        "path": "analysis/scripts/v0_3_monte_carlo_ci.py",
+        "path": "analysis/scripts/monte_carlo_ci.py",
         "name": "v0_3 Monte Carlo CI (B-family 2000-sample sensitivity)",
         "role": "Urban-weight + rural-baseline + per-hybrid jitter Monte Carlo CI.",
     },
@@ -971,7 +971,7 @@ L2_MANIFEST: List[Dict[str, Any]] = [
         "role": "Rescore using full-VA substrate and canonical DPGs.",
     },
     {
-        "path": "analysis/scripts/v0_1_mcmc_multichain_ensemble.py",
+        "path": "analysis/scripts/v0_1_simulation_multichain_ensemble.py",
         "name": "Multi-chain MCMC (3-seed R-hat)",
         "role": "Three independently-seeded ReCom chains + pooled + R-hat.",
     },
@@ -1046,12 +1046,12 @@ L2_MANIFEST: List[Dict[str, Any]] = [
         "role": "Commission-vs-canonical overlay figure generation.",
     },
     {
-        "path": "analysis/scripts/v0_1_build_overlay_figures_v2.py",
+        "path": "analysis/scripts/v0_1_generate_overlay_figures.py",
         "name": "Overlay figures v2",
         "role": "Revised overlay figure set.",
     },
     {
-        "path": "analysis/scripts/v0_1_build_article_figures_v3.py",
+        "path": "analysis/scripts/v0_1_generate_article_figures.py",
         "name": "Article figures v3",
         "role": "Report-grade figure assembly.",
     },
@@ -1268,7 +1268,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "B2 — 2019 baseline efficiency gap = −2.64%",
         "evidence": [
             ("L0:data.2019_election_results", "required", "2019 vote data + 87-seat attribution substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "EG computation"),
+            ("L2:packing_cracking_analysis", "required", "EG computation"),
         ],
     },
     {
@@ -1278,7 +1278,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
             ("L1:constructed.crosswalk_majority_hybrid", "required", "blended crosswalk substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "EG computation"),
+            ("L2:packing_cracking_analysis", "required", "EG computation"),
         ],
     },
     {
@@ -1288,7 +1288,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "blended crosswalk substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "EG computation"),
+            ("L2:packing_cracking_analysis", "required", "EG computation"),
         ],
     },
     {
@@ -1298,7 +1298,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L1:constructed.crosswalk_majority_hybrid", "required", "majority substrate"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "minority substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "asymmetry calc"),
+            ("L2:packing_cracking_analysis", "required", "asymmetry calc"),
         ],
     },
     {
@@ -1306,7 +1306,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.2",
         "name": "B2 — Sensitivity range 0.49–1.50 pp across urban weights 0.60-0.90",
         "evidence": [
-            ("L2:v0_3_monte_carlo_ci", "required", "weight sweep"),
+            ("L2:monte_carlo_ci", "required", "weight sweep"),
             ("L1:constructed.crosswalk_majority_hybrid", "required", "majority substrate"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "minority substrate"),
         ],
@@ -1328,7 +1328,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
             ("L1:constructed.crosswalk_majority_hybrid", "required", "substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "MM computation"),
+            ("L2:packing_cracking_analysis", "required", "MM computation"),
         ],
     },
     {
@@ -1338,7 +1338,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "MM computation"),
+            ("L2:packing_cracking_analysis", "required", "MM computation"),
         ],
     },
     {
@@ -1348,7 +1348,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
             ("L1:constructed.crosswalk_majority_hybrid", "required", "substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "uniform-swing calc"),
+            ("L2:packing_cracking_analysis", "required", "uniform-swing calc"),
         ],
     },
     {
@@ -1358,7 +1358,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "uniform-swing calc"),
+            ("L2:packing_cracking_analysis", "required", "uniform-swing calc"),
         ],
     },
     {
@@ -1368,7 +1368,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "declination calc"),
+            ("L2:packing_cracking_analysis", "required", "declination calc"),
         ],
     },
     {
@@ -1376,7 +1376,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.3",
         "name": "B2 — 95% Monte Carlo CI [−3.04, +0.76] pp (crosses zero); 90.5% same sign",
         "evidence": [
-            ("L2:v0_3_monte_carlo_ci", "required", "2000-sample sweep"),
+            ("L2:monte_carlo_ci", "required", "2000-sample sweep"),
             ("L1:constructed.crosswalk_majority_hybrid", "required", "substrate"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "substrate"),
         ],
@@ -1487,7 +1487,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L1:constructed.crosswalk_majority_hybrid", "required", "majority substrate"),
             ("L1:constructed.crosswalk_minority_hybrid", "required", "minority substrate"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "metric compute"),
+            ("L2:packing_cracking_analysis", "required", "metric compute"),
         ],
     },
     {
@@ -1593,7 +1593,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
             ("L0:data.commission_published_populations", "required", "population sizes"),
             ("L0:data.2023_statement_of_vote", "required", "NDP winners + margins"),
             ("L2:electoral_forensics_population", "required", "zone classifier"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "P-criteria application"),
+            ("L2:packing_cracking_analysis", "required", "P-criteria application"),
         ],
     },
     {
@@ -1603,7 +1603,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.commission_published_populations", "required", "population sizes"),
             ("L2:electoral_forensics_population", "required", "zone classifier"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "P-criteria application"),
+            ("L2:packing_cracking_analysis", "required", "P-criteria application"),
         ],
     },
     {
@@ -1614,7 +1614,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
             ("L0:data.commission_map_pngs", "required", "4-district split visually"),
             ("L0:data.commission_final_report_2026", "required", "4-district naming"),
             ("L0:data.2021_csd_populations", "required", "Airdrie population"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "C-criteria application"),
+            ("L2:packing_cracking_analysis", "required", "C-criteria application"),
         ],
     },
     {
@@ -1624,7 +1624,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.commission_final_report_2026", "required", "Cochrane-Calgary pairing"),
             ("L0:data.2021_csd_populations", "required", "Cochrane population"),
-            ("L2:v0_2_packing_cracking_analysis", "required", "C-criteria application"),
+            ("L2:packing_cracking_analysis", "required", "C-criteria application"),
         ],
     },
     {
@@ -2096,8 +2096,8 @@ def build_nodes_and_edges() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]],
         if fwds or bkwds:
             header_scripts.add(rel)
 
-    # Also capture analysis/v0_1_shape_derivation_v7.py (not in scripts/).
-    derivation = ROOT / "analysis" / "v0_1_shape_derivation_v7.py"
+    # Also capture analysis/derive_boundaries.py (not in scripts/).
+    derivation = ROOT / "analysis" / "derive_boundaries.py"
     if derivation.exists():
         rel = derivation.relative_to(ROOT).as_posix()
         fwds, bkwds = parse_headers(derivation)
@@ -2166,12 +2166,12 @@ def build_nodes_and_edges() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]],
     curated_l2_edges: List[Tuple[str, str, str, str]] = [
         # (script_stem, target_id, direction, sensitivity)
         ("electoral_forensics_population", "L0:data.commission_published_populations", "in", "consumes per-ED population table"),
-        ("v0_2_packing_cracking_analysis", "L0:data.2023_statement_of_vote", "in", "consumes 2023 vote data"),
-        ("v0_2_packing_cracking_analysis", "L1:constructed.crosswalk_majority_hybrid", "in", "consumes majority hybrid crosswalk"),
-        ("v0_2_packing_cracking_analysis", "L1:constructed.crosswalk_minority_hybrid", "in", "consumes minority hybrid crosswalk"),
-        ("v0_3_monte_carlo_ci", "L0:data.2023_statement_of_vote", "in", "consumes 2023 vote data"),
-        ("v0_3_monte_carlo_ci", "L1:constructed.crosswalk_majority_hybrid", "in", "consumes majority hybrid crosswalk"),
-        ("v0_3_monte_carlo_ci", "L1:constructed.crosswalk_minority_hybrid", "in", "consumes minority hybrid crosswalk"),
+        ("packing_cracking_analysis", "L0:data.2023_statement_of_vote", "in", "consumes 2023 vote data"),
+        ("packing_cracking_analysis", "L1:constructed.crosswalk_majority_hybrid", "in", "consumes majority hybrid crosswalk"),
+        ("packing_cracking_analysis", "L1:constructed.crosswalk_minority_hybrid", "in", "consumes minority hybrid crosswalk"),
+        ("monte_carlo_ci", "L0:data.2023_statement_of_vote", "in", "consumes 2023 vote data"),
+        ("monte_carlo_ci", "L1:constructed.crosswalk_majority_hybrid", "in", "consumes majority hybrid crosswalk"),
+        ("monte_carlo_ci", "L1:constructed.crosswalk_minority_hybrid", "in", "consumes minority hybrid crosswalk"),
         ("v0_1_mcmc_ensemble", "L0:data.2023_va_shapefile", "in", "VA substrate"),
         ("v0_1_mcmc_ensemble", "L1:constructed.va_pop_from_das", "in", "DA-derived VA population"),
         ("v0_1_mcmc_ensemble", "L1:constructed.mcmc_ensemble_10k", "out", "produces 10k ensemble"),
@@ -2257,8 +2257,8 @@ def build_nodes_and_edges() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]],
         ("v0_1_shape_refinement_v6", "L1:constructed.boundary_refinement_impact", "out", "v6 impact CSV"),
         ("v0_1_shape_refinement_v6_processors", "L1:constructed.refined_eds_v6", "out", "v6 processors helper"),
         ("v0_1_shape_refinement_v6_writer", "L1:constructed.refined_eds_v6", "out", "v6 GPKG writer"),
-        ("v0_1_shape_derivation_v7", "L1:constructed.refined_eds_v6", "in", "v6 input"),
-        ("v0_1_shape_derivation_v7", "L1:constructed.derived_v7_eds", "out", "v7 derived polygons"),
+        ("shape_derivation_v7", "L1:constructed.refined_eds_v6", "in", "v6 input"),
+        ("shape_derivation_v7", "L1:constructed.derived_v7_eds", "out", "v7 derived polygons"),
         # Build pipeline and auxiliary
         ("v0_1_build_composite_shapefiles", "L1:constructed.approximate_eds", "in", "approximate input"),
         ("v0_1_build_composite_shapefiles", "L1:constructed.refined_eds_v6", "in", "refined v6 input"),

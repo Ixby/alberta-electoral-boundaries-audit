@@ -3,15 +3,15 @@ Alberta Cross-Election Analysis (v0.1) — 2015 votes on 2019 and 2026 maps.
 ==========================================================================
 
 Extends the 2019/2023 two-election direction-stability test (see
-analysis/scripts/v0_3_monte_carlo_ci.py) by adding a 2015 third data point.
+analysis/scripts/monte_carlo_ci.py) by adding a 2015 third data point.
 
 Construction:
 
 1. Load the 2015 election results per pre-2017 ED (from parse_2015_results.py
-   output: data/v0_1_alberta_2015_results.csv).
+   output: data/alberta_2015_results.csv).
 
 2. Load the 2015-to-2019 crosswalk
-   (data/v0_1_2015_to_2019_crosswalk.csv) and re-attribute pre-2017 ED
+   (data/2015_to_2019_crosswalk.csv) and re-attribute pre-2017 ED
    votes to post-2017 (2019) ED boundaries using population_weight as the
    vote-attribution weight.
 
@@ -19,7 +19,7 @@ Construction:
    level. Match parse_2015_results.py's approach. Liberal and other
    small-party votes are retained for turnout denominators but do not
    contribute to EG wasted-vote computation (consistent with the audit's
-   two-party framing in v0_2_packing_cracking_analysis).
+   two-party framing in packing_cracking_analysis).
 
 4. Run compute_metrics() (the existing B1-B6 suite) on:
    a. 2019 map with 2015-attributed votes
@@ -54,7 +54,7 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from v0_2_packing_cracking_analysis import (
+from packing_cracking_analysis import (
     compute_metrics,
     estimate_2026,
     MAJORITY_2026_MAPPING,
@@ -78,7 +78,7 @@ def clean_2015_ed_name(name: str) -> str:
 def load_2015_results() -> list:
     """Load per-ED 2015 totals: NDP, PC, WRP, Liberal, other."""
     rows = []
-    with open(DATA / "v0_1_alberta_2015_results.csv") as f:
+    with open(DATA / "alberta_2015_results.csv") as f:
         for r in csv.DictReader(f):
             name = clean_2015_ed_name(r["ed_2015"])
             rows.append({
@@ -94,7 +94,7 @@ def load_2015_results() -> list:
 
 def load_crosswalk() -> list:
     rows = []
-    with open(DATA / "v0_1_2015_to_2019_crosswalk.csv") as f:
+    with open(DATA / "2015_to_2019_crosswalk.csv") as f:
         for r in csv.DictReader(f):
             rows.append({
                 "ed_2015": r["ed_2015_2010boundaries"],
@@ -252,7 +252,7 @@ def main():
     print(f"    Declination: {asym_dec:+.4f}")
 
     # Save result summary to CSV for downstream comparison
-    out_path = DATA / "v0_1_2015_cross_election_summary.csv"
+    out_path = DATA / "2015_cross_election_summary.csv"
     with open(out_path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["map", "n", "ndp_seats", "ucp_seats", "eg_pct",
@@ -274,7 +274,7 @@ def main():
     print("=" * 70)
 
     # 2019 votes
-    from v0_3_monte_carlo_ci import cross_check_2019_votes  # noqa: F401
+    from monte_carlo_ci import cross_check_2019_votes  # noqa: F401
     # Inline the 2019-vote computation to avoid re-printing.
     dists_2019_votes = _load_2019_votes()
     rural_2019 = rural_two_party_share(dists_2019_votes)
@@ -285,7 +285,7 @@ def main():
     asym_2019 = (m_2019v_min["eg"] - m_2019v_maj["eg"]) * 100
 
     # 2023 votes (load from the existing 2023 results)
-    from v0_2_packing_cracking_analysis import load_2023_results
+    from packing_cracking_analysis import load_2023_results
     dists_2023 = load_2023_results()
     rural_2023 = rural_two_party_share(dists_2023)
     maj_2023 = estimate_2026(dists_2023, MAJORITY_2026_MAPPING, rural_2023)
@@ -307,7 +307,7 @@ def main():
     # Therefore (min_EG - maj_EG):
     #   POSITIVE asymmetry = minority MORE pro-UCP than majority
     #   NEGATIVE asymmetry = minority LESS pro-UCP (more pro-NDP) than majority
-    # N.B.: analysis/scripts/v0_3_monte_carlo_ci.py lines 158-159 print inverted
+    # N.B.: analysis/scripts/monte_carlo_ci.py lines 158-159 print inverted
     # labels and should be re-worded in a follow-up.
     signs = [asym_eg, asym_2019, asym_2023]
     same_sign_neg = all(s < 0 for s in signs)
@@ -333,7 +333,7 @@ def main():
             print("             contingent on electorate conditions.")
 
     # Save cross-election summary
-    xe_path = DATA / "v0_1_cross_election_asymmetry_3way.csv"
+    xe_path = DATA / "cross_election_asymmetry_3way.csv"
     with open(xe_path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["election", "maj_eg_pct", "min_eg_pct",
@@ -359,8 +359,8 @@ def main():
 
 
 def _load_2019_votes() -> list:
-    """Load 2019 per-ED NDP/UCP totals. Lifted from v0_3_monte_carlo_ci."""
-    path = DATA / "v0_1_alberta_2019_results.csv"
+    """Load 2019 per-ED NDP/UCP totals. Lifted from monte_carlo_ci."""
+    path = DATA / "alberta_2019_results.csv"
     out = []
     with open(path) as f:
         for r in csv.DictReader(f):

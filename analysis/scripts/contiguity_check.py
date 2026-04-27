@@ -17,10 +17,10 @@ Inputs:
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 
 Outputs:
-  analysis/reports/v0_1_contiguity_check.csv
+  analysis/reports/contiguity_check.csv
       Columns: map, name, geom_type, num_parts, largest_part_area_pct,
                contiguous
-  data/v0_1_contiguity_summary.json
+  data/contiguity_summary.json
       Per-map: total_eds, contiguous_eds, fragmented_eds,
                fragmented_ed_names
   stdout: pass/fail gate per map; explicit list of non-contiguous EDs
@@ -29,8 +29,8 @@ Author: v0.1 audit pipeline — geometry analysis per test-selection-rationale
 §6.1 / apparatus-defense §2.1. Generated 2026-04-24.
 
 Forward deps:
-  - analysis/reports/v0_1_contiguity_check.csv (consumed by section MD)
-  - data/v0_1_contiguity_summary.json (consumed by report_academic.md §5.x)
+  - analysis/reports/contiguity_check.csv (consumed by section MD)
+  - data/contiguity_summary.json (consumed by report_academic.md §5.x)
 
 Backward deps:
   - data/shapefiles/derived/v0_3_canonical_majority_2026_eds_swept.gpkg
@@ -86,8 +86,8 @@ EXPECTED_COUNTS = {
     "minority_2026": 89,
 }
 
-OUT_CSV = ROOT / "analysis" / "reports" / "v0_1_contiguity_check.csv"
-OUT_JSON = ROOT / "data" / "v0_1_contiguity_summary.json"
+OUT_CSV = ROOT / "analysis" / "reports" / "contiguity_check.csv"
+OUT_JSON = ROOT / "data" / "contiguity_summary.json"
 
 # An ED is contiguous if its largest part is >= this fraction of total area
 CONTIGUITY_THRESHOLD = 0.95

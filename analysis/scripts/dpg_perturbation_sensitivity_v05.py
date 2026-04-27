@@ -13,19 +13,19 @@ Inputs (read-only):
   data/va_polygons_with_full_2023_votes.gpkg
   data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg
   data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg
-  data/v0_1_majority_full_crosswalk.csv
-  data/v0_1_minority_full_crosswalk.csv
-  data/v0_1_majority_2026_populations.csv
-  data/v0_1_minority_2026_populations.csv
+  data/majority_full_crosswalk.csv
+  data/minority_full_crosswalk.csv
+  data/majority_2026_populations.csv
+  data/minority_2026_populations.csv
 
 Outputs:
-  data/v0_5_dpg_perturbation_samples.csv
-  data/v0_5_dpg_perturbation_summary.json
+  data/dpg_perturbation_samples.csv
+  data/dpg_perturbation_summary.json
 
-Forward: analysis/reports/v0_1_max_dpi_extraction_and_rerun.md
+Forward: analysis/reports/max_dpi_extraction_and_rerun.md
 Backward:
   analysis/scripts/v0_1_dpg_perturbation_sensitivity.py
-  analysis/scripts/v0_1_phase_4c_va_attribution_maup.py
+  analysis/scripts/v0_1_assignment_va_attribution_maup.py
   data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -52,9 +52,9 @@ mod.MAJ_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_
 mod.MIN_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
 
 # Redirect outputs
-mod.OUT_SAMPLES_CSV = DATA / "v0_5_dpg_perturbation_samples.csv"
-mod.OUT_SUMMARY_JSON = DATA / "v0_5_dpg_perturbation_summary.json"
-mod.OUT_WRITEUP = ANALYSIS / "reports" / "v0_5_dpg_perturbation_analysis.md"
+mod.OUT_SAMPLES_CSV = DATA / "dpg_perturbation_samples.csv"
+mod.OUT_SUMMARY_JSON = DATA / "dpg_perturbation_summary.json"
+mod.OUT_WRITEUP = ANALYSIS / "reports" / "dpg_perturbation_analysis.md"
 
 
 if __name__ == "__main__":

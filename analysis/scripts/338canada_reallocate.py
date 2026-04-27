@@ -10,19 +10,19 @@ Phase 3: reallocate 338 shares through the hybrid crosswalks (majority and
 minority) to produce per-2026-ED projected seat winners. The reallocation
 mirrors the audit's methodology by mapping 2026 EDs to their 2019 source
 ED(s) using the same MAJORITY_2026_MAPPING / MINORITY_2026_MAPPING dicts
-in analysis/scripts/v0_2_packing_cracking_analysis.py.
+in analysis/scripts/packing_cracking_analysis.py.
 
 Dependencies:
-  data/v0_1_338canada_per_riding_87seat.csv  (from v0_1_338canada_scraper.py)
-  data/v0_1_alberta_2023_results.csv         (audit's 2023 baseline)
-  data/v0_1_alberta_2019_populations.csv     (weights for merges)
-  analysis/scripts/v0_2_packing_cracking_analysis.py (mapping dicts + loader)
+  data/338canada_per_riding_87seat.csv  (from v0_1_338canada_scraper.py)
+  data/alberta_2023_results.csv         (audit's 2023 baseline)
+  data/alberta_2019_populations.csv     (weights for merges)
+  analysis/scripts/packing_cracking_analysis.py (mapping dicts + loader)
 
 Outputs:
-  data/v0_1_338canada_reallocated_majority.csv
-  data/v0_1_338canada_reallocated_minority.csv
+  data/338canada_reallocated_majority.csv
+  data/338canada_reallocated_minority.csv
   (Phase 2 comparison and summary counts print to stdout and are captured
-   in v0_1_338canada_riding_level.md.)
+   in 338canada_riding_level.md.)
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -40,7 +40,7 @@ DATA = os.path.join(AUDIT_ROOT, 'data')
 ANALYSIS = os.path.join(AUDIT_ROOT, 'analysis')
 
 sys.path.insert(0, os.path.join(ANALYSIS, 'scripts'))
-from v0_2_packing_cracking_analysis import (  # noqa: E402
+from packing_cracking_analysis import (  # noqa: E402
     MAJORITY_2026_MAPPING, MINORITY_2026_MAPPING, URBAN_WEIGHT_DEFAULT,
     load_2023_results,
 )
@@ -49,7 +49,7 @@ from v0_2_packing_cracking_analysis import (  # noqa: E402
 def load_338() -> Dict[str, Dict]:
     """Return {district: {ucp_share, ndp_share, ucp_win, ndp_win, lead}}."""
     out = {}
-    with open(os.path.join(DATA, 'v0_1_338canada_per_riding_87seat.csv'),
+    with open(os.path.join(DATA, '338canada_per_riding_87seat.csv'),
               encoding='utf-8') as f:
         for r in csv.DictReader(f):
             out[r['district']] = {
@@ -64,7 +64,7 @@ def load_338() -> Dict[str, Dict]:
 
 def load_2019_populations() -> Dict[str, int]:
     out = {}
-    with open(os.path.join(DATA, 'v0_1_alberta_2019_populations.csv'),
+    with open(os.path.join(DATA, 'alberta_2019_populations.csv'),
               encoding='utf-8') as f:
         for r in csv.DictReader(f):
             out[r['ed_name']] = int(r['population_2017_report'])
@@ -263,9 +263,9 @@ def main():
     min_rows = reallocate_338_v2(t338, MINORITY_2026_MAPPING, pop,
                                  rural_ucp, rural_ndp)
 
-    write_csv(os.path.join(DATA, 'v0_1_338canada_reallocated_majority.csv'),
+    write_csv(os.path.join(DATA, '338canada_reallocated_majority.csv'),
               maj_rows)
-    write_csv(os.path.join(DATA, 'v0_1_338canada_reallocated_minority.csv'),
+    write_csv(os.path.join(DATA, '338canada_reallocated_minority.csv'),
               min_rows)
 
     for label, rs in (('MAJORITY', maj_rows), ('MINORITY', min_rows)):
@@ -279,7 +279,7 @@ def main():
 
     # -----------------------------------------------------------------
     # Compare to audit B1 central (hard-coded from audit output):
-    # v0_2_packing_cracking_analysis.py produces:
+    # packing_cracking_analysis.py produces:
     #   Majority 2026: UCP 38, NDP 51
     #   Minority 2026: UCP 37, NDP 52
     # -----------------------------------------------------------------

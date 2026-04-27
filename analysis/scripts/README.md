@@ -5,7 +5,7 @@ Python scripts that run every stage of the Alberta electoral boundary audit, fro
 | Script | What it produces | DPG-dependent? |
 |---|---|---|
 | `electoral_forensics_population.py` | Main population-equality forensics report | Yes |
-| `v0_2_packing_cracking_analysis.py` | Packing/cracking quantification across EDs | Yes |
+| `packing_cracking_analysis.py` | Packing/cracking quantification across EDs | Yes |
 | `compactness_metrics.py` | Polsby-Popper and related compactness scores | Yes |
 | `contiguity_check.py` | Contiguity violations report | Yes |
 | `population_consistency.py` | Cross-source population consistency table | Yes |
@@ -30,7 +30,7 @@ Python scripts that run every stage of the Alberta electoral boundary audit, fro
 ```
 build_canonical_shapefiles.py
   → topology_cleanup.py
-  → build_canonical_shapefiles_v2.py
+  → generate_topological_boundaries.py
   → municipal_anchoring.py
   → da_boundary_anchoring.py
   → boundary_propagation.py

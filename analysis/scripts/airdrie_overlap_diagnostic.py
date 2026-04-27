@@ -15,10 +15,10 @@ Steps:
   2. Compute the over-extension for each overlapping ED
   3. Propose corrected boundary options (A = no-overlap clip, B = radius clip)
   4. Identify VAs in the overlap zone and check their parent ED attribution
-  5. Write analysis/reports/v0_1_airdrie_overlap_report.md
+  5. Write analysis/reports/airdrie_overlap_report.md
 
 Outputs:
-  analysis/reports/v0_1_airdrie_overlap_report.md   (summary report)
+  analysis/reports/airdrie_overlap_report.md   (summary report)
 
 Author: sub-agent, 2026-04-23
 """
@@ -48,7 +48,7 @@ ANALYSIS_DIR = os.path.join(ROOT, "analysis")
 
 MINORITY_GPKG = os.path.join(DATA_DIR, "v0_1_canonical_minority_2026_eds.gpkg")
 VA_GPKG = os.path.join(DATA_DIR, "va_polygons_with_2023_votes.gpkg")
-REPORT_PATH = os.path.join(ANALYSIS_DIR, "v0_1_airdrie_overlap_report.md")
+REPORT_PATH = os.path.join(ANALYSIS_DIR, "airdrie_overlap_report.md")
 
 WORK_CRS = 3401  # NAD83 / Alberta 10-TM Forest (metres)
 

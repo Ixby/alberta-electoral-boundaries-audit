@@ -6,8 +6,8 @@ polygons and the Election-Day-only VA gpkg. The new inputs close the 52.5%
 vote-recovery gap (two-party now sums to ~1,706,249 per map vs the 1,706,304
 target) and use the session-11 canonical 89-ED coverage per map.
 
-Writes to data/v0_1_mcmc_real_map_scores_full_v2.json and
-data/v0_1_mcmc_ensemble_percentiles_full_v2.csv.
+Writes to data/simulation_real_map_scores_full_v2.json and
+data/simulated_ensemble_percentiles_full_v2.csv.
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -34,9 +34,9 @@ MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026
 MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
 VA_GPKG_FULL = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 
-ENSEMBLE_10K = DATA / "v0_1_mcmc_ensemble_samples.csv"
-OUT_SCORES_JSON = DATA / "v0_1_mcmc_real_map_scores_full_v2.json"
-OUT_PERCENTILES_CSV = DATA / "v0_1_mcmc_ensemble_percentiles_full_v2.csv"
+ENSEMBLE_10K = DATA / "simulated_ensemble_raw_samples.csv"
+OUT_SCORES_JSON = DATA / "simulation_real_map_scores_full_v2.json"
+OUT_PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_full_v2.csv"
 
 
 def main():

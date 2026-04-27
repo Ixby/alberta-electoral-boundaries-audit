@@ -88,7 +88,7 @@ Four rationale themes, of which "historical precedent" is the last. The subseque
 
 **Severity:** CRITICAL because the rhetorical weight of the passage rests on "not community of interest... because-we-did-it-before," and the source text contradicts both halves of that framing.
 
-**Recommendation:** Rewrite the passage to acknowledge the four themes, then argue that (a) the economic-corridor and Clearwater-hub rationales could be served by populated alternatives (Caroline, Nordegg, Mountain View, Bighorn, Sundre) without the NP extension, and (b) the NP extension specifically is justified only by historical precedent. This is closer to the `v0_1_s15_2_reaudit.md` analysis, which already handles this distinction correctly — the public report has to match the internal analysis.
+**Recommendation:** Rewrite the passage to acknowledge the four themes, then argue that (a) the economic-corridor and Clearwater-hub rationales could be served by populated alternatives (Caroline, Nordegg, Mountain View, Bighorn, Sundre) without the NP extension, and (b) the NP extension specifically is justified only by historical precedent. This is closer to the `s15_2_reaudit.md` analysis, which already handles this distinction correctly — the public report has to match the internal analysis.
 
 ---
 
@@ -173,7 +173,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 
 **Citation in audit:**
 - `report_public.md:268` "On the night of May 29, 2023, a vote count in Calgary-Acadia came in five one-hundredths of a percentage point apart."
-- `analysis/reports/v0_1_marginal_seats_findings.md:55` shows Calgary-Acadia at NDP +0.05 pp.
+- `analysis/reports/marginal_seats_findings.md:55` shows Calgary-Acadia at NDP +0.05 pp.
 
 **What the source says:** Public reports (e.g., daveberta.substack.com "Top 12 closest races of Alberta's 2023 election") and Global News describe Calgary-Acadia as NDP +7 votes, with an all-candidate margin of approximately 0.03 percentage points.
 
@@ -190,7 +190,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 **Citation in audit:**
 - `report_public.md:230` "Commissioner Greg Clark, one of the two opposition-nominated majority members — Clark had been nominated by NDP leader Naheed Nenshi — posted on X after the report dropped. 'In Canada,' he wrote, 'we don't want elected officials drawing their own election maps.'"
 - `report_public.md:349` "Commissioner Greg Clark's post on X, April 2026, referenced at rabble.ca and albertapolitics.substack.com"
-- `analysis/reports/v0_1_chair_recommendation_5_analysis.md:48` "Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB."
+- `analysis/reports/chair_recommendation_5_analysis.md:48` "Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB."
 
 **What the source says:** WebFetch to `https://x.com/GregClarkAB` returned a 402 (paywall / rate limit). WebSearch for the exact phrase "In Canada, we don't want elected officials drawing their own election maps" attributed to Clark did not return the X post directly; `albertapolitics.ca` April 16/22 articles and `daveberta.ca` did not contain the quote in the fetched content. The internal analysis file even flags "Full citation pending direct archival retrieval."
 
@@ -205,7 +205,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 ### MED-03. Miller's "substantively unreasonable" and "s. 3 Charter" framings conflated with the chair alone
 
 **Citation in audit:**
-- `analysis/reports/v0_1_chair_recommendation_5_analysis.md:77` "The chair's Addendum specifically described the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert as 'not something that I can condone' and said the minority report was 'substantively unreasonable' and 'likely to offend s. 3 of the Charter.'"
+- `analysis/reports/chair_recommendation_5_analysis.md:77` "The chair's Addendum specifically described the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert as 'not something that I can condone' and said the minority report was 'substantively unreasonable' and 'likely to offend s. 3 of the Charter.'"
 
 **What the source says:** PDF p. 67 (Miller's addendum) contains: "This is unlike the other hybrids the minority has proposed in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert. The minority's radical about face and substantive unreasonableness regarding these hybrids, to say nothing about the many other administrative and constitutional law problems with their report, is not something that I can condone." Verified verbatim.
 
@@ -291,11 +291,11 @@ The phrase "cheating to secure themselves a supermajority" — the audit quotes 
 
 ### LOW-03. `report_public.md:338–340` internal analysis links are relative paths
 
-**Citation:** The further-reading list uses relative paths like `analysis/reports/v0_1_marginal_seats_findings.md`. These resolve when viewing from the repo root but break when the file is rendered via the `willconner.ca` URL or any other mirror.
+**Citation:** The further-reading list uses relative paths like `analysis/reports/marginal_seats_findings.md`. These resolve when viewing from the repo root but break when the file is rendered via the `willconner.ca` URL or any other mirror.
 
 **Severity:** LOW.
 
-**Recommendation:** Use GitHub blob URLs (e.g., `https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/analysis/reports/v0_1_marginal_seats_findings.md`) so the links resolve when the piece is hosted off-repo.
+**Recommendation:** Use GitHub blob URLs (e.g., `https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/analysis/reports/marginal_seats_findings.md`) so the links resolve when the piece is hosted off-repo.
 
 ---
 
@@ -304,16 +304,16 @@ The phrase "cheating to secure themselves a supermajority" — the audit quotes 
 ### INFO-01. All six internal `analysis/v0_1_*.md` cross-references in `report_public.md:335–340` resolve to files that exist
 
 Verified by `ls -la analysis/`:
-- `v0_1_marginal_seats_findings.md` — exists (8,136 bytes)
-- `v0_1_minority_rationales_validation.md` — exists (31,015 bytes)
-- `v0_1_chair_recommendation_5_analysis.md` — exists (12,725 bytes)
-- `v0_1_terms_of_reference_audit.md` — exists (31,937 bytes)
-- `v0_1_s15_2_reaudit.md` — exists (35,951 bytes)
+- `marginal_seats_findings.md` — exists (8,136 bytes)
+- `minority_rationales_validation.md` — exists (31,015 bytes)
+- `chair_recommendation_5_analysis.md` — exists (12,725 bytes)
+- `terms_of_reference_audit.md` — exists (31,937 bytes)
+- `s15_2_reaudit.md` — exists (35,951 bytes)
 - Plus the scripts and data directories referenced in `report_academic.md`.
 
 The internal cross-references are a closed loop; the audit's forward-reading path resolves without breaks.
 
-### INFO-02. Source for the Calgary-Acadia +0.05 pp margin (`report_public.md:268`) is correctly grounded in `analysis/reports/v0_1_marginal_seats_findings.md:55`, which in turn grounds in `data/v0_1_alberta_2023_results.csv`
+### INFO-02. Source for the Calgary-Acadia +0.05 pp margin (`report_public.md:268`) is correctly grounded in `analysis/reports/marginal_seats_findings.md:55`, which in turn grounds in `data/alberta_2023_results.csv`
 
 The audit's internal grounding is consistent, even where it differs from public reporting's 0.03 figure (see MED-01).
 
@@ -321,16 +321,16 @@ The audit's internal grounding is consistent, even where it differs from public 
 
 ## Verified references (short list for confidence)
 
-1. **Miller "My majority colleagues do not agree with me on this point"** — `report_public.md:13`, `report_academic.md:512`, `v0_1_chair_recommendation_5_analysis.md:44`. Verified verbatim against `.temp/commission_report.pdf` p. 66. PASS.
+1. **Miller "My majority colleagues do not agree with me on this point"** — `report_public.md:13`, `report_academic.md:512`, `chair_recommendation_5_analysis.md:44`. Verified verbatim against `.temp/commission_report.pdf` p. 66. PASS.
 2. **Miller "That is why I am alone in making this recommendation"** — `report_public.md:13`. Verified verbatim p. 66. PASS.
 3. **Miller "This fifth recommendation is formulated for the express purpose of dissuading the Legislature from accepting the minority report"** — `report_public.md:232`, `report_academic.md:520`. Verified verbatim p. 66. PASS.
-4. **Miller "not something that I can condone"** — `analysis/reports/v0_1_chair_recommendation_5_analysis.md:77`. Verified verbatim p. 67. PASS.
-5. **Recommendation 5 text (a–d)** — `analysis/reports/v0_1_chair_recommendation_5_analysis.md:25–32`. Verified verbatim p. 66. PASS.
+4. **Miller "not something that I can condone"** — `analysis/reports/chair_recommendation_5_analysis.md:77`. Verified verbatim p. 67. PASS.
+5. **Recommendation 5 text (a–d)** — `analysis/reports/chair_recommendation_5_analysis.md:25–32`. Verified verbatim p. 66. PASS.
 6. **Nenshi "full-on assault on our democracy"** — `report_public.md:17`. Verified against Rimbey Review, Lacombe Express, Stettler Independent, DiscoverAirdrie — all three mirrors carry the same quote verbatim. PASS with the caveat that the quote is from the floor of the legislature and is consistently reproduced.
 7. **Smith "I've been asking every member to look at page 66"** — `report_public.md:39`. Verified verbatim against DiscoverAirdrie April 17, 2026. PASS.
 8. **Pancholi "89 seats that the UCP gave them to work with"** — `report_public.md:(implicit)`. Verified verbatim against DiscoverAirdrie. PASS.
 9. **Miller "substantive unreasonableness... not something that I can condone" with city list (Airdrie, Calgary, Chestermere, Cochrane, Red Deer, St. Albert)** — Verified verbatim p. 67. PASS.
-10. **Electoral Boundaries Commission Act §15(2) five-criterion text** — Verified via CanLII and the commission's own reproduction pp. 15–16, 291–292 against `v0_1_s15_2_reaudit.md:17–27`. PASS.
+10. **Electoral Boundaries Commission Act §15(2) five-criterion text** — Verified via CanLII and the commission's own reproduction pp. 15–16, 291–292 against `s15_2_reaudit.md:17–27`. PASS.
 11. **Reference re Provincial Electoral Boundaries (Saskatchewan), [1991] 2 SCR 158 — "effective representation" standard** — Verified via CanLII 1991 SCC 61; McLachlin J's para. 26 and para. 33 are correctly referenced by `report_academic.md:832`. PASS.
 12. **Stephanopoulos & McGhee (2014/2015) efficiency gap** — Verified; the audit cites the concept correctly. The error is only in how the 7% threshold's legal status is characterised (see CRIT-01).
 13. **Chen & Rodden (2013) "Unintentional gerrymandering"** — Verified via DOI `10.1561/100.00012033`. PASS.

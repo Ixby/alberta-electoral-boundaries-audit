@@ -11,10 +11,10 @@ It writes to _100k-suffixed outputs so the 10k artifacts survive.
 
 Outputs
 -------
-- data/v0_1_mcmc_ensemble_samples_100k.csv
-- data/v0_1_mcmc_real_map_scores_100k.json
-- data/v0_1_mcmc_ensemble_percentiles_100k.csv
-- data/v0_1_mcmc_convergence_diagnostics_100k.json
+- data/simulated_ensemble_raw_samples_100k.csv
+- data/simulation_real_map_scores_100k.json
+- data/simulated_ensemble_percentiles_100k.csv
+- data/simulation_convergence_diagnostics_100k.json
 - maps/mcmc/ensemble_distribution_100k_{metric}.png
 - maps/mcmc/running_mean_100k_{metric}.png
 
@@ -22,7 +22,7 @@ Usage
 -----
     python analysis/scripts/v0_1_mcmc_ensemble_100k.py [--n-steps 100000]
 
-Forward: analysis/methodology/v0_1_mcmc_100k_and_full_coverage.md
+Forward: analysis/methodology/mcmc_100k_and_full_coverage.md
 Backward:
   data/va_polygons_with_2023_votes.gpkg
   data/va_pop_from_das.csv
@@ -70,10 +70,10 @@ DATA = ROOT / "data"
 MAPS = ROOT / "data" / "maps" / "mcmc"
 MAPS.mkdir(parents=True, exist_ok=True)
 
-SAMPLES_CSV_100K = DATA / "v0_1_mcmc_ensemble_samples_100k.csv"
-SCORES_JSON_100K = DATA / "v0_1_mcmc_real_map_scores_100k.json"
-PERCENTILES_CSV_100K = DATA / "v0_1_mcmc_ensemble_percentiles_100k.csv"
-CONVERGENCE_JSON_100K = DATA / "v0_1_mcmc_convergence_diagnostics_100k.json"
+SAMPLES_CSV_100K = DATA / "simulated_ensemble_raw_samples_100k.csv"
+SCORES_JSON_100K = DATA / "simulation_real_map_scores_100k.json"
+PERCENTILES_CSV_100K = DATA / "simulated_ensemble_percentiles_100k.csv"
+CONVERGENCE_JSON_100K = DATA / "simulation_convergence_diagnostics_100k.json"
 
 
 # ---- convergence diagnostics -----------------------------------------------

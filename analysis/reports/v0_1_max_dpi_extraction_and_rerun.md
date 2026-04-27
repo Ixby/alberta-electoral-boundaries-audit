@@ -19,7 +19,7 @@ Two questions were asked:
 
 ### Per-page findings
 
-All target pages were inspected; the raw per-page manifest is written to `analysis/reports/v0_1_max_dpi_inspect.json`. Summary of the map pages:
+All target pages were inspected; the raw per-page manifest is written to `analysis/reports/max_dpi_inspect.json`. Summary of the map pages:
 
 | Page | What it contains | Content type | Native DPI of dominant image | Decision |
 |---|---|---|---|---|
@@ -48,7 +48,7 @@ For the other test pages (p72, p76) PSNR is lower (13-15 dB) but this is due to 
 ## Investigation 2 — Extraction at max useful resolution
 
 Script: `analysis/scripts/max_dpi_extract.py`
-Manifest: `analysis/reports/v0_1_max_dpi_extract.json`
+Manifest: `analysis/reports/max_dpi_extract.json`
 Outputs: `data/maps/hires_v2/*`
 
 For each of the 7 majority Appendix A map pages and 5 minority map pages, we saved:
@@ -63,7 +63,7 @@ We did **not** render map pages at 2400 DPI because the map content is raster-ca
 
 Script: `analysis/scripts/tier_c_crops.py`
 Outputs: `data/maps/hires_v2/tier_c_crops/`
-Manifest: `analysis/reports/v0_1_tier_c_crop_manifest.json`
+Manifest: `analysis/reports/tier_c_crop_manifest.json`
 
 For each of the 4 Tier-C non-converged EDs from Issue #3 (Fort McMurray-Lac La Biche, Chestermere-Strathmore, Edmonton-Beaumont, Lethbridge-Taber-Warner) we cropped the same fractional region from (a) the native-raster extract and (b) the 600-DPI render and saved both at 1:1 pixel scale.
 
@@ -77,13 +77,13 @@ This is a clean negative result: **the Tier-C non-convergence is not a DPI probl
 
 ## Rerun — MAUP-v3 on v0_5 DA-anchored DPG
 
-Script: `analysis/scripts/phase_4c_va_attribution_maup_v3_v05.py`
+Script: `analysis/scripts/assignment_va_attribution_maup_v3_v05.py`
 Inputs: `data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg`
 Outputs:
-- `data/v0_5_phase4c_majority_2023_votes_maup.csv`
-- `data/v0_5_phase4c_minority_2023_votes_maup.csv`
-- `analysis/reports/v0_5_phase4c_va_to_2026_assignments_maup.csv` (13,496 rows)
-- `analysis/reports/v0_5_phase4c_maup_summary.json`
+- `data/votes_2023_majority_maup.csv`
+- `data/votes_2023_minority_maup.csv`
+- `analysis/reports/phase4c_va_to_2026_assignments_maup.csv` (13,496 rows)
+- `analysis/reports/phase4c_maup_summary.json`
 
 ### Headline MAUP numbers
 
@@ -133,10 +133,10 @@ These empties first appeared in v0_4 (3 majority / 1 minority) and grew in v0_5.
 
 Script: `analysis/scripts/phase_4bf_v05.py`
 Outputs:
-- `data/v0_5_phase4b_majority_2021_populations.csv`
-- `data/v0_5_phase4b_minority_2021_populations.csv`
-- `data/v0_5_phase4f_validation_deltas.csv`
-- `analysis/reports/v0_5_phase4f_summary.json`
+- `data/population_2021_majority.csv`
+- `data/population_2021_minority.csv`
+- `data/validation_deltas.csv`
+- `analysis/reports/phase4f_summary.json`
 
 Hardstop = scaled delta to commission-published population > 2%.
 
@@ -186,7 +186,7 @@ Parameters: flat ±500 m, seed 42, N=200
 
 The CI is actually *tighter* on v0_5 than on v0_2 (3.62 pp vs 5.98 pp width), but the point estimate has moved by ~7 pp — from firmly positive to firmly negative. Since the 90% CIs of v0_2 and v0_5 **do not overlap**, DPG-construction choice alone is a dominant error source that exceeds within-DPG perturbation error.
 
-*Full N=200 numbers will be appended to `data/v0_5_dpg_perturbation_summary.json` when the Monte Carlo loop completes.*
+*Full N=200 numbers will be appended to `data/dpg_perturbation_summary.json` when the Monte Carlo loop completes.*
 
 ## Paper-ready paragraph (~200 words) for §4.1.4 / §E
 
@@ -198,32 +198,32 @@ The CI is actually *tighter* on v0_5 than on v0_2 (3.62 pp vs 5.98 pp width), bu
 - `analysis/scripts/max_dpi_inspect.py` — investigation 1
 - `analysis/scripts/max_dpi_extract.py` — investigation 2 extraction
 - `analysis/scripts/tier_c_crops.py` — investigation 3 visual comparison
-- `analysis/scripts/phase_4c_va_attribution_maup_v3_v05.py` — MAUP-v3 rerun
+- `analysis/scripts/assignment_va_attribution_maup_v3_v05.py` — MAUP-v3 rerun
 - `analysis/scripts/phase_4bf_v05.py` — Phase 4B/4F rerun
 - `analysis/scripts/dpg_perturbation_sensitivity_v05.py` — DPG-perturbation rerun (monkeypatch)
 
 **Reports and manifests created:**
-- `analysis/reports/v0_1_max_dpi_inspect.json`
-- `analysis/reports/v0_1_max_dpi_extract.json`
-- `analysis/reports/v0_1_tier_c_crop_manifest.json`
-- `analysis/reports/v0_5_phase4c_va_to_2026_assignments_maup.csv`
-- `analysis/reports/v0_5_phase4c_maup_summary.json`
-- `analysis/reports/v0_5_phase4f_summary.json`
-- `analysis/reports/v0_5_dpg_perturbation_analysis.md` (stub from smoke run; overwritten by full run)
-- `analysis/reports/v0_1_max_dpi_extraction_and_rerun.md` (this file)
+- `analysis/reports/max_dpi_inspect.json`
+- `analysis/reports/max_dpi_extract.json`
+- `analysis/reports/tier_c_crop_manifest.json`
+- `analysis/reports/phase4c_va_to_2026_assignments_maup.csv`
+- `analysis/reports/phase4c_maup_summary.json`
+- `analysis/reports/phase4f_summary.json`
+- `analysis/reports/dpg_perturbation_analysis.md` (stub from smoke run; overwritten by full run)
+- `analysis/reports/max_dpi_extraction_and_rerun.md` (this file)
 
 **Data created:**
 - `data/maps/hires_v2/v0_2_native_*.{png,jpeg}` — 12 native-raster extracts
 - `data/maps/hires_v2/v0_2_render_*_r600.png` — 12 parity 600-DPI renders
 - `data/maps/hires_v2/v0_2_render_*_r1200.png` — 12 over-native 1200-DPI renders (for zoom only)
 - `data/maps/hires_v2/tier_c_crops/*.png` — 8 Tier-C visual-comparison crops
-- `data/v0_5_phase4c_majority_2023_votes_maup.csv`
-- `data/v0_5_phase4c_minority_2023_votes_maup.csv`
-- `data/v0_5_phase4b_majority_2021_populations.csv`
-- `data/v0_5_phase4b_minority_2021_populations.csv`
-- `data/v0_5_phase4f_validation_deltas.csv`
-- `data/v0_5_dpg_perturbation_samples.csv` (final N=200 replaces smoke)
-- `data/v0_5_dpg_perturbation_summary.json`
+- `data/votes_2023_majority_maup.csv`
+- `data/votes_2023_minority_maup.csv`
+- `data/population_2021_majority.csv`
+- `data/population_2021_minority.csv`
+- `data/validation_deltas.csv`
+- `data/dpg_perturbation_samples.csv` (final N=200 replaces smoke)
+- `data/dpg_perturbation_summary.json`
 
 **Logs:**
 - `logs/v0_5_dpg_perturb_N200.log`

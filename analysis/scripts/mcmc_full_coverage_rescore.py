@@ -8,8 +8,8 @@ the unchanged Tier A EDs and some Tier B EDs were simply not written
 to the artifacts.
 
 This script closes the coverage gap by using the hybrid crosswalks
-(`data/v0_1_majority_hybrid_crosswalk.csv` and
-`data/v0_1_minority_hybrid_crosswalk.csv`) plus Tier-A identity
+(`data/majority_hybrid_crosswalk.csv` and
+`data/minority_hybrid_crosswalk.csv`) plus Tier-A identity
 fallback: every VA has a `parent_ed_2019` label, and for every 2019 ED
 the crosswalk tells us what 2026 ED it maps to under each map. EDs not
 in the crosswalk are Tier A and keep their 2019 name under both 2026
@@ -23,9 +23,9 @@ inform the score. Only the UNCOVERED VAs fall back to crosswalk
 assignment.
 
 Outputs:
-  - data/v0_1_mcmc_real_map_scores_full.json — per-map scores at full
+  - data/simulation_real_map_scores_full.json — per-map scores at full
     89-district coverage
-  - data/v0_1_mcmc_ensemble_percentiles_full.csv — percentile table
+  - data/simulated_ensemble_percentiles_full.csv — percentile table
     against the original 10,000-plan ensemble
   - analysis/v0_1_mcmc_full_coverage_rescore.md — report summarizing
     shift in findings under full coverage
@@ -48,15 +48,15 @@ ANALYSIS = ROOT / "analysis"
 EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
 MAJ_APPROX_GPKG = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
 MIN_V6_GPKG = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
-MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
-MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
-MAJ_XWALK_CSV = DATA / "v0_1_majority_hybrid_crosswalk.csv"
-MIN_XWALK_CSV = DATA / "v0_1_minority_hybrid_crosswalk.csv"
+MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
+MIN_POPS_CSV = DATA / "minority_2026_populations.csv"
+MAJ_XWALK_CSV = DATA / "majority_hybrid_crosswalk.csv"
+MIN_XWALK_CSV = DATA / "minority_hybrid_crosswalk.csv"
 VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-ENSEMBLE_CSV = DATA / "v0_1_mcmc_ensemble_samples.csv"
+ENSEMBLE_CSV = DATA / "simulated_ensemble_raw_samples.csv"
 
-OUT_SCORES_JSON = DATA / "v0_1_mcmc_real_map_scores_full.json"
-OUT_PERCENTILES_CSV = DATA / "v0_1_mcmc_ensemble_percentiles_full.csv"
+OUT_SCORES_JSON = DATA / "simulation_real_map_scores_full.json"
+OUT_PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_full.csv"
 
 
 # --- Metric implementations (match v0_1_mcmc_ensemble.py conventions) ---

@@ -5,25 +5,25 @@ Re-uses helpers from analysis/scripts/v0_1_phase_4bcdef_execution.py by
 loading it as a module and monkey-patching MAJ_CANON_GPKG / MIN_CANON_GPKG
 and the output paths. Only Phase 4B (DA -> ED population) and Phase 4F
 (commission-population hardstop validation) are executed. Phase 4C is
-superseded by v0_1_phase_4c_va_attribution_maup_v3_v05.py.
+superseded by v0_1_assignment_va_attribution_maup_v3_v05.py.
 
 Inputs:
   data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg
   data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg
   data/alberta_2021_das.gpkg
   data/alberta_2021_da_populations.csv
-  data/v0_1_majority_full_crosswalk.csv
-  data/v0_1_minority_full_crosswalk.csv
-  data/v0_1_majority_2026_populations.csv
-  data/v0_1_minority_2026_populations.csv
+  data/majority_full_crosswalk.csv
+  data/minority_full_crosswalk.csv
+  data/majority_2026_populations.csv
+  data/minority_2026_populations.csv
 
 Outputs:
-  data/v0_5_phase4b_majority_2021_populations.csv
-  data/v0_5_phase4b_minority_2021_populations.csv
-  data/v0_5_phase4f_validation_deltas.csv
-  analysis/reports/v0_5_phase4f_summary.json
+  data/population_2021_majority.csv
+  data/population_2021_minority.csv
+  data/validation_deltas.csv
+  analysis/reports/phase4f_summary.json
 
-Forward: analysis/reports/v0_1_max_dpi_extraction_and_rerun.md
+Forward: analysis/reports/max_dpi_extraction_and_rerun.md
 Backward:
   analysis/scripts/v0_1_phase_4bcdef_execution.py
   data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg
@@ -55,11 +55,11 @@ m.MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_20
 m.MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
 
 # Redirect outputs to v0_5 paths
-m.OUT_4B_MAJ = DATA / "v0_5_phase4b_majority_2021_populations.csv"
-m.OUT_4B_MIN = DATA / "v0_5_phase4b_minority_2021_populations.csv"
-m.OUT_4F = DATA / "v0_5_phase4f_validation_deltas.csv"
+m.OUT_4B_MAJ = DATA / "population_2021_majority.csv"
+m.OUT_4B_MIN = DATA / "population_2021_minority.csv"
+m.OUT_4F = DATA / "validation_deltas.csv"
 
-OUT_SUMMARY = ANALYSIS / "reports" / "v0_5_phase4f_summary.json"
+OUT_SUMMARY = ANALYSIS / "reports" / "phase4f_summary.json"
 
 
 def count_hardstops(combined_df) -> dict:
@@ -107,7 +107,7 @@ def main():
     }
 
     # Also compare with v0_1 baseline from report_academic.md mentions
-    v01_4f = DATA / "v0_1_phase4f_validation_deltas.csv"
+    v01_4f = DATA / "v0_1_validation_deltas.csv"
     if v01_4f.exists():
         import pandas as pd
         v01 = pd.read_csv(v01_4f)

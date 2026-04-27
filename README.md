@@ -12,11 +12,23 @@ The 2025–26 Alberta Electoral Boundary Commission produced two competing recom
 
 **Population concentration.** In northwest Calgary, the minority map's electoral zone has a mean population 11.5% above the provincial average — above the threshold derived from the Act's own ±25% band. The majority's equivalent zone sits 2.8% above average, inside the threshold. The difference is 8.7 percentage points on a metric whose threshold is anchored to the statute, not to any academic benchmark.
 
-These are three of five structural dimensions where the audit finds the minority recommendation diverges from the majority in consistent and measurable directions. In none of the three cases is the divergence legally prohibited. In none of the three cases does the measure depend on partisan vote data. And in none of the three cases is the divergence explained by Alberta's geography: the same provincial constraint set produces it on both maps, and a 100,000-plan MCMC ensemble confirms that the minority's values sit further from the constraint-bound expectation than the majority's.
+These are three of five structural dimensions where the audit finds the minority recommendation diverges from the majority in consistent and measurable directions. In none of the three cases is the divergence legally prohibited. In none of the three cases does the measure depend on partisan vote data. And in none of the three cases is the divergence explained by Alberta's geography: the same provincial constraint set produces it on both maps, and a 250,000-plan MCMC ensemble confirms that the minority's values sit further from the constraint-bound expectation than the majority's.
 
 This audit was produced as a personal research project by Will Conner, a Mount Royal University student, following the April 16, 2026 government decision to refer the commission's work to a Special Select Committee of MLAs. It is not affiliated with any political party, campaign, or advocacy organization. All code, data, and methodology are published here in reproducible form. The audit applies identical methodology to both maps.
 
-> **New here? Start with the public report — [PDF](report_public.pdf) · [Web](report_public.md)** — a plain-language summary covering the five findings, the gerrymander checklist, and what you can do. The full technical monograph is [`report_academic.md`](report_academic.md).
+> **New here? Start with the public report — [PDF](report_public.pdf) | [Web](report_public.md)** — a plain-language summary covering the five findings, the gerrymander checklist, and what you can do. The full technical monograph is [`report_academic.md`](report_academic.md).
+
+---
+
+## Repository Architecture
+
+This repository is structured to enforce a strict separation of concerns for independent auditors:
+* **`analysis/`** (The Engine): Contains all execution code (`scripts/`), text reports (`reports/`), and diagnostic logs (`logs/`).
+* **`data/`** (The Store): Contains unaltered source material (`raw/`), immutable standards (`reference/`), geospatial boundaries (`shapefiles/`), and all computed metrics and MCMC simulation distributions (`outputs/`). Code never lives here.
+* **`tests/`** (The Harness): The Pytest suite enforcing byte-for-byte integrity and mathematical proofs.
+* **`maps/`** (The Visuals): Cover art and generated visual plots.
+* **`pipeline_snapshots/`** (The Backup): Automated snapshots taken by the reproducibility scripts to calculate deltas between pipeline runs without destroying data.
+* **`historical/`** (The Vault): Old scripts, abandoned methodologies, and historical shapefiles kept strictly for scientific provenance and transparency.
 
 ---
 
@@ -33,7 +45,7 @@ cd alberta-electoral-boundaries-audit
 ./setup.sh
 
 # 3. Verify the installation by running the baseline packing/cracking script
-python3 analysis/scripts/v0_2_packing_cracking_analysis.py
+python3 analysis/scripts/packing_cracking_analysis.py
 ```
 For detailed instructions on recreating the derived shapefiles or running the MCMC ensemble, see [`REPRODUCING.md`](REPRODUCING.md).
 
@@ -63,9 +75,9 @@ The audit does not claim the minority map is a gerrymander in the intent sense. 
 
 Two policy recommendations attach to the audit findings.
 
-**Act §12 amendment.** Section 12 of the *Electoral Boundaries Commission Act* permits referral of commission recommendations to a legislative committee with no statutory minimum notice or public-comment period. The audit proposes amending §12 to require: a 90-day minimum public-comment period before any referral, paired population tables showing both the statutory 2021-census baseline and an advisory Treasury Board quarterly-estimate sensitivity analysis, and a written explanation for any substantive deviation from commission recommendations. The proposal is in `analysis/reports/v0_1_act_amendment_proposal.md`.
+**Act §12 amendment.** Section 12 of the *Electoral Boundaries Commission Act* permits referral of commission recommendations to a legislative committee with no statutory minimum notice or public-comment period. The audit proposes amending §12 to require: a 90-day minimum public-comment period before any referral, paired population tables showing both the statutory 2021-census baseline and an advisory Treasury Board quarterly-estimate sensitivity analysis, and a written explanation for any substantive deviation from commission recommendations. The proposal is in `analysis/reports/act_amendment_proposal.md`.
 
-**AI-use discipline for the Lunty committee.** The Special Select Committee chaired by Brandon Lunty, MLA for Leduc-Beaumont, is due to report by November 2, 2026. If the committee uses AI tools in its work, the audit proposes seven disciplines: humans decide (not algorithms), every prompt is logged and published, evaluation criteria are registered before drafting begins, at least two independent tools are run in parallel, every boundary has a named human of record, every factual claim in AI-drafted text is human-verified, and the committee publishes a 9-item public disclosure checklist alongside the final map. The proposal is in `analysis/reports/v0_1_ai_use_recommendations_for_committee.md` and summarised at §5.10 of the monograph.
+**AI-use discipline for the Lunty committee.** The Special Select Committee chaired by Brandon Lunty, MLA for Leduc-Beaumont, is due to report by November 2, 2026. If the committee uses AI tools in its work, the audit proposes seven disciplines: humans decide (not algorithms), every prompt is logged and published, evaluation criteria are registered before drafting begins, at least two independent tools are run in parallel, every boundary has a named human of record, every factual claim in AI-drafted text is human-verified, and the committee publishes a 9-item public disclosure checklist alongside the final map. The proposal is in `analysis/reports/ai_use_recommendations_for_committee.md` and summarised at §5.10 of the monograph.
 
 ---
 
@@ -96,7 +108,7 @@ The status quo cost — of not auditing — is the alternative: accepting or rej
 
 **The predictions came before the results.** Every test family in the audit was committed with a directional null hypothesis and a pre-specified pass threshold before the results were read. The commit timestamp separating the pre-registration from the first detection run is 2 hours and 24 minutes. A methodology that only finds what it was looking for, after it looked, is not a methodology — it is a post-hoc justification. Pre-registration prevents that.
 
-**Each finding has a named retraction condition.** For every load-bearing finding, the audit documents what data or argument would force a retraction within 48 hours of it becoming available. The conditions are in `analysis/methodology/v0_1_retraction_pathway.md`. A reviewer who objects to a specific finding does not need to argue in the abstract — they can find that finding's retraction condition and produce the triggering evidence.
+**Each finding has a named retraction condition.** For every load-bearing finding, the audit documents what data or argument would force a retraction within 48 hours of it becoming available. The conditions are in `analysis/methodology/retraction_pathway.md`. A reviewer who objects to a specific finding does not need to argue in the abstract — they can find that finding's retraction condition and produce the triggering evidence.
 
 **The pre-registered passes are reported as prominently as the findings.** The neighbour-drain test result — zero coupled adjacencies under the minority, where three exist under both the majority and 2019 — is reported as a §5.3.5 PASS, not buried in a supplementary table. An audit that hides its non-findings is not an audit.
 
@@ -122,7 +134,7 @@ This audit is not finished. The following are genuinely unresolved.
 
 ## What to do with this
 
-**Challenge the audit.** Read `analysis/methodology/v0_1_retraction_pathway.md`. Find a specific finding and its named retraction condition. Produce the data or argument that triggers it. The retraction conditions are public, concrete, and dated.
+**Challenge the audit.** Read `analysis/methodology/retraction_pathway.md`. Find a specific finding and its named retraction condition. Produce the data or argument that triggers it. The retraction conditions are public, concrete, and dated.
 
 **Ask the Lunty committee about its process.** The Special Select Committee is due to report by November 2, 2026. Specific questions worth asking: What evaluation criteria were established before the committee began drawing? Will prompts and inputs to any AI tools used in the process be published? Will an ensemble of alternative maps be generated and published alongside the final map?
 
@@ -152,12 +164,12 @@ The audit is most usefully challenged by people with expertise in electoral geog
 
 - **[report_public.md](report_public.md)** — **Start here.** Plain-language summary for a general audience: the five findings, the gerrymander checklist, what the April 16 pivot means, and what you can do. No prior knowledge required.
 - **[report_academic.md](report_academic.md)** — The full monograph (v0.19, 2026-04-24): executive summary, methods, §§5.1–5.10 results, seven measurement layers, dependency DAG, limitations, and falsifiability hooks. Start here to challenge a specific finding.
-- **[analysis/methodology/v0_1_retraction_pathway.md](analysis/methodology/v0_1_retraction_pathway.md)** — Named retraction conditions per finding. The fastest path to either retracting a claim or confirming it holds.
-- **[analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md](analysis/methodology/v0_1_null_hypothesis_and_exoneration_criteria.md)** — Pre-committed null hypotheses, pass thresholds, and Structural/Robust/Durable classification for every finding.
-- **[analysis/methodology/v0_1_test_apparatus_defense.md](analysis/methodology/v0_1_test_apparatus_defense.md)** — Per-test criticism and response. Answers "are you making up metrics to have metrics?"
-- **[analysis/methodology/v0_1_threshold_provenance.md](analysis/methodology/v0_1_threshold_provenance.md)** — Every numeric threshold traced to a statutory source, a literature citation, or a first-principles derivation. 41 thresholds catalogued, including three Alberta-calibrated EG alternatives.
+- **[analysis/methodology/retraction_pathway.md](analysis/methodology/retraction_pathway.md)** — Named retraction conditions per finding. The fastest path to either retracting a claim or confirming it holds.
+- **[analysis/methodology/null_hypothesis_and_exoneration_criteria.md](analysis/methodology/null_hypothesis_and_exoneration_criteria.md)** — Pre-committed null hypotheses, pass thresholds, and Structural/Robust/Durable classification for every finding.
+- **[analysis/methodology/test_apparatus_defense.md](analysis/methodology/test_apparatus_defense.md)** — Per-test criticism and response. Answers "are you making up metrics to have metrics?"
+- **[analysis/methodology/threshold_provenance.md](analysis/methodology/threshold_provenance.md)** — Every numeric threshold traced to a statutory source, a literature citation, or a first-principles derivation. 41 thresholds catalogued, including three Alberta-calibrated EG alternatives.
 - **[analysis/methodology/audit_dependency_graph_readme.md](analysis/methodology/audit_dependency_graph_readme.md)** — The 234-node, 454-edge dependency graph: schema, worked examples, and the `--invalidate` query CLI.
-- **[analysis/reports/v0_1_ai_use_recommendations_for_committee.md](analysis/reports/v0_1_ai_use_recommendations_for_committee.md)** — AI-use recommendations for the Lunty committee: seven principles, technical guidance by task type, and a 9-item public disclosure checklist.
+- **[analysis/reports/ai_use_recommendations_for_committee.md](analysis/reports/ai_use_recommendations_for_committee.md)** — AI-use recommendations for the Lunty committee: seven principles, technical guidance by task type, and a 9-item public disclosure checklist.
 
 ---
 

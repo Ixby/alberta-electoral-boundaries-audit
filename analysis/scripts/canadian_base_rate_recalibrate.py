@@ -2,7 +2,7 @@
 Canadian inter-map EG asymmetry base rate — T3.3 recalibration (2026-04-23).
 
 Purpose.
-  The original n=7 distribution in v0_1_canadian_base_rate_computed.md
+  The original n=7 distribution in canadian_base_rate_computed.md
   INCLUDES Alberta 2025-26 as both the anchor case and a member of the
   comparator distribution used to rank it. That is circular. Gemini's
   red-team Phase E.2 flagged this. This script recomputes the
@@ -22,11 +22,11 @@ the raw seat-share-asymmetry distribution (which is closed-form exact
 and factor-free).
 
 forward_dependencies:
-  - analysis/methodology/v0_1_canadian_base_rate_computed.md (receives a new "Recalibration" section)
+  - analysis/methodology/canadian_base_rate_computed.md (receives a new "Recalibration" section)
   - report_academic.md §5.2.1 (the paper-facing paragraph is updated)
 backward_dependencies:
   - analysis/scripts/v0_1_canadian_base_rate_compute.py (original n=7 writeup)
-  - data/v0_1_canadian_redistribution_base_rate.csv (source data)
+  - data/canadian_redistribution_base_rate.csv (source data)
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -41,11 +41,11 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-CSV_PATH = os.path.join(REPO_ROOT, "data", "v0_1_canadian_redistribution_base_rate.csv")
+CSV_PATH = os.path.join(REPO_ROOT, "data", "canadian_redistribution_base_rate.csv")
 
 
 # The seven comparable cycles as reconstructed from
-# v0_1_canadian_base_rate_computed.md §3.1. Seat-share asymmetry is the
+# canadian_base_rate_computed.md §3.1. Seat-share asymmetry is the
 # closed-form exact inter-map EG delta under constant-votes (no 0.455
 # multiplier). EG-proxy values apply the 0.455 factor; Alberta 2025-26's
 # EG-proxy is the audit's measured 0.51 pp by construction.
@@ -105,7 +105,7 @@ def main() -> None:
     print("T3.3 Canadian comparator base-rate recalibration (2026-04-23)")
     print("=" * 72)
     print()
-    print("Original claim (v0_1_canadian_base_rate_computed.md §5.1):")
+    print("Original claim (canadian_base_rate_computed.md §5.1):")
     print(f"  Alberta 2025-26 at p71 of n=7 distribution (INCLUDES anchor).")
     print(f"  Circularity: anchor is in the distribution used to rank it,")
     print(f"  and the 0.455 compression factor is fit to the anchor.")

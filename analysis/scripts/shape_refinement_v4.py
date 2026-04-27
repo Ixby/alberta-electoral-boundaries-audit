@@ -24,7 +24,7 @@ and are distinguishable from:
 
 They are better than v3 for the three EDs at the polygon-shape level.
 They are NOT the commission's shapefile. The per-segment error bands are
-documented in `analysis/methodology/v0_1_shape_refinement_v4.md`.
+documented in `analysis/methodology/shape_refinement_v4.md`.
 
 Author: Track Y-prime-prime-prime sub-agent (2026-04-22).
 """
@@ -885,7 +885,7 @@ def main():
     # Impact vs v3
     if va is not None:
         impact = compute_va_impact(v3_gdf, v4_gdf, va, TARGET_EDS)
-        impact_csv = DATA_DIR / "v0_1_boundary_refinement_impact_v4.csv"
+        impact_csv = DATA_DIR / "boundary_refinement_impact_v4.csv"
         impact.to_csv(impact_csv, index=False)
         print(f"[main] wrote {impact_csv}")
         print(impact.to_string())
@@ -941,7 +941,7 @@ def main():
         "notes": notes,
         "elapsed_sec": round(time.time() - t0, 1),
     }
-    log_path = ANALYSIS_DIR / "v0_1_shape_refinement_v4_log.json"
+    log_path = ANALYSIS_DIR / "shape_refinement_v4_log.json"
     with open(log_path, "w", encoding="utf-8") as f:
         json.dump(log, f, indent=2)
     print(f"[main] wrote {log_path}")

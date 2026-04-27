@@ -1,13 +1,13 @@
 ---
 name: Audit dependency graph — schema, construction, and invalidation queries
-description: Operationalisation of the defense-in-depth dependency graph scoped in v0_1_test_apparatus_defense.md §3. Documents the machine-readable DAG that encodes every raw source, constructed data product, measurement script, and reported finding in the Alberta audit, along with the edges that connect them and the invalidation-query tooling that answers "if reviewer rejects node X, which findings survive?"
+description: Operationalisation of the defense-in-depth dependency graph scoped in test_apparatus_defense.md §3. Documents the machine-readable DAG that encodes every raw source, constructed data product, measurement script, and reported finding in the Alberta audit, along with the edges that connect them and the invalidation-query tooling that answers "if reviewer rejects node X, which findings survive?"
 type: methodology
 ---
 
 # Audit dependency graph
 
-Companion to `v0_1_test_apparatus_defense.md` §3 (framework) and
-`v0_1_test_selection_rationale.md` §6 (novel combined tests). The graph
+Companion to `test_apparatus_defense.md` §3 (framework) and
+`test_selection_rationale.md` §6 (novel combined tests). The graph
 makes the audit's implicit dependency structure machine-readable so that
 a hostile reviewer's "what if X is wrong?" question can be answered by a
 CLI instead of a paragraph of prose.
@@ -298,7 +298,7 @@ them as percentiles against neutral draws.
 
 The following 148-word paragraph can be inserted directly into §4.6
 (test-selection-rationale), replacing the gap identified in
-`v0_1_test_apparatus_defense.md` §3.4:
+`test_apparatus_defense.md` §3.4:
 
 > *Defense in depth is operationalised in the audit's machine-readable
 > dependency graph (`analysis/methodology/audit_dependency_graph.json`,
@@ -325,7 +325,7 @@ pass. They fall into three categories, all documented in the graph's
 
 1. **Markdown writeup outputs** — many scripts have a `Forward:` line
    naming an output markdown file (e.g.,
-   `analysis/reports/v0_1_topology_cleanup_analysis.md`). These writeups
+   `analysis/reports/topology_cleanup_analysis.md`). These writeups
    are not modelled as graph nodes because they are narrative prose, not
    independent data artefacts. If the writeup contains a quantitative
    claim the audit relies on, that claim is elevated into the L3
@@ -367,9 +367,9 @@ Also worth flagging for PO review:
   reviewer who disputes one criterion's pass is invalidating the finding
   itself, not testing its edges.
 
-## 9. Relationship to v0_1_test_apparatus_defense.md §3
+## 9. Relationship to test_apparatus_defense.md §3
 
-This graph is the concrete artefact `v0_1_test_apparatus_defense.md` §3.4
+This graph is the concrete artefact `test_apparatus_defense.md` §3.4
 scoped as 1–2 weeks of follow-up work. Four of the five items in that
 scope are now present:
 

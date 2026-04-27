@@ -17,7 +17,7 @@ with the most recent permanent snapshot located on the Internet Archive
 Wayback Machine (`web.archive.org`) and/or `archive.ph`. A snapshot URL
 is stable even when the live URL drifts, so reproducers can read the
 exact bytes retrieved by the audit. Coverage summary and per-URL
-archival reasoning are in `analysis/v0_1_url_archival_log.md`. A URL
+archival reasoning are in `analysis/url_archival_log.md`. A URL
 flagged "unarchived" has no existing snapshot on either service — that
 cell is a manual-capture candidate for any future audit release.
 
@@ -96,7 +96,7 @@ cell is a manual-capture candidate for any future audit release.
 - **2010 EBC Final Report** — downloaded for reference but contains no
   machine-readable 2010-era → 2019-era ED crosswalk. The 2015 → 2019
   boundary crosswalk is incomplete (see
-  `data/v0_1_2015_to_2019_crosswalk_partial.csv`).
+  `data/2015_to_2019_crosswalk_partial.csv`).
 
 ## Reproducibility expectations
 
@@ -118,7 +118,7 @@ Three classes of reproducibility risk, ordered by likelihood:
    Canada updates per-riding pages continuously. The per-riding pull in
    Track J is against the April 12, 2026 snapshot and is not
    reproducible from the live site today. The scraped CSV
-   (`data/v0_1_338canada_per_riding_87seat.csv`) is the frozen artifact.
+   (`data/338canada_per_riding_87seat.csv`) is the frozen artifact.
 
 Addressed residual risk: this manifest captures the state as of
 2026-04-22. A reproducer in 2028 or 2031 should treat the checked-in
@@ -141,7 +141,7 @@ dataset landing, StatsCan REST root) were not submitted because the
 block is account-wide and every subsequent call would fail the same
 way until the quota resets. No new snapshots were produced; the
 "unarchived" cells in the tables above stand. The full attempt trace
-and diagnosis is in `analysis/v0_1_url_archival_log.md` under the
+and diagnosis is in `analysis/url_archival_log.md` under the
 "Chrome-based pass" appendix. Any future archival pass for these six
 URLs requires a signed-in Internet Archive session (Bearer token or
 authenticated browser).

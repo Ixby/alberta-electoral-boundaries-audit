@@ -15,7 +15,7 @@ from physical and administrative features other than CSDs:
     * Highways  — OSM ways tagged highway in {motorway, trunk, primary,
                   secondary}. Matches the major-road classes already used
                   for OSM road-snapping in
-                  analysis/methodology/v0_1_shape_refinement.md (the audit's
+                  analysis/methodology/shape_refinement.md (the audit's
                   v0_1 Track Y refinement). Tertiary is excluded because
                   intra-city street grids would inflate every map's score
                   uniformly and add no discriminatory power.
@@ -52,7 +52,7 @@ Parameters held identical to the headline CSD run:
     VERTEX_DENSIFY_M  = 50.0
 
 Forward:
-    analysis/reports/v0_9_natural_anchoring_secondary_check.md
+    analysis/reports/natural_anchoring_secondary_check.md
 Backward:
     analysis/scripts/_fetch_osm_natural.py  (OSM data fetch + cache)
     analysis/scripts/score_anchoring.py     (CSD comparator)

@@ -3,7 +3,7 @@
 Investigation 1: Inspect the commission PDF to determine whether map pages
 contain raster images or vector graphics, and if raster, the native DPI.
 
-Forward deps: writes to analysis/reports/v0_1_max_dpi_inspect.json
+Forward deps: writes to analysis/reports/max_dpi_inspect.json
 Backward deps: reads .temp/commission_report.pdf
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -17,7 +17,7 @@ import pymupdf  # fitz
 
 ROOT = Path(__file__).resolve().parents[2]
 PDF = ROOT / ".temp" / "commission_report.pdf"
-OUT = ROOT / "analysis" / "reports" / "v0_1_max_dpi_inspect.json"
+OUT = ROOT / "analysis" / "reports" / "max_dpi_inspect.json"
 
 # Pages of interest (1-indexed as named in our filenames; PyMuPDF is 0-indexed)
 # Majority Appendix A: p71 overview, p72 Calgary MAP, p73 Calgary, p74 Edmonton MAP,

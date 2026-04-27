@@ -324,7 +324,7 @@ def redteam_validate(maj_gdf, min_gdf):
     log("\n  Crosswalk sanity check:")
     try:
         sys.path.insert(0, os.path.join(ANALYSIS_DIR, 'scripts'))
-        from v0_2_packing_cracking_analysis import MAJORITY_2026_MAPPING
+        from packing_cracking_analysis import MAJORITY_2026_MAPPING
         eb_spec = MAJORITY_2026_MAPPING.get('Edmonton-Beaumont')
         if eb_spec:
             if eb_spec[0] == 'blend' and eb_spec[1] == 'Leduc-Beaumont':
@@ -337,7 +337,7 @@ def redteam_validate(maj_gdf, min_gdf):
             else:
                 log(f"  [NOTE] Edmonton-Beaumont spec: {eb_spec}")
     except ImportError:
-        warnings_list.append("Could not import v0_2_packing_cracking_analysis for crosswalk check")
+        warnings_list.append("Could not import packing_cracking_analysis for crosswalk check")
 
     # Summary
     log("\n" + "="*70)
@@ -458,7 +458,7 @@ def main():
     log(f"  Saved: {MIN_GPKG}")
 
     # Write log
-    log_path = os.path.join(ANALYSIS_DIR, 'v0_1_edmonton_beaumont_log.md')
+    log_path = os.path.join(ANALYSIS_DIR, 'edmonton_beaumont_log.md')
     with open(log_path, 'w') as f:
         f.write("# Edmonton-Beaumont polygon + red-team validation log\n")
         f.write(f"Date: {pd.Timestamp.now().isoformat()}\n\n")

@@ -17,7 +17,7 @@ Format: Excel workbook, 87 sheets (one per electoral division), ~462 KB, poll-le
 **Acquired to:** `data/2023_results.xlsx` (verbatim).
 
 **Derived artifacts:**
-- `data/v0_1_alberta_2023_results.csv` — one row per ED with candidate names/parties/votes, region (Calgary / Edmonton / Rest of Alberta).
+- `data/alberta_2023_results.csv` — one row per ED with candidate names/parties/votes, region (Calgary / Edmonton / Rest of Alberta).
 - `analysis/polls_2023_unified.csv` — 1,973 poll records unified across the 87 sheets, with columns `ed_2019`, `sheet_num`, `poll_letter`, `poll_name`, `ballot_type`, `ndp_votes`, `ucp_votes`, `other_votes`, `valid_votes`, `voting_areas`, `lat`, `lon`, `ed_2026_majority`, `ed_2026_minority`.
 
 **Reproduction steps:**
@@ -40,9 +40,9 @@ The skeleton script prints these at runtime. Any deviation indicates a parse err
 URL: `https://www.elections.ab.ca/uploads/2019PGEOfficialResultsAllEDs.xlsx`
 Format: Excel workbook, 87 sheets.
 
-**Acquired to:** `data/v0_1_alberta_2019_results.csv` via manual per-sheet CSV extraction.
+**Acquired to:** `data/alberta_2019_results.csv` via manual per-sheet CSV extraction.
 
-**Integrity check.** Seat outcome: NDP 24, UCP 63. This is matched on actual-seats from the first-session run of `analysis/v0_1_packing_cracking_analysis.py` (now in `deprecated/`; its 2019-side numbers agree with the active `v0_2_packing_cracking_analysis.py`).
+**Integrity check.** Seat outcome: NDP 24, UCP 63. This is matched on actual-seats from the first-session run of `analysis/v0_1_packing_cracking_analysis.py` (now in `historical/`; its 2019-side numbers agree with the active `packing_cracking_analysis.py`).
 
 ### 2015 results
 
@@ -52,7 +52,7 @@ Format: Excel workbook, 87 sheets, poll-level detail. Parties: PC, WRP, NDP, LIB
 
 **Acquired to:** `data/2015_results.xlsx` (verbatim).
 
-**Derived:** `data/v0_1_alberta_2015_results.csv` via `analysis/scripts/parse_2015_results.py`.
+**Derived:** `data/alberta_2015_results.csv` via `analysis/scripts/parse_2015_results.py`.
 
 **Reproduction steps:**
 ```bash
@@ -82,14 +82,14 @@ Size: 83.9 MB, 362 pages.
 - p. 71 of Appendix E: minority proposal variance tables (89 EDs)
 
 **Acquired to:**
-- `data/v0_1_majority_2026_populations.csv` — manually extracted from pp. 44–45
-- `data/v0_1_minority_2026_populations.csv` — manually extracted from Appendix E variance table
-- `data/v0_1_minority_2026_populations_appendixE.csv` — second extraction from Appendix E (corroborates the first with minor rounding differences noted in `data/data_acquisition_manifest.md`)
+- `data/majority_2026_populations.csv` — manually extracted from pp. 44–45
+- `data/minority_2026_populations.csv` — manually extracted from Appendix E variance table
+- `data/minority_2026_populations_appendixE.csv` — second extraction from Appendix E (corroborates the first with minor rounding differences noted in `data/data_acquisition_manifest.md`)
 
 **Crosswalks:**
-- `data/v0_1_majority_hybrid_crosswalk.csv` — extracted from Appendix C table via `pdfplumber`
-- `data/v0_1_minority_hybrid_crosswalk.csv` — heuristic name-matching across 89 proposed × 87 current EDs, 73 confident mappings, 16 new names, 14 unmapped
-- `data/v0_1_minority_hybrid_crosswalk_appendixE.csv` — 22 mappings extracted from the three tables on pp. 307–308 of Appendix E
+- `data/majority_hybrid_crosswalk.csv` — extracted from Appendix C table via `pdfplumber`
+- `data/minority_hybrid_crosswalk.csv` — heuristic name-matching across 89 proposed × 87 current EDs, 73 confident mappings, 16 new names, 14 unmapped
+- `data/minority_hybrid_crosswalk_appendixE.csv` — 22 mappings extracted from the three tables on pp. 307–308 of Appendix E
 
 **Reproduction steps:**
 ```bash
@@ -105,7 +105,7 @@ with pdfplumber.open('.temp/commission_report.pdf') as pdf:
 "
 ```
 
-The full crosswalk extraction is part of the Phase 4C preparation; see `analysis/scripts/phase_4c_prep.py` which uses these crosswalks for VA-to-2026 candidate matching.
+The full crosswalk extraction is part of the Phase 4C preparation; see `analysis/scripts/assignment_prep.py` which uses these crosswalks for VA-to-2026 candidate matching.
 
 **Integrity checks.**
 - Majority total population: 4,888,723 (matches commission's reported total).
@@ -244,7 +244,7 @@ Filtered to Alberta: 423 CSDs.
 
 **Method.** Each Election Day poll record has a `voting_areas` field listing comma-separated VA numbers. Poll votes are equal-weight-split across the VAs in that list and summed per (ED, VA) pair. Advance / Mobile / Special Ballot records are excluded at this stage; they will be apportioned in Phase 4C Stage 7 by Election Day spatial share.
 
-**Reproduction:** `analysis/scripts/phase_4c_prep.py` is the reproducible pipeline. Integrity gates S3a (100% polygon match), S3b (99.20% VA centroid in declared 2019 ED), and S3c (0.0000% vote conservation drift) documented in `analysis/reports/va_spatial_integrity_report.md`.
+**Reproduction:** `analysis/scripts/assignment_prep.py` is the reproducible pipeline. Integrity gates S3a (100% polygon match), S3b (99.20% VA centroid in declared 2019 ED), and S3c (0.0000% vote conservation drift) documented in `analysis/reports/va_spatial_integrity_report.md`.
 
 ### Hybrid-adjacent VA candidates
 
@@ -258,19 +258,19 @@ Filtered to Alberta: 423 CSDs.
 
 ### Majority + minority B1–B6 metrics
 
-**Script:** `analysis/scripts/v0_2_packing_cracking_analysis.py`
-**Inputs:** `data/v0_1_alberta_2023_results.csv`, `data/v0_1_majority_2026_populations.csv`, `data/v0_1_minority_2026_populations.csv`.
+**Script:** `analysis/scripts/packing_cracking_analysis.py`
+**Inputs:** `data/alberta_2023_results.csv`, `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv`.
 **Method:** explicit name-based 2019→2026 ED mapping dictionaries (`MAJORITY_2026_MAPPING`, `MINORITY_2026_MAPPING`) with three mapping types:
 - `direct` — 2026 ED covers approximately the same territory as one 2019 ED
 - `blend` — 2026 hybrid combines a 2019 urban core with rural absorption (70/30 default blend)
 - `merge` — 2026 ED combines two 2019 EDs
 
-The 70/30 blend is applied identically to both maps. Sensitivity across 0.60 / 0.70 / 0.80 is reported. Monte Carlo CI across the full parameter range is in `analysis/scripts/v0_3_monte_carlo_ci.py`.
+The 70/30 blend is applied identically to both maps. Sensitivity across 0.60 / 0.70 / 0.80 is reported. Monte Carlo CI across the full parameter range is in `analysis/scripts/monte_carlo_ci.py`.
 
 ### Section A population equality
 
 **Script:** `analysis/scripts/electoral_forensics_population.py`
-**Inputs:** `data/v0_1_majority_2026_populations.csv`, `data/v0_1_minority_2026_populations.csv`.
+**Inputs:** `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv`.
 **Method:** pandas summary statistics on population variance. Calgary zone classification uses pure geography (Zone A: N/E/central of Bow River/Deerfoot line; Zone B: S/W), with a second data-driven classification (2023 winner) as a robustness check.
 
 ### Cross-election rural baseline
@@ -294,16 +294,16 @@ cd alberta-electoral-boundaries-audit
 bash setup.sh
 
 # Verify the carry-forward baseline
-python3 analysis/scripts/v0_2_packing_cracking_analysis.py
+python3 analysis/scripts/packing_cracking_analysis.py
 python3 analysis/scripts/electoral_forensics_population.py
-python3 analysis/scripts/v0_3_monte_carlo_ci.py
+python3 analysis/scripts/monte_carlo_ci.py
 python3 analysis/scripts/cross_election_rural_baseline.py
 python3 analysis/scripts/marginal_seats_analysis.py
 python3 analysis/scripts/check_voice_and_readability.py
 
 # If the above match the academic report's tables, the environment is good.
 # To rebuild Phase 4C substrate:
-python3 analysis/scripts/phase_4c_prep.py
+python3 analysis/scripts/assignment_prep.py
 
 # Re-download raw sources and rebuild from scratch (optional):
 # see steps above for each dataset.
@@ -318,7 +318,7 @@ python3 analysis/scripts/phase_4c_prep.py
 | Raw commission report PDF (83.9 MB) | elections.ab.ca | Size; URL provided for reproduction. |
 | Raw submission archive PDFs (~300 MB) | elections.ab.ca | Size; URLs in `analysis/scripts/submission_search.py`. |
 | National StatsCan DA shapefile (~168 MB) | statcan.gc.ca | Size; Alberta-only filter committed as GeoPackage. |
-| 2010-era AB ED shapefile (for 2015→2019 crosswalk) | Not publicly posted | Elections Alberta does not publish pre-2017 shapefiles. Partial prose-based crosswalk is in `data/v0_1_2015_to_2019_crosswalk_partial.csv`. |
+| 2010-era AB ED shapefile (for 2015→2019 crosswalk) | Not publicly posted | Elections Alberta does not publish pre-2017 shapefiles. Partial prose-based crosswalk is in `data/2015_to_2019_crosswalk_partial.csv`. |
 | 2026 ABEBC shapefiles | Not yet released | Expected after royal assent, summer 2026. |
 | ~88 image-only submissions (OCR'd) | Raw PDF layer has no text | OCR was out of scope; findings do not depend on them. |
 

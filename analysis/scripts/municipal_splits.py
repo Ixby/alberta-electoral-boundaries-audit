@@ -14,8 +14,8 @@ Reports:
   - Change from 2019 baseline
 
 Outputs:
-  analysis/reports/v0_1_municipal_splits.md
-  data/v0_1_municipal_splits.json
+  analysis/reports/municipal_splits.md
+  data/municipal_splits.json
 
 Backward:
   data/shapefiles/reference/alberta_2021_csds.gpkg
@@ -44,8 +44,8 @@ VA_PATH  = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 MAJ_V7   = DATA / "shapefiles" / "derived" / "v0_7_canonical_majority_2026_eds.gpkg"
 MIN_V7   = DATA / "shapefiles" / "derived" / "v0_7_canonical_minority_2026_eds.gpkg"
 
-OUT_JSON = DATA / "v0_1_municipal_splits.json"
-OUT_MD   = RPTS / "v0_1_municipal_splits.md"
+OUT_JSON = DATA / "municipal_splits.json"
+OUT_MD   = RPTS / "municipal_splits.md"
 
 # CSD types to include: Cities, Towns, Specialized Municipalities, Villages
 INCLUDE_TYPES = {"CY", "T", "SM", "SV", "IM"}

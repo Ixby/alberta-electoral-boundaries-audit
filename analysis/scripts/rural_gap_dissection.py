@@ -17,19 +17,19 @@ This script answers:
   4. Direct ED-by-ED rural population comparison (majority vs minority).
 
 Inputs (all stdlib csv, relative to ../data/):
-  - v0_1_majority_2026_populations.csv
-  - v0_1_minority_2026_populations.csv
-  - v0_1_majority_hybrid_crosswalk.csv
-  - v0_1_minority_hybrid_crosswalk.csv
-  - v0_1_minority_hybrid_crosswalk_appendixE.csv
-  - v0_1_alberta_2019_results.csv
-  - v0_1_alberta_2023_results.csv
+  - majority_2026_populations.csv
+  - minority_2026_populations.csv
+  - majority_hybrid_crosswalk.csv
+  - minority_hybrid_crosswalk.csv
+  - minority_hybrid_crosswalk_appendixE.csv
+  - alberta_2019_results.csv
+  - alberta_2023_results.csv
 
 Outputs (written to this directory):
-  - v0_1_rural_gap_smallest10_majority.csv
-  - v0_1_rural_gap_smallest10_minority.csv
-  - v0_1_rural_gap_ed_comparison.csv
-  - v0_1_rural_gap_summary.json
+  - rural_gap_smallest10_majority.csv
+  - rural_gap_smallest10_minority.csv
+  - rural_gap_ed_comparison.csv
+  - rural_gap_summary.json
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -46,13 +46,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "..", "data")
 OUT = HERE
 
-MAJ_POP = os.path.join(DATA, "v0_1_majority_2026_populations.csv")
-MIN_POP = os.path.join(DATA, "v0_1_minority_2026_populations.csv")
-MAJ_XWALK = os.path.join(DATA, "v0_1_majority_hybrid_crosswalk.csv")
-MIN_XWALK = os.path.join(DATA, "v0_1_minority_hybrid_crosswalk.csv")
-MIN_XWALK_E = os.path.join(DATA, "v0_1_minority_hybrid_crosswalk_appendixE.csv")
-R2019 = os.path.join(DATA, "v0_1_alberta_2019_results.csv")
-R2023 = os.path.join(DATA, "v0_1_alberta_2023_results.csv")
+MAJ_POP = os.path.join(DATA, "majority_2026_populations.csv")
+MIN_POP = os.path.join(DATA, "minority_2026_populations.csv")
+MAJ_XWALK = os.path.join(DATA, "majority_hybrid_crosswalk.csv")
+MIN_XWALK = os.path.join(DATA, "minority_hybrid_crosswalk.csv")
+MIN_XWALK_E = os.path.join(DATA, "minority_hybrid_crosswalk_appendixE.csv")
+R2019 = os.path.join(DATA, "alberta_2019_results.csv")
+R2023 = os.path.join(DATA, "alberta_2023_results.csv")
 
 
 # --------------------------------------------------------------------------- #
@@ -301,8 +301,8 @@ def main() -> None:
                   "predecessors_2019", "ucp_share_2019", "ndp_share_2019",
                   "ucp_share_2023", "ndp_share_2023", "preds_matched_2019", "preds_matched_2023"]
 
-    write_csv(os.path.join(OUT, "v0_1_rural_gap_smallest10_majority.csv"), maj_enriched, maj_fields)
-    write_csv(os.path.join(OUT, "v0_1_rural_gap_smallest10_minority.csv"), min_enriched, min_fields)
+    write_csv(os.path.join(OUT, "rural_gap_smallest10_majority.csv"), maj_enriched, maj_fields)
+    write_csv(os.path.join(OUT, "rural_gap_smallest10_minority.csv"), min_enriched, min_fields)
 
     # Average UCP / NDP share across the 10 smallest rural EDs per map
     def avg_field(rows, key):
@@ -382,7 +382,7 @@ def main() -> None:
         })
 
     comp_rows.sort(key=lambda r: r["delta_pop"] if isinstance(r["delta_pop"], int) else 0)
-    write_csv(os.path.join(OUT, "v0_1_rural_gap_ed_comparison.csv"),
+    write_csv(os.path.join(OUT, "rural_gap_ed_comparison.csv"),
               comp_rows,
               ["majority_name", "majority_pop", "minority_name", "minority_pop", "delta_pop", "direction"])
 
@@ -392,7 +392,7 @@ def main() -> None:
         dir_counts[r["direction"]] = dir_counts.get(r["direction"], 0) + 1
     summary["direction_tally"] = dir_counts
 
-    with open(os.path.join(OUT, "v0_1_rural_gap_summary.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(OUT, "rural_gap_summary.json"), "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
     print("\n=== Summary ===")

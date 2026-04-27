@@ -4,7 +4,7 @@ natural-anchoring secondary check. Caches to data/osm/ as GeoJSON-like JSON
 so subsequent runs skip the Overpass round-trip.
 
 Highway filter: motorway, trunk, primary, secondary (matches the major-road
-classes used by analysis/methodology/v0_1_shape_refinement.md). Dropped
+classes used by analysis/methodology/shape_refinement.md). Dropped
 tertiary to keep the network from being dominated by intra-city street grids
 that would inflate every map's anchoring score.
 

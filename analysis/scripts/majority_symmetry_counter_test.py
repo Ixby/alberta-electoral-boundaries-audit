@@ -35,7 +35,7 @@ Method:
     >= 4 EDs that the audit did not analyse.
 
 Output:
-  data/v0_1_majority_symmetry_counter_test.csv — table of results by test.
+  data/majority_symmetry_counter_test.csv — table of results by test.
 
 Scope:
   This is a counter-test, not a re-analysis. The existing B3 defence
@@ -44,9 +44,9 @@ Scope:
 
 Dependencies:
   pandas 2.x, Python 3.14
-  data/v0_1_majority_2026_populations.csv
-  data/v0_1_minority_2026_populations.csv
-  data/v0_1_alberta_2023_results.csv
+  data/majority_2026_populations.csv
+  data/minority_2026_populations.csv
+  data/alberta_2023_results.csv
 
 Author: Sub-agent Track Q for fortification b1_b6.
 Date: 2026-04-22
@@ -298,8 +298,8 @@ def test_2_city_split_counter_test(
 
 def main():
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
-    maj = pd.read_csv(DATA / "v0_1_majority_2026_populations.csv")
-    minr = pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
+    maj = pd.read_csv(DATA / "majority_2026_populations.csv")
+    minr = pd.read_csv(DATA / "minority_2026_populations.csv")
 
     print("=" * 70)
     print("Track Q counter-test — symmetry-of-test-selection check")
@@ -349,7 +349,7 @@ def main():
     print()
 
     # Write CSV output (flatten both tests into one file)
-    out_path = DATA / "v0_1_majority_symmetry_counter_test.csv"
+    out_path = DATA / "majority_symmetry_counter_test.csv"
     all_fields = sorted({k for row in (test1_rows + test2_rows) for k in row.keys()})
     with open(out_path, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=all_fields)

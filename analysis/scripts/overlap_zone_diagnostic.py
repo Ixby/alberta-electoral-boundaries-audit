@@ -16,7 +16,7 @@ Inputs:
   data/v0_1_canonical_majority_2026_eds.gpkg
   data/v0_1_canonical_minority_2026_eds.gpkg
   data/va_polygons_with_2023_votes.gpkg
-  analysis/phase_4c_2026_synthetic_totals.csv
+  analysis/assignment_2026_synthetic_totals.csv
 
 Outputs:
   analysis/v0_1_overlap_zone_report.md  (new)
@@ -49,7 +49,7 @@ ANALYSIS = ROOT / "analysis"
 MAJ_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
 MIN_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
 VA_GPKG  = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-TOTALS_CSV = ANALYSIS / "phase_4c_2026_synthetic_totals.csv"
+TOTALS_CSV = ANALYSIS / "assignment_2026_synthetic_totals.csv"
 
 REPORT_OUT = ANALYSIS / "v0_1_overlap_zone_report.md"
 
@@ -479,7 +479,7 @@ def main():
         "  Wasted votes per district = loser's votes + winner's votes beyond 50%+1.",
         "- The EG swing for each pair is computed by modifying just the two affected EDs' "
         "vote totals and recomputing the full province-wide EG. All other EDs are held fixed.",
-        "- Vote totals are from `analysis/phase_4c_2026_synthetic_totals.csv`.",
+        "- Vote totals are from `analysis/assignment_2026_synthetic_totals.csv`.",
     ]
 
     REPORT_OUT.write_text("\n".join(report_lines), encoding="utf-8")

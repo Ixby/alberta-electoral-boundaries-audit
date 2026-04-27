@@ -34,8 +34,8 @@ from gerrychain.tree import recursive_tree_part, bipartition_tree
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 OUT_DIR = REPO_ROOT / "data"
 OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_targeted_burst_ndp.log"
-OUT_TRACE = OUT_DIR / "v0_1_targeted_burst_ndp_trace.csv"
-OUT_BEST = OUT_DIR / "v0_1_targeted_burst_ndp_best.json"
+OUT_TRACE = OUT_DIR / "targeted_burst_ndp_trace.csv"
+OUT_BEST = OUT_DIR / "targeted_burst_ndp_best.json"
 
 POP_DEVIATION = 0.25
 BURST_LENGTH = 50

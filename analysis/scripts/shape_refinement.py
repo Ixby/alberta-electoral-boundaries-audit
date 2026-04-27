@@ -9,7 +9,7 @@ Pipeline:
   Phase 3: render overlay verification images for ten priority EDs.
   Phase 4: re-compute Polsby-Popper + Reock on refined geometry, with
            confidence intervals from ±1-road alternate snapping.
-  Phase 5: emit analysis/methodology/v0_1_shape_refinement.md.
+  Phase 5: emit analysis/methodology/shape_refinement.md.
 
 All outputs prefixed v0_1_.
 
@@ -677,7 +677,7 @@ def phase4_compactness():
             })
 
     df = pd.DataFrame(rows)
-    out = DATA_DIR / "v0_1_compactness_scores_refined.csv"
+    out = DATA_DIR / "compactness_scores_refined.csv"
     df.to_csv(out, index=False)
     print(f"[phase4] wrote {out} rows={len(df)}", flush=True)
     return out, df
@@ -688,14 +688,14 @@ def phase4_compactness():
 # ----------------------------------------------------------------------
 
 def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
-    md = ANALYSIS_DIR / "v0_1_shape_refinement.md"
+    md = ANALYSIS_DIR / "shape_refinement.md"
     dpi = phase1_res.get("dpi_achieved")
     maj_stats = phase2_res.get("majority", {})
     min_stats = phase2_res.get("minority", {})
 
     # Backfill phase4 df from CSV if phase4 was skipped
     if phase4_df is None or (hasattr(phase4_df, "__len__") and len(phase4_df) == 0):
-        csv = DATA_DIR / "v0_1_compactness_scores_refined.csv"
+        csv = DATA_DIR / "compactness_scores_refined.csv"
         if csv.exists():
             phase4_df = pd.read_csv(csv)
             phase4_path = str(csv)
@@ -876,7 +876,7 @@ anything.
 
 ## Phase 4 — refined compactness with confidence intervals
 
-Full table lives at `data/v0_1_compactness_scores_refined.csv` ({len(phase4_df) if phase4_df is not None else "?"} rows).
+Full table lives at `data/compactness_scores_refined.csv` ({len(phase4_df) if phase4_df is not None else "?"} rows).
 Ten priority EDs:
 
 | Map | ED | Polsby-Popper [lo, hi] | Reock [lo, hi] | Note |

@@ -49,9 +49,9 @@ segments.
 **Outputs.**
   * data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg
   * data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg
-  * analysis/reports/v0_1_da_anchoring_log.csv
+  * analysis/reports/da_anchoring_log.csv
   * data/v0_1_da_anchoring_summary.json
-  * analysis/reports/v0_1_da_anchoring_analysis.md  (writeup — sibling)
+  * analysis/reports/da_anchoring_analysis.md  (writeup — sibling)
 
 Forward:
   analysis/scripts/v0_1_da_boundary_anchoring_writeup.py  (if used)
@@ -103,7 +103,7 @@ CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
 MIN_OUT = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
 
-LOG_CSV = REPORTS / "v0_1_da_anchoring_log.csv"
+LOG_CSV = REPORTS / "da_anchoring_log.csv"
 SUMMARY_JSON = DATA / "v0_1_da_anchoring_summary.json"
 
 # Snapping configuration (v0_5 DA-anchoring)

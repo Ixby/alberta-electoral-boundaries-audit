@@ -41,8 +41,8 @@ TEST 3 — Urban-margin vs rural-margin asymmetry (fallback / cross-check).
     natural packing mechanism is likely operating.
 
 Outputs:
-  - data/v0_1_chen_rodden_simulation.csv — per-plan metrics for Test 2
-  - analysis/methodology/v0_1_chen_rodden_alberta_validation.md — interpretive report
+  - data/chen_rodden_simulation.csv — per-plan metrics for Test 2
+  - analysis/methodology/chen_rodden_alberta_validation.md — interpretive report
 
 Author: Track U subagent, 2026-04-22
 """
@@ -530,7 +530,7 @@ def test3_margin_asymmetry() -> Dict:
     print("  TEST 3 — Winning margin asymmetry (urban NDP vs rural UCP)")
     print("=" * 70)
 
-    df = pd.read_csv(data('v0_1_alberta_2023_results.csv'))
+    df = pd.read_csv(data('alberta_2023_results.csv'))
     # extract NDP + UCP votes
     def _votes(row, party_sfx):
         total = 0
@@ -644,7 +644,7 @@ def main():
     plans = test2_ensemble_ed_perturbation(n_plans=n_plans)
 
     # Save ensemble CSV
-    out_csv = os.path.join(ROOT, 'data', 'v0_1_chen_rodden_simulation.csv')
+    out_csv = os.path.join(ROOT, 'data', 'chen_rodden_simulation.csv')
     with open(out_csv, 'w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=['plan_idx', 'n', 'eg', 'mm',
                                                'ndp_seats', 'pop_min', 'pop_max',
@@ -681,7 +681,7 @@ def main():
 
     # dump a json-like summary for the MD writer
     import json
-    summary_path = os.path.join(ROOT, 'data', 'v0_1_chen_rodden_summary.json')
+    summary_path = os.path.join(ROOT, 'data', 'chen_rodden_summary.json')
     with open(summary_path, 'w') as f:
         json.dump(summary, f, indent=2, default=str)
     print(f"  Summary saved to {summary_path}")

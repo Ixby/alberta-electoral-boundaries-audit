@@ -40,10 +40,10 @@ Inputs (read-only):
   data/va_polygons_with_full_2023_votes.gpkg
   data/v0_2_canonical_majority_2026_eds_topoclean.gpkg
   data/v0_2_canonical_minority_2026_eds_topoclean.gpkg
-  data/v0_1_majority_full_crosswalk.csv
-  data/v0_1_minority_full_crosswalk.csv
-  data/v0_1_majority_2026_populations.csv
-  data/v0_1_minority_2026_populations.csv
+  data/majority_full_crosswalk.csv
+  data/minority_full_crosswalk.csv
+  data/majority_2026_populations.csv
+  data/minority_2026_populations.csv
 
 Outputs:
   data/v0_1_dpg_perturbation_samples.csv
@@ -52,8 +52,8 @@ Outputs:
 
 Forward: analysis/reports/v0_1_dpg_perturbation_analysis.md
 Backward:
-  analysis/scripts/v0_1_phase_4c_va_attribution_maup.py  (MAUP helpers)
-  analysis/scripts/v0_1_phase_4c_va_attribution_maup_v2.py (topoclean MAUP)
+  analysis/scripts/v0_1_assignment_va_attribution_maup.py  (MAUP helpers)
+  analysis/scripts/v0_1_assignment_va_attribution_maup_v2.py (topoclean MAUP)
   analysis/scripts/v0_1_topology_cleanup.py  (precedence resolver)
   data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg
 """
@@ -90,8 +90,8 @@ ANALYSIS = ROOT / "analysis"
 SCRIPTS = ANALYSIS / "scripts"
 REPORTS = ANALYSIS / "reports"
 
-# Reuse the MAUP helpers from v0_1_phase_4c_va_attribution_maup.py.
-v1_path = SCRIPTS / "v0_1_phase_4c_va_attribution_maup.py"
+# Reuse the MAUP helpers from v0_1_assignment_va_attribution_maup.py.
+v1_path = SCRIPTS / "v0_1_assignment_va_attribution_maup.py"
 spec = importlib.util.spec_from_file_location("maup_v1", v1_path)
 m1 = importlib.util.module_from_spec(spec)
 sys.modules["maup_v1"] = m1
@@ -100,10 +100,10 @@ spec.loader.exec_module(m1)
 VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 MAJ_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
 MIN_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
-MAJ_XWALK_CSV = DATA / "v0_1_majority_full_crosswalk.csv"
-MIN_XWALK_CSV = DATA / "v0_1_minority_full_crosswalk.csv"
-MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
-MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
+MAJ_XWALK_CSV = DATA / "majority_full_crosswalk.csv"
+MIN_XWALK_CSV = DATA / "minority_full_crosswalk.csv"
+MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
+MIN_POPS_CSV = DATA / "minority_2026_populations.csv"
 
 OUT_SAMPLES_CSV = DATA / "v0_1_dpg_perturbation_samples.csv"
 OUT_SUMMARY_JSON = DATA / "v0_1_dpg_perturbation_summary.json"
@@ -492,7 +492,7 @@ After perturbation, overlap with neighbours inevitably appears. Rather
 than re-running the full precedence-based topology resolver on every
 realisation (which would add ~30 s of O(n²) work per sample), we rely on
 the **per-VA weight-renormalisation** already baked into the MAUP pipeline
-(`compute_area_weights` in `v0_1_phase_4c_va_attribution_maup.py`): any
+(`compute_area_weights` in `v0_1_assignment_va_attribution_maup.py`): any
 VA whose summed area-weight across intersecting EDs exceeds 1.0001 has
 its weights rescaled so the sum equals 1.0. This guarantees per-VA vote
 conservation regardless of perturbation-induced DPG overlap, and for

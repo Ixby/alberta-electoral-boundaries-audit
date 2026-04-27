@@ -32,7 +32,7 @@ A minimal smoke-test on install:
 
 ```bash
 python -c "import pandas, numpy, geopandas, shapely, pyproj; print('OK')"
-python3 analysis/scripts/v0_2_packing_cracking_analysis.py | head -5
+python3 analysis/scripts/packing_cracking_analysis.py | head -5
 ```
 
 Expected final digits on 2019-baseline B1-B4 (from the same Python 3.14.3

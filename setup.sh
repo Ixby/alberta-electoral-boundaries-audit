@@ -70,9 +70,9 @@ echo "Reproducibility check — running five baseline scripts:"
 echo ""
 
 for script in \
-    analysis/scripts/v0_2_packing_cracking_analysis.py \
+    analysis/scripts/packing_cracking_analysis.py \
     analysis/scripts/electoral_forensics_population.py \
-    analysis/scripts/v0_3_monte_carlo_ci.py \
+    analysis/scripts/monte_carlo_ci.py \
     analysis/scripts/cross_election_rural_baseline.py \
     analysis/scripts/check_voice_and_readability.py
 do
@@ -81,7 +81,7 @@ done
 
 echo ""
 echo "Setup complete. Next steps:"
-echo "  1. PYTHONIOENCODING=utf-8 python3 analysis/scripts/v0_2_packing_cracking_analysis.py"
+echo "  1. PYTHONIOENCODING=utf-8 python3 analysis/scripts/packing_cracking_analysis.py"
 echo "  2. Verify output matches v1_2_gerrymander_audit_prompt.md carry-forward table."
 echo "  3. If matched, proceed with the stage pipeline in v1_2."
 echo "  4. If not matched, investigate drift before running downstream stages."

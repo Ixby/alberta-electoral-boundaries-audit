@@ -8,7 +8,7 @@ All files cover the 87 proposed 2026 Alberta electoral districts (EDs) in majori
 |---|---|---|
 | **Approximate** (v0_1) | `v0_1_approximate_majority_2026_eds.gpkg` / `_full.gpkg` / `v0_1_approximate_minority_2026_eds.gpkg` | Initial ED polygons digitized from Commission proposal documents (DPG-derived). `_full` retains all attribute columns; the plain version is trimmed. |
 | **Refined v1–v6** | `v0_1_refined_*.gpkg` | Iterative geometry corrections via `v0_1_shape_refinement_v*.py`. v1–v5 are intermediate; **v6 is the final refined version** and the only one carried forward. |
-| **Canonical** (v0_1) | `v0_1_canonical_majority_2026_eds.gpkg` / `v0_1_canonical_minority_2026_eds.gpkg` | Standardized attribute schema, CRS set to EPSG:3400, built from v6 refined geometry by `build_canonical_shapefiles_v2.py`. |
+| **Canonical** (v0_1) | `v0_1_canonical_majority_2026_eds.gpkg` / `v0_1_canonical_minority_2026_eds.gpkg` | Standardized attribute schema, CRS set to EPSG:3400, built from v6 refined geometry by `generate_topological_boundaries.py`. |
 | **Topology-cleaned** (v0_2) | `v0_2_canonical_majority_2026_eds_topoclean.gpkg` / `v0_2_canonical_minority_2026_eds_topoclean.gpkg` | Topology errors (slivers, gaps, self-intersections) fixed by `topology_cleanup.py`. |
 | **Swept** (v0_3) | `v0_3_canonical_majority_2026_eds_swept.gpkg` / `v0_3_canonical_minority_2026_eds_swept.gpkg` | Tier-C boundary sweep applied; minor urban fringe adjustments. |
 | **Municipal-anchored** (v0_4) | `v0_4_canonical_majority_2026_eds_anchored.gpkg` / `v0_4_canonical_minority_2026_eds_anchored.gpkg` | ED boundaries snapped to Statistics Canada Census Subdivision (municipal) boundaries by `municipal_anchoring.py`. |

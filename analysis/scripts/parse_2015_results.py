@@ -3,7 +3,7 @@ Parse 2015 Alberta provincial election results into CSV.
 
 Source: data/2015_results.xlsx (Elections Alberta 2015PGE-Official-Results.xlsx).
 
-Output: data/v0_1_alberta_2015_results.csv with per-ED totals for NDP, PC,
+Output: data/alberta_2015_results.csv with per-ED totals for NDP, PC,
 WRP, LIB, and other parties. Also computes the combined PC+WRP total
 (the 2017 merger that became UCP), for cross-election comparison.
 
@@ -146,7 +146,7 @@ def main():
               f"WRP {tot_wrp/grand*100:.2f}%, LIB {tot_lib/grand*100:.2f}%")
 
     # Write CSV
-    out_path = DATA / "v0_1_alberta_2015_results.csv"
+    out_path = DATA / "alberta_2015_results.csv"
     with open(out_path, "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["sheet", "ed_2015", "ndp", "pc", "wrp", "ucp_equiv",
