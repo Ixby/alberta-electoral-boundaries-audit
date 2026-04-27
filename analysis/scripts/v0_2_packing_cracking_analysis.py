@@ -63,6 +63,7 @@ Methodology note on 2026 attribution:
 import csv
 import statistics
 import os
+from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 
@@ -71,15 +72,15 @@ from typing import Dict, List, Optional, Tuple
 # ---------------------------------------------------------------------
 
 def _find_data(filename: str) -> str:
-    here = os.path.dirname(os.path.abspath(__file__))
+    here = Path(__file__).resolve().parent
     # Script lives at <repo>/analysis/scripts/, so '../../data' = <repo>/data
-    for p in [os.path.join(here, '..', '..', 'data', filename),
-              os.path.join(here, '..', 'data', filename),
-              os.path.join(here, 'data', filename),
-              os.path.join('data', filename),
-              filename]:
-        if os.path.exists(p):
-            return p
+    for p in [here.parent.parent / 'data' / filename,
+              here.parent / 'data' / filename,
+              here / 'data' / filename,
+              Path('data') / filename,
+              Path(filename)]:
+        if p.exists():
+            return str(p)
     raise FileNotFoundError(filename)
 
 
@@ -98,9 +99,10 @@ def load_2023_results() -> List[Dict]:
                     votes = int(votes)
                 except ValueError:
                     continue
-                if cand.endswith('(NDP)'):
+                cand_upper = cand.upper()
+                if '(NDP)' in cand_upper or cand_upper.endswith(' NDP'):
                     ndp = votes
-                elif cand.endswith('(UCP)'):
+                elif '(UCP)' in cand_upper or cand_upper.endswith(' UCP'):
                     ucp = votes
             if ndp + ucp == 0:
                 continue
