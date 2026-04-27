@@ -216,16 +216,18 @@ def build_cover_art() -> Path:
             print(f"[build_cover] nearest-{K}-VA fallback used for "
                   f"{n_nearest} EDs with no crosswalk parent")
 
-    # 3. Direct UCP-blue → NDP-orange interpolation. The norm window is
-    #    narrowed so only genuinely-competitive districts (45–55% UCP)
-    #    occupy the mid-tone band; anything beyond that snaps to a fully
-    #    saturated party colour.
+    # 3. Direct UCP-blue → NDP-orange interpolation. The norm window
+    #    is wide (30–80% UCP share) so rural EDs are not all clipped to
+    #    full saturation — a 70% UCP rural ED should look different from
+    #    an 85% UCP rural ED. With the heatmap-style density modulation
+    #    below, the partisan colour itself does not need to be
+    #    aggressively saturated to communicate the lean.
     ndp_orange = (0.92, 0.45, 0.10)
     ucp_blue   = (0.13, 0.36, 0.62)
     cmap = mcolors.LinearSegmentedColormap.from_list(
         "ucp_ndp_direct", [ndp_orange, ucp_blue], N=256
     )
-    norm = mcolors.Normalize(vmin=0.45, vmax=0.55, clip=True)
+    norm = mcolors.Normalize(vmin=0.30, vmax=0.80, clip=True)
 
     # 4. Render — VA-level fill with population-density lightness modulation.
     #    Each VA gets the partisan colour of its assigned 2026 ED (hue), and
