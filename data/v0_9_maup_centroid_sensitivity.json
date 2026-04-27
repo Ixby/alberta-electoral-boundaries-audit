@@ -1,0 +1,120 @@
+{
+  "centroid_majority": {
+    "seats_at_50_50": 0.4606741573033708,
+    "efficiency_gap": 0.01436228021483706,
+    "mean_median": -0.007854675550633905,
+    "declination": -0.028228298763724593,
+    "ucp_seats": 58,
+    "n_districts": 89,
+    "ucp_vote_share": 0.5740427639062995,
+    "source": "v0_9_topological_majority_2026_eds.gpkg",
+    "method": "centroid"
+  },
+  "centroid_minority": {
+    "seats_at_50_50": 0.48314606741573035,
+    "efficiency_gap": 0.017455936485701956,
+    "mean_median": -0.017938114847363518,
+    "declination": 0.010510016514877743,
+    "ucp_seats": 58,
+    "n_districts": 89,
+    "ucp_vote_share": 0.5740427639062994,
+    "source": "v0_9_topological_minority_2026_eds.gpkg",
+    "method": "centroid"
+  },
+  "area_weighted_majority": {
+    "seats_at_50_50": 0.4606741573033708,
+    "efficiency_gap": 0.014362287889325556,
+    "mean_median": -0.007854904550635866,
+    "declination": -0.028227769101541213,
+    "ucp_seats": 58,
+    "n_districts": 89,
+    "ucp_vote_share": 0.5740427639062995,
+    "source": "v0_9_phase4c_majority_2023_votes_area_weighted.csv",
+    "method": "area_weighted"
+  },
+  "area_weighted_minority": {
+    "seats_at_50_50": 0.48314606741573035,
+    "efficiency_gap": 0.01745593473518733,
+    "mean_median": -0.017938115084164208,
+    "declination": 0.010510018923185902,
+    "ucp_seats": 58,
+    "n_districts": 89,
+    "ucp_vote_share": 0.5740427639062994,
+    "source": "v0_9_phase4c_minority_2023_votes_area_weighted.csv",
+    "method": "area_weighted"
+  },
+  "deltas_pp": {
+    "majority_2026": {
+      "seats_at_50_50": 0.0,
+      "efficiency_gap": 7.674488496089982e-07,
+      "mean_median": -2.2900000196113268e-05,
+      "declination": 5.296621833801585e-07
+    },
+    "minority_2026": {
+      "seats_at_50_50": 0.0,
+      "efficiency_gap": -1.7505146256147075e-07,
+      "mean_median": -2.3680069016762673e-08,
+      "declination": 2.4083081587994437e-09
+    }
+  },
+  "threshold_pp": 1.0,
+  "survives_maup_attack": true,
+  "table_long": [
+    {
+      "map": "majority_2026",
+      "metric": "seats_at_50_50",
+      "centroid": 0.4606741573033708,
+      "area_weighted": 0.4606741573033708,
+      "delta": 0.0
+    },
+    {
+      "map": "majority_2026",
+      "metric": "efficiency_gap",
+      "centroid": 0.01436228021483706,
+      "area_weighted": 0.014362287889325556,
+      "delta": 7.674488496089982e-09
+    },
+    {
+      "map": "majority_2026",
+      "metric": "mean_median",
+      "centroid": -0.007854675550633905,
+      "area_weighted": -0.007854904550635866,
+      "delta": -2.2900000196113268e-07
+    },
+    {
+      "map": "majority_2026",
+      "metric": "declination",
+      "centroid": -0.028228298763724593,
+      "area_weighted": -0.028227769101541213,
+      "delta": 5.296621833801585e-07
+    },
+    {
+      "map": "minority_2026",
+      "metric": "seats_at_50_50",
+      "centroid": 0.48314606741573035,
+      "area_weighted": 0.48314606741573035,
+      "delta": 0.0
+    },
+    {
+      "map": "minority_2026",
+      "metric": "efficiency_gap",
+      "centroid": 0.017455936485701956,
+      "area_weighted": 0.01745593473518733,
+      "delta": -1.7505146256147075e-09
+    },
+    {
+      "map": "minority_2026",
+      "metric": "mean_median",
+      "centroid": -0.017938114847363518,
+      "area_weighted": -0.017938115084164208,
+      "delta": -2.3680069016762673e-10
+    },
+    {
+      "map": "minority_2026",
+      "metric": "declination",
+      "centroid": 0.010510016514877743,
+      "area_weighted": 0.010510018923185902,
+      "delta": 2.4083081587994437e-09
+    }
+  ]
+}
