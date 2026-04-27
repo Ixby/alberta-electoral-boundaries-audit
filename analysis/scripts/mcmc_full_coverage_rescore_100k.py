@@ -71,7 +71,9 @@ def norm(s: str) -> str:
 def efficiency_gap(per_district: pd.DataFrame) -> float:
     total = per_district["ucp"] + per_district["ndp"]
     ucp_share = per_district["ucp"] / total
-    ucp_wins = ucp_share > 0.5
+    ucp_wins = (ucp_share > 0.5 + 1e-9).sum()
+    ucp_ties = (np.abs(ucp_share - 0.5) <= 1e-9).sum()
+    ucp_wins = int(ucp_wins + ucp_ties * 0.5)
     ucp_wasted = np.where(ucp_wins, per_district["ucp"] - (total / 2),
                           per_district["ucp"])
     ndp_wasted = np.where(~ucp_wins, per_district["ndp"] - (total / 2),
@@ -88,7 +90,7 @@ def mean_median(per_district: pd.DataFrame) -> float:
 def declination(per_district: pd.DataFrame) -> float:
     total = per_district["ucp"] + per_district["ndp"]
     ucp_share = per_district["ucp"] / total
-    ucp_wins_mask = ucp_share > 0.5
+    ucp_wins_mask = ucp_share > 0.5 + 1e-9
     ucp_wins = ucp_share[ucp_wins_mask].sort_values().values
     ndp_wins = ucp_share[~ucp_wins_mask].sort_values().values
     if len(ucp_wins) == 0 or len(ndp_wins) == 0:
@@ -107,7 +109,10 @@ def seats_at_50_50(per_district: pd.DataFrame) -> float:
     ucp_share = per_district["ucp"] / total
     province_ucp = per_district["ucp"].sum() / total.sum()
     swing = 0.5 - province_ucp
-    return float(((ucp_share + swing) > 0.5).sum() / len(per_district))
+    swung = ucp_share + swing
+    wins = (swung > 0.5 + 1e-9).sum()
+    ties = (np.abs(swung - 0.5) <= 1e-9).sum()
+    return float((wins + ties * 0.5) / len(per_district))
 
 
 def crosswalk_dict(xwalk_csv: Path) -> dict[str, str]:
@@ -153,7 +158,10 @@ def score_map(vas_assigned: gpd.GeoDataFrame, expected_eds: set[str]) -> dict:
 
     total_ucp = int(agg["ucp"].sum())
     total_ndp = int(agg["ndp"].sum())
-    ucp_wins = int(((agg["ucp"] / (agg["ucp"] + agg["ndp"])) > 0.5).sum())
+    swung = agg["ucp"] / (agg["ucp"] + agg["ndp"])
+    wins = (swung > 0.5 + 1e-9).sum()
+    ties = (np.abs(swung - 0.5) <= 1e-9).sum()
+    ucp_wins = int(wins + ties * 0.5)
     return {
         "efficiency_gap": efficiency_gap(agg),
         "mean_median": mean_median(agg),
@@ -241,7 +249,7 @@ def main():
         "mean_median": mean_median(agg_2019),
         "declination": declination(agg_2019),
         "seats_at_50_50": seats_at_50_50(agg_2019),
-        "ucp_seats": int(((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) > 0.5).sum()),
+        "ucp_seats": int(((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) > 0.5 + 1e-9).sum() + ((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) == 0.5).sum() * 0.5),
         "n_districts_scored": int(len(agg_2019)),
         "n_expected": 87,
         "n_via_polygon": int(len(vas)),

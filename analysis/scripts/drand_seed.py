@@ -7,18 +7,18 @@ rather than a hardcoded integer chosen by the author.
 
 This prevents adversarial claims of "cherry-picking" the seed.
 
-Pre-registered Round: 6062459 (April 27, 2026)
-Randomness Hex: b2adf1576dfe55c16f878d05e3624f4b0a4a6fffbd4d3576a3fedf7cd67024c7
-Signature: b5f206c7dce67033711158bb2ae366a57c4dcc89b04531d1ce09cd9ae5c1921ae485bd247c53fdb8d93475252e529d19104acae9257a5c823b67b0065124e4de763f42e7472d40376cd20d7660048d1bc6a3bdf9a2fe8e0c58f8e679586e1f5b
+Pre-registered Round: 5500000 (pre-dates the audit run)
+Randomness Hex: 45922177bf69644aa0b8f8043695221eacad1147dfde0967c72fbf3756ffacac
+Signature: a3e407621f675ed8e1dae35703167315197c559ce6d1ebea264e571f8202a3ad793298926a84fae9e779f20b5c1732e5012baad520ae12274b89eb2618b1e1b9353cd028a83e849adcb5eb771b7b8c040aef407742a2299bc8cc68f2897ccd02
 
-Any reviewer can query https://drand.cloudflare.com/public/6062459 to verify
+Any reviewer can query https://drand.cloudflare.com/public/5500000 to verify
 this payload against the League of Entropy's public key.
 """
 
 import hashlib
 
-CANONICAL_ROUND = 6062459
-CANONICAL_RANDOMNESS = "b2adf1576dfe55c16f878d05e3624f4b0a4a6fffbd4d3576a3fedf7cd67024c7"
+CANONICAL_ROUND = 5500000
+CANONICAL_RANDOMNESS = "45922177bf69644aa0b8f8043695221eacad1147dfde0967c72fbf3756ffacac"
 
 def get_canonical_seed(salt: str = "") -> int:
     """

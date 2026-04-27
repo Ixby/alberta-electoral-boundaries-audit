@@ -123,12 +123,12 @@ def seat_results(
         - efficiency_gap (float) — UCP perspective: positive = UCP-favoured
         - mean_median (float)    — median UCP share minus mean UCP share
         - declination (float)    — Warrington (2018), in (-1, 1).
-                                   Sign convention used here: NEGATIVE = UCP-favoured
+                                   Sign convention used here: POSITIVE = UCP-favoured
                                    (UCP wins many seats by small margins while NDP votes
-                                   are packed into a few high-share districts). POSITIVE =
+                                   are packed into a few high-share districts). NEGATIVE =
                                    NDP-favoured (mirror image). NaN if either party wins
                                    0 seats. All empirical interpretation in the report
-                                   uses this negative-equals-UCP-favoured convention.
+                                   uses this positive-equals-UCP-favoured convention.
         - seats_at_50_50 (float) — uniform-swing UCP seat share at province-wide 50/50
         - ucp_seats (int)        — count of UCP wins at actual provincial share
         - n_districts (int)      — number of districts after dropping any with zero total votes

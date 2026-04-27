@@ -79,10 +79,9 @@ def _pick(plan: str) -> Path:
 
 
 MAPS = {
-    # Use v0_2 topoclean as 2019 proxy (same geometry, clean topology)
     "2019_enacted": (
-        ROOT / "data" / "shapefiles" / "derived"
-        / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+        ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
+        / "EDS_ENACTED_BILL33_15DEC2017.shp"
     ),
     "majority_2026": _pick("majority"),
     "minority_2026": _pick("minority"),
@@ -257,7 +256,7 @@ def summarise(map_label: str, rows: List[Dict]) -> Dict:
     else:
         median_pp = (pp_vals_sorted[n // 2 - 1] + pp_vals_sorted[n // 2]) / 2.0
 
-    variance = sum((v - mean_pp) ** 2 for v in pp_vals_sorted) / n
+    variance = sum((v - mean_pp) ** 2 for v in pp_vals_sorted) / (n - 1) if n > 1 else 0.0
     std_dev = math.sqrt(variance)
 
     return {
