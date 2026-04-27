@@ -148,7 +148,9 @@ def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
     province_ucp = ucp.sum() / two_party_total.sum()
     swing = 0.5 - province_ucp
     shifted = np.clip(ucp_share + swing, 0.0, 1.0)
-    ucp_wins_at_50 = int((shifted > 0.5 + 1e-9).sum())
+    wins = (shifted > 0.5 + 1e-9).sum()
+    ties = (np.abs(shifted - 0.5) <= 1e-9).sum()
+    ucp_wins_at_50 = float(wins + 0.5 * ties)
     seats_at_50_50 = ucp_wins_at_50 / n
 
     return dict(

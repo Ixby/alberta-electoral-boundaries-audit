@@ -46,9 +46,11 @@ OUT_ASSIGNMENTS = OUT_DIR / "v0_1_mcmc_verification_assignments.npz"
 OUT_META = OUT_DIR / "v0_1_mcmc_verification_meta.json"
 OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_mcmc_verification_subset.log"
 
+from drand_seed import get_canonical_seed
+
 N_STEPS = 10_000
 POP_DEVIATION = 0.25
-SEED = 44   # same seed as the original 2M run's chain 0
+SEED = get_canonical_seed("mcmc_verification_subset")
 
 
 def _ts():
@@ -103,8 +105,8 @@ def main():
     seed_max_dev = max(abs(p - ideal_pop) for p in seed_pops) / ideal_pop
     if seed_max_dev > POP_DEVIATION:
         print(f"  2019 seed exceeds +/-{POP_DEVIATION:.0%}; regenerating tight seed", flush=True)
-        np.random.seed(42)
-        _random.seed(42)
+        np.random.seed(SEED + 999)
+        _random.seed(SEED + 999)
         new_assignment = recursive_tree_part(
             graph, parts=list(range(num_dist)),
             pop_target=ideal_pop, pop_col="pop_2021",
