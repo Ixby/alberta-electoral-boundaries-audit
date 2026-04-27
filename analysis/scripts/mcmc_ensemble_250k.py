@@ -80,7 +80,7 @@ SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples_250k.csv"
 SCORES_JSON = DATA / "simulation_real_map_scores_250k.json"
 PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_250k.csv"
 CONVERGENCE_JSON = DATA / "simulation_convergence_diagnostics_250k.json"
-CHECKPOINT_DIR = DATA / "mcmc_checkpoints_250k_v0_9"
+CHECKPOINT_DIR = DATA / "simulation_checkpoints_250k_final"
 
 
 def _run_chain_chunked(args):

@@ -14,7 +14,7 @@ type: project
 
 ## Recalibration note: 2M → 100k
 
-The 2026-04-26 morning amendment (Bucket A change 1) had escalated the ensemble size from the pre-registered 100k to 2M as a defensibility enlargement. After the corrected 2M re-run reached 480k samples (24% complete), Gemini's per-chain ESS and Gelman-Rubin Rhat diagnostics showed Rhat values of 1.0001-1.0018 across all four metrics — gold-standard convergence already. The 2M run was cancelled at 1.6M samples (80% complete) and the audit recalibrated back to the pre-registered 100k baseline. Rationale: 100k delivers ~1,000 total ESS across 4 chains, sufficient to characterize tail behavior; 2M was statistical overkill for a project whose pre-registration named 100k as the canonical size. The cancelled-2M partial samples are preserved at `data/mcmc_checkpoints_partial_2m_killed_2026-04-26/` for any future curiosity-driven re-analysis.
+The 2026-04-26 morning amendment (Bucket A change 1) had escalated the ensemble size from the pre-registered 100k to 2M as a defensibility enlargement. After the corrected 2M re-run reached 480k samples (24% complete), Gemini's per-chain ESS and Gelman-Rubin Rhat diagnostics showed Rhat values of 1.0001-1.0018 across all four metrics — gold-standard convergence already. The 2M run was cancelled at 1.6M samples (80% complete) and the audit recalibrated back to the pre-registered 100k baseline. Rationale: 100k delivers ~1,000 total ESS across 4 chains, sufficient to characterize tail behavior; 2M was statistical overkill for a project whose pre-registration named 100k as the canonical size. The cancelled-2M partial samples are preserved at `historical/simulation_checkpoints_partial_2m_killed/` for any future curiosity-driven re-analysis.
 
 ---
 
@@ -136,4 +136,4 @@ Most likely outcome based on partial-run preview: branch 2 — minority sits at 
 - Diagnostics + CI: `c992497` (per-chain ESS + Gelman-Rubin Rhat + GitHub Actions workflow)
 - Script rename: `822e6ca` (v0_1_ prefix dropped from 97 scripts; version moves to header)
 - Recalibration: 2M run cancelled at 80% complete; 100k baseline restarted
-- Buggy-version artefacts preserved at `data/*.buggy_pre_audit_2026-04-26.*` and `data/mcmc_checkpoints_partial_2m_killed_2026-04-26/`
+- Buggy-version artefacts preserved at `data/*.buggy_pre_audit_2026-04-26.*` and `historical/simulation_checkpoints_partial_2m_killed/`

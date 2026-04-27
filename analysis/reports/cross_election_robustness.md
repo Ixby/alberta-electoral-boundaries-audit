@@ -51,7 +51,7 @@ For Lane 1 the recommended report-text change is to add this 2015/2019/2023 tabl
 
 ## 338Canada cross-check (separate)
 
-`analysis/scripts/338canada_historical.py` was re-run; the live fetch timed out at 10 min (Wayback CDX rate limits + 87 per-riding pulls), so its existing cached outputs (last refreshed 2026-04-23) remain authoritative. Per `data/v0_1_338_historical/stability_table.csv`:
+`analysis/scripts/338canada_historical.py` was re-run; the live fetch timed out at 10 min (Wayback CDX rate limits + 87 per-riding pulls), so its existing cached outputs (last refreshed 2026-04-23) remain authoritative. Per `data/reference/polling_338_historical/stability_table.csv`:
 
   - **2026-04-12 current snapshot** (full 87-riding scrape): majority UCP/NDP = 67/22, minority = 66/23 → minority is **−1 UCP, +1 NDP** vs majority.
   - **Pre-2023-election snapshot** (Wayback last capture per riding, March-May 2023): majority 48/39, minority 49/39 → minority is **+1 UCP** vs majority.

@@ -194,7 +194,7 @@ This is the **opposite direction** to what the 2026 April 338 projection produce
 
 ### 4.2 Uniform-swing stability probe across 77 snapshots
 
-For each of the 77 snapshots in 338's landing-page time-series, I computed the provincial UCP-two-party share and applied a uniform swing to the current per-riding baseline (i.e., shift every ED's two-party UCP share by the delta between the snapshot's provincial UCP% and the current 2026-04-12 provincial UCP%). Each swung snapshot was then reallocated through both hybrid crosswalks and the minority-minus-majority asymmetry recorded. Output: `data/v0_1_338_historical/uniform_swing_stability.csv`.
+For each of the 77 snapshots in 338's landing-page time-series, I computed the provincial UCP-two-party share and applied a uniform swing to the current per-riding baseline (i.e., shift every ED's two-party UCP share by the delta between the snapshot's provincial UCP% and the current 2026-04-12 provincial UCP%). Each swung snapshot was then reallocated through both hybrid crosswalks and the minority-minus-majority asymmetry recorded. Output: `data/reference/polling_338_historical/uniform_swing_stability.csv`.
 
 Distribution of `min_UCP − maj_UCP` across 77 snapshots:
 
@@ -286,13 +286,13 @@ The table at §3 of the riding-level file has UCP and NDP columns swapped in the
 ## 6. Files produced
 
 - `data/338canada_historical_snapshots.csv` — 77-row aggregate time-series (UCP/NDP/other shares, seats, majority/plurality probabilities) from 2020-02-23 to 2026-04-12.
-- `data/v0_1_338_historical/per_riding_pre2023.csv` — 87-row per-riding pre-2023 projection table (UCP share, NDP share, snapshot projection date, Wayback URL).
-- `data/v0_1_338_historical/pre2023_reallocated_majority.csv` — pre-2023 338 per-riding shares reallocated through the majority crosswalk (89 EDs).
-- `data/v0_1_338_historical/pre2023_reallocated_minority.csv` — same, minority crosswalk.
-- `data/v0_1_338_historical/uniform_swing_stability.csv` — 77-snapshot uniform-swing stability probe with per-snapshot seat counts and asymmetry.
-- `data/v0_1_338_historical/stability_table.csv` — two-row summary: current snapshot vs pre-2023 full reallocation.
-- `data/v0_1_338_historical/alberta_landing_raw.html` — cached landing-page HTML.
-- `data/v0_1_338_historical/riding_NNNN_w20230529.html` × 87 — cached Wayback captures of pre-2023 per-riding pages.
+- `data/reference/polling_338_historical/per_riding_pre2023.csv` — 87-row per-riding pre-2023 projection table (UCP share, NDP share, snapshot projection date, Wayback URL).
+- `data/reference/polling_338_historical/pre2023_reallocated_majority.csv` — pre-2023 338 per-riding shares reallocated through the majority crosswalk (89 EDs).
+- `data/reference/polling_338_historical/pre2023_reallocated_minority.csv` — same, minority crosswalk.
+- `data/reference/polling_338_historical/uniform_swing_stability.csv` — 77-snapshot uniform-swing stability probe with per-snapshot seat counts and asymmetry.
+- `data/reference/polling_338_historical/stability_table.csv` — two-row summary: current snapshot vs pre-2023 full reallocation.
+- `data/reference/polling_338_historical/alberta_landing_raw.html` — cached landing-page HTML.
+- `data/reference/polling_338_historical/riding_NNNN_w20230529.html` × 87 — cached Wayback captures of pre-2023 per-riding pages.
 - `analysis/scripts/338canada_historical.py` — reproducible pipeline.
 - `analysis/methodology/338canada_historical.md` — this file.
 

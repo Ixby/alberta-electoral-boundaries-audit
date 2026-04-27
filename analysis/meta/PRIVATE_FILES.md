@@ -20,8 +20,8 @@ They are stored in `private/` or other gitignored locations.
 ## Deleted (2026-04-23)
 
 - `analysis/v0_1_three_map_partisan_comparison.html` — generated output, regenerable
-- `data/v0_1_338_historical/alberta_landing_raw.html` — scraping cache
-- `data/v0_1_338_historical/riding_1001_w20230529.html` … `riding_1087_w20230529.html` (87 files) — scraping cache
+- `data/reference/polling_338_historical/alberta_landing_raw.html` — scraping cache
+- `data/reference/polling_338_historical/riding_1001_w20230529.html` … `riding_1087_w20230529.html` (87 files) — scraping cache
 
 ## Red team consolidation (2026-04-23)
 

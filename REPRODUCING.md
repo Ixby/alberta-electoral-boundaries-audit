@@ -92,7 +92,7 @@ Expected wall time: ~15 min on a 13th-gen i7-1360P. Outputs:
 - `data/simulated_ensemble_percentiles_250k.csv` — percentile placements for the three real maps
 - `data/simulation_real_map_scores_250k.json` — real-map metric scores
 - `data/simulation_convergence_diagnostics_250k.json` — ESS, autocorrelation by metric
-- `data/mcmc_checkpoints_250k_v0_9/chain{0..3}_samples.csv` — per-chain metric record (these are the LFS-tracked artefacts; ~237 MB total)
+- `data/outputs/mcmc/simulation_checkpoints_250k_final/chain{0..3}_samples.csv` — per-chain metric record (these are the LFS-tracked artefacts; ~237 MB total)
 
 Headline finding to verify: The minority commission map's `seats@50/50` value sits at **48.31%**. In the neutral 250k ReCom ensemble, this value lands precisely at the **98.5th percentile**, firmly placing it as an extreme statistical outlier (only 1.5% of neutral maps reach this level of UCP advantage under identical criteria).
 

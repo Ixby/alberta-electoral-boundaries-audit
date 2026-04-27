@@ -2114,8 +2114,8 @@ flagged with dual-dimension labels where applicable.
 # Legal red-team findings — `data/` artifact provenance
 
 **Framework:** `analysis/red_team/legal_red_team_framework.md` Dimension **D5** (Data provenance).
-**Scope:** every file directly under `data/` plus sub-directories `data/alberta_2019_eds/`, `data/alberta_2023_vas/`, `data/v0_1_338_historical/` (as specified by the directive). Generated 2026-04-23.
-**Total artifacts reviewed:** 88 (56 CSVs, 15 GPKGs, 1 GeoJSON, 6 JSONs, 2 XLSXs, 1 shapefile set (8 files), 1 VA shapefile set (5 files), 89 cached HTMLs and auxiliary files in `data/v0_1_338_historical/`, 2 internal README / manifest docs).
+**Scope:** every file directly under `data/` plus sub-directories `data/alberta_2019_eds/`, `data/alberta_2023_vas/`, `data/reference/polling_338_historical/` (as specified by the directive). Generated 2026-04-23.
+**Total artifacts reviewed:** 88 (56 CSVs, 15 GPKGs, 1 GeoJSON, 6 JSONs, 2 XLSXs, 1 shapefile set (8 files), 1 VA shapefile set (5 files), 89 cached HTMLs and auxiliary files in `data/reference/polling_338_historical/`, 2 internal README / manifest docs).
 **Reference manifests consulted:** `FROZEN_MANIFEST.md`, `data/data_acquisition_manifest.md`, `data/alberta_shapefiles_README.md`, `analysis/methodology/data_preparation.md`.
 
 **Severity counts:** CRITICAL = 0, HIGH = 7, MEDIUM = 11, LOW = 5.
@@ -2134,7 +2134,7 @@ flagged with dual-dimension labels where applicable.
 | 4 | `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv` | HIGH | "Manually extracted" from commission PDF pp. 44-45 and Appendix E. No parser script committed; extraction is not mechanically reproducible. `FROZEN_MANIFEST.md` references the 80 MB PDF but no script binds PDF→CSV. | Commit `analysis/parse_commission_populations.py` (pdfplumber-based) and note the page-range in each CSV header. |
 | 5 | `data/minority_hybrid_crosswalk.csv` | HIGH | File is a heuristic output (Jaccard token overlap ≥0.4 plus exact match) per `data/data_acquisition_manifest.md`. 16 proposed EDs unmapped, 14 current EDs unmapped. `data_acquisition_manifest.md` warns "review manually before using for statistical claims" — but the file is an input to downstream scripts (MCMC rescore, build_full_crosswalks). | Either (a) freeze a manually-verified version alongside the heuristic, or (b) document in the CSV header exactly which rows are heuristic-only vs. manually verified. |
 | 6 | `data/338canada_per_riding_87seat.csv` | HIGH | Scraped from `338canada.com/alberta/NNNNe.htm` on 2026-04-12. FROZEN_MANIFEST row records three probe URLs archived on Wayback (1001, 1044, 1087) — the remaining 84 URLs are unarchived at the per-page level. Track J relies on the frozen CSV, but per-row cross-check against a Wayback snapshot is available for only 3/87 ridings. | Submit the remaining 84 per-riding URLs to `web.archive.org/save/` (this was attempted in `url_archival_log.md` but IP-blocked). |
-| 7 | `data/v0_1_338_historical/*.html` (87 per-riding Wayback HTML dumps) + `per_riding_pre2023.csv`, `uniform_swing_stability.csv`, `stability_table.csv`, `alberta_landing_raw.html`, `alberta_landing_xaxis.json`, `per_riding_wayback.json`, `pre2023_per_riding_validation.json` | HIGH | Entire sub-directory (pre-2023 338Canada historical snapshots) has no row in `FROZEN_MANIFEST.md`. The HTMLs carry Wayback timestamps in their filenames (w20230529) but the chain "which per-riding Wayback URLs were scraped? on what date?" is only in `analysis/scripts/338canada_historical.py` — not cross-indexed in the manifest. | Add a table to FROZEN_MANIFEST listing the 87 pre-2023 Wayback URLs, or at minimum reference the generating script's output manifest. |
+| 7 | `data/reference/polling_338_historical/*.html` (87 per-riding Wayback HTML dumps) + `per_riding_pre2023.csv`, `uniform_swing_stability.csv`, `stability_table.csv`, `alberta_landing_raw.html`, `alberta_landing_xaxis.json`, `per_riding_wayback.json`, `pre2023_per_riding_validation.json` | HIGH | Entire sub-directory (pre-2023 338Canada historical snapshots) has no row in `FROZEN_MANIFEST.md`. The HTMLs carry Wayback timestamps in their filenames (w20230529) but the chain "which per-riding Wayback URLs were scraped? on what date?" is only in `analysis/scripts/338canada_historical.py` — not cross-indexed in the manifest. | Add a table to FROZEN_MANIFEST listing the 87 pre-2023 Wayback URLs, or at minimum reference the generating script's output manifest. |
 | 8 | `data/v0_1_approximate_majority_2026_eds.gpkg`, `_approximate_minority_2026_eds.gpkg`, `_approximate_majority_2026_eds_full.gpkg` | MED | Derived from 2019 shapefile + commission Appendix A/C mappings via `approximate_shape_analysis.py`. Source chain documented. But: file suffix `_full` is the 63-row partial, while the 57-row is labelled default — naming is inverted from what a reviewer would expect. | Add a header-line CSV alongside each GPKG documenting the row-count rationale; or rename. |
 | 9 | `data/v0_1_refined_{majority,minority,v2,v3,v4,v5,v6}_2026_eds.gpkg` (12 files) | MED | Refinement chain v1→v2→v3→v4→v5→v6 exists across `shape_refinement.py`, `_v2.py`, `_v3.py`, `_v4.py`, `_v5.py`, `_v6.*`. All scripts committed. But the minority has refinements v1→v6 while the majority stops at v3 (except v6). Reader cannot tell from filename alone which is "current". | See "Supersession / deprecation candidates" below. |
 | 10 | `data/v0_1_derived_v7_majority_2026_eds.gpkg`, `_minority_v7.gpkg` | MED | New 89-row schema (vs. 57/70 in v6) via `derive_boundaries.py`. Columns `source_thumbnail`, `affine_rms_m`, `disproof_n_pass` suggest this is a photo-derivation pass over commission maps — a different provenance chain than v1-v6. | Document the v7 derivation input source (which commission map thumbnails?) in a header comment in the script. |
@@ -2273,13 +2273,13 @@ Submit all 27 URLs to `web.archive.org/save/` once IP quota resets.
 
 ---
 
-### HIGH-7. `data/v0_1_338_historical/` — 87 per-riding Wayback HTMLs, entire directory absent from FROZEN_MANIFEST
+### HIGH-7. `data/reference/polling_338_historical/` — 87 per-riding Wayback HTMLs, entire directory absent from FROZEN_MANIFEST
 
-**Files:** `data/v0_1_338_historical/riding_1001_w20230529.html` through `riding_1087_w20230529.html` (87 files) + `per_riding_pre2023.csv`, `uniform_swing_stability.csv`, `stability_table.csv`, `alberta_landing_raw.html`, `alberta_landing_xaxis.json`, `per_riding_wayback.json`, `pre2023_per_riding_validation.json`
+**Files:** `data/reference/polling_338_historical/riding_1001_w20230529.html` through `riding_1087_w20230529.html` (87 files) + `per_riding_pre2023.csv`, `uniform_swing_stability.csv`, `stability_table.csv`, `alberta_landing_raw.html`, `alberta_landing_xaxis.json`, `per_riding_wayback.json`, `pre2023_per_riding_validation.json`
 **Dimension:** D5
 **Observation.**
 - This sub-directory contains Wayback-cached 338Canada HTML dumps, timestamped 2023-05-29 in filename. Source URLs are presumably `https://web.archive.org/web/20230529.../338canada.com/alberta/NNNNe.htm`.
-- `FROZEN_MANIFEST.md` has no row for this directory. The Wayback URLs are recorded only in `data/v0_1_338_historical/per_riding_wayback.json` (22 KB) as script-internal state.
+- `FROZEN_MANIFEST.md` has no row for this directory. The Wayback URLs are recorded only in `data/reference/polling_338_historical/per_riding_wayback.json` (22 KB) as script-internal state.
 - Generating script: `338canada_historical.py`.
 - Pre-2023 seat stability is a published finding (stability_table.csv is the one-liner).
 
@@ -2299,7 +2299,7 @@ All MEDIUM items are captured in rows 8-18 of the summary table above. None bloc
 
 - `va_pop_from_das.csv`, `chen_rodden_simulation.csv`, `chen_rodden_summary.json`, `v0_1_province_wide_drift_*.csv` (3), `canadian_redistribution_base_rate.csv`, `cochrane_journey_to_work.csv` — provenance chain is complete; add one-line source annotations in file headers where absent.
 - Root-level `data/alberta_shapefiles_README.md` and `data/data_acquisition_manifest.md` are the two internal docs that already do most of the provenance heavy lifting. Keeping them both is fine — but they disagree on file scope (the manifest says 7 files were acquired in the 2026-04-22 session, the shapefile README describes 2019 EDs and 2023 VAs only). Consider merging.
-- `data/v0_1_338_historical/pre2023_per_riding_validation.json` — small JSON with a pearson_r coefficient; no header comment naming what is being validated.
+- `data/reference/polling_338_historical/pre2023_per_riding_validation.json` — small JSON with a pearson_r coefficient; no header comment naming what is being validated.
 - CPG files (`.cpg`) in both shapefile directories are 5-byte UTF-8 declarations — correct and standard, noted for completeness only.
 - Naming inconsistency: some files are `v0_1_*` (project prefix) while others are plain (e.g. `hybrid_adjacent_vas.csv`, `va_pop_from_das.csv`). This is cosmetic.
 
