@@ -245,7 +245,7 @@ How each map handles rural representation:
 
 On the *headline* number — rural-vs-urban representation weight — the minority map looks like the most rural-protective of the three. But the *mechanism* is different from what the Act envisions. The minority's number doesn't come from declaring s.15(2) special-rural districts (it declares none). And it doesn't come mainly from making pure-rural districts smaller (the majority does that more conservatively). It comes from a third lever: **converting urban districts into urban–rural hybrids by attaching pieces of cities to surrounding rural-edge territory.**
 
-The hybrid-district counts make this concrete. The 2019 enacted map has 8 hybrid EDs. The 2026 majority has 9. **The 2026 minority has 25** — almost three times as many. Twelve of the minority's hybrids are *new*: ridings that the majority drew as pure-Calgary, pure-Edmonton, pure-Lethbridge, or pure-Red Deer city seats, but that the minority converted into hybrids by stapling them to suburban or rural-edge territory.
+The hybrid-district counts make this concrete — under a programmatic definition (an electoral division whose territory contains at least 5% of its area inside a Census Sub-Division for a city *and* at least 5% outside), the 2019 enacted map has 8 hybrid EDs, the 2026 majority has 14, and the 2026 minority has 17. Both 2026 maps expand on 2019; the minority expands further. The headline isn't the gross count, though — it's *what kind of hybrid each map draws*. The minority's hybrids systematically violate municipal anchoring at the rate above (14.5% vs 71%); the majority's hybrids do not. The minority's converted ridings — described below — are ones the majority drew as pure-Calgary, pure-Edmonton, pure-Lethbridge, or pure-Red Deer city seats, but that the minority converted into hybrids by stapling them to suburban or rural-edge territory.
 
 The minority's hybrid expansion is province-wide, not Calgary-only:
 
@@ -329,10 +329,10 @@ To be sure this isn't a quirk of the neutral simulation's known compactness pref
 
 | Procedure | Most-extreme value reached | What it tells us |
 |---|---|---|
-| Neutral 100k MCMC, max produced | 50.6% UCP seats @ 50/50 | The natural ceiling under neutral drawing |
-| Neutral 100k MCMC, min produced | 37.9% UCP seats @ 50/50 | The natural floor under neutral drawing |
+| Neutral v0_9 MCMC, max produced | 50.6% UCP seats @ 50/50 | The natural ceiling under neutral drawing |
+| Neutral v0_9 MCMC, min produced | 39.1% UCP seats @ 50/50 | The natural floor under neutral drawing |
 | Targeted hill-climb, UCP-maximizing | **52.9%** | What a procedure deliberately aiming for UCP advantage can reach |
-| Targeted hill-climb, NDP-maximizing | **37.9%** | What a procedure deliberately aiming for NDP advantage can reach |
+| Targeted hill-climb, NDP-maximizing | **37.9%** | What a procedure deliberately aiming for NDP advantage can reach (below the neutral floor) |
 
 The minority map's 48.3% sits closer to the targeted-UCP ceiling (52.9%) than to the neutral median (44.8%). The majority map's 46.1% sits at the neutral median. Two maps drawn under the same Alberta rules, by the same five commissioners, in the same room: one lands where neutral procedures routinely produce, the other lands where you have to specifically aim to land.
 
