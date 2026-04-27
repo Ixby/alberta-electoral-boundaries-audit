@@ -571,6 +571,11 @@ body::before {
   margin-top: 0.04in;
   font-family: "Lora", Georgia, serif;
   text-decoration: none;
+  /* Border-bottom (not text-decoration) survives both colour and
+     grayscale renders on e-ink readers; the colour itself collapses
+     to mid-gray on monochrome. */
+  border-bottom: 0.6pt solid #1a1a1a;
+  padding-bottom: 0.5pt;
 }
 .locator .url:hover { text-decoration: underline; }
 
