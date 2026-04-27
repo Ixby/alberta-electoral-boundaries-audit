@@ -59,13 +59,11 @@ cat("Built adjacency: ", length(adj), " nodes, ",
 
 # ----- Step C: Set up the redistricting problem ---------------------
 # Population proxy: total votes per VA (same as Python pipeline)
-# Note: Python uses pop_2021 from the StatsCan DA file. R uses
-# va_ucp + va_ndp + va_other as a vote-weighted proxy because the
-# SMC algorithm needs strictly positive integer-like populations
-# and the gpkg's pop_2021 column has fractional values from areal
-# interpolation. The percentile placements should still match
-# because both substrates are equal-population-balanced.
-va$pop <- pmax(round(va$va_ucp + va$va_ndp + va$va_other), 1)
+# Note: Python uses pop_2021 from the StatsCan DA file. R previously used
+# a vote-weighted proxy but now correctly uses rounded pop_2021 to properly
+# validate population-balanced maps rather than vote-balanced maps,
+# resolving Bug E from the code audit.
+va$pop <- pmax(round(va$pop_2021), 1)
 n_districts <- 87  # 2019 substrate count, matching the Python ensemble
 
 # `redist`'s map object bundles geography + population + adjacency

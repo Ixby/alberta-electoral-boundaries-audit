@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
-PROVINCIAL_AVG = 54929  # 4,888,723 / 89 for 2026 maps
+
 
 # ---------------------------------------------------------------------------
 # A1 — Variance distribution
@@ -26,6 +26,7 @@ def variance_stats(df: pd.DataFrame, label: str) -> dict:
     """Compute variance distribution stats for one map."""
     pop = df["population"].astype(float)
     dev = df["deviation_pct"].astype(float)
+    provincial_avg = pop.sum() / len(pop)
 
     stats = {
         "map": label,
@@ -34,7 +35,7 @@ def variance_stats(df: pd.DataFrame, label: str) -> dict:
         "mean_pop": float(pop.mean()),
         "median_pop": float(pop.median()),
         "std_pop": float(pop.std()),
-        "mad_from_avg": float((pop - PROVINCIAL_AVG).abs().mean()),
+        "mad_from_avg": float((pop - provincial_avg).abs().mean()),
         "max_pos_dev": float(dev.max()),
         "max_neg_dev": float(dev.min()),
         "count_above_10": int((dev > 10).sum()),
@@ -419,7 +420,8 @@ def main():
     minr = pd.read_csv(DATA / "v0_1_minority_2026_populations.csv")
 
     print(f"Loaded {len(maj)} majority EDs, {len(minr)} minority EDs")
-    print(f"Provincial average (2026 basis): {PROVINCIAL_AVG:,} per ED")
+    prov_avg = maj["population"].sum() / len(maj)
+    print(f"Provincial average (2026 basis): {prov_avg:,.0f} per ED")
     print(f"(Note: 2019 map (87 EDs) not analyzed for A1/A2 because 2019-era "
           "population data is not in the working bundle. Historical deviations "
           "for 2019 boundaries were within ±25% by the 2017 commission.)")

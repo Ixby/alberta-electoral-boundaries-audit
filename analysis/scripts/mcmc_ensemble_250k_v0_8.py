@@ -362,8 +362,8 @@ if __name__ == "__main__":
                         help="Number of parallel chains (default: 4)")
     parser.add_argument("--chunk-size", type=int, default=5000,
                         help="Checkpoint granularity in samples per chunk (default: 5000)")
-    parser.add_argument("--seed", type=int, default=42,
-                        help="Base seed; per-chunk seed = base*100k + chain*1k + chunk")
+    parser.add_argument("--seed", type=int, default=None,
+                        help="Base seed; defaults to drand canonical seed if omitted")
     parser.add_argument("--pop-deviation", type=float, default=0.25)
     args = parser.parse_args()
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
