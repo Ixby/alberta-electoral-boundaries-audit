@@ -386,7 +386,7 @@ html, body {
   height: 10.95in;        /* 0.05in shy of letter to defeat Chrome's blank-page heuristic */
   background: #cccccc;
   overflow: hidden;
-  padding: 0.7in 0.8in;
+  padding: 0.4in 0.5in;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -417,8 +417,8 @@ body::before {
   letter-spacing: 4pt;
   text-transform: uppercase;
   color: #7a1f1f;
-  margin: 0 0 0.3in 0;
-  padding-top: 0.1in;
+  margin: 0 0 0.1in 0;
+  padding-top: 0.05in;
 }
 
 .kicker .issue {
@@ -435,13 +435,13 @@ body::before {
   justify-content: center;
   /* Negative horizontal margin lets the hero bleed past the .cover's
      0.8in side padding all the way to the page edges. */
-  margin: 0.1in -0.8in 0.25in -0.52in;   /* leave 0.28in for the left accent bar */
+  margin: 0.05in -0.8in 0.1in -0.52in;   /* leave 0.28in for the left accent bar */
   min-height: 0;
 }
 
 .hero img {
   max-width: 100%;           /* fills the bleed area */
-  max-height: 5.0in;         /* +20% from 4.2in */
+  max-height: 8.25in;        /* 75% of 11in page height — map is the dominant visual */
   height: auto;
   object-fit: contain;
   display: block;
@@ -450,12 +450,12 @@ body::before {
 .hero-caption {
   font-family: "Lora", Georgia, serif;
   font-style: italic;
-  font-size: 7pt;
-  line-height: 1.4;
+  font-size: 6.5pt;
+  line-height: 1.3;
   color: #8a8074;
   text-align: right;
-  margin: 0.18in 0 0 0;
-  padding: 0.1in 0 0 0;
+  margin: 0.06in 0 0 0;
+  padding: 0.04in 0 0 0;
   border-top: 0.4pt solid #d3cabd;
   letter-spacing: 0.1pt;
 }
@@ -474,17 +474,17 @@ body::before {
 
 /* ----- Title block ----- */
 .title-block {
-  margin: 0 0 0.15in 0;
+  margin: 0 0 0.08in 0;
 }
 
 .title {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 900;
-  font-size: 68pt;
-  letter-spacing: -1.5pt;
+  font-size: 36pt;
+  letter-spacing: -0.8pt;
   line-height: 1.0;
   color: #0e0e0e;
-  margin: 0 0 0.2in 0;
+  margin: 0 0 0.08in 0;
   padding: 0;
   white-space: nowrap;
 }
@@ -502,11 +502,11 @@ body::before {
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 15pt;
-  line-height: 1.35;
+  font-size: 9.5pt;
+  line-height: 1.3;
   color: #3a3a3a;
-  max-width: 5.8in;
-  margin: 0 0 0.25in 0;
+  max-width: 6.5in;
+  margin: 0 0 0.08in 0;
 }
 
 /* ----- Footer: byline + locator ----- */
@@ -515,8 +515,8 @@ body::before {
   justify-content: space-between;
   align-items: flex-end;
   border-top: 1px solid #1a1a1a;
-  padding-top: 0.18in;
-  margin-top: 0.1in;
+  padding-top: 0.06in;
+  margin-top: 0.04in;
 }
 
 .byline {
@@ -583,12 +583,12 @@ body::before {
   display: flex;
   gap: 0.4in;
   font-family: "Source Sans 3", sans-serif;
-  font-size: 8pt;
+  font-size: 7.5pt;
   letter-spacing: 1.2pt;
   text-transform: uppercase;
   font-weight: 600;
   color: #555;
-  margin: -0.1in 0 0.15in 0;
+  margin: 0 0 0.06in 0;
 }
 
 .legend .swatch {
