@@ -45,8 +45,8 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
 EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_APPROX_GPKG = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
-MIN_V6_GPKG = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
+MAJ_APPROX_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+MIN_V6_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
 MAJ_POPS_CSV = DATA / "v0_1_majority_2026_populations.csv"
 MIN_POPS_CSV = DATA / "v0_1_minority_2026_populations.csv"
 MAJ_XWALK_CSV_FULL = DATA / "v0_1_majority_full_crosswalk.csv"

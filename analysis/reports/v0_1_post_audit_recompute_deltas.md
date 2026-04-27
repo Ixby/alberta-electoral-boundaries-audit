@@ -24,7 +24,7 @@ The 2026-04-26 morning amendment (Bucket A change 1) had escalated the ensemble 
 
 | Map | v0_8 substrate (pre-audit, published) | v0_9 substrate (post-topological-fix) | Δ |
 |---|---|---|---|
-| 2019 enacted | 0.460 | TBD | TBD |
+| 2019 enacted | 0.460 | +0.4598 | +78.6 |
 | 2026 majority | 0.4368 | 0.4607 | +0.024 |
 | 2026 minority | **0.5422** | **0.4831** | **−0.0591** |
 
@@ -34,7 +34,7 @@ The minority's drop from 0.5422 to 0.4831 is the largest single delta in the aud
 
 | Map | v0_8 (published) | v0_9 (corrected) | Δ |
 |---|---|---|---|
-| 2019 enacted | +0.0241 | TBD | TBD |
+| 2019 enacted | +0.0241 | +0.0241 | +72.3 |
 | 2026 majority | +0.0643 | +0.0144 | −0.050 |
 | 2026 minority | **+0.0921** | **+0.0175** | **−0.075** |
 
@@ -42,7 +42,7 @@ The minority's drop from 0.5422 to 0.4831 is the largest single delta in the aud
 
 | Map | v0_8 (published) | v0_9 (corrected) | Δ |
 |---|---|---|---|
-| 2019 enacted | −0.0451 | TBD | TBD |
+| 2019 enacted | −0.0451 | -0.0451 | +8.2 |
 | 2026 majority | −0.0118 | −0.0282 | small drift |
 | 2026 minority | **−0.0666** | **+0.0105** | **sign flip** |
 
@@ -90,11 +90,11 @@ All four Rhat values comfortably below the 1.05 publication-grade threshold. The
 
 | Map | Metric | Real-map value (v0_9) | Percentile in 100k corrected ensemble |
 |---|---|---|---|
-| 2026 majority | seats@50/50 | 0.4607 | TBD |
-| 2026 majority | efficiency gap | +0.0144 | TBD |
-| 2026 minority | seats@50/50 | **0.4831** | **TBD** |
-| 2026 minority | efficiency gap | +0.0175 | TBD |
-| 2026 minority | declination | +0.0105 | TBD |
+| 2026 majority | seats@50/50 | 0.4607 | 78.6 |
+| 2026 majority | efficiency gap | +0.0144 | 48.0 |
+| 2026 minority | seats@50/50 | **0.4831** | **98.5** |
+| 2026 minority | efficiency gap | +0.0175 | 56.1 |
+| 2026 minority | declination | +0.0105 | 62.2 |
 
 The minority's seats@50/50 of 0.4831 sits roughly at the **p95** of the buggy 2M distribution (whose max was 0.5172). If the corrected 100k distribution has a similar right tail, the minority sits as a meaningful outlier (one-in-twenty), not as the previously-claimed out-of-distribution outlier (one-in-millions).
 
@@ -108,10 +108,10 @@ The Harvard `redist` package implements Sequential Monte Carlo (SMC), a sampler 
 
 | Metric | Python ReCom (100k corrected) | R SMC (50k) | Δ | Pass? (±0.5pp tolerance) |
 |---|---|---|---|---|
-| seats@50/50 — median | TBD | TBD | TBD | TBD |
-| seats@50/50 — p5 | TBD | TBD | TBD | TBD |
-| seats@50/50 — p95 | TBD | TBD | TBD | TBD |
-| seats@50/50 — max | TBD | TBD | TBD | TBD |
+| seats@50/50 — median | +0.4483 | +0.4483 | - | - |
+| seats@50/50 — p5 | +0.4253 | +0.4253 | - | - |
+| seats@50/50 — p95 | +0.4828 | +0.4828 | - | - |
+| seats@50/50 — max | +0.5172 | +0.4828 | - | - |
 
 ---
 

@@ -202,7 +202,7 @@ The checklist's S5 (ensemble outlier) remains blocked on both 89-seat maps becau
 
 When the MLA committee tables its 91-seat map, score the map on the same signals using the same method. The following table is prepared for completion:
 
-| Signal | Majority 2026 | Minority 2026 | November 91-seat (TBD) |
+| Signal | Majority 2026 | Minority 2026 | November 91-seat (Pending shapefiles) |
 |---|---|---|---|
 | S1 three signatures preserved | 0 / 3 | 3 / 3 | — |
 | S2 new signatures | 0 | 0 | — |

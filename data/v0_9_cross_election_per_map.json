@@ -11,7 +11,7 @@
     "election": "2015",
     "attribution": "2015->2019 crosswalk -> area-overlap to v0_9",
     "s50_pct_in_2023_ensemble": 100.0,
-    "ensemble_n": 100000
+    "ensemble_n": 250000
   },
   {
     "efficiency_gap": -0.00945015403277238,
@@ -24,8 +24,8 @@
     "map": "majority",
     "election": "2019",
     "attribution": "area-overlap from 2019 enacted polygons to v0_9",
-    "s50_pct_in_2023_ensemble": 100.0,
-    "ensemble_n": 100000
+    "s50_pct_in_2023_ensemble": 99.9996,
+    "ensemble_n": 250000
   },
   {
     "efficiency_gap": 0.014524790961258482,
@@ -38,8 +38,8 @@
     "map": "majority",
     "election": "2023",
     "attribution": "VA-centroid in v0_9 polygon",
-    "s50_pct_in_2023_ensemble": 76.876,
-    "ensemble_n": 100000
+    "s50_pct_in_2023_ensemble": 78.6084,
+    "ensemble_n": 250000
   },
   {
     "efficiency_gap": 0.10184667795309384,
@@ -53,7 +53,7 @@
     "election": "2015",
     "attribution": "2015->2019 crosswalk -> area-overlap to v0_9",
     "s50_pct_in_2023_ensemble": 100.0,
-    "ensemble_n": 100000
+    "ensemble_n": 250000
   },
   {
     "efficiency_gap": 0.012465845148941362,
@@ -67,7 +67,7 @@
     "election": "2019",
     "attribution": "area-overlap from 2019 enacted polygons to v0_9",
     "s50_pct_in_2023_ensemble": 100.0,
-    "ensemble_n": 100000
+    "ensemble_n": 250000
   },
   {
     "efficiency_gap": 0.017845070061250672,
@@ -80,7 +80,7 @@
     "map": "minority",
     "election": "2023",
     "attribution": "VA-centroid in v0_9 polygon",
-    "s50_pct_in_2023_ensemble": 92.994,
-    "ensemble_n": 100000
+    "s50_pct_in_2023_ensemble": 93.2544,
+    "ensemble_n": 250000
   }
 ]
