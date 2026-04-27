@@ -7,8 +7,8 @@ byte-verifiable spot-check sample: a hostile expert can pick any of
 the 10,000 saved partitions, recompute its metrics from scratch, and
 confirm they match what the script wrote.
 
-Storage estimate: 4,765 voting areas × 1 byte (district id, int8) ×
-10,000 steps = 47.65 MB raw partition data, plus metrics CSV
+Storage estimate: 4,765 voting areas × 2 bytes (district id, int16) ×
+10,000 steps = 95.3 MB raw partition data, plus metrics CSV
 (~600 KB). Total compressed (zstd or LZMA) ~10-20 MB.
 
 This subset does NOT replace the 2M-run as the audit's authoritative
@@ -58,7 +58,7 @@ def _ts():
 def main():
     print(f"[{_ts()}] verification subset start", flush=True)
     print(f"  n_steps={N_STEPS}, seed={SEED}, pop_deviation=+/-{POP_DEVIATION:.0%}", flush=True)
-    print(f"  output: assignments=npz int8 array, metrics=csv, meta=json", flush=True)
+    print(f"  output: assignments=npz int16 array, metrics=csv, meta=json", flush=True)
 
     np.random.seed(SEED)
     import random as _random
@@ -81,13 +81,13 @@ def main():
 
     # District-name → integer mapping. initial_assignment_2019() returns string
     # ED names (e.g. "Calgary-Bow"), but we serialise the per-step assignment
-    # vector as int8 for compactness. The mapping is preserved in the meta
+    # vector as int16 for compactness. The mapping is preserved in the meta
     # JSON so a verifier can reconstruct the integer-to-name map and rebuild
     # any saved Partition exactly.
     unique_districts = sorted(set(assignment.values()))
-    if len(unique_districts) > 127:
+    if len(unique_districts) > 32767:
         raise ValueError(
-            f"int8 cannot encode {len(unique_districts)} districts; widen dtype"
+            f"int16 cannot encode {len(unique_districts)} districts; widen dtype"
         )
     dist_to_int = {name: i for i, name in enumerate(unique_districts)}
     int_to_dist = {i: name for name, i in dist_to_int.items()}
@@ -132,14 +132,14 @@ def main():
         total_steps=N_STEPS,
     )
 
-    # Pre-allocate assignment array: shape (n_steps, n_va), dtype int8 (district ids 0–87 fit)
-    assignment_arr = np.zeros((N_STEPS, n_va), dtype=np.int8)
+    # Pre-allocate assignment array: shape (n_steps, n_va), dtype int16
+    assignment_arr = np.zeros((N_STEPS, n_va), dtype=np.int16)
     metrics_rows = []
     t_start = time.time()
 
     for step_i, partition in enumerate(chain):
         # Serialise this step's assignment via the int mapping (district names
-        # are strings, but the array is int8 for compactness).
+        # are strings, but the array is int16 for compactness).
         for vid in va_ids:
             assignment_arr[step_i, va_id_to_idx[vid]] = dist_to_int[partition.assignment[vid]]
 
