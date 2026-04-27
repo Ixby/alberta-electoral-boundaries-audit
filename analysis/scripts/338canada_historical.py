@@ -23,8 +23,8 @@ Phases:
 
 Outputs:
   data/338canada_historical_snapshots.csv
-  data/v0_1_338_historical/alberta_landing_raw.html   (cache)
-  data/v0_1_338_historical/*.html                     (per-riding caches)
+  data/reference/polling_338_historical/alberta_landing_raw.html   (cache)
+  data/reference/polling_338_historical/*.html                     (per-riding caches)
 
 Usage:
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_338canada_historical.py
@@ -47,7 +47,7 @@ from typing import Dict, List, Tuple, Optional
 HERE = os.path.dirname(os.path.abspath(__file__))
 AUDIT_ROOT = os.path.dirname(os.path.dirname(HERE))
 DATA = os.path.join(AUDIT_ROOT, 'data')
-HIST_DIR = os.path.join(DATA, 'v0_1_338_historical')
+HIST_DIR = os.path.join(DATA, 'polling_338_historical')
 os.makedirs(HIST_DIR, exist_ok=True)
 
 UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"

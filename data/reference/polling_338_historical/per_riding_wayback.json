@@ -1,0 +1,874 @@
+{
+  "2023-05-29_pre_election": [
+    {
+      "district": "Calgary-Acadia",
+      "code": "1001",
+      "ucp_share": 44.0,
+      "ndp_share": 47.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Beddington",
+      "code": "1002",
+      "ucp_share": 44.0,
+      "ndp_share": 48.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Bow",
+      "code": "1003",
+      "ucp_share": 47.0,
+      "ndp_share": 47.0,
+      "snap_date": "2023-05-19",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Buffalo",
+      "code": "1004",
+      "ucp_share": 32.0,
+      "ndp_share": 61.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Cross",
+      "code": "1005",
+      "ucp_share": 44.0,
+      "ndp_share": 49.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Currie",
+      "code": "1006",
+      "ucp_share": 40.0,
+      "ndp_share": 51.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-East",
+      "code": "1007",
+      "ucp_share": 42.0,
+      "ndp_share": 47.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Edgemont",
+      "code": "1008",
+      "ucp_share": 46.0,
+      "ndp_share": 47.0,
+      "snap_date": "2023-05-22",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Elbow",
+      "code": "1009",
+      "ucp_share": 41.0,
+      "ndp_share": 44.0,
+      "snap_date": "2023-05-18",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Falconridge",
+      "code": "1010",
+      "ucp_share": 37.0,
+      "ndp_share": 57.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Fish Creek",
+      "code": "1011",
+      "ucp_share": 53.0,
+      "ndp_share": 44.0,
+      "snap_date": "2023-05-19",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Foothills",
+      "code": "1012",
+      "ucp_share": 50.0,
+      "ndp_share": 48.0,
+      "snap_date": "2023-05-19",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Glenmore",
+      "code": "1013",
+      "ucp_share": 45.0,
+      "ndp_share": 46.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Hays",
+      "code": "1014",
+      "ucp_share": 53.0,
+      "ndp_share": 38.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Klein",
+      "code": "1015",
+      "ucp_share": 41.0,
+      "ndp_share": 51.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Lougheed",
+      "code": "1016",
+      "ucp_share": 55.0,
+      "ndp_share": 35.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Bhullar-McCall",
+      "code": "1017",
+      "ucp_share": 32.0,
+      "ndp_share": 62.0,
+      "snap_date": "2023-05-08",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Mountain View",
+      "code": "1018",
+      "ucp_share": 32.0,
+      "ndp_share": 60.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-North",
+      "code": "1019",
+      "ucp_share": 50.0,
+      "ndp_share": 50.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-North East",
+      "code": "1020",
+      "ucp_share": 42.0,
+      "ndp_share": 49.0,
+      "snap_date": "2023-03-29",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-North West",
+      "code": "1021",
+      "ucp_share": 46.0,
+      "ndp_share": 45.0,
+      "snap_date": "2023-03-29",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Peigan",
+      "code": "1022",
+      "ucp_share": 56.0,
+      "ndp_share": 43.0,
+      "snap_date": "2023-05-24",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Shaw",
+      "code": "1023",
+      "ucp_share": 55.0,
+      "ndp_share": 36.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-South East",
+      "code": "1024",
+      "ucp_share": 60.0,
+      "ndp_share": 35.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-Varsity",
+      "code": "1025",
+      "ucp_share": 39.0,
+      "ndp_share": 54.0,
+      "snap_date": "2023-05-04",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Calgary-West",
+      "code": "1026",
+      "ucp_share": 61.0,
+      "ndp_share": 38.0,
+      "snap_date": "2023-05-22",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Beverly-Clareview",
+      "code": "1027",
+      "ucp_share": 30.0,
+      "ndp_share": 63.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Castle Downs",
+      "code": "1028",
+      "ucp_share": 35.0,
+      "ndp_share": 55.0,
+      "snap_date": "2023-05-13",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-City Centre",
+      "code": "1029",
+      "ucp_share": 19.0,
+      "ndp_share": 76.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Decore",
+      "code": "1030",
+      "ucp_share": 34.0,
+      "ndp_share": 59.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Ellerslie",
+      "code": "1031",
+      "ucp_share": 31.0,
+      "ndp_share": 63.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Glenora",
+      "code": "1032",
+      "ucp_share": 26.0,
+      "ndp_share": 71.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Gold Bar",
+      "code": "1033",
+      "ucp_share": 23.0,
+      "ndp_share": 72.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Highlands-Norwood",
+      "code": "1034",
+      "ucp_share": 22.0,
+      "ndp_share": 74.0,
+      "snap_date": "2023-04-21",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Manning",
+      "code": "1035",
+      "ucp_share": 31.0,
+      "ndp_share": 62.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-McClung",
+      "code": "1036",
+      "ucp_share": 33.0,
+      "ndp_share": 54.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Meadows",
+      "code": "1037",
+      "ucp_share": 30.0,
+      "ndp_share": 63.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Mill Woods",
+      "code": "1038",
+      "ucp_share": 34.0,
+      "ndp_share": 60.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-North West",
+      "code": "1039",
+      "ucp_share": 29.0,
+      "ndp_share": 64.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Riverview",
+      "code": "1040",
+      "ucp_share": 24.0,
+      "ndp_share": 69.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Rutherford",
+      "code": "1041",
+      "ucp_share": 32.0,
+      "ndp_share": 66.0,
+      "snap_date": "2023-05-26",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-South",
+      "code": "1042",
+      "ucp_share": 37.0,
+      "ndp_share": 57.0,
+      "snap_date": "2023-05-01",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-South West",
+      "code": "1043",
+      "ucp_share": 46.0,
+      "ndp_share": 52.0,
+      "snap_date": "2023-05-28",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Strathcona",
+      "code": "1044",
+      "ucp_share": 16.0,
+      "ndp_share": 78.0,
+      "snap_date": "2023-05-28",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-West Henday",
+      "code": "1045",
+      "ucp_share": 37.0,
+      "ndp_share": 55.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Edmonton-Whitemud",
+      "code": "1046",
+      "ucp_share": 38.0,
+      "ndp_share": 61.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Airdrie-Cochrane",
+      "code": "1047",
+      "ucp_share": 57.0,
+      "ndp_share": 35.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Airdrie-East",
+      "code": "1048",
+      "ucp_share": 59.0,
+      "ndp_share": 29.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Athabasca-Barrhead-Westlock",
+      "code": "1049",
+      "ucp_share": 61.0,
+      "ndp_share": 27.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Banff-Kananaskis",
+      "code": "1050",
+      "ucp_share": 44.0,
+      "ndp_share": 51.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Bonnyville-Cold Lake-St. Paul",
+      "code": "1051",
+      "ucp_share": 63.0,
+      "ndp_share": 24.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Brooks-Medicine Hat",
+      "code": "1052",
+      "ucp_share": 53.0,
+      "ndp_share": 33.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Camrose",
+      "code": "1053",
+      "ucp_share": 60.0,
+      "ndp_share": 25.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Cardston-Siksika",
+      "code": "1054",
+      "ucp_share": 64.0,
+      "ndp_share": 26.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Central Peace-Notley",
+      "code": "1055",
+      "ucp_share": 64.0,
+      "ndp_share": 27.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Chestermere-Strathmore",
+      "code": "1056",
+      "ucp_share": 67.0,
+      "ndp_share": 31.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Cypress-Medicine Hat",
+      "code": "1057",
+      "ucp_share": 59.0,
+      "ndp_share": 34.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Drayton Valley-Devon",
+      "code": "1058",
+      "ucp_share": 61.0,
+      "ndp_share": 28.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Drumheller-Stettler",
+      "code": "1059",
+      "ucp_share": 70.0,
+      "ndp_share": 15.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Fort McMurray-Lac La Biche",
+      "code": "1060",
+      "ucp_share": 58.0,
+      "ndp_share": 35.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Fort McMurray-Wood Buffalo",
+      "code": "1061",
+      "ucp_share": 61.0,
+      "ndp_share": 29.0,
+      "snap_date": "2023-05-23",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Fort Saskatchewan-Vegreville",
+      "code": "1062",
+      "ucp_share": 46.0,
+      "ndp_share": 43.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Grande Prairie",
+      "code": "1063",
+      "ucp_share": 53.0,
+      "ndp_share": 34.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Grande Prairie-Wapiti",
+      "code": "1064",
+      "ucp_share": 63.0,
+      "ndp_share": 27.0,
+      "snap_date": "2023-05-08",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Highwood",
+      "code": "1065",
+      "ucp_share": 61.0,
+      "ndp_share": 29.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Innisfail-Sylvan Lake",
+      "code": "1066",
+      "ucp_share": 62.0,
+      "ndp_share": 26.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Lac Ste. Anne-Parkland",
+      "code": "1067",
+      "ucp_share": 54.0,
+      "ndp_share": 38.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Lacombe-Ponoka",
+      "code": "1068",
+      "ucp_share": 62.0,
+      "ndp_share": 26.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Leduc-Beaumont",
+      "code": "1069",
+      "ucp_share": 53.0,
+      "ndp_share": 36.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Lesser Slave Lake",
+      "code": "1070",
+      "ucp_share": 52.0,
+      "ndp_share": 46.0,
+      "snap_date": "2023-05-19",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Lethbridge-East",
+      "code": "1071",
+      "ucp_share": 46.0,
+      "ndp_share": 48.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Lethbridge-West",
+      "code": "1072",
+      "ucp_share": 42.0,
+      "ndp_share": 52.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Livingstone-Macleod",
+      "code": "1073",
+      "ucp_share": 64.0,
+      "ndp_share": 29.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Maskwacis-Wetaskiwin",
+      "code": "1074",
+      "ucp_share": 52.0,
+      "ndp_share": 40.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Morinville-St. Albert",
+      "code": "1075",
+      "ucp_share": 46.0,
+      "ndp_share": 44.0,
+      "snap_date": "2023-05-19",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Olds-Didsbury-Three Hills",
+      "code": "1076",
+      "ucp_share": 69.0,
+      "ndp_share": 20.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Peace River",
+      "code": "1077",
+      "ucp_share": 59.0,
+      "ndp_share": 32.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Red Deer-North",
+      "code": "1078",
+      "ucp_share": 56.0,
+      "ndp_share": 39.0,
+      "snap_date": "2023-05-14",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Red Deer-South",
+      "code": "1079",
+      "ucp_share": 54.0,
+      "ndp_share": 36.0,
+      "snap_date": "2023-05-10",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Rimbey-Rocky Mountain House-Sundre",
+      "code": "1080",
+      "ucp_share": 71.0,
+      "ndp_share": 18.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Sherwood Park",
+      "code": "1081",
+      "ucp_share": 43.0,
+      "ndp_share": 49.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Spruce Grove-Stony Plain",
+      "code": "1082",
+      "ucp_share": 51.0,
+      "ndp_share": 39.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "St. Albert",
+      "code": "1083",
+      "ucp_share": 42.0,
+      "ndp_share": 54.0,
+      "snap_date": "2023-05-19",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Strathcona-Sherwood Park",
+      "code": "1084",
+      "ucp_share": 49.0,
+      "ndp_share": 40.0,
+      "snap_date": "2023-05-10",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Taber-Warner",
+      "code": "1085",
+      "ucp_share": 75.0,
+      "ndp_share": 21.0,
+      "snap_date": "2023-05-17",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "Vermilion-Lloydminster-Wainwright",
+      "code": "1086",
+      "ucp_share": 67.0,
+      "ndp_share": 22.0,
+      "snap_date": "2023-03-25",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    },
+    {
+      "district": "West Yellowhead",
+      "code": "1087",
+      "ucp_share": 59.0,
+      "ndp_share": 31.0,
+      "snap_date": "2023-03-11",
+      "wayback_url": "(cached)",
+      "wayback_ts": "",
+      "note": "(from cache)"
+    }
+  ]
+}
