@@ -20,6 +20,25 @@ This audit was produced as a personal research project by Will Conner, a Mount R
 
 ---
 
+## Quickstart
+
+To reproduce the core findings or run your own analysis, you can get the environment running in three steps. (Requires Python 3.11+).
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/Ixby/alberta-electoral-boundaries-audit.git
+cd alberta-electoral-boundaries-audit
+
+# 2. Run the idempotent setup script to install all dependencies
+./setup.sh
+
+# 3. Verify the installation by running the baseline packing/cracking script
+python3 analysis/scripts/v0_2_packing_cracking_analysis.py
+```
+For detailed instructions on recreating the derived shapefiles or running the MCMC ensemble, see [`REPRODUCING.md`](REPRODUCING.md).
+
+---
+
 ## What the audit finds
 
 **Population equality (A1).** Mean absolute deviation from provincial quota: 3,180 persons (majority) vs 4,707 persons (minority). Both maps are legally compliant; the minority's higher variance is a property of drawing choices, not demographic geography.
