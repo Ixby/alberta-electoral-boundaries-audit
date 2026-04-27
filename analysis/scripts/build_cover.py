@@ -238,47 +238,16 @@ def build_cover_art() -> Path:
     #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
     #    the 89-district structure remains visible.
     cover_ivory = "#f5ede0"
-    # Three-tile composition: v0_7 outline ghost (left), v0_9 colored
-    # heatmap (centre, focal), v0_8 outline ghost (right). The two
-    # ghosts are a visual record of how the audit's reconstruction
-    # refined from pixel-traced boundaries (v0_7) through manual
-    # refinement (v0_8) to the topological VA-dissolve (v0_9). Reader
-    # sees three versions side-by-side; the centre tile is the result
-    # the article actually uses.
-    fig, (ax_l, ax, ax_r) = plt.subplots(
-        1, 3, figsize=(8.4, 9), dpi=300,
-        gridspec_kw={"width_ratios": [3, 5, 3], "wspace": 0.02},
-    )
+    # Single-hero composition: the v0_9 minority map fills the canvas.
+    # The earlier 3-tile version (v0_7 ghost / v0_9 hero / v0_8 ghost)
+    # was visually elegant but the per-VA texture and the line-drawing
+    # detail of the minority commission's choices need every pixel of
+    # the hero to read at print scale.
+    fig, ax = plt.subplots(figsize=(6.0, 9), dpi=300)
     fig.patch.set_facecolor(cover_ivory)
-    for _ax in (ax_l, ax, ax_r):
-        _ax.set_facecolor(cover_ivory)
-        _ax.set_aspect("equal")
-        _ax.axis("off")
-
-    # Ghosts at 90% of the hero height (5% padding above + below) so the
-    # eye reads them as supporting context to the centre piece, not as
-    # equal partners.
-    for _gax in (ax_l, ax_r):
-        bbox = _gax.get_position()
-        new_h = bbox.height * 0.90
-        new_y = bbox.y0 + (bbox.height - new_h) / 2
-        _gax.set_position([bbox.x0, new_y, bbox.width, new_h])
-
-    # Render the side-tile ghosts: outlines only, faint grey, no fill.
-    # Use the same shapely projection (3401) for visual continuity.
-    GHOST_LINE = "#000000"  # 80% black via alpha (darker, clearer ghosts)
-    GHOST_LW = 0.20
-    GHOST_ALPHA = 0.80
-    v07_path = DERIVED / "v0_7_canonical_minority_2026_eds.gpkg"
-    v08_path = DERIVED / "v0_8_full_refined_minority_2026_eds.gpkg"
-    if v07_path.exists():
-        v07 = gpd.read_file(v07_path).to_crs(3401)
-        v07.boundary.plot(ax=ax_l, color=GHOST_LINE,
-                          linewidth=GHOST_LW, alpha=GHOST_ALPHA)
-    if v08_path.exists():
-        v08 = gpd.read_file(v08_path).to_crs(3401)
-        v08.boundary.plot(ax=ax_r, color=GHOST_LINE,
-                          linewidth=GHOST_LW, alpha=GHOST_ALPHA)
+    ax.set_facecolor(cover_ivory)
+    ax.set_aspect("equal")
+    ax.axis("off")
 
     # Build the per-VA dataframe. Hue is determined by EACH VA's OWN 2023
     # partisan share (not the parent ED's average), so a UCP stronghold

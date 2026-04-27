@@ -197,16 +197,11 @@ cat("Pass criterion: R values within +/-0.5pp of corrected Python values.\n")
 # plan's districts is the per-plan summary; we keep the full per-district
 # values too so distributions can be inspected later.
 cat("Computing Polsby-Popper compactness across all plans...\n")
-pp_per_plan_district <- redistmetrics::comp_polsby(
-  plans = plan_matrix,
-  shp = va,
-  district_col = NULL,
-  perim_df = NULL,
-  use_Rcpp = TRUE
-)
-# pp_per_plan_district is a numeric vector of length (n_districts * n_plans);
-# reshape to (n_districts x n_plans) and average per plan.
-pp_matrix <- matrix(pp_per_plan_district, nrow = n_districts, ncol = n_plans)
+# redistmetrics::comp_polsby returns one value per (plan, district) pair
+# in a long vector. Pass plans as the matrix and shp as the sf object.
+pp_long <- redistmetrics::comp_polsby(plans = plan_matrix, shp = va)
+# Reshape to (n_districts x n_plans) and average per plan.
+pp_matrix <- matrix(pp_long, nrow = n_districts, ncol = n_plans)
 mean_pp_per_plan <- colMeans(pp_matrix)
 cat("Polsby-Popper distribution across plans:\n")
 cat("  median: ", round(median(mean_pp_per_plan), 4), "\n")

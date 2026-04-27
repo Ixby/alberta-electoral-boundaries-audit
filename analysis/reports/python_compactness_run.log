@@ -1,0 +1,48 @@
+[pp] loading VA polygons from C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\shapefiles\derived\va_polygons_with_2023_votes.gpkg
+[pp] 4765 VAs
+[pp] computing shared-boundary edge lengths...
+  va 0/4765 (0s)
+  va 500/4765 (2s)
+  va 1000/4765 (4s)
+  va 1500/4765 (5s)
+  va 2000/4765 (6s)
+  va 2500/4765 (7s)
+  va 3000/4765 (9s)
+  va 3500/4765 (9s)
+  va 4000/4765 (10s)
+  va 4500/4765 (10s)
+[pp] computed 13372 shared edges in 10s
+[pp] 13372 neighbour pairs serialised
+[pp] loading C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\data\v0_1_mcmc_verification_assignments.npz
+[pp] 10000 plans, 4765 VAs each
+[pp] computing Polsby-Popper for 10000 plans...
+  plan 0/10000 (48210/s, eta 0s)
+  plan 500/10000 (1162/s, eta 8s)
+  plan 1000/10000 (1229/s, eta 7s)
+  plan 1500/10000 (1264/s, eta 7s)
+  plan 2000/10000 (1330/s, eta 6s)
+  plan 2500/10000 (1393/s, eta 5s)
+  plan 3000/10000 (1413/s, eta 5s)
+  plan 3500/10000 (1439/s, eta 5s)
+  plan 4000/10000 (1453/s, eta 4s)
+  plan 4500/10000 (1462/s, eta 4s)
+  plan 5000/10000 (1477/s, eta 3s)
+  plan 5500/10000 (1485/s, eta 3s)
+  plan 6000/10000 (1494/s, eta 3s)
+  plan 6500/10000 (1497/s, eta 2s)
+  plan 7000/10000 (1504/s, eta 2s)
+  plan 7500/10000 (1507/s, eta 2s)
+  plan 8000/10000 (1528/s, eta 1s)
+  plan 8500/10000 (1540/s, eta 1s)
+  plan 9000/10000 (1507/s, eta 1s)
+  plan 9500/10000 (1502/s, eta 0s)
+[pp] done in 7s (1509 plans/s)
+[pp] wrote data\v0_1_python_recom_polsby_popper.csv
+
+=== Distribution summary ===
+  PP mean   median: 0.2501
+  PP mean   p5:     0.2380
+  PP mean   p95:    0.2645
+
+Falsification Test #2 (Python ReCom side):
+  N plans with s50 >= 0.4831: 0 of 10000

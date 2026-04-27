@@ -40,20 +40,122 @@ SEQUENTIAL MONTE CARLO
 Sampling 5000 4765-unit maps with 87 districts and population between 8036 and 13393.
 Split [0/86] ■                                | ETA?
 Split [1/86] ■                                | ETA 1h
-Split [2/86] ■■                               | ETA38m
+Split [2/86] ■■                               | ETA37m
 Split [3/86] ■■                               | ETA31m
-Split [4/86] ■■                               | ETA29m
-Split [5/86] ■■■                              | ETA27m
-Split [6/86] ■■■                              | ETA25m
-Split [7/86] ■■■                              | ETA23m
-Split [8/86] ■■■■                             | ETA22m
-Split [9/86] ■■■■                             | ETA21m
-Split [10/86] ■■■■                             | ETA20m
-Split [11/86] ■■■■■                            | ETA19m
-Split [12/86] ■■■■■                            | ETA19m
+Split [4/86] ■■                               | ETA27m
+Split [5/86] ■■■                              | ETA25m
+Split [6/86] ■■■                              | ETA23m
+Split [7/86] ■■■                              | ETA22m
+Split [8/86] ■■■■                             | ETA21m
+Split [9/86] ■■■■                             | ETA20m
+Split [10/86] ■■■■                             | ETA19m
+Split [11/86] ■■■■■                            | ETA18m
+Split [12/86] ■■■■■                            | ETA18m
 Split [13/86] ■■■■■■                           | ETA18m
 Split [14/86] ■■■■■■                           | ETA17m
 Split [15/86] ■■■■■■                           | ETA17m
 Split [16/86] ■■■■■■■                          | ETA16m
 Split [17/86] ■■■■■■■                          | ETA16m
-Split [18/86] ■■■■■■■                          | ETA16m
+Split [18/86] ■■■■■■■                          | ETA15m
+Split [19/86] ■■■■■■■■                         | ETA15m
+Split [20/86] ■■■■■■■■                         | ETA15m
+Split [21/86] ■■■■■■■■                         | ETA14m
+Split [22/86] ■■■■■■■■■                        | ETA14m
+Split [23/86] ■■■■■■■■■                        | ETA14m
+Split [24/86] ■■■■■■■■■                        | ETA14m
+Split [25/86] ■■■■■■■■■■                       | ETA13m
+Split [26/86] ■■■■■■■■■■                       | ETA13m
+Split [27/86] ■■■■■■■■■■                       | ETA13m
+Split [28/86] ■■■■■■■■■■■                      | ETA12m
+Split [29/86] ■■■■■■■■■■■                      | ETA12m
+Split [30/86] ■■■■■■■■■■■                      | ETA12m
+Split [31/86] ■■■■■■■■■■■■                     | ETA11m
+Split [32/86] ■■■■■■■■■■■■                     | ETA11m
+Split [33/86] ■■■■■■■■■■■■■                    | ETA11m
+Split [34/86] ■■■■■■■■■■■■■                    | ETA10m
+Split [35/86] ■■■■■■■■■■■■■                    | ETA10m
+Split [36/86] ■■■■■■■■■■■■■■                   | ETA10m
+Split [37/86] ■■■■■■■■■■■■■■                   | ETA10m
+Split [38/86] ■■■■■■■■■■■■■■                   | ETA 9m
+Split [39/86] ■■■■■■■■■■■■■■■                  | ETA 9m
+Split [40/86] ■■■■■■■■■■■■■■■                  | ETA 9m
+Split [41/86] ■■■■■■■■■■■■■■■                  | ETA 9m
+Split [42/86] ■■■■■■■■■■■■■■■■                 | ETA 8m
+Split [43/86] ■■■■■■■■■■■■■■■■                 | ETA 8m
+Split [44/86] ■■■■■■■■■■■■■■■■                 | ETA 8m
+Split [45/86] ■■■■■■■■■■■■■■■■■                | ETA 8m
+Split [46/86] ■■■■■■■■■■■■■■■■■                | ETA 7m
+Split [47/86] ■■■■■■■■■■■■■■■■■                | ETA 7m
+Split [48/86] ■■■■■■■■■■■■■■■■■■               | ETA 7m
+Split [49/86] ■■■■■■■■■■■■■■■■■■               | ETA 7m
+Split [50/86] ■■■■■■■■■■■■■■■■■■               | ETA 7m
+Split [51/86] ■■■■■■■■■■■■■■■■■■■              | ETA 6m
+Split [52/86] ■■■■■■■■■■■■■■■■■■■              | ETA 6m
+Split [53/86] ■■■■■■■■■■■■■■■■■■■              | ETA 6m
+Split [54/86] ■■■■■■■■■■■■■■■■■■■■             | ETA 6m
+Split [55/86] ■■■■■■■■■■■■■■■■■■■■             | ETA 5m
+Split [56/86] ■■■■■■■■■■■■■■■■■■■■■            | ETA 5m
+Split [57/86] ■■■■■■■■■■■■■■■■■■■■■            | ETA 5m
+Split [58/86] ■■■■■■■■■■■■■■■■■■■■■            | ETA 5m
+Split [59/86] ■■■■■■■■■■■■■■■■■■■■■■           | ETA 5m
+Split [60/86] ■■■■■■■■■■■■■■■■■■■■■■           | ETA 4m
+Split [61/86] ■■■■■■■■■■■■■■■■■■■■■■           | ETA 4m
+Split [62/86] ■■■■■■■■■■■■■■■■■■■■■■■          | ETA 4m
+Split [63/86] ■■■■■■■■■■■■■■■■■■■■■■■          | ETA 4m
+Split [64/86] ■■■■■■■■■■■■■■■■■■■■■■■          | ETA 4m
+Split [65/86] ■■■■■■■■■■■■■■■■■■■■■■■■         | ETA 3m
+Split [66/86] ■■■■■■■■■■■■■■■■■■■■■■■■         | ETA 3m
+Split [67/86] ■■■■■■■■■■■■■■■■■■■■■■■■         | ETA 3m
+Split [68/86] ■■■■■■■■■■■■■■■■■■■■■■■■■        | ETA 3m
+Split [69/86] ■■■■■■■■■■■■■■■■■■■■■■■■■        | ETA 3m
+Split [70/86] ■■■■■■■■■■■■■■■■■■■■■■■■■        | ETA 2m
+Split [71/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■       | ETA 2m
+Split [72/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■       | ETA 2m
+Split [73/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■       | ETA 2m
+Split [74/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■      | ETA 2m
+Split [75/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■      | ETA 2m
+Split [76/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■     | ETA 1m
+Split [78/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■     | ETA 1m
+Split [80/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■    | ETA 1m
+Split [82/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■   | ETA33s
+Split [85/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  | ETA 8s
+Split [86/86] ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  | ETA 0s
+
+Computing seats@50/50 across all 5000 ensemble plans...
+
+========================================
+  R cross-validation result
+========================================
+Ensemble size: 5000 plans (weighted)
+Effective sample size (importance-weighted): 2077 
+seats@50/50 distribution across ensemble (weighted):
+  median:     0.4943 
+  p5:         0.4483 
+  p95:        0.5057 
+  p99:        0.5172 
+  max:        0.5287 
+  weighted % >= 0.4831 (v0_9 minority):  57.9 %
+
+Python ensemble published values (post-audit reference):
+  See analysis/reports/v0_1_post_audit_recompute_deltas.md for the
+  corrected percentile placements from the 100k pre-registered
+  baseline ensemble. The earlier 2M exploratory enlargement was
+  cancelled in favour of the standard 100k after diagnostics
+  confirmed gold-standard convergence at much smaller sample sizes.
+
+  Buggy pre-audit 2M values, archived for delta comparison only:
+    median: 0.4483, p5: 0.4253, p95: 0.4828, max: 0.5172
+
+Pass criterion: R values within +/-0.5pp of corrected Python values.
+Computing Polsby-Popper compactness across all plans...
+Polsby-Popper distribution across plans:
+  median:  0.2357 
+  p5:      0.2288 
+  p95:     0.2468 
+Falsification Test #2 — does high-UCP-advantage need non-compact geometry?
+  N high-UCP plans (s50 >= 0.4831): 2762
+  Mean PP, high-UCP plans:  0.2391 (lower = less compact)
+  Mean PP, other plans:     0.2339
+  Difference: 0.0051  (negative => high-UCP plans ARE less compact)
+  Welch t-test p-value: 7.719e-234
+Wrote data/v0_1_redist_crossvalidation_s50.csv

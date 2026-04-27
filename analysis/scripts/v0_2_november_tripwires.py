@@ -1,0 +1,111 @@
+"""
+v0_2_november_tripwires.py
+====================================
+Pre-registered automated checks for the November 91-seat map.
+This script measures the exact Modus Operandi (MO) observed in the 
+2026 minority commission map to detect whether the Lunty committee 
+has deployed the same 'Surgical Fortification' tactics.
+
+Tripwires:
+1. Mid-Sized City Integrity (The Drain Pattern)
+2. Polsby-Popper Hybridization (The Lasso)
+"""
+
+import os
+import math
+import numpy as np
+import pandas as pd
+import geopandas as gpd
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.join(HERE, '..', '..')
+
+def calculate_polsby_popper(geometry):
+    """Calculate the Polsby-Popper compactness score (4*pi*Area / Perimeter^2)."""
+    area = geometry.area
+    perimeter = geometry.length
+    if perimeter == 0:
+        return 0
+    return (4 * math.pi * area) / (perimeter ** 2)
+
+def run_tripwires(eds_gdf_path, cities_gdf_path=None):
+    print("=" * 60)
+    print("  NOVEMBER 91-SEAT MAP TRIPWIRES")
+    print("=" * 60)
+    
+    eds = gpd.read_file(eds_gdf_path)
+    # Ensure a projected CRS for accurate area/perimeter calculations
+    if eds.crs is None or eds.crs.is_geographic:
+        eds = eds.to_crs(epsg=3401) # Alberta 10-TM
+    
+    print(f"Loaded {len(eds)} Electoral Districts.")
+
+    # ---------------------------------------------------------
+    # TRIPWIRE 1: Polsby-Popper / The Lasso Detection
+    # ---------------------------------------------------------
+    eds['polsby_popper'] = eds.geometry.apply(calculate_polsby_popper)
+    
+    # Bottom 10% compactness threshold
+    pp_threshold = eds['polsby_popper'].quantile(0.10)
+    
+    print("\n[Tripwire 1: The Lasso Pattern]")
+    print(f"Bottom 10% Polsby-Popper Threshold: {pp_threshold:.4f}")
+    
+    lassos = eds[eds['polsby_popper'] <= pp_threshold].copy()
+    print(f"Flagged {len(lassos)} highly non-compact districts.")
+    
+    if len(lassos) > 0:
+        for _, row in lassos.iterrows():
+            name = row.get('name_2026', row.get('ed_name', 'Unknown ED'))
+            print(f"  - {name} (PP: {row['polsby_popper']:.4f})")
+            
+    # ---------------------------------------------------------
+    # TRIPWIRE 2: Mid-Sized City Integrity (The Drain Pattern)
+    # ---------------------------------------------------------
+    print("\n[Tripwire 2: The Drain Pattern (City Splitting)]")
+    
+    if cities_gdf_path and os.path.exists(cities_gdf_path):
+        cities = gpd.read_file(cities_gdf_path)
+        cities = cities.to_crs(eds.crs)
+        
+        # We only care about mid-sized target cities (e.g. Red Deer, Lethbridge, Airdrie, St. Albert)
+        target_cities = ['Red Deer', 'Lethbridge', 'Airdrie', 'St. Albert', 'Medicine Hat']
+        cities = cities[cities['name'].isin(target_cities)]
+        
+        for _, city in cities.iterrows():
+            city_geom = city.geometry
+            city_name = city['name']
+            
+            # Find all EDs that intersect the city
+            intersections = eds[eds.geometry.intersects(city_geom)].copy()
+            
+            # Filter out tiny slivers (e.g. boundary floating point overlaps)
+            # Only count if the ED contains > 2% of the city's area
+            intersections['overlap_area'] = intersections.geometry.intersection(city_geom).area
+            intersections['overlap_pct'] = intersections['overlap_area'] / city_geom.area
+            valid_splits = intersections[intersections['overlap_pct'] > 0.02]
+            
+            num_splits = len(valid_splits)
+            
+            # Mathematical baseline: Population dictates # of seats. 
+            # Red Deer (~100k) needs 2 seats. Lethbridge (~100k) needs 2. Airdrie (~84k) needs 2.
+            # If a 2-seat city is split into 3 or 4 parts, it is being drained.
+            expected_seats = 2 # Simplified assumption for these mid-sized cities
+            
+            if num_splits > expected_seats:
+                print(f"  [RED ALERT] {city_name} is split into {num_splits} districts (Expected: {expected_seats}).")
+                for _, ed_row in valid_splits.iterrows():
+                    ed_name = ed_row.get('name_2026', ed_row.get('ed_name', 'Unknown'))
+                    print(f"    - {ed_name} captures {ed_row['overlap_pct']*100:.1f}% of the city.")
+            else:
+                print(f"  [PASS] {city_name} is kept intact ({num_splits} districts).")
+    else:
+        print("  (Skipping Mid-Sized City Integrity: No cities reference file provided.)")
+
+if __name__ == '__main__':
+    # Usage Example:
+    # run_tripwires(
+    #     eds_gdf_path=os.path.join(ROOT, 'data', 'v0_9_topological_majority_2026_eds.gpkg'),
+    #     cities_gdf_path=os.path.join(ROOT, 'data', 'shapefiles', 'reference', 'alberta_2021_csds.gpkg')
+    # )
+    pass
