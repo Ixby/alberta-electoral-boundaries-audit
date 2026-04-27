@@ -237,7 +237,7 @@ def build_cover_art() -> Path:
     #    centre heatmap (where within an ED the people actually are). The
     #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
     #    the 89-district structure remains visible.
-    cover_ivory = "#808080"  # 50% grey backdrop (was warm ivory #f5ede0)
+    cover_ivory = "#cccccc"  # 20% grey backdrop (lighter than 50% #808080)
     # Single-hero composition: the v0_9 minority map fills the canvas.
     # The earlier 3-tile version (v0_7 ghost / v0_9 hero / v0_8 ghost)
     # was visually elegant but the per-VA texture and the line-drawing
@@ -375,7 +375,7 @@ html, body {
   padding: 0;
   width: 8.5in;
   height: 11in;
-  background: #808080;        /* 50% grey full-bleed */
+  background: #cccccc;        /* 20% grey full-bleed */
   font-family: "Lora", Georgia, serif;
   color: #1a1a1a;
 }
@@ -384,7 +384,7 @@ html, body {
   position: relative;
   width: 8.5in;
   height: 10.95in;        /* 0.05in shy of letter to defeat Chrome's blank-page heuristic */
-  background: #808080;
+  background: #cccccc;
   overflow: hidden;
   padding: 0.7in 0.8in;
   box-sizing: border-box;
