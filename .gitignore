@@ -46,3 +46,9 @@ data/osm/*.json
 
 # Outreach emails — drafts and sent log; never committed (contain personal contact details)
 emails/
+
+# Scratch / scratchpad scripts at repo root (e.g. scratch_lassos.py).
+# These are PO working files / one-off probes — not part of the canonical
+# pipeline. Canonical scripts live under analysis/scripts/. Add specific
+# scratch files explicitly only if you want them tracked.
+/scratch_*.py

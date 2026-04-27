@@ -323,6 +323,8 @@ The minority commission map is not a sloppy, widespread gerrymander. It is a *su
 
 By strategically diluting urban voters into surrounding rural-edge districts (the "urban hybridization" pattern identified in Lane 2), the minority map engineers a structural firewall that maximises UCP seat retention in a tied election — pushing the map into the extreme top 1.5% of mathematical possibility — while keeping the overall provincial metrics looking completely innocent.
 
+The corrected 250k v0_9 ensemble bears this out empirically. Of the four standard partisan-fairness metrics, the minority sits near the median on three: efficiency gap (p56), mean-median (p53), declination (p62) — exactly where a "normal" Alberta map sits. Only the tipping-point metric `seats@50/50` registers the fortification, at p98.5 (top 1.5%). Three doors look untouched; one door is wedged shut. That asymmetry is the surgical-fortification fingerprint, and it is exactly the pattern the audit's methodological-defenses appendix predicts a hostile reviewer would otherwise miss: in a polarised two-party system with rigid geographic packing, the global metrics are mathematically numb to surgical micro-targeting.
+
 #### Confirmation from the targeted-procedure test
 
 To be sure this isn't a quirk of the neutral simulation's known compactness preference, the audit ran a targeted hill-climbing procedure (Cannon et al. 2022 — the standard tool in the redistricting-statistics literature for exploring biased-but-legal maps) in both directions: maximising UCP seats and maximising NDP seats. Same number of steps (40,000) in each direction, same statutory constraints, same provincial geometry.
@@ -334,7 +336,7 @@ To be sure this isn't a quirk of the neutral simulation's known compactness pref
 | Targeted hill-climb, UCP-maximizing | **52.9%** | What a procedure deliberately aiming for UCP advantage can reach |
 | Targeted hill-climb, NDP-maximizing | **37.9%** | What a procedure deliberately aiming for NDP advantage can reach (below the neutral floor) |
 
-The minority map's 48.3% sits closer to the targeted-UCP ceiling (52.9%) than to the neutral median (44.8%). The majority map's 46.1% sits at the neutral median. Two maps drawn under the same Alberta rules, by the same five commissioners, in the same room: one lands where neutral procedures routinely produce, the other lands where you have to specifically aim to land.
+The minority map's 48.3% sits closer to the targeted-UCP ceiling (52.9%) than to the neutral median (44.8%). The majority map's 46.1% sits at the neutral median. The 2019 enacted map and the 2026 majority sit at *identical* percentile on `seats@50/50` (both p78.6 against the v0_9 250k ensemble) — not because they record the same vote share, but because both fall well within what neutral procedure routinely produces. The majority continues 2019 Alberta practice on the partisan-fairness axis the same way it continues 2019 practice on municipal anchoring (71.0% vs 2019's 75.2%). Two doors closed in the same way; the minority is the one wedged shut. Two maps drawn under the same Alberta rules, by the same five commissioners, in the same room: one lands where neutral procedures routinely produce, the other lands where you have to specifically aim to land.
 
 *That* is the shape of the finding, and it is also the framing a court would actually apply.
 
