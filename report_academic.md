@@ -1770,6 +1770,8 @@ A separate methodological finding from the cross-validation: the R `redist` SMC 
 3. **Independent verification of the no-public-support claim (Section D).** Requires text-search of the commission's 1,140+ submission archive.
 4. **Full-symmetry visual audit for majority.** Requires majority-proposal Alberta overview, Edmonton, and other-cities map images.
 5. **2019-era population data.** Would permit A1/A2 symmetric analysis of the 2019 baseline alongside the two 2026 proposals.
+6. **Multiple Testing (Family-Wise Error Rate).** The audit evaluates five structural partisan-bias tests without a formal FWER correction (e.g., Bonferroni). With 5 tests at α = 0.05, the uncorrected FWER is ~22.6%. However, the minority map's `seats@50/50` result at p98.5 (p = 0.015) is sufficiently extreme that the qualitative finding of an outlier persists even when accounting for multiple comparisons.
+7. **Pre-Registration Authority.** While historical analyses rely on GitHub commit history for provenance (which lacks the strict immutability of third-party registries like OSF), the future evaluation of the November 91-seat map utilizes a cryptographically secure, third-party `drand` randomness beacon (Round 6062459, locked April 27, 2026) to establish true, immutable pre-registration before the data exists.
 
 
 ### 7.2 Falsifiability statement
