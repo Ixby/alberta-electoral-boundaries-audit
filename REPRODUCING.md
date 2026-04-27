@@ -198,6 +198,19 @@ The "where this audit falls short" honest self-assessment is in the public repor
 
 ---
 
+## Contributors and AI-tooling attribution
+
+This is a single-author audit (Will Conner, project author) executed with substantial assistance from two AI systems acting as adversarial collaborators:
+
+- **Claude Opus 4.7 (Anthropic)** — primary co-author for code, prose, hypothesis-tracker maintenance, and editorial work. Authored most commits; runs as the operating shell during analysis sessions.
+- **Google Gemini 3.1 Pro** — adversarial code reviewer and red-team author. Identified the Gemini-9 code audit findings (commit `73544a3`); authored the v0_9 topological VA-dissolve substrate (`analysis/scripts/topological_shape_resolution.py`); identified the Two-Party share + s15(2) freeze methodological flaws and implemented the initial fixes (commit `972b04a`); authored the methodological-defenses appendix (`analysis/methodology/v0_1_methodological_defenses.md`).
+
+**Attribution policy.** Every commit in this repo records its substantive co-author via `Co-Authored-By:` trailers. When a finding originated with one of the AI collaborators, the trailer names them — *not* as a deflection of authorial responsibility (the project author signs off on every change) but so a future reader can trace the provenance of any specific number, fix, or framing back to its source. This audit treats the AI tools as named external collaborators rather than invisible production infrastructure, in keeping with the audit's general transparency standard.
+
+The PO retains final editorial and methodological responsibility for everything in this repository.
+
+---
+
 ## Contact
 
 Will Conner — `wconn161@mtroyal.ca` (project author). For methodology questions, open a GitHub issue at <https://github.com/Ixby/alberta-electoral-boundaries-audit/issues>.
