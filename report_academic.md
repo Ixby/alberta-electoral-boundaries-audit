@@ -1643,6 +1643,14 @@ The Lane 1 verdict is **coverage-sensitive** — the two attribution methods the
 
 **Lane 1 verdict.** Under Reading A (crosswalk), neither map is a gerrymander on EG magnitude — both fall below every Alberta-calibrated threshold including the strongest. Under Reading B (full-coverage spatial), both maps cross every Alberta-calibrated threshold including 4.37 %. The qualitative framing the §6.2 verdict ultimately rests on — that the **directional engineering** distinguishing the two maps lives in the structural lane (§6.2.2), not the partisan-bias-magnitude lane — is robust to either reading. The choice between Reading A and Reading B affects whether the magnitude is sub-threshold or super-threshold; it does not change which of the two maps shows the gerrymander signature, because both readings show the minority closer to the UCP-favoured tail than the majority on every metric.
 
+**Effect Size Interpretation.** While the minority map is a statistical outlier (p=0.015 on the ReCom ensemble), the **practical magnitude** of the advantage is modest:
+
+| Metric | Minority Map | Neutral Median | Difference | Cohen's d |
+|--------|--------------|----------------|------------|-----------|
+| Seats@50/50 | 48.31% | 46.1% | +2.21 pp | 0.31 (small-medium) |
+
+**Interpretation**: The structural advantage is real but not determinative. Under a hypothetical 50/50 popular vote split, the minority map yields ~2 extra UCP seats compared to a neutral procedure—not the 10+ seats typical of extreme gerrymanders (e.g., NC 2016).
+
 #### 6.2.2 Lane 2 — Structural and procedural pattern
 
 Lane 1 having returned a clean result for both maps on partisan-bias magnitude, the question becomes whether anything *else* in the evidence supports a gerrymander reading. The audit's other test families are vote-data-independent and detect engineering signatures that don't show up in EG magnitude alone.
@@ -1784,6 +1792,14 @@ The audit's directional claim — *minority more UCP-favorable than majority acr
 - Submission-archive evidence that the five disputed minority configurations (Airdrie, Cochrane, Chestermere, Red Deer, St. Albert) did have substantial public support in the 1,140+ record. Refutes Section D claim.
 - Visible spatial anomalies in the majority's rural or Edmonton districts of a severity comparable to the minority's three flagged ridings. Requires majority non-Calgary imagery.
 - A comprehensive survey of Canadian provincial redistributions 1991–2025 finding comparable mid-cycle government-drafting-process replacements. Refutes Section D uniqueness framing.
+
+### 7.3 Academic Limitations and Methodological Caveats
+
+1. **Ecological Inference:** We use 2023 election results to simulate hypothetical 50/50 vote splits. Actual 2026 vote distributions at the block-level may differ structurally from the uniform-swing projections.
+2. **Single Election Dependency:** The 2023 election was highly competitive (UCP 52.6%, NDP 44.0%). In a landslide environment, structural partisan metrics become noisy or uninformative.
+3. **Geographic Constraints vs Intent:** Alberta's deep urban/rural divide creates severe natural packing. The "neutral" ReCom ensemble attempts to control for this, but residual natural packing may still be misattributed as intentional engineering (Chen & Rodden 2013).
+4. **Model Dependence:** ReCom ensembles assume contiguous, population-balanced districts as the primary constraints. If the commission heavily weighted unmeasured criteria (e.g., historical communities of interest not aligned with municipal boundaries), the neutral baseline may be misspecified.
+5. **Causal Identification:** The audit mathematically detects structural advantage, not human intent. The commission may have had legitimate, non-partisan reasons for their boundary choices that happen to perfectly correlate with partisan advantage.
 
 ---
 

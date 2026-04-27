@@ -1,0 +1,19 @@
+{
+  "alberta_2023_results.csv": {
+    "sha256": "3e9b28b7... (placeholder, to be generated)",
+    "source": "Elections Alberta Statement of Votes 2023",
+    "url": "https://results.elections.ab.ca/",
+    "retrieved": "2026-04-15",
+    "validation": "packing_cracking_analysis.py:assert_ndp_ucp"
+  },
+  "v0_9_topological_majority_2026_eds.gpkg": {
+    "sha256": "e8d9a1f5... (placeholder, to be generated)",
+    "provenance": "analysis/scripts/build_canonical_shapefiles.py -> topological_shape_resolution.py",
+    "parent_commit": "3484351"
+  },
+  "v0_9_topological_minority_2026_eds.gpkg": {
+    "sha256": "f2a1b3c4... (placeholder, to be generated)",
+    "provenance": "analysis/scripts/build_canonical_shapefiles.py -> topological_shape_resolution.py",
+    "parent_commit": "3484351"
+  }
+}
