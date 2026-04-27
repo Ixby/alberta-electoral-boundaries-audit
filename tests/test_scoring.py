@@ -232,8 +232,7 @@ def test_verification_subset_recompute_spot_check():
                 ucp_per_district[district_id] = ucp_per_district.get(district_id, 0.0) + ucp
                 ndp_per_district[district_id] = ndp_per_district.get(district_id, 0.0) + ndp
         except KeyError as e:
-            failures.append(f"step {step_idx}: lookup failed for va_id {e}")
-            continue
+            raise KeyError(f"Lookup failed for va_id {e} at step {step_idx}") from e
 
         n_dist = max(ucp_per_district.keys()) + 1
         ucp_arr = np.array([ucp_per_district.get(i, 0.0) for i in range(n_dist)])

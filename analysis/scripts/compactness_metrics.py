@@ -197,17 +197,14 @@ def compute_compactness(map_label: str, path: Path) -> List[Dict]:
 
     expected = EXPECTED_COUNTS.get(map_label, "?")
     actual = len(gdf)
-    if actual != expected:
-        print(
-            f"  [WARN] {map_label}: expected {expected} EDs, got {actual}",
-            file=sys.stderr,
-        )
+    if actual != expected and expected != "?":
+        raise ValueError(f"Map '{map_label}' expected {expected} EDs, got {actual}. Shapefile validation failed.")
 
     rows = []
     for _, row in gdf.iterrows():
         geom = row.geometry
         if geom is None or geom.is_empty:
-            continue
+            raise ValueError(f"Map '{map_label}' contains empty geometry for district '{row.get(name_col, 'Unknown')}'. Topology failure.")
         area_m2 = geom.area
         perimeter_m = geom.length
         pp = polsby_popper(area_m2, perimeter_m)

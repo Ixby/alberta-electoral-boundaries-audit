@@ -110,7 +110,7 @@ def compute_ed_metrics(votes: Dict[str, Tuple[int, int]]) -> pd.DataFrame:
     Returns a DataFrame with columns: ed, ndp, ucp, total,
     winner_party, losing_party, s, m.
 
-    s = (max_votes - (ceil(N/2)+1)) / N   (surplus rate of the losing party)
+    s = (max_votes - (math.floor(N/2)+1)) / N   (surplus rate of the winning party)
     m = |ndp - ucp| / N                   (winning margin)
     """
     rows = []
@@ -118,7 +118,7 @@ def compute_ed_metrics(votes: Dict[str, Tuple[int, int]]) -> pd.DataFrame:
         total = ndp + ucp
         if total == 0:
             continue
-        threshold = math.ceil(total / 2) + 1
+        threshold = math.floor(total / 2) + 1
         max_votes = max(ndp, ucp)
         min_votes = min(ndp, ucp)
         # Surplus: votes in excess of what was needed to win.
