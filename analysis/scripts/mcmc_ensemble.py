@@ -89,19 +89,13 @@ MAPS.mkdir(parents=True, exist_ok=True)
 
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 ED2019_PATH = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
-MIN_V6_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-MIN_V5_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-
-MAJ_V7_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
-MIN_V7_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-# v0_8 — perfecter pipeline output (full_refined preferred for 89/89
-# coverage from 2019-Tier-A inheritance fill; refined fallback if fill
-# not run; canonical fallback if refine not run, 2026-04-25)
-MAJ_V8_PATH = DATA / "shapefiles" / "derived" / "v0_8_full_refined_majority_2026_eds.gpkg"
-MIN_V8_PATH = DATA / "shapefiles" / "derived" / "v0_8_full_refined_minority_2026_eds.gpkg"
-MAJ_V8_CANON_PATH = DATA / "shapefiles" / "derived" / "v0_8_canonical_majority_2026_eds.gpkg"
-MIN_V8_CANON_PATH = DATA / "shapefiles" / "derived" / "v0_8_canonical_minority_2026_eds.gpkg"
+MAJ_PATH     = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+MIN_PATH     = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+# Legacy aliases kept so callers that import these names don't break
+MIN_V6_PATH  = MIN_PATH
+MIN_V5_PATH  = MIN_PATH
+MAJ_V7_PATH  = MAJ_PATH
+MIN_V7_PATH  = MIN_PATH
 
 SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples.csv"
 
@@ -567,13 +561,8 @@ def main(n_steps: int = 5000, seed: int = None):
     m_2019["votes_coverage_pct"] = 1.0
 
     m_maj = score_exogenous_map(va, MAJ_PATH)
-    # Prefer v6 if present; else v5.
-    if MIN_V6_PATH.exists():
-        m_min = score_exogenous_map(va, MIN_V6_PATH)
-        min_label = "minority 2026 v6 (approx)"
-    else:
-        m_min = score_exogenous_map(va, MIN_V5_PATH)
-        min_label = "minority 2026 v5 (approx)"
+    m_min = score_exogenous_map(va, MIN_PATH)
+    min_label = "minority 2026 v0_9 topological"
 
     print()
     print("  --- Real-map scores (pre-ensemble) ---")

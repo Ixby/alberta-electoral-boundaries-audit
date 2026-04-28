@@ -28,9 +28,9 @@ Run
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_generate_article_figures.py
 
 Dependencies
-  Forward  : data/v0_1_derived_v7_minority_2026_eds.gpkg,
-             data/alberta_2021_csds.gpkg,
-             data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
+  Forward  : data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg,
+             data/shapefiles/reference/alberta_2021_csds.gpkg,
+             data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   Backward : maps/article/figure_*_v3.png,
              analysis/reports/article_figures_v3.md,
              report_public.md (four figure references updated to _v3)
@@ -64,7 +64,7 @@ DATA = ROOT / "data"
 OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_MIN_V7 = DATA / "shapefiles" / "derived" / "v0_1_derived_v7_minority_2026_eds.gpkg"
+PATH_MIN_V7 = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
 PATH_CSDS = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
 
@@ -691,29 +691,36 @@ def draw_calgary(fig_path: Path) -> dict:
 # Figure specs
 
 def build_airdrie():
-    title = "Airdrie: one city, two partitions"
+    title = "Airdrie: one city, four partitions"
     subtitle = ("Population ~90,000. The majority draws two ridings both named Airdrie. "
-                "The minority draws three segments plus a rural carve-off.")
+                "The minority cuts the city into four pieces \u2014 one per compass direction \u2014 "
+                "each attached to a different surrounding district.")
     maj_segments = [
         Segment("Airdrie-East", MAJORITY_SEGMENT_COLORS[0], proportion=1.0),
         Segment("Airdrie-West", MAJORITY_SEGMENT_COLORS[1], proportion=1.0),
     ]
+    # Four minority segments, one per quadrant of the city:
+    #   south -> Calgary-Airdrie, west -> Calgary-Foothills-Airdrie West,
+    #   north -> Calgary-Nolan Hill-Cochrane, east -> Airdrie East
     min_segments = [
+        Segment("Calgary-Airdrie", MINORITY_SEGMENT_COLORS[3],
+                sublabel="south", proportion=1.0),
         Segment("Airdrie East", MINORITY_SEGMENT_COLORS[0],
-                sublabel="city core", proportion=1.0),
+                sublabel="east", proportion=1.0),
+        Segment("Calgary-Nolan Hill-Cochrane", MINORITY_SEGMENT_COLORS[2],
+                sublabel="north", proportion=1.0),
         Segment("Calgary-Foothills-Airdrie West", MINORITY_SEGMENT_COLORS[1],
-                sublabel="shared with Calgary", proportion=1.0),
-        Segment("Olds-Three Hills-Didsbury", COLOR_RURAL,
-                sublabel="rural reach", proportion=0.45, is_rural_carve=True),
+                sublabel="west", proportion=1.0),
     ]
-    caption = ("The minority splits Airdrie into three segments: one named Airdrie, one shared with Calgary, "
-               "and one attached to a rural district reaching north. Only one of the three is named Airdrie alone.")
+    caption = ("The minority cuts Airdrie into four pieces, each attached to a different surrounding district. "
+               "Only one of the four is named Airdrie alone; the other three carry Calgary or regional names. "
+               "The majority draws two compact ridings, both named Airdrie.")
     draw_schematic(
         OUT / "figure_airdrie_v3.png",
         title=title, subtitle=subtitle,
         maj_label="Majority proposal  \u00b7  2 ridings, both named Airdrie",
         maj_segments=maj_segments,
-        min_label="Minority proposal  \u00b7  3 segments, only one named Airdrie",
+        min_label="Minority proposal  \u00b7  4 segments, only one named Airdrie",
         min_segments=min_segments,
         caption=caption,
     )

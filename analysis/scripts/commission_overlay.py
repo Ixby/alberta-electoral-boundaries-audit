@@ -54,19 +54,11 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest (metres, no false easting)
 
-# Prefer v0_8 full_refined (89/89), then refined, then canonical, then v0_7
 def _gpkg(version_label: str, plan: str) -> Path:
-    candidates = [
-        DATA / "shapefiles" / "derived" / f"v0_8_full_refined_{plan}_2026_eds.gpkg",
-        DATA / "shapefiles" / "derived" / f"v0_8_refined_{plan}_2026_eds.gpkg",
-        DATA / "shapefiles" / "derived" / f"v0_8_canonical_{plan}_2026_eds.gpkg",
-        DATA / "shapefiles" / "derived" / f"v0_1_derived_v8_{plan}_2026_eds.gpkg",
-        DATA / "shapefiles" / "derived" / f"v0_1_derived_v7_{plan}_2026_eds.gpkg",
-    ]
-    for p in candidates:
-        if p.exists():
-            return p
-    raise FileNotFoundError(f"No gpkg found for {plan}")
+    p = DATA / "shapefiles" / "derived" / f"v0_9_topological_{plan}_2026_eds.gpkg"
+    if not p.exists():
+        raise FileNotFoundError(f"v0_9 gpkg not found for {plan}: {p}")
+    return p
 
 # ---------------------------------------------------------------------------
 # Geographic extents in EPSG:3401 metres

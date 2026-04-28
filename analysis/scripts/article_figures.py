@@ -71,57 +71,56 @@ plt.rcParams.update({
 
 
 def build_lane1_dotplot() -> Path:
-    """Lane 1 EG dot plot — both 2026 maps placed against two reference
-    lines: the audit's Alberta-calibrated 4.37% line and the academic-
-    literature US 7% line."""
+    """Lane 1 EG dot plot — v0_9 substrate values against two reference
+    lines: the audit's Alberta-calibrated p95 (~4%) and the US 7% line."""
     fig, ax = plt.subplots(figsize=(6.4, 2.6), dpi=300)
 
-    alberta_line = 5.00
+    # v0_9 topological substrate canonical values (final_real_map_scores.json)
+    alberta_line = 4.03   # ensemble p95 from simulated_ensemble_percentiles_250k.csv
     us_line = 7.00
-    # Map colour convention: majority = purple, minority = green
     rows = [
-        ("Majority 2026", 6.43, MAJORITY_PURPLE),
-        ("Minority 2026", 9.21, MINORITY_GREEN),
+        ("Majority 2026", 1.44, MAJORITY_PURPLE),
+        ("Minority 2026", 1.75, MINORITY_GREEN),
     ]
 
     y_positions = [1, 0]
     for (label, full, color), y in zip(rows, y_positions):
         ax.plot(full, y, "o", markersize=12, color=color,
                 markeredgecolor=TEXT_DARK, markeredgewidth=0.6, zorder=4)
-        ax.text(-7.5, y, label, ha="left", va="center", fontsize=9,
+        ax.text(-4.5, y, label, ha="left", va="center", fontsize=9,
                 color=TEXT_DARK, fontweight="bold")
         ax.text(full, y - 0.32, f"{full:+.2f}%", ha="center", va="top",
                 fontsize=8, color=TEXT_DARK, fontweight="bold")
 
-    # Alberta-calibrated threshold line (audit's, more demanding)
+    # Alberta-calibrated threshold line (ensemble p95)
     ax.axvline(alberta_line, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=1)
-    ax.text(alberta_line + 0.15, 1.85, f"Alberta line\n{alberta_line}%",
+    ax.text(alberta_line + 0.15, 1.85, "Alberta line\n~4%",
             color=THRESHOLD_RED, fontsize=7, fontweight="bold",
             ha="left", va="top", linespacing=1.0)
 
     # US 7% line (Whitford v. Gill literature reference)
     ax.axvline(us_line, color="#888888", lw=0.9, linestyle=":", zorder=1)
-    ax.text(us_line + 0.15, 1.85, f"US line\n{us_line}%",
+    ax.text(us_line + 0.15, 1.85, "US line\n7%",
             color="#666666", fontsize=7, fontweight="bold",
             ha="left", va="top", linespacing=1.0)
 
     # Zero line for reference
     ax.axvline(0, color="#cccccc", lw=0.5, zorder=0)
 
-    # Tail labels (ASCII arrows for cross-platform font safety)
-    ax.text(-9.5, 1.85, "<- NDP-favoured", color=NDP_ORANGE,
+    # Tail labels
+    ax.text(-4.8, 1.85, "<- NDP-favoured", color=NDP_ORANGE,
             fontsize=7, fontweight="bold", ha="left", va="top")
-    ax.text(11.0, 1.85, "UCP-favoured ->", color=UCP_BLUE,
+    ax.text(9.5, 1.85, "UCP-favoured ->", color=UCP_BLUE,
             fontsize=7, fontweight="bold", ha="right", va="top")
 
-    # Axes
-    ax.set_xlim(-10, 11)
+    # Axes — tighter x-range: both dots are under 2%; reference lines at 4% and 7%
+    ax.set_xlim(-5, 10)
     ax.set_ylim(-0.7, 2.1)
     ax.set_yticks([])
     ax.set_xlabel("Efficiency gap (signed; positive = UCP-favoured)",
                   fontsize=8, color="#444")
-    ax.set_xticks([-10, -5, 0, 5, 10])
-    ax.set_xticklabels(["-10%", "-5%", "0%", "+5%", "+10%"])
+    ax.set_xticks([-4, -2, 0, 2, 4, 6, 8])
+    ax.set_xticklabels(["-4%", "-2%", "0%", "+2%", "+4%", "+6%", "+8%"])
     ax.tick_params(axis="x", direction="out", length=3, pad=2)
 
     fig.tight_layout(pad=0.3)
@@ -133,93 +132,100 @@ def build_lane1_dotplot() -> Path:
 
 
 def build_lane2_bars() -> Path:
-    """Lane 2 horizontal bar chart — magnitude of each structural test
-    plotted as majority vs minority side-by-side, normalised so larger
-    = more concerning."""
-    fig, ax = plt.subplots(figsize=(6.4, 4.0), dpi=300)
+    """Lane 2 structural tests — small-multiples layout.
 
-    # Each row: (label, majority_value, minority_value, threshold_val,
-    #            normalisation_max_for_visual_scale)
-    # We plot bars normalised to [0, 1] where 1 = at-or-beyond
-    # the most extreme observed value (visually consistent comparison).
+    Each test gets its own panel with an independent x-axis so that bars
+    for different-unit tests (percentage-points, percent, raw counts) are
+    never placed on a shared scale that implies false comparison.
+    """
+    # (label, majority_value, minority_value, threshold_val_or_None,
+    #  x_max, x_unit_label)
     tests = [
-        ("Anchoring departure from norm",   29.0, 55.5, 0,    60),  # pp below 70-85 norm
-        ("Population spread (MAD widening %)", 0,  48.0, 0,   60),
-        ("NW Calgary excess (% over avg)",   0.4, 12.2, 5,    15),
-        ("Chair-flagged anomalies",          0,    3,   1,     5),
-        ("Airdrie pieces (over min 2)",      0,    2,   0,     3),
-        ("Structural-irregularity count (of 5)", 0, 5,  4,     5),
+        ("Municipal anchoring\ndeparture from norm",
+         29.0, 55.5, None,  65, "pp below the 70–85 pp norm"),
+        ("Population spread\n(MAD widening)",
+         0,    48.0, None,  55, "% widening relative to ensemble"),
+        ("NW Calgary district size\nexcess over average",
+         0.4,  12.2, 5,    16, "% above provincial average"),
+        ("Chair-flagged\nanomalies",
+         0,     3,   1,     5, "count"),
+        ("Airdrie city splits\n(above minimum of 2)",
+         0,     2,   0,     3, "additional splits"),
+        ("Structural-irregularity\nscore (of 5 tests)",
+         0,     5,   4,     5.5, "tests failing"),
     ]
 
     n = len(tests)
-    y = np.arange(n)
-    bar_h = 0.36
+    fig, axes = plt.subplots(n, 1, figsize=(6.4, 6.8), dpi=300,
+                             gridspec_kw={"hspace": 0.55})
+    fig.patch.set_facecolor("white")
 
-    for i, (label, maj, mino, threshold, vmax) in enumerate(tests):
-        # Majority bar (top, purple)
-        ax.barh(y[i] + bar_h/2, maj, height=bar_h,
-                color=MAJORITY_PURPLE, alpha=0.9, edgecolor="none", zorder=2)
-        # Minority bar (bottom, green)
-        ax.barh(y[i] - bar_h/2, mino, height=bar_h,
-                color=MINORITY_GREEN, alpha=0.9, edgecolor="none", zorder=2)
-        # Threshold line for this row
-        if threshold > 0:
-            ax.plot([threshold, threshold],
-                    [y[i] - bar_h - 0.05, y[i] + bar_h + 0.05],
-                    color=THRESHOLD_RED, lw=0.8, linestyle="--", zorder=3)
-        # Value labels
-        ax.text(maj + vmax * 0.015, y[i] + bar_h/2, str(maj) if maj else "—",
-                va="center", ha="left", fontsize=7, color=TEXT_DARK)
-        ax.text(mino + vmax * 0.015, y[i] - bar_h/2,
-                f"{mino}" if isinstance(mino, int) else f"{mino:g}",
-                va="center", ha="left", fontsize=7,
+    bar_h = 0.55
+
+    for ax, (label, maj, mino, threshold, xmax, unit) in zip(axes, tests):
+        ax.set_facecolor("white")
+        for spine in ("top", "right", "left"):
+            ax.spines[spine].set_visible(False)
+        ax.spines["bottom"].set_color("#aaaaaa")
+        ax.spines["bottom"].set_linewidth(0.6)
+
+        # Majority bar (y=1, purple)
+        ax.barh(1, maj, height=bar_h, color=MAJORITY_PURPLE, alpha=0.9,
+                edgecolor="none", zorder=2)
+        # Minority bar (y=0, green)
+        ax.barh(0, mino, height=bar_h, color=MINORITY_GREEN, alpha=0.9,
+                edgecolor="none", zorder=2)
+
+        # Threshold line
+        if threshold is not None:
+            ax.axvline(threshold, color=THRESHOLD_RED, lw=1.0,
+                       linestyle="--", zorder=3)
+
+        # Value annotations on bar end
+        offset = xmax * 0.02
+        ax.text(max(maj, 0) + offset, 1, f"{maj:g}",
+                va="center", ha="left", fontsize=7.5, color=TEXT_DARK)
+        label_mino = f"{mino:g}" if isinstance(mino, float) else str(mino)
+        ax.text(max(mino, 0) + offset, 0, label_mino,
+                va="center", ha="left", fontsize=7.5,
                 color=TEXT_DARK, fontweight="bold")
-        # Test label on the left, with a numeric x-axis for that row
-        # (each row has its own scale conceptually but we use a shared
-        # 0-to-vmax visual range per row by clipping x-limits per row —
-        # a true small-multiples layout)
 
-    # We're using a single shared x scale of 0..60 for visual coherence.
-    # Notes: the population MAD widening % and anchoring departure are
-    # both plotted against percent-points, which share the 60% scale.
-    # Smaller-scale rows (chair flags, Airdrie pieces, structural count)
-    # plot at near-zero on this scale and look minimal — we add a
-    # secondary annotation column on the right for those.
+        ax.set_xlim(0, xmax)
+        ax.set_ylim(-0.5, 1.7)
+        ax.set_yticks([0, 1])
+        ax.set_yticklabels(["Minority", "Majority"], fontsize=7.5,
+                           color=TEXT_DARK)
+        ax.tick_params(axis="y", length=0, pad=3)
+        ax.tick_params(axis="x", direction="out", length=3, labelsize=7,
+                       colors="#555555")
+        ax.set_xlabel(unit, fontsize=7, color="#666666", labelpad=2)
+        ax.set_title(label, fontsize=8.5, fontweight="bold",
+                     color=TEXT_DARK, loc="left", pad=3, linespacing=1.2)
 
-    ax.set_yticks(y)
-    ax.set_yticklabels([t[0] for t in tests], fontsize=8, color=TEXT_DARK)
-    ax.invert_yaxis()
-    ax.set_xlim(0, 60)
-    ax.set_xlabel("Magnitude (units vary per row — see test name)",
-                  fontsize=8, color="#666", style="italic")
-    ax.set_xticks([0, 15, 30, 45, 60])
-    ax.set_xticklabels(["0", "15", "30", "45", "60"], fontsize=7)
-
-    # Title
-    ax.set_title("Structural-irregularity tests: majority vs minority",
-                 fontsize=10, fontweight="bold", loc="left",
-                 color=TEXT_DARK, pad=8)
-
-    # Legend
+    # Shared legend at top of figure
     legend_elements = [
         mpatches.Patch(facecolor=MAJORITY_PURPLE, alpha=0.9, label="Majority 2026"),
         mpatches.Patch(facecolor=MINORITY_GREEN, alpha=0.9, label="Minority 2026"),
-        plt.Line2D([0], [0], color=THRESHOLD_RED, lw=0.8, linestyle="--",
-                   label="Threshold for that test"),
+        plt.Line2D([0], [0], color=THRESHOLD_RED, lw=0.9, linestyle="--",
+                   label="Pass/fail threshold"),
     ]
-    ax.legend(handles=legend_elements, loc="lower right",
-              fontsize=7.5, frameon=False, handletextpad=0.5)
+    fig.legend(handles=legend_elements, loc="upper right",
+               fontsize=7.5, frameon=False, ncol=3,
+               bbox_to_anchor=(0.98, 1.01), handletextpad=0.4, columnspacing=1.0)
 
-    fig.tight_layout(pad=0.3)
+    fig.suptitle("Structural-irregularity tests: majority vs minority",
+                 fontsize=10, fontweight="bold", x=0.04, ha="left", y=1.02,
+                 color=TEXT_DARK)
+
     out = OUT / "lane2_bars.png"
-    fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.04,
+    fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.08,
                 facecolor="white")
     plt.close(fig)
     return out
 
 
-def build_verdict_quadrant() -> Path:
-    """The verdict in one chart — the article's primary rhetorical
+def build_bias_structure_matrix() -> Path:
+    """The Bias-Structure Matrix — the article's primary rhetorical
     visual. Two-axis plot:
       x = Lane 1 efficiency gap (signed %; v0_8 full coverage, Run #6 2M MCMC)
       y = Lane 2 structural-irregularity count (of 5 pre-registered tests)
@@ -231,18 +237,18 @@ def build_verdict_quadrant() -> Path:
     fig, ax = plt.subplots(figsize=(6.8, 5.2), dpi=300)
     fig.subplots_adjust(top=0.86, bottom=0.16, left=0.13, right=0.97)
 
-    # Three real maps
+    # Three real maps — v0_9 topological substrate canonical values
     points = [
         ("2019 enacted",  2.41, 0,   NEUTRAL_2019),
-        ("Majority 2026", 6.43, 0,   MAJORITY_PURPLE),
-        ("Minority 2026", 9.21, 5,   MINORITY_GREEN),
+        ("Majority 2026", 1.44, 0,   MAJORITY_PURPLE),
+        ("Minority 2026", 1.75, 5,   MINORITY_GREEN),
     ]
 
-    threshold_eg_alberta = 5.0
+    threshold_eg_alberta = 4.03   # ensemble p95 (simulated_ensemble_percentiles_250k.csv)
     threshold_eg_us = 7.0
     threshold_struct = 4
 
-    XMIN, XMAX = -2, 12
+    XMIN, XMAX = -1, 9
     YMIN, YMAX = -0.6, 5.7
 
     # Quadrant shading: gradient from clean (no shade) to both-lane outlier (deep)
@@ -288,10 +294,13 @@ def build_verdict_quadrant() -> Path:
 
     # Corner annotations — lightweight, low-contrast text in each
     # quadrant so the reader knows what each corner means
-    ax.text(XMIN + 0.3, YMIN + 0.15, "clean on both lanes",
+    ax.text(XMIN + 0.15, YMIN + 0.15, "clean on both lanes",
             color="#7a7066", fontsize=8, fontstyle="italic",
             ha="left", va="bottom")
-    ax.text(XMAX - 0.2, YMAX - 0.6, "DANGER ZONE\nboth lanes flag the map",
+    ax.text(XMIN + 0.15, YMAX - 0.2, "structural outlier\n(Lane 2 only)",
+            color="#9a3340", fontsize=8, fontstyle="italic",
+            ha="left", va="top", linespacing=1.15)
+    ax.text(XMAX - 0.15, YMAX - 0.2, "DANGER ZONE\nboth lanes flag",
             color="#9a3340", fontsize=8.5, fontweight="bold",
             ha="right", va="top", linespacing=1.15)
 
@@ -303,14 +312,14 @@ def build_verdict_quadrant() -> Path:
         ax.scatter(x, y, s=240, c=color, edgecolors=TEXT_DARK,
                    linewidths=1.4, zorder=4)
 
-    # Per-dot labels — placed to avoid overlap, with values shown
+    # Per-dot labels — placed to avoid overlap, with v0_9 values shown
     label_specs = {
-        "2019 enacted":  ((-0.5, -0.42), "right", "top",
+        "2019 enacted":  ((+0.3, -0.42), "left", "top",
                           "+2.4% / 0 of 5"),
-        "Majority 2026": ((+0.5, -0.42), "left", "top",
-                          "+6.4% / 0 of 5"),
-        "Minority 2026": ((-0.5, -0.18), "right", "top",
-                          "+9.2% / 5 of 5"),
+        "Majority 2026": ((+0.3, +0.25), "left", "bottom",
+                          "+1.4% / 0 of 5"),
+        "Minority 2026": ((-0.3, -0.18), "right", "top",
+                          "+1.8% / 5 of 5"),
     }
     for label, x, y, color in points:
         (ox, oy), ha, va, val = label_specs[label]
@@ -328,8 +337,9 @@ def build_verdict_quadrant() -> Path:
                   fontsize=9.5, color=TEXT_DARK, labelpad=8, linespacing=1.2)
     ax.set_ylabel("Lane 2: Structural-irregularity count (of 5)\nhigher = more structural problems",
                   fontsize=9.5, color=TEXT_DARK, labelpad=8, linespacing=1.2)
-    ax.set_xticks([-2, 0, 2, 4, 6, 8, 10, 12])
-    ax.set_xticklabels(["-2%", "0%", "+2%", "+4%", "+6%", "+8%", "+10%", "+12%"],
+    ax.set_xticks([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    ax.set_xticklabels(["-1%", "0%", "+1%", "+2%", "+3%", "+4%",
+                        "+5%", "+6%", "+7%", "+8%", "+9%"],
                        fontsize=8.5)
     ax.set_yticks([0, 1, 2, 3, 4, 5])
     ax.tick_params(axis="both", direction="out", length=4, pad=3,
@@ -340,7 +350,7 @@ def build_verdict_quadrant() -> Path:
         ax.spines[spine].set_color("#888888")
         ax.spines[spine].set_linewidth(0.7)
 
-    ax.set_title("The verdict in one chart",
+    ax.set_title("The Bias-Structure Matrix",
                  fontsize=12.5, fontweight="bold", loc="left",
                  color=TEXT_DARK, pad=14)
     ax.text(XMIN, YMAX + 0.55,
@@ -348,9 +358,12 @@ def build_verdict_quadrant() -> Path:
             ha="left", va="bottom", fontsize=8.5, color="#555555",
             style="italic")
 
-    out = OUT / "verdict_quadrant.png"
+    out = OUT / "bias_structure_matrix.png"
     fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.10,
                 facecolor="white")
+    # verdict_quadrant.png is the article-facing name for this chart
+    fig.savefig(OUT / "verdict_quadrant.png", dpi=300,
+                bbox_inches="tight", pad_inches=0.10, facecolor="white")
     plt.close(fig)
     return out
 
@@ -362,7 +375,7 @@ def main() -> int:
     print(f"  [ok] {p1.relative_to(ROOT)}")
     p2 = build_lane2_bars()
     print(f"  [ok] {p2.relative_to(ROOT)}")
-    p3 = build_verdict_quadrant()
+    p3 = build_bias_structure_matrix()
     print(f"  [ok] {p3.relative_to(ROOT)}")
     print("[article figures] done -- embed via standard markdown image syntax")
     return 0
