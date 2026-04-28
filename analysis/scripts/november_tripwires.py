@@ -9,7 +9,6 @@ has deployed the same 'Surgical Fortification' tactics.
 
 Tripwires:
 1. Mid-Sized City Integrity (The Drain Pattern)
-2. Polsby-Popper Hybridization (The Lasso)
 """
 
 import os
@@ -29,7 +28,10 @@ def run_tripwires(eds_gdf_path, cities_gdf_path=None):
     eds = gpd.read_file(eds_gdf_path)
     # Ensure a projected CRS for accurate area/perimeter calculations
     if eds.crs is None or eds.crs.is_geographic:
+        print("Warning: Map is not projected. Reprojecting to Alberta 10-TM for area calculations.")
         eds = eds.to_crs(epsg=3401) # Alberta 10-TM
+    elif eds.crs.to_epsg() != 3401:
+        raise ValueError(f"Expected shapefile to be in Alberta 10-TM (EPSG:3401), but found EPSG:{eds.crs.to_epsg()}. November map must use authoritative CRS.")
     
     print(f"Loaded {len(eds)} Electoral Districts.")
 
@@ -44,7 +46,17 @@ def run_tripwires(eds_gdf_path, cities_gdf_path=None):
         
         # We only care about mid-sized target cities (e.g. Red Deer, Lethbridge, Airdrie, St. Albert)
         target_cities = ['Red Deer', 'Lethbridge', 'Airdrie', 'St. Albert', 'Medicine Hat']
-        cities = cities[cities['name'].isin(target_cities)]
+        # Use substring matching to avoid failing on "City of Red Deer" or "Red Deer (CY)"
+        cities = cities[cities['name'].str.contains('|'.join(target_cities), case=False, na=False)]
+        
+        # 2023 Population estimates for dynamic calculation
+        city_populations = {
+            'Red Deer': 100844,
+            'Lethbridge': 101482,
+            'Airdrie': 80649,
+            'St. Albert': 68232,
+            'Medicine Hat': 63260
+        }
         
         for _, city in cities.iterrows():
             city_geom = city.geometry
@@ -62,9 +74,10 @@ def run_tripwires(eds_gdf_path, cities_gdf_path=None):
             num_splits = len(valid_splits)
             
             # Mathematical baseline: Population dictates # of seats. 
-            # Red Deer (~100k) needs 2 seats. Lethbridge (~100k) needs 2. Airdrie (~84k) needs 2.
-            # If a 2-seat city is split into 3 or 4 parts, it is being drained.
-            expected_seats = 2 # Simplified assumption for these mid-sized cities
+            # Alberta's 91-seat average electoral quotient is ~51,648.
+            clean_name = next((t for t in target_cities if t.lower() in city_name.lower()), city_name)
+            pop = city_populations.get(clean_name, 50000)
+            expected_seats = math.ceil(pop / 51648.0)
             
             if num_splits > expected_seats:
                 print(f"  [RED ALERT] {city_name} is split into {num_splits} districts (Expected: {expected_seats}).")

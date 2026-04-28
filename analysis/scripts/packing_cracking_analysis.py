@@ -75,14 +75,10 @@ from typing import Dict, List, Optional, Tuple
 def _find_data(filename: str) -> str:
     here = Path(__file__).resolve().parent
     # Script lives at <repo>/analysis/scripts/, so '../../data' = <repo>/data
-    for p in [here.parent.parent / 'data' / filename,
-              here.parent / 'data' / filename,
-              here / 'data' / filename,
-              Path('data') / filename,
-              Path(filename)]:
-        if p.exists():
-            return str(p)
-    raise FileNotFoundError(filename)
+    p = here.parent.parent / 'data' / filename
+    if p.exists():
+        return str(p)
+    raise FileNotFoundError(f"Missing required data file: {p}")
 
 
 def load_2023_results() -> List[Dict]:
