@@ -55,9 +55,9 @@ OUT.mkdir(parents=True, exist_ok=True)
 CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest (metres, no false easting)
 
 def _gpkg(version_label: str, plan: str) -> Path:
-    p = DATA / "shapefiles" / "derived" / f"v0_9_topological_{plan}_2026_eds.gpkg"
+    p = DATA / "shapefiles" / "derived" / f"v0_10_topological_{plan}_2026_eds.gpkg"
     if not p.exists():
-        raise FileNotFoundError(f"v0_9 gpkg not found for {plan}: {p}")
+        raise FileNotFoundError(f"v0_10 gpkg not found for {plan}: {p}")
     return p
 
 # ---------------------------------------------------------------------------

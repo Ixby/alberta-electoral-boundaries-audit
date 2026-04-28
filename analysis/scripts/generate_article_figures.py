@@ -28,7 +28,7 @@ Run
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_generate_article_figures.py
 
 Dependencies
-  Forward  : data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg,
+  Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg,
              data/shapefiles/reference/alberta_2021_csds.gpkg,
              data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   Backward : maps/article/figure_*_v3.png,
@@ -64,7 +64,7 @@ DATA = ROOT / "data"
 OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_MIN_V7 = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+PATH_MIN_V7 = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
 PATH_CSDS = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
 

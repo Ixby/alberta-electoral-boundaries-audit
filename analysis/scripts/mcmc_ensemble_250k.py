@@ -74,8 +74,8 @@ MAPS.mkdir(parents=True, exist_ok=True)
 
 # v0_9 topological substrate — canonical per PO directive (2026-04-26).
 # No fallback: if these are missing, the run fails fast.
-MAJ_V9_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
-MIN_V9_PATH = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+MAJ_V9_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
+MIN_V9_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
 
 SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples_250k.csv"
 SCORES_JSON = DATA / "simulation_real_map_scores_250k.json"

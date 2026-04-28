@@ -1,0 +1,591 @@
+[
+  {
+    "id": "Minority_Cracking_Calgary-Shaw",
+    "type": "Cracking",
+    "title": "How They Changed Calgary-Shaw",
+    "desc": "Cracking: Dividing a cohesive community across multiple districts to dilute their voting power.",
+    "voter_impact": "If you lived in Calgary-Shaw, your neighborhood was shattered across 3 different boundaries.",
+    "bounds": [
+      -114.1001148633841,
+      50.848420556795126,
+      -113.9720941262495,
+      50.91404317371818
+    ],
+    "old_stats": {
+      "ucp": 58.36885068265549,
+      "ndp": 41.63114931734451,
+      "margin": 16.737701365310983,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 13843.0
+    },
+    "new_stats": {
+      "ucp": 55.218899749137016,
+      "ndp": 44.781100250862984,
+      "margin": 10.437799498274032,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 22035.364285714284
+    },
+    "target": "Calgary-Shaw",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Cracking_Edmonton-West_Henday",
+    "type": "Cracking",
+    "title": "How They Changed Edmonton-West Henday",
+    "desc": "Cracking: Dividing a cohesive community across multiple districts to dilute their voting power.",
+    "voter_impact": "If you lived in Edmonton-West Henday, your neighborhood was shattered across 3 different boundaries.",
+    "bounds": [
+      -113.71380168988613,
+      53.51211447626728,
+      -113.51644500825303,
+      53.59970519822811
+    ],
+    "old_stats": {
+      "ucp": 43.80811322307249,
+      "ndp": 56.191886776927504,
+      "margin": 12.383773553855015,
+      "winner": "NDP",
+      "safety": "Lean",
+      "total": 12153.0
+    },
+    "new_stats": {
+      "ucp": 45.12718025322485,
+      "ndp": 54.87281974677515,
+      "margin": 9.7456394935503,
+      "winner": "NDP",
+      "safety": "Lean",
+      "total": 30280.95
+    },
+    "target": "Edmonton-West Henday",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Cracking_Strathcona-Sherwood_Park",
+    "type": "Cracking",
+    "title": "How They Changed Strathcona-Sherwood Park",
+    "desc": "Cracking: Dividing a cohesive community across multiple districts to dilute their voting power.",
+    "voter_impact": "If you lived in Strathcona-Sherwood Park, your neighborhood was shattered across 3 different boundaries.",
+    "bounds": [
+      -113.35651300688131,
+      53.352012141537536,
+      -112.8404234121315,
+      53.570378434301325
+    ],
+    "old_stats": {
+      "ucp": 57.34899572184759,
+      "ndp": 42.65100427815241,
+      "margin": 14.697991443695173,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 13791.0
+    },
+    "new_stats": {
+      "ucp": 52.69276698265951,
+      "ndp": 47.307233017340494,
+      "margin": 5.38553396531902,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 43548.42976190476
+    },
+    "target": "Strathcona-Sherwood Park",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Packing_Highwood",
+    "type": "Packing",
+    "title": "How They Changed Highwood",
+    "desc": "Packing: Artificially concentrating targeted voter blocs from multiple districts to engineer a safe seat.",
+    "voter_impact": "If you lived in Highwood, your new district was artificially packed with voters from 2 different districts to guarantee a predetermined outcome.",
+    "bounds": [
+      -114.53264640708531,
+      50.397023948171174,
+      -113.48920196756453,
+      50.892316258996786
+    ],
+    "old_stats": {
+      "ucp": 72.65637490895526,
+      "ndp": 27.343625091044753,
+      "margin": 45.3127498179105,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 15636.388888888887
+    },
+    "new_stats": {
+      "ucp": 72.65637490895526,
+      "ndp": 27.343625091044753,
+      "margin": 45.3127498179105,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 15636.388888888887
+    },
+    "target": "Highwood",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Packing_Stony_Plain-Drayton_Valley",
+    "type": "Packing",
+    "title": "How They Changed Stony Plain-Drayton Valley",
+    "desc": "Packing: Artificially concentrating targeted voter blocs from multiple districts to engineer a safe seat.",
+    "voter_impact": "If you lived in Stony Plain-Drayton Valley, your new district was artificially packed with voters from 3 different districts to guarantee a predetermined outcome.",
+    "bounds": [
+      -115.62873639473327,
+      52.843301721718774,
+      -112.84042341208598,
+      53.63603959563761
+    ],
+    "old_stats": {
+      "ucp": 62.22113643924823,
+      "ndp": 37.77886356075178,
+      "margin": 24.442272878496446,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 23670.529761904763
+    },
+    "new_stats": {
+      "ucp": 62.22113643924823,
+      "ndp": 37.77886356075178,
+      "margin": 24.442272878496446,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 23670.529761904763
+    },
+    "target": "Stony Plain-Drayton Valley",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Draining_Lethbridge-East",
+    "type": "Draining",
+    "title": "How They Changed Lethbridge-East",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Lethbridge-East, your urban voting power was completely drained into the massive Lethbridge-Fort Macleod-Crowsnest Pass periphery.",
+    "bounds": [
+      -114.75339963828826,
+      48.99749998726457,
+      -112.69596245444359,
+      50.34640155771152
+    ],
+    "old_stats": {
+      "ucp": 56.05168155044651,
+      "ndp": 43.94831844955348,
+      "margin": 12.103363100893027,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 10526.0
+    },
+    "new_stats": {
+      "ucp": 59.8940587367056,
+      "ndp": 40.10594126329439,
+      "margin": 19.788117473411212,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 28997.2
+    },
+    "target": "Lethbridge-East",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Draining_Lethbridge-West",
+    "type": "Draining",
+    "title": "How They Changed Lethbridge-West",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Lethbridge-West, your urban voting power was completely drained into the massive Lethbridge-Fort Macleod-Crowsnest Pass periphery.",
+    "bounds": [
+      -114.75339963828826,
+      48.99749998726457,
+      -112.69596245444359,
+      50.34640155771152
+    ],
+    "old_stats": {
+      "ucp": 48.713322571455706,
+      "ndp": 51.2866774285443,
+      "margin": 2.573354857088596,
+      "winner": "NDP",
+      "safety": "Competitive Toss-Up",
+      "total": 10531.0
+    },
+    "new_stats": {
+      "ucp": 59.8940587367056,
+      "ndp": 40.10594126329439,
+      "margin": 19.788117473411212,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 28997.2
+    },
+    "target": "Lethbridge-West",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Draining_Edmonton-South_West",
+    "type": "Draining",
+    "title": "How They Changed Edmonton-South West",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Edmonton-South West, your urban voting power was completely drained into the massive Stony Plain-Drayton Valley periphery.",
+    "bounds": [
+      -115.62873639473327,
+      52.843301721718774,
+      -112.84042341208598,
+      53.63603959563761
+    ],
+    "old_stats": {
+      "ucp": 45.09803921568628,
+      "ndp": 54.90196078431373,
+      "margin": 9.803921568627452,
+      "winner": "NDP",
+      "safety": "Lean",
+      "total": 12036.0
+    },
+    "new_stats": {
+      "ucp": 62.22113643924823,
+      "ndp": 37.77886356075178,
+      "margin": 24.442272878496446,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 23670.529761904763
+    },
+    "target": "Edmonton-South West",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Draining_Morinville-St._Albert",
+    "type": "Draining",
+    "title": "How They Changed Morinville-St. Albert",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Morinville-St. Albert, your urban voting power was completely drained into the massive Edmonton-Enoch-Devon periphery.",
+    "bounds": [
+      -115.11770817354108,
+      53.163207062715365,
+      -113.49182464114268,
+      53.65995275641628
+    ],
+    "old_stats": {
+      "ucp": 57.045122607425625,
+      "ndp": 42.95487739257437,
+      "margin": 14.090245214851258,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 13009.0
+    },
+    "new_stats": {
+      "ucp": 52.81745941907586,
+      "ndp": 47.18254058092413,
+      "margin": 5.634918838151727,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 13496.694444444445
+    },
+    "target": "Morinville-St. Albert",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Minority_Draining_Edmonton-Castle_Downs",
+    "type": "Draining",
+    "title": "How They Changed Edmonton-Castle Downs",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Edmonton-Castle Downs, your urban voting power was completely drained into the massive Edmonton-Enoch-Devon periphery.",
+    "bounds": [
+      -115.11770817354108,
+      53.163207062715365,
+      -113.49182464114268,
+      53.65995275641628
+    ],
+    "old_stats": {
+      "ucp": 45.454545454545446,
+      "ndp": 54.54545454545454,
+      "margin": 9.090909090909093,
+      "winner": "NDP",
+      "safety": "Lean",
+      "total": 8503.0
+    },
+    "new_stats": {
+      "ucp": 52.81745941907586,
+      "ndp": 47.18254058092413,
+      "margin": 5.634918838151727,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 13496.694444444445
+    },
+    "target": "Edmonton-Castle Downs",
+    "map_label": "Minority"
+  },
+  {
+    "id": "Majority_Cracking_Calgary-Glenmore",
+    "type": "Cracking",
+    "title": "How They Changed Calgary-Glenmore",
+    "desc": "Cracking: Dividing a cohesive community across multiple districts to dilute their voting power.",
+    "voter_impact": "If you lived in Calgary-Glenmore, your neighborhood was shattered across 3 different boundaries.",
+    "bounds": [
+      -114.1642190775389,
+      50.925551228387604,
+      -114.08312650461265,
+      51.00860708159087
+    ],
+    "old_stats": {
+      "ucp": 51.975759588245054,
+      "ndp": 48.02424041175494,
+      "margin": 3.951519176490116,
+      "winner": "UCP",
+      "safety": "Competitive Toss-Up",
+      "total": 12046.0
+    },
+    "new_stats": {
+      "ucp": 53.795757117129206,
+      "ndp": 46.2042428828708,
+      "margin": 7.591514234258405,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 36938.04761904762
+    },
+    "target": "Calgary-Glenmore",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Packing_Barrhead-Westlock-Athabasca",
+    "type": "Packing",
+    "title": "How They Changed Barrhead-Westlock-Athabasca",
+    "desc": "Packing: Artificially concentrating targeted voter blocs from multiple districts to engineer a safe seat.",
+    "voter_impact": "If you lived in Barrhead-Westlock-Athabasca, your new district was artificially packed with voters from 2 different districts to guarantee a predetermined outcome.",
+    "bounds": [
+      -115.9907090522561,
+      53.682325035881135,
+      -111.21530461137014,
+      55.02392777781259
+    ],
+    "old_stats": {
+      "ucp": 77.41060109866892,
+      "ndp": 22.589398901331084,
+      "margin": 54.82120219733784,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 15145.599999999999
+    },
+    "new_stats": {
+      "ucp": 77.41060109866892,
+      "ndp": 22.589398901331084,
+      "margin": 54.82120219733784,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 15145.599999999999
+    },
+    "target": "Barrhead-Westlock-Athabasca",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Packing_Stony_Plain-Drayton_Valley",
+    "type": "Packing",
+    "title": "How They Changed Stony Plain-Drayton Valley",
+    "desc": "Packing: Artificially concentrating targeted voter blocs from multiple districts to engineer a safe seat.",
+    "voter_impact": "If you lived in Stony Plain-Drayton Valley, your new district was artificially packed with voters from 2 different districts to guarantee a predetermined outcome.",
+    "bounds": [
+      -116.03235607145179,
+      52.31913419871465,
+      -113.61036009851081,
+      53.737851672851754
+    ],
+    "old_stats": {
+      "ucp": 77.14069018367834,
+      "ndp": 22.859309816321666,
+      "margin": 54.281380367356675,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 19896.842857142856
+    },
+    "new_stats": {
+      "ucp": 77.14069018367834,
+      "ndp": 22.859309816321666,
+      "margin": 54.281380367356675,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 19896.842857142856
+    },
+    "target": "Stony Plain-Drayton Valley",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Packing_Sylvan_Lake-Innisfail",
+    "type": "Packing",
+    "title": "How They Changed Sylvan Lake-Innisfail",
+    "desc": "Packing: Artificially concentrating targeted voter blocs from multiple districts to engineer a safe seat.",
+    "voter_impact": "If you lived in Sylvan Lake-Innisfail, your new district was artificially packed with voters from 2 different districts to guarantee a predetermined outcome.",
+    "bounds": [
+      -115.29673437529257,
+      51.82407553969209,
+      -112.90616591026232,
+      52.58144747105014
+    ],
+    "old_stats": {
+      "ucp": 80.49878244611476,
+      "ndp": 19.501217553885244,
+      "margin": 60.99756489222952,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 16580.375
+    },
+    "new_stats": {
+      "ucp": 80.49878244611476,
+      "ndp": 19.501217553885244,
+      "margin": 60.99756489222952,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 16580.375
+    },
+    "target": "Sylvan Lake-Innisfail",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Draining_Calgary-Glenmore",
+    "type": "Draining",
+    "title": "How They Changed Calgary-Glenmore",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Calgary-Glenmore, your urban voting power was completely drained into the massive Calgary-West-Elbow Valley periphery.",
+    "bounds": [
+      -114.67597727317295,
+      50.89215450310398,
+      -114.10922458424916,
+      51.047723299200676
+    ],
+    "old_stats": {
+      "ucp": 51.975759588245054,
+      "ndp": 48.02424041175494,
+      "margin": 3.951519176490116,
+      "winner": "UCP",
+      "safety": "Competitive Toss-Up",
+      "total": 12046.0
+    },
+    "new_stats": {
+      "ucp": 53.504391743522184,
+      "ndp": 46.495608256477816,
+      "margin": 7.008783487044369,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 7590.0
+    },
+    "target": "Calgary-Glenmore",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Draining_Morinville-St._Albert",
+    "type": "Draining",
+    "title": "How They Changed Morinville-St. Albert",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Morinville-St. Albert, your urban voting power was completely drained into the massive Edmonton-North West periphery.",
+    "bounds": [
+      -113.89295669781902,
+      53.58131738118095,
+      -113.49181062856775,
+      53.74523556361152
+    ],
+    "old_stats": {
+      "ucp": 57.045122607425625,
+      "ndp": 42.95487739257437,
+      "margin": 14.090245214851258,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 13009.0
+    },
+    "new_stats": {
+      "ucp": 43.80892395798706,
+      "ndp": 56.19107604201293,
+      "margin": 12.382152084025869,
+      "winner": "NDP",
+      "safety": "Lean",
+      "total": 14289.25
+    },
+    "target": "Morinville-St. Albert",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Draining_Calgary-East",
+    "type": "Draining",
+    "title": "How They Changed Calgary-East",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Calgary-East, your urban voting power was completely drained into the massive Calgary-Acadia periphery.",
+    "bounds": [
+      -114.09530836651845,
+      50.92788073315898,
+      -113.86552498118161,
+      51.0505490642372
+    ],
+    "old_stats": {
+      "ucp": 53.157769304099155,
+      "ndp": 46.84223069590085,
+      "margin": 6.3155386081983025,
+      "winner": "UCP",
+      "safety": "Lean",
+      "total": 8392.0
+    },
+    "new_stats": {
+      "ucp": 51.60119136928402,
+      "ndp": 48.39880863071599,
+      "margin": 3.2023827385680264,
+      "winner": "UCP",
+      "safety": "Competitive Toss-Up",
+      "total": 22509.913095238095
+    },
+    "target": "Calgary-East",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Draining_Edmonton-North_West",
+    "type": "Draining",
+    "title": "How They Changed Edmonton-North West",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Edmonton-North West, your urban voting power was completely drained into the massive Edmonton-North West periphery.",
+    "bounds": [
+      -113.89295669781902,
+      53.58131738118095,
+      -113.49181062856775,
+      53.74523556361152
+    ],
+    "old_stats": {
+      "ucp": 41.3189615206305,
+      "ndp": 58.6810384793695,
+      "margin": 17.362076958738996,
+      "winner": "NDP",
+      "safety": "Safe Seat",
+      "total": 8628.0
+    },
+    "new_stats": {
+      "ucp": 43.80892395798706,
+      "ndp": 56.19107604201293,
+      "margin": 12.382152084025869,
+      "winner": "NDP",
+      "safety": "Lean",
+      "total": 14289.25
+    },
+    "target": "Edmonton-North West",
+    "map_label": "Majority"
+  },
+  {
+    "id": "Majority_Draining_Lac_Ste._Anne-Parkland",
+    "type": "Draining",
+    "title": "How They Changed Lac Ste. Anne-Parkland",
+    "desc": "Draining: Detaching a dense urban neighborhood and submerging it into a massive rural periphery.",
+    "voter_impact": "If you lived in Lac Ste. Anne-Parkland, your urban voting power was completely drained into the massive Stony Plain-Drayton Valley periphery.",
+    "bounds": [
+      -116.03235607145179,
+      52.31913419871465,
+      -113.61036009851081,
+      53.737851672851754
+    ],
+    "old_stats": {
+      "ucp": 74.12966114807364,
+      "ndp": 25.870338851926356,
+      "margin": 48.25932229614728,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 12925.999999999998
+    },
+    "new_stats": {
+      "ucp": 77.14069018367834,
+      "ndp": 22.859309816321666,
+      "margin": 54.281380367356675,
+      "winner": "UCP",
+      "safety": "Safe Seat",
+      "total": 19896.842857142856
+    },
+    "target": "Lac Ste. Anne-Parkland",
+    "map_label": "Majority"
+  }
+]

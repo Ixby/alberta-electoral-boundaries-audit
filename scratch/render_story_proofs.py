@@ -25,17 +25,17 @@ def load_data():
     eds_2019 = gpd.read_file(EDS_2019_PATH).to_crs(3401)
     name_col = [c for c in eds_2019.columns if 'name' in c.lower()][0] if [c for c in eds_2019.columns if 'name' in c.lower()] else eds_2019.columns[0]
     eds_2019 = eds_2019[[name_col, 'geometry']].rename(columns={name_col: 'name'})
-    eds_2019['name'] = eds_2019['name'].str.upper().str.strip()
+    eds_2019['name'] = eds_2019['name'].str.title().str.strip() 
 
     eds_min = gpd.read_file(EDS_MIN_PATH).to_crs(3401)
     name_col = [c for c in eds_min.columns if 'name' in c.lower()][0]
     eds_min = eds_min[[name_col, 'geometry']].rename(columns={name_col: 'name'})
-    eds_min['name'] = eds_min['name'].str.upper().str.strip()
+    eds_min['name'] = eds_min['name'].str.title().str.strip()
 
     eds_maj = gpd.read_file(EDS_MAJ_PATH).to_crs(3401)
     name_col = [c for c in eds_maj.columns if 'name' in c.lower()][0]
     eds_maj = eds_maj[[name_col, 'geometry']].rename(columns={name_col: 'name'})
-    eds_maj['name'] = eds_maj['name'].str.upper().str.strip()
+    eds_maj['name'] = eds_maj['name'].str.title().str.strip()
     
     va = gpd.read_file(VA_VOTES_PATH).to_crs(3401)
     va_pts = gpd.GeoDataFrame(
@@ -97,7 +97,6 @@ def plot_va_dots(ax, boundary_poly, va_pts, highlight_poly=None):
         sizes = (pts_in['total'] / pts_in['total'].max() * 150).clip(lower=10)
         
         if highlight_poly is not None:
-            # Highlight points inside the focus area, fade out everything else
             pts_focus = pts_in[pts_in.geometry.within(highlight_poly)]
             pts_fade = pts_in[~pts_in.geometry.within(highlight_poly)]
             if not pts_fade.empty:
@@ -120,33 +119,45 @@ def add_power_bar(ax, pts, title):
     ndp_pct = (ndp / total) * 100
     
     ax.axis('off')
-    ax.barh([0], [ndp_pct], color=NDP_COLOR, height=0.3, left=0)
-    ax.barh([0], [ucp_pct], color=UCP_COLOR, height=0.3, left=ndp_pct)
     
-    # Calculate Net Margin & Safety Category to reduce mental math
+    bar_height = 0.6
+    ax.barh([0], [ndp_pct], color=NDP_COLOR, height=bar_height, left=0)
+    ax.barh([0], [ucp_pct], color=UCP_COLOR, height=bar_height, left=ndp_pct)
+    
+    if ndp_pct > 15:
+        ax.text(ndp_pct / 2, 0, f"NDP {ndp_pct:.0f}%", color='white', weight='bold', fontsize=20, va='center', ha='center')
+    if ucp_pct > 15:
+        ax.text(ndp_pct + (ucp_pct / 2), 0, f"UCP {ucp_pct:.0f}%", color='white', weight='bold', fontsize=20, va='center', ha='center')
+    
     margin = abs(ucp_pct - ndp_pct)
     winner = "UCP" if ucp > ndp else "NDP"
     if margin > 15: safety = "Safe Seat"
     elif margin > 5: safety = "Lean"
     else: safety = "Competitive Toss-Up"
     
-    # Using set_title forces matplotlib to automatically calculate boundaries and prevent overlap!
     stats_text = f"{title}\n{winner} Wins by {margin:.0f}% ({safety})"
     ax.set_title(stats_text, fontsize=20, weight='bold', color='#1e293b', pad=15)
     
     ax.set_xlim(0, 100)
     ax.set_ylim(-0.5, 0.5)
 
+def get_margin_from_pts(pts):
+    if pts.empty: return 0
+    ucp = pts['va_ucp'].sum()
+    ndp = pts['va_ndp'].sum()
+    total = ucp + ndp
+    if total == 0: return 0
+    return (ucp / total * 100) - (ndp / total * 100) # Positive = UCP favored
+
 def get_intersection(base_gdf, base_name, overlay_gdf, overlay_name):
     g1 = base_gdf[base_gdf['name'] == base_name]
     g2 = overlay_gdf[overlay_gdf['name'] == overlay_name]
     return gpd.clip(g1, g2)
 
-def render_story_event(event, eds_2019, eds_2026, va_pts):
-    fig = plt.figure(figsize=(26, 15))
+def render_story_event(event, eds_2019, eds_2026, va_pts, index, total_events):
+    fig = plt.figure(figsize=(26, 17))
     fig.patch.set_facecolor('#ffffff')
     
-    # Increase ratio to 6:1 since the bar is now narrower, giving max real estate to maps
     gs = fig.add_gridspec(2, 2, height_ratios=[6, 1], hspace=0.3, wspace=0.1)
     ax_map1 = fig.add_subplot(gs[0, 0])
     ax_map2 = fig.add_subplot(gs[0, 1])
@@ -168,50 +179,61 @@ def render_story_event(event, eds_2019, eds_2026, va_pts):
         
     bbox = target_poly.buffer(5000) 
     
-    # ---------------------------------------------
-    # PANEL 1: The Source (2019)
-    # ---------------------------------------------
-    # Placed vertically on the outer left edge to save top margin space
-    ax_map1.text(-0.02, 0.5, "2019 Boundaries", rotation=90, va='center', ha='right', transform=ax_map1.transAxes, fontsize=28, weight='bold', color='#1e293b')
+    if etype == 'Cracking':
+        definition = "CRACKING: Dividing a cohesive community across multiple districts to dilute their voting power."
+        voter_impact = f"If you lived in {title_target}, your neighborhood was shattered across {len(event['pieces'])} different boundaries."
+    elif etype == 'Draining':
+        definition = "DRAINING: Detaching an urban neighborhood and submerging it into a massive rural periphery."
+        voter_impact = f"If you lived in {title_target}, your urban voting power was drained into the {event['recipient_2026']} periphery."
+    else:
+        definition = "PACKING: Artificially concentrating targeted voter blocs from multiple districts to engineer a safe seat."
+        voter_impact = f"If you lived in {title_target}, your new district was packed with voters from {len(event['donors'])} different areas."
+
+    ax_map1.set_title("2019 Boundaries (Current)", fontsize=26, weight='bold', pad=15)
+    ax_map2.set_title("Proposed Boundaries", fontsize=26, weight='bold', pad=15)
     
     context = eds_2019[eds_2019.intersects(bbox)]
     context.plot(ax=ax_map1, facecolor='none', edgecolor='#e2e8f0', linewidth=1)
     
     pts1_frames = []
-    carveout_patches = []
+    carveout_patches = [] 
+    displaced_voters = 0
     
     if etype == 'Cracking':
         target_shape = eds_2019[eds_2019['name'] == event['target_2019']]
         target_shape.plot(ax=ax_map1, facecolor='none', edgecolor='#64748b', linewidth=4)
         
-        # We want to highlight all pieces in Panel 1
         all_intersections = []
         for i, piece in enumerate(event['pieces']):
             intersect = get_intersection(eds_2019, event['target_2019'], eds_2026, piece)
             c = HIGHLIGHT_COLORS[i % len(HIGHLIGHT_COLORS)]
             intersect.plot(ax=ax_map1, facecolor='none', edgecolor=c, linewidth=4, hatch='///')
             all_intersections.append(intersect.geometry.iloc[0])
+            carveout_patches.append(mpatches.Patch(facecolor='none', edgecolor=c, hatch='///', label=f"Transferred to {piece}"))
             
-        # Combine intersections for the spotlight
+            p = va_pts[va_pts.geometry.within(intersect.geometry.iloc[0])]
+            displaced_voters += p['total'].sum() if not p.empty else 0
+            
         if all_intersections:
             combined_focus = gpd.GeoSeries(all_intersections).unary_union
             plot_va_dots(ax_map1, target_poly, va_pts, highlight_poly=combined_focus)
         
         pts1_frames = [va_pts[va_pts.geometry.within(target_poly)]]
-        story_text = f"THE MECHANISM: {title_target} was fractured into {len(event['pieces'])} separate pieces."
         
     elif etype == 'Draining':
         target_shape = eds_2019[eds_2019['name'] == event['target_2019']]
         target_shape.plot(ax=ax_map1, facecolor='none', edgecolor='#64748b', linewidth=4)
         
         intersect = get_intersection(eds_2019, event['target_2019'], eds_2026, event['recipient_2026'])
-        intersect.plot(ax=ax_map1, facecolor='none', edgecolor=HIGHLIGHT_COLORS[0], linewidth=4, hatch='///')
+        c = HIGHLIGHT_COLORS[0]
+        intersect.plot(ax=ax_map1, facecolor='none', edgecolor=c, linewidth=4, hatch='///')
+        carveout_patches.append(mpatches.Patch(facecolor='none', edgecolor=c, hatch='///', label=f"Transferred Area"))
         
-        # Spotlight dots in the carveout
         plot_va_dots(ax_map1, target_poly, va_pts, highlight_poly=intersect.geometry.iloc[0])
         pts1_frames = [va_pts[va_pts.geometry.within(target_poly)]]
         
-        story_text = f"THE MECHANISM: A dense urban area was detached from {title_target} and merged into a massive rural periphery."
+        p = va_pts[va_pts.geometry.within(intersect.geometry.iloc[0])]
+        displaced_voters = p['total'].sum() if not p.empty else 0
             
     elif etype == 'Packing':
         for i, donor in enumerate(event['donors']):
@@ -219,28 +241,32 @@ def render_story_event(event, eds_2019, eds_2026, va_pts):
             donor_shape.plot(ax=ax_map1, facecolor='none', edgecolor='#64748b', linewidth=2)
             plot_va_dots(ax_map1, donor_shape.geometry.iloc[0], va_pts)
             
-            # Highlight intersection
             intersect = get_intersection(eds_2019, donor, eds_2026, title_target)
             c = HIGHLIGHT_COLORS[i % len(HIGHLIGHT_COLORS)]
             intersect.plot(ax=ax_map1, facecolor='none', edgecolor=c, linewidth=4, hatch='///')
             carveout_patches.append(mpatches.Patch(facecolor='none', edgecolor=c, hatch='///', label=f"Sourced from {donor}"))
-            pts1_frames.append(va_pts[va_pts.geometry.within(intersect.geometry.iloc[0])])
             
-        story_text = f"THE MECHANISM: Targeted voter blocs were consolidated from {len(event['donors'])} different districts to engineer a safe seat."
+            p = va_pts[va_pts.geometry.within(intersect.geometry.iloc[0])]
+            pts1_frames.append(p)
+            displaced_voters += p['total'].sum() if not p.empty else 0
 
-    ax_map1.set_xlim(bbox.bounds[0], bbox.bounds[2])
-    ax_map1.set_ylim(bbox.bounds[1], bbox.bounds[3])
+    if etype == 'Draining':
+        swallower = eds_2026[eds_2026['name'] == event['recipient_2026']]
+        matched_bbox = swallower.geometry.iloc[0].buffer(2000)
+    else:
+        matched_bbox = bbox
+        
+    ax_map1.set_xlim(matched_bbox.bounds[0], matched_bbox.bounds[2])
+    ax_map1.set_ylim(matched_bbox.bounds[1], matched_bbox.bounds[3])
     
     pts1 = pd.concat(pts1_frames) if pts1_frames else pd.DataFrame()
-    add_power_bar(ax_bar1, pts1, "The Old Vote Share")
+    add_power_bar(ax_bar1, pts1, "2023 Result (Current)")
+    old_margin = get_margin_from_pts(pts1)
 
     # ---------------------------------------------
-    # PANEL 2: The Destination (2026)
+    # PANEL 2
     # ---------------------------------------------
-    # Placed vertically on the outer right edge to save top margin space
-    ax_map2.text(1.02, 0.5, "Proposed Boundaries", rotation=270, va='center', ha='left', transform=ax_map2.transAxes, fontsize=28, weight='bold', color='#1e293b')
-    
-    context2 = eds_2026[eds_2026.intersects(bbox)]
+    context2 = eds_2026[eds_2026.intersects(matched_bbox)]
     context2.plot(ax=ax_map2, facecolor='none', edgecolor='#e2e8f0', linewidth=1)
     
     pts2_frames = []
@@ -251,7 +277,6 @@ def render_story_event(event, eds_2019, eds_2026, va_pts):
             recipient.plot(ax=ax_map2, facecolor='none', edgecolor=border_color, linewidth=2)
             plot_va_dots(ax_map2, recipient.geometry.iloc[0], va_pts)
             
-            # Re-draw the carveout anchor
             intersect = get_intersection(eds_2019, event['target_2019'], eds_2026, piece)
             c = HIGHLIGHT_COLORS[i % len(HIGHLIGHT_COLORS)]
             intersect.plot(ax=ax_map2, facecolor='none', edgecolor=c, linewidth=4, hatch='///')
@@ -261,13 +286,11 @@ def render_story_event(event, eds_2019, eds_2026, va_pts):
         swallower = eds_2026[eds_2026['name'] == event['recipient_2026']]
         swallower.plot(ax=ax_map2, facecolor='none', edgecolor=border_color, linewidth=4)
         
-        # Expand bounds to show the massive new district
-        sw_bbox = swallower.geometry.iloc[0].buffer(1000)
-        ax_map2.set_xlim(sw_bbox.bounds[0], sw_bbox.bounds[2])
-        ax_map2.set_ylim(sw_bbox.bounds[1], sw_bbox.bounds[3])
+        cx, cy = swallower.geometry.iloc[0].centroid.x, swallower.geometry.iloc[0].centroid.y
+        ax_map2.text(cx, cy, event['recipient_2026'].upper(), color='#000000', fontsize=20, weight='bold', ha='center', va='center', bbox=dict(facecolor='white', alpha=0.85, edgecolor='#cbd5e1', pad=8, boxstyle='round,pad=0.3'))
+        
         plot_va_dots(ax_map2, swallower.geometry.iloc[0], va_pts)
         
-        # Re-draw the carveout anchor
         intersect = get_intersection(eds_2019, event['target_2019'], eds_2026, event['recipient_2026'])
         intersect.plot(ax=ax_map2, facecolor='none', edgecolor=HIGHLIGHT_COLORS[0], linewidth=4, hatch='///')
         pts2_frames.append(va_pts[va_pts.geometry.within(swallower.geometry.iloc[0])])
@@ -277,7 +300,6 @@ def render_story_event(event, eds_2019, eds_2026, va_pts):
         target_shape.plot(ax=ax_map2, facecolor='none', edgecolor=border_color, linewidth=4)
         plot_va_dots(ax_map2, target_poly, va_pts)
         
-        # Re-draw the carveout anchors
         for i, donor in enumerate(event['donors']):
             intersect = get_intersection(eds_2019, donor, eds_2026, title_target)
             c = HIGHLIGHT_COLORS[i % len(HIGHLIGHT_COLORS)]
@@ -285,33 +307,59 @@ def render_story_event(event, eds_2019, eds_2026, va_pts):
             
         pts2_frames.append(va_pts[va_pts.geometry.within(target_poly)])
 
-    if etype != 'Draining':
-        ax_map2.set_xlim(bbox.bounds[0], bbox.bounds[2])
-        ax_map2.set_ylim(bbox.bounds[1], bbox.bounds[3])
+    ax_map2.set_xlim(matched_bbox.bounds[0], matched_bbox.bounds[2])
+    ax_map2.set_ylim(matched_bbox.bounds[1], matched_bbox.bounds[3])
 
     pts2 = pd.concat(pts2_frames) if pts2_frames else pd.DataFrame()
-    add_power_bar(ax_bar2, pts2, "The New Vote Share")
+    add_power_bar(ax_bar2, pts2, "Projected Result (Proposed)")
+    new_margin = get_margin_from_pts(pts2)
 
-    # Draw Arrow between plots
+    # ADDING THE SEVERITY INDICATORS
+
+    # Voters Displaced Badge (Placed centrally on the arrow)
     fig.add_artist(mpatches.ConnectionPatch(
         xyA=(1.05, 0.5), xyB=(-0.05, 0.5), coordsA='axes fraction', coordsB='axes fraction',
-        axesA=ax_map1, axesB=ax_map2, arrowstyle="-|>", lw=6, color='#cbd5e1'))
+        axesA=ax_map1, axesB=ax_map2, arrowstyle="-|>", lw=14, color='#0f172a'))
+        
+    fig.text(0.5, 0.60, f"Voters Displaced: {int(displaced_voters):,}", ha='center', va='center', 
+             fontsize=18, weight='bold', color='white', 
+             bbox=dict(facecolor='#0f172a', edgecolor='none', pad=8, boxstyle='round,pad=0.5'))
 
-    # Run tight_layout first with extreme top margin to reserve space
-    plt.tight_layout(rect=[0, 0.05, 1, 0.80])
+    # Net Partisan Swing Badge (Placed between the power bars)
+    net_swing = new_margin - old_margin
+    if abs(net_swing) > 0.5:
+        swing_party = "UCP" if net_swing > 0 else "NDP"
+        swing_color = UCP_COLOR if net_swing > 0 else NDP_COLOR
+        fig.text(0.5, 0.17, f"NET SWING: {abs(net_swing):.1f}-Point {swing_party} Shift", ha='center', va='center', 
+                 fontsize=20, weight='bold', color=swing_color, 
+                 bbox=dict(facecolor='white', edgecolor=swing_color, pad=8, boxstyle='round,pad=0.5', linewidth=3))
 
-    # Narrative Center Text (Safe because the top 20% is completely empty)
-    fig.suptitle(f"How They Changed {title_target}", fontsize=34, weight='bold', y=0.95)
-    fig.text(0.5, 0.88, story_text, ha='center', va='center', fontsize=22, style='italic', color='#334155', weight='bold')
+    # Legend
+    legend_handles = [
+        mpatches.Patch(color=NDP_COLOR, label='NDP Voters'), 
+        mpatches.Patch(color=UCP_COLOR, label='UCP Voters')
+    ] + carveout_patches
+    fig.legend(handles=legend_handles, loc='lower center', ncol=min(len(legend_handles), 5), fontsize=16, frameon=False, bbox_to_anchor=(0.5, 0.05))
+
+    # Footer
+    fig.text(0.5, 0.02, f"Forensic Evidence: Event {index} of {total_events} documented boundary manipulations.", ha='center', fontsize=14, color='#64748b', style='italic')
+
+    plt.tight_layout(rect=[0, 0.10, 1, 0.80])
+
+    fig.suptitle(f"How They Changed {title_target}", fontsize=38, weight='bold', y=0.96)
+    fig.text(0.5, 0.90, definition, ha='center', va='center', fontsize=22, weight='bold', color='#dc2626')
+    fig.text(0.5, 0.86, f"\"{voter_impact}\"", ha='center', va='center', fontsize=24, style='italic', color='#1e293b')
     
     clean_title = f"{mlabel}_{etype}_{title_target.replace(' ', '_').replace('/', '_')}"
-    outpath = PROOFS_DIR / f"{clean_title}.png"
-    plt.savefig(outpath, dpi=150, bbox_inches='tight')
+    outpath_svg = PROOFS_DIR / f"{clean_title}.svg"
+    outpath_pdf = PROOFS_DIR / f"{clean_title}.pdf"
+    plt.savefig(outpath_svg, format='svg', bbox_inches='tight')
+    plt.savefig(outpath_pdf, format='pdf', bbox_inches='tight')
     plt.close()
-    print(f"Generated Flow proof: {outpath.name}")
+    print(f"Generated Vector V2 proofs: {clean_title}")
 
 if __name__ == "__main__":
-    print("Loading data for Flow Infographics...")
+    print("Loading data for V2 Flow Infographics...")
     eds_2019, eds_min, eds_maj, va_pts = load_data()
     min_events = get_events(eds_2019, eds_min, va_pts, "Minority")
     maj_events = get_events(eds_2019, eds_maj, va_pts, "Majority")
@@ -325,9 +373,10 @@ if __name__ == "__main__":
             seen.add(key)
             unique_events.append(e)
             
-    print(f"Rendering {len(unique_events)} Infographics...")
-    for e in unique_events:
+    total = len(unique_events)
+    print(f"Rendering {total} V2 Infographics...")
+    for idx, e in enumerate(unique_events, start=1):
         m = eds_min if e['map_label'] == 'Minority' else eds_maj
-        render_story_event(e, eds_2019, m, va_pts)
+        render_story_event(e, eds_2019, m, va_pts, idx, total)
     
-    print("Done!")
+    print("Done! V2 layout fully rendered.")

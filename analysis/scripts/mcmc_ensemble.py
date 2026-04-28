@@ -89,8 +89,8 @@ MAPS.mkdir(parents=True, exist_ok=True)
 
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 ED2019_PATH = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_PATH     = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
-MIN_PATH     = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+MAJ_PATH     = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
+MIN_PATH     = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
 # Legacy aliases kept so callers that import these names don't break
 MIN_V6_PATH  = MIN_PATH
 MIN_V5_PATH  = MIN_PATH
