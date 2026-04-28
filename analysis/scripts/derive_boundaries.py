@@ -262,7 +262,7 @@ def _make_plan(map_set: str) -> list[dict]:
         return [
             {
                 "label": "minority_calgary",
-                "thumb": MAPS_HIRES / "v0_1_minority_p360_map74.png",
+                "thumb": MAPS_HIRES / "v0_1_minority_p360_map74.svg",
                 "orientation": "rot90cw",
                 "dilate_px": 3,
                 "dt_core_eds": [
@@ -285,7 +285,7 @@ def _make_plan(map_set: str) -> list[dict]:
             },
             {
                 "label": "minority_edmonton",
-                "thumb": MAPS_HIRES / "v0_1_minority_p361_map75.png",
+                "thumb": MAPS_HIRES / "v0_1_minority_p361_map75.svg",
                 "orientation": "native",
                 "dilate_px": 3,
                 "dt_core_eds": [
@@ -307,7 +307,7 @@ def _make_plan(map_set: str) -> list[dict]:
             },
             {
                 "label": "minority_overview",
-                "thumb": MAPS_HIRES / "v0_1_minority_p359_map73.png",
+                "thumb": MAPS_HIRES / "v0_1_minority_p359_map73.svg",
                 "orientation": "native",
                 "dilate_px": 7,
                 "dt_core_eds": [
@@ -343,7 +343,7 @@ def _make_plan(map_set: str) -> list[dict]:
                 # This entry is retained as a no-op (no eds_to_attempt=[])
                 # to document the decision in the log.
                 "label": "minority_other_cities_declined",
-                "thumb": MAPS_HIRES / "v0_1_minority_p362_map76.png",
+                "thumb": MAPS_HIRES / "v0_1_minority_p362_map76.svg",
                 "orientation": "native",
                 "dilate_px": 5,
                 "dt_core_eds": ["Red Deer-North", "Lethbridge-East",
@@ -368,7 +368,7 @@ def _make_plan(map_set: str) -> list[dict]:
     return [
         {
             "label": "majority_calgary",
-            "thumb": MAPS_HIRES / "v0_1_majority_p72_MAP_r600.png",
+            "thumb": MAPS_HIRES / "v0_1_majority_p72_MAP_r600.svg",
             "orientation": "rot90cw",
             "dilate_px": 3,
             "dt_core_eds": [
@@ -390,7 +390,7 @@ def _make_plan(map_set: str) -> list[dict]:
         },
         {
             "label": "majority_edmonton",
-            "thumb": MAPS_HIRES / "v0_1_majority_p74_MAP_r600.png",
+            "thumb": MAPS_HIRES / "v0_1_majority_p74_MAP_r600.svg",
             "orientation": "native",
             "dilate_px": 3,
             "dt_core_eds": [
@@ -412,7 +412,7 @@ def _make_plan(map_set: str) -> list[dict]:
         },
         {
             "label": "majority_near_calgary",
-            "thumb": MAPS_HIRES / "v0_1_majority_p76_MAP_r600.png",
+            "thumb": MAPS_HIRES / "v0_1_majority_p76_MAP_r600.svg",
             "orientation": "native",
             "dilate_px": 4,
             "dt_core_eds": [
@@ -427,7 +427,7 @@ def _make_plan(map_set: str) -> list[dict]:
         },
         {
             "label": "majority_overview",
-            "thumb": MAPS_HIRES / "v0_1_majority_p71_alberta_overview.png",
+            "thumb": MAPS_HIRES / "v0_1_majority_p71_alberta_overview.svg",
             "orientation": "native",
             "dilate_px": 7,
             "dt_core_eds": [

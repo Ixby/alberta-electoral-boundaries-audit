@@ -11,8 +11,8 @@ warnings.filterwarnings('ignore')
 ROOT = Path("C:/Users/email/Documents/Claude/Projects/Electoral Boundary Analysis/alberta_audit")
 VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 EDS_2019_PATH = ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-EDS_MIN_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-EDS_MAJ_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+EDS_MIN_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+EDS_MAJ_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
 PROOFS_DIR = ROOT / "scratch" / "story_proofs"
 
 os.makedirs(PROOFS_DIR, exist_ok=True)
@@ -155,7 +155,7 @@ def get_intersection(base_gdf, base_name, overlay_gdf, overlay_name):
     return gpd.clip(g1, g2)
 
 def render_story_event(event, eds_2019, eds_2026, va_pts, index, total_events):
-    fig = plt.figure(figsize=(26, 17))
+    fig = plt.figure(figsize=(20, 14)) # Scaled down for reasonable default view size
     fig.patch.set_facecolor('#ffffff')
     
     gs = fig.add_gridspec(2, 2, height_ratios=[6, 1], hspace=0.3, wspace=0.1)
@@ -319,10 +319,10 @@ def render_story_event(event, eds_2019, eds_2026, va_pts, index, total_events):
     # Voters Displaced Badge (Placed centrally on the arrow)
     fig.add_artist(mpatches.ConnectionPatch(
         xyA=(1.05, 0.5), xyB=(-0.05, 0.5), coordsA='axes fraction', coordsB='axes fraction',
-        axesA=ax_map1, axesB=ax_map2, arrowstyle="-|>", lw=14, color='#0f172a'))
+        axesA=ax_map1, axesB=ax_map2, arrowstyle="-|>", lw=12, color='#0f172a'))
         
-    fig.text(0.5, 0.60, f"Voters Displaced: {int(displaced_voters):,}", ha='center', va='center', 
-             fontsize=18, weight='bold', color='white', 
+    fig.text(0.5, 0.48, f"Voters Displaced: {int(displaced_voters):,}", ha='center', va='center', 
+             fontsize=16, weight='bold', color='white', 
              bbox=dict(facecolor='#0f172a', edgecolor='none', pad=8, boxstyle='round,pad=0.5'))
 
     # Net Partisan Swing Badge (Placed between the power bars)
@@ -344,17 +344,18 @@ def render_story_event(event, eds_2019, eds_2026, va_pts, index, total_events):
     # Footer
     fig.text(0.5, 0.02, f"Forensic Evidence: Event {index} of {total_events} documented boundary manipulations.", ha='center', fontsize=14, color='#64748b', style='italic')
 
-    plt.tight_layout(rect=[0, 0.10, 1, 0.80])
+    plt.tight_layout(rect=[0, 0.12, 1, 0.75])
 
-    fig.suptitle(f"How They Changed {title_target}", fontsize=38, weight='bold', y=0.96)
-    fig.text(0.5, 0.90, definition, ha='center', va='center', fontsize=22, weight='bold', color='#dc2626')
-    fig.text(0.5, 0.86, f"\"{voter_impact}\"", ha='center', va='center', fontsize=24, style='italic', color='#1e293b')
+    fig.suptitle(f"How They Changed {title_target}", fontsize=32, weight='bold', y=0.94)
+    fig.text(0.5, 0.88, definition, ha='center', va='center', fontsize=18, weight='bold', color='#dc2626')
+    fig.text(0.5, 0.82, f"\"{voter_impact}\"", ha='center', va='center', fontsize=20, style='italic', color='#1e293b')
     
     clean_title = f"{mlabel}_{etype}_{title_target.replace(' ', '_').replace('/', '_')}"
     outpath_svg = PROOFS_DIR / f"{clean_title}.svg"
     outpath_pdf = PROOFS_DIR / f"{clean_title}.pdf"
-    plt.savefig(outpath_svg, format='svg', bbox_inches='tight')
-    plt.savefig(outpath_pdf, format='pdf', bbox_inches='tight')
+    # Removed bbox_inches='tight' to stop it from cropping the absolute-positioned text
+    plt.savefig(outpath_svg, format='svg')
+    plt.savefig(outpath_pdf, format='pdf')
     plt.close()
     print(f"Generated Vector V2 proofs: {clean_title}")
 

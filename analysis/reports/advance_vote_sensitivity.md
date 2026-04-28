@@ -10,8 +10,8 @@ backward_dependencies:
   - analysis/scripts/advance_vote_sensitivity.py — re-scores v0_9 maps under both substrates
   - data/shapefiles/derived/va_polygons_with_2023_votes.gpkg — Election-Day-only substrate (current audit baseline)
   - data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg — Election-Day + apportioned advance/special/mobile
-  - data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
-  - data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
+  - data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
+  - data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   - data/advance_vote_sensitivity.json — full output
 ---
 

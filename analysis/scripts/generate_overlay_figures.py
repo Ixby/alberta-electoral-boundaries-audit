@@ -34,10 +34,10 @@ Tier C handling
   The minority v6 gpkg carries all 87 EDs so no proxying is needed.
 
 Outputs
-  - maps/article/overlay_calgary_v2.png
-  - maps/article/overlay_airdrie_v2.png
-  - maps/article/overlay_lethbridge_v2.png
-  - maps/article/overlay_reddeer_v2.png   (Red Deer option 1 - see md note)
+  - maps/article/overlay_calgary_v2.svg
+  - maps/article/overlay_airdrie_v2.svg
+  - maps/article/overlay_lethbridge_v2.svg
+  - maps/article/overlay_reddeer_v2.svg   (Red Deer option 1 - see md note)
 
 Run
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_generate_overlay_figures.py
@@ -47,7 +47,7 @@ Dependencies
              data/v0_1_refined_v6_minority_2026_eds.gpkg,
              data/majority_full_crosswalk.csv,
              data/minority_full_crosswalk.csv
-  Backward : maps/article/overlay_*_v2.png,
+  Backward : maps/article/overlay_*_v2.svg,
              analysis/methodology/overlay_figures_v2.md,
              report_public.md (four figure references updated to _v2)
 
@@ -644,7 +644,7 @@ def draw_figure(spec: FigSpec, maj: gpd.GeoDataFrame,
         linespacing=1.3,
     )
 
-    out_path = OUT / f"overlay_{spec.slug}_v2.png"
+    out_path = OUT / f"overlay_{spec.slug}_v2.svg"
     fig.savefig(out_path, dpi=FIG_DPI,
                 facecolor="white")
     plt.close(fig)

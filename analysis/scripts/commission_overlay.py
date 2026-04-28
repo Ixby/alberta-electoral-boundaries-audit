@@ -11,18 +11,18 @@ types per map:
      estimated geographic extents. Requires calibration (see MAP_SPECS below).
 
 Inputs:
-  data/maps/hires/*.png
+  data/maps/hires/*.svg
   data/shapefiles/derived/v0_1_derived_v8_majority_2026_eds.gpkg  (v0_7 fallback)
   data/shapefiles/derived/v0_1_derived_v8_minority_2026_eds.gpkg  (v0_7 fallback)
 
 Outputs:
-  data/maps/verification/v0_8_commission_sidebyside_<slug>.png
-  data/maps/verification/v0_8_commission_overlay_<slug>.png
+  data/maps/verification/v0_8_commission_sidebyside_<slug>.svg
+  data/maps/verification/v0_8_commission_overlay_<slug>.svg
 
 Dependencies:
-  Forward:  data/maps/hires/*.png,
+  Forward:  data/maps/hires/*.svg,
             data/shapefiles/derived/v0_1_derived_v8_*_2026_eds.gpkg
-  Backward: data/maps/verification/v0_8_commission_*.png
+  Backward: data/maps/verification/v0_8_commission_*.svg
 """
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -105,36 +105,36 @@ MAP_SPECS: list[MapSpec] = [
     # p77: Near Calgary text page
     # p79: Near Edmonton text/map page
     # p81, p83, p85: North / Central / South region maps
-    MapSpec("v0_1_majority_p71_alberta_overview.png",
+    MapSpec("v0_1_majority_p71_alberta_overview.svg",
             "majority_overview_p71", "majority", "Overview text — Majority", AB),
-    MapSpec("v0_1_majority_p72_MAP_r600.png",
+    MapSpec("v0_1_majority_p72_MAP_r600.svg",
             "majority_calgary_map_p72", "majority", "Calgary MAP — Majority",
             _city_box(65035, 5652943, 65)),
-    MapSpec("v0_1_majority_p73_calgary.png",
+    MapSpec("v0_1_majority_p73_calgary.svg",
             "majority_calgary_text_p73", "majority", "Calgary text — Majority",
             _city_box(65035, 5652943, 65)),
-    MapSpec("v0_1_majority_p74_MAP_r600.png",
+    MapSpec("v0_1_majority_p74_MAP_r600.svg",
             "majority_edmonton_map_p74", "majority", "Edmonton MAP — Majority",
             _city_box(99758, 5931703, 65)),
-    MapSpec("v0_1_majority_p75_edmonton.png",
+    MapSpec("v0_1_majority_p75_edmonton.svg",
             "majority_edmonton_text_p75", "majority", "Edmonton text — Majority",
             _city_box(99758, 5931703, 65)),
-    MapSpec("v0_1_majority_p76_MAP_r600.png",
+    MapSpec("v0_1_majority_p76_MAP_r600.svg",
             "majority_near_calgary_map_p76", "majority", "Near Calgary MAP — Majority",
             _city_box(65035, 5652943, 140)),
-    MapSpec("v0_1_majority_p77_near_calgary.png",
+    MapSpec("v0_1_majority_p77_near_calgary.svg",
             "majority_near_calgary_text_p77", "majority", "Near Calgary text — Majority",
             _city_box(65035, 5652943, 140)),
-    MapSpec("v0_1_majority_p79_near_edmonton.png",
+    MapSpec("v0_1_majority_p79_near_edmonton.svg",
             "majority_near_edmonton_p79", "majority", "Near Edmonton — Majority",
             _city_box(99758, 5931703, 140)),
-    MapSpec("v0_1_majority_p81_north.png",
+    MapSpec("v0_1_majority_p81_north.svg",
             "majority_north_p81", "majority", "North — Majority",
             (AB[0], AB[1], 6150000, AB[3])),
-    MapSpec("v0_1_majority_p83_central.png",
+    MapSpec("v0_1_majority_p83_central.svg",
             "majority_central_p83", "majority", "Central — Majority",
             (AB[0], AB[1], 5780000, 6200000)),
-    MapSpec("v0_1_majority_p85_south.png",
+    MapSpec("v0_1_majority_p85_south.svg",
             "majority_south_p85", "majority", "South — Majority",
             (AB[0], AB[1], AB[2], 5810000)),
     # --- Minority ---
@@ -142,15 +142,15 @@ MAP_SPECS: list[MapSpec] = [
     # p360 (map74): Edmonton detail map
     # p361 (map75): Near Calgary region (landscape 6601×5100)
     # p362 (map76): multi-panel summary page (9 smaller maps — overlay not meaningful)
-    MapSpec("v0_1_minority_p359_map73.png",
+    MapSpec("v0_1_minority_p359_map73.svg",
             "minority_overview_p359", "minority", "Alberta Overview — Minority", AB),
-    MapSpec("v0_1_minority_p360_map74.png",
+    MapSpec("v0_1_minority_p360_map74.svg",
             "minority_edmonton_p360", "minority", "Edmonton — Minority",
             _city_box(99758, 5931703, 65)),
-    MapSpec("v0_1_minority_p361_map75.png",
+    MapSpec("v0_1_minority_p361_map75.svg",
             "minority_near_calgary_p361", "minority", "Near Calgary — Minority",
             _city_box(65035, 5652943, 140)),
-    MapSpec("v0_1_minority_p362_map76.png",
+    MapSpec("v0_1_minority_p362_map76.svg",
             "minority_summary_p362", "minority",
             "Summary (multi-panel) — Minority", AB),  # 9-panel page; overlay is approximate
 ]
@@ -262,9 +262,9 @@ def render_overlay(ax, img: np.ndarray, gdf: gpd.GeoDataFrame,
 
 def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
                  out_dir: Path) -> dict:
-    png_path = HIRES / spec.png
+    png_path = HIRES / spec.svg
     if not png_path.exists():
-        print(f"  [skip] {spec.png} not found")
+        print(f"  [skip] {spec.svg} not found")
         return {"slug": spec.slug, "skipped": True}
 
     t_spec = time.time()
@@ -285,7 +285,7 @@ def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
     ax_com.imshow(img, aspect="auto", interpolation="lanczos")
     ax_com.set_xticks([])
     ax_com.set_yticks([])
-    ax_com.set_title(f"Commission map\n({spec.png})",
+    ax_com.set_title(f"Commission map\n({spec.svg})",
                      fontsize=9, color="#1a1a1a", loc="left", pad=4)
     for s in ax_com.spines.values():
         s.set_color("#aaaaaa")
@@ -295,7 +295,7 @@ def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
              f"Left: {version_label} derived boundaries  ·  Right: commission source map  "
              f"·  Visual compliance check — boundaries should match in shape and position",
              ha="center", va="bottom", fontsize=7, color="#666666")
-    sb_path = out_dir / f"v0_8_commission_sidebyside_{spec.slug}.png"
+    sb_path = out_dir / f"v0_8_commission_sidebyside_{spec.slug}.svg"
     fig.savefig(sb_path, dpi=150, bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
@@ -311,7 +311,7 @@ def process_spec(spec: MapSpec, plans: dict[str, gpd.GeoDataFrame],
         ha="center", va="bottom", fontsize=7, color="#884444",
         style="italic",
     )
-    ov_path = out_dir / f"v0_8_commission_overlay_{spec.slug}.png"
+    ov_path = out_dir / f"v0_8_commission_overlay_{spec.slug}.svg"
     fig2.savefig(ov_path, dpi=150, bbox_inches="tight", facecolor="white")
     plt.close(fig2)
 
@@ -357,8 +357,8 @@ def main() -> int:
 
     print(f"\nOutputs in: {OUT}")
     print("\nTo calibrate overlays:")
-    print("  1. Open v0_8_commission_sidebyside_*.png — visually confirm boundary shapes match")
-    print("  2. Open v0_8_commission_overlay_*.png — if lines are shifted, adjust the 'extent'")
+    print("  1. Open v0_8_commission_sidebyside_*.svg — visually confirm boundary shapes match")
+    print("  2. Open v0_8_commission_overlay_*.svg — if lines are shifted, adjust the 'extent'")
     print("     in MAP_SPECS. Move xmin left / xmax right to stretch horizontally, etc.")
     print(f"\n[{_ts()}] [commission overlay] DONE — total {time.time()-t_start:.2f}s",
           flush=True)

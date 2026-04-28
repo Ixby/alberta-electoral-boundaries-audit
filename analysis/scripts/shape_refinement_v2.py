@@ -806,11 +806,11 @@ def phase5b_render_orange_panels(impact_df):
             bbox=dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#ccc"),
         )
         slug = name.replace(" ", "_").replace("/", "_").replace("-", "_").lower()
-        fig_single.savefig(VERIFICATION_DIR / f"v0_2_{which}_{slug}.png", bbox_inches="tight")
+        fig_single.savefig(VERIFICATION_DIR / f"v0_2_{which}_{slug}.svg", bbox_inches="tight")
         plt.close(fig_single)
 
     fig_grid.tight_layout()
-    fig_grid.savefig(VERIFICATION_DIR / "v0_2_priority_grid.png", bbox_inches="tight")
+    fig_grid.savefig(VERIFICATION_DIR / "v0_2_priority_grid.svg", bbox_inches="tight")
     plt.close(fig_grid)
     print(f"[phase5b] wrote v0_2 verification panels", flush=True)
 

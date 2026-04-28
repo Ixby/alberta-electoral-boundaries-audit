@@ -1,15 +1,15 @@
 # Version: v0.9
-"""v0.1 MCMC ensemble — 250k corrected run against v0_9 topological substrate.
+"""v0.1 MCMC ensemble — 250k corrected run against v0_10 topological substrate.
 
 Replaces every prior Lane-1 ensemble in the audit. Per PO directive
-(2026-04-26): everything before v0_9 is deprecated. This run is the
+(2026-04-26): everything before v0_10 is deprecated. This run is the
 canonical Lane-1 reference under the corrected `seat_results()`
-(Two-Party share, post-commit 3484351 in mcmc_ensemble.py) on the v0_9
+(Two-Party share, post-commit 3484351 in mcmc_ensemble.py) on the v0_10
 topological substrate.
 
 Differences from `mcmc_ensemble_250k_v0_8.py`:
-  - Loads the v0_9 topological GPKGs (no fallback — v0_9 is canonical).
-  - Outputs and checkpoint dir suffixed `_v0_9` instead of `_v0_8`.
+  - Loads the v0_10 topological GPKGs (no fallback — v0_10 is canonical).
+  - Outputs and checkpoint dir suffixed `_v0_10` instead of `_v0_8`.
 
 `seat_results` and `run_ensemble` are imported, not reimplemented, so the
 Two-Party fix and restored full-graph seed regen come along for free.
@@ -20,18 +20,18 @@ Outputs
 - data/simulation_real_map_scores_250k.json
 - data/simulated_ensemble_percentiles_250k.csv
 - data/simulation_convergence_diagnostics_250k.json
-- data/maps/mcmc/ensemble_distribution_250k_v0_9_{metric}.png
-- data/maps/mcmc/running_mean_250k_v0_9_{metric}.png
+- data/maps/mcmc/ensemble_distribution_250k_v0_10_{metric}.svg
+- data/maps/mcmc/running_mean_250k_v0_10_{metric}.svg
 
 Usage
 -----
     python analysis/scripts/mcmc_ensemble_250k.py [--n-steps 250000]
 
-Forward: analysis/methodology/v0_1_mcmc_v0_9_corrected.md
+Forward: analysis/methodology/v0_1_mcmc_v0_10_corrected.md
 Backward:
   data/va_polygons_with_2023_votes.gpkg
-  data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
-  data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
+  data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
+  data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   gerrychain, geopandas, matplotlib, numpy, pandas
 """
@@ -72,10 +72,10 @@ DATA = ROOT / "data"
 MAPS = ROOT / "data" / "maps" / "mcmc"
 MAPS.mkdir(parents=True, exist_ok=True)
 
-# v0_9 topological substrate — canonical per PO directive (2026-04-26).
+# v0_10 topological substrate — canonical per PO directive (2026-04-26).
 # No fallback: if these are missing, the run fails fast.
-MAJ_V9_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
-MIN_V9_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+MAJ_V10_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
+MIN_V10_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
 
 SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples_250k.csv"
 SCORES_JSON = DATA / "simulation_real_map_scores_250k.json"
@@ -177,22 +177,22 @@ def _run_chain_chunked(args):
     return str(chain_csv_path)
 
 
-def _select_v9(plan: str):
-    """v0_9 only — no fallback. Per PO directive: everything before v0_9 is deprecated."""
+def _select_v10(plan: str):
+    """v0_10 only — no fallback. Per PO directive: everything before v0_10 is deprecated."""
     if plan == "majority":
-        if not MAJ_V9_PATH.exists():
+        if not MAJ_V10_PATH.exists():
             raise FileNotFoundError(
-                f"v0_9 majority GPKG missing: {MAJ_V9_PATH}. "
-                "v0_9 is canonical per PO directive — no fallback."
+                f"v0_10 majority GPKG missing: {MAJ_V10_PATH}. "
+                "v0_10 is canonical per PO directive — no fallback."
             )
-        return MAJ_V9_PATH, "majority 2026 v0_9 topological"
+        return MAJ_V10_PATH, "majority 2026 v0_10 topological"
     else:
-        if not MIN_V9_PATH.exists():
+        if not MIN_V10_PATH.exists():
             raise FileNotFoundError(
-                f"v0_9 minority GPKG missing: {MIN_V9_PATH}. "
-                "v0_9 is canonical per PO directive — no fallback."
+                f"v0_10 minority GPKG missing: {MIN_V10_PATH}. "
+                "v0_10 is canonical per PO directive — no fallback."
             )
-        return MIN_V9_PATH, "minority 2026 v0_9 topological"
+        return MIN_V10_PATH, "minority 2026 v0_10 topological"
 
 
 def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
@@ -206,7 +206,7 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     t_start = time.time()
     n_steps_per_chain = (n_steps + n_chains - 1) // n_chains
     actual_total = n_steps_per_chain * n_chains
-    label_run = f"250k v0_9 corrected ensemble (Two-Party share + topological substrate)"
+    label_run = f"250k v0_10 corrected ensemble (Two-Party share + topological substrate)"
     print(f"[{time.strftime('%H:%M:%S')}] {label_run} starting", flush=True)
     print(f"  n_steps requested={n_steps}, n_chains={n_chains}, "
           f"steps/chain={n_steps_per_chain}, total={actual_total}", flush=True)
@@ -230,8 +230,8 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     m_2019["coverage_pct"] = 1.0
     m_2019["votes_coverage_pct"] = 1.0
 
-    maj_path, maj_label = _select_v9("majority")
-    min_path, min_label = _select_v9("minority")
+    maj_path, maj_label = _select_v10("majority")
+    min_path, min_label = _select_v10("minority")
     print(f"  using majority: {maj_path.name}")
     print(f"  using minority: {min_path.name}")
     m_maj = score_exogenous_map(va, maj_path)
@@ -292,7 +292,7 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
               f"rho10={diag['rho_lag_10']:+.3f}  rho100={diag['rho_lag_100']:+.3f}")
         plot_running_mean(
             key, df[key].values,
-            MAPS / f"running_mean_250k_v0_9_{key}.png",
+            MAPS / f"running_mean_250k_v0_10_{key}.svg",
             label,
         )
 
@@ -310,7 +310,7 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     for key, label in metrics_config:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
         plot_metric(key, label, df[key].values, real_vals,
-                    MAPS / f"ensemble_distribution_250k_v0_9_{key}.png")
+                    MAPS / f"ensemble_distribution_250k_v0_10_{key}.svg")
         for map_name, val in real_vals.items():
             pr = pct_rank(df[key].dropna().values, val) if not np.isnan(val) else float("nan")
             summary.append({

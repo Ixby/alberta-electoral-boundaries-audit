@@ -1161,8 +1161,8 @@ def main():
     pass_log = {}
 
     # Thumbnail paths for pass 3 and pass 6
-    calgary_thumb = MAPS_HIRES / "v0_1_minority_p360_map74.png"
-    edmonton_thumb = MAPS_HIRES / "v0_1_minority_p361_map75.png"
+    calgary_thumb = MAPS_HIRES / "v0_1_minority_p360_map74.svg"
+    edmonton_thumb = MAPS_HIRES / "v0_1_minority_p361_map75.svg"
     ed_thumb = {
         "Edmonton-Windermere": edmonton_thumb,
         "Calgary-De Winton": calgary_thumb,
@@ -1442,7 +1442,7 @@ def main():
     for ed, anchors in panel_map.items():
         v4_g = v4_gdf[v4_gdf["name_2026"] == ed].iloc[0].geometry
         v5_g = v5_gdf[v5_gdf["name_2026"] == ed].iloc[0].geometry
-        out = VERIFICATION_DIR / f"v0_5_minority_{ed_slug[ed]}.png"
+        out = VERIFICATION_DIR / f"v0_5_minority_{ed_slug[ed]}.svg"
         render_panel(ed, v4_g, v5_g, anchors, out,
                       caption_footprint=captions[ed]["footprint"],
                       caption_uncertainty=captions[ed]["uncertainty"])
@@ -1469,7 +1469,7 @@ def main():
         ],
         "po_additional_directives_addressed": {
             "contiguity": "Every v5 polygon coalesced to a single Polygon; gap-closure via buffer(N).buffer(-N) at N in [100, 200, 300, 500] m documented in contiguity_ops_log.",
-            "overlay_verification": "Side-by-side overlay panels rendered against maps/hires/v0_1_minority_p360_map74.png and p361_map75.png at v0_5_overlay_minority_*.png.",
+            "overlay_verification": "Side-by-side overlay panels rendered against maps/hires/v0_1_minority_p360_map74.svg and p361_map75.svg at v0_5_overlay_minority_*.svg.",
             "no_boundary_islands": "simplify(tolerance=50 m) applied to each v5 polygon to remove spikes/spurs.",
             "final_validation": "Each v5 polygon checked for is_valid, single Polygon, interior-ring justification, and compactness ratio < 8; per-ED results in validation_log.",
         },
@@ -1493,8 +1493,8 @@ def _render_overlay_panels(v5_gdf, v4_gdf):
     commission thumbnail on right. This addresses PO directive #2."""
     import matplotlib.image as mpimg
 
-    calgary_thumb_path = MAPS_HIRES / "v0_1_minority_p360_map74.png"
-    edmonton_thumb_path = MAPS_HIRES / "v0_1_minority_p361_map75.png"
+    calgary_thumb_path = MAPS_HIRES / "v0_1_minority_p360_map74.svg"
+    edmonton_thumb_path = MAPS_HIRES / "v0_1_minority_p361_map75.svg"
 
     ed_to_thumb = {
         "Edmonton-Windermere": edmonton_thumb_path,
@@ -1559,7 +1559,7 @@ def _render_overlay_panels(v5_gdf, v4_gdf):
                   "compare structural shape not precise coordinates.",
                   ha="center", fontsize=9, style="italic")
         plt.subplots_adjust(top=0.93, bottom=0.06, wspace=0.05)
-        out = VERIFICATION_DIR / f"v0_5_overlay_minority_{ed_slug[ed]}.png"
+        out = VERIFICATION_DIR / f"v0_5_overlay_minority_{ed_slug[ed]}.svg"
         plt.savefig(out, dpi=140, bbox_inches="tight")
         plt.close(fig)
         print(f"[render] wrote overlay {out}")

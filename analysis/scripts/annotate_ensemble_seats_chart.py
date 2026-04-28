@@ -10,7 +10,7 @@ but adds the callout so the chart is self-contained for a lay reader.
 
 Output
 ------
-  data/maps/mcmc/ensemble_distribution_250k_v0_9_seats_at_50_50.png  (overwrite)
+  data/maps/mcmc/ensemble_distribution_250k_v0_9_seats_at_50_50.svg  (overwrite)
 
 Run
 ---
@@ -38,7 +38,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 SAMPLES_CSV = DATA / "outputs" / "mcmc" / "simulated_ensemble_raw_samples.csv"
 PERCENTILES_CSV = DATA / "outputs" / "mcmc" / "simulated_ensemble_percentiles_250k.csv"
-OUT = DATA / "maps" / "mcmc" / "ensemble_distribution_250k_v0_9_seats_at_50_50.png"
+OUT = DATA / "maps" / "mcmc" / "ensemble_distribution_250k_v0_9_seats_at_50_50.svg"
 
 # Canonical v0_9 real-map scores (from final_real_map_scores.json)
 REAL_MAPS = {

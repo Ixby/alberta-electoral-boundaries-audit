@@ -38,8 +38,8 @@ Forward deps:
   - data/compactness_summary.json (consumed by report_academic.md §5.x)
 
 Backward deps:
-  - data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
-  - data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
+  - data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
+  - data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -67,7 +67,7 @@ def _pick(plan: str) -> Path:
     then canonical, then v0_7 canonical."""
     base = ROOT / "data" / "shapefiles" / "derived"
     for fname in (
-        f"v0_9_topological_{plan}_2026_eds.gpkg",
+        f"v0_10_topological_{plan}_2026_eds.gpkg",
         f"v0_8_full_refined_{plan}_2026_eds.gpkg",
         f"v0_8_refined_{plan}_2026_eds.gpkg",
         f"v0_8_canonical_{plan}_2026_eds.gpkg",

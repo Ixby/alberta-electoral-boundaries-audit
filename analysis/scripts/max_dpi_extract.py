@@ -8,7 +8,7 @@ and also render the full page at 600 DPI for direct comparison with the prior
 hires/ set. Then we note that rendering above ~400 DPI gives no real new detail,
 only interpolation.
 
-Forward deps: maps/hires_v2/*.png, analysis/reports/max_dpi_extract.json
+Forward deps: maps/hires_v2/*.svg, analysis/reports/max_dpi_extract.json
 Backward deps: .temp/commission_report.pdf
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -96,7 +96,7 @@ def extract_native_and_render(doc, page_1: int, label: str) -> dict:
     # And at 1200 DPI to confirm whether rendering above native yields anything.
     for render_dpi in (600, 1200):
         pix = page.get_pixmap(dpi=render_dpi, alpha=False)
-        render_path = OUT_DIR / f"v0_2_render_{label}_p{page_1}_r{render_dpi}.png"
+        render_path = OUT_DIR / f"v0_2_render_{label}_p{page_1}_r{render_dpi}.svg"
         pix.save(str(render_path))
         result["outputs"].append(
             dict(

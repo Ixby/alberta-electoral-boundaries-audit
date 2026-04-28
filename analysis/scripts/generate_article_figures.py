@@ -19,10 +19,10 @@ Design premise:
     the NW / S / W pulls. Surrounding context is greyed out.
 
 Outputs
-  - maps/article/figure_airdrie_v3.png
-  - maps/article/figure_lethbridge_v3.png
-  - maps/article/figure_reddeer_v3.png
-  - maps/article/figure_calgary_v3.png
+  - maps/article/figure_airdrie_v3.svg
+  - maps/article/figure_lethbridge_v3.svg
+  - maps/article/figure_reddeer_v3.svg
+  - maps/article/figure_calgary_v3.svg
 
 Run
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_generate_article_figures.py
@@ -31,7 +31,7 @@ Dependencies
   Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg,
              data/shapefiles/reference/alberta_2021_csds.gpkg,
              data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
-  Backward : maps/article/figure_*_v3.png,
+  Backward : maps/article/figure_*_v3.svg,
              analysis/reports/article_figures_v3.md,
              report_public.md (four figure references updated to _v3)
 
@@ -716,7 +716,7 @@ def build_airdrie():
                "Only one of the four is named Airdrie alone; the other three carry Calgary or regional names. "
                "The majority draws two compact ridings, both named Airdrie.")
     draw_schematic(
-        OUT / "figure_airdrie_v3.png",
+        OUT / "figure_airdrie_v3.svg",
         title=title, subtitle=subtitle,
         maj_label="Majority proposal  \u00b7  2 ridings, both named Airdrie",
         maj_segments=maj_segments,
@@ -754,7 +754,7 @@ def build_lethbridge():
     caption = ("Each of the minority's three Lethbridge-prefixed districts attaches a rural community to the city core. "
                "The majority draws two compact Lethbridge ridings and keeps rural territory in separately-named regional districts.")
     draw_schematic(
-        OUT / "figure_lethbridge_v3.png",
+        OUT / "figure_lethbridge_v3.svg",
         title=title, subtitle=subtitle,
         maj_label="Majority proposal  \u00b7  2 compact city ridings",
         maj_segments=maj_segments,
@@ -792,7 +792,7 @@ def build_reddeer():
     caption = ("The minority attaches a Red Deer prefix to every adjacent rural riding. "
                "Same footprint; four city-named districts where the majority drew two.")
     draw_schematic(
-        OUT / "figure_reddeer_v3.png",
+        OUT / "figure_reddeer_v3.svg",
         title=title, subtitle=subtitle,
         maj_label="Majority proposal  \u00b7  2 compact city ridings plus 2 rural",
         maj_segments=maj_segments,
@@ -803,7 +803,7 @@ def build_reddeer():
 
 
 def build_calgary():
-    return draw_calgary(OUT / "figure_calgary_v3.png")
+    return draw_calgary(OUT / "figure_calgary_v3.svg")
 
 
 # ---------------------------------------------------------------------------
@@ -815,15 +815,15 @@ def main() -> int:
     print()
     print("Rendering schematics...")
     build_airdrie()
-    print("  -> figure_airdrie_v3.png")
+    print("  -> figure_airdrie_v3.svg")
     build_lethbridge()
-    print("  -> figure_lethbridge_v3.png")
+    print("  -> figure_lethbridge_v3.svg")
     build_reddeer()
-    print("  -> figure_reddeer_v3.png")
+    print("  -> figure_reddeer_v3.svg")
     print()
     print("Rendering Calgary minimal map...")
     calg_meta = build_calgary()
-    print("  -> figure_calgary_v3.png")
+    print("  -> figure_calgary_v3.svg")
     if calg_meta.get("proxy_notes"):
         print(f"  proxy notes: {calg_meta['proxy_notes']}")
     print()

@@ -11,8 +11,8 @@ Outputs
 - data/v0_1_mcmc_real_map_scores_250k_v0_8.json
 - data/v0_1_mcmc_ensemble_percentiles_250k_v0_8.csv
 - data/v0_1_mcmc_convergence_diagnostics_250k_v0_8.json
-- data/maps/mcmc/ensemble_distribution_250k_v0_8_{metric}.png
-- data/maps/mcmc/running_mean_250k_v0_8_{metric}.png
+- data/maps/mcmc/ensemble_distribution_250k_v0_8_{metric}.svg
+- data/maps/mcmc/running_mean_250k_v0_8_{metric}.svg
 
 Usage
 -----
@@ -283,7 +283,7 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
               f"rho10={diag['rho_lag_10']:+.3f}  rho100={diag['rho_lag_100']:+.3f}")
         plot_running_mean(
             key, df[key].values,
-            MAPS / f"running_mean_250k_v0_8_{key}.png",
+            MAPS / f"running_mean_250k_v0_8_{key}.svg",
             label,
         )
 
@@ -301,7 +301,7 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     for key, label in metrics_config:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
         plot_metric(key, label, df[key].values, real_vals,
-                    MAPS / f"ensemble_distribution_250k_v0_8_{key}.png")
+                    MAPS / f"ensemble_distribution_250k_v0_8_{key}.svg")
         for map_name, val in real_vals.items():
             pr = pct_rank(df[key].dropna().values, val) if not np.isnan(val) else float("nan")
             summary.append({

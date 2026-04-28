@@ -7,7 +7,7 @@
     "ucp_seats": 58,
     "n_districts": 89,
     "ucp_vote_share": 0.5740427639062995,
-    "source": "v0_9_topological_majority_2026_eds.gpkg",
+    "source": "v0_10_topological_majority_2026_eds.gpkg",
     "method": "centroid"
   },
   "centroid_minority": {
@@ -18,7 +18,7 @@
     "ucp_seats": 58,
     "n_districts": 89,
     "ucp_vote_share": 0.5740427639062994,
-    "source": "v0_9_topological_minority_2026_eds.gpkg",
+    "source": "v0_10_topological_minority_2026_eds.gpkg",
     "method": "centroid"
   },
   "area_weighted_majority": {

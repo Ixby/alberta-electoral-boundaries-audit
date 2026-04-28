@@ -783,11 +783,11 @@ def render_v3_panels(impact_df):
             bbox=dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#ccc"),
         )
         slug = name.replace(" ", "_").replace("/", "_").replace("-", "_").lower()
-        fig_single.savefig(VERIFICATION_DIR / f"v0_3_{which}_{slug}.png", bbox_inches="tight")
+        fig_single.savefig(VERIFICATION_DIR / f"v0_3_{which}_{slug}.svg", bbox_inches="tight")
         plt.close(fig_single)
 
     fig_grid.tight_layout()
-    fig_grid.savefig(VERIFICATION_DIR / "v0_3_priority_grid.png", bbox_inches="tight")
+    fig_grid.savefig(VERIFICATION_DIR / "v0_3_priority_grid.svg", bbox_inches="tight")
     plt.close(fig_grid)
     print(f"[render] wrote v0_3 panels", flush=True)
 

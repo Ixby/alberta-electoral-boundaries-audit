@@ -120,10 +120,10 @@ def build_heatmap(map_path, out_file, name_col_guess="name_2026"):
     print(f"Saved {out_file.name}")
 
 if __name__ == "__main__":
-    maj_path = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+    maj_path = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
     build_heatmap(maj_path, SCRATCH_DIR / "majority_heatmap.svg")
     
-    min_path = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+    min_path = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
     build_heatmap(min_path, SCRATCH_DIR / "minority_heatmap.svg")
     
     # Let's see if we have the 2019 gpkg, or use shp

@@ -27,7 +27,7 @@
     "covered_votes": 932164.0,
     "all_vote_total": 932164.0,
     "votes_coverage_pct": 1.0,
-    "source": "v0_9_topological_majority_2026_eds.gpkg"
+    "source": "v0_10_topological_majority_2026_eds.gpkg"
   },
   "majority_source": "majority 2026 v0_9 topological",
   "minority_2026": {
@@ -44,7 +44,7 @@
     "covered_votes": 932164.0,
     "all_vote_total": 932164.0,
     "votes_coverage_pct": 1.0,
-    "source": "v0_9_topological_minority_2026_eds.gpkg"
+    "source": "v0_10_topological_minority_2026_eds.gpkg"
   },
   "minority_source": "minority 2026 v0_9 topological",
   "n_steps": 250000,

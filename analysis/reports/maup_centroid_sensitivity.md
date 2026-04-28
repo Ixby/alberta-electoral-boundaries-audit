@@ -11,8 +11,8 @@ backward_dependencies:
   - analysis/scripts/assignment_va_attribution.py — original centroid-based attribution
   - analysis/scripts/assignment_va_attribution_maup.py — prior MAUP work (full-vote variant)
   - data/shapefiles/derived/va_polygons_with_2023_votes.gpkg — Election-Day VA substrate
-  - data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
-  - data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
+  - data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
+  - data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   - data/votes_2023_majority_area_weighted.csv
   - data/votes_2023_minority_area_weighted.csv
   - data/maup_centroid_sensitivity.json — full output

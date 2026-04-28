@@ -15,8 +15,8 @@ Outputs
 - data/simulation_real_map_scores_100k.json
 - data/simulated_ensemble_percentiles_100k.csv
 - data/simulation_convergence_diagnostics_100k.json
-- maps/mcmc/ensemble_distribution_100k_{metric}.png
-- maps/mcmc/running_mean_100k_{metric}.png
+- maps/mcmc/ensemble_distribution_100k_{metric}.svg
+- maps/mcmc/running_mean_100k_{metric}.svg
 
 Usage
 -----
@@ -244,7 +244,7 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
               f"max_lag={diag['max_lag_used']}")
         plot_running_mean(
             key, df_full[key].values,
-            MAPS / f"running_mean_100k_{key}.png",
+            MAPS / f"running_mean_100k_{key}.svg",
             label,
         )
 
@@ -263,7 +263,7 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
     for key, label in metrics_config:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
         plot_metric(key, label, df_full[key].values, real_vals,
-                    MAPS / f"ensemble_distribution_100k_{key}.png")
+                    MAPS / f"ensemble_distribution_100k_{key}.svg")
         for map_name, val in real_vals.items():
             pr = pct_rank(df_full[key].dropna().values, val) if not np.isnan(val) else float("nan")
             summary.append({

@@ -11,8 +11,8 @@ warnings.filterwarnings('ignore')
 ROOT = Path("C:/Users/email/Documents/Claude/Projects/Electoral Boundary Analysis/alberta_audit")
 VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 EDS_2019_PATH = ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-EDS_MIN_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-EDS_MAJ_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+EDS_MIN_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+EDS_MAJ_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
 PROOFS_DIR = ROOT / "scratch" / "xray_proofs"
 
 os.makedirs(PROOFS_DIR, exist_ok=True)
@@ -248,7 +248,7 @@ def render_xray_event(event, eds_2019, eds_2026, va_pts):
     fig.legend(handles=[ndp_patch, ucp_patch, border_line], loc='upper right', fontsize=14, bbox_to_anchor=(0.95, 1.0))
 
     plt.tight_layout(rect=[0, 0.1, 1, 1])
-    outpath = PROOFS_DIR / f"{clean_title}.png"
+    outpath = PROOFS_DIR / f"{clean_title}.svg"
     plt.savefig(outpath, dpi=150, bbox_inches='tight')
     plt.close()
     print(f"Generated X-Ray proof: {outpath.name}")

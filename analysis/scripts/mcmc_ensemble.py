@@ -19,7 +19,7 @@ Inputs
 Outputs
 -------
 - data/simulated_ensemble_raw_samples.csv
-- maps/mcmc/ensemble_distribution_*.png (one per metric)
+- maps/mcmc/ensemble_distribution_*.svg (one per metric)
 - analysis/methodology/mcmc_ensemble.md (write-up — produced by separate run)
 
 Dependencies
@@ -597,7 +597,7 @@ def main(n_steps: int = 5000, seed: int = None):
     summary = []
     for key, label in metrics_config:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
-        plot_metric(key, label, df[key].values, real_vals, MAPS / f"ensemble_distribution_{key}.png")
+        plot_metric(key, label, df[key].values, real_vals, MAPS / f"ensemble_distribution_{key}.svg")
 
         for map_name, val in real_vals.items():
             pr = pct_rank(df[key].dropna().values, val) if not np.isnan(val) else float("nan")

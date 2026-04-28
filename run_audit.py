@@ -12,8 +12,8 @@ from shapely.validation import explain_validity
 
 BASE = r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit"
 
-MAJ_PATH  = BASE + r"\data\shapefiles\derived\v0_9_topological_majority_2026_eds.gpkg"
-MIN_PATH  = BASE + r"\data\shapefiles\derived\v0_9_topological_minority_2026_eds.gpkg"
+MAJ_PATH  = BASE + r"\data\shapefiles\derived\v0_10_topological_majority_2026_eds.gpkg"
+MIN_PATH  = BASE + r"\data\shapefiles\derived\v0_10_topological_minority_2026_eds.gpkg"
 VA_PATH   = BASE + r"\data\shapefiles\derived\va_polygons_with_2023_votes.gpkg"
 REF_PATH  = BASE + r"\data\shapefiles\reference\alberta_2019_eds\EDS_ENACTED_BILL33_15DEC2017.shp"
 SCORES_PATH = BASE + r"\data\outputs\final_real_map_scores.json"

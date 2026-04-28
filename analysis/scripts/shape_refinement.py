@@ -106,7 +106,7 @@ def phase1_extract_maps(dpi: int = 600) -> dict:
         for d in trials:
             try:
                 img = pdf.pages[test_page_idx].to_image(resolution=d)
-                tmp = MAPS_HIRES / f"_probe_{d}.png"
+                tmp = MAPS_HIRES / f"_probe_{d}.svg"
                 img.save(str(tmp))
                 tmp.unlink(missing_ok=True)
                 selected_dpi = d
@@ -120,7 +120,7 @@ def phase1_extract_maps(dpi: int = 600) -> dict:
 
         def _render(target_dir: Path, pages: list):
             for page_num_1b, stem, title in pages:
-                out = target_dir / f"v0_1_{stem}.png"
+                out = target_dir / f"v0_1_{stem}.svg"
                 if out.exists():
                     results["ok"].append({"page": page_num_1b, "file": str(out), "title": title, "skipped": True})
                     continue
@@ -582,11 +582,11 @@ def phase3_verify():
         if r_gser is not None:
             r_gser.boundary.plot(ax=ax_s, color="#d62728", linewidth=1.8)
         slug = name.replace(" ", "_").replace("/", "_").replace("-", "_").lower()
-        fig_single.savefig(VERIFICATION_DIR / f"v0_1_{which}_{slug}.png", bbox_inches="tight")
+        fig_single.savefig(VERIFICATION_DIR / f"v0_1_{which}_{slug}.svg", bbox_inches="tight")
         plt.close(fig_single)
 
     fig_grid.tight_layout()
-    fig_grid.savefig(VERIFICATION_DIR / "v0_1_priority_grid.png", bbox_inches="tight")
+    fig_grid.savefig(VERIFICATION_DIR / "v0_1_priority_grid.svg", bbox_inches="tight")
     plt.close(fig_grid)
     return produced
 
@@ -704,7 +704,7 @@ def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
     if not dpi:
         try:
             from PIL import Image
-            test_file = MAPS_HIRES / "v0_1_majority_p71_alberta_overview.png"
+            test_file = MAPS_HIRES / "v0_1_majority_p71_alberta_overview.svg"
             if test_file.exists():
                 im = Image.open(test_file)
                 # 5100 px / 8.5 in = 600 DPI for letter-size
@@ -713,11 +713,11 @@ def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
                 # Reconstruct phase1_res.ok list from disk
                 phase1_res["ok"] = []
                 for pn, stem, title in MAJ_MAP_PAGES:
-                    f = MAPS_HIRES / f"v0_1_{stem}.png"
+                    f = MAPS_HIRES / f"v0_1_{stem}.svg"
                     if f.exists():
                         phase1_res["ok"].append({"page": pn, "file": str(f), "title": title})
                 for pn, stem, title in MIN_MAP_PAGES:
-                    f = SRC_MAPS_HIRES / f"v0_1_{stem}.png"
+                    f = SRC_MAPS_HIRES / f"v0_1_{stem}.svg"
                     if f.exists():
                         phase1_res["ok"].append({"page": pn, "file": str(f), "title": title})
         except Exception:  # noqa: BLE001
@@ -832,7 +832,7 @@ Tier C. Pure Tier A rows inherit 2019 geometry and are not snapped (by design).
 - **Minority map pages rendered:** {len([x for x in phase1_res.get('ok',[]) if 'minority' in str(x.get('file',''))])} of {len(MIN_MAP_PAGES)}
 - **Failures:** {len(phase1_res.get('failed', []))}
 
-Rendered files use the naming pattern `v0_1_<majority|minority>_pNN_<title>.png`
+Rendered files use the naming pattern `v0_1_<majority|minority>_pNN_<title>.svg`
 so they sort by PDF page number and are self-describing. Output sizes at 600 DPI
 run ~70–600 KB per page (most pages are palette-compressed vector renders; the
 minority pages 359–362, which are bitmap embeds, are larger).

@@ -42,15 +42,15 @@ CLI:
 
 Outputs:
     data/airdrie_quadrant_anchoring.csv
-    data/maps/airdrie_4way_teardown.png
+    data/maps/airdrie_4way_teardown.svg
 
 Forward:
     analysis/reports/airdrie_highway_pretext.md
 Backward:
     analysis/scripts/score_anchoring.py            (CSD anchoring formula)
     analysis/scripts/score_natural_anchoring.py    (highway anchoring formula)
-    data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
-    data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
+    data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
+    data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
     data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
     data/shapefiles/reference/alberta_2021_csds.gpkg
     data/osm/alberta_osm_highways.gpkg
@@ -81,14 +81,14 @@ SHP_REF = DATA / "shapefiles" / "reference"
 OSM_DIR = DATA / "osm"
 MAPS_DIR = DATA / "maps"
 
-V0_9_MIN_GPKG = SHP_DERIVED / "v0_9_topological_minority_2026_eds.gpkg"
-V0_9_MAJ_GPKG = SHP_DERIVED / "v0_9_topological_majority_2026_eds.gpkg"
+V0_9_MIN_GPKG = SHP_DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
+V0_9_MAJ_GPKG = SHP_DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
 VA_GPKG = SHP_DERIVED / "va_polygons_with_2023_votes.gpkg"
 CSD_GPKG = SHP_REF / "alberta_2021_csds.gpkg"
 HIGHWAYS_GPKG = OSM_DIR / "alberta_osm_highways.gpkg"
 
 OUT_CSV = DATA / "airdrie_quadrant_anchoring.csv"
-OUT_PNG = MAPS_DIR / "airdrie_4way_teardown.png"
+OUT_PNG = MAPS_DIR / "airdrie_4way_teardown.svg"
 
 # Match the audit's headline anchoring tolerances (score_anchoring.py)
 SNAP_TOL_M: float = 500.0

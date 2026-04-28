@@ -12,7 +12,7 @@ Pipeline:
 
 Run:  PYTHONIOENCODING=utf-8 python analysis/scripts/build_cover.py
 Output: report_public.pdf at the repo root (cover + article merged).
-        maps/cover_art.png as the hero image (also referenced in cover).
+        maps/cover_art.svg as the hero image (also referenced in cover).
 
 Dependencies: geopandas, shapely, matplotlib, markdown, pypdf, pypdfium2.
 """
@@ -33,13 +33,13 @@ DERIVED = REPO_ROOT / "data" / "shapefiles" / "derived"
 # Prefer v0_9 (topological VA-dissolve, gapless by construction) →
 # v0_8 refined → v0_8 canonical → v0_7 canonical
 APPROX_MAJ_CANDIDATES = [
-    DERIVED / "v0_9_topological_majority_2026_eds.gpkg",
+    DERIVED / "v0_10_topological_majority_2026_eds.gpkg",
     DERIVED / "v0_8_refined_majority_2026_eds.gpkg",
     DERIVED / "v0_8_canonical_majority_2026_eds.gpkg",
     DERIVED / "v0_7_canonical_majority_2026_eds.gpkg",
 ]
 APPROX_MIN_CANDIDATES = [
-    DERIVED / "v0_9_topological_minority_2026_eds.gpkg",
+    DERIVED / "v0_10_topological_minority_2026_eds.gpkg",
     DERIVED / "v0_8_refined_minority_2026_eds.gpkg",
     DERIVED / "v0_8_canonical_minority_2026_eds.gpkg",
     DERIVED / "v0_7_canonical_minority_2026_eds.gpkg",
@@ -49,7 +49,7 @@ APPROX_MIN_CANDIDATES = [
 # its parent 2026 ED.
 VA_TO_2026_ASSIGNMENTS = REPO_ROOT / "analysis" / "assignment_va_to_2026_assignments.csv"
 
-COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
+COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.svg"
 OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article (the only PDF in the repo root)
 ARTICLE_PDF = REPO_ROOT / ".temp" / "article.pdf"   # intermediate, written by build_pdf.py to .temp/
 
@@ -181,11 +181,12 @@ def build_cover_art() -> Path:
         print(f"[build_cover] inferred 2019-parent vote share for "
               f"{n_inferred} EDs missed by centroid-join")
 
-        # 2c. Final fallback for any ED still grey (genuinely new 2026
-        # creations with no 2019 parent in the crosswalk, or parent rows
-        # whose VAs all aggregated to zero votes). Use the K nearest VA
-        # centroids to the ED's own centroid. Crude, but guarantees the
-        # cover renders no grey districts.
+    # 2c. Final fallback for any ED still grey (genuinely new 2026
+    # creations with no 2019 parent in the crosswalk, or parent rows
+    # whose VAs all aggregated to zero votes). Use the K nearest VA
+    # centroids to the ED's own centroid. Crude, but guarantees the
+    # cover renders no grey districts.
+    if VA_VOTES_PATH.exists():
         from shapely.geometry import Point
         K = 25
         still_missing = eds["total"] == 0
@@ -309,11 +310,11 @@ def build_cover_art() -> Path:
         _va_fill(s, w) for s, w in zip(va_render["parent_ucp_share"], weight.values)
     ]
 
-    # 4a. Base layer: v0_9 EDs at low saturation (weight=0.20 floor) so
-    #     park / uninhabited areas where no VA exists still show their
-    #     parent ED's partisan colour rather than an ivory gap.
+    # 4a. Base layer: v0_9 EDs at moderate saturation (weight=0.35 floor) so
+    #     park / uninhabited areas where no VA exists clearly show their
+    #     parent ED's partisan colour and do not look grey.
     eds["_base_fill"] = [
-        _va_fill(s, 0.20) for s in eds["ucp_share"]
+        _va_fill(s, 0.35) for s in eds["ucp_share"]
     ]
     eds.plot(
         ax=ax,

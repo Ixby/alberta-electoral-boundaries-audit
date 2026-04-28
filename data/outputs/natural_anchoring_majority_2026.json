@@ -16,7 +16,7 @@
   },
   "sources": {
     "input": {
-      "path": "data\\shapefiles\\derived\\v0_9_topological_majority_2026_eds.gpkg",
+      "path": "data\\shapefiles\\derived\\v0_10_topological_majority_2026_eds.gpkg",
       "label": "majority_2026",
       "n_eds": 89,
       "name_column": "name_2026"

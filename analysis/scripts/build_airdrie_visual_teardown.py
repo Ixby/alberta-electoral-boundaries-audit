@@ -31,9 +31,9 @@ def load_data():
     major_hwys = highways.cx[bbox[0]:bbox[2], bbox[1]:bbox[3]]
     
     # Load majority and minority maps
-    maj_map = gpd.read_file(DATA_DIR / "derived" / "v0_9_topological_majority_2026_eds.gpkg").to_crs(epsg=3401)
+    maj_map = gpd.read_file(DATA_DIR / "derived" / "v0_10_topological_majority_2026_eds.gpkg").to_crs(epsg=3401)
     maj_map = maj_map.cx[bbox[0]:bbox[2], bbox[1]:bbox[3]]
-    min_map = gpd.read_file(DATA_DIR / "derived" / "v0_9_topological_minority_2026_eds.gpkg").to_crs(epsg=3401)
+    min_map = gpd.read_file(DATA_DIR / "derived" / "v0_10_topological_minority_2026_eds.gpkg").to_crs(epsg=3401)
     min_map = min_map.cx[bbox[0]:bbox[2], bbox[1]:bbox[3]]
     
     return airdrie, major_hwys, maj_map, min_map, bbox
@@ -84,7 +84,7 @@ def plot_teardown(airdrie, major_hwys, maj_map, min_map, bbox):
     fig.legend(handles=legend_elements, loc='lower center', ncol=3, fontsize=12, bbox_to_anchor=(0.5, 0.02))
     
     plt.tight_layout(rect=[0, 0.08, 1, 0.95])
-    out_path = OUTPUT_DIR / "airdrie_four_way_split_teardown.png"
+    out_path = OUTPUT_DIR / "airdrie_four_way_split_teardown.svg"
     plt.savefig(out_path)
     print(f"Saved visualization to {out_path}")
 

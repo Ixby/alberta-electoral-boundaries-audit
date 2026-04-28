@@ -32,10 +32,10 @@ Dependencies
              data/v0_1_refined_v4_minority_2026_eds.gpkg  (fallback)
              data/majority_2026_populations.csv  (89-ED list)
              data/majority_hybrid_crosswalk.csv   (rename lineage)
-  Backward : maps/article/overlay_calgary.png
-             maps/article/overlay_reddeer.png
-             maps/article/overlay_airdrie.png
-             maps/article/overlay_lethbridge.png
+  Backward : maps/article/overlay_calgary.svg
+             maps/article/overlay_reddeer.svg
+             maps/article/overlay_airdrie.svg
+             maps/article/overlay_lethbridge.svg
              analysis/methodology/build_overlay_figures.md
 
 Run
@@ -605,7 +605,7 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     # Leave generous bottom margin for caption
     fig.subplots_adjust(left=0.03, right=0.97, top=0.94, bottom=0.18)
 
-    out_path = OUT / f"overlay_{spec.slug}.png"
+    out_path = OUT / f"overlay_{spec.slug}.svg"
     fig.savefig(out_path, dpi=300, bbox_inches="tight",
                 facecolor="white", pad_inches=0.15)
     plt.close(fig)

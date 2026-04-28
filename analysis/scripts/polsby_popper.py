@@ -13,8 +13,8 @@ This re-runs PP on the gapless / overlap-free v0_9 substrate so the lasso
 claim can be evaluated against numbers that survive the v0_9 substrate.
 
 Dependencies
-  Forward  : data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
-             data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
+  Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
+             data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
   Backward : data/polsby_popper_per_district.csv
              analysis/reports/polsby_popper_verdict.md
 """
@@ -32,8 +32,8 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-MIN_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-MAJ_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+MIN_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+MAJ_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
 OUT_CSV = ROOT / "data" / "polsby_popper_per_district.csv"
 
 TARGET_CRS = "EPSG:3401"

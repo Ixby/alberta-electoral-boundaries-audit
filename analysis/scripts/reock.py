@@ -16,8 +16,8 @@ fallback is included for older Shapely; if neither is reachable the
 script raises rather than silently substituting an inferior heuristic.
 
 Dependencies
-  Forward  : data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
-             data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
+  Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
+             data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
   Backward : data/reock_per_district.csv
              analysis/reports/reock_verdict.md
 """
@@ -36,8 +36,8 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-MIN_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-MAJ_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+MIN_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+MAJ_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
 OUT_CSV = ROOT / "data" / "reock_per_district.csv"
 
 TARGET_CRS = "EPSG:3401"

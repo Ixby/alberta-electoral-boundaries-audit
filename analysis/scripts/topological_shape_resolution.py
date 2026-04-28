@@ -61,8 +61,8 @@ def main():
     min_clean['geometry'] = min_clean.geometry.buffer(0.0001).buffer(-0.0001)
 
     # 6. Save
-    maj_out = os.path.join(ROOT, 'data', 'v0_9_topological_majority_2026_eds.gpkg')
-    min_out = os.path.join(ROOT, 'data', 'v0_9_topological_minority_2026_eds.gpkg')
+    maj_out = os.path.join(ROOT, 'data', 'v0_10_topological_majority_2026_eds.gpkg')
+    min_out = os.path.join(ROOT, 'data', 'v0_10_topological_minority_2026_eds.gpkg')
     
     print(f"\nSaving to {maj_out}...")
     maj_clean.to_file(maj_out, driver="GPKG")

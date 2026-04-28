@@ -63,7 +63,7 @@ Backward:
   analysis/scripts/score_anchoring.py
   analysis/scripts/score_natural_anchoring.py
   analysis/methodology/terms_of_reference_verbatim.md
-  data/shapefiles/derived/v0_9_topological_{majority,minority}_2026_eds.gpkg
+  data/shapefiles/derived/v0_10_topological_{majority,minority}_2026_eds.gpkg
   data/shapefiles/reference/alberta_2021_csds.gpkg
   data/osm/alberta_osm_highways.gpkg
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg

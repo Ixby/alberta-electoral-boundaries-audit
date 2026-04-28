@@ -11,8 +11,8 @@ warnings.filterwarnings('ignore')
 ROOT = Path("C:/Users/email/Documents/Claude/Projects/Electoral Boundary Analysis/alberta_audit")
 VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 EDS_2019_PATH = ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-EDS_MIN_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
-EDS_MAJ_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+EDS_MIN_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+EDS_MAJ_PATH = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
 PROOFS_DIR = ROOT / "scratch" / "proofs"
 
 os.makedirs(PROOFS_DIR, exist_ok=True)
@@ -178,7 +178,7 @@ def render_event(event, eds_2019, eds_2026):
     fig.suptitle(f"Geometric Proof: {etype} of {title_target} ({mlabel} Map)", fontsize=26, weight='bold', y=1.05)
     
     plt.tight_layout()
-    outpath = PROOFS_DIR / f"{clean_title}.png"
+    outpath = PROOFS_DIR / f"{clean_title}.svg"
     plt.savefig(outpath, dpi=150, bbox_inches='tight')
     plt.close()
     print(f"Generated proof: {outpath.name}")

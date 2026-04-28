@@ -19,7 +19,7 @@ packed in X and cracked in Y.
 Outputs:
   - analysis/reports/neighbour_drain_log.csv (per-pair metadata)
   - data/neighbour_drain_summary.json (aggregate stats)
-  - maps/neighbour_drain_phase_space_{2019,majority,minority}.png (heatmaps)
+  - maps/neighbour_drain_phase_space_{2019,majority,minority}.svg (heatmaps)
   - analysis/reports/neighbour_drain_analysis.md (writeup)
 
 Author: v0.1 audit pipeline — Test 3A per test-selection-rationale §6.1 /
@@ -550,7 +550,7 @@ def main() -> None:
 
     # --- Phase-space plots ---
     for k in ('2019', 'majority', 'minority'):
-        outpath = out_maps_dir / f'neighbour_drain_phase_space_{k}.png'
+        outpath = out_maps_dir / f'neighbour_drain_phase_space_{k}.svg'
         plot_phase_space(results[k]['pair_df'], k, outpath)
         print(f"Wrote heatmap: {outpath}")
 
@@ -686,7 +686,7 @@ def write_analysis_md(path: Path, summary: Dict, results: Dict) -> None:
             f"internal hybrid), and (b) rewiring central-Calgary adjacencies "
             f"so that Calgary-Mountain-View no longer sits next to Calgary-"
             f"Klein. The phase-space density plots (maps/neighbour_drain_"
-            f"phase_space_*.png) confirm visually: the minority map's "
+            f"phase_space_*.svg) confirm visually: the minority map's "
             f"upper-left chain-signal quadrant is empty of coupled (red) "
             f"points. We note this is a *per-directive* finding — the "
             f"adjacency-chain reduction does not automatically mean the "
@@ -711,7 +711,7 @@ def write_analysis_md(path: Path, summary: Dict, results: Dict) -> None:
             f"minority/2019). The inter-map spread is within the sampling "
             f"noise of the adjacency operator across thresholds "
             f"(Table 5.3.5), and the phase-space density plots "
-            f"(maps/neighbour_drain_phase_space_*.png) show no visible "
+            f"(maps/neighbour_drain_phase_space_*.svg) show no visible "
             f"hot-spot asymmetry between the two 2026 maps. We conclude the "
             f"structural asymmetry documented in §5.3.1 and §5.3.2 does not "
             f"additionally concentrate at the adjacency scale; whole-map "
@@ -814,9 +814,9 @@ column is consistently 2x or more the majority column across the grid.
 ## Phase-space heatmap commentary
 
 Density plots at:
-- `maps/neighbour_drain_phase_space_2019.png`
-- `maps/neighbour_drain_phase_space_majority.png`
-- `maps/neighbour_drain_phase_space_minority.png`
+- `maps/neighbour_drain_phase_space_2019.svg`
+- `maps/neighbour_drain_phase_space_majority.svg`
+- `maps/neighbour_drain_phase_space_minority.svg`
 
 Axes: $s_X$ (horizontal, 0.00 to 0.40) vs $m_Y$ (vertical, 0.00 to 0.50).
 Each point is one directed adjacent pair. Coupled pairs are red; uncoupled are
@@ -841,7 +841,7 @@ other two maps across all threshold pairs in the sensitivity grid.
 
 - Per-pair log: `analysis/reports/neighbour_drain_log.csv`
 - Summary JSON: `data/neighbour_drain_summary.json`
-- Phase-space plots: `maps/neighbour_drain_phase_space_{{2019,majority,minority}}.png`
+- Phase-space plots: `maps/neighbour_drain_phase_space_{{2019,majority,minority}}.svg`
 """
     path.write_text(content, encoding='utf-8')
 

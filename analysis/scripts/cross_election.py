@@ -49,8 +49,8 @@ Outputs
 
 Forward:  analysis/reports/cross_election_robustness.md
 Backward:
-  data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
-  data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
+  data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
+  data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   data/alberta_2019_results.csv
@@ -81,8 +81,8 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 DERIVED = DATA / "shapefiles" / "derived"
 
-V0_9_MIN = DERIVED / "v0_9_topological_minority_2026_eds.gpkg"
-V0_9_MAJ = DERIVED / "v0_9_topological_majority_2026_eds.gpkg"
+V0_9_MIN = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
+V0_9_MAJ = DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
 VA_2023 = DERIVED / "va_polygons_with_2023_votes.gpkg"
 ED_2019_SHP = (DATA / "shapefiles" / "reference" / "alberta_2019_eds"
                / "EDS_ENACTED_BILL33_15DEC2017.shp")

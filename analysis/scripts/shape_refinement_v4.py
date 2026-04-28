@@ -931,7 +931,7 @@ def main():
     for ed, anchors in panel_map.items():
         v3_g = v3_gdf[v3_gdf["name_2026"] == ed].iloc[0].geometry
         v4_g = v4_gdf[v4_gdf["name_2026"] == ed].iloc[0].geometry
-        out = VERIFICATION_DIR / f"v0_4_minority_{ed_slug[ed]}.png"
+        out = VERIFICATION_DIR / f"v0_4_minority_{ed_slug[ed]}.svg"
         render_panel(ed, v3_g, v4_g, anchors, out)
 
     # Log

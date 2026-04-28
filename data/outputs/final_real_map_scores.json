@@ -29,7 +29,7 @@
     "covered_votes": 932164.0,
     "all_vote_total": 932164.0,
     "votes_coverage_pct": 1.0,
-    "source": "v0_9_topological_majority_2026_eds.gpkg"
+    "source": "v0_10_topological_majority_2026_eds.gpkg"
   },
   "v0_8_minority": {
     "efficiency_gap": 0.09207674180701376,
@@ -61,6 +61,6 @@
     "covered_votes": 932164.0,
     "all_vote_total": 932164.0,
     "votes_coverage_pct": 1.0,
-    "source": "v0_9_topological_minority_2026_eds.gpkg"
+    "source": "v0_10_topological_minority_2026_eds.gpkg"
   }
 }

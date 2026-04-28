@@ -16,7 +16,7 @@ commission map at (a) native-raster resolution and (b) 600-DPI render
 the reader can zoom in and compare detail.
 
 Outputs:
-  maps/hires_v2/tier_c_crops/<ed>_<kind>.png
+  maps/hires_v2/tier_c_crops/<ed>_<kind>.svg
   analysis/reports/tier_c_crop_manifest.json
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -42,15 +42,15 @@ TARGETS = [
     # Fort McMurray-Lac La Biche is in the north-east of AB — top-right of p82
     dict(
         ed="fort_mcmurray_lac_la_biche",
-        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_north_MAP_p82.png",
-        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p81_north.png",
+        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_north_MAP_p82.svg",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p81_north.svg",
         box_frac=(0.55, 0.05, 0.95, 0.45),
     ),
     # Chestermere-Strathmore — near-Calgary
     dict(
         ed="chestermere_strathmore",
-        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_near_calgary_MAP_p78.png",
-        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p77_near_calgary.png",
+        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_near_calgary_MAP_p78.svg",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p77_near_calgary.svg",
         box_frac=(0.5, 0.35, 0.95, 0.7),
     ),
     # Edmonton-Beaumont — south of Edmonton, visible on near-edmonton p80 and
@@ -59,15 +59,15 @@ TARGETS = [
         ed="edmonton_beaumont",
         native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.jpeg"
         if (ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.jpeg").exists()
-        else ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.png",
-        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p74_MAP_r600.png",
+        else ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_edmonton_MAP_p74.svg",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p74_MAP_r600.svg",
         box_frac=(0.3, 0.65, 0.85, 0.98),
     ),
     # Lethbridge-Taber-Warner — south
     dict(
         ed="lethbridge_taber_warner",
-        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_central_MAP_p84.png",
-        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p85_south.png",
+        native=ROOT / "data" / "maps" / "hires_v2" / "v0_2_native_majority_central_MAP_p84.svg",
+        render=ROOT / "data" / "maps" / "hires" / "v0_1_majority_p85_south.svg",
         box_frac=(0.05, 0.55, 0.65, 0.98),
     ),
 ]
@@ -96,8 +96,8 @@ def main():
                 dict(ed=t["ed"], error=f"missing source: {e}")
             )
             continue
-        out_native = OUT_DIR / f"{t['ed']}_native_raw.png"
-        out_render = OUT_DIR / f"{t['ed']}_600dpi_render.png"
+        out_native = OUT_DIR / f"{t['ed']}_native_raw.svg"
+        out_render = OUT_DIR / f"{t['ed']}_600dpi_render.svg"
         native_crop.save(out_native)
         render_crop.save(out_render)
         manifest["crops"].append(

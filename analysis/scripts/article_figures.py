@@ -3,14 +3,14 @@ v0_1_article_figures.py
 
 Generate the inline figures the magazine article embeds:
 
-  1. lane1_dotplot.png    — Lane 1 EG before/after dot plot. Four dots:
+  1. lane1_dotplot.svg    — Lane 1 EG before/after dot plot. Four dots:
      Majority partial (-1.29%), Majority full (+6.43%), Minority partial
      (-2.71%), Minority full (+9.21%), arrows showing the partial→full
      shift, vertical line at the ensemble p95 (4.37%).
-  2. lane2_bars.png       — Lane 2 horizontal bar chart of structural
+  2. lane2_bars.svg       — Lane 2 horizontal bar chart of structural
      irregularities, one row per test, magnitude relative to comparator
      norm; majority + minority side by side; norm band shaded.
-  3. verdict_quadrant.png — 2×2 quadrant: x-axis "Lane 1 (numbers, EG)";
+  3. verdict_quadrant.svg — 2×2 quadrant: x-axis "Lane 1 (numbers, EG)";
      y-axis "Lane 2 (structural-irregularity count)"; three dots
      (2019 enacted, Majority 2026, Minority 2026) labelled.
 
@@ -124,7 +124,7 @@ def build_lane1_dotplot() -> Path:
     ax.tick_params(axis="x", direction="out", length=3, pad=2)
 
     fig.tight_layout(pad=0.3)
-    out = OUT / "lane1_dotplot.png"
+    out = OUT / "lane1_dotplot.svg"
     fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.04,
                 facecolor="white")
     plt.close(fig)
@@ -217,7 +217,7 @@ def build_lane2_bars() -> Path:
                  fontsize=10, fontweight="bold", x=0.04, ha="left", y=1.02,
                  color=TEXT_DARK)
 
-    out = OUT / "lane2_bars.png"
+    out = OUT / "lane2_bars.svg"
     fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.08,
                 facecolor="white")
     plt.close(fig)
@@ -358,11 +358,11 @@ def build_bias_structure_matrix() -> Path:
             ha="left", va="bottom", fontsize=8.5, color="#555555",
             style="italic")
 
-    out = OUT / "bias_structure_matrix.png"
+    out = OUT / "bias_structure_matrix.svg"
     fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.10,
                 facecolor="white")
-    # verdict_quadrant.png is the article-facing name for this chart
-    fig.savefig(OUT / "verdict_quadrant.png", dpi=300,
+    # verdict_quadrant.svg is the article-facing name for this chart
+    fig.savefig(OUT / "verdict_quadrant.svg", dpi=300,
                 bbox_inches="tight", pad_inches=0.10, facecolor="white")
     plt.close(fig)
     return out

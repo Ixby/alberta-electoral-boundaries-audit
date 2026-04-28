@@ -15,8 +15,8 @@ Forward: analysis/reports/advance_vote_sensitivity.md
 Backward:
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
   data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
-  data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg
-  data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg
+  data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
+  data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   analysis/scripts/mcmc_ensemble.py (seat_results, score_exogenous_map)
 """
 # Version: 0.1 series  (last updated 2026-04-26)
@@ -37,8 +37,8 @@ DERIVED = DATA / "shapefiles" / "derived"
 
 VA_ED   = DERIVED / "va_polygons_with_2023_votes.gpkg"
 VA_FULL = DERIVED / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_V9  = DERIVED / "v0_9_topological_majority_2026_eds.gpkg"
-MIN_V9  = DERIVED / "v0_9_topological_minority_2026_eds.gpkg"
+MAJ_V9  = DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
+MIN_V9  = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
 
 OUT_JSON = DATA / "advance_vote_sensitivity.json"
 

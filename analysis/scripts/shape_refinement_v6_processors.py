@@ -230,7 +230,7 @@ def _process_one_target(
 
 def process_calgary_minority(eds2019):
     t0 = time.time()
-    thumb = MAPS_HIRES / "v0_1_minority_p360_map74.png"
+    thumb = MAPS_HIRES / "v0_1_minority_p360_map74.svg"
     img = load_and_orient(thumb, "rot90cw")
     H, W = img.shape[:2]
     red = extract_red_mask(img)
@@ -281,8 +281,8 @@ def process_calgary_minority(eds2019):
     per_ed_log = {}
     for ed_name, seed in targets.items():
         slug = _safe_slug(ed_name)
-        verify_out = VERIFY_DIR / f"v0_6_minority_{slug}.png"
-        overlay_out = VERIFY_DIR / f"v0_6_overlay_minority_{slug}.png"
+        verify_out = VERIFY_DIR / f"v0_6_minority_{slug}.svg"
+        overlay_out = VERIFY_DIR / f"v0_6_overlay_minority_{slug}.svg"
         poly, log = _process_one_target(
             ed_name, seed, interior, red, img, M,
             hc.get(ed_name), adj_geo.get(ed_name),
@@ -315,7 +315,7 @@ def process_calgary_minority(eds2019):
 
 def process_edmonton_minority(eds2019):
     t0 = time.time()
-    thumb = MAPS_HIRES / "v0_1_minority_p361_map75.png"
+    thumb = MAPS_HIRES / "v0_1_minority_p361_map75.svg"
     img = load_and_orient(thumb, "native")
     H, W = img.shape[:2]
     red = extract_red_mask(img)
@@ -358,8 +358,8 @@ def process_edmonton_minority(eds2019):
     per_ed_log = {}
     for ed_name, seed in targets.items():
         slug = _safe_slug(ed_name)
-        verify_out = VERIFY_DIR / f"v0_6_minority_{slug}.png"
-        overlay_out = VERIFY_DIR / f"v0_6_overlay_minority_{slug}.png"
+        verify_out = VERIFY_DIR / f"v0_6_minority_{slug}.svg"
+        overlay_out = VERIFY_DIR / f"v0_6_overlay_minority_{slug}.svg"
         poly, log = _process_one_target(
             ed_name, seed, interior, red, img, M,
             hc.get(ed_name), adj_geo.get(ed_name),
@@ -391,7 +391,7 @@ def process_edmonton_minority(eds2019):
 
 def process_calgary_majority(eds2019):
     t0 = time.time()
-    thumb = MAPS_HIRES / "v0_1_majority_p72_MAP_r600.png"
+    thumb = MAPS_HIRES / "v0_1_majority_p72_MAP_r600.svg"
     img = load_and_orient(thumb, "rot90cw")
     H, W = img.shape[:2]
     red = extract_red_mask(img)
@@ -425,8 +425,8 @@ def process_calgary_majority(eds2019):
     per_ed_log = {}
     for ed_name, seed in targets.items():
         slug = _safe_slug(ed_name)
-        verify_out = VERIFY_DIR / f"v0_6_majority_{slug}.png"
-        overlay_out = VERIFY_DIR / f"v0_6_overlay_majority_{slug}.png"
+        verify_out = VERIFY_DIR / f"v0_6_majority_{slug}.svg"
+        overlay_out = VERIFY_DIR / f"v0_6_overlay_majority_{slug}.svg"
         poly, log = _process_one_target(
             ed_name, seed, interior, red, img, M,
             None, None, verify_out, overlay_out, None,
@@ -457,7 +457,7 @@ def process_calgary_majority(eds2019):
 
 def process_edmonton_majority(eds2019):
     t0 = time.time()
-    thumb = MAPS_HIRES / "v0_1_majority_p74_MAP_r600.png"
+    thumb = MAPS_HIRES / "v0_1_majority_p74_MAP_r600.svg"
     img = load_and_orient(thumb, "native")
     H, W = img.shape[:2]
     red = extract_red_mask(img)
@@ -485,8 +485,8 @@ def process_edmonton_majority(eds2019):
     per_ed_log = {}
     for ed_name, seed in targets.items():
         slug = _safe_slug(ed_name)
-        verify_out = VERIFY_DIR / f"v0_6_majority_{slug}.png"
-        overlay_out = VERIFY_DIR / f"v0_6_overlay_majority_{slug}.png"
+        verify_out = VERIFY_DIR / f"v0_6_majority_{slug}.svg"
+        overlay_out = VERIFY_DIR / f"v0_6_overlay_majority_{slug}.svg"
         poly, log = _process_one_target(
             ed_name, seed, interior, red, img, M,
             None, None, verify_out, overlay_out, None,
