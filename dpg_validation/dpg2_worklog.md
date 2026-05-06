@@ -72,23 +72,35 @@ misplacements, not just boundary imprecision.
 
 ---
 
-#### T4 — Headline Metric Rerun (T4 still running — partial results from last run)
+#### T4 — Headline Metric Rerun (COMPLETE — buffer-based anchoring, 50 m)
 
 | Metric | Majority (official) | Majority (DPG) | Delta | Minority (official) | Minority (DPG) | Delta |
 |--------|--------------------|--------------|----|--------------------|--------------|----|
 | Population MAD | 3,179 | 3,180 | **−1 person** | 4,706 | 4,707 | **−1 person** |
-| Municipal anchoring | TBD (rerunning with buffer fix) | 71.0% | TBD | TBD | 14.5% | TBD |
-| NW Calgary excess | 0.77% | 2.8% | −2.03 pp | 6.27% | 11.5% | −5.23 pp |
+| Municipal anchoring | **48.8%** | 71.0% | −22.2 pp | **41.1%** | 14.5% | +26.6 pp |
+| NW Calgary excess | 0.8% | 2.8% | −2.0 pp | 6.3% | 11.5% | −5.2 pp |
 | Airdrie partitions | **2** | 2 | **0** | **4** | 4 | **0** |
 
-Municipal anchoring was returning 0.0% due to exact-intersection failure across
-different digitization sources. Fixed to use 50 m buffer approach — rerun in progress.
+Population MAD and Airdrie count are exact matches (geometry-independent).
 
-Population MAD and Airdrie count are **exact matches**. These are the two
-geometry-independent metrics and both confirm the DPG attribute data is correct.
+**CRITICAL FINDING — Municipal anchoring reversal:**
 
-NW Calgary excess differs because the geometric error changes which VAs land in
-which NW Calgary EDs, altering the population-weighted mean.
+The DPG reported a 56.5 pp gap between majority (71.0%) and minority (14.5%),
+which was used to characterise the minority map as poorly anchored to municipal
+boundaries. The official geometry shows a gap of only **7.7 pp** (48.8% vs 41.1%).
+
+Direction of error is opposite for the two maps:
+
+- Majority DPG *over-reported* anchoring by 22.2 pp (VA edges happen to follow CSDs; commission lines are less rigidly bound to them)
+- Minority DPG *under-reported* anchoring by 26.6 pp (VA misassignment created boundaries that cut through municipalities, masking the fact that the official minority map largely respects them)
+
+This is a systematic bias: VA misassignment in the minority map caused the DPG
+boundaries to cross CSD lines in ways the official boundaries do not. The finding
+that "the minority map has dramatically lower municipal anchoring" does not survive
+validation against official geometry.
+
+NW Calgary excess also over-stated (DPG 11.5% vs official 6.3% for minority) for
+the same reason: misassigned VAs shifted population counts between NW Calgary EDs.
 
 ---
 
@@ -109,17 +121,27 @@ neighbour-drain finding must be re-examined against official geometry.
 
 ### Interpretation
 
-**What is intact from the original audit:**
-1. Population MAD — exact (geometry-independent)
-2. Airdrie partition count — exact (geometry-independent)
-3. EG direction (sign) on minority map — stable across DPG and official
+Findings that fail under better data are noted here with their original claim and the correction.
+They are not removed from the audit — they are disclosed.
 
-**What is degraded or unconfirmed:**
-4. Municipal anchoring — couldn't confirm with exact intersection; buffer rerun pending
-5. NW Calgary excess — differs by 2–5 pp due to VA misassignment changing population allocations
-6. EG magnitude on minority — 35× larger in official geometry (0.11% DPG vs 4.0% official)
-7. Adjacency graph — majority 28% wrong, minority 50% wrong
-8. Any finding that depended on specific ED boundaries (Hausdorff, area, etc.)
+**Confirmed intact:**
+1. Population MAD — exact (geometry-independent). 48% wider spread for minority confirmed.
+2. Airdrie partition count — exact. 4 vs 2 confirmed.
+3. EG direction (sign) on minority map — stable. Minority disadvantages NDP under both DPG and official geometry. Magnitude is actually stronger in official (4.0% vs 0.11% DPG) — direction finding is reinforced, not weakened.
+
+**Failed under official geometry:**
+
+4. **Municipal anchoring** — original claim: 71% majority, 14.5% minority (56.5 pp gap). Official geometry: 48.8% majority, 41.1% minority (7.7 pp gap). The claim that the minority map poorly follows CSD boundaries is not supported. The DPG systematically misrepresented minority map boundaries due to VA misassignment placing lines across CSDs that the actual commission lines do not cross.
+
+5. **NW Calgary excess magnitude** — original claim: 11.5% minority, 2.8% majority. Official: 6.3% minority, 0.8% majority. Direction holds (minority still higher); minority magnitude overstated by ~83%.
+
+6. **EG magnitude** — original DPG figure was 0.11% for minority. Official geometry gives 4.0%. Direction is confirmed and strengthened; the specific 0.11% figure should not be cited.
+
+**Suspended pending v11:**
+
+7. **§5.3.5 neighbour-drain adjacency finding** — stated as a pre-registered PASS for the minority map. T5 shows 50% of minority DPG adjacency edges are wrong. Whether the specific ED pair tested in §5.3.5 was correctly adjacent in DPG is unknown until v11 is produced. Finding is suspended.
+
+8. Any other finding that named a specific ED boundary, area, or neighbour relationship.
 
 **Root cause:**
 The DPG was built by assigning entire VA polygons to EDs based on raster-map
@@ -153,17 +175,17 @@ Full plan: `dpg2_experiment_plan.md`
 
 | Script | Purpose | Status |
 |--------|---------|--------|
-| `scripts/ta_va_ceiling.py` | Sub-VA ceiling estimation | NOT YET WRITTEN |
-| `scripts/tb_va_misassignment_map.py` | VA misassignment classification | NOT YET WRITTEN |
+| `scripts/ta_va_ceiling.py` | Sub-VA ceiling estimation | WRITTEN — not yet run |
+| `scripts/tb_va_misassignment_map.py` | VA misassignment classification | WRITTEN — not yet run |
 | `scripts/make_v11.py` | v11 GeoPackage generator | NOT YET WRITTEN |
 
 ---
 
 ### Open Items
 
-- [ ] T4 rerun (buffer-based municipal anchoring) — background job running
-- [ ] Write scripts/ta_va_ceiling.py
-- [ ] Write scripts/tb_va_misassignment_map.py
+- [x] T4 rerun (buffer-based municipal anchoring) — complete
+- [x] Write scripts/ta_va_ceiling.py
+- [x] Write scripts/tb_va_misassignment_map.py
 - [ ] PO approval to proceed to Phase 2 (raster re-reading)
 - [ ] Confirm raster source files are accessible for re-reading session
 - [ ] Decide whether v11 scope is majority-only or both maps
