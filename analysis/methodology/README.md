@@ -20,8 +20,6 @@ Internal working documents covering pre-registration, methodological decisions, 
 | `data_preparation.md` | Data sourcing, cleaning, and crosswalk decisions |
 | `master_plan.md` | Phase-by-phase execution plan for the full audit |
 | `assignment_runbook.md` | Step-by-step runbook for Phase 4c execution |
-| `science_red_team_design_and_stats.md` | Red-team: design and statistical validity |
-| `science_red_team_data_priorart_peerreview.md` | Red-team: data, prior art, and peer-review readiness |
-| `science_red_team_reproducibility_and_falsifiability.md` | Red-team: reproducibility and falsifiability |
+| `red_team_consolidated.md` | Consolidated synthesis of all red-team passes (see `analysis/red_team/` for primary red-team pass documents) |
 
 These documents inform the manuscript and are referenced in footnotes but are not themselves public deliverables.

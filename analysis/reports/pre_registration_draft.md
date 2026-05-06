@@ -1,3 +1,5 @@
+> **Status (2026-05-06): Superseded.** The actual pre-registrations were filed at AsPredicted (#289449, #289451, #289455) and OSF (w2s8k, r3zm7, qsgy8) before any analysis runs. This draft describes an earlier planned checklist approach. See `dpg_validation/dpg2_worklog.md` §Pre-registration for the live record.
+
 ---
 name: Pre-registration — Alberta Electoral Boundaries Audit signature-detection checklist for the November 2026 MLA-committee 91-seat map
 description: Submission-ready pre-registration document for OSF Registrations (recommended platform; see analysis/reports/pre_registration_platform_analysis.md). Commits the audit to a fixed 17-signal checklist, with numeric thresholds and pass/fail criteria, to be scored on the Alberta MLA-committee 91-seat map within 72 hours of its release (target date 2026-11-02). Closes D17 (self-held pre-registration vulnerability) by placing the checklist under third-party custody with a verifiable timestamp.
