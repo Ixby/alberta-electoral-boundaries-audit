@@ -1,0 +1,683 @@
+map,ed_a,ed_b,status
+majority,Calgary-Bhullar-McCall,Chestermere-Strathmore,dpg_only
+majority,Stony Plain-Drayton Valley,Sylvan Lake-Innisfail,dpg_only
+majority,Barrhead-Westlock-Athabasca,Central Peace-Notley,dpg_only
+majority,Calgary-Lougheed,Canmore-Banff,dpg_only
+majority,Edmonton-City Centre,Edmonton-West Henday,dpg_only
+majority,Calgary-Fish Creek,Calgary-West-Elbow Valley,dpg_only
+majority,Livingstone-Macleod,Medicine Hat-Brooks,dpg_only
+majority,Edmonton-Mill Woods,Edmonton-South,dpg_only
+majority,Edmonton-City Centre,Edmonton-Rutherford,dpg_only
+majority,Calgary-North East,Chestermere-Strathmore,dpg_only
+majority,Canmore-Banff,Sylvan Lake-Innisfail,dpg_only
+majority,Calgary-Lougheed,High River-Vulcan-Siksika,dpg_only
+majority,Barrhead-Westlock-Athabasca,Edmonton-North West,dpg_only
+majority,Medicine Hat-Brooks,Mountain View-Kneehill,dpg_only
+majority,Edmonton-Ellerslie,Strathcona-Sherwood Park,dpg_only
+majority,Calgary-Falconridge-Conrich,Calgary-Klein,dpg_only
+majority,Edmonton-South,Edmonton-Whitemud,dpg_only
+majority,Edmonton-North West,Spruce Grove,dpg_only
+majority,Calgary-Currie,Calgary-North West,dpg_only
+majority,Calgary-Shaw,Calgary-South East,dpg_only
+majority,Edmonton-Enoch,Edmonton-North West,dpg_only
+majority,Chestermere-Strathmore,Mountain View-Kneehill,dpg_only
+majority,Calgary-North West,Canmore-Banff,dpg_only
+majority,Edmonton-Enoch,Edmonton-Glenora-Riverview,dpg_only
+majority,Calgary-North East,Calgary-Symons Valley,dpg_only
+majority,Edmonton-Ellerslie,Wetaskiwin-Ponoka-Maskwacis,dpg_only
+majority,Calgary-Acadia,Chestermere-Strathmore,dpg_only
+majority,Calgary-Edgemont,Cochrane-Springbank,dpg_only
+majority,Calgary-Acadia,Calgary-Buffalo,dpg_only
+majority,Livingstone-Macleod,Mountain View-Kneehill,dpg_only
+majority,Calgary-Edgemont,Calgary-Nose Creek,dpg_only
+majority,Canmore-Banff,Stony Plain-Drayton Valley,dpg_only
+majority,Calgary-Acadia,Calgary-South East,dpg_only
+majority,Calgary-Beddington,Calgary-North East,dpg_only
+majority,Calgary-Bow,Calgary-Glenmore-Tsuut'ina,dpg_only
+majority,Barrhead-Westlock-Athabasca,Cold Lake-Bonnyville-St. Paul,dpg_only
+majority,Livingstone-Macleod,Okotoks-Diamond Valley,dpg_only
+majority,Calgary-Acadia,Calgary-Hays,dpg_only
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-North West,dpg_only
+majority,Edmonton-Glenora-Riverview,Edmonton-Rutherford,dpg_only
+majority,Strathcona-Sherwood Park,Wetaskiwin-Ponoka-Maskwacis,dpg_only
+majority,Edmonton-City Centre,Edmonton-Enoch,dpg_only
+majority,Edmonton-West Henday,Stony Plain-Drayton Valley,dpg_only
+majority,Calgary-Acadia,Calgary-East,dpg_only
+majority,Mountain View-Kneehill,Okotoks-Diamond Valley,dpg_only
+majority,Calgary-Fish Creek,Calgary-Hays,dpg_only
+majority,Calgary-Bow,Canmore-Banff,dpg_only
+majority,Calgary-Acadia,Calgary-Lougheed,dpg_only
+majority,Calgary-Lougheed,Calgary-West-Elbow Valley,dpg_only
+majority,Calgary-North East,Cochrane-Springbank,dpg_only
+majority,Calgary-Klein,Calgary-Nose Creek,dpg_only
+majority,Calgary-Shaw,High River-Vulcan-Siksika,dpg_only
+majority,Calgary-Acadia,Calgary-Klein,dpg_only
+majority,Calgary-Cross,Chestermere-Strathmore,dpg_only
+majority,Edmonton-City Centre,Edmonton-Decore,dpg_only
+majority,Camrose,Lacombe-Clearwater,dpg_only
+majority,Calgary-Hays,High River-Vulcan-Siksika,dpg_only
+majority,Edmonton-Windermere,Stony Plain-Drayton Valley,dpg_only
+majority,Edmonton-McClung,Edmonton-Rutherford,dpg_only
+majority,Calgary-South East,High River-Vulcan-Siksika,dpg_only
+majority,Calgary-North,Calgary-North East,dpg_only
+majority,Airdrie-West,Canmore-Banff,dpg_only
+majority,Edmonton-Enoch,Edmonton-Rutherford,dpg_only
+majority,Edmonton-McClung,Edmonton-Windermere,dpg_only
+majority,Edmonton-Beaumont,Wetaskiwin-Ponoka-Maskwacis,dpg_only
+majority,Calgary-Nose Creek,Calgary-Varsity,dpg_only
+majority,Lethbridge-East,Taber-Cardston,dpg_only
+majority,Airdrie-East,Cochrane-Springbank,dpg_only
+majority,Airdrie-East,Calgary-Nose Creek,official_only
+majority,Calgary-Currie,Calgary-Varsity,official_only
+majority,Airdrie-West,Calgary-Nose Creek,official_only
+majority,Calgary-Shaw,Okotoks-Diamond Valley,official_only
+majority,Edmonton-Ellerslie,Edmonton-Rutherford,official_only
+majority,Edmonton-Enoch,Edmonton-Whitemud,official_only
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Lougheed,official_only
+majority,Canmore-Banff,Okotoks-Diamond Valley,official_only
+majority,Edmonton-Windermere,Leduc-Devon,official_only
+majority,High River-Vulcan-Siksika,Mountain View-Kneehill,official_only
+majority,Lacombe-Clearwater,West Yellowhead,official_only
+majority,High River-Vulcan-Siksika,Medicine Hat-Brooks,official_only
+majority,Calgary-McKenzie,Okotoks-Diamond Valley,official_only
+majority,Canmore-Banff,Lacombe-Clearwater,official_only
+majority,Calgary-Confluence,Calgary-McKenzie,official_only
+majority,Edmonton-Beaumont,Strathcona-Sherwood Park,official_only
+majority,Camrose,Leduc-Devon,official_only
+majority,Edmonton-Strathcona,Edmonton-Whitemud,official_only
+majority,Calgary-Bow,Calgary-West-Elbow Valley,official_only
+majority,Edmonton-Enoch,Leduc-Devon,official_only
+majority,Calgary-South East,Okotoks-Diamond Valley,official_only
+majority,Calgary-Acadia,Calgary-Glenmore-Tsuut'ina,official_only
+majority,Calgary-Acadia,Calgary-McKenzie,official_only
+majority,Calgary-East,Calgary-Falconridge-Conrich,official_only
+majority,Calgary-McKenzie,Calgary-Shaw,official_only
+majority,Airdrie-East,Calgary-Bhullar-McCall,official_only
+majority,Airdrie-East,Airdrie-West,official_only
+majority,Edmonton-West Henday,St. Albert-Sturgeon,official_only
+majority,Calgary-Lougheed,Okotoks-Diamond Valley,official_only
+majority,Calgary-East,Calgary-Hays,official_only
+majority,Calgary-Beddington,Calgary-Varsity,official_only
+majority,Drumheller-Stettler,Wetaskiwin-Ponoka-Maskwacis,official_only
+majority,Calgary-West-Elbow Valley,Cochrane-Springbank,official_only
+majority,Airdrie-West,Calgary-North,official_only
+majority,Camrose,Edmonton-Beaumont,official_only
+majority,Edmonton-Highlands-Norwood,Edmonton-North West,official_only
+majority,Lethbridge-East,Livingstone-Macleod,official_only
+majority,Edmonton-Enoch,Stony Plain-Drayton Valley,official_only
+majority,Calgary-Klein,Calgary-Varsity,official_only
+majority,Edmonton-Enoch,Spruce Grove,official_only
+majority,Calgary-Hays,Chestermere-Strathmore,official_only
+majority,Calgary-Confluence,Calgary-Hays,official_only
+majority,Lacombe-Clearwater,Mountain View-Kneehill,official_only
+majority,Spruce Grove,St. Albert-Sturgeon,official_only
+majority,Calgary-McKenzie,Calgary-South East,official_only
+majority,Calgary-Confluence,Calgary-East,official_only
+majority,Lesser Slave Lake,West Yellowhead,official_only
+majority,Edmonton-Castle Downs,Edmonton-North West,official_only
+majority,Calgary-Beddington,Calgary-Bhullar-McCall,official_only
+majority,Calgary-North,Calgary-Nose Creek,official_only
+majority,Airdrie-East,High River-Vulcan-Siksika,official_only
+majority,Calgary-North West,Calgary-Symons Valley,official_only
+majority,Airdrie-East,Calgary-Falconridge-Conrich,official_only
+majority,High River-Vulcan-Siksika,Taber-Cardston,official_only
+majority,Drumheller-Stettler,High River-Vulcan-Siksika,official_only
+majority,Fort McMurray-Lac La Biche,Fort Saskatchewan-Vegreville,official_only
+majority,Edmonton-Glenora-Riverview,Edmonton-North West,official_only
+majority,Calgary-North,Cochrane-Springbank,official_only
+majority,Calgary-Glenmore-Tsuut'ina,Okotoks-Diamond Valley,official_only
+majority,Edmonton-Beaumont,Edmonton-Meadows,official_only
+majority,High River-Vulcan-Siksika,Livingstone-Macleod,both
+majority,Fort Saskatchewan-Vegreville,Lloydminster-Wainwright,both
+majority,Edmonton-Gold Bar,Edmonton-Mill Woods,both
+majority,Lacombe-Clearwater,Stony Plain-Drayton Valley,both
+majority,Edmonton-Ellerslie,Edmonton-Mill Woods,both
+majority,Canmore-Banff,Mountain View-Kneehill,both
+majority,Grande Prairie-Wapiti,West Yellowhead,both
+majority,Calgary-Lougheed,Calgary-Shaw,both
+majority,Edmonton-Gold Bar,Edmonton-Meadows,both
+majority,Barrhead-Westlock-Athabasca,St. Albert-Sturgeon,both
+majority,Edmonton-Decore,Edmonton-Manning,both
+majority,Edmonton-City Centre,Edmonton-Glenora-Riverview,both
+majority,Leduc-Devon,Wetaskiwin-Ponoka-Maskwacis,both
+majority,Edmonton-Beverly-Clareview,Edmonton-Gold Bar,both
+majority,Calgary-Fish Creek,Calgary-McKenzie,both
+majority,Medicine Hat-Cypress,Taber-Cardston,both
+majority,Calgary-Cross,Calgary-East,both
+majority,Edmonton-Enoch,Edmonton-McClung,both
+majority,Airdrie-West,Mountain View-Kneehill,both
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-West-Elbow Valley,both
+majority,Lacombe-Clearwater,Wetaskiwin-Ponoka-Maskwacis,both
+majority,Chestermere-Strathmore,High River-Vulcan-Siksika,both
+majority,Sherwood Park,Strathcona-Sherwood Park,both
+majority,Edmonton-Gold Bar,Edmonton-Highlands-Norwood,both
+majority,Barrhead-Westlock-Athabasca,Fort Saskatchewan-Vegreville,both
+majority,Edmonton-West Henday,Spruce Grove,both
+majority,Calgary-Beddington,Calgary-Nose Creek,both
+majority,Calgary-Bow,Calgary-North West,both
+majority,Calgary-Confluence,Calgary-Klein,both
+majority,Calgary-Currie,Calgary-West-Elbow Valley,both
+majority,Calgary-Bhullar-McCall,Calgary-Klein,both
+majority,Calgary-Beddington,Calgary-Edgemont,both
+majority,Calgary-Bhullar-McCall,Calgary-North East,both
+majority,Calgary-Confluence,Calgary-Mountain View,both
+majority,Barrhead-Westlock-Athabasca,Spruce Grove,both
+majority,Edmonton-McClung,Edmonton-West Henday,both
+majority,Edmonton-North West,Edmonton-West Henday,both
+majority,Edmonton-South,Edmonton-Windermere,both
+majority,Cochrane-Springbank,Mountain View-Kneehill,both
+majority,Edmonton-Ellerslie,Edmonton-Meadows,both
+majority,Calgary-Bow,Calgary-Varsity,both
+majority,Central Peace-Notley,Lesser Slave Lake,both
+majority,Calgary-Acadia,Calgary-Elbow,both
+majority,Edmonton-Gold Bar,Sherwood Park,both
+majority,Cold Lake-Bonnyville-St. Paul,Lloydminster-Wainwright,both
+majority,Camrose,Drumheller-Stettler,both
+majority,Lethbridge-West,Taber-Cardston,both
+majority,Central Peace-Notley,Grande Prairie-Wapiti,both
+majority,Lethbridge-West,Livingstone-Macleod,both
+majority,Calgary-Beddington,Calgary-Symons Valley,both
+majority,Fort Saskatchewan-Vegreville,Sherwood Park,both
+majority,Airdrie-East,Mountain View-Kneehill,both
+majority,Barrhead-Westlock-Athabasca,West Yellowhead,both
+majority,Edmonton-City Centre,Edmonton-Highlands-Norwood,both
+majority,Canmore-Banff,Cochrane-Springbank,both
+majority,Edmonton-Beverly-Clareview,Sherwood Park,both
+majority,Fort McMurray-Lac La Biche,Fort McMurray-Wood Buffalo,both
+majority,Lethbridge-East,Lethbridge-West,both
+majority,Edmonton-Meadows,Edmonton-Mill Woods,both
+majority,Calgary-Cross,Calgary-Klein,both
+majority,Edmonton-Castle Downs,Edmonton-Manning,both
+majority,Edmonton-Manning,St. Albert-Sturgeon,both
+majority,Drumheller-Stettler,Lacombe-Clearwater,both
+majority,Camrose,Strathcona-Sherwood Park,both
+majority,Calgary-South East,Chestermere-Strathmore,both
+majority,Calgary-North West,Calgary-Varsity,both
+majority,Calgary-Beddington,Calgary-North,both
+majority,Calgary-Bow,Calgary-Currie,both
+majority,Calgary-East,Chestermere-Strathmore,both
+majority,Barrhead-Westlock-Athabasca,Stony Plain-Drayton Valley,both
+majority,Livingstone-Macleod,Taber-Cardston,both
+majority,Edmonton-North West,St. Albert-Sturgeon,both
+majority,Barrhead-Westlock-Athabasca,Fort McMurray-Lac La Biche,both
+majority,Calgary-Bhullar-McCall,Calgary-Nose Creek,both
+majority,Calgary-Buffalo,Calgary-Elbow,both
+majority,Edmonton-Enoch,Edmonton-Windermere,both
+majority,Stony Plain-Drayton Valley,Wetaskiwin-Ponoka-Maskwacis,both
+majority,Calgary-Fish Creek,Calgary-Shaw,both
+majority,Edmonton-Castle Downs,Edmonton-Decore,both
+majority,Central Peace-Notley,West Yellowhead,both
+majority,Cold Lake-Bonnyville-St. Paul,Fort McMurray-Lac La Biche,both
+majority,Canmore-Banff,Livingstone-Macleod,both
+majority,Calgary-Fish Creek,Calgary-Lougheed,both
+majority,Airdrie-East,Chestermere-Strathmore,both
+majority,Edmonton-Enoch,Edmonton-West Henday,both
+majority,Airdrie-West,Cochrane-Springbank,both
+majority,Calgary-Acadia,Calgary-Confluence,both
+majority,Edmonton-Beverly-Clareview,Fort Saskatchewan-Vegreville,both
+majority,Edmonton-Beaumont,Edmonton-Ellerslie,both
+majority,Edmonton-Castle Downs,St. Albert-Sturgeon,both
+majority,Fort McMurray-Wood Buffalo,Peace River,both
+majority,Calgary-Fish Creek,Calgary-Glenmore-Tsuut'ina,both
+majority,Edmonton-Rutherford,Edmonton-Strathcona,both
+majority,Edmonton-Meadows,Strathcona-Sherwood Park,both
+majority,Fort Saskatchewan-Vegreville,Strathcona-Sherwood Park,both
+majority,Calgary-West-Elbow Valley,Canmore-Banff,both
+majority,Red Deer-North,Sylvan Lake-Innisfail,both
+majority,Edmonton-Whitemud,Edmonton-Windermere,both
+majority,Edmonton-Rutherford,Edmonton-Whitemud,both
+majority,Red Deer-South,Sylvan Lake-Innisfail,both
+majority,Edmonton-Gold Bar,Strathcona-Sherwood Park,both
+majority,Drumheller-Stettler,Mountain View-Kneehill,both
+majority,Calgary-Bow,Cochrane-Springbank,both
+majority,Edmonton-Beverly-Clareview,Edmonton-Highlands-Norwood,both
+majority,Edmonton-West Henday,St. Albert,both
+majority,Camrose,Fort Saskatchewan-Vegreville,both
+majority,Calgary-Buffalo,Calgary-Mountain View,both
+majority,Red Deer-North,Red Deer-South,both
+majority,Edmonton-City Centre,Edmonton-North West,both
+majority,Stony Plain-Drayton Valley,West Yellowhead,both
+majority,Calgary-North,Calgary-Symons Valley,both
+majority,Canmore-Banff,High River-Vulcan-Siksika,both
+majority,Edmonton-Glenora-Riverview,Edmonton-West Henday,both
+majority,Calgary-North East,Calgary-Nose Creek,both
+majority,Lesser Slave Lake,Peace River,both
+majority,Calgary-Beddington,Calgary-Klein,both
+majority,Calgary-Hays,Calgary-McKenzie,both
+majority,Calgary-Edgemont,Calgary-Symons Valley,both
+majority,Calgary-Mountain View,Calgary-Varsity,both
+majority,Calgary-Currie,Calgary-Glenmore-Tsuut'ina,both
+majority,Central Peace-Notley,Peace River,both
+majority,Chestermere-Strathmore,Okotoks-Diamond Valley,both
+majority,Calgary-Symons Valley,Cochrane-Springbank,both
+majority,Calgary-Elbow,Calgary-Glenmore-Tsuut'ina,both
+majority,Calgary-Falconridge-Conrich,Chestermere-Strathmore,both
+majority,Edmonton-Glenora-Riverview,Edmonton-McClung,both
+majority,Edmonton-Gold Bar,Edmonton-Strathcona,both
+majority,Calgary-Edgemont,Calgary-Varsity,both
+majority,Edmonton-City Centre,Edmonton-Strathcona,both
+majority,Edmonton-North West,St. Albert,both
+majority,Edmonton-Rutherford,Edmonton-South,both
+majority,Spruce Grove,Stony Plain-Drayton Valley,both
+majority,Airdrie-East,Calgary-North East,both
+majority,Edmonton-Beverly-Clareview,Edmonton-Decore,both
+majority,Camrose,Lloydminster-Wainwright,both
+majority,Calgary-Cross,Calgary-Falconridge-Conrich,both
+majority,Calgary-Bhullar-McCall,Calgary-Falconridge-Conrich,both
+majority,Edmonton-Beaumont,Edmonton-South,both
+majority,Edmonton-Decore,Edmonton-North West,both
+majority,Calgary-North West,Cochrane-Springbank,both
+majority,Edmonton-Decore,Edmonton-Highlands-Norwood,both
+majority,Edmonton-Manning,Fort Saskatchewan-Vegreville,both
+majority,Calgary-Klein,Calgary-Mountain View,both
+majority,Camrose,Wetaskiwin-Ponoka-Maskwacis,both
+majority,Calgary-Edgemont,Calgary-North West,both
+majority,Edmonton-Rutherford,Edmonton-Windermere,both
+majority,Fort Saskatchewan-Vegreville,St. Albert-Sturgeon,both
+majority,St. Albert,St. Albert-Sturgeon,both
+majority,Drumheller-Stettler,Lloydminster-Wainwright,both
+majority,Edmonton-Glenora-Riverview,Edmonton-Strathcona,both
+majority,Drumheller-Stettler,Sylvan Lake-Innisfail,both
+majority,Calgary-East,Calgary-Klein,both
+majority,Medicine Hat-Brooks,Taber-Cardston,both
+majority,Fort McMurray-Lac La Biche,Lesser Slave Lake,both
+majority,Calgary-Acadia,Calgary-Fish Creek,both
+majority,Grande Prairie,Grande Prairie-Wapiti,both
+majority,Edmonton-Beverly-Clareview,Edmonton-Manning,both
+majority,Calgary-Confluence,Calgary-Elbow,both
+majority,Calgary-Buffalo,Calgary-Currie,both
+majority,Edmonton-Mill Woods,Edmonton-Rutherford,both
+majority,Fort McMurray-Wood Buffalo,Lesser Slave Lake,both
+majority,Lacombe-Clearwater,Sylvan Lake-Innisfail,both
+majority,Cold Lake-Bonnyville-St. Paul,Fort Saskatchewan-Vegreville,both
+majority,Calgary-Currie,Calgary-Mountain View,both
+majority,Calgary-Hays,Calgary-South East,both
+majority,Edmonton-Ellerslie,Edmonton-South,both
+majority,Mountain View-Kneehill,Sylvan Lake-Innisfail,both
+majority,Calgary-Glenmore-Tsuut'ina,Canmore-Banff,both
+majority,Canmore-Banff,West Yellowhead,both
+majority,Edmonton-McClung,Edmonton-Whitemud,both
+majority,Drumheller-Stettler,Medicine Hat-Brooks,both
+majority,Edmonton-South,Leduc-Devon,both
+majority,High River-Vulcan-Siksika,Okotoks-Diamond Valley,both
+majority,Edmonton-Beaumont,Leduc-Devon,both
+majority,Barrhead-Westlock-Athabasca,Lesser Slave Lake,both
+majority,Leduc-Devon,Stony Plain-Drayton Valley,both
+majority,Calgary-Currie,Calgary-Elbow,both
+majority,Calgary-Buffalo,Calgary-Confluence,both
+majority,Medicine Hat-Brooks,Medicine Hat-Cypress,both
+minority,Calgary-Lougheed,Highwood,dpg_only
+minority,Edmonton-Beverly-Clareview,Edmonton-Strathcona,dpg_only
+minority,Calgary-Airdrie,Calgary-North East,dpg_only
+minority,Edmonton-Whitemud,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-McClung,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-North West,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-McClung,Edmonton-Strathcona,dpg_only
+minority,Barrhead-Westlock-Athabasca,St. Albert-Sturgeon,dpg_only
+minority,Edmonton-Rutherford,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Edmonton-Glenora-Riverview,Edmonton-Whitemud,dpg_only
+minority,Calgary-Acadia,Calgary-Buffalo,dpg_only
+minority,Calgary-Falconridge,Chestermere-Strathmore,dpg_only
+minority,Red Deer-Lacombe,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Camrose,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-City Centre,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-West Henday,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-Enoch-Devon,Edmonton-Glenora-Riverview,dpg_only
+minority,Red Deer-Innisfail,Rocky Mountain House-Banff Park,dpg_only
+minority,Calgary-Airdrie,Canmore-Kananaskis,dpg_only
+minority,Calgary-Bow-Springbank,Calgary-Foothills-Airdrie West,dpg_only
+minority,Edmonton-Windermere,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-McClung,Edmonton-Rutherford,dpg_only
+minority,Calgary-Glenmore,Canmore-Kananaskis,dpg_only
+minority,Calgary-Klein,Calgary-Peigan-Chestermere,dpg_only
+minority,Edmonton-Beverly-Clareview,Edmonton-City Centre,dpg_only
+minority,Edmonton-Mill Woods,Leduc,dpg_only
+minority,Edmonton-Meadows,Leduc,dpg_only
+minority,Chestermere-Strathmore,Lethbridge-Cardston,dpg_only
+minority,Edmonton-Glenora-Riverview,Stony Plain-Drayton Valley,dpg_only
+minority,Calgary-Currie,Calgary-South,dpg_only
+minority,Airdrie East,Calgary-Airdrie,dpg_only
+minority,Edmonton-Castledowns,Stony Plain-Drayton Valley,dpg_only
+minority,Calgary-Airdrie,Calgary-Bow-Springbank,dpg_only
+minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Lethbridge-Taber-Warner,dpg_only
+minority,Calgary-Airdrie,Calgary-Lougheed,dpg_only
+minority,Edmonton-Enoch-Devon,St. Albert,dpg_only
+minority,Edmonton-Beverly-Clareview,Edmonton-Glenora-Riverview,dpg_only
+minority,Edmonton-Spruce Grove,Lac Ste. Anne-Parkland,dpg_only
+minority,Lac Ste. Anne-Parkland,St. Albert,dpg_only
+minority,Edmonton-Ellerslie,Edmonton-Highlands-Norwood,dpg_only
+minority,Lethbridge-Cardston,Medicine Hat-Brooks,dpg_only
+minority,Calgary-Bow-Springbank,Calgary-Lougheed,dpg_only
+minority,Lac Ste. Anne-Parkland,West Yellowhead,dpg_only
+minority,Edmonton-Ellerslie,Leduc,dpg_only
+minority,Canmore-Kananaskis,West Yellowhead,dpg_only
+minority,Lethbridge-Cardston,Lethbridge-Fort MacLeod-Crowsnest Pass,dpg_only
+minority,Calgary-Cross,Calgary-Klein,dpg_only
+minority,Calgary-Beddington,Calgary-Varsity,dpg_only
+minority,Edmonton-Enoch-Devon,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Edmonton-Manning,St. Albert-Sturgeon,dpg_only
+minority,Airdrie East,Calgary-Foothills-Airdrie West,dpg_only
+minority,Airdrie East,Chestermere-Strathmore,dpg_only
+minority,Edmonton-Castledowns,St. Albert-Sturgeon,dpg_only
+minority,Calgary-Acadia,Calgary-Currie,dpg_only
+minority,Edmonton-Castledowns,Edmonton-Enoch-Devon,dpg_only
+minority,Calgary-Lougheed,Calgary-North West-Bearspaw,dpg_only
+minority,Calgary-East,Chestermere-Strathmore,dpg_only
+minority,Calgary-Edgemont,Calgary-Klein,dpg_only
+minority,Edmonton-Highlands-Norwood,Edmonton-Mill Woods,dpg_only
+minority,Calgary-Edgemont,Calgary-McCall-Bhullar,dpg_only
+minority,Lac Ste. Anne-Parkland,Lesser Slave Lake,dpg_only
+minority,Calgary-McCall-Bhullar,Chestermere-Strathmore,dpg_only
+minority,Drumheller-Stettler,Lethbridge-Cardston,dpg_only
+minority,Edmonton-Beverly-Clareview,Fort Saskatchewan-Vegreville,dpg_only
+minority,Barrhead-Westlock-Athabasca,Lac Ste. Anne-Parkland,dpg_only
+minority,Edmonton-Gold Bar,Stony Plain-Drayton Valley,dpg_only
+minority,Calgary-Acadia,Calgary-South,dpg_only
+minority,Calgary-North East,Chestermere-Strathmore,dpg_only
+minority,Edmonton-Enoch-Devon,Lac Ste. Anne-Parkland,dpg_only
+minority,Edmonton-Highlands-Norwood,Edmonton-South,dpg_only
+minority,Edmonton-McClung,Edmonton-South,dpg_only
+minority,Edmonton-Decore,Stony Plain-Drayton Valley,dpg_only
+minority,Camrose,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Airdrie East,Olds-Three Hills-Didsbury,dpg_only
+minority,Edmonton-Enoch-Devon,St. Albert-Sturgeon,dpg_only
+minority,Calgary-Airdrie,Calgary-Falconridge,dpg_only
+minority,Calgary-Buffalo,Calgary-Mountain View,dpg_only
+minority,Sherwood Park-Strathcona,Stony Plain-Drayton Valley,dpg_only
+minority,Edmonton-Highlands-Norwood,Edmonton-McClung,dpg_only
+minority,Calgary-Edgemont,Calgary-North East,dpg_only
+minority,Edmonton-Mill Woods,Stony Plain-Drayton Valley,dpg_only
+minority,Calgary-Hays,Chestermere-Strathmore,dpg_only
+minority,Calgary-Edgemont,Calgary-Falconridge,dpg_only
+minority,Calgary-Buffalo,Calgary-East,dpg_only
+minority,Calgary-Acadia,Calgary-Klein,dpg_only
+minority,Airdrie East,Calgary-North East,dpg_only
+minority,Calgary-Mountain View,Calgary-Varsity,dpg_only
+minority,Canmore-Kananaskis,Olds-Three Hills-Didsbury,dpg_only
+minority,Calgary-North,Calgary-North East,dpg_only
+minority,Edmonton-Enoch-Devon,Edmonton-North West,dpg_only
+minority,Calgary-Klein,Chestermere-Strathmore,dpg_only
+minority,Calgary-Lougheed,Canmore-Kananaskis,dpg_only
+minority,Edmonton-Beverly-Clareview,Edmonton-Enoch-Devon,dpg_only
+minority,Calgary-Airdrie,Olds-Three Hills-Didsbury,dpg_only
+minority,Edmonton-Enoch-Devon,West Yellowhead,dpg_only
+minority,Edmonton-North West,St. Albert,dpg_only
+minority,Red Deer-Innisfail,Red Deer-Lacombe,dpg_only
+minority,Edmonton-Beverly-Clareview,Edmonton-North West,dpg_only
+minority,Edmonton-Beaumont,Edmonton-Rutherford,dpg_only
+minority,Edmonton-Rutherford,Stony Plain-Drayton Valley,dpg_only
+minority,Calgary-Currie,Calgary-Lougheed,dpg_only
+minority,Lethbridge-Cardston,Lethbridge-Little Bow,dpg_only
+minority,Calgary-Klein,Calgary-Mountain View,dpg_only
+minority,Leduc,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Lac Ste. Anne-Parkland,St. Albert-Sturgeon,dpg_only
+minority,Edmonton-Beverly-Clareview,Stony Plain-Drayton Valley,dpg_only
+minority,Fort Saskatchewan-Vegreville,St. Albert-Sturgeon,dpg_only
+minority,Calgary-Hays,Calgary-Klein,dpg_only
+minority,St. Albert,St. Albert-Sturgeon,dpg_only
+minority,Fort Saskatchewan-Vegreville,Stony Plain-Drayton Valley,dpg_only
+minority,Calgary-Elbow,Calgary-South,dpg_only
+minority,Lac Ste. Anne-Parkland,Stony Plain-Drayton Valley,dpg_only
+minority,Highwood,Lethbridge-Cardston,dpg_only
+minority,Edmonton-Beaumont,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Calgary-Beddington,Calgary-North East,dpg_only
+minority,Stony Plain-Drayton Valley,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Camrose,Red Deer-Lacombe,dpg_only
+minority,Calgary-Acadia,Calgary-Hays,dpg_only
+minority,Edmonton-Enoch-Devon,Edmonton-Rutherford,dpg_only
+minority,Calgary-Airdrie,Calgary-North West-Bearspaw,dpg_only
+minority,Calgary-Currie,Calgary-Mountain View,dpg_only
+minority,Edmonton-Manning,Stony Plain-Drayton Valley,dpg_only
+minority,Airdrie East,Calgary-Falconridge,dpg_only
+minority,Rocky Mountain House-Banff Park,Wetaskawin-Ponoka-Maskwacis,dpg_only
+minority,Calgary-Airdrie,Calgary-Nolan Hill-Cochrane,dpg_only
+minority,Calgary-Falconridge,Calgary-Klein,dpg_only
+minority,Drumheller-Stettler,Red Deer-Lacombe,dpg_only
+minority,Calgary-Elbow,Calgary-South East,dpg_only
+minority,Edmonton-Beaumont,Edmonton-Highlands-Norwood,dpg_only
+minority,Canmore-Kananaskis,Lethbridge-Cardston,dpg_only
+minority,Edmonton-McClung,Edmonton-Windermere,dpg_only
+minority,Calgary-Buffalo,Calgary-Klein,dpg_only
+minority,Calgary-Lougheed,Calgary-Nolan Hill-Cochrane,dpg_only
+minority,Edmonton-Highlands-Norwood,Edmonton-Rutherford,dpg_only
+minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Lethbridge-Little Bow,dpg_only
+minority,Canmore-Kananaskis,Lethbridge-Fort MacLeod-Crowsnest Pass,dpg_only
+minority,Calgary-Peigan-Chestermere,Calgary-South,official_only
+minority,Calgary-Fish Creek,Calgary-South,official_only
+minority,St Albert,St Albert-Sturgeon,official_only
+minority,Red Deer-Blackfalds,Wetaskiwin-Ponoka-Maskwacis,official_only
+minority,Edmonton-Castledowns,Edmonton-Decore,official_only
+minority,Edmonton-City Centre,Edmonton-Glenora-Riverview,official_only
+minority,Edmonton-South,Leduc,official_only
+minority,Rocky Mountain House-Banff Park,Wetaskiwin-Ponoka-Maskwacis,official_only
+minority,Lac Ste Anne-Parkland,Lesser Slave Lake,official_only
+minority,Edmonton-Meadows,Sherwood Park-Strathcona,official_only
+minority,Calgary-Fish Creek,Calgary-Peigan-Chestermere,official_only
+minority,Edmonton-North West,St Albert-Sturgeon,official_only
+minority,Calgary-Hays,Calgary-Peigan-Chestermere,official_only
+minority,Calgary-East,Calgary-Elbow,official_only
+minority,Calgary-Cross,Calgary-North East,official_only
+minority,Calgary-Cross,Calgary-Peigan-Chestermere,official_only
+minority,Calgary-Edgemont,Calgary-North West-Bearspaw,official_only
+minority,Red Deer-Lacombe,Red Deer-Sylvan Lake,official_only
+minority,Edmonton-Enoch-Devon,Leduc,official_only
+minority,Edmonton-North West,Edmonton-West Henday,official_only
+minority,Edmonton-South,Edmonton-Windermere,official_only
+minority,Calgary-Foothills-Airdrie West,Olds-Three Hills-Didsbury,official_only
+minority,Edmonton-Spruce Grove,St Albert,official_only
+minority,Calgary-South,Calgary-South East,official_only
+minority,Red Deer-Blackfalds,Red Deer-Lacombe,official_only
+minority,Edmonton-Beaumont,Edmonton-Meadows,official_only
+minority,Calgary-Beddington,Calgary-McCall-Bhullar,official_only
+minority,Edmonton-Manning,St Albert-Sturgeon,official_only
+minority,Edmonton-Windermere,Leduc,official_only
+minority,Lac Ste Anne-Parkland,St Albert-Sturgeon,official_only
+minority,Calgary-Bow-Springbank,Calgary-West-Tsuut'ina,official_only
+minority,Leduc,Stony Plain-Drayton Valley,official_only
+minority,Airdrie-East,Calgary-McCall-Bhullar,official_only
+minority,Canmore-Kananaskis,Lethbridge-Little Bow,official_only
+minority,Calgary-Mountainview,Calgary-Varsity,official_only
+minority,Airdrie-East,Calgary-Cross,official_only
+minority,Calgary-Bow-Springbank,Calgary-Mountainview,official_only
+minority,Calgary-Elbow,Calgary-Mountainview,official_only
+minority,Airdrie-East,Calgary-Airdrie,official_only
+minority,Calgary-Airdrie,Calgary-McCall-Bhullar,official_only
+minority,Leduc,Wetaskiwin-Ponoka-Maskwacis,official_only
+minority,Calgary-Glenmore,Calgary-West-Tsuut'ina,official_only
+minority,Lethbridge-Fort Macleod-Crowsnest Pass,Lethbridge-Little Bow,official_only
+minority,Drumheller-Stettler,Red Deer-Blackfalds,official_only
+minority,Calgary-Buffalo,Calgary-Mountainview,official_only
+minority,Stony Plain-Drayton Valley,Wetaskiwin-Ponoka-Maskwacis,official_only
+minority,Calgary-Currie,Calgary-Glenmore,official_only
+minority,Calgary-Airdrie,Calgary-Beddington,official_only
+minority,Calgary-Fish Creek,Calgary-Lougheed,official_only
+minority,Airdrie-East,Calgary-Foothills-Airdrie West,official_only
+minority,Edmonton-Ellerslie,Edmonton-Rutherford,official_only
+minority,Airdrie-East,Chestermere-Strathmore,official_only
+minority,Drumheller-Stettler,Lethbridge-Little Bow,official_only
+minority,Calgary-Nolan Hill-Cochrane,Calgary-West-Tsuut'ina,official_only
+minority,Calgary-Currie,Calgary-Mountainview,official_only
+minority,Calgary-Cross,Calgary-McCall-Bhullar,official_only
+minority,Barrhead-Westlock-Athabasca,St Albert-Sturgeon,official_only
+minority,Calgary-East,Calgary-Mountainview,official_only
+minority,Camrose,Red Deer-Blackfalds,official_only
+minority,Calgary-Nolan Hill-Cochrane,Rocky Mountain House-Banff Park,official_only
+minority,Calgary-Klein,Calgary-McCall-Bhullar,official_only
+minority,Edmonton-Whitemud,Edmonton-Windermere,official_only
+minority,Calgary-Nolan Hill-Cochrane,Calgary-North West-Bearspaw,official_only
+minority,Calgary-De Winton,Calgary-West-Tsuut'ina,official_only
+minority,Canmore-Kananaskis,Lethbridge-Fort Macleod-Crowsnest Pass,official_only
+minority,Edmonton-Spruce Grove,Edmonton-West Henday,official_only
+minority,Calgary-De Winton,Calgary-Fish Creek,official_only
+minority,Edmonton-Beaumont,Sherwood Park-Strathcona,official_only
+minority,Edmonton-Highlands-Norwood,Edmonton-North West,official_only
+minority,Calgary-Peigan-Chestermere,Chestermere-Strathmore,official_only
+minority,Calgary-Klein,Calgary-Mountainview,official_only
+minority,Calgary-Klein,Calgary-Varsity,official_only
+minority,Edmonton-Glenora-Riverview,Edmonton-West Henday,official_only
+minority,Calgary-East,Calgary-McCall-Bhullar,official_only
+minority,Edmonton-Castledowns,St Albert-Sturgeon,official_only
+minority,Airdrie-East,Olds-Three Hills-Didsbury,official_only
+minority,Lac Ste Anne-Parkland,Stony Plain-Drayton Valley,official_only
+minority,Barrhead-Westlock-Athabasca,Lac Ste Anne-Parkland,official_only
+minority,Calgary-Elbow,Calgary-Peigan-Chestermere,official_only
+minority,Edmonton-Spruce Grove,Lac Ste Anne-Parkland,official_only
+minority,Edmonton-Enoch-Devon,Edmonton-McClung,official_only
+minority,Fort Saskatchewan-Vegreville,St Albert-Sturgeon,official_only
+minority,Edmonton-Glenora-Riverview,Edmonton-North West,official_only
+minority,Red Deer-Lacombe,Wetaskiwin-Ponoka-Maskwacis,official_only
+minority,Edmonton-North West,Edmonton-Spruce Grove,official_only
+minority,Airdrie-East,Calgary-North East,official_only
+minority,Lethbridge-Cardston,Lethbridge-Fort Macleod-Crowsnest Pass,official_only
+minority,Camrose,Wetaskiwin-Ponoka-Maskwacis,official_only
+minority,Edmonton-Strathcona,Edmonton-Whitemud,official_only
+minority,Edmonton-North West,St Albert,official_only
+minority,Lethbridge-Fort Macleod-Crowsnest Pass,Lethbridge-Taber-Warner,official_only
+minority,Calgary-Acadia,Calgary-Peigan-Chestermere,official_only
+minority,Lac Ste Anne-Parkland,St Albert,official_only
+minority,Highwood,Lethbridge-Little Bow,official_only
+minority,Airdrie-East,Drumheller-Stettler,official_only
+minority,Chestermere-Strathmore,Lethbridge-Little Bow,official_only
+minority,Edmonton-Ellerslie,Edmonton-South,official_only
+minority,Calgary-Peigan-Chestermere,Calgary-South East,official_only
+minority,Calgary-East,Calgary-Peigan-Chestermere,official_only
+minority,Edmonton-Enoch-Devon,Edmonton-Whitemud,official_only
+minority,Calgary-Nolan Hill-Cochrane,Olds-Three Hills-Didsbury,official_only
+minority,Lac Ste Anne-Parkland,West Yellowhead,official_only
+minority,Calgary-Hays,Calgary-South,official_only
+minority,Calgary-North West-Bearspaw,Calgary-Varsity,both
+minority,Calgary-Beddington,Calgary-Foothills-Airdrie West,both
+minority,Fort Saskatchewan-Vegreville,Lloydminster-Wainwright,both
+minority,Edmonton-Gold Bar,Edmonton-Mill Woods,both
+minority,Edmonton-Ellerslie,Edmonton-Mill Woods,both
+minority,Grande Prairie-Wapiti,West Yellowhead,both
+minority,Edmonton-Gold Bar,Edmonton-Meadows,both
+minority,Edmonton-Decore,Edmonton-Manning,both
+minority,Edmonton-Beverly-Clareview,Edmonton-Gold Bar,both
+minority,Calgary-Cross,Calgary-East,both
+minority,Calgary-Airdrie,Calgary-North,both
+minority,Edmonton-Enoch-Devon,Edmonton-Windermere,both
+minority,Red Deer-Blackfalds,Red Deer-Sylvan Lake,both
+minority,Rocky Mountain House-Banff Park,West Yellowhead,both
+minority,Calgary-De Winton,Highwood,both
+minority,Calgary-Lougheed,Calgary-West-Tsuut'ina,both
+minority,Edmonton-Gold Bar,Edmonton-Highlands-Norwood,both
+minority,Barrhead-Westlock-Athabasca,Fort Saskatchewan-Vegreville,both
+minority,Camrose,Leduc,both
+minority,Sherwood Park,Sherwood Park-Strathcona,both
+minority,Chestermere-Strathmore,Highwood,both
+minority,Calgary-Beddington,Calgary-Edgemont,both
+minority,Calgary-De Winton,Calgary-South,both
+minority,Calgary-Bow-Springbank,Calgary-Varsity,both
+minority,Olds-Three Hills-Didsbury,Red Deer-Sylvan Lake,both
+minority,Edmonton-McClung,Edmonton-West Henday,both
+minority,Edmonton-Ellerslie,Edmonton-Meadows,both
+minority,Central Peace-Notley,Lesser Slave Lake,both
+minority,Calgary-Acadia,Calgary-Elbow,both
+minority,Calgary-Glenmore,Calgary-Lougheed,both
+minority,Edmonton-Gold Bar,Sherwood Park,both
+minority,Cold Lake-Bonnyville-St. Paul,Lloydminster-Wainwright,both
+minority,Camrose,Drumheller-Stettler,both
+minority,Central Peace-Notley,Grande Prairie-Wapiti,both
+minority,Fort Saskatchewan-Vegreville,Sherwood Park,both
+minority,Edmonton-Enoch-Devon,Edmonton-Spruce Grove,both
+minority,Canmore-Kananaskis,Rocky Mountain House-Banff Park,both
+minority,Lethbridge-Little Bow,Lethbridge-Taber-Warner,both
+minority,Edmonton-Beaumont,Leduc,both
+minority,Edmonton-City Centre,Edmonton-Highlands-Norwood,both
+minority,Drumheller-Stettler,Olds-Three Hills-Didsbury,both
+minority,Edmonton-Beverly-Clareview,Sherwood Park,both
+minority,Fort McMurray-Lac La Biche,Fort McMurray-Wood Buffalo,both
+minority,Edmonton-Meadows,Edmonton-Mill Woods,both
+minority,Calgary-Foothills-Airdrie West,Calgary-North West-Bearspaw,both
+minority,Barrhead-Westlock-Athabasca,Cold Lake-Bonnyville-St. Paul,both
+minority,Calgary-South East,Chestermere-Strathmore,both
+minority,Calgary-Acadia,Calgary-Lougheed,both
+minority,Calgary-Bow-Springbank,Calgary-North West-Bearspaw,both
+minority,Calgary-Foothills-Airdrie West,Calgary-Nolan Hill-Cochrane,both
+minority,Chestermere-Strathmore,Drumheller-Stettler,both
+minority,Edmonton-Spruce Grove,Stony Plain-Drayton Valley,both
+minority,Calgary-Beddington,Calgary-North,both
+minority,Rocky Mountain House-Banff Park,Stony Plain-Drayton Valley,both
+minority,Barrhead-Westlock-Athabasca,Fort McMurray-Lac La Biche,both
+minority,Leduc,Sherwood Park-Strathcona,both
+minority,Edmonton-Gold Bar,Sherwood Park-Strathcona,both
+minority,Calgary-Buffalo,Calgary-Elbow,both
+minority,Edmonton-Castledowns,Edmonton-North West,both
+minority,Central Peace-Notley,West Yellowhead,both
+minority,Cold Lake-Bonnyville-St. Paul,Fort McMurray-Lac La Biche,both
+minority,Edmonton-Beaumont,Edmonton-Ellerslie,both
+minority,Olds-Three Hills-Didsbury,Red Deer-Innisfail,both
+minority,Drumheller-Stettler,Red Deer-Innisfail,both
+minority,Edmonton-Castledowns,Edmonton-Manning,both
+minority,Fort McMurray-Wood Buffalo,Peace River,both
+minority,Edmonton-Rutherford,Edmonton-Strathcona,both
+minority,Calgary-McCall-Bhullar,Calgary-North East,both
+minority,Red Deer-Lacombe,Rocky Mountain House-Banff Park,both
+minority,Calgary-Bow-Springbank,Calgary-Currie,both
+minority,Edmonton-Rutherford,Edmonton-Whitemud,both
+minority,Calgary-De Winton,Canmore-Kananaskis,both
+minority,Red Deer-Innisfail,Red Deer-Sylvan Lake,both
+minority,Edmonton-Beverly-Clareview,Edmonton-Highlands-Norwood,both
+minority,Camrose,Fort Saskatchewan-Vegreville,both
+minority,Calgary-Edgemont,Calgary-Foothills-Airdrie West,both
+minority,Edmonton-City Centre,Edmonton-North West,both
+minority,Red Deer-Blackfalds,Red Deer-Innisfail,both
+minority,Stony Plain-Drayton Valley,West Yellowhead,both
+minority,Calgary-Airdrie,Calgary-Foothills-Airdrie West,both
+minority,Calgary-Elbow,Calgary-Glenmore,both
+minority,Edmonton-Enoch-Devon,Stony Plain-Drayton Valley,both
+minority,Calgary-De Winton,Calgary-Lougheed,both
+minority,Lesser Slave Lake,Peace River,both
+minority,Calgary-Beddington,Calgary-Klein,both
+minority,Canmore-Kananaskis,Highwood,both
+minority,Calgary-Cross,Chestermere-Strathmore,both
+minority,Lethbridge-Cardston,Lethbridge-Taber-Warner,both
+minority,Lethbridge-Little Bow,Medicine Hat-Brooks,both
+minority,Lesser Slave Lake,West Yellowhead,both
+minority,Central Peace-Notley,Peace River,both
+minority,Calgary-Acadia,Calgary-Glenmore,both
+minority,Fort Saskatchewan-Vegreville,Sherwood Park-Strathcona,both
+minority,Edmonton-Glenora-Riverview,Edmonton-McClung,both
+minority,Edmonton-Gold Bar,Edmonton-Strathcona,both
+minority,Calgary-Edgemont,Calgary-Varsity,both
+minority,Edmonton-City Centre,Edmonton-Strathcona,both
+minority,Edmonton-Rutherford,Edmonton-South,both
+minority,Calgary-West-Tsuut'ina,Canmore-Kananaskis,both
+minority,Edmonton-Beverly-Clareview,Edmonton-Decore,both
+minority,Camrose,Lloydminster-Wainwright,both
+minority,Calgary-Falconridge,Calgary-McCall-Bhullar,both
+minority,Edmonton-Beaumont,Edmonton-South,both
+minority,Lethbridge-Taber-Warner,Medicine Hat-Brooks,both
+minority,Edmonton-Decore,Edmonton-North West,both
+minority,Calgary-South East,Highwood,both
+minority,Edmonton-Manning,Fort Saskatchewan-Vegreville,both
+minority,Edmonton-Decore,Edmonton-Highlands-Norwood,both
+minority,Edmonton-Rutherford,Edmonton-Windermere,both
+minority,Red Deer-Sylvan Lake,Rocky Mountain House-Banff Park,both
+minority,Camrose,Sherwood Park-Strathcona,both
+minority,Edmonton-Enoch-Devon,Edmonton-West Henday,both
+minority,Drumheller-Stettler,Lloydminster-Wainwright,both
+minority,Edmonton-Glenora-Riverview,Edmonton-Strathcona,both
+minority,Calgary-East,Calgary-Klein,both
+minority,Fort McMurray-Lac La Biche,Lesser Slave Lake,both
+minority,Calgary-Acadia,Calgary-Fish Creek,both
+minority,Grande Prairie,Grande Prairie-Wapiti,both
+minority,Edmonton-Beverly-Clareview,Edmonton-Manning,both
+minority,Calgary-Buffalo,Calgary-Currie,both
+minority,Edmonton-Mill Woods,Edmonton-Rutherford,both
+minority,Fort McMurray-Wood Buffalo,Lesser Slave Lake,both
+minority,Cold Lake-Bonnyville-St. Paul,Fort Saskatchewan-Vegreville,both
+minority,Calgary-Currie,Calgary-West-Tsuut'ina,both
+minority,Calgary-Nolan Hill-Cochrane,Canmore-Kananaskis,both
+minority,Calgary-Hays,Calgary-South East,both
+minority,Lethbridge-Taber-Warner,Medicine Hat-Cypress,both
+minority,Edmonton-McClung,Edmonton-Whitemud,both
+minority,Drumheller-Stettler,Medicine Hat-Brooks,both
+minority,Calgary-Bow-Springbank,Calgary-Nolan Hill-Cochrane,both
+minority,Olds-Three Hills-Didsbury,Rocky Mountain House-Banff Park,both
+minority,Calgary-Cross,Calgary-Falconridge,both
+minority,Calgary-Foothills-Airdrie West,Calgary-North,both
+minority,Calgary-Currie,Calgary-Elbow,both
+minority,Barrhead-Westlock-Athabasca,Lesser Slave Lake,both
+minority,Medicine Hat-Brooks,Medicine Hat-Cypress,both

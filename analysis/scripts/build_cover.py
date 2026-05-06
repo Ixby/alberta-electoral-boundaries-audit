@@ -49,7 +49,7 @@ APPROX_MIN_CANDIDATES = [
 # its parent 2026 ED.
 VA_TO_2026_ASSIGNMENTS = REPO_ROOT / "analysis" / "assignment_va_to_2026_assignments.csv"
 
-COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.svg"
+COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
 OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article (the only PDF in the repo root)
 ARTICLE_PDF = REPO_ROOT / ".temp" / "article.pdf"   # intermediate, written by build_pdf.py to .temp/
 
@@ -310,17 +310,10 @@ def build_cover_art() -> Path:
         _va_fill(s, w) for s, w in zip(va_render["parent_ucp_share"], weight.values)
     ]
 
-    # 4a. Base layer: v0_9 EDs at moderate saturation (weight=0.35 floor) so
-    #     park / uninhabited areas where no VA exists clearly show their
-    #     parent ED's partisan colour and do not look grey.
-    eds["_base_fill"] = [
-        _va_fill(s, 0.35) for s in eds["ucp_share"]
-    ]
-    eds.plot(
-        ax=ax,
-        color=eds["_base_fill"].tolist(),
-        linewidth=0,
-    )
+    # 4a. Base layer: v0_9 EDs fill removed to prevent a massive solid blue overlay
+    #     across uninhabited rural areas.
+    # eds["_base_fill"] = [ _va_fill(s, 0.35) for s in eds["ucp_share"] ]
+    # eds.plot(ax=ax, color=eds["_base_fill"].tolist(), linewidth=0)
 
     # 4b. VA layer on top — heatmap-modulated fills carry the population-
     #     density signal where VAs exist (i.e. where people actually live).

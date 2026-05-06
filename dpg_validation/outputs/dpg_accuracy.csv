@@ -1,0 +1,179 @@
+map,dpg_name,official_name,official_ed_num,official_pop,match_method,iou_vs_official_pct,iou_vs_2019_pct,is_2019_inherited,enacted_2019_name
+majority,Airdrie-East,Airdrie-East,50,53809,name,37.3,100.0,True,Airdrie-East
+majority,Airdrie-West,Airdrie-West,51,48145,name,0.0,15.85,False,Airdrie-Cochrane
+majority,Barrhead-Westlock-Athabasca,Barrhead-Westlock-Athabasca,52,52249,name,53.03,91.43,False,Athabasca-Barrhead-Westlock
+majority,Calgary-Acadia,Calgary-Acadia,1,55789,name,16.73,63.27,False,Calgary-Peigan
+majority,Calgary-Beddington,Calgary-Beddington,2,56024,name,13.65,56.38,False,Calgary-Foothills
+majority,Calgary-Bhullar-McCall,Calgary-Bhullar-McCall,3,55887,name,84.03,100.0,True,Calgary-McCall
+majority,Calgary-Bow,Calgary-Bow,4,54982,name,73.74,80.57,False,Calgary-Bow
+majority,Calgary-Buffalo,Calgary-Buffalo,5,58777,name,64.42,43.85,False,Calgary-Buffalo
+majority,Calgary-Confluence,Calgary-Confluence,6,58632,name,2.29,19.2,False,Calgary-Buffalo
+majority,Calgary-Cross,Calgary-Cross,7,59491,name,55.73,71.55,False,Calgary-Cross
+majority,Calgary-Currie,Calgary-Currie,8,58111,name,60.07,60.07,False,Calgary-Currie
+majority,Calgary-East,Calgary-East,9,58308,name,25.65,71.31,False,Calgary-East
+majority,Calgary-Edgemont,Calgary-Edgemont,10,55141,name,57.67,55.55,False,Calgary-Edgemont
+majority,Calgary-Elbow,Calgary-Elbow,11,55297,name,50.98,59.63,False,Calgary-Elbow
+majority,Calgary-Falconridge-Conrich,Calgary-Falconridge-Conrich,12,56661,name,9.55,36.2,False,Calgary-Falconridge
+majority,Calgary-Fish Creek,Calgary-Fish Creek,13,55403,name,75.08,85.82,False,Calgary-Fish Creek
+majority,Calgary-Glenmore-Tsuut'ina,Calgary-Glenmore-Tsuut'ina,14,56970,name,0.65,0.2,False,Banff-Kananaskis
+majority,Calgary-Hays,Calgary-Hays,15,52147,name,3.98,0.9,False,Highwood
+majority,Calgary-Klein,Calgary-Klein,16,56292,name,73.87,82.29,False,Calgary-Klein
+majority,Calgary-Lougheed,Calgary-Lougheed,17,59554,name,25.65,5.26,False,Highwood
+majority,Calgary-McKenzie,Calgary-McKenzie,18,62772,name,2.88,3.71,False,Calgary-Hays
+majority,Calgary-Mountain View,Calgary-Mountain View,19,54396,name,88.89,100.0,True,Calgary-Mountain View
+majority,Calgary-North,Calgary-North,20,57945,name,79.85,80.11,False,Calgary-North
+majority,Calgary-North East,Calgary-North East,21,54541,name,20.26,53.71,False,Calgary-North East
+majority,Calgary-North West,Calgary-North West,22,52488,name,30.03,30.03,False,Calgary-North West
+majority,Calgary-Nose Creek,Calgary-Nose Creek,23,55155,name,0.0,46.26,False,Calgary-Beddington
+majority,Calgary-Shaw,Calgary-Shaw,24,58171,name,85.18,100.0,True,Calgary-Shaw
+majority,Calgary-South East,Calgary-South East,25,53551,name,63.57,76.61,False,Calgary-South East
+majority,Calgary-Symons Valley,Calgary-Symons Valley,26,54797,name,0.16,12.19,False,Airdrie-Cochrane
+majority,Calgary-Varsity,Calgary-Varsity,27,57166,name,89.05,100.0,True,Calgary-Varsity
+majority,Calgary-West-Elbow Valley,Calgary-West-Elbow Valley,28,54167,name,0.39,2.53,False,Banff-Kananaskis
+majority,Camrose,Camrose,53,54653,name,69.77,100.0,True,Camrose
+majority,Canmore-Banff,Canmore-Banff,54,39961,name,65.62,67.36,False,Banff-Kananaskis
+majority,Central Peace-Notley,Central Peace-Notley,55,28715,name,100.0,100.0,True,Central Peace-Notley
+majority,Chestermere-Strathmore,Chestermere-Strathmore,56,56679,name,57.76,89.59,False,Chestermere-Strathmore
+majority,Cochrane-Springbank,Cochrane-Springbank,57,56487,name,43.85,64.36,False,Airdrie-Cochrane
+majority,Cold Lake-Bonnyville-St. Paul,Cold Lake-Bonnyville-St. Paul,58,55809,name,91.67,100.0,True,Bonnyville-Cold Lake-St. Paul
+majority,Drumheller-Stettler,Drumheller-Stettler,59,50626,name,91.42,100.0,True,Drumheller-Stettler
+majority,Edmonton-Beaumont,Edmonton-Beaumont,29,55802,name,21.19,25.99,False,Leduc-Beaumont
+majority,Edmonton-Beverly-Clareview,Edmonton-Beverly-Clareview,30,57481,name,65.84,100.0,True,Edmonton-Beverly-Clareview
+majority,Edmonton-Castle Downs,Edmonton-Castle Downs,31,59612,name,100.0,100.0,True,Edmonton-Castle Downs
+majority,Edmonton-City Centre,Edmonton-City Centre,32,57312,name,33.82,37.3,False,Edmonton-City Centre
+majority,Edmonton-Decore,Edmonton-Decore,33,57959,name,77.45,83.75,False,Edmonton-Decore
+majority,Edmonton-Ellerslie,Edmonton-Ellerslie,34,59760,name,10.44,100.0,True,Edmonton-Ellerslie
+majority,Edmonton-Enoch,Edmonton-Enoch,35,56894,name,1.35,24.09,False,Edmonton-West Henday
+majority,Edmonton-Glenora-Riverview,Edmonton-Glenora-Riverview,36,56622,name,19.27,11.21,False,Edmonton-Riverview
+majority,Edmonton-Gold Bar,Edmonton-Gold Bar,37,54981,name,94.72,100.0,True,Edmonton-Gold Bar
+majority,Edmonton-Highlands-Norwood,Edmonton-Highlands-Norwood,38,51806,name,88.28,100.0,True,Edmonton-Highlands-Norwood
+majority,Edmonton-Manning,Edmonton-Manning,39,56901,name,84.14,100.0,True,Edmonton-Manning
+majority,Edmonton-McClung,Edmonton-McClung,40,61859,name,58.88,100.0,True,Edmonton-McClung
+majority,Edmonton-Meadows,Edmonton-Meadows,41,56880,name,51.63,100.0,True,Edmonton-Meadows
+majority,Edmonton-Mill Woods,Edmonton-Mill Woods,42,59673,name,52.98,100.0,True,Edmonton-Mill Woods
+majority,Edmonton-North West,Edmonton-North West,43,61226,name,14.66,2.88,False,Lac Ste. Anne-Parkland
+majority,Edmonton-Rutherford,Edmonton-Rutherford,44,58082,name,53.46,60.77,False,Edmonton-Rutherford
+majority,Edmonton-South,Edmonton-South,45,60775,name,68.21,100.0,True,Edmonton-South
+majority,Edmonton-Strathcona,Edmonton-Strathcona,46,56165,name,42.71,100.0,True,Edmonton-Strathcona
+majority,Edmonton-West Henday,Edmonton-West Henday,47,61775,name,44.26,49.98,False,Edmonton-West Henday
+majority,Edmonton-Whitemud,Edmonton-Whitemud,48,60347,name,69.7,100.0,True,Edmonton-Whitemud
+majority,Edmonton-Windermere,Edmonton-Windermere,49,56944,name,50.82,95.53,False,Edmonton-South West
+majority,Fort McMurray-Lac La Biche,Fort McMurray-Lac La Biche,60,52847,name,91.31,100.0,True,Fort McMurray-Lac La Biche
+majority,Fort McMurray-Wood Buffalo,Fort McMurray-Wood Buffalo,61,49615,name,99.99,100.0,True,Fort McMurray-Wood Buffalo
+majority,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,62,54278,name,90.97,100.0,True,Fort Saskatchewan-Vegreville
+majority,Grande Prairie,Grande Prairie,63,50352,name,99.54,100.0,True,Grande Prairie
+majority,Grande Prairie-Wapiti,Grande Prairie-Wapiti,64,53781,name,100.0,100.0,True,Grande Prairie-Wapiti
+majority,High River-Vulcan-Siksika,High River-Vulcan-Siksika,65,53351,name,0.33,48.2,False,Highwood
+majority,Lacombe-Clearwater,Lacombe-Clearwater,66,55750,name,3.4,84.82,False,Lacombe-Ponoka
+majority,Leduc-Devon,Leduc-Devon,67,56572,name,7.17,74.01,False,Leduc-Beaumont
+majority,Lesser Slave Lake,Lesser Slave Lake,68,30011,name,91.79,100.0,True,Lesser Slave Lake
+majority,Lethbridge-East,Lethbridge-East,69,57463,name,96.9,100.0,True,Lethbridge-East
+majority,Lethbridge-West,Lethbridge-West,70,54235,name,49.76,0.74,False,Cardston-Siksika
+majority,Livingstone-Macleod,Livingstone-Macleod,71,50144,name,48.27,71.4,False,Livingstone-Macleod
+majority,Lloydminster-Wainwright,Lloydminster-Wainwright,72,50139,name,91.34,100.0,True,Vermilion-Lloydminster-Wainwright
+majority,Medicine Hat-Brooks,Medicine Hat-Brooks,73,54833,name,77.09,77.1,False,Brooks-Medicine Hat
+majority,Medicine Hat-Cypress,Medicine Hat-Cypress,74,54210,name,99.5,100.0,True,Cypress-Medicine Hat
+majority,Mountain View-Kneehill,Mountain View-Kneehill,75,52432,name,51.76,83.11,False,Olds-Didsbury-Three Hills
+majority,Okotoks-Diamond Valley,Okotoks-Diamond Valley,76,55284,name,9.94,33.77,False,Highwood
+majority,Peace River,Peace River,77,43399,name,99.99,100.0,True,Peace River
+majority,Red Deer-North,Red Deer-North,78,53798,name,97.09,100.0,True,Red Deer-North
+majority,Red Deer-South,Red Deer-South,79,59123,name,99.85,100.0,True,Red Deer-South
+majority,Sherwood Park,Sherwood Park,80,52475,name,87.98,100.0,True,Sherwood Park
+majority,Spruce Grove,Spruce Grove,81,55930,name,34.62,3.49,False,Lac Ste. Anne-Parkland
+majority,St. Albert,St. Albert,82,59935,name,43.92,1.25,False,Lac Ste. Anne-Parkland
+majority,St. Albert-Sturgeon,St. Albert-Sturgeon,83,54214,name,73.93,77.75,False,Morinville-St. Albert
+majority,Stony Plain-Drayton Valley,Stony Plain-Drayton Valley,84,55743,name,37.86,19.94,False,Rimbey-Rocky Mountain House-Sundre
+majority,Strathcona-Sherwood Park,Strathcona-Sherwood Park,85,51020,name,83.06,100.0,True,Strathcona-Sherwood Park
+majority,Sylvan Lake-Innisfail,Sylvan Lake-Innisfail,86,55291,name,54.82,14.3,False,Rimbey-Rocky Mountain House-Sundre
+majority,Taber-Cardston,Taber-Cardston,87,54933,name,74.13,78.8,False,Taber-Warner
+majority,West Yellowhead,West Yellowhead,88,56562,name,89.25,89.86,False,West Yellowhead
+majority,Wetaskiwin-Ponoka-Maskwacis,Wetaskiwin-Ponoka-Maskwacis,89,56399,name,40.28,80.46,False,Maskwacis-Wetaskiwin
+minority,Airdrie East,Airdrie-East,52,50797,name,45.18,99.18,False,Airdrie-East
+minority,Barrhead-Westlock-Athabasca,Barrhead-Westlock-Athabasca,53,46892,name,87.12,59.31,False,Athabasca-Barrhead-Westlock
+minority,Calgary-Acadia,Calgary-Acadia,1,53346,name,36.13,57.08,False,Calgary-Acadia
+minority,Calgary-Airdrie,Calgary-Airdrie,2,58820,name,3.39,100.0,True,Airdrie-Cochrane
+minority,Calgary-Beddington,Calgary-Beddington,3,61320,name,80.51,100.0,True,Calgary-Beddington
+minority,Calgary-Bow-Springbank,Calgary-Bow-Springbank,4,55560,name,0.55,30.64,False,Calgary-Foothills
+minority,Calgary-Buffalo,Calgary-Buffalo,5,66801,name,37.17,67.53,False,Calgary-Buffalo
+minority,Calgary-Cross,Calgary-Cross,6,63064,name,12.68,100.0,True,Calgary-Cross
+minority,Calgary-Currie,Calgary-Currie,7,60141,name,76.48,87.04,False,Calgary-Currie
+minority,Calgary-De Winton,Calgary-De Winton,8,47732,name,16.73,0.34,False,Banff-Kananaskis
+minority,Calgary-East,Calgary-East,9,57107,name,22.3,100.0,True,Calgary-East
+minority,Calgary-Edgemont,Calgary-Edgemont,10,56584,name,20.62,63.07,False,Calgary-McCall
+minority,Calgary-Elbow,Calgary-Elbow,11,59034,name,23.98,67.32,False,Calgary-Elbow
+minority,Calgary-Falconridge,Calgary-Falconridge,12,63986,name,54.33,75.38,False,Calgary-Falconridge
+minority,Calgary-Fish Creek,Calgary-Fish Creek,13,57894,name,0.34,0.38,False,Calgary-Fish Creek
+minority,Calgary-Foothills-Airdrie West,Calgary-Foothills-Airdrie West,14,58436,name,14.09,44.28,False,Calgary-Foothills
+minority,Calgary-Glenmore,Calgary-Glenmore,15,53096,name,90.99,100.0,True,Calgary-Glenmore
+minority,Calgary-Hays,Calgary-Hays,16,52395,name,41.01,100.0,True,Calgary-Hays
+minority,Calgary-Klein,Calgary-Klein,17,61817,name,11.94,71.05,False,Calgary-Peigan
+minority,Calgary-Lougheed,Calgary-Lougheed,18,56122,name,5.76,0.97,False,Banff-Kananaskis
+minority,Calgary-McCall-Bhullar,Calgary-McCall-Bhullar,19,66474,name,0.9,8.68,False,Calgary-McCall
+minority,Calgary-Mountain View,Calgary-Mountainview,20,62634,spatial_fallback,73.0,100.0,True,Calgary-Mountain View
+minority,Calgary-Nolan Hill-Cochrane,Calgary-Nolan Hill-Cochrane,21,56282,name,47.15,2.69,False,Banff-Kananaskis
+minority,Calgary-North,Calgary-North,22,56981,name,62.5,100.0,True,Calgary-North
+minority,Calgary-North East,Calgary-North East,23,68145,name,22.74,100.0,True,Calgary-North East
+minority,Calgary-North West-Bearspaw,Calgary-North West-Bearspaw,24,57246,name,7.7,20.49,False,Calgary-North West
+minority,Calgary-Peigan-Chestermere,Calgary-Peigan-Chestermere,25,52639,name,0.1,0.21,False,Calgary-Peigan
+minority,Calgary-South,Calgary-South,26,55134,name,4.2,7.86,False,Calgary-Shaw
+minority,Calgary-South East,Calgary-South East,27,54045,name,18.63,100.0,True,Calgary-South East
+minority,Calgary-Varsity,Calgary-Varsity,28,64932,name,39.63,100.0,True,Calgary-Varsity
+minority,Calgary-West-Tsuut'ina,Calgary-West-Tsuut'ina,29,57827,name,5.46,91.14,False,Calgary-West
+minority,Camrose,Camrose,54,48536,name,94.33,93.54,False,Camrose
+minority,Canmore-Kananaskis,Canmore-Kananaskis,55,49542,name,38.75,84.69,False,Banff-Kananaskis
+minority,Central Peace-Notley,Central Peace-Notley,57,30446,name,98.46,100.0,True,Central Peace-Notley
+minority,Chestermere-Strathmore,Chestermere-Strathmore,58,52982,name,72.21,100.0,True,Chestermere-Strathmore
+minority,Cold Lake-Bonnyville-St. Paul,Cold Lake-Bonnyville-St. Paul,56,55713,name,97.77,91.01,False,Bonnyville-Cold Lake-St. Paul
+minority,Drumheller-Stettler,Drumheller-Stettler,59,51370,name,98.2,88.97,False,Drumheller-Stettler
+minority,Edmonton-Beaumont,Edmonton-Beaumont,30,55802,name,9.93,97.62,False,Leduc-Beaumont
+minority,Edmonton-Beverly-Clareview,Edmonton-Beverly-Clareview,31,57481,name,44.38,58.45,False,Edmonton-Beverly-Clareview
+minority,Edmonton-Castledowns,Edmonton-Castledowns,32,59612,name,11.92,2.35,False,Morinville-St. Albert
+minority,Edmonton-City Centre,Edmonton-City Centre,33,57312,name,53.63,89.06,False,Edmonton-City Centre
+minority,Edmonton-Decore,Edmonton-Decore,34,57959,name,91.45,100.0,True,Edmonton-Decore
+minority,Edmonton-Ellerslie,Edmonton-Ellerslie,35,59760,name,10.44,100.0,True,Edmonton-Ellerslie
+minority,Edmonton-Enoch-Devon,Edmonton-Enoch-Devon,36,55043,name,6.38,12.03,False,Drayton Valley-Devon
+minority,Edmonton-Glenora-Riverview,Edmonton-Glenora-Riverview,37,59708,name,23.81,36.3,False,Edmonton-Riverview
+minority,Edmonton-Gold Bar,Edmonton-Gold Bar,38,54981,name,61.4,63.58,False,Edmonton-Gold Bar
+minority,Edmonton-Highlands-Norwood,Edmonton-Highlands-Norwood,39,51806,name,53.12,57.16,False,Edmonton-Highlands-Norwood
+minority,Edmonton-Manning,Edmonton-Manning,40,56901,name,84.13,100.0,True,Edmonton-Manning
+minority,Edmonton-McClung,Edmonton-McClung,41,61859,name,31.39,41.72,False,Edmonton-McClung
+minority,Edmonton-Meadows,Edmonton-Meadows,42,56880,name,21.98,4.3,False,Strathcona-Sherwood Park
+minority,Edmonton-Mill Woods,Edmonton-Mill Woods,43,59673,name,36.61,64.08,False,Edmonton-Mill Woods
+minority,Edmonton-North West,Edmonton-North West,44,61226,name,93.52,100.0,True,Edmonton-North West
+minority,Edmonton-Rutherford,Edmonton-Rutherford,45,58082,name,13.22,1.47,False,Drayton Valley-Devon
+minority,Edmonton-South,Edmonton-South,46,60775,name,3.46,4.91,False,Edmonton-South
+minority,Edmonton-Spruce Grove,Edmonton-Spruce Grove,47,59524,name,11.64,100.0,True,Spruce Grove-Stony Plain
+minority,Edmonton-Strathcona,Edmonton-Strathcona,48,56165,name,42.71,100.0,True,Edmonton-Strathcona
+minority,Edmonton-West Henday,Edmonton-West Henday,49,62510,name,11.09,8.95,False,Edmonton-West Henday
+minority,Edmonton-Whitemud,Edmonton-Whitemud,50,60347,name,69.7,100.0,True,Edmonton-Whitemud
+minority,Edmonton-Windermere,Edmonton-Windermere,51,56944,name,61.22,38.18,False,Edmonton-South West
+minority,Fort McMurray-Lac La Biche,Fort McMurray-Lac La Biche,60,44719,name,94.75,100.0,True,Fort McMurray-Lac La Biche
+minority,Fort McMurray-Wood Buffalo,Fort McMurray-Wood Buffalo,61,46721,name,99.97,100.0,True,Fort McMurray-Wood Buffalo
+minority,Fort Saskatchewan-Vegreville,Fort Saskatchewan-Vegreville,62,54274,name,90.89,100.0,True,Fort Saskatchewan-Vegreville
+minority,Grande Prairie,Grande Prairie,63,50352,name,100.0,100.0,True,Grande Prairie
+minority,Grande Prairie-Wapiti,Grande Prairie-Wapiti,64,52041,name,95.41,100.0,True,Grande Prairie-Wapiti
+minority,Highwood,Highwood,65,54375,name,44.28,60.3,False,Highwood
+minority,Lac Ste. Anne-Parkland,Lac Ste Anne-Parkland,66,47017,name,67.86,76.62,False,Lac Ste. Anne-Parkland
+minority,Leduc,Leduc,67,52328,name,7.84,2.19,False,Maskwacis-Wetaskiwin
+minority,Lesser Slave Lake,Lesser Slave Lake,68,30011,name,98.49,90.66,False,Lesser Slave Lake
+minority,Lethbridge-Cardston,Lethbridge-Cardston,69,51831,name,0.0,54.15,False,Cardston-Siksika
+minority,Lethbridge-Fort MacLeod-Crowsnest Pass,Lethbridge-Fort Macleod-Crowsnest Pass,70,54564,name,42.35,58.24,False,Livingstone-Macleod
+minority,Lethbridge-Little Bow,Lethbridge-Little Bow,71,56212,name,0.1,20.29,False,Taber-Warner
+minority,Lethbridge-Taber-Warner,Lethbridge-Taber-Warner,72,60906,name,14.68,53.96,False,Taber-Warner
+minority,Lloydminster-Wainwright,Lloydminster-Wainwright,73,49365,name,91.45,100.0,True,Vermilion-Lloydminster-Wainwright
+minority,Medicine Hat-Brooks,Medicine Hat-Brooks,74,54898,name,100.0,100.0,True,Brooks-Medicine Hat
+minority,Medicine Hat-Cypress,Medicine Hat-Cypress,75,60690,name,0.11,0.24,False,Cypress-Medicine Hat
+minority,Olds-Three Hills-Didsbury,Olds-Three Hills-Didsbury,76,49436,name,84.37,66.44,False,Olds-Didsbury-Three Hills
+minority,Peace River,Peace River,77,43408,name,99.96,100.0,True,Peace River
+minority,Red Deer-Blackfalds,Red Deer-Blackfalds,78,52827,name,1.96,67.2,False,Red Deer-North
+minority,Red Deer-Innisfail,Red Deer-Innisfail,79,52961,name,81.91,73.38,False,Innisfail-Sylvan Lake
+minority,Red Deer-Lacombe,Red Deer-Lacombe,80,56180,name,16.0,77.87,False,Lacombe-Ponoka
+minority,Red Deer-Sylvan Lake,Red Deer-Sylvan Lake,81,52454,name,83.41,22.97,False,Innisfail-Sylvan Lake
+minority,Rocky Mountain House-Banff Park,Rocky Mountain House-Banff Park,82,38298,name,66.72,87.03,False,Rimbey-Rocky Mountain House-Sundre
+minority,Sherwood Park,Sherwood Park,83,55311,name,51.85,100.0,True,Sherwood Park
+minority,Sherwood Park-Strathcona,Sherwood Park-Strathcona,87,51826,name,9.63,15.05,False,Strathcona-Sherwood Park
+minority,St. Albert,St Albert,84,54589,name,65.26,100.0,True,St. Albert
+minority,St. Albert-Sturgeon,St Albert-Sturgeon,85,52334,name,69.72,97.21,False,Morinville-St. Albert
+minority,Stony Plain-Drayton Valley,Stony Plain-Drayton Valley,86,48032,name,80.11,60.26,False,Drayton Valley-Devon
+minority,West Yellowhead,West Yellowhead,88,49766,name,95.1,100.0,True,West Yellowhead
+minority,Wetaskawin-Ponoka-Maskwacis,Wetaskiwin-Ponoka-Maskwacis,89,48775,spatial_fallback,68.57,52.83,False,Maskwacis-Wetaskiwin

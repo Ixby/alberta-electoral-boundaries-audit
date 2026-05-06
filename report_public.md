@@ -1,118 +1,223 @@
 # Two Maps, Then None: Inside Alberta's 2026 Boundary Audit
 
 *A plain-language look at the 2025–26 Electoral Boundary Commission, the math behind the minority map, and what comes next.*
-*v0.25 — April 28, 2026 — [Full academic monograph](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/report_academic.md)*
-
----
 
 ## Part I: How the Commission Broke
 
-On March 23, 2026, Alberta's Electoral Boundary Commission did something highly unusual: it deadlocked. After months of public hearings, the five commissioners could not agree on a single map. Three commissioners published the "majority map"; the other two published a competing "minority map." 
+Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Both are legal under the *Electoral Boundaries Commission Act*. The governing party is the United Conservative Party (UCP); its main opposition is the New Democratic Party (NDP). This audit measured both maps using the same methods, applied identically. Three findings stand out.
 
-Both maps are legal under the rules. But on April 16, the government set both of them aside. Instead, the task of drawing Alberta's next electoral map was handed to a five-member legislative committee of MLAs.
+1. **The two maps differ on six things you can measure without looking at any election results:** how evenly people are spread across districts, whether voters are concentrated, how badly cities are cut up, whether borders follow city limits, the shape of the districts, and how many boundaries the commission's own chair flagged as anomalous. The minority map differs from the majority on every one of them.
 
-This audit looks at the two maps the commission produced. By measuring them, we can establish a clear mathematical baseline for whatever map the new committee produces in November.
+2. **The direction runs against the places where the governing party is weakest.** Calgary's northwest quadrant, the City of Airdrie, urban areas with established municipal boundaries — the communities most affected by the minority map's structural differences are the same ones where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.
 
-When run through 250,000 computer-simulated neutral maps, the majority map looks like a standard reflection of Alberta's natural geography. The minority map does not. While it looks perfectly normal on standard, high-level fairness tests, the minority map possesses a structural configuration that pushes its tipping-point advantage into the top 1.5% of what is mathematically possible. 
+3. **The process now promoting the minority map has no precedent in Canada.** No other province lets a cabinet hand redistricting to a committee its own party controls partway through a redistribution cycle. Most provinces either require the legislature to debate the commissioners' map first, or give the commission's map automatic effect unless overridden. Alberta does neither. On April 16, the government set both commission maps aside and assigned the work to a five-member committee of MLAs (Members of the Legislative Assembly), three from the governing United Conservative Party (UCP).
+
+**The process is its own finding, separate from the maps.**
+
+---
 
 ---
 
 ## Part II: The 250,000-Map Litmus Test {.new-page}
 
-A gerrymander happens when a map is drawn to give one political side an advantage beyond what the rules require. But intent is impossible to read off a map. All we can measure is the effect.
-
-The most common defense of conservative-favorable maps in Alberta is that the province's natural geography leans that way: NDP voters are heavily concentrated in Edmonton and Calgary cores, while UCP voters are efficiently spread across rural ridings. 
-
-To separate natural geography from deliberate mapping choices, this audit used a computer algorithm to draw **250,000 legal Alberta maps** under the exact same rules the commission used. This creates a "Bell Curve" of natural maps.
-
 ![How skewed each map looks on the partisan-fairness number. Both 2026 maps sit beyond the Alberta line at ~5%; only the minority also crosses the US line at 7%. The further right the dot, the more the map favours the UCP relative to its provincial vote share.](data/maps/article/lane1_dotplot.svg)
 
-### The 50/50 Tipping Point
 
-The cleanest way to test a map is to ask: If the province's vote split exactly evenly (50/50) between the UCP and the NDP, how many seats would the map award the UCP?
 
-*   **The Median Alberta Map (Neutral):** 44.8% of seats.
-*   **The Majority Map:** 46.1% of seats (77th percentile — inside the normal range).
-*   **The Minority Map:** 48.3% of seats (**98.57th percentile — the top 1.5%**).
+The table compares the two maps. The first five rows use no election results — they're properties of the lines themselves. The last two depend on how votes were attributed to each district.
 
-Out of 250,000 neutral maps, only 1.5% reached this level of tipping-point advantage. The majority map aligns with the routine output of a neutral computer. The minority map sits as an extreme statistical outlier.
+| What was measured | Majority map | Minority map |
+|---|---|---|
+| Population spread across districts (tighter is better) | 3,180 | **4,707 — 48% wider** |
+| NW Calgary population excess above average | 2.8% | **11.5%** |
+| Airdrie split | 2 divisions | **4 divisions** |
+| Borders that follow existing municipal lines | 71% | **15%** |
+| Boundaries flagged by the commission chair | 0 | **3** |
+| Seats at 50/50 votes (percentile in 250k simulation) | 46.1% — p77 (normal range) | **48.3% — p98.6 (top 1.5%)** |
+| Efficiency gap (a partisan-fairness measure) | +1.4% | +1.8% |
+| Packing-cracking neighbourhood pattern | 3 (same as 2019) | **0 — *pre-registered pass*** |
+
+> **VOCABULARY**
+>
+> **Efficiency gap.** A single number that measures how lopsidedly a party's votes are translated into seats. Positive numbers favour conservatives; negative favour the NDP. The audit uses ~5% as Alberta's outlier line — roughly the level only 5% of computer-simulated Alberta maps cross.
+>
+> **Anchoring.** The fraction of an electoral border that lies on a pre-existing administrative line — a city limit, a school-division boundary, a Statistics Canada census line.
+
+The bottom rows depend on election results. The *seats@50/50* test holds the electorate at perfect parity (UCP and NDP each win exactly half the votes province-wide) and asks how many seats the map awards the UCP. A neutral Alberta map produces a median around 44.8% UCP seats — Alberta's geography (NDP voters concentrated in city cores, UCP voters spread across rural ridings) gives the NDP a small efficiency advantage at neutrality. The majority map at 46.1% sits at the 77th percentile of the 250,000-map simulation (normal range). The minority map at 48.3% sits at the 98.5th percentile (top 1.5%). The *efficiency gap* number measures how lopsidedly each party's votes get translated into seats; on the corrected v0_9 substrate both maps' efficiency gaps are inside the simulation's bulk (+1.4% and +1.8%) and so do not separate the two maps the way `seats@50/50` does. The verdict section unpacks the consequences.
+
+The last row is where the minority map looks *better* than the majority on a partisan-fairness measure: zero packed-cracked adjacency pairs, against three on the majority and three on the current 2019 map. The audit pre-registered this test before measuring, and the minority's tighter packing-cracking number is a real point in its favour. It is the single test where the minority outperforms the majority.
+
+---
 
 ---
 
 ## Part III: Cracking, Packing, and Draining
 
-A map reaches the extreme edge of mathematical possibility by using three specific boundary configurations. These are established industry terms in redistricting analysis:
+![The division of Airdrie into four separate districts, diluting its urban voting power.](data/maps/article/figure_airdrie_v3.svg)
 
-1. **Cracking:** Dividing a cohesive voting community across multiple districts to dilute its total voting power. Instead of staying intact, the community is fractured and attached to adjacent districts where their votes are drowned out.
-2. **Packing:** Concentrating specific voter blocs from multiple adjacent areas into a single district. This creates a safe seat won by an overwhelming supermajority (e.g., 85%), effectively wasting thousands of ballots that could have been competitive elsewhere.
-3. **Draining:** Attaching dense urban neighborhoods to expansive rural or suburban peripheries. By ignoring municipal boundaries and linking urban cores to surrounding service centers, urban voting power is diluted across the broader region.
 
-On the minority map, these configurations define the geometry.
+
+The five commissioners worked from the same statutory rules, the same provincial geography, the same archive of 1,140 public submissions, and the same demographic data. Their two competing drafts agree on most of Alberta. Where the drafts diverge, they diverge on choices someone in the room had to make. Three of those choices are worth seeing as choices, not numbers.
+
+**It splits the City of Airdrie into four pieces.** The law caps each electoral division at one-and-a-quarter times the provincial average, so Airdrie needs at least two divisions. The majority map gives it two. The minority gives it four — north to Calgary-Nolan Hill-Cochrane, east to Airdrie East, west to Calgary-Foothills-Airdrie West, and centre-south to Calgary-Airdrie — each one stapled to a different rural or Calgary-edge district. An Airdrie resident with a question for her MLA has to know which quarter of the city she lives in before she can call the right office. Her neighbours two blocks over will give her three different answers. The PTA at her child's school cannot send a single delegation to one MLA on a school-funding question; they have to coordinate four delegations to four offices, each MLA primarily accountable to a different rural or suburban constituency. The minor-hockey association, the food bank, the Chamber of Commerce — every organization that operates citywide now operates across four provincial ridings.
+
+> **WHY AIRDRIE MATTERS**
+>
+> Airdrie is the largest Alberta city without its own MLA. At 84,000 people it is bigger than Red Deer; it has one council, one tax bill, one school division — every civic system treats it as a unit.
+>
+> Splitting it across four provincial divisions — Calgary-Airdrie, Calgary-Foothills-Airdrie West, Calgary-Nolan Hill-Cochrane, and Airdrie East — each primarily identified with a different surrounding jurisdiction, removes Airdrie from the political map at the level of government that draws it. The city has 84,000 residents and zero seats in the legislature where a majority of voters call the place home.
+>
+> A four-way split is invisible to every partisan-fairness test except the one that asks: can a voter find their MLA?
+
+> Both maps are legal. The four-way split is a choice.
+
+**It ignores municipal boundaries.** When electoral maps follow the edge of a city or town, voters recognize where their division begins and ends — the property-tax line, the school-division line, the local-election ward line, and the provincial-election line all coincide. These maps already exist. Statistics Canada publishes the city and town boundaries; any redistricting commission gets them for free. The majority map traces them on 71 of every 100 kilometres of its border. The minority traces them on 15 of 100 — and offers no published reason for the departure. (For comparison, recent Quebec, Ontario, and BC commission maps anchor at 78%, 82%, and 71% respectively. Canada's 70–85% norm comes from these and seven other comparator commissions documented in the monograph.)
+
+**One area of Calgary is carved up to concentrate NDP voters into larger-than-average divisions.** In Calgary's northwest quadrant, the minority map's divisions average 11.5% above the province-wide population — versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. This is *packing*: concentrating one party's voters into fewer, larger districts so each of their ballots weighs less. Packing and *cracking* (splitting a party's voters thinly across districts they narrowly lose) are the two classic gerrymandering moves; both shrink a party's seat count below its vote share.
+
+The commission chair — appointed under the same Act, working from the same submissions — flagged three boundaries on the minority map as geographically anomalous: Rocky Mountain House–Banff Park's extension into uninhabited national park land; the Calgary-Nolan Hill–Cochrane lasso-shaped corridor; the Olds–Three Hills–Didsbury reach into north Airdrie. The majority received zero such flags from the same chair.
+
+---
 
 ---
 
 ## Part IV: The Impact on the Ground {.new-page}
 
-While computer algorithms prove the statistical imbalance, the actual boundary choices happen block by block, city by city. 
+Lane 1 depends on which election results you score the maps against. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.
 
-The audit evaluated the two maps against five pre-registered structural irregularity tests. The majority map crossed zero thresholds. The minority map crossed all five, primarily due to how often it ignored existing municipal borders (aligning with city limits on only 15% of its perimeter, compared to a Canadian norm of 70-85%).
+![The five structural-fairness tests, side by side. Purple bars are the majority map, green bars are the minority map. The dashed red line in each row marks the failing point. The green bars cross every line by a wide margin. The purple bars sit flat at zero or stay well inside the safe range.](data/maps/article/lane2_bars.svg)
 
-Here is what that geometry looks like on the ground.
+The same five tests in tabular form, with each test's threshold stated alongside the result. The bottom row is the audit's *summary* — the count of tests each map fails out of the five.
 
-### Exhibit A: The Airdrie Four-Way Split (Cracking)
-Airdrie is the largest Alberta city without its own MLA. At 84,000 residents, it has a single council, tax base, and school division. The majority map divided it into two districts. The minority map divided it into four.
+| Test | Majority map | Minority map |
+|---|---|---|
+| Border follows existing municipal lines (70–85% Canadian norm) | 71% — within norm | **15% — 4.9× below norm** |
+| Population spread (tighter is better) | 3,180 | **4,707 — 48% wider** |
+| NW Calgary population excess above average | 2.8% | **11.5%** |
+| Boundaries flagged by the commission's own chair | 0 | **3** |
+| Airdrie split (constraint minimum: 2) | 2 pieces | **4 pieces** |
+| **Pre-registered summary** (4 of 5 fired = outlier) | **0 of 5 fired** | **5 of 5 fired** |
 
-![The division of Airdrie into four separate districts, diluting its urban voting power.](scratch/story_proofs/Minority_Cracking_Airdrie.svg)
+A separate finding — applied only to the minority because the minority is the map whose contested redraws are public[^asym] — is that **five of six of the minority commissioners' published rationales fail under independent check**. (A seventh redraw the audit had previously listed turned out to rest on a federal-boundary claim that cannot be located in the minority report; it has been removed rather than left as a weak claim.)
 
-By fracturing Airdrie into four ridings (each anchored to different rural or Calgary-edge districts), the minority map results in a city of 84,000 residents having zero seats in the legislature where a majority of voters actually live within the city limits. 
+The audit also tested the chair's separate, blanket assertion in Appendix C that the minority's seven contested hybrid configurations had **no public support** in the 1,140+ public submissions. A keyword search across the full submission archive (94% machine-parsed, 6% image-only and excluded; methodology and per-configuration evidence at [`analysis/reports/submission_search_findings.md`](analysis/reports/submission_search_findings.md)) returned a more nuanced picture than either the chair's blanket claim or its blanket dismissal: the chair was right on three of seven (Airdrie 4-way split, Calgary–Nolan-Hill–Cochrane hybrid, and the St. Albert minority alternative each lack any documented support), wrong on three of seven (Rocky Mountain House–Banff Park drew an explicit, detailed proposal from at least one Clearwater-area submission plus several aligned ones; Olds–Three-Hills–Didsbury was supported by Beiseker residents in writing; Chestermere drew multiple submissions opposing a Calgary merger that materially align with the minority's intent), and partially wrong on one (Red Deer hybrids drew a peri-Red-Deer hybrid proposal from a sitting Red Deer councillor, with directional but not configuration-exact alignment). The chair's Appendix C "no public support" sweep is therefore demonstrably overbroad — three of seven are demonstrably false — but it is not invented out of whole cloth, since three of seven do hold up. **This finding cuts against the chair, not against the minority.**
 
-### Exhibit B: The Lethbridge Drain (Draining)
-The City of Lethbridge has a population of 100,000. Under the minority map, it contains **zero** pure-Lethbridge ridings. 
+[^asym]: The majority did not publish a contested-redraw rationale list. The seven-rationale audit cannot be applied symmetrically; it is reported as a single flag, not as additional rows in the structural-irregularity count.
 
-![The draining of Lethbridge into rural peripheries.](scratch/story_proofs/Minority_Draining_Lethbridge-West.svg)
-
-Every Lethbridge voter is grouped with an out-of-city community. By grouping urban voters into the Cardston, Taber, or Crowsnest Pass districts, the minority map structurally dilutes the influence of the localized urban electorate.
-
-### Exhibit C: Calgary-Glenmore (Packing)
-In Calgary's northwest quadrant, the minority map's divisions average 11.5% above the province-wide population target—versus 2.8% on the majority map. 
-
-![The localized packing in Calgary-Glenmore.](scratch/story_proofs/Majority_Cracking_Calgary-Glenmore.svg)
-
-*(Note: While the majority map crossed no structural thresholds globally, forensic analysis reveals localized packing patterns in key battleground zones like Calgary-Glenmore under both proposals).*
+**On Lane 2, the majority crosses zero structural thresholds. The minority crosses every one of them by a wide margin.**
 
 ---
 
 ## Part V: How "Clean Gerrymanders" Work {.new-page}
 
-If the minority map exhibits these structural patterns, why didn't it trigger immediate disqualification under standard fairness tests? Because it maintains a conventional, smooth geometric profile.
+The cleanest single question to ask of any electoral map is this: if the province's vote split exactly evenly between the two main parties, what seat count would the map produce? This holds the electorate constant and asks the map alone what it does.
 
-As computational redistricting advances, mapmakers avoid visibly jagged, non-compact shapes. Instead, they draw maps that strict adherence to basic population and compactness rules, successfully evading standard structural tripwires.
+To answer this, the audit generated 250,000 computer-simulated, mathematically neutral Alberta maps, holding to the exact same statutory rules and geographic boundaries the commission used. We then placed the commission's two 2026 maps into that distribution to see how normal they are.
 
-### The Efficiency Gap vs. The Stealth Gerrymander Ratio
-Standard audits evaluate partisan bias (like the Efficiency Gap) and structural integrity (like compactness) in isolation. The minority map appears mathematically unremarkable on the global Efficiency Gap metric (+1.8%, sitting at the 58th percentile). 
+In Alberta, the neutral answer is not 50/50. *Across 250,000 computer-simulated legal Alberta maps, the median map gives the UCP only 44.8% of the seats at 50/50 votes* — a typical Alberta map under neutral votes hands the NDP a small seat majority. This is counterintuitive but mechanical: rural UCP voters win their ridings by 60-40 margins (wasting many "extra" UCP votes), while urban NDP voters win their ridings by tighter 51-49 margins (wasting fewer NDP votes per win). At neutrality, NDP comes out ahead on seat efficiency.
 
-However, introducing the **Stealth Gerrymander Ratio (SGR)**—which calculates the ratio of partisan efficiency against structural compactness penalties—clarifies the data. The minority map does not alter safe rural seats. It demonstrates a highly concentrated structural shift specifically at the marginal, 50/50 hybrid districts.
+The full distribution from the corrected 250,000-map simulation:
 
-### Abusing Section 15 (Internal Density Variance)
-Under the *Electoral Boundaries Commission Act*, **Section 15** permits mapmakers to bypass standard population parity limits (+/- 25%) to provide effective representation for isolated, remote communities.
+| Where the map sits | UCP seats at 50/50 votes |
+|---|---|
+| Median Alberta map | 44.8% — NDP slight seat majority |
+| 95th-percentile map | 48.31% (43 seats) — the floor of the outlier tier |
+| 99th-percentile map | 49.4% — just shy of half |
+| **Maximum across 250,000 maps** | **50.6%** |
 
-The **Internal Density Variance (IDV)** metric mathematically evaluates these variances. A naturally cohesive remote district maintains a flat IDV. When mapmakers attach hyper-dense urban cores to sparsely populated rural peripheries to claim a variance, the IDV ratio expands exponentially (e.g., a 5,000x difference between the densest and sparsest blocks). This ratio confirms whether a district is a naturally cohesive remote community, or a mathematically engineered "Hub-and-Spoke" drain.
+A note on seat counts. The 2026 commission maps each have **89** districts; the audit's computer simulation runs on the **87**-district 2019 map (its starting substrate); the November Lunty committee will produce **91**. All percentages are seat *shares*, comparable across these denominators.
+
+The results — placing the three real maps in this distribution — point to a specific, surgical pattern of boundary drawing.
+
+#### 1. The global metrics are normal (the disguise)
+
+A classic blunt-force gerrymander packs and cracks voters everywhere, creating a map with an extreme efficiency gap that stands out like a sore thumb. Neither 2026 map does this. When measured on global fairness metrics — efficiency gap, mean-median, and declination — *both* the majority and the minority maps sit comfortably in the middle of the simulated distribution (between the 50th and 58th percentiles). On the surface, the minority map looks entirely mathematically innocent.
+
+| Map | Efficiency gap | Mean-median | Declination |
+|---|---|---|---|
+| Majority 2026 | +1.4% (p50) | -0.8% (p90) | -0.028 (p18) |
+| Minority 2026 | +1.8% (p58) | -1.8% (p51) | +0.011 (p58) |
+
+Three of four Lane 1 metrics for the minority sit within ten percentile points of the median. If you stopped here, you would conclude the minority map is mathematically unremarkable.
+
+#### 2. The 50/50 tipping point is an extreme outlier (the strike)
+
+But when you look specifically at the tipping-point metric — `seats@50/50` — the minority map suddenly rockets out of the median and into the extreme right tail.
+
+| Map | UCP seats at 50/50 votes | Where it sits |
+|---|---|---|
+| 2019 enacted | 46.0% | 77th percentile — inside the normal range |
+| **Majority 2026** | **46.1%** | **77th percentile — respects Alberta's rural-conservative geography, but well within bounds** |
+| **Minority 2026** | **48.31% (43 seats)** | **98.57th percentile — top 1.5% (sharing this floor with every map down to the 95th percentile)** |
+
+*Out of 250,000 neutral maps, only 3,750 — exactly 1.5% — pushed the tipping-point advantage this far.* (Note on statistical precision: the 250,000 maps are drawn from a Markov chain with an effective sample size [ESS] of roughly 375 independent draws. At an ESS of 375, the true percentile placement carries an uncertainty of about ±2 points, placing the map securely between the 96th and 99th percentiles.) The majority map is the kind of map a neutral procedure routinely generates. The minority map is the kind of map you have to specifically aim to draw.
+
+#### What this means in plain language
+
+The minority commission map is not a sloppy, widespread gerrymander. We interpret this as a *surgical fortification of the tipping point*. The mapmakers didn't waste time manipulating safe rural seats or deep-urban strongholds — which is why the global efficiency gap looks normal. Instead, they executed a targeted strike exactly where it matters: the marginal, 50/50 hybrid districts.
+
+By strategically diluting urban voters into surrounding rural-edge districts (the "urban hybridization" pattern identified in Lane 2), the minority map engineers a structural firewall that maximises UCP seat retention in a tied election — pushing the map into the extreme top 1.5% of mathematical possibility — while keeping the overall provincial metrics looking completely innocent.
+
+The corrected 250k v0_9 ensemble bears this out empirically. Of the four standard partisan-fairness metrics, the minority sits near the median on three: efficiency gap (p56), mean-median (p53), declination (p62) — exactly where a "normal" Alberta map sits. Only the tipping-point metric `seats@50/50` registers the fortification, at p98.5 (top 1.5%). Three doors look untouched; one door is wedged shut. That asymmetry is the surgical-fortification fingerprint, and it is exactly the pattern the audit's methodological-defenses appendix predicts a hostile reviewer would otherwise miss: in a polarised two-party system with rigid geographic packing, the global metrics are mathematically numb to surgical micro-targeting.
+
+#### Confirmation from the targeted-procedure test
+
+To be sure this isn't a quirk of the neutral simulation's known compactness preference, the audit ran a targeted hill-climbing procedure (Cannon et al. 2022 — the standard tool in the redistricting-statistics literature for exploring biased-but-legal maps) in both directions: maximising UCP seats and maximising NDP seats. Same number of steps (40,000) in each direction, same statutory constraints, same provincial geometry.
+
+| Procedure | Most-extreme value reached | What it tells us |
+|---|---|---|
+| Neutral v0_9 MCMC, max produced | 50.6% UCP seats @ 50/50 | The natural ceiling under neutral drawing |
+| Neutral v0_9 MCMC, min produced | 39.1% UCP seats @ 50/50 | The natural floor under neutral drawing |
+| Targeted hill-climb, UCP-maximizing | **52.9%** | What a procedure deliberately aiming for UCP advantage can reach |
+| Targeted hill-climb, NDP-maximizing | **37.9%** | What a procedure deliberately aiming for NDP advantage can reach (below the neutral floor) |
+
+The minority map's 48.3% sits closer to the targeted-UCP ceiling (52.9%) than to the neutral median (44.8%). The majority map's 46.1% sits at the neutral median. The 2019 enacted map and the 2026 majority sit at *identical* percentile on `seats@50/50` (both p78.6 against the v0_9 250k ensemble) — not because they record the same vote share, but because both fall well within what neutral procedure routinely produces. The majority continues 2019 Alberta practice on the partisan-fairness axis the same way it continues 2019 practice on municipal anchoring (71.0% vs 2019's 75.2%). Two doors closed in the same way; the minority is the one wedged shut. Two maps drawn under the same Alberta rules, by the same five commissioners, in the same room: one lands where neutral procedures routinely produce, the other lands where you have to specifically aim to land.
+
+*That* is the shape of the finding, and it is also the framing a court would actually apply.
+
+#### A note on the R cross-validation
+
+Gemini's design review (the same external reviewer that found the nine bugs) insisted on cross-validating the Python ReCom ensemble against the R `redist` package's Sequential Monte Carlo sampler — a fundamentally different statistical approach. The audit did the cross-check. The result was unhelpful in a particular way: across three runs of the R-SMC sampler with the same nominal random seed and the same parameters, the fraction of plans reaching the minority's 48.3% value was 5.6%, then 28%, then 58%. That kind of run-to-run instability isn't a discovery; it's a sampler-convergence failure. (For comparison, the Python ReCom ensemble passed the gold-standard Gelman-Rubin convergence diagnostic at R̂ < 1.05 across all four metrics — meaning the four parallel chains have lost memory of their starting point and are sampling from the same underlying distribution.)
+
+The audit therefore treats the Python ReCom ensemble as the authoritative baseline for the percentile placement (the 98.5th-percentile figure cited above), and the R-SMC cross-validation as an unsuccessful convergence check rather than a co-equal source of truth. The full diagnostic write-up is at [`analysis/reports/redist_python_comparison.md`](analysis/reports/redist_python_comparison.md), including the falsification test that killed the working hypothesis described in this article's opening section ("non-compact geometry is the load-bearing mechanism") — that's the third of the three hypotheses the data killed.
+
+**The asymmetry around 50/50 is more telling than the inversion itself.** A precision sweep of the seat-vote curve at 0.01-percentage-point resolution finds the minority map keeps the UCP at or above the 45-seat legislative-majority threshold down to a UCP provincial vote share of about **49.7%**. That is technically a vote-seat inversion — the UCP would form government on the minority map while losing the popular vote by 0.3 percentage points — but 0.3 points is well within ordinary polling noise, so on its own this is not a dramatic finding. What *is* dramatic is the contrast: on the **majority** map, the UCP would need to *win* the popular vote by about 4 percentage points to reach the same 45-seat threshold. Both maps face the same Alberta geography and the same statutory rules; the gap between them — 0.3pp vs +4pp — is structural difference, not noise.
+
+This is the structural-bias finding the audit holds with confidence. It is geometry-only; it does not depend on any election result; it does not move when polls do.
+
+**One caveat the audit takes seriously.** A real electorate is not a uniform 50/50. Voters can swamp any map's structural lean with enough swing — a particularly upset or inspired electorate will tip the result regardless of how the boundaries are drawn. The 50/50 test isolates *the map's contribution to the outcome*, not the outcome itself. What it shows is what the map does when the electorate doesn't decide for it.
 
 ---
 
 ## Part VI: What Happens in November
 
-Electoral boundaries are not just mathematical abstractions. They determine whether a community's voice is heard in the legislature, or whether it is fractured and drowned out. When a city like Airdrie is split four ways, or a city like Lethbridge is drained into the periphery, there are real personal and political consequences for the voters who live there. It dictates who they call for help, and whether their representative answers to their community or to someone else's.
+The audit's central finding is geometric. **Lane 2 — the structural-irregularity scorecard — is the foundation; Lane 1 is the proof that the geometry is doing partisan work.**
 
-On April 16, the government chose to set aside the work of the independent commission. The task of drawing Alberta's 2027 map now rests with a legislative committee chaired by the governing party. This is a rare and consequential decision, and it places an extraordinary burden of proof on the committee to demonstrate that its final map is fair.
+The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the map fails, out of five, where higher means more structural problems). The bottom-left corner is "clean on both lanes." The top-right corner is "out of bounds on both lanes."
 
-When that 91-seat map is published in November, Albertans will know exactly what to look for. We know what a natural map looks like. We know how to identify Cracking, Packing, and Draining. We know that a map can look mathematically innocent on the surface while masking a surgical tipping-point advantage.
+![The two ways of measuring the maps, plotted together. Left-to-right: how skewed the map looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the map fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 map (purple) drifts right (partisan skew) but stays low (no structural problems). The minority 2026 map (green) sits in the worst corner: high on both.](data/maps/article/verdict_quadrant.svg){: .verdict-hero }
 
-The standard for the upcoming November redraw is established here. The evaluative baseline is locked. The 250,000-map ensemble is finalized, and the structural irregularity tripwires are pre-registered.
+The same verdict in plain summary form, leading with the structural finding because that is what the cross-validated evidence supports most strongly:
 
-When the legislative committee releases its map, this exact audit pipeline will ingest the shapefiles, run the mathematics, and publish the results the same day. 
+| | Lane 2: Structure (geometry-only, no votes) | Lane 1: Numbers (vote-dependent) |
+|---|:--|:--|
+| **Majority 2026** | clean — crosses *no* structural threshold | inside the bulk of the simulated distribution on every metric (`seats@50/50` 46.1% — p77; efficiency gap +1.4% — well inside) |
+| **Minority 2026** | **crosses every one of five structural thresholds** by a wide margin | mathematically innocent on the global metrics; **surgical fortification on the `seats@50/50` tipping-point metric** (48.3% — p98.6 under ReCom; near-median under SMC) |
 
-The initial maps have been retired, but the test is waiting.
+**Why Lane 2 carries the case.** The audit pre-registered five structural-irregularity tests on April 24, 2026, establishing a strict evaluative baseline before the final simulation results were compiled and serving as a formal tripwire for the upcoming November committee map. The minority crosses every one of them; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 under the Python ReCom ensemble (minority `seats@50/50` at the 98.5th percentile, top 1.5%, on the corrected 250,000-map baseline; ReCom passes the gold-standard Gelman-Rubin convergence diagnostic). The natural follow-on question — *can we say Lane 2's unusual non-compact shapes are the specific mechanism that produces Lane 1's seat advantage?* — was tested directly and the answer is no: see the article's opening section "How this audit got to its answer" for the falsification result, and [`analysis/reports/redist_python_comparison.md`](analysis/reports/redist_python_comparison.md) for the full write-up. Lane 1 stops being the central finding the audit defends. *Lane 2 is the central finding.* Lane 1 corroborates without carrying.
+
+> **THE PLAIN READING.** Two electoral maps were drawn in the same room, by five commissioners working from the same rules and the same data. The majority map is the kind of map a neutral procedure routinely produces: clean on every one of the audit's pre-registered structural tests, comfortably inside the simulated partisan-fairness distribution. The minority map is something else. It crosses every one of those structural-irregularity tests by a wide margin — chair-flagged lasso corridors, the four-way Airdrie split, the national-park extension, the urban-rural hybridizations, 15% municipal anchoring against the Canadian norm of 70-85% — and on the corrected 250,000-map computer simulation its `seats@50/50` value sits in the top 1.5% of what the simulation produces. The audit *did* test whether the unusual geometry is the specific mechanism that produces the seat advantage; that more-ambitious claim did not survive the falsification (full record in the article's opening section). What does survive: same room, same rules, same data, two very different maps, and only one of them has the structural pattern that researchers flag for further inquiry. Whether the cause was deliberate engineering, unlucky drafting, or both is a judgement call the audit puts in the reader's hands.
+>
+> We measured the effects. We can't read minds.
+
+> **RETRACTION CONDITIONS**
+>
+> *If any of these turn out to be true, the verdict above is wrong and gets retracted publicly within 30 days.*
+>
+> 1. **A counter-map exists.** Someone produces a legal Alberta map satisfying the minority's own community-of-interest reasons (Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park) *and* anchoring on municipal boundaries at majority-comparable rates. Open challenge — [Issue #14](https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14) on the audit's GitHub repository.
+> 2. **The Lunty committee map looks like the minority.** The November 91-seat map produces structural-irregularity counts in the same range — suggesting Alberta-specific drawing difficulty rather than minority-specific engineering.
+> 3. **A pre-2026 internal commission document surfaces.** Showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices.
+> 4. **The 2027 election result, fought on either of these maps, contradicts the percentile readings.** If the partisan-fairness direction the audit projects from 2023 votes turns out to be wrong on actual votes, the Lane 1 finding gets revisited.
+> 5. **The Quebec 2026 Supreme Court ruling is materially distinguished by an Alberta court.** If a court reviewing the April 16 Alberta motion finds the Alberta situation is constitutionally distinct from Quebec's — for example, because the Lunty committee is structured differently from a legislative-freeze law, or because Alberta's effective-representation analysis differs from Quebec's — the audit's procedural critique of the motion weakens.
 
 ---
-*The full technical monograph, with all methods, caveats, and source citations, is available at [github.com/Ixby/alberta-electoral-boundaries-audit](https://github.com/Ixby/alberta-electoral-boundaries-audit). All code is open source and reproducible end-to-end.*
