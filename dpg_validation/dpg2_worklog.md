@@ -264,3 +264,56 @@ practical immediate baseline.
 - [ ] Confirm raster source files accessible for re-reading session
 - [ ] Decide v11 scope (majority-only or both maps)
 - [ ] Add failed-findings disclosure to audit report documents
+Loading VA polygons...
+  4765 VAs loaded
+
+=== majority ===
+  Assigning VAs to DPG EDs...
+  Assigning VAs to official EDs...
+  Building official boundary for proximity classification...
+  Classifying VAs...
+
+  Total VAs:            4765
+  Correct:              3542 (74.3%)
+  Misassigned (clear):  1131 (23.7%)
+  Near boundary (ambig):92 (1.9%)
+
+  Top 10 EDs by rework VA count:
+                   ed_name  n_underclaim_vas  n_overclaim_vas  n_total_rework
+       Livingstone-Macleod                29               64              93
+ High River-Vulcan-Siksika                66               23              89
+            Edmonton-Enoch                42               41              83
+Stony Plain-Drayton Valley                20               54              74
+ Calgary-West-Elbow Valley                45               27              72
+        Lacombe-Clearwater                38               29              67
+Calgary-Glenmore-Tsuut'ina                45               19              64
+            Calgary-Acadia                 3               58              61
+          Calgary-McKenzie                57                0              57
+        Calgary-Confluence                49                7              56
+
+=== minority ===
+  Assigning VAs to DPG EDs...
+  Assigning VAs to official EDs...
+  Building official boundary for proximity classification...
+  Classifying VAs...
+
+  Total VAs:            4765
+  Correct:              2798 (58.7%)
+  Misassigned (clear):  1828 (38.4%)
+  Near boundary (ambig):139 (2.9%)
+
+  Top 10 EDs by rework VA count:
+                   ed_name  n_underclaim_vas  n_overclaim_vas  n_total_rework
+    Calgary-Bow-Springbank                51               70             121
+   Lethbridge-Taber-Warner                59               56             115
+     Lethbridge-Little Bow                70               44             114
+           Calgary-Airdrie                33               67             100
+Stony Plain-Drayton Valley                23               77             100
+       Lethbridge-Cardston                57               33              90
+       Red Deer-Blackfalds                17               69              86
+      Edmonton-Enoch-Devon                39               45              84
+          Edmonton-McClung                17               55              72
+             Calgary-Klein                18               52              70
+
+Saved -> C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\dpg_validation\outputs\tb_va_misassignment_map.csv
+Saved -> C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\dpg_validation\outputs\tb_misassignment_summary.csv
