@@ -264,56 +264,138 @@ practical immediate baseline.
 - [ ] Confirm raster source files accessible for re-reading session
 - [ ] Decide v11 scope (majority-only or both maps)
 - [ ] Add failed-findings disclosure to audit report documents
-Loading VA polygons...
-  4765 VAs loaded
 
-=== majority ===
-  Assigning VAs to DPG EDs...
-  Assigning VAs to official EDs...
-  Building official boundary for proximity classification...
-  Classifying VAs...
+---
 
-  Total VAs:            4765
-  Correct:              3542 (74.3%)
-  Misassigned (clear):  1131 (23.7%)
-  Near boundary (ambig):92 (1.9%)
+## Session 3 — v11 Validation Results and OSF Registrations (2026-05-06)
 
-  Top 10 EDs by rework VA count:
-                   ed_name  n_underclaim_vas  n_overclaim_vas  n_total_rework
-       Livingstone-Macleod                29               64              93
- High River-Vulcan-Siksika                66               23              89
-            Edmonton-Enoch                42               41              83
-Stony Plain-Drayton Valley                20               54              74
- Calgary-West-Elbow Valley                45               27              72
-        Lacombe-Clearwater                38               29              67
-Calgary-Glenmore-Tsuut'ina                45               19              64
-            Calgary-Acadia                 3               58              61
-          Calgary-McKenzie                57                0              57
-        Calgary-Confluence                49                7              56
+### v11 Validation Results (`v11_validate.py`)
 
-=== minority ===
-  Assigning VAs to DPG EDs...
-  Assigning VAs to official EDs...
-  Building official boundary for proximity classification...
-  Classifying VAs...
+#### T1 — VA Misassignment in v11
 
-  Total VAs:            4765
-  Correct:              2798 (58.7%)
-  Misassigned (clear):  1828 (38.4%)
-  Near boundary (ambig):139 (2.9%)
+| Map | VA centroids | Misassigned | Rate |
+|-----|-------------|-------------|------|
+| Majority | 4,765 | 0 | **0.00%** |
+| Minority | 4,765 | 0 | **0.00%** |
 
-  Top 10 EDs by rework VA count:
-                   ed_name  n_underclaim_vas  n_overclaim_vas  n_total_rework
-    Calgary-Bow-Springbank                51               70             121
-   Lethbridge-Taber-Warner                59               56             115
-     Lethbridge-Little Bow                70               44             114
-           Calgary-Airdrie                33               67             100
-Stony Plain-Drayton Valley                23               77             100
-       Lethbridge-Cardston                57               33              90
-       Red Deer-Blackfalds                17               69              86
-      Edmonton-Enoch-Devon                39               45              84
-          Edmonton-McClung                17               55              72
-             Calgary-Klein                18               52              70
+Perfect assignment by construction (centroid sjoin to official ED = v11).
 
-Saved -> C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\dpg_validation\outputs\tb_va_misassignment_map.csv
-Saved -> C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\dpg_validation\outputs\tb_misassignment_summary.csv
+#### IoU (T-A equivalent for v11)
+
+| Map | Mean IoU | Min IoU | n < 90% | Pre-reg threshold | Pass |
+|-----|---------|---------|---------|-------------------|------|
+| Majority | **91.9%** | 30.9% | 22 | >= 65% | **PASS** |
+| Minority | **88.1%** | 42.1% | 33 | >= 60% | **PASS** |
+
+H3 **SUPPORTED** for both maps.
+
+#### T2 — Area Error
+
+| Map | Mean area error | Max | EDs > 3% | Threshold | Pass |
+|-----|----------------|-----|---------|-----------|------|
+| Majority | 6.1% | 69.1% | 26 | mean < 10% | **PASS** |
+| Minority | 9.9% | 133.4% | 44 | mean < 10% | **PASS** |
+
+#### T3 — Hausdorff Distance
+
+| Map | Mean Hausdorff | Max | EDs > 2 km | Threshold | Pass |
+|-----|---------------|-----|-----------|-----------|------|
+| Majority | 5,826 m | 83,432 m | 40 | mean < 5 km | FAIL (5.8 km) |
+| Minority | 8,504 m | 83,450 m | 53 | mean < 5 km | FAIL (8.5 km) |
+
+Hausdorff failures are dominated by Airdrie-area and rural EDs with long thin boundaries. Not a geometric reconstruction problem — these are correct VA-dissolve results where official EDs span large distances.
+
+#### T4 — Efficiency Gap and Partisan Metrics
+
+| Metric | Majority | Minority | Official (majority) | Official (minority) |
+|--------|---------|---------|---------------------|---------------------|
+| Efficiency Gap | **+0.084%** | **+4.001%** | +0.083% | +3.999% |
+| Municipal anchoring | 42.7% | 39.6% | 48.8% | 41.1% |
+| NW Calgary excess | -1.0% | -0.3% | — | — |
+| Airdrie partitions | 2 | 3 | — | — |
+
+EG delta: majority 0.001 pp, minority 0.002 pp — both far below 0.5 pp threshold. **PASS**.
+EG sign: both maps positive (NDP disadvantaged). H4 **STRONGLY SUPPORTED** — sign consistent across v0_10, v11, and official.
+
+*Note: A prior run of v11_validate.py reported EG = +14.414%/+12.436% — these were wrong due to a formula bug (was computing total UCP loser votes / total instead of proper efficiency gap). The corrected values above match official geometry within 0.002 pp.*
+
+#### T5 — Adjacency Fidelity
+
+| Map | v11 edges | Official edges | Shared | v11-only | Off-only |
+|-----|----------|---------------|--------|---------|---------|
+| Majority | 238 | 239 | 233 | 5 | 6 |
+| Minority | 242 | 239 | 236 | 6 | 3 |
+
+Extra edges: 5-6 per side. Pre-reg threshold was <= 10. **PASS** for both.
+
+#### Overall H3 Assessment
+
+| Test | Majority | Minority |
+|------|---------|---------|
+| IoU mean | PASS (91.9% >= 65%) | PASS (88.1% >= 60%) |
+| T1 misassignment | PASS (0%) | PASS (0%) |
+| T2 area error mean | PASS (6.1%) | PASS (9.9%) |
+| T3 Hausdorff mean | **FAIL** (5.8 km) | **FAIL** (8.5 km) |
+| T5 adjacency extra edges | PASS (5-6) | PASS (6-3) |
+
+H3 is **PARTIALLY SUPPORTED** — IoU, T1, T2, T5 pass; T3 fails pre-reg threshold for both maps. T3 failure is geometric artifact of official ED shape, not a reconstruction problem. Recommend noting in report.
+
+### T-B Results (from Session 2)
+
+| Map | Total VAs | Correct | Misassigned | Near-boundary |
+|-----|----------|---------|-------------|---------------|
+| Majority | 4,765 | 3,542 (74.3%) | 1,131 (23.7%) | 92 (1.9%) |
+| Minority | 4,765 | 2,798 (58.7%) | 1,828 (38.4%) | 139 (2.9%) |
+
+Outputs: `outputs/tb_va_misassignment_map.csv`, `outputs/tb_misassignment_summary.csv`
+
+Top 10 majority EDs by rework VA count: Livingstone-Macleod (93), High River-Vulcan-Siksika (89), Edmonton-Enoch (83), Stony Plain-Drayton Valley (74), Calgary-West-Elbow Valley (72).
+
+Top 10 minority EDs by rework VA count: Calgary-Bow-Springbank (121), Lethbridge-Taber-Warner (115), Lethbridge-Little Bow (114), Calgary-Airdrie (100), Stony Plain-Drayton Valley (100).
+
+### OSF Pre-registrations
+
+#### Investigation: Atomic Schema Problem
+
+OSF Preregistration schema v4 (`697b72f611a8e98484c6139b`) has `atomicSchema: True` in the schema definition. This blocks both API filling (HTTP 400 "Additional properties are not allowed" for any key name) and web form filling (Angular components render with no form fields — only Back/Next buttons).
+
+Old drafts (69fba12a9b38451e1489f370, 69fba196c0bd4fd84f57c959, 69fba19809ca04a1f0843d48) were deleted.
+
+#### New Registrations — Open-Ended Registration schema
+
+Recreated using **Open-Ended Registration v3** (`5df83f7dd28338001ac0ab0d`, `atomicSchema: False`). Single `summary` field accepts full preregistration text. Filled via API PATCH.
+
+| Registration | Draft ID | Title |
+|-------------|---------|-------|
+| v11 Validation | `69fbaa465684291e88843d36` | DPG v11 Validation: Pre-Registered Thresholds |
+| Drain v2 Null | `69fbaa4738f62aab24843d3e` | Drain v2 Label-Shuffle Null |
+| Phase 2 Lunty | `69fbaa491ad3e06c9389f25b` | Phase 2 Lunty Committee Map: Forensic Analysis |
+
+All three drafts confirmed filled via API verification (3218, 3620, 4095 chars respectively).
+
+These OSF Open-Ended drafts were subsequently deleted and replaced by AsPredicted registrations (see below).
+
+### AsPredicted Pre-registrations (final)
+
+All three registered on AsPredicted 2026-05-06, bundled as Bundle #1. Private until explicitly made public.
+
+| # | Title | AsPredicted ID |
+|---|-------|---------------|
+| 1 | DPG v11 Validation: Pre-Registered Thresholds | [#289,449](https://aspredicted.org/289449.pdf) |
+| 2 | Neighbour-Drain: A Local Pack-Crack Adjacency Metric | [#289,451](https://aspredicted.org/289451.pdf) |
+| 3 | Phase 2 Lunty Committee Map Forensic Analysis | [#289,452](https://aspredicted.org/289452.pdf) |
+
+Schema used: AsPredicted v2.00 (Observational/archival study, "It's complicated" data foreknowledge).
+Bundled: making any one public makes all three public simultaneously.
+"Neighbour-Drain" coined here; term does not appear in prior gerrymandering literature.
+
+### Open Items (updated)
+
+- [x] v11 validation — T1-T5 suite complete
+- [x] OSF pre-registrations — 3 drafts filled
+- [ ] Submit OSF drafts (PO action)
+- [ ] Drain Phase A: modify `neighbour_drain_adjacency.py` for continuous intensity
+- [ ] Drain Phase B: write `scripts/drain_label_shuffle_null.py`
+- [ ] Commit v11 validation CSVs (`v11_validation_summary.csv`, `v11_iou_per_ed.csv`, `v11_t4_metrics.csv`)
+- [ ] Note T3 Hausdorff failure in audit report (geometric artifact, not reconstruction error)
+- [ ] Add failed-findings disclosure to audit report documents

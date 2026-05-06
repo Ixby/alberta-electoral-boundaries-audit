@@ -53,6 +53,14 @@ warnings.simplefilter("ignore")
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
+from drand_seed import get_canonical_seed  # noqa: E402
+
+# Canonical seed for all bootstrap resampling in this script.
+# Derived from drand round 5500000 (Cloudflare League of Entropy).
+# Verify: drand.cloudflare.com/public/5500000
+# Pre-registered: AsPredicted #289452 (Phase 2 Lunty Committee Map Forensic Analysis)
+BOOTSTRAP_SEED: int = get_canonical_seed("lunty-bootstrap")
+
 VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 ALBERTA_CSDS = ROOT / "data" / "shapefiles" / "reference" / "alberta_csds.gpkg"  # may not exist
 RECOM_SAMPLES = ROOT / "data" / "simulated_ensemble_raw_samples_250k.csv"

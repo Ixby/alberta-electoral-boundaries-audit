@@ -184,10 +184,13 @@ def efficiency_gap(vote_df):
         return np.nan
     ndp_wins = vote_df[vote_df["ndp"] > vote_df["ucp"]]
     ucp_wins = vote_df[vote_df["ucp"] >= vote_df["ndp"]]
-    ndp_wasted = ndp_wins["ucp"].sum() + ucp_wins.apply(
-        lambda r: r["ndp"], axis=1).sum()
-    ucp_wasted = ucp_wins["ndp"].sum() + ndp_wins.apply(
-        lambda r: r["ucp"] - (r["total"] // 2 + 1), axis=1).clip(lower=0).sum()
+    # NDP wasted = all NDP votes in EDs they lost + NDP surplus in EDs they won
+    ndp_wasted = (ucp_wins["ndp"].sum() +
+                  (ndp_wins["ndp"] - (ndp_wins["total"] // 2 + 1)).clip(lower=0).sum())
+    # UCP wasted = all UCP votes in EDs they lost + UCP surplus in EDs they won
+    ucp_wasted = (ndp_wins["ucp"].sum() +
+                  (ucp_wins["ucp"] - (ucp_wins["total"] // 2 + 1)).clip(lower=0).sum())
+    # Positive EG = NDP disadvantaged
     return 100.0 * (ndp_wasted - ucp_wasted) / total
 
 
@@ -363,22 +366,21 @@ def main():
     pd.DataFrame(sum_rows).to_csv(OUT_SUMMARY, index=False)
     if t4_rows:
         pd.DataFrame(t4_rows).to_csv(OUT_T4, index=False)
+    print(f"Saved -> {OUT_SUMMARY}")
+    print(f"Saved -> {OUT_IOU}")
 
-    print(f"\n=== v0_10 vs v11 Summary ===")
+    print("\n=== v0_10 vs v11 Summary ===")
     for row in sum_rows:
         m = row["map"]
         print(f"\n  {m}:")
-        print(f"    IoU:       v0_10 {row['v010_mean_iou']:.1f}%  →  v11 {row['v11_mean_iou']:.1f}%")
-        print(f"    T1 miss:   v0_10 {row['v010_t1_misassign_pct']:.1f}%  →  v11 {row['v11_t1_misassign_pct']:.1f}%")
-        print(f"    T3 Haus:   v0_10 {row['v010_t3_mean_hd_m']:.0f} m  →  v11 {row['v11_t3_mean_hd_m']:.0f} m")
+        print(f"    IoU:       v0_10 {row['v010_mean_iou']:.1f}%  ->  v11 {row['v11_mean_iou']:.1f}%")
+        print(f"    T1 miss:   v0_10 {row['v010_t1_misassign_pct']:.1f}%  ->  v11 {row['v11_t1_misassign_pct']:.1f}%")
+        print(f"    T3 Haus:   v0_10 {row['v010_t3_mean_hd_m']:.0f} m  ->  v11 {row['v11_t3_mean_hd_m']:.0f} m")
         if row["v11_eg"] is not None:
-            print(f"    EG:        v0_10 {row['v010_eg']:+.3f}%  →  v11 {row['v11_eg']:+.3f}%  (official {row['official_eg']:+.3f}%)")
-            print(f"    Anchoring: v0_10 {row['v010_anchor']:.1f}%  →  v11 {row['v11_anchor']:.1f}%  (official {row['official_anchor']:.1f}%)")
-        print(f"    T5 extra:  v0_10 {row['v010_extra_edges']}  →  v11 {row['v11_extra_edges']}")
-        print(f"    T5 miss:   v0_10 {row['v010_missing_edges']}  →  v11 {row['v11_missing_edges']}")
-
-    print(f"\nSaved -> {OUT_SUMMARY}")
-    print(f"Saved -> {OUT_IOU}")
+            print(f"    EG:        v0_10 {row['v010_eg']:+.3f}%  ->  v11 {row['v11_eg']:+.3f}%  (official {row['official_eg']:+.3f}%)")
+            print(f"    Anchoring: v0_10 {row['v010_anchor']:.1f}%  ->  v11 {row['v11_anchor']:.1f}%  (official {row['official_anchor']:.1f}%)")
+        print(f"    T5 extra:  v0_10 {row['v010_extra_edges']}  ->  v11 {row['v11_extra_edges']}")
+        print(f"    T5 miss:   v0_10 {row['v010_missing_edges']}  ->  v11 {row['v11_missing_edges']}")
 
 
 if __name__ == "__main__":

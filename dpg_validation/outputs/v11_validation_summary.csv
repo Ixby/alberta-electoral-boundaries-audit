@@ -1,0 +1,3 @@
+map,v010_mean_iou,v11_mean_iou,v010_min_iou,v11_min_iou,v010_t1_misassign_pct,v11_t1_misassign_pct,v11_t2_mean_area_err_pct,v11_t2_n_over3pct,v010_t3_mean_hd_m,v11_t3_mean_hd_m,v010_t3_max_hd_m,v11_t3_max_hd_m,v010_eg,v11_eg,official_eg,v010_anchor,v11_anchor,official_anchor,v010_nw,v11_nw,official_nw,v010_airdrie,v11_airdrie,v010_extra_edges,v11_extra_edges,v010_missing_edges,v11_missing_edges,off_edges
+majority,37.78,91.87,0.0,30.92,28.71,0.0,6.1,26,19070,5826.0,94993,83432.0,0.636,0.084,0.083,71.0,42.7,48.8,2.8,-1.0,0.8,2,2,68,5,60,6,239
+minority,36.32,88.08,0.0,42.11,32.91,0.0,9.9,44,22564,8504.0,136657,83450.0,0.111,4.001,3.999,14.5,39.6,41.1,11.5,-0.3,6.3,4,3,136,6,103,3,239
