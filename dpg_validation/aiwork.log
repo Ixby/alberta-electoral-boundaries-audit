@@ -742,3 +742,21 @@ Barrhead-Westlock-Athabasca Barrhead-Westlock-Athabasca      94992.6
 Lethbridge-Fort MacLeod-Crowsnest Pass Lethbridge-Fort Macleod-Crowsnest Pass      56942.9
 
 Saved -> C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\dpg_validation\outputs\t3_displacement_per_ed.csv
+Loading CSD boundaries...
+  423 CSDs loaded  CRS: EPSG:3347
+
+=== majority ===
+  Population MAD:  official=3179  DPG=3180  delta=-1
+  Computing municipal anchoring (may take ~30s)...
+  Muni anchoring:  official=48.8%  DPG=71.0%  delta=-22.2pp
+  Calgary NW excess: official=0.8%  DPG=2.8%  delta=-2.0pp  (n=8 EDs)
+  Airdrie EDs:     official=2  DPG=2  delta=+0
+
+=== minority ===
+  Population MAD:  official=4706  DPG=4707  delta=-1
+  Computing municipal anchoring (may take ~30s)...
+  Muni anchoring:  official=41.1%  DPG=14.5%  delta=+26.6pp
+  Calgary NW excess: official=6.3%  DPG=11.5%  delta=-5.2pp  (n=6 EDs)
+  Airdrie EDs:     official=4  DPG=4  delta=+0
+
+Saved -> C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\dpg_validation\outputs\t4_metric_delta.csv

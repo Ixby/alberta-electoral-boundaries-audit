@@ -1,0 +1,179 @@
+map,ed_name,official_area_km2,ceiling_iou_pct,n_full_vas,n_partial_vas,full_va_area_km2,partial_va_area_km2
+majority,Calgary-Acadia,27.2271,100.02,54,31,22.7672,4.4665
+majority,Calgary-Beddington,29.5146,100.02,54,43,29.3613,0.1577
+majority,Calgary-Bhullar-McCall,40.7694,100.04,26,30,10.4104,30.3735
+majority,Calgary-Bow,31.8986,100.0,47,31,27.418,4.4806
+majority,Calgary-Buffalo,4.2027,100.0,42,21,3.3314,0.8712
+majority,Calgary-Confluence,49.0787,100.09,60,34,22.0476,27.0748
+majority,Calgary-Cross,15.8579,100.5,50,8,15.9295,0.0074
+majority,Calgary-Currie,15.9302,100.0,49,38,15.93,0.0004
+majority,Calgary-East,68.3711,100.15,61,23,26.2813,42.1919
+majority,Calgary-Edgemont,19.8996,100.02,54,27,19.9005,0.004
+majority,Calgary-Elbow,17.6047,100.03,52,28,17.5545,0.0557
+majority,Calgary-Falconridge-Conrich,46.2898,100.03,35,25,28.1741,18.1286
+majority,Calgary-Fish Creek,32.6843,100.25,62,40,32.2956,0.4699
+majority,Calgary-Glenmore-Tsuut'ina,334.243,100.01,55,46,333.8645,0.4218
+majority,Calgary-Hays,63.0772,100.01,40,17,19.5101,43.5717
+majority,Calgary-Klein,36.7369,100.03,50,38,36.6915,0.0551
+majority,Calgary-Lougheed,34.4188,100.16,49,21,33.6837,0.7888
+majority,Calgary-McKenzie,30.9292,100.14,60,28,29.9997,0.9735
+majority,Calgary-Mountain View,15.8785,100.02,64,38,14.0352,1.846
+majority,Calgary-North,22.6735,100.02,38,23,14.7591,7.9199
+majority,Calgary-North East,25.0888,100.01,23,11,25.0675,0.0242
+majority,Calgary-North West,26.2205,100.0,53,25,26.2198,0.0008
+majority,Calgary-Nose Creek,44.8667,100.03,36,23,41.2657,3.6131
+majority,Calgary-Shaw,34.2245,100.27,47,15,34.1597,0.1575
+majority,Calgary-South East,43.591,100.01,36,17,43.5595,0.0373
+majority,Calgary-Symons Valley,36.4545,100.01,38,27,35.5289,0.9279
+majority,Calgary-Varsity,26.9645,100.0,52,31,26.5447,0.4202
+majority,Calgary-West-Elbow Valley,72.1868,100.13,50,20,42.0012,30.281
+majority,Edmonton-Beaumont,75.091,100.02,33,16,56.6774,18.4316
+majority,Edmonton-Beverly-Clareview,56.4901,100.0,50,27,41.1646,15.3254
+majority,Edmonton-Castle Downs,20.8592,100.0,50,22,20.8592,0.0
+majority,Edmonton-City Centre,15.187,100.13,64,25,13.6918,1.5149
+majority,Edmonton-Decore,18.1458,100.0,51,33,17.2782,0.8676
+majority,Edmonton-Ellerslie,23.1579,100.16,48,25,19.8146,3.3812
+majority,Edmonton-Enoch,146.3276,100.01,48,30,144.0559,2.2832
+majority,Edmonton-Glenora-Riverview,25.7342,100.12,51,29,24.6799,1.0848
+majority,Edmonton-Gold Bar,56.6004,100.01,59,38,55.9133,0.6905
+majority,Edmonton-Highlands-Norwood,18.7741,100.05,47,27,18.5723,0.2105
+majority,Edmonton-Manning,97.3521,100.03,44,22,72.8792,24.5014
+majority,Edmonton-McClung,27.5451,100.13,58,31,27.535,0.0448
+majority,Edmonton-Meadows,13.4341,100.26,27,15,12.6421,0.8266
+majority,Edmonton-Mill Woods,24.3526,100.02,53,25,23.8876,0.4703
+majority,Edmonton-North West,32.0031,100.01,49,38,32.0066,0.0
+majority,Edmonton-Rutherford,26.0725,100.01,54,32,23.1918,2.882
+majority,Edmonton-South,54.2691,101.17,43,24,44.9026,10.0006
+majority,Edmonton-Strathcona,26.2275,100.3,51,28,25.5451,0.7613
+majority,Edmonton-West Henday,73.3912,100.03,48,37,72.5703,0.8461
+majority,Edmonton-Whitemud,27.0525,100.0,52,27,24.1248,2.9286
+majority,Edmonton-Windermere,55.1969,100.05,42,20,46.7099,8.5164
+majority,Airdrie-East,1579.3517,100.03,55,38,932.9437,646.8842
+majority,Airdrie-West,194.6029,100.0,45,20,107.9405,86.6696
+majority,Barrhead-Westlock-Athabasca,14652.2872,100.12,54,33,12217.4341,2451.8845
+majority,Camrose,10095.7642,100.04,64,42,8988.0538,1112.1866
+majority,Canmore-Banff,15660.0044,100.55,36,31,14771.6705,974.9806
+majority,Central Peace-Notley,47311.8208,100.0,49,30,47311.9316,0.1827
+majority,Chestermere-Strathmore,1019.716,100.17,45,16,619.588,401.8676
+majority,Cochrane-Springbank,754.6818,100.77,61,33,605.3508,155.1276
+majority,Cold Lake-Bonnyville-St. Paul,16704.116,100.02,61,15,15914.7769,791.9191
+majority,Drumheller-Stettler,39968.1837,100.05,66,35,38575.3255,1411.3258
+majority,Fort McMurray-Lac La Biche,35378.8903,100.0,48,25,34504.3553,875.0652
+majority,Fort McMurray-Wood Buffalo,86359.7576,100.0,37,19,86356.4143,3.3433
+majority,Fort Saskatchewan-Vegreville,8299.2547,100.01,67,27,8203.1644,96.7948
+majority,Grande Prairie,111.6498,100.0,45,21,111.1344,0.5153
+majority,Grande Prairie-Wapiti,16017.6997,100.0,65,29,16014.3331,3.3666
+majority,High River-Vulcan-Siksika,14771.1988,100.2,58,47,11427.142,3372.9672
+majority,Lacombe-Clearwater,20237.7058,100.09,59,31,17112.2183,3143.5679
+majority,Leduc-Devon,1862.5281,100.13,57,27,1154.8215,710.1353
+majority,Lesser Slave Lake,75775.3424,100.01,53,27,71544.3553,4236.7337
+majority,Lethbridge-East,51.2163,100.02,67,11,50.8042,0.4198
+majority,Lethbridge-West,95.4101,100.03,46,25,67.5527,27.8872
+majority,Livingstone-Macleod,12691.1424,100.03,62,40,10385.3831,2309.6246
+majority,Lloydminster-Wainwright,11047.1926,100.0,59,13,10097.6356,949.59
+majority,Medicine Hat-Brooks,13740.2608,100.01,67,27,13741.6373,0.0137
+majority,Medicine Hat-Cypress,6116.8957,100.22,52,15,6113.4689,17.0959
+majority,Mountain View-Kneehill,7685.013,100.0,46,27,6367.0377,1318.3568
+majority,Okotoks-Diamond Valley,1259.6159,100.18,67,27,895.1598,366.7762
+majority,Peace River,109228.3347,100.0,60,13,109222.5013,5.8545
+majority,Red Deer-North,73.9596,100.0,49,21,71.8074,2.1529
+majority,Red Deer-South,35.0954,100.0,58,13,35.0414,0.0539
+majority,Sherwood Park,71.3014,100.01,51,28,62.742,8.5637
+majority,Spruce Grove,378.2229,100.1,49,29,238.4191,140.1836
+majority,St. Albert,57.1181,100.0,63,15,43.9377,13.1804
+majority,St. Albert-Sturgeon,2252.3875,100.02,55,55,1896.6959,356.0568
+majority,Stony Plain-Drayton Valley,5357.2659,100.2,59,39,5094.2658,273.9076
+majority,Strathcona-Sherwood Park,767.3284,100.04,54,32,717.3208,50.3122
+majority,Sylvan Lake-Innisfail,4178.3226,100.0,62,40,3614.7348,563.7872
+majority,Taber-Cardston,21271.2412,100.09,64,20,20229.5366,1061.1759
+majority,West Yellowhead,50780.8333,100.01,68,17,49651.9498,1133.5422
+majority,Wetaskiwin-Ponoka-Maskwacis,6524.7437,100.08,54,27,4923.218,1607.0104
+minority,Calgary-Acadia,27.1134,100.0,51,36,21.7422,5.3714
+minority,Calgary-Airdrie,66.9583,100.2,45,16,29.7448,37.3493
+minority,Calgary-Beddington,34.0381,100.55,57,15,33.2275,0.9966
+minority,Calgary-Bow-Springbank,208.5726,100.25,48,36,116.8244,92.2597
+minority,Calgary-Buffalo,5.8289,100.66,51,21,5.706,0.1613
+minority,Calgary-Cross,93.2826,100.14,55,20,43.7063,49.7094
+minority,Calgary-Currie,17.3148,100.45,50,29,16.9477,0.4453
+minority,Calgary-De Winton,465.0661,100.23,40,35,365.9556,100.1621
+minority,Calgary-East,26.1591,100.2,56,22,17.6102,8.6007
+minority,Calgary-Edgemont,20.5571,100.13,59,20,20.4681,0.1158
+minority,Calgary-Elbow,31.512,100.07,55,28,17.0826,14.4514
+minority,Calgary-Falconridge,16.3403,100.08,50,18,14.2375,2.1153
+minority,Calgary-Fish Creek,31.2871,100.39,61,33,30.5923,0.8182
+minority,Calgary-Foothills-Airdrie West,99.3434,100.05,41,31,19.3452,80.0463
+minority,Calgary-Glenmore,31.4731,100.44,47,32,27.7772,3.8341
+minority,Calgary-Hays,42.6593,100.28,40,11,19.5101,23.2683
+minority,Calgary-Klein,25.3113,100.25,53,23,24.4434,0.932
+minority,Calgary-Lougheed,15.2781,100.09,45,21,11.8944,3.3975
+minority,Calgary-McCall-Bhullar,57.5571,100.54,35,34,47.8153,10.0521
+minority,Calgary-Mountainview,19.4036,100.35,70,33,16.8188,2.6522
+minority,Calgary-Nolan Hill-Cochrane,745.3254,100.0,50,22,176.9771,568.3544
+minority,Calgary-North,13.4698,100.15,35,21,12.3847,1.1055
+minority,Calgary-North East,19.0032,100.18,23,14,17.6663,1.3717
+minority,Calgary-North West-Bearspaw,69.4136,100.09,58,26,41.1532,28.3231
+minority,Calgary-Peigan-Chestermere,234.0033,100.1,52,37,29.5184,204.713
+minority,Calgary-South,23.5868,100.87,45,27,22.9304,0.8606
+minority,Calgary-South East,224.3115,100.03,35,16,43.0979,181.2844
+minority,Calgary-Varsity,29.7864,100.45,59,25,27.7368,2.1833
+minority,Calgary-West-Tsuut'ina,375.602,100.08,49,46,341.969,33.9267
+minority,Edmonton-Beaumont,75.091,100.02,33,16,56.6774,18.4316
+minority,Edmonton-Beverly-Clareview,56.4888,100.0,50,26,41.1646,15.3243
+minority,Edmonton-Castledowns,20.8592,100.0,50,22,20.8592,0.0
+minority,Edmonton-City Centre,15.187,100.13,64,25,13.6918,1.5149
+minority,Edmonton-Decore,18.1458,100.0,51,33,17.2782,0.8676
+minority,Edmonton-Ellerslie,23.1562,100.17,48,25,19.8146,3.3808
+minority,Edmonton-Enoch-Devon,418.4065,100.01,50,27,365.4862,52.965
+minority,Edmonton-Glenora-Riverview,26.6728,100.13,54,28,25.6593,1.0477
+minority,Edmonton-Gold Bar,56.6004,100.01,59,38,55.9133,0.6905
+minority,Edmonton-Highlands-Norwood,18.7742,100.05,47,27,18.5723,0.2106
+minority,Edmonton-Manning,97.3456,100.03,44,22,72.8792,24.4946
+minority,Edmonton-McClung,27.5451,100.13,58,31,27.535,0.0448
+minority,Edmonton-Meadows,13.4358,100.26,27,15,12.6421,0.828
+minority,Edmonton-Mill Woods,24.3526,100.02,53,25,23.8876,0.4703
+minority,Edmonton-North West,32.0009,100.02,49,38,32.0066,0.0
+minority,Edmonton-Rutherford,26.0692,100.01,54,32,23.1918,2.8788
+minority,Edmonton-South,54.2691,101.17,43,24,44.9026,10.0006
+minority,Edmonton-Spruce Grove,234.7298,100.04,49,22,131.669,103.1595
+minority,Edmonton-Strathcona,26.2304,100.29,51,29,25.5451,0.7613
+minority,Edmonton-West Henday,61.4931,100.09,51,37,38.6306,22.9195
+minority,Edmonton-Whitemud,27.0528,100.0,52,27,24.1248,2.929
+minority,Edmonton-Windermere,55.1969,100.05,42,20,46.7099,8.5164
+minority,Airdrie-East,1079.5861,100.18,57,31,697.9497,383.6318
+minority,Barrhead-Westlock-Athabasca,16355.1537,100.03,44,31,14758.92,1600.587
+minority,Camrose,11350.0654,100.12,59,35,10687.8081,675.6801
+minority,Canmore-Kananaskis,11890.4612,100.03,56,31,7545.7553,4347.9525
+minority,Cold Lake-Bonnyville-St. Paul,16458.3819,100.01,60,14,14647.5522,1813.2629
+minority,Central Peace-Notley,48044.352,100.01,51,30,47895.7152,152.0955
+minority,Chestermere-Strathmore,1147.2122,100.95,43,17,758.1604,399.9733
+minority,Drumheller-Stettler,41271.4294,100.02,61,31,39913.2525,1368.3674
+minority,Fort McMurray-Lac La Biche,30621.4635,100.01,41,18,30166.5335,456.8963
+minority,Fort McMurray-Wood Buffalo,86358.8037,100.01,36,19,86352.7977,14.12
+minority,Fort Saskatchewan-Vegreville,8292.9566,100.01,67,26,8203.1644,90.6878
+minority,Grande Prairie,111.1344,100.0,45,21,111.1344,0.0
+minority,Grande Prairie-Wapiti,15282.3998,100.07,64,31,14923.6533,368.7598
+minority,Highwood,988.5004,100.05,60,17,874.564,114.3828
+minority,Lac Ste Anne-Parkland,7930.579,100.27,55,46,6158.3352,1793.454
+minority,Leduc,1109.4812,100.25,46,28,414.7568,697.4949
+minority,Lesser Slave Lake,75768.1897,100.02,53,27,71544.3553,4236.8278
+minority,Lethbridge-Cardston,8707.3545,100.0,51,26,6435.761,2271.7447
+minority,Lethbridge-Fort Macleod-Crowsnest Pass,6779.1502,100.22,50,27,4382.5262,2411.3435
+minority,Lethbridge-Little Bow,8955.001,100.01,63,42,7531.9946,1424.1558
+minority,Lethbridge-Taber-Warner,6314.8467,100.24,61,41,2350.1611,3980.1287
+minority,Lloydminster-Wainwright,11034.6706,100.0,58,14,10092.5403,942.1307
+minority,Medicine Hat-Brooks,13741.555,100.0,67,27,13741.6373,0.0757
+minority,Medicine Hat-Cypress,13527.488,100.0,58,17,10823.404,2704.5039
+minority,Olds-Three Hills-Didsbury,6790.7731,100.06,45,29,5965.5804,828.9349
+minority,Peace River,109232.7941,100.01,60,14,109222.5013,24.4767
+minority,Red Deer-Blackfalds,2048.2316,101.32,46,35,1752.8248,322.5302
+minority,Red Deer-Innisfail,2219.0101,100.06,52,24,2166.8379,53.4803
+minority,Red Deer-Lacombe,1790.7397,100.59,45,42,958.2902,843.0301
+minority,Red Deer-Sylvan Lake,1805.6517,100.26,53,37,1613.7091,196.6392
+minority,Rocky Mountain House-Banff Park,28935.3712,100.03,46,30,21569.3497,7373.663
+minority,Sherwood Park,121.0009,100.0,53,35,63.4094,57.5918
+minority,St Albert,29.7628,100.16,56,15,24.4464,5.363
+minority,St Albert-Sturgeon,1918.0986,100.03,55,38,1842.0788,76.538
+minority,Stony Plain-Drayton Valley,6114.9047,100.04,53,48,5320.5649,796.4881
+minority,Sherwood Park-Strathcona,996.3606,100.02,54,34,725.0753,271.4652
+minority,West Yellowhead,48064.1733,100.0,57,16,46559.7794,1504.5204
+minority,Wetaskiwin-Ponoka-Maskwacis,4911.8542,100.03,40,27,2894.9779,2018.4688

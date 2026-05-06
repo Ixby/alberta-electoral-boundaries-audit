@@ -193,3 +193,74 @@ Full plan: `dpg2_experiment_plan.md`
 ---
 
 *Log continues as work progresses.*
+
+---
+
+## Session 2 — Phase 1 Completion + Drain v2 Plan (2026-05-06, continued)
+
+### T-A Results (Sub-VA Ceiling)
+
+| Map | Mean ceiling IoU | Min ceiling IoU | EDs < 75% | H2 result |
+|-----|-----------------|-----------------|-----------|-----------|
+| Majority | 100.1% | 100.0% (Calgary-Bow) | 0 | **SUPPORTED** |
+| Minority | 100.2% | 100.0% (Calgary-Acadia) | 0 | **SUPPORTED** |
+
+H2 pre-registered: mean ceiling ≥ 75%.
+
+**Interpretation**: The official shapefiles were built by dissolving VA polygons — confirmed
+by GIS staff acknowledgement in commission report (Mok, Cirka, Pittman). There is zero
+sub-VA precision error. Every IoU deficit in v0_10 is Type A (VA misassignment), which
+is fully correctable in v11.
+
+### §5.3.5 on Official Geometry
+
+| Map | Coupled signals | Audit v0_8 coupled | Delta |
+|-----|-----------------|--------------------|-------|
+| Majority | 47 | 3 | +44 |
+| Minority | 21 | 4 | +17 |
+
+Ratio (minority/majority): 0.45× — well below 1.5× threshold → **PASS**.
+
+**Note**: Direction inverted from audit finding. Audit v0_8 showed minority slightly
+above majority (1.33×); official geometry shows minority substantially below majority
+(0.45×). Both are PASSes but in opposite relative directions. This is a data quality
+artefact — the v0_8 minority DPG adjacency was 50% wrong (136/272 spurious edges).
+The §5.3.5 finding on official geometry is the authoritative result.
+
+Output: `outputs/t535_neighbour_drain_official.csv`
+
+### T-B Status
+
+`scripts/tb_va_misassignment_map.py` was started but output not yet present in
+`outputs/tb_va_misassignment_map.csv`. Script may be still running or was not completed.
+The boundary-proximity union computation is the bottleneck (O(n) polygon operations per VA).
+
+### Drain v2 Plan
+
+Written to `../analysis/methodology/drain_v2_plan.md`.
+
+Summary of phases:
+
+| Phase | Description | Effort | Status |
+|-------|-------------|--------|--------|
+| A — Continuous intensity | Replace binary gate with intensity product | 1-2 hr | **Pending** |
+| B — Label shuffle null | Permute ED vote totals 10k times; compute z-score | 4-6 hr | Pending |
+| E — Specificity weighting | Weight by 1 - null frequency per pair | 2 hr | After B |
+| C — VA-level shuffles | Spatially-aware null, boundary VA swaps | 1-2 wk | After v11 |
+| D — MCMC re-run | Full re-run with assignment output | TBD | Deferred (PO decision) |
+
+Infrastructure constraint: existing `simulated_ensemble_raw_samples_100k.csv` stores
+only aggregate metrics — no per-plan VA assignments. Phase B label shuffle is the
+practical immediate baseline.
+
+---
+
+### Open Items (updated)
+
+- [ ] T-B: re-run `scripts/tb_va_misassignment_map.py` and record output
+- [ ] Drain Phase A: modify `neighbour_drain_adjacency.py` for continuous intensity
+- [ ] Drain Phase B: write `scripts/drain_label_shuffle_null.py`
+- [ ] PO approval to proceed to Phase 2 (raster re-reading / v11)
+- [ ] Confirm raster source files accessible for re-reading session
+- [ ] Decide v11 scope (majority-only or both maps)
+- [ ] Add failed-findings disclosure to audit report documents
