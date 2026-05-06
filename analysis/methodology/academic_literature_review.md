@@ -122,19 +122,20 @@
 
 ## 7. Priority Ordering for Incorporation
 
-| Citation | Where it goes | Effect | Priority |
-| --- | --- | --- | --- |
-| Chen & Rodden 2013 | §B framing, public & academic | Natural-packing vs engineered framing | **High** |
-| Courtney 2001 | §D comparator discussion | Grounds Canadian-practice claims | **High** |
-| Pal 2019/2021 | §11 legal note, §D | Contemporary Canadian electoral-law framing | **High** |
-| Warrington 2019 | §B2 Red-Team Update | Our declination-disagreement is expected, not anomalous | Medium |
-| Katz, King & Rosenblatt 2020 | RT2 justification | Literature-grounded ensemble-metric practice | Medium |
-| Gelman & King 1994 | §B4 methodology | Standard reference for swing/seats | Medium |
-| DeFord, Duchin, Solomon 2021 | Stage 5 methodology | Standard reference for GerryChain ReCom | Medium (when Phase 5 runs) |
-| Polsby & Popper 1991 | §8.3 formula | Foundational citation | Low |
-| Reock 1961 | §8.4 formula | Foundational citation | Low |
-| Bratt et al. 2019 | 2015 cross-election context | Alberta-specific political science | Low |
-| Ladner 2003, Papillon 2021 | §A3(d) | Indigenous representation literature | Low |
+| Citation | Where it goes | Effect | Priority | Status |
+| --- | --- | --- | --- | --- |
+| Chen & Rodden 2013 | §B framing, public & academic | Natural-packing vs engineered framing | **High** | Partially incorporated — §B framing note added; Neighbour-Drain section cites it |
+| Courtney 2001 | §D comparator discussion | Grounds Canadian-practice claims | **High** | Not yet incorporated |
+| Pal 2019/2021 | §11 legal note, §D | Contemporary Canadian electoral-law framing | **High** | Not yet incorporated |
+| Nosek et al. 2018 | §pre-registration methodology | Pre-reg as standard practice | **High** | Added §12 |
+| Warrington 2019 | §B2 Red-Team Update | Our declination-disagreement is expected, not anomalous | Medium | Not yet incorporated |
+| Katz, King & Rosenblatt 2020 | RT2 justification | Literature-grounded ensemble-metric practice | Medium | Not yet incorporated |
+| Gelman & King 1994 | §B4 methodology | Standard reference for swing/seats | Medium | Not yet incorporated |
+| DeFord, Duchin, Solomon 2021 | Stage 5 methodology | Standard reference for GerryChain ReCom | Medium | Not yet incorporated (Phase 5 pending) |
+| Polsby & Popper 1991 | §8.3 formula | Foundational citation | Low | Not yet incorporated |
+| Reock 1961 | §8.4 formula | Foundational citation | Low | Not yet incorporated |
+| Bratt et al. 2019 | 2015 cross-election context | Alberta-specific political science | Low | Not yet incorporated |
+| Ladner 2003, Papillon 2021 | §A3(d) | Indigenous representation literature | Low | Not yet incorporated |
 
 ---
 
@@ -153,6 +154,75 @@ If we accept Chen & Rodden's natural-packing thesis, then:
 **Whether to adopt this framing is a judgment.** Arguments for: academically defensible, cites widely-accepted literature. Arguments against: Chen & Rodden's thesis doesn't explain why the minority has 12.2% Calgary zone gap and the majority has 0.4% — that part of the asymmetry is not naturally explained by urban NDP concentration. The structural findings (population equality, community splits, visible anomalies) don't fit the natural-packing explanation at all; they are engineered choices by definition.
 
 A defensible synthesis: *cite Chen & Rodden for the §B framing ("partisan-bias metrics in Alberta are confounded by natural NDP urban concentration per Chen & Rodden 2013"), but note that the structural findings of §A/C/D are not affected by the natural-packing argument because they measure geographic and procedural choices, not vote distribution.*
+
+---
+
+## 11. Neighbour-Drain and Pack-Crack Adjacency (Novel Metric)
+
+### Prior literature on packing and cracking
+
+- **Stephanopoulos & McGhee (2014).** — EG explicitly models packed and cracked seats as components of wasted votes. Packing and cracking as a *joint* strategy are named and measured at the whole-map level.
+- **Chen & Rodden (2013).** — natural packing of urban parties creates an EG disadvantage without any intent; this is the most important context for interpreting the drain metric.
+- **McGann, Smith, Latner & Keena (2016).** *Gerrymandering in America.* Cambridge UP. — book-length treatment of EG and partisan symmetry; includes case studies in which packing + cracking are described qualitatively as spatially correlated patterns.
+
+### What does not exist
+
+No prior academic literature names or measures the **local adjacency coupling** between a packed ED and a cracked ED — i.e., the pattern where the same losing-party votes that overflow a packed ED sit directly adjacent to a narrow-margin cracked ED of the same party. The gerrymandering literature discusses packing and cracking as co-occurring strategies at the map level, but not as a measurable spatial adjacency signature at the ED-pair level.
+
+Informal terminology in advocacy and journalism — "pizza-slice," "hub-and-spoke," "tentacle" districts — describes the visual geometry of specific cracked EDs but does not operationalise the pack-crack **coupling** between adjacent EDs.
+
+The closest methodological analogs are spatial autocorrelation approaches (Moran's I applied to vote shares), but these are global statistics; they do not isolate directional packed→cracked adjacency pairs.
+
+### Audit's contribution
+
+**"Neighbour-Drain"** is coined in this audit (AsPredicted #289,451; 2026-05-06) to name: a packed ED (losing-party surplus ≥ 0.15) directly adjacent to a cracked ED (winning margin ≤ 0.05) with the same losing party in both — a *coupled chain signal*. The continuous intensity version:
+
+  intensity(X, Y) = max(0, s_X − 0.15) × max(0, 0.05 − m_Y)
+
+and the label-shuffle null distribution are new analytical contributions. The term fills a genuine gap: the gerrymandering literature lacks a name for the local adjacency coupling that transforms otherwise-separate packing and cracking measurements into a spatially coherent partisan-drain pattern.
+
+### Literature to cite when publishing
+
+- Chen & Rodden (2013) — natural-packing baseline that the drain metric must be adjusted against
+- Stephanopoulos & McGhee (2014) — whole-map packing/cracking context
+- State: "the specific adjacency coupling we call Neighbour-Drain has no established name or measure in the redistricting literature; this audit introduces the term and a pre-registered operationalisation"
+
+---
+
+## 12. Pre-Registration and Open Science in Electoral Forensics
+
+### Motivation
+
+Electoral forensics analyses are at high risk of inadvertent p-hacking: the analyst often has partial knowledge of vote distributions before choosing metrics, and there is a natural tendency to foreground metrics that produce larger effects. Pre-registration addresses this by creating a timestamped record of hypotheses, metrics, and inference criteria before outcomes are computed.
+
+### Pre-registration platforms and methodology
+
+- **Nosek et al. (2018).** "The Preregistration Revolution." *PNAS* 115, 2600. — canonical paper establishing pre-registration as a standard scientific practice. Directly applicable to electoral forensics; the audit's AsPredicted registrations follow the framework described here.
+- **Uhlmann et al. (2019).** "Scientific Utopia: III. Crowdsourcing Science." *Perspectives on Psychological Science* 14, 711. — covers AsPredicted as a platform designed for pre-registration of observational social-science studies. Our use is consistent with the intended scope.
+- **van 't Veer & Giner-Sorolla (2016).** "Pre-Registration in Social Psychology." *Journal of Experimental Social Psychology* 67, 2. — designed the AsPredicted question template the audit uses.
+- **Open Science Framework (OSF).** Center for Open Science — the audit's OSF registrations ([w2s8k](https://osf.io/w2s8k/), [r3zm7](https://osf.io/r3zm7/), [qsgy8](https://osf.io/qsgy8/)) are stored here as a parallel public record.
+
+### Cryptographic randomness for reproducibility
+
+The audit uses **Cloudflare's League of Entropy** drand beacon (round 5500000) as the canonical random seed for all simulation analyses (label-shuffle null, bootstrap resampling). This approach was chosen to eliminate adversarial claims that seeds were chosen to cherry-pick favourable null distributions.
+
+No prior electoral forensics audit known to this author uses a public randomness beacon for seeding simulations. The closest analogs are:
+
+- Cryptographic commitment schemes used in audit lottery sampling (Stark, P.B., "Risk-Limiting Audits," 2010) — same principle, different application.
+- Blockchain-based randomness in cryptographic voting systems — different context.
+
+When publishing, note: *"Analysis seeds are derived from public randomness beacon drand (Cloudflare League of Entropy, round 5500000). Salt-derived seeds for each analysis chain are committed to version control prior to analysis runs, creating a pre-analysis timestamp record that precludes retroactive seed selection."*
+
+### Pre-registration status for this audit (as of 2026-05-06)
+
+| Registration | AsPredicted | OSF | Status |
+| --- | --- | --- | --- |
+| DPG v11 Validation | [#289,449](https://aspredicted.org/289449.pdf) | [w2s8k](https://osf.io/w2s8k/) | Complete; results known |
+| Neighbour-Drain null | [#289,451](https://aspredicted.org/289451.pdf) | [r3zm7](https://osf.io/r3zm7/) | Registered; analysis pending |
+| ~~89-seat comparison~~ | ~~#289,452~~ | — | Superseded; test unrunnable; noted in writeup |
+| Lunty 91-seat scorecard | [#289,455](https://aspredicted.org/289455.pdf) | [qsgy8](https://osf.io/qsgy8/) | Registered; awaiting map publication |
+
+Git pre-analysis commit: `d2aea42` (seeds and analysis scripts committed before any simulation runs).
 
 ---
 
