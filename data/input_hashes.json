@@ -1,0 +1,1946 @@
+{
+  "data/INTEGRITY_STATUS.md": {
+    "sha256": "9804e7161ab5627bb6977edbfc88d44ddde851eed49ab16f903ebf12c11e4026",
+    "size_bytes": 9427
+  },
+  "data/data_acquisition_manifest.md": {
+    "sha256": "3625201f07439730ab14e73c36e46e47a3d50f0cd237992c26a505eec637390c",
+    "size_bytes": 4644
+  },
+  "data/drain_label_shuffle_null.json": {
+    "sha256": "c149b924213263d3efa73110ff958127b7dc73948a508d73582a00b9ca76f09c",
+    "size_bytes": 1212
+  },
+  "data/mcmc_canonical_run.log": {
+    "sha256": "bc1693b2a1c44256f34e2ac9bb8a89e9317a0bf8407dd738de2485e8403475a3",
+    "size_bytes": 10503
+  },
+  "data/mcmc_canonical_run2.log": {
+    "sha256": "64919cb7f9e12f1fa592a772859baf0cf79eb0fc780ca94f7fd5b5ea0c6898b8",
+    "size_bytes": 6757
+  },
+  "data/provenance_manifest.json": {
+    "sha256": "5c01a09feb0572a36aa4b72d7c1b453e19c9050c7e01ee111f59c2a680fc57f9",
+    "size_bytes": 2172
+  },
+  "data/simulated_ensemble_percentiles_canonical.csv": {
+    "sha256": "c80d79fca3ea0efb2e1eb23094a5446c61f67fd543fa0126903925b551ab0102",
+    "size_bytes": 1535
+  },
+  "data/simulated_ensemble_raw_samples_canonical.csv": {
+    "sha256": "1b3b9f4870a8f09c82dc3a5697b616450816182a482d8c1689bbaf2a73a71d45",
+    "size_bytes": 11203745
+  },
+  "data/simulation_convergence_diagnostics_canonical.json": {
+    "sha256": "f63c04e080950e6fe982dacccce2ed7e2ee17f3fc7d0000bae8bffbd62d63eda",
+    "size_bytes": 1012
+  },
+  "data/simulation_real_map_scores_canonical.json": {
+    "sha256": "6f6e815a8f68a23745a007ec710ecc19ca2a12bd10bd55056670a85a2c9af616",
+    "size_bytes": 1623
+  },
+  "data/szat_rerun.log": {
+    "sha256": "68cea8f7c5211ee78b4cafe3ba936261b39aa4356696dc2df3451e626873cbf3",
+    "size_bytes": 1040
+  },
+  "data/topology_alignment_proof.md": {
+    "sha256": "df96d465e62f7d03138b35c3853ca190b5f97b066f0afdfce205afb18fcc79fd",
+    "size_bytes": 2110
+  },
+  "data/va_pop_from_das.csv": {
+    "sha256": "2db921762ba9deb00969d497dd8c765d4621f5d46ddebda1a08e3a2ab077f31a",
+    "size_bytes": 114395
+  },
+  "data/maps/airdrie_4way_teardown.png": {
+    "sha256": "707966b60ca16d0b43ec62ae3ec28e2660ebf57714e070a7442bf58b0cfb57cc",
+    "size_bytes": 857591
+  },
+  "data/maps/audit_dependency_graph.svg": {
+    "sha256": "3dc07ec84cc900538f7a1b39dfeda62b8a03f2de75661be7742af53f15aeef36",
+    "size_bytes": 181089
+  },
+  "data/maps/cover_art.png": {
+    "sha256": "f8e45e152185e15bed1f4de7a3f38df3a3b09257e051ea3dde4a72a5694cd3a1",
+    "size_bytes": 521160
+  },
+  "data/maps/cover_art.svg": {
+    "sha256": "211cdfbac1b36c4880948c3932eea98af39186d3d403efcc1b821d031895458d",
+    "size_bytes": 46966329
+  },
+  "data/maps/majority_calgary.jpg": {
+    "sha256": "c430d787082bbe900f57ba2b2be6bd6d466bab8005363d817518529b625e2f47",
+    "size_bytes": 200127
+  },
+  "data/maps/minority_alberta_overview.jpg": {
+    "sha256": "3e757cb6c704a1f25024a1704086f8d5cb040ff53877e9bb741d520ce5596dcf",
+    "size_bytes": 149286
+  },
+  "data/maps/minority_calgary.jpg": {
+    "sha256": "9db4b57164ce4ddc5f10bcfa7a61dc0b1aba10c8f67e3e69d1fb75f0424d7540",
+    "size_bytes": 168492
+  },
+  "data/maps/minority_edmonton.jpg": {
+    "sha256": "3a1676cc134446862908658efe3ab77a4357d947b5e583efb926d4ae294c1b15",
+    "size_bytes": 156616
+  },
+  "data/maps/minority_other_cities.jpg": {
+    "sha256": "4ed463ce08165027154eb8545b26b30f97eaac534d91bf8c96c0afb4266e78c1",
+    "size_bytes": 229847
+  },
+  "data/maps/neighbour_drain_phase_space_2019.png": {
+    "sha256": "f272b575df1e35947dae596f5265d00cde7fb4ff745ceb0ac2978ae8e6df3fef",
+    "size_bytes": 113327
+  },
+  "data/maps/neighbour_drain_phase_space_majority.png": {
+    "sha256": "76baca01cd01b6a75cbdacc5925a5b3f310744ec077f502e52ec739bd2290ac6",
+    "size_bytes": 117669
+  },
+  "data/maps/neighbour_drain_phase_space_minority.png": {
+    "sha256": "bcffa6941c1e0ee4157e09bfff90112a39a86953fd3090a4466b43c178bdab6a",
+    "size_bytes": 115009
+  },
+  "data/maps/article/bias_structure_matrix.svg": {
+    "sha256": "d098986f86dfff6f95664bebc09c1fc710a9de77e520c928524cbe651a7fd6ba",
+    "size_bytes": 160836
+  },
+  "data/maps/article/figure_airdrie_v3.svg": {
+    "sha256": "dc3438b1c9f79545db43747178d8804f27f085726c141d1901488a1a459544ab",
+    "size_bytes": 121672
+  },
+  "data/maps/article/figure_calgary_v3.svg": {
+    "sha256": "0332ee3bff0b1495b6f5139b82de2f2abac07a98d511f4b3472ff251270a1d27",
+    "size_bytes": 234549
+  },
+  "data/maps/article/figure_lethbridge_v3.svg": {
+    "sha256": "37b317fc674751a736a5506aa0407d0661b6c252ec50ad708b4e1ab819f889b4",
+    "size_bytes": 125620
+  },
+  "data/maps/article/figure_reddeer_v3.svg": {
+    "sha256": "2a9fa9927d290967a3c50e831eb7c6353483bf4c0d420c993b7ab074fd5631da",
+    "size_bytes": 121716
+  },
+  "data/maps/article/lane1_dotplot.svg": {
+    "sha256": "f392c62d7122c909e207f9e910dabff7766c6a805e4b556b3d8138f8dcadaac4",
+    "size_bytes": 69161
+  },
+  "data/maps/article/lane2_bars.svg": {
+    "sha256": "a1496b8cf4a4014069f7c7a81e76617b172abb8a177797af192f8bc938780c77",
+    "size_bytes": 140633
+  },
+  "data/maps/article/verdict_quadrant.svg": {
+    "sha256": "3c928be0563186e3f5f229c26e7c31f8ee9084c4b2e9dde7bf7b093715168501",
+    "size_bytes": 160836
+  },
+  "data/maps/hires/v0_1_majority_p71_alberta_overview.png": {
+    "sha256": "903c4f0d89e989d1f9979b9aa7611619231a2f1481851bb7ca7bc5b2a5ac83f0",
+    "size_bytes": 407671
+  },
+  "data/maps/hires/v0_1_majority_p72_MAP_r600.png": {
+    "sha256": "29253ae35755d7400ff2b1d68685597dc4e2b108cd1cecd66154ff723b61e393",
+    "size_bytes": 4211451
+  },
+  "data/maps/hires/v0_1_majority_p73_calgary.png": {
+    "sha256": "d874092f9242a404e7051e05a4efca2ffa36ffce4c2c8ab7a93193a816b2d0e0",
+    "size_bytes": 145777
+  },
+  "data/maps/hires/v0_1_majority_p74_MAP_r600.png": {
+    "sha256": "40f049249cff0d3145c1c137bdb3bf6701dc7944902c4a780622f76866de3a44",
+    "size_bytes": 4104194
+  },
+  "data/maps/hires/v0_1_majority_p75_edmonton.png": {
+    "sha256": "4968e33af0df3cbfb4bdba1abc7facf4cd22152b7224e447dbf062c51d1f8a38",
+    "size_bytes": 122654
+  },
+  "data/maps/hires/v0_1_majority_p76_MAP_r600.png": {
+    "sha256": "bfef1f6c6d9bf0cc61d85899080aa30683bce0fe0589c62027e0b39e6523f1ef",
+    "size_bytes": 2079343
+  },
+  "data/maps/hires/v0_1_majority_p77_near_calgary.png": {
+    "sha256": "c674565a696beb18158d45f0079bb18cc42d222f402702fa48aa3aefd4ebf4e0",
+    "size_bytes": 67933
+  },
+  "data/maps/hires/v0_1_majority_p79_near_edmonton.png": {
+    "sha256": "a61f634c24430e4e28f1c6d977cae83b965e87897bd9d66e802ad66db57cf440",
+    "size_bytes": 73725
+  },
+  "data/maps/hires/v0_1_majority_p81_north.png": {
+    "sha256": "b4ba1189d6e0b8b8625e98b9944bc7ebd43973967e169a088c538181269a8443",
+    "size_bytes": 83303
+  },
+  "data/maps/hires/v0_1_majority_p83_central.png": {
+    "sha256": "2950561eadcd712fe0ddea10ce7890402c775fcb4f2b43408104947eee3f5bd8",
+    "size_bytes": 91516
+  },
+  "data/maps/hires/v0_1_majority_p85_south.png": {
+    "sha256": "32dfef7fbc69347f3ac14511c38bc5c5913a54466b376cc89f339559cfb47925",
+    "size_bytes": 72731
+  },
+  "data/maps/hires/v0_1_minority_p359_map73.png": {
+    "sha256": "37245567b5c7a10fb5411321985f66fcdc2a50780124e543da6c6e495e78e355",
+    "size_bytes": 422617
+  },
+  "data/maps/hires/v0_1_minority_p360_map74.png": {
+    "sha256": "b667dfb943f0cd3a213bf5398dd81c11482e87b289ea75e3968f78b0395774fb",
+    "size_bytes": 401658
+  },
+  "data/maps/hires/v0_1_minority_p361_map75.png": {
+    "sha256": "3f7953422c47dd9a024e402a8b4d1c752e842b1b55e5156713691853ae6830c8",
+    "size_bytes": 411980
+  },
+  "data/maps/hires/v0_1_minority_p362_map76.png": {
+    "sha256": "1542ee5377aeebbbffc96b23b7432e63d3529d02f836222e52ce36d6f0efc4a7",
+    "size_bytes": 604344
+  },
+  "data/maps/hires_v2/v0_2_native_majority_calgary_MAP_p72.png": {
+    "sha256": "16e5be6f573f4993fc4f551aa26562b8fd3273f2aac52299fed438c4897e1ccb",
+    "size_bytes": 1439109
+  },
+  "data/maps/hires_v2/v0_2_native_majority_central_MAP_p84.png": {
+    "sha256": "234fb08533f8bd065e531e808b42913014e6f9331989fa6248f87f6e4733b973",
+    "size_bytes": 1508648
+  },
+  "data/maps/hires_v2/v0_2_native_majority_edmonton_MAP_p74.png": {
+    "sha256": "403dc0011d3daaea5a840b3ad436bdc77bd442f927dccce259107dd57560954d",
+    "size_bytes": 1429215
+  },
+  "data/maps/hires_v2/v0_2_native_majority_near_calgary_MAP_p78.png": {
+    "sha256": "90b7847af9d8ab340f1eb33ab37bb666f7be32fe3028627499053f9660a1574f",
+    "size_bytes": 804225
+  },
+  "data/maps/hires_v2/v0_2_native_majority_near_edmonton_MAP_p80.jpeg": {
+    "sha256": "ab3b2c97108af61a538a3b7ff01a64b7600f7959f05afc11d580769983299dbf",
+    "size_bytes": 1978916
+  },
+  "data/maps/hires_v2/v0_2_native_majority_north_MAP_p82.png": {
+    "sha256": "f84dd9b1eb6b5c68e8f2e53e0525795de4e689694e0976c99c574b73da2fa28d",
+    "size_bytes": 1771019
+  },
+  "data/maps/hires_v2/v0_2_native_majority_other_cities_MAP_p76.png": {
+    "sha256": "9a141cf77f54d2770de045a042d48740db732fd57bc320d64f8fc82b52b39121",
+    "size_bytes": 701718
+  },
+  "data/maps/hires_v2/v0_2_native_minority_min_map1_p91.jpeg": {
+    "sha256": "d194ee8601b1517572cea4177f03c56b6bb9c7c8270f434cc485fc59bb4bc8c2",
+    "size_bytes": 2463755
+  },
+  "data/maps/hires_v2/v0_2_native_minority_min_map2_p93.jpeg": {
+    "sha256": "1b1b5729c3e184f735ebe2c6b082526446fd0bcbeb1b8ed9e51d5570f076bcdc",
+    "size_bytes": 1792818
+  },
+  "data/maps/hires_v2/v0_2_native_minority_min_map3_p95.jpeg": {
+    "sha256": "cc5fb587749eb07d4e62fc6e164679a52f875c41e72ef33b02b4d361e66ad614",
+    "size_bytes": 2303844
+  },
+  "data/maps/hires_v2/v0_2_native_minority_min_map_calgary_p101.jpeg": {
+    "sha256": "46013c5613a56091d53330b704d546690da4ec58f17d8ffdd20aed243f7b366a",
+    "size_bytes": 1668884
+  },
+  "data/maps/hires_v2/v0_2_native_minority_min_map_edmonton_p107.jpeg": {
+    "sha256": "134bdab01f1c2b4e477f19f95a7a88a856fb4559656b0ef11b67403002c87fbb",
+    "size_bytes": 2379590
+  },
+  "data/maps/hires_v2/v0_2_render_majority_calgary_MAP_p72_r1200.png": {
+    "sha256": "b44b579f729a3a103444ac34d24d808d4094dbf3d3f846550ab37c8bbfd40292",
+    "size_bytes": 3298046
+  },
+  "data/maps/hires_v2/v0_2_render_majority_calgary_MAP_p72_r600.png": {
+    "sha256": "113f8f571bb77df6735687ffbb624eee4c7f9c2cbb729dae3ef75b2b9aee431c",
+    "size_bytes": 4690257
+  },
+  "data/maps/hires_v2/v0_2_render_majority_central_MAP_p84_r1200.png": {
+    "sha256": "726ae55502f11a46b7fc5b6c60435f3a57d6f1b63559e84853f7cd437dcb8d4b",
+    "size_bytes": 3434921
+  },
+  "data/maps/hires_v2/v0_2_render_majority_central_MAP_p84_r600.png": {
+    "sha256": "153a965489f4c4b7616c2088293238ca7fe23bd2303e2715ec638fffd2fd88bc",
+    "size_bytes": 4930921
+  },
+  "data/maps/hires_v2/v0_2_render_majority_edmonton_MAP_p74_r1200.png": {
+    "sha256": "e2c4b61a35ec8f9addb1a8a511b0b0a8cadc474e3add29d5e1eb44f49d52cfa4",
+    "size_bytes": 3160199
+  },
+  "data/maps/hires_v2/v0_2_render_majority_edmonton_MAP_p74_r600.png": {
+    "sha256": "763a54730bffb2460ba3d9143d0ee2b549da83e9acde6c91859a14ee3d69722f",
+    "size_bytes": 4823161
+  },
+  "data/maps/hires_v2/v0_2_render_majority_near_calgary_MAP_p78_r1200.png": {
+    "sha256": "60c9f4c502bdf76d7c081d223c8fefe1e730da28d56ea98db695c269f7351525",
+    "size_bytes": 2009420
+  },
+  "data/maps/hires_v2/v0_2_render_majority_near_calgary_MAP_p78_r600.png": {
+    "sha256": "534f210d28b9c5788194a9ad9ed9b51f2ca3dc611f188cf984d671871037ae31",
+    "size_bytes": 2713629
+  },
+  "data/maps/hires_v2/v0_2_render_majority_near_edmonton_MAP_p80_r1200.png": {
+    "sha256": "d8111f9ee8d1974b98ea359629e37b3f469d8a8ab036acba38b20c59a928b9e9",
+    "size_bytes": 4961728
+  },
+  "data/maps/hires_v2/v0_2_render_majority_near_edmonton_MAP_p80_r600.png": {
+    "sha256": "d77431225a438f09ee1d7d5e43b6a83e20eb797680c5f7a691db9b8ca126f3fd",
+    "size_bytes": 10171880
+  },
+  "data/maps/hires_v2/v0_2_render_majority_north_MAP_p82_r1200.png": {
+    "sha256": "de8f6ed5f9aa675817a76f087c690183714603a62f4377172889a6717bb7e4b3",
+    "size_bytes": 3836162
+  },
+  "data/maps/hires_v2/v0_2_render_majority_north_MAP_p82_r600.png": {
+    "sha256": "1941a5b63274b132f05a7a5dcd31d81fecfa865521effd3853adffb996034fcd",
+    "size_bytes": 5900176
+  },
+  "data/maps/hires_v2/v0_2_render_majority_other_cities_MAP_p76_r1200.png": {
+    "sha256": "80e648b1390659a0004626816844d6ea6d99578b0aec24db5c49d1402771e02c",
+    "size_bytes": 1821482
+  },
+  "data/maps/hires_v2/v0_2_render_majority_other_cities_MAP_p76_r600.png": {
+    "sha256": "3570a3ad7d84d1ba9b64a2e63fe390c80fb1bba28b58944a9a0329c50c664f57",
+    "size_bytes": 2245631
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map1_p91_r1200.png": {
+    "sha256": "3e41c95d3ab57e4e1bbc98dac75092297f98692ad5081a290fce8077f2de43c5",
+    "size_bytes": 7993556
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map1_p91_r600.png": {
+    "sha256": "7b490e676db096f7d416022601a1cc42b3199145e823e57b3eeccdcad4f79d7e",
+    "size_bytes": 5497866
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map2_p93_r1200.png": {
+    "sha256": "18601a25262cc523fcf54285d169f029b090899e5d48627bffdcfdfb171bb697",
+    "size_bytes": 5416651
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map2_p93_r600.png": {
+    "sha256": "4a9e78af5e5352f1194824ca8638624170c744ce03ed0e1e7d95f1890716bce6",
+    "size_bytes": 3666737
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map3_p95_r1200.png": {
+    "sha256": "668d8b496b42dbc21fa93843f9107e91753653a87a2c3806068346d0e37f39e0",
+    "size_bytes": 7403691
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map3_p95_r600.png": {
+    "sha256": "6a388b7a68e70889e03970d36693d9456aa88df222413a536e3526f67640380f",
+    "size_bytes": 5107171
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map_calgary_p101_r1200.png": {
+    "sha256": "1a9208e21d00384a0aeea4bd98e6278fe3d674999ef49e73d63b6c1f3af0661c",
+    "size_bytes": 5310696
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map_calgary_p101_r600.png": {
+    "sha256": "6c3924a6556660c4e37e0e06e04ee94c45fdc4a22531b3f868c1f246901dfbef",
+    "size_bytes": 3388053
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map_edmonton_p107_r1200.png": {
+    "sha256": "130385d880f2f7d231458434c1afd30aadcb37291b3f2e5754d5129ecf5c5f3b",
+    "size_bytes": 7468508
+  },
+  "data/maps/hires_v2/v0_2_render_minority_min_map_edmonton_p107_r600.png": {
+    "sha256": "d9c90017f3d6229d999cc49c87ee34175f6eb687978f039b06cba16db3871e87",
+    "size_bytes": 5113594
+  },
+  "data/maps/hires_v2/tier_c_crops/chestermere_strathmore_600dpi_render.png": {
+    "sha256": "6ab1e30b6c86987537b16a2e9543767a7281b0461cc483f64ed27651480346fb",
+    "size_bytes": 5999
+  },
+  "data/maps/hires_v2/tier_c_crops/chestermere_strathmore_native_raw.png": {
+    "sha256": "0b577d2f98c38261a21f6c3bd05197132d9e635e24c1ae56295c33ef125d94b5",
+    "size_bytes": 218671
+  },
+  "data/maps/hires_v2/tier_c_crops/edmonton_beaumont_600dpi_render.png": {
+    "sha256": "0390c4bfa2b2986d95631a79fd3bf51eb8fc5b3e344b2ac7c31772fc0e46e58c",
+    "size_bytes": 912744
+  },
+  "data/maps/hires_v2/tier_c_crops/edmonton_beaumont_native_raw.png": {
+    "sha256": "43e61916cef8f805c3f026823a284de04f571f65b78ddd98326ebd16c0ec8c07",
+    "size_bytes": 350973
+  },
+  "data/maps/hires_v2/tier_c_crops/fort_mcmurray_lac_la_biche_600dpi_render.png": {
+    "sha256": "d49d6cd5a964d644b62a3dc3c63c373b403269cb5e78548f03e7dc601b8e9e97",
+    "size_bytes": 8268
+  },
+  "data/maps/hires_v2/tier_c_crops/fort_mcmurray_lac_la_biche_native_raw.png": {
+    "sha256": "34f7a009775075f3eb5f0269249e143580316abe1c49be92c5857973f9cd30b6",
+    "size_bytes": 397401
+  },
+  "data/maps/hires_v2/tier_c_crops/lethbridge_taber_warner_600dpi_render.png": {
+    "sha256": "284b510a87a8bae51a71d291c4650062a4051aa31f805429437e70d68ec13b65",
+    "size_bytes": 13198
+  },
+  "data/maps/hires_v2/tier_c_crops/lethbridge_taber_warner_native_raw.png": {
+    "sha256": "21c4abf5ea9f1e66b4c697254d1b8d311410b2acf167c3b26503607e93a55f3c",
+    "size_bytes": 688584
+  },
+  "data/maps/mcmc/ensemble_distribution_100k_declination.png": {
+    "sha256": "cbf67d10cf1aa8d02d8e6085f14615480488cf6321b6fc3ac24e4ccd95f2fe7f",
+    "size_bytes": 66395
+  },
+  "data/maps/mcmc/ensemble_distribution_100k_efficiency_gap.png": {
+    "sha256": "13df8456ddf89c6f7509f626052a62310ddf49081289467f29b584a475f71adc",
+    "size_bytes": 71445
+  },
+  "data/maps/mcmc/ensemble_distribution_100k_mean_median.png": {
+    "sha256": "fed2f3fdec18cea09e62937e4761b3cef1cd4bd4a83f6521e8865556c720e3c5",
+    "size_bytes": 72624
+  },
+  "data/maps/mcmc/ensemble_distribution_100k_seats_at_50_50.png": {
+    "sha256": "95d845ecf09d524583327185ed77a4403f0eb08247fcb0908d4a7dc11b35319f",
+    "size_bytes": 67087
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_8_declination.png": {
+    "sha256": "bb9a655334eccaf97b0ba528499540e7b77b1fbbd269240ef92f62e07cc71e37",
+    "size_bytes": 71454
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_8_efficiency_gap.png": {
+    "sha256": "3cb9eea40b99c4bf1c096436c82240c3fda2ac4748c58f23e7bfc065d0a3a6ce",
+    "size_bytes": 69604
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_8_mean_median.png": {
+    "sha256": "b088d894df2bca5e8649fe260cc977a317c53d8f02a5ca3f6a92f03a90331937",
+    "size_bytes": 72997
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_8_seats_at_50_50.png": {
+    "sha256": "77c55cbab314d58e257ed014a890924772ea0bcd921f8631bfa990080350bca8",
+    "size_bytes": 69054
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_9_declination.png": {
+    "sha256": "a79f7520b9c3db6b6ed57434fa7f38a4bd5d0542a371f4f4e784e5eb907b1478",
+    "size_bytes": 66607
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_9_efficiency_gap.png": {
+    "sha256": "2af15f86240e5f97632bede6128f5a6c2e6d4e582ce28bb76e6f35c0ce11b09c",
+    "size_bytes": 74439
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_9_mean_median.png": {
+    "sha256": "2be275b32a5bc84ac0c4c140c5f4fe4aeb2ecfafe506f6a4228bcef75c4f7883",
+    "size_bytes": 74346
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_9_seats_at_50_50.png": {
+    "sha256": "01a0c0c7e9e8812f6f0657b4c994197c138c4332e57142247232f23b644cd4ae",
+    "size_bytes": 86723
+  },
+  "data/maps/mcmc/ensemble_distribution_canonical_declination.svg": {
+    "sha256": "bfbf21858262a180880ba70e51c7c5bd8411d09d4ccc86e14f36501bd62a125d",
+    "size_bytes": 63808
+  },
+  "data/maps/mcmc/ensemble_distribution_canonical_efficiency_gap.svg": {
+    "sha256": "c7f1190b1525f8c899b94e15714dada2392db54c7b5f9ee3afeac305e6fe4a0c",
+    "size_bytes": 68415
+  },
+  "data/maps/mcmc/ensemble_distribution_canonical_mean_median.svg": {
+    "sha256": "8fbc000561051c172e208223fe276e85f4bd0a614ce62b4fc509532aa6bf2e1f",
+    "size_bytes": 65814
+  },
+  "data/maps/mcmc/ensemble_distribution_canonical_seats_at_50_50.svg": {
+    "sha256": "8872e9dbd9139d23e236787428d8a659aac2f62b5b6b5b0d62e26584d521ab71",
+    "size_bytes": 66927
+  },
+  "data/maps/mcmc/ensemble_distribution_declination.png": {
+    "sha256": "265996e19539d77afa3ec44b3d45cca463a0fa08a39166798f83c9a41fb04cf0",
+    "size_bytes": 70821
+  },
+  "data/maps/mcmc/ensemble_distribution_efficiency_gap.png": {
+    "sha256": "897d47d927b721e697a713bce91a65efbadb265a859c1ca4112d017958e725de",
+    "size_bytes": 69727
+  },
+  "data/maps/mcmc/ensemble_distribution_mean_median.png": {
+    "sha256": "9e718cd547ad849fa21b3c36d928254390c8cd15e57c6799d31245461ff980d8",
+    "size_bytes": 70029
+  },
+  "data/maps/mcmc/ensemble_distribution_seats_at_50_50.png": {
+    "sha256": "073b2dfc2f19e31108ee32c8ff472c59b96f0c5328046cd295727ce8499dedc8",
+    "size_bytes": 69053
+  },
+  "data/maps/mcmc/running_mean_100k_declination.png": {
+    "sha256": "137c8c83f52ef0f04c10c61a03790e1466fd58ac7cdbf7c8fee4f6250b11ba7b",
+    "size_bytes": 70288
+  },
+  "data/maps/mcmc/running_mean_100k_efficiency_gap.png": {
+    "sha256": "af46a686affbeafcca297f3387092fb7e8e50e56494d2d417aac4296fd53363f",
+    "size_bytes": 78772
+  },
+  "data/maps/mcmc/running_mean_100k_mean_median.png": {
+    "sha256": "c82407e34c6d5e824db526b4ecd981e75322e64e51645a69c8c7d74e6ef87328",
+    "size_bytes": 72546
+  },
+  "data/maps/mcmc/running_mean_100k_seats_at_50_50.png": {
+    "sha256": "d11a7e1cbfc66351393b2d539d0f5a826367f0a5e7dcf50efee4df0d188f432f",
+    "size_bytes": 72953
+  },
+  "data/maps/mcmc/running_mean_250k_v0_8_declination.png": {
+    "sha256": "d1f848f4dada9df048adb8fa699329a42af4aff08cd664ad4dae3890c1c96c8a",
+    "size_bytes": 75928
+  },
+  "data/maps/mcmc/running_mean_250k_v0_8_efficiency_gap.png": {
+    "sha256": "358642265e5b4ec37cac280f762e818c499ba3660003c1dd5355aad6332b04b4",
+    "size_bytes": 77403
+  },
+  "data/maps/mcmc/running_mean_250k_v0_8_mean_median.png": {
+    "sha256": "8efae673cc1d9c2ffdec385581801aad264ee1921552bd7d5b4f8e07104da400",
+    "size_bytes": 78294
+  },
+  "data/maps/mcmc/running_mean_250k_v0_8_seats_at_50_50.png": {
+    "sha256": "503dfc365d45f7d440c18c2526741f6faa034ebe1fd302905ce6a40bd98514dc",
+    "size_bytes": 70955
+  },
+  "data/maps/mcmc/running_mean_250k_v0_9_declination.png": {
+    "sha256": "b04d8ecbe360e716805ea2a52594c81d229897436a0241a7df66ac345e4462f1",
+    "size_bytes": 67870
+  },
+  "data/maps/mcmc/running_mean_250k_v0_9_efficiency_gap.png": {
+    "sha256": "24e202e871338361b5bac949c1c1db9631276e30cd2d5a07b3bab9d064dc244b",
+    "size_bytes": 68410
+  },
+  "data/maps/mcmc/running_mean_250k_v0_9_mean_median.png": {
+    "sha256": "5935b8979a26084ab95ffcf4d05d935e1866a823dd2267e84074b27cdc046a59",
+    "size_bytes": 76187
+  },
+  "data/maps/mcmc/running_mean_250k_v0_9_seats_at_50_50.png": {
+    "sha256": "5c990771ad1a05c7b830a70d37c2842952a6ec1a16f0b7e71fe2cfb80cac11c3",
+    "size_bytes": 69130
+  },
+  "data/maps/mcmc/running_mean_canonical_declination.svg": {
+    "sha256": "d844784819c9c45e5c7fb0faea35d2c33649b516c9f7a4a4a436220d2e0c1193",
+    "size_bytes": 64276
+  },
+  "data/maps/mcmc/running_mean_canonical_efficiency_gap.svg": {
+    "sha256": "cf8df802b70b59c64e9ddc16ffc6b8e057f09d0b6b485e1cb72a9e1b6cef98f3",
+    "size_bytes": 74534
+  },
+  "data/maps/mcmc/running_mean_canonical_mean_median.svg": {
+    "sha256": "3662e784dc032fabddf21b2b61e958b9e0535d3fab59204ac1f72ba42b01034c",
+    "size_bytes": 72216
+  },
+  "data/maps/mcmc/running_mean_canonical_seats_at_50_50.svg": {
+    "sha256": "9910946822f19724cfa69852818d0d1d710618630e5cee7436016f3f24536c0d",
+    "size_bytes": 71522
+  },
+  "data/maps/pdf_previews/report_public_page_1.png": {
+    "sha256": "abc161a448e6f8f97f81cd93a3e73a933814acbf43cc4d48470b1b2d642b1493",
+    "size_bytes": 147738
+  },
+  "data/maps/pdf_previews/report_public_page_11.png": {
+    "sha256": "3c064d3e70c924f5756d5c6c2b86d46800f770987328c5d5bb8ca755fb835836",
+    "size_bytes": 157034
+  },
+  "data/maps/pdf_previews/report_public_page_2.png": {
+    "sha256": "992673110f1881c2f2029a2c30a3d10a472ffba76f4790a92e7c6831f59292f4",
+    "size_bytes": 278924
+  },
+  "data/maps/pdf_previews/report_public_page_26.png": {
+    "sha256": "7c6db00e281ce97d57e52867e85a7389b5d7601e50898602797f888449c9242b",
+    "size_bytes": 128245
+  },
+  "data/maps/pdf_previews/report_public_page_3.png": {
+    "sha256": "ca58cdc4eb1e734c7e381a6ee391fbdb2e4c203aa34bb4a340898e761de6b431",
+    "size_bytes": 336316
+  },
+  "data/maps/pdf_previews/report_public_page_4.png": {
+    "sha256": "5200bd71576d82eee61352d522f28690f61d6b538c5fbae75c854ba8b8b24a9e",
+    "size_bytes": 365402
+  },
+  "data/maps/pdf_previews/report_public_page_5.png": {
+    "sha256": "54ea044b46b36e3e883823d05b64108ca1dbc07548b566893e335b460a52dad6",
+    "size_bytes": 201192
+  },
+  "data/maps/pdf_previews/report_public_page_6.png": {
+    "sha256": "c9d5e6eec854830a87c8f019b6e2f9b3ce3292dbb8d3decda88124f12daf524b",
+    "size_bytes": 205558
+  },
+  "data/maps/pdf_previews/report_public_page_7.png": {
+    "sha256": "2d79cfbc3b4f4436900a607b1cc3772d62cbf7f4177d0d2c63fa41fa811f032d",
+    "size_bytes": 232409
+  },
+  "data/maps/pdf_previews/report_public_page_8.png": {
+    "sha256": "e82750e67976c9e50fec888aaf990b7b9288e16a88f2e5ab86739a5748f4dd79",
+    "size_bytes": 210655
+  },
+  "data/maps/verification/v0_1_majority_calgary_north.png": {
+    "sha256": "d6a46564ec65297c2a3d6e8b1b365f4c749cf988eb2927ee96e6c1d61c0cd2bc",
+    "size_bytes": 23760
+  },
+  "data/maps/verification/v0_1_majority_calgary_north_west.png": {
+    "sha256": "756e1df276b95bb53f7634139466a6ffdd061052cea4d6654624ca6af918e990",
+    "size_bytes": 35310
+  },
+  "data/maps/verification/v0_1_majority_calgary_south_east.png": {
+    "sha256": "74fb03f8f071ea250e3103cf5434a232a1489a3c88511fd5aa76759c529ee72e",
+    "size_bytes": 25504
+  },
+  "data/maps/verification/v0_1_majority_red_deer_north.png": {
+    "sha256": "83986498336eded957bf9156752d7610b0e77d0fe9218930b1e9f81829aa9471",
+    "size_bytes": 25237
+  },
+  "data/maps/verification/v0_1_majority_red_deer_south.png": {
+    "sha256": "79d2a3827d9118bc009d7e244a4e19f426b8c10f803304f616dee168aacc0c18",
+    "size_bytes": 20858
+  },
+  "data/maps/verification/v0_1_minority_calgary_de_winton.png": {
+    "sha256": "118ae37f6deafabcb66c48e96b1773c099f6cdbb25a67db31cf916e09507c2a2",
+    "size_bytes": 23313
+  },
+  "data/maps/verification/v0_1_minority_calgary_south.png": {
+    "sha256": "2a16a556db4965e5b698fb6fc8f265b99d9ccc15862ddb8d612e0fe5ef2987ae",
+    "size_bytes": 35337
+  },
+  "data/maps/verification/v0_1_minority_edmonton_windermere.png": {
+    "sha256": "21af69ae8dbbb3a95601e2e199382950e8b5d57ac0af0f94e9d94f971e08dd55",
+    "size_bytes": 41953
+  },
+  "data/maps/verification/v0_1_minority_lethbridge_little_bow.png": {
+    "sha256": "c01be05de4f768d80c592a4e275ccb79dbf11a3fbc4429d6aa8022529a3f6b6c",
+    "size_bytes": 30021
+  },
+  "data/maps/verification/v0_1_minority_wetaskawin_ponoka_maskwacis.png": {
+    "sha256": "400ca4ef8cc6b90bdb809592bddbef373f64554be9e32e5aecff62d80a9dcf48",
+    "size_bytes": 35857
+  },
+  "data/maps/verification/v0_1_priority_grid.png": {
+    "sha256": "ceb364ddd5e315854e2e194737235560c32c9b8de2712b674b0ec170ab9d80a2",
+    "size_bytes": 421811
+  },
+  "data/maps/verification/v0_2_majority_calgary_north.png": {
+    "sha256": "03eed0bd8895ba753a0f172acae90733ce17d1b6dd327e293f313f357d26bc00",
+    "size_bytes": 26874
+  },
+  "data/maps/verification/v0_2_majority_calgary_north_west.png": {
+    "sha256": "949998bcc78ef774e5585a243916e4cbe0d9feb1da34d9d53b8483b4df6ec97f",
+    "size_bytes": 40302
+  },
+  "data/maps/verification/v0_2_majority_calgary_south_east.png": {
+    "sha256": "b0437405bbb195587ccbdc690eb9c2fcfd26319c00a46efaf00b393c1ae69854",
+    "size_bytes": 30169
+  },
+  "data/maps/verification/v0_2_majority_red_deer_north.png": {
+    "sha256": "d549a1c5c0b1196fb482c9cbdcfe186c7a1fdb6df4eb36dc657819fd23493aa5",
+    "size_bytes": 30327
+  },
+  "data/maps/verification/v0_2_majority_red_deer_south.png": {
+    "sha256": "4d611c941f2a4e5ba52f1386133da0db7e1ba2724183f5295a14521ca091bf15",
+    "size_bytes": 27688
+  },
+  "data/maps/verification/v0_2_minority_calgary_de_winton.png": {
+    "sha256": "f0dc91a11121193e23a5e8f27b554301588cd652e2055a33fffb5e8de6367465",
+    "size_bytes": 33698
+  },
+  "data/maps/verification/v0_2_minority_calgary_south.png": {
+    "sha256": "3c0b0645b0a98c72e660705da4238cb6591a2721d9e474c207c29d3f21c208ef",
+    "size_bytes": 39321
+  },
+  "data/maps/verification/v0_2_minority_edmonton_windermere.png": {
+    "sha256": "59c0dc18d1254c5bbba09a4195429c16591949c15615cd5a930accae16cc94d7",
+    "size_bytes": 45346
+  },
+  "data/maps/verification/v0_2_minority_lethbridge_little_bow.png": {
+    "sha256": "26be2c420ae2b9e7dd9a3b551f538c44858e40368047388f1824dc29432428ef",
+    "size_bytes": 34277
+  },
+  "data/maps/verification/v0_2_minority_wetaskawin_ponoka_maskwacis.png": {
+    "sha256": "aaee013bbe4de854b4e394c3188b4dfc2e7f66e207d9bcd0e19cde47c466350a",
+    "size_bytes": 35914
+  },
+  "data/maps/verification/v0_2_priority_grid.png": {
+    "sha256": "1db977b32c0101d3a1afb1d97bbdafcd6a7950cc53b584dea358d4336be1be6b",
+    "size_bytes": 351521
+  },
+  "data/maps/verification/v0_3_majority_calgary_north.png": {
+    "sha256": "05b12854f87941b831410b50dfffe2ba1df9461a4b377ac20be32a7fc3a415c2",
+    "size_bytes": 27576
+  },
+  "data/maps/verification/v0_3_majority_calgary_north_west.png": {
+    "sha256": "3e903860e1cf64af7a893f319973f2895ad3b8de603147b7bf8886bfe6f64877",
+    "size_bytes": 41049
+  },
+  "data/maps/verification/v0_3_majority_calgary_south_east.png": {
+    "sha256": "5ab7fdab717ab28f74398c29b3a177b5f5f970bc34805d174002904e8f93d4cb",
+    "size_bytes": 31035
+  },
+  "data/maps/verification/v0_3_majority_red_deer_north.png": {
+    "sha256": "44af6ac41c86f6aa1141933193033d777dcb47196ef48264706d0d4eef66b6db",
+    "size_bytes": 31482
+  },
+  "data/maps/verification/v0_3_majority_red_deer_south.png": {
+    "sha256": "8531a34ab39a548bb8738c43e3e2047012182d2c5cff05ee7eda3b48f5b245b4",
+    "size_bytes": 28938
+  },
+  "data/maps/verification/v0_3_minority_calgary_de_winton.png": {
+    "sha256": "dd005cfcd2fcbcb823f800fd9d09d6ac2c41d595d100c9182ed71c6bfed861f7",
+    "size_bytes": 35543
+  },
+  "data/maps/verification/v0_3_minority_calgary_south.png": {
+    "sha256": "67c420060e65757e1d6de9daace6e1944fdd3cfe305d60e279f98c9782767412",
+    "size_bytes": 41707
+  },
+  "data/maps/verification/v0_3_minority_edmonton_windermere.png": {
+    "sha256": "522b0a62fbf8eedef2fc18e3573219a40472c282d63c5a593d3c2a84abe02525",
+    "size_bytes": 50360
+  },
+  "data/maps/verification/v0_3_minority_lethbridge_little_bow.png": {
+    "sha256": "a1b6c586e02a4d4055e0f434cabe501849a0de04ca09a73c997957c77d025c04",
+    "size_bytes": 36559
+  },
+  "data/maps/verification/v0_3_minority_wetaskawin_ponoka_maskwacis.png": {
+    "sha256": "d543ab68169a1ed28ea91019cd4657530a3bb89b5b3adc68e592b42f437c428f",
+    "size_bytes": 36819
+  },
+  "data/maps/verification/v0_3_priority_grid.png": {
+    "sha256": "01ccf3f1cc7217941ff9d72394532b4e306ddaf684e48e2d20dc87b3d07c9196",
+    "size_bytes": 358213
+  },
+  "data/maps/verification/v0_4_minority_calgary_de_winton.png": {
+    "sha256": "a8b691adfbc1e70422dd3dfa7a077ee50003c8e11b8519ec43b6203177706e0c",
+    "size_bytes": 86715
+  },
+  "data/maps/verification/v0_4_minority_calgary_south.png": {
+    "sha256": "b7abc8c535bc612586818ceeecd85f7a03ca8436e73cd4729470ed466886975e",
+    "size_bytes": 76672
+  },
+  "data/maps/verification/v0_4_minority_edmonton_windermere.png": {
+    "sha256": "2f76c9fa73c8ea89c6867b40e7517d716ee075ec0da886a46aad65b43280bde7",
+    "size_bytes": 121811
+  },
+  "data/maps/verification/v0_5_minority_calgary_de_winton.png": {
+    "sha256": "dcf528e586bbe0f4d2e8abd0d16f48e302d967a6c1c9642bbb71260076daadf9",
+    "size_bytes": 109082
+  },
+  "data/maps/verification/v0_5_minority_calgary_south.png": {
+    "sha256": "e226a112d2c22419b818b9feb47cea60371fd070f245a4227e9a3f92818bb839",
+    "size_bytes": 74191
+  },
+  "data/maps/verification/v0_5_minority_edmonton_windermere.png": {
+    "sha256": "ac0ed78e79c9434cd8231addaa74db17185136dd6751ce675448e1bffaba0a22",
+    "size_bytes": 90810
+  },
+  "data/maps/verification/v0_5_overlay_minority_calgary_de_winton.png": {
+    "sha256": "b5c1b059f1abb86e701b39e964ecd9dbba35bb22f53c44d7533aafa1a78ba651",
+    "size_bytes": 249696
+  },
+  "data/maps/verification/v0_5_overlay_minority_calgary_south.png": {
+    "sha256": "24d55414d8e40cd7e00cd9211984821cbd178729361715692a57f70c6c9d01ae",
+    "size_bytes": 249609
+  },
+  "data/maps/verification/v0_5_overlay_minority_edmonton_windermere.png": {
+    "sha256": "b7fa1f2de57bcc9ca130287e7c164431783d69a941df23c7b41786b5b6beada3",
+    "size_bytes": 222100
+  },
+  "data/maps/verification/v0_6_majority_calgary_east.png": {
+    "sha256": "6fd04803fa1002ce99cc15d6ce3f3b3a1ad875a01e0964d59767e87e93a70b96",
+    "size_bytes": 61861
+  },
+  "data/maps/verification/v0_6_majority_calgary_falconridge_conrich.png": {
+    "sha256": "1be294a7b0a24b9d5e5ac0e00b10be3dddec46da1aa584a3b9c2ce0cfd137683",
+    "size_bytes": 56663
+  },
+  "data/maps/verification/v0_6_majority_calgary_glenmore_tsuutina.png": {
+    "sha256": "e8a6451b0ed847bf7e927cfd7ef2263fe8485062a759f5bf29cadec84ce8610f",
+    "size_bytes": 49128
+  },
+  "data/maps/verification/v0_6_majority_calgary_west_elbow_valley.png": {
+    "sha256": "fb16763e887a155d6b1251f451d99663789657a18489cfb9160fc9446b7877af",
+    "size_bytes": 50298
+  },
+  "data/maps/verification/v0_6_majority_edmonton_beaumont.png": {
+    "sha256": "6be6befa4eced0d73aabf78923adf8584e76169b1d9933230622f959d049e956",
+    "size_bytes": 61934
+  },
+  "data/maps/verification/v0_6_majority_edmonton_enoch.png": {
+    "sha256": "7688754e9cc3217b16d55ff0249e7ed71a118565a550363f411be3ce3fce8d7c",
+    "size_bytes": 58569
+  },
+  "data/maps/verification/v0_6_minority_calgary_de_winton.png": {
+    "sha256": "89447b8247b71999bcb53fcfd616977ac9b58eea49946c2eed52ef42e6d219f4",
+    "size_bytes": 61234
+  },
+  "data/maps/verification/v0_6_minority_calgary_south.png": {
+    "sha256": "dea28ee0592878e1f282720ece332d7fca076259a7df8410268039a58eb0baa5",
+    "size_bytes": 68982
+  },
+  "data/maps/verification/v0_6_minority_edmonton_windermere.png": {
+    "sha256": "b3cd710d7b0c3215014c3dc987199740c500ab43a05b2d1351b13b6d3b759a79",
+    "size_bytes": 77164
+  },
+  "data/maps/verification/v0_6_overlay_majority_calgary_east.png": {
+    "sha256": "2728cbe6cfc811165a27d584ea44e9e4154e06a78463e32b3d3701efaa95da47",
+    "size_bytes": 876998
+  },
+  "data/maps/verification/v0_6_overlay_majority_calgary_falconridge_conrich.png": {
+    "sha256": "3a152380ecc0f151049b17e0c4c1ab8ab5b685c0bbdf725e851ffdd4a5404dfa",
+    "size_bytes": 721370
+  },
+  "data/maps/verification/v0_6_overlay_majority_calgary_glenmore_tsuutina.png": {
+    "sha256": "9fd325d3e4a71aee3d58db913539d4899a25ebdc03736ed56bacc357dcec0cec",
+    "size_bytes": 550913
+  },
+  "data/maps/verification/v0_6_overlay_majority_calgary_west_elbow_valley.png": {
+    "sha256": "1748cbbda66fe0dc0e05ee7a21062f44ba911dab8d092aba0f60aa359a927c28",
+    "size_bytes": 1179751
+  },
+  "data/maps/verification/v0_6_overlay_majority_edmonton_beaumont.png": {
+    "sha256": "5c840f499959fb7a9126e69905184913ee6634ea3ac6df86998bd7054ae2f5f4",
+    "size_bytes": 246143
+  },
+  "data/maps/verification/v0_6_overlay_majority_edmonton_enoch.png": {
+    "sha256": "d73913ce8fe1200ad117f4802e185c966a9b59ce75770e8ba74288eca166e714",
+    "size_bytes": 685303
+  },
+  "data/maps/verification/v0_6_overlay_minority_calgary_de_winton.png": {
+    "sha256": "4bd83f997df5e85f0af617cd856bc8ca902a5e71c54fdf10856dd78823f49925",
+    "size_bytes": 250505
+  },
+  "data/maps/verification/v0_6_overlay_minority_calgary_south.png": {
+    "sha256": "a5587aa04a173137f8cf4c047db85c602705ab07db7e19e90768f4c69c2122f4",
+    "size_bytes": 94131
+  },
+  "data/maps/verification/v0_6_overlay_minority_edmonton_windermere.png": {
+    "sha256": "a4949130e8f6fa7429b7e5794e9b21964c287dc06c0265c010d0f1248c391e2b",
+    "size_bytes": 190933
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_calgary_map_p72.png": {
+    "sha256": "6fc578d988d5e0cfcade4a536be0c6c3a36c34ae4934c42803f774bcb301571f",
+    "size_bytes": 597377
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_calgary_p73.png": {
+    "sha256": "f0ebac546e95444b215453eb14aa8751e8f2263d2c861003384756642df74c65",
+    "size_bytes": 284241
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_calgary_p74.png": {
+    "sha256": "1d1df248a25746f4d00cf18efb220afcd602ffbc36f54f67257c35e78a7ec8a2",
+    "size_bytes": 593660
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_calgary_text_p73.png": {
+    "sha256": "e619f4e896357eb739a340e42f5f4c5a85bb0247e1a9e2bf82a394198a1527e3",
+    "size_bytes": 319148
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_central_p83.png": {
+    "sha256": "6a878974f3606c62754b475770d5ea2983541140fb6b5f9d095ec7809214fc63",
+    "size_bytes": 190112
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_edmonton_map_p74.png": {
+    "sha256": "c81036f31df688aca722d9076721849d9967d052476a7fdf16896cd557742bf4",
+    "size_bytes": 609048
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_edmonton_p75.png": {
+    "sha256": "6b84f81c52f1771c7125b74713a08f2294935ad19f5605b9dd940dde330a8495",
+    "size_bytes": 275313
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_edmonton_p76.png": {
+    "sha256": "2baedd5aa5aa3c21748c5e9fb57927c67fd0a1e93487b09c30e867c020febeda",
+    "size_bytes": 367029
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_edmonton_text_p75.png": {
+    "sha256": "b045052512f5d053f124b4bb36767de269a638aa1dee7ed1ff14dcfb5f19ff97",
+    "size_bytes": 265488
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_near_calgary_map_p76.png": {
+    "sha256": "e2312878232408505b1a362a4f4f0d53a5fbdc89821a87e33a4c855ed0b33d9a",
+    "size_bytes": 396851
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_near_calgary_p77.png": {
+    "sha256": "1bca088eb7d3881edab4433f9143c3793d0a112dbf2804906be5dd2b12afb824",
+    "size_bytes": 153051
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_near_calgary_text_p77.png": {
+    "sha256": "9f7de6a6b1725eb68d947016cf1f52fc27adfb166500f29db2d3a14a400ab949",
+    "size_bytes": 202151
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_near_edmonton_p79.png": {
+    "sha256": "a9a7ef9850c66ca64d9bb9d7951d49eb63fccf56195ea8967feebec2e34d0bee",
+    "size_bytes": 181492
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_north_p81.png": {
+    "sha256": "f64546680f3c5a13bfdedccaea2aaa44ab68136dad1f6002512635edc156a656",
+    "size_bytes": 151178
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_overview_p71.png": {
+    "sha256": "3ffe22702213a2f62c70520374073d510a5ac9e6a7ba576736a46444be85dea3",
+    "size_bytes": 511435
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_overview_p72.png": {
+    "sha256": "24c3c5bb3db23b3227361e185e260c0088884f4842d7ec926362cca2bb74cd9e",
+    "size_bytes": 604773
+  },
+  "data/maps/verification/v0_8_commission_overlay_majority_south_p85.png": {
+    "sha256": "842aa1e705a51b18bbfae20c778ce05bfb0991286ba0847db839b7475c07fe1c",
+    "size_bytes": 157142
+  },
+  "data/maps/verification/v0_8_commission_overlay_minority_calgary_p359.png": {
+    "sha256": "ca9304b05821480f6d47d54e7971b3b041a6c46de7b4cf90435e528336c147bc",
+    "size_bytes": 520133
+  },
+  "data/maps/verification/v0_8_commission_overlay_minority_edmonton_p360.png": {
+    "sha256": "c24414acc4a7619813a039a1b2d47cd2b73d50d5e1c2072cccc998ba33c78841",
+    "size_bytes": 475140
+  },
+  "data/maps/verification/v0_8_commission_overlay_minority_near_calgary_p361.png": {
+    "sha256": "d9d72aeccaaaaeff399946ded25b8ef634e2bb2af3909e9361a81a497ad2d5c1",
+    "size_bytes": 497747
+  },
+  "data/maps/verification/v0_8_commission_overlay_minority_overview_p359.png": {
+    "sha256": "1520547902fbcaa1c1f22af44ce799838c927e9e257c2bba7a73e904b8930c02",
+    "size_bytes": 565144
+  },
+  "data/maps/verification/v0_8_commission_overlay_minority_overview_p362.png": {
+    "sha256": "8453cc0558dd18f99bc7658a4bfb75f7a3cedfed85356cfa116dff212471c564",
+    "size_bytes": 744758
+  },
+  "data/maps/verification/v0_8_commission_overlay_minority_summary_p362.png": {
+    "sha256": "dd5ddf19ad1bab5ea7261fb92db75c56b58aaab48a7770dd8a016b3005e7ca4a",
+    "size_bytes": 744177
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_calgary_map_p72.png": {
+    "sha256": "c38a3012db4382943296fccd5b7784fddfca5ad55ee4c696f21e446339d3c092",
+    "size_bytes": 594385
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_calgary_p73.png": {
+    "sha256": "5c8cc8bf0634d34ab4fd558da221f865ab71abcd91e569a1ba5ed9074c05fc70",
+    "size_bytes": 292496
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_calgary_p74.png": {
+    "sha256": "f29086cd696e9d0dd671fabeeb1b8c0e7f41ecfc11fecdefacea3c2928624d94",
+    "size_bytes": 576228
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_calgary_text_p73.png": {
+    "sha256": "98a56567c6304b01b93863ce5fe7e3cec9e3140e4a2d3c5955ed36ba96cb13d5",
+    "size_bytes": 341577
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_central_p83.png": {
+    "sha256": "197e14213c7bc0d7c7f870860c655c4f4a167eb3a705ab8765b4037312f76c72",
+    "size_bytes": 240724
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_edmonton_map_p74.png": {
+    "sha256": "1fca19391d181f2311d428e91c6e42133fa1fd828b73052a24845e1559c6d789",
+    "size_bytes": 592254
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_edmonton_p75.png": {
+    "sha256": "fbf8758cf8357d6203bac453a0c845d42f673559f7dae8fd2f01039891043cae",
+    "size_bytes": 276884
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_edmonton_p76.png": {
+    "sha256": "1824b5eb4991c0052e40820b21a52ab4c054368773e223637bd45bd78dd59327",
+    "size_bytes": 367466
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_edmonton_text_p75.png": {
+    "sha256": "869860d0c1ac02f983ea5c25169bb22f3d9cca2c7da969e29c7555ebf363526b",
+    "size_bytes": 286388
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_near_calgary_map_p76.png": {
+    "sha256": "a9f4587a7b0618c2455d7a57907421f1729c968d3f1410da3a2a1e7384c15d79",
+    "size_bytes": 406321
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_near_calgary_p77.png": {
+    "sha256": "77fa0057482aba2636c3f7360e8ed00facb8cf9b46fdedb5e079311c132b9172",
+    "size_bytes": 173814
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_near_calgary_text_p77.png": {
+    "sha256": "a83f1a349b1c0de8b7defc3aa522f9a8df7138be3d892120f6530a29280c3ae1",
+    "size_bytes": 231435
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_near_edmonton_p79.png": {
+    "sha256": "6a0869d0d73a4a3a4c3fe9bc59cbe8b137f48f630777f0bac18cfdf172708cae",
+    "size_bytes": 217166
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_north_p81.png": {
+    "sha256": "8970eef03b68c49bee05d10c23961e4e161782582a5d8536ae235068f2a12c8b",
+    "size_bytes": 167132
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_overview_p71.png": {
+    "sha256": "d8b54f6718e97bcd5881c610f1b6f987e9532f94533d373f4123489a5916ed32",
+    "size_bytes": 555451
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_overview_p72.png": {
+    "sha256": "b0735a025e2617bbcceb3dd1629d1b43756a2bef69ba12c1ad8f00673514bc16",
+    "size_bytes": 599841
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_majority_south_p85.png": {
+    "sha256": "f425d46de1880d347c82c98cc3f4d29aed88564eb8a6925116cf4bd242dd42be",
+    "size_bytes": 204334
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_minority_calgary_p359.png": {
+    "sha256": "0367cca2b71f6d98c9c40b22aa34aafbf28f83fb8e1def4c5e37dc3d69c38964",
+    "size_bytes": 511119
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_minority_edmonton_p360.png": {
+    "sha256": "01e6e354122e9d2896afd3af40b27dc11ab1d426823d57fb6fa732de0685c177",
+    "size_bytes": 489592
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_minority_near_calgary_p361.png": {
+    "sha256": "4db32cd6abb1ebabf826395844cc4f55b6c8f69fdb261fc045107f9918d2e14e",
+    "size_bytes": 506719
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_minority_overview_p359.png": {
+    "sha256": "526137c91366906ba2093ee296a46d95c009a67b5921e853643cf48be579ae9d",
+    "size_bytes": 618040
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_minority_overview_p362.png": {
+    "sha256": "ab9d6c6844899f03643407ab95fc9ee1bb2a1be4e3c1428ac7fbd8fa0ddbe5f2",
+    "size_bytes": 758301
+  },
+  "data/maps/verification/v0_8_commission_sidebyside_minority_summary_p362.png": {
+    "sha256": "e66adbc68ce48676c4cabbe22657452ae60887e667ca4039043123b77c540436",
+    "size_bytes": 768276
+  },
+  "data/osm/alberta_osm_highways.gpkg": {
+    "sha256": "d8100044b0f38935bd7ccd539e3f21fb7118bea018d9cfb5827acbad324eacc9",
+    "size_bytes": 11702272
+  },
+  "data/osm/alberta_osm_highways.json": {
+    "sha256": "2da930b6e8f7e64c57c41caa19571cca75f8cab7d35bb409c630049c91d281bc",
+    "size_bytes": 35634974
+  },
+  "data/osm/alberta_osm_rivers.gpkg": {
+    "sha256": "3f8e6150528df9ee1cf0cdb2e6cb739dc554727062db4ab328ab2cf1c6d0411e",
+    "size_bytes": 19660800
+  },
+  "data/outputs/2015_cross_election_summary.csv": {
+    "sha256": "51c37d32ecc28cbfbd3b3a5fe412538bc586074539eb03408ab568d1c0682149",
+    "size_bytes": 394
+  },
+  "data/outputs/2015_to_2019_crosswalk.csv": {
+    "sha256": "a774f05dba472a3e31f3910a7a85ea4f52310680697b294027ad384d0251b016",
+    "size_bytes": 19868
+  },
+  "data/outputs/2019_municipal_anchoring.csv": {
+    "sha256": "277068b1c3c97d935c05f920a41902aa279f9977ba0e2b7edc4cdfab3c68dc09",
+    "size_bytes": 8190
+  },
+  "data/outputs/a1_legal_baseline_2019eds_2021census.csv": {
+    "sha256": "cd4f73dda1a85ebcb19419e7970b0906fa1736c67a218c251995a6ba31f1be4a",
+    "size_bytes": 3551
+  },
+  "data/outputs/advance_vote_sensitivity.json": {
+    "sha256": "61e30d85f05c227c823523044c2265e1484ab63dec0d3b533beca2c8e2495829",
+    "size_bytes": 3121
+  },
+  "data/outputs/advance_vote_splat_diagnostics.csv": {
+    "sha256": "40bf90e720c85de8b3308c11a80b196cd28fe32aeb4c39777bf3b4951b2baeea",
+    "size_bytes": 582092
+  },
+  "data/outputs/airdrie_quadrant_anchoring.csv": {
+    "sha256": "88f1c292f000892c427bd11b8f07f8bde6b0a77f464642e6cb965b29e19b5b95",
+    "size_bytes": 862
+  },
+  "data/outputs/assignment_2026_synthetic_totals.csv": {
+    "sha256": "d2eac0a51d613a6b406d2584c5720ecd109dd63867c160dc4e7c4f688e7a7bdf",
+    "size_bytes": 11740
+  },
+  "data/outputs/assignment_va_to_2026_assignments.csv": {
+    "sha256": "180c3245b0a32dfc9c91c5a18e9c5a8e53c9b06e04eba89aabbbabe342d2e8f6",
+    "size_bytes": 664025
+  },
+  "data/outputs/boundary_refinement_impact_v6.csv": {
+    "sha256": "08efd05326f61076ba8ae297f77aff4f268f1cf416ced73a8c77a4a7c6303cbf",
+    "size_bytes": 454
+  },
+  "data/outputs/canadian_redistribution_base_rate.csv": {
+    "sha256": "e3c6e5f1af3d0429055dd799a28f121a1f6cedcf01090128233a3639371aad50",
+    "size_bytes": 7458
+  },
+  "data/outputs/chen_rodden_absolute_decomposition.json": {
+    "sha256": "203e8d996d01b262cc8ecf87f8daf3cc06f5558d15058b86a140cac2b72ffa60",
+    "size_bytes": 5632
+  },
+  "data/outputs/chen_rodden_decomposition.csv": {
+    "sha256": "087c1159b1e426c8a7a6426be6172843860f3741dadf11cbca5f5de6c4925463",
+    "size_bytes": 5375
+  },
+  "data/outputs/chen_rodden_decomposition.json": {
+    "sha256": "a93fb6ed862592852434cf21fdb2fa493bc83ead6f4265f2eecec531066b5a33",
+    "size_bytes": 12600
+  },
+  "data/outputs/chen_rodden_simulation.csv": {
+    "sha256": "1cdcc1e48173285c328c6dc7e521df523a577088a4b3404fe1e6c1c43e0e6c10",
+    "size_bytes": 14626
+  },
+  "data/outputs/cochrane_journey_to_work.csv": {
+    "sha256": "868eb4b05d3e9ec64b35fb8ea54b49e13dfdef823ee7bab992d58f3b81534a23",
+    "size_bytes": 2629
+  },
+  "data/outputs/compactness_scores.csv": {
+    "sha256": "a9c2438664be5df1003fac4f1e74cfb7b880798a9efc5371fd58bd16215595b8",
+    "size_bytes": 27747
+  },
+  "data/outputs/compactness_scores_refined.csv": {
+    "sha256": "cce0e440af5c6deeb1bb4339d9db2fa67cae09242e30d2f48c48e1bb40aaabe1",
+    "size_bytes": 27072
+  },
+  "data/outputs/cross_election_asymmetry_3way.csv": {
+    "sha256": "5011ee7352741130b7a23f5917a95749992e3a2f109f9bc1adfdecafb409e234",
+    "size_bytes": 565
+  },
+  "data/outputs/cross_election_per_map.csv": {
+    "sha256": "e2df826f4ec3eaa45517d472025e01b29c4797f431eaee16c7c716fa2ea79e24",
+    "size_bytes": 1208
+  },
+  "data/outputs/cross_election_per_map.json": {
+    "sha256": "e1e6d8052a5f7dc27d86fc9983c323fa47b9f35a5574dbcb4720b04343a75cbb",
+    "size_bytes": 2708
+  },
+  "data/outputs/cross_election_v8_full.csv": {
+    "sha256": "21483d3a275737e708c392e062ea5fb1ee05531762d9ebf9ae8dc718b8161725",
+    "size_bytes": 754
+  },
+  "data/outputs/cross_election_v8_full.json": {
+    "sha256": "00283b2ab6eb99693fe0d85f086a7ca633eed7ddad4b7ebee3ac5fbdc75b6269",
+    "size_bytes": 1524
+  },
+  "data/outputs/csd_splits_summary.csv": {
+    "sha256": "c0836a9783852db1c3162801e10861ac7e90034e7f87fa690e7a1d189bccae7f",
+    "size_bytes": 34211
+  },
+  "data/outputs/da_anchoring_summary_legacy.json": {
+    "sha256": "af7318f5547d7729cee8080e2ee07dd2991c331dd75d8cad2646f72cafe7f5cf",
+    "size_bytes": 5086
+  },
+  "data/outputs/dpg_perturbation_samples_v3_tight.csv": {
+    "sha256": "fc126b2b66c071d449821f132b68ca730dd55976ca4d1d92ecd41d3c695a130b",
+    "size_bytes": 40895
+  },
+  "data/outputs/dpg_perturbation_summary_v3_tight.json": {
+    "sha256": "35463e5a468be116ce24527c6a7d3ac944409ac1db5527d68bf75564e228d012",
+    "size_bytes": 5696
+  },
+  "data/outputs/ei_substrate_2023.csv": {
+    "sha256": "529be33d1098b8c18c321d23b6aa02e241092573757461217d42d3fbf956d4a6",
+    "size_bytes": 278705
+  },
+  "data/outputs/extended_partisan_metrics.json": {
+    "sha256": "70c9a5afcfd887efd8767dc9ec13d8b646d715dc539f2df70fff3315b45ebd27",
+    "size_bytes": 1209
+  },
+  "data/outputs/final_percentile_placement.json": {
+    "sha256": "864de90343ab3da665c9297683541fadec5ec39c2a458e2708be13d1733eddf2",
+    "size_bytes": 5230
+  },
+  "data/outputs/final_real_map_scores.json": {
+    "sha256": "07dac0b6b20a6bb5ac3ccf66fb411d9582c681fa798207d2682fe96738ad8e44",
+    "size_bytes": 2126
+  },
+  "data/outputs/gerrymetrics_comparison.json": {
+    "sha256": "46f3ee4a97f6502c5b3c1bd82d0f4a8ff894da452a551546db86be018f15af90",
+    "size_bytes": 2460
+  },
+  "data/outputs/historical_eg_baseline.json": {
+    "sha256": "b17c40e84d65937f754c223df9bac069bda8154ba5ea0c9aabc3140e41b5a532",
+    "size_bytes": 3043
+  },
+  "data/outputs/hybrid_adjacent_vas.csv": {
+    "sha256": "08c0204a3594634ea033607084b6a0f7d229bb8d16561e158c2321a5ab842c76",
+    "size_bytes": 114636
+  },
+  "data/outputs/justification_test_inputs.csv": {
+    "sha256": "2e6de4e0ebc669bdfbd4b2fb037e97a3536a2a8ebea595f3b33bca5edff893d4",
+    "size_bytes": 5910
+  },
+  "data/outputs/majority_full_crosswalk.csv": {
+    "sha256": "6be4a6af2c4460076d0c74a0f0fa29b243fe2cd3b1f5b927b3500f45ebc1eef2",
+    "size_bytes": 6758
+  },
+  "data/outputs/majority_hybrid_crosswalk.csv": {
+    "sha256": "89f2a7651453e1a16b83694aa16c5c102d2425f1515e1c916b9ee5ab338f5702",
+    "size_bytes": 921
+  },
+  "data/outputs/majority_symmetry_counter_test.csv": {
+    "sha256": "b85d73337a2d08036fa3a44fa5864307859505fb33ad99054d5a6f0d0a204f04",
+    "size_bytes": 4305
+  },
+  "data/outputs/maup_centroid_sensitivity.json": {
+    "sha256": "58caed041d96ff9931df8bbabba6b160f6d8708693b9b7a316bd271eb840ff0c",
+    "size_bytes": 3675
+  },
+  "data/outputs/minority_full_crosswalk.csv": {
+    "sha256": "1ebf8ac592a297af2bfbd25055ebb33d15b9a4d4c74e90b686165305f7f564d2",
+    "size_bytes": 6433
+  },
+  "data/outputs/minority_hybrid_crosswalk.csv": {
+    "sha256": "7b6041e3cb24c458f61950d36208d14a5728183f480aabe1bd078b21fb1bb2cf",
+    "size_bytes": 5530
+  },
+  "data/outputs/minority_hybrid_crosswalk_appendixE.csv": {
+    "sha256": "8c9f5a0c25e053434929e93f57f2abc870775e503feb99007640bb951f82be98",
+    "size_bytes": 2312
+  },
+  "data/outputs/minority_rationales.csv": {
+    "sha256": "50119bdb4c8e467b3049c687f8de74e4f29b28728772889e2ac1e02913e3ade5",
+    "size_bytes": 8100
+  },
+  "data/outputs/municipal_anchoring_da_supplemented_legacy.json": {
+    "sha256": "207fe86a28f3f1e11cce93c34554c688afedc2f311d23921fa0f932b0c4fdc57",
+    "size_bytes": 5361
+  },
+  "data/outputs/municipal_splits.json": {
+    "sha256": "a8caf7c1d3ebd9d4588779ce01d48da32f6725d8a9b3792a765269ad26bf531d",
+    "size_bytes": 1329
+  },
+  "data/outputs/natural_anchoring_enacted_2019.csv": {
+    "sha256": "dcf4c3f551e5e6a62edbf724e1c5562ee3932e08a8c446d1226f566dd1c1c946",
+    "size_bytes": 7604
+  },
+  "data/outputs/natural_anchoring_enacted_2019.json": {
+    "sha256": "41fc3c476926394af3b10c4c71c285940632d5135547fa959654e453dd868d69",
+    "size_bytes": 3467
+  },
+  "data/outputs/natural_anchoring_majority_2026.csv": {
+    "sha256": "b48c68e73c5a5e4b726fec9fa01e63aae4773006ba8a7fe5cd258c92d1bf8632",
+    "size_bytes": 7911
+  },
+  "data/outputs/natural_anchoring_majority_2026.json": {
+    "sha256": "e39a317077cb8a8aa1f42ef99eef700ba62bd366ac51ef37e3071c7c847e7330",
+    "size_bytes": 3448
+  },
+  "data/outputs/natural_anchoring_minority_2026.csv": {
+    "sha256": "7bbc3693f2a568c68394974f38f7e6308ab973d738cfedb562d244dd25f4a70f",
+    "size_bytes": 7987
+  },
+  "data/outputs/natural_anchoring_minority_2026.json": {
+    "sha256": "f281842fc04050bf2a1e1cb868285e8cb4dddb14856c75b4cf23f9615a617045",
+    "size_bytes": 3463
+  },
+  "data/outputs/polls_2023_unified.csv": {
+    "sha256": "ecae6d0012d5390337042c4fc4bcfcfa2c2c7ac8600214ab48ff982ad0b68365",
+    "size_bytes": 184906
+  },
+  "data/outputs/polsby_popper_per_district.csv": {
+    "sha256": "118434bf3d6ef00ec3403111917b7b14f05b167ee521f2f0f52166f08b9aeeaf",
+    "size_bytes": 15303
+  },
+  "data/outputs/province_wide_drift_2019.csv": {
+    "sha256": "54b242a84e2d29278e4d7881e5d994d653ff4bfdcae20c15feb5dc52b3977249",
+    "size_bytes": 19251
+  },
+  "data/outputs/province_wide_drift_majority.csv": {
+    "sha256": "742f68521ceb1b7988195e4af096cb0c0dedc8f7573aa56af1be8023c3480276",
+    "size_bytes": 15939
+  },
+  "data/outputs/province_wide_drift_minority.csv": {
+    "sha256": "9f503b41ed83bf22ad614a8a606c924223140a35a304dab238ee44cfa009b75b",
+    "size_bytes": 14648
+  },
+  "data/outputs/python_recom_polsby_popper.csv": {
+    "sha256": "dc3bf9162b2604650cd5ccf3282eefd64a5aeacfe388e289389a3a916e8f1e21",
+    "size_bytes": 641874
+  },
+  "data/outputs/regional_swing_ensemble.csv": {
+    "sha256": "b7784be669450c604d692aa3790f5cf4bea5c61ac6ff70fdf4bd0e24a7e49f4b",
+    "size_bytes": 651266
+  },
+  "data/outputs/regional_swing_real_maps.json": {
+    "sha256": "279b16c3b4a0a920b1376f1f4d002c5674b5fe239a18ddbebff7b2f119a06484",
+    "size_bytes": 1882
+  },
+  "data/outputs/reock_per_district.csv": {
+    "sha256": "29ad68cbb0cbdeb5dbb50570a64a6b77126912b930bf4e899eb63389e322332d",
+    "size_bytes": 15306
+  },
+  "data/outputs/rural_gap_ed_comparison.csv": {
+    "sha256": "057420e71e2f04a4efaaf32282f5093f5e64c784b83d349fa355491bb76775ba",
+    "size_bytes": 2957
+  },
+  "data/outputs/rural_gap_smallest10_majority.csv": {
+    "sha256": "9eb7c6d1b771362cffcf5b7a9c01eb7576cc882f7dab284258899e13467c413c",
+    "size_bytes": 1294
+  },
+  "data/outputs/rural_gap_smallest10_minority.csv": {
+    "sha256": "9aa9957b779e9e709ecb0946cf5c5d124f39ff6e649009fdc612b49dcff4e327",
+    "size_bytes": 1439
+  },
+  "data/outputs/rural_gap_summary.json": {
+    "sha256": "3c648c8afce956074a9b6669d973af7c3656ac67f4006f87cc02a90c66c93d3e",
+    "size_bytes": 654
+  },
+  "data/outputs/smc_crossvalidation_s50.rds": {
+    "sha256": "0ec75b70587bb0e185dd1262547d7989ae400379a7bc3bc679230b9db0dfedcc",
+    "size_bytes": 75816
+  },
+  "data/outputs/submission_search_dataset.csv": {
+    "sha256": "976f4b9e5446b440de1a4e63900db5a0b5dd31820874fbf94971ad831c3eccd8",
+    "size_bytes": 27370
+  },
+  "data/outputs/tierC_parent_union_reference.csv": {
+    "sha256": "0c4a2c2587e7cdaec51b76d73649c6411a41270431c9e377bb898763428b973e",
+    "size_bytes": 4690
+  },
+  "data/outputs/topology_alignment_proof.json": {
+    "sha256": "768426b81efba746fee4d75cf06c3e228232b09d7f41a20f1201ea48b1187710",
+    "size_bytes": 4371
+  },
+  "data/outputs/topology_fill_summary_majority.csv": {
+    "sha256": "0ed294c5206772f0ec9b400d6d0960a7ea74c11765a458783f2a1ffdfb259a1c",
+    "size_bytes": 3095
+  },
+  "data/outputs/topology_fill_summary_minority.csv": {
+    "sha256": "f138ef941e7fa517091a3d04fe90a5889bf4338773a3711217cc1da65afa6144",
+    "size_bytes": 1930
+  },
+  "data/outputs/topology_overlap_pairs_majority.csv": {
+    "sha256": "cf0087f50ce90fedb054e319f613fd662b528ecd6b4ce372826f89468708dc09",
+    "size_bytes": 8086
+  },
+  "data/outputs/topology_overlap_pairs_minority.csv": {
+    "sha256": "8a3dbf8fab1d280b8f210978ee24d2a2674628c8fe786835fb05bada0497e9bc",
+    "size_bytes": 6537
+  },
+  "data/outputs/topology_refine_summary_majority.csv": {
+    "sha256": "1ddb3b29bff2af99c3ae7dd797e13e6f55d27ca056777fc66014b94040cfb168",
+    "size_bytes": 3533
+  },
+  "data/outputs/topology_refine_summary_minority.csv": {
+    "sha256": "253315d42bd94d9ab7b3356bdba75b57f718abfda95d54f9c80a12baabbd6462",
+    "size_bytes": 3093
+  },
+  "data/outputs/va_pop_from_das.csv": {
+    "sha256": "2db921762ba9deb00969d497dd8c765d4621f5d46ddebda1a08e3a2ab077f31a",
+    "size_bytes": 114395
+  },
+  "data/outputs/validation_deltas.csv": {
+    "sha256": "af66d4545ae84fe925b79cbacc9666e6830c4e19ccdf4e4223e05106b565e34b",
+    "size_bytes": 24058
+  },
+  "data/outputs/validation_deltas_v2.csv": {
+    "sha256": "571967656d639386a38cdb42adf7fd241553e43d6d56ef75656d0ce8b547d99c",
+    "size_bytes": 25403
+  },
+  "data/outputs/votes_2023_majority.csv": {
+    "sha256": "4f454d11c12b5d84ff5421f8f0e11d2b2baeee951af82c0c083ad526074e3e9d",
+    "size_bytes": 4112
+  },
+  "data/outputs/votes_2023_majority_area_weighted.csv": {
+    "sha256": "3f9172a5e90e7beaef4203b0e0ffbcd74fc3f8fb19195aa72fc4d1c4cf4586c8",
+    "size_bytes": 7371
+  },
+  "data/outputs/votes_2023_majority_maup.csv": {
+    "sha256": "ab1ff3e93480091425768fad10ebcfcf127b359c5bbcbdb6e3a694cbecf505a7",
+    "size_bytes": 8393
+  },
+  "data/outputs/votes_2023_minority.csv": {
+    "sha256": "585fcc0162bc66531969b0c98d2f079718c254cea35434831677ceec912191aa",
+    "size_bytes": 4030
+  },
+  "data/outputs/votes_2023_minority_area_weighted.csv": {
+    "sha256": "d9aabdf4154388534a276da31f0233baa501cad2857c50e1a996d2c1b245c202",
+    "size_bytes": 7622
+  },
+  "data/outputs/votes_2023_minority_maup.csv": {
+    "sha256": "211de23592f2fd475e163356833090dd2f679af1612d48b4ac209bcc1d5c305e",
+    "size_bytes": 8327
+  },
+  "data/outputs/mcmc/mcmc_verification_meta.json": {
+    "sha256": "31ccca0c70cbac2f720503c4de4e3e0098ebb00f8faae8381d453df3f648979c",
+    "size_bytes": 855
+  },
+  "data/outputs/mcmc/redist_crossvalidation_s50.csv": {
+    "sha256": "257e7063c42287ab908174f1d5aec29ae1b074282d36119d03c25fa759a22799",
+    "size_bytes": 288844
+  },
+  "data/outputs/mcmc/simulated_ensemble_percentiles.csv": {
+    "sha256": "22eb53e27ff50ceead152d091cfe7a77452d3ee2af4b71e1006484a9ca933b8d",
+    "size_bytes": 1559
+  },
+  "data/outputs/mcmc/simulated_ensemble_percentiles_100k.csv": {
+    "sha256": "5bbdcfd1608265cf0a28bef5981cf02c659d872efdbe4da7086111bab891dec6",
+    "size_bytes": 1576
+  },
+  "data/outputs/mcmc/simulated_ensemble_percentiles_250k.csv": {
+    "sha256": "e28c60c11cfaf4f0b79b4e352e83f6c417924361dc6aa837b8406d94b838bc26",
+    "size_bytes": 1610
+  },
+  "data/outputs/mcmc/simulated_ensemble_percentiles_full.csv": {
+    "sha256": "bd0ebae63f16c0aa8df0a65a52da1cca362711b1384112ffcdf8d21e05b7dceb",
+    "size_bytes": 1607
+  },
+  "data/outputs/mcmc/simulated_ensemble_percentiles_full_100k.csv": {
+    "sha256": "fb4c41399e8115cf42d48d24b375f9e46f687ce5a416d5feba721773ed2a894d",
+    "size_bytes": 1722
+  },
+  "data/outputs/mcmc/simulated_ensemble_percentiles_full_v2.csv": {
+    "sha256": "f410ec9cd5d7968fcdeaf620d95a20190533106414ab418a135c2d6cede553f1",
+    "size_bytes": 1734
+  },
+  "data/outputs/mcmc/simulated_ensemble_raw_samples.csv": {
+    "sha256": "05e7290112d90a3627e462a28fade509006b63ce1985c8b4eec62c3dfb85790d",
+    "size_bytes": 1139773
+  },
+  "data/outputs/mcmc/simulated_ensemble_raw_samples_100k.csv": {
+    "sha256": "1418006335b083cf92e130caf72aeb9495f6b1f10959f3de0132a141878062fc",
+    "size_bytes": 11504882
+  },
+  "data/outputs/mcmc/simulated_ensemble_raw_samples_250k.csv": {
+    "sha256": "f89df557c169a0e75e7d7fc2925cf4705cdbcf4489d205939c10a2f6d066f0c5",
+    "size_bytes": 28047143
+  },
+  "data/outputs/mcmc/simulation_convergence_diagnostics_100k.json": {
+    "sha256": "98f626999219c6a98106a4c8a534f504b777f477ec1e0c960f355fe65b92ec1a",
+    "size_bytes": 1015
+  },
+  "data/outputs/mcmc/simulation_convergence_diagnostics_250k.json": {
+    "sha256": "45d8ce5b6f4622930503585c1219cc53d3e2c690b70b3d00fa3d9c13b6b009d4",
+    "size_bytes": 1012
+  },
+  "data/outputs/mcmc/simulation_convergence_diagnostics_per_chain.json": {
+    "sha256": "f257f98430e26aa5c4667ef484825a657c7066f7b6688d99e8604ef05315071a",
+    "size_bytes": 9322
+  },
+  "data/outputs/mcmc/simulation_multichain_pooled.csv": {
+    "sha256": "2ca8a93243671640d71fb15b86703a04289f96ef4aef5af349a6905f6b462fc2",
+    "size_bytes": 421065
+  },
+  "data/outputs/mcmc/simulation_multichain_rhat.json": {
+    "sha256": "9f82c8d065aef1794c61cc9e82ca9c01c521c431c766b9c7351f528413aec8bf",
+    "size_bytes": 5941
+  },
+  "data/outputs/mcmc/simulation_multichain_samples.csv": {
+    "sha256": "06d2872c376ac354c1c586b356dcfc716aa4cbe7e6aca046743af601883951b9",
+    "size_bytes": 39108009
+  },
+  "data/outputs/mcmc/simulation_multichain_summary.md": {
+    "sha256": "d6db37efadf0716662d37115ceeaee06429a6e1c1debf2c634955791eb5dcc29",
+    "size_bytes": 2516
+  },
+  "data/outputs/mcmc/simulation_real_map_scores.json": {
+    "sha256": "aa63273a7f81f50117254cfeb2d8fb87644253a4e2bf4db6af9d13fbffb1429c",
+    "size_bytes": 1678
+  },
+  "data/outputs/mcmc/simulation_real_map_scores_100k.json": {
+    "sha256": "ab315b2707f9ae678b3d72bc72f980e5cb9e462f3667c812dc0f63638d332a05",
+    "size_bytes": 1673
+  },
+  "data/outputs/mcmc/simulation_real_map_scores_250k.json": {
+    "sha256": "85569db3b6fa014a311f078e80d9575564fd4780b013e819ca4df7cacdb3c45a",
+    "size_bytes": 1667
+  },
+  "data/outputs/mcmc/simulation_real_map_scores_full.json": {
+    "sha256": "bd1ac9ef5159dfa81f22b71bb9e4ee8fa0a9938dab79e2a21a62ba06c1e83161",
+    "size_bytes": 3219
+  },
+  "data/outputs/mcmc/simulation_real_map_scores_full_100k.json": {
+    "sha256": "c5321ebb3dca8616372900c2e4b7c9d03471ee31f0321499b72c0879567cd010",
+    "size_bytes": 1857
+  },
+  "data/outputs/mcmc/simulation_real_map_scores_full_v2.json": {
+    "sha256": "0b6c87ab4832e8e0dddbd093f89586fabf69c41e41549d40cb87ebf0051a559f",
+    "size_bytes": 1603
+  },
+  "data/outputs/mcmc/simulation_short_bursts.csv": {
+    "sha256": "81c6077798b2324a06083f0968fd81baebecf81285b714df55719fc72d511bbe",
+    "size_bytes": 62752
+  },
+  "data/outputs/mcmc/simulation_verification_metrics.csv": {
+    "sha256": "026c2e0b64abdd1833ced8eeecf330ce0b8ecf09bc1489495ab2d9f0676f17b5",
+    "size_bytes": 1140293
+  },
+  "data/outputs/mcmc/targeted_burst_best.json": {
+    "sha256": "7c9479b7391d79c23af5342bafb303edbdf41c0b57aed1e628141c4718559648",
+    "size_bytes": 492
+  },
+  "data/outputs/mcmc/targeted_burst_ndp_best.json": {
+    "sha256": "2280f246d3666b8efd0444f38f9667b3f6e23ecf5c419a65c690b950a56c2b49",
+    "size_bytes": 573
+  },
+  "data/outputs/mcmc/targeted_burst_ndp_trace.csv": {
+    "sha256": "664807c4ddc91430d50d5d5f735dd10e07328a438b723518b8c06aa4ac8e0ad5",
+    "size_bytes": 34350
+  },
+  "data/outputs/mcmc/targeted_burst_trace.csv": {
+    "sha256": "4ab3a82169bfca44cb07c6cf83aa6892f7ec21813a992d8c7bd12c0e4fe743c9",
+    "size_bytes": 34338
+  },
+  "data/outputs/mcmc/verification_assignments_raw.npz": {
+    "sha256": "912173f516a9ff35d3c13cb93802f3735dc8edeb1b7cf39b24b50248a3ad58e8",
+    "size_bytes": 1931244
+  },
+  "data/outputs/mcmc/simulation_checkpoints_250k_final/chain0_samples.csv": {
+    "sha256": "53ed87bf937c68a96c6a77d144c4228a1f403154239fb4fd986110597acedab8",
+    "size_bytes": 7385270
+  },
+  "data/outputs/mcmc/simulation_checkpoints_250k_final/chain1_samples.csv": {
+    "sha256": "2182d0b50eedf1b60ba9d2cb9f65c2207adf3b9fc3620edcbaed0eec6aa70c26",
+    "size_bytes": 7387691
+  },
+  "data/outputs/mcmc/simulation_checkpoints_250k_final/chain2_samples.csv": {
+    "sha256": "d03c89e7944a1cc85d2cfdfaa7bf0fcbf174ae6ec94537a16f96e59f77801fff",
+    "size_bytes": 7389042
+  },
+  "data/outputs/mcmc/simulation_checkpoints_250k_final/chain3_samples.csv": {
+    "sha256": "c328744dc65238dca34e7016cd0f42f768cc2ff0288977ff35b7d31d9b699640",
+    "size_bytes": 7383343
+  },
+  "data/raw/2015_results.xlsx": {
+    "sha256": "4a6656140736783a4984beff75069885ac12feb03470f2f7c8f7d249a6201fc9",
+    "size_bytes": 1104073
+  },
+  "data/raw/2023_results.xlsx": {
+    "sha256": "6a43655acf5f76176886e6698aedccf362693c3a1b5347536d8ef6c6cac50da3",
+    "size_bytes": 474095
+  },
+  "data/raw/98-401-X2021024_English_meta.txt": {
+    "sha256": "441e299d39a35521f9a1450f3adda208738f2e784bf721b44d894c93d22ab158",
+    "size_bytes": 240222
+  },
+  "data/raw/98-401-X2021024_Geo_starting_row.CSV": {
+    "sha256": "db4ebb66bdf3eda451358cc6fcc33806b7cbb59a61921a55cf3332b438dea552",
+    "size_bytes": 17789
+  },
+  "data/raw/README_meta.txt": {
+    "sha256": "174972ad50565083d515a09ead8fd5972f7592957481419af3a60edbfebfbc42",
+    "size_bytes": 1421
+  },
+  "data/reference/338canada_historical_snapshots.csv": {
+    "sha256": "4e3b51c52730fd2a7f0218989056dc567d3cb0eaa706c12dda0550aba4c6b2a8",
+    "size_bytes": 5790
+  },
+  "data/reference/338canada_per_riding_87seat.csv": {
+    "sha256": "f9288f5e9242ecb0087b64a87b8772fbc288c3eb693d16deb73edc99cc09ac6d",
+    "size_bytes": 13292
+  },
+  "data/reference/338canada_reallocated_majority.csv": {
+    "sha256": "24bca50d60e208a63e27a9e14a95140af5ebfe2fb2b2864f03104b3b995b2d2d",
+    "size_bytes": 6271
+  },
+  "data/reference/338canada_reallocated_minority.csv": {
+    "sha256": "b5c2e4058ec366c4c5b8f3609877671311a38565a8ea6e56dfae37df172ff4a0",
+    "size_bytes": 6476
+  },
+  "data/reference/338canada_ridings_index.csv": {
+    "sha256": "0be0f34f38a7844147ad448fa7d5eafbf3a365809f8ce2c2c36be945932d5bc5",
+    "size_bytes": 2838
+  },
+  "data/reference/alberta_2015_results.csv": {
+    "sha256": "923a874b75ddd6e61b1e2999ddd11875ff1fcb9a38790277fa1815be9dd7c720",
+    "size_bytes": 5410
+  },
+  "data/reference/alberta_2019_populations.csv": {
+    "sha256": "ac85afa4c8763bdb22a372441049c681e1a19c643c2e3c7d9d4c49cec79c9757",
+    "size_bytes": 5536
+  },
+  "data/reference/alberta_2019_results.csv": {
+    "sha256": "59502dd81f072190744a992e48842351f92518ad1ce0bb7d6fceb959e9378113",
+    "size_bytes": 18085
+  },
+  "data/reference/alberta_2021_csd_populations.csv": {
+    "sha256": "5985ecf301847499e8616965c0aa79271896bd9ef422aa4cbca805919537bf66",
+    "size_bytes": 34682
+  },
+  "data/reference/alberta_2021_da_populations.csv": {
+    "sha256": "db442baa8d3d003333ae1848e10c083f6f719d5187c70dee2e2c2b99645dab2b",
+    "size_bytes": 254853
+  },
+  "data/reference/alberta_2023_results.csv": {
+    "sha256": "283d8b5e54574d45ab87bc6288bef880ac1b83d8958528ac3e1a23ae352961c4",
+    "size_bytes": 15678
+  },
+  "data/reference/alberta_byelections_2019_2026.csv": {
+    "sha256": "bac7aa6bba92cdcfb9cc674e279465b0f5a16b7dcfd1664beada6936c99a8124",
+    "size_bytes": 3653
+  },
+  "data/reference/alberta_population_plan_b.csv": {
+    "sha256": "c0651459be1e54f72693692dce70a727d6cfa400fe1a37caaaf84b824d79929b",
+    "size_bytes": 2639
+  },
+  "data/reference/alberta_shapefiles_README.md": {
+    "sha256": "fcab613e56b278625f309242dc30bef8a1ce0dc3d9bbcac8060da07f14cefaa4",
+    "size_bytes": 2813
+  },
+  "data/reference/calgary_wards.geojson": {
+    "sha256": "de957ff9a4d830278972e591aea714480663386a87daa04fe4c8183c548232bc",
+    "size_bytes": 638683
+  },
+  "data/reference/majority_2026_populations.csv": {
+    "sha256": "fcea61d4e303bdcae8dc6d91eaefca2d469f202c5466c5bffb4858012de9058f",
+    "size_bytes": 4228
+  },
+  "data/reference/minority_2026_populations.csv": {
+    "sha256": "0368d8b1c0063e1d80152e035b6bd9ae8994b1e304a643ce42e01e79a5f46a6a",
+    "size_bytes": 4263
+  },
+  "data/reference/minority_2026_populations_appendixE.csv": {
+    "sha256": "1f5860e7ccd85248aa50ec17a63a63861e28fab2c95987f399cc89bf9681e2db",
+    "size_bytes": 2695
+  },
+  "data/reference/population_2021_majority.csv": {
+    "sha256": "f751c189bcaa72e9ea9fde18908cf94df8d5569fa5a9de9475996d0adfe172db",
+    "size_bytes": 3612
+  },
+  "data/reference/population_2021_minority.csv": {
+    "sha256": "c3987531b1df05f5d3afc264661002fcf6d9eefcb155be159c697f3dff61645f",
+    "size_bytes": 3304
+  },
+  "data/reference/polling_338_historical/alberta_landing_raw.html": {
+    "sha256": "002cd3c40fdc1d1f9885706d4fdcbc0e0399cccf7616a899360adce368f81487",
+    "size_bytes": 214635
+  },
+  "data/reference/polling_338_historical/alberta_landing_xaxis.json": {
+    "sha256": "2df7938e691325f514977994771ae8bdbaad54f80d10e0cda332de50601865b3",
+    "size_bytes": 1078
+  },
+  "data/reference/polling_338_historical/per_riding_pre2023.csv": {
+    "sha256": "bc62bf61ba2d2f16e818e9de561e63ae15946379cc01cd6475842d3b65ecf311",
+    "size_bytes": 6054
+  },
+  "data/reference/polling_338_historical/per_riding_wayback.json": {
+    "sha256": "bd31efcc7b644fd1ce36fe3a6cf35de3f181382b41e99c8b711e7d21a6cb5514",
+    "size_bytes": 22116
+  },
+  "data/reference/polling_338_historical/pre2023_per_riding_validation.json": {
+    "sha256": "533b899c95ee5d57aa3498cc1c0144ded4946f5ea1994c3243afaaa7160e0dbe",
+    "size_bytes": 3704
+  },
+  "data/reference/polling_338_historical/pre2023_reallocated_majority.csv": {
+    "sha256": "7c518170fb8948f127fcb73fa766332f7a141dda4a728aea874dd57cd17a9be2",
+    "size_bytes": 5450
+  },
+  "data/reference/polling_338_historical/pre2023_reallocated_minority.csv": {
+    "sha256": "fc168efe387da56e5b9da603d49e283dce422e5d215967b90de55128ea24bcd3",
+    "size_bytes": 5615
+  },
+  "data/reference/polling_338_historical/riding_1001_w20230529.html": {
+    "sha256": "214c41931dad23a84da4b6ac6e618ca31c24437263d46e3d6d3d2f2129159776",
+    "size_bytes": 139585
+  },
+  "data/reference/polling_338_historical/riding_1002_w20230529.html": {
+    "sha256": "13492171ce8f13d2940421cd0196ae91076959ccac0ab00ecaba6e2ae438ecd6",
+    "size_bytes": 139596
+  },
+  "data/reference/polling_338_historical/riding_1003_w20230529.html": {
+    "sha256": "f0a4c345d7022b018b92eac698a9dd0a79d1c7fb591c0cdc6a80183188f44c7b",
+    "size_bytes": 142127
+  },
+  "data/reference/polling_338_historical/riding_1004_w20230529.html": {
+    "sha256": "a3d773cf736d022474f8b697fef61f31f13629975923579222346d218eab2520",
+    "size_bytes": 135814
+  },
+  "data/reference/polling_338_historical/riding_1005_w20230529.html": {
+    "sha256": "174968f47bce6ee264bc09a2c46b673997a41ff9b8bfd4c8ecd8ffbe5dafd182",
+    "size_bytes": 136670
+  },
+  "data/reference/polling_338_historical/riding_1006_w20230529.html": {
+    "sha256": "77d19dd01245b99fedcfd81b02d148918f5917074a8a0e1d7d5e38152510c719",
+    "size_bytes": 140658
+  },
+  "data/reference/polling_338_historical/riding_1007_w20230529.html": {
+    "sha256": "87d25460150b58f839a01b848c6af51c4775ae8e451a6e6c40b7d2607114d460",
+    "size_bytes": 141355
+  },
+  "data/reference/polling_338_historical/riding_1008_w20230529.html": {
+    "sha256": "d94ce28d67126d1c0e817afdece774a1827d7e69c24188f9501eeea76070c5c1",
+    "size_bytes": 144528
+  },
+  "data/reference/polling_338_historical/riding_1009_w20230529.html": {
+    "sha256": "db52763a3707d32886624cced3dca6a105fc46ffc74bf5c44259d2abcbfdeecc",
+    "size_bytes": 141608
+  },
+  "data/reference/polling_338_historical/riding_1010_w20230529.html": {
+    "sha256": "c52ac31310328fbeb877f6ef9e165ac6085832c3b16d9a6494ae2616abde300b",
+    "size_bytes": 136969
+  },
+  "data/reference/polling_338_historical/riding_1011_w20230529.html": {
+    "sha256": "ee14b914b1b1f4301e9f1208ecd9218dffa31cb2769213713d36422aaa0e7342",
+    "size_bytes": 138067
+  },
+  "data/reference/polling_338_historical/riding_1012_w20230529.html": {
+    "sha256": "b0185058a860e3bb38c9bceb71fdf2b9c30b19950c6a84df176ef57cc5faf818",
+    "size_bytes": 137143
+  },
+  "data/reference/polling_338_historical/riding_1014_w20230529.html": {
+    "sha256": "1a0aedacb7b780a4421e8e4881a3556e3daad0bcac32d456f4b970c95c643ae6",
+    "size_bytes": 142082
+  },
+  "data/reference/polling_338_historical/riding_1016_w20230529.html": {
+    "sha256": "7812599a763ae4ee029575fe9296e2480c87e518a06a743a00977d0ec3e8d950",
+    "size_bytes": 144881
+  },
+  "data/reference/polling_338_historical/riding_1017_w20230529.html": {
+    "sha256": "794e6571c7b26aeef7eadcaf44d7b286c460dfc9b37429c31997b6c6d3de64e4",
+    "size_bytes": 132717
+  },
+  "data/reference/polling_338_historical/riding_1018_w20230529.html": {
+    "sha256": "78b19ecea04ae1ddf09b74adbe1278f16cc9ca59c197825dc89e7d43ca3d6abe",
+    "size_bytes": 135793
+  },
+  "data/reference/polling_338_historical/riding_1019_w20230529.html": {
+    "sha256": "02181864aa29a4c1c4162bf2a254340743c805c7b056cd97ff689e288aae77d4",
+    "size_bytes": 136116
+  },
+  "data/reference/polling_338_historical/riding_1020_w20230529.html": {
+    "sha256": "99bb2d3d895cd86203b50bf9ba02d3ac5b110914c4e207a6120d993763117a46",
+    "size_bytes": 143704
+  },
+  "data/reference/polling_338_historical/riding_1021_w20230529.html": {
+    "sha256": "795ab48d0f1fdb5c2006fca201194c7d867940b60c25c99d376548cfc114520b",
+    "size_bytes": 143710
+  },
+  "data/reference/polling_338_historical/riding_1022_w20230529.html": {
+    "sha256": "fb4d9d3485a3d03ab1993228d574aca604403e9ce504a25dd4c288b13396a357",
+    "size_bytes": 144197
+  },
+  "data/reference/polling_338_historical/riding_1023_w20230529.html": {
+    "sha256": "c30b1566be4d71fc20e4304c183777bdee7bf4e857ad78cdfa354d1c0b7f17f2",
+    "size_bytes": 140647
+  },
+  "data/reference/polling_338_historical/riding_1024_w20230529.html": {
+    "sha256": "86b45a1a4b781e0294fd528e45ff0a7da5f2d75b7ebb119e41d42222e6b30f8d",
+    "size_bytes": 136051
+  },
+  "data/reference/polling_338_historical/riding_1025_w20230529.html": {
+    "sha256": "84d62f4cbe0793001cf7ebe3458f429789f1355f2a57058da71f00c694193780",
+    "size_bytes": 131202
+  },
+  "data/reference/polling_338_historical/riding_1027_w20230529.html": {
+    "sha256": "9b9b5fde44199747dd491dd320c1736317f44359dca612364d7a9fa97fb8fc00",
+    "size_bytes": 137317
+  },
+  "data/reference/polling_338_historical/riding_1028_w20230529.html": {
+    "sha256": "db74973858b9b6d96a32707959a3abcfdac22e6993ef685bb5eb8b987b93aade",
+    "size_bytes": 139896
+  },
+  "data/reference/polling_338_historical/riding_1029_w20230529.html": {
+    "sha256": "b71da215c12f8267ceadf2ac65160b2a1f00cfa5aec57ec25ac70bca105ba05f",
+    "size_bytes": 138156
+  },
+  "data/reference/polling_338_historical/riding_1030_w20230529.html": {
+    "sha256": "b07fc0c69f1cbf5ac10cc29f7d49adc2e5b35f80831bdef6e21bc3911bde22a0",
+    "size_bytes": 141094
+  },
+  "data/reference/polling_338_historical/riding_1031_w20230529.html": {
+    "sha256": "71a8917240a77d81676dd10fbebad8fb82fe33b57da168c4be9957b73819fbb7",
+    "size_bytes": 136996
+  },
+  "data/reference/polling_338_historical/riding_1032_w20230529.html": {
+    "sha256": "bd821c036229ffec5a26dbef1e6ea3aabe50e99c4723c3a00795a5efaec312cb",
+    "size_bytes": 136001
+  },
+  "data/reference/polling_338_historical/riding_1033_w20230529.html": {
+    "sha256": "966fc1f50367ca602e13c0489db36b436fddae22fa495bdb221536f5e4d9844a",
+    "size_bytes": 136905
+  },
+  "data/reference/polling_338_historical/riding_1034_w20230529.html": {
+    "sha256": "b4a3cc0f17b504445c4b0dcfff38e56a7bbdb3b0668cfc7f9240252eedc9582c",
+    "size_bytes": 143208
+  },
+  "data/reference/polling_338_historical/riding_1035_w20230529.html": {
+    "sha256": "2b44e8c64155568e2db938fd09d56ffb8da86bdb5e0a6a7f471f3dee1bdc0f54",
+    "size_bytes": 141235
+  },
+  "data/reference/polling_338_historical/riding_1036_w20230529.html": {
+    "sha256": "c6ca1ab47bd815692ce4da69b729e6e9eb98e10ffde7794195a0120b0dad80e5",
+    "size_bytes": 139647
+  },
+  "data/reference/polling_338_historical/riding_1037_w20230529.html": {
+    "sha256": "50c31a98b1b56b4d07613c5aa40647ad73886cf8c488852c62aaef56966a9151",
+    "size_bytes": 141198
+  },
+  "data/reference/polling_338_historical/riding_1038_w20230529.html": {
+    "sha256": "6f1768e2bf92ab29c7726a0e8aa58e291213be4d02520f2acb63a240f7f5e942",
+    "size_bytes": 137370
+  },
+  "data/reference/polling_338_historical/riding_1039_w20230529.html": {
+    "sha256": "98a5dde9029fc6a849dba069b254b6c80ca37d488e707bf738b53efa528974b9",
+    "size_bytes": 141232
+  },
+  "data/reference/polling_338_historical/riding_1040_w20230529.html": {
+    "sha256": "261bb51b833fff287eb1122e239454b2a02c779dc9cf580947f117e8407aa54f",
+    "size_bytes": 141287
+  },
+  "data/reference/polling_338_historical/riding_1041_w20230529.html": {
+    "sha256": "48cd896e61579ed12344c87afe0e696a225b0496c662b1414974faa1fdbddf02",
+    "size_bytes": 141627
+  },
+  "data/reference/polling_338_historical/riding_1042_w20230529.html": {
+    "sha256": "e57233d7f7e154a0c80cfb0c0e8e76875c78eb573dbcdb41da02cab7f10c47fe",
+    "size_bytes": 119471
+  },
+  "data/reference/polling_338_historical/riding_1043_w20230529.html": {
+    "sha256": "0a9f4b6579acc9b518ac749c5be2b4a09ec37a2a7c4ad119939dccf8dbf599c8",
+    "size_bytes": 144146
+  },
+  "data/reference/polling_338_historical/riding_1044_w20230529.html": {
+    "sha256": "42649a6eccc75d249e3e0f99241e170307cdcb1cc79a0c9958e560b1feb9faad",
+    "size_bytes": 145162
+  },
+  "data/reference/polling_338_historical/riding_1045_w20230529.html": {
+    "sha256": "2be99355fa4b3e3a7ccea3cf5e5ab0617f1847421d87daca3558d3dfe50b05bc",
+    "size_bytes": 141161
+  },
+  "data/reference/polling_338_historical/riding_1046_w20230529.html": {
+    "sha256": "20497f500aba40dc010b14db38feedd1b399b4e95b8bbd1aa15070da26ac729d",
+    "size_bytes": 138932
+  },
+  "data/reference/polling_338_historical/riding_1047_w20230529.html": {
+    "sha256": "193bda1bb4a875b16ac3cf27483471935ff967e84acfe8611c2d357ce4242be5",
+    "size_bytes": 145769
+  },
+  "data/reference/polling_338_historical/riding_1048_w20230529.html": {
+    "sha256": "35e4f54ce60e285f4d00ee374e4024f8ab61b06bb20846539fb149bb5b4157ee",
+    "size_bytes": 144104
+  },
+  "data/reference/polling_338_historical/riding_1049_w20230529.html": {
+    "sha256": "257037bbc01bdbbd03dd7d62c0f5c20ba63e6993a64d02e0e8a641dc46f8c9e8",
+    "size_bytes": 145693
+  },
+  "data/reference/polling_338_historical/riding_1050_w20230529.html": {
+    "sha256": "91ab916761bf492f47820d0dd29ed0169d1db34d9de70c58b1e9998531fd1f4e",
+    "size_bytes": 137337
+  },
+  "data/reference/polling_338_historical/riding_1052_w20230529.html": {
+    "sha256": "63215ccfda8e94085ce1208338b2856c186162fd9bbb930938fc561704497151",
+    "size_bytes": 144474
+  },
+  "data/reference/polling_338_historical/riding_1053_w20230529.html": {
+    "sha256": "0d137d00f567a4fadcfe750a7346206e4049f603c08648fa227e36dab0aba4aa",
+    "size_bytes": 143921
+  },
+  "data/reference/polling_338_historical/riding_1055_w20230529.html": {
+    "sha256": "7b0e435a4e927c9bbfbb4738ac134cf7507f94c0219819a4af269c268e0dae14",
+    "size_bytes": 140335
+  },
+  "data/reference/polling_338_historical/riding_1056_w20230529.html": {
+    "sha256": "0e7812c9218978c974747d75e8eb55b7c451f395c8c638304fd7cbf76b04df18",
+    "size_bytes": 136027
+  },
+  "data/reference/polling_338_historical/riding_1057_w20230529.html": {
+    "sha256": "abce692c5197a3f9015add70be603ed3f423209c2c87d81ac6e6aaddd020f49d",
+    "size_bytes": 139762
+  },
+  "data/reference/polling_338_historical/riding_1058_w20230529.html": {
+    "sha256": "c87191ce583a143277fcbc73bcb970ec4491157987b976eef36eb1e1959f5779",
+    "size_bytes": 145676
+  },
+  "data/reference/polling_338_historical/riding_1060_w20230529.html": {
+    "sha256": "e33061f8ee5e0ba7664f0f7636c446f69b6ae37d2eac52e17cf484c72491826a",
+    "size_bytes": 135937
+  },
+  "data/reference/polling_338_historical/riding_1061_w20230529.html": {
+    "sha256": "24dc712a3e686de9856f236a0a79305f7c64eb6490fd5dbc61af5d0c680e595e",
+    "size_bytes": 148952
+  },
+  "data/reference/polling_338_historical/riding_1062_w20230529.html": {
+    "sha256": "c5986cd25d015e0a9b5299df437dbaadc3db32c3c18a5ca557cf18cc2fe86fb8",
+    "size_bytes": 148050
+  },
+  "data/reference/polling_338_historical/riding_1063_w20230529.html": {
+    "sha256": "608792440b8317cac91a896c9fd495869ea17e22a22f5f773b04a73cf3de666b",
+    "size_bytes": 140022
+  },
+  "data/reference/polling_338_historical/riding_1064_w20230529.html": {
+    "sha256": "967efdc1e4dd246e84cfbe258a4bdcab9f0a279c11facd5ba8648c3d95e63365",
+    "size_bytes": 136682
+  },
+  "data/reference/polling_338_historical/riding_1065_w20230529.html": {
+    "sha256": "03859992976f7c45d8023afbce3c3e2392253fe2efc69060518e32b29f134ab2",
+    "size_bytes": 141558
+  },
+  "data/reference/polling_338_historical/riding_1066_w20230529.html": {
+    "sha256": "36b7d42d3961a151ac5c0e0216e4b9924ae82b7dd2c8643a0beb0daf9a035b18",
+    "size_bytes": 145749
+  },
+  "data/reference/polling_338_historical/stability_table.csv": {
+    "sha256": "154d20c1134271bb508460d6edc2dddb278bd9db577626723f2f43180dd4a634",
+    "size_bytes": 323
+  },
+  "data/reference/polling_338_historical/uniform_swing_stability.csv": {
+    "sha256": "75900ec9754d1b8312c980cc1cd8a5fe683ce1985677e0fe0b945bf8a1374fac",
+    "size_bytes": 4547
+  },
+  "data/shapefiles/canonical/ea_majority_2026_eds.gpkg": {
+    "sha256": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160",
+    "size_bytes": 4882432
+  },
+  "data/shapefiles/canonical/ea_minority_2026_eds.gpkg": {
+    "sha256": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897",
+    "size_bytes": 4907008
+  },
+  "data/shapefiles/derived/DEPRECATED.md": {
+    "sha256": "c04fb3ed1600aa20eda8823c9c2153035ac992d40391f837c79be71e5a5b96d2",
+    "size_bytes": 1662
+  },
+  "data/shapefiles/derived/README.md": {
+    "sha256": "ca7dd7d3f12dbb9db79fa096b66a690d3892fdf82e882c414632566ba4579e73",
+    "size_bytes": 2460
+  },
+  "data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg": {
+    "sha256": "174de29dbbfd7522ee5225316f37a7e6f6f806be668222fda4f5df2ccba67d52",
+    "size_bytes": 9895936
+  },
+  "data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg": {
+    "sha256": "3ddd8ae59361a9a75c4be9bc5aa166fc1b8939830925736bca4f309acaf82e0a",
+    "size_bytes": 10850304
+  },
+  "data/shapefiles/derived/v0_9_topological_majority_2026_eds.gpkg": {
+    "sha256": "7233b131d3e5b6186722f8c18dd7bb822b749c33fd2bc6ffce07ea134026d3cb",
+    "size_bytes": 9900032
+  },
+  "data/shapefiles/derived/v0_9_topological_minority_2026_eds.gpkg": {
+    "sha256": "a1ecd1a096c2cd86191929cb7840b00d592944a18d54ea8699185b916b5db391",
+    "size_bytes": 10850304
+  },
+  "data/shapefiles/derived/v11_majority_2026_eds.gpkg": {
+    "sha256": "32f01c9f802863c6abe4d2895faba40efba574805c623c3756832d714a5c143f",
+    "size_bytes": 4448256
+  },
+  "data/shapefiles/derived/v11_minority_2026_eds.gpkg": {
+    "sha256": "4ff7a71d0ad9b00a4427cdc73d42b605401cb7d24502d6b595b519f1fc5fe4ed",
+    "size_bytes": 4653056
+  },
+  "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg": {
+    "sha256": "6505b9f6c71bacb473dba58a6a9ced9ff0bf882ac6631fd424855c5c301d342b",
+    "size_bytes": 22016000
+  },
+  "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg": {
+    "sha256": "0ca9d3995db011bb66021392b305c781c870e287a48097654aceca7ff2f9ab4c",
+    "size_bytes": 22147072
+  },
+  "data/shapefiles/reference/alberta_2021_csds.gpkg": {
+    "sha256": "7ee3356b6e5c828db1e016cd96f101bfd0cbc67d8b3f87e429f2316430a4d840",
+    "size_bytes": 5545984
+  },
+  "data/shapefiles/reference/alberta_2021_das.gpkg": {
+    "sha256": "2c6996b6af8af4ab97235bf7936fba547f35d4959a022771a8d07de8502a8efc",
+    "size_bytes": 16269312
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.cpg": {
+    "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+    "size_bytes": 5
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.dbf": {
+    "sha256": "7e19c496348872b9d434033c77f0c332bbc54130a0dceff40f8b98766f682035",
+    "size_bytes": 17777
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.prj": {
+    "sha256": "747c3ec6c14ce59a430c42b7051efda2e4bd6935eb0512d5441a8bdbc16a2853",
+    "size_bytes": 425
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.sbn": {
+    "sha256": "94d411f6d805c7b058f9b5883cb10943a1c1f3a47086333696f3390fcb96007e",
+    "size_bytes": 940
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.sbx": {
+    "sha256": "98976f20b11fb8727d5d1ccfa47d97ab5e29f8a2cdc1388c4e56254ec6b63114",
+    "size_bytes": 156
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp": {
+    "sha256": "89d0393f8046fe9178f630012fbf4a68718e898f538523554e211fc8dae526a4",
+    "size_bytes": 4249332
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp.xml": {
+    "sha256": "0953bea5ca3935c92eba733d172dbb2344249a5a26bf9a5b055432524769cecf",
+    "size_bytes": 15131
+  },
+  "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shx": {
+    "sha256": "d49e8f57d6ce9d57cf3c34286efc994a5fdeaa5c1ca628bd10357ad283c7b020",
+    "size_bytes": 796
+  },
+  "data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.cpg": {
+    "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+    "size_bytes": 5
+  },
+  "data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.dbf": {
+    "sha256": "debf11b9915758dd61021738bdd63a37c55cd9f5bc2c6d11904e5a083882c03a",
+    "size_bytes": 324182
+  },
+  "data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.prj": {
+    "sha256": "4fdb30058b0815d600dcea63a322227a738833ddd22d8974880487e5b9b51673",
+    "size_bytes": 428
+  },
+  "data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.shp": {
+    "sha256": "4799c25a3f9edd9538a1ef79550f2067f9df0a0f877de1ef23fa42d11cf3010f",
+    "size_bytes": 18796588
+  },
+  "data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.shx": {
+    "sha256": "b8c0f73f920c2af64a547e7c75bba19a519bc860b050b4d9b64624716f47c3bf",
+    "size_bytes": 38220
+  }
+}
