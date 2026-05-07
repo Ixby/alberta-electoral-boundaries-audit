@@ -93,7 +93,10 @@ PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_canonical.csv"
 CONVERGENCE_JSON = DATA / "simulation_convergence_diagnostics_canonical.json"
 CHECKPOINT_DIR  = DATA / "simulation_checkpoints_canonical"
 
-METRIC_KEYS = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
+METRIC_KEYS = [
+    "efficiency_gap", "mean_median", "declination", "seats_at_50_50",
+    "population_mad", "reock_proxy_median", "reock_proxy_pct_below_030",
+]
 
 
 def _run_chain_chunked(args):

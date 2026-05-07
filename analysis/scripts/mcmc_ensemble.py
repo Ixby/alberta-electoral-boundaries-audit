@@ -264,6 +264,9 @@ def build_va_graph(verbose: bool = True):
         n["va_other"] = float(row["va_other"])
         n["pop_2021"] = float(row["pop_2021"])
         n["total_votes"] = float(row["total_votes"])
+        n["centroid_x"] = float(row.geometry.centroid.x)
+        n["centroid_y"] = float(row.geometry.centroid.y)
+        n["va_area"] = float(row.geometry.area)
 
     return va, graph
 
@@ -340,6 +343,33 @@ def score_exogenous_map(
         else 0.0
     )
     metrics["source"] = str(proposed_gpkg.name)
+
+    # Population MAD and Reock proxy — same formulas as run_ensemble.
+    _va_cx   = va.geometry.centroid.x
+    _va_cy   = va.geometry.centroid.y
+    _va_area = va.geometry.area
+    _va_pop  = va["pop_2021"] if "pop_2021" in va.columns else pd.Series(0.0, index=va.index)
+    _geom = pd.DataFrame({
+        id_col:  covered[id_col].values,
+        "cx":    _va_cx.loc[covered.index].values,
+        "cy":    _va_cy.loc[covered.index].values,
+        "area":  _va_area.loc[covered.index].values,
+        "pop":   _va_pop.loc[covered.index].values,
+    }, index=covered.index)
+    _pop_by_ed = _geom.groupby(id_col)["pop"].sum().values
+    metrics["population_mad"] = float(
+        np.median(np.abs(_pop_by_ed - np.median(_pop_by_ed)))
+    )
+    _reock = []
+    for _, _grp in _geom.groupby(id_col):
+        _span = np.hypot(_grp["cx"].max() - _grp["cx"].min(),
+                         _grp["cy"].max() - _grp["cy"].min())
+        _r = max(float(_span) * 0.5, 1.0)
+        _reock.append(_grp["area"].sum() / (np.pi * _r ** 2))
+    _reock_arr = np.array(_reock)
+    metrics["reock_proxy_median"]        = float(np.median(_reock_arr))
+    metrics["reock_proxy_pct_below_030"] = float(np.mean(_reock_arr < 0.30))
+
     return metrics
 
 
@@ -497,6 +527,16 @@ def run_ensemble(
         total_steps=n_steps,
     )
 
+    # Precompute VA centroid/area arrays indexed by node id for Reock proxy.
+    _n_nodes = graph.number_of_nodes()
+    _cx   = np.zeros(_n_nodes)
+    _cy   = np.zeros(_n_nodes)
+    _area = np.zeros(_n_nodes)
+    for _nid, _nd in graph.nodes(data=True):
+        _cx[int(_nid)]   = _nd.get("centroid_x", 0.0)
+        _cy[int(_nid)]   = _nd.get("centroid_y", 0.0)
+        _area[int(_nid)] = _nd.get("va_area", 0.0)
+
     rows = []
     t0 = time.time()
     last_report = t0
@@ -513,6 +553,25 @@ def run_ensemble(
         ndp = np.array(ndp_list, dtype=float)
         m = seat_results(ucp, ndp)
         m["step"] = i
+
+        # Population MAD across districts.
+        pop_arr = np.array([part["population"][k] for k in keys], dtype=float)
+        m["population_mad"] = float(np.median(np.abs(pop_arr - np.median(pop_arr))))
+
+        # Reock proxy: area / min-enclosing-circle area, where circle radius is
+        # approximated as half the diagonal of the VA-centroid bounding box per ED.
+        _reock = []
+        for ed_id in keys:
+            _ids = np.array(list(part.parts[ed_id]), dtype=int)
+            _ecx, _ecy = _cx[_ids], _cy[_ids]
+            _ed_area = _area[_ids].sum()
+            _span = np.hypot(_ecx.max() - _ecx.min(), _ecy.max() - _ecy.min())
+            _r = max(_span * 0.5, 1.0)  # 1 m floor avoids division by zero
+            _reock.append(_ed_area / (np.pi * _r ** 2))
+        _reock_arr = np.array(_reock)
+        m["reock_proxy_median"]       = float(np.median(_reock_arr))
+        m["reock_proxy_pct_below_030"] = float(np.mean(_reock_arr < 0.30))
+
         rows.append(m)
         final_partition = part
         if verbose and time.time() - last_report > 10:

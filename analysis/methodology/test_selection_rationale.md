@@ -59,6 +59,7 @@ Five families of tests, each answering a different question. The ladder below sh
 | D8 | Copyright / fair dealing | Copyright Act s. 29.1 |
 | D9 | PII / confidentiality | no PII |
 | D10 | Time-stamped falsifiable claims | OSF pre-registration + git log |
+| D11 | Public submission sentiment analysis | Empirically tests Chair's 'unasked-for' claim (3 false, 3 true, 1 ambiguous). See `claim_significance_analysis.md`. | `submission_ocr_analyze.py` |
 
 ### Forensic Signature tests (§5.3)
 
@@ -104,7 +105,6 @@ Community-of-interest is the hardest Canadian-charter criterion to operationalis
 | **Bayesian posterior updating** (hierarchical model on districts) | Would require specifying priors. The audit's approach is frequentist-adjacent (consistency-across-metrics) + pre-registered, which is more legally defensible than a Bayesian frame where the prior itself is contestable. |
 | **Per-ED vote-prediction models** (Random Forest on demographic covariates) | Overfits on n=87 districts. Would introduce predictions as data into a prediction-based assessment — circular. |
 | **Redistricting-alternatives MCMC at 2026 seed** (seeded on the commission's own geometry rather than 2019) | **UNBLOCKED**. Elections Alberta data disclosure satisfied. Official 2026 shapefiles are now available, and the 2026-seeded ensemble is fully executable. |
-| **Natural-language sentiment analysis on public submissions** | Out of scope for the empirical audit; potentially a follow-up for the policy paper (Issue #12). |
 | **Voter-file-level analysis** (individual voter records) | Not publicly available in Canada; privacy-blocked. |
 | **Historical comparison with 2010, 2017 Alberta commission maps** | Tier-B comparison structurally (different statutory bases, different data vintages). Cross-election rural baseline (§3.3) is the reduced-form version. |
 
@@ -152,6 +152,11 @@ For each B-family test a hostile reviewer can mount a specific attack. Each has 
 
 - **Attack.** "You traced the commission's maps from 600-DPI thumbnails. Your polygons are wrong."
 - **Defense.** **MOOT.** This vulnerability is entirely resolved. With the voluntary data disclosure by Elections Alberta, the audit now possesses the official 2026 shapefiles. The entire analytical pipeline—including compactness metrics, population consistency, and vote attribution—is now executed directly against the true commission geometries rather than the earlier topological traces. Furthermore, spatial validation testing against the official shapefiles proved our original traces achieved "five nines" accuracy (a 99.9994% topological area match, with only 3.6 sq km of variance across the entire 662,500 sq km province). This effectively eliminates any residual geographic critique against our B-family partisan bias calculations (EG, Mean-Median); the 3.6 sq km discrepancy falls almost entirely on unpopulated road allowances and rivers, meaning our geometric reconstruction had a functionally zero-variance impact on vote distribution.
+
+### D11 Public submission sentiment analysis
+
+- **Attack.** "The chair explicitly stated in Appendix C that the minority created 'districts no one asked for'. Evaluating this requires subjective sentiment analysis."
+- **Defense.** The audit operationalizes this by running explicit keyword heuristics (support / oppose / against / recommend) across the fully OCR'd public submission dataset (`submission_ocr_analyze.py`). Rather than a subjective reading, the analysis mathematically tiers the chair's claim across seven configurations. The results (`claim_significance_analysis.md`) demonstrate the chair's sweeping claim was materially overbroad in 3 cases, accurate in 3 cases, and ambiguous in 1. By reporting these precise tiers, the audit defends against partisan flattenings ("the chair lied" vs. "the chair was completely right").
 
 ### Cross-election sign reversal
 
