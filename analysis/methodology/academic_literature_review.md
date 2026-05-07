@@ -218,6 +218,34 @@ and the label-shuffle null distribution are new analytical contributions. Result
 
 ---
 
+## 9b. Swing-Zone Allocation Test (SZAT) — Novel Decomposition
+
+### Prior literature
+
+SZAT decomposes the between-map efficiency-gap difference into the specific boundary choices (swing zones) that drive it. No established test performs this decomposition directly; the closest prior work is:
+
+- **Stephanopoulos & McGhee (2015)** — EG at the whole-map level; does not decompose to individual boundary decisions.
+- **Chen & Rodden (2013)** — decomposes EG into geography vs. drawing at the map level using an ensemble median; does not decompose to individual VA-boundary choices.
+- **Altman & McDonald (2011).** "BARD: Better Automated Redistricting." *Journal of Statistical Software* 42(4): 1–28. — simulation-based comparison of map alternatives; does not identify which specific boundaries drive partisan differences.
+
+SZAT asks a different question from all of these: not "is the map anomalous compared to neutral draws?" but "which of the specific boundary decisions that differ between two real proposed maps are responsible for the between-map partisan-efficiency gap?"
+
+### SZAT contribution
+
+**"Swing-Zone Allocation Test"** (SZAT) is introduced in this audit (AsPredicted registration pending; preliminary run 2026-05-06). A swing zone is a Voting Area whose centroid falls in a different Electoral Division under Map A than Map B. SZAT score = EG(A) − EG(B) summed over swing zones only, tested against a permutation null in which each swing zone is randomly assigned to either map's configuration. The test is generalizable to any pair of maps covering the same geography.
+
+Applied to the 2026 Alberta commission proposals against canonical Elections Alberta shapefiles: SZAT score = +0.039165 (p < 0.0001, two-tailed bootstrap, N = 10,000). The minority map's boundary choices increase NDP vote waste by 3.9 percentage points relative to the majority map, with the dominant contribution from Rest of Alberta (+0.015) and Edmonton (+0.008). Full methodology: `analysis/methodology/szat_proposal.md`. Results: `analysis/reports/szat_summary.json`.
+
+**Generalisation note (documented for future work):** The majority-vs-minority framing is natural for this audit, but the same test applies to any proposed map against the current enacted baseline. Comparing proposed-vs-2019 would test whether a new map's specific boundary changes improve or worsen efficiency relative to the prior plan — potentially more useful to courts and commissions than a between-proposals comparison.
+
+### SZAT citations for publication
+
+- Stephanopoulos & McGhee (2015) — EG framework the decomposition lives on
+- Chen & Rodden (2013) — geography-vs-drawing decomposition (SZAT is the boundary-choice-level complement)
+- State: "the decomposition of between-map EG differences to individual Voting Area boundary choices, and its permutation test, are novel to this audit"
+
+---
+
 ## 10. Pre-Registration and Open Science in Electoral Forensics
 
 ### Motivation

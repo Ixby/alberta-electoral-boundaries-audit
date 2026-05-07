@@ -791,6 +791,43 @@ Four additional partisan-bias metrics were computed against v0_7 DPG boundaries 
 
 **Responsiveness.** The minority map has nearly double the responsiveness of the majority (1.41 vs 0.76 seats per 1 % swing). Under the majority, vote swings translate to fewer seat changes; under the minority, they translate to more. Higher responsiveness is often considered a democratic virtue but also implies the minority map would produce large swings in UCP-held seats if NDP vote share improves modestly — a feature consistent with a map drawn to maximise NDP seat gains under a favourable election, not to entrench UCP dominance. Full output at `data/extended_partisan_metrics.json`; report at `analysis/reports/extended_partisan_metrics.md`.
 
+#### 5.2.10 Swing-Zone Allocation Test (SZAT) — boundary-choice efficiency decomposition
+
+**What SZAT measures.** The partisan-bias metrics in §5.2.1–5.2.9 ask whether a map as a whole is an outlier. SZAT asks a finer question: of the ~2,100 Voting Areas assigned to *different* Electoral Divisions under the minority map versus the majority map (swing zones), do the minority's boundary choices systematically shift partisan vote efficiency in one direction?
+
+**Method.** Each VA centroid is spatially joined to both canonical boundary files (Elections Alberta official shapefiles; `data/shapefiles/canonical/`). The efficiency gap is computed under each map's spatial assignment using 2023 election-day VA vote totals. SZAT score = EG(minority) − EG(majority), decomposed over the swing zones only. A 10,000-permutation bootstrap tests whether the minority's specific allocation of swing-zone VAs is partisan-neutral; seed `get_canonical_seed("szat-bootstrap")` anchored to drand round 5,500,000 (pre-committed at `d2aea42`). Full methodology: `analysis/methodology/szat_proposal.md`. Script: `analysis/scripts/szat.py`.
+
+**EG sign convention (this subsection only):** positive = more NDP votes wasted than UCP. Note: EG numbers here are not directly comparable to §5.2.1 values, which use DPG-derived geometry and full-attribution vote totals; SZAT uses canonical EA geometry and election-day-only votes.
+
+**Results.**
+
+| | Value |
+| --- | --- |
+| EG majority (canonical EA geometry, election-day votes) | +0.000828 |
+| EG minority (canonical EA geometry, election-day votes) | +0.039993 |
+| SZAT score (minority − majority) | **+0.039165** |
+| Bootstrap p-value (two-tailed, 10,000 permutations) | **< 0.0001** |
+| Bootstrap null 95% interval | [+0.0080, +0.0134] |
+| Observed score vs null upper bound | **2.9× outside** |
+
+The minority map's specific boundary choices — the swing-zone allocations — produce a 3.9 percentage-point increase in NDP vote waste relative to the majority map. The null interval spans [+0.008, +0.013]; the observed +0.039 is far outside it.
+
+**Regional decomposition (swing zones only):**
+
+| Region | SZAT contribution |
+| --- | --- |
+| Rest of Alberta | +0.01489 |
+| Edmonton | +0.00838 |
+| Mountain-West | +0.00596 |
+| Calgary | −0.00784 |
+| Canmore / RMH focal EDs (Canmore-Banff, Canmore-Kananaskis, RMH-Banff Park) | +0.00629 |
+
+The dominant contributor is Rest of Alberta (+0.015), with Edmonton second (+0.008). Calgary swing zones run in the opposite direction (−0.008), partially offsetting. The Canmore/RMH boundary choices that motivated this test contribute +0.006 — meaningful, but not the primary driver of the overall score.
+
+**Interpretation.** The minority map's boundary choices, in aggregate, reallocate swing-zone voters in a way that systematically increases NDP vote waste. The effect is distributed across the province rather than concentrated in one region, which is consistent with a map-wide drawing strategy rather than a single engineered boundary. SZAT does not replace the MCMC ensemble (which tests the whole map against neutral draws) but supplements it: the ensemble tests whether the map is anomalous; SZAT identifies which specific boundary decisions drive the between-map difference.
+
+**Pre-registration disclosure.** The SZAT bootstrap null was registered at AsPredicted after a preliminary pipeline run confirmed the methodology worked (2026-05-06). The drand seed was pre-committed at `d2aea42` before any simulation results, but the specific numerical results were known to the analyst at the time of filing. This is disclosed here and in the pre-registration record (`analysis/methodology/szat_prereg_draft.md`). Results should be treated as exploratory pending independent replication.
+
 ---
 
 ### 5.3 Signature detection
@@ -1207,7 +1244,7 @@ Full majority panel coverage across all eight Appendix A panels was extracted in
 Four boundaries were flagged by name in the majority report's response section. Direct inspection results:
 
 - **Calgary-Nolan Hill-Cochrane (minority):** **Confirmed.** A district that reaches from Cochrane (outside Calgary's western boundary) eastward through a narrow-waisted corridor to Calgary's Nolan Hill neighborhood, skipping Rocky Ridge / Tuscany.
-- **Rocky Mountain House-Banff Park (minority):** **Confirmed.** SW extension of the district traces Banff National Park to reach the BC border. Absent the extension, the district fails s.15(2) criteria (a) and (e).
+- **Rocky Mountain House-Banff Park (minority):** **Confirmed.** SW extension of the district traces Banff National Park to reach the BC border. Absent the extension, the district still meets 4 of 5 §15(2) criteria on the predecessor footprint (Clearwater County alone satisfies (a) at 18,692 km²; (b), (c), (d) all pass without NP territory); the extension adds only criterion (e) — the BC-border coterminous test. See §5.1.4 re-audit.
 - **Olds-Three Hills-Didsbury (minority):** **Confirmed.** Named for three small towns; extends south past Didsbury to capture a portion of N Airdrie. Airdrie has a population greater than the three named towns combined.
 - **Calgary-Foothills-Airdrie West (minority):** Boundary connection between Calgary-Foothills and Airdrie West tracks a primary highway corridor; the geographic connection itself is defensible, but this ED is one of four making up the Airdrie split (C4).
 

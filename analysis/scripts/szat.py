@@ -1,0 +1,366 @@
+"""
+szat.py — Swing-Zone Allocation Test
+
+Decomposes the efficiency-gap difference between the minority and majority
+2026 Alberta Electoral Boundary Commission maps into the specific boundary
+choices (swing zones) that drive it.
+
+A swing zone is a Voting Area whose centroid falls in a different ED under
+the minority map than under the majority map. Only the 2026 canonical
+Elections Alberta shapefiles are used; all DPG-derived shapefiles are
+deprecated as of 2026-05-06.
+
+Methodology: analysis/methodology/szat_proposal.md
+
+Inputs
+------
+data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+data/shapefiles/canonical/ea_minority_2026_eds.gpkg
+data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
+
+Outputs
+-------
+analysis/reports/szat_results.csv      — per-VA swing-zone table
+analysis/reports/szat_summary.json     — map-level summary + bootstrap
+
+EG sign convention (McGhee / Stephanopoulos 2015, U. Chi. L. Rev. 82(2)):
+  positive EG = more NDP votes wasted than UCP (UCP structural advantage)
+  negative EG = more UCP votes wasted than NDP (NDP structural advantage)
+  SZAT_score = EG_minority − EG_majority
+    positive SZAT = minority map's swing-zone choices worsen NDP efficiency
+    negative SZAT = minority map's swing-zone choices improve NDP efficiency
+
+Bootstrap seed: get_canonical_seed("szat-bootstrap") from drand_seed.py.
+Fallback seed 20260506 used if drand_seed is unavailable.
+
+Backward dependencies:
+  data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_minority_2026_eds.gpkg
+  data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
+  analysis/scripts/drand_seed.py
+
+Forward dependencies:
+  analysis/reports/szat_results.csv
+  analysis/reports/szat_summary.json
+"""
+
+from __future__ import annotations
+
+import json
+import sys
+import warnings
+from pathlib import Path
+
+import geopandas as gpd
+import numpy as np
+import pandas as pd
+
+warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+
+ROOT    = Path(__file__).resolve().parent.parent.parent
+DATA    = ROOT / "data"
+REPORTS = ROOT / "analysis" / "reports"
+REPORTS.mkdir(parents=True, exist_ok=True)
+
+VA_FILE  = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
+MAJ_FILE = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
+MIN_FILE = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
+OUT_CSV  = REPORTS / "szat_results.csv"
+OUT_JSON = REPORTS / "szat_summary.json"
+
+N_BOOT = 10_000
+
+# EDs whose swing-zone contributions are reported individually in the summary
+# because they motivated this test (s15_2_reaudit.md §1.3).
+FOCAL_EDS = {
+    "Canmore-Banff",
+    "Canmore-Kananaskis",
+    "Rocky Mountain House-Banff Park",
+}
+
+
+# ── Region classifier ──────────────────────────────────────────────────────────
+
+def _region(ed_name: str) -> str:
+    if ed_name.startswith(("Calgary-", "Calgary–")):
+        return "Calgary"
+    if ed_name.startswith(("Edmonton-", "Edmonton–")):
+        return "Edmonton"
+    if ed_name in {
+        "Canmore-Banff", "Canmore-Kananaskis", "Rocky Mountain House-Banff Park",
+        "Lacombe-Clearwater", "Rimbey-Rocky Mountain House-Sundre",
+        "Banff-Kananaskis",
+    }:
+        return "Mountain-West"
+    return "Rest of Alberta"
+
+
+# ── Efficiency gap helpers ─────────────────────────────────────────────────────
+
+def _ed_waste(ndp: float, ucp: float) -> tuple[float, float]:
+    """
+    Wasted votes for one ED (continuous threshold = total / 2).
+    Returns (wasted_ndp, wasted_ucp).
+    """
+    total = ndp + ucp
+    if total == 0:
+        return 0.0, 0.0
+    threshold = total / 2
+    if ndp >= ucp:
+        return max(0.0, ndp - threshold), ucp
+    return ndp, max(0.0, ucp - threshold)
+
+
+def compute_eg(ed_votes: pd.DataFrame) -> float:
+    """
+    Map-level efficiency gap from an ED-level vote totals DataFrame
+    with columns {ed_name, ndp, ucp}.
+    """
+    total_prov = (ed_votes["ndp"] + ed_votes["ucp"]).sum()
+    if total_prov == 0:
+        return 0.0
+    wn = wu = 0.0
+    for _, row in ed_votes.iterrows():
+        dn, du = _ed_waste(row["ndp"], row["ucp"])
+        wn += dn
+        wu += du
+    return (wn - wu) / total_prov
+
+
+def va_eg_contribution(
+    va_ndp: float,
+    va_ucp: float,
+    ed_ndp: float,
+    ed_ucp: float,
+    total_prov: float,
+) -> float:
+    """
+    Proportional EG contribution of a single VA to its assigned ED.
+
+    Winner's wasted votes are allocated proportionally across VAs in that
+    ED (each VA contributed va_winner / ed_winner fraction of the winners'
+    total); all loser votes in the VA are fully wasted.
+    """
+    if total_prov == 0 or (ed_ndp + ed_ucp) == 0:
+        return 0.0
+
+    ed_total = ed_ndp + ed_ucp
+    threshold = ed_total / 2
+
+    if ed_ndp >= ed_ucp:  # NDP wins this ED
+        w_ndp = (va_ndp / ed_ndp) * max(0.0, ed_ndp - threshold) if ed_ndp > 0 else 0.0
+        w_ucp = va_ucp
+    else:                 # UCP wins this ED
+        w_ucp = (va_ucp / ed_ucp) * max(0.0, ed_ucp - threshold) if ed_ucp > 0 else 0.0
+        w_ndp = va_ndp
+
+    return (w_ndp - w_ucp) / total_prov
+
+
+# ── Spatial join ───────────────────────────────────────────────────────────────
+
+def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
+    """
+    Centroid-in-polygon assignment of VAs to EDs.
+    Falls back to nearest-ED for centroids that fall outside all EDs
+    (topology gaps, boundary slivers).
+    Returns a Series indexed like va_gdf with EDName2025 values.
+    """
+    centroids = va_gdf[["geometry"]].copy()
+    centroids["geometry"] = va_gdf.geometry.centroid
+
+    joined = gpd.sjoin(centroids, ed_gdf[["EDName2025", "geometry"]],
+                       how="left", predicate="within")
+
+    unresolved_mask = joined["EDName2025"].isna()
+    n_unresolved = int(unresolved_mask.sum())
+
+    if n_unresolved > 0:
+        nearest = gpd.sjoin_nearest(
+            centroids.loc[unresolved_mask.values],
+            ed_gdf[["EDName2025", "geometry"]],
+            how="left",
+        )
+        joined.loc[unresolved_mask.values, "EDName2025"] = nearest["EDName2025"].values
+        print(f"    Nearest-ED fallback applied to {n_unresolved} centroids")
+
+    return joined["EDName2025"]
+
+
+# ── Main ───────────────────────────────────────────────────────────────────────
+
+def run() -> None:
+    print("Loading shapefiles...")
+    va_gdf  = gpd.read_file(VA_FILE)
+    maj_gdf = gpd.read_file(MAJ_FILE)
+    min_gdf = gpd.read_file(MIN_FILE)
+
+    for gdf in (maj_gdf, min_gdf):
+        if gdf.crs != va_gdf.crs:
+            gdf.to_crs(va_gdf.crs, inplace=True)
+
+    print(f"  VAs: {len(va_gdf)}, majority EDs: {len(maj_gdf)}, minority EDs: {len(min_gdf)}")
+
+    print("Assigning VA centroids -> majority EDs...")
+    majority_ed = _assign(va_gdf, maj_gdf)
+    print("Assigning VA centroids -> minority EDs...")
+    minority_ed = _assign(va_gdf, min_gdf)
+
+    unresolved = int(majority_ed.isna().sum() + minority_ed.isna().sum())
+
+    va = pd.DataFrame({
+        "va_id":          va_gdf["ED_NAME"].astype(str) + "|" + va_gdf["VA_NUMBER"].astype(str),
+        "parent_ed_2019": va_gdf["ED_NAME"].astype(str),
+        "va_ndp":         va_gdf["va_ndp"].fillna(0.0).astype(float),
+        "va_ucp":         va_gdf["va_ucp"].fillna(0.0).astype(float),
+        "va_other":       va_gdf["va_other"].fillna(0.0).astype(float),
+        "majority_ed":    majority_ed.values,
+        "minority_ed":    minority_ed.values,
+    })
+
+    va = va.dropna(subset=["majority_ed", "minority_ed"])
+    va["is_swing"] = va["majority_ed"] != va["minority_ed"]
+
+    n_swing = int(va["is_swing"].sum())
+    print(f"  Swing zones: {n_swing} / {len(va)}")
+
+    # Provincial vote totals (NDP + UCP only; consistent with EG convention)
+    total_prov = float((va["va_ndp"] + va["va_ucp"]).sum())
+
+    # ── ED-level vote aggregation for each map ─────────────────────────────────
+
+    def _ed_totals(df: pd.DataFrame, ed_col: str) -> pd.DataFrame:
+        g = df.groupby(ed_col, as_index=False).agg(
+            ndp=("va_ndp", "sum"),
+            ucp=("va_ucp", "sum"),
+        )
+        return g.rename(columns={ed_col: "ed_name"})
+
+    maj_totals = _ed_totals(va, "majority_ed")
+    min_totals = _ed_totals(va, "minority_ed")
+
+    eg_maj = compute_eg(maj_totals)
+    eg_min = compute_eg(min_totals)
+    szat_score = eg_min - eg_maj
+
+    print(f"\nEG majority:                 {eg_maj:+.6f}")
+    print(f"EG minority:                 {eg_min:+.6f}")
+    print(f"SZAT score (min - maj):      {szat_score:+.6f}")
+
+    # ── Per-VA EG contributions ────────────────────────────────────────────────
+
+    maj_lookup = maj_totals.set_index("ed_name")[["ndp", "ucp"]].to_dict("index")
+    min_lookup = min_totals.set_index("ed_name")[["ndp", "ucp"]].to_dict("index")
+
+    def _contrib(row: pd.Series, ed_col: str, lookup: dict) -> float:
+        ed = row[ed_col]
+        ed_data = lookup.get(ed, {"ndp": 0.0, "ucp": 0.0})
+        return va_eg_contribution(
+            row["va_ndp"], row["va_ucp"],
+            ed_data["ndp"], ed_data["ucp"],
+            total_prov,
+        )
+
+    va["eg_contrib_majority"] = va.apply(
+        lambda r: _contrib(r, "majority_ed", maj_lookup), axis=1
+    )
+    va["eg_contrib_minority"] = va.apply(
+        lambda r: _contrib(r, "minority_ed", min_lookup), axis=1
+    )
+    va["delta_eg"] = va["eg_contrib_minority"] - va["eg_contrib_majority"]
+    va["region"]   = va["majority_ed"].apply(_region)
+
+    # ── Regional and focal breakdown ───────────────────────────────────────────
+
+    swing_va = va[va["is_swing"]]
+
+    regional: dict[str, float] = {
+        r: float(swing_va.loc[swing_va["region"] == r, "delta_eg"].sum())
+        for r in ("Calgary", "Edmonton", "Rest of Alberta", "Mountain-West")
+    }
+
+    focal_contribution = float(
+        swing_va.loc[
+            swing_va["majority_ed"].isin(FOCAL_EDS) | swing_va["minority_ed"].isin(FOCAL_EDS),
+            "delta_eg",
+        ].sum()
+    )
+
+    print("\nRegional SZAT breakdown (swing zones only):")
+    for region, val in sorted(regional.items()):
+        print(f"  {region:<22} {val:+.6f}")
+    print(f"  {'Canmore/RMH focal EDs':<22} {focal_contribution:+.6f}")
+
+    # ── Bootstrap significance test ────────────────────────────────────────────
+
+    print(f"\nBootstrapping ({N_BOOT:,} permutations)...")
+
+    try:
+        sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+        from drand_seed import get_canonical_seed
+        seed = get_canonical_seed("szat-bootstrap")
+        seed_source = "drand_seed.get_canonical_seed"
+    except Exception:
+        seed = 20260506
+        seed_source = "fallback (drand_seed unavailable)"
+
+    print(f"  Seed: {seed} ({seed_source})")
+
+    rng = np.random.default_rng(seed)
+    swing_deltas = swing_va["delta_eg"].values
+
+    # Null: randomly choose, for each swing zone, whether to apply minority
+    # or majority assignment. SZAT_score under the null = sum of randomly
+    # selected deltas (0 = use majority, delta_eg = use minority).
+    boot_scores = np.array([
+        swing_deltas[rng.random(len(swing_deltas)) < 0.5].sum()
+        for _ in range(N_BOOT)
+    ])
+
+    p_value = float(np.mean(np.abs(boot_scores) >= abs(szat_score)))
+    ci_lo   = float(np.percentile(boot_scores, 2.5))
+    ci_hi   = float(np.percentile(boot_scores, 97.5))
+
+    print(f"  p-value (two-tailed):        {p_value:.4f}")
+    print(f"  Null 95% interval:           [{ci_lo:+.6f}, {ci_hi:+.6f}]")
+    print(f"  Observed SZAT score:         {szat_score:+.6f}")
+
+    # ── Outputs ────────────────────────────────────────────────────────────────
+
+    out = va[[
+        "va_id", "parent_ed_2019", "majority_ed", "minority_ed",
+        "is_swing", "va_ndp", "va_ucp", "va_other",
+        "eg_contrib_majority", "eg_contrib_minority", "delta_eg", "region",
+    ]].copy()
+    out["is_swing"] = out["is_swing"].astype(int)
+    out.to_csv(OUT_CSV, index=False, float_format="%.6f")
+
+    summary = {
+        "szat_score":             round(szat_score, 6),
+        "eg_majority":            round(eg_maj, 6),
+        "eg_minority":            round(eg_min, 6),
+        "swing_zone_count":       n_swing,
+        "total_va_count":         int(len(va)),
+        "unresolved_count":       unresolved,
+        "bootstrap_p_value":      round(p_value, 4),
+        "bootstrap_n":            N_BOOT,
+        "bootstrap_seed":         seed,
+        "bootstrap_ci_95":        [round(ci_lo, 6), round(ci_hi, 6)],
+        "regional_breakdown":     {k: round(v, 6) for k, v in regional.items()},
+        "canmore_rmh_contribution": round(focal_contribution, 6),
+        "canonical_shapefiles": {
+            "majority": str(MAJ_FILE.relative_to(ROOT)),
+            "minority": str(MIN_FILE.relative_to(ROOT)),
+        },
+    }
+    with open(OUT_JSON, "w", encoding="utf-8") as f:
+        json.dump(summary, f, indent=2)
+
+    print(f"\nResults written:")
+    print(f"  {OUT_CSV}")
+    print(f"  {OUT_JSON}")
+
+
+if __name__ == "__main__":
+    run()

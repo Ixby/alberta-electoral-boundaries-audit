@@ -1,0 +1,26 @@
+{
+  "szat_score": 0.039165,
+  "eg_majority": 0.000828,
+  "eg_minority": 0.039993,
+  "swing_zone_count": 2108,
+  "total_va_count": 4765,
+  "unresolved_count": 0,
+  "bootstrap_p_value": 0.0,
+  "bootstrap_n": 10000,
+  "bootstrap_seed": 23687475,
+  "bootstrap_ci_95": [
+    0.008013,
+    0.0134
+  ],
+  "regional_breakdown": {
+    "Calgary": -0.007837,
+    "Edmonton": 0.008382,
+    "Rest of Alberta": 0.014893,
+    "Mountain-West": 0.005956
+  },
+  "canmore_rmh_contribution": 0.006291,
+  "canonical_shapefiles": {
+    "majority": "data\\shapefiles\\canonical\\ea_majority_2026_eds.gpkg",
+    "minority": "data\\shapefiles\\canonical\\ea_minority_2026_eds.gpkg"
+  }
+}
