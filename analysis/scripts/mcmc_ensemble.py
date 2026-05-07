@@ -77,7 +77,7 @@ import matplotlib.pyplot as plt
 
 from gerrychain import Graph, Partition, MarkovChain, constraints, accept, updaters
 from gerrychain.proposals import recom
-from gerrychain.tree import recursive_tree_part
+from gerrychain.tree import recursive_tree_part, bipartition_tree as _bpt_global
 from functools import partial
 
 # ---- paths ------------------------------------------------------------------
@@ -494,12 +494,15 @@ def run_ensemble(
         _rng_state_py = _random.getstate()
         np.random.seed(seed + 999)
         _random.seed(seed + 999)
+        # Use full pop_deviation (not half) so seed generation is tractable across
+        # all chain seeds; the chain constraint also uses pop_deviation, so the
+        # seed is guaranteed to be accepted by the chain.
         new_assignment = recursive_tree_part(
             graph,
             parts=list(range(num_dist)),
             pop_target=ideal_pop,
             pop_col="pop_2021",
-            epsilon=pop_deviation / 2.0,
+            epsilon=pop_deviation,
             node_repeats=5,
             method=_partial(_bpt, max_attempts=50000),
         )
@@ -507,12 +510,17 @@ def run_ensemble(
         _random.setstate(_rng_state_py)
         initial_partition = Partition(graph, new_assignment, my_updaters)
 
+    # allow_pair_reselection=True: when a district pair can't be balanced in
+    # max_attempts, recom catches ReselectException and tries the next pair
+    # instead of crashing.  Required for robust runs on complex geometries.
+    _recom_method = partial(_bpt_global, allow_pair_reselection=True)
     proposal = partial(
         recom,
         pop_col="pop_2021",
         pop_target=ideal_pop_mcmc,
         epsilon=pop_deviation / 2.0,
         node_repeats=2,
+        method=_recom_method,
     )
 
     pop_constraint = constraints.within_percent_of_ideal_population(
