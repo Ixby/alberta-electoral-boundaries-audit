@@ -402,6 +402,7 @@ OSF SZAT registration (submitted 2026-05-07, public):
 - SZAT Bootstrap Null (#289,469): [https://osf.io/6pt83/](https://osf.io/6pt83/)
 
 Git pre-analysis commit: d2aea42 (seeds + drain null script committed before any analysis runs).
+Git publication commit: 299658b (canonical ensemble, SZAT full-recompute, OSF registrations complete — exact script state for all published results). Cite this hash in the public report and academic paper to anchor the reproducibility record.
 
 ### Open Items (updated)
 
