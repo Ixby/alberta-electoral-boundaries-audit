@@ -828,7 +828,7 @@ The dominant contributor is Rest of Alberta (+0.015), with Edmonton second (+0.0
 
 **Interpretation.** The minority map's boundary choices, in aggregate, reallocate swing-zone voters in a way that systematically increases NDP vote waste. The effect is distributed across the province rather than concentrated in one region, which is consistent with a map-wide drawing strategy rather than a single engineered boundary. SZAT does not replace the MCMC ensemble (which tests the whole map against neutral draws) but supplements it: the ensemble tests whether the map is anomalous; SZAT identifies which specific boundary decisions drive the between-map difference.
 
-**Pre-registration disclosure.** The SZAT bootstrap null is pre-registered at AsPredicted [#289,469](https://aspredicted.org/289469.pdf) (filed 2026-05-07). The drand seed was pre-committed at `d2aea42` before any simulation results were generated, but the specific numerical results were known to the analyst at the time of filing — this diverges from the ideal prospective sequence and is disclosed here and in the registration record. Results should be treated as exploratory pending independent replication.
+**Pre-registration disclosure.** The SZAT bootstrap null is pre-registered at AsPredicted [#289,469](https://aspredicted.org/9zr792.pdf) (filed 2026-05-07; made public 2026-05-07). The drand seed was pre-committed at `d2aea42` before any simulation results were generated, but the specific numerical results were known to the analyst at the time of filing — this diverges from the ideal prospective sequence and is disclosed here and in the registration record. Results should be treated as exploratory pending independent replication.
 
 ---
 

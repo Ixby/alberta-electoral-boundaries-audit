@@ -114,7 +114,7 @@ Author Last, First. Year. *Book Title*. Place: Publisher.
 
 **Pre-registration / dataset:**
 Author Last, First. Year. "Title." Platform. URL.
-> Conner, Will. 2026. "Alberta 2026 Electoral Boundary Audit — DPG v11 Validation." AsPredicted #289449. https://aspredicted.org/289449.pdf
+> Conner, Will. 2026. "Alberta 2026 Electoral Boundary Audit — DPG v11 Validation." AsPredicted #289449. https://aspredicted.org/tb9bq3.pdf
 
 ---
 

@@ -377,15 +377,15 @@ These OSF Open-Ended drafts were subsequently deleted and replaced by AsPredicte
 
 ### AsPredicted Pre-registrations (final)
 
-Bundle #1: four registrations on AsPredicted 2026-05-06. Bundle #2: one registration on AsPredicted 2026-05-07. All private until explicitly made public.
+Bundle #1: four registrations on AsPredicted 2026-05-06. Bundle #2: one registration on AsPredicted 2026-05-07. All five made public 2026-05-07.
 
 | # | Title | AsPredicted ID | Status |
 |---|-------|----------------|--------|
-| 1 | DPG v11 Validation: Pre-Registered Thresholds | [#289,449](https://aspredicted.org/289449.pdf) | Valid |
-| 2 | Neighbour-Drain: A Local Pack-Crack Adjacency Metric | [#289,451](https://aspredicted.org/289451.pdf) | Valid |
-| 3 | Phase 2 Lunty Committee Map Forensic Analysis | [#289,452](https://aspredicted.org/289452.pdf) | Superseded — describes a 89-seat minority vs majority comparison that cannot be run (both maps superseded by the upcoming 91-seat Lunty process). Left in bundle for transparency; noted as not-run in audit writeup. |
-| 4 | Alberta 2026 Lunty Commission 91-Seat Map: Pre-Registered Forensic Scorecard | [#289,455](https://aspredicted.org/289455.pdf) | Valid — replaces #289,452 for actual Phase 2 work |
-| 5 | Alberta 2026 EBC: SZAT Partisan Efficiency Bootstrap Null | [#289,469](https://aspredicted.org/289469.pdf) | Valid — results known at filing; seed pre-committed at d2aea42; filed 2026-05-07 |
+| 1 | DPG v11 Validation: Pre-Registered Thresholds | [#289,449](https://aspredicted.org/tb9bq3.pdf) | Valid |
+| 2 | Neighbour-Drain: A Local Pack-Crack Adjacency Metric | [#289,451](https://aspredicted.org/ig73yy.pdf) | Valid |
+| 3 | Phase 2 Lunty Committee Map Forensic Analysis | [#289,452](https://aspredicted.org/u5kr84.pdf) | Superseded — describes a 89-seat minority vs majority comparison that cannot be run (both maps superseded by the upcoming 91-seat Lunty process). Left in bundle for transparency; noted as not-run in audit writeup. |
+| 4 | Alberta 2026 Lunty Commission 91-Seat Map: Pre-Registered Forensic Scorecard | [#289,455](https://aspredicted.org/ib9w4k.pdf) | Valid — replaces #289,452 for actual Phase 2 work |
+| 5 | Alberta 2026 EBC: SZAT Partisan Efficiency Bootstrap Null | [#289,469](https://aspredicted.org/9zr792.pdf) | Valid — results known at filing; seed pre-committed at d2aea42; filed 2026-05-07 |
 
 Schema used: AsPredicted v2.00 (Observational/archival study, "It's complicated" data foreknowledge).
 Bundle #1 bundled: making any one of #1–4 public makes all four public simultaneously.

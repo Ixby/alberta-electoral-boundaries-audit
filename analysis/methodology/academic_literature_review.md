@@ -287,10 +287,10 @@ The closest analog is:
 
 | Registration | AsPredicted | OSF | Status |
 | --- | --- | --- | --- |
-| DPG v11 Validation | [#289,449](https://aspredicted.org/289449.pdf) | [w2s8k](https://osf.io/w2s8k/) | Complete; results in report_academic.md |
-| Neighbour-Drain null | [#289,451](https://aspredicted.org/289451.pdf) | [r3zm7](https://osf.io/r3zm7/) | Registered; v1 adjacency analysis executed; Drain Phase B label-shuffle null pending |
-| ~~89-seat comparison~~ | ~~#289,452~~ | — | Superseded; test unrunnable; noted in writeup |
-| Lunty 91-seat scorecard | [#289,455](https://aspredicted.org/289455.pdf) | [qsgy8](https://osf.io/qsgy8/) | Registered; awaiting map publication |
+| DPG v11 Validation | [#289,449](https://aspredicted.org/tb9bq3.pdf) | [w2s8k](https://osf.io/w2s8k/) | Complete; results in report_academic.md |
+| Neighbour-Drain null | [#289,451](https://aspredicted.org/ig73yy.pdf) | [r3zm7](https://osf.io/r3zm7/) | Complete; minority within null; majority anomalously clean |
+| ~~89-seat comparison~~ | [~~#289,452~~](https://aspredicted.org/u5kr84.pdf) | — | Superseded; test unrunnable; noted in writeup |
+| Lunty 91-seat scorecard | [#289,455](https://aspredicted.org/ib9w4k.pdf) | [qsgy8](https://osf.io/qsgy8/) | Registered; awaiting map publication |
 
 Git pre-analysis commit: `d2aea42` (seeds and analysis scripts committed before any simulation runs).
 
