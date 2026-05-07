@@ -34,6 +34,7 @@ Backward:
   report_academic.md
   analysis/scripts/*.py  (Forward/Backward headers where present)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -1171,8 +1172,16 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.1.1",
         "name": "A1 — Majority 2026 MAD = 3,180",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "population value from commission variance tables"),
-            ("L2:electoral_forensics_population", "required", "computes MAD from commission populations"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "population value from commission variance tables",
+            ),
+            (
+                "L2:electoral_forensics_population",
+                "required",
+                "computes MAD from commission populations",
+            ),
         ],
     },
     {
@@ -1180,8 +1189,16 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.1.1",
         "name": "A1 — Minority 2026 MAD = 4,707 (48% wider than majority)",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "population value from commission variance tables"),
-            ("L2:electoral_forensics_population", "required", "computes MAD from commission populations"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "population value from commission variance tables",
+            ),
+            (
+                "L2:electoral_forensics_population",
+                "required",
+                "computes MAD from commission populations",
+            ),
         ],
     },
     {
@@ -1199,7 +1216,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "A1 — All §5.1 verdicts identical under 2021 census / 2024 OSI / 2025 TBF bases",
         "evidence": [
             ("L0:data.2021_da_populations", "corroborating", "direct 2021 census path"),
-            ("L0:data.tbf_population_estimates", "corroborating", "2025 TBF estimate path"),
+            (
+                "L0:data.tbf_population_estimates",
+                "corroborating",
+                "2025 TBF estimate path",
+            ),
             ("L0:data.statscan_1710000901", "corroborating", "Table 17-10-0009 path"),
             ("L2:v0_1_plan_b_rerun", "required", "cross-basis robustness check"),
         ],
@@ -1209,7 +1230,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.1.2",
         "name": "A2 — Majority Calgary Zone A-vs-B gap = +0.36%",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "per-ED population"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "per-ED population",
+            ),
             ("L2:electoral_forensics_population", "required", "zone classifier"),
         ],
     },
@@ -1218,7 +1243,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.1.2",
         "name": "A2 — Minority Calgary Zone A-vs-B gap = +12.20%",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "per-ED population"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "per-ED population",
+            ),
             ("L2:electoral_forensics_population", "required", "zone classifier"),
         ],
     },
@@ -1227,7 +1256,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.1.2",
         "name": "A2 — Minority Calgary gap 7.71% under 2023-winner-based rule (G4 robustness)",
         "evidence": [
-            ("L0:data.commission_published_populations", "corroborating", "geographic-rule path"),
+            (
+                "L0:data.commission_published_populations",
+                "corroborating",
+                "geographic-rule path",
+            ),
             ("L0:data.2023_statement_of_vote", "required", "2023 winners per ED"),
             ("L2:electoral_forensics_population", "required", "dual-rule classifier"),
         ],
@@ -1237,7 +1270,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.1.3",
         "name": "A2b — Minority rest-of-province mean 50,336 (3.9% lower than majority)",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "regional breakdown"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "regional breakdown",
+            ),
             ("L2:electoral_forensics_population", "required", "urban-rural classifier"),
         ],
     },
@@ -1257,8 +1294,16 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "Engineered-boundary signature: RMH-Banff Park (park extension chosen over populated alternatives)",
         "evidence": [
             ("L0:data.commission_map_pngs", "required", "visible park-land extension"),
-            ("L0:data.commission_final_report_2026", "required", "chair p. 352 rationale"),
-            ("L0:data.rizzo_rizzo_1998", "validating", "purposive interpretation frame"),
+            (
+                "L0:data.commission_final_report_2026",
+                "required",
+                "chair p. 352 rationale",
+            ),
+            (
+                "L0:data.rizzo_rizzo_1998",
+                "validating",
+                "purposive interpretation frame",
+            ),
         ],
     },
     # §5.2 Partisan bias
@@ -1267,7 +1312,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.1",
         "name": "B2 — 2019 baseline efficiency gap = −2.64%",
         "evidence": [
-            ("L0:data.2019_election_results", "required", "2019 vote data + 87-seat attribution substrate"),
+            (
+                "L0:data.2019_election_results",
+                "required",
+                "2019 vote data + 87-seat attribution substrate",
+            ),
             ("L2:packing_cracking_analysis", "required", "EG computation"),
         ],
     },
@@ -1277,7 +1326,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "B2 — Majority 2026 efficiency gap = −1.29% (central w=0.85)",
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
-            ("L1:constructed.crosswalk_majority_hybrid", "required", "blended crosswalk substrate"),
+            (
+                "L1:constructed.crosswalk_majority_hybrid",
+                "required",
+                "blended crosswalk substrate",
+            ),
             ("L2:packing_cracking_analysis", "required", "EG computation"),
         ],
     },
@@ -1287,7 +1340,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "B2 — Minority 2026 efficiency gap = −2.71% (central w=0.85)",
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote data"),
-            ("L1:constructed.crosswalk_minority_hybrid", "required", "blended crosswalk substrate"),
+            (
+                "L1:constructed.crosswalk_minority_hybrid",
+                "required",
+                "blended crosswalk substrate",
+            ),
             ("L2:packing_cracking_analysis", "required", "EG computation"),
         ],
     },
@@ -1296,8 +1353,16 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.1",
         "name": "B2 — Minority-majority EG asymmetry = −1.42 pp at central weight (crosswalk reading)",
         "evidence": [
-            ("L1:constructed.crosswalk_majority_hybrid", "required", "majority substrate"),
-            ("L1:constructed.crosswalk_minority_hybrid", "required", "minority substrate"),
+            (
+                "L1:constructed.crosswalk_majority_hybrid",
+                "required",
+                "majority substrate",
+            ),
+            (
+                "L1:constructed.crosswalk_minority_hybrid",
+                "required",
+                "minority substrate",
+            ),
             ("L2:packing_cracking_analysis", "required", "asymmetry calc"),
         ],
     },
@@ -1307,8 +1372,16 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "B2 — Sensitivity range 0.49–1.50 pp across urban weights 0.60-0.90",
         "evidence": [
             ("L2:monte_carlo_ci", "required", "weight sweep"),
-            ("L1:constructed.crosswalk_majority_hybrid", "required", "majority substrate"),
-            ("L1:constructed.crosswalk_minority_hybrid", "required", "minority substrate"),
+            (
+                "L1:constructed.crosswalk_majority_hybrid",
+                "required",
+                "majority substrate",
+            ),
+            (
+                "L1:constructed.crosswalk_minority_hybrid",
+                "required",
+                "minority substrate",
+            ),
         ],
     },
     {
@@ -1316,9 +1389,21 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.1",
         "name": "Canadian redistribution base-rate — Alberta 2025-26 at 67th percentile of n=6 comparator",
         "evidence": [
-            ("L0:data.commission_final_report_2026", "required", "Alberta 2025-26 is one of the comparator cycles (from commission final report)"),
-            ("L1:constructed.canadian_base_rate", "required", "comparator distribution"),
-            ("L2:v0_1_canadian_base_rate_recalibrate", "required", "circular-inclusion fix"),
+            (
+                "L0:data.commission_final_report_2026",
+                "required",
+                "Alberta 2025-26 is one of the comparator cycles (from commission final report)",
+            ),
+            (
+                "L1:constructed.canadian_base_rate",
+                "required",
+                "comparator distribution",
+            ),
+            (
+                "L2:v0_1_canadian_base_rate_recalibrate",
+                "required",
+                "circular-inclusion fix",
+            ),
         ],
     },
     {
@@ -1388,7 +1473,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2019_election_results", "required", "2019 attribution"),
             ("L0:data.2015_election_results", "required", "2015 attribution"),
-            ("L0:data.commission_rationales_text", "required", "2015-to-2019 crosswalk (for 2015 extension)"),
+            (
+                "L0:data.commission_rationales_text",
+                "required",
+                "2015-to-2019 crosswalk (for 2015 extension)",
+            ),
             ("L2:v0_1_2015_cross_election", "required", "2015 extension"),
         ],
     },
@@ -1398,7 +1487,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "B-family — 1-seat gap direction is state-dependent (UCP-landslide flips it)",
         "evidence": [
             ("L0:data.338canada_snapshots", "required", "77-snapshot time series"),
-            ("L0:data.338_historical_snapshots_dir", "required", "pre-2023 reallocation"),
+            (
+                "L0:data.338_historical_snapshots_dir",
+                "required",
+                "pre-2023 reallocation",
+            ),
             ("L2:v0_1_338canada_historical", "required", "reallocation pipeline"),
             ("L1:constructed.338canada_reallocated", "required", "reallocated scores"),
         ],
@@ -1418,7 +1511,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "vote substrate"),
             ("L2:v0_1_chen_rodden_alberta", "required", "validation simulation"),
-            ("L1:constructed.mcmc_ensemble_100k", "corroborating", "alternate neutral-ensemble path"),
+            (
+                "L1:constructed.mcmc_ensemble_100k",
+                "corroborating",
+                "alternate neutral-ensemble path",
+            ),
         ],
     },
     {
@@ -1435,7 +1532,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.5",
         "name": "Chen-Rodden pairwise decomposition — minority-vs-majority gap is 100% drawing, 0% geography",
         "evidence": [
-            ("L1:constructed.mcmc_ensemble_100k", "required", "ensemble median baseline"),
+            (
+                "L1:constructed.mcmc_ensemble_100k",
+                "required",
+                "ensemble median baseline",
+            ),
             ("L1:constructed.mcmc_real_map_scores", "required", "real-map scores"),
             ("L2:v0_1_chen_rodden_decomposition", "required", "decomposition script"),
         ],
@@ -1448,7 +1549,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
             ("L1:constructed.mcmc_ensemble_100k", "required", "ensemble median"),
             ("L1:constructed.mcmc_real_map_scores", "required", "real-map scores"),
             ("L2:v0_1_chen_rodden_decomposition", "required", "absolute decomposition"),
-            ("L1:constructed.chen_rodden", "required", "absolute decomposition JSON output"),
+            (
+                "L1:constructed.chen_rodden",
+                "required",
+                "absolute decomposition JSON output",
+            ),
         ],
     },
     {
@@ -1457,7 +1562,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "Minority adds +5.75 pp NDP responsiveness at 50/50 via asymmetric drawing",
         "evidence": [
             ("L1:constructed.mcmc_ensemble_100k", "required", "ensemble baseline"),
-            ("L2:v0_1_chen_rodden_decomposition", "required", "seats-at-50 drawing component"),
+            (
+                "L2:v0_1_chen_rodden_decomposition",
+                "required",
+                "seats-at-50 drawing component",
+            ),
         ],
     },
     {
@@ -1466,7 +1575,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "1.5 pp uniform swing flips 6 seats toward UCP + 4 toward NDP on 2023 results",
         "evidence": [
             ("L0:data.2023_statement_of_vote", "required", "per-ED margins"),
-            ("L2:v0_1_marginal_seats_analysis", "required", "uniform-swing enumeration"),
+            (
+                "L2:v0_1_marginal_seats_analysis",
+                "required",
+                "uniform-swing enumeration",
+            ),
             ("L1:constructed.marginal_seats", "required", "marginal-seats outputs"),
         ],
     },
@@ -1485,8 +1598,16 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.7",
         "name": "Crosswalk reading — minority-majority asymmetry = −1.42 pp (minority more UCP-favourable)",
         "evidence": [
-            ("L1:constructed.crosswalk_majority_hybrid", "required", "majority substrate"),
-            ("L1:constructed.crosswalk_minority_hybrid", "required", "minority substrate"),
+            (
+                "L1:constructed.crosswalk_majority_hybrid",
+                "required",
+                "majority substrate",
+            ),
+            (
+                "L1:constructed.crosswalk_minority_hybrid",
+                "required",
+                "minority substrate",
+            ),
             ("L2:packing_cracking_analysis", "required", "metric compute"),
         ],
     },
@@ -1516,7 +1637,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.2.7",
         "name": "Topology cleanup — 2,754 km² majority / 16,734 km² minority inter-ED overlap (96 pairs)",
         "evidence": [
-            ("L0:data.commission_map_pngs", "required", "source PNGs traced into v0_1 DPG"),
+            (
+                "L0:data.commission_map_pngs",
+                "required",
+                "source PNGs traced into v0_1 DPG",
+            ),
             ("L1:constructed.dpg_v0_1_canonical", "required", "input DPG"),
             ("L1:constructed.topology_cleanup_log", "required", "overlap log"),
             ("L2:v0_1_topology_cleanup", "required", "detection"),
@@ -1528,7 +1653,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "DPG perturbation flat-±500m 90% CI [+1.69, +7.67] pp (200/200 positive)",
         "evidence": [
             ("L1:constructed.dpg_v0_2_topoclean", "required", "substrate"),
-            ("L1:constructed.dpg_perturbation_flat", "required", "perturbation samples"),
+            (
+                "L1:constructed.dpg_perturbation_flat",
+                "required",
+                "perturbation samples",
+            ),
             ("L2:v0_1_dpg_perturbation_sensitivity", "required", "flat-σ pipeline"),
         ],
     },
@@ -1539,7 +1668,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L1:constructed.dpg_v0_2_topoclean", "required", "substrate"),
             ("L1:constructed.dpg_perturbation_tiered", "required", "tiered samples"),
-            ("L2:v0_1_dpg_perturbation_sensitivity_v2", "required", "tiered-σ pipeline"),
+            (
+                "L2:v0_1_dpg_perturbation_sensitivity_v2",
+                "required",
+                "tiered-σ pipeline",
+            ),
         ],
     },
     {
@@ -1558,8 +1691,16 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L1:constructed.dpg_v0_5_da_anchored", "required", "v0_5 DPG"),
             ("L1:constructed.phase4c_votes_maup_v05", "required", "v0_5 substrate"),
-            ("L1:constructed.dpg_perturbation_v05", "corroborating", "v0_5 perturbation"),
-            ("L2:v0_1_phase_4c_va_attribution_maup_v3_v05", "required", "rerun pipeline"),
+            (
+                "L1:constructed.dpg_perturbation_v05",
+                "corroborating",
+                "v0_5 perturbation",
+            ),
+            (
+                "L2:v0_1_phase_4c_va_attribution_maup_v3_v05",
+                "required",
+                "rerun pipeline",
+            ),
             ("L2:v0_1_dpg_perturbation_sensitivity_v05", "required", "v0_5 CI"),
         ],
     },
@@ -1581,7 +1722,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L1:constructed.va_substrate_full", "required", "VA substrate"),
             ("L1:constructed.dpg_v0_1_canonical", "required", "DPG"),
-            ("L2:v0_1_mcmc_full_coverage_rescore_v2", "required", "Core/Margin tabulation"),
+            (
+                "L2:v0_1_mcmc_full_coverage_rescore_v2",
+                "required",
+                "Core/Margin tabulation",
+            ),
         ],
     },
     # §5.3 signature detection
@@ -1590,7 +1735,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.3.1",
         "name": "Packing signature detected — Minority Calgary Zone A (P1/P2/P3 pass)",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "population sizes"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "population sizes",
+            ),
             ("L0:data.2023_statement_of_vote", "required", "NDP winners + margins"),
             ("L2:electoral_forensics_population", "required", "zone classifier"),
             ("L2:packing_cracking_analysis", "required", "P-criteria application"),
@@ -1601,7 +1750,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.3.1",
         "name": "Packing signature NOT detected on majority Calgary (P1 fails)",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "population sizes"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "population sizes",
+            ),
             ("L2:electoral_forensics_population", "required", "zone classifier"),
             ("L2:packing_cracking_analysis", "required", "P-criteria application"),
         ],
@@ -1622,7 +1775,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.3.2",
         "name": "Cochrane cracking-adjacent: C1/C2 pass, C3 fails (pattern but not formal signature)",
         "evidence": [
-            ("L0:data.commission_final_report_2026", "required", "Cochrane-Calgary pairing"),
+            (
+                "L0:data.commission_final_report_2026",
+                "required",
+                "Cochrane-Calgary pairing",
+            ),
             ("L0:data.2021_csd_populations", "required", "Cochrane population"),
             ("L2:packing_cracking_analysis", "required", "C-criteria application"),
         ],
@@ -1632,9 +1789,17 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.3.4",
         "name": "Three formal signatures, all concentrated in minority map (majority detects zero)",
         "evidence": [
-            ("L3:finding.packing_minority_calgary_zone_a", "required", "packing signature"),
+            (
+                "L3:finding.packing_minority_calgary_zone_a",
+                "required",
+                "packing signature",
+            ),
             ("L3:finding.cracking_minority_airdrie", "required", "cracking signature"),
-            ("L3:finding.a3_rmh_banff_engineered", "required", "engineered-boundary signature"),
+            (
+                "L3:finding.a3_rmh_banff_engineered",
+                "required",
+                "engineered-boundary signature",
+            ),
         ],
     },
     # §5.4 MCMC
@@ -1645,7 +1810,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L1:constructed.mcmc_ensemble_100k", "required", "ensemble distribution"),
             ("L1:constructed.mcmc_real_map_scores", "required", "real-map scores"),
-            ("L1:constructed.crosswalk_minority_full", "required", "crosswalk fallback"),
+            (
+                "L1:constructed.crosswalk_minority_full",
+                "required",
+                "crosswalk fallback",
+            ),
             ("L2:v0_1_mcmc_full_coverage_rescore_100k", "required", "rescore"),
         ],
     },
@@ -1682,7 +1851,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.4",
         "name": "Tail claims downgraded — ESS ~150 per metric bounds p100/p1.6 to p95.35/p2.5",
         "evidence": [
-            ("L1:constructed.mcmc_ensemble_100k", "required", "convergence diagnostics"),
+            (
+                "L1:constructed.mcmc_ensemble_100k",
+                "required",
+                "convergence diagnostics",
+            ),
             ("L2:v0_1_mcmc_ensemble_100k", "required", "ensemble"),
         ],
     },
@@ -1693,7 +1866,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L1:constructed.mcmc_ensemble_10k", "required", "preliminary baseline"),
             ("L1:constructed.mcmc_ensemble_100k", "required", "full-coverage ensemble"),
-            ("L2:v0_1_mcmc_full_coverage_rescore_100k", "validating", "re-run retraction gate"),
+            (
+                "L2:v0_1_mcmc_full_coverage_rescore_100k",
+                "validating",
+                "re-run retraction gate",
+            ),
         ],
     },
     # §5.5 pre-registered checklist
@@ -1702,9 +1879,21 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.5",
         "name": "Pre-registered checklist — minority has 3 signatures + MCMC outlier; majority has 0",
         "evidence": [
-            ("L3:finding.signatures_summary_three_minority", "required", "3 formal signatures"),
-            ("L3:finding.mcmc_minority_mean_median_p95", "required", "MCMC outlier flag"),
-            ("L3:finding.mcmc_minority_declination_p1_6", "required", "MCMC outlier flag"),
+            (
+                "L3:finding.signatures_summary_three_minority",
+                "required",
+                "3 formal signatures",
+            ),
+            (
+                "L3:finding.mcmc_minority_mean_median_p95",
+                "required",
+                "MCMC outlier flag",
+            ),
+            (
+                "L3:finding.mcmc_minority_declination_p1_6",
+                "required",
+                "MCMC outlier flag",
+            ),
         ],
     },
     {
@@ -1712,7 +1901,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.5",
         "name": "Neither 2026 map crosses the sure-sign-gerrymander bar",
         "evidence": [
-            ("L3:finding.signatures_summary_three_minority", "required", "signature count"),
+            (
+                "L3:finding.signatures_summary_three_minority",
+                "required",
+                "signature count",
+            ),
             ("L3:finding.mcmc_minority_declination_p1_6", "corroborating", "outlier"),
         ],
     },
@@ -1722,9 +1915,17 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "report_section": "5.6",
         "name": "Symmetry counter-test 1 — Edmonton zone gap (+2.0 pp maj / +1.4 pp min) << Calgary 12.2 pp",
         "evidence": [
-            ("L0:data.commission_published_populations", "required", "zone populations"),
+            (
+                "L0:data.commission_published_populations",
+                "required",
+                "zone populations",
+            ),
             ("L1:constructed.symmetry_counter_test", "required", "counter-test CSV"),
-            ("L2:v0_1_majority_symmetry_counter_test", "required", "counter-test script"),
+            (
+                "L2:v0_1_majority_symmetry_counter_test",
+                "required",
+                "counter-test script",
+            ),
         ],
     },
     {
@@ -1735,7 +1936,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
             ("L0:data.commission_final_report_2026", "required", "city-to-ED bindings"),
             ("L0:data.2021_csd_populations", "required", "city population threshold"),
             ("L1:constructed.symmetry_counter_test", "required", "counter-test CSV"),
-            ("L2:v0_1_majority_symmetry_counter_test", "required", "counter-test script"),
+            (
+                "L2:v0_1_majority_symmetry_counter_test",
+                "required",
+                "counter-test script",
+            ),
         ],
     },
     # §5.7 stress-test
@@ -1766,7 +1971,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "Three visible spatial anomalies on minority (Nolan-Hill-Cochrane, RMH-Banff Park, Olds-TH-D)",
         "evidence": [
             ("L0:data.commission_map_pngs", "required", "visual inspection"),
-            ("L0:data.commission_final_report_2026", "corroborating", "chair-flagged list"),
+            (
+                "L0:data.commission_final_report_2026",
+                "corroborating",
+                "chair-flagged list",
+            ),
         ],
     },
     {
@@ -1796,7 +2005,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
             ("L0:data.2021_csds_gpkg", "required", "CSD reference"),
             ("L1:constructed.dpg_v0_2_topoclean", "required", "input DPG"),
             ("L1:constructed.dpg_v0_4_municipal", "required", "anchored DPG"),
-            ("L1:constructed.municipal_anchoring_summary", "required", "anchoring summary"),
+            (
+                "L1:constructed.municipal_anchoring_summary",
+                "required",
+                "anchoring summary",
+            ),
             ("L2:v0_1_municipal_anchoring", "required", "anchoring pipeline"),
         ],
     },
@@ -1806,7 +2019,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "DA-anchoring extension — combined 79.6% majority vs 16.5% minority (5.1× asymmetry preserved)",
         "evidence": [
             ("L0:data.2021_das_gpkg", "required", "DA reference"),
-            ("L1:constructed.dpg_v0_4_municipal", "required", "municipal-anchored input"),
+            (
+                "L1:constructed.dpg_v0_4_municipal",
+                "required",
+                "municipal-anchored input",
+            ),
             ("L1:constructed.dpg_v0_5_da_anchored", "required", "DA-anchored DPG"),
             ("L1:constructed.da_anchoring_summary", "required", "anchoring summary"),
             ("L2:v0_1_da_boundary_anchoring", "required", "pipeline"),
@@ -1818,7 +2035,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "Shared-schools community-of-interest claim refuted (R5 + R11); 20 of 21 minority hybrids cross school-division boundaries",
         "evidence": [
             ("L0:data.commission_final_report_2026", "required", "rationale text"),
-            ("L0:data.school_division_boundaries", "required", "school-district reference"),
+            (
+                "L0:data.school_division_boundaries",
+                "required",
+                "school-district reference",
+            ),
         ],
     },
     {
@@ -1852,7 +2073,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "R5 is chair Miller's personal recommendation, not commission-majority collective",
         "evidence": [
             ("L0:data.commission_r5_addendum", "required", "R5 text"),
-            ("L0:data.news_coverage_april_2026", "corroborating", "Clark social-media confirmation"),
+            (
+                "L0:data.news_coverage_april_2026",
+                "corroborating",
+                "Clark social-media confirmation",
+            ),
         ],
     },
     {
@@ -1861,7 +2086,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "name": "April 16 action is most government-controlled among 3 Canadian comparator cases",
         "evidence": [
             ("L0:data.news_coverage_april_2026", "required", "April 16 description"),
-            ("L0:data.commission_final_report_2026", "required", "commission vs government framing"),
+            (
+                "L0:data.commission_final_report_2026",
+                "required",
+                "commission vs government framing",
+            ),
         ],
     },
     {
@@ -1871,7 +2100,11 @@ L3_FINDINGS: List[Dict[str, Any]] = [
         "evidence": [
             ("L0:data.submission_archive", "required", "submission text"),
             ("L1:constructed.submission_search_results", "required", "search dataset"),
-            ("L0:data.commission_final_report_2026", "required", "chair Appendix C claim"),
+            (
+                "L0:data.commission_final_report_2026",
+                "required",
+                "chair Appendix C claim",
+            ),
         ],
     },
     {
@@ -1900,11 +2133,31 @@ L3_FINDINGS: List[Dict[str, Any]] = [
             ("L3:finding.a1_mad_minority_4707", "corroborating", "population MAD"),
             ("L3:finding.a2_calgary_minority_12_20", "corroborating", "Calgary zone"),
             ("L3:finding.a2b_rural_minority_smaller", "corroborating", "rural mean"),
-            ("L3:finding.b2_asymmetry_minus_1_42", "corroborating", "partisan bias (crosswalk)"),
-            ("L3:finding.signatures_summary_three_minority", "corroborating", "signature detection"),
-            ("L3:finding.c_visual_three_anomalies_minority", "corroborating", "spatial anomalies"),
-            ("L3:finding.c5_municipal_anchoring_asymmetry", "corroborating", "municipal anchoring"),
-            ("L3:finding.d_motion_19_most_gov_controlled", "corroborating", "procedural"),
+            (
+                "L3:finding.b2_asymmetry_minus_1_42",
+                "corroborating",
+                "partisan bias (crosswalk)",
+            ),
+            (
+                "L3:finding.signatures_summary_three_minority",
+                "corroborating",
+                "signature detection",
+            ),
+            (
+                "L3:finding.c_visual_three_anomalies_minority",
+                "corroborating",
+                "spatial anomalies",
+            ),
+            (
+                "L3:finding.c5_municipal_anchoring_asymmetry",
+                "corroborating",
+                "municipal anchoring",
+            ),
+            (
+                "L3:finding.d_motion_19_most_gov_controlled",
+                "corroborating",
+                "procedural",
+            ),
         ],
     },
 ]
@@ -1963,7 +2216,12 @@ def parse_headers(script_path: Path) -> Tuple[List[str], List[str]]:
             rest = stripped[len("Backward:") :].strip()
             if rest:
                 backwards.extend(_expand_braces(_strip_comment(rest)))
-        elif mode and line.startswith(("  ", "\t")) and stripped and not stripped.startswith("#"):
+        elif (
+            mode
+            and line.startswith(("  ", "\t"))
+            and stripped
+            and not stripped.startswith("#")
+        ):
             cleaned = _strip_comment(stripped)
             if cleaned:
                 target = forwards if mode == "forward" else backwards
@@ -1983,6 +2241,7 @@ def _strip_comment(s: str) -> str:
 # ---------------------------------------------------------------------------
 # Graph assembly
 # ---------------------------------------------------------------------------
+
 
 def _norm_path(p: str) -> str:
     return p.replace("\\", "/").strip().rstrip(",;")
@@ -2015,19 +2274,52 @@ def build_path_lookup() -> None:
     # Manually alias variants that scripts reference without a dedicated node.
     aliases = [
         # _full.gpkg variants route to their non-_full canonical.
-        ("data/v0_1_approximate_majority_2026_eds_full.gpkg", "L1:constructed.approximate_eds"),
-        ("data/v0_1_approximate_minority_2026_eds.gpkg", "L1:constructed.approximate_eds"),
-        ("data/v0_1_refined_v6_minority_2026_eds_full.gpkg", "L1:constructed.refined_eds_v6"),
+        (
+            "data/v0_1_approximate_majority_2026_eds_full.gpkg",
+            "L1:constructed.approximate_eds",
+        ),
+        (
+            "data/v0_1_approximate_minority_2026_eds.gpkg",
+            "L1:constructed.approximate_eds",
+        ),
+        (
+            "data/v0_1_refined_v6_minority_2026_eds_full.gpkg",
+            "L1:constructed.refined_eds_v6",
+        ),
         ("data/v0_1_refined_majority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
         ("data/v0_1_refined_minority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
-        ("data/v0_1_refined_v2_majority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
-        ("data/v0_1_refined_v2_minority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
-        ("data/v0_1_refined_v3_majority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
-        ("data/v0_1_refined_v3_minority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
-        ("data/v0_1_refined_v4_minority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
-        ("data/v0_1_refined_v5_minority_2026_eds.gpkg", "L1:constructed.refined_eds_v6"),
-        ("data/v0_1_derived_v7_majority_2026_eds.gpkg", "L1:constructed.derived_v7_eds"),
-        ("data/v0_1_derived_v7_minority_2026_eds.gpkg", "L1:constructed.derived_v7_eds"),
+        (
+            "data/v0_1_refined_v2_majority_2026_eds.gpkg",
+            "L1:constructed.refined_eds_v6",
+        ),
+        (
+            "data/v0_1_refined_v2_minority_2026_eds.gpkg",
+            "L1:constructed.refined_eds_v6",
+        ),
+        (
+            "data/v0_1_refined_v3_majority_2026_eds.gpkg",
+            "L1:constructed.refined_eds_v6",
+        ),
+        (
+            "data/v0_1_refined_v3_minority_2026_eds.gpkg",
+            "L1:constructed.refined_eds_v6",
+        ),
+        (
+            "data/v0_1_refined_v4_minority_2026_eds.gpkg",
+            "L1:constructed.refined_eds_v6",
+        ),
+        (
+            "data/v0_1_refined_v5_minority_2026_eds.gpkg",
+            "L1:constructed.refined_eds_v6",
+        ),
+        (
+            "data/v0_1_derived_v7_majority_2026_eds.gpkg",
+            "L1:constructed.derived_v7_eds",
+        ),
+        (
+            "data/v0_1_derived_v7_minority_2026_eds.gpkg",
+            "L1:constructed.derived_v7_eds",
+        ),
         ("report_academic.md", "L0:doc.frozen_manifest"),
         ("FROZEN_MANIFEST.md", "L0:doc.frozen_manifest"),
     ]
@@ -2067,7 +2359,9 @@ def resolve_dependency(path_str: str) -> str | None:
     return None
 
 
-def build_nodes_and_edges() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[str]]:
+def build_nodes_and_edges() -> (
+    Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[str]]
+):
     nodes: List[Dict[str, Any]] = []
     edges: List[Dict[str, Any]] = []
     judgment_calls: List[str] = []
@@ -2165,161 +2459,801 @@ def build_nodes_and_edges() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]],
     # path names already present in L1.
     curated_l2_edges: List[Tuple[str, str, str, str]] = [
         # (script_stem, target_id, direction, sensitivity)
-        ("electoral_forensics_population", "L0:data.commission_published_populations", "in", "consumes per-ED population table"),
-        ("packing_cracking_analysis", "L0:data.2023_statement_of_vote", "in", "consumes 2023 vote data"),
-        ("packing_cracking_analysis", "L1:constructed.crosswalk_majority_hybrid", "in", "consumes majority hybrid crosswalk"),
-        ("packing_cracking_analysis", "L1:constructed.crosswalk_minority_hybrid", "in", "consumes minority hybrid crosswalk"),
-        ("monte_carlo_ci", "L0:data.2023_statement_of_vote", "in", "consumes 2023 vote data"),
-        ("monte_carlo_ci", "L1:constructed.crosswalk_majority_hybrid", "in", "consumes majority hybrid crosswalk"),
-        ("monte_carlo_ci", "L1:constructed.crosswalk_minority_hybrid", "in", "consumes minority hybrid crosswalk"),
+        (
+            "electoral_forensics_population",
+            "L0:data.commission_published_populations",
+            "in",
+            "consumes per-ED population table",
+        ),
+        (
+            "packing_cracking_analysis",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "consumes 2023 vote data",
+        ),
+        (
+            "packing_cracking_analysis",
+            "L1:constructed.crosswalk_majority_hybrid",
+            "in",
+            "consumes majority hybrid crosswalk",
+        ),
+        (
+            "packing_cracking_analysis",
+            "L1:constructed.crosswalk_minority_hybrid",
+            "in",
+            "consumes minority hybrid crosswalk",
+        ),
+        (
+            "monte_carlo_ci",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "consumes 2023 vote data",
+        ),
+        (
+            "monte_carlo_ci",
+            "L1:constructed.crosswalk_majority_hybrid",
+            "in",
+            "consumes majority hybrid crosswalk",
+        ),
+        (
+            "monte_carlo_ci",
+            "L1:constructed.crosswalk_minority_hybrid",
+            "in",
+            "consumes minority hybrid crosswalk",
+        ),
         ("v0_1_mcmc_ensemble", "L0:data.2023_va_shapefile", "in", "VA substrate"),
-        ("v0_1_mcmc_ensemble", "L1:constructed.va_pop_from_das", "in", "DA-derived VA population"),
-        ("v0_1_mcmc_ensemble", "L1:constructed.mcmc_ensemble_10k", "out", "produces 10k ensemble"),
+        (
+            "v0_1_mcmc_ensemble",
+            "L1:constructed.va_pop_from_das",
+            "in",
+            "DA-derived VA population",
+        ),
+        (
+            "v0_1_mcmc_ensemble",
+            "L1:constructed.mcmc_ensemble_10k",
+            "out",
+            "produces 10k ensemble",
+        ),
         ("v0_1_mcmc_ensemble_100k", "L0:data.2023_va_shapefile", "in", "VA substrate"),
-        ("v0_1_mcmc_ensemble_100k", "L1:constructed.va_pop_from_das", "in", "DA-derived VA population"),
-        ("v0_1_mcmc_ensemble_100k", "L1:constructed.mcmc_ensemble_100k", "out", "produces 100k ensemble"),
-        ("v0_1_mcmc_full_coverage_rescore_100k", "L1:constructed.mcmc_ensemble_100k", "in", "consumes 100k ensemble"),
-        ("v0_1_mcmc_full_coverage_rescore_100k", "L1:constructed.crosswalk_majority_full", "in", "fallback crosswalk"),
-        ("v0_1_mcmc_full_coverage_rescore_100k", "L1:constructed.crosswalk_minority_full", "in", "fallback crosswalk"),
-        ("v0_1_mcmc_full_coverage_rescore_100k", "L1:constructed.mcmc_real_map_scores", "out", "produces real-map scores"),
-        ("v0_1_advance_vote_splat", "L0:data.2023_statement_of_vote", "in", "Election-Day + Vote-Anywhere rows"),
-        ("v0_1_advance_vote_splat", "L1:constructed.va_substrate_elecday", "in", "Election-Day substrate input"),
-        ("v0_1_advance_vote_splat", "L1:constructed.va_substrate_full", "out", "produces splatted full-VA substrate"),
-        ("v0_1_advance_vote_splat", "L1:constructed.advance_vote_diag", "out", "diagnostics CSV"),
-        ("parse_2015_results", "L0:data.2015_statement_of_vote", "in", "parse 2015 xlsx"),
-        ("parse_2015_results", "L0:data.2015_election_results", "out", "per-ED 2015 results"),
+        (
+            "v0_1_mcmc_ensemble_100k",
+            "L1:constructed.va_pop_from_das",
+            "in",
+            "DA-derived VA population",
+        ),
+        (
+            "v0_1_mcmc_ensemble_100k",
+            "L1:constructed.mcmc_ensemble_100k",
+            "out",
+            "produces 100k ensemble",
+        ),
+        (
+            "v0_1_mcmc_full_coverage_rescore_100k",
+            "L1:constructed.mcmc_ensemble_100k",
+            "in",
+            "consumes 100k ensemble",
+        ),
+        (
+            "v0_1_mcmc_full_coverage_rescore_100k",
+            "L1:constructed.crosswalk_majority_full",
+            "in",
+            "fallback crosswalk",
+        ),
+        (
+            "v0_1_mcmc_full_coverage_rescore_100k",
+            "L1:constructed.crosswalk_minority_full",
+            "in",
+            "fallback crosswalk",
+        ),
+        (
+            "v0_1_mcmc_full_coverage_rescore_100k",
+            "L1:constructed.mcmc_real_map_scores",
+            "out",
+            "produces real-map scores",
+        ),
+        (
+            "v0_1_advance_vote_splat",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "Election-Day + Vote-Anywhere rows",
+        ),
+        (
+            "v0_1_advance_vote_splat",
+            "L1:constructed.va_substrate_elecday",
+            "in",
+            "Election-Day substrate input",
+        ),
+        (
+            "v0_1_advance_vote_splat",
+            "L1:constructed.va_substrate_full",
+            "out",
+            "produces splatted full-VA substrate",
+        ),
+        (
+            "v0_1_advance_vote_splat",
+            "L1:constructed.advance_vote_diag",
+            "out",
+            "diagnostics CSV",
+        ),
+        (
+            "parse_2015_results",
+            "L0:data.2015_statement_of_vote",
+            "in",
+            "parse 2015 xlsx",
+        ),
+        (
+            "parse_2015_results",
+            "L0:data.2015_election_results",
+            "out",
+            "per-ED 2015 results",
+        ),
         ("phase_4c_prep", "L0:data.2023_statement_of_vote", "in", "raw votes"),
         ("phase_4c_prep", "L0:data.2023_va_shapefile", "in", "VA geometry"),
-        ("phase_4c_prep", "L1:constructed.va_substrate_elecday", "out", "election-day VA substrate"),
+        (
+            "phase_4c_prep",
+            "L1:constructed.va_substrate_elecday",
+            "out",
+            "election-day VA substrate",
+        ),
         ("phase_4c_prep", "L1:constructed.polls_2023_unified", "out", "unified polls"),
-        ("v0_1_chen_rodden_alberta", "L0:data.2023_statement_of_vote", "in", "vote substrate"),
-        ("v0_1_chen_rodden_alberta", "L0:data.2019_ed_shapefile", "in", "87-seat baseline geometry"),
-        ("v0_1_chen_rodden_alberta", "L1:constructed.chen_rodden", "out", "Chen-Rodden outputs"),
+        (
+            "v0_1_chen_rodden_alberta",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "vote substrate",
+        ),
+        (
+            "v0_1_chen_rodden_alberta",
+            "L0:data.2019_ed_shapefile",
+            "in",
+            "87-seat baseline geometry",
+        ),
+        (
+            "v0_1_chen_rodden_alberta",
+            "L1:constructed.chen_rodden",
+            "out",
+            "Chen-Rodden outputs",
+        ),
         ("v0_1_csd_community_splits", "L0:data.2021_csds_gpkg", "in", "CSD geometry"),
-        ("v0_1_csd_community_splits", "L0:data.2019_ed_shapefile", "in", "2019 baseline"),
-        ("v0_1_csd_community_splits", "L1:constructed.dpg_v0_1_canonical", "in", "DPG substrates"),
-        ("v0_1_csd_community_splits", "L1:constructed.csd_splits", "out", "CSD splits summary"),
-        ("v0_1_338canada_historical", "L0:data.338_historical_snapshots_dir", "in", "historical snapshots"),
-        ("v0_1_338canada_historical", "L0:data.338canada_snapshots", "in", "77-snapshot series"),
-        ("v0_1_338canada_reallocate", "L0:data.338canada_snapshots", "in", "current 338 data"),
-        ("v0_1_338canada_reallocate", "L1:constructed.crosswalk_majority_hybrid", "in", "majority crosswalk"),
-        ("v0_1_338canada_reallocate", "L1:constructed.crosswalk_minority_hybrid", "in", "minority crosswalk"),
-        ("v0_1_338canada_reallocate", "L1:constructed.338canada_reallocated", "out", "reallocated scores"),
-        ("v0_1_canadian_base_rate_compute", "L1:constructed.canadian_base_rate", "out", "base-rate CSV"),
-        ("v0_1_canadian_base_rate_recalibrate", "L1:constructed.canadian_base_rate", "out", "recalibrated base-rate"),
-        ("v0_1_marginal_seats_analysis", "L0:data.2023_statement_of_vote", "in", "2023 margins"),
-        ("v0_1_marginal_seats_analysis", "L0:data.2019_election_results", "in", "2019 margins"),
-        ("v0_1_marginal_seats_analysis", "L0:data.2015_election_results", "in", "2015 margins"),
-        ("v0_1_marginal_seats_analysis", "L1:constructed.marginal_seats", "out", "margin table"),
-        ("v0_1_2015_cross_election", "L0:data.2015_election_results", "in", "2015 results"),
-        ("v0_1_2015_cross_election", "L0:data.commission_rationales_text", "in", "2015-to-2019 crosswalk"),
-        ("v0_1_2015_cross_election", "L1:constructed.cross_election_asymmetry", "out", "3-way asymmetry"),
-        ("v0_1_a1_legal_baseline_2021_census", "L0:data.2021_da_populations", "in", "DA populations"),
-        ("v0_1_a1_legal_baseline_2021_census", "L0:data.2019_ed_shapefile", "in", "2019 ED geometry"),
-        ("v0_1_a1_legal_baseline_2021_census", "L0:data.2019_ed_populations", "out", "legal-baseline A1"),
+        (
+            "v0_1_csd_community_splits",
+            "L0:data.2019_ed_shapefile",
+            "in",
+            "2019 baseline",
+        ),
+        (
+            "v0_1_csd_community_splits",
+            "L1:constructed.dpg_v0_1_canonical",
+            "in",
+            "DPG substrates",
+        ),
+        (
+            "v0_1_csd_community_splits",
+            "L1:constructed.csd_splits",
+            "out",
+            "CSD splits summary",
+        ),
+        (
+            "v0_1_338canada_historical",
+            "L0:data.338_historical_snapshots_dir",
+            "in",
+            "historical snapshots",
+        ),
+        (
+            "v0_1_338canada_historical",
+            "L0:data.338canada_snapshots",
+            "in",
+            "77-snapshot series",
+        ),
+        (
+            "v0_1_338canada_reallocate",
+            "L0:data.338canada_snapshots",
+            "in",
+            "current 338 data",
+        ),
+        (
+            "v0_1_338canada_reallocate",
+            "L1:constructed.crosswalk_majority_hybrid",
+            "in",
+            "majority crosswalk",
+        ),
+        (
+            "v0_1_338canada_reallocate",
+            "L1:constructed.crosswalk_minority_hybrid",
+            "in",
+            "minority crosswalk",
+        ),
+        (
+            "v0_1_338canada_reallocate",
+            "L1:constructed.338canada_reallocated",
+            "out",
+            "reallocated scores",
+        ),
+        (
+            "v0_1_canadian_base_rate_compute",
+            "L1:constructed.canadian_base_rate",
+            "out",
+            "base-rate CSV",
+        ),
+        (
+            "v0_1_canadian_base_rate_recalibrate",
+            "L1:constructed.canadian_base_rate",
+            "out",
+            "recalibrated base-rate",
+        ),
+        (
+            "v0_1_marginal_seats_analysis",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "2023 margins",
+        ),
+        (
+            "v0_1_marginal_seats_analysis",
+            "L0:data.2019_election_results",
+            "in",
+            "2019 margins",
+        ),
+        (
+            "v0_1_marginal_seats_analysis",
+            "L0:data.2015_election_results",
+            "in",
+            "2015 margins",
+        ),
+        (
+            "v0_1_marginal_seats_analysis",
+            "L1:constructed.marginal_seats",
+            "out",
+            "margin table",
+        ),
+        (
+            "v0_1_2015_cross_election",
+            "L0:data.2015_election_results",
+            "in",
+            "2015 results",
+        ),
+        (
+            "v0_1_2015_cross_election",
+            "L0:data.commission_rationales_text",
+            "in",
+            "2015-to-2019 crosswalk",
+        ),
+        (
+            "v0_1_2015_cross_election",
+            "L1:constructed.cross_election_asymmetry",
+            "out",
+            "3-way asymmetry",
+        ),
+        (
+            "v0_1_a1_legal_baseline_2021_census",
+            "L0:data.2021_da_populations",
+            "in",
+            "DA populations",
+        ),
+        (
+            "v0_1_a1_legal_baseline_2021_census",
+            "L0:data.2019_ed_shapefile",
+            "in",
+            "2019 ED geometry",
+        ),
+        (
+            "v0_1_a1_legal_baseline_2021_census",
+            "L0:data.2019_ed_populations",
+            "out",
+            "legal-baseline A1",
+        ),
         ("v0_1_plan_b_rerun", "L0:data.2021_da_populations", "in", "2021 census basis"),
         ("v0_1_plan_b_rerun", "L0:data.tbf_population_estimates", "in", "TBF basis"),
-        ("v0_1_plan_b_rerun", "L0:data.statscan_1710000901", "in", "Table 17-10-0009 basis"),
-        ("v0_1_rural_gap_dissection", "L0:data.commission_published_populations", "in", "per-ED population"),
-        ("v0_1_rural_gap_dissection", "L1:constructed.rural_gap_summary", "out", "rural gap summary"),
-        ("v0_1_majority_symmetry_counter_test", "L0:data.commission_published_populations", "in", "per-ED population"),
-        ("v0_1_majority_symmetry_counter_test", "L0:data.2021_csd_populations", "in", "CSD population threshold"),
-        ("v0_1_majority_symmetry_counter_test", "L1:constructed.symmetry_counter_test", "out", "counter-test CSV"),
+        (
+            "v0_1_plan_b_rerun",
+            "L0:data.statscan_1710000901",
+            "in",
+            "Table 17-10-0009 basis",
+        ),
+        (
+            "v0_1_rural_gap_dissection",
+            "L0:data.commission_published_populations",
+            "in",
+            "per-ED population",
+        ),
+        (
+            "v0_1_rural_gap_dissection",
+            "L1:constructed.rural_gap_summary",
+            "out",
+            "rural gap summary",
+        ),
+        (
+            "v0_1_majority_symmetry_counter_test",
+            "L0:data.commission_published_populations",
+            "in",
+            "per-ED population",
+        ),
+        (
+            "v0_1_majority_symmetry_counter_test",
+            "L0:data.2021_csd_populations",
+            "in",
+            "CSD population threshold",
+        ),
+        (
+            "v0_1_majority_symmetry_counter_test",
+            "L1:constructed.symmetry_counter_test",
+            "out",
+            "counter-test CSV",
+        ),
         ("submission_search", "L0:data.submission_archive", "in", "raw submissions"),
-        ("submission_search", "L1:constructed.submission_search_results", "out", "keyword-search results"),
-        ("v0_1_url_archival", "L0:doc.frozen_manifest", "out", "updates Wayback columns"),
-        ("v0_1_max_dpi_extract", "L0:data.commission_final_report_2026", "in", "commission PDF"),
-        ("v0_1_max_dpi_extract", "L1:constructed.max_dpi_extract", "out", "extraction JSON"),
-        ("v0_1_max_dpi_inspect", "L1:constructed.max_dpi_extract", "in", "extraction JSON"),
-        ("v0_1_build_canonical_shapefiles", "L1:constructed.approximate_eds", "in", "majority approximate source"),
-        ("v0_1_build_canonical_shapefiles", "L1:constructed.refined_eds_v6", "in", "minority v6 source"),
-        ("v0_1_build_canonical_shapefiles", "L1:constructed.derived_v7_eds", "in", "v7 derived source"),
-        ("v0_1_build_canonical_shapefiles", "L1:constructed.dpg_v0_1_canonical", "out", "canonical DPG"),
-        ("v0_1_build_full_crosswalks", "L0:data.2019_ed_shapefile", "in", "2019 parents"),
-        ("v0_1_build_full_crosswalks", "L1:constructed.dpg_v0_1_canonical", "in", "DPG"),
-        ("v0_1_build_full_crosswalks", "L1:constructed.crosswalk_majority_full", "out", "majority full crosswalk"),
-        ("v0_1_build_full_crosswalks", "L1:constructed.crosswalk_minority_full", "out", "minority full crosswalk"),
+        (
+            "submission_search",
+            "L1:constructed.submission_search_results",
+            "out",
+            "keyword-search results",
+        ),
+        (
+            "v0_1_url_archival",
+            "L0:doc.frozen_manifest",
+            "out",
+            "updates Wayback columns",
+        ),
+        (
+            "v0_1_max_dpi_extract",
+            "L0:data.commission_final_report_2026",
+            "in",
+            "commission PDF",
+        ),
+        (
+            "v0_1_max_dpi_extract",
+            "L1:constructed.max_dpi_extract",
+            "out",
+            "extraction JSON",
+        ),
+        (
+            "v0_1_max_dpi_inspect",
+            "L1:constructed.max_dpi_extract",
+            "in",
+            "extraction JSON",
+        ),
+        (
+            "v0_1_build_canonical_shapefiles",
+            "L1:constructed.approximate_eds",
+            "in",
+            "majority approximate source",
+        ),
+        (
+            "v0_1_build_canonical_shapefiles",
+            "L1:constructed.refined_eds_v6",
+            "in",
+            "minority v6 source",
+        ),
+        (
+            "v0_1_build_canonical_shapefiles",
+            "L1:constructed.derived_v7_eds",
+            "in",
+            "v7 derived source",
+        ),
+        (
+            "v0_1_build_canonical_shapefiles",
+            "L1:constructed.dpg_v0_1_canonical",
+            "out",
+            "canonical DPG",
+        ),
+        (
+            "v0_1_build_full_crosswalks",
+            "L0:data.2019_ed_shapefile",
+            "in",
+            "2019 parents",
+        ),
+        (
+            "v0_1_build_full_crosswalks",
+            "L1:constructed.dpg_v0_1_canonical",
+            "in",
+            "DPG",
+        ),
+        (
+            "v0_1_build_full_crosswalks",
+            "L1:constructed.crosswalk_majority_full",
+            "out",
+            "majority full crosswalk",
+        ),
+        (
+            "v0_1_build_full_crosswalks",
+            "L1:constructed.crosswalk_minority_full",
+            "out",
+            "minority full crosswalk",
+        ),
         # Hybrid crosswalks are authored from commission Appendix E descriptions
         # + 2019 ED shapefile; they are not produced by a standalone script but
         # rather committed to the repo as hand-edited CSVs. Link them to the
         # commission final report as their evidentiary parent so invalidating
         # upstream L0 correctly cascades.
-        ("v0_1_build_full_crosswalks", "L1:constructed.crosswalk_majority_hybrid", "in", "feeds into full crosswalk build"),
-        ("v0_1_build_full_crosswalks", "L1:constructed.crosswalk_minority_hybrid", "in", "feeds into full crosswalk build"),
+        (
+            "v0_1_build_full_crosswalks",
+            "L1:constructed.crosswalk_majority_hybrid",
+            "in",
+            "feeds into full crosswalk build",
+        ),
+        (
+            "v0_1_build_full_crosswalks",
+            "L1:constructed.crosswalk_minority_hybrid",
+            "in",
+            "feeds into full crosswalk build",
+        ),
         # Shape refinement chain (v1 -> v6)
-        ("v0_1_shape_refinement", "L1:constructed.approximate_eds", "in", "approximate ED inputs"),
-        ("v0_1_shape_refinement", "L1:constructed.boundary_refinement_impact", "out", "per-pass impact CSV"),
-        ("v0_1_shape_refinement_v2", "L1:constructed.boundary_refinement_impact", "out", "v2 impact CSV"),
-        ("v0_1_shape_refinement_v3", "L1:constructed.boundary_refinement_impact", "out", "v3 impact CSV"),
-        ("v0_1_shape_refinement_v4", "L1:constructed.boundary_refinement_impact", "out", "v4 impact CSV"),
-        ("v0_1_shape_refinement_v5", "L1:constructed.boundary_refinement_impact", "out", "v5 impact CSV"),
-        ("v0_1_shape_refinement_v6", "L1:constructed.refined_eds_v6", "out", "v6 refined polygon set"),
-        ("v0_1_shape_refinement_v6", "L1:constructed.boundary_refinement_impact", "out", "v6 impact CSV"),
-        ("v0_1_shape_refinement_v6_processors", "L1:constructed.refined_eds_v6", "out", "v6 processors helper"),
-        ("v0_1_shape_refinement_v6_writer", "L1:constructed.refined_eds_v6", "out", "v6 GPKG writer"),
+        (
+            "v0_1_shape_refinement",
+            "L1:constructed.approximate_eds",
+            "in",
+            "approximate ED inputs",
+        ),
+        (
+            "v0_1_shape_refinement",
+            "L1:constructed.boundary_refinement_impact",
+            "out",
+            "per-pass impact CSV",
+        ),
+        (
+            "v0_1_shape_refinement_v2",
+            "L1:constructed.boundary_refinement_impact",
+            "out",
+            "v2 impact CSV",
+        ),
+        (
+            "v0_1_shape_refinement_v3",
+            "L1:constructed.boundary_refinement_impact",
+            "out",
+            "v3 impact CSV",
+        ),
+        (
+            "v0_1_shape_refinement_v4",
+            "L1:constructed.boundary_refinement_impact",
+            "out",
+            "v4 impact CSV",
+        ),
+        (
+            "v0_1_shape_refinement_v5",
+            "L1:constructed.boundary_refinement_impact",
+            "out",
+            "v5 impact CSV",
+        ),
+        (
+            "v0_1_shape_refinement_v6",
+            "L1:constructed.refined_eds_v6",
+            "out",
+            "v6 refined polygon set",
+        ),
+        (
+            "v0_1_shape_refinement_v6",
+            "L1:constructed.boundary_refinement_impact",
+            "out",
+            "v6 impact CSV",
+        ),
+        (
+            "v0_1_shape_refinement_v6_processors",
+            "L1:constructed.refined_eds_v6",
+            "out",
+            "v6 processors helper",
+        ),
+        (
+            "v0_1_shape_refinement_v6_writer",
+            "L1:constructed.refined_eds_v6",
+            "out",
+            "v6 GPKG writer",
+        ),
         ("shape_derivation_v7", "L1:constructed.refined_eds_v6", "in", "v6 input"),
-        ("shape_derivation_v7", "L1:constructed.derived_v7_eds", "out", "v7 derived polygons"),
+        (
+            "shape_derivation_v7",
+            "L1:constructed.derived_v7_eds",
+            "out",
+            "v7 derived polygons",
+        ),
         # Build pipeline and auxiliary
-        ("v0_1_build_composite_shapefiles", "L1:constructed.approximate_eds", "in", "approximate input"),
-        ("v0_1_build_composite_shapefiles", "L1:constructed.refined_eds_v6", "in", "refined v6 input"),
-        ("v0_1_build_composite_shapefiles", "L1:constructed.composite_eds", "out", "composite polygons"),
+        (
+            "v0_1_build_composite_shapefiles",
+            "L1:constructed.approximate_eds",
+            "in",
+            "approximate input",
+        ),
+        (
+            "v0_1_build_composite_shapefiles",
+            "L1:constructed.refined_eds_v6",
+            "in",
+            "refined v6 input",
+        ),
+        (
+            "v0_1_build_composite_shapefiles",
+            "L1:constructed.composite_eds",
+            "out",
+            "composite polygons",
+        ),
         # 338Canada scraper → snapshots
-        ("v0_1_338canada_scraper", "L0:data.338canada_snapshots", "out", "scrapes 338 per-riding projections"),
+        (
+            "v0_1_338canada_scraper",
+            "L0:data.338canada_snapshots",
+            "out",
+            "scrapes 338 per-riding projections",
+        ),
         # Diagnostic scripts
-        ("v0_1_airdrie_overlap_diagnostic", "L1:constructed.dpg_v0_1_canonical", "in", "DPG input for overlap diagnostic"),
-        ("v0_1_airdrie_overlap_diagnostic", "L1:constructed.hybrid_adjacency", "out", "hybrid-adjacent VAs"),
-        ("v0_1_overlap_zone_diagnostic", "L1:constructed.dpg_v0_1_canonical", "in", "DPG input"),
-        ("v0_1_overlap_zone_diagnostic", "L1:constructed.topology_cleanup_log", "out", "diagnostic for cleanup"),
-        ("v0_1_edmonton_beaumont_polygon", "L0:data.commission_map_pngs", "in", "manual Edmonton-Beaumont trace"),
-        ("v0_1_edmonton_beaumont_polygon", "L1:constructed.derived_v7_eds", "out", "contributes to v7 polygon set"),
-        ("v0_1_edmonton_beaumont_split", "L0:data.2021_csds_gpkg", "in", "Beaumont CSD"),
-        ("v0_1_edmonton_beaumont_split", "L1:constructed.derived_v7_eds", "out", "split output"),
-        ("v0_1_approximate_shape_analysis", "L1:constructed.approximate_eds", "in", "approximate polygons"),
-        ("v0_1_approximate_shape_analysis", "L0:data.commission_map_pngs", "in", "commission reference images"),
-        ("v0_1_tier_c_crops", "L0:data.commission_final_report_2026", "in", "source PDF"),
-        ("v0_1_tier_c_crops", "L1:constructed.tier_c_reference", "out", "tier-C reference"),
-        ("v0_1_track_l_drift", "L0:data.tbf_population_estimates", "in", "TBF quarterly"),
-        ("v0_1_track_l_drift", "L0:data.statscan_1710000901", "in", "StatsCan quarterly"),
-        ("v0_1_cross_election_rural_baseline", "L0:data.2015_election_results", "in", "2015 rural baseline"),
-        ("v0_1_cross_election_rural_baseline", "L0:data.2019_election_results", "in", "2019 rural baseline"),
-        ("v0_1_cross_election_rural_baseline", "L0:data.2023_statement_of_vote", "in", "2023 rural baseline"),
-        ("v0_1_cross_election_rural_baseline", "L1:constructed.cross_election_asymmetry", "out", "province-wide drift CSVs"),
-        ("v0_1_justification_tests", "L0:data.2023_statement_of_vote", "in", "vote data"),
-        ("v0_1_justification_tests", "L1:constructed.marginal_seats", "out", "justification test inputs"),
-        ("v0_1_poll_attribution_skeleton", "L0:data.2023_statement_of_vote", "in", "poll-level rows"),
-        ("v0_1_poll_attribution_skeleton", "L1:constructed.polls_2023_unified", "out", "unified polls"),
-        ("v0_1_mcmc_full_coverage_rescore", "L1:constructed.mcmc_ensemble_10k", "in", "10k ensemble"),
-        ("v0_1_mcmc_full_coverage_rescore", "L1:constructed.mcmc_real_map_scores", "out", "10k rescore scores"),
-        ("v0_1_submission_ocr", "L0:data.submission_archive", "in", "image-only submission PDFs"),
-        ("v0_1_submission_ocr", "L1:constructed.submission_search_results", "out", "OCR-augmented search dataset"),
-        ("v0_1_submission_ocr_analyze", "L1:constructed.submission_search_results", "in", "OCR keyword pass"),
-        ("v0_1_build_overlay_figures", "L1:constructed.dpg_v0_1_canonical", "in", "DPG for overlay"),
-        ("v0_1_build_overlay_figures_v2", "L1:constructed.dpg_v0_1_canonical", "in", "DPG for overlay v2"),
-        ("v0_1_build_article_figures_v3", "L1:constructed.dpg_v0_1_canonical", "in", "DPG"),
-        ("v0_1_dpg_perturbation_writeup", "L1:constructed.dpg_perturbation_flat", "in", "flat samples"),
-        ("v0_1_dpg_perturbation_writeup", "L1:constructed.dpg_perturbation_tiered", "in", "tiered samples"),
-        ("v0_1_phase_4bcdef_execution", "L1:constructed.phase4bcdef_summary", "out", "summary JSON"),
-        ("v0_1_phase_4c_va_attribution_maup", "L1:constructed.phase4c_maup_summary", "out", "MAUP summary"),
-        ("v0_1_phase_4c_va_attribution_maup_v2", "L1:constructed.phase4c_maup_summary", "out", "MAUP v2 summary"),
-        ("v0_1_phase_4c_va_attribution_maup_v3_v05", "L1:constructed.phase4c_maup_summary", "out", "MAUP v0_5 summary"),
-        ("v0_1_phase_4c_va_attribution_maup", "L1:constructed.va_to_2026_assignments", "out", "VA-to-2026-ED assignments"),
-        ("v0_1_phase_4c_va_attribution_maup_v2", "L1:constructed.va_to_2026_assignments", "out", "VA-to-2026-ED assignments v2"),
-        ("v0_1_phase_4c_va_attribution_maup_v3_v05", "L1:constructed.va_to_2026_assignments", "out", "VA-to-2026-ED assignments v0_5"),
-        ("v0_1_phase_4bf_v05", "L1:constructed.phase4b_v05_pops", "out", "v0_5 Phase 4B pops"),
+        (
+            "v0_1_airdrie_overlap_diagnostic",
+            "L1:constructed.dpg_v0_1_canonical",
+            "in",
+            "DPG input for overlap diagnostic",
+        ),
+        (
+            "v0_1_airdrie_overlap_diagnostic",
+            "L1:constructed.hybrid_adjacency",
+            "out",
+            "hybrid-adjacent VAs",
+        ),
+        (
+            "v0_1_overlap_zone_diagnostic",
+            "L1:constructed.dpg_v0_1_canonical",
+            "in",
+            "DPG input",
+        ),
+        (
+            "v0_1_overlap_zone_diagnostic",
+            "L1:constructed.topology_cleanup_log",
+            "out",
+            "diagnostic for cleanup",
+        ),
+        (
+            "v0_1_edmonton_beaumont_polygon",
+            "L0:data.commission_map_pngs",
+            "in",
+            "manual Edmonton-Beaumont trace",
+        ),
+        (
+            "v0_1_edmonton_beaumont_polygon",
+            "L1:constructed.derived_v7_eds",
+            "out",
+            "contributes to v7 polygon set",
+        ),
+        (
+            "v0_1_edmonton_beaumont_split",
+            "L0:data.2021_csds_gpkg",
+            "in",
+            "Beaumont CSD",
+        ),
+        (
+            "v0_1_edmonton_beaumont_split",
+            "L1:constructed.derived_v7_eds",
+            "out",
+            "split output",
+        ),
+        (
+            "v0_1_approximate_shape_analysis",
+            "L1:constructed.approximate_eds",
+            "in",
+            "approximate polygons",
+        ),
+        (
+            "v0_1_approximate_shape_analysis",
+            "L0:data.commission_map_pngs",
+            "in",
+            "commission reference images",
+        ),
+        (
+            "v0_1_tier_c_crops",
+            "L0:data.commission_final_report_2026",
+            "in",
+            "source PDF",
+        ),
+        (
+            "v0_1_tier_c_crops",
+            "L1:constructed.tier_c_reference",
+            "out",
+            "tier-C reference",
+        ),
+        (
+            "v0_1_track_l_drift",
+            "L0:data.tbf_population_estimates",
+            "in",
+            "TBF quarterly",
+        ),
+        (
+            "v0_1_track_l_drift",
+            "L0:data.statscan_1710000901",
+            "in",
+            "StatsCan quarterly",
+        ),
+        (
+            "v0_1_cross_election_rural_baseline",
+            "L0:data.2015_election_results",
+            "in",
+            "2015 rural baseline",
+        ),
+        (
+            "v0_1_cross_election_rural_baseline",
+            "L0:data.2019_election_results",
+            "in",
+            "2019 rural baseline",
+        ),
+        (
+            "v0_1_cross_election_rural_baseline",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "2023 rural baseline",
+        ),
+        (
+            "v0_1_cross_election_rural_baseline",
+            "L1:constructed.cross_election_asymmetry",
+            "out",
+            "province-wide drift CSVs",
+        ),
+        (
+            "v0_1_justification_tests",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "vote data",
+        ),
+        (
+            "v0_1_justification_tests",
+            "L1:constructed.marginal_seats",
+            "out",
+            "justification test inputs",
+        ),
+        (
+            "v0_1_poll_attribution_skeleton",
+            "L0:data.2023_statement_of_vote",
+            "in",
+            "poll-level rows",
+        ),
+        (
+            "v0_1_poll_attribution_skeleton",
+            "L1:constructed.polls_2023_unified",
+            "out",
+            "unified polls",
+        ),
+        (
+            "v0_1_mcmc_full_coverage_rescore",
+            "L1:constructed.mcmc_ensemble_10k",
+            "in",
+            "10k ensemble",
+        ),
+        (
+            "v0_1_mcmc_full_coverage_rescore",
+            "L1:constructed.mcmc_real_map_scores",
+            "out",
+            "10k rescore scores",
+        ),
+        (
+            "v0_1_submission_ocr",
+            "L0:data.submission_archive",
+            "in",
+            "image-only submission PDFs",
+        ),
+        (
+            "v0_1_submission_ocr",
+            "L1:constructed.submission_search_results",
+            "out",
+            "OCR-augmented search dataset",
+        ),
+        (
+            "v0_1_submission_ocr_analyze",
+            "L1:constructed.submission_search_results",
+            "in",
+            "OCR keyword pass",
+        ),
+        (
+            "v0_1_build_overlay_figures",
+            "L1:constructed.dpg_v0_1_canonical",
+            "in",
+            "DPG for overlay",
+        ),
+        (
+            "v0_1_build_overlay_figures_v2",
+            "L1:constructed.dpg_v0_1_canonical",
+            "in",
+            "DPG for overlay v2",
+        ),
+        (
+            "v0_1_build_article_figures_v3",
+            "L1:constructed.dpg_v0_1_canonical",
+            "in",
+            "DPG",
+        ),
+        (
+            "v0_1_dpg_perturbation_writeup",
+            "L1:constructed.dpg_perturbation_flat",
+            "in",
+            "flat samples",
+        ),
+        (
+            "v0_1_dpg_perturbation_writeup",
+            "L1:constructed.dpg_perturbation_tiered",
+            "in",
+            "tiered samples",
+        ),
+        (
+            "v0_1_phase_4bcdef_execution",
+            "L1:constructed.phase4bcdef_summary",
+            "out",
+            "summary JSON",
+        ),
+        (
+            "v0_1_phase_4c_va_attribution_maup",
+            "L1:constructed.phase4c_maup_summary",
+            "out",
+            "MAUP summary",
+        ),
+        (
+            "v0_1_phase_4c_va_attribution_maup_v2",
+            "L1:constructed.phase4c_maup_summary",
+            "out",
+            "MAUP v2 summary",
+        ),
+        (
+            "v0_1_phase_4c_va_attribution_maup_v3_v05",
+            "L1:constructed.phase4c_maup_summary",
+            "out",
+            "MAUP v0_5 summary",
+        ),
+        (
+            "v0_1_phase_4c_va_attribution_maup",
+            "L1:constructed.va_to_2026_assignments",
+            "out",
+            "VA-to-2026-ED assignments",
+        ),
+        (
+            "v0_1_phase_4c_va_attribution_maup_v2",
+            "L1:constructed.va_to_2026_assignments",
+            "out",
+            "VA-to-2026-ED assignments v2",
+        ),
+        (
+            "v0_1_phase_4c_va_attribution_maup_v3_v05",
+            "L1:constructed.va_to_2026_assignments",
+            "out",
+            "VA-to-2026-ED assignments v0_5",
+        ),
+        (
+            "v0_1_phase_4bf_v05",
+            "L1:constructed.phase4b_v05_pops",
+            "out",
+            "v0_5 Phase 4B pops",
+        ),
         # Polsby-Popper compactness
-        ("v0_1_approximate_shape_analysis", "L1:constructed.compactness_scores", "out", "compactness scores"),
+        (
+            "v0_1_approximate_shape_analysis",
+            "L1:constructed.compactness_scores",
+            "out",
+            "compactness scores",
+        ),
         # DPG v0_3 swept (intermediate constructed product produced by build_canonical_shapefiles_v2 per Issue #3)
-        ("v0_1_municipal_anchoring", "L1:constructed.dpg_v0_3_swept", "in", "prefers v0_3 swept DPG over v0_2 where present"),
-        ("v0_1_build_canonical_shapefiles_v2", "L1:constructed.dpg_v0_3_swept", "out", "produces v0_3 pop-swept DPG (Issue #3)"),
-        ("v0_1_build_canonical_shapefiles_v2", "L1:constructed.dpg_v0_2_topoclean", "in", "cleaned topology input"),
+        (
+            "v0_1_municipal_anchoring",
+            "L1:constructed.dpg_v0_3_swept",
+            "in",
+            "prefers v0_3 swept DPG over v0_2 where present",
+        ),
+        (
+            "v0_1_build_canonical_shapefiles_v2",
+            "L1:constructed.dpg_v0_3_swept",
+            "out",
+            "produces v0_3 pop-swept DPG (Issue #3)",
+        ),
+        (
+            "v0_1_build_canonical_shapefiles_v2",
+            "L1:constructed.dpg_v0_2_topoclean",
+            "in",
+            "cleaned topology input",
+        ),
         # Report-build scripts: consume report_academic.md (doc) and emit HTML/PDF.
         # We don't model these as L0/L3 artefacts but they still need an edge
         # to avoid orphan status — attach to FROZEN_MANIFEST as consuming the
         # repository doc-set.
-        ("build_academic_html", "L0:doc.frozen_manifest", "in", "reads published report"),
+        (
+            "build_academic_html",
+            "L0:doc.frozen_manifest",
+            "in",
+            "reads published report",
+        ),
         ("build_cover", "L0:doc.frozen_manifest", "in", "reads cover art"),
         ("build_pdf", "L0:doc.frozen_manifest", "in", "reads HTML/Markdown"),
-        ("check_voice_and_readability", "L0:doc.frozen_manifest", "in", "reads editorial-pass files"),
+        (
+            "check_voice_and_readability",
+            "L0:doc.frozen_manifest",
+            "in",
+            "reads editorial-pass files",
+        ),
     ]
 
     l2_ids = {e["id"] for e in l2_entries}
@@ -2329,19 +3263,23 @@ def build_nodes_and_edges() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]],
             # Script may not exist in repo — skip silently.
             continue
         if direction == "in":
-            edges.append({
-                "source": node_id,
-                "target": script_id,
-                "type": "required",
-                "sensitivity": sensitivity,
-            })
+            edges.append(
+                {
+                    "source": node_id,
+                    "target": script_id,
+                    "type": "required",
+                    "sensitivity": sensitivity,
+                }
+            )
         else:
-            edges.append({
-                "source": script_id,
-                "target": node_id,
-                "type": "required",
-                "sensitivity": sensitivity,
-            })
+            edges.append(
+                {
+                    "source": script_id,
+                    "target": node_id,
+                    "type": "required",
+                    "sensitivity": sensitivity,
+                }
+            )
 
     # L3 findings + their evidentiary edges.
     for finding in L3_FINDINGS:
@@ -2354,76 +3292,209 @@ def build_nodes_and_edges() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]],
         }
         nodes.append(finding_node)
         for src_id, edge_type, sensitivity in finding["evidence"]:
-            edges.append({
-                "source": src_id,
-                "target": finding["id"],
-                "type": edge_type,
-                "sensitivity": sensitivity,
-            })
+            edges.append(
+                {
+                    "source": src_id,
+                    "target": finding["id"],
+                    "type": edge_type,
+                    "sensitivity": sensitivity,
+                }
+            )
 
     # Authored-artefact provenance: some L1 nodes are hand-curated CSVs
     # authored from commission Appendix E descriptions or external polling
     # sources. Link them back to their evidentiary parents so invalidation
     # cascades correctly.
     authored_links: List[Tuple[str, str, str, str]] = [
-        ("L0:data.commission_final_report_2026", "L1:constructed.crosswalk_majority_hybrid", "required", "authored from commission Appendix C + 2019 shapefile"),
-        ("L0:data.2019_ed_shapefile", "L1:constructed.crosswalk_majority_hybrid", "required", "2019 parents for crosswalk rows"),
-        ("L0:data.commission_final_report_2026", "L1:constructed.crosswalk_minority_hybrid", "required", "authored from commission Appendix E + 2019 shapefile"),
-        ("L0:data.2019_ed_shapefile", "L1:constructed.crosswalk_minority_hybrid", "required", "2019 parents for crosswalk rows"),
-        ("L0:data.commission_final_report_2026", "L1:constructed.approximate_eds", "required", "transcribed from commission maps + rationales"),
-        ("L0:data.commission_map_pngs", "L1:constructed.approximate_eds", "required", "traced from commission map rasters"),
-        ("L0:data.2019_ed_shapefile", "L1:constructed.approximate_eds", "required", "Tier-A identity shapes"),
-        ("L0:data.commission_final_report_2026", "L1:constructed.refined_eds_v6", "required", "refinement guided by commission text"),
-        ("L0:data.commission_map_pngs", "L1:constructed.refined_eds_v6", "required", "refinement guided by commission maps"),
-        ("L0:data.commission_final_report_2026", "L1:constructed.derived_v7_eds", "required", "derived from commission text"),
-        ("L0:data.commission_map_pngs", "L1:constructed.derived_v7_eds", "required", "derived from commission maps"),
-        ("L0:data.2023_statement_of_vote", "L1:constructed.va_substrate_elecday", "required", "Election-Day rows"),
-        ("L0:data.2023_va_shapefile", "L1:constructed.va_substrate_elecday", "required", "VA polygons"),
-        ("L0:data.2023_statement_of_vote", "L1:constructed.va_substrate_full", "required", "Vote-Anywhere rows"),
-        ("L0:data.2023_va_shapefile", "L1:constructed.va_substrate_full", "required", "VA polygons"),
-        ("L0:data.2021_da_populations", "L1:constructed.va_pop_from_das", "required", "DA populations for VA weighting"),
-        ("L0:data.2021_das_gpkg", "L1:constructed.va_pop_from_das", "required", "DA polygons"),
-        ("L0:data.2023_va_shapefile", "L1:constructed.va_pop_from_das", "required", "VA polygons"),
+        (
+            "L0:data.commission_final_report_2026",
+            "L1:constructed.crosswalk_majority_hybrid",
+            "required",
+            "authored from commission Appendix C + 2019 shapefile",
+        ),
+        (
+            "L0:data.2019_ed_shapefile",
+            "L1:constructed.crosswalk_majority_hybrid",
+            "required",
+            "2019 parents for crosswalk rows",
+        ),
+        (
+            "L0:data.commission_final_report_2026",
+            "L1:constructed.crosswalk_minority_hybrid",
+            "required",
+            "authored from commission Appendix E + 2019 shapefile",
+        ),
+        (
+            "L0:data.2019_ed_shapefile",
+            "L1:constructed.crosswalk_minority_hybrid",
+            "required",
+            "2019 parents for crosswalk rows",
+        ),
+        (
+            "L0:data.commission_final_report_2026",
+            "L1:constructed.approximate_eds",
+            "required",
+            "transcribed from commission maps + rationales",
+        ),
+        (
+            "L0:data.commission_map_pngs",
+            "L1:constructed.approximate_eds",
+            "required",
+            "traced from commission map rasters",
+        ),
+        (
+            "L0:data.2019_ed_shapefile",
+            "L1:constructed.approximate_eds",
+            "required",
+            "Tier-A identity shapes",
+        ),
+        (
+            "L0:data.commission_final_report_2026",
+            "L1:constructed.refined_eds_v6",
+            "required",
+            "refinement guided by commission text",
+        ),
+        (
+            "L0:data.commission_map_pngs",
+            "L1:constructed.refined_eds_v6",
+            "required",
+            "refinement guided by commission maps",
+        ),
+        (
+            "L0:data.commission_final_report_2026",
+            "L1:constructed.derived_v7_eds",
+            "required",
+            "derived from commission text",
+        ),
+        (
+            "L0:data.commission_map_pngs",
+            "L1:constructed.derived_v7_eds",
+            "required",
+            "derived from commission maps",
+        ),
+        (
+            "L0:data.2023_statement_of_vote",
+            "L1:constructed.va_substrate_elecday",
+            "required",
+            "Election-Day rows",
+        ),
+        (
+            "L0:data.2023_va_shapefile",
+            "L1:constructed.va_substrate_elecday",
+            "required",
+            "VA polygons",
+        ),
+        (
+            "L0:data.2023_statement_of_vote",
+            "L1:constructed.va_substrate_full",
+            "required",
+            "Vote-Anywhere rows",
+        ),
+        (
+            "L0:data.2023_va_shapefile",
+            "L1:constructed.va_substrate_full",
+            "required",
+            "VA polygons",
+        ),
+        (
+            "L0:data.2021_da_populations",
+            "L1:constructed.va_pop_from_das",
+            "required",
+            "DA populations for VA weighting",
+        ),
+        (
+            "L0:data.2021_das_gpkg",
+            "L1:constructed.va_pop_from_das",
+            "required",
+            "DA polygons",
+        ),
+        (
+            "L0:data.2023_va_shapefile",
+            "L1:constructed.va_pop_from_das",
+            "required",
+            "VA polygons",
+        ),
         # commission-published populations have upstream from commission final report
-        ("L0:data.commission_final_report_2026", "L0:data.commission_published_populations", "required", "extracted from Appendix A + E tables"),
-        ("L0:data.commission_final_report_2026", "L0:data.commission_rationales", "required", "extracted from Appendix E rationale prose"),
-        ("L0:data.commission_final_report_2026", "L0:data.commission_r5_addendum", "required", "chair addendum within final report"),
-        ("L0:data.commission_final_report_2017", "L0:data.2019_ed_populations", "required", "2019-era populations per 2017 commission"),
-        ("L0:data.2021_da_populations", "L0:data.2019_ed_populations", "corroborating", "DA-aggregated cross-check"),
-        ("L0:data.2015_statement_of_vote", "L0:data.2015_election_results", "required", "parsed from 2015 SoV"),
+        (
+            "L0:data.commission_final_report_2026",
+            "L0:data.commission_published_populations",
+            "required",
+            "extracted from Appendix A + E tables",
+        ),
+        (
+            "L0:data.commission_final_report_2026",
+            "L0:data.commission_rationales",
+            "required",
+            "extracted from Appendix E rationale prose",
+        ),
+        (
+            "L0:data.commission_final_report_2026",
+            "L0:data.commission_r5_addendum",
+            "required",
+            "chair addendum within final report",
+        ),
+        (
+            "L0:data.commission_final_report_2017",
+            "L0:data.2019_ed_populations",
+            "required",
+            "2019-era populations per 2017 commission",
+        ),
+        (
+            "L0:data.2021_da_populations",
+            "L0:data.2019_ed_populations",
+            "corroborating",
+            "DA-aggregated cross-check",
+        ),
+        (
+            "L0:data.2015_statement_of_vote",
+            "L0:data.2015_election_results",
+            "required",
+            "parsed from 2015 SoV",
+        ),
         # 338canada snapshots subset
-        ("L0:data.338canada_snapshots", "L0:data.338_historical_snapshots_dir", "corroborating", "historical slice of same projection data"),
+        (
+            "L0:data.338canada_snapshots",
+            "L0:data.338_historical_snapshots_dir",
+            "corroborating",
+            "historical slice of same projection data",
+        ),
     ]
     for src, tgt, etype, sensitivity in authored_links:
-        edges.append({
-            "source": src,
-            "target": tgt,
-            "type": etype,
-            "sensitivity": sensitivity,
-        })
+        edges.append(
+            {
+                "source": src,
+                "target": tgt,
+                "type": etype,
+                "sensitivity": sensitivity,
+            }
+        )
 
     # Add a validating edge from Phase 4F to Phase 4B/C outputs.
     for target in (
         "L1:constructed.phase4b_pops",
         "L1:constructed.phase4c_votes",
     ):
-        edges.append({
-            "source": "L1:constructed.phase4f_validation",
-            "target": target,
-            "type": "validating",
-            "sensitivity": "Phase 4F validates commission-vs-derived populations (hardstop gate)",
-        })
+        edges.append(
+            {
+                "source": "L1:constructed.phase4f_validation",
+                "target": target,
+                "type": "validating",
+                "sensitivity": "Phase 4F validates commission-vs-derived populations (hardstop gate)",
+            }
+        )
 
     # Add validating edges for FROZEN_MANIFEST → all L0 non-doc nodes.
     for n in L0_NODES:
         if n["id"] == "L0:doc.frozen_manifest":
             continue
-        edges.append({
-            "source": "L0:doc.frozen_manifest",
-            "target": n["id"],
-            "type": "validating",
-            "sensitivity": "FROZEN_MANIFEST pins the source URL + snapshot",
-        })
+        edges.append(
+            {
+                "source": "L0:doc.frozen_manifest",
+                "target": n["id"],
+                "type": "validating",
+                "sensitivity": "FROZEN_MANIFEST pins the source URL + snapshot",
+            }
+        )
 
     # Deduplicate edges.
     seen: Set[Tuple[str, str, str]] = set()
@@ -2492,18 +3563,22 @@ def _dot_label(node: Dict[str, Any]) -> str:
 def emit_dot(nodes: List[Dict[str, Any]], edges: List[Dict[str, Any]]) -> str:
     lines: List[str] = []
     lines.append("digraph audit_dependency_graph {")
-    lines.append('  rankdir=TB;')
-    lines.append('  splines=true;')
-    lines.append('  overlap=false;')
-    lines.append('  ranksep=1.2;')
-    lines.append('  nodesep=0.35;')
-    lines.append('  node [shape=box, style="filled,rounded", fontname="Helvetica", fontsize=9];')
+    lines.append("  rankdir=TB;")
+    lines.append("  splines=true;")
+    lines.append("  overlap=false;")
+    lines.append("  ranksep=1.2;")
+    lines.append("  nodesep=0.35;")
+    lines.append(
+        '  node [shape=box, style="filled,rounded", fontname="Helvetica", fontsize=9];'
+    )
     lines.append('  edge [fontname="Helvetica", fontsize=7];')
 
     for layer in ("L0", "L1", "L2", "L3"):
-        lines.append(f'  subgraph cluster_{layer} {{')
+        lines.append(f"  subgraph cluster_{layer} {{")
         lines.append(f'    label="Layer {layer[1]} — {_layer_title(layer)}";')
-        lines.append(f'    style="rounded,filled"; color="{LAYER_COLORS[layer]}88"; fillcolor="{LAYER_COLORS[layer]}22";')
+        lines.append(
+            f'    style="rounded,filled"; color="{LAYER_COLORS[layer]}88"; fillcolor="{LAYER_COLORS[layer]}22";'
+        )
         for n in nodes:
             if n["layer"] != layer:
                 continue
@@ -2511,7 +3586,7 @@ def emit_dot(nodes: List[Dict[str, Any]], edges: List[Dict[str, Any]]) -> str:
             lines.append(
                 f'    {_dot_id(n["id"])} [label="{_dot_label(n)}", fillcolor="{color}"];'
             )
-        lines.append('  }')
+        lines.append("  }")
 
     for e in edges:
         style = EDGE_STYLES.get(e["type"], "solid")
@@ -2542,6 +3617,7 @@ def _layer_title(layer: str) -> str:
 # Validation — topological sort + orphan detection
 # ---------------------------------------------------------------------------
 
+
 def topological_sort(
     nodes: List[Dict[str, Any]], edges: List[Dict[str, Any]]
 ) -> Tuple[bool, List[str]]:
@@ -2563,9 +3639,7 @@ def topological_sort(
     return (len(order) == len(nodes), order)
 
 
-def find_orphans(
-    nodes: List[Dict[str, Any]], edges: List[Dict[str, Any]]
-) -> List[str]:
+def find_orphans(nodes: List[Dict[str, Any]], edges: List[Dict[str, Any]]) -> List[str]:
     touched: Set[str] = set()
     for e in edges:
         touched.add(e["source"])
@@ -2606,6 +3680,7 @@ def findings_reachable_to_L0(
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def _git_head() -> str:
     try:
@@ -2668,15 +3743,21 @@ def main() -> int:
     }
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JSON.write_text(json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8")
+    OUT_JSON.write_text(
+        json.dumps(graph, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
 
     dot = emit_dot(nodes, edges)
     OUT_DOT.write_text(dot, encoding="utf-8")
 
     # Print summary.
     meta = graph["meta"]
-    print(f"Nodes: {meta['node_count']} (L0={meta['counts_per_layer']['L0']}, L1={meta['counts_per_layer']['L1']}, L2={meta['counts_per_layer']['L2']}, L3={meta['counts_per_layer']['L3']})")
-    print(f"Edges: {meta['edge_count']} (required={meta['edge_counts_per_type']['required']}, corroborating={meta['edge_counts_per_type']['corroborating']}, validating={meta['edge_counts_per_type']['validating']})")
+    print(
+        f"Nodes: {meta['node_count']} (L0={meta['counts_per_layer']['L0']}, L1={meta['counts_per_layer']['L1']}, L2={meta['counts_per_layer']['L2']}, L3={meta['counts_per_layer']['L3']})"
+    )
+    print(
+        f"Edges: {meta['edge_count']} (required={meta['edge_counts_per_type']['required']}, corroborating={meta['edge_counts_per_type']['corroborating']}, validating={meta['edge_counts_per_type']['validating']})"
+    )
     print(f"Acyclic: {meta['acyclic']}")
     print(f"Orphan nodes: {len(orphans)}")
     print(f"Findings with no L0 path: {len(findings_without_l0)}")

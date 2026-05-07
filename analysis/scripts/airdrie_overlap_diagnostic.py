@@ -22,6 +22,7 @@ Outputs:
 
 Author: sub-agent, 2026-04-23
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -62,6 +63,7 @@ TARGET_ED = "Calgary-Airdrie"
 # ---------------------------------------------------------------------------
 # Helpers
 
+
 def km2(area_m2: float) -> float:
     return area_m2 / 1_000_000.0
 
@@ -69,6 +71,7 @@ def km2(area_m2: float) -> float:
 def vertex_count(geom) -> int:
     """Count exterior ring vertices (plus first interior ring hole vertices)."""
     from shapely.geometry import Polygon, MultiPolygon
+
     total = 0
     if geom is None or geom.is_empty:
         return 0
@@ -84,6 +87,7 @@ def vertex_count(geom) -> int:
 # ---------------------------------------------------------------------------
 # Step 1 — Load minority shapefile and inspect Calgary-Airdrie
 
+
 def step1_inspect(eds: gpd.GeoDataFrame) -> dict:
     print("\n=== STEP 1: Inspecting Calgary-Airdrie polygon ===")
 
@@ -92,7 +96,9 @@ def step1_inspect(eds: gpd.GeoDataFrame) -> dict:
     if not mask.any():
         # Try partial match
         mask = eds["name_2026"].str.contains("Airdrie", case=False, na=False)
-        print(f"  Exact match not found; using partial match. Candidates: {eds.loc[mask, 'name_2026'].tolist()}")
+        print(
+            f"  Exact match not found; using partial match. Candidates: {eds.loc[mask, 'name_2026'].tolist()}"
+        )
 
     if not mask.any():
         print("  ERROR: Could not find Calgary-Airdrie in minority shapefile!")
@@ -107,18 +113,25 @@ def step1_inspect(eds: gpd.GeoDataFrame) -> dict:
     centroid = geom.centroid
     n_vertices = vertex_count(geom)
 
-    dist_to_airdrie = math.sqrt(
-        (centroid.x - AIRDRIE_X) ** 2 + (centroid.y - AIRDRIE_Y) ** 2
-    ) / 1000.0  # km
+    dist_to_airdrie = (
+        math.sqrt((centroid.x - AIRDRIE_X) ** 2 + (centroid.y - AIRDRIE_Y) ** 2)
+        / 1000.0
+    )  # km
 
     print(f"  ED name       : {row['name_2026']}")
     print(f"  Area          : {area_km2:.1f} km²")
-    print(f"  Bounding box  : minx={bbox[0]:.0f}, miny={bbox[1]:.0f}, "
-          f"maxx={bbox[2]:.0f}, maxy={bbox[3]:.0f}")
+    print(
+        f"  Bounding box  : minx={bbox[0]:.0f}, miny={bbox[1]:.0f}, "
+        f"maxx={bbox[2]:.0f}, maxy={bbox[3]:.0f}"
+    )
     print(f"  Centroid      : x={centroid.x:.0f}, y={centroid.y:.0f}")
     print(f"  Vertices      : {n_vertices:,}")
-    print(f"  Dist centroid -> City of Airdrie (~52000, 5682000): {dist_to_airdrie:.1f} km")
-    print(f"  Is centroid near Airdrie (< 50 km)? {'YES' if dist_to_airdrie < 50 else 'NO – ARTIFACT LIKELY'}")
+    print(
+        f"  Dist centroid -> City of Airdrie (~52000, 5682000): {dist_to_airdrie:.1f} km"
+    )
+    print(
+        f"  Is centroid near Airdrie (< 50 km)? {'YES' if dist_to_airdrie < 50 else 'NO – ARTIFACT LIKELY'}"
+    )
 
     return {
         "name_2026": row["name_2026"],
@@ -136,6 +149,7 @@ def step1_inspect(eds: gpd.GeoDataFrame) -> dict:
 # ---------------------------------------------------------------------------
 # Step 2 — Compute intersections with overlapping EDs
 
+
 def step2_intersections(eds: gpd.GeoDataFrame, airdrie_info: dict) -> list[dict]:
     print("\n=== STEP 2: Computing overlaps with adjacent EDs ===")
 
@@ -148,17 +162,22 @@ def step2_intersections(eds: gpd.GeoDataFrame, airdrie_info: dict) -> list[dict]
     for idx, row in eds.iterrows():
         if idx == airdrie_idx:
             continue
-            
+
         geom = row.geometry
-        if not airdrie_geom.intersects(geom) or airdrie_geom.intersection(geom).area < 1.0: # ignore point touches
+        if (
+            not airdrie_geom.intersects(geom)
+            or airdrie_geom.intersection(geom).area < 1.0
+        ):  # ignore point touches
             continue
-            
+
         adj_area_km2 = km2(geom.area)
 
         intersection = airdrie_geom.intersection(geom)
         inter_area_km2 = km2(intersection.area)
 
-        pct_of_airdrie = 100.0 * inter_area_km2 / airdrie_area if airdrie_area > 0 else 0
+        pct_of_airdrie = (
+            100.0 * inter_area_km2 / airdrie_area if airdrie_area > 0 else 0
+        )
         pct_of_adj = 100.0 * inter_area_km2 / adj_area_km2 if adj_area_km2 > 0 else 0
 
         print(f"\n  Overlap: {TARGET_ED} × {row['name_2026']}")
@@ -167,14 +186,16 @@ def step2_intersections(eds: gpd.GeoDataFrame, airdrie_info: dict) -> list[dict]
         print(f"    % of Calgary-Airdrie : {pct_of_airdrie:.1f}%")
         print(f"    % of adjacent ED     : {pct_of_adj:.1f}%")
 
-        results.append({
-            "adjacent_ed": row["name_2026"],
-            "adjacent_area_km2": adj_area_km2,
-            "intersection_geom": intersection,
-            "intersection_area_km2": inter_area_km2,
-            "pct_of_airdrie": pct_of_airdrie,
-            "pct_of_adjacent": pct_of_adj,
-        })
+        results.append(
+            {
+                "adjacent_ed": row["name_2026"],
+                "adjacent_area_km2": adj_area_km2,
+                "intersection_geom": intersection,
+                "intersection_area_km2": inter_area_km2,
+                "pct_of_airdrie": pct_of_airdrie,
+                "pct_of_adjacent": pct_of_adj,
+            }
+        )
 
     total_overlap = sum(r["intersection_area_km2"] for r in results)
     print(f"\n  TOTAL overlap area    : {total_overlap:.1f} km²")
@@ -185,6 +206,7 @@ def step2_intersections(eds: gpd.GeoDataFrame, airdrie_info: dict) -> list[dict]
 
 # ---------------------------------------------------------------------------
 # Step 3 — Propose corrected boundaries
+
 
 def step3_clip_options(
     eds: gpd.GeoDataFrame,
@@ -202,9 +224,9 @@ def step3_clip_options(
     overlap_ed_names_lower = {r["adjacent_ed"].lower() for r in overlap_results}
     # Build union of all OTHER EDs (not Airdrie itself, not the three overlapping ones)
     other_geoms = eds.loc[
-        (~eds.index.isin([airdrie_idx])) &
-        (~eds["name_2026"].str.lower().isin(overlap_ed_names_lower)),
-        "geometry"
+        (~eds.index.isin([airdrie_idx]))
+        & (~eds["name_2026"].str.lower().isin(overlap_ed_names_lower)),
+        "geometry",
     ].tolist()
 
     # Also get the three overlapping EDs' geometries so we can subtract them
@@ -220,15 +242,23 @@ def step3_clip_options(
     option_a_area = km2(option_a_geom.area)
     print(f"\n  Option A (difference from overlap zones):")
     print(f"    Area: {option_a_area:.1f} km²  (was {orig_area:.1f} km²)")
-    print(f"    Reduction: {orig_area - option_a_area:.1f} km² ({100*(orig_area-option_a_area)/orig_area:.1f}%)")
+    print(
+        f"    Reduction: {orig_area - option_a_area:.1f} km² ({100*(orig_area-option_a_area)/orig_area:.1f}%)"
+    )
 
     # Count VAs inside Option A vs original
     va_centroids = vas.copy()
     va_centroids["centroid_geom"] = va_centroids.geometry.centroid
-    va_centroids_gdf = gpd.GeoDataFrame(va_centroids, geometry="centroid_geom", crs=vas.crs)
+    va_centroids_gdf = gpd.GeoDataFrame(
+        va_centroids, geometry="centroid_geom", crs=vas.crs
+    )
 
-    orig_count = va_centroids_gdf[va_centroids_gdf.geometry.within(airdrie_geom)].shape[0]
-    option_a_count = va_centroids_gdf[va_centroids_gdf.geometry.within(option_a_geom)].shape[0]
+    orig_count = va_centroids_gdf[va_centroids_gdf.geometry.within(airdrie_geom)].shape[
+        0
+    ]
+    option_a_count = va_centroids_gdf[
+        va_centroids_gdf.geometry.within(option_a_geom)
+    ].shape[0]
     print(f"    VAs in original Calgary-Airdrie : {orig_count:,}")
     print(f"    VAs in Option A                 : {option_a_count:,}")
 
@@ -237,7 +267,9 @@ def step3_clip_options(
     radii = [20_000, 25_000, 30_000]  # metres
     option_b_results = {}
 
-    print(f"\n  Option B (radius clip around City of Airdrie centre x={AIRDRIE_X}, y={AIRDRIE_Y}):")
+    print(
+        f"\n  Option B (radius clip around City of Airdrie centre x={AIRDRIE_X}, y={AIRDRIE_Y}):"
+    )
     for r_m in radii:
         circle = airdrie_centre.buffer(r_m)
         clipped = airdrie_geom.intersection(circle)
@@ -245,7 +277,11 @@ def step3_clip_options(
         count = va_centroids_gdf[va_centroids_gdf.geometry.within(clipped)].shape[0]
         r_km = r_m // 1000
         print(f"    r={r_km} km: area={area_km2:.1f} km², VAs inside={count:,}")
-        option_b_results[r_km] = {"geom": clipped, "area_km2": area_km2, "va_count": count}
+        option_b_results[r_km] = {
+            "geom": clipped,
+            "area_km2": area_km2,
+            "va_count": count,
+        }
 
     return {
         "option_a_geom": option_a_geom,
@@ -258,6 +294,7 @@ def step3_clip_options(
 
 # ---------------------------------------------------------------------------
 # Step 4 — VAs in the overlap zone
+
 
 def step4_overlap_vas(
     vas: gpd.GeoDataFrame,
@@ -288,7 +325,11 @@ def step4_overlap_vas(
         return {"count": 0}
 
     # Examine parent_ed columns
-    parent_cols = [c for c in in_overlap.columns if "parent" in c.lower() or "ed_2019" in c.lower() or "name_2026" in c.lower()]
+    parent_cols = [
+        c
+        for c in in_overlap.columns
+        if "parent" in c.lower() or "ed_2019" in c.lower() or "name_2026" in c.lower()
+    ]
     print(f"  Available parent/ED columns: {parent_cols}")
 
     # Try to find the right column
@@ -304,10 +345,16 @@ def step4_overlap_vas(
         for val, cnt in parent_dist.items():
             print(f"    {val!r}: {cnt}")
     else:
-        print(f"  WARNING: No parent ED column found. Available columns: {list(in_overlap.columns)[:30]}")
+        print(
+            f"  WARNING: No parent ED column found. Available columns: {list(in_overlap.columns)[:30]}"
+        )
 
     # Vote tallies
-    vote_cols = [c for c in in_overlap.columns if any(x in c.lower() for x in ["ndp", "ucp", "total", "vote"])]
+    vote_cols = [
+        c
+        for c in in_overlap.columns
+        if any(x in c.lower() for x in ["ndp", "ucp", "total", "vote"])
+    ]
     print(f"\n  Vote columns found: {vote_cols}")
 
     total_ndp = None
@@ -320,11 +367,19 @@ def step4_overlap_vas(
 
     # Fallback: sum any ndp/ucp numeric column
     if total_ndp is None:
-        ndp_cols = [c for c in in_overlap.columns if "ndp" in c.lower() and in_overlap[c].dtype in ["float64", "int64"]]
+        ndp_cols = [
+            c
+            for c in in_overlap.columns
+            if "ndp" in c.lower() and in_overlap[c].dtype in ["float64", "int64"]
+        ]
         if ndp_cols:
             total_ndp = in_overlap[ndp_cols[0]].sum()
     if total_ucp is None:
-        ucp_cols = [c for c in in_overlap.columns if "ucp" in c.lower() and in_overlap[c].dtype in ["float64", "int64"]]
+        ucp_cols = [
+            c
+            for c in in_overlap.columns
+            if "ucp" in c.lower() and in_overlap[c].dtype in ["float64", "int64"]
+        ]
         if ucp_cols:
             total_ucp = in_overlap[ucp_cols[0]].sum()
 
@@ -333,16 +388,24 @@ def step4_overlap_vas(
 
     # Check for Airdrie-Cochrane parent assignment
     if parent_col:
-        has_airdrie_cochrane = in_overlap[parent_col].str.contains("Airdrie", case=False, na=False).any()
-        print(f"\n  Any VA has parent containing 'Airdrie'? {'YES' if has_airdrie_cochrane else 'NO'}")
-        print(f"  If NO -> VAs are attributed to a different 2019 parent = confirms pixel-extraction error")
+        has_airdrie_cochrane = (
+            in_overlap[parent_col].str.contains("Airdrie", case=False, na=False).any()
+        )
+        print(
+            f"\n  Any VA has parent containing 'Airdrie'? {'YES' if has_airdrie_cochrane else 'NO'}"
+        )
+        print(
+            f"  If NO -> VAs are attributed to a different 2019 parent = confirms pixel-extraction error"
+        )
 
     return {
         "count": len(in_overlap),
         "total_ndp": total_ndp,
         "total_ucp": total_ucp,
         "parent_col": parent_col,
-        "parent_dist": in_overlap[parent_col].value_counts().to_dict() if parent_col else {},
+        "parent_dist": (
+            in_overlap[parent_col].value_counts().to_dict() if parent_col else {}
+        ),
         "in_overlap_df": in_overlap,
         "overlap_union": overlap_union,
     }
@@ -350,6 +413,7 @@ def step4_overlap_vas(
 
 # ---------------------------------------------------------------------------
 # Step 5 — Write report
+
 
 def step5_write_report(
     airdrie_info: dict,
@@ -371,12 +435,16 @@ def step5_write_report(
     # ---- 1. Summary of Over-Extension ----
     lines.append("## 1. Summary of the Over-Extension")
     lines.append("")
-    lines.append(f"The `{TARGET_ED}` polygon in the canonical minority shapefile covers "
-                 f"**{airdrie_info['area_km2']:.1f} km²**, with its centroid at "
-                 f"(x={airdrie_info['centroid_x']:.0f}, y={airdrie_info['centroid_y']:.0f}) in EPSG:3401.")
+    lines.append(
+        f"The `{TARGET_ED}` polygon in the canonical minority shapefile covers "
+        f"**{airdrie_info['area_km2']:.1f} km²**, with its centroid at "
+        f"(x={airdrie_info['centroid_x']:.0f}, y={airdrie_info['centroid_y']:.0f}) in EPSG:3401."
+    )
     lines.append("")
-    lines.append(f"The City of Airdrie's known approximate centre is at (x={AIRDRIE_X}, y={AIRDRIE_Y}). "
-                 f"The polygon centroid is **{airdrie_info['dist_to_airdrie_km']:.1f} km** from this reference point.")
+    lines.append(
+        f"The City of Airdrie's known approximate centre is at (x={AIRDRIE_X}, y={AIRDRIE_Y}). "
+        f"The polygon centroid is **{airdrie_info['dist_to_airdrie_km']:.1f} km** from this reference point."
+    )
     lines.append("")
     lines.append("### Polygon Geometry")
     lines.append("")
@@ -384,30 +452,44 @@ def step5_write_report(
     lines.append("|---|---|")
     lines.append(f"| Area | {airdrie_info['area_km2']:.1f} km² |")
     bb = airdrie_info["bbox"]
-    lines.append(f"| Bounding box (EPSG:3401) | minx={bb[0]:.0f}, miny={bb[1]:.0f}, maxx={bb[2]:.0f}, maxy={bb[3]:.0f} |")
-    lines.append(f"| Centroid | x={airdrie_info['centroid_x']:.0f}, y={airdrie_info['centroid_y']:.0f} |")
+    lines.append(
+        f"| Bounding box (EPSG:3401) | minx={bb[0]:.0f}, miny={bb[1]:.0f}, maxx={bb[2]:.0f}, maxy={bb[3]:.0f} |"
+    )
+    lines.append(
+        f"| Centroid | x={airdrie_info['centroid_x']:.0f}, y={airdrie_info['centroid_y']:.0f} |"
+    )
     lines.append(f"| Vertices | {airdrie_info['n_vertices']:,} |")
-    lines.append(f"| Distance to Airdrie centre | {airdrie_info['dist_to_airdrie_km']:.1f} km |")
+    lines.append(
+        f"| Distance to Airdrie centre | {airdrie_info['dist_to_airdrie_km']:.1f} km |"
+    )
     lines.append("")
 
     # ---- Overlap table ----
     lines.append("### Overlaps with Adjacent EDs")
     lines.append("")
-    lines.append("| Adjacent ED | Adjacent Area (km²) | Intersection (km²) | % of Airdrie | % of Adjacent |")
+    lines.append(
+        "| Adjacent ED | Adjacent Area (km²) | Intersection (km²) | % of Airdrie | % of Adjacent |"
+    )
     lines.append("|---|---|---|---|---|")
     total_overlap = 0.0
     for r in overlap_results:
-        lines.append(f"| {r['adjacent_ed']} | {r['adjacent_area_km2']:.1f} | "
-                     f"{r['intersection_area_km2']:.1f} | {r['pct_of_airdrie']:.1f}% | {r['pct_of_adjacent']:.1f}% |")
+        lines.append(
+            f"| {r['adjacent_ed']} | {r['adjacent_area_km2']:.1f} | "
+            f"{r['intersection_area_km2']:.1f} | {r['pct_of_airdrie']:.1f}% | {r['pct_of_adjacent']:.1f}% |"
+        )
         total_overlap += r["intersection_area_km2"]
-    lines.append(f"| **TOTAL** | — | **{total_overlap:.1f}** | "
-                 f"**{100*total_overlap/airdrie_info['area_km2']:.1f}%** | — |")
+    lines.append(
+        f"| **TOTAL** | — | **{total_overlap:.1f}** | "
+        f"**{100*total_overlap/airdrie_info['area_km2']:.1f}%** | — |"
+    )
     lines.append("")
-    lines.append(f"The Calgary-Airdrie polygon overlaps its three neighbours by a combined "
-                 f"**{total_overlap:.1f} km²**, representing "
-                 f"**{100*total_overlap/airdrie_info['area_km2']:.1f}%** of its total footprint. "
-                 f"This is consistent with a pixel-extraction artifact: the polygon was traced too broadly "
-                 f"from the commission's overview map rather than from a precise boundary description.")
+    lines.append(
+        f"The Calgary-Airdrie polygon overlaps its three neighbours by a combined "
+        f"**{total_overlap:.1f} km²**, representing "
+        f"**{100*total_overlap/airdrie_info['area_km2']:.1f}%** of its total footprint. "
+        f"This is consistent with a pixel-extraction artifact: the polygon was traced too broadly "
+        f"from the commission's overview map rather than from a precise boundary description."
+    )
     lines.append("")
 
     # ---- 2. VA Count and Votes at Risk ----
@@ -418,16 +500,22 @@ def step5_write_report(
     total_ucp = va_stats.get("total_ucp")
     parent_dist = va_stats.get("parent_dist", {})
 
-    lines.append(f"**{va_count:,} VAs** have their centroid inside the overlap zone "
-                 f"(intersection of Calgary-Airdrie with any of the three adjacent EDs).")
+    lines.append(
+        f"**{va_count:,} VAs** have their centroid inside the overlap zone "
+        f"(intersection of Calgary-Airdrie with any of the three adjacent EDs)."
+    )
     lines.append("")
     if va_count > 0:
         lines.append("### Vote Totals in Overlap Zone (2023 Provincial Election)")
         lines.append("")
         lines.append("| Party | Votes |")
         lines.append("|---|---|")
-        lines.append(f"| NDP | {int(total_ndp) if total_ndp is not None else 'N/A':,} |")
-        lines.append(f"| UCP | {int(total_ucp) if total_ucp is not None else 'N/A':,} |")
+        lines.append(
+            f"| NDP | {int(total_ndp) if total_ndp is not None else 'N/A':,} |"
+        )
+        lines.append(
+            f"| UCP | {int(total_ucp) if total_ucp is not None else 'N/A':,} |"
+        )
         lines.append("")
         if parent_dist:
             lines.append("### Parent ED 2019 Distribution in Overlap Zone")
@@ -440,40 +528,52 @@ def step5_write_report(
             # Interpretation
             has_airdrie = any("airdrie" in str(k).lower() for k in parent_dist)
             if has_airdrie:
-                lines.append("The overlap-zone VAs carry a `parent_ed_2019` of `Airdrie-Cochrane` (or similar), "
-                             "which is **consistent** with their correct geographic location. The pixel-extraction "
-                             "artifact caused Airdrie-Cochrane VAs to appear inside Calgary-Airdrie.")
+                lines.append(
+                    "The overlap-zone VAs carry a `parent_ed_2019` of `Airdrie-Cochrane` (or similar), "
+                    "which is **consistent** with their correct geographic location. The pixel-extraction "
+                    "artifact caused Airdrie-Cochrane VAs to appear inside Calgary-Airdrie."
+                )
             else:
-                lines.append("The overlap-zone VAs do **NOT** have a `parent_ed_2019` of `Airdrie-Cochrane`. "
-                             "They belong to different 2019 parents, confirming that the Calgary-Airdrie polygon "
-                             "was traced so broadly it captured territory from entirely different 2019 EDs. "
-                             "This strongly supports the pixel-extraction artifact hypothesis.")
+                lines.append(
+                    "The overlap-zone VAs do **NOT** have a `parent_ed_2019` of `Airdrie-Cochrane`. "
+                    "They belong to different 2019 parents, confirming that the Calgary-Airdrie polygon "
+                    "was traced so broadly it captured territory from entirely different 2019 EDs. "
+                    "This strongly supports the pixel-extraction artifact hypothesis."
+                )
             lines.append("")
 
     # ---- 3. Clip Options ----
     lines.append("## 3. Corrected Boundary Options")
     lines.append("")
     orig_va = clip_options.get("orig_va_count", 0)
-    lines.append(f"Original Calgary-Airdrie VA count (centroid-in-polygon): **{orig_va:,}**")
+    lines.append(
+        f"Original Calgary-Airdrie VA count (centroid-in-polygon): **{orig_va:,}**"
+    )
     lines.append("")
 
     lines.append("### Option A — Subtract the Overlap Zones")
     lines.append("")
-    lines.append("Clip Calgary-Airdrie by subtracting the exact intersection geometry "
-                 "with each of the three overlapping EDs.")
+    lines.append(
+        "Clip Calgary-Airdrie by subtracting the exact intersection geometry "
+        "with each of the three overlapping EDs."
+    )
     lines.append("")
     lines.append("| Metric | Value |")
     lines.append("|---|---|")
     lines.append(f"| Resulting area | {clip_options['option_a_area_km2']:.1f} km² |")
-    lines.append(f"| Area removed | {airdrie_info['area_km2'] - clip_options['option_a_area_km2']:.1f} km² |")
+    lines.append(
+        f"| Area removed | {airdrie_info['area_km2'] - clip_options['option_a_area_km2']:.1f} km² |"
+    )
     lines.append(f"| VAs retained | {clip_options['option_a_va_count']:,} |")
     lines.append(f"| VAs removed | {orig_va - clip_options['option_a_va_count']:,} |")
     lines.append("")
 
     lines.append("### Option B — Radius Clip Around City of Airdrie")
     lines.append("")
-    lines.append(f"Intersect Calgary-Airdrie with a circle of radius r centred on "
-                 f"(x={AIRDRIE_X}, y={AIRDRIE_Y}).")
+    lines.append(
+        f"Intersect Calgary-Airdrie with a circle of radius r centred on "
+        f"(x={AIRDRIE_X}, y={AIRDRIE_Y})."
+    )
     lines.append("")
     lines.append("| Radius | Resulting Area (km²) | VAs Retained |")
     lines.append("|---|---|---|")
@@ -488,52 +588,74 @@ def step5_write_report(
     lines.append("")
     lines.append("Rationale:")
     lines.append("")
-    lines.append("- Option A is geometrically conservative: it removes only the territory "
-                 "that is provably incorrect (the intersecting area) without making assumptions "
-                 "about what the 'true' boundary is.")
-    lines.append("- Option B requires selecting an arbitrary radius and assumes the commission "
-                 "intended a compact circle, which may not be accurate.")
-    lines.append("- Option A preserves every VA that falls exclusively within the "
-                 "Calgary-Airdrie polygon and removes only those in the ambiguous overlap zone.")
-    lines.append("- The resulting polygon can be further refined against official commission "
-                 "boundary descriptions once those are available.")
+    lines.append(
+        "- Option A is geometrically conservative: it removes only the territory "
+        "that is provably incorrect (the intersecting area) without making assumptions "
+        "about what the 'true' boundary is."
+    )
+    lines.append(
+        "- Option B requires selecting an arbitrary radius and assumes the commission "
+        "intended a compact circle, which may not be accurate."
+    )
+    lines.append(
+        "- Option A preserves every VA that falls exclusively within the "
+        "Calgary-Airdrie polygon and removes only those in the ambiguous overlap zone."
+    )
+    lines.append(
+        "- The resulting polygon can be further refined against official commission "
+        "boundary descriptions once those are available."
+    )
     lines.append("")
-    lines.append("If Option A produces a polygon that is too fragmented or leaves isolated slivers, "
-                 "Option B with r=25 km is the next-best fallback, as it captures the City of Airdrie "
-                 "and immediately adjacent areas without extending into the adjacent EDs.")
+    lines.append(
+        "If Option A produces a polygon that is too fragmented or leaves isolated slivers, "
+        "Option B with r=25 km is the next-best fallback, as it captures the City of Airdrie "
+        "and immediately adjacent areas without extending into the adjacent EDs."
+    )
     lines.append("")
 
     # ---- 5. Impact on Minority EG ----
     lines.append("## 5. Impact on Minority Electoral Geography")
     lines.append("")
-    lines.append(f"If the **{va_count:,}** overlap-zone VAs were reassigned to their correct EDs "
-                 f"(based on `parent_ed_2019` or geographic containment):")
+    lines.append(
+        f"If the **{va_count:,}** overlap-zone VAs were reassigned to their correct EDs "
+        f"(based on `parent_ed_2019` or geographic containment):"
+    )
     lines.append("")
 
     if total_ndp is not None and total_ucp is not None and (total_ndp + total_ucp) > 0:
         ndp_share = 100 * total_ndp / (total_ndp + total_ucp)
         ucp_share = 100 - ndp_share
-        lines.append(f"- The overlap zone contains approximately {int(total_ndp + total_ucp):,} "
-                     f"two-party votes ({ndp_share:.0f}% NDP / {ucp_share:.0f}% UCP).")
+        lines.append(
+            f"- The overlap zone contains approximately {int(total_ndp + total_ucp):,} "
+            f"two-party votes ({ndp_share:.0f}% NDP / {ucp_share:.0f}% UCP)."
+        )
         if ndp_share > 55:
             lean = "NDP-leaning"
         elif ucp_share > 55:
             lean = "UCP-leaning"
         else:
             lean = "closely contested"
-        lines.append(f"- This territory appears **{lean}**, suggesting that misattribution could "
-                     f"affect both the seat count and party vote-share distribution in the minority map.")
+        lines.append(
+            f"- This territory appears **{lean}**, suggesting that misattribution could "
+            f"affect both the seat count and party vote-share distribution in the minority map."
+        )
     else:
-        lines.append("- Vote totals in the overlap zone could not be computed from available data.")
+        lines.append(
+            "- Vote totals in the overlap zone could not be computed from available data."
+        )
 
-    lines.append("- Until the correct boundary is confirmed from official sources, the Calgary-Airdrie "
-                 "minority polygon should be treated as **unreliable** and excluded from any analyses "
-                 "that depend on precise Calgary-Airdrie boundaries.")
+    lines.append(
+        "- Until the correct boundary is confirmed from official sources, the Calgary-Airdrie "
+        "minority polygon should be treated as **unreliable** and excluded from any analyses "
+        "that depend on precise Calgary-Airdrie boundaries."
+    )
     lines.append("")
     lines.append("**No shapefiles were modified. This is a diagnostic report only.**")
     lines.append("")
     lines.append("---")
-    lines.append(f"*Report generated by `v0_1_airdrie_overlap_diagnostic.py` on {now}.*")
+    lines.append(
+        f"*Report generated by `v0_1_airdrie_overlap_diagnostic.py` on {now}.*"
+    )
 
     report_text = "\n".join(lines)
     with open(REPORT_PATH, "w", encoding="utf-8") as f:
@@ -543,6 +665,7 @@ def step5_write_report(
 
 # ---------------------------------------------------------------------------
 # Main
+
 
 def main():
     print("=" * 70)
@@ -559,7 +682,14 @@ def main():
     print(f"  Columns: {list(eds.columns)}")
 
     # Identify the name column
-    name_col_candidates = ["name_2026", "ED_NAME", "name", "NAME", "RIDING_NAME", "riding_name"]
+    name_col_candidates = [
+        "name_2026",
+        "ED_NAME",
+        "name",
+        "NAME",
+        "RIDING_NAME",
+        "riding_name",
+    ]
     name_col = None
     for c in name_col_candidates:
         if c in eds.columns:

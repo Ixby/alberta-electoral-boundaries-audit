@@ -14,7 +14,7 @@ They are stored in `private/` or other gitignored locations.
 | `report_public.pdf` | Magazine PDF — kept private |
 | `analysis/v0_1_duane_bratt_outreach_email.md` | Draft personal outreach email |
 | `analysis/live_tasks.md` | Live session task tracker |
-| `analysis/v0_1_elections_alberta_shapefile_request.md` | FOIP correspondence with Elections Alberta |
+| `analysis/v0_1_elections_alberta_shapefile_request.md` | data request correspondence with Elections Alberta |
 | `analysis/url_archival_log.md` | URL archival execution log |
 
 ## Deleted (2026-04-23)

@@ -28,28 +28,42 @@ from shapely.ops import unary_union
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
 
-OFF_MAJ  = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
-OFF_MIN  = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
+OFF_MAJ = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
+OFF_MIN = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
 CSD_PATH = REPO / "data/shapefiles/reference/alberta_2021_csds.gpkg"
-OUT      = ROOT / "outputs/t4_metric_delta.csv"
+OUT = ROOT / "outputs/t4_metric_delta.csv"
 OUT.parent.mkdir(exist_ok=True)
 
 # Audit-reported DPG values
 DPG_VALUES = {
-    "majority": {"pop_mad": 3180, "muni_anchor_pct": 71.0,
-                 "nw_excess_pct": 2.8,  "airdrie_partitions": 2},
-    "minority": {"pop_mad": 4707, "muni_anchor_pct": 14.5,
-                 "nw_excess_pct": 11.5, "airdrie_partitions": 4},
+    "majority": {
+        "pop_mad": 3180,
+        "muni_anchor_pct": 71.0,
+        "nw_excess_pct": 2.8,
+        "airdrie_partitions": 2,
+    },
+    "minority": {
+        "pop_mad": 4707,
+        "muni_anchor_pct": 14.5,
+        "nw_excess_pct": 11.5,
+        "airdrie_partitions": 4,
+    },
 }
 
 # Calgary NW zone EDs — the same set used in the original audit (§5.1 A2)
 # These are the EDs in the northwest Calgary geographic zone
 NW_CALGARY_EDS = {
-    "Calgary-Bow", "Calgary-Beddington", "Calgary-Edgemont",
-    "Calgary-Klein", "Calgary-North", "Calgary-North West",
-    "Calgary-Nose Creek", "Calgary-Symons Valley",
+    "Calgary-Bow",
+    "Calgary-Beddington",
+    "Calgary-Edgemont",
+    "Calgary-Klein",
+    "Calgary-North",
+    "Calgary-North West",
+    "Calgary-Nose Creek",
+    "Calgary-Symons Valley",
     # minority-specific names for the same geographic zone
-    "Calgary-North West-Bearspaw", "Calgary-Nolan Hill-Cochrane",
+    "Calgary-North West-Bearspaw",
+    "Calgary-Nolan Hill-Cochrane",
 }
 
 
@@ -70,14 +84,14 @@ def municipal_anchoring(ed_gdf, csd_gdf, buffer_m=50):
     The DPG used VA polygon edges (which ARE aligned to CSDs), so exact
     intersection worked there but not here.
     """
-    ed_proj  = ed_gdf.to_crs("EPSG:3400")
+    ed_proj = ed_gdf.to_crs("EPSG:3400")
     csd_proj = csd_gdf.to_crs("EPSG:3400")
 
     # Union of individual CSD boundaries preserves internal edges between CSDs
     csd_boundary = unary_union([g.boundary for g in csd_proj.geometry])
     csd_zone = csd_boundary.buffer(buffer_m)
 
-    total_perim  = 0.0
+    total_perim = 0.0
     anchored_len = 0.0
 
     for _, row in ed_proj.iterrows():
@@ -110,18 +124,23 @@ def calgary_nw_excess(gdf, nw_names):
 
 def airdrie_count(ed_gdf, csd_gdf):
     """How many 2026 EDs intersect the City of Airdrie CSD?"""
-    ed_proj  = ed_gdf.to_crs("EPSG:3400")
+    ed_proj = ed_gdf.to_crs("EPSG:3400")
     csd_proj = csd_gdf.to_crs("EPSG:3400")
 
-    airdrie_candidates = csd_proj[csd_proj["CSDNAME"].str.contains("Airdrie", case=False, na=False)]
+    airdrie_candidates = csd_proj[
+        csd_proj["CSDNAME"].str.contains("Airdrie", case=False, na=False)
+    ]
     if airdrie_candidates.empty:
         print("  WARNING: Airdrie not found in CSD layer")
         return np.nan
 
     airdrie_geom = unary_union(airdrie_candidates.geometry)
-    count = sum(1 for _, row in ed_proj.iterrows()
-                if row.geometry.intersects(airdrie_geom)
-                and row.geometry.intersection(airdrie_geom).area > 1e4)  # >1 ha
+    count = sum(
+        1
+        for _, row in ed_proj.iterrows()
+        if row.geometry.intersects(airdrie_geom)
+        and row.geometry.intersection(airdrie_geom).area > 1e4
+    )  # >1 ha
     return count
 
 
@@ -133,23 +152,35 @@ def run_map(label, off_path, csd_gdf):
     # 1. Population MAD
     mad, quota = pop_mad(off)
     mad_delta = mad - dpg_vals["pop_mad"]
-    print(f"  Population MAD:  official={mad:.0f}  DPG={dpg_vals['pop_mad']}  delta={mad_delta:+.0f}")
+    print(
+        f"  Population MAD:  official={mad:.0f}  DPG={dpg_vals['pop_mad']}  delta={mad_delta:+.0f}"
+    )
 
     # 2. Municipal anchoring
     print("  Computing municipal anchoring (may take ~30s)...")
     anchor = municipal_anchoring(off, csd_gdf)
     anchor_delta = anchor - dpg_vals["muni_anchor_pct"]
-    print(f"  Muni anchoring:  official={anchor:.1f}%  DPG={dpg_vals['muni_anchor_pct']}%  delta={anchor_delta:+.1f}pp")
+    print(
+        f"  Muni anchoring:  official={anchor:.1f}%  DPG={dpg_vals['muni_anchor_pct']}%  delta={anchor_delta:+.1f}pp"
+    )
 
     # 3. Calgary NW zone
     excess, n_nw = calgary_nw_excess(off, NW_CALGARY_EDS)
-    excess_delta = excess - dpg_vals["nw_excess_pct"] if not np.isnan(excess) else np.nan
-    print(f"  Calgary NW excess: official={excess:.1f}%  DPG={dpg_vals['nw_excess_pct']}%  delta={excess_delta:+.1f}pp  (n={n_nw} EDs)")
+    excess_delta = (
+        excess - dpg_vals["nw_excess_pct"] if not np.isnan(excess) else np.nan
+    )
+    print(
+        f"  Calgary NW excess: official={excess:.1f}%  DPG={dpg_vals['nw_excess_pct']}%  delta={excess_delta:+.1f}pp  (n={n_nw} EDs)"
+    )
 
     # 4. Airdrie count
     airdrie = airdrie_count(off, csd_gdf)
-    airdrie_delta = (airdrie - dpg_vals["airdrie_partitions"]) if not np.isnan(airdrie) else np.nan
-    print(f"  Airdrie EDs:     official={airdrie}  DPG={dpg_vals['airdrie_partitions']}  delta={airdrie_delta:+}")
+    airdrie_delta = (
+        (airdrie - dpg_vals["airdrie_partitions"]) if not np.isnan(airdrie) else np.nan
+    )
+    print(
+        f"  Airdrie EDs:     official={airdrie}  DPG={dpg_vals['airdrie_partitions']}  delta={airdrie_delta:+}"
+    )
 
     return {
         "map": label,
@@ -161,7 +192,9 @@ def run_map(label, off_path, csd_gdf):
         "muni_anchor_delta_pp": round(anchor_delta, 2),
         "nw_excess_official_pct": round(excess, 2) if not np.isnan(excess) else None,
         "nw_excess_dpg_pct": dpg_vals["nw_excess_pct"],
-        "nw_excess_delta_pp": round(excess_delta, 2) if not np.isnan(excess_delta) else None,
+        "nw_excess_delta_pp": (
+            round(excess_delta, 2) if not np.isnan(excess_delta) else None
+        ),
         "airdrie_official": airdrie,
         "airdrie_dpg": dpg_vals["airdrie_partitions"],
         "airdrie_delta": airdrie_delta,

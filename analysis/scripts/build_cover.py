@@ -16,6 +16,7 @@ Output: report_public.pdf at the repo root (cover + article merged).
 
 Dependencies: geopandas, shapely, matplotlib, markdown, pypdf, pypdfium2.
 """
+
 from __future__ import annotations
 
 import subprocess
@@ -47,11 +48,17 @@ APPROX_MIN_CANDIDATES = [
 # Phase 4C VA→2026-ED assignments (conservation-exact crosswalk authored by
 # the topological resolver). Used by the heatmap fill to assign each VA
 # its parent 2026 ED.
-VA_TO_2026_ASSIGNMENTS = REPO_ROOT / "analysis" / "assignment_va_to_2026_assignments.csv"
+VA_TO_2026_ASSIGNMENTS = (
+    REPO_ROOT / "analysis" / "assignment_va_to_2026_assignments.csv"
+)
 
 COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
-OUT_PDF = REPO_ROOT / "report_public.pdf"   # final = cover + article (the only PDF in the repo root)
-ARTICLE_PDF = REPO_ROOT / ".temp" / "article.pdf"   # intermediate, written by build_pdf.py to .temp/
+OUT_PDF = (
+    REPO_ROOT / "report_public.pdf"
+)  # final = cover + article (the only PDF in the repo root)
+ARTICLE_PDF = (
+    REPO_ROOT / ".temp" / "article.pdf"
+)  # intermediate, written by build_pdf.py to .temp/
 
 CHROME_CANDIDATES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -73,7 +80,9 @@ def find_browser() -> str:
 # ==========================================================
 
 
-VA_VOTES_PATH = REPO_ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+VA_VOTES_PATH = (
+    REPO_ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+)
 
 
 def _pick(candidates):
@@ -115,31 +124,37 @@ def build_cover_art() -> Path:
     if VA_VOTES_PATH.exists():
         va = gpd.read_file(VA_VOTES_PATH).to_crs(3401)
         va_pts = gpd.GeoDataFrame(
-            {"va_ucp": va["va_ucp"].fillna(0),
-             "va_ndp": va["va_ndp"].fillna(0)},
+            {"va_ucp": va["va_ucp"].fillna(0), "va_ndp": va["va_ndp"].fillna(0)},
             geometry=va.geometry.centroid,
             crs=3401,
         )
         joined = gpd.sjoin(
-            va_pts, eds[[name_col, "geometry"]],
-            how="left", predicate="within",
+            va_pts,
+            eds[[name_col, "geometry"]],
+            how="left",
+            predicate="within",
         )
-        agg = joined.groupby(name_col).agg(
-            ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-        ).reset_index()
+        agg = (
+            joined.groupby(name_col)
+            .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+            .reset_index()
+        )
         agg["total"] = (agg["ucp"] + agg["ndp"]).clip(lower=1)
         agg["ucp_share"] = agg["ucp"] / agg["total"]
-        eds = eds.merge(agg[[name_col, "ucp_share", "total"]],
-                        on=name_col, how="left")
+        eds = eds.merge(agg[[name_col, "ucp_share", "total"]], on=name_col, how="left")
     else:
-        print(f"[build_cover] WARN: {VA_VOTES_PATH.name} not found; "
-              f"all EDs will render as neutral 50/50")
+        print(
+            f"[build_cover] WARN: {VA_VOTES_PATH.name} not found; "
+            f"all EDs will render as neutral 50/50"
+        )
         eds["ucp_share"] = 0.5
         eds["total"] = 0
     eds["ucp_share"] = eds["ucp_share"].fillna(0.5)
     eds["total"] = eds["total"].fillna(0)
     eds["inferred"] = False
-    print(f"[build_cover] {int((eds['total'] > 0).sum())}/{len(eds)} EDs received VA votes")
+    print(
+        f"[build_cover] {int((eds['total'] > 0).sum())}/{len(eds)} EDs received VA votes"
+    )
 
     # 2b. Crosswalk-inheritance fallback for EDs the centroid-join missed.
     # The v0_8 reconstruction inherits some 2026 minority polygons from v0_7
@@ -154,6 +169,7 @@ def build_cover_art() -> Path:
     crosswalk_path = REPO_ROOT / "data" / "minority_hybrid_crosswalk.csv"
     if VA_VOTES_PATH.exists() and crosswalk_path.exists():
         import pandas as pd
+
         cw = pd.read_csv(crosswalk_path)
         # 2026-name -> list of 2019 parents (drop "(NEW)" sentinel rows)
         cw_real = cw[cw["current_2019"].astype(str) != "(NEW)"]
@@ -178,8 +194,10 @@ def build_cover_art() -> Path:
             eds.at[idx, "total"] = ucp_sum + ndp_sum
             eds.at[idx, "inferred"] = True
             n_inferred += 1
-        print(f"[build_cover] inferred 2019-parent vote share for "
-              f"{n_inferred} EDs missed by centroid-join")
+        print(
+            f"[build_cover] inferred 2019-parent vote share for "
+            f"{n_inferred} EDs missed by centroid-join"
+        )
 
     # 2c. Final fallback for any ED still grey (genuinely new 2026
     # creations with no 2019 parent in the crosswalk, or parent rows
@@ -188,16 +206,19 @@ def build_cover_art() -> Path:
     # cover renders no grey districts.
     if VA_VOTES_PATH.exists():
         from shapely.geometry import Point
+
         K = 25
         still_missing = eds["total"] == 0
         n_nearest = 0
         if still_missing.any():
-            va_centroids = list(zip(
-                va.geometry.centroid.x.values,
-                va.geometry.centroid.y.values,
-                va["va_ucp"].fillna(0).values,
-                va["va_ndp"].fillna(0).values,
-            ))
+            va_centroids = list(
+                zip(
+                    va.geometry.centroid.x.values,
+                    va.geometry.centroid.y.values,
+                    va["va_ucp"].fillna(0).values,
+                    va["va_ndp"].fillna(0).values,
+                )
+            )
             for idx in eds.index[still_missing]:
                 gc = eds.at[idx, "geometry"].centroid
                 dists = [
@@ -214,8 +235,10 @@ def build_cover_art() -> Path:
                 eds.at[idx, "total"] = ucp_sum + ndp_sum
                 eds.at[idx, "inferred"] = True
                 n_nearest += 1
-            print(f"[build_cover] nearest-{K}-VA fallback used for "
-                  f"{n_nearest} EDs with no crosswalk parent")
+            print(
+                f"[build_cover] nearest-{K}-VA fallback used for "
+                f"{n_nearest} EDs with no crosswalk parent"
+            )
 
     # 3. Direct UCP-blue → NDP-orange interpolation. The norm window
     #    is wide (30–80% UCP share) so rural EDs are not all clipped to
@@ -224,7 +247,7 @@ def build_cover_art() -> Path:
     #    below, the partisan colour itself does not need to be
     #    aggressively saturated to communicate the lean.
     ndp_orange = (0.92, 0.45, 0.10)
-    ucp_blue   = (0.13, 0.36, 0.62)
+    ucp_blue = (0.13, 0.36, 0.62)
     cmap = mcolors.LinearSegmentedColormap.from_list(
         "ucp_ndp_direct", [ndp_orange, ucp_blue], N=256
     )
@@ -257,6 +280,7 @@ def build_cover_art() -> Path:
     # inside the surrounding blue. ED-level partisan lean still emerges
     # naturally because most VAs in an ED tend to lean the same way.
     import pandas as pd
+
     va_render = va.copy()
     va_ucp_total = va_render["va_ucp"].fillna(0)
     va_ndp_total = va_render["va_ndp"].fillna(0)
@@ -269,8 +293,11 @@ def build_cover_art() -> Path:
     if "pop_2021" in va_render.columns:
         pop = va_render["pop_2021"].fillna(0).clip(lower=0)
     else:
-        pop = (va_render["va_ucp"].fillna(0) + va_render["va_ndp"].fillna(0)
-               + va_render["va_other"].fillna(0))
+        pop = (
+            va_render["va_ucp"].fillna(0)
+            + va_render["va_ndp"].fillna(0)
+            + va_render["va_other"].fillna(0)
+        )
     area_m2 = va_render.geometry.area.clip(lower=1.0)
     density = pop / area_m2  # people per m^2
     # Heatmap-style: log-scale density; blend each VA's partisan colour
@@ -278,6 +305,7 @@ def build_cover_art() -> Path:
     # weight=0 -> pure ivory (very low density), weight=1 -> full saturated
     # partisan colour (very high density).
     import numpy as np
+
     log_d = np.log10(density.replace(0, np.nan)).fillna(-12.0)
     # Wider range gives a more gradual spillover from rural-pale to
     # urban-saturated, and the curve maps to [0.10, 1.0] so very-low-
@@ -337,7 +365,7 @@ def build_cover_art() -> Path:
     province = eds.dissolve()
     province.boundary.plot(
         ax=ax,
-        edgecolor="#7a1f1f",   # title-accent red
+        edgecolor="#7a1f1f",  # title-accent red
         linewidth=0.65,
     )
 

@@ -22,6 +22,7 @@ Outputs:
   analysis/v0_1_overlap_zone_report.md  (new)
   stdout summary
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -48,18 +49,19 @@ ANALYSIS = ROOT / "analysis"
 
 MAJ_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
 MIN_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
-VA_GPKG  = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 TOTALS_CSV = ANALYSIS / "assignment_2026_synthetic_totals.csv"
 
 REPORT_OUT = ANALYSIS / "v0_1_overlap_zone_report.md"
 
 # Working CRS: Alberta 10-TM Forest (EPSG:3401), units = metres
 WORK_CRS = 3401
-OVERLAP_THRESHOLD_KM2 = 0.01   # filter out sub-pixel noise
+OVERLAP_THRESHOLD_KM2 = 0.01  # filter out sub-pixel noise
 M2_PER_KM2 = 1_000_000.0
 
 
 # ── Step 1: Find overlap pairs ────────────────────────────────────────────────
+
 
 def find_overlaps(eds: gpd.GeoDataFrame, map_label: str) -> pd.DataFrame:
     """
@@ -79,7 +81,7 @@ def find_overlaps(eds: gpd.GeoDataFrame, map_label: str) -> pd.DataFrame:
         # bounding-box candidates
         candidates = list(sindex.intersection(geom_a.bounds))
         for j in candidates:
-            if j <= i:          # avoid duplicates and self
+            if j <= i:  # avoid duplicates and self
                 continue
             row_b = eds.iloc[j]
             geom_b = row_b.geometry
@@ -93,13 +95,15 @@ def find_overlaps(eds: gpd.GeoDataFrame, map_label: str) -> pd.DataFrame:
             area_km2 = inter.area / M2_PER_KM2
             if area_km2 < OVERLAP_THRESHOLD_KM2:
                 continue
-            records.append({
-                "map":      map_label,
-                "ed_a":     name_a,       # first in index == current assignment
-                "ed_b":     name_b,
-                "area_km2": area_km2,
-                "geometry": inter,
-            })
+            records.append(
+                {
+                    "map": map_label,
+                    "ed_a": name_a,  # first in index == current assignment
+                    "ed_b": name_b,
+                    "area_km2": area_km2,
+                    "geometry": inter,
+                }
+            )
 
     if not records:
         return gpd.GeoDataFrame(
@@ -113,6 +117,7 @@ def find_overlaps(eds: gpd.GeoDataFrame, map_label: str) -> pd.DataFrame:
 
 
 # ── Step 2: Count VAs in each overlap zone ────────────────────────────────────
+
 
 def count_vas_in_overlaps(
     overlaps: gpd.GeoDataFrame,
@@ -136,7 +141,7 @@ def count_vas_in_overlaps(
     va_cents = va.copy()
     va_cents["geometry"] = va.geometry.representative_point()
 
-    va_counts   = []
+    va_counts = []
     va_ndp_tots = []
     va_ucp_tots = []
     va_other_tots = []
@@ -152,19 +157,22 @@ def count_vas_in_overlaps(
         va_ndp_tots.append(float(inside_vas["va_ndp"].sum()))
         va_ucp_tots.append(float(inside_vas["va_ucp"].sum()))
         va_other_tots.append(float(inside_vas.get("va_other", pd.Series(0.0)).sum()))
-        va_id_lists.append(inside_vas["va_id"].tolist() if "va_id" in inside_vas.columns else [])
+        va_id_lists.append(
+            inside_vas["va_id"].tolist() if "va_id" in inside_vas.columns else []
+        )
 
     overlaps = overlaps.copy()
-    overlaps["va_count"]   = va_counts
-    overlaps["total_ndp"]  = va_ndp_tots
-    overlaps["total_ucp"]  = va_ucp_tots
-    overlaps["total_other"]= va_other_tots
-    overlaps["va_ids"]     = va_id_lists
+    overlaps["va_count"] = va_counts
+    overlaps["total_ndp"] = va_ndp_tots
+    overlaps["total_ucp"] = va_ucp_tots
+    overlaps["total_other"] = va_other_tots
+    overlaps["va_ids"] = va_id_lists
 
     return overlaps
 
 
 # ── EG helpers ────────────────────────────────────────────────────────────────
+
 
 def compute_eg(district_votes: pd.DataFrame) -> float:
     """
@@ -183,11 +191,11 @@ def compute_eg(district_votes: pd.DataFrame) -> float:
         if total <= 0:
             continue
         total_all += total
-        threshold = total / 2.0 + 0.5   # 50%+1 (fractional votes OK)
+        threshold = total / 2.0 + 0.5  # 50%+1 (fractional votes OK)
         if ndp >= ucp:  # NDP wins
             wasted_ndp += ndp - threshold
             wasted_ucp += ucp
-        else:           # UCP wins
+        else:  # UCP wins
             wasted_ucp += ucp - threshold
             wasted_ndp += ndp
 
@@ -209,6 +217,7 @@ def compute_eg_for_eds(
 
 # ── Step 3: EG swing ─────────────────────────────────────────────────────────
 
+
 def compute_eg_swing(
     overlap_row: pd.Series,
     totals: pd.DataFrame,
@@ -221,8 +230,8 @@ def compute_eg_swing(
     """
     ed_a = overlap_row["ed_a"]
     ed_b = overlap_row["ed_b"]
-    ndp_shift  = overlap_row["total_ndp"]
-    ucp_shift  = overlap_row["total_ucp"]
+    ndp_shift = overlap_row["total_ndp"]
+    ucp_shift = overlap_row["total_ucp"]
 
     # Filter totals to this map
     t = totals[totals["map"] == map_val].copy()
@@ -254,13 +263,14 @@ def compute_eg_swing(
     eg_after = compute_eg(full_after.reset_index())
 
     return {
-        "eg_before":   eg_before,
-        "eg_after":    eg_after,
-        "eg_delta_pp": (eg_after - eg_before) * 100,   # percentage points
+        "eg_before": eg_before,
+        "eg_after": eg_after,
+        "eg_delta_pp": (eg_after - eg_before) * 100,  # percentage points
     }
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
+
 
 def main():
     print("=== v0_1 Overlap Zone Diagnostic ===\n")
@@ -277,8 +287,7 @@ def main():
     if "va_id" not in va.columns:
         if "parent_ed_2019" in va.columns and "VA_NUMBER" in va.columns:
             va["va_id"] = (
-                va["parent_ed_2019"] + "|" +
-                va["VA_NUMBER"].astype(str).str.zfill(3)
+                va["parent_ed_2019"] + "|" + va["VA_NUMBER"].astype(str).str.zfill(3)
             )
         else:
             va["va_id"] = va.index.astype(str)
@@ -305,7 +314,7 @@ def main():
     # Province-wide summary stats
     def summarise(ov: gpd.GeoDataFrame, label: str):
         n_pairs = len(ov)
-        n_va    = int(ov["va_count"].sum())
+        n_va = int(ov["va_count"].sum())
         ndp_tot = float(ov["total_ndp"].sum())
         ucp_tot = float(ov["total_ucp"].sum())
         vote_tot = ndp_tot + ucp_tot
@@ -342,12 +351,33 @@ def main():
     min_top10 = top10_eg(min_overlaps, "minority")
 
     # Maximum EG swing (absolute pp) across both maps
-    all_swings = pd.concat([
-        maj_top10[["ed_a","ed_b","area_km2","va_count","total_ndp","total_ucp",
-                   "eg_delta_pp"]].assign(map="majority"),
-        min_top10[["ed_a","ed_b","area_km2","va_count","total_ndp","total_ucp",
-                   "eg_delta_pp"]].assign(map="minority"),
-    ], ignore_index=True)
+    all_swings = pd.concat(
+        [
+            maj_top10[
+                [
+                    "ed_a",
+                    "ed_b",
+                    "area_km2",
+                    "va_count",
+                    "total_ndp",
+                    "total_ucp",
+                    "eg_delta_pp",
+                ]
+            ].assign(map="majority"),
+            min_top10[
+                [
+                    "ed_a",
+                    "ed_b",
+                    "area_km2",
+                    "va_count",
+                    "total_ndp",
+                    "total_ucp",
+                    "eg_delta_pp",
+                ]
+            ].assign(map="minority"),
+        ],
+        ignore_index=True,
+    )
 
     all_swings["abs_delta_pp"] = all_swings["eg_delta_pp"].abs()
     max_swing_row = all_swings.loc[all_swings["abs_delta_pp"].idxmax()]
@@ -370,10 +400,10 @@ def main():
 
     maj_max_delta = maj_top10["eg_delta_pp"].abs().max() if not maj_top10.empty else 0.0
     min_max_delta = min_top10["eg_delta_pp"].abs().max() if not min_top10.empty else 0.0
-    overall_max   = float(all_swings["abs_delta_pp"].max())
+    overall_max = float(all_swings["abs_delta_pp"].max())
 
     conclusion_threshold = 0.1  # pp — material if |EG swing| > 0.1 pp
-    noise_threshold = 0.05      # pp — noise if |EG swing| < 0.05 pp
+    noise_threshold = 0.05  # pp — noise if |EG swing| < 0.05 pp
 
     if overall_max > conclusion_threshold:
         conclusion = (
@@ -486,26 +516,32 @@ def main():
     print(f"  Report written to {REPORT_OUT}")
 
     # --- Stdout summary ---
-    print("\n" + "="*60)
+    print("\n" + "=" * 60)
     print("OVERLAP ZONE DIAGNOSTIC SUMMARY")
-    print("="*60)
-    print(f"Majority map: {maj_sum['n_pairs']} overlap pairs | "
-          f"{maj_sum['n_va']} VAs | "
-          f"{maj_sum['vote_pct']:.3f}% of province votes")
-    print(f"Minority map: {min_sum['n_pairs']} overlap pairs | "
-          f"{min_sum['n_va']} VAs | "
-          f"{min_sum['vote_pct']:.3f}% of province votes")
+    print("=" * 60)
+    print(
+        f"Majority map: {maj_sum['n_pairs']} overlap pairs | "
+        f"{maj_sum['n_va']} VAs | "
+        f"{maj_sum['vote_pct']:.3f}% of province votes"
+    )
+    print(
+        f"Minority map: {min_sum['n_pairs']} overlap pairs | "
+        f"{min_sum['n_va']} VAs | "
+        f"{min_sum['vote_pct']:.3f}% of province votes"
+    )
     print(f"\nMax EG swing (majority): {maj_max_delta:.4f} pp")
     print(f"Max EG swing (minority): {min_max_delta:.4f} pp")
     print(f"Overall max EG swing   : {overall_max:.4f} pp")
-    print(f"\nLargest swing pair: "
-          f"{max_swing_row['ed_a']} x {max_swing_row['ed_b']} "
-          f"({max_swing_row['map']}, "
-          f"{max_swing_row['area_km2']:.2f} km², "
-          f"{int(max_swing_row['va_count'])} VAs, "
-          f"EG Δ = {max_swing_row['eg_delta_pp']:+.4f} pp)")
+    print(
+        f"\nLargest swing pair: "
+        f"{max_swing_row['ed_a']} x {max_swing_row['ed_b']} "
+        f"({max_swing_row['map']}, "
+        f"{max_swing_row['area_km2']:.2f} km², "
+        f"{int(max_swing_row['va_count'])} VAs, "
+        f"EG Δ = {max_swing_row['eg_delta_pp']:+.4f} pp)"
+    )
     print(f"\nConclusion: {conclusion}")
-    print("="*60)
+    print("=" * 60)
 
 
 if __name__ == "__main__":

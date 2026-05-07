@@ -259,7 +259,7 @@ Scripts released under [LICENSE TBD] at `github.com/Ixby/alberta-electoral-bound
 
 ### 9. Limitations (~1 page)
 
-- The DPG framework is a **second-best** method; it does not substitute for official shapefiles. Option D (FOIP requests in jurisdictions with FOI legislation) remains the only path to court-grade precision.
+- The DPG framework is a **second-best** method; it does not substitute for official shapefiles. Elections Alberta disclosure remains the only path to court-grade precision.
 - `canon_source` precedence rules are judgment calls; topology cleanup could be manipulated by adversarial provenance labelling. We recommend open-source provenance audits at publication.
 - The four-measurement-layer pattern works when multiple methodologies can be constructed; in cases where only one is feasible (pure crosswalk without spatial substrate, or pure spatial without crosswalk), the pattern degrades to single-measurement reporting with all its attendant risks.
 

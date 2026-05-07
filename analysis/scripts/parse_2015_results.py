@@ -11,6 +11,7 @@ Boundary caveat: 2015 EDs used the 2010 commission's boundaries, which
 differ from 2019's. Name matches between 2015 and 2019 are direct where
 possible; boundary changes are noted in the output.
 """
+
 from __future__ import annotations
 import csv
 import os
@@ -106,22 +107,25 @@ def main():
         wrp = totals.get("WRP", 0)
         lib = totals.get("LIB", 0)
         ucp_equiv = pc + wrp  # 2017 merger to UCP
-        other_cols = {k: v for k, v in totals.items()
-                      if k not in {"NDP", "PC", "WRP", "LIB"}}
+        other_cols = {
+            k: v for k, v in totals.items() if k not in {"NDP", "PC", "WRP", "LIB"}
+        }
         other_total = sum(other_cols.values())
         total = ndp + pc + wrp + lib + other_total
-        results.append({
-            "sheet": sheet_name,
-            "ed_2015": parsed["ed_2015"],
-            "ndp": ndp,
-            "pc": pc,
-            "wrp": wrp,
-            "ucp_equiv": ucp_equiv,
-            "lib": lib,
-            "other": other_total,
-            "total": total,
-            "rows_parsed": parsed["rows_parsed"],
-        })
+        results.append(
+            {
+                "sheet": sheet_name,
+                "ed_2015": parsed["ed_2015"],
+                "ndp": ndp,
+                "pc": pc,
+                "wrp": wrp,
+                "ucp_equiv": ucp_equiv,
+                "lib": lib,
+                "other": other_total,
+                "total": total,
+                "rows_parsed": parsed["rows_parsed"],
+            }
+        )
 
     # Sanity-check: province-wide totals
     tot_ndp = sum(r["ndp"] for r in results)
@@ -130,7 +134,9 @@ def main():
     tot_lib = sum(r["lib"] for r in results)
     tot_ucp_eq = sum(r["ucp_equiv"] for r in results)
     grand = sum(r["total"] for r in results)
-    print(f"Parsed {len(results)} EDs, {sum(r['rows_parsed'] for r in results):,} poll rows")
+    print(
+        f"Parsed {len(results)} EDs, {sum(r['rows_parsed'] for r in results):,} poll rows"
+    )
     print(f"Totals: NDP {tot_ndp:,}  PC {tot_pc:,}  WRP {tot_wrp:,}  LIB {tot_lib:,}")
     print(f"UCP-equivalent (PC+WRP): {tot_ucp_eq:,}")
     print(f"Grand total: {grand:,}")
@@ -142,19 +148,44 @@ def main():
     print("  NDP 40.59%, PC 27.79%, WRP 24.22%, LIB 4.18%, other 3.22%")
     print(f"Parsed shares:")
     if grand:
-        print(f"  NDP {tot_ndp/grand*100:.2f}%, PC {tot_pc/grand*100:.2f}%, "
-              f"WRP {tot_wrp/grand*100:.2f}%, LIB {tot_lib/grand*100:.2f}%")
+        print(
+            f"  NDP {tot_ndp/grand*100:.2f}%, PC {tot_pc/grand*100:.2f}%, "
+            f"WRP {tot_wrp/grand*100:.2f}%, LIB {tot_lib/grand*100:.2f}%"
+        )
 
     # Write CSV
     out_path = DATA / "alberta_2015_results.csv"
     with open(out_path, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["sheet", "ed_2015", "ndp", "pc", "wrp", "ucp_equiv",
-                    "lib", "other", "total", "rows_parsed"])
+        w.writerow(
+            [
+                "sheet",
+                "ed_2015",
+                "ndp",
+                "pc",
+                "wrp",
+                "ucp_equiv",
+                "lib",
+                "other",
+                "total",
+                "rows_parsed",
+            ]
+        )
         for r in results:
-            w.writerow([r["sheet"], r["ed_2015"], r["ndp"], r["pc"], r["wrp"],
-                        r["ucp_equiv"], r["lib"], r["other"],
-                        r["total"], r["rows_parsed"]])
+            w.writerow(
+                [
+                    r["sheet"],
+                    r["ed_2015"],
+                    r["ndp"],
+                    r["pc"],
+                    r["wrp"],
+                    r["ucp_equiv"],
+                    r["lib"],
+                    r["other"],
+                    r["total"],
+                    r["rows_parsed"],
+                ]
+            )
     print(f"\nWrote {out_path}")
 
 

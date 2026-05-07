@@ -55,6 +55,7 @@ Backward:
     data/shapefiles/reference/alberta_2021_csds.gpkg
     data/osm/alberta_osm_highways.gpkg
 """
+
 # Version: 0.9 (2026-04-26)
 
 from __future__ import annotations
@@ -104,12 +105,12 @@ MIN_AIRDRIE_VA_POP = 100.0
 # Derived from OSM "ref" tags + manual placement near segment midpoints inside
 # the study window. Format: (label, (x, y), rotation_degrees).
 HIGHWAY_LABELS = [
-    ("Hwy 2 (QE2)",       (69475, 5688189),  90),
-    ("Hwy 567",           (76738, 5681447),   0),
-    ("Hwy 566",           (74613, 5671737),   0),
-    ("Hwy 791",           (81735, 5687644),  90),
-    ("Hwy 72",            (83857, 5691265),   0),
-    ("Hwy 2A",            (68765, 5685900),  90),
+    ("Hwy 2 (QE2)", (69475, 5688189), 90),
+    ("Hwy 567", (76738, 5681447), 0),
+    ("Hwy 566", (74613, 5671737), 0),
+    ("Hwy 791", (81735, 5687644), 90),
+    ("Hwy 72", (83857, 5691265), 0),
+    ("Hwy 2A", (68765, 5685900), 90),
 ]
 
 
@@ -124,7 +125,9 @@ def _normalise_edges(edges) -> MultiLineString:
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
     if edges.geom_type == "GeometryCollection":
-        ls = [g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")]
+        ls = [
+            g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")
+        ]
         edges = unary_union(ls)
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
@@ -224,7 +227,11 @@ def measure_ed_anchoring(
     edge_substrates: list[tuple[str, list, "STRtree"]],
 ) -> dict:
     if ed_geom is None or ed_geom.is_empty:
-        return {"perim_m": 0.0, "anchored_m": [0.0] * len(edge_substrates), "free_m": 0.0}
+        return {
+            "perim_m": 0.0,
+            "anchored_m": [0.0] * len(edge_substrates),
+            "free_m": 0.0,
+        }
     if ed_geom.geom_type == "MultiPolygon":
         parts = list(ed_geom.geoms)
     elif ed_geom.geom_type == "Polygon":
@@ -270,19 +277,29 @@ def load_inputs():
     return minority, majority, csds, vas, highways, airdrie_csd
 
 
-def airdrie_population_per_ed(eds: gpd.GeoDataFrame, vas: gpd.GeoDataFrame, airdrie_csd) -> pd.DataFrame:
+def airdrie_population_per_ed(
+    eds: gpd.GeoDataFrame, vas: gpd.GeoDataFrame, airdrie_csd
+) -> pd.DataFrame:
     """Sum 2023-vote-proxy population for VAs whose centroid is inside both
     the ED and the Airdrie CSD."""
     vas = vas.copy()
-    vas["pop_proxy"] = vas["va_ndp"].fillna(0) + vas["va_ucp"].fillna(0) + vas["va_other"].fillna(0)
+    vas["pop_proxy"] = (
+        vas["va_ndp"].fillna(0) + vas["va_ucp"].fillna(0) + vas["va_other"].fillna(0)
+    )
     cents = vas.geometry.centroid
     vas_c = gpd.GeoDataFrame(
         vas[["VA_NUMBER", "pop_proxy"]].copy(), geometry=cents, crs=vas.crs
     )
     in_csd = vas_c[vas_c.geometry.within(airdrie_csd)]
-    joined = gpd.sjoin(in_csd, eds[["name_2026", "geometry"]], predicate="within", how="left")
-    grouped = joined.groupby("name_2026")["pop_proxy"].agg(["sum", "count"]).reset_index()
-    grouped = grouped.rename(columns={"sum": "airdrie_pop_proxy", "count": "airdrie_va_count"})
+    joined = gpd.sjoin(
+        in_csd, eds[["name_2026", "geometry"]], predicate="within", how="left"
+    )
+    grouped = (
+        joined.groupby("name_2026")["pop_proxy"].agg(["sum", "count"]).reset_index()
+    )
+    grouped = grouped.rename(
+        columns={"sum": "airdrie_pop_proxy", "count": "airdrie_va_count"}
+    )
     return grouped
 
 
@@ -301,9 +318,13 @@ def build_substrates(airdrie_csd, highways: gpd.GeoDataFrame, study_bbox):
     # to keep tree small and fast.
     minx, miny, maxx, maxy = study_bbox
     buffer_m = 5_000.0  # 5 km buffer
-    hw_clip = highways.cx[minx - buffer_m:maxx + buffer_m, miny - buffer_m:maxy + buffer_m]
-    print(f"  highways in study area: {len(hw_clip):,} ways "
-          f"(filtered from {len(highways):,})")
+    hw_clip = highways.cx[
+        minx - buffer_m : maxx + buffer_m, miny - buffer_m : maxy + buffer_m
+    ]
+    print(
+        f"  highways in study area: {len(hw_clip):,} ways "
+        f"(filtered from {len(highways):,})"
+    )
     hw_geom = unary_union(list(hw_clip.geometry))
     hw_geom = _normalise_edges(hw_geom)
 
@@ -328,10 +349,16 @@ def build_metrics(eds, label, airdrie_csd, substrates, vas):
 
     # Identify EDs that contain Airdrie territory (population proxy > threshold)
     airdrie_eds = pop_df[pop_df["airdrie_pop_proxy"] >= MIN_AIRDRIE_VA_POP]
-    print(f"\n  [{label}] EDs containing Airdrie territory (pop_proxy >= {MIN_AIRDRIE_VA_POP}):")
-    for _, r in airdrie_eds.sort_values("airdrie_pop_proxy", ascending=False).iterrows():
-        print(f"    {r['name_2026']:<40s} pop_proxy={r['airdrie_pop_proxy']:8.0f}  "
-              f"VAs={r['airdrie_va_count']}")
+    print(
+        f"\n  [{label}] EDs containing Airdrie territory (pop_proxy >= {MIN_AIRDRIE_VA_POP}):"
+    )
+    for _, r in airdrie_eds.sort_values(
+        "airdrie_pop_proxy", ascending=False
+    ).iterrows():
+        print(
+            f"    {r['name_2026']:<40s} pop_proxy={r['airdrie_pop_proxy']:8.0f}  "
+            f"VAs={r['airdrie_va_count']}"
+        )
 
     # Total Airdrie pop_proxy for share calculations
     total_airdrie_pop = airdrie_eds["airdrie_pop_proxy"].sum()
@@ -345,23 +372,26 @@ def build_metrics(eds, label, airdrie_csd, substrates, vas):
         city_m = m["anchored_m"][0]
         hw_m = m["anchored_m"][1]
         free_m = m["free_m"]
-        rows.append({
-            "map": label,
-            "name_2026": ed_name,
-            "perimeter_km": perim / 1000.0,
-            "city_limit_km": city_m / 1000.0,
-            "highway_km": hw_m / 1000.0,
-            "neither_km": free_m / 1000.0,
-            "city_limit_pct": 100.0 * city_m / perim if perim else 0.0,
-            "highway_pct": 100.0 * hw_m / perim if perim else 0.0,
-            "neither_pct": 100.0 * free_m / perim if perim else 0.0,
-            "airdrie_pop_proxy": float(r["airdrie_pop_proxy"]),
-            "airdrie_va_count": int(r["airdrie_va_count"]),
-            "airdrie_pop_share_of_csd": (
-                100.0 * r["airdrie_pop_proxy"] / total_airdrie_pop
-                if total_airdrie_pop else 0.0
-            ),
-        })
+        rows.append(
+            {
+                "map": label,
+                "name_2026": ed_name,
+                "perimeter_km": perim / 1000.0,
+                "city_limit_km": city_m / 1000.0,
+                "highway_km": hw_m / 1000.0,
+                "neither_km": free_m / 1000.0,
+                "city_limit_pct": 100.0 * city_m / perim if perim else 0.0,
+                "highway_pct": 100.0 * hw_m / perim if perim else 0.0,
+                "neither_pct": 100.0 * free_m / perim if perim else 0.0,
+                "airdrie_pop_proxy": float(r["airdrie_pop_proxy"]),
+                "airdrie_va_count": int(r["airdrie_va_count"]),
+                "airdrie_pop_share_of_csd": (
+                    100.0 * r["airdrie_pop_proxy"] / total_airdrie_pop
+                    if total_airdrie_pop
+                    else 0.0
+                ),
+            }
+        )
     df = pd.DataFrame(rows).sort_values("airdrie_pop_proxy", ascending=False)
     return df
 
@@ -372,8 +402,13 @@ def build_metrics(eds, label, airdrie_csd, substrates, vas):
 
 
 def render_teardown(
-    minority, majority, airdrie_csd, highways, vas,
-    minority_metrics: pd.DataFrame, majority_metrics: pd.DataFrame,
+    minority,
+    majority,
+    airdrie_csd,
+    highways,
+    vas,
+    minority_metrics: pd.DataFrame,
+    majority_metrics: pd.DataFrame,
 ):
     """Two-panel side-by-side: majority cut vs minority cut.
 
@@ -396,14 +431,20 @@ def render_teardown(
     hw_clip = highways.cx[sx_min:sx_max, sy_min:sy_max]
     # Filter to major highway classes
     if "highway" in hw_clip.columns:
-        hw_clip = hw_clip[hw_clip["highway"].isin(["motorway", "trunk", "primary", "secondary"])]
+        hw_clip = hw_clip[
+            hw_clip["highway"].isin(["motorway", "trunk", "primary", "secondary"])
+        ]
     print(f"  highways in plot: {len(hw_clip):,}")
 
     # VA centroids inside Airdrie CSD with pop proxy
     vas2 = vas.copy()
-    vas2["pop_proxy"] = vas2["va_ndp"].fillna(0) + vas2["va_ucp"].fillna(0) + vas2["va_other"].fillna(0)
+    vas2["pop_proxy"] = (
+        vas2["va_ndp"].fillna(0) + vas2["va_ucp"].fillna(0) + vas2["va_other"].fillna(0)
+    )
     vas2["centroid"] = vas2.geometry.centroid
-    vas_c = gpd.GeoDataFrame(vas2[["pop_proxy", "centroid"]], geometry="centroid", crs=vas.crs)
+    vas_c = gpd.GeoDataFrame(
+        vas2[["pop_proxy", "centroid"]], geometry="centroid", crs=vas.crs
+    )
     vas_in = vas_c[vas_c.geometry.within(airdrie_csd)]
 
     fig, axes = plt.subplots(1, 2, figsize=(14, 9), dpi=300)
@@ -413,8 +454,20 @@ def render_teardown(
     min_palette = plt.cm.tab10(np.linspace(0, 1, max(len(minority_metrics), 4)))
 
     panel_specs = [
-        ("Majority: 3-way carve\n(74% of Airdrie in 1 ED)", axes[0], majority, majority_metrics, maj_palette),
-        ("Minority: 4-way carve\n(no ED holds majority of Airdrie)", axes[1], minority, minority_metrics, min_palette),
+        (
+            "Majority: 3-way carve\n(74% of Airdrie in 1 ED)",
+            axes[0],
+            majority,
+            majority_metrics,
+            maj_palette,
+        ),
+        (
+            "Minority: 4-way carve\n(no ED holds majority of Airdrie)",
+            axes[1],
+            minority,
+            minority_metrics,
+            min_palette,
+        ),
     ]
 
     for title, ax, eds_gdf, metrics, palette in panel_specs:
@@ -430,11 +483,18 @@ def render_teardown(
             ed_geom = eds_gdf[eds_gdf["name_2026"] == ed_name].geometry.iloc[0]
             color = palette[i % len(palette)]
             gpd.GeoSeries([ed_geom], crs=eds_gdf.crs).plot(
-                ax=ax, facecolor=color, edgecolor="black", linewidth=1.6, alpha=0.45, zorder=1,
+                ax=ax,
+                facecolor=color,
+                edgecolor="black",
+                linewidth=1.6,
+                alpha=0.45,
+                zorder=1,
             )
             # Place label at centroid of ED-clipped-to-view
             ed_clip = ed_geom.intersection(
-                gpd.GeoSeries([airdrie_csd.buffer(buf_m * 0.7)], crs=eds_gdf.crs).iloc[0]
+                gpd.GeoSeries([airdrie_csd.buffer(buf_m * 0.7)], crs=eds_gdf.crs).iloc[
+                    0
+                ]
             )
             if ed_clip and not ed_clip.is_empty:
                 cen = ed_clip.centroid
@@ -442,16 +502,25 @@ def render_teardown(
                 ax.annotate(
                     short_name,
                     xy=(cen.x, cen.y),
-                    fontsize=8.5, fontweight="bold", ha="center", va="center",
+                    fontsize=8.5,
+                    fontweight="bold",
+                    ha="center",
+                    va="center",
                     color="black",
-                    bbox=dict(boxstyle="round,pad=0.25", fc=color, ec="black", alpha=0.85),
+                    bbox=dict(
+                        boxstyle="round,pad=0.25", fc=color, ec="black", alpha=0.85
+                    ),
                     zorder=5,
                 )
             ed_handles.append(mpatches.Patch(color=color, alpha=0.6, label=ed_name))
 
         # Airdrie CSD — drawn ON TOP of EDs, filled lightly
         gpd.GeoSeries([airdrie_csd], crs=eds_gdf.crs).plot(
-            ax=ax, facecolor="none", edgecolor="black", linewidth=2.8, zorder=4,
+            ax=ax,
+            facecolor="none",
+            edgecolor="black",
+            linewidth=2.8,
+            zorder=4,
         )
 
         # Major highways (bold dark line)
@@ -460,11 +529,22 @@ def render_teardown(
 
         # VA centroids weighted by population (residential mass markers)
         if len(vas_in) > 0:
-            sizes = (vas_in["pop_proxy"] / vas_in["pop_proxy"].max() * 60.0 + 5.0).values
+            sizes = (
+                vas_in["pop_proxy"] / vas_in["pop_proxy"].max() * 60.0 + 5.0
+            ).values
             xs = [g.x for g in vas_in.geometry]
             ys = [g.y for g in vas_in.geometry]
-            ax.scatter(xs, ys, s=sizes, c="#cc1111", alpha=0.55, edgecolor="white",
-                       linewidth=0.4, zorder=6, label="Voters (size = 2023 pop)")
+            ax.scatter(
+                xs,
+                ys,
+                s=sizes,
+                c="#cc1111",
+                alpha=0.55,
+                edgecolor="white",
+                linewidth=0.4,
+                zorder=6,
+                label="Voters (size = 2023 pop)",
+            )
 
         # Highway labels — hand-placed at known coordinates around Airdrie.
         # These labels are the major highways the minority's quadrant lines
@@ -474,11 +554,20 @@ def render_teardown(
                 continue
             ax.annotate(
                 label,
-                xy=(lx, ly), rotation=rot,
-                fontsize=8, color="white", fontweight="bold",
-                ha="center", va="center",
-                bbox=dict(boxstyle="round,pad=0.22", fc="#222222", ec="white",
-                          linewidth=0.6, alpha=0.92),
+                xy=(lx, ly),
+                rotation=rot,
+                fontsize=8,
+                color="white",
+                fontweight="bold",
+                ha="center",
+                va="center",
+                bbox=dict(
+                    boxstyle="round,pad=0.22",
+                    fc="#222222",
+                    ec="white",
+                    linewidth=0.6,
+                    alpha=0.92,
+                ),
                 zorder=8,
             )
 
@@ -488,31 +577,52 @@ def render_teardown(
 
         # Legend per panel
         ax.legend(
-            handles=ed_handles + [
-                Line2D([0], [0], color="black", linewidth=2.6, label="Airdrie city limit"),
+            handles=ed_handles
+            + [
+                Line2D(
+                    [0], [0], color="black", linewidth=2.6, label="Airdrie city limit"
+                ),
                 Line2D([0], [0], color="#222222", linewidth=1.5, label="Major highway"),
-                Line2D([0], [0], marker="o", color="w", markerfacecolor="#cc1111",
-                       markersize=8, alpha=0.7, label="Residential VAs"),
+                Line2D(
+                    [0],
+                    [0],
+                    marker="o",
+                    color="w",
+                    markerfacecolor="#cc1111",
+                    markersize=8,
+                    alpha=0.7,
+                    label="Residential VAs",
+                ),
             ],
-            loc="lower left", fontsize=7, framealpha=0.9,
+            loc="lower left",
+            fontsize=7,
+            framealpha=0.9,
         )
 
     fig.suptitle(
         "How Airdrie was cut: city limits vs. four-way carve",
-        fontsize=15, fontweight="bold", y=0.985,
+        fontsize=15,
+        fontweight="bold",
+        y=0.985,
     )
     fig.text(
-        0.5, 0.948,
+        0.5,
+        0.948,
         "v0_9 substrate; ED polygons coloured by district. "
         "Airdrie CSD outlined in heavy black. Highways: OSM motorway/trunk/primary/secondary.",
-        ha="center", fontsize=9, color="#333333",
+        ha="center",
+        fontsize=9,
+        color="#333333",
     )
     fig.text(
-        0.5, 0.012,
+        0.5,
+        0.012,
         "Source: Statistics Canada 2021 CSDs; OSM highways (Apr 2026 Overpass pull); "
         "v0_9 topological ED polygons; 2023 provincial VA results as residential proxy. "
         "Metrics: data/airdrie_quadrant_anchoring.csv.",
-        ha="center", fontsize=7, color="#444444",
+        ha="center",
+        fontsize=7,
+        color="#444444",
     )
     plt.tight_layout(rect=[0, 0.025, 1, 0.92])
     OUT_PNG.parent.mkdir(parents=True, exist_ok=True)
@@ -536,11 +646,15 @@ def main():
     substrates = build_substrates(airdrie_csd, highways, study_bbox)
 
     print("\n=== MINORITY METRICS ===")
-    minority_metrics = build_metrics(minority, "minority_2026", airdrie_csd, substrates, vas)
+    minority_metrics = build_metrics(
+        minority, "minority_2026", airdrie_csd, substrates, vas
+    )
     print(minority_metrics.drop(columns=["map"]).to_string(index=False))
 
     print("\n=== MAJORITY METRICS ===")
-    majority_metrics = build_metrics(majority, "majority_2026", airdrie_csd, substrates, vas)
+    majority_metrics = build_metrics(
+        majority, "majority_2026", airdrie_csd, substrates, vas
+    )
     print(majority_metrics.drop(columns=["map"]).to_string(index=False))
 
     out = pd.concat([majority_metrics, minority_metrics], ignore_index=True)
@@ -548,8 +662,15 @@ def main():
     out.to_csv(OUT_CSV, index=False, float_format="%.3f")
     print(f"\nwrote: {OUT_CSV} ({len(out)} rows)")
 
-    render_teardown(minority, majority, airdrie_csd, highways, vas,
-                    minority_metrics, majority_metrics)
+    render_teardown(
+        minority,
+        majority,
+        airdrie_csd,
+        highways,
+        vas,
+        minority_metrics,
+        majority_metrics,
+    )
 
     print("\nDone.")
 

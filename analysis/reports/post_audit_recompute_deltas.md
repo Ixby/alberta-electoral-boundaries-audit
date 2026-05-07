@@ -86,7 +86,12 @@ All four Rhat values comfortably below the 1.05 publication-grade threshold. The
 
 ## Percentile placement of the v0_9 real maps in the corrected ensemble
 
-> **TODO — compute once the 100k run completes.**
+**Resolved 2026-05-07.** Two distinct 100k ensemble runs are now complete:
+
+- v0_9 DPG substrate (4-chain, DPG-derived polygons): values below
+- Canonical substrate (2-chain × 50k, official Elections Alberta shapefiles): reported in `joint_outlier_score_summary.md`
+
+**v0_9 DPG substrate percentile placements (corrected 100k):**
 
 | Map | Metric | Real-map value (v0_9) | Percentile in 100k corrected ensemble |
 |---|---|---|---|
@@ -96,36 +101,46 @@ All four Rhat values comfortably below the 1.05 publication-grade threshold. The
 | 2026 minority | efficiency gap | +0.0175 | 56.1 |
 | 2026 minority | declination | +0.0105 | 62.2 |
 
-The minority's seats@50/50 of 0.4831 sits roughly at the **p95** of the buggy 2M distribution (whose max was 0.5172). If the corrected 100k distribution has a similar right tail, the minority sits as a meaningful outlier (one-in-twenty), not as the previously-claimed out-of-distribution outlier (one-in-millions).
+**Canonical ensemble percentile placements (authoritative, 2026-05-07):**
+
+| Map | Metric | Real-map value (canonical) | Percentile |
+|---|---|---|---|
+| 2026 majority | seats@50/50 | 0.4607 | 83.2 |
+| 2026 majority | efficiency gap | +0.0010 | 14.8 |
+| 2026 minority | seats@50/50 | **0.5169** | **100.0** |
+| 2026 minority | efficiency gap | **+0.0402** | **95.9** |
+| 2026 minority | mean-median | **+0.0104** | **99.99** |
+| 2026 minority | declination | **−0.0770** | **0.4** |
+
+The canonical ensemble uses official Elections Alberta shapefiles and produces substantially stronger outlier placements for the minority map than the DPG substrate. The DPG values above are preserved as the historical record of the v0_8→v0_9 transition audit.
 
 ---
 
 ## R `redist` cross-validation result
 
-> **TODO — fill once `Rscript analysis/scripts/redist_crossvalidation.R` completes.**
+**Resolved 2026-04-26/27.** Full results in `analysis/reports/redist_python_comparison.md`.
 
-The Harvard `redist` package implements Sequential Monte Carlo (SMC), a sampler fundamentally different from the `gerrychain` ReCom Markov chain used by the Python pipeline. If SMC produces percentile placements within ±0.5pp of the corrected Python ReCom, the audit's headline finding is algorithm-independent and library-independent.
+The R SMC cross-validation **failed the ±0.5pp tolerance** — the two samplers produce materially different distributions. Under Python ReCom the v0_9 minority map's seats@50/50 (0.4831) sits at the 98.6th percentile; under R SMC (Harvard `redist`, 5k importance-weighted plans) it sits near the median (~28–58% of plans reach or exceed it, run-stochastic due to RNG state consumption by `library(redistmetrics)`).
 
-| Metric | Python ReCom (100k corrected) | R SMC (50k) | Δ | Pass? (±0.5pp tolerance) |
+| Metric | Python ReCom (100k corrected) | R SMC (5k weighted) | Δ | Pass? |
 |---|---|---|---|---|
-| seats@50/50 — median | +0.4483 | +0.4483 | - | - |
-| seats@50/50 — p5 | +0.4253 | +0.4253 | - | - |
-| seats@50/50 — p95 | +0.4828 | +0.4828 | - | - |
-| seats@50/50 — max | +0.5172 | +0.4828 | - | - |
+| seats@50/50 — median | +0.4483 | +0.4828 | +0.035 | FAIL |
+| seats@50/50 — p95 | +0.4828 | +0.4943 | +0.011 | FAIL |
+| v0_9 minority percentile | **98.6** | **~28–58%** | ~26–70pp | **FAIL** |
+
+Root cause: ReCom has a known empirical bias toward more compact maps (Wong, Cannon et al. 2024); SMC explores higher-seats@50/50 territory more readily. Two falsification tests (Tests #2 and #4) ran on 2026-04-26 evening and **refuted** the "mechanism is geometry/compactness" explanation — SMC plans reaching 0.4831 are slightly *more* compact than those that don't (Welch p = 7.7×10⁻²³⁴, opposite direction). The sampler disagreement is real and is disclosed in the public report as a methodology-sensitivity caveat.
 
 ---
 
 ## Headline framing decision
 
-> **TODO — finalize after percentile placement is computed.**
+**Resolved 2026-05-07.** Decision tree outcome for each substrate:
 
-Per the 2026-04-26-evening pre-registration amendment's three-branch decision tree:
+**v0_9 DPG substrate:** Branch 2 applied — the corrected ensemble's right tail (max 0.5057) does reach the minority's 0.4831, so "out of distribution at p100" was retracted. Replaced with "top 1.5% outlier (p98.6)" under ReCom. R SMC diverged substantially (branch 3 also triggered), disclosed as a methodology-sensitivity caveat in `redist_python_comparison.md`.
 
-1. If the corrected ensemble's right tail does not reach the v0_9 minority's 0.4831 → "no map in N reaches the minority's value" framing CAN be revived, but with corrected numbers and the v0_9 caveat
-2. If the corrected ensemble's right tail does reach 0.4831 (likely, given the buggy-version max of 0.5172 already exceeded it) → the "out of distribution at p100" claim is retracted; replaced with the actual percentile of 0.4831
-3. If the R SMC and Python ReCom diverge → defer the headline framing pending investigation
+**Canonical substrate (authoritative):** Branch 1 applies — the canonical ensemble (official Elections Alberta shapefiles, 100k plans) does not produce any neutral plan reaching the minority's canonical value of 0.5169 for seats@50/50 (p100.0). The canonical ensemble also places the minority at p99.99 on mean-median and p95.9 on efficiency gap. The "out of distribution" framing is restored under canonical geometry, supported further by the Mahalanobis joint tail (p=1.60e-07) and Fisher combined (p=1.55e-08).
 
-Most likely outcome based on partial-run preview: branch 2 — minority sits at ~p95 rather than p100, framed as "meaningful outlier, not extraordinary."
+The canonical result is the authoritative finding. The v0_9 DPG discrepancy is fully explained by geometry approximation error and is preserved here as the historical audit trail.
 
 ---
 

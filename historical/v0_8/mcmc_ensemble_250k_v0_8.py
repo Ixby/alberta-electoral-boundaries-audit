@@ -25,6 +25,7 @@ Backward:
   data/shapefiles/derived/v0_8_canonical_*_2026_eds.gpkg (fallback)
   gerrychain, geopandas, matplotlib, numpy, pandas
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -40,6 +41,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -79,7 +81,9 @@ def _run_chain_chunked(args):
     Rebuilding the graph per worker (~15s) is cheaper than pickling the
     4,765-node NetworkX graph + Partition across the process boundary.
     """
-    chain_idx, n_steps_total, base_seed, pop_deviation, chain_csv_path, chunk_size = args
+    chain_idx, n_steps_total, base_seed, pop_deviation, chain_csv_path, chunk_size = (
+        args
+    )
     import random as _random
     import numpy as _np
 
@@ -95,20 +99,27 @@ def _run_chain_chunked(args):
         n_done = 0
 
     if n_done >= n_steps_total:
-        print(f"  [chain {chain_idx}] already complete ({n_done} samples) — skipping",
-              flush=True)
+        print(
+            f"  [chain {chain_idx}] already complete ({n_done} samples) — skipping",
+            flush=True,
+        )
         return str(chain_csv_path)
 
     chunks_done = n_done // chunk_size
     n_chunks = (n_steps_total + chunk_size - 1) // chunk_size
-    print(f"  [chain {chain_idx}] {n_done}/{n_steps_total} done; "
-          f"resuming from chunk {chunks_done}/{n_chunks}", flush=True)
+    print(
+        f"  [chain {chain_idx}] {n_done}/{n_steps_total} done; "
+        f"resuming from chunk {chunks_done}/{n_chunks}",
+        flush=True,
+    )
     if chunks_done > 0:
-        print(f"  [chain {chain_idx}] WARNING: resume after crash restarts "
-              f"chain from 2019 baseline (state discontinuity at sample "
-              f"{chunks_done * chunk_size}). For headline ensemble, delete "
-              f"CSV and re-run from chunk 0 for continuous chain.",
-              flush=True)
+        print(
+            f"  [chain {chain_idx}] WARNING: resume after crash restarts "
+            f"chain from 2019 baseline (state discontinuity at sample "
+            f"{chunks_done * chunk_size}). For headline ensemble, delete "
+            f"CSV and re-run from chunk 0 for continuous chain.",
+            flush=True,
+        )
 
     # Build graph once per worker
     va, graph = build_va_graph()
@@ -134,26 +145,37 @@ def _run_chain_chunked(args):
         chunk_steps = min(chunk_size, n_steps_total - chunk_idx * chunk_size)
         t_chunk = time.time()
         rows, current_state = run_ensemble(
-            graph, current_state, chunk_steps,
-            pop_deviation=pop_deviation, verbose=False,
-            return_final_partition=True, seed=chain_seed,
+            graph,
+            current_state,
+            chunk_steps,
+            pop_deviation=pop_deviation,
+            verbose=False,
+            return_final_partition=True,
+            seed=chain_seed,
         )
         for r in rows:
             r["chain"] = chain_idx
             r["chunk"] = chunk_idx
         # Append (write header on first chunk only; if file is empty/non-existent
         # we always write the header)
-        write_header = (not chain_csv_path.exists()) or chain_csv_path.stat().st_size == 0
+        write_header = (
+            not chain_csv_path.exists()
+        ) or chain_csv_path.stat().st_size == 0
         pd.DataFrame(rows).to_csv(
-            chain_csv_path, mode='a', header=write_header, index=False
+            chain_csv_path, mode="a", header=write_header, index=False
         )
-        print(f"  [chain {chain_idx}] chunk {chunk_idx+1}/{n_chunks} "
-              f"({len(rows)} samples in {time.time()-t_chunk:.0f}s) → {chain_csv_path.name}",
-              flush=True)
+        print(
+            f"  [chain {chain_idx}] chunk {chunk_idx+1}/{n_chunks} "
+            f"({len(rows)} samples in {time.time()-t_chunk:.0f}s) → {chain_csv_path.name}",
+            flush=True,
+        )
 
-    print(f"  [chain {chain_idx}] complete in {time.time()-t_chain_start:.0f}s",
-          flush=True)
+    print(
+        f"  [chain {chain_idx}] complete in {time.time()-t_chain_start:.0f}s",
+        flush=True,
+    )
     return str(chain_csv_path)
+
 
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"
@@ -182,12 +204,19 @@ def _select_v8_or_v7(plan: str):
         return MIN_V7_PATH, "minority 2026 v7 (89 EDs)"
 
 
-def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
-         n_chains: int = 4, chunk_size: int = 5000):
+def main(
+    n_steps: int = 250000,
+    seed: int = None,
+    pop_deviation: float = 0.25,
+    n_chains: int = 4,
+    chunk_size: int = 5000,
+):
     from drand_seed import get_canonical_seed
+
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble_250k_v0_8")
     np.random.seed(seed)
     import random as _random
+
     _random.seed(seed)
 
     t_start = time.time()
@@ -195,8 +224,11 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     actual_total = n_steps_per_chain * n_chains
     label_run = f"250k v0_8 rigorous ensemble"
     print(f"[{time.strftime('%H:%M:%S')}] {label_run} starting", flush=True)
-    print(f"  n_steps requested={n_steps}, n_chains={n_chains}, "
-          f"steps/chain={n_steps_per_chain}, total={actual_total}", flush=True)
+    print(
+        f"  n_steps requested={n_steps}, n_chains={n_chains}, "
+        f"steps/chain={n_steps_per_chain}, total={actual_total}",
+        flush=True,
+    )
     print(f"  chunk_size={chunk_size} samples (checkpoint granularity)", flush=True)
     print(f"  base_seed={seed}, pop_deviation=±{pop_deviation:.0%}", flush=True)
     print(f"  checkpoint dir: {CHECKPOINT_DIR}", flush=True)
@@ -207,9 +239,11 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     districts_2019 = set(assignment.values())
     print(f"  2019 baseline districts: {len(districts_2019)}", flush=True)
 
-    agg = va.groupby("parent_ed_2019").agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-    ).reset_index()
+    agg = (
+        va.groupby("parent_ed_2019")
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     m_2019 = seat_results(agg["ucp"].values, agg["ndp"].values)
     m_2019["source"] = "2019_enacted_VA_agg"
     m_2019["coverage_vas"] = int(len(va))
@@ -227,20 +261,24 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     print()
     print("  --- Real-map scores (pre-ensemble) ---")
     for name, m in [("2019 enacted", m_2019), (maj_label, m_maj), (min_label, m_min)]:
-        print(f"    {name}: seats={m['ucp_seats']}/{m['n_districts']}  "
-              f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
-              f"decl={m['declination']:+.4f}  s50={m['seats_at_50_50']:.3f}  "
-              f"ucp_share={m['ucp_vote_share']:.3f}  cov={m['coverage_pct']:.2%}")
+        print(
+            f"    {name}: seats={m['ucp_seats']}/{m['n_districts']}  "
+            f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
+            f"decl={m['declination']:+.4f}  s50={m['seats_at_50_50']:.3f}  "
+            f"ucp_share={m['ucp_vote_share']:.3f}  cov={m['coverage_pct']:.2%}"
+        )
 
     print()
-    print(f"[{time.strftime('%H:%M:%S')}] launching {n_chains} parallel chains × "
-          f"{n_steps_per_chain} steps with checkpointed chunks...", flush=True)
+    print(
+        f"[{time.strftime('%H:%M:%S')}] launching {n_chains} parallel chains × "
+        f"{n_steps_per_chain} steps with checkpointed chunks...",
+        flush=True,
+    )
 
     CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
     chain_paths = [CHECKPOINT_DIR / f"chain{i}_samples.csv" for i in range(n_chains)]
     work_items = [
-        (i, n_steps_per_chain, seed, pop_deviation,
-         str(chain_paths[i]), chunk_size)
+        (i, n_steps_per_chain, seed, pop_deviation, str(chain_paths[i]), chunk_size)
         for i in range(n_chains)
     ]
 
@@ -259,8 +297,11 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
         raise RuntimeError("All chain CSVs missing — nothing to concatenate.")
     df = pd.concat(parts, ignore_index=True)
     df.to_csv(SAMPLES_CSV, index=False)
-    print(f"  wrote {SAMPLES_CSV.name} ({len(df)} samples from {n_chains} chains) "
-          f"in {time.time()-t_start:.0f}s total", flush=True)
+    print(
+        f"  wrote {SAMPLES_CSV.name} ({len(df)} samples from {n_chains} chains) "
+        f"in {time.time()-t_start:.0f}s total",
+        flush=True,
+    )
 
     # Reload the parent's graph for the post-run analysis (real-map scores etc.
     # don't need it, but plot_metric calls real_vals dict from above which
@@ -278,11 +319,14 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     for key, label in metrics_config:
         diag = autocorrelation_ess(df[key].values)
         conv[key] = diag
-        print(f"    {key:<18s} n={diag['n']}  tau={diag['tau']:.2f}  "
-              f"n_eff={diag['n_eff']:.0f}  rho1={diag['rho_lag_1']:+.3f}  "
-              f"rho10={diag['rho_lag_10']:+.3f}  rho100={diag['rho_lag_100']:+.3f}")
+        print(
+            f"    {key:<18s} n={diag['n']}  tau={diag['tau']:.2f}  "
+            f"n_eff={diag['n_eff']:.0f}  rho1={diag['rho_lag_1']:+.3f}  "
+            f"rho10={diag['rho_lag_10']:+.3f}  rho100={diag['rho_lag_100']:+.3f}"
+        )
         plot_running_mean(
-            key, df[key].values,
+            key,
+            df[key].values,
             MAPS / f"running_mean_250k_v0_8_{key}.svg",
             label,
         )
@@ -300,19 +344,30 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
     summary = []
     for key, label in metrics_config:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
-        plot_metric(key, label, df[key].values, real_vals,
-                    MAPS / f"ensemble_distribution_250k_v0_8_{key}.svg")
+        plot_metric(
+            key,
+            label,
+            df[key].values,
+            real_vals,
+            MAPS / f"ensemble_distribution_250k_v0_8_{key}.svg",
+        )
         for map_name, val in real_vals.items():
-            pr = pct_rank(df[key].dropna().values, val) if not np.isnan(val) else float("nan")
-            summary.append({
-                "metric": key,
-                "map": map_name,
-                "value": val,
-                "percentile": pr,
-                "ensemble_p5": float(np.nanpercentile(df[key], 5)),
-                "ensemble_p50": float(np.nanpercentile(df[key], 50)),
-                "ensemble_p95": float(np.nanpercentile(df[key], 95)),
-            })
+            pr = (
+                pct_rank(df[key].dropna().values, val)
+                if not np.isnan(val)
+                else float("nan")
+            )
+            summary.append(
+                {
+                    "metric": key,
+                    "map": map_name,
+                    "value": val,
+                    "percentile": pr,
+                    "ensemble_p5": float(np.nanpercentile(df[key], 5)),
+                    "ensemble_p50": float(np.nanpercentile(df[key], 50)),
+                    "ensemble_p95": float(np.nanpercentile(df[key], 95)),
+                }
+            )
 
     summary_df = pd.DataFrame(summary)
     summary_df.to_csv(PERCENTILES_CSV, index=False)
@@ -320,9 +375,14 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
 
     print()
     print("  --- Per-metric percentiles (real maps vs 250k ensemble) ---")
-    with pd.option_context("display.float_format", "{:+.4f}".format,
-                           "display.max_rows", None,
-                           "display.width", 160):
+    with pd.option_context(
+        "display.float_format",
+        "{:+.4f}".format,
+        "display.max_rows",
+        None,
+        "display.width",
+        160,
+    ):
         print(summary_df.to_string(index=False))
 
     real_json = {
@@ -348,24 +408,46 @@ def main(n_steps: int = 250000, seed: int = None, pop_deviation: float = 0.25,
         print()
         print("  *** OUTLIER FLAGS (>=95th or <=5th percentile) ***")
         for fl in flags:
-            print(f"    {fl['map']:<48s} {fl['metric']:<18s} value={fl['value']:+.4f}  p={fl['percentile']:.1f}")
+            print(
+                f"    {fl['map']:<48s} {fl['metric']:<18s} value={fl['value']:+.4f}  p={fl['percentile']:.1f}"
+            )
 
     print()
-    print(f"[{time.strftime('%H:%M:%S')}] done. total wall time {time.time()-t_start:.0f}s")
+    print(
+        f"[{time.strftime('%H:%M:%S')}] done. total wall time {time.time()-t_start:.0f}s"
+    )
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--n-steps", type=int, default=250000,
-                        help="Total samples across all chains (default: 250000)")
-    parser.add_argument("--n-chains", type=int, default=4,
-                        help="Number of parallel chains (default: 4)")
-    parser.add_argument("--chunk-size", type=int, default=5000,
-                        help="Checkpoint granularity in samples per chunk (default: 5000)")
-    parser.add_argument("--seed", type=int, default=None,
-                        help="Base seed; defaults to drand canonical seed if omitted")
+    parser.add_argument(
+        "--n-steps",
+        type=int,
+        default=250000,
+        help="Total samples across all chains (default: 250000)",
+    )
+    parser.add_argument(
+        "--n-chains", type=int, default=4, help="Number of parallel chains (default: 4)"
+    )
+    parser.add_argument(
+        "--chunk-size",
+        type=int,
+        default=5000,
+        help="Checkpoint granularity in samples per chunk (default: 5000)",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Base seed; defaults to drand canonical seed if omitted",
+    )
     parser.add_argument("--pop-deviation", type=float, default=0.25)
     args = parser.parse_args()
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
-    main(n_steps=args.n_steps, seed=args.seed, pop_deviation=args.pop_deviation,
-         n_chains=args.n_chains, chunk_size=args.chunk_size)
+    main(
+        n_steps=args.n_steps,
+        seed=args.seed,
+        pop_deviation=args.pop_deviation,
+        n_chains=args.n_chains,
+        chunk_size=args.chunk_size,
+    )

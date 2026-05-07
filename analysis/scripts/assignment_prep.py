@@ -13,6 +13,7 @@ Input:
   - data/majority_hybrid_crosswalk.csv
   - data/minority_hybrid_crosswalk.csv
 """
+
 from __future__ import annotations
 
 import io
@@ -50,7 +51,13 @@ if __name__ != "__main__":
 # ------------------------------------------------------------------
 print("[1/5] Loading inputs...")
 vas = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2023_vas")
-eds19 = gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
+eds19 = gpd.read_file(
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 polls = pd.read_csv(ANALYSIS / "polls_2023_unified.csv", encoding="latin-1")
 maj_cw = pd.read_csv(DATA / "majority_hybrid_crosswalk.csv")
 mino_cw = pd.read_csv(DATA / "minority_hybrid_crosswalk.csv")
@@ -76,7 +83,9 @@ eday = eday[eday["voting_areas"].notna()].copy()
 
 records = []
 for _, row in eday.iterrows():
-    va_list = [v.strip().zfill(3) for v in str(row["voting_areas"]).split(",") if v.strip()]
+    va_list = [
+        v.strip().zfill(3) for v in str(row["voting_areas"]).split(",") if v.strip()
+    ]
     if not va_list:
         continue
     n = len(va_list)
@@ -128,8 +137,9 @@ va_centroids["centroid"] = va_centroids.geometry.centroid
 va_centroids = va_centroids.set_geometry("centroid", crs=vas.crs)
 
 joined = gpd.sjoin(
-    va_centroids[["VA_NUMBER", "ED_NAME", "parent_ed_2019", "centroid"]]
-    .set_geometry("centroid", crs=vas.crs),
+    va_centroids[["VA_NUMBER", "ED_NAME", "parent_ed_2019", "centroid"]].set_geometry(
+        "centroid", crs=vas.crs
+    ),
     eds19_proj[["EDName2017", "geometry"]],
     how="left",
     predicate="within",
@@ -158,8 +168,10 @@ va_ndp_agg = vas_out["va_ndp"].sum()
 va_ucp_agg = vas_out["va_ucp"].sum()
 va_other_agg = vas_out["va_other"].sum()
 
+
 def pct_diff(a, b):
     return abs(a - b) / b * 100 if b else float("nan")
+
 
 ndp_diff = pct_diff(va_ndp_agg, eday_ndp_source)
 ucp_diff = pct_diff(va_ucp_agg, eday_ucp_source)
@@ -203,13 +215,16 @@ print(f"  Minority hybrid 2019 EDs (direct): {len(mino_hybrid_map)}")
 # For (NEW) minority EDs - find candidate 2019 EDs by *distinctive* token
 # overlap. Tokens appearing in >= 5 different 2019 EDs (e.g. 'Calgary',
 # 'Edmonton') are treated as generic city prefixes and ignored.
-mino_new = mino_hybrids[mino_hybrids["current_2019"] == "(NEW)"]["proposed_2026"].tolist()
+mino_new = mino_hybrids[mino_hybrids["current_2019"] == "(NEW)"][
+    "proposed_2026"
+].tolist()
 all_2019_eds = set(vas_out["ED_NAME"].unique())
 
 STOP_TOKENS = {"North", "South", "East", "West", "Central", "Centre", "City"}
 
 # Frequency of each token across 2019 ED names
 from collections import Counter
+
 token_freq: Counter = Counter()
 for ed in all_2019_eds:
     for t in ed.replace("-", " ").replace(".", "").split():
@@ -268,11 +283,7 @@ print("Writing integrity report...")
 report_path = ANALYSIS / "va_spatial_integrity_report.md"
 n_mismatch = len(mismatches)
 s3b_pass = "YES" if match_rate >= 0.95 else "NO"
-s3c_pass = (
-    "YES"
-    if all(d <= 0.1 for d in [ndp_diff, ucp_diff, other_diff])
-    else "NO"
-)
+s3c_pass = "YES" if all(d <= 0.1 for d in [ndp_diff, ucp_diff, other_diff]) else "NO"
 
 with open(report_path, "w", encoding="utf-8") as f:
     f.write("# VA Spatial Integrity Report (Phase 4C prep)\n\n")
@@ -297,15 +308,13 @@ with open(report_path, "w", encoding="utf-8") as f:
             f.write(f"\n_{n_mismatch - 200} additional mismatches omitted._\n")
         f.write("\n")
 
-    f.write("## Gate S3c - Vote-conservation checksum (Election Day, 2-party + other)\n\n")
+    f.write(
+        "## Gate S3c - Vote-conservation checksum (Election Day, 2-party + other)\n\n"
+    )
     f.write("| party | poll CSV (EDay) | VA aggregate | diff % |\n")
     f.write("|---|---|---|---|\n")
-    f.write(
-        f"| NDP | {eday_ndp_source:,.0f} | {va_ndp_agg:,.2f} | {ndp_diff:.4f}% |\n"
-    )
-    f.write(
-        f"| UCP | {eday_ucp_source:,.0f} | {va_ucp_agg:,.2f} | {ucp_diff:.4f}% |\n"
-    )
+    f.write(f"| NDP | {eday_ndp_source:,.0f} | {va_ndp_agg:,.2f} | {ndp_diff:.4f}% |\n")
+    f.write(f"| UCP | {eday_ucp_source:,.0f} | {va_ucp_agg:,.2f} | {ucp_diff:.4f}% |\n")
     f.write(
         f"| Other | {eday_other_source:,.0f} | {va_other_agg:,.2f} | {other_diff:.4f}% |\n"
     )
@@ -331,11 +340,7 @@ with open(report_path, "w", encoding="utf-8") as f:
         f"{((hybrid_adj['majority_hybrid_candidate'] != '') & (hybrid_adj['minority_hybrid_candidate'] != '')).sum()}\n\n"
     )
     f.write("By parent 2019 ED:\n\n")
-    counts = (
-        hybrid_adj.groupby("parent_ed_2019")
-        .size()
-        .sort_values(ascending=False)
-    )
+    counts = hybrid_adj.groupby("parent_ed_2019").size().sort_values(ascending=False)
     f.write("| parent_ed_2019 | VA count |\n|---|---|\n")
     for ed, c in counts.items():
         f.write(f"| {ed} | {c} |\n")

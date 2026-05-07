@@ -53,6 +53,7 @@ Dependencies
 
 Author: sub-agent, overlay rebuild task, 2026-04-23
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -79,7 +80,13 @@ DATA = ROOT / "data"
 OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+PATH_2019 = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 PATH_MAJ = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
 PATH_MIN_V6 = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
 # v7-derived gpkgs carry the FULL 89-ED partitioning with proper hybrid names
@@ -97,21 +104,21 @@ CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest, metres
 # ---------------------------------------------------------------------------
 # Palette - editorial, not political. Neutral base, warm highlight.
 
-COLOR_BASE_URBAN = "#f0e4d0"        # warm ivory (slightly more saturated than ivory)
-COLOR_BASE_RURAL = "#dcd4c4"        # cool ecru (darker than before for contrast)
-COLOR_HIGHLIGHT = "#e87722"         # majority accent orange (for highlights)
-COLOR_HIGHLIGHT_MIN = "#335c81"     # minority accent blue
+COLOR_BASE_URBAN = "#f0e4d0"  # warm ivory (slightly more saturated than ivory)
+COLOR_BASE_RURAL = "#dcd4c4"  # cool ecru (darker than before for contrast)
+COLOR_HIGHLIGHT = "#e87722"  # majority accent orange (for highlights)
+COLOR_HIGHLIGHT_MIN = "#335c81"  # minority accent blue
 COLOR_HIGHLIGHT_ALPHA = 0.78
 COLOR_BASE_EDGE = "#2a2a2a"
-COLOR_PROXY_HATCH = "///"            # hatch on Tier-C-proxied majority polys
+COLOR_PROXY_HATCH = "///"  # hatch on Tier-C-proxied majority polys
 
 EDGE_WIDTH = 1.1
 EDGE_WIDTH_HIGHLIGHT = 1.8
 
 # Fonts (use what's installed on Windows; Georgia is a workable Playfair-alike,
 # DejaVu Sans is a workable Source Sans 3-alike).
-FONT_TITLE_FAMILY = "Georgia"       # editorial serif
-FONT_LABEL_FAMILY = "DejaVu Sans"   # ED names, credit line
+FONT_TITLE_FAMILY = "Georgia"  # editorial serif
+FONT_LABEL_FAMILY = "DejaVu Sans"  # ED names, credit line
 
 # Decide whether an ED's polygon is rural-looking (>= 2000 km2) to pick a base
 # shade. The intent is a soft visual difference between urban tiles and their
@@ -124,14 +131,15 @@ RURAL_AREA_THRESHOLD_M2 = 2e9  # 2000 km2
 # (1600x1200) keeps each panel close to square and leaves headroom for the
 # figure title on top and a 2-line credit at the bottom.
 FIG_DPI = 300
-FIG_W = 16.0 / 3.0          # 5.333 in = 1600 px at 300 dpi
-FIG_H = 4.0                 # 1200 px at 300 dpi -> 4:3 aspect
+FIG_W = 16.0 / 3.0  # 5.333 in = 1600 px at 300 dpi
+FIG_H = 4.0  # 1200 px at 300 dpi -> 4:3 aspect
 
 # ---------------------------------------------------------------------------
 # Figure specs
 #
 # Each spec lists the 2-3 EDs to highlight in each panel. Names must match
 # the `name_2026` column of the respective gpkg (majority and minority v6).
+
 
 @dataclass(frozen=True)
 class FigSpec:
@@ -153,15 +161,15 @@ SPECS: list[FigSpec] = [
         # Majority: the four EDs that the article says "in the minority these
         # become..." - under the majority they stay as familiar regional names.
         majority_highlights=(
-            "Airdrie-West",           # 2019: Airdrie-Cochrane
-            "Chestermere-Strathmore", # identity
+            "Airdrie-West",  # 2019: Airdrie-Cochrane
+            "Chestermere-Strathmore",  # identity
             "Calgary-West-Elbow Valley",
             "Calgary-Glenmore-Tsuut'ina",
         ),
         # Minority: the contested Calgary hybrids - these reach rural
         # territory into Calgary-named districts.
         minority_highlights=(
-            "Calgary-Airdrie",              # from 2019 Airdrie-Cochrane
+            "Calgary-Airdrie",  # from 2019 Airdrie-Cochrane
             "Calgary-Peigan-Chestermere",
             "Calgary-De Winton",
             "Calgary-West-Tsuut'ina",
@@ -184,7 +192,7 @@ SPECS: list[FigSpec] = [
         # Airdrie East, Calgary-Foothills-Airdrie West, Olds-Three Hills-
         # Didsbury, plus Chestermere-Strathmore on the east side.
         minority_highlights=(
-            "Airdrie East",                      # note: no hyphen in v6/v7
+            "Airdrie East",  # note: no hyphen in v6/v7
             "Calgary-Foothills-Airdrie West",
             "Olds-Three Hills-Didsbury",
             "Chestermere-Strathmore",
@@ -194,8 +202,8 @@ SPECS: list[FigSpec] = [
     FigSpec(
         slug="lethbridge",
         region_title="Lethbridge",
-        city_lonlat=(-113.5, 49.75),       # shifted NW to include Crowsnest
-        half_width_km=75.0,                 # wide: Crowsnest Pass to Cardston
+        city_lonlat=(-113.5, 49.75),  # shifted NW to include Crowsnest
+        half_width_km=75.0,  # wide: Crowsnest Pass to Cardston
         majority_highlights=(
             "Lethbridge-East",
             "Lethbridge-West",
@@ -251,6 +259,7 @@ def build_proxy_map(xwalk_path: Path) -> dict[str, list[str]]:
 # ---------------------------------------------------------------------------
 # Loaders
 
+
 def load_2019() -> gpd.GeoDataFrame:
     g = gpd.read_file(PATH_2019)
     if g.crs is None:
@@ -262,10 +271,9 @@ def _has_valid_geom(geom) -> bool:
     return geom is not None and not geom.is_empty
 
 
-def load_plan(primary_paths: list[Path],
-              plan_label: str,
-              xwalk_path: Path,
-              g19: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+def load_plan(
+    primary_paths: list[Path], plan_label: str, xwalk_path: Path, g19: gpd.GeoDataFrame
+) -> gpd.GeoDataFrame:
     """Build a per-plan GeoDataFrame of 2026 EDs with `is_proxy` flag.
 
     Strategy (per ED name, in order):
@@ -318,16 +326,20 @@ def load_plan(primary_paths: list[Path],
             continue
 
         source_counts[source] += 1
-        rows.append({
-            "name_2026": name,
-            "is_proxy": (source == "proxy"),
-            "source": source,
-            "geometry": geom,
-        })
+        rows.append(
+            {
+                "name_2026": name,
+                "is_proxy": (source == "proxy"),
+                "source": source,
+                "geometry": geom,
+            }
+        )
 
     gdf = gpd.GeoDataFrame(rows, geometry="geometry", crs=CRS_PLOT)
-    print(f"  [{plan_label}] primary={source_counts['primary']} "
-          f"proxy={source_counts['proxy']} missing={source_counts['missing']}")
+    print(
+        f"  [{plan_label}] primary={source_counts['primary']} "
+        f"proxy={source_counts['proxy']} missing={source_counts['missing']}"
+    )
     return gdf
 
 
@@ -342,12 +354,15 @@ def load_minority(g19: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
 # ---------------------------------------------------------------------------
 # Geometry helpers
 
+
 def lonlat_to_xy(lon: float, lat: float) -> tuple[float, float]:
     p = gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS_PLOT).iloc[0]
     return (p.x, p.y)
 
 
-def bbox_around(lon: float, lat: float, half_km: float) -> tuple[float, float, float, float]:
+def bbox_around(
+    lon: float, lat: float, half_km: float
+) -> tuple[float, float, float, float]:
     cx, cy = lonlat_to_xy(lon, lat)
     h = half_km * 1000.0
     return (cx - h, cy - h, cx + h, cy + h)
@@ -370,44 +385,66 @@ def base_fill_color(area_m2: float) -> str:
 # ---------------------------------------------------------------------------
 # Drawing helpers
 
+
 def add_scale_bar(ax, x0, y0, length_km=10, height_m=400):
     length_m = length_km * 1000.0
     halo = mpatches.Rectangle(
         (x0 - length_m * 0.05, y0 - height_m * 1.0),
-        length_m * 1.10, height_m * 3.8,
-        linewidth=0, facecolor="white", alpha=0.85, zorder=4,
+        length_m * 1.10,
+        height_m * 3.8,
+        linewidth=0,
+        facecolor="white",
+        alpha=0.85,
+        zorder=4,
     )
     ax.add_patch(halo)
     bar = mpatches.Rectangle(
-        (x0, y0), length_m, height_m,
-        linewidth=0.7, edgecolor="black", facecolor="black", zorder=5,
+        (x0, y0),
+        length_m,
+        height_m,
+        linewidth=0.7,
+        edgecolor="black",
+        facecolor="black",
+        zorder=5,
     )
     ax.add_patch(bar)
     ax.text(
-        x0 + length_m / 2, y0 + height_m * 1.8, f"{length_km} km",
-        ha="center", va="bottom", fontsize=6.5, family=FONT_LABEL_FAMILY,
+        x0 + length_m / 2,
+        y0 + height_m * 1.8,
+        f"{length_km} km",
+        ha="center",
+        va="bottom",
+        fontsize=6.5,
+        family=FONT_LABEL_FAMILY,
         zorder=6,
     )
 
 
 def add_north_arrow(ax, x, y, size=1500):
     halo = mpatches.Circle(
-        (x, y), radius=size * 1.3,
-        linewidth=0, facecolor="white", alpha=0.85, zorder=4,
+        (x, y),
+        radius=size * 1.3,
+        linewidth=0,
+        facecolor="white",
+        alpha=0.85,
+        zorder=4,
     )
     ax.add_patch(halo)
     ax.annotate(
         "N",
-        xy=(x, y + size), xytext=(x, y - size),
+        xy=(x, y + size),
+        xytext=(x, y - size),
         arrowprops=dict(facecolor="black", width=1.5, headwidth=6, headlength=7),
-        ha="center", va="bottom",
-        fontsize=8, fontweight="bold", family=FONT_LABEL_FAMILY,
+        ha="center",
+        va="bottom",
+        fontsize=8,
+        fontweight="bold",
+        family=FONT_LABEL_FAMILY,
         zorder=6,
     )
 
 
-def label_ed(ax, geom, text, fontsize=7.5, weight="normal", color="#1a1a1a",
-             bbox=None):
+def label_ed(ax, geom, text, fontsize=7.5, weight="normal", color="#1a1a1a", bbox=None):
     try:
         pt = geom.representative_point()
     except Exception:
@@ -440,12 +477,17 @@ def label_ed(ax, geom, text, fontsize=7.5, weight="normal", color="#1a1a1a",
     ax.annotate(
         text,
         xy=(x, y),
-        ha="center", va="center",
-        fontsize=fontsize, fontweight=weight, family=FONT_LABEL_FAMILY,
+        ha="center",
+        va="center",
+        fontsize=fontsize,
+        fontweight=weight,
+        family=FONT_LABEL_FAMILY,
         color=color,
-        bbox=bbox if bbox is not None else dict(
-            boxstyle="round,pad=0.18",
-            fc=(1, 1, 1, 0.88), ec="none"),
+        bbox=(
+            bbox
+            if bbox is not None
+            else dict(boxstyle="round,pad=0.18", fc=(1, 1, 1, 0.88), ec="none")
+        ),
         zorder=9,
         clip_on=False,
     )
@@ -454,10 +496,20 @@ def label_ed(ax, geom, text, fontsize=7.5, weight="normal", color="#1a1a1a",
 # ---------------------------------------------------------------------------
 # Panel render
 
-def render_panel(ax, gdf: gpd.GeoDataFrame, bbox, highlight_names: tuple[str, ...],
-                 highlight_color: str, panel_title: str,
-                 city_lonlat: tuple[float, float], primary_city_label: str,
-                 scale_km: int, show_scale: bool, show_north: bool):
+
+def render_panel(
+    ax,
+    gdf: gpd.GeoDataFrame,
+    bbox,
+    highlight_names: tuple[str, ...],
+    highlight_color: str,
+    panel_title: str,
+    city_lonlat: tuple[float, float],
+    primary_city_label: str,
+    scale_km: int,
+    show_scale: bool,
+    show_north: bool,
+):
     minx, miny, maxx, maxy = bbox
 
     # Set limits early so label clamping works
@@ -473,8 +525,12 @@ def render_panel(ax, gdf: gpd.GeoDataFrame, bbox, highlight_names: tuple[str, ..
     # Background rectangle (very light frame color so any gap outside the
     # plan polygons reads as outside-the-partition)
     bg = mpatches.Rectangle(
-        (minx, miny), maxx - minx, maxy - miny,
-        facecolor="#fbf9f3", edgecolor="none", zorder=0,
+        (minx, miny),
+        maxx - minx,
+        maxy - miny,
+        facecolor="#fbf9f3",
+        edgecolor="none",
+        zorder=0,
     )
     ax.add_patch(bg)
 
@@ -491,59 +547,92 @@ def render_panel(ax, gdf: gpd.GeoDataFrame, bbox, highlight_names: tuple[str, ..
             fill = base_fill_color(row.geometry.area)
             fill_patch = gpd.GeoSeries([row.geometry], crs=CRS_PLOT)
             fill_patch.plot(
-                ax=ax, facecolor=fill, edgecolor="none",
-                alpha=1.0, zorder=1,
+                ax=ax,
+                facecolor=fill,
+                edgecolor="none",
+                alpha=1.0,
+                zorder=1,
             )
             if is_proxy:
                 # light hatch to signal "approximate shape"
                 fill_patch.plot(
-                    ax=ax, facecolor="none", edgecolor="#c2a87a",
-                    hatch="///", linewidth=0.0, alpha=0.55, zorder=2,
+                    ax=ax,
+                    facecolor="none",
+                    edgecolor="#c2a87a",
+                    hatch="///",
+                    linewidth=0.0,
+                    alpha=0.55,
+                    zorder=2,
                 )
             fill_patch.plot(
-                ax=ax, facecolor="none", edgecolor=COLOR_BASE_EDGE,
-                linewidth=EDGE_WIDTH, zorder=3,
+                ax=ax,
+                facecolor="none",
+                edgecolor=COLOR_BASE_EDGE,
+                linewidth=EDGE_WIDTH,
+                zorder=3,
             )
 
         # Then the highlighted EDs on top
         for name, geom, is_proxy in highlighted_rows:
             g_one = gpd.GeoSeries([geom], crs=CRS_PLOT)
             g_one.plot(
-                ax=ax, facecolor=highlight_color, edgecolor="none",
-                alpha=COLOR_HIGHLIGHT_ALPHA, zorder=4,
+                ax=ax,
+                facecolor=highlight_color,
+                edgecolor="none",
+                alpha=COLOR_HIGHLIGHT_ALPHA,
+                zorder=4,
             )
             if is_proxy:
                 g_one.plot(
-                    ax=ax, facecolor="none", edgecolor="#2a2a2a",
-                    hatch="///", linewidth=0.0, alpha=0.45, zorder=5,
+                    ax=ax,
+                    facecolor="none",
+                    edgecolor="#2a2a2a",
+                    hatch="///",
+                    linewidth=0.0,
+                    alpha=0.45,
+                    zorder=5,
                 )
             g_one.plot(
-                ax=ax, facecolor="none",
-                edgecolor="#111111", linewidth=EDGE_WIDTH_HIGHLIGHT,
+                ax=ax,
+                facecolor="none",
+                edgecolor="#111111",
+                linewidth=EDGE_WIDTH_HIGHLIGHT,
                 zorder=6,
             )
 
     # City marker + label
     cx, cy = lonlat_to_xy(*city_lonlat)
     if minx <= cx <= maxx and miny <= cy <= maxy:
-        ax.scatter([cx], [cy], s=32, color="black", zorder=7,
-                   marker="o", edgecolor="white", linewidth=1.0)
+        ax.scatter(
+            [cx],
+            [cy],
+            s=32,
+            color="black",
+            zorder=7,
+            marker="o",
+            edgecolor="white",
+            linewidth=1.0,
+        )
         ax.annotate(
             primary_city_label.upper(),
             xy=(cx, cy),
-            xytext=(7, 7), textcoords="offset points",
-            fontsize=9, fontweight="bold", family=FONT_LABEL_FAMILY,
-            color="#111111", zorder=10,
-            bbox=dict(boxstyle="round,pad=0.22",
-                      fc=(1, 1, 1, 0.9), ec="#111", linewidth=0.5),
+            xytext=(7, 7),
+            textcoords="offset points",
+            fontsize=9,
+            fontweight="bold",
+            family=FONT_LABEL_FAMILY,
+            color="#111111",
+            zorder=10,
+            bbox=dict(
+                boxstyle="round,pad=0.22", fc=(1, 1, 1, 0.9), ec="#111", linewidth=0.5
+            ),
         )
 
     # Scale bar (bottom-left) - only on left panel to save space
     if show_scale:
         sx = minx + (maxx - minx) * 0.04
         sy = miny + (maxy - miny) * 0.045
-        add_scale_bar(ax, sx, sy, length_km=scale_km,
-                      height_m=max(250, scale_km * 30))
+        add_scale_bar(ax, sx, sy, length_km=scale_km, height_m=max(250, scale_km * 30))
 
     # North arrow (top-right) - only on right panel to save space
     if show_north:
@@ -552,24 +641,29 @@ def render_panel(ax, gdf: gpd.GeoDataFrame, bbox, highlight_names: tuple[str, ..
         add_north_arrow(ax, nx, ny, size=max(scale_km * 90, 800))
 
     # Panel title
-    ax.set_title(panel_title, fontsize=11, fontweight="bold",
-                 family=FONT_TITLE_FAMILY, color="#1a1a1a",
-                 loc="left", pad=6)
+    ax.set_title(
+        panel_title,
+        fontsize=11,
+        fontweight="bold",
+        family=FONT_TITLE_FAMILY,
+        color="#1a1a1a",
+        loc="left",
+        pad=6,
+    )
 
     # Now label highlighted EDs (after the city marker, so labels can dodge
     # the city label by stepping off the representative point via clamp)
     for name, geom, _is_proxy in highlighted_rows:
         # Label font size scales with name length so long hybrid names fit
         fs = 7.0 if len(name) <= 22 else (6.3 if len(name) <= 32 else 5.7)
-        label_ed(ax, geom, name, fontsize=fs, weight="bold",
-                 color="#111111")
+        label_ed(ax, geom, name, fontsize=fs, weight="bold", color="#111111")
 
 
 # ---------------------------------------------------------------------------
 # Per-figure driver
 
-def draw_figure(spec: FigSpec, maj: gpd.GeoDataFrame,
-                mino: gpd.GeoDataFrame) -> dict:
+
+def draw_figure(spec: FigSpec, maj: gpd.GeoDataFrame, mino: gpd.GeoDataFrame) -> dict:
     bbox = bbox_around(*spec.city_lonlat, spec.half_width_km)
 
     maj_c = clip_to_bbox(maj, bbox)
@@ -581,9 +675,13 @@ def draw_figure(spec: FigSpec, maj: gpd.GeoDataFrame,
     missing_maj = [h for h in spec.majority_highlights if h not in maj_have]
     missing_min = [h for h in spec.minority_highlights if h not in min_have]
     if missing_maj:
-        print(f"  [warn] {spec.slug}: majority highlights missing from frame: {missing_maj}")
+        print(
+            f"  [warn] {spec.slug}: majority highlights missing from frame: {missing_maj}"
+        )
     if missing_min:
-        print(f"  [warn] {spec.slug}: minority highlights missing from frame: {missing_min}")
+        print(
+            f"  [warn] {spec.slug}: minority highlights missing from frame: {missing_min}"
+        )
 
     fig = plt.figure(figsize=(FIG_W, FIG_H), dpi=FIG_DPI)
     # Explicit axes placement: left band from (0.03 -> 0.49) wide, right band
@@ -603,7 +701,9 @@ def draw_figure(spec: FigSpec, maj: gpd.GeoDataFrame,
         scale_km = 5
 
     render_panel(
-        ax=ax_l, gdf=maj_c, bbox=bbox,
+        ax=ax_l,
+        gdf=maj_c,
+        bbox=bbox,
         highlight_names=spec.majority_highlights,
         highlight_color=COLOR_HIGHLIGHT,
         panel_title="Majority proposal 2026",
@@ -614,7 +714,9 @@ def draw_figure(spec: FigSpec, maj: gpd.GeoDataFrame,
         show_north=False,
     )
     render_panel(
-        ax=ax_r, gdf=min_c, bbox=bbox,
+        ax=ax_r,
+        gdf=min_c,
+        bbox=bbox,
         highlight_names=spec.minority_highlights,
         highlight_color=COLOR_HIGHLIGHT_MIN,
         panel_title="Minority proposal 2026",
@@ -627,29 +729,40 @@ def draw_figure(spec: FigSpec, maj: gpd.GeoDataFrame,
 
     # Figure-level title (above both panels) - large serif, left-aligned
     fig.text(
-        0.035, 0.92,
+        0.035,
+        0.92,
         f"{spec.region_title} \u00b7 majority vs minority 2026",
-        fontsize=15, fontweight="bold",
-        family=FONT_TITLE_FAMILY, color="#0e0e0e",
-        ha="left", va="baseline",
+        fontsize=15,
+        fontweight="bold",
+        family=FONT_TITLE_FAMILY,
+        color="#0e0e0e",
+        ha="left",
+        va="baseline",
     )
 
     # 8pt muted-grey two-line credit at bottom-right
     fig.text(
-        0.97, 0.015,
+        0.97,
+        0.015,
         "Approximate 2026 geometry pending shapefile release.\n"
         "Dimmed polygons in majority panel = 2019 shape used as Tier-C proxy.",
-        ha="right", va="bottom",
-        fontsize=7.0, family=FONT_LABEL_FAMILY, color="#6a6a6a",
+        ha="right",
+        va="bottom",
+        fontsize=7.0,
+        family=FONT_LABEL_FAMILY,
+        color="#6a6a6a",
         linespacing=1.3,
     )
 
     out_path = OUT / f"overlay_{spec.slug}_v2.svg"
-    fig.savefig(out_path, dpi=FIG_DPI,
-                facecolor="white")
+    fig.savefig(out_path, dpi=FIG_DPI, facecolor="white")
     plt.close(fig)
 
-    n_maj_proxy = int(maj_c.get("is_proxy", pd.Series([], dtype=bool)).sum()) if not maj_c.empty else 0
+    n_maj_proxy = (
+        int(maj_c.get("is_proxy", pd.Series([], dtype=bool)).sum())
+        if not maj_c.empty
+        else 0
+    )
     return {
         "slug": spec.slug,
         "path": str(out_path),
@@ -680,15 +793,19 @@ def main() -> int:
     for spec in SPECS:
         print(f"\nDrawing {spec.slug}...")
         r = draw_figure(spec, maj, mino)
-        print(f"  -> {r['path']}  (maj_visible={r['maj_visible']} "
-              f"min_visible={r['min_visible']} maj_proxy_visible={r['maj_proxy_visible']})")
+        print(
+            f"  -> {r['path']}  (maj_visible={r['maj_visible']} "
+            f"min_visible={r['min_visible']} maj_proxy_visible={r['maj_proxy_visible']})"
+        )
         results.append(r)
 
     print("\n=== SUMMARY ===")
     for r in results:
         print(f"{r['slug']:12s}  {r['path']}")
-        print(f"  maj_visible={r['maj_visible']} min_visible={r['min_visible']} "
-              f"maj_proxy_visible={r['maj_proxy_visible']}")
+        print(
+            f"  maj_visible={r['maj_visible']} min_visible={r['min_visible']} "
+            f"maj_proxy_visible={r['maj_proxy_visible']}"
+        )
         if r["missing_maj_highlights"]:
             print(f"  missing_maj_highlights={r['missing_maj_highlights']}")
         if r["missing_min_highlights"]:

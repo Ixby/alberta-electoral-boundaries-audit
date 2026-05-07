@@ -98,7 +98,9 @@ def area_weighted_attribution(
     inter = inter[inter["_inter_area"] > 0].copy()
     inter["weight"] = inter["_inter_area"] / inter["_va_area"]
     if verbose:
-        print(f"    overlay produced {len(inter):,} (VA, ED) rows in {time.time()-t0:.1f}s")
+        print(
+            f"    overlay produced {len(inter):,} (VA, ED) rows in {time.time()-t0:.1f}s"
+        )
 
     # Normalise per-VA weights so they sum to 1.0 (eliminates numerical edge
     # leakage where a tiny polygon strip lies just outside the ED union).
@@ -107,15 +109,23 @@ def area_weighted_attribution(
 
     # Coverage diagnostics: how much of each VA's area landed inside an ED.
     per_va_cov = inter.groupby("_va_idx")["weight"].sum().rename("cov")
-    cov_df = va[["_va_idx", "_va_area"]].merge(per_va_cov, on="_va_idx", how="left").fillna({"cov": 0.0})
+    cov_df = (
+        va[["_va_idx", "_va_area"]]
+        .merge(per_va_cov, on="_va_idx", how="left")
+        .fillna({"cov": 0.0})
+    )
     cov_df["cov"] = cov_df["cov"].clip(upper=1.0)
     n_full = int((cov_df["cov"] >= 0.9999).sum())
     n_zero = int((cov_df["cov"] < 1e-6).sum())
     n_part = len(cov_df) - n_full - n_zero
-    area_cov = float((cov_df["_va_area"] * cov_df["cov"]).sum() / cov_df["_va_area"].sum())
+    area_cov = float(
+        (cov_df["_va_area"] * cov_df["cov"]).sum() / cov_df["_va_area"].sum()
+    )
     if verbose:
-        print(f"    VA coverage: {n_full} full, {n_part} partial, {n_zero} zero  "
-              f"(area-weighted coverage = {area_cov*100:.3f}%)")
+        print(
+            f"    VA coverage: {n_full} full, {n_part} partial, {n_zero} zero  "
+            f"(area-weighted coverage = {area_cov*100:.3f}%)"
+        )
 
     # Nearest-ED fallback for VAs with zero polygon-coverage (matches the
     # centroid pipeline's nearest_ed fallback in assignment_va_attribution.py).
@@ -130,24 +140,28 @@ def area_weighted_attribution(
             cent = vrow.geometry.representative_point()
             dists = eds.geometry.distance(cent)
             nearest_ed = eds.iloc[dists.idxmin()][ed_id_col]
-            fallback_rows.append({
-                "_va_idx": vrow["_va_idx"],
-                ed_id_col: nearest_ed,
-                "weight_n": 1.0,
-                "ucp": vrow["va_ucp"],
-                "ndp": vrow["va_ndp"],
-                "other": vrow["va_other"],
-                "_inter_area": 0.0,
-                "_va_area": vrow["_va_area"],
-                "weight": 0.0,
-                "va_ucp": vrow["va_ucp"],
-                "va_ndp": vrow["va_ndp"],
-                "va_other": vrow["va_other"],
-            })
+            fallback_rows.append(
+                {
+                    "_va_idx": vrow["_va_idx"],
+                    ed_id_col: nearest_ed,
+                    "weight_n": 1.0,
+                    "ucp": vrow["va_ucp"],
+                    "ndp": vrow["va_ndp"],
+                    "other": vrow["va_other"],
+                    "_inter_area": 0.0,
+                    "_va_area": vrow["_va_area"],
+                    "weight": 0.0,
+                    "va_ucp": vrow["va_ucp"],
+                    "va_ndp": vrow["va_ndp"],
+                    "va_other": vrow["va_other"],
+                }
+            )
             n_fallback += 1
         if verbose:
-            print(f"    nearest-ED fallback applied to {n_fallback} zero-coverage VAs "
-                  f"(matches centroid pipeline behaviour)")
+            print(
+                f"    nearest-ED fallback applied to {n_fallback} zero-coverage VAs "
+                f"(matches centroid pipeline behaviour)"
+            )
 
     # Apportion votes by normalised weight.
     inter["ucp"] = inter["weight_n"] * inter["va_ucp"]
@@ -167,7 +181,11 @@ def area_weighted_attribution(
         n_va_intersections=(ed_id_col, "size"),
     )
     per_ed["total"] = per_ed["ucp"] + per_ed["ndp"] + per_ed["other"]
-    per_ed = per_ed.rename(columns={ed_id_col: "ed_2026"}).sort_values("ed_2026").reset_index(drop=True)
+    per_ed = (
+        per_ed.rename(columns={ed_id_col: "ed_2026"})
+        .sort_values("ed_2026")
+        .reset_index(drop=True)
+    )
 
     # Conservation check: per-VA apportioned totals should equal originals (within numeric floor).
     va_check = va.set_index("_va_idx")[["va_ucp", "va_ndp", "va_other"]]
@@ -176,8 +194,16 @@ def area_weighted_attribution(
     # Rows with zero coverage drop out of attribution → dvotes equals -original on those VAs.
     # Only meaningful for fully-covered VAs.
     full_va = cov_df[cov_df["cov"] >= 0.9999]["_va_idx"].tolist()
-    delta_ucp = float((joined.loc[full_va, "ucp"] - joined.loc[full_va, "va_ucp"]).abs().max()) if full_va else 0.0
-    delta_ndp = float((joined.loc[full_va, "ndp"] - joined.loc[full_va, "va_ndp"]).abs().max()) if full_va else 0.0
+    delta_ucp = (
+        float((joined.loc[full_va, "ucp"] - joined.loc[full_va, "va_ucp"]).abs().max())
+        if full_va
+        else 0.0
+    )
+    delta_ndp = (
+        float((joined.loc[full_va, "ndp"] - joined.loc[full_va, "va_ndp"]).abs().max())
+        if full_va
+        else 0.0
+    )
 
     stats = {
         "n_vas": len(va),
@@ -202,14 +228,29 @@ def area_weighted_attribution(
 
 def main():
     p = argparse.ArgumentParser(description="Area-weighted VA-to-ED vote attribution.")
-    p.add_argument("--shapefile", required=True, type=Path,
-                   help="Path to the 2026 ED gpkg (e.g. v0_10_topological_majority_2026_eds.gpkg).")
-    p.add_argument("--va-shapefile", default=DEFAULT_VA, type=Path,
-                   help=f"Path to the VA gpkg (default: {DEFAULT_VA}).")
-    p.add_argument("--ed-id-col", default="name_2026",
-                   help="Column on the ED shapefile holding the ED name (default: name_2026).")
-    p.add_argument("--out", required=True, type=Path,
-                   help="Output CSV path (per-ED area-weighted vote totals).")
+    p.add_argument(
+        "--shapefile",
+        required=True,
+        type=Path,
+        help="Path to the 2026 ED gpkg (e.g. v0_10_topological_majority_2026_eds.gpkg).",
+    )
+    p.add_argument(
+        "--va-shapefile",
+        default=DEFAULT_VA,
+        type=Path,
+        help=f"Path to the VA gpkg (default: {DEFAULT_VA}).",
+    )
+    p.add_argument(
+        "--ed-id-col",
+        default="name_2026",
+        help="Column on the ED shapefile holding the ED name (default: name_2026).",
+    )
+    p.add_argument(
+        "--out",
+        required=True,
+        type=Path,
+        help="Output CSV path (per-ED area-weighted vote totals).",
+    )
     p.add_argument("--quiet", action="store_true")
     args = p.parse_args()
 
@@ -223,17 +264,25 @@ def main():
     va = gpd.read_file(args.va_shapefile)
     eds = gpd.read_file(args.shapefile)
 
-    per_ed, stats = area_weighted_attribution(va, eds, ed_id_col=args.ed_id_col, verbose=verbose)
+    per_ed, stats = area_weighted_attribution(
+        va, eds, ed_id_col=args.ed_id_col, verbose=verbose
+    )
     args.out.parent.mkdir(parents=True, exist_ok=True)
     per_ed.to_csv(args.out, index=False)
     if verbose:
         print(f"  wrote per-ED CSV: {args.out}  ({len(per_ed)} rows)")
-        print(f"  in  totals: UCP={stats['vote_total_ucp_in']:,.1f}  NDP={stats['vote_total_ndp_in']:,.1f}  other={stats['vote_total_other_in']:,.1f}")
-        print(f"  out totals: UCP={stats['vote_total_ucp_out']:,.1f}  NDP={stats['vote_total_ndp_out']:,.1f}  other={stats['vote_total_other_out']:,.1f}")
-        ucp_drift = stats['vote_total_ucp_in'] - stats['vote_total_ucp_out']
-        ndp_drift = stats['vote_total_ndp_in'] - stats['vote_total_ndp_out']
-        print(f"  drift: ΔUCP={ucp_drift:+.2f}  ΔNDP={ndp_drift:+.2f}  "
-              f"(coverage = {stats['va_area_weighted_coverage']*100:.4f}% of VA area)")
+        print(
+            f"  in  totals: UCP={stats['vote_total_ucp_in']:,.1f}  NDP={stats['vote_total_ndp_in']:,.1f}  other={stats['vote_total_other_in']:,.1f}"
+        )
+        print(
+            f"  out totals: UCP={stats['vote_total_ucp_out']:,.1f}  NDP={stats['vote_total_ndp_out']:,.1f}  other={stats['vote_total_other_out']:,.1f}"
+        )
+        ucp_drift = stats["vote_total_ucp_in"] - stats["vote_total_ucp_out"]
+        ndp_drift = stats["vote_total_ndp_in"] - stats["vote_total_ndp_out"]
+        print(
+            f"  drift: ΔUCP={ucp_drift:+.2f}  ΔNDP={ndp_drift:+.2f}  "
+            f"(coverage = {stats['va_area_weighted_coverage']*100:.4f}% of VA area)"
+        )
 
     return 0
 

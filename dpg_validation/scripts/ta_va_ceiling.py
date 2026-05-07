@@ -22,10 +22,10 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
 
-VA_PATH  = REPO / "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
-OFF_MAJ  = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
-OFF_MIN  = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
-OUT      = ROOT / "outputs/ta_va_ceiling.csv"
+VA_PATH = REPO / "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
+OFF_MAJ = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
+OFF_MIN = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
+OUT = ROOT / "outputs/ta_va_ceiling.csv"
 OUT.parent.mkdir(exist_ok=True)
 
 CONTAINED_THRESHOLD = 0.95  # VA is "fully inside" if >=95% of its area is in the ED
@@ -34,7 +34,7 @@ CONTAINED_THRESHOLD = 0.95  # VA is "fully inside" if >=95% of its area is in th
 def ceiling_for_map(label, off_path, va_gdf):
     print(f"\n=== {label} ===")
     off = gpd.read_file(off_path).to_crs("EPSG:3400")
-    va  = va_gdf.copy()
+    va = va_gdf.copy()
 
     rows = []
     total_eds = len(off)
@@ -43,30 +43,35 @@ def ceiling_for_map(label, off_path, va_gdf):
         if i % 10 == 0:
             print(f"  Processing ED {i+1}/{total_eds}...")
 
-        ed_geom     = ed_row.geometry
-        ed_name     = ed_row["EDName2025"]
-        ed_area     = ed_geom.area
+        ed_geom = ed_row.geometry
+        ed_name = ed_row["EDName2025"]
+        ed_area = ed_geom.area
 
         # Candidate VAs: those that intersect this ED
-        candidates  = va[va.geometry.intersects(ed_geom)]
+        candidates = va[va.geometry.intersects(ed_geom)]
         if candidates.empty:
-            rows.append({
-                "map": label, "ed_name": ed_name,
-                "official_area_km2": round(ed_area / 1e6, 4),
-                "ceiling_iou_pct": 0.0,
-                "n_full_vas": 0, "n_partial_vas": 0,
-                "full_va_area_km2": 0.0, "partial_va_area_km2": 0.0,
-            })
+            rows.append(
+                {
+                    "map": label,
+                    "ed_name": ed_name,
+                    "official_area_km2": round(ed_area / 1e6, 4),
+                    "ceiling_iou_pct": 0.0,
+                    "n_full_vas": 0,
+                    "n_partial_vas": 0,
+                    "full_va_area_km2": 0.0,
+                    "partial_va_area_km2": 0.0,
+                }
+            )
             continue
 
-        full_va_area    = 0.0
+        full_va_area = 0.0
         partial_va_area = 0.0
-        n_full          = 0
-        n_partial       = 0
+        n_full = 0
+        n_partial = 0
 
         for _, va_row in candidates.iterrows():
-            va_geom  = va_row.geometry
-            va_area  = va_geom.area
+            va_geom = va_row.geometry
+            va_area = va_geom.area
             if va_area == 0:
                 continue
 
@@ -88,28 +93,32 @@ def ceiling_for_map(label, off_path, va_gdf):
         # partial VAs contribute only what's inside the ED boundary.
         # This is the best a VA-resolution method can do.
         ceiling_area = full_va_area + partial_va_area
-        ceiling_iou  = 100.0 * ceiling_area / ed_area if ed_area > 0 else 0.0
+        ceiling_iou = 100.0 * ceiling_area / ed_area if ed_area > 0 else 0.0
 
-        rows.append({
-            "map": label,
-            "ed_name": ed_name,
-            "official_area_km2": round(ed_area / 1e6, 4),
-            "ceiling_iou_pct": round(ceiling_iou, 2),
-            "n_full_vas": n_full,
-            "n_partial_vas": n_partial,
-            "full_va_area_km2": round(full_va_area / 1e6, 4),
-            "partial_va_area_km2": round(partial_va_area / 1e6, 4),
-        })
+        rows.append(
+            {
+                "map": label,
+                "ed_name": ed_name,
+                "official_area_km2": round(ed_area / 1e6, 4),
+                "ceiling_iou_pct": round(ceiling_iou, 2),
+                "n_full_vas": n_full,
+                "n_partial_vas": n_partial,
+                "full_va_area_km2": round(full_va_area / 1e6, 4),
+                "partial_va_area_km2": round(partial_va_area / 1e6, 4),
+            }
+        )
 
     df = pd.DataFrame(rows)
 
     mean_ceiling = df["ceiling_iou_pct"].mean()
-    min_ceiling  = df["ceiling_iou_pct"].min()
-    below_75     = (df["ceiling_iou_pct"] < 75).sum()
-    below_50     = (df["ceiling_iou_pct"] < 50).sum()
+    min_ceiling = df["ceiling_iou_pct"].min()
+    below_75 = (df["ceiling_iou_pct"] < 75).sum()
+    below_50 = (df["ceiling_iou_pct"] < 50).sum()
 
     print(f"\n  Mean ceiling IoU:        {mean_ceiling:.1f}%")
-    print(f"  Min ceiling IoU:         {min_ceiling:.1f}%  ({df.loc[df['ceiling_iou_pct'].idxmin(), 'ed_name']})")
+    print(
+        f"  Min ceiling IoU:         {min_ceiling:.1f}%  ({df.loc[df['ceiling_iou_pct'].idxmin(), 'ed_name']})"
+    )
     print(f"  EDs with ceiling < 75%:  {below_75}")
     print(f"  EDs with ceiling < 50%:  {below_50}")
     print(f"  H2 pre-registered:       mean ceiling >= 75%")

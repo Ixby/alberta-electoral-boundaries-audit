@@ -35,6 +35,7 @@ Output.
   - Prints benchmark distribution statistics.
   - Emits data/canadian_redistribution_base_rate.csv with quantified rows.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -126,7 +127,6 @@ CYCLES: list[Cycle] = [
         vote_baseline_election="2023 Alberta provincial general election",
         acquisition_status="measured_this_audit",
     ),
-
     # ---------------- Federal 2022 (Alberta sub-commission) ----------------
     # Provincial vote baseline = 2021 federal election.
     # Evidence: Commission's final report notes that changes were made to
@@ -171,7 +171,6 @@ CYCLES: list[Cycle] = [
         vote_baseline_election="2021 Canadian federal general election (Alberta subset)",
         acquisition_status="proxy_estimate",
     ),
-
     # ---------------- British Columbia provincial 2022-2023 ----------------
     # 87 → 93 seats, 6 new ridings. BC 2020 provincial election as baseline.
     # Evidence: "The proposal in the final report was much the same as the
@@ -210,7 +209,6 @@ CYCLES: list[Cycle] = [
         vote_baseline_election="2020 British Columbia provincial general election",
         acquisition_status="proxy_estimate",
     ),
-
     # ---------------- Saskatchewan 2022 ----------------
     # 61 seats (59 southern + 2 northern). 2020 SK provincial election as baseline.
     # Evidence: Interim report July 27 2022; final October 27 2022.
@@ -245,7 +243,6 @@ CYCLES: list[Cycle] = [
         vote_baseline_election="2020 Saskatchewan provincial general election",
         acquisition_status="proxy_estimate",
     ),
-
     # ---------------- Alberta 2017 provincial ----------------
     # 87 seats. 2015 AB provincial election as baseline.
     # Evidence: Interim May 23 2017; final October 31 2017. Reported changes:
@@ -293,7 +290,6 @@ CYCLES: list[Cycle] = [
         vote_baseline_election="2015 Alberta provincial general election",
         acquisition_status="proxy_estimate",
     ),
-
     # ---------------- Alberta 2010 provincial ----------------
     # 83 → 87 seats. 2008 AB provincial election as baseline.
     # Evidence: Interim Feb 2010; final July 22 2010. Reported change: the
@@ -333,7 +329,6 @@ CYCLES: list[Cycle] = [
         vote_baseline_election="2008 Alberta provincial general election",
         acquisition_status="proxy_estimate",
     ),
-
     # ---------------- Manitoba 2018 ----------------
     # 57 seats → 57 seats (1 seat from rural to Winnipeg, net 0). 2016 MB election baseline.
     # Evidence: Preliminary and final reports 2018. 56 of 57 boundaries
@@ -370,7 +365,6 @@ CYCLES: list[Cycle] = [
         vote_baseline_election="2016 Manitoba provincial general election",
         acquisition_status="proxy_estimate",
     ),
-
     # ---------------- Nova Scotia 2019 — NOT COMPARABLE ----------------
     # Interim report presented 4 alternatives, not a single interim→final
     # pair. Final report corresponded to Alternative 2 (55 seats with
@@ -416,7 +410,9 @@ def summarise():
     for c in CYCLES:
         name = f"{c.jurisdiction} {c.cycle_year}"
         if c.seat_flips_estimate is None:
-            print(f"{name:<36} {c.seats_total:>6} {'---':>4} {'---':>10} {'---':>10}  {c.acquisition_status}")
+            print(
+                f"{name:<36} {c.seats_total:>6} {'---':>4} {'---':>10} {'---':>10}  {c.acquisition_status}"
+            )
             continue
         sa = c.seat_share_asymmetry_pp
         eg = c.eg_asymmetry_proxy_pp
@@ -424,22 +420,32 @@ def summarise():
             # Alberta 2025-26 anchor: use the audit's own measured EG (0.51 pp)
             # rather than recomputing, so anchor ≡ audit headline.
             eg_anchor = 0.51
-            print(f"{name:<36} {c.seats_total:>6} {c.seat_flips_estimate:>4} {sa:>10.2f} {eg_anchor:>10.2f}  [anchor, audit-measured]")
+            print(
+                f"{name:<36} {c.seats_total:>6} {c.seat_flips_estimate:>4} {sa:>10.2f} {eg_anchor:>10.2f}  [anchor, audit-measured]"
+            )
             eg_vals.append(eg_anchor)
             ss_vals.append(sa)
         else:
-            print(f"{name:<36} {c.seats_total:>6} {c.seat_flips_estimate:>4} {sa:>10.2f} {eg:>10.2f}  [proxy]")
+            print(
+                f"{name:<36} {c.seats_total:>6} {c.seat_flips_estimate:>4} {sa:>10.2f} {eg:>10.2f}  [proxy]"
+            )
             eg_vals.append(eg)
             ss_vals.append(sa)
     print()
-    print(f"Benchmark distribution (n={len(eg_vals)} comparable cycles incl. Alberta anchor):")
+    print(
+        f"Benchmark distribution (n={len(eg_vals)} comparable cycles incl. Alberta anchor):"
+    )
     print(f"  Mean ΔEG_proxy:    {statistics.mean(eg_vals):.3f} pp")
     print(f"  Median ΔEG_proxy:  {statistics.median(eg_vals):.3f} pp")
     print(f"  Min:               {min(eg_vals):.3f} pp")
     print(f"  Max:               {max(eg_vals):.3f} pp")
     print(f"  Std dev:           {statistics.pstdev(eg_vals):.3f} pp")
     print()
-    excl = [v for v, c in zip(eg_vals, CYCLES) if not (c.jurisdiction == "Alberta_provincial" and c.cycle_year == "2026")]
+    excl = [
+        v
+        for v, c in zip(eg_vals, CYCLES)
+        if not (c.jurisdiction == "Alberta_provincial" and c.cycle_year == "2026")
+    ]
     if excl:
         print(f"Excluding Alberta 2025-26 anchor (n={len(excl)}):")
         print(f"  Mean ΔEG_proxy:    {statistics.mean(excl):.3f} pp")
@@ -450,9 +456,11 @@ def summarise():
     # Percentile rank of Alberta anchor
     alberta = 0.51
     rank = sum(1 for v in eg_vals if v <= alberta)
-    print(f"Alberta 2025-26 (0.51 pp) percentile among n={len(eg_vals)} cycles: "
-          f"{100*rank/len(eg_vals):.1f}% (i.e., "
-          f"{rank} of {len(eg_vals)} cycles fall at or below Alberta's value)")
+    print(
+        f"Alberta 2025-26 (0.51 pp) percentile among n={len(eg_vals)} cycles: "
+        f"{100*rank/len(eg_vals):.1f}% (i.e., "
+        f"{rank} of {len(eg_vals)} cycles fall at or below Alberta's value)"
+    )
     print()
 
 
@@ -501,7 +509,9 @@ def update_csv():
                 if c.seat_flips_low is not None and c.seat_flips_high is not None:
                     low = c.eg_asymmetry_low_pp or 0.0
                     high = c.eg_asymmetry_high_pp or 0.0
-                    row["eg_asymmetry_pp"] = f"{c.eg_asymmetry_proxy_pp:.2f} (bound {low:.2f}-{high:.2f})"
+                    row["eg_asymmetry_pp"] = (
+                        f"{c.eg_asymmetry_proxy_pp:.2f} (bound {low:.2f}-{high:.2f})"
+                    )
                 row["data_quality"] = "proxy_seat_share_asymmetry_method"
                 row["acquired_in_session"] = "yes_proxy"
                 row["notes"] = c.evidence[:600]

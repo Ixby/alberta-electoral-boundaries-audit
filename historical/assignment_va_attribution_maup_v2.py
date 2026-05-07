@@ -32,6 +32,7 @@ Backward:
   data/v0_2_canonical_majority_2026_eds_topoclean.gpkg
   data/v0_2_canonical_minority_2026_eds_topoclean.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -65,8 +66,12 @@ sys.modules["maup_v1"] = m1
 spec.loader.exec_module(m1)
 
 VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-MIN_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+MAJ_CLEAN_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+)
+MIN_CLEAN_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+)
 MAJ_XWALK_CSV = DATA / "majority_full_crosswalk.csv"
 MIN_XWALK_CSV = DATA / "minority_full_crosswalk.csv"
 MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
@@ -115,8 +120,9 @@ def main():
     print("  MAJORITY (topology-cleaned)")
     print("=" * 72)
     t0 = time.time()
-    maj = m1.run_one_map(vas, maj_eds, maj_xwalk, maj_names, "majority",
-                         smoke_n=args.smoke)
+    maj = m1.run_one_map(
+        vas, maj_eds, maj_xwalk, maj_names, "majority", smoke_n=args.smoke
+    )
     print(f"  [majority elapsed: {time.time()-t0:.1f}s]")
 
     # === MINORITY ===
@@ -124,22 +130,37 @@ def main():
     print("  MINORITY (topology-cleaned)")
     print("=" * 72)
     t1 = time.time()
-    mino = m1.run_one_map(vas, min_eds, min_xwalk, min_names, "minority",
-                          smoke_n=args.smoke)
+    mino = m1.run_one_map(
+        vas, min_eds, min_xwalk, min_names, "minority", smoke_n=args.smoke
+    )
     print(f"  [minority elapsed: {time.time()-t1:.1f}s]")
 
     # Outputs
     print("\n[write] outputs...")
     maj["ed_totals"].to_csv(OUT_MAJ, index=False)
     mino["ed_totals"].to_csv(OUT_MIN, index=False)
-    per_va = pd.concat([
-        maj["apportioned"].assign(map="majority"),
-        mino["apportioned"].assign(map="minority"),
-    ], ignore_index=True)[[
-        "map", "OBJECTID", "parent_ed_2019", "VA_NUMBER", "name_2026",
-        "area_weight", "va_ndp_full_share", "va_ucp_full_share",
-        "va_other_full_share", "fallback",
-    ]].rename(columns={"name_2026": "ed_2026"})
+    per_va = pd.concat(
+        [
+            maj["apportioned"].assign(map="majority"),
+            mino["apportioned"].assign(map="minority"),
+        ],
+        ignore_index=True,
+    )[
+        [
+            "map",
+            "OBJECTID",
+            "parent_ed_2019",
+            "VA_NUMBER",
+            "name_2026",
+            "area_weight",
+            "va_ndp_full_share",
+            "va_ucp_full_share",
+            "va_other_full_share",
+            "fallback",
+        ]
+    ].rename(
+        columns={"name_2026": "ed_2026"}
+    )
     per_va.to_csv(OUT_PER_VA, index=False)
     print(f"  wrote: {OUT_MAJ}")
     print(f"  wrote: {OUT_MIN}")
@@ -153,32 +174,44 @@ def main():
     min_eg = mino["eg"]
     asym = (min_eg - maj_eg) * 100
 
-    print(f"  centroid §5.2.7:  maj={CENTROID_MAJORITY_EG*100:+.4f}%  "
-          f"min={CENTROID_MINORITY_EG*100:+.4f}%  "
-          f"asym={CENTROID_ASYMMETRY_PP:+.4f} pp")
-    print(f"  MAUP-v1 (raw):    maj={MAUP_V1_MAJORITY_EG*100:+.4f}%  "
-          f"min={MAUP_V1_MINORITY_EG*100:+.4f}%  "
-          f"asym={MAUP_V1_ASYMMETRY_PP:+.4f} pp")
-    print(f"  MAUP-v2 (clean):  maj={maj_eg*100:+.4f}%  "
-          f"min={min_eg*100:+.4f}%  "
-          f"asym={asym:+.4f} pp")
+    print(
+        f"  centroid §5.2.7:  maj={CENTROID_MAJORITY_EG*100:+.4f}%  "
+        f"min={CENTROID_MINORITY_EG*100:+.4f}%  "
+        f"asym={CENTROID_ASYMMETRY_PP:+.4f} pp"
+    )
+    print(
+        f"  MAUP-v1 (raw):    maj={MAUP_V1_MAJORITY_EG*100:+.4f}%  "
+        f"min={MAUP_V1_MINORITY_EG*100:+.4f}%  "
+        f"asym={MAUP_V1_ASYMMETRY_PP:+.4f} pp"
+    )
+    print(
+        f"  MAUP-v2 (clean):  maj={maj_eg*100:+.4f}%  "
+        f"min={min_eg*100:+.4f}%  "
+        f"asym={asym:+.4f} pp"
+    )
 
     d_maj_v1 = (maj_eg - MAUP_V1_MAJORITY_EG) * 100
     d_min_v1 = (min_eg - MAUP_V1_MINORITY_EG) * 100
     d_asym_v1 = asym - MAUP_V1_ASYMMETRY_PP
-    print(f"  Δ v2 vs v1:       Δmaj={d_maj_v1:+.4f} pp  "
-          f"Δmin={d_min_v1:+.4f} pp  Δasym={d_asym_v1:+.4f} pp")
+    print(
+        f"  Δ v2 vs v1:       Δmaj={d_maj_v1:+.4f} pp  "
+        f"Δmin={d_min_v1:+.4f} pp  Δasym={d_asym_v1:+.4f} pp"
+    )
 
     # Stony-Plain flip check
     print("\n[diagnostic] Stony Plain-Drayton Valley under v2:")
     for lab, t in [("majority", maj), ("minority", mino)]:
-        row = t["ed_totals"][t["ed_totals"]["ed_name"].str.contains("Stony Plain", case=False, na=False)]
+        row = t["ed_totals"][
+            t["ed_totals"]["ed_name"].str.contains("Stony Plain", case=False, na=False)
+        ]
         if not row.empty:
             u = float(row["ucp_2023"].iloc[0])
             d = float(row["ndp_2023"].iloc[0])
             share = d / (u + d) if (u + d) > 0 else float("nan")
             winner = "NDP" if d > u else "UCP"
-            print(f"  [{lab}] UCP={u:.0f}  NDP={d:.0f}  NDP share={share*100:.2f}%  winner={winner}")
+            print(
+                f"  [{lab}] UCP={u:.0f}  NDP={d:.0f}  NDP share={share*100:.2f}%  winner={winner}"
+            )
 
     # Verdict
     abs_asym_v1 = abs(MAUP_V1_ASYMMETRY_PP)

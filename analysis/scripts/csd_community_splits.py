@@ -15,6 +15,7 @@ alberta_2019_eds/*.shp, majority_hybrid_crosswalk.csv,
 minority_hybrid_crosswalk.csv
 Dependencies (forward): analysis/methodology/csd_community_splits.md
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -35,7 +36,7 @@ POP_THRESHOLD = 1000
 # this fraction of the CSD's own area, OR at least 1 km^2 in absolute terms.
 # This filters the overlay slivers caused by minor geometry mismatches between
 # the StatsCan CSD layer and the Elections Alberta ED layer.
-INTERSECT_PCT_THRESHOLD = 0.02      # 2% of CSD area
+INTERSECT_PCT_THRESHOLD = 0.02  # 2% of CSD area
 INTERSECT_ABS_THRESHOLD_M2 = 1_000_000  # 1 km^2
 
 
@@ -63,8 +64,9 @@ def main():
     # Use overlay intersection and filter slivers by area.
     csds_p["csd_area_m2"] = csds_p.geometry.area
     overlay = gpd.overlay(
-        csds_p[["CSDUID", "name", "population_2021", "CSDTYPE",
-                "csd_area_m2", "geometry"]],
+        csds_p[
+            ["CSDUID", "name", "population_2021", "CSDTYPE", "csd_area_m2", "geometry"]
+        ],
         eds_2019[["EDNumber20", "EDName2017", "geometry"]],
         how="intersection",
         keep_geom_type=True,
@@ -169,12 +171,8 @@ def main():
         # Hybrid-boundary uncertainty: if any of the CSD's 2019 EDs split
         # into multiple 2026 EDs in the crosswalk, the CSD may be split
         # at a point not captured by the ED-level join.
-        maj_hybrid_hit = any(
-            e in maj_map and len(maj_map[e]) >= 2 for e in ed2019
-        )
-        mnr_hybrid_hit = any(
-            e in mnr_map and len(mnr_map[e]) >= 2 for e in ed2019
-        )
+        maj_hybrid_hit = any(e in maj_map and len(maj_map[e]) >= 2 for e in ed2019)
+        mnr_hybrid_hit = any(e in mnr_map and len(mnr_map[e]) >= 2 for e in ed2019)
 
         rows.append(
             {

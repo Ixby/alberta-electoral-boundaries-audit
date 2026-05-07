@@ -11,6 +11,7 @@ only interpolation.
 Forward deps: maps/hires_v2/*.svg, analysis/reports/max_dpi_extract.json
 Backward deps: .temp/commission_report.pdf
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations

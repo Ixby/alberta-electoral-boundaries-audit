@@ -122,7 +122,7 @@ The status quo cost — of not auditing — is the alternative: accepting or rej
 
 This audit is not finished. The following are genuinely unresolved.
 
-**Official geometry (Issue #1).** The commission published its 2026 maps as 300-DPI rasters only; no vector shapefiles have been released. The audit's partisan-bias direction in §5.2.7 is sensitive to which reconstructed geometry substrate is used, and the two substrates currently disagree on direction. Elections Alberta was contacted on April 23, 2026 with a request for the official shapefiles. An FOIP request would accelerate this. Until official shapefiles are available, §5.2.7's direction claim remains method-sensitive and is reported in both directions.
+**Official geometry (Issue #1).** The commission published its 2026 maps as 300-DPI rasters only; no vector shapefiles have been released. The audit's partisan-bias direction in §5.2.7 is sensitive to which reconstructed geometry substrate is used, and the two substrates currently disagree on direction. Elections Alberta was contacted on April 23, 2026 with a request for the official shapefiles. An data request would accelerate this. Until official shapefiles are available, §5.2.7's direction claim remains method-sensitive and is reported in both directions.
 
 **The counter-map challenge (Issue #14).** The §5.8.5 anchoring finding has a retraction condition: produce a map that achieves the minority's stated community-of-interest objectives with majority-comparable municipal-boundary anchoring. Producing that map requires the commission's drawing tools and the official 2026 shapefiles. No counter-map has been produced. If one is, §5.8.5 retracts.
 

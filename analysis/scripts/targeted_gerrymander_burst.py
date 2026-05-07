@@ -14,10 +14,12 @@ sits in a place a non-neutral procedure could find on purpose." If it
 does not, the finding becomes "the minority is somewhere even targeted
 procedures struggle to reach."
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 import sys
-sys.path.insert(0, 'analysis/scripts')
+
+sys.path.insert(0, "analysis/scripts")
 import time
 import json
 from pathlib import Path
@@ -27,7 +29,9 @@ import numpy as np
 import pandas as pd
 
 from mcmc_ensemble import (
-    build_va_graph, initial_assignment_2019, seat_results,
+    build_va_graph,
+    initial_assignment_2019,
+    seat_results,
 )
 from gerrychain import Graph, Partition, MarkovChain, accept, constraints, updaters
 from gerrychain.proposals import recom
@@ -39,14 +43,14 @@ OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_targeted_burst.log"
 OUT_TRACE = OUT_DIR / "targeted_burst_trace.csv"
 OUT_BEST = OUT_DIR / "targeted_burst_best.json"
 
-POP_DEVIATION = 0.25      # same as ensemble
-BURST_LENGTH = 50         # steps per burst (Cannon et al. typical)
-N_BURSTS = 800            # 800 * 50 = 40k total steps; ~5-10 min wall time
+POP_DEVIATION = 0.25  # same as ensemble
+BURST_LENGTH = 50  # steps per burst (Cannon et al. typical)
+N_BURSTS = 800  # 800 * 50 = 40k total steps; ~5-10 min wall time
 SEED = 137
 
 
 def _ts():
-    return time.strftime('%H:%M:%S')
+    return time.strftime("%H:%M:%S")
 
 
 def score(partition):
@@ -60,22 +64,32 @@ def score(partition):
 
 def main():
     print(f"[{_ts()}] short-bursts targeted gerrymander start", flush=True)
-    print(f"  burst length = {BURST_LENGTH}, n_bursts = {N_BURSTS}, "
-          f"total steps = {BURST_LENGTH * N_BURSTS}", flush=True)
+    print(
+        f"  burst length = {BURST_LENGTH}, n_bursts = {N_BURSTS}, "
+        f"total steps = {BURST_LENGTH * N_BURSTS}",
+        flush=True,
+    )
     print(f"  seed = {SEED}, pop_deviation = +/-{POP_DEVIATION:.0%}", flush=True)
 
     np.random.seed(SEED)
     import random as _random
+
     _random.seed(SEED)
 
     va, graph = build_va_graph()
-    print(f"  graph built: {len(graph.nodes())} nodes, {len(graph.edges())} edges", flush=True)
+    print(
+        f"  graph built: {len(graph.nodes())} nodes, {len(graph.edges())} edges",
+        flush=True,
+    )
 
     assignment = initial_assignment_2019(va)
     num_dist = len(set(assignment.values()))
     total_pop = sum(graph.nodes[n]["pop_2021"] for n in graph.nodes())
     ideal_pop = total_pop / num_dist
-    print(f"  starting assignment: {num_dist} districts, ideal pop {ideal_pop:,.0f}", flush=True)
+    print(
+        f"  starting assignment: {num_dist} districts, ideal pop {ideal_pop:,.0f}",
+        flush=True,
+    )
 
     my_updaters = {
         "population": updaters.Tally("pop_2021", alias="population"),
@@ -88,13 +102,19 @@ def main():
     seed_pops = list(seed_part["population"].values())
     seed_max_dev = max(abs(p - ideal_pop) for p in seed_pops) / ideal_pop
     if seed_max_dev > POP_DEVIATION:
-        print(f"  2019 seed exceeds +/-{POP_DEVIATION:.0%}; regenerating tight seed", flush=True)
+        print(
+            f"  2019 seed exceeds +/-{POP_DEVIATION:.0%}; regenerating tight seed",
+            flush=True,
+        )
         np.random.seed(42)
         _random.seed(42)
         new_assignment = recursive_tree_part(
-            graph, parts=list(range(num_dist)),
-            pop_target=ideal_pop, pop_col="pop_2021",
-            epsilon=POP_DEVIATION / 2.0, node_repeats=5,
+            graph,
+            parts=list(range(num_dist)),
+            pop_target=ideal_pop,
+            pop_col="pop_2021",
+            epsilon=POP_DEVIATION / 2.0,
+            node_repeats=5,
             method=partial(bipartition_tree, max_attempts=50000),
         )
         np.random.seed(SEED)
@@ -104,15 +124,23 @@ def main():
         seed_max_dev = max(abs(p - ideal_pop) for p in seed_pops) / ideal_pop
         print(f"  tight seed pop dev = {seed_max_dev:.2%}", flush=True)
 
-    pop_constraint = constraints.within_percent_of_ideal_population(seed_part, POP_DEVIATION)
+    pop_constraint = constraints.within_percent_of_ideal_population(
+        seed_part, POP_DEVIATION
+    )
     proposal = partial(
-        recom, pop_col="pop_2021", pop_target=ideal_pop,
-        epsilon=POP_DEVIATION / 2.0, node_repeats=2,
+        recom,
+        pop_col="pop_2021",
+        pop_target=ideal_pop,
+        epsilon=POP_DEVIATION / 2.0,
+        node_repeats=2,
     )
 
     current = seed_part
     cur_score, cur_metrics = score(current)
-    print(f"  initial seats@50/50 = {cur_score:.4f}  (ucp_seats={cur_metrics['ucp_seats']}/{cur_metrics['n_districts']})", flush=True)
+    print(
+        f"  initial seats@50/50 = {cur_score:.4f}  (ucp_seats={cur_metrics['ucp_seats']}/{cur_metrics['n_districts']})",
+        flush=True,
+    )
 
     best_score = cur_score
     best_metrics = cur_metrics
@@ -141,17 +169,25 @@ def main():
 
         current = burst_best_part
         cur_score = burst_best_score
-        trace.append({"burst": burst_i, "best_so_far": best_score, "burst_best": burst_best_score})
+        trace.append(
+            {
+                "burst": burst_i,
+                "best_so_far": best_score,
+                "burst_best": burst_best_score,
+            }
+        )
 
         if (burst_i + 1) % 25 == 0 or burst_i == 0:
             elapsed = time.time() - t_start
             steps_done = (burst_i + 1) * BURST_LENGTH
             rate = steps_done / elapsed if elapsed > 0 else 0
             eta_s = (N_BURSTS - burst_i - 1) * BURST_LENGTH / rate if rate > 0 else 0
-            print(f"[{_ts()}] burst {burst_i+1}/{N_BURSTS}  "
-                  f"best so far = {best_score:.4f}  "
-                  f"({steps_done:,} steps, {rate:.1f} steps/s, eta {eta_s/60:.1f} min)",
-                  flush=True)
+            print(
+                f"[{_ts()}] burst {burst_i+1}/{N_BURSTS}  "
+                f"best so far = {best_score:.4f}  "
+                f"({steps_done:,} steps, {rate:.1f} steps/s, eta {eta_s/60:.1f} min)",
+                flush=True,
+            )
 
     elapsed = time.time() - t_start
     print(f"[{_ts()}] done in {elapsed:.1f}s ({elapsed/60:.2f} min)", flush=True)
@@ -160,17 +196,23 @@ def main():
 
     pd.DataFrame(trace).to_csv(OUT_TRACE, index=False)
     with open(OUT_BEST, "w") as f:
-        json.dump({
-            "best_seats_at_50_50": best_score,
-            "best_metrics": {k: float(v) if isinstance(v, (int, float)) else v
-                              for k, v in best_metrics.items()},
-            "n_bursts": N_BURSTS,
-            "burst_length": BURST_LENGTH,
-            "total_steps": N_BURSTS * BURST_LENGTH,
-            "elapsed_seconds": elapsed,
-            "seed": SEED,
-            "pop_deviation": POP_DEVIATION,
-        }, f, indent=2)
+        json.dump(
+            {
+                "best_seats_at_50_50": best_score,
+                "best_metrics": {
+                    k: float(v) if isinstance(v, (int, float)) else v
+                    for k, v in best_metrics.items()
+                },
+                "n_bursts": N_BURSTS,
+                "burst_length": BURST_LENGTH,
+                "total_steps": N_BURSTS * BURST_LENGTH,
+                "elapsed_seconds": elapsed,
+                "seed": SEED,
+                "pop_deviation": POP_DEVIATION,
+            },
+            f,
+            indent=2,
+        )
     print(f"  wrote {OUT_TRACE.name} and {OUT_BEST.name}", flush=True)
 
 

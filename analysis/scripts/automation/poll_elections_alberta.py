@@ -22,6 +22,7 @@ Usage:
 Watched pages (update this list when the audit identifies new tracking
 endpoints, or when Elections Alberta restructures their site):
 """
+
 import argparse
 import hashlib
 import json
@@ -42,8 +43,7 @@ WATCHED_PAGES = [
 
 # File-extension patterns we care about
 SHAPEFILE_PATTERN = re.compile(
-    r'href=["\']([^"\']+\.(?:gpkg|zip|shp))["\']',
-    re.IGNORECASE
+    r'href=["\']([^"\']+\.(?:gpkg|zip|shp))["\']', re.IGNORECASE
 )
 
 USER_AGENT = (
@@ -85,8 +85,11 @@ def discover_shapefile_links(html: bytes, base_url: str) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", required=True, type=Path)
-    parser.add_argument("--state-file", default=Path(".temp/automation_state/last_hashes.json"),
-                        type=Path)
+    parser.add_argument(
+        "--state-file",
+        default=Path(".temp/automation_state/last_hashes.json"),
+        type=Path,
+    )
     args = parser.parse_args()
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -116,12 +119,16 @@ def main() -> int:
     save_state(args.state_file, new_state)
 
     if not any_changed:
-        print("\nNo watched page changed since last poll. Exiting 1 to signal no recompute needed.")
+        print(
+            "\nNo watched page changed since last poll. Exiting 1 to signal no recompute needed."
+        )
         return 1
 
     if not discovered_files:
-        print("\nWatched page(s) changed but no shapefile links discovered. "
-              "Maintainer should investigate manually.")
+        print(
+            "\nWatched page(s) changed but no shapefile links discovered. "
+            "Maintainer should investigate manually."
+        )
         return 1
 
     # Download discovered files

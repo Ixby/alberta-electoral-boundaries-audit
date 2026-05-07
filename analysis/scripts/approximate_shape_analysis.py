@@ -39,6 +39,7 @@ Coordinate system
 
 Author: sub-agent, Track X, 2026-04-22
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -62,7 +63,9 @@ from shapely.ops import unary_union
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = str(Path(__file__).resolve().parent.parent.parent)
-SHP_2019 = os.path.join(ROOT, "data", "alberta_2019_eds", "EDS_ENACTED_BILL33_15DEC2017.shp")
+SHP_2019 = os.path.join(
+    ROOT, "data", "alberta_2019_eds", "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 MAJ_POP_CSV = os.path.join(ROOT, "data", "majority_2026_populations.csv")
 MIN_CROSSWALK_CSV = os.path.join(ROOT, "data", "minority_hybrid_crosswalk.csv")
 MIN_APPENDIX_E = os.path.join(ROOT, "data", "minority_hybrid_crosswalk_appendixE.csv")
@@ -75,6 +78,7 @@ OUT_CSV = os.path.join(ROOT, "data", "compactness_scores.csv")
 
 # ---------------------------------------------------------------------------
 # Compactness metrics
+
 
 def polsby_popper(geom) -> float:
     """4*pi*A / P^2."""
@@ -101,6 +105,7 @@ def reock(geom) -> float:
 # ---------------------------------------------------------------------------
 # 2019 ED polygon lookup
 
+
 def load_2019_eds() -> dict[str, any]:
     """Return dict keyed by 2019 ED name -> shapely geometry."""
     gdf = gpd.read_file(SHP_2019)
@@ -119,6 +124,7 @@ def load_2019_eds() -> dict[str, any]:
 # tier in {"A", "B", "C"}; C entries have [] for 2019 list when truly new EDs.
 
 # Naming-pattern map from 2019 -> canonical (used for fuzzy matching)
+
 
 @dataclass
 class CrosswalkEntry:
@@ -175,7 +181,11 @@ MAJORITY_HYBRID_PARENTS: dict[str, list[str]] = {
     "Cochrane-Springbank": ["Airdrie-Cochrane", "Banff-Kananaskis"],
     "Cold Lake-Bonnyville-St. Paul": ["Bonnyville-Cold Lake-St. Paul"],
     "Fort McMurray-Lac La Biche": ["Fort McMurray-Lac La Biche"],
-    "High River-Vulcan-Siksika": ["Highwood", "Cardston-Siksika", "Livingstone-Macleod"],
+    "High River-Vulcan-Siksika": [
+        "Highwood",
+        "Cardston-Siksika",
+        "Livingstone-Macleod",
+    ],
     "Leduc-Devon": ["Leduc-Beaumont", "Drayton Valley-Devon"],
     "Lethbridge-East": ["Lethbridge-East"],
     "Lethbridge-West": ["Lethbridge-West"],
@@ -210,17 +220,35 @@ def build_majority_crosswalk() -> list[CrosswalkEntry]:
                 out.append(CrosswalkEntry(name26, "A", [name26], "high", "identity"))
                 continue
             if name26 in renames and renames[name26] in names_2019:
-                out.append(CrosswalkEntry(name26, "A", [renames[name26]], "high", f"rename from {renames[name26]}"))
+                out.append(
+                    CrosswalkEntry(
+                        name26,
+                        "A",
+                        [renames[name26]],
+                        "high",
+                        f"rename from {renames[name26]}",
+                    )
+                )
                 continue
             # Check MAJORITY_HYBRID_PARENTS (which also handles a few
             # non-hybrid renames we know about).
             parents = MAJORITY_HYBRID_PARENTS.get(name26, [])
             parents = [p for p in parents if p in names_2019]
             if len(parents) == 1:
-                out.append(CrosswalkEntry(name26, "A", parents, "medium", "documented rename"))
+                out.append(
+                    CrosswalkEntry(name26, "A", parents, "medium", "documented rename")
+                )
                 continue
             if len(parents) >= 2:
-                out.append(CrosswalkEntry(name26, "B", parents, "medium", "documented merge (non-hybrid-flagged)"))
+                out.append(
+                    CrosswalkEntry(
+                        name26,
+                        "B",
+                        parents,
+                        "medium",
+                        "documented merge (non-hybrid-flagged)",
+                    )
+                )
                 continue
             # Unknown
             out.append(CrosswalkEntry(name26, "C", [], "low", "unidentified parent(s)"))
@@ -228,7 +256,15 @@ def build_majority_crosswalk() -> list[CrosswalkEntry]:
             # is_hybrid=True -> Tier C
             parents = MAJORITY_HYBRID_PARENTS.get(name26, [])
             parents = [p for p in parents if p in names_2019]
-            out.append(CrosswalkEntry(name26, "C", parents, "low", "hybrid split -- geometry not reconstructed"))
+            out.append(
+                CrosswalkEntry(
+                    name26,
+                    "C",
+                    parents,
+                    "low",
+                    "hybrid split -- geometry not reconstructed",
+                )
+            )
 
     return out
 
@@ -251,7 +287,10 @@ MINORITY_NEW_PARENTS: dict[str, list[str]] = {
     "Edmonton-Windermere": ["Edmonton-Whitemud", "Edmonton-South West"],
     "Highwood": ["Highwood"],
     "Lethbridge-Cardston": ["Cardston-Siksika"],
-    "Lethbridge-Fort MacLeod-Crowsnest Pass": ["Lethbridge-West", "Livingstone-Macleod"],
+    "Lethbridge-Fort MacLeod-Crowsnest Pass": [
+        "Lethbridge-West",
+        "Livingstone-Macleod",
+    ],
     "Lethbridge-Little Bow": ["Lethbridge-East", "Taber-Warner"],
     "Lloydminster-Wainwright": ["Vermilion-Lloydminster-Wainwright"],
     "Red Deer-Lacombe": ["Lacombe-Ponoka"],
@@ -298,20 +337,50 @@ def build_minority_crosswalk() -> list[CrosswalkEntry]:
             parents = MINORITY_NEW_PARENTS.get(name26, [])
             parents = [p for p in parents if p in names_2019]
             if len(parents) == 1 and not is_hybrid:
-                out.append(CrosswalkEntry(name26, "A", parents, "medium", "NEW ED, single approx parent"))
+                out.append(
+                    CrosswalkEntry(
+                        name26, "A", parents, "medium", "NEW ED, single approx parent"
+                    )
+                )
             elif len(parents) >= 2 and not is_hybrid:
-                out.append(CrosswalkEntry(name26, "B", parents, "medium", "NEW ED, merge of approx parents"))
+                out.append(
+                    CrosswalkEntry(
+                        name26,
+                        "B",
+                        parents,
+                        "medium",
+                        "NEW ED, merge of approx parents",
+                    )
+                )
             else:
-                out.append(CrosswalkEntry(name26, "C", parents, "low", "NEW hybrid -- geometry not reconstructed"))
+                out.append(
+                    CrosswalkEntry(
+                        name26,
+                        "C",
+                        parents,
+                        "low",
+                        "NEW hybrid -- geometry not reconstructed",
+                    )
+                )
             continue
 
         # Existing 2019 parent
         if is_hybrid:
             # Tier C. Parents from MINORITY_NEW_PARENTS if available,
             # else default to the listed current_2019.
-            parents = MINORITY_NEW_PARENTS.get(name26, [cur19 if cur19 in names_2019 else ""])
+            parents = MINORITY_NEW_PARENTS.get(
+                name26, [cur19 if cur19 in names_2019 else ""]
+            )
             parents = [p for p in parents if p in names_2019]
-            out.append(CrosswalkEntry(name26, "C", parents, "low", "hybrid split -- geometry not reconstructed"))
+            out.append(
+                CrosswalkEntry(
+                    name26,
+                    "C",
+                    parents,
+                    "low",
+                    "hybrid split -- geometry not reconstructed",
+                )
+            )
             continue
 
         # Not hybrid, not new
@@ -320,7 +389,11 @@ def build_minority_crosswalk() -> list[CrosswalkEntry]:
             if cur19 in names_2019:
                 out.append(CrosswalkEntry(name26, "A", [cur19], "high", match_type))
             else:
-                out.append(CrosswalkEntry(name26, "C", [], "low", f"cur19 '{cur19}' not in 2019 shapefile"))
+                out.append(
+                    CrosswalkEntry(
+                        name26, "C", [], "low", f"cur19 '{cur19}' not in 2019 shapefile"
+                    )
+                )
         else:
             # jaccard < 1: rename / partial absorption of single parent.
             # Treat as Tier A (approximation) if we can map to a single 2019 parent,
@@ -328,17 +401,28 @@ def build_minority_crosswalk() -> list[CrosswalkEntry]:
             parents = MINORITY_NEW_PARENTS.get(name26, [cur19])
             parents = [p for p in parents if p in names_2019]
             if len(parents) == 1:
-                out.append(CrosswalkEntry(name26, "A", parents, "medium", f"rename with {match_type}"))
+                out.append(
+                    CrosswalkEntry(
+                        name26, "A", parents, "medium", f"rename with {match_type}"
+                    )
+                )
             elif len(parents) >= 2:
-                out.append(CrosswalkEntry(name26, "B", parents, "medium", f"merge approx, {match_type}"))
+                out.append(
+                    CrosswalkEntry(
+                        name26, "B", parents, "medium", f"merge approx, {match_type}"
+                    )
+                )
             else:
-                out.append(CrosswalkEntry(name26, "C", [], "low", f"{match_type} unmatched"))
+                out.append(
+                    CrosswalkEntry(name26, "C", [], "low", f"{match_type} unmatched")
+                )
 
     return out
 
 
 # ---------------------------------------------------------------------------
 # Geometry assembly
+
 
 def geom_for_entry(entry: CrosswalkEntry, eds_2019: dict[str, any]):
     if entry.tier == "A":
@@ -353,18 +437,22 @@ def geom_for_entry(entry: CrosswalkEntry, eds_2019: dict[str, any]):
     return None
 
 
-def assemble_map(entries: list[CrosswalkEntry], eds_2019: dict[str, any]) -> gpd.GeoDataFrame:
+def assemble_map(
+    entries: list[CrosswalkEntry], eds_2019: dict[str, any]
+) -> gpd.GeoDataFrame:
     records = []
     for e in entries:
         geom = geom_for_entry(e, eds_2019)
-        records.append({
-            "name_2026": e.name_2026,
-            "tier": e.tier,
-            "confidence": e.confidence,
-            "parents_2019": ";".join(e.parents_2019),
-            "note": e.note,
-            "geometry": geom,
-        })
+        records.append(
+            {
+                "name_2026": e.name_2026,
+                "tier": e.tier,
+                "confidence": e.confidence,
+                "parents_2019": ";".join(e.parents_2019),
+                "note": e.note,
+                "geometry": geom,
+            }
+        )
     gdf = gpd.GeoDataFrame(records, crs="EPSG:3401")
     return gdf
 
@@ -372,41 +460,53 @@ def assemble_map(entries: list[CrosswalkEntry], eds_2019: dict[str, any]) -> gpd
 # ---------------------------------------------------------------------------
 # Compactness scoring
 
-def compactness_for_gdf(gdf: gpd.GeoDataFrame, name_col: str, map_label: str) -> pd.DataFrame:
+
+def compactness_for_gdf(
+    gdf: gpd.GeoDataFrame, name_col: str, map_label: str
+) -> pd.DataFrame:
     rows = []
     for _, r in gdf.iterrows():
         g = r.geometry
-        if g is None or (isinstance(g, float) and pd.isna(g)) or (hasattr(g, "is_empty") and g.is_empty):
-            rows.append({
-                "map": map_label,
-                "name": r[name_col],
-                "tier": r.get("tier", "A"),
-                "confidence": r.get("confidence", "high"),
-                "area_km2": None,
-                "perimeter_km": None,
-                "polsby_popper": None,
-                "reock": None,
-            })
+        if (
+            g is None
+            or (isinstance(g, float) and pd.isna(g))
+            or (hasattr(g, "is_empty") and g.is_empty)
+        ):
+            rows.append(
+                {
+                    "map": map_label,
+                    "name": r[name_col],
+                    "tier": r.get("tier", "A"),
+                    "confidence": r.get("confidence", "high"),
+                    "area_km2": None,
+                    "perimeter_km": None,
+                    "polsby_popper": None,
+                    "reock": None,
+                }
+            )
             continue
         pp = polsby_popper(g)
         rk = reock(g)
         area_km2 = g.area / 1e6
         perim_km = g.length / 1e3
-        rows.append({
-            "map": map_label,
-            "name": r[name_col],
-            "tier": r.get("tier", "A"),
-            "confidence": r.get("confidence", "high"),
-            "area_km2": area_km2,
-            "perimeter_km": perim_km,
-            "polsby_popper": pp,
-            "reock": rk,
-        })
+        rows.append(
+            {
+                "map": map_label,
+                "name": r[name_col],
+                "tier": r.get("tier", "A"),
+                "confidence": r.get("confidence", "high"),
+                "area_km2": area_km2,
+                "perimeter_km": perim_km,
+                "polsby_popper": pp,
+                "reock": rk,
+            }
+        )
     return pd.DataFrame(rows)
 
 
 # ---------------------------------------------------------------------------
 # Main
+
 
 def main():
     print("Loading 2019 ED shapefile...", flush=True)
@@ -427,14 +527,18 @@ def main():
     maj_tiers = {"A": 0, "B": 0, "C": 0}
     for e in maj_entries:
         maj_tiers[e.tier] += 1
-    print(f"  Majority tiers: A={maj_tiers['A']} B={maj_tiers['B']} C={maj_tiers['C']}  (total {len(maj_entries)})")
+    print(
+        f"  Majority tiers: A={maj_tiers['A']} B={maj_tiers['B']} C={maj_tiers['C']}  (total {len(maj_entries)})"
+    )
 
     print("\nBuilding minority crosswalk...", flush=True)
     min_entries = build_minority_crosswalk()
     min_tiers = {"A": 0, "B": 0, "C": 0}
     for e in min_entries:
         min_tiers[e.tier] += 1
-    print(f"  Minority tiers: A={min_tiers['A']} B={min_tiers['B']} C={min_tiers['C']}  (total {len(min_entries)})")
+    print(
+        f"  Minority tiers: A={min_tiers['A']} B={min_tiers['B']} C={min_tiers['C']}  (total {len(min_entries)})"
+    )
 
     # Assemble approximate shapefiles (Tier A + B only; Tier C geometry = None).
     print("\nAssembling majority approximate shapefile...", flush=True)
@@ -466,19 +570,28 @@ def main():
     print("\n" + "=" * 72)
     print("SUMMARY")
     print("=" * 72)
-    for label, df in [("2019", df_2019), ("majority 2026 approx (A+B only)", df_maj),
-                      ("minority 2026 approx (A+B only)", df_min)]:
+    for label, df in [
+        ("2019", df_2019),
+        ("majority 2026 approx (A+B only)", df_maj),
+        ("minority 2026 approx (A+B only)", df_min),
+    ]:
         d = df.dropna(subset=["polsby_popper"])
         if len(d) == 0:
             print(f"\n{label}: no polygons computed")
             continue
         pp = d["polsby_popper"]
         rk = d["reock"]
-        print(f"\n{label} ({len(d)} polygons, {df['polsby_popper'].isna().sum()} Tier-C/not-computed)")
-        print(f"  Polsby-Popper  mean={pp.mean():.3f}  median={pp.median():.3f}  "
-              f"<0.25: {(pp < 0.25).sum()}/{len(pp)}")
-        print(f"  Reock          mean={rk.mean():.3f}  median={rk.median():.3f}  "
-              f"<0.30: {(rk < 0.30).sum()}/{len(rk)}")
+        print(
+            f"\n{label} ({len(d)} polygons, {df['polsby_popper'].isna().sum()} Tier-C/not-computed)"
+        )
+        print(
+            f"  Polsby-Popper  mean={pp.mean():.3f}  median={pp.median():.3f}  "
+            f"<0.25: {(pp < 0.25).sum()}/{len(pp)}"
+        )
+        print(
+            f"  Reock          mean={rk.mean():.3f}  median={rk.median():.3f}  "
+            f"<0.30: {(rk < 0.30).sum()}/{len(rk)}"
+        )
 
     # Flagged minority configurations
     print("\n" + "=" * 72)
@@ -489,22 +602,54 @@ def main():
     # geography; if the majority kept the 2019 shape, we use the 2019 ED
     # so we still get a baseline number.
     flagged = [
-        ("RMH-Banff Park (minority)",       "Rocky Mountain House-Banff Park",
-                                            "Banff-Kananaskis",    "maj uses Banff-Kananaskis; 2019"),
-        ("Calgary-Nolan Hill-Cochrane",      "Calgary-Nolan Hill-Cochrane",
-                                             "Cochrane-Springbank", "maj uses Cochrane-Springbank"),
-        ("Airdrie E (min Tier A / maj C)",   "Airdrie East",
-                                             "Airdrie-East",        "maj hybrid, min identity"),
-        ("Lethbridge-Little Bow (min)",      "Lethbridge-Little Bow",
-                                             "Lethbridge-East",     "maj Lethbridge-East (hybrid)"),
-        ("Red Deer-Blackfalds (min)",        "Red Deer-Blackfalds",
-                                             "Red Deer-North",      "maj kept Red Deer-North single"),
-        ("Chestermere split (min)",          "Calgary-Peigan-Chestermere",
-                                             "Calgary-Falconridge-Conrich", "maj absorbs Chestermere"),
-        ("Calgary-Peigan-Chestermere (min)", "Calgary-Peigan-Chestermere",
-                                             "Calgary-Peigan",      "maj kept Calgary-Peigan (A)"),
-        ("Olds-Three Hills-Didsbury (min)",  "Olds-Three Hills-Didsbury",
-                                             "Olds-Didsbury-Three Hills", "maj identical-name rename"),
+        (
+            "RMH-Banff Park (minority)",
+            "Rocky Mountain House-Banff Park",
+            "Banff-Kananaskis",
+            "maj uses Banff-Kananaskis; 2019",
+        ),
+        (
+            "Calgary-Nolan Hill-Cochrane",
+            "Calgary-Nolan Hill-Cochrane",
+            "Cochrane-Springbank",
+            "maj uses Cochrane-Springbank",
+        ),
+        (
+            "Airdrie E (min Tier A / maj C)",
+            "Airdrie East",
+            "Airdrie-East",
+            "maj hybrid, min identity",
+        ),
+        (
+            "Lethbridge-Little Bow (min)",
+            "Lethbridge-Little Bow",
+            "Lethbridge-East",
+            "maj Lethbridge-East (hybrid)",
+        ),
+        (
+            "Red Deer-Blackfalds (min)",
+            "Red Deer-Blackfalds",
+            "Red Deer-North",
+            "maj kept Red Deer-North single",
+        ),
+        (
+            "Chestermere split (min)",
+            "Calgary-Peigan-Chestermere",
+            "Calgary-Falconridge-Conrich",
+            "maj absorbs Chestermere",
+        ),
+        (
+            "Calgary-Peigan-Chestermere (min)",
+            "Calgary-Peigan-Chestermere",
+            "Calgary-Peigan",
+            "maj kept Calgary-Peigan (A)",
+        ),
+        (
+            "Olds-Three Hills-Didsbury (min)",
+            "Olds-Three Hills-Didsbury",
+            "Olds-Didsbury-Three Hills",
+            "maj identical-name rename",
+        ),
     ]
     # Also grab 2019 reference compactness for each comparator
     for label, min_name, maj_name, note in flagged:
@@ -547,19 +692,25 @@ def main():
         union = unary_union(geoms) if len(geoms) > 1 else geoms[0]
         pp = polsby_popper(union)
         rk = reock(union)
-        tierC_rows.append({
-            "ed_2026": e.name_2026,
-            "parents": ";".join(e.parents_2019),
-            "n_parents": len(e.parents_2019),
-            "parent_union_PP": pp,
-            "parent_union_Reock": rk,
-            "pp_minus10pct_perim": (4 * math.pi * union.area) / ((union.length * 0.9) ** 2),
-            "pp_plus10pct_perim": (4 * math.pi * union.area) / ((union.length * 1.1) ** 2),
-        })
+        tierC_rows.append(
+            {
+                "ed_2026": e.name_2026,
+                "parents": ";".join(e.parents_2019),
+                "n_parents": len(e.parents_2019),
+                "parent_union_PP": pp,
+                "parent_union_Reock": rk,
+                "pp_minus10pct_perim": (4 * math.pi * union.area)
+                / ((union.length * 0.9) ** 2),
+                "pp_plus10pct_perim": (4 * math.pi * union.area)
+                / ((union.length * 1.1) ** 2),
+            }
+        )
     tc_df = pd.DataFrame(tierC_rows)
     tc_csv = os.path.join(ROOT, "data", "tierC_parent_union_reference.csv")
     tc_df.to_csv(tc_csv, index=False)
-    print(f"  Wrote {tc_csv} ({len(tc_df)} Tier-C EDs with at least one identified parent)")
+    print(
+        f"  Wrote {tc_csv} ({len(tc_df)} Tier-C EDs with at least one identified parent)"
+    )
     print("\nDone.")
 
 

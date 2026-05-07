@@ -25,7 +25,7 @@ DPG_MAJ = REPO / "data/shapefiles/derived/v0_10_topological_majority_2026_eds.gp
 DPG_MIN = REPO / "data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg"
 OFF_MAJ = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
 OFF_MIN = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
-OUT     = ROOT / "outputs/t5_adjacency_diff.csv"
+OUT = ROOT / "outputs/t5_adjacency_diff.csv"
 OUT.parent.mkdir(exist_ok=True)
 
 TOUCH_THRESHOLD = 50  # metres — shared boundary must be at least this long
@@ -49,8 +49,11 @@ def build_adjacency(gdf, name_col, threshold=TOUCH_THRESHOLD):
                 if shared.geom_type in ("LineString", "MultiLineString"):
                     length = shared.length
                 elif shared.geom_type == "GeometryCollection":
-                    length = sum(g.length for g in shared.geoms
-                                 if g.geom_type in ("LineString", "MultiLineString"))
+                    length = sum(
+                        g.length
+                        for g in shared.geoms
+                        if g.geom_type in ("LineString", "MultiLineString")
+                    )
                 else:
                     length = 0
                 if length >= threshold:
@@ -70,9 +73,9 @@ def run_map(label, dpg_path, off_path, dpg_name_col, off_name_col):
     print(f"  Building official adjacency ({len(off)} EDs)...")
     off_edges = build_adjacency(off, off_name_col)
 
-    only_dpg  = dpg_edges - off_edges
-    only_off  = off_edges - dpg_edges
-    both      = dpg_edges & off_edges
+    only_dpg = dpg_edges - off_edges
+    only_off = off_edges - dpg_edges
+    both = dpg_edges & off_edges
 
     print(f"  DPG edges:      {len(dpg_edges)}")
     print(f"  Official edges: {len(off_edges)}")
@@ -134,9 +137,11 @@ def main():
 
     print(f"\n--- Summary ---")
     for s in summaries:
-        print(f"  {s['map']}: shared={s['shared_edges']}  "
-              f"dpg_only={s['dpg_only_edges']}  off_only={s['official_only_edges']}  "
-              f"{'PASS' if s['t5_pass'] else 'FAIL'}")
+        print(
+            f"  {s['map']}: shared={s['shared_edges']}  "
+            f"dpg_only={s['dpg_only_edges']}  off_only={s['official_only_edges']}  "
+            f"{'PASS' if s['t5_pass'] else 'FAIL'}"
+        )
     print(f"\nSaved -> {OUT}")
 
 

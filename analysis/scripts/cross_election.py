@@ -58,6 +58,7 @@ Backward:
   data/2015_to_2019_crosswalk.csv
   data/simulated_ensemble_raw_samples_250k.csv  (100k post-audit ensemble)
 """
+
 # Version: 0.9 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -84,8 +85,13 @@ DERIVED = DATA / "shapefiles" / "derived"
 V0_9_MIN = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
 V0_9_MAJ = DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
 VA_2023 = DERIVED / "va_polygons_with_2023_votes.gpkg"
-ED_2019_SHP = (DATA / "shapefiles" / "reference" / "alberta_2019_eds"
-               / "EDS_ENACTED_BILL33_15DEC2017.shp")
+ED_2019_SHP = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 
 VOTES_2019_CSV = DATA / "alberta_2019_results.csv"
 VOTES_2015_CSV = DATA / "alberta_2015_results.csv"
@@ -102,6 +108,7 @@ OUT_JSON = DATA / "cross_election_per_map.json"
 # numbers comparable to the ensemble are identical in formula.
 # ---------------------------------------------------------------------
 
+
 def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
     """Identical metric definitions to mcmc_ensemble.py:seat_results().
     Sign conventions: positive EG = UCP-favoured; positive MM = UCP-
@@ -112,13 +119,20 @@ def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
     ndp = np.asarray(ndp, dtype=float)
     total = ucp + ndp
     mask = total > 0
-    ucp = ucp[mask]; ndp = ndp[mask]; total = total[mask]
+    ucp = ucp[mask]
+    ndp = ndp[mask]
+    total = total[mask]
     n = len(ucp)
     if n == 0:
-        return dict(efficiency_gap=float("nan"), mean_median=float("nan"),
-                    declination=float("nan"), seats_at_50_50=float("nan"),
-                    ucp_seats=float("nan"), n_districts=0,
-                    ucp_vote_share=float("nan"))
+        return dict(
+            efficiency_gap=float("nan"),
+            mean_median=float("nan"),
+            declination=float("nan"),
+            seats_at_50_50=float("nan"),
+            ucp_seats=float("nan"),
+            n_districts=0,
+            ucp_vote_share=float("nan"),
+        )
 
     two_party_total = ucp + ndp
     two_party_total = np.where(two_party_total == 0, 1.0, two_party_total)
@@ -169,6 +183,7 @@ def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
 # Vote-loading helpers
 # ---------------------------------------------------------------------
 
+
 def load_2019_ed_votes() -> dict[str, tuple[float, float]]:
     """Return {ed_2019_name: (ucp, ndp)} from the parsed 2019 CSV."""
     votes = pd.read_csv(VOTES_2019_CSV)
@@ -193,7 +208,7 @@ def load_2019_ed_votes() -> dict[str, tuple[float, float]]:
 
 def _clean_2015_ed_name(name: str) -> str:
     if name.startswith("Statement Of Results By Poll - "):
-        return name[len("Statement Of Results By Poll - "):]
+        return name[len("Statement Of Results By Poll - ") :]
     return name
 
 
@@ -212,8 +227,7 @@ def load_2015_to_2019_attributed() -> dict[str, tuple[float, float]]:
                 "ucp_equiv": int(r["ucp_equiv"]),
             }
 
-    accum: dict[str, dict[str, float]] = defaultdict(
-        lambda: {"ucp": 0.0, "ndp": 0.0})
+    accum: dict[str, dict[str, float]] = defaultdict(lambda: {"ucp": 0.0, "ndp": 0.0})
     with open(CROSSWALK_2015_TO_2019, encoding="utf-8") as f:
         for r in csv.DictReader(f):
             ed_2015 = r["ed_2015_2010boundaries"]
@@ -232,23 +246,30 @@ def load_2015_to_2019_attributed() -> dict[str, tuple[float, float]]:
 # Spatial attribution
 # ---------------------------------------------------------------------
 
-def attribute_va_2023_centroid(va: gpd.GeoDataFrame, eds: gpd.GeoDataFrame
-                                ) -> tuple[np.ndarray, np.ndarray]:
+
+def attribute_va_2023_centroid(
+    va: gpd.GeoDataFrame, eds: gpd.GeoDataFrame
+) -> tuple[np.ndarray, np.ndarray]:
     """VA-centroid spatial-join into v0_9 polygons; aggregate UCP/NDP."""
     va_pts = gpd.GeoDataFrame(
-        {"va_ucp": va["va_ucp"].fillna(0).values,
-         "va_ndp": va["va_ndp"].fillna(0).values},
+        {
+            "va_ucp": va["va_ucp"].fillna(0).values,
+            "va_ndp": va["va_ndp"].fillna(0).values,
+        },
         geometry=va.geometry.centroid.values,
         crs=va.crs,
     )
     if va_pts.crs != eds.crs:
         va_pts = va_pts.to_crs(eds.crs)
     name_col = "name_2026"
-    joined = gpd.sjoin(va_pts, eds[[name_col, "geometry"]],
-                       how="inner", predicate="within")
-    agg = joined.groupby(name_col).agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-    ).reset_index()
+    joined = gpd.sjoin(
+        va_pts, eds[[name_col, "geometry"]], how="inner", predicate="within"
+    )
+    agg = (
+        joined.groupby(name_col)
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     # Reindex to map order so ED ordering is canonical
     eds_order = eds[name_col].values
     by_name = agg.set_index(name_col)
@@ -268,8 +289,7 @@ def attribute_2019_ed_to_v0_9_by_area(
     if eds_2019.crs != target.crs:
         eds_2019 = eds_2019.to_crs(target.crs)
     target_name_col = "name_2026"
-    ed_2019_name_col = ("ed_name" if "ed_name" in eds_2019.columns
-                        else "EDName2017")
+    ed_2019_name_col = "ed_name" if "ed_name" in eds_2019.columns else "EDName2017"
 
     eds_2019 = eds_2019.copy()
     eds_2019["_area_2019"] = eds_2019.geometry.area
@@ -307,6 +327,7 @@ def attribute_2019_ed_to_v0_9_by_area(
 # Ensemble percentile
 # ---------------------------------------------------------------------
 
+
 def ensemble_percentile(value: float, ensemble_values: np.ndarray) -> float:
     """Return percentile of value in the ensemble (fraction of ensemble
     samples strictly less than value, * 100)."""
@@ -318,6 +339,7 @@ def ensemble_percentile(value: float, ensemble_values: np.ndarray) -> float:
 # ---------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------
+
 
 def maybe_run_338_historical() -> None:
     """Re-run the 338canada_historical.py pipeline to refresh outputs.
@@ -331,6 +353,7 @@ def maybe_run_338_historical() -> None:
         print(f"  script missing at {script}")
         return
     import subprocess
+
     try:
         proc = subprocess.run(
             [sys.executable, str(script)],
@@ -389,8 +412,7 @@ def main() -> int:
 
     # Compute per (year, map)
     results: list[dict] = []
-    metric_cols = ["efficiency_gap", "mean_median", "declination",
-                   "seats_at_50_50"]
+    metric_cols = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
 
     for plan, target in (("majority", v9_maj), ("minority", v9_min)):
         print(f"\n=== {plan} (v0_9) ===")
@@ -398,59 +420,93 @@ def main() -> int:
         # 2015
         t0 = time.time()
         ucp15, ndp15 = attribute_2019_ed_to_v0_9_by_area(
-            eds_2019, votes_2015_on_2019, target)
+            eds_2019, votes_2015_on_2019, target
+        )
         m15 = seat_results(ucp15, ndp15)
-        m15.update({"map": plan, "election": "2015",
-                    "attribution": "2015->2019 crosswalk -> area-overlap to v0_9"})
-        print(f"  2015 -> seats={m15['ucp_seats']}/{m15['n_districts']} "
-              f"EG={m15['efficiency_gap']:+.4f} MM={m15['mean_median']:+.4f} "
-              f"decl={m15['declination']:+.4f} s50={m15['seats_at_50_50']:.3f} "
-              f"({time.time()-t0:.1f}s)")
+        m15.update(
+            {
+                "map": plan,
+                "election": "2015",
+                "attribution": "2015->2019 crosswalk -> area-overlap to v0_9",
+            }
+        )
+        print(
+            f"  2015 -> seats={m15['ucp_seats']}/{m15['n_districts']} "
+            f"EG={m15['efficiency_gap']:+.4f} MM={m15['mean_median']:+.4f} "
+            f"decl={m15['declination']:+.4f} s50={m15['seats_at_50_50']:.3f} "
+            f"({time.time()-t0:.1f}s)"
+        )
         results.append(m15)
 
         # 2019
         t0 = time.time()
-        ucp19, ndp19 = attribute_2019_ed_to_v0_9_by_area(
-            eds_2019, votes_2019, target)
+        ucp19, ndp19 = attribute_2019_ed_to_v0_9_by_area(eds_2019, votes_2019, target)
         m19 = seat_results(ucp19, ndp19)
-        m19.update({"map": plan, "election": "2019",
-                    "attribution": "area-overlap from 2019 enacted polygons to v0_9"})
-        print(f"  2019 -> seats={m19['ucp_seats']}/{m19['n_districts']} "
-              f"EG={m19['efficiency_gap']:+.4f} MM={m19['mean_median']:+.4f} "
-              f"decl={m19['declination']:+.4f} s50={m19['seats_at_50_50']:.3f} "
-              f"({time.time()-t0:.1f}s)")
+        m19.update(
+            {
+                "map": plan,
+                "election": "2019",
+                "attribution": "area-overlap from 2019 enacted polygons to v0_9",
+            }
+        )
+        print(
+            f"  2019 -> seats={m19['ucp_seats']}/{m19['n_districts']} "
+            f"EG={m19['efficiency_gap']:+.4f} MM={m19['mean_median']:+.4f} "
+            f"decl={m19['declination']:+.4f} s50={m19['seats_at_50_50']:.3f} "
+            f"({time.time()-t0:.1f}s)"
+        )
         results.append(m19)
 
         # 2023
         t0 = time.time()
         ucp23, ndp23 = attribute_va_2023_centroid(va_2023, target)
         m23 = seat_results(ucp23, ndp23)
-        m23.update({"map": plan, "election": "2023",
-                    "attribution": "VA-centroid in v0_9 polygon"})
-        print(f"  2023 -> seats={m23['ucp_seats']}/{m23['n_districts']} "
-              f"EG={m23['efficiency_gap']:+.4f} MM={m23['mean_median']:+.4f} "
-              f"decl={m23['declination']:+.4f} s50={m23['seats_at_50_50']:.3f} "
-              f"({time.time()-t0:.1f}s)")
+        m23.update(
+            {
+                "map": plan,
+                "election": "2023",
+                "attribution": "VA-centroid in v0_9 polygon",
+            }
+        )
+        print(
+            f"  2023 -> seats={m23['ucp_seats']}/{m23['n_districts']} "
+            f"EG={m23['efficiency_gap']:+.4f} MM={m23['mean_median']:+.4f} "
+            f"decl={m23['declination']:+.4f} s50={m23['seats_at_50_50']:.3f} "
+            f"({time.time()-t0:.1f}s)"
+        )
         results.append(m23)
 
     # ----- Ensemble percentile (minority s50 vs 100k 2023 ensemble) -----
     print(f"\nLoading 100k 2023 ensemble samples for percentile placement ...")
     ens = pd.read_csv(ENSEMBLE_SAMPLES, usecols=["seats_at_50_50"])
     s50_ens = ens["seats_at_50_50"].values.astype(float)
-    print(f"  ensemble n={len(s50_ens)}  mean s50={s50_ens.mean():.4f} "
-          f"std={s50_ens.std():.4f} min={s50_ens.min():.4f} max={s50_ens.max():.4f}")
+    print(
+        f"  ensemble n={len(s50_ens)}  mean s50={s50_ens.mean():.4f} "
+        f"std={s50_ens.std():.4f} min={s50_ens.min():.4f} max={s50_ens.max():.4f}"
+    )
 
     for r in results:
         r["s50_pct_in_2023_ensemble"] = ensemble_percentile(
-            r["seats_at_50_50"], s50_ens)
+            r["seats_at_50_50"], s50_ens
+        )
         r["ensemble_n"] = int(len(s50_ens))
 
     # Save
     df = pd.DataFrame(results)
-    cols = ["map", "election", "n_districts", "ucp_seats", "ucp_vote_share",
-            "efficiency_gap", "mean_median", "declination",
-            "seats_at_50_50", "s50_pct_in_2023_ensemble", "ensemble_n",
-            "attribution"]
+    cols = [
+        "map",
+        "election",
+        "n_districts",
+        "ucp_seats",
+        "ucp_vote_share",
+        "efficiency_gap",
+        "mean_median",
+        "declination",
+        "seats_at_50_50",
+        "s50_pct_in_2023_ensemble",
+        "ensemble_n",
+        "attribution",
+    ]
     df = df[cols]
     df.to_csv(OUT_CSV, index=False)
     with open(OUT_JSON, "w", encoding="utf-8") as f:
@@ -462,23 +518,31 @@ def main() -> int:
     print("\n" + "=" * 72)
     print(" SUMMARY TABLE")
     print("=" * 72)
-    print(f"  {'year':<5s} {'maj_s50':>9s} {'min_s50':>9s} "
-          f"{'min_pct_in_ens':>15s} {'maj_eg':>9s} {'min_eg':>9s} "
-          f"{'maj_decl':>10s} {'min_decl':>10s}")
+    print(
+        f"  {'year':<5s} {'maj_s50':>9s} {'min_s50':>9s} "
+        f"{'min_pct_in_ens':>15s} {'maj_eg':>9s} {'min_eg':>9s} "
+        f"{'maj_decl':>10s} {'min_decl':>10s}"
+    )
     for year in ("2015", "2019", "2023"):
-        row_maj = next((r for r in results if r["map"] == "majority"
-                        and r["election"] == year), None)
-        row_min = next((r for r in results if r["map"] == "minority"
-                        and r["election"] == year), None)
+        row_maj = next(
+            (r for r in results if r["map"] == "majority" and r["election"] == year),
+            None,
+        )
+        row_min = next(
+            (r for r in results if r["map"] == "minority" and r["election"] == year),
+            None,
+        )
         if row_maj is None or row_min is None:
             continue
-        print(f"  {year:<5s} {row_maj['seats_at_50_50']:>9.4f} "
-              f"{row_min['seats_at_50_50']:>9.4f} "
-              f"{row_min['s50_pct_in_2023_ensemble']:>14.2f}% "
-              f"{row_maj['efficiency_gap']:>+9.4f} "
-              f"{row_min['efficiency_gap']:>+9.4f} "
-              f"{row_maj['declination']:>+10.4f} "
-              f"{row_min['declination']:>+10.4f}")
+        print(
+            f"  {year:<5s} {row_maj['seats_at_50_50']:>9.4f} "
+            f"{row_min['seats_at_50_50']:>9.4f} "
+            f"{row_min['s50_pct_in_2023_ensemble']:>14.2f}% "
+            f"{row_maj['efficiency_gap']:>+9.4f} "
+            f"{row_min['efficiency_gap']:>+9.4f} "
+            f"{row_maj['declination']:>+10.4f} "
+            f"{row_min['declination']:>+10.4f}"
+        )
 
     # ----- 338 historical re-run (best-effort, side outputs) -----
     maybe_run_338_historical()

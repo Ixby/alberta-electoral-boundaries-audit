@@ -37,6 +37,7 @@ Dependencies
 
 Author: sub-agent, article figure redesign, 2026-04-23
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -64,9 +65,17 @@ DATA = ROOT / "data"
 OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_MIN_V7 = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+PATH_MIN_V7 = (
+    DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+)
 PATH_CSDS = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
-PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+PATH_2019 = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 
 CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest, metres
 
@@ -78,10 +87,10 @@ CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest, metres
 # distinct earthy tone so the reader sees "this slice belongs to something
 # that is not the city."
 
-COLOR_BG = "#faf6ee"            # ivory page
-COLOR_INK = "#141414"           # near-black
-COLOR_INK_SOFT = "#3a3a3a"      # body
-COLOR_GREY_MUTED = "#8a8a8a"    # credit line
+COLOR_BG = "#faf6ee"  # ivory page
+COLOR_INK = "#141414"  # near-black
+COLOR_INK_SOFT = "#3a3a3a"  # body
+COLOR_GREY_MUTED = "#8a8a8a"  # credit line
 
 # Majority = warm orange family (segments distinct but related)
 MAJORITY_SEGMENT_COLORS = (
@@ -99,7 +108,7 @@ MINORITY_SEGMENT_COLORS = (
 )
 # Rural-carve colour for segments whose primary population is outside the
 # city - visually distinct from both palette families.
-COLOR_RURAL = "#8b5a2b"         # muted umber
+COLOR_RURAL = "#8b5a2b"  # muted umber
 COLOR_RURAL_EDGE = "#5a3a1c"
 
 # Fonts. Per spec: Playfair Display bold for titles, Source Sans 3 for
@@ -107,22 +116,25 @@ COLOR_RURAL_EDGE = "#5a3a1c"
 # installed. On Windows both Georgia and Arial are present, so we don't
 # emit the matplotlib font-fallback warning.
 from matplotlib import font_manager as _fm
+
 _INSTALLED = {f.name for f in _fm.fontManager.ttflist}
 FONT_TITLE = "Playfair Display" if "Playfair Display" in _INSTALLED else "Georgia"
 FONT_LABEL = (
-    "Source Sans 3" if "Source Sans 3" in _INSTALLED
+    "Source Sans 3"
+    if "Source Sans 3" in _INSTALLED
     else ("Source Sans Pro" if "Source Sans Pro" in _INSTALLED else "Arial")
 )
 
 # Canvas geometry - magazine page width. Per spec ~2000x1350 px (7" at 300
 # dpi). We use 7.0 x 4.67 for a clean 3:2 aspect.
 FIG_DPI = 300
-FIG_W_IN = 7.0             # 2100 px at 300 dpi
-FIG_H_IN = 4.67            # 1401 px at 300 dpi - ~3:2 aspect
+FIG_W_IN = 7.0  # 2100 px at 300 dpi
+FIG_H_IN = 4.67  # 1401 px at 300 dpi - ~3:2 aspect
 
 
 # ---------------------------------------------------------------------------
 # Schematic bar helpers
+
 
 @dataclass
 class Segment:
@@ -133,9 +145,15 @@ class Segment:
     proportion: float = 1.0  # relative weight (bar width share)
 
 
-def draw_bar(ax, y_top: float, y_bot: float, segments: list[Segment],
-             x_left: float = 0.05, x_right: float = 0.95,
-             fig_width_in: float = FIG_W_IN) -> None:
+def draw_bar(
+    ax,
+    y_top: float,
+    y_bot: float,
+    segments: list[Segment],
+    x_left: float = 0.05,
+    x_right: float = 0.95,
+    fig_width_in: float = FIG_W_IN,
+) -> None:
     """Render a single horizontal bar as a stack of coloured segments.
 
     Each segment is labelled inline. Label font size scales to fit the
@@ -149,7 +167,8 @@ def draw_bar(ax, y_top: float, y_bot: float, segments: list[Segment],
         w = width_total * (seg.proportion / total)
         rect = FancyBboxPatch(
             (x, y_bot),
-            w, y_top - y_bot,
+            w,
+            y_top - y_bot,
             boxstyle="round,pad=0.0,rounding_size=0.006",
             facecolor=seg.color,
             edgecolor=COLOR_INK,
@@ -209,7 +228,9 @@ def draw_bar(ax, y_top: float, y_bot: float, segments: list[Segment],
                 if two_line_result:
                     break
 
-        if two_line_result is not None and (single_fs is None or two_line_result[1] > single_fs):
+        if two_line_result is not None and (
+            single_fs is None or two_line_result[1] > single_fs
+        ):
             best_lines, best_fs = two_line_result
         elif single_fs is not None:
             best_lines, best_fs = [label], single_fs
@@ -233,15 +254,20 @@ def draw_bar(ax, y_top: float, y_bot: float, segments: list[Segment],
         # Flip main label to light on dark segments for contrast
         try:
             import matplotlib.colors as mc
+
             r, g, b = mc.to_rgb(seg.color)
             luma = 0.299 * r + 0.587 * g + 0.114 * b
         except Exception:
             luma = 1.0
         label_color = "#ffffff" if luma < 0.45 else COLOR_INK
         ax.text(
-            x + w / 2, y_label, label_text,
-            ha="center", va="center",
-            fontsize=best_fs, fontweight="bold",
+            x + w / 2,
+            y_label,
+            label_text,
+            ha="center",
+            va="center",
+            fontsize=best_fs,
+            fontweight="bold",
             family=FONT_LABEL,
             color=label_color,
             zorder=5,
@@ -262,6 +288,7 @@ def draw_bar(ax, y_top: float, y_bot: float, segments: list[Segment],
             # colour when the fill is dark.
             try:
                 import matplotlib.colors as mc
+
                 r, g, b = mc.to_rgb(seg.color)
                 luma = 0.299 * r + 0.587 * g + 0.114 * b
             except Exception:
@@ -273,9 +300,11 @@ def draw_bar(ax, y_top: float, y_bot: float, segments: list[Segment],
             sub_y_raw = y_mid - 0.024 * n_label_lines - 0.018
             sub_y = max(sub_y_raw, y_bot + 0.018)
             ax.text(
-                x + w / 2, sub_y,
+                x + w / 2,
+                sub_y,
                 seg.sublabel,
-                ha="center", va="center",
+                ha="center",
+                va="center",
                 fontsize=sub_fs,
                 fontstyle="italic",
                 family=FONT_LABEL,
@@ -303,11 +332,17 @@ def _wrap_to_width(text: str, max_chars: int) -> str:
     return "\n".join(lines)
 
 
-def draw_schematic(fig_path: Path, title: str, subtitle: str,
-                    maj_label: str, maj_segments: list[Segment],
-                    min_label: str, min_segments: list[Segment],
-                    inset_callouts: list[tuple[str, str]] | None = None,
-                    caption: str = "") -> None:
+def draw_schematic(
+    fig_path: Path,
+    title: str,
+    subtitle: str,
+    maj_label: str,
+    maj_segments: list[Segment],
+    min_label: str,
+    min_segments: list[Segment],
+    inset_callouts: list[tuple[str, str]] | None = None,
+    caption: str = "",
+) -> None:
     """Render a two-bar schematic figure.
 
     Layout (axes fraction):
@@ -320,8 +355,7 @@ def draw_schematic(fig_path: Path, title: str, subtitle: str,
       0.12-0.20  caption (italic, grey)
       0.03-0.07  source credit
     """
-    fig = plt.figure(figsize=(FIG_W_IN, FIG_H_IN), dpi=FIG_DPI,
-                     facecolor=COLOR_BG)
+    fig = plt.figure(figsize=(FIG_W_IN, FIG_H_IN), dpi=FIG_DPI, facecolor=COLOR_BG)
     ax = fig.add_axes((0, 0, 1, 1))
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
@@ -341,9 +375,13 @@ def draw_schematic(fig_path: Path, title: str, subtitle: str,
     else:
         title_fs = 15.0
     ax.text(
-        0.05, 0.96, title,
-        ha="left", va="top",
-        fontsize=title_fs, fontweight="bold",
+        0.05,
+        0.96,
+        title,
+        ha="left",
+        va="top",
+        fontsize=title_fs,
+        fontweight="bold",
         family=FONT_TITLE,
         color=COLOR_INK,
     )
@@ -353,8 +391,11 @@ def draw_schematic(fig_path: Path, title: str, subtitle: str,
     if subtitle:
         sub_wrapped = _wrap_to_width(subtitle, max_chars=95)
         ax.text(
-            0.05, 0.86, sub_wrapped,
-            ha="left", va="top",
+            0.05,
+            0.86,
+            sub_wrapped,
+            ha="left",
+            va="top",
             fontsize=9.5,
             family=FONT_LABEL,
             color=COLOR_INK_SOFT,
@@ -363,54 +404,91 @@ def draw_schematic(fig_path: Path, title: str, subtitle: str,
 
     # Majority bar header
     ax.text(
-        0.05, 0.72, maj_label,
-        ha="left", va="bottom",
-        fontsize=10.5, fontweight="bold",
-        family=FONT_LABEL, color=COLOR_INK,
+        0.05,
+        0.72,
+        maj_label,
+        ha="left",
+        va="bottom",
+        fontsize=10.5,
+        fontweight="bold",
+        family=FONT_LABEL,
+        color=COLOR_INK,
     )
-    draw_bar(ax, y_top=0.70, y_bot=0.55, segments=maj_segments,
-             x_left=0.05, x_right=0.95, fig_width_in=FIG_W_IN)
+    draw_bar(
+        ax,
+        y_top=0.70,
+        y_bot=0.55,
+        segments=maj_segments,
+        x_left=0.05,
+        x_right=0.95,
+        fig_width_in=FIG_W_IN,
+    )
 
     # Minority bar header
     x_min_right = 0.95 if not inset_callouts else 0.62
     ax.text(
-        0.05, 0.43, min_label,
-        ha="left", va="bottom",
-        fontsize=10.5, fontweight="bold",
-        family=FONT_LABEL, color=COLOR_INK,
+        0.05,
+        0.43,
+        min_label,
+        ha="left",
+        va="bottom",
+        fontsize=10.5,
+        fontweight="bold",
+        family=FONT_LABEL,
+        color=COLOR_INK,
     )
-    draw_bar(ax, y_top=0.41, y_bot=0.26, segments=min_segments,
-             x_left=0.05, x_right=x_min_right,
-             fig_width_in=FIG_W_IN * (x_min_right - 0.05) / 0.9)
+    draw_bar(
+        ax,
+        y_top=0.41,
+        y_bot=0.26,
+        segments=min_segments,
+        x_left=0.05,
+        x_right=x_min_right,
+        fig_width_in=FIG_W_IN * (x_min_right - 0.05) / 0.9,
+    )
 
     # Inset callouts on the right: three tiny rural-outline markers with
     # arrows pointing to the rural-community name.
     if inset_callouts:
         ax.text(
-            0.67, 0.43, "Rural pulls",
-            ha="left", va="bottom",
-            fontsize=9.5, fontweight="bold",
-            family=FONT_LABEL, color=COLOR_INK,
+            0.67,
+            0.43,
+            "Rural pulls",
+            ha="left",
+            va="bottom",
+            fontsize=9.5,
+            fontweight="bold",
+            family=FONT_LABEL,
+            color=COLOR_INK,
         )
         step = 0.045
         y0 = 0.39
         for i, (district, pull) in enumerate(inset_callouts):
             cy = y0 - i * step
-            mrk = Rectangle((0.67, cy - 0.010), 0.018, 0.018,
-                            facecolor=COLOR_RURAL, edgecolor=COLOR_RURAL_EDGE,
-                            linewidth=0.8)
+            mrk = Rectangle(
+                (0.67, cy - 0.010),
+                0.018,
+                0.018,
+                facecolor=COLOR_RURAL,
+                edgecolor=COLOR_RURAL_EDGE,
+                linewidth=0.8,
+            )
             ax.add_patch(mrk)
             ax.annotate(
                 "",
-                xy=(0.72, cy), xytext=(0.692, cy),
-                arrowprops=dict(arrowstyle="->", color=COLOR_RURAL_EDGE,
-                                lw=0.9),
+                xy=(0.72, cy),
+                xytext=(0.692, cy),
+                arrowprops=dict(arrowstyle="->", color=COLOR_RURAL_EDGE, lw=0.9),
             )
             ax.text(
-                0.73, cy, pull,
-                ha="left", va="center",
+                0.73,
+                cy,
+                pull,
+                ha="left",
+                va="center",
                 fontsize=8.5,
-                family=FONT_LABEL, color=COLOR_INK,
+                family=FONT_LABEL,
+                color=COLOR_INK,
             )
 
     # Caption at bottom, small italic grey. Wrap to ~110 chars so it
@@ -418,18 +496,27 @@ def draw_schematic(fig_path: Path, title: str, subtitle: str,
     if caption:
         cap_wrapped = _wrap_to_width(caption, max_chars=110)
         ax.text(
-            0.05, 0.18, cap_wrapped,
-            ha="left", va="top",
-            fontsize=8.5, fontstyle="italic",
-            family=FONT_LABEL, color=COLOR_GREY_MUTED,
+            0.05,
+            0.18,
+            cap_wrapped,
+            ha="left",
+            va="top",
+            fontsize=8.5,
+            fontstyle="italic",
+            family=FONT_LABEL,
+            color=COLOR_GREY_MUTED,
             linespacing=1.35,
         )
     # Source credit at bottom right, smaller
     ax.text(
-        0.95, 0.03,
+        0.95,
+        0.03,
         "Source: commission majority report Appendix A and minority report Appendix E.",
-        ha="right", va="bottom",
-        fontsize=7, family=FONT_LABEL, color=COLOR_GREY_MUTED,
+        ha="right",
+        va="bottom",
+        fontsize=7,
+        family=FONT_LABEL,
+        color=COLOR_GREY_MUTED,
     )
 
     fig.savefig(fig_path, dpi=FIG_DPI, facecolor=COLOR_BG)
@@ -438,6 +525,7 @@ def draw_schematic(fig_path: Path, title: str, subtitle: str,
 
 # ---------------------------------------------------------------------------
 # Calgary minimal geographic map
+
 
 def load_calgary_outline() -> gpd.GeoSeries:
     g = gpd.read_file(PATH_CSDS)
@@ -496,8 +584,7 @@ def draw_calgary(fig_path: Path) -> dict:
     minx, maxx = minx - pad_x, maxx + pad_x
     miny, maxy = miny - pad_y, maxy + pad_y
 
-    fig = plt.figure(figsize=(FIG_W_IN, FIG_H_IN), dpi=FIG_DPI,
-                     facecolor=COLOR_BG)
+    fig = plt.figure(figsize=(FIG_W_IN, FIG_H_IN), dpi=FIG_DPI, facecolor=COLOR_BG)
 
     # Title - size to fit the 0.88 width band
     title = "Calgary: where rural territory enters the city's name"
@@ -507,22 +594,29 @@ def draw_calgary(fig_path: Path) -> dict:
     else:
         title_fs = 16.0
     fig.text(
-        0.05, 0.95,
+        0.05,
+        0.95,
         title,
-        ha="left", va="top",
-        fontsize=title_fs, fontweight="bold",
-        family=FONT_TITLE, color=COLOR_INK,
+        ha="left",
+        va="top",
+        fontsize=title_fs,
+        fontweight="bold",
+        family=FONT_TITLE,
+        color=COLOR_INK,
     )
     subtitle_wrapped = _wrap_to_width(
         "Three of the minority's Calgary-named hybrids, each pulling rural or reserve territory into a district whose primary population is Calgary.",
         max_chars=95,
     )
     fig.text(
-        0.05, 0.88,
+        0.05,
+        0.88,
         subtitle_wrapped,
-        ha="left", va="top",
+        ha="left",
+        va="top",
         fontsize=9.5,
-        family=FONT_LABEL, color=COLOR_INK_SOFT,
+        family=FONT_LABEL,
+        color=COLOR_INK_SOFT,
         linespacing=1.35,
     )
 
@@ -540,15 +634,18 @@ def draw_calgary(fig_path: Path) -> dict:
 
     # 1. Light-grey city outline (municipal boundary, no interior ED lines)
     gpd.GeoSeries(city_geom, crs=CRS_PLOT).plot(
-        ax=ax, facecolor="#ececec", edgecolor="#9a9a9a",
-        linewidth=1.4, zorder=2,
+        ax=ax,
+        facecolor="#ececec",
+        edgecolor="#9a9a9a",
+        linewidth=1.4,
+        zorder=2,
     )
 
     # 2. Highlighted minority hybrids - solid fills
     hybrid_colors = {
-        "Calgary-Nolan Hill-Cochrane": MINORITY_SEGMENT_COLORS[0],   # teal
-        "Calgary-De Winton": MINORITY_SEGMENT_COLORS[1],             # lighter teal
-        "Calgary-West-Tsuut'ina": MINORITY_SEGMENT_COLORS[2],        # deep slate
+        "Calgary-Nolan Hill-Cochrane": MINORITY_SEGMENT_COLORS[0],  # teal
+        "Calgary-De Winton": MINORITY_SEGMENT_COLORS[1],  # lighter teal
+        "Calgary-West-Tsuut'ina": MINORITY_SEGMENT_COLORS[2],  # deep slate
     }
     proxy_notes: list[str] = []
     highlight_geoms: dict[str, object] = {}
@@ -560,8 +657,12 @@ def draw_calgary(fig_path: Path) -> dict:
             proxy_notes.append(name)
         color = hybrid_colors[name]
         gpd.GeoSeries([geom], crs=CRS_PLOT).plot(
-            ax=ax, facecolor=color, edgecolor="#111111",
-            linewidth=1.2, alpha=0.85, zorder=4,
+            ax=ax,
+            facecolor=color,
+            edgecolor="#111111",
+            linewidth=1.2,
+            alpha=0.85,
+            zorder=4,
         )
         highlight_geoms[name] = geom
 
@@ -574,8 +675,8 @@ def draw_calgary(fig_path: Path) -> dict:
     label_positions = {
         # name -> (label_x_axes_frac, label_y_axes_frac)
         "Calgary-Nolan Hill-Cochrane": (0.20, 0.93),
-        "Calgary-West-Tsuut'ina":       (0.05, 0.22),
-        "Calgary-De Winton":            (0.78, 0.06),
+        "Calgary-West-Tsuut'ina": (0.05, 0.22),
+        "Calgary-De Winton": (0.78, 0.06),
     }
     for name, (ax_fx, ax_fy) in label_positions.items():
         if name not in highlight_geoms:
@@ -596,17 +697,22 @@ def draw_calgary(fig_path: Path) -> dict:
         lx = minx + ax_fx * (maxx - minx)
         ly = miny + ax_fy * (maxy - miny)
         # Draw leader line
-        ax.plot([lx, rp.x], [ly, rp.y],
-                color="#111111", linewidth=0.7, zorder=5, alpha=0.75)
+        ax.plot(
+            [lx, rp.x], [ly, rp.y], color="#111111", linewidth=0.7, zorder=5, alpha=0.75
+        )
         # Label box
         ax.annotate(
             name,
             xy=(lx, ly),
-            ha="center", va="center",
-            fontsize=9, fontweight="bold",
-            family=FONT_LABEL, color=COLOR_INK,
-            bbox=dict(boxstyle="round,pad=0.35",
-                      fc="white", ec="#111111", linewidth=0.8),
+            ha="center",
+            va="center",
+            fontsize=9,
+            fontweight="bold",
+            family=FONT_LABEL,
+            color=COLOR_INK,
+            bbox=dict(
+                boxstyle="round,pad=0.35", fc="white", ec="#111111", linewidth=0.8
+            ),
             zorder=7,
         )
 
@@ -617,12 +723,14 @@ def draw_calgary(fig_path: Path) -> dict:
     ax.annotate(
         "CALGARY",
         xy=(cx_rp.x, cx_rp.y),
-        ha="center", va="center",
-        fontsize=10, fontweight="bold",
-        family=FONT_LABEL, color="#555555",
+        ha="center",
+        va="center",
+        fontsize=10,
+        fontweight="bold",
+        family=FONT_LABEL,
+        color="#555555",
         zorder=3,
-        bbox=dict(boxstyle="round,pad=0.3",
-                  fc=(1, 1, 1, 0.6), ec="none"),
+        bbox=dict(boxstyle="round,pad=0.3", fc=(1, 1, 1, 0.6), ec="none"),
     )
 
     # 5. Scale bar - 10 km
@@ -631,15 +739,25 @@ def draw_calgary(fig_path: Path) -> dict:
     sb_x = minx + span_x * 0.04
     sb_y = miny + span_y * 0.05
     sb_len = 10000  # 10 km in metres
-    ax.add_patch(Rectangle(
-        (sb_x, sb_y), sb_len, span_y * 0.012,
-        facecolor="#111111", edgecolor="#111111", zorder=7,
-    ))
+    ax.add_patch(
+        Rectangle(
+            (sb_x, sb_y),
+            sb_len,
+            span_y * 0.012,
+            facecolor="#111111",
+            edgecolor="#111111",
+            zorder=7,
+        )
+    )
     ax.text(
-        sb_x + sb_len / 2, sb_y + span_y * 0.028,
+        sb_x + sb_len / 2,
+        sb_y + span_y * 0.028,
         "10 km",
-        ha="center", va="bottom",
-        fontsize=7.5, family=FONT_LABEL, color="#111111",
+        ha="center",
+        va="bottom",
+        fontsize=7.5,
+        family=FONT_LABEL,
+        color="#111111",
         zorder=7,
     )
 
@@ -650,11 +768,19 @@ def draw_calgary(fig_path: Path) -> dict:
         "N",
         xy=(nx, ny + span_y * 0.045),
         xytext=(nx, ny - span_y * 0.045),
-        arrowprops=dict(facecolor="#111111", width=1.4, headwidth=6,
-                         headlength=7, edgecolor="#111111"),
-        ha="center", va="bottom",
-        fontsize=8.5, fontweight="bold",
-        family=FONT_LABEL, color="#111111",
+        arrowprops=dict(
+            facecolor="#111111",
+            width=1.4,
+            headwidth=6,
+            headlength=7,
+            edgecolor="#111111",
+        ),
+        ha="center",
+        va="bottom",
+        fontsize=8.5,
+        fontweight="bold",
+        family=FONT_LABEL,
+        color="#111111",
         zorder=7,
     )
 
@@ -666,20 +792,29 @@ def draw_calgary(fig_path: Path) -> dict:
         max_chars=110,
     )
     fig.text(
-        0.05, 0.14, caption_main,
-        ha="left", va="top",
-        fontsize=8.5, fontstyle="italic",
-        family=FONT_LABEL, color=COLOR_GREY_MUTED,
+        0.05,
+        0.14,
+        caption_main,
+        ha="left",
+        va="top",
+        fontsize=8.5,
+        fontstyle="italic",
+        family=FONT_LABEL,
+        color=COLOR_GREY_MUTED,
         linespacing=1.35,
     )
     # Honest caveat if a proxy geometry was used
     if proxy_notes:
         proxied = ", ".join(proxy_notes)
         fig.text(
-            0.05, 0.03,
+            0.05,
+            0.03,
             f"Caveat: {proxied} has no transcribed 2026 polygon yet; the 2019 Calgary-West shape stands in as a visual approximation.",
-            ha="left", va="bottom",
-            fontsize=7, family=FONT_LABEL, color=COLOR_GREY_MUTED,
+            ha="left",
+            va="bottom",
+            fontsize=7,
+            family=FONT_LABEL,
+            color=COLOR_GREY_MUTED,
         )
 
     fig.savefig(fig_path, dpi=FIG_DPI, facecolor=COLOR_BG)
@@ -690,11 +825,14 @@ def draw_calgary(fig_path: Path) -> dict:
 # ---------------------------------------------------------------------------
 # Figure specs
 
+
 def build_airdrie():
     title = "Airdrie: one city, four partitions"
-    subtitle = ("Population ~90,000. The majority draws two ridings both named Airdrie. "
-                "The minority cuts the city into four pieces \u2014 one per compass direction \u2014 "
-                "each attached to a different surrounding district.")
+    subtitle = (
+        "Population ~90,000. The majority draws two ridings both named Airdrie. "
+        "The minority cuts the city into four pieces \u2014 one per compass direction \u2014 "
+        "each attached to a different surrounding district."
+    )
     maj_segments = [
         Segment("Airdrie-East", MAJORITY_SEGMENT_COLORS[0], proportion=1.0),
         Segment("Airdrie-West", MAJORITY_SEGMENT_COLORS[1], proportion=1.0),
@@ -703,21 +841,37 @@ def build_airdrie():
     #   south -> Calgary-Airdrie, west -> Calgary-Foothills-Airdrie West,
     #   north -> Calgary-Nolan Hill-Cochrane, east -> Airdrie East
     min_segments = [
-        Segment("Calgary-Airdrie", MINORITY_SEGMENT_COLORS[3],
-                sublabel="south", proportion=1.0),
-        Segment("Airdrie East", MINORITY_SEGMENT_COLORS[0],
-                sublabel="east", proportion=1.0),
-        Segment("Calgary-Nolan Hill-Cochrane", MINORITY_SEGMENT_COLORS[2],
-                sublabel="north", proportion=1.0),
-        Segment("Calgary-Foothills-Airdrie West", MINORITY_SEGMENT_COLORS[1],
-                sublabel="west", proportion=1.0),
+        Segment(
+            "Calgary-Airdrie",
+            MINORITY_SEGMENT_COLORS[3],
+            sublabel="south",
+            proportion=1.0,
+        ),
+        Segment(
+            "Airdrie East", MINORITY_SEGMENT_COLORS[0], sublabel="east", proportion=1.0
+        ),
+        Segment(
+            "Calgary-Nolan Hill-Cochrane",
+            MINORITY_SEGMENT_COLORS[2],
+            sublabel="north",
+            proportion=1.0,
+        ),
+        Segment(
+            "Calgary-Foothills-Airdrie West",
+            MINORITY_SEGMENT_COLORS[1],
+            sublabel="west",
+            proportion=1.0,
+        ),
     ]
-    caption = ("The minority cuts Airdrie into four pieces, each attached to a different surrounding district. "
-               "Only one of the four is named Airdrie alone; the other three carry Calgary or regional names. "
-               "The majority draws two compact ridings, both named Airdrie.")
+    caption = (
+        "The minority cuts Airdrie into four pieces, each attached to a different surrounding district. "
+        "Only one of the four is named Airdrie alone; the other three carry Calgary or regional names. "
+        "The majority draws two compact ridings, both named Airdrie."
+    )
     draw_schematic(
         OUT / "figure_airdrie_v3.svg",
-        title=title, subtitle=subtitle,
+        title=title,
+        subtitle=subtitle,
         maj_label="Majority proposal  \u00b7  2 ridings, both named Airdrie",
         maj_segments=maj_segments,
         min_label="Minority proposal  \u00b7  4 segments, only one named Airdrie",
@@ -728,34 +882,50 @@ def build_airdrie():
 
 def build_lethbridge():
     title = "Lethbridge: two plans, two stories"
-    subtitle = ("Population ~105,000. The majority draws two compact city ridings. "
-                "The minority draws three Lethbridge-prefixed hybrids, each pulling rural territory.")
+    subtitle = (
+        "Population ~105,000. The majority draws two compact city ridings. "
+        "The minority draws three Lethbridge-prefixed hybrids, each pulling rural territory."
+    )
     maj_segments = [
         Segment("Lethbridge-East", MAJORITY_SEGMENT_COLORS[0], proportion=1.0),
         Segment("Lethbridge-West", MAJORITY_SEGMENT_COLORS[1], proportion=1.0),
     ]
     min_segments = [
-        Segment("Lethbridge-Cardston", MINORITY_SEGMENT_COLORS[0],
-                sublabel="core + rural", proportion=1.0),
+        Segment(
+            "Lethbridge-Cardston",
+            MINORITY_SEGMENT_COLORS[0],
+            sublabel="core + rural",
+            proportion=1.0,
+        ),
         # Label abbreviated to fit the segment at magazine column width;
         # the full name "Lethbridge-Fort MacLeod-Crowsnest Pass" is
         # recorded in the design note and in the inset callout.
-        Segment("Lethbridge-Fort MacLeod",
-                MINORITY_SEGMENT_COLORS[1],
-                sublabel="+ Crowsnest Pass", proportion=1.3),
-        Segment("Lethbridge-Little Bow", MINORITY_SEGMENT_COLORS[2],
-                sublabel="core + rural", proportion=1.0),
+        Segment(
+            "Lethbridge-Fort MacLeod",
+            MINORITY_SEGMENT_COLORS[1],
+            sublabel="+ Crowsnest Pass",
+            proportion=1.3,
+        ),
+        Segment(
+            "Lethbridge-Little Bow",
+            MINORITY_SEGMENT_COLORS[2],
+            sublabel="core + rural",
+            proportion=1.0,
+        ),
     ]
     inset = [
         ("Lethbridge-Cardston", "Cardston"),
         ("Fort MacLeod-Crowsnest Pass", "Fort MacLeod"),
         ("Lethbridge-Little Bow", "Lomond"),
     ]
-    caption = ("Each of the minority's three Lethbridge-prefixed districts attaches a rural community to the city core. "
-               "The majority draws two compact Lethbridge ridings and keeps rural territory in separately-named regional districts.")
+    caption = (
+        "Each of the minority's three Lethbridge-prefixed districts attaches a rural community to the city core. "
+        "The majority draws two compact Lethbridge ridings and keeps rural territory in separately-named regional districts."
+    )
     draw_schematic(
         OUT / "figure_lethbridge_v3.svg",
-        title=title, subtitle=subtitle,
+        title=title,
+        subtitle=subtitle,
         maj_label="Majority proposal  \u00b7  2 compact city ridings",
         maj_segments=maj_segments,
         min_label="Minority proposal  \u00b7  3 Lethbridge-prefixed hybrids",
@@ -767,33 +937,72 @@ def build_lethbridge():
 
 def build_reddeer():
     title = "Red Deer: the four-way carve"
-    subtitle = ("Population ~106,000. The majority draws two compact city ridings plus two rural. "
-                "The minority draws four Red Deer-prefixed hybrids.")
+    subtitle = (
+        "Population ~106,000. The majority draws two compact city ridings plus two rural. "
+        "The minority draws four Red Deer-prefixed hybrids."
+    )
     maj_segments = [
-        Segment("Red Deer-North", MAJORITY_SEGMENT_COLORS[0],
-                sublabel="compact city", proportion=1.0),
-        Segment("Red Deer-South", MAJORITY_SEGMENT_COLORS[1],
-                sublabel="compact city", proportion=1.0),
-        Segment("Lacombe-Clearwater", COLOR_RURAL,
-                sublabel="rural", proportion=1.0, is_rural_carve=True),
-        Segment("Sylvan Lake-Innisfail", COLOR_RURAL,
-                sublabel="rural", proportion=1.0, is_rural_carve=True),
+        Segment(
+            "Red Deer-North",
+            MAJORITY_SEGMENT_COLORS[0],
+            sublabel="compact city",
+            proportion=1.0,
+        ),
+        Segment(
+            "Red Deer-South",
+            MAJORITY_SEGMENT_COLORS[1],
+            sublabel="compact city",
+            proportion=1.0,
+        ),
+        Segment(
+            "Lacombe-Clearwater",
+            COLOR_RURAL,
+            sublabel="rural",
+            proportion=1.0,
+            is_rural_carve=True,
+        ),
+        Segment(
+            "Sylvan Lake-Innisfail",
+            COLOR_RURAL,
+            sublabel="rural",
+            proportion=1.0,
+            is_rural_carve=True,
+        ),
     ]
     min_segments = [
-        Segment("Red Deer-Blackfalds", MINORITY_SEGMENT_COLORS[0],
-                sublabel="city + town", proportion=1.0),
-        Segment("Red Deer-Innisfail", MINORITY_SEGMENT_COLORS[1],
-                sublabel="city + town", proportion=1.0),
-        Segment("Red Deer-Lacombe", MINORITY_SEGMENT_COLORS[2],
-                sublabel="city + town", proportion=1.0),
-        Segment("Red Deer-Sylvan Lake", MINORITY_SEGMENT_COLORS[3],
-                sublabel="city + town", proportion=1.0),
+        Segment(
+            "Red Deer-Blackfalds",
+            MINORITY_SEGMENT_COLORS[0],
+            sublabel="city + town",
+            proportion=1.0,
+        ),
+        Segment(
+            "Red Deer-Innisfail",
+            MINORITY_SEGMENT_COLORS[1],
+            sublabel="city + town",
+            proportion=1.0,
+        ),
+        Segment(
+            "Red Deer-Lacombe",
+            MINORITY_SEGMENT_COLORS[2],
+            sublabel="city + town",
+            proportion=1.0,
+        ),
+        Segment(
+            "Red Deer-Sylvan Lake",
+            MINORITY_SEGMENT_COLORS[3],
+            sublabel="city + town",
+            proportion=1.0,
+        ),
     ]
-    caption = ("The minority attaches a Red Deer prefix to every adjacent rural riding. "
-               "Same footprint; four city-named districts where the majority drew two.")
+    caption = (
+        "The minority attaches a Red Deer prefix to every adjacent rural riding. "
+        "Same footprint; four city-named districts where the majority drew two."
+    )
     draw_schematic(
         OUT / "figure_reddeer_v3.svg",
-        title=title, subtitle=subtitle,
+        title=title,
+        subtitle=subtitle,
         maj_label="Majority proposal  \u00b7  2 compact city ridings plus 2 rural",
         maj_segments=maj_segments,
         min_label="Minority proposal  \u00b7  4 Red Deer-prefixed hybrids",
@@ -807,6 +1016,7 @@ def build_calgary():
 
 
 # ---------------------------------------------------------------------------
+
 
 def main() -> int:
     print("Fonts selected:")

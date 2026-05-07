@@ -47,6 +47,7 @@ Pass 4 strategies (fallback, per boundary):
 
 Author: Track Y-prime-prime sub-agent (2026-04-22).
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -63,7 +64,14 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from shapely.geometry import LineString, MultiLineString, Polygon, MultiPolygon, Point, box
+from shapely.geometry import (
+    LineString,
+    MultiLineString,
+    Polygon,
+    MultiPolygon,
+    Point,
+    box,
+)
 from shapely.ops import linemerge, nearest_points, unary_union
 
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
@@ -81,16 +89,18 @@ VA_CRS = "EPSG:3400"
 RED_EDS = ["Calgary-De Winton", "Calgary-South", "Edmonton-Windermere"]
 
 # Noise-ring threshold for rendering (in m^2) and geometry cleanup (m^2)
-NOISE_RING_AREA_M2 = 100_000.0       # 10 ha = 0.1 km^2
-NOISE_PART_AREA_M2 = 1_000_000.0     # 1 km^2
+NOISE_RING_AREA_M2 = 100_000.0  # 10 ha = 0.1 km^2
+NOISE_PART_AREA_M2 = 1_000_000.0  # 1 km^2
 
 
 # ----------------------------------------------------------------------
 # Geometry cleanup (shared)
 # ----------------------------------------------------------------------
 
-def clean_polygon_noise(geom, min_part_area_m2=NOISE_PART_AREA_M2,
-                        min_hole_area_m2=NOISE_RING_AREA_M2):
+
+def clean_polygon_noise(
+    geom, min_part_area_m2=NOISE_PART_AREA_M2, min_hole_area_m2=NOISE_RING_AREA_M2
+):
     """Remove MultiPolygon parts smaller than min_part_area_m2, and interior
     rings smaller than min_hole_area_m2. Returns a clean Polygon or
     MultiPolygon in the same CRS.
@@ -134,8 +144,10 @@ def clean_polygon_noise(geom, min_part_area_m2=NOISE_PART_AREA_M2,
 # OSM feature fetch (shared with v2)
 # ----------------------------------------------------------------------
 
+
 def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
     import osmnx as ox
+
     ox.settings.log_console = False
     ox.settings.use_cache = True
     ox.settings.requests_timeout = timeout
@@ -149,16 +161,16 @@ def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
         except Exception as e:
             last = e
             if i < retries - 1:
-                time.sleep(2 ** i)
+                time.sleep(2**i)
     raise RuntimeError(f"OSM features fetch failed (tags={tags}): {last}")
 
 
 def _fetch_class(bbox_wgs84, cls_name):
     """Fetch one feature class. Returns a GeoDataFrame in WGS84 of lines."""
     tag_sets = {
-        "road":  {"highway": ["motorway", "trunk", "primary", "secondary", "tertiary"]},
+        "road": {"highway": ["motorway", "trunk", "primary", "secondary", "tertiary"]},
         "river": {"waterway": ["river", "stream"], "natural": ["water"]},
-        "rail":  {"railway": ["rail", "light_rail"]},
+        "rail": {"railway": ["rail", "light_rail"]},
         "admin": {"boundary": "administrative"},
     }
     tags = tag_sets[cls_name]
@@ -185,6 +197,7 @@ def _fetch_class(bbox_wgs84, cls_name):
 # ----------------------------------------------------------------------
 # Pass 3 / Pass 4 snap: class-only with buffer
 # ----------------------------------------------------------------------
+
 
 def _snap_to_single_class(poly, feature_union, buffer_m, spacing_m):
     """Snap polygon ring samples to feature_union only (one class).
@@ -261,11 +274,17 @@ def _snap_to_single_class(poly, feature_union, buffer_m, spacing_m):
             if new_poly.geom_type not in ("Polygon", "MultiPolygon"):
                 new_poly = MultiPolygon([p for p in parts if p.geom_type == "Polygon"])
         except Exception:
-            new_poly = MultiPolygon(parts) if len(parts) > 1 else (parts[0] if parts else poly)
+            new_poly = (
+                MultiPolygon(parts) if len(parts) > 1 else (parts[0] if parts else poly)
+            )
     else:
         return poly, 0.0, 0.0, 0
 
-    mean_shift = float(np.mean([s for s in all_shifts if s > 0])) if any(s > 0 for s in all_shifts) else 0.0
+    mean_shift = (
+        float(np.mean([s for s in all_shifts if s > 0]))
+        if any(s > 0 for s in all_shifts)
+        else 0.0
+    )
     max_shift = float(np.max(all_shifts)) if all_shifts else 0.0
 
     # Pathological-snap guard (prevent >50% area change)
@@ -339,6 +358,7 @@ def _apply_bank_constraint(poly, river_union, bank="west_south", buffer_m=20.0):
 # Impact measurement (shared)
 # ----------------------------------------------------------------------
 
+
 def _measure_impact(v_before, v_after, vas):
     """Return (sensitive_va_count, sensitive_votes_total, max_va_votes, xor_area)
     between two polygon versions of the same ED.
@@ -367,16 +387,25 @@ def _measure_impact(v_before, v_after, vas):
 # Pass 3 / Pass 4 pipeline for the three red EDs
 # ----------------------------------------------------------------------
 
+
 def run_passes_3_and_4():
     """Run pass 3 and pass 4 on the three red EDs. Retain whichever pass
     produces the lowest residual voter-assignment impact vs the v2 baseline.
     """
-    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(WORK_CRS)
-    approx_min = gpd.read_file(DATA_DIR / "v0_1_approximate_minority_2026_eds.gpkg").to_crs(WORK_CRS)
-    approx_min_wgs = gpd.read_file(DATA_DIR / "v0_1_approximate_minority_2026_eds.gpkg").to_crs(4326)
+    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    approx_min = gpd.read_file(
+        DATA_DIR / "v0_1_approximate_minority_2026_eds.gpkg"
+    ).to_crs(WORK_CRS)
+    approx_min_wgs = gpd.read_file(
+        DATA_DIR / "v0_1_approximate_minority_2026_eds.gpkg"
+    ).to_crs(4326)
 
     vas = gpd.read_file(DATA_DIR / "va_polygons_with_2023_votes.gpkg").to_crs(WORK_CRS)
-    vas["total_votes"] = (vas["va_ndp"].fillna(0) + vas["va_ucp"].fillna(0) + vas["va_other"].fillna(0)).astype(float)
+    vas["total_votes"] = (
+        vas["va_ndp"].fillna(0) + vas["va_ucp"].fillna(0) + vas["va_other"].fillna(0)
+    ).astype(float)
 
     # Make a clean starting v3 copy (applies noise cleanup to ALL rows)
     v3_min = v2_min.copy()
@@ -445,13 +474,26 @@ def run_passes_3_and_4():
             if admin_union is not None:
                 for pass_n, buf, spacing in [(3, 100.0, 75.0), (4, 50.0, 50.0)]:
                     new_poly, mean_s, max_s, hits = _snap_to_single_class(
-                        poly_proj, admin_union, buffer_m=buf, spacing_m=spacing,
+                        poly_proj,
+                        admin_union,
+                        buffer_m=buf,
+                        spacing_m=spacing,
                     )
                     new_poly = clean_polygon_noise(new_poly)
                     candidates.append(
-                        (f"admin-only-{int(buf)}m", new_poly, mean_s, max_s, hits, pass_n)
+                        (
+                            f"admin-only-{int(buf)}m",
+                            new_poly,
+                            mean_s,
+                            max_s,
+                            hits,
+                            pass_n,
+                        )
                     )
-                    print(f"[v3] {ed_name} pass{pass_n} admin-only {int(buf)}m: mean={mean_s:.1f}m max={max_s:.1f}m hits={hits}", flush=True)
+                    print(
+                        f"[v3] {ed_name} pass{pass_n} admin-only {int(buf)}m: mean={mean_s:.1f}m max={max_s:.1f}m hits={hits}",
+                        flush=True,
+                    )
             else:
                 print(f"[v3] {ed_name}: no admin features available", flush=True)
 
@@ -472,40 +514,64 @@ def run_passes_3_and_4():
             if river_union is not None:
                 for pass_n, buf, spacing in [(3, 100.0, 75.0), (4, 50.0, 50.0)]:
                     snapped, mean_s, max_s, hits = _snap_to_single_class(
-                        poly_proj, river_union, buffer_m=buf, spacing_m=spacing,
+                        poly_proj,
+                        river_union,
+                        buffer_m=buf,
+                        spacing_m=spacing,
                     )
                     snapped = clean_polygon_noise(snapped)
                     candidates.append(
-                        (f"river-only-{int(buf)}m", snapped, mean_s, max_s, hits, pass_n)
+                        (
+                            f"river-only-{int(buf)}m",
+                            snapped,
+                            mean_s,
+                            max_s,
+                            hits,
+                            pass_n,
+                        )
                     )
-                    print(f"[v3] {ed_name} pass{pass_n} river-only {int(buf)}m: mean={mean_s:.1f}m max={max_s:.1f}m hits={hits}", flush=True)
+                    print(
+                        f"[v3] {ed_name} pass{pass_n} river-only {int(buf)}m: mean={mean_s:.1f}m max={max_s:.1f}m hits={hits}",
+                        flush=True,
+                    )
             else:
                 print(f"[v3] {ed_name}: no river features available", flush=True)
 
         # Measure voter-assignment impact of each candidate relative to v2_clean
         best = None
         best_impact = None
-        for (label, new_poly, mean_s, max_s, hits, pass_n) in candidates:
+        for label, new_poly, mean_s, max_s, hits, pass_n in candidates:
             if new_poly is None or new_poly.is_empty:
                 continue
-            n_sens, votes_sens, max_va, xor_area = _measure_impact(v2_clean, new_poly, vas)
-            passes_log.append({
-                "ed": ed_name,
-                "pass": pass_n,
-                "strategy": label,
-                "mean_shift_m": mean_s,
-                "max_shift_m": max_s,
-                "hits": hits,
-                "sensitive_vas_v2_to_candidate": n_sens,
-                "sensitive_votes_v2_to_candidate": votes_sens,
-                "xor_area_m2": xor_area,
-            })
-            print(f"[v3]   {label}: v2 vs candidate -> {n_sens} VAs, {votes_sens:.0f} votes moved", flush=True)
+            n_sens, votes_sens, max_va, xor_area = _measure_impact(
+                v2_clean, new_poly, vas
+            )
+            passes_log.append(
+                {
+                    "ed": ed_name,
+                    "pass": pass_n,
+                    "strategy": label,
+                    "mean_shift_m": mean_s,
+                    "max_shift_m": max_s,
+                    "hits": hits,
+                    "sensitive_vas_v2_to_candidate": n_sens,
+                    "sensitive_votes_v2_to_candidate": votes_sens,
+                    "xor_area_m2": xor_area,
+                }
+            )
+            print(
+                f"[v3]   {label}: v2 vs candidate -> {n_sens} VAs, {votes_sens:.0f} votes moved",
+                flush=True,
+            )
 
             # Now measure whether this candidate has a SMALLER xor vs v2 than
             # v1 did vs v2 (i.e. is this candidate closer to v2?). We want the
             # candidate with the smallest voter-assignment residual.
-            if best is None or votes_sens < best_impact[1] or (votes_sens == best_impact[1] and n_sens < best_impact[0]):
+            if (
+                best is None
+                or votes_sens < best_impact[1]
+                or (votes_sens == best_impact[1] and n_sens < best_impact[0])
+            ):
                 best = (label, new_poly, mean_s, max_s, hits, pass_n)
                 best_impact = (n_sens, votes_sens, max_va, xor_area)
 
@@ -525,12 +591,17 @@ def run_passes_3_and_4():
         v3_min.at[idx, "v3_sensitive_vas_v2_to_v3"] = best_impact[0]
         v3_min.at[idx, "v3_sensitive_votes_v2_to_v3"] = best_impact[1]
 
-        print(f"[v3] {ed_name}: BEST candidate = {label} ({best_impact[0]} VAs, {best_impact[1]:.0f} votes shifted from v2)", flush=True)
+        print(
+            f"[v3] {ed_name}: BEST candidate = {label} ({best_impact[0]} VAs, {best_impact[1]:.0f} votes shifted from v2)",
+            flush=True,
+        )
 
     # Write v3 minority
     v3_min.to_file(DATA_DIR / "v0_1_refined_v3_minority_2026_eds.gpkg", driver="GPKG")
     # Write v3 majority (clean of v2 majority — same topology)
-    v2_maj = gpd.read_file(DATA_DIR / "v0_1_refined_v2_majority_2026_eds.gpkg").to_crs(WORK_CRS)
+    v2_maj = gpd.read_file(DATA_DIR / "v0_1_refined_v2_majority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
     v3_maj = v2_maj.copy()
     for i in range(len(v3_maj)):
         v3_maj.at[i, "geometry"] = clean_polygon_noise(v3_maj.iloc[i].geometry)
@@ -543,22 +614,34 @@ def run_passes_3_and_4():
 # Final impact CSV
 # ----------------------------------------------------------------------
 
+
 def compute_final_impact():
     """Compute Track Y v1 vs Track Y-prime-prime v3 impact per red ED,
     and replicate v2-vs-v1 / v2-vs-v3 residuals.
     """
-    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v3_min = gpd.read_file(DATA_DIR / "v0_1_refined_v3_minority_2026_eds.gpkg").to_crs(WORK_CRS)
+    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v3_min = gpd.read_file(DATA_DIR / "v0_1_refined_v3_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
 
     vas = gpd.read_file(DATA_DIR / "va_polygons_with_2023_votes.gpkg").to_crs(WORK_CRS)
-    vas["total_votes"] = (vas["va_ndp"].fillna(0) + vas["va_ucp"].fillna(0) + vas["va_other"].fillna(0)).astype(float)
+    vas["total_votes"] = (
+        vas["va_ndp"].fillna(0) + vas["va_ucp"].fillna(0) + vas["va_other"].fillna(0)
+    ).astype(float)
 
     rows = []
     # These are the 5 Tier B EDs used in v2
     tier_b_names = [
-        "Calgary-De Winton", "Calgary-South", "Edmonton-Windermere",
-        "Lethbridge-Little Bow", "Wetaskawin-Ponoka-Maskwacis",
+        "Calgary-De Winton",
+        "Calgary-South",
+        "Edmonton-Windermere",
+        "Lethbridge-Little Bow",
+        "Wetaskawin-Ponoka-Maskwacis",
     ]
     for name in tier_b_names:
         v1 = v1_min[v1_min["name_2026"] == name]
@@ -585,17 +668,19 @@ def compute_final_impact():
         else:
             cls = "refinement-negligible"
 
-        rows.append({
-            "ed_name": name,
-            "v1_vs_v2_vas": n_v1v2,
-            "v1_vs_v2_votes": v_v1v2,
-            "v2_vs_v3_vas": n_v2v3,
-            "v2_vs_v3_votes": v_v2v3,
-            "v1_vs_v3_vas": n_v1v3,
-            "v1_vs_v3_votes": v_v1v3,
-            "classification_v3": cls,
-            "orange_accept_v3": (cls == "refinement-negligible"),
-        })
+        rows.append(
+            {
+                "ed_name": name,
+                "v1_vs_v2_vas": n_v1v2,
+                "v1_vs_v2_votes": v_v1v2,
+                "v2_vs_v3_vas": n_v2v3,
+                "v2_vs_v3_votes": v_v2v3,
+                "v1_vs_v3_vas": n_v1v3,
+                "v1_vs_v3_votes": v_v1v3,
+                "classification_v3": cls,
+                "orange_accept_v3": (cls == "refinement-negligible"),
+            }
+        )
 
     df = pd.DataFrame(rows)
     df.to_csv(DATA_DIR / "boundary_refinement_impact_v3.csv", index=False)
@@ -621,7 +706,15 @@ PRIORITY_EDS = [
 
 
 def _norm(s: str) -> str:
-    return str(s).lower().replace("-", " ").replace("  ", " ").replace(".", "").replace("'", "").strip()
+    return (
+        str(s)
+        .lower()
+        .replace("-", " ")
+        .replace("  ", " ")
+        .replace(".", "")
+        .replace("'", "")
+        .strip()
+    )
 
 
 def _find_ed(gdf, name):
@@ -650,7 +743,11 @@ def _exterior_only_lines(geom):
     out = []
     if geom is None or geom.is_empty:
         return out
-    parts = [geom] if geom.geom_type == "Polygon" else (list(geom.geoms) if geom.geom_type == "MultiPolygon" else [])
+    parts = (
+        [geom]
+        if geom.geom_type == "Polygon"
+        else (list(geom.geoms) if geom.geom_type == "MultiPolygon" else [])
+    )
     for p in parts:
         if p is None or p.is_empty:
             continue
@@ -669,12 +766,24 @@ def _exterior_only_lines(geom):
 def render_v3_panels(impact_df):
     """Render verification panels with the internal-border fix in place."""
     VERIFICATION_DIR.mkdir(parents=True, exist_ok=True)
-    v1_maj = gpd.read_file(DATA_DIR / "v0_1_refined_majority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v3_maj = gpd.read_file(DATA_DIR / "v0_1_refined_v3_majority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v3_min = gpd.read_file(DATA_DIR / "v0_1_refined_v3_minority_2026_eds.gpkg").to_crs(WORK_CRS)
+    v1_maj = gpd.read_file(DATA_DIR / "v0_1_refined_majority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v3_maj = gpd.read_file(DATA_DIR / "v0_1_refined_v3_majority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v3_min = gpd.read_file(DATA_DIR / "v0_1_refined_v3_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
 
-    impact_lookup = {row["ed_name"]: row for _, row in impact_df.iterrows()} if impact_df is not None else {}
+    impact_lookup = (
+        {row["ed_name"]: row for _, row in impact_df.iterrows()}
+        if impact_df is not None
+        else {}
+    )
 
     GREEN = "#2ca02c"
     ORANGE = "#ff7f0e"
@@ -708,7 +817,10 @@ def render_v3_panels(impact_df):
                 colour = ORANGE
                 tier_label = "Tier B — orange accepted"
                 linestyle = "-"
-            elif impact.get("classification_v3") == "refinement-unresolvable-without-shapefile":
+            elif (
+                impact.get("classification_v3")
+                == "refinement-unresolvable-without-shapefile"
+            ):
                 colour = RED
                 tier_label = "Tier B — unresolvable without shapefile"
                 linestyle = "--"
@@ -777,13 +889,18 @@ def render_v3_panels(impact_df):
                     ax=ax_s, color=colour, linewidth=2.2, linestyle=linestyle
                 )
         ax_s.text(
-            0.02, 0.02,
+            0.02,
+            0.02,
             "Green = Tier A (2019 inherit)\nOrange = Tier B accepted (votes stable)\nRed dashed = Tier B unresolvable without shapefile\nGrey dotted = v1 (Track Y)",
-            transform=ax_s.transAxes, fontsize=7, verticalalignment="bottom",
+            transform=ax_s.transAxes,
+            fontsize=7,
+            verticalalignment="bottom",
             bbox=dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#ccc"),
         )
         slug = name.replace(" ", "_").replace("/", "_").replace("-", "_").lower()
-        fig_single.savefig(VERIFICATION_DIR / f"v0_3_{which}_{slug}.svg", bbox_inches="tight")
+        fig_single.savefig(
+            VERIFICATION_DIR / f"v0_3_{which}_{slug}.svg", bbox_inches="tight"
+        )
         plt.close(fig_single)
 
     fig_grid.tight_layout()
@@ -795,6 +912,7 @@ def render_v3_panels(impact_df):
 # ----------------------------------------------------------------------
 # Entry point
 # ----------------------------------------------------------------------
+
 
 def main(skip=()):
     passes_log = []

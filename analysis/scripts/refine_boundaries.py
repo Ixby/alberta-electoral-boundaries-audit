@@ -24,6 +24,7 @@ Honesty caveats (see markdown):
   - Residual per-edge error ~30-80 m (thumbnail pixel ~9-15 m plus georef
     RMS typically <100 m).
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -66,6 +67,7 @@ HSV_RED_HI2 = np.array([179, 255, 255])
 # Image pre-processing
 # ---------------------------------------------------------------------------
 
+
 def load_and_orient(thumb_path: Path, orientation: str) -> np.ndarray:
     img = cv2.imread(str(thumb_path))
     if img is None:
@@ -92,13 +94,16 @@ def extract_red_mask(img_bgr: np.ndarray) -> np.ndarray:
 
 def get_interior_mask(red_mask: np.ndarray) -> np.ndarray:
     """Slightly dilate red, then complement -> interior."""
-    red_d = cv2.dilate(red_mask, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)), iterations=1)
+    red_d = cv2.dilate(
+        red_mask, cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)), iterations=1
+    )
     return (red_d == 0).astype(np.uint8) * 255
 
 
 # ---------------------------------------------------------------------------
 # Affine fit
 # ---------------------------------------------------------------------------
+
 
 def fit_affine(src_px: np.ndarray, dst_geo: np.ndarray) -> tuple[np.ndarray, float]:
     N = src_px.shape[0]
@@ -120,7 +125,10 @@ def apply_affine(pts: np.ndarray, M: np.ndarray) -> np.ndarray:
 # Seeded flood-fill and contour extraction
 # ---------------------------------------------------------------------------
 
-def flood_fill_interior(interior_mask: np.ndarray, seed_px: tuple[int, int]) -> tuple[np.ndarray, dict]:
+
+def flood_fill_interior(
+    interior_mask: np.ndarray, seed_px: tuple[int, int]
+) -> tuple[np.ndarray, dict]:
     """Flood-fill the interior mask from a seed; return label mask + bbox.
 
     Returns (label_mask uint8 0/255, info dict with area_px and bbox).
@@ -140,7 +148,12 @@ def flood_fill_interior(interior_mask: np.ndarray, seed_px: tuple[int, int]) -> 
     area_px = int(np.count_nonzero(label_mask))
     # Bounding rect
     ys, xs = np.where(label_mask > 0)
-    bbox = (int(xs.min()), int(ys.min()), int(xs.max() - xs.min()), int(ys.max() - ys.min()))
+    bbox = (
+        int(xs.min()),
+        int(ys.min()),
+        int(xs.max() - xs.min()),
+        int(ys.max() - ys.min()),
+    )
     return label_mask, {"area_px": area_px, "bbox_px": bbox, "seed": seed_px}
 
 
@@ -151,7 +164,9 @@ def extract_contour(label_mask: np.ndarray, approx_tol_px: float = 1.5) -> np.nd
         raise RuntimeError("No contour found in label mask")
     contour = max(contours, key=cv2.contourArea)
     # Pre-simplify in pixel space
-    approx = cv2.approxPolyDP(contour.astype(np.float32), epsilon=approx_tol_px, closed=True)
+    approx = cv2.approxPolyDP(
+        contour.astype(np.float32), epsilon=approx_tol_px, closed=True
+    )
     return approx[:, 0, :].astype(np.float64)
 
 
@@ -180,6 +195,7 @@ def contour_to_polygon(
 # Active-disproof pass (7 tests)
 # ---------------------------------------------------------------------------
 
+
 def disproof_pass(
     ed_name: str,
     poly_geo: Polygon,
@@ -199,10 +215,12 @@ def disproof_pass(
     pad = 15
     x0, y0 = max(0, x - pad), max(0, y - pad)
     x1, y1 = min(W, x + w + pad), min(H, y + h + pad)
-    shifted = (contour_px.astype(np.int32) - np.array([[x0, y0]]))
+    shifted = contour_px.astype(np.int32) - np.array([[x0, y0]])
     outline = np.zeros((y1 - y0, x1 - x0), dtype=np.uint8)
     cv2.drawContours(outline, [shifted], -1, 255, thickness=1)
-    dil = cv2.dilate(outline, cv2.getStructuringElement(cv2.MORPH_RECT, (9, 9)), iterations=1)
+    dil = cv2.dilate(
+        outline, cv2.getStructuringElement(cv2.MORPH_RECT, (9, 9)), iterations=1
+    )
     local_red = red_mask[y0:y1, x0:x1]
     total_red = int(np.count_nonzero(local_red))
     near = int(np.count_nonzero(local_red & dil))
@@ -253,13 +271,14 @@ def disproof_pass(
     # streams and produce different T5 pass/fail flags. sha256 is
     # deterministic across processes and Python versions.
     seed_int = int.from_bytes(
-        hashlib.sha256(ed_name.encode('utf-8')).digest()[:4], 'big'
+        hashlib.sha256(ed_name.encode("utf-8")).digest()[:4], "big"
     )
     rng = np.random.default_rng(seed_int)
     hits = 0
     tries = 0
     while hits < 20 and tries < 2000:
-        px = rng.uniform(minx, maxx); py = rng.uniform(miny, maxy)
+        px = rng.uniform(minx, maxx)
+        py = rng.uniform(miny, maxy)
         if poly_geo.contains(Point(px, py)):
             hits += 1
         tries += 1
@@ -269,13 +288,21 @@ def disproof_pass(
     corners_geo = apply_affine(np.array([[0, 0], [W, 0], [W, H], [0, H]]), M)
     ext_minx, ext_miny = corners_geo[:, 0].min(), corners_geo[:, 1].min()
     ext_maxx, ext_maxy = corners_geo[:, 0].max(), corners_geo[:, 1].max()
-    ok6 = (minx >= ext_minx - 1500 and maxx <= ext_maxx + 1500
-           and miny >= ext_miny - 1500 and maxy <= ext_maxy + 1500)
+    ok6 = (
+        minx >= ext_minx - 1500
+        and maxx <= ext_maxx + 1500
+        and miny >= ext_miny - 1500
+        and maxy <= ext_maxy + 1500
+    )
     tests["t6_bbox_within_thumbnail"] = {
         "pass": bool(ok6),
         "poly_bounds": [round(v, 0) for v in poly_geo.bounds],
-        "thumb_extent": [round(ext_minx, 0), round(ext_miny, 0),
-                         round(ext_maxx, 0), round(ext_maxy, 0)],
+        "thumb_extent": [
+            round(ext_minx, 0),
+            round(ext_miny, 0),
+            round(ext_maxx, 0),
+            round(ext_maxy, 0),
+        ],
     }
 
     # T7: scale consistency
@@ -293,7 +320,9 @@ def disproof_pass(
         "pass": bool(pct < 5.0),
     }
 
-    considered = [k for k, v in tests.items() if isinstance(v, dict) and v.get("pass") is not None]
+    considered = [
+        k for k, v in tests.items() if isinstance(v, dict) and v.get("pass") is not None
+    ]
     n_pass = sum(1 for k in considered if tests[k]["pass"])
     tests["summary"] = {"n_pass": n_pass, "n_considered": len(considered)}
     return tests
@@ -303,8 +332,11 @@ def disproof_pass(
 # Rendering
 # ---------------------------------------------------------------------------
 
+
 def render_verification_panel(
-    ed_name: str, poly_geo: Polygon, v5_geo: Polygon | None,
+    ed_name: str,
+    poly_geo: Polygon,
+    v5_geo: Polygon | None,
     out_path: Path,
 ):
     fig, ax = plt.subplots(figsize=(10, 10))
@@ -314,14 +346,18 @@ def render_verification_panel(
         try:
             if v5_geo.geom_type == "Polygon":
                 vx, vy = v5_geo.exterior.xy
-                ax.plot(vx, vy, "--", color="blue", lw=1.0, alpha=0.65, label="v5 (approx.)")
+                ax.plot(
+                    vx, vy, "--", color="blue", lw=1.0, alpha=0.65, label="v5 (approx.)"
+                )
         except Exception:
             pass
     ax.set_aspect("equal")
     ax.grid(True, alpha=0.2)
     ax.legend(loc="upper right")
-    ax.set_title(f"{ed_name}\nv6 area = {poly_geo.area/1e6:.2f} km²"
-                 f"{'  (v5 = %.2f)' % (v5_geo.area/1e6,) if v5_geo is not None and not v5_geo.is_empty else ''}")
+    ax.set_title(
+        f"{ed_name}\nv6 area = {poly_geo.area/1e6:.2f} km²"
+        f"{'  (v5 = %.2f)' % (v5_geo.area/1e6,) if v5_geo is not None and not v5_geo.is_empty else ''}"
+    )
     ax.set_xlabel("Easting (m, EPSG:3400)")
     ax.set_ylabel("Northing (m, EPSG:3400)")
     fig.tight_layout()
@@ -346,7 +382,9 @@ def render_overlay_qa(
     cv2.polylines(overlay, [pts], isClosed=True, color=(0, 255, 0), thickness=4)
     outline_mask = np.zeros((H, W), dtype=np.uint8)
     cv2.drawContours(outline_mask, [pts], -1, 255, thickness=1)
-    dil = cv2.dilate(outline_mask, cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7)), iterations=1)
+    dil = cv2.dilate(
+        outline_mask, cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7)), iterations=1
+    )
     x, y, w, h = cv2.boundingRect(pts)
     pad = 60
     x0, y0 = max(0, x - pad), max(0, y - pad)
@@ -399,17 +437,25 @@ CAL_MIN_ANCHORS = [
     # Candidate: Calgary-Beddington (north-central Calgary) ~ geo (563146, 5661799)
     (3818, 898, "Calgary-Beddington"),
     # L 3 at (4105, 1140): slightly east of L2; Calgary-Cross? geo (573778, 5656104) ~ NE
-    (4105, 1140, "Calgary-North East"),   # 253k px -> 20.5 km2 (vs Calg-NE=66 km2, wrong); try Cross=15.8
+    (
+        4105,
+        1140,
+        "Calgary-North East",
+    ),  # 253k px -> 20.5 km2 (vs Calg-NE=66 km2, wrong); try Cross=15.8
     # Use Calgary-Klein at L61 (76k -> 6 km2, way off from 37). Hmm.
     # Let me use more reliable anchors:
     # L 14 (218k px -> 17.7 km2 at 9m): Calgary-North (21.2) or Calgary-Mountain View (17.8)
-    (3272, 1552, "Calgary-North"),        # geo (563130, 5667726)
+    (3272, 1552, "Calgary-North"),  # geo (563130, 5667726)
     # L 95 (91k -> 7.4 km2) ~ Calgary-Currie (15.9) or Buffalo (10.5). Let's skip -- too small.
     # L101 (Calgary-De Winton — our target, skip as anchor)
     # L104 (768k -> 62 km2): Calgary-South East? Or very close to it.
-    (5356, 3409, "Calgary-South East"),   # geo (575476, 5634793) — far SE
+    (5356, 3409, "Calgary-South East"),  # geo (575476, 5634793) — far SE
     # L 73 (791k -> 64 km2) ~ Calgary-North East (66). Centroid (4938, 2715) ~ east-central
-    (4938, 2715, "Calgary-Hays"),         # Hays 24 km2 — likely more reliable than "North East"
+    (
+        4938,
+        2715,
+        "Calgary-Hays",
+    ),  # Hays 24 km2 — likely more reliable than "North East"
     # Actually, looking more carefully: L 73 at (4938, 2715) could be Calg-Hays (24) but that's small.
     # Skip this. Use more visually-obvious features.
 ]
@@ -431,11 +477,16 @@ CAL_MIN_ANCHORS = [
 # Main entry
 # ---------------------------------------------------------------------------
 
+
 def main():
     print("[v6] Starting pipeline")
     t_start = time.time()
-    log = {"version": "v6", "timestamp": pd.Timestamp.utcnow().isoformat(),
-           "thumbnails": {}, "per_ed": {}}
+    log = {
+        "version": "v6",
+        "timestamp": pd.Timestamp.utcnow().isoformat(),
+        "thumbnails": {},
+        "per_ed": {},
+    }
 
     # Delegate to per-thumbnail processors that are defined in v6_processors.py
     from shape_refinement_v6_processors import (
@@ -462,10 +513,13 @@ def main():
         except Exception as e:
             print(f"[ERROR] {label}: {e}")
             log["thumbnails"][label] = {"error": str(e)}
-            import traceback; traceback.print_exc()
+            import traceback
+
+            traceback.print_exc()
 
     # Write results (delegated)
     from shape_refinement_v6_writer import write_outputs
+
     write_outputs(results, log)
 
     print(f"\n[v6] Done in {time.time()-t_start:.1f} s")

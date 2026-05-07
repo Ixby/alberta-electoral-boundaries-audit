@@ -20,6 +20,7 @@ Outputs
   data/va_polygons_with_full_2023_votes.gpkg
   analysis/advance_vote_splat_diagnostics.csv
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -38,10 +39,10 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # ---------------------------------------------------------------------------
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..", "..")
-POLLS_CSV   = os.path.join(HERE, "polls_2023_unified.csv")
-VA_GPKG_IN  = os.path.join(ROOT, "data", "va_polygons_with_2023_votes.gpkg")
+POLLS_CSV = os.path.join(HERE, "polls_2023_unified.csv")
+VA_GPKG_IN = os.path.join(ROOT, "data", "va_polygons_with_2023_votes.gpkg")
 VA_GPKG_OUT = os.path.join(ROOT, "data", "va_polygons_with_full_2023_votes.gpkg")
-DIAG_CSV    = os.path.join(HERE, "advance_vote_splat_diagnostics.csv")
+DIAG_CSV = os.path.join(HERE, "advance_vote_splat_diagnostics.csv")
 
 
 # ===========================================================================
@@ -51,7 +52,9 @@ print("=" * 70)
 print("STEP 1 — Loading polls file")
 print("=" * 70)
 
-polls = pd.read_csv(POLLS_CSV, dtype={"sheet_num": str, "voting_areas": str}, encoding="cp1252")
+polls = pd.read_csv(
+    POLLS_CSV, dtype={"sheet_num": str, "voting_areas": str}, encoding="cp1252"
+)
 
 # Coerce vote columns to numeric (in case of blanks)
 for col in ("ndp_votes", "ucp_votes", "other_votes", "valid_votes"):
@@ -73,22 +76,28 @@ vote_by_type = (
 vote_by_type["two_party"] = vote_by_type["ndp_votes"] + vote_by_type["ucp_votes"]
 print(vote_by_type.to_string())
 
-total_ndp_all   = polls["ndp_votes"].sum()
-total_ucp_all   = polls["ucp_votes"].sum()
+total_ndp_all = polls["ndp_votes"].sum()
+total_ucp_all = polls["ucp_votes"].sum()
 total_other_all = polls["other_votes"].sum()
 total_votes_all = total_ndp_all + total_ucp_all + total_other_all
-print(f"\nGrand totals  NDP={total_ndp_all:,}  UCP={total_ucp_all:,}  "
-      f"Other={total_other_all:,}  Total={total_votes_all:,}")
+print(
+    f"\nGrand totals  NDP={total_ndp_all:,}  UCP={total_ucp_all:,}  "
+    f"Other={total_other_all:,}  Total={total_votes_all:,}"
+)
 
 # Warning: rows where voting_areas is NaN / empty (expected for non-ED polls)
 missing_va = polls["voting_areas"].isna() | (polls["voting_areas"].str.strip() == "")
 n_missing = missing_va.sum()
 n_elec_missing = (missing_va & (polls["ballot_type"] == "Election Day")).sum()
-print(f"\nRows with missing voting_areas: {n_missing:,} "
-      f"(of which Election Day: {n_elec_missing})")
+print(
+    f"\nRows with missing voting_areas: {n_missing:,} "
+    f"(of which Election Day: {n_elec_missing})"
+)
 if n_elec_missing > 0:
-    print("  WARNING: Some Election Day rows have no voting_areas — "
-          "those VAs cannot carry weights.")
+    print(
+        "  WARNING: Some Election Day rows have no voting_areas — "
+        "those VAs cannot carry weights."
+    )
 
 
 # ===========================================================================
@@ -109,16 +118,18 @@ print(f"  Columns: {list(va_gdf.columns)}")
 # Double-check they exist
 for col in ("va_ndp", "va_ucp", "va_other"):
     if col not in va_gdf.columns:
-        sys.exit(f"ERROR: Column '{col}' not found in VA substrate. "
-                 f"Found: {list(va_gdf.columns)}")
+        sys.exit(
+            f"ERROR: Column '{col}' not found in VA substrate. "
+            f"Found: {list(va_gdf.columns)}"
+        )
 
 # Build a lookup:  (parent_ed_2019, VA_NUMBER_int)  ->  (va_ndp, va_ucp, va_other)
 va_lookup = {}
 for _, row in va_gdf.iterrows():
     key = (row["parent_ed_2019"], int(row["VA_NUMBER"]))
     va_lookup[key] = {
-        "va_ndp":   float(row["va_ndp"]),
-        "va_ucp":   float(row["va_ucp"]),
+        "va_ndp": float(row["va_ndp"]),
+        "va_ucp": float(row["va_ucp"]),
         "va_other": float(row["va_other"]),
     }
 
@@ -134,12 +145,13 @@ print(f"  VA lookup built: {len(va_lookup):,} entries")
 # ---------------------------------------------------------------------------
 
 # Accumulators:  va_key -> {apportioned_ndp, apportioned_ucp, apportioned_other}
-apportioned = {}   # keyed by (ed_2019, va_num_int)
+apportioned = {}  # keyed by (ed_2019, va_num_int)
 
 # Separate ED and non-ED polls
-mask_ed  = polls["ballot_type"] == "Election Day"
+mask_ed = polls["ballot_type"] == "Election Day"
 polls_ed = polls[mask_ed].copy()
 polls_non_ed = polls[~mask_ed].copy()
+
 
 # Build group -> VA list from Election-Day polls
 # Group key: (ed_2019, sheet_num)
@@ -149,6 +161,7 @@ def parse_vas(va_str):
     if pd.isna(va_str) or str(va_str).strip() == "":
         return []
     return [int(x.strip()) for x in str(va_str).split(",") if x.strip().isdigit()]
+
 
 # Build group lookup: (ed_2019, sheet_num) -> sorted list of unique VA ints
 group_va_map = {}
@@ -169,12 +182,12 @@ n_polls_distributed = 0
 n_polls_skipped = 0
 
 for _, non_ed_row in polls_non_ed.iterrows():
-    ed   = non_ed_row["ed_2019"]
+    ed = non_ed_row["ed_2019"]
     snum = non_ed_row["sheet_num"]
-    gk   = (ed, snum)
+    gk = (ed, snum)
 
-    ndp_poll   = non_ed_row["ndp_votes"]
-    ucp_poll   = non_ed_row["ucp_votes"]
+    ndp_poll = non_ed_row["ndp_votes"]
+    ucp_poll = non_ed_row["ucp_votes"]
     other_poll = non_ed_row["other_votes"]
     total_poll = ndp_poll + ucp_poll + other_poll
 
@@ -226,8 +239,8 @@ for _, non_ed_row in polls_non_ed.iterrows():
         ak = (ed, va_num)
         if ak not in apportioned:
             apportioned[ak] = {"ndp": 0.0, "ucp": 0.0, "other": 0.0}
-        apportioned[ak]["ndp"]   += ndp_poll   * share
-        apportioned[ak]["ucp"]   += ucp_poll   * share
+        apportioned[ak]["ndp"] += ndp_poll * share
+        apportioned[ak]["ucp"] += ucp_poll * share
         apportioned[ak]["other"] += other_poll * share
 
     n_polls_distributed += 1
@@ -237,11 +250,13 @@ print(f"  Non-ED polls skipped (zero votes or no group match): {n_polls_skipped:
 print(f"  VA lookup misses during weighting: {n_unmatched_vas:,}")
 
 # Verify apportioned totals
-app_ndp   = sum(v["ndp"]   for v in apportioned.values())
-app_ucp   = sum(v["ucp"]   for v in apportioned.values())
+app_ndp = sum(v["ndp"] for v in apportioned.values())
+app_ucp = sum(v["ucp"] for v in apportioned.values())
 app_other = sum(v["other"] for v in apportioned.values())
-print(f"\n  Apportioned totals:  NDP={app_ndp:,.1f}  UCP={app_ucp:,.1f}  "
-      f"Other={app_other:,.1f}")
+print(
+    f"\n  Apportioned totals:  NDP={app_ndp:,.1f}  UCP={app_ucp:,.1f}  "
+    f"Other={app_other:,.1f}"
+)
 
 
 # ===========================================================================
@@ -254,25 +269,25 @@ print("=" * 70)
 # Build new columns on va_gdf
 va_gdf = va_gdf.copy()
 
-full_ndp_list   = []
-full_ucp_list   = []
+full_ndp_list = []
+full_ucp_list = []
 full_other_list = []
-app_ndp_list    = []
-app_ucp_list    = []
-app_other_list  = []
+app_ndp_list = []
+app_ucp_list = []
+app_other_list = []
 
 for _, row in va_gdf.iterrows():
-    ed     = row["parent_ed_2019"]
+    ed = row["parent_ed_2019"]
     va_num = int(row["VA_NUMBER"])
-    ak     = (ed, va_num)
+    ak = (ed, va_num)
 
-    ed_ndp   = float(row["va_ndp"])
-    ed_ucp   = float(row["va_ucp"])
+    ed_ndp = float(row["va_ndp"])
+    ed_ucp = float(row["va_ucp"])
     ed_other = float(row["va_other"])
 
-    app  = apportioned.get(ak, {"ndp": 0.0, "ucp": 0.0, "other": 0.0})
-    a_ndp   = app["ndp"]
-    a_ucp   = app["ucp"]
+    app = apportioned.get(ak, {"ndp": 0.0, "ucp": 0.0, "other": 0.0})
+    a_ndp = app["ndp"]
+    a_ucp = app["ucp"]
     a_other = app["other"]
 
     full_ndp_list.append(ed_ndp + a_ndp)
@@ -282,8 +297,8 @@ for _, row in va_gdf.iterrows():
     app_ucp_list.append(a_ucp)
     app_other_list.append(a_other)
 
-va_gdf["va_ndp_full"]   = full_ndp_list
-va_gdf["va_ucp_full"]   = full_ucp_list
+va_gdf["va_ndp_full"] = full_ndp_list
+va_gdf["va_ucp_full"] = full_ucp_list
 va_gdf["va_other_full"] = full_other_list
 
 # Write GeoPackage
@@ -294,30 +309,32 @@ print("  Done.")
 # ---- Diagnostics CSV ----
 diag_rows = []
 for i, row in va_gdf.iterrows():
-    ed     = row["parent_ed_2019"]
+    ed = row["parent_ed_2019"]
     va_num = int(row["VA_NUMBER"])
 
-    ed_ndp   = float(row["va_ndp"])
-    ed_ucp   = float(row["va_ucp"])
-    a_ndp    = app_ndp_list[i]
-    a_ucp    = app_ucp_list[i]
-    a_other  = app_other_list[i]
-    f_ndp    = float(row["va_ndp_full"])
-    f_ucp    = float(row["va_ucp_full"])
+    ed_ndp = float(row["va_ndp"])
+    ed_ucp = float(row["va_ucp"])
+    a_ndp = app_ndp_list[i]
+    a_ucp = app_ucp_list[i]
+    a_other = app_other_list[i]
+    f_ndp = float(row["va_ndp_full"])
+    f_ucp = float(row["va_ucp_full"])
 
     pct_adv_ndp = (a_ndp / f_ndp * 100) if f_ndp > 0 else 0.0
 
-    diag_rows.append({
-        "parent_ed_2019":        ed,
-        "VA_NUMBER":             va_num,
-        "election_day_ndp":      ed_ndp,
-        "election_day_ucp":      ed_ucp,
-        "apportioned_advance_ndp": a_ndp,
-        "apportioned_advance_ucp": a_ucp,
-        "full_ndp":              f_ndp,
-        "full_ucp":              f_ucp,
-        "pct_advance_ndp":       round(pct_adv_ndp, 2),
-    })
+    diag_rows.append(
+        {
+            "parent_ed_2019": ed,
+            "VA_NUMBER": va_num,
+            "election_day_ndp": ed_ndp,
+            "election_day_ucp": ed_ucp,
+            "apportioned_advance_ndp": a_ndp,
+            "apportioned_advance_ucp": a_ucp,
+            "full_ndp": f_ndp,
+            "full_ucp": f_ucp,
+            "pct_advance_ndp": round(pct_adv_ndp, 2),
+        }
+    )
 
 diag_df = pd.DataFrame(diag_rows)
 diag_df.to_csv(DIAG_CSV, index=False)
@@ -333,32 +350,38 @@ print("STEP 4 — Validation")
 print("=" * 70)
 
 # Full-substrate totals
-sub_full_ndp   = va_gdf["va_ndp_full"].sum()
-sub_full_ucp   = va_gdf["va_ucp_full"].sum()
+sub_full_ndp = va_gdf["va_ndp_full"].sum()
+sub_full_ucp = va_gdf["va_ucp_full"].sum()
 sub_full_other = va_gdf["va_other_full"].sum()
 sub_full_total = sub_full_ndp + sub_full_ucp + sub_full_other
 
 # Reference totals from polls CSV (all ballot types)
-ref_ndp   = total_ndp_all
-ref_ucp   = total_ucp_all
+ref_ndp = total_ndp_all
+ref_ucp = total_ucp_all
 ref_other = total_other_all
 ref_total = ref_ndp + ref_ucp + ref_other
 
 print("\n--- Conservation check ---")
-print(f"  Polls CSV total  NDP={ref_ndp:,.1f}  UCP={ref_ucp:,.1f}  "
-      f"Other={ref_other:,.1f}  Total={ref_total:,.1f}")
-print(f"  VA substrate full NDP={sub_full_ndp:,.1f}  UCP={sub_full_ucp:,.1f}  "
-      f"Other={sub_full_other:,.1f}  Total={sub_full_total:,.1f}")
+print(
+    f"  Polls CSV total  NDP={ref_ndp:,.1f}  UCP={ref_ucp:,.1f}  "
+    f"Other={ref_other:,.1f}  Total={ref_total:,.1f}"
+)
+print(
+    f"  VA substrate full NDP={sub_full_ndp:,.1f}  UCP={sub_full_ucp:,.1f}  "
+    f"Other={sub_full_other:,.1f}  Total={sub_full_total:,.1f}"
+)
 
-delta_ndp   = sub_full_ndp   - ref_ndp
-delta_ucp   = sub_full_ucp   - ref_ucp
+delta_ndp = sub_full_ndp - ref_ndp
+delta_ucp = sub_full_ucp - ref_ucp
 delta_other = sub_full_other - ref_other
 delta_total = sub_full_total - ref_total
 
-print(f"  Delta  NDP={delta_ndp:+.1f}  UCP={delta_ucp:+.1f}  "
-      f"Other={delta_other:+.1f}  Total={delta_total:+.1f}")
+print(
+    f"  Delta  NDP={delta_ndp:+.1f}  UCP={delta_ucp:+.1f}  "
+    f"Other={delta_other:+.1f}  Total={delta_total:+.1f}"
+)
 
-tol = 1.0   # allow up to 1 vote of floating-point drift
+tol = 1.0  # allow up to 1 vote of floating-point drift
 if abs(delta_ndp) <= tol and abs(delta_ucp) <= tol and abs(delta_total) <= tol:
     print("  CONSERVATION PASS: NDP, UCP, and total match within rounding tolerance.")
 else:
@@ -371,10 +394,14 @@ ed_share = ed_only_ndp / (ed_only_ndp + ed_only_ucp) * 100
 full_share = sub_full_ndp / (sub_full_ndp + sub_full_ucp) * 100
 
 print("\n--- Province-wide NDP share ---")
-print(f"  Election-Day-only substrate:  {ed_share:.2f}%  "
-      f"({ed_only_ndp:,.0f} NDP / {ed_only_ndp + ed_only_ucp:,.0f} two-party)")
-print(f"  Full (inc. advance/special):  {full_share:.2f}%  "
-      f"({sub_full_ndp:,.0f} NDP / {sub_full_ndp + sub_full_ucp:,.0f} two-party)")
+print(
+    f"  Election-Day-only substrate:  {ed_share:.2f}%  "
+    f"({ed_only_ndp:,.0f} NDP / {ed_only_ndp + ed_only_ucp:,.0f} two-party)"
+)
+print(
+    f"  Full (inc. advance/special):  {full_share:.2f}%  "
+    f"({sub_full_ndp:,.0f} NDP / {sub_full_ndp + sub_full_ucp:,.0f} two-party)"
+)
 print(f"  Difference: {full_share - ed_share:+.2f} pp")
 
 print("\n" + "=" * 70)

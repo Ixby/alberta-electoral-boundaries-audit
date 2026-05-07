@@ -14,6 +14,7 @@ Dependencies:
   Forward:  data/shapefiles/derived/v0_8_canonical_*_2026_eds.gpkg
   Backward: data/v0_1_v8_overlap_pairs_*.csv
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -60,14 +61,16 @@ def diagnose(plan: str) -> pd.DataFrame:
                     continue
                 a = inter.area
                 if a > 1.0:  # square metres in EPSG:3401
-                    rows.append({
-                        "ed_a": names[i],
-                        "ed_b": names[j],
-                        "overlap_km2": a / 1e6,
-                        "ed_a_km2": geoms[i].area / 1e6,
-                        "ed_b_km2": geoms[j].area / 1e6,
-                        "frac_of_smaller": a / min(geoms[i].area, geoms[j].area),
-                    })
+                    rows.append(
+                        {
+                            "ed_a": names[i],
+                            "ed_b": names[j],
+                            "overlap_km2": a / 1e6,
+                            "ed_a_km2": geoms[i].area / 1e6,
+                            "ed_b_km2": geoms[j].area / 1e6,
+                            "frac_of_smaller": a / min(geoms[i].area, geoms[j].area),
+                        }
+                    )
 
         if not rows:
             print("  no overlaps > 1 m²")
@@ -81,10 +84,14 @@ def diagnose(plan: str) -> pd.DataFrame:
         print(f"  total overlap area: {df['overlap_km2'].sum():.4f} km²")
         print(f"  largest 10:")
         for _, r in df.head(10).iterrows():
-            print(f"    {r['overlap_km2']:>10.4f} km²  {r['ed_a']:<35s} ∩ {r['ed_b']:<35s}  "
-                  f"frac_of_smaller={r['frac_of_smaller']:.4f}")
+            print(
+                f"    {r['overlap_km2']:>10.4f} km²  {r['ed_a']:<35s} ∩ {r['ed_b']:<35s}  "
+                f"frac_of_smaller={r['frac_of_smaller']:.4f}"
+            )
         print(f"  wrote {out.name}")
-        t.note = f"{n} EDs, {len(df)} overlap pairs, {df['overlap_km2'].sum():.2f} km² total"
+        t.note = (
+            f"{n} EDs, {len(df)} overlap pairs, {df['overlap_km2'].sum():.2f} km² total"
+        )
     return df
 
 

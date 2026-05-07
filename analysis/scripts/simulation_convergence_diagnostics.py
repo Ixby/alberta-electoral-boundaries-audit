@@ -17,6 +17,7 @@ Re-runnable: works against a partial run (any sample count >= 4 per chain).
 The script reports the sample count used per chain so a later check can
 distinguish in-progress diagnostics from final-run diagnostics.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -54,14 +55,26 @@ def gelman_rubin_rhat(chains: list[np.ndarray]) -> dict:
     cleaned = [c[~np.isnan(c)] for c in cleaned]
     m = len(cleaned)
     if m < 2:
-        return {"m": m, "n": 0, "rhat": float("nan"),
-                "B": float("nan"), "W": float("nan"), "V_hat": float("nan"),
-                "note": "Rhat needs at least 2 chains"}
+        return {
+            "m": m,
+            "n": 0,
+            "rhat": float("nan"),
+            "B": float("nan"),
+            "W": float("nan"),
+            "V_hat": float("nan"),
+            "note": "Rhat needs at least 2 chains",
+        }
     n = min(len(c) for c in cleaned)
     if n < 4:
-        return {"m": m, "n": int(n), "rhat": float("nan"),
-                "B": float("nan"), "W": float("nan"), "V_hat": float("nan"),
-                "note": "Rhat needs at least 4 samples per chain"}
+        return {
+            "m": m,
+            "n": int(n),
+            "rhat": float("nan"),
+            "B": float("nan"),
+            "W": float("nan"),
+            "V_hat": float("nan"),
+            "note": "Rhat needs at least 4 samples per chain",
+        }
     # Truncate all chains to the shortest length so within-chain variance
     # is computed over identical sample counts (standard practice).
     arr = np.array([c[:n] for c in cleaned])  # shape (m, n)
@@ -77,9 +90,15 @@ def gelman_rubin_rhat(chains: list[np.ndarray]) -> dict:
     within = chain_vars.mean()
 
     if within <= 0 or not np.isfinite(within):
-        return {"m": m, "n": int(n), "rhat": float("nan"),
-                "B": float(between), "W": float(within), "V_hat": float("nan"),
-                "note": "W is zero or non-finite (chain may be degenerate)"}
+        return {
+            "m": m,
+            "n": int(n),
+            "rhat": float("nan"),
+            "B": float(between),
+            "W": float(within),
+            "V_hat": float("nan"),
+            "note": "W is zero or non-finite (chain may be degenerate)",
+        }
 
     # V-hat: pooled estimate of the marginal posterior variance
     v_hat = ((n - 1) / n) * within + (1.0 / n) * between
@@ -120,7 +139,9 @@ def main() -> int:
         per_chain_ess = []
         for i, df in enumerate(chain_dfs):
             if metric not in df.columns:
-                raise KeyError(f"{metric} missing from chain{i}_samples.csv columns: {list(df.columns)}")
+                raise KeyError(
+                    f"{metric} missing from chain{i}_samples.csv columns: {list(df.columns)}"
+                )
             d = autocorrelation_ess(df[metric].to_numpy())
             d["chain_idx"] = i
             per_chain_ess.append(d)
@@ -134,10 +155,18 @@ def main() -> int:
         )
 
         per_chain_neff_total = sum(
-            (d["n_eff"] for d in per_chain_ess if np.isfinite(d.get("n_eff", float("nan"))))
+            (
+                d["n_eff"]
+                for d in per_chain_ess
+                if np.isfinite(d.get("n_eff", float("nan")))
+            )
         )
         worst_per_chain_ess = min(
-            (d["n_eff"] for d in per_chain_ess if np.isfinite(d.get("n_eff", float("nan")))),
+            (
+                d["n_eff"]
+                for d in per_chain_ess
+                if np.isfinite(d.get("n_eff", float("nan")))
+            ),
             default=float("nan"),
         )
         out["metrics"][metric] = {
@@ -150,14 +179,20 @@ def main() -> int:
 
         rhat_val = rhat.get("rhat", float("nan"))
         verdict = (
-            "GOLD < 1.05" if rhat_val < 1.05
-            else "PUBLISH < 1.10" if rhat_val < 1.10
-            else "REVISE >= 1.10"
-        ) if np.isfinite(rhat_val) else "N/A"
-        print(f"  {metric:18s}  worst-chain ESS={worst_per_chain_ess:>9.1f}  "
-              f"sum-per-chain ESS={per_chain_neff_total:>10.1f}  "
-              f"pooled (inflated) ESS={pooled.get('n_eff', float('nan')):>10.1f}  "
-              f"Rhat={rhat_val:.4f}  [{verdict}]")
+            (
+                "GOLD < 1.05"
+                if rhat_val < 1.05
+                else "PUBLISH < 1.10" if rhat_val < 1.10 else "REVISE >= 1.10"
+            )
+            if np.isfinite(rhat_val)
+            else "N/A"
+        )
+        print(
+            f"  {metric:18s}  worst-chain ESS={worst_per_chain_ess:>9.1f}  "
+            f"sum-per-chain ESS={per_chain_neff_total:>10.1f}  "
+            f"pooled (inflated) ESS={pooled.get('n_eff', float('nan')):>10.1f}  "
+            f"Rhat={rhat_val:.4f}  [{verdict}]"
+        )
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(out, indent=2))

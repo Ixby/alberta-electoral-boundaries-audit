@@ -30,6 +30,7 @@ Backward:
   data/v0_1_refined_v6_minority_2026_eds.gpkg
   gerrychain, geopandas, matplotlib, numpy, pandas
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -44,6 +45,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -78,6 +80,7 @@ CONVERGENCE_JSON_100K = DATA / "simulation_convergence_diagnostics_100k.json"
 
 # ---- convergence diagnostics -----------------------------------------------
 
+
 def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     """Compute integrated autocorrelation time and effective sample size.
 
@@ -90,14 +93,22 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     x = x[~np.isnan(x)]
     n = len(x)
     if n < 4:
-        return {"n": int(n), "tau": float("nan"), "n_eff": float("nan"),
-                "max_lag_used": 0}
+        return {
+            "n": int(n),
+            "tau": float("nan"),
+            "n_eff": float("nan"),
+            "max_lag_used": 0,
+        }
 
     x_centered = x - x.mean()
     var0 = np.dot(x_centered, x_centered) / n
     if var0 == 0 or not np.isfinite(var0):
-        return {"n": int(n), "tau": float("nan"), "n_eff": float("nan"),
-                "max_lag_used": 0}
+        return {
+            "n": int(n),
+            "tau": float("nan"),
+            "n_eff": float("nan"),
+            "max_lag_used": 0,
+        }
 
     if max_lag is None:
         max_lag = min(n // 4, 2000)
@@ -131,8 +142,7 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     }
 
 
-def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
-                      label: str):
+def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path, label: str):
     v = np.asarray(values, dtype=float)
     v = v[~np.isnan(v)]
     if len(v) == 0:
@@ -142,8 +152,13 @@ def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
 
     fig, ax = plt.subplots(figsize=(9, 4.5))
     ax.plot(idx, rmean, color="#1f2937", linewidth=1.0)
-    ax.axhline(v.mean(), linestyle="--", color="#888", linewidth=0.8,
-               label=f"final mean = {v.mean():+.5f}")
+    ax.axhline(
+        v.mean(),
+        linestyle="--",
+        color="#888",
+        linewidth=0.8,
+        label=f"final mean = {v.mean():+.5f}",
+    )
     ax.set_xlabel("Sample index")
     ax.set_ylabel(f"Running mean of {label}")
     ax.set_title(f"Running mean — {label}  (100k ReCom samples, seed 42)")
@@ -156,15 +171,25 @@ def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
 
 # ---- main -------------------------------------------------------------------
 
-def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None, pop_deviation: float = 0.25):
+
+def main(
+    n_steps: int = 100000,
+    seed: int = None,
+    thin_every: int | None = None,
+    pop_deviation: float = 0.25,
+):
     from drand_seed import get_canonical_seed
+
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble_100k")
     np.random.seed(seed)
     import random as _random
+
     _random.seed(seed)
 
     t_start = time.time()
-    print(f"[{time.strftime('%H:%M:%S')}] 100k ensemble run starting — n_steps={n_steps}, seed={seed}, pop_deviation=±{pop_deviation:.0%}")
+    print(
+        f"[{time.strftime('%H:%M:%S')}] 100k ensemble run starting — n_steps={n_steps}, seed={seed}, pop_deviation=±{pop_deviation:.0%}"
+    )
 
     va, graph = build_va_graph()
 
@@ -174,9 +199,11 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
     print(f"  2019 baseline districts (from parent_ed_2019): {len(districts_2019)}")
 
     # -- Real-map scores
-    agg = va.groupby("parent_ed_2019").agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-    ).reset_index()
+    agg = (
+        va.groupby("parent_ed_2019")
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     m_2019 = seat_results(agg["ucp"].values, agg["ndp"].values)
     m_2019["source"] = "2019_enacted_VA_agg"
     m_2019["coverage_vas"] = int(len(va))
@@ -205,18 +232,24 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
     print()
     print("  --- Real-map scores (pre-ensemble) ---")
     for name, m in [("2019 enacted", m_2019), (maj_label, m_maj), (min_label, m_min)]:
-        print(f"    {name}: seats={m['ucp_seats']}/{m['n_districts']}  "
-              f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
-              f"decl={m['declination']:+.4f}  s50={m['seats_at_50_50']:.3f}  "
-              f"ucp_share={m['ucp_vote_share']:.3f}  cov={m['coverage_pct']:.2%}")
+        print(
+            f"    {name}: seats={m['ucp_seats']}/{m['n_districts']}  "
+            f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
+            f"decl={m['declination']:+.4f}  s50={m['seats_at_50_50']:.3f}  "
+            f"ucp_share={m['ucp_vote_share']:.3f}  cov={m['coverage_pct']:.2%}"
+        )
 
     # -- Run chain
     print()
     print(f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps)...")
-    rows = run_ensemble(graph, assignment, n_steps, pop_deviation=pop_deviation, seed=seed)
+    rows = run_ensemble(
+        graph, assignment, n_steps, pop_deviation=pop_deviation, seed=seed
+    )
     df = pd.DataFrame(rows)
     df.to_csv(SAMPLES_CSV_100K, index=False)
-    print(f"  wrote {SAMPLES_CSV_100K} ({len(df)} samples) in {time.time()-t_start:.0f}s total")
+    print(
+        f"  wrote {SAMPLES_CSV_100K} ({len(df)} samples) in {time.time()-t_start:.0f}s total"
+    )
 
     # -- Optional thinning
     df_full = df
@@ -238,12 +271,15 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
     for key, label in metrics_config:
         diag = autocorrelation_ess(df_full[key].values)
         conv[key] = diag
-        print(f"    {key:<18s} n={diag['n']}  tau={diag['tau']:.2f}  "
-              f"n_eff={diag['n_eff']:.0f}  rho1={diag['rho_lag_1']:+.3f}  "
-              f"rho10={diag['rho_lag_10']:+.3f}  rho100={diag['rho_lag_100']:+.3f}  "
-              f"max_lag={diag['max_lag_used']}")
+        print(
+            f"    {key:<18s} n={diag['n']}  tau={diag['tau']:.2f}  "
+            f"n_eff={diag['n_eff']:.0f}  rho1={diag['rho_lag_1']:+.3f}  "
+            f"rho10={diag['rho_lag_10']:+.3f}  rho100={diag['rho_lag_100']:+.3f}  "
+            f"max_lag={diag['max_lag_used']}"
+        )
         plot_running_mean(
-            key, df_full[key].values,
+            key,
+            df_full[key].values,
             MAPS / f"running_mean_100k_{key}.svg",
             label,
         )
@@ -262,19 +298,30 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
     summary = []
     for key, label in metrics_config:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
-        plot_metric(key, label, df_full[key].values, real_vals,
-                    MAPS / f"ensemble_distribution_100k_{key}.svg")
+        plot_metric(
+            key,
+            label,
+            df_full[key].values,
+            real_vals,
+            MAPS / f"ensemble_distribution_100k_{key}.svg",
+        )
         for map_name, val in real_vals.items():
-            pr = pct_rank(df_full[key].dropna().values, val) if not np.isnan(val) else float("nan")
-            summary.append({
-                "metric": key,
-                "map": map_name,
-                "value": val,
-                "percentile": pr,
-                "ensemble_p5": float(np.nanpercentile(df_full[key], 5)),
-                "ensemble_p50": float(np.nanpercentile(df_full[key], 50)),
-                "ensemble_p95": float(np.nanpercentile(df_full[key], 95)),
-            })
+            pr = (
+                pct_rank(df_full[key].dropna().values, val)
+                if not np.isnan(val)
+                else float("nan")
+            )
+            summary.append(
+                {
+                    "metric": key,
+                    "map": map_name,
+                    "value": val,
+                    "percentile": pr,
+                    "ensemble_p5": float(np.nanpercentile(df_full[key], 5)),
+                    "ensemble_p50": float(np.nanpercentile(df_full[key], 50)),
+                    "ensemble_p95": float(np.nanpercentile(df_full[key], 95)),
+                }
+            )
 
     summary_df = pd.DataFrame(summary)
     summary_df.to_csv(PERCENTILES_CSV_100K, index=False)
@@ -282,9 +329,14 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
 
     print()
     print("  --- Per-metric percentiles (real maps vs 100k ensemble) ---")
-    with pd.option_context("display.float_format", "{:+.4f}".format,
-                           "display.max_rows", None,
-                           "display.width", 160):
+    with pd.option_context(
+        "display.float_format",
+        "{:+.4f}".format,
+        "display.max_rows",
+        None,
+        "display.width",
+        160,
+    ):
         print(summary_df.to_string(index=False))
 
     # -- Persist scores JSON
@@ -313,20 +365,37 @@ def main(n_steps: int = 100000, seed: int = None, thin_every: int | None = None,
         print()
         print("  *** OUTLIER FLAGS (>=95th or <=5th percentile) ***")
         for fl in flags:
-            print(f"    {fl['map']:<32s} {fl['metric']:<18s} value={fl['value']:+.4f}  p={fl['percentile']:.1f}")
+            print(
+                f"    {fl['map']:<32s} {fl['metric']:<18s} value={fl['value']:+.4f}  p={fl['percentile']:.1f}"
+            )
 
     print()
-    print(f"[{time.strftime('%H:%M:%S')}] done. total wall time {time.time()-t_start:.0f}s")
+    print(
+        f"[{time.strftime('%H:%M:%S')}] done. total wall time {time.time()-t_start:.0f}s"
+    )
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--n-steps", type=int, default=100000)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--thin-every", type=int, default=None,
-                        help="Optional thinning factor (e.g., 10). Default: no thinning.")
-    parser.add_argument("--pop-deviation", type=float, default=0.25,
-                        help="Population deviation tolerance (default 0.25 = ±25%%). Use 0.15 for tighter constraint test.")
+    parser.add_argument(
+        "--thin-every",
+        type=int,
+        default=None,
+        help="Optional thinning factor (e.g., 10). Default: no thinning.",
+    )
+    parser.add_argument(
+        "--pop-deviation",
+        type=float,
+        default=0.25,
+        help="Population deviation tolerance (default 0.25 = ±25%%). Use 0.15 for tighter constraint test.",
+    )
     args = parser.parse_args()
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
-    main(n_steps=args.n_steps, seed=args.seed, thin_every=args.thin_every, pop_deviation=args.pop_deviation)
+    main(
+        n_steps=args.n_steps,
+        seed=args.seed,
+        thin_every=args.thin_every,
+        pop_deviation=args.pop_deviation,
+    )

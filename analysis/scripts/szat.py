@@ -58,15 +58,15 @@ import pandas as pd
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 
-ROOT    = Path(__file__).resolve().parent.parent.parent
-DATA    = ROOT / "data"
+ROOT = Path(__file__).resolve().parent.parent.parent
+DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 REPORTS.mkdir(parents=True, exist_ok=True)
 
-VA_FILE  = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
+VA_FILE = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 MAJ_FILE = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 MIN_FILE = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
-OUT_CSV  = REPORTS / "szat_results.csv"
+OUT_CSV = REPORTS / "szat_results.csv"
 OUT_JSON = REPORTS / "szat_summary.json"
 
 N_BOOT = 10_000
@@ -82,14 +82,18 @@ FOCAL_EDS = {
 
 # ── Region classifier ──────────────────────────────────────────────────────────
 
+
 def _region(ed_name: str) -> str:
     if ed_name.startswith(("Calgary-", "Calgary–")):
         return "Calgary"
     if ed_name.startswith(("Edmonton-", "Edmonton–")):
         return "Edmonton"
     if ed_name in {
-        "Canmore-Banff", "Canmore-Kananaskis", "Rocky Mountain House-Banff Park",
-        "Lacombe-Clearwater", "Rimbey-Rocky Mountain House-Sundre",
+        "Canmore-Banff",
+        "Canmore-Kananaskis",
+        "Rocky Mountain House-Banff Park",
+        "Lacombe-Clearwater",
+        "Rimbey-Rocky Mountain House-Sundre",
         "Banff-Kananaskis",
     }:
         return "Mountain-West"
@@ -97,6 +101,7 @@ def _region(ed_name: str) -> str:
 
 
 # ── Efficiency gap helpers ─────────────────────────────────────────────────────
+
 
 def _ed_waste(ndp: float, ucp: float) -> tuple[float, float]:
     """
@@ -151,7 +156,7 @@ def va_eg_contribution(
     if ed_ndp >= ed_ucp:  # NDP wins this ED
         w_ndp = (va_ndp / ed_ndp) * max(0.0, ed_ndp - threshold) if ed_ndp > 0 else 0.0
         w_ucp = va_ucp
-    else:                 # UCP wins this ED
+    else:  # UCP wins this ED
         w_ucp = (va_ucp / ed_ucp) * max(0.0, ed_ucp - threshold) if ed_ucp > 0 else 0.0
         w_ndp = va_ndp
 
@@ -159,6 +164,7 @@ def va_eg_contribution(
 
 
 # ── Spatial join ───────────────────────────────────────────────────────────────
+
 
 def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
     """
@@ -170,8 +176,9 @@ def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
     centroids = va_gdf[["geometry"]].copy()
     centroids["geometry"] = va_gdf.geometry.centroid
 
-    joined = gpd.sjoin(centroids, ed_gdf[["EDName2025", "geometry"]],
-                       how="left", predicate="within")
+    joined = gpd.sjoin(
+        centroids, ed_gdf[["EDName2025", "geometry"]], how="left", predicate="within"
+    )
 
     unresolved_mask = joined["EDName2025"].isna()
     n_unresolved = int(unresolved_mask.sum())
@@ -190,9 +197,10 @@ def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
+
 def run() -> None:
     print("Loading shapefiles...")
-    va_gdf  = gpd.read_file(VA_FILE)
+    va_gdf = gpd.read_file(VA_FILE)
     maj_gdf = gpd.read_file(MAJ_FILE)
     min_gdf = gpd.read_file(MIN_FILE)
 
@@ -200,7 +208,9 @@ def run() -> None:
         if gdf.crs != va_gdf.crs:
             gdf.to_crs(va_gdf.crs, inplace=True)
 
-    print(f"  VAs: {len(va_gdf)}, majority EDs: {len(maj_gdf)}, minority EDs: {len(min_gdf)}")
+    print(
+        f"  VAs: {len(va_gdf)}, majority EDs: {len(maj_gdf)}, minority EDs: {len(min_gdf)}"
+    )
 
     print("Assigning VA centroids -> majority EDs...")
     majority_ed = _assign(va_gdf, maj_gdf)
@@ -209,15 +219,19 @@ def run() -> None:
 
     unresolved = int(majority_ed.isna().sum() + minority_ed.isna().sum())
 
-    va = pd.DataFrame({
-        "va_id":          va_gdf["ED_NAME"].astype(str) + "|" + va_gdf["VA_NUMBER"].astype(str),
-        "parent_ed_2019": va_gdf["ED_NAME"].astype(str),
-        "va_ndp":         va_gdf["va_ndp"].fillna(0.0).astype(float),
-        "va_ucp":         va_gdf["va_ucp"].fillna(0.0).astype(float),
-        "va_other":       va_gdf["va_other"].fillna(0.0).astype(float),
-        "majority_ed":    majority_ed.values,
-        "minority_ed":    minority_ed.values,
-    })
+    va = pd.DataFrame(
+        {
+            "va_id": va_gdf["ED_NAME"].astype(str)
+            + "|"
+            + va_gdf["VA_NUMBER"].astype(str),
+            "parent_ed_2019": va_gdf["ED_NAME"].astype(str),
+            "va_ndp": va_gdf["va_ndp"].fillna(0.0).astype(float),
+            "va_ucp": va_gdf["va_ucp"].fillna(0.0).astype(float),
+            "va_other": va_gdf["va_other"].fillna(0.0).astype(float),
+            "majority_ed": majority_ed.values,
+            "minority_ed": minority_ed.values,
+        }
+    )
 
     va = va.dropna(subset=["majority_ed", "minority_ed"])
     va["is_swing"] = va["majority_ed"] != va["minority_ed"]
@@ -257,8 +271,10 @@ def run() -> None:
         ed = row[ed_col]
         ed_data = lookup.get(ed, {"ndp": 0.0, "ucp": 0.0})
         return va_eg_contribution(
-            row["va_ndp"], row["va_ucp"],
-            ed_data["ndp"], ed_data["ucp"],
+            row["va_ndp"],
+            row["va_ucp"],
+            ed_data["ndp"],
+            ed_data["ucp"],
             total_prov,
         )
 
@@ -269,7 +285,7 @@ def run() -> None:
         lambda r: _contrib(r, "minority_ed", min_lookup), axis=1
     )
     va["delta_eg"] = va["eg_contrib_minority"] - va["eg_contrib_majority"]
-    va["region"]   = va["majority_ed"].apply(_region)
+    va["region"] = va["majority_ed"].apply(_region)
 
     # ── Regional and focal breakdown ───────────────────────────────────────────
 
@@ -282,7 +298,8 @@ def run() -> None:
 
     focal_contribution = float(
         swing_va.loc[
-            swing_va["majority_ed"].isin(FOCAL_EDS) | swing_va["minority_ed"].isin(FOCAL_EDS),
+            swing_va["majority_ed"].isin(FOCAL_EDS)
+            | swing_va["minority_ed"].isin(FOCAL_EDS),
             "delta_eg",
         ].sum()
     )
@@ -292,13 +309,20 @@ def run() -> None:
         print(f"  {region:<22} {val:+.6f}")
     print(f"  {'Canmore/RMH focal EDs':<22} {focal_contribution:+.6f}")
 
-    # ── Bootstrap significance test ────────────────────────────────────────────
+    # ── Bootstrap significance test (full-recompute, pre-registered procedure) ──
+    # Pre-registered in szat_prereg_draft.md: for each permutation, each swing-zone
+    # VA is randomly assigned to majority_ed or minority_ed (Bernoulli 0.5);
+    # non-swing VAs keep majority_ed; EG recomputed from scratch.
+    # SZAT_perm = EG(perm_minority) - EG(majority_fixed)
+    # Replaces earlier additive-delta approximation (captured only direct swing
+    # effects = 54.9% of score; anti-conservative vs the pre-registered null).
 
-    print(f"\nBootstrapping ({N_BOOT:,} permutations)...")
+    print(f"\nBootstrapping ({N_BOOT:,} permutations, full-recompute)...")
 
     try:
         sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
         from drand_seed import get_canonical_seed
+
         seed = get_canonical_seed("szat-bootstrap")
         seed_source = "drand_seed.get_canonical_seed"
     except Exception:
@@ -307,20 +331,49 @@ def run() -> None:
 
     print(f"  Seed: {seed} ({seed_source})")
 
-    rng = np.random.default_rng(seed)
-    swing_deltas = swing_va["delta_eg"].values
+    # Pre-encode ED names to integer indices for fast bincount aggregation
+    all_eds_union = np.unique(
+        np.concatenate([va["majority_ed"].values, va["minority_ed"].values])
+    )
+    ed_to_idx = {e: i for i, e in enumerate(all_eds_union)}
+    n_eds = len(all_eds_union)
 
-    # Null: randomly choose, for each swing zone, whether to apply minority
-    # or majority assignment. SZAT_score under the null = sum of randomly
-    # selected deltas (0 = use majority, delta_eg = use minority).
-    boot_scores = np.array([
-        swing_deltas[rng.random(len(swing_deltas)) < 0.5].sum()
-        for _ in range(N_BOOT)
-    ])
+    swing_mask = va["is_swing"].values.astype(bool)
+    sw_maj_idx = np.array([ed_to_idx[e] for e in va.loc[swing_mask, "majority_ed"].values])
+    sw_min_idx = np.array([ed_to_idx[e] for e in va.loc[swing_mask, "minority_ed"].values])
+    sw_ndp_arr = va.loc[swing_mask, "va_ndp"].values
+    sw_ucp_arr = va.loc[swing_mask, "va_ucp"].values
+    nsw_idx    = np.array([ed_to_idx[e] for e in va.loc[~swing_mask, "majority_ed"].values])
+    nsw_ndp_arr = va.loc[~swing_mask, "va_ndp"].values
+    nsw_ucp_arr = va.loc[~swing_mask, "va_ucp"].values
+
+    # Non-swing contributions are constant across all permutations
+    nsw_ndp_agg = np.bincount(nsw_idx, weights=nsw_ndp_arr, minlength=n_eds)
+    nsw_ucp_agg = np.bincount(nsw_idx, weights=nsw_ucp_arr, minlength=n_eds)
+
+    n_swing_boot = int(swing_mask.sum())
+    eg_maj_fixed = eg_maj  # majority map is the fixed reference
+
+    def _eg_from_agg(ed_ndp: np.ndarray, ed_ucp: np.ndarray) -> float:
+        ed_total = ed_ndp + ed_ucp
+        threshold = ed_total / 2.0
+        ndp_wins = ed_ndp >= ed_ucp
+        w_ndp = np.where(ndp_wins, np.maximum(0.0, ed_ndp - threshold), ed_ndp)
+        w_ucp = np.where(ndp_wins, ed_ucp, np.maximum(0.0, ed_ucp - threshold))
+        return (w_ndp.sum() - w_ucp.sum()) / total_prov
+
+    rng = np.random.default_rng(seed)
+    boot_scores = np.empty(N_BOOT)
+    for i in range(N_BOOT):
+        flip = rng.random(n_swing_boot) < 0.5   # True -> use minority_ed
+        perm_sw_idx = np.where(flip, sw_min_idx, sw_maj_idx)
+        ed_ndp = nsw_ndp_agg + np.bincount(perm_sw_idx, weights=sw_ndp_arr, minlength=n_eds)
+        ed_ucp = nsw_ucp_agg + np.bincount(perm_sw_idx, weights=sw_ucp_arr, minlength=n_eds)
+        boot_scores[i] = _eg_from_agg(ed_ndp, ed_ucp) - eg_maj_fixed
 
     p_value = float(np.mean(np.abs(boot_scores) >= abs(szat_score)))
-    ci_lo   = float(np.percentile(boot_scores, 2.5))
-    ci_hi   = float(np.percentile(boot_scores, 97.5))
+    ci_lo = float(np.percentile(boot_scores, 2.5))
+    ci_hi = float(np.percentile(boot_scores, 97.5))
 
     print(f"  p-value (two-tailed):        {p_value:.4f}")
     print(f"  Null 95% interval:           [{ci_lo:+.6f}, {ci_hi:+.6f}]")
@@ -328,26 +381,37 @@ def run() -> None:
 
     # ── Outputs ────────────────────────────────────────────────────────────────
 
-    out = va[[
-        "va_id", "parent_ed_2019", "majority_ed", "minority_ed",
-        "is_swing", "va_ndp", "va_ucp", "va_other",
-        "eg_contrib_majority", "eg_contrib_minority", "delta_eg", "region",
-    ]].copy()
+    out = va[
+        [
+            "va_id",
+            "parent_ed_2019",
+            "majority_ed",
+            "minority_ed",
+            "is_swing",
+            "va_ndp",
+            "va_ucp",
+            "va_other",
+            "eg_contrib_majority",
+            "eg_contrib_minority",
+            "delta_eg",
+            "region",
+        ]
+    ].copy()
     out["is_swing"] = out["is_swing"].astype(int)
     out.to_csv(OUT_CSV, index=False, float_format="%.6f")
 
     summary = {
-        "szat_score":             round(szat_score, 6),
-        "eg_majority":            round(eg_maj, 6),
-        "eg_minority":            round(eg_min, 6),
-        "swing_zone_count":       n_swing,
-        "total_va_count":         int(len(va)),
-        "unresolved_count":       unresolved,
-        "bootstrap_p_value":      round(p_value, 4),
-        "bootstrap_n":            N_BOOT,
-        "bootstrap_seed":         seed,
-        "bootstrap_ci_95":        [round(ci_lo, 6), round(ci_hi, 6)],
-        "regional_breakdown":     {k: round(v, 6) for k, v in regional.items()},
+        "szat_score": round(szat_score, 6),
+        "eg_majority": round(eg_maj, 6),
+        "eg_minority": round(eg_min, 6),
+        "swing_zone_count": n_swing,
+        "total_va_count": int(len(va)),
+        "unresolved_count": unresolved,
+        "bootstrap_p_value": round(p_value, 4),
+        "bootstrap_n": N_BOOT,
+        "bootstrap_seed": seed,
+        "bootstrap_ci_95": [round(ci_lo, 6), round(ci_hi, 6)],
+        "regional_breakdown": {k: round(v, 6) for k, v in regional.items()},
         "canmore_rmh_contribution": round(focal_contribution, 6),
         "canonical_shapefiles": {
             "majority": str(MAJ_FILE.relative_to(ROOT)),

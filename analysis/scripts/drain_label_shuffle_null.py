@@ -29,6 +29,7 @@ Backward deps:
   - data/v0_2_canonical_majority_2026_eds_topoclean.gpkg (or v0_8 series)
   - data/v0_2_canonical_minority_2026_eds_topoclean.gpkg (or v0_8 series)
 """
+
 from __future__ import annotations
 
 import json
@@ -114,8 +115,9 @@ def label_shuffle_null(
     for i in range(n_perm):
         perm_idx = rng.permutation(n)
         shuffled = vote_vectors[perm_idx]
-        shuffled_votes = {ed_names[j]: (int(shuffled[j, 0]), int(shuffled[j, 1]))
-                         for j in range(n)}
+        shuffled_votes = {
+            ed_names[j]: (int(shuffled[j, 0]), int(shuffled[j, 1])) for j in range(n)
+        }
         perm_ed_df = compute_ed_metrics(shuffled_votes)
         perm_lookup = perm_ed_df.set_index("ed").to_dict("index")
         pairs_df = pd.DataFrame(directed_pairs, columns=["X", "Y"])
@@ -149,9 +151,7 @@ def run_map_null(
     )
 
     print(f"  running {n_perm} label-shuffle permutations...")
-    null_scores = label_shuffle_null(
-        ed_names, vote_vectors, directed, n_perm, rng
-    )
+    null_scores = label_shuffle_null(ed_names, vote_vectors, directed, n_perm, rng)
 
     mean_null = float(np.mean(null_scores))
     std_null = float(np.std(null_scores, ddof=1))
@@ -161,7 +161,9 @@ def run_map_null(
     p_two_tailed = 2 * min(pct_rank, 1.0 - pct_rank)
 
     print(f"  null mean={mean_null:.6f}  std={std_null:.6f}")
-    print(f"  z={z:.3f}  percentile_rank={pct_rank*100:.2f}%  p(two-tailed)={p_two_tailed:.4f}")
+    print(
+        f"  z={z:.3f}  percentile_rank={pct_rank*100:.2f}%  p(two-tailed)={p_two_tailed:.4f}"
+    )
 
     return {
         "label": label,
@@ -205,8 +207,14 @@ def main() -> None:
 
     # Load shapefiles (use best available)
     def _pick_shp(plan: str):
+        # Prefer official canonical shapefiles
+        canonical = out_data / "shapefiles" / "canonical" / f"ea_{plan}_2026_eds.gpkg"
+        if canonical.exists():
+            return canonical, "EDName2025"
+        # Fall back to derived versions
         base = out_data / "shapefiles" / "derived"
         for fname in (
+            f"v11_{plan}_2026_eds.gpkg",
             f"v0_8_full_refined_{plan}_2026_eds.gpkg",
             f"v0_8_refined_{plan}_2026_eds.gpkg",
             f"v0_8_canonical_{plan}_2026_eds.gpkg",
@@ -214,16 +222,20 @@ def main() -> None:
         ):
             p = base / fname
             if p.exists():
-                return p
-        return base / f"v0_2_canonical_{plan}_2026_eds_topoclean.gpkg"
+                return p, "name_2026"
+        return base / f"v0_2_canonical_{plan}_2026_eds_topoclean.gpkg", "name_2026"
 
     print("\nLoading shapefiles...")
-    shp_maj = gpd.read_file(_pick_shp("majority"))
-    shp_min = gpd.read_file(_pick_shp("minority"))
+    shp_maj_path, col_maj = _pick_shp("majority")
+    shp_min_path, col_min = _pick_shp("minority")
+    shp_maj = gpd.read_file(shp_maj_path)
+    shp_min = gpd.read_file(shp_min_path)
+    print(f"  majority: {shp_maj_path.name}  col={col_maj}")
+    print(f"  minority: {shp_min_path.name}  col={col_min}")
 
     print("Building adjacency graphs...")
-    undirected_maj, _, _ = build_adjacency(shp_maj, "name_2026")
-    undirected_min, _, _ = build_adjacency(shp_min, "name_2026")
+    undirected_maj, _, _ = build_adjacency(shp_maj, col_maj)
+    undirected_min, _, _ = build_adjacency(shp_min, col_min)
     print(f"  majority: {len(undirected_maj)} undirected pairs")
     print(f"  minority: {len(undirected_min)} undirected pairs")
 
@@ -252,10 +264,14 @@ def main() -> None:
     pred_b_maj = results["majority"]["p_two_tailed"] > 0.05
     pred_b_min = results["minority"]["p_two_tailed"] > 0.05
     print(f"\nPrediction B: both maps within null (p > 0.05 two-tailed)")
-    print(f"  majority p={results['majority']['p_two_tailed']:.4f} "
-          f"({'within' if pred_b_maj else 'OUTSIDE'} null)")
-    print(f"  minority p={results['minority']['p_two_tailed']:.4f} "
-          f"({'within' if pred_b_min else 'OUTSIDE'} null)")
+    print(
+        f"  majority p={results['majority']['p_two_tailed']:.4f} "
+        f"({'within' if pred_b_maj else 'OUTSIDE'} null)"
+    )
+    print(
+        f"  minority p={results['minority']['p_two_tailed']:.4f} "
+        f"({'within' if pred_b_min else 'OUTSIDE'} null)"
+    )
     if not pred_b_maj:
         print(f"  FLAG: majority map is outside null distribution (p < 0.05)")
     if not pred_b_min:

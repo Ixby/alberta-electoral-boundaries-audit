@@ -6,6 +6,7 @@ matching 2019 Tier A boundary points to the red-mask pixels of the
 thumbnail. This produces sub-100m georef residuals when the minority map
 leaves Tier A boundaries unchanged (true for ~80% of Calgary inner EDs).
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -22,18 +23,31 @@ from shapely.geometry import LineString, Point, Polygon
 from shapely.ops import unary_union
 
 from shape_refinement_v6 import (
-    ROOT, MAPS_HIRES, VERIFY_DIR, DATA_DIR, ANALYSIS_DIR, TEMP_DIR,
-    AREA_CRS, V5_MIN_GPKG,
-    load_and_orient, extract_red_mask, get_interior_mask,
-    fit_affine, apply_affine,
-    flood_fill_interior, extract_contour, contour_to_polygon,
-    disproof_pass, render_overlay_qa, render_verification_panel,
+    ROOT,
+    MAPS_HIRES,
+    VERIFY_DIR,
+    DATA_DIR,
+    ANALYSIS_DIR,
+    TEMP_DIR,
+    AREA_CRS,
+    V5_MIN_GPKG,
+    load_and_orient,
+    extract_red_mask,
+    get_interior_mask,
+    fit_affine,
+    apply_affine,
+    flood_fill_interior,
+    extract_contour,
+    contour_to_polygon,
+    disproof_pass,
+    render_overlay_qa,
+    render_verification_panel,
 )
-
 
 # ---------------------------------------------------------------------------
 # Distance-transform optimisation for affine geo->pixel
 # ---------------------------------------------------------------------------
+
 
 def optimise_affine_dt(
     red_mask: np.ndarray,
@@ -67,7 +81,9 @@ def optimise_affine_dt(
     # geo_x = s*px + tx  =>  px = (geo_x - tx) / s
     # geo_y = -s*py + ty =>  py = (ty - geo_y) / s
     # So a = 1/s, b = 0, c = -tx/s; d = 0, e = -1/s, f = ty/s
-    s = initial_scale; tx = initial_tx; ty = initial_ty
+    s = initial_scale
+    tx = initial_tx
+    ty = initial_ty
     x0 = [1 / s, 0.0, -tx / s, 0.0, -1 / s, ty / s]
     c0 = cost(x0)
 
@@ -94,8 +110,16 @@ def optimise_affine_dt(
                     best = (c_try, x_try)
 
     res = minimize(
-        cost, best[1], method="Nelder-Mead",
-        options={"xatol": 1e-9, "fatol": 0.01, "maxiter": 5000, "maxfev": 10000, "adaptive": True},
+        cost,
+        best[1],
+        method="Nelder-Mead",
+        options={
+            "xatol": 1e-9,
+            "fatol": 0.01,
+            "maxiter": 5000,
+            "maxfev": 10000,
+            "adaptive": True,
+        },
     )
     a, b, c, d, e, f = res.x
     FM = np.array([[a, b], [d, e]])
@@ -105,14 +129,18 @@ def optimise_affine_dt(
     t_inv = -FM_inv @ t
     M_px2geo = np.hstack([FM_inv, t_inv.reshape(2, 1)])
     det = abs(a * e - b * d)
-    return M_px2geo, float(res.fun), {
-        "pixel_dim_m": float(np.sqrt(1 / det)),
-        "initial_cost": float(c0),
-        "brute_cost": float(best[0]),
-        "final_cost": float(res.fun),
-        "n_boundary_points": len(boundary_pts_geo),
-        "M_geo2px_params": [float(v) for v in res.x],
-    }
+    return (
+        M_px2geo,
+        float(res.fun),
+        {
+            "pixel_dim_m": float(np.sqrt(1 / det)),
+            "initial_cost": float(c0),
+            "brute_cost": float(best[0]),
+            "final_cost": float(res.fun),
+            "n_boundary_points": len(boundary_pts_geo),
+            "M_geo2px_params": [float(v) for v in res.x],
+        },
+    )
 
 
 def collect_boundary_points(
@@ -136,10 +164,13 @@ def collect_boundary_points(
 # Common per-ED processing
 # ---------------------------------------------------------------------------
 
+
 def _hard_contains(lat: float, lon: float):
     pt = gpd.GeoSeries([Point(lon, lat)], crs="EPSG:4326").to_crs(AREA_CRS).iloc[0]
+
     def fn(poly):
         return poly.contains(pt)
+
     fn.__name__ = f"contains_point({lat},{lon})"
     return fn
 
@@ -159,9 +190,17 @@ def _safe_slug(s: str) -> str:
 
 
 def _process_one_target(
-    ed_name, seed_px, interior_mask, red_mask, img, M,
-    hard_constraints, adjacent_ed_geo,
-    verify_out, overlay_out, v5_geo,
+    ed_name,
+    seed_px,
+    interior_mask,
+    red_mask,
+    img,
+    M,
+    hard_constraints,
+    adjacent_ed_geo,
+    verify_out,
+    overlay_out,
+    v5_geo,
 ):
     H, W = img.shape[:2]
     log_ed = {"seed_px": list(seed_px)}
@@ -197,8 +236,15 @@ def _process_one_target(
     log_ed["bounds"] = [round(v, 0) for v in poly_geo.bounds]
 
     disproof = disproof_pass(
-        ed_name, poly_geo, contour_px, red_mask, label_mask, M, (H, W),
-        hard_constraints, adjacent_ed_geo,
+        ed_name,
+        poly_geo,
+        contour_px,
+        red_mask,
+        label_mask,
+        M,
+        (H, W),
+        hard_constraints,
+        adjacent_ed_geo,
     )
     log_ed["disproof_attempts"] = disproof
 
@@ -208,8 +254,11 @@ def _process_one_target(
         "n_large_clusters": qa["n_large_clusters"],
         "pass": qa["t2_pass"],
     }
-    considered = [k for k, v in disproof.items()
-                  if isinstance(v, dict) and v.get("pass") is not None]
+    considered = [
+        k
+        for k, v in disproof.items()
+        if isinstance(v, dict) and v.get("pass") is not None
+    ]
     n_pass = sum(1 for k in considered if disproof[k]["pass"])
     disproof["summary"] = {"n_pass": n_pass, "n_considered": len(considered)}
 
@@ -228,6 +277,7 @@ def _process_one_target(
 # CALGARY MINORITY
 # ===========================================================================
 
+
 def process_calgary_minority(eds2019):
     t0 = time.time()
     thumb = MAPS_HIRES / "v0_1_minority_p360_map74.svg"
@@ -238,17 +288,36 @@ def process_calgary_minority(eds2019):
 
     # Use inner-Calgary 2019 EDs for DT optimisation
     inner_names = [
-        "Calgary-Acadia", "Calgary-Beddington", "Calgary-Bow", "Calgary-Buffalo",
-        "Calgary-Cross", "Calgary-Currie", "Calgary-Edgemont", "Calgary-Elbow",
-        "Calgary-Falconridge", "Calgary-Fish Creek", "Calgary-Foothills",
-        "Calgary-Glenmore", "Calgary-Hays", "Calgary-Klein", "Calgary-Lougheed",
-        "Calgary-McCall", "Calgary-Mountain View", "Calgary-North", "Calgary-North East",
-        "Calgary-North West", "Calgary-Peigan", "Calgary-Shaw", "Calgary-South East",
-        "Calgary-Varsity", "Calgary-West",
+        "Calgary-Acadia",
+        "Calgary-Beddington",
+        "Calgary-Bow",
+        "Calgary-Buffalo",
+        "Calgary-Cross",
+        "Calgary-Currie",
+        "Calgary-Edgemont",
+        "Calgary-Elbow",
+        "Calgary-Falconridge",
+        "Calgary-Fish Creek",
+        "Calgary-Foothills",
+        "Calgary-Glenmore",
+        "Calgary-Hays",
+        "Calgary-Klein",
+        "Calgary-Lougheed",
+        "Calgary-McCall",
+        "Calgary-Mountain View",
+        "Calgary-North",
+        "Calgary-North East",
+        "Calgary-North West",
+        "Calgary-Peigan",
+        "Calgary-Shaw",
+        "Calgary-South East",
+        "Calgary-Varsity",
+        "Calgary-West",
     ]
     boundary_pts = collect_boundary_points(eds2019, inner_names, interval_m=200)
-    M, cost, info = optimise_affine_dt(red, boundary_pts,
-                                       initial_scale=13.5, initial_tx=510000, initial_ty=5690000)
+    M, cost, info = optimise_affine_dt(
+        red, boundary_pts, initial_scale=13.5, initial_tx=510000, initial_ty=5690000
+    )
     print(f"  DT-affine: cost={cost:.2f}, pixel_dim={info['pixel_dim_m']:.2f} m/px")
 
     targets = {
@@ -261,10 +330,11 @@ def process_calgary_minority(eds2019):
         },
         "Calgary-South": {
             "near_calgary_centre": lambda p: (
-                abs(p.centroid.x - 563000) < 30_000 and
-                abs(p.centroid.y - 5655000) < 30_000
+                abs(p.centroid.x - 563000) < 30_000
+                and abs(p.centroid.y - 5655000) < 30_000
             ),
-            "east_of_fish_creek": lambda p: p.bounds[0] > 563000,  # east of rough Fish Creek line
+            "east_of_fish_creek": lambda p: p.bounds[0]
+            > 563000,  # east of rough Fish Creek line
         },
     }
     adj_map = {"Calgary-De Winton": "Highwood", "Calgary-South": "Calgary-Hays"}
@@ -284,18 +354,29 @@ def process_calgary_minority(eds2019):
         verify_out = VERIFY_DIR / f"v0_6_minority_{slug}.svg"
         overlay_out = VERIFY_DIR / f"v0_6_overlay_minority_{slug}.svg"
         poly, log = _process_one_target(
-            ed_name, seed, interior, red, img, M,
-            hc.get(ed_name), adj_geo.get(ed_name),
-            verify_out, overlay_out, v5_map.get(ed_name),
+            ed_name,
+            seed,
+            interior,
+            red,
+            img,
+            M,
+            hc.get(ed_name),
+            adj_geo.get(ed_name),
+            verify_out,
+            overlay_out,
+            v5_map.get(ed_name),
         )
         if poly is not None:
             results[ed_name] = poly
         per_ed_log[ed_name] = log
-        print(f"  {ed_name}: {log.get('status')} area={log.get('area_km2')} km2 "
-              f"disproof={log.get('disproof_attempts', {}).get('summary', {})}")
+        print(
+            f"  {ed_name}: {log.get('status')} area={log.get('area_km2')} km2 "
+            f"disproof={log.get('disproof_attempts', {}).get('summary', {})}"
+        )
 
     return results, {
-        "thumbnail": thumb.name, "orientation": "rot90cw",
+        "thumbnail": thumb.name,
+        "orientation": "rot90cw",
         "img_shape": [H, W],
         "red_pixels": int(np.count_nonzero(red)),
         "affine": {
@@ -313,6 +394,7 @@ def process_calgary_minority(eds2019):
 # EDMONTON MINORITY
 # ===========================================================================
 
+
 def process_edmonton_minority(eds2019):
     t0 = time.time()
     thumb = MAPS_HIRES / "v0_1_minority_p361_map75.svg"
@@ -323,19 +405,33 @@ def process_edmonton_minority(eds2019):
 
     # Edmonton inner-city EDs (Tier A in both 2019 and 2026 minority)
     inner_names = [
-        "Edmonton-Beverly-Clareview", "Edmonton-Castle Downs", "Edmonton-City Centre",
-        "Edmonton-Decore", "Edmonton-Ellerslie", "Edmonton-Glenora", "Edmonton-Gold Bar",
-        "Edmonton-Highlands-Norwood", "Edmonton-Manning", "Edmonton-McClung",
-        "Edmonton-Meadows", "Edmonton-Mill Woods", "Edmonton-North West",
-        "Edmonton-Riverview", "Edmonton-Rutherford", "Edmonton-South-West",
-        "Edmonton-Strathcona", "Edmonton-West Henday", "Edmonton-Whitemud",
+        "Edmonton-Beverly-Clareview",
+        "Edmonton-Castle Downs",
+        "Edmonton-City Centre",
+        "Edmonton-Decore",
+        "Edmonton-Ellerslie",
+        "Edmonton-Glenora",
+        "Edmonton-Gold Bar",
+        "Edmonton-Highlands-Norwood",
+        "Edmonton-Manning",
+        "Edmonton-McClung",
+        "Edmonton-Meadows",
+        "Edmonton-Mill Woods",
+        "Edmonton-North West",
+        "Edmonton-Riverview",
+        "Edmonton-Rutherford",
+        "Edmonton-South-West",
+        "Edmonton-Strathcona",
+        "Edmonton-West Henday",
+        "Edmonton-Whitemud",
     ]
     # Filter to those that exist in 2019
     valid_inner = [n for n in inner_names if (eds2019["EDName2017"] == n).any()]
     boundary_pts = collect_boundary_points(eds2019, valid_inner, interval_m=200)
     # Edmonton's initial params: approx. EPSG:3400 centre (600000, 5930000), pixel_dim ~ 13
-    M, cost, info = optimise_affine_dt(red, boundary_pts,
-                                       initial_scale=13.5, initial_tx=580000, initial_ty=5955000)
+    M, cost, info = optimise_affine_dt(
+        red, boundary_pts, initial_scale=13.5, initial_tx=580000, initial_ty=5955000
+    )
     print(f"  DT-affine: cost={cost:.2f}, pixel_dim={info['pixel_dim_m']:.2f} m/px")
 
     targets = {
@@ -361,9 +457,17 @@ def process_edmonton_minority(eds2019):
         verify_out = VERIFY_DIR / f"v0_6_minority_{slug}.svg"
         overlay_out = VERIFY_DIR / f"v0_6_overlay_minority_{slug}.svg"
         poly, log = _process_one_target(
-            ed_name, seed, interior, red, img, M,
-            hc.get(ed_name), adj_geo.get(ed_name),
-            verify_out, overlay_out, v5_map.get(ed_name),
+            ed_name,
+            seed,
+            interior,
+            red,
+            img,
+            M,
+            hc.get(ed_name),
+            adj_geo.get(ed_name),
+            verify_out,
+            overlay_out,
+            v5_map.get(ed_name),
         )
         if poly is not None:
             results[ed_name] = poly
@@ -371,7 +475,8 @@ def process_edmonton_minority(eds2019):
         print(f"  {ed_name}: {log.get('status')} area={log.get('area_km2')} km2")
 
     return results, {
-        "thumbnail": thumb.name, "orientation": "native",
+        "thumbnail": thumb.name,
+        "orientation": "native",
         "img_shape": [H, W],
         "red_pixels": int(np.count_nonzero(red)),
         "affine": {
@@ -389,6 +494,7 @@ def process_edmonton_minority(eds2019):
 # CALGARY MAJORITY
 # ===========================================================================
 
+
 def process_calgary_majority(eds2019):
     t0 = time.time()
     thumb = MAPS_HIRES / "v0_1_majority_p72_MAP_r600.svg"
@@ -399,17 +505,36 @@ def process_calgary_majority(eds2019):
 
     # Same inner-Calgary list; many of these remain Tier A in majority
     inner_names = [
-        "Calgary-Acadia", "Calgary-Beddington", "Calgary-Bow", "Calgary-Buffalo",
-        "Calgary-Cross", "Calgary-Currie", "Calgary-Edgemont", "Calgary-Elbow",
-        "Calgary-Falconridge", "Calgary-Fish Creek", "Calgary-Foothills",
-        "Calgary-Glenmore", "Calgary-Hays", "Calgary-Klein", "Calgary-Lougheed",
-        "Calgary-McCall", "Calgary-Mountain View", "Calgary-North", "Calgary-North East",
-        "Calgary-North West", "Calgary-Peigan", "Calgary-Shaw", "Calgary-South East",
-        "Calgary-Varsity", "Calgary-West",
+        "Calgary-Acadia",
+        "Calgary-Beddington",
+        "Calgary-Bow",
+        "Calgary-Buffalo",
+        "Calgary-Cross",
+        "Calgary-Currie",
+        "Calgary-Edgemont",
+        "Calgary-Elbow",
+        "Calgary-Falconridge",
+        "Calgary-Fish Creek",
+        "Calgary-Foothills",
+        "Calgary-Glenmore",
+        "Calgary-Hays",
+        "Calgary-Klein",
+        "Calgary-Lougheed",
+        "Calgary-McCall",
+        "Calgary-Mountain View",
+        "Calgary-North",
+        "Calgary-North East",
+        "Calgary-North West",
+        "Calgary-Peigan",
+        "Calgary-Shaw",
+        "Calgary-South East",
+        "Calgary-Varsity",
+        "Calgary-West",
     ]
     boundary_pts = collect_boundary_points(eds2019, inner_names, interval_m=200)
-    M, cost, info = optimise_affine_dt(red, boundary_pts,
-                                       initial_scale=13.5, initial_tx=510000, initial_ty=5690000)
+    M, cost, info = optimise_affine_dt(
+        red, boundary_pts, initial_scale=13.5, initial_tx=510000, initial_ty=5690000
+    )
     print(f"  DT-affine: cost={cost:.2f}, pixel_dim={info['pixel_dim_m']:.2f} m/px")
 
     targets = {
@@ -428,8 +553,17 @@ def process_calgary_majority(eds2019):
         verify_out = VERIFY_DIR / f"v0_6_majority_{slug}.svg"
         overlay_out = VERIFY_DIR / f"v0_6_overlay_majority_{slug}.svg"
         poly, log = _process_one_target(
-            ed_name, seed, interior, red, img, M,
-            None, None, verify_out, overlay_out, None,
+            ed_name,
+            seed,
+            interior,
+            red,
+            img,
+            M,
+            None,
+            None,
+            verify_out,
+            overlay_out,
+            None,
         )
         if poly is not None:
             results[ed_name] = poly
@@ -437,7 +571,8 @@ def process_calgary_majority(eds2019):
         print(f"  {ed_name}: {log.get('status')} area={log.get('area_km2')} km2")
 
     return results, {
-        "thumbnail": thumb.name, "orientation": "rot90cw",
+        "thumbnail": thumb.name,
+        "orientation": "rot90cw",
         "img_shape": [H, W],
         "red_pixels": int(np.count_nonzero(red)),
         "affine": {
@@ -455,6 +590,7 @@ def process_calgary_majority(eds2019):
 # EDMONTON MAJORITY
 # ===========================================================================
 
+
 def process_edmonton_majority(eds2019):
     t0 = time.time()
     thumb = MAPS_HIRES / "v0_1_majority_p74_MAP_r600.svg"
@@ -464,17 +600,31 @@ def process_edmonton_majority(eds2019):
     interior = get_interior_mask(red)
 
     inner_names = [
-        "Edmonton-Beverly-Clareview", "Edmonton-Castle Downs", "Edmonton-City Centre",
-        "Edmonton-Decore", "Edmonton-Ellerslie", "Edmonton-Glenora", "Edmonton-Gold Bar",
-        "Edmonton-Highlands-Norwood", "Edmonton-Manning", "Edmonton-McClung",
-        "Edmonton-Meadows", "Edmonton-Mill Woods", "Edmonton-North West",
-        "Edmonton-Riverview", "Edmonton-Rutherford", "Edmonton-South-West",
-        "Edmonton-Strathcona", "Edmonton-West Henday", "Edmonton-Whitemud",
+        "Edmonton-Beverly-Clareview",
+        "Edmonton-Castle Downs",
+        "Edmonton-City Centre",
+        "Edmonton-Decore",
+        "Edmonton-Ellerslie",
+        "Edmonton-Glenora",
+        "Edmonton-Gold Bar",
+        "Edmonton-Highlands-Norwood",
+        "Edmonton-Manning",
+        "Edmonton-McClung",
+        "Edmonton-Meadows",
+        "Edmonton-Mill Woods",
+        "Edmonton-North West",
+        "Edmonton-Riverview",
+        "Edmonton-Rutherford",
+        "Edmonton-South-West",
+        "Edmonton-Strathcona",
+        "Edmonton-West Henday",
+        "Edmonton-Whitemud",
     ]
     valid_inner = [n for n in inner_names if (eds2019["EDName2017"] == n).any()]
     boundary_pts = collect_boundary_points(eds2019, valid_inner, interval_m=200)
-    M, cost, info = optimise_affine_dt(red, boundary_pts,
-                                       initial_scale=13.5, initial_tx=580000, initial_ty=5955000)
+    M, cost, info = optimise_affine_dt(
+        red, boundary_pts, initial_scale=13.5, initial_tx=580000, initial_ty=5955000
+    )
     print(f"  DT-affine: cost={cost:.2f}, pixel_dim={info['pixel_dim_m']:.2f} m/px")
 
     targets = {
@@ -488,8 +638,17 @@ def process_edmonton_majority(eds2019):
         verify_out = VERIFY_DIR / f"v0_6_majority_{slug}.svg"
         overlay_out = VERIFY_DIR / f"v0_6_overlay_majority_{slug}.svg"
         poly, log = _process_one_target(
-            ed_name, seed, interior, red, img, M,
-            None, None, verify_out, overlay_out, None,
+            ed_name,
+            seed,
+            interior,
+            red,
+            img,
+            M,
+            None,
+            None,
+            verify_out,
+            overlay_out,
+            None,
         )
         if poly is not None:
             results[ed_name] = poly
@@ -497,7 +656,8 @@ def process_edmonton_majority(eds2019):
         print(f"  {ed_name}: {log.get('status')} area={log.get('area_km2')} km2")
 
     return results, {
-        "thumbnail": thumb.name, "orientation": "native",
+        "thumbnail": thumb.name,
+        "orientation": "native",
         "img_shape": [H, W],
         "red_pixels": int(np.count_nonzero(red)),
         "affine": {

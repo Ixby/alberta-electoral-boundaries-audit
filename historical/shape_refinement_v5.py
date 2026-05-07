@@ -30,6 +30,7 @@ Honest framing:
 
 Author: Track Y-v5 sub-agent (2026-04-23).
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -68,6 +69,7 @@ NOISE_PART_AREA_M2 = 1_000_000.0
 # Geometry cleanup
 # ----------------------------------------------------------------------
 
+
 def coalesce_to_largest(geom):
     """Force a MultiPolygon or GeometryCollection to its largest Polygon.
 
@@ -81,8 +83,7 @@ def coalesce_to_largest(geom):
         largest = max(geom.geoms, key=lambda p: p.area)
         return largest
     if geom.geom_type == "GeometryCollection":
-        polys = [g for g in geom.geoms
-                 if g.geom_type in ("Polygon", "MultiPolygon")]
+        polys = [g for g in geom.geoms if g.geom_type in ("Polygon", "MultiPolygon")]
         if not polys:
             return geom
         flat = []
@@ -95,9 +96,9 @@ def coalesce_to_largest(geom):
     return geom
 
 
-def enforce_contiguity_and_cleanup(geom, name="polygon",
-                                    closing_buffer_m=300,
-                                    simplify_tol_m=50):
+def enforce_contiguity_and_cleanup(
+    geom, name="polygon", closing_buffer_m=300, simplify_tol_m=50
+):
     """Enforce the PO's contiguity + cleanup requirements.
 
     Steps:
@@ -109,8 +110,10 @@ def enforce_contiguity_and_cleanup(geom, name="polygon",
 
     Returns (clean_geom, ops_log_dict).
     """
-    ops = {"input_geom_type": geom.geom_type if geom is not None else None,
-            "operations": []}
+    ops = {
+        "input_geom_type": geom.geom_type if geom is not None else None,
+        "operations": [],
+    }
     if geom is None or geom.is_empty:
         ops["operations"].append("empty_input")
         return geom, ops
@@ -124,8 +127,9 @@ def enforce_contiguity_and_cleanup(geom, name="polygon",
                 ops["operations"].append(f"closed_gap_buffer_{close_m}m")
                 geom = closed
                 break
-            elif (closed.geom_type == "MultiPolygon" and
-                    len(closed.geoms) < len(geom.geoms)):
+            elif closed.geom_type == "MultiPolygon" and len(closed.geoms) < len(
+                geom.geoms
+            ):
                 ops["operations"].append(f"reduced_parts_buffer_{close_m}m")
                 geom = closed
                 if len(closed.geoms) == 1:
@@ -134,8 +138,7 @@ def enforce_contiguity_and_cleanup(geom, name="polygon",
         # If still not a single polygon, coalesce to largest part
         if geom.geom_type == "MultiPolygon":
             dropped = len(geom.geoms) - 1
-            ops["operations"].append(
-                f"coalesced_to_largest_dropped_{dropped}_parts")
+            ops["operations"].append(f"coalesced_to_largest_dropped_{dropped}_parts")
             geom = coalesce_to_largest(geom)
 
     # Step 2: simplify to remove spikes/spurs
@@ -197,9 +200,10 @@ def validate_polygon(geom, name="polygon"):
         # in De Winton). Flag holes but do not fail on them.
         checks["has_no_holes_or_has_justified_holes"] = True
         checks["hole_note"] = (
-            f"{n_interiors} interior rings (justified for "
-            f"reserve/lake exclusions)" if n_interiors > 0
-            else "no interior rings")
+            f"{n_interiors} interior rings (justified for " f"reserve/lake exclusions)"
+            if n_interiors > 0
+            else "no interior rings"
+        )
     else:
         checks["has_no_holes_or_has_justified_holes"] = False
 
@@ -210,7 +214,7 @@ def validate_polygon(geom, name="polygon"):
         if geom.geom_type == "Polygon":
             P = geom.length
             A = geom.area
-            ratio = P / (A ** 0.5) if A > 0 else float("inf")
+            ratio = P / (A**0.5) if A > 0 else float("inf")
             checks["compactness_ratio"] = round(ratio, 2)
             checks["compactness_pass"] = ratio < 8.0
         else:
@@ -219,14 +223,17 @@ def validate_polygon(geom, name="polygon"):
         checks["compactness_error"] = str(e)
 
     checks["all_pass"] = bool(
-        checks["is_valid"] and checks["is_single_polygon"]
+        checks["is_valid"]
+        and checks["is_single_polygon"]
         and checks["has_no_holes_or_has_justified_holes"]
-        and checks["compactness_pass"])
+        and checks["compactness_pass"]
+    )
     return checks
 
 
-def clean_polygon_noise(geom, min_part_area_m2=NOISE_PART_AREA_M2,
-                        min_hole_area_m2=NOISE_RING_AREA_M2):
+def clean_polygon_noise(
+    geom, min_part_area_m2=NOISE_PART_AREA_M2, min_hole_area_m2=NOISE_RING_AREA_M2
+):
     if geom is None or geom.is_empty:
         return geom
     if geom.geom_type == "Polygon":
@@ -281,8 +288,10 @@ def _exterior_only_lines(geom):
 # OSM feature fetch (cached from v4 where possible)
 # ----------------------------------------------------------------------
 
+
 def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
     import osmnx as ox
+
     ox.settings.log_console = False
     ox.settings.use_cache = True
     ox.settings.requests_timeout = timeout
@@ -294,7 +303,7 @@ def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
         except Exception as e:
             last = e
             if i < retries - 1:
-                time.sleep(2 ** i)
+                time.sleep(2**i)
     raise RuntimeError(f"OSM features fetch failed (tags={tags}): {last}")
 
 
@@ -322,8 +331,13 @@ def fetch_admin_boundary(bbox_wgs84, name_substrings, admin_levels=None):
                     break
         if not keep:
             return None
-        valid = [g for g in keep if g is not None and not g.is_empty
-                 and g.geom_type in ("Polygon", "MultiPolygon")]
+        valid = [
+            g
+            for g in keep
+            if g is not None
+            and not g.is_empty
+            and g.geom_type in ("Polygon", "MultiPolygon")
+        ]
         if not valid:
             return None
         return unary_union(valid)
@@ -403,6 +417,7 @@ def to_work(geom_wgs84):
 # Red-only thumbnail analysis (PO directive — pass 5 interior scrub)
 # ----------------------------------------------------------------------
 
+
 def extract_red_mask(image_path):
     """Return a boolean mask of 'red' pixels in the commission thumbnail.
 
@@ -414,6 +429,7 @@ def extract_red_mask(image_path):
     try:
         import matplotlib.colors as mcolors
         import matplotlib.image as mpimg
+
         img = mpimg.imread(str(image_path))
         if img.dtype == np.float32 or img.dtype == np.float64:
             rgb = img[..., :3]
@@ -424,15 +440,14 @@ def extract_red_mask(image_path):
         S = hsv[..., 1]
         V = hsv[..., 2]
         # Red is split at H=0 / H=1 boundary in HSV
-        red_mask = (((H < 0.03) | (H > 0.97)) & (S > 0.35) & (V > 0.30))
+        red_mask = ((H < 0.03) | (H > 0.97)) & (S > 0.35) & (V > 0.30)
         return red_mask, img
     except Exception as e:
         print(f"[extract_red_mask] FAILED for {image_path}: {e}", flush=True)
         return None, None
 
 
-def score_edge_against_thumbnail(v5_geom, thumbnail_path, ed_name,
-                                   edge_samples=8):
+def score_edge_against_thumbnail(v5_geom, thumbnail_path, ed_name, edge_samples=8):
     """Approximate per-edge scoring against the commission thumbnail.
 
     Since the thumbnail is not geo-registered, we cannot compute a
@@ -450,13 +465,12 @@ def score_edge_against_thumbnail(v5_geom, thumbnail_path, ed_name,
     # can be cross-checked against visual inspection of the thumbnail)
     g = v5_geom
     if g is None or g.is_empty or g.geom_type != "Polygon":
-        return {"overall_score": 0,
-                 "notes": "empty or non-polygon geometry"}
+        return {"overall_score": 0, "notes": "empty or non-polygon geometry"}
     minx, miny, maxx, maxy = g.bounds
     aspect = (maxx - minx) / max(maxy - miny, 1.0)
     bbox_area = (maxx - minx) * (maxy - miny)
     solidity = g.area / bbox_area if bbox_area > 0 else 0
-    compactness = g.length / (g.area ** 0.5) if g.area > 0 else float("inf")
+    compactness = g.length / (g.area**0.5) if g.area > 0 else float("inf")
 
     scores = {
         "aspect_ratio_wh": round(aspect, 2),
@@ -475,95 +489,103 @@ def score_edge_against_thumbnail(v5_geom, thumbnail_path, ed_name,
         expected_solidity_range = (0.55, 0.80)
         scores["west_river_edge"] = {
             "score": 8,
-            "note": "river-snapped via v3 inheritance; serrated boundary visible in panel"
+            "note": "river-snapped via v3 inheritance; serrated boundary visible in panel",
         }
         scores["north_stepped_edge"] = {
             "score": 6,
-            "note": "partial stepped pattern captured via ESW north boundary intersection; peninsula carve-out not fully modelled"
+            "note": "partial stepped pattern captured via ESW north boundary intersection; peninsula carve-out not fully modelled",
         }
         scores["east_main_body_edge"] = {
             "score": 7,
-            "note": "ESW 2019 eastern boundary; commission may shift by 0.5-0.7 km"
+            "note": "ESW 2019 eastern boundary; commission may shift by 0.5-0.7 km",
         }
         scores["eastern_arm_presence"] = {
             "score": 7,
-            "note": "arm present and unioned with main body (structurally matches PO reference); arm east extent uncertain to +/- 1 km"
+            "note": "arm present and unioned with main body (structurally matches PO reference); arm east extent uncertain to +/- 1 km",
         }
         scores["south_edge"] = {
             "score": 7,
-            "note": "ESW southern boundary; Anthony Henday Drive as proxy; +/- 0.5 km"
+            "note": "ESW southern boundary; Anthony Henday Drive as proxy; +/- 0.5 km",
         }
     elif ed_name == "Calgary-De Winton":
         expected_aspect = 2.0  # rural block is wider than tall
         expected_solidity_range = (0.65, 0.90)
         scores["west_edge"] = {
             "score": 5,
-            "note": "soft cut at r_maxx - 5 km; commission's exact line unknown to +/- 1.5 km"
+            "note": "soft cut at r_maxx - 5 km; commission's exact line unknown to +/- 1.5 km",
         }
         scores["north_edge_calgary_limit"] = {
             "score": 8,
-            "note": "Calgary admin_level=8 boundary (OSM authoritative); small thickline tolerance"
+            "note": "Calgary admin_level=8 boundary (OSM authoritative); small thickline tolerance",
         }
         scores["east_edge"] = {
             "score": 6,
-            "note": "Highwood 2019 eastern extent ~= Foothills County east; +/- 1 km"
+            "note": "Highwood 2019 eastern extent ~= Foothills County east; +/- 1 km",
         }
         scores["south_edge"] = {
             "score": 4,
-            "note": "southward extension into Liv-Macleod; rural serrated boundary approximated as a rectangle, residual +/- 2 km"
+            "note": "southward extension into Liv-Macleod; rural serrated boundary approximated as a rectangle, residual +/- 2 km",
         }
         scores["tsuutina_exclusion"] = {
             "score": 9,
-            "note": "OSM aboriginal_lands polygon; authoritative"
+            "note": "OSM aboriginal_lands polygon; authoritative",
         }
         scores["okotoks_inclusion"] = {
             "score": 10,
-            "note": "hard constraint per PO 2026-04-23; confirmed inside polygon at SE edge"
+            "note": "hard constraint per PO 2026-04-23; confirmed inside polygon at SE edge",
         }
         scores["ed29_rural_subtraction"] = {
             "score": 5,
-            "note": "narrow 6 km rectangle south of reserve; actual ED 29 alignment +/- 1.5 km"
+            "note": "narrow 6 km rectangle south of reserve; actual ED 29 alignment +/- 1.5 km",
         }
     elif ed_name == "Calgary-South":
         expected_aspect = 2.0  # slightly wider than tall
         expected_solidity_range = (0.60, 0.85)
         scores["west_edge_fish_creek"] = {
             "score": 7,
-            "note": "Calgary-Fish Creek 2019 boundary; stepped curve approximation of abutment"
+            "note": "Calgary-Fish Creek 2019 boundary; stepped curve approximation of abutment",
         }
         scores["north_edge"] = {
             "score": 5,
-            "note": "~95% Y-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+            "note": "~95% Y-line across Hays 2019; no OSM anchor; +/- 0.7 km",
         }
         scores["east_edge"] = {
             "score": 5,
-            "note": "~72% X-line across Hays 2019; no OSM anchor; +/- 0.7 km"
+            "note": "~72% X-line across Hays 2019; no OSM anchor; +/- 0.7 km",
         }
         scores["south_edge_calgary_limit"] = {
             "score": 9,
-            "note": "Calgary admin_level=8 boundary; authoritative"
+            "note": "Calgary admin_level=8 boundary; authoritative",
         }
         scores["nw_curve_approximation"] = {
             "score": 6,
-            "note": "2-step diagonal carve; commission's curve is smoother"
+            "note": "2-step diagonal carve; commission's curve is smoother",
         }
         scores["ne_notch"] = {
             "score": 6,
-            "note": "900 m x 800 m rectangular notch; commission's notch may differ in shape"
+            "note": "900 m x 800 m rectangular notch; commission's notch may differ in shape",
         }
     else:
         expected_aspect = None
         expected_solidity_range = None
 
     scores["overall_score"] = round(
-        np.mean([v["score"] for v in scores.values() if isinstance(v, dict) and "score" in v]),
-        1)
+        np.mean(
+            [
+                v["score"]
+                for v in scores.values()
+                if isinstance(v, dict) and "score" in v
+            ]
+        ),
+        1,
+    )
     return scores
 
 
 # ----------------------------------------------------------------------
 # Per-ED construction (v5 corrections)
 # ----------------------------------------------------------------------
+
 
 def build_edmonton_windermere_v5(v4_row, v3_row, g2019, osm_cache):
     """Edmonton-Windermere (ED 51) v5.
@@ -606,8 +628,9 @@ def build_edmonton_windermere_v5(v4_row, v3_row, g2019, osm_cache):
     # Step 1: Main body — start from full ESW, trim north of Whitemud's
     # southern boundary, intersect with v3 to inherit river-snap.
     ws_miny = whitemud.bounds[1]
-    below_whitemud = box(esw_minx - 2000, esw_miny - 2000,
-                          esw_maxx + 2000, ws_miny + 100)
+    below_whitemud = box(
+        esw_minx - 2000, esw_miny - 2000, esw_maxx + 2000, ws_miny + 100
+    )
     main_body = esw.intersection(below_whitemud)
 
     # Intersect with v3 to inherit river-snapped western edge (v3 had
@@ -658,8 +681,10 @@ def build_edmonton_windermere_v5(v4_row, v3_row, g2019, osm_cache):
     # Close hairline gap if geom is MultiPolygon
     if combined.geom_type == "MultiPolygon":
         buffered = combined.buffer(50).buffer(-50)
-        if buffered.geom_type == "Polygon" or \
-           (buffered.geom_type == "MultiPolygon" and len(buffered.geoms) < len(combined.geoms)):
+        if buffered.geom_type == "Polygon" or (
+            buffered.geom_type == "MultiPolygon"
+            and len(buffered.geoms) < len(combined.geoms)
+        ):
             combined = buffered
     windermere_v5 = clean_polygon_noise(combined)
 
@@ -678,8 +703,10 @@ def build_edmonton_windermere_v5(v4_row, v3_row, g2019, osm_cache):
         "arm_north_south_err_m": 700,
         "south_edge_err_m": 500,
     }
-    print(f"[Windermere v5] area = {windermere_v5.area/1e6:.2f} km^2 "
-          f"(v4 was {v4_row.geometry.area/1e6:.2f}, target 55-70)")
+    print(
+        f"[Windermere v5] area = {windermere_v5.area/1e6:.2f} km^2 "
+        f"(v4 was {v4_row.geometry.area/1e6:.2f}, target 55-70)"
+    )
 
     return windermere_v5, anchors, errors
 
@@ -716,10 +743,10 @@ def build_calgary_de_winton_v5(v4_row, g2019, osm_cache):
     highwood = clean_polygon_noise(highwood)
     hw_minx, hw_miny, hw_maxx, hw_maxy = highwood.bounds
 
-    bbox_m = (hw_minx - 15000, hw_miny - 15000,
-              hw_maxx + 15000, hw_maxy + 15000)
-    bbox_ll = gpd.GeoSeries([box(*bbox_m)],
-                             crs=WORK_CRS).to_crs("EPSG:4326").iloc[0].bounds
+    bbox_m = (hw_minx - 15000, hw_miny - 15000, hw_maxx + 15000, hw_maxy + 15000)
+    bbox_ll = (
+        gpd.GeoSeries([box(*bbox_m)], crs=WORK_CRS).to_crs("EPSG:4326").iloc[0].bounds
+    )
 
     # Calgary city limit (for potential slivers-in-Calgary removal only)
     calgary_ll = osm_cache.get("calgary_admin")
@@ -731,24 +758,21 @@ def build_calgary_de_winton_v5(v4_row, g2019, osm_cache):
     # Tsuut'ina reserve
     reserves_ll = osm_cache.get("reserves")
     if reserves_ll is None:
-        reserves_ll = fetch_aboriginal_lands(bbox_ll,
-                                              name_substrings=["Tsuut", "145"])
+        reserves_ll = fetch_aboriginal_lands(bbox_ll, name_substrings=["Tsuut", "145"])
         osm_cache["reserves"] = reserves_ll
     reserves_m = to_work(reserves_ll) if reserves_ll is not None else None
 
     # Foothills County (for reference anchor only; not used for cutting)
     foothills_ll = osm_cache.get("foothills_admin")
     if foothills_ll is None:
-        foothills_ll = fetch_admin_boundary(bbox_ll, ["Foothills"],
-                                             admin_levels=["6"])
+        foothills_ll = fetch_admin_boundary(bbox_ll, ["Foothills"], admin_levels=["6"])
         osm_cache["foothills_admin"] = foothills_ll
     foothills_m = to_work(foothills_ll) if foothills_ll is not None else None
 
     # Okotoks (fetched for anchor overlay, but NOT subtracted)
     okotoks_ll = osm_cache.get("okotoks_admin")
     if okotoks_ll is None:
-        okotoks_ll = fetch_admin_boundary(bbox_ll, ["Okotoks"],
-                                           admin_levels=["6", "8"])
+        okotoks_ll = fetch_admin_boundary(bbox_ll, ["Okotoks"], admin_levels=["6", "8"])
         osm_cache["okotoks_admin"] = okotoks_ll
     okotoks_m = to_work(okotoks_ll) if okotoks_ll is not None else None
 
@@ -788,8 +812,9 @@ def build_calgary_de_winton_v5(v4_row, g2019, osm_cache):
     if reserves_m is not None and not reserves_m.is_empty:
         r_minx, r_miny, r_maxx, r_maxy = reserves_m.bounds
         soft_west_cut = r_maxx - 5000
-        keep_east_of = box(soft_west_cut, hw_miny - 15000,
-                            hw_maxx + 5000, hw_maxy + 5000)
+        keep_east_of = box(
+            soft_west_cut, hw_miny - 15000, hw_maxx + 5000, hw_maxy + 5000
+        )
         de_winton = de_winton.intersection(keep_east_of)
 
     # Step 5: Southward extension into Livingstone-Macleod 2019 territory.
@@ -813,16 +838,19 @@ def build_calgary_de_winton_v5(v4_row, g2019, osm_cache):
     # Find Highwood's actual southern edge within the De Winton east-west
     # range (hw_miny is a spurious narrow western protrusion; in De
     # Winton's east-west band, Highwood's true southern edge sits higher).
-    dw_band = box(south_west_cut, hw_miny - 20000,
-                   hw_maxx + 2000, hw_maxy + 1000)
+    dw_band = box(south_west_cut, hw_miny - 20000, hw_maxx + 2000, hw_maxy + 1000)
     hw_in_band = highwood.intersection(dw_band)
     if hw_in_band.is_empty:
         hw_effective_south = hw_miny
     else:
         hw_effective_south = hw_in_band.bounds[1]
     # Southward strip: from hw_effective_south - 10 km to hw_effective_south + 500 m
-    southward_strip = box(south_west_cut, hw_effective_south - 10000,
-                            hw_maxx + 2000, hw_effective_south + 500)
+    southward_strip = box(
+        south_west_cut,
+        hw_effective_south - 10000,
+        hw_maxx + 2000,
+        hw_effective_south + 500,
+    )
     southward_extension = southward_strip.intersection(g2019_liv)
     southward_overlap_hw = southward_strip.intersection(highwood)
     de_winton = unary_union([de_winton, southward_extension, southward_overlap_hw])
@@ -831,9 +859,10 @@ def build_calgary_de_winton_v5(v4_row, g2019, osm_cache):
     # small numerical slivers)
     if de_winton.geom_type == "MultiPolygon":
         closed = de_winton.buffer(150).buffer(-150)
-        if (closed.geom_type == "Polygon" or
-                (closed.geom_type == "MultiPolygon" and
-                 len(closed.geoms) < len(de_winton.geoms))):
+        if closed.geom_type == "Polygon" or (
+            closed.geom_type == "MultiPolygon"
+            and len(closed.geoms) < len(de_winton.geoms)
+        ):
             de_winton = closed
 
     # Step 6: DO NOT SUBTRACT OKOTOKS. v4's subtract step is removed.
@@ -861,8 +890,10 @@ def build_calgary_de_winton_v5(v4_row, g2019, osm_cache):
         "southward_extension_err_m": 2000,
         "okotoks_inclusion": "confirmed via PO 2026-04-23 painted reference",
     }
-    print(f"[De Winton v5] area = {de_winton.area/1e6:.2f} km^2 "
-          f"(v4 was {v4_row.geometry.area/1e6:.2f}, target 1400-1700)")
+    print(
+        f"[De Winton v5] area = {de_winton.area/1e6:.2f} km^2 "
+        f"(v4 was {v4_row.geometry.area/1e6:.2f}, target 1400-1700)"
+    )
 
     return de_winton, anchors, errors
 
@@ -967,8 +998,10 @@ def build_calgary_south_v5(v4_row, g2019, osm_cache):
         "nw_curve_err_m": 500,
         "ne_notch_err_m": 500,
     }
-    print(f"[Calgary-South v5] area = {cs_geom.area/1e6:.2f} km^2 "
-          f"(v4 was {v4_row.geometry.area/1e6:.2f}, target 15-25)")
+    print(
+        f"[Calgary-South v5] area = {cs_geom.area/1e6:.2f} km^2 "
+        f"(v4 was {v4_row.geometry.area/1e6:.2f}, target 15-25)"
+    )
 
     return cs_geom, anchors, errors
 
@@ -976,6 +1009,7 @@ def build_calgary_south_v5(v4_row, g2019, osm_cache):
 # ----------------------------------------------------------------------
 # VA-impact computation (v4 -> v5)
 # ----------------------------------------------------------------------
+
 
 def compute_va_impact(v4_gdf, v5_gdf, va_gdf, target_eds):
     v4_gdf = v4_gdf.to_crs(WORK_CRS)
@@ -995,7 +1029,9 @@ def compute_va_impact(v4_gdf, v5_gdf, va_gdf, target_eds):
         if vote_col is None:
             vcols = [c for c in va.columns if "vote" in c.lower()]
             if vcols:
-                va["__votes_total"] = va[vcols].select_dtypes(include=[np.number]).sum(axis=1)
+                va["__votes_total"] = (
+                    va[vcols].select_dtypes(include=[np.number]).sum(axis=1)
+                )
                 vote_col = "__votes_total"
             else:
                 va["__votes_total"] = 1
@@ -1016,7 +1052,7 @@ def compute_va_impact(v4_gdf, v5_gdf, va_gdf, target_eds):
             sym_diff = v4_geom.symmetric_difference(v5_geom)
             sym_area_km2 = sym_diff.area / 1e6
         except Exception:
-            sym_area_km2 = float('nan')
+            sym_area_km2 = float("nan")
 
         n_flipped = int(sym.sum())
         votes_flipped = float(va.loc[sym, vote_col].sum())
@@ -1025,18 +1061,20 @@ def compute_va_impact(v4_gdf, v5_gdf, va_gdf, target_eds):
         v4_only_votes = float(va.loc[in_v4 & ~in_v5, vote_col].sum())
         v5_only_votes = float(va.loc[~in_v4 & in_v5, vote_col].sum())
 
-        results.append({
-            "name_2026": ed,
-            "v4_area_km2": round(v4_geom.area / 1e6, 2),
-            "v5_area_km2": round(v5_geom.area / 1e6, 2),
-            "sym_diff_km2": round(sym_area_km2, 2),
-            "vas_flipped_total": n_flipped,
-            "votes_flipped_total": round(votes_flipped, 1),
-            "vas_in_v4_only": v4_only,
-            "votes_in_v4_only": round(v4_only_votes, 1),
-            "vas_in_v5_only": v5_only,
-            "votes_in_v5_only": round(v5_only_votes, 1),
-        })
+        results.append(
+            {
+                "name_2026": ed,
+                "v4_area_km2": round(v4_geom.area / 1e6, 2),
+                "v5_area_km2": round(v5_geom.area / 1e6, 2),
+                "sym_diff_km2": round(sym_area_km2, 2),
+                "vas_flipped_total": n_flipped,
+                "votes_flipped_total": round(votes_flipped, 1),
+                "vas_in_v4_only": v4_only,
+                "votes_in_v4_only": round(v4_only_votes, 1),
+                "vas_in_v5_only": v5_only,
+                "votes_in_v5_only": round(v5_only_votes, 1),
+            }
+        )
 
     return pd.DataFrame(results)
 
@@ -1045,8 +1083,16 @@ def compute_va_impact(v4_gdf, v5_gdf, va_gdf, target_eds):
 # Verification panel rendering
 # ----------------------------------------------------------------------
 
-def render_panel(ed_name, v4_geom, v5_geom, anchors_geom_dict, out_path,
-                 caption_footprint=None, caption_uncertainty=None):
+
+def render_panel(
+    ed_name,
+    v4_geom,
+    v5_geom,
+    anchors_geom_dict,
+    out_path,
+    caption_footprint=None,
+    caption_uncertainty=None,
+):
     fig, ax = plt.subplots(figsize=(10, 10))
 
     colors = {
@@ -1058,17 +1104,27 @@ def render_panel(ed_name, v4_geom, v5_geom, anchors_geom_dict, out_path,
         "foothills": "#9cbf8c",
     }
     for key, geom in anchors_geom_dict.items():
-        if geom is None or (hasattr(geom, 'is_empty') and geom.is_empty):
+        if geom is None or (hasattr(geom, "is_empty") and geom.is_empty):
             continue
         try:
             gs = gpd.GeoSeries([geom], crs=WORK_CRS)
             if geom.geom_type in ("LineString", "MultiLineString"):
-                gs.plot(ax=ax, color=colors.get(key, "#cccccc"), linewidth=1.0,
-                        alpha=0.6, label=f"{key}")
+                gs.plot(
+                    ax=ax,
+                    color=colors.get(key, "#cccccc"),
+                    linewidth=1.0,
+                    alpha=0.6,
+                    label=f"{key}",
+                )
             else:
-                gs.boundary.plot(ax=ax, color=colors.get(key, "#cccccc"),
-                                  linewidth=0.8, alpha=0.55, linestyle=":",
-                                  label=f"{key}")
+                gs.boundary.plot(
+                    ax=ax,
+                    color=colors.get(key, "#cccccc"),
+                    linewidth=0.8,
+                    alpha=0.55,
+                    linestyle=":",
+                    label=f"{key}",
+                )
         except Exception as e:
             print(f"[render] anchor {key} failed: {e}", flush=True)
 
@@ -1077,8 +1133,11 @@ def render_panel(ed_name, v4_geom, v5_geom, anchors_geom_dict, out_path,
         v4_lines = _exterior_only_lines(v4_geom)
         for i, ln in enumerate(v4_lines):
             gpd.GeoSeries([ln], crs=WORK_CRS).plot(
-                ax=ax, color="#999999", linewidth=1.6, linestyle="--",
-                label="v4 (superseded)" if i == 0 else None
+                ax=ax,
+                color="#999999",
+                linewidth=1.6,
+                linestyle="--",
+                label="v4 (superseded)" if i == 0 else None,
             )
 
     # v5 (red/orange solid)
@@ -1086,8 +1145,10 @@ def render_panel(ed_name, v4_geom, v5_geom, anchors_geom_dict, out_path,
         lines = _exterior_only_lines(v5_geom)
         for i, ln in enumerate(lines):
             gpd.GeoSeries([ln], crs=WORK_CRS).plot(
-                ax=ax, color="#d94e1f", linewidth=2.4,
-                label="v5 (Tier C approximated, refined)" if i == 0 else None
+                ax=ax,
+                color="#d94e1f",
+                linewidth=2.4,
+                label="v5 (Tier C approximated, refined)" if i == 0 else None,
             )
 
     # Zoom: union of v4 and v5 bounds + anchors
@@ -1100,8 +1161,7 @@ def render_panel(ed_name, v4_geom, v5_geom, anchors_geom_dict, out_path,
     ax.set_aspect("equal")
     ax.set_xticks([])
     ax.set_yticks([])
-    ax.set_title(f"{ed_name} — v5 Tier C approximation (refined)",
-                  fontsize=13, pad=14)
+    ax.set_title(f"{ed_name} — v5 Tier C approximation (refined)", fontsize=13, pad=14)
 
     caption_parts = ["Visual-transcription-assisted Tier C. Not shapefile."]
     if caption_footprint:
@@ -1109,16 +1169,19 @@ def render_panel(ed_name, v4_geom, v5_geom, anchors_geom_dict, out_path,
     if caption_uncertainty:
         caption_parts.append(f"Residual uncertainty: {caption_uncertainty}")
     caption = " | ".join(caption_parts)
-    fig.text(0.5, 0.02, caption, ha="center", fontsize=9,
-             style="italic", wrap=True)
+    fig.text(0.5, 0.02, caption, ha="center", fontsize=9, style="italic", wrap=True)
 
     handles, labels = ax.get_legend_handles_labels()
     seen = set()
-    uniq = [(h, l) for h, l in zip(handles, labels)
-            if not (l in seen or seen.add(l))]
+    uniq = [(h, l) for h, l in zip(handles, labels) if not (l in seen or seen.add(l))]
     if uniq:
-        ax.legend([h for h, _ in uniq], [l for _, l in uniq],
-                   loc="upper right", fontsize=9, framealpha=0.9)
+        ax.legend(
+            [h for h, _ in uniq],
+            [l for _, l in uniq],
+            loc="upper right",
+            fontsize=9,
+            framealpha=0.9,
+        )
     plt.subplots_adjust(top=0.93, bottom=0.08)
     plt.savefig(out_path, dpi=160, bbox_inches="tight")
     plt.close(fig)
@@ -1128,6 +1191,7 @@ def render_panel(ed_name, v4_geom, v5_geom, anchors_geom_dict, out_path,
 # ----------------------------------------------------------------------
 # Main pipeline
 # ----------------------------------------------------------------------
+
 
 def main():
     t0 = time.time()
@@ -1182,8 +1246,10 @@ def main():
             "total_pixels": int(mask.size) if mask is not None else 0,
         }
         if mask is not None:
-            print(f"[red_mask] {path.name}: {red_masks[str(path.name)]['red_pixel_count']} "
-                  f"red pixels of {red_masks[str(path.name)]['total_pixels']} total")
+            print(
+                f"[red_mask] {path.name}: {red_masks[str(path.name)]['red_pixel_count']} "
+                f"red pixels of {red_masks[str(path.name)]['total_pixels']} total"
+            )
 
     # -------------------------------------------------------------
     # Per-ED progressive refinement (6 passes per PO directive)
@@ -1214,10 +1280,12 @@ def main():
             "geom_type": geom_p1.geom_type,
             "anchors": anchors,
             "errors_m": errors,
-            "notes": ("Pass 1 (init from v4 + coarse corrections) and Pass 2 "
-                       "(OSM feature snap for reserve/city/river/county) "
-                       "applied as a single build step; feature anchors "
-                       "come from osmnx fetches documented above."),
+            "notes": (
+                "Pass 1 (init from v4 + coarse corrections) and Pass 2 "
+                "(OSM feature snap for reserve/city/river/county) "
+                "applied as a single build step; feature anchors "
+                "come from osmnx fetches documented above."
+            ),
         }
 
         # Pass 3: overlay verification (initial scoring)
@@ -1249,17 +1317,21 @@ def main():
         # We also cross-reference the red-mask coverage of the thumbnail
         # as a global sanity check.
         geom_p5, ops_p5 = enforce_contiguity_and_cleanup(
-            geom_p4, ed_name, simplify_tol_m=30)
+            geom_p4, ed_name, simplify_tol_m=30
+        )
         interior_scrub = {
-            "n_interior_rings": (len(list(geom_p5.interiors))
-                                 if geom_p5.geom_type == "Polygon" else 0),
+            "n_interior_rings": (
+                len(list(geom_p5.interiors)) if geom_p5.geom_type == "Polygon" else 0
+            ),
             "ops": ops_p5,
-            "red_only_constraint": ("Pipeline uses vector OSM and 2019 "
-                                     "parent polygons only; no raster-trace "
-                                     "from thumbnails. Thus non-red interior "
-                                     "lines (roads/rail/rivers drawn for "
-                                     "reader orientation) cannot have been "
-                                     "encoded as ED boundary."),
+            "red_only_constraint": (
+                "Pipeline uses vector OSM and 2019 "
+                "parent polygons only; no raster-trace "
+                "from thumbnails. Thus non-red interior "
+                "lines (roads/rail/rivers drawn for "
+                "reader orientation) cannot have been "
+                "encoded as ED boundary."
+            ),
             "red_mask_available": thumb_path.name in red_masks,
         }
         passes["pass_5_interior_scrub"] = interior_scrub
@@ -1270,11 +1342,13 @@ def main():
         if isinstance(p6_scores, dict):
             for k, v in p6_scores.items():
                 if isinstance(v, dict) and "score" in v and v["score"] < 8:
-                    residual_uncertainty.append({
-                        "segment": k,
-                        "score": v["score"],
-                        "reason": v.get("note", ""),
-                    })
+                    residual_uncertainty.append(
+                        {
+                            "segment": k,
+                            "score": v["score"],
+                            "reason": v.get("note", ""),
+                        }
+                    )
         passes["pass_6_final_verification"] = {
             "thumbnail": thumb_path.name,
             "scores": p6_scores,
@@ -1290,15 +1364,21 @@ def main():
     ew_v5, ew_anchors, ew_errors, ew_passes = _do_ed_passes(
         "Edmonton-Windermere",
         build_edmonton_windermere_v5,
-        (ew_v4_row, ew_v3_row, g2019, osm_cache))
+        (ew_v4_row, ew_v3_row, g2019, osm_cache),
+    )
     pass_log["Edmonton-Windermere"] = ew_passes
-    contiguity_ops_log["Edmonton-Windermere"] = ew_passes["pass_4_gap_targeted_refinement"]["ops"]
-    print(f"[Windermere v5] FINAL: area={ew_v5.area/1e6:.2f} km^2, "
-          f"type={ew_v5.geom_type}, "
-          f"overall_score={ew_passes['pass_6_final_verification']['overall_score']}")
+    contiguity_ops_log["Edmonton-Windermere"] = ew_passes[
+        "pass_4_gap_targeted_refinement"
+    ]["ops"]
+    print(
+        f"[Windermere v5] FINAL: area={ew_v5.area/1e6:.2f} km^2, "
+        f"type={ew_v5.geom_type}, "
+        f"overall_score={ew_passes['pass_6_final_verification']['overall_score']}"
+    )
     v5_gdf.loc[v5_gdf["name_2026"] == "Edmonton-Windermere", "geometry"] = ew_v5
     notes["Edmonton-Windermere"] = {
-        "anchors": ew_anchors, "errors_m": ew_errors,
+        "anchors": ew_anchors,
+        "errors_m": ew_errors,
         "v4_area_km2": round(ew_v4_row.geometry.area / 1e6, 2),
         "v5_area_km2": round(ew_v5.area / 1e6, 2),
         "target_footprint_km2": "55-70",
@@ -1307,17 +1387,21 @@ def main():
     # De Winton
     dw_v4_row = v4_gdf[v4_gdf["name_2026"] == "Calgary-De Winton"].iloc[0]
     dw_v5, dw_anchors, dw_errors, dw_passes = _do_ed_passes(
-        "Calgary-De Winton",
-        build_calgary_de_winton_v5,
-        (dw_v4_row, g2019, osm_cache))
+        "Calgary-De Winton", build_calgary_de_winton_v5, (dw_v4_row, g2019, osm_cache)
+    )
     pass_log["Calgary-De Winton"] = dw_passes
-    contiguity_ops_log["Calgary-De Winton"] = dw_passes["pass_4_gap_targeted_refinement"]["ops"]
-    print(f"[De Winton v5] FINAL: area={dw_v5.area/1e6:.2f} km^2, "
-          f"type={dw_v5.geom_type}, "
-          f"overall_score={dw_passes['pass_6_final_verification']['overall_score']}")
+    contiguity_ops_log["Calgary-De Winton"] = dw_passes[
+        "pass_4_gap_targeted_refinement"
+    ]["ops"]
+    print(
+        f"[De Winton v5] FINAL: area={dw_v5.area/1e6:.2f} km^2, "
+        f"type={dw_v5.geom_type}, "
+        f"overall_score={dw_passes['pass_6_final_verification']['overall_score']}"
+    )
     v5_gdf.loc[v5_gdf["name_2026"] == "Calgary-De Winton", "geometry"] = dw_v5
     notes["Calgary-De Winton"] = {
-        "anchors": dw_anchors, "errors_m": dw_errors,
+        "anchors": dw_anchors,
+        "errors_m": dw_errors,
         "v4_area_km2": round(dw_v4_row.geometry.area / 1e6, 2),
         "v5_area_km2": round(dw_v5.area / 1e6, 2),
         "target_footprint_km2": "1400-1700",
@@ -1326,17 +1410,21 @@ def main():
     # Calgary-South
     cs_v4_row = v4_gdf[v4_gdf["name_2026"] == "Calgary-South"].iloc[0]
     cs_v5, cs_anchors, cs_errors, cs_passes = _do_ed_passes(
-        "Calgary-South",
-        build_calgary_south_v5,
-        (cs_v4_row, g2019, osm_cache))
+        "Calgary-South", build_calgary_south_v5, (cs_v4_row, g2019, osm_cache)
+    )
     pass_log["Calgary-South"] = cs_passes
-    contiguity_ops_log["Calgary-South"] = cs_passes["pass_4_gap_targeted_refinement"]["ops"]
-    print(f"[Calgary-South v5] FINAL: area={cs_v5.area/1e6:.2f} km^2, "
-          f"type={cs_v5.geom_type}, "
-          f"overall_score={cs_passes['pass_6_final_verification']['overall_score']}")
+    contiguity_ops_log["Calgary-South"] = cs_passes["pass_4_gap_targeted_refinement"][
+        "ops"
+    ]
+    print(
+        f"[Calgary-South v5] FINAL: area={cs_v5.area/1e6:.2f} km^2, "
+        f"type={cs_v5.geom_type}, "
+        f"overall_score={cs_passes['pass_6_final_verification']['overall_score']}"
+    )
     v5_gdf.loc[v5_gdf["name_2026"] == "Calgary-South", "geometry"] = cs_v5
     notes["Calgary-South"] = {
-        "anchors": cs_anchors, "errors_m": cs_errors,
+        "anchors": cs_anchors,
+        "errors_m": cs_errors,
         "v4_area_km2": round(cs_v4_row.geometry.area / 1e6, 2),
         "v5_area_km2": round(cs_v5.area / 1e6, 2),
         "target_footprint_km2": "15-25",
@@ -1352,10 +1440,12 @@ def main():
         checks = validate_polygon(g, ed)
         validation_log[ed] = checks
         status = "PASS" if checks["all_pass"] else "FAIL"
-        print(f"  [{ed}] {status}: valid={checks['is_valid']}, "
-              f"single_polygon={checks['is_single_polygon']}, "
-              f"compactness={checks.get('compactness_ratio')}, "
-              f"holes={checks.get('hole_note', 'n/a')}")
+        print(
+            f"  [{ed}] {status}: valid={checks['is_valid']}, "
+            f"single_polygon={checks['is_single_polygon']}, "
+            f"compactness={checks.get('compactness_ratio')}, "
+            f"holes={checks.get('hole_note', 'n/a')}"
+        )
         if not checks["all_pass"]:
             all_validations_pass = False
     print(f"\nAll validations pass: {all_validations_pass}")
@@ -1371,7 +1461,8 @@ def main():
             anchor_str = "; ".join(f"{k}={v}" for k, v in note["anchors"].items())
             err_str = "; ".join(f"{k}={v}" for k, v in note["errors_m"].items())
             v5_gdf.loc[m, "refined_note"] = (
-                f"v5 Tier C (refined) | anchors: {anchor_str} | err(m): {err_str}")
+                f"v5 Tier C (refined) | anchors: {anchor_str} | err(m): {err_str}"
+            )
 
     if "v5_method" not in v5_gdf.columns:
         v5_gdf["v5_method"] = ""
@@ -1443,9 +1534,15 @@ def main():
         v4_g = v4_gdf[v4_gdf["name_2026"] == ed].iloc[0].geometry
         v5_g = v5_gdf[v5_gdf["name_2026"] == ed].iloc[0].geometry
         out = VERIFICATION_DIR / f"v0_5_minority_{ed_slug[ed]}.svg"
-        render_panel(ed, v4_g, v5_g, anchors, out,
-                      caption_footprint=captions[ed]["footprint"],
-                      caption_uncertainty=captions[ed]["uncertainty"])
+        render_panel(
+            ed,
+            v4_g,
+            v5_g,
+            anchors,
+            out,
+            caption_footprint=captions[ed]["footprint"],
+            caption_uncertainty=captions[ed]["uncertainty"],
+        )
 
     # Additional overlay verification panels (PO directive #2):
     # Render v5 polygons as outline overlays positioned next to the commission
@@ -1518,13 +1615,13 @@ def _render_overlay_panels(v5_gdf, v4_gdf):
         if v4_g is not None and not v4_g.is_empty:
             for ln in _exterior_only_lines(v4_g):
                 gpd.GeoSeries([ln], crs=WORK_CRS).plot(
-                    ax=ax_l, color="#999999", linewidth=1.5, linestyle="--",
-                    label="v4")
+                    ax=ax_l, color="#999999", linewidth=1.5, linestyle="--", label="v4"
+                )
         for ln in _exterior_only_lines(v5_g):
             gpd.GeoSeries([ln], crs=WORK_CRS).plot(
-                ax=ax_l, color="#d94e1f", linewidth=2.4, label="v5")
-        u = unary_union([g for g in (v4_g, v5_g)
-                          if g is not None and not g.is_empty])
+                ax=ax_l, color="#d94e1f", linewidth=2.4, label="v5"
+            )
+        u = unary_union([g for g in (v4_g, v5_g) if g is not None and not g.is_empty])
         minx, miny, maxx, maxy = u.bounds
         pad = 0.10 * max(maxx - minx, maxy - miny)
         ax_l.set_xlim(minx - pad, maxx + pad)
@@ -1535,11 +1632,16 @@ def _render_overlay_panels(v5_gdf, v4_gdf):
         ax_l.set_title(f"v5 polygon outline (EPSG:3401)", fontsize=11)
         handles, labels = ax_l.get_legend_handles_labels()
         seen = set()
-        uniq = [(h, l) for h, l in zip(handles, labels)
-                if not (l in seen or seen.add(l))]
+        uniq = [
+            (h, l) for h, l in zip(handles, labels) if not (l in seen or seen.add(l))
+        ]
         if uniq:
-            ax_l.legend([h for h, _ in uniq], [l for _, l in uniq],
-                        loc="upper right", fontsize=9)
+            ax_l.legend(
+                [h for h, _ in uniq],
+                [l for _, l in uniq],
+                loc="upper right",
+                fontsize=9,
+            )
 
         # Right: commission thumbnail
         try:
@@ -1547,17 +1649,27 @@ def _render_overlay_panels(v5_gdf, v4_gdf):
             ax_r.imshow(img)
             ax_r.set_title(f"Commission thumbnail ({thumb.name})", fontsize=11)
         except Exception as e:
-            ax_r.text(0.5, 0.5, f"Could not load {thumb.name}: {e}",
-                      ha="center", va="center", transform=ax_r.transAxes)
+            ax_r.text(
+                0.5,
+                0.5,
+                f"Could not load {thumb.name}: {e}",
+                ha="center",
+                va="center",
+                transform=ax_r.transAxes,
+            )
         ax_r.set_xticks([])
         ax_r.set_yticks([])
 
-        fig.suptitle(f"{ed} — v5 vs commission thumbnail overlay check",
-                      fontsize=13)
-        fig.text(0.5, 0.02,
-                  "Side-by-side cross-check. Not geo-registered; "
-                  "compare structural shape not precise coordinates.",
-                  ha="center", fontsize=9, style="italic")
+        fig.suptitle(f"{ed} — v5 vs commission thumbnail overlay check", fontsize=13)
+        fig.text(
+            0.5,
+            0.02,
+            "Side-by-side cross-check. Not geo-registered; "
+            "compare structural shape not precise coordinates.",
+            ha="center",
+            fontsize=9,
+            style="italic",
+        )
         plt.subplots_adjust(top=0.93, bottom=0.06, wspace=0.05)
         out = VERIFICATION_DIR / f"v0_5_overlay_minority_{ed_slug[ed]}.svg"
         plt.savefig(out, dpi=140, bbox_inches="tight")

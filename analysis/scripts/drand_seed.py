@@ -18,7 +18,10 @@ this payload against the League of Entropy's public key.
 import hashlib
 
 CANONICAL_ROUND = 5500000
-CANONICAL_RANDOMNESS = "45922177bf69644aa0b8f8043695221eacad1147dfde0967c72fbf3756ffacac"
+CANONICAL_RANDOMNESS = (
+    "45922177bf69644aa0b8f8043695221eacad1147dfde0967c72fbf3756ffacac"
+)
+
 
 def get_canonical_seed(salt: str = "") -> int:
     """
@@ -30,12 +33,14 @@ def get_canonical_seed(salt: str = "") -> int:
     # Use SHA256 to hash the randomness + salt
     h = hashlib.sha256(payload.encode("utf-8")).digest()
     # Extract the first 4 bytes as a 32-bit unsigned integer
-    seed_int = int.from_bytes(h[:4], byteorder='big')
+    seed_int = int.from_bytes(h[:4], byteorder="big")
     # Limit to 0 - (2**32 - 1)
     return seed_int % (2**32)
 
+
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser(description="Generate Drand canonical seed")
     parser.add_argument("--salt", default="", help="Salt to append to randomness")
     args = parser.parse_args()

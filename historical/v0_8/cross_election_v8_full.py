@@ -31,6 +31,7 @@ Forward:  monograph §1.2 caveat 3 (cross-election direction reversal)
 Backward: gerrychain ensemble script + va_polygons_with_2023_votes.gpkg +
           va_polygons_with_2019_votes.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -53,7 +54,13 @@ DATA = ROOT / "data"
 DERIVED = DATA / "shapefiles" / "derived"
 
 VA_2023 = DERIVED / "va_polygons_with_2023_votes.gpkg"
-ED_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+ED_2019_SHP = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 VOTES_2019_CSV = DATA / "v0_1_alberta_2019_results.csv"
 
 OUT_CSV = DATA / "v0_1_cross_election_v8_full.csv"
@@ -124,29 +131,32 @@ def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
     }
 
 
-def attribute_va_to_eds(va: gpd.GeoDataFrame, eds: gpd.GeoDataFrame,
-                        ucp_col: str, ndp_col: str) -> tuple:
+def attribute_va_to_eds(
+    va: gpd.GeoDataFrame, eds: gpd.GeoDataFrame, ucp_col: str, ndp_col: str
+) -> tuple:
     """Spatial-join VA centroids into ED polygons; aggregate UCP/NDP per ED."""
     va_pts = gpd.GeoDataFrame(
-        {ucp_col: va[ucp_col].fillna(0).values,
-         ndp_col: va[ndp_col].fillna(0).values},
+        {ucp_col: va[ucp_col].fillna(0).values, ndp_col: va[ndp_col].fillna(0).values},
         geometry=va.geometry.centroid.values,
         crs=va.crs,
     )
     if va_pts.crs != eds.crs:
         va_pts = va_pts.to_crs(eds.crs)
     name_col = "name_2026" if "name_2026" in eds.columns else eds.columns[0]
-    joined = gpd.sjoin(va_pts, eds[[name_col, "geometry"]],
-                       how="inner", predicate="within")
-    agg = joined.groupby(name_col).agg(
-        ucp=(ucp_col, "sum"), ndp=(ndp_col, "sum")
-    ).reset_index()
+    joined = gpd.sjoin(
+        va_pts, eds[[name_col, "geometry"]], how="inner", predicate="within"
+    )
+    agg = (
+        joined.groupby(name_col)
+        .agg(ucp=(ucp_col, "sum"), ndp=(ndp_col, "sum"))
+        .reset_index()
+    )
     return agg["ucp"].values.astype(float), agg["ndp"].values.astype(float)
 
 
-def attribute_2019_to_v8_by_area(eds_2019: gpd.GeoDataFrame,
-                                  votes_by_2019_ed: dict,
-                                  v8: gpd.GeoDataFrame) -> tuple:
+def attribute_2019_to_v8_by_area(
+    eds_2019: gpd.GeoDataFrame, votes_by_2019_ed: dict, v8: gpd.GeoDataFrame
+) -> tuple:
     """For each v0_8 ED, sum 2019 votes weighted by the area-overlap
     fraction with each 2019 ED whose UCP/NDP totals we have."""
     if eds_2019.crs != v8.crs:
@@ -193,8 +203,11 @@ def main() -> int:
         va_2023 = gpd.read_file(VA_2023)
 
         # Load 2019 (ED-level) — apportion via area-overlap to v0_8 polygons
-        print(f"  loading 2019 ED-level votes from {VOTES_2019_CSV.name} + "
-              f"{ED_2019_SHP.name}", flush=True)
+        print(
+            f"  loading 2019 ED-level votes from {VOTES_2019_CSV.name} + "
+            f"{ED_2019_SHP.name}",
+            flush=True,
+        )
         votes_2019 = pd.read_csv(VOTES_2019_CSV)
         # Sum candidate votes by party — UCP and NDP columns are spread across cand_1..8
         votes_by_2019_ed = {}
@@ -211,14 +224,15 @@ def main() -> int:
                 elif "(NDP)" in cand:
                     ndp += vc
             votes_by_2019_ed[ed] = (ucp, ndp)
-        print(f"  loaded 2019 votes for {len(votes_by_2019_ed)} 2019 EDs",
-              flush=True)
+        print(f"  loaded 2019 votes for {len(votes_by_2019_ed)} 2019 EDs", flush=True)
 
         eds_2019 = gpd.read_file(ED_2019_SHP)
         if eds_2019.crs.to_epsg() != 3401:
             eds_2019 = eds_2019.to_crs(3401)
-        print(f"  loaded {len(eds_2019)} 2019 enacted polygons CRS={eds_2019.crs}",
-              flush=True)
+        print(
+            f"  loaded {len(eds_2019)} 2019 enacted polygons CRS={eds_2019.crs}",
+            flush=True,
+        )
 
         results = []
         for plan in ("majority", "minority"):
@@ -236,10 +250,13 @@ def main() -> int:
             m19["election"] = "2019"
             m19["attribution"] = "area-proportional from 2019 enacted polygons"
             results.append(m19)
-            print(f"    2019 → seats={m19['ucp_seats']}/{m19['n_districts']}  "
-                  f"EG={m19['efficiency_gap']:+.4f}  MM={m19['mean_median']:+.4f}  "
-                  f"decl={m19['declination']:+.4f}  s50={m19['seats_at_50_50']:.3f}  "
-                  f"({time.time()-t0:.1f}s)", flush=True)
+            print(
+                f"    2019 → seats={m19['ucp_seats']}/{m19['n_districts']}  "
+                f"EG={m19['efficiency_gap']:+.4f}  MM={m19['mean_median']:+.4f}  "
+                f"decl={m19['declination']:+.4f}  s50={m19['seats_at_50_50']:.3f}  "
+                f"({time.time()-t0:.1f}s)",
+                flush=True,
+            )
 
             # 2023: VA-centroid attribution
             t0 = time.time()
@@ -249,10 +266,13 @@ def main() -> int:
             m23["election"] = "2023"
             m23["attribution"] = "VA-centroid in v0_8 polygon"
             results.append(m23)
-            print(f"    2023 → seats={m23['ucp_seats']}/{m23['n_districts']}  "
-                  f"EG={m23['efficiency_gap']:+.4f}  MM={m23['mean_median']:+.4f}  "
-                  f"decl={m23['declination']:+.4f}  s50={m23['seats_at_50_50']:.3f}  "
-                  f"({time.time()-t0:.1f}s)", flush=True)
+            print(
+                f"    2023 → seats={m23['ucp_seats']}/{m23['n_districts']}  "
+                f"EG={m23['efficiency_gap']:+.4f}  MM={m23['mean_median']:+.4f}  "
+                f"decl={m23['declination']:+.4f}  s50={m23['seats_at_50_50']:.3f}  "
+                f"({time.time()-t0:.1f}s)",
+                flush=True,
+            )
 
         df = pd.DataFrame(results)
         df.to_csv(OUT_CSV, index=False)
@@ -263,18 +283,29 @@ def main() -> int:
         # Direction-stability summary
         print("\n=== DIRECTION STABILITY (2019 vs 2023, per map per metric) ===")
         for plan in ("majority", "minority"):
-            for metric in ("efficiency_gap", "mean_median", "declination", "seats_at_50_50"):
+            for metric in (
+                "efficiency_gap",
+                "mean_median",
+                "declination",
+                "seats_at_50_50",
+            ):
                 rows = [r for r in results if r["map"] == plan]
                 if len(rows) < 2:
                     continue
-                v_2019 = next((r[metric] for r in rows if r["election"] == "2019"), None)
-                v_2023 = next((r[metric] for r in rows if r["election"] == "2023"), None)
+                v_2019 = next(
+                    (r[metric] for r in rows if r["election"] == "2019"), None
+                )
+                v_2023 = next(
+                    (r[metric] for r in rows if r["election"] == "2023"), None
+                )
                 if v_2019 is None or v_2023 is None:
                     continue
                 same_sign = (v_2019 >= 0) == (v_2023 >= 0)
                 tag = "STABLE" if same_sign else "DIRECTION-FLIP"
-                print(f"  {plan:<10s} {metric:<18s} 2019={v_2019:+.4f}  "
-                      f"2023={v_2023:+.4f}  {tag}")
+                print(
+                    f"  {plan:<10s} {metric:<18s} 2019={v_2019:+.4f}  "
+                    f"2023={v_2023:+.4f}  {tag}"
+                )
     return 0
 
 

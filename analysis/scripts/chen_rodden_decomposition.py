@@ -76,6 +76,7 @@ Backward:
   data/simulation_real_map_scores_full_v2.json
   data/simulation_real_map_scores_full_100k.json
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -149,8 +150,8 @@ def decompose_gap(decomp_a: dict, decomp_b: dict) -> dict:
         real_gap = decomp_a[m]["real"] - decomp_b[m]["real"]
         geography_gap = decomp_a[m]["geography"] - decomp_b[m]["geography"]
         drawing_gap = decomp_a[m]["drawing"] - decomp_b[m]["drawing"]
-        pct_drawing = 100.0 if abs(real_gap) < 1e-12 else (
-            100.0 * drawing_gap / real_gap
+        pct_drawing = (
+            100.0 if abs(real_gap) < 1e-12 else (100.0 * drawing_gap / real_gap)
         )
         out[m] = {
             "real_gap": real_gap,
@@ -175,11 +176,15 @@ def main():
     # --- Ensemble ---
     ens_df = pd.read_csv(ENSEMBLE_CSV)
     ens = ensemble_summary(ens_df)
-    print(f"Ensemble: {len(ens_df)} samples, n_districts={sorted(ens_df.n_districts.unique())}, "
-          f"UCP vote share={ens_df.ucp_vote_share.iloc[0]:.4f}")
+    print(
+        f"Ensemble: {len(ens_df)} samples, n_districts={sorted(ens_df.n_districts.unique())}, "
+        f"UCP vote share={ens_df.ucp_vote_share.iloc[0]:.4f}"
+    )
     for m, s in ens.items():
-        print(f"  {m:16s}  p05/p50/p95 = {s['p05']:+.4f} / {s['p50']:+.4f} / {s['p95']:+.4f}  "
-              f"(mean {s['mean']:+.4f}, std {s['std']:.4f})")
+        print(
+            f"  {m:16s}  p05/p50/p95 = {s['p05']:+.4f} / {s['p50']:+.4f} / {s['p95']:+.4f}  "
+            f"(mean {s['mean']:+.4f}, std {s['std']:.4f})"
+        )
 
     # --- Real maps: v2 (PRIMARY per task spec; substrate = full VA + splat) ---
     scores_v2 = json.loads(SCORES_V2.read_text())
@@ -191,7 +196,9 @@ def main():
 
     # --- Real maps: full_100k (substrate-matched to ensemble; election-day only) ---
     scores_ed = json.loads(SCORES_FULL100K.read_text())
-    print("\n--- Real map scores (election-day-only, substrate-matched to ensemble) ---")
+    print(
+        "\n--- Real map scores (election-day-only, substrate-matched to ensemble) ---"
+    )
     for label, s in scores_ed.items():
         print(f"  {label}")
         for m in METRICS:
@@ -210,25 +217,23 @@ def main():
         "minority 2026 v6 (full coverage)": "minority",
     }
 
-    decomp_v2 = {
-        v2_keys[k]: decompose_real_map(v, ens)
-        for k, v in scores_v2.items()
-    }
-    decomp_ed = {
-        ed_keys[k]: decompose_real_map(v, ens)
-        for k, v in scores_ed.items()
-    }
+    decomp_v2 = {v2_keys[k]: decompose_real_map(v, ens) for k, v in scores_v2.items()}
+    decomp_ed = {ed_keys[k]: decompose_real_map(v, ens) for k, v in scores_ed.items()}
 
     # Gaps
     gaps_v2 = {
         "2019_to_majority": decompose_gap(decomp_v2["majority"], decomp_v2["2019"]),
         "2019_to_minority": decompose_gap(decomp_v2["minority"], decomp_v2["2019"]),
-        "majority_to_minority": decompose_gap(decomp_v2["minority"], decomp_v2["majority"]),
+        "majority_to_minority": decompose_gap(
+            decomp_v2["minority"], decomp_v2["majority"]
+        ),
     }
     gaps_ed = {
         "2019_to_majority": decompose_gap(decomp_ed["majority"], decomp_ed["2019"]),
         "2019_to_minority": decompose_gap(decomp_ed["minority"], decomp_ed["2019"]),
-        "majority_to_minority": decompose_gap(decomp_ed["minority"], decomp_ed["majority"]),
+        "majority_to_minority": decompose_gap(
+            decomp_ed["minority"], decomp_ed["majority"]
+        ),
     }
 
     # --- Decomposition table (machine-readable CSV) ---
@@ -240,35 +245,39 @@ def main():
         for map_label in ["2019", "majority", "minority"]:
             for m in METRICS:
                 d = decomp[map_label][m]
-                rows.append({
-                    "substrate": substrate_label,
-                    "kind": "map",
-                    "target": map_label,
-                    "metric": m,
-                    "real": d["real"],
-                    "geography": d["geography"],
-                    "drawing": d["drawing"],
-                    "real_gap": None,
-                    "geography_gap": None,
-                    "drawing_gap": None,
-                    "pct_drawing": None,
-                })
+                rows.append(
+                    {
+                        "substrate": substrate_label,
+                        "kind": "map",
+                        "target": map_label,
+                        "metric": m,
+                        "real": d["real"],
+                        "geography": d["geography"],
+                        "drawing": d["drawing"],
+                        "real_gap": None,
+                        "geography_gap": None,
+                        "drawing_gap": None,
+                        "pct_drawing": None,
+                    }
+                )
         for gap_label, gap in gaps.items():
             for m in METRICS:
                 g = gap[m]
-                rows.append({
-                    "substrate": substrate_label,
-                    "kind": "gap",
-                    "target": gap_label,
-                    "metric": m,
-                    "real": None,
-                    "geography": None,
-                    "drawing": None,
-                    "real_gap": g["real_gap"],
-                    "geography_gap": g["geography_gap"],
-                    "drawing_gap": g["drawing_gap"],
-                    "pct_drawing": g["pct_drawing"],
-                })
+                rows.append(
+                    {
+                        "substrate": substrate_label,
+                        "kind": "gap",
+                        "target": gap_label,
+                        "metric": m,
+                        "real": None,
+                        "geography": None,
+                        "drawing": None,
+                        "real_gap": g["real_gap"],
+                        "geography_gap": g["geography_gap"],
+                        "drawing_gap": g["drawing_gap"],
+                        "pct_drawing": g["pct_drawing"],
+                    }
+                )
     pd.DataFrame(rows).to_csv(OUT_CSV, index=False)
     print(f"\nWrote: {OUT_CSV.name} ({len(rows)} rows)")
 
@@ -309,36 +318,52 @@ def main():
     print("\n" + "=" * 70)
     print("DECOMPOSITION TABLE - v2 (session-12 canonical, full-VA + splat) - PRIMARY")
     print("=" * 70)
-    print(f"\n{'Map':12s} {'Metric':16s} {'Real':>9s} {'Geography':>11s} {'Drawing':>9s}")
+    print(
+        f"\n{'Map':12s} {'Metric':16s} {'Real':>9s} {'Geography':>11s} {'Drawing':>9s}"
+    )
     for map_label in ["2019", "majority", "minority"]:
         for m in METRICS:
             d = decomp_v2[map_label][m]
-            print(f"{map_label:12s} {m:16s} {d['real']:+.4f}  {d['geography']:+.4f}    "
-                  f"{d['drawing']:+.4f}")
+            print(
+                f"{map_label:12s} {m:16s} {d['real']:+.4f}  {d['geography']:+.4f}    "
+                f"{d['drawing']:+.4f}"
+            )
 
-    print(f"\n{'Gap':25s} {'Metric':16s} {'d Real':>9s} {'d Geo':>9s} {'d Draw':>9s} {'% Drawing':>11s}")
+    print(
+        f"\n{'Gap':25s} {'Metric':16s} {'d Real':>9s} {'d Geo':>9s} {'d Draw':>9s} {'% Drawing':>11s}"
+    )
     for gap_label in ["2019_to_majority", "2019_to_minority", "majority_to_minority"]:
         for m in METRICS:
             g = gaps_v2[gap_label][m]
-            print(f"{gap_label:25s} {m:16s} {g['real_gap']:+.4f}  {g['geography_gap']:+.4f}  "
-                  f"{g['drawing_gap']:+.4f}   {g['pct_drawing']:+.1f}%")
+            print(
+                f"{gap_label:25s} {m:16s} {g['real_gap']:+.4f}  {g['geography_gap']:+.4f}  "
+                f"{g['drawing_gap']:+.4f}   {g['pct_drawing']:+.1f}%"
+            )
 
     print("\n" + "=" * 70)
     print("DECOMPOSITION TABLE - election-day-only (substrate-matched) - CROSS-CHECK")
     print("=" * 70)
-    print(f"\n{'Map':12s} {'Metric':16s} {'Real':>9s} {'Geography':>11s} {'Drawing':>9s}")
+    print(
+        f"\n{'Map':12s} {'Metric':16s} {'Real':>9s} {'Geography':>11s} {'Drawing':>9s}"
+    )
     for map_label in ["2019", "majority", "minority"]:
         for m in METRICS:
             d = decomp_ed[map_label][m]
-            print(f"{map_label:12s} {m:16s} {d['real']:+.4f}  {d['geography']:+.4f}    "
-                  f"{d['drawing']:+.4f}")
+            print(
+                f"{map_label:12s} {m:16s} {d['real']:+.4f}  {d['geography']:+.4f}    "
+                f"{d['drawing']:+.4f}"
+            )
 
-    print(f"\n{'Gap':25s} {'Metric':16s} {'d Real':>9s} {'d Geo':>9s} {'d Draw':>9s} {'% Drawing':>11s}")
+    print(
+        f"\n{'Gap':25s} {'Metric':16s} {'d Real':>9s} {'d Geo':>9s} {'d Draw':>9s} {'% Drawing':>11s}"
+    )
     for gap_label in ["2019_to_majority", "2019_to_minority", "majority_to_minority"]:
         for m in METRICS:
             g = gaps_ed[gap_label][m]
-            print(f"{gap_label:25s} {m:16s} {g['real_gap']:+.4f}  {g['geography_gap']:+.4f}  "
-                  f"{g['drawing_gap']:+.4f}   {g['pct_drawing']:+.1f}%")
+            print(
+                f"{gap_label:25s} {m:16s} {g['real_gap']:+.4f}  {g['geography_gap']:+.4f}  "
+                f"{g['drawing_gap']:+.4f}   {g['pct_drawing']:+.1f}%"
+            )
 
 
 if __name__ == "__main__":

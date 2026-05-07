@@ -16,6 +16,7 @@ tables measure against. Plan B pushes individual municipal components
 forward to their 2025 TBF values and checks whether each test still reaches
 the same verdict.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 import os
@@ -25,7 +26,9 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 import pandas as pd
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+REPO = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+)
 DATA = os.path.join(REPO, "data")
 
 # Commission's stated quota (from both majority and minority reports)
@@ -64,14 +67,21 @@ results = {}
 
 # ----- Test 1: Olds-Three Hills-Didsbury rural catchment -----
 rural_members = [
-    "Mountain View County", "Kneehill County", "Olds", "Didsbury",
-    "Carstairs", "Three Hills", "Trochu", "Cremona", "Linden", "Acme",
+    "Mountain View County",
+    "Kneehill County",
+    "Olds",
+    "Didsbury",
+    "Carstairs",
+    "Three Hills",
+    "Trochu",
+    "Cremona",
+    "Linden",
+    "Acme",
     "Beiseker",
 ]
 total_plan_b = sum(pop_latest(m) for m in rural_members)
 test1_verdict = (
-    "FAIL" if total_plan_b >= FLOOR
-    else "PASS (population forces extension)"
+    "FAIL" if total_plan_b >= FLOOR else "PASS (population forces extension)"
 )
 results["Test 1 Olds-3H-Didsbury"] = {
     "plan_b_sum": total_plan_b,
@@ -94,7 +104,10 @@ print(f"  Plan B verdict:      {test1_verdict}")
 # Natural catchment: Clearwater + Rocky Mountain House + Caroline
 # (Caroline absent from Plan B; use 2021 value 470 unchanged)
 rmh_members = [
-    "Clearwater County", "Rocky Mountain House", "Sundre", "Rimbey",
+    "Clearwater County",
+    "Rocky Mountain House",
+    "Sundre",
+    "Rimbey",
     "Ponoka County",
 ]
 rmh_sum = sum(pop_latest(m) for m in rmh_members) + 470  # Caroline Village (stale)
@@ -158,21 +171,30 @@ results["Test 3 Airdrie 4-way"] = {
 print("\n=== Test 3: Airdrie 4-way split ===")
 print(f"  Airdrie TBF 2025:              {fmt(airdrie_tbf)}")
 print(f"  Airdrie municipal census 2024: {fmt(airdrie_mun)}")
-print(f"  2-way split (TBF):             {two_way_tbf:,.0f} per half "
-      f"(deviation {deviation(two_way_tbf):+.2f}%)")
-print(f"  2-way split (munc):            {two_way_mun:,.0f} per half "
-      f"(deviation {deviation(two_way_mun):+.2f}%)")
+print(
+    f"  2-way split (TBF):             {two_way_tbf:,.0f} per half "
+    f"(deviation {deviation(two_way_tbf):+.2f}%)"
+)
+print(
+    f"  2-way split (munc):            {two_way_mun:,.0f} per half "
+    f"(deviation {deviation(two_way_mun):+.2f}%)"
+)
 print(f"  Rural top-up needed per half (TBF):  {rv_topup_tbf:,.0f}")
 print(f"  Rural top-up needed per half (munc): {rv_topup_mun:,.0f}")
 print(f"  Available from Rocky View County:    {fmt(rocky_view)}")
-print(f"  4-way split (TBF) per quarter:       {four_way_tbf:,.0f} (needs {rv_topup_4way_tbf:,.0f} rural each)")
+print(
+    f"  4-way split (TBF) per quarter:       {four_way_tbf:,.0f} (needs {rv_topup_4way_tbf:,.0f} rural each)"
+)
 print(f"  Plan A verdict: FAIL (unforced)")
-print(f"  Plan B verdict: FAIL (strongly unforced; under Plan B, each half of a 2-way split is already above floor)")
+print(
+    f"  Plan B verdict: FAIL (strongly unforced; under Plan B, each half of a 2-way split is already above floor)"
+)
 
 # ----- Test 4: Red Deer 4 districts -----
 rd_tbf = pop_latest("Red Deer")  # 115,409 (2025)
 # Minimum districts at ceiling:
 import math
+
 min_dists_tbf = math.ceil(rd_tbf / CEILING)
 results["Test 4 Red Deer 4-way"] = {
     "red_deer_tbf_2025": rd_tbf,
@@ -212,7 +234,8 @@ results["Test 5 Chestermere split"] = {
     "plan_a_sum": 45240,
     "plan_a_verdict": "FAIL (natural pairing at 45,240 is within band)",
     "plan_b_verdict": (
-        "FAIL" if FLOOR <= natural <= CEILING
+        "FAIL"
+        if FLOOR <= natural <= CEILING
         else "PARTIAL (natural pairing now outside +/-25%)"
     ),
 }

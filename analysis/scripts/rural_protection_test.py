@@ -22,6 +22,7 @@ This script compares the three maps (2019 enacted, 2026 majority,
 5. Population variance across each map (the EBCA's actual proxy for
    "voter equality")
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 import sys
@@ -58,34 +59,89 @@ def classify(name, region_type=None):
     # NOTE: any ED name that doesn't trigger one of these markers will hit the
     # ValueError at the bottom — there is no silent rural fallback. When
     # auditing a new map, add the ED name explicitly and document why.
-    hybrid_markers = ["airdrie", "chestermere", "cochrane", "okotoks",
-                      "peigan", "bearspaw", "sturgeon", "sherwood park",
-                      "fort saskatchewan",
-                      # Small-city + rural pairings (city anchors a rural ring)
-                      "medicine hat",         # Brooks/Cypress + Medicine Hat
-                      "lac ste. anne", "lac ste anne",  # Lac Ste. Anne-Parkland
-                      "parkland"]             # Parkland County wraps west Edmonton
-    rural_only = ["banff", "kananaskis", "athabasca", "barrhead", "westlock",
-                  "battle river", "bonnyville", "cold lake", "innisfail",
-                  "lacombe", "drumheller", "drayton", "stony plain",
-                  "rocky", "wainwright", "vermilion", "lloydminster",
-                  "cardston", "siksika", "taber", "warner", "lethbridge-west",
-                  "wetaskiwin", "ponoka", "maskwacis", "yellowhead", "peace river",
-                  "central peace", "notley", "lesser slave", "fort mcmurray",
-                  "wood buffalo", "morinville", "olds", "didsbury", "three hills",
-                  "vulcan", "high river", "livingstone", "macleod", "spruce grove",
-                  "leduc", "nisku", "sundre", "clearwater", "rimbey",
-                  "grande prairie", "smoky", "wabasca", "lac la biche",
-                  "two hills", "vegreville", "redwater", "camrose",
-                  # Pure-rural EDs the bare county name didn't catch above
-                  "highwood",         # Highwood (south-central rural)
-                  "mountain view",    # Mountain View-Kneehill
-                  "kneehill"]
+    hybrid_markers = [
+        "airdrie",
+        "chestermere",
+        "cochrane",
+        "okotoks",
+        "peigan",
+        "bearspaw",
+        "sturgeon",
+        "sherwood park",
+        "fort saskatchewan",
+        # Small-city + rural pairings (city anchors a rural ring)
+        "medicine hat",  # Brooks/Cypress + Medicine Hat
+        "lac ste. anne",
+        "lac ste anne",  # Lac Ste. Anne-Parkland
+        "parkland",
+    ]  # Parkland County wraps west Edmonton
+    rural_only = [
+        "banff",
+        "kananaskis",
+        "athabasca",
+        "barrhead",
+        "westlock",
+        "battle river",
+        "bonnyville",
+        "cold lake",
+        "innisfail",
+        "lacombe",
+        "drumheller",
+        "drayton",
+        "stony plain",
+        "rocky",
+        "wainwright",
+        "vermilion",
+        "lloydminster",
+        "cardston",
+        "siksika",
+        "taber",
+        "warner",
+        "lethbridge-west",
+        "wetaskiwin",
+        "ponoka",
+        "maskwacis",
+        "yellowhead",
+        "peace river",
+        "central peace",
+        "notley",
+        "lesser slave",
+        "fort mcmurray",
+        "wood buffalo",
+        "morinville",
+        "olds",
+        "didsbury",
+        "three hills",
+        "vulcan",
+        "high river",
+        "livingstone",
+        "macleod",
+        "spruce grove",
+        "leduc",
+        "nisku",
+        "sundre",
+        "clearwater",
+        "rimbey",
+        "grande prairie",
+        "smoky",
+        "wabasca",
+        "lac la biche",
+        "two hills",
+        "vegreville",
+        "redwater",
+        "camrose",
+        # Pure-rural EDs the bare county name didn't catch above
+        "highwood",  # Highwood (south-central rural)
+        "mountain view",  # Mountain View-Kneehill
+        "kneehill",
+    ]
     if any(h in name_l for h in hybrid_markers):
         # Calgary-Airdrie, Calgary-Peigan-Chestermere, Calgary-Foothills-Airdrie West, etc.
         if "calgary" in name_l or "edmonton" in name_l:
             return "hybrid"
-        if "airdrie" in name_l and not any(c in name_l for c in ["calgary", "edmonton"]):
+        if "airdrie" in name_l and not any(
+            c in name_l for c in ["calgary", "edmonton"]
+        ):
             # Pure-Airdrie EDs (e.g. "Airdrie-East" 2019) are urban-suburban
             return "hybrid"
         return "hybrid"
@@ -100,7 +156,12 @@ def classify(name, region_type=None):
             return "hybrid"
         return "urban"
     if "red deer" in name_l:
-        if "sylvan" in name_l or "blackfalds" in name_l or "lacombe" in name_l or "innisfail" in name_l:
+        if (
+            "sylvan" in name_l
+            or "blackfalds" in name_l
+            or "lacombe" in name_l
+            or "innisfail" in name_l
+        ):
             return "hybrid"
         return "urban"
     if "st. albert" in name_l or "st albert" in name_l:
@@ -121,7 +182,9 @@ def annotate(df, name_col="ed_name", pop_col="population"):
     region_col = "region_type" if "region_type" in df.columns else None
     out = df.copy()
     if region_col:
-        out["category"] = [classify(n, r) for n, r in zip(out[name_col], out[region_col])]
+        out["category"] = [
+            classify(n, r) for n, r in zip(out[name_col], out[region_col])
+        ]
     else:
         out["category"] = [classify(n) for n in out[name_col]]
     out["pop"] = out[pop_col]
@@ -139,9 +202,13 @@ def summarise(df, label):
     n_eds = len(df)
     ideal = total_pop / n_eds
     print(f"\n=== {label} ===")
-    print(f"  total pop: {total_pop:,.0f}    EDs: {n_eds}    ideal pop/ED: {ideal:,.0f}")
+    print(
+        f"  total pop: {total_pop:,.0f}    EDs: {n_eds}    ideal pop/ED: {ideal:,.0f}"
+    )
     print()
-    print(f"  {'category':<10} {'n_eds':>6} {'avg_pop':>10} {'min_pop':>10} {'max_pop':>10} {'avg_dev':>9}")
+    print(
+        f"  {'category':<10} {'n_eds':>6} {'avg_pop':>10} {'min_pop':>10} {'max_pop':>10} {'avg_dev':>9}"
+    )
     for cat in ["urban", "rural", "hybrid"]:
         sub = df[df["category"] == cat]
         if len(sub) == 0:
@@ -150,7 +217,9 @@ def summarise(df, label):
         mn = sub["pop"].min()
         mx = sub["pop"].max()
         dev = (avg - ideal) / ideal * 100
-        print(f"  {cat:<10} {len(sub):>6} {avg:>10,.0f} {mn:>10,.0f} {mx:>10,.0f} {dev:>+8.2f}%")
+        print(
+            f"  {cat:<10} {len(sub):>6} {avg:>10,.0f} {mn:>10,.0f} {mx:>10,.0f} {dev:>+8.2f}%"
+        )
     # Voter representation weight
     urban = df[df["category"] == "urban"]
     rural = df[df["category"] == "rural"]
@@ -160,16 +229,26 @@ def summarise(df, label):
         ratio = r_weight / u_weight
         print()
         print(f"  Per-voter representation weight ratio (rural / urban): {ratio:.3f}x")
-        print(f"  Rural voters carry {(ratio - 1) * 100:+.1f}% more representation than urban voters")
+        print(
+            f"  Rural voters carry {(ratio - 1) * 100:+.1f}% more representation than urban voters"
+        )
     return ideal
 
 
-for df, label in [(en19_a, "2019 Enacted"), (maj_a, "2026 Majority"), (mino_a, "2026 Minority")]:
+for df, label in [
+    (en19_a, "2019 Enacted"),
+    (maj_a, "2026 Majority"),
+    (mino_a, "2026 Minority"),
+]:
     summarise(df, label)
 
 # Hybrid ED detail per map
 print("\n\n=== HYBRID ED COMPARISON ===")
-for df, label in [(en19_a, "2019 enacted"), (maj_a, "2026 majority"), (mino_a, "2026 minority")]:
+for df, label in [
+    (en19_a, "2019 enacted"),
+    (maj_a, "2026 majority"),
+    (mino_a, "2026 minority"),
+]:
     hybrids = df[df["category"] == "hybrid"]
     print(f"\n{label}: {len(hybrids)} hybrid EDs")
     for _, r in hybrids.sort_values("pop", ascending=False).iterrows():

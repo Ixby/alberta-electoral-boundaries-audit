@@ -26,7 +26,7 @@ DPG_MAJ = REPO / "data/shapefiles/derived/v0_10_topological_majority_2026_eds.gp
 DPG_MIN = REPO / "data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg"
 OFF_MAJ = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
 OFF_MIN = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
-OUT     = ROOT / "outputs/t3_displacement_per_ed.csv"
+OUT = ROOT / "outputs/t3_displacement_per_ed.csv"
 OUT.parent.mkdir(exist_ok=True)
 
 DENSIFY_SPACING = 200  # metres — interpolate boundary points every 200 m
@@ -35,6 +35,7 @@ DENSIFY_SPACING = 200  # metres — interpolate boundary points every 200 m
 def densify_boundary(geom, spacing=DENSIFY_SPACING):
     """Return an array of (x, y) points along the exterior at ~spacing metres."""
     from shapely.geometry import MultiPolygon, Polygon
+
     if isinstance(geom, MultiPolygon):
         rings = [p.exterior for p in geom.geoms]
     else:
@@ -52,6 +53,7 @@ def densify_boundary(geom, spacing=DENSIFY_SPACING):
 def mean_boundary_displacement(geom_a, geom_b):
     """Mean nearest-neighbour distance from densified boundary A to B."""
     from scipy.spatial import cKDTree
+
     pts_a = densify_boundary(geom_a)
     pts_b = densify_boundary(geom_b)
     if len(pts_a) == 0 or len(pts_b) == 0:
@@ -85,22 +87,28 @@ def run_map(label, dpg_path, off_path):
         except Exception:
             mean_disp = np.nan
 
-        rows.append({
-            "map": label,
-            "dpg_name": dpg_name,
-            "official_name": best["EDName2025"],
-            "hausdorff_m": round(hausdorff, 1) if not np.isnan(hausdorff) else None,
-            "mean_displacement_m": round(mean_disp, 1) if not np.isnan(mean_disp) else None,
-        })
+        rows.append(
+            {
+                "map": label,
+                "dpg_name": dpg_name,
+                "official_name": best["EDName2025"],
+                "hausdorff_m": round(hausdorff, 1) if not np.isnan(hausdorff) else None,
+                "mean_displacement_m": (
+                    round(mean_disp, 1) if not np.isnan(mean_disp) else None
+                ),
+            }
+        )
 
     df = pd.DataFrame(rows)
 
     mean_h = df["hausdorff_m"].mean()
-    max_h  = df["hausdorff_m"].max()
+    max_h = df["hausdorff_m"].max()
     over2k = (df["hausdorff_m"] > 2000).sum()
 
     print(f"  Mean Hausdorff:       {mean_h:.1f} m")
-    print(f"  Max Hausdorff:        {max_h:.1f} m  ({df.loc[df['hausdorff_m'].idxmax(), 'dpg_name']})")
+    print(
+        f"  Max Hausdorff:        {max_h:.1f} m  ({df.loc[df['hausdorff_m'].idxmax(), 'dpg_name']})"
+    )
     print(f"  EDs with Hausdorff > 2 km: {over2k}")
     print(f"  Mean boundary disp:   {df['mean_displacement_m'].mean():.1f} m")
     print(f"  T3 PASS threshold:    mean Hausdorff < 500 m, no ED > 2000 m")
@@ -108,7 +116,9 @@ def run_map(label, dpg_path, off_path):
     print(f"  T3 RESULT:            {'PASS' if t3_pass else 'FAIL'}")
 
     if over2k:
-        worst = df[df["hausdorff_m"] > 2000][["dpg_name","official_name","hausdorff_m"]].sort_values("hausdorff_m", ascending=False)
+        worst = df[df["hausdorff_m"] > 2000][
+            ["dpg_name", "official_name", "hausdorff_m"]
+        ].sort_values("hausdorff_m", ascending=False)
         print("  Worst offenders (top 10):")
         print(worst.head(10).to_string(index=False))
 

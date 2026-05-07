@@ -1,19 +1,41 @@
 {
   "alberta_2023_results.csv": {
-    "sha256": "3e9b28b7... (placeholder, to be generated)",
+    "sha256": "283d8b5e54574d45ab87bc6288bef880ac1b83d8958528ac3e1a23ae352961c4",
+    "path": "data/reference/alberta_2023_results.csv",
+    "size_bytes": 15678,
     "source": "Elections Alberta Statement of Votes 2023",
     "url": "https://results.elections.ab.ca/",
     "retrieved": "2026-04-15",
     "validation": "packing_cracking_analysis.py:assert_ndp_ucp"
   },
+  "ea_majority_2026_eds.gpkg": {
+    "sha256": "5dcd4c6f931bdd04286bdeb17b183f673ca8d59f4f805ab27c70138b00f1a160",
+    "path": "data/shapefiles/canonical/ea_majority_2026_eds.gpkg",
+    "size_bytes": 4882432,
+    "provenance": "Official Elections Alberta canonical shapefiles (received 2026-05-06)",
+    "note": "Authoritative substrate for canonical MCMC ensemble (100k plans, base_seed=1432864451)"
+  },
+  "ea_minority_2026_eds.gpkg": {
+    "sha256": "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897",
+    "path": "data/shapefiles/canonical/ea_minority_2026_eds.gpkg",
+    "size_bytes": 4907008,
+    "provenance": "Official Elections Alberta canonical shapefiles (received 2026-05-06)",
+    "note": "Authoritative substrate for canonical MCMC ensemble (100k plans, base_seed=1432864451)"
+  },
   "v0_10_topological_majority_2026_eds.gpkg": {
-    "sha256": "e8d9a1f5... (placeholder, to be generated)",
+    "sha256": "174de29dbbfd7522ee5225316f37a7e6f6f806be668222fda4f5df2ccba67d52",
+    "path": "data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg",
+    "size_bytes": 9895936,
     "provenance": "analysis/scripts/build_canonical_shapefiles.py -> topological_shape_resolution.py",
-    "parent_commit": "3484351"
+    "parent_commit": "3484351",
+    "note": "DPG-derived; superseded by ea_majority_2026_eds.gpkg for all analysis after 2026-05-06"
   },
   "v0_10_topological_minority_2026_eds.gpkg": {
-    "sha256": "f2a1b3c4... (placeholder, to be generated)",
+    "sha256": "3ddd8ae59361a9a75c4be9bc5aa166fc1b8939830925736bca4f309acaf82e0a",
+    "path": "data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg",
+    "size_bytes": 10850304,
     "provenance": "analysis/scripts/build_canonical_shapefiles.py -> topological_shape_resolution.py",
-    "parent_commit": "3484351"
+    "parent_commit": "3484351",
+    "note": "DPG-derived; superseded by ea_minority_2026_eds.gpkg for all analysis after 2026-05-06"
   }
 }

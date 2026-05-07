@@ -84,6 +84,7 @@ Usage
 -----
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_historical_eg_baseline.py
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -98,12 +99,13 @@ from typing import Dict, List, Tuple
 # Path resolution
 # ---------------------------------------------------------------------------
 
+
 def _find(filename: str) -> str:
     here = os.path.dirname(os.path.abspath(__file__))
     for p in [
-        os.path.join(here, '..', 'data', filename),
-        os.path.join(here, 'data', filename),
-        os.path.join('data', filename),
+        os.path.join(here, "..", "data", filename),
+        os.path.join(here, "data", filename),
+        os.path.join("data", filename),
         filename,
     ]:
         if os.path.exists(p):
@@ -116,11 +118,11 @@ def _out(filename: str) -> str:
     here = os.path.dirname(os.path.abspath(__file__))
     # scripts/ is two levels below the project root (scripts/ -> analysis/ -> root)
     # but data/ and analysis/reports/ are siblings of analysis/ at the project root
-    project_root = os.path.normpath(os.path.join(here, '..', '..'))
-    if filename.endswith('.json'):
-        return os.path.join(project_root, 'data', filename)
-    elif filename.endswith('.md'):
-        return os.path.join(project_root, 'analysis', 'reports', filename)
+    project_root = os.path.normpath(os.path.join(here, "..", ".."))
+    if filename.endswith(".json"):
+        return os.path.join(project_root, "data", filename)
+    elif filename.endswith(".md"):
+        return os.path.join(project_root, "analysis", "reports", filename)
     return os.path.join(project_root, filename)
 
 
@@ -128,34 +130,37 @@ def _out(filename: str) -> str:
 # Data loading
 # ---------------------------------------------------------------------------
 
+
 def load_2015() -> List[Dict]:
     """
     Load 87 pre-2017 EDs with NDP and RBC (PC+WRP=ucp_equiv) votes.
     Actual winner determined by plurality across all parties (ndp, pc, wrp, lib, other).
     """
     rows = []
-    with open(_find('alberta_2015_results.csv'), newline='', encoding='utf-8') as f:
+    with open(_find("alberta_2015_results.csv"), newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             try:
-                ndp  = int(r['ndp'])
-                rbc  = int(r['ucp_equiv'])  # PC + WRP (pre-merger combined)
-                pc   = int(r['pc'])
-                wrp  = int(r['wrp'])
-                lib  = int(r.get('lib', 0) or 0)
-                oth  = int(r.get('other', 0) or 0)
+                ndp = int(r["ndp"])
+                rbc = int(r["ucp_equiv"])  # PC + WRP (pre-merger combined)
+                pc = int(r["pc"])
+                wrp = int(r["wrp"])
+                lib = int(r.get("lib", 0) or 0)
+                oth = int(r.get("other", 0) or 0)
             except (ValueError, KeyError):
                 continue
             # Actual winner: plurality across all parties
-            all_votes = {'ndp': ndp, 'pc': pc, 'wrp': wrp, 'lib': lib, 'other': oth}
+            all_votes = {"ndp": ndp, "pc": pc, "wrp": wrp, "lib": lib, "other": oth}
             winner_party = max(all_votes, key=all_votes.get)
-            actual_winner = 'NDP' if winner_party == 'ndp' else 'RBC'
-            rows.append({
-                'ed': r.get('ed_2015', r.get('sheet', '?')),
-                'ndp': ndp,
-                'rbc': rbc,
-                'actual_winner': actual_winner,
-                'total_all': ndp + pc + wrp + lib + oth,
-            })
+            actual_winner = "NDP" if winner_party == "ndp" else "RBC"
+            rows.append(
+                {
+                    "ed": r.get("ed_2015", r.get("sheet", "?")),
+                    "ndp": ndp,
+                    "rbc": rbc,
+                    "actual_winner": actual_winner,
+                    "total_all": ndp + pc + wrp + lib + oth,
+                }
+            )
     return rows
 
 
@@ -165,38 +170,40 @@ def load_2019() -> List[Dict]:
     Actual winner from winner_party column.
     """
     rows = []
-    with open(_find('alberta_2019_results.csv'), newline='', encoding='utf-8') as f:
+    with open(_find("alberta_2019_results.csv"), newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             ndp = ucp = 0
             for i in range(1, 9):
-                cand  = r.get(f'cand_{i}', '') or ''
-                votes = r.get(f'votes_{i}', '') or ''
+                cand = r.get(f"cand_{i}", "") or ""
+                votes = r.get(f"votes_{i}", "") or ""
                 if not cand or not votes:
                     continue
                 try:
                     v = int(float(votes))
                 except (ValueError, TypeError):
                     continue
-                if '(NDP)' in cand:
+                if "(NDP)" in cand:
                     ndp = v
-                elif '(UCP)' in cand:
+                elif "(UCP)" in cand:
                     ucp = v
             if ndp + ucp == 0:
                 continue
-            winner_raw = r.get('winner_party', '')
-            actual_winner = 'NDP' if winner_raw.strip() == 'NDP' else 'RBC'
-            total_valid = r.get('total_valid_votes', '') or ''
+            winner_raw = r.get("winner_party", "")
+            actual_winner = "NDP" if winner_raw.strip() == "NDP" else "RBC"
+            total_valid = r.get("total_valid_votes", "") or ""
             try:
                 total_all = int(float(total_valid))
             except (ValueError, TypeError):
                 total_all = ndp + ucp
-            rows.append({
-                'ed': r.get('ed_name', r.get('sheet', '?')),
-                'ndp': ndp,
-                'rbc': ucp,
-                'actual_winner': actual_winner,
-                'total_all': total_all,
-            })
+            rows.append(
+                {
+                    "ed": r.get("ed_name", r.get("sheet", "?")),
+                    "ndp": ndp,
+                    "rbc": ucp,
+                    "actual_winner": actual_winner,
+                    "total_all": total_all,
+                }
+            )
     return rows
 
 
@@ -206,44 +213,47 @@ def load_2023() -> List[Dict]:
     Actual winner from winner_party column.
     """
     rows = []
-    with open(_find('alberta_2023_results.csv'), newline='', encoding='utf-8') as f:
+    with open(_find("alberta_2023_results.csv"), newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             ndp = ucp = 0
             for i in range(1, 7):
-                cand  = r.get(f'cand_{i}', '') or ''
-                votes = r.get(f'votes_{i}', '') or ''
+                cand = r.get(f"cand_{i}", "") or ""
+                votes = r.get(f"votes_{i}", "") or ""
                 if not cand or not votes:
                     continue
                 try:
                     v = int(float(votes))
                 except (ValueError, TypeError):
                     continue
-                if '(NDP)' in cand:
+                if "(NDP)" in cand:
                     ndp = v
-                elif '(UCP)' in cand:
+                elif "(UCP)" in cand:
                     ucp = v
             if ndp + ucp == 0:
                 continue
-            winner_raw = r.get('winner_party', '')
-            actual_winner = 'NDP' if winner_raw.strip() == 'NDP' else 'RBC'
-            total_valid = r.get('total_valid_votes', '') or ''
+            winner_raw = r.get("winner_party", "")
+            actual_winner = "NDP" if winner_raw.strip() == "NDP" else "RBC"
+            total_valid = r.get("total_valid_votes", "") or ""
             try:
                 total_all = int(float(total_valid))
             except (ValueError, TypeError):
                 total_all = ndp + ucp
-            rows.append({
-                'ed': r.get('ed_name', r.get('sheet', '?')),
-                'ndp': ndp,
-                'rbc': ucp,
-                'actual_winner': actual_winner,
-                'total_all': total_all,
-            })
+            rows.append(
+                {
+                    "ed": r.get("ed_name", r.get("sheet", "?")),
+                    "ndp": ndp,
+                    "rbc": ucp,
+                    "actual_winner": actual_winner,
+                    "total_all": total_all,
+                }
+            )
     return rows
 
 
 # ---------------------------------------------------------------------------
 # EG computation
 # ---------------------------------------------------------------------------
+
 
 def compute_eg(districts: List[Dict], label: str) -> Dict:
     """
@@ -264,15 +274,15 @@ def compute_eg(districts: List[Dict], label: str) -> Dict:
     rbc_votes_total = 0
 
     for d in districts:
-        ndp  = d['ndp']
-        rbc  = d['rbc']
-        win  = d['actual_winner']
-        tt   = ndp + rbc
+        ndp = d["ndp"]
+        rbc = d["rbc"]
+        win = d["actual_winner"]
+        tt = ndp + rbc
         if tt == 0:
             continue
         thr = tt // 2 + 1
 
-        if win == 'NDP':
+        if win == "NDP":
             ndp_wasted += max(0, ndp - thr)
             rbc_wasted += rbc
             ndp_wins += 1
@@ -281,7 +291,7 @@ def compute_eg(districts: List[Dict], label: str) -> Dict:
             ndp_wasted += ndp
             rbc_wins += 1
 
-        total_2p       += tt
+        total_2p += tt
         ndp_votes_total += ndp
         rbc_votes_total += rbc
 
@@ -298,26 +308,27 @@ def compute_eg(districts: List[Dict], label: str) -> Dict:
     eg_sm_ndp = (ndp_seat_share - 0.5) - 2 * (ndp_share - 0.5)
 
     return {
-        'label': label,
-        'n_districts': ndp_wins + rbc_wins,
-        'ndp_votes': ndp_votes_total,
-        'rbc_votes': rbc_votes_total,
-        'total_2p': total_2p,
-        'ndp_share_pct': round(ndp_share * 100, 4),
-        'rbc_share_pct': round((1 - ndp_share) * 100, 4),
-        'ndp_wins': ndp_wins,
-        'rbc_wins': rbc_wins,
-        'ndp_seat_share_pct': round(ndp_seat_share * 100, 4),
-        'ndp_wasted': ndp_wasted,
-        'rbc_wasted': rbc_wasted,
-        'code_eg_pct': round(code_eg * 100, 4),     # matches v0_2 sign
-        'eg_sm_ndp_pct': round(eg_sm_ndp * 100, 4), # S-M perspective, NDP-framed
+        "label": label,
+        "n_districts": ndp_wins + rbc_wins,
+        "ndp_votes": ndp_votes_total,
+        "rbc_votes": rbc_votes_total,
+        "total_2p": total_2p,
+        "ndp_share_pct": round(ndp_share * 100, 4),
+        "rbc_share_pct": round((1 - ndp_share) * 100, 4),
+        "ndp_wins": ndp_wins,
+        "rbc_wins": rbc_wins,
+        "ndp_seat_share_pct": round(ndp_seat_share * 100, 4),
+        "ndp_wasted": ndp_wasted,
+        "rbc_wasted": rbc_wasted,
+        "code_eg_pct": round(code_eg * 100, 4),  # matches v0_2 sign
+        "eg_sm_ndp_pct": round(eg_sm_ndp * 100, 4),  # S-M perspective, NDP-framed
     }
 
 
 # ---------------------------------------------------------------------------
 # Reporting
 # ---------------------------------------------------------------------------
+
 
 def _sign_label(eg_pct: float) -> str:
     """
@@ -332,8 +343,8 @@ def _sign_label(eg_pct: float) -> str:
 
 
 def print_result(r: Dict) -> None:
-    label = r['label']
-    sep   = '=' * 60
+    label = r["label"]
+    sep = "=" * 60
     print(f"\n{sep}")
     print(f"  {label}")
     print(sep)
@@ -344,13 +355,16 @@ def print_result(r: Dict) -> None:
     print(f"  RBC seats won:        {r['rbc_wins']} / {r['n_districts']}")
     print(f"  NDP wasted votes:     {r['ndp_wasted']:,}")
     print(f"  RBC wasted votes:     {r['rbc_wasted']:,}")
-    print(f"  EG (code_eg):         {r['code_eg_pct']:+.2f}%  [{_sign_label(r['code_eg_pct'])}]")
+    print(
+        f"  EG (code_eg):         {r['code_eg_pct']:+.2f}%  [{_sign_label(r['code_eg_pct'])}]"
+    )
     print(f"  EG (S-M NDP-framed):  {r['eg_sm_ndp_pct']:+.2f}%")
 
 
-def write_json(results: List[Dict], eg_2026_majority_pct: float,
-               eg_2026_minority_pct: float) -> str:
-    eg_values = [r['code_eg_pct'] for r in results]
+def write_json(
+    results: List[Dict], eg_2026_majority_pct: float, eg_2026_minority_pct: float
+) -> str:
+    eg_values = [r["code_eg_pct"] for r in results]
     historical_min = min(eg_values)
     historical_max = max(eg_values)
     historical_range = historical_max - historical_min
@@ -367,7 +381,7 @@ def write_json(results: List[Dict], eg_2026_majority_pct: float,
             "min_pct": round(historical_min, 4),
             "max_pct": round(historical_max, 4),
             "range_pct": round(historical_range, 4),
-            "elections_included": [r['label'] for r in results],
+            "elections_included": [r["label"] for r in results],
         },
         "comparison_2026": {
             "majority_eg_pct": eg_2026_majority_pct,
@@ -404,22 +418,23 @@ def write_json(results: List[Dict], eg_2026_majority_pct: float,
         },
     }
 
-    path = _out('historical_eg_baseline.json')
-    with open(path, 'w', encoding='utf-8') as f:
+    path = _out("historical_eg_baseline.json")
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
     return path
 
 
-def write_report(results: List[Dict], eg_2026_majority_pct: float,
-                 eg_2026_minority_pct: float) -> str:
-    eg_values = [r['code_eg_pct'] for r in results]
+def write_report(
+    results: List[Dict], eg_2026_majority_pct: float, eg_2026_minority_pct: float
+) -> str:
+    eg_values = [r["code_eg_pct"] for r in results]
     historical_min = min(eg_values)
     historical_max = max(eg_values)
     # For the "normal election" range (2019 and 2023 only — exclude the
     # 2015 multi-party vote-split anomaly)
-    normal = [r for r in results if '2015' not in r['label']]
-    normal_min = min(r['code_eg_pct'] for r in normal)
-    normal_max = max(r['code_eg_pct'] for r in normal)
+    normal = [r for r in results if "2015" not in r["label"]]
+    normal_min = min(r["code_eg_pct"] for r in normal)
+    normal_max = max(r["code_eg_pct"] for r in normal)
 
     lines = [
         "# Alberta Historical Efficiency Gap Baseline — v0.1",
@@ -457,10 +472,10 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
 
     for r in results:
         map_name = {
-            '2015': 'Pre-2017 (87 EDs)',
-            '2019': 'Bill 33 2017 (87 EDs)',
-            '2023': 'Bill 33 2017 (87 EDs)',
-        }.get(r['label'][:4], r['label'])
+            "2015": "Pre-2017 (87 EDs)",
+            "2019": "Bill 33 2017 (87 EDs)",
+            "2023": "Bill 33 2017 (87 EDs)",
+        }.get(r["label"][:4], r["label"])
         lines.append(
             f"| {r['label']} | {map_name} | {r['ndp_share_pct']:.1f}% | "
             f"{r['ndp_wins']}/87 | **{r['code_eg_pct']:+.2f}%** | "
@@ -550,7 +565,7 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
         "   - 2023: `data/alberta_2023_results.csv`",
         "",
         "5. **Cross-check:** The 2023 EG computed here (-2.64%) matches the v0_2 "
-        "   script's \"2019 BOUNDARIES (CURRENT) under 2023 vote shares\" result "
+        '   script\'s "2019 BOUNDARIES (CURRENT) under 2023 vote shares" result '
         "   exactly, confirming formula consistency.",
         "",
         "---",
@@ -558,9 +573,9 @@ def write_report(results: List[Dict], eg_2026_majority_pct: float,
         "Do not edit manually — re-run the script to regenerate.*",
     ]
 
-    path = _out('historical_eg_baseline.md')
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines) + '\n')
+    path = _out("historical_eg_baseline.md")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
     return path
 
 
@@ -591,51 +606,57 @@ def main() -> None:
     districts_2023 = load_2023()
 
     results = [
-        compute_eg(districts_2015, '2015 (pre-2017 map, 87 EDs)'),
-        compute_eg(districts_2019, '2019 (Bill 33 map, 87 EDs)'),
-        compute_eg(districts_2023, '2023 (Bill 33 map, 87 EDs)'),
+        compute_eg(districts_2015, "2015 (pre-2017 map, 87 EDs)"),
+        compute_eg(districts_2019, "2019 (Bill 33 map, 87 EDs)"),
+        compute_eg(districts_2023, "2023 (Bill 33 map, 87 EDs)"),
     ]
 
     for r in results:
         print_result(r)
 
     # Summary
-    eg_values = [r['code_eg_pct'] for r in results]
+    eg_values = [r["code_eg_pct"] for r in results]
     print(f"\n{'=' * 60}")
     print("  ALBERTA HISTORICAL RANGE")
-    print('=' * 60)
+    print("=" * 60)
     print(f"  2015 EG: {results[0]['code_eg_pct']:+.2f}%")
     print(f"  2019 EG: {results[1]['code_eg_pct']:+.2f}%")
     print(f"  2023 EG: {results[2]['code_eg_pct']:+.2f}%")
     print(f"  Historical range: {min(eg_values):+.2f}% to {max(eg_values):+.2f}%")
     print()
     print(f"  Normal-election range (2019 + 2023):")
-    normal_vals = [results[1]['code_eg_pct'], results[2]['code_eg_pct']]
+    normal_vals = [results[1]["code_eg_pct"], results[2]["code_eg_pct"]]
     print(f"    {min(normal_vals):+.2f}% to {max(normal_vals):+.2f}%")
 
     print(f"\n{'=' * 60}")
     print("  COMPARISON WITH 2026 PROPOSED MAPS")
-    print('=' * 60)
+    print("=" * 60)
     print(f"  2019 enacted baseline:   -2.64%  (reference)")
     print(f"  Majority 2026 (v0_2):    {EG_2026_MAJORITY_PCT:+.2f}%")
     print(f"  Minority 2026 (v0_2):    {EG_2026_MINORITY_PCT:+.2f}%")
     print()
-    print(f"  All 2026 values within 2019-2023 range "
-          f"({min(normal_vals):+.2f}% to {max(normal_vals):+.2f}%): "
-          f"{all(min(normal_vals) <= v <= max(normal_vals) for v in [EG_2026_MAJORITY_PCT, EG_2026_MINORITY_PCT])}")
+    print(
+        f"  All 2026 values within 2019-2023 range "
+        f"({min(normal_vals):+.2f}% to {max(normal_vals):+.2f}%): "
+        f"{all(min(normal_vals) <= v <= max(normal_vals) for v in [EG_2026_MAJORITY_PCT, EG_2026_MINORITY_PCT])}"
+    )
 
     print(f"\n{'=' * 60}")
     print("  THRESHOLD ANALYSIS")
-    print('=' * 60)
+    print("=" * 60)
     print(f"  US S&M (2015) threshold:     ±7.00%")
     print(f"  Alberta 2019-2023 max abs:    {max(abs(v) for v in normal_vals):.2f}%")
     print(f"  Suggested Alberta threshold:  ~3.00%")
-    print(f"  All 2026 values within 3%:   "
-          f"{all(abs(v) <= 3.0 for v in [EG_2026_MAJORITY_PCT, EG_2026_MINORITY_PCT])}")
+    print(
+        f"  All 2026 values within 3%:   "
+        f"{all(abs(v) <= 3.0 for v in [EG_2026_MAJORITY_PCT, EG_2026_MINORITY_PCT])}"
+    )
     print()
     print("  Finding: The US 7% threshold is not calibrated to Alberta.")
     print("  Alberta's two-party elections (2019, 2023) show EG in the")
-    print(f"  {min(normal_vals):+.2f}% to {max(normal_vals):+.2f}% range under the enacted map.")
+    print(
+        f"  {min(normal_vals):+.2f}% to {max(normal_vals):+.2f}% range under the enacted map."
+    )
     print("  A province-specific threshold of ~3% is more appropriate.")
     print("  Both 2026 proposals remain within this threshold;")
     print("  the more meaningful test is the relative shift from the")
@@ -644,10 +665,10 @@ def main() -> None:
 
     # Write outputs
     json_path = write_json(results, EG_2026_MAJORITY_PCT, EG_2026_MINORITY_PCT)
-    md_path   = write_report(results, EG_2026_MAJORITY_PCT, EG_2026_MINORITY_PCT)
+    md_path = write_report(results, EG_2026_MAJORITY_PCT, EG_2026_MINORITY_PCT)
     print(f"\n  Wrote: {json_path}")
     print(f"  Wrote: {md_path}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

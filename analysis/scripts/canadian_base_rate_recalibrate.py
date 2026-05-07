@@ -28,6 +28,7 @@ backward_dependencies:
   - analysis/scripts/v0_1_canadian_base_rate_compute.py (original n=7 writeup)
   - data/canadian_redistribution_base_rate.csv (source data)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -51,13 +52,13 @@ CSV_PATH = os.path.join(REPO_ROOT, "data", "canadian_redistribution_base_rate.cs
 # EG-proxy is the audit's measured 0.51 pp by construction.
 CYCLES = [
     # (name, seats, delta_s, eg_proxy_pp, seat_share_asym_pp)
-    ("Alberta 2025-26",             89, 1, 0.51, 1.12),  # anchor, audit-measured
-    ("Federal 2022 (AB)",           37, 0, 0.00, 0.00),
-    ("British Columbia 2023",       93, 0, 0.00, 0.00),
-    ("Saskatchewan 2022",           61, 0, 0.00, 0.00),
-    ("Alberta 2017",                87, 1, 0.52, 1.15),
-    ("Alberta 2010",                87, 0, 0.00, 0.00),
-    ("Manitoba 2018",               57, 1, 0.80, 1.75),
+    ("Alberta 2025-26", 89, 1, 0.51, 1.12),  # anchor, audit-measured
+    ("Federal 2022 (AB)", 37, 0, 0.00, 0.00),
+    ("British Columbia 2023", 93, 0, 0.00, 0.00),
+    ("Saskatchewan 2022", 61, 0, 0.00, 0.00),
+    ("Alberta 2017", 87, 1, 0.52, 1.15),
+    ("Alberta 2010", 87, 0, 0.00, 0.00),
+    ("Manitoba 2018", 57, 1, 0.80, 1.75),
 ]
 ANCHOR_NAME = "Alberta 2025-26"
 ANCHOR_EG = 0.51
@@ -138,19 +139,31 @@ def main() -> None:
         p_eg_low = percentile_rank(ANCHOR_EG, comparator_eg, kind=kind)
         p_eg_high = percentile_rank(ANCHOR_EG_HIGH, comparator_eg, kind=kind)
         p_ss = percentile_rank(ANCHOR_SEAT_SHARE, comparator_ss, kind=kind)
-        print(f"  {kind:>6} percentile of Alberta 0.51 pp (EG) vs n=6 comparator: {p_eg_low:5.1f}%")
-        print(f"  {kind:>6} percentile of Alberta 1.60 pp (EG high) vs n=6 comparator: {p_eg_high:5.1f}%")
-        print(f"  {kind:>6} percentile of Alberta 1.12 pp (seat-share) vs n=6 comparator: {p_ss:5.1f}%")
+        print(
+            f"  {kind:>6} percentile of Alberta 0.51 pp (EG) vs n=6 comparator: {p_eg_low:5.1f}%"
+        )
+        print(
+            f"  {kind:>6} percentile of Alberta 1.60 pp (EG high) vs n=6 comparator: {p_eg_high:5.1f}%"
+        )
+        print(
+            f"  {kind:>6} percentile of Alberta 1.12 pp (seat-share) vs n=6 comparator: {p_ss:5.1f}%"
+        )
         print()
 
     # Count cycles at/above Alberta in comparator
     at_or_above_eg = sum(1 for v in comparator_eg if v >= ANCHOR_EG)
     below_eg = sum(1 for v in comparator_eg if v < ANCHOR_EG)
     print(f"  Of the n=6 comparator cycles:")
-    print(f"    {below_eg} fall strictly below Alberta 2025-26's 0.51 pp "
-          f"(all four zero-asymmetry cycles).")
-    print(f"    {at_or_above_eg} fall at or above (Alberta 2017 at 0.52 pp, Manitoba 2018 at 0.80 pp).")
-    print(f"    Alberta 2025-26's 0.51 pp is the SECOND-LOWEST non-zero value in the original n=7;")
+    print(
+        f"    {below_eg} fall strictly below Alberta 2025-26's 0.51 pp "
+        f"(all four zero-asymmetry cycles)."
+    )
+    print(
+        f"    {at_or_above_eg} fall at or above (Alberta 2017 at 0.52 pp, Manitoba 2018 at 0.80 pp)."
+    )
+    print(
+        f"    Alberta 2025-26's 0.51 pp is the SECOND-LOWEST non-zero value in the original n=7;"
+    )
     print(f"    excluded, it becomes a new observation between 0.00 and 0.52.")
     print()
 
@@ -170,7 +183,9 @@ def main() -> None:
         print(f"  {i}. {n:<30}  EG-proxy = {eg:.2f} pp{marker}")
     print()
     nonzero_excl = [(n, eg) for (n, eg) in nonzero if n != ANCHOR_NAME]
-    print("Excluding the anchor, ordinal position of Alberta 2025-26 (0.51 pp) among other non-zero:")
+    print(
+        "Excluding the anchor, ordinal position of Alberta 2025-26 (0.51 pp) among other non-zero:"
+    )
     others = [(n, eg) for (n, eg) in nonzero_excl]
     others_sorted = sorted(others, key=lambda x: x[1])
     print(f"  Other non-zero cycles: {[(n, eg) for (n, eg) in others_sorted]}")
@@ -180,7 +195,9 @@ def main() -> None:
     print(f"  Strictly above 0.51 pp: {above_anchor}")
     print()
     print("  Framing: 'Alberta 2025-26 (0.51 pp) falls between Alberta 2017 (0.52 pp)")
-    print("  and the zero cluster; Manitoba 2018 (0.80 pp) remains the Canadian maximum.'")
+    print(
+        "  and the zero cluster; Manitoba 2018 (0.80 pp) remains the Canadian maximum.'"
+    )
     print()
 
     # ----------------------------------------------------------------
@@ -193,7 +210,9 @@ def main() -> None:
     full_eg = [eg for (_n, _s, _ds, eg, _ssa) in CYCLES]
     p_full = percentile_rank(ANCHOR_EG, full_eg, kind="weak")
     print(f"  Weak percentile of 0.51 against full n=7 including anchor: {p_full:.1f}%")
-    print(f"  (5 of 7 cycles fall at or below 0.51 -> 5/7 = 71.4%; matches the writeup.)")
+    print(
+        f"  (5 of 7 cycles fall at or below 0.51 -> 5/7 = 71.4%; matches the writeup.)"
+    )
     print()
 
 

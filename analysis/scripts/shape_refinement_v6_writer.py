@@ -2,6 +2,7 @@
 v6 output writer: merges v6 polygons into v5 (minority) and approximate
 (majority) baseline files, produces impact CSV and log JSON.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -14,7 +15,11 @@ import pandas as pd
 from shapely.geometry import Polygon
 
 from shape_refinement_v6 import (
-    ROOT, DATA_DIR, ANALYSIS_DIR, AREA_CRS, WORK_CRS,
+    ROOT,
+    DATA_DIR,
+    ANALYSIS_DIR,
+    AREA_CRS,
+    WORK_CRS,
 )
 
 
@@ -28,11 +33,17 @@ def write_outputs(results: dict[str, Polygon], log: dict):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     # ---------- MINORITY ----------
-    v5_min = gpd.read_file(DATA_DIR / "v0_1_refined_v5_minority_2026_eds.gpkg").to_crs(AREA_CRS)
+    v5_min = gpd.read_file(DATA_DIR / "v0_1_refined_v5_minority_2026_eds.gpkg").to_crs(
+        AREA_CRS
+    )
     rows = []
     for _, r in v5_min.iterrows():
         name = r["name_2026"]
-        if name in results and name in ("Calgary-De Winton", "Calgary-South", "Edmonton-Windermere"):
+        if name in results and name in (
+            "Calgary-De Winton",
+            "Calgary-South",
+            "Edmonton-Windermere",
+        ):
             # Replace geometry with v6
             new_r = r.copy()
             new_r.geometry = results[name]
@@ -52,11 +63,15 @@ def write_outputs(results: dict[str, Polygon], log: dict):
     # Reproject back to working CRS for consistency with v5
     v6_min_wc = v6_min.to_crs(WORK_CRS)
     v6_min_wc.to_file(v6_min_out_path, driver="GPKG")
-    print(f"[WRITE] {v6_min_out_path.name}: {len(v6_min_wc)} rows "
-          f"({sum(1 for _, r in v6_min.iterrows() if r.get('v6_method') == 'pixel-exact-hsv-v6')} v6 polygons)")
+    print(
+        f"[WRITE] {v6_min_out_path.name}: {len(v6_min_wc)} rows "
+        f"({sum(1 for _, r in v6_min.iterrows() if r.get('v6_method') == 'pixel-exact-hsv-v6')} v6 polygons)"
+    )
 
     # ---------- MAJORITY ----------
-    approx_maj = gpd.read_file(DATA_DIR / "v0_1_approximate_majority_2026_eds.gpkg").to_crs(AREA_CRS)
+    approx_maj = gpd.read_file(
+        DATA_DIR / "v0_1_approximate_majority_2026_eds.gpkg"
+    ).to_crs(AREA_CRS)
     # Get population file to know all 89 majority EDs
     pop = pd.read_csv(DATA_DIR / "majority_2026_populations.csv")
     # Build rows: start from approx (57 Tier A), add v6 polygons for matched Tier C
@@ -71,9 +86,12 @@ def write_outputs(results: dict[str, Polygon], log: dict):
 
     # Add v6 majority polygons
     v6_majority_targets = {
-        "Calgary-East", "Calgary-Falconridge-Conrich",
-        "Calgary-Glenmore-Tsuut'ina", "Calgary-West-Elbow Valley",
-        "Edmonton-Beaumont", "Edmonton-Enoch",
+        "Calgary-East",
+        "Calgary-Falconridge-Conrich",
+        "Calgary-Glenmore-Tsuut'ina",
+        "Calgary-West-Elbow Valley",
+        "Edmonton-Beaumont",
+        "Edmonton-Enoch",
     }
     for name in v6_majority_targets:
         if name in results:
@@ -97,7 +115,9 @@ def write_outputs(results: dict[str, Polygon], log: dict):
             new_r["tier"] = "C-null"
             new_r["confidence"] = "null-no-thumbnail-coverage"
             new_r["parents_2019"] = ""
-            new_r["note"] = f"Tier C majority — not vectorised in v6 (rural, not in city thumbnail)"
+            new_r["note"] = (
+                f"Tier C majority — not vectorised in v6 (rural, not in city thumbnail)"
+            )
             new_r["v6_method"] = "null-escalated-in-methodology"
             new_r["geometry"] = None  # NULL geometry
             rows.append(new_r)
@@ -105,7 +125,8 @@ def write_outputs(results: dict[str, Polygon], log: dict):
     # Normalise rows: convert any dict rows to pd.Series aligned to approx_maj columns
     cols = list(approx_maj.columns) + ["v6_method"]
     # Ensure unique columns (in case v6_method already exists)
-    seen_cols = set(); cols = [c for c in cols if not (c in seen_cols or seen_cols.add(c))]
+    seen_cols = set()
+    cols = [c for c in cols if not (c in seen_cols or seen_cols.add(c))]
     normed = []
     for r in rows:
         if isinstance(r, dict):
@@ -118,8 +139,10 @@ def write_outputs(results: dict[str, Polygon], log: dict):
     # To_crs with None geom rows is fine
     v6_maj_wc = v6_maj.to_crs(WORK_CRS)
     v6_maj_wc.to_file(v6_maj_out_path, driver="GPKG")
-    print(f"[WRITE] {v6_maj_out_path.name}: {len(v6_maj)} rows "
-          f"({sum(1 for _, r in v6_maj.iterrows() if r.get('v6_method') == 'pixel-exact-hsv-v6')} v6 polygons)")
+    print(
+        f"[WRITE] {v6_maj_out_path.name}: {len(v6_maj)} rows "
+        f"({sum(1 for _, r in v6_maj.iterrows() if r.get('v6_method') == 'pixel-exact-hsv-v6')} v6 polygons)"
+    )
 
     # ---------- IMPACT CSV ----------
     impact_rows = []
@@ -128,27 +151,45 @@ def write_outputs(results: dict[str, Polygon], log: dict):
         v5_sub = v5_min[v5_min["name_2026"] == name]
         v6_sub = v6_min[v6_min["name_2026"] == name]
         v5_area = v5_sub.geometry.iloc[0].area / 1e6 if not v5_sub.empty else None
-        v6_area = v6_sub.geometry.iloc[0].area / 1e6 if (not v6_sub.empty and v6_sub.geometry.iloc[0] is not None) else None
-        impact_rows.append({
-            "map": "minority",
-            "ed_name": name,
-            "v5_area_km2": round(v5_area, 2) if v5_area else None,
-            "v6_area_km2": round(v6_area, 2) if v6_area else None,
-            "delta_km2": round(v6_area - v5_area, 2) if v5_area and v6_area else None,
-            "delta_pct": round((v6_area - v5_area) / v5_area * 100, 1) if v5_area and v6_area else None,
-        })
+        v6_area = (
+            v6_sub.geometry.iloc[0].area / 1e6
+            if (not v6_sub.empty and v6_sub.geometry.iloc[0] is not None)
+            else None
+        )
+        impact_rows.append(
+            {
+                "map": "minority",
+                "ed_name": name,
+                "v5_area_km2": round(v5_area, 2) if v5_area else None,
+                "v6_area_km2": round(v6_area, 2) if v6_area else None,
+                "delta_km2": (
+                    round(v6_area - v5_area, 2) if v5_area and v6_area else None
+                ),
+                "delta_pct": (
+                    round((v6_area - v5_area) / v5_area * 100, 1)
+                    if v5_area and v6_area
+                    else None
+                ),
+            }
+        )
     # Majority: v6 new (no v5 baseline for these)
     for name in sorted(v6_majority_targets):
         v6_sub = v6_maj[v6_maj["name_2026"] == name]
-        v6_area = v6_sub.geometry.iloc[0].area / 1e6 if (not v6_sub.empty and v6_sub.geometry.iloc[0] is not None) else None
-        impact_rows.append({
-            "map": "majority",
-            "ed_name": name,
-            "v5_area_km2": None,  # no v5 for majority Tier C
-            "v6_area_km2": round(v6_area, 2) if v6_area else None,
-            "delta_km2": None,
-            "delta_pct": None,
-        })
+        v6_area = (
+            v6_sub.geometry.iloc[0].area / 1e6
+            if (not v6_sub.empty and v6_sub.geometry.iloc[0] is not None)
+            else None
+        )
+        impact_rows.append(
+            {
+                "map": "majority",
+                "ed_name": name,
+                "v5_area_km2": None,  # no v5 for majority Tier C
+                "v6_area_km2": round(v6_area, 2) if v6_area else None,
+                "delta_km2": None,
+                "delta_pct": None,
+            }
+        )
 
     impact_df = pd.DataFrame(impact_rows)
     impact_csv_path = DATA_DIR / "boundary_refinement_impact_v6.csv"

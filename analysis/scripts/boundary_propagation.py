@@ -47,6 +47,7 @@ Backward:
   data/shapefiles/derived/v0_4_canonical_majority_2026_eds_anchored.gpkg
   data/shapefiles/derived/v0_4_canonical_minority_2026_eds_anchored.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -81,11 +82,19 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
-MAJ_IN = DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
-MIN_IN = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+MAJ_IN = (
+    DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
+)
+MIN_IN = (
+    DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+)
 
-MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_6_canonical_majority_2026_eds_propagated.gpkg"
-MIN_OUT = DATA / "shapefiles" / "derived" / "v0_6_canonical_minority_2026_eds_propagated.gpkg"
+MAJ_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_6_canonical_majority_2026_eds_propagated.gpkg"
+)
+MIN_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_6_canonical_minority_2026_eds_propagated.gpkg"
+)
 
 LOG_CSV = REPORTS / "boundary_propagation_log.csv"
 SUMMARY_JSON = REPORTS / "boundary_propagation_summary.json"
@@ -93,17 +102,18 @@ SUMMARY_JSON = REPORTS / "boundary_propagation_summary.json"
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-PROPAGATE_TOL_M = 200.0   # max vertex-to-donor-boundary distance for snapping
-PCT_THRESHOLD   = 10.0    # donor must exceed receiver by this many pct points
-BUFFER_M        = 1.0     # buffer used to detect adjacency via spatial join
-MAX_PASSES      = 5       # convergence cap
+PROPAGATE_TOL_M = 200.0  # max vertex-to-donor-boundary distance for snapping
+PCT_THRESHOLD = 10.0  # donor must exceed receiver by this many pct points
+BUFFER_M = 1.0  # buffer used to detect adjacency via spatial join
+MAX_PASSES = 5  # convergence cap
 ADJACENCY_MIN_LENGTH_M = 10.0  # minimum shared-boundary length to attempt propagation
 
-CRS = "EPSG:3401"         # Alberta 10-TM Forest — projected, metres
+CRS = "EPSG:3401"  # Alberta 10-TM Forest — projected, metres
 
 # ---------------------------------------------------------------------------
 # Geometry helpers
 # ---------------------------------------------------------------------------
+
 
 def _extract_lines(geom) -> list:
     """Return a flat list of LineString / LinearRing objects from any geometry."""
@@ -122,10 +132,9 @@ def _extract_lines(geom) -> list:
     return []
 
 
-def _snap_vertices_to_line(ring_coords: np.ndarray,
-                            donor_line,
-                            shared_line,
-                            tol: float) -> tuple[np.ndarray, int]:
+def _snap_vertices_to_line(
+    ring_coords: np.ndarray, donor_line, shared_line, tol: float
+) -> tuple[np.ndarray, int]:
     """
     For each vertex in ring_coords that lies within `tol` metres of shared_line,
     project it onto donor_line (nearest point) and move it there.
@@ -170,10 +179,10 @@ def _polygon_exterior_coords(geom) -> np.ndarray:
 # Core: single-pass propagation over one GeoDataFrame
 # ---------------------------------------------------------------------------
 
-def _propagation_pass(gdf: gpd.GeoDataFrame,
-                      pass_num: int,
-                      pct_col: str = "municipal_anchored_pct"
-                      ) -> tuple[gpd.GeoDataFrame, list[dict], int]:
+
+def _propagation_pass(
+    gdf: gpd.GeoDataFrame, pass_num: int, pct_col: str = "municipal_anchored_pct"
+) -> tuple[gpd.GeoDataFrame, list[dict], int]:
     """
     Run one propagation pass over gdf.
 
@@ -188,16 +197,20 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
     # Use explicit integer positional index so naming is unambiguous after sjoin.
     n = len(gdf)
     left_df = gpd.GeoDataFrame(
-        {"_lid": np.arange(n),
-         "name_2026": gdf["name_2026"].values,
-         pct_col: gdf[pct_col].values},
+        {
+            "_lid": np.arange(n),
+            "name_2026": gdf["name_2026"].values,
+            pct_col: gdf[pct_col].values,
+        },
         geometry=gdf.geometry.values,
         crs=gdf.crs,
     )
     right_df = gpd.GeoDataFrame(
-        {"_rid": np.arange(n),
-         "name_2026": gdf["name_2026"].values,
-         pct_col: gdf[pct_col].values},
+        {
+            "_rid": np.arange(n),
+            "name_2026": gdf["name_2026"].values,
+            pct_col: gdf[pct_col].values,
+        },
         geometry=[g.buffer(BUFFER_M) for g in gdf.geometry.values],
         crs=gdf.crs,
     )
@@ -210,10 +223,10 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
     pairs = joined[joined["_lid"] < joined["_rid"]].copy()
 
     # Work on a mutable copy of geometries indexed by original iloc position
-    geoms = gdf.geometry.values.copy()   # numpy array of shapely geoms
-    pcts  = gdf[pct_col].values.copy()   # numpy array of float
+    geoms = gdf.geometry.values.copy()  # numpy array of shapely geoms
+    pcts = gdf[pct_col].values.copy()  # numpy array of float
 
-    pct_left_col  = f"{pct_col}_left"
+    pct_left_col = f"{pct_col}_left"
     pct_right_col = f"{pct_col}_right"
 
     for _, row in pairs.iterrows():
@@ -222,8 +235,8 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
 
         geom_a = geoms[i]
         geom_b = geoms[j]
-        pct_a  = float(row[pct_left_col])
-        pct_b  = float(row[pct_right_col])
+        pct_a = float(row[pct_left_col])
+        pct_b = float(row[pct_right_col])
 
         # Identify donor / receiver
         if pct_a >= pct_b:
@@ -231,13 +244,13 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
             donor_pct, recv_pct = pct_a, pct_b
             donor_geom, recv_geom = geom_a, geom_b
             donor_name = row["name_2026_left"]
-            recv_name  = row["name_2026_right"]
+            recv_name = row["name_2026_right"]
         else:
             donor_idx, recv_idx = j, i
             donor_pct, recv_pct = pct_b, pct_a
             donor_geom, recv_geom = geom_b, geom_a
             donor_name = row["name_2026_right"]
-            recv_name  = row["name_2026_left"]
+            recv_name = row["name_2026_left"]
 
         # Apply threshold
         if donor_pct - recv_pct < PCT_THRESHOLD:
@@ -262,7 +275,7 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
 
         # Donor boundary (full exterior ring as LineString for projection)
         try:
-            donor_boundary = donor_geom.boundary   # LinearRing or MultiLineString
+            donor_boundary = donor_geom.boundary  # LinearRing or MultiLineString
         except Exception:
             continue
 
@@ -272,13 +285,16 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
             recv_geom_for_rebuild = max(recv_geom.geoms, key=lambda g: g.area)
         elif recv_geom.geom_type == "GeometryCollection":
             # Extract largest polygon component
-            polys = [g for g in recv_geom.geoms
-                     if g.geom_type in ("Polygon", "MultiPolygon")]
+            polys = [
+                g for g in recv_geom.geoms if g.geom_type in ("Polygon", "MultiPolygon")
+            ]
             if not polys:
                 continue
             recv_geom_for_rebuild = max(polys, key=lambda g: g.area)
             if recv_geom_for_rebuild.geom_type == "MultiPolygon":
-                recv_geom_for_rebuild = max(recv_geom_for_rebuild.geoms, key=lambda g: g.area)
+                recv_geom_for_rebuild = max(
+                    recv_geom_for_rebuild.geoms, key=lambda g: g.area
+                )
 
         if recv_geom_for_rebuild.geom_type != "Polygon":
             continue
@@ -307,16 +323,18 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
         propagation_events += 1
         total_snapped += n_snapped
 
-        log_rows.append({
-            "pass": pass_num,
-            "donor": donor_name,
-            "receiver": recv_name,
-            "donor_pct": round(donor_pct, 2),
-            "receiver_pct": round(recv_pct, 2),
-            "pct_diff": round(donor_pct - recv_pct, 2),
-            "shared_length_m": round(total_shared_length, 1),
-            "vertices_snapped": n_snapped,
-        })
+        log_rows.append(
+            {
+                "pass": pass_num,
+                "donor": donor_name,
+                "receiver": recv_name,
+                "donor_pct": round(donor_pct, 2),
+                "receiver_pct": round(recv_pct, 2),
+                "pct_diff": round(donor_pct - recv_pct, 2),
+                "shared_length_m": round(total_shared_length, 1),
+                "vertices_snapped": n_snapped,
+            }
+        )
 
     # Rebuild GDF with updated geometries
     out = gdf.copy()
@@ -329,10 +347,10 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
 # High-level: multi-pass propagation + final make_valid
 # ---------------------------------------------------------------------------
 
-def propagate(gdf: gpd.GeoDataFrame,
-              label: str,
-              pct_col: str = "municipal_anchored_pct"
-              ) -> tuple[gpd.GeoDataFrame, list[dict], dict]:
+
+def propagate(
+    gdf: gpd.GeoDataFrame, label: str, pct_col: str = "municipal_anchored_pct"
+) -> tuple[gpd.GeoDataFrame, list[dict], dict]:
     """
     Run up to MAX_PASSES propagation rounds on gdf.
 
@@ -342,15 +360,19 @@ def propagate(gdf: gpd.GeoDataFrame,
     pct_before = gdf[pct_col].mean()
     all_logs: list[dict] = []
 
-    print(f"\n[{label}] Starting propagation — {len(gdf)} EDs, "
-          f"mean {pct_col}={pct_before:.2f}%")
+    print(
+        f"\n[{label}] Starting propagation — {len(gdf)} EDs, "
+        f"mean {pct_col}={pct_before:.2f}%"
+    )
 
     for pass_num in range(1, MAX_PASSES + 1):
         gdf, log_rows, events = _propagation_pass(gdf, pass_num, pct_col)
         all_logs.extend(log_rows)
         snapped_total = sum(r["vertices_snapped"] for r in log_rows)
-        print(f"  Pass {pass_num}: {events} pair(s) propagated, "
-              f"{snapped_total} vertices snapped")
+        print(
+            f"  Pass {pass_num}: {events} pair(s) propagated, "
+            f"{snapped_total} vertices snapped"
+        )
         if events == 0:
             print(f"  Converged after {pass_num} pass(es).")
             break
@@ -358,15 +380,17 @@ def propagate(gdf: gpd.GeoDataFrame,
         print(f"  Reached MAX_PASSES={MAX_PASSES} without full convergence.")
 
     # Final make_valid sweep
-    gdf["geometry"] = gdf["geometry"].apply(lambda g: make_valid(g) if g is not None else g)
+    gdf["geometry"] = gdf["geometry"].apply(
+        lambda g: make_valid(g) if g is not None else g
+    )
 
     # Recompute a simple proxy for anchored_pct improvement:
     # We cannot rerun the full anchoring pipeline here, so we report the
     # pct column unchanged (it reflects the *input* anchoring quality).
     # What we do report is total boundary length improved.
     total_shared_km = sum(r["shared_length_m"] for r in all_logs) / 1000.0
-    total_pairs     = len(all_logs)
-    passes_run      = max((r["pass"] for r in all_logs), default=0)
+    total_pairs = len(all_logs)
+    passes_run = max((r["pass"] for r in all_logs), default=0)
 
     stats = {
         "label": label,
@@ -384,8 +408,10 @@ def propagate(gdf: gpd.GeoDataFrame,
         ),
     }
 
-    print(f"  [{label}] Done: {total_pairs} pair-passes, "
-          f"{total_shared_km:.2f} km of shared boundary improved.")
+    print(
+        f"  [{label}] Done: {total_pairs} pair-passes, "
+        f"{total_shared_km:.2f} km of shared boundary improved."
+    )
 
     return gdf, all_logs, stats
 
@@ -393,6 +419,7 @@ def propagate(gdf: gpd.GeoDataFrame,
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main() -> None:
     t0 = time.time()
@@ -464,8 +491,12 @@ def main() -> None:
         print(f"    EDs: {s['n_eds']}")
         print(f"    Passes run: {s['passes_run']}")
         print(f"    Pairs propagated: {s['total_pairs_propagated']}")
-        print(f"    Shared boundary improved: {s['total_shared_boundary_improved_km']:.2f} km")
-        print(f"    Mean anchored_pct (input v0_4): {s['mean_anchored_pct_before']:.2f}%")
+        print(
+            f"    Shared boundary improved: {s['total_shared_boundary_improved_km']:.2f} km"
+        )
+        print(
+            f"    Mean anchored_pct (input v0_4): {s['mean_anchored_pct_before']:.2f}%"
+        )
     print(f"\n  Total elapsed: {elapsed}s")
     print("=" * 60)
 

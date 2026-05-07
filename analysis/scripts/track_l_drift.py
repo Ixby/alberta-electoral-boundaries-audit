@@ -24,6 +24,7 @@ Outputs:
 - data/province_wide_drift_majority.csv
 - data/province_wide_drift_minority.csv
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -199,9 +200,7 @@ def build_da_overlay():
     csd_pops = pd.read_csv(os.path.join(DATA, "alberta_2021_csd_populations.csv"))
     csd_pops["CSDUID"] = csd_pops["ALT_GEO_CODE"].astype(str)
     csds["CSDUID"] = csds["CSDUID"].astype(str)
-    csds = csds.merge(
-        csd_pops[["CSDUID", "GEO_NAME"]], on="CSDUID", how="left"
-    )
+    csds = csds.merge(csd_pops[["CSDUID", "GEO_NAME"]], on="CSDUID", how="left")
     csds["growth"] = [
         growth_for_csd_row(t, n) for t, n in zip(csds["CSDTYPE"], csds["GEO_NAME"])
     ]
@@ -211,13 +210,15 @@ def build_da_overlay():
     das_for_join = das.to_crs(csds.crs).copy()
     das_for_join["centroid"] = das_for_join.geometry.centroid
     centroids = gpd.GeoDataFrame(
-        das_for_join[["DAUID"]].copy(), geometry=das_for_join["centroid"],
+        das_for_join[["DAUID"]].copy(),
+        geometry=das_for_join["centroid"],
         crs=csds.crs,
     )
     joined = gpd.sjoin(
         centroids,
         csds[["CSDUID", "GEO_NAME", "CSDTYPE", "growth", "geometry"]],
-        how="left", predicate="within",
+        how="left",
+        predicate="within",
     )
     # If a centroid fell on a boundary and didn't match, fall back to nearest.
     missing = joined[joined["CSDUID"].isna()]
@@ -228,13 +229,15 @@ def build_da_overlay():
             how="left",
         )
         for idx in nearest.index:
-            joined.loc[idx, ["CSDUID", "GEO_NAME", "CSDTYPE", "growth"]] = \
-                nearest.loc[idx, ["CSDUID", "GEO_NAME", "CSDTYPE", "growth"]]
+            joined.loc[idx, ["CSDUID", "GEO_NAME", "CSDTYPE", "growth"]] = nearest.loc[
+                idx, ["CSDUID", "GEO_NAME", "CSDTYPE", "growth"]
+            ]
     # Drop any duplicated rows from sjoin (a centroid in two CSDs).
     joined = joined.loc[~joined.index.duplicated(keep="first")]
     das = das.merge(
         joined[["DAUID", "CSDUID", "GEO_NAME", "CSDTYPE", "growth"]],
-        on="DAUID", how="left",
+        on="DAUID",
+        how="left",
     )
     das["growth"] = das["growth"].fillna(DEFAULT_GROWTH["default"])
 
@@ -245,9 +248,15 @@ def build_da_overlay():
     das_p["da_area_m2"] = das_p.geometry.area
 
     overlay = gpd.overlay(
-        das_p[[
-            "DAUID", "population_2021", "growth", "da_area_m2", "geometry",
-        ]],
+        das_p[
+            [
+                "DAUID",
+                "population_2021",
+                "growth",
+                "da_area_m2",
+                "geometry",
+            ]
+        ],
         eds_2019[["EDNumber20", "EDName2017", "geometry"]],
         how="intersection",
         keep_geom_type=True,
@@ -276,10 +285,14 @@ def legal_window(dev_pct, is_s152):
 def run_2019_map():
     overlay, eds_2019 = build_da_overlay()
     ed_name_map = dict(zip(eds_2019["EDNumber20"], eds_2019["EDName2017"]))
-    grp = overlay.groupby("EDNumber20").agg(
-        pop_2021_census=("pop_2021_share", "sum"),
-        pop_plan_b=("pop_planb_share", "sum"),
-    ).reset_index()
+    grp = (
+        overlay.groupby("EDNumber20")
+        .agg(
+            pop_2021_census=("pop_2021_share", "sum"),
+            pop_plan_b=("pop_planb_share", "sum"),
+        )
+        .reset_index()
+    )
     grp["ed_name"] = grp["EDNumber20"].map(ed_name_map)
     grp["pop_2021_census"] = grp["pop_2021_census"].round().astype(int)
     grp["pop_plan_b"] = grp["pop_plan_b"].round().astype(int)
@@ -288,9 +301,11 @@ def run_2019_map():
     # (APPROXIMATE when some DAs are split across ED boundaries).
     da_ed_counts = overlay.groupby("DAUID")["EDNumber20"].nunique()
     split_das = set(da_ed_counts[da_ed_counts > 1].index)
-    ed_approx = overlay[overlay["DAUID"].isin(split_das)].groupby(
-        "EDNumber20"
-    )["pop_2021_share"].sum()
+    ed_approx = (
+        overlay[overlay["DAUID"].isin(split_das)]
+        .groupby("EDNumber20")["pop_2021_share"]
+        .sum()
+    )
     ed_approx_pct = (ed_approx / grp.set_index("EDNumber20")["pop_2021_census"]) * 100
     grp["approx_pct"] = grp["EDNumber20"].map(ed_approx_pct).fillna(0)
 
@@ -301,7 +316,9 @@ def run_2019_map():
     mean_b = grp["pop_plan_b"].mean()
     grp["dev_from_mean_plan_a_pct"] = (grp["pop_2021_census"] - mean_a) / mean_a * 100
     grp["dev_from_mean_plan_b_pct"] = (grp["pop_plan_b"] - mean_b) / mean_b * 100
-    grp["drift_pct"] = (grp["pop_plan_b"] - grp["pop_2021_census"]) / grp["pop_2021_census"] * 100
+    grp["drift_pct"] = (
+        (grp["pop_plan_b"] - grp["pop_2021_census"]) / grp["pop_2021_census"] * 100
+    )
 
     grp["legal_window_plan_a"] = grp.apply(
         lambda r: legal_window(r["dev_from_mean_plan_a_pct"], r["is_s152"]), axis=1
@@ -317,25 +334,40 @@ def run_2019_map():
         )
     )
 
-    out = grp[[
-        "ed_name", "pop_2021_census", "pop_plan_b", "drift_pct",
-        "dev_from_mean_plan_a_pct", "dev_from_mean_plan_b_pct",
-        "legal_window_plan_a", "legal_window_plan_b",
-        "status_change_flag", "aggregation_method",
-    ]].sort_values("ed_name").reset_index(drop=True)
+    out = (
+        grp[
+            [
+                "ed_name",
+                "pop_2021_census",
+                "pop_plan_b",
+                "drift_pct",
+                "dev_from_mean_plan_a_pct",
+                "dev_from_mean_plan_b_pct",
+                "legal_window_plan_a",
+                "legal_window_plan_b",
+                "status_change_flag",
+                "aggregation_method",
+            ]
+        ]
+        .sort_values("ed_name")
+        .reset_index(drop=True)
+    )
     out.to_csv(os.path.join(DATA, "province_wide_drift_2019.csv"), index=False)
     return out, mean_a, mean_b
 
 
-def run_2026_map(crosswalk_csv, commission_pop_csv, out_csv, s152_names,
-                 hybrid_col=None):
+def run_2026_map(
+    crosswalk_csv, commission_pop_csv, out_csv, s152_names, hybrid_col=None
+):
     cross = pd.read_csv(crosswalk_csv)
     drift_2019_path = os.path.join(DATA, "province_wide_drift_2019.csv")
     drift_2019 = pd.read_csv(drift_2019_path)
-    growth_by_2019 = dict(zip(
-        drift_2019["ed_name"],
-        drift_2019["pop_plan_b"] / drift_2019["pop_2021_census"],
-    ))
+    growth_by_2019 = dict(
+        zip(
+            drift_2019["ed_name"],
+            drift_2019["pop_plan_b"] / drift_2019["pop_2021_census"],
+        )
+    )
     pops = pd.read_csv(commission_pop_csv)
     if "proposed_2026" in cross.columns and "current_2019" in cross.columns:
         feeders = cross.groupby("proposed_2026")["current_2019"].apply(list).to_dict()
@@ -349,12 +381,10 @@ def run_2026_map(crosswalk_csv, commission_pop_csv, out_csv, s152_names,
         is_s152 = name in s152_names
         feeders_list = feeders.get(name, [])
         feeders_list = [
-            f for f in feeders_list
-            if f not in ("(NEW)", "(MERGED/ABSORBED)")
+            f for f in feeders_list if f not in ("(NEW)", "(MERGED/ABSORBED)")
         ]
         growth_vals = [
-            growth_by_2019.get(f) for f in feeders_list
-            if growth_by_2019.get(f)
+            growth_by_2019.get(f) for f in feeders_list if growth_by_2019.get(f)
         ]
         if growth_vals:
             growth = sum(growth_vals) / len(growth_vals)
@@ -365,27 +395,33 @@ def run_2026_map(crosswalk_csv, commission_pop_csv, out_csv, s152_names,
         hybrid = False
         if hybrid_col and hybrid_col in pr.index:
             v = pr[hybrid_col]
-            hybrid = bool(v) if isinstance(v, bool) else (
-                str(v).strip().lower() in ("true", "yes", "hybrid", "1")
+            hybrid = (
+                bool(v)
+                if isinstance(v, bool)
+                else (str(v).strip().lower() in ("true", "yes", "hybrid", "1"))
             )
         if "-hybrid" in str(pr.get("region_type", "")).lower():
             hybrid = True
         if not feeders_list:
             hybrid = True
 
-        rows.append({
-            "ed_name": name,
-            "pop_2021_census": plan_a,
-            "pop_plan_b": plan_b,
-            "growth_factor_applied": round(growth, 4),
-            "is_s152": is_s152,
-            "hybrid": hybrid,
-        })
+        rows.append(
+            {
+                "ed_name": name,
+                "pop_2021_census": plan_a,
+                "pop_plan_b": plan_b,
+                "growth_factor_applied": round(growth, 4),
+                "is_s152": is_s152,
+                "hybrid": hybrid,
+            }
+        )
 
     df = pd.DataFrame(rows)
     mean_a = df["pop_2021_census"].mean()
     mean_b = df["pop_plan_b"].mean()
-    df["drift_pct"] = (df["pop_plan_b"] - df["pop_2021_census"]) / df["pop_2021_census"] * 100
+    df["drift_pct"] = (
+        (df["pop_plan_b"] - df["pop_2021_census"]) / df["pop_2021_census"] * 100
+    )
     df["dev_from_mean_plan_a_pct"] = (df["pop_2021_census"] - mean_a) / mean_a * 100
     df["dev_from_mean_plan_b_pct"] = (df["pop_plan_b"] - mean_b) / mean_b * 100
     df["legal_window_plan_a"] = df.apply(
@@ -398,16 +434,28 @@ def run_2026_map(crosswalk_csv, commission_pop_csv, out_csv, s152_names,
     df["aggregation_method"] = df["hybrid"].apply(
         lambda h: (
             "commission Plan A + feeder-weighted 2019-ED growth (APPROXIMATE; hybrid ED)"
-            if h else
-            "commission Plan A + direct 2019-ED growth factor"
+            if h
+            else "commission Plan A + direct 2019-ED growth factor"
         )
     )
-    out = df[[
-        "ed_name", "pop_2021_census", "pop_plan_b", "drift_pct",
-        "dev_from_mean_plan_a_pct", "dev_from_mean_plan_b_pct",
-        "legal_window_plan_a", "legal_window_plan_b",
-        "status_change_flag", "aggregation_method",
-    ]].sort_values("ed_name").reset_index(drop=True)
+    out = (
+        df[
+            [
+                "ed_name",
+                "pop_2021_census",
+                "pop_plan_b",
+                "drift_pct",
+                "dev_from_mean_plan_a_pct",
+                "dev_from_mean_plan_b_pct",
+                "legal_window_plan_a",
+                "legal_window_plan_b",
+                "status_change_flag",
+                "aggregation_method",
+            ]
+        ]
+        .sort_values("ed_name")
+        .reset_index(drop=True)
+    )
     out.to_csv(out_csv, index=False)
     return out, mean_a, mean_b
 
@@ -422,19 +470,30 @@ def summarize(name, out, mean_a, mean_b):
     print(f"Plan B total: {out['pop_plan_b'].sum():,}")
     print(f"Plan A mean: {mean_a:,.0f}")
     print(f"Plan B mean: {mean_b:,.0f}")
-    print(f"Plan A: pass={(out['legal_window_plan_a']=='pass').sum()}, "
-          f"s15(2)={(out['legal_window_plan_a']=='s15(2)').sum()}, "
-          f"fail={n_fail_a}")
-    print(f"Plan B: pass={(out['legal_window_plan_b']=='pass').sum()}, "
-          f"s15(2)={(out['legal_window_plan_b']=='s15(2)').sum()}, "
-          f"fail={n_fail_b}")
+    print(
+        f"Plan A: pass={(out['legal_window_plan_a']=='pass').sum()}, "
+        f"s15(2)={(out['legal_window_plan_a']=='s15(2)').sum()}, "
+        f"fail={n_fail_a}"
+    )
+    print(
+        f"Plan B: pass={(out['legal_window_plan_b']=='pass').sum()}, "
+        f"s15(2)={(out['legal_window_plan_b']=='s15(2)').sum()}, "
+        f"fail={n_fail_b}"
+    )
     print(f"Status-change EDs: {n_change}")
     changes = out[out["status_change_flag"]]
     if len(changes):
-        print(changes[[
-            "ed_name", "dev_from_mean_plan_a_pct", "dev_from_mean_plan_b_pct",
-            "legal_window_plan_a", "legal_window_plan_b",
-        ]].to_string(index=False))
+        print(
+            changes[
+                [
+                    "ed_name",
+                    "dev_from_mean_plan_a_pct",
+                    "dev_from_mean_plan_b_pct",
+                    "legal_window_plan_a",
+                    "legal_window_plan_b",
+                ]
+            ].to_string(index=False)
+        )
 
 
 def main():
@@ -451,8 +510,11 @@ def main():
     )
     summarize("majority 2026 (89 EDs)", out_maj, mean_a_m, mean_b_m)
 
-    min_s152 = {"Central Peace-Notley", "Lesser Slave Lake",
-                "Rocky Mountain House-Banff Park"}
+    min_s152 = {
+        "Central Peace-Notley",
+        "Lesser Slave Lake",
+        "Rocky Mountain House-Banff Park",
+    }
     out_min, mean_a_n, mean_b_n = run_2026_map(
         crosswalk_csv=os.path.join(DATA, "minority_hybrid_crosswalk.csv"),
         commission_pop_csv=os.path.join(DATA, "minority_2026_populations.csv"),

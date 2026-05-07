@@ -36,6 +36,7 @@ Dependencies:
             (refined → full → canonical → v7) once consumers are updated.
   Backward: v0_8 canonical (perfecter output) + 2019 enacted shapefile.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -55,7 +56,13 @@ from _perf_utils import Timer, ts  # noqa: E402
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"
 DERIVED = DATA / "shapefiles" / "derived"
-REFERENCE_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+REFERENCE_2019 = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 
 CRS = 3401
 EMPTY_THRESHOLD_M2 = 1e5  # ED with < 0.1 km² treated as empty
@@ -66,25 +73,25 @@ EMPTY_THRESHOLD_M2 = 1e5  # ED with < 0.1 km² treated as empty
 # script will report it as unfilled.
 RENAME_MAP_2019 = {
     # MAJORITY 2026 — empty EDs without exact 2019 name match
-    "Calgary-North West":           ["Calgary-North West"],
-    "Edmonton-Beverly-Clareview":   ["Edmonton-Beverly-Clareview"],
-    "Edmonton-Glenora-Riverview":   ["Edmonton-Glenora", "Edmonton-Riverview"],
-    "Edmonton-Manning":             ["Edmonton-Manning"],
-    "Edmonton-North West":          ["Edmonton-North West"],
-    "Edmonton-West Henday":         ["Edmonton-West Henday"],
-    "Edmonton-Windermere":          ["Edmonton-Whitemud", "Edmonton-Rutherford"],
-    "Lacombe-Clearwater":           ["Rimbey-Rocky Mountain House-Sundre"],
-    "St. Albert-Sturgeon":          ["St. Albert", "Spruce Grove-Stony Plain"],
-    "Stony Plain-Drayton Valley":   ["Stony Plain", "Drayton Valley-Devon"],
-    "Strathcona-Sherwood Park":     ["Sherwood Park", "Strathcona-Sherwood Park"],
-    "Wetaskiwin-Ponoka-Maskwacis":  ["Wetaskiwin-Camrose", "Lacombe-Ponoka"],
+    "Calgary-North West": ["Calgary-North West"],
+    "Edmonton-Beverly-Clareview": ["Edmonton-Beverly-Clareview"],
+    "Edmonton-Glenora-Riverview": ["Edmonton-Glenora", "Edmonton-Riverview"],
+    "Edmonton-Manning": ["Edmonton-Manning"],
+    "Edmonton-North West": ["Edmonton-North West"],
+    "Edmonton-West Henday": ["Edmonton-West Henday"],
+    "Edmonton-Windermere": ["Edmonton-Whitemud", "Edmonton-Rutherford"],
+    "Lacombe-Clearwater": ["Rimbey-Rocky Mountain House-Sundre"],
+    "St. Albert-Sturgeon": ["St. Albert", "Spruce Grove-Stony Plain"],
+    "Stony Plain-Drayton Valley": ["Stony Plain", "Drayton Valley-Devon"],
+    "Strathcona-Sherwood Park": ["Sherwood Park", "Strathcona-Sherwood Park"],
+    "Wetaskiwin-Ponoka-Maskwacis": ["Wetaskiwin-Camrose", "Lacombe-Ponoka"],
     # MINORITY 2026 — empty EDs without exact 2019 name match
-    "Calgary-North West-Bearspaw":  ["Calgary-North West"],
-    "Calgary-Peigan-Chestermere":   ["Chestermere-Strathmore"],
-    "Calgary-South East":           ["Calgary-South East"],
-    "Edmonton-Castledowns":         ["Edmonton-Castle Downs"],
-    "Lethbridge-Taber-Warner":      ["Cardston-Siksika", "Taber-Warner"],
-    "Red Deer-Blackfalds":          ["Red Deer-South", "Innisfail-Sylvan Lake"],
+    "Calgary-North West-Bearspaw": ["Calgary-North West"],
+    "Calgary-Peigan-Chestermere": ["Chestermere-Strathmore"],
+    "Calgary-South East": ["Calgary-South East"],
+    "Edmonton-Castledowns": ["Edmonton-Castle Downs"],
+    "Lethbridge-Taber-Warner": ["Cardston-Siksika", "Taber-Warner"],
+    "Red Deer-Blackfalds": ["Red Deer-South", "Innisfail-Sylvan Lake"],
 }
 
 
@@ -97,7 +104,9 @@ def _load_2019() -> dict[str, Polygon]:
     return {row[name_col].strip(): row.geometry for _, row in g.iterrows()}
 
 
-def _resolve_inherited(name_2026: str, names_2019: dict) -> tuple[Polygon | MultiPolygon | None, str]:
+def _resolve_inherited(
+    name_2026: str, names_2019: dict
+) -> tuple[Polygon | MultiPolygon | None, str]:
     """Return (inherited_polygon, source_label).
     First try exact name match, then the rename map."""
     if name_2026 in names_2019:
@@ -139,7 +148,10 @@ def fill(plan: str, names_2019: dict) -> dict:
         empty_mask = areas < EMPTY_THRESHOLD_M2
         empty_idx = g.index[empty_mask].tolist()
         non_empty_idx = g.index[~empty_mask].tolist()
-        print(f"  {len(empty_idx)} empty EDs, {len(non_empty_idx)} with geometry", flush=True)
+        print(
+            f"  {len(empty_idx)} empty EDs, {len(non_empty_idx)} with geometry",
+            flush=True,
+        )
 
         new_geoms = list(g.geometry.values)
         log = []
@@ -149,15 +161,22 @@ def fill(plan: str, names_2019: dict) -> dict:
             inherited, source = _resolve_inherited(name, names_2019)
             if inherited is None:
                 print(f"  [unmatched] {name}", flush=True)
-                log.append({"ed": name, "source": source, "area_km2": 0.0,
-                            "carved_from": ""})
+                log.append(
+                    {"ed": name, "source": source, "area_km2": 0.0, "carved_from": ""}
+                )
                 continue
             # Clip inherited polygon to the current province (don't extend beyond Alberta)
             inherited = _clean(inherited.intersection(province))
             if inherited.is_empty or inherited.area < EMPTY_THRESHOLD_M2:
                 print(f"  [empty after clip] {name}", flush=True)
-                log.append({"ed": name, "source": source + "+clip_to_province",
-                            "area_km2": 0.0, "carved_from": ""})
+                log.append(
+                    {
+                        "ed": name,
+                        "source": source + "+clip_to_province",
+                        "area_km2": 0.0,
+                        "carved_from": "",
+                    }
+                )
                 continue
 
             # Carve the inherited polygon out of any non-empty ED that overlaps,
@@ -181,8 +200,7 @@ def fill(plan: str, names_2019: dict) -> dict:
                     continue
                 # Predicted post-carve neighbour area
                 clipped = _clean(gj.difference(inherited_after_split))
-                if (not clipped.is_empty
-                        and clipped.area >= ANTI_ERASURE * gj.area):
+                if not clipped.is_empty and clipped.area >= ANTI_ERASURE * gj.area:
                     # Safe full carve — neighbour retains ≥10 % of its area
                     new_geoms[j] = clipped
                     carved_from.append(str(g.at[j, "name_2026"]))
@@ -211,31 +229,38 @@ def fill(plan: str, names_2019: dict) -> dict:
                             # the overlap is geographically "more in"
                             # the inherited polygon.
                             new_geoms[j] = clipped
-                            carved_from.append(str(g.at[j, "name_2026"]) +
-                                               " (over-erasure, accepted)")
+                            carved_from.append(
+                                str(g.at[j, "name_2026"]) + " (over-erasure, accepted)"
+                            )
                         else:
                             # Neighbour is closer — pull the overlap out of
                             # the inherited polygon and leave gj intact.
                             inherited_after_split = _clean(
                                 inherited_after_split.difference(inter)
                             )
-                            carved_from.append(str(g.at[j, "name_2026"]) +
-                                               " (midline → kept by neighbour)")
+                            carved_from.append(
+                                str(g.at[j, "name_2026"])
+                                + " (midline → kept by neighbour)"
+                            )
                     except Exception:
                         new_geoms[j] = clipped
-                        carved_from.append(str(g.at[j, "name_2026"]) +
-                                           " (fallback)")
+                        carved_from.append(str(g.at[j, "name_2026"]) + " (fallback)")
 
             inherited = inherited_after_split
             new_geoms[i] = inherited
-            print(f"  [filled] {name} via {source} "
-                  f"({inherited.area/1e6:.1f} km², carved from {len(carved_from)} EDs)",
-                  flush=True)
-            log.append({
-                "ed": name, "source": source,
-                "area_km2": inherited.area / 1e6,
-                "carved_from": "; ".join(carved_from),
-            })
+            print(
+                f"  [filled] {name} via {source} "
+                f"({inherited.area/1e6:.1f} km², carved from {len(carved_from)} EDs)",
+                flush=True,
+            )
+            log.append(
+                {
+                    "ed": name,
+                    "source": source,
+                    "area_km2": inherited.area / 1e6,
+                    "carved_from": "; ".join(carved_from),
+                }
+            )
 
         g["geometry"] = new_geoms
         out = DERIVED / f"v0_8_full_{plan}_2026_eds.gpkg"
@@ -257,22 +282,30 @@ def fill(plan: str, names_2019: dict) -> dict:
 
         n_filled = sum(1 for r in log if r["area_km2"] > 0)
         n_unmatched = sum(1 for r in log if r["area_km2"] == 0)
-        t.note = (f"{n_filled} filled, {n_unmatched} unmatched; "
-                  f"final {n_with}/{len(g)} non-empty, "
-                  f"{coverage_pct:.4f}% coverage")
+        t.note = (
+            f"{n_filled} filled, {n_unmatched} unmatched; "
+            f"final {n_with}/{len(g)} non-empty, "
+            f"{coverage_pct:.4f}% coverage"
+        )
 
     return {
-        "plan": plan, "n_filled": n_filled, "n_unmatched": n_unmatched,
-        "n_with_geom": n_with, "n_empty": n_empty,
-        "coverage_pct": coverage_pct, "out": str(out),
+        "plan": plan,
+        "n_filled": n_filled,
+        "n_unmatched": n_unmatched,
+        "n_with_geom": n_with,
+        "n_empty": n_empty,
+        "coverage_pct": coverage_pct,
+        "out": str(out),
     }
 
 
 def main() -> int:
     with Timer("[v0_8 fill empty EDs]"):
         names_2019 = _load_2019()
-        print(f"  loaded {len(names_2019)} 2019 enacted EDs as inheritance source",
-              flush=True)
+        print(
+            f"  loaded {len(names_2019)} 2019 enacted EDs as inheritance source",
+            flush=True,
+        )
         results = []
         for plan in ("majority", "minority"):
             results.append(fill(plan, names_2019))
@@ -281,10 +314,12 @@ def main() -> int:
         for r in results:
             if r.get("skipped"):
                 continue
-            print(f"  {r['plan']}: filled {r['n_filled']}, "
-                  f"unmatched {r['n_unmatched']}; "
-                  f"final {r['n_with_geom']}/{r['n_with_geom'] + r['n_empty']} "
-                  f"non-empty ({r['coverage_pct']:.4f}% coverage)")
+            print(
+                f"  {r['plan']}: filled {r['n_filled']}, "
+                f"unmatched {r['n_unmatched']}; "
+                f"final {r['n_with_geom']}/{r['n_with_geom'] + r['n_empty']} "
+                f"non-empty ({r['coverage_pct']:.4f}% coverage)"
+            )
     return 0
 
 

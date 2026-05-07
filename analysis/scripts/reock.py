@@ -21,6 +21,7 @@ Dependencies
   Backward : data/reock_per_district.csv
              analysis/reports/reock_verdict.md
 """
+
 # Version: 0.9 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -36,8 +37,27 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-MIN_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
-MAJ_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
+_CANONICAL = ROOT / "data" / "shapefiles" / "canonical"
+_DERIVED = ROOT / "data" / "shapefiles" / "derived"
+
+
+def _pick_gpkg(plan: str) -> Path:
+    """Prefer official canonical shapefiles; fall back to derived (deprecated)."""
+    c = _CANONICAL / f"ea_{plan}_2026_eds.gpkg"
+    if c.exists():
+        return c
+    for fname in (
+        f"v0_10_topological_{plan}_2026_eds.gpkg",
+        f"v0_8_full_refined_{plan}_2026_eds.gpkg",
+    ):
+        p = _DERIVED / fname
+        if p.exists():
+            return p
+    return _DERIVED / f"v0_10_topological_{plan}_2026_eds.gpkg"
+
+
+MIN_GPKG = _pick_gpkg("minority")
+MAJ_GPKG = _pick_gpkg("majority")
 OUT_CSV = ROOT / "data" / "reock_per_district.csv"
 
 TARGET_CRS = "EPSG:3401"
@@ -55,6 +75,7 @@ LASSO_NAMED = [
 # ---------------------------------------------------------------------
 # Smallest enclosing circle
 # ---------------------------------------------------------------------
+
 
 def _mbc_diameter_via_shapely(geom) -> float:
     """Return the diameter of the smallest enclosing circle using
@@ -81,6 +102,7 @@ def _welzl_diameter(geom) -> float:
     Used only if shapely.minimum_bounding_circle is unavailable.
     """
     import random
+
     if geom is None or geom.is_empty:
         return float("nan")
     pts: list[tuple[float, float]] = []
@@ -102,14 +124,22 @@ def _welzl_diameter(geom) -> float:
         return (cx, cy, r)
 
     def circle_from_3(a, b, c):
-        ax, ay = a; bx, by = b; cx, cy = c
+        ax, ay = a
+        bx, by = b
+        cx, cy = c
         d = 2 * (ax * (by - cy) + bx * (cy - ay) + cx * (ay - by))
         if abs(d) < 1e-12:
             return None
-        ux = ((ax**2 + ay**2) * (by - cy) + (bx**2 + by**2) * (cy - ay)
-              + (cx**2 + cy**2) * (ay - by)) / d
-        uy = ((ax**2 + ay**2) * (cx - bx) + (bx**2 + by**2) * (ax - cx)
-              + (cx**2 + cy**2) * (bx - ax)) / d
+        ux = (
+            (ax**2 + ay**2) * (by - cy)
+            + (bx**2 + by**2) * (cy - ay)
+            + (cx**2 + cy**2) * (ay - by)
+        ) / d
+        uy = (
+            (ax**2 + ay**2) * (cx - bx)
+            + (bx**2 + by**2) * (ax - cx)
+            + (cx**2 + cy**2) * (bx - ax)
+        ) / d
         r = math.hypot(ax - ux, ay - uy)
         return (ux, uy, r)
 
@@ -174,13 +204,15 @@ def score_map(gpkg_path: Path, label: str) -> pd.DataFrame:
     for _, r in gdf.iterrows():
         g = r.geometry
         d, s = reock(g)
-        rows.append({
-            "map": label,
-            "ed_name": r["name_2026"],
-            "area_m2": g.area if g is not None else None,
-            "bounding_circle_diameter_m": d,
-            "reock": s,
-        })
+        rows.append(
+            {
+                "map": label,
+                "ed_name": r["name_2026"],
+                "area_m2": g.area if g is not None else None,
+                "bounding_circle_diameter_m": d,
+                "reock": s,
+            }
+        )
     return pd.DataFrame(rows)
 
 
@@ -208,9 +240,15 @@ def print_lasso_lookup(df_all: pd.DataFrame) -> None:
             print(f"  {name:<45s}  NOT FOUND in either v0_9 map")
             continue
         for _, r in rows.iterrows():
-            tag = f"below {REOCK_THRESHOLD}" if r["reock"] < REOCK_THRESHOLD else f"above {REOCK_THRESHOLD}"
-            print(f"  [{r['map']:<8s}] {r['ed_name']:<45s}  "
-                  f"Reock={r['reock']:.3f}  ({tag})")
+            tag = (
+                f"below {REOCK_THRESHOLD}"
+                if r["reock"] < REOCK_THRESHOLD
+                else f"above {REOCK_THRESHOLD}"
+            )
+            print(
+                f"  [{r['map']:<8s}] {r['ed_name']:<45s}  "
+                f"Reock={r['reock']:.3f}  ({tag})"
+            )
 
 
 def main() -> None:

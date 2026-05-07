@@ -9,6 +9,8 @@ Internal working documents covering pre-registration, methodological decisions, 
 | `audit_dependency_graph.dot` / `.json` | Machine-readable dependency graph of all audit outputs |
 | `audit_dependency_graph_readme.md` | How to read and query the dependency graph |
 | `red_team_consolidated.md` | Consolidated red-team findings across design, stats, data, and reproducibility |
+| `self_check_protocol.md` | Quality-control trigger phrases and checklists (`check task`, `check project`, `check pre-reg`, `check lit`, `check deps`) |
+| `novel_contributions.md` | Four novel methodological contributions: DPG, Neighbour-Drain, SZAT, Two-Lane Scorecard |
 | `threshold_provenance.md` | Justification for every numerical threshold used in the audit |
 | `null_hypothesis_and_exoneration_criteria.md` | Null hypotheses and criteria for exonerating the Commission |
 | `test_selection_rationale.md` | Rationale for which statistical tests were chosen and which were rejected |

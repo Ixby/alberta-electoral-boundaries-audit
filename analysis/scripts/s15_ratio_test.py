@@ -90,11 +90,11 @@ S15_INVOCATIONS: dict[tuple[str, str], dict] = {
 MAX_S15_INVOCATIONS_PER_MAP = 4
 
 # Normal band limits (§15(1))
-UPPER_BAND = 0.25   # +25%
+UPPER_BAND = 0.25  # +25%
 LOWER_BAND = -0.25  # −25%
 
 # Absolute floor (§15(2))
-S15_FLOOR = -0.50   # −50%
+S15_FLOOR = -0.50  # −50%
 
 
 def load_populations(path: str) -> list[dict]:
@@ -142,9 +142,7 @@ def run() -> None:
         quota = compute_quota(rows, map_id)
         map_rows = [r for r in rows if r["map"] == map_id]
 
-        invocation_count = sum(
-            1 for key in S15_INVOCATIONS if key[0] == map_id
-        )
+        invocation_count = sum(1 for key in S15_INVOCATIONS if key[0] == map_id)
         if invocation_count > MAX_S15_INVOCATIONS_PER_MAP:
             raise ValueError(
                 f"Map '{map_id}' has {invocation_count} §15(2) invocations "
@@ -158,27 +156,44 @@ def run() -> None:
             invocation = S15_INVOCATIONS.get(key)
             status = classify(deviation, invocation)
 
-            results.append({
-                "map": map_id,
-                "ed_name": row["ed_name"],
-                "commission_pop": int(commission_pop),
-                "provincial_quota": round(quota, 1),
-                "deviation_pct": round(deviation * 100, 2),
-                "lower_band_pct": round(LOWER_BAND * 100, 1),
-                "upper_band_pct": round(UPPER_BAND * 100, 1),
-                "s15_invoked": "Y" if invocation else "N",
-                "s15_criteria_met": invocation["criteria_met"] if invocation else "",
-                "s15_verdict": invocation["verdict"] if invocation else "",
-                "classification": status,
-                "flag": "FLAG" if status not in ("COMPLIANT", "S15_JUSTIFIED", "S15_IN_BAND") else "",
-                "notes": invocation["notes"] if invocation else "",
-            })
+            results.append(
+                {
+                    "map": map_id,
+                    "ed_name": row["ed_name"],
+                    "commission_pop": int(commission_pop),
+                    "provincial_quota": round(quota, 1),
+                    "deviation_pct": round(deviation * 100, 2),
+                    "lower_band_pct": round(LOWER_BAND * 100, 1),
+                    "upper_band_pct": round(UPPER_BAND * 100, 1),
+                    "s15_invoked": "Y" if invocation else "N",
+                    "s15_criteria_met": (
+                        invocation["criteria_met"] if invocation else ""
+                    ),
+                    "s15_verdict": invocation["verdict"] if invocation else "",
+                    "classification": status,
+                    "flag": (
+                        "FLAG"
+                        if status not in ("COMPLIANT", "S15_JUSTIFIED", "S15_IN_BAND")
+                        else ""
+                    ),
+                    "notes": invocation["notes"] if invocation else "",
+                }
+            )
 
     fieldnames = [
-        "map", "ed_name", "commission_pop", "provincial_quota",
-        "deviation_pct", "lower_band_pct", "upper_band_pct",
-        "s15_invoked", "s15_criteria_met", "s15_verdict",
-        "classification", "flag", "notes",
+        "map",
+        "ed_name",
+        "commission_pop",
+        "provincial_quota",
+        "deviation_pct",
+        "lower_band_pct",
+        "upper_band_pct",
+        "s15_invoked",
+        "s15_criteria_met",
+        "s15_verdict",
+        "classification",
+        "flag",
+        "notes",
     ]
 
     with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
@@ -188,6 +203,7 @@ def run() -> None:
 
     # Summary to stdout
     from collections import Counter
+
     counts = Counter(r["classification"] for r in results)
     flags = [r for r in results if r["flag"] == "FLAG"]
 
@@ -206,8 +222,10 @@ def run() -> None:
     # Verify §15(2) invocations are within 4-per-map cap and below the floor
     for map_id in map_ids:
         in_band_invocations = [
-            r for r in results
-            if r["map"] == map_id and r["s15_invoked"] == "Y"
+            r
+            for r in results
+            if r["map"] == map_id
+            and r["s15_invoked"] == "Y"
             and r["classification"] == "S15_IN_BAND"
         ]
         if in_band_invocations:

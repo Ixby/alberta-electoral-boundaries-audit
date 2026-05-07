@@ -43,6 +43,7 @@ Run
 
 Author : sub-agent, article figures task, 2026-04-22
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -70,7 +71,13 @@ DATA = ROOT / "data"
 OUT = ROOT / "data" / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_2019 = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+PATH_2019 = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 PATH_MAJ = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
 PATH_MIN_V5 = DATA / "shapefiles" / "derived" / "v0_1_refined_v5_minority_2026_eds.gpkg"
 PATH_MIN_V4 = DATA / "shapefiles" / "derived" / "v0_1_refined_v4_minority_2026_eds.gpkg"
@@ -83,10 +90,10 @@ CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest, metres
 # entry and we want to attribute the 2019 polygon to the renamed 2026 ED.
 # Built lazily from majority_hybrid_crosswalk.csv at load time.
 
-COLOR_MAJ = "#e87722"     # UCP-ish orange
-COLOR_MIN = "#335c81"     # dusty blue
-COLOR_BOTH = "#8d5a3b"    # mid brown for overlap -- readable, but the
-                          # partition lines drawn on top still stand out.
+COLOR_MAJ = "#e87722"  # UCP-ish orange
+COLOR_MIN = "#335c81"  # dusty blue
+COLOR_BOTH = "#8d5a3b"  # mid brown for overlap -- readable, but the
+# partition lines drawn on top still stand out.
 ALPHA_MAJ = 0.55
 ALPHA_MIN = 0.55
 ALPHA_BOTH = 0.55
@@ -95,15 +102,16 @@ ALPHA_BOTH = 0.55
 # even over the brown overlap.
 EDGE_WIDTH_MAJ = 1.7
 EDGE_WIDTH_MIN = 1.7
-EDGE_COLOR_MAJ = "#b74000"    # deep bright orange/red
-EDGE_COLOR_MIN = "#0b1d3a"    # deep navy
+EDGE_COLOR_MAJ = "#b74000"  # deep bright orange/red
+EDGE_COLOR_MIN = "#0b1d3a"  # deep navy
 EDGE_WIDTH_2019 = 0.55
-BG_OUTSIDE = "#efefef"    # territory inside frame but outside both plans
+BG_OUTSIDE = "#efefef"  # territory inside frame but outside both plans
 
 FONT_TITLE = dict(fontsize=15, fontweight="bold", family="DejaVu Sans")
 
 # ---------------------------------------------------------------------------
 # Figure specs
+
 
 @dataclass(frozen=True)
 class FigSpec:
@@ -113,6 +121,7 @@ class FigSpec:
     city_lonlat: tuple[float, float]
     half_width_km: float
     caption: str
+
 
 SPECS: list[FigSpec] = [
     FigSpec(
@@ -206,19 +215,19 @@ SPECS: list[FigSpec] = [
 # equals the 2026 name).
 MAJORITY_TIER_C_2019_PROXIES: dict[str, list[str]] = {
     # From crosswalk.csv (direct renames)
-    "Airdrie-West":       ["Airdrie-Cochrane"],
-    "Airdrie-East":       ["Airdrie-East"],
+    "Airdrie-West": ["Airdrie-Cochrane"],
+    "Airdrie-East": ["Airdrie-East"],
     "Medicine Hat-Brooks": ["Brooks-Medicine Hat"],
-    "Leduc-Devon":        ["Leduc-Beaumont"],
+    "Leduc-Devon": ["Leduc-Beaumont"],
     "St. Albert-Sturgeon": ["Morinville-St. Albert"],
     "Chestermere-Strathmore": ["Chestermere-Strathmore"],
     "Cold Lake-Bonnyville-St. Paul": ["Bonnyville-Cold Lake-St. Paul"],
     # Not in crosswalk but easily inferred (pass-through / well-known hybrids)
-    "Lethbridge-East":    ["Lethbridge-East"],
-    "Lethbridge-West":    ["Lethbridge-West"],
-    "Taber-Cardston":     ["Taber-Warner", "Cardston-Siksika"],
+    "Lethbridge-East": ["Lethbridge-East"],
+    "Lethbridge-West": ["Lethbridge-West"],
+    "Taber-Cardston": ["Taber-Warner", "Cardston-Siksika"],
     "Cochrane-Springbank": ["Banff-Kananaskis"],
-    "Canmore-Banff":      ["Banff-Kananaskis"],
+    "Canmore-Banff": ["Banff-Kananaskis"],
     "High River-Vulcan-Siksika": ["Highwood", "Cardston-Siksika"],
     "Okotoks-Diamond Valley": ["Highwood"],
     "Mountain View-Kneehill": ["Olds-Didsbury-Three Hills"],
@@ -228,17 +237,17 @@ MAJORITY_TIER_C_2019_PROXIES: dict[str, list[str]] = {
     "Fort McMurray-Lac La Biche": ["Fort McMurray-Lac La Biche"],
     "Edmonton-Glenora-Riverview": ["Edmonton-Glenora", "Edmonton-Riverview"],
     "Edmonton-Windermere": ["Edmonton-South West"],
-    "Edmonton-Beaumont":  ["Edmonton-South West"],
-    "Edmonton-Enoch":     ["Edmonton-South West"],
+    "Edmonton-Beaumont": ["Edmonton-South West"],
+    "Edmonton-Enoch": ["Edmonton-South West"],
     # Calgary Tier C -- best guess but Calgary majority hybrids aren't trivially
     # mappable. Use the 2019 urban ED that most overlaps.
     "Calgary-Bhullar-McCall": ["Calgary-McCall"],
-    "Calgary-East":       ["Calgary-East"],
+    "Calgary-East": ["Calgary-East"],
     "Calgary-Falconridge-Conrich": ["Calgary-Falconridge"],
     "Calgary-Glenmore-Tsuut'ina": ["Calgary-Glenmore"],
     "Calgary-West-Elbow Valley": ["Calgary-West"],
     "Calgary-Confluence": ["Calgary-Peigan"],
-    "Calgary-McKenzie":   ["Calgary-Foothills"],
+    "Calgary-McKenzie": ["Calgary-Foothills"],
     "Calgary-Nose Creek": ["Calgary-Foothills"],
     "Calgary-Symons Valley": ["Calgary-Foothills"],
 }
@@ -246,6 +255,7 @@ MAJORITY_TIER_C_2019_PROXIES: dict[str, list[str]] = {
 
 # ---------------------------------------------------------------------------
 # Loaders
+
 
 def load_2019() -> gpd.GeoDataFrame:
     g = gpd.read_file(PATH_2019)
@@ -273,14 +283,16 @@ def load_majority_full(g19: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
         geoms = [g19_by_name[p] for p in parents if p in g19_by_name]
         if not geoms:
             continue
-        proxy_rows.append({
-            "name_2026": name,
-            "tier": "C-proxy-2019",
-            "confidence": "low",
-            "parents_2019": "+".join(parents),
-            "note": "proxy: 2019 polygon used for missing Tier C majority shape",
-            "geometry": unary_union(geoms),
-        })
+        proxy_rows.append(
+            {
+                "name_2026": name,
+                "tier": "C-proxy-2019",
+                "confidence": "low",
+                "parents_2019": "+".join(parents),
+                "note": "proxy: 2019 polygon used for missing Tier C majority shape",
+                "geometry": unary_union(geoms),
+            }
+        )
     if proxy_rows:
         proxy_gdf = gpd.GeoDataFrame(proxy_rows, geometry="geometry", crs=CRS_PLOT)
         combined = pd.concat([rows_existing, proxy_gdf], ignore_index=True)
@@ -296,6 +308,7 @@ def load_minority(prefer_v5: bool) -> tuple[gpd.GeoDataFrame, str]:
 
 # ---------------------------------------------------------------------------
 # Geometry helpers
+
 
 def lonlat_to_xy(lon: float, lat: float) -> tuple[float, float]:
     p = gpd.GeoSeries([Point(lon, lat)], crs=4326).to_crs(CRS_PLOT).iloc[0]
@@ -318,9 +331,7 @@ def clip_to_bbox(g: gpd.GeoDataFrame, bbox) -> gpd.GeoDataFrame:
     return sub[~sub.geometry.is_empty]
 
 
-def compute_zones(maj_clip: gpd.GeoDataFrame,
-                  min_clip: gpd.GeoDataFrame,
-                  frame_mask):
+def compute_zones(maj_clip: gpd.GeoDataFrame, min_clip: gpd.GeoDataFrame, frame_mask):
     """Return (majority_only, minority_only, both) shapely geometries."""
     maj_u = unary_union(maj_clip.geometry.tolist()) if not maj_clip.empty else None
     min_u = unary_union(min_clip.geometry.tolist()) if not min_clip.empty else None
@@ -345,39 +356,62 @@ def compute_zones(maj_clip: gpd.GeoDataFrame,
 # ---------------------------------------------------------------------------
 # Drawing helpers
 
+
 def add_scale_bar(ax, x0, y0, length_km=10, height_m=400):
     length_m = length_km * 1000.0
     # white bg halo
     halo = mpatches.Rectangle(
         (x0 - length_m * 0.08, y0 - height_m * 1.2),
-        length_m * 1.16, height_m * 4.5,
-        linewidth=0, facecolor="white", alpha=0.85, zorder=4,
+        length_m * 1.16,
+        height_m * 4.5,
+        linewidth=0,
+        facecolor="white",
+        alpha=0.85,
+        zorder=4,
     )
     ax.add_patch(halo)
     bar = mpatches.Rectangle(
-        (x0, y0), length_m, height_m,
-        linewidth=0.8, edgecolor="black", facecolor="black", zorder=5,
+        (x0, y0),
+        length_m,
+        height_m,
+        linewidth=0.8,
+        edgecolor="black",
+        facecolor="black",
+        zorder=5,
     )
     ax.add_patch(bar)
     ax.text(
-        x0 + length_m / 2, y0 + height_m * 2.0, f"{length_km} km",
-        ha="center", va="bottom", fontsize=7.5, family="DejaVu Sans",
+        x0 + length_m / 2,
+        y0 + height_m * 2.0,
+        f"{length_km} km",
+        ha="center",
+        va="bottom",
+        fontsize=7.5,
+        family="DejaVu Sans",
         zorder=6,
     )
 
 
 def add_north_arrow(ax, x, y, size=1500):
     halo = mpatches.Circle(
-        (x, y), radius=size * 1.2,
-        linewidth=0, facecolor="white", alpha=0.85, zorder=4,
+        (x, y),
+        radius=size * 1.2,
+        linewidth=0,
+        facecolor="white",
+        alpha=0.85,
+        zorder=4,
     )
     ax.add_patch(halo)
     ax.annotate(
         "N",
-        xy=(x, y + size), xytext=(x, y - size),
+        xy=(x, y + size),
+        xytext=(x, y - size),
         arrowprops=dict(facecolor="black", width=2, headwidth=8, headlength=8),
-        ha="center", va="bottom",
-        fontsize=10, fontweight="bold", family="DejaVu Sans",
+        ha="center",
+        va="bottom",
+        fontsize=10,
+        fontweight="bold",
+        family="DejaVu Sans",
         zorder=6,
     )
 
@@ -390,17 +424,20 @@ def label_ed(ax, geom, text, fontsize=7.5, weight="normal", color="#1a1a1a"):
     ax.annotate(
         text,
         xy=(pt.x, pt.y),
-        ha="center", va="center",
-        fontsize=fontsize, fontweight=weight, family="DejaVu Sans",
+        ha="center",
+        va="center",
+        fontsize=fontsize,
+        fontweight=weight,
+        family="DejaVu Sans",
         color=color,
-        bbox=dict(boxstyle="round,pad=0.18",
-                  fc=(1, 1, 1, 0.85), ec="none"),
+        bbox=dict(boxstyle="round,pad=0.18", fc=(1, 1, 1, 0.85), ec="none"),
         zorder=7,
     )
 
 
 # ---------------------------------------------------------------------------
 # Per-figure render
+
 
 def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     bbox = bbox_around(*spec.city_lonlat, spec.half_width_km)
@@ -420,8 +457,12 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
 
     # --- Background: light grey for territory outside either plan
     bg = mpatches.Rectangle(
-        (minx, miny), maxx - minx, maxy - miny,
-        facecolor=BG_OUTSIDE, edgecolor="none", zorder=0,
+        (minx, miny),
+        maxx - minx,
+        maxy - miny,
+        facecolor=BG_OUTSIDE,
+        edgecolor="none",
+        zorder=0,
     )
     ax.add_patch(bg)
 
@@ -432,8 +473,14 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
         if geom is None or geom.is_empty:
             return
         g = gpd.GeoSeries([geom], crs=CRS_PLOT)
-        g.plot(ax=ax, facecolor=facecolor, edgecolor="none",
-               linewidth=0, alpha=alpha, zorder=zorder)
+        g.plot(
+            ax=ax,
+            facecolor=facecolor,
+            edgecolor="none",
+            linewidth=0,
+            alpha=alpha,
+            zorder=zorder,
+        )
 
     # Draw overlap (both plans cover) in back so orange and blue surface on top.
     # The three zones are geometrically disjoint; z-ordering matters only for
@@ -445,8 +492,11 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     # --- 2019 baseline (dashed, drawn ABOVE fills so it stays visible)
     if not g19_c.empty:
         g19_c.boundary.plot(
-            ax=ax, linewidth=EDGE_WIDTH_2019, color="#555555",
-            linestyle=(0, (3, 2)), zorder=3,
+            ax=ax,
+            linewidth=EDGE_WIDTH_2019,
+            color="#555555",
+            linestyle=(0, (3, 2)),
+            zorder=3,
         )
 
     # --- ED boundaries from each plan. Solid for majority, dashed for
@@ -454,21 +504,32 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     # same territory differently.
     if not maj_c.empty:
         maj_c.boundary.plot(
-            ax=ax, linewidth=EDGE_WIDTH_MAJ, color=EDGE_COLOR_MAJ,
-            linestyle="-", alpha=0.95, zorder=4,
+            ax=ax,
+            linewidth=EDGE_WIDTH_MAJ,
+            color=EDGE_COLOR_MAJ,
+            linestyle="-",
+            alpha=0.95,
+            zorder=4,
         )
     if not min_c.empty:
         min_c.boundary.plot(
-            ax=ax, linewidth=EDGE_WIDTH_MIN, color=EDGE_COLOR_MIN,
-            linestyle=(0, (4, 2.5)), alpha=0.95, zorder=5,
+            ax=ax,
+            linewidth=EDGE_WIDTH_MIN,
+            color=EDGE_COLOR_MIN,
+            linestyle=(0, (4, 2.5)),
+            alpha=0.95,
+            zorder=5,
         )
 
     # --- Emphasise Tier-C approximated EDs in minority (heavy black dashed)
     tierc_flag = min_c[min_c["tier"].astype(str).str.contains("C", na=False)].copy()
     if not tierc_flag.empty:
         tierc_flag.boundary.plot(
-            ax=ax, linewidth=1.6, color="#0a0a0a",
-            linestyle=(0, (2, 2)), zorder=5,
+            ax=ax,
+            linewidth=1.6,
+            color="#0a0a0a",
+            linestyle=(0, (2, 2)),
+            zorder=5,
         )
 
     # --- Labels. Use a two-pass minimum-distance scheme:
@@ -513,12 +574,14 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     for name, x, y, _area, tc, w in cands:
         if name in labelled:
             continue
-        too_close = any(((x - px) ** 2 + (y - py) ** 2) ** 0.5 < min_sep
-                        for px, py in placed)
+        too_close = any(
+            ((x - px) ** 2 + (y - py) ** 2) ** 0.5 < min_sep for px, py in placed
+        )
         if too_close:
             continue
         # Build a tiny synthetic point geometry for label placement
         from shapely.geometry import Point as _P
+
         label_ed(ax, _P(x, y), name, fontsize=7.5, weight=w, color=tc)
         placed.append((x, y))
         labelled.add(name)
@@ -526,24 +589,36 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     # --- Primary city marker + label
     cx, cy = lonlat_to_xy(*spec.city_lonlat)
     if minx <= cx <= maxx and miny <= cy <= maxy:
-        ax.scatter([cx], [cy], s=45, color="black", zorder=8,
-                   marker="o", edgecolor="white", linewidth=1.2)
+        ax.scatter(
+            [cx],
+            [cy],
+            s=45,
+            color="black",
+            zorder=8,
+            marker="o",
+            edgecolor="white",
+            linewidth=1.2,
+        )
         ax.annotate(
             spec.primary_city.upper(),
             xy=(cx, cy),
-            xytext=(8, 8), textcoords="offset points",
-            fontsize=12, fontweight="bold", family="DejaVu Sans",
-            color="#111111", zorder=9,
-            bbox=dict(boxstyle="round,pad=0.25",
-                      fc=(1, 1, 1, 0.9), ec="#111", linewidth=0.6),
+            xytext=(8, 8),
+            textcoords="offset points",
+            fontsize=12,
+            fontweight="bold",
+            family="DejaVu Sans",
+            color="#111111",
+            zorder=9,
+            bbox=dict(
+                boxstyle="round,pad=0.25", fc=(1, 1, 1, 0.9), ec="#111", linewidth=0.6
+            ),
         )
 
     # --- Scale bar + north arrow
     scale_km = 10 if spec.half_width_km >= 20 else 5
     sx = minx + (maxx - minx) * 0.05
     sy = miny + (maxy - miny) * 0.05
-    add_scale_bar(ax, sx, sy, length_km=scale_km,
-                  height_m=max(300, scale_km * 35))
+    add_scale_bar(ax, sx, sy, length_km=scale_km, height_m=max(300, scale_km * 35))
 
     nx = minx + (maxx - minx) * 0.93
     ny = miny + (maxy - miny) * 0.11
@@ -551,28 +626,59 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
 
     # --- Legend
     handles = [
-        mpatches.Patch(facecolor=COLOR_MAJ, alpha=ALPHA_MAJ,
-                       edgecolor=EDGE_COLOR_MAJ,
-                       label="Majority only (orange fill)"),
-        mpatches.Patch(facecolor=COLOR_MIN, alpha=ALPHA_MIN,
-                       edgecolor=EDGE_COLOR_MIN,
-                       label="Minority only (blue fill)"),
-        mpatches.Patch(facecolor=COLOR_BOTH, alpha=ALPHA_BOTH,
-                       edgecolor="#5d3d29",
-                       label="Both plans cover (brown fill)"),
-        Line2D([0], [0], color=EDGE_COLOR_MAJ, linewidth=EDGE_WIDTH_MAJ,
-               linestyle="-", label="Majority partition line (solid)"),
-        Line2D([0], [0], color=EDGE_COLOR_MIN, linewidth=EDGE_WIDTH_MIN,
-               linestyle=(0, (4, 2.5)),
-               label="Minority partition line (dashed)"),
-        Line2D([0], [0], color="#555555", linewidth=1.0,
-               linestyle=(0, (3, 2)), label="2019 baseline"),
+        mpatches.Patch(
+            facecolor=COLOR_MAJ,
+            alpha=ALPHA_MAJ,
+            edgecolor=EDGE_COLOR_MAJ,
+            label="Majority only (orange fill)",
+        ),
+        mpatches.Patch(
+            facecolor=COLOR_MIN,
+            alpha=ALPHA_MIN,
+            edgecolor=EDGE_COLOR_MIN,
+            label="Minority only (blue fill)",
+        ),
+        mpatches.Patch(
+            facecolor=COLOR_BOTH,
+            alpha=ALPHA_BOTH,
+            edgecolor="#5d3d29",
+            label="Both plans cover (brown fill)",
+        ),
+        Line2D(
+            [0],
+            [0],
+            color=EDGE_COLOR_MAJ,
+            linewidth=EDGE_WIDTH_MAJ,
+            linestyle="-",
+            label="Majority partition line (solid)",
+        ),
+        Line2D(
+            [0],
+            [0],
+            color=EDGE_COLOR_MIN,
+            linewidth=EDGE_WIDTH_MIN,
+            linestyle=(0, (4, 2.5)),
+            label="Minority partition line (dashed)",
+        ),
+        Line2D(
+            [0],
+            [0],
+            color="#555555",
+            linewidth=1.0,
+            linestyle=(0, (3, 2)),
+            label="2019 baseline",
+        ),
     ]
     if not tierc_flag.empty:
         handles.append(
-            Line2D([0], [0], color="#0a0a0a", linewidth=1.6,
-                   linestyle=(0, (2, 2)),
-                   label="Tier C minority (visually transcribed)")
+            Line2D(
+                [0],
+                [0],
+                color="#0a0a0a",
+                linewidth=1.6,
+                linestyle=(0, (2, 2)),
+                label="Tier C minority (visually transcribed)",
+            )
         )
     ax.legend(handles=handles, loc="upper left", fontsize=7.5, framealpha=0.94)
 
@@ -591,14 +697,21 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     # --- Caption
     caption = spec.caption
     if mino_version == "v5":
-        caption += (" Minority shapes use v5 refinement (improved Tier C "
-                    "shapes for De Winton, Calgary-South, Windermere).")
+        caption += (
+            " Minority shapes use v5 refinement (improved Tier C "
+            "shapes for De Winton, Calgary-South, Windermere)."
+        )
     else:
         caption += " Minority shapes use v4 refinement."
     fig.text(
-        0.03, 0.015, caption,
-        ha="left", va="bottom",
-        fontsize=7.5, family="DejaVu Sans", color="#333333",
+        0.03,
+        0.015,
+        caption,
+        ha="left",
+        va="bottom",
+        fontsize=7.5,
+        family="DejaVu Sans",
+        color="#333333",
         wrap=True,
     )
 
@@ -606,8 +719,9 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
     fig.subplots_adjust(left=0.03, right=0.97, top=0.94, bottom=0.18)
 
     out_path = OUT / f"overlay_{spec.slug}.svg"
-    fig.savefig(out_path, dpi=300, bbox_inches="tight",
-                facecolor="white", pad_inches=0.15)
+    fig.savefig(
+        out_path, dpi=300, bbox_inches="tight", facecolor="white", pad_inches=0.15
+    )
     plt.close(fig)
 
     # Compute visible ED counts
@@ -627,22 +741,28 @@ def main() -> int:
     g19 = load_2019()
     maj = load_majority_full(g19)
     min_gdf, ver = load_minority(prefer_v5=True)
-    print(f"  2019 n={len(g19)}  majority(full w/ proxies) n={len(maj)}  "
-          f"minority n={len(min_gdf)} (ver {ver})")
+    print(
+        f"  2019 n={len(g19)}  majority(full w/ proxies) n={len(maj)}  "
+        f"minority n={len(min_gdf)} (ver {ver})"
+    )
 
     results = []
     for spec in SPECS:
         print(f"\nDrawing {spec.slug}...")
         r = draw_figure(spec, g19, maj, min_gdf, ver)
-        print(f"  -> {r['path']}  (maj={r['maj_count']} min={r['min_count']} "
-              f"tierC={r['tierC_count']})")
+        print(
+            f"  -> {r['path']}  (maj={r['maj_count']} min={r['min_count']} "
+            f"tierC={r['tierC_count']})"
+        )
         results.append(r)
 
     print("\n=== SUMMARY ===")
     for r in results:
         print(f"{r['slug']:12s}  {r['path']}")
-        print(f"  maj_eds={r['maj_count']} min_eds={r['min_count']} "
-              f"tierC_visible={r['tierC_count']} min_version={r['min_version']}")
+        print(
+            f"  maj_eds={r['maj_count']} min_eds={r['min_count']} "
+            f"tierC_visible={r['tierC_count']} min_version={r['min_version']}"
+        )
     return 0
 
 

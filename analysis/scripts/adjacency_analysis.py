@@ -35,6 +35,7 @@ Backward deps:
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   - data/shapefiles/reference/alberta_2021_csds.gpkg  (Airdrie CSD boundary)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -79,7 +80,8 @@ AIRDRIE_SPLIT_FLAG_COUNT = 4
 
 MAPS = {
     "2019": {
-        "path": DATA / "shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp",
+        "path": DATA
+        / "shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp",
         "name_col": "EDName2017",
         "target_crs": "EPSG:3347",
     },
@@ -236,17 +238,25 @@ def analyse_map(
     airdrie_count = len(airdrie_eds)
     airdrie_flag = airdrie_count >= AIRDRIE_SPLIT_FLAG_COUNT
 
-    print(f"  B1b — Airdrie EDs: {airdrie_count}  "
-          f"({'FLAG: meets pre-registration cracking threshold' if airdrie_flag else 'below 4-way threshold'})")
+    print(
+        f"  B1b — Airdrie EDs: {airdrie_count}  "
+        f"({'FLAG: meets pre-registration cracking threshold' if airdrie_flag else 'below 4-way threshold'})"
+    )
     if airdrie_count > 0:
-        for _, r in airdrie_eds.sort_values("airdrie_fragment_area_pct", ascending=False).iterrows():
-            print(f"    {r['ed_name']:45s}  {r['airdrie_fragment_area_pct']:6.2f}% of Airdrie")
+        for _, r in airdrie_eds.sort_values(
+            "airdrie_fragment_area_pct", ascending=False
+        ).iterrows():
+            print(
+                f"    {r['ed_name']:45s}  {r['airdrie_fragment_area_pct']:6.2f}% of Airdrie"
+            )
 
     # --- B1c summary ---
     deg_values = [neighbor_counts[ed] for ed in G.nodes()]
     mean_nc = float(np.mean(deg_values))
-    print(f"  B1c — Neighbor count: mean={mean_nc:.2f}, "
-          f"min={min(deg_values)}, max={max(deg_values)}")
+    print(
+        f"  B1c — Neighbor count: mean={mean_nc:.2f}, "
+        f"min={min(deg_values)}, max={max(deg_values)}"
+    )
 
     # --- Build per-ED output DataFrame ---
     per_ed_rows = []
@@ -254,8 +264,16 @@ def analyse_map(
         ed_name = ed[name_col]
         nc = neighbor_counts.get(ed_name, 0)
         airdrie_row = airdrie_df[airdrie_df["ed_name"] == ed_name]
-        ta = bool(airdrie_row["touches_airdrie"].values[0]) if len(airdrie_row) else False
-        ap = float(airdrie_row["airdrie_fragment_area_pct"].values[0]) if len(airdrie_row) else 0.0
+        ta = (
+            bool(airdrie_row["touches_airdrie"].values[0])
+            if len(airdrie_row)
+            else False
+        )
+        ap = (
+            float(airdrie_row["airdrie_fragment_area_pct"].values[0])
+            if len(airdrie_row)
+            else 0.0
+        )
         per_ed_rows.append(
             {
                 "map": map_label,
@@ -316,7 +334,9 @@ def main() -> None:
     print("\n" + "=" * 60)
     print("ADJACENCY MATRIX SUMMARY")
     print("=" * 60)
-    print(f"{'Map':<20s} {'N EDs':>6s} {'Mean N':>8s} {'Connected':>12s} {'Airdrie EDs':>13s} {'Flag 4+':>9s}")
+    print(
+        f"{'Map':<20s} {'N EDs':>6s} {'Mean N':>8s} {'Connected':>12s} {'Airdrie EDs':>13s} {'Flag 4+':>9s}"
+    )
     print("-" * 72)
     for s in all_summaries:
         flag_str = "YES" if s["airdrie_split_exceeds_4"] else "no"
@@ -335,14 +355,18 @@ def main() -> None:
             for ed in s["airdrie_eds"]:
                 print(f"    - {ed}")
         if s["airdrie_split_exceeds_4"]:
-            print(f"  *** PRE-REGISTRATION FLAG: Airdrie split >= {AIRDRIE_SPLIT_FLAG_COUNT} (cracking signal) ***")
+            print(
+                f"  *** PRE-REGISTRATION FLAG: Airdrie split >= {AIRDRIE_SPLIT_FLAG_COUNT} (cracking signal) ***"
+            )
 
     # --- Contiguity gate summary ---
     print("\n" + "=" * 60)
     print("CONTIGUITY GATE RESULTS")
     print("=" * 60)
     for s in all_summaries:
-        verdict = "PASS" if s["fully_connected"] else f"FAIL ({s['n_components']} components)"
+        verdict = (
+            "PASS" if s["fully_connected"] else f"FAIL ({s['n_components']} components)"
+        )
         print(f"  {s['map']:<20s}: {verdict}")
 
 

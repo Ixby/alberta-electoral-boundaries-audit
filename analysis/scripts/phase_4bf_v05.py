@@ -29,6 +29,7 @@ Backward:
   data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg
   data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -51,8 +52,18 @@ sys.modules["p4bcdef"] = m
 spec.loader.exec_module(m)
 
 # Redirect inputs to v0_5 DPG
-m.MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
-m.MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+m.MAJ_CANON_GPKG = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
+)
+m.MIN_CANON_GPKG = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+)
 
 # Redirect outputs to v0_5 paths
 m.OUT_4B_MAJ = DATA / "population_2021_majority.csv"
@@ -73,12 +84,23 @@ def count_hardstops(combined_df) -> dict:
             "n_zero_pop": int((d["pop_2021_from_das"] == 0).sum()),
             "n_warn_0p5pct": int(d_nz["delta_scaled_pct"].abs().gt(0.5).sum()),
             "n_hardstop_2pct": int(d_nz["delta_scaled_pct"].abs().gt(2.0).sum()),
-            "max_abs_scaled_pct": float(d_nz["delta_scaled_pct"].abs().max()) if len(d_nz) else None,
-            "top5_hardstops": (d_nz.reindex(d_nz["delta_scaled_pct"].abs()
-                                            .sort_values(ascending=False).index)
-                               [["ed_name", "pop_2021_from_das",
-                                 "pop_commission", "delta_scaled_pct"]]
-                               .head(5).to_dict(orient="records")),
+            "max_abs_scaled_pct": (
+                float(d_nz["delta_scaled_pct"].abs().max()) if len(d_nz) else None
+            ),
+            "top5_hardstops": (
+                d_nz.reindex(
+                    d_nz["delta_scaled_pct"].abs().sort_values(ascending=False).index
+                )[
+                    [
+                        "ed_name",
+                        "pop_2021_from_das",
+                        "pop_commission",
+                        "delta_scaled_pct",
+                    ]
+                ]
+                .head(5)
+                .to_dict(orient="records")
+            ),
         }
     return out
 
@@ -110,11 +132,18 @@ def main():
     v01_4f = DATA / "v0_1_validation_deltas.csv"
     if v01_4f.exists():
         import pandas as pd
+
         v01 = pd.read_csv(v01_4f)
         summary["v0_1_baseline"] = {
             "hardstops": {
-                label: int(v01[(v01["map"] == label) & (v01["pop_2021_from_das"] > 0)]
-                           ["delta_scaled_pct"].abs().gt(2.0).sum())
+                label: int(
+                    v01[(v01["map"] == label) & (v01["pop_2021_from_das"] > 0)][
+                        "delta_scaled_pct"
+                    ]
+                    .abs()
+                    .gt(2.0)
+                    .sum()
+                )
                 for label in ("majority", "minority")
             }
         }
@@ -129,13 +158,17 @@ def main():
     print("  HARDSTOPS (|Δ scaled| > 2%)")
     print("=" * 72)
     for lab, s in summary["hardstops"].items():
-        print(f"  [{lab}] n_hardstop={s['n_hardstop_2pct']}, "
-              f"n_warn={s['n_warn_0p5pct']}, "
-              f"zero_pop={s['n_zero_pop']}, "
-              f"max_abs_scaled_pct={s['max_abs_scaled_pct']}")
+        print(
+            f"  [{lab}] n_hardstop={s['n_hardstop_2pct']}, "
+            f"n_warn={s['n_warn_0p5pct']}, "
+            f"zero_pop={s['n_zero_pop']}, "
+            f"max_abs_scaled_pct={s['max_abs_scaled_pct']}"
+        )
         for r in s["top5_hardstops"]:
-            print(f"    {r['ed_name']:<35s} Δ={r['delta_scaled_pct']:+.2f}% "
-                  f"mine={r['pop_2021_from_das']:,.0f} comm={r['pop_commission']:,.0f}")
+            print(
+                f"    {r['ed_name']:<35s} Δ={r['delta_scaled_pct']:+.2f}% "
+                f"mine={r['pop_2021_from_das']:,.0f} comm={r['pop_commission']:,.0f}"
+            )
 
 
 if __name__ == "__main__":

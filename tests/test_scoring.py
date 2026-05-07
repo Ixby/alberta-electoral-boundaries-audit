@@ -18,6 +18,7 @@ Two layers:
 Run from the repo root:
     python -m pytest tests/ -v
 """
+
 import sys
 from pathlib import Path
 
@@ -29,10 +30,10 @@ sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 from mcmc_ensemble import seat_results
 
-
 # ============================================================
 # Layer 1: Synthetic-input unit tests
 # ============================================================
+
 
 def test_seat_results_minimal_50_50():
     """Two districts, identical 50/50 votes — should produce zero on
@@ -68,8 +69,8 @@ def test_seat_results_packing_signal():
     """Three districts: UCP wins two narrowly (51-49) and loses one
     badly (10-90). UCP has 71/(71+128) ≈ 35.7% of the vote but wins
     2/3 of the seats. Strong UCP-favoured efficiency gap expected."""
-    ucp = np.array([51.0, 51.0, 10.0])   # 112 total UCP
-    ndp = np.array([49.0, 49.0, 90.0])   # 188 total NDP
+    ucp = np.array([51.0, 51.0, 10.0])  # 112 total UCP
+    ndp = np.array([49.0, 49.0, 90.0])  # 188 total NDP
     m = seat_results(ucp, ndp)
 
     assert m["ucp_seats"] == 2
@@ -109,8 +110,8 @@ def test_efficiency_gap_proportional():
     should be near zero. UCP wins one of three with 51-49 and loses
     two with 49-51. Vote share is exactly 50/50; seat share is 1/3.
     Negative efficiency gap (UCP under-represented)."""
-    ucp = np.array([51.0, 49.0, 49.0])   # 149 UCP
-    ndp = np.array([49.0, 51.0, 51.0])   # 151 NDP
+    ucp = np.array([51.0, 49.0, 49.0])  # 149 UCP
+    ndp = np.array([49.0, 51.0, 51.0])  # 151 NDP
     m = seat_results(ucp, ndp)
     assert m["ucp_seats"] == 1
     # UCP gets ~50% of votes but only 1/3 of seats — disadvantaged.
@@ -123,14 +124,21 @@ def test_efficiency_gap_proportional():
 # Layer 2: Verification-subset integrity check
 # ============================================================
 
-VERIFICATION_METRICS = ROOT / "data" / "outputs" / "mcmc" / "simulation_verification_metrics.csv"
-VERIFICATION_ASSIGNMENTS = ROOT / "data" / "outputs" / "mcmc" / "verification_assignments_raw.npz"
-VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+VERIFICATION_METRICS = (
+    ROOT / "data" / "outputs" / "mcmc" / "simulation_verification_metrics.csv"
+)
+VERIFICATION_ASSIGNMENTS = (
+    ROOT / "data" / "outputs" / "mcmc" / "verification_assignments_raw.npz"
+)
+VA_VOTES_PATH = (
+    ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+)
 
 
 def _load_va_votes():
     """Load voting-area-level UCP/NDP votes, keyed by VA ID."""
     import geopandas as gpd
+
     va = gpd.read_file(VA_VOTES_PATH)
     return va
 
@@ -162,10 +170,12 @@ def _recompute_metrics_from_assignment(assignment_vec, va_votes_keyed_by_id):
 
 def test_verification_subset_files_present():
     """Smoke test: the verification subset artefacts exist and are non-empty."""
-    assert VERIFICATION_METRICS.exists(), \
-        f"Verification metrics CSV missing at {VERIFICATION_METRICS}"
-    assert VERIFICATION_ASSIGNMENTS.exists(), \
-        f"Verification assignments NPZ missing at {VERIFICATION_ASSIGNMENTS}"
+    assert (
+        VERIFICATION_METRICS.exists()
+    ), f"Verification metrics CSV missing at {VERIFICATION_METRICS}"
+    assert (
+        VERIFICATION_ASSIGNMENTS.exists()
+    ), f"Verification assignments NPZ missing at {VERIFICATION_ASSIGNMENTS}"
     assert VERIFICATION_METRICS.stat().st_size > 0
     assert VERIFICATION_ASSIGNMENTS.stat().st_size > 0
 
@@ -175,8 +185,9 @@ def test_verification_subset_metric_count_matches_assignment_count():
     metrics = pd.read_csv(VERIFICATION_METRICS)
     npz = np.load(VERIFICATION_ASSIGNMENTS)
     assignments = npz["assignments"]
-    assert len(metrics) == assignments.shape[0], \
-        f"Metric rows ({len(metrics)}) != assignment rows ({assignments.shape[0]})"
+    assert (
+        len(metrics) == assignments.shape[0]
+    ), f"Metric rows ({len(metrics)}) != assignment rows ({assignments.shape[0]})"
 
 
 def test_verification_subset_recompute_spot_check():
@@ -190,6 +201,7 @@ def test_verification_subset_recompute_spot_check():
     """
     if not VA_VOTES_PATH.exists():
         import pytest
+
         pytest.skip(f"VA votes file not present at {VA_VOTES_PATH}")
 
     metrics = pd.read_csv(VERIFICATION_METRICS)
@@ -204,10 +216,13 @@ def test_verification_subset_recompute_spot_check():
     if "OBJECTID" in va.columns:
         # Match graph node id; gerrychain typically uses the dataframe
         # index, which corresponds to row order in the gpkg.
-        va_lookup = {i: (float(va.iloc[i]["va_ucp"]), float(va.iloc[i]["va_ndp"]))
-                     for i in range(len(va))}
+        va_lookup = {
+            i: (float(va.iloc[i]["va_ucp"]), float(va.iloc[i]["va_ndp"]))
+            for i in range(len(va))
+        }
     else:
         import pytest
+
         pytest.skip("VA file structure unexpected; skipping recompute spot-check")
 
     # Spot-check 10 random steps
@@ -231,8 +246,12 @@ def test_verification_subset_recompute_spot_check():
                 # The npz va_ids correspond to graph node IDs which
                 # correspond to gpkg row indices (by gerrychain convention).
                 ucp, ndp = va_lookup[vid]
-                ucp_per_district[district_id] = ucp_per_district.get(district_id, 0.0) + ucp
-                ndp_per_district[district_id] = ndp_per_district.get(district_id, 0.0) + ndp
+                ucp_per_district[district_id] = (
+                    ucp_per_district.get(district_id, 0.0) + ucp
+                )
+                ndp_per_district[district_id] = (
+                    ndp_per_district.get(district_id, 0.0) + ndp
+                )
         except KeyError as e:
             raise KeyError(f"Lookup failed for va_id {e} at step {step_idx}") from e
 
@@ -243,7 +262,12 @@ def test_verification_subset_recompute_spot_check():
         recomputed = seat_results(ucp_arr, ndp_arr)
 
         # Confirm match within float tolerance
-        for metric in ("efficiency_gap", "mean_median", "declination", "seats_at_50_50"):
+        for metric in (
+            "efficiency_gap",
+            "mean_median",
+            "declination",
+            "seats_at_50_50",
+        ):
             saved_val = float(saved[metric])
             recomputed_val = float(recomputed[metric])
             if abs(saved_val - recomputed_val) > 1e-6:
@@ -253,13 +277,16 @@ def test_verification_subset_recompute_spot_check():
                     f"delta={saved_val - recomputed_val:+.10f}"
                 )
 
-    assert not failures, "Verification subset integrity failures:\n" + "\n".join(failures)
+    assert not failures, "Verification subset integrity failures:\n" + "\n".join(
+        failures
+    )
 
 
 # ============================================================
 # Layer 3: Regression tests for the bugs Gemini surfaced
 # (one test per finding, kept tight and focused)
 # ============================================================
+
 
 def test_score_exogenous_map_sjoin_deduplicates_overlap():
     """HIGH: a centroid that falls inside two overlapping polygons must
@@ -275,8 +302,12 @@ def test_score_exogenous_map_sjoin_deduplicates_overlap():
 
     # One VA, sitting at (5, 5), with 100 UCP / 100 NDP votes
     va = gpd.GeoDataFrame(
-        {"va_ucp": [100.0], "va_ndp": [100.0], "va_other": [0.0],
-         "total_votes": [200.0]},
+        {
+            "va_ucp": [100.0],
+            "va_ndp": [100.0],
+            "va_other": [0.0],
+            "total_votes": [200.0],
+        },
         geometry=[Point(5, 5).buffer(0.5)],
         crs="EPSG:3401",
     )
@@ -318,16 +349,21 @@ def test_score_exogenous_map_enforces_crs_alignment():
 
     # VA frame in EPSG:3401 (Alberta-relevant projected metres)
     va = gpd.GeoDataFrame(
-        {"va_ucp": [100.0, 100.0], "va_ndp": [100.0, 100.0],
-         "va_other": [0.0, 0.0], "total_votes": [200.0, 200.0]},
+        {
+            "va_ucp": [100.0, 100.0],
+            "va_ndp": [100.0, 100.0],
+            "va_other": [0.0, 0.0],
+            "total_votes": [200.0, 200.0],
+        },
         geometry=[Point(0, 0).buffer(1.0), Point(100_000, 100_000).buffer(1.0)],
         crs="EPSG:3401",
     )
     # Build the equivalent polygon in 4326 by reprojecting a 3401 polygon
     proposed_3401 = gpd.GeoDataFrame(
         {"name_2026": ["X"]},
-        geometry=[Polygon([(-1, -1), (200_000, -1),
-                           (200_000, 200_000), (-1, 200_000)])],
+        geometry=[
+            Polygon([(-1, -1), (200_000, -1), (200_000, 200_000), (-1, 200_000)])
+        ],
         crs="EPSG:3401",
     )
     proposed_4326 = proposed_3401.to_crs("EPSG:4326")
@@ -394,8 +430,12 @@ def test_run_ensemble_state_persistence_across_chunks():
     state = initial
     for _ in range(4):
         _, final_broken = run_ensemble(
-            graph, initial, n_steps=8, pop_deviation=0.5,
-            verbose=False, return_final_partition=True,
+            graph,
+            initial,
+            n_steps=8,
+            pop_deviation=0.5,
+            verbose=False,
+            return_final_partition=True,
         )
         # critically: do NOT update `state` to final_broken — this is the bug
         state = initial
@@ -407,8 +447,12 @@ def test_run_ensemble_state_persistence_across_chunks():
     state = initial
     for _ in range(4):
         _, state = run_ensemble(
-            graph, state, n_steps=8, pop_deviation=0.5,
-            verbose=False, return_final_partition=True,
+            graph,
+            state,
+            n_steps=8,
+            pop_deviation=0.5,
+            verbose=False,
+            return_final_partition=True,
         )
     threaded_drift = _hamming(state.assignment, initial)
 
@@ -425,6 +469,6 @@ def test_run_ensemble_state_persistence_across_chunks():
 
     # And the threaded final must not equal the seed (proves the chain
     # actually moved across all 4 chunks combined).
-    assert threaded_drift > 0, (
-        "Threaded chain returned the seed assignment — chain did not advance."
-    )
+    assert (
+        threaded_drift > 0
+    ), "Threaded chain returned the seed assignment — chain did not advance."

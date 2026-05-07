@@ -46,6 +46,7 @@ Outputs:
 
 Author: Track U subagent, 2026-04-22
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -64,11 +65,12 @@ import pandas as pd
 import geopandas as gpd
 from shapely.ops import unary_union
 
-
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
+
+
 def data(name: str) -> str:
-    p = os.path.join(ROOT, 'data', name)
+    p = os.path.join(ROOT, "data", name)
     if not os.path.exists(p):
         raise FileNotFoundError(p)
     return p
@@ -77,6 +79,7 @@ def data(name: str) -> str:
 # =====================================================================
 # Test 1 — Moran's I of NDP share at VA level, population-weighted
 # =====================================================================
+
 
 def compute_morans_i(values: np.ndarray, weights: np.ndarray) -> Tuple[float, float]:
     """Global Moran's I with row-standardized weights.
@@ -90,15 +93,15 @@ def compute_morans_i(values: np.ndarray, weights: np.ndarray) -> Tuple[float, fl
     n = len(values)
     # row-standardize
     row_sum = weights.sum(axis=1, keepdims=True)
-    with np.errstate(divide='ignore', invalid='ignore'):
+    with np.errstate(divide="ignore", invalid="ignore"):
         W = np.where(row_sum > 0, weights / row_sum, 0.0)
 
     mean_v = values.mean()
     dev = values - mean_v
     numerator = (W * np.outer(dev, dev)).sum()
-    denominator = (dev ** 2).sum()
+    denominator = (dev**2).sum()
     if denominator == 0:
-        return float('nan'), -1.0 / (n - 1)
+        return float("nan"), -1.0 / (n - 1)
     # because W is row-standardized, sum of weights = n_nonzero_rows.
     # Standard Moran's I uses W_raw; with row-stand, the formula is:
     #   I = (dev' W_rs dev) / sum(dev^2)
@@ -130,8 +133,9 @@ def build_queen_weights(gdf: gpd.GeoDataFrame) -> np.ndarray:
     return W
 
 
-def morans_i_permutation_test(values: np.ndarray, W: np.ndarray,
-                              n_perm: int = 999, seed: int = 42) -> Dict:
+def morans_i_permutation_test(
+    values: np.ndarray, W: np.ndarray, n_perm: int = 999, seed: int = 42
+) -> Dict:
     """Permutation-based p-value for Moran's I."""
     rng = np.random.default_rng(seed)
     I_obs, expected = compute_morans_i(values, W)
@@ -142,17 +146,17 @@ def morans_i_permutation_test(values: np.ndarray, W: np.ndarray,
         perm_I[k], _ = compute_morans_i(v, W)
     # two-sided p-value
     if np.isnan(I_obs):
-        p_value = float('nan')
+        p_value = float("nan")
     else:
         more_extreme = np.sum(np.abs(perm_I - expected) >= abs(I_obs - expected))
         p_value = (more_extreme + 1) / (n_perm + 1)
     return {
-        'I': I_obs,
-        'expected': expected,
-        'p_value': p_value,
-        'n_perm': n_perm,
-        'perm_mean': float(perm_I.mean()),
-        'perm_std': float(perm_I.std()),
+        "I": I_obs,
+        "expected": expected,
+        "p_value": p_value,
+        "n_perm": n_perm,
+        "perm_mean": float(perm_I.mean()),
+        "perm_std": float(perm_I.std()),
     }
 
 
@@ -171,22 +175,25 @@ def test1_morans_i() -> Dict:
     print("=" * 70)
 
     # Build ED-level NDP share from VA data
-    va = gpd.read_file(data('va_polygons_with_2023_votes.gpkg'))
-    va['ED_NUM_int'] = pd.to_numeric(va['ED_NUM'], errors='coerce').astype('Int64')
-    eds_votes = (va.groupby(['ED_NUM_int', 'ED_NAME'])
-                   [['va_ndp', 'va_ucp']].sum().reset_index())
-    eds_votes['two_party'] = eds_votes['va_ndp'] + eds_votes['va_ucp']
-    eds_votes['ndp_share'] = eds_votes['va_ndp'] / eds_votes['two_party']
-    eds_votes = eds_votes.rename(columns={'ED_NUM_int': 'ED_NUM'})
-    eds_votes['ED_NUM'] = eds_votes['ED_NUM'].astype(int)
+    va = gpd.read_file(data("va_polygons_with_2023_votes.gpkg"))
+    va["ED_NUM_int"] = pd.to_numeric(va["ED_NUM"], errors="coerce").astype("Int64")
+    eds_votes = (
+        va.groupby(["ED_NUM_int", "ED_NAME"])[["va_ndp", "va_ucp"]].sum().reset_index()
+    )
+    eds_votes["two_party"] = eds_votes["va_ndp"] + eds_votes["va_ucp"]
+    eds_votes["ndp_share"] = eds_votes["va_ndp"] / eds_votes["two_party"]
+    eds_votes = eds_votes.rename(columns={"ED_NUM_int": "ED_NUM"})
+    eds_votes["ED_NUM"] = eds_votes["ED_NUM"].astype(int)
 
-    eds_shp = gpd.read_file(data('alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp'))
+    eds_shp = gpd.read_file(data("alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp"))
     # Join by ED number (EDNumber20 in shapefile, ED_NUM in votes)
-    eds_shp['ED_NUM'] = eds_shp['EDNumber20'].astype(int)
-    eds = eds_shp.merge(eds_votes, on='ED_NUM', how='left')
+    eds_shp["ED_NUM"] = eds_shp["EDNumber20"].astype(int)
+    eds = eds_shp.merge(eds_votes, on="ED_NUM", how="left")
 
     print(f"  EDs loaded: {len(eds)}")
-    print(f"  NDP share range: [{eds['ndp_share'].min():.3f}, {eds['ndp_share'].max():.3f}]")
+    print(
+        f"  NDP share range: [{eds['ndp_share'].min():.3f}, {eds['ndp_share'].max():.3f}]"
+    )
     print(f"  NDP share mean: {eds['ndp_share'].mean():.3f}")
     print(f"  Building queen contiguity weights...")
 
@@ -194,7 +201,7 @@ def test1_morans_i() -> Dict:
     n_edges = int(W.sum()) // 2
     print(f"  Queen edges: {n_edges}")
 
-    values = eds['ndp_share'].values.astype(float)
+    values = eds["ndp_share"].values.astype(float)
     result = morans_i_permutation_test(values, W, n_perm=999, seed=42)
 
     print(f"\n  Moran's I = {result['I']:.4f}")
@@ -202,9 +209,9 @@ def test1_morans_i() -> Dict:
     print(f"  Permutation p-value (999 perms): {result['p_value']:.4f}")
     print(f"  Permutation null distribution mean: {result['perm_mean']:.4f}")
     print(f"  Permutation null distribution std:  {result['perm_std']:.4f}")
-    z_score = (result['I'] - result['perm_mean']) / result['perm_std']
+    z_score = (result["I"] - result["perm_mean"]) / result["perm_std"]
     print(f"  Z-score (I vs null distribution): {z_score:.2f}")
-    result['z_score'] = z_score
+    result["z_score"] = z_score
 
     # Reference benchmarks (US VTDs, Chen & Rodden 2013 Table 2 and related lit)
     print(f"\n  Reference benchmarks (Democrat share spatial autocorrelation):")
@@ -225,33 +232,35 @@ def test1_morans_i() -> Dict:
 # Test 2 — Simulated-ensemble seat-share distribution via ED swaps
 # =====================================================================
 
+
 def efficiency_gap(districts: List[Dict]) -> float:
-    total = sum(d['ndp'] + d['ucp'] for d in districts)
+    total = sum(d["ndp"] + d["ucp"] for d in districts)
     if total == 0:
-        return float('nan')
+        return float("nan")
     ndp_wasted = ucp_wasted = 0
     for d in districts:
-        tt = d['ndp'] + d['ucp']
+        tt = d["ndp"] + d["ucp"]
         thr = tt // 2 + 1
-        if d['ndp'] > d['ucp']:
-            ndp_wasted += max(0, d['ndp'] - thr)
-            ucp_wasted += d['ucp']
+        if d["ndp"] > d["ucp"]:
+            ndp_wasted += max(0, d["ndp"] - thr)
+            ucp_wasted += d["ucp"]
         else:
-            ucp_wasted += max(0, d['ucp'] - thr)
-            ndp_wasted += d['ndp']
+            ucp_wasted += max(0, d["ucp"] - thr)
+            ndp_wasted += d["ndp"]
     return (ndp_wasted - ucp_wasted) / total
 
 
 def mean_median(districts: List[Dict]) -> float:
-    shares = [d['ndp'] / (d['ndp'] + d['ucp']) for d in districts
-              if (d['ndp'] + d['ucp']) > 0]
+    shares = [
+        d["ndp"] / (d["ndp"] + d["ucp"]) for d in districts if (d["ndp"] + d["ucp"]) > 0
+    ]
     if not shares:
-        return float('nan')
+        return float("nan")
     return statistics.mean(shares) - statistics.median(shares)
 
 
 def ndp_seats(districts: List[Dict]) -> int:
-    return sum(1 for d in districts if d['ndp'] > d['ucp'])
+    return sum(1 for d in districts if d["ndp"] > d["ucp"])
 
 
 def build_ed_adjacency(eds: gpd.GeoDataFrame) -> Dict[int, set]:
@@ -297,14 +306,14 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
     print(f"  TEST 2 — Simulated ensemble ({n_plans} plans via VA swaps)")
     print("=" * 70)
 
-    va = gpd.read_file(data('va_polygons_with_2023_votes.gpkg'))
-    va['two_party'] = va['va_ndp'] + va['va_ucp']
+    va = gpd.read_file(data("va_polygons_with_2023_votes.gpkg"))
+    va["two_party"] = va["va_ndp"] + va["va_ucp"]
     # Project to equal-area CRS
     if va.crs.to_epsg() != 3400:
         va = va.to_crs(epsg=3400)
 
     # Build VA->ED dict (initial plan: 2019 assignment)
-    initial_assign = va['ED_NUM'].to_dict()  # index -> ED
+    initial_assign = va["ED_NUM"].to_dict()  # index -> ED
 
     # Build VA adjacency (queen contiguity)
     print("  Building VA adjacency...")
@@ -328,7 +337,7 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
     print(f"  VA queen edges: {n_edges}")
 
     # Population proxy: two-party vote
-    pop_proxy = va['two_party'].values.astype(float)
+    pop_proxy = va["two_party"].values.astype(float)
     total_pop = pop_proxy.sum()
     target_pop = total_pop / 87
     lo = target_pop * 0.75
@@ -336,26 +345,26 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
     print(f"  Target pop per district (vote proxy): {target_pop:,.0f}")
     print(f"  Allowed range: [{lo:,.0f}, {hi:,.0f}]")
 
-    ndp_arr = va['va_ndp'].values.astype(float)
-    ucp_arr = va['va_ucp'].values.astype(float)
+    ndp_arr = va["va_ndp"].values.astype(float)
+    ucp_arr = va["va_ucp"].values.astype(float)
 
     def compute_plan_metrics(assign: Dict[int, int]) -> Dict:
         # group by district
         by_ed = {}
         for idx, ed in assign.items():
             if ed not in by_ed:
-                by_ed[ed] = {'ndp': 0.0, 'ucp': 0.0, 'pop': 0.0}
-            by_ed[ed]['ndp'] += ndp_arr[idx]
-            by_ed[ed]['ucp'] += ucp_arr[idx]
-            by_ed[ed]['pop'] += pop_proxy[idx]
+                by_ed[ed] = {"ndp": 0.0, "ucp": 0.0, "pop": 0.0}
+            by_ed[ed]["ndp"] += ndp_arr[idx]
+            by_ed[ed]["ucp"] += ucp_arr[idx]
+            by_ed[ed]["pop"] += pop_proxy[idx]
         districts = list(by_ed.values())
         return {
-            'n': len(districts),
-            'eg': efficiency_gap(districts),
-            'mm': mean_median(districts),
-            'ndp_seats': ndp_seats(districts),
-            'pop_min': min(d['pop'] for d in districts),
-            'pop_max': max(d['pop'] for d in districts),
+            "n": len(districts),
+            "eg": efficiency_gap(districts),
+            "mm": mean_median(districts),
+            "ndp_seats": ndp_seats(districts),
+            "pop_min": min(d["pop"] for d in districts),
+            "pop_max": max(d["pop"] for d in districts),
         }
 
     baseline_2019 = compute_plan_metrics(initial_assign)
@@ -383,8 +392,7 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
             p[ed] = p.get(ed, 0.0) + pop_proxy[idx]
         return p
 
-    def is_ed_connected(assign: Dict[int, int], ed: int,
-                         excluded: int = -1) -> bool:
+    def is_ed_connected(assign: Dict[int, int], ed: int, excluded: int = -1) -> bool:
         """BFS check: all VAs assigned to `ed` (except possibly `excluded`)
         form a connected subgraph."""
         members = [i for i, e in assign.items() if e == ed and i != excluded]
@@ -412,8 +420,10 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
     current = dict(initial_assign)
     pops = district_pops(current)
 
-    print(f"\n  Running random-walk: burnin {burnin} swaps, then {n_plans} plans, "
-          f"{n_steps_per_plan} accepted swaps per plan...")
+    print(
+        f"\n  Running random-walk: burnin {burnin} swaps, then {n_plans} plans, "
+        f"{n_steps_per_plan} accepted swaps per plan..."
+    )
 
     accepted_total = 0
     attempted_total = 0
@@ -441,9 +451,13 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
         pops[my_ed] = new_my_pop
         pops[target_ed] = new_target_pop
         burnin_accepted += 1
-    print(f"  Burn-in complete: {burnin_accepted} accepted / {burnin_attempts} attempted")
+    print(
+        f"  Burn-in complete: {burnin_accepted} accepted / {burnin_attempts} attempted"
+    )
     burnin_m = compute_plan_metrics(current)
-    print(f"  Post-burnin: NDP seats {burnin_m['ndp_seats']}, EG {burnin_m['eg']*100:+.2f}%")
+    print(
+        f"  Post-burnin: NDP seats {burnin_m['ndp_seats']}, EG {burnin_m['eg']*100:+.2f}%"
+    )
 
     for plan_idx in range(n_plans):
         accepted = 0
@@ -473,41 +487,55 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
             pops[target_ed] = new_target_pop
             accepted += 1
         m = compute_plan_metrics(current)
-        m['plan_idx'] = plan_idx
-        m['attempts'] = attempts
-        m['accepted'] = accepted
+        m["plan_idx"] = plan_idx
+        m["attempts"] = attempts
+        m["accepted"] = accepted
         plans_metrics.append(m)
         accepted_total += accepted
         attempted_total += attempts
         if (plan_idx + 1) % 20 == 0:
-            eg_med = statistics.median(p['eg'] for p in plans_metrics)
-            print(f"    plan {plan_idx+1:3d}/{n_plans}: "
-                  f"NDP seats {m['ndp_seats']:2d}, EG {m['eg']*100:+.2f}%, "
-                  f"median EG so far {eg_med*100:+.2f}%")
+            eg_med = statistics.median(p["eg"] for p in plans_metrics)
+            print(
+                f"    plan {plan_idx+1:3d}/{n_plans}: "
+                f"NDP seats {m['ndp_seats']:2d}, EG {m['eg']*100:+.2f}%, "
+                f"median EG so far {eg_med*100:+.2f}%"
+            )
 
-    print(f"\n  Walk stats: {accepted_total} accepted / {attempted_total} attempted "
-          f"({100*accepted_total/max(attempted_total,1):.1f}% acceptance)")
+    print(
+        f"\n  Walk stats: {accepted_total} accepted / {attempted_total} attempted "
+        f"({100*accepted_total/max(attempted_total,1):.1f}% acceptance)"
+    )
 
     # === Summary statistics across ensemble ===
-    egs = np.array([p['eg'] for p in plans_metrics])
-    mms = np.array([p['mm'] for p in plans_metrics])
-    seats = np.array([p['ndp_seats'] for p in plans_metrics])
+    egs = np.array([p["eg"] for p in plans_metrics])
+    mms = np.array([p["mm"] for p in plans_metrics])
+    seats = np.array([p["ndp_seats"] for p in plans_metrics])
 
     print(f"\n  Ensemble distribution ({len(plans_metrics)} plans):")
-    print(f"    EG:  mean {egs.mean()*100:+.2f}%, median {np.median(egs)*100:+.2f}%, "
-          f"std {egs.std()*100:.2f}pp")
-    print(f"         5th %ile {np.percentile(egs, 5)*100:+.2f}%, "
-          f"95th %ile {np.percentile(egs, 95)*100:+.2f}%")
+    print(
+        f"    EG:  mean {egs.mean()*100:+.2f}%, median {np.median(egs)*100:+.2f}%, "
+        f"std {egs.std()*100:.2f}pp"
+    )
+    print(
+        f"         5th %ile {np.percentile(egs, 5)*100:+.2f}%, "
+        f"95th %ile {np.percentile(egs, 95)*100:+.2f}%"
+    )
     print(f"    MM:  mean {mms.mean()*100:+.3f}pp, median {np.median(mms)*100:+.3f}pp")
-    print(f"    NDP seats: mean {seats.mean():.1f}, median {np.median(seats):.0f}, "
-          f"min {seats.min()}, max {seats.max()}")
+    print(
+        f"    NDP seats: mean {seats.mean():.1f}, median {np.median(seats):.0f}, "
+        f"min {seats.min()}, max {seats.max()}"
+    )
 
     # 2019 actual baseline comparison
-    print(f"\n  2019 actual (enacted): EG = {baseline_2019['eg']*100:+.2f}%, "
-          f"NDP seats = {baseline_2019['ndp_seats']}")
+    print(
+        f"\n  2019 actual (enacted): EG = {baseline_2019['eg']*100:+.2f}%, "
+        f"NDP seats = {baseline_2019['ndp_seats']}"
+    )
     if egs.mean() < 0:
         print(f"  Interpretation: ensemble MEAN EG is NEGATIVE (UCP-favored).")
-        print(f"  Direction matches Chen-Rodden prediction for urban-party disadvantage.")
+        print(
+            f"  Direction matches Chen-Rodden prediction for urban-party disadvantage."
+        )
     else:
         print(f"  Interpretation: ensemble MEAN EG is non-negative.")
         print(f"  Chen-Rodden's natural-packing direction does NOT emerge cleanly.")
@@ -518,6 +546,7 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
 # =====================================================================
 # Test 3 — Margin asymmetry (fallback cross-check)
 # =====================================================================
+
 
 def test3_margin_asymmetry() -> Dict:
     """Compare mean NDP-winning margin (urban) vs mean UCP-winning margin (rural).
@@ -530,44 +559,45 @@ def test3_margin_asymmetry() -> Dict:
     print("  TEST 3 — Winning margin asymmetry (urban NDP vs rural UCP)")
     print("=" * 70)
 
-    df = pd.read_csv(data('alberta_2023_results.csv'))
+    df = pd.read_csv(data("alberta_2023_results.csv"))
+
     # extract NDP + UCP votes
     def _votes(row, party_sfx):
         total = 0
         for i in range(1, 7):
-            c = row.get(f'cand_{i}', '')
-            v = row.get(f'votes_{i}', '')
+            c = row.get(f"cand_{i}", "")
+            v = row.get(f"votes_{i}", "")
             if pd.isna(c) or pd.isna(v):
                 continue
             try:
                 v = int(v)
             except (ValueError, TypeError):
                 continue
-            if isinstance(c, str) and c.endswith(f'({party_sfx})'):
+            if isinstance(c, str) and c.endswith(f"({party_sfx})"):
                 total += v
         return total
 
-    df['ndp_votes'] = df.apply(lambda r: _votes(r, 'NDP'), axis=1)
-    df['ucp_votes'] = df.apply(lambda r: _votes(r, 'UCP'), axis=1)
-    df['two_party'] = df['ndp_votes'] + df['ucp_votes']
-    df['ndp_share'] = df['ndp_votes'] / df['two_party']
-    df['ndp_win'] = df['ndp_votes'] > df['ucp_votes']
-    df['margin'] = (df['ndp_votes'] - df['ucp_votes']) / df['two_party']
+    df["ndp_votes"] = df.apply(lambda r: _votes(r, "NDP"), axis=1)
+    df["ucp_votes"] = df.apply(lambda r: _votes(r, "UCP"), axis=1)
+    df["two_party"] = df["ndp_votes"] + df["ucp_votes"]
+    df["ndp_share"] = df["ndp_votes"] / df["two_party"]
+    df["ndp_win"] = df["ndp_votes"] > df["ucp_votes"]
+    df["margin"] = (df["ndp_votes"] - df["ucp_votes"]) / df["two_party"]
 
-    ndp_wins = df[df['ndp_win']].copy()
-    ucp_wins = df[~df['ndp_win']].copy()
+    ndp_wins = df[df["ndp_win"]].copy()
+    ucp_wins = df[~df["ndp_win"]].copy()
 
-    ndp_margin_mean = ndp_wins['margin'].mean() * 100
-    ucp_margin_mean = -ucp_wins['margin'].mean() * 100  # flip to UCP-positive
+    ndp_margin_mean = ndp_wins["margin"].mean() * 100
+    ucp_margin_mean = -ucp_wins["margin"].mean() * 100  # flip to UCP-positive
 
     # urban split
-    urban_keywords = ('Calgary', 'Edmonton', 'Lethbridge', 'Red Deer')
-    df['is_urban'] = df['ed_name'].str.contains('|'.join(urban_keywords))
-    urban_ndp_wins = df[df['is_urban'] & df['ndp_win']]
-    rural_ucp_wins = df[(~df['is_urban']) & (~df['ndp_win'])]
+    urban_keywords = ("Calgary", "Edmonton", "Lethbridge", "Red Deer")
+    df["is_urban"] = df["ed_name"].str.contains("|".join(urban_keywords))
+    urban_ndp_wins = df[df["is_urban"] & df["ndp_win"]]
+    rural_ucp_wins = df[(~df["is_urban"]) & (~df["ndp_win"])]
 
-    urban_ndp_margin = urban_ndp_wins['margin'].mean() * 100
-    rural_ucp_margin = -rural_ucp_wins['margin'].mean() * 100
+    urban_ndp_margin = urban_ndp_wins["margin"].mean() * 100
+    rural_ucp_margin = -rural_ucp_wins["margin"].mean() * 100
 
     print(f"\n  All-Alberta winning margins (2023):")
     print(f"    NDP wins (n={len(ndp_wins)}): mean margin {ndp_margin_mean:.1f} pp")
@@ -575,52 +605,64 @@ def test3_margin_asymmetry() -> Dict:
     print(f"    Asymmetry: {abs(ndp_margin_mean - ucp_margin_mean):.1f} pp")
 
     print(f"\n  Urban-rural stratified:")
-    print(f"    NDP-won urban (n={len(urban_ndp_wins)}): mean margin {urban_ndp_margin:.1f} pp")
-    print(f"    UCP-won rural (n={len(rural_ucp_wins)}): mean margin {rural_ucp_margin:.1f} pp")
+    print(
+        f"    NDP-won urban (n={len(urban_ndp_wins)}): mean margin {urban_ndp_margin:.1f} pp"
+    )
+    print(
+        f"    UCP-won rural (n={len(rural_ucp_wins)}): mean margin {rural_ucp_margin:.1f} pp"
+    )
     print(f"    Urban NDP - Rural UCP: {urban_ndp_margin - rural_ucp_margin:+.1f} pp")
 
     # Wasted-vote decomposition: how many NDP votes are "excess" in
     # NDP-won seats (above 50%+1), vs how many in NDP-lost seats?
-    total_ndp = df['ndp_votes'].sum()
-    total_ucp = df['ucp_votes'].sum()
+    total_ndp = df["ndp_votes"].sum()
+    total_ucp = df["ucp_votes"].sum()
     ndp_excess = 0
     ndp_lost = 0
     for _, r in df.iterrows():
-        tt = r['ndp_votes'] + r['ucp_votes']
+        tt = r["ndp_votes"] + r["ucp_votes"]
         thr = tt // 2 + 1
-        if r['ndp_votes'] > r['ucp_votes']:
-            ndp_excess += max(0, r['ndp_votes'] - thr)
+        if r["ndp_votes"] > r["ucp_votes"]:
+            ndp_excess += max(0, r["ndp_votes"] - thr)
         else:
-            ndp_lost += r['ndp_votes']
+            ndp_lost += r["ndp_votes"]
     ucp_excess = 0
     ucp_lost = 0
     for _, r in df.iterrows():
-        tt = r['ndp_votes'] + r['ucp_votes']
+        tt = r["ndp_votes"] + r["ucp_votes"]
         thr = tt // 2 + 1
-        if r['ucp_votes'] > r['ndp_votes']:
-            ucp_excess += max(0, r['ucp_votes'] - thr)
+        if r["ucp_votes"] > r["ndp_votes"]:
+            ucp_excess += max(0, r["ucp_votes"] - thr)
         else:
-            ucp_lost += r['ucp_votes']
+            ucp_lost += r["ucp_votes"]
 
     print(f"\n  Wasted-vote decomposition:")
-    print(f"    NDP excess (surplus in won seats): {ndp_excess:,} "
-          f"({100*ndp_excess/total_ndp:.1f}% of all NDP)")
-    print(f"    NDP lost (in UCP-won seats):       {ndp_lost:,} "
-          f"({100*ndp_lost/total_ndp:.1f}%)")
-    print(f"    UCP excess (surplus in won seats): {ucp_excess:,} "
-          f"({100*ucp_excess/total_ucp:.1f}% of all UCP)")
-    print(f"    UCP lost (in NDP-won seats):       {ucp_lost:,} "
-          f"({100*ucp_lost/total_ucp:.1f}%)")
+    print(
+        f"    NDP excess (surplus in won seats): {ndp_excess:,} "
+        f"({100*ndp_excess/total_ndp:.1f}% of all NDP)"
+    )
+    print(
+        f"    NDP lost (in UCP-won seats):       {ndp_lost:,} "
+        f"({100*ndp_lost/total_ndp:.1f}%)"
+    )
+    print(
+        f"    UCP excess (surplus in won seats): {ucp_excess:,} "
+        f"({100*ucp_excess/total_ucp:.1f}% of all UCP)"
+    )
+    print(
+        f"    UCP lost (in NDP-won seats):       {ucp_lost:,} "
+        f"({100*ucp_lost/total_ucp:.1f}%)"
+    )
 
     return {
-        'ndp_margin_mean': ndp_margin_mean,
-        'ucp_margin_mean': ucp_margin_mean,
-        'urban_ndp_margin': urban_ndp_margin,
-        'rural_ucp_margin': rural_ucp_margin,
-        'ndp_excess_pct': 100 * ndp_excess / total_ndp,
-        'ndp_lost_pct': 100 * ndp_lost / total_ndp,
-        'ucp_excess_pct': 100 * ucp_excess / total_ucp,
-        'ucp_lost_pct': 100 * ucp_lost / total_ucp,
+        "ndp_margin_mean": ndp_margin_mean,
+        "ucp_margin_mean": ucp_margin_mean,
+        "urban_ndp_margin": urban_ndp_margin,
+        "rural_ucp_margin": rural_ucp_margin,
+        "ndp_excess_pct": 100 * ndp_excess / total_ndp,
+        "ndp_lost_pct": 100 * ndp_lost / total_ndp,
+        "ucp_excess_pct": 100 * ucp_excess / total_ucp,
+        "ucp_lost_pct": 100 * ucp_lost / total_ucp,
     }
 
 
@@ -628,8 +670,9 @@ def test3_margin_asymmetry() -> Dict:
 # Main
 # =====================================================================
 
+
 def main():
-    os.environ['PYTHONIOENCODING'] = 'utf-8'
+    os.environ["PYTHONIOENCODING"] = "utf-8"
     print("Alberta Chen-Rodden (2013) validation — v0.1")
     print("=" * 70)
 
@@ -640,52 +683,64 @@ def main():
     margins = test3_margin_asymmetry()
 
     # Test 2: Simulated ensemble (expensive)
-    n_plans = int(os.environ.get('CR_N_PLANS', 150))
+    n_plans = int(os.environ.get("CR_N_PLANS", 150))
     plans = test2_ensemble_ed_perturbation(n_plans=n_plans)
 
     # Save ensemble CSV
-    out_csv = os.path.join(ROOT, 'data', 'chen_rodden_simulation.csv')
-    with open(out_csv, 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['plan_idx', 'n', 'eg', 'mm',
-                                               'ndp_seats', 'pop_min', 'pop_max',
-                                               'attempts', 'accepted'])
+    out_csv = os.path.join(ROOT, "data", "chen_rodden_simulation.csv")
+    with open(out_csv, "w", newline="") as f:
+        writer = csv.DictWriter(
+            f,
+            fieldnames=[
+                "plan_idx",
+                "n",
+                "eg",
+                "mm",
+                "ndp_seats",
+                "pop_min",
+                "pop_max",
+                "attempts",
+                "accepted",
+            ],
+        )
         writer.writeheader()
         for p in plans:
             writer.writerow(p)
     print(f"\n  Ensemble saved to {out_csv}")
 
     # Summary for the markdown report
-    egs = np.array([p['eg'] for p in plans])
-    seats = np.array([p['ndp_seats'] for p in plans])
-    mms = np.array([p['mm'] for p in plans])
+    egs = np.array([p["eg"] for p in plans])
+    seats = np.array([p["ndp_seats"] for p in plans])
+    mms = np.array([p["mm"] for p in plans])
 
     summary = {
-        'morans_i': morans,
-        'ensemble': {
-            'n_plans': len(plans),
-            'eg_mean': float(egs.mean()),
-            'eg_median': float(np.median(egs)),
-            'eg_std': float(egs.std()),
-            'eg_p05': float(np.percentile(egs, 5)),
-            'eg_p95': float(np.percentile(egs, 95)),
-            'seats_mean': float(seats.mean()),
-            'seats_median': float(np.median(seats)),
-            'seats_min': int(seats.min()),
-            'seats_max': int(seats.max()),
-            'mm_mean': float(mms.mean()),
-            'mm_median': float(np.median(mms)),
+        "morans_i": morans,
+        "ensemble": {
+            "n_plans": len(plans),
+            "eg_mean": float(egs.mean()),
+            "eg_median": float(np.median(egs)),
+            "eg_std": float(egs.std()),
+            "eg_p05": float(np.percentile(egs, 5)),
+            "eg_p95": float(np.percentile(egs, 95)),
+            "seats_mean": float(seats.mean()),
+            "seats_median": float(np.median(seats)),
+            "seats_min": int(seats.min()),
+            "seats_max": int(seats.max()),
+            "mm_mean": float(mms.mean()),
+            "mm_median": float(np.median(mms)),
         },
-        'margins': margins,
-        'baseline_2019_eg': -0.0264,
+        "margins": margins,
+        "baseline_2019_eg": -0.0264,
     }
 
     # dump a json-like summary for the MD writer
     import json
-    summary_path = os.path.join(ROOT, 'data', 'chen_rodden_summary.json')
-    with open(summary_path, 'w') as f:
+
+    summary_path = os.path.join(ROOT, "data", "chen_rodden_summary.json")
+    with open(summary_path, "w") as f:
         json.dump(summary, f, indent=2, default=str)
     print(f"  Summary saved to {summary_path}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

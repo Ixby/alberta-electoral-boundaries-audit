@@ -22,6 +22,7 @@ Output: data/python_recom_polsby_popper.csv with one row per plan.
 This pairs with the R `redist` SMC compactness output for the
 falsification tests proposed by the PO ("the mechanism is the geometry").
 """
+
 from __future__ import annotations
 
 import math
@@ -35,6 +36,7 @@ import geopandas as gpd
 from shapely.geometry import LineString
 from shapely.ops import unary_union
 import warnings
+
 warnings.simplefilter("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -112,8 +114,10 @@ def main() -> int:
     # node ids; for the canonical Alberta gpkg this matches the row
     # order. Verify by length match.
     if assignments.shape[1] != n_va:
-        raise RuntimeError(f"VA count mismatch: assignments has "
-                           f"{assignments.shape[1]} columns, VA frame has {n_va}")
+        raise RuntimeError(
+            f"VA count mismatch: assignments has "
+            f"{assignments.shape[1]} columns, VA frame has {n_va}"
+        )
 
     # Per-plan computation
     # district area = sum(va_area where assignment == d)
@@ -130,8 +134,9 @@ def main() -> int:
             elapsed = time.time() - t0
             rate = (p_idx + 1) / elapsed if elapsed > 0 else 0
             eta = (N_PLANS - p_idx - 1) / rate if rate > 0 else 0
-            print(f"  plan {p_idx}/{N_PLANS} ({rate:.0f}/s, eta {eta:.0f}s)",
-                  flush=True)
+            print(
+                f"  plan {p_idx}/{N_PLANS} ({rate:.0f}/s, eta {eta:.0f}s)", flush=True
+            )
         a = assignments[p_idx].astype(np.int32)
         # Per-district area + external-perim sums via bincount
         # (length = max(a)+1)
@@ -167,14 +172,18 @@ def main() -> int:
     # Cross-reference with the saved metrics CSV so we have
     # (plan_idx, seats@50/50, polsby_popper) per row.
     metrics = pd.read_csv(METRICS_CSV)
-    out = pd.DataFrame({
-        "step": np.arange(N_PLANS),
-        "seats_at_50_50": metrics["seats_at_50_50"].values[:N_PLANS]
-                          if "seats_at_50_50" in metrics.columns
-                          else np.full(N_PLANS, np.nan),
-        "polsby_popper_mean": pp_per_plan,
-        "polsby_popper_min": pp_min_per_plan,
-    })
+    out = pd.DataFrame(
+        {
+            "step": np.arange(N_PLANS),
+            "seats_at_50_50": (
+                metrics["seats_at_50_50"].values[:N_PLANS]
+                if "seats_at_50_50" in metrics.columns
+                else np.full(N_PLANS, np.nan)
+            ),
+            "polsby_popper_mean": pp_per_plan,
+            "polsby_popper_min": pp_min_per_plan,
+        }
+    )
     out.to_csv(OUT_CSV, index=False)
     print(f"[pp] wrote {OUT_CSV.relative_to(ROOT)}")
 
@@ -192,8 +201,12 @@ def main() -> int:
         print("Falsification Test #2 (Python ReCom side):")
         print(f"  N plans with s50 >= 0.4831: {high.sum()} of {N_PLANS}")
         if high.sum() > 0:
-            print(f"  Mean PP among high-s50 plans: {np.nanmean(pp_per_plan[high]):.4f}")
-            print(f"  Mean PP among other plans:    {np.nanmean(pp_per_plan[~high]):.4f}")
+            print(
+                f"  Mean PP among high-s50 plans: {np.nanmean(pp_per_plan[high]):.4f}"
+            )
+            print(
+                f"  Mean PP among other plans:    {np.nanmean(pp_per_plan[~high]):.4f}"
+            )
     return 0
 
 

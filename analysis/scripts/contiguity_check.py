@@ -37,6 +37,7 @@ Backward deps:
   - data/shapefiles/derived/v0_3_canonical_minority_2026_eds_swept.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -56,6 +57,7 @@ from shapely.geometry import MultiPolygon, Polygon
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
+
 def _pick(plan: str) -> Path:
     base = ROOT / "data" / "shapefiles" / "derived"
     for fname in (
@@ -73,7 +75,11 @@ def _pick(plan: str) -> Path:
 
 MAPS = {
     "2019_enacted": (
-        ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
+        ROOT
+        / "data"
+        / "shapefiles"
+        / "reference"
+        / "alberta_2019_eds"
         / "EDS_ENACTED_BILL33_15DEC2017.shp"
     ),
     "majority_2026": _pick("majority"),
@@ -96,13 +102,27 @@ CONTIGUITY_THRESHOLD = 0.95
 # Helpers
 # ---------------------------------------------------------------------------
 
+
 def _detect_name_column(gdf: gpd.GeoDataFrame) -> str:
     """Return the column most likely to hold ED names."""
     candidates = [
-        "name_2026", "ed_name", "ED_NAME", "EDName2017", "EDName2010",
-        "name", "NAME", "EDS_NAME", "eds_name",
-        "ENAME", "ename", "DISTRICT_N", "district_n", "DIV_NAME", "div_name",
-        "RIDING_NAM", "riding_nam",
+        "name_2026",
+        "ed_name",
+        "ED_NAME",
+        "EDName2017",
+        "EDName2010",
+        "name",
+        "NAME",
+        "EDS_NAME",
+        "eds_name",
+        "ENAME",
+        "ename",
+        "DISTRICT_N",
+        "district_n",
+        "DIV_NAME",
+        "div_name",
+        "RIDING_NAM",
+        "riding_nam",
     ]
     for c in candidates:
         if c in gdf.columns:
@@ -151,6 +171,7 @@ def _contiguity_stats(geom) -> Tuple[str, int, float, bool]:
 # Per-map computation
 # ---------------------------------------------------------------------------
 
+
 def check_contiguity(map_label: str, path: Path) -> List[Dict]:
     """Load a map and compute contiguity stats for each ED."""
     if not path.exists():
@@ -172,14 +193,16 @@ def check_contiguity(map_label: str, path: Path) -> List[Dict]:
     for _, row in gdf.iterrows():
         geom = row.geometry
         geom_type, num_parts, largest_pct, is_contiguous = _contiguity_stats(geom)
-        rows.append({
-            "map": map_label,
-            "name": str(row[name_col]),
-            "geom_type": geom_type,
-            "num_parts": num_parts,
-            "largest_part_area_pct": round(largest_pct, 4),
-            "contiguous": is_contiguous,
-        })
+        rows.append(
+            {
+                "map": map_label,
+                "name": str(row[name_col]),
+                "geom_type": geom_type,
+                "num_parts": num_parts,
+                "largest_part_area_pct": round(largest_pct, 4),
+                "contiguous": is_contiguous,
+            }
+        )
 
     return rows
 
@@ -187,6 +210,7 @@ def check_contiguity(map_label: str, path: Path) -> List[Dict]:
 # ---------------------------------------------------------------------------
 # Summary statistics
 # ---------------------------------------------------------------------------
+
 
 def summarise(map_label: str, rows: List[Dict]) -> Dict:
     """Compute per-map contiguity summary."""
@@ -206,11 +230,16 @@ def summarise(map_label: str, rows: List[Dict]) -> Dict:
 # Output
 # ---------------------------------------------------------------------------
 
+
 def write_csv(all_rows: List[Dict]) -> None:
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = [
-        "map", "name", "geom_type", "num_parts",
-        "largest_part_area_pct", "contiguous",
+        "map",
+        "name",
+        "geom_type",
+        "num_parts",
+        "largest_part_area_pct",
+        "contiguous",
     ]
     with open(OUT_CSV, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
@@ -258,6 +287,7 @@ def print_findings(summaries: List[Dict]) -> None:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main() -> None:
     all_rows: List[Dict] = []

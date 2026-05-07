@@ -30,6 +30,7 @@ Outputs:
   - analysis/v0_1_mcmc_full_coverage_rescore.md — report summarizing
     shift in findings under full coverage
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -45,8 +46,16 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 ANALYSIS = ROOT / "analysis"
 
-EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_APPROX_GPKG = DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
+EDS_2019_SHP = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
+MAJ_APPROX_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_1_approximate_majority_2026_eds.gpkg"
+)
 MIN_V6_GPKG = DATA / "shapefiles" / "derived" / "v0_1_refined_v6_minority_2026_eds.gpkg"
 MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
 MIN_POPS_CSV = DATA / "minority_2026_populations.csv"
@@ -61,6 +70,7 @@ OUT_PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_full.csv"
 
 # --- Metric implementations (match v0_1_mcmc_ensemble.py conventions) ---
 
+
 def efficiency_gap(per_district: pd.DataFrame) -> float:
     """Positive = UCP-favoured."""
     total = per_district["ucp"] + per_district["ndp"]
@@ -68,12 +78,12 @@ def efficiency_gap(per_district: pd.DataFrame) -> float:
     ucp_wins = (ucp_share > 0.5 + 1e-9).sum()
     ucp_ties = (np.abs(ucp_share - 0.5) <= 1e-9).sum()
     ucp_wins = int(ucp_wins + ucp_ties * 0.5)
-    ucp_wasted = np.where(ucp_wins,
-                          per_district["ucp"] - (total / 2),
-                          per_district["ucp"])
-    ndp_wasted = np.where(~ucp_wins,
-                          per_district["ndp"] - (total / 2),
-                          per_district["ndp"])
+    ucp_wasted = np.where(
+        ucp_wins, per_district["ucp"] - (total / 2), per_district["ucp"]
+    )
+    ndp_wasted = np.where(
+        ~ucp_wins, per_district["ndp"] - (total / 2), per_district["ndp"]
+    )
     return float((ndp_wasted.sum() - ucp_wasted.sum()) / total.sum())
 
 
@@ -115,15 +125,20 @@ def seats_at_50_50(per_district: pd.DataFrame) -> float:
 
 # --- Map-specific assignment ---
 
+
 def crosswalk_dict(xwalk_csv: Path, curr_col: str, prop_col: str) -> dict[str, str]:
     df = pd.read_csv(xwalk_csv)
-    return dict(zip(df[curr_col].astype(str).str.strip(),
-                    df[prop_col].astype(str).str.strip()))
+    return dict(
+        zip(df[curr_col].astype(str).str.strip(), df[prop_col].astype(str).str.strip())
+    )
 
 
-def assign_vas_to_2026_ed(vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame | None,
-                          name_col: str,
-                          xwalk: dict[str, str]) -> gpd.GeoDataFrame:
+def assign_vas_to_2026_ed(
+    vas: gpd.GeoDataFrame,
+    polys: gpd.GeoDataFrame | None,
+    name_col: str,
+    xwalk: dict[str, str],
+) -> gpd.GeoDataFrame:
     """Assign each VA to a 2026 ED name.
 
     Primary: centroid-in-polygon over available polys.
@@ -141,8 +156,9 @@ def assign_vas_to_2026_ed(vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame | None,
         # Use representative points to avoid edge artefacts
         centroids = vas.copy()
         centroids["geometry"] = vas.geometry.representative_point()
-        joined = gpd.sjoin(centroids, polys[[name_col, "geometry"]],
-                           how="left", predicate="within")
+        joined = gpd.sjoin(
+            centroids, polys[[name_col, "geometry"]], how="left", predicate="within"
+        )
         # sjoin may produce duplicates when a centroid lies on shared
         # boundary; keep the first match.
         joined = joined[~joined.index.duplicated(keep="first")]
@@ -154,6 +170,7 @@ def assign_vas_to_2026_ed(vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame | None,
     def fallback(row):
         p = row["_parent2019"]
         return xwalk.get(p, p)
+
     vas["_assigned_xwalk"] = vas.apply(fallback, axis=1)
     # Final assignment: polygon if present, else crosswalk
     vas["ed_2026"] = vas["_assigned_poly"].fillna(vas["_assigned_xwalk"])
@@ -162,10 +179,14 @@ def assign_vas_to_2026_ed(vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame | None,
 
 def score_map_full(vas_assigned: gpd.GeoDataFrame, expected_eds: set[str]) -> dict:
     """Aggregate votes per 2026 ED; compute metrics on full coverage."""
-    agg = vas_assigned.groupby("ed_2026").agg(
-        ucp=("va_ucp", "sum"),
-        ndp=("va_ndp", "sum"),
-    ).reset_index()
+    agg = (
+        vas_assigned.groupby("ed_2026")
+        .agg(
+            ucp=("va_ucp", "sum"),
+            ndp=("va_ndp", "sum"),
+        )
+        .reset_index()
+    )
     agg = agg[(agg["ucp"] + agg["ndp"]) > 0].reset_index(drop=True)
 
     n_via_poly = int(vas_assigned["_assigned_poly"].notna().sum())
@@ -179,15 +200,24 @@ def score_map_full(vas_assigned: gpd.GeoDataFrame, expected_eds: set[str]) -> di
         "mean_median": mean_median(agg),
         "declination": declination(agg),
         "seats_at_50_50": seats_at_50_50(agg),
-        "ucp_seats": int(((agg["ucp"] / (agg["ucp"] + agg["ndp"])) > 0.5 + 1e-9).sum() + ((agg["ucp"] / (agg["ucp"] + agg["ndp"])) == 0.5).sum() * 0.5),
+        "ucp_seats": int(
+            ((agg["ucp"] / (agg["ucp"] + agg["ndp"])) > 0.5 + 1e-9).sum()
+            + ((agg["ucp"] / (agg["ucp"] + agg["ndp"])) == 0.5).sum() * 0.5
+        ),
         "n_districts_scored": int(len(agg)),
         "n_expected": int(len(expected_eds)),
         "n_via_polygon": n_via_poly,
         "n_via_crosswalk": n_via_xwalk,
-        "coverage_vas": float(n_via_poly / (n_via_poly + n_via_xwalk)) if (n_via_poly + n_via_xwalk) else 0.0,
+        "coverage_vas": (
+            float(n_via_poly / (n_via_poly + n_via_xwalk))
+            if (n_via_poly + n_via_xwalk)
+            else 0.0
+        ),
         "eds_missing": sorted(eds_missing)[:20],
         "eds_extra": sorted(eds_extra)[:20],
-        "ucp_vote_share": float(agg["ucp"].sum() / (agg["ucp"].sum() + agg["ndp"].sum())),
+        "ucp_vote_share": float(
+            agg["ucp"].sum() / (agg["ucp"].sum() + agg["ndp"].sum())
+        ),
     }
 
 
@@ -202,15 +232,17 @@ def compute_percentiles(ensemble_csv: Path, real_scores: dict) -> pd.DataFrame:
         for mp_label, mp in real_scores.items():
             v = mp[metric]
             pct = float(100.0 * (ens_vals < v).sum() / len(ens_vals))
-            rows.append({
-                "metric": metric,
-                "map": mp_label,
-                "value": v,
-                "percentile": pct,
-                "ensemble_p5": p5,
-                "ensemble_p50": p50,
-                "ensemble_p95": p95,
-            })
+            rows.append(
+                {
+                    "metric": metric,
+                    "map": mp_label,
+                    "value": v,
+                    "percentile": pct,
+                    "ensemble_p5": p5,
+                    "ensemble_p50": p50,
+                    "ensemble_p95": p95,
+                }
+            )
     return pd.DataFrame(rows)
 
 
@@ -237,7 +269,11 @@ def main():
 
     # 2019 enacted (baseline, via polygons only; no crosswalk needed)
     print("\n--- 2019 enacted ---")
-    e2019 = gpd.read_file(EDS_2019_SHP).to_crs(vas.crs).rename(columns={"EDName2017": "name_2026"})
+    e2019 = (
+        gpd.read_file(EDS_2019_SHP)
+        .to_crs(vas.crs)
+        .rename(columns={"EDName2017": "name_2026"})
+    )
     empty_xwalk: dict[str, str] = {}
     e_assigned = assign_vas_to_2026_ed(vas, e2019, "name_2026", empty_xwalk)
     e2019_expected = set(e2019["name_2026"].astype(str).str.strip())
@@ -250,17 +286,25 @@ def main():
     }
     for lbl, s in real.items():
         print(f"\n{lbl}:")
-        print(f"  EG={s['efficiency_gap']:+.4f}  MM={s['mean_median']:+.4f}  "
-              f"DECL={s['declination']:+.4f}  S@50/50={s['seats_at_50_50']:+.4f}")
-        print(f"  UCP seats {s['ucp_seats']} / {s['n_districts_scored']} scored "
-              f"(expected {s['n_expected']})")
-        print(f"  VA assignment: {s['n_via_polygon']} via polygon, "
-              f"{s['n_via_crosswalk']} via crosswalk  "
-              f"(polygon coverage {s['coverage_vas']*100:.1f}%)")
+        print(
+            f"  EG={s['efficiency_gap']:+.4f}  MM={s['mean_median']:+.4f}  "
+            f"DECL={s['declination']:+.4f}  S@50/50={s['seats_at_50_50']:+.4f}"
+        )
+        print(
+            f"  UCP seats {s['ucp_seats']} / {s['n_districts_scored']} scored "
+            f"(expected {s['n_expected']})"
+        )
+        print(
+            f"  VA assignment: {s['n_via_polygon']} via polygon, "
+            f"{s['n_via_crosswalk']} via crosswalk  "
+            f"(polygon coverage {s['coverage_vas']*100:.1f}%)"
+        )
         if s["eds_missing"]:
             print(f"  MISSING EDs ({len(s['eds_missing'])}): {s['eds_missing'][:5]}")
         if s["eds_extra"]:
-            print(f"  EXTRA EDs (not in expected list) ({len(s['eds_extra'])}): {s['eds_extra'][:5]}")
+            print(
+                f"  EXTRA EDs (not in expected list) ({len(s['eds_extra'])}): {s['eds_extra'][:5]}"
+            )
 
     # Percentiles
     print("\n--- Percentiles vs. 10,000-plan ensemble ---")

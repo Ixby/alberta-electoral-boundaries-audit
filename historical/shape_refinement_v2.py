@@ -20,6 +20,7 @@ Run: PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_shape_refinement_v2.py
 
 Author: Track Y-prime sub-agent.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -49,7 +50,7 @@ DATA_DIR = ROOT / "data"
 ANALYSIS_DIR = ROOT / "analysis"
 
 WORK_CRS = "EPSG:3401"  # 3TM 115 (Calgary/Edmonton corridor, metres)
-VA_CRS = "EPSG:3400"    # VA data native CRS
+VA_CRS = "EPSG:3400"  # VA data native CRS
 
 # Phase 1 transcription: maps each Tier B ED to the feature classes relevant
 # per segment. Keys are the minority shapefile name_2026 values.
@@ -57,18 +58,24 @@ BOUNDARY_FEATURES = {
     "Calgary-De Winton": {
         "priority": "low",
         "segments": [
-            {"class": "road",  "description": "North edge, Calgary city limit (Stoney Trail / Anderson)"},
-            {"class": "admin", "description": "South / East / West edges, township grid"},
+            {
+                "class": "road",
+                "description": "North edge, Calgary city limit (Stoney Trail / Anderson)",
+            },
+            {
+                "class": "admin",
+                "description": "South / East / West edges, township grid",
+            },
         ],
         "has_water": False,
     },
     "Calgary-South": {
         "priority": "high",
         "segments": [
-            {"class": "road",  "description": "North edge, Glenmore Trail"},
+            {"class": "road", "description": "North edge, Glenmore Trail"},
             {"class": "river", "description": "East edge (exurban limb), Bow River"},
-            {"class": "road",  "description": "South edge, Highway 22X"},
-            {"class": "road",  "description": "West edge, Deerfoot/Macleod Trail"},
+            {"class": "road", "description": "South edge, Highway 22X"},
+            {"class": "road", "description": "West edge, Deerfoot/Macleod Trail"},
         ],
         "has_water": True,
         "river_name": "Bow River",
@@ -76,10 +83,13 @@ BOUNDARY_FEATURES = {
     "Edmonton-Windermere": {
         "priority": "high",
         "segments": [
-            {"class": "road",  "description": "North edge, Whitemud Drive"},
-            {"class": "river", "description": "East edge, North Saskatchewan River (full length)"},
+            {"class": "road", "description": "North edge, Whitemud Drive"},
+            {
+                "class": "river",
+                "description": "East edge, North Saskatchewan River (full length)",
+            },
             {"class": "admin", "description": "South edge, Edmonton city boundary"},
-            {"class": "road",  "description": "West edge, Anthony Henday Drive"},
+            {"class": "road", "description": "West edge, Anthony Henday Drive"},
         ],
         "has_water": True,
         "river_name": "North Saskatchewan River",
@@ -88,7 +98,10 @@ BOUNDARY_FEATURES = {
         "priority": "high",
         "segments": [
             {"class": "river", "description": "North edge, Oldman River"},
-            {"class": "admin", "description": "East / West / South edges, township grid"},
+            {
+                "class": "admin",
+                "description": "East / West / South edges, township grid",
+            },
         ],
         "has_water": True,
         "river_name": "Oldman River",
@@ -96,8 +109,11 @@ BOUNDARY_FEATURES = {
     "Wetaskawin-Ponoka-Maskwacis": {
         "priority": "low",
         "segments": [
-            {"class": "admin", "description": "North / East / West edges, township grid"},
-            {"class": "road",  "description": "Hwy 53 near Ponoka"},
+            {
+                "class": "admin",
+                "description": "North / East / West edges, township grid",
+            },
+            {"class": "road", "description": "Hwy 53 near Ponoka"},
             {"class": "river", "description": "Short Battle River segment"},
         ],
         "has_water": True,
@@ -110,12 +126,14 @@ BOUNDARY_FEATURES = {
 # Phase 2: Feature-class-aware OSM fetch + piecewise snap
 # ----------------------------------------------------------------------
 
+
 def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
     """Fetch OSM features for a given tag dict within bbox.
 
     Returns a GeoDataFrame (can be empty).
     """
     import osmnx as ox
+
     ox.settings.log_console = False
     ox.settings.use_cache = True
     ox.settings.requests_timeout = timeout
@@ -129,7 +147,7 @@ def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
         except Exception as e:  # noqa: BLE001
             last = e
             if i < retries - 1:
-                time.sleep(2 ** i)
+                time.sleep(2**i)
     raise RuntimeError(f"OSM features fetch failed (tags={tags}): {last}")
 
 
@@ -140,7 +158,10 @@ def _fetch_all_classes(bbox_wgs84):
     """
     out = {"road": None, "river": None, "rail": None, "admin": None}
     fetches = [
-        ("road", {"highway": ["motorway", "trunk", "primary", "secondary", "tertiary"]}),
+        (
+            "road",
+            {"highway": ["motorway", "trunk", "primary", "secondary", "tertiary"]},
+        ),
         ("river", {"waterway": ["river", "stream"], "natural": ["water"]}),
         ("rail", {"railway": ["rail", "light_rail"]}),
         ("admin", {"boundary": "administrative"}),
@@ -163,7 +184,9 @@ def _fetch_all_classes(bbox_wgs84):
                     out[cls] = gpd.GeoDataFrame(geometry=geoms, crs="EPSG:4326")
                     print(f"[fetch] {cls}: {len(out[cls])} features", flush=True)
                 else:
-                    print(f"[fetch] {cls}: empty after line/boundary filter", flush=True)
+                    print(
+                        f"[fetch] {cls}: empty after line/boundary filter", flush=True
+                    )
             else:
                 print(f"[fetch] {cls}: 0 features", flush=True)
         except Exception as e:  # noqa: BLE001
@@ -188,7 +211,9 @@ def _snap_point_to_nearest(p, feature_union, buffer_m):
         return (p.x, p.y), 0.0
 
 
-def _choose_feature_union_for_sample(sample_pt, features_proj, priority_classes, buffer_m):
+def _choose_feature_union_for_sample(
+    sample_pt, features_proj, priority_classes, buffer_m
+):
     """For a single sample point, return the unary_union of whichever feature
     class is closest among priority_classes and within buffer_m.
 
@@ -217,8 +242,9 @@ def _choose_feature_union_for_sample(sample_pt, features_proj, priority_classes,
     return best_union, best_class, best_dist
 
 
-def _snap_polygon_feature_aware(poly, features_proj: dict, priority_classes,
-                                 buffer_m=500.0, spacing_m=200.0):
+def _snap_polygon_feature_aware(
+    poly, features_proj: dict, priority_classes, buffer_m=500.0, spacing_m=200.0
+):
     """Snap polygon ring samples to the nearest feature among priority_classes.
 
     features_proj: dict of {class: GeoDataFrame in WORK_CRS or None}
@@ -322,7 +348,9 @@ def _snap_polygon_feature_aware(poly, features_proj: dict, priority_classes,
             try:
                 new_poly = unary_union(parts)
                 if new_poly.geom_type not in ("Polygon", "MultiPolygon"):
-                    new_poly = MultiPolygon([p for p in parts if p.geom_type == "Polygon"])
+                    new_poly = MultiPolygon(
+                        [p for p in parts if p.geom_type == "Polygon"]
+                    )
             except Exception:  # noqa: BLE001
                 new_poly = MultiPolygon(parts) if len(parts) > 1 else parts[0]
         else:
@@ -330,7 +358,11 @@ def _snap_polygon_feature_aware(poly, features_proj: dict, priority_classes,
     else:
         return poly, 0.0, 0.0, class_hits
 
-    mean_shift = float(np.mean([s for s in all_shifts if s > 0])) if any(s > 0 for s in all_shifts) else 0.0
+    mean_shift = (
+        float(np.mean([s for s in all_shifts if s > 0]))
+        if any(s > 0 for s in all_shifts)
+        else 0.0
+    )
     max_shift = float(np.max(all_shifts)) if all_shifts else 0.0
 
     # Pathological-snap guard
@@ -367,7 +399,9 @@ def phase2b_resnap_tier_b():
     v1_maj_out["v2_mean_shift_m"] = 0.0
     v1_maj_out["v2_max_shift_m"] = 0.0
     v1_maj_out["v2_class_hits"] = "{}"
-    v1_maj_out.to_file(DATA_DIR / "v0_1_refined_v2_majority_2026_eds.gpkg", driver="GPKG")
+    v1_maj_out.to_file(
+        DATA_DIR / "v0_1_refined_v2_majority_2026_eds.gpkg", driver="GPKG"
+    )
 
     # Minority: re-snap the five Tier B rows
     v2_min = v1_min.copy()
@@ -398,7 +432,10 @@ def phase2b_resnap_tier_b():
         pad = 0.05
         bbox = (minx - pad, miny - pad, maxx + pad, maxy + pad)
 
-        print(f"\n[phase2b] === {target_name} (priority={spec['priority']}) ===", flush=True)
+        print(
+            f"\n[phase2b] === {target_name} (priority={spec['priority']}) ===",
+            flush=True,
+        )
         print(f"[phase2b] bbox={bbox}", flush=True)
         features = _fetch_all_classes(bbox)
         # Reproject to WORK_CRS
@@ -419,21 +456,40 @@ def phase2b_resnap_tier_b():
         else:
             priority_order = ["admin", "road", "river", "rail"]
         # Filter to classes we actually fetched
-        priority_classes = [c for c in priority_order if c in features_proj and features_proj[c] is not None]
-        print(f"[phase2b] priority classes (filtered to available): {priority_classes}", flush=True)
+        priority_classes = [
+            c
+            for c in priority_order
+            if c in features_proj and features_proj[c] is not None
+        ]
+        print(
+            f"[phase2b] priority classes (filtered to available): {priority_classes}",
+            flush=True,
+        )
 
         if not priority_classes:
-            print(f"[phase2b] {target_name} no features available — keeping v1", flush=True)
+            print(
+                f"[phase2b] {target_name} no features available — keeping v1",
+                flush=True,
+            )
             results[target_name] = {"status": "no_features"}
             continue
 
         new_poly, mean_s, max_s, class_hits = _snap_polygon_feature_aware(
-            poly_proj, features_proj, priority_classes, buffer_m=500.0, spacing_m=200.0,
+            poly_proj,
+            features_proj,
+            priority_classes,
+            buffer_m=500.0,
+            spacing_m=200.0,
         )
 
-        print(f"[phase2b] {target_name} mean={mean_s:.1f}m max={max_s:.1f}m hits={class_hits}", flush=True)
+        print(
+            f"[phase2b] {target_name} mean={mean_s:.1f}m max={max_s:.1f}m hits={class_hits}",
+            flush=True,
+        )
         v2_min.at[idx, "geometry"] = new_poly
-        v2_min.at[idx, "refined_note_v2"] = f"v2_snapped:mean={mean_s:.1f}m,max={max_s:.1f}m"
+        v2_min.at[idx, "refined_note_v2"] = (
+            f"v2_snapped:mean={mean_s:.1f}m,max={max_s:.1f}m"
+        )
         v2_min.at[idx, "v2_mean_shift_m"] = mean_s
         v2_min.at[idx, "v2_max_shift_m"] = max_s
         v2_min.at[idx, "v2_class_hits"] = json.dumps(class_hits)
@@ -456,12 +512,17 @@ def phase2b_resnap_tier_b():
 # Phase 3: Voter-assignment impact assessment
 # ----------------------------------------------------------------------
 
+
 def phase3b_impact_assessment():
     """For each re-snapped boundary, identify boundary-sensitive VAs and sum
     2023 votes within them.
     """
-    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(WORK_CRS)
+    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
     vas = gpd.read_file(DATA_DIR / "va_polygons_with_2023_votes.gpkg").to_crs(WORK_CRS)
 
     # Total votes per VA = NDP + UCP + other
@@ -471,6 +532,7 @@ def phase3b_impact_assessment():
             + (row.get("va_ucp") or 0)
             + (row.get("va_other") or 0)
         )
+
     vas["total_votes"] = vas.apply(_va_votes, axis=1)
 
     rows = []
@@ -478,15 +540,19 @@ def phase3b_impact_assessment():
         v1_match = v1_min[v1_min["name_2026"] == target_name]
         v2_match = v2_min[v2_min["name_2026"] == target_name]
         if len(v1_match) == 0 or len(v2_match) == 0:
-            rows.append({
-                "ed_name": target_name,
-                "boundary_description": "; ".join(s["description"] for s in spec["segments"]),
-                "v1_vs_v2_shift_m": None,
-                "boundary_sensitive_vas": 0,
-                "boundary_sensitive_votes": 0,
-                "classification": "not_found",
-                "orange_accept": False,
-            })
+            rows.append(
+                {
+                    "ed_name": target_name,
+                    "boundary_description": "; ".join(
+                        s["description"] for s in spec["segments"]
+                    ),
+                    "v1_vs_v2_shift_m": None,
+                    "boundary_sensitive_vas": 0,
+                    "boundary_sensitive_votes": 0,
+                    "classification": "not_found",
+                    "orange_accept": False,
+                }
+            )
             continue
 
         v1_poly = v1_match.iloc[0].geometry
@@ -500,15 +566,19 @@ def phase3b_impact_assessment():
         except Exception:
             xor = None
         if xor is None or xor.is_empty:
-            rows.append({
-                "ed_name": target_name,
-                "boundary_description": "; ".join(s["description"] for s in spec["segments"]),
-                "v1_vs_v2_shift_m": 0.0,
-                "boundary_sensitive_vas": 0,
-                "boundary_sensitive_votes": 0,
-                "classification": "refinement-negligible",
-                "orange_accept": True,
-            })
+            rows.append(
+                {
+                    "ed_name": target_name,
+                    "boundary_description": "; ".join(
+                        s["description"] for s in spec["segments"]
+                    ),
+                    "v1_vs_v2_shift_m": 0.0,
+                    "boundary_sensitive_vas": 0,
+                    "boundary_sensitive_votes": 0,
+                    "classification": "refinement-negligible",
+                    "orange_accept": True,
+                }
+            )
             continue
 
         # Use centroid-in-xor as the flip test (cheap; near-boundary VAs may
@@ -516,11 +586,17 @@ def phase3b_impact_assessment():
         # include VAs that intersect xor with significant overlap.
         va_centroids = vas.copy()
         va_centroids["centroid"] = va_centroids.geometry.centroid
-        sensitive_mask = va_centroids["centroid"].map(lambda p: xor.contains(p) if xor and not xor.is_empty else False)
+        sensitive_mask = va_centroids["centroid"].map(
+            lambda p: xor.contains(p) if xor and not xor.is_empty else False
+        )
         sensitive_vas = vas[sensitive_mask].copy()
 
         # For each sensitive VA, attach its vote total
-        sensitive_vas["total_votes"] = vas.loc[sensitive_mask, "total_votes"].values if "total_votes" in vas.columns else 0
+        sensitive_vas["total_votes"] = (
+            vas.loc[sensitive_mask, "total_votes"].values
+            if "total_votes" in vas.columns
+            else 0
+        )
 
         n_vas = len(sensitive_vas)
         total_votes = float(sensitive_vas["total_votes"].sum()) if n_vas > 0 else 0.0
@@ -541,16 +617,23 @@ def phase3b_impact_assessment():
         except Exception:
             shift_m = 0.0
 
-        rows.append({
-            "ed_name": target_name,
-            "boundary_description": "; ".join(s["description"] for s in spec["segments"]),
-            "v1_vs_v2_shift_m": shift_m,
-            "boundary_sensitive_vas": n_vas,
-            "boundary_sensitive_votes": total_votes,
-            "classification": classification,
-            "orange_accept": orange_accept,
-        })
-        print(f"[phase3b] {target_name}: {n_vas} sensitive VAs, {total_votes:.0f} votes -> {classification}", flush=True)
+        rows.append(
+            {
+                "ed_name": target_name,
+                "boundary_description": "; ".join(
+                    s["description"] for s in spec["segments"]
+                ),
+                "v1_vs_v2_shift_m": shift_m,
+                "boundary_sensitive_vas": n_vas,
+                "boundary_sensitive_votes": total_votes,
+                "classification": classification,
+                "orange_accept": orange_accept,
+            }
+        )
+        print(
+            f"[phase3b] {target_name}: {n_vas} sensitive VAs, {total_votes:.0f} votes -> {classification}",
+            flush=True,
+        )
 
     df = pd.DataFrame(rows)
     out = DATA_DIR / "boundary_refinement_impact.csv"
@@ -562,6 +645,7 @@ def phase3b_impact_assessment():
 # ----------------------------------------------------------------------
 # Phase 4: Iterative refinement (up to 3 passes)
 # ----------------------------------------------------------------------
+
 
 def phase4b_iterate(impact_df, max_passes=3):
     """For boundaries classified refinement-significant, attempt pass 2 and
@@ -584,7 +668,9 @@ def phase4b_iterate(impact_df, max_passes=3):
         return []
 
     log = []
-    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(WORK_CRS)
+    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
     approx_min = gpd.read_file(DATA_DIR / "v0_1_approximate_minority_2026_eds.gpkg")
     approx_min_wgs = approx_min.to_crs(4326)
     approx_min_proj = approx_min.to_crs(WORK_CRS)
@@ -611,44 +697,74 @@ def phase4b_iterate(impact_df, max_passes=3):
                 features_proj[cls] = None
 
         # Pass 2: tighter buffer
-        priority_classes = ["river", "admin", "road", "rail"] if spec.get("priority") == "high" else ["admin", "road", "river", "rail"]
-        priority_classes = [c for c in priority_classes if features_proj.get(c) is not None]
-        pass2_poly, pass2_mean, pass2_max, pass2_hits = _snap_polygon_feature_aware(
-            poly_proj, features_proj, priority_classes, buffer_m=300.0, spacing_m=150.0,
+        priority_classes = (
+            ["river", "admin", "road", "rail"]
+            if spec.get("priority") == "high"
+            else ["admin", "road", "river", "rail"]
         )
-        log.append({
-            "ed": ed, "pass": 2, "buffer_m": 300, "spacing_m": 150,
-            "mean_shift": pass2_mean, "max_shift": pass2_max,
-            "class_hits": pass2_hits,
-        })
+        priority_classes = [
+            c for c in priority_classes if features_proj.get(c) is not None
+        ]
+        pass2_poly, pass2_mean, pass2_max, pass2_hits = _snap_polygon_feature_aware(
+            poly_proj,
+            features_proj,
+            priority_classes,
+            buffer_m=300.0,
+            spacing_m=150.0,
+        )
+        log.append(
+            {
+                "ed": ed,
+                "pass": 2,
+                "buffer_m": 300,
+                "spacing_m": 150,
+                "mean_shift": pass2_mean,
+                "max_shift": pass2_max,
+                "class_hits": pass2_hits,
+            }
+        )
         # Pass 3: piecewise geographic — east bias on river for Calgary-South and
         # Edmonton-Windermere; north bias on river for Lethbridge-Little Bow.
         pass3_poly = pass2_poly  # start from pass 2
         if spec.get("has_water") and spec.get("priority") == "high":
             # Recompute using finer spacing + buffer 400m, favour river-first
             pass3_poly, pass3_mean, pass3_max, pass3_hits = _snap_polygon_feature_aware(
-                poly_proj, features_proj, ["river"] + [c for c in priority_classes if c != "river"],
-                buffer_m=400.0, spacing_m=100.0,
+                poly_proj,
+                features_proj,
+                ["river"] + [c for c in priority_classes if c != "river"],
+                buffer_m=400.0,
+                spacing_m=100.0,
             )
-            log.append({
-                "ed": ed, "pass": 3, "buffer_m": 400, "spacing_m": 100, "strategy": "river-forced",
-                "mean_shift": pass3_mean, "max_shift": pass3_max,
-                "class_hits": pass3_hits,
-            })
+            log.append(
+                {
+                    "ed": ed,
+                    "pass": 3,
+                    "buffer_m": 400,
+                    "spacing_m": 100,
+                    "strategy": "river-forced",
+                    "mean_shift": pass3_mean,
+                    "max_shift": pass3_max,
+                    "class_hits": pass3_hits,
+                }
+            )
 
         # Update v2 with the best pass result (use pass3 if hits "river" more
         # than pass2, else pass2).
-        pass3_river_hits = pass3_hits.get("river", 0) if 'pass3_hits' in dir() else 0
+        pass3_river_hits = pass3_hits.get("river", 0) if "pass3_hits" in dir() else 0
         pass2_river_hits = pass2_hits.get("river", 0)
         if pass3_river_hits > pass2_river_hits:
             v2_min.at[idx, "geometry"] = pass3_poly
-            v2_min.at[idx, "refined_note_v2"] = f"v2_pass3_snapped:mean={pass3_mean:.1f}m,max={pass3_max:.1f}m"
+            v2_min.at[idx, "refined_note_v2"] = (
+                f"v2_pass3_snapped:mean={pass3_mean:.1f}m,max={pass3_max:.1f}m"
+            )
             v2_min.at[idx, "v2_mean_shift_m"] = pass3_mean
             v2_min.at[idx, "v2_max_shift_m"] = pass3_max
             v2_min.at[idx, "v2_class_hits"] = json.dumps(pass3_hits)
         else:
             v2_min.at[idx, "geometry"] = pass2_poly
-            v2_min.at[idx, "refined_note_v2"] = f"v2_pass2_snapped:mean={pass2_mean:.1f}m,max={pass2_max:.1f}m"
+            v2_min.at[idx, "refined_note_v2"] = (
+                f"v2_pass2_snapped:mean={pass2_mean:.1f}m,max={pass2_max:.1f}m"
+            )
             v2_min.at[idx, "v2_mean_shift_m"] = pass2_mean
             v2_min.at[idx, "v2_max_shift_m"] = pass2_max
             v2_min.at[idx, "v2_class_hits"] = json.dumps(pass2_hits)
@@ -677,7 +793,15 @@ PRIORITY_EDS = [
 
 
 def _norm(s: str) -> str:
-    return str(s).lower().replace("-", " ").replace("  ", " ").replace(".", "").replace("'", "").strip()
+    return (
+        str(s)
+        .lower()
+        .replace("-", " ")
+        .replace("  ", " ")
+        .replace(".", "")
+        .replace("'", "")
+        .strip()
+    )
 
 
 def _find_ed(gdf: gpd.GeoDataFrame, name: str):
@@ -708,10 +832,18 @@ def phase5b_render_orange_panels(impact_df):
     pass) boundary on top.
     """
     VERIFICATION_DIR.mkdir(parents=True, exist_ok=True)
-    v1_maj = gpd.read_file(DATA_DIR / "v0_1_refined_majority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v2_maj = gpd.read_file(DATA_DIR / "v0_1_refined_v2_majority_2026_eds.gpkg").to_crs(WORK_CRS)
-    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(WORK_CRS)
+    v1_maj = gpd.read_file(DATA_DIR / "v0_1_refined_majority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v1_min = gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v2_maj = gpd.read_file(DATA_DIR / "v0_1_refined_v2_majority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
+    v2_min = gpd.read_file(DATA_DIR / "v0_1_refined_v2_minority_2026_eds.gpkg").to_crs(
+        WORK_CRS
+    )
 
     # Classification lookup
     impact_lookup = {row["ed_name"]: row for _, row in impact_df.iterrows()}
@@ -778,12 +910,16 @@ def phase5b_render_orange_panels(impact_df):
         # Plot v1 (Track Y) boundary as thin grey dashed — for visual reference
         if v1_row is not None:
             v1_gser = gpd.GeoSeries([v1_row.geometry], crs=WORK_CRS)
-            v1_gser.boundary.plot(ax=ax, color=GREY, linewidth=0.9, linestyle=":", label="v1")
+            v1_gser.boundary.plot(
+                ax=ax, color=GREY, linewidth=0.9, linestyle=":", label="v1"
+            )
 
         # Plot v2 boundary with tier-specific colour/style
         if v2_row is not None:
             v2_gser = gpd.GeoSeries([v2_row.geometry], crs=WORK_CRS)
-            v2_gser.boundary.plot(ax=ax, color=colour, linewidth=2.2, linestyle=linestyle, label="v2")
+            v2_gser.boundary.plot(
+                ax=ax, color=colour, linewidth=2.2, linestyle=linestyle, label="v2"
+            )
 
         # Also write individual panel
         fig_single, ax_s = plt.subplots(figsize=(6, 6), dpi=120)
@@ -797,16 +933,23 @@ def phase5b_render_orange_panels(impact_df):
             v1_gser.boundary.plot(ax=ax_s, color=GREY, linewidth=0.9, linestyle=":")
         if v2_row is not None:
             v2_gser = gpd.GeoSeries([v2_row.geometry], crs=WORK_CRS)
-            v2_gser.boundary.plot(ax=ax_s, color=colour, linewidth=2.2, linestyle=linestyle)
+            v2_gser.boundary.plot(
+                ax=ax_s, color=colour, linewidth=2.2, linestyle=linestyle
+            )
         # Legend text box
         ax_s.text(
-            0.02, 0.02,
+            0.02,
+            0.02,
             "Green = Tier A (2019 inherit)\nOrange = Tier B accepted (votes stable)\nRed dashed = unresolved\nGrey dotted = v1 (Track Y)",
-            transform=ax_s.transAxes, fontsize=7, verticalalignment="bottom",
+            transform=ax_s.transAxes,
+            fontsize=7,
+            verticalalignment="bottom",
             bbox=dict(boxstyle="round", facecolor="white", alpha=0.8, edgecolor="#ccc"),
         )
         slug = name.replace(" ", "_").replace("/", "_").replace("-", "_").lower()
-        fig_single.savefig(VERIFICATION_DIR / f"v0_2_{which}_{slug}.svg", bbox_inches="tight")
+        fig_single.savefig(
+            VERIFICATION_DIR / f"v0_2_{which}_{slug}.svg", bbox_inches="tight"
+        )
         plt.close(fig_single)
 
     fig_grid.tight_layout()
@@ -818,6 +961,7 @@ def phase5b_render_orange_panels(impact_df):
 # ----------------------------------------------------------------------
 # Entry point
 # ----------------------------------------------------------------------
+
 
 def main(skip=()):
     phase2b_res = {}
@@ -856,7 +1000,9 @@ def main(skip=()):
 
     summary = {
         "phase2b_results": phase2b_res,
-        "impact_summary": impact_df.to_dict("records") if impact_df is not None else None,
+        "impact_summary": (
+            impact_df.to_dict("records") if impact_df is not None else None
+        ),
         "phase4_log": phase4_log,
     }
     out_log = ANALYSIS_DIR / "shape_refinement_v2_log.json"

@@ -8,6 +8,7 @@ A3: s.15(2) eligibility audit for protected ridings
 
 Output is printed and also captured for the Section A MD.
 """
+
 from __future__ import annotations
 import pandas as pd
 import numpy as np
@@ -17,10 +18,10 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
 
-
 # ---------------------------------------------------------------------------
 # A1 — Variance distribution
 # ---------------------------------------------------------------------------
+
 
 def variance_stats(df: pd.DataFrame, label: str) -> dict:
     """Compute variance distribution stats for one map."""
@@ -109,25 +110,55 @@ def print_a1(maj: pd.DataFrame, minr: pd.DataFrame) -> list[dict]:
 # won EDs mapped forward by name match) so the classification itself
 # can be falsified.
 CALGARY_ZONE_A = {  # North / East / Central geographic zone
-    "Calgary-Beddington", "Calgary-Bhullar-McCall", "Calgary-Buffalo",
-    "Calgary-Confluence", "Calgary-Cross", "Calgary-Currie", "Calgary-East",
-    "Calgary-Edgemont", "Calgary-Falconridge", "Calgary-Falconridge-Conrich",
-    "Calgary-Foothills", "Calgary-Foothills-Airdrie West", "Calgary-Greenway",
-    "Calgary-Klein", "Calgary-McCall", "Calgary-McCall-Bhullar",
-    "Calgary-Mountain View", "Calgary-Nolan Hill-Cochrane", "Calgary-North",
-    "Calgary-North East", "Calgary-North West", "Calgary-North West-Bearspaw",
-    "Calgary-Nose Creek", "Calgary-Nose Hill", "Calgary-Skyview",
-    "Calgary-Symons Valley", "Calgary-Varsity",
+    "Calgary-Beddington",
+    "Calgary-Bhullar-McCall",
+    "Calgary-Buffalo",
+    "Calgary-Confluence",
+    "Calgary-Cross",
+    "Calgary-Currie",
+    "Calgary-East",
+    "Calgary-Edgemont",
+    "Calgary-Falconridge",
+    "Calgary-Falconridge-Conrich",
+    "Calgary-Foothills",
+    "Calgary-Foothills-Airdrie West",
+    "Calgary-Greenway",
+    "Calgary-Klein",
+    "Calgary-McCall",
+    "Calgary-McCall-Bhullar",
+    "Calgary-Mountain View",
+    "Calgary-Nolan Hill-Cochrane",
+    "Calgary-North",
+    "Calgary-North East",
+    "Calgary-North West",
+    "Calgary-North West-Bearspaw",
+    "Calgary-Nose Creek",
+    "Calgary-Nose Hill",
+    "Calgary-Skyview",
+    "Calgary-Symons Valley",
+    "Calgary-Varsity",
     "Calgary-Airdrie",  # N hybrid — Airdrie lies N of dividing line
 }
 
 CALGARY_ZONE_B = {  # South / West geographic zone
-    "Calgary-Acadia", "Calgary-Bow", "Calgary-Bow-Springbank",
-    "Calgary-De Winton", "Calgary-Elbow", "Calgary-Fish Creek",
-    "Calgary-Glenmore", "Calgary-Glenmore-Tsuut'ina", "Calgary-Hays",
-    "Calgary-Lougheed", "Calgary-McKenzie", "Calgary-Peigan",
-    "Calgary-Peigan-Chestermere", "Calgary-Shaw", "Calgary-South",
-    "Calgary-South East", "Calgary-West", "Calgary-West-Elbow Valley",
+    "Calgary-Acadia",
+    "Calgary-Bow",
+    "Calgary-Bow-Springbank",
+    "Calgary-De Winton",
+    "Calgary-Elbow",
+    "Calgary-Fish Creek",
+    "Calgary-Glenmore",
+    "Calgary-Glenmore-Tsuut'ina",
+    "Calgary-Hays",
+    "Calgary-Lougheed",
+    "Calgary-McKenzie",
+    "Calgary-Peigan",
+    "Calgary-Peigan-Chestermere",
+    "Calgary-Shaw",
+    "Calgary-South",
+    "Calgary-South East",
+    "Calgary-West",
+    "Calgary-West-Elbow Valley",
     "Calgary-West-Tsuut'ina",
 }
 
@@ -186,21 +217,31 @@ def a2_calgary_analysis(maj: pd.DataFrame, minr: pd.DataFrame):
         print(f"  Calgary EDs total:   {len(calgary)}")
         print(f"  Zone A (N/E/central): {len(za)}  (mean pop {mean_a:,.0f})")
         print(f"  Zone B (S/W):         {len(zb)}  (mean pop {mean_b:,.0f})")
-        print(f"  Unclassified:        {len(uncl)}"
-              + (f"  -> {list(uncl['ed_name'])}" if len(uncl) else ""))
+        print(
+            f"  Unclassified:        {len(uncl)}"
+            + (f"  -> {list(uncl['ed_name'])}" if len(uncl) else "")
+        )
         print(f"  Gap (Zone A - Zone B): {gap:+,.0f} ({gap_pct:+.2f}%)")
         direction = "larger" if gap > 0 else "smaller"
-        print(f"  Observation: Zone A EDs are {abs(gap_pct):.1f}% {direction} than Zone B.")
+        print(
+            f"  Observation: Zone A EDs are {abs(gap_pct):.1f}% {direction} than Zone B."
+        )
         print(f"               Non-zero gap in either direction may correlate with")
         print(f"               partisan packing/cracking depending on voter geography.")
 
-        results.append({
-            "map": label,
-            "n_a": len(za), "n_b": len(zb), "n_unclassified": len(uncl),
-            "unclassified_names": list(uncl["ed_name"]),
-            "mean_a": mean_a, "mean_b": mean_b,
-            "gap_abs": gap, "gap_pct": gap_pct,
-        })
+        results.append(
+            {
+                "map": label,
+                "n_a": len(za),
+                "n_b": len(zb),
+                "n_unclassified": len(uncl),
+                "unclassified_names": list(uncl["ed_name"]),
+                "mean_a": mean_a,
+                "mean_b": mean_b,
+                "gap_abs": gap,
+                "gap_pct": gap_pct,
+            }
+        )
     return results
 
 
@@ -249,8 +290,12 @@ def a2_robustness_check(maj: pd.DataFrame, minr: pd.DataFrame):
         gap_pct = (gap / mean_u * 100.0) if len(ucp) else float("nan")
 
         print(f"\n{label}")
-        print(f"  Calgary EDs matched to 2023-NDP-won: {len(ndp)} (mean pop {mean_n:,.0f})")
-        print(f"  Calgary EDs matched to 2023-UCP-won: {len(ucp)} (mean pop {mean_u:,.0f})")
+        print(
+            f"  Calgary EDs matched to 2023-NDP-won: {len(ndp)} (mean pop {mean_n:,.0f})"
+        )
+        print(
+            f"  Calgary EDs matched to 2023-UCP-won: {len(ucp)} (mean pop {mean_u:,.0f})"
+        )
         print(f"  Calgary EDs with new/unmatched name: {len(new)}")
         print(f"  Gap (NDP-won - UCP-won mean pop): {gap:+,.0f} ({gap_pct:+.2f}%)")
 
@@ -269,17 +314,25 @@ def a2_regional_breakdown(maj: pd.DataFrame, minr: pd.DataFrame):
     print("=" * 70)
 
     rows = []
-    for df, label, mtype in [(maj, "Majority 2026", "majority"),
-                             (minr, "Minority 2026", "minority")]:
+    for df, label, mtype in [
+        (maj, "Majority 2026", "majority"),
+        (minr, "Minority 2026", "minority"),
+    ]:
         df = df.copy()
         df["region"] = df.apply(lambda r: region_from_row(r, mtype), axis=1)
         grp = df.groupby("region")["population"].agg(["count", "mean", "sum"])
         print(f"\n{label}")
         print(grp.round(0).to_string())
         for region, g in grp.iterrows():
-            rows.append({"map": label, "region": region,
-                         "n": int(g["count"]), "mean_pop": float(g["mean"]),
-                         "total_pop": int(g["sum"])})
+            rows.append(
+                {
+                    "map": label,
+                    "region": region,
+                    "n": int(g["count"]),
+                    "mean_pop": float(g["mean"]),
+                    "total_pop": int(g["sum"]),
+                }
+            )
     return rows
 
 
@@ -303,37 +356,43 @@ S15_2_CRITERIA = {
         "dev_pct": -47.7,
         "area_km2": 38500,  # Peace Country north of Grande Prairie
         "dist_major_centre_km": 165,  # Edmonton ~460km, nearest major Grande Prairie 100km from riding centroid
-        "town_4000_plus": True,   # Peace River (pop ~6,800) falls inside
+        "town_4000_plus": True,  # Peace River (pop ~6,800) falls inside
         "indigenous_significant": True,  # Treaty 8, multiple First Nations
-        "shared_border": True,    # BC border
+        "shared_border": True,  # BC border
         "criteria_met": None,  # computed below
-        "notes": ("Peace River exceeds 4,000 threshold, so (c) fails. "
-                  "(a),(b),(d),(e) pass => 4/5 criteria met."),
+        "notes": (
+            "Peace River exceeds 4,000 threshold, so (c) fails. "
+            "(a),(b),(d),(e) pass => 4/5 criteria met."
+        ),
     },
     "Lesser Slave Lake (majority)": {
         "dev_pct": -45.4,
-        "area_km2": 55000,   # expansive N/NW Alberta
+        "area_km2": 55000,  # expansive N/NW Alberta
         "dist_major_centre_km": 250,  # >100km from Edmonton/GP
-        "town_4000_plus": True,   # Slave Lake (pop ~6,800)
+        "town_4000_plus": True,  # Slave Lake (pop ~6,800)
         "indigenous_significant": True,  # multiple Métis Settlements, Treaty 8 First Nations
-        "shared_border": False,   # interior — does not share provincial/US border
+        "shared_border": False,  # interior — does not share provincial/US border
         "criteria_met": None,
-        "notes": ("(c) and (e) fail. (a),(b),(d) pass => 3/5 criteria met — "
-                  "minimum threshold, qualifies."),
+        "notes": (
+            "(c) and (e) fail. (a),(b),(d) pass => 3/5 criteria met — "
+            "minimum threshold, qualifies."
+        ),
     },
     "Canmore-Banff (majority)": {
         "dev_pct": -27.2,
         "area_km2": 8500,  # Banff/Kananaskis corridor, smaller
         "dist_major_centre_km": 85,  # Calgary ~110km, Banff townsite ~130km from Calgary
-        "town_4000_plus": True,   # Canmore (pop ~15,000), Banff townsite (~8,000)
+        "town_4000_plus": True,  # Canmore (pop ~15,000), Banff townsite (~8,000)
         "indigenous_significant": False,  # Stoney Nakoda partially adjacent but largely in other ED
-        "shared_border": True,   # BC border
+        "shared_border": True,  # BC border
         "criteria_met": None,
-        "notes": ("Area < 20,000 km² so (a) fails. Canmore + Banff both exceed "
-                  "4,000 so (c) fails. Indigenous presence limited, so (d) "
-                  "contested. (b) borderline — Canmore is ~100km from Calgary. "
-                  "(e) passes. Only 1–2 of 5 criteria pass; DOES NOT MEET 3/5 "
-                  "threshold by standard reading. FLAG."),
+        "notes": (
+            "Area < 20,000 km² so (a) fails. Canmore + Banff both exceed "
+            "4,000 so (c) fails. Indigenous presence limited, so (d) "
+            "contested. (b) borderline — Canmore is ~100km from Calgary. "
+            "(e) passes. Only 1–2 of 5 criteria pass; DOES NOT MEET 3/5 "
+            "threshold by standard reading. FLAG."
+        ),
     },
     # Minority proposal
     "Central Peace-Notley (minority)": {
@@ -360,16 +419,18 @@ S15_2_CRITERIA = {
         "dev_pct": -30.3,
         "area_km2": 22000,  # extended through Banff National Park per chair's concern
         "dist_major_centre_km": 95,  # Red Deer ~85km, Calgary ~130km
-        "town_4000_plus": True,   # Rocky Mountain House (pop ~6,600), Sundre also
+        "town_4000_plus": True,  # Rocky Mountain House (pop ~6,600), Sundre also
         "indigenous_significant": False,  # limited reserves within proposed boundary
-        "shared_border": True,   # extended boundary reaches BC via Banff NP
+        "shared_border": True,  # extended boundary reaches BC via Banff NP
         "criteria_met": None,
-        "notes": ("Area (a) passes only due to extension through uninhabited "
-                  "Banff National Park — flagged by the commission chair as a "
-                  "boundary drawn to qualify. (b) borderline (~95km from Red "
-                  "Deer). (c) fails (Rocky Mountain House > 4,000). (d) "
-                  "contested. (e) passes only via the NP extension. "
-                  "Boundary appears ENGINEERED to meet (a) and (e). FLAG."),
+        "notes": (
+            "Area (a) passes only due to extension through uninhabited "
+            "Banff National Park — flagged by the commission chair as a "
+            "boundary drawn to qualify. (b) borderline (~95km from Red "
+            "Deer). (c) fails (Rocky Mountain House > 4,000). (d) "
+            "contested. (e) passes only via the NP extension. "
+            "Boundary appears ENGINEERED to meet (a) and (e). FLAG."
+        ),
     },
 }
 
@@ -401,9 +462,15 @@ def print_a3():
         entry["criteria_met"] = met
         verdict = "PASS" if met >= 3 else "FAIL (engineered?)"
         print(f"{riding:<45s} {entry['dev_pct']:>+6.1f}% {met:>3d}/5 {verdict:>20s}")
-        out.append({"riding": riding, "dev_pct": entry["dev_pct"],
-                    "criteria_met": met, "verdict": verdict,
-                    "notes": entry["notes"]})
+        out.append(
+            {
+                "riding": riding,
+                "dev_pct": entry["dev_pct"],
+                "criteria_met": met,
+                "verdict": verdict,
+                "notes": entry["notes"],
+            }
+        )
     print("\nDetailed notes:")
     for r in out:
         print(f"\n  {r['riding']}  [{r['criteria_met']}/5, {r['verdict']}]")
@@ -415,6 +482,7 @@ def print_a3():
 # Main
 # ---------------------------------------------------------------------------
 
+
 def main():
     maj = pd.read_csv(DATA / "majority_2026_populations.csv")
     minr = pd.read_csv(DATA / "minority_2026_populations.csv")
@@ -422,9 +490,11 @@ def main():
     print(f"Loaded {len(maj)} majority EDs, {len(minr)} minority EDs")
     prov_avg = maj["population"].sum() / len(maj)
     print(f"Provincial average (2026 basis): {prov_avg:,.0f} per ED")
-    print(f"(Note: 2019 map (87 EDs) not analyzed for A1/A2 because 2019-era "
-          "population data is not in the working bundle. Historical deviations "
-          "for 2019 boundaries were within ±25% by the 2017 commission.)")
+    print(
+        f"(Note: 2019 map (87 EDs) not analyzed for A1/A2 because 2019-era "
+        "population data is not in the working bundle. Historical deviations "
+        "for 2019 boundaries were within ±25% by the 2017 commission.)"
+    )
 
     a1 = print_a1(maj, minr)
     a2 = a2_calgary_analysis(maj, minr)
@@ -438,13 +508,27 @@ def main():
     print("=" * 70)
     maj_mad = a1[0]["mad_from_avg"]
     min_mad = a1[1]["mad_from_avg"]
-    print(f"  MAD from provincial avg: Majority {maj_mad:,.0f} vs Minority {min_mad:,.0f}")
-    print(f"  Max deviation (pos):     Majority +{a1[0]['max_pos_dev']:.1f}% vs Minority +{a1[1]['max_pos_dev']:.1f}%")
-    print(f"  Max deviation (neg):     Majority {a1[0]['max_neg_dev']:.1f}% vs Minority {a1[1]['max_neg_dev']:.1f}%")
-    print(f"  Calgary Zone A-B gap:    Majority {a2[0]['gap_pct']:+.2f}% vs Minority {a2[1]['gap_pct']:+.2f}%")
-    maj_fail = sum(1 for r in a3 if r['riding'].endswith('(majority)') and r['criteria_met'] < 3)
-    min_fail = sum(1 for r in a3 if r['riding'].endswith('(minority)') and r['criteria_met'] < 3)
-    print(f"  s.15(2) protected that FAIL 3/5 test: Majority {maj_fail}/3 vs Minority {min_fail}/3")
+    print(
+        f"  MAD from provincial avg: Majority {maj_mad:,.0f} vs Minority {min_mad:,.0f}"
+    )
+    print(
+        f"  Max deviation (pos):     Majority +{a1[0]['max_pos_dev']:.1f}% vs Minority +{a1[1]['max_pos_dev']:.1f}%"
+    )
+    print(
+        f"  Max deviation (neg):     Majority {a1[0]['max_neg_dev']:.1f}% vs Minority {a1[1]['max_neg_dev']:.1f}%"
+    )
+    print(
+        f"  Calgary Zone A-B gap:    Majority {a2[0]['gap_pct']:+.2f}% vs Minority {a2[1]['gap_pct']:+.2f}%"
+    )
+    maj_fail = sum(
+        1 for r in a3 if r["riding"].endswith("(majority)") and r["criteria_met"] < 3
+    )
+    min_fail = sum(
+        1 for r in a3 if r["riding"].endswith("(minority)") and r["criteria_met"] < 3
+    )
+    print(
+        f"  s.15(2) protected that FAIL 3/5 test: Majority {maj_fail}/3 vs Minority {min_fail}/3"
+    )
 
     return a1, a2, a2b, a3
 

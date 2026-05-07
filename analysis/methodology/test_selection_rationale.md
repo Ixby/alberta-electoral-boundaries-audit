@@ -32,15 +32,18 @@ Five families of tests, each answering a different question. The ladder below sh
 | B5 | MCMC neutral-ensemble outlier percentile | ReCom (DeFord, Duchin, Solomon 2021) | `mcmc_ensemble.py`, `_100k`, `_multichain_ensemble.py` |
 | B6 | Declination — winning-district-margin angle | Warrington 2018, 2019 | embedded in `packing_cracking_analysis.py` |
 
-### C-family — Geographic coherence (§5.8)
+### C-family — Geographic coherence & Continuity (§5.8)
 
 | Test | What it measures | Source | Script |
 |---|---|---|---|
-| C1 | Polsby-Popper compactness | Polsby & Popper 1991 | `approximate_shape_analysis.py` (Tier A/B only; Tier C blocked) |
+| C1 | Polsby-Popper compactness | Polsby & Popper 1991 | `approximate_shape_analysis.py`, `test_compactness.py` |
 | C2 | Reock compactness | Reock 1961 | same |
-| C3 | Visual anomalies (chair-flagged) | commission chair's own §5 | visual inspection + Appendix E parse |
-| C4 | Community-of-interest splits (CSD overlay) | Track H | `csd_community_splits.py` |
-| C5 | Municipal-boundary anchoring (v0_4) + DA-boundary anchoring (v0_5) | StatsCan CSDs + DAs | `municipal_anchoring.py`, `da_boundary_anchoring.py` |
+| C3 | Convex Hull Ratio | Structural indentation & fragmentation | `test_compactness.py` |
+| C4 | Schwartzberg compactness | Perimeter vs equal-area circle | `test_compactness.py` |
+| C5 | Visual anomalies (chair-flagged) | commission chair's own §5 | visual inspection + Appendix E parse |
+| C6 | Community-of-interest splits (CSD overlay) | Track H | `csd_community_splits.py`, `test_municipal_splits.py` |
+| C7 | Municipal + DA-boundary anchoring | StatsCan CSDs + DAs | `municipal_anchoring.py`, `da_boundary_anchoring.py` |
+| C8 | Core Retention / Displacement | Area/Population preserved from 2019 baseline | `test_core_retention.py` |
 
 ### D-family — Procedural / legal defensibility (§5.9 + D1–D10)
 
@@ -57,13 +60,15 @@ Five families of tests, each answering a different question. The ladder below sh
 | D9 | PII / confidentiality | no PII |
 | D10 | Time-stamped falsifiable claims | OSF pre-registration + git log |
 
-### Signature tests (§5.3)
+### Forensic Signature tests (§5.3)
 
-| Test | What it detects | Criterion |
-|---|---|---|
-| Packing (P) | Disproportionate losing-party voter concentration | Calgary Zone A/B gap ≥ 10 % |
-| Cracking (C) | Disproportionate losing-party fragmentation | Target city split across ≥ 4 EDs |
-| Engineered boundary (E) | Statutory threshold met via uninhabited territory | s.15(2) criterion satisfied only via park/reserve extension |
+| Test | What it detects | Criterion | Script |
+|---|---|---|---|
+| Packing (P) | Disproportionate losing-party voter concentration | Calgary Zone A/B gap ≥ 10 % | `packing_cracking_analysis.py`, `test_packing_cracking.py` |
+| Cracking (C) | Disproportionate losing-party fragmentation | Target city split across ≥ 4 EDs | `packing_cracking_analysis.py`, `test_packing_cracking.py` |
+| Marginal Seats (M) | Hyper-competitive districts susceptible to uniform swing | Win margin ≤ 5%, vulnerability analysis | `marginal_seats_analysis.py`, `test_marginal_seats.py` |
+| Engineered boundary (E) | Statutory threshold met via uninhabited territory | s.15(2) criterion satisfied only via park/reserve extension | `electoral_forensics_population.py` |
+| Ecological Inference (EI) | Racially/demographically polarized voting limits | Duncan & Davis Deterministic Bounds | `ecological_inference.py`, `test_ecological_inference.py` |
 
 ## 2. Why these tests and not others
 
@@ -98,7 +103,7 @@ Community-of-interest is the hardest Canadian-charter criterion to operationalis
 | **CNN / gerrymander-detection deep-learning models** | Would require Canadian-specific training data that does not exist at scale. Would introduce unaudible black-box decisions. |
 | **Bayesian posterior updating** (hierarchical model on districts) | Would require specifying priors. The audit's approach is frequentist-adjacent (consistency-across-metrics) + pre-registered, which is more legally defensible than a Bayesian frame where the prior itself is contestable. |
 | **Per-ED vote-prediction models** (Random Forest on demographic covariates) | Overfits on n=87 districts. Would introduce predictions as data into a prediction-based assessment — circular. |
-| **Redistricting-alternatives MCMC at 2026 seed** (seeded on the commission's own geometry rather than 2019) | Blocked on official 2026 shapefiles. Once Option D FOIP responds, this is the single most-requested follow-up. |
+| **Redistricting-alternatives MCMC at 2026 seed** (seeded on the commission's own geometry rather than 2019) | **UNBLOCKED**. Elections Alberta data disclosure satisfied. Official 2026 shapefiles are now available, and the 2026-seeded ensemble is fully executable. |
 | **Natural-language sentiment analysis on public submissions** | Out of scope for the empirical audit; potentially a follow-up for the policy paper (Issue #12). |
 | **Voter-file-level analysis** (individual voter records) | Not publicly available in Canada; privacy-blocked. |
 | **Historical comparison with 2010, 2017 Alberta commission maps** | Tier-B comparison structurally (different statutory bases, different data vintages). Cross-election rural baseline (§3.3) is the reduced-form version. |
@@ -112,8 +117,8 @@ For each B-family test a hostile reviewer can mount a specific attack. Each has 
 - **Attack A.** "Your 95 % CI crosses zero (−2.74 to +0.60 pp)." Classical significance not defensible.
 - **Defense A.** Acknowledged in §5.2.3. Directional consistency is the reportable finding at 93 % confidence; magnitude is the separate weaker claim.
 
-- **Attack B.** "The 7 % EG threshold from Stephanopoulos-McGhee is not a court standard. SCOTUS vacated *Gill v. Whitford*."
-- **Defense B.** Explicitly acknowledged in the abstract, §2, §5.2.1, and Appendix D.1 (T0 legal fix). The threshold is cited as an academic-literature proposal, not a judicial holding.
+- **Attack B.** "The 7 % EG threshold from Stephanopoulos-McGhee is entirely an American number based on US political geography and has no relevance in Alberta."
+- **Defense B.** Exactly. The audit explicitly discards the American 7 % threshold in favor of an endogenous, Alberta-specific calibration. The methodology calibrates the threshold directly to Alberta's own historical baselines (Option C) and the statistical bounds of an Alberta-seeded 2019/2026 MCMC ensemble (Option D), establishing a local minimum-detectable-signal floor rather than importing foreign standards.
 
 - **Attack C.** "EG is sensitive to boundary choices about what counts as a 'wasted' vote."
 - **Defense C.** Our B4 seats-at-50/50 test uses a different wasted-vote convention, and B6 declination uses none at all. Convergence across the three is the reportable finding; disagreement on one metric triggers the §5.2.4 cross-metric analysis.
@@ -143,10 +148,10 @@ For each B-family test a hostile reviewer can mount a specific attack. Each has 
 - **Attack.** "Area-weighting introduces MAUP artifacts because the base grid is arbitrary."
 - **Defense.** The conservation gate on each perturbation realisation ensures per-VA vote totals are preserved. The four-layer reporting pattern (§5.2.7) surfaces cross-method disagreement rather than hiding it; MAUP-v1 vs MAUP-v2 specifically isolates transcription-overlap artifacts from genuine signal.
 
-### DPG perimeter tracing
+### DPG perimeter tracing (MOOT)
 
 - **Attack.** "You traced the commission's maps from 600-DPI thumbnails. Your polygons are wrong."
-- **Defense.** Precision ladder: v0_2 topology-clean → v0_3 pop-calibrated sweep → v0_4 municipal-anchored → v0_5 DA-anchored. The §5.8.5 audit shows 79.6 % of majority perimeter now sits at ±1 m on DA / municipal edges. The DPG-perturbation CI (±500 m flat, N=200) has 90 % CI [+1.69, +7.67] pp on asymmetry with zero samples crossing zero — the spatial direction is robust at the conservative ceiling; tier-aware (Issue #2 v2) will narrow this further.
+- **Defense.** **MOOT.** This vulnerability is entirely resolved. With the voluntary data disclosure by Elections Alberta, the audit now possesses the official 2026 shapefiles. The entire analytical pipeline—including compactness metrics, population consistency, and vote attribution—is now executed directly against the true commission geometries rather than the earlier topological traces.
 
 ### Cross-election sign reversal
 
@@ -236,9 +241,9 @@ This is the single most-requested item from the methodological reflection, and w
 
 **Operational definition.** $\text{EG}_{cw} = \sum_i w_i \cdot \text{EG}_i$ where $w_i = (1 - PP_i / \text{median}(PP))$, bounded to [0, 1]. High $\text{EG}_{cw}$ means the partisan asymmetry is concentrated in the map's least-compact districts.
 
-**Refinement (PO critique 2026-04-24).** Tier-C Polsby-Popper is blocked on FOIP, but **convex-hull ratio and Reock scores are both computable from the vertex data we already have** in the v0_2 / v0_3 / v0_4 / v0_5 canonical shapefiles. Use these as Tier-C proxies while waiting for FOIP: $\text{Reock}_i = \text{area}(i) / \text{area}(\text{min-enclosing-circle}(i))$; $\text{ConvexHull}_i = \text{area}(i) / \text{area}(\text{convex-hull}(i))$. A compactness-weighted EG using Reock or convex-hull ratios is partially defensible now and fully defensible once Polsby-Popper becomes available. **Framing for the paper**: "The bias is not coming from the districts that look like squares; it is coming from the districts that look like dragons." That one sentence is the most difficult argument for a commission to defend, because the commission's own drawing discretion is proportional to polygon irregularity.
+**Refinement (PO critique 2026-04-24).** The voluntary data disclosure by Elections Alberta is now satisfied, granting access to the official Tier-C 2026 shapefiles. This unblocks the full battery of **Polsby-Popper, Schwartzberg, Reock, and Convex-Hull ratios** directly on the true commission geometry. A compactness-weighted EG using these exact metrics is now fully defensible without relying on proxies. **Framing for the paper**: "The bias is not coming from the districts that look like squares; it is coming from the districts that look like dragons." That one sentence is the most difficult argument for a commission to defend, because the commission's own drawing discretion is proportional to polygon irregularity.
 
-**Status.** Reock / convex-hull version implementable now. Polsby-Popper version blocked on Tier-C shapefiles (FOIP, Issue #1). Queued; executable under the refinement.
+**Status.** **UNBLOCKED**. Elections Alberta data disclosure satisfied. Polsby-Popper and all Tier-C geometric metrics are now fully executable on the official shapefiles.
 
 ### 6.5 Combined Chen-Rodden + drawing decomposition (absolute-level)
 

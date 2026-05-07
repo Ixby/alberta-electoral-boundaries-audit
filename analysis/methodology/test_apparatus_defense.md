@@ -219,7 +219,7 @@ Compare to the unweighted EG. Report the ratio $\text{EG}_{cw} / \text{EG}$ — 
    - **Defense:** Report sensitivity to weight choice. Report variants: quartile-based weights, decile-based weights, continuous weights. Consistency across schemes is the reportable finding.
 
 2. **"Compactness is perimeter-dependent and the paper admits ±500m tracing uncertainty on Tier C."**
-   - **Defense:** Restrict the test to Tier A/B EDs where compactness is shapefile-grade or OSM-snap precision. A Tier-C-inclusive version waits on FOIP / official shapefiles.
+   - **Defense:** Restrict the test to Tier A/B EDs where compactness is shapefile-grade or OSM-snap precision. A Tier-C-inclusive version waits on official disclosure / official shapefiles.
 
 3. **"This favours the majority by construction (its hybrids are swept-calibrated)."**
    - **Defense:** The weighting uses *within-map median*, not a fixed threshold. Both maps have their own Tier-C-dominated tail; the within-map relative weighting is symmetric.
@@ -234,7 +234,7 @@ Compare to the unweighted EG. Report the ratio $\text{EG}_{cw} / \text{EG}$ — 
 
 **Implementation.** Requires per-ED PP (blocked on Tier-C; Tier A/B available now). Weight computation + weighted-EG aggregation ~100 lines. **Effort: 2 days** for the Tier A/B version.
 
-**Status.** Scoped, not executed (blocked partially on FOIP for full coverage). **Recommendation: execute Tier A/B version** as a partial test now; queue full version for post-FOIP.
+**Status.** Scoped, not executed (blocked partially on official disclosure for full coverage). **Recommendation: execute Tier A/B version** as a partial test now; queue full version for post-official disclosure.
 
 ### 2.5 Absolute-level Chen-Rodden decomposition
 
@@ -394,7 +394,7 @@ What the audit cannot defend:
 
 ### 4.4 The strongest single defensive argument
 
-If we had to pick one: **the cross-method disagreement in §5.2.7 is itself the audit's most defensible finding**. We report that under different measurement resolutions the partisan-bias direction changes — and we do not collapse this disagreement into a false consensus. The disagreement is evidence that the audit is not cherry-picking; it is evidence that the available public data does not yet resolve the question, and the paper names what would resolve it (FOIP, Issue #1).
+If we had to pick one: **the cross-method disagreement in §5.2.7 is itself the audit's most defensible finding**. We report that under different measurement resolutions the partisan-bias direction changes — and we do not collapse this disagreement into a false consensus. The disagreement is evidence that the audit is not cherry-picking; it is evidence that the available public data does not yet resolve the question, and the paper names what would resolve it (official disclosure, Issue #1).
 
 A forensic audit that honestly reports "we don't yet know the direction with certainty, here are the boundaries of what we can say, here's what would resolve it" is stronger, not weaker, than an audit that picks a side.
 
@@ -423,6 +423,6 @@ Items 1, 2, and 3 could be executed in one batch — combined effort ~5 days. It
 
 **The apparatus can be strengthened further.** The five combined tests in §2 above each carry their own defense; at least three should be executed as planned to close the soft-proliferation gap. The DAG framework in §3 is a novel contribution that fits the methods paper well.
 
-**The apparatus cannot be defended against its true structural limit** — the absence of official 2026 shapefiles. That limit is honestly reported via the §4.1.4 sunset clause and the FOIP request in Issue #1. No internal methodology can substitute for authoritative data; what the audit can do is make its dependencies visible enough that the limit is the *only* thing a reviewer can attack.
+**The apparatus cannot be defended against its true structural limit** — the absence of official 2026 shapefiles. That limit is honestly reported via the §4.1.4 sunset clause and the data request in Issue #1. No internal methodology can substitute for authoritative data; what the audit can do is make its dependencies visible enough that the limit is the *only* thing a reviewer can attack.
 
 That is the strongest position a public-interest audit can occupy.

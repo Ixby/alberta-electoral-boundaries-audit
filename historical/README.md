@@ -35,6 +35,8 @@ Do not add new active work here. New deprecations: move the file, add an entry b
 | `v0_1_science_red_team_reproducibility_and_falsifiability.md` | v0_1 red-team pass; superseded by `analysis/red_team/science_red_team_framework.md` and `red_team_consolidated.md` |
 | `v0_1_cycle_lag_commentary.md` | v0_1 cycle-lag analysis commentary; current analysis is `analysis/reports/cycle_lag_analysis.md` |
 | `v0_1_max_dpi_extraction_and_rerun.md` | v0_1 DPI extraction log; current: `analysis/reports/` |
+| `v0_1_data_preparation.md` | v0_1 data preparation pipeline docs; current: `analysis/methodology/data_preparation.md` |
+| `shape_refinement_v5.md` | Documents v5 refinement pass; v6 is current; moved from `analysis/methodology/` 2026-05-07 |
 
 ---
 

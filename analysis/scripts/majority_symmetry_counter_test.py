@@ -51,6 +51,7 @@ Dependencies:
 Author: Sub-agent Track Q for fortification b1_b6.
 Date: 2026-04-22
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -66,8 +67,8 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
 PROVINCIAL_MEAN = 54929  # v1.2 prompt and report_academic.md §3 canonical mean
-P1_THRESHOLD_PCT = 5.0   # v1.2 prompt P1: zone mean >= provincial mean + 5%
-P2_THRESHOLD_PP = 15.0   # v1.2 prompt P2: winning margin >= provincial mean + 15 pp
+P1_THRESHOLD_PCT = 5.0  # v1.2 prompt P1: zone mean >= provincial mean + 5%
+P2_THRESHOLD_PP = 15.0  # v1.2 prompt P2: winning margin >= provincial mean + 15 pp
 # C1/C3 joint threshold: a 4-way split is diagnostic only for cities that
 # COULD fit within one or two districts at the ±25% statutory band.
 # Population 68,661 = provincial mean (54,929) * 1.25 — the statutory maximum
@@ -77,7 +78,7 @@ P2_THRESHOLD_PP = 15.0   # v1.2 prompt P2: winning margin >= provincial mean + 1
 # not diagnostic of cracking intent. The Airdrie pattern is diagnostic
 # because Airdrie (~84k) fits within 1-2 EDs at the statutory limit.
 MAX_POP_FOR_4_ED_CRACKING = 3 * 68661  # 205,983 — cities above this are forced
-C1_THRESHOLD_EDS = 4     # minority pattern: community split across >= 4 EDs
+C1_THRESHOLD_EDS = 4  # minority pattern: community split across >= 4 EDs
 
 
 # Alberta municipalities with populations >= 50,000 per 2021 census
@@ -120,33 +121,33 @@ def edmonton_zone_classifier(ed_name: str) -> str:
     """
     # North of the North Saskatchewan River
     zone_c = {
-        "Edmonton-Beverly-Clareview",    # NE
-        "Edmonton-Castle Downs",          # N
-        "Edmonton-Castledowns",           # minority naming variant
-        "Edmonton-City Centre",           # straddles, count as north
-        "Edmonton-Decore",                # N
-        "Edmonton-Glenora-Riverview",     # N (riverside; centroid north)
-        "Edmonton-Gold Bar",              # NE
-        "Edmonton-Highlands-Norwood",     # NE
-        "Edmonton-Manning",               # NE
-        "Edmonton-McClung",               # NW
-        "Edmonton-Meadows",               # E
-        "Edmonton-North West",            # NW
+        "Edmonton-Beverly-Clareview",  # NE
+        "Edmonton-Castle Downs",  # N
+        "Edmonton-Castledowns",  # minority naming variant
+        "Edmonton-City Centre",  # straddles, count as north
+        "Edmonton-Decore",  # N
+        "Edmonton-Glenora-Riverview",  # N (riverside; centroid north)
+        "Edmonton-Gold Bar",  # NE
+        "Edmonton-Highlands-Norwood",  # NE
+        "Edmonton-Manning",  # NE
+        "Edmonton-McClung",  # NW
+        "Edmonton-Meadows",  # E
+        "Edmonton-North West",  # NW
     }
     # South of the North Saskatchewan River
     zone_d = {
-        "Edmonton-Beaumont",              # S (hybrid with Beaumont town)
-        "Edmonton-Ellerslie",             # S
-        "Edmonton-Enoch",                 # SW (majority naming)
-        "Edmonton-Enoch-Devon",           # SW (minority naming)
-        "Edmonton-Mill Woods",            # SE
-        "Edmonton-Rutherford",            # S
-        "Edmonton-South",                 # S
-        "Edmonton-Spruce Grove",          # W (hybrid; majority has no equivalent)
-        "Edmonton-Strathcona",            # S
-        "Edmonton-West Henday",           # W / SW
-        "Edmonton-Whitemud",              # S
-        "Edmonton-Windermere",            # SW
+        "Edmonton-Beaumont",  # S (hybrid with Beaumont town)
+        "Edmonton-Ellerslie",  # S
+        "Edmonton-Enoch",  # SW (majority naming)
+        "Edmonton-Enoch-Devon",  # SW (minority naming)
+        "Edmonton-Mill Woods",  # SE
+        "Edmonton-Rutherford",  # S
+        "Edmonton-South",  # S
+        "Edmonton-Spruce Grove",  # W (hybrid; majority has no equivalent)
+        "Edmonton-Strathcona",  # S
+        "Edmonton-West Henday",  # W / SW
+        "Edmonton-Whitemud",  # S
+        "Edmonton-Windermere",  # SW
     }
     if ed_name in zone_c:
         return "Zone C"
@@ -155,9 +156,7 @@ def edmonton_zone_classifier(ed_name: str) -> str:
     return "Edmonton-unclassified"
 
 
-def test_1_edmonton_packing(
-    maj: pd.DataFrame, minr: pd.DataFrame
-) -> list[dict]:
+def test_1_edmonton_packing(maj: pd.DataFrame, minr: pd.DataFrame) -> list[dict]:
     """Apply P1-style packing test to Edmonton in both 2026 maps.
 
     Returns list of rows for CSV output. A finding counts as a packing
@@ -187,50 +186,55 @@ def test_1_edmonton_packing(
         mean_d = zd["population"].mean() if len(zd) else float("nan")
         gap_c_vs_prov = (
             (mean_c - PROVINCIAL_MEAN) / PROVINCIAL_MEAN * 100.0
-            if len(zc) else float("nan")
+            if len(zc)
+            else float("nan")
         )
         gap_d_vs_prov = (
             (mean_d - PROVINCIAL_MEAN) / PROVINCIAL_MEAN * 100.0
-            if len(zd) else float("nan")
+            if len(zd)
+            else float("nan")
         )
         zone_gap = (mean_c - mean_d) if len(zc) and len(zd) else float("nan")
         zone_gap_pct = (
-            (zone_gap / mean_d * 100.0)
-            if len(zc) and len(zd) else float("nan")
+            (zone_gap / mean_d * 100.0) if len(zc) and len(zd) else float("nan")
         )
         packing_signature_c = gap_c_vs_prov >= P1_THRESHOLD_PCT
         packing_signature_d = gap_d_vs_prov >= P1_THRESHOLD_PCT
 
-        results.append({
-            "test": "Edmonton Zone C/D packing counter-test",
-            "map": label,
-            "zone": "Zone C (north of NSR)",
-            "n_eds": len(zc),
-            "mean_population": round(mean_c, 1) if len(zc) else "",
-            "deviation_vs_provincial_mean_pct": (
-                round(gap_c_vs_prov, 2) if len(zc) else ""
-            ),
-            "zone_gap_pct": round(zone_gap_pct, 2) if len(zc) and len(zd) else "",
-            "unclassified_count": len(uncl),
-            "unclassified_names": ";".join(uncl["ed_name"].tolist()),
-            "p1_threshold_pct": P1_THRESHOLD_PCT,
-            "signature_detected": bool(packing_signature_c),
-        })
-        results.append({
-            "test": "Edmonton Zone C/D packing counter-test",
-            "map": label,
-            "zone": "Zone D (south of NSR)",
-            "n_eds": len(zd),
-            "mean_population": round(mean_d, 1) if len(zd) else "",
-            "deviation_vs_provincial_mean_pct": (
-                round(gap_d_vs_prov, 2) if len(zd) else ""
-            ),
-            "zone_gap_pct": round(zone_gap_pct, 2) if len(zc) and len(zd) else "",
-            "unclassified_count": len(uncl),
-            "unclassified_names": ";".join(uncl["ed_name"].tolist()),
-            "p1_threshold_pct": P1_THRESHOLD_PCT,
-            "signature_detected": bool(packing_signature_d),
-        })
+        results.append(
+            {
+                "test": "Edmonton Zone C/D packing counter-test",
+                "map": label,
+                "zone": "Zone C (north of NSR)",
+                "n_eds": len(zc),
+                "mean_population": round(mean_c, 1) if len(zc) else "",
+                "deviation_vs_provincial_mean_pct": (
+                    round(gap_c_vs_prov, 2) if len(zc) else ""
+                ),
+                "zone_gap_pct": round(zone_gap_pct, 2) if len(zc) and len(zd) else "",
+                "unclassified_count": len(uncl),
+                "unclassified_names": ";".join(uncl["ed_name"].tolist()),
+                "p1_threshold_pct": P1_THRESHOLD_PCT,
+                "signature_detected": bool(packing_signature_c),
+            }
+        )
+        results.append(
+            {
+                "test": "Edmonton Zone C/D packing counter-test",
+                "map": label,
+                "zone": "Zone D (south of NSR)",
+                "n_eds": len(zd),
+                "mean_population": round(mean_d, 1) if len(zd) else "",
+                "deviation_vs_provincial_mean_pct": (
+                    round(gap_d_vs_prov, 2) if len(zd) else ""
+                ),
+                "zone_gap_pct": round(zone_gap_pct, 2) if len(zc) and len(zd) else "",
+                "unclassified_count": len(uncl),
+                "unclassified_names": ";".join(uncl["ed_name"].tolist()),
+                "p1_threshold_pct": P1_THRESHOLD_PCT,
+                "signature_detected": bool(packing_signature_d),
+            }
+        )
     return results
 
 
@@ -258,9 +262,7 @@ def count_eds_containing_city(df: pd.DataFrame, city: str) -> tuple[int, list[st
     return len(matches), matches
 
 
-def test_2_city_split_counter_test(
-    maj: pd.DataFrame, minr: pd.DataFrame
-) -> list[dict]:
+def test_2_city_split_counter_test(maj: pd.DataFrame, minr: pd.DataFrame) -> list[dict]:
     """Count ED-containing-city for every municipality >= 50k. Flag where
     count >= 4 AND the city is small enough that its splits are not
     forced by population. Population-forced splits (Calgary, Edmonton)
@@ -275,24 +277,22 @@ def test_2_city_split_counter_test(
         # A split is diagnostic of engineered cracking only if the city
         # could fit in fewer EDs at the statutory maximum.
         population_forced = pop_2021 > MAX_POP_FOR_4_ED_CRACKING
-        signature_maj_unforced = (
-            maj_count >= C1_THRESHOLD_EDS and not population_forced
+        signature_maj_unforced = maj_count >= C1_THRESHOLD_EDS and not population_forced
+        signature_min_unforced = min_count >= C1_THRESHOLD_EDS and not population_forced
+        results.append(
+            {
+                "test": "City-wide 4-way-split counter-test",
+                "city": city,
+                "population_2021_census": pop_2021,
+                "population_forced_4plus": population_forced,
+                "majority_ed_count": maj_count,
+                "majority_ed_names": ";".join(maj_eds),
+                "majority_signature_4plus_unforced": bool(signature_maj_unforced),
+                "minority_ed_count": min_count,
+                "minority_ed_names": ";".join(min_eds),
+                "minority_signature_4plus_unforced": bool(signature_min_unforced),
+            }
         )
-        signature_min_unforced = (
-            min_count >= C1_THRESHOLD_EDS and not population_forced
-        )
-        results.append({
-            "test": "City-wide 4-way-split counter-test",
-            "city": city,
-            "population_2021_census": pop_2021,
-            "population_forced_4plus": population_forced,
-            "majority_ed_count": maj_count,
-            "majority_ed_names": ";".join(maj_eds),
-            "majority_signature_4plus_unforced": bool(signature_maj_unforced),
-            "minority_ed_count": min_count,
-            "minority_ed_names": ";".join(min_eds),
-            "minority_signature_4plus_unforced": bool(signature_min_unforced),
-        })
     return results
 
 
@@ -354,7 +354,7 @@ def main():
     with open(out_path, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=all_fields)
         writer.writeheader()
-        for row in (test1_rows + test2_rows):
+        for row in test1_rows + test2_rows:
             # normalize missing keys so a unified CSV is writable
             for k in all_fields:
                 row.setdefault(k, "")
@@ -368,24 +368,18 @@ def main():
     print("=" * 70)
     # Test 1
     maj_sigs_t1 = sum(
-        1 for r in test1_rows
-        if r["map"] == "Majority 2026" and r["signature_detected"]
+        1 for r in test1_rows if r["map"] == "Majority 2026" and r["signature_detected"]
     )
     min_sigs_t1 = sum(
-        1 for r in test1_rows
-        if r["map"] == "Minority 2026" and r["signature_detected"]
+        1 for r in test1_rows if r["map"] == "Minority 2026" and r["signature_detected"]
     )
     print(
         f"Test 1 Edmonton packing signatures: "
         f"majority={maj_sigs_t1}, minority={min_sigs_t1}"
     )
     # Test 2
-    maj_sigs_t2 = sum(
-        1 for r in test2_rows if r["majority_signature_4plus_unforced"]
-    )
-    min_sigs_t2 = sum(
-        1 for r in test2_rows if r["minority_signature_4plus_unforced"]
-    )
+    maj_sigs_t2 = sum(1 for r in test2_rows if r["majority_signature_4plus_unforced"])
+    min_sigs_t2 = sum(1 for r in test2_rows if r["minority_signature_4plus_unforced"])
     maj_4way_cities = [
         r["city"] for r in test2_rows if r["majority_signature_4plus_unforced"]
     ]

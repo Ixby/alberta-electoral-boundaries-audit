@@ -18,6 +18,7 @@ Backward:
   analysis/methodology/audit_dependency_graph.json
   analysis/methodology/audit_dependency_graph.dot
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations

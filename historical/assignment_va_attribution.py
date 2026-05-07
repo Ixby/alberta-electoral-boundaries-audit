@@ -26,6 +26,7 @@ Outputs:
   analysis/assignment_va_to_2026_assignments.csv
   analysis/assignment_2026_synthetic_totals.csv
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -42,19 +43,19 @@ import pandas as pd
 import geopandas as gpd
 from shapely.errors import GEOSException
 
-warnings.filterwarnings('ignore', category=FutureWarning)
-warnings.filterwarnings('ignore', message='.*GEOSException.*')
+warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore", message=".*GEOSException.*")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.join(HERE, '..', '..')
+ROOT = os.path.join(HERE, "..", "..")
 # Import the v0.2 mappings to invert them
 sys.path.insert(0, HERE)
 from packing_cracking_analysis import MAJORITY_2026_MAPPING, MINORITY_2026_MAPPING
 
-
 # =====================================================================
 # 1. Build reverse crosswalks from v0.2 mappings
 # =====================================================================
+
 
 def invert_mapping(mapping):
     """
@@ -64,13 +65,14 @@ def invert_mapping(mapping):
     reverse = {}
     for ed_2026, spec in mapping.items():
         kind = spec[0]
-        if kind in ('direct', 'blend', 'split'):
+        if kind in ("direct", "blend", "split"):
             parent = spec[1]
             reverse.setdefault(parent, []).append(ed_2026)
-        elif kind == 'merge':
+        elif kind == "merge":
             for parent in spec[1]:
                 reverse.setdefault(parent, []).append(ed_2026)
     return reverse
+
 
 MAJ_REVERSE = invert_mapping(MAJORITY_2026_MAPPING)
 MIN_REVERSE = invert_mapping(MINORITY_2026_MAPPING)
@@ -84,19 +86,22 @@ EXPECTED_MINORITY_N = len(MINORITY_2026_MAPPING)  # 89
 # 2. Load data
 # =====================================================================
 
+
 def load_va_polygons():
-    path = os.path.join(ROOT, 'data', 'va_polygons_with_2023_votes.gpkg')
+    path = os.path.join(ROOT, "data", "va_polygons_with_2023_votes.gpkg")
     va = gpd.read_file(path)
-    va['va_id'] = va['parent_ed_2019'] + '|' + va['VA_NUMBER'].astype(str).str.zfill(3)
+    va["va_id"] = va["parent_ed_2019"] + "|" + va["VA_NUMBER"].astype(str).str.zfill(3)
     return va
 
+
 def load_flagged_vas():
-    path = os.path.join(ROOT, 'data', 'hybrid_adjacent_vas.csv')
+    path = os.path.join(ROOT, "data", "hybrid_adjacent_vas.csv")
     return pd.read_csv(path)
 
+
 def load_2026_shapefiles():
-    maj_path = os.path.join(ROOT, 'data', 'v0_1_canonical_majority_2026_eds.gpkg')
-    min_path = os.path.join(ROOT, 'data', 'v0_1_canonical_minority_2026_eds.gpkg')
+    maj_path = os.path.join(ROOT, "data", "v0_1_canonical_majority_2026_eds.gpkg")
+    min_path = os.path.join(ROOT, "data", "v0_1_canonical_minority_2026_eds.gpkg")
     return gpd.read_file(maj_path), gpd.read_file(min_path)
 
 
@@ -104,9 +109,10 @@ def load_2026_shapefiles():
 # 3. Assignment logic — spatial-first
 # =====================================================================
 
-def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
-                             reverse_map, forward_map,
-                             candidate_col, map_label):
+
+def assign_vas_spatial_first(
+    va_gdf, flagged_df, eds_2026_gdf, reverse_map, forward_map, candidate_col, map_label
+):
     """
     Assign each VA to a 2026 ED using a spatial-first strategy.
 
@@ -117,39 +123,43 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
     Returns (assignments_df, stats_dict).
     """
     # Build flagged lookup
-    flagged_set = set(flagged_df['va_id'].tolist())
+    flagged_set = set(flagged_df["va_id"].tolist())
     flagged_candidates = {}
     for _, row in flagged_df.iterrows():
         cand = row[candidate_col]
         if pd.notna(cand):
-            flagged_candidates[row['va_id']] = [c.strip() for c in str(cand).split(';')]
+            flagged_candidates[row["va_id"]] = [c.strip() for c in str(cand).split(";")]
 
     # Compute VA centroids
     va_centroids = va_gdf.copy()
-    va_centroids['centroid'] = va_centroids.geometry.centroid
-    va_centroids_gdf = va_centroids.set_geometry('centroid')
+    va_centroids["centroid"] = va_centroids.geometry.centroid
+    va_centroids_gdf = va_centroids.set_geometry("centroid")
 
     # Spatial join: which 2026 ED contains each VA centroid?
-    print(f"  Performing spatial join ({len(va_centroids_gdf)} VAs x {len(eds_2026_gdf)} EDs)...")
+    print(
+        f"  Performing spatial join ({len(va_centroids_gdf)} VAs x {len(eds_2026_gdf)} EDs)..."
+    )
     joined = gpd.sjoin(
-        va_centroids_gdf[['va_id', 'parent_ed_2019', 'va_ndp', 'va_ucp', 'va_other', 'centroid']],
-        eds_2026_gdf[['name_2026', 'geometry']],
-        how='left',
-        predicate='within'
+        va_centroids_gdf[
+            ["va_id", "parent_ed_2019", "va_ndp", "va_ucp", "va_other", "centroid"]
+        ],
+        eds_2026_gdf[["name_2026", "geometry"]],
+        how="left",
+        predicate="within",
     )
 
     # Handle VAs that matched multiple 2026 EDs (shouldn't happen with non-overlapping polygons,
     # but clean up just in case)
     # Keep the first match per VA
-    joined = joined.drop_duplicates(subset='va_id', keep='first')
+    joined = joined.drop_duplicates(subset="va_id", keep="first")
 
     # Build spatial assignment lookup
     spatial_assignments = {}
     for _, row in joined.iterrows():
-        if pd.notna(row.get('name_2026')):
-            spatial_assignments[row['va_id']] = {
-                'ed': row['name_2026'],
-                'tier': row.get('canon_tier', row.get('tier', 'A')),
+        if pd.notna(row.get("name_2026")):
+            spatial_assignments[row["va_id"]] = {
+                "ed": row["name_2026"],
+                "tier": row.get("canon_tier", row.get("tier", "A")),
             }
 
     # All expected 2026 ED names
@@ -163,33 +173,39 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
     # multiple 2026 EDs (split/rename+new), spatial must distinguish between them.
     parent_ed_count = {}  # count how many 2026 EDs each 2019 parent feeds
     for ed_2026, spec in forward_map.items():
-        if spec[0] in ('direct', 'blend', 'split'):
+        if spec[0] in ("direct", "blend", "split"):
             parent_ed_count.setdefault(spec[1], []).append(ed_2026)
-        elif spec[0] == 'merge':
+        elif spec[0] == "merge":
             for p in spec[1]:
                 parent_ed_count.setdefault(p, []).append(ed_2026)
 
     direct_override = {}  # parent_2019 -> ed_2026
     for ed_2026, spec in forward_map.items():
-        if spec[0] == 'direct' and spec[1] == ed_2026:
+        if spec[0] == "direct" and spec[1] == ed_2026:
             parent = spec[1]
             if len(parent_ed_count.get(parent, [])) == 1:
                 direct_override[parent] = ed_2026
 
     # Now assign each VA
     results = []
-    stats = {'spatial': 0, 'candidate': 0, 'crosswalk': 0, 'nearest_ed': 0, 'unresolved': 0}
+    stats = {
+        "spatial": 0,
+        "candidate": 0,
+        "crosswalk": 0,
+        "nearest_ed": 0,
+        "unresolved": 0,
+    }
 
     for idx, va_row in va_gdf.iterrows():
-        va_id = va_row['va_id']
-        parent = va_row['parent_ed_2019']
-        ndp = va_row['va_ndp']
-        ucp = va_row['va_ucp']
-        other = va_row['va_other']
+        va_id = va_row["va_id"]
+        parent = va_row["parent_ed_2019"]
+        ndp = va_row["va_ndp"]
+        ucp = va_row["va_ucp"]
+        other = va_row["va_other"]
 
         assigned = None
         method = None
-        confidence = 'high'
+        confidence = "high"
 
         # Method 0: Direct-rename override (crosswalk beats spatial)
         # When the 2019 parent name == 2026 ED name (territory-identical rename),
@@ -197,20 +213,20 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
         # in the canonical file can cause VAs to fall in the wrong polygon.
         if parent in direct_override:
             assigned = direct_override[parent]
-            method = 'crosswalk'
-            confidence = 'high'
+            method = "crosswalk"
+            confidence = "high"
 
         # Method 1: Spatial (only for non-direct or unresolved direct cases)
         if assigned is None and va_id in spatial_assignments:
             sp = spatial_assignments[va_id]
-            assigned = sp['ed']
-            method = 'spatial'
-            if sp['tier'] == 'C-approximated':
-                confidence = 'deferred_tierC'
-            elif sp['tier'] == 'B':
-                confidence = 'medium'
+            assigned = sp["ed"]
+            method = "spatial"
+            if sp["tier"] == "C-approximated":
+                confidence = "deferred_tierC"
+            elif sp["tier"] == "B":
+                confidence = "medium"
             else:
-                confidence = 'high'
+                confidence = "high"
 
         # Method 2: Candidate from flagged VAs
         if assigned is None and va_id in flagged_candidates:
@@ -219,8 +235,8 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
             for c in candidates:
                 if c in expected_eds:
                     assigned = c
-                    method = 'candidate'
-                    confidence = 'medium'
+                    method = "candidate"
+                    confidence = "medium"
                     break
 
         # Method 3: Crosswalk (reverse map)
@@ -228,13 +244,13 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
             targets = reverse_map.get(parent, [])
             if len(targets) == 1:
                 assigned = targets[0]
-                method = 'crosswalk'
-                confidence = 'high'
+                method = "crosswalk"
+                confidence = "high"
             elif len(targets) > 1:
                 # Split case — assign to first target (default)
                 assigned = targets[0]
-                method = 'crosswalk_split_default'
-                confidence = 'medium'
+                method = "crosswalk_split_default"
+                confidence = "medium"
             # else: fall through to nearest-ED below
 
         # Method 4: Nearest-ED geographic fallback
@@ -242,28 +258,33 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
         # parent ED name doesn't appear in any 2026 ED's crosswalk entry, and
         # the centroid missed all 2026 canonical polygons).
         if assigned is None:
-            va_geom = va_gdf.loc[idx, 'geometry']
+            va_geom = va_gdf.loc[idx, "geometry"]
             cent = va_geom.centroid if va_geom and not va_geom.is_empty else None
             if cent is not None:
                 dists = eds_2026_gdf.geometry.distance(cent)
                 nearest_idx = dists.idxmin()
-                assigned = eds_2026_gdf.loc[nearest_idx, 'name_2026']
-                method = 'nearest_ed'
-                confidence = 'low'
+                assigned = eds_2026_gdf.loc[nearest_idx, "name_2026"]
+                method = "nearest_ed"
+                confidence = "low"
             else:
                 assigned = parent
-                method = 'unresolved'
-                confidence = 'low'
+                method = "unresolved"
+                confidence = "low"
 
-        stats[method if method in stats else 'unresolved'] += 1
+        stats[method if method in stats else "unresolved"] += 1
 
-        results.append({
-            'va_id': va_id, 'parent_ed_2019': parent,
-            'assigned_2026': assigned,
-            'va_ndp': ndp, 'va_ucp': ucp, 'va_other': other,
-            'assignment_method': method,
-            'confidence': confidence,
-        })
+        results.append(
+            {
+                "va_id": va_id,
+                "parent_ed_2019": parent,
+                "assigned_2026": assigned,
+                "va_ndp": ndp,
+                "va_ucp": ucp,
+                "va_other": other,
+                "assignment_method": method,
+                "confidence": confidence,
+            }
+        )
 
     # Report
     print(f"\n  {map_label.upper()} assignment breakdown:")
@@ -274,11 +295,11 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
 
     # Check how many unique 2026 EDs we got
     result_df = pd.DataFrame(results)
-    unique_eds = result_df['assigned_2026'].nunique()
+    unique_eds = result_df["assigned_2026"].nunique()
     print(f"\n  Unique 2026 EDs assigned: {unique_eds} (expected: {len(expected_eds)})")
 
     # Report missing and extra EDs
-    actual_eds = set(result_df['assigned_2026'].unique())
+    actual_eds = set(result_df["assigned_2026"].unique())
     missing = expected_eds - actual_eds
     extra = actual_eds - expected_eds
     if missing:
@@ -288,7 +309,7 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
     if extra:
         print(f"  Extra EDs (not in expected set):")
         for e in sorted(extra):
-            count = (result_df['assigned_2026'] == e).sum()
+            count = (result_df["assigned_2026"] == e).sum()
             print(f"    {e} ({count} VAs)")
 
     return result_df, stats
@@ -298,48 +319,68 @@ def assign_vas_spatial_first(va_gdf, flagged_df, eds_2026_gdf,
 # 4. Aggregation and metrics
 # =====================================================================
 
+
 def aggregate_by_ed(assignments_df):
-    grouped = assignments_df.groupby('assigned_2026').agg(
-        ndp=('va_ndp', 'sum'),
-        ucp=('va_ucp', 'sum'),
-        other=('va_other', 'sum'),
-        n_vas=('va_id', 'count'),
-    ).reset_index()
-    grouped.rename(columns={'assigned_2026': 'ed_2026'}, inplace=True)
+    grouped = (
+        assignments_df.groupby("assigned_2026")
+        .agg(
+            ndp=("va_ndp", "sum"),
+            ucp=("va_ucp", "sum"),
+            other=("va_other", "sum"),
+            n_vas=("va_id", "count"),
+        )
+        .reset_index()
+    )
+    grouped.rename(columns={"assigned_2026": "ed_2026"}, inplace=True)
     return grouped
 
 
 def compute_metrics(districts_df, label, verbose=True):
     n = len(districts_df)
-    total_ndp = districts_df['ndp'].sum()
-    total_ucp = districts_df['ucp'].sum()
+    total_ndp = districts_df["ndp"].sum()
+    total_ucp = districts_df["ucp"].sum()
     total = total_ndp + total_ucp
     prov_ndp = total_ndp / total
 
-    n_ndp_wins = int((districts_df['ndp'] > districts_df['ucp']).sum())
+    n_ndp_wins = int((districts_df["ndp"] > districts_df["ucp"]).sum())
     n_ucp_wins = n - n_ndp_wins
 
-    margins = ((districts_df['ndp'] - districts_df['ucp']) /
-               (districts_df['ndp'] + districts_df['ucp']) * 100).tolist()
-    bins = [(-100,-25), (-25,-15), (-15,-10), (-10,-5), (-5,0),
-            (0,5), (5,10), (10,15), (15,25), (25,100)]
+    margins = (
+        (districts_df["ndp"] - districts_df["ucp"])
+        / (districts_df["ndp"] + districts_df["ucp"])
+        * 100
+    ).tolist()
+    bins = [
+        (-100, -25),
+        (-25, -15),
+        (-15, -10),
+        (-10, -5),
+        (-5, 0),
+        (0, 5),
+        (5, 10),
+        (10, 15),
+        (15, 25),
+        (25, 100),
+    ]
     bin_counts = [sum(1 for m in margins if lo <= m < hi) for lo, hi in bins]
 
     # B2: Efficiency gap
     ndp_wasted = ucp_wasted = 0
     for _, d in districts_df.iterrows():
-        tt = d['ndp'] + d['ucp']
+        tt = d["ndp"] + d["ucp"]
         thr = tt // 2 + 1
-        if d['ndp'] > d['ucp']:
-            ndp_wasted += max(0, d['ndp'] - thr)
-            ucp_wasted += d['ucp']
+        if d["ndp"] > d["ucp"]:
+            ndp_wasted += max(0, d["ndp"] - thr)
+            ucp_wasted += d["ucp"]
         else:
-            ucp_wasted += max(0, d['ucp'] - thr)
-            ndp_wasted += d['ndp']
+            ucp_wasted += max(0, d["ucp"] - thr)
+            ndp_wasted += d["ndp"]
     eg = (ndp_wasted - ucp_wasted) / total
 
     # B3: Mean-median
-    shares = (districts_df['ndp'] / (districts_df['ndp'] + districts_df['ucp'])).tolist()
+    shares = (
+        districts_df["ndp"] / (districts_df["ndp"] + districts_df["ucp"])
+    ).tolist()
     mn = statistics.mean(shares)
     md = statistics.median(shares)
     mm_gap = mn - md
@@ -360,43 +401,69 @@ def compute_metrics(districts_df, label, verbose=True):
         theta_ucp = math.atan2(0.5 - mean_ucp_won, n_ucp_wins / n)
         declination = (theta_ndp - theta_ucp) * 2 / math.pi
     else:
-        declination = float('nan')
+        declination = float("nan")
 
     if verbose:
         print(f"\n{'='*60}")
         print(f"  {label}")
         print(f"{'='*60}")
         print(f"  Districts: {n}")
-        print(f"  Province two-party: NDP {prov_ndp*100:.2f}%, UCP {(1-prov_ndp)*100:.2f}%")
+        print(
+            f"  Province two-party: NDP {prov_ndp*100:.2f}%, UCP {(1-prov_ndp)*100:.2f}%"
+        )
         print(f"  Actual seats: NDP {n_ndp_wins}, UCP {n_ucp_wins}")
-        labels_list = ['UCP +25%+','UCP 15-25','UCP 10-15','UCP 5-10','UCP 0-5',
-                       'NDP 0-5','NDP 5-10','NDP 10-15','NDP 15-25','NDP +25%+']
+        labels_list = [
+            "UCP +25%+",
+            "UCP 15-25",
+            "UCP 10-15",
+            "UCP 5-10",
+            "UCP 0-5",
+            "NDP 0-5",
+            "NDP 5-10",
+            "NDP 10-15",
+            "NDP 15-25",
+            "NDP +25%+",
+        ]
         print(f"\n  B1: Vote distribution (margin in two-party share)")
         for lbl, count in zip(labels_list, bin_counts):
             print(f"    {lbl:>12s}: {'#' * count} {count}")
-        print(f"\n  B2: Efficiency gap = {eg*100:+.2f}%  "
-              f"({'within' if abs(eg) < 0.07 else 'EXCEEDS'} 7% threshold)")
-        print(f"  B3: Mean-median (NDP) = {mm_gap*100:+.2f} pp  "
-              f"({'within' if abs(mm_gap) < 0.03 else 'EXCEEDS'} 3 pp threshold)")
-        print(f"  B4: At 50/50 vote: NDP {ndp_at_50}, UCP {ucp_at_50} "
-              f"(asymmetry: {abs(ndp_at_50-ucp_at_50)} seats)")
+        print(
+            f"\n  B2: Efficiency gap = {eg*100:+.2f}%  "
+            f"({'within' if abs(eg) < 0.07 else 'EXCEEDS'} 7% threshold)"
+        )
+        print(
+            f"  B3: Mean-median (NDP) = {mm_gap*100:+.2f} pp  "
+            f"({'within' if abs(mm_gap) < 0.03 else 'EXCEEDS'} 3 pp threshold)"
+        )
+        print(
+            f"  B4: At 50/50 vote: NDP {ndp_at_50}, UCP {ucp_at_50} "
+            f"(asymmetry: {abs(ndp_at_50-ucp_at_50)} seats)"
+        )
         dec_str = f"{declination:+.4f}" if declination == declination else "N/A"
-        print(f"  B6: Declination (Warrington 2018) = {dec_str}  "
-              f"(negative = pro-UCP, positive = pro-NDP)")
+        print(
+            f"  B6: Declination (Warrington 2018) = {dec_str}  "
+            f"(negative = pro-UCP, positive = pro-NDP)"
+        )
 
     return {
-        'label': label, 'n': n, 'prov_ndp': prov_ndp,
-        'ndp_seats': n_ndp_wins, 'ucp_seats': n_ucp_wins,
-        'eg': eg, 'mm_gap': mm_gap,
-        'ndp_at_50': ndp_at_50, 'ucp_at_50': ucp_at_50,
-        'bin_counts': bin_counts,
-        'declination': declination,
+        "label": label,
+        "n": n,
+        "prov_ndp": prov_ndp,
+        "ndp_seats": n_ndp_wins,
+        "ucp_seats": n_ucp_wins,
+        "eg": eg,
+        "mm_gap": mm_gap,
+        "ndp_at_50": ndp_at_50,
+        "ucp_at_50": ucp_at_50,
+        "bin_counts": bin_counts,
+        "declination": declination,
     }
 
 
 # =====================================================================
 # 5. Monte Carlo CI
 # =====================================================================
+
 
 def monte_carlo_ci(assignments_df, n_draws=2000, seed=42):
     """
@@ -408,13 +475,17 @@ def monte_carlo_ci(assignments_df, n_draws=2000, seed=42):
     rng = np.random.default_rng(seed)
 
     # Aggregate to ED level first
-    ed_data = assignments_df.groupby('assigned_2026').agg(
-        ndp=('va_ndp', 'sum'),
-        ucp=('va_ucp', 'sum'),
-    ).reset_index()
+    ed_data = (
+        assignments_df.groupby("assigned_2026")
+        .agg(
+            ndp=("va_ndp", "sum"),
+            ucp=("va_ucp", "sum"),
+        )
+        .reset_index()
+    )
 
-    ed_ndp = ed_data['ndp'].values.astype(float)
-    ed_ucp = ed_data['ucp'].values.astype(float)
+    ed_ndp = ed_data["ndp"].values.astype(float)
+    ed_ucp = ed_data["ucp"].values.astype(float)
     ed_total = ed_ndp + ed_ucp
     ed_share = np.where(ed_total > 0, ed_ndp / ed_total, 0.5)
     n_eds = len(ed_data)
@@ -482,20 +553,25 @@ def monte_carlo_ci(assignments_df, n_draws=2000, seed=42):
     eg_ci = ci(eg_draws)
     mm_ci = ci(mm_draws)
     n50_ci = ci(n50_draws)
-    dec_ci = ci(dec_draws) if dec_draws else (float('nan'), float('nan'))
+    dec_ci = ci(dec_draws) if dec_draws else (float("nan"), float("nan"))
     eg_neg_pct = sum(1 for e in eg_draws if e < 0) / len(eg_draws) * 100
 
     return {
-        'eg_ci': eg_ci, 'mm_ci': mm_ci, 'n50_ci': n50_ci, 'dec_ci': dec_ci,
-        'eg_neg_pct': eg_neg_pct, 'n_draws': n_draws,
-        'eg_median': statistics.median(eg_draws),
-        'mm_median': statistics.median(mm_draws),
+        "eg_ci": eg_ci,
+        "mm_ci": mm_ci,
+        "n50_ci": n50_ci,
+        "dec_ci": dec_ci,
+        "eg_neg_pct": eg_neg_pct,
+        "n_draws": n_draws,
+        "eg_median": statistics.median(eg_draws),
+        "mm_median": statistics.median(mm_draws),
     }
 
 
 # =====================================================================
 # Main
 # =====================================================================
+
 
 def main():
     print("=" * 60)
@@ -525,28 +601,42 @@ def main():
 
     print("\n  --- MAJORITY ---")
     maj_assignments, maj_stats = assign_vas_spatial_first(
-        va, flagged, maj_eds, MAJ_REVERSE, MAJORITY_2026_MAPPING,
-        'majority_hybrid_candidate', 'majority')
+        va,
+        flagged,
+        maj_eds,
+        MAJ_REVERSE,
+        MAJORITY_2026_MAPPING,
+        "majority_hybrid_candidate",
+        "majority",
+    )
 
     print("\n  --- MINORITY ---")
     min_assignments, min_stats = assign_vas_spatial_first(
-        va, flagged, min_eds, MIN_REVERSE, MINORITY_2026_MAPPING,
-        'minority_hybrid_candidate', 'minority')
+        va,
+        flagged,
+        min_eds,
+        MIN_REVERSE,
+        MINORITY_2026_MAPPING,
+        "minority_hybrid_candidate",
+        "minority",
+    )
 
     # Stage 4: Write assignments CSV
     print("\n" + "=" * 60)
     print("  STAGE 4: Write VA assignments")
     print("=" * 60)
 
-    combined = maj_assignments[['va_id', 'parent_ed_2019', 'va_ndp', 'va_ucp', 'va_other']].copy()
-    combined['assigned_2026_majority'] = maj_assignments['assigned_2026']
-    combined['maj_method'] = maj_assignments['assignment_method']
-    combined['maj_confidence'] = maj_assignments['confidence']
-    combined['assigned_2026_minority'] = min_assignments['assigned_2026']
-    combined['min_method'] = min_assignments['assignment_method']
-    combined['min_confidence'] = min_assignments['confidence']
+    combined = maj_assignments[
+        ["va_id", "parent_ed_2019", "va_ndp", "va_ucp", "va_other"]
+    ].copy()
+    combined["assigned_2026_majority"] = maj_assignments["assigned_2026"]
+    combined["maj_method"] = maj_assignments["assignment_method"]
+    combined["maj_confidence"] = maj_assignments["confidence"]
+    combined["assigned_2026_minority"] = min_assignments["assigned_2026"]
+    combined["min_method"] = min_assignments["assignment_method"]
+    combined["min_confidence"] = min_assignments["confidence"]
 
-    out_path = os.path.join(HERE, 'assignment_va_to_2026_assignments.csv')
+    out_path = os.path.join(HERE, "assignment_va_to_2026_assignments.csv")
     combined.to_csv(out_path, index=False)
     print(f"  Written: {out_path} ({len(combined)} rows)")
 
@@ -559,28 +649,40 @@ def main():
     min_totals = aggregate_by_ed(min_assignments)
 
     print(f"\n  Majority: {len(maj_totals)} unique 2026 EDs")
-    print(f"    NDP: {maj_totals['ndp'].sum():,.1f}  UCP: {maj_totals['ucp'].sum():,.1f}")
+    print(
+        f"    NDP: {maj_totals['ndp'].sum():,.1f}  UCP: {maj_totals['ucp'].sum():,.1f}"
+    )
     print(f"  Minority: {len(min_totals)} unique 2026 EDs")
-    print(f"    NDP: {min_totals['ndp'].sum():,.1f}  UCP: {min_totals['ucp'].sum():,.1f}")
+    print(
+        f"    NDP: {min_totals['ndp'].sum():,.1f}  UCP: {min_totals['ucp'].sum():,.1f}"
+    )
 
     # Write synthetic totals
-    totals_path = os.path.join(HERE, 'assignment_2026_synthetic_totals.csv')
-    maj_out = maj_totals.copy(); maj_out['map'] = 'majority'
-    min_out = min_totals.copy(); min_out['map'] = 'minority'
+    totals_path = os.path.join(HERE, "assignment_2026_synthetic_totals.csv")
+    maj_out = maj_totals.copy()
+    maj_out["map"] = "majority"
+    min_out = min_totals.copy()
+    min_out["map"] = "minority"
     pd.concat([maj_out, min_out]).to_csv(totals_path, index=False)
     print(f"  Written: {totals_path}")
 
     # Vote conservation check
-    va_ndp = va['va_ndp'].sum()
-    va_ucp = va['va_ucp'].sum()
+    va_ndp = va["va_ndp"].sum()
+    va_ucp = va["va_ucp"].sum()
     print(f"\n  Vote conservation:")
     print(f"    VA substrate:  NDP={va_ndp:,.1f}  UCP={va_ucp:,.1f}")
-    print(f"    Majority sum:  NDP={maj_totals['ndp'].sum():,.1f}  UCP={maj_totals['ucp'].sum():,.1f}")
-    print(f"    Minority sum:  NDP={min_totals['ndp'].sum():,.1f}  UCP={min_totals['ucp'].sum():,.1f}")
-    drift = max(abs(va_ndp - maj_totals['ndp'].sum()),
-                abs(va_ucp - maj_totals['ucp'].sum()),
-                abs(va_ndp - min_totals['ndp'].sum()),
-                abs(va_ucp - min_totals['ucp'].sum()))
+    print(
+        f"    Majority sum:  NDP={maj_totals['ndp'].sum():,.1f}  UCP={maj_totals['ucp'].sum():,.1f}"
+    )
+    print(
+        f"    Minority sum:  NDP={min_totals['ndp'].sum():,.1f}  UCP={min_totals['ucp'].sum():,.1f}"
+    )
+    drift = max(
+        abs(va_ndp - maj_totals["ndp"].sum()),
+        abs(va_ucp - maj_totals["ucp"].sum()),
+        abs(va_ndp - min_totals["ndp"].sum()),
+        abs(va_ucp - min_totals["ucp"].sum()),
+    )
     print(f"    Max drift: {drift:.1f}  {'PASS' if drift < 1.0 else 'WARNING'}")
 
     # Stage 6: Metrics
@@ -589,11 +691,17 @@ def main():
     print("=" * 60)
 
     # 2019 baseline
-    baseline = va.groupby('parent_ed_2019').agg(
-        ndp=('va_ndp', 'sum'), ucp=('va_ucp', 'sum'),
-        other=('va_other', 'sum'), n_vas=('va_id', 'count'),
-    ).reset_index()
-    baseline.rename(columns={'parent_ed_2019': 'ed_2026'}, inplace=True)
+    baseline = (
+        va.groupby("parent_ed_2019")
+        .agg(
+            ndp=("va_ndp", "sum"),
+            ucp=("va_ucp", "sum"),
+            other=("va_other", "sum"),
+            n_vas=("va_id", "count"),
+        )
+        .reset_index()
+    )
+    baseline.rename(columns={"parent_ed_2019": "ed_2026"}, inplace=True)
 
     m_2019 = compute_metrics(baseline, "2019 BOUNDARIES (VA-aggregated baseline)")
     m_maj = compute_metrics(maj_totals, "MAJORITY 2026 (Phase 4C measured)")
@@ -605,17 +713,31 @@ def main():
     print("=" * 60)
     print(f"  {'Metric':<22s} | {'2019':>7s} | {'Majority':>8s} | {'Minority':>8s}")
     print(f"  {'-'*22}-+-{'-'*7}-+-{'-'*8}-+-{'-'*8}")
-    print(f"  {'Districts':<22s} | {m_2019['n']:>7d} | {m_maj['n']:>8d} | {m_min['n']:>8d}")
-    print(f"  {'Seats NDP/UCP':<22s} | {m_2019['ndp_seats']}/{m_2019['ucp_seats']:>4d} | {m_maj['ndp_seats']}/{m_maj['ucp_seats']:>5d} | {m_min['ndp_seats']}/{m_min['ucp_seats']:>5d}")
-    print(f"  {'B2 Efficiency gap':<22s} | {m_2019['eg']*100:+6.2f}% | {m_maj['eg']*100:+7.2f}% | {m_min['eg']*100:+7.2f}%")
-    print(f"  {'B3 Mean-median':<22s} | {m_2019['mm_gap']*100:+6.2f}pp| {m_maj['mm_gap']*100:+7.2f}pp| {m_min['mm_gap']*100:+7.2f}pp")
-    print(f"  {'B4 NDP @ 50/50':<22s} | {m_2019['ndp_at_50']:>7d} | {m_maj['ndp_at_50']:>8d} | {m_min['ndp_at_50']:>8d}")
-    print(f"  {'B6 Declination':<22s} | {m_2019['declination']:+7.4f} | {m_maj['declination']:+8.4f} | {m_min['declination']:+8.4f}")
+    print(
+        f"  {'Districts':<22s} | {m_2019['n']:>7d} | {m_maj['n']:>8d} | {m_min['n']:>8d}"
+    )
+    print(
+        f"  {'Seats NDP/UCP':<22s} | {m_2019['ndp_seats']}/{m_2019['ucp_seats']:>4d} | {m_maj['ndp_seats']}/{m_maj['ucp_seats']:>5d} | {m_min['ndp_seats']}/{m_min['ucp_seats']:>5d}"
+    )
+    print(
+        f"  {'B2 Efficiency gap':<22s} | {m_2019['eg']*100:+6.2f}% | {m_maj['eg']*100:+7.2f}% | {m_min['eg']*100:+7.2f}%"
+    )
+    print(
+        f"  {'B3 Mean-median':<22s} | {m_2019['mm_gap']*100:+6.2f}pp| {m_maj['mm_gap']*100:+7.2f}pp| {m_min['mm_gap']*100:+7.2f}pp"
+    )
+    print(
+        f"  {'B4 NDP @ 50/50':<22s} | {m_2019['ndp_at_50']:>7d} | {m_maj['ndp_at_50']:>8d} | {m_min['ndp_at_50']:>8d}"
+    )
+    print(
+        f"  {'B6 Declination':<22s} | {m_2019['declination']:+7.4f} | {m_maj['declination']:+8.4f} | {m_min['declination']:+8.4f}"
+    )
 
-    delta_maj = m_maj['eg'] - m_2019['eg']
-    delta_min = m_min['eg'] - m_2019['eg']
+    delta_maj = m_maj["eg"] - m_2019["eg"]
+    delta_min = m_min["eg"] - m_2019["eg"]
     asym = delta_min - delta_maj
-    print(f"\n  Delta from 2019 EG: majority {delta_maj*100:+.2f}pp, minority {delta_min*100:+.2f}pp")
+    print(
+        f"\n  Delta from 2019 EG: majority {delta_maj*100:+.2f}pp, minority {delta_min*100:+.2f}pp"
+    )
     print(f"  Minority-Majority asymmetry: {asym*100:+.2f}pp")
 
     # Stage 7: Monte Carlo
@@ -625,20 +747,32 @@ def main():
 
     print("\n  Majority 2026...")
     mc_maj = monte_carlo_ci(maj_assignments, n_draws=2000, seed=42)
-    print(f"    EG 95% CI: [{mc_maj['eg_ci'][0]*100:+.2f}%, {mc_maj['eg_ci'][1]*100:+.2f}%]")
+    print(
+        f"    EG 95% CI: [{mc_maj['eg_ci'][0]*100:+.2f}%, {mc_maj['eg_ci'][1]*100:+.2f}%]"
+    )
     print(f"    EG median: {mc_maj['eg_median']*100:+.2f}%")
-    print(f"    Mean-median 95% CI: [{mc_maj['mm_ci'][0]*100:+.2f}pp, {mc_maj['mm_ci'][1]*100:+.2f}pp]")
+    print(
+        f"    Mean-median 95% CI: [{mc_maj['mm_ci'][0]*100:+.2f}pp, {mc_maj['mm_ci'][1]*100:+.2f}pp]"
+    )
     print(f"    NDP@50/50 95% CI: [{mc_maj['n50_ci'][0]}, {mc_maj['n50_ci'][1]}]")
-    print(f"    Declination 95% CI: [{mc_maj['dec_ci'][0]:+.4f}, {mc_maj['dec_ci'][1]:+.4f}]")
+    print(
+        f"    Declination 95% CI: [{mc_maj['dec_ci'][0]:+.4f}, {mc_maj['dec_ci'][1]:+.4f}]"
+    )
     print(f"    EG negative (pro-UCP) in {mc_maj['eg_neg_pct']:.1f}% of draws")
 
     print("\n  Minority 2026...")
     mc_min = monte_carlo_ci(min_assignments, n_draws=2000, seed=42)
-    print(f"    EG 95% CI: [{mc_min['eg_ci'][0]*100:+.2f}%, {mc_min['eg_ci'][1]*100:+.2f}%]")
+    print(
+        f"    EG 95% CI: [{mc_min['eg_ci'][0]*100:+.2f}%, {mc_min['eg_ci'][1]*100:+.2f}%]"
+    )
     print(f"    EG median: {mc_min['eg_median']*100:+.2f}%")
-    print(f"    Mean-median 95% CI: [{mc_min['mm_ci'][0]*100:+.2f}pp, {mc_min['mm_ci'][1]*100:+.2f}pp]")
+    print(
+        f"    Mean-median 95% CI: [{mc_min['mm_ci'][0]*100:+.2f}pp, {mc_min['mm_ci'][1]*100:+.2f}pp]"
+    )
     print(f"    NDP@50/50 95% CI: [{mc_min['n50_ci'][0]}, {mc_min['n50_ci'][1]}]")
-    print(f"    Declination 95% CI: [{mc_min['dec_ci'][0]:+.4f}, {mc_min['dec_ci'][1]:+.4f}]")
+    print(
+        f"    Declination 95% CI: [{mc_min['dec_ci'][0]:+.4f}, {mc_min['dec_ci'][1]:+.4f}]"
+    )
     print(f"    EG negative (pro-UCP) in {mc_min['eg_neg_pct']:.1f}% of draws")
 
     # Direction consistency comparison
@@ -650,5 +784,5 @@ def main():
     return m_2019, m_maj, m_min, mc_maj, mc_min
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -28,6 +28,7 @@ Backward:
 Forward:
   analysis/reports/extended_partisan_metrics.md
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -40,10 +41,11 @@ from scipy import stats as scipy_stats
 
 warnings.filterwarnings("ignore")
 
-ROOT   = Path(__file__).resolve().parent.parent.parent
-DATA   = ROOT / "data"
-RPTS   = ROOT / "analysis" / "reports"
+ROOT = Path(__file__).resolve().parent.parent.parent
+DATA = ROOT / "data"
+RPTS = ROOT / "analysis" / "reports"
 RPTS.mkdir(parents=True, exist_ok=True)
+
 
 def _pick(plan: str):
     base = DATA / "shapefiles" / "derived"
@@ -59,31 +61,35 @@ def _pick(plan: str):
     return base / f"v0_7_canonical_{plan}_2026_eds.gpkg"
 
 
-VA_PATH     = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-MAJ_V7      = _pick("majority")
-MIN_V7      = _pick("minority")
+VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+MAJ_V7 = _pick("majority")
+MIN_V7 = _pick("minority")
 ENSEMBLE_CSV = DATA / "simulated_ensemble_raw_samples_100k.csv"
 
 OUT_JSON = DATA / "extended_partisan_metrics.json"
-OUT_MD   = RPTS / "extended_partisan_metrics.md"
+OUT_MD = RPTS / "extended_partisan_metrics.md"
 
 
 # ---------------------------------------------------------------------------
 # District-level vote share builder
 # ---------------------------------------------------------------------------
 
+
 def districts_from_2019(va: gpd.GeoDataFrame) -> pd.DataFrame:
     """Aggregate VA votes to 2019 enacted EDs."""
-    agg = va.groupby("parent_ed_2019").agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-    ).reset_index()
+    agg = (
+        va.groupby("parent_ed_2019")
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     agg["total"] = agg["ucp"] + agg["ndp"]
     agg["ucp_share"] = np.where(agg["total"] > 0, agg["ucp"] / agg["total"], np.nan)
     return agg.dropna(subset=["ucp_share"])
 
 
-def districts_from_v7(va: gpd.GeoDataFrame, eds: gpd.GeoDataFrame,
-                       label: str) -> pd.DataFrame:
+def districts_from_v7(
+    va: gpd.GeoDataFrame, eds: gpd.GeoDataFrame, label: str
+) -> pd.DataFrame:
     """
     Spatial join: assign each VA centroid to an ED, then aggregate votes.
     Uses v0_7 89-ED shapefiles.
@@ -95,24 +101,30 @@ def districts_from_v7(va: gpd.GeoDataFrame, eds: gpd.GeoDataFrame,
     joined = gpd.sjoin(
         va_centroids[["va_ucp", "va_ndp", "geometry"]],
         eds[["name_2026", "geometry"]],
-        how="left", predicate="within"
+        how="left",
+        predicate="within",
     )
-    agg = joined.groupby("name_2026").agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-    ).reset_index()
+    agg = (
+        joined.groupby("name_2026")
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     agg["total"] = agg["ucp"] + agg["ndp"]
     agg["ucp_share"] = np.where(agg["total"] > 0, agg["ucp"] / agg["total"], np.nan)
     assigned = agg.dropna(subset=["ucp_share"])
     total_vas = len(va)
     assigned_vas = joined["name_2026"].notna().sum()
-    print(f"  [{label}] {len(assigned)} EDs, "
-          f"{assigned_vas}/{total_vas} VAs assigned ({assigned_vas/total_vas:.1%})")
+    print(
+        f"  [{label}] {len(assigned)} EDs, "
+        f"{assigned_vas}/{total_vas} VAs assigned ({assigned_vas/total_vas:.1%})"
+    )
     return assigned
 
 
 # ---------------------------------------------------------------------------
 # Metric functions
 # ---------------------------------------------------------------------------
+
 
 def seats_votes_curve(ucp_shares: np.ndarray, swing_range: np.ndarray) -> np.ndarray:
     """
@@ -152,8 +164,8 @@ def lopsided_margins(ucp_shares: np.ndarray) -> tuple[float, float]:
     UCP wins by abnormally large margins → packing signal.
     Returns (t_statistic, p_value). Positive t = UCP wins by larger margins.
     """
-    ucp_wins  = ucp_shares[ucp_shares > 0.5 + 1e-9] - 0.5   # margins for UCP wins
-    ndp_wins  = 0.5 - ucp_shares[ucp_shares < 0.5 - 1e-9]    # margins for NDP wins
+    ucp_wins = ucp_shares[ucp_shares > 0.5 + 1e-9] - 0.5  # margins for UCP wins
+    ndp_wins = 0.5 - ucp_shares[ucp_shares < 0.5 - 1e-9]  # margins for NDP wins
     if len(ucp_wins) < 3 or len(ndp_wins) < 3:
         return float("nan"), float("nan")
     t, p = scipy_stats.ttest_ind(ucp_wins, ndp_wins, equal_var=False)
@@ -166,7 +178,7 @@ def partisan_gini(ucp_shares: np.ndarray) -> float:
     Positive = UCP-favoured asymmetry.
     """
     swings = np.linspace(-0.3, 0.3, 300)
-    sv     = seats_votes_curve(ucp_shares, swings)
+    sv = seats_votes_curve(ucp_shares, swings)
     vote_shares = np.nanmean(ucp_shares) + swings
     # Symmetry line: at vote share v, expected seat share = v (proportionality)
     # Area above symmetry = UCP advantage
@@ -182,24 +194,26 @@ def responsiveness(ucp_shares: np.ndarray) -> float:
     """
     mean_share = np.nanmean(ucp_shares)
     delta = 0.01
-    sv_plus  = seats_votes_curve(ucp_shares, np.array([0.5 - mean_share + delta]))[0]
+    sv_plus = seats_votes_curve(ucp_shares, np.array([0.5 - mean_share + delta]))[0]
     sv_minus = seats_votes_curve(ucp_shares, np.array([0.5 - mean_share - delta]))[0]
     return float((sv_plus - sv_minus) / (2 * delta))
 
 
 def all_metrics(ucp_shares: np.ndarray, label: str) -> dict:
     """Compute all extended metrics for one map."""
-    pb    = partisan_bias(ucp_shares)
-    t, p  = lopsided_margins(ucp_shares)
-    gini  = partisan_gini(ucp_shares)
-    resp  = responsiveness(ucp_shares)
-    n     = len(ucp_shares)
+    pb = partisan_bias(ucp_shares)
+    t, p = lopsided_margins(ucp_shares)
+    gini = partisan_gini(ucp_shares)
+    resp = responsiveness(ucp_shares)
+    n = len(ucp_shares)
     mean_vs = float(np.nanmean(ucp_shares))
     ucp_wins = int((ucp_shares > 0.5).sum())
 
-    print(f"  {label}: n={n}, mean_vote_share={mean_vs:.3f}, "
-          f"ucp_wins={ucp_wins}, PB={pb:+.4f}, "
-          f"LM_t={t:+.3f}(p={p:.3f}), Gini={gini:+.4f}, Resp={resp:.2f}")
+    print(
+        f"  {label}: n={n}, mean_vote_share={mean_vs:.3f}, "
+        f"ucp_wins={ucp_wins}, PB={pb:+.4f}, "
+        f"LM_t={t:+.3f}(p={p:.3f}), Gini={gini:+.4f}, Resp={resp:.2f}"
+    )
     return {
         "label": label,
         "n_districts": n,
@@ -214,7 +228,7 @@ def all_metrics(ucp_shares: np.ndarray, label: str) -> dict:
 
 
 def pct_rank(arr: np.ndarray, val: float) -> float:
-    \"\"\"Midrank percentile: 100 * (P(X < x) + 0.5 * P(X == x)).\"\"\"
+    """Midrank percentile: 100 * (P(X < x) + 0.5 * P(X == x))."""
     if len(arr) == 0:
         return float("nan")
     less = (arr < val - 1e-9).sum()
@@ -226,24 +240,27 @@ def pct_rank(arr: np.ndarray, val: float) -> float:
 # Main
 # ---------------------------------------------------------------------------
 
+
 def main():
     t0 = time.time()
     print("[extended partisan metrics] Loading data...")
-    va  = gpd.read_file(VA_PATH)
+    va = gpd.read_file(VA_PATH)
     maj = gpd.read_file(MAJ_V7)
-    mn  = gpd.read_file(MIN_V7)
+    mn = gpd.read_file(MIN_V7)
     ens = pd.read_csv(ENSEMBLE_CSV)
 
     print("\nBuilding district-level vote shares...")
     d_2019 = districts_from_2019(va)
-    d_maj  = districts_from_v7(va, maj, "majority v0_7")
-    d_min  = districts_from_v7(va, mn,  "minority v0_7")
+    d_maj = districts_from_v7(va, maj, "majority v0_7")
+    d_min = districts_from_v7(va, mn, "minority v0_7")
 
     print("\nComputing extended metrics...")
     results = {}
-    for label, df in [("2019_enacted", d_2019),
-                       ("majority_2026", d_maj),
-                       ("minority_2026", d_min)]:
+    for label, df in [
+        ("2019_enacted", d_2019),
+        ("majority_2026", d_maj),
+        ("minority_2026", d_min),
+    ]:
         shares = df["ucp_share"].dropna().values
         results[label] = all_metrics(shares, label)
 
@@ -268,19 +285,22 @@ def main():
     print("\n--- EXTENDED METRICS COMPARISON ---")
     rows = []
     for label, res in results.items():
-        rows.append({
-            "map": label,
-            "n": res["n_districts"],
-            "partisan_bias": res["partisan_bias"],
-            "pb_pct": res.get("partisan_bias_percentile", float("nan")),
-            "lopsided_t": res["lopsided_t"],
-            "lopsided_p": res["lopsided_p"],
-            "partisan_gini": res["partisan_gini"],
-            "responsiveness": res["responsiveness"],
-        })
+        rows.append(
+            {
+                "map": label,
+                "n": res["n_districts"],
+                "partisan_bias": res["partisan_bias"],
+                "pb_pct": res.get("partisan_bias_percentile", float("nan")),
+                "lopsided_t": res["lopsided_t"],
+                "lopsided_p": res["lopsided_p"],
+                "partisan_gini": res["partisan_gini"],
+                "responsiveness": res["responsiveness"],
+            }
+        )
     df_out = pd.DataFrame(rows)
-    with pd.option_context("display.float_format", "{:+.4f}".format,
-                            "display.width", 140):
+    with pd.option_context(
+        "display.float_format", "{:+.4f}".format, "display.width", 140
+    ):
         print(df_out.to_string(index=False))
 
     # Write outputs
@@ -301,7 +321,7 @@ def main():
         "|-----|-------|--------------|--------|-----------|-----------|--------------|----------------|",
     ]
     for r in rows:
-        pb_pct = f"{r['pb_pct']:+.1f}" if not np.isnan(r['pb_pct']) else "—"
+        pb_pct = f"{r['pb_pct']:+.1f}" if not np.isnan(r["pb_pct"]) else "—"
         md_lines.append(
             f"| {r['map']} | {r['n']} | {r['partisan_bias']:+.4f} | {pb_pct} "
             f"| {r['lopsided_t']:+.3f} | {r['lopsided_p']:.3f} "

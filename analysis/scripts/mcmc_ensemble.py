@@ -54,6 +54,7 @@ Usage
 
 If N_STEPS omitted, defaults to 5000.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -70,6 +71,7 @@ import numpy as np
 import pandas as pd
 import geopandas as gpd
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -77,7 +79,6 @@ from gerrychain import Graph, Partition, MarkovChain, constraints, accept, updat
 from gerrychain.proposals import recom
 from gerrychain.tree import recursive_tree_part
 from functools import partial
-
 
 # ---- paths ------------------------------------------------------------------
 
@@ -88,19 +89,26 @@ MAPS = ROOT / "data" / "maps" / "mcmc"
 MAPS.mkdir(parents=True, exist_ok=True)
 
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-ED2019_PATH = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_PATH     = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
-MIN_PATH     = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+ED2019_PATH = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
+MAJ_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
+MIN_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
 # Legacy aliases kept so callers that import these names don't break
-MIN_V6_PATH  = MIN_PATH
-MIN_V5_PATH  = MIN_PATH
-MAJ_V7_PATH  = MAJ_PATH
-MIN_V7_PATH  = MIN_PATH
+MIN_V6_PATH = MIN_PATH
+MIN_V5_PATH = MIN_PATH
+MAJ_V7_PATH = MAJ_PATH
+MIN_V7_PATH = MIN_PATH
 
 SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples.csv"
 
 
 # ---- metrics ----------------------------------------------------------------
+
 
 def seat_results(
     ucp: "np.ndarray",
@@ -133,11 +141,19 @@ def seat_results(
     total = ucp + ndp
     # guard: drop zero-total districts from metric calc (shouldn't happen in real runs)
     mask = total > 0
-    ucp = ucp[mask]; ndp = ndp[mask]; total = total[mask]
+    ucp = ucp[mask]
+    ndp = ndp[mask]
+    total = total[mask]
     n = len(ucp)
     if n == 0:
-        return dict(efficiency_gap=np.nan, mean_median=np.nan, declination=np.nan,
-                    seats_at_50_50=np.nan, ucp_seats=np.nan, n_districts=0)
+        return dict(
+            efficiency_gap=np.nan,
+            mean_median=np.nan,
+            declination=np.nan,
+            seats_at_50_50=np.nan,
+            ucp_seats=np.nan,
+            n_districts=0,
+        )
 
     # Use strict two-party totals for margin calculations so independent candidates don't break the math.
     two_party_total = ucp + ndp
@@ -195,6 +211,7 @@ def seat_results(
 
 # ---- VA graph ---------------------------------------------------------------
 
+
 def build_va_graph(verbose: bool = True):
     """Load VA polygons and build a rook-adjacency graph with vote/population attributes.
 
@@ -225,12 +242,16 @@ def build_va_graph(verbose: bool = True):
 
     if verbose:
         print(f"  total 2021 pop across VAs: {va['pop_2021'].sum():,.0f}")
-        print(f"[{time.strftime('%H:%M:%S')}] building adjacency graph ({len(va)} VAs)...")
+        print(
+            f"[{time.strftime('%H:%M:%S')}] building adjacency graph ({len(va)} VAs)..."
+        )
     t = time.time()
     graph = Graph.from_geodataframe(va, ignore_errors=True)
     if verbose:
-        print(f"  built in {time.time()-t:.1f}s: {graph.number_of_nodes()} nodes, "
-              f"{graph.number_of_edges()} edges")
+        print(
+            f"  built in {time.time()-t:.1f}s: {graph.number_of_nodes()} nodes, "
+            f"{graph.number_of_edges()} edges"
+        )
 
     # Attach attributes on nodes.
     for idx, row in va.iterrows():
@@ -254,7 +275,10 @@ def initial_assignment_2019(va: gpd.GeoDataFrame) -> dict:
 
 # ---- Exogenous map scoring --------------------------------------------------
 
-def score_exogenous_map(va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str = "name_2026") -> dict:
+
+def score_exogenous_map(
+    va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str = "name_2026"
+) -> dict:
     """Assign VAs to proposed districts via centroid-in-polygon join and compute metrics.
 
     Returns a dict containing metrics plus coverage info.
@@ -283,21 +307,26 @@ def score_exogenous_map(va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str =
     coverage_n = len(covered)
     total_n = len(va)
 
-    agg = covered.groupby(id_col).agg(
-        ucp=("va_ucp", "sum"),
-        ndp=("va_ndp", "sum"),
-        other=("va_other", "sum"),
-        total_votes=("total_votes", "sum"),
-    ).reset_index()
+    agg = (
+        covered.groupby(id_col)
+        .agg(
+            ucp=("va_ucp", "sum"),
+            ndp=("va_ndp", "sum"),
+            other=("va_other", "sum"),
+            total_votes=("total_votes", "sum"),
+        )
+        .reset_index()
+    )
 
     metrics = seat_results(agg["ucp"].values, agg["ndp"].values)
     metrics["coverage_vas"] = int(coverage_n)
     metrics["coverage_vas_total"] = int(total_n)
     metrics["coverage_pct"] = coverage_n / total_n if total_n else 0.0
-    
+
     # Adversarial audit mitigation: warn if coverage is unusually low.
     if metrics["coverage_pct"] < 0.98:
         import warnings
+
         warnings.warn(
             f"Map coverage dropped below 98% ({metrics['coverage_pct']:.2%}). "
             "Check for missing polygons or topographical gaps in the shapefile."
@@ -305,15 +334,27 @@ def score_exogenous_map(va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str =
 
     metrics["covered_votes"] = float(covered["total_votes"].sum())
     metrics["all_vote_total"] = float(va["total_votes"].sum())
-    metrics["votes_coverage_pct"] = metrics["covered_votes"] / metrics["all_vote_total"] if metrics["all_vote_total"] else 0.0
+    metrics["votes_coverage_pct"] = (
+        metrics["covered_votes"] / metrics["all_vote_total"]
+        if metrics["all_vote_total"]
+        else 0.0
+    )
     metrics["source"] = str(proposed_gpkg.name)
     return metrics
 
 
 # ---- Ensemble ---------------------------------------------------------------
 
-def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float = 0.25,
-                 verbose: bool = True, return_final_partition: bool = False, seed: int = 42):
+
+def run_ensemble(
+    graph: Graph,
+    initial_state,
+    n_steps: int,
+    pop_deviation: float = 0.25,
+    verbose: bool = True,
+    return_final_partition: bool = False,
+    seed: int = 42,
+):
     """Run ReCom chain for n_steps; return list of per-step metric dicts.
 
     pop_deviation: maximum allowed fractional deviation from ideal per district. The
@@ -345,7 +386,9 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
     ideal_pop = total_pop / num_dist
 
     if verbose:
-        print(f"  {num_dist} districts, total pop = {total_pop:,.0f}, ideal = {ideal_pop:,.0f}")
+        print(
+            f"  {num_dist} districts, total pop = {total_pop:,.0f}, ideal = {ideal_pop:,.0f}"
+        )
 
     # Updaters: tally UCP and NDP votes per district, plus cut-edges (ReCom needs it).
     my_updaters = {
@@ -369,8 +412,10 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
     seed_dev_envelope = (max_p - min_p) / ideal_pop
     seed_max_indiv_dev = max(abs(max_p - ideal_pop), abs(min_p - ideal_pop)) / ideal_pop
     if verbose:
-        print(f"  2019 seed pop: {min_p:,.0f} - {max_p:,.0f}  "
-              f"(envelope={seed_dev_envelope:.2%}, max-indiv-dev={seed_max_indiv_dev:.2%})")
+        print(
+            f"  2019 seed pop: {min_p:,.0f} - {max_p:,.0f}  "
+            f"(envelope={seed_dev_envelope:.2%}, max-indiv-dev={seed_max_indiv_dev:.2%})"
+        )
 
     # s15(2) freeze: DISABLED 2026-04-26 evening after pipeline debugging.
     # Gemini's original implementation froze any district with |dev| > 25%,
@@ -391,7 +436,7 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
     # therefore a LOWER BOUND on the minority's anomaly, not an inflation.
     # H6 in the academic report's hypothesis tracker documents this.
     frozen_districts = set()
-    
+
     if frozen_districts:
         raise NotImplementedError("Subgraph freezing is currently unsupported.")
 
@@ -406,12 +451,15 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
     # it, the chain rejects the high-deviation 2019 seed immediately.
     if seed_max_indiv_dev > pop_deviation:
         if verbose:
-            print(f"  2019 seed exceeds +/-{pop_deviation:.0%} rule "
-                  f"(max dev {seed_max_indiv_dev:.2%}); generating fresh tight seed "
-                  f"via recursive_tree_part on full graph...")
+            print(
+                f"  2019 seed exceeds +/-{pop_deviation:.0%} rule "
+                f"(max dev {seed_max_indiv_dev:.2%}); generating fresh tight seed "
+                f"via recursive_tree_part on full graph..."
+            )
         from functools import partial as _partial
         from gerrychain.tree import bipartition_tree as _bpt
         import random as _random
+
         _rng_state_np = np.random.get_state()
         _rng_state_py = _random.getstate()
         np.random.seed(seed + 999)
@@ -473,13 +521,16 @@ def run_ensemble(graph: Graph, initial_state, n_steps: int, pop_deviation: float
             print(f"    step {i+1}/{n_steps}  elapsed {elapsed:.0f}s  eta {eta:.0f}s")
             last_report = time.time()
     if verbose:
-        print(f"  chain finished in {time.time()-t0:.0f}s, collected {len(rows)} samples")
+        print(
+            f"  chain finished in {time.time()-t0:.0f}s, collected {len(rows)} samples"
+        )
     if return_final_partition:
         return rows, final_partition
     return rows
 
 
 # ---- Plotting ---------------------------------------------------------------
+
 
 def pct_rank(values: np.ndarray, x: float) -> float:
     """Percentile of x within values (0-100). Uses the midrank method like scipy.percentileofscore(kind='mean')."""
@@ -492,8 +543,13 @@ def pct_rank(values: np.ndarray, x: float) -> float:
     return 100.0 * (below + 0.5 * equal) / len(values)
 
 
-def plot_metric(metric_key: str, metric_label: str, ensemble_values: np.ndarray,
-                real_maps: dict, out_path: Path):
+def plot_metric(
+    metric_key: str,
+    metric_label: str,
+    ensemble_values: np.ndarray,
+    real_maps: dict,
+    out_path: Path,
+):
     """Plot histogram of ensemble with vertical markers for each real map."""
     fig, ax = plt.subplots(figsize=(9, 5.5))
 
@@ -506,23 +562,35 @@ def plot_metric(metric_key: str, metric_label: str, ensemble_values: np.ndarray,
     ax.axvline(p5, linestyle="--", color="#888", linewidth=1, zorder=3)
     ax.axvline(p95, linestyle="--", color="#888", linewidth=1, zorder=3)
     ax.text(p5, ax.get_ylim()[1] * 0.92, "  5th", color="#444", fontsize=8, ha="left")
-    ax.text(p95, ax.get_ylim()[1] * 0.92, "95th  ", color="#444", fontsize=8, ha="right")
+    ax.text(
+        p95, ax.get_ylim()[1] * 0.92, "95th  ", color="#444", fontsize=8, ha="right"
+    )
 
-    colors = {"2019 enacted": "#1f2937",
-              "majority 2026 (approx)": "#c43f3f",
-              "minority 2026 v6 (approx)": "#2b6cb0"}
+    colors = {
+        "2019 enacted": "#1f2937",
+        "majority 2026 (approx)": "#c43f3f",
+        "minority 2026 v6 (approx)": "#2b6cb0",
+    }
 
     for label, value in real_maps.items():
         if value is None or np.isnan(value):
             continue
         pr = pct_rank(vals, value)
-        ax.axvline(value, linestyle="-", linewidth=2.2, color=colors.get(label, "black"),
-                   label=f"{label}: {value:+.4f}  (p{pr:.1f})", zorder=4)
+        ax.axvline(
+            value,
+            linestyle="-",
+            linewidth=2.2,
+            color=colors.get(label, "black"),
+            label=f"{label}: {value:+.4f}  (p{pr:.1f})",
+            zorder=4,
+        )
 
     ax.set_xlabel(metric_label)
     ax.set_ylabel("Count (out of {:,} samples)".format(len(vals)))
-    ax.set_title(f"Ensemble distribution of {metric_label}\n"
-                 f"(ReCom on 2019 enacted map, VA-level atomic units, 2023 votes)")
+    ax.set_title(
+        f"Ensemble distribution of {metric_label}\n"
+        f"(ReCom on 2019 enacted map, VA-level atomic units, 2023 votes)"
+    )
     ax.legend(loc="upper right", framealpha=0.95, fontsize=9)
     ax.grid(axis="y", linestyle=":", linewidth=0.5, alpha=0.6, zorder=1)
     fig.tight_layout()
@@ -532,14 +600,19 @@ def plot_metric(metric_key: str, metric_label: str, ensemble_values: np.ndarray,
 
 # ---- Orchestration ----------------------------------------------------------
 
+
 def main(n_steps: int = 5000, seed: int = None):
     from drand_seed import get_canonical_seed
+
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble")
     np.random.seed(seed)
     import random as _random
+
     _random.seed(seed)
 
-    print(f"[{time.strftime('%H:%M:%S')}] starting ensemble run — n_steps={n_steps}, seed={seed}")
+    print(
+        f"[{time.strftime('%H:%M:%S')}] starting ensemble run — n_steps={n_steps}, seed={seed}"
+    )
 
     va, graph = build_va_graph()
 
@@ -550,9 +623,11 @@ def main(n_steps: int = 5000, seed: int = None):
 
     # -- Score the three real maps using VA aggregation
     # 2019: just aggregate VAs by parent_ed_2019
-    agg = va.groupby("parent_ed_2019").agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-    ).reset_index()
+    agg = (
+        va.groupby("parent_ed_2019")
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     m_2019 = seat_results(agg["ucp"].values, agg["ndp"].values)
     m_2019["source"] = "2019_enacted_VA_agg"
     m_2019["coverage_vas"] = int(len(va))
@@ -566,15 +641,23 @@ def main(n_steps: int = 5000, seed: int = None):
 
     print()
     print("  --- Real-map scores (pre-ensemble) ---")
-    for name, m in [("2019 enacted", m_2019), ("majority 2026 approx", m_maj), (min_label, m_min)]:
-        print(f"    {name}: seats={m['ucp_seats']}/{m['n_districts']}  "
-              f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
-              f"decl={m['declination']:+.4f}  s50={m['seats_at_50_50']:.3f}  "
-              f"ucp_share={m['ucp_vote_share']:.3f}  cov={m['coverage_pct']:.2%}")
+    for name, m in [
+        ("2019 enacted", m_2019),
+        ("majority 2026 approx", m_maj),
+        (min_label, m_min),
+    ]:
+        print(
+            f"    {name}: seats={m['ucp_seats']}/{m['n_districts']}  "
+            f"EG={m['efficiency_gap']:+.4f}  MM={m['mean_median']:+.4f}  "
+            f"decl={m['declination']:+.4f}  s50={m['seats_at_50_50']:.3f}  "
+            f"ucp_share={m['ucp_vote_share']:.3f}  cov={m['coverage_pct']:.2%}"
+        )
 
     # -- Run chain
     print()
-    print(f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps, seed {seed})...")
+    print(
+        f"[{time.strftime('%H:%M:%S')}] running ReCom chain ({n_steps} steps, seed {seed})..."
+    )
     rows = run_ensemble(graph, assignment, n_steps, seed=seed)
     df = pd.DataFrame(rows)
     df.to_csv(SAMPLES_CSV, index=False)
@@ -597,19 +680,31 @@ def main(n_steps: int = 5000, seed: int = None):
     summary = []
     for key, label in metrics_config:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
-        plot_metric(key, label, df[key].values, real_vals, MAPS / f"ensemble_distribution_{key}.svg")
+        plot_metric(
+            key,
+            label,
+            df[key].values,
+            real_vals,
+            MAPS / f"ensemble_distribution_{key}.svg",
+        )
 
         for map_name, val in real_vals.items():
-            pr = pct_rank(df[key].dropna().values, val) if not np.isnan(val) else float("nan")
-            summary.append({
-                "metric": key,
-                "map": map_name,
-                "value": val,
-                "percentile": pr,
-                "ensemble_p5": float(np.nanpercentile(df[key], 5)),
-                "ensemble_p50": float(np.nanpercentile(df[key], 50)),
-                "ensemble_p95": float(np.nanpercentile(df[key], 95)),
-            })
+            pr = (
+                pct_rank(df[key].dropna().values, val)
+                if not np.isnan(val)
+                else float("nan")
+            )
+            summary.append(
+                {
+                    "metric": key,
+                    "map": map_name,
+                    "value": val,
+                    "percentile": pr,
+                    "ensemble_p5": float(np.nanpercentile(df[key], 5)),
+                    "ensemble_p50": float(np.nanpercentile(df[key], 50)),
+                    "ensemble_p95": float(np.nanpercentile(df[key], 95)),
+                }
+            )
 
     summary_df = pd.DataFrame(summary)
     summary_csv = DATA / "simulated_ensemble_percentiles.csv"
@@ -618,9 +713,14 @@ def main(n_steps: int = 5000, seed: int = None):
 
     print()
     print("  --- Per-metric percentiles (real maps vs ensemble) ---")
-    with pd.option_context("display.float_format", "{:+.4f}".format,
-                           "display.max_rows", None,
-                           "display.width", 140):
+    with pd.option_context(
+        "display.float_format",
+        "{:+.4f}".format,
+        "display.max_rows",
+        None,
+        "display.width",
+        140,
+    ):
         print(summary_df.to_string(index=False))
 
     # Persist the three real-map scores too
@@ -646,7 +746,9 @@ def main(n_steps: int = 5000, seed: int = None):
         print()
         print("  *** OUTLIER FLAGS (>=95th or <=5th percentile) ***")
         for f in flags:
-            print(f"    {f['map']:<32s} {f['metric']:<18s} value={f['value']:+.4f}  p={f['percentile']:.1f}")
+            print(
+                f"    {f['map']:<32s} {f['metric']:<18s} value={f['value']:+.4f}  p={f['percentile']:.1f}"
+            )
 
     print()
     print(f"[{time.strftime('%H:%M:%S')}] done.")
@@ -662,6 +764,7 @@ if __name__ == "__main__":
 
 # ---- convergence diagnostics -----------------------------------------------
 
+
 def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     """Compute integrated autocorrelation time and effective sample size.
 
@@ -674,14 +777,22 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     x = x[~np.isnan(x)]
     n = len(x)
     if n < 4:
-        return {"n": int(n), "tau": float("nan"), "n_eff": float("nan"),
-                "max_lag_used": 0}
+        return {
+            "n": int(n),
+            "tau": float("nan"),
+            "n_eff": float("nan"),
+            "max_lag_used": 0,
+        }
 
     x_centered = x - x.mean()
     var0 = np.dot(x_centered, x_centered) / n
     if var0 == 0 or not np.isfinite(var0):
-        return {"n": int(n), "tau": float("nan"), "n_eff": float("nan"),
-                "max_lag_used": 0}
+        return {
+            "n": int(n),
+            "tau": float("nan"),
+            "n_eff": float("nan"),
+            "max_lag_used": 0,
+        }
 
     if max_lag is None:
         max_lag = min(n // 4, 2000)
@@ -715,8 +826,7 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     }
 
 
-def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
-                      label: str):
+def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path, label: str):
     v = np.asarray(values, dtype=float)
     v = v[~np.isnan(v)]
     if len(v) == 0:
@@ -726,8 +836,13 @@ def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
 
     fig, ax = plt.subplots(figsize=(9, 4.5))
     ax.plot(idx, rmean, color="#1f2937", linewidth=1.0)
-    ax.axhline(v.mean(), linestyle="--", color="#888", linewidth=0.8,
-               label=f"final mean = {v.mean():+.5f}")
+    ax.axhline(
+        v.mean(),
+        linestyle="--",
+        color="#888",
+        linewidth=0.8,
+        label=f"final mean = {v.mean():+.5f}",
+    )
     ax.set_xlabel("Sample index")
     ax.set_ylabel(f"Running mean of {label}")
     ax.set_title(f"Running mean — {label}  (100k ReCom samples, seed 42)")
@@ -736,4 +851,3 @@ def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path,
     fig.tight_layout()
     fig.savefig(out_path, dpi=130)
     plt.close(fig)
-

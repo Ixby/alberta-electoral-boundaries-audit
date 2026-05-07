@@ -59,6 +59,7 @@ Backward:
     data/osm/alberta_osm_highways.gpkg
     data/osm/alberta_osm_rivers.gpkg
 """
+
 # Version: 0.9 (2026-04-26)
 
 from __future__ import annotations
@@ -106,8 +107,10 @@ def load_highway_lines() -> gpd.GeoDataFrame:
             f"analysis/scripts/_fetch_osm_natural.py first."
         )
     gdf = gpd.read_file(OSM_HIGHWAYS_GPKG)
-    print(f"  [osm] {len(gdf):,} highway ways loaded "
-          f"(classes={sorted(HIGHWAY_CLASSES)})")
+    print(
+        f"  [osm] {len(gdf):,} highway ways loaded "
+        f"(classes={sorted(HIGHWAY_CLASSES)})"
+    )
     return gdf
 
 
@@ -133,7 +136,9 @@ def _normalise_edges(edges) -> MultiLineString:
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
     if edges.geom_type == "GeometryCollection":
-        ls = [g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")]
+        ls = [
+            g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")
+        ]
         edges = unary_union(ls)
     return edges
 
@@ -241,11 +246,15 @@ def score_map(
         g = row.geometry
         ed_name = row[name_col]
         if g is None or g.is_empty:
-            rows.append({
-                "map": label, "name": ed_name,
-                "perimeter_km_total": 0.0, "perimeter_km_anchored": 0.0,
-                "anchored_pct": 0.0,
-            })
+            rows.append(
+                {
+                    "map": label,
+                    "name": ed_name,
+                    "perimeter_km_total": 0.0,
+                    "perimeter_km_anchored": 0.0,
+                    "anchored_pct": 0.0,
+                }
+            )
             continue
 
         if g.geom_type == "MultiPolygon":
@@ -267,13 +276,15 @@ def score_map(
                 anchored_sum += a
 
         pct = 100.0 * anchored_sum / perim_sum if perim_sum > 0 else 0.0
-        rows.append({
-            "map": label,
-            "name": ed_name,
-            "perimeter_km_total": perim_sum / 1000.0,
-            "perimeter_km_anchored": anchored_sum / 1000.0,
-            "anchored_pct": pct,
-        })
+        rows.append(
+            {
+                "map": label,
+                "name": ed_name,
+                "perimeter_km_total": perim_sum / 1000.0,
+                "perimeter_km_anchored": anchored_sum / 1000.0,
+                "anchored_pct": pct,
+            }
+        )
         if (i + 1) % 15 == 0:
             print(f"    [{label}] {i+1}/{len(eds)} polygons measured")
 
@@ -320,19 +331,38 @@ def main():
             "against OSM highways and/or rivers."
         )
     )
-    ap.add_argument("--shapefile", required=True, type=Path,
-                    help=".shp or .gpkg with electoral-division polygons")
-    ap.add_argument("--features", default="highways,rivers",
-                    help="Comma-separated subset of {highways,rivers,counties}. "
-                         "Default: highways,rivers (counties unavailable on disk).")
-    ap.add_argument("--name-col", default=None,
-                    help="ED name column; autodetected if omitted.")
-    ap.add_argument("--label", default=None,
-                    help="Map label for output rows; defaults to shapefile stem.")
-    ap.add_argument("--out-csv", type=Path, default=None,
-                    help="Per-ED CSV output. Defaults to data/v0_9_natural_anchoring_<label>.csv")
-    ap.add_argument("--out-json", type=Path, default=None,
-                    help="Provincial summary JSON. Defaults alongside CSV.")
+    ap.add_argument(
+        "--shapefile",
+        required=True,
+        type=Path,
+        help=".shp or .gpkg with electoral-division polygons",
+    )
+    ap.add_argument(
+        "--features",
+        default="highways,rivers",
+        help="Comma-separated subset of {highways,rivers,counties}. "
+        "Default: highways,rivers (counties unavailable on disk).",
+    )
+    ap.add_argument(
+        "--name-col", default=None, help="ED name column; autodetected if omitted."
+    )
+    ap.add_argument(
+        "--label",
+        default=None,
+        help="Map label for output rows; defaults to shapefile stem.",
+    )
+    ap.add_argument(
+        "--out-csv",
+        type=Path,
+        default=None,
+        help="Per-ED CSV output. Defaults to data/v0_9_natural_anchoring_<label>.csv",
+    )
+    ap.add_argument(
+        "--out-json",
+        type=Path,
+        default=None,
+        help="Provincial summary JSON. Defaults alongside CSV.",
+    )
     args = ap.parse_args()
 
     if not args.shapefile.exists():
@@ -341,8 +371,10 @@ def main():
     features = [f.strip().lower() for f in args.features.split(",") if f.strip()]
     valid = {"highways", "rivers", "counties"}
     if not features or any(f not in valid for f in features):
-        print(f"ERROR: --features must be subset of {valid}; got {features}",
-              file=sys.stderr)
+        print(
+            f"ERROR: --features must be subset of {valid}; got {features}",
+            file=sys.stderr,
+        )
         sys.exit(2)
 
     label = args.label or args.shapefile.stem
@@ -364,8 +396,10 @@ def main():
     print(f"\n[edges] building natural-anchoring edge network in {eds.crs}")
     t0 = time.time()
     edges = build_natural_edges(eds.crs, features)
-    print(f"  edges built in {time.time()-t0:.1f}s; "
-          f"total length = {edges.length/1000:,.0f} km")
+    print(
+        f"  edges built in {time.time()-t0:.1f}s; "
+        f"total length = {edges.length/1000:,.0f} km"
+    )
 
     print(f"\n[score] {label}")
     t = time.time()
@@ -380,7 +414,9 @@ def main():
             "snap_tolerance_m": SNAP_TOL_M,
             "vertex_densify_m": VERTEX_DENSIFY_M,
             "features": features,
-            "highway_classes": sorted(HIGHWAY_CLASSES) if "highways" in features else [],
+            "highway_classes": (
+                sorted(HIGHWAY_CLASSES) if "highways" in features else []
+            ),
             "parity_note": (
                 "Snap tolerance and vertex densification held identical to "
                 "score_anchoring.py (the audit's headline CSD-anchoring run "
@@ -388,8 +424,12 @@ def main():
             ),
         },
         "sources": {
-            "input": {"path": str(args.shapefile), "label": label,
-                      "n_eds": int(len(eds)), "name_column": name_col},
+            "input": {
+                "path": str(args.shapefile),
+                "label": label,
+                "n_eds": int(len(eds)),
+                "name_column": name_col,
+            },
             "highways": {
                 "path": str(OSM_HIGHWAYS_GPKG),
                 "provenance": "OpenStreetMap via Overpass API (motorway|trunk|primary|secondary)",
@@ -424,10 +464,14 @@ def main():
     print(f"  wrote: {out_json}")
 
     print("\n" + "=" * 72)
-    print(f"  {label}: {summary['anchored_pct_overall']:5.1f}% of total perimeter "
-          f"anchored to natural features ({'+'.join(features)})")
-    print(f"           mean per-ED {summary['mean_per_ed_anchored_pct']:5.1f}%, "
-          f"median {summary['median_per_ed_anchored_pct']:5.1f}%")
+    print(
+        f"  {label}: {summary['anchored_pct_overall']:5.1f}% of total perimeter "
+        f"anchored to natural features ({'+'.join(features)})"
+    )
+    print(
+        f"           mean per-ED {summary['mean_per_ed_anchored_pct']:5.1f}%, "
+        f"median {summary['median_per_ed_anchored_pct']:5.1f}%"
+    )
     print("=" * 72)
     print("\n  Top-5 most-anchored:")
     for r in summary["top5_most_anchored"]:

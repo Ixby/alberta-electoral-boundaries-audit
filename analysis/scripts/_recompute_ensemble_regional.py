@@ -16,6 +16,7 @@ Run:
     PYTHONIOENCODING=utf-8 python \\
         analysis/scripts/_recompute_ensemble_regional.py
 """
+
 from __future__ import annotations
 
 import sys
@@ -51,8 +52,8 @@ def main():
 
     print("Loading 10k verification assignments...")
     d = np.load(ASSIGN_NPZ)
-    assignments = d["assignments"]   # (10000, 4765) int8
-    va_ids = d["va_ids"]             # (4765,)
+    assignments = d["assignments"]  # (10000, 4765) int8
+    va_ids = d["va_ids"]  # (4765,)
 
     # va_ids is a permutation/identity over the VA index. Build a mapping so
     # the assignment row is in the same VA-row order as `ucp`/`ndp`/`region`.
@@ -71,8 +72,14 @@ def main():
         asg = assignments[i].astype(np.int32)
         s50_u, _, _ = seats_at_50_50_uniform(ucp, ndp, asg)
         s50_r, _, _, s_star = seats_at_50_50_regional(ucp, ndp, region, ratios, asg)
-        rows.append({"step": i, "s50_uniform": s50_u, "s50_regional": s50_r,
-                     "applied_s": s_star})
+        rows.append(
+            {
+                "step": i,
+                "s50_uniform": s50_u,
+                "s50_regional": s50_r,
+                "applied_s": s_star,
+            }
+        )
         if time.time() - last_print > 10:
             elapsed = time.time() - t0
             eta = elapsed / (i + 1) * (n_steps - i - 1)
@@ -82,12 +89,16 @@ def main():
     df = pd.DataFrame(rows)
     df.to_csv(OUT_CSV, index=False)
     print(f"wrote {OUT_CSV}")
-    print(f"  uniform  s50: mean={df['s50_uniform'].mean():.4f}  "
-          f"p5={df['s50_uniform'].quantile(0.05):.4f}  "
-          f"p95={df['s50_uniform'].quantile(0.95):.4f}")
-    print(f"  regional s50: mean={df['s50_regional'].mean():.4f}  "
-          f"p5={df['s50_regional'].quantile(0.05):.4f}  "
-          f"p95={df['s50_regional'].quantile(0.95):.4f}")
+    print(
+        f"  uniform  s50: mean={df['s50_uniform'].mean():.4f}  "
+        f"p5={df['s50_uniform'].quantile(0.05):.4f}  "
+        f"p95={df['s50_uniform'].quantile(0.95):.4f}"
+    )
+    print(
+        f"  regional s50: mean={df['s50_regional'].mean():.4f}  "
+        f"p5={df['s50_regional'].quantile(0.05):.4f}  "
+        f"p95={df['s50_regional'].quantile(0.95):.4f}"
+    )
 
 
 if __name__ == "__main__":

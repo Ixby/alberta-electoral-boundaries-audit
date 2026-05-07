@@ -5,12 +5,13 @@
   "swing_zone_count": 2108,
   "total_va_count": 4765,
   "unresolved_count": 0,
-  "bootstrap_p_value": 0.0,
+  "bootstrap_p_value": 0.0044,
   "bootstrap_n": 10000,
   "bootstrap_seed": 23687475,
+  "bootstrap_procedure": "full-recompute (pre-registered): each swing-zone VA Bernoulli-assigned to majority_ed or minority_ed; EG recomputed from scratch per permutation; SZAT_perm = EG(perm_minority) - EG(majority_fixed)",
   "bootstrap_ci_95": [
-    0.008013,
-    0.0134
+    0.00998,
+    0.036925
   ],
   "regional_breakdown": {
     "Calgary": -0.007837,

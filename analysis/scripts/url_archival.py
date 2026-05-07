@@ -19,6 +19,7 @@ Backward dependencies:
   - analysis/url_archival_log.md (summary consumes the CSVs)
   - FROZEN_MANIFEST.md (rewrite step consumes the CSVs)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -105,7 +106,7 @@ def submit_wayback(url: str, session: requests.Session) -> dict:
                 "https://web.archive.org/cdx/search/cdx",
                 params={
                     "url": url,
-                    "limit": "-1",            # most recent
+                    "limit": "-1",  # most recent
                     "output": "json",
                     "filter": "statuscode:200",
                 },
@@ -133,7 +134,7 @@ def submit_wayback(url: str, session: requests.Session) -> dict:
                 # Fall through to availability API as a second opinion.
             if cdx.status_code == 429 or 500 <= cdx.status_code < 600:
                 last_err = f"CDX HTTP {cdx.status_code}"
-                time.sleep(2 ** attempt * 5)
+                time.sleep(2**attempt * 5)
                 continue
         except requests.RequestException as e:
             last_err = f"CDX: {e}"
@@ -165,7 +166,7 @@ def submit_wayback(url: str, session: requests.Session) -> dict:
                 }
         except requests.RequestException as e:
             last_err = str(e)
-            time.sleep(2 ** attempt * 3)
+            time.sleep(2**attempt * 3)
     return {
         "original_url": url,
         "wayback_snapshot_url": "",
@@ -235,7 +236,11 @@ def submit_archiveph(url: str, session: requests.Session) -> dict:
                         "status": "ok",
                         "error_message": "existing snapshot via /newest",
                     }
-            if r.status_code == 200 and "archive.ph" in r.url and "/newest/" not in r.url:
+            if (
+                r.status_code == 200
+                and "archive.ph" in r.url
+                and "/newest/" not in r.url
+            ):
                 return {
                     "original_url": url,
                     "archiveph_snapshot_url": r.url,
@@ -323,7 +328,13 @@ def main() -> int:
     write_csv(
         WAYBACK_CSV,
         wayback_rows,
-        ["original_url", "wayback_snapshot_url", "timestamp", "status", "error_message"],
+        [
+            "original_url",
+            "wayback_snapshot_url",
+            "timestamp",
+            "status",
+            "error_message",
+        ],
     )
     print(f"[phase2] wrote {WAYBACK_CSV}")
 

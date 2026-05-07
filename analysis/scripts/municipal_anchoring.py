@@ -78,6 +78,7 @@ Backward:
   data/shapefiles/reference/alberta_2021_das.gpkg  (StatsCan 2021 DA;
                                  supplemental edge source for urban interiors)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -109,24 +110,38 @@ DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
 # Prefer v0_3 (Issue #3) if present; otherwise v0_2.
-V0_3_MAJ = DATA / "shapefiles" / "derived" / "v0_3_canonical_majority_2026_eds_swept.gpkg"
-V0_3_MIN = DATA / "shapefiles" / "derived" / "v0_3_canonical_minority_2026_eds_swept.gpkg"
-V0_2_MAJ = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-V0_2_MIN = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+V0_3_MAJ = (
+    DATA / "shapefiles" / "derived" / "v0_3_canonical_majority_2026_eds_swept.gpkg"
+)
+V0_3_MIN = (
+    DATA / "shapefiles" / "derived" / "v0_3_canonical_minority_2026_eds_swept.gpkg"
+)
+V0_2_MAJ = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+)
+V0_2_MIN = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+)
 
 CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
-DA_GPKG  = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
+DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 
-MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
-MIN_OUT = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+MAJ_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
+)
+MIN_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+)
 
 LOG_CSV = REPORTS / "municipal_anchoring_log.csv"
 SUMMARY_JSON = DATA / "v0_1_municipal_anchoring_summary.json"
 
 # Snapping configuration
-SNAP_TOL_M = 500.0        # max vertex-to-municipal-edge distance for snapping
-MIN_SEGMENT_COVERAGE_M = 1000.0  # min contiguous snapped length to count as anchored segment
-VERTEX_DENSIFY_M = 50.0   # re-densify boundary to this spacing before snapping
+SNAP_TOL_M = 500.0  # max vertex-to-municipal-edge distance for snapping
+MIN_SEGMENT_COVERAGE_M = (
+    1000.0  # min contiguous snapped length to count as anchored segment
+)
+VERTEX_DENSIFY_M = 50.0  # re-densify boundary to this spacing before snapping
 
 # DA supplement: merge 2021 DA boundaries into the CSD edge network so that
 # urban-interior EDs (e.g. Calgary, which is a single CSD) can snap to the
@@ -174,7 +189,9 @@ def _normalise_edges(edges) -> MultiLineString:
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
     if edges.geom_type == "GeometryCollection":
-        lines = [g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")]
+        lines = [
+            g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")
+        ]
         edges = unary_union(lines)
     return edges
 
@@ -210,7 +227,9 @@ def load_municipal_edges(target_crs) -> MultiLineString:
         print(f"  [edges] DA boundaries loaded: {len(da):,} polygons (supplement)")
         all_boundary_geoms.append(da_edges)
     elif USE_DA_SUPPLEMENT:
-        print(f"  [edges] WARNING: DA_GPKG not found at {DA_GPKG}; skipping DA supplement")
+        print(
+            f"  [edges] WARNING: DA_GPKG not found at {DA_GPKG}; skipping DA supplement"
+        )
 
     # Merge all sources into one network
     edges = unary_union(all_boundary_geoms)
@@ -325,12 +344,12 @@ def snap_polygon(
             p = Point(x, y)
             cand_idxs = edges_tree.query(p.buffer(snap_tol))
             if len(cand_idxs):
-                best = min(
-                    edge_lines[int(i)].distance(p) for i in cand_idxs
-                )
+                best = min(edge_lines[int(i)].distance(p) for i in cand_idxs)
                 pre_errs.append(best)
     for hole in poly.interiors:
-        h_new, h_flags, h_segs = snap_ring(hole, edges, edges_tree, edge_lines, snap_tol)
+        h_new, h_flags, h_segs = snap_ring(
+            hole, edges, edges_tree, edge_lines, snap_tol
+        )
         interiors_new.append(h_new)
         all_flags.extend(h_flags)
         all_segs.extend(h_segs)
@@ -340,9 +359,7 @@ def snap_polygon(
                 p = Point(x, y)
                 cand_idxs = edges_tree.query(p.buffer(snap_tol))
                 if len(cand_idxs):
-                    best = min(
-                        edge_lines[int(i)].distance(p) for i in cand_idxs
-                    )
+                    best = min(edge_lines[int(i)].distance(p) for i in cand_idxs)
                     pre_errs.append(best)
 
     new_poly = Polygon(exterior_new, interiors_new)
@@ -370,6 +387,7 @@ def anchor_map(
     label: str,
 ) -> tuple[gpd.GeoDataFrame, pd.DataFrame]:
     from shapely.strtree import STRtree
+
     # STRtree over individual LineStrings of the municipal-edge union
     edge_lines = []
     if edges.geom_type == "MultiLineString":
@@ -395,19 +413,25 @@ def anchor_map(
         g = row.geometry
         if g is None or g.is_empty:
             new_geoms.append(g)
-            rows.append({
-                "map": label, "name_2026": row["name_2026"],
-                "perimeter_km_total": 0.0, "perimeter_km_anchored": 0.0,
-                "anchored_pct": 0.0, "pre_ama_error_m": 0.0,
-                "post_ama_error_m": 0.0,
-            })
+            rows.append(
+                {
+                    "map": label,
+                    "name_2026": row["name_2026"],
+                    "perimeter_km_total": 0.0,
+                    "perimeter_km_anchored": 0.0,
+                    "anchored_pct": 0.0,
+                    "pre_ama_error_m": 0.0,
+                    "post_ama_error_m": 0.0,
+                }
+            )
             continue
 
         if g.geom_type == "MultiPolygon":
             parts = list(g.geoms)
         elif g.geom_type == "GeometryCollection":
-            parts = [s for s in g.geoms if s.geom_type == "Polygon"] + \
-                    [sp for s in g.geoms if s.geom_type == "MultiPolygon" for sp in s.geoms]
+            parts = [s for s in g.geoms if s.geom_type == "Polygon"] + [
+                sp for s in g.geoms if s.geom_type == "MultiPolygon" for sp in s.geoms
+            ]
             if not parts:
                 new_geoms.append(g)
                 continue
@@ -432,24 +456,24 @@ def anchor_map(
         if len(new_parts) == 1:
             new_geom = new_parts[0]
         else:
-            new_geom = MultiPolygon(
-                [x for x in new_parts if x.geom_type == "Polygon"]
-            )
+            new_geom = MultiPolygon([x for x in new_parts if x.geom_type == "Polygon"])
         new_geom = make_valid(new_geom)
         new_geom = _keep_polys(new_geom)
         new_geoms.append(new_geom)
 
         anchored_pct = 100.0 * anchored_sum / perim_sum if perim_sum > 0 else 0.0
         pre_err_m = float(np.mean(pre_errs)) if pre_errs else 0.0
-        rows.append({
-            "map": label,
-            "name_2026": row["name_2026"],
-            "perimeter_km_total": perim_sum / 1000.0,
-            "perimeter_km_anchored": anchored_sum / 1000.0,
-            "anchored_pct": anchored_pct,
-            "pre_ama_error_m": pre_err_m,
-            "post_ama_error_m": 0.0,  # exact by construction
-        })
+        rows.append(
+            {
+                "map": label,
+                "name_2026": row["name_2026"],
+                "perimeter_km_total": perim_sum / 1000.0,
+                "perimeter_km_anchored": anchored_sum / 1000.0,
+                "anchored_pct": anchored_pct,
+                "pre_ama_error_m": pre_err_m,
+                "post_ama_error_m": 0.0,  # exact by construction
+            }
+        )
         if (i + 1) % 15 == 0:
             print(f"    [{label}] {i+1}/{len(eds)} polygons anchored")
 
@@ -522,7 +546,9 @@ def re_resolve_topology(eds: gpd.GeoDataFrame, label: str) -> gpd.GeoDataFrame:
             resolved += 1
 
     eds["geometry"] = geoms
-    print(f"    resolved {resolved} residual overlap pairs, max {max_resolved_m2:,.1f} m²")
+    print(
+        f"    resolved {resolved} residual overlap pairs, max {max_resolved_m2:,.1f} m²"
+    )
     return eds
 
 
@@ -547,7 +573,9 @@ def verify_no_overlap(eds: gpd.GeoDataFrame, label: str) -> tuple[int, float]:
                 continue
             count += 1
             total_km2 += inter.area / 1e6
-    print(f"  [{label}] post-validation: {count} pairs, {total_km2:,.4f} km² residual overlap")
+    print(
+        f"  [{label}] post-validation: {count} pairs, {total_km2:,.4f} km² residual overlap"
+    )
     return count, total_km2
 
 
@@ -571,8 +599,10 @@ def main():
     print("\n[load] municipal-boundary network (StatsCan 2021 CSDs — AMA-equivalent)")
     t0 = time.time()
     edges = load_municipal_edges(maj.crs)
-    print(f"  edges built in {time.time()-t0:.1f}s; total length = "
-          f"{edges.length/1000:,.0f} km")
+    print(
+        f"  edges built in {time.time()-t0:.1f}s; total length = "
+        f"{edges.length/1000:,.0f} km"
+    )
 
     print("\n" + "=" * 72)
     print("  MAJORITY anchoring")
@@ -610,10 +640,18 @@ def main():
     maj_cov = _pct_coverage(maj_log)
     min_cov = _pct_coverage(min_log)
 
-    top5_maj = maj_log.nlargest(5, "anchored_pct")[["name_2026", "anchored_pct"]].to_dict("records")
-    bot5_maj = maj_log.nsmallest(5, "anchored_pct")[["name_2026", "anchored_pct"]].to_dict("records")
-    top5_min = min_log.nlargest(5, "anchored_pct")[["name_2026", "anchored_pct"]].to_dict("records")
-    bot5_min = min_log.nsmallest(5, "anchored_pct")[["name_2026", "anchored_pct"]].to_dict("records")
+    top5_maj = maj_log.nlargest(5, "anchored_pct")[
+        ["name_2026", "anchored_pct"]
+    ].to_dict("records")
+    bot5_maj = maj_log.nsmallest(5, "anchored_pct")[
+        ["name_2026", "anchored_pct"]
+    ].to_dict("records")
+    top5_min = min_log.nlargest(5, "anchored_pct")[
+        ["name_2026", "anchored_pct"]
+    ].to_dict("records")
+    bot5_min = min_log.nsmallest(5, "anchored_pct")[
+        ["name_2026", "anchored_pct"]
+    ].to_dict("records")
 
     summary = {
         "method": {
@@ -628,9 +666,11 @@ def main():
             "municipal_boundaries": {
                 "path": str(CSD_GPKG),
                 "provenance": "StatsCan 2021 Census Sub-Division (AMA-equivalent)",
-                "downloaded_from": ("https://www12.statcan.gc.ca/census-recensement/"
-                                    "2021/geo/sip-pis/boundary-limites/files-fichiers/"
-                                    "lcsd000a21a_e.zip"),
+                "downloaded_from": (
+                    "https://www12.statcan.gc.ca/census-recensement/"
+                    "2021/geo/sip-pis/boundary-limites/files-fichiers/"
+                    "lcsd000a21a_e.zip"
+                ),
                 "n_csds_alberta": 423,
             },
             "da_boundaries": {
@@ -686,15 +726,23 @@ def main():
     print("  ANCHORING SUMMARY")
     print("=" * 72)
     print(f"\n  MAJORITY: {maj_cov:5.1f}% of total perimeter anchored to AMA edges")
-    print(f"            mean per-ED anchored {maj_log['anchored_pct'].mean():5.1f}%, "
-          f"median {maj_log['anchored_pct'].median():5.1f}%")
-    print(f"            mean pre-anchor DPG error = {maj_log['pre_ama_error_m'].mean():.1f} m "
-          f"on anchored segments")
+    print(
+        f"            mean per-ED anchored {maj_log['anchored_pct'].mean():5.1f}%, "
+        f"median {maj_log['anchored_pct'].median():5.1f}%"
+    )
+    print(
+        f"            mean pre-anchor DPG error = {maj_log['pre_ama_error_m'].mean():.1f} m "
+        f"on anchored segments"
+    )
     print(f"\n  MINORITY: {min_cov:5.1f}% of total perimeter anchored to AMA edges")
-    print(f"            mean per-ED anchored {min_log['anchored_pct'].mean():5.1f}%, "
-          f"median {min_log['anchored_pct'].median():5.1f}%")
-    print(f"            mean pre-anchor DPG error = {min_log['pre_ama_error_m'].mean():.1f} m "
-          f"on anchored segments")
+    print(
+        f"            mean per-ED anchored {min_log['anchored_pct'].mean():5.1f}%, "
+        f"median {min_log['anchored_pct'].median():5.1f}%"
+    )
+    print(
+        f"            mean pre-anchor DPG error = {min_log['pre_ama_error_m'].mean():.1f} m "
+        f"on anchored segments"
+    )
 
     print("\n  Top-5 most-anchored EDs (majority):")
     for r in top5_maj:
@@ -711,7 +759,9 @@ def main():
 
     all_gates_ok = all(summary["validation_gates"].values())
     print("\n" + "=" * 72)
-    print(f"  MUNICIPAL ANCHORING: {'ALL GATES PASSED' if all_gates_ok else 'GATE FAILURE — investigate'}")
+    print(
+        f"  MUNICIPAL ANCHORING: {'ALL GATES PASSED' if all_gates_ok else 'GATE FAILURE — investigate'}"
+    )
     print("=" * 72)
 
 

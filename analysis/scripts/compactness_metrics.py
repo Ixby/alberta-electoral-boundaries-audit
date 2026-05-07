@@ -42,6 +42,7 @@ Backward deps:
   - data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -62,9 +63,12 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
+
 def _pick(plan: str) -> Path:
-    """Prefer v0_8 full_refined (89/89 with inheritance fill), then refined,
-    then canonical, then v0_7 canonical."""
+    """Prefer official canonical shapefiles; fall back to derived (deprecated)."""
+    canonical = ROOT / "data" / "shapefiles" / "canonical" / f"ea_{plan}_2026_eds.gpkg"
+    if canonical.exists():
+        return canonical
     base = ROOT / "data" / "shapefiles" / "derived"
     for fname in (
         f"v0_10_topological_{plan}_2026_eds.gpkg",
@@ -81,7 +85,11 @@ def _pick(plan: str) -> Path:
 
 MAPS = {
     "2019_enacted": (
-        ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
+        ROOT
+        / "data"
+        / "shapefiles"
+        / "reference"
+        / "alberta_2019_eds"
         / "EDS_ENACTED_BILL33_15DEC2017.shp"
     ),
     "majority_2026": _pick("majority"),
@@ -111,12 +119,27 @@ LOW_THRESHOLD_2 = 0.40
 # Helpers
 # ---------------------------------------------------------------------------
 
+
 def _detect_name_column(gdf: gpd.GeoDataFrame) -> str:
     """Return the column most likely to hold ED names."""
     candidates = [
-        "name_2026", "ed_name", "ED_NAME", "name", "NAME", "EDS_NAME", "eds_name",
-        "ENAME", "ename", "DISTRICT_N", "district_n", "DIV_NAME", "div_name",
-        "RIDING_NAM", "riding_nam", "EDName2017",
+        "EDName2025",
+        "name_2026",
+        "ed_name",
+        "ED_NAME",
+        "name",
+        "NAME",
+        "EDS_NAME",
+        "eds_name",
+        "ENAME",
+        "ename",
+        "DISTRICT_N",
+        "district_n",
+        "DIV_NAME",
+        "div_name",
+        "RIDING_NAM",
+        "riding_nam",
+        "EDName2017",
     ]
     for c in candidates:
         if c in gdf.columns:
@@ -134,7 +157,7 @@ def polsby_popper(area_m2: float, perimeter_m: float) -> float:
     """Return Polsby-Popper score. Returns 0.0 if perimeter is zero."""
     if perimeter_m <= 0:
         return 0.0
-    return (4.0 * math.pi * area_m2) / (perimeter_m ** 2)
+    return (4.0 * math.pi * area_m2) / (perimeter_m**2)
 
 
 def reock_score(geom) -> float:
@@ -182,6 +205,7 @@ def percentile_rank(values: List[float], value: float) -> float:
 # Per-map computation
 # ---------------------------------------------------------------------------
 
+
 def compute_compactness(map_label: str, path: Path) -> List[Dict]:
     """Load a map, reproject to Alberta TM, compute PP for each ED."""
     if not path.exists():
@@ -198,26 +222,32 @@ def compute_compactness(map_label: str, path: Path) -> List[Dict]:
     expected = EXPECTED_COUNTS.get(map_label, "?")
     actual = len(gdf)
     if actual != expected and expected != "?":
-        raise ValueError(f"Map '{map_label}' expected {expected} EDs, got {actual}. Shapefile validation failed.")
+        raise ValueError(
+            f"Map '{map_label}' expected {expected} EDs, got {actual}. Shapefile validation failed."
+        )
 
     rows = []
     for _, row in gdf.iterrows():
         geom = row.geometry
         if geom is None or geom.is_empty:
-            raise ValueError(f"Map '{map_label}' contains empty geometry for district '{row.get(name_col, 'Unknown')}'. Topology failure.")
+            raise ValueError(
+                f"Map '{map_label}' contains empty geometry for district '{row.get(name_col, 'Unknown')}'. Topology failure."
+            )
         area_m2 = geom.area
         perimeter_m = geom.length
         pp = polsby_popper(area_m2, perimeter_m)
-        rows.append({
-            "map": map_label,
-            "name": str(row[name_col]),
-            "area_km2": area_m2 / 1e6,
-            "perimeter_km": perimeter_m / 1e3,
-            "polsby_popper": pp,
-            "reock": reock_score(geom),
-            "convex_hull": convex_hull_ratio(geom),
-            "schwartzberg": schwartzberg_score(area_m2, perimeter_m),
-        })
+        rows.append(
+            {
+                "map": map_label,
+                "name": str(row[name_col]),
+                "area_km2": area_m2 / 1e6,
+                "perimeter_km": perimeter_m / 1e3,
+                "polsby_popper": pp,
+                "reock": reock_score(geom),
+                "convex_hull": convex_hull_ratio(geom),
+                "schwartzberg": schwartzberg_score(area_m2, perimeter_m),
+            }
+        )
 
     # Add percentile ranks within this map
     pp_values = [r["polsby_popper"] for r in rows]
@@ -231,17 +261,20 @@ def summarise_extended(map_label: str, rows: List[Dict]) -> Dict:
     """Summary including all four compactness metrics."""
     base = summarise(map_label, rows)
     for metric in ["reock", "convex_hull", "schwartzberg"]:
-        vals = [r[metric] for r in rows if r.get(metric) == r.get(metric)]  # exclude nan
+        vals = [
+            r[metric] for r in rows if r.get(metric) == r.get(metric)
+        ]  # exclude nan
         if vals:
-            base[f"{metric}_mean"]   = round(sum(vals) / len(vals), 6)
-            base[f"{metric}_median"] = round(sorted(vals)[len(vals)//2], 6)
-            base[f"{metric}_min"]    = round(min(vals), 6)
+            base[f"{metric}_mean"] = round(sum(vals) / len(vals), 6)
+            base[f"{metric}_median"] = round(sorted(vals)[len(vals) // 2], 6)
+            base[f"{metric}_min"] = round(min(vals), 6)
     return base
 
 
 # ---------------------------------------------------------------------------
 # Summary statistics
 # ---------------------------------------------------------------------------
+
 
 def summarise(map_label: str, rows: List[Dict]) -> Dict:
     """Compute per-map summary statistics."""
@@ -257,7 +290,9 @@ def summarise(map_label: str, rows: List[Dict]) -> Dict:
     else:
         median_pp = (pp_vals_sorted[n // 2 - 1] + pp_vals_sorted[n // 2]) / 2.0
 
-    variance = sum((v - mean_pp) ** 2 for v in pp_vals_sorted) / (n - 1) if n > 1 else 0.0
+    variance = (
+        sum((v - mean_pp) ** 2 for v in pp_vals_sorted) / (n - 1) if n > 1 else 0.0
+    )
     std_dev = math.sqrt(variance)
 
     return {
@@ -277,24 +312,31 @@ def summarise(map_label: str, rows: List[Dict]) -> Dict:
 # Output
 # ---------------------------------------------------------------------------
 
+
 def write_csv(all_rows: List[Dict]) -> None:
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = [
-        "map", "name", "area_km2", "perimeter_km",
-        "polsby_popper", "pp_percentile_rank",
+        "map",
+        "name",
+        "area_km2",
+        "perimeter_km",
+        "polsby_popper",
+        "pp_percentile_rank",
     ]
     with open(OUT_CSV, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fieldnames)
         writer.writeheader()
         for row in all_rows:
-            writer.writerow({
-                "map": row["map"],
-                "name": row["name"],
-                "area_km2": f"{row['area_km2']:.4f}",
-                "perimeter_km": f"{row['perimeter_km']:.4f}",
-                "polsby_popper": f"{row['polsby_popper']:.6f}",
-                "pp_percentile_rank": f"{row['pp_percentile_rank']:.2f}",
-            })
+            writer.writerow(
+                {
+                    "map": row["map"],
+                    "name": row["name"],
+                    "area_km2": f"{row['area_km2']:.4f}",
+                    "perimeter_km": f"{row['perimeter_km']:.4f}",
+                    "polsby_popper": f"{row['polsby_popper']:.6f}",
+                    "pp_percentile_rank": f"{row['pp_percentile_rank']:.2f}",
+                }
+            )
     print(f"CSV written: {OUT_CSV}")
 
 
@@ -353,6 +395,7 @@ def gate_check(summaries: List[Dict]) -> None:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main() -> None:
     all_rows: List[Dict] = []

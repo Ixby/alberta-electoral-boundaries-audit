@@ -30,6 +30,7 @@ Backward:
   analysis/scripts/v0_1_assignment_va_attribution_maup.py  (MAUP helpers)
   data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -116,21 +117,30 @@ SIGMA_PROFILES: dict[str, dict[str, float]] = {
 }
 
 
-def polygon_sigmas(canon_gdf: gpd.GeoDataFrame, profile: dict[str, float]) -> np.ndarray:
+def polygon_sigmas(
+    canon_gdf: gpd.GeoDataFrame, profile: dict[str, float]
+) -> np.ndarray:
     """Return per-polygon sigma (m) for the given tier profile."""
     src = canon_gdf.get("canon_source")
     if src is None:
         return np.full(len(canon_gdf), profile["_default"], dtype=float)
     out = np.array(
-        [profile.get(str(s), profile["_default"]) if pd.notna(s) else profile["_default"]
-         for s in src.tolist()],
+        [
+            (
+                profile.get(str(s), profile["_default"])
+                if pd.notna(s)
+                else profile["_default"]
+            )
+            for s in src.tolist()
+        ],
         dtype=float,
     )
     return out
 
 
-def perturb_map_tiered(canon_gdf: gpd.GeoDataFrame, rng: np.random.Generator,
-                       sigmas: np.ndarray) -> gpd.GeoDataFrame:
+def perturb_map_tiered(
+    canon_gdf: gpd.GeoDataFrame, rng: np.random.Generator, sigmas: np.ndarray
+) -> gpd.GeoDataFrame:
     """Apply per-polygon (dx, dy) offset with polygon-specific sigma.
 
     dx, dy independently ~ Uniform[-sigma_i, +sigma_i] for each polygon i.
@@ -140,8 +150,9 @@ def perturb_map_tiered(canon_gdf: gpd.GeoDataFrame, rng: np.random.Generator,
     v = rng.uniform(-1.0, 1.0, size=len(out))
     dxs = u * sigmas
     dys = v * sigmas
-    new_geoms = [translate(g, xoff=dx, yoff=dy)
-                 for g, dx, dy in zip(out.geometry, dxs, dys)]
+    new_geoms = [
+        translate(g, xoff=dx, yoff=dy) for g, dx, dy in zip(out.geometry, dxs, dys)
+    ]
     out["geometry"] = new_geoms
     return out
 
@@ -191,16 +202,25 @@ def run_one_realisation_tiered(
         "minority_ndp_seats": int(mino["ndp_seats"]),
         "majority_conservation_pass": bool(maj["conservation"]["pass"]),
         "minority_conservation_pass": bool(mino["conservation"]["pass"]),
-        "majority_coverage_frac": float(maj["coverage"]["va_area_weighted_coverage_frac"]),
-        "minority_coverage_frac": float(mino["coverage"]["va_area_weighted_coverage_frac"]),
+        "majority_coverage_frac": float(
+            maj["coverage"]["va_area_weighted_coverage_frac"]
+        ),
+        "minority_coverage_frac": float(
+            mino["coverage"]["va_area_weighted_coverage_frac"]
+        ),
     }
 
 
 def tier_breakdown(canon_gdf: gpd.GeoDataFrame, sigmas: np.ndarray) -> list[dict]:
     src = canon_gdf.get("canon_source")
     if src is None:
-        return [{"canon_source": "MISSING", "n": len(canon_gdf),
-                 "sigma_m": float(sigmas[0]) if len(sigmas) else None}]
+        return [
+            {
+                "canon_source": "MISSING",
+                "n": len(canon_gdf),
+                "sigma_m": float(sigmas[0]) if len(sigmas) else None,
+            }
+        ]
     rows = []
     vc = src.fillna("MISSING").value_counts()
     for s, n in vc.items():
@@ -214,18 +234,29 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--n", type=int, default=200)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--profile", type=str, default="central",
-                        choices=list(SIGMA_PROFILES.keys()),
-                        help="Tier-aware sigma profile (default central).")
+    parser.add_argument(
+        "--profile",
+        type=str,
+        default="central",
+        choices=list(SIGMA_PROFILES.keys()),
+        help="Tier-aware sigma profile (default central).",
+    )
     parser.add_argument("--progress-every", type=int, default=10)
-    parser.add_argument("--suffix", type=str, default=None,
-                        help="Filename suffix (default: '_v2_tiered' for central, "
-                             "'_v3_tight' for tight, '_v2_flat500' for flat-500).")
+    parser.add_argument(
+        "--suffix",
+        type=str,
+        default=None,
+        help="Filename suffix (default: '_v2_tiered' for central, "
+        "'_v3_tight' for tight, '_v2_flat500' for flat-500).",
+    )
     args = parser.parse_args()
 
     profile = SIGMA_PROFILES[args.profile]
-    default_suffixes = {"central": "_v2_tiered", "tight": "_v3_tight",
-                        "flat-500": "_v2_flat500"}
+    default_suffixes = {
+        "central": "_v2_tiered",
+        "tight": "_v3_tight",
+        "flat-500": "_v2_flat500",
+    }
     suffix = args.suffix or default_suffixes[args.profile]
 
     out_samples = DATA / f"v0_1_dpg_perturbation_samples{suffix}.csv"
@@ -249,15 +280,11 @@ def main():
     if "canon_source" not in maj_canon.columns:
         raw = gpd.read_file(MAJ_CLEAN_GPKG)
         key = "name_2026" if "name_2026" in raw.columns else raw.columns[0]
-        maj_canon = maj_canon.merge(
-            raw[[key, "canon_source"]], on=key, how="left"
-        )
+        maj_canon = maj_canon.merge(raw[[key, "canon_source"]], on=key, how="left")
     if "canon_source" not in min_canon.columns:
         raw = gpd.read_file(MIN_CLEAN_GPKG)
         key = "name_2026" if "name_2026" in raw.columns else raw.columns[0]
-        min_canon = min_canon.merge(
-            raw[[key, "canon_source"]], on=key, how="left"
-        )
+        min_canon = min_canon.merge(raw[[key, "canon_source"]], on=key, how="left")
     maj_xwalk = m1.load_crosswalk(MAJ_XWALK_CSV)
     min_xwalk = m1.load_crosswalk(MIN_XWALK_CSV)
     maj_names = pd.read_csv(MAJ_POPS_CSV)["ed_name"].tolist()
@@ -283,8 +310,18 @@ def main():
         t_i = time.time()
         try:
             result = run_one_realisation_tiered(
-                i, vas, maj_canon, min_canon, maj_sigmas, min_sigmas,
-                maj_xwalk, min_xwalk, maj_names, min_names, rng, silent=True,
+                i,
+                vas,
+                maj_canon,
+                min_canon,
+                maj_sigmas,
+                min_sigmas,
+                maj_xwalk,
+                min_xwalk,
+                maj_names,
+                min_names,
+                rng,
+                silent=True,
             )
         except Exception as e:
             print(f"  [perturbation {i}] ERROR: {e}")
@@ -294,10 +331,12 @@ def main():
             elapsed = time.time() - t_loop
             avg = elapsed / (i + 1)
             remaining = avg * (args.n - (i + 1))
-            print(f"  [{i+1}/{args.n}] last={time.time()-t_i:.1f}s  "
-                  f"avg={avg:.1f}s  elapsed={elapsed/60:.1f}m  "
-                  f"ETA={remaining/60:.1f}m  "
-                  f"asym_last={result['asymmetry_pp']:+.3f}pp")
+            print(
+                f"  [{i+1}/{args.n}] last={time.time()-t_i:.1f}s  "
+                f"avg={avg:.1f}s  elapsed={elapsed/60:.1f}m  "
+                f"ETA={remaining/60:.1f}m  "
+                f"asym_last={result['asymmetry_pp']:+.3f}pp"
+            )
         if (i + 1) % max(args.progress_every, 20) == 0:
             pd.DataFrame(rows).to_csv(out_samples, index=False)
 
@@ -310,11 +349,17 @@ def main():
     conservation_pass_rate = n_cons_pass / len(df) if len(df) else 0.0
 
     metric_keys = [
-        "majority_eg_pct", "minority_eg_pct", "asymmetry_pp",
-        "majority_mm_pp", "minority_mm_pp",
-        "majority_declination", "minority_declination",
-        "majority_seats_at_50_ndp", "minority_seats_at_50_ndp",
-        "majority_ndp_seats", "minority_ndp_seats",
+        "majority_eg_pct",
+        "minority_eg_pct",
+        "asymmetry_pp",
+        "majority_mm_pp",
+        "minority_mm_pp",
+        "majority_declination",
+        "minority_declination",
+        "majority_seats_at_50_ndp",
+        "minority_seats_at_50_ndp",
+        "majority_ndp_seats",
+        "minority_ndp_seats",
     ]
     summary_metrics = {k: summarise_metric(df[k].tolist()) for k in metric_keys}
 
@@ -330,7 +375,8 @@ def main():
         "p95_asymmetry": float(np.quantile(asym, 0.95)) if len(asym) else None,
         "ci90_crosses_zero": (
             bool(np.quantile(asym, 0.05) < 0 < np.quantile(asym, 0.95))
-            if len(asym) else None
+            if len(asym)
+            else None
         ),
     }
 

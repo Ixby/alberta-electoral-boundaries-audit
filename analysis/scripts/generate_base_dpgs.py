@@ -1,4 +1,8 @@
 """
+DEPRECATED 2026-05-07. Official Elections Alberta canonical shapefiles are now in
+data/shapefiles/canonical/. This DPG-generation script is no longer needed for
+analysis. Retained for provenance only.
+
 v0_1_generate_base_dpgs.py — Build v0_7 canonical DPGs (full 89-ED coverage)
 =========================================================================
 v0_6 had 77 EDs because:
@@ -30,6 +34,7 @@ Backward:
   data/shapefiles/derived/v0_3_canonical_majority_2026_eds_swept.gpkg
   data/shapefiles/derived/v0_3_canonical_minority_2026_eds_swept.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -51,9 +56,9 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UserWarning, module="geopandas")
 warnings.filterwarnings("ignore", message=".*GEOS.*")
 
-ROOT  = Path(__file__).resolve().parent.parent.parent
-DATA  = ROOT / "data" / "shapefiles" / "derived"
-RPTS  = ROOT / "analysis" / "reports"
+ROOT = Path(__file__).resolve().parent.parent.parent
+DATA = ROOT / "data" / "shapefiles" / "derived"
+RPTS = ROOT / "analysis" / "reports"
 
 # Inputs
 MAJ_V5 = DATA / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
@@ -64,22 +69,23 @@ MIN_V3 = DATA / "v0_3_canonical_minority_2026_eds_swept.gpkg"
 # Outputs
 MAJ_OUT = DATA / "v0_7_canonical_majority_2026_eds.gpkg"
 MIN_OUT = DATA / "v0_7_canonical_minority_2026_eds.gpkg"
-LOG_CSV  = RPTS / "build_v7_log.csv"
+LOG_CSV = RPTS / "build_v7_log.csv"
 SUM_JSON = RPTS / "build_v7_summary.json"
 
 # Propagation config — same as v0_6
-PROPAGATE_TOL_M       = 200.0
-PCT_THRESHOLD         = 10.0
-BUFFER_M              = 1.0
-MAX_PASSES            = 5
-ADJACENCY_MIN_LEN_M   = 10.0
-PCT_COL               = "new_total_anchored_pct"   # CSD + DA combined
-CRS                   = "EPSG:3401"
+PROPAGATE_TOL_M = 200.0
+PCT_THRESHOLD = 10.0
+BUFFER_M = 1.0
+MAX_PASSES = 5
+ADJACENCY_MIN_LEN_M = 10.0
+PCT_COL = "new_total_anchored_pct"  # CSD + DA combined
+CRS = "EPSG:3401"
 
 
 # ---------------------------------------------------------------------------
 # Geometry helpers (identical to v0_6)
 # ---------------------------------------------------------------------------
+
 
 def _extract_lines(geom) -> list:
     if geom is None or geom.is_empty:
@@ -97,8 +103,9 @@ def _extract_lines(geom) -> list:
     return []
 
 
-def _snap_vertices(ring_coords: np.ndarray, donor_line, shared_line,
-                   tol: float) -> tuple[np.ndarray, int]:
+def _snap_vertices(
+    ring_coords: np.ndarray, donor_line, shared_line, tol: float
+) -> tuple[np.ndarray, int]:
     new_coords = ring_coords.copy()
     n = 0
     for i, (x, y) in enumerate(ring_coords):
@@ -124,8 +131,10 @@ def _rebuild_polygon(original: Polygon, new_ext: np.ndarray) -> Polygon:
 # Step 1: fill null geometries from v0_3 fallback
 # ---------------------------------------------------------------------------
 
-def fill_nulls_from_v3(v5: gpd.GeoDataFrame, v3: gpd.GeoDataFrame,
-                        label: str) -> gpd.GeoDataFrame:
+
+def fill_nulls_from_v3(
+    v5: gpd.GeoDataFrame, v3: gpd.GeoDataFrame, label: str
+) -> gpd.GeoDataFrame:
     """
     For each row in v5 with null geometry, substitute the v0_3 swept geometry.
     Sets new_total_anchored_pct to 0 for fallback rows (no anchoring applied).
@@ -146,7 +155,7 @@ def fill_nulls_from_v3(v5: gpd.GeoDataFrame, v3: gpd.GeoDataFrame,
         fallback_geom = v3_lookup.get(name)
         if fallback_geom is not None and not fallback_geom.is_empty:
             gdf.at[idx, "geometry"] = make_valid(fallback_geom)
-            gdf.at[idx, PCT_COL] = 0.0   # v0_3 has no anchoring quality
+            gdf.at[idx, PCT_COL] = 0.0  # v0_3 has no anchoring quality
             gdf.at[idx, "v3_fallback"] = True
             n_filled += 1
             print(f"  [{label}] v0_3 fallback applied: {name}")
@@ -154,12 +163,16 @@ def fill_nulls_from_v3(v5: gpd.GeoDataFrame, v3: gpd.GeoDataFrame,
             still_null.append(name)
 
     if still_null:
-        print(f"  [{label}] WARNING: {len(still_null)} ED(s) still null after "
-              f"v0_3 fallback — dropping: {still_null}")
+        print(
+            f"  [{label}] WARNING: {len(still_null)} ED(s) still null after "
+            f"v0_3 fallback — dropping: {still_null}"
+        )
         gdf = gdf[~(gdf.geometry.isna() | gdf.geometry.is_empty)].copy()
 
-    print(f"  [{label}] Null fill: {n_filled} recovered, "
-          f"{len(still_null)} unrecoverable, {len(gdf)} EDs retained.")
+    print(
+        f"  [{label}] Null fill: {n_filled} recovered, "
+        f"{len(still_null)} unrecoverable, {len(gdf)} EDs retained."
+    )
     return gdf.reset_index(drop=True)
 
 
@@ -167,26 +180,34 @@ def fill_nulls_from_v3(v5: gpd.GeoDataFrame, v3: gpd.GeoDataFrame,
 # Step 2: multi-pass confidence propagation
 # ---------------------------------------------------------------------------
 
-def _propagation_pass(gdf: gpd.GeoDataFrame,
-                      pass_num: int) -> tuple[gpd.GeoDataFrame, list[dict], int]:
+
+def _propagation_pass(
+    gdf: gpd.GeoDataFrame, pass_num: int
+) -> tuple[gpd.GeoDataFrame, list[dict], int]:
     log_rows: list[dict] = []
     n = len(gdf)
 
     left_df = gpd.GeoDataFrame(
-        {"_lid": np.arange(n),
-         "name_2026": gdf["name_2026"].values,
-         PCT_COL: gdf[PCT_COL].values},
-        geometry=gdf.geometry.values, crs=gdf.crs,
+        {
+            "_lid": np.arange(n),
+            "name_2026": gdf["name_2026"].values,
+            PCT_COL: gdf[PCT_COL].values,
+        },
+        geometry=gdf.geometry.values,
+        crs=gdf.crs,
     )
     right_df = gpd.GeoDataFrame(
-        {"_rid": np.arange(n),
-         "name_2026": gdf["name_2026"].values,
-         PCT_COL: gdf[PCT_COL].values},
-        geometry=[g.buffer(BUFFER_M) for g in gdf.geometry.values], crs=gdf.crs,
+        {
+            "_rid": np.arange(n),
+            "name_2026": gdf["name_2026"].values,
+            PCT_COL: gdf[PCT_COL].values,
+        },
+        geometry=[g.buffer(BUFFER_M) for g in gdf.geometry.values],
+        crs=gdf.crs,
     )
 
     joined = gpd.sjoin(left_df, right_df, how="inner", predicate="intersects")
-    pairs  = joined[joined["_lid"] < joined["_rid"]].copy()
+    pairs = joined[joined["_lid"] < joined["_rid"]].copy()
 
     geoms = gdf.geometry.values.copy()
     events = 0
@@ -201,13 +222,13 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
             donor_pct, recv_pct = pct_a, pct_b
             donor_geom, recv_geom = geoms[i], geoms[j]
             donor_name = row["name_2026_left"]
-            recv_name  = row["name_2026_right"]
+            recv_name = row["name_2026_right"]
         else:
             donor_idx, recv_idx = j, i
             donor_pct, recv_pct = pct_b, pct_a
             donor_geom, recv_geom = geoms[j], geoms[i]
             donor_name = row["name_2026_right"]
-            recv_name  = row["name_2026_left"]
+            recv_name = row["name_2026_left"]
 
         if donor_pct - recv_pct < PCT_THRESHOLD:
             continue
@@ -236,7 +257,9 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
         if recv_geom.geom_type == "MultiPolygon":
             recv_for_rebuild = max(recv_geom.geoms, key=lambda g: g.area)
         elif recv_geom.geom_type == "GeometryCollection":
-            polys = [g for g in recv_geom.geoms if g.geom_type in ("Polygon", "MultiPolygon")]
+            polys = [
+                g for g in recv_geom.geoms if g.geom_type in ("Polygon", "MultiPolygon")
+            ]
             if not polys:
                 continue
             recv_for_rebuild = max(polys, key=lambda g: g.area)
@@ -248,7 +271,9 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
 
         ext = np.array(list(recv_for_rebuild.exterior.coords), dtype=float)
         try:
-            new_ext, n_snapped = _snap_vertices(ext, donor_boundary, shared_line, PROPAGATE_TOL_M)
+            new_ext, n_snapped = _snap_vertices(
+                ext, donor_boundary, shared_line, PROPAGATE_TOL_M
+            )
         except Exception:
             continue
 
@@ -266,23 +291,27 @@ def _propagation_pass(gdf: gpd.GeoDataFrame,
         geoms[recv_idx] = new_recv
         events += 1
 
-        log_rows.append({
-            "pass": pass_num,
-            "donor": donor_name,
-            "receiver": recv_name,
-            "donor_pct": round(donor_pct, 2),
-            "receiver_pct": round(recv_pct, 2),
-            "pct_diff": round(donor_pct - recv_pct, 2),
-            "shared_length_m": round(total_len, 1),
-            "vertices_snapped": n_snapped,
-        })
+        log_rows.append(
+            {
+                "pass": pass_num,
+                "donor": donor_name,
+                "receiver": recv_name,
+                "donor_pct": round(donor_pct, 2),
+                "receiver_pct": round(recv_pct, 2),
+                "pct_diff": round(donor_pct - recv_pct, 2),
+                "shared_length_m": round(total_len, 1),
+                "vertices_snapped": n_snapped,
+            }
+        )
 
     out = gdf.copy()
     out["geometry"] = list(geoms)
     return out, log_rows, events
 
 
-def propagate(gdf: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, list[dict], dict]:
+def propagate(
+    gdf: gpd.GeoDataFrame, label: str
+) -> tuple[gpd.GeoDataFrame, list[dict], dict]:
     pct_before = gdf[PCT_COL].mean()
     all_logs: list[dict] = []
 
@@ -299,7 +328,9 @@ def propagate(gdf: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, list
     else:
         print(f"  Reached MAX_PASSES={MAX_PASSES}.")
 
-    gdf["geometry"] = gdf["geometry"].apply(lambda g: make_valid(g) if g is not None else g)
+    gdf["geometry"] = gdf["geometry"].apply(
+        lambda g: make_valid(g) if g is not None else g
+    )
 
     total_km = sum(r["shared_length_m"] for r in all_logs) / 1000.0
     stats = {
@@ -318,6 +349,7 @@ def propagate(gdf: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, list
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main() -> None:
     t0 = time.time()
@@ -347,7 +379,9 @@ def main() -> None:
 
         # Step 1: fill nulls
         n_null_before = int(gdf.geometry.isna().sum())
-        print(f"  {n_null_before} null-geometry ED(s) in v0_5 — applying v0_3 fallback...")
+        print(
+            f"  {n_null_before} null-geometry ED(s) in v0_5 — applying v0_3 fallback..."
+        )
         gdf = fill_nulls_from_v3(gdf, v3_ref, label)
 
         # Step 2: propagate

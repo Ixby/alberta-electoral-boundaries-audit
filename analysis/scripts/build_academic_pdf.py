@@ -15,6 +15,7 @@ Dependencies: markdown (pip install markdown). Chrome or Edge at the
 standard Windows install paths. Network access on first run for the
 Google Fonts @import (cached afterward).
 """
+
 from __future__ import annotations
 
 import os
@@ -29,6 +30,7 @@ import markdown
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 SRC_MD = REPO_ROOT / "report_academic.md"
 import tempfile as _tempfile
+
 # Write the intermediate article PDF + HTML to .temp/ rather than the
 # repo root; only the merged report_public.pdf is the published artefact.
 _TMP_DIR = REPO_ROOT / ".temp"
@@ -877,6 +879,7 @@ def post_process_html(html: str) -> str:
         if re.search(r"<strong>(OPINION|THE PLAIN READING)", body, flags=re.IGNORECASE):
             return body.replace("<blockquote>", '<blockquote class="opinion">', 1)
         return body
+
     html = re.sub(
         r"<blockquote(?:\s+class=\"[^\"]*\")?>[\s\S]*?</blockquote>",
         _tag_opinion,
@@ -933,9 +936,7 @@ def run_browser_print(browser_path: str, html_path: Path, out_pdf: Path) -> None
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
     if result.returncode != 0:
         sys.stderr.write(result.stderr or result.stdout or "")
-        raise RuntimeError(
-            f"Browser print failed with exit code {result.returncode}."
-        )
+        raise RuntimeError(f"Browser print failed with exit code {result.returncode}.")
 
 
 def main() -> int:
@@ -952,8 +953,7 @@ def main() -> int:
     run_browser_print(browser, OUT_HTML, OUT_PDF)
     pdf_kb = OUT_PDF.stat().st_size / 1024
     print(
-        f"[build_pdf] Wrote {OUT_PDF.name} "
-        f"({pdf_kb:.1f} KB) at {OUT_PDF.resolve()}"
+        f"[build_pdf] Wrote {OUT_PDF.name} " f"({pdf_kb:.1f} KB) at {OUT_PDF.resolve()}"
     )
     return 0
 

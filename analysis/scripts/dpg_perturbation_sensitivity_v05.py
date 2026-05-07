@@ -28,6 +28,7 @@ Backward:
   analysis/scripts/v0_1_assignment_va_attribution_maup.py
   data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -48,8 +49,18 @@ sys.modules["dpgperturb_v1"] = mod
 spec.loader.exec_module(mod)
 
 # Redirect inputs to v0_5
-mod.MAJ_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
-mod.MIN_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+mod.MAJ_CLEAN_GPKG = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
+)
+mod.MIN_CLEAN_GPKG = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+)
 
 # Redirect outputs
 mod.OUT_SAMPLES_CSV = DATA / "dpg_perturbation_samples.csv"

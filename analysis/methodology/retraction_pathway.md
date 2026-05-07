@@ -32,7 +32,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 ### 1.2 A2 Calgary geographic-zone asymmetry (12.2 % vs 0.4 %)
 
 - **Retraction condition A.** If the zone classification is re-done under a rule the commission itself publishes (e.g., City-of-Calgary ward boundaries or AMA-urban-core definition) and the inter-map gap drops below 2×, the finding is retracted.
-- **Retraction condition B.** If official 2026 shapefiles (Issue #1 FOIP) reveal that Zone A contains districts we misclassified as Zone A when they actually straddle Zone A / Zone B, the classification is rerun and re-evaluated.
+- **Retraction condition B.** If official 2026 shapefiles (Issue #1 official disclosure) reveal that Zone A contains districts we misclassified as Zone A when they actually straddle Zone A / Zone B, the classification is rerun and re-evaluated.
 
 ### 1.3 A3 s.15(2) engineered boundary (RMH-Banff Park)
 
@@ -63,7 +63,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 ### 2.5 §5.2.7 cross-method disagreement
 
-- **Retraction condition.** The disagreement itself IS the finding, so the retraction is triggered by a resolution of the disagreement: if FOIP-released official 2026 shapefiles (Issue #1) produce a MAUP-v2 rerun on authoritative geometry with a CI tighter than ±0.5 pp that falls on one side of zero, the "disagreement" framing becomes "converged estimate" and the §5.2.7 multi-layer presentation is collapsed to a single authoritative number. The §4.1.4 sunset clause binds this retraction within 48 hours of shapefile release.
+- **Retraction condition.** The disagreement itself IS the finding, so the retraction is triggered by a resolution of the disagreement: if officially released official 2026 shapefiles (Issue #1) produce a MAUP-v2 rerun on authoritative geometry with a CI tighter than ±0.5 pp that falls on one side of zero, the "disagreement" framing becomes "converged estimate" and the §5.2.7 multi-layer presentation is collapsed to a single authoritative number. The §4.1.4 sunset clause binds this retraction within 48 hours of shapefile release.
 
 ## 3. Signature findings (§5.3)
 
@@ -94,11 +94,11 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 ### 4.2 §5.8.4 Community-of-interest splits
 
-- **Retraction condition.** If a sub-CSD-resolution analysis of the 2026 proposals (available only under FOIP-released shapefiles) reveals the minority's hybrid splits preserve within-CSD COI better than the CSD-level overlay suggests, the null-symmetric CSD finding is supplemented with the sub-CSD evidence. No retraction needed at CSD resolution; sub-CSD is an additional layer.
+- **Retraction condition.** If a sub-CSD-resolution analysis of the 2026 proposals (available only under officially released shapefiles) reveals the minority's hybrid splits preserve within-CSD COI better than the CSD-level overlay suggests, the null-symmetric CSD finding is supplemented with the sub-CSD evidence. No retraction needed at CSD resolution; sub-CSD is an additional layer.
 
 ### 4.3 §5.8.5 Municipal + DA anchoring (71/14.5 % v0_4; 79.6/16.5 % v0_5; ratio 4.9×→5.1×)
 
-- **Retraction condition A.** If the official 2026 shapefiles (FOIP) show that the minority's boundaries actually follow CSD or DA edges that our DPG trace missed (i.e., our trace was wrong, not the minority's drawing), the recomputed anchoring percentages increase for the minority and the ratio collapses toward 1×.
+- **Retraction condition A.** If the official 2026 shapefiles (official disclosure) show that the minority's boundaries actually follow CSD or DA edges that our DPG trace missed (i.e., our trace was wrong, not the minority's drawing), the recomputed anchoring percentages increase for the minority and the ratio collapses toward 1×.
 - **Retraction condition B (Trade-off Frontier — Statutory Silence counter-strike).** If a third-party or subsequent audit produces a "Symmetric-Airdrie" counter-map (equal COI preservation under Alberta Electoral Divisions Act §14 + §15 + §16, but with majority-symmetric anchoring), the minority's 14.5 % anchoring is no longer defensible as the only map that achieves the COI preservation it claims. The finding stands against the null alternative (no counter-map exists) and would be retracted against a successful alternative.
 
 ## 5. Procedural findings (§5.9)

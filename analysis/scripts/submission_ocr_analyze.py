@@ -11,6 +11,7 @@ Produces:
   data/submission_search_dataset.csv (updated with source=ocr rows)
   analysis/v0_1_submission_ocr_log.md
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -25,7 +26,12 @@ DATA = ROOT / "data"
 ANALYSIS = ROOT / "analysis"
 
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
-from submission_search import build_patterns, classify_position, R1_ID_PATTERNS, R2_ID_PATTERN
+from submission_search import (
+    build_patterns,
+    classify_position,
+    R1_ID_PATTERNS,
+    R2_ID_PATTERN,
+)
 
 
 def main():
@@ -48,7 +54,9 @@ def main():
         ocr_pages.setdefault(pdf_name, {})[pidx_1based - 1] = text
         total_chars += len(text)
         n_pages += 1
-    log.append(f"[load] {n_pages} OCR page files loaded, avg {total_chars/max(n_pages,1):.0f} chars/page")
+    log.append(
+        f"[load] {n_pages} OCR page files loaded, avg {total_chars/max(n_pages,1):.0f} chars/page"
+    )
 
     R1_FILES = [
         ("EBC2025Submissions1-50ForPosting.pdf", 1, 50),
@@ -58,14 +66,106 @@ def main():
     ]
     R2_FILES = []
     for start in range(1, 1144, 50):
-        end = min(start+49, 1143)
+        end = min(start + 49, 1143)
         R2_FILES.append((f"EBC-2025-2-{start:03d}-to-{end:03d}.pdf", start, end))
 
-    r1_missing = {1,2,3,4,5,6,7,21,22,23,24,62,73,111,147,159,174,183,186,190,191,192,193,194,195,196,197}
-    r2_missing = {2,6,7,10,11,41,44,54,76,85,98,102,103,104,106,129,141,160,163,227,253,254,270,358,377,378,379,430,444,454,469,477,483,492,499,524,531,573,596,602,610,612,615,616,639,644,654,673,704,707,766,810,828,829,841,966,973,1048,1113,1122,1126}
+    r1_missing = {
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        21,
+        22,
+        23,
+        24,
+        62,
+        73,
+        111,
+        147,
+        159,
+        174,
+        183,
+        186,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+    }
+    r2_missing = {
+        2,
+        6,
+        7,
+        10,
+        11,
+        41,
+        44,
+        54,
+        76,
+        85,
+        98,
+        102,
+        103,
+        104,
+        106,
+        129,
+        141,
+        160,
+        163,
+        227,
+        253,
+        254,
+        270,
+        358,
+        377,
+        378,
+        379,
+        430,
+        444,
+        454,
+        469,
+        477,
+        483,
+        492,
+        499,
+        524,
+        531,
+        573,
+        596,
+        602,
+        610,
+        612,
+        615,
+        616,
+        639,
+        644,
+        654,
+        673,
+        704,
+        707,
+        766,
+        810,
+        828,
+        829,
+        841,
+        966,
+        973,
+        1048,
+        1113,
+        1122,
+        1126,
+    }
 
     ocr_subs = {}
-    all_files = [(n, s, e, 1) for (n,s,e) in R1_FILES] + [(n, s, e, 2) for (n,s,e) in R2_FILES]
+    all_files = [(n, s, e, 1) for (n, s, e) in R1_FILES] + [
+        (n, s, e, 2) for (n, s, e) in R2_FILES
+    ]
 
     for pdf_name, start, end, rnd in all_files:
         pdf_path = TEMP / pdf_name
@@ -78,7 +178,7 @@ def main():
             combined = tl
             if pdf_name in ocr_pages and i in ocr_pages[pdf_name]:
                 combined = (tl + "\n" + ocr_pages[pdf_name][i]).strip()
-            pages.append((i+1, combined))
+            pages.append((i + 1, combined))
         doc.close()
 
         if rnd == 2:
@@ -122,11 +222,17 @@ def main():
             if current is not None:
                 ocr_subs[(1, current)] = "\n".join(accum)
 
-    recovered_r1 = sorted([sid for (r,sid) in ocr_subs if r==1 and sid in r1_missing])
-    recovered_r2 = sorted([sid for (r,sid) in ocr_subs if r==2 and sid in r2_missing])
+    recovered_r1 = sorted(
+        [sid for (r, sid) in ocr_subs if r == 1 and sid in r1_missing]
+    )
+    recovered_r2 = sorted(
+        [sid for (r, sid) in ocr_subs if r == 2 and sid in r2_missing]
+    )
     log.append(f"[recover] R1 recovered: {recovered_r1}")
     log.append(f"[recover] R2 recovered: {recovered_r2}")
-    log.append(f"[recover] counts: R1 {len(recovered_r1)}/{len(r1_missing)}, R2 {len(recovered_r2)}/{len(r2_missing)}")
+    log.append(
+        f"[recover] counts: R1 {len(recovered_r1)}/{len(r1_missing)}, R2 {len(recovered_r2)}/{len(r2_missing)}"
+    )
 
     # Keyword search
     pats = build_patterns()
@@ -150,12 +256,20 @@ def main():
             continue
         sid_str = f"EBC-2025-{rnd}-{sid:04d}"
         row = {
-            "submission_id": sid_str, "round": rnd, "source_file": "", "page_range": "",
-            "mentions_airdrie_4way_split": False, "mentions_nolan_hill_cochrane": False,
-            "mentions_rmh_banff_park": False, "mentions_olds_three_hills_didsbury": False,
-            "mentions_chestermere_split": False, "mentions_red_deer_hybrids": False,
-            "mentions_st_albert_sturgeon": False, "position_on_mentioned": "N/A",
-            "relevant_quote": "", "source": "ocr",
+            "submission_id": sid_str,
+            "round": rnd,
+            "source_file": "",
+            "page_range": "",
+            "mentions_airdrie_4way_split": False,
+            "mentions_nolan_hill_cochrane": False,
+            "mentions_rmh_banff_park": False,
+            "mentions_olds_three_hills_didsbury": False,
+            "mentions_chestermere_split": False,
+            "mentions_red_deer_hybrids": False,
+            "mentions_st_albert_sturgeon": False,
+            "position_on_mentioned": "N/A",
+            "relevant_quote": "",
+            "source": "ocr",
         }
         any_hit = False
         snippets = []
@@ -166,7 +280,8 @@ def main():
                     row[keymap[pk]] = True
                     any_hit = True
                     totals[pk] += 1
-                    s0 = max(0, m.start()-150); s1 = min(len(text), m.end()+150)
+                    s0 = max(0, m.start() - 150)
+                    s1 = min(len(text), m.end() + 150)
                     snip = text[s0:s1].replace("\n", " ")
                     snippets.append((pk, classify_position(snip), snip))
                     break
@@ -183,8 +298,10 @@ def main():
     ocr_text_dir = TEMP / "ocr_text"
     ocr_text_dir.mkdir(exist_ok=True)
     for (rnd, sid), text in ocr_subs.items():
-        if (rnd==1 and sid in r1_missing) or (rnd==2 and sid in r2_missing):
-            (ocr_text_dir / f"EBC-2025-{rnd}-{sid:04d}.txt").write_text(text, encoding="utf-8", errors="replace")
+        if (rnd == 1 and sid in r1_missing) or (rnd == 2 and sid in r2_missing):
+            (ocr_text_dir / f"EBC-2025-{rnd}-{sid:04d}.txt").write_text(
+                text, encoding="utf-8", errors="replace"
+            )
 
     # Update CSV — add source column to existing + append OCR rows
     csv_path = DATA / "submission_search_dataset.csv"
@@ -220,8 +337,13 @@ def main():
         "new_rows": new_rows,
         "totals": dict(totals),
         "log": log,
-        "recovered_ids_all": sorted([f"EBC-2025-{r}-{s:04d}" for (r,s) in ocr_subs.keys()
-                                     if (r==1 and s in r1_missing) or (r==2 and s in r2_missing)]),
+        "recovered_ids_all": sorted(
+            [
+                f"EBC-2025-{r}-{s:04d}"
+                for (r, s) in ocr_subs.keys()
+                if (r == 1 and s in r1_missing) or (r == 2 and s in r2_missing)
+            ]
+        ),
     }
 
 
@@ -229,11 +351,19 @@ if __name__ == "__main__":
     result = main()
     (TEMP / "ocr_analysis.json").write_text(json.dumps(result, indent=2, default=str))
     print(f"pages={result['n_pages']} avg_chars={result['avg_chars']:.0f}")
-    print(f"recovered: R1 {len(result['recovered_r1'])}/27, R2 {len(result['recovered_r2'])}/61")
+    print(
+        f"recovered: R1 {len(result['recovered_r1'])}/27, R2 {len(result['recovered_r2'])}/61"
+    )
     print(f"new hit rows: {len(result['new_rows'])}")
     for k, v in result["totals"].items():
         print(f"  {k}: {v}")
     print("\nHit submissions:")
     for r in result["new_rows"]:
-        hits = [k.replace("mentions_","") for k,v in r.items() if k.startswith("mentions_") and v is True or v == "True"]
-        print(f"  {r['submission_id']} [{r['position_on_mentioned']}]: {','.join(hits)}")
+        hits = [
+            k.replace("mentions_", "")
+            for k, v in r.items()
+            if k.startswith("mentions_") and v is True or v == "True"
+        ]
+        print(
+            f"  {r['submission_id']} [{r['position_on_mentioned']}]: {','.join(hits)}"
+        )

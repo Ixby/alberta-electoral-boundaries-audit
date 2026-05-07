@@ -27,6 +27,7 @@ Outputs:
 
 No pandas/numpy dependency — stdlib only.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -79,12 +80,14 @@ def load_candidate_file(path: str) -> list[dict]:
                     ndp_votes += v
                 elif party == "UCP":
                     ucp_votes += v
-            out.append({
-                "ed": ed,
-                "region": region,
-                "ndp": ndp_votes,
-                "ucp": ucp_votes,
-            })
+            out.append(
+                {
+                    "ed": ed,
+                    "region": region,
+                    "ndp": ndp_votes,
+                    "ucp": ucp_votes,
+                }
+            )
     return out
 
 
@@ -103,12 +106,14 @@ def load_2015_file(path: str) -> list[dict]:
                 ucp = int(ucp_equiv)
             else:
                 ucp = int(row.get("pc") or 0) + int(row.get("wrp") or 0)
-            out.append({
-                "ed": ed,
-                "region": "",
-                "ndp": ndp,
-                "ucp": ucp,
-            })
+            out.append(
+                {
+                    "ed": ed,
+                    "region": "",
+                    "ndp": ndp,
+                    "ucp": ucp,
+                }
+            )
     return out
 
 
@@ -121,15 +126,17 @@ def compute_margins(rows: list[dict]) -> list[dict]:
         if two_party <= 0:
             continue
         ndp_share = ndp / two_party  # 0..1
-        margin = ndp_share - 0.5     # signed; positive = NDP won two-party
-        enriched.append({
-            **r,
-            "two_party": two_party,
-            "ndp_share": ndp_share,
-            "margin": margin,
-            "abs_margin_pp": abs(margin) * 100,
-            "winner": "NDP" if margin > 0 else "UCP",
-        })
+        margin = ndp_share - 0.5  # signed; positive = NDP won two-party
+        enriched.append(
+            {
+                **r,
+                "two_party": two_party,
+                "ndp_share": ndp_share,
+                "margin": margin,
+                "abs_margin_pp": abs(margin) * 100,
+                "winner": "NDP" if margin > 0 else "UCP",
+            }
+        )
     return enriched
 
 
@@ -160,14 +167,16 @@ def apply_uniform_swing(enriched: list[dict], swing_pp_to_ucp: float) -> dict:
         else:
             after_u += 1
         if new_winner != r["winner"]:
-            flips.append({
-                "ed": r["ed"],
-                "region": r["region"],
-                "old_winner": r["winner"],
-                "new_winner": new_winner,
-                "old_margin_pp": (r["ndp_share"] - 0.5) * 100,
-                "new_margin_pp": (new_share - 0.5) * 100,
-            })
+            flips.append(
+                {
+                    "ed": r["ed"],
+                    "region": r["region"],
+                    "old_winner": r["winner"],
+                    "new_winner": new_winner,
+                    "old_margin_pp": (r["ndp_share"] - 0.5) * 100,
+                    "new_margin_pp": (new_share - 0.5) * 100,
+                }
+            )
     return {
         "swing_pp_to_ucp": swing_pp_to_ucp,
         "before": (before_n, before_u),
@@ -246,7 +255,8 @@ def format_flip_list(flips: list[dict]) -> str:
 # Zone-A-relevant seat. This is a heuristic not a spatial join; see MD.
 def zone_a_candidates(enriched_2023: list[dict]) -> list[dict]:
     return [
-        r for r in enriched_2023
+        r
+        for r in enriched_2023
         if r["region"].lower() == "calgary" and r["ndp_share"] > 0.5
     ]
 
@@ -265,7 +275,9 @@ def main() -> None:
 
     s23 = summarize_election("2023 (current boundaries)", enr23)
     s19 = summarize_election("2019 (current boundaries)", enr19)
-    s15 = summarize_election("2015 (pre-2017 boundaries — NOT directly comparable)", enr15)
+    s15 = summarize_election(
+        "2015 (pre-2017 boundaries — NOT directly comparable)", enr15
+    )
 
     print("\n--- Top 20 closest 2023 seats (two-party margin) ---")
     print(format_margin_table(enr23, 20))

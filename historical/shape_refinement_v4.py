@@ -28,6 +28,7 @@ documented in `analysis/methodology/shape_refinement_v4.md`.
 
 Author: Track Y-prime-prime-prime sub-agent (2026-04-22).
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -44,7 +45,14 @@ import geopandas as gpd
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from shapely.geometry import LineString, MultiLineString, Polygon, MultiPolygon, Point, box
+from shapely.geometry import (
+    LineString,
+    MultiLineString,
+    Polygon,
+    MultiPolygon,
+    Point,
+    box,
+)
 from shapely.ops import linemerge, nearest_points, unary_union
 
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
@@ -68,8 +76,10 @@ NOISE_PART_AREA_M2 = 1_000_000.0
 # Geometry cleanup
 # ----------------------------------------------------------------------
 
-def clean_polygon_noise(geom, min_part_area_m2=NOISE_PART_AREA_M2,
-                        min_hole_area_m2=NOISE_RING_AREA_M2):
+
+def clean_polygon_noise(
+    geom, min_part_area_m2=NOISE_PART_AREA_M2, min_hole_area_m2=NOISE_RING_AREA_M2
+):
     if geom is None or geom.is_empty:
         return geom
     if geom.geom_type == "Polygon":
@@ -125,8 +135,10 @@ def _exterior_only_lines(geom):
 # OSM feature fetch
 # ----------------------------------------------------------------------
 
+
 def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
     import osmnx as ox
+
     ox.settings.log_console = False
     ox.settings.use_cache = True
     ox.settings.requests_timeout = timeout
@@ -138,7 +150,7 @@ def _fetch_features(bbox_wgs84, tags, retries=2, timeout=180):
         except Exception as e:
             last = e
             if i < retries - 1:
-                time.sleep(2 ** i)
+                time.sleep(2**i)
     raise RuntimeError(f"OSM features fetch failed (tags={tags}): {last}")
 
 
@@ -171,8 +183,13 @@ def fetch_admin_boundary(bbox_wgs84, name_substrings, admin_levels=None):
                     break
         if not keep:
             return None
-        valid = [g for g in keep if g is not None and not g.is_empty
-                 and g.geom_type in ("Polygon", "MultiPolygon")]
+        valid = [
+            g
+            for g in keep
+            if g is not None
+            and not g.is_empty
+            and g.geom_type in ("Polygon", "MultiPolygon")
+        ]
         if not valid:
             return None
         u = unary_union(valid)
@@ -242,8 +259,9 @@ def fetch_waterway(bbox_wgs84, name_substring=None):
         return None
 
 
-def fetch_highway(bbox_wgs84, ref_substrings=None, name_substrings=None,
-                  highway_types=None):
+def fetch_highway(
+    bbox_wgs84, ref_substrings=None, name_substrings=None, highway_types=None
+):
     """Fetch major highways filtered by ref or name substring."""
     try:
         if highway_types is None:
@@ -293,6 +311,7 @@ def fetch_highway(bbox_wgs84, ref_substrings=None, name_substrings=None,
 # Reproject helpers
 # ----------------------------------------------------------------------
 
+
 def to_work(geom_wgs84):
     """Reproject a single WGS84 geometry to WORK_CRS."""
     if geom_wgs84 is None or geom_wgs84.is_empty:
@@ -304,6 +323,7 @@ def to_work(geom_wgs84):
 # ----------------------------------------------------------------------
 # Per-ED construction
 # ----------------------------------------------------------------------
+
 
 def build_edmonton_windermere(v3_row, g2019, osm_cache):
     """Edmonton-Windermere (ED 51) v4 polygon construction.
@@ -332,12 +352,16 @@ def build_edmonton_windermere(v3_row, g2019, osm_cache):
     print("[Windermere] building v4 polygon...")
 
     # 2019 parents
-    parents = g2019[g2019["EDName2017"].isin(["Edmonton-Whitemud", "Edmonton-South West"])]
+    parents = g2019[
+        g2019["EDName2017"].isin(["Edmonton-Whitemud", "Edmonton-South West"])
+    ]
     parent_u = clean_polygon_noise(unary_union(parents.geometry.tolist()))
     minx, miny, maxx, maxy = parent_u.bounds
     # Expand bbox for OSM fetch
     bbox_m = (minx - 500, miny - 500, maxx + 500, maxy + 500)
-    bbox_ll_gs = gpd.GeoSeries([box(*bbox_m)], crs=WORK_CRS).to_crs("EPSG:4326").iloc[0].bounds
+    bbox_ll_gs = (
+        gpd.GeoSeries([box(*bbox_m)], crs=WORK_CRS).to_crs("EPSG:4326").iloc[0].bounds
+    )
 
     # River
     river_ll = osm_cache.get("edm_river")
@@ -349,8 +373,11 @@ def build_edmonton_windermere(v3_row, g2019, osm_cache):
     # Highway 216 / Anthony Henday for south boundary
     henday_ll = osm_cache.get("edm_henday")
     if henday_ll is None:
-        henday_ll = fetch_highway(bbox_ll_gs, ref_substrings=["216", "2"],
-                                   name_substrings=["Anthony Henday", "Henday"])
+        henday_ll = fetch_highway(
+            bbox_ll_gs,
+            ref_substrings=["216", "2"],
+            name_substrings=["Anthony Henday", "Henday"],
+        )
         osm_cache["edm_henday"] = henday_ll
     henday_m = to_work(henday_ll) if henday_ll is not None else None
 
@@ -373,8 +400,9 @@ def build_edmonton_windermere(v3_row, g2019, osm_cache):
     # Trim off anything north of Whitemud's southern boundary (Windermere
     # is clearly SOUTH of Whitemud's south edge per the commission thumbnail).
     ws_miny = whitemud.bounds[1]
-    below_whitemud_box = box(esw_minx - 2000, esw_miny - 2000,
-                              esw_maxx + 2000, ws_miny + 100)
+    below_whitemud_box = box(
+        esw_minx - 2000, esw_miny - 2000, esw_maxx + 2000, ws_miny + 100
+    )
     windermere_v4 = windermere_v4.intersection(below_whitemud_box)
 
     # Snap western edge to river: use v3 geometry's western edge which is
@@ -397,13 +425,15 @@ def build_edmonton_windermere(v3_row, g2019, osm_cache):
         "south_edge_anchor": "southern 2019 Edmonton-South West boundary (Anthony Henday proxy)",
     }
     errors = {
-        "west_edge_err_m": 100,   # river snap
-        "east_edge_err_m": 500,   # visually transcribed
+        "west_edge_err_m": 100,  # river snap
+        "east_edge_err_m": 500,  # visually transcribed
         "north_edge_err_m": 300,  # inferred from 2019 parent line
         "south_edge_err_m": 300,  # inferred from 2019 parent line
     }
-    print(f"[Windermere] v4 area = {windermere_v4.area/1e6:.2f} km^2 "
-          f"(v3 was {v3_geom.area/1e6:.2f} km^2)")
+    print(
+        f"[Windermere] v4 area = {windermere_v4.area/1e6:.2f} km^2 "
+        f"(v3 was {v3_geom.area/1e6:.2f} km^2)"
+    )
 
     return windermere_v4, anchors, errors
 
@@ -454,7 +484,9 @@ def build_calgary_de_winton(v3_row, g2019, osm_cache):
     # features (Tsuut'ina etc.) whose centroid may sit outside Highwood are
     # still returned by Overpass.
     bbox_m = (hw_minx - 15000, hw_miny - 15000, hw_maxx + 15000, hw_maxy + 15000)
-    bbox_ll = gpd.GeoSeries([box(*bbox_m)], crs=WORK_CRS).to_crs("EPSG:4326").iloc[0].bounds
+    bbox_ll = (
+        gpd.GeoSeries([box(*bbox_m)], crs=WORK_CRS).to_crs("EPSG:4326").iloc[0].bounds
+    )
 
     # Calgary city limit
     calgary_ll = osm_cache.get("calgary_admin")
@@ -475,8 +507,7 @@ def build_calgary_de_winton(v3_row, g2019, osm_cache):
     # The OSM name contains unicode "Tsuut'ina" and "145" variants.
     reserves_ll = osm_cache.get("reserves")
     if reserves_ll is None:
-        reserves_ll = fetch_aboriginal_lands(bbox_ll,
-                                              name_substrings=["Tsuut", "145"])
+        reserves_ll = fetch_aboriginal_lands(bbox_ll, name_substrings=["Tsuut", "145"])
         osm_cache["reserves"] = reserves_ll
     reserves_m = to_work(reserves_ll) if reserves_ll is not None else None
 
@@ -548,8 +579,10 @@ def build_calgary_de_winton(v3_row, g2019, osm_cache):
         "east_edge_err_m": 500,
         "okotoks_exclusion_err_m": 300,
     }
-    print(f"[De Winton] v4 area = {de_winton.area/1e6:.2f} km^2 "
-          f"(v3 was {v3_row.geometry.area/1e6:.2f} km^2)")
+    print(
+        f"[De Winton] v4 area = {de_winton.area/1e6:.2f} km^2 "
+        f"(v3 was {v3_row.geometry.area/1e6:.2f} km^2)"
+    )
 
     return de_winton, anchors, errors
 
@@ -623,12 +656,16 @@ def build_calgary_south(v3_row, g2019, osm_cache, de_winton_geom=None):
     cs_geom = clean_polygon_noise(cs_geom, min_part_area_m2=500_000)
 
     # If cleaning removed everything, fall back
-    if (cs_geom is None or cs_geom.is_empty
-            or (hasattr(cs_geom, 'area') and cs_geom.area < 5e5)):
+    if (
+        cs_geom is None
+        or cs_geom.is_empty
+        or (hasattr(cs_geom, "area") and cs_geom.area < 5e5)
+    ):
         print("[Calgary-South] fallback: rect based on Hays centroid")
         cent = hays.centroid
-        cs_geom = box(cent.x - 2000, cent.y - 1500,
-                      cent.x + 2000, cent.y + 1500).intersection(hays)
+        cs_geom = box(
+            cent.x - 2000, cent.y - 1500, cent.x + 2000, cent.y + 1500
+        ).intersection(hays)
 
     anchors = {
         "west_edge_anchor": "Calgary-Hays 2019 western edge (Fish Creek boundary)",
@@ -643,8 +680,10 @@ def build_calgary_south(v3_row, g2019, osm_cache, de_winton_geom=None):
         "east_edge_err_m": 500,
         "notch_err_m": 500,
     }
-    print(f"[Calgary-South] v4 area = {cs_geom.area/1e6:.2f} km^2 "
-          f"(v3 was {v3_row.geometry.area/1e6:.2f} km^2)")
+    print(
+        f"[Calgary-South] v4 area = {cs_geom.area/1e6:.2f} km^2 "
+        f"(v3 was {v3_row.geometry.area/1e6:.2f} km^2)"
+    )
 
     return cs_geom, anchors, errors
 
@@ -652,6 +691,7 @@ def build_calgary_south(v3_row, g2019, osm_cache, de_winton_geom=None):
 # ----------------------------------------------------------------------
 # VA-impact computation
 # ----------------------------------------------------------------------
+
 
 def compute_va_impact(v3_gdf, v4_gdf, va_gdf, target_eds):
     """Compute how VA assignments change between v3 and v4 for the target EDs.
@@ -678,7 +718,9 @@ def compute_va_impact(v3_gdf, v4_gdf, va_gdf, target_eds):
         if vote_col is None:
             vcols = [c for c in va.columns if "vote" in c.lower()]
             if vcols:
-                va["__votes_total"] = va[vcols].select_dtypes(include=[np.number]).sum(axis=1)
+                va["__votes_total"] = (
+                    va[vcols].select_dtypes(include=[np.number]).sum(axis=1)
+                )
                 vote_col = "__votes_total"
             else:
                 va["__votes_total"] = 1
@@ -701,7 +743,7 @@ def compute_va_impact(v3_gdf, v4_gdf, va_gdf, target_eds):
             sym_diff = v3_geom.symmetric_difference(v4_geom)
             sym_area_km2 = sym_diff.area / 1e6
         except Exception:
-            sym_area_km2 = float('nan')
+            sym_area_km2 = float("nan")
 
         n_flipped = int(sym.sum())
         votes_flipped = float(va.loc[sym, vote_col].sum())
@@ -710,18 +752,20 @@ def compute_va_impact(v3_gdf, v4_gdf, va_gdf, target_eds):
         v3_only_votes = float(va.loc[in_v3 & ~in_v4, vote_col].sum())
         v4_only_votes = float(va.loc[~in_v3 & in_v4, vote_col].sum())
 
-        results.append({
-            "name_2026": ed,
-            "v3_area_km2": round(v3_geom.area / 1e6, 2),
-            "v4_area_km2": round(v4_geom.area / 1e6, 2),
-            "sym_diff_km2": round(sym_area_km2, 2),
-            "vas_flipped_total": n_flipped,
-            "votes_flipped_total": round(votes_flipped, 1),
-            "vas_in_v3_only": v3_only,
-            "votes_in_v3_only": round(v3_only_votes, 1),
-            "vas_in_v4_only": v4_only,
-            "votes_in_v4_only": round(v4_only_votes, 1),
-        })
+        results.append(
+            {
+                "name_2026": ed,
+                "v3_area_km2": round(v3_geom.area / 1e6, 2),
+                "v4_area_km2": round(v4_geom.area / 1e6, 2),
+                "sym_diff_km2": round(sym_area_km2, 2),
+                "vas_flipped_total": n_flipped,
+                "votes_flipped_total": round(votes_flipped, 1),
+                "vas_in_v3_only": v3_only,
+                "votes_in_v3_only": round(v3_only_votes, 1),
+                "vas_in_v4_only": v4_only,
+                "votes_in_v4_only": round(v4_only_votes, 1),
+            }
+        )
 
     return pd.DataFrame(results)
 
@@ -729,6 +773,7 @@ def compute_va_impact(v3_gdf, v4_gdf, va_gdf, target_eds):
 # ----------------------------------------------------------------------
 # Verification panel rendering
 # ----------------------------------------------------------------------
+
 
 def render_panel(ed_name, v3_geom, v4_geom, anchors_geom_dict, out_path):
     """Render a 3-layer panel: v3 (grey dashed), v4 (red solid), anchors (light)."""
@@ -743,17 +788,27 @@ def render_panel(ed_name, v3_geom, v4_geom, anchors_geom_dict, out_path):
         "okotoks": "#c0a080",
     }
     for key, geom in anchors_geom_dict.items():
-        if geom is None or (hasattr(geom, 'is_empty') and geom.is_empty):
+        if geom is None or (hasattr(geom, "is_empty") and geom.is_empty):
             continue
         try:
             gs = gpd.GeoSeries([geom], crs=WORK_CRS)
             if geom.geom_type in ("LineString", "MultiLineString"):
-                gs.plot(ax=ax, color=colors.get(key, "#cccccc"), linewidth=1.0,
-                        alpha=0.6, label=f"{key}")
+                gs.plot(
+                    ax=ax,
+                    color=colors.get(key, "#cccccc"),
+                    linewidth=1.0,
+                    alpha=0.6,
+                    label=f"{key}",
+                )
             else:
-                gs.boundary.plot(ax=ax, color=colors.get(key, "#cccccc"),
-                                  linewidth=0.8, alpha=0.5, linestyle=":",
-                                  label=f"{key}")
+                gs.boundary.plot(
+                    ax=ax,
+                    color=colors.get(key, "#cccccc"),
+                    linewidth=0.8,
+                    alpha=0.5,
+                    linestyle=":",
+                    label=f"{key}",
+                )
         except Exception as e:
             print(f"[render] anchor {key} failed: {e}", flush=True)
 
@@ -762,8 +817,11 @@ def render_panel(ed_name, v3_geom, v4_geom, anchors_geom_dict, out_path):
         v3_lines = _exterior_only_lines(v3_geom)
         for i, ln in enumerate(v3_lines):
             gpd.GeoSeries([ln], crs=WORK_CRS).plot(
-                ax=ax, color="#999999", linewidth=1.6, linestyle="--",
-                label="v3 (superseded)" if i == 0 else None
+                ax=ax,
+                color="#999999",
+                linewidth=1.6,
+                linestyle="--",
+                label="v3 (superseded)" if i == 0 else None,
             )
 
     # v4 (red solid)
@@ -771,14 +829,17 @@ def render_panel(ed_name, v3_geom, v4_geom, anchors_geom_dict, out_path):
         lines = _exterior_only_lines(v4_geom)
         for i, ln in enumerate(lines):
             gpd.GeoSeries([ln], crs=WORK_CRS).plot(
-                ax=ax, color="#c81e3f", linewidth=2.2,
-                label="v4 (Tier C approximated)" if i == 0 else None
+                ax=ax,
+                color="#c81e3f",
+                linewidth=2.2,
+                label="v4 (Tier C approximated)" if i == 0 else None,
             )
 
     # Zoom to the union of v3 and v4 bounds so both are visible
     if v4_geom is not None and not v4_geom.is_empty:
-        u = unary_union([g for g in (v3_geom, v4_geom)
-                         if g is not None and not g.is_empty])
+        u = unary_union(
+            [g for g in (v3_geom, v4_geom) if g is not None and not g.is_empty]
+        )
         minx, miny, maxx, maxy = u.bounds
     else:
         minx, miny, maxx, maxy = v3_geom.bounds
@@ -788,22 +849,26 @@ def render_panel(ed_name, v3_geom, v4_geom, anchors_geom_dict, out_path):
     ax.set_aspect("equal")
     ax.set_xticks([])
     ax.set_yticks([])
-    ax.set_title(f"{ed_name} — v4 Tier C approximation",
-                  fontsize=13, pad=14)
-    caption = ("Visual-transcription-assisted Tier C approximation vs v3 "
-               "Tier B (superseded). Anchor features: OSM waterway / "
-               "administrative / aboriginal_lands. Not a shapefile release.")
-    fig.text(0.5, 0.02, caption, ha="center", fontsize=9,
-             style="italic", wrap=True)
+    ax.set_title(f"{ed_name} — v4 Tier C approximation", fontsize=13, pad=14)
+    caption = (
+        "Visual-transcription-assisted Tier C approximation vs v3 "
+        "Tier B (superseded). Anchor features: OSM waterway / "
+        "administrative / aboriginal_lands. Not a shapefile release."
+    )
+    fig.text(0.5, 0.02, caption, ha="center", fontsize=9, style="italic", wrap=True)
 
     # Legend (dedup)
     handles, labels = ax.get_legend_handles_labels()
     seen = set()
-    uniq = [(h, l) for h, l in zip(handles, labels)
-            if not (l in seen or seen.add(l))]
+    uniq = [(h, l) for h, l in zip(handles, labels) if not (l in seen or seen.add(l))]
     if uniq:
-        ax.legend([h for h, _ in uniq], [l for _, l in uniq],
-                   loc="upper right", fontsize=9, framealpha=0.9)
+        ax.legend(
+            [h for h, _ in uniq],
+            [l for _, l in uniq],
+            loc="upper right",
+            fontsize=9,
+            framealpha=0.9,
+        )
     plt.subplots_adjust(top=0.93, bottom=0.08)
     plt.savefig(out_path, dpi=160, bbox_inches="tight")
     plt.close(fig)
@@ -813,6 +878,7 @@ def render_panel(ed_name, v3_geom, v4_geom, anchors_geom_dict, out_path):
 # ----------------------------------------------------------------------
 # Main pipeline
 # ----------------------------------------------------------------------
+
 
 def main():
     t0 = time.time()
@@ -856,7 +922,9 @@ def main():
 
     # Calgary-South (needs De Winton for overlap subtraction)
     cs_row = v3_gdf[v3_gdf["name_2026"] == "Calgary-South"].iloc[0]
-    cs_v4, cs_anchors, cs_errors = build_calgary_south(cs_row, g2019, osm_cache, de_winton_geom=dw_v4)
+    cs_v4, cs_anchors, cs_errors = build_calgary_south(
+        cs_row, g2019, osm_cache, de_winton_geom=dw_v4
+    )
     v4_gdf.loc[v4_gdf["name_2026"] == "Calgary-South", "geometry"] = cs_v4
     notes["Calgary-South"] = {"anchors": cs_anchors, "errors_m": cs_errors}
 
@@ -870,7 +938,9 @@ def main():
             note = notes[ed]
             anchor_str = "; ".join(f"{k}={v}" for k, v in note["anchors"].items())
             err_str = "; ".join(f"{k}={v}" for k, v in note["errors_m"].items())
-            v4_gdf.loc[m, "refined_note"] = f"v4 Tier C | anchors: {anchor_str} | err(m): {err_str}"
+            v4_gdf.loc[m, "refined_note"] = (
+                f"v4 Tier C | anchors: {anchor_str} | err(m): {err_str}"
+            )
 
     # Add a dedicated tier-history column (v4 provenance)
     if "v4_method" not in v4_gdf.columns:

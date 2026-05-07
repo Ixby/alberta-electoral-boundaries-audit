@@ -29,6 +29,7 @@ Backward:
   data/simulated_ensemble_raw_samples_100k.csv  (must exist)
   data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -44,9 +45,19 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
-EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-MAJ_APPROX_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
-MIN_V6_GPKG = DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+EDS_2019_SHP = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
+MAJ_APPROX_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_9_topological_majority_2026_eds.gpkg"
+)
+MIN_V6_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_9_topological_minority_2026_eds.gpkg"
+)
 MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
 MIN_POPS_CSV = DATA / "minority_2026_populations.csv"
 MAJ_XWALK_CSV_FULL = DATA / "majority_full_crosswalk.csv"
@@ -68,16 +79,19 @@ def norm(s: str) -> str:
 
 # --- metric implementations matching v0_1_mcmc_ensemble.py conventions ---
 
+
 def efficiency_gap(per_district: pd.DataFrame) -> float:
     total = per_district["ucp"] + per_district["ndp"]
     ucp_share = per_district["ucp"] / total
     ucp_wins = (ucp_share > 0.5 + 1e-9).sum()
     ucp_ties = (np.abs(ucp_share - 0.5) <= 1e-9).sum()
     ucp_wins = int(ucp_wins + ucp_ties * 0.5)
-    ucp_wasted = np.where(ucp_wins, per_district["ucp"] - (total / 2),
-                          per_district["ucp"])
-    ndp_wasted = np.where(~ucp_wins, per_district["ndp"] - (total / 2),
-                          per_district["ndp"])
+    ucp_wasted = np.where(
+        ucp_wins, per_district["ucp"] - (total / 2), per_district["ucp"]
+    )
+    ndp_wasted = np.where(
+        ~ucp_wins, per_district["ndp"] - (total / 2), per_district["ndp"]
+    )
     return float((ndp_wasted.sum() - ucp_wasted.sum()) / total.sum())
 
 
@@ -120,8 +134,9 @@ def crosswalk_dict(xwalk_csv: Path) -> dict[str, str]:
     return {norm(r["current_2019"]): norm(r["proposed_2026"]) for _, r in df.iterrows()}
 
 
-def assign_vas_to_2026_ed(vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame,
-                          name_col: str, xwalk: dict[str, str]) -> gpd.GeoDataFrame:
+def assign_vas_to_2026_ed(
+    vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame, name_col: str, xwalk: dict[str, str]
+) -> gpd.GeoDataFrame:
     """Assign each VA to a 2026 ED: polygon first, crosswalk fallback."""
     vas = vas.copy()
     vas["_parent2019"] = vas["parent_ed_2019"].astype(str).apply(norm)
@@ -130,10 +145,13 @@ def assign_vas_to_2026_ed(vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame,
         polys = polys.to_crs(vas.crs)
     centroids = vas.copy()
     centroids["geometry"] = vas.geometry.representative_point()
-    joined = gpd.sjoin(centroids, polys[[name_col, "geometry"]],
-                       how="left", predicate="within")
+    joined = gpd.sjoin(
+        centroids, polys[[name_col, "geometry"]], how="left", predicate="within"
+    )
     joined = joined[~joined.index.duplicated(keep="first")]
-    vas["_assigned_poly"] = joined[name_col].apply(lambda x: norm(x) if pd.notna(x) else None).values
+    vas["_assigned_poly"] = (
+        joined[name_col].apply(lambda x: norm(x) if pd.notna(x) else None).values
+    )
 
     vas["_assigned_xwalk"] = vas["_parent2019"].map(xwalk).fillna(vas["_parent2019"])
     vas["ed_2026"] = vas["_assigned_poly"].fillna(vas["_assigned_xwalk"])
@@ -141,11 +159,15 @@ def assign_vas_to_2026_ed(vas: gpd.GeoDataFrame, polys: gpd.GeoDataFrame,
 
 
 def score_map(vas_assigned: gpd.GeoDataFrame, expected_eds: set[str]) -> dict:
-    agg = vas_assigned.groupby("ed_2026").agg(
-        ucp=("va_ucp", "sum"),
-        ndp=("va_ndp", "sum"),
-        total_votes=("va_ucp", "sum")  # overwritten below
-    ).reset_index()
+    agg = (
+        vas_assigned.groupby("ed_2026")
+        .agg(
+            ucp=("va_ucp", "sum"),
+            ndp=("va_ndp", "sum"),
+            total_votes=("va_ucp", "sum"),  # overwritten below
+        )
+        .reset_index()
+    )
     # Recompute total votes
     agg["total_votes"] = agg["ucp"] + agg["ndp"]
     agg = agg[agg["total_votes"] > 0].reset_index(drop=True)
@@ -172,11 +194,18 @@ def score_map(vas_assigned: gpd.GeoDataFrame, expected_eds: set[str]) -> dict:
         "n_expected": int(len(expected_eds)),
         "n_via_polygon": n_via_poly,
         "n_via_crosswalk": n_via_xwalk,
-        "coverage_polygon_pct": float(n_via_poly / (n_via_poly + n_via_xwalk))
-            if (n_via_poly + n_via_xwalk) else 0.0,
+        "coverage_polygon_pct": (
+            float(n_via_poly / (n_via_poly + n_via_xwalk))
+            if (n_via_poly + n_via_xwalk)
+            else 0.0
+        ),
         "eds_missing": sorted(eds_missing)[:20],
         "eds_extra": sorted(eds_extra)[:20],
-        "ucp_vote_share": float(total_ucp / (total_ucp + total_ndp)) if (total_ucp + total_ndp) else 0.0,
+        "ucp_vote_share": (
+            float(total_ucp / (total_ucp + total_ndp))
+            if (total_ucp + total_ndp)
+            else 0.0
+        ),
         "total_votes": int(total_ucp + total_ndp),
     }
 
@@ -197,22 +226,26 @@ def compute_percentiles(ensemble_csv: Path, real_scores: dict) -> pd.DataFrame:
                 below = (ens_vals < v).sum()
                 equal = (ens_vals == v).sum()
                 pct = float(100.0 * (below + 0.5 * equal) / len(ens_vals))
-            rows.append({
-                "metric": metric,
-                "map": mp_label,
-                "value": v,
-                "percentile": pct,
-                "ensemble_p5": p5,
-                "ensemble_p50": p50,
-                "ensemble_p95": p95,
-                "n_ensemble": int(len(ens_vals)),
-            })
+            rows.append(
+                {
+                    "metric": metric,
+                    "map": mp_label,
+                    "value": v,
+                    "percentile": pct,
+                    "ensemble_p5": p5,
+                    "ensemble_p50": p50,
+                    "ensemble_p95": p95,
+                    "n_ensemble": int(len(ens_vals)),
+                }
+            )
     return pd.DataFrame(rows)
 
 
 def main():
     if not ENSEMBLE_CSV_100K.exists():
-        print(f"ERROR: {ENSEMBLE_CSV_100K} missing. Run v0_1_mcmc_ensemble_100k.py first.")
+        print(
+            f"ERROR: {ENSEMBLE_CSV_100K} missing. Run v0_1_mcmc_ensemble_100k.py first."
+        )
         sys.exit(1)
 
     print("=== Full-coverage MCMC rescore — 100k ensemble ===\n")
@@ -237,8 +270,11 @@ def main():
 
     # 2019 enacted (full by definition)
     print("\n--- 2019 enacted (full coverage via VA parent labels) ---")
-    agg_2019 = vas.groupby(vas["parent_ed_2019"].apply(norm)).agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")).reset_index()
+    agg_2019 = (
+        vas.groupby(vas["parent_ed_2019"].apply(norm))
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     agg_2019.columns = ["ed_2019", "ucp", "ndp"]
     agg_2019["total_votes"] = agg_2019["ucp"] + agg_2019["ndp"]
     agg_2019 = agg_2019[agg_2019["total_votes"] > 0].reset_index(drop=True)
@@ -249,7 +285,11 @@ def main():
         "mean_median": mean_median(agg_2019),
         "declination": declination(agg_2019),
         "seats_at_50_50": seats_at_50_50(agg_2019),
-        "ucp_seats": int(((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) > 0.5 + 1e-9).sum() + ((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) == 0.5).sum() * 0.5),
+        "ucp_seats": int(
+            ((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) > 0.5 + 1e-9).sum()
+            + ((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) == 0.5).sum()
+            * 0.5
+        ),
         "n_districts_scored": int(len(agg_2019)),
         "n_expected": 87,
         "n_via_polygon": int(len(vas)),
@@ -269,13 +309,19 @@ def main():
 
     for lbl, s in real.items():
         print(f"\n{lbl}:")
-        print(f"  EG={s['efficiency_gap']:+.4f}  MM={s['mean_median']:+.4f}  "
-              f"DECL={s['declination']:+.4f}  S@50/50={s['seats_at_50_50']:+.4f}")
-        print(f"  UCP seats {s['ucp_seats']} / {s['n_districts_scored']} scored "
-              f"(expected {s['n_expected']})")
-        print(f"  VA assignment: {s['n_via_polygon']} via polygon, "
-              f"{s['n_via_crosswalk']} via crosswalk  "
-              f"(polygon coverage {s['coverage_polygon_pct']*100:.1f}%)")
+        print(
+            f"  EG={s['efficiency_gap']:+.4f}  MM={s['mean_median']:+.4f}  "
+            f"DECL={s['declination']:+.4f}  S@50/50={s['seats_at_50_50']:+.4f}"
+        )
+        print(
+            f"  UCP seats {s['ucp_seats']} / {s['n_districts_scored']} scored "
+            f"(expected {s['n_expected']})"
+        )
+        print(
+            f"  VA assignment: {s['n_via_polygon']} via polygon, "
+            f"{s['n_via_crosswalk']} via crosswalk  "
+            f"(polygon coverage {s['coverage_polygon_pct']*100:.1f}%)"
+        )
         if s["eds_missing"]:
             print(f"  MISSING EDs ({len(s['eds_missing'])}): {s['eds_missing'][:5]}")
         if s["eds_extra"]:
@@ -284,9 +330,14 @@ def main():
     # Percentiles
     print("\n--- Percentiles vs. 100k-plan ensemble ---")
     pct_df = compute_percentiles(ENSEMBLE_CSV_100K, real)
-    with pd.option_context("display.float_format", "{:+.4f}".format,
-                           "display.max_rows", None,
-                           "display.width", 160):
+    with pd.option_context(
+        "display.float_format",
+        "{:+.4f}".format,
+        "display.max_rows",
+        None,
+        "display.width",
+        160,
+    ):
         print(pct_df.to_string(index=False))
 
     # Flag outliers
@@ -294,7 +345,9 @@ def main():
     flagged = pct_df[(pct_df["percentile"] >= 95) | (pct_df["percentile"] <= 5)]
     if len(flagged):
         for _, r in flagged.iterrows():
-            print(f"    {r['map']:<36s} {r['metric']:<18s} value={r['value']:+.4f}  p={r['percentile']:.1f}")
+            print(
+                f"    {r['map']:<36s} {r['metric']:<18s} value={r['value']:+.4f}  p={r['percentile']:.1f}"
+            )
     else:
         print("    (none)")
 

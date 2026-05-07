@@ -62,6 +62,7 @@ Backward:
   data/alberta_2021_csds.gpkg (for the "not already municipally anchored"
                                 mask)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -94,30 +95,44 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
-V0_4_MAJ = DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
-V0_4_MIN = DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+V0_4_MAJ = (
+    DATA / "shapefiles" / "derived" / "v0_4_canonical_majority_2026_eds_anchored.gpkg"
+)
+V0_4_MIN = (
+    DATA / "shapefiles" / "derived" / "v0_4_canonical_minority_2026_eds_anchored.gpkg"
+)
 
 DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
-MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
-MIN_OUT = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+MAJ_OUT = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
+)
+MIN_OUT = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+)
 
 LOG_CSV = REPORTS / "da_anchoring_log.csv"
 SUMMARY_JSON = DATA / "v0_1_da_anchoring_summary.json"
 
 # Snapping configuration (v0_5 DA-anchoring)
 # ADVERSARIAL AUDIT MITIGATION (2026-04-27):
-# This script assumes DA boundaries are always more precise than municipal boundaries 
-# and that snapping within 150m is always topologically correct. In rare cases (e.g., 
+# This script assumes DA boundaries are always more precise than municipal boundaries
+# and that snapping within 150m is always topologically correct. In rare cases (e.g.,
 # rural areas with survey errors), this could introduce minor topological artifacts.
-# The code explicitly skips snapping already-municipally-anchored segments to avoid 
+# The code explicitly skips snapping already-municipally-anchored segments to avoid
 # double-counting or breaking clean municipal lines, but reviewers should be aware of
 # this fallback masking assumption.
-SNAP_TOL_M = 150.0              # max vertex-to-DA-edge distance for snapping
-MUNI_MASK_TOL_M = 500.0         # same threshold v0_4 used for municipal snap
-VERTEX_DENSIFY_M = 25.0         # finer than v0_4's 50 m — DA edges more curved
-CONTIG_SNAP_VERT_COUNT = 4      # 4 × 25 m = 100 m of near-parallel alignment
+SNAP_TOL_M = 150.0  # max vertex-to-DA-edge distance for snapping
+MUNI_MASK_TOL_M = 500.0  # same threshold v0_4 used for municipal snap
+VERTEX_DENSIFY_M = 25.0  # finer than v0_4's 50 m — DA edges more curved
+CONTIG_SNAP_VERT_COUNT = 4  # 4 × 25 m = 100 m of near-parallel alignment
 CONTIG_SNAP_MIN_METERS = 100.0  # minimum aligned run to qualify as anchored
 
 SOURCE_PRECEDENCE = {
@@ -147,7 +162,9 @@ def _keep_polys(geom):
     return None
 
 
-def build_edge_network(polys_gdf: gpd.GeoDataFrame, target_crs, label: str) -> MultiLineString:
+def build_edge_network(
+    polys_gdf: gpd.GeoDataFrame, target_crs, label: str
+) -> MultiLineString:
     """Union of every polygon boundary, merged to a MultiLineString."""
     polys = polys_gdf.to_crs(target_crs)
     t0 = time.time()
@@ -159,10 +176,14 @@ def build_edge_network(polys_gdf: gpd.GeoDataFrame, target_crs, label: str) -> M
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
     if edges.geom_type == "GeometryCollection":
-        lines = [g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")]
+        lines = [
+            g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")
+        ]
         edges = unary_union(lines)
-    print(f"  [{label}] edge network built in {time.time()-t0:.1f}s; "
-          f"length = {edges.length/1000:,.0f} km")
+    print(
+        f"  [{label}] edge network built in {time.time()-t0:.1f}s; "
+        f"length = {edges.length/1000:,.0f} km"
+    )
     return edges
 
 
@@ -376,7 +397,9 @@ def anchor_map_da(
     da_tree = STRtree(da_lines)
     muni_tree = STRtree(muni_lines)
 
-    print(f"  [{label}] DA-edge lines: {len(da_lines):,}, CSD lines: {len(muni_lines):,}")
+    print(
+        f"  [{label}] DA-edge lines: {len(da_lines):,}, CSD lines: {len(muni_lines):,}"
+    )
 
     rows = []
     new_geoms = []
@@ -385,15 +408,19 @@ def anchor_map_da(
         g = row.geometry
         if g is None or g.is_empty:
             new_geoms.append(g)
-            rows.append({
-                "map": label, "name_2026": row["name_2026"],
-                "perimeter_km_total": 0.0,
-                "da_anchored_km": 0.0, "da_anchored_pct": 0.0,
-                "muni_anchored_km_v0_4": 0.0,
-                "muni_anchored_pct_recomputed": 0.0,
-                "new_total_anchored_pct": 0.0,
-                "pre_da_error_m": 0.0,
-            })
+            rows.append(
+                {
+                    "map": label,
+                    "name_2026": row["name_2026"],
+                    "perimeter_km_total": 0.0,
+                    "da_anchored_km": 0.0,
+                    "da_anchored_pct": 0.0,
+                    "muni_anchored_km_v0_4": 0.0,
+                    "muni_anchored_pct_recomputed": 0.0,
+                    "new_total_anchored_pct": 0.0,
+                    "pre_da_error_m": 0.0,
+                }
+            )
             continue
 
         t_poly = time.time()
@@ -430,27 +457,34 @@ def anchor_map_da(
         )
         new_total_pct = da_pct + muni_pct_recomputed
         pre_err_m = float(np.mean(pre_errs)) if pre_errs else 0.0
-        rows.append({
-            "map": label,
-            "name_2026": row["name_2026"],
-            "perimeter_km_total": perim_sum / 1000.0,
-            "da_anchored_km": da_anchored_sum / 1000.0,
-            "da_anchored_pct": da_pct,
-            "muni_anchored_km_v0_4": muni_already_sum / 1000.0,
-            "muni_anchored_pct_recomputed": muni_pct_recomputed,
-            "new_total_anchored_pct": new_total_pct,
-            "pre_da_error_m": pre_err_m,
-        })
+        rows.append(
+            {
+                "map": label,
+                "name_2026": row["name_2026"],
+                "perimeter_km_total": perim_sum / 1000.0,
+                "da_anchored_km": da_anchored_sum / 1000.0,
+                "da_anchored_pct": da_pct,
+                "muni_anchored_km_v0_4": muni_already_sum / 1000.0,
+                "muni_anchored_pct_recomputed": muni_pct_recomputed,
+                "new_total_anchored_pct": new_total_pct,
+                "pre_da_error_m": pre_err_m,
+            }
+        )
         t_poly_done = time.time() - t_poly
         # Emit per-polygon timing for slow ones (>10s) to help diagnose hangs
         if t_poly_done > 10.0:
-            print(f"    [{label}] SLOW: {row['name_2026']:<40s} "
-                  f"perim={perim_sum/1000:,.0f} km, took {t_poly_done:.1f}s",
-                  flush=True)
+            print(
+                f"    [{label}] SLOW: {row['name_2026']:<40s} "
+                f"perim={perim_sum/1000:,.0f} km, took {t_poly_done:.1f}s",
+                flush=True,
+            )
         if (i + 1) % 10 == 0 or i == len(eds) - 1:
             elapsed = time.time() - t_start
-            print(f"    [{label}] {i+1}/{len(eds)} polygons anchored "
-                  f"({elapsed:.0f}s elapsed)", flush=True)
+            print(
+                f"    [{label}] {i+1}/{len(eds)} polygons anchored "
+                f"({elapsed:.0f}s elapsed)",
+                flush=True,
+            )
 
     out = eds.copy()
     out["geometry"] = new_geoms
@@ -516,7 +550,9 @@ def re_resolve_topology(eds: gpd.GeoDataFrame, label: str) -> gpd.GeoDataFrame:
             resolved += 1
 
     eds["geometry"] = geoms
-    print(f"    resolved {resolved} residual overlap pairs, max {max_resolved_m2:,.1f} m^2")
+    print(
+        f"    resolved {resolved} residual overlap pairs, max {max_resolved_m2:,.1f} m^2"
+    )
     return eds
 
 
@@ -541,7 +577,9 @@ def verify_no_overlap(eds: gpd.GeoDataFrame, label: str) -> tuple[int, float]:
                 continue
             count += 1
             total_km2 += inter.area / 1e6
-    print(f"  [{label}] post-validation: {count} pairs, {total_km2:,.4f} km^2 residual overlap")
+    print(
+        f"  [{label}] post-validation: {count} pairs, {total_km2:,.4f} km^2 residual overlap"
+    )
     return count, total_km2
 
 
@@ -614,12 +652,12 @@ def main():
     min_total_cov = min_da_cov + min_muni_cov
 
     # Top-5 biggest improvement = biggest da_anchored_pct
-    top5_maj = (maj_log.nlargest(5, "da_anchored_pct")
-                [["name_2026", "da_anchored_pct", "new_total_anchored_pct"]]
-                .to_dict("records"))
-    top5_min = (min_log.nlargest(5, "da_anchored_pct")
-                [["name_2026", "da_anchored_pct", "new_total_anchored_pct"]]
-                .to_dict("records"))
+    top5_maj = maj_log.nlargest(5, "da_anchored_pct")[
+        ["name_2026", "da_anchored_pct", "new_total_anchored_pct"]
+    ].to_dict("records")
+    top5_min = min_log.nlargest(5, "da_anchored_pct")[
+        ["name_2026", "da_anchored_pct", "new_total_anchored_pct"]
+    ].to_dict("records")
 
     summary = {
         "method": {
@@ -659,15 +697,21 @@ def main():
             "n_eds": len(maj_log),
             "total_perimeter_km": float(maj_log["perimeter_km_total"].sum()),
             "da_anchored_perimeter_km": float(maj_log["da_anchored_km"].sum()),
-            "muni_anchored_perimeter_km_v0_4": float(maj_log["muni_anchored_km_v0_4"].sum()),
+            "muni_anchored_perimeter_km_v0_4": float(
+                maj_log["muni_anchored_km_v0_4"].sum()
+            ),
             "da_anchored_pct_overall": float(maj_da_cov),
             "muni_anchored_pct_overall_recomputed": float(maj_muni_cov),
             "new_total_anchored_pct_overall": float(maj_total_cov),
             "mean_per_ed_da_anchored_pct": float(maj_log["da_anchored_pct"].mean()),
             "median_per_ed_da_anchored_pct": float(maj_log["da_anchored_pct"].median()),
-            "mean_pre_da_error_m": float(
-                maj_log.loc[maj_log["pre_da_error_m"] > 0, "pre_da_error_m"].mean()
-            ) if (maj_log["pre_da_error_m"] > 0).any() else 0.0,
+            "mean_pre_da_error_m": (
+                float(
+                    maj_log.loc[maj_log["pre_da_error_m"] > 0, "pre_da_error_m"].mean()
+                )
+                if (maj_log["pre_da_error_m"] > 0).any()
+                else 0.0
+            ),
             "top5_biggest_da_improvement": top5_maj,
             "residual_overlap_pairs": maj_overlap_pairs,
             "residual_overlap_km2": maj_overlap_km2,
@@ -676,15 +720,21 @@ def main():
             "n_eds": len(min_log),
             "total_perimeter_km": float(min_log["perimeter_km_total"].sum()),
             "da_anchored_perimeter_km": float(min_log["da_anchored_km"].sum()),
-            "muni_anchored_perimeter_km_v0_4": float(min_log["muni_anchored_km_v0_4"].sum()),
+            "muni_anchored_perimeter_km_v0_4": float(
+                min_log["muni_anchored_km_v0_4"].sum()
+            ),
             "da_anchored_pct_overall": float(min_da_cov),
             "muni_anchored_pct_overall_recomputed": float(min_muni_cov),
             "new_total_anchored_pct_overall": float(min_total_cov),
             "mean_per_ed_da_anchored_pct": float(min_log["da_anchored_pct"].mean()),
             "median_per_ed_da_anchored_pct": float(min_log["da_anchored_pct"].median()),
-            "mean_pre_da_error_m": float(
-                min_log.loc[min_log["pre_da_error_m"] > 0, "pre_da_error_m"].mean()
-            ) if (min_log["pre_da_error_m"] > 0).any() else 0.0,
+            "mean_pre_da_error_m": (
+                float(
+                    min_log.loc[min_log["pre_da_error_m"] > 0, "pre_da_error_m"].mean()
+                )
+                if (min_log["pre_da_error_m"] > 0).any()
+                else 0.0
+            ),
             "top5_biggest_da_improvement": top5_min,
             "residual_overlap_pairs": min_overlap_pairs,
             "residual_overlap_km2": min_overlap_km2,
@@ -709,27 +759,41 @@ def main():
     print("\n" + "=" * 72)
     print("  DA-ANCHORING SUMMARY")
     print("=" * 72)
-    print(f"\n  MAJORITY: v0_4 muni baseline  {maj_muni_cov:5.1f}% -> "
-          f"+ DA {maj_da_cov:5.1f}%  = total {maj_total_cov:5.1f}%")
-    print(f"            mean per-ED DA anchored {maj_log['da_anchored_pct'].mean():5.1f}%, "
-          f"median {maj_log['da_anchored_pct'].median():5.1f}%")
-    print(f"\n  MINORITY: v0_4 muni baseline  {min_muni_cov:5.1f}% -> "
-          f"+ DA {min_da_cov:5.1f}%  = total {min_total_cov:5.1f}%")
-    print(f"            mean per-ED DA anchored {min_log['da_anchored_pct'].mean():5.1f}%, "
-          f"median {min_log['da_anchored_pct'].median():5.1f}%")
+    print(
+        f"\n  MAJORITY: v0_4 muni baseline  {maj_muni_cov:5.1f}% -> "
+        f"+ DA {maj_da_cov:5.1f}%  = total {maj_total_cov:5.1f}%"
+    )
+    print(
+        f"            mean per-ED DA anchored {maj_log['da_anchored_pct'].mean():5.1f}%, "
+        f"median {maj_log['da_anchored_pct'].median():5.1f}%"
+    )
+    print(
+        f"\n  MINORITY: v0_4 muni baseline  {min_muni_cov:5.1f}% -> "
+        f"+ DA {min_da_cov:5.1f}%  = total {min_total_cov:5.1f}%"
+    )
+    print(
+        f"            mean per-ED DA anchored {min_log['da_anchored_pct'].mean():5.1f}%, "
+        f"median {min_log['da_anchored_pct'].median():5.1f}%"
+    )
 
     print("\n  Top-5 biggest DA-anchoring gains (majority):")
     for r in top5_maj:
-        print(f"    {r['name_2026']:<44s}  DA {r['da_anchored_pct']:5.1f}%  "
-              f"-> total {r['new_total_anchored_pct']:5.1f}%")
+        print(
+            f"    {r['name_2026']:<44s}  DA {r['da_anchored_pct']:5.1f}%  "
+            f"-> total {r['new_total_anchored_pct']:5.1f}%"
+        )
     print("\n  Top-5 biggest DA-anchoring gains (minority):")
     for r in top5_min:
-        print(f"    {r['name_2026']:<44s}  DA {r['da_anchored_pct']:5.1f}%  "
-              f"-> total {r['new_total_anchored_pct']:5.1f}%")
+        print(
+            f"    {r['name_2026']:<44s}  DA {r['da_anchored_pct']:5.1f}%  "
+            f"-> total {r['new_total_anchored_pct']:5.1f}%"
+        )
 
     all_gates_ok = all(summary["validation_gates"].values())
     print("\n" + "=" * 72)
-    print(f"  DA ANCHORING: {'ALL GATES PASSED' if all_gates_ok else 'GATE FAILURE - investigate'}")
+    print(
+        f"  DA ANCHORING: {'ALL GATES PASSED' if all_gates_ok else 'GATE FAILURE - investigate'}"
+    )
     print("=" * 72)
 
 

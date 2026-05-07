@@ -33,6 +33,7 @@ Backward deps:
   - data/v0_2_canonical_majority_2026_eds_topoclean.gpkg
   - data/v0_2_canonical_minority_2026_eds_topoclean.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -60,13 +61,12 @@ from packing_cracking_analysis import (  # noqa: E402
     MINORITY_2026_MAPPING,
 )
 
-
 # ---------------------------------------------------------------------
 # Constants (thresholds per directive)
 # ---------------------------------------------------------------------
 
-S_THRESHOLD = 0.15   # surplus-vote rate for packing
-M_THRESHOLD = 0.05   # margin for cracking
+S_THRESHOLD = 0.15  # surplus-vote rate for packing
+M_THRESHOLD = 0.05  # margin for cracking
 # The directive originally specified a 100 m buffer. The v0_2 topology-clean
 # substrate turns out to have ~200-500 m gaps between supposedly-adjacent
 # central-Calgary EDs on both 2026 maps (e.g., Calgary-Klein to Calgary-Buffalo
@@ -96,13 +96,14 @@ SENSITIVITY_GRID = [(0.10, 0.08), (0.15, 0.05), (0.20, 0.03)]
 # 2019 shapefile uses 'Calgary-McCall' but 2023 CSV uses 'Calgary-Bhullar-McCall'.
 # Other canonical maps use the 2026 names directly.
 NAME_REMAP_2019_SHP_TO_CSV = {
-    'Calgary-McCall': 'Calgary-Bhullar-McCall',
+    "Calgary-McCall": "Calgary-Bhullar-McCall",
 }
 
 
 # ---------------------------------------------------------------------
 # Core metrics per ED
 # ---------------------------------------------------------------------
+
 
 def compute_ed_metrics(votes: Dict[str, Tuple[int, int]]) -> pd.DataFrame:
     """votes: ed_name -> (ndp_votes, ucp_votes).
@@ -126,30 +127,33 @@ def compute_ed_metrics(votes: Dict[str, Tuple[int, int]]) -> pd.DataFrame:
         s = max(surplus, 0) / total
         m = abs(ndp - ucp) / total
         if ndp > ucp:
-            winner = 'NDP'
-            loser = 'UCP'
+            winner = "NDP"
+            loser = "UCP"
         elif ucp > ndp:
-            winner = 'UCP'
-            loser = 'NDP'
+            winner = "UCP"
+            loser = "NDP"
         else:
-            winner = 'TIE'
-            loser = 'TIE'
-        rows.append({
-            'ed': ed,
-            'ndp': ndp,
-            'ucp': ucp,
-            'total': total,
-            'winner_party': winner,
-            'losing_party': loser,
-            's': s,
-            'm': m,
-        })
+            winner = "TIE"
+            loser = "TIE"
+        rows.append(
+            {
+                "ed": ed,
+                "ndp": ndp,
+                "ucp": ucp,
+                "total": total,
+                "winner_party": winner,
+                "losing_party": loser,
+                "s": s,
+                "m": m,
+            }
+        )
     return pd.DataFrame(rows)
 
 
 # ---------------------------------------------------------------------
 # Adjacency graph
 # ---------------------------------------------------------------------
+
 
 def build_adjacency(
     gdf: gpd.GeoDataFrame,
@@ -176,17 +180,17 @@ def build_adjacency(
     """
     gdf = gdf.reset_index(drop=True)
     buffered = gdf.copy()
-    buffered['geometry'] = gdf.geometry.buffer(ADJACENCY_BUFFER_M / 2.0)
+    buffered["geometry"] = gdf.geometry.buffer(ADJACENCY_BUFFER_M / 2.0)
 
     # Pass 1: buffered-intersection spatial self-join
     joined = gpd.sjoin(
-        buffered[[name_col, 'geometry']],
-        buffered[[name_col, 'geometry']],
-        how='inner',
-        predicate='intersects',
+        buffered[[name_col, "geometry"]],
+        buffered[[name_col, "geometry"]],
+        how="inner",
+        predicate="intersects",
     )
-    left_col = f'{name_col}_left' if f'{name_col}_left' in joined.columns else name_col
-    right_col = f'{name_col}_right'
+    left_col = f"{name_col}_left" if f"{name_col}_left" in joined.columns else name_col
+    right_col = f"{name_col}_right"
     joined = joined[joined[left_col] != joined[right_col]]
 
     geom_map = dict(zip(gdf[name_col], gdf.geometry))
@@ -214,9 +218,11 @@ def build_adjacency(
             continue
         # Criterion 2: substantial buffered overlap (substrate-gap tolerant)
         try:
-            overlap_area = ga.buffer(ADJACENCY_BUFFER_M / 2.0).intersection(
-                gb.buffer(ADJACENCY_BUFFER_M / 2.0)
-            ).area
+            overlap_area = (
+                ga.buffer(ADJACENCY_BUFFER_M / 2.0)
+                .intersection(gb.buffer(ADJACENCY_BUFFER_M / 2.0))
+                .area
+            )
             if overlap_area >= MIN_BUFFERED_OVERLAP_M2:
                 strict_pairs.add(key)
         except Exception:
@@ -243,7 +249,7 @@ def build_adjacency(
                 try:
                     d = iso_geom.distance(other_geom)
                 except Exception:
-                    d = float('inf')
+                    d = float("inf")
                 dists.append((d, other_name))
             dists.sort()
             for _, neighbour in dists[:k_fallback]:
@@ -253,10 +259,10 @@ def build_adjacency(
 
     pairs = strict_pairs | fallback_pairs
     meta = {
-        'strict_pairs': len(strict_pairs),
-        'fallback_pairs': len(fallback_pairs),
-        'total_pairs': len(pairs),
-        'isolated_after_strict': len(isolated_after_strict),
+        "strict_pairs": len(strict_pairs),
+        "fallback_pairs": len(fallback_pairs),
+        "total_pairs": len(pairs),
+        "isolated_after_strict": len(isolated_after_strict),
     }
     return sorted(pairs), meta, isolated_after_strict
 
@@ -264,6 +270,7 @@ def build_adjacency(
 # ---------------------------------------------------------------------
 # Chain-signal detection
 # ---------------------------------------------------------------------
+
 
 def detect_chain_signals(
     ed_df: pd.DataFrame,
@@ -277,7 +284,7 @@ def detect_chain_signals(
       X, Y, s_X, m_Y, losing_party_X, losing_party_Y,
       chain_signal (bool), coupled (bool)
     """
-    ed_lookup = ed_df.set_index('ed').to_dict('index')
+    ed_lookup = ed_df.set_index("ed").to_dict("index")
     rows = []
     for a, b in undirected_pairs:
         if a not in ed_lookup or b not in ed_lookup:
@@ -288,22 +295,24 @@ def detect_chain_signals(
         for X, Y in [(a, b), (b, a)]:
             eX = ed_lookup[X]
             eY = ed_lookup[Y]
-            s_X = eX['s']
-            m_Y = eY['m']
+            s_X = eX["s"]
+            m_Y = eY["m"]
             chain = (s_X >= s_thresh) and (m_Y <= m_thresh)
-            coupled = (eX['losing_party'] == eY['losing_party'])
-            rows.append({
-                'X': X,
-                'Y': Y,
-                's_X': s_X,
-                'm_Y': m_Y,
-                'losing_party_X': eX['losing_party'],
-                'losing_party_Y': eY['losing_party'],
-                'winner_X': eX['winner_party'],
-                'winner_Y': eY['winner_party'],
-                'chain_signal': bool(chain),
-                'coupled': bool(coupled),
-            })
+            coupled = eX["losing_party"] == eY["losing_party"]
+            rows.append(
+                {
+                    "X": X,
+                    "Y": Y,
+                    "s_X": s_X,
+                    "m_Y": m_Y,
+                    "losing_party_X": eX["losing_party"],
+                    "losing_party_Y": eY["losing_party"],
+                    "winner_X": eX["winner_party"],
+                    "winner_Y": eY["winner_party"],
+                    "chain_signal": bool(chain),
+                    "coupled": bool(coupled),
+                }
+            )
     return pd.DataFrame(rows)
 
 
@@ -311,45 +320,69 @@ def detect_chain_signals(
 # Phase-space plotting
 # ---------------------------------------------------------------------
 
+
 def plot_phase_space(pair_df: pd.DataFrame, label: str, outpath: Path) -> None:
     fig, ax = plt.subplots(figsize=(5.5, 5.0), dpi=150)
 
-    coupled = pair_df[pair_df['coupled']]
-    uncoupled = pair_df[~pair_df['coupled']]
+    coupled = pair_df[pair_df["coupled"]]
+    uncoupled = pair_df[~pair_df["coupled"]]
 
-    ax.scatter(uncoupled['s_X'], uncoupled['m_Y'],
-               s=14, c='#999999', alpha=0.45, label=f'uncoupled (n={len(uncoupled)})',
-               edgecolors='none')
-    ax.scatter(coupled['s_X'], coupled['m_Y'],
-               s=16, c='#c0392b', alpha=0.7, label=f'coupled (n={len(coupled)})',
-               edgecolors='none')
+    ax.scatter(
+        uncoupled["s_X"],
+        uncoupled["m_Y"],
+        s=14,
+        c="#999999",
+        alpha=0.45,
+        label=f"uncoupled (n={len(uncoupled)})",
+        edgecolors="none",
+    )
+    ax.scatter(
+        coupled["s_X"],
+        coupled["m_Y"],
+        s=16,
+        c="#c0392b",
+        alpha=0.7,
+        label=f"coupled (n={len(coupled)})",
+        edgecolors="none",
+    )
 
     # Chain-signal region
-    ax.add_patch(Rectangle(
-        (S_THRESHOLD, 0.0), 0.40 - S_THRESHOLD, M_THRESHOLD,
-        facecolor='gold', alpha=0.18, edgecolor='#b7950b', linewidth=1.2, linestyle='--',
-        label='chain-signal region'
-    ))
+    ax.add_patch(
+        Rectangle(
+            (S_THRESHOLD, 0.0),
+            0.40 - S_THRESHOLD,
+            M_THRESHOLD,
+            facecolor="gold",
+            alpha=0.18,
+            edgecolor="#b7950b",
+            linewidth=1.2,
+            linestyle="--",
+            label="chain-signal region",
+        )
+    )
 
-    ax.axvline(S_THRESHOLD, color='#b7950b', linestyle=':', linewidth=0.8, alpha=0.6)
-    ax.axhline(M_THRESHOLD, color='#b7950b', linestyle=':', linewidth=0.8, alpha=0.6)
+    ax.axvline(S_THRESHOLD, color="#b7950b", linestyle=":", linewidth=0.8, alpha=0.6)
+    ax.axhline(M_THRESHOLD, color="#b7950b", linestyle=":", linewidth=0.8, alpha=0.6)
 
     ax.set_xlim(0.0, 0.40)
     ax.set_ylim(0.0, 0.50)
-    ax.set_xlabel(r'$s_X$ = surplus-vote rate of losing party in $X$ (packing)')
-    ax.set_ylabel(r'$m_Y$ = winning margin in $Y$ (smaller = more cracked)')
-    ax.set_title(f'Neighbour-drain phase space — {label}\n'
-                 f'({len(pair_df)} directed adjacent pairs)')
-    ax.legend(loc='upper right', fontsize=8, framealpha=0.92)
-    ax.grid(alpha=0.2, linestyle='--', linewidth=0.5)
+    ax.set_xlabel(r"$s_X$ = surplus-vote rate of losing party in $X$ (packing)")
+    ax.set_ylabel(r"$m_Y$ = winning margin in $Y$ (smaller = more cracked)")
+    ax.set_title(
+        f"Neighbour-drain phase space — {label}\n"
+        f"({len(pair_df)} directed adjacent pairs)"
+    )
+    ax.legend(loc="upper right", fontsize=8, framealpha=0.92)
+    ax.grid(alpha=0.2, linestyle="--", linewidth=0.5)
     fig.tight_layout()
-    fig.savefig(outpath, dpi=150, bbox_inches='tight')
+    fig.savefig(outpath, dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
 # ---------------------------------------------------------------------
 # Per-map pipeline
 # ---------------------------------------------------------------------
+
 
 def run_map(
     label: str,
@@ -360,38 +393,46 @@ def run_map(
 ) -> Dict:
     print(f"\n--- {label} ---")
     ed_df = compute_ed_metrics(votes)
-    ed_df['map'] = label
+    ed_df["map"] = label
 
     # Adjacency
     print(f"  computing adjacency graph ({len(gdf)} polygons)...")
     undirected, adj_meta, isolated = build_adjacency(gdf, name_col)
-    print(f"  found {len(undirected)} undirected adjacent pairs "
-          f"({adj_meta['strict_pairs']} strict + "
-          f"{adj_meta['fallback_pairs']} K-nearest fallback)")
+    print(
+        f"  found {len(undirected)} undirected adjacent pairs "
+        f"({adj_meta['strict_pairs']} strict + "
+        f"{adj_meta['fallback_pairs']} K-nearest fallback)"
+    )
     if isolated:
-        print(f"  {len(isolated)} ED(s) isolated under strict adjacency "
-              f"(substrate gap >100 m); K-nearest fallback applied: "
-              f"{sorted(isolated)[:5]}...")
+        print(
+            f"  {len(isolated)} ED(s) isolated under strict adjacency "
+            f"(substrate gap >100 m); K-nearest fallback applied: "
+            f"{sorted(isolated)[:5]}..."
+        )
 
     # Verify coverage: how many shapefile names are in the votes dict?
     shp_names = set(gdf[name_col])
     missing = shp_names - set(votes.keys())
     if missing:
-        print(f"  WARN: {len(missing)} shapefile EDs have no vote data: "
-              f"{sorted(missing)[:5]}...")
+        print(
+            f"  WARN: {len(missing)} shapefile EDs have no vote data: "
+            f"{sorted(missing)[:5]}..."
+        )
 
     # Directed chain-signal table
     pair_df = detect_chain_signals(ed_df, undirected)
-    pair_df.insert(0, 'map', label)
+    pair_df.insert(0, "map", label)
 
     n_pairs = len(pair_df)
-    n_signals = int(pair_df['chain_signal'].sum())
-    n_coupled_signals = int((pair_df['chain_signal'] & pair_df['coupled']).sum())
-    n_uncoupled_signals = int((pair_df['chain_signal'] & ~pair_df['coupled']).sum())
+    n_signals = int(pair_df["chain_signal"].sum())
+    n_coupled_signals = int((pair_df["chain_signal"] & pair_df["coupled"]).sum())
+    n_uncoupled_signals = int((pair_df["chain_signal"] & ~pair_df["coupled"]).sum())
 
     print(f"  directed pairs: {n_pairs}")
-    print(f"  chain signals total: {n_signals} "
-          f"({n_coupled_signals} coupled + {n_uncoupled_signals} uncoupled)")
+    print(
+        f"  chain signals total: {n_signals} "
+        f"({n_coupled_signals} coupled + {n_uncoupled_signals} uncoupled)"
+    )
     if n_pairs > 0:
         print(f"  chain-signal rate: {n_signals / n_pairs * 100:.2f}%")
 
@@ -399,29 +440,31 @@ def run_map(
     sens_rows = []
     for s_thr, m_thr in sensitivity_grid:
         sub = detect_chain_signals(ed_df, undirected, s_thresh=s_thr, m_thresh=m_thr)
-        n_s = int(sub['chain_signal'].sum())
-        n_c = int((sub['chain_signal'] & sub['coupled']).sum())
-        sens_rows.append({
-            's_threshold': s_thr,
-            'm_threshold': m_thr,
-            'chain_signals': n_s,
-            'coupled_signals': n_c,
-        })
+        n_s = int(sub["chain_signal"].sum())
+        n_c = int((sub["chain_signal"] & sub["coupled"]).sum())
+        sens_rows.append(
+            {
+                "s_threshold": s_thr,
+                "m_threshold": m_thr,
+                "chain_signals": n_s,
+                "coupled_signals": n_c,
+            }
+        )
 
     return {
-        'label': label,
-        'ed_df': ed_df,
-        'pair_df': pair_df,
-        'n_eds': len(ed_df),
-        'n_undirected_pairs': len(undirected),
-        'n_directed_pairs': n_pairs,
-        'chain_signals': n_signals,
-        'coupled_signals': n_coupled_signals,
-        'uncoupled_signals': n_uncoupled_signals,
-        'chain_signal_rate': n_signals / n_pairs if n_pairs else 0.0,
-        'sensitivity': sens_rows,
-        'adjacency_meta': adj_meta,
-        'isolated_after_strict': isolated,
+        "label": label,
+        "ed_df": ed_df,
+        "pair_df": pair_df,
+        "n_eds": len(ed_df),
+        "n_undirected_pairs": len(undirected),
+        "n_directed_pairs": n_pairs,
+        "chain_signals": n_signals,
+        "coupled_signals": n_coupled_signals,
+        "uncoupled_signals": n_uncoupled_signals,
+        "chain_signal_rate": n_signals / n_pairs if n_pairs else 0.0,
+        "sensitivity": sens_rows,
+        "adjacency_meta": adj_meta,
+        "isolated_after_strict": isolated,
     }
 
 
@@ -429,10 +472,11 @@ def run_map(
 # Main
 # ---------------------------------------------------------------------
 
+
 def main() -> None:
-    out_data_dir = ROOT / 'data'
-    out_reports_dir = ROOT / 'analysis' / 'reports'
-    out_maps_dir = ROOT / 'maps'
+    out_data_dir = ROOT / "data"
+    out_reports_dir = ROOT / "analysis" / "reports"
+    out_maps_dir = ROOT / "maps"
     for d in (out_data_dir, out_reports_dir, out_maps_dir):
         d.mkdir(parents=True, exist_ok=True)
 
@@ -443,119 +487,138 @@ def main() -> None:
     # --- Load 2019 + 2023 vote substrate ---
     print("\nLoading 2023 two-party vote totals per 2019 ED...")
     dists_2019 = load_2023_results()
-    votes_2019 = {d['ed']: (d['ndp'], d['ucp']) for d in dists_2019}
+    votes_2019 = {d["ed"]: (d["ndp"], d["ucp"]) for d in dists_2019}
 
-    rural = [d for d in dists_2019 if d['region'] == 'Rest of Alberta']
-    rural_ndp = sum(d['ndp'] for d in rural) / sum(d['ndp'] + d['ucp'] for d in rural)
+    rural = [d for d in dists_2019 if d["region"] == "Rest of Alberta"]
+    rural_ndp = sum(d["ndp"] for d in rural) / sum(d["ndp"] + d["ucp"] for d in rural)
     print(f"  Rural NDP share (used for blending): {rural_ndp*100:.1f}%")
 
     # Majority 2026 estimate
     print("\nEstimating 2023 two-party votes on Majority 2026 EDs...")
     maj_list = estimate_2026(dists_2019, MAJORITY_2026_MAPPING, rural_ndp)
-    votes_maj = {d['ed']: (d['ndp'], d['ucp']) for d in maj_list}
+    votes_maj = {d["ed"]: (d["ndp"], d["ucp"]) for d in maj_list}
     print(f"  {len(votes_maj)} majority EDs estimated")
 
     # Minority 2026 estimate
     print("\nEstimating 2023 two-party votes on Minority 2026 EDs...")
     min_list = estimate_2026(dists_2019, MINORITY_2026_MAPPING, rural_ndp)
-    votes_min = {d['ed']: (d['ndp'], d['ucp']) for d in min_list}
+    votes_min = {d["ed"]: (d["ndp"], d["ucp"]) for d in min_list}
     print(f"  {len(votes_min)} minority EDs estimated")
 
     # --- Load shapefiles ---
     print("\nLoading shapefiles...")
-    shp_2019 = gpd.read_file(out_data_dir / 'shapefiles' / 'reference' / 'alberta_2019_eds' / 'EDS_ENACTED_BILL33_15DEC2017.shp')
+    shp_2019 = gpd.read_file(
+        out_data_dir
+        / "shapefiles"
+        / "reference"
+        / "alberta_2019_eds"
+        / "EDS_ENACTED_BILL33_15DEC2017.shp"
+    )
     # Remap shapefile name 'Calgary-McCall' -> 'Calgary-Bhullar-McCall' to match CSV
-    shp_2019['ed_name'] = shp_2019['EDName2017'].replace(NAME_REMAP_2019_SHP_TO_CSV)
+    shp_2019["ed_name"] = shp_2019["EDName2017"].replace(NAME_REMAP_2019_SHP_TO_CSV)
     print(f"  2019: {len(shp_2019)} polygons  CRS={shp_2019.crs}")
 
-    # Prefer v0_8 full_refined (89/89 EDs from 2019-Tier-A inheritance fill);
-    # fall back to refined → canonical → v0_2 topoclean.
+    # Prefer official canonical shapefiles; fall back to derived (deprecated).
     def _pick_shp(plan: str):
-        base = out_data_dir / 'shapefiles' / 'derived'
+        canonical = out_data_dir / "shapefiles" / "canonical" / f"ea_{plan}_2026_eds.gpkg"
+        if canonical.exists():
+            return canonical, "EDName2025"
+        base = out_data_dir / "shapefiles" / "derived"
         for fname in (
-            f'v0_8_full_refined_{plan}_2026_eds.gpkg',
-            f'v0_8_refined_{plan}_2026_eds.gpkg',
-            f'v0_8_canonical_{plan}_2026_eds.gpkg',
-            f'v0_2_canonical_{plan}_2026_eds_topoclean.gpkg',
+            f"v0_8_full_refined_{plan}_2026_eds.gpkg",
+            f"v0_8_refined_{plan}_2026_eds.gpkg",
+            f"v0_8_canonical_{plan}_2026_eds.gpkg",
+            f"v0_2_canonical_{plan}_2026_eds_topoclean.gpkg",
         ):
             p = base / fname
             if p.exists():
-                return p
-        return base / f'v0_2_canonical_{plan}_2026_eds_topoclean.gpkg'
+                return p, "name_2026"
+        return base / f"v0_2_canonical_{plan}_2026_eds_topoclean.gpkg", "name_2026"
 
-    maj_path = _pick_shp('majority')
-    min_path = _pick_shp('minority')
+    maj_path, maj_col = _pick_shp("majority")
+    min_path, min_col = _pick_shp("minority")
     shp_maj = gpd.read_file(maj_path)
-    print(f"  Majority 2026: {len(shp_maj)} polygons  CRS={shp_maj.crs}  source={maj_path.name}")
+    print(
+        f"  Majority 2026: {len(shp_maj)} polygons  CRS={shp_maj.crs}  source={maj_path.name}  col={maj_col}"
+    )
 
     shp_min = gpd.read_file(min_path)
-    print(f"  Minority 2026: {len(shp_min)} polygons  CRS={shp_min.crs}  source={min_path.name}")
+    print(
+        f"  Minority 2026: {len(shp_min)} polygons  CRS={shp_min.crs}  source={min_path.name}  col={min_col}"
+    )
 
     # --- Run per-map pipeline ---
     results = {}
-    results['2019'] = run_map('2019', votes_2019, shp_2019, 'ed_name', SENSITIVITY_GRID)
-    results['majority'] = run_map('majority', votes_maj, shp_maj, 'name_2026', SENSITIVITY_GRID)
-    results['minority'] = run_map('minority', votes_min, shp_min, 'name_2026', SENSITIVITY_GRID)
+    results["2019"] = run_map("2019", votes_2019, shp_2019, "ed_name", SENSITIVITY_GRID)
+    results["majority"] = run_map(
+        "majority", votes_maj, shp_maj, maj_col, SENSITIVITY_GRID
+    )
+    results["minority"] = run_map(
+        "minority", votes_min, shp_min, min_col, SENSITIVITY_GRID
+    )
 
     # --- Write per-pair log CSV ---
     all_pairs = pd.concat(
-        [results[k]['pair_df'] for k in ('2019', 'majority', 'minority')],
+        [results[k]["pair_df"] for k in ("2019", "majority", "minority")],
         ignore_index=True,
     )
-    log_csv = out_reports_dir / 'neighbour_drain_log.csv'
+    log_csv = out_reports_dir / "neighbour_drain_log.csv"
     all_pairs.to_csv(log_csv, index=False)
     print(f"\nWrote per-pair log: {log_csv}")
 
     # --- Write summary JSON ---
     summary = {}
-    for k in ('2019', 'majority', 'minority'):
+    for k in ("2019", "majority", "minority"):
         r = results[k]
         summary[k] = {
-            'n_eds': r['n_eds'],
-            'n_undirected_pairs': r['n_undirected_pairs'],
-            'n_directed_pairs': r['n_directed_pairs'],
-            'chain_signals_total': r['chain_signals'],
-            'coupled_signals': r['coupled_signals'],
-            'uncoupled_signals': r['uncoupled_signals'],
-            'chain_signal_rate': r['chain_signal_rate'],
-            'sensitivity_grid': r['sensitivity'],
-            'adjacency_meta': r['adjacency_meta'],
-            'isolated_after_strict_count': len(r['isolated_after_strict']),
-            'isolated_after_strict_names': r['isolated_after_strict'],
+            "n_eds": r["n_eds"],
+            "n_undirected_pairs": r["n_undirected_pairs"],
+            "n_directed_pairs": r["n_directed_pairs"],
+            "chain_signals_total": r["chain_signals"],
+            "coupled_signals": r["coupled_signals"],
+            "uncoupled_signals": r["uncoupled_signals"],
+            "chain_signal_rate": r["chain_signal_rate"],
+            "sensitivity_grid": r["sensitivity"],
+            "adjacency_meta": r["adjacency_meta"],
+            "isolated_after_strict_count": len(r["isolated_after_strict"]),
+            "isolated_after_strict_names": r["isolated_after_strict"],
         }
-    summary['thresholds'] = {
-        's_threshold_default': S_THRESHOLD,
-        'm_threshold_default': M_THRESHOLD,
-        'adjacency_buffer_m': ADJACENCY_BUFFER_M,
-    }
-    # Inter-map ratios
-    def ratio(a, b):
-        return a / b if b else float('nan')
-    summary['ratios'] = {
-        'minority_over_majority_coupled': ratio(
-            summary['minority']['coupled_signals'],
-            summary['majority']['coupled_signals']),
-        'minority_over_2019_coupled': ratio(
-            summary['minority']['coupled_signals'],
-            summary['2019']['coupled_signals']),
-        'majority_over_2019_coupled': ratio(
-            summary['majority']['coupled_signals'],
-            summary['2019']['coupled_signals']),
+    summary["thresholds"] = {
+        "s_threshold_default": S_THRESHOLD,
+        "m_threshold_default": M_THRESHOLD,
+        "adjacency_buffer_m": ADJACENCY_BUFFER_M,
     }
 
-    summary_json = out_data_dir / 'neighbour_drain_summary.json'
-    with open(summary_json, 'w') as f:
+    # Inter-map ratios
+    def ratio(a, b):
+        return a / b if b else float("nan")
+
+    summary["ratios"] = {
+        "minority_over_majority_coupled": ratio(
+            summary["minority"]["coupled_signals"],
+            summary["majority"]["coupled_signals"],
+        ),
+        "minority_over_2019_coupled": ratio(
+            summary["minority"]["coupled_signals"], summary["2019"]["coupled_signals"]
+        ),
+        "majority_over_2019_coupled": ratio(
+            summary["majority"]["coupled_signals"], summary["2019"]["coupled_signals"]
+        ),
+    }
+
+    summary_json = out_data_dir / "neighbour_drain_summary.json"
+    with open(summary_json, "w") as f:
         json.dump(summary, f, indent=2)
     print(f"Wrote summary JSON: {summary_json}")
 
     # --- Phase-space plots ---
-    for k in ('2019', 'majority', 'minority'):
-        outpath = out_maps_dir / f'neighbour_drain_phase_space_{k}.svg'
-        plot_phase_space(results[k]['pair_df'], k, outpath)
+    for k in ("2019", "majority", "minority"):
+        outpath = out_maps_dir / f"neighbour_drain_phase_space_{k}.svg"
+        plot_phase_space(results[k]["pair_df"], k, outpath)
         print(f"Wrote heatmap: {outpath}")
 
     # --- Writeup markdown ---
-    writeup = out_reports_dir / 'neighbour_drain_analysis.md'
+    writeup = out_reports_dir / "neighbour_drain_analysis.md"
     write_analysis_md(writeup, summary, results)
     print(f"Wrote analysis: {writeup}")
 
@@ -563,29 +626,40 @@ def main() -> None:
     print("\n" + "=" * 60)
     print("  NEIGHBOUR-DRAIN ADJACENCY TEST — SUMMARY")
     print("=" * 60)
-    print(f"  {'Map':<12s} {'Pairs':>7s} {'Signals':>8s} {'Coupled':>8s} {'Uncoupled':>10s} {'Rate':>7s}")
-    for k in ('2019', 'majority', 'minority'):
+    print(
+        f"  {'Map':<12s} {'Pairs':>7s} {'Signals':>8s} {'Coupled':>8s} {'Uncoupled':>10s} {'Rate':>7s}"
+    )
+    for k in ("2019", "majority", "minority"):
         s = summary[k]
-        print(f"  {k:<12s} {s['n_directed_pairs']:>7d} "
-              f"{s['chain_signals_total']:>8d} {s['coupled_signals']:>8d} "
-              f"{s['uncoupled_signals']:>10d} "
-              f"{s['chain_signal_rate']*100:>6.2f}%")
+        print(
+            f"  {k:<12s} {s['n_directed_pairs']:>7d} "
+            f"{s['chain_signals_total']:>8d} {s['coupled_signals']:>8d} "
+            f"{s['uncoupled_signals']:>10d} "
+            f"{s['chain_signal_rate']*100:>6.2f}%"
+        )
     print(f"\n  Ratios (coupled signals):")
-    print(f"    minority / majority = {summary['ratios']['minority_over_majority_coupled']:.2f}x")
-    print(f"    minority / 2019     = {summary['ratios']['minority_over_2019_coupled']:.2f}x")
-    print(f"    majority / 2019     = {summary['ratios']['majority_over_2019_coupled']:.2f}x")
+    print(
+        f"    minority / majority = {summary['ratios']['minority_over_majority_coupled']:.2f}x"
+    )
+    print(
+        f"    minority / 2019     = {summary['ratios']['minority_over_2019_coupled']:.2f}x"
+    )
+    print(
+        f"    majority / 2019     = {summary['ratios']['majority_over_2019_coupled']:.2f}x"
+    )
 
 
 # ---------------------------------------------------------------------
 # Writeup
 # ---------------------------------------------------------------------
 
+
 def write_analysis_md(path: Path, summary: Dict, results: Dict) -> None:
-    min_cpl = summary['minority']['coupled_signals']
-    maj_cpl = summary['majority']['coupled_signals']
-    base_cpl = summary['2019']['coupled_signals']
-    ratio_mm = summary['ratios']['minority_over_majority_coupled']
-    ratio_m2019 = summary['ratios']['minority_over_2019_coupled']
+    min_cpl = summary["minority"]["coupled_signals"]
+    maj_cpl = summary["majority"]["coupled_signals"]
+    base_cpl = summary["2019"]["coupled_signals"]
+    ratio_mm = summary["ratios"]["minority_over_majority_coupled"]
+    ratio_m2019 = summary["ratios"]["minority_over_2019_coupled"]
 
     # Verdict
     if min_cpl == 0 and maj_cpl > 0:
@@ -607,52 +681,75 @@ def write_analysis_md(path: Path, summary: Dict, results: Dict) -> None:
             f"ED boundaries involved."
         )
     elif not math.isfinite(ratio_mm):
-        verdict = ("The majority map produced zero coupled chain signals, so a "
-                   "minority/majority ratio is undefined. The minority map's "
-                   "coupled count is reported in absolute terms.")
+        verdict = (
+            "The majority map produced zero coupled chain signals, so a "
+            "minority/majority ratio is undefined. The minority map's "
+            "coupled count is reported in absolute terms."
+        )
     elif ratio_mm >= 2.0:
-        verdict = (f"The minority map shows {ratio_mm:.2f}x the coupled chain-"
-                   f"signal count of the majority map, matching the >=2x "
-                   f"'design-pattern' threshold flagged in the directive.")
+        verdict = (
+            f"The minority map shows {ratio_mm:.2f}x the coupled chain-"
+            f"signal count of the majority map, matching the >=2x "
+            f"'design-pattern' threshold flagged in the directive."
+        )
     elif ratio_mm >= 1.25:
-        verdict = (f"The minority map shows {ratio_mm:.2f}x the coupled chain-"
-                   f"signal count of the majority, a moderate asymmetry "
-                   f"below the 2x 'design-pattern' threshold but consistent "
-                   f"with a directional shift.")
+        verdict = (
+            f"The minority map shows {ratio_mm:.2f}x the coupled chain-"
+            f"signal count of the majority, a moderate asymmetry "
+            f"below the 2x 'design-pattern' threshold but consistent "
+            f"with a directional shift."
+        )
     else:
-        verdict = (f"The minority/majority ratio of coupled signals is "
-                   f"{ratio_mm:.2f}x — no material difference. The adjacency "
-                   f"scale does not amplify the §5.3.1/§5.3.2 findings; the "
-                   f"existing tests operate at the right scale.")
+        verdict = (
+            f"The minority/majority ratio of coupled signals is "
+            f"{ratio_mm:.2f}x — no material difference. The adjacency "
+            f"scale does not amplify the §5.3.1/§5.3.2 findings; the "
+            f"existing tests operate at the right scale."
+        )
 
     # Sensitivity table
     sens_rows = []
     for s_thr, m_thr in SENSITIVITY_GRID:
         row = [f"({s_thr:.2f}, {m_thr:.2f})"]
-        for k in ('2019', 'majority', 'minority'):
+        for k in ("2019", "majority", "minority"):
             match = next(
-                (r for r in summary[k]['sensitivity_grid']
-                 if r['s_threshold'] == s_thr and r['m_threshold'] == m_thr),
+                (
+                    r
+                    for r in summary[k]["sensitivity_grid"]
+                    if r["s_threshold"] == s_thr and r["m_threshold"] == m_thr
+                ),
                 None,
             )
-            coupled = match['coupled_signals'] if match else 0
+            coupled = match["coupled_signals"] if match else 0
             row.append(str(coupled))
-        if summary['majority']['sensitivity_grid']:
+        if summary["majority"]["sensitivity_grid"]:
             # minority/majority ratio at this grid point (coupled-only)
             maj_s = next(
-                (r for r in summary['majority']['sensitivity_grid']
-                 if r['s_threshold'] == s_thr and r['m_threshold'] == m_thr), None)
+                (
+                    r
+                    for r in summary["majority"]["sensitivity_grid"]
+                    if r["s_threshold"] == s_thr and r["m_threshold"] == m_thr
+                ),
+                None,
+            )
             min_s = next(
-                (r for r in summary['minority']['sensitivity_grid']
-                 if r['s_threshold'] == s_thr and r['m_threshold'] == m_thr), None)
-            if maj_s and min_s and maj_s['coupled_signals']:
-                ratio = min_s['coupled_signals'] / maj_s['coupled_signals']
+                (
+                    r
+                    for r in summary["minority"]["sensitivity_grid"]
+                    if r["s_threshold"] == s_thr and r["m_threshold"] == m_thr
+                ),
+                None,
+            )
+            if maj_s and min_s and maj_s["coupled_signals"]:
+                ratio = min_s["coupled_signals"] / maj_s["coupled_signals"]
                 row.append(f"{ratio:.2f}x")
             else:
                 row.append("n/a")
         sens_rows.append(row)
 
-    sens_table = "| (s, m) | 2019 coupled | Majority coupled | Minority coupled | Min/Maj |\n"
+    sens_table = (
+        "| (s, m) | 2019 coupled | Majority coupled | Minority coupled | Min/Maj |\n"
+    )
     sens_table += "|---|---|---|---|---|\n"
     for r in sens_rows:
         sens_table += "| " + " | ".join(r) + " |\n"
@@ -723,10 +820,12 @@ def write_analysis_md(path: Path, summary: Dict, results: Dict) -> None:
     # Build adjacency meta string
     adj_table = "| Map | Strict pairs | K-nearest fallback pairs | Isolated EDs |\n"
     adj_table += "|---|---|---|---|\n"
-    for k in ('2019', 'majority', 'minority'):
-        m = summary[k]['adjacency_meta']
-        adj_table += (f"| {k} | {m['strict_pairs']} | {m['fallback_pairs']} "
-                      f"| {summary[k]['isolated_after_strict_count']} |\n")
+    for k in ("2019", "majority", "minority"):
+        m = summary[k]["adjacency_meta"]
+        adj_table += (
+            f"| {k} | {m['strict_pairs']} | {m['fallback_pairs']} "
+            f"| {summary[k]['isolated_after_strict_count']} |\n"
+        )
 
     content = f"""# Neighbour-drain Adjacency Test (Test 3A)
 
@@ -843,8 +942,8 @@ other two maps across all threshold pairs in the sensitivity grid.
 - Summary JSON: `data/neighbour_drain_summary.json`
 - Phase-space plots: `maps/neighbour_drain_phase_space_{{2019,majority,minority}}.svg`
 """
-    path.write_text(content, encoding='utf-8')
+    path.write_text(content, encoding="utf-8")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

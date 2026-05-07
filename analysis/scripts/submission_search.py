@@ -17,6 +17,7 @@ Produces:
 Usage:
   python analysis/scripts/submission_search.py [--phase={download|parse|search|all}]
 """
+
 from __future__ import annotations
 import os
 import re
@@ -88,6 +89,7 @@ R2_ID_PATTERN = re.compile(r"\bEBC[-\s]?2025[-\s]?2[-\s]?0*(\d{1,4})\b", re.I)
 
 def extract_r2_pdf(pdf_path: Path, start: int, end: int, log):
     import pdfplumber
+
     # Build a flat list of (page_num, page_text)
     pages = []
     try:
@@ -112,7 +114,12 @@ def extract_r2_pdf(pdf_path: Path, start: int, end: int, log):
             if start <= sid <= end and sid != current:
                 # close prior
                 if current is not None:
-                    subs[current] = (current_start_page, pnum - 1, "\n".join(accum), pdf_path.name)
+                    subs[current] = (
+                        current_start_page,
+                        pnum - 1,
+                        "\n".join(accum),
+                        pdf_path.name,
+                    )
                 current = sid
                 current_start_page = pnum
                 accum = [text]
@@ -121,13 +128,21 @@ def extract_r2_pdf(pdf_path: Path, start: int, end: int, log):
         if current is not None:
             accum.append(text)
     if current is not None:
-        subs[current] = (current_start_page, pages[-1][0], "\n".join(accum), pdf_path.name)
-    log.append(f"[parse-R2] {pdf_path.name}: {len(subs)} submissions detected (expected up to {end-start+1})")
+        subs[current] = (
+            current_start_page,
+            pages[-1][0],
+            "\n".join(accum),
+            pdf_path.name,
+        )
+    log.append(
+        f"[parse-R2] {pdf_path.name}: {len(subs)} submissions detected (expected up to {end-start+1})"
+    )
     return subs
 
 
 def extract_r1_pdf(pdf_path: Path, start: int, end: int, log):
     import pdfplumber
+
     pages = []
     try:
         with pdfplumber.open(pdf_path) as pdf:
@@ -155,7 +170,12 @@ def extract_r1_pdf(pdf_path: Path, start: int, end: int, log):
                     break
         if matched_id is not None and matched_id != current:
             if current is not None:
-                subs[current] = (current_start_page, pnum - 1, "\n".join(accum), pdf_path.name)
+                subs[current] = (
+                    current_start_page,
+                    pnum - 1,
+                    "\n".join(accum),
+                    pdf_path.name,
+                )
             current = matched_id
             current_start_page = pnum
             accum = [text]
@@ -166,16 +186,28 @@ def extract_r1_pdf(pdf_path: Path, start: int, end: int, log):
                 # text before first header — skip or bucket to synthetic "pre"
                 pass
     if current is not None:
-        subs[current] = (current_start_page, pages[-1][0], "\n".join(accum), pdf_path.name)
+        subs[current] = (
+            current_start_page,
+            pages[-1][0],
+            "\n".join(accum),
+            pdf_path.name,
+        )
 
     if not subs:
         # Fallback: dump all text as single pseudo-submission with range
         total = "\n".join(t for _, t in pages)
         if total.strip():
             synthetic = start  # tag with the file's start id as a sentinel
-            subs[synthetic] = (1, pages[-1][0] if pages else 0, total, pdf_path.name + " [unsplit]")
+            subs[synthetic] = (
+                1,
+                pages[-1][0] if pages else 0,
+                total,
+                pdf_path.name + " [unsplit]",
+            )
 
-    log.append(f"[parse-R1] {pdf_path.name}: {len(subs)} submissions detected (expected up to {end-start+1})")
+    log.append(
+        f"[parse-R1] {pdf_path.name}: {len(subs)} submissions detected (expected up to {end-start+1})"
+    )
     return subs
 
 
@@ -207,11 +239,19 @@ def parse_all(log):
         fn = TEXT / f"EBC-2025-2-{sid:04d}.txt"
         fn.write_text(txt, encoding="utf-8", errors="replace")
 
-    log.append(f"[parse] R1 submissions: {len(r1_subs)}, R2 submissions: {len(r2_subs)}")
+    log.append(
+        f"[parse] R1 submissions: {len(r1_subs)}, R2 submissions: {len(r2_subs)}"
+    )
     # persist metadata
     meta = {
-        "r1": {f"{k}": {"start_page": v[0], "end_page": v[1], "source": v[3]} for k, v in r1_subs.items()},
-        "r2": {f"{k}": {"start_page": v[0], "end_page": v[1], "source": v[3]} for k, v in r2_subs.items()},
+        "r1": {
+            f"{k}": {"start_page": v[0], "end_page": v[1], "source": v[3]}
+            for k, v in r1_subs.items()
+        },
+        "r2": {
+            f"{k}": {"start_page": v[0], "end_page": v[1], "source": v[3]}
+            for k, v in r2_subs.items()
+        },
     }
     (TEMP / "submission_meta.json").write_text(json.dumps(meta, indent=2))
     return r1_subs, r2_subs
@@ -222,11 +262,23 @@ def build_patterns():
     return {
         "airdrie_4way_split": [
             # explicit 4-way
-            re.compile(r"airdrie[\s\S]{0,120}(four[-\s]?way|4[-\s]?way|split\s+into\s+four|split\s+into\s+4|four\s+districts|4\s+districts|four\s+ridings|4\s+ridings)", re.I),
-            re.compile(r"(split(ting)?|divid(e|ing|ed)|carv(e|ing|ed))[\s\S]{0,80}airdrie[\s\S]{0,120}(four|4)\b", re.I),
+            re.compile(
+                r"airdrie[\s\S]{0,120}(four[-\s]?way|4[-\s]?way|split\s+into\s+four|split\s+into\s+4|four\s+districts|4\s+districts|four\s+ridings|4\s+ridings)",
+                re.I,
+            ),
+            re.compile(
+                r"(split(ting)?|divid(e|ing|ed)|carv(e|ing|ed))[\s\S]{0,80}airdrie[\s\S]{0,120}(four|4)\b",
+                re.I,
+            ),
             # any discussion of splitting/dividing Airdrie (broader — catches 2-way or 4-way critiques)
-            re.compile(r"(split(ting)?|divid(e|ing|ed)|carv(e|ing|ed)|break(ing)?\s+up|fragment)[\s\S]{0,60}(the\s+city\s+of\s+)?airdrie", re.I),
-            re.compile(r"airdrie[\s\S]{0,80}(should|must|can)\s*(not|n'?t)?\s*be\s*(split|divid|broken|fragment)", re.I),
+            re.compile(
+                r"(split(ting)?|divid(e|ing|ed)|carv(e|ing|ed)|break(ing)?\s+up|fragment)[\s\S]{0,60}(the\s+city\s+of\s+)?airdrie",
+                re.I,
+            ),
+            re.compile(
+                r"airdrie[\s\S]{0,80}(should|must|can)\s*(not|n'?t)?\s*be\s*(split|divid|broken|fragment)",
+                re.I,
+            ),
         ],
         "nolan_hill_cochrane": [
             # Nolan Hill + Cochrane in same sentence / short window
@@ -234,20 +286,34 @@ def build_patterns():
             re.compile(r"cochrane[\s\S]{0,200}nolan\s+hill", re.I),
         ],
         "rmh_banff_park": [
-            re.compile(r"rocky\s+mountain\s+house[\s\S]{0,200}(banff|national\s+park|park)", re.I),
-            re.compile(r"(banff|national\s+park)[\s\S]{0,200}rocky\s+mountain\s+house", re.I),
+            re.compile(
+                r"rocky\s+mountain\s+house[\s\S]{0,200}(banff|national\s+park|park)",
+                re.I,
+            ),
+            re.compile(
+                r"(banff|national\s+park)[\s\S]{0,200}rocky\s+mountain\s+house", re.I
+            ),
         ],
         "olds_three_hills_didsbury": [
             re.compile(r"(olds|didsbury|three\s+hills)[\s\S]{0,300}airdrie", re.I),
             re.compile(r"airdrie[\s\S]{0,300}(olds|didsbury|three\s+hills)", re.I),
         ],
         "chestermere_split": [
-            re.compile(r"chestermere[\s\S]{0,200}(split|divid|calgary|peigan|forest\s+lawn)", re.I),
+            re.compile(
+                r"chestermere[\s\S]{0,200}(split|divid|calgary|peigan|forest\s+lawn)",
+                re.I,
+            ),
             re.compile(r"(split|divid|calgary)[\s\S]{0,80}chestermere", re.I),
         ],
         "red_deer_hybrids": [
-            re.compile(r"red\s+deer[\s\S]{0,200}(blackfalds|innisfail|sylvan\s+lake|lacombe)", re.I),
-            re.compile(r"(blackfalds|innisfail|sylvan\s+lake|lacombe)[\s\S]{0,200}red\s+deer", re.I),
+            re.compile(
+                r"red\s+deer[\s\S]{0,200}(blackfalds|innisfail|sylvan\s+lake|lacombe)",
+                re.I,
+            ),
+            re.compile(
+                r"(blackfalds|innisfail|sylvan\s+lake|lacombe)[\s\S]{0,200}red\s+deer",
+                re.I,
+            ),
         ],
         "st_albert_sturgeon": [
             re.compile(r"st\.?\s+albert[\s\S]{0,200}sturgeon", re.I),
@@ -383,12 +449,19 @@ def write_outputs(rows, totals, pos_counts, files_searched, log):
     DATA.mkdir(exist_ok=True)
     csv_path = DATA / "submission_search_dataset.csv"
     fields = [
-        "submission_id", "round", "source_file", "page_range",
-        "mentions_airdrie_4way_split", "mentions_nolan_hill_cochrane",
-        "mentions_rmh_banff_park", "mentions_olds_three_hills_didsbury",
-        "mentions_chestermere_split", "mentions_red_deer_hybrids",
+        "submission_id",
+        "round",
+        "source_file",
+        "page_range",
+        "mentions_airdrie_4way_split",
+        "mentions_nolan_hill_cochrane",
+        "mentions_rmh_banff_park",
+        "mentions_olds_three_hills_didsbury",
+        "mentions_chestermere_split",
+        "mentions_red_deer_hybrids",
         "mentions_st_albert_sturgeon",
-        "position_on_mentioned", "relevant_quote",
+        "position_on_mentioned",
+        "relevant_quote",
     ]
     with csv_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -399,12 +472,16 @@ def write_outputs(rows, totals, pos_counts, files_searched, log):
         summary = {k: "" for k in fields}
         summary["submission_id"] = "__SUMMARY__"
         summary["round"] = 0
-        summary["source_file"] = f"files_with_hits={len(rows)} files_searched={files_searched}"
+        summary["source_file"] = (
+            f"files_with_hits={len(rows)} files_searched={files_searched}"
+        )
         summary["page_range"] = ""
         summary["mentions_airdrie_4way_split"] = totals.get("airdrie_4way_split", 0)
         summary["mentions_nolan_hill_cochrane"] = totals.get("nolan_hill_cochrane", 0)
         summary["mentions_rmh_banff_park"] = totals.get("rmh_banff_park", 0)
-        summary["mentions_olds_three_hills_didsbury"] = totals.get("olds_three_hills_didsbury", 0)
+        summary["mentions_olds_three_hills_didsbury"] = totals.get(
+            "olds_three_hills_didsbury", 0
+        )
         summary["mentions_chestermere_split"] = totals.get("chestermere_split", 0)
         summary["mentions_red_deer_hybrids"] = totals.get("red_deer_hybrids", 0)
         summary["mentions_st_albert_sturgeon"] = totals.get("st_albert_sturgeon", 0)
@@ -430,13 +507,18 @@ def main():
         rows, totals, pos_counts, n = search_submissions(log)
         csv_path = write_outputs(rows, totals, pos_counts, n, log)
         # persist intermediate JSON for findings writer
-        (TEMP / "search_result.json").write_text(json.dumps({
-            "totals": dict(totals),
-            "pos_counts": {k: dict(v) for k, v in pos_counts.items()},
-            "files_searched": n,
-            "rows_count": len(rows),
-            "rows": rows,
-        }, indent=2))
+        (TEMP / "search_result.json").write_text(
+            json.dumps(
+                {
+                    "totals": dict(totals),
+                    "pos_counts": {k: dict(v) for k, v in pos_counts.items()},
+                    "files_searched": n,
+                    "rows_count": len(rows),
+                    "rows": rows,
+                },
+                indent=2,
+            )
+        )
     # write log
     (ANALYSIS / "submission_search_log.md").write_text(
         "# submission_search log\n\n" + "\n".join(log) + "\n", encoding="utf-8"

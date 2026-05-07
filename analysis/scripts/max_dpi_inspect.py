@@ -6,6 +6,7 @@ contain raster images or vector graphics, and if raster, the native DPI.
 Forward deps: writes to analysis/reports/max_dpi_inspect.json
 Backward deps: reads .temp/commission_report.pdf
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -96,7 +97,11 @@ def inspect_page(doc, page_num_1: int) -> dict:
     page_area_in2 = width_in * height_in
     for im in images:
         for p in im["placements"]:
-            frac = (p["placed_w_in"] * p["placed_h_in"]) / page_area_in2 if page_area_in2 > 0 else 0
+            frac = (
+                (p["placed_w_in"] * p["placed_h_in"]) / page_area_in2
+                if page_area_in2 > 0
+                else 0
+            )
             dominant_image_frac = max(dominant_image_frac, frac)
 
     if dominant_image_frac > 0.3:

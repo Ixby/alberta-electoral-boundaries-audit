@@ -41,6 +41,7 @@ Backward deps:
   - data/shapefiles/derived/v0_3_canonical_minority_2026_eds_swept.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -63,7 +64,7 @@ REPORTS.mkdir(parents=True, exist_ok=True)
 # Constants
 # ---------------------------------------------------------------------------
 
-TOLERANCE_PCT = 5.0          # ±5 % consistency gate
+TOLERANCE_PCT = 5.0  # ±5 % consistency gate
 PROVINCIAL_QUOTA_2026 = 54929  # 4,888,723 / 89 EDs
 
 
@@ -71,19 +72,31 @@ PROVINCIAL_QUOTA_2026 = 54929  # 4,888,723 / 89 EDs
 # Shapefile configs
 # ---------------------------------------------------------------------------
 
+def _pick_ed_layer(plan: str) -> tuple:
+    """Return (path, name_col) preferring canonical shapefiles."""
+    canonical = DATA / f"shapefiles/canonical/ea_{plan}_2026_eds.gpkg"
+    if canonical.exists():
+        return canonical, "EDName2025"
+    derived = DATA / f"shapefiles/derived/v0_3_canonical_{plan}_2026_eds_swept.gpkg"
+    return derived, "name_2026"
+
+
+_maj_path, _maj_col = _pick_ed_layer("majority")
+_min_path, _min_col = _pick_ed_layer("minority")
+
 ED_LAYERS = {
     "majority_2026": {
-        "path": DATA / "shapefiles/derived/v0_3_canonical_majority_2026_eds_swept.gpkg",
-        "name_col": "name_2026",
+        "path": _maj_path,
+        "name_col": _maj_col,
         "commission_csv": DATA / "majority_2026_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population",
         "provincial_quota": PROVINCIAL_QUOTA_2026,
-        "target_crs": None,  # already EPSG:3347
+        "target_crs": None,
     },
     "minority_2026": {
-        "path": DATA / "shapefiles/derived/v0_3_canonical_minority_2026_eds_swept.gpkg",
-        "name_col": "name_2026",
+        "path": _min_path,
+        "name_col": _min_col,
         "commission_csv": DATA / "minority_2026_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population",
@@ -91,7 +104,8 @@ ED_LAYERS = {
         "target_crs": None,
     },
     "2019": {
-        "path": DATA / "shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp",
+        "path": DATA
+        / "shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp",
         "name_col": "EDName2017",
         "commission_csv": DATA / "alberta_2019_populations.csv",
         "commission_name_col": "ed_name",
@@ -118,7 +132,9 @@ def load_das_with_population() -> gpd.GeoDataFrame:
     # Detect population column
     pop_col_candidates = [c for c in da_pop.columns if "pop" in c.lower()]
     if not pop_col_candidates:
-        raise ValueError(f"No population column found in {DA_POP_CSV}. Columns: {list(da_pop.columns)}")
+        raise ValueError(
+            f"No population column found in {DA_POP_CSV}. Columns: {list(da_pop.columns)}"
+        )
     pop_col = pop_col_candidates[0]
     print(f"  DA population column: '{pop_col}'")
 
@@ -128,9 +144,13 @@ def load_das_with_population() -> gpd.GeoDataFrame:
 
     merged = das_geo.merge(da_pop[["DAUID", pop_col]], on="DAUID", how="left")
     merged = merged.rename(columns={pop_col: "population_2021"})
-    merged["population_2021"] = pd.to_numeric(merged["population_2021"], errors="coerce").fillna(0.0)
+    merged["population_2021"] = pd.to_numeric(
+        merged["population_2021"], errors="coerce"
+    ).fillna(0.0)
 
-    print(f"  Loaded {len(merged)} DAs  (total pop: {merged['population_2021'].sum():,.0f})")
+    print(
+        f"  Loaded {len(merged)} DAs  (total pop: {merged['population_2021'].sum():,.0f})"
+    )
     return merged
 
 
@@ -151,23 +171,33 @@ def load_commission_table(cfg: dict) -> Optional[pd.DataFrame]:
         candidates = [c for c in df.columns if "name" in c.lower() or "ed" in c.lower()]
         if candidates:
             name_col = candidates[0]
-            print(f"  WARNING: expected '{cfg['commission_name_col']}' not found; using '{name_col}'")
+            print(
+                f"  WARNING: expected '{cfg['commission_name_col']}' not found; using '{name_col}'"
+            )
         else:
-            raise ValueError(f"Cannot find name column in {csv_path}. Columns: {list(df.columns)}")
+            raise ValueError(
+                f"Cannot find name column in {csv_path}. Columns: {list(df.columns)}"
+            )
 
     if pop_col not in df.columns:
         candidates = [c for c in df.columns if "pop" in c.lower()]
         if candidates:
             pop_col = candidates[0]
-            print(f"  WARNING: expected '{cfg['commission_pop_col']}' not found; using '{pop_col}'")
+            print(
+                f"  WARNING: expected '{cfg['commission_pop_col']}' not found; using '{pop_col}'"
+            )
         else:
-            raise ValueError(f"Cannot find population column in {csv_path}. Columns: {list(df.columns)}")
+            raise ValueError(
+                f"Cannot find population column in {csv_path}. Columns: {list(df.columns)}"
+            )
 
     result = df[[name_col, pop_col]].copy()
     result.columns = ["ed_name", "commission_pop"]
     result["commission_pop"] = pd.to_numeric(result["commission_pop"], errors="coerce")
     result = result.dropna(subset=["commission_pop"])
-    print(f"  Commission table: {len(result)} EDs  (total pop: {result['commission_pop'].sum():,.0f})")
+    print(
+        f"  Commission table: {len(result)} EDs  (total pop: {result['commission_pop'].sum():,.0f})"
+    )
     return result
 
 
@@ -273,7 +303,9 @@ def analyse_map(
         else:
             commission_pop = float(comm_row["commission_pop"].values[0])
 
-        delta_persons = da_sum - commission_pop if not np.isnan(commission_pop) else np.nan
+        delta_persons = (
+            da_sum - commission_pop if not np.isnan(commission_pop) else np.nan
+        )
         delta_pct = (
             (delta_persons / commission_pop * 100.0)
             if (not np.isnan(commission_pop) and commission_pop != 0)
@@ -289,7 +321,9 @@ def analyse_map(
                 "ed_name": ed_name,
                 "commission_pop": commission_pop,
                 "da_sum_pop": round(da_sum, 0),
-                "delta_persons": round(delta_persons, 0) if not np.isnan(delta_persons) else np.nan,
+                "delta_persons": (
+                    round(delta_persons, 0) if not np.isnan(delta_persons) else np.nan
+                ),
                 "delta_pct": round(delta_pct, 3) if not np.isnan(delta_pct) else np.nan,
                 "within_tolerance": within_tolerance,
             }
@@ -309,7 +343,11 @@ def analyse_map(
         float(commission_df["commission_pop"].mean()) if len(commission_df) else np.nan
     )
 
-    gate = "PASS" if eds_outside == 0 else f"WARN ({eds_outside} EDs outside +/-{TOLERANCE_PCT}%)"
+    gate = (
+        "PASS"
+        if eds_outside == 0
+        else f"WARN ({eds_outside} EDs outside +/-{TOLERANCE_PCT}%)"
+    )
 
     print(f"  Consistency gate: {gate}")
     print(f"  Mean delta: {mean_delta:+.2f}%  |  Max |delta|: {max_delta:.2f}%")
@@ -317,11 +355,15 @@ def analyse_map(
     print(f"  EDs outside +/-{TOLERANCE_PCT}%: {eds_outside}")
 
     if eds_outside > 0:
-        outliers = valid[~valid["within_tolerance"]].sort_values("delta_pct", key=abs, ascending=False)
+        outliers = valid[~valid["within_tolerance"]].sort_values(
+            "delta_pct", key=abs, ascending=False
+        )
         print(f"  Top outliers:")
         for _, r in outliers.head(5).iterrows():
-            print(f"    {r['ed_name']:45s}  commission={r['commission_pop']:,.0f}  "
-                  f"DA={r['da_sum_pop']:,.0f}  delta={r['delta_pct']:+.1f}%")
+            print(
+                f"    {r['ed_name']:45s}  commission={r['commission_pop']:,.0f}  "
+                f"DA={r['da_sum_pop']:,.0f}  delta={r['delta_pct']:+.1f}%"
+            )
 
     summary = {
         "map": map_label,
@@ -377,7 +419,9 @@ def main() -> None:
     print("\n" + "=" * 70)
     print("POPULATION CONSISTENCY GATE RESULTS")
     print("=" * 70)
-    print(f"{'Map':<22s} {'N EDs':>6s} {'MeanD%':>9s} {'MaxD%':>9s} {'Outside5pct':>12s} {'Gate':>8s}")
+    print(
+        f"{'Map':<22s} {'N EDs':>6s} {'MeanD%':>9s} {'MaxD%':>9s} {'Outside5pct':>12s} {'Gate':>8s}"
+    )
     print("-" * 70)
     for s in all_summaries:
         print(
@@ -390,8 +434,12 @@ def main() -> None:
 
     print()
     print("Interpretation:")
-    print(f"  PASS = all EDs within +/-{TOLERANCE_PCT}% of commission figure (DA centroid match).")
-    print(f"  WARN = one or more EDs differ by >{TOLERANCE_PCT}%; may indicate boundary")
+    print(
+        f"  PASS = all EDs within +/-{TOLERANCE_PCT}% of commission figure (DA centroid match)."
+    )
+    print(
+        f"  WARN = one or more EDs differ by >{TOLERANCE_PCT}%; may indicate boundary"
+    )
     print(f"         cuts through a DA (DA population split across EDs) or a source")
     print(f"         discrepancy.  Review outliers in {out_csv.name}.")
 

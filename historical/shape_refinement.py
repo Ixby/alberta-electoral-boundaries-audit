@@ -22,6 +22,7 @@ Note on fall-backs:
 
 Author: Track Y sub-agent.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -83,6 +84,7 @@ MIN_MAP_PAGES = [
 # Phase 1: High-DPI map extraction with pdfplumber's to_image()
 # ----------------------------------------------------------------------
 
+
 def phase1_extract_maps(dpi: int = 600) -> dict:
     """Render selected PDF pages as PNG images.
 
@@ -122,15 +124,31 @@ def phase1_extract_maps(dpi: int = 600) -> dict:
             for page_num_1b, stem, title in pages:
                 out = target_dir / f"v0_1_{stem}.svg"
                 if out.exists():
-                    results["ok"].append({"page": page_num_1b, "file": str(out), "title": title, "skipped": True})
+                    results["ok"].append(
+                        {
+                            "page": page_num_1b,
+                            "file": str(out),
+                            "title": title,
+                            "skipped": True,
+                        }
+                    )
                     continue
                 try:
                     img = pdf.pages[page_num_1b - 1].to_image(resolution=selected_dpi)
                     img.save(str(out))
-                    results["ok"].append({"page": page_num_1b, "file": str(out), "title": title, "skipped": False})
+                    results["ok"].append(
+                        {
+                            "page": page_num_1b,
+                            "file": str(out),
+                            "title": title,
+                            "skipped": False,
+                        }
+                    )
                     print(f"[phase1] rendered p{page_num_1b} -> {out.name}", flush=True)
                 except Exception as e:  # noqa: BLE001
-                    results["failed"].append({"page": page_num_1b, "title": title, "err": str(e)})
+                    results["failed"].append(
+                        {"page": page_num_1b, "title": title, "err": str(e)}
+                    )
                     print(f"[phase1] FAILED p{page_num_1b}: {e}", flush=True)
 
         _render(MAPS_HIRES, MAJ_MAP_PAGES)
@@ -144,6 +162,7 @@ def phase1_extract_maps(dpi: int = 600) -> dict:
 # Phase 2: Road-network snapping
 # ----------------------------------------------------------------------
 
+
 def _load_track_x():
     maj = gpd.read_file(DATA_DIR / "v0_1_approximate_majority_2026_eds.gpkg")
     minr = gpd.read_file(DATA_DIR / "v0_1_approximate_minority_2026_eds.gpkg")
@@ -153,6 +172,7 @@ def _load_track_x():
 def _load_2019_eds():
     # 2019 ED shapefile is zipped in .temp/2019_eds.zip
     import zipfile, tempfile
+
     z = ROOT / ".temp" / "2019_eds.zip"
     tmp = Path(tempfile.mkdtemp(prefix="eds2019_"))
     with zipfile.ZipFile(z) as zf:
@@ -190,13 +210,15 @@ def _get_osm_drive_graph(bbox_wgs84, network_type="drive", retries=2, timeout=18
     last = None
     for i in range(retries):
         try:
-            G = ox.graph_from_bbox(bbox=bbox_args, network_type=network_type, simplify=True)
+            G = ox.graph_from_bbox(
+                bbox=bbox_args, network_type=network_type, simplify=True
+            )
             edges = ox.graph_to_gdfs(G, nodes=False, edges=True)
             return edges
         except Exception as e:  # noqa: BLE001
             last = e
             if i < retries - 1:
-                time.sleep(2 ** i)
+                time.sleep(2**i)
     raise RuntimeError(f"OSM fetch failed: {last}")
 
 
@@ -208,16 +230,24 @@ def _snap_polygon_to_roads(poly, roads_proj: gpd.GeoDataFrame, buffer_m: float =
     """
     # HIGH-04: early-return sentinels distinguish the reason for no-op.
     if poly is None or poly.is_empty:
-        return poly, 0.0, 0.0, 'snap_skipped_empty_poly'
+        return poly, 0.0, 0.0, "snap_skipped_empty_poly"
 
     if roads_proj is None or len(roads_proj) == 0:
-        return poly, 0.0, 0.0, 'snap_skipped_no_roads'
+        return poly, 0.0, 0.0, "snap_skipped_no_roads"
 
     # Prefer major classes
     major = roads_proj
     if "highway" in roads_proj.columns:
-        major = roads_proj[roads_proj["highway"].astype(str).str.contains(
-            "motorway|trunk|primary|secondary|tertiary", case=False, regex=True, na=False)]
+        major = roads_proj[
+            roads_proj["highway"]
+            .astype(str)
+            .str.contains(
+                "motorway|trunk|primary|secondary|tertiary",
+                case=False,
+                regex=True,
+                na=False,
+            )
+        ]
     if len(major) == 0:
         major = roads_proj
     road_union = unary_union(major.geometry.values)
@@ -286,16 +316,22 @@ def _snap_polygon_to_roads(poly, roads_proj: gpd.GeoDataFrame, buffer_m: float =
             try:
                 new_poly = unary_union(parts)
                 if new_poly.geom_type not in ("Polygon", "MultiPolygon"):
-                    new_poly = MultiPolygon([p for p in parts if p.geom_type == "Polygon"])
+                    new_poly = MultiPolygon(
+                        [p for p in parts if p.geom_type == "Polygon"]
+                    )
             except Exception:  # noqa: BLE001
                 new_poly = MultiPolygon(parts) if len(parts) > 1 else parts[0]
         else:
             new_poly = poly
     else:
         # HIGH-04: sentinel distinguishing unsupported geometry type.
-        return poly, 0.0, 0.0, 'snap_skipped_unsupported_geom'
+        return poly, 0.0, 0.0, "snap_skipped_unsupported_geom"
 
-    mean_shift = float(np.mean([s for s in all_shifts if s > 0])) if any(s > 0 for s in all_shifts) else 0.0
+    mean_shift = (
+        float(np.mean([s for s in all_shifts if s > 0]))
+        if any(s > 0 for s in all_shifts)
+        else 0.0
+    )
     max_shift = float(np.max(all_shifts)) if all_shifts else 0.0
 
     # Guard: reject pathological snaps
@@ -312,14 +348,16 @@ def _snap_polygon_to_roads(poly, roads_proj: gpd.GeoDataFrame, buffer_m: float =
         new_area = new_poly.area if new_poly and not new_poly.is_empty else 0.0
         if orig_area > 0 and (new_area / orig_area < 0.6 or new_area / orig_area > 1.5):
             ratio = new_area / orig_area if orig_area > 0 else 0.0
-            print(f"[snap_guard] pathological area ratio {ratio:.3f} — rejected",
-                  flush=True)
-            return poly, 0.0, 0.0, 'snap_rejected'
+            print(
+                f"[snap_guard] pathological area ratio {ratio:.3f} — rejected",
+                flush=True,
+            )
+            return poly, 0.0, 0.0, "snap_rejected"
     except Exception as e:  # noqa: BLE001
         print(f"[snap_guard] area-guard exception — rejected: {e}", flush=True)
-        return poly, 0.0, 0.0, 'snap_error'
+        return poly, 0.0, 0.0, "snap_error"
 
-    status = 'snapped' if max_shift > 0 else 'snapped_no_move'
+    status = "snapped" if max_shift > 0 else "snapped_no_move"
     return new_poly, mean_shift, max_shift, status
 
 
@@ -361,20 +399,28 @@ def phase2_snap_hybrids():
             # would hammer Overpass. Try sub-bboxes instead.
             bbox_w = bbox[2] - bbox[0]
             bbox_h = bbox[3] - bbox[1]
-            print(f"[phase2/{label}] {ii+1}/{len(tier_c_idx)} {name} bbox={bbox} diag={max(bbox_w,bbox_h):.2f}deg", flush=True)
+            print(
+                f"[phase2/{label}] {ii+1}/{len(tier_c_idx)} {name} bbox={bbox} diag={max(bbox_w,bbox_h):.2f}deg",
+                flush=True,
+            )
 
             roads = None
             if max(bbox_w, bbox_h) > 2.5:
                 # Rural Tier B with large span — skip OSM snap; road density too
                 # low to change anything meaningful. Log and move on.
                 refined.at[i, "refined_note"] = "RURAL_SKIP_OSM"
-                print(f"[phase2/{label}] {name} RURAL_SKIP_OSM (bbox too large)", flush=True)
+                print(
+                    f"[phase2/{label}] {name} RURAL_SKIP_OSM (bbox too large)",
+                    flush=True,
+                )
                 continue
             try:
                 roads = _get_osm_drive_graph(bbox)
                 if roads is not None and len(roads) > 0:
                     roads = roads.to_crs(WORK_CRS)
-                    print(f"[phase2/{label}] {name} roads rows={len(roads)}", flush=True)
+                    print(
+                        f"[phase2/{label}] {name} roads rows={len(roads)}", flush=True
+                    )
             except Exception as e:  # noqa: BLE001
                 print(f"[phase2/{label}] {name} OSM fetch failed: {e}", flush=True)
                 roads = None
@@ -399,7 +445,7 @@ def phase2_snap_hybrids():
                 refined.at[i, "geometry"] = new_poly
                 refined.at[i, "mean_shift_m"] = mean_s
                 refined.at[i, "max_shift_m"] = max_s
-                if status == 'snapped':
+                if status == "snapped":
                     refined.at[i, "refined_note"] = (
                         f"snapped:mean={mean_s:.1f}m,max={max_s:.1f}m"
                     )
@@ -407,8 +453,11 @@ def phase2_snap_hybrids():
                     refined.at[i, "refined_note"] = (
                         f"{status.upper()}:mean={mean_s:.1f}m,max={max_s:.1f}m"
                     )
-                print(f"[phase2/{label}] {name} status={status} "
-                      f"mean_shift={mean_s:.1f}m max={max_s:.1f}m", flush=True)
+                print(
+                    f"[phase2/{label}] {name} status={status} "
+                    f"mean_shift={mean_s:.1f}m max={max_s:.1f}m",
+                    flush=True,
+                )
             except Exception as e:  # noqa: BLE001
                 refined.at[i, "refined_note"] = f"SNAP_FAILED:{str(e)[:120]}"
                 print(f"[phase2/{label}] {name} FAILED: {e}", flush=True)
@@ -418,7 +467,12 @@ def phase2_snap_hybrids():
         out[label] = {
             "rows": len(refined),
             "refined": int((refined["refined_note"].str.startswith("snapped")).sum()),
-            "mean_shift_m_avg": float(refined.loc[refined["refined_note"].str.startswith("snapped"), "mean_shift_m"].mean() or 0),
+            "mean_shift_m_avg": float(
+                refined.loc[
+                    refined["refined_note"].str.startswith("snapped"), "mean_shift_m"
+                ].mean()
+                or 0
+            ),
             "out_path": str(out_path),
         }
         print(f"[phase2/{label}] wrote {out_path}  summary={out[label]}", flush=True)
@@ -495,9 +549,11 @@ def _find_ed(gdf: gpd.GeoDataFrame, name: str):
     if len(hit):
         orders = series[series.map(lambda s: s in target)].str.len().sort_values().index
         return gdf.loc[orders[0]]
+
     # 4) Token set equality
     def tokens_eq(s):
         return set(str(s).split()) == set(target_tokens)
+
     hit = gdf[series.map(tokens_eq)]
     if len(hit):
         return hit.iloc[0]
@@ -533,8 +589,16 @@ def phase3_verify():
             continue
 
         # Prepare geometries in WORK_CRS
-        x_gser = gpd.GeoSeries([x_row.geometry], crs=x_gdf.crs).to_crs(WORK_CRS) if x_row is not None else None
-        r_gser = gpd.GeoSeries([r_row.geometry], crs=r_gdf.crs).to_crs(WORK_CRS) if r_row is not None else None
+        x_gser = (
+            gpd.GeoSeries([x_row.geometry], crs=x_gdf.crs).to_crs(WORK_CRS)
+            if x_row is not None
+            else None
+        )
+        r_gser = (
+            gpd.GeoSeries([r_row.geometry], crs=r_gdf.crs).to_crs(WORK_CRS)
+            if r_row is not None
+            else None
+        )
 
         # Plot order: 2019 baseline, X dashed blue, Y solid red
         bounds = None
@@ -549,7 +613,12 @@ def phase3_verify():
 
         if eds2019 is not None:
             try:
-                clip_box = gpd.GeoSeries.from_wkt([f"POLYGON(({bounds[0]-pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[1]-pad}))"], crs=WORK_CRS).union_all()
+                clip_box = gpd.GeoSeries.from_wkt(
+                    [
+                        f"POLYGON(({bounds[0]-pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[1]-pad},{bounds[2]+pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[3]+pad},{bounds[0]-pad} {bounds[1]-pad}))"
+                    ],
+                    crs=WORK_CRS,
+                ).union_all()
                 local = eds2019[eds2019.intersects(clip_box)]
                 if len(local):
                     local.boundary.plot(ax=ax, color="#999", linewidth=0.8)
@@ -557,11 +626,15 @@ def phase3_verify():
                 pass
 
         if x_gser is not None:
-            x_gser.boundary.plot(ax=ax, color="#1f77b4", linewidth=1.5, linestyle="--", label="Track X")
+            x_gser.boundary.plot(
+                ax=ax, color="#1f77b4", linewidth=1.5, linestyle="--", label="Track X"
+            )
         if r_gser is not None:
             r_gser.boundary.plot(ax=ax, color="#d62728", linewidth=1.8, label="Track Y")
 
-        produced.append({"which": which, "name": name, "ok": x_row is not None or r_row is not None})
+        produced.append(
+            {"which": which, "name": name, "ok": x_row is not None or r_row is not None}
+        )
 
         # Also write individual panel
         fig_single, ax_s = plt.subplots(figsize=(6, 6), dpi=120)
@@ -578,11 +651,15 @@ def phase3_verify():
             except Exception:
                 pass
         if x_gser is not None:
-            x_gser.boundary.plot(ax=ax_s, color="#1f77b4", linewidth=1.5, linestyle="--")
+            x_gser.boundary.plot(
+                ax=ax_s, color="#1f77b4", linewidth=1.5, linestyle="--"
+            )
         if r_gser is not None:
             r_gser.boundary.plot(ax=ax_s, color="#d62728", linewidth=1.8)
         slug = name.replace(" ", "_").replace("/", "_").replace("-", "_").lower()
-        fig_single.savefig(VERIFICATION_DIR / f"v0_1_{which}_{slug}.svg", bbox_inches="tight")
+        fig_single.savefig(
+            VERIFICATION_DIR / f"v0_1_{which}_{slug}.svg", bbox_inches="tight"
+        )
         plt.close(fig_single)
 
     fig_grid.tight_layout()
@@ -595,13 +672,14 @@ def phase3_verify():
 # Phase 4: Refined compactness + confidence intervals
 # ----------------------------------------------------------------------
 
+
 def _polsby_popper(poly):
     try:
         a = poly.area
         p = poly.length
         if p == 0:
             return float("nan")
-        return 4 * math.pi * a / (p ** 2)
+        return 4 * math.pi * a / (p**2)
     except Exception:  # noqa: BLE001
         return float("nan")
 
@@ -613,8 +691,10 @@ def _reock(poly):
         hull = poly.convex_hull
         coords = np.array(hull.exterior.coords)
         centroid = hull.centroid
-        r = max(((coords[:, 0] - centroid.x) ** 2 + (coords[:, 1] - centroid.y) ** 2) ** 0.5)
-        circle_area = math.pi * r ** 2
+        r = max(
+            ((coords[:, 0] - centroid.x) ** 2 + (coords[:, 1] - centroid.y) ** 2) ** 0.5
+        )
+        circle_area = math.pi * r**2
         if circle_area == 0:
             return float("nan")
         return poly.area / circle_area
@@ -626,8 +706,12 @@ def phase4_compactness():
     rows = []
     for label in ("majority", "minority"):
         try:
-            refined = gpd.read_file(DATA_DIR / f"v0_1_refined_{label}_2026_eds.gpkg").to_crs(WORK_CRS)
-            approx = gpd.read_file(DATA_DIR / f"v0_1_approximate_{label}_2026_eds.gpkg").to_crs(WORK_CRS)
+            refined = gpd.read_file(
+                DATA_DIR / f"v0_1_refined_{label}_2026_eds.gpkg"
+            ).to_crs(WORK_CRS)
+            approx = gpd.read_file(
+                DATA_DIR / f"v0_1_approximate_{label}_2026_eds.gpkg"
+            ).to_crs(WORK_CRS)
         except Exception as e:  # noqa: BLE001
             print(f"[phase4/{label}] load failed: {e}", flush=True)
             continue
@@ -660,21 +744,25 @@ def phase4_compactness():
                 pp_hi = min(1.0, pp + 0.03) if not math.isnan(pp) else pp
                 rk_lo = max(0.0, rk - 0.05) if not math.isnan(rk) else rk
                 rk_hi = min(1.0, rk + 0.05) if not math.isnan(rk) else rk
-            rows.append({
-                "map": f"2026_refined_{label}",
-                "name": name,
-                "tier": tier,
-                "confidence": conf,
-                "area_km2": geom.area / 1e6 if geom and not geom.is_empty else 0.0,
-                "perimeter_km": geom.length / 1e3 if geom and not geom.is_empty else 0.0,
-                "polsby_popper": pp,
-                "polsby_popper_lo": pp_lo,
-                "polsby_popper_hi": pp_hi,
-                "reock": rk,
-                "reock_lo": rk_lo,
-                "reock_hi": rk_hi,
-                "refined_note": note,
-            })
+            rows.append(
+                {
+                    "map": f"2026_refined_{label}",
+                    "name": name,
+                    "tier": tier,
+                    "confidence": conf,
+                    "area_km2": geom.area / 1e6 if geom and not geom.is_empty else 0.0,
+                    "perimeter_km": (
+                        geom.length / 1e3 if geom and not geom.is_empty else 0.0
+                    ),
+                    "polsby_popper": pp,
+                    "polsby_popper_lo": pp_lo,
+                    "polsby_popper_hi": pp_hi,
+                    "reock": rk,
+                    "reock_lo": rk_lo,
+                    "reock_hi": rk_hi,
+                    "refined_note": note,
+                }
+            )
 
     df = pd.DataFrame(rows)
     out = DATA_DIR / "compactness_scores_refined.csv"
@@ -686,6 +774,7 @@ def phase4_compactness():
 # ----------------------------------------------------------------------
 # Phase 5: Documentation
 # ----------------------------------------------------------------------
+
 
 def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
     md = ANALYSIS_DIR / "shape_refinement.md"
@@ -704,6 +793,7 @@ def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
     if not dpi:
         try:
             from PIL import Image
+
             test_file = MAPS_HIRES / "v0_1_majority_p71_alberta_overview.svg"
             if test_file.exists():
                 im = Image.open(test_file)
@@ -715,11 +805,15 @@ def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
                 for pn, stem, title in MAJ_MAP_PAGES:
                     f = MAPS_HIRES / f"v0_1_{stem}.svg"
                     if f.exists():
-                        phase1_res["ok"].append({"page": pn, "file": str(f), "title": title})
+                        phase1_res["ok"].append(
+                            {"page": pn, "file": str(f), "title": title}
+                        )
                 for pn, stem, title in MIN_MAP_PAGES:
                     f = SRC_MAPS_HIRES / f"v0_1_{stem}.svg"
                     if f.exists():
-                        phase1_res["ok"].append({"page": pn, "file": str(f), "title": title})
+                        phase1_res["ok"].append(
+                            {"page": pn, "file": str(f), "title": title}
+                        )
         except Exception:  # noqa: BLE001
             pass
 
@@ -730,11 +824,17 @@ def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
                 p = DATA_DIR / f"v0_1_refined_{label}_2026_eds.gpkg"
                 if p.exists():
                     gdf = gpd.read_file(p)
-                    snapped_mask = gdf["refined_note"].astype(str).str.startswith("snapped")
+                    snapped_mask = (
+                        gdf["refined_note"].astype(str).str.startswith("snapped")
+                    )
                     stats_new = {
                         "rows": len(gdf),
                         "refined": int(snapped_mask.sum()),
-                        "mean_shift_m_avg": float(gdf.loc[snapped_mask, "mean_shift_m"].mean() or 0) if snapped_mask.any() else 0.0,
+                        "mean_shift_m_avg": (
+                            float(gdf.loc[snapped_mask, "mean_shift_m"].mean() or 0)
+                            if snapped_mask.any()
+                            else 0.0
+                        ),
                         "out_path": str(p),
                     }
                     if label == "majority":
@@ -767,24 +867,33 @@ def phase5_document(phase1_res, phase2_res, phase3_res, phase4_path, phase4_df):
             else:
                 priority_rows.append(f"| {which} | {name} | n/a | n/a | not-matched |")
 
-    priority_table = "\n".join(priority_rows) if priority_rows else "_(no priority rows available)_"
+    priority_table = (
+        "\n".join(priority_rows) if priority_rows else "_(no priority rows available)_"
+    )
 
     # Describe actual snapped EDs from gpkg
     snapped_rows_text = "_(no snap applied)_"
     try:
         import geopandas as _gpd
+
         refined_min = _gpd.read_file(DATA_DIR / "v0_1_refined_minority_2026_eds.gpkg")
-        snapped = refined_min[refined_min["refined_note"].str.startswith("snapped", na=False)]
+        snapped = refined_min[
+            refined_min["refined_note"].str.startswith("snapped", na=False)
+        ]
         if len(snapped):
             lines = []
             for _, r in snapped.sort_values("mean_shift_m", ascending=False).iterrows():
-                lines.append(f"- **{r['name_2026']}**: mean shift {r['mean_shift_m']:.0f} m, max shift {r['max_shift_m']:.0f} m")
+                lines.append(
+                    f"- **{r['name_2026']}**: mean shift {r['mean_shift_m']:.0f} m, max shift {r['max_shift_m']:.0f} m"
+                )
             snapped_rows_text = "\n".join(lines)
     except Exception:  # noqa: BLE001
         pass
 
     # Scope clarification for narrative
-    total_refined = int(maj_stats.get("refined", 0) or 0) + int(min_stats.get("refined", 0) or 0)
+    total_refined = int(maj_stats.get("refined", 0) or 0) + int(
+        min_stats.get("refined", 0) or 0
+    )
     mean_shift_all = min_stats.get("mean_shift_m_avg", 0) or 0.0
 
     content = f"""# v0_1 Shape refinement (Track Y)
@@ -984,6 +1093,7 @@ ensuring the dependencies resolve.
 # ----------------------------------------------------------------------
 # Entry point
 # ----------------------------------------------------------------------
+
 
 def main(skip=()):
     phase1_res = {"dpi_achieved": None, "ok": [], "failed": []}

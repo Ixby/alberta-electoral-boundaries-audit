@@ -31,6 +31,7 @@ Outputs (written to this directory):
   - rural_gap_ed_comparison.csv
   - rural_gap_summary.json
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -58,6 +59,7 @@ R2023 = os.path.join(DATA, "alberta_2023_results.csv")
 # --------------------------------------------------------------------------- #
 # Helpers
 # --------------------------------------------------------------------------- #
+
 
 def norm_name(s: str) -> str:
     """Normalise an ED name so 'Airdrie-East' == 'Airdrie East' == 'airdrie east'."""
@@ -125,7 +127,10 @@ def party_share(row: Dict[str, str], target_party: str) -> Optional[float]:
 # Predecessor mapping: 2026 proposed ED -> list of 2019 predecessors
 # --------------------------------------------------------------------------- #
 
-def build_predecessor_map(xwalk_rows: List[Dict[str, str]], key2026: str, key2019: str) -> Dict[str, List[str]]:
+
+def build_predecessor_map(
+    xwalk_rows: List[Dict[str, str]], key2026: str, key2019: str
+) -> Dict[str, List[str]]:
     """
     For each 2026 proposed ED (normalised), collect list of 2019 predecessor
     ED names. For non-hybrid proposals the crosswalk often has the same
@@ -177,6 +182,7 @@ def combined_minority_predecessors() -> Dict[str, List[str]]:
 # Vote-share lookup with identity fallback
 # --------------------------------------------------------------------------- #
 
+
 def results_by_normname(rows: List[Dict[str, str]]) -> Dict[str, Dict[str, str]]:
     return {norm_name(r["ed_name"]): r for r in rows if r.get("ed_name")}
 
@@ -222,13 +228,19 @@ def avg_share_for_predecessors(
 # Main analysis
 # --------------------------------------------------------------------------- #
 
+
 def main() -> None:
     maj_rows = read_csv(MAJ_POP)
     min_rows = read_csv(MIN_POP)
 
     maj_rural = [
-        {"ed_name": r["ed_name"], "population": int(r["population"]), "deviation_pct": r.get("deviation_pct", "")}
-        for r in maj_rows if is_rural_majority(r["ed_name"])
+        {
+            "ed_name": r["ed_name"],
+            "population": int(r["population"]),
+            "deviation_pct": r.get("deviation_pct", ""),
+        }
+        for r in maj_rows
+        if is_rural_majority(r["ed_name"])
     ]
     min_rural = [
         {
@@ -237,7 +249,8 @@ def main() -> None:
             "deviation_pct": r.get("deviation_pct", ""),
             "region_type": r.get("region_type", ""),
         }
-        for r in min_rows if is_rural_minority(r.get("region_type", ""))
+        for r in min_rows
+        if is_rural_minority(r.get("region_type", ""))
     ]
 
     maj_mean = sum(e["population"] for e in maj_rural) / len(maj_rural)
@@ -253,7 +266,9 @@ def main() -> None:
     min_small10 = sorted(min_rural, key=lambda x: x["population"])[:10]
 
     # Predecessors
-    maj_predmap = build_predecessor_map(read_csv(MAJ_XWALK), "proposed_2026", "current_2019")
+    maj_predmap = build_predecessor_map(
+        read_csv(MAJ_XWALK), "proposed_2026", "current_2019"
+    )
     min_predmap = combined_minority_predecessors()
 
     # Results indices
@@ -294,15 +309,38 @@ def main() -> None:
             for r in rows:
                 w.writerow({k: r.get(k, "") for k in fieldnames})
 
-    maj_fields = ["ed_name", "population", "deviation_pct",
-                  "predecessors_2019", "ucp_share_2019", "ndp_share_2019",
-                  "ucp_share_2023", "ndp_share_2023", "preds_matched_2019", "preds_matched_2023"]
-    min_fields = ["ed_name", "population", "deviation_pct", "region_type",
-                  "predecessors_2019", "ucp_share_2019", "ndp_share_2019",
-                  "ucp_share_2023", "ndp_share_2023", "preds_matched_2019", "preds_matched_2023"]
+    maj_fields = [
+        "ed_name",
+        "population",
+        "deviation_pct",
+        "predecessors_2019",
+        "ucp_share_2019",
+        "ndp_share_2019",
+        "ucp_share_2023",
+        "ndp_share_2023",
+        "preds_matched_2019",
+        "preds_matched_2023",
+    ]
+    min_fields = [
+        "ed_name",
+        "population",
+        "deviation_pct",
+        "region_type",
+        "predecessors_2019",
+        "ucp_share_2019",
+        "ndp_share_2019",
+        "ucp_share_2023",
+        "ndp_share_2023",
+        "preds_matched_2019",
+        "preds_matched_2023",
+    ]
 
-    write_csv(os.path.join(OUT, "rural_gap_smallest10_majority.csv"), maj_enriched, maj_fields)
-    write_csv(os.path.join(OUT, "rural_gap_smallest10_minority.csv"), min_enriched, min_fields)
+    write_csv(
+        os.path.join(OUT, "rural_gap_smallest10_majority.csv"), maj_enriched, maj_fields
+    )
+    write_csv(
+        os.path.join(OUT, "rural_gap_smallest10_minority.csv"), min_enriched, min_fields
+    )
 
     # Average UCP / NDP share across the 10 smallest rural EDs per map
     def avg_field(rows, key):
@@ -318,17 +356,49 @@ def main() -> None:
         "smallest10": {
             "majority": {
                 "avg_pop": round(sum(r["population"] for r in maj_small10) / 10.0, 1),
-                "avg_ucp_2019": round(avg_field(maj_enriched, "ucp_share_2019"), 2) if avg_field(maj_enriched, "ucp_share_2019") else None,
-                "avg_ndp_2019": round(avg_field(maj_enriched, "ndp_share_2019"), 2) if avg_field(maj_enriched, "ndp_share_2019") else None,
-                "avg_ucp_2023": round(avg_field(maj_enriched, "ucp_share_2023"), 2) if avg_field(maj_enriched, "ucp_share_2023") else None,
-                "avg_ndp_2023": round(avg_field(maj_enriched, "ndp_share_2023"), 2) if avg_field(maj_enriched, "ndp_share_2023") else None,
+                "avg_ucp_2019": (
+                    round(avg_field(maj_enriched, "ucp_share_2019"), 2)
+                    if avg_field(maj_enriched, "ucp_share_2019")
+                    else None
+                ),
+                "avg_ndp_2019": (
+                    round(avg_field(maj_enriched, "ndp_share_2019"), 2)
+                    if avg_field(maj_enriched, "ndp_share_2019")
+                    else None
+                ),
+                "avg_ucp_2023": (
+                    round(avg_field(maj_enriched, "ucp_share_2023"), 2)
+                    if avg_field(maj_enriched, "ucp_share_2023")
+                    else None
+                ),
+                "avg_ndp_2023": (
+                    round(avg_field(maj_enriched, "ndp_share_2023"), 2)
+                    if avg_field(maj_enriched, "ndp_share_2023")
+                    else None
+                ),
             },
             "minority": {
                 "avg_pop": round(sum(r["population"] for r in min_small10) / 10.0, 1),
-                "avg_ucp_2019": round(avg_field(min_enriched, "ucp_share_2019"), 2) if avg_field(min_enriched, "ucp_share_2019") else None,
-                "avg_ndp_2019": round(avg_field(min_enriched, "ndp_share_2019"), 2) if avg_field(min_enriched, "ndp_share_2019") else None,
-                "avg_ucp_2023": round(avg_field(min_enriched, "ucp_share_2023"), 2) if avg_field(min_enriched, "ucp_share_2023") else None,
-                "avg_ndp_2023": round(avg_field(min_enriched, "ndp_share_2023"), 2) if avg_field(min_enriched, "ndp_share_2023") else None,
+                "avg_ucp_2019": (
+                    round(avg_field(min_enriched, "ucp_share_2019"), 2)
+                    if avg_field(min_enriched, "ucp_share_2019")
+                    else None
+                ),
+                "avg_ndp_2019": (
+                    round(avg_field(min_enriched, "ndp_share_2019"), 2)
+                    if avg_field(min_enriched, "ndp_share_2019")
+                    else None
+                ),
+                "avg_ucp_2023": (
+                    round(avg_field(min_enriched, "ucp_share_2023"), 2)
+                    if avg_field(min_enriched, "ucp_share_2023")
+                    else None
+                ),
+                "avg_ndp_2023": (
+                    round(avg_field(min_enriched, "ndp_share_2023"), 2)
+                    if avg_field(min_enriched, "ndp_share_2023")
+                    else None
+                ),
             },
         },
     }
@@ -360,31 +430,50 @@ def main() -> None:
     for mr in maj_rural:
         mk = find_min_match(mr["ed_name"])
         if mk is None:
-            comp_rows.append({
-                "majority_name": mr["ed_name"],
-                "majority_pop": mr["population"],
-                "minority_name": "",
-                "minority_pop": "",
-                "delta_pop": "",
-                "direction": "NO_MIN_MATCH",
-            })
+            comp_rows.append(
+                {
+                    "majority_name": mr["ed_name"],
+                    "majority_pop": mr["population"],
+                    "minority_name": "",
+                    "minority_pop": "",
+                    "delta_pop": "",
+                    "direction": "NO_MIN_MATCH",
+                }
+            )
             continue
         minr = min_by_nkey[mk]
         delta = minr["population"] - mr["population"]
-        direction = "minority_larger" if delta > 0 else ("minority_smaller" if delta < 0 else "equal")
-        comp_rows.append({
-            "majority_name": mr["ed_name"],
-            "majority_pop": mr["population"],
-            "minority_name": minr["ed_name"],
-            "minority_pop": minr["population"],
-            "delta_pop": delta,
-            "direction": direction,
-        })
+        direction = (
+            "minority_larger"
+            if delta > 0
+            else ("minority_smaller" if delta < 0 else "equal")
+        )
+        comp_rows.append(
+            {
+                "majority_name": mr["ed_name"],
+                "majority_pop": mr["population"],
+                "minority_name": minr["ed_name"],
+                "minority_pop": minr["population"],
+                "delta_pop": delta,
+                "direction": direction,
+            }
+        )
 
-    comp_rows.sort(key=lambda r: r["delta_pop"] if isinstance(r["delta_pop"], int) else 0)
-    write_csv(os.path.join(OUT, "rural_gap_ed_comparison.csv"),
-              comp_rows,
-              ["majority_name", "majority_pop", "minority_name", "minority_pop", "delta_pop", "direction"])
+    comp_rows.sort(
+        key=lambda r: r["delta_pop"] if isinstance(r["delta_pop"], int) else 0
+    )
+    write_csv(
+        os.path.join(OUT, "rural_gap_ed_comparison.csv"),
+        comp_rows,
+        [
+            "majority_name",
+            "majority_pop",
+            "minority_name",
+            "minority_pop",
+            "delta_pop",
+            "direction",
+        ],
+    )
 
     # Direction tally
     dir_counts = {}

@@ -9,6 +9,7 @@ target) and use the session-11 canonical 89-ED coverage per map.
 Writes to data/simulation_real_map_scores_full_v2.json and
 data/simulated_ensemble_percentiles_full_v2.csv.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -17,21 +18,35 @@ from pathlib import Path
 
 # Reuse the 100k-targeted script's scoring logic but swap inputs
 import sys
+
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
 from mcmc_full_coverage_rescore_100k import (
-    assign_vas_to_2026_ed, score_map, compute_percentiles,
-    crosswalk_dict, norm,
-    MAJ_POPS_CSV, MIN_POPS_CSV,
-    MAJ_XWALK_CSV_FULL, MIN_XWALK_CSV_FULL, DATA,
-    efficiency_gap, mean_median, declination, seats_at_50_50,
+    assign_vas_to_2026_ed,
+    score_map,
+    compute_percentiles,
+    crosswalk_dict,
+    norm,
+    MAJ_POPS_CSV,
+    MIN_POPS_CSV,
+    MAJ_XWALK_CSV_FULL,
+    MIN_XWALK_CSV_FULL,
+    DATA,
+    efficiency_gap,
+    mean_median,
+    declination,
+    seats_at_50_50,
 )
 import geopandas as gpd
 import pandas as pd
 
-MAJ_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
-MIN_CANON_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
+MAJ_CANON_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
+)
+MIN_CANON_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
+)
 VA_GPKG_FULL = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 
 ENSEMBLE_10K = DATA / "simulated_ensemble_raw_samples.csv"
@@ -46,11 +61,13 @@ def main():
     # also carries the original Election-Day-only columns under those names;
     # drop them and alias the _full columns so scoring is unchanged.
     vas = vas.drop(columns=["va_ucp", "va_ndp", "va_other"], errors="ignore")
-    vas = vas.rename(columns={
-        "va_ucp_full": "va_ucp",
-        "va_ndp_full": "va_ndp",
-        "va_other_full": "va_other",
-    })
+    vas = vas.rename(
+        columns={
+            "va_ucp_full": "va_ucp",
+            "va_ndp_full": "va_ndp",
+            "va_other_full": "va_other",
+        }
+    )
     two_party = float(vas["va_ucp"].sum()) + float(vas["va_ndp"].sum())
     print(f"VA gpkg: {len(vas)} features; two-party total={two_party:,.0f}")
 
@@ -69,8 +86,11 @@ def main():
     min_scores = score_map(min_assigned, min_expected)
 
     print("\n--- 2019 enacted (full) ---")
-    agg_2019 = vas.groupby(vas["parent_ed_2019"].apply(norm)).agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")).reset_index()
+    agg_2019 = (
+        vas.groupby(vas["parent_ed_2019"].apply(norm))
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     agg_2019.columns = ["ed_2019", "ucp", "ndp"]
     agg_2019 = agg_2019[(agg_2019["ucp"] + agg_2019["ndp"]) > 0].reset_index(drop=True)
     total_ucp = int(agg_2019["ucp"].sum())
@@ -80,7 +100,9 @@ def main():
         "mean_median": mean_median(agg_2019),
         "declination": declination(agg_2019),
         "seats_at_50_50": seats_at_50_50(agg_2019),
-        "ucp_seats": int(((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) > 0.5).sum()),
+        "ucp_seats": int(
+            ((agg_2019["ucp"] / (agg_2019["ucp"] + agg_2019["ndp"])) > 0.5).sum()
+        ),
         "n_districts_scored": int(len(agg_2019)),
         "n_expected": 87,
         "n_via_polygon": int(len(vas)),
@@ -99,12 +121,18 @@ def main():
 
     for lbl, s in real.items():
         print(f"\n{lbl}:")
-        print(f"  EG={s['efficiency_gap']:+.4f}  MM={s['mean_median']:+.4f}  "
-              f"DECL={s['declination']:+.4f}  S@50/50={s['seats_at_50_50']:+.4f}")
-        print(f"  UCP seats {s['ucp_seats']} / {s['n_districts_scored']} scored "
-              f"(expected {s['n_expected']})")
-        print(f"  VA assign: {s['n_via_polygon']} polygon, "
-              f"{s['n_via_crosswalk']} crosswalk  (cov {s['coverage_polygon_pct']*100:.1f}%)")
+        print(
+            f"  EG={s['efficiency_gap']:+.4f}  MM={s['mean_median']:+.4f}  "
+            f"DECL={s['declination']:+.4f}  S@50/50={s['seats_at_50_50']:+.4f}"
+        )
+        print(
+            f"  UCP seats {s['ucp_seats']} / {s['n_districts_scored']} scored "
+            f"(expected {s['n_expected']})"
+        )
+        print(
+            f"  VA assign: {s['n_via_polygon']} polygon, "
+            f"{s['n_via_crosswalk']} crosswalk  (cov {s['coverage_polygon_pct']*100:.1f}%)"
+        )
         if s["eds_missing"]:
             print(f"  MISSING ({len(s['eds_missing'])}): {s['eds_missing'][:5]}")
         if s["eds_extra"]:
@@ -112,8 +140,14 @@ def main():
 
     print("\n--- Percentiles vs. 10k ensemble ---")
     pct_df = compute_percentiles(ENSEMBLE_10K, real)
-    with pd.option_context("display.float_format", "{:+.4f}".format,
-                           "display.max_rows", None, "display.width", 160):
+    with pd.option_context(
+        "display.float_format",
+        "{:+.4f}".format,
+        "display.max_rows",
+        None,
+        "display.width",
+        160,
+    ):
         print(pct_df.to_string(index=False))
 
     OUT_SCORES_JSON.write_text(json.dumps(real, indent=2, default=float))

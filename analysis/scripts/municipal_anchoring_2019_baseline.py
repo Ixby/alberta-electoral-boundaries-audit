@@ -40,6 +40,7 @@ Backward:
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   data/shapefiles/reference/alberta_2021_csds.gpkg
 """
+
 # Version: 0.9 (2026-04-26)
 
 
@@ -71,19 +72,25 @@ warnings.filterwarnings("ignore", message=".*GEOS.*")
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 
-EDS_2019_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
-CSD_GPKG     = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
-DA_GPKG      = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
+EDS_2019_SHP = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
+CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
+DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 
-OUT_CSV     = DATA / "2019_municipal_anchoring.csv"
+OUT_CSV = DATA / "2019_municipal_anchoring.csv"
 OUT_SUMMARY = DATA / "2019_municipal_anchoring_summary.json"
 
 # Methodology — held identical to the 2026 headline run
-SNAP_TOL_M           = 500.0
-DA_SNAP_TOL_M        = 150.0
+SNAP_TOL_M = 500.0
+DA_SNAP_TOL_M = 150.0
 MIN_SEGMENT_COVERAGE_M = 1000.0
-VERTEX_DENSIFY_M     = 50.0
-USE_DA_SUPPLEMENT    = False  # match the 2026 headline (71.0 % / 14.5 %)
+VERTEX_DENSIFY_M = 50.0
+USE_DA_SUPPLEMENT = False  # match the 2026 headline (71.0 % / 14.5 %)
 
 
 def _keep_polys(geom):
@@ -105,7 +112,9 @@ def _normalise_edges(edges) -> MultiLineString:
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
     if edges.geom_type == "GeometryCollection":
-        lines = [g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")]
+        lines = [
+            g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")
+        ]
         edges = unary_union(lines)
     return edges
 
@@ -198,7 +207,9 @@ def snap_polygon(poly, edges, edges_tree, edge_lines, snap_tol):
                 best = min(edge_lines[int(i)].distance(p) for i in cand_idxs)
                 pre_errs.append(best)
     for hole in poly.interiors:
-        h_new, h_flags, h_segs = snap_ring(hole, edges, edges_tree, edge_lines, snap_tol)
+        h_new, h_flags, h_segs = snap_ring(
+            hole, edges, edges_tree, edge_lines, snap_tol
+        )
         interiors_new.append(h_new)
         all_flags.extend(h_flags)
         all_segs.extend(h_segs)
@@ -227,6 +238,7 @@ def snap_polygon(poly, edges, edges_tree, edge_lines, snap_tol):
 
 def anchor_map(eds, edges, name_col, label):
     from shapely.strtree import STRtree
+
     edge_lines = []
     if edges.geom_type == "MultiLineString":
         edge_lines.extend(list(edges.geoms))
@@ -246,19 +258,25 @@ def anchor_map(eds, edges, name_col, label):
         g = row.geometry
         ed_name = row[name_col]
         if g is None or g.is_empty:
-            rows.append({
-                "map": label, "name_2019": ed_name,
-                "perimeter_km_total": 0.0, "perimeter_km_anchored": 0.0,
-                "anchored_pct": 0.0, "pre_ama_error_m": 0.0,
-                "post_ama_error_m": 0.0,
-            })
+            rows.append(
+                {
+                    "map": label,
+                    "name_2019": ed_name,
+                    "perimeter_km_total": 0.0,
+                    "perimeter_km_anchored": 0.0,
+                    "anchored_pct": 0.0,
+                    "pre_ama_error_m": 0.0,
+                    "post_ama_error_m": 0.0,
+                }
+            )
             continue
 
         if g.geom_type == "MultiPolygon":
             parts = list(g.geoms)
         elif g.geom_type == "GeometryCollection":
-            parts = [s for s in g.geoms if s.geom_type == "Polygon"] + \
-                    [sp for s in g.geoms if s.geom_type == "MultiPolygon" for sp in s.geoms]
+            parts = [s for s in g.geoms if s.geom_type == "Polygon"] + [
+                sp for s in g.geoms if s.geom_type == "MultiPolygon" for sp in s.geoms
+            ]
         else:
             parts = [g]
 
@@ -275,15 +293,17 @@ def anchor_map(eds, edges, name_col, label):
                 pre_errs.append(pre_err)
 
         anchored_pct = 100.0 * anchored_sum / perim_sum if perim_sum > 0 else 0.0
-        rows.append({
-            "map": label,
-            "name_2019": ed_name,
-            "perimeter_km_total": perim_sum / 1000.0,
-            "perimeter_km_anchored": anchored_sum / 1000.0,
-            "anchored_pct": anchored_pct,
-            "pre_ama_error_m": float(np.mean(pre_errs)) if pre_errs else 0.0,
-            "post_ama_error_m": 0.0,
-        })
+        rows.append(
+            {
+                "map": label,
+                "name_2019": ed_name,
+                "perimeter_km_total": perim_sum / 1000.0,
+                "perimeter_km_anchored": anchored_sum / 1000.0,
+                "anchored_pct": anchored_pct,
+                "pre_ama_error_m": float(np.mean(pre_errs)) if pre_errs else 0.0,
+                "post_ama_error_m": 0.0,
+            }
+        )
         if (i + 1) % 10 == 0:
             print(f"    [{label}] {i+1}/{len(eds)} polygons anchored")
 
@@ -307,8 +327,10 @@ def main():
     print("\n[load] municipal-boundary network (StatsCan 2021 CSDs — AMA-equivalent)")
     t0 = time.time()
     edges = load_municipal_edges(eds.crs)
-    print(f"  edges built in {time.time()-t0:.1f}s; total length = "
-          f"{edges.length/1000:,.0f} km")
+    print(
+        f"  edges built in {time.time()-t0:.1f}s; total length = "
+        f"{edges.length/1000:,.0f} km"
+    )
 
     print("\n" + "=" * 72)
     print("  2019 anchoring")
@@ -324,10 +346,18 @@ def main():
     tot_anchored = float(log["perimeter_km_anchored"].sum())
     overall_pct = 100.0 * tot_anchored / tot_perim if tot_perim > 0 else 0.0
 
-    top10 = log.nlargest(10, "anchored_pct")[["name_2019", "anchored_pct", "perimeter_km_total"]].to_dict("records")
-    bot10 = log.nsmallest(10, "anchored_pct")[["name_2019", "anchored_pct", "perimeter_km_total"]].to_dict("records")
-    top5  = log.nlargest(5,  "anchored_pct")[["name_2019", "anchored_pct"]].to_dict("records")
-    bot5  = log.nsmallest(5, "anchored_pct")[["name_2019", "anchored_pct"]].to_dict("records")
+    top10 = log.nlargest(10, "anchored_pct")[
+        ["name_2019", "anchored_pct", "perimeter_km_total"]
+    ].to_dict("records")
+    bot10 = log.nsmallest(10, "anchored_pct")[
+        ["name_2019", "anchored_pct", "perimeter_km_total"]
+    ].to_dict("records")
+    top5 = log.nlargest(5, "anchored_pct")[["name_2019", "anchored_pct"]].to_dict(
+        "records"
+    )
+    bot5 = log.nsmallest(5, "anchored_pct")[["name_2019", "anchored_pct"]].to_dict(
+        "records"
+    )
 
     summary = {
         "method": {
@@ -352,9 +382,11 @@ def main():
             "municipal_boundaries": {
                 "path": str(CSD_GPKG),
                 "provenance": "StatsCan 2021 Census Sub-Division (AMA-equivalent)",
-                "downloaded_from": ("https://www12.statcan.gc.ca/census-recensement/"
-                                    "2021/geo/sip-pis/boundary-limites/files-fichiers/"
-                                    "lcsd000a21a_e.zip"),
+                "downloaded_from": (
+                    "https://www12.statcan.gc.ca/census-recensement/"
+                    "2021/geo/sip-pis/boundary-limites/files-fichiers/"
+                    "lcsd000a21a_e.zip"
+                ),
                 "n_csds_alberta": 423,
             },
         },
@@ -390,15 +422,23 @@ def main():
     print("  2019 BASELINE SUMMARY")
     print("=" * 72)
     print(f"\n  2019 enacted: {overall_pct:5.1f}% of total perimeter anchored")
-    print(f"                mean per-ED anchored {log['anchored_pct'].mean():5.1f}%, "
-          f"median {log['anchored_pct'].median():5.1f}%")
-    print(f"                total perimeter {tot_perim:,.0f} km, "
-          f"anchored {tot_anchored:,.0f} km")
+    print(
+        f"                mean per-ED anchored {log['anchored_pct'].mean():5.1f}%, "
+        f"median {log['anchored_pct'].median():5.1f}%"
+    )
+    print(
+        f"                total perimeter {tot_perim:,.0f} km, "
+        f"anchored {tot_anchored:,.0f} km"
+    )
     print()
     print(f"  Comparison to 2026 headline numbers:")
     print(f"    2019 enacted     : {overall_pct:5.1f}%")
-    print(f"    2026 majority    :  71.0 %  (delta vs 2019: {71.0 - overall_pct:+5.1f} pp)")
-    print(f"    2026 minority    :  14.5 %  (delta vs 2019: {14.5 - overall_pct:+5.1f} pp)")
+    print(
+        f"    2026 majority    :  71.0 %  (delta vs 2019: {71.0 - overall_pct:+5.1f} pp)"
+    )
+    print(
+        f"    2026 minority    :  14.5 %  (delta vs 2019: {14.5 - overall_pct:+5.1f} pp)"
+    )
 
     print("\n  Top-10 most-anchored 2019 EDs:")
     for r in top10:

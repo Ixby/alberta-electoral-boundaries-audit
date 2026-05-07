@@ -73,6 +73,7 @@ Backward:
   data/verification_assignments_raw.npz  (for the ensemble re-rank)
   numpy, pandas, geopandas
 """
+
 # Version: 0.9 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -86,7 +87,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import geopandas as gpd
-
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
@@ -103,6 +103,7 @@ MIN_V9 = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.
 # ------------------------------------------------------------------
 # Region classification
 # ------------------------------------------------------------------
+
 
 def region_bucket(region_label: str) -> str:
     """Three-way bucket. 'Calgary-area' (Airdrie/Cochrane suburban) folds into
@@ -138,12 +139,14 @@ def _extract_party_votes(df: pd.DataFrame, n_cand_cols: int) -> pd.DataFrame:
                 ucp += float(v)
             elif party == "NDP":
                 ndp += float(v)
-        rows.append({
-            "ed_name": r["ed_name"],
-            "region": region_bucket(r["region"]),
-            "ucp": ucp,
-            "ndp": ndp,
-        })
+        rows.append(
+            {
+                "ed_name": r["ed_name"],
+                "region": region_bucket(r["region"]),
+                "ucp": ucp,
+                "ndp": ndp,
+            }
+        )
     return pd.DataFrame(rows)
 
 
@@ -186,13 +189,17 @@ def derive_regional_swing(verbose: bool = False) -> dict:
         out["ratio_to_provincial"][bucket] = float(ratio)
 
     if verbose:
-        print(f"  provincial UCP 2p:  2019={prov_19:.4f}  2023={prov_23:.4f}  "
-              f"swing={prov_swing:+.4f}")
+        print(
+            f"  provincial UCP 2p:  2019={prov_19:.4f}  2023={prov_23:.4f}  "
+            f"swing={prov_swing:+.4f}"
+        )
         for r in ("Calgary", "Edmonton", "Rural"):
             d = out["regions"][r]
-            print(f"  {r:9s} UCP 2p:  2019={d['ucp_2p_2019']:.4f}  "
-                  f"2023={d['ucp_2p_2023']:.4f}  swing={d['swing']:+.4f}  "
-                  f"ratio={out['ratio_to_provincial'][r]:+.3f}")
+            print(
+                f"  {r:9s} UCP 2p:  2019={d['ucp_2p_2019']:.4f}  "
+                f"2023={d['ucp_2p_2023']:.4f}  swing={d['swing']:+.4f}  "
+                f"ratio={out['ratio_to_provincial'][r]:+.3f}"
+            )
     return out
 
 
@@ -200,9 +207,10 @@ def derive_regional_swing(verbose: bool = False) -> dict:
 # Regional-swing seats@50/50 core
 # ------------------------------------------------------------------
 
-def _district_assignment_from_polygons(va: gpd.GeoDataFrame,
-                                       proposed_gpkg: Path,
-                                       id_col: str = "name_2026") -> np.ndarray:
+
+def _district_assignment_from_polygons(
+    va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str = "name_2026"
+) -> np.ndarray:
     """Assign each VA (by row order) to a district id from the proposed map.
 
     Returns int array of length len(va); -1 = uncovered (centroid not in any
@@ -233,8 +241,9 @@ def _district_assignment_from_polygons(va: gpd.GeoDataFrame,
     return out
 
 
-def seats_at_50_50_uniform(ucp_va: np.ndarray, ndp_va: np.ndarray,
-                           assignment: np.ndarray) -> tuple[float, int, int]:
+def seats_at_50_50_uniform(
+    ucp_va: np.ndarray, ndp_va: np.ndarray, assignment: np.ndarray
+) -> tuple[float, int, int]:
     """Standard uniform-swing seats@50/50, computed at VA level then aggregated.
 
     Mirrors mcmc_ensemble.seat_results: shift every VA's UCP share by the same
@@ -247,7 +256,10 @@ def seats_at_50_50_uniform(ucp_va: np.ndarray, ndp_va: np.ndarray,
     asg = assignment[mask]
     total = ucp + ndp
     valid = total > 0
-    ucp = ucp[valid]; ndp = ndp[valid]; asg = asg[valid]; total = total[valid]
+    ucp = ucp[valid]
+    ndp = ndp[valid]
+    asg = asg[valid]
+    total = total[valid]
     province_ucp = ucp.sum() / total.sum()
     swing = 0.5 - province_ucp
     ucp_share = ucp / total
@@ -264,9 +276,13 @@ def seats_at_50_50_uniform(ucp_va: np.ndarray, ndp_va: np.ndarray,
     return wins / n, wins, n
 
 
-def seats_at_50_50_regional(ucp_va: np.ndarray, ndp_va: np.ndarray,
-                            region_va: np.ndarray, ratios: dict,
-                            assignment: np.ndarray) -> tuple[float, int, int, float]:
+def seats_at_50_50_regional(
+    ucp_va: np.ndarray,
+    ndp_va: np.ndarray,
+    region_va: np.ndarray,
+    ratios: dict,
+    assignment: np.ndarray,
+) -> tuple[float, int, int, float]:
     """Apply a regional swing whose magnitude scales by region.
 
     For a unit shift `s` in provincial UCP 2-party share, each VA's UCP share
@@ -282,8 +298,11 @@ def seats_at_50_50_regional(ucp_va: np.ndarray, ndp_va: np.ndarray,
     asg = assignment[mask]
     total = ucp + ndp
     valid = total > 0
-    ucp = ucp[valid]; ndp = ndp[valid]; reg = reg[valid]
-    asg = asg[valid]; total = total[valid]
+    ucp = ucp[valid]
+    ndp = ndp[valid]
+    reg = reg[valid]
+    asg = asg[valid]
+    total = total[valid]
     ucp_share = ucp / total
 
     # Per-VA ratio vector
@@ -341,34 +360,49 @@ def seats_at_50_50_regional(ucp_va: np.ndarray, ndp_va: np.ndarray,
 # Helpers to load VA data with regions
 # ------------------------------------------------------------------
 
-def load_va_with_regions() -> tuple[gpd.GeoDataFrame, np.ndarray, np.ndarray, np.ndarray]:
+
+def load_va_with_regions() -> (
+    tuple[gpd.GeoDataFrame, np.ndarray, np.ndarray, np.ndarray]
+):
     """Load VAs, attach a region label per VA from parent_ed_2019, and
     return arrays in row order: (va_gdf, ucp, ndp, region_str_array)."""
     va = gpd.read_file(VA_PATH)
     va["va_ucp"] = va["va_ucp"].fillna(0.0).astype(float)
     va["va_ndp"] = va["va_ndp"].fillna(0.0).astype(float)
     df19 = pd.read_csv(RESULTS_2019)
-    ed_to_region = {row["ed_name"]: region_bucket(row["region"])
-                    for _, row in df19.iterrows()}
+    ed_to_region = {
+        row["ed_name"]: region_bucket(row["region"]) for _, row in df19.iterrows()
+    }
     va["region"] = va["parent_ed_2019"].map(ed_to_region)
     if va["region"].isna().any():
         missing = va.loc[va["region"].isna(), "parent_ed_2019"].unique()
         raise ValueError(f"VAs with parent_ed_2019 not in 2019 results: {missing}")
-    return (va,
-            va["va_ucp"].to_numpy(),
-            va["va_ndp"].to_numpy(),
-            va["region"].to_numpy())
+    return (
+        va,
+        va["va_ucp"].to_numpy(),
+        va["va_ndp"].to_numpy(),
+        va["region"].to_numpy(),
+    )
 
 
 # ------------------------------------------------------------------
 # CLI
 # ------------------------------------------------------------------
 
-def score_one(va: gpd.GeoDataFrame, ucp: np.ndarray, ndp: np.ndarray,
-              region: np.ndarray, ratios: dict, assignment: np.ndarray,
-              label: str) -> dict:
+
+def score_one(
+    va: gpd.GeoDataFrame,
+    ucp: np.ndarray,
+    ndp: np.ndarray,
+    region: np.ndarray,
+    ratios: dict,
+    assignment: np.ndarray,
+    label: str,
+) -> dict:
     s50_u, w_u, n_u = seats_at_50_50_uniform(ucp, ndp, assignment)
-    s50_r, w_r, n_r, s_star = seats_at_50_50_regional(ucp, ndp, region, ratios, assignment)
+    s50_r, w_r, n_r, s_star = seats_at_50_50_regional(
+        ucp, ndp, region, ratios, assignment
+    )
     return {
         "map": label,
         "n_districts_uniform": n_u,
@@ -384,13 +418,18 @@ def score_one(va: gpd.GeoDataFrame, ucp: np.ndarray, ndp: np.ndarray,
 
 def main(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--shapefile", type=Path,
-                   help="Path to a candidate-map gpkg with name_2026 column.")
+    p.add_argument(
+        "--shapefile",
+        type=Path,
+        help="Path to a candidate-map gpkg with name_2026 column.",
+    )
     p.add_argument("--id-col", default="name_2026")
-    p.add_argument("--all-three", action="store_true",
-                   help="Score 2019 enacted, v0_9 majority, v0_9 minority.")
-    p.add_argument("--output", type=Path,
-                   help="Write JSON results here.")
+    p.add_argument(
+        "--all-three",
+        action="store_true",
+        help="Score 2019 enacted, v0_9 majority, v0_9 minority.",
+    )
+    p.add_argument("--output", type=Path, help="Write JSON results here.")
     p.add_argument("--verbose", action="store_true")
     args = p.parse_args(argv)
 
@@ -416,30 +455,35 @@ def main(argv=None):
             if lab not in label_to_id:
                 label_to_id[lab] = len(label_to_id)
             asg19[i] = label_to_id[lab]
-        results.append(score_one(va, ucp, ndp, region, ratios, asg19,
-                                 "2019_enacted"))
+        results.append(score_one(va, ucp, ndp, region, ratios, asg19, "2019_enacted"))
 
         for path, label in [(MAJ_V9, "v0_9_majority"), (MIN_V9, "v0_9_minority")]:
             asg = _district_assignment_from_polygons(va, path, id_col=args.id_col)
             results.append(score_one(va, ucp, ndp, region, ratios, asg, label))
     else:
         asg = _district_assignment_from_polygons(va, args.shapefile, id_col=args.id_col)
-        results.append(score_one(va, ucp, ndp, region, ratios, asg,
-                                 args.shapefile.stem))
+        results.append(
+            score_one(va, ucp, ndp, region, ratios, asg, args.shapefile.stem)
+        )
 
-    print(f"{'map':28s}  {'n':>4s}  {'s50_u':>7s}  {'s50_r':>7s}  {'delta':>8s}  applied_s")
+    print(
+        f"{'map':28s}  {'n':>4s}  {'s50_u':>7s}  {'s50_r':>7s}  {'delta':>8s}  applied_s"
+    )
     for r in results:
-        print(f"{r['map']:28s}  {r['n_districts_uniform']:>4d}  "
-              f"{r['s50_uniform']:>7.4f}  {r['s50_regional']:>7.4f}  "
-              f"{r['delta']:+8.4f}  {r['applied_s']:+.4f}")
+        print(
+            f"{r['map']:28s}  {r['n_districts_uniform']:>4d}  "
+            f"{r['s50_uniform']:>7.4f}  {r['s50_regional']:>7.4f}  "
+            f"{r['delta']:+8.4f}  {r['applied_s']:+.4f}"
+        )
 
     if args.output:
         out = {
             "swing_calibration": swing,
             "results": results,
         }
-        args.output.write_text(json.dumps(out, indent=2, default=float),
-                               encoding="utf-8")
+        args.output.write_text(
+            json.dumps(out, indent=2, default=float), encoding="utf-8"
+        )
         print(f"\nwrote {args.output}")
 
 

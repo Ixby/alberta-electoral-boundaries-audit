@@ -57,6 +57,7 @@ Backward:
   analysis/scripts/v0_1_topology_cleanup.py  (precedence resolver)
   data/v0_2_canonical_{majority,minority}_2026_eds_topoclean.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -98,8 +99,12 @@ sys.modules["maup_v1"] = m1
 spec.loader.exec_module(m1)
 
 VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-MIN_CLEAN_GPKG = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+MAJ_CLEAN_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+)
+MIN_CLEAN_GPKG = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+)
 MAJ_XWALK_CSV = DATA / "majority_full_crosswalk.csv"
 MIN_XWALK_CSV = DATA / "minority_full_crosswalk.csv"
 MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
@@ -159,8 +164,9 @@ def compute_seats_at_50(ndp_totals: np.ndarray, ucp_totals: np.ndarray) -> int:
     return int(np.sum(swung > 0.5))
 
 
-def perturb_map(canon_gdf: gpd.GeoDataFrame, rng: np.random.Generator,
-                offset_m: float) -> gpd.GeoDataFrame:
+def perturb_map(
+    canon_gdf: gpd.GeoDataFrame, rng: np.random.Generator, offset_m: float
+) -> gpd.GeoDataFrame:
     """Apply an independent random (dx, dy) offset to every polygon.
 
     Offsets drawn per polygon from Uniform[-offset_m, +offset_m] on each axis.
@@ -168,8 +174,9 @@ def perturb_map(canon_gdf: gpd.GeoDataFrame, rng: np.random.Generator,
     out = canon_gdf.copy()
     dxs = rng.uniform(-offset_m, offset_m, size=len(out))
     dys = rng.uniform(-offset_m, offset_m, size=len(out))
-    new_geoms = [translate(g, xoff=dx, yoff=dy)
-                 for g, dx, dy in zip(out.geometry, dxs, dys)]
+    new_geoms = [
+        translate(g, xoff=dx, yoff=dy) for g, dx, dy in zip(out.geometry, dxs, dys)
+    ]
     out["geometry"] = new_geoms
     return out
 
@@ -230,8 +237,12 @@ def run_one_realisation(
         "minority_ndp_seats": int(mino["ndp_seats"]),
         "majority_conservation_pass": bool(maj["conservation"]["pass"]),
         "minority_conservation_pass": bool(mino["conservation"]["pass"]),
-        "majority_coverage_frac": float(maj["coverage"]["va_area_weighted_coverage_frac"]),
-        "minority_coverage_frac": float(mino["coverage"]["va_area_weighted_coverage_frac"]),
+        "majority_coverage_frac": float(
+            maj["coverage"]["va_area_weighted_coverage_frac"]
+        ),
+        "minority_coverage_frac": float(
+            mino["coverage"]["va_area_weighted_coverage_frac"]
+        ),
     }
 
 
@@ -239,8 +250,16 @@ def summarise_metric(values: list[float]) -> dict:
     arr = np.asarray(values, dtype=float)
     arr = arr[np.isfinite(arr)]
     if len(arr) == 0:
-        return {"n": 0, "mean": None, "std": None, "p5": None, "p50": None,
-                "p95": None, "min": None, "max": None}
+        return {
+            "n": 0,
+            "mean": None,
+            "std": None,
+            "p5": None,
+            "p50": None,
+            "p95": None,
+            "min": None,
+            "max": None,
+        }
     return {
         "n": int(len(arr)),
         "mean": float(np.mean(arr)),
@@ -255,14 +274,27 @@ def summarise_metric(values: list[float]) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("--n", type=int, default=200,
-                        help="Number of perturbation realisations (default 200).")
-    parser.add_argument("--seed", type=int, default=42,
-                        help="Reproducibility seed (default 42).")
-    parser.add_argument("--offset-m", type=float, default=500.0,
-                        help="±offset (metres) for per-polygon translation (default 500).")
-    parser.add_argument("--progress-every", type=int, default=10,
-                        help="Print progress every N perturbations.")
+    parser.add_argument(
+        "--n",
+        type=int,
+        default=200,
+        help="Number of perturbation realisations (default 200).",
+    )
+    parser.add_argument(
+        "--seed", type=int, default=42, help="Reproducibility seed (default 42)."
+    )
+    parser.add_argument(
+        "--offset-m",
+        type=float,
+        default=500.0,
+        help="±offset (metres) for per-polygon translation (default 500).",
+    )
+    parser.add_argument(
+        "--progress-every",
+        type=int,
+        default=10,
+        help="Print progress every N perturbations.",
+    )
     args = parser.parse_args()
 
     print("=" * 72)
@@ -298,9 +330,17 @@ def main():
         t_i = time.time()
         try:
             result = run_one_realisation(
-                i, vas, maj_canon, min_canon,
-                maj_xwalk, min_xwalk, maj_names, min_names,
-                rng, args.offset_m, silent=True,
+                i,
+                vas,
+                maj_canon,
+                min_canon,
+                maj_xwalk,
+                min_xwalk,
+                maj_names,
+                min_names,
+                rng,
+                args.offset_m,
+                silent=True,
             )
         except Exception as e:
             print(f"  [perturbation {i}] ERROR: {e}")
@@ -310,10 +350,12 @@ def main():
             elapsed = time.time() - t_loop
             avg = elapsed / (i + 1)
             remaining = avg * (args.n - (i + 1))
-            print(f"  [{i+1}/{args.n}] last={time.time()-t_i:.1f}s  "
-                  f"avg={avg:.1f}s  elapsed={elapsed/60:.1f}m  "
-                  f"ETA={remaining/60:.1f}m  "
-                  f"asym_last={result['asymmetry_pp']:+.3f}pp")
+            print(
+                f"  [{i+1}/{args.n}] last={time.time()-t_i:.1f}s  "
+                f"avg={avg:.1f}s  elapsed={elapsed/60:.1f}m  "
+                f"ETA={remaining/60:.1f}m  "
+                f"asym_last={result['asymmetry_pp']:+.3f}pp"
+            )
         # Incremental checkpoint so a crash at hour 0:30 doesn't lose everything.
         if (i + 1) % max(args.progress_every, 20) == 0:
             pd.DataFrame(rows).to_csv(OUT_SAMPLES_CSV, index=False)
@@ -327,16 +369,24 @@ def main():
     both_pass = df["majority_conservation_pass"] & df["minority_conservation_pass"]
     n_cons_pass = int(both_pass.sum())
     conservation_pass_rate = n_cons_pass / len(df) if len(df) else 0.0
-    print(f"  conservation gate: {n_cons_pass}/{len(df)} realisations passed "
-          f"({conservation_pass_rate*100:.1f}%)")
+    print(
+        f"  conservation gate: {n_cons_pass}/{len(df)} realisations passed "
+        f"({conservation_pass_rate*100:.1f}%)"
+    )
 
     # Summarise each metric.
     metric_keys = [
-        "majority_eg_pct", "minority_eg_pct", "asymmetry_pp",
-        "majority_mm_pp", "minority_mm_pp",
-        "majority_declination", "minority_declination",
-        "majority_seats_at_50_ndp", "minority_seats_at_50_ndp",
-        "majority_ndp_seats", "minority_ndp_seats",
+        "majority_eg_pct",
+        "minority_eg_pct",
+        "asymmetry_pp",
+        "majority_mm_pp",
+        "minority_mm_pp",
+        "majority_declination",
+        "minority_declination",
+        "majority_seats_at_50_ndp",
+        "minority_seats_at_50_ndp",
+        "majority_ndp_seats",
+        "minority_ndp_seats",
     ]
     summary_metrics = {k: summarise_metric(df[k].tolist()) for k in metric_keys}
 
@@ -353,7 +403,8 @@ def main():
         "p95_asymmetry": float(np.quantile(asym, 0.95)) if len(asym) else None,
         "ci90_crosses_zero": (
             bool(np.quantile(asym, 0.05) < 0 < np.quantile(asym, 0.95))
-            if len(asym) else None
+            if len(asym)
+            else None
         ),
     }
 
@@ -412,9 +463,11 @@ def main():
 def _fmt_ci(s: dict, unit: str = "") -> str:
     if s["n"] == 0:
         return "n=0 (no valid samples)"
-    return (f"p50={s['p50']:+.3f}{unit}  "
-            f"[p5, p95]=[{s['p5']:+.3f}, {s['p95']:+.3f}]{unit}  "
-            f"mean={s['mean']:+.3f}{unit}  sd={s['std']:.3f}")
+    return (
+        f"p50={s['p50']:+.3f}{unit}  "
+        f"[p5, p95]=[{s['p5']:+.3f}, {s['p95']:+.3f}]{unit}  "
+        f"mean={s['mean']:+.3f}{unit}  sd={s['std']:.3f}"
+    )
 
 
 def write_markdown(summary: dict, args: argparse.Namespace) -> None:
@@ -422,18 +475,21 @@ def write_markdown(summary: dict, args: argparse.Namespace) -> None:
     pt = summary["point_estimates_maup_v2"]
     d = summary["direction_stats"]
 
-    def row(label: str, key: str, unit: str, point: float | int | None,
-            fmt: str = "{:+.3f}"):
+    def row(
+        label: str, key: str, unit: str, point: float | int | None, fmt: str = "{:+.3f}"
+    ):
         s = m[key]
         if s["n"] == 0:
             return f"| {label} | n=0 | – | – | – | – |"
         point_str = fmt.format(point) if point is not None else "–"
-        return (f"| {label} | "
-                f"{fmt.format(s['p5'])} | "
-                f"{fmt.format(s['p50'])} | "
-                f"{fmt.format(s['p95'])} | "
-                f"{fmt.format(s['mean'])} | "
-                f"{point_str} |")
+        return (
+            f"| {label} | "
+            f"{fmt.format(s['p5'])} | "
+            f"{fmt.format(s['p50'])} | "
+            f"{fmt.format(s['p95'])} | "
+            f"{fmt.format(s['mean'])} | "
+            f"{point_str} |"
+        )
 
     asym_ci_crosses = d.get("ci90_crosses_zero")
     p5_asym = d.get("p5_asymmetry")
@@ -448,7 +504,11 @@ def write_markdown(summary: dict, args: argparse.Namespace) -> None:
             "**not robust to DPG perimeter error alone**."
         )
     else:
-        side = "positive (minority more NDP-favourable)" if p5_asym and p5_asym > 0 else "negative"
+        side = (
+            "positive (minority more NDP-favourable)"
+            if p5_asym and p5_asym > 0
+            else "negative"
+        )
         direction_verdict = (
             f"The 90% CI for the asymmetry is entirely {side} "
             f"([p5={p5_asym:+.3f}, p95={p95_asym:+.3f}] pp), so the §5.2.7 "

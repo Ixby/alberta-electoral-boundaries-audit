@@ -18,6 +18,7 @@ Output columns:
   other_share, leading_party, win_prob_leader,
   ucp_win_prob, ndp_win_prob, snapshot_date, source_url
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -32,8 +33,8 @@ from typing import Dict, List, Tuple, Optional
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 AUDIT_ROOT = os.path.dirname(os.path.dirname(HERE))
-INDEX_CSV = os.path.join(AUDIT_ROOT, 'data', '338canada_ridings_index.csv')
-OUT_CSV = os.path.join(AUDIT_ROOT, 'data', '338canada_per_riding_87seat.csv')
+INDEX_CSV = os.path.join(AUDIT_ROOT, "data", "338canada_ridings_index.csv")
+OUT_CSV = os.path.join(AUDIT_ROOT, "data", "338canada_per_riding_87seat.csv")
 
 URL_TMPL = "https://338canada.com/alberta/{code}e.htm"
 UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"
@@ -41,10 +42,9 @@ SNAPSHOT_DATE = "2026-04-12"
 
 
 def fetch(code: str) -> str:
-    req = urllib.request.Request(URL_TMPL.format(code=code),
-                                 headers={'User-Agent': UA})
+    req = urllib.request.Request(URL_TMPL.format(code=code), headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read().decode('utf-8', errors='replace')
+        return r.read().decode("utf-8", errors="replace")
 
 
 # CRIT-02: tighten the match window. 338's per-riding pages emit
@@ -63,7 +63,7 @@ PARTY_WITH_MOE_RE = re.compile(
 
 
 def parse_series(s: str) -> List[float]:
-    return [float(x) for x in s.strip().rstrip(',').split(',') if x.strip()]
+    return [float(x) for x in s.strip().rstrip(",").split(",") if x.strip()]
 
 
 def parse_page(html: str) -> Dict[str, Dict[str, float]]:
@@ -83,9 +83,9 @@ def parse_page(html: str) -> Dict[str, Dict[str, float]]:
         v = parse_series(vals)
         m = parse_series(moes)
         parties[key] = {
-            'share': v[-1] if v else float('nan'),
-            'moe': m[-1] if m else float('nan'),
-            'win_prob': float('nan'),
+            "share": v[-1] if v else float("nan"),
+            "moe": m[-1] if m else float("nan"),
+            "win_prob": float("nan"),
         }
 
     # Win-probability blocks = those value blocks that do NOT have a matching moe.
@@ -97,21 +97,21 @@ def parse_page(html: str) -> Dict[str, Dict[str, float]]:
             continue
         v = parse_series(vals)
         if key in parties:
-            parties[key]['win_prob'] = v[-1] if v else float('nan')
+            parties[key]["win_prob"] = v[-1] if v else float("nan")
         else:
             # Unexpected party appeared only in win-prob block; record it.
             parties[key] = {
-                'share': float('nan'),
-                'moe': float('nan'),
-                'win_prob': v[-1] if v else float('nan'),
+                "share": float("nan"),
+                "moe": float("nan"),
+                "win_prob": v[-1] if v else float("nan"),
             }
     return parties
 
 
 def leading(parties: Dict[str, Dict[str, float]]) -> Tuple[str, float]:
-    best_key, best_share = '', -1.0
+    best_key, best_share = "", -1.0
     for k, v in parties.items():
-        s = v.get('share', float('nan'))
+        s = v.get("share", float("nan"))
         if s == s and s > best_share:
             best_share, best_key = s, k
     return best_key, best_share
@@ -119,13 +119,13 @@ def leading(parties: Dict[str, Dict[str, float]]) -> Tuple[str, float]:
 
 def main():
     rows_out: List[Dict] = []
-    with open(INDEX_CSV, encoding='utf-8') as f:
+    with open(INDEX_CSV, encoding="utf-8") as f:
         index = list(csv.DictReader(f))
 
     failures: List[Tuple[str, str, str]] = []
     for i, row in enumerate(index, 1):
-        code = row['code']
-        riding = row['riding']
+        code = row["code"]
+        riding = row["riding"]
         url = URL_TMPL.format(code=code)
         try:
             html = fetch(code)
@@ -134,37 +134,50 @@ def main():
             failures.append((code, riding, str(e)))
             continue
 
-        ucp = parties.get('UCP', {})
-        ndp = parties.get('NDP', {})
-        others_total = sum(p.get('share', 0.0) for k, p in parties.items()
-                           if k not in ('UCP', 'NDP'))
+        ucp = parties.get("UCP", {})
+        ndp = parties.get("NDP", {})
+        others_total = sum(
+            p.get("share", 0.0) for k, p in parties.items() if k not in ("UCP", "NDP")
+        )
 
         lead_party, _ = leading(parties)
-        lead_wp = parties.get(lead_party, {}).get('win_prob', float('nan'))
+        lead_wp = parties.get(lead_party, {}).get("win_prob", float("nan"))
 
-        ucp_share = ucp.get('share', float('nan'))
-        ucp_moe = ucp.get('moe', float('nan'))
-        ndp_share = ndp.get('share', float('nan'))
-        ndp_moe = ndp.get('moe', float('nan'))
+        ucp_share = ucp.get("share", float("nan"))
+        ucp_moe = ucp.get("moe", float("nan"))
+        ndp_share = ndp.get("share", float("nan"))
+        ndp_moe = ndp.get("moe", float("nan"))
 
-        rows_out.append({
-            'district': riding,
-            'ucp_share': round(ucp_share, 3),
-            'ucp_moe': round(ucp_moe, 3) if ucp_moe == ucp_moe else '',
-            'ucp_low': round(ucp_share - ucp_moe, 3) if ucp_moe == ucp_moe else '',
-            'ucp_high': round(ucp_share + ucp_moe, 3) if ucp_moe == ucp_moe else '',
-            'ndp_share': round(ndp_share, 3),
-            'ndp_moe': round(ndp_moe, 3) if ndp_moe == ndp_moe else '',
-            'ndp_low': round(ndp_share - ndp_moe, 3) if ndp_moe == ndp_moe else '',
-            'ndp_high': round(ndp_share + ndp_moe, 3) if ndp_moe == ndp_moe else '',
-            'other_share': round(others_total, 3),
-            'leading_party': lead_party,
-            'win_prob_leader': round(lead_wp, 2) if lead_wp == lead_wp else '',
-            'ucp_win_prob': round(ucp.get('win_prob', float('nan')), 2) if ucp.get('win_prob', float('nan')) == ucp.get('win_prob', float('nan')) else '',
-            'ndp_win_prob': round(ndp.get('win_prob', float('nan')), 2) if ndp.get('win_prob', float('nan')) == ndp.get('win_prob', float('nan')) else '',
-            'snapshot_date': SNAPSHOT_DATE,
-            'source_url': url,
-        })
+        rows_out.append(
+            {
+                "district": riding,
+                "ucp_share": round(ucp_share, 3),
+                "ucp_moe": round(ucp_moe, 3) if ucp_moe == ucp_moe else "",
+                "ucp_low": round(ucp_share - ucp_moe, 3) if ucp_moe == ucp_moe else "",
+                "ucp_high": round(ucp_share + ucp_moe, 3) if ucp_moe == ucp_moe else "",
+                "ndp_share": round(ndp_share, 3),
+                "ndp_moe": round(ndp_moe, 3) if ndp_moe == ndp_moe else "",
+                "ndp_low": round(ndp_share - ndp_moe, 3) if ndp_moe == ndp_moe else "",
+                "ndp_high": round(ndp_share + ndp_moe, 3) if ndp_moe == ndp_moe else "",
+                "other_share": round(others_total, 3),
+                "leading_party": lead_party,
+                "win_prob_leader": round(lead_wp, 2) if lead_wp == lead_wp else "",
+                "ucp_win_prob": (
+                    round(ucp.get("win_prob", float("nan")), 2)
+                    if ucp.get("win_prob", float("nan"))
+                    == ucp.get("win_prob", float("nan"))
+                    else ""
+                ),
+                "ndp_win_prob": (
+                    round(ndp.get("win_prob", float("nan")), 2)
+                    if ndp.get("win_prob", float("nan"))
+                    == ndp.get("win_prob", float("nan"))
+                    else ""
+                ),
+                "snapshot_date": SNAPSHOT_DATE,
+                "source_url": url,
+            }
+        )
         # Gentle pacing
         time.sleep(0.15)
         if i % 15 == 0:
@@ -173,7 +186,7 @@ def main():
     # Write
     if rows_out:
         cols = list(rows_out[0].keys())
-        with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
+        with open(OUT_CSV, "w", encoding="utf-8", newline="") as f:
             w = csv.DictWriter(f, fieldnames=cols)
             w.writeheader()
             w.writerows(rows_out)
@@ -198,19 +211,27 @@ def main():
         sys.exit(2)
 
     # CRIT-02: sanity-check parsed shares and winner assignments.
-    lead_allowed = {'UCP', 'NDP', 'LIB', 'GRN', 'AB', 'ABP', 'OTH', ''}
+    lead_allowed = {"UCP", "NDP", "LIB", "GRN", "AB", "ABP", "OTH", ""}
     anomalies = []
     for r in rows_out:
-        if not (0.0 <= r['ucp_share'] <= 100.0):
-            anomalies.append(f"{r['district']}: ucp_share out of range ({r['ucp_share']})")
-        if not (0.0 <= r['ndp_share'] <= 100.0):
-            anomalies.append(f"{r['district']}: ndp_share out of range ({r['ndp_share']})")
-        total = r['ucp_share'] + r['ndp_share'] + r['other_share']
+        if not (0.0 <= r["ucp_share"] <= 100.0):
+            anomalies.append(
+                f"{r['district']}: ucp_share out of range ({r['ucp_share']})"
+            )
+        if not (0.0 <= r["ndp_share"] <= 100.0):
+            anomalies.append(
+                f"{r['district']}: ndp_share out of range ({r['ndp_share']})"
+            )
+        total = r["ucp_share"] + r["ndp_share"] + r["other_share"]
         # Allow small rounding drift off 100.
         if not (95.0 <= total <= 105.0):
-            anomalies.append(f"{r['district']}: share sum {total:.2f} outside [95, 105]")
-        if r['leading_party'] not in lead_allowed:
-            anomalies.append(f"{r['district']}: unexpected leading_party {r['leading_party']!r}")
+            anomalies.append(
+                f"{r['district']}: share sum {total:.2f} outside [95, 105]"
+            )
+        if r["leading_party"] not in lead_allowed:
+            anomalies.append(
+                f"{r['district']}: unexpected leading_party {r['leading_party']!r}"
+            )
     if anomalies:
         sys.stderr.write(
             "\nCRIT-02 SANITY CHECK FAILED:\n  " + "\n  ".join(anomalies) + "\n"
@@ -218,5 +239,5 @@ def main():
         sys.exit(3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

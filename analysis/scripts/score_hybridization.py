@@ -82,6 +82,7 @@ Backward:
     analysis/scripts/score_anchoring.py
     data/shapefiles/reference/alberta_2021_csds.gpkg
 """
+
 # Version: 0.9 (2026-04-26)
 
 from __future__ import annotations
@@ -99,7 +100,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 CSD_GPKG = ROOT / "data" / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
 CITY_CSDTYPES: set[str] = {"CY", "SM"}  # City + Specialized Municipality
-AREA_SHARE_THRESHOLD: float = 0.05      # 5% of ED area on each side
+AREA_SHARE_THRESHOLD: float = 0.05  # 5% of ED area on each side
 
 
 def score_hybridization(shapefile_path: Path) -> int:
@@ -152,7 +153,9 @@ def main():
         description="Compute hybrid-ED count for a single map shapefile",
     )
     ap.add_argument(
-        "--shapefile", required=True, type=Path,
+        "--shapefile",
+        required=True,
+        type=Path,
         help="Path to .shp or .gpkg containing electoral-division polygons",
     )
     args = ap.parse_args()

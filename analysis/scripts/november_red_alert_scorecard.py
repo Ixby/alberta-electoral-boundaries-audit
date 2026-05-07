@@ -33,6 +33,7 @@ committed to in writing on April 24 2026, before the Lunty
 committee began its work, so post-hoc redrawing of thresholds
 to fit the data is impossible.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -48,6 +49,7 @@ import numpy as np
 import pandas as pd
 import geopandas as gpd
 import warnings
+
 warnings.simplefilter("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
@@ -61,23 +63,27 @@ from drand_seed import get_canonical_seed  # noqa: E402
 # Pre-registered: AsPredicted #289452 (Phase 2 Lunty Committee Map Forensic Analysis)
 BOOTSTRAP_SEED: int = get_canonical_seed("lunty-bootstrap")
 
-VA_VOTES_PATH = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-ALBERTA_CSDS = ROOT / "data" / "shapefiles" / "reference" / "alberta_csds.gpkg"  # may not exist
+VA_VOTES_PATH = (
+    ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+)
+ALBERTA_CSDS = (
+    ROOT / "data" / "shapefiles" / "reference" / "alberta_csds.gpkg"
+)  # may not exist
 RECOM_SAMPLES = ROOT / "data" / "simulated_ensemble_raw_samples_250k.csv"
 SMC_OUTPUT = ROOT / "data" / "redist_crossvalidation_s50.csv"
 
 # Pre-registered tripwire thresholds (committed to before the Lunty
 # committee began work).
 MO1_DRAIN_TRIPWIRE_FACTOR = 1.5  # If a city's district-count exceeds
-                                  # 1.5 × what its population mathematically
-                                  # warrants, flag it. Empirical baseline:
-                                  # the minority map's Airdrie split was
-                                  # 4-way for a city whose population
-                                  # warrants 2 → ratio 2.0 (above 1.5).
+# 1.5 × what its population mathematically
+# warrants, flag it. Empirical baseline:
+# the minority map's Airdrie split was
+# 4-way for a city whose population
+# warrants 2 → ratio 2.0 (above 1.5).
 MO2_PP_PERCENTILE_THRESHOLD = 10  # bottom decile of Polsby-Popper
-MO3_ANCHORING_THRESHOLD = 0.70    # Canadian norm; 70% lower bound
-MO4_SAMPLER_DIVERGENCE_PP = 25    # divergence in s@50 percentile rank
-                                   # between ReCom and SMC, in pp
+MO3_ANCHORING_THRESHOLD = 0.70  # Canadian norm; 70% lower bound
+MO4_SAMPLER_DIVERGENCE_PP = 25  # divergence in s@50 percentile rank
+# between ReCom and SMC, in pp
 
 
 @dataclass
@@ -99,16 +105,16 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
     # Per-city populations (2021 census) — pre-registered constants
     # so the threshold logic doesn't move when a new city polygon is added.
     cities = {
-        "Calgary":       {"pop": 1_306_784, "csd_codes": [4806016]},
-        "Edmonton":      {"pop": 1_010_899, "csd_codes": [4811062]},
-        "Red Deer":      {"pop": 100_844,   "csd_codes": [4806036]},
-        "Lethbridge":    {"pop": 98_406,    "csd_codes": [4802012]},
-        "St. Albert":    {"pop": 68_232,    "csd_codes": [4811049]},
-        "Medicine Hat":  {"pop": 63_271,    "csd_codes": [4801006]},
-        "Grande Prairie":{"pop": 64_141,    "csd_codes": [4819030]},
-        "Airdrie":       {"pop": 74_100,    "csd_codes": [4806008]},
-        "Spruce Grove":  {"pop": 37_645,    "csd_codes": [4811053]},
-        "Leduc":         {"pop": 34_094,    "csd_codes": [4811028]},
+        "Calgary": {"pop": 1_306_784, "csd_codes": [4806016]},
+        "Edmonton": {"pop": 1_010_899, "csd_codes": [4811062]},
+        "Red Deer": {"pop": 100_844, "csd_codes": [4806036]},
+        "Lethbridge": {"pop": 98_406, "csd_codes": [4802012]},
+        "St. Albert": {"pop": 68_232, "csd_codes": [4811049]},
+        "Medicine Hat": {"pop": 63_271, "csd_codes": [4801006]},
+        "Grande Prairie": {"pop": 64_141, "csd_codes": [4819030]},
+        "Airdrie": {"pop": 74_100, "csd_codes": [4806008]},
+        "Spruce Grove": {"pop": 37_645, "csd_codes": [4811053]},
+        "Leduc": {"pop": 34_094, "csd_codes": [4811028]},
     }
     csd_path = ALBERTA_CSDS
     flagged = []
@@ -117,14 +123,14 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
             name="MO #1 — Drain Pattern (city cracking)",
             fired=False,
             summary=f"SKIPPED — Alberta CSD polygon file missing at "
-                    f"{csd_path.relative_to(ROOT)}. Cannot count district-per-city "
-                    f"intersections without it.",
+            f"{csd_path.relative_to(ROOT)}. Cannot count district-per-city "
+            f"intersections without it.",
         )
     csd = gpd.read_file(csd_path).to_crs(eds.crs)
     for city_name, meta in cities.items():
-        city_geom = csd[csd["CSDUID"].astype(str).isin(
-            [str(c) for c in meta["csd_codes"]]
-        )]
+        city_geom = csd[
+            csd["CSDUID"].astype(str).isin([str(c) for c in meta["csd_codes"]])
+        ]
         if city_geom.empty:
             continue
         # Count districts whose interior intersects this city's polygon
@@ -135,21 +141,27 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
         justified = max(1, int(np.ceil(meta["pop"] / avg_pop_per_district)))
         ratio = n_districts / justified if justified else 0.0
         if ratio >= MO1_DRAIN_TRIPWIRE_FACTOR:
-            flagged.append({
-                "city": city_name,
-                "population_2021": meta["pop"],
-                "districts_in_city": n_districts,
-                "justified_districts": justified,
-                "split_ratio": round(ratio, 2),
-            })
+            flagged.append(
+                {
+                    "city": city_name,
+                    "population_2021": meta["pop"],
+                    "districts_in_city": n_districts,
+                    "justified_districts": justified,
+                    "split_ratio": round(ratio, 2),
+                }
+            )
     return TripwireResult(
         name="MO #1 — Drain Pattern (city cracking)",
         fired=len(flagged) > 0,
-        summary=(f"{len(flagged)} cities exceed the 1.5x district-split "
-                 f"threshold" if flagged else
-                 "no cities exceed the 1.5x district-split threshold"),
-        detail={"flagged_cities": flagged,
-                "threshold_ratio": MO1_DRAIN_TRIPWIRE_FACTOR},
+        summary=(
+            f"{len(flagged)} cities exceed the 1.5x district-split " f"threshold"
+            if flagged
+            else "no cities exceed the 1.5x district-split threshold"
+        ),
+        detail={
+            "flagged_cities": flagged,
+            "threshold_ratio": MO1_DRAIN_TRIPWIRE_FACTOR,
+        },
     )
 
 
@@ -161,7 +173,7 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
     "Urban" is defined as VA centroids inside the ten largest cities'
     CSD polygons.
     """
-    pp = 4 * np.pi * eds.geometry.area / (eds.geometry.length ** 2)
+    pp = 4 * np.pi * eds.geometry.area / (eds.geometry.length**2)
     threshold_pp = float(np.percentile(pp.dropna(), MO2_PP_PERCENTILE_THRESHOLD))
 
     # Compute urban share per district via VA centroid + CSD overlay
@@ -169,31 +181,46 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
         return TripwireResult(
             name="MO #2 — Lasso (surgical non-compactness)",
             fired=False,
-            summary=(f"PARTIAL — PP threshold computed (bottom decile = "
-                     f"{threshold_pp:.3f}). VA-CSD urban-share check "
-                     f"skipped (missing reference data)."),
-            detail={"pp_threshold_p10": threshold_pp,
-                    "districts_below": int((pp < threshold_pp).sum())},
+            summary=(
+                f"PARTIAL — PP threshold computed (bottom decile = "
+                f"{threshold_pp:.3f}). VA-CSD urban-share check "
+                f"skipped (missing reference data)."
+            ),
+            detail={
+                "pp_threshold_p10": threshold_pp,
+                "districts_below": int((pp < threshold_pp).sum()),
+            },
         )
     va = gpd.read_file(VA_VOTES_PATH).to_crs(eds.crs)
     csd = gpd.read_file(ALBERTA_CSDS).to_crs(eds.crs)
-    big_city_codes = {4806016, 4811062, 4806036, 4802012, 4811049,
-                       4801006, 4819030, 4806008}
-    big_city = csd[csd["CSDUID"].astype(str).isin(
-        [str(c) for c in big_city_codes]
-    )]
+    big_city_codes = {
+        4806016,
+        4811062,
+        4806036,
+        4802012,
+        4811049,
+        4801006,
+        4819030,
+        4806008,
+    }
+    big_city = csd[csd["CSDUID"].astype(str).isin([str(c) for c in big_city_codes])]
     va_centroids = gpd.GeoDataFrame(
         {"_idx": range(len(va))},
-        geometry=va.geometry.centroid, crs=va.crs,
+        geometry=va.geometry.centroid,
+        crs=va.crs,
     )
-    urban_mask = gpd.sjoin(va_centroids, big_city[["geometry"]],
-                           how="left", predicate="within")
+    urban_mask = gpd.sjoin(
+        va_centroids, big_city[["geometry"]], how="left", predicate="within"
+    )
     urban_mask = urban_mask.drop_duplicates(subset=["_idx"]).sort_values("_idx")
     va["is_urban"] = urban_mask["index_right"].notna().values
 
-    va_to_ed = gpd.sjoin(va_centroids.assign(is_urban=va["is_urban"].values),
-                         eds[[name_col, "geometry"]],
-                         how="left", predicate="within")
+    va_to_ed = gpd.sjoin(
+        va_centroids.assign(is_urban=va["is_urban"].values),
+        eds[[name_col, "geometry"]],
+        how="left",
+        predicate="within",
+    )
     va_to_ed = va_to_ed.drop_duplicates(subset=["_idx"])
     urban_share = va_to_ed.groupby(name_col)["is_urban"].mean()
 
@@ -203,20 +230,23 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
         ed_pp = float(pp.iloc[idx])
         ed_urban = float(urban_share.get(nm, 0.0))
         if ed_pp < threshold_pp and 0.40 <= ed_urban <= 0.60:
-            flagged.append({
-                "name": nm,
-                "polsby_popper": round(ed_pp, 4),
-                "urban_va_fraction": round(ed_urban, 3),
-            })
+            flagged.append(
+                {
+                    "name": nm,
+                    "polsby_popper": round(ed_pp, 4),
+                    "urban_va_fraction": round(ed_urban, 3),
+                }
+            )
     return TripwireResult(
         name="MO #2 — Lasso (surgical non-compactness)",
         fired=len(flagged) > 0,
-        summary=(f"{len(flagged)} districts in the bottom-decile of PP "
-                 f"AND with a 40-60% urban-rural mix"
-                 if flagged else
-                 "no districts hit both bottom-decile PP AND mixed urban-rural"),
-        detail={"pp_threshold_p10": threshold_pp,
-                "flagged_districts": flagged},
+        summary=(
+            f"{len(flagged)} districts in the bottom-decile of PP "
+            f"AND with a 40-60% urban-rural mix"
+            if flagged
+            else "no districts hit both bottom-decile PP AND mixed urban-rural"
+        ),
+        detail={"pp_threshold_p10": threshold_pp, "flagged_districts": flagged},
     )
 
 
@@ -233,7 +263,7 @@ def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
             name="MO #3 — Municipal de-anchoring",
             fired=False,
             summary=f"SKIPPED — Alberta CSD polygon file missing at "
-                    f"{ALBERTA_CSDS.relative_to(ROOT)}.",
+            f"{ALBERTA_CSDS.relative_to(ROOT)}.",
         )
     csd = gpd.read_file(ALBERTA_CSDS).to_crs(eds.crs)
     csd_boundary = csd.boundary.unary_union
@@ -247,14 +277,20 @@ def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
     # buffer to absorb digitisation noise)
     csd_buffer = csd_boundary.buffer(25.0)
     on_csd = total_boundary.intersection(csd_buffer)
-    anchored_frac = on_csd.length / total_boundary.length if total_boundary.length > 0 else 0.0
+    anchored_frac = (
+        on_csd.length / total_boundary.length if total_boundary.length > 0 else 0.0
+    )
     return TripwireResult(
         name="MO #3 — Municipal de-anchoring",
         fired=anchored_frac < MO3_ANCHORING_THRESHOLD,
-        summary=(f"municipal anchoring = {anchored_frac:.1%} "
-                 f"(Canadian norm threshold {MO3_ANCHORING_THRESHOLD:.0%})"),
-        detail={"anchored_fraction": anchored_frac,
-                "threshold": MO3_ANCHORING_THRESHOLD},
+        summary=(
+            f"municipal anchoring = {anchored_frac:.1%} "
+            f"(Canadian norm threshold {MO3_ANCHORING_THRESHOLD:.0%})"
+        ),
+        detail={
+            "anchored_fraction": anchored_frac,
+            "threshold": MO3_ANCHORING_THRESHOLD,
+        },
     )
 
 
@@ -284,32 +320,52 @@ def mo4_sampler_divergence(map_s50: float) -> TripwireResult:
     return TripwireResult(
         name="MO #4 — Sampler divergence",
         fired=abs(divergence) > MO4_SAMPLER_DIVERGENCE_PP,
-        summary=(f"map seats@50/50 = {map_s50:.4f} → "
-                 f"ReCom percentile {recom_pct:.1f}, "
-                 f"SMC percentile {smc_pct:.1f}, "
-                 f"divergence {divergence:+.1f}pp "
-                 f"(threshold {MO4_SAMPLER_DIVERGENCE_PP}pp)"),
-        detail={"recom_percentile": recom_pct,
-                "smc_percentile": smc_pct,
-                "divergence_pp": divergence,
-                "threshold_pp": MO4_SAMPLER_DIVERGENCE_PP},
+        summary=(
+            f"map seats@50/50 = {map_s50:.4f} → "
+            f"ReCom percentile {recom_pct:.1f}, "
+            f"SMC percentile {smc_pct:.1f}, "
+            f"divergence {divergence:+.1f}pp "
+            f"(threshold {MO4_SAMPLER_DIVERGENCE_PP}pp)"
+        ),
+        detail={
+            "recom_percentile": recom_pct,
+            "smc_percentile": smc_pct,
+            "divergence_pp": divergence,
+            "threshold_pp": MO4_SAMPLER_DIVERGENCE_PP,
+        },
     )
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--shapefile", required=True, type=Path,
-                        help="Path to the 91-seat map shapefile or GPKG.")
-    parser.add_argument("--map-name", default="LuntyCommittee",
-                        help="Friendly name (used in output filenames).")
-    parser.add_argument("--name-col", default="name_2026",
-                        help="Column in the shapefile with district names.")
-    parser.add_argument("--skip-mcmc", action="store_true",
-                        help="Skip the ReCom + SMC ensemble runs (use "
-                             "cached prior outputs).")
-    parser.add_argument("--map-s50", type=float, default=None,
-                        help="The map's seats@50/50 score, if precomputed. "
-                             "If omitted and --skip-mcmc set, MO #4 is skipped.")
+    parser.add_argument(
+        "--shapefile",
+        required=True,
+        type=Path,
+        help="Path to the 91-seat map shapefile or GPKG.",
+    )
+    parser.add_argument(
+        "--map-name",
+        default="LuntyCommittee",
+        help="Friendly name (used in output filenames).",
+    )
+    parser.add_argument(
+        "--name-col",
+        default="name_2026",
+        help="Column in the shapefile with district names.",
+    )
+    parser.add_argument(
+        "--skip-mcmc",
+        action="store_true",
+        help="Skip the ReCom + SMC ensemble runs (use " "cached prior outputs).",
+    )
+    parser.add_argument(
+        "--map-s50",
+        type=float,
+        default=None,
+        help="The map's seats@50/50 score, if precomputed. "
+        "If omitted and --skip-mcmc set, MO #4 is skipped.",
+    )
     args = parser.parse_args()
 
     if not args.shapefile.exists():
@@ -331,19 +387,24 @@ def main() -> int:
         print("[scorecard] running MO #4 — Sampler divergence...")
         results.append(mo4_sampler_divergence(args.map_s50))
     elif not args.skip_mcmc:
-        print("[scorecard] WARN: --map-s50 not provided and --skip-mcmc not set;"
-              " MO #4 is being skipped (auto-MCMC orchestration is not "
-              "implemented in this scaffold).")
-        results.append(TripwireResult(
-            name="MO #4 — Sampler divergence",
-            fired=False,
-            summary="SKIPPED — provide --map-s50 to score against cached ensembles.",
-        ))
+        print(
+            "[scorecard] WARN: --map-s50 not provided and --skip-mcmc not set;"
+            " MO #4 is being skipped (auto-MCMC orchestration is not "
+            "implemented in this scaffold)."
+        )
+        results.append(
+            TripwireResult(
+                name="MO #4 — Sampler divergence",
+                fired=False,
+                summary="SKIPPED — provide --map-s50 to score against cached ensembles.",
+            )
+        )
 
     # Write report
     today = date.today().isoformat()
-    out_path = ROOT / "analysis" / "reports" / \
-        f"november_red_alert_{args.map_name}_{today}.md"
+    out_path = (
+        ROOT / "analysis" / "reports" / f"november_red_alert_{args.map_name}_{today}.md"
+    )
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fired_count = sum(1 for r in results if r.fired)
     with out_path.open("w", encoding="utf-8") as f:
@@ -361,10 +422,16 @@ def main() -> int:
                 f.write("\n```\n\n")
         f.write("---\n\n")
         f.write("Pre-registered tripwire thresholds:\n\n")
-        f.write(f"- MO #1 drain ratio threshold: {MO1_DRAIN_TRIPWIRE_FACTOR}x population-justified\n")
-        f.write(f"- MO #2 Polsby-Popper percentile threshold: bottom {MO2_PP_PERCENTILE_THRESHOLD}%\n")
+        f.write(
+            f"- MO #1 drain ratio threshold: {MO1_DRAIN_TRIPWIRE_FACTOR}x population-justified\n"
+        )
+        f.write(
+            f"- MO #2 Polsby-Popper percentile threshold: bottom {MO2_PP_PERCENTILE_THRESHOLD}%\n"
+        )
         f.write(f"- MO #3 anchoring threshold: {MO3_ANCHORING_THRESHOLD:.0%}\n")
-        f.write(f"- MO #4 sampler divergence threshold: {MO4_SAMPLER_DIVERGENCE_PP}pp\n")
+        f.write(
+            f"- MO #4 sampler divergence threshold: {MO4_SAMPLER_DIVERGENCE_PP}pp\n"
+        )
     print(f"[scorecard] wrote {out_path.relative_to(ROOT)}")
     print(f"[scorecard] {fired_count} of {len(results)} tripwires fired")
     return 0

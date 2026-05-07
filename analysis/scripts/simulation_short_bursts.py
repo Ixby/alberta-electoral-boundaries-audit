@@ -24,6 +24,7 @@ Backward:
 Forward:
   report_academic.md §5.4 (MCMC Run #3 supplement)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -68,21 +69,23 @@ def _pick_path(plan: str):
                 return p
         return MIN_V7_PATH
 
+
 ROOT = HERE.parent.parent
 DATA = ROOT / "data"
 RPTS = ROOT / "analysis" / "reports"
 
-OUT_CSV  = DATA / "simulation_short_bursts.csv"
+OUT_CSV = DATA / "simulation_short_bursts.csv"
 OUT_JSON = DATA / "simulation_short_bursts_summary.json"
-OUT_MD   = RPTS / "simulation_short_bursts.md"
+OUT_MD = RPTS / "simulation_short_bursts.md"
 
-N_BURSTS    = 500
-BURST_LEN   = 10
-POP_DEV     = 0.25
+N_BURSTS = 500
+BURST_LEN = 10
+POP_DEV = 0.25
 
 
-def run_bursts(graph, assignment, n_bursts: int, burst_len: int,
-               pop_deviation: float, seed: int) -> pd.DataFrame:
+def run_bursts(
+    graph, assignment, n_bursts: int, burst_len: int, pop_deviation: float, seed: int
+) -> pd.DataFrame:
     """
     Run `n_bursts` independent ReCom chains of `burst_len` steps each,
     all starting from `assignment`. Each burst uses a different seed so chains
@@ -98,8 +101,9 @@ def run_bursts(graph, assignment, n_bursts: int, burst_len: int,
         # Seed global RNG state before each burst so chains are independent
         np.random.seed(int(bs) % (2**32))
         _random.seed(int(bs) % (2**32))
-        rows = run_ensemble(graph, assignment, burst_len,
-                            pop_deviation=pop_deviation, verbose=False)
+        rows = run_ensemble(
+            graph, assignment, burst_len, pop_deviation=pop_deviation, verbose=False
+        )
         if rows:
             last = rows[-1]
             last["burst"] = i
@@ -109,8 +113,12 @@ def run_bursts(graph, assignment, n_bursts: int, burst_len: int,
     return pd.DataFrame(all_rows)
 
 
-def main(n_bursts: int = N_BURSTS, burst_len: int = BURST_LEN,
-         pop_deviation: float = POP_DEV, seed: int = 42):
+def main(
+    n_bursts: int = N_BURSTS,
+    burst_len: int = BURST_LEN,
+    pop_deviation: float = POP_DEV,
+    seed: int = 42,
+):
     t0 = time.time()
     print(f"[short bursts] {n_bursts} × {burst_len} steps  seed={seed}")
 
@@ -119,9 +127,11 @@ def main(n_bursts: int = N_BURSTS, burst_len: int = BURST_LEN,
 
     # Real-map scores for comparison
     print("Scoring real maps...")
-    agg_2019 = va.groupby("parent_ed_2019").agg(
-        ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum")
-    ).reset_index()
+    agg_2019 = (
+        va.groupby("parent_ed_2019")
+        .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
+        .reset_index()
+    )
     m_2019 = seat_results(agg_2019["ucp"].values, agg_2019["ndp"].values)
 
     maj_path = _pick_path("majority")
@@ -154,16 +164,20 @@ def main(n_bursts: int = N_BURSTS, burst_len: int = BURST_LEN,
             "min": float(mn),
             "max": float(mx),
         }
-        print(f"  {m:<22s}  mean={vals.mean():+.4f}  "
-              f"[p5={p5:+.4f} p50={p50:+.4f} p95={p95:+.4f}]  "
-              f"range=[{mn:+.4f}, {mx:+.4f}]")
+        print(
+            f"  {m:<22s}  mean={vals.mean():+.4f}  "
+            f"[p5={p5:+.4f} p50={p50:+.4f} p95={p95:+.4f}]  "
+            f"range=[{mn:+.4f}, {mx:+.4f}]"
+        )
 
     # Percentile ranks of real maps within burst distribution
     print("\n--- REAL MAP RANKS WITHIN BURST DISTRIBUTION ---")
     ranks = {}
-    for label, m_real in [("2019_enacted", m_2019),
-                           ("majority_2026_v7", m_maj),
-                           ("minority_2026_v7", m_min)]:
+    for label, m_real in [
+        ("2019_enacted", m_2019),
+        ("majority_2026_v7", m_maj),
+        ("minority_2026_v7", m_min),
+    ]:
         if m_real is None:
             continue
         ranks[label] = {}
@@ -227,8 +241,10 @@ def main(n_bursts: int = N_BURSTS, burst_len: int = BURST_LEN,
             md.append(
                 f"| {label} | {met} | {r['value']:+.4f} | {r['burst_pct_rank']:.1f} |"
             )
-    md.append(f"\n_Generated {time.strftime('%Y-%m-%d %H:%M')} — elapsed "
-              f"{time.time()-t0:.0f}s_")
+    md.append(
+        f"\n_Generated {time.strftime('%Y-%m-%d %H:%M')} — elapsed "
+        f"{time.time()-t0:.0f}s_"
+    )
     OUT_MD.write_text("\n".join(md), encoding="utf-8")
     print(f"Wrote {OUT_MD}")
     print(f"\nDone in {time.time()-t0:.0f}s")

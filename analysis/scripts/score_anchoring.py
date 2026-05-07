@@ -50,6 +50,7 @@ Backward:
     analysis/scripts/municipal_anchoring_2019_baseline.py
     data/shapefiles/reference/alberta_2021_csds.gpkg
 """
+
 # Version: 0.9 (2026-04-26)
 
 from __future__ import annotations
@@ -81,7 +82,9 @@ def _normalise_edges(edges) -> MultiLineString:
     if edges.geom_type == "LineString":
         edges = MultiLineString([edges])
     if edges.geom_type == "GeometryCollection":
-        lines = [g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")]
+        lines = [
+            g for g in edges.geoms if g.geom_type in ("LineString", "MultiLineString")
+        ]
         edges = unary_union(lines)
     return edges
 
@@ -194,7 +197,9 @@ def main():
         description="Compute municipal-anchoring % for a single map shapefile"
     )
     ap.add_argument(
-        "--shapefile", required=True, type=Path,
+        "--shapefile",
+        required=True,
+        type=Path,
         help="Path to .shp or .gpkg containing electoral-division polygons",
     )
     args = ap.parse_args()

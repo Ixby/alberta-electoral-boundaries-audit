@@ -20,10 +20,12 @@ can recompute metrics and confirm them byte-for-byte.
 Usage:
     python analysis/scripts/v0_1_mcmc_verification_subset.py
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 import sys
-sys.path.insert(0, 'analysis/scripts')
+
+sys.path.insert(0, "analysis/scripts")
 import time
 import json
 from pathlib import Path
@@ -33,7 +35,9 @@ import numpy as np
 import pandas as pd
 
 from mcmc_ensemble import (
-    build_va_graph, initial_assignment_2019, seat_results,
+    build_va_graph,
+    initial_assignment_2019,
+    seat_results,
 )
 from gerrychain import Graph, Partition, MarkovChain, accept, constraints, updaters
 from gerrychain.proposals import recom
@@ -59,11 +63,15 @@ def _ts():
 
 def main():
     print(f"[{_ts()}] verification subset start", flush=True)
-    print(f"  n_steps={N_STEPS}, seed={SEED}, pop_deviation=+/-{POP_DEVIATION:.0%}", flush=True)
+    print(
+        f"  n_steps={N_STEPS}, seed={SEED}, pop_deviation=+/-{POP_DEVIATION:.0%}",
+        flush=True,
+    )
     print(f"  output: assignments=npz int16 array, metrics=csv, meta=json", flush=True)
 
     np.random.seed(SEED)
     import random as _random
+
     _random.seed(SEED)
 
     va, graph = build_va_graph()
@@ -104,13 +112,19 @@ def main():
     seed_pops = list(seed_part["population"].values())
     seed_max_dev = max(abs(p - ideal_pop) for p in seed_pops) / ideal_pop
     if seed_max_dev > POP_DEVIATION:
-        print(f"  2019 seed exceeds +/-{POP_DEVIATION:.0%}; regenerating tight seed", flush=True)
+        print(
+            f"  2019 seed exceeds +/-{POP_DEVIATION:.0%}; regenerating tight seed",
+            flush=True,
+        )
         np.random.seed(SEED + 999)
         _random.seed(SEED + 999)
         new_assignment = recursive_tree_part(
-            graph, parts=list(range(num_dist)),
-            pop_target=ideal_pop, pop_col="pop_2021",
-            epsilon=POP_DEVIATION / 2.0, node_repeats=5,
+            graph,
+            parts=list(range(num_dist)),
+            pop_target=ideal_pop,
+            pop_col="pop_2021",
+            epsilon=POP_DEVIATION / 2.0,
+            node_repeats=5,
             method=partial(bipartition_tree, max_attempts=50000),
         )
         np.random.seed(SEED)
@@ -120,10 +134,15 @@ def main():
         seed_max_dev = max(abs(p - ideal_pop) for p in seed_pops) / ideal_pop
         print(f"  tight seed pop dev = {seed_max_dev:.2%}", flush=True)
 
-    pop_constraint = constraints.within_percent_of_ideal_population(seed_part, POP_DEVIATION)
+    pop_constraint = constraints.within_percent_of_ideal_population(
+        seed_part, POP_DEVIATION
+    )
     proposal = partial(
-        recom, pop_col="pop_2021", pop_target=ideal_pop,
-        epsilon=POP_DEVIATION / 2.0, node_repeats=2,
+        recom,
+        pop_col="pop_2021",
+        pop_target=ideal_pop,
+        epsilon=POP_DEVIATION / 2.0,
+        node_repeats=2,
     )
 
     chain = MarkovChain(
@@ -143,7 +162,9 @@ def main():
         # Serialise this step's assignment via the int mapping (district names
         # are strings, but the array is int16 for compactness).
         for vid in va_ids:
-            assignment_arr[step_i, va_id_to_idx[vid]] = dist_to_int[partition.assignment[vid]]
+            assignment_arr[step_i, va_id_to_idx[vid]] = dist_to_int[
+                partition.assignment[vid]
+            ]
 
         # Explicit key alignment: gerrychain Tally updaters are independent
         # dicts and their iteration order is not contractually identical.
@@ -153,37 +174,50 @@ def main():
         ucp = np.array([partition["ucp"][k] for k in keys], dtype=float)
         ndp = np.array([partition["ndp"][k] for k in keys], dtype=float)
         m = seat_results(ucp, ndp)
-        metrics_rows.append({
-            "step": step_i,
-            "efficiency_gap": m["efficiency_gap"],
-            "mean_median": m["mean_median"],
-            "declination": m["declination"],
-            "seats_at_50_50": m["seats_at_50_50"],
-            "ucp_seats": m["ucp_seats"],
-            "n_districts": m["n_districts"],
-            "ucp_vote_share": m["ucp_vote_share"],
-        })
+        metrics_rows.append(
+            {
+                "step": step_i,
+                "efficiency_gap": m["efficiency_gap"],
+                "mean_median": m["mean_median"],
+                "declination": m["declination"],
+                "seats_at_50_50": m["seats_at_50_50"],
+                "ucp_seats": m["ucp_seats"],
+                "n_districts": m["n_districts"],
+                "ucp_vote_share": m["ucp_vote_share"],
+            }
+        )
 
         if (step_i + 1) % 1000 == 0:
             elapsed = time.time() - t_start
             rate = (step_i + 1) / elapsed
             eta = (N_STEPS - step_i - 1) / rate
-            print(f"[{_ts()}] step {step_i+1}/{N_STEPS}  "
-                  f"({rate:.1f} steps/s, eta {eta:.0f}s)", flush=True)
+            print(
+                f"[{_ts()}] step {step_i+1}/{N_STEPS}  "
+                f"({rate:.1f} steps/s, eta {eta:.0f}s)",
+                flush=True,
+            )
 
     elapsed = time.time() - t_start
-    print(f"[{_ts()}] chain complete in {elapsed:.1f}s ({elapsed/60:.2f} min)", flush=True)
+    print(
+        f"[{_ts()}] chain complete in {elapsed:.1f}s ({elapsed/60:.2f} min)", flush=True
+    )
 
     # Save outputs
     pd.DataFrame(metrics_rows).to_csv(OUT_METRICS, index=False)
-    print(f"  wrote {OUT_METRICS.name} ({OUT_METRICS.stat().st_size/1024:.1f} KB)", flush=True)
+    print(
+        f"  wrote {OUT_METRICS.name} ({OUT_METRICS.stat().st_size/1024:.1f} KB)",
+        flush=True,
+    )
 
     np.savez_compressed(
         OUT_ASSIGNMENTS,
         assignments=assignment_arr,
         va_ids=np.array(va_ids, dtype=np.int64),
     )
-    print(f"  wrote {OUT_ASSIGNMENTS.name} ({OUT_ASSIGNMENTS.stat().st_size/1024/1024:.2f} MB)", flush=True)
+    print(
+        f"  wrote {OUT_ASSIGNMENTS.name} ({OUT_ASSIGNMENTS.stat().st_size/1024/1024:.2f} MB)",
+        flush=True,
+    )
 
     meta = {
         "n_steps": N_STEPS,
@@ -193,13 +227,13 @@ def main():
         "pop_deviation": POP_DEVIATION,
         "elapsed_seconds": elapsed,
         "purpose": "Court-defensibility forensic spot-check. Each row in the metrics CSV corresponds to one row in the assignments array; both are indexed by step. To verify any step's metrics: load the assignment vector for that step, map ints back to ED names via int_to_district, reconstruct a Partition, recompute metrics, confirm they match.",
-        "verify_command": "python -c 'import numpy as np, json; d = np.load(\"data/verification_assignments_raw.npz\"); m = json.load(open(\"data/mcmc_verification_meta.json\")); print(\"assignments shape:\", d[\"assignments\"].shape, \"districts:\", len(m[\"int_to_district\"]))'",
+        "verify_command": 'python -c \'import numpy as np, json; d = np.load("data/verification_assignments_raw.npz"); m = json.load(open("data/mcmc_verification_meta.json")); print("assignments shape:", d["assignments"].shape, "districts:", len(m["int_to_district"]))\'',
         "int_to_district": int_to_dist,
         "outputs": {
             "metrics_csv": str(OUT_METRICS.name),
             "assignments_npz": str(OUT_ASSIGNMENTS.name),
             "meta_json": str(OUT_META.name),
-        }
+        },
     }
     with open(OUT_META, "w") as f:
         json.dump(meta, f, indent=2)
@@ -208,7 +242,10 @@ def main():
     print(f"\n  total elapsed: {elapsed:.1f}s", flush=True)
     print(f"  artefact storage:", flush=True)
     print(f"    metrics: {OUT_METRICS.stat().st_size/1024:.1f} KB", flush=True)
-    print(f"    assignments: {OUT_ASSIGNMENTS.stat().st_size/1024/1024:.2f} MB", flush=True)
+    print(
+        f"    assignments: {OUT_ASSIGNMENTS.stat().st_size/1024/1024:.2f} MB",
+        flush=True,
+    )
 
 
 if __name__ == "__main__":

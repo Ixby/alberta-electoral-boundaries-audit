@@ -47,6 +47,7 @@ area. Invalid geometries are self-healed via buffer(0).
 
 House voice. No emoji.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -73,7 +74,13 @@ CSD_POP_CSV = DATA / "alberta_2021_csd_populations.csv"
 CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 DA_POP_CSV = DATA / "alberta_2021_da_populations.csv"
 DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
-ED_SHP = DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+ED_SHP = (
+    DATA
+    / "shapefiles"
+    / "reference"
+    / "alberta_2019_eds"
+    / "EDS_ENACTED_BILL33_15DEC2017.shp"
+)
 ED_2019_COMM_CSV = DATA / "alberta_2019_populations.csv"
 
 OUT_CSV = DATA / "a1_legal_baseline_2019eds_2021census.csv"
@@ -103,8 +110,10 @@ def load_csd_populations() -> pd.DataFrame:
     df["CSDUID"] = df["CSDUID"].astype(int)
     n_null = int(df["population_2021"].isna().sum())
     if n_null:
-        print(f"  Note: {n_null} CSDs with null 2021 pop (suppressed);"
-              " treated as zero.")
+        print(
+            f"  Note: {n_null} CSDs with null 2021 pop (suppressed);"
+            " treated as zero."
+        )
     df["population_2021"] = df["population_2021"].fillna(0).astype(int)
     return df[["CSDUID", "GEO_NAME", "population_2021"]]
 
@@ -116,12 +125,11 @@ def load_da_populations() -> pd.DataFrame:
     df["DAUID_int"] = df["DAUID_int"].astype(int)
     n_null = int(df["population_2021"].isna().sum())
     if n_null:
-        print(f"  Note: {n_null} DAs with null 2021 pop (suppressed);"
-              " treated as zero.")
+        print(
+            f"  Note: {n_null} DAs with null 2021 pop (suppressed);" " treated as zero."
+        )
     df["population_2021"] = df["population_2021"].fillna(0).astype(int)
-    return df[["DAUID_int", "population_2021"]].rename(
-        columns={"DAUID_int": "DAUID"}
-    )
+    return df[["DAUID_int", "population_2021"]].rename(columns={"DAUID_int": "DAUID"})
 
 
 def load_da_polygons() -> gpd.GeoDataFrame:
@@ -156,8 +164,9 @@ def load_ed_polygons() -> gpd.GeoDataFrame:
     return gdf[["ed_number", "ed_name", "geometry"]]
 
 
-def build_csd_to_ed_crosswalk(csds: gpd.GeoDataFrame,
-                               eds: gpd.GeoDataFrame) -> pd.DataFrame:
+def build_csd_to_ed_crosswalk(
+    csds: gpd.GeoDataFrame, eds: gpd.GeoDataFrame
+) -> pd.DataFrame:
     """Area-weighted spatial overlay producing (CSDUID, ed_name, weight) rows.
 
     For each CSD, weight is the fraction of the CSD's area that falls within
@@ -177,17 +186,17 @@ def build_csd_to_ed_crosswalk(csds: gpd.GeoDataFrame,
     overlay = overlay.merge(csd_area, on="CSDUID", how="left")
     overlay["raw_weight"] = overlay["intersect_area"] / overlay["csd_area"]
     # Normalise so weights per CSD sum to exactly 1.0.
-    csd_total = (
-        overlay.groupby("CSDUID")["raw_weight"].sum().rename("csd_weight_sum")
-    )
+    csd_total = overlay.groupby("CSDUID")["raw_weight"].sum().rename("csd_weight_sum")
     overlay = overlay.join(csd_total, on="CSDUID")
     overlay["weight"] = overlay["raw_weight"] / overlay["csd_weight_sum"]
-    return overlay[["CSDUID", "ed_name", "ed_number",
-                    "intersect_area", "raw_weight", "weight"]]
+    return overlay[
+        ["CSDUID", "ed_name", "ed_number", "intersect_area", "raw_weight", "weight"]
+    ]
 
 
-def build_da_to_ed_crosswalk(das: gpd.GeoDataFrame,
-                              eds: gpd.GeoDataFrame) -> pd.DataFrame:
+def build_da_to_ed_crosswalk(
+    das: gpd.GeoDataFrame, eds: gpd.GeoDataFrame
+) -> pd.DataFrame:
     """Area-weighted DA-level crosswalk. This is the primary method.
 
     DAs are ~400-person polygons drawn to reflect population concentration,
@@ -205,38 +214,35 @@ def build_da_to_ed_crosswalk(das: gpd.GeoDataFrame,
     da_area = das.assign(da_area=das.geometry.area)[["DAUID", "da_area"]]
     overlay = overlay.merge(da_area, on="DAUID", how="left")
     overlay["raw_weight"] = overlay["intersect_area"] / overlay["da_area"]
-    da_total = (
-        overlay.groupby("DAUID")["raw_weight"].sum().rename("da_weight_sum")
-    )
+    da_total = overlay.groupby("DAUID")["raw_weight"].sum().rename("da_weight_sum")
     overlay = overlay.join(da_total, on="DAUID")
     overlay["weight"] = overlay["raw_weight"] / overlay["da_weight_sum"]
-    return overlay[["DAUID", "ed_name", "ed_number",
-                    "intersect_area", "raw_weight", "weight"]]
+    return overlay[
+        ["DAUID", "ed_name", "ed_number", "intersect_area", "raw_weight", "weight"]
+    ]
 
 
-def aggregate_da_to_eds(crosswalk: pd.DataFrame,
-                         da_pop: pd.DataFrame,
-                         eds: gpd.GeoDataFrame) -> pd.DataFrame:
+def aggregate_da_to_eds(
+    crosswalk: pd.DataFrame, da_pop: pd.DataFrame, eds: gpd.GeoDataFrame
+) -> pd.DataFrame:
     merged = crosswalk.merge(da_pop, on="DAUID", how="left")
-    merged["allocated_pop"] = (
-        merged["weight"] * merged["population_2021"].fillna(0)
-    )
+    merged["allocated_pop"] = merged["weight"] * merged["population_2021"].fillna(0)
     ed_pop = (
         merged.groupby(["ed_number", "ed_name"])["allocated_pop"]
         .sum()
         .reset_index()
         .rename(columns={"allocated_pop": "pop_2021_census"})
     )
-    full = eds[["ed_number", "ed_name"]].merge(ed_pop,
-                                               on=["ed_number", "ed_name"],
-                                               how="left")
+    full = eds[["ed_number", "ed_name"]].merge(
+        ed_pop, on=["ed_number", "ed_name"], how="left"
+    )
     full["pop_2021_census"] = full["pop_2021_census"].fillna(0.0)
     return full.sort_values("ed_name").reset_index(drop=True)
 
 
-def aggregate_to_eds(crosswalk: pd.DataFrame,
-                      csd_pop: pd.DataFrame,
-                      eds: gpd.GeoDataFrame) -> pd.DataFrame:
+def aggregate_to_eds(
+    crosswalk: pd.DataFrame, csd_pop: pd.DataFrame, eds: gpd.GeoDataFrame
+) -> pd.DataFrame:
     """Apply weights to CSD populations and sum per ED."""
     merged = crosswalk.merge(csd_pop, on="CSDUID", how="left")
     # CSDs with no population row (shouldn't happen — warn if so).
@@ -252,9 +258,9 @@ def aggregate_to_eds(crosswalk: pd.DataFrame,
         .rename(columns={"allocated_pop": "pop_2021_census"})
     )
     # Any EDs that had zero CSD coverage — highlight and backfill with 0.
-    full = eds[["ed_number", "ed_name"]].merge(ed_pop,
-                                               on=["ed_number", "ed_name"],
-                                               how="left")
+    full = eds[["ed_number", "ed_name"]].merge(
+        ed_pop, on=["ed_number", "ed_name"], how="left"
+    )
     full["pop_2021_census"] = full["pop_2021_census"].fillna(0.0)
     return full.sort_values("ed_name").reset_index(drop=True)
 
@@ -323,15 +329,27 @@ def commission_2019_mad() -> dict | None:
 def top_extreme(ed_pop: pd.DataFrame, k: int = 10) -> pd.DataFrame:
     df = ed_pop.copy()
     df["abs_dev"] = df["dev_pct"].abs()
-    return (df.sort_values("abs_dev", ascending=False)
-              .head(k)
-              [["ed_name", "pop_2021_census", "dev_from_quota",
-                "dev_pct", "outside_legal_window_flag"]])
+    return df.sort_values("abs_dev", ascending=False).head(k)[
+        [
+            "ed_name",
+            "pop_2021_census",
+            "dev_from_quota",
+            "dev_pct",
+            "outside_legal_window_flag",
+        ]
+    ]
 
 
 def write_output(ed_pop: pd.DataFrame, path: Path) -> None:
-    out = ed_pop[["ed_name", "pop_2021_census", "dev_from_quota",
-                  "dev_pct", "outside_legal_window_flag"]].copy()
+    out = ed_pop[
+        [
+            "ed_name",
+            "pop_2021_census",
+            "dev_from_quota",
+            "dev_pct",
+            "outside_legal_window_flag",
+        ]
+    ].copy()
     # Round for readability; retain full precision in dev_from_quota as int.
     out["pop_2021_census"] = out["pop_2021_census"].round(0).astype(int)
     out["dev_from_quota"] = out["dev_from_quota"].round(0).astype(int)
@@ -358,8 +376,10 @@ def main() -> None:
     csds = load_csd_polygons()
     das = load_da_polygons()
     eds = load_ed_polygons()
-    print(f"  CSD polygons: {len(csds)}  DA polygons: {len(das)}  "
-          f"ED polygons: {len(eds)}")
+    print(
+        f"  CSD polygons: {len(csds)}  DA polygons: {len(das)}  "
+        f"ED polygons: {len(eds)}"
+    )
 
     print("\n[4/7] Building DA-to-2019-ED crosswalk (primary)...")
     da_crosswalk = build_da_to_ed_crosswalk(das, eds)
@@ -395,27 +415,40 @@ def main() -> None:
 
     print(f"  N districts:                        {a1['n']}")
     print(f"  Provincial total (census aggr.):    {a1['provincial_total']:,.0f}")
-    print("  Expected 2021 Alberta total:        4,262,635  (diff vs aggr.:"
-          f" {a1['provincial_total'] - 4_262_635:+,.0f})")
+    print(
+        "  Expected 2021 Alberta total:        4,262,635  (diff vs aggr.:"
+        f" {a1['provincial_total'] - 4_262_635:+,.0f})"
+    )
     print(f"  Per-ED quota:                       {a1['quota']:,.1f}")
     print(f"  MAD:                                {a1['mad']:,.0f}")
-    print(f"  EDs outside +/-25 % window:         "
-          f"{a1['outside_legal_window_count']}")
-    print(f"  Max positive deviation:             "
-          f"+{a1['max_pos_dev_pct']:.2f} %  "
-          f"({a1['max_pos_dev_name']})")
-    print(f"  Max negative deviation:             "
-          f"{a1['max_neg_dev_pct']:.2f} %  "
-          f"({a1['max_neg_dev_name']})")
+    print(
+        f"  EDs outside +/-25 % window:         " f"{a1['outside_legal_window_count']}"
+    )
+    print(
+        f"  Max positive deviation:             "
+        f"+{a1['max_pos_dev_pct']:.2f} %  "
+        f"({a1['max_pos_dev_name']})"
+    )
+    print(
+        f"  Max negative deviation:             "
+        f"{a1['max_neg_dev_pct']:.2f} %  "
+        f"({a1['max_neg_dev_name']})"
+    )
 
     print("\n  Secondary (CSD-level area-weighted, per original directive):")
     print(f"    MAD:                              {a1_csd['mad']:,.0f}")
-    print(f"    EDs outside +/-25 %:              "
-          f"{a1_csd['outside_legal_window_count']}")
-    print(f"    Max +dev:  +{a1_csd['max_pos_dev_pct']:.2f} %  "
-          f"({a1_csd['max_pos_dev_name']})")
-    print(f"    Max -dev:   {a1_csd['max_neg_dev_pct']:.2f} %  "
-          f"({a1_csd['max_neg_dev_name']})")
+    print(
+        f"    EDs outside +/-25 %:              "
+        f"{a1_csd['outside_legal_window_count']}"
+    )
+    print(
+        f"    Max +dev:  +{a1_csd['max_pos_dev_pct']:.2f} %  "
+        f"({a1_csd['max_pos_dev_name']})"
+    )
+    print(
+        f"    Max -dev:   {a1_csd['max_neg_dev_pct']:.2f} %  "
+        f"({a1_csd['max_neg_dev_name']})"
+    )
     print("    CSD-level area-weighting misallocates population from rural")
     print("    MDs (e.g., Rocky View, Foothills) across their full area;")
     print("    DA-level is the methodologically defensible primary basis.")
@@ -426,12 +459,13 @@ def main() -> None:
     print("\n" + "-" * 72)
     print("COMPARISON — MAD across bases and maps")
     print("-" * 72)
-    print(f"  2019 map on 2021 Census (this script):           "
-          f"{a1['mad']:>8,.0f}")
+    print(f"  2019 map on 2021 Census (this script):           " f"{a1['mad']:>8,.0f}")
     comm = commission_2019_mad()
     if comm is not None:
-        print(f"  2019 map on 2017 EBC report (commission):        "
-              f"{comm['mad']:>8,.0f}")
+        print(
+            f"  2019 map on 2017 EBC report (commission):        "
+            f"{comm['mad']:>8,.0f}"
+        )
         print(f"    (quota used: {comm['quota']:,.0f} ; n={comm['n']})")
     else:
         print("  2019 map on 2017 EBC report: file not found.")
@@ -452,9 +486,11 @@ def main() -> None:
     top = top_extreme(a1["ed_table"], 10)
     for _, r in top.iterrows():
         flag = "OUT" if r["outside_legal_window_flag"] else "in "
-        print(f"  {flag}  {r['ed_name']:<36}  "
-              f"pop={r['pop_2021_census']:>8,.0f}  "
-              f"dev={r['dev_pct']:+6.2f} %")
+        print(
+            f"  {flag}  {r['ed_name']:<36}  "
+            f"pop={r['pop_2021_census']:>8,.0f}  "
+            f"dev={r['dev_pct']:+6.2f} %"
+        )
 
     # ------------------------------------------------------------------ #
     # Track L comparison (cycle-lag 2025 mid-year estimates)
@@ -463,7 +499,9 @@ def main() -> None:
     print("TRACK L CROSS-CHECK — 2019 map, mid-2025 TBF estimate")
     print("-" * 72)
     print("  Track L reports 5 of 87 2019 EDs outside +/-25 % under 2025 TBF.")
-    print(f"  This script reports {a1['outside_legal_window_count']} of {a1['n']} outside +/-25 %")
+    print(
+        f"  This script reports {a1['outside_legal_window_count']} of {a1['n']} outside +/-25 %"
+    )
     print("  under 2021 Census (decennial-baseline snapshot).")
     print("  If the 2019 map was drawn compliantly against the decennial")
     print("  census at drawing-time vintage, the 2021-Census count should be")
@@ -478,8 +516,7 @@ def main() -> None:
     print("-" * 72)
     total_diff = a1["provincial_total"] - 4_262_635
     pct_diff = total_diff / 4_262_635 * 100.0
-    print(f"  Aggregation loss vs Alberta 2021 Census total:  "
-          f"{pct_diff:+.4f} %")
+    print(f"  Aggregation loss vs Alberta 2021 Census total:  " f"{pct_diff:+.4f} %")
     print("  (Any non-zero delta is due to CSD polygons that fall partly")
     print("  outside the province's ED coverage at provincial boundaries,")
     print("  and is normalised per-CSD before ED aggregation.)")

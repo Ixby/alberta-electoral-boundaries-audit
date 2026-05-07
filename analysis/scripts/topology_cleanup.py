@@ -1,4 +1,7 @@
 """
+DEPRECATED 2026-05-07. Official Elections Alberta canonical shapefiles supersede
+all DPG-derived files. Retained for provenance only.
+
 Topology Cleanup — Eliminate inter-ED polygon overlap in v0_1 canonical DPGs
 ============================================================================
 The canonical Derived Provisional Geometry (DPG) files were traced from
@@ -40,6 +43,7 @@ Backward:
   analysis/scripts/v0_1_build_canonical_shapefiles.py
   data/v0_1_canonical_{majority,minority}_2026_eds.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -66,8 +70,12 @@ REPORTS = ROOT / "analysis" / "reports"
 
 MAJ_IN = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
 MIN_IN = DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
-MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-MIN_OUT = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+MAJ_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+)
+MIN_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+)
 LOG_CSV = REPORTS / "topology_cleanup_log.csv"
 SUMMARY_JSON = REPORTS / "topology_cleanup_summary.json"
 
@@ -144,22 +152,26 @@ def detect_overlaps(eds: gpd.GeoDataFrame, label: str) -> pd.DataFrame:
             area = inter.area
             if area < 1.0:  # < 1 m² — numeric noise, skip
                 continue
-            rows.append({
-                "idx_a": i,
-                "idx_b": j,
-                "name_a": row_a["name_2026"],
-                "name_b": row_b["name_2026"],
-                "src_a": row_a["canon_source"],
-                "src_b": row_b["canon_source"],
-                "area_a_orig": geom_a.area,
-                "area_b_orig": geom_b.area,
-                "overlap_geom": inter,
-                "overlap_area_m2": area,
-            })
+            rows.append(
+                {
+                    "idx_a": i,
+                    "idx_b": j,
+                    "name_a": row_a["name_2026"],
+                    "name_b": row_b["name_2026"],
+                    "src_a": row_a["canon_source"],
+                    "src_b": row_b["canon_source"],
+                    "area_a_orig": geom_a.area,
+                    "area_b_orig": geom_b.area,
+                    "overlap_geom": inter,
+                    "overlap_area_m2": area,
+                }
+            )
     overlaps = pd.DataFrame(rows)
     total_km2 = overlaps["overlap_area_m2"].sum() / 1e6 if len(overlaps) else 0.0
-    print(f"  [{label}] found {len(overlaps)} overlap pairs, total "
-          f"{total_km2:,.1f} km² in {time.time()-t0:.1f}s")
+    print(
+        f"  [{label}] found {len(overlaps)} overlap pairs, total "
+        f"{total_km2:,.1f} km² in {time.time()-t0:.1f}s"
+    )
     return overlaps
 
 
@@ -167,7 +179,9 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
     """Run one-map topology cleanup. Returns cleaned GeoDataFrame + stats."""
     # Make geometries valid before anything
     eds = eds.reset_index(drop=True).copy()
-    eds["geometry"] = eds.geometry.apply(lambda g: make_valid(g) if g is not None else g)
+    eds["geometry"] = eds.geometry.apply(
+        lambda g: make_valid(g) if g is not None else g
+    )
     eds["geometry"] = eds.geometry.apply(_keep_polys)
     eds = eds[eds.geometry.notna() & ~eds.geometry.is_empty].reset_index(drop=True)
 
@@ -180,7 +194,9 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
     orig_areas = eds.geometry.area.copy()
 
     overlaps = detect_overlaps(eds, label)
-    total_overlap_km2 = float(overlaps["overlap_area_m2"].sum()) / 1e6 if len(overlaps) else 0.0
+    total_overlap_km2 = (
+        float(overlaps["overlap_area_m2"].sum()) / 1e6 if len(overlaps) else 0.0
+    )
 
     # For each polygon, build the union of overlap-regions it should LOSE
     # (the ones where it is not the winner).
@@ -192,17 +208,23 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
         loser_idx = r["idx_b"] if w == "A" else r["idx_a"]
         winner_idx = r["idx_a"] if w == "A" else r["idx_b"]
         to_subtract[int(loser_idx)].append(r["overlap_geom"])
-        decision_rows.append({
-            "name_winner": eds.iloc[winner_idx]["name_2026"],
-            "src_winner": eds.iloc[winner_idx]["canon_source"],
-            "name_loser": eds.iloc[loser_idx]["name_2026"],
-            "src_loser": eds.iloc[loser_idx]["canon_source"],
-            "overlap_km2": r["overlap_area_m2"] / 1e6,
-        })
+        decision_rows.append(
+            {
+                "name_winner": eds.iloc[winner_idx]["name_2026"],
+                "src_winner": eds.iloc[winner_idx]["canon_source"],
+                "name_loser": eds.iloc[loser_idx]["name_2026"],
+                "src_loser": eds.iloc[loser_idx]["canon_source"],
+                "overlap_km2": r["overlap_area_m2"] / 1e6,
+            }
+        )
 
-    decisions_df = pd.DataFrame(decision_rows).sort_values(
-        "overlap_km2", ascending=False
-    ).reset_index(drop=True) if decision_rows else pd.DataFrame()
+    decisions_df = (
+        pd.DataFrame(decision_rows)
+        .sort_values("overlap_km2", ascending=False)
+        .reset_index(drop=True)
+        if decision_rows
+        else pd.DataFrame()
+    )
 
     # Apply subtractions with an anti-erasure safeguard: if losing all
     # assigned overlaps would leave < 10% of the original polygon area
@@ -225,7 +247,9 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
             except Exception:
                 g2 = make_valid(g).difference(make_valid(loss_union))
             g2 = _keep_polys(g2)
-            remaining_frac = (g2.area / orig_area) if (g2 is not None and not g2.is_empty) else 0.0
+            remaining_frac = (
+                (g2.area / orig_area) if (g2 is not None and not g2.is_empty) else 0.0
+            )
 
             if remaining_frac < 0.10:
                 # Anti-erasure: this polygon would lose >90 % of its area.
@@ -239,14 +263,19 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
                 # footprint and intersecting it out of the WINNER's
                 # geometry post-hoc. For now, we keep g unchanged and
                 # record the event; the second pass handles the winner.
-                protection_events.append((row["name_2026"], orig_area / 1e6,
-                                          g2.area / 1e6 if g2 else 0.0))
-                print(f"    ANTI-ERASURE: {row['name_2026']} would retain "
-                      f"only {remaining_frac*100:.2f}% — keeping original.")
+                protection_events.append(
+                    (row["name_2026"], orig_area / 1e6, g2.area / 1e6 if g2 else 0.0)
+                )
+                print(
+                    f"    ANTI-ERASURE: {row['name_2026']} would retain "
+                    f"only {remaining_frac*100:.2f}% — keeping original."
+                )
                 g2 = g
             elif g2 is None or g2.is_empty:
-                print(f"    WARNING: {row['name_2026']} would be fully erased "
-                      "by overlap subtraction. Keeping original geometry.")
+                print(
+                    f"    WARNING: {row['name_2026']} would be fully erased "
+                    "by overlap subtraction. Keeping original geometry."
+                )
                 g2 = g
         else:
             g2 = g
@@ -256,8 +285,10 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
     # geometry from every other cleaned polygon. This ensures the winner
     # still gives up the contested area even though the loser kept it.
     if protection_events:
-        print(f"  [{label}] second pass: re-subtracting {len(protection_events)} "
-              f"protected-loser regions from all overlapping winners...")
+        print(
+            f"  [{label}] second pass: re-subtracting {len(protection_events)} "
+            f"protected-loser regions from all overlapping winners..."
+        )
         protected_names = {ev[0] for ev in protection_events}
         for p_idx, row in eds.iterrows():
             if row["name_2026"] not in protected_names:
@@ -284,8 +315,10 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
     # Third pass: resolve any remaining residual overlaps by centroid-
     # proximity assignment. After anti-erasure both polygons may still
     # share the contested region. Split it 50/50 by nearest centroid.
-    print(f"  [{label}] third pass: centroid-proximity split for any "
-          "remaining contested regions...")
+    print(
+        f"  [{label}] third pass: centroid-proximity split for any "
+        "remaining contested regions..."
+    )
     for i in range(n):
         for j in range(i + 1, n):
             gi, gj = cleaned_geoms[i], cleaned_geoms[j]
@@ -323,13 +356,21 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
                 rem_j = unary_union(give_to_j_parts)
                 new_gi = gi.difference(rem_j)
                 new_gi = _keep_polys(new_gi)
-                if new_gi is not None and not new_gi.is_empty and new_gi.area / gi.area > 0.05:
+                if (
+                    new_gi is not None
+                    and not new_gi.is_empty
+                    and new_gi.area / gi.area > 0.05
+                ):
                     cleaned_geoms[i] = new_gi
             if give_to_i_parts:
                 rem_i = unary_union(give_to_i_parts)
                 new_gj = gj.difference(rem_i)
                 new_gj = _keep_polys(new_gj)
-                if new_gj is not None and not new_gj.is_empty and new_gj.area / gj.area > 0.05:
+                if (
+                    new_gj is not None
+                    and not new_gj.is_empty
+                    and new_gj.area / gj.area > 0.05
+                ):
                     cleaned_geoms[j] = new_gj
 
     # Fourth pass: final unconditional split of any remaining residuals.
@@ -360,14 +401,18 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
                 new_gj = _keep_polys(new_gj)
                 if new_gj is None or new_gj.is_empty:
                     # Would erase; skip this pair (rare)
-                    print(f"    WARNING: fourth-pass would erase {eds.iloc[j]['name_2026']}; leaving overlap.")
+                    print(
+                        f"    WARNING: fourth-pass would erase {eds.iloc[j]['name_2026']}; leaving overlap."
+                    )
                     continue
                 cleaned_geoms[j] = new_gj
             else:
                 new_gi = gi.difference(inter)
                 new_gi = _keep_polys(new_gi)
                 if new_gi is None or new_gi.is_empty:
-                    print(f"    WARNING: fourth-pass would erase {eds.iloc[i]['name_2026']}; leaving overlap.")
+                    print(
+                        f"    WARNING: fourth-pass would erase {eds.iloc[i]['name_2026']}; leaving overlap."
+                    )
                     continue
                 cleaned_geoms[i] = new_gi
 
@@ -379,30 +424,38 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
     delta_km2 = (new_areas - orig_areas) / 1e6
 
     # Per-ED log
-    per_ed_log = pd.DataFrame({
-        "map": label,
-        "name_2026": cleaned["name_2026"].values,
-        "canon_source": cleaned["canon_source"].values,
-        "orig_area_km2": orig_areas.values / 1e6,
-        "clean_area_km2": new_areas.values / 1e6,
-        "delta_km2": delta_km2.values,
-    })
+    per_ed_log = pd.DataFrame(
+        {
+            "map": label,
+            "name_2026": cleaned["name_2026"].values,
+            "canon_source": cleaned["canon_source"].values,
+            "orig_area_km2": orig_areas.values / 1e6,
+            "clean_area_km2": new_areas.values / 1e6,
+            "delta_km2": delta_km2.values,
+        }
+    )
 
     # Verify no pair overlaps > 1 m²
     post_overlaps = detect_overlaps(cleaned, f"{label} (post-clean)")
-    post_overlap_km2 = float(post_overlaps["overlap_area_m2"].sum()) / 1e6 if len(post_overlaps) else 0.0
-    max_residual_m2 = float(post_overlaps["overlap_area_m2"].max()) if len(post_overlaps) else 0.0
+    post_overlap_km2 = (
+        float(post_overlaps["overlap_area_m2"].sum()) / 1e6
+        if len(post_overlaps)
+        else 0.0
+    )
+    max_residual_m2 = (
+        float(post_overlaps["overlap_area_m2"].max()) if len(post_overlaps) else 0.0
+    )
 
-    no_overlap_pass = (post_overlap_km2 < 0.001)  # < 1000 m² residual = PASS
+    no_overlap_pass = post_overlap_km2 < 0.001  # < 1000 m² residual = PASS
 
     # Verify no ED erased
     n_erased = int((new_areas < 1.0).sum())
-    no_erased_pass = (n_erased == 0)
+    no_erased_pass = n_erased == 0
 
     # Provincial total area conservation
     new_total_area = float(new_areas.sum())
     area_drift_frac = (new_total_area - orig_total_area) / orig_total_area
-    area_conservation_pass = (abs(area_drift_frac) < 0.001)
+    area_conservation_pass = abs(area_drift_frac) < 0.001
 
     # Net per-side delta (should be 0 — overlap resolved is zero-sum)
     net_delta_km2 = float(delta_km2.sum())
@@ -427,13 +480,19 @@ def cleanup_map(eds: gpd.GeoDataFrame, label: str) -> tuple[gpd.GeoDataFrame, di
         "n_eds_lost": int((delta_km2 < 0).sum()),
     }
 
-    print(f"  [{label}] resolved {total_overlap_km2:,.1f} km² overlap; "
-          f"residual = {post_overlap_km2:.4f} km²")
-    print(f"  [{label}] area drift: {area_drift_frac*100:+.4f}%  "
-          f"net delta: {net_delta_km2/1e6:+.4f} km2  "
-          f"n gained: {stats['n_eds_gained']}  n lost: {stats['n_eds_lost']}")
-    print(f"  [{label}] validation: no-overlap={no_overlap_pass}  "
-          f"no-erased={no_erased_pass}  area-conservation={area_conservation_pass}")
+    print(
+        f"  [{label}] resolved {total_overlap_km2:,.1f} km² overlap; "
+        f"residual = {post_overlap_km2:.4f} km²"
+    )
+    print(
+        f"  [{label}] area drift: {area_drift_frac*100:+.4f}%  "
+        f"net delta: {net_delta_km2/1e6:+.4f} km2  "
+        f"n gained: {stats['n_eds_gained']}  n lost: {stats['n_eds_lost']}"
+    )
+    print(
+        f"  [{label}] validation: no-overlap={no_overlap_pass}  "
+        f"no-erased={no_erased_pass}  area-conservation={area_conservation_pass}"
+    )
 
     return cleaned, stats, per_ed_log, decisions_df
 
@@ -482,15 +541,19 @@ def main():
     print("\n[top decisions, majority]")
     if not maj_dec.empty:
         for _, r in maj_dec.head(10).iterrows():
-            print(f"  {r['overlap_km2']:7.1f} km²  "
-                  f"[{r['src_winner']}] {r['name_winner']:<40s} "
-                  f"won vs [{r['src_loser']}] {r['name_loser']}")
+            print(
+                f"  {r['overlap_km2']:7.1f} km²  "
+                f"[{r['src_winner']}] {r['name_winner']:<40s} "
+                f"won vs [{r['src_loser']}] {r['name_loser']}"
+            )
     print("\n[top decisions, minority]")
     if not min_dec.empty:
         for _, r in min_dec.head(10).iterrows():
-            print(f"  {r['overlap_km2']:7.1f} km²  "
-                  f"[{r['src_winner']}] {r['name_winner']:<40s} "
-                  f"won vs [{r['src_loser']}] {r['name_loser']}")
+            print(
+                f"  {r['overlap_km2']:7.1f} km²  "
+                f"[{r['src_winner']}] {r['name_winner']:<40s} "
+                f"won vs [{r['src_loser']}] {r['name_loser']}"
+            )
 
     summary = {
         "majority": maj_stats,
@@ -515,7 +578,9 @@ def main():
 
     all_pass = all(summary["gates_passed"].values())
     print("\n" + ("=" * 72))
-    print(f"  TOPOLOGY CLEANUP: {'ALL GATES PASSED' if all_pass else 'GATE FAILURE — investigate'}")
+    print(
+        f"  TOPOLOGY CLEANUP: {'ALL GATES PASSED' if all_pass else 'GATE FAILURE — investigate'}"
+    )
     print("=" * 72)
 
 

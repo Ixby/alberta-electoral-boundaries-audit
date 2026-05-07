@@ -257,8 +257,7 @@ that requires canonical boundary accuracy.
 - [ ] Add SZAT to `audit_dependency_graph.json`
 - [ ] Run and review `szat_results.csv` — check Canmore/RMH contribution specifically
 - [ ] Update `academic_literature_review.md` §9 with SZAT as a novel test
-- [ ] Decide pre-registration: SZAT is currently unregistered; if results are
-  directional, pre-register the bootstrap null before reporting
+- [x] Pre-register bootstrap null — AsPredicted #289,469 (filed 2026-05-07; results known at filing; seed pre-committed at d2aea42)
 
 ---
 

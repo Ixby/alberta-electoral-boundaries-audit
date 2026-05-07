@@ -46,6 +46,7 @@ Backward:
                                                     declination, seats_at_50_50)
   gerrychain, numpy, pandas
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -105,15 +106,16 @@ METRIC_LABELS = {
 }
 
 # Thresholds
-R_HAT_CONVERGED = 1.01     # strict target from Gelman et al. 2013
-R_HAT_ACCEPTABLE = 1.05    # soft threshold still acceptable
-R_HAT_FAIL = 1.10          # above this => non-converged
+R_HAT_CONVERGED = 1.01  # strict target from Gelman et al. 2013
+R_HAT_ACCEPTABLE = 1.05  # soft threshold still acceptable
+R_HAT_FAIL = 1.10  # above this => non-converged
 COMBINED_ESS_TARGET = 1000
 
 
 # ---------------------------------------------------------------------------
 # Autocorrelation / ESS (Geyer initial-positive-sequence) per chain
 # ---------------------------------------------------------------------------
+
 
 def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     """Integrated autocorrelation time and effective sample size for a single
@@ -130,18 +132,26 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
     n = len(x)
     if n < 4:
         return {
-            "n": int(n), "tau": float("nan"), "n_eff": float("nan"),
-            "max_lag_used": 0, "rho_lag_1": float("nan"),
-            "rho_lag_10": float("nan"), "rho_lag_100": float("nan"),
+            "n": int(n),
+            "tau": float("nan"),
+            "n_eff": float("nan"),
+            "max_lag_used": 0,
+            "rho_lag_1": float("nan"),
+            "rho_lag_10": float("nan"),
+            "rho_lag_100": float("nan"),
         }
 
     x_centered = x - x.mean()
     var0 = float(np.dot(x_centered, x_centered) / n)
     if var0 == 0 or not np.isfinite(var0):
         return {
-            "n": int(n), "tau": float("nan"), "n_eff": float("nan"),
-            "max_lag_used": 0, "rho_lag_1": float("nan"),
-            "rho_lag_10": float("nan"), "rho_lag_100": float("nan"),
+            "n": int(n),
+            "tau": float("nan"),
+            "n_eff": float("nan"),
+            "max_lag_used": 0,
+            "rho_lag_1": float("nan"),
+            "rho_lag_10": float("nan"),
+            "rho_lag_100": float("nan"),
         }
 
     if max_lag is None:
@@ -177,6 +187,7 @@ def autocorrelation_ess(x: np.ndarray, max_lag: int | None = None) -> dict:
 # Gelman-Rubin split-chain R-hat
 # ---------------------------------------------------------------------------
 
+
 def split_chain_rhat(chains: list[np.ndarray]) -> dict:
     """Compute split-chain R-hat per Gelman et al. (2013) BDA3 §11.4.
 
@@ -202,9 +213,14 @@ def split_chain_rhat(chains: list[np.ndarray]) -> dict:
 
     if any(len(c) < 4 for c in cleaned):
         return {
-            "r_hat": float("nan"), "W": float("nan"), "B": float("nan"),
-            "V_hat": float("nan"), "m_half_chains": 0, "n_per_half": 0,
-            "half_chain_means": [], "half_chain_vars": [],
+            "r_hat": float("nan"),
+            "W": float("nan"),
+            "B": float("nan"),
+            "V_hat": float("nan"),
+            "m_half_chains": 0,
+            "n_per_half": 0,
+            "half_chain_means": [],
+            "half_chain_vars": [],
             "note": "chain too short for split R-hat (need >= 4 samples per chain)",
         }
 
@@ -214,9 +230,14 @@ def split_chain_rhat(chains: list[np.ndarray]) -> dict:
         shortest -= 1
     if shortest < 4:
         return {
-            "r_hat": float("nan"), "W": float("nan"), "B": float("nan"),
-            "V_hat": float("nan"), "m_half_chains": 0, "n_per_half": 0,
-            "half_chain_means": [], "half_chain_vars": [],
+            "r_hat": float("nan"),
+            "W": float("nan"),
+            "B": float("nan"),
+            "V_hat": float("nan"),
+            "m_half_chains": 0,
+            "n_per_half": 0,
+            "half_chain_means": [],
+            "half_chain_vars": [],
             "note": "chain too short after even-trimming",
         }
 
@@ -246,8 +267,12 @@ def split_chain_rhat(chains: list[np.ndarray]) -> dict:
 
     if W == 0 or not np.isfinite(W):
         return {
-            "r_hat": float("nan"), "W": float(W), "B": float(B),
-            "V_hat": float("nan"), "m_half_chains": int(m), "n_per_half": int(n),
+            "r_hat": float("nan"),
+            "W": float(W),
+            "B": float(B),
+            "V_hat": float("nan"),
+            "m_half_chains": int(m),
+            "n_per_half": int(n),
             "half_chain_means": [float(x) for x in means],
             "half_chain_vars": [float(x) for x in vars_],
             "note": "within-chain variance is zero or non-finite",
@@ -273,8 +298,15 @@ def split_chain_rhat(chains: list[np.ndarray]) -> dict:
 # Per-chain execution
 # ---------------------------------------------------------------------------
 
-def run_one_chain(graph, assignment, seed: int, n_steps: int,
-                  chain_idx: int, effective_seed: int | None = None) -> pd.DataFrame:
+
+def run_one_chain(
+    graph,
+    assignment,
+    seed: int,
+    n_steps: int,
+    chain_idx: int,
+    effective_seed: int | None = None,
+) -> pd.DataFrame:
     """Run a single ReCom chain, seeding RNGs immediately before the chain loop.
 
     We seed BOTH numpy's global RNG and python's `random` module before calling
@@ -291,8 +323,10 @@ def run_one_chain(graph, assignment, seed: int, n_steps: int,
       chain_idx, seed, step, efficiency_gap, mean_median, declination, seats_at_50_50
     """
     eff = effective_seed if effective_seed is not None else seed
-    print(f"\n[{time.strftime('%H:%M:%S')}] === chain {chain_idx + 1} "
-          f"(seed={seed}, effective_seed={eff}, steps={n_steps}) ===")
+    print(
+        f"\n[{time.strftime('%H:%M:%S')}] === chain {chain_idx + 1} "
+        f"(seed={seed}, effective_seed={eff}, steps={n_steps}) ==="
+    )
     t0 = time.time()
 
     # Seed before the chain starts so gerrychain's internal RNG usage is
@@ -311,9 +345,11 @@ def run_one_chain(graph, assignment, seed: int, n_steps: int,
     df.insert(1, "seed", int(seed))
 
     elapsed = time.time() - t0
-    print(f"[{time.strftime('%H:%M:%S')}] chain {chain_idx + 1} done: "
-          f"{len(df)} samples in {elapsed:.0f}s "
-          f"({elapsed / max(1, len(df)) * 1000:.1f} ms/step)")
+    print(
+        f"[{time.strftime('%H:%M:%S')}] chain {chain_idx + 1} done: "
+        f"{len(df)} samples in {elapsed:.0f}s "
+        f"({elapsed / max(1, len(df)) * 1000:.1f} ms/step)"
+    )
     return df
 
 
@@ -321,20 +357,25 @@ def run_one_chain(graph, assignment, seed: int, n_steps: int,
 # Per-metric diagnostics assembly
 # ---------------------------------------------------------------------------
 
+
 def diagnose_metric(metric: str, per_chain_arrays: list[np.ndarray]) -> dict:
     """Run the full diagnostic battery for a single metric:
 
-      - Per-chain ESS (autocorrelation_ess)
-      - Split-chain R-hat across chains
-      - Combined ESS = sum of per-chain n_eff (chains are independent)
-      - Thinning factor = floor(max per-chain tau / 10) if max tau > 100
-      - Convergence flag (R_hat < R_HAT_ACCEPTABLE AND combined ESS >= 1000)
+    - Per-chain ESS (autocorrelation_ess)
+    - Split-chain R-hat across chains
+    - Combined ESS = sum of per-chain n_eff (chains are independent)
+    - Thinning factor = floor(max per-chain tau / 10) if max tau > 100
+    - Convergence flag (R_hat < R_HAT_ACCEPTABLE AND combined ESS >= 1000)
     """
     per_chain_diag = [autocorrelation_ess(arr) for arr in per_chain_arrays]
-    per_chain_ess = [float(d["n_eff"]) if np.isfinite(d["n_eff"]) else float("nan")
-                     for d in per_chain_diag]
-    per_chain_tau = [float(d["tau"]) if np.isfinite(d["tau"]) else float("nan")
-                     for d in per_chain_diag]
+    per_chain_ess = [
+        float(d["n_eff"]) if np.isfinite(d["n_eff"]) else float("nan")
+        for d in per_chain_diag
+    ]
+    per_chain_tau = [
+        float(d["tau"]) if np.isfinite(d["tau"]) else float("nan")
+        for d in per_chain_diag
+    ]
 
     # Combined ESS: chains are independent after per-chain burn-in.
     combined_ess = float(np.nansum(per_chain_ess))
@@ -382,8 +423,10 @@ def diagnose_metric(metric: str, per_chain_arrays: list[np.ndarray]) -> dict:
 # Pooling + thinning
 # ---------------------------------------------------------------------------
 
-def build_pooled(samples_df: pd.DataFrame,
-                 per_metric: dict[str, dict]) -> tuple[pd.DataFrame, int]:
+
+def build_pooled(
+    samples_df: pd.DataFrame, per_metric: dict[str, dict]
+) -> tuple[pd.DataFrame, int]:
     """Thin each chain by the MAX of the per-metric thinning factors (so the
     pooled series is valid for every metric) and concatenate.
 
@@ -411,19 +454,31 @@ def build_pooled(samples_df: pd.DataFrame,
 # Markdown summary
 # ---------------------------------------------------------------------------
 
-def write_summary_md(out_path: Path, seeds: list[int], steps_per_chain: int,
-                     burnin_fraction: float, per_metric: dict[str, dict],
-                     overall_converged: bool, max_r_hat: float,
-                     common_thin_factor: int, total_runtime_sec: float) -> None:
+
+def write_summary_md(
+    out_path: Path,
+    seeds: list[int],
+    steps_per_chain: int,
+    burnin_fraction: float,
+    per_metric: dict[str, dict],
+    overall_converged: bool,
+    max_r_hat: float,
+    common_thin_factor: int,
+    total_runtime_sec: float,
+) -> None:
     def verdict_str(d: dict) -> str:
         r = d["r_hat"]
         ess = d["combined_ess"]
         if not np.isfinite(r):
             return "INDETERMINATE (R-hat not finite)"
         if r < R_HAT_CONVERGED and ess >= COMBINED_ESS_TARGET:
-            return f"CONVERGED (R-hat<{R_HAT_CONVERGED:.2f}, ESS>={COMBINED_ESS_TARGET})"
+            return (
+                f"CONVERGED (R-hat<{R_HAT_CONVERGED:.2f}, ESS>={COMBINED_ESS_TARGET})"
+            )
         if r < R_HAT_ACCEPTABLE and ess >= COMBINED_ESS_TARGET:
-            return f"ACCEPTABLE (R-hat<{R_HAT_ACCEPTABLE:.2f}, ESS>={COMBINED_ESS_TARGET})"
+            return (
+                f"ACCEPTABLE (R-hat<{R_HAT_ACCEPTABLE:.2f}, ESS>={COMBINED_ESS_TARGET})"
+            )
         if r >= R_HAT_FAIL:
             return f"NOT CONVERGED (R-hat>={R_HAT_FAIL:.2f})"
         if ess < COMBINED_ESS_TARGET:
@@ -432,18 +487,23 @@ def write_summary_md(out_path: Path, seeds: list[int], steps_per_chain: int,
 
     lines: list[str] = []
     lines.append("# Multi-chain MCMC convergence summary\n")
-    lines.append(f"**Script:** `analysis/scripts/v0_1_simulation_multichain_ensemble.py`\n")
+    lines.append(
+        f"**Script:** `analysis/scripts/v0_1_simulation_multichain_ensemble.py`\n"
+    )
     lines.append(f"**Seeds:** {seeds}  \n")
     lines.append(f"**Chains:** {len(seeds)}  \n")
     lines.append(f"**Steps per chain:** {steps_per_chain:,}  \n")
     lines.append(f"**Burn-in fraction:** {burnin_fraction:.0%}  \n")
     lines.append(f"**Common thinning factor (pooled CSV):** {common_thin_factor}  \n")
-    lines.append(f"**Total runtime:** {total_runtime_sec:.0f}s "
-                 f"({total_runtime_sec/60:.1f} min)\n")
+    lines.append(
+        f"**Total runtime:** {total_runtime_sec:.0f}s "
+        f"({total_runtime_sec/60:.1f} min)\n"
+    )
     lines.append("")
     lines.append("## Per-metric diagnostics\n")
-    lines.append("| Metric | R-hat (split) | Per-chain ESS | Combined ESS "
-                 "| Thin | Verdict |")
+    lines.append(
+        "| Metric | R-hat (split) | Per-chain ESS | Combined ESS " "| Thin | Verdict |"
+    )
     lines.append("|---|---:|---|---:|---:|---|")
     for m in METRIC_KEYS:
         d = per_metric[m]
@@ -545,6 +605,7 @@ def write_summary_md(out_path: Path, seeds: list[int], steps_per_chain: int,
 # Main orchestration
 # ---------------------------------------------------------------------------
 
+
 def parse_seeds(s: str) -> list[int]:
     parts = [p.strip() for p in s.split(",") if p.strip()]
     if not parts:
@@ -565,15 +626,21 @@ def main(argv: list[str] | None = None) -> int:
         )
     )
     parser.add_argument(
-        "--seeds", type=parse_seeds, default=[42, 101, 2024],
+        "--seeds",
+        type=parse_seeds,
+        default=[42, 101, 2024],
         help="Comma-separated integers, one per chain. Default: 42,101,2024.",
     )
     parser.add_argument(
-        "--steps", type=int, default=30000,
+        "--steps",
+        type=int,
+        default=30000,
         help="ReCom proposals per chain. Default: 30000.",
     )
     parser.add_argument(
-        "--burnin", type=float, default=0.10,
+        "--burnin",
+        type=float,
+        default=0.10,
         help=(
             "Fraction of each chain discarded as burn-in before diagnostics. "
             "Default: 0.10 (i.e. first 10%% of each chain)."
@@ -602,7 +669,9 @@ def main(argv: list[str] | None = None) -> int:
     print("=" * 72)
 
     # Build graph ONCE (shared read-only across chains).
-    print(f"\n[{time.strftime('%H:%M:%S')}] building VA graph (shared across chains)...")
+    print(
+        f"\n[{time.strftime('%H:%M:%S')}] building VA graph (shared across chains)..."
+    )
     va, graph = build_va_graph()
     assignment = initial_assignment_2019(va)
     print(f"  2019 baseline districts: {len(set(assignment.values()))}")
@@ -619,9 +688,11 @@ def main(argv: list[str] | None = None) -> int:
     num_dist = len(set(assignment.values()))
     ideal_pop = total_pop / num_dist
     pop_deviation = 0.25  # matches run_ensemble default
-    print(f"\n[{time.strftime('%H:%M:%S')}] pre-generating shared tight-seed "
-          f"partition (regen_seed={tight_regen_seed}, n_dist={num_dist}, "
-          f"ideal_pop={ideal_pop:,.0f}, pop_deviation={pop_deviation:.0%})...")
+    print(
+        f"\n[{time.strftime('%H:%M:%S')}] pre-generating shared tight-seed "
+        f"partition (regen_seed={tight_regen_seed}, n_dist={num_dist}, "
+        f"ideal_pop={ideal_pop:,.0f}, pop_deviation={pop_deviation:.0%})..."
+    )
     np.random.seed(tight_regen_seed)
     _random.seed(tight_regen_seed)
     tight_assignment = recursive_tree_part(
@@ -638,13 +709,17 @@ def main(argv: list[str] | None = None) -> int:
         tight_pops[dist] = tight_pops.get(dist, 0.0) + graph.nodes[node]["pop_2021"]
     min_p, max_p = min(tight_pops.values()), max(tight_pops.values())
     tight_max_dev = max(abs(max_p - ideal_pop), abs(min_p - ideal_pop)) / ideal_pop
-    print(f"  tight seed generated: pop {min_p:,.0f} - {max_p:,.0f}, "
-          f"max-indiv-dev={tight_max_dev:.2%} "
-          f"({'within' if tight_max_dev <= pop_deviation else 'OUTSIDE'} "
-          f"+/-{pop_deviation:.0%})")
+    print(
+        f"  tight seed generated: pop {min_p:,.0f} - {max_p:,.0f}, "
+        f"max-indiv-dev={tight_max_dev:.2%} "
+        f"({'within' if tight_max_dev <= pop_deviation else 'OUTSIDE'} "
+        f"+/-{pop_deviation:.0%})"
+    )
     if tight_max_dev > pop_deviation:
-        print(f"  WARNING: tight seed exceeds +/-{pop_deviation:.0%}; "
-              f"run_ensemble will attempt its own regen per-chain.")
+        print(
+            f"  WARNING: tight seed exceeds +/-{pop_deviation:.0%}; "
+            f"run_ensemble will attempt its own regen per-chain."
+        )
     else:
         # Override the assignment variable so each chain starts from the tight seed.
         assignment = tight_assignment
@@ -664,16 +739,23 @@ def main(argv: list[str] | None = None) -> int:
         for retry_idx in range(4):
             effective_seed = seed if retry_idx == 0 else seed * 1000 + retry_idx
             try:
-                df = run_one_chain(graph, assignment, seed=seed,
-                                   n_steps=n_steps, chain_idx=i,
-                                   effective_seed=effective_seed)
+                df = run_one_chain(
+                    graph,
+                    assignment,
+                    seed=seed,
+                    n_steps=n_steps,
+                    chain_idx=i,
+                    effective_seed=effective_seed,
+                )
                 last_err = None
                 break
             except RuntimeError as e:
                 last_err = e
-                print(f"  chain {i + 1} (seed={seed}) regen failed on attempt "
-                      f"{retry_idx + 1}/4 (effective_seed={effective_seed}): {e}. "
-                      f"Retrying with a perturbed effective_seed...")
+                print(
+                    f"  chain {i + 1} (seed={seed}) regen failed on attempt "
+                    f"{retry_idx + 1}/4 (effective_seed={effective_seed}): {e}. "
+                    f"Retrying with a perturbed effective_seed..."
+                )
         if last_err is not None:
             raise last_err
         per_chain_dfs.append(df)
@@ -683,8 +765,10 @@ def main(argv: list[str] | None = None) -> int:
 
     # Apply burn-in: drop the first burnin_fraction of steps from each chain.
     burnin_n = int(np.floor(burnin_fraction * n_steps))
-    print(f"\n[{time.strftime('%H:%M:%S')}] discarding first {burnin_n} steps "
-          f"per chain as burn-in ({burnin_fraction:.0%} x {n_steps})")
+    print(
+        f"\n[{time.strftime('%H:%M:%S')}] discarding first {burnin_n} steps "
+        f"per chain as burn-in ({burnin_fraction:.0%} x {n_steps})"
+    )
 
     post_burnin_dfs = []
     for df in per_chain_dfs:
@@ -694,16 +778,16 @@ def main(argv: list[str] | None = None) -> int:
 
     post_burnin_df = pd.concat(post_burnin_dfs, ignore_index=True)
     post_burnin_df.to_csv(SAMPLES_CSV, index=False)
-    print(f"  wrote {SAMPLES_CSV} ({len(post_burnin_df)} post-burnin samples "
-          f"across {len(seeds)} chains)")
+    print(
+        f"  wrote {SAMPLES_CSV} ({len(post_burnin_df)} post-burnin samples "
+        f"across {len(seeds)} chains)"
+    )
 
     # Per-metric diagnostics on post-burnin chains.
     print(f"\n[{time.strftime('%H:%M:%S')}] computing per-metric diagnostics...")
     per_metric: dict[str, dict] = {}
     for metric in METRIC_KEYS:
-        per_chain_arrays = [
-            df[metric].to_numpy(dtype=float) for df in post_burnin_dfs
-        ]
+        per_chain_arrays = [df[metric].to_numpy(dtype=float) for df in post_burnin_dfs]
         diag = diagnose_metric(metric, per_chain_arrays)
         per_metric[metric] = diag
 
@@ -718,11 +802,16 @@ def main(argv: list[str] | None = None) -> int:
             f"thin={diag['thinning_factor']}  converged={diag['converged']}"
         )
 
-    max_r_hat = float(max(
-        (per_metric[m]["r_hat"] for m in METRIC_KEYS
-         if np.isfinite(per_metric[m]["r_hat"])),
-        default=float("nan"),
-    ))
+    max_r_hat = float(
+        max(
+            (
+                per_metric[m]["r_hat"]
+                for m in METRIC_KEYS
+                if np.isfinite(per_metric[m]["r_hat"])
+            ),
+            default=float("nan"),
+        )
+    )
     overall_converged = all(per_metric[m]["converged"] for m in METRIC_KEYS)
 
     # Build pooled CSV (one common thinning factor).
@@ -777,11 +866,15 @@ def main(argv: list[str] | None = None) -> int:
     print()
     print("=" * 72)
     if overall_converged:
-        print(f"VERDICT: CONVERGED (max R-hat = {max_r_hat:.4f}, "
-              f"all metrics have combined ESS >= {COMBINED_ESS_TARGET})")
+        print(
+            f"VERDICT: CONVERGED (max R-hat = {max_r_hat:.4f}, "
+            f"all metrics have combined ESS >= {COMBINED_ESS_TARGET})"
+        )
     else:
-        print(f"VERDICT: NOT CONVERGED (max R-hat = {max_r_hat:.4f}; "
-              f"at least one metric has combined ESS < {COMBINED_ESS_TARGET})")
+        print(
+            f"VERDICT: NOT CONVERGED (max R-hat = {max_r_hat:.4f}; "
+            f"at least one metric has combined ESS < {COMBINED_ESS_TARGET})"
+        )
     print(f"Total runtime: {total_runtime:.0f}s ({total_runtime/60:.1f} min)")
     print("=" * 72)
 

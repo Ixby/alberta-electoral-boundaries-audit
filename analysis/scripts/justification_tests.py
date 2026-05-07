@@ -20,6 +20,7 @@ Outputs:
 Run:
     python analysis/scripts/v0_1_justification_tests.py
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -31,15 +32,14 @@ from pathlib import Path
 import pandas as pd
 import geopandas as gpd
 
-
 # Script lives at <repo>/analysis/scripts/, so parents[2] = <repo>
 REPO = Path(__file__).resolve().parents[2]
 DATA = REPO / "data"
 
 # Provincial quota reference (54,929 avg) and +/-25% window
 QUOTA_AVG = 54_929
-QUOTA_MIN = round(QUOTA_AVG * 0.75)   # 41,197
-QUOTA_MAX = round(QUOTA_AVG * 1.25)   # 68,661
+QUOTA_MIN = round(QUOTA_AVG * 0.75)  # 41,197
+QUOTA_MAX = round(QUOTA_AVG * 1.25)  # 68,661
 
 
 def load_csd_populations() -> pd.DataFrame:
@@ -61,7 +61,13 @@ def load_majority() -> pd.DataFrame:
 
 
 def load_2019_eds() -> gpd.GeoDataFrame:
-    return gpd.read_file(DATA / "shapefiles" / "reference" / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp")
+    return gpd.read_file(
+        DATA
+        / "shapefiles"
+        / "reference"
+        / "alberta_2019_eds"
+        / "EDS_ENACTED_BILL33_15DEC2017.shp"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -75,7 +81,7 @@ def test_1_olds_airdrie(pop: pd.DataFrame) -> dict:
         "Three Hills, Town (T)",
         "Carstairs, Town (T)",
         "Cremona, Village (VL)",
-        "Beiseker, Village (VL)",          # technically Rocky View adjacent
+        "Beiseker, Village (VL)",  # technically Rocky View adjacent
         "Linden, Village (VL)",
         "Acme, Village (VL)",
         "Trochu, Town (T)",
@@ -84,8 +90,11 @@ def test_1_olds_airdrie(pop: pd.DataFrame) -> dict:
     ]
     sub = pop[pop["GEO_NAME"].isin(names)][["GEO_NAME", "population_2021"]].copy()
     total = int(sub["population_2021"].sum())
-    verdict = "FAIL (minority justification unsupported)" if total >= QUOTA_MIN \
+    verdict = (
+        "FAIL (minority justification unsupported)"
+        if total >= QUOTA_MIN
         else "PASS (Airdrie slice required)"
+    )
     return {
         "test": "T1_olds_three_hills_didsbury",
         "included": sub.to_dict(orient="records"),
@@ -101,7 +110,9 @@ def test_1_olds_airdrie(pop: pd.DataFrame) -> dict:
 # ---------------------------------------------------------------------------
 def test_2_rmh_np(pop: pd.DataFrame, eds_2019: gpd.GeoDataFrame) -> dict:
     # Area of the 2019 predecessor
-    row = eds_2019[eds_2019["EDName2017"] == "Rimbey-Rocky Mountain House-Sundre"].iloc[0]
+    row = eds_2019[eds_2019["EDName2017"] == "Rimbey-Rocky Mountain House-Sundre"].iloc[
+        0
+    ]
     km2_2019 = float(row["Km2"])
 
     # Population of the natural rural catchment WITHOUT Banff NP
@@ -160,8 +171,11 @@ def test_3_airdrie_split(pop: pd.DataFrame) -> dict:
     verdict = (
         "FAIL (4-way split is unforced by population)"
         if half <= QUOTA_MAX and not fits_1way
-        else ("FAIL (1 district fits, no split forced)" if fits_1way
-              else "PASS (more splits required)")
+        else (
+            "FAIL (1 district fits, no split forced)"
+            if fits_1way
+            else "PASS (more splits required)"
+        )
     )
     return {
         "test": "T3_airdrie_split",
@@ -180,18 +194,28 @@ def test_3_airdrie_split(pop: pd.DataFrame) -> dict:
 # ---------------------------------------------------------------------------
 # Test 4 : Red Deer: 2 vs 4 districts
 # ---------------------------------------------------------------------------
-def test_4_red_deer(pop: pd.DataFrame,
-                     majority: pd.DataFrame,
-                     minority: pd.DataFrame) -> dict:
-    rd_pop = int(pop.loc[pop["GEO_NAME"] == "Red Deer, City (CY)", "population_2021"].iloc[0])
+def test_4_red_deer(
+    pop: pd.DataFrame, majority: pd.DataFrame, minority: pd.DataFrame
+) -> dict:
+    rd_pop = int(
+        pop.loc[pop["GEO_NAME"] == "Red Deer, City (CY)", "population_2021"].iloc[0]
+    )
     min_districts = -(-rd_pop // QUOTA_MAX)  # ceiling division
     # Majority 2-district composition
-    maj_rd = majority[majority["ed_name"].isin(["Red Deer-North", "Red Deer-South"])].copy()
+    maj_rd = majority[
+        majority["ed_name"].isin(["Red Deer-North", "Red Deer-South"])
+    ].copy()
     # Minority 4-district composition
-    min_rd = minority[minority["ed_name"].isin([
-        "Red Deer-Blackfalds", "Red Deer-Innisfail",
-        "Red Deer-Lacombe", "Red Deer-Sylvan Lake"
-    ])].copy()
+    min_rd = minority[
+        minority["ed_name"].isin(
+            [
+                "Red Deer-Blackfalds",
+                "Red Deer-Innisfail",
+                "Red Deer-Lacombe",
+                "Red Deer-Sylvan Lake",
+            ]
+        )
+    ].copy()
 
     # In 4-way split each piece gets ~rd_pop/4 Red Deer population; rest must
     # come from rural.
@@ -220,21 +244,35 @@ def test_4_red_deer(pop: pd.DataFrame,
 # Test 5 : Chestermere split — is the Calgary slice necessary?
 # ---------------------------------------------------------------------------
 def test_5_chestermere(pop: pd.DataFrame, minority: pd.DataFrame) -> dict:
-    ches_pop = int(pop.loc[pop["GEO_NAME"] == "Chestermere, City (CY)", "population_2021"].iloc[0])
-    strat_pop = int(pop.loc[pop["GEO_NAME"] == "Strathmore, Town (T)", "population_2021"].iloc[0])
-    wheatland_pop = int(pop.loc[pop["GEO_NAME"] == "Wheatland County, Municipal district (MD)",
-                                "population_2021"].iloc[0])
+    ches_pop = int(
+        pop.loc[pop["GEO_NAME"] == "Chestermere, City (CY)", "population_2021"].iloc[0]
+    )
+    strat_pop = int(
+        pop.loc[pop["GEO_NAME"] == "Strathmore, Town (T)", "population_2021"].iloc[0]
+    )
+    wheatland_pop = int(
+        pop.loc[
+            pop["GEO_NAME"] == "Wheatland County, Municipal district (MD)",
+            "population_2021",
+        ].iloc[0]
+    )
 
     natural_pair = ches_pop + strat_pop + wheatland_pop
 
     # Minority Calgary-Peigan-Chestermere total population
-    cpc = int(minority.loc[minority["ed_name"] == "Calgary-Peigan-Chestermere",
-                           "population"].iloc[0])
+    cpc = int(
+        minority.loc[
+            minority["ed_name"] == "Calgary-Peigan-Chestermere", "population"
+        ].iloc[0]
+    )
     # Calgary-Peigan 2019 predecessor has tight Calgary-only boundaries;
     # the question is how much of Chestermere is absorbed.
     # The minority CSV shows Calgary-Peigan-Chestermere = 52,639; Chestermere-Strathmore = 52,982.
-    ches_strat = int(minority.loc[minority["ed_name"] == "Chestermere-Strathmore",
-                                  "population"].iloc[0])
+    ches_strat = int(
+        minority.loc[
+            minority["ed_name"] == "Chestermere-Strathmore", "population"
+        ].iloc[0]
+    )
 
     # If Chestermere-Strathmore already exists in minority plan (52,982),
     # and Chestermere + Strathmore + Wheatland = natural_pair, then the
@@ -275,7 +313,9 @@ def _flatten_for_csv(results: list[dict]) -> pd.DataFrame:
                 for idx, row in enumerate(v):
                     if isinstance(row, dict):
                         for kk, vv in row.items():
-                            rows.append({"test": test, "key": f"{k}[{idx}].{kk}", "value": vv})
+                            rows.append(
+                                {"test": test, "key": f"{k}[{idx}].{kk}", "value": vv}
+                            )
                     else:
                         rows.append({"test": test, "key": f"{k}[{idx}]", "value": row})
             else:

@@ -10,6 +10,7 @@ Backward:
   analysis/scripts/v0_1_dpg_perturbation_sensitivity.py (v1 flat ±500m)
   analysis/scripts/v0_1_dpg_perturbation_sensitivity_v2.py (v2 tier-aware)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -62,8 +63,10 @@ def main():
     v3 = load_or_none(V3_JSON)
 
     if v1 is None or v2 is None:
-        print(f"[WARN] Need both v1 ({V1_JSON.exists()}) and v2 ({V2_JSON.exists()}); "
-              "v3 optional. Cannot generate writeup yet.")
+        print(
+            f"[WARN] Need both v1 ({V1_JSON.exists()}) and v2 ({V2_JSON.exists()}); "
+            "v3 optional. Cannot generate writeup yet."
+        )
         return
 
     # ----- tier breakdowns (from v2) -----
@@ -87,7 +90,11 @@ def main():
     # ----- side-by-side 9-metric table -----
     def make_comparison_table() -> str:
         has_v3 = v3 is not None
-        header_cells = ["metric (p5/p50/p95)", "v1 flat ±500 m", "v2 tier-aware (central)"]
+        header_cells = [
+            "metric (p5/p50/p95)",
+            "v1 flat ±500 m",
+            "v2 tier-aware (central)",
+        ]
         if has_v3:
             header_cells.append("v3 tier-aware (tight)")
         lines = [
@@ -95,8 +102,11 @@ def main():
             "|" + "|".join(["---"] * (len(header_cells) - 1) + ["---:"]) + "|",
         ]
         for key, label in METRIC_LABELS:
-            row = [label, fmt_ci(v1["metrics"].get(key)),
-                   fmt_ci(v2["metrics"].get(key))]
+            row = [
+                label,
+                fmt_ci(v1["metrics"].get(key)),
+                fmt_ci(v2["metrics"].get(key)),
+            ]
             if has_v3:
                 row.append(fmt_ci(v3["metrics"].get(key)))
             lines.append("| " + " | ".join(row) + " |")
@@ -106,13 +116,20 @@ def main():
     def direction_line(v: dict, label: str) -> str:
         d = v["direction_stats"]
         ci = f"[p5={d['p5_asymmetry']:+.3f}, p95={d['p95_asymmetry']:+.3f}] pp"
-        verdict = ("ROBUST: CI excludes zero" if not d["ci90_crosses_zero"]
-                   else "NOT ROBUST: CI crosses zero")
-        return (f"- **{label}**: {d['n_positive']}/{d['n_samples']} positive, "
-                f"90 % CI {ci} — {verdict}")
+        verdict = (
+            "ROBUST: CI excludes zero"
+            if not d["ci90_crosses_zero"]
+            else "NOT ROBUST: CI crosses zero"
+        )
+        return (
+            f"- **{label}**: {d['n_positive']}/{d['n_samples']} positive, "
+            f"90 % CI {ci} — {verdict}"
+        )
 
-    dlines = [direction_line(v1, "v1 (flat ±500 m)"),
-              direction_line(v2, "v2 (tier-aware central)")]
+    dlines = [
+        direction_line(v1, "v1 (flat ±500 m)"),
+        direction_line(v2, "v2 (tier-aware central)"),
+    ]
     if v3:
         dlines.append(direction_line(v3, "v3 (tier-aware tight)"))
 
@@ -121,14 +138,18 @@ def main():
         rows = [
             "| layer | sigma profile | asym p5 | asym p50 | asym p95 | CI width | CI excl 0? |",
             "|---|---|---:|---:|---:|---:|:---:|",
-            (f"| v1 flat-500 | all=500 m | "
-             f"{a1['p5']:+.3f} | {a1['p50']:+.3f} | {a1['p95']:+.3f} | "
-             f"{a1['p95']-a1['p5']:.3f} | "
-             f"{'Yes' if not v1['direction_stats']['ci90_crosses_zero'] else 'No'} |"),
-            (f"| v2 tier-aware (central) | 2019=0, sweep/osm=50, v7=300 | "
-             f"{a2['p5']:+.3f} | {a2['p50']:+.3f} | {a2['p95']:+.3f} | "
-             f"{a2['p95']-a2['p5']:.3f} | "
-             f"{'Yes' if not v2['direction_stats']['ci90_crosses_zero'] else 'No'} |"),
+            (
+                f"| v1 flat-500 | all=500 m | "
+                f"{a1['p5']:+.3f} | {a1['p50']:+.3f} | {a1['p95']:+.3f} | "
+                f"{a1['p95']-a1['p5']:.3f} | "
+                f"{'Yes' if not v1['direction_stats']['ci90_crosses_zero'] else 'No'} |"
+            ),
+            (
+                f"| v2 tier-aware (central) | 2019=0, sweep/osm=50, v7=300 | "
+                f"{a2['p5']:+.3f} | {a2['p50']:+.3f} | {a2['p95']:+.3f} | "
+                f"{a2['p95']-a2['p5']:.3f} | "
+                f"{'Yes' if not v2['direction_stats']['ci90_crosses_zero'] else 'No'} |"
+            ),
         ]
         if v3:
             rows.append(

@@ -33,6 +33,7 @@ Dependencies:
   Backward: data/shapefiles/derived/v0_8_refined_*.gpkg,
             data/v0_1_v8_refine_summary_*.csv
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -46,7 +47,10 @@ import pandas as pd
 from shapely.geometry import LineString, MultiLineString
 from shapely.ops import unary_union, split
 
-def _ts(): return time.strftime("%H:%M:%S")
+
+def _ts():
+    return time.strftime("%H:%M:%S")
+
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
@@ -88,12 +92,25 @@ def _midline_split(loser_geom, winner_geom, overlap):
     # Perpendicular direction
     px, py = -dy, dx
     # Build a long line through midpoint along perpendicular
-    L = max(overlap.bounds[2] - overlap.bounds[0],
-            overlap.bounds[3] - overlap.bounds[1]) * 4 + 1000
-    cutter = LineString([
-        (mx - px / (px*px + py*py)**0.5 * L, my - py / (px*px + py*py)**0.5 * L),
-        (mx + px / (px*px + py*py)**0.5 * L, my + py / (px*px + py*py)**0.5 * L),
-    ])
+    L = (
+        max(
+            overlap.bounds[2] - overlap.bounds[0], overlap.bounds[3] - overlap.bounds[1]
+        )
+        * 4
+        + 1000
+    )
+    cutter = LineString(
+        [
+            (
+                mx - px / (px * px + py * py) ** 0.5 * L,
+                my - py / (px * px + py * py) ** 0.5 * L,
+            ),
+            (
+                mx + px / (px * px + py * py) ** 0.5 * L,
+                my + py / (px * px + py * py) ** 0.5 * L,
+            ),
+        ]
+    )
 
     try:
         pieces = list(split(overlap, cutter).geoms)
@@ -166,7 +183,7 @@ def refine(plan: str) -> dict:
     print(f"  {len(pairs)} overlap pairs > {MIN_OVERLAP_AREA} m² to resolve")
 
     resolution_log = []
-    for (i, j, _) in pairs:
+    for i, j, _ in pairs:
         gi, gj = geoms[i], geoms[j]
         try:
             inter = gi.intersection(gj)
@@ -181,7 +198,9 @@ def refine(plan: str) -> dict:
         elif ranks[j] > ranks[i]:
             wi, li = j, i
         else:
-            wi, li = (i, j) if (gi.area - inter.area) >= (gj.area - inter.area) else (j, i)
+            wi, li = (
+                (i, j) if (gi.area - inter.area) >= (gj.area - inter.area) else (j, i)
+            )
 
         gw, gl = geoms[wi], geoms[li]
         clipped = _clean(gl.difference(gw))
@@ -219,19 +238,24 @@ def refine(plan: str) -> dict:
             geoms[li] = clipped
             method = "clip"
 
-        resolution_log.append({
-            "winner": names[wi],
-            "loser": names[li],
-            "overlap_km2": inter.area / 1e6,
-            "method": method,
-        })
+        resolution_log.append(
+            {
+                "winner": names[wi],
+                "loser": names[li],
+                "overlap_km2": inter.area / 1e6,
+                "method": method,
+            }
+        )
 
     g["geometry"] = geoms
     # Output naming: v0_8_refined comes from v0_8_canonical (no inheritance);
     # v0_8_full_refined comes from v0_8_full (with inheritance). Keep both
     # available to downstream consumers via the prefer-chain.
-    out_name = (f"v0_8_full_refined_{plan}_2026_eds.gpkg"
-                if "full" in src.name else f"v0_8_refined_{plan}_2026_eds.gpkg")
+    out_name = (
+        f"v0_8_full_refined_{plan}_2026_eds.gpkg"
+        if "full" in src.name
+        else f"v0_8_refined_{plan}_2026_eds.gpkg"
+    )
     out = DERIVED / out_name
     g.to_file(out, driver="GPKG")
 
@@ -256,12 +280,16 @@ def refine(plan: str) -> dict:
     log_path = DATA / f"v0_1_v8_refine_summary_{plan}.csv"
     log_df.to_csv(log_path, index=False)
 
-    method_counts = log_df["method"].value_counts().to_dict() if not log_df.empty else {}
+    method_counts = (
+        log_df["method"].value_counts().to_dict() if not log_df.empty else {}
+    )
     print(f"  resolution methods: {method_counts}")
     print(f"  wrote {out.name}")
     print(f"  wrote {log_path.name}")
-    print(f"  residual overlaps after refinement: {residual_n} pairs, "
-          f"{residual_area/1e6:.6f} km²")
+    print(
+        f"  residual overlaps after refinement: {residual_n} pairs, "
+        f"{residual_area/1e6:.6f} km²"
+    )
     print(f"[{_ts()}] [{plan}] refine done in {time.time()-t0:.2f}s", flush=True)
 
     return {
@@ -277,8 +305,9 @@ def refine(plan: str) -> dict:
 
 def main() -> int:
     t_start = time.time()
-    print(f"[{_ts()}] [v0_8 refinement] START — resolving residual overlaps",
-          flush=True)
+    print(
+        f"[{_ts()}] [v0_8 refinement] START — resolving residual overlaps", flush=True
+    )
     results = []
     for plan in ("majority", "minority"):
         results.append(refine(plan))
@@ -288,11 +317,15 @@ def main() -> int:
         if r.get("skipped"):
             print(f"  {r['plan']}: SKIPPED (input not found)")
             continue
-        print(f"  {r['plan']}: resolved {r['n_pairs_resolved']} pairs  "
-              f"(methods: {r['method_counts']})  "
-              f"→ residual {r['residual_pairs']} pairs / {r['residual_km2']:.6f} km²")
-    print(f"[{_ts()}] [v0_8 refinement] DONE — total {time.time()-t_start:.2f}s",
-          flush=True)
+        print(
+            f"  {r['plan']}: resolved {r['n_pairs_resolved']} pairs  "
+            f"(methods: {r['method_counts']})  "
+            f"→ residual {r['residual_pairs']} pairs / {r['residual_km2']:.6f} km²"
+        )
+    print(
+        f"[{_ts()}] [v0_8 refinement] DONE — total {time.time()-t_start:.2f}s",
+        flush=True,
+    )
     return 0
 
 

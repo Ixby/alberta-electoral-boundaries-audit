@@ -55,11 +55,11 @@ Twelve Alberta government and federally-sourced databases are surveyed below. Ea
 ### 1.3 Service Alberta motor vehicle registrations (driver licence, vehicle)
 
 - **Custodian.** Service Alberta (ministry), registry services delivered through private registry agents under Service Alberta oversight.
-- **Access path.** Register is closed. Aggregate counts of active driver licences by postal FSA and municipality are published irregularly in Service Alberta's annual business plan. FOIP requests can yield more detail.
+- **Access path.** Register is closed. Aggregate counts of active driver licences by postal FSA and municipality are published irregularly in Service Alberta's annual business plan. data requests can yield more detail.
 - **Geography.** Address-level in the register. Published aggregates typically at postal FSA or municipality.
 - **Update frequency.** Continuous in the register; public aggregates annual at best.
 - **Data source.** Driver licence issuance and renewal, vehicle registration. Captures roughly the 16+ licensed-driver population — about 78% of Alberta residents 16+ (per 2021 Census-estimated driving-age population and Service Alberta's ~3.2M active licences). Under-counts youth under 16 entirely, elderly non-drivers, and the ~22% of adults without licences (urban non-drivers, medical exemptions).
-- **Public availability.** FOIP-gated for finer-than-annual detail.
+- **Public availability.** disclosure-gated for finer-than-annual detail.
 - **Methodology transparency.** Undocumented at the aggregate-release level.
 - **Viability:** **not-viable as primary.** Licence data is not a population register. Useful as a growth-direction signal for sub-provincial change (because licence addresses update when residents move), but not a population count.
 
@@ -70,18 +70,18 @@ Twelve Alberta government and federally-sourced databases are surveyed below. Ea
 - **Geography.** School authority (~60+ authorities), school catchment (~2,000+ schools), in some reports municipal breakdown. Ward-level or DA-level is not published.
 - **Update frequency.** Annual (Sept 30 count), published ~3 months after.
 - **Data source.** Enrolment registrations as reported by school authorities. Captures roughly the 5–17 age band (~17–19% of Alberta's population). Misses pre-K, post-18, home-educators outside the registered program, and students enrolled outside their geographic catchment.
-- **Public availability.** Open at school-authority level; finer granularity FOIP-gated.
+- **Public availability.** Open at school-authority level; finer granularity disclosure-gated.
 - **Methodology transparency.** Documented (enrolment count procedures published by Alberta Education).
 - **Viability:** **not-viable as primary, viable as growth proxy.** Age-band limitation means it cannot represent total population. Useful as a K–12 growth signal to cross-check TBF age-cohort projections in fast-growth communities.
 
 ### 1.5 Alberta Works / Income Support / AISH caseloads
 
 - **Custodian.** Ministry of Seniors, Community and Social Services (SCSS).
-- **Access path.** Aggregate caseloads published monthly on open.alberta.ca. Finer geographies FOIP-gated.
-- **Geography.** Province, region (~6 SCSS regions), SCSS district office (~25). Sub-district is FOIP-gated.
+- **Access path.** Aggregate caseloads published monthly on open.alberta.ca. Finer geographies disclosure-gated.
+- **Geography.** Province, region (~6 SCSS regions), SCSS district office (~25). Sub-district is disclosure-gated.
 - **Update frequency.** Monthly caseload counts, published ~2 months after the reference month.
 - **Data source.** Income Support caseloads (adults and families receiving provincial income support), AISH caseloads (Assured Income for the Severely Handicapped). Captures roughly 5–7% of the working-age population. Subject to program-specific eligibility.
-- **Public availability.** Aggregates open; individual records closed under FOIP and social-services privacy rules.
+- **Public availability.** Aggregates open; individual records closed under official disclosure and social-services privacy rules.
 - **Methodology transparency.** Program eligibility rules published. Aggregation methods documented.
 - **Viability:** **not-viable as primary.** Caseload counts are a transfer-payment metric, not a population count. Useful for equity analysis of economic vulnerability by region but not a redistribution base.
 
@@ -158,7 +158,7 @@ Twelve Alberta government and federally-sourced databases are surveyed below. Ea
 - **Geography.** Province, Census Division, CSD, AHS zone. Postal-code is in the register.
 - **Update frequency.** Monthly registrations; annual consolidated publications.
 - **Data source.** Statutory registrations of births and deaths. Captures 100% (statutorily mandatory).
-- **Public availability.** Aggregates open; individual records FOIP-gated.
+- **Public availability.** Aggregates open; individual records disclosure-gated.
 - **Methodology transparency.** Documented.
 - **Viability:** **not-viable as a population count; viable as a component.** Vital statistics are inputs to the TBF component-cohort-survival model, not outputs. Useful for cross-checking TBF's natural-increase assumptions but not a direct population source.
 
@@ -168,7 +168,7 @@ Twelve Alberta government and federally-sourced databases are surveyed below. Ea
 |---|---|---|---|---|---|---|---|
 | 1 | AHCIP registrations (agg.) | Alberta Health | AHS sub-zone (~70 LGAs) | Annual | Registrations | Open (agg.) | **viable-with-adjustment** |
 | 2 | TBF population estimates | Treasury Board & Finance | CSD | Quarterly | Component-cohort model | Open | **viable** |
-| 3 | Driver licences / MVR | Service Alberta | Municipality / FSA | Annual | Registrations | FOIP-gated | not-viable |
+| 3 | Driver licences / MVR | Service Alberta | Municipality / FSA | Annual | Registrations | disclosure-gated | not-viable |
 | 4 | K–12 enrolment | Alberta Education | School authority | Annual | Registrations | Open | not-viable as primary |
 | 5 | Income Support / AISH | SCSS | SCSS region / district | Monthly | Caseloads | Open (agg.) | not-viable |
 | 6 | Municipal Affairs pop. list | Municipal Affairs | CSD | Annual | Mixed | Open | **viable-with-adjustment** |

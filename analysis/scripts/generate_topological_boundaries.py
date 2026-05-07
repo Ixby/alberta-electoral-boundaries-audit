@@ -1,4 +1,8 @@
 """
+DEPRECATED 2026-05-07. Official Elections Alberta canonical shapefiles are now in
+data/shapefiles/canonical/. This DPG-generation script is no longer needed for
+analysis. Retained for provenance only.
+
 v0_1_generate_topological_boundaries.py
 ======================================
 Extends the session-11 population-calibrated parametric sweep
@@ -86,6 +90,7 @@ Backward:
   data/alberta_2021_das.gpkg
   data/alberta_2021_da_populations.csv
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
@@ -117,10 +122,18 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = ROOT / "data"
 REPORTS = ROOT / "analysis" / "reports"
 
-MAJ_IN = DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
-MIN_IN = DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
-MAJ_OUT = DATA / "shapefiles" / "derived" / "v0_3_canonical_majority_2026_eds_swept.gpkg"
-MIN_OUT = DATA / "shapefiles" / "derived" / "v0_3_canonical_minority_2026_eds_swept.gpkg"
+MAJ_IN = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_majority_2026_eds_topoclean.gpkg"
+)
+MIN_IN = (
+    DATA / "shapefiles" / "derived" / "v0_2_canonical_minority_2026_eds_topoclean.gpkg"
+)
+MAJ_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_3_canonical_majority_2026_eds_swept.gpkg"
+)
+MIN_OUT = (
+    DATA / "shapefiles" / "derived" / "v0_3_canonical_minority_2026_eds_swept.gpkg"
+)
 
 MAJ_POP_CSV = DATA / "majority_2026_populations.csv"
 MIN_POP_CSV = DATA / "minority_2026_populations.csv"
@@ -134,9 +147,9 @@ SWEEP_ANALYSIS_MD = REPORTS / "tier_c_sweep_analysis.md"
 PHASE4F_V2_CSV = DATA / "validation_deltas_v2.csv"
 
 WORK_CRS = 3347  # Statistics Canada Lambert (native DA CRS).  We run
-                 # the sweep here so the DA-dissolve polygons match Phase 4F's
-                 # CRS exactly, preventing marginal DAs from flipping out
-                 # during reprojection.
+# the sweep here so the DA-dissolve polygons match Phase 4F's
+# CRS exactly, preventing marginal DAs from flipping out
+# during reprojection.
 
 # ─── Convergence thresholds ───────────────────────────────────────────────────
 TIGHT_PCT = 0.5
@@ -171,14 +184,16 @@ def make_split_line(angle_deg: float, position: float, bbox: tuple) -> LineStrin
     diag = math.hypot(maxx - minx, maxy - miny) * 1.5
 
     rad = math.radians(angle_deg)
-    nx, ny = math.sin(rad), -math.cos(rad)       # normal
-    dx, dy = math.cos(rad), math.sin(rad)        # along-line direction
+    nx, ny = math.sin(rad), -math.cos(rad)  # normal
+    dx, dy = math.cos(rad), math.sin(rad)  # along-line direction
     offset = (position - 0.5) * diag
     px, py = cx + nx * offset, cy + ny * offset
-    return LineString([
-        (px - dx * diag, py - dy * diag),
-        (px + dx * diag, py + dy * diag),
-    ])
+    return LineString(
+        [
+            (px - dx * diag, py - dy * diag),
+            (px + dx * diag, py + dy * diag),
+        ]
+    )
 
 
 def classify_points_by_line(
@@ -224,13 +239,13 @@ class SweepResult:
     ed_name: str
     map_label: str
     canon_source_before: str
-    sweep_param: str          # description (e.g. "angle=90 pos=0.42")
-    converged_value: str      # numeric param
-    residual_pct: float       # |DA_pop / commission - 1| * 100
+    sweep_param: str  # description (e.g. "angle=90 pos=0.42")
+    converged_value: str  # numeric param
+    residual_pct: float  # |DA_pop / commission - 1| * 100
     iterations: int
-    status: str               # CONVERGED_TIGHT / ACCEPTABLE / NOT_CONVERGED / NOT_ATTEMPTED
-    method: str               # "pair-line" or "radial" or "none"
-    ed_partner: str = ""      # if paired, the paired ED used as parent
+    status: str  # CONVERGED_TIGHT / ACCEPTABLE / NOT_CONVERGED / NOT_ATTEMPTED
+    method: str  # "pair-line" or "radial" or "none"
+    ed_partner: str = ""  # if paired, the paired ED used as parent
     pop_da_after: float = 0.0
     pop_commission: float = 0.0
     geometry: object = field(default=None, repr=False)
@@ -316,10 +331,10 @@ def pair_line_sweep(
     ed_name: str,
     target_pop: float,
     parent_polygon,
-    das_in_parent: gpd.GeoDataFrame,     # must have 'population_2021'
-    ed_polygon_v0_2,                      # used for side assignment
+    das_in_parent: gpd.GeoDataFrame,  # must have 'population_2021'
+    ed_polygon_v0_2,  # used for side assignment
     n_angles: int = 12,
-    partner_target: float = 0.0,         # for joint optimisation
+    partner_target: float = 0.0,  # for joint optimisation
 ) -> tuple[float, float, int, str, object, object]:
     """Sweep line across parent; binary-search position per angle; return the
     split giving the smallest JOINT residual across (ED side, partner side).
@@ -361,8 +376,9 @@ def pair_line_sweep(
         # Joint error: ED side residual + partner side residual (if provided)
         partner_pop_got = total_pop - pop_got
         err_ed = abs(pop_got - target_pop)
-        err_partner = (abs(partner_pop_got - partner_target)
-                       if partner_target > 0 else 0.0)
+        err_partner = (
+            abs(partner_pop_got - partner_target) if partner_target > 0 else 0.0
+        )
         err = err_ed + err_partner
 
         if err < best_err:
@@ -411,9 +427,9 @@ def radial_absorption_sweep(
     ed_name: str,
     target_pop: float,
     ed_polygon_v0_2,
-    all_das: gpd.GeoDataFrame,        # all DAs in the province
+    all_das: gpd.GeoDataFrame,  # all DAs in the province
     search_buffer_m: float = 30_000,
-    tier_a_union=None,                 # exclusion mask of Tier-A polygons
+    tier_a_union=None,  # exclusion mask of Tier-A polygons
 ) -> tuple[float, int, str, object]:
     """
     Grow/shrink the ED polygon via DA-nearest-first absorption.
@@ -429,7 +445,9 @@ def radial_absorption_sweep(
     else:
         cand_region = buffered
 
-    das_sub = all_das[all_das.geometry.representative_point().within(cand_region)].copy()
+    das_sub = all_das[
+        all_das.geometry.representative_point().within(cand_region)
+    ].copy()
     if len(das_sub) == 0:
         return 0.0, 0, "NO_DAS_IN_SEARCH", None
 
@@ -448,7 +466,12 @@ def radial_absorption_sweep(
 
     union = unary_union(included.geometry)
     new_poly = union.intersection(cand_region)
-    return achieved, idx + 1, f"radial k={idx+1}/{len(das_sub)} bufr={search_buffer_m/1000:.0f}km", ensure_valid(new_poly)
+    return (
+        achieved,
+        idx + 1,
+        f"radial k={idx+1}/{len(das_sub)} bufr={search_buffer_m/1000:.0f}km",
+        ensure_valid(new_poly),
+    )
 
 
 # ─── Main controller ──────────────────────────────────────────────────────────
@@ -456,7 +479,11 @@ def compute_hybrid_set(pop_df: pd.DataFrame) -> set[str]:
     if "is_hybrid" in pop_df.columns:
         return set(pop_df.loc[pop_df["is_hybrid"], "ed_name"].tolist())
     if "region_type" in pop_df.columns:
-        return set(pop_df.loc[pop_df["region_type"].astype(str).str.contains("hybrid"), "ed_name"].tolist())
+        return set(
+            pop_df.loc[
+                pop_df["region_type"].astype(str).str.contains("hybrid"), "ed_name"
+            ].tolist()
+        )
     return set()
 
 
@@ -518,7 +545,8 @@ def sweep_map(
     # Sort hybrids by best-pair candidates first (smaller neighbour count =
     # more deterministic)
     order = sorted(
-        hybrid_names, key=lambda n: (-bool(neighbours.get(n)), len(neighbours.get(n, [])))
+        hybrid_names,
+        key=lambda n: (-bool(neighbours.get(n)), len(neighbours.get(n, []))),
     )
 
     for ed in order:
@@ -532,15 +560,20 @@ def sweep_map(
         target = pop_lookup.get(ed)
 
         if target is None or ed_geom is None or ed_geom.is_empty:
-            results.append(SweepResult(
-                ed_name=ed, map_label=map_label,
-                canon_source_before=canon_src_before,
-                sweep_param="NO_TARGET_OR_GEOM",
-                converged_value="", residual_pct=float("nan"),
-                iterations=0, status="NOT_ATTEMPTED",
-                method="none",
-                pop_commission=float(target or 0.0),
-            ))
+            results.append(
+                SweepResult(
+                    ed_name=ed,
+                    map_label=map_label,
+                    canon_source_before=canon_src_before,
+                    sweep_param="NO_TARGET_OR_GEOM",
+                    converged_value="",
+                    residual_pct=float("nan"),
+                    iterations=0,
+                    status="NOT_ATTEMPTED",
+                    method="none",
+                    pop_commission=float(target or 0.0),
+                )
+            )
             processed.add(ed)
             continue
 
@@ -601,9 +634,15 @@ def sweep_map(
             # committed swept polygons so DAs are not double-counted.
             if "tier_a_union_cache" not in locals():
                 non_hybrid = canon[~canon["name_2026"].isin(hybrid_names)]
-                tier_a_union_cache = ensure_valid(unary_union(
-                    [g for g in non_hybrid.geometry if g is not None and not g.is_empty]
-                ))
+                tier_a_union_cache = ensure_valid(
+                    unary_union(
+                        [
+                            g
+                            for g in non_hybrid.geometry
+                            if g is not None and not g.is_empty
+                        ]
+                    )
+                )
             exclusion_parts = []
             if tier_a_union_cache is not None and not tier_a_union_cache.is_empty:
                 exclusion_parts.append(tier_a_union_cache)
@@ -638,7 +677,12 @@ def sweep_map(
                 das_in = das[das.geometry.representative_point().within(parent)].copy()
 
             best_pop, pos, iters, desc, new_poly, partner_poly = pair_line_sweep(
-                ed, t_target, parent, das_in, ed_geom, n_angles=12,
+                ed,
+                t_target,
+                parent,
+                das_in,
+                ed_geom,
+                n_angles=12,
                 partner_target=t_partner,
             )
 
@@ -656,11 +700,19 @@ def sweep_map(
 
             # Compute partner outcome by summing DAs in partner_poly
             partner_target = pop_lookup.get(best_partner, 0.0)
-            if partner_poly is not None and not partner_poly.is_empty and partner_target:
+            if (
+                partner_poly is not None
+                and not partner_poly.is_empty
+                and partner_target
+            ):
                 # Sum DAs whose rep_point is in partner_poly
                 p_mask = das_in.geometry.representative_point().within(partner_poly)
-                partner_pop = float(das_in.loc[p_mask, "population_2021"].fillna(0).sum())
-                partner_resid = 100.0 * abs(partner_pop - partner_target) / partner_target
+                partner_pop = float(
+                    das_in.loc[p_mask, "population_2021"].fillna(0).sum()
+                )
+                partner_resid = (
+                    100.0 * abs(partner_pop - partner_target) / partner_target
+                )
                 if partner_resid < TIGHT_PCT:
                     partner_status = "CONVERGED_TIGHT"
                 elif partner_resid <= ACCEPTABLE_PCT:
@@ -678,40 +730,55 @@ def sweep_map(
             if partner_status != "NOT_CONVERGED" and partner_poly is not None:
                 new_geoms[best_partner] = partner_poly
 
-            results.append(SweepResult(
-                ed_name=ed, map_label=map_label,
-                canon_source_before=canon_src_before,
-                sweep_param=f"pair-line [{best_partner}] buf={buf_km}km",
-                converged_value=desc,
-                residual_pct=resid_pct, iterations=iters, status=status,
-                method="pair-line", ed_partner=best_partner,
-                pop_da_after=best_pop,
-                pop_commission=float(commission_lookup.get(ed, 0.0)),
-            ))
-            results.append(SweepResult(
-                ed_name=best_partner, map_label=map_label,
-                canon_source_before=partner_src_before,
-                sweep_param=f"pair-line [complement of {ed}] buf={buf_km}km",
-                converged_value=desc,
-                residual_pct=partner_resid, iterations=iters,
-                status=partner_status,
-                method="pair-line", ed_partner=ed,
-                pop_da_after=partner_pop,
-                pop_commission=float(commission_lookup.get(best_partner, 0.0)),
-            ))
+            results.append(
+                SweepResult(
+                    ed_name=ed,
+                    map_label=map_label,
+                    canon_source_before=canon_src_before,
+                    sweep_param=f"pair-line [{best_partner}] buf={buf_km}km",
+                    converged_value=desc,
+                    residual_pct=resid_pct,
+                    iterations=iters,
+                    status=status,
+                    method="pair-line",
+                    ed_partner=best_partner,
+                    pop_da_after=best_pop,
+                    pop_commission=float(commission_lookup.get(ed, 0.0)),
+                )
+            )
+            results.append(
+                SweepResult(
+                    ed_name=best_partner,
+                    map_label=map_label,
+                    canon_source_before=partner_src_before,
+                    sweep_param=f"pair-line [complement of {ed}] buf={buf_km}km",
+                    converged_value=desc,
+                    residual_pct=partner_resid,
+                    iterations=iters,
+                    status=partner_status,
+                    method="pair-line",
+                    ed_partner=ed,
+                    pop_da_after=partner_pop,
+                    pop_commission=float(commission_lookup.get(best_partner, 0.0)),
+                )
+            )
             processed.add(ed)
             processed.add(best_partner)
-            print(f"  [{map_label}] pair-sweep {ed} <-> {best_partner}: "
-                  f"{status}/{partner_status} ({resid_pct:.2f}%/{partner_resid:.2f}%)")
+            print(
+                f"  [{map_label}] pair-sweep {ed} <-> {best_partner}: "
+                f"{status}/{partner_status} ({resid_pct:.2f}%/{partner_resid:.2f}%)"
+            )
             continue
 
         # ── Radial absorption ───────────────────────────────────────
         # Compute Tier-A exclusion mask (shared across radial calls in this map).
         if "tier_a_union_cache" not in locals():
             non_hybrid = canon[~canon["name_2026"].isin(hybrid_names)]
-            tier_a_union_cache = ensure_valid(unary_union(
-                [g for g in non_hybrid.geometry if g is not None and not g.is_empty]
-            ))
+            tier_a_union_cache = ensure_valid(
+                unary_union(
+                    [g for g in non_hybrid.geometry if g is not None and not g.is_empty]
+                )
+            )
         # Also exclude previously committed swept polygons to prevent double
         # assignment of DAs.
         exclusion_parts = []
@@ -725,7 +792,11 @@ def sweep_map(
         else:
             excl = None
         pop_got, iters, desc, new_poly = radial_absorption_sweep(
-            ed, target, ed_geom, das, search_buffer_m=30_000,
+            ed,
+            target,
+            ed_geom,
+            das,
+            search_buffer_m=30_000,
             tier_a_union=excl,
         )
         if new_poly is not None and not new_poly.is_empty and target > 0:
@@ -743,15 +814,22 @@ def sweep_map(
         if status != "NOT_CONVERGED" and new_poly is not None:
             new_geoms[ed] = new_poly
 
-        results.append(SweepResult(
-            ed_name=ed, map_label=map_label,
-            canon_source_before=canon_src_before,
-            sweep_param="radial", converged_value=desc,
-            residual_pct=resid_pct, iterations=iters, status=status,
-            method="radial", ed_partner="",
-            pop_da_after=pop_got,
-            pop_commission=float(commission_lookup.get(ed, 0.0)),
-        ))
+        results.append(
+            SweepResult(
+                ed_name=ed,
+                map_label=map_label,
+                canon_source_before=canon_src_before,
+                sweep_param="radial",
+                converged_value=desc,
+                residual_pct=resid_pct,
+                iterations=iters,
+                status=status,
+                method="radial",
+                ed_partner="",
+                pop_da_after=pop_got,
+                pop_commission=float(commission_lookup.get(ed, 0.0)),
+            )
+        )
         processed.add(ed)
         print(f"  [{map_label}] radial sweep {ed}: {status} ({resid_pct:.2f}%)")
 
@@ -768,9 +846,11 @@ def sweep_map(
 
     if retry_eds and "tier_a_union_cache" not in locals():
         non_hybrid = canon[~canon["name_2026"].isin(hybrid_names)]
-        tier_a_union_cache = ensure_valid(unary_union(
-            [g for g in non_hybrid.geometry if g is not None and not g.is_empty]
-        ))
+        tier_a_union_cache = ensure_valid(
+            unary_union(
+                [g for g in non_hybrid.geometry if g is not None and not g.is_empty]
+            )
+        )
 
     for ed in retry_eds:
         target = pop_lookup.get(ed)
@@ -789,7 +869,11 @@ def sweep_map(
         excl = ensure_valid(unary_union(exclusion_parts)) if exclusion_parts else None
 
         pop_got, iters, desc, new_poly = radial_absorption_sweep(
-            ed, target, ed_geom, das, search_buffer_m=40_000,
+            ed,
+            target,
+            ed_geom,
+            das,
+            search_buffer_m=40_000,
             tier_a_union=excl,
         )
         if new_poly is not None and not new_poly.is_empty and target > 0:
@@ -805,13 +889,22 @@ def sweep_map(
 
         # Replace the existing NOT_CONVERGED row for this ED with the retry outcome.
         for i, r in enumerate(results):
-            if r.ed_name == ed and r.map_label == map_label and r.status == "NOT_CONVERGED":
+            if (
+                r.ed_name == ed
+                and r.map_label == map_label
+                and r.status == "NOT_CONVERGED"
+            ):
                 results[i] = SweepResult(
-                    ed_name=ed, map_label=map_label,
+                    ed_name=ed,
+                    map_label=map_label,
                     canon_source_before=r.canon_source_before,
-                    sweep_param="radial-retry", converged_value=desc,
-                    residual_pct=resid_pct, iterations=iters, status=status,
-                    method="radial-retry", ed_partner=r.ed_partner,
+                    sweep_param="radial-retry",
+                    converged_value=desc,
+                    residual_pct=resid_pct,
+                    iterations=iters,
+                    status=status,
+                    method="radial-retry",
+                    ed_partner=r.ed_partner,
                     pop_da_after=pop_got,
                     pop_commission=float(commission_lookup.get(ed, 0.0)),
                 )
@@ -821,7 +914,9 @@ def sweep_map(
             new_geoms[ed] = new_poly
             print(f"  [{map_label}] radial-retry {ed}: {status} ({resid_pct:.2f}%)")
         else:
-            print(f"  [{map_label}] radial-retry {ed}: NOT_CONVERGED ({resid_pct:.2f}%)")
+            print(
+                f"  [{map_label}] radial-retry {ed}: NOT_CONVERGED ({resid_pct:.2f}%)"
+            )
 
     # Apply accepted new geoms to a copy of the canonical
     out = canon.copy()
@@ -848,8 +943,12 @@ def sweep_map(
     swept_names = list(new_geoms.keys())
     status_by_ed = {}
     for r in results:
-        rank = {"CONVERGED_TIGHT": 3, "CONVERGED_ACCEPTABLE": 2,
-                "NOT_CONVERGED": 1, "NOT_ATTEMPTED": 0}.get(r.status, 0)
+        rank = {
+            "CONVERGED_TIGHT": 3,
+            "CONVERGED_ACCEPTABLE": 2,
+            "NOT_CONVERGED": 1,
+            "NOT_ATTEMPTED": 0,
+        }.get(r.status, 0)
         status_by_ed[r.ed_name] = max(status_by_ed.get(r.ed_name, 0), rank)
 
     # Pass (ii): swept-vs-swept — weaker rank loses.
@@ -881,13 +980,17 @@ def sweep_map(
 
     # Pass (i): for every non-swept polygon, subtract any overlapping swept
     # polygon so the swept polygon owns its DAs exclusively.
-    swept_geoms_merged = ensure_valid(unary_union(
-        [out.loc[out["name_2026"] == s].iloc[0].geometry
-         for s in swept_names
-         if s in out["name_2026"].values
-         and out.loc[out["name_2026"] == s].iloc[0].geometry is not None
-         and not out.loc[out["name_2026"] == s].iloc[0].geometry.is_empty]
-    ))
+    swept_geoms_merged = ensure_valid(
+        unary_union(
+            [
+                out.loc[out["name_2026"] == s].iloc[0].geometry
+                for s in swept_names
+                if s in out["name_2026"].values
+                and out.loc[out["name_2026"] == s].iloc[0].geometry is not None
+                and not out.loc[out["name_2026"] == s].iloc[0].geometry.is_empty
+            ]
+        )
+    )
     if swept_geoms_merged is not None and not swept_geoms_merged.is_empty:
         for idx, row in out.iterrows():
             if row["name_2026"] in swept_names:
@@ -918,7 +1021,8 @@ def assign_das(das: gpd.GeoDataFrame, polys: gpd.GeoDataFrame) -> pd.DataFrame:
     joined = gpd.sjoin(
         centroids[["DAUID", "geometry"]],
         polys_valid[["name_2026", "geometry"]],
-        how="left", predicate="within",
+        how="left",
+        predicate="within",
     )
     joined = joined[~joined.index.duplicated(keep="first")]
     return joined[["DAUID", "name_2026"]].copy()
@@ -936,9 +1040,11 @@ def rerun_phase_4f(
     das = das.merge(da_pops[["DAUID", "population_2021"]], on="DAUID", how="left")
 
     maj_pops = pd.read_csv(MAJ_POP_CSV)[["ed_name", "population"]].rename(
-        columns={"population": "pop_commission"})
+        columns={"population": "pop_commission"}
+    )
     min_pops = pd.read_csv(MIN_POP_CSV)[["ed_name", "population"]].rename(
-        columns={"population": "pop_commission"})
+        columns={"population": "pop_commission"}
+    )
 
     province_2021 = das["population_2021"].sum()
     commission_total = maj_pops["pop_commission"].sum()
@@ -946,61 +1052,87 @@ def rerun_phase_4f(
     print(f"  growth factor: {growth:.4f}")
 
     rows = []
-    for label, canon, pops in [("majority", maj_canon, maj_pops),
-                                ("minority", min_canon, min_pops)]:
+    for label, canon, pops in [
+        ("majority", maj_canon, maj_pops),
+        ("minority", min_canon, min_pops),
+    ]:
         assign = assign_das(das, canon)
         merged = das.merge(assign, on="DAUID", how="left")
-        agg = (merged.dropna(subset=["name_2026"])
-               .groupby("name_2026")["population_2021"].sum().reset_index())
+        agg = (
+            merged.dropna(subset=["name_2026"])
+            .groupby("name_2026")["population_2021"]
+            .sum()
+            .reset_index()
+        )
         agg.columns = ["ed_name", "pop_2021_from_das"]
         d = pops.merge(agg, on="ed_name", how="left").fillna({"pop_2021_from_das": 0.0})
         d["pop_scaled_to_commission_total"] = d["pop_2021_from_das"] * growth
         d["delta_raw"] = d["pop_2021_from_das"] - d["pop_commission"]
-        d["delta_raw_pct"] = 100.0 * d["delta_raw"] / d["pop_commission"].replace(0, np.nan)
+        d["delta_raw_pct"] = (
+            100.0 * d["delta_raw"] / d["pop_commission"].replace(0, np.nan)
+        )
         d["delta_scaled"] = d["pop_scaled_to_commission_total"] - d["pop_commission"]
         d["delta_scaled_pct"] = (
             100.0 * d["delta_scaled"] / d["pop_commission"].replace(0, np.nan)
         )
         d["map"] = label
         # polygon_source from canon
-        src_map = dict(zip(canon["name_2026"], canon.get("canon_source", pd.Series([""] * len(canon)))))
+        src_map = dict(
+            zip(
+                canon["name_2026"],
+                canon.get("canon_source", pd.Series([""] * len(canon))),
+            )
+        )
         d["polygon_source"] = d["ed_name"].map(src_map).fillna("none")
         rows.append(d)
 
     combined = pd.concat(rows, ignore_index=True)
     combined["flag_warn_0p5pct_scaled"] = combined["delta_scaled_pct"].abs() > 0.5
     combined["flag_hardstop_2pct_scaled"] = combined["delta_scaled_pct"].abs() > 2.0
-    return combined[[
-        "map", "ed_name", "pop_2021_from_das", "pop_scaled_to_commission_total",
-        "pop_commission", "delta_raw", "delta_raw_pct",
-        "delta_scaled", "delta_scaled_pct",
-        "flag_warn_0p5pct_scaled", "flag_hardstop_2pct_scaled",
-        "polygon_source",
-    ]]
+    return combined[
+        [
+            "map",
+            "ed_name",
+            "pop_2021_from_das",
+            "pop_scaled_to_commission_total",
+            "pop_commission",
+            "delta_raw",
+            "delta_raw_pct",
+            "delta_scaled",
+            "delta_scaled_pct",
+            "flag_warn_0p5pct_scaled",
+            "flag_hardstop_2pct_scaled",
+            "polygon_source",
+        ]
+    ]
 
 
 # ─── Reporting ────────────────────────────────────────────────────────────────
 def results_to_df(results: list[SweepResult]) -> pd.DataFrame:
     rows = []
     for r in results:
-        rows.append({
-            "map": r.map_label,
-            "ed_name": r.ed_name,
-            "canon_source_before": r.canon_source_before,
-            "sweep_param": r.sweep_param,
-            "converged_value": r.converged_value,
-            "residual_pct": r.residual_pct,
-            "iterations": r.iterations,
-            "status": r.status,
-            "method": r.method,
-            "ed_partner": r.ed_partner,
-            "pop_da_after": r.pop_da_after,
-            "pop_commission": r.pop_commission,
-        })
+        rows.append(
+            {
+                "map": r.map_label,
+                "ed_name": r.ed_name,
+                "canon_source_before": r.canon_source_before,
+                "sweep_param": r.sweep_param,
+                "converged_value": r.converged_value,
+                "residual_pct": r.residual_pct,
+                "iterations": r.iterations,
+                "status": r.status,
+                "method": r.method,
+                "ed_partner": r.ed_partner,
+                "pop_da_after": r.pop_da_after,
+                "pop_commission": r.pop_commission,
+            }
+        )
     return pd.DataFrame(rows)
 
 
-def build_summary(results_df: pd.DataFrame, pre: pd.DataFrame, post: pd.DataFrame) -> dict:
+def build_summary(
+    results_df: pd.DataFrame, pre: pd.DataFrame, post: pd.DataFrame
+) -> dict:
     summary = {"generated_at": datetime.now().isoformat(timespec="seconds")}
     for label in ("majority", "minority"):
         rl = results_df[results_df["map"] == label]
@@ -1010,10 +1142,16 @@ def build_summary(results_df: pd.DataFrame, pre: pd.DataFrame, post: pd.DataFram
             "n_acceptable": int((rl["status"] == "CONVERGED_ACCEPTABLE").sum()),
             "n_not_converged": int((rl["status"] == "NOT_CONVERGED").sum()),
             "n_not_attempted": int((rl["status"] == "NOT_ATTEMPTED").sum()),
-            "n_fail_hardstop_pre": int(pre[(pre["map"] == label) &
-                                            (pre["flag_hardstop_2pct_scaled"] == True)].shape[0]),
-            "n_fail_hardstop_post": int(post[(post["map"] == label) &
-                                              (post["flag_hardstop_2pct_scaled"] == True)].shape[0]),
+            "n_fail_hardstop_pre": int(
+                pre[
+                    (pre["map"] == label) & (pre["flag_hardstop_2pct_scaled"] == True)
+                ].shape[0]
+            ),
+            "n_fail_hardstop_post": int(
+                post[
+                    (post["map"] == label) & (post["flag_hardstop_2pct_scaled"] == True)
+                ].shape[0]
+            ),
         }
     return summary
 
@@ -1116,21 +1254,25 @@ def _df_to_md(df: pd.DataFrame) -> str:
 
 
 def write_analysis_md(
-    results_df: pd.DataFrame, pre: pd.DataFrame, post: pd.DataFrame,
+    results_df: pd.DataFrame,
+    pre: pd.DataFrame,
+    post: pd.DataFrame,
     summary: dict,
 ) -> str:
     # Outcome table (per-map counts)
-    outcome = pd.DataFrame([
-        {
-            "Map": label,
-            "Attempted": summary[label]["n_attempted"],
-            "Tight (<0.5%)": summary[label]["n_tight"],
-            "Acceptable (0.5–2%)": summary[label]["n_acceptable"],
-            "Not converged (>2%)": summary[label]["n_not_converged"],
-            "Not attempted": summary[label]["n_not_attempted"],
-        }
-        for label in ("majority", "minority")
-    ])
+    outcome = pd.DataFrame(
+        [
+            {
+                "Map": label,
+                "Attempted": summary[label]["n_attempted"],
+                "Tight (<0.5%)": summary[label]["n_tight"],
+                "Acceptable (0.5–2%)": summary[label]["n_acceptable"],
+                "Not converged (>2%)": summary[label]["n_not_converged"],
+                "Not attempted": summary[label]["n_not_attempted"],
+            }
+            for label in ("majority", "minority")
+        ]
+    )
     outcome_table = outcome.pipe(_df_to_md)
 
     # Residuals pre/post
@@ -1141,30 +1283,57 @@ def write_analysis_md(
             "Map": label,
             "n_fail_hardstop_2pct": int((sub["delta_scaled_pct"].abs() > 2.0).sum()),
             "n_fail_warn_0.5pct": int((sub["delta_scaled_pct"].abs() > 0.5).sum()),
-            "median_abs_delta_pct": round(float(sub["delta_scaled_pct"].abs().median()), 3),
+            "median_abs_delta_pct": round(
+                float(sub["delta_scaled_pct"].abs().median()), 3
+            ),
             "max_abs_delta_pct": round(float(sub["delta_scaled_pct"].abs().max()), 3),
-            "rms_abs_delta_pct": round(float(np.sqrt((sub["delta_scaled_pct"] ** 2).mean())), 3),
+            "rms_abs_delta_pct": round(
+                float(np.sqrt((sub["delta_scaled_pct"] ** 2).mean())), 3
+            ),
             "n_nonzero": len(nz),
         }
+
     pre_rows = [agg(pre, label) for label in ("majority", "minority")]
     post_rows = [agg(post, label) for label in ("majority", "minority")]
-    resid_lines = ["### Before (v0_2):", pd.DataFrame(pre_rows).pipe(_df_to_md),
-                   "", "### After (v0_3):", pd.DataFrame(post_rows).pipe(_df_to_md)]
+    resid_lines = [
+        "### Before (v0_2):",
+        pd.DataFrame(pre_rows).pipe(_df_to_md),
+        "",
+        "### After (v0_3):",
+        pd.DataFrame(post_rows).pipe(_df_to_md),
+    ]
     residuals_table = "\n".join(resid_lines)
 
     # Per-ED table
-    cols = ["map", "ed_name", "canon_source_before", "sweep_param",
-            "converged_value", "residual_pct", "iterations", "status", "method"]
+    cols = [
+        "map",
+        "ed_name",
+        "canon_source_before",
+        "sweep_param",
+        "converged_value",
+        "residual_pct",
+        "iterations",
+        "status",
+        "method",
+    ]
     per_ed = results_df[cols].copy()
     per_ed["residual_pct"] = per_ed["residual_pct"].round(3)
     per_ed_table = per_ed.pipe(_df_to_md)
 
     # Not converged
     nc = results_df[results_df["status"] == "NOT_CONVERGED"][
-        ["map", "ed_name", "canon_source_before", "method", "residual_pct",
-         "ed_partner", "sweep_param"]]
+        [
+            "map",
+            "ed_name",
+            "canon_source_before",
+            "method",
+            "residual_pct",
+            "ed_partner",
+            "sweep_param",
+        ]
+    ]
     nc["residual_pct"] = nc["residual_pct"].round(3)
-    not_converged_table = (nc.pipe(_df_to_md) if len(nc) else "_None._")
+    not_converged_table = nc.pipe(_df_to_md) if len(nc) else "_None._"
 
     # Paper paragraph — numeric injected
     maj_pre = summary["majority"]["n_fail_hardstop_pre"]
@@ -1175,7 +1344,9 @@ def write_analysis_md(
     tot_accept = sum(summary[m]["n_acceptable"] for m in ("majority", "minority"))
     tot_nc = sum(summary[m]["n_not_converged"] for m in ("majority", "minority"))
 
-    nc_names = sorted(set(results_df[results_df["status"] == "NOT_CONVERGED"]["ed_name"]))
+    nc_names = sorted(
+        set(results_df[results_df["status"] == "NOT_CONVERGED"]["ed_name"])
+    )
     nc_examples = ", ".join(nc_names[:3]) if nc_names else "none"
 
     paper_paragraph = f"""
@@ -1234,13 +1405,17 @@ def main():
     da_pops = pd.read_csv(DA_POPS_CSV)
     das_all["DAUID"] = das_all["DAUID"].astype(str)
     da_pops["DAUID"] = da_pops["DAUID"].astype(str)
-    das_all = das_all.merge(da_pops[["DAUID", "population_2021"]], on="DAUID", how="left")
+    das_all = das_all.merge(
+        da_pops[["DAUID", "population_2021"]], on="DAUID", how="left"
+    )
     prov_pop_2021 = float(das_all["population_2021"].sum())
     prov_pop_commission = float(maj_pop["population"].sum())
     growth_factor = prov_pop_commission / prov_pop_2021
     print(f"  DAs: {len(das_all)}, province 2021 pop: {prov_pop_2021:,.0f}")
-    print(f"  province commission total: {prov_pop_commission:,.0f}, "
-          f"growth factor: {growth_factor:.4f}")
+    print(
+        f"  province commission total: {prov_pop_commission:,.0f}, "
+        f"growth factor: {growth_factor:.4f}"
+    )
 
     # ── Pre-sweep Phase 4F snapshot ────────────────────────────────────────────
     print("\nLoading pre-sweep validation deltas (v0_1_validation_deltas.csv)…")
@@ -1248,9 +1423,11 @@ def main():
 
     # ── Sweep both maps ────────────────────────────────────────────────────────
     maj_canon_v3, maj_results = sweep_map(
-        "majority", maj_in, maj_pop, das_all, growth_factor=growth_factor)
+        "majority", maj_in, maj_pop, das_all, growth_factor=growth_factor
+    )
     min_canon_v3, min_results = sweep_map(
-        "minority", min_in, min_pop, das_all, growth_factor=growth_factor)
+        "minority", min_in, min_pop, das_all, growth_factor=growth_factor
+    )
 
     # ── Write v0_3 GPKG ────────────────────────────────────────────────────────
     print("\nWriting v0_3 canonical GeoPackages…")
@@ -1284,11 +1461,15 @@ def main():
     print("\n=== SWEEP SUMMARY ===")
     for label in ("majority", "minority"):
         s = summary[label]
-        print(f"  [{label}] attempted={s['n_attempted']} "
-              f"tight={s['n_tight']} accept={s['n_acceptable']} "
-              f"nc={s['n_not_converged']} nA={s['n_not_attempted']}")
-        print(f"    Phase 4F hardstop fails: "
-              f"pre={s['n_fail_hardstop_pre']} -> post={s['n_fail_hardstop_post']}")
+        print(
+            f"  [{label}] attempted={s['n_attempted']} "
+            f"tight={s['n_tight']} accept={s['n_acceptable']} "
+            f"nc={s['n_not_converged']} nA={s['n_not_attempted']}"
+        )
+        print(
+            f"    Phase 4F hardstop fails: "
+            f"pre={s['n_fail_hardstop_pre']} -> post={s['n_fail_hardstop_post']}"
+        )
 
     print(f"\n[total runtime: {time.time() - t_start:.1f}s]")
 

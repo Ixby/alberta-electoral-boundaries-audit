@@ -18,6 +18,7 @@ Dependencies
   Backward : data/polsby_popper_per_district.csv
              analysis/reports/polsby_popper_verdict.md
 """
+
 # Version: 0.9 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -32,8 +33,27 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-MIN_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
-MAJ_GPKG = ROOT / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
+_CANONICAL = ROOT / "data" / "shapefiles" / "canonical"
+_DERIVED = ROOT / "data" / "shapefiles" / "derived"
+
+
+def _pick_gpkg(plan: str) -> Path:
+    """Prefer official canonical shapefiles; fall back to derived (deprecated)."""
+    c = _CANONICAL / f"ea_{plan}_2026_eds.gpkg"
+    if c.exists():
+        return c
+    for fname in (
+        f"v0_10_topological_{plan}_2026_eds.gpkg",
+        f"v0_8_full_refined_{plan}_2026_eds.gpkg",
+    ):
+        p = _DERIVED / fname
+        if p.exists():
+            return p
+    return _DERIVED / f"v0_10_topological_{plan}_2026_eds.gpkg"
+
+
+MIN_GPKG = _pick_gpkg("minority")
+MAJ_GPKG = _pick_gpkg("majority")
 OUT_CSV = ROOT / "data" / "polsby_popper_per_district.csv"
 
 TARGET_CRS = "EPSG:3401"
@@ -64,13 +84,15 @@ def score_map(gpkg_path: Path, label: str) -> pd.DataFrame:
     rows = []
     for _, r in gdf.iterrows():
         g = r.geometry
-        rows.append({
-            "map": label,
-            "ed_name": r["name_2026"],
-            "area_m2": g.area if g is not None else None,
-            "perimeter_m": g.length if g is not None else None,
-            "polsby_popper": polsby_popper(g),
-        })
+        rows.append(
+            {
+                "map": label,
+                "ed_name": r["name_2026"],
+                "area_m2": g.area if g is not None else None,
+                "perimeter_m": g.length if g is not None else None,
+                "polsby_popper": polsby_popper(g),
+            }
+        )
     return pd.DataFrame(rows)
 
 
@@ -99,7 +121,9 @@ def print_lasso_lookup(df_all: pd.DataFrame) -> None:
             continue
         for _, r in rows.iterrows():
             tag = "below 0.25" if r["polsby_popper"] < PP_THRESHOLD else "above 0.25"
-            print(f"  [{r['map']:<8s}] {r['ed_name']:<45s}  PP={r['polsby_popper']:.3f}  ({tag})")
+            print(
+                f"  [{r['map']:<8s}] {r['ed_name']:<45s}  PP={r['polsby_popper']:.3f}  ({tag})"
+            )
 
 
 def main() -> None:

@@ -33,15 +33,15 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
 
-VA_PATH  = REPO / "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
-DPG_MAJ  = REPO / "data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg"
-DPG_MIN  = REPO / "data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg"
-OFF_MAJ  = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
-OFF_MIN  = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
+VA_PATH = REPO / "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
+DPG_MAJ = REPO / "data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg"
+DPG_MIN = REPO / "data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg"
+OFF_MAJ = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
+OFF_MIN = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
 
-OUT_MAJ  = REPO / "data/shapefiles/derived/v11_majority_2026_eds.gpkg"
-OUT_MIN  = REPO / "data/shapefiles/derived/v11_minority_2026_eds.gpkg"
-OUT_LOG  = ROOT / "outputs/v11_va_assignment_log.csv"
+OUT_MAJ = REPO / "data/shapefiles/derived/v11_majority_2026_eds.gpkg"
+OUT_MIN = REPO / "data/shapefiles/derived/v11_minority_2026_eds.gpkg"
+OUT_LOG = ROOT / "outputs/v11_va_assignment_log.csv"
 OUT_LOG.parent.mkdir(exist_ok=True)
 
 
@@ -54,7 +54,8 @@ def assign_vas_to_eds(va_gdf, off_gdf, label):
     joined = gpd.sjoin(
         centroids[["geometry"]],
         off_gdf[["geometry", "EDName2025"]],
-        how="left", predicate="within"
+        how="left",
+        predicate="within",
     )
 
     missed = joined[joined["EDName2025"].isna()].index
@@ -63,7 +64,7 @@ def assign_vas_to_eds(va_gdf, off_gdf, label):
         nearest = gpd.sjoin_nearest(
             centroids.loc[missed, ["geometry"]],
             off_gdf[["geometry", "EDName2025"]],
-            how="left"
+            how="left",
         )
         joined.loc[missed, "EDName2025"] = nearest["EDName2025"].values
 
@@ -102,20 +103,24 @@ def compute_iou(v11_gdf, off_gdf, label):
         union_area = off_row.geometry.union(best_v11.geometry).area
         inter_area = areas[best_idx]
         iou = inter_area / union_area if union_area > 0 else 0
-        ious.append({
-            "official_ed": off_name,
-            "v11_ed": best_v11["EDName2025"],
-            "name_match": off_name == best_v11["EDName2025"],
-            "iou": round(iou * 100, 2),
-        })
+        ious.append(
+            {
+                "official_ed": off_name,
+                "v11_ed": best_v11["EDName2025"],
+                "name_match": off_name == best_v11["EDName2025"],
+                "iou": round(iou * 100, 2),
+            }
+        )
 
     df = pd.DataFrame(ious)
     mean_iou = df["iou"].mean()
-    min_iou  = df["iou"].min()
-    n_low    = (df["iou"] < 90).sum()
+    min_iou = df["iou"].min()
+    n_low = (df["iou"] < 90).sum()
     print(f"\n  {label} v11 IoU vs official:")
     print(f"    Mean IoU:        {mean_iou:.1f}%")
-    print(f"    Min IoU:         {min_iou:.1f}%  ({df.loc[df['iou'].idxmin(),'official_ed']})")
+    print(
+        f"    Min IoU:         {min_iou:.1f}%  ({df.loc[df['iou'].idxmin(),'official_ed']})"
+    )
     print(f"    EDs < 90% IoU:   {n_low}")
     print(f"    Name mismatches: {(~df['name_match']).sum()}")
     return df
@@ -132,14 +137,15 @@ def build_assignment_log(va_assigned, dpg_gdf, label):
     dpg_join = gpd.sjoin(
         centroids[["geometry"]],
         dpg[["geometry", "_dpg_name"]],
-        how="left", predicate="within"
+        how="left",
+        predicate="within",
     )
     missed = dpg_join[dpg_join["_dpg_name"].isna()].index
     if len(missed):
         nearest = gpd.sjoin_nearest(
             centroids.loc[missed, ["geometry"]],
             dpg[["geometry", "_dpg_name"]],
-            how="left"
+            how="left",
         )
         dpg_join.loc[missed, "_dpg_name"] = nearest["_dpg_name"].values
 
@@ -148,17 +154,19 @@ def build_assignment_log(va_assigned, dpg_gdf, label):
         old_ed = dpg_join.loc[idx, "_dpg_name"] if idx in dpg_join.index else None
         new_ed = row["v11_ed"]
         changed = old_ed != new_ed
-        rows.append({
-            "map": label,
-            "va_idx": idx,
-            "old_ed": old_ed,
-            "new_ed": new_ed,
-            "changed": changed,
-            "reason_code": "OFFICIAL_SJOIN" if changed else "UNCHANGED",
-            "raster_evidence_note": "",
-            "confidence": "high" if changed else "n/a",
-            "reviewer": "automated",
-        })
+        rows.append(
+            {
+                "map": label,
+                "va_idx": idx,
+                "old_ed": old_ed,
+                "new_ed": new_ed,
+                "changed": changed,
+                "reason_code": "OFFICIAL_SJOIN" if changed else "UNCHANGED",
+                "raster_evidence_note": "",
+                "confidence": "high" if changed else "n/a",
+                "reviewer": "automated",
+            }
+        )
 
     log_df = pd.DataFrame(rows)
     n_changed = log_df["changed"].sum()

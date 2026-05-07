@@ -277,7 +277,7 @@ It ALSO has a symmetric reference: the CSD (v0_4) and DA (v0_5) layers are indep
 - NOT Attribution-Method-invariant (crosswalk vs spatial disagree; v0_2 vs v0_5 disagree)
 - IS Population-Data-invariant (Plan-B confirms)
 
-Under the three-axis taxonomy, the audit CANNOT claim the asymmetry sign is Structural or Robust. The §5.2.7 four-seven-layer reporting is honest about this: *we do not know the sign at publication grade. We know it is not a pipeline error. We name what would resolve it (FOIP, Issue #1).*
+Under the three-axis taxonomy, the audit CANNOT claim the asymmetry sign is Structural or Robust. The §5.2.7 four-seven-layer reporting is honest about this: *we do not know the sign at publication grade. We know it is not a pipeline error. We name what would resolve it (official disclosure, Issue #1).*
 
 ### 7.5 How this framework sharpens the paper
 

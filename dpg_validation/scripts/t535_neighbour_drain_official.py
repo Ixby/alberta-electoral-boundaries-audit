@@ -26,16 +26,16 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parent
 
-VA_PATH  = REPO / "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
-OFF_MAJ  = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
-OFF_MIN  = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
-OUT      = ROOT / "outputs/t535_neighbour_drain_official.csv"
+VA_PATH = REPO / "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
+OFF_MAJ = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
+OFF_MIN = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
+OUT = ROOT / "outputs/t535_neighbour_drain_official.csv"
 OUT.parent.mkdir(exist_ok=True)
 
-TOUCH_THRESHOLD  = 50    # metres — shared boundary >= this to count as adjacent
-SURPLUS_THRESH   = 0.15  # losing-party surplus threshold for "packed"
-MARGIN_THRESH    = 0.05  # winning margin threshold for "cracked"
-PASS_RATIO       = 1.5   # pre-registered: minority/majority coupled count <= this
+TOUCH_THRESHOLD = 50  # metres — shared boundary >= this to count as adjacent
+SURPLUS_THRESH = 0.15  # losing-party surplus threshold for "packed"
+MARGIN_THRESH = 0.05  # winning margin threshold for "cracked"
+PASS_RATIO = 1.5  # pre-registered: minority/majority coupled count <= this
 
 # Original audit result (v0_8 substrate) for comparison
 AUDIT_COUPLED = {"majority": 3, "minority": 4}
@@ -56,8 +56,11 @@ def build_adjacency(gdf, name_col, threshold=TOUCH_THRESHOLD):
                 if shared.geom_type in ("LineString", "MultiLineString"):
                     length = shared.length
                 elif shared.geom_type == "GeometryCollection":
-                    length = sum(g.length for g in shared.geoms
-                                 if g.geom_type in ("LineString", "MultiLineString"))
+                    length = sum(
+                        g.length
+                        for g in shared.geoms
+                        if g.geom_type in ("LineString", "MultiLineString")
+                    )
                 else:
                     length = 0
                 if length >= threshold:
@@ -75,18 +78,19 @@ def agg_votes_to_eds(va_gdf, ed_gdf, ed_name_col):
     joined = gpd.sjoin(
         centroids[["geometry", "va_ndp", "va_ucp"]],
         ed_gdf[["geometry", ed_name_col]],
-        how="left", predicate="within"
+        how="left",
+        predicate="within",
     )
     missed = joined[joined[ed_name_col].isna()].index
     if len(missed):
         nearest = gpd.sjoin_nearest(
             centroids.loc[missed, ["geometry", "va_ndp", "va_ucp"]],
             ed_gdf[["geometry", ed_name_col]],
-            how="left"
+            how="left",
         )
         joined.loc[missed, ed_name_col] = nearest[ed_name_col].values
-        joined.loc[missed, "va_ndp"]    = nearest["va_ndp"].values
-        joined.loc[missed, "va_ucp"]    = nearest["va_ucp"].values
+        joined.loc[missed, "va_ndp"] = nearest["va_ndp"].values
+        joined.loc[missed, "va_ucp"] = nearest["va_ucp"].values
 
     agg = joined.groupby(ed_name_col)[["va_ndp", "va_ucp"]].sum().reset_index()
     agg.columns = ["ed_name", "ndp", "ucp"]
@@ -97,7 +101,7 @@ def agg_votes_to_eds(va_gdf, ed_gdf, ed_name_col):
     agg["margin"] = (agg["ndp_share"] - agg["ucp_share"]).abs()
     # Winner and loser
     agg["winner"] = np.where(agg["ndp"] > agg["ucp"], "NDP", "UCP")
-    agg["loser"]  = np.where(agg["ndp"] > agg["ucp"], "UCP", "NDP")
+    agg["loser"] = np.where(agg["ndp"] > agg["ucp"], "UCP", "NDP")
     # Losing-party surplus = losing party's share (not wasted, just their total share)
     agg["losing_surplus"] = np.where(
         agg["ndp"] > agg["ucp"], agg["ucp_share"], agg["ndp_share"]
@@ -118,22 +122,26 @@ def chain_signals(vote_df, adj_edges):
             continue
 
         for packed_ed, cracked_ed in [(a, b), (b, a)]:
-            packed  = vote_df.loc[packed_ed]
+            packed = vote_df.loc[packed_ed]
             cracked = vote_df.loc[cracked_ed]
 
-            if (packed["losing_surplus"] >= SURPLUS_THRESH and
-                    cracked["margin"] <= MARGIN_THRESH):
+            if (
+                packed["losing_surplus"] >= SURPLUS_THRESH
+                and cracked["margin"] <= MARGIN_THRESH
+            ):
 
                 coupled = packed["loser"] == cracked["loser"]
-                signals.append({
-                    "packed_ed":      packed_ed,
-                    "cracked_ed":     cracked_ed,
-                    "packed_surplus": round(packed["losing_surplus"], 4),
-                    "cracked_margin": round(cracked["margin"], 4),
-                    "packed_loser":   packed["loser"],
-                    "cracked_loser":  cracked["loser"],
-                    "coupled":        coupled,
-                })
+                signals.append(
+                    {
+                        "packed_ed": packed_ed,
+                        "cracked_ed": cracked_ed,
+                        "packed_surplus": round(packed["losing_surplus"], 4),
+                        "cracked_margin": round(cracked["margin"], 4),
+                        "packed_loser": packed["loser"],
+                        "cracked_loser": cracked["loser"],
+                        "coupled": coupled,
+                    }
+                )
 
     return signals
 
@@ -150,7 +158,7 @@ def run_map(label, off_path, va_gdf):
     votes = agg_votes_to_eds(va_gdf, off, "EDName2025")
 
     signals = chain_signals(votes, adj)
-    total_signals   = len(signals)
+    total_signals = len(signals)
     coupled_signals = sum(1 for s in signals if s["coupled"])
 
     print(f"  Chain signals (total):   {total_signals}")
@@ -161,7 +169,17 @@ def run_map(label, off_path, va_gdf):
     if signals:
         df_sig = pd.DataFrame(signals)
         print(f"\n  All chain signals:")
-        print(df_sig[["packed_ed","cracked_ed","packed_surplus","cracked_margin","coupled"]].to_string(index=False))
+        print(
+            df_sig[
+                [
+                    "packed_ed",
+                    "cracked_ed",
+                    "packed_surplus",
+                    "cracked_margin",
+                    "coupled",
+                ]
+            ].to_string(index=False)
+        )
 
     return coupled_signals, signals
 
@@ -182,8 +200,12 @@ def main():
     print(f"  Ratio (minority/majority):            {ratio:.2f}x")
     print(f"  Pre-registered pass threshold:        <= {PASS_RATIO}x")
     print(f"  §5.3.5 RESULT (official geometry):    {'PASS' if t535_pass else 'FAIL'}")
-    print(f"\n  Audit v0_8 result: minority={AUDIT_COUPLED['minority']} majority={AUDIT_COUPLED['majority']} ratio={AUDIT_COUPLED['minority']/AUDIT_COUPLED['majority']:.2f}x PASS")
-    print(f"  Delta: majority {maj_coupled - AUDIT_COUPLED['majority']:+d}  minority {min_coupled - AUDIT_COUPLED['minority']:+d}")
+    print(
+        f"\n  Audit v0_8 result: minority={AUDIT_COUPLED['minority']} majority={AUDIT_COUPLED['majority']} ratio={AUDIT_COUPLED['minority']/AUDIT_COUPLED['majority']:.2f}x PASS"
+    )
+    print(
+        f"  Delta: majority {maj_coupled - AUDIT_COUPLED['majority']:+d}  minority {min_coupled - AUDIT_COUPLED['minority']:+d}"
+    )
 
     rows = maj_signals + min_signals
     for r in rows:

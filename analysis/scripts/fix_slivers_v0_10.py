@@ -1,4 +1,7 @@
 """
+DEPRECATED 2026-05-07. Official Elections Alberta canonical shapefiles supersede
+all DPG-derived files. Retained for provenance only.
+
 fix_slivers_v0_10.py
 --------------------
 Resolves topology slivers in the v0_9 majority and minority maps and produces
@@ -33,10 +36,10 @@ DERIVED = (
     r"C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis"
     r"\alberta_audit\data\shapefiles\derived"
 )
-SRC_MAJ   = f"{DERIVED}\\v0_9_topological_majority_2026_eds.gpkg"
-SRC_MIN   = f"{DERIVED}\\v0_9_topological_minority_2026_eds.gpkg"
-DST_MAJ   = f"{DERIVED}\\v0_10_topological_majority_2026_eds.gpkg"
-DST_MIN   = f"{DERIVED}\\v0_10_topological_minority_2026_eds.gpkg"
+SRC_MAJ = f"{DERIVED}\\v0_9_topological_majority_2026_eds.gpkg"
+SRC_MIN = f"{DERIVED}\\v0_9_topological_minority_2026_eds.gpkg"
+DST_MAJ = f"{DERIVED}\\v0_10_topological_majority_2026_eds.gpkg"
+DST_MIN = f"{DERIVED}\\v0_10_topological_minority_2026_eds.gpkg"
 LAYER_MAJ = "v0_10_topological_majority_2026_eds"
 LAYER_MIN = "v0_10_topological_minority_2026_eds"
 THRESHOLD = 100  # m2
@@ -46,7 +49,7 @@ def find_overlaps(gdf, name_col="name_2026", threshold=THRESHOLD):
     """Return list of dicts describing all overlapping pairs above threshold."""
     geoms = list(gdf.geometry)
     names = list(gdf[name_col])
-    idxs  = list(gdf.index)
+    idxs = list(gdf.index)
     pairs = []
     for ii in range(len(geoms)):
         for jj in range(ii + 1, len(geoms)):
@@ -54,19 +57,26 @@ def find_overlaps(gdf, name_col="name_2026", threshold=THRESHOLD):
             if not gi.intersects(gj):
                 continue
             inter = gi.intersection(gj)
-            area  = inter.area
+            area = inter.area
             if area > threshold:
                 fi = area / gi.area
                 fj = area / gj.area
-                pairs.append(dict(
-                    ii=ii, jj=jj,
-                    idx_i=idxs[ii], idx_j=idxs[jj],
-                    name_i=names[ii], name_j=names[jj],
-                    sliver_area=area,
-                    frac_i=fi, frac_j=fj,
-                    geom_i_area=gi.area, geom_j_area=gj.area,
-                    inter=inter,
-                ))
+                pairs.append(
+                    dict(
+                        ii=ii,
+                        jj=jj,
+                        idx_i=idxs[ii],
+                        idx_j=idxs[jj],
+                        name_i=names[ii],
+                        name_j=names[jj],
+                        sliver_area=area,
+                        frac_i=fi,
+                        frac_j=fj,
+                        geom_i_area=gi.area,
+                        geom_j_area=gj.area,
+                        inter=inter,
+                    )
+                )
     return pairs
 
 
@@ -82,9 +92,11 @@ def resolve_one_pass(geom_dict, pairs, label=""):
         current_gi = geom_dict[p["idx_i"]]
         current_gj = geom_dict[p["idx_j"]]
         current_inter = current_gi.intersection(current_gj)
-        current_area  = current_inter.area
+        current_area = current_inter.area
         if current_area <= THRESHOLD:
-            actions.append(f"    {ni} vs {nj}: already resolved (area now {current_area:.1f} m2)")
+            actions.append(
+                f"    {ni} vs {nj}: already resolved (area now {current_area:.1f} m2)"
+            )
             continue
 
         # Re-compute fractions from current areas
@@ -156,7 +168,9 @@ def fix_map(gdf, label, name_col="name_2026"):
         print(f"  Repairing {n_invalid} invalid geometries...")
         fixed.geometry = fixed.geometry.apply(make_valid)
 
-    print(f"  Converged after {iteration} iteration(s). Total actions: {len(all_actions)}")
+    print(
+        f"  Converged after {iteration} iteration(s). Total actions: {len(all_actions)}"
+    )
     return fixed
 
 
@@ -171,20 +185,28 @@ def save_gpkg(gdf, path, layer):
 def verify(path, layer, name_col="name_2026"):
     """Read back and verify: count, validity, name uniqueness, zero overlaps."""
     df = gpd.read_file(path, layer=layer)
-    n  = len(df)
+    n = len(df)
     n_invalid = int((~df.geometry.is_valid).sum())
-    n_unique  = int(df[name_col].nunique())
-    n_dupes   = n - n_unique
+    n_unique = int(df[name_col].nunique())
+    n_dupes = n - n_unique
     pairs = find_overlaps(df, name_col=name_col)
     n_overlaps = len(pairs)
     print(f"    District count : {n}")
-    print(f"    Geometry valid : {'PASS' if n_invalid == 0 else 'FAIL (' + str(n_invalid) + ' invalid)'}")
-    print(f"    Name uniqueness: {'PASS' if n_dupes == 0 else 'FAIL (' + str(n_dupes) + ' dupes)'}  ({n_unique} unique)")
-    print(f"    Zero overlaps  : {'PASS' if n_overlaps == 0 else 'FAIL (' + str(n_overlaps) + ' pairs)'}")
+    print(
+        f"    Geometry valid : {'PASS' if n_invalid == 0 else 'FAIL (' + str(n_invalid) + ' invalid)'}"
+    )
+    print(
+        f"    Name uniqueness: {'PASS' if n_dupes == 0 else 'FAIL (' + str(n_dupes) + ' dupes)'}  ({n_unique} unique)"
+    )
+    print(
+        f"    Zero overlaps  : {'PASS' if n_overlaps == 0 else 'FAIL (' + str(n_overlaps) + ' pairs)'}"
+    )
     print(f"    CRS            : {df.crs}")
     if pairs:
         for p in pairs:
-            print(f"      still overlapping: {p['name_i']} vs {p['name_j']}: {p['sliver_area']:.1f} m2")
+            print(
+                f"      still overlapping: {p['name_i']} vs {p['name_j']}: {p['sliver_area']:.1f} m2"
+            )
     return n_overlaps == 0 and n_invalid == 0 and n_dupes == 0
 
 
@@ -200,7 +222,9 @@ print("STEP 2 -- Identify overlapping pairs in majority (area > 100 m2)")
 maj_pairs_initial = find_overlaps(maj_gdf)
 print(f"  Found {len(maj_pairs_initial)} overlapping pair(s):")
 for p in maj_pairs_initial:
-    print(f"    {p['name_i']} vs {p['name_j']}: sliver={p['sliver_area']:.1f} m2, frac_i={p['frac_i']:.6f}, frac_j={p['frac_j']:.6f}")
+    print(
+        f"    {p['name_i']} vs {p['name_j']}: sliver={p['sliver_area']:.1f} m2, frac_i={p['frac_i']:.6f}, frac_j={p['frac_j']:.6f}"
+    )
 
 print()
 print("STEP 3 -- Resolve majority overlaps")
@@ -227,11 +251,14 @@ print(f"  Loaded {len(min_gdf)} districts, CRS={min_gdf.crs}")
 min_pairs_initial = find_overlaps(min_gdf)
 print(f"  Found {len(min_pairs_initial)} overlapping pair(s) in minority:")
 for p in min_pairs_initial:
-    print(f"    {p['name_i']} vs {p['name_j']}: sliver={p['sliver_area']:.1f} m2, frac_i={p['frac_i']:.6f}, frac_j={p['frac_j']:.6f}")
+    print(
+        f"    {p['name_i']} vs {p['name_j']}: sliver={p['sliver_area']:.1f} m2, frac_i={p['frac_i']:.6f}, frac_j={p['frac_j']:.6f}"
+    )
 
 if not min_pairs_initial:
     print("  Minority is clean -- copying verbatim.")
     import shutil
+
     if os.path.exists(DST_MIN):
         os.remove(DST_MIN)
     shutil.copy2(SRC_MIN, DST_MIN)
@@ -264,6 +291,7 @@ print()
 print(f"  [MINORITY]  {DST_MIN}")
 # minority layer name: if copied verbatim it keeps old layer name
 import pyogrio
+
 layers_min = pyogrio.list_layers(DST_MIN)
 actual_layer_min = layers_min[0][0]  # first layer name
 ok_min = verify(DST_MIN, actual_layer_min)

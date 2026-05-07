@@ -111,31 +111,43 @@ def main():
     min_a = metrics_area_weighted(MIN_AW_CSV)
 
     rows = []
-    for label, c, a in [("majority_2026", maj_c, maj_a),
-                        ("minority_2026", min_c, min_a)]:
+    for label, c, a in [
+        ("majority_2026", maj_c, maj_a),
+        ("minority_2026", min_c, min_a),
+    ]:
         for k in ["seats_at_50_50", "efficiency_gap", "mean_median", "declination"]:
-            rows.append({
-                "map": label,
-                "metric": k,
-                "centroid": c[k],
-                "area_weighted": a[k],
-                "delta": a[k] - c[k],
-            })
+            rows.append(
+                {
+                    "map": label,
+                    "metric": k,
+                    "centroid": c[k],
+                    "area_weighted": a[k],
+                    "delta": a[k] - c[k],
+                }
+            )
     table = pd.DataFrame(rows)
 
     # Print friendly table.
     print("\n" + "=" * 78)
     print("  4-ROW DELTA TABLE  (centroid vs area-weighted, both v0_9 maps)")
     print("=" * 78)
-    print(f"  {'map':<14s} {'metric':<18s} {'centroid':>12s} {'area_wgt':>12s} {'Δ':>12s}")
+    print(
+        f"  {'map':<14s} {'metric':<18s} {'centroid':>12s} {'area_wgt':>12s} {'Δ':>12s}"
+    )
     for _, r in table.iterrows():
         c, a, d = r["centroid"], r["area_weighted"], r["delta"]
         if r["metric"] == "seats_at_50_50":
-            print(f"  {r['map']:<14s} {r['metric']:<18s} {c*100:>11.3f}% {a*100:>11.3f}% {d*100:>+11.4f}pp")
+            print(
+                f"  {r['map']:<14s} {r['metric']:<18s} {c*100:>11.3f}% {a*100:>11.3f}% {d*100:>+11.4f}pp"
+            )
         elif r["metric"] in ("efficiency_gap", "mean_median"):
-            print(f"  {r['map']:<14s} {r['metric']:<18s} {c*100:>+11.4f}% {a*100:>+11.4f}% {d*100:>+11.4f}pp")
+            print(
+                f"  {r['map']:<14s} {r['metric']:<18s} {c*100:>+11.4f}% {a*100:>+11.4f}% {d*100:>+11.4f}pp"
+            )
         else:
-            print(f"  {r['map']:<14s} {r['metric']:<18s} {c:>+12.5f} {a:>+12.5f} {d:>+12.5f}")
+            print(
+                f"  {r['map']:<14s} {r['metric']:<18s} {c:>+12.5f} {a:>+12.5f} {d:>+12.5f}"
+            )
 
     # s50 verdict per map.
     s50_deltas = {
@@ -144,10 +156,14 @@ def main():
     }
     threshold_pp = 1.0
     survives = all(abs(d) < threshold_pp for d in s50_deltas.values())
-    print(f"\n  threshold for centroid defensibility: |Δ s50| < {threshold_pp:.1f} pp on both maps")
+    print(
+        f"\n  threshold for centroid defensibility: |Δ s50| < {threshold_pp:.1f} pp on both maps"
+    )
     print(f"  Δ s50 majority: {s50_deltas['majority_2026']:+.4f} pp")
     print(f"  Δ s50 minority: {s50_deltas['minority_2026']:+.4f} pp")
-    print(f"  VERDICT: centroid attribution {'SURVIVES' if survives else 'FAILS'} the MAUP attack")
+    print(
+        f"  VERDICT: centroid attribution {'SURVIVES' if survives else 'FAILS'} the MAUP attack"
+    )
 
     out = {
         "centroid_majority": maj_c,
@@ -156,13 +172,15 @@ def main():
         "area_weighted_minority": min_a,
         "deltas_pp": {
             "majority_2026": {
-                k: (maj_a[k] - maj_c[k]) * 100 for k in
-                ["seats_at_50_50", "efficiency_gap", "mean_median"]
-            } | {"declination": maj_a["declination"] - maj_c["declination"]},
+                k: (maj_a[k] - maj_c[k]) * 100
+                for k in ["seats_at_50_50", "efficiency_gap", "mean_median"]
+            }
+            | {"declination": maj_a["declination"] - maj_c["declination"]},
             "minority_2026": {
-                k: (min_a[k] - min_c[k]) * 100 for k in
-                ["seats_at_50_50", "efficiency_gap", "mean_median"]
-            } | {"declination": min_a["declination"] - min_c["declination"]},
+                k: (min_a[k] - min_c[k]) * 100
+                for k in ["seats_at_50_50", "efficiency_gap", "mean_median"]
+            }
+            | {"declination": min_a["declination"] - min_c["declination"]},
         },
         "threshold_pp": threshold_pp,
         "survives_maup_attack": survives,

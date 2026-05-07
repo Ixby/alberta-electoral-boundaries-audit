@@ -17,6 +17,7 @@ boundary-accurate.
 Output: prints rural NDP share for each of the three elections, plus
 the implied Monte Carlo sampling range to cover realistic variation.
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 import csv
@@ -55,8 +56,13 @@ def load_2023() -> list:
                     ucp = v
             if ndp + ucp == 0:
                 continue
-            out.append({"region": r.get("region", "Rest of Alberta"),
-                        "ndp": ndp, "ucp_equiv": ucp})
+            out.append(
+                {
+                    "region": r.get("region", "Rest of Alberta"),
+                    "ndp": ndp,
+                    "ucp_equiv": ucp,
+                }
+            )
     return out
 
 
@@ -80,8 +86,13 @@ def load_2019() -> list:
                     ucp = v
             if ndp + ucp == 0:
                 continue
-            out.append({"region": r.get("region", "Rest of Alberta"),
-                        "ndp": ndp, "ucp_equiv": ucp})
+            out.append(
+                {
+                    "region": r.get("region", "Rest of Alberta"),
+                    "ndp": ndp,
+                    "ucp_equiv": ucp,
+                }
+            )
     return out
 
 
@@ -93,8 +104,13 @@ def load_2015() -> list:
             ucp_equiv = int(r["ucp_equiv"])
             if ndp + ucp_equiv == 0:
                 continue
-            out.append({"region": region_from_name(r["ed_2015"]),
-                        "ndp": ndp, "ucp_equiv": ucp_equiv})
+            out.append(
+                {
+                    "region": region_from_name(r["ed_2015"]),
+                    "ndp": ndp,
+                    "ucp_equiv": ucp_equiv,
+                }
+            )
     return out
 
 
@@ -139,13 +155,19 @@ def main():
     print("\n" + "=" * 70)
     print("  Cross-election range")
     print("=" * 70)
-    print(f"  Min rural NDP share: {min(shares)*100:.2f}% ({['2015','2019','2023'][shares.index(min(shares))]})")
-    print(f"  Max rural NDP share: {max(shares)*100:.2f}% ({['2015','2019','2023'][shares.index(max(shares))]})")
+    print(
+        f"  Min rural NDP share: {min(shares)*100:.2f}% ({['2015','2019','2023'][shares.index(min(shares))]})"
+    )
+    print(
+        f"  Max rural NDP share: {max(shares)*100:.2f}% ({['2015','2019','2023'][shares.index(max(shares))]})"
+    )
     print(f"  Range: {(max(shares)-min(shares))*100:.2f} pp")
     print()
     print("  Monte Carlo implication:")
     print(f"    v0.3 sampled rural_ndp_share ~ Uniform(0.28, 0.38) — 10 pp range")
-    print(f"    Observed 2015-2023 range: {min(shares)*100:.1f}% to {max(shares)*100:.1f}%")
+    print(
+        f"    Observed 2015-2023 range: {min(shares)*100:.1f}% to {max(shares)*100:.1f}%"
+    )
     if max(shares) > 0.40 or min(shares) < 0.25:
         print(f"    FLAG: observed range exceeds Monte Carlo sampling range.")
         print(f"    Sensitivity analysis should widen to Uniform(0.20, 0.55) to")

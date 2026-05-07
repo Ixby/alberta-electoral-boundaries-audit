@@ -19,6 +19,7 @@ Backward:
   data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   analysis/scripts/mcmc_ensemble.py (seat_results, score_exogenous_map)
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 import sys
@@ -35,18 +36,18 @@ ROOT = HERE.parent.parent
 DATA = ROOT / "data"
 DERIVED = DATA / "shapefiles" / "derived"
 
-VA_ED   = DERIVED / "va_polygons_with_2023_votes.gpkg"
+VA_ED = DERIVED / "va_polygons_with_2023_votes.gpkg"
 VA_FULL = DERIVED / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_V9  = DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
-MIN_V9  = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
+MAJ_V9 = DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
+MIN_V9 = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
 
 OUT_JSON = DATA / "advance_vote_sensitivity.json"
 
 
 def load_va(path: Path, ucp_col: str, ndp_col: str, other_col: str) -> gpd.GeoDataFrame:
     va = gpd.read_file(path)
-    va["va_ucp"]   = va[ucp_col].fillna(0.0).astype(float)
-    va["va_ndp"]   = va[ndp_col].fillna(0.0).astype(float)
+    va["va_ucp"] = va[ucp_col].fillna(0.0).astype(float)
+    va["va_ndp"] = va[ndp_col].fillna(0.0).astype(float)
     va["va_other"] = va[other_col].fillna(0.0).astype(float)
     va["total_votes"] = va["va_ucp"] + va["va_ndp"] + va["va_other"]
     return va
@@ -69,12 +70,16 @@ def score_map(va: gpd.GeoDataFrame, map_path: Path, id_col: str = "name_2026") -
     covered = joined.dropna(subset=[id_col])
     covered = covered[~covered.index.duplicated(keep="first")]
 
-    agg = covered.groupby(id_col).agg(
-        ucp=("va_ucp", "sum"),
-        ndp=("va_ndp", "sum"),
-        other=("va_other", "sum"),
-        total_votes=("total_votes", "sum"),
-    ).reset_index()
+    agg = (
+        covered.groupby(id_col)
+        .agg(
+            ucp=("va_ucp", "sum"),
+            ndp=("va_ndp", "sum"),
+            other=("va_other", "sum"),
+            total_votes=("total_votes", "sum"),
+        )
+        .reset_index()
+    )
 
     metrics = seat_results(agg["ucp"].values, agg["ndp"].values)
     metrics["coverage_vas"] = int(len(covered))
@@ -84,24 +89,36 @@ def score_map(va: gpd.GeoDataFrame, map_path: Path, id_col: str = "name_2026") -
 
 def main():
     print("loading substrates...")
-    va_ed   = load_va(VA_ED,   "va_ucp",      "va_ndp",      "va_other")
+    va_ed = load_va(VA_ED, "va_ucp", "va_ndp", "va_other")
     va_full = load_va(VA_FULL, "va_ucp_full", "va_ndp_full", "va_other_full")
 
-    print(f"  ED-only:  total NDP={va_ed['va_ndp'].sum():,.0f}  UCP={va_ed['va_ucp'].sum():,.0f}  "
-          f"two-party total={va_ed['va_ndp'].sum() + va_ed['va_ucp'].sum():,.0f}")
-    print(f"  Full:     total NDP={va_full['va_ndp'].sum():,.0f}  UCP={va_full['va_ucp'].sum():,.0f}  "
-          f"two-party total={va_full['va_ndp'].sum() + va_full['va_ucp'].sum():,.0f}")
+    print(
+        f"  ED-only:  total NDP={va_ed['va_ndp'].sum():,.0f}  UCP={va_ed['va_ucp'].sum():,.0f}  "
+        f"two-party total={va_ed['va_ndp'].sum() + va_ed['va_ucp'].sum():,.0f}"
+    )
+    print(
+        f"  Full:     total NDP={va_full['va_ndp'].sum():,.0f}  UCP={va_full['va_ucp'].sum():,.0f}  "
+        f"two-party total={va_full['va_ndp'].sum() + va_full['va_ucp'].sum():,.0f}"
+    )
 
     results = {}
-    for substrate_name, va in [("election_day_only", va_ed), ("with_advance_smear", va_full)]:
-        for map_name, map_path in [("v0_9_majority", MAJ_V9), ("v0_9_minority", MIN_V9)]:
+    for substrate_name, va in [
+        ("election_day_only", va_ed),
+        ("with_advance_smear", va_full),
+    ]:
+        for map_name, map_path in [
+            ("v0_9_majority", MAJ_V9),
+            ("v0_9_minority", MIN_V9),
+        ]:
             m = score_map(va, map_path)
             key = f"{map_name}__{substrate_name}"
             results[key] = m
-            print(f"  {key}: seats@50/50 = {m['seats_at_50_50']:.4f}  "
-                  f"ucp_share = {m['ucp_vote_share']:.4f}  "
-                  f"ucp_seats = {m['ucp_seats']}/{m['n_districts']}  "
-                  f"EG = {m['efficiency_gap']:+.4f}")
+            print(
+                f"  {key}: seats@50/50 = {m['seats_at_50_50']:.4f}  "
+                f"ucp_share = {m['ucp_vote_share']:.4f}  "
+                f"ucp_seats = {m['ucp_seats']}/{m['n_districts']}  "
+                f"EG = {m['efficiency_gap']:+.4f}"
+            )
 
     # Compute deltas
     deltas = {}
@@ -114,7 +131,12 @@ def main():
             "delta_pp": (b - a) * 100,
         }
         # Other metrics deltas
-        for metric in ("efficiency_gap", "mean_median", "declination", "ucp_vote_share"):
+        for metric in (
+            "efficiency_gap",
+            "mean_median",
+            "declination",
+            "ucp_vote_share",
+        ):
             ma = results[f"{map_name}__election_day_only"][metric]
             mb = results[f"{map_name}__with_advance_smear"][metric]
             deltas[map_name][f"{metric}_A"] = ma
@@ -139,8 +161,10 @@ def main():
 
     print("\n=== seats@50/50 deltas (B - A, in percentage points) ===")
     for map_name, d in deltas.items():
-        print(f"  {map_name}: A={d['election_day_only']:.4f}  B={d['with_advance_smear']:.4f}  "
-              f"delta = {d['delta_pp']:+.3f} pp")
+        print(
+            f"  {map_name}: A={d['election_day_only']:.4f}  B={d['with_advance_smear']:.4f}  "
+            f"delta = {d['delta_pp']:+.3f} pp"
+        )
 
 
 if __name__ == "__main__":

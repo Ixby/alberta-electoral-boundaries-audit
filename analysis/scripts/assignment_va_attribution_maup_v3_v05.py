@@ -28,6 +28,7 @@ Backward:
   data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg
   data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -59,8 +60,18 @@ sys.modules["maup_v1"] = m1
 spec.loader.exec_module(m1)
 
 VA_GPKG = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
-MIN_GPKG = DATA / "shapefiles" / "derived" / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+MAJ_GPKG = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_majority_2026_eds_da_anchored.gpkg"
+)
+MIN_GPKG = (
+    DATA
+    / "shapefiles"
+    / "derived"
+    / "v0_5_canonical_minority_2026_eds_da_anchored.gpkg"
+)
 MAJ_XWALK_CSV = DATA / "majority_full_crosswalk.csv"
 MIN_XWALK_CSV = DATA / "minority_full_crosswalk.csv"
 MAJ_POPS_CSV = DATA / "majority_2026_populations.csv"
@@ -83,7 +94,9 @@ def load_v02_baseline():
     try:
         with open(V02_SUMMARY) as f:
             d = json.load(f)
-        return d.get("maup_v2_topoclean", {}), d.get("asymmetry_pp") or d["maup_v2_topoclean"].get("asymmetry_pp")
+        return d.get("maup_v2_topoclean", {}), d.get("asymmetry_pp") or d[
+            "maup_v2_topoclean"
+        ].get("asymmetry_pp")
     except Exception:
         return {}, None
 
@@ -115,29 +128,45 @@ def main():
     print("  MAJORITY (v0_5)")
     print("=" * 72)
     t0 = time.time()
-    maj = m1.run_one_map(vas, maj_eds, maj_xwalk, maj_names, "majority",
-                         smoke_n=args.smoke)
+    maj = m1.run_one_map(
+        vas, maj_eds, maj_xwalk, maj_names, "majority", smoke_n=args.smoke
+    )
     print(f"  [majority elapsed: {time.time()-t0:.1f}s]")
 
     print("\n" + "=" * 72)
     print("  MINORITY (v0_5)")
     print("=" * 72)
     t1 = time.time()
-    mino = m1.run_one_map(vas, min_eds, min_xwalk, min_names, "minority",
-                          smoke_n=args.smoke)
+    mino = m1.run_one_map(
+        vas, min_eds, min_xwalk, min_names, "minority", smoke_n=args.smoke
+    )
     print(f"  [minority elapsed: {time.time()-t1:.1f}s]")
 
     print("\n[write] outputs...")
     maj["ed_totals"].to_csv(OUT_MAJ, index=False)
     mino["ed_totals"].to_csv(OUT_MIN, index=False)
-    per_va = pd.concat([
-        maj["apportioned"].assign(map="majority"),
-        mino["apportioned"].assign(map="minority"),
-    ], ignore_index=True)[[
-        "map", "OBJECTID", "parent_ed_2019", "VA_NUMBER", "name_2026",
-        "area_weight", "va_ndp_full_share", "va_ucp_full_share",
-        "va_other_full_share", "fallback",
-    ]].rename(columns={"name_2026": "ed_2026"})
+    per_va = pd.concat(
+        [
+            maj["apportioned"].assign(map="majority"),
+            mino["apportioned"].assign(map="minority"),
+        ],
+        ignore_index=True,
+    )[
+        [
+            "map",
+            "OBJECTID",
+            "parent_ed_2019",
+            "VA_NUMBER",
+            "name_2026",
+            "area_weight",
+            "va_ndp_full_share",
+            "va_ucp_full_share",
+            "va_other_full_share",
+            "fallback",
+        ]
+    ].rename(
+        columns={"name_2026": "ed_2026"}
+    )
     per_va.to_csv(OUT_PER_VA, index=False)
     print(f"  wrote: {OUT_MAJ}")
     print(f"  wrote: {OUT_MIN}")
@@ -156,23 +185,31 @@ def main():
     print("\n" + "=" * 72)
     print("  COMPARISON")
     print("=" * 72)
-    print(f"  centroid §5.2.7:  maj={CENTROID_MAJORITY_EG*100:+.4f}%  "
-          f"min={CENTROID_MINORITY_EG*100:+.4f}%  "
-          f"asym={CENTROID_ASYMMETRY_PP:+.4f} pp")
+    print(
+        f"  centroid §5.2.7:  maj={CENTROID_MAJORITY_EG*100:+.4f}%  "
+        f"min={CENTROID_MINORITY_EG*100:+.4f}%  "
+        f"asym={CENTROID_ASYMMETRY_PP:+.4f} pp"
+    )
     if v02_maj_eg is not None:
-        print(f"  v0_2 MAUP-v2:     maj={v02_maj_eg*100:+.4f}%  "
-              f"min={v02_min_eg*100:+.4f}%  "
-              f"asym={v02_asym:+.4f} pp")
-    print(f"  v0_5 MAUP-v3:     maj={maj_eg*100:+.4f}%  "
-          f"min={min_eg*100:+.4f}%  "
-          f"asym={asym:+.4f} pp")
+        print(
+            f"  v0_2 MAUP-v2:     maj={v02_maj_eg*100:+.4f}%  "
+            f"min={v02_min_eg*100:+.4f}%  "
+            f"asym={v02_asym:+.4f} pp"
+        )
+    print(
+        f"  v0_5 MAUP-v3:     maj={maj_eg*100:+.4f}%  "
+        f"min={min_eg*100:+.4f}%  "
+        f"asym={asym:+.4f} pp"
+    )
 
     if v02_maj_eg is not None:
         d_maj = (maj_eg - v02_maj_eg) * 100
         d_min = (min_eg - v02_min_eg) * 100
         d_asym = asym - v02_asym
-        print(f"  Δ v0_5 vs v0_2:   Δmaj={d_maj:+.4f} pp  "
-              f"Δmin={d_min:+.4f} pp  Δasym={d_asym:+.4f} pp")
+        print(
+            f"  Δ v0_5 vs v0_2:   Δmaj={d_maj:+.4f} pp  "
+            f"Δmin={d_min:+.4f} pp  Δasym={d_asym:+.4f} pp"
+        )
     else:
         d_maj = d_min = d_asym = None
 
@@ -186,27 +223,40 @@ def main():
         try:
             a = pd.read_csv(v05_path)
             b = pd.read_csv(v02_path)
-            a["ndp_share"] = a["ndp_2023"] / (a["ndp_2023"] + a["ucp_2023"]).replace(0, pd.NA)
-            b["ndp_share"] = b["ndp_2023"] / (b["ndp_2023"] + b["ucp_2023"]).replace(0, pd.NA)
+            a["ndp_share"] = a["ndp_2023"] / (a["ndp_2023"] + a["ucp_2023"]).replace(
+                0, pd.NA
+            )
+            b["ndp_share"] = b["ndp_2023"] / (b["ndp_2023"] + b["ucp_2023"]).replace(
+                0, pd.NA
+            )
             merged = a[["ed_name", "ndp_share"]].merge(
                 b[["ed_name", "ndp_share"]], on="ed_name", suffixes=("_v05", "_v02")
             )
-            merged["delta_pp"] = (merged["ndp_share_v05"] - merged["ndp_share_v02"]) * 100
-            top = merged.reindex(merged["delta_pp"].abs().sort_values(ascending=False).index).head(10)
+            merged["delta_pp"] = (
+                merged["ndp_share_v05"] - merged["ndp_share_v02"]
+            ) * 100
+            top = merged.reindex(
+                merged["delta_pp"].abs().sort_values(ascending=False).index
+            ).head(10)
             shifts_tables[label] = top.to_dict(orient="records")
             print(f"\n  [{label}]")
             for _, row in top.head(5).iterrows():
-                print(f"    {row['ed_name']:<35s}  "
-                      f"v0_2={row['ndp_share_v02']*100:6.2f}%  "
-                      f"v0_5={row['ndp_share_v05']*100:6.2f}%  "
-                      f"Δ={row['delta_pp']:+.2f} pp")
+                print(
+                    f"    {row['ed_name']:<35s}  "
+                    f"v0_2={row['ndp_share_v02']*100:6.2f}%  "
+                    f"v0_5={row['ndp_share_v05']*100:6.2f}%  "
+                    f"Δ={row['delta_pp']:+.2f} pp"
+                )
         except Exception as e:
             print(f"  [{label}] shift table failed: {e}")
 
-    verdict = ("v0_5 DA-anchoring moved asymmetry "
-               f"{'toward' if abs(asym) < abs(v02_asym or asym) else 'away from'} "
-               f"{CENTROID_ASYMMETRY_PP:+.2f} pp centroid"
-               if v02_asym is not None else "v0_2 baseline missing")
+    verdict = (
+        "v0_5 DA-anchoring moved asymmetry "
+        f"{'toward' if abs(asym) < abs(v02_asym or asym) else 'away from'} "
+        f"{CENTROID_ASYMMETRY_PP:+.2f} pp centroid"
+        if v02_asym is not None
+        else "v0_2 baseline missing"
+    )
 
     summary = {
         "inputs": {

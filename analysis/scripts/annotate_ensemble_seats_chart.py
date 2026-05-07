@@ -22,6 +22,7 @@ Dependencies
             data/outputs/mcmc/simulated_ensemble_percentiles_250k.csv
   Forward : report_public.md (seats_at_50_50 ensemble figure reference)
 """
+
 # Version: 0.1 series  (added 2026-04-28 — annotation overlay only)
 
 from __future__ import annotations
@@ -29,6 +30,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
@@ -42,15 +44,15 @@ OUT = DATA / "maps" / "mcmc" / "ensemble_distribution_250k_v0_9_seats_at_50_50.s
 
 # Canonical v0_9 real-map scores (from final_real_map_scores.json)
 REAL_MAPS = {
-    "2019 enacted":  0.45977011494252873,
+    "2019 enacted": 0.45977011494252873,
     "Majority 2026": 0.4606741573033708,
     "Minority 2026": 0.48314606741573035,
 }
 
 COLORS = {
-    "2019 enacted":  "#1f2937",
-    "Majority 2026": "#7a4d8a",   # majority purple
-    "Minority 2026": "#4a8a5c",   # minority green
+    "2019 enacted": "#1f2937",
+    "Majority 2026": "#7a4d8a",  # majority purple
+    "Minority 2026": "#4a8a5c",  # minority green
 }
 
 TEXT_DARK = "#1a1a1a"
@@ -68,14 +70,20 @@ def main() -> None:
     # a subset. Use the pre-computed percentiles for the callout so the
     # annotation always reflects the full 250k run.
     pct_df = pd.read_csv(PERCENTILES_CSV)
-    row = pct_df[(pct_df["metric"] == "seats_at_50_50") &
-                 (pct_df["map"].str.contains("minority"))].iloc[0]
+    row = pct_df[
+        (pct_df["metric"] == "seats_at_50_50")
+        & (pct_df["map"].str.contains("minority"))
+    ].iloc[0]
     minority_pct_canonical = float(row["percentile"])
     n_ensemble_canonical = 250_000
-    n_above_canonical = int(round((1.0 - minority_pct_canonical / 100) * n_ensemble_canonical))
+    n_above_canonical = int(
+        round((1.0 - minority_pct_canonical / 100) * n_ensemble_canonical)
+    )
     p5_canon = float(row["ensemble_p5"])
     p95_canon = float(row["ensemble_p95"])
-    print(f"  loaded {n_sample:,} sample rows; canonical percentile = {minority_pct_canonical:.1f}")
+    print(
+        f"  loaded {n_sample:,} sample rows; canonical percentile = {minority_pct_canonical:.1f}"
+    )
 
     fig, ax = plt.subplots(figsize=(9, 5.5), dpi=130)
     fig.patch.set_facecolor("white")
@@ -90,9 +98,14 @@ def main() -> None:
 
     for label, value in REAL_MAPS.items():
         pr = pct_rank(vals, value)
-        ax.axvline(value, linestyle="-", linewidth=2.2,
-                   color=COLORS[label], zorder=4,
-                   label=f"{label}: {value:+.4f}  (p{pr:.1f})")
+        ax.axvline(
+            value,
+            linestyle="-",
+            linewidth=2.2,
+            color=COLORS[label],
+            zorder=4,
+            label=f"{label}: {value:+.4f}  (p{pr:.1f})",
+        )
 
     # Callout annotation for the minority 2026 line — uses canonical 250k percentile
     minority_val = REAL_MAPS["Minority 2026"]
@@ -106,8 +119,12 @@ def main() -> None:
         callout_text,
         xy=(minority_val, ymax_data * 0.35),
         xytext=(minority_val - 0.048, ymax_data * 0.72),
-        fontsize=9, color=COLORS["Minority 2026"], fontweight="bold",
-        ha="center", va="bottom", linespacing=1.4,
+        fontsize=9,
+        color=COLORS["Minority 2026"],
+        fontweight="bold",
+        ha="center",
+        va="bottom",
+        linespacing=1.4,
         arrowprops=dict(
             arrowstyle="-|>",
             color=COLORS["Minority 2026"],

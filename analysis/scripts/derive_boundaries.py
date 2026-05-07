@@ -30,6 +30,7 @@ Outputs
   analysis/shape_derivation_v7_log.json
   analysis/v0_1_derived_shapefiles_v7.md
 """
+
 from __future__ import annotations
 
 import json
@@ -48,11 +49,20 @@ sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 # Reuse v6 primitives without modifying them
 from shape_refinement_v6 import (  # noqa: E402
-    MAPS_HIRES, DATA_DIR, ANALYSIS_DIR,
-    AREA_CRS, WORK_CRS, EDS_2019_PATH,
-    load_and_orient, extract_red_mask,
-    apply_affine, flood_fill_interior, extract_contour,
-    contour_to_polygon, disproof_pass, render_overlay_qa,
+    MAPS_HIRES,
+    DATA_DIR,
+    ANALYSIS_DIR,
+    AREA_CRS,
+    WORK_CRS,
+    EDS_2019_PATH,
+    load_and_orient,
+    extract_red_mask,
+    apply_affine,
+    flood_fill_interior,
+    extract_contour,
+    contour_to_polygon,
+    disproof_pass,
+    render_overlay_qa,
 )
 
 
@@ -69,18 +79,19 @@ def _get_interior_mask_v7(
               lines or street lines break the red boundary.
     """
     # Step 1: Morphological close to seal small gaps in red lines
-    k_close = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,
-                                        (close_px, close_px))
-    red_closed = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, k_close,
-                                  iterations=2)
+    k_close = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (close_px, close_px))
+    red_closed = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, k_close, iterations=2)
     # Step 2: Dilate so flood-fill can't cross thin red remnants
     k_dil = cv2.getStructuringElement(cv2.MORPH_RECT, (dilate_px, dilate_px))
     red_d = cv2.dilate(red_closed, k_dil, iterations=1)
     return (red_d == 0).astype(np.uint8) * 255
-from shape_refinement_v6_processors import (  # noqa: E402
-    optimise_affine_dt, collect_boundary_points, _safe_slug,
-)
 
+
+from shape_refinement_v6_processors import (  # noqa: E402
+    optimise_affine_dt,
+    collect_boundary_points,
+    _safe_slug,
+)
 
 # -----------------------------------------------------------------------------
 # Mapping 2026 EDs to their 2019 "territorial ancestor" used for seeding
@@ -98,129 +109,128 @@ from shape_refinement_v6_processors import (  # noqa: E402
 # 2026 ED -> 2019 ED used as seed centroid (and adjacency test)
 NAME_2026_TO_2019_SEED = {
     # --- MAJORITY 2026 ---
-    "Airdrie-East":                              "Airdrie-East",
-    "Airdrie-West":                              "Airdrie-Cochrane",
-    "Barrhead-Westlock-Athabasca":               "Athabasca-Barrhead-Westlock",
-    "Calgary-Acadia":                            "Calgary-Acadia",
-    "Calgary-Beddington":                        "Calgary-Beddington",
-    "Calgary-Bhullar-McCall":                    "Calgary-McCall",
-    "Calgary-Bow":                               "Calgary-Bow",
-    "Calgary-Buffalo":                           "Calgary-Buffalo",
-    "Calgary-Confluence":                        "Calgary-Mountain View",
-    "Calgary-Cross":                             "Calgary-Cross",
-    "Calgary-Currie":                            "Calgary-Currie",
-    "Calgary-East":                              "Calgary-East",
-    "Calgary-Edgemont":                          "Calgary-Edgemont",
-    "Calgary-Elbow":                             "Calgary-Elbow",
-    "Calgary-Falconridge-Conrich":               "Calgary-Falconridge",
-    "Calgary-Fish Creek":                        "Calgary-Fish Creek",
-    "Calgary-Glenmore-Tsuut'ina":                "Calgary-Glenmore",
-    "Calgary-Hays":                              "Calgary-Hays",
-    "Calgary-Klein":                             "Calgary-Klein",
-    "Calgary-Lougheed":                          "Calgary-Lougheed",
-    "Calgary-McKenzie":                          "Calgary-Shaw",
-    "Calgary-Mountain View":                     "Calgary-Mountain View",
-    "Calgary-North":                             "Calgary-North",
-    "Calgary-North East":                        "Calgary-North East",
-    "Calgary-North West":                        "Calgary-North West",
-    "Calgary-Nose Creek":                        "Calgary-Beddington",
-    "Calgary-Shaw":                              "Calgary-Shaw",
-    "Calgary-South East":                        "Calgary-South East",
-    "Calgary-Symons Valley":                     "Calgary-Foothills",
-    "Calgary-Varsity":                           "Calgary-Varsity",
-    "Calgary-West-Elbow Valley":                 "Calgary-West",
-    "Camrose":                                   "Camrose",
-    "Canmore-Banff":                             "Banff-Kananaskis",
-    "Central Peace-Notley":                      "Central Peace-Notley",
-    "Chestermere-Strathmore":                    "Chestermere-Strathmore",
-    "Cochrane-Springbank":                       "Airdrie-Cochrane",
-    "Cold Lake-Bonnyville-St. Paul":             "Bonnyville-Cold Lake-St. Paul",
-    "Drumheller-Stettler":                       "Drumheller-Stettler",
-    "Edmonton-Beaumont":                         "Leduc-Beaumont",
-    "Edmonton-Beverly-Clareview":                "Edmonton-Beverly-Clareview",
-    "Edmonton-Castle Downs":                     "Edmonton-Castle Downs",
-    "Edmonton-City Centre":                      "Edmonton-City Centre",
-    "Edmonton-Decore":                           "Edmonton-Decore",
-    "Edmonton-Ellerslie":                        "Edmonton-Ellerslie",
-    "Edmonton-Enoch":                            "Spruce Grove-Stony Plain",
-    "Edmonton-Glenora-Riverview":                "Edmonton-Glenora",
-    "Edmonton-Gold Bar":                         "Edmonton-Gold Bar",
-    "Edmonton-Highlands-Norwood":                "Edmonton-Highlands-Norwood",
-    "Edmonton-Manning":                          "Edmonton-Manning",
-    "Edmonton-McClung":                          "Edmonton-McClung",
-    "Edmonton-Meadows":                          "Edmonton-Meadows",
-    "Edmonton-Mill Woods":                       "Edmonton-Mill Woods",
-    "Edmonton-North West":                       "Edmonton-North West",
-    "Edmonton-Rutherford":                       "Edmonton-Rutherford",
-    "Edmonton-South":                            "Edmonton-South-West",
-    "Edmonton-Strathcona":                       "Edmonton-Strathcona",
-    "Edmonton-West Henday":                      "Edmonton-West Henday",
-    "Edmonton-Whitemud":                         "Edmonton-Whitemud",
-    "Edmonton-Windermere":                       "Edmonton-Whitemud",
-    "Fort McMurray-Lac La Biche":                "Fort McMurray-Lac La Biche",
-    "Fort McMurray-Wood Buffalo":                "Fort McMurray-Wood Buffalo",
-    "Fort Saskatchewan-Vegreville":              "Fort Saskatchewan-Vegreville",
-    "Grande Prairie":                            "Grande Prairie",
-    "Grande Prairie-Wapiti":                     "Grande Prairie-Wapiti",
-    "High River-Vulcan-Siksika":                 "Highwood",
-    "Lacombe-Clearwater":                        "Rimbey-Rocky Mountain House-Sundre",
-    "Leduc-Devon":                               "Leduc-Beaumont",
-    "Lesser Slave Lake":                         "Lesser Slave Lake",
-    "Lethbridge-East":                           "Lethbridge-East",
-    "Lethbridge-West":                           "Lethbridge-West",
-    "Livingstone-Macleod":                       "Livingstone-Macleod",
-    "Lloydminster-Wainwright":                   "Vermilion-Lloydminster-Wainwright",
-    "Medicine Hat-Brooks":                       "Brooks-Medicine Hat",
-    "Medicine Hat-Cypress":                      "Cypress-Medicine Hat",
-    "Mountain View-Kneehill":                    "Olds-Didsbury-Three Hills",
-    "Okotoks-Diamond Valley":                    "Highwood",
-    "Peace River":                               "Peace River",
-    "Red Deer-North":                            "Red Deer-North",
-    "Red Deer-South":                            "Red Deer-South",
-    "Sherwood Park":                             "Sherwood Park",
-    "Spruce Grove":                              "Spruce Grove-Stony Plain",
-    "St. Albert":                                "St. Albert",
-    "St. Albert-Sturgeon":                       "Morinville-St. Albert",
-    "Stony Plain-Drayton Valley":                "Drayton Valley-Devon",
-    "Strathcona-Sherwood Park":                  "Strathcona-Sherwood Park",
-    "Sylvan Lake-Innisfail":                     "Innisfail-Sylvan Lake",
-    "Taber-Cardston":                            "Cardston-Siksika",
-    "West Yellowhead":                           "West Yellowhead",
-    "Wetaskiwin-Ponoka-Maskwacis":               "Maskwacis-Wetaskiwin",
-
+    "Airdrie-East": "Airdrie-East",
+    "Airdrie-West": "Airdrie-Cochrane",
+    "Barrhead-Westlock-Athabasca": "Athabasca-Barrhead-Westlock",
+    "Calgary-Acadia": "Calgary-Acadia",
+    "Calgary-Beddington": "Calgary-Beddington",
+    "Calgary-Bhullar-McCall": "Calgary-McCall",
+    "Calgary-Bow": "Calgary-Bow",
+    "Calgary-Buffalo": "Calgary-Buffalo",
+    "Calgary-Confluence": "Calgary-Mountain View",
+    "Calgary-Cross": "Calgary-Cross",
+    "Calgary-Currie": "Calgary-Currie",
+    "Calgary-East": "Calgary-East",
+    "Calgary-Edgemont": "Calgary-Edgemont",
+    "Calgary-Elbow": "Calgary-Elbow",
+    "Calgary-Falconridge-Conrich": "Calgary-Falconridge",
+    "Calgary-Fish Creek": "Calgary-Fish Creek",
+    "Calgary-Glenmore-Tsuut'ina": "Calgary-Glenmore",
+    "Calgary-Hays": "Calgary-Hays",
+    "Calgary-Klein": "Calgary-Klein",
+    "Calgary-Lougheed": "Calgary-Lougheed",
+    "Calgary-McKenzie": "Calgary-Shaw",
+    "Calgary-Mountain View": "Calgary-Mountain View",
+    "Calgary-North": "Calgary-North",
+    "Calgary-North East": "Calgary-North East",
+    "Calgary-North West": "Calgary-North West",
+    "Calgary-Nose Creek": "Calgary-Beddington",
+    "Calgary-Shaw": "Calgary-Shaw",
+    "Calgary-South East": "Calgary-South East",
+    "Calgary-Symons Valley": "Calgary-Foothills",
+    "Calgary-Varsity": "Calgary-Varsity",
+    "Calgary-West-Elbow Valley": "Calgary-West",
+    "Camrose": "Camrose",
+    "Canmore-Banff": "Banff-Kananaskis",
+    "Central Peace-Notley": "Central Peace-Notley",
+    "Chestermere-Strathmore": "Chestermere-Strathmore",
+    "Cochrane-Springbank": "Airdrie-Cochrane",
+    "Cold Lake-Bonnyville-St. Paul": "Bonnyville-Cold Lake-St. Paul",
+    "Drumheller-Stettler": "Drumheller-Stettler",
+    "Edmonton-Beaumont": "Leduc-Beaumont",
+    "Edmonton-Beverly-Clareview": "Edmonton-Beverly-Clareview",
+    "Edmonton-Castle Downs": "Edmonton-Castle Downs",
+    "Edmonton-City Centre": "Edmonton-City Centre",
+    "Edmonton-Decore": "Edmonton-Decore",
+    "Edmonton-Ellerslie": "Edmonton-Ellerslie",
+    "Edmonton-Enoch": "Spruce Grove-Stony Plain",
+    "Edmonton-Glenora-Riverview": "Edmonton-Glenora",
+    "Edmonton-Gold Bar": "Edmonton-Gold Bar",
+    "Edmonton-Highlands-Norwood": "Edmonton-Highlands-Norwood",
+    "Edmonton-Manning": "Edmonton-Manning",
+    "Edmonton-McClung": "Edmonton-McClung",
+    "Edmonton-Meadows": "Edmonton-Meadows",
+    "Edmonton-Mill Woods": "Edmonton-Mill Woods",
+    "Edmonton-North West": "Edmonton-North West",
+    "Edmonton-Rutherford": "Edmonton-Rutherford",
+    "Edmonton-South": "Edmonton-South-West",
+    "Edmonton-Strathcona": "Edmonton-Strathcona",
+    "Edmonton-West Henday": "Edmonton-West Henday",
+    "Edmonton-Whitemud": "Edmonton-Whitemud",
+    "Edmonton-Windermere": "Edmonton-Whitemud",
+    "Fort McMurray-Lac La Biche": "Fort McMurray-Lac La Biche",
+    "Fort McMurray-Wood Buffalo": "Fort McMurray-Wood Buffalo",
+    "Fort Saskatchewan-Vegreville": "Fort Saskatchewan-Vegreville",
+    "Grande Prairie": "Grande Prairie",
+    "Grande Prairie-Wapiti": "Grande Prairie-Wapiti",
+    "High River-Vulcan-Siksika": "Highwood",
+    "Lacombe-Clearwater": "Rimbey-Rocky Mountain House-Sundre",
+    "Leduc-Devon": "Leduc-Beaumont",
+    "Lesser Slave Lake": "Lesser Slave Lake",
+    "Lethbridge-East": "Lethbridge-East",
+    "Lethbridge-West": "Lethbridge-West",
+    "Livingstone-Macleod": "Livingstone-Macleod",
+    "Lloydminster-Wainwright": "Vermilion-Lloydminster-Wainwright",
+    "Medicine Hat-Brooks": "Brooks-Medicine Hat",
+    "Medicine Hat-Cypress": "Cypress-Medicine Hat",
+    "Mountain View-Kneehill": "Olds-Didsbury-Three Hills",
+    "Okotoks-Diamond Valley": "Highwood",
+    "Peace River": "Peace River",
+    "Red Deer-North": "Red Deer-North",
+    "Red Deer-South": "Red Deer-South",
+    "Sherwood Park": "Sherwood Park",
+    "Spruce Grove": "Spruce Grove-Stony Plain",
+    "St. Albert": "St. Albert",
+    "St. Albert-Sturgeon": "Morinville-St. Albert",
+    "Stony Plain-Drayton Valley": "Drayton Valley-Devon",
+    "Strathcona-Sherwood Park": "Strathcona-Sherwood Park",
+    "Sylvan Lake-Innisfail": "Innisfail-Sylvan Lake",
+    "Taber-Cardston": "Cardston-Siksika",
+    "West Yellowhead": "West Yellowhead",
+    "Wetaskiwin-Ponoka-Maskwacis": "Maskwacis-Wetaskiwin",
     # --- MINORITY 2026 (ones unique to minority map set) ---
-    "Airdrie East":                              "Airdrie-East",
-    "Calgary-Airdrie":                           "Airdrie-East",
-    "Calgary-Bow-Springbank":                    "Calgary-Bow",
-    "Calgary-De Winton":                         "Highwood",
-    "Calgary-Falconridge":                       "Calgary-Falconridge",
-    "Calgary-Foothills-Airdrie West":            "Calgary-Foothills",
-    "Calgary-Glenmore":                          "Calgary-Glenmore",
-    "Calgary-McCall-Bhullar":                    "Calgary-McCall",
-    "Calgary-Nolan Hill-Cochrane":               "Airdrie-Cochrane",
-    "Calgary-North West-Bearspaw":               "Calgary-North West",
-    "Calgary-Peigan-Chestermere":                "Calgary-Peigan",
-    "Calgary-South":                             "Calgary-Acadia",
-    "Calgary-West-Tsuut'ina":                    "Calgary-West",
-    "Canmore-Kananaskis":                        "Banff-Kananaskis",
-    "Edmonton-Castledowns":                      "Edmonton-Castle Downs",
-    "Edmonton-Enoch-Devon":                      "Spruce Grove-Stony Plain",
-    "Edmonton-Spruce Grove":                     "Spruce Grove-Stony Plain",
-    "Highwood":                                  "Highwood",
-    "Lac Ste. Anne-Parkland":                    "Lac Ste. Anne-Parkland",
-    "Leduc":                                     "Leduc-Beaumont",
-    "Lethbridge-Cardston":                       "Cardston-Siksika",
-    "Lethbridge-Fort MacLeod-Crowsnest Pass":    "Livingstone-Macleod",
-    "Lethbridge-Little Bow":                     "Taber-Warner",
-    "Lethbridge-Taber-Warner":                   "Taber-Warner",
-    "Olds-Three Hills-Didsbury":                 "Olds-Didsbury-Three Hills",
-    "Red Deer-Blackfalds":                       "Red Deer-North",
-    "Red Deer-Innisfail":                        "Innisfail-Sylvan Lake",
-    "Red Deer-Lacombe":                          "Lacombe-Ponoka",
-    "Red Deer-Sylvan Lake":                      "Innisfail-Sylvan Lake",
-    "Rocky Mountain House-Banff Park":           "Rimbey-Rocky Mountain House-Sundre",
-    "Sherwood Park-Strathcona":                  "Strathcona-Sherwood Park",
-    "Wetaskawin-Ponoka-Maskwacis":               "Maskwacis-Wetaskiwin",
+    "Airdrie East": "Airdrie-East",
+    "Calgary-Airdrie": "Airdrie-East",
+    "Calgary-Bow-Springbank": "Calgary-Bow",
+    "Calgary-De Winton": "Highwood",
+    "Calgary-Falconridge": "Calgary-Falconridge",
+    "Calgary-Foothills-Airdrie West": "Calgary-Foothills",
+    "Calgary-Glenmore": "Calgary-Glenmore",
+    "Calgary-McCall-Bhullar": "Calgary-McCall",
+    "Calgary-Nolan Hill-Cochrane": "Airdrie-Cochrane",
+    "Calgary-North West-Bearspaw": "Calgary-North West",
+    "Calgary-Peigan-Chestermere": "Calgary-Peigan",
+    "Calgary-South": "Calgary-Acadia",
+    "Calgary-West-Tsuut'ina": "Calgary-West",
+    "Canmore-Kananaskis": "Banff-Kananaskis",
+    "Edmonton-Castledowns": "Edmonton-Castle Downs",
+    "Edmonton-Enoch-Devon": "Spruce Grove-Stony Plain",
+    "Edmonton-Spruce Grove": "Spruce Grove-Stony Plain",
+    "Highwood": "Highwood",
+    "Lac Ste. Anne-Parkland": "Lac Ste. Anne-Parkland",
+    "Leduc": "Leduc-Beaumont",
+    "Lethbridge-Cardston": "Cardston-Siksika",
+    "Lethbridge-Fort MacLeod-Crowsnest Pass": "Livingstone-Macleod",
+    "Lethbridge-Little Bow": "Taber-Warner",
+    "Lethbridge-Taber-Warner": "Taber-Warner",
+    "Olds-Three Hills-Didsbury": "Olds-Didsbury-Three Hills",
+    "Red Deer-Blackfalds": "Red Deer-North",
+    "Red Deer-Innisfail": "Innisfail-Sylvan Lake",
+    "Red Deer-Lacombe": "Lacombe-Ponoka",
+    "Red Deer-Sylvan Lake": "Innisfail-Sylvan Lake",
+    "Rocky Mountain House-Banff Park": "Rimbey-Rocky Mountain House-Sundre",
+    "Sherwood Park-Strathcona": "Strathcona-Sherwood Park",
+    "Wetaskawin-Ponoka-Maskwacis": "Maskwacis-Wetaskiwin",
 }
 
 
@@ -233,6 +243,7 @@ NAME_2026_TO_2019_SEED = {
 # Initial affine: (scale m/px, tx, ty) ; used as optimiser seed. For overview
 # thumbnails (whole-of-Alberta) we use larger scale ~100 m/px.
 
+
 def _make_plan(map_set: str) -> list[dict]:
     """Build plan list for a given map set ('minority' or 'majority')."""
     pop = pd.read_csv(DATA_DIR / f"v0_1_{map_set}_2026_populations.csv")
@@ -240,22 +251,44 @@ def _make_plan(map_set: str) -> list[dict]:
 
     if map_set == "minority":
         # Calgary inset (p360)
-        calgary_inner = [n for n in all_eds if n.startswith("Calgary") or
-                         n in ("Highwood", "Airdrie East", "Chestermere-Strathmore")]
+        calgary_inner = [
+            n
+            for n in all_eds
+            if n.startswith("Calgary")
+            or n in ("Highwood", "Airdrie East", "Chestermere-Strathmore")
+        ]
         # Edmonton inset (p361)
-        edmonton_inner = [n for n in all_eds if n.startswith("Edmonton") or
-                          n in ("St. Albert", "Sherwood Park-Strathcona",
-                                "St. Albert-Sturgeon", "Leduc")]
+        edmonton_inner = [
+            n
+            for n in all_eds
+            if n.startswith("Edmonton")
+            or n
+            in (
+                "St. Albert",
+                "Sherwood Park-Strathcona",
+                "St. Albert-Sturgeon",
+                "Leduc",
+            )
+        ]
         # other_cities multi-inset (p362)
-        other_cities = ["Red Deer-Blackfalds", "Red Deer-Innisfail",
-                        "Red Deer-Lacombe", "Red Deer-Sylvan Lake",
-                        "Lethbridge-Cardston", "Lethbridge-Fort MacLeod-Crowsnest Pass",
-                        "Lethbridge-Little Bow", "Lethbridge-Taber-Warner",
-                        "Medicine Hat-Brooks", "Medicine Hat-Cypress",
-                        "Grande Prairie", "Grande Prairie-Wapiti",
-                        "Fort McMurray-Lac La Biche", "Fort McMurray-Wood Buffalo",
-                        "Chestermere-Strathmore",
-                        "Calgary-Peigan-Chestermere"]
+        other_cities = [
+            "Red Deer-Blackfalds",
+            "Red Deer-Innisfail",
+            "Red Deer-Lacombe",
+            "Red Deer-Sylvan Lake",
+            "Lethbridge-Cardston",
+            "Lethbridge-Fort MacLeod-Crowsnest Pass",
+            "Lethbridge-Little Bow",
+            "Lethbridge-Taber-Warner",
+            "Medicine Hat-Brooks",
+            "Medicine Hat-Cypress",
+            "Grande Prairie",
+            "Grande Prairie-Wapiti",
+            "Fort McMurray-Lac La Biche",
+            "Fort McMurray-Wood Buffalo",
+            "Chestermere-Strathmore",
+            "Calgary-Peigan-Chestermere",
+        ]
         # Overview (p359) — all remaining rural
         overview_eds = sorted(all_eds)
 
@@ -267,14 +300,30 @@ def _make_plan(map_set: str) -> list[dict]:
                 "dilate_px": 3,
                 "dt_core_eds": [
                     # 2019 names with stable Tier A boundaries in Calgary area
-                    "Calgary-Acadia", "Calgary-Beddington", "Calgary-Bow",
-                    "Calgary-Buffalo", "Calgary-Cross", "Calgary-Currie",
-                    "Calgary-Edgemont", "Calgary-Elbow", "Calgary-Falconridge",
-                    "Calgary-Fish Creek", "Calgary-Foothills", "Calgary-Glenmore",
-                    "Calgary-Hays", "Calgary-Klein", "Calgary-Lougheed",
-                    "Calgary-McCall", "Calgary-Mountain View", "Calgary-North",
-                    "Calgary-North East", "Calgary-North West", "Calgary-Peigan",
-                    "Calgary-Shaw", "Calgary-South East", "Calgary-Varsity",
+                    "Calgary-Acadia",
+                    "Calgary-Beddington",
+                    "Calgary-Bow",
+                    "Calgary-Buffalo",
+                    "Calgary-Cross",
+                    "Calgary-Currie",
+                    "Calgary-Edgemont",
+                    "Calgary-Elbow",
+                    "Calgary-Falconridge",
+                    "Calgary-Fish Creek",
+                    "Calgary-Foothills",
+                    "Calgary-Glenmore",
+                    "Calgary-Hays",
+                    "Calgary-Klein",
+                    "Calgary-Lougheed",
+                    "Calgary-McCall",
+                    "Calgary-Mountain View",
+                    "Calgary-North",
+                    "Calgary-North East",
+                    "Calgary-North West",
+                    "Calgary-Peigan",
+                    "Calgary-Shaw",
+                    "Calgary-South East",
+                    "Calgary-Varsity",
                     "Calgary-West",
                 ],
                 "initial_scale": 13.5,
@@ -289,14 +338,24 @@ def _make_plan(map_set: str) -> list[dict]:
                 "orientation": "native",
                 "dilate_px": 3,
                 "dt_core_eds": [
-                    "Edmonton-Beverly-Clareview", "Edmonton-Castle Downs",
-                    "Edmonton-City Centre", "Edmonton-Decore",
-                    "Edmonton-Ellerslie", "Edmonton-Glenora", "Edmonton-Gold Bar",
-                    "Edmonton-Highlands-Norwood", "Edmonton-Manning",
-                    "Edmonton-McClung", "Edmonton-Meadows", "Edmonton-Mill Woods",
-                    "Edmonton-North West", "Edmonton-Riverview",
-                    "Edmonton-Rutherford", "Edmonton-South-West",
-                    "Edmonton-Strathcona", "Edmonton-West Henday",
+                    "Edmonton-Beverly-Clareview",
+                    "Edmonton-Castle Downs",
+                    "Edmonton-City Centre",
+                    "Edmonton-Decore",
+                    "Edmonton-Ellerslie",
+                    "Edmonton-Glenora",
+                    "Edmonton-Gold Bar",
+                    "Edmonton-Highlands-Norwood",
+                    "Edmonton-Manning",
+                    "Edmonton-McClung",
+                    "Edmonton-Meadows",
+                    "Edmonton-Mill Woods",
+                    "Edmonton-North West",
+                    "Edmonton-Riverview",
+                    "Edmonton-Rutherford",
+                    "Edmonton-South-West",
+                    "Edmonton-Strathcona",
+                    "Edmonton-West Henday",
                     "Edmonton-Whitemud",
                 ],
                 "initial_scale": 13.5,
@@ -312,26 +371,38 @@ def _make_plan(map_set: str) -> list[dict]:
                 "dilate_px": 7,
                 "dt_core_eds": [
                     # Province-wide: use large-area 2019 EDs for DT anchor
-                    "Peace River", "Lesser Slave Lake", "Central Peace-Notley",
-                    "Fort McMurray-Wood Buffalo", "Fort McMurray-Lac La Biche",
-                    "Grande Prairie-Wapiti", "Grande Prairie",
-                    "West Yellowhead", "Bonnyville-Cold Lake-St. Paul",
+                    "Peace River",
+                    "Lesser Slave Lake",
+                    "Central Peace-Notley",
+                    "Fort McMurray-Wood Buffalo",
+                    "Fort McMurray-Lac La Biche",
+                    "Grande Prairie-Wapiti",
+                    "Grande Prairie",
+                    "West Yellowhead",
+                    "Bonnyville-Cold Lake-St. Paul",
                     "Athabasca-Barrhead-Westlock",
-                    "Drumheller-Stettler", "Cardston-Siksika",
-                    "Taber-Warner", "Livingstone-Macleod",
-                    "Highwood", "Chestermere-Strathmore",
-                    "Banff-Kananaskis", "Red Deer-North",
-                    "Red Deer-South", "Cypress-Medicine Hat",
+                    "Drumheller-Stettler",
+                    "Cardston-Siksika",
+                    "Taber-Warner",
+                    "Livingstone-Macleod",
+                    "Highwood",
+                    "Chestermere-Strathmore",
+                    "Banff-Kananaskis",
+                    "Red Deer-North",
+                    "Red Deer-South",
+                    "Cypress-Medicine Hat",
                     "Brooks-Medicine Hat",
                 ],
                 "initial_scale": 180,
                 "initial_tx": 180000,
                 "initial_ty": 6650000,
-                "eds_to_attempt": sorted([
-                    n for n in all_eds
-                    if n not in set(calgary_inner) and
-                       n not in set(edmonton_inner)
-                ]),
+                "eds_to_attempt": sorted(
+                    [
+                        n
+                        for n in all_eds
+                        if n not in set(calgary_inner) and n not in set(edmonton_inner)
+                    ]
+                ),
                 "resolution_tier": "overview_only",
             },
             {
@@ -346,8 +417,11 @@ def _make_plan(map_set: str) -> list[dict]:
                 "thumb": MAPS_HIRES / "v0_1_minority_p362_map76.svg",
                 "orientation": "native",
                 "dilate_px": 5,
-                "dt_core_eds": ["Red Deer-North", "Lethbridge-East",
-                                "Medicine Hat-Cypress"],
+                "dt_core_eds": [
+                    "Red Deer-North",
+                    "Lethbridge-East",
+                    "Medicine Hat-Cypress",
+                ],
                 "initial_scale": 60,
                 "initial_tx": 350000,
                 "initial_ty": 5830000,
@@ -358,13 +432,28 @@ def _make_plan(map_set: str) -> list[dict]:
 
     # --- MAJORITY ---
     calgary_core = [n for n in all_eds if n.startswith("Calgary")]
-    edmonton_core = [n for n in all_eds if n.startswith("Edmonton") or
-                     n in ("St. Albert", "Sherwood Park", "Spruce Grove",
-                           "St. Albert-Sturgeon", "Strathcona-Sherwood Park",
-                           "Leduc-Devon", "Fort Saskatchewan-Vegreville")]
-    near_calgary = ["Airdrie-East", "Airdrie-West",
-                    "Cochrane-Springbank", "Chestermere-Strathmore",
-                    "Okotoks-Diamond Valley"]
+    edmonton_core = [
+        n
+        for n in all_eds
+        if n.startswith("Edmonton")
+        or n
+        in (
+            "St. Albert",
+            "Sherwood Park",
+            "Spruce Grove",
+            "St. Albert-Sturgeon",
+            "Strathcona-Sherwood Park",
+            "Leduc-Devon",
+            "Fort Saskatchewan-Vegreville",
+        )
+    ]
+    near_calgary = [
+        "Airdrie-East",
+        "Airdrie-West",
+        "Cochrane-Springbank",
+        "Chestermere-Strathmore",
+        "Okotoks-Diamond Valley",
+    ]
     return [
         {
             "label": "majority_calgary",
@@ -372,14 +461,30 @@ def _make_plan(map_set: str) -> list[dict]:
             "orientation": "rot90cw",
             "dilate_px": 3,
             "dt_core_eds": [
-                "Calgary-Acadia", "Calgary-Beddington", "Calgary-Bow",
-                "Calgary-Buffalo", "Calgary-Cross", "Calgary-Currie",
-                "Calgary-Edgemont", "Calgary-Elbow", "Calgary-Falconridge",
-                "Calgary-Fish Creek", "Calgary-Foothills", "Calgary-Glenmore",
-                "Calgary-Hays", "Calgary-Klein", "Calgary-Lougheed",
-                "Calgary-McCall", "Calgary-Mountain View", "Calgary-North",
-                "Calgary-North East", "Calgary-North West", "Calgary-Peigan",
-                "Calgary-Shaw", "Calgary-South East", "Calgary-Varsity",
+                "Calgary-Acadia",
+                "Calgary-Beddington",
+                "Calgary-Bow",
+                "Calgary-Buffalo",
+                "Calgary-Cross",
+                "Calgary-Currie",
+                "Calgary-Edgemont",
+                "Calgary-Elbow",
+                "Calgary-Falconridge",
+                "Calgary-Fish Creek",
+                "Calgary-Foothills",
+                "Calgary-Glenmore",
+                "Calgary-Hays",
+                "Calgary-Klein",
+                "Calgary-Lougheed",
+                "Calgary-McCall",
+                "Calgary-Mountain View",
+                "Calgary-North",
+                "Calgary-North East",
+                "Calgary-North West",
+                "Calgary-Peigan",
+                "Calgary-Shaw",
+                "Calgary-South East",
+                "Calgary-Varsity",
                 "Calgary-West",
             ],
             "initial_scale": 13.5,
@@ -394,14 +499,24 @@ def _make_plan(map_set: str) -> list[dict]:
             "orientation": "native",
             "dilate_px": 3,
             "dt_core_eds": [
-                "Edmonton-Beverly-Clareview", "Edmonton-Castle Downs",
-                "Edmonton-City Centre", "Edmonton-Decore",
-                "Edmonton-Ellerslie", "Edmonton-Glenora", "Edmonton-Gold Bar",
-                "Edmonton-Highlands-Norwood", "Edmonton-Manning",
-                "Edmonton-McClung", "Edmonton-Meadows", "Edmonton-Mill Woods",
-                "Edmonton-North West", "Edmonton-Riverview",
-                "Edmonton-Rutherford", "Edmonton-South-West",
-                "Edmonton-Strathcona", "Edmonton-West Henday",
+                "Edmonton-Beverly-Clareview",
+                "Edmonton-Castle Downs",
+                "Edmonton-City Centre",
+                "Edmonton-Decore",
+                "Edmonton-Ellerslie",
+                "Edmonton-Glenora",
+                "Edmonton-Gold Bar",
+                "Edmonton-Highlands-Norwood",
+                "Edmonton-Manning",
+                "Edmonton-McClung",
+                "Edmonton-Meadows",
+                "Edmonton-Mill Woods",
+                "Edmonton-North West",
+                "Edmonton-Riverview",
+                "Edmonton-Rutherford",
+                "Edmonton-South-West",
+                "Edmonton-Strathcona",
+                "Edmonton-West Henday",
                 "Edmonton-Whitemud",
             ],
             "initial_scale": 13.5,
@@ -416,7 +531,9 @@ def _make_plan(map_set: str) -> list[dict]:
             "orientation": "native",
             "dilate_px": 4,
             "dt_core_eds": [
-                "Airdrie-Cochrane", "Airdrie-East", "Chestermere-Strathmore",
+                "Airdrie-Cochrane",
+                "Airdrie-East",
+                "Chestermere-Strathmore",
                 "Highwood",
             ],
             "initial_scale": 40,
@@ -431,27 +548,40 @@ def _make_plan(map_set: str) -> list[dict]:
             "orientation": "native",
             "dilate_px": 7,
             "dt_core_eds": [
-                "Peace River", "Lesser Slave Lake", "Central Peace-Notley",
-                "Fort McMurray-Wood Buffalo", "Fort McMurray-Lac La Biche",
-                "Grande Prairie-Wapiti", "Grande Prairie",
-                "West Yellowhead", "Bonnyville-Cold Lake-St. Paul",
+                "Peace River",
+                "Lesser Slave Lake",
+                "Central Peace-Notley",
+                "Fort McMurray-Wood Buffalo",
+                "Fort McMurray-Lac La Biche",
+                "Grande Prairie-Wapiti",
+                "Grande Prairie",
+                "West Yellowhead",
+                "Bonnyville-Cold Lake-St. Paul",
                 "Athabasca-Barrhead-Westlock",
-                "Drumheller-Stettler", "Cardston-Siksika",
-                "Taber-Warner", "Livingstone-Macleod",
-                "Highwood", "Chestermere-Strathmore",
-                "Banff-Kananaskis", "Red Deer-North",
-                "Red Deer-South", "Cypress-Medicine Hat",
+                "Drumheller-Stettler",
+                "Cardston-Siksika",
+                "Taber-Warner",
+                "Livingstone-Macleod",
+                "Highwood",
+                "Chestermere-Strathmore",
+                "Banff-Kananaskis",
+                "Red Deer-North",
+                "Red Deer-South",
+                "Cypress-Medicine Hat",
                 "Brooks-Medicine Hat",
             ],
             "initial_scale": 180,
             "initial_tx": 180000,
             "initial_ty": 6650000,
-            "eds_to_attempt": sorted([
-                n for n in all_eds
-                if n not in set(calgary_core) and
-                   n not in set(edmonton_core) and
-                   n not in set(near_calgary)
-            ]),
+            "eds_to_attempt": sorted(
+                [
+                    n
+                    for n in all_eds
+                    if n not in set(calgary_core)
+                    and n not in set(edmonton_core)
+                    and n not in set(near_calgary)
+                ]
+            ),
             "resolution_tier": "overview_only",
         },
     ]
@@ -460,6 +590,7 @@ def _make_plan(map_set: str) -> list[dict]:
 # -----------------------------------------------------------------------------
 # Seed-finding: 2019 ED centroid -> pixel via inverse affine
 # -----------------------------------------------------------------------------
+
 
 def _geo_to_px(pt_xy: tuple[float, float], M_px2geo: np.ndarray) -> tuple[int, int]:
     """Invert the 2x3 pixel-to-geo affine to project (geo_x, geo_y) -> (px, py)."""
@@ -501,6 +632,7 @@ def _find_good_seed(
 # -----------------------------------------------------------------------------
 # Per-ED processing
 # -----------------------------------------------------------------------------
+
 
 def _derive_one_ed(
     ed_name: str,
@@ -566,13 +698,16 @@ def _derive_one_ed(
 # Main per-thumbnail derivation
 # -----------------------------------------------------------------------------
 
+
 def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
     t0 = time.time()
     thumb_path: Path = plan_entry["thumb"]
     label = plan_entry["label"]
     dilate_px = plan_entry.get("dilate_px", 3)
-    print(f"\n=== {label}: {thumb_path.name} ({plan_entry['orientation']}, "
-          f"dilate={dilate_px}) ===")
+    print(
+        f"\n=== {label}: {thumb_path.name} ({plan_entry['orientation']}, "
+        f"dilate={dilate_px}) ==="
+    )
 
     img = load_and_orient(thumb_path, plan_entry["orientation"])
     H, W = img.shape[:2]
@@ -586,9 +721,11 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
 
     if len(boundary_pts) < 200:
         return {
-            "label": label, "thumbnail": thumb_path.name,
+            "label": label,
+            "thumbnail": thumb_path.name,
             "error": f"Too few boundary points from {len(valid_core)} core EDs",
-            "per_ed": {}, "derived_polygons": {},
+            "per_ed": {},
+            "derived_polygons": {},
         }
 
     # For overview maps, run multi-start so we don't get stuck in a local
@@ -597,15 +734,18 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
         best_M, best_cost, best_info = None, float("inf"), None
         # Province-wide overview: expected pixel_dim ~170-190 m/px based on
         # 2019 ED extent vs 5100x6601 image. Sweep +/- 60 m/px.
-        scales = [plan_entry["initial_scale"] * f
-                  for f in (0.55, 0.7, 0.85, 1.0, 1.15, 1.3, 1.5)]
+        scales = [
+            plan_entry["initial_scale"] * f
+            for f in (0.55, 0.7, 0.85, 1.0, 1.15, 1.3, 1.5)
+        ]
         # Scan a grid of initial (scale, tx, ty) starting points.
         for s in scales:
             for dtx in (-150000, -75000, 0, 75000, 150000):
                 for dty in (-150000, -75000, 0, 75000, 150000):
                     try:
                         M_try, cost_try, info_try = optimise_affine_dt(
-                            red, boundary_pts,
+                            red,
+                            boundary_pts,
                             initial_scale=s,
                             initial_tx=plan_entry["initial_tx"] + dtx,
                             initial_ty=plan_entry["initial_ty"] + dty,
@@ -624,9 +764,11 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
                         continue
         if best_M is None:
             return {
-                "label": label, "thumbnail": thumb_path.name,
+                "label": label,
+                "thumbnail": thumb_path.name,
                 "error": "Overview DT-affine failed at all starts",
-                "per_ed": {}, "derived_polygons": {},
+                "per_ed": {},
+                "derived_polygons": {},
             }
         M, cost, info = best_M, best_cost, best_info
     else:
@@ -639,7 +781,8 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
                 for dty in (-20000, 0, 20000):
                     try:
                         M_try, cost_try, info_try = optimise_affine_dt(
-                            red, boundary_pts,
+                            red,
+                            boundary_pts,
                             initial_scale=s,
                             initial_tx=plan_entry["initial_tx"] + dtx,
                             initial_ty=plan_entry["initial_ty"] + dty,
@@ -652,14 +795,18 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
                         continue
         if best_M is None:
             return {
-                "label": label, "thumbnail": thumb_path.name,
+                "label": label,
+                "thumbnail": thumb_path.name,
                 "error": "City DT-affine failed at all starts",
-                "per_ed": {}, "derived_polygons": {},
+                "per_ed": {},
+                "derived_polygons": {},
             }
         M, cost, info = best_M, best_cost, best_info
     pixel_dim_m = info["pixel_dim_m"]
-    print(f"  DT-affine: cost={cost:.2f}, pixel_dim={pixel_dim_m:.2f} m/px, "
-          f"n_boundary_pts={info['n_boundary_points']}")
+    print(
+        f"  DT-affine: cost={cost:.2f}, pixel_dim={pixel_dim_m:.2f} m/px, "
+        f"n_boundary_pts={info['n_boundary_points']}"
+    )
 
     per_ed_out: dict[str, dict] = {}
     derived_polys: dict[str, Polygon] = {}
@@ -668,7 +815,8 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
 
     # Precompute connected-component labels and centroids of the interior
     n_labels, cc_labels, cc_stats, cc_centroids = cv2.connectedComponentsWithStats(
-        interior, connectivity=4)
+        interior, connectivity=4
+    )
     print(f"  Interior has {n_labels-1} connected components")
 
     # Tier-specific bounds for acceptable cc area
@@ -693,15 +841,17 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
         y = cc_stats[cc_id, cv2.CC_STAT_TOP]
         w = cc_stats[cc_id, cv2.CC_STAT_WIDTH]
         h = cc_stats[cc_id, cv2.CC_STAT_HEIGHT]
-        touches_border = (x == 0 or y == 0 or x + w >= W or y + h >= H)
+        touches_border = x == 0 or y == 0 or x + w >= W or y + h >= H
         if touches_border and tier_ != "overview_only":
             # Border-touching regions in detail maps are typically background;
             # in overview maps, frontier EDs genuinely touch the border.
             continue
         candidate_cc_ids.append(cc_id)
 
-    print(f"  Candidate basins (area in [{min_frac*100:.3f}%, {max_frac*100:.2f}%] "
-          f"of image, border-safe): {len(candidate_cc_ids)}")
+    print(
+        f"  Candidate basins (area in [{min_frac*100:.3f}%, {max_frac*100:.2f}%] "
+        f"of image, border-safe): {len(candidate_cc_ids)}"
+    )
 
     # Per-ED loop
     for ed_name in plan_entry["eds_to_attempt"]:
@@ -798,8 +948,9 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
         _, cc_id, cc_area_px, cc_area_km2, cx_px, cy_px = best
         # Use basin centroid as seed
         # Ensure seed is in interior (sometimes centroid is on red in thin EDs)
-        good_seed = _find_good_seed(interior, (int(cx_px), int(cy_px)),
-                                    search_radius_px=30)
+        good_seed = _find_good_seed(
+            interior, (int(cx_px), int(cy_px)), search_radius_px=30
+        )
         if good_seed is None:
             # Fall back to any interior pixel of this cc
             ys, xs = np.where(cc_labels == cc_id)
@@ -831,9 +982,12 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
             ys_, xs_ = np.where(label_mask > 0)
             info_ff = {
                 "area_px": int(np.count_nonzero(label_mask)),
-                "bbox_px": [int(xs_.min()), int(ys_.min()),
-                            int(xs_.max() - xs_.min()),
-                            int(ys_.max() - ys_.min())],
+                "bbox_px": [
+                    int(xs_.min()),
+                    int(ys_.min()),
+                    int(xs_.max() - xs_.min()),
+                    int(ys_.max() - ys_.min()),
+                ],
                 "seed": good_seed,
                 "source": "cc_mask_direct",
             }
@@ -869,14 +1023,21 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
         # basin selection, so should always pass here.
         area_ratio = ed_log["area_km2"] / max(area_2019, 1.0)
         ed_log["area_ratio_v7_over_2019"] = round(area_ratio, 2)
-        area_sanity_pass = (band_min <= area_ratio <= band_max)
+        area_sanity_pass = band_min <= area_ratio <= band_max
         ed_log["area_sanity_pass"] = area_sanity_pass
 
         # Disproof
         try:
             disproof = disproof_pass(
-                ed_name, poly_geo, contour_px, red, label_mask, M, (H, W),
-                hard_constraints=None, adjacent_ed_geo=None,
+                ed_name,
+                poly_geo,
+                contour_px,
+                red,
+                label_mask,
+                M,
+                (H, W),
+                hard_constraints=None,
+                adjacent_ed_geo=None,
             )
         except Exception as e:
             ed_log["disproof_error"] = str(e)
@@ -894,8 +1055,10 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
             pts = contour_px.astype(np.int32)
             x, y, w, h = cv2.boundingRect(pts)
             pad = 40
-            x0 = max(0, x - pad); y0 = max(0, y - pad)
-            x1 = min(W, x + w + pad); y1 = min(H, y + h + pad)
+            x0 = max(0, x - pad)
+            y0 = max(0, y - pad)
+            x1 = min(W, x + w + pad)
+            y1 = min(H, y + h + pad)
             outline_local = np.zeros((y1 - y0, x1 - x0), dtype=np.uint8)
             shifted_pts = pts - np.array([[x0, y0]])
             cv2.drawContours(outline_local, [shifted_pts], -1, 255, thickness=1)
@@ -909,7 +1072,8 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
             n_yellow_local = int(np.count_nonzero(local_diff))
             if n_yellow_local > 0:
                 _, _, stats_l, _ = cv2.connectedComponentsWithStats(
-                    local_diff, connectivity=4)
+                    local_diff, connectivity=4
+                )
                 local_large = int(np.sum(stats_l[1:, cv2.CC_STAT_AREA] > 50))
             else:
                 local_large = 0
@@ -924,15 +1088,21 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
         except Exception as e:
             ed_log["t2_error"] = str(e)
 
-        considered = [k for k, v in disproof.items()
-                      if isinstance(v, dict) and v.get("pass") is not None]
+        considered = [
+            k
+            for k, v in disproof.items()
+            if isinstance(v, dict) and v.get("pass") is not None
+        ]
         n_pass = sum(1 for k in considered if disproof[k]["pass"])
         disproof["summary"] = {
-            "n_pass": n_pass, "n_considered": len(considered),
+            "n_pass": n_pass,
+            "n_considered": len(considered),
         }
-        ed_log["disproof"] = {k: v for k, v in disproof.items()
-                              if k not in ("t5_reverse_sampling",)
-                              or True}  # keep everything
+        ed_log["disproof"] = {
+            k: v
+            for k, v in disproof.items()
+            if k not in ("t5_reverse_sampling",) or True
+        }  # keep everything
         ed_log["n_pass"] = n_pass
         ed_log["n_considered"] = len(considered)
         ed_log["disproof_ratio"] = f"{n_pass}/{len(considered)}"
@@ -949,14 +1119,15 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
 
         per_ed_out[ed_name] = ed_log
         tag = "OK " if ed_log["outcome"] == "ACCEPTED" else "x  "
-        print(f"  {tag}{ed_name}: {ed_log['outcome']} "
-              f"({ed_log.get('disproof_ratio', 'n/a')}) "
-              f"area={ed_log.get('area_km2', 'n/a')}/{round(area_2019, 1)} km2 "
-              f"(ratio={ed_log.get('area_ratio_v7_over_2019', 'n/a')})")
+        print(
+            f"  {tag}{ed_name}: {ed_log['outcome']} "
+            f"({ed_log.get('disproof_ratio', 'n/a')}) "
+            f"area={ed_log.get('area_km2', 'n/a')}/{round(area_2019, 1)} km2 "
+            f"(ratio={ed_log.get('area_ratio_v7_over_2019', 'n/a')})"
+        )
 
     # Summarise outcomes
-    n_accepted = sum(1 for v in per_ed_out.values()
-                     if v.get("outcome") == "ACCEPTED")
+    n_accepted = sum(1 for v in per_ed_out.values() if v.get("outcome") == "ACCEPTED")
     outcome_hist: dict[str, int] = {}
     for v in per_ed_out.values():
         key = v.get("outcome") or v.get("status", "UNKNOWN")
@@ -992,6 +1163,7 @@ def _process_thumbnail(plan_entry: dict, eds2019: gpd.GeoDataFrame) -> dict:
 # Output writer
 # -----------------------------------------------------------------------------
 
+
 def _build_gpkg(
     map_set: str,
     thumb_results: list[dict],
@@ -1017,8 +1189,11 @@ def _build_gpkg(
     approx_by_name = {}
     if approx_gpkg.exists():
         approx = gpd.read_file(approx_gpkg).to_crs(AREA_CRS)
-        approx_by_name = {r["name_2026"]: r for _, r in approx.iterrows()
-                          if r.geometry is not None and not r.geometry.is_empty}
+        approx_by_name = {
+            r["name_2026"]: r
+            for _, r in approx.iterrows()
+            if r.geometry is not None and not r.geometry.is_empty
+        }
 
     # Aggregate derived polygons per ED, annotated by (thumbnail, n_pass)
     best_per_ed: dict[str, dict] = {}
@@ -1047,7 +1222,7 @@ def _build_gpkg(
                 "area_km2": ed_log.get("area_km2"),
                 "polygon": poly,
                 "affine_rms_m": thumb_res["affine"]["cost_dt_mean_px"]
-                                * thumb_res["affine"]["pixel_dim_m"],
+                * thumb_res["affine"]["pixel_dim_m"],
                 "n_anchors": thumb_res["affine"]["n_boundary_pts"],
             }
             coverage_map.setdefault(ed_name, []).append(rec)
@@ -1074,16 +1249,22 @@ def _build_gpkg(
 
         # Build v6 geometry reference (handles Polygon and MultiPolygon)
         v6_geom = None
-        if v6_row is not None and v6_row.geometry is not None and \
-                not isinstance(v6_row.geometry, float) and \
-                not v6_row.geometry.is_empty:
+        if (
+            v6_row is not None
+            and v6_row.geometry is not None
+            and not isinstance(v6_row.geometry, float)
+            and not v6_row.geometry.is_empty
+        ):
             v6_geom = v6_row.geometry
 
         # Build approximate-fallback geometry reference
         approx_geom = None
-        if approx_row is not None and approx_row.geometry is not None and \
-                not isinstance(approx_row.geometry, float) and \
-                not approx_row.geometry.is_empty:
+        if (
+            approx_row is not None
+            and approx_row.geometry is not None
+            and not isinstance(approx_row.geometry, float)
+            and not approx_row.geometry.is_empty
+        ):
             approx_geom = approx_row.geometry
 
         if derived is not None:
@@ -1098,8 +1279,11 @@ def _build_gpkg(
                 "disproof_n_considered": int(derived["n_considered"]),
                 "fallback": False,
                 "fallback_reason": "",
-                "area_km2": float(round(derived["area_km2"], 2))
-                            if derived["area_km2"] else None,
+                "area_km2": (
+                    float(round(derived["area_km2"], 2))
+                    if derived["area_km2"]
+                    else None
+                ),
                 "tier_2026": v6_row["tier"] if v6_row is not None else "",
                 "geometry": derived["polygon"],
             }
@@ -1158,18 +1342,25 @@ def _build_gpkg(
     gdf = gpd.GeoDataFrame(out_rows, geometry="geometry", crs=AREA_CRS)
     gdf_wc = gdf.to_crs(WORK_CRS)
     gdf_wc.to_file(out_path, driver="GPKG")
-    print(f"[WRITE] {out_path.name}: {len(gdf)} rows "
-          f"(derived={sum(1 for r in out_rows if not r['fallback'])}, "
-          f"fallback={sum(1 for r in out_rows if r['fallback'])})")
+    print(
+        f"[WRITE] {out_path.name}: {len(gdf)} rows "
+        f"(derived={sum(1 for r in out_rows if not r['fallback'])}, "
+        f"fallback={sum(1 for r in out_rows if r['fallback'])})"
+    )
 
     # Coverage summary
     coverage_summary = {
-        ed: [{"thumb": r["source_thumbnail"],
-              "tier": r["resolution_tier"],
-              "n_pass": r["n_pass"],
-              "n_considered": r["n_considered"],
-              "area_km2": r["area_km2"],
-              "chosen": r is best_per_ed.get(ed)} for r in recs]
+        ed: [
+            {
+                "thumb": r["source_thumbnail"],
+                "tier": r["resolution_tier"],
+                "n_pass": r["n_pass"],
+                "n_considered": r["n_considered"],
+                "area_km2": r["area_km2"],
+                "chosen": r is best_per_ed.get(ed),
+            }
+            for r in recs
+        ]
         for ed, recs in coverage_map.items()
     }
 
@@ -1179,6 +1370,7 @@ def _build_gpkg(
 # -----------------------------------------------------------------------------
 # Main entry
 # -----------------------------------------------------------------------------
+
 
 def main():
     t_start = time.time()
@@ -1200,10 +1392,15 @@ def main():
                 res = _process_thumbnail(plan_entry, eds2019)
             except Exception as e:
                 import traceback
+
                 traceback.print_exc()
-                res = {"label": plan_entry["label"],
-                       "thumbnail": plan_entry["thumb"].name,
-                       "error": str(e), "per_ed": {}, "derived_polygons": {}}
+                res = {
+                    "label": plan_entry["label"],
+                    "thumbnail": plan_entry["thumb"].name,
+                    "error": str(e),
+                    "per_ed": {},
+                    "derived_polygons": {},
+                }
             thumb_results.append(res)
 
         v6_gpkg = DATA_DIR / f"v0_1_refined_v6_{map_set}_2026_eds.gpkg"
@@ -1235,8 +1432,10 @@ def main():
     print(f"\n[v7] Total runtime: {log['elapsed_s']} s")
     for map_set in ("minority", "majority"):
         ms = log["map_sets"][map_set]
-        print(f"  {map_set}: {ms['n_derived']} derived / {ms['n_fallback']} fallback "
-              f"(no_source: {ms['n_no_source']})")
+        print(
+            f"  {map_set}: {ms['n_derived']} derived / {ms['n_fallback']} fallback "
+            f"(no_source: {ms['n_no_source']})"
+        )
 
     return log
 

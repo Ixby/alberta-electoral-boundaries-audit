@@ -15,6 +15,7 @@ Forward:
 Backward:
     Overpass API (overpass-api.de) — public OSM mirror
 """
+
 from __future__ import annotations
 
 import json
@@ -60,7 +61,9 @@ def _overpass_query(ql: str, retries: int = 3) -> dict:
             except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
                 last_err = e
                 wait = 30 * (attempt + 1)
-                print(f"  [overpass] {endpoint} attempt {attempt+1} failed: {e}; sleeping {wait}s")
+                print(
+                    f"  [overpass] {endpoint} attempt {attempt+1} failed: {e}; sleeping {wait}s"
+                )
                 time.sleep(wait)
     raise RuntimeError(f"All Overpass endpoints failed; last error: {last_err}")
 
@@ -98,9 +101,11 @@ def _fetch_and_persist(label: str, ql: str, gpkg_name: str) -> Path:
     json_out.write_text(json.dumps(data))
     gdf = _payload_to_gdf(data)
     gdf.to_file(gpkg_out, driver="GPKG")
-    print(f"  [overpass] {len(gdf)} ways in {time.time()-t0:.0f}s -> "
-          f"{gpkg_out.name} ({gpkg_out.stat().st_size/1e6:.1f} MB) "
-          f"(+ debug JSON {json_out.stat().st_size/1e6:.1f} MB)")
+    print(
+        f"  [overpass] {len(gdf)} ways in {time.time()-t0:.0f}s -> "
+        f"{gpkg_out.name} ({gpkg_out.stat().st_size/1e6:.1f} MB) "
+        f"(+ debug JSON {json_out.stat().st_size/1e6:.1f} MB)"
+    )
     return gpkg_out
 
 
@@ -115,7 +120,8 @@ out geom;
 """
     return _fetch_and_persist(
         "highways (motorway|trunk|primary|secondary)",
-        ql, "alberta_osm_highways.gpkg",
+        ql,
+        "alberta_osm_highways.gpkg",
     )
 
 
@@ -129,7 +135,9 @@ def fetch_rivers() -> Path:
 out geom;
 """
     return _fetch_and_persist(
-        "rivers (waterway=river)", ql, "alberta_osm_rivers.gpkg",
+        "rivers (waterway=river)",
+        ql,
+        "alberta_osm_rivers.gpkg",
     )
 
 

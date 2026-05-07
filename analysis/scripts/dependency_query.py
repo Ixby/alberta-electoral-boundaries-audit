@@ -21,6 +21,7 @@ Exit codes:
 Forward: (stdout analysis report)
 Backward: analysis/methodology/audit_dependency_graph.json
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -58,7 +59,7 @@ def load_graph() -> Dict[str, Any]:
 
 
 def build_indices(
-    graph: Dict[str, Any]
+    graph: Dict[str, Any],
 ) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, List[Tuple[str, str]]]]:
     """Return (nodes_by_id, back_adj[target] = [(source, edge_type), ...])."""
     nodes_by_id = {n["id"]: n for n in graph["nodes"]}
@@ -98,9 +99,7 @@ def findings(nodes_by_id: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any]]:
     return [n for n in nodes_by_id.values() if n["layer"] == "L3"]
 
 
-def invalidate(
-    graph: Dict[str, Any], targets: Iterable[str]
-) -> Dict[str, Any]:
+def invalidate(graph: Dict[str, Any], targets: Iterable[str]) -> Dict[str, Any]:
     nodes_by_id, back_adj = build_indices(graph)
     targets_set = set(targets)
     missing = [t for t in targets_set if t not in nodes_by_id]
@@ -322,7 +321,9 @@ def main(argv: List[str] | None = None) -> int:
     if args.list_findings:
         for n in graph["nodes"]:
             if n["layer"] == "L3":
-                print(f"  §{n.get('report_section', '')}  {n['id']}  {n.get('name', '')}")
+                print(
+                    f"  §{n.get('report_section', '')}  {n['id']}  {n.get('name', '')}"
+                )
         return 0
     if args.describe:
         describe(graph, args.describe)

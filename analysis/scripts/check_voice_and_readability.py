@@ -19,11 +19,11 @@ Exit status:
   0 - all checks pass
   1 - one or more violations detected (output lists them)
 """
+
 from __future__ import annotations
 import re
 import sys
 from pathlib import Path
-
 
 # Patterns that violate house voice. Each is (regex, description).
 # The "not X — Y" pattern matches rhetorical mirror reversals only when
@@ -58,8 +58,10 @@ _Y_STOP_PREFIX = (
 WUFF_VIOLATIONS = [
     # Determiner form: retained from v0 for backward coverage of
     # "not a bug — feature" style (X may include spaces).
-    (r"\bnot\s+(a|an|the|just)\s+[a-zA-Z ]{3,30}\s+[—–-]\s+",
-     "'not X — Y' mirror reversal"),
+    (
+        r"\bnot\s+(a|an|the|just)\s+[a-zA-Z ]{3,30}\s+[—–-]\s+",
+        "'not X — Y' mirror reversal",
+    ),
     # Bare form: single word between `not` and the dash, followed
     # by a non-preposition word on the Y side. Catches the common
     # audit-voice violations ("not partisan — structural", "not
@@ -67,17 +69,23 @@ WUFF_VIOLATIONS = [
     # Prepositions on the Y side lead parentheticals ("not absent
     # — for configurations that…") rather than mirror terms;
     # status-participle stoplist filters procedural prose.
-    (r"\bnot\s+"
-     r"(?!" + _NOT_MIRROR_STOP + r"\b)"
-     r"[A-Za-z]{3,30}\s+[—–-]\s+"
-     r"(?!" + _Y_STOP_PREFIX + r"\b)"
-     r"[A-Za-z]",
-     "'not X — Y' mirror reversal"),
+    (
+        r"\bnot\s+"
+        r"(?!" + _NOT_MIRROR_STOP + r"\b)"
+        r"[A-Za-z]{3,30}\s+[—–-]\s+"
+        r"(?!" + _Y_STOP_PREFIX + r"\b)"
+        r"[A-Za-z]",
+        "'not X — Y' mirror reversal",
+    ),
     (r"[\u2600-\u27BF\U0001F300-\U0001FAFF]", "emoji"),
-    (r"\b(shockingly|remarkably|staggering(?:ly)?|astound(?:ing)?ly|unprecedented(?!\s+(case|precedent|in|to)))\b",
-     "editorializing reaction"),
-    (r"^[-*•]\s+[A-Za-z]+,\s+[A-Za-z]+,\s+and\s+[A-Za-z]+\.?\s*$",
-     "templated triad in bullet (3-item list for rhetoric)"),
+    (
+        r"\b(shockingly|remarkably|staggering(?:ly)?|astound(?:ing)?ly|unprecedented(?!\s+(case|precedent|in|to)))\b",
+        "editorializing reaction",
+    ),
+    (
+        r"^[-*•]\s+[A-Za-z]+,\s+[A-Za-z]+,\s+and\s+[A-Za-z]+\.?\s*$",
+        "templated triad in bullet (3-item list for rhetoric)",
+    ),
 ]
 
 EDITORIALIZING_PHRASES = [
@@ -100,6 +108,7 @@ def _flesch_kincaid_grade(text: str) -> tuple[float | None, str]:
 
     try:
         import textstat as _ts
+
         return float(_ts.flesch_kincaid_grade(stripped)), "textstat"
     except ImportError:
         pass
@@ -118,7 +127,10 @@ def _flesch_kincaid_grade(text: str) -> tuple[float | None, str]:
         if w.endswith("e") and syl > 1 and not w.endswith("le"):
             syl -= 1
         total_syl += syl
-    return 0.39 * (len(words) / len(sents)) + 11.8 * (total_syl / len(words)) - 15.59, "approx"
+    return (
+        0.39 * (len(words) / len(sents)) + 11.8 * (total_syl / len(words)) - 15.59,
+        "approx",
+    )
 
 
 def check_file(path: Path, target_grade: float | None = None) -> tuple[bool, list[str]]:
@@ -145,7 +157,11 @@ def check_file(path: Path, target_grade: float | None = None) -> tuple[bool, lis
 
     fkg, method = _flesch_kincaid_grade(text)
     if fkg is not None:
-        label = "Flesch-Kincaid Grade" if method == "textstat" else "Approximate Flesch-Kincaid Grade"
+        label = (
+            "Flesch-Kincaid Grade"
+            if method == "textstat"
+            else "Approximate Flesch-Kincaid Grade"
+        )
         issues.append(f"  [info] {label}: {fkg:.1f}  [method={method}]")
         # HIGH-10: only treat the grade as gate-blocking when computed
         # by textstat. The local vowel-group approximation can differ
@@ -153,17 +169,19 @@ def check_file(path: Path, target_grade: float | None = None) -> tuple[bool, lis
         # the gate on that approximation produced false FAIL verdicts
         # on machines without textstat installed. Under 'approx' we
         # still emit the informational line but let the gate pass.
-        if (target_grade is not None
-                and method == "textstat"
-                and fkg > target_grade + 0.5):
+        if (
+            target_grade is not None
+            and method == "textstat"
+            and fkg > target_grade + 0.5
+        ):
             issues.append(
                 f"  FAIL: grade {fkg:.1f} exceeds target {target_grade:.1f} "
                 f"(tolerance +0.5)"
             )
             return False, issues
-        elif (target_grade is not None
-                and method == "approx"
-                and fkg > target_grade + 0.5):
+        elif (
+            target_grade is not None and method == "approx" and fkg > target_grade + 0.5
+        ):
             # Downgraded to informational so reviewers without textstat
             # do not get spurious FAIL output.
             issues.append(
@@ -173,8 +191,10 @@ def check_file(path: Path, target_grade: float | None = None) -> tuple[bool, lis
 
     # house voice violations are fatal; informational lines are not
     fatal = any(
-        not ln.startswith("  [info]") and "FAIL" not in ln[:10]
-        and "filler phrase" not in ln and "emoji" not in ln
+        not ln.startswith("  [info]")
+        and "FAIL" not in ln[:10]
+        and "filler phrase" not in ln
+        and "emoji" not in ln
         for ln in issues
         if any(d[1] in ln for d in WUFF_VIOLATIONS)
     )

@@ -42,6 +42,7 @@ Caveats:
 Usage:
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_2015_cross_election.py
 """
+
 # Version: 0.1 series  (last updated 2026-04-26)
 
 from __future__ import annotations
@@ -69,9 +70,10 @@ DATA = ROOT / "data"
 # Data loading
 # ---------------------------------------------------------------------
 
+
 def clean_2015_ed_name(name: str) -> str:
     if name.startswith("Statement Of Results By Poll - "):
-        return name[len("Statement Of Results By Poll - "):]
+        return name[len("Statement Of Results By Poll - ") :]
     return name
 
 
@@ -81,14 +83,16 @@ def load_2015_results() -> list:
     with open(DATA / "alberta_2015_results.csv") as f:
         for r in csv.DictReader(f):
             name = clean_2015_ed_name(r["ed_2015"])
-            rows.append({
-                "ed_2015": name,
-                "ndp": int(r["ndp"]),
-                "ucp_equiv": int(r["ucp_equiv"]),  # PC + WRP
-                "lib": int(r["lib"]),
-                "other": int(r["other"]),
-                "total": int(r["total"]),
-            })
+            rows.append(
+                {
+                    "ed_2015": name,
+                    "ndp": int(r["ndp"]),
+                    "ucp_equiv": int(r["ucp_equiv"]),  # PC + WRP
+                    "lib": int(r["lib"]),
+                    "other": int(r["other"]),
+                    "total": int(r["total"]),
+                }
+            )
     return rows
 
 
@@ -96,13 +100,15 @@ def load_crosswalk() -> list:
     rows = []
     with open(DATA / "2015_to_2019_crosswalk.csv") as f:
         for r in csv.DictReader(f):
-            rows.append({
-                "ed_2015": r["ed_2015_2010boundaries"],
-                "ed_2019": r["ed_2019_2017boundaries"],
-                "change_type": r["change_type"],
-                "weight": float(r["population_weight"]),
-                "confidence": r["confidence"],
-            })
+            rows.append(
+                {
+                    "ed_2015": r["ed_2015_2010boundaries"],
+                    "ed_2019": r["ed_2019_2017boundaries"],
+                    "change_type": r["change_type"],
+                    "weight": float(r["population_weight"]),
+                    "confidence": r["confidence"],
+                }
+            )
     return rows
 
 
@@ -119,9 +125,8 @@ def region_from_2019_name(ed_name: str) -> str:
 # 2015 -> 2019 re-attribution
 # ---------------------------------------------------------------------
 
-def attribute_2015_to_2019(
-    votes_2015: list, crosswalk: list
-) -> list:
+
+def attribute_2015_to_2019(votes_2015: list, crosswalk: list) -> list:
     """Return a list of 2019-boundary EDs with NDP + UCP-equiv vote totals.
 
     Apply population_weight as the re-attribution weight. This treats
@@ -149,20 +154,23 @@ def attribute_2015_to_2019(
         ucp = int(round(vals["ucp"]))
         lib = int(round(vals["lib"]))
         other = int(round(vals["other"]))
-        out.append({
-            "ed": ed,
-            "region": region_from_2019_name(ed),
-            "ndp": ndp,
-            "ucp": ucp,
-            "lib": lib,
-            "other": other,
-        })
+        out.append(
+            {
+                "ed": ed,
+                "region": region_from_2019_name(ed),
+                "ndp": ndp,
+                "ucp": ucp,
+                "lib": lib,
+                "other": other,
+            }
+        )
     return out
 
 
 # ---------------------------------------------------------------------
 # Main analysis
 # ---------------------------------------------------------------------
+
 
 def rural_two_party_share(districts: list) -> float:
     rural = [d for d in districts if d["region"] == "Rest of Alberta"]
@@ -186,17 +194,25 @@ def main():
     conf_counts = defaultdict(int)
     for c in crosswalk:
         conf_counts[c["confidence"]] += 1
-    print(f"  Confidence: high={conf_counts['high']}, medium={conf_counts['medium']}, low={conf_counts['low']}")
+    print(
+        f"  Confidence: high={conf_counts['high']}, medium={conf_counts['medium']}, low={conf_counts['low']}"
+    )
 
     # Attribute to 2019 boundaries
     dists_2015_on_2019 = attribute_2015_to_2019(votes_2015, crosswalk)
     print(f"\n  Attributed to {len(dists_2015_on_2019)} 2019-boundary EDs")
 
     # Sanity: total votes conservation
-    tot_2015 = sum(r["ndp"] + r["ucp_equiv"] + r["lib"] + r["other"] for r in votes_2015)
-    tot_attributed = sum(d["ndp"] + d["ucp"] + d["lib"] + d["other"] for d in dists_2015_on_2019)
-    print(f"  Conservation check: 2015 total={tot_2015:,}  attributed total={tot_attributed:,}  "
-          f"delta={tot_attributed-tot_2015:+d}")
+    tot_2015 = sum(
+        r["ndp"] + r["ucp_equiv"] + r["lib"] + r["other"] for r in votes_2015
+    )
+    tot_attributed = sum(
+        d["ndp"] + d["ucp"] + d["lib"] + d["other"] for d in dists_2015_on_2019
+    )
+    print(
+        f"  Conservation check: 2015 total={tot_2015:,}  attributed total={tot_attributed:,}  "
+        f"delta={tot_attributed-tot_2015:+d}"
+    )
 
     # NDP two-party vs UCP-equiv
     tn = sum(d["ndp"] for d in dists_2015_on_2019)
@@ -231,13 +247,25 @@ def main():
     print("  2015-VOTE three-map comparison")
     print("=" * 70)
     print(f"  Metric              | 2019    | Majority | Minority")
-    print(f"  Districts            | {m_2019['n']:>7d} | {m_maj['n']:>8d} | {m_min['n']:>8d}")
-    print(f"  Actual seats NDP/UCP | {m_2019['ndp_seats']}/{m_2019['ucp_seats']:<2d} | "
-          f"{m_maj['ndp_seats']}/{m_maj['ucp_seats']:<2d}   | {m_min['ndp_seats']}/{m_min['ucp_seats']:<2d}")
-    print(f"  B2 Efficiency gap    | {m_2019['eg']*100:+6.2f}% | {m_maj['eg']*100:+7.2f}% | {m_min['eg']*100:+7.2f}%")
-    print(f"  B3 Mean-median       | {m_2019['mm_gap']*100:+6.2f}pp| {m_maj['mm_gap']*100:+7.2f}pp| {m_min['mm_gap']*100:+7.2f}pp")
-    print(f"  B4 NDP @ 50/50       | {m_2019['ndp_at_50']:>7d} | {m_maj['ndp_at_50']:>8d} | {m_min['ndp_at_50']:>8d}")
-    print(f"  B6 Declination       | {m_2019['declination']:+7.4f} | {m_maj['declination']:+8.4f} | {m_min['declination']:+8.4f}")
+    print(
+        f"  Districts            | {m_2019['n']:>7d} | {m_maj['n']:>8d} | {m_min['n']:>8d}"
+    )
+    print(
+        f"  Actual seats NDP/UCP | {m_2019['ndp_seats']}/{m_2019['ucp_seats']:<2d} | "
+        f"{m_maj['ndp_seats']}/{m_maj['ucp_seats']:<2d}   | {m_min['ndp_seats']}/{m_min['ucp_seats']:<2d}"
+    )
+    print(
+        f"  B2 Efficiency gap    | {m_2019['eg']*100:+6.2f}% | {m_maj['eg']*100:+7.2f}% | {m_min['eg']*100:+7.2f}%"
+    )
+    print(
+        f"  B3 Mean-median       | {m_2019['mm_gap']*100:+6.2f}pp| {m_maj['mm_gap']*100:+7.2f}pp| {m_min['mm_gap']*100:+7.2f}pp"
+    )
+    print(
+        f"  B4 NDP @ 50/50       | {m_2019['ndp_at_50']:>7d} | {m_maj['ndp_at_50']:>8d} | {m_min['ndp_at_50']:>8d}"
+    )
+    print(
+        f"  B6 Declination       | {m_2019['declination']:+7.4f} | {m_maj['declination']:+8.4f} | {m_min['declination']:+8.4f}"
+    )
 
     # Asymmetry
     asym_eg = (m_min["eg"] - m_maj["eg"]) * 100
@@ -255,15 +283,39 @@ def main():
     out_path = DATA / "2015_cross_election_summary.csv"
     with open(out_path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["map", "n", "ndp_seats", "ucp_seats", "eg_pct",
-                    "mm_gap_pp", "ndp_at_50", "ucp_at_50", "declination",
-                    "prov_ndp_pct"])
-        for label, m in [("2019", m_2019), ("Majority 2026", m_maj),
-                         ("Minority 2026", m_min)]:
-            w.writerow([label, m["n"], m["ndp_seats"], m["ucp_seats"],
-                        m["eg"] * 100, m["mm_gap"] * 100,
-                        m["ndp_at_50"], m["ucp_at_50"],
-                        m["declination"], m["prov_ndp"] * 100])
+        w.writerow(
+            [
+                "map",
+                "n",
+                "ndp_seats",
+                "ucp_seats",
+                "eg_pct",
+                "mm_gap_pp",
+                "ndp_at_50",
+                "ucp_at_50",
+                "declination",
+                "prov_ndp_pct",
+            ]
+        )
+        for label, m in [
+            ("2019", m_2019),
+            ("Majority 2026", m_maj),
+            ("Minority 2026", m_min),
+        ]:
+            w.writerow(
+                [
+                    label,
+                    m["n"],
+                    m["ndp_seats"],
+                    m["ucp_seats"],
+                    m["eg"] * 100,
+                    m["mm_gap"] * 100,
+                    m["ndp_at_50"],
+                    m["ucp_at_50"],
+                    m["declination"],
+                    m["prov_ndp"] * 100,
+                ]
+            )
     print(f"\n  Wrote summary to {out_path}")
 
     # ------- Three-election direction-stability table -------
@@ -275,6 +327,7 @@ def main():
 
     # 2019 votes
     from monte_carlo_ci import cross_check_2019_votes  # noqa: F401
+
     # Inline the 2019-vote computation to avoid re-printing.
     dists_2019_votes = _load_2019_votes()
     rural_2019 = rural_two_party_share(dists_2019_votes)
@@ -286,6 +339,7 @@ def main():
 
     # 2023 votes (load from the existing 2023 results)
     from packing_cracking_analysis import load_2023_results
+
     dists_2023 = load_2023_results()
     rural_2023 = rural_two_party_share(dists_2023)
     maj_2023 = estimate_2026(dists_2023, MAJORITY_2026_MAPPING, rural_2023)
@@ -295,9 +349,15 @@ def main():
     asym_2023 = (m_2023_min["eg"] - m_2023_maj["eg"]) * 100
 
     print(f"  Election  | Maj EG   | Min EG   | Asymmetry (Min-Maj)")
-    print(f"  2015      | {m_maj['eg']*100:+6.2f}% | {m_min['eg']*100:+6.2f}% | {asym_eg:+6.2f} pp")
-    print(f"  2019      | {m_2019v_maj['eg']*100:+6.2f}% | {m_2019v_min['eg']*100:+6.2f}% | {asym_2019:+6.2f} pp")
-    print(f"  2023      | {m_2023_maj['eg']*100:+6.2f}% | {m_2023_min['eg']*100:+6.2f}% | {asym_2023:+6.2f} pp")
+    print(
+        f"  2015      | {m_maj['eg']*100:+6.2f}% | {m_min['eg']*100:+6.2f}% | {asym_eg:+6.2f} pp"
+    )
+    print(
+        f"  2019      | {m_2019v_maj['eg']*100:+6.2f}% | {m_2019v_min['eg']*100:+6.2f}% | {asym_2019:+6.2f} pp"
+    )
+    print(
+        f"  2023      | {m_2023_maj['eg']*100:+6.2f}% | {m_2023_min['eg']*100:+6.2f}% | {asym_2023:+6.2f} pp"
+    )
 
     # Direction verdict
     # Sign convention, per compute_metrics formula in v0_2:
@@ -336,25 +396,62 @@ def main():
     xe_path = DATA / "cross_election_asymmetry_3way.csv"
     with open(xe_path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["election", "maj_eg_pct", "min_eg_pct",
-                    "asymmetry_pp", "maj_mm_pp", "min_mm_pp",
-                    "maj_ndp50", "min_ndp50",
-                    "maj_declination", "min_declination"])
-        w.writerow(["2015",
-                    m_maj["eg"] * 100, m_min["eg"] * 100, asym_eg,
-                    m_maj["mm_gap"] * 100, m_min["mm_gap"] * 100,
-                    m_maj["ndp_at_50"], m_min["ndp_at_50"],
-                    m_maj["declination"], m_min["declination"]])
-        w.writerow(["2019",
-                    m_2019v_maj["eg"] * 100, m_2019v_min["eg"] * 100, asym_2019,
-                    m_2019v_maj["mm_gap"] * 100, m_2019v_min["mm_gap"] * 100,
-                    m_2019v_maj["ndp_at_50"], m_2019v_min["ndp_at_50"],
-                    m_2019v_maj["declination"], m_2019v_min["declination"]])
-        w.writerow(["2023",
-                    m_2023_maj["eg"] * 100, m_2023_min["eg"] * 100, asym_2023,
-                    m_2023_maj["mm_gap"] * 100, m_2023_min["mm_gap"] * 100,
-                    m_2023_maj["ndp_at_50"], m_2023_min["ndp_at_50"],
-                    m_2023_maj["declination"], m_2023_min["declination"]])
+        w.writerow(
+            [
+                "election",
+                "maj_eg_pct",
+                "min_eg_pct",
+                "asymmetry_pp",
+                "maj_mm_pp",
+                "min_mm_pp",
+                "maj_ndp50",
+                "min_ndp50",
+                "maj_declination",
+                "min_declination",
+            ]
+        )
+        w.writerow(
+            [
+                "2015",
+                m_maj["eg"] * 100,
+                m_min["eg"] * 100,
+                asym_eg,
+                m_maj["mm_gap"] * 100,
+                m_min["mm_gap"] * 100,
+                m_maj["ndp_at_50"],
+                m_min["ndp_at_50"],
+                m_maj["declination"],
+                m_min["declination"],
+            ]
+        )
+        w.writerow(
+            [
+                "2019",
+                m_2019v_maj["eg"] * 100,
+                m_2019v_min["eg"] * 100,
+                asym_2019,
+                m_2019v_maj["mm_gap"] * 100,
+                m_2019v_min["mm_gap"] * 100,
+                m_2019v_maj["ndp_at_50"],
+                m_2019v_min["ndp_at_50"],
+                m_2019v_maj["declination"],
+                m_2019v_min["declination"],
+            ]
+        )
+        w.writerow(
+            [
+                "2023",
+                m_2023_maj["eg"] * 100,
+                m_2023_min["eg"] * 100,
+                asym_2023,
+                m_2023_maj["mm_gap"] * 100,
+                m_2023_min["mm_gap"] * 100,
+                m_2023_maj["ndp_at_50"],
+                m_2023_min["ndp_at_50"],
+                m_2023_maj["declination"],
+                m_2023_min["declination"],
+            ]
+        )
     print(f"  Wrote three-election asymmetry table to {xe_path}")
 
 
@@ -380,12 +477,14 @@ def _load_2019_votes() -> list:
                     ucp = v
             if ndp + ucp == 0:
                 continue
-            out.append({
-                "ed": r["ed_name"],
-                "region": r.get("region", "Rest of Alberta"),
-                "ndp": ndp,
-                "ucp": ucp,
-            })
+            out.append(
+                {
+                    "ed": r["ed_name"],
+                    "region": r.get("region", "Rest of Alberta"),
+                    "ndp": ndp,
+                    "ucp": ucp,
+                }
+            )
     return out
 
 

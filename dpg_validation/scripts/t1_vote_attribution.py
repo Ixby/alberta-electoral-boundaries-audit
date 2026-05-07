@@ -24,7 +24,7 @@ DPG_MAJ = REPO / "data/shapefiles/derived/v0_10_topological_majority_2026_eds.gp
 DPG_MIN = REPO / "data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg"
 OFF_MAJ = ROOT / "data/official/majority/EBC2025_Boundaries_Apr092026.shp"
 OFF_MIN = ROOT / "data/official/minority/Minority_Report_Boundaries.shp"
-OUT     = ROOT / "outputs/t1_misassignment_report.csv"
+OUT = ROOT / "outputs/t1_misassignment_report.csv"
 OUT.parent.mkdir(exist_ok=True)
 
 
@@ -32,16 +32,19 @@ def assign_va_to_ed(va_gdf, ed_gdf, ed_name_col):
     """Return a Series mapping va index → ED name, using centroid-in-polygon."""
     centroids = va_gdf.copy()
     centroids.geometry = va_gdf.geometry.centroid
-    joined = gpd.sjoin(centroids[["geometry", "va_ndp", "va_ucp"]],
-                       ed_gdf[["geometry", ed_name_col]],
-                       how="left", predicate="within")
+    joined = gpd.sjoin(
+        centroids[["geometry", "va_ndp", "va_ucp"]],
+        ed_gdf[["geometry", ed_name_col]],
+        how="left",
+        predicate="within",
+    )
     # Fall back to nearest for any that missed
     missed = joined[joined[ed_name_col].isna()].index
     if len(missed):
         nearest = gpd.sjoin_nearest(
             centroids.loc[missed, ["geometry"]],
             ed_gdf[["geometry", ed_name_col]],
-            how="left"
+            how="left",
         )
         joined.loc[missed, ed_name_col] = nearest[ed_name_col].values
     return joined[ed_name_col]
@@ -117,13 +120,15 @@ def run_map(label, dpg_path, off_path, off_name_col, va_gdf):
     print(f"  Misassigned VAs:      {n_mismatch} ({pct_mismatch:.2f}%)")
     print(f"  Votes on misassigned: NDP={mismatch_ndp:,}  UCP={mismatch_ucp:,}")
     print(f"  Total votes:          NDP={total_ndp:,}  UCP={total_ucp:,}")
-    print(f"  Mismatch vote share:  {100*(mismatch_ndp+mismatch_ucp)/(total_ndp+total_ucp):.2f}%")
+    print(
+        f"  Mismatch vote share:  {100*(mismatch_ndp+mismatch_ucp)/(total_ndp+total_ucp):.2f}%"
+    )
 
     # EG under DPG assignment vs official assignment
     def agg_votes(assignment):
         df = va_gdf.copy()
         df["_ed"] = assignment
-        agg = df.groupby("_ed")[["va_ndp","va_ucp"]].sum().reset_index()
+        agg = df.groupby("_ed")[["va_ndp", "va_ucp"]].sum().reset_index()
         return agg["va_ndp"].tolist(), agg["va_ucp"].tolist()
 
     ndp_dpg, ucp_dpg = agg_votes(va_dpg_as_official)
@@ -157,7 +162,9 @@ def main():
     print("Loading VA polygons...")
     va = gpd.read_file(VA_PATH).to_crs("EPSG:3400")
     if "va_ndp" not in va.columns or "va_ucp" not in va.columns:
-        sys.exit("ERROR: va_polygons_with_2023_votes.gpkg missing va_ndp/va_ucp columns")
+        sys.exit(
+            "ERROR: va_polygons_with_2023_votes.gpkg missing va_ndp/va_ucp columns"
+        )
 
     rows = []
     rows.append(run_map("majority", DPG_MAJ, OFF_MAJ, "EDName2025", va))

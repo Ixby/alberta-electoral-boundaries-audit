@@ -1,0 +1,169 @@
+{
+  "methodology": "Joint outlier score (joint neutral-draw tail probability), canonical ensemble",
+  "ensemble_source": "simulated_ensemble_raw_samples_canonical.csv (100k plans, 2 chains x 50k)",
+  "interpretation": "P(feature vector | neutral draw). NOT a posterior probability of gerrymandering \u2014 no prior is specified. Low values mean the neutral null is implausible as an explanation for the observed feature vector.",
+  "channels_active": 2,
+  "channels_executed_non_significant": 1,
+  "channels_pending": 3,
+  "maps": {
+    "minority": {
+      "mahalanobis_distance": 6.1059,
+      "joint_partisan_p": 1.6e-07,
+      "df": 4,
+      "marginals": {
+        "efficiency_gap": {
+          "observed": 0.040194,
+          "ensemble_mean": 0.016024,
+          "ensemble_p5": -0.007381,
+          "ensemble_p95": 0.038957,
+          "marginal_tail_p": 0.04132
+        },
+        "mean_median": {
+          "observed": 0.010402,
+          "ensemble_mean": -0.01965,
+          "ensemble_p5": -0.03242,
+          "ensemble_p95": -0.007558,
+          "marginal_tail_p": 8e-05
+        },
+        "declination": {
+          "observed": -0.077003,
+          "ensemble_mean": -0.002082,
+          "ensemble_p5": -0.052631,
+          "ensemble_p95": 0.050874,
+          "marginal_tail_p": 0.0042
+        },
+        "seats_at_50_50": {
+          "observed": 0.516854,
+          "ensemble_mean": 0.452263,
+          "ensemble_p5": 0.425287,
+          "ensemble_p95": 0.471264,
+          "marginal_tail_p": 0.0
+        }
+      }
+    },
+    "majority": {
+      "mahalanobis_distance": 2.6873,
+      "joint_partisan_p": 0.12464185,
+      "df": 4,
+      "marginals": {
+        "efficiency_gap": {
+          "observed": 0.000982,
+          "ensemble_mean": 0.016024,
+          "ensemble_p5": -0.007381,
+          "ensemble_p95": 0.038957,
+          "marginal_tail_p": 0.14764
+        },
+        "mean_median": {
+          "observed": -0.036191,
+          "ensemble_mean": -0.01965,
+          "ensemble_p5": -0.03242,
+          "ensemble_p95": -0.007558,
+          "marginal_tail_p": 0.01856
+        },
+        "declination": {
+          "observed": 0.026675,
+          "ensemble_mean": -0.002082,
+          "ensemble_p5": -0.052631,
+          "ensemble_p95": 0.050874,
+          "marginal_tail_p": 0.19282
+        },
+        "seats_at_50_50": {
+          "observed": 0.460674,
+          "ensemble_mean": 0.452263,
+          "ensemble_p5": 0.425287,
+          "ensemble_p95": 0.471264,
+          "marginal_tail_p": 0.16788
+        }
+      }
+    },
+    "enacted": {
+      "mahalanobis_distance": 3.5624,
+      "joint_partisan_p": 0.0128919,
+      "df": 4,
+      "marginals": {
+        "efficiency_gap": {
+          "observed": 0.02412,
+          "ensemble_mean": 0.016024,
+          "ensemble_p5": -0.007381,
+          "ensemble_p95": 0.038957,
+          "marginal_tail_p": 0.28564
+        },
+        "mean_median": {
+          "observed": -0.007672,
+          "ensemble_mean": -0.01965,
+          "ensemble_p5": -0.03242,
+          "ensemble_p95": -0.007558,
+          "marginal_tail_p": 0.05236
+        },
+        "declination": {
+          "observed": -0.045092,
+          "ensemble_mean": -0.002082,
+          "ensemble_p5": -0.052631,
+          "ensemble_p95": 0.050874,
+          "marginal_tail_p": 0.0745
+        },
+        "seats_at_50_50": {
+          "observed": 0.45977,
+          "ensemble_mean": 0.452263,
+          "ensemble_p5": 0.425287,
+          "ensemble_p95": 0.471264,
+          "marginal_tail_p": 0.16788
+        }
+      }
+    }
+  },
+  "szat": {
+    "score": 0.039165,
+    "bootstrap_n": 10000,
+    "bootstrap_p_value": 0.0044,
+    "bootstrap_p_label": "0.0044 (44/10000 permutations exceeded observed, full-recompute)",
+    "bootstrap_procedure": "full-recompute (pre-registered): each swing-zone VA Bernoulli-assigned to majority_ed or minority_ed; EG recomputed from scratch per permutation; SZAT_perm = EG(perm_minority) - EG(majority_fixed)",
+    "aspredicted": "289469"
+  },
+  "fisher_combined_minority": {
+    "channels": [
+      "partisan_joint_mahalanobis",
+      "szat_bootstrap"
+    ],
+    "p_channel_1": 1.6e-07,
+    "p_channel_2": 0.0044,
+    "fisher_T": 42.1485,
+    "fisher_df": 4,
+    "combined_p": 2e-08
+  },
+  "structural_pending": {
+    "municipal_anchoring": {
+      "minority_pct": 14.5,
+      "majority_pct": 71.0,
+      "enacted_2019_pct": 73.8,
+      "departure_factor_vs_comparators": 4.9,
+      "p_value": "pending \u2014 Canadian comparator distribution too thin for rigorous p-value; 4.9x below comparator norm is the reported summary statistic"
+    },
+    "population_mad_ratio": {
+      "minority_mad": 4707,
+      "majority_mad": 3180,
+      "ratio_minority_majority": 1.48,
+      "p_value": "pending \u2014 per-plan MAD not in ensemble outputs"
+    },
+    "reock_asymmetry": {
+      "minority_pct_below_0_30": 34.8,
+      "majority_pct_below_0_30": 13.5,
+      "ratio": 2.58,
+      "p_value": "pending \u2014 per-plan Reock not in ensemble outputs"
+    },
+    "neighbour_drain": {
+      "minority_drain_score": 0.006176,
+      "majority_drain_score": 0.000179,
+      "minority_p": 0.1342,
+      "majority_z": -2.915,
+      "note": "minority within null (p=0.1342); majority anomalously low (p<0.0001). Channel not included in Fisher combination."
+    }
+  },
+  "caveats": [
+    "Ensemble is 100k plans (canonical shapefiles, 2 chains x 50k); n_eff ~224-326 per metric.",
+    "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
+    "Fisher combination assumes Channel 1 and Channel 2 are independent \u2014 approximately true.",
+    "Mahalanobis assumes multivariate Gaussian ensemble distribution \u2014 informally verified.",
+    "This score answers P(features | neutral), not P(gerrymandered | features)."
+  ]
+}
