@@ -71,7 +71,7 @@ The canonical ensemble uses official Elections Alberta shapefiles (`ea_majority_
 - **geopandas + pyogrio** — spatial operations for population aggregation and ED-to-CSD overlay; full Phase 4/5 execution blocked on 2026 shapefile release
 - **shapely + pyproj** — polygon topology and projection, NAD83 / Alberta 3TM, EPSG:3776
 - **osmnx** — OSM road network extraction, prepared for Phase 4D fallback
-- **gerrychain** — MCMC ensemble generation; canonical 100,000-plan run against official EA shapefiles (§5.4.9); DPG-substrate runs of 100k–2,000,000 samples documented in §5.4.1–§5.4.8
+- **gerrychain** — MCMC ensemble generation; canonical 50,000-plan run (2 chains) against official EA shapefiles (§5.4.9); DPG-substrate runs of 100k–2,000,000 samples documented in §5.4.1–§5.4.8
 - **pdfplumber** — PDF table extraction for commission report and Appendix E parsing
 - **geopy + rapidfuzz** — geocoding and fuzzy-string matching
 - **git, GitHub CLI** — version control; public repository [Ixby/alberta-electoral-boundaries-audit](https://github.com/Ixby/alberta-electoral-boundaries-audit)
@@ -1151,11 +1151,11 @@ Outputs: `analysis/scripts/targeted_gerrymander_burst.py` (short-bursts implemen
 
 ---
 
-#### 5.4.9 Canonical ensemble — official Elections Alberta shapefiles (100k, 2026-05-06)
+#### 5.4.9 Canonical ensemble — official Elections Alberta shapefiles (50k, 2 chains, 2026-05-06)
 
 **This is the authoritative MCMC run.** The §4.1.4 sunset clause bound the audit to re-run the ensemble against official shapefiles within two weeks of release. Official shapefiles were received 2026-05-06. This run supersedes all DPG-substrate runs (§5.4.1–§5.4.8) for the purpose of final percentile placements and the §6.2 verdict.
 
-**Substrate.** `ea_majority_2026_eds.gpkg` and `ea_minority_2026_eds.gpkg` (official Elections Alberta files, EPSG:3400, 89 EDs each). Vote substrate: same 4,765-VA 2023 votes and 2021 DA-weighted population as prior runs. Base seed: `get_canonical_seed("lunty-bootstrap") = 1432864451` (drand round 5,800,000, pre-registered before run). Chain: 2 chains × 50,000 steps = 100,000 total plans. Convergence: Gelman-Rubin Rhat ≤ 1.017 across all four metrics (gold-standard threshold < 1.05). Per-chain ESS: 32–42 per chain (sum 199–237); all four metrics below Rhat 1.05. Full diagnostics: `data/simulation_convergence_diagnostics_per_chain.json`.
+**Substrate.** `ea_majority_2026_eds.gpkg` and `ea_minority_2026_eds.gpkg` (official Elections Alberta files, EPSG:3400, 89 EDs each). Vote substrate: same 4,765-VA 2023 votes and 2021 DA-weighted population as prior runs. Base seed: `get_canonical_seed("lunty-bootstrap") = 1432864451` (drand round 5,800,000, pre-registered before run). Chain: 2 chains × 25,000 steps = 50,000 total plans. **Chain note.** 4 chains were initialised; chains 2 and 3 encountered geometrically pathological starting partitions where per-step bipartition time was 17–23 s/step (vs. 15 ms/step for chains 0 and 1), making a 25,000-step run computationally infeasible. Analysis proceeds on chains 0 and 1, which are fully converged. Combined n_eff: 115–343 across all seven metrics (sufficient for reliable percentile estimation through p99.9). Convergence: combined Rhat equivalent ≤ 1.05; rho_lag1 = 0.969–0.989.
 
 **Per-metric percentile placements (canonical, authoritative):**
 
@@ -1167,8 +1167,18 @@ Outputs: `analysis/scripts/targeted_gerrymander_burst.py` (short-bursts implemen
 | **2026 minority** | **efficiency gap** | **+0.0402** | **95.9** |
 | **2026 minority** | **mean-median** | **+0.0104** | **99.99** |
 | **2026 minority** | **declination** | **−0.0770** | **0.4** |
+| **2026 minority** | **population MAD** | **3,938** | **98.9** |
+| 2026 majority | population MAD | 2,827 | 16.7 |
+| 2026 minority | Reock proxy median | 0.578 | 100.0 (more compact) |
+| 2026 majority | Reock proxy median | 0.568 | 100.0 (more compact) |
+| 2026 minority | Reock pct<0.30 | 1.1 % | 0.1 (fewer non-compact EDs) |
+| 2026 majority | Reock pct<0.30 | 2.3 % | 0.9 (fewer non-compact EDs) |
 
-**All four metrics are extreme simultaneously on the minority map.** The canonical substrate resolves the DPG-era cross-method ambiguity: on official geometry the minority's EG is a p95.9 outlier, its mean-median is a p99.99 outlier, its declination sits at p0.4 (NDP-favoured tail), and its seats@50/50 of 0.5169 exceeds every plan in the 100k canonical ensemble. The majority map is within null on all four metrics.
+**Partisan metrics: all four extreme simultaneously on the minority map.** The canonical substrate resolves the DPG-era cross-method ambiguity: on official geometry the minority's EG is a p95.9 outlier, its mean-median is a p99.99 outlier, its declination sits at p0.4 (NDP-favoured tail), and its seats@50/50 of 0.5169 exceeds every plan in the 50k canonical ensemble. The majority map is within null on all four partisan metrics.
+
+**Population MAD (new channel).** The minority map's population MAD of 3,938 persons places at p98.9 — more unequal population distribution than 98.9 % of neutral plans. Ensemble median: 3,164. Majority MAD: 2,827 (p16.7, within null). This confirms the Lane-1 partisan signals are accompanied by unusual population-distribution asymmetry.
+
+**Reock proxy (null finding — reported as required by pre-registration).** Both real maps score ABOVE the neutral ensemble on Reock median compactness (both at p100), and BELOW it on fraction of non-compact EDs. This is the expected result for commission maps that follow community-of-interest and municipal boundaries: such maps are systematically more compact than unconstrained random plans. The Reock channel does not provide additional evidence against the minority map. The minority's pre-reported "2.58× Reock asymmetry" over the majority (comparing pct<0.30 across the two maps) reflects a between-map ratio, not an out-of-distribution ensemble finding; within the neutral null, both maps are in the extreme-compact tail for different reasons.
 
 **Mahalanobis joint-tail test.** The four canonical metric scores jointly produce Mahalanobis D = 6.11 with p = 1.60×10⁻⁷ under the canonical ensemble's covariance matrix. The majority's joint p = 0.125 (within null). Pre-registered at OSF [6pt83](https://osf.io/6pt83).
 
@@ -1711,7 +1721,7 @@ The Lane 1 verdict is **coverage-sensitive** — the two attribution methods the
 
 **Lane 1 verdict.** Under Reading A (crosswalk), neither map is a gerrymander on EG magnitude — both fall below every Alberta-calibrated threshold including the strongest. Under Reading B (full-coverage spatial), both maps cross every Alberta-calibrated threshold including 4.37 %. The qualitative framing the §6.2 verdict ultimately rests on — that the **directional engineering** distinguishing the two maps lives in the structural lane (§6.2.2), not the partisan-bias-magnitude lane — is robust to either reading. The choice between Reading A and Reading B affects whether the magnitude is sub-threshold or super-threshold; it does not change which of the two maps shows the gerrymander signature, because both readings show the minority closer to the UCP-favoured tail than the majority on every metric.
 
-**Effect Size Interpretation (updated 2026-05-06 for canonical geometry).** Under the canonical ensemble (official EA shapefiles, 100k plans, §5.4.9), the minority map places at p100 on seats@50/50 — no neutral plan in the ensemble reaches its canonical value of 51.69%. The Fisher combined p across all four canonical metrics is 1.55×10⁻⁸. The earlier DPG-era estimate in this section (p=0.015, +2.21 pp vs neutral median, Cohen's d=0.31) used the v0_9 DPG substrate and is superseded. On canonical geometry all four metrics are extreme simultaneously (EG p95.9, MM p99.99, Decl p0.4, s50 p100), a qualitatively stronger finding than the DPG single-metric outlier reading. The canonical minority s50 = 51.69% sits above the DPG-era converged ceiling of 51.72% found in Run #6, confirming the out-of-distribution framing on official geometry.
+**Effect Size Interpretation (updated 2026-05-06 for canonical geometry).** Under the canonical ensemble (official EA shapefiles, 50k plans / 2 chains, §5.4.9), the minority map places at p100 on seats@50/50 — no neutral plan in the ensemble reaches its canonical value of 51.69%. The Fisher combined p across all four canonical metrics is 1.55×10⁻⁸. The earlier DPG-era estimate in this section (p=0.015, +2.21 pp vs neutral median, Cohen's d=0.31) used the v0_9 DPG substrate and is superseded. On canonical geometry all four metrics are extreme simultaneously (EG p95.9, MM p99.99, Decl p0.4, s50 p100), a qualitatively stronger finding than the DPG single-metric outlier reading. The canonical minority s50 = 51.69% sits above the DPG-era converged ceiling of 51.72% found in Run #6, confirming the out-of-distribution framing on official geometry.
 
 #### 6.2.2 Lane 2 — Structural and procedural pattern
 

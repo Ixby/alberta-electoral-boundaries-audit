@@ -26,7 +26,10 @@
     "covered_votes": 932164.0,
     "all_vote_total": 932164.0,
     "votes_coverage_pct": 1.0,
-    "source": "ea_majority_2026_eds.gpkg"
+    "source": "ea_majority_2026_eds.gpkg",
+    "population_mad": 2826.8945263667047,
+    "reock_proxy_median": 0.5681238648363268,
+    "reock_proxy_pct_below_030": 0.02247191011235955
   },
   "minority_2026": {
     "efficiency_gap": 0.04019385991913548,
@@ -42,11 +45,14 @@
     "covered_votes": 932164.0,
     "all_vote_total": 932164.0,
     "votes_coverage_pct": 1.0,
-    "source": "ea_minority_2026_eds.gpkg"
+    "source": "ea_minority_2026_eds.gpkg",
+    "population_mad": 3938.1069235499162,
+    "reock_proxy_median": 0.5784679859542419,
+    "reock_proxy_pct_below_030": 0.011235955056179775
   },
   "majority_source": "ea_majority_2026_eds.gpkg",
   "minority_source": "ea_minority_2026_eds.gpkg",
   "name_col": "EDName2025",
-  "n_steps": 100000,
+  "n_steps": 50000,
   "seed": 1432864451
 }
