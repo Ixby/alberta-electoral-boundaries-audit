@@ -59,7 +59,7 @@ Five families of tests, each answering a different question. The ladder below sh
 | D8 | Copyright / fair dealing | Copyright Act s. 29.1 |
 | D9 | PII / confidentiality | no PII |
 | D10 | Time-stamped falsifiable claims | OSF pre-registration + git log |
-| D11 | Public submission sentiment analysis | Empirically tests Chair's 'unasked-for' claim (3 false, 3 true, 1 ambiguous). See `claim_significance_analysis.md`. | `submission_ocr_analyze.py` |
+| D11 | Public submission sentiment analysis | Empirically tests Chair's 'no public support' claim (3 false, 3 true, 1 ambiguous). See `claim_significance_analysis.md`. | `submission_ocr_analyze.py` |
 
 ### Forensic Signature tests (§5.3)
 
@@ -155,8 +155,8 @@ For each B-family test a hostile reviewer can mount a specific attack. Each has 
 
 ### D11 Public submission sentiment analysis
 
-- **Attack.** "The chair explicitly stated in Appendix C that the minority created 'districts no one asked for'. Evaluating this requires subjective sentiment analysis."
-- **Defense.** The audit operationalizes this by running explicit keyword heuristics (support / oppose / against / recommend) across the fully OCR'd public submission dataset (`submission_ocr_analyze.py`). Rather than a subjective reading, the analysis mathematically tiers the chair's claim across seven configurations. The results (`claim_significance_analysis.md`) demonstrate the chair's sweeping claim was materially overbroad in 3 cases, accurate in 3 cases, and ambiguous in 1. By reporting these precise tiers, the audit defends against partisan flattenings ("the chair lied" vs. "the chair was completely right").
+- **Attack.** "The chair explicitly stated in Appendix C that the minority's configurations had 'no public support'. Evaluating this requires subjective sentiment analysis."
+- **Defense.** The audit operationalizes this through a two-step validation: first, running explicit keyword heuristics (support / oppose / against / recommend) across the fully OCR'd public submission dataset (`submission_ocr_analyze.py`), followed by direct manual verification of the resulting CSV records to catch edge cases. Rather than a subjective reading, the analysis mathematically tiers the chair's claim across seven configurations. The results (`claim_significance_analysis.md`) demonstrate the chair's sweeping claim was materially overbroad in 3 cases, accurate in 3 cases, and ambiguous in 1. By reporting these precise tiers, the audit defends against partisan flattenings ("the chair lied" vs. "the chair was completely right").
 
 ### Cross-election sign reversal
 

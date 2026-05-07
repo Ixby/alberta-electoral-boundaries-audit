@@ -22,3 +22,7 @@ Antigravity: [2026-05-06T21:50:00-06:00] Updated the B2 Efficiency Gap defense i
 Antigravity: [2026-05-06T21:55:00-06:00] Created and executed 'analysis/scripts/validate_derivation.py'. Performed a full symmetric difference calculation between our derived DPG topological maps and the newly acquired canonical Elections Alberta shapefiles. Results confirm a 99.9994% topological match (error rate of 0.000543%), mathematically proving the extreme precision of our original derivation framework.
 
 Antigravity: [2026-05-06T22:18:00-06:00] Expanded the 'DPG perimeter tracing' defense in test_selection_rationale.md to explicitly highlight the 'five nines' (99.9994%) topological accuracy proven by the validation script. Added language formally linking this geographic precision to the defense of the B-family partisan bias calculations (EG, Mean-Median).
+
+Antigravity: [2026-05-06T23:20:00-06:00] Documented the D11 Public Submission Sentiment Analysis in test_selection_rationale.md. Added explicit references to 'claim_significance_analysis.md' and detailed how the audit empirically tested the chair's 'districts no one asked for' claim, resulting in a tiered verdict of 3 false, 3 true, and 1 ambiguous.
+
+Antigravity: [2026-05-06T23:22:00-06:00] Refined the D11 Public Submission Sentiment Analysis defense in test_selection_rationale.md to explicitly note the two-step validation process: automated OCR keyword heuristics followed by direct manual verification of the resulting CSV records to catch edge cases and correct heuristic misclassifications.

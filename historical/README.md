@@ -64,7 +64,31 @@ Do not add new active work here. New deprecations: move the file, add an entry b
 | `dpg_perturbation_summary_v2_tiered.json` | `data/outputs/dpg_perturbation_summary_v3_tight.json` |
 | `2015_to_2019_crosswalk_partial.csv` | `data/outputs/2015_to_2019_crosswalk.csv` (full version) |
 
-Earlier versioned phase outputs are in `v0_1/` and `v0_2/` subdirectories. The `simulation_checkpoints_*` directories contain partially-executed MCMC runs (v0_8 buggy run and a 2M-step killed run) preserved for reproducibility audits.
+Earlier versioned phase outputs are in subdirectories:
+
+**`v0_1/`** — phase 4b/4c outputs from the first MAUP pass:
+
+| File | Notes |
+| --- | --- |
+| `v0_1_dpg_perturbation_analysis.md` | v0_1 perturbation analysis writeup |
+| `v0_1_dpg_perturbation_samples.csv` | v0_1 perturbation raw samples |
+| `v0_1_dpg_perturbation_summary.json` | v0_1 perturbation summary |
+| `v0_1_phase4b_majority_2021_populations.csv` | v0_1 majority DA population estimates |
+| `v0_1_phase4b_minority_2021_populations.csv` | v0_1 minority DA population estimates |
+| `v0_1_phase4c_majority_2023_votes_maup.csv` | v0_1 majority vote attribution (MAUP) |
+| `v0_1_phase4c_maup_summary.json` | v0_1 MAUP pass summary |
+| `v0_1_phase4c_minority_2023_votes_maup.csv` | v0_1 minority vote attribution (MAUP) |
+| `v0_1_phase4f_validation_deltas.csv` | v0_1 validation delta table |
+
+**`v0_2/`** — phase 4c outputs from the v0_2 MAUP correction pass:
+
+| File | Notes |
+| --- | --- |
+| `v0_2_phase4c_majority_2023_votes_maup.csv` | v0_2 majority vote attribution |
+| `v0_2_phase4c_maup_summary.json` | v0_2 MAUP summary |
+| `v0_2_phase4c_minority_2023_votes_maup.csv` | v0_2 minority vote attribution |
+
+The `simulation_checkpoints_*` directories contain partially-executed MCMC runs (v0_8 buggy run and a 2M-step killed run) preserved for reproducibility audits.
 
 ---
 
@@ -74,6 +98,24 @@ Earlier versioned phase outputs are in `v0_1/` and `v0_2/` subdirectories. The `
 | --- | --- |
 | `report_academic_backup.md` | Manual backup of `report_academic.md`; deprecated 2026-05-06 — git history is authoritative |
 | `report_public_backup.md` | Manual backup of `report_public.md`; deprecated 2026-05-06 — git history is authoritative |
+
+---
+
+## Scratch outputs and one-off scripts
+
+`scratch/` contains exploratory visualisations and one-off crosswalk probes run early in the audit. None are referenced by the canonical pipeline.
+
+| File | Notes |
+| --- | --- |
+| `crosswalk_results.txt` through `crosswalk_results_4.txt` | Console output from four exploratory VA-to-ED crosswalk iterations; superseded by `assignment_va_attribution_maup_v3_v05.py` |
+| `idv_results.txt` | One-off individual-vote diagnostic output |
+| `crosswalk.py` | First-pass crosswalk script; superseded by canonical attribution |
+| `calculate_stealth_metrics.py` | Exploratory stealth-metrics probe; logic absorbed into `packing_cracking_analysis.py` |
+| `export_geojson.py` | One-off GeoJSON export for map previews |
+| `generate_heatmaps.py` | Heatmap generator; used to produce `.png`/`.svg` heatmap outputs below |
+| `render_crosswalk_proof.py`, `render_all_proofs.py`, `render_story_proofs.py`, `render_xray_proofs.py` | Visualisation rendering scripts for early proof-of-concept maps |
+| `national_expansion_scaffold.py` | Scaffold for a national expansion study; never activated |
+| `crosswalk_proof.png`, `2019_heatmap.*`, `majority_heatmap.*`, `minority_heatmap.*` | Visual outputs from above scripts |
 
 ---
 
