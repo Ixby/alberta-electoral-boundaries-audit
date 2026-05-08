@@ -26,16 +26,16 @@ Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and 
 
 The table compares the two maps. The first five rows use no election results — they're properties of the lines themselves. The last two depend on how votes were attributed to each district.
 
-| What was measured | Majority map | Minority map |
-|---|---|---|
-| Population spread across districts (tighter is better) | 3,180 | **4,707 — 48% wider** |
-| NW Calgary population excess above average | 2.8% | **11.5%** |
-| Airdrie split | 2 divisions | **4 divisions** |
-| Borders that follow existing municipal lines | 71% | **15%** |
-| Boundaries flagged by the commission chair | 0 | **3** |
-| Seats at 50/50 votes (percentile in 100k simulation) | 46.1% — p83 (normal range) | **51.7% — p100 (no neutral map reaches this)** |
-| Efficiency gap (a partisan-fairness measure) | +0.1% | **+4.0% — p96** |
-| Packing-cracking neighbourhood pattern | 3 (same as 2019) | **0 — *pre-registered pass*** |
+| What was measured | Majority map | Minority map | Direction / Beneficiary |
+|---|---|---|---|
+| Population spread across districts (tighter is better) | 3,180 | **4,707 — 48% wider** | Structural (Reduces vote equality) |
+| NW Calgary population excess above average | 2.8% | **11.5%** | **UCP** (Packs urban NDP votes) |
+| Airdrie split | 2 divisions | **4 divisions** | **UCP** (Cracks urban/suburban power) |
+| Borders that follow existing municipal lines | 71% | **15%** | Structural (Reduces local accountability) |
+| Boundaries flagged by the commission chair | 0 | **3** | N/A |
+| Seats at 50/50 votes (percentile in 100k simulation) | 46.1% — p83 (normal range) | **51.7% — p100 (no neutral map reaches this)** | **UCP** |
+| Compactness-Weighted Efficiency Gap | +1.5% | **-2.4%** | **UCP** (via irregular shapes) |
+| Packing-cracking neighbourhood pattern | 5 | **6** | **2 (Test blind to hybridization)** | **UCP** (Hybridization obscures spatial packing) |
 
 > **VOCABULARY**
 >
@@ -45,7 +45,7 @@ The table compares the two maps. The first five rows use no election results —
 
 The bottom rows depend on election results. The *seats@50/50* test holds the electorate at perfect parity (UCP and NDP each win exactly half the votes province-wide) and asks how many seats the map awards the UCP. A neutral Alberta map produces a median around 44.8% UCP seats — Alberta's geography (NDP voters concentrated in city cores, UCP voters spread across rural ridings) gives the NDP a small efficiency advantage at neutrality. The majority map at 46.1% sits at the 83rd percentile of the 100,000-map simulation (normal range). The minority map at 51.7% is at the 100th percentile — no neutral map in 100,000 draws reaches that value. The *efficiency gap* number measures how lopsidedly each party's votes get translated into seats; on the official Elections Alberta shapefiles the minority's efficiency gap is +4.0%, placing it at the 96th percentile — outside the normal range. The verdict section unpacks the consequences.
 
-The last row is where the minority map looks *better* than the majority on a partisan-fairness measure: zero packed-cracked adjacency pairs, against three on the majority and three on the current 2019 map. The audit pre-registered this test before measuring, and the minority's tighter packing-cracking number is a real point in its favour. It is the single test where the minority outperforms the majority.
+The last row is where the minority map looks *better* than the majority on a partisan-fairness measure: zero packed-cracked adjacency pairs, against one on the majority map (and zero on the current 2019 map). The audit pre-registered this test before measuring, and the minority's tighter packing-cracking number is a real point in its favour. It is the single test where the minority outperforms the majority.
 
 ---
 
@@ -89,14 +89,14 @@ Lane 1 depends on which election results you score the maps against. Lane 2 does
 
 The same five tests in tabular form, with each test's threshold stated alongside the result. The bottom row is the audit's *summary* — the count of tests each map fails out of the five.
 
-| Test | Majority map | Minority map |
-|---|---|---|
-| Border follows existing municipal lines (70–85% Canadian norm) | 71% — within norm | **15% — 4.9× below norm** |
-| Population spread (tighter is better) | 3,180 | **4,707 — 48% wider** |
-| NW Calgary population excess above average | 2.8% | **11.5%** |
-| Boundaries flagged by the commission's own chair | 0 | **3** |
-| Airdrie split (constraint minimum: 2) | 2 pieces | **4 pieces** |
-| **Pre-registered summary** (4 of 5 fired = outlier) | **0 of 5 fired** | **5 of 5 fired** |
+| Test | Majority map | Minority map | Direction / Beneficiary |
+|---|---|---|---|
+| Border follows existing municipal lines (70–85% Canadian norm) | 71% — within norm | **15% — 4.9× below norm** | Structural (Reduces accountability) |
+| Population spread (tighter is better) | 3,180 | **4,707 — 48% wider** | Structural (Reduces vote equality) |
+| NW Calgary population excess above average | 2.8% | **11.5%** | **UCP** (Packs urban NDP votes) |
+| Boundaries flagged by the commission's own chair | 0 | **3** | N/A |
+| Airdrie split (constraint minimum: 2) | 2 pieces | **4 pieces** | **UCP** (Cracks urban/suburban power) |
+| **Pre-registered summary** (4 of 5 fired = outlier) | **0 of 5 fired** | **5 of 5 fired** | **UCP** |
 
 A separate finding — applied only to the minority because the minority is the map whose contested redraws are public[^asym] — is that **five of six of the minority commissioners' published rationales fail under independent check**. (A seventh redraw the audit had previously listed turned out to rest on a federal-boundary claim that cannot be located in the minority report; it has been removed rather than left as a weak claim.)
 

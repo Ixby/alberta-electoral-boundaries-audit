@@ -96,7 +96,7 @@
 
 **What we cite today** —
 
-- No formal citation for the 70/30 urban/rural blending methodology. Admitted in v0.3 critique as a judgment call.
+- The 70/30 urban/rural blending methodology was used in v0.3 as a proxy proxy but is now **formally deprecated**. The receipt of official Elections Alberta shapefiles allowed us to supersede it completely with Phase 4C measured attribution.
 
 ### What we should cite (or at least read)
 
@@ -104,7 +104,7 @@
   > ℹ **Citation updated 2026-05-07:** replaces Altman & McDonald 2014 HICSS (public-participation GIS, pp. 2063–2072), which does not justify the 70/30 blend. BARD 2011 is the more directly relevant redistricting source.
 - **Altman, Micah, and Michael P. McDonald. 2014.** "Public Participation GIS: The Case of Redistricting." In *Proceedings of the 47th Hawaii International Conference on System Sciences*, 2063–2072. Washington, DC: IEEE Computer Society. — public-data redistricting participation; note this is GIS/public-input context, not methodology for vote attribution.
   > ℹ **Pages corrected 2026-05-07:** 2063–2072 (not 2032–2041 as previously listed).
-- **Fifield, Benjamin, Kosuke Imai, Jun Kawahara, and Christopher T. Kenny. 2020.** "The Essential Role of Empirical Validation in Legislative Redistricting Simulation." *Statistics and Public Policy* 7(1): 52–68. — methodology for simulating redistricting with empirical vote attribution. Directly relevant to what Phase 4C full execution would do.
+- **Fifield, Benjamin, Kosuke Imai, Jun Kawahara, and Christopher T. Kenny. 2020.** "The Essential Role of Empirical Validation in Legislative Redistricting Simulation." *Statistics and Public Policy* 7(1): 52–68. — methodology for simulating redistricting with empirical vote attribution. This literature is now strictly adhered to, as Phase 4C full execution was successfully run against the official Elections Alberta shapefiles (replacing the deprecated 70/30 blend).
 
 ---
 

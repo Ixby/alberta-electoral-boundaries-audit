@@ -425,6 +425,7 @@ def run_ensemble(
         "population": updaters.Tally("pop_2021", alias="population"),
         "ucp": updaters.Tally("va_ucp", alias="ucp"),
         "ndp": updaters.Tally("va_ndp", alias="ndp"),
+        "area": updaters.Tally("va_area", alias="area"),
         "cut_edges": updaters.cut_edges,
     }
 
@@ -523,9 +524,24 @@ def run_ensemble(
         method=_recom_method,
     )
 
-    pop_constraint = constraints.within_percent_of_ideal_population(
-        initial_partition, pop_deviation
-    )
+    def alberta_statutory_population_constraint(partition):
+        ideal = ideal_pop_mcmc
+        special_count = 0
+        for part_id, pop in partition["population"].items():
+            area_sqkm = partition["area"][part_id] / 1_000_000.0
+            dev = abs(pop - ideal) / ideal
+            if area_sqkm > 5_000:
+                if dev > 0.50:
+                    return False
+                if dev > pop_deviation:
+                    special_count += 1
+            elif dev > pop_deviation:
+                return False
+        if special_count > 4:
+            return False
+        return True
+
+    pop_constraint = alberta_statutory_population_constraint
 
     chain = MarkovChain(
         proposal=proposal,

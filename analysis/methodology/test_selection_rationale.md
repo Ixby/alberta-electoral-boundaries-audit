@@ -190,7 +190,7 @@ Ordered by value / effort:
 
 3. **Tier-aware DPG-perturbation CI** (Issue #2 v2 subagent, in flight). σ per-polygon by `canon_source` — expect tighter than the flat-±500m v1 CI.
 
-4. **Bayesian falsifiability hooks** on each headline number. The sunset clause handles DPG-dependent claims; a complementary Bayesian-update hook would state "if official shapefiles produce X direction, the finding is retracted" explicitly per metric.
+4. **Bayesian falsifiability hooks** on each headline number. The sunset clause originally handled DPG-dependent claims. Now that Elections Alberta has provided the official 2026 shapefiles, the Bayesian-update hook is triggered: we can finalize the findings against the exact legal geometries rather than derived approximations.
 
 5. **Synthetic-gerrymander simulation studies.** Generate Alberta-geography synthetic plans with known partisan properties; run the full test battery. Validate that the battery detects the synthetic gerrymanders at the expected signal strength and rejects neutral maps.
 
@@ -246,7 +246,7 @@ This is the single most-requested item from the methodological reflection, and w
 
 **Operational definition.** $\text{EG}_{cw} = \sum_i w_i \cdot \text{EG}_i$ where $w_i = (1 - PP_i / \text{median}(PP))$, bounded to [0, 1]. High $\text{EG}_{cw}$ means the partisan asymmetry is concentrated in the map's least-compact districts.
 
-**Refinement (PO critique 2026-04-24).** The voluntary data disclosure by Elections Alberta is now satisfied, granting access to the official Tier-C 2026 shapefiles. This unblocks the full battery of **Polsby-Popper, Schwartzberg, Reock, and Convex-Hull ratios** directly on the true commission geometry. A compactness-weighted EG using these exact metrics is now fully defensible without relying on proxies. **Framing for the paper**: "The bias is not coming from the districts that look like squares; it is coming from the districts that look like dragons." That one sentence is the most difficult argument for a commission to defend, because the commission's own drawing discretion is proportional to polygon irregularity.
+**Refinement (PO critique 2026-04-24).** The voluntary data disclosure by Elections Alberta is now satisfied, granting access to the official Tier-C 2026 shapefiles. This unblocks the full battery of **Polsby-Popper, Schwartzberg, Reock, and Convex-Hull ratios** directly on the true commission geometry. A compactness-weighted EG using these exact metrics is now fully defensible without relying on DPG proxies. **Framing for the paper**: "The bias is not coming from the districts that look like squares; it is coming from the districts that look like dragons." That one sentence is the most difficult argument for a commission to defend, because the commission's own drawing discretion is proportional to polygon irregularity.
 
 **Status.** **UNBLOCKED**. Elections Alberta data disclosure satisfied. Polsby-Popper and all Tier-C geometric metrics are now fully executable on the official shapefiles.
 

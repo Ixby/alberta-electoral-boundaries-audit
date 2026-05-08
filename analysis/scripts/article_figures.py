@@ -355,25 +355,25 @@ def build_lane2_bars() -> Path:
 def build_bias_structure_matrix() -> Path:
     """The Bias-Structure Matrix — the article's primary rhetorical
     visual. Two-axis plot:
-      x = Lane 1 efficiency gap (signed %; v0_8 full coverage, Run #6 2M MCMC)
+      x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles, 50k 2-chain ensemble)
       y = Lane 2 structural-irregularity count (of 5 pre-registered tests)
     Three points: 2019 enacted (grey), Majority 2026 (purple), Minority
-    2026 (green). Both threshold lines (Alberta ~5%, US 7%) plus the
+    2026 (green). Both threshold lines (Alberta ~4%, US 7%) plus the
     structural-irregularity outlier line (4 of 5). The top-right
     quadrant is the danger zone."""
 
     fig, ax = plt.subplots(figsize=(6.8, 5.2), dpi=300)
     fig.subplots_adjust(top=0.86, bottom=0.16, left=0.13, right=0.97)
 
-    # Three real maps — v0_9 topological substrate canonical values
+    # Three real maps — canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
     points = [
         ("2019 enacted", 2.41, 0, NEUTRAL_2019),
-        ("Majority 2026", 1.44, 0, MAJORITY_PURPLE),
-        ("Minority 2026", 1.75, 5, MINORITY_GREEN),
+        ("Majority 2026", 0.10, 0, MAJORITY_PURPLE),
+        ("Minority 2026", 4.02, 5, MINORITY_GREEN),
     ]
 
     threshold_eg_alberta = (
-        4.03  # ensemble p95 (simulated_ensemble_percentiles_250k.csv)
+        3.90  # canonical ensemble p95 (simulated_ensemble_raw_samples_canonical.csv)
     )
     threshold_eg_us = 7.0
     threshold_struct = 4
@@ -425,7 +425,7 @@ def build_bias_structure_matrix() -> Path:
     ax.text(
         threshold_eg_alberta,
         YMAX - 0.05,
-        "Alberta line ~5%",
+        "Alberta line ~4%",
         color=THRESHOLD_RED,
         fontsize=8.5,
         fontweight="bold",
@@ -509,8 +509,8 @@ def build_bias_structure_matrix() -> Path:
     # Per-dot labels — placed to avoid overlap, with v0_9 values shown
     label_specs = {
         "2019 enacted": ((+0.3, -0.42), "left", "top", "+2.4% / 0 of 5"),
-        "Majority 2026": ((+0.3, +0.25), "left", "bottom", "+1.4% / 0 of 5"),
-        "Minority 2026": ((-0.3, -0.18), "right", "top", "+1.8% / 5 of 5"),
+        "Majority 2026": ((+0.3, +0.25), "left", "bottom", "+0.1% / 0 of 5"),
+        "Minority 2026": ((-0.3, -0.18), "right", "top", "+4.0% / 5 of 5"),
     }
     for label, x, y, color in points:
         (ox, oy), ha, va, val = label_specs[label]

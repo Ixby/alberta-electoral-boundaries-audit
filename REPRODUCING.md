@@ -9,7 +9,8 @@ This document is the entry point for anyone who wants to **audit the audit**: re
 | Verification | Wall time | Hardware |
 |---|---|---|
 | Forensic spot-check (10,000 maps with full assignments) | ~2 min | any laptop |
-| Full 250,000-map MCMC ensemble | ~15 min | 4-core, 16 GB |
+| Canonical 50k MCMC ensemble (2 × 25k continuous chains) | ~8 min | 4-core, 16 GB |
+| ~~Full 250,000-map MCMC ensemble~~ (**deprecated** — see Step 3) | ~15 min | 4-core, 16 GB |
 | Targeted-gerrymander short-bursts test (UCP + NDP directions) | ~12 min | any laptop |
 | Rural-protection comparative analysis | <30 s | any laptop |
 | Magazine PDF rebuild | ~30 s | any laptop |
@@ -78,23 +79,31 @@ If your independent reimplementation produces the same `efficiency_gap`, `seats_
 
 ---
 
-## Step 3 — Reproduce the headline 250k MCMC ensemble
+## Step 3 — Reproduce the canonical 50k MCMC ensemble
 
-This is the audit's authoritative simulation. Outputs all five files the article cites.
+> **CANONICAL ENSEMBLE:** All published results use the 50k canonical run described here.
+> The 250k `mcmc_ensemble_250k.py` script is **deprecated** — it has a resume mechanism
+> that loses chain state on restart, making the assembled run non-continuous. Do not use
+> it as authoritative. The canonical artefact is `data/simulated_ensemble_raw_samples_canonical.csv`
+> (2 × 25k continuous chains, seed-locked via drand beacon, no resume).
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_250k.py \
-    --n-steps 250000 --n-chains 4 --chunk-size 5000 --seed 88
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_canonical.py
 ```
 
-Expected wall time: ~15 min on a 13th-gen i7-1360P. Outputs:
+Expected wall time: ~8 min on a 13th-gen i7-1360P. The canonical artefact is already committed:
 
-- `data/simulated_ensemble_percentiles_250k.csv` — percentile placements for the three real maps
-- `data/simulation_real_map_scores_250k.json` — real-map metric scores
-- `data/simulation_convergence_diagnostics_250k.json` — ESS, autocorrelation by metric
-- `data/outputs/mcmc/simulation_checkpoints_250k_final/chain{0..3}_samples.csv` — per-chain metric record (these are the LFS-tracked artefacts; ~237 MB total)
+- `data/simulated_ensemble_raw_samples_canonical.csv` — 50,000 rows, columns `efficiency_gap`, `mean_median`, `declination`, `seats_at_50_50`, `chain` (0 or 1), and compactness proxies
 
-Headline finding to verify: The minority commission map's `seats@50/50` value sits at **48.31%**. In the neutral 250k ReCom ensemble, this value lands precisely at the **98.5th percentile**, firmly placing it as an extreme statistical outlier (only 1.5% of neutral maps reach this level of UCP advantage under identical criteria).
+Headline findings to verify:
+
+- The minority map's efficiency gap (4.02%) sits at the **95.9th percentile** of the canonical neutral ensemble — only 4.1% of neutral maps reach this level of partisan lean under identical criteria.
+- The minority map's `seats@50/50` value (51.69%) sits at the **100th percentile** — no neutral map in the ensemble reached this level of UCP seat advantage at an even vote split.
+- The majority map (EG 0.10%) sits at the **14.8th percentile** — indistinguishable from a neutral map.
+
+### Deprecated: 250k ensemble (do not use for published claims)
+
+`mcmc_ensemble_250k.py` was an earlier exploratory run. It is preserved for audit-trail completeness but its resume mechanism stitches independent chain segments rather than producing a single continuous chain. The canonical 50k ensemble supersedes it for all published claims. Running the 250k script will reproduce the deprecated artefacts but will not reproduce the published headline numbers.
 
 ---
 
@@ -103,7 +112,7 @@ Headline finding to verify: The minority commission map's `seats@50/50` value si
 This is the symmetry test that confirms a non-neutral procedure can reach the minority's territory while the majority sits comfortably inside the neutral range.
 
 ```bash
-# UCP-maximizing direction: confirms a non-neutral procedure can reach 52.87% (which encompasses the minority's 48.31%)
+# UCP-maximizing direction: confirms a non-neutral procedure can reach 52.87% (which encompasses the minority's 51.69%)
 PYTHONIOENCODING=utf-8 python analysis/scripts/targeted_gerrymander_burst.py
 
 # NDP-maximizing direction (symmetric mirror): confirms targeted procedures can drive seats@50/50 down to 37.93% (well below the majority's 43.7%)
@@ -148,7 +157,8 @@ Wall time: ~30 seconds. The intermediate `article.pdf` and `article.html` are wr
 
 | Artefact | Storage | What it proves |
 |---|---|---|
-| 4× per-chain metric CSVs (~30 MB) | Git LFS | Every step in the 250k ensemble's metric record |
+| `simulated_ensemble_raw_samples_canonical.csv` (canonical 50k, ~8 MB) | Git LFS | Every step in the canonical 2×25k ensemble; `chain` column enables Gelman-Rubin |
+| 4× per-chain metric CSVs (~30 MB) | Git LFS | Deprecated 250k exploratory run — preserved for audit trail only |
 | 10k forensic verification subset | Git regular (1.84 MB compressed) | Byte-verifiable spot-check: pick any saved partition, recompute, confirm |
 | Targeted-burst trace + best.json | Git regular | The Cannon et al. short-bursts hill-climb result |
 | Pre-registration draft + amendments | Git regular | The discipline chain: what was promised, what changed, when |

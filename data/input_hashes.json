@@ -1,7 +1,7 @@
 {
   "data/INTEGRITY_STATUS.md": {
-    "sha256": "9804e7161ab5627bb6977edbfc88d44ddde851eed49ab16f903ebf12c11e4026",
-    "size_bytes": 9427
+    "sha256": "31495c3fc93d063ec057a27977f8de33859222087132a8fabedd997431da1212",
+    "size_bytes": 9244
   },
   "data/data_acquisition_manifest.md": {
     "sha256": "3625201f07439730ab14e73c36e46e47a3d50f0cd237992c26a505eec637390c",
@@ -11,6 +11,10 @@
     "sha256": "c149b924213263d3efa73110ff958127b7dc73948a508d73582a00b9ca76f09c",
     "size_bytes": 1212
   },
+  "data/input_hashes.json": {
+    "sha256": "148d4bf33a10884a9c30f06c88179790c60630a6a687a17bd6974eb22546178e",
+    "size_bytes": 91389
+  },
   "data/mcmc_canonical_run.log": {
     "sha256": "bc1693b2a1c44256f34e2ac9bb8a89e9317a0bf8407dd738de2485e8403475a3",
     "size_bytes": 10503
@@ -19,25 +23,45 @@
     "sha256": "64919cb7f9e12f1fa592a772859baf0cf79eb0fc780ca94f7fd5b5ea0c6898b8",
     "size_bytes": 6757
   },
+  "data/neighbour_drain_summary.json": {
+    "sha256": "9e4e4567e762444e959586bcac0c78142cca636cd23e83830224f773f3efb76c",
+    "size_bytes": 3023
+  },
   "data/provenance_manifest.json": {
     "sha256": "5c01a09feb0572a36aa4b72d7c1b453e19c9050c7e01ee111f59c2a680fc57f9",
     "size_bytes": 2172
   },
+  "data/simulated_ensemble_percentiles_250k.csv": {
+    "sha256": "c6f69f5f42f3cc70de11aca4e82736f4bdb1f2d1a3601af45944171a53751747",
+    "size_bytes": 1612
+  },
   "data/simulated_ensemble_percentiles_canonical.csv": {
-    "sha256": "c80d79fca3ea0efb2e1eb23094a5446c61f67fd543fa0126903925b551ab0102",
-    "size_bytes": 1535
+    "sha256": "a91008b0c079b3d06637d085571c8869eeb8fbf7521763b027c1ae4ea8e002cd",
+    "size_bytes": 2577
+  },
+  "data/simulated_ensemble_raw_samples_250k.csv": {
+    "sha256": "b822861a5d8208d9f2d43337612bc9aa799ceab228e114136ef5566ca047ebe2",
+    "size_bytes": 42063074
   },
   "data/simulated_ensemble_raw_samples_canonical.csv": {
-    "sha256": "1b3b9f4870a8f09c82dc3a5697b616450816182a482d8c1689bbaf2a73a71d45",
-    "size_bytes": 11203745
+    "sha256": "4863f836e1499f16ddcac4598091a6f510da9311efcd3e28b8b12c22acfda753",
+    "size_bytes": 8403836
+  },
+  "data/simulation_convergence_diagnostics_250k.json": {
+    "sha256": "b01b6921fad277578ab1479f00d17da165ee016b0e940120a5ec802940b2ddc0",
+    "size_bytes": 1016
   },
   "data/simulation_convergence_diagnostics_canonical.json": {
-    "sha256": "f63c04e080950e6fe982dacccce2ed7e2ee17f3fc7d0000bae8bffbd62d63eda",
-    "size_bytes": 1012
+    "sha256": "24eb2eda822b4a9ddf34088a8b1d87948788888de2409ea987f4b1ceb8ad1022",
+    "size_bytes": 1789
+  },
+  "data/simulation_real_map_scores_250k.json": {
+    "sha256": "de780ef40a15982e508ce20d0ab8647459afede70256751ee9a3a5148ca7389c",
+    "size_bytes": 1958
   },
   "data/simulation_real_map_scores_canonical.json": {
-    "sha256": "6f6e815a8f68a23745a007ec710ecc19ca2a12bd10bd55056670a85a2c9af616",
-    "size_bytes": 1623
+    "sha256": "0c50bf7b018086c14c504da279370dfdbe83ccebcb333ae69e7cd3021541ce9f",
+    "size_bytes": 1913
   },
   "data/szat_rerun.log": {
     "sha256": "68cea8f7c5211ee78b4cafe3ba936261b39aa4356696dc2df3451e626873cbf3",
@@ -100,8 +124,8 @@
     "size_bytes": 115009
   },
   "data/maps/article/bias_structure_matrix.svg": {
-    "sha256": "d098986f86dfff6f95664bebc09c1fc710a9de77e520c928524cbe651a7fd6ba",
-    "size_bytes": 160836
+    "sha256": "bd65496ac6ae5312a3f6abecca2875171ab1e18f4d99d82c6456e8046d0fdc3f",
+    "size_bytes": 160345
   },
   "data/maps/article/figure_airdrie_v3.svg": {
     "sha256": "dc3438b1c9f79545db43747178d8804f27f085726c141d1901488a1a459544ab",
@@ -128,8 +152,8 @@
     "size_bytes": 140633
   },
   "data/maps/article/verdict_quadrant.svg": {
-    "sha256": "3c928be0563186e3f5f229c26e7c31f8ee9084c4b2e9dde7bf7b093715168501",
-    "size_bytes": 160836
+    "sha256": "9bc3f57d9eeaea9599d91d1a542dbbe2a8f26e01f2f1dc9a53311a7204002e81",
+    "size_bytes": 160345
   },
   "data/maps/hires/v0_1_majority_p71_alberta_overview.png": {
     "sha256": "903c4f0d89e989d1f9979b9aa7611619231a2f1481851bb7ca7bc5b2a5ac83f0",
@@ -383,6 +407,22 @@
     "sha256": "95d845ecf09d524583327185ed77a4403f0eb08247fcb0908d4a7dc11b35319f",
     "size_bytes": 67087
   },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_10_declination.svg": {
+    "sha256": "f37886b0b42ff7e01f7a2b36e8187a0c982d155259cf4b832a32cdcc5556905c",
+    "size_bytes": 73612
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_10_efficiency_gap.svg": {
+    "sha256": "a8758753cc294eab7275b7e010c8f17eba457b9aa86f78a477f61c5d8cffb19a",
+    "size_bytes": 73636
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_10_mean_median.svg": {
+    "sha256": "27613d5759c43b786e4a017ff724988d0af8a732c41cd35279ca89220df59ffb",
+    "size_bytes": 76954
+  },
+  "data/maps/mcmc/ensemble_distribution_250k_v0_10_seats_at_50_50.svg": {
+    "sha256": "3182b55f5794fd7ec751bf4291a79bb54ce3a191f946ece60bce673f21d25e18",
+    "size_bytes": 75739
+  },
   "data/maps/mcmc/ensemble_distribution_250k_v0_8_declination.png": {
     "sha256": "bb9a655334eccaf97b0ba528499540e7b77b1fbbd269240ef92f62e07cc71e37",
     "size_bytes": 71454
@@ -416,20 +456,32 @@
     "size_bytes": 86723
   },
   "data/maps/mcmc/ensemble_distribution_canonical_declination.svg": {
-    "sha256": "bfbf21858262a180880ba70e51c7c5bd8411d09d4ccc86e14f36501bd62a125d",
-    "size_bytes": 63808
+    "sha256": "ab43e7e88f5fc26d6151f29d0506a497939617cc4071af18a18e05ddfaa51f7e",
+    "size_bytes": 63697
   },
   "data/maps/mcmc/ensemble_distribution_canonical_efficiency_gap.svg": {
-    "sha256": "c7f1190b1525f8c899b94e15714dada2392db54c7b5f9ee3afeac305e6fe4a0c",
-    "size_bytes": 68415
+    "sha256": "c95c7bddca29ad33176d094c6688bfa6ce398a7471d4583c918dc273a942e53a",
+    "size_bytes": 68225
   },
   "data/maps/mcmc/ensemble_distribution_canonical_mean_median.svg": {
-    "sha256": "8fbc000561051c172e208223fe276e85f4bd0a614ce62b4fc509532aa6bf2e1f",
-    "size_bytes": 65814
+    "sha256": "1945500efb04616ab16cbea20ce60754783b2d4e916155fa009977dda956d0bd",
+    "size_bytes": 65624
+  },
+  "data/maps/mcmc/ensemble_distribution_canonical_population_mad.svg": {
+    "sha256": "20bf892ac287edc6585d580d692b42fba2ff68ad2d9476104e668571f038954e",
+    "size_bytes": 63811
+  },
+  "data/maps/mcmc/ensemble_distribution_canonical_reock_proxy_median.svg": {
+    "sha256": "6b1234edb0c17c74b8d98dbab7e6c39991ee9c8c1b79031d783fda8c620cd646",
+    "size_bytes": 66354
+  },
+  "data/maps/mcmc/ensemble_distribution_canonical_reock_proxy_pct_below_030.svg": {
+    "sha256": "eac1afa191c3121b8aad8a0c3139d6e6ddde408c2b79e5d0f4976624a3be116c",
+    "size_bytes": 68640
   },
   "data/maps/mcmc/ensemble_distribution_canonical_seats_at_50_50.svg": {
-    "sha256": "8872e9dbd9139d23e236787428d8a659aac2f62b5b6b5b0d62e26584d521ab71",
-    "size_bytes": 66927
+    "sha256": "0065ace7f30d25ea95ee4af63feb03ac496b4731fa7ee35b44da90da4fb07d9f",
+    "size_bytes": 68502
   },
   "data/maps/mcmc/ensemble_distribution_declination.png": {
     "sha256": "265996e19539d77afa3ec44b3d45cca463a0fa08a39166798f83c9a41fb04cf0",
@@ -462,6 +514,22 @@
   "data/maps/mcmc/running_mean_100k_seats_at_50_50.png": {
     "sha256": "d11a7e1cbfc66351393b2d539d0f5a826367f0a5e7dcf50efee4df0d188f432f",
     "size_bytes": 72953
+  },
+  "data/maps/mcmc/running_mean_250k_v0_10_declination.svg": {
+    "sha256": "2ff844b69ca1f1002a6892b138c357bc1450283f69a4d2816782b758af466325",
+    "size_bytes": 78743
+  },
+  "data/maps/mcmc/running_mean_250k_v0_10_efficiency_gap.svg": {
+    "sha256": "bb5255a3b3d309476dff7589cdfe2628857c1ab84a81f7ccaac0369aa402332c",
+    "size_bytes": 81328
+  },
+  "data/maps/mcmc/running_mean_250k_v0_10_mean_median.svg": {
+    "sha256": "7349e38026b09e3347c13b14914bcddfb528d7cad4812c9f9141e3973aeb5ebe",
+    "size_bytes": 81250
+  },
+  "data/maps/mcmc/running_mean_250k_v0_10_seats_at_50_50.svg": {
+    "sha256": "5e2bf329d9882a27ac0e5381b35ff82291643328246f2de593ab76f701feb5d0",
+    "size_bytes": 73821
   },
   "data/maps/mcmc/running_mean_250k_v0_8_declination.png": {
     "sha256": "d1f848f4dada9df048adb8fa699329a42af4aff08cd664ad4dae3890c1c96c8a",
@@ -496,20 +564,32 @@
     "size_bytes": 69130
   },
   "data/maps/mcmc/running_mean_canonical_declination.svg": {
-    "sha256": "d844784819c9c45e5c7fb0faea35d2c33649b516c9f7a4a4a436220d2e0c1193",
-    "size_bytes": 64276
+    "sha256": "48b5c1a0162b75861d3cabe5025700ae14de4b6907a8a9825570e0ca6779b856",
+    "size_bytes": 57073
   },
   "data/maps/mcmc/running_mean_canonical_efficiency_gap.svg": {
-    "sha256": "cf8df802b70b59c64e9ddc16ffc6b8e057f09d0b6b485e1cb72a9e1b6cef98f3",
-    "size_bytes": 74534
+    "sha256": "cf3386280673e2f23103f3e695204497dda5dccad5ae1596224a69bfa936f95b",
+    "size_bytes": 64493
   },
   "data/maps/mcmc/running_mean_canonical_mean_median.svg": {
-    "sha256": "3662e784dc032fabddf21b2b61e958b9e0535d3fab59204ac1f72ba42b01034c",
-    "size_bytes": 72216
+    "sha256": "e51e2be250dffe3645e267d80fada552411e3b904dfae7e778a244a32e06e6d5",
+    "size_bytes": 64539
+  },
+  "data/maps/mcmc/running_mean_canonical_population_mad.svg": {
+    "sha256": "a4e521202c8939b41c1baec8cac14c7032e39c94651464b26042dc496a8ef2b7",
+    "size_bytes": 58033
+  },
+  "data/maps/mcmc/running_mean_canonical_reock_proxy_median.svg": {
+    "sha256": "afde4741ad15e95a17a3f854741778f27fa8d5065c85fb015fa6e9d497b528b9",
+    "size_bytes": 54670
+  },
+  "data/maps/mcmc/running_mean_canonical_reock_proxy_pct_below_030.svg": {
+    "sha256": "7e42056c6f96278b80d40f920588aebcaad99726a565c524ddc6da7f8b11eb6e",
+    "size_bytes": 74924
   },
   "data/maps/mcmc/running_mean_canonical_seats_at_50_50.svg": {
-    "sha256": "9910946822f19724cfa69852818d0d1d710618630e5cee7436016f3f24536c0d",
-    "size_bytes": 71522
+    "sha256": "c9eb7e1412f756ba1827aca595ec7cb0e8405bccced70689e755705e8647e884",
+    "size_bytes": 62231
   },
   "data/maps/pdf_previews/report_public_page_1.png": {
     "sha256": "abc161a448e6f8f97f81cd93a3e73a933814acbf43cc4d48470b1b2d642b1493",
@@ -1942,5 +2022,21 @@
   "data/shapefiles/reference/alberta_2023_vas/EA_Voting_Area_Boundaries_2023.shx": {
     "sha256": "b8c0f73f920c2af64a547e7c75bba19a519bc860b050b4d9b64624716f47c3bf",
     "size_bytes": 38220
+  },
+  "data/simulation_checkpoints_250k_final/chain0_samples.csv": {
+    "sha256": "29594ef17c086942758f5cb5652462136b9bc9e820de7f3618cf7fa6992a5ae0",
+    "size_bytes": 11003454
+  },
+  "data/simulation_checkpoints_250k_final/chain1_samples.csv": {
+    "sha256": "ba627e57dcdf12d7cbd8d4dc65bfcc70e5569fd91f04e10285d1a1e430aaaf9d",
+    "size_bytes": 10981267
+  },
+  "data/simulation_checkpoints_250k_final/chain2_samples.csv": {
+    "sha256": "3cb330667e8b27780afc3945301bfd0b5d526b0813c8194fe0aeebcbf47a3bb2",
+    "size_bytes": 10988245
+  },
+  "data/simulation_checkpoints_250k_final/chain3_samples.csv": {
+    "sha256": "d5d631ad3bf80d61b24bd69f73498d0230012e6cc07742334bedd73da6591de2",
+    "size_bytes": 10981422
   }
 }

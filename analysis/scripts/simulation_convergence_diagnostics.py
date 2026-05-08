@@ -31,10 +31,11 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from mcmc_ensemble_100k import autocorrelation_ess
+from mcmc_ensemble import autocorrelation_ess
 
 REPO_ROOT = HERE.parent.parent
-CHECKPOINT_DIR = REPO_ROOT / "data" / "mcmc_checkpoints_250k_v0_8"
+CHECKPOINT_DIR = REPO_ROOT / "data" / "simulation_checkpoints_250k_final"
+CANONICAL_CSV = REPO_ROOT / "data" / "simulated_ensemble_raw_samples_canonical.csv"
 OUT_JSON = REPO_ROOT / "data" / "simulation_convergence_diagnostics_per_chain.json"
 
 METRICS = ("efficiency_gap", "mean_median", "declination", "seats_at_50_50")
@@ -193,6 +194,75 @@ def main() -> int:
             f"pooled (inflated) ESS={pooled.get('n_eff', float('nan')):>10.1f}  "
             f"Rhat={rhat_val:.4f}  [{verdict}]"
         )
+
+    # ── Canonical ensemble (2 × 50k continuous chains, no resume) ───────────
+    print(f"\n[diagnostics] reading canonical ensemble from {CANONICAL_CSV.name}")
+    if not CANONICAL_CSV.exists():
+        print(f"[diagnostics] WARNING: canonical CSV not found at {CANONICAL_CSV}; skipping")
+        out["canonical_ensemble"] = {"error": "canonical CSV not found"}
+    else:
+        canonical_df = pd.read_csv(CANONICAL_CSV)
+        chain_0 = canonical_df[canonical_df["chain"] == 0]
+        chain_1 = canonical_df[canonical_df["chain"] == 1]
+        print(
+            f"[diagnostics] canonical chains: chain0={len(chain_0)} rows, "
+            f"chain1={len(chain_1)} rows"
+        )
+
+        canonical_out: dict = {
+            "source": CANONICAL_CSV.name,
+            "chain_lengths": [len(chain_0), len(chain_1)],
+            "metrics": {},
+        }
+
+        for metric in METRICS:
+            ess_0 = autocorrelation_ess(chain_0[metric].to_numpy())
+            ess_0["chain_idx"] = 0
+            ess_1 = autocorrelation_ess(chain_1[metric].to_numpy())
+            ess_1["chain_idx"] = 1
+
+            rhat = gelman_rubin_rhat(
+                [chain_0[metric].to_numpy(), chain_1[metric].to_numpy()]
+            )
+
+            worst_ess = min(
+                (
+                    d["n_eff"]
+                    for d in [ess_0, ess_1]
+                    if np.isfinite(d.get("n_eff", float("nan")))
+                ),
+                default=float("nan"),
+            )
+            sum_ess = sum(
+                d["n_eff"]
+                for d in [ess_0, ess_1]
+                if np.isfinite(d.get("n_eff", float("nan")))
+            )
+
+            canonical_out["metrics"][metric] = {
+                "per_chain": [ess_0, ess_1],
+                "worst_per_chain_ess": float(worst_ess),
+                "per_chain_neff_total": float(sum_ess),
+                "gelman_rubin": rhat,
+            }
+
+            rhat_val = rhat.get("rhat", float("nan"))
+            verdict = (
+                (
+                    "GOLD < 1.05"
+                    if rhat_val < 1.05
+                    else "PUBLISH < 1.10" if rhat_val < 1.10 else "REVISE >= 1.10"
+                )
+                if np.isfinite(rhat_val)
+                else "N/A"
+            )
+            print(
+                f"  {metric:18s}  worst-chain ESS={worst_ess:>9.1f}  "
+                f"sum-per-chain ESS={sum_ess:>10.1f}  "
+                f"Rhat={rhat_val:.4f}  [{verdict}]"
+            )
+
+        out["canonical_ensemble"] = canonical_out
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(out, indent=2))

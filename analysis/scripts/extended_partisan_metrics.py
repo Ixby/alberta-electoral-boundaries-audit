@@ -100,20 +100,20 @@ def districts_from_v7(
 
     joined = gpd.sjoin(
         va_centroids[["va_ucp", "va_ndp", "geometry"]],
-        eds[["name_2026", "geometry"]],
+        eds[["EDName2025", "geometry"]],
         how="left",
         predicate="within",
     )
     agg = (
-        joined.groupby("name_2026")
+        joined.groupby("EDName2025")
         .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
         .reset_index()
     )
     agg["total"] = agg["ucp"] + agg["ndp"]
     agg["ucp_share"] = np.where(agg["total"] > 0, agg["ucp"] / agg["total"], np.nan)
     assigned = agg.dropna(subset=["ucp_share"])
-    total_vas = len(va)
-    assigned_vas = joined["name_2026"].notna().sum()
+    total_vas = len(va_centroids)
+    assigned_vas = joined["EDName2025"].notna().sum()
     print(
         f"  [{label}] {len(assigned)} EDs, "
         f"{assigned_vas}/{total_vas} VAs assigned ({assigned_vas/total_vas:.1%})"

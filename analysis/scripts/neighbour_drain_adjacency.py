@@ -298,7 +298,7 @@ def detect_chain_signals(
             s_X = eX["s"]
             m_Y = eY["m"]
             chain = (s_X >= s_thresh) and (m_Y <= m_thresh)
-            coupled = eX["losing_party"] == eY["losing_party"]
+            coupled = eX["winner_party"] == eY["losing_party"]
             rows.append(
                 {
                     "X": X,

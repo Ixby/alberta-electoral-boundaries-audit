@@ -8,6 +8,8 @@ def sha256(path):
     return h.hexdigest()
 
 SKIP_FILES = {
+    # Excluded due to size (197.9 MB > 50 MB SIZE_LIMIT). Integrity is documented
+    # externally in docs/data_sources.md (SHA256 + Statistics Canada product info).
     "data/raw/98-401-X2021024_English_CSV_data.csv",
 }
 SKIP_DIRS = {
@@ -28,6 +30,7 @@ for root, dirs, files in os.walk("data/"):
         path = pathlib.Path(root) / f
         rel = str(path).replace("\\", "/")
         if rel in SKIP_FILES:
+            print(f"SKIP (documented in docs/data_sources.md)  {rel}")
             continue
         size = path.stat().st_size
         if size > SIZE_LIMIT:

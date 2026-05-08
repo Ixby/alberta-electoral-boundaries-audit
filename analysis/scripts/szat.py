@@ -238,6 +238,10 @@ def run() -> None:
 
     n_swing = int(va["is_swing"].sum())
     print(f"  Swing zones: {n_swing} / {len(va)}")
+    assert n_swing == 2108, (
+        f"Expected 2108 swing VAs against canonical shapefiles, got {n_swing} — "
+        "check shapefile version (canonical: va_polygons_with_2023_votes.gpkg)"
+    )
 
     # Provincial vote totals (NDP + UCP only; consistent with EG convention)
     total_prov = float((va["va_ndp"] + va["va_ucp"]).sum())
@@ -287,6 +291,16 @@ def run() -> None:
     va["delta_eg"] = va["eg_contrib_minority"] - va["eg_contrib_majority"]
     va["region"] = va["majority_ed"].apply(_region)
 
+    # Validate regional classification is exhaustive
+    _valid_regions = {"Calgary", "Edmonton", "Mountain-West", "Rest of Alberta"}
+    _assigned = set(va["region"].unique())
+    assert _assigned <= _valid_regions, f"Unknown region labels: {_assigned - _valid_regions}"
+    _all_eds = set(va["majority_ed"].unique())
+    _covered = set(va["majority_ed"])
+    assert _covered == _all_eds, "Some EDs missing from regional assignment"
+    _rest_eds = sorted(va.loc[va["region"] == "Rest of Alberta", "majority_ed"].unique())
+    print(f"  Rest of Alberta EDs ({len(_rest_eds)}): {_rest_eds}")
+
     # ── Regional and focal breakdown ───────────────────────────────────────────
 
     swing_va = va[va["is_swing"]]
@@ -319,15 +333,11 @@ def run() -> None:
 
     print(f"\nBootstrapping ({N_BOOT:,} permutations, full-recompute)...")
 
-    try:
-        sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
-        from drand_seed import get_canonical_seed
+    sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+    from drand_seed import get_canonical_seed  # fails loudly if missing — no fallback
 
-        seed = get_canonical_seed("szat-bootstrap")
-        seed_source = "drand_seed.get_canonical_seed"
-    except Exception:
-        seed = 20260506
-        seed_source = "fallback (drand_seed unavailable)"
+    seed = get_canonical_seed("szat-bootstrap")
+    seed_source = "drand_seed.get_canonical_seed"
 
     print(f"  Seed: {seed} ({seed_source})")
 

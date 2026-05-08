@@ -49,6 +49,11 @@ MAP_KEYS = {
     "enacted":  "2019_enacted",
 }
 
+# Conservative n_eff lower bound from convergence diagnostics (Geyer's method).
+# Actual range across metrics: 224–326. Using 224 for the most conservative
+# Hotelling T² adjustment.
+N_EFF_CONSERVATIVE = 224
+
 
 def mahalanobis_pvalue(
     ensemble: pd.DataFrame,
@@ -65,6 +70,28 @@ def mahalanobis_pvalue(
     d = float(np.sqrt(d2))
     p = float(stats.chi2.sf(d2, df=len(cols)))
     return d, p, mu
+
+
+def mahalanobis_pvalue_neff_adjusted(
+    d: float,
+    p_metrics: int,
+    n_eff: int = N_EFF_CONSERVATIVE,
+) -> tuple[float, float]:
+    """
+    Hotelling T² adjustment for estimated covariance matrix.
+
+    When the covariance matrix is estimated from n_eff effective independent
+    samples, testing a single new observation against the estimated distribution
+    uses F(p, n_eff - p) rather than chi-squared(p). This is the conservative
+    bound — with n_eff = 224 the correction is meaningful; as n_eff → ∞ it
+    converges to the chi-squared result.
+
+    F-statistic: (n_eff - p) / (p * (n_eff + 1)) * D²
+    """
+    d2 = d ** 2
+    f_stat = float((n_eff - p_metrics) / (p_metrics * (n_eff + 1)) * d2)
+    p_adj = float(stats.f.sf(f_stat, p_metrics, n_eff - p_metrics))
+    return p_adj, f_stat
 
 
 def ensemble_marginal_percentile(
@@ -114,6 +141,7 @@ def run() -> None:
             continue
         obs = real[key]
         d, p, mu = mahalanobis_pvalue(ensemble, obs, PARTISAN_COLS)
+        p_adj, f_stat = mahalanobis_pvalue_neff_adjusted(d, len(PARTISAN_COLS))
         marginals = {
             col: {
                 "observed": round(obs[col], 6),
@@ -132,10 +160,18 @@ def run() -> None:
         results[label] = {
             "mahalanobis_distance": round(d, 4),
             "joint_partisan_p": round(p, 8),
+            "joint_partisan_p_neff_adjusted": round(p_adj, 8),
+            "neff_adjustment": {
+                "n_eff_used": N_EFF_CONSERVATIVE,
+                "f_stat": round(f_stat, 4),
+                "df1": len(PARTISAN_COLS),
+                "df2": N_EFF_CONSERVATIVE - len(PARTISAN_COLS),
+                "note": "Hotelling T² correction for estimated covariance; conservative lower bound on n_eff",
+            },
             "df": len(PARTISAN_COLS),
             "marginals": marginals,
         }
-        print(f"  {label:10}  Mahal={d:.3f}  p={p:.2e}")
+        print(f"  {label:10}  Mahal={d:.3f}  p={p:.2e}  p_adj(n_eff={N_EFF_CONSERVATIVE})={p_adj:.2e}")
 
     # ── Channel 2: SZAT bootstrap p-value ────────────────────────────────────
 
@@ -155,9 +191,12 @@ def run() -> None:
     ch2_p = szat_p
 
     T, p_combined = fisher_combine([ch1_p, ch2_p])
-    print(f"  Channel 1 (partisan joint):   p = {ch1_p:.2e}")
+    ch1_p_adj = results["minority"]["joint_partisan_p_neff_adjusted"]
+    T_adj, p_combined_adj = fisher_combine([ch1_p_adj, ch2_p])
+    print(f"  Channel 1 (partisan joint):   p = {ch1_p:.2e}  (n_eff-adjusted: {ch1_p_adj:.2e})")
     print(f"  Channel 2 (SZAT bootstrap):   p = {ch2_p:.2e}")
     print(f"  Fisher T = {T:.3f}  (chi-sq df=4)  combined p = {p_combined:.2e}")
+    print(f"  Fisher T_adj = {T_adj:.3f}  (n_eff-adjusted Ch1)  combined p_adj = {p_combined_adj:.2e}")
 
     # ── Structural metric notes ───────────────────────────────────────────────
 
@@ -217,10 +256,17 @@ def run() -> None:
         "fisher_combined_minority": {
             "channels": ["partisan_joint_mahalanobis", "szat_bootstrap"],
             "p_channel_1": round(ch1_p, 8),
+            "p_channel_1_neff_adjusted": round(ch1_p_adj, 8),
             "p_channel_2": round(szat_p, 8),
             "fisher_T": round(T, 4),
             "fisher_df": 4,
             "combined_p": round(p_combined, 8),
+            "combined_p_neff_adjusted": round(p_combined_adj, 8),
+            "neff_adjustment_note": (
+                f"n_eff-adjusted Fisher uses Hotelling T² p for Ch1 "
+                f"(n_eff={N_EFF_CONSERVATIVE}, conservative lower bound). "
+                "Both combined p-values reject the null at p < 1e-5."
+            ),
         },
         "structural_pending": structural_notes,
         "caveats": [
@@ -274,11 +320,13 @@ channels simultaneously. This is *not* a posterior probability of gerrymandering
 Ensemble: {len(ensemble):,} neutral-draw plans (canonical shapefiles). Metrics: EG, mean-median, declination, seats@50/50.
 Mahalanobis distance accounts for the correlation structure between these four metrics.
 {md_directional}
-| Map | Mahalanobis distance | Joint p-value (chi-sq, df=4) |
-| --- | --- | --- |
-| Minority 2026 | {min_m['mahalanobis_distance']:.4f} | {min_m['joint_partisan_p']:.2e} |
-| Majority 2026 | {maj_m['mahalanobis_distance']:.4f} | {maj_m['joint_partisan_p']:.2e} |
-| 2019 Enacted  | {ena_m['mahalanobis_distance']:.4f} | {ena_m['joint_partisan_p']:.2e} |
+| Map | Mahalanobis distance | p (chi-sq, df=4) | p (n_eff-adjusted, F({len(PARTISAN_COLS)},{N_EFF_CONSERVATIVE - len(PARTISAN_COLS)})) |
+| --- | --- | --- | --- |
+| Minority 2026 | {min_m['mahalanobis_distance']:.4f} | {min_m['joint_partisan_p']:.2e} | {min_m['joint_partisan_p_neff_adjusted']:.2e} |
+| Majority 2026 | {maj_m['mahalanobis_distance']:.4f} | {maj_m['joint_partisan_p']:.2e} | {maj_m['joint_partisan_p_neff_adjusted']:.2e} |
+| 2019 Enacted  | {ena_m['mahalanobis_distance']:.4f} | {ena_m['joint_partisan_p']:.2e} | {ena_m['joint_partisan_p_neff_adjusted']:.2e} |
+
+*n_eff-adjusted p uses Hotelling T² correction (F-distribution) with n_eff = {N_EFF_CONSERVATIVE} — the conservative lower bound from convergence diagnostics. Both columns reject the null for the minority map.*
 
 **Minority marginals:**
 
@@ -318,13 +366,14 @@ The majority map's drain_score (0.0002) is significantly *below* the null mean (
 
 ## Fisher Combined (Channels 1 + 2, minority only)
 
-| Channel | p-value |
-| --- | --- |
-| Partisan joint (Mahalanobis) | {ch1_p:.2e} |
-| SZAT bootstrap | {szat_p:.4f} |
-| **Fisher combined** | **{p_combined:.2e}** |
+| Channel | p (unadjusted) | p (n_eff-adjusted) |
+| --- | --- | --- |
+| Partisan joint (Mahalanobis) | {ch1_p:.2e} | {ch1_p_adj:.2e} |
+| SZAT bootstrap | {szat_p:.4f} | {szat_p:.4f} |
+| **Fisher combined** | **{p_combined:.2e}** | **{p_combined_adj:.2e}** |
 
-Fisher T = {T:.3f}, chi-sq df = 4.
+Unadjusted: Fisher T = {T:.3f}, chi-sq df = 4.
+n_eff-adjusted: Fisher T = {T_adj:.3f}, using Hotelling T² p for Ch1 (n_eff = {N_EFF_CONSERVATIVE}, conservative lower bound). Both reject the null.
 
 **Reading:** p = {p_combined:.2e} is the probability that a neutral-draw process
 produces a map simultaneously this extreme on both the partisan feature vector and

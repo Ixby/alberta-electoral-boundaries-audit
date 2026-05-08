@@ -1,0 +1,123 @@
+{
+  "2019": {
+    "n_eds": 87,
+    "n_undirected_pairs": 243,
+    "n_directed_pairs": 486,
+    "chain_signals_total": 8,
+    "coupled_signals": 5,
+    "uncoupled_signals": 3,
+    "chain_signal_rate": 0.01646090534979424,
+    "sensitivity_grid": [
+      {
+        "s_threshold": 0.1,
+        "m_threshold": 0.08,
+        "chain_signals": 24,
+        "coupled_signals": 11
+      },
+      {
+        "s_threshold": 0.15,
+        "m_threshold": 0.05,
+        "chain_signals": 8,
+        "coupled_signals": 5
+      },
+      {
+        "s_threshold": 0.2,
+        "m_threshold": 0.03,
+        "chain_signals": 6,
+        "coupled_signals": 5
+      }
+    ],
+    "adjacency_meta": {
+      "strict_pairs": 243,
+      "fallback_pairs": 0,
+      "total_pairs": 243,
+      "isolated_after_strict": 0
+    },
+    "isolated_after_strict_count": 0,
+    "isolated_after_strict_names": []
+  },
+  "majority": {
+    "n_eds": 89,
+    "n_undirected_pairs": 251,
+    "n_directed_pairs": 502,
+    "chain_signals_total": 8,
+    "coupled_signals": 6,
+    "uncoupled_signals": 2,
+    "chain_signal_rate": 0.01593625498007968,
+    "sensitivity_grid": [
+      {
+        "s_threshold": 0.1,
+        "m_threshold": 0.08,
+        "chain_signals": 26,
+        "coupled_signals": 12
+      },
+      {
+        "s_threshold": 0.15,
+        "m_threshold": 0.05,
+        "chain_signals": 8,
+        "coupled_signals": 6
+      },
+      {
+        "s_threshold": 0.2,
+        "m_threshold": 0.03,
+        "chain_signals": 4,
+        "coupled_signals": 4
+      }
+    ],
+    "adjacency_meta": {
+      "strict_pairs": 251,
+      "fallback_pairs": 0,
+      "total_pairs": 251,
+      "isolated_after_strict": 0
+    },
+    "isolated_after_strict_count": 0,
+    "isolated_after_strict_names": []
+  },
+  "minority": {
+    "n_eds": 89,
+    "n_undirected_pairs": 257,
+    "n_directed_pairs": 432,
+    "chain_signals_total": 6,
+    "coupled_signals": 2,
+    "uncoupled_signals": 4,
+    "chain_signal_rate": 0.013888888888888888,
+    "sensitivity_grid": [
+      {
+        "s_threshold": 0.1,
+        "m_threshold": 0.08,
+        "chain_signals": 19,
+        "coupled_signals": 5
+      },
+      {
+        "s_threshold": 0.15,
+        "m_threshold": 0.05,
+        "chain_signals": 6,
+        "coupled_signals": 2
+      },
+      {
+        "s_threshold": 0.2,
+        "m_threshold": 0.03,
+        "chain_signals": 2,
+        "coupled_signals": 2
+      }
+    ],
+    "adjacency_meta": {
+      "strict_pairs": 257,
+      "fallback_pairs": 0,
+      "total_pairs": 257,
+      "isolated_after_strict": 0
+    },
+    "isolated_after_strict_count": 0,
+    "isolated_after_strict_names": []
+  },
+  "thresholds": {
+    "s_threshold_default": 0.15,
+    "m_threshold_default": 0.05,
+    "adjacency_buffer_m": 600.0
+  },
+  "ratios": {
+    "minority_over_majority_coupled": 0.3333333333333333,
+    "minority_over_2019_coupled": 0.4,
+    "majority_over_2019_coupled": 1.2
+  }
+}

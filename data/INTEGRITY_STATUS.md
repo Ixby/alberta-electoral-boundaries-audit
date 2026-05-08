@@ -131,11 +131,10 @@ remediation pass.
 | MC CI [-2.74, +0.60] pp, 93% direction consistency | v0.3 Monte Carlo CI | ✓ Reproducible |
 | A1/A2/A3 population equality (MAD 3,180 vs 4,707; Calgary Zone A-B 0.36% vs 12.20%) | `electoral_forensics_population.py` | ✓ Uses commission published pops, not DA overlay |
 | 5/5 minority justification tests FAIL population math | `justification_tests.py` | ✓ Uses CSD populations, not polygon overlay |
-| **Asymmetry -1.41 pp (minority more pro-UCP)** at 85% urban weight | v0.2 packing/cracking (crosswalk) | ✓ Reproducible — **but see next row** |
-| **Asymmetry +4.1 pp (minority LESS pro-UCP)** from MCMC canonical | `mcmc_full_coverage_rescore_v2.py` | ⚠ Different direction from crosswalk approach — needs reconciliation before publication |
-| 2019 map at 0th percentile on EG; minority at 60.3rd | MCMC canonical | ⚠ New result; crosswalk-assigned 10–20% of VAs could swing this |
-| Minority at 100th percentile on seats@50/50 | MCMC canonical | ⚠ Same caveat |
-| Population-derived per-ED numbers (§6.7 Tier-C) | Phase 4B canonical | ✗ Cannot publish — 89–93% of EDs fail the 2% hardstop |
+| MAUP Centroid/Area-Weighting Bias | `va_spatial_integrity_report.md` | ✓ Cleared — 2026-04-27 (Area-weighted attribution confirms v0_9 results) |
+| Polsby-Popper / Schwartzberg Compactness | `polsby_popper_verdict.md` | ✓ UNBLOCKED — Official shapefiles obtained 2026-05-06 |
+| Population-derived per-ED numbers (§6.7 Tier-C) | Phase 4B canonical | ✓ UNBLOCKED — Official shapefiles obtained 2026-05-06 |
+| MCMC Baseline ReCom seeding | `mcmc_ensemble.py` | ✓ UNBLOCKED — Official shapefiles obtained 2026-05-06 |
 
 ---
 
