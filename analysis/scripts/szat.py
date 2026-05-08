@@ -44,6 +44,14 @@ Forward dependencies:
   analysis/reports/szat_summary.json
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -59,7 +67,7 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 REPORTS = ROOT / "analysis" / "reports"
 REPORTS.mkdir(parents=True, exist_ok=True)
 

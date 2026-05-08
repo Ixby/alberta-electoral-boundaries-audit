@@ -23,6 +23,14 @@ This pairs with the R `redist` SMC compactness output for the
 falsification tests proposed by the PO ("the mechanism is the geometry").
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import math
@@ -40,10 +48,10 @@ import warnings
 warnings.simplefilter("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-VA_GPKG = ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-NPZ = ROOT / "data" / "verification_assignments_raw.npz"
-METRICS_CSV = ROOT / "data" / "simulation_verification_metrics.csv"
-OUT_CSV = ROOT / "data" / "python_recom_polsby_popper.csv"
+VA_GPKG = data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+NPZ = data_loader._resolve_path("data") / "verification_assignments_raw.npz"
+METRICS_CSV = data_loader._resolve_path("data") / "simulation_verification_metrics.csv"
+OUT_CSV = data_loader._resolve_path("data") / "python_recom_polsby_popper.csv"
 
 
 def main() -> int:

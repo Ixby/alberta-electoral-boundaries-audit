@@ -18,6 +18,14 @@ Forward dependencies:
   analysis/reports/joint_outlier_score_summary.md
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -31,7 +39,7 @@ from scipy import stats
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 REPORTS = ROOT / "analysis" / "reports"
 
 ENSEMBLE_CSV  = DATA / "simulated_ensemble_raw_samples_canonical.csv"

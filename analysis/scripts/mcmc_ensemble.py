@@ -58,6 +58,14 @@ If N_STEPS omitted, defaults to 5000.
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import os
@@ -84,8 +92,8 @@ from functools import partial
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
-DATA = ROOT / "data"
-MAPS = ROOT / "data" / "maps" / "mcmc"
+DATA = data_loader._resolve_path("data")
+MAPS = data_loader._resolve_path("data") / "maps" / "mcmc"
 MAPS.mkdir(parents=True, exist_ok=True)
 
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"

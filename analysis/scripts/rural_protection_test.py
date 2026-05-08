@@ -25,13 +25,21 @@ This script compares the three maps (2019 enacted, 2026 majority,
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 import sys
 from pathlib import Path
 import pandas as pd
 import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 en19 = pd.read_csv(DATA / "alberta_2019_populations.csv")
 maj = pd.read_csv(DATA / "majority_2026_populations.csv")

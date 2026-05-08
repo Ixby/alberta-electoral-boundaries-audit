@@ -18,6 +18,14 @@ Usage:
   python analysis/scripts/submission_search.py [--phase={download|parse|search|all}]
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 import os
 import re
@@ -33,7 +41,7 @@ from collections import defaultdict
 ROOT = Path(__file__).resolve().parent.parent.parent
 TEMP = ROOT / ".temp" / "submissions"
 TEXT = TEMP / "text"
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 ANALYSIS = ROOT / "analysis"
 TEMP.mkdir(parents=True, exist_ok=True)
 TEXT.mkdir(parents=True, exist_ok=True)

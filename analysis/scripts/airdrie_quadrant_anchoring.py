@@ -58,6 +58,14 @@ Backward:
 
 # Version: 0.9 (2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import warnings
@@ -76,7 +84,7 @@ from shapely.strtree import STRtree
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 SHP_DERIVED = DATA / "shapefiles" / "derived"
 SHP_REF = DATA / "shapefiles" / "reference"
 OSM_DIR = DATA / "osm"

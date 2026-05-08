@@ -1,8 +1,17 @@
+
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = ROOT / "data"
+DATA_DIR = data_loader._resolve_path("data")
 
 # Common source of truth for all test harnesses
 MAP_PLANS = [

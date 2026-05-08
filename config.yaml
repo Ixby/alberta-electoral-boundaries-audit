@@ -1,0 +1,43 @@
+# Alberta 2026 Electoral Boundary Audit - Configuration File
+# 
+# This file dictates the paths and column structures used by the analytical
+# scripts. By altering this file, the audit can be run against different
+# jurisdictions or updated shapefiles without modifying the Python logic.
+
+data:
+  # Base data directories
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  outputs_dir: "data/outputs"
+  reference_dir: "data/shapefiles/reference"
+  canonical_dir: "data/shapefiles/canonical"
+
+maps:
+  majority:
+    path: "data/shapefiles/canonical/ea_majority_2026_eds.gpkg"
+    id_col: "EDName2025"
+  minority:
+    path: "data/shapefiles/canonical/ea_minority_2026_eds.gpkg"
+    id_col: "EDName2025"
+  enacted_2019:
+    path: "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp"
+    id_col: "EDName2017"
+
+substrate:
+  # The demographic and voting data polygons (e.g., Voting Areas)
+  path: "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg"
+  fallback_path: "data/shapefiles/derived/va_polygons_with_2023_votes.gpkg"
+  
+  # Column mappings for the substrate
+  columns:
+    party_1_votes: "va_ucp"      # E.g., Conservative/UCP votes
+    party_2_votes: "va_ndp"      # E.g., NDP/Liberal votes
+    other_votes: "va_other"      # Third-party/independent votes
+    population: "pop_2021"       # Population column
+    geographic_id: "VA_NUMBER"   # Unique identifier for the polygon
+
+audit:
+  # Expected constants for validation
+  expected_districts: 89
+  expected_total_votes: 932164
+  crs_epsg: 3400

@@ -20,11 +20,19 @@ the implied Monte Carlo sampling range to cover realistic variation.
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 import csv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 
 def region_from_name(ed_name: str) -> str:

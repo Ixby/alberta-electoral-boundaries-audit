@@ -13,25 +13,33 @@ import pandas as pd
 import numpy as np
 from shapely.validation import explain_validity
 
+import sys
+from pathlib import Path
+
 BASE = Path(__file__).resolve().parent
+sys.path.insert(0, str(BASE / "analysis" / "scripts" / "utils"))
 
-MAJ_PATH = BASE / "data" / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
-MIN_PATH = BASE / "data" / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
-VA_PATH = BASE / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-REF_PATH = (
-    BASE / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
-    / "EDS_ENACTED_BILL33_15DEC2017.shp"
-)
+import data_loader
+
 SCORES_PATH = BASE / "data" / "outputs" / "final_real_map_scores.json"
+try:
+    with open(SCORES_PATH) as f:
+        scores = json.load(f)
+except FileNotFoundError:
+    # Use canonical scores if final is not present
+    fallback_scores = BASE / "data" / "outputs" / "simulation_real_map_scores_canonical.json"
+    if fallback_scores.exists():
+        with open(fallback_scores) as f:
+            scores = json.load(f)
+    else:
+        scores = {}
 
-with open(SCORES_PATH) as f:
-    scores = json.load(f)
+print("Loading files via config.yaml ...")
+maj = data_loader.get_map("majority")
+minn = data_loader.get_map("minority")
+va = data_loader.get_substrate()
+ref = data_loader.get_map("enacted_2019")
 
-print("Loading files ...")
-maj = gpd.read_file(MAJ_PATH)
-minn = gpd.read_file(MIN_PATH)
-va = gpd.read_file(VA_PATH)
-ref = gpd.read_file(REF_PATH)
 print(
     f"  majority: {len(maj)} rows | minority: {len(minn)} rows | va: {len(va)} rows | ref2019: {len(ref)} rows"
 )

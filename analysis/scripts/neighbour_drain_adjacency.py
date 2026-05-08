@@ -36,6 +36,14 @@ Backward deps:
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -474,7 +482,7 @@ def run_map(
 
 
 def main() -> None:
-    out_data_dir = ROOT / "data"
+    out_data_dir = data_loader._resolve_path("data")
     out_reports_dir = ROOT / "analysis" / "reports"
     out_maps_dir = ROOT / "maps"
     for d in (out_data_dir, out_reports_dir, out_maps_dir):

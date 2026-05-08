@@ -17,6 +17,14 @@ Output: report_public.pdf at the repo root (cover + article merged).
 Dependencies: geopandas, shapely, matplotlib, markdown, pypdf, pypdfium2.
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import subprocess
@@ -29,8 +37,8 @@ import matplotlib.pyplot as plt
 import pypdf
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-ALBERTA_EDS = REPO_ROOT / "data" / "shapefiles" / "reference" / "alberta_2019_eds"
-DERIVED = REPO_ROOT / "data" / "shapefiles" / "derived"
+ALBERTA_EDS = REPO_data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2019_eds"
+DERIVED = REPO_data_loader._resolve_path("data") / "shapefiles" / "derived"
 # Prefer v0_9 (topological VA-dissolve, gapless by construction) →
 # v0_8 refined → v0_8 canonical → v0_7 canonical
 APPROX_MAJ_CANDIDATES = [
@@ -52,7 +60,7 @@ VA_TO_2026_ASSIGNMENTS = (
     REPO_ROOT / "analysis" / "assignment_va_to_2026_assignments.csv"
 )
 
-COVER_ART_PNG = REPO_ROOT / "data" / "maps" / "cover_art.png"
+COVER_ART_PNG = REPO_data_loader._resolve_path("data") / "maps" / "cover_art.png"
 OUT_PDF = (
     REPO_ROOT / "report_public.pdf"
 )  # final = cover + article (the only PDF in the repo root)
@@ -81,7 +89,7 @@ def find_browser() -> str:
 
 
 VA_VOTES_PATH = (
-    REPO_ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+    REPO_data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 )
 
 
@@ -166,7 +174,7 @@ def build_cover_art() -> Path:
     # CANNOT model the partisan effect of the boundary shift; it's an
     # illustrative fill, not a quantitative claim, and the cover caption
     # discloses it.
-    crosswalk_path = REPO_ROOT / "data" / "minority_hybrid_crosswalk.csv"
+    crosswalk_path = REPO_data_loader._resolve_path("data") / "minority_hybrid_crosswalk.csv"
     if VA_VOTES_PATH.exists() and crosswalk_path.exists():
         import pandas as pd
 

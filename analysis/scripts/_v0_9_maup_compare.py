@@ -24,6 +24,14 @@ Backward:
   data/votes_2023_minority_area_weighted.csv
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -41,7 +49,7 @@ warnings.filterwarnings("ignore", message=".*GEOS.*")
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 sys.path.insert(0, str(HERE))
 from mcmc_ensemble import seat_results, score_exogenous_map  # type: ignore

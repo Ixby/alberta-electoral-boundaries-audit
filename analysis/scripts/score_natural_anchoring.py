@@ -10,6 +10,14 @@ abandon anchoring; it anchored to highways, rivers, and county lines instead
 of municipal CSD borders, so the 14.5% number is a measurement failure, not
 a map failure." This script tests that counter directly by re-running the
 identical snap-tolerance method against a *different* edge substrate built
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from physical and administrative features other than CSDs:
 
     * Highways  — OSM ways tagged highway in {motorway, trunk, primary,
@@ -81,7 +89,7 @@ from shapely.strtree import STRtree
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 OSM_DIR = DATA / "osm"
 
 OSM_HIGHWAYS_GPKG = OSM_DIR / "alberta_osm_highways.gpkg"

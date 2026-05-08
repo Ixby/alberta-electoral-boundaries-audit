@@ -55,6 +55,14 @@ Date: 2026-04-22
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import csv
@@ -64,7 +72,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 PROVINCIAL_MEAN = 54929  # v1.2 prompt and report_academic.md §3 canonical mean
 P1_THRESHOLD_PCT = 5.0  # v1.2 prompt P1: zone mean >= provincial mean + 5%

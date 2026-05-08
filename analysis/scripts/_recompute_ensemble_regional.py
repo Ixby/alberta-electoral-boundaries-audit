@@ -17,6 +17,14 @@ Run:
         analysis/scripts/_recompute_ensemble_regional.py
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import sys
@@ -29,7 +37,7 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 sys.path.insert(0, str(HERE))
 from seats_at_50_50_regional import (  # noqa: E402

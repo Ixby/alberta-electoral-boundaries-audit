@@ -30,6 +30,14 @@ Backward deps:
   - data/v0_2_canonical_minority_2026_eds_topoclean.gpkg (or v0_8 series)
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -187,7 +195,7 @@ def main() -> None:
     print(f"Drand round: 5500000  (verify: drand.cloudflare.com/public/5500000)")
 
     out_reports = ROOT / "analysis" / "reports"
-    out_data = ROOT / "data"
+    out_data = data_loader._resolve_path("data")
     out_reports.mkdir(parents=True, exist_ok=True)
 
     # Load votes

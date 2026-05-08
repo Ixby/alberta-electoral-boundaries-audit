@@ -39,6 +39,14 @@ Type: project
 Version: v0.9 (2026-04-26)
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import argparse
@@ -56,7 +64,7 @@ warnings.filterwarnings("ignore", message=".*GEOS.*")
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 DEFAULT_VA = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 

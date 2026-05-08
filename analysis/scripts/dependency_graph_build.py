@@ -14,6 +14,14 @@ Nodes are organized into four layers:
 Edges are typed ``required`` (target cannot exist without source),
 ``corroborating`` (target has other independent paths), or ``validating``
 (source is a validation/gate for target). Edges from L0/L1 into L2 and
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from L2 into L1/L3 are discovered by parsing ``Forward:`` / ``Backward:``
 docstring headers where present; the L0 set and the L3 finding set are
 hand-encoded from ``FROZEN_MANIFEST.md`` and ``report_academic.md``
@@ -49,7 +57,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Set, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 SCRIPTS = ROOT / "analysis" / "scripts"
 METHODOLOGY = ROOT / "analysis" / "methodology"
 

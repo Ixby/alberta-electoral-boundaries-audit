@@ -26,6 +26,14 @@ Outputs:
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import sys
@@ -44,7 +52,7 @@ warnings.filterwarnings("ignore", message=".*GEOSException.*")
 # ── Paths ─────────────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 ANALYSIS = ROOT / "analysis"
 
 MAJ_GPKG = DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"

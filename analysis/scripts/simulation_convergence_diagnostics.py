@@ -20,6 +20,14 @@ distinguish in-progress diagnostics from final-run diagnostics.
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -34,9 +42,9 @@ sys.path.insert(0, str(HERE))
 from mcmc_ensemble import autocorrelation_ess
 
 REPO_ROOT = HERE.parent.parent
-CHECKPOINT_DIR = REPO_ROOT / "data" / "simulation_checkpoints_250k_final"
-CANONICAL_CSV = REPO_ROOT / "data" / "simulated_ensemble_raw_samples_canonical.csv"
-OUT_JSON = REPO_ROOT / "data" / "simulation_convergence_diagnostics_per_chain.json"
+CHECKPOINT_DIR = REPO_data_loader._resolve_path("data") / "simulation_checkpoints_250k_final"
+CANONICAL_CSV = REPO_data_loader._resolve_path("data") / "simulated_ensemble_raw_samples_canonical.csv"
+OUT_JSON = REPO_data_loader._resolve_path("data") / "simulation_convergence_diagnostics_per_chain.json"
 
 METRICS = ("efficiency_gap", "mean_median", "declination", "seats_at_50_50")
 

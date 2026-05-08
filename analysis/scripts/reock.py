@@ -24,6 +24,14 @@ Dependencies
 
 # Version: 0.9 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import math
@@ -37,8 +45,8 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-_CANONICAL = ROOT / "data" / "shapefiles" / "canonical"
-_DERIVED = ROOT / "data" / "shapefiles" / "derived"
+_CANONICAL = data_loader._resolve_path(data_loader.CONFIG["data"]["canonical_dir"])
+_DERIVED = data_loader._resolve_path("data") / "shapefiles" / "derived"
 
 
 def _pick_gpkg(plan: str) -> Path:
@@ -58,7 +66,7 @@ def _pick_gpkg(plan: str) -> Path:
 
 MIN_GPKG = _pick_gpkg("minority")
 MAJ_GPKG = _pick_gpkg("majority")
-OUT_CSV = ROOT / "data" / "reock_per_district.csv"
+OUT_CSV = data_loader._resolve_path("data") / "reock_per_district.csv"
 
 TARGET_CRS = "EPSG:3401"
 REOCK_THRESHOLD = 0.30  # Conventional flag threshold for Reock

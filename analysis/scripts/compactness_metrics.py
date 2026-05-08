@@ -45,6 +45,14 @@ Backward deps:
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import csv
@@ -66,10 +74,10 @@ ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 
 def _pick(plan: str) -> Path:
     """Prefer official canonical shapefiles; fall back to derived (deprecated)."""
-    canonical = ROOT / "data" / "shapefiles" / "canonical" / f"ea_{plan}_2026_eds.gpkg"
+    canonical = data_loader._resolve_path(data_loader.CONFIG["data"]["canonical_dir"]) / f"ea_{plan}_2026_eds.gpkg"
     if canonical.exists():
         return canonical
-    base = ROOT / "data" / "shapefiles" / "derived"
+    base = data_loader._resolve_path("data") / "shapefiles" / "derived"
     for fname in (
         f"v0_10_topological_{plan}_2026_eds.gpkg",
         f"v0_8_full_refined_{plan}_2026_eds.gpkg",
@@ -103,7 +111,7 @@ EXPECTED_COUNTS = {
 }
 
 OUT_CSV = ROOT / "analysis" / "reports" / "compactness_metrics.csv"
-OUT_JSON = ROOT / "data" / "compactness_summary.json"
+OUT_JSON = data_loader._resolve_path("data") / "compactness_summary.json"
 
 # Alberta TM — EPSG:3401 (NAD83 / Alberta 10-TM Forest)
 ALBERTA_CRS = "EPSG:3401"

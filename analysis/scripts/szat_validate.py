@@ -22,6 +22,14 @@ Check 2: Bootstrap approximation fidelity
     -- uses only direct swing-zone effects; majority map is not recomputed.
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -32,7 +40,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 REPORTS = ROOT / "analysis" / "reports"
 
 RESULTS_CSV  = REPORTS / "szat_results.csv"

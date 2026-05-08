@@ -21,6 +21,14 @@ Backward:
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import argparse
@@ -36,7 +44,7 @@ from typing import Any, Dict, List, Tuple
 ROOT = Path(__file__).resolve().parent.parent.parent
 GRAPH_JSON = ROOT / "analysis" / "methodology" / "audit_dependency_graph.json"
 GRAPH_DOT = ROOT / "analysis" / "methodology" / "audit_dependency_graph.dot"
-OUT_SVG = ROOT / "data" / "maps" / "audit_dependency_graph.svg"
+OUT_SVG = data_loader._resolve_path("data") / "maps" / "audit_dependency_graph.svg"
 
 
 LAYER_FILL = {

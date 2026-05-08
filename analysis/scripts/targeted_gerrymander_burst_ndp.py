@@ -15,6 +15,14 @@ test applied to one map must be applied to the others.
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 import sys
 
 sys.path.insert(0, "analysis/scripts")
@@ -36,7 +44,7 @@ from gerrychain.proposals import recom
 from gerrychain.tree import recursive_tree_part, bipartition_tree
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-OUT_DIR = REPO_ROOT / "data"
+OUT_DIR = REPO_data_loader._resolve_path("data")
 OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_targeted_burst_ndp.log"
 OUT_TRACE = OUT_DIR / "targeted_burst_ndp_trace.csv"
 OUT_BEST = OUT_DIR / "targeted_burst_ndp_best.json"

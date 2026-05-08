@@ -14,6 +14,14 @@ Produces:
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 import sys, json, re, csv, time
 from pathlib import Path
@@ -22,7 +30,7 @@ from collections import defaultdict
 ROOT = Path(__file__).resolve().parent.parent.parent
 TEMP = ROOT / ".temp" / "submissions"
 OCR_DIR = TEMP / "ocr_pages"
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 ANALYSIS = ROOT / "analysis"
 
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))

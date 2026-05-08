@@ -5,6 +5,14 @@ Visual teardown of the Airdrie 4-way split to counter the "highway anchoring" de
 Plots the 2026 Majority map vs the 2026 Minority map over the Airdrie municipal envelope and OSM highways.
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
@@ -13,7 +21,7 @@ import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = ROOT / "data" / "shapefiles"
+DATA_DIR = data_loader._resolve_path("data") / "shapefiles"
 OUTPUT_DIR = ROOT / "analysis" / "reports"
 
 
@@ -28,7 +36,7 @@ def load_data():
 
     # Load highways and clip to bbox
     highways = gpd.read_file(
-        ROOT / "data" / "osm" / "alberta_osm_highways.gpkg"
+        data_loader._resolve_path("data") / "osm" / "alberta_osm_highways.gpkg"
     ).to_crs(epsg=3401)
     # The GPKG already only contains motorway/trunk/primary/secondary from the OSM query
     major_hwys = highways.cx[bbox[0] : bbox[2], bbox[1] : bbox[3]]

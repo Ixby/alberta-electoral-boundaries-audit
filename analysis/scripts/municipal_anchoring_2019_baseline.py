@@ -44,6 +44,14 @@ Backward:
 # Version: 0.9 (2026-04-26)
 
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -70,7 +78,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module="geopandas")
 warnings.filterwarnings("ignore", message=".*GEOS.*")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 EDS_2019_SHP = (
     DATA

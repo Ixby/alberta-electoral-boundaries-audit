@@ -53,6 +53,14 @@ Backward:
 
 # Version: 0.9 (2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import argparse
@@ -69,7 +77,7 @@ from shapely.strtree import STRtree
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-CSD_GPKG = ROOT / "data" / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
+CSD_GPKG = data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
 # Held identical to the headline run that produced 71.0 / 14.5 / 75.2
 SNAP_TOL_M: float = 500.0

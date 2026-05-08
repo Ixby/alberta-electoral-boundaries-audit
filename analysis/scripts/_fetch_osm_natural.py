@@ -16,6 +16,14 @@ Backward:
     Overpass API (overpass-api.de) — public OSM mirror
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import json
@@ -29,7 +37,7 @@ import geopandas as gpd
 from shapely.geometry import LineString
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-OSM_DIR = ROOT / "data" / "osm"
+OSM_DIR = data_loader._resolve_path("data") / "osm"
 OSM_DIR.mkdir(parents=True, exist_ok=True)
 
 # Alberta bbox (S, W, N, E) — WGS84

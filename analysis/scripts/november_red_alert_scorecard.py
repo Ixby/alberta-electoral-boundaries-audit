@@ -34,6 +34,14 @@ committee began its work, so post-hoc redrawing of thresholds
 to fit the data is impossible.
 """
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import argparse
@@ -64,13 +72,13 @@ from drand_seed import get_canonical_seed  # noqa: E402
 BOOTSTRAP_SEED: int = get_canonical_seed("lunty-bootstrap")
 
 VA_VOTES_PATH = (
-    ROOT / "data" / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+    data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 )
 ALBERTA_CSDS = (
-    ROOT / "data" / "shapefiles" / "reference" / "alberta_csds.gpkg"
+    data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_csds.gpkg"
 )  # may not exist
-RECOM_SAMPLES = ROOT / "data" / "simulated_ensemble_raw_samples_250k.csv"
-SMC_OUTPUT = ROOT / "data" / "redist_crossvalidation_s50.csv"
+RECOM_SAMPLES = data_loader._resolve_path("data") / "simulated_ensemble_raw_samples_250k.csv"
+SMC_OUTPUT = data_loader._resolve_path("data") / "redist_crossvalidation_s50.csv"
 
 # Pre-registered tripwire thresholds (committed to before the Lunty
 # committee began work).

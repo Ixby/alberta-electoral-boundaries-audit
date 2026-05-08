@@ -61,6 +61,14 @@ Backward:
 
 # Version: 0.9 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import csv
@@ -79,7 +87,7 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 DERIVED = DATA / "shapefiles" / "derived"
 
 V0_9_MIN = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"

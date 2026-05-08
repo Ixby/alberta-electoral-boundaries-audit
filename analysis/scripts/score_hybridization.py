@@ -11,6 +11,14 @@ counts:
     2026 minority = 25 hybrid EDs
 
 Those numbers are NOT computed by any script in the repository. They come
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from a manual narrative classification by the author (compare the lists
 in `report_public.md:252-255` and the `MAJORITY_2026_MAPPING` /
 `MINORITY_2026_MAPPING` "blend" tags in
@@ -97,7 +105,7 @@ import geopandas as gpd
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-CSD_GPKG = ROOT / "data" / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
+CSD_GPKG = data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
 CITY_CSDTYPES: set[str] = {"CY", "SM"}  # City + Specialized Municipality
 AREA_SHARE_THRESHOLD: float = 0.05  # 5% of ED area on each side

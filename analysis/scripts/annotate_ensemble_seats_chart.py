@@ -25,6 +25,14 @@ Dependencies
 
 # Version: 0.1 series  (added 2026-04-28 — annotation overlay only)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -37,7 +45,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 SAMPLES_CSV = DATA / "outputs" / "mcmc" / "simulated_ensemble_raw_samples.csv"
 PERCENTILES_CSV = DATA / "outputs" / "mcmc" / "simulated_ensemble_percentiles_250k.csv"
 OUT = DATA / "maps" / "mcmc" / "ensemble_distribution_250k_v0_9_seats_at_50_50.svg"

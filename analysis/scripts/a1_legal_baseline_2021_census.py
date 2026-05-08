@@ -50,6 +50,14 @@ House voice. No emoji.
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
+
+import sys
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 from __future__ import annotations
 
 import os
@@ -68,7 +76,7 @@ import numpy as np
 import geopandas as gpd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-DATA = ROOT / "data"
+DATA = data_loader._resolve_path("data")
 
 CSD_POP_CSV = DATA / "alberta_2021_csd_populations.csv"
 CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
