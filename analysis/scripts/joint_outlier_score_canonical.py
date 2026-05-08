@@ -46,6 +46,7 @@ REPORTS = ROOT / "analysis" / "reports"
 ENSEMBLE_CSV  = DATA / "simulated_ensemble_raw_samples_canonical.csv"
 REAL_SCORES   = DATA / "simulation_real_map_scores_canonical.json"
 SZAT_JSON     = REPORTS / "szat_summary.json"
+DRAIN_JSON    = DATA / "drain_label_shuffle_null.json"
 OUT_JSON      = REPORTS / "joint_outlier_score.json"
 OUT_MD        = REPORTS / "joint_outlier_score_summary.md"
 
@@ -188,10 +189,24 @@ def run() -> None:
     print(f"  SZAT score: {szat['szat_score']:+.6f}")
     print(f"  Bootstrap p: {szat_p_label}")
 
-    # ── Channel 3: Neighbour-Drain (known result, inject directly) ────────────
-    # Minority within null (p=0.1342); not included in Fisher combination.
-    # Majority anomalously low (p<0.0001, z=-2.915) — inverted finding.
-    drain_minority_p = 0.1342
+    # ── Channel 3: Neighbour-Drain — read from drain_label_shuffle_null.json ────
+    _DRAIN_FALLBACK_P = 0.1342  # frozen 2026-05-07 if JSON unavailable
+    if DRAIN_JSON.exists():
+        with open(DRAIN_JSON) as _f:
+            _drain_data = json.load(_f)
+        drain_minority_p = float(_drain_data["minority"]["p_two_tailed"])
+        drain_majority_z = float(_drain_data["majority"]["z"])
+        drain_majority_p = float(_drain_data["majority"]["p_two_tailed"])
+        print(f"  Channel 3 drain p loaded from {DRAIN_JSON.name}")
+    else:
+        import warnings
+        warnings.warn(
+            f"{DRAIN_JSON.name} not found — using frozen drain_minority_p={_DRAIN_FALLBACK_P}",
+            UserWarning,
+        )
+        drain_minority_p = _DRAIN_FALLBACK_P
+        drain_majority_z = -2.915
+        drain_majority_p = 0.0
 
     # ── Fisher combination (minority only, channels 1+2) ─────────────────────
 
@@ -208,9 +223,28 @@ def run() -> None:
     print(f"  Fisher T_adj = {T_adj:.3f}  (n_eff-adjusted Ch1)  combined p_adj = {p_combined_adj:.2e}")
 
     # ── Structural metric notes ───────────────────────────────────────────────
+    # MAD and Reock values read from canonical real map scores JSON.
+    # Municipal anchoring is FROZEN 2026-05-07 (no canonical JSON source).
+
+    _min_real = real.get("minority_2026", {})
+    _maj_real = real.get("majority_2026", {})
+    _min_mad  = _min_real.get("population_mad", 4707)  # fallback = frozen
+    _maj_mad  = _maj_real.get("population_mad", 3180)
+    _min_reock_pct = round(_min_real.get("reock_proxy_pct_below_030", 0.348) * 100, 1)
+    _maj_reock_pct = round(_maj_real.get("reock_proxy_pct_below_030", 0.135) * 100, 1)
+    _reock_ratio = round(_min_reock_pct / _maj_reock_pct, 2) if _maj_reock_pct else float("nan")
+
+    # Drain observed scores from DRAIN_JSON if available, else frozen.
+    if DRAIN_JSON.exists():
+        _drain_min_obs = float(_drain_data["minority"]["observed"])
+        _drain_maj_obs = float(_drain_data["majority"]["observed"])
+    else:
+        _drain_min_obs = 0.006176
+        _drain_maj_obs = 0.000179
 
     structural_notes = {
         "municipal_anchoring": {
+            # FROZEN 2026-05-07 from da_anchoring analysis — no canonical JSON source yet.
             "minority_pct": 14.5,
             "majority_pct": 71.0,
             "enacted_2019_pct": 73.8,
@@ -219,24 +253,29 @@ def run() -> None:
             "4.9x below comparator norm is the reported summary statistic",
         },
         "population_mad_ratio": {
-            "minority_mad": 4707,
-            "majority_mad": 3180,
-            "ratio_minority_majority": round(4707 / 3180, 3),
+            "minority_mad": round(_min_mad, 1),
+            "majority_mad": round(_maj_mad, 1),
+            "ratio_minority_majority": round(_min_mad / _maj_mad, 3) if _maj_mad else float("nan"),
             "p_value": "pending — per-plan MAD not in ensemble outputs",
+            "source": "simulation_real_map_scores_canonical.json",
         },
         "reock_asymmetry": {
-            "minority_pct_below_0_30": 34.8,
-            "majority_pct_below_0_30": 13.5,
-            "ratio": round(34.8 / 13.5, 2),
+            "minority_pct_below_0_30": _min_reock_pct,
+            "majority_pct_below_0_30": _maj_reock_pct,
+            "ratio": _reock_ratio,
             "p_value": "pending — per-plan Reock not in ensemble outputs",
+            "note": "proxy Reock (bounding-box diagonal), not true minimum-enclosing-circle Reock",
+            "source": "simulation_real_map_scores_canonical.json",
         },
         "neighbour_drain": {
-            "minority_drain_score": 0.006176,
-            "majority_drain_score": 0.000179,
+            "minority_drain_score": _drain_min_obs,
+            "majority_drain_score": _drain_maj_obs,
             "minority_p": drain_minority_p,
-            "majority_z": -2.915,
-            "note": "minority within null (p=0.1342); majority anomalously low (p<0.0001). "
+            "majority_z": drain_majority_z,
+            "note": f"minority within null (p={drain_minority_p:.4f}); "
+                    f"majority anomalously low (z={drain_majority_z:.3f}, p<0.0001). "
                     "Channel not included in Fisher combination.",
+            "source": DRAIN_JSON.name if DRAIN_JSON.exists() else "frozen 2026-05-07",
         },
     }
 
@@ -358,8 +397,8 @@ Pre-registered: AsPredicted #289,451. Executed 2026-05-07 on official canonical 
 
 | Map | drain_score | Null mean | z-score | p (two-tailed) |
 | --- | --- | --- | --- | --- |
-| Majority 2026 | 0.000179 | 0.032085 | **−2.915** | **0.0000** |
-| Minority 2026 | 0.006176 | 0.016741 | −1.372 | 0.1342 |
+| Majority 2026 | {_drain_maj_obs:.6f} | 0.032085 | **{drain_majority_z:.3f}** | **{drain_majority_p:.4f}** |
+| Minority 2026 | {_drain_min_obs:.6f} | 0.016741 | −1.372 | {drain_minority_p:.4f} |
 
 **Prediction A** (drain_score(majority) > drain_score(minority)): **NOT CONFIRMED** (0.000179 < 0.006176).
 

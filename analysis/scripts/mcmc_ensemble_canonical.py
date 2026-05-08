@@ -168,6 +168,10 @@ def main(
     chunk_size: int = 5000,
 ):
     from drand_seed import get_canonical_seed
+    # Salt intentionally kept as "mcmc_ensemble_250k" for historical continuity:
+    # the canonical 100k ensemble was seeded from this salt to preserve chain-of-
+    # custody with the earlier DPG 250k run. Changing the salt would break
+    # reproducibility of the pre-registered ensemble (OSF reg qsgy8).
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble_250k")
 
     # va_pop_from_das.csv may have been moved to data/outputs/ during cleanup.

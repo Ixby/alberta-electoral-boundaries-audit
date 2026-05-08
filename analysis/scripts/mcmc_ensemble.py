@@ -162,6 +162,7 @@ def seat_results(
             seats_at_50_50=np.nan,
             ucp_seats=np.nan,
             n_districts=0,
+            ucp_vote_share=float("nan"),
         )
 
     # Use strict two-party totals for margin calculations so independent candidates don't break the math.
@@ -289,7 +290,7 @@ def initial_assignment_2019(va: gpd.GeoDataFrame) -> dict:
 
 
 def score_exogenous_map(
-    va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str = "name_2026"
+    va: gpd.GeoDataFrame, proposed_gpkg: Path, id_col: str = "EDName2025"
 ) -> dict:
     """Assign VAs to proposed districts via centroid-in-polygon join and compute metrics.
 

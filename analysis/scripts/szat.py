@@ -46,19 +46,16 @@ Forward dependencies:
 from __future__ import annotations
 
 
+import json
 import sys
+import warnings
 from pathlib import Path
+
 try:
     import data_loader
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
-
-
-import json
-import sys
-import warnings
-from pathlib import Path
 
 import geopandas as gpd
 import numpy as np
@@ -247,10 +244,13 @@ def run() -> None:
 
     n_swing = int(va["is_swing"].sum())
     print(f"  Swing zones: {n_swing} / {len(va)}")
-    assert n_swing == 2108, (
-        f"Expected 2108 swing VAs against canonical shapefiles, got {n_swing} — "
-        "check shapefile version (canonical: va_polygons_with_2023_votes.gpkg)"
-    )
+    if n_swing != 2108:
+        raise ValueError(
+            f"Expected 2108 swing VAs against canonical shapefiles, got {n_swing}. "
+            "Check shapefile version — canonical pair: "
+            "ea_majority_2026_eds.gpkg / ea_minority_2026_eds.gpkg with "
+            "va_polygons_with_full_2023_votes.gpkg."
+        )
 
     # Provincial vote totals (NDP + UCP only; consistent with EG convention)
     total_prov = float((va["va_ndp"] + va["va_ucp"]).sum())

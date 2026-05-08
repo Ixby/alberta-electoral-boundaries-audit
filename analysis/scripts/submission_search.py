@@ -19,20 +19,18 @@ Usage:
 """
 from __future__ import annotations
 
-
-from pathlib import Path
+import csv
+import json
+import os
+import re
 import sys
+from pathlib import Path
+
 try:
     import data_loader
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
-
-import os
-import re
-import csv
-import sys
-import json
 import urllib.parse
 import urllib.request
 import urllib.error
@@ -304,8 +302,15 @@ def build_patterns():
             ),
         ],
         "olds_three_hills_didsbury": [
-            re.compile(r"(olds|didsbury|three\s+hills)[\s\S]{0,300}airdrie", re.I),
-            re.compile(r"airdrie[\s\S]{0,300}(olds|didsbury|three\s+hills)", re.I),
+            # Match any two of the three communities within a 250-char window — the
+            # actual configuration being tested is Olds + Three Hills + Didsbury as
+            # a combined rural riding, not proximity to Airdrie.
+            re.compile(r"olds[\s\S]{0,250}three\s+hills", re.I),
+            re.compile(r"three\s+hills[\s\S]{0,250}olds", re.I),
+            re.compile(r"olds[\s\S]{0,250}didsbury", re.I),
+            re.compile(r"didsbury[\s\S]{0,250}olds", re.I),
+            re.compile(r"three\s+hills[\s\S]{0,250}didsbury", re.I),
+            re.compile(r"didsbury[\s\S]{0,250}three\s+hills", re.I),
         ],
         "chestermere_split": [
             re.compile(
@@ -456,6 +461,25 @@ def search_submissions(log):
 
 def write_outputs(rows, totals, pos_counts, files_searched, log):
     DATA.mkdir(exist_ok=True)
+
+    # Write per-configuration position breakdown — the primary research finding
+    # ("X submissions oppose Airdrie 4-way split") that was previously discarded.
+    pos_csv_path = DATA / "submission_position_counts.csv"
+    pos_fields = ["configuration", "supporting", "opposing", "ambiguous-leaning-support",
+                  "ambiguous-leaning-oppose", "ambiguous", "neutral", "total_hits"]
+    with pos_csv_path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=pos_fields)
+        w.writeheader()
+        for cfg, counts in pos_counts.items():
+            row = {k: 0 for k in pos_fields}
+            row["configuration"] = cfg
+            for pos, cnt in counts.items():
+                if pos in row:
+                    row[pos] = cnt
+            row["total_hits"] = sum(counts.values())
+            w.writerow(row)
+    log.append(f"[out] wrote {pos_csv_path}")
+
     csv_path = DATA / "submission_search_dataset.csv"
     fields = [
         "submission_id",

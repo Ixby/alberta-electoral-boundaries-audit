@@ -93,6 +93,26 @@ class TestRmhBanffPark:
         assert not _hits("rmh_banff_park", "Rocky Mountain House is a rural service centre")
 
 
+class TestOldsThreeHillsDidsbury:
+    def test_fires_olds_three_hills(self):
+        assert _hits("olds_three_hills_didsbury", "Olds and Three Hills should not share a riding")
+
+    def test_fires_three_hills_didsbury(self):
+        assert _hits("olds_three_hills_didsbury", "Three Hills and Didsbury have very different communities")
+
+    def test_fires_olds_didsbury(self):
+        assert _hits("olds_three_hills_didsbury", "Olds is far from Didsbury and should not be combined")
+
+    def test_no_fire_olds_alone(self):
+        assert not _hits("olds_three_hills_didsbury", "Olds is a small agricultural service town")
+
+    def test_no_fire_three_hills_alone(self):
+        assert not _hits("olds_three_hills_didsbury", "Three Hills is located in Kneehill County")
+
+    def test_no_fire_didsbury_alone(self):
+        assert not _hits("olds_three_hills_didsbury", "Didsbury is a community in Mountain View County")
+
+
 class TestChesteremereSplit:
     def test_fires_chestermere_split(self):
         assert _hits("chestermere_split", "splitting Chestermere with Calgary makes no sense")

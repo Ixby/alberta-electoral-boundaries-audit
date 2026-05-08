@@ -8,34 +8,29 @@ Check 3: Attribution integrity
   shifts when swing zones move between maps; total attribution covers full score.
 
 Check 2: Bootstrap approximation fidelity
-  szat.py uses an additive-delta approximation for the bootstrap null.
-  This check runs N_FULL_RECOMPUTE full-recompute permutations (same seed)
-  and compares the null distribution shapes and p-values.
-
-  Null definition (pre-registered szat_prereg_draft.md):
+  szat.py uses the full-recompute procedure (pre-registered null):
     For each permutation, each swing-zone VA is randomly assigned to either
     its majority_ed or minority_ed (Bernoulli 0.5). Non-swing VAs keep their
-    shared ED. SZAT_perm = EG(perm_minority_map) - EG(majority_map_fixed).
+    shared ED. EG is recomputed from scratch.
+    SZAT_perm = EG(perm_minority_map) - EG(majority_map_fixed).
 
-  Approximation (szat.py):
-    SZAT_approx = sum(delta_eg_i for swing VAs where flip=True)
-    -- uses only direct swing-zone effects; majority map is not recomputed.
+  This check compares that full-recompute null against the older additive-delta
+  approximation (sum of delta_eg for flipped swing VAs) to verify that both
+  produce qualitatively similar p-values. The additive approximation captures
+  only direct swing-zone effects (~55% of the score); the full-recompute null
+  is the pre-registered method used in szat.py.
 """
 from __future__ import annotations
 
-
+import json
 import sys
 from pathlib import Path
+
 try:
     import data_loader
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
-
-
-import json
-import sys
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -139,9 +134,13 @@ def check_bootstrap_approximation(summary: dict, va: pd.DataFrame) -> None:
         from drand_seed import get_canonical_seed
         seed = get_canonical_seed("szat-bootstrap")
         print(f"  Seed: {seed} (drand_seed)")
-    except Exception:
-        seed = 23687475
-        print(f"  Seed: {seed} (fallback)")
+    except Exception as _e:
+        # szat.py hard-fails when drand_seed is unavailable; validate matches that
+        # behaviour so both scripts use the same seed source.
+        raise RuntimeError(
+            "drand_seed.get_canonical_seed unavailable — cannot reproduce the "
+            "pre-registered bootstrap. Ensure drand_seed.py is on sys.path."
+        ) from _e
 
     swing_mask   = va["is_swing"].values.astype(bool)
     swing_va     = va[swing_mask].reset_index(drop=True)

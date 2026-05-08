@@ -431,8 +431,10 @@ def write_report(
     historical_min = min(eg_values)
     historical_max = max(eg_values)
     # For the "normal election" range (2019 and 2023 only — exclude the
-    # 2015 multi-party vote-split anomaly)
-    normal = [r for r in results if "2015" not in r["label"]]
+    # 2015 multi-party vote-split anomaly). Use explicit year prefix matching
+    # rather than substring exclusion so future years aren't silently filtered.
+    _normal_years = {"2019", "2023"}
+    normal = [r for r in results if r["label"][:4] in _normal_years]
     normal_min = min(r["code_eg_pct"] for r in normal)
     normal_max = max(r["code_eg_pct"] for r in normal)
 
@@ -583,13 +585,23 @@ def write_report(
 # Main
 # ---------------------------------------------------------------------------
 
-# 2026 proposed map EG values from packing_cracking_analysis.py
-# canonical run (urban_weight=0.85, THREE-MAP COMPARISON table):
-#   Majority 2026: -0.40%
-#   Minority 2026: -1.81%
-# NOTE: The task description references -1.3% and -2.7%; those values
-# correspond to an earlier version of the script or a different weight.
-# This script uses the current v0_2 canonical output for consistency.
+# FROZEN 2026-04-26: 2026 EG comparison values from packing_cracking_analysis.py
+# canonical run (urban_weight=0.85, THREE-MAP COMPARISON table, B2 EG row).
+# These are not read from a file at runtime — packing_cracking_analysis.py does
+# not write a stable machine-readable output that this script can consume.
+# If packing_cracking_analysis.py is re-run with different parameters, update
+# these constants manually and record the run date and parameters above.
+# Earlier task description referenced -1.3% and -2.7%; those were from an older
+# weight configuration.
+import warnings as _warnings
+_warnings.warn(
+    "historical_eg_baseline.py: EG_2026_*_PCT are frozen constants from "
+    "2026-04-26 packing_cracking_analysis.py run (urban_weight=0.85). "
+    "Re-run packing_cracking_analysis.py and update these if the 2026 maps change.",
+    UserWarning,
+    stacklevel=1,
+)
+del _warnings
 EG_2026_MAJORITY_PCT = -0.40
 EG_2026_MINORITY_PCT = -1.81
 

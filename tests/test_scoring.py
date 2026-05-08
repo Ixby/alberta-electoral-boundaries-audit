@@ -105,6 +105,20 @@ def test_seats_at_50_50_swing_required():
     assert m["seats_at_50_50"] == 0.5
 
 
+def test_seat_results_zero_case_has_all_keys():
+    """seat_results() on all-zero input must return the same key set as the
+    non-empty path — callers must not get KeyError on ucp_vote_share."""
+    ucp = np.array([0.0, 0.0])
+    ndp = np.array([0.0, 0.0])
+    m_empty = seat_results(ucp, ndp)
+    # Compute non-empty reference to get the canonical key set
+    m_nonempty = seat_results(np.array([60.0]), np.array([40.0]))
+    missing = set(m_nonempty.keys()) - set(m_empty.keys())
+    assert not missing, f"Zero-case return dict missing keys: {missing}"
+    import math
+    assert math.isnan(m_empty["ucp_vote_share"]), "ucp_vote_share should be NaN for zero input"
+
+
 def test_efficiency_gap_proportional():
     """When seat share matches vote share exactly, efficiency gap
     should be near zero. UCP wins one of three with 51-49 and loses
