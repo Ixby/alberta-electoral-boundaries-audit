@@ -23,7 +23,7 @@ from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
 

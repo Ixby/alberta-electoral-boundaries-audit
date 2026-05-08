@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alberta_audit"
+version = "0.1.0"
+description = "Alberta Electoral Boundary Forensic Audit"
+authors = [
+    {name = "Audit Team"}
+]
+dependencies = [
+    "pandas",
+    "geopandas",
+    "matplotlib"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["analysis", "analysis.*"]

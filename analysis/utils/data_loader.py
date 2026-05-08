@@ -11,16 +11,16 @@ from pathlib import Path
 import geopandas as gpd
 
 # Resolve the repository root relative to this file's location
-# (analysis/scripts/utils/data_loader.py)
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
+# (analysis/utils/data_loader.py → analysis/ → repo root)
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_PATH = ROOT_DIR / "config.yaml"
 
 def load_config() -> dict:
     """Loads and parses the central config.yaml file."""
     if not CONFIG_PATH.exists():
-        raise FileNotFoundError(f"Configuration file not found at {CONFIG_PATH}")
+        return {}
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        return yaml.safe_load(f) or {}
 
 # Global cached config
 CONFIG = load_config()

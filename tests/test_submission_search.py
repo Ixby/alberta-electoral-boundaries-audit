@@ -163,6 +163,23 @@ def test_classify_neutral():
     assert classify_position("The boundary runs along Highway 2 north of the river") == "neutral"
 
 
+def test_classify_cannot_support_is_opposing():
+    assert classify_position("I cannot support this proposal") == "opposing"
+
+
+def test_classify_wont_support_is_opposing():
+    assert classify_position("We won't support this boundary change") == "opposing"
+
+
+def test_classify_will_not_support_is_opposing():
+    assert classify_position("The community will not support this configuration") == "opposing"
+
+
+def test_classify_problematic_terrain_is_neutral():
+    # "problematic" no longer fires OPPOSE_WORDS (removed to prevent false positives)
+    assert classify_position("The problematic terrain makes access difficult") == "neutral"
+
+
 def test_classify_ambiguous_leaning_oppose():
     # Two oppose words, one support word
     result = classify_position(

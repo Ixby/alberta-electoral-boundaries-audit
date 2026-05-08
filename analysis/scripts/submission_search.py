@@ -29,7 +29,7 @@ from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 import urllib.parse
 import urllib.request
@@ -340,15 +340,22 @@ SUPPORT_WORDS = re.compile(
     r"\b(support|in\s+favou?r|endorse|agree\s+with|should\s+be|makes\s+sense|good\s+idea|prefer|recommend(ed|ing)?|accept)\b",
     re.I,
 )
+# Negation patterns come first so "cannot support" fires here rather than
+# matching "support" in SUPPORT_WORDS.  "problem(atic)?" was removed to avoid
+# false positives on neutral geographic descriptions ("the problematic terrain").
 OPPOSE_WORDS = re.compile(
-    r"\b(oppose|against|disagree|reject|do\s+not\s+support|don'?t\s+support|object|wrong|bad\s+idea|unacceptable|harm(s|ful)?|should\s+not|must\s+not|problem(atic)?|concern(ed|s)?|against\s+the\s+proposal)\b",
+    r"\b(oppose|against|disagree|reject|do\s+not\s+support|don'?t\s+support|cannot\s+support|can'?t\s+support|will\s+not\s+support|won'?t\s+support|would\s+not\s+support|wouldn'?t\s+support|object|wrong|bad\s+idea|unacceptable|harm(s|ful)?|should\s+not|must\s+not|concern(ed|s)?|against\s+the\s+proposal)\b",
     re.I,
 )
 
 
 def classify_position(snippet: str) -> str:
     s = snippet
-    sup = len(SUPPORT_WORDS.findall(s))
+    # Mask OPPOSE_WORDS matches before counting SUPPORT_WORDS so that negated
+    # phrases ("cannot support", "won't support") don't also fire SUPPORT_WORDS
+    # on the embedded "support" token.
+    s_masked = OPPOSE_WORDS.sub(" ", s)
+    sup = len(SUPPORT_WORDS.findall(s_masked))
     opp = len(OPPOSE_WORDS.findall(s))
     if sup == 0 and opp == 0:
         return "neutral"

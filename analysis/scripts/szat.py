@@ -54,7 +54,7 @@ from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
 import geopandas as gpd
@@ -179,8 +179,12 @@ def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
     (topology gaps, boundary slivers).
     Returns a Series indexed like va_gdf with EDName2025 values.
     """
+    # Use representative_point() (guaranteed inside polygon) rather than true
+    # centroid, matching mcmc_ensemble.py's score_exogenous_map().  Consistent
+    # centroid method is required so VA→ED assignments agree between the two
+    # scripts; true centroid can fall outside concave VAs.
     centroids = va_gdf[["geometry"]].copy()
-    centroids["geometry"] = va_gdf.geometry.centroid
+    centroids["geometry"] = va_gdf.geometry.representative_point()
 
     joined = gpd.sjoin(
         centroids, ed_gdf[["EDName2025", "geometry"]], how="left", predicate="within"
@@ -244,12 +248,15 @@ def run() -> None:
 
     n_swing = int(va["is_swing"].sum())
     print(f"  Swing zones: {n_swing} / {len(va)}")
+    # 2108 was validated with canonical shapefiles using representative_point().
+    # If this assertion fails after a shapefile update, re-run and update the count.
     if n_swing != 2108:
         raise ValueError(
             f"Expected 2108 swing VAs against canonical shapefiles, got {n_swing}. "
             "Check shapefile version — canonical pair: "
             "ea_majority_2026_eds.gpkg / ea_minority_2026_eds.gpkg with "
-            "va_polygons_with_full_2023_votes.gpkg."
+            "va_polygons_with_full_2023_votes.gpkg. "
+            "Also confirm centroid method: representative_point() is now canonical."
         )
 
     # Provincial vote totals (NDP + UCP only; consistent with EG convention)
