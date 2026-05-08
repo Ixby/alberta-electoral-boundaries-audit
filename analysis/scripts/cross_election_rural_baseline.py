@@ -22,10 +22,11 @@ the implied Monte Carlo sampling range to cover realistic variation.
 
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 import csv

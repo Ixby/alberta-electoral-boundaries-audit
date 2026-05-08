@@ -20,11 +20,12 @@ Usage:
 from __future__ import annotations
 
 
+from pathlib import Path
 import sys
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 import os

@@ -12,10 +12,11 @@ a map failure." This script tests that counter directly by re-running the
 identical snap-tolerance method against a *different* edge substrate built
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 from physical and administrative features other than CSDs:

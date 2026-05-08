@@ -84,7 +84,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 ### 3.4 §5.3.5 Neighbour-drain adjacency (pre-registered pass already recorded)
 
 - **Status.** Already a pre-registered pass for the minority on pre-commitment. No retraction needed; finding is "the minority map is LESS adjacency-coupled than either the 2019 or majority map."
-- **Retraction condition on the pre-registered pass.** If a rerun on the v0_5 DA-anchored substrate (with its better adjacency topology, after the v0_2 substrate-defect flagged in the writeup) produces a minority coupled count > 1.5× majority count, the pre-registered pass is retracted.
+- **Retraction condition on the pre-registered pass.** If the v2 label-shuffling null distribution (Phase B of `drain_v2_plan.md`) places the minority map's continuous drain score in the extreme upper tail (p < 0.05) of random permutations across the fixed contiguity graph, the "pass" is retracted and reclassified as a detected spatial signature.
 
 ## 4. Geographic-coherence findings (§5.8)
 

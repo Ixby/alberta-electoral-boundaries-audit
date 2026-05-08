@@ -7,10 +7,11 @@ Plots the 2026 Majority map vs the 2026 Minority map over the Airdrie municipal 
 
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 import geopandas as gpd

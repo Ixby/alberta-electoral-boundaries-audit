@@ -137,7 +137,7 @@ The partisan-bias consequences are directionally UCP-favorable for the minority 
 
 **Contribution.** This paper makes three contributions. It applies a symmetric, falsifiability-gated framework to both 2026 proposals and the 2019 baseline, producing reproducible estimates of population equality, partisan bias, geographic coherence, and procedural fairness. It pre-registers the test battery against a forthcoming third map — the November 2026 MLA-committee 91-seat proposal — so the audit can be replayed against new evidence rather than reinterpreted after the fact. And it documents the data-provenance caveats that arise when 2026 shapefile release is gated by legislative adoption, leaving explicit placeholders for the checks that remain pending.
 
-**Scope.** The paper does not reach a legal conclusion. It is evidentiary: it records what the public data show under identical methodology applied to all three maps, so that any interested party — court, legislator, commissioner, journalist, academic — can repeat the computations, challenge the inputs, and reach their own judgments. The court-ready interpretation is deferred to §8 (Conclusion) and Appendix F (Legal Interpretive Note).
+**Scope.** The paper does not reach a legal conclusion. It is evidentiary: it records what the public data show under identical methodology applied to all three maps, so that any interested party — court, legislator, commissioner, journalist, academic — can repeat the computations, challenge the inputs, and reach their own judgments. The court-ready interpretation is deferred to §8 (Conclusion) and Appendix F (Legal Interpretive Note), drawing on Pal's (2015) analysis of boundary-commission discretion and electoral-district design.
 
 ---
 
@@ -155,7 +155,7 @@ The analysis rests on four bodies of prior work: US partisan-gerrymandering meas
 
 **Pre-registration and evidentiary discipline.** Nosek et al. (2018) and Munafò et al. (2017) codify the pre-registration discipline the audit's November 2026 test protocol follows. American Statistical Association (2016, 2019) statements on p-values and graded evidence guide the audit's reporting of directional findings at sub-threshold magnitude. These disciplines matter because the paper's central claim — six dimensions pointing in the same direction, none individually at classical 95% significance — is inferentially valid only under pre-registered test selection and reported-versus-hidden-test symmetry.
 
-The audit's methods map onto this literature as follows: B2–B6 (§5.2.1) implement Stephanopoulos-McGhee, McDonald-Best, Gelman-King, and Warrington directly; §5.4 implements DeFord-Duchin-Solomon ReCom against a 250,000-plan neutral ensemble; §5.2.5 validates Chen-Rodden for Alberta; §5.9.3 positions the procedural finding against Courtney's Canadian comparator sample. Where the Alberta context departs from US or Canadian prior work, the departures are documented rather than elided.
+The audit's methods map onto this literature as follows: B2–B6 (§5.2.1) implement Stephanopoulos-McGhee, McDonald-Best, Gelman-King (and the broader Grofman, King & Browning partisan-symmetry foundation), and Warrington directly; §5.4 implements DeFord-Duchin-Solomon ReCom against a 250,000-plan neutral ensemble; §5.2.5 validates Chen-Rodden for Alberta; §5.9.3 positions the procedural finding against Courtney's Canadian comparator sample (Courtney 2001, pp. 45–60). Where the Alberta context departs from US or Canadian prior work, the departures are documented rather than elided.
 
 ---
 
@@ -1941,11 +1941,11 @@ American Statistical Association. 2019. "Moving to a World Beyond 'p < 0.05'." *
 
 Barnes, Richard, and Justin Solomon. 2021. "Gerrymandering and Compactness: Implementation Flexibility and Abuse." *Political Analysis* 29(4): 448–466.
 
-Bratt, Duane, Keith Brown, Anthony Sayers, and David Taras, eds. 2019. *Orange Chinook: Politics in the New Alberta*. Calgary: University of Calgary Press.
+Bratt, Duane, Keith Brownsey, Richard Sutherland, and David Taras, eds. 2019. *Orange Chinook: Politics in the New Alberta*. Calgary: University of Calgary Press.
 
 Cannon, Sarah, Ari Goldbloom-Helzner, Varun Gupta, JN Matthews, and Bhushan Suwal. 2022. "Voting Rights, Markov Chains, and Optimization by Short Bursts." *Methodology and Computing in Applied Probability* 25(36).
 
-Carty, R. Kenneth. 2017. *Big Tent Politics: The Liberal Party's Long Mastery of Canada's Public Life*. Vancouver: UBC Press.
+Carty, R. Kenneth. 2015. *Big Tent Politics: The Liberal Party's Long Mastery of Canada's Public Life*. Vancouver: UBC Press.
 
 Chen, Jowei. 2017. "The Impact of Political Geography on Wisconsin Redistricting." *Election Law Journal* 16(4): 443–452.
 
@@ -1971,7 +1971,7 @@ Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020. "Theoretical Found
 
 King, Gary, and Robert X. Browning. 1987. "Democratic Representation and Partisan Bias in Congressional Elections." *American Political Science Review* 81(4): 1251–1273.
 
-Ladner, Kiera. 2003. "Treaty Federalism: An Indigenous Vision of Canadian Federalisms." In *New Trends in Canadian Federalism*, eds. François Rocher and Miriam Smith, 167–194. Peterborough: Broadview Press.
+Ladner, Kiera. 2003. "Treaty Federalism: An Indigenous Vision of Canadian Federalisms." In *New Trends in Canadian Federalism*, eds. François Rocher and Miriam Smith, 167–196. Peterborough: Broadview Press.
 
 McDonald, Michael D., and Robin E. Best. 2015. "Unfair Partisan Gerrymanders in Politics and Law: A Diagnostic Applied to Six Cases." *Election Law Journal* 14(4): 312–330.
 
@@ -1979,13 +1979,13 @@ Munafò, Marcus R., Brian A. Nosek, Dorothy V. M. Bishop, Katherine S. Button, C
 
 Nosek, Brian A., Charles R. Ebersole, Alexander C. DeHaven, and David T. Mellor. 2018. "The Preregistration Revolution." *Proceedings of the National Academy of Sciences* 115(11): 2600–2606.
 
+Pal, Michael. 2015. "The Fractured Right to Vote." *McGill Law Journal* 61(2): 231–274.
+
 Polsby, Daniel D., and Robert D. Popper. 1991. "The Third Criterion: Compactness as a Procedural Safeguard Against Partisan Gerrymandering." *Yale Law & Policy Review* 9(2): 301–353.
 
 Reock, Ernest C. 1961. "Measuring Compactness as a Requirement of Legislative Apportionment." *Midwest Journal of Political Science* 5(1): 70–74.
 
-Sancton, Andrew. 2021. *The Limits of Boundaries: Why City-Regions Cannot Be Self-Governing*. Montreal and Kingston: McGill-Queen's University Press.
-
-Smith, David E. 2010. *Canada's Deep Crown: Beyond Elizabeth II*. Toronto: University of Toronto Press.
+Sancton, Andrew. 2008. *The Limits of Boundaries: Why City-Regions Cannot Be Self-Governing*. Montreal and Kingston: McGill-Queen's University Press.
 
 Stephanopoulos, Nicholas O., and Eric M. McGhee. 2014. "Partisan Gerrymandering and the Efficiency Gap." *University of Chicago Law Review* 82(2): 831–900.
 

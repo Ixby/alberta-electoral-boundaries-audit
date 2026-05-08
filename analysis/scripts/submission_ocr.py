@@ -23,10 +23,11 @@ from __future__ import annotations
 
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 import sys, io, json, re, csv, time

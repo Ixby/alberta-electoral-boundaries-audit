@@ -23,7 +23,7 @@ Outputs
 analysis/reports/szat_results.csv      — per-VA swing-zone table
 analysis/reports/szat_summary.json     — map-level summary + bootstrap
 
-EG sign convention (McGhee / Stephanopoulos 2015, U. Chi. L. Rev. 82(2)):
+EG sign convention (McGhee / Stephanopoulos 2014, U. Chi. L. Rev. 82(2)):
   positive EG = more NDP votes wasted than UCP (UCP structural advantage)
   negative EG = more UCP votes wasted than NDP (NDP structural advantage)
   SZAT_score = EG_minority − EG_majority
@@ -47,10 +47,11 @@ from __future__ import annotations
 
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 

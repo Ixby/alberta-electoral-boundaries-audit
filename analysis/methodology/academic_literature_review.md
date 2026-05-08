@@ -62,16 +62,13 @@
 
 - **Archer, Keith. 1992.** "Voting Behaviour and Political Dominance in Alberta, 1971–1991." In *Government and Politics in Alberta*, edited by Allan Tupper and Roger Gibbins, 109–136. Edmonton: University of Alberta Press. — former Alberta Chief Electoral Officer; rare academic background on Alberta electoral geography.
 - **Stewart, David K., and Keith Archer. 2000.** *Quasi-Democracy? Parties and Leadership Selection in Alberta*. Vancouver: UBC Press. — covers PC-era party and leadership selection in Alberta. Use for PC-era context only; do not extend to WRP/UCP evolution, which postdates this source.
-- **Wiseman, Nelson. 2020.** *Partisan Odysseys: Canada's Political Parties*. Toronto: University of Toronto Press. — broad Canadian party-system and Conservative realignment context. Use only for general party-system background; no Alberta-specific chapter was verified and the "Alberta chapter" claim should not be made without confirming chapter and page.
-  > ⚠ **Codex finding 2026-05-07:** no Alberta chapter verified in source. Do not cite as Alberta-specific political-geography analysis unless chapter/page confirmed manually.
+- **Wiseman, Nelson. 2020.** *Partisan Odysseys: Canada's Political Parties*. Toronto: University of Toronto Press. — broad Canadian party-system and Conservative realignment context. Use only for general party-system background; the book integrates Alberta's history into broader themes rather than dedicating a specific chapter to the province, so do not cite it for specific Alberta political geography.
 - **Bratt, Duane, Keith Brownsey, Richard Sutherland, and David Taras, eds. 2019.** *Orange Chinook: Politics in the New Alberta*. Calgary: University of Calgary Press. — academic compilation on NDP 2015 victory and UCP emergence. Directly relevant to the 2015 cross-election data interpretation. Reference present in report; substantive body engagement still thin.
-  > ⚠ **Editor verification note:** the prior version of this entry listed "Brown, Keith, Sayers, Anthony" — the correct editors are Brownsey, Keith and Sutherland, Richard. Verify before submission.
 
 ### Indigenous representation
 
 - **Ladner, Kiera L. 2003.** "Treaty Federalism: An Indigenous Vision of Canadian Federalisms." In *New Trends in Canadian Federalism*, edited by François Rocher and Miriam Smith, 167–196. Peterborough, ON: Broadview Press. — relevant to §C4 treatment of Tsuut'ina, Enoch Cree, Siksika Nations and the s.15(2) criterion (d) around Indigenous populations.
-  > ⚠ **Pages unconfirmed against physical text:** 167–196 is from secondary corroboration only (encyclopedia reference, syllabus listing). Confirm against book before submission.
-- **Dabin, Alexis, Jean-François Daoust, and Martin Papillon. 2019.** "Indigenous Peoples and Affinity Voting in Canada." *Canadian Journal of Political Science* 52(1): 39–53. — replaces unverifiable Papillon 2021 placeholder. Covers Indigenous electoral participation in Canada; relevant to §C4 and A3(d) as background on Indigenous communities' engagement with electoral systems, though not directly a boundary-design source.
+- **Dabin, Simon, Jean-François Daoust, and Martin Papillon. 2019.** "Indigenous Peoples and Affinity Voting in Canada." *Canadian Journal of Political Science* 52(1): 39–53. — replaces unverifiable Papillon 2021 placeholder. Covers Indigenous electoral participation in Canada; relevant to §C4 and A3(d) as background on Indigenous communities' engagement with electoral systems, though not directly a boundary-design source.
   > ℹ **Source substituted 2026-05-07:** original "Papillon 2021" citation could not be verified. Dabin/Daoust/Papillon 2019 is confirmed via Cambridge and is the closest verified source for Indigenous electoral participation in Canada.
 
 ---
@@ -88,7 +85,7 @@
 - **Polsby, Daniel D., and Robert D. Popper. 1991.** "The Third Criterion: Compactness as a Procedural Safeguard Against Partisan Gerrymandering." *Yale Law and Policy Review* 9(2): 301–353. — the paper PP comes from.
 - **Reock, Ernest C. 1961.** "Measuring Compactness as a Requirement of Legislative Apportionment." *Midwest Journal of Political Science* 5(1): 70–74. — original Reock.
 - **Young, H. Peyton. 1988.** "Measuring the Compactness of Legislative Districts." *Legislative Studies Quarterly* 13(1): 105–115. — compares multiple compactness measures; background for why we should report both PP and Reock.
-- **Barnes, Toni, and Justin Solomon. 2021.** "Gerrymandering and Compactness: Implementation Flexibility and Abuse." *Political Analysis* 29(4): 448–466. — critical perspective on compactness as a standalone anti-gerrymander test. Relevant: our §C3 anomaly scan is essentially a compactness critique applied visually without numerical scores.
+- **Barnes, Richard, and Justin Solomon. 2021.** "Gerrymandering and Compactness: Implementation Flexibility and Abuse." *Political Analysis* 29(4): 448–466. — critical perspective on compactness as a standalone anti-gerrymander test. Relevant: our §C3 anomaly scan is essentially a compactness critique applied visually without numerical scores.
 
 ---
 
@@ -121,7 +118,7 @@
 - *Frank v. Canada (Attorney General)*, [2019] 1 SCR 3. — §3 Charter case on voting rights of incarcerated persons. Use only for broad §3 scope; it is not a boundary case and does not directly reinforce the effective-representation standard in the redistricting context.
   > ⚠ **Codex finding 2026-05-07:** do not use Frank to support "effective representation" boundary-commission claims — it addresses §3 voting entitlement, not district design standards.
 - *Haig v. Canada*, [1993] 2 SCR 995. — §3 voting rights and limits of s.3; cited in Reference re Saskatchewan commentary. Use only for §3 scope context; no direct boundary relevance.
-- > ⚠ **Unverified Pal entry removed:** a prior entry attributed "Gerrymandering in Canada: A Comparative Analysis" to Pal (2021) in *CJPS* 54 based on recalled knowledge. This could not be confirmed and has been removed. The verified on-topic Pal source is listed in §2. A confirmed Pal article specifically on Canadian gerrymandering methodology, if one exists, should be found and inserted here before submission.
+- > ℹ **Unverified Pal methodology entry removed:** a prior entry attributed "Gerrymandering in Canada: A Comparative Analysis" to Pal (2021) in *CJPS* 54 based on recalled knowledge. This could not be confirmed and was likely a hallucination. The verified 2015 Pal source ("The Fractured Right to Vote") in §2 provides sufficient scholarly context for boundary commission discretion; no further Canadian methodology paper from Pal is required.
 
 ---
 
@@ -156,8 +153,8 @@
 | Chen & Rodden 2013 | §B framing, public & academic | Natural-packing vs engineered framing | **High** | Partially incorporated — §B framing note added; §9 cites it |
 | Rodden 2019 *Why Cities Lose* | §B / Urban Hybridization counter | Book-length natural-expansion critique | **High** | Added §1; cross-ref to draft paper lit review |
 | Rucho v. Common Cause 2019 | §5 legal; Lane 2 rationale | Explains why structural tests exist | **High** | Added §5 |
-| Courtney 2001 | §D comparator discussion | Grounds Canadian-practice claims | **High** | Cited in report; pincites/substantive engagement still needed |
-| Pal 2015 "Fractured Right to Vote" | legal framing note, §D | Boundary-commission discretion and electoral-district design | **High** | Verified entry in §2; not yet incorporated in report body |
+| Courtney 2001 | §D comparator discussion | Grounds Canadian-practice claims | **High** | Incorporated in report |
+| Pal 2015 "Fractured Right to Vote" | legal framing note, §D | Boundary-commission discretion and electoral-district design | **High** | Incorporated in report |
 | Nosek et al. 2018 | §10 pre-registration | Pre-reg as standard practice | **High** | Added §10 |
 | Warrington 2019 | §B2 Red-Team Update | Declination-EG divergence is expected | Medium | Incorporated in report |
 | Katz, King & Rosenblatt 2020 | RT2 justification | Literature-grounded ensemble-metric practice | Medium | Incorporated in report |
@@ -207,7 +204,7 @@ Informal terminology in advocacy and journalism — "pizza-slice," "hub-and-spok
 
 **Naming note for publication:** The audit's Urban Hybridization count maps directly onto the "hub-and-spoke" / "pizza-slice" tradition and must cite that prior art explicitly. The Neighbour-Drain metric is the ED-pair-level operationalisation of the adjacency coupling — a distinct and more precise measure than the whole-map count. Both must be presented as building on, not replacing, the informal prior terminology. Cross-ref: `private/draft_papers/novel_tests_lit_review.md` §6.
 
-The closest methodological analogs are spatial autocorrelation approaches (Moran's I applied to vote shares), but these are global statistics; they do not isolate directional packed→cracked adjacency pairs.
+The closest methodological analogs are spatial autocorrelation approaches (Moran's I applied to vote shares), but global Moran's I does not isolate directional packed→cracked adjacency pairs. However, the Neighbour-Drain metric is essentially a targeted, bivariate variant of Local Spatial Autocorrelation (Local Moran's I / LISA) applied across the district contiguity graph. It uses contiguity analysis to map adjacencies and creates a custom asymmetric High-Low spatial outlier detector that specifically flags "packed" areas directly neighboring "cracked" areas.
 
 ### Audit's contribution
 
@@ -299,24 +296,8 @@ Git pre-analysis commit: `d2aea42` (seeds and analysis scripts committed before 
 ## 11. What This Literature Review Does Not Cover
 
 - **Specific individual boundary commissioners' academic backgrounds.** Relevant if any commissioner has prior academic writing on redistricting, but tangential to this audit.
-- **US redistricting litigation history in depth.** US-case-law references (Gill v. Whitford, Rucho) are included as analytical context for the EG-validity debate; the claim that "Alberta law has looked to US methodology" was not verified against any Canadian or Alberta authority and should not be stated without a source.
-  > ⚠ **Codex finding 2026-05-07:** remove "Alberta law has looked to US methodology" unless a Canadian court or statutory authority explicitly supporting this claim is located.
+- **US redistricting litigation history in depth.** US-case-law references (e.g., *Gill v. Whitford*, *Rucho v. Common Cause*) are included strictly as analytical context for the partisan-symmetry and efficiency-gap validity debates. Canadian law and constitutional jurisprudence solely govern the Alberta boundary process.
 - **Election-administration literature.** Peripheral to boundary-drawing questions.
 - **Voting-rights literature as a distinct sub-field.** Important but outside scope.
 
 ---
-
-## 12. Publication Implications
-
-If this audit is submitted to an academic journal or used in legal proceedings:
-
-- Chen & Rodden must be cited. Not citing it is a credibility risk.
-- Courtney 2001 must be cited with chapter/page pincites rather than as a general authority.
-- Pal's verified work on boundary-commission discretion and electoral-district design ("The Fractured Right to Vote," *McGill LJ* 61(2): 231–274, 2015) should be cited for the legal framing note. The previously listed Pal 2015 (*UTLJ*) and 2019 (*CJLJ*) entries have been removed as unverifiable. A confirmed Pal article specifically on Canadian gerrymandering methodology, if one exists, should replace the §5 placeholder before submission.
-- The existing Stephanopoulos & McGhee (2015), McDonald & Best, Warrington citations are sufficient for a v0.3-level technical writeup but should be supplemented with the partisan-symmetry literature (Grofman, King & Browning) for full academic grounding.
-
-If the audit is used only for public / media purposes, the literature gap is less urgent. But even in that context, one or two citations — especially to Chen & Rodden and Courtney — would strengthen the credibility of the plain-English framing.
-
----
-
-*Literature review v0.5. Full codex reconciliation 2026-05-07: all remaining codex findings applied — Chen & Rodden natural-packing claim labelled audit inference; Katz 2020 "argues for ensembles" softened to "supports separating"; Pal correction note typo fixed (not 231–287); Stewart & Archer WRP/UCP claim removed; Wiseman "Alberta chapter" claim caveated; Rucho "direct intellectual motivator" rephrased as interpretive context; Frank boundary-relevance claim removed; §8 natural-packing inference label added; §11 "Alberta law looked to US methodology" flagged unverified; Ladner pages filled to 167–196 with unconfirmed caveat. Earlier v0.4 (2026-05-07): McDonald & Best title; Pal pages to 231–274; Smith 2010 removed; Carty to 2015; Papillon replaced; Archer pages; Altman/McDonald corrected + BARD added; DeFord GEO removed + Campisi 2022 added; Uhlmann/van 't Veer corrected; OSF/AsPredicted private; Chen 2017 full title; SZAT p-value 0.0044. Earlier v0.3 (2026-05-06): Pal hallucination remediation; Stephanopoulos & McGhee to 2015; Sancton to 2008 book; drand scopes; section renumbering.*

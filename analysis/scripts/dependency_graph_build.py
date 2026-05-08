@@ -16,10 +16,11 @@ Edges are typed ``required`` (target cannot exist without source),
 (source is a validation/gate for target). Edges from L0/L1 into L2 and
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 from L2 into L1/L3 are discovered by parsing ``Forward:`` / ``Backward:``

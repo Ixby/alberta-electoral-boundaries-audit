@@ -13,10 +13,11 @@ counts:
 Those numbers are NOT computed by any script in the repository. They come
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 from a manual narrative classification by the author (compare the lists

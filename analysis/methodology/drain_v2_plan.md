@@ -237,6 +237,8 @@ Draining is a real gerrymandering archetype. The spatial coupling between packed
 cracked EDs is a genuine forensic signal — it is what distinguishes pack-and-crack from
 pack-and-dilute, which operates at a map-wide level rather than locally.
 
+Analytically, the draining metric is effectively a **targeted, bivariate form of Local Spatial Autocorrelation (Local Moran's I / LISA) applied across the district contiguity graph.** While a standard Local Moran's I flags general spatial outliers, this metric acts as a custom asymmetric High-Low spatial outlier detector—identifying specific instances where a high surplus value in one district is structurally coupled with a low winning margin in a contiguous neighbor. By fixing the contiguity structure in the null hypotheses (Phases B and C), the metric tests for significance exactly as Local Spatial Autocorrelation frameworks do.
+
 The pre-registered §5.3.5 test is appropriately conservative (ratio ≤ 1.5× rather than
 a strict equality test). The finding on official geometry (0.45×, both maps well within
 expected range) is a clean PASS and is interpretable.

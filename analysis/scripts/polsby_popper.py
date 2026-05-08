@@ -24,16 +24,16 @@ Dependencies
 
 
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    sys.path.insert(0, str(Path(__file__).resolve().parent / "utils"))
     import data_loader
 
 
 import math
 import os
-from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd

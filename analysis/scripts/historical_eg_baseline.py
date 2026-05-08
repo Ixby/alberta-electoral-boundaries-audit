@@ -8,7 +8,7 @@ Alberta-specific historical range. Resolves Issue #16.
 Background
 ----------
 The audit's packing/cracking analysis (packing_cracking_analysis.py)
-applies a 7% EG threshold from Stephanopoulos & McGhee (2015), calibrated to
+applies a 7% EG threshold from Stephanopoulos & McGhee (2014), calibrated to
 US Congressional elections 1972-2010. That threshold has never been validated
 for Alberta. This script computes EG for three enacted-map elections to
 establish an Alberta-specific historical reference range.
@@ -35,7 +35,7 @@ which party's votes count as "wasted above threshold" vs "wasted in loss."
 In 2015, NDP won many seats with plurality but not two-party majority;
 those seats correctly count as NDP wins for wasted-vote purposes.
 
-Formula (Stephanopoulos & McGhee 2015 wasted-vote form)
+Formula (Stephanopoulos & McGhee 2014 wasted-vote form)
 --------------------------------------------------------
   For each district:
     if NDP won: NDP_wasted += max(0, NDP_votes - (total_2p // 2 + 1))
@@ -446,7 +446,7 @@ def write_report(
         "This report computes the efficiency gap (EG) for the 2015, 2019, and 2023 "
         "Alberta provincial elections under the boundary map in effect at each election. "
         "The purpose is to establish an Alberta-specific historical reference range, "
-        "replacing the US Congressional 7% threshold (Stephanopoulos & McGhee 2015) "
+        "replacing the US Congressional 7% threshold (Stephanopoulos & McGhee 2014) "
         "with a province-specific calibration.",
         "",
         "## Sign convention",
@@ -519,7 +519,7 @@ def write_report(
         "",
         "### US 7% threshold",
         "",
-        "The Stephanopoulos & McGhee (2015) 7% threshold was calibrated to US "
+        "The Stephanopoulos & McGhee (2014) 7% threshold was calibrated to US "
         "Congressional elections. Under that standard, all three Alberta enacted-map "
         "elections and both 2026 proposals fall well within the threshold. The 2015 "
         "outlier is the only Alberta election that would exceed the US threshold, "
