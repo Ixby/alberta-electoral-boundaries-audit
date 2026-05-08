@@ -30,9 +30,9 @@ substrate:
   
   # Column mappings for the substrate
   columns:
-    party_1_votes: "va_ucp"      # E.g., Conservative/UCP votes
-    party_2_votes: "va_ndp"      # E.g., NDP/Liberal votes
-    other_votes: "va_other"      # Third-party/independent votes
+    party_1_votes: "va_ucp_full"      # E.g., Conservative/UCP votes
+    party_2_votes: "va_ndp_full"      # E.g., NDP/Liberal votes
+    other_votes: "va_other_full"      # Third-party/independent votes
     population: "pop_2021"       # Population column
     geographic_id: "VA_NUMBER"   # Unique identifier for the polygon
 

@@ -6,10 +6,12 @@ scripts_dir = Path("analysis/scripts")
 
 IMPORT_STATEMENT = """
 import sys
+from pathlib import Path
 try:
     import data_loader
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    _p = Path(__file__).resolve().parent
+    sys.path.insert(0, str(_p / "utils") if _p.name == "scripts" else str(_p.parent / "utils"))
     import data_loader
 """
 

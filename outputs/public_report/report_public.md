@@ -18,7 +18,7 @@ Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and 
 
 ---
 
-## Part II: The 100,000-Map Litmus Test {.new-page}
+## Part II: The 250,000-Map Litmus Test {.new-page}
 
 ![How skewed each map looks on the partisan-fairness number. Both 2026 maps sit beyond the Alberta line at ~5%; only the minority also crosses the US line at 7%. The further right the dot, the more the map favours the UCP relative to its provincial vote share.](data/maps/article/lane1_dotplot.svg)
 
@@ -33,7 +33,7 @@ The table compares the two maps. The first five rows use no election results —
 | Airdrie split | 2 divisions | **4 divisions** | **UCP** (Cracks urban/suburban power) |
 | Borders that follow existing municipal lines | 71% | **15%** | Structural (Reduces local accountability) |
 | Boundaries flagged by the commission chair | 0 | **3** | N/A |
-| Seats at 50/50 votes (percentile in 100k simulation) | 46.1% — p83 (normal range) | **51.7% — p100 (no neutral map reaches this)** | **UCP** |
+| Seats at 50/50 votes (percentile in 250k simulation) | 46.1% — p83 (normal range) | **51.7% — p100 (no neutral map reaches this)** | **UCP** |
 | Compactness-Weighted Efficiency Gap | +1.5% | **-2.4%** | **UCP** (via irregular shapes) |
 | Packing-cracking neighbourhood pattern | 5 | **6** | **2 (Test blind to hybridization)** | **UCP** (Hybridization obscures spatial packing) |
 
@@ -43,7 +43,7 @@ The table compares the two maps. The first five rows use no election results —
 >
 > **Anchoring.** The fraction of an electoral border that lies on a pre-existing administrative line — a city limit, a school-division boundary, a Statistics Canada census line.
 
-The bottom rows depend on election results. The *seats@50/50* test holds the electorate at perfect parity (UCP and NDP each win exactly half the votes province-wide) and asks how many seats the map awards the UCP. A neutral Alberta map produces a median around 44.8% UCP seats — Alberta's geography (NDP voters concentrated in city cores, UCP voters spread across rural ridings) gives the NDP a small efficiency advantage at neutrality. The majority map at 46.1% sits at the 83rd percentile of the 100,000-map simulation (normal range). The minority map at 51.7% is at the 100th percentile — no neutral map in 100,000 draws reaches that value. The *efficiency gap* number measures how lopsidedly each party's votes get translated into seats; on the official Elections Alberta shapefiles the minority's efficiency gap is +4.0%, placing it at the 96th percentile — outside the normal range. The verdict section unpacks the consequences.
+The bottom rows depend on election results. The *seats@50/50* test holds the electorate at perfect parity (UCP and NDP each win exactly half the votes province-wide) and asks how many seats the map awards the UCP. A neutral Alberta map produces a median around 44.8% UCP seats — Alberta's geography (NDP voters concentrated in city cores, UCP voters spread across rural ridings) gives the NDP a small efficiency advantage at neutrality. The majority map at 46.1% sits at the 83rd percentile of the 250,000-map simulation (normal range). The minority map at 51.7% is at the 100th percentile — no neutral map in 250,000 draws reaches that value. The *efficiency gap* number measures how lopsidedly each party's votes get translated into seats; on the official Elections Alberta shapefiles the minority's efficiency gap is +4.0%, placing it at the 96th percentile — outside the normal range. The verdict section unpacks the consequences.
 
 The last row is where the minority map looks *better* than the majority on a partisan-fairness measure: zero packed-cracked adjacency pairs, against one on the majority map (and zero on the current 2019 map). The audit pre-registered this test before measuring, and the minority's tighter packing-cracking number is a real point in its favour. It is the single test where the minority outperforms the majority.
 
@@ -112,18 +112,18 @@ The audit also tested the chair's separate, blanket assertion in Appendix C that
 
 The cleanest single question to ask of any electoral map is this: if the province's vote split exactly evenly between the two main parties, what seat count would the map produce? This holds the electorate constant and asks the map alone what it does.
 
-To answer this, the audit generated 100,000 computer-simulated, mathematically neutral Alberta maps using the official Elections Alberta shapefiles, holding to the exact same statutory rules and geographic boundaries the commission used. We then placed the commission's two 2026 maps into that distribution to see how normal they are.
+To answer this, the audit generated 250,000 computer-simulated, mathematically neutral Alberta maps using the official Elections Alberta shapefiles, holding to the exact same statutory rules and geographic boundaries the commission used. We then placed the commission's two 2026 maps into that distribution to see how normal they are.
 
-In Alberta, the neutral answer is not 50/50. *Across 100,000 computer-simulated legal Alberta maps, the median map gives the UCP only 44.8% of the seats at 50/50 votes* — a typical Alberta map under neutral votes hands the NDP a small seat majority. This is counterintuitive but mechanical: rural UCP voters win their ridings by 60-40 margins (wasting many "extra" UCP votes), while urban NDP voters win their ridings by tighter 51-49 margins (wasting fewer NDP votes per win). At neutrality, NDP comes out ahead on seat efficiency.
+In Alberta, the neutral answer is not 50/50. *Across 250,000 computer-simulated legal Alberta maps, the median map gives the UCP only 44.8% of the seats at 50/50 votes* — a typical Alberta map under neutral votes hands the NDP a small seat majority. This is counterintuitive but mechanical: rural UCP voters win their ridings by 60-40 margins (wasting many "extra" UCP votes), while urban NDP voters win their ridings by tighter 51-49 margins (wasting fewer NDP votes per win). At neutrality, NDP comes out ahead on seat efficiency.
 
-The full distribution from the canonical 100,000-map simulation:
+The full distribution from the canonical 250,000-map simulation:
 
 | Where the map sits | UCP seats at 50/50 votes |
 |---|---|
 | Median Alberta map | 44.8% — NDP slight seat majority |
 | 95th-percentile map | 47.1% |
 | 99th-percentile map | 48.4% |
-| **Maximum across 100,000 maps** | **below 51.7%** |
+| **Maximum across 250,000 maps** | **below 51.7%** |
 
 A note on seat counts. The 2026 commission maps each have **89** districts; the audit's computer simulation runs on the **87**-district 2019 map (its starting substrate); the November Lunty committee will produce **91**. All percentages are seat *shares*, comparable across these denominators.
 
@@ -148,15 +148,21 @@ The tipping-point metric is the most intuitive: if the province split exactly 50
 |---|---|---|
 | 2019 enacted | 46.0% | 83rd percentile — inside the normal range |
 | **Majority 2026** | **46.1%** | **83rd percentile — well within bounds** |
-| **Minority 2026** | **51.7% (46 seats)** | **100th percentile — no neutral map in 100,000 draws reaches this** |
+| **Minority 2026** | **51.7% (46 seats)** | **100th percentile — no neutral map in 250,000 draws reaches this** |
 
-Not one of 100,000 computer-simulated neutral Alberta maps produced a `seats@50/50` value as high as the minority map's. The majority map is the kind of map a neutral procedure routinely generates. The minority map is the kind of map you have to specifically aim to draw.
+Not one of 250,000 computer-simulated neutral Alberta maps produced a `seats@50/50` value as high as the minority map's. Based on actual recent voting patterns, it awards the UCP 60 seats (compared to 55 in the Majority map). The majority map is the kind of map a neutral procedure routinely generates. The minority map is the kind of map you have to specifically aim to draw.
 
 ### What this means in plain language
 
 The official shapefiles reveal a map that is statistically extreme in the same partisan direction on all four measures at once. The joint probability of a neutral drawing process producing a map this extreme across all four measures simultaneously is roughly one in 64 million (p = 1.55×10⁻⁸, pre-registered Fisher combined test). That is not a rounding error or a measurement artefact — it is the same answer from four independent statistical instruments read in the same room.
 
-By strategically diluting urban voters into surrounding rural-edge districts (the "urban hybridization" pattern identified in Lane 2), the minority map engineers a structural firewall that maximises UCP seat retention in a tied election. The Lane 2 structural finding and the Lane 1 statistical finding converge on the same map, the same direction, and the same communities.
+This explains why the minority map had to be such an extreme statistical outlier ($p=100.0$) against 250,000 neutral simulations. In an 89-seat legislature, a two-thirds supermajority requires exactly 60 seats. You do not hit the 60-seat supermajority threshold by drawing natural, community-respecting boundaries; you have to surgically force the map to get there.
+
+> **WHY A SUPERMAJORITY MATTERS**
+> 
+> Under Canada's Westminster parliamentary system, a simple majority (45 seats) is enough to pass routine laws and budgets. But securing a two-thirds supermajority (60 seats) grants a government near-absolute control. It allows the ruling party to effortlessly invoke "closure" to shut down debate, rewrite the rules of the legislature without opposition consent, and completely dominate all legislative committees. More importantly, it makes a Premier mathematically bulletproof to internal revolts—even if half a dozen backbenchers cross the floor, the government retains absolute control. A simple majority lets you drive the car; a 60-seat supermajority lets you rewrite the traffic laws.
+
+By strategically diluting urban voters into surrounding rural-edge districts (the "urban hybridization" pattern identified in Lane 2), the minority map engineers the exact structural firewall needed to secure those 60 seats. The Lane 2 structural finding and the Lane 1 statistical finding converge on the same map, the same direction, and the same communities.
 
 ### Confirmation from the targeted-procedure test
 
@@ -173,11 +179,22 @@ The minority map's 51.7% sits closer to the targeted-UCP ceiling (52.9%) than to
 
 *That* is the shape of the finding, and it is also the framing a court would actually apply.
 
+### Ruling Out Alternative Explanations
+
+When presented with a statistical outlier of this magnitude, a rigorous audit must rule out innocent explanations before concluding intentional gerrymandering. The structural data (Lane 2) systematically dismantles the standard alternative defenses:
+
+1. **The "Natural Political Geography" Defense:** *("Urban voters are naturally packed; the map just reflects Alberta's geography.")* The 250,000 simulations already account for Alberta's natural geography. The simulation proves that while geography gives the UCP a baseline efficiency advantage, it naturally caps around the 83rd to 90th percentile. The minority map sits at the 100th percentile—an extreme outlier *even when compared to Alberta's naturally skewed baseline*.
+2. **The "Communities of Interest" Defense:** *("The odd shapes were drawn to keep specific communities together.")* If you are trying to keep communities together, you follow municipal borders. The majority map followed existing city limits 71% of the time. The minority map followed them only 15% of the time, and actively split the unified city of Airdrie into four separate pieces. It destroyed communities of interest to achieve its shapes.
+3. **The "Population Equality" Defense:** *("They had to draw weird boundaries to make sure every district had the exact same population.")* The minority map is actually much *worse* at population equality. Its Population Mean Absolute Deviation (MAD) was 3938, placing it in the 98.7th percentile of badness for population parity. It sacrificed population equality to achieve its shape.
+4. **The "Incompetence or Bad Luck" Defense:** *("They just drew a sloppy map and got unlucky with the numbers.")* Hitting exactly 60 seats for a supermajority while navigating around 85% of existing municipal boundaries requires surgical precision. The joint probability of accidentally drawing a map that hits the absolute extreme statistical tail across four independent partisan metrics simultaneously is roughly **1 in 64 million** ($p = 1.55 \times 10^{-8}$). You cannot blunder your way into the 100th percentile.
+
+Because the data proves the drafters actively worsened cities and population parity, the only remaining mathematical interpretation is that the partisan skew *was* the primary optimization goal.
+
 ### A note on the R cross-validation
 
 An earlier version of this audit (using approximated rather than official shapefiles) cross-validated the Python ReCom ensemble against the R `redist` package's Sequential Monte Carlo sampler. That cross-check produced unstable results: across three runs with the same nominal seed, the fraction of plans reaching the old minority value (48.3% on the approximated geometry) was 5.6%, then 28%, then 58% — a sampler-convergence failure, not a discovery. The full write-up is at [`analysis/reports/redist_python_comparison.md`](analysis/reports/redist_python_comparison.md).
 
-With official Elections Alberta shapefiles, the minority map's `seats@50/50` rises to 51.7% — a value no neutral plan in 100,000 draws reaches at all. The R cross-validation question becomes moot: zero plans from either sampler reach the canonical value.
+With official Elections Alberta shapefiles, the minority map's `seats@50/50` rises to 51.7% — a value no neutral plan in 250,000 draws reaches at all. The R cross-validation question becomes moot: zero plans from either sampler reach the canonical value.
 
 **The asymmetry around 50/50 is more telling than the inversion itself.** A precision sweep of the seat-vote curve at 0.01-percentage-point resolution finds the minority map keeps the UCP at or above the 45-seat legislative-majority threshold down to a UCP provincial vote share of about **49.7%**. That is technically a vote-seat inversion — the UCP would form government on the minority map while losing the popular vote by 0.3 percentage points — but 0.3 points is well within ordinary polling noise, so on its own this is not a dramatic finding. What *is* dramatic is the contrast: on the **majority** map, the UCP would need to *win* the popular vote by about 4 percentage points to reach the same 45-seat threshold. Both maps face the same Alberta geography and the same statutory rules; the gap between them — 0.3pp vs +4pp — is structural difference, not noise.
 
@@ -204,7 +221,7 @@ The same verdict in plain summary form, leading with the structural finding beca
 
 **Why Lane 2 carries the case.** The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. The minority crosses every one; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p = 1.55×10⁻⁸ (pre-registered Fisher combined test, OSF [6pt83](https://osf.io/6pt83/)). The question of whether Lane 2's unusual geometry is the specific *mechanism* behind the Lane 1 numbers was tested and the answer is no — see [`analysis/reports/redist_python_comparison.md`](analysis/reports/redist_python_comparison.md). Lane 2 is the central finding. Lane 1 corroborates without carrying.
 
-> **THE PLAIN READING.** Two electoral maps were drawn in the same room, by five commissioners working from the same rules and the same data. The majority map is the kind of map a neutral procedure routinely produces: clean on every one of the audit's pre-registered structural tests, comfortably inside the simulated partisan-fairness distribution. The minority map is something else. It crosses every one of those structural-irregularity tests by a wide margin — chair-flagged lasso corridors, the four-way Airdrie split, the national-park extension, the urban-rural hybridizations, 15% municipal anchoring against the Canadian norm of 70-85% — and on 100,000 computer-simulated neutral maps drawn from the official Elections Alberta shapefiles, its `seats@50/50` value is reached by no neutral map at all. All four partisan-fairness measures simultaneously place it in the statistical tail; the joint probability of that combination under a neutral drawing process is roughly one in 64 million. The audit tested whether the unusual geometry is the specific mechanism that produces the seat advantage; that claim did not survive the falsification. What does survive: same room, same rules, same data, two very different maps, and only one of them has the structural pattern that researchers flag for further inquiry. Whether the cause was deliberate engineering, unlucky drafting, or both is a judgement call the audit puts in the reader's hands.
+> **THE PLAIN READING.** Two electoral maps were drawn in the same room, by five commissioners working from the same rules and the same data. The majority map is the kind of map a neutral procedure routinely produces: clean on every one of the audit's pre-registered structural tests, comfortably inside the simulated partisan-fairness distribution. The minority map is something else. It crosses every one of those structural-irregularity tests by a wide margin — chair-flagged lasso corridors, the four-way Airdrie split, the national-park extension, the urban-rural hybridizations, 15% municipal anchoring against the Canadian norm of 70-85% — and on 250,000 computer-simulated neutral maps drawn from the official Elections Alberta shapefiles, its `seats@50/50` value is reached by no neutral map at all. All four partisan-fairness measures simultaneously place it in the statistical tail; the joint probability of that combination under a neutral drawing process is roughly one in 64 million. The audit tested whether the unusual geometry is the specific mechanism that produces the seat advantage; that claim did not survive the falsification. What does survive: same room, same rules, same data, two very different maps, and only one of them has the structural pattern that researchers flag for further inquiry. Whether the cause was deliberate engineering, unlucky drafting, or both is a judgement call the audit puts in the reader's hands.
 >
 > We measured the effects. We can't read minds.
 

@@ -53,6 +53,6 @@
   "majority_source": "ea_majority_2026_eds.gpkg",
   "minority_source": "ea_minority_2026_eds.gpkg",
   "name_col": "EDName2025",
-  "n_steps": 50000,
+  "n_steps": 250000,
   "seed": 1432864451
 }

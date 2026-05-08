@@ -230,9 +230,9 @@ else:
 
 # ── CHECK 8 — Vote totals consistency ────────────────────────────────────────
 # Sum from VA file
-ucp_col = next((c for c in va.columns if "ucp" in c.lower()), None)
-ndp_col = next((c for c in va.columns if "ndp" in c.lower()), None)
-other_col = next((c for c in va.columns if "other" in c.lower()), None)
+ucp_col = next((c for c in va.columns if "ucp_full" in c.lower()), next((c for c in va.columns if "ucp" in c.lower()), None))
+ndp_col = next((c for c in va.columns if "ndp_full" in c.lower()), next((c for c in va.columns if "ndp" in c.lower()), None))
+other_col = next((c for c in va.columns if "other_full" in c.lower()), next((c for c in va.columns if "other" in c.lower()), None))
 
 if ucp_col and ndp_col and other_col:
     va_total = (
