@@ -34,8 +34,8 @@ unaffected and the pre-existing inline `_ts()` lambdas continue to work.
 Forward:  any analysis script that wants consistent observability
 Backward: stdlib only (time)
 """
-
 from __future__ import annotations
+
 
 import time
 

@@ -22,6 +22,7 @@ Outputs:
   analysis/v0_1_overlap_zone_report.md  (new)
   stdout summary
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -34,7 +35,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import sys
 import warnings

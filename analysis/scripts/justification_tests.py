@@ -20,10 +20,10 @@ Outputs:
 Run:
     python analysis/scripts/v0_1_justification_tests.py
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
-from __future__ import annotations
 
 import os
 import sys

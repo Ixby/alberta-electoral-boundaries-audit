@@ -42,10 +42,10 @@ Backward:
   report_academic.md
   analysis/scripts/*.py  (Forward/Backward headers where present)
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
-from __future__ import annotations
 
 import datetime as _dt
 import json

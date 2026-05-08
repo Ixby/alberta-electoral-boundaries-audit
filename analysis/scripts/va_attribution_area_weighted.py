@@ -1,4 +1,5 @@
 # Version: v0.9
+from __future__ import annotations
 """
 v0.9 — Area-weighted VA-to-2026-ED attribution (MAUP sensitivity)
 =================================================================
@@ -47,7 +48,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import argparse
 import sys

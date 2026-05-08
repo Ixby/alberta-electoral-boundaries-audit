@@ -28,10 +28,10 @@ backward_dependencies:
   - analysis/scripts/v0_1_canadian_base_rate_compute.py (original n=7 writeup)
   - data/canadian_redistribution_base_rate.csv (source data)
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
-from __future__ import annotations
 
 import csv
 import os

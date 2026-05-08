@@ -35,10 +35,10 @@ Output.
   - Prints benchmark distribution statistics.
   - Emits data/canadian_redistribution_base_rate.csv with quantified rows.
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
-from __future__ import annotations
 
 import csv
 import os

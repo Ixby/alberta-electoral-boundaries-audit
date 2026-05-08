@@ -24,6 +24,7 @@ Dependencies:
             data/shapefiles/derived/v0_1_derived_v8_*_2026_eds.gpkg
   Backward: data/maps/verification/v0_8_commission_*.svg
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -36,7 +37,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import sys
 import time

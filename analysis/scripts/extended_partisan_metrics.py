@@ -28,6 +28,7 @@ Backward:
 Forward:
   analysis/reports/extended_partisan_metrics.md
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -39,7 +40,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 import json, sys, time, warnings
 from pathlib import Path
 import numpy as np

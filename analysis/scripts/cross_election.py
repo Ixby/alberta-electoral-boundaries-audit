@@ -1,4 +1,5 @@
 # Version: v0.9
+from __future__ import annotations
 """
 cross_election.py
 ======================
@@ -69,7 +70,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import csv
 import json

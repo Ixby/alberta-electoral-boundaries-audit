@@ -22,10 +22,10 @@ Outputs:
 
 Author: sub-agent, 2026-04-23
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
-from __future__ import annotations
 
 import math
 import os

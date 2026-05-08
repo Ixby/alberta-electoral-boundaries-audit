@@ -22,6 +22,7 @@ Dependencies
             data/outputs/mcmc/simulated_ensemble_percentiles_250k.csv
   Forward : report_public.md (seats_at_50_50 ensemble figure reference)
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (added 2026-04-28 — annotation overlay only)
 
@@ -33,7 +34,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 from pathlib import Path
 

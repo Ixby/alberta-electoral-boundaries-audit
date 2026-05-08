@@ -17,6 +17,7 @@ Produces:
 Usage:
   python analysis/scripts/submission_search.py [--phase={download|parse|search|all}]
 """
+from __future__ import annotations
 
 
 import sys
@@ -26,7 +27,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 import os
 import re
 import csv

@@ -18,11 +18,11 @@ Output columns:
   other_share, leading_party, win_prob_leader,
   ucp_win_prob, ndp_win_prob, snapshot_date, source_url
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
-from __future__ import annotations
 import csv
 import os
 import re

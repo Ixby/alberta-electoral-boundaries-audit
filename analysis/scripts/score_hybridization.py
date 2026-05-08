@@ -90,10 +90,10 @@ Backward:
     analysis/scripts/score_anchoring.py
     data/shapefiles/reference/alberta_2021_csds.gpkg
 """
+from __future__ import annotations
 
 # Version: 0.9 (2026-04-26)
 
-from __future__ import annotations
 
 import argparse
 import sys

@@ -44,6 +44,7 @@ Forward dependencies:
   analysis/reports/joint_outlier_score_summary.md (Channel 1 update)
   analysis/reports/post_audit_recompute_deltas.md (canonical delta)
 """
+from __future__ import annotations
 
 
 import sys
@@ -53,7 +54,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import argparse
 import json

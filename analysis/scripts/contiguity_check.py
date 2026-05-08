@@ -37,6 +37,7 @@ Backward deps:
   - data/shapefiles/derived/v0_3_canonical_minority_2026_eds_swept.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -48,7 +49,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import csv
 import json

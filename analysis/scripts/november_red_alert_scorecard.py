@@ -33,6 +33,7 @@ committed to in writing on April 24 2026, before the Lunty
 committee began its work, so post-hoc redrawing of thresholds
 to fit the data is impossible.
 """
+from __future__ import annotations
 
 
 import sys
@@ -42,7 +43,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import argparse
 import json

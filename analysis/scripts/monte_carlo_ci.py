@@ -1,4 +1,5 @@
 # Version: v0.3
+from __future__ import annotations
 """
 Monte Carlo Confidence Interval over Modeling Choices
 ======================================================
@@ -30,7 +31,6 @@ After N = 2,000 samples, report:
 A directional claim is defensible if the 95% CI does not cross zero.
 """
 
-from __future__ import annotations
 import random
 import statistics
 from copy import deepcopy

@@ -46,11 +46,11 @@ Outputs:
 
 Author: Track U subagent, 2026-04-22
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
-from __future__ import annotations
 
 import csv
 import math

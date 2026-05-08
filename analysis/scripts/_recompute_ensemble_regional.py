@@ -16,6 +16,7 @@ Run:
     PYTHONIOENCODING=utf-8 python \\
         analysis/scripts/_recompute_ensemble_regional.py
 """
+from __future__ import annotations
 
 
 import sys
@@ -25,7 +26,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import sys
 import time

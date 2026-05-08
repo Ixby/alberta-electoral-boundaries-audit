@@ -50,6 +50,7 @@ Backward:
     analysis/scripts/municipal_anchoring_2019_baseline.py
     data/shapefiles/reference/alberta_2021_csds.gpkg
 """
+from __future__ import annotations
 
 # Version: 0.9 (2026-04-26)
 
@@ -61,7 +62,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import argparse
 import sys

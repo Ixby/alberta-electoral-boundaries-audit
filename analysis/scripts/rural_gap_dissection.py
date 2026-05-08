@@ -31,11 +31,11 @@ Outputs (written to this directory):
   - rural_gap_ed_comparison.csv
   - rural_gap_summary.json
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
-from __future__ import annotations
 
 import csv
 import json

@@ -11,6 +11,7 @@ Produces:
   data/submission_search_dataset.csv (updated with source=ocr rows)
   analysis/v0_1_submission_ocr_log.md
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -22,7 +23,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 import sys, json, re, csv, time
 from pathlib import Path
 from collections import defaultdict

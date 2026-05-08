@@ -16,6 +16,7 @@ Output: report_public.pdf at the repo root (cover + article merged).
 
 Dependencies: geopandas, shapely, matplotlib, markdown, pypdf, pypdfium2.
 """
+from __future__ import annotations
 
 
 import sys
@@ -25,7 +26,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import subprocess
 import sys

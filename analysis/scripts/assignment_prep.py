@@ -13,8 +13,8 @@ Input:
   - data/majority_hybrid_crosswalk.csv
   - data/minority_hybrid_crosswalk.csv
 """
-
 from __future__ import annotations
+
 
 import io
 import os

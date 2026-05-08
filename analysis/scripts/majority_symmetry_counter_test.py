@@ -51,6 +51,7 @@ Dependencies:
 Author: Sub-agent Track Q for fortification b1_b6.
 Date: 2026-04-22
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -63,7 +64,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import csv
 import os

@@ -67,10 +67,10 @@ Backward:
     data/osm/alberta_osm_highways.gpkg
     data/osm/alberta_osm_rivers.gpkg
 """
+from __future__ import annotations
 
 # Version: 0.9 (2026-04-26)
 
-from __future__ import annotations
 
 import argparse
 import json

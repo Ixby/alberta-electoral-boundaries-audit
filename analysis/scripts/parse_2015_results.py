@@ -11,6 +11,7 @@ Boundary caveat: 2015 EDs used the 2010 commission's boundaries, which
 differ from 2019's. Name matches between 2015 and 2019 are direct where
 possible; boundary changes are noted in the output.
 """
+from __future__ import annotations
 
 
 import sys
@@ -20,7 +21,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 import csv
 import os
 import re

@@ -22,6 +22,7 @@ Output: data/python_recom_polsby_popper.csv with one row per plan.
 This pairs with the R `redist` SMC compactness output for the
 falsification tests proposed by the PO ("the mechanism is the geometry").
 """
+from __future__ import annotations
 
 
 import sys
@@ -31,7 +32,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import math
 import sys

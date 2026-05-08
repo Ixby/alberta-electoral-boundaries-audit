@@ -23,6 +23,7 @@ Backward:
   data/votes_2023_majority_area_weighted.csv
   data/votes_2023_minority_area_weighted.csv
 """
+from __future__ import annotations
 
 
 import sys
@@ -32,7 +33,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import json
 import sys

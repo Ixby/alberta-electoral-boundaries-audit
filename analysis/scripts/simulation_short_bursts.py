@@ -24,6 +24,7 @@ Backward:
 Forward:
   report_academic.md §5.4 (MCMC Run #3 supplement)
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -35,7 +36,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import json
 import random as _random

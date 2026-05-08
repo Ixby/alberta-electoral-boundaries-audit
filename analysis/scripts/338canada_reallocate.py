@@ -24,11 +24,11 @@ Outputs:
   (Phase 2 comparison and summary counts print to stdout and are captured
    in 338canada_riding_level.md.)
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
-from __future__ import annotations
 import csv
 import os
 import sys

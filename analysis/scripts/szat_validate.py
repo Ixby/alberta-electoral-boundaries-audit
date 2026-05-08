@@ -21,6 +21,7 @@ Check 2: Bootstrap approximation fidelity
     SZAT_approx = sum(delta_eg_i for swing VAs where flip=True)
     -- uses only direct swing-zone effects; majority map is not recomputed.
 """
+from __future__ import annotations
 
 
 import sys
@@ -30,7 +31,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import json
 import sys

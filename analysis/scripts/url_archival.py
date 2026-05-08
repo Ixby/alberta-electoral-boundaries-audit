@@ -19,11 +19,11 @@ Backward dependencies:
   - analysis/url_archival_log.md (summary consumes the CSVs)
   - FROZEN_MANIFEST.md (rewrite step consumes the CSVs)
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
 
-from __future__ import annotations
 
 import csv
 import os

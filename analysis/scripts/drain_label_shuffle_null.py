@@ -29,6 +29,7 @@ Backward deps:
   - data/v0_2_canonical_majority_2026_eds_topoclean.gpkg (or v0_8 series)
   - data/v0_2_canonical_minority_2026_eds_topoclean.gpkg (or v0_8 series)
 """
+from __future__ import annotations
 
 
 import sys
@@ -38,7 +39,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import json
 import sys

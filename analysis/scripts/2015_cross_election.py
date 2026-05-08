@@ -42,6 +42,7 @@ Caveats:
 Usage:
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_2015_cross_election.py
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -53,7 +54,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import csv
 import os

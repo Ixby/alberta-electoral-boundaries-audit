@@ -19,8 +19,8 @@ Exit status:
   0 - all checks pass
   1 - one or more violations detected (output lists them)
 """
-
 from __future__ import annotations
+
 import re
 import sys
 from pathlib import Path

@@ -15,8 +15,8 @@ Dependencies: markdown (pip install markdown). Chrome or Edge at the
 standard Windows install paths. Network access on first run for the
 Google Fonts @import (cached afterward).
 """
-
 from __future__ import annotations
+
 
 import os
 import re

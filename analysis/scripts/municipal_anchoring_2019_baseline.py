@@ -1,4 +1,5 @@
 # Version: v0.9
+from __future__ import annotations
 """
 2019 baseline municipal-boundary anchoring (Lane 2 historical comparator)
 ==========================================================================
@@ -52,7 +53,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import json
 import time

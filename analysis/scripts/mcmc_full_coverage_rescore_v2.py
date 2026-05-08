@@ -9,10 +9,10 @@ target) and use the session-11 canonical 89-ED coverage per map.
 Writes to data/simulation_real_map_scores_full_v2.json and
 data/simulated_ensemble_percentiles_full_v2.csv.
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
-from __future__ import annotations
 import json
 from pathlib import Path
 

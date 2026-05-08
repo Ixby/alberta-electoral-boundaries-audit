@@ -17,6 +17,7 @@ Re-runnable: works against a partial run (any sample count >= 4 per chain).
 The script reports the sample count used per chain so a later check can
 distinguish in-progress diagnostics from final-run diagnostics.
 """
+from __future__ import annotations
 
 # Version: 0.1 series  (last updated 2026-04-26)
 
@@ -28,7 +29,6 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
-from __future__ import annotations
 
 import json
 import sys
