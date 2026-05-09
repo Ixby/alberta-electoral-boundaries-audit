@@ -82,10 +82,11 @@ def main():
     )
     print(f"  seed = {SEED}, objective: minimise UCP seats@50/50", flush=True)
 
-    np.random.seed(SEED)
+    rng = np.random.default_rng(SEED)  # noqa: F841
+    np.random.seed(SEED)  # gerrychain-compat: seeds legacy RNG
     import random as _random
 
-    _random.seed(SEED)
+    _random.seed(SEED)  # gerrychain-compat: seeds global Python random
 
     va, graph = build_va_graph()
     print(
@@ -112,8 +113,9 @@ def main():
             f"  2019 seed exceeds +/-{POP_DEVIATION:.0%}; regenerating tight seed",
             flush=True,
         )
-        np.random.seed(42)
-        _random.seed(42)
+        rng = np.random.default_rng(42)  # noqa: F841
+        np.random.seed(42)  # gerrychain-compat: seeds legacy RNG
+        _random.seed(42)  # gerrychain-compat: seeds global Python random
         new_assignment = recursive_tree_part(
             graph,
             parts=list(range(num_dist)),
@@ -123,8 +125,9 @@ def main():
             node_repeats=5,
             method=partial(bipartition_tree, max_attempts=50000),
         )
-        np.random.seed(SEED)
-        _random.seed(SEED)
+        rng = np.random.default_rng(SEED)  # noqa: F841
+        np.random.seed(SEED)  # gerrychain-compat: seeds legacy RNG
+        _random.seed(SEED)  # gerrychain-compat: seeds global Python random
         seed_part = Partition(graph, new_assignment, my_updaters)
         seed_pops = list(seed_part["population"].values())
 

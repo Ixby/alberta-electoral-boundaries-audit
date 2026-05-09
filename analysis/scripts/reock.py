@@ -129,8 +129,8 @@ def _welzl_diameter(geom) -> float:
     # NaN contract: returns float("nan") if no valid coordinate points.
     if not pts:
         return float("nan")
-    random.seed(42)
-    random.shuffle(pts)
+    _rng = random.Random(42)
+    _rng.shuffle(pts)
 
     def circle_from_2(a, b):
         cx = (a[0] + b[0]) / 2

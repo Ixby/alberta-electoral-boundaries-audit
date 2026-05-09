@@ -108,8 +108,9 @@ def run_bursts(
         if i % 50 == 0:
             print(f"  burst {i}/{n_bursts}...", flush=True)
         # Seed global RNG state before each burst so chains are independent
-        np.random.seed(int(bs) % (2**32))
-        _random.seed(int(bs) % (2**32))
+        rng = np.random.default_rng(int(bs) % (2**32))  # noqa: F841
+        np.random.seed(int(bs) % (2**32))  # gerrychain-compat: seeds legacy RNG
+        _random.seed(int(bs) % (2**32))  # gerrychain-compat: seeds global Python random
         rows = run_ensemble(
             graph, assignment, burst_len, pop_deviation=pop_deviation, verbose=False
         )

@@ -505,8 +505,9 @@ def run_ensemble(
 
         _rng_state_np = np.random.get_state()
         _rng_state_py = _random.getstate()
-        np.random.seed(seed + 999)
-        _random.seed(seed + 999)
+        rng = np.random.default_rng(seed + 999)  # noqa: F841
+        np.random.seed(seed + 999)  # gerrychain-compat: seeds legacy RNG
+        _random.seed(seed + 999)  # gerrychain-compat: seeds global Python random
         # Use full pop_deviation (not half) so seed generation is tractable across
         # all chain seeds; the chain constraint also uses pop_deviation, so the
         # seed is guaranteed to be accepted by the chain.
@@ -701,10 +702,11 @@ def main(n_steps: int = 5000, seed: int = None):
     from drand_seed import get_canonical_seed
 
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble")
-    np.random.seed(seed)
+    rng = np.random.default_rng(seed)  # noqa: F841
+    np.random.seed(seed)  # gerrychain-compat: seeds legacy RNG
     import random as _random
 
-    _random.seed(seed)
+    _random.seed(seed)  # gerrychain-compat: seeds global Python random
 
     print(
         f"[{time.strftime('%H:%M:%S')}] starting ensemble run — n_steps={n_steps}, seed={seed}"

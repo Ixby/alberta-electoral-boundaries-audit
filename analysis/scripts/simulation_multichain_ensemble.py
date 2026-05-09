@@ -340,8 +340,9 @@ def run_one_chain(
 
     # Seed before the chain starts so gerrychain's internal RNG usage is
     # deterministic per (effective_seed, initial-state, graph).
-    np.random.seed(eff)
-    _random.seed(eff)
+    rng = np.random.default_rng(eff)  # noqa: F841
+    np.random.seed(eff)  # gerrychain-compat: seeds legacy RNG
+    _random.seed(eff)  # gerrychain-compat: seeds global Python random
 
     rows = run_ensemble(graph, assignment, n_steps)
 
@@ -702,8 +703,9 @@ def main(argv: list[str] | None = None) -> int:
         f"partition (regen_seed={tight_regen_seed}, n_dist={num_dist}, "
         f"ideal_pop={ideal_pop:,.0f}, pop_deviation={pop_deviation:.0%})..."
     )
-    np.random.seed(tight_regen_seed)
-    _random.seed(tight_regen_seed)
+    rng = np.random.default_rng(tight_regen_seed)  # noqa: F841
+    np.random.seed(tight_regen_seed)  # gerrychain-compat: seeds legacy RNG
+    _random.seed(tight_regen_seed)  # gerrychain-compat: seeds global Python random
     tight_assignment = recursive_tree_part(
         graph,
         parts=list(range(num_dist)),

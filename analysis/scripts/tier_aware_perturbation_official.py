@@ -25,16 +25,16 @@ def main():
     
     # Mocking the tier classification based on area heuristics for now
     total_bias_shifts = []
-    np.random.seed(42)
+    rng = np.random.default_rng(42)
     
     for _ in range(500):
         shift = 0
         for idx, row in gdf.iterrows():
             # If area is huge, it's likely rural (often Tier A / intact from 2019)
             if row.geometry.area > 500000000:
-                shift += np.random.normal(0, 0) # Tier A
+                shift += rng.normal(0, 0) # Tier A
             else:
-                shift += np.random.normal(0, 300) # Tier C (urban fractured)
+                shift += rng.normal(0, 300) # Tier C (urban fractured)
         total_bias_shifts.append(shift)
         
     p05, p95 = np.percentile(total_bias_shifts, [5, 95])
