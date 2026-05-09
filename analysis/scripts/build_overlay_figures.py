@@ -49,6 +49,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -76,6 +77,7 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 # Paths / constants
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 OUT = data_loader._resolve_path("data") / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -428,7 +430,8 @@ def add_north_arrow(ax, x, y, size=1500):
 def label_ed(ax, geom, text, fontsize=7.5, weight="normal", color="#1a1a1a"):
     try:
         pt = geom.representative_point()
-    except Exception:
+    except Exception as e:
+        logger.debug("representative_point failed: %s", e)
         return
     ax.annotate(
         text,
@@ -564,7 +567,8 @@ def draw_figure(spec: FigSpec, g2019, maj, mino, mino_version: str) -> dict:
                 continue
             try:
                 pt = row.geometry.representative_point()
-            except Exception:
+            except Exception as e:
+                logger.debug("representative_point failed: %s", e)
                 continue
             tc = "#111111" if name in shared else text_color
             w = "bold" if name in shared else weight

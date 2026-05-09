@@ -24,6 +24,7 @@ import json
 import os
 import re
 import sys
+import logging
 from pathlib import Path
 
 try:
@@ -38,6 +39,7 @@ from pathlib import Path
 from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 TEMP = ROOT / ".temp" / "submissions"
 TEXT = TEMP / "text"
 DATA = data_loader._resolve_path("data")
@@ -388,7 +390,8 @@ def search_submissions(log):
         try:
             rnd = int(parts[2])  # "1" or "2"
             sid = int(parts[3])
-        except Exception:
+        except Exception as e:
+            logger.debug("filename parse failed, defaulting rnd/sid to 0: %s", e)
             rnd, sid = 0, 0
 
         row = {

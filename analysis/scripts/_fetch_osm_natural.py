@@ -19,6 +19,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -38,6 +39,7 @@ import geopandas as gpd
 from shapely.geometry import LineString
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 OSM_DIR = data_loader._resolve_path("data") / "osm"
 OSM_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -87,7 +89,8 @@ def _payload_to_gdf(payload: dict) -> gpd.GeoDataFrame:
             continue
         try:
             lines.append(LineString([(c["lon"], c["lat"]) for c in g]))
-        except Exception:
+        except Exception as e:
+            logger.debug("OSM geometry construction skipped: %s", e)
             continue
     return gpd.GeoDataFrame(geometry=lines, crs="EPSG:4326")
 

@@ -31,6 +31,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -60,6 +61,7 @@ def _ts():
 # Paths
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 HIRES = DATA / "maps" / "hires"
 OUT = DATA / "maps" / "verification"
@@ -314,8 +316,8 @@ def render_our_map(ax, gdf: gpd.GeoDataFrame, extent: tuple, title: str):
                             boxstyle="round,pad=0.1", fc=(1, 1, 1, 0.7), ec="none"
                         ),
                     )
-            except Exception:
-                pass
+            except Exception as e:
+                logger.debug("label annotation failed: %s", e)
 
 
 def render_overlay(

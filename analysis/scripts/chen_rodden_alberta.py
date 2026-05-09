@@ -58,6 +58,7 @@ import os
 import random
 import statistics
 import sys
+import logging
 from typing import Dict, List, Tuple
 
 import numpy as np
@@ -67,6 +68,7 @@ from shapely.ops import unary_union
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
+logger = logging.getLogger(__name__)
 
 
 def data(name: str) -> str:
@@ -128,8 +130,8 @@ def build_queen_weights(gdf: gpd.GeoDataFrame) -> np.ndarray:
                     inter = geoms[i].intersection(geoms[j])
                     if not inter.is_empty:
                         W[i, j] = 1
-                except Exception:
-                    pass
+                except Exception as e:
+                    logger.debug("geometry intersection skipped: %s", e)
     return W
 
 
@@ -279,8 +281,8 @@ def build_ed_adjacency(eds: gpd.GeoDataFrame) -> Dict[int, set]:
                 inter = geoms[i].intersection(geoms[j])
                 if not inter.is_empty:
                     adj[i].add(int(j))
-            except Exception:
-                pass
+            except Exception as e:
+                logger.debug("geometry intersection skipped: %s", e)
     return adj
 
 
@@ -332,8 +334,8 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
                 inter = geoms[i].intersection(geoms[j])
                 if not inter.is_empty:
                     neighs.add(int(j))
-            except Exception:
-                pass
+            except Exception as e:
+                logger.debug("geometry intersection skipped: %s", e)
         adj[i] = neighs
     n_edges = sum(len(v) for v in adj.values()) // 2
     print(f"  VA queen edges: {n_edges}")

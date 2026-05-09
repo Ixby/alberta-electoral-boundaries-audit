@@ -64,6 +64,7 @@ Backward:
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -88,6 +89,7 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 DERIVED = DATA / "shapefiles" / "derived"
 
@@ -314,7 +316,8 @@ def attribute_2019_ed_to_v0_9_by_area(
             ed_2019 = eds_2019.iloc[int(cand_idx)]
             try:
                 inter = v_geom.intersection(ed_2019.geometry)
-            except Exception:
+            except Exception as e:
+                logger.debug("geometry intersection skipped: %s", e)
                 continue
             if inter.is_empty:
                 continue

@@ -48,6 +48,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -71,6 +72,7 @@ import pandas as pd
 # ---------------------------------------------------------------------------
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
+logger = logging.getLogger(__name__)
 
 
 def _pick(plan: str) -> Path:
@@ -178,7 +180,8 @@ def reock_score(geom) -> float:
         if mbc is None or mbc.is_empty or mbc.area == 0:
             return float("nan")
         return float(geom.area / mbc.area)
-    except Exception:
+    except Exception as e:
+        logger.debug("minimum_bounding_circle unavailable: %s", e)
         return float("nan")
 
 

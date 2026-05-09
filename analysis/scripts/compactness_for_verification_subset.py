@@ -26,6 +26,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -49,6 +50,7 @@ import warnings
 warnings.simplefilter("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 VA_GPKG = data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 NPZ = data_loader._resolve_path("data") / "verification_assignments_raw.npz"
 METRICS_CSV = data_loader._resolve_path("data") / "simulation_verification_metrics.csv"
@@ -84,7 +86,8 @@ def main() -> int:
                 continue
             try:
                 L = inter.length
-            except Exception:
+            except Exception as e:
+                logger.debug("shared boundary length unavailable: %s", e)
                 L = 0.0
             if L > 0.0:
                 shared_len[(i, j)] = float(L)

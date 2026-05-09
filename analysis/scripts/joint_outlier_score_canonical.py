@@ -21,6 +21,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -42,6 +43,7 @@ from scipy import stats
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 REPORTS = ROOT / "analysis" / "reports"
 
@@ -77,7 +79,8 @@ def _load_n_eff_conservative() -> int:
             diag = json.load(f)
         n_effs = [v["n_eff"] for v in diag.values() if isinstance(v, dict) and "n_eff" in v]
         return int(min(n_effs)) if n_effs else _N_EFF_FALLBACK
-    except Exception:
+    except Exception as e:
+        logger.warning("convergence diagnostics unavailable, using fallback n_eff=%d: %s", _N_EFF_FALLBACK, e)
         return _N_EFF_FALLBACK
 
 

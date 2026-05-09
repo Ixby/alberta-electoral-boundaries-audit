@@ -27,6 +27,7 @@ Dependencies
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -46,6 +47,7 @@ import pandas as pd
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 _CANONICAL = data_loader._resolve_path(data_loader.CONFIG["data"]["canonical_dir"])
 _DERIVED = data_loader._resolve_path("data") / "shapefiles" / "derived"
 
@@ -92,7 +94,8 @@ def _mbc_diameter_via_shapely(geom) -> float:
     """
     try:
         from shapely import minimum_bounding_circle  # type: ignore
-    except Exception:
+    except Exception as e:
+        logger.debug("shapely.minimum_bounding_circle unavailable: %s", e)
         return float("nan")
     if geom is None or geom.is_empty:
         return float("nan")

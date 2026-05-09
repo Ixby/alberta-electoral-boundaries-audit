@@ -39,6 +39,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -60,6 +61,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
+logger = logging.getLogger(__name__)
 
 # Reuse the existing symmetric estimator so we match §5.3 substrate exactly.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -220,7 +222,8 @@ def build_adjacency(
         # Criterion 1: true shared boundary
         try:
             shared_len = ga.boundary.intersection(gb.boundary).length
-        except Exception:
+        except Exception as e:
+            logger.debug("shared boundary intersection failed: %s", e)
             shared_len = 0.0
         if shared_len >= 100.0:
             strict_pairs.add(key)
@@ -234,8 +237,8 @@ def build_adjacency(
             )
             if overlap_area >= MIN_BUFFERED_OVERLAP_M2:
                 strict_pairs.add(key)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.debug("buffered overlap computation failed: %s", e)
 
     # Identify isolated EDs after strict pass
     seen = set()
@@ -257,7 +260,8 @@ def build_adjacency(
                     continue
                 try:
                     d = iso_geom.distance(other_geom)
-                except Exception:
+                except Exception as e:
+                    logger.debug("distance computation failed: %s", e)
                     d = float("inf")
                 dists.append((d, other_name))
             dists.sort()

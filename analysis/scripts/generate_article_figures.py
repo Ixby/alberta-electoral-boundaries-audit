@@ -43,6 +43,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -70,6 +71,7 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 # Paths
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 OUT = data_loader._resolve_path("data") / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -266,7 +268,8 @@ def draw_bar(
 
             r, g, b = mc.to_rgb(seg.color)
             luma = 0.299 * r + 0.587 * g + 0.114 * b
-        except Exception:
+        except Exception as e:
+            logger.debug("color luma calculation failed, defaulting to light: %s", e)
             luma = 1.0
         label_color = "#ffffff" if luma < 0.45 else COLOR_INK
         ax.text(
@@ -300,7 +303,8 @@ def draw_bar(
 
                 r, g, b = mc.to_rgb(seg.color)
                 luma = 0.299 * r + 0.587 * g + 0.114 * b
-            except Exception:
+            except Exception as e:
+                logger.debug("color luma calculation failed, defaulting to light: %s", e)
                 luma = 1.0
             sublabel_color = "#ece6d4" if luma < 0.45 else COLOR_INK_SOFT
             # Clamp sublabel y so it stays inside the rectangle. The
@@ -701,7 +705,8 @@ def draw_calgary(fig_path: Path) -> dict:
                 rp = geom.representative_point()
             else:
                 rp = rural_only.representative_point()
-        except Exception:
+        except Exception as e:
+            logger.debug("geometry difference failed, using raw representative_point: %s", e)
             rp = geom.representative_point()
         lx = minx + ax_fx * (maxx - minx)
         ly = miny + ax_fy * (maxy - miny)

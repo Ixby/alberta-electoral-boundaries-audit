@@ -21,18 +21,21 @@ import csv
 import json
 import subprocess
 import sys
+import logging
 import time
 from datetime import datetime
 from pathlib import Path
 
 # ── Path setup ───────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 
 try:
     sys.path.insert(0, str(ROOT / "analysis" / "utils"))
     import data_loader
     DATA_DIR = data_loader._resolve_path("data")
-except Exception:
+except Exception as e:
+    logger.warning("data_loader unavailable, falling back to ROOT/data: %s", e)
     DATA_DIR = ROOT / "data"
 
 TEXT_DIR  = ROOT / ".temp" / "submissions" / "text"

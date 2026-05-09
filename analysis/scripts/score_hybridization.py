@@ -13,6 +13,7 @@ counts:
 Those numbers are NOT computed by any script in the repository. They come
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -106,6 +107,7 @@ import geopandas as gpd
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 CSD_GPKG = data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
 CITY_CSDTYPES: set[str] = {"CY", "SM"}  # City + Specialized Municipality
@@ -148,7 +150,8 @@ def score_hybridization(shapefile_path: Path) -> int:
                     city_share += share
                 else:
                     noncity_share += share
-            except Exception:
+            except Exception as e:
+                logger.debug("intersection area skipped: %s", e)
                 continue
 
         if city_share >= AREA_SHARE_THRESHOLD and noncity_share >= AREA_SHARE_THRESHOLD:

@@ -53,7 +53,10 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 try:
     import data_loader
 except ImportError:
@@ -69,8 +72,8 @@ from pathlib import Path
 os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 try:
     sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+except Exception as e:
+    logger.debug("stdout.reconfigure unavailable: %s", e)
 
 import pandas as pd
 import numpy as np

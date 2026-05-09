@@ -29,6 +29,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -44,6 +45,7 @@ import geopandas as gpd
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 RPTS = ROOT / "analysis" / "reports"
 RPTS.mkdir(parents=True, exist_ok=True)
@@ -90,7 +92,8 @@ def count_splits(
                 continue
             try:
                 inter = csd_geom.intersection(ed.geometry)
-            except Exception:
+            except Exception as e:
+                logger.debug("geometry intersection skipped: %s", e)
                 continue
             if inter.is_empty:
                 continue
