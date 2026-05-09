@@ -1,6 +1,0 @@
-ed_name,boundary_description,v1_vs_v2_shift_m,boundary_sensitive_vas,boundary_sensitive_votes,classification,orange_accept
-Calgary-De Winton,"North edge, Calgary city limit (Stoney Trail / Anderson); South / East / West edges, township grid",13.80238968748817,1,216.6,refinement-significant,False
-Calgary-South,"North edge, Glenmore Trail; East edge (exurban limb), Bow River; South edge, Highway 22X; West edge, Deerfoot/Macleod Trail",37.35815888002544,1,216.6,refinement-significant,False
-Edmonton-Windermere,"North edge, Whitemud Drive; East edge, North Saskatchewan River (full length); South edge, Edmonton city boundary; West edge, Anthony Henday Drive",55.39343988123946,3,795.75,refinement-significant,False
-Lethbridge-Little Bow,"North edge, Oldman River; East / West / South edges, township grid",59.185095329464275,0,0.0,refinement-negligible,True
-Wetaskawin-Ponoka-Maskwacis,"North / East / West edges, township grid; Hwy 53 near Ponoka; Short Battle River segment",30.456607670124594,0,0.0,refinement-negligible,True

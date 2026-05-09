@@ -1,3 +1,0 @@
-map,total_vas,misassigned_vas,pct_misassigned,mismatch_ndp_votes,mismatch_ucp_votes,eg_dpg_pct,eg_official_pct,eg_delta_pp,t1_pass
-majority,4765,1368,28.709,119167,146673,0.636,0.0828,0.5532,False
-minority,4765,1568,32.907,141668,156686,0.1111,3.9993,3.8882,False
