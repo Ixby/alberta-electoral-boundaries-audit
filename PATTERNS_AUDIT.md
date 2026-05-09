@@ -1,9 +1,15 @@
 # Software Development Patterns Audit
-**Date:** 2026-05-08  
+**Date:** 2026-05-08 | **Reassessed:** 2026-05-08  
 **Scope:** 108 Python files in `analysis/scripts/` and `analysis/utils/`  
-**Method:** 5 parallel adversarial agents + mechanical grep passes  
+**Method:** 5 parallel adversarial agents + mechanical grep passes; re-verified after session changes  
 
 Findings are verified against actual file contents. Agent hallucinations have been dropped.
+
+## Reassessment Summary
+
+All structural pattern findings (A1–A5, M1–M7) remain open — session work addressed bugs and methodology documentation but did not remediate any pattern violations. One count correction: hardcoded seeds is **5** (not 8); the original pass matched comment lines and string literals it shouldn't have. Actual instances: `chen_rodden_alberta.py:205`, `generate_infographic.py:155`, `monte_carlo_ci.py:160,163`, `simulation_multichain_ensemble.py:695`.
+
+The `historical deprecated/` folder (271 files, 589 MB) was archived to `historical_deprecated.zip` via Git LFS and deleted. It was not in `analysis/scripts/` or `analysis/utils/` so no audit counts are affected.
 
 ---
 
@@ -145,7 +151,8 @@ Scripts that join shapefiles often assume which name they'll find without assert
 
 ---
 
-### M5 — Hardcoded magic seeds: 8 instances [MEDIUM]
+### M5 — Hardcoded magic seeds: 5 instances [MEDIUM] *(corrected from 8; prior count matched comment lines)*
+
 `seed=42` appears in `chen_rodden_alberta.py:205`, `monte_carlo_ci.py:163`, and `simulation_multichain_ensemble.py:695`. These are outside the pre-registered drand seed system. `monte_carlo_ci.py` runs N=2,000 samples with seed=42 which is documented in a print statement but not in any pre-registration.
 
 ---
