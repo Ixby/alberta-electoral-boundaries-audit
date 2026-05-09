@@ -181,6 +181,8 @@ def count_vas_in_overlaps(
 
 
 # ── EG helpers ────────────────────────────────────────────────────────────────
+# Threshold variant differs from eg_utils._ed_waste — see REMEDIATION_LOG.md 2026-05-09.
+# Uses total / 2.0 + 0.5 (fractional 50%+1). eg_utils uses total / 2 (continuous).
 
 
 def compute_eg(district_votes: pd.DataFrame) -> float:

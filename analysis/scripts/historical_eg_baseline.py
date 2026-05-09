@@ -257,6 +257,8 @@ def load_2023() -> List[Dict]:
 # ---------------------------------------------------------------------------
 
 
+# Threshold variant differs from eg_utils._ed_waste — see REMEDIATION_LOG.md 2026-05-09.
+# Uses integer majority threshold (tt // 2 + 1); requires actual_winner field; takes List[Dict].
 def compute_eg(districts: List[Dict], label: str) -> Dict:
     """
     Compute the efficiency gap for a list of districts.

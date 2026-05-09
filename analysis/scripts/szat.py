@@ -54,10 +54,12 @@ from pathlib import Path
 try:
     import data_loader
     from canonical_manifest import verify_canonical_files
+    from eg_utils import compute_eg, InsufficientDataError
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
     from canonical_manifest import verify_canonical_files
+    from eg_utils import compute_eg, InsufficientDataError
 
 import geopandas as gpd
 import numpy as np
@@ -106,39 +108,6 @@ def _region(ed_name: str) -> str:
     }:
         return "Mountain-West"
     return "Rest of Alberta"
-
-
-# ── Efficiency gap helpers ─────────────────────────────────────────────────────
-
-
-def _ed_waste(ndp: float, ucp: float) -> tuple[float, float]:
-    """
-    Wasted votes for one ED (continuous threshold = total / 2).
-    Returns (wasted_ndp, wasted_ucp).
-    """
-    total = ndp + ucp
-    if total == 0:
-        return 0.0, 0.0
-    threshold = total / 2
-    if ndp >= ucp:
-        return max(0.0, ndp - threshold), ucp
-    return ndp, max(0.0, ucp - threshold)
-
-
-def compute_eg(ed_votes: pd.DataFrame) -> float:
-    """
-    Map-level efficiency gap from an ED-level vote totals DataFrame
-    with columns {ed_name, ndp, ucp}.
-    """
-    total_prov = (ed_votes["ndp"] + ed_votes["ucp"]).sum()
-    if total_prov == 0:
-        return 0.0
-    wn = wu = 0.0
-    for _, row in ed_votes.iterrows():
-        dn, du = _ed_waste(row["ndp"], row["ucp"])
-        wn += dn
-        wu += du
-    return (wn - wu) / total_prov
 
 
 def va_eg_contribution(
@@ -399,6 +368,10 @@ def run() -> None:
         ed_ndp = nsw_ndp_agg + np.bincount(perm_sw_idx, weights=sw_ndp_arr, minlength=n_eds)
         ed_ucp = nsw_ucp_agg + np.bincount(perm_sw_idx, weights=sw_ucp_arr, minlength=n_eds)
         boot_scores[i] = _eg_from_agg(ed_ndp, ed_ucp) - eg_maj_fixed
+
+    boot_eg_raw = boot_scores + eg_maj_fixed
+    np.save(DATA / "szat_bootstrap_eg_samples.npy", boot_eg_raw)
+    logger.info("Bootstrap EG samples saved: %d draws", len(boot_eg_raw))
 
     p_value = float(np.mean(np.abs(boot_scores) >= abs(szat_score)))
     ci_lo = float(np.percentile(boot_scores, 2.5))

@@ -233,6 +233,8 @@ def test1_morans_i() -> Dict:
 # =====================================================================
 
 
+# Threshold variant differs from eg_utils._ed_waste — see REMEDIATION_LOG.md 2026-05-09.
+# Uses integer majority threshold (tt // 2 + 1) for actual election results with integer votes.
 def efficiency_gap(districts: List[Dict]) -> float:
     total = sum(d["ndp"] + d["ucp"] for d in districts)
     if total == 0:

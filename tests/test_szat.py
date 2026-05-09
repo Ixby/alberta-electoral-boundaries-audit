@@ -19,7 +19,8 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
-from szat import _ed_waste, compute_eg, va_eg_contribution
+from analysis.utils.eg_utils import _ed_waste, compute_eg
+from szat import va_eg_contribution
 
 
 # ============================================================

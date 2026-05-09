@@ -28,9 +28,11 @@ from pathlib import Path
 
 try:
     import data_loader
+    from eg_utils import compute_eg, InsufficientDataError
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
+    from eg_utils import compute_eg, InsufficientDataError
 
 import numpy as np
 import pandas as pd
@@ -44,29 +46,6 @@ SUMMARY_JSON = REPORTS / "szat_summary.json"
 
 N_FULL_RECOMPUTE = 500
 
-
-# ── EG helpers (identical to szat.py) ─────────────────────────────────────────
-
-def _ed_waste(ndp: float, ucp: float) -> tuple[float, float]:
-    total = ndp + ucp
-    if total == 0:
-        return 0.0, 0.0
-    threshold = total / 2
-    if ndp >= ucp:
-        return max(0.0, ndp - threshold), ucp
-    return ndp, max(0.0, ucp - threshold)
-
-
-def compute_eg(ed_votes: pd.DataFrame) -> float:
-    total_prov = (ed_votes["ndp"] + ed_votes["ucp"]).sum()
-    if total_prov == 0:
-        return 0.0
-    wn = wu = 0.0
-    for _, row in ed_votes.iterrows():
-        dn, du = _ed_waste(row["ndp"], row["ucp"])
-        wn += dn
-        wu += du
-    return (wn - wu) / total_prov
 
 
 # ── Check 3: Attribution integrity ────────────────────────────────────────────

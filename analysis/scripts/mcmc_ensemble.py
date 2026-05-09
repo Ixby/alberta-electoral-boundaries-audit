@@ -176,6 +176,8 @@ def seat_results(
 
     # --- Efficiency gap (UCP - NDP wasted votes) / total ---
     # Sign convention: positive EG means NDP wastes more than UCP -> UCP-favoured.
+    # Threshold variant differs from eg_utils._ed_waste — see REMEDIATION_LOG.md 2026-05-09.
+    # Uses vectorized numpy (np.ndarray interface); continuous total/2 but strict ucp_win = ucp > ndp.
     ucp_wasted = np.where(ucp_win, ucp - two_party_total / 2, ucp)
     ndp_wasted = np.where(~ucp_win, ndp - two_party_total / 2, ndp)
     eg = (ndp_wasted.sum() - ucp_wasted.sum()) / two_party_total.sum()
