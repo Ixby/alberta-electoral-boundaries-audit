@@ -47,12 +47,14 @@ Formula (Stephanopoulos & McGhee 2014 wasted-vote form)
 
 Sign convention (matching packing_cracking_analysis.py)
 ------------------------------------------------------------
-  code_eg < 0  =>  RBC wastes more votes in absolute terms.
-                   In the paper's raw-proportionality reading,
-                   "negative = UCP (RBC) advantage" because NDP seats-to-votes
-                   ratio is below 1:1 even when EG is negative under the paper's
-                   framing. See analysis/methodology/sign_convention_resolution.md
-                   for the full reconciliation with S-M 2:1-slope convention.
+  code_eg = (NDP_wasted - RBC_wasted) / total
+
+  code_eg < 0  =>  NDP wastes fewer votes than RBC in absolute terms.
+                   Under the standard wasted-vote reading this is a structural
+                   NDP efficiency advantage, but the paper applies a
+                   raw-proportionality correction that may reverse the label.
+                   See analysis/methodology/sign_convention_resolution.md for
+                   the authoritative reconciliation with S-M 2:1-slope convention.
 
   This script uses the same formula as v0_2 (code_eg). All comparisons with
   the 2026 proposed maps are code_eg-to-code_eg, so the convention is

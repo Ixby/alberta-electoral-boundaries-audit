@@ -45,12 +45,13 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = data_loader._resolve_path("data")
 REPORTS = ROOT / "analysis" / "reports"
 
-ENSEMBLE_CSV  = DATA / "simulated_ensemble_raw_samples_canonical.csv"
-REAL_SCORES   = DATA / "simulation_real_map_scores_canonical.json"
-SZAT_JSON     = REPORTS / "szat_summary.json"
-DRAIN_JSON    = DATA / "drain_label_shuffle_null.json"
-OUT_JSON      = REPORTS / "joint_outlier_score.json"
-OUT_MD        = REPORTS / "joint_outlier_score_summary.md"
+ENSEMBLE_CSV      = DATA / "simulated_ensemble_raw_samples_canonical.csv"
+REAL_SCORES       = DATA / "simulation_real_map_scores_canonical.json"
+CONVERGENCE_JSON  = DATA / "simulation_convergence_diagnostics_canonical.json"
+SZAT_JSON         = REPORTS / "szat_summary.json"
+DRAIN_JSON        = DATA / "drain_label_shuffle_null.json"
+OUT_JSON          = REPORTS / "joint_outlier_score.json"
+OUT_MD            = REPORTS / "joint_outlier_score_summary.md"
 
 PARTISAN_COLS = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
 
@@ -61,10 +62,26 @@ MAP_KEYS = {
     "enacted":  "2019_enacted",
 }
 
-# Conservative n_eff lower bound from convergence diagnostics (Geyer's method).
-# Actual range across metrics: 224–326. Using 224 for the most conservative
-# Hotelling T² adjustment.
-N_EFF_CONSERVATIVE = 224
+# Fallback n_eff used if convergence diagnostics JSON is absent or unreadable.
+# Per convergence_diagnostics_canonical.json the actual minimum across metrics
+# is 224 (most conservative for Hotelling T²: smaller n_eff → larger p-value).
+_N_EFF_FALLBACK = 224
+
+
+def _load_n_eff_conservative() -> int:
+    """Read minimum n_eff from convergence diagnostics; fall back to 224."""
+    if not CONVERGENCE_JSON.exists():
+        return _N_EFF_FALLBACK
+    try:
+        with open(CONVERGENCE_JSON) as f:
+            diag = json.load(f)
+        n_effs = [v["n_eff"] for v in diag.values() if isinstance(v, dict) and "n_eff" in v]
+        return int(min(n_effs)) if n_effs else _N_EFF_FALLBACK
+    except Exception:
+        return _N_EFF_FALLBACK
+
+
+N_EFF_CONSERVATIVE = _load_n_eff_conservative()
 
 
 def mahalanobis_pvalue(

@@ -229,6 +229,103 @@ def check_bootstrap_approximation(summary: dict, va: pd.DataFrame) -> None:
     print("        Both compare against szat_score which includes direct + indirect effects.")
 
 
+# ── Check 4: Unconstrained null — population MAD sensitivity (O2 defense) ─────
+
+N_POP_SENSITIVITY = 500
+PROV_POP = 4_262_635  # Alberta 2021 census population used in audit
+
+
+def check_unconstrained_null_population(summary: dict, va: pd.DataFrame) -> bool:
+    """
+    Adversarial-audit O2 defense: verify that the Bernoulli(0.5) unconstrained
+    null does not produce wildly imbalanced maps, making the unconstrained null
+    empirically defensible for the actual swing-zone geography.
+
+    For each of N_POP_SENSITIVITY bootstrap permutations (same seed as main boot):
+      - compute the population of each resulting ED in the permuted minority map
+      - record population MAD from the provincial per-ED average
+
+    If >=95% of permutations have population MAD <= 2× the real minority map's
+    population MAD, the unconstrained null is empirically defensible.
+
+    Uses VA-level population (va_pop column if present; falls back to uniform
+    scaling from vote totals as a proxy — votes ∝ population in this dataset).
+    """
+    print()
+    print("=" * 60)
+    print("CHECK 4 -- Unconstrained null population balance (O2 defense)")
+    print(f"  ({N_POP_SENSITIVITY} permutations, same canonical seed)")
+    print("=" * 60)
+
+    # Prefer va_pop if present; otherwise scale votes as population proxy
+    if "va_pop" in va.columns:
+        va = va.copy()
+        pop_col = "va_pop"
+    else:
+        va = va.copy()
+        va["va_pop"] = va["va_ndp"] + va["va_ucp"]
+        pop_col = "va_pop"
+        print("  NOTE: va_pop column absent — using vote total as population proxy")
+
+    swing_mask   = va["is_swing"].values.astype(bool)
+    swing_va     = va[swing_mask].reset_index(drop=True)
+    non_swing_va = va[~swing_mask].reset_index(drop=True)
+
+    sw_maj_ed  = swing_va["majority_ed"].values
+    sw_min_ed  = swing_va["minority_ed"].values
+    sw_pop     = swing_va[pop_col].values
+    nsw_ed     = non_swing_va["majority_ed"].values
+    nsw_pop    = non_swing_va[pop_col].values
+
+    # Real minority map population MAD
+    real_min_df = pd.DataFrame({
+        "ed":  np.concatenate([swing_va["minority_ed"].values, nsw_ed]),
+        "pop": np.concatenate([sw_pop, nsw_pop]),
+    })
+    real_ed_pops = real_min_df.groupby("ed")["pop"].sum()
+    n_eds = len(real_ed_pops)
+    avg_pop = real_ed_pops.mean()
+    real_mad = float(np.mean(np.abs(real_ed_pops.values - avg_pop)))
+
+    print(f"  Real minority map:  n_EDs={n_eds}  avg_pop={avg_pop:,.0f}  MAD={real_mad:,.0f}")
+    print(f"  Threshold (2× real MAD): {2 * real_mad:,.0f}")
+
+    try:
+        sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+        from drand_seed import get_canonical_seed
+        seed = get_canonical_seed("szat-bootstrap")
+    except Exception as _e:
+        raise RuntimeError("drand_seed unavailable — cannot reproduce seed") from _e
+
+    rng = np.random.default_rng(seed)
+    perm_mads = np.empty(N_POP_SENSITIVITY)
+    for i in range(N_POP_SENSITIVITY):
+        flip = rng.random(len(sw_maj_ed)) < 0.5
+        perm_ed  = np.where(flip, sw_min_ed, sw_maj_ed)
+        eds  = np.concatenate([perm_ed, nsw_ed])
+        pops = np.concatenate([sw_pop, nsw_pop])
+        ed_pops = pd.Series(pops).groupby(pd.Series(eds)).sum()
+        perm_mads[i] = float(np.mean(np.abs(ed_pops.values - avg_pop)))
+
+    pct_within = float(np.mean(perm_mads <= 2 * real_mad))
+    median_perm_mad = float(np.median(perm_mads))
+    max_perm_mad    = float(np.max(perm_mads))
+
+    print(f"  Permutation MAD:    median={median_perm_mad:,.0f}  max={max_perm_mad:,.0f}")
+    print(f"  Within 2× real MAD: {pct_within:.1%} of {N_POP_SENSITIVITY} permutations")
+    print()
+
+    passed = pct_within >= 0.95
+    print(f"  O2 defense (>=95% within 2× real MAD):  {'PASS' if passed else 'FAIL'}")
+    if not passed:
+        print("  WARNING: Unconstrained null produces population imbalance in many")
+        print("  permutations. Consider a constrained null for the SZAT bootstrap.")
+    else:
+        print("  Interpretation: Bernoulli(0.5) swing-zone shuffle preserves near-")
+        print("  balance in >=95% of draws — unconstrained null is defensible here.")
+    return passed
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
@@ -241,10 +338,12 @@ def main():
 
     ok3 = check_attribution(summary, va)
     check_bootstrap_approximation(summary, va)
+    ok4 = check_unconstrained_null_population(summary, va)
 
     print()
     print("=" * 60)
-    print(f"Summary: {'Attribution PASS' if ok3 else 'Attribution FAIL'}")
+    print(f"Summary: {'Attribution PASS' if ok3 else 'Attribution FAIL'} | "
+          f"{'Pop-balance PASS' if ok4 else 'Pop-balance FAIL'}")
     print("=" * 60)
 
 
