@@ -62,10 +62,17 @@ Methodology note on 2026 attribution:
 """
 
 import csv
+import sys
 import statistics
 import os
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+
+try:
+    from analysis.utils.eg_utils import InsufficientDataError
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    from eg_utils import InsufficientDataError
 
 # ---------------------------------------------------------------------
 # Data loading
@@ -119,9 +126,10 @@ def load_2023_results() -> List[Dict]:
                     ucp = votes
 
             # Critical validation: We MUST have detected a valid 2-party race
-            assert (
-                ndp + ucp > 0
-            ), f"Failed to parse votes for 2023 ED: {r['ed_name']}. NDP={ndp}, UCP={ucp}"
+            if not (ndp + ucp > 0):
+                raise InsufficientDataError(
+                    f"Failed to parse votes for 2023 ED: {r['ed_name']}. NDP={ndp}, UCP={ucp}"
+                )
 
             out.append(
                 {

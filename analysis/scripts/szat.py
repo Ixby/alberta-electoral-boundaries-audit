@@ -282,10 +282,12 @@ def run() -> None:
     # Validate regional classification is exhaustive
     _valid_regions = {"Calgary", "Edmonton", "Mountain-West", "Rest of Alberta"}
     _assigned = set(va["region"].unique())
-    assert _assigned <= _valid_regions, f"Unknown region labels: {_assigned - _valid_regions}"
+    if not (_assigned <= _valid_regions):
+        raise InsufficientDataError(f"Unknown region labels: {_assigned - _valid_regions}")
     _all_eds = set(va["majority_ed"].unique())
     _covered = set(va["majority_ed"])
-    assert _covered == _all_eds, "Some EDs missing from regional assignment"
+    if _covered != _all_eds:
+        raise InsufficientDataError("Some EDs missing from regional assignment")
     _rest_eds = sorted(va.loc[va["region"] == "Rest of Alberta", "majority_ed"].unique())
     print(f"  Rest of Alberta EDs ({len(_rest_eds)}): {_rest_eds}")
 

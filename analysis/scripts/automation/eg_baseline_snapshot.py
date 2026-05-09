@@ -21,9 +21,10 @@ import pandas as pd
 ED_VOTES_PATH = Path("data/...")  # fill in before running
 
 ed_votes = pd.read_csv(ED_VOTES_PATH)
-assert "ndp" in ed_votes.columns and "ucp" in ed_votes.columns, (
-    f"Wrong file — ndp/ucp columns not found. Got: {list(ed_votes.columns)}"
-)
+if not ("ndp" in ed_votes.columns and "ucp" in ed_votes.columns):
+    raise ValueError(
+        f"Wrong file — ndp/ucp columns not found. Got: {list(ed_votes.columns)}"
+    )
 
 results: dict[str, float] = {}
 

@@ -50,9 +50,11 @@ import sys
 from pathlib import Path
 try:
     import data_loader
+    from eg_utils import InsufficientDataError
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
+    from eg_utils import InsufficientDataError
 
 
 import json
@@ -331,7 +333,8 @@ def main():
     print(f"[input] 2019 enacted shapefile: {EDS_2019_SHP.name}")
     print(f"  {len(eds)} EDs, CRS={eds.crs}")
     name_col = "EDName2017"
-    assert name_col in eds.columns, f"Expected name column {name_col}"
+    if name_col not in eds.columns:
+        raise InsufficientDataError(f"Expected name column {name_col!r} in shapefile; got {list(eds.columns)}")
 
     print("\n[load] municipal-boundary network (StatsCan 2021 CSDs — AMA-equivalent)")
     t0 = time.time()
