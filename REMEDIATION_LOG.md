@@ -11,6 +11,18 @@ Format: log before fixing. Do not resolve a problem without an entry here first.
 
 <!-- Append new entries below this line in reverse-chronological order (newest first) -->
 
+## [2026-05-09] Step 2.5 — Fisher independence validation deferred (missing bootstrap file)
+
+**Observed:** `data/szat_bootstrap_eg_samples.npy` does not exist. `validate_fisher_independence.py` exits with code 1 and a clear error message directing the user to run `szat.py` first.
+
+**Expected:** The plan says Step 2.5 validation runs `python analysis/scripts/validate_fisher_independence.py` and appends the Spearman ρ to `fisher_independence_defense.md`.
+
+**Impact:** Does not affect published statistics. The structural independence argument in `fisher_independence_defense.md` already stands. The empirical ρ check is supplementary. The blocker (szat.py never re-run since the np.save code was added in Step 1.1) is not a code defect — the actual shapefile+vote data runs take hours on the full dataset.
+
+**Action taken:** `validate_fisher_independence.py` written with proper error handling. The script will write the ρ result to `fisher_independence_defense.md` automatically when run after a szat.py re-run. No code change needed — deferring to first szat.py execution with the new code.
+
+**Outcome:** Deferred. Script is written and validated to error correctly. Will execute automatically on next full szat.py run.
+
 ## [2026-05-09] Phase 1 gate — DoD criterion `def compute_eg` in scripts → 0 unachievable
 
 **Observed:** The Phase 1 DoD criterion `grep -rn "def _ed_waste\|def compute_eg" analysis/scripts/ → 0 results` cannot be met. After Step 1.1 extraction, `historical_eg_baseline.py` and `overlap_zone_diagnostic.py` (3 functions) still define local `compute_eg` variants using threshold formulas that differ from eg_utils.
@@ -28,7 +40,7 @@ Format: log before fixing. Do not resolve a problem without an entry here first.
 **Observed:** Three distinct threshold formulas in use across the six files the plan proposed to unify:
 
 | Implementation | Threshold | Interface | Winner condition |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `szat.py` | `total / 2` | `pd.DataFrame` | `ndp >= ucp` |
 | `szat_validate.py` | `total / 2` | `pd.DataFrame` | `ndp >= ucp` |
 | `mcmc_ensemble.py` (inline) | `total / 2` (vectorised) | `np.ndarray` | `ucp > ndp` (strict) |
@@ -39,12 +51,14 @@ Format: log before fixing. Do not resolve a problem without an entry here first.
 The plan's proposed eg_utils sketch used `threshold = total / 2 + 1`, which matches none of the existing implementations.
 
 **Impact:** The plan assumed one extractable formula. In reality:
+
 - `szat.py` + `szat_validate.py` are confirmed near-verbatim copies (same continuous formula, same interface) — this is the real DRY violation.
 - `chen_rodden_alberta.py` and `historical_eg_baseline.py` use the integer majority threshold for actual election results with integer votes — a defensible and different choice.
 - `mcmc_ensemble.py` uses a vectorised implementation incompatible with a scalar utility function.
 - `historical_eg_baseline.py` requires an `actual_winner` field and takes `List[Dict]`, making it architecturally incompatible with a shared DataFrame-based function.
 
 **Action taken:** Narrow extraction scope:
+
 1. `eg_utils._ed_waste` uses `threshold = total / 2` (continuous) matching szat.py/szat_validate.py exactly.
 2. `szat.py` and `szat_validate.py` import from eg_utils — the confirmed copy-paste pair.
 3. `overlap_zone_diagnostic.py`, `chen_rodden_alberta.py`, `historical_eg_baseline.py`, `mcmc_ensemble.py` retain their local implementations with a header comment: `# Threshold variant differs from eg_utils._ed_waste — see REMEDIATION_LOG.md 2026-05-09`.

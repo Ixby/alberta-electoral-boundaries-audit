@@ -22,8 +22,21 @@ def load_config() -> dict:
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
 
-# Global cached config
-CONFIG = load_config()
+_CONFIG: dict | None = None
+
+
+def get_config() -> dict:
+    """Return the cached config, loading from disk on first call."""
+    global _CONFIG
+    if _CONFIG is None:
+        _CONFIG = load_config()
+    return _CONFIG
+
+
+# Module-level alias kept for backward compatibility with callers that
+# do `from data_loader import CONFIG`. New code should call get_config().
+CONFIG = get_config()
+
 
 def _resolve_path(rel_path: str) -> Path:
     """Resolves a config relative path to an absolute Path object."""
@@ -40,7 +53,7 @@ def load_shapefile(path_key: str, crs: int = None) -> gpd.GeoDataFrame:
     Returns:
         GeoDataFrame projected to the target CRS.
     """
-    target_crs = crs if crs is not None else CONFIG.get("audit", {}).get("crs_epsg", 3400)
+    target_crs = crs if crs is not None else get_config().get("audit", {}).get("crs_epsg", 3400)
     
     file_path = _resolve_path(path_key) if isinstance(path_key, str) else path_key
     
@@ -59,7 +72,7 @@ def get_map(map_name: str) -> gpd.GeoDataFrame:
     """
     Loads a predefined map from the config (e.g., 'majority', 'minority', 'enacted_2019').
     """
-    maps_config = CONFIG.get("maps", {})
+    maps_config = get_config().get("maps", {})
     if map_name not in maps_config:
         raise KeyError(f"Map '{map_name}' not defined in config.yaml under 'maps'.")
         
@@ -74,7 +87,7 @@ def get_substrate() -> gpd.GeoDataFrame:
     Loads the demographic/voting substrate defined in the config.
     Falls back to fallback_path if primary path doesn't exist.
     """
-    sub_config = CONFIG.get("substrate", {})
+    sub_config = get_config().get("substrate", {})
     primary_path = _resolve_path(sub_config.get("path", ""))
     fallback_path = _resolve_path(sub_config.get("fallback_path", ""))
     
@@ -87,4 +100,4 @@ def get_substrate() -> gpd.GeoDataFrame:
 
 def get_columns() -> dict:
     """Returns the column mappings defined in the config."""
-    return CONFIG.get("substrate", {}).get("columns", {})
+    return get_config().get("substrate", {}).get("columns", {})
