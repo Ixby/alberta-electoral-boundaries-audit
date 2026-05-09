@@ -19,6 +19,7 @@ from __future__ import annotations
 import io
 import os
 import sys
+import logging
 import math
 from pathlib import Path
 
@@ -170,6 +171,7 @@ va_other_agg = vas_out["va_other"].sum()
 
 
 def pct_diff(a, b):
+    # NaN contract: returns float("nan") if b == 0.
     return abs(a - b) / b * 100 if b else float("nan")
 
 
@@ -224,6 +226,8 @@ STOP_TOKENS = {"North", "South", "East", "West", "Central", "Centre", "City"}
 
 # Frequency of each token across 2019 ED names
 from collections import Counter
+
+logger = logging.getLogger(__name__)
 
 token_freq: Counter = Counter()
 for ed in all_2019_eds:

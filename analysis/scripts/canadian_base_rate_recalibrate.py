@@ -37,6 +37,9 @@ import csv
 import os
 import statistics
 import sys
+import logging
+
+logger = logging.getLogger(__name__)
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -76,6 +79,7 @@ def percentile_rank(value: float, sample: list[float], kind: str = "weak") -> fl
     """
     n = len(sample)
     if n == 0:
+        logger.debug("percentile_score: empty sample, returning NaN")
         return float("nan")
     below = sum(1 for v in sample if v < value)
     at_or_below = sum(1 for v in sample if v <= value)

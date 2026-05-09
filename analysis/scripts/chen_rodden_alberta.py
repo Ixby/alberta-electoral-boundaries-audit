@@ -103,6 +103,7 @@ def compute_morans_i(values: np.ndarray, weights: np.ndarray) -> Tuple[float, fl
     numerator = (W * np.outer(dev, dev)).sum()
     denominator = (dev**2).sum()
     if denominator == 0:
+        logger.debug("morans_i: zero variance (n=%d), returning NaN", n)
         return float("nan"), -1.0 / (n - 1)
     # because W is row-standardized, sum of weights = n_nonzero_rows.
     # Standard Moran's I uses W_raw; with row-stand, the formula is:
@@ -240,6 +241,7 @@ def test1_morans_i() -> Dict:
 def efficiency_gap(districts: List[Dict]) -> float:
     total = sum(d["ndp"] + d["ucp"] for d in districts)
     if total == 0:
+        logger.debug("efficiency_gap: zero total votes, returning NaN")
         return float("nan")
     ndp_wasted = ucp_wasted = 0
     for d in districts:
@@ -259,6 +261,7 @@ def mean_median(districts: List[Dict]) -> float:
         d["ndp"] / (d["ndp"] + d["ucp"]) for d in districts if (d["ndp"] + d["ucp"]) > 0
     ]
     if not shares:
+        logger.debug("mean_median: no valid districts, returning NaN")
         return float("nan")
     return statistics.mean(shares) - statistics.median(shares)
 

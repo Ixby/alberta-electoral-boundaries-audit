@@ -34,6 +34,7 @@ from __future__ import annotations
 
 
 import sys
+import logging
 from pathlib import Path
 try:
     import data_loader
@@ -50,6 +51,7 @@ from scipy import stats as scipy_stats
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
+logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 RPTS = ROOT / "analysis" / "reports"
 RPTS.mkdir(parents=True, exist_ok=True)
@@ -175,6 +177,7 @@ def lopsided_margins(ucp_shares: np.ndarray) -> tuple[float, float]:
     ucp_wins = ucp_shares[ucp_shares > 0.5 + 1e-9] - 0.5  # margins for UCP wins
     ndp_wins = 0.5 - ucp_shares[ucp_shares < 0.5 - 1e-9]  # margins for NDP wins
     if len(ucp_wins) < 3 or len(ndp_wins) < 3:
+        logger.debug("lopsided_margins: insufficient wins (ucp=%d ndp=%d)", len(ucp_wins), len(ndp_wins))
         return float("nan"), float("nan")
     t, p = scipy_stats.ttest_ind(ucp_wins, ndp_wins, equal_var=False)
     return float(t), float(p)
@@ -238,6 +241,7 @@ def all_metrics(ucp_shares: np.ndarray, label: str) -> dict:
 def pct_rank(arr: np.ndarray, val: float) -> float:
     """Midrank percentile: 100 * (P(X < x) + 0.5 * P(X == x))."""
     if len(arr) == 0:
+        logger.debug("pct_rank: empty array, returning NaN")
         return float("nan")
     less = (arr < val - 1e-9).sum()
     equal = (np.abs(arr - val) <= 1e-9).sum()

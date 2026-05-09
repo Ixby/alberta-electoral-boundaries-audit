@@ -100,6 +100,7 @@ def _mbc_diameter_via_shapely(geom) -> float:
     if geom is None or geom.is_empty:
         return float("nan")
     circle = minimum_bounding_circle(geom)
+    # NaN contract: returns float("nan") if minimum bounding circle is degenerate.
     if circle is None or circle.is_empty:
         return float("nan")
     # The minimum bounding circle is a polygonal approximation; its
@@ -115,6 +116,7 @@ def _welzl_diameter(geom) -> float:
     """
     import random
 
+    # NaN contract: returns float("nan") if geometry is None or empty.
     if geom is None or geom.is_empty:
         return float("nan")
     pts: list[tuple[float, float]] = []
@@ -124,6 +126,7 @@ def _welzl_diameter(geom) -> float:
     else:
         pts.extend(list(geom.exterior.coords))
     pts = list({p for p in pts})
+    # NaN contract: returns float("nan") if no valid coordinate points.
     if not pts:
         return float("nan")
     random.seed(42)
@@ -185,6 +188,7 @@ def _welzl_diameter(geom) -> float:
         random.shuffle(idx)
         pts = [pts[i] for i in idx[:1500]]
     c = welzl(pts, [], len(pts))
+    # NaN contract: returns float("nan") if Welzl algorithm fails.
     if c is None:
         return float("nan")
     return 2.0 * c[2]
@@ -199,9 +203,11 @@ def bounding_circle_diameter(geom) -> float:
 
 def reock(geom) -> tuple[float, float]:
     """Return (diameter_m, reock_score)."""
+    # NaN contract: returns (float("nan"), float("nan")) if geometry is invalid or circle diameter is zero.
     if geom is None or geom.is_empty:
         return float("nan"), float("nan")
     d = bounding_circle_diameter(geom)
+    # NaN contract: returns (float("nan"), float("nan")) if bounding diameter is zero or NaN.
     if not d or math.isnan(d) or d <= 0:
         return float("nan"), float("nan")
     score = (4.0 * geom.area) / (math.pi * d * d)

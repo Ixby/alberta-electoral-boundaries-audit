@@ -604,7 +604,8 @@ def main() -> None:
 
     # Inter-map ratios
     def ratio(a, b):
-        return a / b if b else float("nan")
+        # NaN contract: returns float("nan") if b == 0.
+    return a / b if b else float("nan")
 
     summary["ratios"] = {
         "minority_over_majority_coupled": ratio(

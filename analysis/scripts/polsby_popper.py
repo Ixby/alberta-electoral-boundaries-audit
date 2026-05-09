@@ -77,9 +77,11 @@ LASSO_NAMED = [
 
 
 def polsby_popper(geom) -> float:
+    # NaN contract: returns float("nan") if geometry is None, empty, or has zero perimeter.
     if geom is None or geom.is_empty:
         return float("nan")
     perim = geom.length
+    # NaN contract: returns float("nan") if perimeter is zero.
     if perim == 0:
         return float("nan")
     return (4.0 * math.pi * geom.area) / (perim * perim)

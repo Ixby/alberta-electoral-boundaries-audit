@@ -343,6 +343,7 @@ def attribute_2019_ed_to_v0_9_by_area(
 def ensemble_percentile(value: float, ensemble_values: np.ndarray) -> float:
     """Return percentile of value in the ensemble (fraction of ensemble
     samples strictly less than value, * 100)."""
+    # NaN contract: propagates NaN input — if value is NaN, percentile is undefined.
     if math.isnan(value):
         return float("nan")
     return float((ensemble_values < value).mean() * 100.0)

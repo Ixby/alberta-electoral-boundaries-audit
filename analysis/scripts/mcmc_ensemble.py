@@ -631,6 +631,7 @@ def pct_rank(values: np.ndarray, x: float) -> float:
     """Percentile of x within values (0-100). Uses the midrank method like scipy.percentileofscore(kind='mean')."""
     values = np.asarray(values, dtype=float)
     values = values[~np.isnan(values)]
+    # NaN contract: returns float("nan") if values array is empty or x is NaN.
     if len(values) == 0 or np.isnan(x):
         return float("nan")
     below = np.sum(values < x)

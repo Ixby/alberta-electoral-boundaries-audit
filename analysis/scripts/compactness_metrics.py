@@ -173,10 +173,12 @@ def polsby_popper(area_m2: float, perimeter_m: float) -> float:
 
 def reock_score(geom) -> float:
     """Area / area of minimum bounding circle."""
+    # NaN contract: returns float("nan") if geometry is None, empty, or MBC fails.
     if geom is None or geom.is_empty:
         return float("nan")
     try:
         mbc = geom.minimum_bounding_circle()
+        # NaN contract: returns float("nan") if MBC is degenerate.
         if mbc is None or mbc.is_empty or mbc.area == 0:
             return float("nan")
         return float(geom.area / mbc.area)
@@ -187,9 +189,11 @@ def reock_score(geom) -> float:
 
 def convex_hull_ratio(geom) -> float:
     """Area / convex hull area."""
+    # NaN contract: returns float("nan") if geometry is None or empty.
     if geom is None or geom.is_empty:
         return float("nan")
     hull = geom.convex_hull
+    # NaN contract: returns float("nan") if convex hull has zero area.
     if hull is None or hull.area == 0:
         return float("nan")
     return float(geom.area / hull.area)
@@ -197,6 +201,7 @@ def convex_hull_ratio(geom) -> float:
 
 def schwartzberg_score(area_m2: float, perimeter_m: float) -> float:
     """Ratio of perimeter to circumference of equal-area circle. Inverted: 1 = circle."""
+    # NaN contract: returns float("nan") if geometry measurements are non-positive.
     if perimeter_m <= 0 or area_m2 <= 0:
         return float("nan")
     r_equiv = math.sqrt(area_m2 / math.pi)
