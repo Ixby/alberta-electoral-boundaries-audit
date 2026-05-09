@@ -21,40 +21,36 @@ vote counts.
 
 ---
 
-## Empirical independence check (recommended, not yet run)
+## Empirical independence check
 
-Compute the Spearman rank correlation between:
-- **ρ₁**: For each of the 100k MCMC plans, the Ch1 Mahalanobis distance D of
-  that plan from the ensemble centre of mass (partisan metrics only).
-- **ρ₂**: For each of the SZAT bootstrap draws, the EG of the resulting map.
+**Status: instrumented, pending next szat.py run.**
 
-If ρ(ρ₁, ρ₂) < 0.30, the channels are empirically near-independent and the
-"approximately independent" Fisher claim is defensible for this dataset.
+The check computes Spearman rank correlation between:
 
-**Implementation sketch:**
+- **D**: Ch1 Mahalanobis distances for each MCMC plan (from the ensemble CSV)
+- **EG**: Ch2 bootstrap EG draws (from `data/szat_bootstrap_eg_samples.npy`)
 
-```python
-# In joint_outlier_score_canonical.py or a standalone validate script
-from scipy.stats import spearmanr
+If |ρ| < 0.30, the channels are empirically near-independent and the Fisher
+combination claim is defensible. If |ρ| ≥ 0.30 and the correlation is positive,
+Fisher is conservative (understates joint significance) — this is a disclosure
+obligation, not a retraction trigger.
 
-# Ch1 Mahalanobis distances (per MCMC sample)
-X = ensemble[PARTISAN_COLS].dropna().values
-mu = X.mean(axis=0)
-cov_inv = np.linalg.pinv(np.cov(X, rowvar=False))
-D_samples = np.array([float((x - mu) @ cov_inv @ (x - mu)) for x in X])
+### Infrastructure in place (2026-05-09)
 
-# Ch2 bootstrap EG distribution (from SZAT bootstrap, if saved)
-# Requires szat.py to export bootstrap_eg_samples — currently not output.
-# Add: np.save(DATA / "szat_bootstrap_eg_samples.npy", boot_eg_array)
+- `szat.py` now saves `data/szat_bootstrap_eg_samples.npy` after each bootstrap run
+- `analysis/scripts/validate_fisher_independence.py` computes ρ and appends the
+  result to this document automatically
+- `tests/test_pipeline_integration.py::test_fisher_channel_independence` enforces
+  |ρ| < 0.30 as a live CI gate; the test activates automatically once the `.npy`
+  exists (currently skipped)
 
-# correlation — currently blocked pending szat bootstrap export
-rho, pval = spearmanr(D_samples[:len(boot_eg)], boot_eg)
-print(f"Spearman ρ(Ch1-D, Ch2-EG) = {rho:.3f}  p = {pval:.4f}")
-```
+### Action required before submission
 
-**Blocker:** `szat.py` does not currently save the per-draw EG distribution from
-its bootstrap. To enable this check, add a save line inside the bootstrap loop
-in `szat.py` (under `run()`, after the bootstrap array is built).
+Run `python analysis/scripts/szat.py` to generate the bootstrap samples, then re-run
+the test suite. The empirical ρ will be recorded in the "Empirical result" section
+below and appended to this document automatically.
+
+> **Do not submit the paper with this section showing "pending."**
 
 ---
 

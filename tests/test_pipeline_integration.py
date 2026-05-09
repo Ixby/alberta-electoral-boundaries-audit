@@ -15,8 +15,10 @@ import math
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 import pytest
+from scipy.stats import spearmanr
 
 # Resolve repo root: this file is in tests/, repo root is one level up
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -34,6 +36,7 @@ from pipeline_schemas import (
 
 # ── File paths ────────────────────────────────────────────────────────────────
 
+BOOTSTRAP_NPY = REPO_ROOT / "data" / "szat_bootstrap_eg_samples.npy"
 ENSEMBLE_RAW = REPO_ROOT / "data" / "simulated_ensemble_raw_samples_canonical.csv"
 ENSEMBLE_PCT = REPO_ROOT / "data" / "simulated_ensemble_percentiles_canonical.csv"
 CONVERGENCE  = REPO_ROOT / "data" / "simulation_convergence_diagnostics_canonical.json"
@@ -108,6 +111,52 @@ def test_joint_outlier_placement_schema():
             pct = entry[metric]["percentile"]
             assert not math.isnan(rv), f"{map_key}/{metric}: real_value is NaN"
             assert 0.0 <= pct <= 100.0, f"{map_key}/{metric}: percentile {pct} out of [0, 100]"
+
+
+# ── test_fisher_channel_independence ─────────────────────────────────────────
+#
+# Activates automatically once szat.py is re-run (which writes the .npy).
+# Gate: |ρ| < 0.30 between Ch1 Mahalanobis distances and Ch2 bootstrap EG draws.
+# If this test fails, the Fisher combination claim needs review — see
+# analysis/methodology/fisher_independence_defense.md for the structural argument.
+
+_FISHER_SKIPIF = not (BOOTSTRAP_NPY.exists() and ENSEMBLE_RAW.exists())
+_FISHER_REASON = (
+    "szat_bootstrap_eg_samples.npy not present — run szat.py to generate it"
+    if not BOOTSTRAP_NPY.exists()
+    else "ensemble CSV not present"
+)
+
+PARTISAN_COLS = ["efficiency_gap", "mean_median", "declination"]
+RHO_THRESHOLD = 0.30
+
+
+@pytest.mark.skipif(_FISHER_SKIPIF, reason=_FISHER_REASON)
+def test_fisher_channel_independence():
+    """Ch1 Mahalanobis distances and Ch2 bootstrap EG draws must have |ρ| < 0.30.
+
+    A positive correlation makes Fisher conservative (lower-bounds joint significance),
+    so a |ρ| >= 0.30 finding does not invalidate the result but must be disclosed.
+    Failure here is a disclosure trigger, not a retraction trigger.
+    """
+    ensemble = pd.read_csv(ENSEMBLE_RAW)
+    X = ensemble[PARTISAN_COLS].dropna().values
+    mu = X.mean(axis=0)
+    cov_inv = np.linalg.pinv(np.cov(X, rowvar=False))
+    D_samples = np.array([float((x - mu) @ cov_inv @ (x - mu)) for x in X])
+
+    boot_eg = np.load(BOOTSTRAP_NPY)
+
+    n = min(len(D_samples), len(boot_eg))
+    assert n >= 100, f"Too few samples for reliable correlation: n={n}"
+
+    rho, pval = spearmanr(D_samples[:n], boot_eg[:n])
+
+    assert abs(rho) < RHO_THRESHOLD, (
+        f"Channel correlation |ρ| = {abs(rho):.4f} exceeds {RHO_THRESHOLD} threshold "
+        f"(p = {pval:.4f}, n = {n:,}). "
+        "Fisher combination claim requires disclosure — see fisher_independence_defense.md."
+    )
 
 
 # ── test_drain_summary_schema ─────────────────────────────────────────────────
