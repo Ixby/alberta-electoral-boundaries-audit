@@ -24,9 +24,11 @@ import sys
 from pathlib import Path
 try:
     import data_loader
+    from canonical_manifest import verify_canonical_files
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
+    from canonical_manifest import verify_canonical_files
 
 
 import json
@@ -125,6 +127,7 @@ def fisher_combine(p_values: list[float]) -> tuple[float, float]:
 
 
 def run() -> None:
+    verify_canonical_files()
     print("Loading canonical 100k ensemble...")
     ensemble = pd.read_csv(ENSEMBLE_CSV)
     print(f"  Rows: {len(ensemble):,}  Cols: {ensemble.columns.tolist()}")

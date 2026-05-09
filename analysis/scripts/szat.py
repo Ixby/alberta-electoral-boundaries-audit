@@ -53,9 +53,11 @@ from pathlib import Path
 
 try:
     import data_loader
+    from canonical_manifest import verify_canonical_files
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
+    from canonical_manifest import verify_canonical_files
 
 import geopandas as gpd
 import numpy as np
@@ -209,6 +211,7 @@ def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
 
 
 def run() -> None:
+    verify_canonical_files()
     print("Loading shapefiles...")
     va_gdf = gpd.read_file(VA_FILE)
     maj_gdf = gpd.read_file(MAJ_FILE)

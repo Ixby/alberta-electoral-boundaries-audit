@@ -51,9 +51,11 @@ import sys
 from pathlib import Path
 try:
     import data_loader
+    from canonical_manifest import verify_canonical_files
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
+    from canonical_manifest import verify_canonical_files
 
 
 import argparse
@@ -167,6 +169,7 @@ def main(
     n_chains: int = 4,
     chunk_size: int = 5000,
 ):
+    verify_canonical_files()
     from drand_seed import get_canonical_seed
     # Salt intentionally kept as "mcmc_ensemble_250k" for historical continuity:
     # the canonical 100k ensemble was seeded from this salt to preserve chain-of-
