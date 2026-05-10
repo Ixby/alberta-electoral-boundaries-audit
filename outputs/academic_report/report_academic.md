@@ -358,7 +358,7 @@ The audit does not rely on any single statistical test for its conclusions; the 
 | 4 | Mean-median vs canonical ensemble (p99.985) | Minority | 1.5×10⁻⁴ | 4.1×10⁻⁴ | **PASS** |
 | 5 | Lopsided Margins t-test — Wang (2016), t = 3.43 | Majority | 1.0×10⁻³ | 2.2×10⁻³ | **PASS** |
 | 6 | Lopsided Margins t-test — Wang (2016), t = 3.05 | Minority | 4.0×10⁻³ | 6.9×10⁻³ | **PASS** |
-| 7 | SZAT bootstrap — Ch2 (10,000 permutations) | Minority | 4.4×10⁻³ | 6.9×10⁻³ | **PASS** |
+| 7 | SZAT bootstrap — Ch2 (10,000 permutations) | Minority | 2.4×10⁻³ | 6.9×10⁻³ | **PASS** |
 | 8 | Mean-median vs canonical ensemble (p0.85, NDP-tail) | Majority | 8.5×10⁻³ | 1.2×10⁻² | **PASS** |
 | 9 | Declination vs canonical ensemble (p1.03, NDP-tail) | Minority | 1.0×10⁻² | 1.3×10⁻² | **PASS** |
 | 10 | Population MAD vs canonical ensemble (p98.7) | Minority | 1.3×10⁻² | 1.4×10⁻² | **PASS** |
@@ -838,40 +838,42 @@ Four additional partisan-bias metrics were computed against v0_7 DPG boundaries 
 
 #### 5.2.10 Swing-Zone Allocation Test (SZAT) — boundary-choice efficiency decomposition
 
-**What SZAT measures.** The partisan-bias metrics in §5.2.1–5.2.9 ask whether a map as a whole is an outlier. SZAT asks a finer question: of the ~2,100 Voting Areas assigned to *different* Electoral Divisions under the minority map versus the majority map (swing zones), do the minority's boundary choices systematically shift partisan vote efficiency in one direction?
+**What SZAT measures.** The partisan-bias metrics in §5.2.1–5.2.9 ask whether a map as a whole is an outlier. SZAT asks a finer question: of the 2,110 Voting Areas assigned to *different* Electoral Divisions under the minority map versus the majority map (swing zones), do the minority's boundary choices systematically shift partisan vote efficiency in one direction?
 
-**Method.** Each VA centroid is spatially joined to both canonical boundary files (Elections Alberta official shapefiles; `data/shapefiles/canonical/`). The efficiency gap is computed under each map's spatial assignment using 2023 election-day VA vote totals. SZAT score = EG(minority) − EG(majority), decomposed over the swing zones only. A 10,000-permutation bootstrap tests whether the minority's specific allocation of swing-zone VAs is partisan-neutral; seed `get_canonical_seed("szat-bootstrap")` anchored to drand round 5,500,000 (pre-committed at `d2aea42`). Full methodology: `analysis/methodology/szat_proposal.md`. Script: `analysis/scripts/szat.py`.
+**Method.** Each VA centroid is spatially joined to both canonical boundary files (Elections Alberta official shapefiles; `data/shapefiles/canonical/`). The efficiency gap is computed under each map's spatial assignment using full 2023 VA vote totals — election-day votes plus advance-vote apportionment (`va_polygons_with_full_2023_votes.gpkg`; two-party total 1,706,304). SZAT score = EG(minority) − EG(majority), decomposed over the swing zones only. A 10,000-permutation bootstrap tests whether the minority's specific allocation of swing-zone VAs is partisan-neutral; seed `get_canonical_seed("szat-bootstrap")` anchored to drand round 5,500,000 (pre-committed at `d2aea42`). Full methodology: `analysis/methodology/szat_proposal.md`. Script: `analysis/scripts/szat.py`.
 
-**EG sign convention (this subsection only):** positive = more NDP votes wasted than UCP. Note: EG numbers here are not directly comparable to §5.2.1 values, which use DPG-derived geometry and full-attribution vote totals; SZAT uses canonical EA geometry and election-day-only votes.
+**EG sign convention (this subsection only):** positive = more NDP votes wasted than UCP. Note: EG numbers here are not directly comparable to §5.2.1 values, which use DPG-derived geometry and full-attribution vote totals; SZAT uses canonical EA geometry and full 2023 vote totals (election-day + advance-vote apportionment).
 
 **Results.**
 
 | | Value |
 | --- | --- |
-| EG majority (canonical EA geometry, election-day votes) | +0.000828 |
-| EG minority (canonical EA geometry, election-day votes) | +0.039993 |
-| SZAT score (minority − majority) | **+0.039165** |
-| Bootstrap p-value (two-tailed, 10,000 permutations) | **0.0044** |
-| Bootstrap null 97.5th-percentile (upper bound) | **+0.036925** |
-| Observed score vs null upper bound | observed +0.039165 exceeds null 97.5th by 6% |
+| EG majority (canonical EA geometry, full 2023 votes) | +0.000982 |
+| EG minority (canonical EA geometry, full 2023 votes) | +0.040194 |
+| SZAT score (minority − majority) | **+0.039211** |
+| Bootstrap p-value (two-tailed, 10,000 permutations) | **0.0024** |
+| Bootstrap null 97.5th-percentile (upper bound) | **+0.036652** |
+| Observed score vs null upper bound | observed +0.039211 exceeds null 97.5th by 7% |
 
-The minority map's specific boundary choices — the swing-zone allocations — produce a 3.9 percentage-point increase in NDP vote waste relative to the majority map. The null distribution's 97.5th-percentile upper bound is +0.037; the observed +0.039 exceeds it (p=0.0044 two-tailed).
+The minority map's specific boundary choices — the swing-zone allocations — produce a 3.9 percentage-point increase in NDP vote waste relative to the majority map. The null distribution's 97.5th-percentile upper bound is +0.037; the observed +0.039 exceeds it (p=0.0024 two-tailed).
 
 **Regional decomposition (swing zones only):**
 
 | Region | SZAT contribution |
 | --- | --- |
-| Rest of Alberta | +0.01489 |
+| Rest of Alberta | +0.01499 |
 | Edmonton | +0.00838 |
-| Mountain-West | +0.00596 |
-| Calgary | −0.00784 |
-| Canmore / RMH focal EDs (Canmore-Banff, Canmore-Kananaskis, RMH-Banff Park) | +0.00629 |
+| Mountain-West | +0.00573 |
+| Calgary | −0.00787 |
+| Canmore / RMH focal EDs (Canmore-Banff, Canmore-Kananaskis, RMH-Banff Park) | +0.00609 |
 
 The dominant contributor is Rest of Alberta (+0.015), with Edmonton second (+0.008). Calgary swing zones run in the opposite direction (−0.008), partially offsetting. The Canmore/RMH boundary choices that motivated this test contribute +0.006 — meaningful, but not the primary driver of the overall score.
 
 **Interpretation.** The minority map's boundary choices, in aggregate, reallocate swing-zone voters in a way that systematically increases NDP vote waste. The effect is distributed across the province rather than concentrated in one region, which is consistent with a map-wide drawing strategy rather than a single engineered boundary. SZAT does not replace the MCMC ensemble (which tests the whole map against neutral draws) but supplements it: the ensemble tests whether the map is anomalous; SZAT identifies which specific boundary decisions drive the between-map difference.
 
 **Pre-registration disclosure.** The SZAT bootstrap null is pre-registered at AsPredicted [#289,469](https://aspredicted.org/9zr792.pdf) (filed 2026-05-07; made public 2026-05-07). The drand seed was pre-committed at `d2aea42` before any simulation results were generated, but the specific numerical results were known to the analyst at the time of filing — this diverges from the ideal prospective sequence and is disclosed here and in the registration record. Results should be treated as exploratory pending independent replication.
+
+**Post-registration substrate update (2026-05-10).** The initial SZAT run used election-day-only VA vote totals (52.8% of province-wide two-party votes). The definitive run reported here uses the full 2023 VA vote substrate (`va_polygons_with_full_2023_votes.gpkg`), which apportions advance-vote and special-ballot totals to individual VAs proportionally by election-day share. This increases province-wide NDP two-party share from 42.60% to 45.56%, raises the swing-zone count from 2,108 to 2,110 VAs, and tightens the p-value from 0.0044 to 0.0024. The direction, sign, and substantive interpretation are unchanged. The OSF registration (6pt83) pre-dates this substrate update and references the election-day-only run; this paragraph constitutes the required disclosure.
 
 ---
 
@@ -883,7 +885,7 @@ Formal packing signature detection applies the P1–P3 criteria (district size a
 
 **Pre-registration disclosure (corrected 2026-04-23).** The P/C/E criteria and their numeric thresholds were specified in the same analytical-pass commit (`282bc6d`, 2026-04-22 10:56:11 −06:00) as the detection run. An earlier version of this paragraph claimed a 2-hour-24-minute separation between a criteria-specification commit (`5b0bc06`) and the detection commit (`282bc6d`); that claim was retracted on 2026-04-23 after verification (`git diff 5b0bc06 282bc6d -- v1_2_gerrymander_audit_prompt.md`) showed the criteria were added in the same commit as the detection, not before. The honest framing is: the criteria were specified at the head of the analytical session that produced the detection, and the detection was not run against criteria that had been observed from the data — but the separation is intra-session (minutes, not hours), and the framework is therefore not independently time-stamped. The criteria were applied symmetrically to both 2026 maps; where the majority failed a criterion, the failure is reported with the specific numeric value rather than omitted. The November 2026 MLA-committee 91-seat map is the held-out test that closes this residual, and the OSF pre-registration package planned for 2026-11-02 (§5.5) provides third-party time-stamped custody that converts the signature framework into a classical pre-registration against a future map. The current detection run is exploratory by peer-review standards; the November pass will be confirmatory.
 
-**OSF file content disclosure (verified 2026-05-09).** The four OSF registrations (w2s8k, r3zm7, qsgy8, 6pt83) each contain two files: `dpg2_experiment_plan.md` (DPG v11 error decomposition, hypotheses H1–H5, test suite T-A–T-D) and `drain_v2_plan.md` (§5.3.5 drain test improvement plan). Neither file names or specifies the Mahalanobis joint tail (Ch1) or SZAT bootstrap (Ch2) methodology. The registrations therefore cover Ch3 (drain test) and the DPG v11 framework; Ch1 and Ch2 have no corresponding named OSF pre-registration document. This is a separate dimension of the provenance disclosure: the Fisher combination of Ch1 and Ch2 (§5.5, p = 1.55×10⁻⁸) should not be described as pre-registered in the sense that its input channels are specified in the OSF files, even though both input statistics are anchored to pre-committed drand beacon rounds (OSF w2s8k / r3zm7 seed chains) that predate the shapefile release. Registration 6pt83 was timestamped approximately 3 hours after the shapefile commit (2026-05-07 03:25 UTC vs commit 2026-05-07 00:12 UTC) and cannot be treated as pre-dating that data; w2s8k, r3zm7, and qsgy8 predate the shapefile by approximately 2.5 hours.
+**OSF file content disclosure (verified 2026-05-09).** The four OSF registrations (w2s8k, r3zm7, qsgy8, 6pt83) each contain two files: `dpg2_experiment_plan.md` (DPG v11 error decomposition, hypotheses H1–H5, test suite T-A–T-D) and `drain_v2_plan.md` (§5.3.5 drain test improvement plan). Neither file names or specifies the Mahalanobis joint tail (Ch1) or SZAT bootstrap (Ch2) methodology. The registrations therefore cover Ch3 (drain test) and the DPG v11 framework; Ch1 and Ch2 have no corresponding named OSF pre-registration document. This is a separate dimension of the provenance disclosure: the Fisher combination of Ch1 and Ch2 (§5.5, p = 8.71×10⁻⁹) should not be described as pre-registered in the sense that its input channels are specified in the OSF files, even though both input statistics are anchored to pre-committed drand beacon rounds (OSF w2s8k / r3zm7 seed chains) that predate the shapefile release. Registration 6pt83 was timestamped approximately 3 hours after the shapefile commit (2026-05-07 03:25 UTC vs commit 2026-05-07 00:12 UTC) and cannot be treated as pre-dating that data; w2s8k, r3zm7, and qsgy8 predate the shapefile by approximately 2.5 hours.
 
 **Threshold provenance.** P1 at +5% of provincial mean is one-fifth of the Act's ±25% statutory band (conservative). C3 at ±25% is the Act band directly. P2 at +15 pp above mean winning margin yields an operational "safe-seat" cut-off of ~34 pp, above the 20 pp threshold used in Chen (2017). E1–E3 are conjunctive (all three must hold), the stricter test. These thresholds were set before the detection analysis (see git timestamps above) and are applied identically to both 2026 maps.
 
