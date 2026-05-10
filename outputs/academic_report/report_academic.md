@@ -1133,7 +1133,7 @@ A 1,000,000-sample ReCom run was executed across **4 parallel chains × 250,000 
 | Declination | 474 | **2,278** | 4.8× |
 | Seats @ 50/50 | 430 | **1,679** | 3.9× |
 
-ESS scaling is approximately linear in sample count (4× more samples → 4× more independent draws), confirming the Run #4 chains were not stuck in a local mode. With ESS now in the 1,679–2,278 range, the percentile claims can be reported as **point estimates within the chains' precision** rather than as bounds-only.
+ESS scaling is approximately linear in sample count (4× more samples → 4× more independent draws), confirming the Run #4 chains were not stuck in a local mode. Per-metric ESS are: Efficiency gap 2,278; Mean-median 1,967; Declination 2,278; Seats@50/50 1,679. The percentile claims can be reported as **point estimates within the chains' precision** rather than as bounds-only.
 
 **Per-metric percentiles vs 250,000-row pooled ensemble** (2023 vote substrate; v0_8 full-coverage geometry):
 
@@ -1165,7 +1165,7 @@ A 2,000,000-sample ReCom run was executed across **4 parallel chains × 500,000 
 | Declination | 2,278 | **4,258** | 1.87× |
 | Seats @ 50/50 | 1,679 | **3,138** | 1.87× |
 
-ESS scaling is again approximately linear in sample count (2× more samples → ~2× more independent draws). With ESS in the 3,138–4,347 range, all four metrics now sit at or above the MGGG "lawsuit-grade" threshold (~3,000–5,000 typical for litigation claims).
+ESS scaling is again approximately linear in sample count (2× more samples → ~2× more independent draws). Per-metric ESS are: Efficiency gap 4,347; Mean-median 3,766; Declination 4,258; Seats@50/50 3,138. All four metrics now sit at or above the MGGG "lawsuit-grade" threshold (~3,000–5,000 typical for litigation claims).
 
 **Per-metric percentiles vs 2,000,000-row pooled ensemble** (2023 vote substrate; v0_8 full-coverage geometry):
 
