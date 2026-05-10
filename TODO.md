@@ -69,9 +69,9 @@ All five conditions must be met before submission. Currently: **5/5 clear** (all
 - **CRIT-A DONE 2026-05-09** Sensitivity table re-run complete. New values (w=0.85 central): majority −0.40%, minority −1.81%, asymmetry −1.41 pp. Range 0.47–1.48 pp (0.70–0.80 bracket). B4 direction reversed: minority now matches 2019 at 46 NDP seats@50/50 vs majority 45. Updated: report_academic.md §§5.2.1/5.2.2/5.2.7/5.2.8/summary table, README.md, report_public.md, assignment_gerrymander_comparison.md, maup_area_weighted_analysis.md, threshold_provenance.md §B.2.1, urban_weight_defense.md, chen_rodden_decomposition.md.
 - **CRIT-B DONE 2026-05-09** RMH-Banff "+0.7 seat" and "minority wins RMH-Banff in 50% of samples" text not found in either `report_academic.md` or `report_public.md` — already removed in a prior session. No action required.
 - **CRIT-C DONE 2026-05-09** Public report intro corrected.
-- **HIGH-A** 2019 cross-election asymmetry values — based on 2015–2019; 2023 data now available. Recompute using 2015–2019–2023; update Appendix A table.
-- **HIGH-B** Monte Carlo median drift — median values shift ~0.3 pp between runs; documented internally but not disclosed. Add footnote to Section B/Appendix A explaining variance source; use min/max range instead of point estimates.
-- **HIGH-C** Submission count reconciliation — Chair's "no public support" claim vs D-section findings inconsistency. Reconcile counts between `submission_search_findings.md` and Section D narrative; ensure both cite same baseline.
+- **HIGH-A DONE 2026-05-10** Cross-election asymmetry table (2015–2019–2023) added to Appendix A.1 with three-election data (2015 +0.03 pp, 2019 +0.75 pp, 2023 −0.51 pp) and cycle-contingency caveat explaining why asymmetry direction reverses with different electorates.
+- **HIGH-B DONE 2026-05-10** Monte Carlo median drift (~0.3 pp variance between runs) disclosed in footnote [^1] to §5.2.3. Noted that canonical Run #4 median (−1.40 pp) differs from preliminary run (−1.44 pp) consistent with Monte Carlo sampling; direction and sensitivity bounds unaffected.
+- **HIGH-C DONE 2026-05-10** Submission count reconciliation — Section D aligned with `submission_search_findings.md`: 1,252 of ~1,340 submissions extracted with usable text; remainder (~88, 6.6%) are image-only PDFs without machine-readable ID markers.
 - **HIGH-D DONE 2026-05-09** Wesley commission attribution resolved.
 - **HIGH-E DONE 2026-05-09** Nenshi quote fixed.
 - **MED-A** Plurality of Albertans claim — needs cross-check. Run `claim_significance_analysis.py`; verify "plurality" (>50%) vs "majority" language threshold.
@@ -130,7 +130,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-11 DONE 2026-05-10** Intent-imputation verb softening — "got it wrong" → "do not survive primary-source verification against Alberta Education school-division boundaries" (§5.8 school coherence); "elides this distinction" → "does not carry this distinction" (§5.9.2 R5 provenance). Third instance ("materially misrepresents" → "materially overstates the absence of public support") was already applied in a prior session at §5.9.4.
 - **ES-12 HIGH** "Override" vocabulary rewrite §5.9. Effort: 30 min.
 - **ES-13 DONE 2026-05-10** VA-polygon vote-coverage §5.4 wiring — paragraph already present at §5.4 line "(ES-13)"; SZAT cross-reference sentence updated to reflect definitive SZAT run uses full-VA substrate (post-C1 2026-05-10).
-- **ES-14 HIGH** Canadian literature engagement — Pal, Pal & Choudhry, Courtney pin-cites, Wesley, Seidle into §2 and §5.9.3. Effort: 3–4 h.
+- **ES-14 DONE 2026-05-10** Canadian literature engagement — §2 redistribution paragraph expanded: Courtney chs. 6–7/10–11 pin-cites; Pal (2015) discretion/design-choice framework; Pal & Choudhry (2011) appointment-pathway argument; Pal & Choudhry (2014) visible-minority dilution; Wesley (2011, 2015) Alberta volatility context; Seidle (1991) Lortie Commission genealogy. §5.9.3 first ¶ expanded with Pal (2015) + Courtney chs. 10–11. §2 wrap-up updated. 5 new references added.
 - **ES-15 HIGH** *Rucho v. Common Cause* engagement. Effort: 1 h.
 - **ES-16 HIGH** Saskatchewan Reference constitutional-standard depth. Effort: 1.5 h.
 
@@ -220,7 +220,7 @@ Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
 - **Hansard R1 DONE 2026-05-10:** 188/188 community turns classified.
 - **Hansard R2 DONE 2026-05-10:** 209/209 community turns classified.
 - **§5.9.4.6 written + committed DONE 2026-05-10:** Channel-divergence analysis, per-config tables, intensity-weighted ranking, partisan-sorting caveat. RMH-Banff and Red Deer flip from net-opposed (submissions) to net-supported (Hansard). Airdrie/Chestermere/Nolan-Hill consistently opposed both channels.
-- **Intensity scoring pass IN PROGRESS:** `sentiment_intensity_score.py` — 459 active rows, haiku model, ~4h ETA. Relaunched 2026-05-10 (bg02j9iz7) after prior session expired with 0 rows written. Log: `analysis/reports/isr_run1.log`. When complete: update §5.9.4.6 weighted-net table.
+- **Intensity scoring pass IN PROGRESS (2026-05-10 ~10:00 UTC):** `sentiment_intensity_score.py` — 459 active rows, haiku model via claude CLI with JSON schema. Fixed API call (JSON schema output now in `structured_output` field). ~8 rows complete after fixes; ~3-4h ETA to finish. When complete: update §5.9.4.6 weighted-net table. Output: `data/outputs/sentiment_intensity_scores.csv`.
 - **Remaining forensic pipeline:** `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
 - **Cross-reference:** Final results against `minority_rationales_validation.md` Proposals A–F
 - **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/`

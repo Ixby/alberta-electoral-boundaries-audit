@@ -102,6 +102,8 @@ Output ONLY valid JSON. No markdown, no explanation outside the JSON.\
 """
 
 
+
+
 def _resolve_claude() -> str:
     if sys.platform == "win32":
         npm_bin = Path(os.environ.get("APPDATA", "")) / "npm" / "claude.cmd"
@@ -114,6 +116,9 @@ CLAUDE_CMD = _resolve_claude()
 
 
 def call_claude(prompt_text: str) -> dict:
+    # Embed system prompt in user message
+    full_prompt = f"{SYSTEM_PROMPT}\n\n{prompt_text}"
+
     cmd = [
         CLAUDE_CMD,
         "--print",
@@ -121,12 +126,11 @@ def call_claude(prompt_text: str) -> dict:
         "--output-format", "json",
         "--json-schema", JSON_SCHEMA,
         "--no-session-persistence",
-        SYSTEM_PROMPT,
     ]
     try:
         result = subprocess.run(
             cmd,
-            input=prompt_text,
+            input=full_prompt,
             capture_output=True,
             text=True,
             encoding="utf-8",
@@ -139,13 +143,29 @@ def call_claude(prompt_text: str) -> dict:
         if not raw:
             return {}
         parsed = json.loads(raw)
-        # Claude CLI wraps in {"type":"result","result":...}
+        # Claude CLI returns structured output in the structured_output field
+        if isinstance(parsed, dict) and "structured_output" in parsed:
+            return parsed["structured_output"]
+        # Fallback for older format or non-schema responses
         if isinstance(parsed, dict) and "result" in parsed:
             inner = parsed["result"]
             if isinstance(inner, str):
-                return json.loads(inner)
+                # Result may be wrapped in markdown code blocks
+                inner = inner.strip()
+                if inner.startswith("```json"):
+                    inner = inner[7:]  # Remove ```json
+                if inner.startswith("```"):
+                    inner = inner[3:]  # Remove ```
+                if inner.endswith("```"):
+                    inner = inner[:-3]  # Remove trailing ```
+                inner = inner.strip()
+                if inner:
+                    return json.loads(inner)
             return inner
         return parsed
+    except json.JSONDecodeError as e:
+        logger.warning("JSON parse error: %s (raw: %s)", e, raw[:200] if 'raw' in locals() else "")
+        return {}
     except Exception as e:
         logger.warning("call_claude error: %s", e)
         return {}
@@ -154,8 +174,16 @@ def call_claude(prompt_text: str) -> dict:
 def load_completed() -> set[str]:
     if not PROGRESS_CSV.exists():
         return set()
+    completed = set()
     with PROGRESS_CSV.open(encoding="utf-8") as f:
-        return {row["row_key"] for row in csv.DictReader(f)}
+        reader = csv.DictReader(f)
+        if reader.fieldnames is None or "row_key" not in reader.fieldnames:
+            # File exists but has no proper header; treat as empty
+            return set()
+        for row in reader:
+            if row.get("row_key"):
+                completed.add(row["row_key"])
+    return completed
 
 
 def make_row_key(row: dict) -> str:
