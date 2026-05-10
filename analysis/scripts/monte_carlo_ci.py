@@ -1,7 +1,7 @@
 # Version: v0.3
 from __future__ import annotations
 """
-Monte Carlo Confidence Interval over Modeling Choices
+Monte Carlo Sensitivity Interval over Modeling Choices
 ======================================================
 v0.3 — fortification of v0.2 pointwise sensitivity
 
@@ -150,7 +150,7 @@ def summarize(label: str, values: list):
 
 def main():
     print("=" * 70)
-    print("  Monte Carlo Confidence Intervals — Modeling Uncertainty")
+    print("  Monte Carlo Sensitivity Intervals — Modeling Uncertainty")
     print("=" * 70)
     print()
     print("Sampling:")

@@ -38,10 +38,10 @@ does not materially affect results. See `analysis/methodology/canonical_shapefil
 | Metric | 2019 | Majority | Minority |
 |---|---|---|---|
 | Districts | 87 | 89 | 89 |
-| B2 Efficiency gap (point est.) | -2.64% | -1.29% | -2.71% |
+| B2 Efficiency gap (point est.) | -2.64% | -0.40% | -1.81% |
 | B2 EG mean (MC, N=2,000) | | -0.33% | -1.57% |
 | B2 EG 95% CI | | [-1.97%, +1.49%] | [-3.43%, +0.24%] |
-| **Min-Maj asymmetry (point est.)** | | | **-1.42pp** |
+| **Min-Maj asymmetry (point est.)** | | | **-1.41pp** |
 | **Min-Maj asymmetry (MC mean)** | | | **-1.23pp** |
 | **Min-Maj asymmetry 95% CI** | | | **[-3.04pp, +0.76pp]** |
 | Direction consistency | | 59.7% | 94.2% |

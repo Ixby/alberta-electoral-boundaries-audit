@@ -93,7 +93,7 @@ Both maps satisfy the law. The table below states the structural distance betwee
 | Municipal-boundary anchoring | 71.0% of perimeter | 14.5% of perimeter | 4.9× majority advantage |
 | CSD + DA combined anchoring | 79.6% | 16.5% | 4.8× majority advantage |
 | Chair-flagged cartographic anomalies | 0 | 3 | — |
-| Efficiency gap (crosswalk method) | −1.29% | −2.71% | Both below 7% reference; direction method-sensitive |
+| Efficiency gap (crosswalk method) | −0.40% | −1.81% | Both below 7% reference; direction method-sensitive |
 | Coupled packing-cracking adjacencies | 3 (matches 2019 baseline) | 0 (pre-registered pass) | Minority eliminates the signature |
 
 The first six rows are vote-independent. They are measurable against public official records and do not change if the partisan substrate changes. The last two rows depend on vote data; the seventh row's direction is not robust to the choice of spatial-attribution method; the eighth row is a finding in favour of the minority map.
@@ -106,7 +106,7 @@ The status quo cost — of not auditing — is the alternative: accepting or rej
 
 ## What makes this different
 
-**The predictions came before the results.** Every test family in the audit was committed with a directional null hypothesis and a pre-specified pass threshold before the results were read. The commit timestamp separating the pre-registration from the first detection run is 2 hours and 24 minutes. A methodology that only finds what it was looking for, after it looked, is not a methodology — it is a post-hoc justification. Pre-registration prevents that.
+**The predictions came before the results.** Every test family in the audit was committed with a directional null hypothesis and a pre-specified pass threshold before the results were read. For the MCMC ensemble (Ch1), SZAT bootstrap (Ch2), and drain test (Ch3), results are deterministic from seeds anchored to publicly-verifiable drand beacon rounds predating the commission's shapefile release. For the P/C/E signature framework, the detection criteria were specified in the same analytical commit as the detection run — an intra-session separation disclosed in full in §5.3.1 of the academic report. A methodology that only finds what it was looking for, after it looked, is not a methodology — it is a post-hoc justification. Pre-registration prevents that.
 
 **Each finding has a named retraction condition.** For every load-bearing finding, the audit documents what data or argument would force a retraction within 48 hours of it becoming available. The conditions are in `analysis/methodology/retraction_pathway.md`. A reviewer who objects to a specific finding does not need to argue in the abstract — they can find that finding's retraction condition and produce the triggering evidence.
 
@@ -122,7 +122,7 @@ The status quo cost — of not auditing — is the alternative: accepting or rej
 
 This audit is not finished. The following are genuinely unresolved.
 
-**Official geometry (Issue #1).** The commission published its 2026 maps as 300-DPI rasters only; no vector shapefiles have been released. The audit's partisan-bias direction in §5.2.7 is sensitive to which reconstructed geometry substrate is used, and the two substrates currently disagree on direction. Elections Alberta was contacted on April 23, 2026 with a request for the official shapefiles. An data request would accelerate this. Until official shapefiles are available, §5.2.7's direction claim remains method-sensitive and is reported in both directions.
+**Official geometry (Issue #1 — resolved 2026-05-06).** Elections Alberta released official vector shapefiles (`ea_majority_2026_eds.gpkg`, `ea_minority_2026_eds.gpkg`) on May 6, 2026 (commit `873f4d0`). All Derived Provisional Geometries have been replaced by the canonical boundaries; §5.2.7's direction claim is now anchored to official Elections Alberta shapefiles and the method-sensitivity noted in earlier versions of this section no longer applies. The DPG reconstruction pipeline remains documented for reproducibility.
 
 **The counter-map challenge (Issue #14).** The §5.8.5 anchoring finding has a retraction condition: produce a map that achieves the minority's stated community-of-interest objectives with majority-comparable municipal-boundary anchoring. Producing that map requires the commission's drawing tools and the official 2026 shapefiles. No counter-map has been produced. If one is, §5.8.5 retracts.
 

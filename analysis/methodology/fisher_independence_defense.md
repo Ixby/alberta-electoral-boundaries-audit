@@ -77,20 +77,13 @@ Even without the empirical check, the approximate independence claim rests on:
 
 ---
 
-## Recommended addition to the paper methodology section
+## Broader Fisher defense
 
-> "Channel 1 and Channel 2 are tested independently and combined via Fisher's
-> method. Both channels use 2023 Alberta vote totals, but they measure different
-> quantities: Ch1 asks whether the minority map is an outlier in the space of
-> valid provincial plans (marginalising over all boundary configurations via MCMC);
-> Ch2 asks whether the specific swing-zone boundary choices within the minority
-> plan are systematically biased (conditioning on the minority boundary and
-> shuffling only those assignments). The channels are therefore approximately
-> conditionally independent given the shared vote data. If a positive correlation
-> exists, Fisher's method is conservative — it understates joint significance.
-> An empirical Spearman correlation check between Ch1 Mahalanobis distances and
-> Ch2 bootstrap EG draws is planned for the supplementary materials."
+All other attack vectors on the Fisher combination (post-hoc channel selection, why no
+majority Fisher, robustness across methods, directionality, n_eff correction, multiple-map
+correction, pre-registration gap) are addressed in
+`analysis/methodology/fisher_combination_defense.md`.
 
 ---
 
-*Last updated: 2026-05-08*
+*Last updated: 2026-05-09*

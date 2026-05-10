@@ -288,7 +288,7 @@ Signs are in the paper's reader-facing convention (negative = UCP
 advantage).
 
 > **Geography-vs-drawing decomposition (Gemini Phase E.3 response).** The
-> central-weight −1.42 pp blended-crosswalk / +4.15 pp high-resolution-
+> central-weight −1.41 pp blended-crosswalk / +4.15 pp high-resolution-
 > spatial minority-vs-majority efficiency-gap asymmetry is decomposed
 > into a geography component (100,000-plan neutral-ensemble median on
 > the same substrate) and a drawing component (real-map EG minus

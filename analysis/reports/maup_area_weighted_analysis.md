@@ -82,7 +82,7 @@ The higher minority figure reflects the larger Tier-C overlap area in the minori
 | §5.2.7 centroid (headline) | **−2.33 %** | **+1.82 %** | **+4.15 pp** | min more NDP-favourable |
 | **MAUP area-weighted** | **−3.25 %** | **−2.14 %** | **+1.12 pp** | min more NDP-favourable |
 | Δ vs centroid | −0.92 pp | −3.96 pp | **−3.03 pp** | (asymmetry narrows) |
-| §5.2.7 blended crosswalk | −1.29 % | −2.71 % | **−1.42 pp** | min more UCP-favourable |
+| §5.2.7 blended crosswalk | −0.40 % | −1.81 % | **−1.41 pp** | min more UCP-favourable |
 
 **Does the +4.15 pp asymmetry survive?** The **sign survives but the magnitude collapses**. Under MAUP, minority is still more NDP-favourable than majority, but by **+1.12 pp** — less than one-quarter of the centroid headline. The minority EG flips from +1.82 % (pro-NDP) under centroid to −2.14 % (pro-UCP) under MAUP, while majority EG drifts modestly more UCP-favourable.
 

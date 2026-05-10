@@ -19,42 +19,43 @@ Usage:
 
 import csv
 import json
-import subprocess
 import sys
 import logging
 import time
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
-# ── Path setup ───────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT / "analysis" / "utils"))
+from sentiment_config import DATA_DIR, TEXT_DIR, CONFIGS
+from quote_verifier import verify_quote
+from claude_client import CLAUDE_CMD, call_claude
+
 logger = logging.getLogger(__name__)
 
-try:
-    sys.path.insert(0, str(ROOT / "analysis" / "utils"))
-    import data_loader
-    DATA_DIR = data_loader._resolve_path("data")
-except Exception as e:
-    logger.warning("data_loader unavailable, falling back to ROOT/data: %s", e)
-    DATA_DIR = ROOT / "data"
+# ── Path setup ───────────────────────────────────────────────────────────────
 
-TEXT_DIR  = ROOT / ".temp" / "submissions" / "text"
-INPUT_CSV = DATA_DIR / "submission_search_dataset.csv"
+INPUT_CSV  = DATA_DIR / "submission_search_dataset.csv"
 OUTPUT_CSV = DATA_DIR / "submission_sentiment_llm_results.csv"
 
 # ── Configuration columns → human descriptions ────────────────────────────────
+# The search dataset uses column names prefixed with "mentions_"; map those to
+# the shared CONFIGS descriptions using the shared key suffixes.
 CONFIG_NAMES = {
-    "mentions_airdrie_4way_split":        "Airdrie 4-way split",
-    "mentions_nolan_hill_cochrane":        "Calgary-Nolan Hill-Cochrane hybrid",
-    "mentions_rmh_banff_park":            "Rocky Mountain House-Banff Park hybrid",
-    "mentions_olds_three_hills_didsbury":  "Olds-Three Hills-Didsbury extending to Airdrie",
-    "mentions_chestermere_split":          "Chestermere merging with Calgary",
-    "mentions_red_deer_hybrids":           "Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",
-    "mentions_st_albert_sturgeon":         "St. Albert merging with Sturgeon County",
+    "mentions_airdrie_4way_split":        CONFIGS["airdrie_4way_split"],
+    "mentions_nolan_hill_cochrane":        CONFIGS["nolan_hill_cochrane"],
+    "mentions_rmh_banff_park":            CONFIGS["rmh_banff_park"],
+    "mentions_olds_three_hills_didsbury":  CONFIGS["olds_three_hills_didsbury"],
+    "mentions_chestermere_split":          CONFIGS["chestermere_split"],
+    "mentions_red_deer_hybrids":           CONFIGS["red_deer_hybrids"],
+    "mentions_st_albert_sturgeon":         CONFIGS["st_albert_sturgeon"],
 }
 
 # ── JSON schema enforced by Claude Code ──────────────────────────────────────
-JSON_SCHEMA = json.dumps({
+# This is the single-config schema (one classification per call), distinct from
+# the shared 7-config JSON_SCHEMA in sentiment_config. Keep it local.
+JSON_SCHEMA_LOCAL = json.dumps({
     "type": "object",
     "properties": {
         "classification": {
@@ -90,89 +91,6 @@ SYSTEM_PROMPT = (
     "OUTPUT FORMAT:\n"
     "You must output ONLY valid JSON matching the schema. Do not include any conversational text or markdown formatting."
 )
-
-# ── Claude Code CLI call ──────────────────────────────────────────────────────
-def call_claude(text: str, config_desc: str) -> dict:
-    prompt_instruction = (
-        f"{SYSTEM_PROMPT}\n\n"
-        f"Evaluate the author's stance on this boundary configuration: {config_desc}"
-    )
-
-    cmd = [
-        "claude",
-        "--print",
-        "--model", "sonnet",
-        "--output-format", "json",
-        "--json-schema", JSON_SCHEMA,
-        "--no-session-persistence",
-        prompt_instruction,
-    ]
-
-    try:
-        result = subprocess.run(
-            cmd,
-            input=text,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            timeout=120,
-        )
-        if result.returncode != 0:
-            print(f"  CLI error: {result.stderr[:200]}")
-            return {"classification": "Error", "reasoning": result.stderr[:100], "exact_quote": ""}
-
-        try:
-            import re
-            outer = json.loads(result.stdout)
-            inner = outer.get("result") or outer.get("text") or outer
-            
-            if isinstance(inner, str):
-                # Try to extract JSON from a markdown block if present
-                match = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', inner, re.DOTALL)
-                if match:
-                    inner = match.group(1)
-                
-                try:
-                    inner = json.loads(inner)
-                except json.JSONDecodeError:
-                    # Fallback to regex extraction if Claude completely ignored JSON format
-                    c_match = re.search(r'(Active Support|Active Opposition|Neutral/Contextual|Unrelated)', inner, re.IGNORECASE)
-                    c = c_match.group(1) if c_match else "Unknown"
-                    # Map back to exact enum casing
-                    c_map = {
-                        "active support": "Active Support",
-                        "active opposition": "Active Opposition",
-                        "neutral/contextual": "Neutral/Contextual",
-                        "unrelated": "Unrelated"
-                    }
-                    c_final = c_map.get(c.lower(), "Unknown")
-                    return {"classification": c_final, "reasoning": inner[:200].strip(), "exact_quote": ""}
-            
-            if not isinstance(inner, dict):
-                inner = {}
-            return inner
-            
-        except json.JSONDecodeError:
-            print(f"  JSON decode error. Raw output: {result.stdout[:200]}")
-            return {"classification": "Error", "reasoning": "JSON decode error", "exact_quote": ""}
-
-    except subprocess.TimeoutExpired:
-        return {"classification": "Error", "reasoning": "Timeout", "exact_quote": ""}
-    except Exception as e:
-        print(f"  Unexpected error: {e}")
-        return {"classification": "Error", "reasoning": str(e)[:100], "exact_quote": ""}
-
-
-# ── Quote verification ────────────────────────────────────────────────────────
-def verify_quote(quote: str, source_text: str) -> str:
-    if not quote:
-        return "N/A"
-    if quote in source_text:
-        return "True"
-    # Allow for normalised whitespace (PDF extraction can insert newlines)
-    if " ".join(quote.split()) in " ".join(source_text.split()):
-        return "True (Normalized)"
-    return "False"
 
 
 # ── Main ─────────────────────────────────────────────────────────────────────
@@ -212,19 +130,26 @@ def main():
 
         now = datetime.now().strftime("%H:%M:%S")
         print(f"[{now}] [{i+1}/{len(tasks)}] {sub_id}  ->  {task['config_desc'][:55]}...")
-        r = call_claude(text, task["config_desc"])
 
-        if r.get("classification") == "Error":
+        prompt_instruction = (
+            f"{SYSTEM_PROMPT}\n\n"
+            f"Evaluate the author's stance on this boundary configuration: {task['config_desc']}"
+        )
+        r = call_claude(text, prompt_instruction, JSON_SCHEMA_LOCAL, timeout=120)
+
+        if not r or r.get("classification") == "Error":
             errors += 1
 
-        quote = r.get("exact_quote", "")
+        quote = r.get("exact_quote", "") if r else ""
+        vr = verify_quote(quote, text)
+
         results.append({
             "submission_id":  sub_id,
             "configuration":  task["config_desc"],
-            "classification": r.get("classification", "Unknown"),
-            "reasoning":      r.get("reasoning", ""),
-            "exact_quote":    quote,
-            "quote_verified": verify_quote(quote, text),
+            "classification": r.get("classification", "Unknown") if r else "Unknown",
+            "reasoning":      r.get("reasoning", "") if r else "",
+            "exact_quote":    vr.quote,
+            "quote_verified": vr.status,
         })
 
         # Respect rate limits
@@ -240,10 +165,9 @@ def main():
 
     print(f"\nDone. {len(results)} rows written -> {OUTPUT_CSV}")
     if errors:
-        print(f"  ⚠  {errors} API errors — review rows where classification='Error'")
+        print(f"  WARNING: {errors} API errors — review rows where classification='Error'")
 
     # Quick summary to stdout
-    from collections import Counter
     by_config: dict[str, Counter] = {}
     for r in results:
         by_config.setdefault(r["configuration"], Counter())[r["classification"]] += 1

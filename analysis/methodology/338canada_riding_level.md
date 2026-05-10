@@ -92,10 +92,18 @@ Minority vs. majority delta inside each model:
 
 | Model | Majority UCP | Minority UCP | Minority − Majority |
 |---|---|---|---|
-| Audit (2023 votes) | 38 | 37 | −1 UCP / +1 NDP |
-| 338 (April 2026) | 67 | 66 | −1 UCP / +1 NDP |
+| Audit (2023 votes) | 51 | 52 | **+1 UCP / −1 NDP** |
+| 338 (April 2026) | 67 | 66 | **−1 UCP / +1 NDP** |
 
-**The directional asymmetry matches.** Both the audit's 2023-input projection and 338's April-2026-input reallocation show the minority proposal one seat more NDP-friendly than the majority proposal. The absolute level differs by ~29 seats because 338's provincial popular vote is ~10 pp more UCP than 2023's was.
+**Correction (v3): the inside-model table above corrects a prior version that displayed the Audit (2023 votes) row using the NDP seat counts (38 / 37) rather than the UCP counts (51 / 52).** The corrected row is consistent with the v2 note in the first table and with `packing_cracking_analysis.py` output.
+
+**The directions are opposite at the 1-seat noise floor.** Under 2023 votes the minority gives UCP 1 more seat than the majority. Under 338's April 2026 polling the minority gives UCP 1 fewer seat. Both differences are 1 seat — within the estimation error of the crosswalk and of 338's demographic riding model. Three explanations overlap:
+
+1. **Noise floor.** A single seat can flip based on how one blended ED is estimated. At this resolution, +1 and −1 are the same finding: "effectively no seat-level difference between the maps at current polling."
+
+2. **Structural bias and current-cycle seat projection answer different questions.** The audit's MCMC finding (EG p94, seats-at-50/50 p100) measures the map at the competitive swing point. At UCP+14 pp, both maps produce landslides. The minority map's structural advantage is inoperative until the gap narrows.
+
+3. **Efficient boundary placement accumulates wasted votes in a landslide.** The minority's boundaries are calibrated to give UCP efficient wins in marginal seats. At UCP+14, those same districts produce UCP winning-margin "waste" — the structural efficiency works against UCP when the UCP vote far exceeds the marginal-seat threshold. This is a well-documented property of maps tested at partisan margins far from their design point.
 
 ### 3.1 Margin distribution (338-reallocated)
 

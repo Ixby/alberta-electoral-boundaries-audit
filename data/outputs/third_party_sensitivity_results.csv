@@ -1,0 +1,10 @@
+rule,map,eg_pct,mm_gap_pp,ndp_at_50,ucp_at_50,declination,rural_ndp_pct,ndp_seats,ucp_seats
+A — Drop (current),2019,-2.6362,-2.2155,46,41,-0.034073,33.4704,38,49
+A — Drop (current),majority,-0.4001,-0.6569,45,44,-0.017312,33.4704,38,51
+A — Drop (current),minority,-1.8065,-1.1971,46,43,-0.024396,33.4704,38,51
+B — Pro-rate,2019,-2.661,-2.2164,46,41,-0.034067,33.3123,38,49
+B — Pro-rate,majority,-0.4392,-0.6365,45,44,-0.017388,33.3123,38,51
+B — Pro-rate,minority,-1.8725,-1.1781,46,43,-0.024536,33.3123,38,51
+C — Trailing party,2019,5.3517,-2.4705,47,40,0.040936,35.952,33,54
+C — Trailing party,majority,4.1566,-1.2026,47,42,0.024087,35.952,35,54
+C — Trailing party,minority,7.4074,-1.5131,47,42,0.057584,35.952,32,57

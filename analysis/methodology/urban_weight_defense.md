@@ -109,11 +109,11 @@ is reported in percentage points (negative = pro-UCP advantage in minority map).
 
 | w | Majority EG | Minority EG | Asymmetry |
 |---|---|---|---|
-| 0.60 | −0.61% | −0.92% | −0.31pp |
-| 0.70 | −0.85% | −1.36% | −0.51pp |
-| 0.80 | −1.08% | −2.14% | −1.06pp |
-| **0.85** | **−1.29%** | **−2.71%** | **−1.42pp** |
-| 0.90 | −1.51% | −3.24% | −1.73pp |
+| 0.60 | +1.27% | −0.02% | −1.29pp |
+| 0.70 | +0.07% | −0.40% | −0.47pp |
+| 0.80 | −0.62% | −2.10% | −1.48pp |
+| **0.85** | **−0.40%** | **−1.81%** | **−1.41pp** |
+| 0.90 | −0.17% | −1.50% | −1.33pp |
 
 The direction of the asymmetry is consistent across all five values. The
 magnitude increases with w because higher w amplifies the differential
