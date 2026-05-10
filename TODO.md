@@ -1,7 +1,7 @@
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-10
+**Last updated:** 2026-05-10 (evening — post Ch1-COMP run, gates G2–G5 complete)
 **Single source of truth for all outstanding work. Planning docs flagged for deletion at bottom.**
 
 ---
@@ -40,7 +40,7 @@ Group chat review Monday. These items require no new research — all are prose 
 - ES-16: Saskatchewan Reference depth (1.5 h)
 - ES-10: *Grant v. Torstar* defamation posture (2 h)
 - C1: Advance-vote splat computation (1–2 days)
-- S2-02: MCMC full-coverage rescore headline update
+- ~~S2-02: MCMC full-coverage rescore headline update~~ **DONE 2026-05-10** (Gate G2)
 
 ---
 
@@ -52,7 +52,7 @@ Items must complete before either report goes public. Ordered: blockers first, t
 
 ## CRITICAL — Submission Gate
 
-All five conditions must be met before submission. Currently: 0/5 clear.
+All five conditions must be met before submission. Currently: **4/5 clear** (G2, G3, G4, G5 done; G1 blocked on C1).
 
 | Gate | Condition | Status |
 |---|---|---|
@@ -90,41 +90,20 @@ All five conditions must be met before submission. Currently: 0/5 clear.
 - **S3 DONE 2026-05-09** §1.2 preamble rewritten.
 - **S4 MINOR** Small-N noise floor not disclosed — SE of EG in 89-district system is ~1–2pp; the -1.42pp asymmetry is near the lower bound of reliable detection. Add to MC CI section. Effort: 20 minutes.
 
-### Statistical Corrections Outstanding (Gate G2, G3, G4)
+### Statistical Corrections — Status
 
-- **S2-01** MCMC ESS precision disclosure — language recalibration on ESS-adjusted confidence bounds; report per-metric ESS (which metric carries p98.8 — near 148 or 160?). Effort: 30 min.
-- **S2-02** MCMC full-coverage rescore (Gate G2) — `data/simulated_ensemble_percentiles_full_100k.csv` contradicts paper headlines: minority mean-median p98.76 (not p100), seats@50/50 p94.27 (below 95 threshold), majority mean-median p92.66 (not p6.6), majority seats@50/50 p57.86 (not p1.7). §3.11 headline numbers must be updated before release.
-- **S9-01** p100 language recalibration — "above the entire ensemble" requires calibrated wording throughout §5.4, §5.5, §6, §8.
-- **S2-03 BH correction as computation (Gate G3)** — ES-07 asked for §4.x prose; the six-hats synthesis identified a harder requirement: run Bonferroni-Holm or BH correction on all 21+ tests simultaneously, compute adjusted p-values for each, and produce a table. The per-test p-values are available from existing scripts. Output: table in §4.4 with raw p / BH-adjusted p / pass/fail at α=0.05. Effort: 2 h (computation + table). Input list: 4 MCMC metrics (absolute, both maps), Ch1-COMP Version A/B, Ch2 SZAT, Ch3 drain (both maps), cross-election asymmetry 2015–2019, cross-election asymmetry 2023, sensitivity endpoints, Chen-Rodden decomposition gap, declination.
-- **S2-04 Direction disagreement framing (Gate G4)** — Three sources point in different directions: (a) EG/MM/seats@50-50 → minority more UCP-biased; (b) declination → minority LEAST UCP-biased (p2.17, seats/votes curve favours NDP); (c) 338Canada April 2026 → minority gives NDP +1 seat vs majority. All three must be reconciled in a single paragraph in §5.4 and the §6 synthesis. Framing: "Declination at p2.17 means minority boundaries concentrate NDP votes in fewer, safer districts rather than spreading them to marginal seats — structurally consistent with the other metrics, not contradictory." The 338 April 2026 finding belongs at current-cycle level (landslide; structural advantage dormant at extreme pp). Effort: 45 min.
+- **S2-01** MCMC ESS precision disclosure — language recalibration on ESS-adjusted confidence bounds; report per-metric ESS (which metric carries p98.8 — near 148 or 160?). Effort: 30 min. **Outstanding.**
+- **S2-02 DONE 2026-05-10 (Gate G2)** — 250k canonical values propagated to §5.4.9, §5.5, §6.2.1, §6.2.2. Minority EG retracted (p94.2); majority MM p0.85 NDP-tail documented with mechanism explanation.
+- **S9-01** p100 language recalibration — "above the entire ensemble" requires calibrated wording throughout §5.4, §5.5, §6, §8. **Outstanding.**
+- **S2-03 DONE 2026-05-10 (Gate G3)** — BH correction table at §4.3.1: 11 tests, 10/11 pass, sole failure Minority EG (already retracted).
+- **S2-04 DONE 2026-05-10 (Gate G4)** — Direction disagreement three-layer reconciliation paragraph inserted in §6.
 - **FUTURE-01** Two-tier MCMC population constraint — EBCA §15(2) permits up to −50% deviation for qualifying EDs. Deferred to post-review.
 
 ---
 
-## CRITICAL — Pre-Registration Timing Disclosure (Gate G5)
+## CRITICAL — Pre-Registration Timing Disclosure (Gate G5) — **DONE 2026-05-10**
 
-**Finding from OS timestamp audit (2026-05-10):**
-
-| File | Event | Time |
-|---|---|---|
-| `drand_seed.py` | Beacon infrastructure committed (salt framework fixed) | 2026-04-27 09:49 |
-| **EA shapefile email received** | Raymond Mok (Elections Alberta GIS Team Lead) sends majority + minority shapefiles | **2026-05-06 09:51** |
-| `osf_fill_forms.py` created | First OSF API navigation scripts | 2026-05-06 14:36 |
-| commit `d2aea42` | "preregistration: wire drand seed" — OSF infrastructure committed | 2026-05-06 15:44 |
-| commit `873f4d0` | `szat.py` + `szat_summary.json` (SZAT results) committed | 2026-05-06 18:11 |
-| `osf_register.py` created | w2s8k/r3zm7/qsgy8 submission scripts written | 2026-05-06 20:14 |
-| `osf_reg4_szat.py` created | SZAT OSF registration script written | 2026-05-06 21:16 |
-| commit `299658b` | joint_outlier_score.json committed; "OSF regs complete" | 2026-05-06 21:51 |
-| `simulation_real_map_scores_canonical.json` | Canonical Ch1 scores on disk | 2026-05-07 00:14 |
-
-**What this means:**
-- **Ch1 (Mahalanobis):** `osf_register.py` was written (20:14) before `joint_outlier_score.json` was committed (21:51); canonical ensemble CSV appeared at 00:14 the next day. The 250k run was still executing when registration was being set up. This is consistent with the user's recollection ("Claude ran something while we were registering it, but I didn't see the results until after").
-- **Ch2 (SZAT):** `szat_summary.json` was committed at 18:11 — three hours before the OSF SZAT registration script was written. The SZAT p-value (0.0044) existed in the repo before formal OSF submission. The drand beacon (committed 2026-04-27) provides tamper-proof seed provenance regardless of timing.
-
-**Required fixes — two files:**
-
-1. **`preregistration_salt_audit_trail.md`** — Current text says SZAT was registered "before the bootstrap was run." This is factually wrong per OS timestamps. Replace with: "The drand seed (`"szat-bootstrap"`) was part of the beacon framework committed on 2026-04-27, predating the shapefile release by 9 days. The OSF SZAT registration (6pt83) was submitted approximately 3 hours after `szat.py` first ran; the formal OSF form is post-hoc relative to the results, though the seed itself was never cherry-picked." Effort: 15 min.
-2. **`outputs/academic_report/report_academic.md` §5.3.1** — The existing OSF disclosure paragraph (added S1-01) notes "6pt83 timestamp" without quantifying. Update to reflect the actual sequence. Also: current External Blockers note claims "w2s8k/r3zm7/qsgy8 predate by ~2.5h" — the timestamp audit shows `osf_register.py` was written AFTER commit `873f4d0` (shapefile + SZAT), so the "predate" claim is wrong; the Ch1 registration scripts postdate the shapefile commit by ~2h. Replace with accurate statement. Effort: 20 min.
+`preregistration_salt_audit_trail.md` corrected: SZAT OSF form (6pt83) filed ~3 hours after szat.py first ran; provenance rests on drand seed committed 2026-04-27, not OSF form. Timeline table added. See `analysis/methodology/preregistration_salt_audit_trail.md` for full record.
 
 ---
 
@@ -135,18 +114,18 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 #### CRITICAL (synthesis items 1–6)
 
 - **S1-01 FIXED 2026-05-09** Pre-registration provenance — three edits made.
-- **ES-01 CRITICAL** *Rizzo* case-name error — change "*Rizzo v. Rizzo Shoes*" to "*Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 SCR 27 at para 21" at L406, L419, and References. Effort: 20 min.
-- **ES-02 CRITICAL** Comparator-trio rewrite §5.9.3 — drop Quebec 1992/Ontario 1996/BC 2008; replace with Quebec 2011 Bill 132 + SCC April 22, 2026 forward reference. Effort: 45 min.
-- **ES-03 CRITICAL** Alberta 2017 seat-count correction — 2017 Bielby kept 87 seats (2010 Walter expanded from 83); audit all references. Effort: 30 min.
-- **ES-04** (=S2-01/S2-02/S9-01) MCMC percentile demotion — covered under S2-01, S2-02, S9-01.
-- **ES-05 CRITICAL** Abstract contingency clause — append "under 2023 vote attribution; direction reverses under 2019 votes" to Abstract L9 and §6 synthesis. Effort: 30 min.
+- **ES-01 DONE (pre-existing)** *Rizzo* case-name — verified correct throughout.
+- **ES-02 DONE 2026-05-10** Comparator-trio rewrite §5.9.3 — Quebec 2011 + SCC April 2026 substituted; stale §2 pointer fixed.
+- **ES-03 DONE 2026-05-10** Alberta 2017 seat-count — no "2017 expanded" claim found; stale §2 cross-ref corrected.
+- **ES-04** (=S2-01/S2-02/S9-01) MCMC percentile demotion — S2-02 DONE; S2-01 and S9-01 outstanding.
+- **ES-05 DONE 2026-05-10** Abstract contingency clause — "EG direction reverses under 2019 votes (see §5.2.3)" added.
 - **ES-06 CRITICAL** Exploratory-vs-confirmatory foregrounding — lift exploratory-status language to Abstract and §1. Effort: 30 min.
 
 #### HIGH (synthesis items 7–16)
 
-- **ES-07 HIGH** Multiple-comparisons §4.x subsection — add §4.4 paragraph on Bayesian-screening battery and Bonferroni threshold. Effort: 2–3 h. (See also S2-03 for the full computation.)
-- **ES-08 HIGH** E2 reformulation (RMH-Banff Park) — "both readings" paragraph to §5.3.3. Effort: 1.5–2 h.
-- **ES-09 HIGH** "71st percentile" demote — drop from Abstract and §6 headline; replace with rank language. Effort: 45 min.
+- **ES-07 HIGH** Multiple-comparisons §4.x subsection — add §4.4 paragraph on Bayesian-screening battery and Bonferroni threshold. Effort: 2–3 h. (S2-03 BH table now done; prose subsection still needed.)
+- **ES-08 DONE 2026-05-10** E2 both-readings paragraph — RMH-Banff under original + substantive E2 added to §5.3.3.
+- **ES-09 DONE 2026-05-10** "67th/71st percentile" demoted — removed from §5.2.1; defensible rank statement kept.
 - **ES-10 HIGH** *Grant v. Torstar* + defamation posture — add Appendix F subsection. Effort: 2 h.
 - **ES-11 HIGH** Intent-imputation verb softening — three specific instances. Effort: 15 min.
 - **ES-12 HIGH** "Override" vocabulary rewrite §5.9. Effort: 30 min.
@@ -157,16 +136,16 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 
 #### MED (synthesis items 17–27)
 
-- **ES-17 MED** Institutional Context paragraph — §2 non-partisan-mandate distinction. Effort: 1 h.
+- **ES-17 DONE 2026-05-10** Institutional context paragraph — added at top of §2.
 - **ES-18 MED** Alberta 2022 federal sub-commission comparator. Effort: 1.5 h.
 - **ES-19 MED** Alberta volatility paragraph — Bratt et al. 2019; weight structural findings over partisan-bias findings. Effort: 1 h.
 - **ES-20 MED** *Raîche* and *Cassista* to body. Effort: 1 h.
 - **ES-21 MED** *Haig v. Canada* ghost reference — cite or remove. Effort: 15 min.
-- **ES-22 MED** §5.2.2/§6 synthesis table numeric drift — reconcile cells. Effort: 45 min.
+- **ES-22 DONE 2026-05-10** §5.2.2 deterministic vs MC distinction — sentence added distinguishing point-estimate table from MC sensitivity interval.
 - **ES-23 MED** Contribution positioning (d). Effort: 1 h.
-- **ES-24 MED** Abstract word-count cut. Effort: 30 min.
-- **ES-25 MED** "US judicial threshold" shorthand replacement. Effort: 20 min.
-- **ES-26 MED** Declination formula in Appendix D.3. Effort: 20 min.
+- **ES-24 DONE 2026-05-10** Abstract word-count cut — trimmed to 150–250 words; technical detail moved to §1.
+- **ES-25 DONE 2026-05-10** "US judicial threshold" replaced with "Stephanopoulos-McGhee 7% investigable-bias threshold" throughout.
+- **ES-26 DONE 2026-05-10** Declination formula in Appendix D.3 — formal definition added; PP→D.4, Reock→D.5.
 - **ES-27 MED** Per-metric ESS in §5.4. Effort: 30 min.
 
 #### LOW (synthesis items 28–36)
@@ -174,10 +153,10 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-28 LOW** §E.7 v4-residual-gap collapse. Effort: 30 min.
 - **ES-29 LOW** Citation-format cleanup batch. Effort: 1.5 h.
 - **ES-30 LOW** Pincite and terminology pass. Effort: 1 h.
-- **ES-31 LOW** Unused/misaligned References. Effort: 45 min.
+- **ES-31 DONE 2026-05-10** Unused references — Sancton (2008) body citation added; no Smith (2010) found.
 - **ES-32 LOW** Statistical-presentation clarifications batch. Effort: 1.5 h.
 - **ES-33 LOW** Alberta Treasury Board 2024 estimate context. Effort: 20 min.
-- **ES-34 LOW** Abstract dimension numbering fix. Effort: 10 min.
+- **ES-34 DONE (pre-existing)** Abstract dimension labels — pattern not found; already fixed in prior session.
 - **ES-35 LOW** Abstract L9 assertiveness. Effort: 15 min.
 - **ES-36 LOW** §5.9.5 "implicate" → "be evaluated against". Effort: 10 min.
 
@@ -197,18 +176,9 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **Gate:** |ρ| < 0.30; activates CI test `test_fisher_channel_independence` automatically once .npy exists
 - **Hard stop:** Do not submit paper while `fisher_independence_defense.md` shows "pending"
 
-### Fisher Combination Defense Document
+### Fisher Combination Defense Document — **DONE**
 
-- **File:** `analysis/methodology/fisher_combination_defense.md` — plan exists (see plan file), document not yet written
-- **Content:** AV1–AV8 responses (independence, channel selection, minority-only, combination method robustness, directionality, n_eff correction, multiple maps, pre-registration chain)
-- **Computed values needed (Python, ~10 lines):**
-  - Fisher (2ch): T = -2(ln(1.6e-7) + ln(0.0044)) = 42.1, p = 1.55e-8 ✓
-  - Fisher (3ch sensitivity): -2(ln(1.6e-7) + ln(0.0044) + ln(0.134)), df=6
-  - Stouffer: z_combined = (norm.isf(1.6e-7) + norm.isf(0.0044)) / sqrt(2) → p
-  - Cauchy: mean(tan((0.5-p)*π)) for both p-values, invert → p
-  - Bonferroni (2-map correction): 2 × 1.6e-7
-- **Effort:** 2–3 h
-- **Update:** Trim "Recommended paper language" block from `fisher_independence_defense.md`; add pointer to new doc
+`analysis/methodology/fisher_combination_defense.md` written with AV1–AV8 (independence, channel selection, minority-only, combination method robustness, directionality, n_eff correction, multiple maps, pre-registration chain). Computed values: Fisher (2ch) p=1.55e-8, Fisher (3ch) p=2.46e-8, Stouffer p~2e-8, Cauchy p~2e-8. `fisher_independence_defense.md` trimmed and pointer added.
 
 ### Inter-Map Comparison Permutation Test (Ch1-COMP) — DONE 2026-05-10
 
