@@ -724,4 +724,221 @@ ERROR
 ERROR
 [10:49:00] [362/459] hansard_r2-00351|Chestermere merging with Calgary|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
 ERROR
-[10:49:15] [363/459] hansard_r2-00358|Chestermere merging with Calgary|hansard_r2 ... 
+[10:49:15] [363/459] hansard_r2-00358|Chestermere merging with Calgary|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:49:38] [364/459] hansard_r2-00369|Chestermere merging with Calgary|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:49:56] [365/459] hansard_r2-00398|Airdrie 4-way split|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:50:11] [366/459] hansard_r2-00400|Calgary-Nolan Hill-Cochrane hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:50:31] [367/459] hansard_r2-00405|Airdrie 4-way split|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:50:47] [368/459] hansard_r2-00428|Calgary-Nolan Hill-Cochrane hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:51:06] [369/459] hansard_r2-00483|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:51:26] [370/459] hansard_r2-00505|Calgary-Nolan Hill-Cochrane hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:51:42] [371/459] hansard_r2-00548|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:52:00] [372/459] hansard_r2-00592|Calgary-Nolan Hill-Cochrane hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:52:19] [373/459] hansard_r2-00694|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:52:35] [374/459] hansard_r2-00696|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:52:52] [375/459] hansard_r2-00701|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:53:10] [376/459] hansard_r2-00751|Airdrie 4-way split|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:53:28] [377/459] hansard_r2-00751|Chestermere merging with Calgary|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:53:49] [378/459] hansard_r2-00794|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:54:06] [379/459] hansard_r2-00806|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:54:25] [380/459] hansard_r2-00814|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:54:45] [381/459] hansard_r2-00815|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:55:01] [382/459] hansard_r2-00816|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:55:19] [383/459] hansard_r2-00820|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:55:36] [384/459] hansard_r2-00822|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:55:56] [385/459] hansard_r2-00823|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:56:12] [386/459] hansard_r2-00847|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:56:31] [387/459] hansard_r2-00857|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:56:54] [388/459] hansard_r2-00858|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:57:14] [389/459] hansard_r2-00860|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:57:31] [390/459] hansard_r2-00920|Calgary-Nolan Hill-Cochrane hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:57:51] [391/459] hansard_r2-00957|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:58:11] [392/459] hansard_r2-00967|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:58:26] [393/459] hansard_r2-00974|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:58:43] [394/459] hansard_r2-00983|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:59:02] [395/459] hansard_r2-00987|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:59:20] [396/459] hansard_r2-00994|Calgary-Nolan Hill-Cochrane hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:59:38] [397/459] hansard_r2-01024|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:59:56] [398/459] hansard_r2-01025|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:00:12] [399/459] hansard_r2-01244|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:00:26] [400/459] hansard_r2-01246|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:00:49] [401/459] hansard_r2-01280|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:01:07] [402/459] hansard_r2-01282|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:01:25] [403/459] hansard_r2-01285|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:01:46] [404/459] hansard_r2-01288|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:02:04] [405/459] hansard_r2-01289|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:02:22] [406/459] hansard_r2-01293|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:02:42] [407/459] hansard_r2-01294|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:03:00] [408/459] hansard_r2-01296|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:03:20] [409/459] hansard_r2-01333|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:03:33] [410/459] hansard_r2-01336|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:03:49] [411/459] hansard_r2-01338|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:04:07] [412/459] hansard_r2-01421|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:04:25] [413/459] hansard_r2-01422|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:04:42] [414/459] hansard_r2-01424|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:05:00] [415/459] hansard_r2-01425|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:05:18] [416/459] hansard_r2-01426|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:05:32] [417/459] hansard_r2-01427|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:05:51] [418/459] hansard_r2-01433|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:06:11] [419/459] hansard_r2-01473|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:06:25] [420/459] hansard_r2-01477|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:06:41] [421/459] hansard_r2-01505|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:06:58] [422/459] hansard_r2-01506|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:07:19] [423/459] hansard_r2-01508|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:07:38] [424/459] hansard_r2-01535|Airdrie 4-way split|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:07:54] [425/459] hansard_r2-01548|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:08:13] [426/459] hansard_r2-01571|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:08:28] [427/459] hansard_r2-01574|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:08:48] [428/459] hansard_r2-01598|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:09:06] [429/459] hansard_r2-01598|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:09:22] [430/459] hansard_r2-01601|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:09:39] [431/459] hansard_r2-01602|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:09:56] [432/459] hansard_r2-01607|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:10:16] [433/459] hansard_r2-01607|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:10:31] [434/459] hansard_r2-01609|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:10:51] [435/459] hansard_r2-01617|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:11:12] [436/459] hansard_r2-01623|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:11:28] [437/459] hansard_r2-01631|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:11:45] [438/459] hansard_r2-01988|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:12:03] [439/459] hansard_r2-02088|Airdrie 4-way split|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:12:32] [440/459] hansard_r2-02088|St. Albert merging with Sturgeon County|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:12:49] [441/459] hansard_r2-02089|St. Albert merging with Sturgeon County|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:13:07] [442/459] hansard_r2-02090|St. Albert merging with Sturgeon County|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:13:24] [443/459] hansard_r2-02094|St. Albert merging with Sturgeon County|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:13:39] [444/459] hansard_r2-02101|St. Albert merging with Sturgeon County|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:14:00] [445/459] hansard_r2-02129|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:14:16] [446/459] hansard_r2-02134|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:14:36] [447/459] hansard_r2-02138|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:14:54] [448/459] hansard_r2-02144|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:15:13] [449/459] hansard_r2-02145|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:15:28] [450/459] hansard_r2-02151|Rocky Mountain House-Banff Park hybrid|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:15:45] [451/459] hansard_r2-02198|St. Albert merging with Sturgeon County|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:16:03] [452/459] hansard_r2-02282|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:16:20] [453/459] hansard_r2-02286|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:16:38] [454/459] hansard_r2-02292|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:16:54] [455/459] hansard_r2-02292|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:17:12] [456/459] hansard_r2-02293|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:17:29] [457/459] hansard_r2-02299|Airdrie 4-way split|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:17:51] [458/459] hansard_r2-02308|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[11:18:06] [459/459] hansard_r2-02333|St. Albert merging with Sturgeon County|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+
+Done. 0 scored, 459 errors.
+
+=== Intensity summary (677 rows) ===
+Traceback (most recent call last):
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\sentiment_intensity_score.py", line 287, in <module>
+    rows = list(csv.DictReader(f))
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\sentiment_intensity_score.py", line 244, in main
+    time.sleep(2)
+    ^^^^^^^^^^^^
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\sentiment_intensity_score.py", line 261, in _print_summary
+    "timestamp": datetime.now().isoformat(),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\collections\__init__.py", line 614, in __init__
+    self.update(iterable, **kwds)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\email\AppData\Local\Python\pythoncore-3.14-64\Lib\collections\__init__.py", line 709, in update
+    _count_elements(self, iterable)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\email\Documents\Claude\Projects\Electoral Boundary Analysis\alberta_audit\analysis\scripts\sentiment_intensity_score.py", line 261, in <genexpr>
+    "timestamp": datetime.now().isoformat(),
+                                     ^^^^^^^
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'

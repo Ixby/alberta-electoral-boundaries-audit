@@ -67,7 +67,11 @@ Neighbour-Drain operationalises pack-and-crack as a local, paired, directional a
 - **Directional** — the drain flows from the packed ED (surplus concentration) to the cracked ED (margin suppression); the direction is identifiable from the data
 - **Testable** — pre-registered null: if Neighbour-Drain is a real signal and not a labelling artefact, its intensity should not survive a label-shuffle permutation test on a neutral ensemble map set
 
-Applied to Alberta 2026: the minority map produces 50% more Neighbour-Drain-eligible ED pairs than the majority under identical population constraints, concentrated in the Calgary suburban ring.
+Applied to Alberta 2026: the label-shuffle null (AsPredicted #289,451, executed 2026-05-07 on official canonical shapefiles) produced an **inverted finding**. The minority map produces **zero** coupled chain signals, while the 2019 enacted map and majority 2026 map each produce coupled signals. This is the opposite of the predicted direction.
+
+**Interpretation — chain internalization, not absence.** The minority map does not eliminate packing and cracking; it eliminates the *detectable adjacency signature* by (a) merging packed rural EDs with adjacent urban EDs (e.g., Taber-Warner folded into Lethbridge-Taber-Warner, converting an inter-ED NDP drain chain into an intra-ED hybrid), and (b) rewiring central-Calgary adjacencies so that packed and cracked EDs of the same losing party are no longer direct polygon neighbours. The paired surplus concentration is internalized inside single hybrid polygons rather than expressed across an edge. The Neighbour-Drain operator cannot detect a chain that has been collapsed into a single ED — a different operator (e.g., intra-ED surplus decomposition) would be required.
+
+This is a finding, not a test failure. A map that eliminates detectable adjacency chains by merging their endpoints represents a structurally distinct engineering strategy from one that leaves the chains exposed. The result is documented at `analysis/reports/joint_outlier_score_summary.md` (Channel 3) and the full chain log at `analysis/reports/neighbour_drain_log.csv`.
 
 ### Claim to novelty
 
@@ -217,7 +221,7 @@ Applied to Alberta 2026: Version A p = 0.0303 (observed EG gap +3.92 pp vs null 
 | Contribution | Claim | Pre-reg | Status |
 | --- | --- | --- | --- |
 | DPG Framework | First formalised audit methodology for the no-official-shapefiles case; nested-polygon ownership inversion and sunset clause are novel sub-contributions | #289,449 (validation) | Methods paper draft at `analysis/reports/methods_paper_draft.md` |
-| Neighbour-Drain | First named, pre-registered ED-pair-level pack-crack adjacency metric with directional intensity measure | #289,451 (label-shuffle null) | Null pending execution |
+| Neighbour-Drain | First named, pre-registered ED-pair-level pack-crack adjacency metric with directional intensity measure | #289,451 (label-shuffle null) | Inverted finding: minority map zero coupled signals (chain internalization); documented in `novel_contributions.md` §2 and `joint_outlier_score_summary.md` Ch3 |
 | SZAT | First decomposition of between-map EG differences to individual VA boundary choices with permutation null using a real alternative map as counterfactual | #289,469 (bootstrap null) | Results: `analysis/reports/szat_summary.json` |
 | Two-Lane Scorecard | First integrated two-lane forensic audit framework with explicit lane-interaction rules, jurisdiction-calibrated thresholds, and pre-registered prospective application | #289,455 (Lunty scorecard) | Prospective; November 2026 map pending |
 | Ch1-COMP | First inter-map comparison permutation test using a neutral-ensemble null with pre-registered pessimistic prediction; V-A p=0.0303, V-B p=0.0001, both significant | OSF yvc7g | Done 2026-05-10; `analysis/reports/intermap_permutation_test_results.md` |
