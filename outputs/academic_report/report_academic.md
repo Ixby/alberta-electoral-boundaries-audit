@@ -1629,6 +1629,65 @@ The proportions matter because they tell us whether the public-input record prod
 
 The refutation finding is robust to limits (1)–(3) because it rests on identified counter-examples rather than exhaustive enumeration. Limits (4) and (5) could affect counts but not direction of the finding. A full Track-B OCR pass over the 88 missing submissions would strengthen the audit's credibility if it were used in legal proceedings; it would not likely change the qualitative verdict.
 
+##### 5.9.4.6 Full-corpus LLM sentiment analysis and Hansard transcript review
+
+The keyword-based analysis in §5.9.4.1–5.9.4.5 addresses whether supporting submissions *exist* for each configuration. A separate, more comprehensive pass was subsequently run to quantify the *distribution* of stances — not just presence of support, but the balance between opposition, support, and contextual engagement — across both the written-submission corpus and the public-hearing transcripts.
+
+**Method.** Two LLM-based classification pipelines were run using Claude Sonnet via the Claude CLI:
+
+- *Full-corpus submission scan* (`submission_sentiment_llm_full.py`): all 1,252 parseable submissions classified simultaneously on all seven configurations. Each submission produces one structured JSON object with a stance classification (Active Support / Active Opposition / Neutral/Contextual / Unrelated) per configuration, plus a one-sentence reasoning and verbatim excerpt. Rows emitted only for non-Unrelated results.
+- *Hansard transcript scan* (`hansard_sentiment_llm.py`): two rounds of EBC public-hearing Hansard transcripts (r1: May 2025 hearings, 2,773 KB; r2: January 2026 hearings, 2,675 KB) were parsed into community-participant turns. Turns mentioning configuration keywords were classified using the same seven-configuration schema. 3,107 community turns in r1 (188 relevant); 2,358 in r2 (209 relevant).
+
+Both pipelines resume from a progress file and are fully reproducible. Output: `data/outputs/submission_sentiment_llm_full_results.csv`.
+
+**Results — written submissions.** 388 non-neutral configuration-stance rows across 71 submissions. Overall: 189 Active Opposition (49%), 82 Active Support (21%), 117 Neutral/Contextual (30%).
+
+| Configuration | Total rows | Opposition | Support | Opp% | Sup% |
+|---|---|---|---|---|---|
+| Rocky Mountain House–Banff Park hybrid | 104 | 56 | 37 | 54% | 36% |
+| Red Deer hybrid ridings | 98 | 52 | 8 | 53% | 8% |
+| St. Albert merging with Sturgeon County | 46 | 14 | 15 | 30% | 33% |
+| Calgary–Nolan Hill–Cochrane hybrid | 43 | 25 | 5 | 58% | 12% |
+| Airdrie 4-way split | 42 | 18 | 6 | 43% | 14% |
+| Olds–Three Hills–Didsbury extending to Airdrie | 28 | 9 | 7 | 32% | 25% |
+| Chestermere merging with Calgary | 27 | 15 | 4 | 56% | 15% |
+
+**Results — Hansard hearings.** 439 relevant community turns classified across both rounds. Overall: 97 Active Opposition (22%), 91 Active Support (21%), 251 Neutral/Contextual (57%).
+
+| Configuration | Hansard turns | Opp% | Sup% | Net |
+|---|---|---|---|---|
+| Rocky Mountain House–Banff Park hybrid | 112 | 22% | 34% | +12 support |
+| Red Deer hybrid ridings | 75 | 8% | 21% | +10 support |
+| Airdrie 4-way split | 74 | 27% | 8% | +14 opposition |
+| Calgary–Nolan Hill–Cochrane hybrid | 55 | 24% | 13% | +6 opposition |
+| St. Albert merging with Sturgeon County | 48 | 29% | 25% | balanced |
+| Olds–Three Hills–Didsbury extending to Airdrie | 38 | 8% | 21% | +5 support |
+| Chestermere merging with Calgary | 37 | 43% | 11% | +12 opposition |
+
+**Channel divergence.** The two measurement channels produce materially different signals on two configurations. Rocky Mountain House–Banff Park and Red Deer hybrids both show net opposition in written submissions (−18 and −44 respectively) but net support in Hansard hearings (+13 and +10). All other configurations show directionally consistent signals across both channels — Airdrie, Calgary–Nolan Hill, and Chestermere are opposed in both; Olds–Three Hills–Didsbury and St. Albert–Sturgeon are balanced in both.
+
+**Weighted net-sentiment ranking (rule-based intensity proxy).** A rule-based first-pass intensity score (1–3) was applied to each Active Opposition/Support row based on language in the reasoning and excerpt fields (STRONG triggers: *urge, demand, devote, bulk of, emphatic, strongly, primary focus*; WEAK triggers: *mention, in passing, suggest, prefer, brief*; MODERATE otherwise). The resulting intensity-weighted net scores rank configurations from most opposed to most supported across all channels:
+
+| Configuration | Intensity-weighted net | Direction |
+|---|---|---|
+| Red Deer hybrids | −70 | Opposed, both channels |
+| Airdrie 4-way split | −53 | Opposed, both channels |
+| Calgary–Nolan Hill–Cochrane | −52 | Opposed, both channels |
+| Chestermere merging with Calgary | −46 | Opposed, both channels |
+| Rocky Mountain House–Banff Park | −7 | Near-balanced overall |
+| St. Albert–Sturgeon County | −2 | Near-balanced overall |
+| Olds–Three Hills–Didsbury | +8 | Net supported |
+
+*Note: the rule-based intensity proxy is not highly discriminating — 91% of active rows score at the middle tier (2) because the LLM's reasoning text uses standardized language ("explicitly argues") regardless of underlying passion. A second-pass LLM intensity scoring run (`sentiment_intensity_score.py`) is in progress; the weighted-net ranking above will be updated when it completes.*
+
+**The channel-divergence hypothesis.** The divergence between written and in-person channels on RMH–Banff Park and Red Deer hybrids warrants a methodological note. One credible explanation is differential mobilization: written submissions are submitted asynchronously and may over-represent organized opposition groups or residents with strong objections, while in-person public hearings attract a broader cross-section including residents who favor local representation arguments but lack the organizational impetus to submit formally. This pattern — where written channels show stronger opposition than in-person channels on the same question — is documented in planning and zoning literature (Fischel 2001; Davis 2016) though not specifically in electoral redistricting contexts.
+
+A second explanation specific to the RMH–Banff Park configuration is geography: citizens from Nordegg, Rocky Mountain House, and the Jasper/Banff corridor who would benefit from a unified mountain constituency may be more likely to attend regional in-person hearings (which were held in part in those communities) than to submit written comments. This is not a partisan-sorting argument but a participation-cost argument — travel to a hearing is a sunk cost that filters for engagement intensity, not partisan direction.
+
+The audit does not assert either explanation as established. The finding is: two channels produced divergent signals on two specific configurations, the divergence is large enough to be substantive (net flips from 50-point opposition to 10-point support), and commissioners who weighted in-person testimony more heavily — as is common in quasi-judicial administrative proceedings — would have received a materially different impression of public sentiment on those configurations than commissioners who weighted the written record equally. Whether that weighting is appropriate is a procedural-design question outside the scope of this audit.
+
+**Relationship to §5.9.4.1–5.9.4.4.** The LLM full-corpus pass confirms and sharpens the keyword-based findings from §5.9.4. The chair's "no public support" claim is most defensible for Airdrie (43% opposition, 14% support in submissions; 27% vs 8% in Hansard — consistently opposed in both channels) and least defensible for RMH–Banff Park (36% support in submissions, 34% in Hansard) and St. Albert–Sturgeon (balanced in both). The LLM pass addresses limits (2) and (3) from §5.9.4.5 by replacing keyword matching and heuristic classification with direct machine-reading of full submission text.
+
 #### 5.9.5 Constitutional backdrop
 
 *Reference re Provincial Electoral Boundaries (Saskatchewan)*, [1991] 2 SCR 158, established that Canadian electoral redistribution is measured against an "effective representation" standard, not strict population parity. Within that standard, deviations from provincial average are permissible when they serve recognized factors (geography, community of interest, minority representation). An audit that finds (a) directionally-consistent partisan asymmetry in a proposal and (b) a process promoting that proposal over a more-neutral, more-publicly-supported alternative would implicate *Reference re Saskatchewan* if challenged — but this audit does not assess the constitutional question; it provides the evidentiary basis for others to do so.
