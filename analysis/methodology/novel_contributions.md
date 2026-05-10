@@ -5,6 +5,8 @@
 
 Cross-ref: `analysis/reports/methods_paper_draft.md` (DPG standalone paper skeleton), `analysis/methodology/academic_literature_review.md` §9–9b (prior-art placement), `dpg_validation/dpg2_worklog.md` (pre-registration chain).
 
+> **Note on Neighbour-Drain (Channel 3):** Neighbour-Drain was a pre-registered test (AsPredicted #289,451, OSF r3zm7) that returned an inverted finding — minority map zero coupled chain signals. A post-hoc reframing as a topology classifier was considered and rejected as inconsistent with the pre-registration. The test is reported honestly in the audit body as Channel 3. It is not listed here because no novelty claim survived scrutiny. See `TODO.md` DECISION-CH3 for full record.
+
 ---
 
 ## 1. Derived Provisional Geometry (DPG) Framework
@@ -49,49 +51,7 @@ Existing redistricting-analysis frameworks (MGGG, Chen & Rodden 2013, Stephanopo
 
 ---
 
-## 2. Neighbour-Drain
-
-### What it is
-
-A local pack-crack adjacency metric. An ED pair constitutes a Neighbour-Drain when: (a) one ED is *packed* — the losing party's share exceeds the winning margin by ≥ 15 pp — and (b) the adjacent ED is *cracked* — the winning party's margin is ≤ 5 pp — and (c) the losing party is the same in both. The packed ED drains the losing party's concentrated votes away from the cracked ED next door, where those votes could have been electorally decisive. A continuous intensity measure ΔPPS (packed-pair surplus) quantifies how much losing-party concentration the coupled pair represents.
-
-### The problem it solves
-
-Pack-and-crack has been described qualitatively since at least the 2010s and appears in the US redistricting litigation record (see *Gill v. Whitford*, 585 U.S. 2018; *Rucho v. Common Cause*, 588 U.S. 2019). The existing literature operationalises it at the map level (ensemble-based; e.g., Chen & Rodden 2013) or as a categorical description of specific EDs. No prior metric quantifies the *coupling* between adjacent packed and cracked EDs as a measurable, named signal at the ED-pair level.
-
-### The specific contribution
-
-Neighbour-Drain operationalises pack-and-crack as a local, paired, directional adjacency metric rather than a map-level count. It is:
-
-- **Local** — computed on ED pairs, not map-wide; reveals which specific adjacencies drive the ensemble signal
-- **Directional** — the drain flows from the packed ED (surplus concentration) to the cracked ED (margin suppression); the direction is identifiable from the data
-- **Testable** — pre-registered null: if Neighbour-Drain is a real signal and not a labelling artefact, its intensity should not survive a label-shuffle permutation test on a neutral ensemble map set
-
-Applied to Alberta 2026: the label-shuffle null (AsPredicted #289,451, executed 2026-05-07 on official canonical shapefiles) produced an **inverted finding**. The minority map produces **zero** coupled chain signals, while the 2019 enacted map and majority 2026 map each produce coupled signals. This is the opposite of the predicted direction.
-
-**Interpretation — chain internalization, not absence.** The minority map does not eliminate packing and cracking; it eliminates the *detectable adjacency signature* by (a) merging packed rural EDs with adjacent urban EDs (e.g., Taber-Warner folded into Lethbridge-Taber-Warner, converting an inter-ED NDP drain chain into an intra-ED hybrid), and (b) rewiring central-Calgary adjacencies so that packed and cracked EDs of the same losing party are no longer direct polygon neighbours. The paired surplus concentration is internalized inside single hybrid polygons rather than expressed across an edge. The Neighbour-Drain operator cannot detect a chain that has been collapsed into a single ED — a different operator (e.g., intra-ED surplus decomposition) would be required.
-
-This is a finding, not a test failure. A map that eliminates detectable adjacency chains by merging their endpoints represents a structurally distinct engineering strategy from one that leaves the chains exposed. The result is documented at `analysis/reports/joint_outlier_score_summary.md` (Channel 3) and the full chain log at `analysis/reports/neighbour_drain_log.csv`.
-
-### Claim to novelty
-
-> "Neighbour-Drain" is coined in this audit (AsPredicted #289,451, 2026-05-06). A targeted search of the redistricting literature found no established named measure for the specific adjacency coupling described above. The term and its continuous intensity variant (ΔPPS) are proposed as a contribution to the pack-crack operationalisation literature, pending fuller prior-art review.
-
-### Prior art this builds on
-
-- Informal "pack-and-crack" terminology in US litigation and commentary
-- "Pizza-slice" / "hub-and-spoke" urban district descriptions (Rodden 2019; Chen & Rodden 2013)
-- McGhee (2014/2015) efficiency gap — map-level complement to the pair-level Neighbour-Drain
-- Urban Hybridization count (this audit) — map-level predecessor to the pair-level metric
-
-### Pre-registration
-
-- AsPredicted #289,451 — Neighbour-Drain label-shuffle null (pending execution)
-- OSF: [r3zm7](https://osf.io/r3zm7/)
-
----
-
-## 3. Swing-Zone Allocation Test (SZAT)
+## 2. Swing-Zone Allocation Test (SZAT)
 
 ### What it is
 
@@ -128,7 +88,7 @@ Applied to Alberta 2026: SZAT score = +0.039211 (p = 0.0024, two-tailed bootstra
 
 ---
 
-## 4. Two-Lane Forensic Scorecard
+## 3. Two-Lane Forensic Scorecard
 
 ### What it is
 
@@ -181,7 +141,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 
 ---
 
-## 5. Inter-Map Comparison Permutation Test (Ch1-COMP)
+## 4. Inter-Map Comparison Permutation Test (Ch1-COMP)
 
 ### What it is
 
@@ -221,11 +181,10 @@ Applied to Alberta 2026: Version A p = 0.0303 (observed EG gap +3.92 pp vs null 
 | Contribution | Claim | Pre-reg | Status |
 | --- | --- | --- | --- |
 | DPG Framework | First formalised audit methodology for the no-official-shapefiles case; nested-polygon ownership inversion and sunset clause are novel sub-contributions | #289,449 (validation) | Methods paper draft at `analysis/reports/methods_paper_draft.md` |
-| Neighbour-Drain | First named, pre-registered ED-pair-level pack-crack adjacency metric with directional intensity measure | #289,451 (label-shuffle null) | Inverted finding: minority map zero coupled signals (chain internalization); documented in `novel_contributions.md` §2 and `joint_outlier_score_summary.md` Ch3 |
 | SZAT | First decomposition of between-map EG differences to individual VA boundary choices with permutation null using a real alternative map as counterfactual | #289,469 (bootstrap null) | Results: `analysis/reports/szat_summary.json` |
 | Two-Lane Scorecard | First integrated two-lane forensic audit framework with explicit lane-interaction rules, jurisdiction-calibrated thresholds, and pre-registered prospective application | #289,455 (Lunty scorecard) | Prospective; November 2026 map pending |
 | Ch1-COMP | First inter-map comparison permutation test using a neutral-ensemble null with pre-registered pessimistic prediction; V-A p=0.0303, V-B p=0.0001, both significant | OSF yvc7g | Done 2026-05-10; `analysis/reports/intermap_permutation_test_results.md` |
 
 ---
 
-*Document version 1.2 — 2026-05-10*
+*Document version 1.3 — 2026-05-10*

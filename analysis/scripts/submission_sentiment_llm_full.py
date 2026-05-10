@@ -43,12 +43,9 @@ logger = logging.getLogger(__name__)
 # ── Paths ─────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent.parent
 
-try:
-    sys.path.insert(0, str(ROOT / "analysis" / "utils"))
-    import data_loader
-    DATA_DIR = data_loader._resolve_path("data")
-except Exception:
-    DATA_DIR = ROOT / "data"
+sys.path.insert(0, str(ROOT / "analysis" / "utils"))
+from data_loader import _resolve_path
+DATA_DIR = _resolve_path("data")
 
 TEXT_DIR    = ROOT / ".temp" / "submissions" / "text"
 OUTPUT_CSV  = DATA_DIR / "outputs" / "submission_sentiment_llm_full_results.csv"

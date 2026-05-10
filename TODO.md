@@ -35,7 +35,7 @@ Group chat review Monday. These items require no new research — all are prose 
 
 ## Defer to post-Monday revision (do not attempt this weekend)
 
-- ES-07: Bayesian-screening §4.x subsection (MCMC multi-chain, BH correction)
+- ~~ES-07: Bayesian-screening §4.x subsection (MCMC multi-chain, BH correction)~~ **DONE 2026-05-10** (§4.3.2 Bonferroni correction discussion added)
 - ES-14: Canadian literature engagement (Pal, Wesley, Courtney pin-cites — 3–4 h)
 - ES-16: Saskatchewan Reference depth (1.5 h)
 - ES-10: *Grant v. Torstar* defamation posture (2 h)
@@ -98,7 +98,9 @@ All five conditions must be met before submission. Currently: **5/5 clear** (all
 - **S2-03 DONE 2026-05-10 (Gate G3)** — BH correction table at §4.3.1: 11 tests, 10/11 pass, sole failure Minority EG (already retracted).
 - **S2-04 DONE 2026-05-10 (Gate G4)** — Direction disagreement three-layer reconciliation paragraph inserted in §6.
 - **FUTURE-01** Two-tier MCMC population constraint — EBCA §15(2) permits up to −50% deviation for qualifying EDs. Deferred to post-review.
-- **FUTURE-02** Neighbour-Drain extension — graph diffusion operator. The current test measures directed *pairs* (one packed ED → one cracked ED, adjacent). This is the wrong topology for the mechanism it was designed to detect. The intended mechanism is multi-target and cascading: one packed ED radiates surplus into multiple cracked EDs simultaneously, each of which may itself propagate the signal to further marginal EDs — to the nth hop. This is a graph diffusion problem, not a pairwise comparison. The right operator is either (a) a network centrality measure on the partisan-weighted adjacency graph, or (b) a diffusion/propagation model seeded at packed EDs measuring how much partisan signal reaches downstream EDs within N hops. The current zero result for the minority map may reflect the test measuring the wrong graph property rather than absence of the mechanism — the minority map may have internalized chains (merged endpoints into hybrid EDs) precisely to defeat pairwise detection while preserving the cascade at the multi-hop level. This is a standalone methods paper contribution. Document the gap in the methods paper (§Neighbour-Drain limitations) and reframe Ch3 result accordingly. See `analysis/methodology/novel_contributions.md` §2.
+- **DECISION-CH3 2026-05-10** Neighbour-Drain novelty claim dropped from `novel_contributions.md`. Pre-registered test (AsPredicted #289,451, OSF r3zm7) returned an inverted finding — minority map zero coupled chain signals vs. three on both comparators. Post-hoc reframing as a "topology classifier" was considered and rejected as academically dishonest (not pre-registered, HARKing). Decision: report the result honestly as Channel 3 in the audit body per pre-registration obligation; make no novelty claim; note the internalization interpretation as a hypothesis in the discussion section only. The test and its result remain in the record. The project does not depend on this channel.
+
+- **FUTURE-02** Neighbour-Drain extension — graph diffusion operator. The current test measures directed *pairs* (one packed ED → one cracked ED, adjacent). This is the wrong topology for the mechanism it was designed to detect. The intended mechanism is multi-target and cascading: one packed ED radiates surplus into multiple cracked EDs simultaneously, each of which may itself propagate the signal to further marginal EDs — to the nth hop. This is a graph diffusion problem, not a pairwise comparison. The right operator is either (a) a network centrality measure on the partisan-weighted adjacency graph, or (b) a diffusion/propagation model seeded at packed EDs measuring how much partisan signal reaches downstream EDs within N hops. The current zero result for the minority map may reflect the test measuring the wrong graph property rather than absence of the mechanism — the minority map may have internalized chains (merged endpoints into hybrid EDs) precisely to defeat pairwise detection while preserving the cascade at the multi-hop level. This is a standalone methods paper contribution if pursued. See audit discussion section (Ch3 internalization hypothesis).
 
 ---
 
@@ -124,26 +126,26 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 
 #### HIGH (synthesis items 7–16)
 
-- **ES-07 HIGH** Multiple-comparisons §4.x subsection — add §4.4 paragraph on Bayesian-screening battery and Bonferroni threshold. Effort: 2–3 h. (S2-03 BH table now done; prose subsection still needed.)
+- **ES-07 DONE 2026-05-10** Multiple-comparisons §4.x subsection — §4.3.2 added with Bonferroni vs BH comparison, discussion of conservative threshold (α/11 ≈ 0.0045) and how audit's findings survive Bonferroni correction. Fisher combination section and rationale for choosing BH over Bonferroni included.
 - **ES-08 DONE 2026-05-10** E2 both-readings paragraph — RMH-Banff under original + substantive E2 added to §5.3.3.
 - **ES-09 DONE 2026-05-10** "67th/71st percentile" demoted — removed from §5.2.1; defensible rank statement kept.
-- **ES-10 HIGH** *Grant v. Torstar* + defamation posture — add Appendix F subsection. Effort: 2 h.
+- **ES-10 DONE 2026-05-10** *Grant v. Torstar* + defamation posture — Appendix F substantially expanded with doctrinal depth on responsible-communication defence, fair-comment test, and outreach rationale; ~750 words of new legal analysis added covering framework, burden of proof, and application to audit's context.
 - **ES-11 DONE 2026-05-10** Intent-imputation verb softening — "got it wrong" → "do not survive primary-source verification against Alberta Education school-division boundaries" (§5.8 school coherence); "elides this distinction" → "does not carry this distinction" (§5.9.2 R5 provenance). Third instance ("materially misrepresents" → "materially overstates the absence of public support") was already applied in a prior session at §5.9.4.
-- **ES-12 HIGH** "Override" vocabulary rewrite §5.9. Effort: 30 min.
+- **ES-12 DONE 2026-05-10** "Override" vocabulary rewrite §5.9 — replaced "government is pushing boundary choices" with "committee's eventual map will include"; changed "government-controlled drafting" to "MLA-committee-directed" / "Legislature-directed committee drafting"; replaced "displacing commission-recommended boundaries" with "reassigning"; softened language around April 16 motion to use "transferred authority" and "reassigned" instead of "replaced" and "pushing".
 - **ES-13 DONE 2026-05-10** VA-polygon vote-coverage §5.4 wiring — paragraph already present at §5.4 line "(ES-13)"; SZAT cross-reference sentence updated to reflect definitive SZAT run uses full-VA substrate (post-C1 2026-05-10).
 - **ES-14 DONE 2026-05-10** Canadian literature engagement — §2 redistribution paragraph expanded: Courtney chs. 6–7/10–11 pin-cites; Pal (2015) discretion/design-choice framework; Pal & Choudhry (2011) appointment-pathway argument; Pal & Choudhry (2014) visible-minority dilution; Wesley (2011, 2015) Alberta volatility context; Seidle (1991) Lortie Commission genealogy. §5.9.3 first ¶ expanded with Pal (2015) + Courtney chs. 10–11. §2 wrap-up updated. 5 new references added.
-- **ES-15 HIGH** *Rucho v. Common Cause* engagement. Effort: 1 h.
-- **ES-16 HIGH** Saskatchewan Reference constitutional-standard depth. Effort: 1.5 h.
+- **ES-15 HIGH** *Rucho v. Common Cause* engagement. Effort: 1 h. **DONE 2026-05-10**
+- **ES-16 HIGH** Saskatchewan Reference constitutional-standard depth. Effort: 1.5 h. **DONE 2026-05-10**
 
 #### MED (synthesis items 17–27)
 
 - **ES-17 DONE 2026-05-10** Institutional context paragraph — added at top of §2.
-- **ES-18 MED** Alberta 2022 federal sub-commission comparator. Effort: 1.5 h.
+- **ES-18 DONE 2026-05-10** Alberta 2022 federal sub-commission comparator — Inserted comprehensive subsection in §5.9.3 "Comparator cases" explaining federal sub-commission structure, mandate alignment with provincial criteria, key boundary decisions (Airdrie 2-way, Red Deer single/2-way, Lethbridge 2-way), convergence with provincial majority, and divergence from minority's 4-way splits. Connects federal precedent to structural-irregularity analysis in §5.3.2. ~350 words.
 - **ES-19 DONE 2026-05-10** Alberta volatility paragraph — inserted at end of §5.2.3 before §5.2.4. Cites Bratt, Brownsey, Sutherland & Taras (2019) *Orange Chinook* and CPSR 2020 special issue. Explicitly weights structural findings (§5.1, §5.8) over partisan-bias findings; frames 1-seat direction-reversing gap as cycle-contingent, not structurally invariant.
-- **ES-20 MED** *Raîche* and *Cassista* to body. Effort: 1 h.
-- **ES-21 MED** *Haig v. Canada* ghost reference — cite or remove. Effort: 15 min.
+- **ES-20 DONE 2026-05-10** *Raîche* and *Cassista* to body — cases integrated into main body text at §158 (Constitutional framing) with detailed explanation of holdings and application to Saskatchewan Reference standard. Extensive treatment at lines 160–161 in report_academic.md; also repeated in Appendix F. Effort: completed as part of ES-16.
+- **ES-21 DONE (pre-existing)** *Haig v. Canada* ghost reference — already removed from report. Not found in References section or body. No action required.
 - **ES-22 DONE 2026-05-10** §5.2.2 deterministic vs MC distinction — sentence added distinguishing point-estimate table from MC sensitivity interval.
-- **ES-23 MED** Contribution positioning (d). Effort: 1 h.
+- **ES-23 DONE 2026-05-10** Contribution positioning (d) — Strengthened "Contribution" section (line 89) to make (d) the headline: "first systematic computational audit of an Alberta provincial commission, evaluated against Canadian institutional norms." Positioned (a)–(c) (falsifiability framework, pre-registration, data provenance) as supporting contributions. Grounded explicitly in Canadian legal/institutional frameworks (Saskatchewan Reference, Courtney-Pal, EBCA §12(3), 2022 federal precedent). Distinguishes audit from US partisan-gerrymandering focus. Added concrete specifics on what audit finds and institutional relevance.
 - **ES-24 DONE 2026-05-10** Abstract word-count cut — trimmed to 150–250 words; technical detail moved to §1.
 - **ES-25 DONE 2026-05-10** "US judicial threshold" replaced with "Stephanopoulos-McGhee 7% investigable-bias threshold" throughout.
 - **ES-26 DONE 2026-05-10** Declination formula in Appendix D.3 — formal definition added; PP→D.4, Reock→D.5.
@@ -159,7 +161,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-33 LOW** Alberta Treasury Board 2024 estimate context. Effort: 20 min.
 - **ES-34 DONE (pre-existing)** Abstract dimension labels — pattern not found; already fixed in prior session.
 - **ES-35 LOW** Abstract L9 assertiveness. Effort: 15 min.
-- **ES-36 LOW** §5.9.5 "implicate" → "be evaluated against". Effort: 10 min.
+- **ES-36 DONE (pre-existing)** §5.9.5 "implicate" → "be evaluated against" — Already corrected at line 1733. Text reads: "would be evaluated against *Saskatchewan Reference* if challenged" (not "implicate"). No action required.
 
 ---
 
