@@ -352,7 +352,7 @@ The audit does not rely on any single statistical test for its conclusions; the 
 
 **Scope.** The table includes all formal tests that yield a computable p-value against an explicit null distribution. Purely qualitative structural checks (packing/cracking/engineered-boundary signatures, municipal anchoring ratio) are not included because they do not produce p-values. The Fisher combined result (p = 1.55×10⁻⁸) is excluded from the battery as it is derived from Ch1 and Ch2 and is not independent of them.
 
-**p-value derivation for MCMC percentile tests.** A minority map at ensemble percentile p_pct in the UCP-favoured tail yields a one-tailed p-value of (1 − p_pct/100). A majority or minority map in the NDP-favoured tail yields p = p_pct/100. Seats@50/50 at p100 (0/250,000 neutral plans exceeded the minority value) yields p < 4×10⁻⁶.
+**p-value derivation for MCMC percentile tests.** A minority map at ensemble percentile p_pct in the UCP-favoured tail yields a one-tailed p-value of (1 − p_pct/100). A majority or minority map in the NDP-favoured tail yields p = p_pct/100. Row 3 (Seats@50/50) uses the raw 250k ensemble where 0/250,000 plans exceeded the minority value (p < 4×10⁻⁶); the 250k full-coverage rescore places this at p94.3 (ESS-adjusted lower bound: p89.72 — inside the neutral band, flag retracted; see §5.4.9). Row 3 is retained in the BH battery for completeness but is not counted among the audit's positive findings.
 
 | Rank | Test | Map | p (raw) | p (BH-adj) | α = 0.05 |
 | --- | --- | --- | --- | --- | --- |
@@ -832,7 +832,7 @@ Four additional partisan-bias metrics were computed against v0_7 DPG boundaries 
 | Partisan Gini (sv-curve asymmetry) | — | +0.029 | **+0.038** |
 | Responsiveness (slope at 50%) | — | **0.76** | 1.41 |
 
-**Partisan Bias.** Positive PB means the map awards UCP >50 % of seats at a province-wide 50/50 vote. The majority 2026 map has PB = +0.0152, placing it at the 100th percentile of the ensemble (every neutral alternative produces a smaller UCP seat share at 50/50). The minority's PB = −0.0211 (p93.6) — slightly NDP-favoured at a tied election, consistent with the minority's higher responsiveness.
+**Partisan Bias.** Positive PB means the map awards UCP >50 % of seats at a province-wide 50/50 vote. The majority 2026 map has PB = +0.0152, placing it above 99.9% of the ensemble (ESS-adjusted lower bound: at least p95 — every observed neutral alternative produces a smaller UCP seat share at 50/50, but the chain's effective sample size limits precision at the extreme tail). The minority's PB = −0.0211 (p93.6) — slightly NDP-favoured at a tied election, consistent with the minority's higher responsiveness.
 
 **Lopsided Margins (Wang 2016).** All three maps show statistically significant asymmetry (t > 3, p < 0.005): UCP wins by systematically larger margins than NDP wins. This pattern is consistent with natural geographic sorting (NDP voters packed in urban cores by vote geography, not exclusively by drawing) rather than engineered packing, because it persists in the 2019 map. The majority 2026 map has a slightly larger t-statistic than the minority; the 2019 enacted map also shows the same pattern. The lopsided-margins signal is not therefore a distinctive feature of either 2026 proposal — it is a structural property of Alberta's political geography that any legal map inherits.
 

@@ -94,7 +94,7 @@ All five conditions must be met before submission. Currently: **5/5 clear** (all
 
 - **S2-01 DONE 2026-05-10** MCMC ESS precision disclosure — canonical 4-chain R-hat table inserted in §5.4 (GR92 + Vehtari 2021 side-by-side); worst-chain ESS 63–94 reported; EG/declination marginal V21 failure disclosed with Ch1 headroom note. OSF s58a6 Section B. Output: `data/outputs/rhat_diagnostic_section_b.json`.
 - **S2-02 DONE 2026-05-10 (Gate G2)** — 250k canonical values propagated to §5.4.9, §5.5, §6.2.1, §6.2.2. Minority EG retracted (p94.2); majority MM p0.85 NDP-tail documented with mechanism explanation.
-- **S9-01** p100 language recalibration — "above the entire ensemble" requires calibrated wording throughout §5.4, §5.5, §6, §8. **Outstanding.**
+- **S9-01 DONE 2026-05-10** p100 language recalibration — BH footnote (§4.3.1) updated: row 3 retracted, ESS caveat + full-coverage rescore note added. Partisan Bias prose (§5.6): "100th percentile" → "above 99.9% of the ensemble (ESS-adjusted lower bound: at least p95)". Table cells in §5.4 governed by existing ESS-downgrade paragraph — no change.
 - **S2-03 DONE 2026-05-10 (Gate G3)** — BH correction table at §4.3.1: 11 tests, 10/11 pass, sole failure Minority EG (already retracted).
 - **S2-04 DONE 2026-05-10 (Gate G4)** — Direction disagreement three-layer reconciliation paragraph inserted in §6.
 - **FUTURE-01** Two-tier MCMC population constraint — EBCA §15(2) permits up to −50% deviation for qualifying EDs. Deferred to post-review.
@@ -220,7 +220,7 @@ Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
 - **Hansard R1 DONE 2026-05-10:** 188/188 community turns classified.
 - **Hansard R2 DONE 2026-05-10:** 209/209 community turns classified.
 - **§5.9.4.6 written + committed DONE 2026-05-10:** Channel-divergence analysis, per-config tables, intensity-weighted ranking, partisan-sorting caveat. RMH-Banff and Red Deer flip from net-opposed (submissions) to net-supported (Hansard). Airdrie/Chestermere/Nolan-Hill consistently opposed both channels.
-- **Intensity scoring pass IN PROGRESS:** `sentiment_intensity_score.py` — 459 active rows, haiku model, ~4h ETA from start. Update §5.9.4.6 weighted-net table when complete.
+- **Intensity scoring pass IN PROGRESS:** `sentiment_intensity_score.py` — 459 active rows, haiku model, ~4h ETA. Relaunched 2026-05-10 (bg02j9iz7) after prior session expired with 0 rows written. Log: `analysis/reports/isr_run1.log`. When complete: update §5.9.4.6 weighted-net table.
 - **Remaining forensic pipeline:** `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
 - **Cross-reference:** Final results against `minority_rationales_validation.md` Proposals A–F
 - **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/`
@@ -349,10 +349,9 @@ Deferred after Safety Track completion:
 - `sys.path` removal, `data_loader` abstraction, `mcmc_runner` consolidation
 - `ruff` config + `mypy`, `iterrows` migration, TypedDict types
 
-### Paper Methodology Section — Fisher Defense
+### Paper Methodology Section — Fisher Defense — **DONE**
 
-- Write `analysis/methodology/fisher_combination_defense.md` — see Fisher Combination Defense item above
-- Trim "Recommended paper language" block from `fisher_independence_defense.md`
+- `fisher_combination_defense.md` written (AV1–AV8); `fisher_independence_defense.md` trimmed. See Computational Blockers section above.
 
 ---
 
