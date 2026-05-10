@@ -20,7 +20,7 @@ Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and 
 
 ## Part II: The 250,000-Map Litmus Test {.new-page}
 
-![How skewed each map looks on the partisan-fairness number. Both 2026 maps sit beyond the Alberta line at ~5%; only the minority also crosses the US line at 7%. The further right the dot, the more the map favours the UCP relative to its provincial vote share.](data/maps/article/lane1_dotplot.svg)
+![How skewed each map looks on the partisan-fairness number. The majority sits at +0.1% — inside the normal range. The minority sits at +4.0%, just below the Alberta line at ~4.1%. The further right the dot, the more the map favours the UCP relative to its provincial vote share.](data/maps/article/lane1_dotplot.svg)
 
 
 
@@ -210,7 +210,7 @@ The audit's central finding is geometric. **Lane 2 — the structural-irregulari
 
 The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the map fails, out of five, where higher means more structural problems). The bottom-left corner is "clean on both lanes." The top-right corner is "out of bounds on both lanes."
 
-![The two ways of measuring the maps, plotted together. Left-to-right: how skewed the map looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the map fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 map (purple) drifts right (partisan skew) but stays low (no structural problems). The minority 2026 map (green) sits in the worst corner: high on both.](data/maps/article/verdict_quadrant.svg){: .verdict-hero }
+![The two ways of measuring the maps, plotted together. Left-to-right: how skewed the map looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the map fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 map (purple) stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 map (green) is a structural outlier on all five tests; its efficiency gap (+4.0%) sits just below the Alberta threshold line.](data/maps/article/verdict_quadrant.svg){: .verdict-hero }
 
 The same verdict in plain summary form, leading with the structural finding because that is what the cross-validated evidence supports most strongly:
 

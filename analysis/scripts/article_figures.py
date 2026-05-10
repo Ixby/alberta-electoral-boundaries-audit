@@ -84,16 +84,16 @@ plt.rcParams.update(
 
 
 def build_lane1_dotplot() -> Path:
-    """Lane 1 EG dot plot — v0_9 substrate values against two reference
-    lines: the audit's Alberta-calibrated p95 (~4%) and the US 7% line."""
+    """Lane 1 EG dot plot — canonical official EA shapefile values against two reference
+    lines: the audit's Alberta-calibrated p95 (~4.1%) and the US 7% line."""
     fig, ax = plt.subplots(figsize=(6.4, 2.6), dpi=300)
 
-    # v0_9 topological substrate canonical values (final_real_map_scores.json)
-    alberta_line = 4.03  # ensemble p95 from simulated_ensemble_percentiles_250k.csv
+    # canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
+    alberta_line = 4.11  # ensemble p95 from simulated_ensemble_percentiles_canonical.csv (0.041086)
     us_line = 7.00
     rows = [
-        ("Majority 2026", 1.44, MAJORITY_PURPLE),
-        ("Minority 2026", 1.75, MINORITY_GREEN),
+        ("Majority 2026", 0.10, MAJORITY_PURPLE),
+        ("Minority 2026", 4.02, MINORITY_GREEN),
     ]
 
     y_positions = [1, 0]
@@ -134,7 +134,7 @@ def build_lane1_dotplot() -> Path:
     ax.text(
         alberta_line + 0.15,
         1.85,
-        "Alberta line\n~4%",
+        "Alberta line\n~4.1%",
         color=THRESHOLD_RED,
         fontsize=7,
         fontweight="bold",
@@ -382,7 +382,7 @@ def build_bias_structure_matrix() -> Path:
     ]
 
     threshold_eg_alberta = (
-        3.90  # canonical ensemble p95 (simulated_ensemble_raw_samples_canonical.csv)
+        4.11  # canonical ensemble p95 (simulated_ensemble_percentiles_canonical.csv: 0.041086)
     )
     threshold_eg_us = 7.0
     threshold_struct = 4
@@ -434,7 +434,7 @@ def build_bias_structure_matrix() -> Path:
     ax.text(
         threshold_eg_alberta,
         YMAX - 0.05,
-        "Alberta line ~4%",
+        "Alberta line ~4.1%",
         color=THRESHOLD_RED,
         fontsize=8.5,
         fontweight="bold",
