@@ -672,4 +672,42 @@ ERROR
 ERROR
 [10:41:04] [336/459] hansard_r1-02001|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
 ERROR
-[10:41:23] [337/459] hansard_r1-02002|Chestermere merging with Calgary|hansard_r1 ... 
+[10:41:23] [337/459] hansard_r1-02002|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:41:38] [338/459] hansard_r1-02006|Rocky Mountain House-Banff Park hybrid|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:42:01] [339/459] hansard_r1-02034|Calgary-Nolan Hill-Cochrane hybrid|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:42:20] [340/459] hansard_r1-02248|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:42:39] [341/459] hansard_r1-02251|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:42:56] [342/459] hansard_r1-02286|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:43:14] [343/459] hansard_r1-02295|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:43:31] [344/459] hansard_r1-02296|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:43:51] [345/459] hansard_r1-02307|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:44:13] [346/459] hansard_r1-02858|Rocky Mountain House-Banff Park hybrid|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:44:30] [347/459] hansard_r1-02939|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:44:52] [348/459] hansard_r1-02944|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:45:13] [349/459] hansard_r1-02947|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:45:30] [350/459] hansard_r1-02964|Airdrie 4-way split|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:45:48] [351/459] hansard_r1-02966|Calgary-Nolan Hill-Cochrane hybrid|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:46:08] [352/459] hansard_r1-02966|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:46:23] [353/459] hansard_r1-02970|Airdrie 4-way split|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:46:39] [354/459] hansard_r1-02993|St. Albert merging with Sturgeon County|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:46:55] [355/459] hansard_r1-03032|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:47:16] [356/459] hansard_r1-03039|Chestermere merging with Calgary|hansard_r1 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
