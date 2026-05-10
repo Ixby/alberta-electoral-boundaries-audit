@@ -88,7 +88,7 @@ All five conditions must be met before submission. Currently: **5/5 clear** (all
 - **S1 DONE 2026-05-09** B4 uniform swing footnote added.
 - **S2 DONE 2026-05-09** Bonferroni note added below §5.2.1 table.
 - **S3 DONE 2026-05-09** §1.2 preamble rewritten.
-- **S4 MINOR** Small-N noise floor not disclosed — SE of EG in 89-district system is ~1–2pp; the -1.42pp asymmetry is near the lower bound of reliable detection. Add to MC CI section. Effort: 20 minutes.
+- **S4 DONE 2026-05-10** Small-N noise floor — SE ~1–2pp paragraph added to §5.2.3 after sensitivity interval discussion; 1.41pp central asymmetry characterised as near lower bound of reliable detection at 89 seats.
 
 ### Statistical Corrections — Status
 
@@ -138,7 +138,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 
 - **ES-17 DONE 2026-05-10** Institutional context paragraph — added at top of §2.
 - **ES-18 MED** Alberta 2022 federal sub-commission comparator. Effort: 1.5 h.
-- **ES-19 MED** Alberta volatility paragraph — Bratt et al. 2019; weight structural findings over partisan-bias findings. Effort: 1 h.
+- **ES-19 DONE 2026-05-10** Alberta volatility paragraph — inserted at end of §5.2.3 before §5.2.4. Cites Bratt, Brownsey, Sutherland & Taras (2019) *Orange Chinook* and CPSR 2020 special issue. Explicitly weights structural findings (§5.1, §5.8) over partisan-bias findings; frames 1-seat direction-reversing gap as cycle-contingent, not structurally invariant.
 - **ES-20 MED** *Raîche* and *Cassista* to body. Effort: 1 h.
 - **ES-21 MED** *Haig v. Canada* ghost reference — cite or remove. Effort: 15 min.
 - **ES-22 DONE 2026-05-10** §5.2.2 deterministic vs MC distinction — sentence added distinguishing point-estimate table from MC sensitivity interval.
