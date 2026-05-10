@@ -17,17 +17,20 @@ The sentiment analysis of public submissions to the Electoral Boundaries Commiss
 
 ## Work Completed
 
-### 1. Sentiment Intensity Scoring (920 rows)
+### 1. Sentiment Intensity Scoring (962 rows, limited coverage)
 
 **Script:** `analysis/scripts/sentiment_intensity_score.py`  
 **Output:** `data/outputs/sentiment_intensity_scores.csv`  
-**Status:** COMPLETE
+**Status:** COMPLETE (with major coverage limitation)
 
-- **Full-corpus submissions:** 388 rows (71 unique submissions, 49% opposition / 21% support)
-- **Hansard Round 1:** 188 rows (188 community turns, classified)
-- **Hansard Round 2:** 209 rows (209 community turns, classified)
+- **Full-corpus submissions:** 587 rows from 182 unique submissions (14.5% of 1,252 total)
+  - ⚠️ **CRITICAL GAP:** Full-corpus scan (`submission_sentiment_llm_full.py`) only processed 182 of 1,252 submissions
+  - Cause unknown; may have been interrupted or encountered errors on remaining submissions
+  - Remaining ~1,070 submissions (85.5%) were not classified
+- **Hansard Round 1:** 169 rows (community turns classified)
+- **Hansard Round 2:** 206 rows (community turns classified)
 - **Intensity scoring:** LLM-assessed on 1–3 scale (1=passing mention, 2=clear position, 3=primary focus) using Claude Haiku via CLI with JSON schema output
-- **Total rows:** 920 (including ~135 rows from preliminary full-corpus and Hansard consolidation)
+- **Total rows:** 962 (587 full-corpus + 169 hansard_r1 + 206 hansard_r2)
 
 **Data structure:**
 ```
@@ -192,7 +195,7 @@ Configurations with validated-as-strong rationales (Airdrie commute tie, Joffre 
 - Cross-reference document (detailed rationale×sentiment mapping)
 
 **Report language:**
-> "The minority map's proposed configurations faced measurable public opposition in the submission corpus (weighted-net sentiment: −154 for Red Deer, −122 for Calgary–Nolan Hill). This opposition was consistent across channels (submissions and Hansard) except for Red Deer and RMH-Banff, where Hansard participants showed greater support. The opposition does not correlate with rationale strength; configurations with empirically valid commute-flow rationales received stronger opposition than weaker-rationale configurations, suggesting public concerns tracked structural and procedural dimensions rather than the substantive basis of community-of-interest claims."
+> "The minority map's proposed configurations faced measurable public opposition in the classified submission sample (182 of 1,252 submissions processed; weighted-net sentiment: −154 for Red Deer, −122 for Calgary–Nolan Hill). This opposition was consistent across channels among the submissions classified (submissions and Hansard) except for Red Deer and RMH-Banff, where Hansard participants showed greater support. The opposition does not correlate with rationale strength in the processed sample; configurations with empirically valid commute-flow rationales received stronger opposition than weaker-rationale configurations, suggesting public concerns among the classified submissions tracked structural and procedural dimensions rather than the substantive basis of community-of-interest claims. ⚠️ **Note:** This analysis covers 14.5% of the submission corpus; the remaining 85.5% (1,070 submissions) were not classified due to a limitation in the full-corpus scan. Results are indicative of the processed sample only."
 
 ---
 
@@ -205,13 +208,25 @@ Configurations with validated-as-strong rationales (Airdrie commute tie, Joffre 
 - **Documentation:** Cross-reference document provides detailed rationale mapping and alignment analysis
 
 ### Limitations
+
+⚠️ **CRITICAL:** 
+- **Incomplete submission corpus:** Only 182 of 1,252 submissions (14.5%) were processed. The full-corpus scan stopped early; cause unknown. Remaining 1,070 submissions were not classified.
+- **Sampling bias:** Results may not represent the full body of public submissions if the 182 processed submissions are non-random (e.g., submitted early, from specific regions, etc.).
+- **Impact on generalizability:** Sentiment findings apply only to the 182-submission subset, NOT to the full 1,252-submission corpus.
+
+**Other limitations:**
 - **No inter-coder reliability:** LLM scoring not validated against human labels (forensic pipeline deferred)
 - **Binary classification:** Support/Opposition only; Neutral/Contextual entries are omitted from aggregation
 - **No quote verification:** Quotes in LLM output not systematically verified against source documents
 - **Exploratory status:** Sentiment findings are evidentiary context for structural analysis, not standalone proof
 
 ### Evidentiary Posture
-Sentiment analysis is **exploratory-reproducible**: computational seeds are committed and results are reproducible, but the analysis was not formally pre-registered before execution (unlike Ch3/November pre-registrations). The findings support the procedural narrative in §5.9 (minority's rationales were subject to public scrutiny and found wanting on structural grounds) but should be treated as context rather than as independent confirmation of "lack of public support."
+Sentiment analysis is **exploratory-reproducible, but severely limited by incomplete coverage**: 
+- Computational seeds are committed and results are reproducible for the 182 processed submissions
+- The analysis was not formally pre-registered before execution (unlike Ch3/November pre-registrations)
+- **The incomplete corpus (14.5% coverage) means findings cannot be generalized to the full body of public submissions**
+- Results support the procedural narrative in §5.9 for the *subset* of submissions analyzed (minority's rationales were subject to public scrutiny among the 182 classified submissions)
+- Should be treated as **contextual evidence from a partial sample**, not as representative of public opinion or as confirmation of "lack of public support" across the full submission corpus
 
 ---
 
