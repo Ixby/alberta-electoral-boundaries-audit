@@ -177,6 +177,41 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 
 ---
 
+## 5. Inter-Map Comparison Permutation Test (Ch1-COMP)
+
+### What it is
+
+A permutation test that directly compares the partisan-metric positions of two real proposed maps against the distribution of distances between randomly drawn neutral-plan pairs. Two versions: Version A (EG-only, one-tailed); Version B (Mahalanobis joint over all four partisan metrics, one-tailed in distance). The null is constructed by sampling 10,000 random plan pairs from the neutral ensemble and computing their partisan-metric distances; the observed minority-majority distance is compared to this empirical null.
+
+### The problem it solves
+
+Ch1 (Mahalanobis absolute position) establishes that the minority map is an outlier relative to the neutral ensemble. It does not establish that the minority-majority asymmetry is a genuine feature of the map pair rather than a shared-constraint artefact. Ch1-COMP answers the second question: does the distance between the two commission proposals exceed what randomly chosen neutral plans are apart from each other? A yes result means the asymmetry is real; the maps are not co-located in metric space.
+
+### The specific contribution
+
+Ch1-COMP operationalises map-to-map asymmetry comparison as a permutation test with a neutral-ensemble null, rather than as a parametric distance or a point-estimate difference. The two-version design (EG-only for interpretability; Mahalanobis joint for power) was pre-specified with a recorded pessimistic prediction that Version A would likely not reach significance. The pre-commitment makes the passing result — despite the pessimistic prediction — particularly informative.
+
+Applied to Alberta 2026: Version A p = 0.0303 (observed EG gap +3.92 pp vs null 95th pct +3.43 pp); Version B p = 0.0001 (observed D = 7.19 vs null 95th pct 4.38). 3/4 metrics point minority more UCP-favorable; declination reverses, consistent with asymmetric-packing theory. The inter-map distance (7.19) exceeds each map's individual distance from the ensemble centroid (minority D = 5.71, majority D = 2.79), confirming the maps sit on opposite flanks of metric space rather than occupying the same corner.
+
+### Claim to novelty
+
+> The inter-map comparison permutation test using a neutral-ensemble empirical null — as opposed to a parametric chi-squared approximation — and with a pre-registered pessimistic prediction for one version, is, to the authors' knowledge, novel as an applied redistricting-audit technique.
+
+### Prior art this builds on
+
+- Mahalanobis distance concept (Mahalanobis 1936)
+- Permutation testing for redistricting (Chen & Rodden 2013 family)
+- The neutral ensemble (DeFord, Duchin, Solomon 2021 ReCom)
+- Ch1 absolute position (this audit) — Ch1-COMP is a comparison extension of Ch1
+
+### Pre-registration
+
+- OSF [yvc7g](https://osf.io/yvc7g), git ba0e686, drand seed 1823538405 (salt "ch1-comp")
+- Pre-committed pessimistic prediction: Version A likely does not clear p < 0.05
+- Results: SUPPORTED on both versions; `analysis/reports/intermap_permutation_test_results.md`
+
+---
+
 ## Summary table
 
 | Contribution | Claim | Pre-reg | Status |
@@ -185,7 +220,8 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 | Neighbour-Drain | First named, pre-registered ED-pair-level pack-crack adjacency metric with directional intensity measure | #289,451 (label-shuffle null) | Null pending execution |
 | SZAT | First decomposition of between-map EG differences to individual VA boundary choices with permutation null using a real alternative map as counterfactual | #289,469 (bootstrap null) | Results: `analysis/reports/szat_summary.json` |
 | Two-Lane Scorecard | First integrated two-lane forensic audit framework with explicit lane-interaction rules, jurisdiction-calibrated thresholds, and pre-registered prospective application | #289,455 (Lunty scorecard) | Prospective; November 2026 map pending |
+| Ch1-COMP | First inter-map comparison permutation test using a neutral-ensemble null with pre-registered pessimistic prediction; V-A p=0.0303, V-B p=0.0001, both significant | OSF yvc7g | Done 2026-05-10; `analysis/reports/intermap_permutation_test_results.md` |
 
 ---
 
-*Document version 1.1 — 2026-05-07*
+*Document version 1.2 — 2026-05-10*

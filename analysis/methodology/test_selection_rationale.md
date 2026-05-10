@@ -31,6 +31,7 @@ Five families of tests, each answering a different question. The ladder below sh
 | B4 | Seats-at-50/50 under uniform swing | Gelman & King 1994 (via Grofman 1983) | same |
 | B5 | MCMC neutral-ensemble outlier percentile | ReCom (DeFord, Duchin, Solomon 2021) | `mcmc_ensemble.py`, `_100k`, `_multichain_ensemble.py` |
 | B6 | Declination — winning-district-margin angle | Warrington 2018, 2019 | embedded in `packing_cracking_analysis.py` |
+| B7 | Inter-map comparison permutation test (Ch1-COMP) — minority vs majority partisan-metric distance vs random neutral-plan pairs | novel (this audit); pre-registered OSF yvc7g | `intermap_permutation_test.py` |
 
 ### C-family — Geographic coherence & Continuity (§5.8)
 

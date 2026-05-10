@@ -6,34 +6,34 @@
 
 ---
 
-## MONDAY REVIEW PREP — Weekend Fast Fixes
+# M1 — MONDAY 2026-05-12 (Group Chat Review)
 
 Group chat review Monday. These items require no new research — all are prose corrections or short insertions against existing analysis.
 
-### Do before Monday (~4–5 hrs total)
+## Do before Monday (~4–5 hrs total)
 
-| # | Item | What | Effort |
+| # | Item | What | Status |
 |---|------|------|--------|
-| ES-24 | Abstract word-count cut | Trim to 150–250 words; move technical detail to §1 | 30 min |
-| ES-25 | "US judicial threshold" replace | → "Stephanopoulos-McGhee 7% investigable-bias threshold" at Abstract L11 + all instances | 20 min |
-| ES-22 | §6 synthesis table numeric drift | Reconcile +1.53/+1.58 and −1.52/−1.43 mismatches from §5.2.2 source cells | 45 min |
-| ES-26 | Declination formula, Appendix D.3 | Add formal definition alongside EG and MM | 20 min |
-| ES-03 | Alberta 2017 seat-count fix | 2017 Bielby kept 87 seats (not expanded); audit all references implying 2017 expansion | 30 min |
-| ES-01 | *Rizzo* case-name fix | → "*Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 SCR 27 at para 21" at L406, L419, References | 20 min |
-| ES-34 | Abstract dimension labels | Fix (A, B, C, D, 4, 5) → (1)–(6) | 10 min |
-| ES-09 | Drop "71st percentile" | Remove from Abstract and §6 headline; replace with "second-largest of seven sampled cycles" | 45 min |
-| ES-31 | Unused references | Sancton (2021) and Smith (2010): cite or remove; check "The Argument" cross-reference | 45 min |
+| ES-24 | Abstract word-count cut | Trim to 150–250 words; move technical detail to §1 | **DONE 2026-05-10** |
+| ES-25 | "US judicial threshold" replace | → "Stephanopoulos-McGhee 7% investigable-bias threshold" at Abstract + §8 + all instances | **DONE 2026-05-10** |
+| ES-22 | §5.2.2 deterministic vs MC distinction | Add sentence distinguishing point-estimate table from Monte Carlo sensitivity interval | **DONE 2026-05-10** |
+| ES-26 | Declination formula, Appendix D.3 | Added formal definition D.3; PP→D.4, Reock→D.5 | **DONE 2026-05-10** |
+| ES-03 | Alberta 2017 seat-count fix | Audited report_academic.md — no "2017 expanded" claim found; stale §2 cross-ref (Quebec 1992/1996/BC 2008) corrected | **DONE 2026-05-10** |
+| ES-01 | *Rizzo* case-name fix | Already correct throughout; verified | **DONE (pre-existing)** |
+| ES-34 | Abstract dimension labels | Pattern not found in current Abstract — already fixed in prior session | **DONE (pre-existing)** |
+| ES-09 | Drop "67th percentile" | Removed from §5.2.1; defensible rank statement kept | **DONE 2026-05-10** |
+| ES-31 | Unused references | Added Sancton (2008) body citation at §1.1 municipal anchoring bullet; no Smith (2010) found anywhere | **DONE 2026-05-10** |
 
-### Do if time (~3–4 hrs total, medium difficulty)
+## Do if time (~3–4 hrs total, medium difficulty)
 
-| # | Item | What | Effort |
+| # | Item | What | Status |
 |---|------|------|--------|
-| ES-05 | Abstract contingency clause | Append "under 2023 vote attribution; direction reverses under 2019 votes" to Abstract L9 and §6 | 30 min |
-| ES-08 | E2 both-readings paragraph | Show RMH-Banff under original + substantive E2; label reformulation explicitly | 1.5–2 h |
-| ES-02 | Comparator trio rewrite §5.9.3 | Drop Quebec 1992/Ontario 1996/BC 2008 (all misdescribed); anchor to Quebec 2024–SCC April 22 | 45 min |
-| ES-17 | Institutional context paragraph | §2 paragraph on non-partisan mandate vs US state legislatures; why EG carries different weight | 1 h |
+| ES-05 | Abstract contingency clause | Covered in new Abstract: "EG direction reverses under 2019 votes (see §5.2.3)" | **DONE 2026-05-10** |
+| ES-08 | E2 both-readings paragraph | Show RMH-Banff under original + substantive E2; label reformulation explicitly | **DONE 2026-05-10** |
+| ES-02 | Comparator trio rewrite §5.9.3 | §5.9.3 already anchored to Quebec 2011 + SCC April 2026; stale §2 pointer fixed | **DONE 2026-05-10** |
+| ES-17 | Institutional context paragraph | Added institutional context paragraph at top of §2 | **DONE 2026-05-10** |
 
-### Defer to post-Monday revision (do not attempt this weekend)
+## Defer to post-Monday revision (do not attempt this weekend)
 
 - ES-07: Bayesian-screening §4.x subsection (MCMC multi-chain, BH correction)
 - ES-14: Canadian literature engagement (Pal, Wesley, Courtney pin-cites — 3–4 h)
@@ -44,115 +44,266 @@ Group chat review Monday. These items require no new research — all are prose 
 
 ---
 
-## CRITICAL — Publication Blockers
+# M2 — PUBLICATION
 
-### Report Accuracy Fixes (from red_team_assertions.md)
-
-Required before either report goes public:
-
-- **CRIT-A DONE 2026-05-09** Sensitivity table re-run complete. New values (w=0.85 central): majority −0.40%, minority −1.81%, asymmetry −1.41 pp. Range 0.47–1.48 pp (0.70–0.80 bracket). B4 direction reversed: minority now matches 2019 at 46 NDP seats@50/50 vs majority 45. Updated: report_academic.md §§5.2.1/5.2.2/5.2.7/5.2.8/summary table, README.md, report_public.md, assignment_gerrymander_comparison.md, maup_area_weighted_analysis.md, threshold_provenance.md §B.2.1, urban_weight_defense.md, chen_rodden_decomposition.md.
-- **CRIT-B DONE 2026-05-09** RMH-Banff "+0.7 seat" and "minority wins RMH-Banff in 50% of samples" text not found in either `report_academic.md` or `report_public.md` — already removed in a prior session. No action required.
-- **CRIT-C DONE 2026-05-09** Public report intro "materially wrong on three of them" corrected to "wrong on two of the five — Red Deer's record was evenly divided rather than absent, and Chestermere had three submissions in favour — and his broader 'no support' framing missed the record on two additional configurations the minority adopted from the submissions." Academic report's "upheld on three of seven" is accurate as written.
-- **HIGH-A** 2019 cross-election asymmetry values — based on 2015–2019; 2023 data now available. Recompute using 2015–2019–2023; update Appendix A table.
-- **HIGH-B** Monte Carlo median drift — median values shift ~0.3 pp between runs; documented internally but not disclosed. Add footnote to Section B/Appendix A explaining variance source; use min/max range instead of point estimates.
-- **HIGH-C** Submission count reconciliation — Chair's "no public support" claim vs D-section findings inconsistency. Reconcile counts between `submission_search_findings.md` and Section D narrative; ensure both cite same baseline.
-- **HIGH-D DONE 2026-05-09** Wesley commission attribution — no "Chair Ed Wesley" or incorrect 2017 citation found in either `report_academic.md` or `report_public.md`. Academic report uses "EBC 2017 Final Report" at Appendix C table (line 2104) — correct. Already resolved in a prior session.
-- **HIGH-E DONE 2026-05-09** Nenshi quote fixed: dropped stitched "Let's be clear," prefix (from different paragraph in source); corrected comma insertion "and, in fact," → "and in fact" (matching DiscoverAirdrie verbatim). The substantive cheating/gerrymandering/assault clause is confirmed verbatim in source.
-- **MED-A** Plurality of Albertans claim — needs cross-check. Run `claim_significance_analysis.py`; verify "plurality" (>50%) vs "majority" language threshold.
-
-### Design and Statistical Fixes (from master_plan.md)
-
-- **D1 DONE 2026-05-09** Third-party vote sensitivity run complete. Rule A/B/C results documented in §3.2 Coverage caveats (new bullet 4): EG reverses under Rule C (both maps flip to NDP-favourable; minority +7.41%, majority +4.16%); B3 holds direction under all three rules; disclosure notes Ch1/Ch2 are unaffected. Source: `analysis/scripts/third_party_sensitivity.py`, output `data/outputs/third_party_sensitivity_results.csv`.
-- **D2 DONE 2026-05-09** Sensitivity interval relabeling complete. All "confidence interval" labels in `report_academic.md` (§5.2.3 key block + lines 1680/1682/1684 + line 128) and `monte_carlo_ci.py` (docstring title + line 153 print statement) relabeled to "sensitivity interval." Footnote added to §5.2.3 explaining: parameter uncertainty (not frequentist CI); under spatial autocorrelation effective N ~20–30 widens bounds 1.5–2×.
-- **D3 DONE 2026-05-09** Cross-election flip mechanical explanation added to `report_academic.md` §3.3 ("Cross-election asymmetry reversal: mechanical explanation" paragraph). Explains Springbank/Bearspaw/Cochrane hybrid blend-zone sensitivity; 2023 suburban NDP share near urban mean vs 2019 shallower penetration; reversal is a model-estimation property, not a different boundary configuration. Also fixed §1.2 item 3 retraction language: clarified v0_8 refutes individual-map sign-flip (v0_7 artifact) but does NOT retract asymmetry direction reversal (+0.75 pp under 2019 documented in §5.2.3); added forward reference to §3.3.
-- **D4 DONE 2026-05-09** Neutral-ensemble benchmark caveat added to §5.2.2 (before "Boundary-straddle" paragraph): notes inter-map difference has no theoretical null alone; §5.4.9 provides benchmark (50k canonical run, official shapefiles); minority p95.9/p99.99 outlier, majority within null. Shapefile blocker resolved per commit 873f4d0.
-- **D5 DONE 2026-05-09** "Six of seven" language already downgraded to "five of six" in prior sessions (Lethbridge withdrawal). OSF non-coverage disclosure added: (1) §5.9.6 preamble — "Registration status" paragraph noting rationale-failure is qualitative post-hoc, none of OSF {w2s8k, r3zm7, qsgy8, 6pt83} names it as a pre-specified metric; (2) §6.2.2 Lane 2 table — "(qualitative, not pre-registered)" qualifier added to the Rationale-failure row, distinguishing it from the Pre-registered structural-irregularity count in the next row.
-- **S1 DONE 2026-05-09** B4 uniform swing footnote added below §5.2.1 table: "Uniform swing model (Gelman & King, 1994). Alberta's non-linear seat-vote curve means true NDP seat count at 50/50 is likely lower; presented for comparability, not prediction."
-- **S2 DONE 2026-05-09** Bonferroni note added below §5.2.1 table: 12 comparisons (4 metrics × 3 maps); Bonferroni threshold α=0.0125; no single metric reaches it; finding rests on directional consistency.
-- **S3 DONE 2026-05-09** §1.2 preamble item 1 rewritten: "Monte Carlo 95% CI" → "Monte Carlo sensitivity interval"; "[−3.04, +0.76] pp" label updated; "approximately 90% confidence" → "90.5% of draws … a sensitivity result, not a frequentist confidence level." Remaining instances of "approximately 90%" checked in §5.2.3 — already updated under D2.
-- **S4 MINOR** Small-N noise floor not disclosed — SE of EG in 89-district system is ~1–2pp; the -1.42pp asymmetry is near the lower bound of reliable detection. Add to MC CI section. Effort: 20 minutes.
-
-### Peer Review Remediation (40–55 hrs estimated)
-
-Source: `editor_synthesis.md`, `science_red_team_design_and_stats.md`
-
-Item numbers (ES-01 through ES-36) match the synthesis priority list in `editor_synthesis.md §2`.
-
-#### PRE-REVIEW PRIORITY (complete before Bratt/Nguyen/Moorman institutional review)
-
-ES-02, ES-13, ES-14, ES-17, ES-19 — in that order. Bratt will hit ES-14/ES-17/ES-19 immediately; Nguyen+Moorman will hit ES-13. ES-02 is fastest. All others deferred to post-review revision.
+Items must complete before either report goes public. Ordered: blockers first, then peer review, then outreach/dissemination.
 
 ---
 
+## CRITICAL — Submission Gate
+
+All five conditions must be met before submission. Currently: 0/5 clear.
+
+| Gate | Condition | Status |
+|---|---|---|
+| G1 | Fisher independence check: \|ρ\| < 0.30 | **Blocked** (needs C1 advance-vote splat for full VA substrate) |
+| G2 | S2-02 MCMC rescore: canonical 250k values from `simulated_ensemble_percentiles_canonical.csv` propagated to §5.4.9, §5.5, §6.2.1, §6.2.2 — key change: minority EG p94.2 (below p95, flag retracted); majority MM p0.85 (new NDP-tail finding) | **DONE 2026-05-10** |
+| G3 | BH correction table inserted at §4.3.1: 11 formal tests, 10/11 pass BH at α=0.05; sole failure is Minority EG (p94.2, already retracted) | **DONE 2026-05-10** |
+| G4 | Direction disagreement framing in §5.4/§6: EG+MM+seats (minority more UCP) vs declination (minority least UCP) vs 338 April 2026 (minority +1 NDP seat) reconciled explicitly | **DONE 2026-05-10** |
+| G5 | Pre-registration timing disclosure fixed in §5.3.1 and `preregistration_salt_audit_trail.md` | **DONE 2026-05-10** |
+
+---
+
+## CRITICAL — Report Accuracy (from red_team_assertions.md)
+
+- **CRIT-A DONE 2026-05-09** Sensitivity table re-run complete. New values (w=0.85 central): majority −0.40%, minority −1.81%, asymmetry −1.41 pp. Range 0.47–1.48 pp (0.70–0.80 bracket). B4 direction reversed: minority now matches 2019 at 46 NDP seats@50/50 vs majority 45. Updated: report_academic.md §§5.2.1/5.2.2/5.2.7/5.2.8/summary table, README.md, report_public.md, assignment_gerrymander_comparison.md, maup_area_weighted_analysis.md, threshold_provenance.md §B.2.1, urban_weight_defense.md, chen_rodden_decomposition.md.
+- **CRIT-B DONE 2026-05-09** RMH-Banff "+0.7 seat" and "minority wins RMH-Banff in 50% of samples" text not found in either `report_academic.md` or `report_public.md` — already removed in a prior session. No action required.
+- **CRIT-C DONE 2026-05-09** Public report intro corrected.
+- **HIGH-A** 2019 cross-election asymmetry values — based on 2015–2019; 2023 data now available. Recompute using 2015–2019–2023; update Appendix A table.
+- **HIGH-B** Monte Carlo median drift — median values shift ~0.3 pp between runs; documented internally but not disclosed. Add footnote to Section B/Appendix A explaining variance source; use min/max range instead of point estimates.
+- **HIGH-C** Submission count reconciliation — Chair's "no public support" claim vs D-section findings inconsistency. Reconcile counts between `submission_search_findings.md` and Section D narrative; ensure both cite same baseline.
+- **HIGH-D DONE 2026-05-09** Wesley commission attribution resolved.
+- **HIGH-E DONE 2026-05-09** Nenshi quote fixed.
+- **MED-A** Plurality of Albertans claim — needs cross-check. Run `claim_significance_analysis.py`; verify "plurality" (>50%) vs "majority" language threshold.
+
+---
+
+## CRITICAL — Design and Statistical Fixes (from master_plan.md)
+
+- **D1 DONE 2026-05-09** Third-party vote sensitivity run complete. Rule A/B/C results documented.
+- **D2 DONE 2026-05-09** Sensitivity interval relabeling complete.
+- **D3 DONE 2026-05-09** Cross-election flip mechanical explanation added.
+- **D4 DONE 2026-05-09** Neutral-ensemble benchmark caveat added.
+- **D5 DONE 2026-05-09** "Six of seven" language downgraded.
+- **S1 DONE 2026-05-09** B4 uniform swing footnote added.
+- **S2 DONE 2026-05-09** Bonferroni note added below §5.2.1 table.
+- **S3 DONE 2026-05-09** §1.2 preamble rewritten.
+- **S4 MINOR** Small-N noise floor not disclosed — SE of EG in 89-district system is ~1–2pp; the -1.42pp asymmetry is near the lower bound of reliable detection. Add to MC CI section. Effort: 20 minutes.
+
+### Statistical Corrections Outstanding (Gate G2, G3, G4)
+
+- **S2-01** MCMC ESS precision disclosure — language recalibration on ESS-adjusted confidence bounds; report per-metric ESS (which metric carries p98.8 — near 148 or 160?). Effort: 30 min.
+- **S2-02** MCMC full-coverage rescore (Gate G2) — `data/simulated_ensemble_percentiles_full_100k.csv` contradicts paper headlines: minority mean-median p98.76 (not p100), seats@50/50 p94.27 (below 95 threshold), majority mean-median p92.66 (not p6.6), majority seats@50/50 p57.86 (not p1.7). §3.11 headline numbers must be updated before release.
+- **S9-01** p100 language recalibration — "above the entire ensemble" requires calibrated wording throughout §5.4, §5.5, §6, §8.
+- **S2-03 BH correction as computation (Gate G3)** — ES-07 asked for §4.x prose; the six-hats synthesis identified a harder requirement: run Bonferroni-Holm or BH correction on all 21+ tests simultaneously, compute adjusted p-values for each, and produce a table. The per-test p-values are available from existing scripts. Output: table in §4.4 with raw p / BH-adjusted p / pass/fail at α=0.05. Effort: 2 h (computation + table). Input list: 4 MCMC metrics (absolute, both maps), Ch1-COMP Version A/B, Ch2 SZAT, Ch3 drain (both maps), cross-election asymmetry 2015–2019, cross-election asymmetry 2023, sensitivity endpoints, Chen-Rodden decomposition gap, declination.
+- **S2-04 Direction disagreement framing (Gate G4)** — Three sources point in different directions: (a) EG/MM/seats@50-50 → minority more UCP-biased; (b) declination → minority LEAST UCP-biased (p2.17, seats/votes curve favours NDP); (c) 338Canada April 2026 → minority gives NDP +1 seat vs majority. All three must be reconciled in a single paragraph in §5.4 and the §6 synthesis. Framing: "Declination at p2.17 means minority boundaries concentrate NDP votes in fewer, safer districts rather than spreading them to marginal seats — structurally consistent with the other metrics, not contradictory." The 338 April 2026 finding belongs at current-cycle level (landslide; structural advantage dormant at extreme pp). Effort: 45 min.
+- **FUTURE-01** Two-tier MCMC population constraint — EBCA §15(2) permits up to −50% deviation for qualifying EDs. Deferred to post-review.
+
+---
+
+## CRITICAL — Pre-Registration Timing Disclosure (Gate G5)
+
+**Finding from OS timestamp audit (2026-05-10):**
+
+| File | Event | Time |
+|---|---|---|
+| `drand_seed.py` | Beacon infrastructure committed (salt framework fixed) | 2026-04-27 09:49 |
+| **EA shapefile email received** | Raymond Mok (Elections Alberta GIS Team Lead) sends majority + minority shapefiles | **2026-05-06 09:51** |
+| `osf_fill_forms.py` created | First OSF API navigation scripts | 2026-05-06 14:36 |
+| commit `d2aea42` | "preregistration: wire drand seed" — OSF infrastructure committed | 2026-05-06 15:44 |
+| commit `873f4d0` | `szat.py` + `szat_summary.json` (SZAT results) committed | 2026-05-06 18:11 |
+| `osf_register.py` created | w2s8k/r3zm7/qsgy8 submission scripts written | 2026-05-06 20:14 |
+| `osf_reg4_szat.py` created | SZAT OSF registration script written | 2026-05-06 21:16 |
+| commit `299658b` | joint_outlier_score.json committed; "OSF regs complete" | 2026-05-06 21:51 |
+| `simulation_real_map_scores_canonical.json` | Canonical Ch1 scores on disk | 2026-05-07 00:14 |
+
+**What this means:**
+- **Ch1 (Mahalanobis):** `osf_register.py` was written (20:14) before `joint_outlier_score.json` was committed (21:51); canonical ensemble CSV appeared at 00:14 the next day. The 250k run was still executing when registration was being set up. This is consistent with the user's recollection ("Claude ran something while we were registering it, but I didn't see the results until after").
+- **Ch2 (SZAT):** `szat_summary.json` was committed at 18:11 — three hours before the OSF SZAT registration script was written. The SZAT p-value (0.0044) existed in the repo before formal OSF submission. The drand beacon (committed 2026-04-27) provides tamper-proof seed provenance regardless of timing.
+
+**Required fixes — two files:**
+
+1. **`preregistration_salt_audit_trail.md`** — Current text says SZAT was registered "before the bootstrap was run." This is factually wrong per OS timestamps. Replace with: "The drand seed (`"szat-bootstrap"`) was part of the beacon framework committed on 2026-04-27, predating the shapefile release by 9 days. The OSF SZAT registration (6pt83) was submitted approximately 3 hours after `szat.py` first ran; the formal OSF form is post-hoc relative to the results, though the seed itself was never cherry-picked." Effort: 15 min.
+2. **`outputs/academic_report/report_academic.md` §5.3.1** — The existing OSF disclosure paragraph (added S1-01) notes "6pt83 timestamp" without quantifying. Update to reflect the actual sequence. Also: current External Blockers note claims "w2s8k/r3zm7/qsgy8 predate by ~2.5h" — the timestamp audit shows `osf_register.py` was written AFTER commit `873f4d0` (shapefile + SZAT), so the "predate" claim is wrong; the Ch1 registration scripts postdate the shapefile commit by ~2h. Replace with accurate statement. Effort: 20 min.
+
+---
+
+## CRITICAL — Peer Review (PRE-REVIEW PRIORITY)
+
+Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, ES-17, ES-19 — in that order.
+
 #### CRITICAL (synthesis items 1–6)
 
-- **S1-01 FIXED 2026-05-09** Pre-registration provenance — three edits made:
-  1. `README.md` line 109: removed "2 hours and 24 minutes" claim; replaced with accurate description (P/C/E criteria co-temporal in same commit; drand-anchored channels predating shapefile release)
-  2. `README.md` line 125: updated "Issue #1 — Official geometry" from stale "no shapefiles released" to resolved state (shapefiles received 2026-05-06, commit `873f4d0`)
-  3. `outputs/academic_report/report_academic.md` §5.3.1: added "OSF file content disclosure (verified 2026-05-09)" paragraph — discloses that neither `dpg2_experiment_plan.md` nor `drain_v2_plan.md` names Ch1 (Mahalanobis) or Ch2 (SZAT); Ch1/Ch2 have no named OSF pre-registration document; 6pt83 timestamp note; Fisher combination disclosure requirement
-- **ES-01 CRITICAL** *Rizzo* case-name error — change "*Rizzo v. Rizzo Shoes*" to "*Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 SCR 27 at para 21" at L406, L419, and References court-cases block; add Driedger pin-cite. Effort: 20 min.
-- **ES-02 CRITICAL** Comparator-trio rewrite §5.9.3 — Quebec 1992, Ontario 1996, BC 2008 are all materially misdescribed; drop all three. Replace with: (a) Quebec 2011 Bill 132 (National Assembly refused to proclaim CRE's delimitation — the Canadian reviewer's own suggested real-override comparator); (b) forward reference to §5.9.5 for the April 22, 2026 SCC ruling (7–2, upheld QCA striking down Quebec's CRE freeze as Charter s.3 violation, six days after the Alberta motion). Framing: "The April 16 Alberta motion has no precedent in any Canadian provincial boundary cycle reviewed in Courtney (2001); the closest constitutional analogue is the Quebec government's 2024 statutory freeze on CRE redistricting, which the SCC struck down on April 22, 2026 — see §5.9.5." Remove "most government-controlled among the three most commonly cited comparators." Effort: 45 min (not 2–3 h — the SCC anchor is already documented in §5.9.5; this is cut-and-forward-reference, not a historical research task).
-- **ES-03 CRITICAL** Alberta 2017 seat-count correction — the 2017 Bielby commission kept Alberta at 87 seats (the 2010 Walter commission expanded from 83). Audit all references implying 2017 increased the count. Flag in §5.9.2 that 2026 is the first expansion beyond 87. Effort: 30 min.
-- **ES-04** (=S2-01/S2-02/S9-01 below) MCMC percentile demotion — covered under S2-01, S2-02, S9-01.
-- **ES-05 CRITICAL** Abstract contingency clause — append "under 2023 vote attribution; direction reverses under 2019 votes" to Abstract L9 and §6 synthesis. Reword §6: "under 2023 vote input, five of six tested dimensions point in the same direction; under 2019 vote input, the partisan-bias dimension reverses." Effort: 30 min. (D3 added the §3.3 explanation; this is the Abstract/§6 propagation.)
-- **ES-06 CRITICAL** Exploratory-vs-confirmatory foregrounding — lift exploratory-status language from §5.3.1 to Abstract and §1. Distinguish: current detection is exploratory; November 2026 OSF re-run is confirmatory. (S1-01 fixed pre-registration provenance but did not update Abstract/§1 language.) Effort: 30 min.
-- **S2-01** MCMC ESS precision disclosure — language recalibration on ESS-adjusted confidence bounds; report per-metric ESS (which metric carries p98.8 — near 148 or 160?). Effort: 30 min.
-- **S2-02** MCMC full-coverage rescore — `data/simulated_ensemble_percentiles_full_100k.csv` contradicts paper headlines: minority mean-median p98.76 (not p100), seats@50/50 p94.27 (below 95 threshold), majority mean-median p92.66 (not p6.6), majority seats@50/50 p57.86 (not p1.7). §3.11 headline numbers must be updated before release.
-- **S9-01** p100 language recalibration — "above the entire ensemble" requires calibrated wording throughout §5.4, §5.5, §6, §8.
-- **FUTURE-01** Two-tier MCMC population constraint — EBCA §15(2) permits up to −50% deviation for qualifying EDs; current ensemble uses ±25% uniformly, excluding s.15(2) configurations from the sample space. Implement a two-tier constraint: ±25% for the 86 non-s.15(2) EDs, down-to-−50% for the 3 s.15(2) EDs in each map. Note: the 2010 EBC used only 2 s.15(2) slots (Dunvegan-Central Peace-Notley + Lesser Slave Lake); both 2026 maps add a third invocation not in the 2019 baseline. Re-score real maps against this ensemble to quantify the effect on partisan-metric percentiles. Both maps use comparable s.15(2) EDs so asymmetry finding is expected to be robust; absolute percentile positions may shift. Disclosed in §5.4. No blocking dependency; deferred to post-review computation.
+- **S1-01 FIXED 2026-05-09** Pre-registration provenance — three edits made.
+- **ES-01 CRITICAL** *Rizzo* case-name error — change "*Rizzo v. Rizzo Shoes*" to "*Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 SCR 27 at para 21" at L406, L419, and References. Effort: 20 min.
+- **ES-02 CRITICAL** Comparator-trio rewrite §5.9.3 — drop Quebec 1992/Ontario 1996/BC 2008; replace with Quebec 2011 Bill 132 + SCC April 22, 2026 forward reference. Effort: 45 min.
+- **ES-03 CRITICAL** Alberta 2017 seat-count correction — 2017 Bielby kept 87 seats (2010 Walter expanded from 83); audit all references. Effort: 30 min.
+- **ES-04** (=S2-01/S2-02/S9-01) MCMC percentile demotion — covered under S2-01, S2-02, S9-01.
+- **ES-05 CRITICAL** Abstract contingency clause — append "under 2023 vote attribution; direction reverses under 2019 votes" to Abstract L9 and §6 synthesis. Effort: 30 min.
+- **ES-06 CRITICAL** Exploratory-vs-confirmatory foregrounding — lift exploratory-status language to Abstract and §1. Effort: 30 min.
 
 #### HIGH (synthesis items 7–16)
 
-- **ES-07 HIGH** Multiple-comparisons §4.x subsection — S2 added a table footnote to §5.2.1 but Methods M2 requires an explicit §4.x treatment or Bayesian-screening reframe. Add a §4.4 paragraph: "These four metrics are reported as a Bayesian screening battery for the November 2026 confirmatory test. Family-wise α under Bonferroni for four tests at α=0.05 is 0.0125; no single metric reaches this threshold individually." Effort: 2–3 h.
-- **ES-08 HIGH** E2 reformulation (RMH-Banff Park) — add "both readings" paragraph to §5.3.3 showing RMH-Banff signature under both the original and substantive E2. Label substantive-E2 finding as post-test reformulation. Distinguish purposive interpretation of §15(2) EBCA (legitimate) from reformulation of the audit's own test (which Driedger does not authorise). Pre-register substantive E2 for November in OSF. Effort: 1.5–2 h.
-- **ES-09 HIGH** "71st percentile" demote — drop "71st percentile" from Abstract and §6 headline. Replace with rank language: "second-largest of seven sampled cycles." If percentile stays anywhere, move to appendix with standard-error estimate. Effort: 45 min.
-- **ES-10 HIGH** *Grant v. Torstar* + defamation posture — add *Grant v. Torstar*, 2009 SCC 61 and *WIC Radio Ltd. v. Simpson*, 2008 SCC 40 to References; add Appendix F subsection "Author's legal posture regarding named-individual characterisations" naming responsible-communication and fair-comment defences, *Grant v. Torstar* diligence factors, outreach attempts (or justification for none) re Chair Miller, Premier Smith, named commissioners. Effort: 2 h.
-- **ES-11 HIGH** Intent-imputation verb softening — three specific instances: (a) "materially misrepresents" → "materially overstates the absence of public support"; (b) "elides this distinction" → "does not carry this distinction"; (c) "got it wrong" → "do not survive primary-source verification." Effort: 15 min.
-- **ES-12 HIGH** "Override" vocabulary rewrite §5.9 — Discussion table: "Standard override path" → "Ordinary legislative non-adoption"; "Government-controlled drafting" → "Government-chaired committee replacing commission drafting." Abstract must match §5.9.3's honest comparator caveat. Effort: 30 min.
-- **ES-13 HIGH** VA-polygon vote-coverage §5.4 wiring — D1 added the §3.2 coverage caveat; still need one paragraph in §5.4 disclosing Election-Day-only bias (52.5% coverage) and how it affects the MCMC percentile flags. Effort: 45 min.
-- **ES-14 HIGH** Canadian literature engagement — Pal (2016) *Fractured Right to Vote* McGill LJ 61:2; Pal & Choudhry (2011, 2014); Courtney (2001) chs. 6–7 and 10–11 with actual pin-cites (not ornamental); Wesley (2011) *Code Politics* UBC Press cited as scholar; Seidle (1991) for institutional genealogy. Must go into §2 and §5.9.3 body, not just References. Effort: 3–4 h.
-- **ES-15 HIGH** *Rucho v. Common Cause* engagement — either (a) state explicitly that *Rucho* governs US federal justiciability only with no Canadian carry-over, or (b) strip US-judicial-legitimacy borrowing from §5.2.1 and attribute the 7% threshold to Stephanopoulos-McGhee alone. Editor recommends both. Effort: 1 h.
-- **ES-16 HIGH** Saskatchewan Reference constitutional-standard depth — add paragraph to §2 acknowledging "effective representation" is not a variance test; quantitative findings are evidentiary inputs to a constitutional weighing that includes non-quantitative factors. Distinguish Charter s.3 (right to vote; Saskatchewan Reference) from s.15 equality. Effort: 1.5 h.
+- **ES-07 HIGH** Multiple-comparisons §4.x subsection — add §4.4 paragraph on Bayesian-screening battery and Bonferroni threshold. Effort: 2–3 h. (See also S2-03 for the full computation.)
+- **ES-08 HIGH** E2 reformulation (RMH-Banff Park) — "both readings" paragraph to §5.3.3. Effort: 1.5–2 h.
+- **ES-09 HIGH** "71st percentile" demote — drop from Abstract and §6 headline; replace with rank language. Effort: 45 min.
+- **ES-10 HIGH** *Grant v. Torstar* + defamation posture — add Appendix F subsection. Effort: 2 h.
+- **ES-11 HIGH** Intent-imputation verb softening — three specific instances. Effort: 15 min.
+- **ES-12 HIGH** "Override" vocabulary rewrite §5.9. Effort: 30 min.
+- **ES-13 HIGH** VA-polygon vote-coverage §5.4 wiring — one paragraph in §5.4 disclosing Election-Day-only bias (52.5% coverage). Effort: 45 min.
+- **ES-14 HIGH** Canadian literature engagement — Pal, Pal & Choudhry, Courtney pin-cites, Wesley, Seidle into §2 and §5.9.3. Effort: 3–4 h.
+- **ES-15 HIGH** *Rucho v. Common Cause* engagement. Effort: 1 h.
+- **ES-16 HIGH** Saskatchewan Reference constitutional-standard depth. Effort: 1.5 h.
 
 #### MED (synthesis items 17–27)
 
-- **ES-17 MED** Institutional Context paragraph — §2 paragraph naming the non-partisan-mandate distinction between Canadian provincial commissions and US state legislatures; why the same EG metric carries different inferential weight in the two regimes. Effort: 1 h.
-- **ES-18 MED** Alberta 2022 federal sub-commission comparator — in §5.3.2 and §5.6, engage the 2022 federal Boundaries Commission's Airdrie–Chestermere and Banff–Airdrie treatment choices as a direct benchmark for the provincial majority's 2-district approach. Effort: 1.5 h.
-- **ES-19 MED** Alberta volatility paragraph — add to §5.2.3 or §6 acknowledging Alberta's electoral churn (Bratt et al. 2019 *Orange Chinook*; CPSR 2020 special issue) and weighting structural findings more heavily than partisan-bias findings in the synthesis. Effort: 1 h.
-- **ES-20 MED** *Raîche* and *Cassista* to body — move *Raîche v. Canada (AG)*, 2004 FC 679 and *Cassista v. Canada (AG)*, 2014 FC 398 from Appendix F to body at §5.9.5; both apply Saskatchewan Reference to specific boundary disputes. Effort: 1 h.
-- **ES-21 MED** *Haig v. Canada* ghost reference — in References but never cited in body; either cite at §2 (s.3 effective-participation chain) or remove. Effort: 15 min.
-- **ES-22 MED** §5.2.2/§6 synthesis table numeric drift — reconcile §6 synthesis table directly from §5.2.2 cells; fix the +1.53/+1.58 and −1.52/−1.43 mismatches. Also add a sentence at top of §5.2.2 distinguishing deterministic sensitivity (point estimates by weight) from full Monte Carlo envelope. Effort: 45 min.
-- **ES-23 MED** Contribution positioning (d) — reframe §1 headline as "first systematic computational audit of an Alberta provincial boundary commission placed within Canadian commission norms." Routing-dependent (matters most if targeting *Canadian Public Policy*). Effort: 1 h.
-- **ES-24 MED** Abstract word-count cut — trim to 150–250 words; move technical detail to §1. Effort: 30 min.
-- **ES-25 MED** "US judicial threshold" shorthand replacement — change to "Stephanopoulos-McGhee 7% investigable-bias threshold" at Abstract L11 and all other "US judicial" instances. Effort: 20 min.
-- **ES-26 MED** Declination formula in Appendix D.3 — implementation is verified against Warrington (2018) but formal definition missing from Appendix D alongside EG and MM. Effort: 20 min.
-- **ES-27 MED** Per-metric ESS in §5.4 — report ESS per metric (not a range 148–160); identify which metric carries p98.8. Effort: 30 min. (Overlaps S2-01.)
+- **ES-17 MED** Institutional Context paragraph — §2 non-partisan-mandate distinction. Effort: 1 h.
+- **ES-18 MED** Alberta 2022 federal sub-commission comparator. Effort: 1.5 h.
+- **ES-19 MED** Alberta volatility paragraph — Bratt et al. 2019; weight structural findings over partisan-bias findings. Effort: 1 h.
+- **ES-20 MED** *Raîche* and *Cassista* to body. Effort: 1 h.
+- **ES-21 MED** *Haig v. Canada* ghost reference — cite or remove. Effort: 15 min.
+- **ES-22 MED** §5.2.2/§6 synthesis table numeric drift — reconcile cells. Effort: 45 min.
+- **ES-23 MED** Contribution positioning (d). Effort: 1 h.
+- **ES-24 MED** Abstract word-count cut. Effort: 30 min.
+- **ES-25 MED** "US judicial threshold" shorthand replacement. Effort: 20 min.
+- **ES-26 MED** Declination formula in Appendix D.3. Effort: 20 min.
+- **ES-27 MED** Per-metric ESS in §5.4. Effort: 30 min.
 
 #### LOW (synthesis items 28–36)
 
-- **ES-28 LOW** §E.7 v4-residual-gap collapse — collapse to 2-paragraph summary plus pointer to `analysis/methodology/commission_reference_shapes.md`. Effort: 30 min.
-- **ES-29 LOW** Citation-format cleanup batch — Chen and Rodden 2013/2015 year resolution; neutral-form-first with SCR parallel consistently; Saskatchewan Reference form consistency; Warrington (2019) as primary at §5.2.4; *Rizzo* paragraph pin-cite. Effort: 1.5 h.
-- **ES-30 LOW** Pincite and terminology pass — Courtney chs. 6–7 and 10–11 pincites; "independent" vs "non-partisan" terminology; EBCA section-level pincites for §12 and §15 invocations. Effort: 1 h.
-- **ES-31 LOW** Unused/misaligned References — Sancton (2021) and Smith (2010) engage-or-remove; "The Argument" stale cross-reference check. Effort: 45 min.
-- **ES-32 LOW** Statistical-presentation clarifications batch — §5.1.1 MAD-against-majority-mean footnote; §5.2.5 Chen-Rodden-vs-§5.4-ReCom disambiguation; §5.3.1 Calgary Zone A source-CSV cite; §5.6 Edmonton counter-test units; §4.1.2 Gate G1 SoV rounding verification. Effort: 1.5 h.
-- **ES-33 LOW** Alberta Treasury Board 2024 estimate context — two sentences at §3.3 placing Alberta alongside Quebec/BC/Manitoba statutory-basis choices. Effort: 20 min.
-- **ES-34 LOW** Abstract dimension numbering — fix (A, B, C, D, 4, 5) → (1)–(6) for consistency. Effort: 10 min.
-- **ES-35 LOW** Abstract L9 assertiveness — footnote assertions to §5.3.2 evidence or switch to summary-phrase form. Effort: 15 min.
+- **ES-28 LOW** §E.7 v4-residual-gap collapse. Effort: 30 min.
+- **ES-29 LOW** Citation-format cleanup batch. Effort: 1.5 h.
+- **ES-30 LOW** Pincite and terminology pass. Effort: 1 h.
+- **ES-31 LOW** Unused/misaligned References. Effort: 45 min.
+- **ES-32 LOW** Statistical-presentation clarifications batch. Effort: 1.5 h.
+- **ES-33 LOW** Alberta Treasury Board 2024 estimate context. Effort: 20 min.
+- **ES-34 LOW** Abstract dimension numbering fix. Effort: 10 min.
+- **ES-35 LOW** Abstract L9 assertiveness. Effort: 15 min.
 - **ES-36 LOW** §5.9.5 "implicate" → "be evaluated against". Effort: 10 min.
 
-### Red-Team Code Corrections
+---
+
+## HIGH — Computational Blockers
+
+### Advance-vote splat (C1 — highest computational priority)
+
+- **C1 HIGHEST** Advance-vote splat — closes the 47.5% missing-vote gap. Input: `polls_2023_unified.csv` (ballot_type, voting_areas, ndp_votes, ucp_votes). Method: distribute each non-Election-Day poll's votes to its VAs proportionally by Election-Day share. Output: updated VA substrate with full 2023 vote totals (target: 1,706,304 two-party). Consequence: makes Phase 4C comparable to v0.2; likely resolves EG sign flip; raises NDP province-wide share from 42.60% to ~44.17%. Unblocks: Fisher independence check (G1), Stage 5 vote aggregation, Phase 5 ensemble re-run. Effort: 1–2 days.
+- **C5** Vote Anywhere exclusion — filter `polls_2023_unified.csv` for Vote Anywhere polls; exclude from VA substrate; quantify excluded vote total. Effort: 1 hour.
+
+### Fisher Empirical Independence Check (Gate G1)
+
+- **Script:** `analysis/scripts/szat.py` then `analysis/scripts/validate_fisher_independence.py`
+- **Status:** Blocked — `data/szat_bootstrap_eg_samples.npy` does not exist; unblocked once C1 complete
+- **Gate:** |ρ| < 0.30; activates CI test `test_fisher_channel_independence` automatically once .npy exists
+- **Hard stop:** Do not submit paper while `fisher_independence_defense.md` shows "pending"
+
+### Fisher Combination Defense Document
+
+- **File:** `analysis/methodology/fisher_combination_defense.md` — plan exists (see plan file), document not yet written
+- **Content:** AV1–AV8 responses (independence, channel selection, minority-only, combination method robustness, directionality, n_eff correction, multiple maps, pre-registration chain)
+- **Computed values needed (Python, ~10 lines):**
+  - Fisher (2ch): T = -2(ln(1.6e-7) + ln(0.0044)) = 42.1, p = 1.55e-8 ✓
+  - Fisher (3ch sensitivity): -2(ln(1.6e-7) + ln(0.0044) + ln(0.134)), df=6
+  - Stouffer: z_combined = (norm.isf(1.6e-7) + norm.isf(0.0044)) / sqrt(2) → p
+  - Cauchy: mean(tan((0.5-p)*π)) for both p-values, invert → p
+  - Bonferroni (2-map correction): 2 × 1.6e-7
+- **Effort:** 2–3 h
+- **Update:** Trim "Recommended paper language" block from `fisher_independence_defense.md`; add pointer to new doc
+
+### Inter-Map Comparison Permutation Test (Ch1-COMP) — DONE 2026-05-10
+
+**Pre-registered OSF yvc7g (2026-05-10), git ba0e686, drand seed 1823538405 (salt "ch1-comp").**
+
+**Results:** Version A (EG-only) p=0.0303 (observed gap +3.92 pp, null 95th pct +3.43 pp). Version B (Mahalanobis joint) p=0.0001 (D=7.19, null 95th pct 4.38). Both significant. 3/4 metrics minority more UCP-favorable; declination reverses (expected). Verdict: SUPPORTED at classical threshold on both versions.
+
+Output: `analysis/reports/intermap_permutation_test_results.json` + `.md`. Inserted in §5.4 as Ch1-COMP paragraph.
+
+### Phase 4C Vision Assignment (Stages 3–7)
+
+Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
+
+- **Stage 3 SUPERSEDED** — Replace Vision API calls with spatial join of VA centroids against `ea_minority_2026_eds.gpkg` / `ea_majority_2026_eds.gpkg`. Effort: 2 hours.
+- **Stage 4:** Aggregate spatial join output to CSV per 2026 ED.
+- **Stage 5:** Group VA votes by 2026 ED; aggregate totals. Requires C1 first.
+- **Stage 6:** Execute `packing_cracking_analysis.py` on Stage 5 data.
+- **Stage 7:** Run `monte_carlo_ci.py` on Stage 5 output.
+- **Blocker:** C1 must run before Stage 5.
+
+### External Tool Validation
+
+- **Phase 1 (highest priority):** R `redist` package cross-validation — independently reproduce seats@50/50. Effort: 1 evening + ~90 min runtime.
+- **Phase 2:** QGIS visual inspection using official shapefiles (no reconstruction needed). Effort: 1 h setup + 1 afternoon.
+- **Phase 2.5:** Maptitude free-trial cross-validation. Effort: 4 h setup + 2 h QA.
+
+---
+
+## HIGH — Sentiment Analysis
+
+- **Corpus:** 1,252 published submissions (1,340 IDs; 88 withdrawn)
+- **Full-corpus scan (in progress):** `submission_sentiment_llm_full.py` — running; ~218/1,252 as of 2026-05-09 ~19:51
+- **Hansard scan (in progress):** `hansard_sentiment_llm.py` — 188 R1 community turns classifying; log at `.temp/hansard_run.log`
+- **Corpus completion decision:** After current scans finish, decide: stop at current corpus or add R2 Hansard (209 turns, ~3h). Decision gate: does completion meaningfully change the support/oppose ratios for any of the 7 configurations? If counts are stable, stop. If borderline, run R2.
+- **OCR cleanup (after scan finishes):** Run `post_ocr_cleanup.py` — purges 10 stale OCR IDs, drops 5 false-positive rows
+- **Re-classify:** Re-run `submission_sentiment_llm_full.py` for the 10 purged IDs only (~3 min)
+- **Forensic pipeline:** After scan + Hansard complete: `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
+- **Cross-reference:** Final results against `minority_rationales_validation.md` Proposals A–F
+- **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/` (last script not using shared utils; can't modify while running)
+
+---
+
+## HIGH — Pre-Publication Outreach
+
+### Pre-Brief Academics (do before public release)
+
+Outreach sent to Elections Alberta and Duane Bratt on 2026-04-23; replies received 2026-05-09. Next steps:
+
+1. **Send draft to Bratt** (MRU political science chair, *Orange Chinook* co-editor) — priority flags: ES-14, ES-17, ES-19, ES-02, spatial methodology. Send after ES-02/ES-14/ES-17/ES-19 are complete.
+2. **Send spatial methodology sections to Nguyen + Moorman** (MRU GIS/geography) — priority flags: ES-13, spatial methods in §4. Send after ES-13 complete.
+3. **One additional academic reviewer** (political science, outside MRU) — identify after Bratt feedback.
+4. Response turnaround: allow 2–3 weeks before final revision pass.
+
+### URL Archival
+
+- 13 priority URLs need Wayback Machine + archive.ph submission (authenticated browser session required)
+- 6 additional SPN2 POST submissions needed
+- After submission: update `FROZEN_MANIFEST.md` and `private_workspace/url_archival_log.md`
+
+### Editorial Factual Ambiguity
+
+- Airdrie population framing (74,100 vs 84,000) — author clarification required. Recommendation: use 84,000 (2024 estimate) throughout.
+
+---
+
+## HIGH — Red-Team Code Corrections
 
 Five HIGH findings still unfixed (from `red_team_code_fixes.md` §5):
 
-- **HIGH-03** Magic-number bounding boxes in v4/v5 shape refinement — 40+ sites need conversion to fractional/centroid-relative coordinates with `Polygon.contains(Point)` asserts. Scope creep; deferred.
-- **HIGH-05** Mixed RNG sources across Moran's I and Chen-Rodden tests — documentation fix only (state numpy version in docstrings). Not gate-blocking; deferred.
-- **HIGH-06** 2015 region classification heuristic error-bounds — requires poll-level re-aggregation; out of code-fix scope. Deferred.
-- **HIGH-08** Chrome `--no-sandbox` and `--virtual-time-budget` hardening — build-pipeline refactor; deferred.
-- **HIGH-11** Suppressed-DA uncertainty accumulation — requires new per-ED "suppressed-DA pop share" column; moderate scope. Deferred.
-
-Also deferred: MED-02, -04, -05, -06, -08 through -13 (policy/documentation). Rationale for all deferral decisions in `red_team_code_fixes.md`.
+- **HIGH-03** Magic-number bounding boxes — deferred
+- **HIGH-05** Mixed RNG sources — documentation fix only; deferred
+- **HIGH-06** 2015 region classification heuristic — deferred
+- **HIGH-08** Chrome `--no-sandbox` hardening — deferred
+- **HIGH-11** Suppressed-DA uncertainty accumulation — deferred
 
 Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding corrections — headline numbers unchanged but prose must match.
+
+---
+
+## MEDIUM — Pending Analysis
+
+### Open GitHub Challenges (Issues #13 and #14)
+
+- **MCMC-13 — 2019-seeded ensemble** (GitHub Issue #13): Seed ReCom chain from 2019 enacted geometry; single-boundary moves; population-target-preserving swaps. Effort: 2–3 days + ~90 min compute. Referenced in `retraction_pathway.md` §7.2 and README.md §Known Limitations.
+
+- **COUNTER-14 — Counter-map challenge** (GitHub Issue #14): Retraction condition for §5.8.5 anchoring finding. Produce constraint-legal 89-seat map satisfying minority's stated COI rationales AND achieving majority-comparable municipal-boundary anchoring (CSD/DA edge alignment ≥60%). Status: open; no counter-map submitted as of 2026-05-10.
+
+- **338-RETRO — Historical polling sensitivity** (Track E extension): Use 77 historical 338Canada snapshots to reallocate both 2026 maps across the full polling range. Find crossover pp level where minority-vs-majority seat direction flips. Effort: 2–3 hours adapting `338canada_reallocate.py`.
+
+### Data Source Gaps (minority_rationales_validation.md Proposals A–F)
+
+**StatsCan Journey-to-Work (98-10-0459 series):**
+- Already downloaded: Cochrane CSD origin table
+- Missing: Airdrie, Chestermere, Sylvan Lake, Innisfail, Red Deer origin-CSD tables
+- Impact: R2/R5/R11 verdicts currently INCONCLUSIVE
 
 ### Manual Source Verifications
 
@@ -161,158 +312,44 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 
 ---
 
-## HIGH — Pre-Submission
+## MEDIUM — Dissemination
 
-### Computational Pipeline (from master_plan.md)
+### SSRN / OSF Preprint (before journal submission)
 
-These must run before Phase 4C results are used in reports:
+Post working paper to SSRN and/or OSF Preprints to establish priority. Steps:
+1. Finalize report_academic.md (post S2-02, G3, G4 fixes) — version stamp it
+2. Post PDF to SSRN (Canadian Social Science category) and OSF Preprints under the existing OSF node
+3. Announce to institutional reviewers (Bratt/Nguyen/Moorman) with preprint link
+4. Journal submission after preprint is live and at least one reviewer has read draft
 
-- **C1 HIGHEST** Advance-vote splat — closes the 47.5% missing-vote gap. Input: `polls_2023_unified.csv` (ballot_type, voting_areas, ndp_votes, ucp_votes). Method: distribute each non-Election-Day poll's votes to its VAs proportionally by Election-Day share. Output: updated VA substrate with full 2023 vote totals (target: 1,706,304 two-party). Consequence: makes Phase 4C comparable to v0.2; likely resolves EG sign flip; raises NDP province-wide share from 42.60% to ~44.17%. Effort: 1–2 days.
-- **C4 DONE** Third-party vote sensitivity — run via `third_party_sensitivity.py` 2026-05-09; see D1 entry above for results.
-- **C5** Vote Anywhere exclusion — filter `polls_2023_unified.csv` for Vote Anywhere polls; exclude from VA substrate; quantify excluded vote total. Effort: 1 hour.
-- **C6 DONE 2026-05-09** Sensitivity table re-run — same as CRIT-A; see that entry for results and files updated.
-- **C2 SUPERSEDED** Overlap-zone fuzzing — superseded by official shapefiles (commit `873f4d0`). Spatial join against official polygons replaces v0_8 reconstruction uncertainty. No longer needed.
-- **C3 SUPERSEDED** Edmonton-Beaumont parametric split — superseded by official shapefiles. The shapefile defines the boundary exactly; no parametric sweep needed.
-- **C7 SUPERSEDED** Calgary-Airdrie overlap clip — superseded by official shapefiles. The official minority shapefile is the authoritative boundary; v0_8 Tier A clipping is no longer the canonical source. If overlap exists in the official shapefile it is the commission's intended boundary, not a reconstruction error.
+**Target journals (in order):** *Canadian Public Policy*, *Electoral Studies*, *Political Science Research and Methods*
 
-### Spatial/GIS Outstanding (from master_plan.md)
+### Media Prep Kit
 
-- **G2 SUPERSEDED** Overlap-zone impact — superseded by official shapefiles; see C2.
-- **G3** Advance-vote splat validation — after C1 build: compare pre/post-splat EG; if EG shifts >0.5pp, investigate which polls drove it. Effort: within C1.
-- **G4 SUPERSEDED** Calgary-Airdrie overlap clip — superseded by official shapefiles; see C7.
-- **G5 SUPERSEDED** Direct-rename area validation — with official shapefiles, area comparison should be done against official polygons via geopandas, not the v0_8 Tier A reconstructions. Superseded; replace with: run `geopandas` area check of official shapefile EDs against 2019 boundary areas for Method 0 EDs.
+For the window immediately following publication:
 
-### Sentiment Analysis — LLM Classification
+1. **1-page non-technical summary** — "What did the Alberta boundary commission do, what did we find, what does it mean for voters" — no p-values, no EG; use the seat-gap and wasted-vote framings
+2. **Visual asset package** — 3–5 key figures export-ready (300 dpi PNG); existing SVG outputs in `data/maps/mcmc/` are candidates
+3. **FAQ document** — 10 questions a journalist or MLA would ask; pre-drafted answers; include "what this study does NOT claim" section
+4. **Contact list** — Bratt + 2 others willing to field media calls; confirmation required before release
 
-- **Corpus:** 1,252 published submissions (commission assigned 1,340 IDs across R1+R2; 88 withdrawn/not posted — confirmed absent from batch PDFs)
-- **Keyword pass (complete):** `analysis/scripts/submission_sentiment_llm.py` — 76 tasks across 70 flagged submissions → `data/submission_sentiment_llm_results.csv`
-- **Full-corpus scan (in progress):** `analysis/scripts/submission_sentiment_llm_full.py` — all 1,252 submissions; scan is running (~218/1,252 as of last log check 2026-05-09 ~19:51); output → `data/outputs/submission_sentiment_llm_full_results.csv`
-- **OCR recovery (complete):** 23 image-only submissions recovered; stale progress rows pending cleanup
-- **Cleanup needed:** Run `post_ocr_cleanup.py` after scan finishes — purges 10 stale OCR IDs from progress CSV, drops 5 false-positive result rows (EBC-2025-1-0082 classified on boilerplate)
-- **Re-classify:** Re-run `submission_sentiment_llm_full.py` for the 10 purged IDs only (~3 min)
-- **Hansard analysis (ready to run):** `analysis/scripts/hansard_sentiment_llm.py` — 188 R1 + 209 R2 = 397 community turns to classify; source files at `.temp/submissions/text/hansard_r1.txt` / `hansard_r2.txt`
-- **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/` (last script not using shared utils; can't modify while running)
-- **Forensic pipeline:** After scan + Hansard complete: run `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
-- **Cross-reference:** Final results against `minority_rationales_validation.md` Proposals A–F
+### Globe and Mail Data Desk Pitch
 
-### Fisher Empirical Independence Check
+- Target: Globe and Mail data-journalism desk (Edmonton-based or national)
+- Angle: Alberta's proposed boundary change and what a statistical audit of the process found
+- Pitch format: 3-sentence summary + link to preprint + offer of embargoed early access
+- Timing: send after preprint is live and BEFORE journal peer-review outcome
+- Note: pitch to CBC Alberta as fallback
 
-- **Script:** `analysis/scripts/szat.py` then `analysis/scripts/validate_fisher_independence.py`
-- **Status:** Deferred — shapefile blocker now resolved (official shapefiles committed 2026-05-06); remaining blocker is full vote data (C1 advance-vote splat needed for complete VA substrate)
-- **Blocker:** `data/szat_bootstrap_eg_samples.npy` does not exist; unblocked once C1 complete
-- **Gate:** |ρ| < 0.30; activates CI test `test_fisher_channel_independence` automatically once .npy exists
-- **Hard stop:** Do not submit paper while `fisher_independence_defense.md` shows "pending"
+### Indigenous Dimension — Expanded Section
 
-### URL Archival
+Current §5.8.4 notes Enoch Cree Nation (Reserve 135) PP=0.065 (lowest in 178-ED joint set) and Tsuut'ina comparison. Needs expansion:
 
-- 13 priority URLs need Wayback Machine + archive.ph submission (authenticated browser session required)
-- 6 additional SPN2 POST submissions needed (authenticated Internet Archive account)
-- After submission: update `FROZEN_MANIFEST.md` and `private_workspace/url_archival_log.md` with snapshot URLs
-
-### Editorial Factual Ambiguity
-
-- Airdrie population framing (74,100 vs 84,000) — author clarification required before final draft. Recommendation: use 84,000 (2024 estimate) throughout to match commission's own 2024-vintage framing.
-
----
-
-## MEDIUM — Pending Analysis
-
-### Phase 4C Vision Assignment (Stages 3–7)
-
-**Status: Superseded for spatial assignment; still needed for vote aggregation.**
-
-Official shapefiles available (commit `873f4d0`, 2026-05-06). Vision API calls for polygon reconstruction (Stage 3) are no longer needed — VA-to-ED assignment can be done via direct spatial join against official shapefile polygons.
-
-- **Stage 3 SUPERSEDED** — Replace 430 Vision API calls with: spatial join of `polls_2023_unified.csv` VA centroids against official `ea_minority_2026_eds.gpkg` / `ea_majority_2026_eds.gpkg`. Output: `assignment_va_to_2026_spatial_join.csv`. Effort: 2 hours (geopandas point-in-polygon).
-- **Stage 4:** Aggregate spatial join output to CSV per 2026 ED. Output: `assignment_va_to_2026_aggregation.csv`.
-- **Stage 5:** Group VA votes by 2026 ED; aggregate NDP/UCP/other totals. Output: `assignment_2026_synthetic_ed_totals.csv`. Note: requires C1 (advance-vote splat) first to fill 47.5% vote gap.
-- **Stage 6:** Execute `packing_cracking_analysis.py` on Stage 5 data; generate updated B1–B6 metrics for all three maps.
-- **Stage 7:** Run `monte_carlo_ci.py` on Stage 5 output; compute confidence intervals.
-- **Blocker:** C1 (advance-vote splat) must run before Stage 5 — 47.5% of 2023 votes are non-Election-Day and currently excluded from `polls_2023_unified.csv`.
-- **Note:** 2026-04-16 motion set aside commission proposals; reassess whether Stage 6–7 outputs are still needed for the publication target.
-
-### Full 89/89 ED Resolution + Phase 5 Ensemble
-
-- **89/89 EDs resolved** in both maps (session 12) — 13 via `crosswalk_split_default` fallback. The "86/89" figure in older docs is stale.
-- **Shapefile blocker RESOLVED 2026-05-06** — `ea_majority_2026_eds.gpkg` and `ea_minority_2026_eds.gpkg` added to `data/shapefiles/canonical/` in commit `873f4d0`; Elections Alberta official shapefiles are now the canonical files
-- Phase 5 ensemble, Stage 7 full-vote attribution, topology checksum, and population checks now unblocked
-- Next: re-run ensemble with official shapefiles. Blocked on C1 (advance-vote splat) for full vote coverage.
-
-### External Tool Validation (from external_tool_validation_plan.md)
-
-- **Phase 1 (highest priority):** R `redist` package cross-validation — independently reproduce seats@50/50 finding. Effort: 1 evening setup + ~90 min runtime. Output: `external_validation_phase1_redist_results.md` + comparison table.
-- **Phase 2:** QGIS visual inspection — ~~georegister v0_8 polygon reconstructions against commission maps~~ **SUPERSEDED:** official shapefiles now available (commit `873f4d0`). Use official `ea_minority_2026_eds.gpkg` / `ea_majority_2026_eds.gpkg` directly; compare against 2019 boundaries; inspect 6 contested EDs. No reconstruction georeferencing needed. Effort: 1 hour setup + 1 afternoon. Output: `external_validation_phase2_qgis_report.md` + overlays for Section C.
-- **Phase 2.5 (14-day window):** Maptitude free-trial — cross-validate area/perimeter measurements. Effort: 4 hours setup + 2 hours QA. Output: Maptitude-to-Polsby-Popper comparison table.
-- **Phase 3 (defer to journal submission):** ArcGIS publication-grade figures.
-
-### Inter-Map Comparison Permutation Test (Ch1-COMP)
-
-**Question:** Does the directional partisan-bias claim — minority map more UCP-biased than majority — reach classical significance on a comparison test, not just an absolute-position test?
-
-**Honest prediction before running:** EG-only version likely fails (ensemble pair distances exceed 1.42 pp routinely). Mahalanobis joint version (all 4 metrics) has a realistic chance. Pre-commit to report regardless of direction.
-
-#### Falsifiable hypothesis
-
-**H₀ (null):** The minority and majority commission proposals differ in their joint partisan-metric position by no more than randomly drawn pairs of constraint-legal neutral maps. Formally: the Mahalanobis distance D(minority, majority) falls at or below the 95th percentile of {D(map_i, map_j)} for random pairs (i, j) drawn from the neutral ensemble.
-
-**H₁ (alternative, one-tailed, direction pre-specified):** D(minority, majority) > 95th percentile of ensemble random-pair distances. Direction is pre-specified: minority is asserted to be more UCP-biased (higher EG in UCP-favourable direction, higher seats-at-50-50 for UCP).
-
-**Falsification:** If D(minority, majority) ≤ 95th percentile, H₀ is not rejected. Paper then states: "The inter-map comparison does not reach classical significance on the paired-draw permutation test; the partisan-difference claim rests on directional sensitivity consistency (lower bound 0.47 pp above zero) and on each map's individual ensemble position rather than on a formally significant inter-map gap."
-
-#### Test structure
-
-**Test statistic — two versions:**
-
-*Version A (EG-only, exploratory)*: T_EG = EG(minority) − EG(majority) = 1.42 pp observed. Null distribution: 10,000 random pairs from `simulated_ensemble_raw_samples_canonical.csv`; compute absolute EG difference for each pair. Critical value = 95th percentile of that distribution. Report p-value as fraction of pairs exceeding 1.42 pp.
-
-*Version B (Mahalanobis joint, primary)*: T_M = (d^T Σ^{−1} d)^{0.5} where d = v(minority) − v(majority) is the 4-metric difference vector and Σ is the ensemble covariance matrix from `simulated_ensemble_raw_samples_canonical.csv`. Null distribution: compute T_M for 10,000 random pairs. Critical value = 95th percentile.
-
-**Data inputs (all existing):**
-
-- `data/simulated_ensemble_raw_samples_canonical.csv` — 100k neutral draws, columns: `efficiency_gap`, `mean_median`, `declination`, `seats_at_50_50`
-- `data/simulation_real_map_scores_canonical.json` — real minority and majority metric vectors
-
-**Implementation:** `analysis/scripts/intermap_permutation_test.py` — **written and ready**. Runtime: ~60 seconds (10k pairs from 100k-row CSV). Output: `analysis/reports/intermap_permutation_test_results.json` + `.md`.
-
-**Pre-registration:** OSF [yvc7g](https://osf.io/yvc7g) — submitted 2026-05-10, anchored to git commit `ba0e686`. RNG seed 1823538405 derived from Cloudflare League of Entropy drand beacon round 5500000, salt "ch1-comp". Pre-commitment to report regardless of direction is on record.
-
-**Paper impact:**
-
-- Positive result → add to §5.4 as "Ch1-COMP: inter-map comparison test, p < 0.05" — directly addresses the directional claim at classical threshold
-- Null result → add paragraph to §5.4 noting the limit: "classical significance applies to each map's absolute ensemble position, not to the inter-map comparison; direction is established by sensitivity consistency"
-
----
-
-### Open GitHub Challenges (Issues #13 and #14)
-
-- **MCMC-13 — 2019-seeded ensemble** (GitHub Issue #13): Seed the ReCom chain from the 2019 enacted geometry instead of a random start, restricted to single-boundary moves, population-target-preserving swaps, and COI-preserving proposals. A chain anchored at the enacted baseline more directly models incremental commission drawing and may place both 2026 maps differently within the ensemble distribution. Effort: 2–3 days implementation + ~90 min compute. Referenced in `retraction_pathway.md` §7.2 and README.md §Known Limitations.
-
-- **COUNTER-14 — Counter-map challenge** (GitHub Issue #14): Retraction condition for §5.8.5 anchoring finding. Produce a constraint-legal 89-seat Alberta map satisfying the minority's stated COI rationales (Airdrie ≤2-way split, Cochrane–NW connection, RMH without Banff Park extension, Nolan Hill–Cochrane preserved) AND achieving majority-comparable municipal-boundary anchoring (CSD/DA edge alignment ≥60%). Requirements: official shapefiles, EBCA statutory population band (±25%; −50% for §15(2) EDs), no Enoch Cree–Devon pairing without documented rationale. Status: open; no counter-map submitted as of 2026-05-10. If a qualifying counter-map is produced, §5.8.5 retracts. Filed in `retraction_pathway.md` §4 Statutory Silence.
-
-- **338-RETRO — Historical polling sensitivity** (Track E extension): Use the 77 historical 338Canada snapshots in `data/reference/338canada_historical_snapshots.csv` to reallocate both 2026 maps across the full polling range via the audit's crosswalk. Find the crossover pp level where the minority-vs-majority seat direction flips and characterize the width of the direction-stable zone. Output: updated `analysis/methodology/338canada_historical.md` with crossover estimate. Effort: 2–3 hours adapting `338canada_reallocate.py`.
-
----
-
-### Data Source Gaps (minority_rationales_validation.md Proposals A–F)
-
-**StatsCan Journey-to-Work (98-10-0459 series):**
-
-- Already downloaded: Cochrane CSD origin table (`cochrane_journey_to_work.csv`, 27 destination rows aggregated from StatsCan 98-10-0459) — supports R1: 49.2% work within Cochrane, 35.8% to Calgary, 4.0% to Rocky View
-- Missing: Airdrie, Chestermere, Sylvan Lake, Innisfail, Red Deer origin-CSD tables
-- Impact: R2 (Chestermere), R5 (Springbank), R11 (Sylvan Lake) verdicts are currently INCONCLUSIVE; specific flow data would resolve them
-- Action: Download from StatsCan ODESI or custom order via 98-10-0459-01-eng.zip filter by origin CSD
-
-**Alberta Legislative Assembly Hansard:**
-
-- This is the legislature/committee Hansard (debates about the bill), not the EBC public hearing transcripts (already in `.temp/submissions/text/hansard_r1.txt` / `hansard_r2.txt`)
-- Needed to verify RMH-Banff attribution (CRIT-B) and source Nenshi/Wesley quotes (HIGH-D, HIGH-E)
-- Status: Access restrictions on Hansard search. Workaround: manually search `assembly.ab.ca/adr/hansard` for specific session dates.
-
-**CBC articles:**
-
-- No data files exist; paywalled
-- Impact: context for D-section public figures' statements; non-critical if Hansard quotes are sourced
-- Workaround: search CBC accessible via Google cache / web.archive.org for specific article URLs
+1. **s.35 Constitutional Act, 1982 framing** — boundary decisions that affect reserve lands engage consultation obligations; the EBC's rationale silence for Enoch Cree–Devon pairing has a constitutional dimension beyond electoral design
+2. **UNDRIP (Bill C-15, 2021) framing** — Article 18 free, prior, and informed consent in legislative/administrative decisions affecting Indigenous peoples; apply to boundary commission process
+3. **Tsuut'ina comparison (partially done)** — Tsuut'ina Nation (Reserve 145) absorbed into Calgary-West in majority proposal; different treatment from Enoch Cree; document the asymmetry in the commission's stated rationale
+4. **"Broadest coalition potential" framing** — from six-hats synthesis: this finding has the broadest political-coalition potential of any finding in the audit; it appeals across party lines and to international audiences
+5. Effort: 1–2 h for s.35/UNDRIP paragraphs; Tsuut'ina comparison already partially in §5.8.4
 
 ---
 
@@ -324,7 +361,7 @@ Three-phase execution (PO-approved 2026-04-23):
 
 - **Phase A (2–3 hours):** 12 zero-reference files — move to correct directories; validate imports
 - **Phase B (6–8 hours):** ~45 files with 1–2 references — move in batches; grep-replace cross-references after each
-- **Phase C (8–10 hours):** 15 high-risk files with 3+ references (shape_refinement.py: 140 refs; packing_cracking_analysis.py: 114; mcmc_ensemble.py: 101)
+- **Phase C (8–10 hours):** 15 high-risk files with 3+ references
 - **Phase D (2–3 hours):** Verification — ast.parse all moved .py; grep for stale paths
 - **Awaiting:** execution trigger from PO
 
@@ -336,28 +373,68 @@ Deferred after Safety Track completion:
 - `sys.path` removal, `data_loader` abstraction, `mcmc_runner` consolidation
 - `ruff` config + `mypy`, `iterrows` migration, TypedDict types
 
-### Paper Methodology Section — Fisher Defense Language
+### Paper Methodology Section — Fisher Defense
 
-- `analysis/methodology/fisher_combination_defense.md` — AV2–AV8 responses ready to copy into supplementary materials or referee response letter
-
----
-
-## Date-Gated (External Events)
-
-- **Track A (shapefile integration):** Unblocked 2026-05-06 (commit `873f4d0`; not 2026-05-09 as earlier drafts stated). Integrate official Elections Alberta shapefiles; re-run Phase 5 ensemble, spatial metrics, topology checksum. Blocked on C1 (advance-vote splat) for full vote coverage before ensemble re-run.
-- **Track C (Nov 2, 2026 committee):** Government may table 91-seat map. Trigger: run full pre-registered checklist on new proposal within 48 hours of tabling (population equality, packing/cracking, spatial audit).
-- **Track E (338Canada refresh):** Every 60–90 days; next due ~late June 2026. Re-run `338canada_scraper.py` and `338canada_reallocate.py`; update public report if projection moves >0.5pp.
+- Write `analysis/methodology/fisher_combination_defense.md` — see Fisher Combination Defense item above
+- Trim "Recommended paper language" block from `fisher_independence_defense.md`
 
 ---
 
-## External Blockers
+# M3 — LUNTY RELEASE (Nov 2, 2026)
 
-- **OSF pre-registration disclosure gap** — Ch1 (Mahalanobis) and Ch2 (SZAT) are not named in any of the four pre-registered files (w2s8k/r3zm7/qsgy8/6pt83). Registrations cover drain test (Ch3) and DPG v11 methodology only. Paper must disclose this gap in §3.7. Note: registration 6pt83 (timestamped ~3h after shapefile commit 873f4d0 on 2026-05-07) cannot be treated as pre-dating the data; w2s8k/r3zm7/qsgy8 predate by ~2.5h.
-- **November 2026 committee deadline** — drives publication target
+External event: government may table 91-seat map from MLA committee. Trigger: run full pre-registered checklist within 48 hours of tabling.
+
+## November Scorecard Dashboard
+
+Build a public GitHub Pages dashboard for same-day publication alongside the Phase 2 audit:
+
+- **Content:** Phase 2 metrics for the 91-seat Lunty proposal vs the two 89-seat proposals; population equality, EG, MM, declination, seats@50/50, compactness; traffic-light RAG status per metric
+- **Stack:** Static site (no server); rendered from audit JSON outputs; GitHub Pages hosting
+- **Pre-requisite:** Finalize the Phase 2 pre-registration in OSF before the tabling date; register the exact metric thresholds and direction predictions
+- **Effort:** 1 day build (if audit outputs are already in JSON format, which they are)
+- **Note:** Dashboard is NOT the paper — it is a companion artifact for immediate public consumption
+
+## Phase 2 — Lunty Committee Map
+
+- **Phase question:** Is the Lunty MLA committee's 91-seat map a gerrymander?
+- **Pre-registration:** Must be filed on OSF before the map is tabled (before Nov 2, 2026); use the same drand beacon framework
+- **Checklist on tabling:** population equality, packing/cracking analysis, MCMC ensemble against 91-seat neutral baseline, spatial audit, SZAT equivalent
+- **Timeline:** 48-hour publication target from tabling date
+
+## 338Canada Refresh (Track E)
+
+Every 60–90 days; next due ~late June 2026. Re-run `338canada_scraper.py` and `338canada_reallocate.py`; update public report if projection moves >0.5pp.
+
+## Phase 2 Methods Paper
+
+After Phase 2 audit is complete, write a methods companion paper covering:
+- Extension of the MCMC/SZAT framework to legislative committee maps
+- Comparison of commission-drawn vs committee-drawn boundary processes
+- November 2026 pre-registered results vs April 2026 exploratory findings
 
 ---
 
-## Done
+# Date-Gated External Events
+
+| Track | Event | Trigger |
+|---|---|---|
+| A (shapefile integration) | Unblocked 2026-05-06 (commit 873f4d0) | Re-run Phase 5 ensemble after C1 complete |
+| B (November 2026) | Lunty committee tables 91-seat map (Nov 2, 2026) | Run full Phase 2 checklist within 48h |
+| E (338Canada refresh) | Next due ~late June 2026 | Re-run scraper if projection moves >0.5pp |
+
+---
+
+# External Blockers
+
+- **OSF pre-registration disclosure gap** — Ch1 (Mahalanobis) and Ch2 (SZAT) are not named in any of the four pre-registered files (w2s8k/r3zm7/qsgy8/6pt83). Registrations cover drain test (Ch3) and DPG v11 methodology only. Paper must disclose this gap in §3.7.
+
+  **Corrected timing record (from OS timestamp audit + email evidence, 2026-05-10):** The drand beacon infrastructure was committed 2026-04-27. The official EA shapefiles were received by email from Raymond Mok (Elections Alberta GIS Team Lead) at **09:51 AM on 2026-05-06** — 9 days after the beacon was committed. The drand seed therefore predates the data by 9 days. `szat_summary.json` (SZAT results) was committed in `873f4d0` at 18:11 on 2026-05-06. The OSF SZAT registration (6pt83) script was written at 21:16 — approximately 3 hours later. For Ch1 (Mahalanobis), the canonical ensemble and `joint_outlier_score.json` were committed at 21:51 on 2026-05-06 (commit `299658b`), after `osf_register.py` was created at 20:14 — consistent with the ensemble still running when registration was set up. See Gate G5 for required disclosure fixes.
+
+- **November 2026 committee deadline** — drives Phase 2 publication target
+
+---
+
+# Done
 
 - `eg_utils.py` extraction (szat.py + szat_validate.py unified; DRY fix)
 - Generator API migration (reock.py, tier_aware_perturbation; gerrychain-compat files annotated)
@@ -370,17 +447,19 @@ Deferred after Safety Track completion:
 - Six Hats critique of REMEDIATION_LOG.md + three fixes
 - `submission_search.py` keyword pass — 70 flagged submissions, dataset complete
 - OSF pre-registrations submitted: w2s8k / r3zm7 / qsgy8 / 6pt83
-- OSF file content verified 2026-05-09 — `dpg2_experiment_plan.md` (DPG v11, H1–H5, T-A–T-D) and `drain_v2_plan.md` (§5.3.5 drain test) confirmed; neither contains Mahalanobis/SZAT/P/C/E criteria (confirms S1-01; see External Blockers for disclosure requirement)
+- OSF file content verified 2026-05-09
 - Academic reorganization (voice check PASS, FK 12.9, completed 2026-04-23)
 - Editorial three-voice pass (FK 10.0 → 10.6, completed 2026-04-22)
 - Outreach to Elections Alberta + Duane Bratt — replies received 2026-05-09
-- Sentiment analysis architecture: 4 utils modules (sentiment_config, source_loader, quote_verifier, claude_client); 11 scripts refactored; Hansard parser with participant allow-list; forensic quote verification pipeline
-- OCR recovery: 23 image-only submissions recovered via PyMuPDF + EasyOCR; `post_ocr_cleanup.py` created
-- Phase 4C VA assignment: 89/89 EDs resolved in both maps (session 12); 13 EDs via `crosswalk_split_default` fallback; Edmonton-Beaumont/Highlands-Norwood direct-override fix
+- Sentiment analysis architecture: 4 utils modules; 11 scripts refactored; Hansard parser; forensic pipeline
+- OCR recovery: 23 image-only submissions recovered via PyMuPDF + EasyOCR
+- Phase 4C VA assignment: 89/89 EDs resolved in both maps
+- intermap_permutation_test.py — **DONE 2026-05-10**: V-A p=0.0303, V-B p=0.0001; both significant; inserted in §5.4 as Ch1-COMP (OSF yvc7g)
+- Six Hats 4-pass analysis + synthesis
 
 ---
 
-## Planning Docs — Flagged for Deletion
+# Planning Docs — Flagged for Deletion
 
 These documents' outstanding content is now consolidated above. After confirming nothing was missed, delete:
 
@@ -390,16 +469,16 @@ These documents' outstanding content is now consolidated above. After confirming
 | `analysis/methodology/assignment_runbook.md` | Stage 3–7 procedure now in Phase 4C section above |
 | `analysis/methodology/assignment_execution_log.md` | Stage status now in Phase 4C section above |
 | `analysis/methodology/external_tool_validation_plan.md` | All three phases now in External Validation section above |
-| `analysis/red_team/archival_submission_queue.md` | URL archival task now in HIGH section above; specific URLs should be retained in `FROZEN_MANIFEST.md` or `private_workspace/url_archival_log.md` before deletion |
+| `analysis/red_team/archival_submission_queue.md` | URL archival task now in HIGH section above |
 | `analysis/methodology/restructure_inventory.md` | Phase A–D tasks now in Restructure section above |
 | `private_workspace/migration.md` | Track C and Track E now in Date-Gated section above |
-| `analysis/methodology/editorial_pass_log.md` | Completed log; no outstanding items; factual ambiguity flag already in TODO |
+| `analysis/methodology/editorial_pass_log.md` | Completed log; no outstanding items |
 | `REMEDIATION_LOG.md` | Safety Track complete; open items already in Remediation Hygiene section above |
 
 **Do NOT delete (content, not plans):**
 
-- `analysis/red_team/red_team_assertions.md` — assertion inventory is a reference document; fixes are summarized above but original assertions may be needed for referee response
-- `analysis/red_team/red_team_code_fixes.md` — deferred HIGH/MEDIUM rationale belongs here; keep until fixes are complete
+- `analysis/red_team/red_team_assertions.md` — assertion inventory; keep until referee response
+- `analysis/red_team/red_team_code_fixes.md` — deferred HIGH/MEDIUM rationale; keep until fixes complete
 - `analysis/methodology/minority_rationales_validation.md` — scientific findings
 - `analysis/meta/FROZEN_MANIFEST.md` — canonical file manifest
 - All methodology, findings, and defense documents

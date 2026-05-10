@@ -65,6 +65,15 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 - **Retraction condition.** The disagreement itself IS the finding, so the retraction is triggered by a resolution of the disagreement: if officially released official 2026 shapefiles (Issue #1) produce a MAUP-v2 rerun on authoritative geometry with a CI tighter than ±0.5 pp that falls on one side of zero, the "disagreement" framing becomes "converged estimate" and the §5.2.7 multi-layer presentation is collapsed to a single authoritative number. The §4.1.4 sunset clause binds this retraction within 48 hours of shapefile release.
 
+### 2.6 Ch1-COMP inter-map comparison permutation test (OSF yvc7g, EXECUTED 2026-05-10)
+
+**Finding:** Minority-majority partisan-metric distance D = 7.19 (Mahalanobis joint) exceeds the null 95th percentile of 4.38 (p = 0.0001). EG-only version V-A p = 0.0303. Both significant.
+
+- **Retraction condition A (alternative seed).** If the test is re-run with a different pre-registered RNG seed and either version produces p > 0.05, the result is reported as seed-sensitive and the confidence in the finding is downgraded. The drand seed 1823538405 is publicly verifiable; any reviewer can re-run with an alternative beacon round and report the result.
+- **Retraction condition B (ensemble replacement).** If the canonical 250k ensemble is superseded by a local-perturbation MCMC chain seeded at the 2019 enacted geometry (Issue #13), the null distribution of random-pair distances is recomputed from the new ensemble. If V-B no longer reaches p < 0.05 under the new null, the Ch1-COMP finding is retracted and the inter-map asymmetry claim is bounded to "significant relative to the unconstrained-start ensemble, not established relative to the local-perturbation chain."
+- **Retraction condition C (direction flip).** If 3 or more of the 4 partisan metrics reverse direction (majority more UCP-favorable than minority) under any pre-registered rerun against the official EA shapefiles with updated vote data, the Ch1-COMP finding is retracted as direction-inconsistent. The current 3/4 direction consistency is a characterisation finding, not the primary significance claim; retraction condition C applies to the confirmatory role Ch1-COMP plays in the §6 synthesis.
+- **No retraction condition on V-A marginal significance alone.** V-A p = 0.0303 is marginal. V-B p = 0.0001 is not. The finding is not retracted solely because V-A is close to the threshold — both versions are pre-committed to be reported, and V-B independently sustains the claim.
+
 ## 3. Signature findings (§5.3)
 
 ### 3.1 §5.3.1 Packing signature (Calgary Zone A)

@@ -8,10 +8,10 @@ ensemble tests.
 
 ## Salt strings in use
 
-| Script | Salt string | OSF registration |
-|--------|-------------|-----------------|
-| `mcmc_ensemble_canonical.py` (100k canonical ensemble) | `"mcmc_ensemble_250k"` | [OSF qsgy8](https://osf.io/qsgy8) |
-| `szat.py` (SZAT bootstrap) | `"szat-bootstrap"` | [OSF r3zm7](https://osf.io/r3zm7) |
+| Script | Salt string | drand seed committed | OSF registration | OSF form timing |
+| --- | --- | --- | --- | --- |
+| `mcmc_ensemble_canonical.py` (100k canonical ensemble) | `"mcmc_ensemble_250k"` | 2026-04-27 | [OSF qsgy8](https://osf.io/qsgy8) | Predates EA shapefiles |
+| `szat.py` (SZAT bootstrap) | `"szat-bootstrap"` | 2026-04-27 | [OSF 6pt83](https://osf.io/6pt83) | ~3 hours after szat.py first ran (2026-05-06); seed predates shapefiles by 9 days |
 
 ---
 
@@ -39,11 +39,29 @@ updated geometry using the same pre-registered seed.
 
 ## Why `szat.py` uses the salt `"szat-bootstrap"`
 
-The SZAT bootstrap salt `"szat-bootstrap"` was registered in OSF
-pre-registration **r3zm7** before the bootstrap was run. The registration
-predates the 2026 Alberta Electoral Boundaries Commission report (minority and
-majority shapefiles were not publicly available when the pre-registration was
-filed). The salt string appears verbatim in the registered analysis plan.
+**Accurate timeline:**
+
+| Event | Timestamp |
+| --- | --- |
+| `drand_seed.py` committed (beacon infrastructure, salt fixed in code) | 2026-04-27 09:49 |
+| Official EA shapefiles received (Raymond Mok) | 2026-05-06 09:51 |
+| `szat.py` first run; results committed (commit 873f4d0) | 2026-05-06 18:11 |
+| OSF SZAT registration script (`osf_reg4_szat.py`) written; 6pt83 filed | 2026-05-06 ~21:16 |
+
+The drand seed infrastructure — including the salt string `"szat-bootstrap"` — was
+committed on 2026-04-27, **9 days before the EA shapefiles arrived**. The salt was
+therefore fixed before any SZAT computation was possible; it could not have been
+chosen by observing the results.
+
+The OSF formal registration **6pt83** was filed approximately 3 hours after
+`szat.py` first ran. The form is post-hoc relative to the results. The provenance
+claim rests on the drand seed timestamp (2026-04-27), not on the OSF form timestamp.
+
+None of the four OSF registrations (w2s8k, r3zm7, qsgy8, 6pt83) name or specify
+the SZAT bootstrap methodology in their filed documents — each contains
+`dpg2_experiment_plan.md` and `drain_v2_plan.md` (see §5.3.1 OSF file content
+disclosure). The seed-chain anchor for Ch2 is the drand beacon round committed
+2026-04-27, not an OSF document.
 
 ---
 

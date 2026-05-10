@@ -1,0 +1,103 @@
+{
+  "description": "Inter-map partisan-bias comparison permutation test",
+  "n_pairs": 10000,
+  "rng_seed": 1823538405,
+  "rng_provenance": {
+    "source": "Cloudflare League of Entropy drand beacon",
+    "round": 5500000,
+    "randomness_hex": "45922177bf69644aa0b8f8043695221eacad1147dfde0967c72fbf3756ffacac",
+    "salt": "ch1-comp",
+    "derived_seed": 1823538405,
+    "verify_url": "https://drand.cloudflare.com/public/5500000",
+    "note": "SHA256(randomness_hex + salt)[:4] as uint32. Pre-dates analysis run."
+  },
+  "ensemble_n": 250000,
+  "partisan_cols": [
+    "efficiency_gap",
+    "mean_median",
+    "declination",
+    "seats_at_50_50"
+  ],
+  "minority_key": "minority_2026",
+  "majority_key": "majority_2026",
+  "eg_sign_convention": "positive = more NDP wasted (UCP structural advantage); per szat.py",
+  "hypothesis": {
+    "H0": "The minority-majority commission proposals differ in their partisan-metric position by no more than randomly drawn pairs of neutral constraint-legal maps.",
+    "H1": "The minority-majority gap exceeds the 95th percentile of random-pair distances (one-tailed, direction pre-specified: minority more UCP-favorable).",
+    "pre_commitment": "Report regardless of direction per TODO.md Ch1-COMP specification."
+  },
+  "version_a_eg_only": {
+    "observed_eg_diff_pp": 3.9211,
+    "null_sd_pp": 2.1203,
+    "null_p95_pp": 3.4338,
+    "null_95pct_interval_pp": [
+      -4.2227,
+      4.0877
+    ],
+    "z_score": 1.8493,
+    "p_one_tailed": 0.0303,
+    "p_two_tailed": 0.0647,
+    "n_pairs": 10000,
+    "significant_at_005_one_tailed": true,
+    "significant_at_005_two_tailed": false,
+    "interpretation": "Observed minority-majority EG gap = +3.92 pp. Null 95th percentile = 3.43 pp. One-tailed p = 0.0303."
+  },
+  "version_b_mahalanobis_joint": {
+    "observed_mahalanobis_distance": 7.190411,
+    "null_mean_distance": 2.658899,
+    "null_sd_distance": 0.980762,
+    "null_p95_distance": 4.375475,
+    "p_one_tailed": 0.0001,
+    "significant_at_005": true,
+    "n_pairs": 10000,
+    "metrics_minority_more_ucp_favorable": 3,
+    "metric_deltas": {
+      "efficiency_gap": {
+        "minority": 0.040194,
+        "majority": 0.000982,
+        "delta": 0.039211,
+        "minority_more_ucp_favorable": true
+      },
+      "mean_median": {
+        "minority": 0.010402,
+        "majority": -0.036191,
+        "delta": 0.046593,
+        "minority_more_ucp_favorable": true
+      },
+      "declination": {
+        "minority": -0.077003,
+        "majority": 0.026675,
+        "delta": -0.103678,
+        "minority_more_ucp_favorable": false
+      },
+      "seats_at_50_50": {
+        "minority": 0.516854,
+        "majority": 0.460674,
+        "delta": 0.05618,
+        "minority_more_ucp_favorable": true
+      }
+    },
+    "interpretation": "Observed inter-map Mahalanobis distance = 7.1904. Null 95th percentile = 4.3755. p = 0.0001. 3/4 metrics point minority more UCP-favorable."
+  },
+  "context_absolute_positions": {
+    "minority_vs_ensemble": {
+      "mahalanobis_distance": 5.7079,
+      "p_chi2": 1.46e-06,
+      "note": "Ch1 result (minority absolute position vs neutral ensemble)"
+    },
+    "majority_vs_ensemble": {
+      "mahalanobis_distance": 2.7895,
+      "p_chi2": 0.09993576,
+      "note": "Ch1 result (majority absolute position vs neutral ensemble)"
+    },
+    "intermap_distance": {
+      "mahalanobis_distance": 7.190411,
+      "p": 0.0001,
+      "note": "Version B result (minority vs majority, comparison test)"
+    }
+  },
+  "verdict": {
+    "claim": "SUPPORTED at classical threshold on both versions.",
+    "paper_impact": "The directional inter-map comparison reaches p < 0.05 on both the EG-only (Version A) and Mahalanobis joint (Version B) tests. Add to \u00a75.4 as Ch1-COMP."
+  }
+}

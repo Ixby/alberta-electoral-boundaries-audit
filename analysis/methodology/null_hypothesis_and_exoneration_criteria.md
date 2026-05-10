@@ -109,6 +109,26 @@ Individual-test pre-registration is already in place (OSF Track W, filed 2026-04
 - The test does not penalise the Commission for following statutory community-of-interest obligations
 - The paper reports MGA-attributable non-compactness separately from drawing-attributable non-compactness
 
+### 2.6 Inter-map comparison permutation test (Ch1-COMP, EXECUTED 2026-05-10)
+
+**Null hypothesis (Commission innocent).** Under neutral drawing, the minority and majority commission proposals differ in their joint partisan-metric position by no more than randomly drawn pairs of constraint-legal neutral maps from the canonical ensemble.
+
+**Pass criterion (pre-committed in TODO.md Ch1-COMP specification, before test run):**
+
+1. **Version A (EG-only)**: PASSING if minority-majority EG gap falls below the null 95th percentile of random-plan-pair EG gaps. Honest pre-run prediction recorded in TODO.md: "Likely fails (typical pair gap ~2.8 pp > 1.42 pp)." The prediction was based on the DPG-era EG gap; the canonical run produced 3.92 pp.
+2. **Version B (Mahalanobis joint)**: PASSING if observed inter-map Mahalanobis distance falls below the null 95th percentile of random-plan-pair distances. Pre-committed to report regardless of direction.
+
+**Result (2026-05-10):**
+
+| Version | Observed | Null 95th pct | p | Result |
+| --- | --- | --- | --- | --- |
+| V-A (EG-only) | +3.92 pp | +3.43 pp | 0.0303 | NOT PASSING — exceeds threshold |
+| V-B (Mahalanobis joint) | D = 7.19 | 4.38 | 0.0001 | NOT PASSING — exceeds threshold |
+
+Both versions significant: **the minority-majority gap EXCEEDS the null**. The test is stated such that "passing" means the maps are not unusually separated — both versions fail the null, meaning the asymmetry is a real feature of the map pair. The pre-committed pessimistic prediction (V-A likely to fail the significance threshold) was wrong; V-A cleared. Both versions are SUPPORTED at classical threshold. Direction check: 3/4 metrics minority more UCP-favorable; declination reverses (consistent with asymmetric-packing theory documented in §5.4.9).
+
+**Implication:** The Ch1-COMP result confirms that the minority-majority asymmetry identified by Ch1 (absolute position) and SZAT (Ch2) is not a co-location artefact — the two maps are farther apart in partisan-metric space than typical neutral-plan pairs.
+
 ### 2.5 Absolute Chen-Rodden decomposition (§2.5 of apparatus-defense, ALREADY EXECUTED 2026-04-24)
 
 **Null hypothesis.** Under neutral drawing, the minority's drawing-attributable EG component (actual EG − ensemble median EG) is within the ensemble 5–95 percentile band. A gerrymandered minority map has drawing components that fall outside the band on at least one metric.
