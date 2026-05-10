@@ -34,13 +34,16 @@ def main():
     with INPUT_CSV.open(encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if not row.get("classification"):
+            if not row.get("classification") or not row.get("intensity"):
                 continue
-            
+
             config = row["configuration"]
-            intensity = int(row["intensity"])
+            try:
+                intensity = int(row["intensity"])
+            except (ValueError, TypeError):
+                continue
             classification = row["classification"]
-            
+
             if classification == "Active Opposition":
                 by_config[config]["opposition_sum"] += intensity
                 by_config[config]["opposition_count"] += 1
