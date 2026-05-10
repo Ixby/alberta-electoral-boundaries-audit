@@ -274,7 +274,7 @@ Official shapefiles available (commit `873f4d0`, 2026-05-06). Vision API calls f
 
 **Implementation:** `analysis/scripts/intermap_permutation_test.py` — **written and ready**. Runtime: ~60 seconds (10k pairs from 100k-row CSV). Output: `analysis/reports/intermap_permutation_test_results.json` + `.md`.
 
-**Pre-registration requirement:** Pre-register H₀, H₁, Version A/B, and the pre-commitment to report regardless of direction in OSF before running. Alternatively, label result explicitly as exploratory and cite this TODO entry as the pre-analysis plan. Do not run without this on record.
+**Pre-registration:** OSF [yvc7g](https://osf.io/yvc7g) — submitted 2026-05-10, anchored to git commit `ba0e686`. RNG seed 1823538405 derived from Cloudflare League of Entropy drand beacon round 5500000, salt "ch1-comp". Pre-commitment to report regardless of direction is on record.
 
 **Paper impact:**
 

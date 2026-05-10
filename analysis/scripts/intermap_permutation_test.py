@@ -30,9 +30,8 @@ EG sign convention (per szat.py, McGhee / Stephanopoulos 2014):
   positive EG = more NDP votes wasted than UCP (UCP structural advantage)
   T_A = EG(minority) - EG(majority) > 0 means minority is more UCP-favorable
 
-Pre-registration: H0, H1, and pre-commitment to report regardless of direction
-must be on record before running. See TODO.md "Inter-Map Comparison Permutation
-Test (Ch1-COMP)" for the full pre-analysis specification.
+Pre-registration: OSF yvc7g (https://osf.io/yvc7g), committed at git ba0e686.
+See TODO.md "Inter-Map Comparison Permutation Test (Ch1-COMP)" for full spec.
 
 Backward dependencies:
   data/simulated_ensemble_raw_samples_canonical.csv
