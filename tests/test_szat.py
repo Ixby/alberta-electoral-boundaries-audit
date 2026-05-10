@@ -1,6 +1,6 @@
 """Tests for szat.py — Swing-Zone Allocation Test core functions.
 
-The SZAT result (p = 0.0044) is one of the three primary statistical findings
+The SZAT result (p = 0.0024) is one of the three primary statistical findings
 in the audit. These tests verify the wasted-vote math and EG composition logic
 against hand-computed reference cases.
 

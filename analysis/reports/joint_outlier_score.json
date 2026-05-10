@@ -113,10 +113,10 @@
     }
   },
   "szat": {
-    "score": 0.039165,
+    "score": 0.039211,
     "bootstrap_n": 10000,
-    "bootstrap_p_value": 0.0044,
-    "bootstrap_p_label": "0.0044 (44/10000 permutations exceeded observed, full-recompute)",
+    "bootstrap_p_value": 0.0024,
+    "bootstrap_p_label": "0.0024 (24/10000 permutations exceeded observed, full-recompute, full advance-vote substrate)",
     "bootstrap_procedure": "full-recompute (pre-registered): each swing-zone VA Bernoulli-assigned to majority_ed or minority_ed; EG recomputed from scratch per permutation; SZAT_perm = EG(perm_minority) - EG(majority_fixed)",
     "aspredicted": "289469"
   },
@@ -126,10 +126,10 @@
       "szat_bootstrap"
     ],
     "p_channel_1": 1.6e-07,
-    "p_channel_2": 0.0044,
-    "fisher_T": 42.1485,
+    "p_channel_2": 0.0024,
+    "fisher_T": 43.3608,
     "fisher_df": 4,
-    "combined_p": 2e-08
+    "combined_p": 8.709e-09
   },
   "structural_pending": {
     "municipal_anchoring": {

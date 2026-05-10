@@ -52,11 +52,11 @@ Items must complete before either report goes public. Ordered: blockers first, t
 
 ## CRITICAL — Submission Gate
 
-All five conditions must be met before submission. Currently: **4/5 clear** (G2, G3, G4, G5 done; G1 blocked on C1).
+All five conditions must be met before submission. Currently: **5/5 clear** (all gates done 2026-05-10).
 
 | Gate | Condition | Status |
 |---|---|---|
-| G1 | Fisher independence check: \|ρ\| < 0.30 | **Blocked** (needs C1 advance-vote splat for full VA substrate) |
+| G1 | Fisher independence check: \|ρ\| < 0.30 | **DONE 2026-05-10** (ρ = −0.0014, p = 0.8884; SZAT p updated 0.0044 → 0.0024; Fisher 2ch p = 8.71e-9) |
 | G2 | S2-02 MCMC rescore: canonical 250k values from `simulated_ensemble_percentiles_canonical.csv` propagated to §5.4.9, §5.5, §6.2.1, §6.2.2 — key change: minority EG p94.2 (below p95, flag retracted); majority MM p0.85 (new NDP-tail finding) | **DONE 2026-05-10** |
 | G3 | BH correction table inserted at §4.3.1: 11 formal tests, 10/11 pass BH at α=0.05; sole failure is Minority EG (p94.2, already retracted) | **DONE 2026-05-10** |
 | G4 | Direction disagreement framing in §5.4/§6: EG+MM+seats (minority more UCP) vs declination (minority least UCP) vs 338 April 2026 (minority +1 NDP seat) reconciled explicitly | **DONE 2026-05-10** |
@@ -166,15 +166,14 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 
 ### Advance-vote splat (C1 — highest computational priority)
 
-- **C1 HIGHEST** Advance-vote splat — closes the 47.5% missing-vote gap. Input: `polls_2023_unified.csv` (ballot_type, voting_areas, ndp_votes, ucp_votes). Method: distribute each non-Election-Day poll's votes to its VAs proportionally by Election-Day share. Output: updated VA substrate with full 2023 vote totals (target: 1,706,304 two-party). Consequence: makes Phase 4C comparable to v0.2; likely resolves EG sign flip; raises NDP province-wide share from 42.60% to ~44.17%. Unblocks: Fisher independence check (G1), Stage 5 vote aggregation, Phase 5 ensemble re-run. Effort: 1–2 days.
+- **C1 DONE 2026-05-10** Advance-vote splat — output at `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg`; two-party total 1,706,304 ✓; NDP share 45.56%; 4,765 VAs; 2,110 swing zones.
 - **C5** Vote Anywhere exclusion — filter `polls_2023_unified.csv` for Vote Anywhere polls; exclude from VA substrate; quantify excluded vote total. Effort: 1 hour.
 
 ### Fisher Empirical Independence Check (Gate G1)
 
 - **Script:** `analysis/scripts/szat.py` then `analysis/scripts/validate_fisher_independence.py`
-- **Status:** Blocked — `data/szat_bootstrap_eg_samples.npy` does not exist; unblocked once C1 complete
-- **Gate:** |ρ| < 0.30; activates CI test `test_fisher_channel_independence` automatically once .npy exists
-- **Hard stop:** Do not submit paper while `fisher_independence_defense.md` shows "pending"
+- **Status:** DONE 2026-05-10 — `data/szat_bootstrap_eg_samples.npy` generated; ρ = −0.0014 (PASS); hard stop cleared
+- **Gate:** |ρ| < 0.30 ✓ — CI test `test_fisher_channel_independence` now active
 
 ### Fisher Combination Defense Document — **DONE**
 
@@ -426,6 +425,8 @@ After Phase 2 audit is complete, write a methods companion paper covering:
 - Phase 4C VA assignment: 89/89 EDs resolved in both maps
 - intermap_permutation_test.py — **DONE 2026-05-10**: V-A p=0.0303, V-B p=0.0001; both significant; inserted in §5.4 as Ch1-COMP (OSF yvc7g)
 - Six Hats 4-pass analysis + synthesis
+- C1 advance-vote splat — **DONE 2026-05-10**: `va_polygons_with_full_2023_votes.gpkg`; 1,706,304 two-party; NDP 45.56%; 2,110 swing zones
+- G1 Fisher independence check — **DONE 2026-05-10**: ρ=−0.0014, p=0.8884; szat.py fixed (swing count 2108→2110, logger NameError); SZAT p updated 0.0044→0.0024; Fisher 2ch p=8.71e-9; all 6 docs updated
 
 ---
 

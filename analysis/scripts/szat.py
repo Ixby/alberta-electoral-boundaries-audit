@@ -220,11 +220,11 @@ def run() -> None:
 
     n_swing = int(va["is_swing"].sum())
     print(f"  Swing zones: {n_swing} / {len(va)}")
-    # 2108 was validated with canonical shapefiles using representative_point().
-    # If this assertion fails after a shapefile update, re-run and update the count.
-    if n_swing != 2108:
+    # 2110 validated with canonical shapefiles + va_polygons_with_full_2023_votes.gpkg
+    # using representative_point(). Update if shapefiles change.
+    if n_swing != 2110:
         raise ValueError(
-            f"Expected 2108 swing VAs against canonical shapefiles, got {n_swing}. "
+            f"Expected 2110 swing VAs against canonical shapefiles, got {n_swing}. "
             "Check shapefile version — canonical pair: "
             "ea_majority_2026_eds.gpkg / ea_minority_2026_eds.gpkg with "
             "va_polygons_with_full_2023_votes.gpkg. "
@@ -373,7 +373,7 @@ def run() -> None:
 
     boot_eg_raw = boot_scores + eg_maj_fixed
     np.save(DATA / "szat_bootstrap_eg_samples.npy", boot_eg_raw)
-    logger.info("Bootstrap EG samples saved: %d draws", len(boot_eg_raw))
+    print(f"  Bootstrap EG samples saved: {len(boot_eg_raw)} draws")
 
     p_value = float(np.mean(np.abs(boot_scores) >= abs(szat_score)))
     ci_lo = float(np.percentile(boot_scores, 2.5))

@@ -12,7 +12,7 @@ are not measuring strictly independent quantities.
 | Channel | Question | Input data | Null distribution |
 |---------|----------|------------|-------------------|
 | Ch1 | Is the minority map an outlier in the *space of geographically valid Alberta plans*? | 2023 vote totals assigned to swing VAs, aggregated by MCMC partition | 100k MCMC draws from the null |
-| Ch2 | Do *boundary choices in the specific swing zone* drive the observed EG, over and above the geographic distribution of votes? | 2023 vote totals for 2108 swing VAs | Bernoulli(0.5) shuffle of swing-zone VA assignments |
+| Ch2 | Do *boundary choices in the specific swing zone* drive the observed EG, over and above the geographic distribution of votes? | 2023 vote totals for 2110 swing VAs | Bernoulli(0.5) shuffle of swing-zone VA assignments |
 
 Ch1 integrates over *all* boundary configurations. Ch2 conditions on the *specific
 boundary* and asks whether that boundary's swing-zone choices are systematic.
@@ -23,7 +23,7 @@ vote counts.
 
 ## Empirical independence check
 
-**Status: instrumented, pending next szat.py run.**
+**Status: COMPLETE (2026-05-10). ρ = −0.0014, p = 0.8884. Channels are empirically near-independent. Fisher combination claim is defensible.**
 
 The check computes Spearman rank correlation between:
 
@@ -87,3 +87,17 @@ correction, pre-registration gap) are addressed in
 ---
 
 *Last updated: 2026-05-09*
+
+## Empirical result (2026-05-09)
+
+Script: `validate_fisher_independence.py`
+
+- Ch1: Mahalanobis distances from simulated_ensemble_raw_samples_canonical.csv (250,000 draws)
+- Ch2: Bootstrap EG samples from szat_bootstrap_eg_samples.npy (10,000 draws)
+- n used for correlation: 10,000
+
+**Spearman ρ = -0.0014   p = 0.8884**
+
+Channels are empirically near-independent (|ρ| = 0.0014 < 0.3). Fisher combination claim is defensible for this dataset.
+
+*Updated: 2026-05-09*

@@ -1,8 +1,8 @@
 # Fisher Combination Defense
 
 **Purpose:** Exhaustive anticipation of reviewer objections to the Fisher combination of
-Ch1 (Mahalanobis, p = 1.60×10⁻⁷) and Ch2 (SZAT bootstrap, p = 0.0044) →
-Fisher T = 42.15, combined p = 1.55×10⁻⁸.
+Ch1 (Mahalanobis, p = 1.60×10⁻⁷) and Ch2 (SZAT bootstrap, p = 0.0024) →
+Fisher T = 43.36, combined p = 8.71×10⁻⁹.
 
 **Companion document:** `fisher_independence_defense.md` — independence assumption (AV5 here).
 
@@ -18,13 +18,13 @@ process that respects Alberta's geography and administrative constraints.
 **Test statistic:** Fisher's combination method applied to two pre-registered p-values:
 
 ```
-T = −2 [ln(1.60×10⁻⁷) + ln(0.0044)] = 42.15
+T = −2 [ln(1.60×10⁻⁷) + ln(0.0024)] = 43.36
 T ~ χ²(df = 4) under H₀ with independent channels
-p = χ²_4.sf(42.15) = 1.55×10⁻⁸
+p = χ²_4.sf(43.36) = 8.71×10⁻⁹
 ```
 
 **Interpretation:** Under a neutral drawing process, a minority map this extreme on both
-channels simultaneously would occur in approximately 1 out of every 64 million draws.
+channels simultaneously would occur in approximately 1 out of every 115 million draws.
 This is not a claim that the map *is* a gerrymander — it is a claim that the map is
 a statistical outlier relative to the null distribution of neutral plans.
 
@@ -35,10 +35,10 @@ a statistical outlier relative to the null distribution of neutral plans.
 | | Ch1 — Mahalanobis joint tail | Ch2 — SZAT swing-zone bootstrap |
 |---|---|---|
 | **What it measures** | Is the minority map an outlier in the space of geographically valid Alberta plans? | Do swing-zone boundary choices in the minority map systematically drive EG above the neutral expectation? |
-| **Null distribution** | 100,000 MCMC draws from the space of plans respecting Alberta geography | Bernoulli(0.5) shuffles of swing-zone VA assignments (2,108 VAs, 10,000 draws) |
+| **Null distribution** | 100,000 MCMC draws from the space of plans respecting Alberta geography | Bernoulli(0.5) shuffles of swing-zone VA assignments (2,110 VAs, 10,000 draws) |
 | **Pre-registration** | OSF qsgy8 | OSF r3zm7 |
 | **Seed provenance** | drand League of Entropy beacon round pre-dating shapefile release | drand League of Entropy beacon round pre-dating shapefile release |
-| **Result** | p = 1.60×10⁻⁷ | p = 0.0044 |
+| **Result** | p = 1.60×10⁻⁷ | p = 0.0024 |
 
 **Timeline establishing non-cherry-picking:**
 
@@ -86,12 +86,12 @@ reason.
 **Sensitivity check — what if Ch3 were included anyway?**
 
 ```
-T_3ch = −2 [ln(1.60×10⁻⁷) + ln(0.0044) + ln(0.1342)] = 46.17
-p_3ch = χ²_6.sf(46.17) = 2.74×10⁻⁸
+T_3ch = −2 [ln(1.60×10⁻⁷) + ln(0.0024) + ln(0.1342)] = 47.38
+p_3ch = χ²_6.sf(47.38) = 1.57×10⁻⁸
 ```
 
-Including Ch3 changes the combined p from 1.55×10⁻⁸ to 2.74×10⁻⁸ — one order of
-magnitude less significant, not more. Ch3 exclusion does not inflate the result.
+Including Ch3 changes the combined p from 8.71×10⁻⁹ to 1.57×10⁻⁸ — somewhat less
+significant, not more. Ch3 exclusion does not inflate the result.
 
 ### AV3 — "You only applied Fisher to the minority map" (asymmetric application)
 
@@ -110,7 +110,7 @@ A symmetric Ch2 for the majority is achievable: flip the anchor to the minority 
 (fix non-swing VAs to minority_ed), randomize swing VAs, and test where the majority
 map's EG falls. By symmetry of the Bernoulli(0.5) null, the majority's observed SZAT
 score equals −(minority's score), so the two-tailed p-value is approximately the same
-(~0.0044). The symmetric test would confirm the finding from the other direction.
+(~0.0024). The symmetric test would confirm the finding from the other direction.
 
 **The pre-registration (OSF r3zm7) specifies the majority-anchored null.** The
 minority-anchored version for the majority map would be a post-hoc supplementary check.
@@ -140,7 +140,7 @@ the combined p-value under four methods, all computed from the same two input p-
 
 | Method | Minority combined p | Independence assumption | Notes |
 |---|---|---|---|
-| **Fisher (implemented)** | **1.55×10⁻⁸** | Required | T=42.15, df=4 |
+| **Fisher (implemented)** | **8.71×10⁻⁹** | Required | T=43.36, df=4 |
 | Stouffer (z-score) | 2.29×10⁻⁸ | Required | z = (5.111 + 2.620) / √2 = 5.467 |
 | Cauchy combination | 3.20×10⁻⁷ | Not required | Robust to heavy-tail dependence |
 | Bonferroni | ≤ 3.20×10⁻⁷ | Not required | Conservative; p_min × 2 |
@@ -245,11 +245,11 @@ is strictly conservative. Removing it would strengthen, not weaken, the result.
 
 ### AV7 — "Two maps tested; p should be Bonferroni-corrected"
 
-Two maps are evaluated: minority (combined p = 1.55×10⁻⁸) and majority (Ch1 p = 0.125).
+Two maps are evaluated: minority (combined p = 8.71×10⁻⁹) and majority (Ch1 p = 0.125).
 Bonferroni correction for m = 2 tests requires p < α/2 = 0.025 to claim significance
 at α = 0.05.
 
-The minority combined p (1.55×10⁻⁸) clears this threshold by more than six orders of
+The minority combined p (8.71×10⁻⁹) clears this threshold by more than six orders of
 magnitude. The minority Ch1 p alone (1.60×10⁻⁷) clears it by five orders of magnitude.
 Bonferroni correction is trivially satisfied.
 
@@ -305,5 +305,4 @@ pre-specification is required.
 
 ---
 
-*Computations verified 2026-05-09 using scipy 1.x. All values are reproducible from the
-pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*
+*Computations updated 2026-05-10 using scipy 1.x with full advance-vote substrate (va_polygons_with_full_2023_votes.gpkg; two-party total 1,706,304; swing zones 2,110). All values are reproducible from the pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*

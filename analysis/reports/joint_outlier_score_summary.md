@@ -37,8 +37,8 @@ Mahalanobis distance accounts for the correlation structure between these four m
 
 ## Channel 2 — SZAT bootstrap null
 
-SZAT score: +0.039165 (minority EG − majority EG, swing zones only)
-Bootstrap p: 0.0044 (44/10000 permutations exceeded observed, full-recompute)
+SZAT score: +0.039211 (minority EG − majority EG, swing zones only)
+Bootstrap p: 0.0024 (24/10000 permutations exceeded observed, full-recompute)
 (AsPredicted #289,469; seed pre-committed at git hash d2aea42; full-recompute procedure)
 
 ---
@@ -69,15 +69,15 @@ The majority map's drain_score (0.0002) is significantly *below* the null mean (
 | Channel | p-value |
 | --- | --- |
 | Partisan joint (Mahalanobis) | 1.60e-07 |
-| SZAT bootstrap | 0.0044 |
-| **Fisher combined** | **1.55e-08** |
+| SZAT bootstrap | 0.0024 |
+| **Fisher combined** | **8.71e-09** |
 
-Fisher T = 42.148, chi-sq df = 4.
+Fisher T = 43.361, chi-sq df = 4.
 
-**Reading:** p = 1.55e-08 is the probability that a neutral-draw process
+**Reading:** p = 8.71e-09 is the probability that a neutral-draw process
 produces a map simultaneously this extreme on both the partisan feature vector and
 the swing-zone boundary allocation. Under the neutral null, this combination
-occurs roughly once in every 64,348,959 draws.
+occurs roughly once in every 115 million draws.
 
 ---
 
@@ -95,8 +95,8 @@ occurs roughly once in every 64,348,959 draws.
 
 The duck test made precise: the minority map's four-dimensional partisan feature
 vector sits at Mahalanobis distance 6.11 from the ensemble center
-(p = 1.60e-07). Combined with the SZAT result (p = 0.0044) and Fisher's
-method, the joint neutral-null probability is p = 1.55e-08.
+(p = 1.60e-07). Combined with the SZAT result (p = 0.0024) and Fisher's
+method, the joint neutral-null probability is p = 8.71e-09.
 
 **Channel 3 (Neighbour-Drain) executed 2026-05-07.** Minority within null
 (p = 0.1342); does not contribute to the Fisher combination. The pre-registered

@@ -105,7 +105,7 @@ SZAT isolates the *causal boundary choices* — the swing zones — and tests wh
 - **Paired** — uses a real alternative map as its counterfactual, not an ensemble median; the counterfactual is therefore politically meaningful, not a neutral geometric average
 - **Generalizable** — any two maps covering the same territory (majority vs minority; proposed vs enacted; proposed vs prior cycle) can be compared via SZAT; the proposed-vs-2019-baseline variant requires only one new spatial join
 
-Applied to Alberta 2026: SZAT score = +0.039165 (p < 0.0001, two-tailed bootstrap N = 10,000, seed pre-committed at git hash d2aea42). The minority map's boundary choices increase NDP vote waste by 3.9 pp relative to the majority, with dominant contribution from Rest of Alberta (+0.015) and Edmonton (+0.008). The Canmore/RMH focal EDs — which motivated the test — contribute +0.006291, a meaningful share of the total given their geographic scale.
+Applied to Alberta 2026: SZAT score = +0.039211 (p = 0.0024, two-tailed bootstrap N = 10,000, seed pre-committed at git hash d2aea42). The minority map's boundary choices increase NDP vote waste by 3.9 pp relative to the majority, with dominant contribution from Rest of Alberta (+0.015) and Edmonton (+0.008). The Canmore/RMH focal EDs — which motivated the test — contribute +0.006291, a meaningful share of the total given their geographic scale.
 
 ### Claim to novelty
 
