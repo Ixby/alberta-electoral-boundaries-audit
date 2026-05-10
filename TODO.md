@@ -1,7 +1,7 @@
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-10 (late evening — sentiment analysis complete; §5.9.4.6 written; verdict figures updated to canonical; audit_log hook fixed)
+**Last updated:** 2026-05-10 (new session — ISR relaunched bg02j9iz7 after context expiry; 459 rows remaining)
 **Single source of truth for all outstanding work. Planning docs flagged for deletion at bottom.**
 
 ---
@@ -39,7 +39,7 @@ Group chat review Monday. These items require no new research — all are prose 
 - ES-14: Canadian literature engagement (Pal, Wesley, Courtney pin-cites — 3–4 h)
 - ES-16: Saskatchewan Reference depth (1.5 h)
 - ES-10: *Grant v. Torstar* defamation posture (2 h)
-- ~~C1: Advance-vote splat computation~~ **DONE 2026-05-10** (see Computational Blockers)
+- ~~C1: Advance-vote splat computation~~ **DONE 2026-05-10** (C5 Vote Anywhere exclusion applied; substrate 1,544,139 two-party; NDP share 44.66%; see Computational Blockers)
 - ~~S2-02: MCMC full-coverage rescore headline update~~ **DONE 2026-05-10** (Gate G2)
 
 ---
