@@ -1,7 +1,7 @@
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-10 (evening — post Ch1-COMP run, gates G2–G5 complete; DOC-ACCURACY stale-figure sweep)
+**Last updated:** 2026-05-10 (late evening — sentiment analysis complete; §5.9.4.6 written; verdict figures updated to canonical; audit_log hook fixed)
 **Single source of truth for all outstanding work. Planning docs flagged for deletion at bottom.**
 
 ---
@@ -39,7 +39,7 @@ Group chat review Monday. These items require no new research — all are prose 
 - ES-14: Canadian literature engagement (Pal, Wesley, Courtney pin-cites — 3–4 h)
 - ES-16: Saskatchewan Reference depth (1.5 h)
 - ES-10: *Grant v. Torstar* defamation posture (2 h)
-- C1: Advance-vote splat computation (1–2 days)
+- ~~C1: Advance-vote splat computation~~ **DONE 2026-05-10** (see Computational Blockers)
 - ~~S2-02: MCMC full-coverage rescore headline update~~ **DONE 2026-05-10** (Gate G2)
 
 ---
@@ -117,7 +117,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-01 DONE (pre-existing)** *Rizzo* case-name — verified correct throughout.
 - **ES-02 DONE 2026-05-10** Comparator-trio rewrite §5.9.3 — Quebec 2011 + SCC April 2026 substituted; stale §2 pointer fixed.
 - **ES-03 DONE 2026-05-10** Alberta 2017 seat-count — no "2017 expanded" claim found; stale §2 cross-ref corrected.
-- **ES-04** (=S2-01/S2-02/S9-01) MCMC percentile demotion — S2-02 DONE; S2-01 and S9-01 outstanding.
+- **ES-04** (=S2-01/S2-02/S9-01) MCMC percentile demotion — S2-01 DONE 2026-05-10; S2-02 DONE; S9-01 outstanding.
 - **ES-05 DONE 2026-05-10** Abstract contingency clause — "EG direction reverses under 2019 votes (see §5.2.3)" added.
 - **ES-06 DONE 2026-05-10** Exploratory-vs-confirmatory foregrounding — *Evidentiary status* paragraph added to Abstract; bold "Exploratory vs. confirmatory status" paragraph added to §1 after opening paragraph.
 
@@ -146,7 +146,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-24 DONE 2026-05-10** Abstract word-count cut — trimmed to 150–250 words; technical detail moved to §1.
 - **ES-25 DONE 2026-05-10** "US judicial threshold" replaced with "Stephanopoulos-McGhee 7% investigable-bias threshold" throughout.
 - **ES-26 DONE 2026-05-10** Declination formula in Appendix D.3 — formal definition added; PP→D.4, Reock→D.5.
-- **ES-27 MED** Per-metric ESS in §5.4. Effort: 30 min.
+- **ES-27 DONE 2026-05-10** Per-metric ESS in §5.4 — worst-chain ESS 63–94 reported in canonical R-hat table (OSF s58a6 Section B); full GR92+Vehtari paragraph in §5.4.
 
 #### LOW (synthesis items 28–36)
 
@@ -169,6 +169,13 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **C1 DONE 2026-05-10** Advance-vote splat — output at `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg`; two-party total 1,544,139 (post-C5); NDP share 44.66% (+2.07 pp from ED-only 42.60%); 4,765 VAs; conservation PASS (delta = 0).
 - **C5 DONE 2026-05-10** Vote Anywhere exclusion — 87 rows excluded (NDP 87,767 / UCP 74,398 / Other 3,768); filtered inline in `advance_vote_splat.py` before splat weights built.
 - **DOC-ACCURACY DONE 2026-05-10** Post-C1 stale-figure sweep — corrected 44.17% → 44.66% and 45.56% → 44.66% (NDP post-splat share) and 1,706,304 → 1,544,139 (substrate two-party total) across: `report_academic.md` §5.2 SZAT disclosure, `shapefile_redteam_report.md` §Known Limitations, `fisher_combination_defense.md` footer, `assignment_gerrymander_comparison.md` §Election-Day bias. Added pre-C5 disclosure note to `advance_vote_sensitivity.md`. `sign_convention_resolution.md` and `section_4_geometry_provenance.md` 45.56% references verified correct (official election total, not substrate).
+
+### OSF s58a6 — Section C: MCMC Rerun for Pending Channels
+
+- **Status: PENDING** — base_seed = 3562959107 (drand round 6099592); registered OSF s58a6 2026-05-10
+- **Channels:** population MAD ratio, Reock asymmetry, municipal anchoring departure (all require per-plan outputs not in existing ensemble)
+- **Protocol:** 2 chains × 50,000 plans with per-plan MAD, Reock, and anchor-count capture
+- **Decision rule:** each channel reported regardless of direction; any p<0.05 added to updated Fisher combination
 
 ### Fisher Empirical Independence Check (Gate G1)
 
@@ -209,14 +216,14 @@ Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
 ## HIGH — Sentiment Analysis
 
 - **Corpus:** 1,252 published submissions (1,340 IDs; 88 withdrawn)
-- **Full-corpus scan (in progress):** `submission_sentiment_llm_full.py` — running; ~218/1,252 as of 2026-05-09 ~19:51
-- **Hansard scan (in progress):** `hansard_sentiment_llm.py` — 188 R1 community turns classifying; log at `.temp/hansard_run.log`
-- **Corpus completion decision:** After current scans finish, decide: stop at current corpus or add R2 Hansard (209 turns, ~3h). Decision gate: does completion meaningfully change the support/oppose ratios for any of the 7 configurations? If counts are stable, stop. If borderline, run R2.
-- **OCR cleanup (after scan finishes):** Run `post_ocr_cleanup.py` — purges 10 stale OCR IDs, drops 5 false-positive rows
-- **Re-classify:** Re-run `submission_sentiment_llm_full.py` for the 10 purged IDs only (~3 min)
-- **Forensic pipeline:** After scan + Hansard complete: `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
+- **Full-corpus scan DONE 2026-05-10:** 388 rows, 71 submissions, 49% opp / 21% sup. `data/outputs/submission_sentiment_llm_full_results.csv`
+- **Hansard R1 DONE 2026-05-10:** 188/188 community turns classified.
+- **Hansard R2 DONE 2026-05-10:** 209/209 community turns classified.
+- **§5.9.4.6 written + committed DONE 2026-05-10:** Channel-divergence analysis, per-config tables, intensity-weighted ranking, partisan-sorting caveat. RMH-Banff and Red Deer flip from net-opposed (submissions) to net-supported (Hansard). Airdrie/Chestermere/Nolan-Hill consistently opposed both channels.
+- **Intensity scoring pass IN PROGRESS:** `sentiment_intensity_score.py` — 459 active rows, haiku model, ~4h ETA from start. Update §5.9.4.6 weighted-net table when complete.
+- **Remaining forensic pipeline:** `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
 - **Cross-reference:** Final results against `minority_rationales_validation.md` Proposals A–F
-- **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/` (last script not using shared utils; can't modify while running)
+- **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/`
 
 ---
 
