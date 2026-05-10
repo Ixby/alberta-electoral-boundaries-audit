@@ -716,4 +716,12 @@ ERROR
 ERROR
 [10:47:49] [358/459] hansard_r2-00172|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inn ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
 ERROR
-[10:48:08] [359/459] hansard_r2-00173|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... 
+[10:48:08] [359/459] hansard_r2-00173|Olds-Three Hills-Didsbury extending to Airdrie|hansar ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:48:29] [360/459] hansard_r2-00338|Chestermere merging with Calgary|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:48:44] [361/459] hansard_r2-00345|Chestermere merging with Calgary|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:49:00] [362/459] hansard_r2-00351|Chestermere merging with Calgary|hansard_r2 ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[10:49:15] [363/459] hansard_r2-00358|Chestermere merging with Calgary|hansard_r2 ... 
