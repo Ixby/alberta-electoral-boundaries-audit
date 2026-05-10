@@ -71,7 +71,7 @@ with 2023 Statement of Vote Election-Day NDP and UCP vote totals per VA.
 1. **Election-Day only.** Advance, mail-in, and special ballot votes are
    excluded. NDP voters use advance/special at a 6pp higher rate than UCP,
    so the Election-Day subset underestimates NDP's province-wide share (42.60%
-   vs full-count 44.17%).
+   vs full-count 44.66% post-C5 Vote Anywhere exclusion).
 
 2. **Spatial proxy for residence.** VA centroid is used as a proxy for where
    Election-Day voters live. VAs are small (median ~500m diameter in urban

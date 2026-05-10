@@ -109,7 +109,7 @@ contains only Election Day spatially-assigned votes (two-party total
 Election Day votes skew UCP relative to the full count because NDP
 voters use advance/mail/special ballots at a 6pp higher rate (NDP
 advance share ~51% vs UCP ~45%). The Phase 4C NDP province-wide share
-is 42.60% vs the full-count 44.17%.
+is 42.60% vs the full-count 44.66%.
 
 This explains the sign flip in EG: the NDP seat count drops from 38 to
 30 under the Election Day subset because marginal NDP seats are won on

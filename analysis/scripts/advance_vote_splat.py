@@ -39,10 +39,10 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # ---------------------------------------------------------------------------
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..", "..")
-POLLS_CSV = os.path.join(HERE, "polls_2023_unified.csv")
-VA_GPKG_IN = os.path.join(ROOT, "data", "va_polygons_with_2023_votes.gpkg")
-VA_GPKG_OUT = os.path.join(ROOT, "data", "va_polygons_with_full_2023_votes.gpkg")
-DIAG_CSV = os.path.join(HERE, "advance_vote_splat_diagnostics.csv")
+POLLS_CSV = os.path.join(ROOT, "data", "outputs", "polls_2023_unified.csv")
+VA_GPKG_IN = os.path.join(ROOT, "data", "shapefiles", "derived", "va_polygons_with_2023_votes.gpkg")
+VA_GPKG_OUT = os.path.join(ROOT, "data", "shapefiles", "derived", "va_polygons_with_full_2023_votes.gpkg")
+DIAG_CSV = os.path.join(ROOT, "data", "outputs", "advance_vote_splat_diagnostics.csv")
 
 
 # ===========================================================================
@@ -84,6 +84,21 @@ print(
     f"\nGrand totals  NDP={total_ndp_all:,}  UCP={total_ucp_all:,}  "
     f"Other={total_other_all:,}  Total={total_votes_all:,}"
 )
+
+# ---------------------------------------------------------------------------
+# C5 — Exclude Vote Anywhere polls (cannot be attributed to specific VAs)
+# ---------------------------------------------------------------------------
+mask_va = polls["poll_name"].str.contains("Vote Anywhere", na=False, case=False)
+va_excluded = polls[mask_va]
+n_va_excluded = len(va_excluded)
+va_ndp_excl = va_excluded["ndp_votes"].sum()
+va_ucp_excl = va_excluded["ucp_votes"].sum()
+va_other_excl = va_excluded["other_votes"].sum()
+print(
+    f"\nVote Anywhere excluded: {n_va_excluded} rows  "
+    f"NDP={va_ndp_excl:,}  UCP={va_ucp_excl:,}  Other={va_other_excl:,}"
+)
+polls = polls[~mask_va].copy()
 
 # Warning: rows where voting_areas is NaN / empty (expected for non-ED polls)
 missing_va = polls["voting_areas"].isna() | (polls["voting_areas"].str.strip() == "")
@@ -355,11 +370,12 @@ sub_full_ucp = va_gdf["va_ucp_full"].sum()
 sub_full_other = va_gdf["va_other_full"].sum()
 sub_full_total = sub_full_ndp + sub_full_ucp + sub_full_other
 
-# Reference totals from polls CSV (all ballot types)
-ref_ndp = total_ndp_all
-ref_ucp = total_ucp_all
-ref_other = total_other_all
+# Reference totals: polls CSV minus Vote Anywhere (intentionally excluded by C5)
+ref_ndp = total_ndp_all - va_ndp_excl
+ref_ucp = total_ucp_all - va_ucp_excl
+ref_other = total_other_all - va_other_excl
 ref_total = ref_ndp + ref_ucp + ref_other
+print(f"  (Vote Anywhere excluded: NDP={va_ndp_excl:,}  UCP={va_ucp_excl:,}  Other={va_other_excl:,})")
 
 print("\n--- Conservation check ---")
 print(

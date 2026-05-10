@@ -1,7 +1,7 @@
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-10 (evening — post Ch1-COMP run, gates G2–G5 complete)
+**Last updated:** 2026-05-10 (evening — post Ch1-COMP run, gates G2–G5 complete; DOC-ACCURACY stale-figure sweep)
 **Single source of truth for all outstanding work. Planning docs flagged for deletion at bottom.**
 
 ---
@@ -166,8 +166,9 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 
 ### Advance-vote splat (C1 — highest computational priority)
 
-- **C1 DONE 2026-05-10** Advance-vote splat — output at `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg`; two-party total 1,706,304 ✓; NDP share 45.56%; 4,765 VAs; 2,110 swing zones.
-- **C5** Vote Anywhere exclusion — filter `polls_2023_unified.csv` for Vote Anywhere polls; exclude from VA substrate; quantify excluded vote total. Effort: 1 hour.
+- **C1 DONE 2026-05-10** Advance-vote splat — output at `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg`; two-party total 1,544,139 (post-C5); NDP share 44.66% (+2.07 pp from ED-only 42.60%); 4,765 VAs; conservation PASS (delta = 0).
+- **C5 DONE 2026-05-10** Vote Anywhere exclusion — 87 rows excluded (NDP 87,767 / UCP 74,398 / Other 3,768); filtered inline in `advance_vote_splat.py` before splat weights built.
+- **DOC-ACCURACY DONE 2026-05-10** Post-C1 stale-figure sweep — corrected 44.17% → 44.66% and 45.56% → 44.66% (NDP post-splat share) and 1,706,304 → 1,544,139 (substrate two-party total) across: `report_academic.md` §5.2 SZAT disclosure, `shapefile_redteam_report.md` §Known Limitations, `fisher_combination_defense.md` footer, `assignment_gerrymander_comparison.md` §Election-Day bias. Added pre-C5 disclosure note to `advance_vote_sensitivity.md`. `sign_convention_resolution.md` and `section_4_geometry_provenance.md` 45.56% references verified correct (official election total, not substrate).
 
 ### Fisher Empirical Independence Check (Gate G1)
 
@@ -193,10 +194,9 @@ Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
 
 - **Stage 3 SUPERSEDED** — Replace Vision API calls with spatial join of VA centroids against `ea_minority_2026_eds.gpkg` / `ea_majority_2026_eds.gpkg`. Effort: 2 hours.
 - **Stage 4:** Aggregate spatial join output to CSV per 2026 ED.
-- **Stage 5:** Group VA votes by 2026 ED; aggregate totals. Requires C1 first.
+- **Stage 5:** Group VA votes by 2026 ED; aggregate totals. C1 complete — unblocked.
 - **Stage 6:** Execute `packing_cracking_analysis.py` on Stage 5 data.
 - **Stage 7:** Run `monte_carlo_ci.py` on Stage 5 output.
-- **Blocker:** C1 must run before Stage 5.
 
 ### External Tool Validation
 

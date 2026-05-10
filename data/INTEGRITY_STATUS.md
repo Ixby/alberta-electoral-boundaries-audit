@@ -35,10 +35,12 @@ Elections Alberta 2026 shapefiles.
   documented 2023 total). Root cause: the VA polygon substrate contained only
   Election-Day votes; the 47.2% non-Election-Day share was never apportioned.
 - Fix: `advance_vote_splat.py` ran clean, wrote
-  `data/va_polygons_with_full_2023_votes.gpkg` with `va_{ucp,ndp,other}_full`
+  `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` with `va_{ucp,ndp,other}_full`
   columns. Conservation gate: exact (0-vote delta across all three categories).
-  Province-wide NDP share moved from 42.60% (Election-Day only) to 45.56%
-  (full) — a +2.96 pp upward correction.
+  Province-wide NDP share moved from 42.60% (Election-Day only) to 44.66%
+  (full) — a +2.07 pp upward correction. (Definitive run 2026-05-10 with C5
+  Vote Anywhere exclusion: 87 rows / 165,933 votes excluded; two-party total
+  1,544,139 post-exclusion.)
 - Downstream: `phase_4bcdef_execution.py` and
   `mcmc_full_coverage_rescore_v2.py` now read the full-VA gpkg and use the
   `_full` columns.
@@ -163,8 +165,8 @@ remediation pass.
 ## Files produced / updated by this remediation
 
 **New:**
-- `data/va_polygons_with_full_2023_votes.gpkg` (from splat)
-- `analysis/advance_vote_splat_diagnostics.csv`
+- `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` (from splat, definitive run 2026-05-10)
+- `data/outputs/advance_vote_splat_diagnostics.csv`
 
 **Edited:**
 - `analysis/scripts/advance_vote_splat.py` — cp1252 encoding

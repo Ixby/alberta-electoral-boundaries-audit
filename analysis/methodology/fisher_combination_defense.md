@@ -305,4 +305,4 @@ pre-specification is required.
 
 ---
 
-*Computations updated 2026-05-10 using scipy 1.x with full advance-vote substrate (va_polygons_with_full_2023_votes.gpkg; two-party total 1,706,304; swing zones 2,110). All values are reproducible from the pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*
+*Computations updated 2026-05-10 using scipy 1.x with full advance-vote substrate (va_polygons_with_full_2023_votes.gpkg; two-party total 1,544,139 post-C5 Vote Anywhere exclusion; swing zones 2,110). All values are reproducible from the pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*
