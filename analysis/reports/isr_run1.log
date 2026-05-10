@@ -1,0 +1,345 @@
+Active rows to score: 459
+Already scored: 0  Remaining: 459
+[08:24:39] [1/459] EBC-2025-1-0051|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:25:09] [2/459] EBC-2025-1-0081|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:25:36] [3/459] EBC-2025-1-0082|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:25:56] [4/459] EBC-2025-1-0082|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:26:18] [5/459] EBC-2025-1-0082|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:26:45] [6/459] EBC-2025-1-0082|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:27:14] [7/459] EBC-2025-1-0102|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:27:42] [8/459] EBC-2025-1-0106|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:28:07] [9/459] EBC-2025-1-0110|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:28:29] [10/459] EBC-2025-1-0110|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:28:51] [11/459] EBC-2025-1-0125|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:29:19] [12/459] EBC-2025-1-0133|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:29:45] [13/459] EBC-2025-1-0134|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:30:04] [14/459] EBC-2025-1-0137|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:30:28] [15/459] EBC-2025-1-0138|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:30:51] [16/459] EBC-2025-1-0138|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:31:22] [17/459] EBC-2025-1-0138|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:31:45] [18/459] EBC-2025-1-0139|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:32:13] [19/459] EBC-2025-1-0152|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:32:40] [20/459] EBC-2025-1-0152|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:32:59] [21/459] EBC-2025-1-0152|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:33:22] [22/459] EBC-2025-1-0154|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:33:42] [23/459] EBC-2025-1-0157|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:34:10] [24/459] EBC-2025-1-0162|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:34:39] [25/459] EBC-2025-1-0167|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:34:58] [26/459] EBC-2025-1-0178|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:35:23] [27/459] EBC-2025-1-0181|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:35:51] [28/459] EBC-2025-2-0013|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:36:14] [29/459] EBC-2025-2-0046|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:36:34] [30/459] EBC-2025-2-0047|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:36:53] [31/459] EBC-2025-2-0048|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:37:10] [32/459] EBC-2025-2-0065|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:37:24] [33/459] EBC-2025-2-0069|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:37:47] [34/459] EBC-2025-2-0075|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:38:10] [35/459] EBC-2025-2-0083|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:38:26] [36/459] EBC-2025-2-0084|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:38:51] [37/459] EBC-2025-2-0087|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:39:18] [38/459] EBC-2025-2-0089|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:39:36] [39/459] EBC-2025-2-0091|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:39:56] [40/459] EBC-2025-2-0095|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:40:15] [41/459] EBC-2025-2-0096|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:40:46] [42/459] EBC-2025-2-0112|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:41:14] [43/459] EBC-2025-2-0112|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:41:45] [44/459] EBC-2025-2-0113|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:42:13] [45/459] EBC-2025-2-0113|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:42:36] [46/459] EBC-2025-2-0116|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:42:59] [47/459] EBC-2025-2-0116|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:43:21] [48/459] EBC-2025-2-0117|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:43:42] [49/459] EBC-2025-2-0120|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:44:05] [50/459] EBC-2025-2-0126|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:44:28] [51/459] EBC-2025-2-0136|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:44:52] [52/459] EBC-2025-2-0137|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:45:15] [53/459] EBC-2025-2-0142|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:45:37] [54/459] EBC-2025-2-0154|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:45:59] [55/459] EBC-2025-2-0156|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:46:26] [56/459] EBC-2025-2-0161|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:46:52] [57/459] EBC-2025-2-0161|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:47:13] [58/459] EBC-2025-2-0162|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:47:34] [59/459] EBC-2025-2-0165|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:47:55] [60/459] EBC-2025-2-0179|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:48:19] [61/459] EBC-2025-2-0200|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:48:39] [62/459] EBC-2025-2-0208|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:49:08] [63/459] EBC-2025-2-0209|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:49:30] [64/459] EBC-2025-2-0209|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:49:49] [65/459] EBC-2025-2-0209|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:50:08] [66/459] EBC-2025-2-0217|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:50:30] [67/459] EBC-2025-2-0220|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:50:51] [68/459] EBC-2025-2-0230|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:51:15] [69/459] EBC-2025-2-0236|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:51:40] [70/459] EBC-2025-2-0238|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:52:09] [71/459] EBC-2025-2-0239|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:52:29] [72/459] EBC-2025-2-0251|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:52:52] [73/459] EBC-2025-2-0252|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:53:14] [74/459] EBC-2025-2-0252|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:53:37] [75/459] EBC-2025-2-0262|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:54:03] [76/459] EBC-2025-2-0267|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:54:31] [77/459] EBC-2025-2-0268|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:54:50] [78/459] EBC-2025-2-0268|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:55:20] [79/459] EBC-2025-2-0274|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:55:47] [80/459] EBC-2025-2-0278|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:56:15] [81/459] EBC-2025-2-0283|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:56:38] [82/459] EBC-2025-2-0284|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:56:57] [83/459] EBC-2025-2-0286|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:57:20] [84/459] EBC-2025-2-0293|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:57:43] [85/459] EBC-2025-2-0327|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:58:00] [86/459] EBC-2025-2-0328|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:58:38] [87/459] EBC-2025-2-0328|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:59:12] [88/459] EBC-2025-2-0334|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[08:59:43] [89/459] EBC-2025-2-0338|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:00:16] [90/459] EBC-2025-2-0340|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:00:39] [91/459] EBC-2025-2-0349|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:01:25] [92/459] EBC-2025-2-0365|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:01:51] [93/459] EBC-2025-2-0367|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:02:19] [94/459] EBC-2025-2-0371|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:02:38] [95/459] EBC-2025-2-0374|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:03:08] [96/459] EBC-2025-2-0376|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:03:39] [97/459] EBC-2025-2-0381|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:04:13] [98/459] EBC-2025-2-0383|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:04:48] [99/459] EBC-2025-2-0384|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:05:17] [100/459] EBC-2025-2-0387|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:05:53] [101/459] EBC-2025-2-0392|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:06:32] [102/459] EBC-2025-2-0399|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:07:12] [103/459] EBC-2025-2-0402|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:07:51] [104/459] EBC-2025-2-0403|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:08:31] [105/459] EBC-2025-2-0408|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:08:54] [106/459] EBC-2025-2-0409|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:09:43] [107/459] EBC-2025-2-0420|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:10:22] [108/459] EBC-2025-2-0421|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:10:50] [109/459] EBC-2025-2-0423|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:11:16] [110/459] EBC-2025-2-0433|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:11:51] [111/459] EBC-2025-2-0442|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:12:22] [112/459] EBC-2025-2-0467|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:12:45] [113/459] EBC-2025-2-0472|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:13:05] [114/459] EBC-2025-2-0472|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:13:26] [115/459] EBC-2025-2-0472|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:13:49] [116/459] EBC-2025-2-0486|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:14:05] [117/459] EBC-2025-2-0497|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:14:32] [118/459] EBC-2025-2-0504|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:14:49] [119/459] EBC-2025-2-0506|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:15:13] [120/459] EBC-2025-2-0509|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:15:39] [121/459] EBC-2025-2-0513|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:16:02] [122/459] EBC-2025-2-0521|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:16:25] [123/459] EBC-2025-2-0532|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:16:48] [124/459] EBC-2025-2-0535|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:17:15] [125/459] EBC-2025-2-0536|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:17:39] [126/459] EBC-2025-2-0541|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:18:11] [127/459] EBC-2025-2-0543|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:18:38] [128/459] EBC-2025-2-0545|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:19:10] [129/459] EBC-2025-2-0548|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:19:29] [130/459] EBC-2025-2-0550|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:19:54] [131/459] EBC-2025-2-0554|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:20:17] [132/459] EBC-2025-2-0555|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:20:44] [133/459] EBC-2025-2-0557|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:21:08] [134/459] EBC-2025-2-0558|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:21:33] [135/459] EBC-2025-2-0559|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:21:54] [136/459] EBC-2025-2-0565|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:22:14] [137/459] EBC-2025-2-0574|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:22:36] [138/459] EBC-2025-2-0575|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:23:04] [139/459] EBC-2025-2-0578|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:23:24] [140/459] EBC-2025-2-0582|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:23:39] [141/459] EBC-2025-2-0585|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:24:01] [142/459] EBC-2025-2-0592|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:24:22] [143/459] EBC-2025-2-0593|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:24:47] [144/459] EBC-2025-2-0597|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:25:21] [145/459] EBC-2025-2-0599|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:25:42] [146/459] EBC-2025-2-0617|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:26:01] [147/459] EBC-2025-2-0618|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:26:21] [148/459] EBC-2025-2-0618|Chestermere merging with Calgary|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:26:41] [149/459] EBC-2025-2-0619|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:27:06] [150/459] EBC-2025-2-0621|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:27:25] [151/459] EBC-2025-2-0622|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:27:48] [152/459] EBC-2025-2-0627|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:28:08] [153/459] EBC-2025-2-0629|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:28:28] [154/459] EBC-2025-2-0629|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:28:50] [155/459] EBC-2025-2-0630|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:29:06] [156/459] EBC-2025-2-0630|St. Albert merging with Sturgeon County|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:29:31] [157/459] EBC-2025-2-0631|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:29:56] [158/459] EBC-2025-2-0634|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:30:20] [159/459] EBC-2025-2-0638|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:30:50] [160/459] EBC-2025-2-0647|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:31:26] [161/459] EBC-2025-2-0651|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:31:51] [162/459] EBC-2025-2-0660|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:32:14] [163/459] EBC-2025-2-0661|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:32:37] [164/459] EBC-2025-2-0662|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:33:04] [165/459] EBC-2025-2-0671|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:33:30] [166/459] EBC-2025-2-0671|Calgary-Nolan Hill-Cochrane hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:33:50] [167/459] EBC-2025-2-0675|Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Inni ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:34:18] [168/459] EBC-2025-2-0681|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:34:46] [169/459] EBC-2025-2-0681|Olds-Three Hills-Didsbury extending to Airdrie|full_co ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:35:09] [170/459] EBC-2025-2-0684|Rocky Mountain House-Banff Park hybrid|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:35:37] [171/459] EBC-2025-2-0687|Airdrie 4-way split|full_corpus ... WARNING:__main__:call_claude error: Expecting value: line 1 column 1 (char 0)
+ERROR
+[09:35:55] [172/459] EBC-2025-2-0687|Chestermere merging with Calgary|full_corpus ... 

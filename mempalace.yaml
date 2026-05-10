@@ -1,0 +1,60 @@
+wing: alberta_audit
+rooms:
+- name: alberta_audit.egg_info
+  description: Files from alberta_audit.egg-info/
+  keywords:
+  - alberta_audit.egg_info
+  - alberta_audit.egg-info
+- name: analysis
+  description: Files from analysis/
+  keywords:
+  - analysis
+  - analysis
+- name: data
+  description: Files from data/
+  keywords:
+  - data
+  - data
+- name: documentation
+  description: Files from docs/
+  keywords:
+  - documentation
+  - docs
+- name: interactive_proofs
+  description: Files from interactive_proofs/
+  keywords:
+  - interactive_proofs
+  - interactive_proofs
+- name: maps
+  description: Files from maps/
+  keywords:
+  - maps
+  - maps
+- name: outputs
+  description: Files from outputs/
+  keywords:
+  - outputs
+  - outputs
+- name: private_workspace
+  description: Files from private_workspace/
+  keywords:
+  - private_workspace
+  - private_workspace
+- name: testing
+  description: Files from tests/
+  keywords:
+  - testing
+  - tests
+- name: scripts
+  description: Files from scripts/
+  keywords:
+  - scripts
+  - scripts
+- name: design
+  description: Files from assets/
+  keywords:
+  - design
+  - assets
+- name: general
+  description: Files that don't fit other rooms
+  keywords: []
