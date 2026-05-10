@@ -127,7 +127,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-08 DONE 2026-05-10** E2 both-readings paragraph — RMH-Banff under original + substantive E2 added to §5.3.3.
 - **ES-09 DONE 2026-05-10** "67th/71st percentile" demoted — removed from §5.2.1; defensible rank statement kept.
 - **ES-10 HIGH** *Grant v. Torstar* + defamation posture — add Appendix F subsection. Effort: 2 h.
-- **ES-11 HIGH** Intent-imputation verb softening — three specific instances. Effort: 15 min.
+- **ES-11 DONE 2026-05-10** Intent-imputation verb softening — "got it wrong" → "do not survive primary-source verification against Alberta Education school-division boundaries" (§5.8 school coherence); "elides this distinction" → "does not carry this distinction" (§5.9.2 R5 provenance). Third instance ("materially misrepresents" → "materially overstates the absence of public support") was already applied in a prior session at §5.9.4.
 - **ES-12 HIGH** "Override" vocabulary rewrite §5.9. Effort: 30 min.
 - **ES-13 DONE 2026-05-10** VA-polygon vote-coverage §5.4 wiring — paragraph already present at §5.4 line "(ES-13)"; SZAT cross-reference sentence updated to reflect definitive SZAT run uses full-VA substrate (post-C1 2026-05-10).
 - **ES-14 HIGH** Canadian literature engagement — Pal, Pal & Choudhry, Courtney pin-cites, Wesley, Seidle into §2 and §5.9.3. Effort: 3–4 h.
