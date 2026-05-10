@@ -129,7 +129,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-10 HIGH** *Grant v. Torstar* + defamation posture — add Appendix F subsection. Effort: 2 h.
 - **ES-11 HIGH** Intent-imputation verb softening — three specific instances. Effort: 15 min.
 - **ES-12 HIGH** "Override" vocabulary rewrite §5.9. Effort: 30 min.
-- **ES-13 HIGH** VA-polygon vote-coverage §5.4 wiring — one paragraph in §5.4 disclosing Election-Day-only bias (52.5% coverage). Effort: 45 min.
+- **ES-13 DONE 2026-05-10** VA-polygon vote-coverage §5.4 wiring — paragraph already present at §5.4 line "(ES-13)"; SZAT cross-reference sentence updated to reflect definitive SZAT run uses full-VA substrate (post-C1 2026-05-10).
 - **ES-14 HIGH** Canadian literature engagement — Pal, Pal & Choudhry, Courtney pin-cites, Wesley, Seidle into §2 and §5.9.3. Effort: 3–4 h.
 - **ES-15 HIGH** *Rucho v. Common Cause* engagement. Effort: 1 h.
 - **ES-16 HIGH** Saskatchewan Reference constitutional-standard depth. Effort: 1.5 h.
