@@ -27,7 +27,7 @@ CANONICAL_HASHES: dict[str, str] = {
     "data/shapefiles/canonical/ea_minority_2026_eds.gpkg":
         "82e29a719e96c7880b54355b5f18487a1912c1152479577b4c9b90862779e897",
     "data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg":
-        "0ca9d3995db011bb66021392b305c781c870e287a48097654aceca7ff2f9ab4c",
+        "bd7d309095c8b4c306a3e480ab648392005301d40f08929e2b91920368cf58eb",
 }
 
 # File sizes (bytes) — used for fast pre-check before full hash computation.

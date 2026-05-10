@@ -1,0 +1,38 @@
+{
+  "registration": "OSF s58a6 Section B",
+  "drand_round": 6099592,
+  "n_chains": 4,
+  "n_per_chain": 62500,
+  "method_gr92": "Gelman & Rubin (1992), Stat Sci",
+  "method_v21": "Vehtari et al. (2021), Bayesian Analysis \u2014 rank-normalized",
+  "threshold_gr92": 1.1,
+  "threshold_v21": 1.01,
+  "metrics": {
+    "efficiency_gap": {
+      "rhat_gr92": 1.01843,
+      "rhat_vehtari21": 1.01847,
+      "gr92_pass": true,
+      "v21_pass": false
+    },
+    "mean_median": {
+      "rhat_gr92": 1.00179,
+      "rhat_vehtari21": 1.00181,
+      "gr92_pass": true,
+      "v21_pass": true
+    },
+    "declination": {
+      "rhat_gr92": 1.01343,
+      "rhat_vehtari21": 1.0144,
+      "gr92_pass": true,
+      "v21_pass": false
+    },
+    "seats_at_50_50": {
+      "rhat_gr92": 1.0054,
+      "rhat_vehtari21": 1.00527,
+      "gr92_pass": true,
+      "v21_pass": true
+    }
+  },
+  "overall_gr92_pass": true,
+  "overall_v21_pass": false
+}

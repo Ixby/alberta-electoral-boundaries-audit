@@ -92,7 +92,7 @@ All five conditions must be met before submission. Currently: **5/5 clear** (all
 
 ### Statistical Corrections — Status
 
-- **S2-01** MCMC ESS precision disclosure — language recalibration on ESS-adjusted confidence bounds; report per-metric ESS (which metric carries p98.8 — near 148 or 160?). Effort: 30 min. **Outstanding.**
+- **S2-01 DONE 2026-05-10** MCMC ESS precision disclosure — canonical 4-chain R-hat table inserted in §5.4 (GR92 + Vehtari 2021 side-by-side); worst-chain ESS 63–94 reported; EG/declination marginal V21 failure disclosed with Ch1 headroom note. OSF s58a6 Section B. Output: `data/outputs/rhat_diagnostic_section_b.json`.
 - **S2-02 DONE 2026-05-10 (Gate G2)** — 250k canonical values propagated to §5.4.9, §5.5, §6.2.1, §6.2.2. Minority EG retracted (p94.2); majority MM p0.85 NDP-tail documented with mechanism explanation.
 - **S9-01** p100 language recalibration — "above the entire ensemble" requires calibrated wording throughout §5.4, §5.5, §6, §8. **Outstanding.**
 - **S2-03 DONE 2026-05-10 (Gate G3)** — BH correction table at §4.3.1: 11 tests, 10/11 pass, sole failure Minority EG (already retracted).

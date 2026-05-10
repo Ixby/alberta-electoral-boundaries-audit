@@ -1,0 +1,68 @@
+{
+  "registration": "OSF s58a6 Section A",
+  "drand_round": 6099592,
+  "szat_score_fixed": 0.039211,
+  "n_boot_per_seed": 10000,
+  "primary": {
+    "seed_source": "drand d2aea42",
+    "p_value": 0.0024
+  },
+  "robustness_seeds": [
+    {
+      "seed_idx": 0,
+      "seed": 1225431167,
+      "p_value": 0.0027
+    },
+    {
+      "seed_idx": 1,
+      "seed": 2380378561,
+      "p_value": 0.0043
+    },
+    {
+      "seed_idx": 2,
+      "seed": 2351904413,
+      "p_value": 0.0038
+    },
+    {
+      "seed_idx": 3,
+      "seed": 768926600,
+      "p_value": 0.0036
+    },
+    {
+      "seed_idx": 4,
+      "seed": 156365611,
+      "p_value": 0.0025
+    },
+    {
+      "seed_idx": 5,
+      "seed": 1841997680,
+      "p_value": 0.0031
+    },
+    {
+      "seed_idx": 6,
+      "seed": 3405372638,
+      "p_value": 0.003
+    },
+    {
+      "seed_idx": 7,
+      "seed": 1541506898,
+      "p_value": 0.0027
+    },
+    {
+      "seed_idx": 8,
+      "seed": 536299629,
+      "p_value": 0.0041
+    },
+    {
+      "seed_idx": 9,
+      "seed": 4096160843,
+      "p_value": 0.0026
+    }
+  ],
+  "summary": {
+    "min_p": 0.0025,
+    "max_p": 0.0043,
+    "median_p": 0.0031,
+    "all_pass": true
+  }
+}
