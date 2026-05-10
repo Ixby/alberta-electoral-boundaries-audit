@@ -1882,7 +1882,7 @@ This section interprets the results of §5 against the prior work surveyed in §
 | §5.1.3 Rest-of-province mean population              | (not run)    | 52,281                 | 50,336 (−3.9%)         | rural overrepresentation    |
 | §5.1.4 s.15(2) invocations statutorily legitimate | — | 3 / 3 | 3 / 3 | re-audit 2026-04-23 under corrected thresholds |
 | §5.1.4 engineered-boundary signature (extension chosen over populated alternatives) | 0 | 0 | 1 (RMH-Banff Park) | substantive E2 test (see §5.3.3) |
-| §5.2.1 Efficiency gap                                 | −2.64%       | −0.40%                 | **−1.81%**             | +1.41 pp more UCP-favorable (w=0.85 central) |
+| §5.2.2 Efficiency gap (w=0.85 central)                | −2.64%       | −0.40%                 | **−1.81%**             | +1.41 pp more UCP-favorable |
 | §5.2.2 sensitivity range (urban weights 0.60–0.80)    | —            | [+1.27% to −0.62%]     | [−0.02% to −2.10%]     | +0.47 to +1.48 pp across range |
 | §5.2.1 Mean-median gap                                | −2.22 pp     | −0.66 pp               | −1.20 pp               | directionally consistent    |
 | §5.2.1 NDP seats at 50/50                             | 46           | 45                     | 46                     | minority matches 2019 baseline; majority −1 seat |
