@@ -119,7 +119,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 - **ES-03 DONE 2026-05-10** Alberta 2017 seat-count — no "2017 expanded" claim found; stale §2 cross-ref corrected.
 - **ES-04** (=S2-01/S2-02/S9-01) MCMC percentile demotion — S2-02 DONE; S2-01 and S9-01 outstanding.
 - **ES-05 DONE 2026-05-10** Abstract contingency clause — "EG direction reverses under 2019 votes (see §5.2.3)" added.
-- **ES-06 CRITICAL** Exploratory-vs-confirmatory foregrounding — lift exploratory-status language to Abstract and §1. Effort: 30 min.
+- **ES-06 DONE 2026-05-10** Exploratory-vs-confirmatory foregrounding — *Evidentiary status* paragraph added to Abstract; bold "Exploratory vs. confirmatory status" paragraph added to §1 after opening paragraph.
 
 #### HIGH (synthesis items 7–16)
 

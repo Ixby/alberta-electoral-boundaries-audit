@@ -34,6 +34,8 @@ This monograph is the source. Three shorter pieces can be drawn from it for diff
 
 *Scope.* All Efficiency Gap magnitudes remain below the Stephanopoulos-McGhee 7 % investigable-bias threshold (academic literature only; never judicially adopted). The audit records what the public data show; it does not reach a legal conclusion.
 
+*Evidentiary status of primary statistical findings.* The Ch1 (Mahalanobis joint-tail, p = 1.60×10⁻⁷), Ch2 (SZAT bootstrap, p = 0.0024), and Fisher-combined (p = 8.71×10⁻⁹) statistics are **exploratory**: their computational seeds were cryptographically committed to a public drand beacon before the official shapefile release, establishing temporal priority, but the specific test names and combination method do not appear in any OSF pre-registration file. They should be read as exploratory-reproducible findings pending independent replication. The Ch3 drain test (OSF r3zm7) and the November 2026 Lunty committee scorecard (OSF qsgy8) are prospectively pre-registered confirmatory tests.
+
 **Key phrase for citation:** *"Below the Stephanopoulos-McGhee 7 % investigable-bias threshold (never judicially adopted); five non-partisan structural signals and one partisan-bias signal all pointing in the same direction under 2023 vote attribution."*
 
 ---
@@ -93,6 +95,8 @@ Scripts authored for this audit: `analysis/scripts/packing_cracking_analysis.py`
 ## 1. Introduction
 
 Alberta's 2025–26 Electoral Boundaries Commission delivered two final reports on March 23, 2026: a majority report and a minority report proposing incompatible 89-seat maps. Three weeks later, on April 16, 2026, the Alberta Legislative Assembly passed Motion 19 setting aside the majority report and establishing a Special Select Committee of five MLAs to draft a 91-seat map by November 2, 2026. That procedural pivot — replacing an independent commission's drafting process with a government-chaired committee mid-cycle — raised three questions this paper addresses. First, do the two commission proposals diverge in measurable, reproducible ways? Second, do those divergences run systematically in one political direction? Third, can the conclusions of the April 16 pivot be evaluated against a pre-registered falsifiability framework?
+
+**Exploratory vs. confirmatory status.** The audit's statistical tests fall into two categories that readers should distinguish. The primary ensemble-based tests — Ch1 (Mahalanobis joint-tail), Ch2 (SZAT bootstrap), and their Fisher combination — are **exploratory**: computational seeds were committed to the public drand League of Entropy beacon before the official shapefile release (establishing that results were not cherry-picked after seeing the data), but the specific test names and combination method were not filed in any OSF pre-registration document before execution. These findings are reproducible and temporally anchored, but they should be treated as requiring independent replication before confirmatory weight is assigned. The Ch3 neighbour-drain test (pre-registered at OSF r3zm7) and the November 2026 Lunty committee scorecard (OSF qsgy8) are prospectively pre-registered confirmatory tests. The five non-partisan-bias signals in §1.1 (population equality, Calgary zone gap, Airdrie fragmentation, municipal anchoring, chair-flagged anomalies) do not depend on the statistical tests at all; they derive from the commission's own published tables, maps, and record, and their evidentiary status is independent of the pre-registration question.
 
 ### 1.1 Headline findings in plain language
 
