@@ -267,13 +267,16 @@ def run() -> None:
 
     structural_notes = {
         "municipal_anchoring": {
-            # FROZEN 2026-05-07 from da_anchoring analysis — no canonical JSON source yet.
-            "minority_pct": 14.5,
-            "majority_pct": 71.0,
-            "enacted_2019_pct": 73.8,
-            "departure_factor_vs_comparators": 4.9,
-            "p_value": "pending — Canadian comparator distribution too thin for rigorous p-value; "
-            "4.9x below comparator norm is the reported summary statistic",
+            # Canonical values from score_anchoring.py run 2026-05-10 against official EA shapefiles.
+            # DPG-era values were: minority 14.5%, majority 71.0%, ratio 4.9x.
+            # Canonical recomputation: both maps within the 70-85% Canadian norm; DPG asymmetry was
+            # an artefact of boundary placement (area fidelity != perimeter alignment).
+            "minority_pct": 72.0,
+            "majority_pct": 80.0,
+            "enacted_2019_pct": 75.2,
+            "departure_factor_vs_comparators": 1.11,
+            "p_value": "not applicable — both maps within Canadian norm (70–85 %); "
+            "canonical ratio 1.11× (DPG-era 4.9× was a geometry artefact; see §5.8.5 footnote)",
         },
         "population_mad_ratio": {
             "minority_mad": round(_min_mad, 1),

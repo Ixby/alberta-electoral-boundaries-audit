@@ -8,39 +8,17 @@
 
 # M1 — MONDAY 2026-05-12 (Group Chat Review)
 
-Group chat review Monday. These items require no new research — all are prose corrections or short insertions against existing analysis.
+Group chat review Monday. All items requiring no new research are complete as of 2026-05-10.
 
-## Do before Monday (~4–5 hrs total)
+## Status
 
-| # | Item | What | Status |
-|---|------|------|--------|
-| ES-24 | Abstract word-count cut | Trim to 150–250 words; move technical detail to §1 | **DONE 2026-05-10** |
-| ES-25 | "US judicial threshold" replace | → "Stephanopoulos-McGhee 7% investigable-bias threshold" at Abstract + §8 + all instances | **DONE 2026-05-10** |
-| ES-22 | §5.2.2 deterministic vs MC distinction | Add sentence distinguishing point-estimate table from Monte Carlo sensitivity interval | **DONE 2026-05-10** |
-| ES-26 | Declination formula, Appendix D.3 | Added formal definition D.3; PP→D.4, Reock→D.5 | **DONE 2026-05-10** |
-| ES-03 | Alberta 2017 seat-count fix | Audited report_academic.md — no "2017 expanded" claim found; stale §2 cross-ref (Quebec 1992/1996/BC 2008) corrected | **DONE 2026-05-10** |
-| ES-01 | *Rizzo* case-name fix | Already correct throughout; verified | **DONE (pre-existing)** |
-| ES-34 | Abstract dimension labels | Pattern not found in current Abstract — already fixed in prior session | **DONE (pre-existing)** |
-| ES-09 | Drop "67th percentile" | Removed from §5.2.1; defensible rank statement kept | **DONE 2026-05-10** |
-| ES-31 | Unused references | Added Sancton (2008) body citation at §1.1 municipal anchoring bullet; no Smith (2010) found anywhere | **DONE 2026-05-10** |
+**Completed 2026-05-10** (15 items): ES-24, ES-25, ES-22, ES-26, ES-03, ES-01, ES-34, ES-09, ES-31, ES-05, ES-08, ES-02, ES-17, ES-07, C1, S2-02. Detail per item in commit history and `analysis/methodology/editorial_pass_log.md`.
 
-## Do if time (~3–4 hrs total, medium difficulty)
+## Deferred to post-Monday revision (not for this weekend)
 
-| # | Item | What | Status |
-|---|------|------|--------|
-| ES-05 | Abstract contingency clause | Covered in new Abstract: "EG direction reverses under 2019 votes (see §5.2.3)" | **DONE 2026-05-10** |
-| ES-08 | E2 both-readings paragraph | Show RMH-Banff under original + substantive E2; label reformulation explicitly | **DONE 2026-05-10** |
-| ES-02 | Comparator trio rewrite §5.9.3 | §5.9.3 already anchored to Quebec 2011 + SCC April 2026; stale §2 pointer fixed | **DONE 2026-05-10** |
-| ES-17 | Institutional context paragraph | Added institutional context paragraph at top of §2 | **DONE 2026-05-10** |
-
-## Defer to post-Monday revision (do not attempt this weekend)
-
-- ~~ES-07: Bayesian-screening §4.x subsection (MCMC multi-chain, BH correction)~~ **DONE 2026-05-10** (§4.3.2 Bonferroni correction discussion added)
-- ES-14: Canadian literature engagement (Pal, Wesley, Courtney pin-cites — 3–4 h)
-- ES-16: Saskatchewan Reference depth (1.5 h)
-- ES-10: *Grant v. Torstar* defamation posture (2 h)
-- ~~C1: Advance-vote splat computation~~ **DONE 2026-05-10** (C5 Vote Anywhere exclusion applied; substrate 1,544,139 two-party; NDP share 44.66%; see Computational Blockers)
-- ~~S2-02: MCMC full-coverage rescore headline update~~ **DONE 2026-05-10** (Gate G2)
+- **ES-14:** Canadian literature engagement (Pal, Wesley, Courtney pin-cites — 3–4 h)
+- **ES-16:** Saskatchewan Reference depth (1.5 h)
+- **ES-10:** *Grant v. Torstar* defamation posture (2 h)
 
 ---
 
@@ -188,7 +166,7 @@ Complete before Bratt/Nguyen/Moorman institutional review: ES-02, ES-13, ES-14, 
 
 ### Fisher Combination Defense Document — **DONE**
 
-`analysis/methodology/fisher_combination_defense.md` written with AV1–AV8 (independence, channel selection, minority-only, combination method robustness, directionality, n_eff correction, multiple maps, pre-registration chain). Computed values: Fisher (2ch) p=1.55e-8, Fisher (3ch) p=2.46e-8, Stouffer p~2e-8, Cauchy p~2e-8. `fisher_independence_defense.md` trimmed and pointer added.
+`analysis/methodology/fisher_combination_defense.md` written with AV1–AV8 (independence, channel selection, minority-only, combination method robustness, directionality, n_eff correction, multiple maps, pre-registration chain). Computed values: Fisher (2ch) p=8.71e-9, Fisher (3ch) p=1.57e-8, Stouffer p=2.29e-8, Cauchy p=3.20e-7. `fisher_independence_defense.md` trimmed and pointer added.
 
 ### Inter-Map Comparison Permutation Test (Ch1-COMP) — DONE 2026-05-10
 
@@ -356,39 +334,37 @@ Deferred after Safety Track completion:
 
 - `fisher_combination_defense.md` written (AV1–AV8); `fisher_independence_defense.md` trimmed. See Computational Blockers section above.
 
+### Post-Publication Refactor — "one function, one paragraph"
+
+**Trigger:** after both reports ship (audit body + DPG methods paper). Do NOT attempt mid-audit.
+
+**Goal:** collapse `analysis/scripts/` from 83 files (as of 2026-05-11, after the 40-script archival pass) into ~15–20 topic modules with one named function per reported paragraph. Same traceability property the audit relies on now ("every number maps to a specific code object") with much less duplication and a tractable test surface.
+
+**Target module structure (illustrative):**
+
+- `anchoring.py` → `municipal_anchoring()`, `natural_anchoring()`, `hybridization_score()`, `baseline_2019()` — replaces 4 scripts
+- `mcmc.py` → `ensemble()`, `mahalanobis_p()`, `joint_outlier()`, `short_bursts()`, `convergence_diagnostics()` — replaces ~6 scripts
+- `signatures.py` → `packing()`, `cracking()`, `engineered_boundary()` — replaces ~3 scripts
+- `partisan_bias.py` → `efficiency_gap()`, `mean_median()`, `seats_at_5050()`, `declination()` — replaces ~4 scripts
+- `compactness.py` → `polsby_popper()`, `reock()`, `convex_hull_ratio()` — replaces ~3 scripts
+- `population.py` → `mad()`, `zone_asymmetry()`, `consistency()` — replaces ~2 scripts
+- `cross_election.py` → `rt3_2015_2019_2023()`, `monte_carlo_ci()`, `direction_stability()`
+- `sentiment.py`, `submissions.py`, `figures.py`, `data_io.py`, `canonical_io.py`, `provenance.py`
+
+**Latent duplication this surfaces.** The anchoring family alone shares ~80% of its geometry-loading code across 4 scripts; MCMC scripts each re-implement the canonical-shapefile + VA-join pipeline; partisan-bias scripts each re-derive seat allocations from the same ensemble samples. Consolidation makes the duplication visible and removable.
+
+**Why not now.** It's a multi-day refactor, the test set is still mutating (sentiment analysis running, post-canonical re-runs ongoing), and breaking the citation paths in the report mid-audit is high-risk-low-reward. The right time is after publication, ideally as the companion methods-paper appendix or as a v2 of the repo.
+
+**Inputs to start the refactor:**
+- `analysis/methodology/scripts_inventory.md` — 110-row inventory generated 2026-05-10 (slightly stale after 2026-05-11 archival; regenerate first)
+- `historical_deprecated.zip` — 311 archived entries to consult for any "wait we did try this once" moments
+- The 27 scripts named directly in `report_academic.md` form the irreducible citation surface; functions in the new modules should preserve those names (e.g., a `mcmc_ensemble_canonical()` function inside `mcmc.py`) so existing repo-path references in the published audit still resolve via a thin shim.
+
 ---
 
 # M3 — LUNTY RELEASE (Nov 2, 2026)
 
-External event: government may table 91-seat map from MLA committee. Trigger: run full pre-registered checklist within 48 hours of tabling.
-
-## November Scorecard Dashboard
-
-Build a public GitHub Pages dashboard for same-day publication alongside the Phase 2 audit:
-
-- **Content:** Phase 2 metrics for the 91-seat Lunty proposal vs the two 89-seat proposals; population equality, EG, MM, declination, seats@50/50, compactness; traffic-light RAG status per metric
-- **Stack:** Static site (no server); rendered from audit JSON outputs; GitHub Pages hosting
-- **Pre-requisite:** Finalize the Phase 2 pre-registration in OSF before the tabling date; register the exact metric thresholds and direction predictions
-- **Effort:** 1 day build (if audit outputs are already in JSON format, which they are)
-- **Note:** Dashboard is NOT the paper — it is a companion artifact for immediate public consumption
-
-## Phase 2 — Lunty Committee Map
-
-- **Phase question:** Is the Lunty MLA committee's 91-seat map a gerrymander?
-- **Pre-registration:** Must be filed on OSF before the map is tabled (before Nov 2, 2026); use the same drand beacon framework
-- **Checklist on tabling:** population equality, packing/cracking analysis, MCMC ensemble against 91-seat neutral baseline, spatial audit, SZAT equivalent
-- **Timeline:** 48-hour publication target from tabling date
-
-## 338Canada Refresh (Track E)
-
-Every 60–90 days; next due ~late June 2026. Re-run `338canada_scraper.py` and `338canada_reallocate.py`; update public report if projection moves >0.5pp.
-
-## Phase 2 Methods Paper
-
-After Phase 2 audit is complete, write a methods companion paper covering:
-- Extension of the MCMC/SZAT framework to legislative committee maps
-- Comparison of commission-drawn vs committee-drawn boundary processes
-- November 2026 pre-registered results vs April 2026 exploratory findings
+**Moved to `M3_LUNTY_RELEASE.md` on 2026-05-11.** Not outstanding work — a future milestone with its own trigger. Re-merge into this file only after the Lunty committee tables its 91-seat map.
 
 ---
 

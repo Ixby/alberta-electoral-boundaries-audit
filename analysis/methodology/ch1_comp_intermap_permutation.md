@@ -268,7 +268,7 @@ non-cherry-picking.
 - Ch1-COMP does not establish intent. A significant inter-map distance means the
   two maps are different in partisan-metric space; it does not explain why.
 - Ch1-COMP is not the primary significance finding. The load-bearing test is Ch1
-  (minority absolute position, p = 1.60×10⁻⁷) and Fisher (Ch1+Ch2, p = 1.55×10⁻⁸).
+  (minority absolute position, p = 1.60×10⁻⁷) and Fisher (Ch1+Ch2, p = 8.71×10⁻⁹).
   Ch1-COMP is confirmatory.
 - Version A marginal significance (p = 0.0303) should not be read in isolation
   from Version B (p = 0.0001). Both versions are reported because both were

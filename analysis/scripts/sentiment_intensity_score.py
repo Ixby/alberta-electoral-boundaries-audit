@@ -44,12 +44,7 @@ logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 
-try:
-    sys.path.insert(0, str(ROOT / "analysis" / "utils"))
-    import data_loader
-    DATA_DIR = data_loader._resolve_path("data")
-except Exception:
-    DATA_DIR = ROOT / "data"
+DATA_DIR = ROOT / "data"
 
 INPUT_CSV    = DATA_DIR / "outputs" / "submission_sentiment_llm_full_results.csv"
 OUTPUT_CSV   = DATA_DIR / "outputs" / "sentiment_intensity_scores.csv"
@@ -285,13 +280,15 @@ def _print_summary() -> None:
     rows = []
     with OUTPUT_CSV.open(encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    print(f"\n=== Intensity summary ({len(rows)} rows) ===")
-    by_intensity: dict = collections.Counter(int(r["intensity"]) for r in rows)
+    valid = [r for r in rows if r.get("intensity")]
+    null_count = len(rows) - len(valid)
+    print(f"\n=== Intensity summary ({len(rows)} rows, {null_count} null skipped) ===")
+    by_intensity: dict = collections.Counter(int(r["intensity"]) for r in valid)
     for k in sorted(by_intensity):
         print(f"  intensity={k}: {by_intensity[k]}")
     print()
     by_config: dict = collections.defaultdict(lambda: {"n": 0, "sum": 0, "opp": 0, "sup": 0})
-    for r in rows:
+    for r in valid:
         cfg = r["configuration"]
         intensity = int(r["intensity"])
         by_config[cfg]["n"] += 1

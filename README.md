@@ -2,17 +2,19 @@
 
 *Two recommendations, one commission: measuring the structural distance between them.*
 
+> **Pre-publication status.** This audit has not been publicly released. Integration of canonical Elections Alberta shapefiles (received 2026-05-06) is ongoing and individual findings may shift as recomputation continues. The codebase is also undergoing cleanup and script-count reduction. Do not cite, quote, or distribute specific findings without first confirming their current status in the relevant report section.
+
 ---
 
 The 2025–26 Alberta Electoral Boundary Commission produced two competing recommendations — a majority and a minority — both legally compliant with the *Electoral Boundaries Commission Act*. The Act does not resolve between them. This audit measures the structural distance between the two maps on dimensions that have nothing to do with which party benefits.
 
 **Airdrie.** The City of Airdrie has a population of approximately 84,000 residents — above the statutory ceiling for a single electoral division under the Act's ±25% population band. The majority recommendation splits it across two electoral divisions. The minority recommendation splits it across four, placing each quarter of the city into a division anchored in a different surrounding region. Both maps satisfy the law. Neither is required to use four instead of two. That is a drawing choice.
 
-**Municipal boundaries.** When an electoral boundary follows an existing city or town limit, it produces a line that voters already know — from their school division, their property tax notice, their local ballot. The majority recommendation follows municipal edges on 71% of its total perimeter. The minority recommendation follows them on 14.5%. This 4.9× gap appears on a measure with no vote data in it: it is calculated from polygon geometry against Statistics Canada's 2021 Census sub-division boundaries.
+**Chair-flagged boundaries.** When the commission chair singles out a specific boundary by name in the official hearing record, that is a primary-source signal requiring no vote data to interpret. The majority report's written responses flag three minority boundaries as warranting explanation: a lasso-shaped corridor linking Nolan Hill to Cochrane, an extension through uninhabited Banff National Park, and a district whose name references three smaller towns while its largest population centre goes unnamed. Zero boundaries in the majority recommendation attracted equivalent chair-level commentary.
 
 **Population concentration.** In northwest Calgary, the minority map's electoral zone has a mean population 11.5% above the provincial average — above the threshold derived from the Act's own ±25% band. The majority's equivalent zone sits 2.8% above average, inside the threshold. The difference is 8.7 percentage points on a metric whose threshold is anchored to the statute, not to any academic benchmark.
 
-These are three of five structural dimensions where the audit finds the minority recommendation diverges from the majority in consistent and measurable directions. In none of the three cases is the divergence legally prohibited. In none of the three cases does the measure depend on partisan vote data. And in none of the three cases is the divergence explained by Alberta's geography: the same provincial constraint set produces it on both maps, and a 250,000-plan MCMC ensemble confirms that the minority's values sit further from the constraint-bound expectation than the majority's.
+These are three of four surviving structural dimensions where the audit finds the minority recommendation diverges from the majority in consistent and measurable directions. In none of the three cases is the divergence legally prohibited. In none of the three cases does the measure depend on partisan vote data. And in none of the three cases is the divergence explained by Alberta's geography: the same provincial constraint set produces it on both maps, and a 250,000-plan MCMC ensemble confirms that the minority's values sit further from the constraint-bound expectation than the majority's.
 
 This audit was produced as a personal research project by Will Conner, a Mount Royal University student, following the April 16, 2026 government decision to refer the commission's work to a Special Select Committee of MLAs. It is not affiliated with any political party, campaign, or advocacy organization. All code, data, and methodology are published here in reproducible form. The audit applies identical methodology to both maps.
 
@@ -59,17 +61,19 @@ For detailed instructions on recreating the derived shapefiles or running the MC
 
 **Community fragmentation (§5.3.2).** The minority recommendation partitions Airdrie into four separate electoral divisions. The majority uses two. Both satisfy the Act's population band. The minority's choice requires voters in the same city to be represented across four separate legislative constituencies, each primarily identified with a different surrounding community.
 
-**Boundary anchoring (§5.8.5).** The majority recommendation anchors 71.0% of its perimeter to existing municipal edges; adding Statistics Canada dissemination-area boundaries brings the combined figure to 79.6%. The minority anchors 14.5% (municipal) and 16.5% (municipal + DA). The gap is 4.9× on the municipal measure, 4.8× combined.
+**Boundary anchoring (§5.8.5) — retracted on canonical geometry.** Pre-shapefile analysis (Derived Provisional Geometries) showed the majority anchoring 71.0% of its perimeter to municipal edges, the minority 14.5% — a 4.9× gap. On official Elections Alberta shapefiles (received 2026-05-06), both maps fall within the 70–85% Canadian comparator norm: majority 80.0%, minority 72.0%. The DPG-era values did not survive canonical recomputation and the finding is retracted. The three chair-flagged cartographic anomalies (§5.8.2) are unaffected by this correction.
 
 **Cartographic anomalies (§5.8.2).** Three boundaries were flagged by name in the majority report's own response text. All three appear under the minority recommendation: a lasso-shaped corridor district (Nolan Hill–Cochrane), a boundary extension through uninhabited Banff National Park (Rocky Mountain House–Banff Park), and a district named for three towns whose population is smaller than the fourth community the district captures. Zero chair-flagged anomalies appear under the majority.
 
 **Partisan-bias metrics (§5.2).** Efficiency gap, mean-median difference, and declination are measured against a 250,000-plan MCMC neutral ensemble (official Elections Alberta shapefiles, canonical run). Under 2023 vote attribution, the minority map is more UCP-favourable than the majority on three of four metrics: mean-median +4.66 pp, seats@50/50 +5.62 pp, efficiency gap +3.92 pp. Declination reverses direction — consistent with asymmetric-packing geometry where NDP votes are concentrated in fewer, safer districts. The majority map is within the neutral null on all four metrics.
 
-**MCMC neutral-ensemble outlier test (§5.4, Ch1).** The minority map's four partisan metrics jointly produce Mahalanobis D = 6.11 against the canonical 250k-plan ensemble covariance (p = 1.60×10⁻⁷). Three of four metrics individually exceed the ensemble 95th percentile: mean-median at p99.985, declination at p1.03 (NDP-tail), seats@50/50 at p100.0. Efficiency gap at p94.2 falls just below the 95th percentile threshold; the EG outlier flag is retracted. The majority sits at ensemble p = 0.125 — within the neutral null on all metrics.
+**MCMC neutral-ensemble outlier test (§5.4, Ch1).** The minority map's four partisan metrics jointly produce Mahalanobis D = 6.11 against the canonical 250k-plan ensemble covariance (p = 1.60×10⁻⁷). Two of four metrics individually exceed the ensemble 95th percentile on the 250k canonical run: mean-median at p99.985, declination at p1.03 (NDP-tail). Seats@50/50 at p89.72 (ESS-adjusted lower bound) no longer meets the 95th-percentile threshold and the outlier flag is retracted; efficiency gap at p94.2 is likewise below the threshold and retracted. The joint Mahalanobis result stands. The majority sits at ensemble p = 0.100 (250k canonical) — within the neutral null on all metrics.
 
-**Fisher combined test (§5.4).** Fisher's method applied to Ch1 (Mahalanobis, p = 1.60×10⁻⁷) and Ch2 (SZAT swing-zone bootstrap, p = 0.0044) yields a joint p = 1.55×10⁻⁸ — approximately one in 64 million neutral draws. Both channels are seeded from publicly-verifiable drand League of Entropy beacon rounds predating the shapefile release. The combined finding is robust across Fisher, Stouffer, and Cauchy combination methods.
+**Fisher combined test (§5.4).** Fisher's method applied to Ch1 (Mahalanobis, p = 1.60×10⁻⁷) and Ch2 (SZAT swing-zone bootstrap, p = 0.0024) yields a joint p = 8.71×10⁻⁹ — approximately one in 115 million neutral draws. Both channels are seeded from publicly-verifiable drand League of Entropy beacon rounds predating the shapefile release. The combined finding is robust across Fisher, Stouffer, and Cauchy combination methods.
 
 **Inter-map comparison test (§5.4, Ch1-COMP).** Pre-registered at OSF yvc7g. Does the minority-majority gap exceed the distance between randomly chosen neutral-plan pairs? Version A (EG-only): p = 0.0303. Version B (Mahalanobis joint): p = 0.0001. Both significant. The written prediction before running was that Version A would likely fail — it passed. The inter-map Mahalanobis distance (D = 7.19) exceeds each map's individual distance from the ensemble centroid (minority D = 5.71, majority D = 2.79), confirming the maps are positioned on opposite flanks of partisan-metric space rather than being co-located.
+
+**Direction-of-travel (§5.4.10).** The 2019 enacted baseline sits at the statistical edge of neutral redistricting practice — Mahalanobis D²=12.12 against the canonical 250,000-plan ensemble (p=0.020). The majority 2026 map retreats toward the ensemble interior (D²=7.78, p=0.100 — inside the null). The minority 2026 map amplifies away from it (D²=32.58, p<0.001). SZAT boundary-choice tests confirm the pattern: the 2019→majority transition is consistent with neutral redistricting (p=0.309); the 2019→minority transition is marginally outside the null CI (p=0.053). Both 2026 proposals were drawn by the same five commissioners from the same 2019 baseline; they moved in measurably opposite directions on the partisan-metric axes the ensemble measures.
 
 **One pre-registered pass (§5.3.5).** The neighbour-drain adjacency test — which asks whether packed and cracked districts of the same party sit next to each other — finds zero coupled chain signals under the minority map, compared to three under both the majority and the 2019 enacted map. This is a pre-registered pass of the minority on that specific test. It appears in the paper as a result.
 
@@ -89,20 +93,19 @@ Two policy recommendations attach to the audit findings.
 
 ## The structural cost
 
-Both maps satisfy the law. The table below states the structural distance between them on six geometry-and-population measures and two vote-dependent measures, in the same units, applied identically to both.
+Both maps satisfy the law. The table below states the structural distance between them on five geometry-and-population measures (one retracted on canonical geometry) and two vote-dependent measures, in the same units, applied identically to both.
 
 | Dimension | Majority 2026 | Minority 2026 | Gap |
 |---|---|---|---|
 | Population MAD (persons) | 3,180 | 4,707 | Minority 48% higher variance |
 | Calgary NW zone population excess | +2.8% above mean | +11.5% above mean | Minority 4.1× the threshold value |
 | Airdrie partition count | 2 EDs | 4 EDs | Minority 2× more fragments |
-| Municipal-boundary anchoring | 71.0% of perimeter | 14.5% of perimeter | 4.9× majority advantage |
-| CSD + DA combined anchoring | 79.6% | 16.5% | 4.8× majority advantage |
+| Municipal-boundary anchoring *(retracted — canonical)* | 80.0% of perimeter | 72.0% of perimeter | Both within 70–85% Canadian norm; DPG-era values 71%/14.5%/4.9× did not survive shapefile recomputation |
 | Chair-flagged cartographic anomalies | 0 | 3 | — |
 | Efficiency gap (crosswalk method) | −0.40% | −1.81% | Both below 7% reference; direction method-sensitive |
 | Coupled packing-cracking adjacencies | 3 (matches 2019 baseline) | 0 (pre-registered pass) | Minority eliminates the signature |
 
-The first six rows are vote-independent. They are measurable against public official records and do not change if the partisan substrate changes. The last two rows depend on vote data; the seventh row's direction is not robust to the choice of spatial-attribution method; the eighth row is a finding in favour of the minority map.
+The first five rows are vote-independent. They are measurable against public official records and do not change if the partisan substrate changes; the municipal-anchoring row is retracted on canonical geometry (both maps within norm). The last two rows depend on vote data; the sixth row's direction is not robust to the choice of spatial-attribution method; the seventh row is a finding in favour of the minority map.
 
 A map with 4.9× lower municipal-boundary anchoring produces electoral divisions that are harder for voters to connect to their lived experience of municipal geography. A map that splits a city of 84,000 into four divisions — each identified with a different surrounding community — imposes a navigational cost on residents of that city that a two-division split does not. Neither cost is measured in dollars; both are structural costs to effective representation as the *Saskatchewan Reference* [1991] articulates it.
 
@@ -134,6 +137,8 @@ This audit is not finished. The following are genuinely unresolved.
 
 **The 2019-seeded MCMC ensemble (Issue #13).** The constraint-bound ensemble in §5.4 starts from a random seed, not from the 2019 enacted map. A chain seeded at the 2019 enacted geometry would more directly model incremental commission drawing and might place both 2026 recommendations differently within the ensemble distribution.
 
+**Submission sentiment (§5.9.4) — coverage gap.** LLM intensity scoring of public submissions is complete. However, only 14.5% of the commission's published submission archive could be processed; the remaining 85.5% are absent from the public record. Findings from the scored subset are indicative, not representative, and §5.9.4 weighted-net sentiment results carry this caveat.
+
 **Alberta's historical efficiency-gap baseline (Issue #16).** The 7% EG reference threshold is calibrated to US Congressional elections. An Alberta-specific threshold requires computing EG for the 2015, 2019, and 2023 elections under prior-cycle boundaries — work not yet done. The provisional range is 5–9%; see §5.2.8 Option C.
 
 ---
@@ -143,8 +148,6 @@ This audit is not finished. The following are genuinely unresolved.
 **Challenge the audit.** Read `analysis/methodology/retraction_pathway.md`. Find a specific finding and its named retraction condition. Produce the data or argument that triggers it. The retraction conditions are public, concrete, and dated.
 
 **Ask the Lunty committee about its process.** The Special Select Committee is due to report by November 2, 2026. Specific questions worth asking: What evaluation criteria were established before the committee began drawing? Will prompts and inputs to any AI tools used in the process be published? Will an ensemble of alternative maps be generated and published alongside the final map?
-
-**Request the official shapefiles.** File a Freedom of Information and Protection of Privacy Act request with Elections Alberta for the official 2026 electoral division shapefiles. This is the single piece of external data that would resolve the §5.2.7 method-sensitivity disagreement and allow the audit's sunset-clause reruns.
 
 **Share the public-audience report.** [`report_public.md`](report_public.md) is written for a general audience. It covers the five findings, the gerrymander checklist, and what the April 16 pivot means — without requiring any background in electoral systems or statistics.
 
@@ -169,7 +172,7 @@ The audit is most usefully challenged by people with expertise in electoral geog
 ## Deeper reading
 
 - **[report_public.md](report_public.md)** — **Start here.** Plain-language summary for a general audience: the five findings, the gerrymander checklist, what the April 16 pivot means, and what you can do. No prior knowledge required.
-- **[report_academic.md](report_academic.md)** — The full monograph (v0.19, 2026-04-24): executive summary, methods, §§5.1–5.10 results, seven measurement layers, dependency DAG, limitations, and falsifiability hooks. Start here to challenge a specific finding.
+- **[report_academic.md](report_academic.md)** — The full monograph (pre-publication, continuously updated): executive summary, methods, §§5.1–5.10 results, seven measurement layers, dependency DAG, limitations, and falsifiability hooks. Start here to challenge a specific finding.
 - **[analysis/methodology/retraction_pathway.md](analysis/methodology/retraction_pathway.md)** — Named retraction conditions per finding. The fastest path to either retracting a claim or confirming it holds.
 - **[analysis/methodology/null_hypothesis_and_exoneration_criteria.md](analysis/methodology/null_hypothesis_and_exoneration_criteria.md)** — Pre-committed null hypotheses, pass thresholds, and Structural/Robust/Durable classification for every finding.
 - **[analysis/methodology/test_apparatus_defense.md](analysis/methodology/test_apparatus_defense.md)** — Per-test criticism and response. Answers "are you making up metrics to have metrics?"

@@ -6,6 +6,8 @@
 
 *Draft — May 2026 · Non-partisan · [Repository](https://github.com/Ixby/alberta-electoral-boundaries-audit) · Data and scripts linked throughout*
 
+> **Pre-publication status.** This monograph has not been publicly released. Integration of canonical Elections Alberta shapefiles (received 2026-05-06) is ongoing; individual section results may shift as recomputation continues. The codebase is also undergoing cleanup and script-count reduction. Do not cite, quote, or distribute without confirming the current status of the specific finding.
+
 ---
 
 ## Executive summary and reading guide
@@ -2039,6 +2041,8 @@ A reasonable expert who weights partisan-bias magnitude over structural pattern 
 A "how close" answer needs to be lane-specific because the two lanes give different answers.
 
 **Lane 1 (partisan-bias magnitude).** Under Reading B (full-coverage spatial, Run #6 2M), the minority's EG of +9.21 % is at p100 of the 2,000,000-map ensemble — the most extreme UCP-favoured EG the simulation produced. On seats@50/50 (89-of-89 attribution, §5.4.7), the minority's reading of **52.8 %** sits **above the simulation's converged ceiling of 51.72 %** — a placement zero of 2,000,000 neutral draws reach (see §5.4.6 converged-ceiling finding). The Cannon et al. (2022) short-bursts test (§5.4.8) reaches 52.87 % in 40,000 hill-climbing steps, confirming the minority sits in the non-neutral procedure's reachable space rather than the neutral procedure's. **Distance to the nearest Alberta-calibrated gerrymander threshold: above every threshold the audit applies, including the converged-ceiling bound on seats@50/50.**
+
+**Boundary-choice decomposition (SZAT, Channel 2, §5.2.10).** The pre-registered SZAT bootstrap (p=0.0024, AsPredicted #289,469) identifies *which specific boundary decisions* drove the between-map EG gap. The regional decomposition of the SZAT score (+0.039211 total) is: Rest of Alberta +0.015 (dominant), Edmonton +0.008, Mountain-West / Canmore-RMH +0.006, Calgary −0.008 (partially offsetting). The signal is distributed across the province; Calgary swing zones run in the *opposite* direction to the headline score. This is inconsistent with a Calgary-centric explanation of the minority's UCP-favourable position and consistent with a map-wide boundary-placement pattern. The Fisher combination of Ch1 (Mahalanobis, p=1.60×10⁻⁷) and Ch2 (SZAT, p=0.0024) yields T=43.36, Fisher p=8.71×10⁻⁹ (~1 in 115 million).
 
 **Lane 2 (structural pattern).** The minority crosses every threshold by a wide margin:
 

@@ -67,10 +67,10 @@ def run():
     T(r, 0.5, 0.83,
       'MINORITY MAP  ·  FISHER COMBINED NEUTRAL-NULL PROBABILITY',
       fs=11, c='#FCEAE9', bold=True)
-    T(r, 0.5, 0.45, 'p  =  1.55 × 10⁻⁸',
+    T(r, 0.5, 0.45, 'p  =  8.71 × 10⁻⁹',
       fs=38, c=WHITE, bold=True)
     T(r, 0.5, 0.09,
-      'once in 64 million neutral random draws   ·   Fisher T = 42.148   ·   Channels 1 + 2 combined',
+      'once in 115 million neutral random draws   ·   Fisher T = 43.36   ·   Channels 1 + 2 combined',
       fs=12, c='#FCEAE9')
 
     # ── CHANNEL CARDS (3 columns) ────────────────────────────────────────────────
@@ -134,7 +134,7 @@ def run():
         yy -= 0.120
 
     HL(c2, 0.295, c='#E0B0AC', lw=1.0)
-    T(c2, 0.5, 0.205, 'Bootstrap p = 0.0044   ·   H₀ rejected at α = 0.05',
+    T(c2, 0.5, 0.205, 'Bootstrap p = 0.0024   ·   H₀ rejected at α = 0.05',
       fs=13, c=RED, bold=True)
     T(c2, 0.5, 0.068, '#289,469  ·  osf.io/6pt83  ·  COMPLETE', fs=8, c=NAVY2, italic=True)
 
@@ -291,7 +291,7 @@ def run():
     T(av, 0.5, 0.770,
       "The minority map’s four-dimensional partisan feature vector sits at "
       "Mahalanobis distance 6.11 from the neutral-draw ensemble centre. "
-      "Combined with SZAT, the joint neutral-null probability is 1 in 64 million. "
+      "Combined with SZAT, the joint neutral-null probability is 1 in 115 million. "
       "All five population justification tests fail.",
       fs=11, c=WHITE)
     T(av, 0.5, 0.280,
