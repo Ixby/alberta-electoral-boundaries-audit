@@ -1686,7 +1686,7 @@ The keyword-based analysis in §5.9.4.1–5.9.4.5 addresses whether supporting s
 
 Both pipelines resume from a progress file and are fully reproducible. Output: `data/outputs/submission_sentiment_llm_full_results.csv`.
 
-**Results — written submissions.** 388 non-neutral configuration-stance rows across 71 submissions. Overall: 189 Active Opposition (49%), 82 Active Support (21%), 117 Neutral/Contextual (30%).
+**Results — written submissions.** 388 non-neutral configuration-stance rows across 292 unique submissions (from the 1,252-submission corpus). Overall: 189 Active Opposition (49%), 82 Active Support (21%), 117 Neutral/Contextual (30%).
 
 | Configuration | Total rows | Opposition | Support | Opp% | Sup% |
 |---|---|---|---|---|---|
@@ -1712,19 +1712,19 @@ Both pipelines resume from a progress file and are fully reproducible. Output: `
 
 **Channel divergence.** The two measurement channels produce materially different signals on two configurations. Rocky Mountain House–Banff Park and Red Deer hybrids both show net opposition in written submissions (−18 and −44 respectively) but net support in Hansard hearings (+13 and +10). All other configurations show directionally consistent signals across both channels — Airdrie, Calgary–Nolan Hill, and Chestermere are opposed in both; Olds–Three Hills–Didsbury and St. Albert–Sturgeon are balanced in both.
 
-**Weighted net-sentiment ranking (rule-based intensity proxy).** A rule-based first-pass intensity score (1–3) was applied to each Active Opposition/Support row based on language in the reasoning and excerpt fields (STRONG triggers: *urge, demand, devote, bulk of, emphatic, strongly, primary focus*; WEAK triggers: *mention, in passing, suggest, prefer, brief*; MODERATE otherwise). The resulting intensity-weighted net scores rank configurations from most opposed to most supported across all channels:
+**Weighted net-sentiment ranking (LLM-scored intensity).** A second LLM pass (Claude Haiku, structured JSON output) scored each Active Opposition/Support row on a 1–3 intensity scale: 1 = mentioned in passing, 2 = clear position among several substantive points, 3 = primary focus or emphatic language (demanding, urging, calling the configuration unacceptable). Intensity-weighted net = sum of support intensity values minus sum of opposition intensity values, ranked across all channels:
 
 | Configuration | Intensity-weighted net | Direction |
 |---|---|---|
-| Red Deer hybrids | −154 | Channel divergence |
-| Calgary–Nolan Hill–Cochrane | −122 | Opposed, all channels |
-| Airdrie 4-way split | −112 | Opposed, both channels |
-| Chestermere merging with Calgary | −101 | Opposed, both channels |
-| Rocky Mountain House–Banff Park | −29 | Channel divergence |
-| St. Albert–Sturgeon County | −15 | Near-balanced overall |
+| Red Deer hybrids | −64 | Channel divergence |
+| Airdrie 4-way split | −61 | Opposed, both channels |
+| Calgary–Nolan Hill–Cochrane | −55 | Opposed, all channels |
+| Chestermere merging with Calgary | −47 | Opposed, both channels |
+| Rocky Mountain House–Banff Park | −9 | Channel divergence |
+| St. Albert–Sturgeon County | −1 | Near-balanced overall |
 | Olds–Three Hills–Didsbury | +6 | Net supported |
 
-*Note: The LLM intensity scoring completed with 920 data rows (559 submissions + 361 Hansard turns) classified on a 1–3 scale (1 = mentioned in passing, 2 = clear position among several substantive points, 3 = primary focus or emphatic language). Intensity-weighted net scores reflect the sum of intensity values for support minus opposition, ranked across all channels. Two configurations show pronounced channel divergence: Red Deer and Rocky Mountain House–Banff Park both exhibit strong opposition in written submissions but net support in Hansard hearings, consistent with differential-mobilization and participation-cost explanations discussed below.*
+*Note: LLM intensity scoring completed across 452 deduplicated active-stance rows (271 full-corpus AO/AS rows from 1,252 written submissions; 85 Hansard-r1 turns; 96 Hansard-r2 turns; N/C and Unrelated rows not scored). Two configurations show pronounced channel divergence: Red Deer and Rocky Mountain House–Banff Park both exhibit strong opposition in written submissions but net support in Hansard hearings, consistent with differential-mobilization and participation-cost explanations discussed below.*
 
 **The channel-divergence hypothesis.** The divergence between written and in-person channels on RMH–Banff Park and Red Deer hybrids warrants a methodological note. One credible explanation is differential mobilization: written submissions are submitted asynchronously and may over-represent organized opposition groups or residents with strong objections, while in-person public hearings attract a broader cross-section including residents who favor local representation arguments but lack the organizational impetus to submit formally. This pattern — where written channels show stronger opposition than in-person channels on the same question — is documented in planning and zoning literature (Fischel 2001; Davis 2016) though not specifically in electoral redistricting contexts.
 
