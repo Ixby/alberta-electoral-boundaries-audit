@@ -1,0 +1,122 @@
+{
+  "description": "2019 enacted Alberta electoral map scored against canonical 250k MCMC ensemble. Partisan metrics from simulation_real_map_scores_canonical.json. Mahalanobis D\u00b2 computed from ensemble empirical covariance.",
+  "ensemble_n": 250000,
+  "metric_vector_2019": {
+    "efficiency_gap": 0.024119940578423545,
+    "mean_median": -0.007671760176883757,
+    "declination": -0.04509237880431511,
+    "seats_at_50_50": 0.45977011494252873
+  },
+  "per_metric": {
+    "efficiency_gap": {
+      "value": 0.02412,
+      "percentile": 69.0448,
+      "ensemble_p5": -0.008338,
+      "ensemble_p50": 0.016493,
+      "ensemble_p95": 0.041086,
+      "source": "canonical_percentiles_csv"
+    },
+    "mean_median": {
+      "value": -0.007672,
+      "percentile": 92.0524,
+      "ensemble_p5": -0.031158,
+      "ensemble_p50": -0.018939,
+      "ensemble_p95": -0.005847,
+      "source": "canonical_percentiles_csv"
+    },
+    "declination": {
+      "value": -0.045092,
+      "percentile": 9.4228,
+      "ensemble_p5": -0.059419,
+      "ensemble_p50": -0.001861,
+      "ensemble_p95": 0.051837,
+      "source": "canonical_percentiles_csv"
+    },
+    "seats_at_50_50": {
+      "value": 0.45977,
+      "percentile": 78.6284,
+      "ensemble_p5": 0.425287,
+      "ensemble_p50": 0.448276,
+      "ensemble_p95": 0.482759,
+      "source": "canonical_percentiles_csv"
+    },
+    "population_mad": {
+      "value": null,
+      "percentile": null,
+      "note": "see pop_2019 section below"
+    },
+    "reock_proxy_median": {
+      "value": null,
+      "percentile": null,
+      "note": "2019 shapefile Reock not computed"
+    },
+    "reock_proxy_pct_below_030": {
+      "value": null,
+      "percentile": null,
+      "note": "2019 shapefile Reock not computed"
+    }
+  },
+  "mahalanobis": {
+    "2019_enacted": {
+      "d2": 12.1169,
+      "p_empirical": 0.020364,
+      "p_chi2": 0.016503,
+      "mean_vector": [
+        0.016482542226143343,
+        -0.018724072791597133,
+        -0.0031599107231928,
+        0.45290611494252864
+      ],
+      "n_ensemble": 250000,
+      "k_metrics": 4
+    },
+    "majority_2026_canonical": {
+      "d2": 7.7811,
+      "p_empirical": 0.099932,
+      "p_chi2": 0.099936,
+      "mean_vector": [
+        0.016482542226143343,
+        -0.018724072791597133,
+        -0.0031599107231928,
+        0.45290611494252864
+      ],
+      "n_ensemble": 250000,
+      "k_metrics": 4
+    },
+    "minority_2026_canonical": {
+      "d2": 32.58,
+      "p_empirical": 0.0,
+      "p_chi2": 1e-06,
+      "mean_vector": [
+        0.016482542226143343,
+        -0.018724072791597133,
+        -0.0031599107231928,
+        0.45290611494252864
+      ],
+      "n_ensemble": 250000,
+      "k_metrics": 4
+    },
+    "metric_keys": [
+      "efficiency_gap",
+      "mean_median",
+      "declination",
+      "seats_at_50_50"
+    ]
+  },
+  "population_mad_2019": {
+    "n_seats": 87,
+    "total_population": 4071875.0,
+    "quota": 46803.16,
+    "population_mad": 2009.84,
+    "mean_abs_deviation": 2886.38,
+    "max_abs_deviation": 18985.16,
+    "max_deviation_pct": 40.56,
+    "min_abs_deviation": 20.84,
+    "note": "2019 map has 87 EDs; canonical ensemble is 89-seat. Quota denominators differ \u2014 ensemble percentile placement not valid. Raw MAD reported for cross-map comparison only."
+  },
+  "population_mad_2026": {
+    "majority": 2826.8945263667047,
+    "minority": 3938.1069235499162,
+    "note": "2026 values from simulation_real_map_scores_canonical.json (89-seat quota)"
+  }
+}

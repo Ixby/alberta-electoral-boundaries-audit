@@ -1,0 +1,51 @@
+{
+  "description": "SZAT 2019 baseline: 2023 votes reallocated to 2019 EDs vs each 2026 proposal.  Tests whether the commission's boundary movements from 2019 were partisan-neutral.",
+  "canonical_shapefiles": {
+    "majority": "data\\shapefiles\\canonical\\ea_majority_2026_eds.gpkg",
+    "minority": "data\\shapefiles\\canonical\\ea_minority_2026_eds.gpkg"
+  },
+  "results": {
+    "2019_to_majority": {
+      "pair": "2019 enacted -> majority 2026",
+      "eg_baseline_2019": 0.02412,
+      "eg_proposal": 0.000982,
+      "szat_score": -0.023138,
+      "n_swing": 2042,
+      "n_total_va": 4765,
+      "bootstrap_p_value": 0.3094,
+      "bootstrap_n": 10000,
+      "bootstrap_seed": 986354216,
+      "bootstrap_ci_95": [
+        -0.034002,
+        -0.005809
+      ],
+      "swing_va_by_region": {
+        "Calgary": 469,
+        "Edmonton": 335,
+        "Rest of Alberta / Mountain-West": 1269
+      },
+      "note": "Exploratory (not pre-registered). Tests whether boundary choices made in moving from 2019 to this 2026 proposal were partisan-neutral."
+    },
+    "2019_to_minority": {
+      "pair": "2019 enacted -> minority 2026",
+      "eg_baseline_2019": 0.02412,
+      "eg_proposal": 0.040194,
+      "szat_score": 0.016074,
+      "n_swing": 2584,
+      "n_total_va": 4765,
+      "bootstrap_p_value": 0.0534,
+      "bootstrap_n": 10000,
+      "bootstrap_seed": 3054086016,
+      "bootstrap_ci_95": [
+        -0.017237,
+        0.005881
+      ],
+      "swing_va_by_region": {
+        "Calgary": 769,
+        "Edmonton": 441,
+        "Rest of Alberta / Mountain-West": 1590
+      },
+      "note": "Exploratory (not pre-registered). Tests whether boundary choices made in moving from 2019 to this 2026 proposal were partisan-neutral."
+    }
+  }
+}
