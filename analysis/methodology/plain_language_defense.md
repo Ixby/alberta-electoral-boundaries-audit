@@ -812,7 +812,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-## §5.8 Geographic Coherence
+## §5.5 Pre-registration and OSF Registration
 
 ---
 
