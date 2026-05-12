@@ -29,11 +29,13 @@ Items must complete before either report goes public.
 
 ### OSF s58a6 — Section C: MCMC Rerun for Pending Channels
 
-- **Status: PENDING** — base_seed = 3562959107 (drand round 6099592); registered OSF s58a6 2026-05-10
-- **Channels:** population MAD ratio, Reock asymmetry, municipal anchoring departure (all require per-plan outputs not in existing ensemble)
+- **Status: PARTIALLY DONE** — base_seed = 3562959107 (drand round 6099592); registered OSF s58a6 2026-05-10
+- **Channels:** population MAD ratio, Reock asymmetry, municipal anchoring departure
 - **Protocol:** 2 chains × 50,000 plans with per-plan MAD, Reock, and anchor-count capture
 - **Decision rule:** each channel reported regardless of direction; any p<0.05 added to updated Fisher combination
-- **Note:** per-map MAD values are already canonical (2,827 / 3,938 from `simulation_real_map_scores_canonical.json`); this run is for the *ensemble* MAD distribution (percentile placement), not a correction to existing values.
+- **MAD — DONE from canonical:** `simulated_ensemble_percentiles_canonical.csv` already has population MAD percentiles: minority p99.0 (p_one-tailed ≈ 0.0098), majority p15.8. Ensemble p50 = 3,163. Academic report §5.4.9 updated to reflect this. Section C run provides independent verification with new seed.
+- **Reock — DONE from canonical (null finding):** Both 2026 maps at p100 on Reock median compactness (more compact than ensemble); both at very low percentiles on pct<0.30. No out-of-distribution signal. Reported as null in §5.4.9.
+- **Municipal anchoring — STILL PENDING:** Per-plan anchor-count not in existing ensemble; requires Section C run with new seed 3562959107.
 
 ### Phase 4C Vision Assignment (Stages 3–7)
 
@@ -69,7 +71,7 @@ Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
 Outreach sent to Elections Alberta and Duane Bratt on 2026-04-23; replies received 2026-05-09.
 
 1. **Send draft to Bratt** — DONE 2026-05-11.
-2. **Send spatial methodology sections to Lan Nguyen + Lynn Moorman** (MRU GIS/geography).
+2. **Send spatial methodology sections to Lan Nguyen + Lynn Moorman** (MRU GIS/geography). — **DRAFT READY 2026-05-13** at `private_workspace/emails/06_nguyen_moorman_spatial_review_2026-05-13.md`. Four specific questions: (a) Alberta 3TM vs east–west distortion; (b) VA centroid boundary attribution; (c) Reock via shapely.minimum_bounding_circle(); (d) 500m CSD-edge buffer tolerance. Pre-send checklist in draft.
 3. **One additional academic reviewer** (political science, outside MRU) — identify after Bratt feedback.
 4. Response turnaround: allow 2–3 weeks before final revision pass.
 
@@ -116,7 +118,7 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 
 ### Manual Source Verifications
 
-- RMH-Banff attribution — verify against Hansard/X-thread sources before CRIT-B deletion
+- ~~RMH-Banff attribution — verify against Hansard/X-thread sources before CRIT-B deletion~~ **DONE 2026-05-09** (see COMPLETED_LOG.md)
 - Public-support refutation scope — 3 items need manual cross-check
 
 ---
@@ -241,7 +243,7 @@ Items surfaced during the 2026-05-12 grounding sweep. Do not publish until resol
 | **CLR-01** | `README.md` §Direction-of-travel | "2019 enacted: D²=12.12, p=0.020" | Old DPG-era value. | **RESOLVED 2026-05-12** — updated to D²=12.75, p=0.013 (1M covariance) in README.md, academic report §5.4.10, and joint_outlier_score.json. |
 | **CLR-02** | `README.md` §Dependency graph | "48 of 74 findings … leaves 26" | Could not verify without running query. | **RESOLVED 2026-05-12** — verified by running `dependency_query.py --invalidate L0:data.2023_statement_of_vote`; confirmed 48/74 orphaned, 26 robust. |
 | **CLR-03** | `README.md` §A2, structural cost table | "11.5% above provincial mean" (minority NE/central Calgary zone), "2.8% above average" (majority) | Zone label incorrect ("northwest" vs "northeast/central"). | **RESOLVED 2026-05-12** — verified against `section_A_population_equality.md`; label corrected to NE/central; values confirmed (minority 61,225 = 11.5%, majority 56,460 = 2.8%). |
-| **CLR-04** | `README.md`, academic report | Airdrie ~84,000 residents | 74,100 (2021 Census) vs 84,000 (2024 municipal census). | **RESOLVED 2026-05-12** — using 84,000 with "(2024 municipal census)" annotation per PO decision. Citation URL still needed. |
+| **CLR-04** | `README.md`, academic report | Airdrie ~84,000 residents | 74,100 (2021 Census) vs 84,000 (2024 municipal census). | **RESOLVED 2026-05-13** — corrected to 85,805 (City of Airdrie 2024 municipal census, released July 2, 2024; https://www.airdrie.ca/index.cfm?serviceID=2242&ID=1248) across 8 locations in README.md, academic report, and public report. Citation added to References §Data sources. |
 | **CLR-05** | `analysis/reports/joint_outlier_score.json` | Anchoring values 14.5% / 71.0% in `structural_pending` | DPG-era values, retracted finding. | **RESOLVED 2026-05-12** — updated to 72% / 80% with RETRACTED status label. |
 | **CLR-06** | `analysis/reports/joint_outlier_score.json` | `caveats: "Ensemble is 100k plans"` | D² and Fisher p from 100k covariance. | **RESOLVED 2026-05-12** — recomputed from 1M covariance: minority D²=32.67 (p=1.40e-06), majority D²=7.85 (p=0.097), enacted D²=12.75 (p=0.013); Fisher p=6.87e-08 (T=39.03). |
 | **CLR-07** | `REPRODUCING.md` | Gemini commit hashes `73544a3` and `972b04a` | Commit attribution may be inaccurate. | **RESOLVED 2026-05-12** — hash references removed; Gemini description updated to reflect SZAT/scorecard collaboration. |

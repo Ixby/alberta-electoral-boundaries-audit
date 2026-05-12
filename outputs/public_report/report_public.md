@@ -63,9 +63,9 @@ The five commissioners worked from the same statutory rules, the same provincial
 
 > **WHY AIRDRIE MATTERS**
 >
-> Airdrie is the largest Alberta city without its own MLA. At 84,000 people it is bigger than Red Deer; it has one council, one tax bill, one school division — every civic system treats it as a unit.
+> Airdrie is the largest Alberta city without its own MLA. At 85,805 people (2024 municipal census) it is bigger than Red Deer; it has one council, one tax bill, one school division — every civic system treats it as a unit.
 >
-> Splitting it across four provincial divisions — Calgary-Airdrie, Calgary-Foothills-Airdrie West, Calgary-Nolan Hill-Cochrane, and Airdrie East — each primarily identified with a different surrounding jurisdiction, removes Airdrie from the political map at the level of government that draws it. The city has 84,000 residents and zero seats in the legislature where a majority of voters call the place home.
+> Splitting it across four provincial divisions — Calgary-Airdrie, Calgary-Foothills-Airdrie West, Calgary-Nolan Hill-Cochrane, and Airdrie East — each primarily identified with a different surrounding jurisdiction, removes Airdrie from the political map at the level of government that draws it. The city has 85,805 residents and zero seats in the legislature where a majority of voters call the place home.
 >
 > A four-way split is invisible to every partisan-fairness test except the one that asks: can a voter find their MLA?
 
