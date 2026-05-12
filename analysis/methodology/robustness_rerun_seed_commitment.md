@@ -94,16 +94,36 @@ Report insertion: §5.4 of `outputs/academic_report/report_academic.md` (committ
 
 ## Section C — MCMC Rerun Base Seed
 
-Prospective analysis; primary result unknown. Channels: population MAD ratio, Reock asymmetry, municipal anchoring departure.
+Independent seed check of canonical 1M results. Channels captured: population MAD, Reock proxy. Municipal anchoring departure: **NOT captured** — per-plan anchor-count is not implemented in `mcmc_ensemble_canonical.py` as of this run; that channel remains pending.
 
 | Field | Value |
 | --- | --- |
 | base_seed | 3562959107 |
 | chains | 2 |
 | plans per chain | 50,000 (100,000 total) |
-| Additional outputs | per-plan population MAD, per-plan mean Reock, per-plan municipal anchor count |
+| Output file | `data/simulated_ensemble_raw_samples_section_c.csv` (200,000 samples) |
+| Completed | 2026-05-12 |
 
-**Status: PENDING — not yet run.**
+**Percentile results (Section C seed vs canonical 1M):**
+
+| Map | Metric | Real-map value | Section C p-tile (100k) | Canonical 1M p-tile | Match? |
+| --- | --- | --- | --- | --- | --- |
+| Minority 2026 | population_mad | 3,938.11 | 99.26 | 99.0 | ✓ confirmed |
+| Majority 2026 | population_mad | 2,826.89 | 16.58 | 15.8 | ✓ confirmed |
+| Minority 2026 | reock_proxy_median | 0.5785 | 100.0 | 100.0 | ✓ confirmed (null) |
+| Majority 2026 | reock_proxy_median | 0.5681 | 100.0 | 100.0 | ✓ confirmed (null) |
+| Minority 2026 | reock_pct_below_030 | 1.12 % | 0.05 | 0.09 | ✓ confirmed (null, low-elongation) |
+| Majority 2026 | reock_pct_below_030 | 2.25 % | 0.91 | 0.80 | ✓ confirmed (null) |
+| Minority 2026 | efficiency_gap | +0.0402 | 93.93 | 94.4 | ✓ consistent |
+| Minority 2026 | mean_median | +0.0104 | 100.0 | 99.98 | ✓ consistent |
+| Minority 2026 | declination | −0.0770 | 1.89 | 1.21 | ✓ consistent |
+| Minority 2026 | seats_at_50_50 | 0.5169 | 100.0 | 99.99 | ✓ consistent |
+
+**p95 EG from Section C ensemble: 0.0417 (4.17 %).** Small upward deviation from canonical 0.0410 (4.10 %); sampling variation expected across different seeds at 100k vs 1M plans.
+
+**Municipal anchoring departure:** channel not implemented in `mcmc_ensemble_canonical.py`; per-plan anchor counts require a separate script that captures anchoring per-plan rather than per-map. Remains as future work.
+
+**Status: EXECUTED 2026-05-12 — population MAD and Reock channels independently confirmed.**
 
 ---
 
@@ -114,4 +134,4 @@ Prospective analysis; primary result unknown. Channels: population MAD ratio, Re
 3. OSF form submitted (s58a6) — 2026-05-10 ✓ (approved by registrant)
 4. Section A executed — 2026-05-10 ✓
 5. Section B executed — 2026-05-10 ✓
-6. Section C executed — **pending**
+6. Section C executed — 2026-05-12 ✓ (population MAD and Reock confirmed; anchoring not captured)

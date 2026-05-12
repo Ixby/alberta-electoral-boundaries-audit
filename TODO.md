@@ -33,9 +33,9 @@ Items must complete before either report goes public.
 - **Channels:** population MAD ratio, Reock asymmetry, municipal anchoring departure
 - **Protocol:** 2 chains × 50,000 plans with per-plan MAD, Reock, and anchor-count capture
 - **Decision rule:** each channel reported regardless of direction; any p<0.05 added to updated Fisher combination
-- **MAD — DONE from canonical:** `simulated_ensemble_percentiles_canonical.csv` already has population MAD percentiles: minority p99.0 (p_one-tailed ≈ 0.0098), majority p15.8. Ensemble p50 = 3,163. Academic report §5.4.9 updated to reflect this. Section C run provides independent verification with new seed.
-- **Reock — DONE from canonical (null finding):** Both 2026 maps at p100 on Reock median compactness (more compact than ensemble); both at very low percentiles on pct<0.30. No out-of-distribution signal. Reported as null in §5.4.9.
-- **Municipal anchoring — STILL PENDING:** Per-plan anchor-count not in existing ensemble; requires Section C run with new seed 3562959107.
+- **MAD — DONE and independently confirmed:** Canonical 1M: minority p99.0, majority p15.8. Section C independent seed (3562959107, 100k): minority p99.26, majority p16.58. ✓ Values match within sampling variation. §5.4.9 updated with independent-verification note.
+- **Reock — DONE and independently confirmed (null finding):** Both maps at p100 median compactness under both canonical and Section C seeds. No out-of-distribution signal in either run. Reported as null in §5.4.9. ✓
+- **Municipal anchoring — STILL PENDING:** Per-plan anchor-count not implemented in `mcmc_ensemble_canonical.py`. Section C executed without this channel. Requires separate implementation before this channel can be reported.
 
 ### Option C threshold ensembles — write-up on completion
 
