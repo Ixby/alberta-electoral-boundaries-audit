@@ -686,7 +686,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §6.1 — What the Evidence Supports (Defensible Synthesis)
+### What the Evidence Supports (Synthesis)
 
 ---
 
@@ -702,7 +702,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §6.2 — Directional Pattern and Metric Context
+### Directional Pattern and Metric Context
 
 ---
 
