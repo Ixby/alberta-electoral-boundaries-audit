@@ -23,7 +23,7 @@ type: reports
 
 Public-interest forensic audits of electoral redistricting face a common and under-treated problem: the months-to-years gap between a commission's final report and the release of official topological shapefiles. During that gap, every spatial analysis rests on *derived* geometry — polygons traced from commission maps, reconstructed from crosswalks, or built from related administrative boundaries. Existing redistricting-analysis frameworks (MGGG; Chen and Rodden 2013; Stephanopoulos and McGhee 2015) implicitly assume official shapefiles; they do not specify how an audit should publish defensibly when those shapefiles are unavailable.
 
-This paper formalises the **Derived Provisional Geometry (DPG) framework** as a disciplined posture for that case. We contribute: (i) a two-error-mode disclosure (perimeter-mode ±500 m; area-mode Tier-dependent) that distinguishes boundary-localization error from whole-polygon-territory mismatch; (ii) source-tier provenance metadata (`canon_source` ∈ {`da-anchored`, `municipal-anchored`, `osm-municipal-buffered`, `sweep`, `v7`}) enabling deterministic overlap resolution; (iii) a **four-phase DPG perfection pipeline** — precedence-based overlap resolution with anti-erasure clamp, tier-ordered edge snapping (nearest-neighbour welding using `shapely.snap()` with auto-revert on >5% area distortion), spatial-index gap-fill (R-tree nearest-neighbour assignment of residual interstitial polygons), and a multi-threaded 1m precision pass closing floating-point artefacts — that produces a fully tessellating polygon set from independently-traced sources; (iv) a **nested-polygon ownership-inversion refinement** that resolves residual overlaps where one ED is fully contained inside another by carving the inner polygon out of the outer rather than erasing the inner — a contribution beyond the cartographic-conflation literature (Sester 2000; Saalfeld 1988), where existing algorithms either erase the smaller polygon or flag the case as unresolvable; (v) a **four-measurement-layer reporting pattern** (crosswalk, centroid-in-polygon, MAUP v1 uncleaned, MAUP v2 topology-cleaned) that surfaces cross-method disagreement honestly; (vi) a **programmatic city-centre alignment proof** that requires only ground-truth POINTS (not polygons) and is therefore appropriate for the DPG-without-shapefiles posture this paper formalises; and (vii) a **sunset clause** binding the audit to recompute all DPG-dependent metrics within 48 hours of official shapefile release. We illustrate with the Alberta 2025-26 boundaries audit (87→89 electoral divisions, 4,765 voting-area polygons, 250,000-plan ReCom MCMC ensemble across 4 parallel chains) and release the full toolkit under a permissive licence.
+This paper formalises the **Derived Provisional Geometry (DPG) framework** as a disciplined posture for that case. We contribute: (i) a two-error-mode disclosure (perimeter-mode ±500 m; area-mode Tier-dependent) that distinguishes boundary-localization error from whole-polygon-territory mismatch; (ii) source-tier provenance metadata (`canon_source` ∈ {`da-anchored`, `municipal-anchored`, `osm-municipal-buffered`, `sweep`, `v7`}) enabling deterministic overlap resolution; (iii) a **four-phase DPG perfection pipeline** — precedence-based overlap resolution with anti-erasure clamp, tier-ordered edge snapping (nearest-neighbour welding using `shapely.snap()` with auto-revert on >5% area distortion), spatial-index gap-fill (R-tree nearest-neighbour assignment of residual interstitial polygons), and a multi-threaded 1m precision pass closing floating-point artefacts — that produces a fully tessellating polygon set from independently-traced sources; (iv) a **nested-polygon ownership-inversion refinement** that resolves residual overlaps where one ED is fully contained inside another by carving the inner polygon out of the outer rather than erasing the inner — a contribution beyond the cartographic-conflation literature (Sester 2000; Saalfeld 1988), where existing algorithms either erase the smaller polygon or flag the case as unresolvable; (v) a **four-measurement-layer reporting pattern** (crosswalk, centroid-in-polygon, MAUP v1 uncleaned, MAUP v2 topology-cleaned) that surfaces cross-method disagreement honestly; (vi) a **programmatic city-centre alignment proof** that requires only ground-truth POINTS (not polygons) and is therefore appropriate for the DPG-without-shapefiles posture this paper formalises; and (vii) a **sunset clause** binding the audit to recompute all DPG-dependent metrics within 48 hours of official shapefile release. We illustrate with the Alberta 2025-26 boundaries audit (87→89 electoral divisions, 4,765 voting-area polygons, 1,010,000-plan ReCom MCMC ensemble across 4 parallel chains × 252,500 steps) and release the full toolkit under a permissive licence.
 
 ---
 
@@ -34,7 +34,7 @@ This paper formalises the **Derived Provisional Geometry (DPG) framework** as a 
 - Public-interest forensic auditing as a sub-field of empirical political methodology
 - The shapefile-release gap: commissions publish textual reports months-to-years before authoritative geometry
 - What the gap means for the citizen-audit posture: publish now or wait?
-- Contributions (numbered i–v from the abstract)
+- Contributions (numbered i–vii from the abstract)
 - Why a Canadian case study + why the general framework matters beyond Canada
 
 ### 2. Related work (~1.5 pages)
@@ -70,7 +70,7 @@ Every DPG row must carry this metadata. Downstream methods (tessellation pipelin
 
 ### 4. Topology cleanup and DPG tessellation (~3 pages)
 
-The DPG tessellation problem has three distinct failure modes, each requiring a different algorithm. Together they form the **three-phase DPG perfection pipeline** (`dpg_perfecter.py`).
+The DPG tessellation problem has four distinct failure modes, each requiring a different algorithm. Together they form the **four-phase DPG perfection pipeline** (`dpg_perfecter.py`).
 
 #### 4.1 Phase 1 — Overlap resolution
 
@@ -223,6 +223,33 @@ Each layer's failure mode is different. A reviewer attacking layer 2 gets answer
 
 Illustrative case study: Alberta 2025-26 minority vs majority asymmetry reads −1.42 pp (layer 1), +4.15 pp (layer 2), +1.12 pp (layer 3, misleading), +3.35 pp (layer 4). Residual cross-method gap: ~4.8 pp. The layer 3→4 comparison isolates the transcription-overlap artefact explicitly.
 
+#### 5.1 Why the layers disagree in Alberta
+
+The four readings are not four attempts at the same measurement — they measure different things and their disagreement is informative.
+
+**Layer 1 (crosswalk, −1.42 pp minority-vs-majority efficiency gap)** uses no geometry. It maps 2026 EDs to their 2019 predecessors via an explicit dictionary and computes vote totals by blending 2019 predecessor results using population-weighted urban/rural coefficients. The −1.42 pp reading is in the audit's crosswalk convention where negative = UCP-favourable (more negative = more UCP-advantaged). It means: conditioning on 2023 vote shares and the commission's own population table, the minority map is estimated to waste *more* NDP votes per seat than the majority — that is, the minority is estimated to be slightly *more* UCP-favourable. This reading is stable across five urban-weight sensitivity values (0.60–0.90); the direction holds at ~90% of Monte Carlo draws over model-parameter uncertainty.
+
+**Layer 2 (centroid-in-polygon, +4.15 pp)** assigns each Voting Area's votes to whichever 2026 ED contains its centroid. Against v0_7 DPG geometry, this also shows the minority as *more* UCP-favourable than the majority. In the spatial formula convention (positive EG = NDP wastes more = UCP advantage), +4.15 pp means the minority is 4.15 pp further in the UCP-favourable direction than the majority — the same qualitative direction as Layer 1. The two layers do not disagree on which map is more UCP-favourable; they disagree on magnitude and, in appearance, on sign — but the sign difference is a convention artefact. Layer 1 (crosswalk) uses the audit's negative-UCP convention while Layer 2 (spatial formula) uses the positive-UCP convention; converting either to the other's convention reverses the arithmetic sign without changing the substantive direction. What the two layers genuinely dispute is magnitude: Layer 1 puts the minority-vs-majority gap at 1.42 pp, Layer 2 at 4.15 pp. This magnitude disagreement is the informative signal about DPG boundary-localization uncertainty: in urban Tier-C zones where DPG precision is lowest, the centroid method may assign VAs to the wrong 2026 ED, artificially widening the apparent gap relative to the crosswalk.
+
+**Layer 3 (MAUP against raw DPG, +1.12 pp, misleading)** area-weights votes by intersection with the raw pre-perfected DPG polygons. Before the four-phase tessellation pipeline, the DPG contains overlaps and sliver gaps; VAs near contested boundaries may contribute partial vote fractions to two EDs simultaneously. The +1.12 pp reading understates the true cross-method asymmetry because overlap contamination artificially equalises the two maps' vote distributions near boundary zones. This layer's value is diagnostic, not estimative: its deviation from Layer 4 quantifies the topology artefact.
+
+**Layer 4 (MAUP against topology-clean DPG, +3.35 pp)** uses the v0_8 perfecter output. With overlaps and gaps resolved, area-weighted attribution no longer double-counts boundary VAs. The Layer 3→4 change (+2.23 pp) isolates the transcription-overlap artefact: 2.23 pp of the apparent map symmetry in Layer 3 was a product of imperfect tessellation, not a genuine property of the boundaries.
+
+#### 5.2 Reporting without picking a winner
+
+The four-layer report conveys three things simultaneously: the best available estimate under each methodology, the failure mode that explains each layer's deviation from the others, and the range of uncertainty attributable to DPG fidelity rather than model specification. The standard of care is:
+
+1. State each layer's finding and its specific failure mode in the same sentence.
+2. Do not average the layers or weight-average to a "consensus" estimate. The disagreement is real; averaging it away hides information.
+3. Identify which pair of layers isolates which artefact (Layer 3 vs 4 isolates the topology artefact; Layer 1 vs 2 isolates the boundary-localization artefact).
+4. Commit to a final reading when — and only when — official shapefiles arrive. The sunset clause specifies this timing.
+
+#### 5.3 Canonical resolution
+
+When official Elections Alberta shapefiles arrived (2026-05-06), all four layers were recomputed on authoritative geometry. Layer 1 (crosswalk, which uses no geometry) was unaffected: majority −0.40%, minority −1.81% (crosswalk convention, negative = UCP-favourable). Layer 2 on canonical geometry (centroid-in-polygon against official EA shapefiles, formula convention positive = UCP advantage): majority +0.098%, minority +4.02%; inter-map gap +3.92 pp (minority more UCP-favourable). Both readings are on the UCP-tail of the null distribution under canonical geometry.
+
+The canonical result confirms directional agreement between layers 1 and 2 (both showing minority more UCP-leaning than majority). The magnitude gap between layers narrows relative to the DPG era (DPG Layer 2 put the gap at +4.15 pp; canonical Layer 2 puts it at +3.92 pp), consistent with DPG boundary-localization error in Tier-C zones accounting for a small fraction of the cross-layer magnitude disagreement. The directional finding — minority more UCP-favourable — was present at every DPG stage and is confirmed by official geometry.
+
 ### 6. Sunset clause as pre-registration commitment (~1 page)
 
 Every DPG-dependent claim is published with a dated, public commitment:
@@ -233,12 +260,41 @@ This is a novel defensibility mechanism: it inverts the usual peer-review postur
 
 ### 7. Case study — Alberta 2025-26 (~1.5 pages, condensed)
 
-Brief summary referencing the main audit paper. Focus on methodological lessons:
+The Alberta 2025-26 audit provides a complete in-production demonstration of the DPG framework: from first freehand polygon trace to official shapefile recomputation, with the metric evolution at each stage documented and publicly reproducible. The companion paper (`report_academic.md`) carries the full partisan-bias analysis; this section focuses on the methodological progression.
 
-- 21 Tier-C hybrid EDs required visual transcription from 600-DPI PNG extractions
-- Topology cleanup resolved 19,487 km² of transcription overlap
-- Multi-chain ReCom MCMC achieved R-hat 1.013–1.017 on the 4,765-VA graph
-- Headline finding: residual 4.8 pp cross-method asymmetry disagreement stands as a *genuine* cross-method property, not a geometry artefact
+#### 7.1 The ten-stage DPG development arc
+
+**Stage 1 — Province-scale freehand trace (v0_1, 2025-10).** Initial digitisation of the commission PDF thumbnails at full-province zoom. Edge precision approximately 20 km. Coverage: 60 of 89 majority EDs, 54 of 89 minority. No usable EG estimate; the large uncovered fraction (29 majority, 35 minority) concentrated in urban Calgary and Edmonton where thumbnails were densest but most complex. Purpose: confirm the DPG construction workflow before investing in higher-precision tracing.
+
+**Stage 2 — First topology cleanup (v0_2, 2025-11).** Resolved 14 overlap pairs produced by the province-scale trace (two EDs claiming the same 4,000–12,000 km² rural block). First tessellating output. Still at 20 km edge precision. The B1 vote-distribution histogram (margin bins) became computable at this stage; EG crosswalk estimate first available (−1.42 pp minority-vs-majority, direction stable from this version forward).
+
+**Stage 3 — Population-calibrated parametric sweep (v0_3, 2026-01).** For 5 null-geometry EDs per map (urban Calgary where the thumbnail trace was illegible), iterated buffer-expand from the 2019 predecessor centroid until the commission's published per-ED population target was met to within 0.5%. This filled the highest-density urban holes. MCMC first attempted at this stage; Recom was not able to complete valid proposals across the null-geometry EDs, deferring ensemble runs to v0_7.
+
+**Stage 4 — CSD/DA anchoring (v0_5, 2026-02).** 47 EDs whose visible boundaries follow census Dissemination Area (DA) edges were reconstructed from the official 2021 DA polygon set (Tier A: shapefile-grade). 32 EDs following Census Subdivision (CSD) edges received municipal-boundary anchoring (Tier A). Coverage rose to 79 majority EDs and 71 minority EDs. The Layer 1 crosswalk stabilised; the centroid-in-polygon Layer 2 first became reliable for the anchored subset.
+
+**Stage 5 — Full visual transcription from 600-DPI PNG (v0_7, 2026-03).** The remaining Tier-C EDs (21 majority, 18 minority) were transcribed from high-resolution PNG extractions of the commission's published maps. All 89 EDs now carry geometry on both maps. This is the first version at which all four measurement layers are computable. Observed layer readings (minority vs majority EG gap): Layer 1 −1.42 pp, Layer 2 +4.15 pp, Layer 3 +1.12 pp, Layer 4 +3.35 pp. The Layer 1–2 sign divergence first surfaces at this stage, confirming that the boundary-localization artefact concentrates in the Tier-C zones that were only finalized at v0_7.
+
+**Stage 6 — Four-phase tessellation (v0_8, 2026-03).** `dpg_perfecter.py` applied. Overlap resolution removed 19,487 km² of transcription overlap; tier-ordered edge snapping closed 8,214 sliver gaps; gap-fill redistributed 1,168 gap polygons across 85,408 km²; 1m precision pass eliminated floating-point artefacts. Output: fully tessellating, bit-identical shared boundaries. MAUP attribution reliable. One sampler hang during Phase 4 (Stony Plain–Drayton Valley, 911% area blowup, reverted); resolved by gap-fill fallback.
+
+**Stage 7 — Nested-polygon ownership inversion (v0_8.1, v0_8.2, 2026-04).** Residual overlap pairs resolved using the ownership-inversion algorithm (§4.5). Calgary-Falconridge-Conrich / Airdrie-East 141.9 km² nested overlap on majority map resolved by carving Airdrie-East around Falconridge-Conrich rather than erasing the smaller polygon. Zero residual overlap pairs post-v0_8.2.
+
+**Stage 8 — Advance vote splatting (v0_9, 2026-04).** Advance and special ballots (~47% of all 2023 votes, reported only at ED level) apportioned back to individual VAs proportionally to each VA's election-day two-party share. This raised both maps' seats@50/50 by +1.12 pp symmetrically (inter-map gap preserved to 4 decimal places). The SZAT substrate used in the Ch2 bootstrap was built on v0_9 with full advance-vote attribution.
+
+**Stage 9 — Official Elections Alberta shapefiles (canonical, 2026-05-06).** Canonical `ea_majority_2026_eds.gpkg` and `ea_minority_2026_eds.gpkg` received. All geometry-dependent metrics recomputed. Municipal anchoring: majority 80.0%, minority 72.0% (both within 70–85% Canadian comparator norm; the DPG-era 4.9× below-norm anchoring finding did not survive canonical recomputation). EG Layer 1 (crosswalk, unchanged by canonical shapefiles): majority −0.40%, minority −1.81% (crosswalk convention, negative = UCP-favourable). EG Layer 2 (centroid-in-polygon on canonical shapefiles, formula convention positive = UCP advantage): majority +0.098%, minority +4.02%; inter-map gap +3.92 pp. Both layers agree that the minority map is more UCP-favourable than the majority. The apparent sign difference between the two conventions (negative vs positive) is a convention artefact, not a directional disagreement.
+
+**Stage 10 — Canonical MCMC ensemble (1,010,000-plan, 2026-05-12).** Full 4-chain × 252,500-step ReCom run on canonical shapefiles. GR92 R-hat 1.00179–1.01843 (all four chains pass GR92 < 1.10). Partisan-metric ESS 1,429–1,682 (publication-grade). Minority mean-median at p99.98 (UCP-tail), declination at p1.21 (NDP-tail), seats@50/50 at p99.99. Fisher combined Ch1 × Ch2: p = 6.87×10⁻⁸.
+
+#### 7.2 Error trajectory
+
+| Stage | Majority coverage | Minority coverage | Layer 1 gap | Layer 2 gap | Primary artefact |
+|---|---|---|---|---|---|
+| v0_1 (freehand) | 67% | 61% | n/a | n/a | 20 km edge precision |
+| v0_5 (anchored) | 89% | 80% | −1.42 pp | partially computable | Tier-C zones unresolved |
+| v0_7 (full Tier-C) | 100% | 100% | −1.42 pp | +4.15 pp | Boundary-localization in Tier-C zones |
+| v0_8 (tessellating) | 100% | 100% | −1.42 pp | +3.35 pp (Layer 4) | Topology artefact removed; ±500m perimeter still DPG |
+| canonical (EA shapefiles) | 100% | 100% | −1.42 pp | +3.92 pp (Layer 2) | No DPG artefacts; magnitude gap narrows from +4.15 pp |
+
+The Layer 1 crosswalk estimate is stable from v0_5 forward: the crosswalk uses the commission's population table and 2019 predecessor vote totals, neither of which depends on DPG geometry. This stability is a diagnostic asset — it means any Layer 1 change would flag a shift in the crosswalk weights, not a geometry update.
 
 **v0_7 full-coverage update (2026-04-24).** The DPG pipeline reached canonical v0_7 status (89 EDs per map; v0_5 da-anchored as primary source; v0_3 swept geometry as fallback for 5 null-geom EDs per map; `v3_fallback` boolean column for transparency). Key v0_7 metrics:
 
@@ -251,7 +307,7 @@ Brief summary referencing the main audit paper. Focus on methodological lessons:
 
 Scripts released under [LICENSE TBD] at `github.com/Ixby/alberta-electoral-boundaries-audit`:
 
-- `dpg_perfecter.py` — three-phase tessellation pipeline (overlap resolution → tier-ordered edge snapping → gap fill); produces fully tessellating v0_8 DPGs from independently-traced v0_7 sources
+- `dpg_perfecter.py` — four-phase tessellation pipeline (overlap resolution → tier-ordered edge snapping → gap fill → 1m precision pass); produces fully tessellating v0_8 DPGs from independently-traced v0_7 sources
 - `topology_cleanup.py` — standalone precedence-based overlap resolver (Phase 1 only)
 - `assignment_va_attribution_maup_v2.py` — MAUP area-weighting with conservation gate
 - `build_canonical_shapefiles.py` — population-calibrated parametric sweep

@@ -101,7 +101,7 @@ Minority vs. majority delta inside each model:
 
 1. **Noise floor.** A single seat can flip based on how one blended ED is estimated. At this resolution, +1 and −1 are the same finding: "effectively no seat-level difference between the maps at current polling."
 
-2. **Structural bias and current-cycle seat projection answer different questions.** The audit's MCMC finding (EG p94, seats-at-50/50 p100) measures the map at the competitive swing point. At UCP+14 pp, both maps produce landslides. The minority map's structural advantage is inoperative until the gap narrows.
+2. **Structural bias and current-cycle seat projection answer different questions.** The audit's MCMC finding (EG p94, seats-at-50/50 p99.99) measures the map at the competitive swing point. At UCP+14 pp, both maps produce landslides. The minority map's structural advantage is inoperative until the gap narrows.
 
 3. **Efficient boundary placement accumulates wasted votes in a landslide.** The minority's boundaries are calibrated to give UCP efficient wins in marginal seats. At UCP+14, those same districts produce UCP winning-margin "waste" — the structural efficiency works against UCP when the UCP vote far exceeds the marginal-seat threshold. This is a well-documented property of maps tested at partisan margins far from their design point.
 

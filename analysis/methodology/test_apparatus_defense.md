@@ -123,7 +123,7 @@ Define $(X, Y)$ as an **adjacency-chain signal** if $s_X \geq 0.15$ (X is packed
 
 **Implementation.** `geopandas.sjoin(predicate='touches')` for adjacency; per-ED vote totals from 2023 Statement of Vote (already in the repo at `data/alberta_2023_results.csv`); threshold loop + chain-count aggregation. ~200 lines of Python. Runtime negligible. **Effort: 2 days** including writeup + sensitivity table.
 
-**Status.** Scoped, not executed. **Recommendation: execute** — the highest value-to-effort test in the battery.
+**Status.** Executed. Canonical geometry result (§5.3.5): **2 coupled chain signals (minority) vs 6 (majority) vs 5 (2019 enacted)**. Pre-registered pass criterion — coupled count ratio ≤ 1.5× — met at 0.33× (PASS). The minority's low adjacency-chain count does not exonerate it; §5.3.5 establishes that the minority achieves partisan effect via **hybridization** (city-splitting that internalises packing and cracking within hybrid EDs), not via the classic pack-and-drain adjacency model this test measures. A v0_8 full-coverage re-run (reported transparently in §5.3.5) gave the opposite directional pattern (minority 4, majority 3); pre-registered pass criterion still met (1.33× < 1.5×). The cross-substrate disagreement is documented. See `outputs/academic_report/report_academic.md` §5.3.5.
 
 ### 2.2 Boundary-chain test (systemic vs ad-hoc)
 

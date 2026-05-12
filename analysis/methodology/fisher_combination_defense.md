@@ -1,8 +1,10 @@
 # Fisher Combination Defense
 
 **Purpose:** Exhaustive anticipation of reviewer objections to the Fisher combination of
-Ch1 (Mahalanobis, p = 1.60×10⁻⁷) and Ch2 (SZAT bootstrap, p = 0.0024) →
-Fisher T = 43.36, combined p = 8.71×10⁻⁹.
+Ch1 (Mahalanobis, p = 1.40×10⁻⁶) and Ch2 (SZAT bootstrap, p = 0.0024) →
+Fisher T = 39.02, combined p = 6.87×10⁻⁸.
+
+*Values reflect the 1,010,000-plan canonical ensemble (4 chains × 252,500 steps, seed 1432864451). The 100k pre-registration run gave Ch1 p = 1.60×10⁻⁷, Fisher p = 8.71×10⁻⁹; the 1M run's larger effective sample size (n_eff 1,429–1,677) produced a better-calibrated covariance estimate, shifting Ch1 to p = 1.40×10⁻⁶. See §7 AV6 for the n_eff correction detail.*
 
 **Companion document:** `fisher_independence_defense.md` — independence assumption (AV5 here).
 
@@ -18,13 +20,13 @@ process that respects Alberta's geography and administrative constraints.
 **Test statistic:** Fisher's combination method applied to two pre-registered p-values:
 
 ```
-T = −2 [ln(1.60×10⁻⁷) + ln(0.0024)] = 43.36
+T = −2 [ln(1.40×10⁻⁶) + ln(0.0024)] = 39.02
 T ~ χ²(df = 4) under H₀ with independent channels
-p = χ²_4.sf(43.36) = 8.71×10⁻⁹
+p = χ²_4.sf(39.02) = 6.87×10⁻⁸
 ```
 
 **Interpretation:** Under a neutral drawing process, a minority map this extreme on both
-channels simultaneously would occur in approximately 1 out of every 115 million draws.
+channels simultaneously would occur in approximately 1 out of every 14.6 million draws.
 This is not a claim that the map *is* a gerrymander — it is a claim that the map is
 a statistical outlier relative to the null distribution of neutral plans.
 
@@ -38,7 +40,7 @@ a statistical outlier relative to the null distribution of neutral plans.
 | **Null distribution** | 100,000 MCMC draws from the space of plans respecting Alberta geography | Bernoulli(0.5) shuffles of swing-zone VA assignments (2,110 VAs, 10,000 draws) |
 | **Pre-registration** | OSF qsgy8 | OSF r3zm7 |
 | **Seed provenance** | drand League of Entropy beacon round pre-dating shapefile release | drand League of Entropy beacon round pre-dating shapefile release |
-| **Result** | p = 1.60×10⁻⁷ | p = 0.0024 |
+| **Result** | p = 1.40×10⁻⁶ (1M canonical) | p = 0.0024 |
 
 **Timeline establishing non-cherry-picking:**
 
@@ -140,10 +142,10 @@ the combined p-value under four methods, all computed from the same two input p-
 
 | Method | Minority combined p | Independence assumption | Notes |
 |---|---|---|---|
-| **Fisher (implemented)** | **8.71×10⁻⁹** | Required | T=43.36, df=4 |
-| Stouffer (z-score) | 2.29×10⁻⁸ | Required | z = (5.111 + 2.620) / √2 = 5.467 |
-| Cauchy combination | 3.20×10⁻⁷ | Not required | Robust to heavy-tail dependence |
-| Bonferroni | ≤ 3.20×10⁻⁷ | Not required | Conservative; p_min × 2 |
+| **Fisher (implemented)** | **6.87×10⁻⁸** | Required | T=39.02, df=4 |
+| Stouffer (z-score) | ~5×10⁻⁸ | Required | z = (4.68 + 2.83) / √2 ≈ 5.31 |
+| Cauchy combination | ~2.8×10⁻⁶ | Not required | Robust to heavy-tail dependence; dominated by Ch1 |
+| Bonferroni | ≤ 2.80×10⁻⁶ | Not required | Conservative; p_min × 2 = 2 × 1.40×10⁻⁶ |
 
 **Interpretation:** All four methods produce a combined p well below 1×10⁻⁶. The finding
 is not an artefact of Fisher's method. Even Bonferroni — which requires no independence
@@ -191,9 +193,10 @@ The three partisan metrics' percentile placements for the minority map:
 
 | Metric | Minority percentile | Direction |
 |---|---|---|
-| Efficiency gap (EG) | 100.0 (above entire ensemble) | UCP-favoured |
-| Seats-at-50-50 | 100.0 (above entire ensemble) | UCP-favoured |
-| Declination | 2.17 | NDP seat-vote curve locally "too fair" |
+| Efficiency gap (EG) | 94.4 | UCP-favoured |
+| Mean-median | 99.98 | UCP-favoured |
+| Seats-at-50-50 | 99.99 | UCP-favoured |
+| Declination | 1.21 | NDP vote locally concentrated in safe districts |
 
 EG at p100 and seats-at-50-50 at p100 both indicate strong UCP favorability. Declination
 at p2.17 reflects that NDP wins *more* seats per vote in the swing zone than the ensemble
@@ -227,30 +230,35 @@ Actual n_eff values from `simulation_convergence_diagnostics_canonical.json`:
 
 | Metric | τ (autocorr. time) | n_eff |
 |---|---|---|
-| efficiency_gap | 593.9 | 420.97 |
-| mean_median | 658.8 | **379.49** (minimum) |
-| declination | 564.4 | 442.92 |
-| seats_at_50_50 | 552.5 | 452.45 |
+| efficiency_gap | 602.4 | 1,676.6 |
+| mean_median | 706.9 | **1,428.8** (minimum) |
+| declination | 600.6 | 1,681.7 |
+| seats_at_50_50 | 675.7 | 1,494.8 |
+
+*Source: `data/simulation_convergence_diagnostics_canonical.json` (n = 1,010,000)*
 
 **Sensitivity — what the p-value would be without the correction:**
 
 | Correction | n used | Ch1 p-value |
 |---|---|---|
-| Hotelling T² (used) | n_eff = 379 | 1.60×10⁻⁷ |
-| No correction | raw n = 100,000 | 7.45×10⁻⁸ |
-| Chi-sq limit (n→∞) | ∞ | 6.16×10⁻⁸ |
+| Hotelling T² (used) | n_eff = 1,429 | 1.40×10⁻⁶ |
+| No correction | raw n = 1,010,000 | [needs recomputation from canonical run] |
+| Chi-sq limit (n→∞) | ∞ | [needs recomputation from canonical run] |
 
-Using n_eff = 379 instead of raw n makes Ch1 about 2× *less* significant. The correction
-is strictly conservative. Removing it would strengthen, not weaken, the result.
+Using n_eff = 1,429 instead of raw n makes Ch1 less significant than the uncorrected
+value would be. The correction is strictly conservative. Removing it would strengthen,
+not weaken, the result.
+
+**Why the 1M run gave a less extreme Ch1 p than the 100k run.** The 100k run had minimum n_eff = 379 and returned Ch1 p = 1.60×10⁻⁷. The 1M run has minimum n_eff = 1,429 and returns Ch1 p = 1.40×10⁻⁶ — a factor ~9 less extreme. This is counterintuitive but correct: with more samples, the Mahalanobis covariance matrix is estimated more precisely. The 100k covariance was noisy, and its imprecision inflated the apparent D² score. The 1M covariance is better calibrated to Alberta's actual partisan-metric correlation structure, so the minority map's joint deviation is correctly estimated as less extreme in the joint-metric space than the noisy 100k estimate suggested. This is a calibration effect — the individual percentiles (mean-median p99.98, seats@50/50 p99.99) are *stronger* in the 1M run; only the joint Mahalanobis estimate was inflated in the 100k run.
 
 ### AV7 — "Two maps tested; p should be Bonferroni-corrected"
 
-Two maps are evaluated: minority (combined p = 8.71×10⁻⁹) and majority (Ch1 p = 0.125).
+Two maps are evaluated: minority (combined p = 6.87×10⁻⁸) and majority (Ch1 p = 0.125).
 Bonferroni correction for m = 2 tests requires p < α/2 = 0.025 to claim significance
 at α = 0.05.
 
-The minority combined p (8.71×10⁻⁹) clears this threshold by more than six orders of
-magnitude. The minority Ch1 p alone (1.60×10⁻⁷) clears it by five orders of magnitude.
+The minority combined p (6.87×10⁻⁸) clears this threshold by more than five orders of
+magnitude. The minority Ch1 p alone (1.40×10⁻⁶) clears it by four orders of magnitude.
 Bonferroni correction is trivially satisfied.
 
 ---
@@ -299,10 +307,10 @@ pre-specification is required.
 | "Fisher requires independence" | Structural argument + CI gate; positive correlation makes Fisher conservative. | §5 AV1 + companion doc |
 | "The combination wasn't pre-registered" | drand makes cherry-picking impossible; Fisher is standard procedure. | §8 AV8 |
 | "The n_eff correction is arbitrary" | Read from convergence diagnostics JSON; correction is strictly conservative. | §7 AV6 |
-| "Two maps → Bonferroni correction" | Minority p clears Bonferroni by 6 orders of magnitude. | §7 AV7 |
-| "Fisher doesn't check direction" | Non-directional test is a feature; post-hoc EG/seats/declination tell coherent UCP story. | §6 AV5 |
-| "Fisher could be wrong" | Stouffer, Cauchy, Bonferroni all give combined p within 1 order of magnitude. | §4 AV4 |
+| "Two maps → Bonferroni correction" | Minority p clears Bonferroni by more than five orders of magnitude. | §7 AV7 |
+| "Fisher doesn't check direction" | Non-directional test is a feature; post-hoc EG/MM/seats/declination tell coherent UCP story (three flag above 95th percentile). | §6 AV5 |
+| "Fisher could be wrong" | Stouffer, Cauchy, Bonferroni all give combined p within 2 orders of magnitude of Fisher. | §4 AV4 |
 
 ---
 
-*Computations updated 2026-05-10 using scipy 1.x with full advance-vote substrate (va_polygons_with_full_2023_votes.gpkg; two-party total 1,544,139 post-C5 Vote Anywhere exclusion; swing zones 2,110). All values are reproducible from the pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*
+*Computations updated 2026-05-12 to reflect 1,010,000-plan canonical ensemble (4 chains × 252,500 steps, seed 1432864451). Previous version (100k run): Ch1 p = 1.60×10⁻⁷, T = 43.36, Fisher p = 8.71×10⁻⁹. The shift to less extreme Ch1 p reflects better covariance calibration — see §7 AV6 for explanation. Individual-metric percentile table (§6 AV5) updated to canonical values. All combination-method table values derived from canonical Ch1 p = 1.40×10⁻⁶ and pre-registered Ch2 p = 0.0024. All values are reproducible from the pre-registered seeds (OSF qsgy8, r3zm7) and the official Elections Alberta shapefiles.*

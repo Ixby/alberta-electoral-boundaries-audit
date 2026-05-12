@@ -1,7 +1,8 @@
 # Joint Outlier Score — Alberta 2026 EBC Maps
 
-**Date:** 2026-05-07
-**Ensemble:** canonical 100k plans (official Elections Alberta shapefiles, 2 chains × 50k)
+**Date:** 2026-05-07 (updated 2026-05-12 to canonical 1M ensemble)
+**Ensemble:** canonical 1,010,000 plans (official Elections Alberta shapefiles, 4 chains × 252,500 steps, base seed Cloudflare drand beacon, pre-registered OSF s58a6/w2s8k)
+**Note:** Values below supersede the prior 100k-run results (2 chains × 50k); prior results: D=6.1059, p=1.60×10⁻⁷, Fisher p=8.71×10⁻⁹. The 1M canonical ensemble is authoritative.
 **Question:** How probable is it that a neutral redistricting process produces a map
 whose feature vector looks like the minority 2026 map?
 
@@ -13,25 +14,25 @@ channels simultaneously. This is *not* a posterior probability of gerrymandering
 
 ## Channel 1 — Partisan joint tail (Mahalanobis)
 
-Ensemble: 100,000 neutral-draw plans (canonical shapefiles). Metrics: EG, mean-median, declination, seats@50/50.
+Ensemble: 1,010,000 neutral-draw plans (canonical shapefiles). Metrics: EG, mean-median, declination, seats@50/50.
 Mahalanobis distance accounts for the correlation structure between these four metrics.
 
 **Directional note.** The neutral ensemble centre is moderately UCP-favourable (mean EG = +0.0160), reflecting Alberta's natural geographic sorting of voters (rural UCP dispersion; Chen & Rodden 2013). The minority map's extreme MM and s50 scores are driven by structural map choices, not natural geography.
 
 | Map | Mahalanobis distance | Joint p-value (chi-sq, df=4) |
 | --- | --- | --- |
-| Minority 2026 | 6.1059 | 1.60e-07 |
-| Majority 2026 | 2.6873 | 1.25e-01 |
-| 2019 Enacted  | 3.5624 | 1.29e-02 |
+| Minority 2026 | 5.72 | 1.40×10⁻⁶ |
+| Majority 2026 | 2.69 | 9.7×10⁻² |
+| 2019 Enacted  | 3.56 | 1.3×10⁻² |
 
-**Minority marginals:**
+**Minority marginals (canonical 1M ensemble; marginal tail p derived from ensemble percentiles):**
 
-| Metric | Observed | Ensemble mean | Marginal tail p |
+| Metric | Observed | Ensemble percentile | Marginal tail p (approx) |
 | --- | --- | --- | --- |
-| efficiency_gap | +0.0402 | +0.0160 | 0.0413 |
-| mean_median | +0.0104 | -0.0197 | 0.0001 |
-| declination | -0.0770 | -0.0021 | 0.0042 |
-| seats_at_50_50 | +0.5169 | +0.4523 | 0.0000 |
+| efficiency_gap | +0.0402 | p94.4 (below 95th threshold) | ~0.056 — not individually flagged |
+| mean_median | +0.0104 | p99.98 | ~0.0002 |
+| declination | -0.0770 | p1.21 (NDP tail) | ~0.0121 |
+| seats_at_50_50 | +0.5169 | p99.99 | ~0.0001 |
 
 ---
 
@@ -68,16 +69,16 @@ The majority map's drain_score (0.0002) is significantly *below* the null mean (
 
 | Channel | p-value |
 | --- | --- |
-| Partisan joint (Mahalanobis) | 1.60e-07 |
+| Partisan joint (Mahalanobis) | 1.40×10⁻⁶ |
 | SZAT bootstrap | 0.0024 |
-| **Fisher combined** | **8.71e-09** |
+| **Fisher combined** | **6.87×10⁻⁸** |
 
-Fisher T = 43.361, chi-sq df = 4.
+Fisher T = 39.02, chi-sq df = 4.
 
-**Reading:** p = 8.71e-09 is the probability that a neutral-draw process
+**Reading:** p = 6.87×10⁻⁸ is the probability that a neutral-draw process
 produces a map simultaneously this extreme on both the partisan feature vector and
 the swing-zone boundary allocation. Under the neutral null, this combination
-occurs roughly once in every 115 million draws.
+occurs roughly once in every 15 million draws.
 
 ---
 
@@ -85,7 +86,7 @@ occurs roughly once in every 115 million draws.
 
 | Channel | Reason pending | Marginal finding |
 | --- | --- | --- |
-| Municipal anchoring departure | Canadian comparator distribution too thin for rigorous p-value | Minority 4.9× below comparator norm |
+| Municipal anchoring departure | Both maps within Canadian norm (majority 80%, minority 72%) on canonical shapefiles — anchoring channel not executable as outlier test | Retracted — not available as a channel |
 | Population MAD ratio | Per-plan MAD not in ensemble outputs — requires MCMC rerun with population capture | Minority 1.48× majority |
 | Reock asymmetry | Per-plan Reock not in ensemble outputs — requires MCMC rerun | Minority 2.58× majority on % below 0.30 |
 
@@ -94,22 +95,17 @@ occurs roughly once in every 115 million draws.
 ## Interpretation note
 
 The duck test made precise: the minority map's four-dimensional partisan feature
-vector sits at Mahalanobis distance 6.11 from the ensemble center
-(p = 1.60e-07). Combined with the SZAT result (p = 0.0024) and Fisher's
-method, the joint neutral-null probability is p = 8.71e-09.
+vector sits at Mahalanobis distance 5.72 from the canonical 1M ensemble centre
+(p = 1.40×10⁻⁶). Combined with the SZAT result (p = 0.0024) and Fisher's
+method, the joint neutral-null probability is p = 6.87×10⁻⁸.
 
-**Channel 3 (Neighbour-Drain) executed 2026-05-07.** Minority within null
-(p = 0.1342); does not contribute to the Fisher combination. The pre-registered
-predictions (A and B) were not confirmed. The majority map shows anomalously
-low pack-crack coupling (p < 0.0001, z = −2.915), which is an inverted finding
-relative to the prediction — the majority is unusually clean on this metric.
+Three metrics individually flag above the 95th percentile (MM p99.98, Decl p1.21 NDP-tail, seats@50/50 p99.99). EG at p94.4 does not individually flag but contributes to the joint Mahalanobis distance.
 
-Three pending channels (anchoring, MAD, Reock) point in the same direction
-marginally. When those channels have proper null distributions, the combined
-p-value will only decrease or stay flat.
+**Channel 3 (Neighbour-Drain) executed 2026-05-07.** Continuous drain-score: minority within null (p = 0.1342); does not contribute to the Fisher combination. Canonical chain-signal count (1M run): minority 2 signals, majority 6 signals, 2019 enacted 5 signals — pre-registered pass criterion (ratio ≤ 1.5×) met at 0.33× (PASS). §5.3.5 establishes that the minority achieves its partisan effect via hybridization rather than the adjacency-drain model this test measures.
 
-The majority map sits at Mahalanobis distance 2.69 from the ensemble
-center (p = 1.25e-01) — outlier on MM in the NDP-favourable direction.
+Two pending channels (MAD, Reock) point in the same direction marginally; anchoring channel is not executable as an outlier test (both maps within Canadian norm on canonical shapefiles).
+
+The majority map sits at Mahalanobis distance 2.69 from the ensemble centre (p ≈ 0.097) — within the neutral null on all four metrics.
 
 ---
 
