@@ -37,6 +37,18 @@ Items must complete before either report goes public.
 - **Reock — DONE from canonical (null finding):** Both 2026 maps at p100 on Reock median compactness (more compact than ensemble); both at very low percentiles on pct<0.30. No out-of-distribution signal. Reported as null in §5.4.9.
 - **Municipal anchoring — STILL PENDING:** Per-plan anchor-count not in existing ensemble; requires Section C run with new seed 3562959107.
 
+### Option C threshold ensembles — write-up on completion
+
+- **Runs:** `run_id threshold_2019` / `threshold_2015` (seed 3562959107, 2 chains × 50k plans each, VA files `va_polygons_with_2019_votes.gpkg` / `va_polygons_with_2015_votes.gpkg`)
+- **When complete:** extract p95 EG from each run's percentiles CSV; update §5.2.8 Option C table row and reading paragraph; update threshold_provenance.md B.2.1.C with computed values
+- **Write-up rule (pre-committed 2026-05-12, commit 257cfc2):**
+  - Report all three p95 values (2015, 2019, 2023 = 4.10%) in a table
+  - Option D (4.10%, 2023 context) remains the primary Alberta-calibrated threshold regardless of what the 2015/2019 runs return
+  - If either run's p95 < 4.02% (minority map canonical EG), report that as-is — do not use it to change the primary verdict or select a lower threshold
+  - Frame as jurisdiction-normed range (floor, ceiling, centre), not as a stability test
+
+---
+
 ### Phase 4C Vision Assignment (Stages 3–7)
 
 Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
