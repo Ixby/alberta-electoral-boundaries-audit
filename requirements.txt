@@ -27,7 +27,7 @@ osmnx==2.1.0
 pdfplumber==0.11.9
 pypdf>=4.0.0
 
-# MCMC ensemble (the audit's authoritative 2,000,000-map run uses this version)
+# MCMC ensemble (the audit's authoritative 1,000,000-map run uses this version)
 gerrychain==0.3.2
 # Hidden but load-bearing dep of gerrychain. networkx 3.x changed several
 # iteration semantics (notably for graph node sets), and gerrychain 0.3.2 is

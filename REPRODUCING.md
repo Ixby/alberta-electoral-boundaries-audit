@@ -9,8 +9,7 @@ This document is the entry point for anyone who wants to **audit the audit**: re
 | Verification | Wall time | Hardware |
 |---|---|---|
 | Forensic spot-check (10,000 maps with full assignments) | ~2 min | any laptop |
-| Canonical 50k MCMC ensemble (2 × 25k continuous chains) | ~8 min | 4-core, 16 GB |
-| ~~Full 250,000-map MCMC ensemble~~ (**deprecated** — see Step 3) | ~15 min | 4-core, 16 GB |
+| Canonical 1M MCMC ensemble (4 × 252,500 continuous chains) | ~6–8 h | 4-core, 16 GB |
 | Targeted-gerrymander short-bursts test (UCP + NDP directions) | ~12 min | any laptop |
 | Rural-protection comparative analysis | <30 s | any laptop |
 | Magazine PDF rebuild | ~30 s | any laptop |
@@ -79,31 +78,31 @@ If your independent reimplementation produces the same `efficiency_gap`, `seats_
 
 ---
 
-## Step 3 — Reproduce the canonical 50k MCMC ensemble
+## Step 3 — Reproduce the canonical 1M MCMC ensemble
 
-> **CANONICAL ENSEMBLE:** All published results use the 50k canonical run described here.
-> The 250k `mcmc_ensemble_250k.py` script is **deprecated** — it has a resume mechanism
-> that loses chain state on restart, making the assembled run non-continuous. Do not use
-> it as authoritative. The canonical artefact is `data/simulated_ensemble_raw_samples_canonical.csv`
-> (2 × 25k continuous chains, seed-locked via drand beacon, no resume).
+> **CANONICAL ENSEMBLE:** All published results use the 1,010,000-plan canonical run described here.
+> Base seed: 1,432,864,451 (drand round, salt "mcmc_ensemble_250k", OSF registration qsgy8).
+> The per-chain checkpoint CSVs are committed under `data/simulation_checkpoints_canonical/`
+> (4 files, ~1 GB total — stored via Git LFS). Running the script from scratch reproduces
+> the same ensemble because the seed is deterministic from the drand beacon.
 
 ```bash
-PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_canonical.py
+PYTHONIOENCODING=utf-8 python analysis/scripts/mcmc_ensemble_canonical.py --n-steps 250000
 ```
 
-Expected wall time: ~8 min on a 13th-gen i7-1360P. The canonical artefact is already committed:
+Expected wall time: ~6–8 h total (4 chains parallelised on a 4-core machine). The canonical artefacts are already committed:
 
-- `data/simulated_ensemble_raw_samples_canonical.csv` — 50,000 rows, columns `efficiency_gap`, `mean_median`, `declination`, `seats_at_50_50`, `chain` (0 or 1), and compactness proxies
+- `data/simulation_checkpoints_canonical/chain{0..3}_samples.csv` — 252,500 rows each, 4 chains, 1,010,000 total plans. Columns: `efficiency_gap`, `mean_median`, `declination`, `seats_at_50_50`, `chain`, and compactness proxies.
+- `data/outputs/simulated_ensemble_percentiles_canonical.csv` — per-metric percentile rankings for all three maps
+- `data/outputs/simulation_convergence_diagnostics_canonical.json` — ESS, rho_lag1, Gelman-Rubin per chain
 
-Headline findings to verify:
+Headline findings to verify (all against the 1M canonical ensemble):
 
-- The minority map's efficiency gap (4.02%) sits at the **95.9th percentile** of the canonical neutral ensemble — only 4.1% of neutral maps reach this level of partisan lean under identical criteria.
-- The minority map's `seats@50/50` value (51.69%) sits at the **100th percentile** — no neutral map in the ensemble reached this level of UCP seat advantage at an even vote split.
-- The majority map (EG 0.10%) sits at the **14.8th percentile** — indistinguishable from a neutral map.
-
-### Deprecated: 250k ensemble (do not use for published claims)
-
-`mcmc_ensemble_250k.py` was an earlier exploratory run. It is preserved for audit-trail completeness but its resume mechanism stitches independent chain segments rather than producing a single continuous chain. The canonical 50k ensemble supersedes it for all published claims. Running the 250k script will reproduce the deprecated artefacts but will not reproduce the published headline numbers.
+- The minority map's mean-median difference sits at the **p99.98** of the neutral ensemble.
+- The minority map's `seats@50/50` value (p99.99) — only ~66 of 1,010,000 neutral plans reach this level of UCP seat advantage at an even vote split.
+- The minority map's declination sits at **p1.21** (NDP tail — extreme concentration of NDP votes).
+- The minority map's efficiency gap sits at **p94.4** — below the individual 95th-percentile flag threshold.
+- The majority map sits within the neutral null on all four metrics.
 
 ---
 
@@ -157,8 +156,8 @@ Wall time: ~30 seconds. The intermediate `article.pdf` and `article.html` are wr
 
 | Artefact | Storage | What it proves |
 |---|---|---|
-| `simulated_ensemble_raw_samples_canonical.csv` (canonical 50k, ~8 MB) | Git LFS | Every step in the canonical 2×25k ensemble; `chain` column enables Gelman-Rubin |
-| 4× per-chain metric CSVs (~30 MB) | Git LFS | Deprecated 250k exploratory run — preserved for audit trail only |
+| `data/simulation_checkpoints_canonical/chain{0..3}_samples.csv` (4 chains, ~1 GB) | Git LFS | Every step in the canonical 1M ensemble; `chain` column enables Gelman-Rubin |
+| `data/outputs/simulated_ensemble_percentiles_canonical.csv` | Git regular | Per-metric percentile rankings for all three maps against the 1M ensemble |
 | 10k forensic verification subset | Git regular (1.84 MB compressed) | Byte-verifiable spot-check: pick any saved partition, recompute, confirm |
 | Targeted-burst trace + best.json | Git regular | The Cannon et al. short-bursts hill-climb result |
 | Pre-registration draft + amendments | Git regular | The discipline chain: what was promised, what changed, when |
@@ -168,19 +167,14 @@ Wall time: ~30 seconds. The intermediate `article.pdf` and `article.html` are wr
 
 ---
 
-## When the official Elections Alberta shapefiles are released
+## Official Elections Alberta shapefiles (received 2026-05-06)
 
-Run the wrapper:
+Elections Alberta released official vector shapefiles on 2026-05-06 (commit `873f4d0`). All analysis uses these canonical files:
 
-```bash
-bash analysis/scripts/recompute_against_official_shapefiles.sh \
-    /path/to/official_majority_2026.gpkg \
-    /path/to/official_minority_2026.gpkg
-```
+- `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`
+- `data/shapefiles/canonical/ea_minority_2026_eds.gpkg`
 
-This snapshots the current outputs to `pipeline_snapshots/recompute_<timestamp>/`, stages the official files, re-runs the audit pipeline (30 min), computes deltas vs published values, generates a stub pre-registration amendment file, and rebuilds `report_public.pdf`. The maintainer then reviews the deltas and prose-updates as needed. See the script's docstring for full detail.
-
-If you want continuous monitoring of Elections Alberta for shapefile releases, see `analysis/automation/changedetection_setup.md` for the ChangeDetection.io + GitHub Actions trigger pipeline.
+The Derived Provisional Geometries (DPG) reconstruction pipeline is preserved in `analysis/methodology/` for audit-trail completeness but is no longer used in any published claim. Any DPG-era value that differs from the canonical results is documented in `analysis/methodology/canonical_shapefile_log.md`.
 
 ---
 
