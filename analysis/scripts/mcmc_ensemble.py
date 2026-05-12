@@ -224,17 +224,22 @@ def seat_results(
 # ---- VA graph ---------------------------------------------------------------
 
 
-def build_va_graph(verbose: bool = True):
+def build_va_graph(verbose: bool = True, va_path: Path = None):
     """Load VA polygons and build a rook-adjacency graph with vote/population attributes.
 
     Population is area-weighted 2021 census population from DAs overlaid on VAs (cached
     at data/va_pop_from_das.csv). We use **real population** as the MCMC pop column,
     not votes. That is critical: gerrymandering tests require person-equality, not
     vote-equality.
+
+    va_path: override the default VA file (e.g. for cross-election threshold analysis).
     """
+    effective_va_path = va_path if va_path is not None else VA_PATH
     if verbose:
         print(f"[{time.strftime('%H:%M:%S')}] loading VA polygons...")
-    va = gpd.read_file(VA_PATH)
+        if va_path is not None:
+            print(f"  VA override: {va_path.name}")
+    va = gpd.read_file(effective_va_path)
     va["va_ndp"] = va["va_ndp"].fillna(0.0).astype(float)
     va["va_ucp"] = va["va_ucp"].fillna(0.0).astype(float)
     va["va_other"] = va["va_other"].fillna(0.0).astype(float)

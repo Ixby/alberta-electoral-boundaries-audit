@@ -111,7 +111,7 @@ METRIC_KEYS = [
 
 
 def _run_chain_chunked(args):
-    chain_idx, n_steps_total, base_seed, pop_deviation, chain_csv_path, chunk_size = args
+    chain_idx, n_steps_total, base_seed, pop_deviation, chain_csv_path, chunk_size, va_file_str = args
     import random as _random
     import numpy as _np
 
@@ -131,7 +131,8 @@ def _run_chain_chunked(args):
     n_chunks = (n_steps_total + chunk_size - 1) // chunk_size
     print(f"  [chain {chain_idx}] {n_done}/{n_steps_total} done; resuming chunk {chunks_done}/{n_chunks}", flush=True)
 
-    va, graph = build_va_graph()
+    _va_path = Path(va_file_str) if va_file_str else None
+    va, graph = build_va_graph(va_path=_va_path)
     current_state = initial_assignment_2019(va)
 
     chain_seed = (base_seed * 100_000 + chain_idx * 1_000) % (2**32)
@@ -168,6 +169,8 @@ def main(
     pop_deviation: float = 0.25,
     n_chains: int = 4,
     chunk_size: int = 5000,
+    run_id: str = "canonical",
+    va_file: Path = None,
 ):
     verify_canonical_files()
     from drand_seed import get_canonical_seed
@@ -176,6 +179,21 @@ def main(
     # custody with the earlier DPG 250k run. Changing the salt would break
     # reproducibility of the pre-registered ensemble (OSF reg qsgy8).
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble_250k")
+
+    # Output paths — use run_id suffix so alternate runs (e.g., section_c) don't
+    # overwrite the canonical ensemble files.
+    if run_id == "canonical":
+        samples_csv      = SAMPLES_CSV
+        scores_json      = SCORES_JSON
+        percentiles_csv  = PERCENTILES_CSV
+        convergence_json = CONVERGENCE_JSON
+        checkpoint_dir   = CHECKPOINT_DIR
+    else:
+        samples_csv      = DATA / f"simulated_ensemble_raw_samples_{run_id}.csv"
+        scores_json      = DATA / f"simulation_real_map_scores_{run_id}.json"
+        percentiles_csv  = DATA / f"simulated_ensemble_percentiles_{run_id}.csv"
+        convergence_json = DATA / f"simulation_convergence_diagnostics_{run_id}.json"
+        checkpoint_dir   = DATA / f"simulation_checkpoints_{run_id}"
 
     # va_pop_from_das.csv may have been moved to data/outputs/ during cleanup.
     # build_va_graph() expects it at DATA/va_pop_from_das.csv — create a symlink
@@ -207,7 +225,7 @@ def main(
     print(f"  majority:  {MAJ_CANONICAL.name}", flush=True)
     print(f"  minority:  {MIN_CANONICAL.name}", flush=True)
 
-    va, graph = build_va_graph()
+    va, graph = build_va_graph(va_path=va_file)
 
     # Score 2019 enacted baseline (VA self-assignment)
     agg_2019 = (
@@ -238,10 +256,11 @@ def main(
     print()
     print(f"[{time.strftime('%H:%M:%S')}] launching {n_chains} chains...", flush=True)
 
-    CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
-    chain_paths = [CHECKPOINT_DIR / f"chain{i}_samples.csv" for i in range(n_chains)]
+    checkpoint_dir.mkdir(parents=True, exist_ok=True)
+    chain_paths = [checkpoint_dir / f"chain{i}_samples.csv" for i in range(n_chains)]
+    va_file_str = str(va_file) if va_file is not None else ""
     work_items = [
-        (i, n_steps_per_chain, seed, pop_deviation, str(chain_paths[i]), chunk_size)
+        (i, n_steps_per_chain, seed, pop_deviation, str(chain_paths[i]), chunk_size, va_file_str)
         for i in range(n_chains)
     ]
 
@@ -256,8 +275,8 @@ def main(
     if not parts:
         raise RuntimeError("All chain CSVs missing.")
     df = pd.concat(parts, ignore_index=True)
-    df.to_csv(SAMPLES_CSV, index=False)
-    print(f"  wrote {SAMPLES_CSV.name} ({len(df)} samples)", flush=True)
+    df.to_csv(samples_csv, index=False)
+    print(f"  wrote {samples_csv.name} ({len(df)} samples)", flush=True)
 
     # Convergence diagnostics
     print()
@@ -271,8 +290,8 @@ def main(
             f"n_eff={diag['n_eff']:.0f}  rho1={diag['rho_lag_1']:+.3f}",
             flush=True,
         )
-        plot_running_mean(key, df[key].values, MAPS / f"running_mean_canonical_{key}.svg", key)
-    with open(CONVERGENCE_JSON, "w", encoding="utf-8") as f:
+        plot_running_mean(key, df[key].values, MAPS / f"running_mean_{run_id}_{key}.svg", key)
+    with open(convergence_json, "w", encoding="utf-8") as f:
         json.dump(conv, f, indent=2, default=float)
 
     # Percentiles and outlier flags
@@ -285,7 +304,7 @@ def main(
     for key in METRIC_KEYS:
         real_vals = {k: v.get(key, float("nan")) for k, v in real_maps.items()}
         plot_metric(key, key, df[key].values, real_vals,
-                    MAPS / f"ensemble_distribution_canonical_{key}.svg")
+                    MAPS / f"ensemble_distribution_{run_id}_{key}.svg")
         for map_name, val in real_vals.items():
             pr = pct_rank(df[key].dropna().values, val) if not np.isnan(val) else float("nan")
             summary.append({
@@ -296,10 +315,10 @@ def main(
             })
 
     summary_df = pd.DataFrame(summary)
-    summary_df.to_csv(PERCENTILES_CSV, index=False)
+    summary_df.to_csv(percentiles_csv, index=False)
 
     print()
-    print("  --- Percentile placements (canonical) ---", flush=True)
+    print(f"  --- Percentile placements ({run_id}) ---", flush=True)
     with pd.option_context("display.float_format", "{:+.4f}".format, "display.width", 160):
         print(summary_df.to_string(index=False))
 
@@ -313,9 +332,9 @@ def main(
         "n_steps":          int(actual_total),
         "seed":             int(seed),
     }
-    with open(SCORES_JSON, "w", encoding="utf-8") as f:
+    with open(scores_json, "w", encoding="utf-8") as f:
         json.dump(real_json, f, indent=2, default=float)
-    print(f"  wrote {SCORES_JSON.name}", flush=True)
+    print(f"  wrote {scores_json.name}", flush=True)
 
     flags = [r for r in summary if not np.isnan(r["percentile"])
              and (r["percentile"] >= 95 or r["percentile"] <= 5)]
@@ -336,6 +355,13 @@ if __name__ == "__main__":
     parser.add_argument("--chunk-size",  type=int,   default=5000)
     parser.add_argument("--seed",        type=int,   default=None)
     parser.add_argument("--pop-deviation", type=float, default=0.25)
+    parser.add_argument("--run-id", type=str, default="canonical",
+                        help="Output suffix — use e.g. 'section_c' to write separate files "
+                             "without overwriting the canonical ensemble.")
+    parser.add_argument("--va-file", type=str, default=None,
+                        help="Override VA polygons file (e.g. for cross-election threshold "
+                             "analysis). Must have va_ndp/va_ucp columns. Default: canonical "
+                             "2023-votes file.")
     args = parser.parse_args()
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
     main(
@@ -344,4 +370,6 @@ if __name__ == "__main__":
         pop_deviation=args.pop_deviation,
         n_chains=args.n_chains,
         chunk_size=args.chunk_size,
+        run_id=args.run_id,
+        va_file=Path(args.va_file) if args.va_file else None,
     )
