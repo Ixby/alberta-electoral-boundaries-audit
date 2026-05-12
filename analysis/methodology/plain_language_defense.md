@@ -482,6 +482,136 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
+### §5.2.1 — Results table
+
+---
+
+**Assertion:** B2 Efficiency Gap (canonical MCMC convention, positive = UCP-favored): majority +0.10%, minority +4.02% (p94.4). B3 Mean-Median: majority −0.66 pp, minority −1.20 pp. B4 NDP seats at 50/50 uniform swing: majority 45, minority 46.
+**Why?** The efficiency gap numbers in §5.2.1 look different from the ones in the §5.2 parent section — are they the same measurement?
+**Answer:** Yes, they measure the same thing using two different reporting conventions. The §5.2 parent section uses the convention from the crosswalk-blending calculation (negative = UCP-advantaged), which produces majority −0.40% and minority −1.81%. The §5.2.1 results table uses the MCMC ensemble convention (positive = UCP-favored), which produces majority +0.10% and minority +4.02%. The sign is flipped but the mathematical direction is the same: the minority map gives the UCP more advantage than the majority map under both conventions. The §5.2.1 table is the canonical result against the official Elections Alberta shapefiles; the parent-section numbers come from the blended-crosswalk vote attribution used before official shapefiles arrived. Neither is wrong; they use different attribution methods, and the report notes both with the convention explicitly labeled.
+
+---
+
+**Assertion:** The Compactness-Weighted Efficiency Gap under the blended-crosswalk method is direction-stable: minority more UCP-favorable under all five tested urban weights (0.60–0.90).
+**Why?** If the numbers change depending on which urban weight you use, how can you be confident in the direction?
+**Answer:** The sensitivity test varies the "urban weight" — the fraction of each hybrid district's votes attributed to its urban-core predecessor versus its rural-fringe component. At every weight from 0.60 to 0.90, the minority EG is more UCP-favorable than the majority EG by a margin ranging from 0.47 to 1.48 percentage points. The direction does not flip anywhere in the tested range, which means the finding does not depend on picking the right urban weight. The magnitude is uncertain, but the direction is robust across the full parameter range tested. The report therefore presents a range rather than a single point estimate.
+
+---
+
+**Assertion:** B4 direction was revised mid-audit: earlier versions reported majority 44 / minority 42 (minority fewer NDP seats); current version reports majority 45 / minority 46 (minority matches 2019 baseline).
+**Why?** How should readers interpret a mid-audit direction reversal on one of the four metrics?
+**Answer:** The direction reversal on B4 is disclosed openly and explained mechanically: two corrections drove it — a fix to the mapping dictionary for several Calgary suburban hybrid districts, and a change in the default urban weight from 0.70 to 0.85. At the revised weight, several minority-map suburban districts cross the NDP-win threshold under uniform swing that they did not cross before. The audit documents the correction rather than hiding it. Importantly, the other three metrics (B2 EG, B3 mean-median, B6 declination) are unaffected in direction: the minority map remains more UCP-favorable on those three under every tested parameter.
+
+---
+
+### §5.2.2 — Sensitivity (G5)
+
+---
+
+**Assertion:** The sensitivity table holds five discrete urban weights (0.60–0.90); the Monte Carlo interval [−3.04, +0.76] pp is a separate calculation that is wider than the table range.
+**Why?** Why are there two different sensitivity ranges, and which one should a reader use?
+**Answer:** The five-row table is a deterministic sensitivity test: each row fixes the urban weight at one value and computes the resulting efficiency gap. The Monte Carlo interval simultaneously varies urban weight, rural baseline, and per-district jitter across 2,000 parameter draws, capturing cross-parameter covariance. Because more sources of uncertainty are varied at once, the Monte Carlo interval is wider. A reader looking for "how much does the number change as we adjust urban weight?" should use the table. A reader looking for "what is the realistic range of the asymmetry given everything we don't know about vote attribution?" should use the Monte Carlo interval. Both communicate genuine uncertainty; they answer different versions of that question.
+
+---
+
+**Assertion:** The boundary-straddle error — where a Voting Area polygon straddles a 2026 boundary line — could in principle misassign votes. The integrity audit finds this error below 0.0001% at poll-to-VA aggregation.
+**Why?** If even a small number of votes are assigned to the wrong district, could that change the direction finding?
+**Answer:** The 2026 boundaries sometimes pass through the interior of a Voting Area polygon, meaning the polygon cannot belong unambiguously to one district. The audit measures this residual: 99.2% of the 4,765 VAs have centroids that fall inside their declared 2019 parent district, and vote-conservation error at aggregation is below 0.0001%. Applied to the 2026 attribution, expected rounding error is below 0.5% province-wide. The minimum minority-majority asymmetry observed across the full sensitivity range is 0.47 percentage points — roughly an order of magnitude above the boundary-straddle error ceiling. The error cannot manufacture the observed direction.
+
+---
+
+### §5.2.3 — Falsifiability gate: asymmetry direction
+
+---
+
+**Assertion:** 90.5% of 2,000 Monte Carlo samples show the minority EG more UCP-favorable than the majority; the 95% interval [−3.04, +0.76] pp crosses zero.
+**Why?** If the confidence interval crosses zero, can the direction really be called confirmed?
+**Answer:** The 90.5% figure means the direction holds in nine out of ten reasonable parameter choices — not 100%, which is why the interval crosses zero. The report treats this as a "directional observation at approximately 90% of draws," not a classical significant finding. The interval crosses zero because parameter uncertainty (especially urban weight and rural baseline) is large enough to occasionally flip the sign. The honest summary is: the minority is more UCP-favorable under the most plausible parameters, but this direction is not invariant to every parameter choice. The structural signals in §5.1 and §5.8 — which use no vote data — are not subject to this contingency.
+
+---
+
+**Assertion:** The direction reverses under 2019 votes (asymmetry +0.75 pp) and is near-zero under 2015 votes (+0.03 pp). The report treats this as a property of the finding, not a defect.
+**Why?** Does a direction reversal under 2019 votes mean the 2023-based finding is unreliable?
+**Answer:** A direction reversal under a different election's vote distribution does not mean the 2023 finding is wrong — it means the finding is conditional on which electorate is used. The report tests 2015, 2019, and 2023 Alberta general elections plus April 2026 polling, and finds the minority-more-UCP-favorable direction is stable under 2023 and polling, reverses under 2019, and is near-zero under 2015. This is disclosed as a known property: the minority map's partisan effect depends on where voters live in a given election cycle. The four structural signals (population MAD, zone asymmetry, Airdrie splits, chair-flagged anomalies) do not depend on which election is used.
+
+---
+
+### §5.2.4 — Cross-metric weighting
+
+---
+
+**Assertion:** B2 (efficiency gap), B3 (mean-median), and B4 (seats at 50/50) all show the minority more UCP-favorable; B6 (declination) points the opposite direction. The disagreement is described as "four metrics describing different faces of the same structural pattern," not "three against one."
+**Why?** Is it not misleading to call this "four metrics agree" when declination disagrees on direction?
+**Answer:** The report does not claim four metrics agree on direction — it explicitly notes the disagreement and gives a mechanical explanation. Efficiency gap, mean-median, and seats at 50/50 all measure wasted votes and seat-counterfactuals. Declination measures the geometric angle between the two parties' winning-district margin distributions. When a map engineers many narrow-margin losses for the losing party, the wasted-vote metrics flag it; declination's angle measurement can look different because narrow-margin losses look geometrically different from blowout losses. The report's "four faces of the same pattern" framing means all four metrics are consistent with a narrow-margin-loss packing mechanism — they just show different aspects of it. A reader can legitimately cite declination as pointing toward a less UCP-favorable reading, and the audit acknowledges this explicitly.
+
+---
+
+### §5.2.5 — Natural-packing context (Chen and Rodden)
+
+---
+
+**Assertion:** The Alberta validation finds UCP surplus-vote rate 15.9% vs NDP 9.3%: UCP is the more-packed party. Moran's I = 0.7534. The Chen-Rodden mechanism runs opposite to the US pattern.
+**Why?** If the original Chen-Rodden paper predicts NDP disadvantage through urban packing, and Alberta shows the reverse, does this undermine or support the partisan-bias findings?
+**Answer:** The Chen-Rodden finding matters because it identifies which party is disadvantaged by neutral maps, not which map is biased. In the US, urban-concentrated Democrats are structurally disadvantaged even by random maps. In Alberta, the neutral maps favor UCP by default because UCP wins many rural seats by very large margins — wasting many "excess" votes — while NDP losses are spread across rural and suburban areas. This means any reasonable Alberta map will show some UCP efficiency gap advantage. The two 2026 maps must be evaluated against this neutral UCP-favoring baseline: the majority corrects the baseline slightly, the minority amplifies it slightly. The Chen-Rodden finding strengthens the structural finding by showing the partisan asymmetry is not a geographic inevitability that cannot be altered — both maps demonstrate that the neutral floor can be adjusted.
+
+---
+
+### §5.2.6 — Marginal-seat translation
+
+---
+
+**Assertion:** In 2023, 14 of 87 ridings were decided by less than 3 pp of two-party margin; 12 of those 14 are in Calgary. The audit's 1–3 seat map effect concentrates in these already-marginal ridings.
+**Why?** What does it mean for the map effect to "concentrate" in marginal ridings?
+**Answer:** The efficiency gap and seats-at-50/50 findings project that the minority map produces approximately 1–3 fewer NDP seats than the majority map at a 50/50 province-wide vote split. When the audit traces which specific seats those would be, they are the Calgary ridings that were already decided by tiny margins in 2023 — races within a few percentage points of flipping. The map effect does not add or subtract seats in safe districts; it operates in the places where the outcome is already uncertain. A 1.5 percentage-point shift in the audit's estimate range would flip 6 Calgary seats toward UCP and 4 toward NDP. The map effect is small in an UCP landslide environment but potentially outcome-determinative in a close election.
+
+---
+
+### §5.2.7 — Measurement-resolution sensitivity
+
+---
+
+**Assertion:** Two attribution methods disagree on EG sign: blended crosswalk gives minority −1.81% (UCP-favorable, negative convention) while high-resolution spatial gives minority +1.82% (NDP-favorable, positive convention). The structural findings are independent of this disagreement.
+**Why?** Is it a problem that two measurement methods disagree on which party the minority map favors?
+**Answer:** The sign disagreement is a specific finding about how EG responds to the choice of attribution method, and the report documents it explicitly rather than hiding it. The key point is that DPG-construction choice — which approximate boundary geometry was used before official shapefiles arrived — turned out to be the dominant source of error, larger than within-method variation by a factor of seven. The crosswalk and spatial methods build per-district vote totals from different underlying data, so disagreeing on EG magnitude and sign is not surprising when inputs differ this much. The findings that do not depend on this choice — population tables, ensemble percentiles, zone asymmetry, Airdrie split count, chair-flagged shapes — all stand regardless of which EG measurement is preferred.
+
+---
+
+### §5.2.8 — EG threshold options A–D
+
+---
+
+**Assertion:** The 7% EG threshold from Stephanopoulos and McGhee was calibrated to US Congressional delegations; it has never been adopted by any Canadian court. Option D, the Alberta-derived 95th-percentile threshold, is 4.10% (canonical 1M ensemble). Both 2026 maps fall below 4.10%.
+**Why?** If both maps are below the Alberta-derived threshold, doesn't that mean neither map is an EG outlier?
+**Answer:** Correct — on the efficiency gap metric alone, neither map triggers the outlier flag under the Alberta-calibrated 4.10% threshold. The minority's canonical EG is +4.02% (p94.4), just below the 4.10% / p95 line. The EG flag is accordingly withdrawn in the canonical analysis. This is consistent with the audit's overall finding: EG alone does not make the case; the case rests on three metrics that do trigger flags (mean-median p99.98, seats-at-50/50 p99.99, Mahalanobis D²) combined with the structural signals. The sub-threshold EG result is reported honestly as a null result on that specific metric, not discarded.
+
+---
+
+### §5.2.9 — Extended partisan metrics
+
+---
+
+**Assertion:** Against v0_7 DPG geometry: majority Partisan Bias p>99.9 (NDP-favored), minority p93.6 (slightly NDP-favored); minority Responsiveness 1.41 vs majority 0.76 (seats per 1% swing); Lopsided Margins signal present in all three maps including 2019.
+**Why?** The extended metrics seem to show the majority map as more partisan in some ways — how should these results be read alongside the main findings?
+**Answer:** These four additional metrics use DPG (derived provisional geometry) rather than official shapefiles, so they are not the primary canonical results. Among them, Partisan Bias at p>99.9 on the majority map reads as NDP-favorable because it measures how many seats the majority's configuration awards the UCP at a tied province-wide vote — and at 43 seats, the majority awards the UCP more seats at 50/50 than many neutral maps, even though less than the minority. Responsiveness at 1.41 for the minority means vote swings translate into more seat changes under the minority map, which is sometimes considered a democratic virtue but also means the minority would produce large swings if NDP vote share improves modestly. Lopsided Margins, significant on all three maps, is a feature of Alberta's political geography inherited by any legal map and is not a distinctive minority characteristic.
+
+---
+
+### §5.2.10 — SZAT: Swing-Zone Allocation Test
+
+---
+
+**Assertion:** SZAT score +0.039211, bootstrap p = 0.0024 (10,000 permutations). Substrate: 2023 election-day votes only (~896,644 two-party; NDP two-party share 42.60%). Swing zones: 2,110 VAs assigned differently between the two maps.
+**Why?** What question does SZAT answer that the MCMC ensemble does not?
+**Answer:** The MCMC ensemble asks whether the minority map as a whole is unusual relative to neutral random maps. SZAT asks a more targeted question: of the specific Voting Areas assigned differently under the minority map versus the majority map, do those boundary choices systematically favor one party's vote efficiency? SZAT subtracts out everything the two maps share — Alberta's geography, population distribution, and the full legal constraint set — and examines only the swing-zone differences. The +0.039 SZAT score means the minority's specific boundary choices, applied only to the 2,110 contested VAs, increase NDP vote waste by 3.9 percentage points relative to the majority's choices for those same VAs. The p = 0.0024 bootstrap test says this score would occur by chance in only 0.24% of random reassignments of those VAs.
+
+---
+
+**Assertion:** The SZAT uses election-day votes only throughout. An earlier version of the §5.2.10 paragraph incorrectly described a substrate change to "full advance-vote" votes; that description has been retracted.
+**Why?** Why does it matter which votes are included — election-day only versus full advance-vote?
+**Answer:** Election-day votes are spatially assigned at the Voting Area level by Elections Alberta, so each VA's geographic location is known. Advance-poll, mail-in, and special ballots are not spatially assigned at the VA level — they cannot be attributed to specific VAs. Including them would require an apportionment model that introduces assumptions the election-day-only approach avoids. The SZAT pre-registration specified election-day votes; both the initial and definitive runs used election-day votes; the retracted paragraph incorrectly claimed otherwise. The p change from 0.0044 to 0.0024 came from a VA file switch that moved 2 VA centroid assignments, not from any substrate change. A separate full-vote sensitivity using apportioned advance-ballot columns (unregistered) yields p < 0.0001 and is reported as a supplementary sensitivity check only.
+
+---
+
 ## §5.3 Packing/Cracking Signatures
 
 ---
@@ -530,9 +660,159 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 **Why?** What is the Mahalanobis test doing that a simple average of the four metrics cannot do?
 **Answer:** If you simply averaged the four percentile scores, you would treat each metric as independent. But the four metrics are correlated — maps that score high on efficiency gap often also score high on mean-median, because the same underlying feature drives both. The Mahalanobis distance accounts for those correlations, measuring how far a map is from the center of the joint distribution of all four metrics simultaneously. This prevents double-counting while still capturing the joint signal. A Mahalanobis p = 1.40×10⁻⁶ means the minority map's combination of all four metrics simultaneously is more extreme than 99.9999% of random neutral maps.
 
+### §5.4.1 — Constraint-bound expectation terminology
+
+*Note: §5.4.1–§5.4.3 headers are this defense document's own numbering. The corresponding content in the report appears as unnumbered prose within §5.4 before the first numbered sub-header (§5.4.4). These labels are used here for navigation only.*
+
 ---
 
-## §5.5 Pre-registration and OSF Registration
+**Assertion:** The ensemble is described as a "constraint-bound expectation," not a "neutral map." The ReCom ensemble samples from legal maps satisfying ±25% population deviation, contiguity, and compactness; it does not claim to produce the politically neutral or correct map.
+**Why?** Why does the terminology matter — isn't a randomly drawn legal map effectively neutral?
+**Answer:** A randomly drawn map is not politically neutral in any objective sense because the geography of Alberta — NDP voters concentrated in Edmonton and inner Calgary, UCP voters spread across suburban and rural areas — means that almost any legal random map will give the UCP a structural advantage. The phrase "constraint-bound expectation" is precise: it describes what the population-and-contiguity constraints, applied to Alberta's actual vote geography, tend to produce on average, without implying that result is fair or desirable. The audit does not claim the ensemble median is what a fair map would look like; it claims only that real maps sitting far outside the range the constraint set produces have departed from what those constraints alone would explain. Replacing the earlier "neutral map" language was specifically addressed in the 2026-04-24 "Geographic Neutrality Myth" critique, and the terminology change is documented in the report's §5.4 opening note.
+
+---
+
+**Assertion:** The structural UCP floor: at a 50/50 province-wide vote, the median of 10,000 legal Alberta boundary maps gives the NDP 44.8% of seats. No ReCom-legal map escapes this floor.
+**Why?** If every legal map favors the UCP, why isn't every map considered biased?
+**Answer:** The audit's question is not whether a map tilts UCP — essentially all legal Alberta maps do, because of geography — but how far from the constraint-bound expectation a specific map sits. A map at the 50th percentile of the ensemble is about as UCP-favorable as legal constraints typically produce; a map at the 99th percentile is unusually far beyond that floor. The audit's findings concern whether the minority proposal is statistically unusual within the distribution of legal maps, not whether it favors one party over another in absolute terms.
+
+---
+
+### §5.4.2 — §15(2) deviation-constraint gap
+
+*Note: defense document numbering; no §5.4.2 header in the report.*
+
+---
+
+**Assertion:** The MCMC ensemble uses a uniform ±25% population-deviation constraint for all 89 EDs. Both commission maps invoke the §15(2) rural-protection exception for 3 EDs, allowing deviations down to −47.7% — below the ensemble's floor. The 3 §15(2) EDs are by construction outside the ensemble's distribution.
+**Why?** If the ensemble cannot even produce the rural-exception districts that both maps use, how can its percentile scores for the real maps be meaningful?
+**Answer:** The three rural-exception districts in each real map are small, remote, and heavily UCP-leaning. Their contribution to aggregate partisan metrics — efficiency gap, mean-median, declination, seats at 50/50 — is a modest fraction of total province-wide votes. The effect on percentile positions is expected to be small, and the minority-majority asymmetry comparison is less sensitive to this gap than the absolute percentile scores, because both maps invoke comparable §15(2) configurations. A methodologically complete ensemble would allow the 3 §15(2) EDs to vary across a wider deviation range; this is queued as future work. For the current run, the conservative reading is that the reported minority percentiles are slightly lower bounds than a constraint-enforcing ensemble would produce.
+
+---
+
+### §5.4.3 — ESS-150 tail downgrade
+
+*Note: defense document numbering; no §5.4.3 header in the report.*
+
+---
+
+**Assertion:** The 250k single-chain run had ESS ≈ 150 per metric. Raw percentile claims at the tails (p100, p1.6) must be read as bounded to approximately p95.35 / p2.5 at that precision, not as exact percentile values. The canonical 1M multichain run resolves this caveat with ESS 1,429–1,682.
+**Why?** If the chain ran 250,000 steps, why is the effective sample size only 150?
+**Answer:** In this simulation, each new map is generated by modifying the previous one, so consecutive maps are correlated — they are not independent observations. The Effective Sample Size (ESS) measures how many independent observations the correlated chain is equivalent to. At ESS ≈ 150, a raw p100 claim is statistically indistinguishable from p95 or p97 at 95% credibility; the chain does not have enough precision to distinguish between the very extreme tail percentiles. The ESS caveat is resolved by the canonical 1M run (§5.4.9), which achieves ESS 1,429–1,682 through four parallel chains of 252,500 steps each. The tail-downgrade caveat is a disclosure obligation for the earlier DPG-era runs documented in §5.4.4–§5.4.8; it does not affect the canonical headline numbers.
+
+---
+
+#### §5.4.4 — Run #4: 250k MCMC against v0_8 full-coverage geometry
+
+*This is a DPG-era run (Derived Provisional Geometries v0_8). All percentile placements are superseded by the canonical official-shapefile run in §5.4.9 for final conclusions.*
+
+---
+
+**Assertion:** Run #4 (250k, v0_8, full 89/89 coverage) reports minority EG +9.21% at p100, declination p2.9, seats@50/50 p100. ESS 491–499. Majority EG at p99.94 — the first run to show both maps as EG outliers.
+**Why?** Why did earlier runs not show both maps as efficiency gap outliers, but Run #4 does?
+**Answer:** Earlier runs used partial-coverage geometry (67–71 of 89 EDs measurable), which systematically excluded rural-UCP votes from the scoring. The v0_8 full-coverage geometry fills all 89 EDs using inheritance from 2019 boundaries, so rural-UCP votes that were previously missing are now captured. When those votes are included, both 2026 maps place in the extreme UCP tail on efficiency gap. The EG sign reversal from earlier runs (which showed negative EG on both maps) is directly attributable to this coverage correction, not to any change in method or substrate. The Run #4 headlines on EG are superseded by the canonical §5.4.9 run.
+
+---
+
+**Assertion:** Cross-method comparison vs Run #3 (v0_7 partial coverage): EG magnitude flipped sign; mean-median lost its outlier flag; minority declination at p2.9 persisted; minority seats@50/50 at p100 persisted.
+**Why?** Is it a problem that the EG number changed so dramatically between Run #3 and Run #4?
+**Answer:** No — the large shift is expected and documented. Run #3 used geometry where only 66–71 of 89 EDs were scored; the missing EDs were urban and suburban districts whose votes were simply absent from the count. Run #4 fills those EDs, which changes the aggregate provincial totals substantially. The report explicitly flags this as a cross-method disagreement and notes it as a structural feature of the multi-layer reporting: neither run is treated as uniquely correct; both are reported honestly alongside their coverage limitations. The two metrics that survived the coverage change — declination and seats@50/50 — are those least sensitive to partial coverage; EG and mean-median are more sensitive because they depend on aggregate province-wide totals.
+
+---
+
+#### §5.4.5 — Run #5: 1,000,000-sample MCMC against v0_8 full coverage
+
+*This is a DPG-era run. All percentile placements are superseded by the canonical §5.4.9 run.*
+
+---
+
+**Assertion:** Run #5 (1M, v0_8) raises ESS to 1,679–2,278 — publication grade. Percentile placements are within ±0.5 pp of Run #4, confirming Run #4 was not noise-driven.
+**Why?** Why run a million maps if the 250k run already showed the same placements?
+**Answer:** The purpose of Run #5 was to resolve the "likely p98+ or p99+" hedge from Run #4, which could not be stated as a precise point estimate at ESS ≈ 500. At ESS 1,679–2,278, the percentile claims can be reported as point estimates rather than bounds. The ±0.5 pp stability confirms the chain had converged at 250k; the 1M run adds precision, not new direction. This stability test is itself a methodological finding: it demonstrates that the chain was not caught in a local mode that would produce different results with more sampling. All DPG-era values from Run #5 are superseded by the canonical §5.4.9 run.
+
+---
+
+#### §5.4.6 — Run #6: 2,000,000-sample MCMC and the converged-ceiling finding
+
+*This is a DPG-era run. The DPG-era seats@50/50 ceiling of 51.72% and the minority DPG reading of 52.8% are superseded by the canonical §5.4.9 analysis.*
+
+---
+
+**Assertion:** The simulation's seats@50/50 ceiling held at exactly 51.72% across 2,000,000 draws. Zero of 2,000,000 maps reached 52%. The minority's DPG-era seats@50/50 reading of 52.8% sits above this ceiling. This is described as "out-of-distribution" rather than merely a tail outlier.
+**Why?** What is the difference between a statistical tail outlier and being "out of the distribution"?
+**Answer:** A tail outlier sits in the extreme end of a distribution but is still reachable by the same random process that generates all other maps. Being "out-of-distribution" means the value is above the highest value the process produced across 2,000,000 draws — effectively zero probability under the neutral procedure. The ceiling finding means that 2,000,000 neutral random maps, all legal under the same statutory constraints, never once produced a map as extreme as the minority proposal on this metric. That is a stronger claim than "very unlikely"; it means the minority's reading is in a region the neutral process does not reach. This framing is confirmed by the §5.4.8 short-bursts result showing that a non-neutral (partisan-optimizing) procedure does reach that region.
+
+---
+
+**Assertion:** ESS reached 3,138–4,347 on Run #6 — at or above the MGGG lawsuit-grade threshold (~3,000–5,000).
+**Why?** What does "lawsuit-grade" mean as a practical standard?
+**Answer:** The MGGG (Metric Geometry and Gerrymandering Group) at MIT and Tufts developed practical guidance on when ensemble results are reliable enough to be used in litigation. Their threshold of approximately 3,000–5,000 independent draws reflects the precision needed to make credible percentile claims at the extreme tails (p<5, p>95) in a legal setting. Run #6 crosses this threshold on all four metrics, meaning the DPG-era ceiling finding meets the precision standard for litigation use — but the DPG-era geometry itself was superseded by official shapefiles, so the canonical §5.4.9 run is the authoritative source for any legal-grade claim.
+
+---
+
+#### §5.4.7 — 89-of-89 attribution and fuzzing-scenario analysis
+
+*DPG-era analysis; superseded by canonical §5.4.9 for final conclusions.*
+
+---
+
+**Assertion:** Six minority polygon inheritance-fill slivers caught no 2023 VA centroids under the 83/89 partial-attribution reading. The 89-of-89 attribution fills those 6 EDs with their inherited 2019-polygon vote distributions, producing seats@50/50 = 52.8% (47/89). 89% of random-attribution fuzzing trials place the minority above the 51.72% ceiling.
+**Why?** Why not just report the 83/89 number rather than introducing an imputed attribution for the 6 missing EDs?
+**Answer:** The 83/89 reading depended on which 6 districts were unmeasurable, which is a feature of the DPG geometry's construction rather than the political question the audit is investigating. If the 6 missing EDs had been filled differently under DPG tracing, they might all be measurable. The 89-of-89 attribution makes the result independent of that DPG artifact by using a conservative inheritance assumption — assigning each missing 2026 minority ED the 2019 vote distribution from the same territory. The fuzzing analysis brackets the result by varying that assumption across all plausible alternatives. Since 89% of plausible alternatives still place the minority above the ceiling, the "above-ceiling" finding is robust to the attribution choice. The 51.7% worst-case (most NDP-favorable attribution) is the only scenario placing the minority at (not above) the ceiling, and it is a deliberately constructed minimum, not a central estimate.
+
+---
+
+#### §5.4.8 — Targeted-gerrymander short-bursts hill-climb (Cannon et al. 2022)
+
+*DPG-era analysis; superseded by canonical §5.4.9 for final conclusions.*
+
+---
+
+**Assertion:** A short-bursts hill-climbing procedure (Cannon et al. 2022) runs 40,000 partisan-optimizing steps and reaches 52.87% UCP seats@50/50 — within rounding of the minority map's DPG-era 52.8%. The neutral ensemble across 2,000,000 draws cannot reach 52%.
+**Why?** Why run a purposely partisan procedure at all — doesn't that show only what an intentional gerrymander could produce?
+**Answer:** That is exactly the point. The short-bursts result is not evidence of intent; it is evidence of procedural class. The audit distinguishes two types of boundary-drawing procedures: neutral ones (random walks constrained only by the statutory rules) and non-neutral ones (hill-climbing toward a partisan objective while staying legal). Run #6 establishes that neutral procedures cannot produce the minority's seats@50/50 reading. The short-bursts result establishes that non-neutral procedures can. The minority map therefore sits in the reachable space of a partisan optimizer and outside the reachable space of a neutral procedure. This two-sided framing is more precise than simply calling the minority an outlier — it characterizes which class of process could produce it. The audit explicitly does not conclude that the minority commissioners used a partisan optimizer; intent cannot be inferred from a map's geometry.
+
+---
+
+#### §5.4.9 — Canonical ensemble: official Elections Alberta shapefiles (authoritative)
+
+---
+
+**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,429–1,682. Three partisan-metric outlier flags on minority: MM p99.98, seats@50/50 p99.99, declination p1.21. EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 1.40×10⁻⁶.
+**Why?** Why do the canonical results differ from the DPG-era runs documented in §5.4.4–§5.4.8?
+**Answer:** The DPG-era runs used approximate boundary tracings the audit team constructed from commission PDF thumbnails before official shapefiles were available. Where those approximations differed from the actual boundary lines — particularly in rural areas near the fringe of cities — vote attribution to individual EDs changed when the official files arrived. The canonical run is the first analysis using the same shapefiles Elections Alberta actually uses; it is the only run whose results can be verified against the official record. The §4.1.4 sunset clause bound the audit to replace all DPG-era results with canonical results within two weeks of shapefile release; this run fulfills that commitment.
+
+---
+
+**Assertion:** The s.15(2) rural-protection constraint is disabled in the canonical run, making reported minority percentiles conservative lower bounds.
+**Why?** How does disabling a constraint make the result more conservative rather than less conservative?
+**Answer:** The neutral ensemble is designed to mimic what legal random boundary-drawing would produce. If the ensemble is allowed to generate plans where rural EDs fall below the −25% threshold (even though the Act does not permit this for most EDs), the ensemble contains more plans that concentrate the UCP's rural-seat advantage. That raises the density of UCP-favorable plans in the tail and therefore makes it slightly easier for the minority map's position to look ordinary by comparison. By disabling the constraint — allowing the ensemble to wander into territory the Act actually forbids — the audit slightly understates how extreme the minority map is. The conservative choice protects against overstating the finding.
+
+---
+
+**Assertion:** The majority map's mean-median is at p0.85 — an unexpected NDP-tail outlier. This is explained as rural-district preservation interacting with Alberta's vote geography, not partisan engineering.
+**Why?** If a result is unexpected, how can the audit be confident it is not a measurement artifact?
+**Answer:** The DPG runs did not show this outlier because DPG geometry lacked the spatial precision to capture the exact vote distribution in rural fringe districts. The official shapefiles resolve VA-to-ED assignments differently in those fringe areas, producing a more accurate distribution. The canonical majority map's NDP district-share distribution has a pronounced left tail from preserved rural districts voting 15–30% NDP. These districts produce an unusual mean-median reading because the formula is sensitive to clusters of low-NDP districts dragging the mean away from the median. The mechanism is documented and explainable; the result is consistent across several cross-checks and is not reversed by any sensitivity test in the canonical run. Critically, all other majority metrics (EG p15.5, declination p79.6, seats@50/50 p77.8, Mahalanobis p = 0.097) are within the neutral null — a single-metric outlier with all others inside null is the expected signature of a commission boundary convention, not partisan manipulation.
+
+---
+
+#### §5.4.10 — 2019 enacted baseline: measuring the direction of travel
+
+---
+
+**Assertion:** D² progression: 2019 enacted D²=12.75 (p=0.013, mild joint outlier); majority 2026 D²=7.85 (p=0.097, within null); minority 2026 D²=32.67 (p=1.40×10⁻⁶). The majority retreated toward the neutral null; the minority amplified the 2019 partisan structure.
+**Why?** What does the 2019 baseline D² tell us, and why is it relevant to compare all three maps?
+**Answer:** Including the 2019 enacted map as a third reference point reveals the direction of travel — not just whether a 2026 proposal is unusual, but whether it moved toward or away from what neutral random maps produce. The 2019 map was itself a mild joint-space outlier (D²=12.75, p=0.013), meaning it sat slightly outside the neutral ensemble but not dramatically. The majority 2026 map reduced that distance to D²=7.85, placing itself inside the neutral null — the majority's changes to 2019 boundaries moved in a normalizing direction. The minority 2026 map amplified the distance to D²=32.67, which is the headline joint-test p-value driving the canonical finding. This three-map comparison is exploratory (not pre-registered) but is consistent with and corroborated by the pre-registered Mahalanobis test.
+
+---
+
+**Assertion:** Metric-by-metric trajectory: majority corrected the 2019 Declination anomaly (p9.4 → p80.6) and moved EG toward neutral; minority preserved and amplified Declination anomaly (p9.4 → p1.21), and dramatically extended MM (p92.1 → p99.98) and seats@50/50 (p77.8 → p99.99) in the UCP direction.
+**Why?** Does a trajectory comparison like this prove the minority was drawing off the 2019 map and adding partisan tilt?
+**Answer:** No — the trajectory comparison shows what each proposal did to the existing map's statistical properties, not why it did so. The fact that the minority map's metrics are more extreme than 2019 on three of four dimensions is consistent with partisan engineering, but it is also consistent with other explanations such as different community-of-interest judgments, different readings of the §15(2) constraint, or geographic factors the 2019 map did not reflect. The direction-of-travel table is reported as exploratory evidence — one more consistent signal pointing the same direction as the pre-registered tests — rather than as an independent finding that stands on its own. The canonical Mahalanobis test and SZAT results carry the primary evidentiary weight.
+
+---
+
+## §5.8 Geographic Coherence
 
 ---
 
@@ -582,6 +862,20 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ## §5.8 Geographic Coherence
 
+### §5.8.1 — Visual Spatial Audit: Image Sources
+
+---
+
+**Assertion:** The visual audit inspected 15 published commission map images: eight majority Appendix A panels (Alberta overview, Calgary, Edmonton, near-Calgary, near-Edmonton, north, central, south) plus a 1200-DPI Calgary render; six minority Appendix E images (maps 73–76, plus native-extracted Calgary and Edmonton panels).
+**Why?** Why does the audit list the specific image files rather than just saying "the commission maps were examined"?
+**Answer:** Every visual finding in the geographic coherence section is traceable to a specific image inspected in a specific session. Naming the files means a reader, a journalist, or a hostile reviewer can pull the same images from the commission report and check whether the described feature is actually visible. Vague attribution ("the maps show...") would make visual claims unreproducible. The image file inventory also documents that full majority panel coverage was achieved — all eight Appendix A panels were inspected, not just the Calgary panel where the known anomalies concentrate. The §5.8.3 symmetric check applies to the full province, not only to the city panels.
+
+---
+
+**Assertion:** The visual audit uses direct inspection by an AI vision model (Opus/Sonnet 4.x). This is not a measurement; it is a pattern-recognition scan for shapes that warrant further geometric verification.
+**Why?** Is AI vision inspection a reliable method for an audit claiming academic standards?
+**Answer:** The visual scan is a first-pass identification step, not a standalone finding. Each anomaly identified by visual inspection is subsequently verified by geometric measurement — either direct shapefile analysis, coordinate inspection, or the type of engineering checks described in §5.8.2. No finding in the geographic coherence section rests on the visual scan alone. The visual scan's role is to flag candidates for measurement; the measurement is the finding. AI vision models are well-suited for pattern recognition on geographic images (identifying lasso shapes, corridors, unexpected extensions) and are an efficient screening tool for the 15-image corpus at the resolution needed to flag geometric irregularities.
+
 ---
 
 ### §5.8.2 — Visual Spatial Anomalies
@@ -591,6 +885,20 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 **Assertion:** Three geographic anomalies on the minority map are confirmed: Rocky Mountain House–Banff Park extension; Calgary-Nolan Hill–Cochrane lasso; Olds-Three Hills-Didsbury → N Airdrie community capture.
 **Why?** What makes a boundary shape an "anomaly" rather than just an unusual geographic feature?
 **Answer:** A geographic anomaly here means a boundary shape that cannot be straightforwardly explained by following natural features, community boundaries, or the commission's stated criteria. The Rocky Mountain House–Banff Park extension refers to a boundary that reaches into a national park area with no permanent residents in a way that appears to serve no population-based purpose. The "lasso" is a narrow corridor of territory that connects two otherwise distant areas. The community capture refers to an ED whose boundary sweeps in a community — North Airdrie — that appears geographically unconnected to the rest of the district. These shapes were flagged by the commission chair himself in the official commission report.
+
+### §5.8.3 — Majority Hybrids: Symmetric Anomaly Check
+
+---
+
+**Assertion:** The same anomaly-scan questions applied to the minority (lasso shape, engineered statutory boundary, misnamed municipality capture) were applied to the majority's four Calgary hybrid districts. No anomaly was found: Calgary-East is an intra-city block; Calgary-Falconridge-Conrich is a compact city-plus-adjacent community; Calgary-Glenmore-Tsuut'ina tracks the Tsuut'ina Nation reserve boundary; Calgary-West-Elbow Valley is a city-plus-adjacent subdivision.
+**Why?** Why is it important to apply the same test to both maps, even if the headline finding concerns only the minority?
+**Answer:** An audit that only examines the map it expects to find problems in is not objective — it is a prosecution, not an investigation. Applying the identical anomaly-scan questions to the majority's Calgary hybrids provides symmetry: if the majority had the same kinds of lasso shapes or engineered boundaries, the audit would have flagged them too. The fact that the majority's four hybrids all pass the same scan without anomalies strengthens the finding for the minority — the differences in the scan results reflect real geometric differences between the two maps, not selective scrutiny.
+
+---
+
+**Assertion:** A qualification applies: the anomaly-scan question set was developed from minority anomalies that were already visible. The majority may have different classes of anomaly not detected by this specific question set.
+**Why?** Does this qualification undermine the symmetric check?
+**Answer:** It is an honest limitation, not a dismissal. The scan was designed to look for the specific patterns observed in the minority map: lasso shapes, engineered statutory reach, and mislabeled municipality captures. The majority's anomalies, if any, might take a different geometric form — for example, rural-district highway corridors — that the question set does not specifically test. The limitation is the question set, not the imagery: all eight majority Appendix A panels were inspected, covering the full province. A more comprehensive future scan would need to add majority-specific question types. The current scan's negative result for the majority is reliable for the three specific question types it asks; it does not claim to be exhaustive across all possible anomaly classes.
 
 ---
 
@@ -618,7 +926,23 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §5.9.1 — The April 16 Legislative Pivot
+### §5.9.1 — Commission Composition and the Divided Vote
+
+---
+
+**Assertion:** Five-member commission constituted under EBCA §3–5: chair nominated by the Chief Justice of Alberta, two government-nominated commissioners, two opposition-nominated commissioners. Unanimous interim report October 2025; divided final report (3–2) March 23, 2026. The three-member majority is chair plus the two opposition-nominated commissioners.
+**Why?** Why does it matter which commissioners were nominated by which party?
+**Answer:** The commission's nomination structure is designed to ensure that no single party controls the outcome: the chair is independent (nominated by the judiciary), and commissioners from both the government side and the opposition side are included. When the final vote was 3–2, the three-person majority consisted of the independent chair plus the two commissioners nominated by the NDP opposition, not by the governing UCP. This means the proposal the government ultimately accepted — the minority map — was the one produced by the two government-nominated commissioners alone. Understanding this composition is necessary to evaluate the procedural narrative surrounding the April 16 motion and the framing of Recommendation 5.
+
+---
+
+**Assertion:** The commission tabled a unanimous interim report and a divided final report. The division emerged at the final stage, not from the start of the process.
+**Why?** Does the fact that the interim report was unanimous tell us anything about the final report's division?
+**Answer:** A unanimous interim report indicates the commission was able to agree on a working framework and initial boundaries before the detailed final decisions were made. The division emerging at the final stage — where specific district configurations near Calgary, Airdrie, Red Deer, and Edmonton had to be resolved — suggests the disagreement concerned specific drawing choices at the margin rather than fundamental incompatibility in approach. This is the normal pattern for divided commission reports: broad agreement on most of the province, disagreement concentrated in a small number of contested configurations. The audit's findings concentrate precisely in those same contested areas.
+
+---
+
+### §5.9.2 — The April 16 Legislative Pivot
 
 ---
 
@@ -663,6 +987,118 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 **Assertion:** The Lethbridge / Taber-Warner configuration was removed because the methodology check could not locate the claimed source.
 **Why?** Why would a finding be removed just because a source could not be located?
 **Answer:** The grounding standard for this audit requires that every claim be verifiable against a primary source. The earlier version of this finding asserted that the minority had made a specific claim about matching federal constituency boundaries in the Lethbridge region. When the actual minority report was checked, no such claim could be found. Without a primary source to confirm that the minority made the claim attributed to them, the item was removed. Removing it rather than keeping an unsupported assertion is an application of the same rigor applied throughout the audit.
+
+### §5.9.4.1 — Evidence by Configuration: Per-Area Proportions
+
+---
+
+**Assertion:** The per-configuration support table shows: Airdrie 4-way 0/4 mentions (0% support); Calgary-Nolan Hill-Cochrane 0/0 mentions; RMH-Banff Park 7/20 (35% including aligned submissions); Olds-Three Hills-Didsbury 2/5 (40%); Chestermere 3/13 (23%); Red Deer hybrids 5/23 (22% including aligned); St. Albert-Sturgeon 0/11 for minority's specific alternative.
+**Why?** What does "support rate" actually measure — why only count submissions from people who engaged with that configuration?
+**Answer:** The support rate is the proportion of engaged submissions — those that mentioned the configuration at all — that support the minority's direction. This is more informative than a rate based on all 1,252 submissions, because most submitters simply did not address most configurations. A low support rate among engaged citizens (who cared enough to write about that specific boundary) is stronger evidence of genuine opposition or indifference than a low rate from the full corpus where most absences reflect inattention rather than position. The table distinguishes precisely wrong (supporting submissions exist), precisely wrong but effectively ambiguous (equal support and opposition), and the chair's claim effectively stands (no supporting submissions among engaged citizens).
+
+---
+
+### §5.9.4.2 — Direct Quotation Evidence
+
+---
+
+**Assertion:** EBC-2025-2-0619 ("Appropriate Political Representation for Alpine Alberta") proposes the RMH-Banff configuration by name. EBC-2025-2-0091 (Nordegg resident) recommends including Clearwater County, Rocky Mountain House, Sundre, and Banff. EBC-2025-2-0209 (Alan Balson, Beiseker) proposes the Olds-Three Hills-Didsbury rural unit. EBC-2025-2-0252 (Chad Krahn, Red Deer City Councillor) proposes a northern Red Deer hybrid structure.
+**Why?** Why cite specific submission ID numbers rather than summarizing what citizens said?
+**Answer:** Specific submission IDs make the evidence verifiable. Anyone with access to the commission's submission archive can pull EBC-2025-2-0619 and confirm that the quoted text appears in it. General summaries like "some citizens supported this configuration" cannot be checked; submission IDs can. The audit reproduces only text that was read verbatim from the source; no quote is reconstructed from memory or paraphrased and presented as a direct quotation. The citation of a Red Deer City Councillor (Krahn, EBC-2025-2-0252) is particularly significant because it shows that a publicly elected official representing Red Deer residents proposed the hybrid structure the chair described as having "no public support."
+
+---
+
+### §5.9.4.3 — Proportional Weight and Impact on Findings
+
+---
+
+**Assertion:** The three configurations with the highest local-citizen engagement also have the highest support rates for minority-aligned configurations: Olds-Three Hills-Didsbury (40%), Chestermere (23%), and RMH-Banff Park (35% with aligned). The configurations with zero supporting submissions also have the smallest sample sizes (4 and 0 engaged submissions respectively for Airdrie and Nolan Hill-Cochrane).
+**Why?** Does small sample size make the "zero support" finding for Airdrie unreliable?
+**Answer:** Small sample size cuts both ways. Zero supporters in four mentions is consistent with "no public support" but is not definitive evidence that a larger sample would find none. The audit is honest about this: the Airdrie and Nolan Hill-Cochrane findings cannot support a categorical "no citizen anywhere in Alberta wanted this" claim; they support only "nobody in the engaged submission record asked for these." By contrast, where engagement is higher (5–23 mentions), the support rate estimates are more statistically informative and the refutation evidence is correspondingly stronger. The audit reports the tier distinction rather than treating all configurations equally.
+
+---
+
+### §5.9.4.4 — Impact on the Majority's and Minority's Findings
+
+---
+
+**Assertion:** The refutation weakens the procedural argument in Appendix C of the majority report on three of seven configurations (RMH-Banff Park, Olds-Three Hills-Didsbury, Chestermere). The majority's cartographic critique — that the minority's configurations are less compact and more fragmenting — is unaffected.
+**Why?** If the public-support argument is weakened, does the whole procedural case against the minority collapse?
+**Answer:** No, because the procedural case has two independent components. The first is the public-support argument: did the minority draw configurations nobody asked for? The refutation narrows this claim: three configurations had documented support, three did not, one was ambiguous. The second component is the cartographic argument: are the minority's configurations more compact and community-coherent than alternatives? This second argument does not depend on the submission record at all — it rests on geometric measurement and the analysis in §5.8.2–§5.8.4. The refutation helps the minority's procedural posture modestly on the first component but does nothing to address the geometric findings, which are unrelated to what citizens put in writing.
+
+---
+
+### §5.9.4.5 — Limits of the Verification
+
+---
+
+**Assertion:** Approximately 88 of 1,340 submissions (6.6%) were image-only PDFs that could not be machine-parsed. Keyword search uses permissive co-occurrence windows. Position classifier is heuristic; 13 cases were manually reviewed. The minority's configuration names are the audit's labels, not the submissions' own language.
+**Why?** If the search methodology has these limitations, how confident can the audit be in its refutation finding?
+**Answer:** The refutation finding is robust to all five listed limitations because it rests on identified counter-examples — specific submission IDs where the supporting text was directly read — rather than on an exhaustive enumeration of all supportive submissions. Adding more submissions would change the counts but not the direction: if three verified EBC-2025-2-XXXX submissions already refute "no public support" for RMH-Banff Park, the 88 unparsed submissions are irrelevant to the refutation. The limitations affect the counts and possibly the support rates; they cannot erase the identified counter-examples. The audit acknowledges the limitation honestly: a full OCR pass over the 88 missing submissions would strengthen the audit's credibility in legal proceedings, though it would not likely change the qualitative verdict.
+
+---
+
+### §5.9.4.6 — Full-Corpus LLM Sentiment Analysis and Hansard Transcript Review
+
+---
+
+**Assertion:** Two LLM classification pipelines classified all 1,252 parseable submissions (plus 3,107 r1 and 2,358 r2 Hansard community turns) on all seven configurations. Results: 388 non-neutral rows across 292 unique submissions; overall 49% opposition, 21% support, 30% neutral/contextual. Channel divergence: RMH-Banff Park and Red Deer hybrids show net opposition in written submissions but net support in Hansard hearings. Intensity-weighted net ranking: Red Deer (−64), Airdrie (−61), Nolan Hill-Cochrane (−55), Chestermere (−47), RMH-Banff Park (−9), St. Albert-Sturgeon (−1), Olds-Three Hills-Didsbury (+6).
+**Why?** Why run a full LLM classification pass if the keyword search already found the counter-examples?
+**Answer:** The keyword search establishes that supporting submissions exist — it refutes "no support" categorically. The LLM analysis addresses a deeper question: what is the distribution of stances across the full corpus? This matters because the keyword search could find three positive submissions out of 1,000 that opposed the configuration, which is technically a refutation but practically consistent with the chair's spirit. The LLM analysis reveals that three configurations (Airdrie, Nolan Hill-Cochrane, Chestermere) are indeed broadly opposed across the full corpus, not just lacking the few positive examples the keyword search found. The intensity-weighted net scores make the tier structure quantitative rather than qualitative.
+
+---
+
+**Assertion:** Channel divergence: RMH-Banff Park and Red Deer hybrids both show net written opposition but net Hansard support. The audit does not assert which channel is more reliable; it reports the divergence and offers a participation-cost explanation.
+**Why?** Why present both channels rather than averaging them or deciding which is more credible?
+**Answer:** Averaging channels would obscure a real methodological finding. Written submissions and in-person hearings are different participation modes that may attract different populations of citizens: in-person hearings require travel and time, which may over-represent citizens from the affected communities who care enough to attend regional sessions. For configurations centered on remote western communities (RMH-Banff Park) or the Red Deer corridor, residents from those communities are more likely to attend than to write. This participation-cost asymmetry is documented in planning and zoning literature and is offered here as a plausible explanation — not a proven cause. The audit cannot determine which channel better represents genuine public sentiment; reporting both channels with the divergence flagged allows readers to weigh them as they see fit.
+
+---
+
+### §5.9.5 — Constitutional Backdrop
+
+---
+
+**Assertion:** On April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada dismissed Quebec's appeal (7–2, from the bench) of a ruling striking down a law that blocked Quebec's electoral commission from redrawing the provincial map. The SCC held the freeze law violated the Charter's democratic-representation guarantee.
+**Why?** Why does a Quebec ruling about a freeze law matter for Alberta's situation, which involves a committee assignment rather than a freeze?
+**Answer:** The Alberta motion did not freeze the existing map — it reassigned boundary-drawing authority from the independent commission to a legislature-selected committee. That is structurally different from Quebec's legislative freeze. The SCC's ruling is relevant because it establishes that provincial legislatures cannot protect voter-weight disparities from commission revision on regional-representation grounds alone — which is precisely the class of argument the minority commissioners advance in Appendix E. Whether the Alberta structure is constitutionally distinguishable from the Quebec freeze is for a court to decide on its own facts; the audit does not make that determination. What the ruling does is remove the hypothetical status of that constitutional question: it is no longer speculative whether this category of interference is reviewable under the Charter.
+
+---
+
+**Assertion:** The doctrinal implications cited in the report are extracted from journalistic reporting; the formal SCC reasons are pending publication. The audit notes it will update this section when written reasons are published.
+**Why?** Why report on a ruling before the formal written reasons are available?
+**Answer:** The SCC's from-the-bench ruling — delivered verbally in the courtroom immediately after argument — is itself a legally operative decision; it dismisses the appeal and the lower court ruling stands. The outcome and the 7–2 margin are confirmed facts. The detailed reasoning, including the precise doctrinal analysis, will not be fully known until the written reasons are published. The audit reports what is confirmed (outcome, majority size, from-the-bench posture) and explicitly hedges what is drawn from reporting rather than written reasons. The from-the-bench posture — reserved for cases the court views as clear-cut — is itself a meaningful signal about the SCC's assessment of the question, even before the formal reasons.
+
+---
+
+### §5.9.6 — Evidence Trail for the Six Contested-Rationale Checks
+
+---
+
+**Assertion:** The contested-rationale check uses a four-level evidence strength framework: Strongly supported (reproducible from published dataset), Moderately supported (primary public source, inferential step), Weakly supported (descriptive but not separately filed), Currently unsupported (public-facing language not documented in evidence files).
+**Why?** Why disclose the strength level of each sub-claim rather than just stating the conclusions?
+**Answer:** A reader who cites the audit's five-of-six verdict in a legal brief, a news article, or a peer-reviewed submission deserves to know which parts of each claim rest on reproduced primary data and which parts are one step removed from that standard. The strength banding is the audit's way of pre-empting the discovery process: if the audit says "the 8% demographic figure is not currently filed in the evidence files," a reader knows before citing it that the underlying calculation needs to be supplied. This transparency is also self-protective — the audit's credibility rests on honest disclosure of what it has and has not checked, not on a uniform confident presentation that obscures gaps. Three sub-claims (Airdrie 8% demographic comparison, Olds-Didsbury Census-of-Agriculture, Red Deer school-age 8% magnitude) are flagged as Weakly supported pending follow-up calculations.
+
+---
+
+**Assertion:** Claim 7 (St. Albert-Sturgeon) is relabeled as Claim 6 in the current count (after Claim 5 Lethbridge was withdrawn) and is assessed as Stands, not Fail. The verdict rests on a convergence test: both majority and minority independently produced the same two-district St. Albert structure, suggesting constraint-force rather than design. The earlier "no other configuration" counterfactual framing has been retired.
+**Why?** Why does the convergence of both teams reaching the same answer indicate constraint-force rather than shared partisan intent?
+**Answer:** The majority and minority commissioners were on opposite sides of every contested boundary decision examined elsewhere in the audit. For two groups that disagreed on Airdrie (2-way vs. 4-way), Cochrane (intact vs. merged), Red Deer (2-way vs. 4-way hybrids), and Calgary hybrids to independently produce the same St. Albert-Sturgeon structure is not plausibly explained by shared intent — they had opposite incentives. A more parsimonious explanation is that the population arithmetic and geographic constraints left only one or two legally compliant configurations for St. Albert, and both teams found the same one. The convergence test is observable directly from the §5.6 cross-map structural comparison; it replaces the earlier counterfactual claim ("no other configuration satisfies both community-of-interest and ±25% rule") which was stronger than the evidence could support.
+
+---
+
+### §5.9.7 — Population Data Currency and the 2026 Census
+
+---
+
+**Assertion:** The 2026 Census of Population will be collected in May 2026. Dissemination-area data adequate for redistricting will not be certified and released before mid-to-late 2027. The Lunty committee's November 2026 deadline forecloses access to 2026 census data; the committee must use 2021 data.
+**Why?** Is using 2021 population data for a 2026 boundary map a problem, given that the commission used the same data?
+**Answer:** The commission also used 2021 data, so in that sense the committee faces the same constraint. The difference is timing within the electoral cycle. Boundaries drawn in November 2026 on 2021 populations will govern elections potentially in 2027 and under the same map potentially through 2031. By 2031, the 2021 census data will be ten years old. The communities most affected by the audit's structural findings — Calgary's northwest corridor, Airdrie, Cochrane, Chestermere — are among the fastest-growing in Canada. A map drawn on outdated population data for those communities will begin with compounding inequality that worsens through the cycle. The 2026 census will become the legal baseline for the next commission cycle, so boundaries that diverge from it most in the fast-growth areas are the ones that will face the greatest effective-representation challenge the soonest.
+
+---
+
+**Assertion:** This observation is forward-looking only — not a legal objection to the November 2026 map.
+**Why?** Why include a population-currency observation that is not an objection?
+**Answer:** The audit's role is to document facts relevant to the assessment of the boundary process, not only facts that support a legal challenge. The population-currency observation is relevant to any reader — a journalist, a policymaker, a future litigant, or a member of the Lunty committee itself — who is evaluating whether the November 2026 map will serve effective representation through a full electoral cycle. The EBCA requires use of the most recent decennial census data that is certified at the time of the commission's work; using 2021 data is legally required, not optional. The observation is that the committee and the legislature should be aware of this constraint and what it means for the durability of whatever map is produced. It is a relevant fact, not a criticism of the process for following the law.
 
 ---
 
