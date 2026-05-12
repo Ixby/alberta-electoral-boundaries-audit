@@ -46,6 +46,7 @@ Forward dependencies:
 from __future__ import annotations
 
 
+import argparse
 import json
 import sys
 import warnings
@@ -76,8 +77,6 @@ REPORTS.mkdir(parents=True, exist_ok=True)
 VA_FILE = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 MAJ_FILE = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 MIN_FILE = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
-OUT_CSV = REPORTS / "szat_results.csv"
-OUT_JSON = REPORTS / "szat_summary.json"
 
 N_BOOT = 10_000
 
@@ -180,6 +179,21 @@ def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
 
 
 def run() -> None:
+    parser = argparse.ArgumentParser(description="Swing-Zone Allocation Test")
+    parser.add_argument(
+        "--full-votes", action="store_true",
+        help="Use full-vote columns (va_ucp_full/va_ndp_full) instead of election-day."
+    )
+    args = parser.parse_args()
+
+    ucp_col = "va_ucp_full" if args.full_votes else "va_ucp"
+    ndp_col = "va_ndp_full" if args.full_votes else "va_ndp"
+    substrate_label = "full (advance+election-day; ~1,544k)" if args.full_votes else "election-day (~896k)"
+
+    suffix = "_full_votes" if args.full_votes else ""
+    out_csv = REPORTS / f"szat_results{suffix}.csv"
+    out_json = REPORTS / f"szat_summary{suffix}.json"
+
     verify_canonical_files()
     print("Loading shapefiles...")
     va_gdf = gpd.read_file(VA_FILE)
@@ -207,8 +221,8 @@ def run() -> None:
             + "|"
             + va_gdf["VA_NUMBER"].astype(str),
             "parent_ed_2019": va_gdf["ED_NAME"].astype(str),
-            "va_ndp": va_gdf["va_ndp"].fillna(0.0).astype(float),
-            "va_ucp": va_gdf["va_ucp"].fillna(0.0).astype(float),
+            "va_ndp": va_gdf[ndp_col].fillna(0.0).astype(float),
+            "va_ucp": va_gdf[ucp_col].fillna(0.0).astype(float),
             "va_other": va_gdf["va_other"].fillna(0.0).astype(float),
             "majority_ed": majority_ed.values,
             "minority_ed": minority_ed.values,
@@ -402,9 +416,10 @@ def run() -> None:
         ]
     ].copy()
     out["is_swing"] = out["is_swing"].astype(int)
-    out.to_csv(OUT_CSV, index=False, float_format="%.6f")
+    out.to_csv(out_csv, index=False, float_format="%.6f")
 
     summary = {
+        "substrate": substrate_label,
         "szat_score": round(szat_score, 6),
         "eg_majority": round(eg_maj, 6),
         "eg_minority": round(eg_min, 6),
@@ -422,12 +437,12 @@ def run() -> None:
             "minority": str(MIN_FILE.relative_to(ROOT)),
         },
     }
-    with open(OUT_JSON, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
     print(f"\nResults written:")
-    print(f"  {OUT_CSV}")
-    print(f"  {OUT_JSON}")
+    print(f"  {out_csv}")
+    print(f"  {out_json}")
 
 
 if __name__ == "__main__":

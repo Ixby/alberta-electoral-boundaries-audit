@@ -1,0 +1,66 @@
+{
+  "swing_calibration": {
+    "provincial": {
+      "ucp_2p_2019": 0.6268303318415447,
+      "ucp_2p_2023": 0.5412184264711003,
+      "swing": -0.08561190537044439
+    },
+    "regions": {
+      "Calgary": {
+        "ucp_2p_2019": 0.5980547083979351,
+        "ucp_2p_2023": 0.48317845506316265,
+        "swing": -0.11487625333477242
+      },
+      "Edmonton": {
+        "ucp_2p_2019": 0.39731695790622573,
+        "ucp_2p_2023": 0.354283353482027,
+        "swing": -0.043033604424198735
+      },
+      "Rural": {
+        "ucp_2p_2019": 0.7438968846784478,
+        "ucp_2p_2023": 0.662680078128873,
+        "swing": -0.08121680654957486
+      }
+    },
+    "ratio_to_provincial": {
+      "Calgary": 1.3418256822774897,
+      "Edmonton": 0.5026591130987155,
+      "Rural": 0.9486625276957469
+    }
+  },
+  "results": [
+    {
+      "map": "2019_enacted",
+      "n_districts_uniform": 87,
+      "ucp_seats_uniform": 40,
+      "s50_uniform": 0.45977011494252873,
+      "n_districts_regional": 87,
+      "ucp_seats_regional": 36,
+      "s50_regional": 0.41379310344827586,
+      "delta": -0.04597701149425287,
+      "applied_s": -0.0763422753661871
+    },
+    {
+      "map": "canonical_majority",
+      "n_districts_uniform": 89,
+      "ucp_seats_uniform": 41,
+      "s50_uniform": 0.4606741573033708,
+      "n_districts_regional": 89,
+      "ucp_seats_regional": 38,
+      "s50_regional": 0.42696629213483145,
+      "delta": -0.03370786516853935,
+      "applied_s": -0.0763422753661871
+    },
+    {
+      "map": "canonical_minority",
+      "n_districts_uniform": 89,
+      "ucp_seats_uniform": 46,
+      "s50_uniform": 0.5168539325842697,
+      "n_districts_regional": 89,
+      "ucp_seats_regional": 41,
+      "s50_regional": 0.4606741573033708,
+      "delta": -0.0561797752808989,
+      "applied_s": -0.0763422753661871
+    }
+  ]
+}

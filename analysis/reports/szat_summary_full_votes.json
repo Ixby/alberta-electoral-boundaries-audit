@@ -1,25 +1,25 @@
 {
-  "substrate": "election-day (~896k)",
-  "szat_score": 0.039211,
-  "eg_majority": 0.000982,
-  "eg_minority": 0.040194,
+  "substrate": "full (advance+election-day; ~1,544k)",
+  "szat_score": 0.052737,
+  "eg_majority": 0.005154,
+  "eg_minority": 0.057891,
   "swing_zone_count": 2110,
   "total_va_count": 4765,
   "unresolved_count": 0,
-  "bootstrap_p_value": 0.0024,
+  "bootstrap_p_value": 0.0,
   "bootstrap_n": 10000,
   "bootstrap_seed": 23687475,
   "bootstrap_ci_95": [
-    0.009709,
-    0.036652
+    0.018899,
+    0.038241
   ],
   "regional_breakdown": {
-    "Calgary": -0.007865,
-    "Edmonton": 0.008382,
-    "Rest of Alberta": 0.014988,
-    "Mountain-West": 0.005729
+    "Calgary": 0.017871,
+    "Edmonton": 0.008074,
+    "Rest of Alberta": 0.015817,
+    "Mountain-West": 0.007388
   },
-  "canmore_rmh_contribution": 0.00609,
+  "canmore_rmh_contribution": 0.007873,
   "canonical_shapefiles": {
     "majority": "data\\shapefiles\\canonical\\ea_majority_2026_eds.gpkg",
     "minority": "data\\shapefiles\\canonical\\ea_minority_2026_eds.gpkg"
