@@ -25,12 +25,12 @@ If you want to add a new structural or partisan test:
 * Please include a **pre-registration artifact** in your PR description: state your null hypothesis, the pass/fail threshold, and your predicted direction *before* you run the test. This matches the discipline used throughout the audit.
 
 ## Coding Standards
-* The codebase is heavily functional and script-based by design (over 120 scripts in `analysis/scripts/`).
+* The codebase is functional and script-based by design (~87 Python scripts in `analysis/scripts/`).
 * **Do not over-abstract.** Avoid creating deep inheritance hierarchies or global config files unless absolutely necessary. The current DAG (Directed Acyclic Graph) of scripts ensures that each analytical step is atomic and independently verifiable.
 * Python code should be compatible with Python 3.11+.
 
 ## AI Tooling Attribution Policy
-This audit was produced with AI assistance from **Claude Pro Max** (Anthropic), **Gemini Pro** (Google), and **Codex** (OpenAI). We maintain a strict dual-attribution policy:
+This audit was produced with AI assistance from **Claude Opus 4.7** (Anthropic), **Google Gemini 3.1 Pro**, and **OpenAI Codex** (adversarial commentary). We maintain a strict dual-attribution policy:
 * If an AI tool originated a finding or wrote substantial portions of a script, it must be credited in the commit message via `Co-Authored-By` trailers.
 * The human author retains final editorial and methodological responsibility for all committed code.
 * AI tools did not execute code or access external data independently; all script runs and data access were performed by the author.
