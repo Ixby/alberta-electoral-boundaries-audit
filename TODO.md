@@ -37,15 +37,12 @@ Items must complete before either report goes public.
 - **Reock — DONE and independently confirmed (null finding):** Both maps at p100 median compactness under both canonical and Section C seeds. No out-of-distribution signal in either run. Reported as null in §5.4.9. ✓
 - **Municipal anchoring — STILL PENDING:** Per-plan anchor-count not implemented in `mcmc_ensemble_canonical.py`. Section C executed without this channel. Requires separate implementation before this channel can be reported.
 
-### Option C threshold ensembles — write-up on completion
+### Option C threshold ensembles — **COMPLETE 2026-05-12**
 
-- **Runs:** `run_id threshold_2019` / `threshold_2015` (seed 3562959107, 2 chains × 50k plans each, VA files `va_polygons_with_2019_votes.gpkg` / `va_polygons_with_2015_votes.gpkg`)
-- **When complete:** extract p95 EG from each run's percentiles CSV; update §5.2.8 Option C table row and reading paragraph; update threshold_provenance.md B.2.1.C with computed values
-- **Write-up rule (pre-committed 2026-05-12, commit 257cfc2):**
-  - Report all three p95 values (2015, 2019, 2023 = 4.10%) in a table
-  - Option D (4.10%, 2023 context) remains the primary Alberta-calibrated threshold regardless of what the 2015/2019 runs return
-  - If either run's p95 < 4.02% (minority map canonical EG), report that as-is — do not use it to change the primary verdict or select a lower threshold
-  - Frame as jurisdiction-normed range (floor, ceiling, centre), not as a stability test
+- **Results:** 2019 p95 = 1.01 %; 2023 p95 = 4.10 % (canonical); 2015 p95 = 9.71 %. Range: 1.01 %–9.71 %.
+- **Minority map:** sub-threshold under 2019 (p70.4) and 2023 (p94.4); **over threshold under 2015** (p99.45, per pre-commitment reported as-is).
+- **Majority map:** sub-threshold in all three contexts.
+- **Primary verdict unchanged:** Option D (4.10 %, 2023 context) remains operative threshold. §5.2.8 and threshold_provenance.md B.2.1.C updated with full results table.
 
 ---
 
