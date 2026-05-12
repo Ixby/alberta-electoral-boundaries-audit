@@ -12,15 +12,9 @@ Items must complete before either report goes public.
 
 ---
 
-## CRITICAL — Report Accuracy
-
-- **MED-A** Plurality of Albertans claim — needs cross-check. Run `claim_significance_analysis.py`; verify "plurality" vs "majority" language threshold.
-
----
-
 ## CRITICAL — Citation Verification
 
-- **VERIFY** Seidle citation: ES-14 added Seidle (1991) with description "Lortie Commission genealogy" but the reference added was *Rethinking Government: Reform or Reinvention?* (Institute for Research on Public Policy) — a general government-reform volume that does not document electoral commission structure. The intended work is a Lortie Commission research volume (Royal Commission on Electoral Reform and Party Financing, 1991–1992 series). Identify the correct volume (likely one of vols. 1–24 of the RCERF research series) and re-add to body at §5.9.3 and References.
+- **VERIFY — Seidle resolved, Small pending** The original Seidle (1991) *Rethinking Government* citation was wrong (finance volume, not commission structure) and was removed in ES-29. Search confirmed Seidle has no RCERF volume on boundary commissions — his volumes are 4 (*Comparative Issues in Party and Election Finance*) and 5 (*Issues in Party and Election Finance in Canada*), both on finance. The correct RCERF boundary-reform volume is: **Small, D. (ed.) (1991). *Drawing the Map: Equality and Efficacy of the Vote in Canadian Electoral Boundary Reform*. Research Studies, Vol. 11, Royal Commission on Electoral Reform and Party Financing. Dundurn Press.** §5.9.3 already has Courtney (2001) covering the commission model; Small adds a primary RCERF-layer citation. **Action required:** read Small (1991) Vol. 11 and add citation to §5.9.3 body and References when content is verified. Low-risk to publish without it — does not block publication.
 
 ---
 
@@ -242,12 +236,12 @@ After confirming nothing was missed, delete:
 
 Items surfaced during the 2026-05-12 grounding sweep. Do not publish until resolved.
 
-| ID | File | Claim | Issue | Recommendation |
+| ID | File | Claim | Issue | Status |
 |---|---|---|---|---|
-| **CLR-01** | `README.md` §Direction-of-travel | "2019 enacted: D²=12.12, p=0.020" | `joint_outlier_score.json` (100k) shows D²=12.69, p=0.013. The 12.12 value is in §5.4.10 of the academic report but the generating output file was not located. | Run the direction-of-travel script against the 1M ensemble and replace with the authoritative output. |
-| **CLR-02** | `README.md` §Dependency graph | "48 of 74 findings … leaves 26" | Cannot verify without running `dependency_query.py --invalidate L0:data.2023_statement_of_vote`. | Run the query; update README with the verified counts. |
-| **CLR-03** | `README.md` §A2, structural cost table | "11.5% above provincial mean" (minority NW Calgary zone), "2.8% above average" (majority) | Primary output file not located during sweep. | Check `data/outputs/` for the A2 zone-population script output; confirm file and values. |
-| **CLR-04** | `README.md`, academic report | Airdrie ~84,000 residents | 74,100 vs 84,000 — same as long-standing MED-A clarification item. | Author decision: use 84,000 (2024 municipal estimate) with citation, or 74,100 (2021 Census)? |
-| **CLR-05** | `analysis/reports/joint_outlier_score.json` | Anchoring values 14.5% / 71.0% in `structural_pending` | DPG-era values, retracted finding. JSON carries them as "pending." | Update `structural_pending.municipal_anchoring` to canonical values (72% / 80%) and label retracted. |
-| **CLR-06** | `analysis/reports/joint_outlier_score.json` | `caveats: "Ensemble is 100k plans"` | D² and Fisher p computed from 100k covariance, not 1M. The p-value (1.60×10⁻⁷) is robust but the covariance is not publication-grade. | Rerun `joint_outlier_score_canonical.py` against the 1M ensemble; update the JSON. |
-| **CLR-07** | `REPRODUCING.md` | Gemini commit hashes `73544a3` and `972b04a` | User characterizes Gemini as collaborative commentator; specific commit attribution may be inaccurate. | Confirm whether those commits were Gemini-authored; if not, remove the hash references from REPRODUCING.md. |
+| **CLR-01** | `README.md` §Direction-of-travel | "2019 enacted: D²=12.12, p=0.020" | Old DPG-era value. | **RESOLVED 2026-05-12** — updated to D²=12.75, p=0.013 (1M covariance) in README.md, academic report §5.4.10, and joint_outlier_score.json. |
+| **CLR-02** | `README.md` §Dependency graph | "48 of 74 findings … leaves 26" | Could not verify without running query. | **RESOLVED 2026-05-12** — verified by running `dependency_query.py --invalidate L0:data.2023_statement_of_vote`; confirmed 48/74 orphaned, 26 robust. |
+| **CLR-03** | `README.md` §A2, structural cost table | "11.5% above provincial mean" (minority NE/central Calgary zone), "2.8% above average" (majority) | Zone label incorrect ("northwest" vs "northeast/central"). | **RESOLVED 2026-05-12** — verified against `section_A_population_equality.md`; label corrected to NE/central; values confirmed (minority 61,225 = 11.5%, majority 56,460 = 2.8%). |
+| **CLR-04** | `README.md`, academic report | Airdrie ~84,000 residents | 74,100 (2021 Census) vs 84,000 (2024 municipal census). | **RESOLVED 2026-05-12** — using 84,000 with "(2024 municipal census)" annotation per PO decision. Citation URL still needed. |
+| **CLR-05** | `analysis/reports/joint_outlier_score.json` | Anchoring values 14.5% / 71.0% in `structural_pending` | DPG-era values, retracted finding. | **RESOLVED 2026-05-12** — updated to 72% / 80% with RETRACTED status label. |
+| **CLR-06** | `analysis/reports/joint_outlier_score.json` | `caveats: "Ensemble is 100k plans"` | D² and Fisher p from 100k covariance. | **RESOLVED 2026-05-12** — recomputed from 1M covariance: minority D²=32.67 (p=1.40e-06), majority D²=7.85 (p=0.097), enacted D²=12.75 (p=0.013); Fisher p=6.87e-08 (T=39.03). |
+| **CLR-07** | `REPRODUCING.md` | Gemini commit hashes `73544a3` and `972b04a` | Commit attribution may be inaccurate. | **RESOLVED 2026-05-12** — hash references removed; Gemini description updated to reflect SZAT/scorecard collaboration. |

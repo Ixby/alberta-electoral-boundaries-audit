@@ -13,14 +13,12 @@ alberta_audit/
 |-- CLAUDE.md                  Guidance for Claude Code sessions — architecture rules, grounding standard
 |-- COMPLETED_LOG.md           Completed work log — every finished task with date and outcome
 |-- CONTRIBUTING.md            Contribution guide — PR workflow, coding standards, AI attribution policy
-|-- Dockerfile                 Containerised environment for reproducibility
 |-- README.md                  Public-facing overview — findings, open questions, quickstart
 |-- REPRODUCING.md             Step-by-step instructions to re-run every quantitative claim
 |-- TODO.md                    Outstanding tasks — M1/M2/M3 milestones, blockers, deferred items
 |-- TREE.md                    This file — annotated directory map
 |
 |-- config.yaml                Master configuration — all shapefile paths, column renames, thresholds
-|-- docker-compose.yml         Docker Compose spec for the full analysis environment
 |-- pyproject.toml             Python project metadata and tool configuration (ruff, mypy)
 |-- requirements.txt           Pinned Python dependencies (gerrychain==0.3.2 is load-bearing)
 |

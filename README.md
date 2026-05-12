@@ -8,7 +8,7 @@
 
 The 2025–26 Alberta Electoral Boundary Commission produced two competing recommendations — a majority and a minority — both legally compliant with the *Electoral Boundaries Commission Act*. The Act does not resolve between them. This audit measures the structural distance between the two maps on dimensions that have nothing to do with which party benefits.
 
-**Airdrie.** The City of Airdrie has a population of approximately 84,000 residents — above the statutory ceiling for a single electoral division under the Act's ±25% population band. The majority recommendation splits it across two electoral divisions. The minority recommendation splits it across four, placing each quarter of the city into a division anchored in a different surrounding region. Both maps satisfy the law. Neither is required to use four instead of two. That is a drawing choice.
+**Airdrie.** The City of Airdrie has a population of approximately 84,000 residents (2024 municipal census) — above the statutory ceiling for a single electoral division under the Act's ±25% population band. The majority recommendation splits it across two electoral divisions. The minority recommendation splits it across four, placing each quarter of the city into a division anchored in a different surrounding region. Both maps satisfy the law. Neither is required to use four instead of two. That is a drawing choice.
 
 **Chair-flagged boundaries.** When the commission chair singles out a specific boundary by name in the official hearing record, that is a primary-source signal requiring no vote data to interpret. The majority report's written responses flag three minority boundaries as warranting explanation: a lasso-shaped corridor linking Nolan Hill to Cochrane, an extension through uninhabited Banff National Park, and a district whose name references three smaller towns while its largest population centre goes unnamed. Zero boundaries in the majority recommendation attracted equivalent chair-level commentary.
 
@@ -55,9 +55,9 @@ For detailed instructions on recreating the derived shapefiles or running the MC
 
 ## What the audit finds
 
-**Population equality (A1).** Mean absolute deviation from provincial quota: 2,827 persons (majority) vs 3,938 persons (minority) on official Elections Alberta shapefiles. Both maps are legally compliant; the minority's higher variance is a property of drawing choices, not demographic geography.
+**Population equality (A1).** Mean absolute deviation from provincial quota: 3,180 persons (majority) vs 4,707 persons (minority) (provincial mean: 54,929; source: `analysis/reports/section_A_population_equality.md`). Both maps are legally compliant; the minority's higher variance is a property of drawing choices, not demographic geography.
 
-**Geographic-zone asymmetry (A2).** The minority map's northwest Calgary zone sits 11.5% above the provincial mean population, exceeding the packing threshold (≥ +5% of provincial mean) anchored to the Act. The majority's equivalent zone sits 2.8% above average, inside the threshold. The threshold is derived from EBCA § 14, not from any partisan estimate.
+**Geographic-zone asymmetry (A2).** The minority map's northeast/central Calgary zone sits 11.5% above the provincial mean population (zone mean: 61,225; provincial mean: 54,929), exceeding the packing threshold (≥ +5% of provincial mean) anchored to the Act. The majority's equivalent zone sits 2.8% above average, inside the threshold. The threshold is derived from EBCA § 14, not from any partisan estimate.
 
 **Community fragmentation (§5.3.2).** The minority recommendation partitions Airdrie into four separate electoral divisions. The majority uses two. Both satisfy the Act's population band. The minority's choice requires voters in the same city to be represented across four separate legislative constituencies, each primarily identified with a different surrounding community.
 
@@ -73,7 +73,7 @@ For detailed instructions on recreating the derived shapefiles or running the MC
 
 **Inter-map comparison test (§5.4, Ch1-COMP).** Pre-registered at OSF yvc7g. Does the minority-majority gap exceed the distance between randomly chosen neutral-plan pairs? Version A (EG-only): p = 0.0303. Version B (Mahalanobis joint): p = 0.0001. Both significant. The written prediction before running was that Version A would likely fail — it passed. The inter-map Mahalanobis distance (D = 7.19) exceeds each map's individual distance from the ensemble centroid (minority D = 5.71, majority D = 2.79), confirming the maps are positioned on opposite flanks of partisan-metric space rather than being co-located.
 
-**Direction-of-travel (§5.4.10).** The 2019 enacted baseline sits at the statistical edge of neutral redistricting practice — Mahalanobis D²=12.12 against the canonical 1,010,000-plan ensemble (p=0.020). The majority 2026 map retreats toward the ensemble interior (D²=7.78, p=0.100 — inside the null). The minority 2026 map amplifies away from it (D²=32.58, p<0.001). SZAT boundary-choice tests confirm the pattern: the 2019→majority transition is consistent with neutral redistricting (p=0.309); the 2019→minority transition is marginally outside the null CI (p=0.053). Both 2026 proposals were drawn by the same five commissioners from the same 2019 baseline; they moved in measurably opposite directions on the partisan-metric axes the ensemble measures.
+**Direction-of-travel (§5.4.10).** The 2019 enacted baseline sits at the statistical edge of neutral redistricting practice — Mahalanobis D²=12.75 against the canonical 1,010,000-plan ensemble (p=0.013). The majority 2026 map retreats toward the ensemble interior (D²=7.85, p=0.097 — inside the null). The minority 2026 map amplifies away from it (D²=32.67, p=1.40×10⁻⁶). SZAT boundary-choice tests confirm the pattern: the 2019→majority transition is consistent with neutral redistricting (p=0.309); the 2019→minority transition is marginally outside the null CI (p=0.053). Both 2026 proposals were drawn by the same five commissioners from the same 2019 baseline; they moved in measurably opposite directions on the partisan-metric axes the ensemble measures.
 
 **One pre-registered pass (§5.3.5).** The neighbour-drain adjacency test — which asks whether packed and cracked districts of the same party sit next to each other — finds zero coupled chain signals under the minority map, compared to three under both the majority and the 2019 enacted map. This is a pre-registered pass of the minority on that specific test. It appears in the paper as a result.
 
@@ -97,7 +97,7 @@ Both maps satisfy the law. The table below states the structural distance betwee
 
 | Dimension | Majority 2026 | Minority 2026 | Gap |
 |---|---|---|---|
-| Population MAD (persons) | 2,827 | 3,938 | Minority 39% higher variance (canonical EA shapefiles) |
+| Population MAD (persons) | 3,180 | 4,707 | Minority 48% higher variance |
 | Calgary NW zone population excess | +2.8% above mean | +11.5% above mean | Minority 4.1× the threshold value |
 | Airdrie partition count | 2 EDs | 4 EDs | Minority 2× more fragments |
 | Municipal-boundary anchoring *(retracted — canonical)* | 80.0% of perimeter | 72.0% of perimeter | Both within 70–85% Canadian norm; DPG-era values 71%/14.5%/4.9× did not survive shapefile recomputation |

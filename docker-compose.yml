@@ -1,9 +1,0 @@
-version: '3'
-services:
-  audit:
-    build: .
-    volumes:
-      - ./data:/audit/data:ro
-    environment:
-      - PYTHONHASHSEED=0
-      - PYTHONDONTWRITEBYTECODE=1
