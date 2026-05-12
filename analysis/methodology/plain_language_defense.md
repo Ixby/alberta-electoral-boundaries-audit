@@ -910,27 +910,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §7.1 — DPG Sunset Clause
-
----
-
-**Assertion:** Files in data/shapefiles/derived/ generated from DPG are deprecated; all active analysis uses data/shapefiles/canonical/.
-**Why?** What does "deprecated" mean in this context and why keep the old files at all?
-**Answer:** Deprecated means the old approximate files are no longer used in current analysis — they have been replaced by the official files. They are kept in the repository, not deleted, because the complete historical record of the audit's development is itself part of the audit's transparency. Readers can trace which findings changed when the official files arrived and verify that the change was properly documented. Deleting the old files would make it impossible to confirm that the transition was handled correctly.
-
----
-
-### §7.2 — Vote Attribution Uncertainty
-
----
-
-**Assertion:** The cycle-lag problem: 2019 boundaries, 2021 Census, 2023 votes are three different temporal layers.
-**Why?** Is using data from three different years a serious methodological flaw?
-**Answer:** The cycle lag is not a flaw but an inherent feature of redistricting analysis: boundaries, population counts, and election results are always from different years in this context. The audit documents the assumption required to bridge them — primarily that geographic vote distributions are relatively stable within the three-year window and that the area-proportional attribution method is a reasonable approximation for assigning poll votes to new district boundaries. The sensitivity analysis tests whether different assumptions about this bridge materially change the conclusions; the directional signal is stable.
-
----
-
-### §7.3 — Falsifiability and Hypothesis Disposition (H1–H10)
+### §7.0 — Hypotheses Tested and Their Disposition (H1–H10)
 
 ---
 
@@ -964,6 +944,25 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
+
+---
+### DPG Sunset Clause (Methodological Note)
+
+---
+
+**Assertion:** Files in data/shapefiles/derived/ generated from DPG are deprecated; all active analysis uses data/shapefiles/canonical/.
+**Why?** What does "deprecated" mean in this context and why keep the old files at all?
+**Answer:** Deprecated means the old approximate files are no longer used in current analysis — they have been replaced by the official files. They are kept in the repository, not deleted, because the complete historical record of the audit's development is itself part of the audit's transparency. Readers can trace which findings changed when the official files arrived and verify that the change was properly documented. Deleting the old files would make it impossible to confirm that the transition was handled correctly.
+
+---
+
+### Vote Attribution Cycle-Lag (Methodological Note)
+
+---
+
+**Assertion:** The cycle-lag problem: 2019 boundaries, 2021 Census, 2023 votes are three different temporal layers.
+**Why?** Is using data from three different years a serious methodological flaw?
+**Answer:** The cycle lag is not a flaw but an inherent feature of redistricting analysis: boundaries, population counts, and election results are always from different years in this context. The audit documents the assumption required to bridge them — primarily that geographic vote distributions are relatively stable within the three-year window and that the area-proportional attribution method is a reasonable approximation for assigning poll votes to new district boundaries. The sensitivity analysis tests whether different assumptions about this bridge materially change the conclusions; the directional signal is stable.
 
 ---
 
