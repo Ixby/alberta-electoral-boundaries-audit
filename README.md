@@ -189,8 +189,8 @@ The audit is most usefully challenged by people with expertise in electoral geog
 The author thanks the following academics for their willingness to engage with a pre-publication draft and provide independent methodological perspective:
 
 - **Duane Bratt** (Mount Royal University, Department of Economics, Justice, and Policy Studies; co-editor, *Orange Chinook: Politics in the New Alberta*) — political science and Alberta electoral systems review.
-- **Thuy Nguyen** (Mount Royal University, Department of Geography and Environmental Studies) — spatial methodology review.
-- **Justin Moorman** (Mount Royal University, Department of Geography and Environmental Studies) — GIS methodology review.
+- **Lan Nguyen** (Mount Royal University, Department of Geography and Environmental Studies) — spatial methodology review.
+- **Lynn Moorman** (Mount Royal University, Department of Geography and Environmental Studies) — GIS methodology review.
 
 Pre-publication review is ongoing. Reviewers are acknowledged for their time; findings and conclusions remain the sole responsibility of the author.
 

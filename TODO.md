@@ -1,14 +1,8 @@
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-11
+**Last updated:** 2026-05-12
 **Completed work:** see `COMPLETED_LOG.md`
-
----
-
-# M1 — MONDAY 2026-05-12 (Group Chat Review) — COMPLETE
-
-All editorial items complete. See `COMPLETED_LOG.md` for detail.
 
 ---
 
@@ -45,6 +39,7 @@ Items must complete before either report goes public.
 - **Channels:** population MAD ratio, Reock asymmetry, municipal anchoring departure (all require per-plan outputs not in existing ensemble)
 - **Protocol:** 2 chains × 50,000 plans with per-plan MAD, Reock, and anchor-count capture
 - **Decision rule:** each channel reported regardless of direction; any p<0.05 added to updated Fisher combination
+- **Note:** per-map MAD values are already canonical (2,827 / 3,938 from `simulation_real_map_scores_canonical.json`); this run is for the *ensemble* MAD distribution (percentile placement), not a correction to existing values.
 
 ### Phase 4C Vision Assignment (Stages 3–7)
 
@@ -66,7 +61,7 @@ Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
 
 ## HIGH — Sentiment Analysis
 
-- **Intensity scoring IN PROGRESS (started 2026-05-10):** `sentiment_intensity_score.py` — 459 active rows, haiku model. When complete: update §5.9.4.6 weighted-net table. Output: `data/outputs/sentiment_intensity_scores.csv`.
+- **Intensity scoring COMPLETE** (452 deduped rows, haiku model, 2026-05-10): §5.9.4.6 weighted-net table updated.
 - **Remaining forensic pipeline:** `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
 - **Cross-reference:** Final results against `minority_rationales_validation.md` Proposals A–F
 - **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/`
@@ -77,10 +72,10 @@ Stage 3 superseded by official shapefiles. Still needed for vote aggregation.
 
 ### Pre-Brief Academics (do before public release)
 
-Outreach sent to Elections Alberta and Duane Bratt on 2026-04-23; replies received 2026-05-09. Next steps:
+Outreach sent to Elections Alberta and Duane Bratt on 2026-04-23; replies received 2026-05-09.
 
-1. **Send draft to Bratt** (MRU political science chair, *Orange Chinook* co-editor) — send after all ES items complete (done 2026-05-11).
-2. **Send spatial methodology sections to Nguyen + Moorman** (MRU GIS/geography).
+1. **Send draft to Bratt** — DONE 2026-05-11.
+2. **Send spatial methodology sections to Lan Nguyen + Lynn Moorman** (MRU GIS/geography).
 3. **One additional academic reviewer** (political science, outside MRU) — identify after Bratt feedback.
 4. Response turnaround: allow 2–3 weeks before final revision pass.
 
@@ -92,7 +87,7 @@ Outreach sent to Elections Alberta and Duane Bratt on 2026-04-23; replies receiv
 
 ### Editorial Factual Ambiguity
 
-- Airdrie population framing (74,100 vs 84,000) — author clarification required. Recommendation: use 84,000 (2024 estimate) throughout.
+- Airdrie population framing (74,100 vs 84,000) — author clarification required. Recommendation: use 84,000 (2024 estimate) throughout. See also CLR-04.
 
 ---
 
@@ -192,13 +187,13 @@ Deferred after Safety Track completion:
 
 **Trigger:** after both reports ship. Do NOT attempt mid-audit.
 
-Collapse `analysis/scripts/` from 83 files into ~15–20 topic modules. Inputs to start: `analysis/methodology/scripts_inventory.md`, `historical_deprecated.zip`. The 27 scripts named directly in `report_academic.md` form the irreducible citation surface — new module functions must preserve those names via thin shims.
+Collapse `analysis/scripts/` from ~87 files into ~15–20 topic modules. Inputs to start: `analysis/methodology/scripts_inventory.md`. The 27 scripts named directly in `report_academic.md` form the irreducible citation surface — new module functions must preserve those names via thin shims.
 
 ---
 
 # M3 — LUNTY RELEASE (Nov 2, 2026)
 
-**Moved to `M3_LUNTY_RELEASE.md`.** Re-merge into this file only after the Lunty committee tables its 91-seat map.
+**Moved to `private_workspace/M3_LUNTY_RELEASE.md`.** Re-merge into this file only after the Lunty committee tables its 91-seat map.
 
 ---
 
@@ -206,7 +201,7 @@ Collapse `analysis/scripts/` from 83 files into ~15–20 topic modules. Inputs t
 
 | Track | Event | Trigger |
 |---|---|---|
-| A (shapefile integration) | Unblocked 2026-05-06 (commit 873f4d0) | Re-run Phase 5 ensemble after C1 complete |
+| A (shapefile integration) | Unblocked 2026-05-06 (commit 873f4d0); C1 complete | Phase 4C Stages 3–7 still pending |
 | B (November 2026) | Lunty committee tables 91-seat map (Nov 2, 2026) | Run full Phase 2 checklist within 48h |
 | E (338Canada refresh) | Next due ~late June 2026 | Re-run scraper if projection moves >0.5pp |
 
@@ -231,9 +226,7 @@ After confirming nothing was missed, delete:
 | `analysis/methodology/external_tool_validation_plan.md` | All three phases in External Validation section above |
 | `analysis/red_team/archival_submission_queue.md` | URL archival task in HIGH section above |
 | `analysis/methodology/restructure_inventory.md` | Phase A–D tasks in Restructure section above |
-| `private_workspace/migration.md` | Track C and Track E in Date-Gated section above |
 | `analysis/methodology/editorial_pass_log.md` | Completed log; no outstanding items |
-| `REMEDIATION_LOG.md` | Safety Track complete; open items in Remediation Hygiene section above |
 
 **Do NOT delete (content, not plans):**
 
@@ -247,14 +240,14 @@ After confirming nothing was missed, delete:
 
 # PO Clarification Required
 
-Items surfaced during the 2026-05-12 grounding sweep that cannot be resolved from primary data files without author input. Do not publish until these are resolved.
+Items surfaced during the 2026-05-12 grounding sweep. Do not publish until resolved.
 
-| ID | File | Claim | Issue | Status |
+| ID | File | Claim | Issue | Recommendation |
 |---|---|---|---|---|
-| **CLR-01** | `README.md` §Direction-of-travel | "2019 enacted: Mahalanobis D²=12.12, p=0.020" | `joint_outlier_score.json` (100k era) shows D=3.5624, D²=12.69, p=0.013 for enacted. The 12.12/0.020 values appear in the academic report §5.4.10 direction-of-travel table but the generating script output is not in a primary data file I can locate. Confirm whether 12.12 is from the 250k ensemble covariance and which file is authoritative. | Pending |
-| **CLR-02** | `README.md` §Dependency graph | "invalidating the entire 2023 vote dataset orphans 48 of 74 findings — but leaves 26" | Cannot verify 74 total findings or 48/26 split from `audit_dependency_graph.json` without running `dependency_query.py --invalidate`. Confirm or update these counts. | Pending |
-| **CLR-03** | `README.md` §A2, structural cost table | "northwest Calgary zone sits 11.5% above provincial mean" (minority), "2.8% above average" (majority) | Primary source for these values not identified during sweep. Confirm which script output file contains the A2 zone-population figures. | Pending |
-| **CLR-04** | `README.md` Airdrie framing | "City of Airdrie has a population of approximately 84,000 residents" | Already flagged in TODO.md (MED-A author clarification — 74,100 vs 84,000). Use 84,000 or 74,100? Primary source required. | Pending (per TODO.md) |
-| **CLR-05** | `analysis/reports/joint_outlier_score.json` | `"structural_pending.municipal_anchoring.minority_pct": 14.5` and `"majority_pct": 71.0` | These are DPG-era anchoring values (retracted finding). The JSON carries them as "pending" and the academic report already documents the retraction. Confirm whether `joint_outlier_score.json` itself should be updated to reflect canonical values (80% / 72%) or left as a historical record. | Pending |
-| **CLR-06** | `analysis/reports/joint_outlier_score.json` | `"caveats": "Ensemble is 100k plans (canonical shapefiles, 2 chains x 50k)"` | This file's ensemble source is the 100k canonical run, not the 1M canonical. The Mahalanobis D² and Fisher p in this file (used in the academic report headline) were computed from the 100k covariance matrix. Confirm whether these need recomputing from the 1M covariance (which may shift D² values). | Pending |
-| **CLR-07** | `REPRODUCING.md` attribution | Gemini 3.1 Pro: commit `73544a3` (Gemini-9 code audit findings) and commit `972b04a` (Two-Party share fix) attributed to Gemini in the file; user characterises Gemini as "collaborative commentary" | If Gemini provided commentary rather than authoring those commits, the specific commit hashes in the attribution section may be misleading. Confirm whether those commit attributions are accurate or should be removed. | Pending |
+| **CLR-01** | `README.md` §Direction-of-travel | "2019 enacted: D²=12.12, p=0.020" | `joint_outlier_score.json` (100k) shows D²=12.69, p=0.013. The 12.12 value is in §5.4.10 of the academic report but the generating output file was not located. | Run the direction-of-travel script against the 1M ensemble and replace with the authoritative output. |
+| **CLR-02** | `README.md` §Dependency graph | "48 of 74 findings … leaves 26" | Cannot verify without running `dependency_query.py --invalidate L0:data.2023_statement_of_vote`. | Run the query; update README with the verified counts. |
+| **CLR-03** | `README.md` §A2, structural cost table | "11.5% above provincial mean" (minority NW Calgary zone), "2.8% above average" (majority) | Primary output file not located during sweep. | Check `data/outputs/` for the A2 zone-population script output; confirm file and values. |
+| **CLR-04** | `README.md`, academic report | Airdrie ~84,000 residents | 74,100 vs 84,000 — same as long-standing MED-A clarification item. | Author decision: use 84,000 (2024 municipal estimate) with citation, or 74,100 (2021 Census)? |
+| **CLR-05** | `analysis/reports/joint_outlier_score.json` | Anchoring values 14.5% / 71.0% in `structural_pending` | DPG-era values, retracted finding. JSON carries them as "pending." | Update `structural_pending.municipal_anchoring` to canonical values (72% / 80%) and label retracted. |
+| **CLR-06** | `analysis/reports/joint_outlier_score.json` | `caveats: "Ensemble is 100k plans"` | D² and Fisher p computed from 100k covariance, not 1M. The p-value (1.60×10⁻⁷) is robust but the covariance is not publication-grade. | Rerun `joint_outlier_score_canonical.py` against the 1M ensemble; update the JSON. |
+| **CLR-07** | `REPRODUCING.md` | Gemini commit hashes `73544a3` and `972b04a` | User characterizes Gemini as collaborative commentator; specific commit attribution may be inaccurate. | Confirm whether those commits were Gemini-authored; if not, remove the hash references from REPRODUCING.md. |
