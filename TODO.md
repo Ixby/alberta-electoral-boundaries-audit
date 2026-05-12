@@ -72,7 +72,10 @@ Outreach sent to Elections Alberta and Duane Bratt on 2026-04-23; replies receiv
 
 1. **Send draft to Bratt** — DONE 2026-05-11.
 2. **Send spatial methodology sections to Lan Nguyen + Lynn Moorman** (MRU GIS/geography). — **DRAFT READY 2026-05-13** at `private_workspace/emails/06_nguyen_moorman_spatial_review_2026-05-13.md`. Four specific questions: (a) Alberta 3TM vs east–west distortion; (b) VA centroid boundary attribution; (c) Reock via shapely.minimum_bounding_circle(); (d) 500m CSD-edge buffer tolerance. Pre-send checklist in draft.
-3. **One additional academic reviewer** (political science, outside MRU) — identify after Bratt feedback.
+3. **One additional academic reviewer** (political science, outside MRU) — **TWO DRAFTED 2026-05-13:**
+   - **Peter Loewen (U of T, Munk School)** — Canadian institutional framing (§5.9, §1 commission discretion framing, Saskatchewan Reference). Draft: `private_workspace/emails/07_peter_loewen_uoft_2026-05-13.md`
+   - **Jowei Chen (U Michigan)** — MCMC methodology (ReCom §15(2) constraint, R-hat thresholds, Mahalanobis novelty, Fisher independence). Draft: `private_workspace/emails/08_jowei_chen_umich_2026-05-13.md`
+   - Recommended send order: Loewen and Nguyen/Moorman simultaneously; Chen after Loewen replies (strengthens credibility signal).
 4. Response turnaround: allow 2–3 weeks before final revision pass.
 
 ### URL Archival
