@@ -686,7 +686,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §6.1 — What the Evidence Supports
+### §6.1 — What the Evidence Supports (Defensible Synthesis)
 
 ---
 
@@ -702,7 +702,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §6.2 — Contextual Discussion and Limitations
+### §6.2 — Directional Pattern and Metric Context
 
 ---
 
@@ -724,7 +724,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-### §6.2.6 — Justiciability
+### Justiciability (§6.2 context)
 
 ---
 
@@ -894,7 +894,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-## §7 Limitations
+## §7 — Limitations and Falsifiability
 
 ---
 
@@ -964,29 +964,6 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-## §8 Conclusion
-
----
-
-**Assertion:** The audit's primary finding is directional consistency across structural and statistical dimensions, not a single decisive number.
-**Why?** Is a directional finding strong enough to support any policy response?
-**Answer:** The directional consistency across four independent structural signals — each derived from different data sources, each surviving stress-testing — is stronger evidence than any single statistical test would be alone. The statistical tests (Fisher p = 6.87×10⁻⁸) add quantitative weight to the structural signals. Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether this is strong enough to require legal remedy, administrative revision, or simply public acknowledgment is a policy and legal judgment; the audit provides the empirical input for that judgment.
-
----
-
-**Assertion:** The majority map is within the neutral statistical band on every metric; the minority is not. This is the headline.
-**Why?** What should a reader conclude from this if they are a policymaker, a court, or a journalist?
-**Answer:** A policymaker reviewing two competing redistricting proposals should understand that these are not equivalent options: one falls within the range that neutral independent processes produce, and one does not. A court evaluating a Charter challenge to the redistricting process would have access to quantified outlier statistics and pre-registered methodology to assess. A journalist covering the redistricting should report that independent computational analysis found statistically significant differences between the two proposals — with the appropriate caveats about exploratory status. The audit does not tell any of these audiences what to do; it provides the measurement.
-
----
-
-**Assertion:** The November 2026 confirmatory replication will apply Benjamini-Hochberg correction and is pre-registered at OSF.
-**Why?** What happens if the November 2026 committee map falls within the neutral band?
-**Answer:** If the new 91-seat committee map scores within the neutral ensemble band on all partisan-fairness metrics, that would be a null result on the confirmatory test — the committee's map did not reproduce the partisan pattern found in the minority commission proposal. That null result would be reported fully, consistent with the audit's commitment to transparent failure reporting. It would not retroactively change the findings about the original minority proposal, but it would indicate the committee's process produced a different outcome.
-
----
-
-## §7 — Limitations and Falsifiability (Extended)
 
 ---
 
@@ -1050,7 +1027,28 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-## §8 Conclusion (Full)
+## §8 Conclusion
+
+---
+
+**Assertion:** The audit's primary finding is directional consistency across structural and statistical dimensions, not a single decisive number.
+**Why?** Is a directional finding strong enough to support any policy response?
+**Answer:** The directional consistency across four independent structural signals — each derived from different data sources, each surviving stress-testing — is stronger evidence than any single statistical test would be alone. The statistical tests (Fisher p = 6.87×10⁻⁸) add quantitative weight to the structural signals. Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether this is strong enough to require legal remedy, administrative revision, or simply public acknowledgment is a policy and legal judgment; the audit provides the empirical input for that judgment.
+
+---
+
+**Assertion:** The majority map is within the neutral statistical band on every metric; the minority is not. This is the headline.
+**Why?** What should a reader conclude from this if they are a policymaker, a court, or a journalist?
+**Answer:** A policymaker reviewing two competing redistricting proposals should understand that these are not equivalent options: one falls within the range that neutral independent processes produce, and one does not. A court evaluating a Charter challenge to the redistricting process would have access to quantified outlier statistics and pre-registered methodology to assess. A journalist covering the redistricting should report that independent computational analysis found statistically significant differences between the two proposals — with the appropriate caveats about exploratory status. The audit does not tell any of these audiences what to do; it provides the measurement.
+
+---
+
+**Assertion:** The November 2026 confirmatory replication will apply Benjamini-Hochberg correction and is pre-registered at OSF.
+**Why?** What happens if the November 2026 committee map falls within the neutral band?
+**Answer:** If the new 91-seat committee map scores within the neutral ensemble band on all partisan-fairness metrics, that would be a null result on the confirmatory test — the committee's map did not reproduce the partisan pattern found in the minority commission proposal. That null result would be reported fully, consistent with the audit's commitment to transparent failure reporting. It would not retroactively change the findings about the original minority proposal, but it would indicate the committee's process produced a different outcome.
+
+---
+
 
 ---
 
