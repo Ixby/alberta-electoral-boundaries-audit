@@ -55,7 +55,7 @@ For detailed instructions on recreating the derived shapefiles or running the MC
 
 ## What the audit finds
 
-**Population equality (A1).** Mean absolute deviation from provincial quota: 3,180 persons (majority) vs 4,707 persons (minority). Both maps are legally compliant; the minority's higher variance is a property of drawing choices, not demographic geography.
+**Population equality (A1).** Mean absolute deviation from provincial quota: 2,827 persons (majority) vs 3,938 persons (minority) on official Elections Alberta shapefiles. Both maps are legally compliant; the minority's higher variance is a property of drawing choices, not demographic geography.
 
 **Geographic-zone asymmetry (A2).** The minority map's northwest Calgary zone sits 11.5% above the provincial mean population, exceeding the packing threshold (≥ +5% of provincial mean) anchored to the Act. The majority's equivalent zone sits 2.8% above average, inside the threshold. The threshold is derived from EBCA § 14, not from any partisan estimate.
 
@@ -97,12 +97,12 @@ Both maps satisfy the law. The table below states the structural distance betwee
 
 | Dimension | Majority 2026 | Minority 2026 | Gap |
 |---|---|---|---|
-| Population MAD (persons) | 3,180 | 4,707 | Minority 48% higher variance |
+| Population MAD (persons) | 2,827 | 3,938 | Minority 39% higher variance (canonical EA shapefiles) |
 | Calgary NW zone population excess | +2.8% above mean | +11.5% above mean | Minority 4.1× the threshold value |
 | Airdrie partition count | 2 EDs | 4 EDs | Minority 2× more fragments |
 | Municipal-boundary anchoring *(retracted — canonical)* | 80.0% of perimeter | 72.0% of perimeter | Both within 70–85% Canadian norm; DPG-era values 71%/14.5%/4.9× did not survive shapefile recomputation |
 | Chair-flagged cartographic anomalies | 0 | 3 | — |
-| Efficiency gap (crosswalk method) | −0.40% | −1.81% | Both below 7% reference; direction method-sensitive |
+| Efficiency gap (crosswalk method) | −0.10% | −4.02% | Both below 7% reference; minority 40× more UCP-structural than majority (canonical EA shapefiles) |
 | Coupled packing-cracking adjacencies | 3 (matches 2019 baseline) | 0 (pre-registered pass) | Minority eliminates the signature |
 
 The first five rows are vote-independent. They are measurable against public official records and do not change if the partisan substrate changes; the municipal-anchoring row is retracted on canonical geometry (both maps within norm). The last two rows depend on vote data; the sixth row's direction is not robust to the choice of spatial-attribution method; the seventh row is a finding in favour of the minority map.
@@ -181,6 +181,18 @@ The audit is most usefully challenged by people with expertise in electoral geog
 - **[analysis/methodology/threshold_provenance.md](analysis/methodology/threshold_provenance.md)** — Every numeric threshold traced to a statutory source, a literature citation, or a first-principles derivation. 41 thresholds catalogued, including three Alberta-calibrated EG alternatives.
 - **[analysis/methodology/audit_dependency_graph_readme.md](analysis/methodology/audit_dependency_graph_readme.md)** — The 234-node, 454-edge dependency graph: schema, worked examples, and the `--invalidate` query CLI.
 - **[analysis/reports/ai_use_recommendations_for_committee.md](analysis/reports/ai_use_recommendations_for_committee.md)** — AI-use recommendations for the Lunty committee: seven principles, technical guidance by task type, and a 9-item public disclosure checklist.
+
+---
+
+## Acknowledgements
+
+The author thanks the following academics for their willingness to engage with a pre-publication draft and provide independent methodological perspective:
+
+- **Duane Bratt** (Mount Royal University, Department of Economics, Justice, and Policy Studies; co-editor, *Orange Chinook: Politics in the New Alberta*) — political science and Alberta electoral systems review.
+- **Thuy Nguyen** (Mount Royal University, Department of Geography and Environmental Studies) — spatial methodology review.
+- **Justin Moorman** (Mount Royal University, Department of Geography and Environmental Studies) — GIS methodology review.
+
+Pre-publication review is ongoing. Reviewers are acknowledged for their time; findings and conclusions remain the sole responsibility of the author.
 
 ---
 

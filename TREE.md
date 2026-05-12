@@ -279,6 +279,74 @@ docs/
 
 ---
 
+## Key forward and back dependencies
+
+Files that feed or are fed by multiple other files. Read this when deciding what to update after a change.
+
+### Data pipeline (forward flow — upstream → downstream)
+
+```
+config.yaml
+  → analysis/scripts/utils/data_loader.py          [reads config; all scripts import this]
+  → analysis/scripts/canonical_paths.py             [map-path resolution layer]
+
+data/shapefiles/canonical/*.gpkg                   [official EA shapefiles; received 2026-05-06]
+  → analysis/scripts/packing_cracking_analysis.py  [computes B1–B6 partisan bias]
+  → analysis/scripts/electoral_forensics_population.py  [computes A1/A2/A3 MAD, NW Calgary]
+  → analysis/scripts/score_anchoring.py            [computes §5.8.5 anchoring fractions]
+  → analysis/scripts/szat.py                        [computes Ch2 SZAT bootstrap]
+  → analysis/scripts/mcmc_ensemble_canonical.py    [builds neutral ensemble]
+
+data/shapefiles/derived/va_polygons_with_2023_votes.gpkg   [2023 votes on VA polygons]
+  → analysis/scripts/packing_cracking_analysis.py  [vote attribution for B1–B6]
+  → analysis/scripts/szat.py                        [swing-zone assignment]
+
+analysis/scripts/mcmc_ensemble_canonical.py
+  → data/simulation_checkpoints_canonical/chain{0..3}_samples.csv  [1M MCMC plans]
+  → data/outputs/simulated_ensemble_percentiles_canonical.csv       [percentile placements]
+  → data/outputs/simulation_convergence_diagnostics_canonical.json  [ESS, Gelman-Rubin]
+
+analysis/scripts/joint_outlier_score_canonical.py
+  → data/outputs/simulation_real_map_scores_canonical.json  [metric values for 3 maps]
+  → analysis/reports/joint_outlier_score.json               [D², Fisher combination]
+
+data/outputs/simulated_ensemble_percentiles_canonical.csv   [percentile placements]
+  → outputs/academic_report/report_academic.md              [§5.4.9 table]
+  → outputs/public_report/report_public.md                  [summary findings]
+  → README.md                                               [findings section]
+```
+
+### Report pipeline (what each report file depends on)
+
+```
+outputs/academic_report/report_academic.md
+  ← data/outputs/simulated_ensemble_percentiles_canonical.csv  [§5.4.9 percentiles]
+  ← data/outputs/simulation_real_map_scores_canonical.json     [metric values]
+  ← analysis/reports/joint_outlier_score.json                  [Ch1 D², Fisher p]
+  ← analysis/reports/intermap_permutation_test_results.json    [Ch1-COMP p-values]
+  ← data/submission_sentiment_llm_results.csv                  [§5.9.4 sentiment]
+  ← analysis/methodology/retraction_pathway.md                 [retraction conditions]
+
+README.md
+  ← data/simulation_real_map_scores_canonical.json             [MAD, EG values]
+  ← analysis/reports/joint_outlier_score.json                  [Ch1, SZAT, Fisher]
+  ← analysis/reports/intermap_permutation_test_results.json    [Ch1-COMP]
+  ← analysis/methodology/audit_dependency_graph.json           [234 nodes, 454 edges]
+```
+
+### Integrity chain (files that must be updated together)
+
+| When you change... | Also update... |
+|---|---|
+| Any script output CSV/JSON | `analysis/meta/FROZEN_MANIFEST.md` (hash) |
+| Any report finding | `analysis/methodology/retraction_pathway.md` (retraction condition) |
+| Any percentile / p-value | `outputs/academic_report/report_academic.md` → `README.md` |
+| `config.yaml` | Run `run_audit.py` to verify nothing breaks |
+| Any pre-registration amendment | `analysis/reports/pre_registration_amendment_*.md` |
+| `data/simulation_checkpoints_canonical/` | `data/outputs/simulation_convergence_diagnostics_canonical.json` |
+
+---
+
 ## Gitignored paths (not in repo, documented here for reference)
 
 | Path | Contents | Disposition |

@@ -242,3 +242,19 @@ After confirming nothing was missed, delete:
 - `analysis/methodology/minority_rationales_validation.md` — scientific findings
 - `analysis/meta/FROZEN_MANIFEST.md` — canonical file manifest
 - All methodology, findings, and defense documents
+
+---
+
+# PO Clarification Required
+
+Items surfaced during the 2026-05-12 grounding sweep that cannot be resolved from primary data files without author input. Do not publish until these are resolved.
+
+| ID | File | Claim | Issue | Status |
+|---|---|---|---|---|
+| **CLR-01** | `README.md` §Direction-of-travel | "2019 enacted: Mahalanobis D²=12.12, p=0.020" | `joint_outlier_score.json` (100k era) shows D=3.5624, D²=12.69, p=0.013 for enacted. The 12.12/0.020 values appear in the academic report §5.4.10 direction-of-travel table but the generating script output is not in a primary data file I can locate. Confirm whether 12.12 is from the 250k ensemble covariance and which file is authoritative. | Pending |
+| **CLR-02** | `README.md` §Dependency graph | "invalidating the entire 2023 vote dataset orphans 48 of 74 findings — but leaves 26" | Cannot verify 74 total findings or 48/26 split from `audit_dependency_graph.json` without running `dependency_query.py --invalidate`. Confirm or update these counts. | Pending |
+| **CLR-03** | `README.md` §A2, structural cost table | "northwest Calgary zone sits 11.5% above provincial mean" (minority), "2.8% above average" (majority) | Primary source for these values not identified during sweep. Confirm which script output file contains the A2 zone-population figures. | Pending |
+| **CLR-04** | `README.md` Airdrie framing | "City of Airdrie has a population of approximately 84,000 residents" | Already flagged in TODO.md (MED-A author clarification — 74,100 vs 84,000). Use 84,000 or 74,100? Primary source required. | Pending (per TODO.md) |
+| **CLR-05** | `analysis/reports/joint_outlier_score.json` | `"structural_pending.municipal_anchoring.minority_pct": 14.5` and `"majority_pct": 71.0` | These are DPG-era anchoring values (retracted finding). The JSON carries them as "pending" and the academic report already documents the retraction. Confirm whether `joint_outlier_score.json` itself should be updated to reflect canonical values (80% / 72%) or left as a historical record. | Pending |
+| **CLR-06** | `analysis/reports/joint_outlier_score.json` | `"caveats": "Ensemble is 100k plans (canonical shapefiles, 2 chains x 50k)"` | This file's ensemble source is the 100k canonical run, not the 1M canonical. The Mahalanobis D² and Fisher p in this file (used in the academic report headline) were computed from the 100k covariance matrix. Confirm whether these need recomputing from the 1M covariance (which may shift D² values). | Pending |
+| **CLR-07** | `REPRODUCING.md` attribution | Gemini 3.1 Pro: commit `73544a3` (Gemini-9 code audit findings) and commit `972b04a` (Two-Party share fix) attributed to Gemini in the file; user characterises Gemini as "collaborative commentary" | If Gemini provided commentary rather than authoring those commits, the specific commit hashes in the attribution section may be misleading. Confirm whether those commit attributions are accurate or should be removed. | Pending |

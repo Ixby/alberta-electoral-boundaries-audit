@@ -30,7 +30,7 @@ If you want to add a new structural or partisan test:
 * Python code should be compatible with Python 3.11+.
 
 ## AI Tooling Attribution Policy
-This audit was produced with AI assistance from **Claude Opus 4.7** (Anthropic), **Google Gemini 3.1 Pro**, and **OpenAI Codex** (adversarial commentary). We maintain a strict dual-attribution policy:
+This audit was produced with AI assistance from **Claude Opus 4.7** (Anthropic), **Google Gemini 3.1 Pro** (collaborative commentary), and **OpenAI Codex** (adversarial commentary). We maintain a strict dual-attribution policy:
 * If an AI tool originated a finding or wrote substantial portions of a script, it must be credited in the commit message via `Co-Authored-By` trailers.
 * The human author retains final editorial and methodological responsibility for all committed code.
 * AI tools did not execute code or access external data independently; all script runs and data access were performed by the author.
