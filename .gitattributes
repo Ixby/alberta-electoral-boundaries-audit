@@ -2,3 +2,4 @@ data/mcmc_checkpoints_*/chain*_samples.csv filter=lfs diff=lfs merge=lfs -text
 data/v0_1_targeted_burst*_trace.csv filter=lfs diff=lfs merge=lfs -text
 *.gpkg filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+data/simulated_ensemble_raw_samples_canonical.csv filter=lfs diff=lfs merge=lfs -text
