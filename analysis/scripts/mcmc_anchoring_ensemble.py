@@ -173,8 +173,11 @@ def run_anchoring_chain(
     if seed_max_dev > pop_deviation:
         import random as _r
         # Try multiple seed offsets — recursive_tree_part can fail on complex geometries
+        # max_attempts=5000 (not 50000): each failed attempt fails fast
+        # (~5 s) rather than spinning for ~250 s. The 50-offset retry loop
+        # (50 × ~6 s ≈ 5 min max) provides adequate coverage.
         new_assignment = None
-        for _offset in range(0, 20000, 1000):
+        for _offset in range(0, 50000, 1000):
             try:
                 _np.random.seed(seed + 999 + _offset)
                 _r.seed(seed + 999 + _offset)
@@ -185,15 +188,15 @@ def run_anchoring_chain(
                     pop_col="pop_2021",
                     epsilon=pop_deviation,
                     node_repeats=5,
-                    method=partial(_bpt_global, max_attempts=50000),
+                    method=partial(_bpt_global, max_attempts=5000),
                 )
                 break
             except RuntimeError:
                 continue
         if new_assignment is None:
             raise RuntimeError(
-                "recursive_tree_part failed for all seed offsets. "
-                "Try a different base seed or increase max_attempts."
+                "recursive_tree_part failed for all 50 seed offsets. "
+                "Try a different base seed or lower epsilon."
             )
         _np.random.seed(seed)
         _r.seed(seed)
