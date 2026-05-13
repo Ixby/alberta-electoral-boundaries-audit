@@ -418,6 +418,18 @@ do not leave a directory without a README after restructuring it.
 
 ---
 
+## Execution Day Prerequisites
+
+Before the first `git mv`:
+
+1. **Clean working directory.** `git status` must show nothing staged or modified. A dirty tree means `git reset --hard HEAD` is NOT a safe undo — it would destroy uncommitted work. Stash or commit everything first.
+2. **Dedicated branch.** `git checkout -b feat/restructure` — do not work on `main`. The restructure is one atomic operation that merges after full verification, not a series of incremental commits to main.
+3. **Code freeze.** Declare no other branches should merge during execution. The restructure touches paths that active development branches may also be editing. Estimated window: 4 hours.
+
+**If anything goes wrong mid-execution:** `git reset --hard HEAD && git clean -fd` returns to the exact pre-restructure state — but only if the working directory was clean when you started.
+
+---
+
 ## Execution Order
 
 0. **Pre-move hash capture + grep sweep.**
@@ -466,10 +478,20 @@ do not leave a directory without a README after restructuring it.
     python run_audit.py
     python analysis/scripts/build_pdf.py --dry-run
     ```
-    Note: `run_audit.py` has no `--path-check` flag (no dry-run mode). Add a `--path-check`
-    argument before execution day: loops over every `Path.open()` call and does `path.exists()`
-    only, no GeoPackage loading. This lets you catch missing paths in ~2 seconds instead of
-    waiting for the full 10-check suite to crash mid-run.
+    Two additions to make to `run_audit.py` before execution day:
+
+    **a. `--path-check` flag:** loops over every `Path.open()` call, does `path.exists()` only,
+    no GeoPackage loading. Catches missing paths in ~2 seconds instead of waiting for the
+    full 10-check suite to crash mid-run.
+
+    **b. Dirty-check guard:** before any script writes to a known machine-output file, check
+    `git status --porcelain <filepath>`. If the file has uncommitted manual changes, abort:
+    *"Manual changes detected in machine-output file. Commit or stash before running audit."*
+    This prevents a script from silently overwriting a human fix.
+
+    **c. Stale-output purge:** each script deletes its target output file before writing.
+    Prevents the failure mode where a script finds an old version of the file at a legacy
+    path and silently "succeeds" without actually running.
 
 13. Post-restructure hash comparison:
     ```powershell
@@ -479,7 +501,23 @@ do not leave a directory without a README after restructuring it.
     Expected diff: file paths change (analysis/reports/ → findings/); hashes are identical.
     Any hash change means a script wrote different output — investigate before committing.
 
-14. Commit in one clean commit; delete `RESTRUCTURE_PLAN.md`, `pre_restructure_hashes.txt`, `post_restructure_hashes.txt`
+14. **TREE.md path lint.** Parse `TREE.md` for any file path strings (lines matching
+    ` ├── ` or ` └── ` that contain a `.` extension or path separator) and call
+    `os.path.exists()` on each. Any annotation that points to a non-existent file is a
+    curation lag — fix before committing. This is the validation that the curated navigation
+    document matches the actual post-restructure state.
+    ```python
+    # Quick manual check:
+    python -c "
+    import re, os
+    for line in open('TREE.md'):
+        m = re.search(r'[├└]── ([\w/.-]+\.\w+)', line)
+        if m and not os.path.exists(m.group(1)):
+            print('MISSING:', m.group(1))
+    "
+    ```
+
+15. Commit in one clean commit; delete `RESTRUCTURE_PLAN.md`, `pre_restructure_hashes.txt`, `post_restructure_hashes.txt`; merge `feat/restructure` to `main`
 
 ---
 
@@ -505,6 +543,39 @@ directory contains the machine-readable geographic record of identified packing,
 cracking, and draining patterns.
 
 Add step to execution order: extract data assets before `git rm -r interactive_proofs/`.
+
+---
+
+## Post-Execution Hardening
+
+Once the restructure commits are merged, add these guards to prevent the structure from drifting:
+
+**1. Protected-files pre-commit hook.** Maintain a `.protected_files` list at repo root:
+```
+findings/szat_summary.json
+findings/szat_summary_full_votes.json
+findings/szat_2019_baseline.json
+findings/neighbour_drain_analysis.md
+findings/municipal_anchoring_analysis.md
+findings/joint_outlier_score_summary.md
+findings/joint_outlier_score.json
+findings/intermap_permutation_test_results.json
+analysis/methodology/audit_dependency_graph.json
+analysis/methodology/audit_dependency_graph.dot
+analysis/methodology/fisher_independence_defense.md
+analysis/methodology/submission_search_log.md
+```
+A pre-commit hook checks whether any staged change touches a listed file and aborts
+if the `RUNNING_FROM_SCRIPT` environment variable is unset. The dirty-check guard in
+`run_audit.py` (Step 12b) sets this variable before writing.
+
+**2. TREE.md path linter.** The Step 14 script above can be run as a pre-commit hook too:
+blocks any commit that leaves `TREE.md` pointing at non-existent paths.
+This ensures curation stays accurate without automating the content.
+
+**3. `findings/README.md` machine-output list.** Explicitly enumerate every file in
+`findings/` that is machine-generated and must not be hand-edited; state which script
+generates each one and how to regenerate it.
 
 ---
 
