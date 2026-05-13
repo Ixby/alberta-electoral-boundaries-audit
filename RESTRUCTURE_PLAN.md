@@ -69,14 +69,24 @@ Move from `analysis/methodology/`:
 
 ---
 
-### New: `archive/dpg/` at root
+### New: `archive/provisional_geometries/` at root
 
-`git mv dpg archive/dpg` — no internal renames needed; DPG-era version prefixes are appropriate in the archive.
+`git mv dpg archive/provisional_geometries`
 
-Also move into `archive/dpg/` from `analysis/methodology/`:
+"DPG" is internal jargon. "provisional_geometries" is the plain-English expansion:
+boundary tracings made from PDF thumbnails before official shapefiles arrived.
+An external auditor reading the directory name should immediately understand what is inside.
+DPG-era version prefixes within the directory are appropriate (they are part of the historical record).
 
-- `mcmc_100k_and_full_coverage.md` → `archive/dpg/mcmc_100k_and_full_coverage.md`
+Also move into `archive/provisional_geometries/` from `analysis/methodology/`:
+
+- `mcmc_100k_and_full_coverage.md` → `archive/provisional_geometries/mcmc_100k_and_full_coverage.md`
   Documents the DPG-era 100k MCMC run with full-crosswalk fallback details; crosswalk configuration exists nowhere else. Archive, do not delete.
+
+**Archive README** — Write `archive/README.md` on execution day noting:
+- Date of restructure
+- What `provisional_geometries/` contains and why it is archived (not deprecated)
+- Logic delta: DPG files used different sign conventions and polygon provenance than canonical-era analysis; any DPG-era metric deviates from current findings by the margin documented in `provisional_geometries/analysis/dpg_perturbation_consolidated.md`
 
 ---
 
@@ -403,25 +413,37 @@ do not leave a directory without a README after restructuring it.
 | `analysis/review/` | What kind of scrutiny each file represents (science, legal, peer, external code audit) |
 | `findings/` | Which files are script outputs (never edit by hand) vs. human-written summaries; how to re-generate script outputs |
 | `reports/` | How to rebuild both PDFs; dependency on pandoc version |
-| `archive/dpg/` | What DPG was, why it is archived (not deprecated), what the verification images show |
+| `archive/` | Date and rationale for restructure; logic delta (DPG vs. canonical-era); how to read archived files |
+| `archive/provisional_geometries/` | What provisional geometries were, why archived not deprecated, what verification images show, logic delta vs current findings |
 
 ---
 
 ## Execution Order
 
-0. **Pre-move grep sweep.** Before touching anything, confirm no hidden references:
+0. **Pre-move hash capture + grep sweep.**
    ```powershell
-   # All files referencing analysis/reports (catches .py, .md, .yaml, .sh)
-   grep -r "analysis.reports\|analysis/reports" --include="*.py" --include="*.md" --include="*.yaml" -l
-   # All files referencing the three defense docs being merged
+   # Capture current FROZEN_MANIFEST hash as pre-restructure baseline
+   python -c "import hashlib, json, pathlib; [print(p, hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()[:12]) for p in sorted(pathlib.Path('findings').rglob('*')) if pathlib.Path(p).is_file()]" > pre_restructure_hashes.txt
+   ```
+   *(Run after `findings/` exists, i.e. after Step 5 — or against `analysis/reports/` before the move.)*
+
+   Grep sweep — catches .py, .md, .yaml, .json:
+   ```powershell
+   grep -r "analysis.reports\|analysis/reports" --include="*.py" --include="*.md" --include="*.yaml" --include="*.json" -l
    grep -r "warrington_declination_defense\|test_apparatus_defense\|urban_weight_defense" -l
    ```
    Resolve any surprises before proceeding.
 
 1. Remove all identified files (`git rm`) — reduces index noise before renames
 2. Merge defense docs into `methodological_defenses.md`:
-   - Add named sections with anchors (see link-breakage table above)
-   - Update the 4 files with broken links before committing
+   - Add named sections with explicit anchors: `## Test Apparatus Defense {#test-apparatus-defense}` etc.
+   - Each merged section opens with a standard metadata block:
+     ```
+     **Status:** [Pre-registered date or "Post-hoc defense"]
+     **Target objection:** [one sentence — what criticism this answers]
+     **Key evidence:** [pointer to the primary supporting file or section]
+     ```
+   - Update all 4 files with broken links (report_academic.md ×5, README.md, null_hypothesis…, dependency_graph_build.py docstring)
    - Then `git rm` the 3 source files
 3. Create new directories (`preregistration/`, `archive/`, `analysis/methodology/provenance/`, `analysis/methodology/reference/`, `analysis/review/`)
 4. Tier 1 moves (`git mv`) — zero code deps
@@ -444,7 +466,20 @@ do not leave a directory without a README after restructuring it.
     python run_audit.py
     python analysis/scripts/build_pdf.py --dry-run
     ```
-13. Commit in one clean commit; delete `RESTRUCTURE_PLAN.md`
+    Note: `run_audit.py` has no `--path-check` flag (no dry-run mode). Add a `--path-check`
+    argument before execution day: loops over every `Path.open()` call and does `path.exists()`
+    only, no GeoPackage loading. This lets you catch missing paths in ~2 seconds instead of
+    waiting for the full 10-check suite to crash mid-run.
+
+13. Post-restructure hash comparison:
+    ```powershell
+    python -c "import hashlib, json, pathlib; [print(p, hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()[:12]) for p in sorted(pathlib.Path('findings').rglob('*')) if pathlib.Path(p).is_file()]" > post_restructure_hashes.txt
+    diff pre_restructure_hashes.txt post_restructure_hashes.txt
+    ```
+    Expected diff: file paths change (analysis/reports/ → findings/); hashes are identical.
+    Any hash change means a script wrote different output — investigate before committing.
+
+14. Commit in one clean commit; delete `RESTRUCTURE_PLAN.md`, `pre_restructure_hashes.txt`, `post_restructure_hashes.txt`
 
 ---
 

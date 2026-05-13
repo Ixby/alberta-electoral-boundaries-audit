@@ -374,13 +374,18 @@ tests/
 ## archive/
 
 Historical record. Files here are not deprecated — they document a real stage of the analysis.
+`README.md` records the date of restructure and a logic delta (how provisional-geometry-era
+values diverge from canonical-era findings, and by how much).
 
 ```
 archive/
+├── README.md                   Restructure date, rationale, logic delta for each archived era
 ├── consistency_audit.md        Phases 2-6 of sign-convention resolution (phase 1 is in
 │                               analysis/methodology/sign_convention_resolution.md)
-└── dpg/                        DPG-era artifacts — Derived Provisional Geometries (traced
-    │                           from PDF thumbnails before official shapefiles; 2026-05-06)
+└── provisional_geometries/     Derived Provisional Geometries (DPG) — boundary tracings
+    │                           made from PDF thumbnails before official EA shapefiles arrived
+    │                           (2026-05-06). Active analysis uses canonical/ exclusively.
+    ├── README.md               What DPG was; why archived; logic delta vs. current findings
     ├── analysis/
     │   ├── dpg_perturbation_consolidated.md   v1/v2/v3 perturbation CI analysis
     │   └── mcmc_100k_and_full_coverage.md     DPG-era 100k MCMC run + crosswalk methodology
