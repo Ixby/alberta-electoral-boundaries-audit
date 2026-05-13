@@ -148,8 +148,8 @@ jobs:
 
           ## Maintainer review checklist
 
-          - [ ] Review delta report at `analysis/reports/v0_1_official_recompute_deltas_*.md`
-          - [ ] Fill in the amendment stub at `analysis/reports/v0_1_pre_registration_amendment_*-official-shapefiles.md`
+          - [ ] Review delta report at `findings/v0_1_official_recompute_deltas_*.md`
+          - [ ] Fill in the amendment stub at `findings/v0_1_pre_registration_amendment_*-official-shapefiles.md`
           - [ ] Update `report_public.md` prose where headline numbers moved
           - [ ] Manually rebuild PDF: `python analysis/scripts/build_cover.py`
           - [ ] Verify shapefile hashes against Elections Alberta's published checksums

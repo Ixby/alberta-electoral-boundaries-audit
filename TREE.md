@@ -1,8 +1,6 @@
 # Repository Tree
 
-*Post-restructure target layout. `RESTRUCTURE_PLAN.md` has been approved but not yet executed.*
-*Current layout differs in: `analysis/red_team/`, `analysis/reports/`, `outputs/`, `dpg/` (pre-rename).*
-*After execution: delete `RESTRUCTURE_PLAN.md` and update this header.*
+*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B).*
 
 ---
 

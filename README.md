@@ -55,7 +55,7 @@ For detailed instructions on recreating the derived shapefiles or running the MC
 
 ## What the audit finds
 
-**Population equality (A1).** Mean absolute deviation from provincial quota: 3,180 persons (majority) vs 4,707 persons (minority) (provincial mean: 54,929; source: `analysis/reports/section_A_population_equality.md`). Both maps are legally compliant; the minority's higher variance is a property of drawing choices, not demographic geography.
+**Population equality (A1).** Mean absolute deviation from provincial quota: 3,180 persons (majority) vs 4,707 persons (minority) (provincial mean: 54,929; source: `findings/population_equality.md`). Both maps are legally compliant; the minority's higher variance is a property of drawing choices, not demographic geography.
 
 **Geographic-zone asymmetry (A2).** The minority map's northeast/central Calgary zone sits 11.5% above the provincial mean population (zone mean: 61,225; provincial mean: 54,929), exceeding the packing threshold (≥ +5% of provincial mean) anchored to the Act. The majority's equivalent zone sits 2.8% above average, inside the threshold. The threshold is derived from EBCA § 14, not from any partisan estimate.
 
@@ -85,9 +85,9 @@ The audit does not claim the minority map is a gerrymander in the intent sense. 
 
 Two policy recommendations attach to the audit findings.
 
-**Act §12 amendment.** Section 12 of the *Electoral Boundaries Commission Act* permits referral of commission recommendations to a legislative committee with no statutory minimum notice or public-comment period. The audit proposes amending §12 to require: a 90-day minimum public-comment period before any referral, paired population tables showing both the statutory 2021-census baseline and an advisory Treasury Board quarterly-estimate sensitivity analysis, and a written explanation for any substantive deviation from commission recommendations. The proposal is in `analysis/reports/act_amendment_proposal.md`.
+**Act §12 amendment.** Section 12 of the *Electoral Boundaries Commission Act* permits referral of commission recommendations to a legislative committee with no statutory minimum notice or public-comment period. The audit proposes amending §12 to require: a 90-day minimum public-comment period before any referral, paired population tables showing both the statutory 2021-census baseline and an advisory Treasury Board quarterly-estimate sensitivity analysis, and a written explanation for any substantive deviation from commission recommendations. The proposal is in `docs/act_amendment_proposal.md`.
 
-**AI-use discipline for the Lunty committee.** The Special Select Committee chaired by Brandon Lunty, MLA for Leduc-Beaumont, is due to report by November 2, 2026. If the committee uses AI tools in its work, the audit proposes seven disciplines: humans decide (not algorithms), every prompt is logged and published, evaluation criteria are registered before drafting begins, at least two independent tools are run in parallel, every boundary has a named human of record, every factual claim in AI-drafted text is human-verified, and the committee publishes a 9-item public disclosure checklist alongside the final map. The proposal is in `analysis/reports/ai_use_recommendations_for_committee.md` and summarised at §5.10 of the monograph.
+**AI-use discipline for the Lunty committee.** The Special Select Committee chaired by Brandon Lunty, MLA for Leduc-Beaumont, is due to report by November 2, 2026. If the committee uses AI tools in its work, the audit proposes seven disciplines: humans decide (not algorithms), every prompt is logged and published, evaluation criteria are registered before drafting begins, at least two independent tools are run in parallel, every boundary has a named human of record, every factual claim in AI-drafted text is human-verified, and the committee publishes a 9-item public disclosure checklist alongside the final map. The proposal is in `docs/ai_use_recommendations_for_committee.md` and summarised at §5.10 of the monograph.
 
 ---
 
@@ -184,7 +184,7 @@ The audit is most usefully challenged by people with expertise in electoral geog
 - **[analysis/methodology/methodological_defenses.md#test-apparatus-defense](analysis/methodology/methodological_defenses.md#test-apparatus-defense)** — Per-test criticism and response. Answers "are you making up metrics to have metrics?"
 - **[analysis/methodology/threshold_provenance.md](analysis/methodology/threshold_provenance.md)** — Every numeric threshold traced to a statutory source, a literature citation, or a first-principles derivation. 41 thresholds catalogued, including three Alberta-calibrated EG alternatives (jurisdiction-normed range 1.01 %–9.71 %).
 - **[analysis/methodology/audit_dependency_graph_readme.md](analysis/methodology/audit_dependency_graph_readme.md)** — The 234-node, 454-edge dependency graph: schema, worked examples, and the `--invalidate` query CLI.
-- **[analysis/reports/ai_use_recommendations_for_committee.md](analysis/reports/ai_use_recommendations_for_committee.md)** — AI-use recommendations for the Lunty committee: seven principles, technical guidance by task type, and a 9-item public disclosure checklist.
+- **[docs/ai_use_recommendations_for_committee.md](docs/ai_use_recommendations_for_committee.md)** — AI-use recommendations for the Lunty committee: seven principles, technical guidance by task type, and a 9-item public disclosure checklist.
 
 ---
 

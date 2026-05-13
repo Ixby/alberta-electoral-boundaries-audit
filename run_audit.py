@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-sys.path.insert(0, str(BASE / "analysis" / "scripts" / "utils"))
+sys.path.insert(0, str(BASE / "analysis" / "utils"))
 
 import data_loader
 
