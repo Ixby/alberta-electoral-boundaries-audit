@@ -1,7 +1,7 @@
 # Repository Tree
 
 *Complete annotated directory map. Updated 2026-05-12.*
-*Source of truth: `git ls-files` on commit f3cd32f. Gitignored paths are excluded.*
+*Source of truth: `git ls-files` on commit d1391bf. Gitignored paths are excluded.*
 
 ---
 
@@ -98,23 +98,29 @@ analysis/
 |   |-- v0_1_mcmc_*.log              MCMC run logs (1M, 250k, 2019-seeded, etc.)
 |   +-- ...
 |
-+-- scripts/                87 Python scripts — the executable analysis pipeline
++-- scripts/                95 Python scripts — the executable analysis pipeline
     |-- packing_cracking_analysis.py        B1–B6 partisan bias; symmetric, all three maps
     |-- electoral_forensics_population.py   A1/A2/A3 population equality tests
     |-- mcmc_ensemble_canonical.py          Canonical 1M ReCom neutral ensemble (4 chains × 252,500)
     |-- mcmc_ensemble.py                    MCMC core library (chain runner, constraint functions)
+    |-- mcmc_anchoring_ensemble.py          CSD edge-crossing anchoring ensemble (OSF s58a6; 10k plans)
     |-- szat.py                             Swing-Zone Allocation Test (Ch2)
     |-- joint_outlier_score_canonical.py    Mahalanobis D² joint outlier (Ch1)
-    |-- score_anchoring.py                  Municipal-boundary anchoring fractions
+    |-- score_anchoring.py                  Municipal-boundary anchoring fractions (§5.8.5)
     |-- simulation_convergence_diagnostics.py  ESS, rho_lag1, Gelman-Rubin per chain
     |-- build_pdf.py                        Pandoc-based public report PDF build
     |-- build_academic_pdf.py               Pandoc-based academic report PDF build
     |-- dependency_query.py                 DAG --invalidate query CLI
     |-- canonical_paths.py                  Map-path resolver; never hardcode shapefile paths
-    |-- check_voice_and_readability.py      Flesch-Kincaid readability check (run before commit)
     |-- claim_significance_analysis.py      MED-A plurality claim significance test
     |-- sentiment_intensity_score.py        LLM intensity scoring for public submissions
-    |-- quote_verify_and_clean.py           Submission quote verification pipeline
+    |-- quote_verify_and_clean.py           Submission quote verification + deduplication
+    |-- validation_sample.py               Stratified IRR validation sample (60 rows)
+    |-- compute_kappa.py                    Cohen's kappa for LLM vs human sentiment labels
+    |-- cross_reference_submitters.py       Rationale–submission alignment cross-reference
+    |-- attribution_sensitivity_check.py    VA vote-attribution sensitivity (partial vs full)
+    |-- build_cross_election_va.py          Cross-election VA-level vote table builder
+    |-- seats_at_50_50_regional.py          Regional seats@50/50 decomposition
     |-- monte_carlo_ci.py                   Monte Carlo confidence intervals for Stage 5 data
     |-- 338canada_reallocate.py             338Canada polling sensitivity (Track E)
     |-- generate_infographic_v3.py          Infographic generator (v3)
@@ -164,11 +170,25 @@ data/
 |   +-- chain3_samples.csv   252,500 rows — chain 3
 |   (columns: efficiency_gap, mean_median, declination, seats_at_50_50, chain, compactness proxies)
 |
-|-- outputs/                91 CSVs and 37 JSONs — all script-generated metrics
+|-- outputs/                99 CSVs and 45 JSONs — all script-generated metrics
 |   |-- simulation_real_map_scores_canonical.json     Per-map metric values (3 maps × 4 metrics)
 |   |-- simulated_ensemble_percentiles_canonical.csv  Per-map percentile placements against 1M ensemble
 |   |-- simulation_convergence_diagnostics_canonical.json  ESS, rho_lag1, Gelman-Rubin (4 chains)
 |   |-- sentiment_intensity_scores.csv                452 scored public submissions (LLM intensity)
+|   |-- csd_anchoring_ensemble.csv                    10,000-plan CSD edge-crossing ensemble (OSF s58a6)
+|   |-- csd_anchoring_results.json                    Anchoring percentile results — both maps p100
+|   |-- quotes_verified.csv                           827 verified sentiment quotes (submissions + Hansard)
+|   |-- quote_verification_summary.json               Quote pipeline summary statistics
+|   |-- irr_validation_sample.csv                     60-row stratified IRR sample (human annotation pending)
+|   |-- irr_sampling_report.json                      IRR sample stratification report
+|   |-- cross_reference_results.csv                   25-rationale submission cross-reference table
+|   |-- cross_reference_summary.json                  Cross-reference summary (CONTRA_COMMISSION counts)
+|   |-- attribution_sensitivity_check.json            va_ndp vs va_ndp_full sensitivity — minority stable 4/4
+|   |-- assignment_va_to_2026_canonical.csv           4,765 VA → 2026 ED canonical spatial join
+|   |-- assignment_2026_canonical_totals.csv          Per-ED population and vote totals (89 EDs × 2 maps)
+|   |-- 338canada_uniform_swing_seats.csv             77 historical polling snapshots × uniform swing seats
+|   |-- 338canada_crossover_table.csv                 NDP/UCP crossover conditions per snapshot
+|   |-- regional_swing_canonical.json                 Regional uniform-swing results (canonical VA)
 |   +-- ...                                           (remaining ~120 files: compactness, anchoring,
 |                                                      population, SZAT, drain, crosswalk metrics)
 |
