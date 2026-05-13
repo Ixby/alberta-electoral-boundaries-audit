@@ -115,6 +115,7 @@ All 5/5 clear as of 2026-05-10.
 - **Fisher Independence Check (Gate G1) DONE 2026-05-10** `data/szat_bootstrap_eg_samples.npy` generated; ρ = −0.0014 (PASS); hard stop cleared; CI test `test_fisher_channel_independence` now active.
 - **Fisher Combination Defense DONE** `analysis/methodology/fisher_combination_defense.md` written with AV1–AV8. Computed values: Fisher (2ch) p=8.71e-9, Fisher (3ch) p=1.57e-8, Stouffer p=2.29e-8, Cauchy p=3.20e-7. `fisher_independence_defense.md` trimmed.
 - **Ch1-COMP DONE 2026-05-10** Inter-map comparison permutation test. Pre-registered OSF yvc7g (2026-05-10), git ba0e686, drand seed 1823538405 (salt "ch1-comp"). Results: Version A (EG-only) p=0.0303; Version B (Mahalanobis joint) p=0.0001. Both significant. Inserted in §5.4 as Ch1-COMP paragraph.
+- **mcmc_anchoring_ensemble.py DONE 2026-05-12** CSD edge-crossing anchoring metric implemented (OSF s58a6 pending channel). Seed: 80780579 (drand round 6099592, salt "alberta-audit-anchoring-ensemble"). Metric: fraction of cut edges crossing a CSD boundary. Smoke test (30 steps, chain 0): ensemble mean 17.25%; real maps: majority 37.63%, minority 29.75% (both above null mean). Full 5,000-step/chain run pending.
 
 ---
 
@@ -124,6 +125,12 @@ All 5/5 clear as of 2026-05-10.
 - **Hansard R1 DONE 2026-05-10** 188/188 community turns classified.
 - **Hansard R2 DONE 2026-05-10** 209/209 community turns classified.
 - **§5.9.4.6 written + committed DONE 2026-05-10** Channel-divergence analysis, per-config tables, intensity-weighted ranking, partisan-sorting caveat. RMH-Banff and Red Deer flip from net-opposed (submissions) to net-supported (Hansard). Airdrie/Chestermere/Nolan-Hill consistently opposed both channels.
+- **quote_verify_and_clean.py DONE 2026-05-12** 100% verification rate: 482 VERIFIED, 26 NEAR_MATCH, 0 UNVERIFIED (508 quoted rows). Logic: NFKD → ASCII normalize, literal substring check, fallback SequenceMatcher ratio ≥ 0.85. Outputs: `data/outputs/quotes_verified.csv`, `data/outputs/quote_verification_summary.json`.
+- **validation_sample.py DONE 2026-05-12** 60-item stratified IRR sample across configuration × classification cells. Seed: 670497761 (drand round 6099592, salt "alberta-audit-irr-sample"). Output: `data/outputs/irr_validation_sample.csv` (human_label column blank — awaiting annotation).
+- **compute_kappa.py DONE 2026-05-12** Script complete. Implements Cohen's kappa with confusion matrix and per-class P/R/F1. Acceptable-for-publication threshold: kappa ≥ 0.60. Run after human fills `human_label` column.
+- **cross_reference_submitters.py DONE 2026-05-12** Majority-submission sentiment contradicts commission's claimed public support on 3 of 6 matched rationales: R1 Calgary-Nolan Hill-Cochrane (38 oppose / 12 support → CONTRA_COMMISSION), R3 Airdrie (38/12 → CONTRA_COMMISSION), R10 Red Deer (58/24 → CONTRA_COMMISSION). R2 Chestermere: ALIGNS_WITH_AUDIT. Outputs: `data/outputs/cross_reference_results.csv`, `data/outputs/cross_reference_summary.json`.
+- **attribution_sensitivity_check.py DONE 2026-05-12** Partial vs full vote coverage (va_ndp ~50% vs va_ndp_full ~89%). Minority map outlier status preserved 4/4 metrics under both variants. Majority mean-median shifts p0.92 → p5.78 (within null; direction unchanged). Full results: `analysis/methodology/attribution_sensitivity_robustness.md`. Academic report updated: corrections table line 1226, direction-of-travel footnote line 1296.
+- **monte_carlo_ci.py path fix DONE 2026-05-12** 2019 results CSV path corrected: `data/reference/alberta_2019_results.csv` (was missing two path levels and `reference/` subdir).
 
 ---
 

@@ -35,7 +35,7 @@ Items must complete before either report goes public.
 - **Decision rule:** each channel reported regardless of direction; any p<0.05 added to updated Fisher combination
 - **MAD — DONE and independently confirmed:** Canonical 1M: minority p99.0, majority p15.8. Section C independent seed (3562959107, 100k): minority p99.26, majority p16.58. ✓ Values match within sampling variation. §5.4.9 updated with independent-verification note.
 - **Reock — DONE and independently confirmed (null finding):** Both maps at p100 median compactness under both canonical and Section C seeds. No out-of-distribution signal in either run. Reported as null in §5.4.9. ✓
-- **Municipal anchoring — STILL PENDING:** Per-plan anchor-count not implemented in `mcmc_ensemble_canonical.py`. Section C executed without this channel. Requires separate implementation before this channel can be reported.
+- **Municipal anchoring — FULL RUN PENDING:** Run `python analysis/scripts/mcmc_anchoring_ensemble.py --n-steps 5000` (2 chains × 5,000 = 10,000 plans; ~10 min). Script complete (see COMPLETED_LOG.md for smoke-test results). Outputs: `data/outputs/csd_anchoring_ensemble.csv`, `data/outputs/csd_anchoring_results.json`.
 
 ### Option C threshold ensembles — **COMPLETE 2026-05-12**
 
@@ -54,7 +54,7 @@ Stage 3 superseded by official shapefiles. Stages 3–7 complete for canonical s
 - **Stage 4 DONE 2026-05-12** — Aggregated to CSV per 2026 ED. Output: `data/outputs/assignment_2026_canonical_totals.csv` (178 rows, 89 EDs × 2 maps).
 - **Stage 5 DONE** — C1 complete (canonical VA totals). Full-coverage (_full columns) totals also computed.
 - **Stage 6 DONE 2026-05-12** — `packing_cracking_analysis.py` ran successfully (stdout only; no output files). Results: EG majority −0.40%, minority −1.81%; asymmetry −1.41 pp.
-- **Stage 7 DONE 2026-05-12** — `monte_carlo_ci.py` ran main body. 95% CI minority−majority EG: [−2.74, +0.60] pp, CI crosses zero. 2019 cross-check skipped (alberta_2019_results.csv looked for in wrong directory — file is at data/reference/).
+- **Stage 7 DONE 2026-05-12** — `monte_carlo_ci.py` ran main body. 95% CI minority−majority EG: [−2.74, +0.60] pp, CI crosses zero. Path fix applied 2026-05-12: `data/reference/alberta_2019_results.csv` path corrected in script (was missing two path levels and `reference/` subdir).
 
 **⚠ OPEN ISSUE — vote attribution discrepancy:** The canonical spatial join with `va_ndp` gives majority 34/minority 29 NDP seats under 2023 actual votes; with `va_ndp_full` gives majority 38/minority 31; but `packing_cracking_analysis.py` (old crosswalk) gives 38/38 for both maps. The `va_ndp` values are ~50% coverage, `_full` ~89%, actual 2023 ~100%. Crosswalk method reconstructs 100% coverage from ED-level totals. Resolution needed before publishing seat-count figures from canonical assignment. See ISSUE: canonical-seat-attribution-reconciliation.
 
@@ -68,9 +68,8 @@ Stage 3 superseded by official shapefiles. Stages 3–7 complete for canonical s
 
 ## HIGH — Sentiment Analysis
 
-- **Intensity scoring COMPLETE** (452 deduped rows, haiku model, 2026-05-10): §5.9.4.6 weighted-net table updated.
-- **Remaining forensic pipeline:** `quote_verify_and_clean.py` → `validation_sample.py` → human review → `compute_kappa.py` → `cross_reference_submitters.py`
-- **Cross-reference:** Final results against `minority_rationales_validation.md` Proposals A–F
+- **IRR BLOCKED — human annotation required:** Fill `human_label` column in `data/outputs/irr_validation_sample.csv` (60 rows, stratified sample); then run `python analysis/scripts/compute_kappa.py`. Acceptable threshold: kappa ≥ 0.60. Forensic pipeline scripts (quote_verify, validation_sample, cross_reference) complete — see COMPLETED_LOG.md.
+- **§5.9 cross-reference integration** — cross_reference_submitters.py results available (R1/R3/R10 CONTRA_COMMISSION); pending integration into §5.9 after IRR gate clears.
 - **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/`
 
 ---
