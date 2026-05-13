@@ -46,7 +46,7 @@ alberta_audit/
 ├── reports/                ← "what we published"     [was: outputs/]
 ├── tests/                  ← "automated verification"
 └── archive/                ← "historical record"
-    └── dpg/
+    └── provisional_geometries/
 ```
 
 ---
@@ -221,7 +221,6 @@ handling, not test design.
 | `school_division_coherence.md` | unchanged |
 | `csd_community_splits.md` | unchanged |
 | `chen_rodden_alberta_validation.md` | unchanged |
-| `external_tool_validation_plan.md` | `external_tool_validation.md` |
 | `external_code_audit_brief.md` | `external_code_audit_scope.md` |
 | `minority_rationales_inventory.md` | unchanged |
 | `minority_rationales_validation.md` | unchanged |
@@ -230,7 +229,8 @@ handling, not test design.
 | `338canada_riding_level.md` | `polling_data_338canada_riding_level.md` |
 | `alberta_government_databases_survey.md` | unchanged |
 | `codex_citation_verification_findings.md` | `citation_verification.md` |
-| `changedetection_setup.md` | unchanged |
+
+*(Note: `changedetection_setup.md` and `external_tool_validation_plan.md` move to `docs/` — see Tier 2 below.)*
 
 **Remove from `analysis/methodology/`** (process/planning artifacts — 10 files confirmed to exist):
 
@@ -245,7 +245,7 @@ handling, not test design.
 - `composite_shapefiles_log.md`
 - `self_check_protocol.md`
 
-*(Note: `mcmc_100k_and_full_coverage.md` moves to `archive/dpg/` — see above. `pre_registration_platform_analysis.md` does not exist.)*
+*(Note: `mcmc_100k_and_full_coverage.md` moves to `archive/provisional_geometries/` — see above. `pre_registration_platform_analysis.md` does not exist.)*
 
 ---
 
@@ -323,7 +323,7 @@ Also update: `dependency_graph_build.py` — embeds `analysis/reports/` as strin
 | `neighbour_drain_analysis.md` | unchanged | script writes here |
 | `municipal_anchoring_analysis.md` | unchanged | script writes here |
 
-Move to `archive/dpg/` (DPG-era outputs that landed in analysis/reports/):
+Move to `archive/provisional_geometries/` (DPG-era outputs that landed in analysis/reports/):
 
 - `approximate_shape_analysis.md`
 - `build_v7_log.csv`
