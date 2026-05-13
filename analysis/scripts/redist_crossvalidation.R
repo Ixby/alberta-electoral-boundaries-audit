@@ -38,13 +38,13 @@ library(dplyr)
 # ----- Step A: Load the input data ----------------------------------
 # These are the same input files the Python pipeline uses.
 
-va <- st_read("data/shapefiles/derived/va_polygons_with_2023_votes.gpkg")
+va <- st_read("data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg")
 cat("Loaded", nrow(va), "voting areas\n")
 cat("Column names:", paste(names(va), collapse = ", "), "\n")
 
-# Sanity-check: total votes should be ~932,000 across the province
-total_ucp <- sum(va$va_ucp, na.rm = TRUE)
-total_ndp <- sum(va$va_ndp, na.rm = TRUE)
+# Sanity-check: _full columns give ~855k UCP / ~690k NDP (~89% coverage)
+total_ucp <- sum(va$va_ucp_full, na.rm = TRUE)
+total_ndp <- sum(va$va_ndp_full, na.rm = TRUE)
 cat("Total UCP votes:", total_ucp, "\n")
 cat("Total NDP votes:", total_ndp, "\n")
 cat("UCP share:", round(total_ucp / (total_ucp + total_ndp) * 100, 2), "%\n")
@@ -82,7 +82,8 @@ map <- redist_map(
 # placements should agree to within +/-0.5pp at this sample size.
 # Wall time on a 4-core laptop: ~30-45 minutes.
 
-set.seed(88)  # arbitrary seed; reproducibility within R is sufficient
+# Seed from Cloudflare drand round 6109470 via SHA-256("redist-crossvalidation-alberta-2026-r6109470:<randomness>")
+set.seed(852751799)
 # Notes on parameter choices:
 # - nsims = 5000: 10k previously collapsed to 3 unique plans during
 #   resampling at the late SMC iterations because of low resampling
@@ -113,14 +114,14 @@ ensemble <- redist_smc(
 # Note the +1e-9 epsilon (LOW finding from the Gemini code audit).
 
 ucp_share_per_district <- function(plan_assignment, va_data) {
-  ucp <- tapply(va_data$va_ucp, plan_assignment, sum)
-  ndp <- tapply(va_data$va_ndp, plan_assignment, sum)
+  ucp <- tapply(va_data$va_ucp_full, plan_assignment, sum)
+  ndp <- tapply(va_data$va_ndp_full, plan_assignment, sum)
   ucp / (ucp + ndp)
 }
 
 seats_at_50_50 <- function(plan_assignment, va_data) {
   shares <- ucp_share_per_district(plan_assignment, va_data)
-  global_share <- sum(va_data$va_ucp) / sum(va_data$va_ucp + va_data$va_ndp)
+  global_share <- sum(va_data$va_ucp_full) / sum(va_data$va_ucp_full + va_data$va_ndp_full)
   shift <- 0.5 - global_share
   shifted_shares <- pmin(pmax(shares + shift, 0), 1)
   mean(shifted_shares > 0.5 + 1e-9)

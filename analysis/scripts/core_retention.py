@@ -33,6 +33,12 @@ def compute_core_retention_by_area(
       - ``retention_of_old`` : intersection_area / old_area  (0–1)
       - ``makeup_of_new``    : intersection_area / new_area  (0–1)
     """
+    if old_eds.crs != new_eds.crs:
+        raise ValueError(
+            f"CRS mismatch: old_eds is {old_eds.crs}, new_eds is {new_eds.crs}. "
+            "Reproject both to the same projected CRS (EPSG:3400) before calling."
+        )
+
     old_with_area = old_eds[[old_col, "geometry"]].copy()
     old_with_area["_old_area"] = old_with_area.geometry.area
 
