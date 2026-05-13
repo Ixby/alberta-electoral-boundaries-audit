@@ -144,6 +144,25 @@ to subdirs (genuinely distinct content types). Remove ~30 process artifacts.
 as named sections — they are anticipated objections to methodology choices, which
 is exactly what that file is for. Do not keep them as standalone files.
 
+**Internal link breakage (grounded 2026-05-13):** The following files reference the
+three source docs with section-level pointers. All must be updated during merge:
+
+| File | Reference | Action |
+|---|---|---|
+| `outputs/academic_report/report_academic.md` (×5) | `test_apparatus_defense.md §2.5`, bare paths at lines 559, 694, 2393, 2396, 2397 | Update links; use `methodological_defenses.md#test-apparatus-defense` etc. |
+| `README.md` | `test_apparatus_defense.md` (hyperlink) | Update to `analysis/methodology/methodological_defenses.md#test-apparatus-defense` |
+| `analysis/methodology/null_hypothesis_and_exoneration_criteria.md` | `test_apparatus_defense.md §1.3` | Update to anchor in consolidated file |
+| `analysis/scripts/dependency_graph_build.py` | `test_apparatus_defense.md section 3` (docstring only) | Update docstring |
+
+**Merge requirement:** When writing each section into `methodological_defenses.md`,
+add a heading that produces the correct anchor, e.g.:
+
+```markdown
+## Test Apparatus Defense {#test-apparatus-defense}
+## Warrington Declination Defense {#warrington-declination-defense}
+## Urban Weight Defense {#urban-weight-defense}
+```
+
 `attribution_sensitivity_robustness.md` moves to `provenance/` — it is about data
 handling, not test design.
 
@@ -232,15 +251,33 @@ Rewrite `analysis/methodology/README.md` to serve as a navigation index for the 
 
 `git mv analysis/reports findings`
 
-Then in every affected script, replace the path constant:
+**Implementation approach: route through `config.yaml`, not a bulk string replace.**
+
+Rather than replacing the hardcoded path constant in 9 scripts, add a key to `config.yaml`
+and update `data_loader.py` to expose it. This means future directory renames require
+one edit in one file, not 9 script edits.
+
+```yaml
+# config.yaml — add under paths:
+paths:
+  findings_dir: findings    # was analysis/reports
+```
 
 ```python
+# data_loader.py — add accessor (alongside existing CONFIG dict):
+FINDINGS = ROOT / CONFIG["paths"]["findings_dir"]
+```
+
+```python
+# Each affected script — replace hardcoded constant:
 # Before
 REPORTS = ROOT / "analysis" / "reports"
 
 # After
-REPORTS = ROOT / "findings"
+from analysis.scripts.utils.data_loader import FINDINGS as REPORTS
 ```
+
+The `REPORTS` alias preserves all downstream references within each script unchanged.
 
 Affected scripts (9 total — grounded 2026-05-13):
 
@@ -372,22 +409,42 @@ do not leave a directory without a README after restructuring it.
 
 ## Execution Order
 
+0. **Pre-move grep sweep.** Before touching anything, confirm no hidden references:
+   ```powershell
+   # All files referencing analysis/reports (catches .py, .md, .yaml, .sh)
+   grep -r "analysis.reports\|analysis/reports" --include="*.py" --include="*.md" --include="*.yaml" -l
+   # All files referencing the three defense docs being merged
+   grep -r "warrington_declination_defense\|test_apparatus_defense\|urban_weight_defense" -l
+   ```
+   Resolve any surprises before proceeding.
+
 1. Remove all identified files (`git rm`) — reduces index noise before renames
-2. Merge defense docs into `methodological_defenses.md` (read each, add as named section, then `git rm` originals)
+2. Merge defense docs into `methodological_defenses.md`:
+   - Add named sections with anchors (see link-breakage table above)
+   - Update the 4 files with broken links before committing
+   - Then `git rm` the 3 source files
 3. Create new directories (`preregistration/`, `archive/`, `analysis/methodology/provenance/`, `analysis/methodology/reference/`, `analysis/review/`)
 4. Tier 1 moves (`git mv`) — zero code deps
 5. Tier 2 moves (`git mv analysis/reports findings`, `git mv outputs reports`)
-6. Script constant replacements (PowerShell replace across `analysis/scripts/`)
-7. Build script path updates (manual, 2–3 files)
+6. Add `findings_dir` key to `config.yaml`; add `FINDINGS` accessor to `data_loader.py`; update 9 scripts to import it
+7. Build script `SRC_MD` path fix (`build_pdf.py` and `build_academic_pdf.py`)
 8. Write READMEs for all 9 directories in the table above
-9. Update `TREE.md` to reflect final structure
-10. Run verification:
+9. Add OSF registration links and "Date Registered" headers to all 7 files in `preregistration/`
+10. Update root `README.md`: add note that `data/outputs/district_patterns/` is the machine-readable geographic record of packing/cracking/draining patterns (visualization code sunsetted; underlying spatial evidence preserved)
+11. Run broken-link check:
+    ```powershell
+    # Check all markdown cross-references resolve
+    markdown-link-check --quiet (Get-ChildItem -Recurse -Filter "*.md" | Select -ExpandProperty FullName)
+    # Or if not installed: grep for .md links and spot-check
+    grep -r "\](analysis/methodology/\|analysis/red_team/\|analysis/reports/" --include="*.md"
+    ```
+12. Run verification:
     ```
     python -m pytest tests/ -x -q
     python run_audit.py
     python analysis/scripts/build_pdf.py --dry-run
     ```
-11. Commit in one clean commit
+13. Commit in one clean commit; delete `RESTRUCTURE_PLAN.md`
 
 ---
 
