@@ -212,7 +212,10 @@ def run_anchoring_chain(
                 return False
         return True
 
-    _recom_method = partial(_bpt_global, allow_pair_reselection=True)
+    # max_attempts=1000: gerrychain default is 100000, which causes individual hard
+    # pairs to spin for ~50 s before ReselectException fires. At 1000 attempts
+    # (~0.5 s), pair reselection triggers quickly without affecting chain validity.
+    _recom_method = partial(_bpt_global, allow_pair_reselection=True, max_attempts=1000)
     proposal = partial(
         recom,
         pop_col="pop_2021",
