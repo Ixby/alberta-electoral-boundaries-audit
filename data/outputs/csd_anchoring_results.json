@@ -1,0 +1,22 @@
+{
+  "seed": 80780579,
+  "n_plans": 10000,
+  "n_chains": 2,
+  "n_steps_per_chain": 5000,
+  "ensemble_median": 0.17816197950453028,
+  "ensemble_p5": 0.16725112395632627,
+  "ensemble_p95": 0.18971951402147072,
+  "majority_2026": {
+    "csd_anchoring": 0.37630031659882407,
+    "percentile": 100.0,
+    "outlier": true
+  },
+  "minority_2026": {
+    "csd_anchoring": 0.2975171232876712,
+    "percentile": 100.0,
+    "outlier": true
+  },
+  "csd_crossing_edges": 2065,
+  "total_edges": 13385,
+  "n_vas_with_csd": 4765
+}

@@ -35,7 +35,7 @@ Items must complete before either report goes public.
 - **Decision rule:** each channel reported regardless of direction; any p<0.05 added to updated Fisher combination
 - **MAD — DONE and independently confirmed:** Canonical 1M: minority p99.0, majority p15.8. Section C independent seed (3562959107, 100k): minority p99.26, majority p16.58. ✓ Values match within sampling variation. §5.4.9 updated with independent-verification note.
 - **Reock — DONE and independently confirmed (null finding):** Both maps at p100 median compactness under both canonical and Section C seeds. No out-of-distribution signal in either run. Reported as null in §5.4.9. ✓
-- **Municipal anchoring — FULL RUN PENDING:** Run `python analysis/scripts/mcmc_anchoring_ensemble.py --n-steps 5000` (2 chains × 5,000 = 10,000 plans; ~10 min). Script complete (see COMPLETED_LOG.md for smoke-test results). Outputs: `data/outputs/csd_anchoring_ensemble.csv`, `data/outputs/csd_anchoring_results.json`.
+- **Municipal anchoring — DONE 2026-05-12:** Full 10,000-plan run complete (2 chains × 5,000 steps; seed 80780579). Results: majority p100, minority p100 — null finding on anomalous unanchoring; both maps more CSD-aligned than all neutral plans. §5.4.9 updated. See COMPLETED_LOG.md.
 
 ### Option C threshold ensembles — **COMPLETE 2026-05-12**
 
