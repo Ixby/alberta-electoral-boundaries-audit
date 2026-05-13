@@ -1,27 +1,24 @@
 # Repository Tree
 
-*Complete annotated directory map. Updated 2026-05-12.*
-*Reflects post-reorganisation layout. Gitignored paths excluded but documented at bottom.*
+*Annotated directory map. Updated 2026-05-12 to reflect post-reorganisation layout.*
+*Verified against `git ls-files` output. Gitignored paths documented at bottom.*
 
 ---
 
 ## Root
 
-Only files that tooling, GitHub, or entry-point convention requires at the top level.
-
 ```
 alberta_audit/
-├── CLAUDE.md                  Claude Code session bootstrap — architecture rules, grounding standard
 ├── CONTRIBUTING.md            PR workflow, coding standards, AI attribution policy
 ├── README.md                  Public-facing overview — findings, quickstart, citation
 ├── TODO.md                    Outstanding tasks — M1/M2/M3 milestones, blockers, deferred items
+├── TREE.md                    This file
 │
 ├── config.yaml                Master configuration — all shapefile paths, column renames, thresholds
 ├── pyproject.toml             Python project metadata and tool configuration (ruff, mypy)
 ├── requirements.txt           Pinned Python dependencies — gerrychain==0.3.2 is load-bearing
 │
 ├── run_audit.py               Shapefile integrity audit — 10 checks; run before any analysis
-├── run_chain1_recovery.py     MCMC chain 1 recovery helper
 └── run_master_qa.py           Full QA sweep — invokes all scripts in dependency order
 ```
 
@@ -29,14 +26,15 @@ alberta_audit/
 
 ## docs/
 
-Project documentation that is not itself a GitHub convention and does not need to live at root.
+Project-level documentation that does not need to live at root.
 
 ```
 docs/
 ├── COMPLETED_LOG.md           Finished-task log — every completed item with date and outcome
+├── FROZEN_MANIFEST.md         Canonical file manifest — hashes of every committed output
 ├── REPRODUCING.md             Step-by-step instructions to re-run every quantitative claim
-├── TREE.md                    This file — annotated directory map
-└── data_sources.md            Primary data sources with URLs, access dates, and licence information
+├── data_sources.md            Primary data sources with URLs, access dates, and licence information
+└── setup.md                   Environment setup notes (Python 3.11+, dependency pinning)
 ```
 
 ---
@@ -49,17 +47,6 @@ The analysis engine. Code, methodology docs, and all human-readable analytical o
 analysis/
 ├── __init__.py
 │
-├── automation/
-│   └── changedetection_setup.md    Instruction for ChangeDetection.io + GitHub Actions shapefile monitoring
-│
-├── logs/
-│   └── submission_search_log.md    Log from keyword-search pass over public submissions
-│
-├── meta/
-│   ├── FROZEN_MANIFEST.md          Canonical file manifest — hashes of every committed output
-│   ├── PRIVATE_FILES.md            Documents what is in private_workspace/ and why it is excluded
-│   └── setup.md                    Environment setup notes
-│
 ├── methodology/            ~70 .md files — analytical decisions, threshold derivations, provenance
 │   ├── README.md               Index of methodology documents
 │   ├── retraction_pathway.md   Named retraction conditions per finding
@@ -67,30 +54,28 @@ analysis/
 │   ├── threshold_provenance.md 41 numeric thresholds traced to statute or literature
 │   ├── test_apparatus_defense.md     Per-test criticism and response
 │   ├── methodological_defenses.md    Responses to anticipated objections
+│   ├── plain_language_defense.md     215-entry Q&A; §0 = six-objection quick reference
 │   ├── minority_rationales_validation.md    Scientific findings on Proposals A–F
 │   ├── minority_rationales_inventory.md     Exhaustive commission rationale inventory
 │   ├── canonical_shapefile_log.md    Per-finding delta log when DPG → official shapefiles changed values
 │   ├── canonical_shapefile_methodology.md   How official shapefiles were integrated
 │   ├── mcmc_ensemble.md              MCMC design — constraint choices, seed provenance
 │   ├── s15_2_reaudit.md              s.15(2) EBCA two-tier deviation reaudit
-│   ├── szat_proposal.md              SZAT pre-registration proposal
-│   ├── szat_prereg_draft.md          SZAT pre-registration draft submitted to OSF
+│   ├── szat_methodology.md           SZAT design, method, and AsPredicted pre-registration text
 │   ├── fisher_combination_defense.md Defense of Fisher's method for Ch1 + Ch2
 │   ├── fisher_independence_defense.md Independence argument for the two test channels
+│   ├── changedetection_setup.md      ChangeDetection.io + GitHub Actions shapefile monitoring
 │   ├── audit_dependency_graph.json   234-node, 454-edge DAG (machine-readable)
 │   ├── audit_dependency_graph.dot    Graphviz DOT source for the DAG
 │   ├── audit_dependency_graph_readme.md   DAG schema and --invalidate query usage
 │   ├── scripts_inventory.md          Maps all analysis scripts to findings
-│   └── ...                           (remaining ~54 docs: source-check logs, sensitivity analyses,
+│   └── ...                           (~54 more: source-check logs, sensitivity analyses,
 │                                      editorial passes, attribution trails)
 │
-├── ops/                    Operational scripts — gitignored
-├── tools/                  One-off build helpers — gitignored
-│
 ├── red_team/           ~26 .md files — red team reports, peer reviews, legal analysis
+│   ├── red_team_consolidated.md      Red team summary and verdict
 │   ├── red_team_assertions.md        Full assertion inventory
 │   ├── red_team_code_fixes.md        Deferred HIGH/MEDIUM code-level findings
-│   ├── red_team_conclusions.md       Red team summary and verdict
 │   ├── red_team_latent_bias.md       Latent-bias analysis of the analytical framework
 │   ├── science_red_team_*.md         Science red team reports
 │   ├── legal_red_team_*.md           Legal red team reports
@@ -98,25 +83,27 @@ analysis/
 │   └── external_code_audit_findings_gemini_2026-04-26.md
 │
 ├── reports/            ~70+ data and .md files — per-finding results and logs
-│   ├── act_amendment_proposal.md         Proposed EBCA §12 amendment text
+│   ├── pre_registration_amendment_log.md     Consolidated pre-registration amendment record
+│   │                                          (4 dated amendments, 2026-04-23 through 2026-04-27)
+│   ├── act_amendment_proposal.md             Proposed EBCA §12 amendment text
 │   ├── ai_use_recommendations_for_committee.md   7 AI-use principles for the Lunty committee
-│   ├── joint_outlier_score.json          Mahalanobis D² joint outlier result (Ch1) — canonical
-│   ├── szat_summary.json                 SZAT bootstrap summary — canonical
-│   ├── szat_summary_full_votes.json      SZAT full-vote sensitivity run
-│   ├── szat_2019_baseline.json           SZAT 2019 baseline
+│   ├── joint_outlier_score.json              Mahalanobis D² joint outlier result (Ch1) — canonical
+│   ├── szat_summary.json                     SZAT bootstrap summary — canonical
+│   ├── szat_summary_full_votes.json          SZAT full-vote sensitivity run
+│   ├── szat_2019_baseline.json               SZAT 2019 baseline
 │   ├── intermap_permutation_test_results.json   Ch1-COMP inter-map permutation test
-│   ├── neighbour_drain_analysis.md       Ch3 neighbour-drain test (pre-registered pass)
-│   ├── municipal_anchoring_analysis.md   §5.8.5 anchoring (retracted on canonical geometry)
-│   ├── da_anchoring_analysis.md          DA-level anchoring secondary check
-│   ├── sensitivity_report.md             Multi-parameter sensitivity analysis
-│   ├── cross_election_robustness.md      Cross-election EG robustness
-│   ├── methods_paper_draft.md            Draft standalone methods paper
+│   ├── neighbour_drain_analysis.md           Ch3 neighbour-drain test (pre-registered pass)
+│   ├── municipal_anchoring_analysis.md       §5.8.5 anchoring (retracted on canonical geometry)
+│   ├── da_anchoring_analysis.md              DA-level anchoring secondary check
+│   ├── sensitivity_report.md                 Multi-parameter sensitivity analysis
+│   ├── cross_election_robustness.md          Cross-election EG robustness
+│   ├── methods_paper_draft.md                Draft standalone methods paper
 │   └── ...
 │
-└── scripts/            95 Python scripts — the executable analysis pipeline
+└── scripts/            ~95 Python scripts — the executable analysis pipeline
     ├── packing_cracking_analysis.py        B1–B6 partisan bias; symmetric, all three maps
     ├── electoral_forensics_population.py   A1/A2/A3 population equality tests
-    ├── mcmc_ensemble_canonical.py          Canonical 1M ReCom neutral ensemble (4 chains × 252,500)
+    ├── mcmc_ensemble_canonical.py          Canonical 1,010,000-plan ReCom neutral ensemble
     ├── mcmc_ensemble.py                    MCMC core library (chain runner, constraint functions)
     ├── mcmc_anchoring_ensemble.py          CSD edge-crossing anchoring ensemble (OSF s58a6; 10k plans)
     ├── szat.py                             Swing-Zone Allocation Test (Ch2)
@@ -130,14 +117,10 @@ analysis/
     ├── quote_verify_and_clean.py           Submission quote verification + deduplication
     ├── validation_sample.py                Stratified IRR validation sample (60 rows)
     ├── compute_kappa.py                    Cohen's kappa for LLM vs human sentiment labels
-    ├── cross_reference_submitters.py       Rationale–submission cross-reference
-    ├── attribution_sensitivity_check.py    VA vote-attribution sensitivity (partial vs full)
-    ├── build_cross_election_va.py          Cross-election VA-level vote table builder
-    ├── seats_at_50_50_regional.py          Regional seats@50/50 decomposition
     ├── utils/
     │   ├── data_loader.py                  config.yaml reader — all path resolution goes here
     │   └── ...
-    └── ...                                 (~65 more: compactness, topological alignment, SZAT,
+    └── ...                                 (~70 more: compactness, topological alignment, SZAT,
                                              cross-election, submission search, VA assignment, builds)
 ```
 
@@ -160,14 +143,10 @@ data/
 │   ├── simulated_ensemble_percentiles_threshold_2015.csv
 │   ├── simulated_ensemble_percentiles_threshold_2019.csv
 │   ├── simulation_real_map_scores_canonical.json           Per-map metric values (3 maps × 4 metrics)
-│   ├── simulation_real_map_scores_section_c.json
-│   ├── simulation_real_map_scores_threshold_2015.json
-│   ├── simulation_real_map_scores_threshold_2019.json
+│   ├── simulation_real_map_scores_{section_c,threshold_2015,threshold_2019}.json
 │   ├── simulation_convergence_diagnostics_canonical.json   ESS, rho_lag1, Gelman-Rubin (4 chains)
 │   ├── simulation_convergence_diagnostics_per_chain.json
-│   ├── simulation_convergence_diagnostics_section_c.json
-│   ├── simulation_convergence_diagnostics_threshold_2015.json
-│   ├── simulation_convergence_diagnostics_threshold_2019.json
+│   ├── simulation_convergence_diagnostics_{section_c,threshold_2015,threshold_2019}.json
 │   ├── drain_label_shuffle_null.json                       Ch3 label-shuffle null result
 │   ├── neighbour_drain_summary.json                        Neighbour-drain aggregate stats
 │   ├── submission_search_dataset.csv                       614 public submissions with metadata
@@ -175,11 +154,11 @@ data/
 │   ├── szat_bootstrap_eg_samples.npy                       SZAT bootstrap samples (numpy binary)
 │   └── va_pop_from_das.csv                                 VA-level 2021 population from DA crosswalk
 │
-├── logs/                       Run logs from long-running scripts
-│   ├── mcmc_canonical_1m_run.log
-│   ├── mcmc_canonical_run.log
-│   ├── mcmc_canonical_run2.log
-│   └── szat_rerun.log
+├── logs/                       Run logs from long-running canonical-era scripts (4 files)
+│   ├── isr_run1.log
+│   ├── mcmc_100k_post_audit_rerun.log
+│   ├── python_compactness_run.log
+│   └── redist_crossvalidation_run.log
 │
 ├── meta/                       Provenance, integrity, and documentation (not read by scripts)
 │   ├── data_acquisition_manifest.md    Sources, download dates, checksums for all input data
@@ -206,7 +185,7 @@ data/
 │       ├── alberta_2021_das.gpkg        2021 Dissemination Area boundaries
 │       └── alberta_2023_vas/            2023 Voting Area boundaries
 │
-├── simulation_checkpoints_canonical/   1M canonical MCMC ensemble (Git LFS, ~1 GB)
+├── simulation_checkpoints_canonical/   1,010,000-plan canonical MCMC ensemble (Git LFS, ~1 GB)
 │   ├── chain0_samples.csv  252,500 rows
 │   ├── chain1_samples.csv
 │   ├── chain2_samples.csv
@@ -216,27 +195,16 @@ data/
 ├── simulation_checkpoints_threshold_2015/
 ├── simulation_checkpoints_threshold_2019/
 │
-├── outputs/                99 CSVs + 45 JSONs — all script-generated metrics
+├── outputs/                ~150 CSVs + JSONs — all script-generated metrics
 │   ├── csd_anchoring_ensemble.csv                    10,000-plan CSD edge-crossing ensemble (s58a6)
 │   ├── csd_anchoring_results.json                    Anchoring percentile results — both maps p100
-│   ├── rhat_diagnostic_section_b.json                R-hat + ESS per metric (s58a6-B)
 │   ├── szat_robustness_section_a.json                SZAT 10-seed robustness range (s58a6-A)
 │   ├── sentiment_intensity_scores.csv                452 LLM-scored intensity rows (deduped)
 │   ├── quotes_verified.csv                           827 verified quotes (submissions + Hansard)
-│   ├── quote_verification_summary.json               Quote pipeline summary
 │   ├── irr_validation_sample.csv                     60-row IRR sample (human annotation pending)
-│   ├── irr_sampling_report.json                      IRR sample stratification report
-│   ├── cross_reference_results.csv                   25-rationale submission cross-reference
-│   ├── cross_reference_summary.json                  Cross-reference summary (CONTRA_COMMISSION counts)
-│   ├── attribution_sensitivity_check.json            VA vote-attribution sensitivity
 │   ├── assignment_va_to_2026_canonical.csv           4,765 VA → 2026 ED canonical spatial join
-│   ├── assignment_2026_canonical_totals.csv          Per-ED population + vote totals
-│   ├── 338canada_uniform_swing_seats.csv             77 polling snapshots × uniform swing
-│   ├── 338canada_crossover_table.csv                 NDP/UCP crossover conditions per snapshot
-│   ├── regional_swing_canonical.json                 Regional uniform-swing (canonical VA)
-│   ├── final_percentile_placement.json               DPG-era per-metric percentiles (v0_8/v0_9; superseded)
-│   ├── final_real_map_scores.json                    DPG-era real-map metric values (superseded)
-│   └── ...                                           (~120 more: compactness, anchoring, population,
+│   ├── cross_reference_results.csv                   25-rationale submission cross-reference
+│   └── ...                                           (~140 more: compactness, anchoring, population,
 │                                                      SZAT, drain, crosswalk, cross-election metrics)
 │
 ├── maps/
@@ -252,6 +220,26 @@ data/
 
 ---
 
+## dpg/
+
+DPG-era artifacts archived here. DPG = Derived Provisional Geometries — boundary tracings
+made from PDF thumbnails before Elections Alberta released official shapefiles (2026-05-06).
+These files are a historical record; no active analysis uses them.
+
+```
+dpg/
+├── analysis/
+│   └── dpg_perturbation_consolidated.md   v1 / v2 / v3 perturbation CI analysis (consolidated)
+│                                           Upper-bound (v1, ±500m) + tier-aware (v2/v3) layers
+├── logs/                      29 DPG-era run logs — perfecter runs 1–9, MCMC runs, burst tests
+├── outputs/
+│   ├── dpg_perturbation_samples_v3_tight.csv
+│   └── dpg_perturbation_summary_v3_tight.json
+└── verification/              106 DPG-era QA map snapshots (PNG)
+```
+
+---
+
 ## outputs/
 
 Published report artefacts. PDFs are the deliverable; Markdown is the source of truth.
@@ -260,25 +248,12 @@ Published report artefacts. PDFs are the deliverable; Markdown is the source of 
 outputs/
 ├── academic_report/
 │   ├── report_academic.md      Full technical monograph — do not hand-edit numbers
-│   ├── data_supplement.md      Peer-review navigation aid (generated 2026-05-12)
+│   ├── data_supplement.md      Peer-review navigation aid
 │   └── report_academic.pdf     Compiled PDF (rebuilt via build_academic_pdf.py)
 ├── public_report/
 │   ├── report_public.md        Grade-9 reading level summary for general audience
 │   └── report_public.pdf       Compiled PDF (rebuilt via build_pdf.py)
-└── assets/                     Gitignored — infographic PNGs in supplemental zip
-```
-
----
-
-## maps/
-
-Phase-space plots generated by `neighbour_drain_adjacency.py`. Written to exact paths — do not move.
-
-```
-maps/
-├── neighbour_drain_phase_space_2019.png/.svg
-├── neighbour_drain_phase_space_majority.png/.svg
-└── neighbour_drain_phase_space_minority.png/.svg
+└── assets/                     Infographic PNGs (gitignored — in supplemental zip)
 ```
 
 ---
@@ -309,43 +284,6 @@ tests/
 
 Vite + React + TypeScript web app for interactive map and methodology visualization.
 `node_modules/` and `dist/` are gitignored; distribute built app in supplemental zip.
-
----
-
-## archive/
-
-```
-archive/
-├── alberta_audit_graphs.zip      Historical graph exports
-└── historical_deprecated.zip     Deprecated DPG-era outputs (retained for audit trail)
-```
-
----
-
-## private_workspace/
-
-Gitignored in entirety. Organised into subfolders as of 2026-05-12.
-
-```
-private_workspace/
-├── key.env                       API credentials — never commit
-├── analysis_plans/
-│   └── SENTIMENT_ANALYSIS_PLAN.md
-├── code_quality/
-│   ├── PATTERNS_AUDIT.md
-│   └── REVIEW_LOG.md
-├── emails/
-│   ├── canadian_academic/        Loewen (07), Lucas (09), Thomas (10)
-│   ├── media/                    Hasen (03)
-│   ├── methodology/              Duchin (01), Chen (08)
-│   └── mru_group/                Nguyen + Moorman (06)
-├── milestones/
-│   └── M3_LUNTY_RELEASE.md       Phase 2 trigger — Lunty 91-seat map (Nov 2, 2026)
-└── session_context/
-    ├── AI_ONBOARDING.md
-    ├── entities.json
-    └── mempalace.yaml
-```
 
 ---
 
@@ -393,11 +331,11 @@ outputs/academic_report/report_academic.md
 
 | When you change… | Also update… |
 |---|---|
-| Any script output CSV/JSON | `analysis/meta/FROZEN_MANIFEST.md` (hash) |
+| Any script output CSV/JSON | `docs/FROZEN_MANIFEST.md` (hash) |
 | Any report finding | `analysis/methodology/retraction_pathway.md` |
 | Any percentile / p-value | `report_academic.md` → `README.md` |
 | `config.yaml` | Run `run_audit.py` to verify nothing breaks |
-| Any pre-registration amendment | `analysis/reports/pre_registration_amendment_*.md` |
+| Pre-registration methodology | `analysis/reports/pre_registration_amendment_log.md` |
 | MCMC checkpoints | `data/simulation_convergence_diagnostics_canonical.json` |
 
 ---
@@ -411,8 +349,8 @@ outputs/academic_report/report_academic.md
 | `analysis/tools/` | One-off build helpers | Never commit |
 | `interactive_proofs/node_modules/` | npm deps | Regenerate: `npm install` |
 | `interactive_proofs/dist/` | Built app | Supplemental zip |
-| `data/maps/verification/` | QA workflow snapshots | Supplemental zip |
 | `data/simulation_checkpoints_*/` (non-chain*.csv) | MCMC chunk files | chain*.csv tracked via LFS |
 | `outputs/assets/` | Draft infographic PNGs | Supplemental zip |
 | `data/outputs/checkpoints/` | Intermediate checkpoints | Local only |
+| `CLAUDE.md` | AI session bootstrap | Never commit |
 | `*.bak` | Backup files | Local only |
