@@ -1730,11 +1730,17 @@ The audit does not assert either explanation as established. The finding is: two
 
 ##### 5.9.4.7 Rationale–submission alignment cross-reference
 
-A follow-on analysis connects the combined sentiment corpus (§5.9.4.6) to the minority commission's specific published rationales for contested boundary decisions. The minority's rationales (n = 25, recorded in `data/outputs/minority_rationales.csv`) were cross-referenced against the seven configurations in the combined corpus (written submissions + Hansard rounds 1 and 2; 827 total classified rows across all three channels). Six rationales could be matched to a sentiment configuration; the remaining 19 cover Edmonton-area, rural, and procedural rationales for which no configuration sentiment data are available.
+This section maps the combined sentiment corpus (§5.9.4.6) to the minority's published rationales. Of 25 rationales recorded in `data/outputs/minority_rationales.csv`, six could be matched to a sentiment configuration. The other 19 cover Edmonton-area, rural, and procedural rationales for which no submission configuration data exist.
 
-**Method.** For each matched rationale, rows for the relevant configuration were counted by classification. The taking-sides percentages below exclude Neutral/Contextual rows, expressing the split among participants who registered a clear position. A rationale is classified CONTRA_COMMISSION when the dominant submission direction contradicts a rationale the commission assessed as "SUPPORTS" or "PARTIALLY SUPPORTS"; ALIGNS_WITH_AUDIT when the dominant direction is consistent with the audit's skeptical verdict; and CONTRA_AUDIT when the dominant direction contradicts the audit's negative finding. Classifications rest on the same LLM pipeline as §5.9.4.6; human inter-rater reliability scoring on a stratified 60-item sample is pending and will be incorporated when results are available.
+**Method.** For each matched rationale, rows were counted by classification (Active Opposition / Active Support / Neutral/Contextual). Taking-sides percentages exclude Neutral/Contextual rows. Three alignment labels are used:
 
-| Rationale | Configuration | Audit verdict on rationale | Opposing (of taking-sides) | Supporting | Alignment |
+- **CONTRA_COMMISSION** — the commission claimed "SUPPORTS" or "PARTIALLY SUPPORTS" for this rationale, but the combined record is majority-opposing.
+- **ALIGNS_WITH_AUDIT** — the commission's own verdict was skeptical (INCONCLUSIVE or FAIL), and the submission record is also majority-opposing.
+- **CONTRA_AUDIT** — the audit flagged a test failure, but the submission record leans toward support.
+
+All counts use the same LLM classifications as §5.9.4.6. Human inter-rater reliability scoring on a 60-item sample is pending.
+
+| Rationale | Configuration | Audit verdict | Opposing | Supporting | Alignment |
 |---|---|---|---|---|---|
 | R1 | Calgary-Nolan Hill-Cochrane | PARTIALLY SUPPORTS | 38 / 50 (76%) | 12 / 50 (24%) | CONTRA_COMMISSION |
 | R2 | Calgary-Peigan-Chestermere | INCONCLUSIVE / LEANS CONTRADICTS | 31 / 39 (80%) | 8 / 39 (20%) | ALIGNS_WITH_AUDIT |
@@ -1743,13 +1749,14 @@ A follow-on analysis connects the combined sentiment corpus (§5.9.4.6) to the m
 | R12 | Rocky Mountain House-Banff Park | PARTIALLY SUPPORTS (hist.); CLOSED-FAIL (area) | 81 / 156 (52%) | 75 / 156 (48%) | ALIGNS_WITH_AUDIT |
 | R13 | Olds-Three Hills-Didsbury | PARTIALLY SUPPORTS; CLOSED-FAIL (Airdrie slice) | 12 / 27 (44%) | 15 / 27 (56%) | CONTRA_AUDIT |
 
-*"Taking-sides" = Active Opposition + Active Support only; Neutral/Contextual rows excluded from denominator. Combined corpus: written submissions (full_corpus) + Hansard r1 + Hansard r2. Row counts: R1 = 98, R2 = 64, R3 = 116, R10 = 173, R12 = 216, R13 = 66.*
+*Fractions are taking-sides only. Combined corpus: written submissions + Hansard r1 + Hansard r2. Total rows per rationale: R1 = 98, R2 = 64, R3 = 116, R10 = 173, R12 = 216, R13 = 66.*
 
-**Findings.** Of the six matched rationales, three (R1, R3, R10) are CONTRA_COMMISSION: the commission cited community of interest or public-support grounds for these configurations, but the combined consultation record runs 71–76% opposing among those taking sides. Two (R2, R12) are ALIGNS_WITH_AUDIT: the commission's own verdict was uncertain or test-failing, and the submission record is also majority-opposing or near-balanced. One (R13) is CONTRA_AUDIT: the audit flagged a geometric test failure on the Airdrie slice of this configuration, but the submission record leans 56% toward support. No ALIGNS_WITH_COMMISSION findings were observed.
+**Findings.** Three rationales (R1, R3, R10) are CONTRA_COMMISSION: the commission cited community-of-interest or public-support grounds, but the combined record runs 71–76% opposing among those who took a position. Two (R2, R12) are ALIGNS_WITH_AUDIT: the commission's own verdict was uncertain or test-failing, and submissions are also majority-opposing or near-split. One (R13) is CONTRA_AUDIT: the audit flagged a geometric failure on the Airdrie slice, but submissions lean 56% toward support. No ALIGNS_WITH_COMMISSION findings were observed.
 
-**Channel-divergence note for R12.** The 52 / 48 split on RMH–Banff Park in the combined corpus masks the channel divergence documented in §5.9.4.6: written submissions are 54% opposing, while Hansard in-person testimony is net-supportive (34% support, 22% oppose in r1). A commission weighting in-person testimony more heavily — which is standard practice in quasi-judicial administrative proceedings — would have received a materially different impression of public sentiment on this configuration. No comparable channel divergence exists for R1, R3, or R10: all three are majority-opposing in both written and Hansard channels.
+**Channel-divergence note for R12.** The 52 / 48 combined split on RMH–Banff Park masks the divergence from §5.9.4.6: written submissions are 54% opposing, while Hansard in-person testimony is net-supportive. A commission weighting in-person testimony more heavily would have seen a different picture. No such divergence exists for R1, R3, or R10, which are majority-opposing in both channels.
 
-**Interpretation.** CONTRA_COMMISSION findings do not, by themselves, establish that the commission acted improperly. A commission may lawfully rely on evidence beyond the archived record, including site visits and materials not retained in the public transcript. The finding establishes that the archived consultation record — the publicly verifiable evidence base — does not corroborate the commission's cited public endorsement on three of four configurations where such endorsement was claimed. Practitioners and courts evaluating the rationale-failure finding (§5.9.6) may weigh this as corroborating context rather than as independent proof.
+**Interpretation.** CONTRA_COMMISSION findings do not prove improper conduct. A commission may rely on evidence beyond the archived record. The finding is that the publicly verifiable consultation record does not corroborate the commission's claimed public endorsement on three of four configurations where such endorsement was asserted.
+
 
 #### 5.9.5 Constitutional backdrop
 
