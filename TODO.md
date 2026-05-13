@@ -1,7 +1,7 @@
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-12
+**Last updated:** 2026-05-13
 **Completed work:** see `COMPLETED_LOG.md`
 
 ---
@@ -175,14 +175,16 @@ Current §5.8.4 notes Enoch Cree Nation (Reserve 135) PP=0.065 and Tsuut'ina com
 
 ## MEDIUM — Restructure / Hygiene
 
-### analysis/ Directory Restructure
+### Repository Restructure
 
-Three-phase execution (PO-approved 2026-04-23). Awaiting execution trigger from PO.
+Full plan: **`RESTRUCTURE_PLAN.md`** at repo root. Grounded 2026-05-13. Awaiting execution trigger from PO.
 
-- **Phase A (2–3 h):** 12 zero-reference files — move to correct directories; validate imports
-- **Phase B (6–8 h):** ~45 files with 1–2 references — move in batches; grep-replace cross-references after each
-- **Phase C (8–10 h):** 15 high-risk files with 3+ references
-- **Phase D (2–3 h):** Verification — ast.parse all moved .py; grep for stale paths
+**Summary of scope:**
+- Tier 1 (no code changes): create `preregistration/`, `archive/dpg/`, `analysis/review/` (from `red_team/`), `analysis/methodology/provenance/` and `reference/` subdirs; 7 preregistration files move; ~35 renames across methodology + review + findings
+- Tier 2 (script path updates): `analysis/reports/` → `findings/` (9 scripts + `dependency_graph_build.py`); `outputs/` → `reports/` (build scripts need `SRC_MD` path fix — pre-existing bug fixed in same pass)
+- Data-loss guards: 3 files rescued from delete lists (see RESTRUCTURE_PLAN.md)
+- Execution order: 11 steps; ends with `pytest tests/ -x -q && python run_audit.py && python analysis/scripts/build_pdf.py --dry-run`
+- Time estimate: 4–6 h for full execution + verification
 
 ### Remediation Hygiene Track (Phases 3–5)
 
