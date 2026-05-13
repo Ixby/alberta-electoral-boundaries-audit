@@ -1223,7 +1223,7 @@ Outputs: `analysis/scripts/targeted_gerrymander_burst.py` (short-bursts implemen
 | **2026 minority** | **declination** | **−0.0770** | **1.21** ⚠ | was 1.03, unchanged |
 | 2026 minority | efficiency gap | +0.0402 | 94.4 | was 94.2 — below p95, flag remains withdrawn |
 | **2026 minority** | **population MAD** | **3,938** | **99.0** ⚠ | was 98.7, unchanged |
-| 2026 majority | mean-median | −0.0362 | 0.92 ⚠ | was 0.85 — NDP-tail outlier |
+| 2026 majority | mean-median | −0.0362 | 0.92 ⚠ | was 0.85 — NDP-tail outlier (partial-attribution basis; shifts to p5.78 under full-attribution variant — within null but NDP-favourable direction unchanged; no effect on any minority-map headline) |
 | 2026 majority | seats@50/50 | 0.4607 | 77.8 | was 78.6 |
 | 2026 majority | efficiency gap | +0.0010 | 15.5 | was 15.0 |
 | 2026 majority | declination | +0.0267 | 79.6 | was 80.6 |
@@ -1293,7 +1293,7 @@ The 2019 enacted map scored against the canonical 1M ensemble provides a third r
 | Seats@50/50 | 0.4598 (p77.8) | 0.4607 (p77.8) | 0.5169 (p99.99) |
 | Mahalanobis D² (joint) | 12.75 (p=0.013) | 7.85 (p=0.097) | 32.67 (p=1.40×10⁻⁶) |
 
-*Exploratory (not pre-registered). Source: `data/outputs/score_2019_baseline.json` (Mahalanobis), `data/simulated_ensemble_raw_samples_canonical.csv` (per-metric, 1M run). D² values computed from 1M covariance matrix; see `analysis/reports/joint_outlier_score.json`.*
+*Exploratory (not pre-registered). Source: `data/outputs/score_2019_baseline.json` (Mahalanobis), `data/simulated_ensemble_raw_samples_canonical.csv` (per-metric, 1M run). D² values computed from 1M covariance matrix; see `analysis/reports/joint_outlier_score.json`. Attribution note: all percentile values in this table use partial-coverage VA data (va_ndp; ~50% of actual votes), consistent with the canonical ensemble. Under full-coverage attribution (va_ndp_full; ~89%), minority-map outlier status is preserved on 4/4 metrics; majority mean-median shifts from p0.92 to p5.78 (within null, direction unchanged). See `analysis/methodology/attribution_sensitivity_robustness.md`.*
 
 **Mahalanobis joint-tail finding.** The 2019 enacted map is itself a mild joint-space outlier: D² = 12.75, empirical p = 0.013 (1.3% of the 1M ensemble has higher D²). The majority 2026 map reduces this distance to D² = 7.85 (p = 0.097) — well within the neutral null. The minority 2026 map amplifies it to D² = 32.67 (p = 1.40×10⁻⁶ under the 1M ensemble). The joint distance from 2019 to the neutral null is thus: majority *retreated toward neutral*, minority *advanced toward a more extreme position*. The 2019 baseline was not itself a clean neutral starting point; what the two commissions chose to do with it differs fundamentally.
 
