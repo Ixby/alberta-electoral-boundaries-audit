@@ -139,7 +139,7 @@ Substituting Plan B (mid-2025 estimates) for Plan A (2021 census) in the provinc
 
 ### 7.2 Effects on the justification-tests findings
 
-See `analysis/reports/justification_tests_findings.md` for the five FAIL / PASS verdicts on contested-district justifications. Track L does not independently re-run those tests. Track K's contested-configuration re-run is the authoritative cross-check; this document notes only the direction of effect:
+See `findings/justification_tests_findings.md` for the five FAIL / PASS verdicts on contested-district justifications. Track L does not independently re-run those tests. Track K's contested-configuration re-run is the authoritative cross-check; this document notes only the direction of effect:
 
 - **Test 1 — Olds-Three Hills-Didsbury Airdrie slice.** The rural catchment (currently 43,691 under 2021 census, −20.5% from 54,929 mean) would be roughly 45,500 under Plan B (~−17% from the updated 67,409 ±25% lower bound of 50,557, i.e., still above the floor). **Plan B does not rescue the minority's justification; the FAIL verdict stands.**
 - **Test 2 — Rocky Mountain House-Banff Park NP extension.** Plan B does not change the area criterion and does not rescue the population deficit. **Plan B FAIL stands.**

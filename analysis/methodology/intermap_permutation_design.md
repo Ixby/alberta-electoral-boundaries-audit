@@ -10,7 +10,7 @@ methodology, pre-registration chain, results, and anticipated reviewer objection
 V-B p = 0.0001.
 
 **Script:** `analysis/scripts/intermap_permutation_test.py`
-**Output:** `analysis/reports/intermap_permutation_test_results.json` + `.md`
+**Output:** `findings/intermap_permutation_test_results.json` + `.md`
 
 *Last updated: 2026-05-10*
 
@@ -279,4 +279,4 @@ non-cherry-picking.
 *Companion documents:*
 - `fisher_combination_defense.md` — Fisher combination methodology (Ch1+Ch2)
 - `fisher_independence_defense.md` — independence assumption defense
-- `analysis/reports/intermap_permutation_test_results.md` — full numerical output
+- `findings/intermap_permutation_test_results.md` — full numerical output

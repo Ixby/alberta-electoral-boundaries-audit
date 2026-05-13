@@ -56,7 +56,7 @@ Five families of tests, each answering a different question. The ladder below sh
 | D4 | Methodology reproducibility | every script has `python -c` one-line rerun |
 | D5 | Data provenance | `FROZEN_MANIFEST.md` + `analysis/methodology/commission_source_provenance.md` |
 | D6 | Privilege / scope (fact vs opinion vs allegation) | labelled throughout |
-| D7 | Conflict of interest (author standing) | Author Disclosure + `analysis/reports/bias_audit.md` |
+| D7 | Conflict of interest (author standing) | Author Disclosure + `findings/partisan_bias_summary.md` |
 | D8 | Copyright / fair dealing | Copyright Act s. 29.1 |
 | D9 | PII / confidentiality | no PII |
 | D10 | Time-stamped falsifiable claims | OSF pre-registration + git log |
@@ -280,4 +280,4 @@ This is the framing §6 Discussion documents and the §7 Limitations section hed
 - `report_academic.md §4` — the methods section that this reflection hangs off
 - `report_academic.md §6` — the discussion where the multi-dimensional synthesis is argued
 - `analysis/methodology/red_team_consolidated.md` — the 23-document red-team record this reflection inherits from
-- `analysis/reports/methods_paper_draft.md` — the companion methodology paper (Issue #10) that would formalise §§3-5 of this file for publication
+- `findings/methods_paper_draft.md` — the companion methodology paper (Issue #10) that would formalise §§3-5 of this file for publication

@@ -39,8 +39,8 @@ Two channels are combined:
     (SZAT boundary-choice bootstrap) test structurally independent hypotheses.
 
 Outputs:
-  analysis/reports/joint_outlier_score.json
-  analysis/reports/joint_outlier_score_summary.md
+  findings/joint_outlier_score.json
+  findings/joint_outlier_score_summary.md
 """
 from __future__ import annotations
 
@@ -383,7 +383,7 @@ center (p = {results['majority']['joint_partisan_p']:.2e}) — not an outlier.
 ---
 
 *Script: `analysis/scripts/joint_outlier_score.py`*
-*Full output: `analysis/reports/joint_outlier_score.json`*
+*Full output: `findings/joint_outlier_score.json`*
 """
 
     with open(OUT_MD, "w", encoding="utf-8") as f:

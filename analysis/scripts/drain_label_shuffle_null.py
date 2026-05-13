@@ -21,7 +21,7 @@ Pre-registered predictions (AsPredicted #289451):
   C: qualitative — after specificity weighting, NW Calgary cluster
      downweighted vs Strathcona cluster (exploratory, Phase E)
 
-Forward deps: analysis/reports/drain_label_shuffle_null.md
+Forward deps: findings/drain_label_shuffle_null.md
 Backward deps:
   - analysis/scripts/neighbour_drain_adjacency.py (adjacency + vote loading)
   - analysis/scripts/drand_seed.py (canonical seed)
@@ -293,7 +293,7 @@ def main() -> None:
 
     print(f"\nPrediction C: qualitative specificity-weighting (exploratory Phase E)")
     print(f"  Not computed here — requires per-pair null frequency from this run.")
-    print(f"  See analysis/reports/drain_label_shuffle_null.md for guidance.")
+    print(f"  See findings/drain_label_shuffle_null.md for guidance.")
 
     # Write summary JSON
     summary_path = out_data / "drain_label_shuffle_null.json"

@@ -169,7 +169,7 @@ Assessed per district above. Summary of shared-institution claims tested:
 
 ### R19/R20/R21/R22/R23
 
-- **Test.** `analysis/reports/submission_search_findings.md` + `analysis/reports/claim_significance_analysis.md` already assess public backing. Summary: three of seven contested minority configurations (RMH-Banff, ODH, Chestermere) materially have public support; one (Red Deer hybrids) is split; three (Airdrie 4-way, Nolan Hill-Cochrane, St. Albert minority alt) do not.
+- **Test.** `findings/submission_search_findings.md` + `findings/claim_significance_analysis.md` already assess public backing. Summary: three of seven contested minority configurations (RMH-Banff, ODH, Chestermere) materially have public support; one (Red Deer hybrids) is split; three (Airdrie 4-way, Nolan Hill-Cochrane, St. Albert minority alt) do not.
 - **Verdict.** **ALREADY-TESTED.** Smith's/Lunty's "effective representation for growing Alberta" frames are not per-district claims; they are generic. The specific minority configurations they implicitly defend have uneven public backing.
 
 ---

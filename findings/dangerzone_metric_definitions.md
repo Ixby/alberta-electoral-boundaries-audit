@@ -18,7 +18,7 @@ Both scripts take a single polygon shapefile (ED-level, any CRS) and emit a sing
 
 **Operational definition.** Load the input shapefile; load the StatsCan 2021 CSD boundaries (`data/shapefiles/reference/alberta_2021_csds.gpkg`) and reproject to the input CRS; union all CSD boundaries into one MultiLineString edge network. For every polygon in the input, walk its boundary at 50 m vertex spacing; for each densified vertex, snap to the nearest CSD edge if and only if the edge is within 500 m. Sum the original-densified segment length whose head-vertex was snapped (the "anchored" perimeter). Return `100.0 * total_anchored_m / total_perimeter_m` rounded to one decimal.
 
-**Parameters held identical to the audit's headline run** (`analysis/scripts/municipal_anchoring.py`): `SNAP_TOL_M = 500.0`, `VERTEX_DENSIFY_M = 50.0`, `USE_DA_SUPPLEMENT = False`. No topology re-resolve pass (we are computing a metric, not producing a v0_4 GPKG). The headline numbers in `analysis/reports/municipal_anchoring_analysis.md` were produced from `v0_2_canonical_*_topoclean.gpkg` substrates with `USE_DA_SUPPLEMENT = False`; same substrate is used for validation here.
+**Parameters held identical to the audit's headline run** (`analysis/scripts/municipal_anchoring.py`): `SNAP_TOL_M = 500.0`, `VERTEX_DENSIFY_M = 50.0`, `USE_DA_SUPPLEMENT = False`. No topology re-resolve pass (we are computing a metric, not producing a v0_4 GPKG). The headline numbers in `findings/municipal_anchoring_analysis.md` were produced from `v0_2_canonical_*_topoclean.gpkg` substrates with `USE_DA_SUPPLEMENT = False`; same substrate is used for validation here.
 
 ## Metric 2: Hybrid ED count
 

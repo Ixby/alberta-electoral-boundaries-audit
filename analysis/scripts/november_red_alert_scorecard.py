@@ -25,7 +25,7 @@ Inputs:
                       for prose-only iteration).
 
 Outputs:
-  analysis/reports/november_red_alert_<map_name>_<date>.md
+  findings/november_red_alert_<map_name>_<date>.md
 
 This scorecard is one of the prospective components of the
 pre-registered audit (RQ8-9): the threshold-firing logic was

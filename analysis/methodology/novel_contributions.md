@@ -3,7 +3,7 @@
 **Status:** Active reference. Updated 2026-05-07.
 **Scope:** Three methodological contributions introduced by this audit that, to the authors' knowledge, have no direct precedent in the redistricting or forensic-audit literature.
 
-Cross-ref: `analysis/reports/methods_paper_draft.md` (DPG standalone paper skeleton), `analysis/methodology/academic_literature_review.md` §9–9b (prior-art placement), `dpg_validation/dpg2_worklog.md` (pre-registration chain).
+Cross-ref: `findings/methods_paper_draft.md` (DPG standalone paper skeleton), `analysis/methodology/academic_literature_review.md` §9–9b (prior-art placement), `dpg_validation/dpg2_worklog.md` (pre-registration chain).
 
 > **Note on Neighbour-Drain (Channel 3):** Neighbour-Drain was a pre-registered test (AsPredicted #289,451, OSF r3zm7) that returned an inverted finding — minority map zero coupled chain signals. A post-hoc reframing as a topology classifier was considered and rejected as inconsistent with the pre-registration. The test is reported honestly in the audit body as Channel 3. It is not listed here because no novelty claim survived scrutiny. See `TODO.md` DECISION-CH3 for full record.
 
@@ -47,7 +47,7 @@ Existing redistricting-analysis frameworks (MGGG, Chen & Rodden 2013, Stephanopo
 ### Pre-registration / documentation
 
 - AsPredicted #289,449 — DPG v11 validation (thresholds pre-registered)
-- Full paper skeleton: `analysis/reports/methods_paper_draft.md`
+- Full paper skeleton: `findings/methods_paper_draft.md`
 
 ---
 
@@ -136,7 +136,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 
 - AsPredicted #289,455 — Lunty 91-seat forensic scorecard (prospective; pending November map)
 - OSF embargo release: 2026-11-02
-- Checklist: `analysis/reports/track_c_checklist_baseline_scoring.md`
+- Checklist: `findings/checklist_baseline_scoring.md`
 - Script: `analysis/scripts/november_red_alert_scorecard.py`
 
 ---
@@ -172,7 +172,7 @@ Applied to Alberta 2026: Version A p = 0.0303 (observed EG gap +3.92 pp vs null 
 
 - OSF [yvc7g](https://osf.io/yvc7g), git ba0e686, drand seed 1823538405 (salt "ch1-comp")
 - Pre-committed pessimistic prediction: Version A likely does not clear p < 0.05
-- Results: SUPPORTED on both versions; `analysis/reports/intermap_permutation_test_results.md`
+- Results: SUPPORTED on both versions; `findings/intermap_permutation_test_results.md`
 
 ---
 
@@ -180,10 +180,10 @@ Applied to Alberta 2026: Version A p = 0.0303 (observed EG gap +3.92 pp vs null 
 
 | Contribution | Claim | Pre-reg | Status |
 | --- | --- | --- | --- |
-| DPG Framework | First formalised audit methodology for the no-official-shapefiles case; nested-polygon ownership inversion and sunset clause are novel sub-contributions | #289,449 (validation) | Methods paper draft at `analysis/reports/methods_paper_draft.md` |
-| SZAT | First decomposition of between-map EG differences to individual VA boundary choices with permutation null using a real alternative map as counterfactual | #289,469 (bootstrap null) | Results: `analysis/reports/szat_summary.json` |
+| DPG Framework | First formalised audit methodology for the no-official-shapefiles case; nested-polygon ownership inversion and sunset clause are novel sub-contributions | #289,449 (validation) | Methods paper draft at `findings/methods_paper_draft.md` |
+| SZAT | First decomposition of between-map EG differences to individual VA boundary choices with permutation null using a real alternative map as counterfactual | #289,469 (bootstrap null) | Results: `findings/szat_summary.json` |
 | Two-Lane Scorecard | First integrated two-lane forensic audit framework with explicit lane-interaction rules, jurisdiction-calibrated thresholds, and pre-registered prospective application | #289,455 (Lunty scorecard) | Prospective; November 2026 map pending |
-| Ch1-COMP | First inter-map comparison permutation test using a neutral-ensemble null with pre-registered pessimistic prediction; V-A p=0.0303, V-B p=0.0001, both significant | OSF yvc7g | Done 2026-05-10; `analysis/reports/intermap_permutation_test_results.md` |
+| Ch1-COMP | First inter-map comparison permutation test using a neutral-ensemble null with pre-registered pessimistic prediction; V-A p=0.0303, V-B p=0.0001, both significant | OSF yvc7g | Done 2026-05-10; `findings/intermap_permutation_test_results.md` |
 
 ---
 

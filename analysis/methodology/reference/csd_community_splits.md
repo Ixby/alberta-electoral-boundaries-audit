@@ -165,7 +165,7 @@ At the CSD level, all three maps split the same roughly one-third of populated c
 
 - Script: `analysis/scripts/csd_community_splits.py`
 - Per-CSD detail: `data/csd_splits_summary.csv`
-- Section under revision: `analysis/reports/section_C_geographic_coherence.md` §C4
+- Section under revision: `findings/geographic_coherence.md` §C4
 - Academic report section potentially affected: `report_academic.md` §3 (community of interest) — flag, do not edit.
 
 ## Dependencies header

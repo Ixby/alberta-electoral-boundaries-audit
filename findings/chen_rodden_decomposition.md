@@ -315,13 +315,13 @@ advantage).
 > boundary choices, regardless of which measurement resolution
 > (crosswalk or spatial) is used. Full per-metric table, per-map
 > decomposition, and substrate-matched cross-check in
-> `analysis/reports/chen_rodden_decomposition.md`; machine-readable outputs
+> `findings/chen_rodden_decomposition.md`; machine-readable outputs
 > in `data/v0_1_chen_rodden_decomposition.{csv,json}`.
 
 ## 7. Files produced
 
 - `analysis/scripts/chen_rodden_decomposition.py` — reproducible script.
-- `analysis/reports/chen_rodden_decomposition.md` — this writeup.
+- `findings/chen_rodden_decomposition.md` — this writeup.
 - `data/chen_rodden_decomposition.csv` — per-map and per-gap table
   (both substrates, machine-readable, 48 rows).
 - `data/chen_rodden_decomposition.json` — structured summary for

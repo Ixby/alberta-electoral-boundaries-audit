@@ -26,7 +26,7 @@ under area-weighted attribution.
 
 Forward
 -------
-analysis/reports/maup_centroid_sensitivity.md  (verdict memo)
+findings/maup_centroid_sensitivity.md  (verdict memo)
 
 Backward
 --------

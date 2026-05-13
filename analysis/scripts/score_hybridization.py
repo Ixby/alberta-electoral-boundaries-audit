@@ -26,7 +26,7 @@ in `report_public.md:252-255` and the `MAJORITY_2026_MAPPING` /
 `MINORITY_2026_MAPPING` "blend" tags in
 `analysis/scripts/packing_cracking_analysis.py`, neither of which
 yields 9/25/8 directly). This is documented as a critical finding in
-`analysis/reports/dangerzone_metric_definitions.md`.
+`findings/dangerzone_metric_definitions.md`.
 
 For the 100,000-plan ReCom ensemble we need a COMPUTABLE rule. This
 script implements one and validates that it preserves the qualitative
@@ -87,7 +87,7 @@ Output: a single integer on stdout (the hybrid-ED count for the input
 shapefile under the operational definition above).
 
 Forward:
-    analysis/reports/dangerzone_metric_definitions.md
+    findings/dangerzone_metric_definitions.md
 Backward:
     analysis/scripts/score_anchoring.py
     data/shapefiles/reference/alberta_2021_csds.gpkg

@@ -15,7 +15,7 @@ discussed in MGGG workshop notes and Chikina et al. (2017).
 Outputs:
   data/simulation_short_bursts.csv        — 5,000 burst-endpoint rows
   data/simulation_short_bursts_summary.json
-  analysis/reports/simulation_short_bursts.md
+  findings/simulation_short_bursts.md
 
 Backward:
   data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg

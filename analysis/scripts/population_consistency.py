@@ -17,7 +17,7 @@ already computed in electoral_forensics_population.py.  The focus here is
 the commission-vs-census consistency check only.
 
 Outputs:
-  analysis/reports/population_consistency.csv
+  findings/population_consistency.csv
       per-ED rows: map, ed_name, commission_pop, da_sum_pop,
                    delta_persons, delta_pct, within_tolerance
   data/population_consistency_summary.json
@@ -27,7 +27,7 @@ Outputs:
 Author: v0.1 audit pipeline — Test B2. Generated 2026-04-24.
 
 Forward deps:
-  - analysis/reports/population_consistency.csv consumed by
+  - findings/population_consistency.csv consumed by
     report_academic.md §B (population data provenance)
   - data/population_consistency_summary.json consumed by summary dashboard
 

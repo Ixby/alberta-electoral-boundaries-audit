@@ -251,7 +251,7 @@ Of the 19 remaining hybrids (after removing the two explicit-claim cases), **17 
 - `data/minority_2026_populations.csv` (89 EDs, filtered to 21 hybrids).
 - `analysis/methodology/minority_rationales_inventory.md` (R1–R25 inventory).
 - `analysis/methodology/minority_rationales_validation.md` (Track I verdicts).
-- `analysis/reports/section_C_geographic_coherence.md` (§C4 school-division gap note, now filled).
+- `findings/geographic_coherence.md` (§C4 school-division gap note, now filled).
 
 **Not accessed (and should be, for full precision).**
 - The official Alberta.ca interactive boundary map was verified via search result only, not screen-scraped. Individual-school attendance-area maps (for example, for a specific CBE elementary near the Bow-Springbank line) were not fetched — the division-level boundary is what this analysis tests, and that is sufficient for the claim being audited.

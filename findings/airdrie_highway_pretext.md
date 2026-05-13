@@ -59,7 +59,7 @@ The Highway Anchoring Defense is empirically a pretext at the Airdrie carve. Of 
 Forward:
   (none yet — Lane 2 prose update consumes this memo)
 Backward:
-  analysis/reports/natural_anchoring_secondary_check.md
+  findings/natural_anchoring_secondary_check.md
   analysis/scripts/score_anchoring.py
   analysis/scripts/score_natural_anchoring.py
   analysis/methodology/terms_of_reference_verbatim.md

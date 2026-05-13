@@ -32,7 +32,7 @@ Dependencies
              data/shapefiles/reference/alberta_2021_csds.gpkg,
              data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   Backward : maps/article/figure_*_v3.svg,
-             analysis/reports/article_figures_v3.md,
+             findings/article_figures_v3.md,
              report_public.md (four figure references updated to _v3)
 
 Author: sub-agent, article figure redesign, 2026-04-23

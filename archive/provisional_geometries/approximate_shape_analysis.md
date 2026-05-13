@@ -391,7 +391,7 @@ very low regardless of where the split is drawn.
 - `data/tierC_parent_union_reference.csv` — 35 Tier C EDs with identified
   parents, plus parent-union PP and ±10 % perimeter band
 - `analysis/scripts/approximate_shape_analysis.py` — reproducible pipeline
-- `analysis/reports/approximate_shape_analysis.md` — this document
+- `archive/provisional_geometries/approximate_shape_analysis.md` — this document
 
 ---
 

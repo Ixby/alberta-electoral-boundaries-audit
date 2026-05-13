@@ -74,9 +74,9 @@ Predictions (e.g., "the November 2026 MLA committee map will likely…") must be
 3. **Analysis documents underpinning named-actor characterisations**
    - `analysis/methodology/minority_rationales_validation.md`
    - `analysis/methodology/school_division_coherence.md`
-   - `analysis/reports/section_C_geographic_coherence.md`
-   - `analysis/reports/bias_audit.md`
-   - `analysis/reports/design_critique.md`
+   - `findings/geographic_coherence.md`
+   - `findings/partisan_bias_summary.md`
+   - `analysis/review/design_critique.md`
 4. **Scripts producing numerical claims in the reports**
    - `analysis/scripts/packing_cracking_analysis.py`
    - `analysis/scripts/monte_carlo_ci.py`

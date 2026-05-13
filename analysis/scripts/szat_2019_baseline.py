@@ -35,7 +35,7 @@ Inputs
 
 Outputs
 -------
-  analysis/reports/szat_2019_baseline.json
+  findings/szat_2019_baseline.json
 
 Usage
 -----

@@ -17,7 +17,7 @@ Dependencies
   Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
              data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
   Backward : data/polsby_popper_per_district.csv
-             analysis/reports/polsby_popper_verdict.md
+             findings/polsby_popper_verdict.md
 """
 
 # Version: 0.9 series  (last updated 2026-04-26)

@@ -1,6 +1,6 @@
 # s.15(2) Re-Audit — Alberta 2025-26 EBC (Corrected Thresholds)
 
-**Purpose.** Re-run the five-criterion eligibility test under the *Electoral Boundaries Commission Act, RSA 2000 c. E-3* §15(2) using the correct statutory thresholds, for every electoral division (ED) in either 2026 commission map that the audit previously flagged as invoking §15(2). The prior §2.4 audit (`report_academic.md`) used three threshold errors identified in `analysis/reports/terms_of_reference_audit.md`:
+**Purpose.** Re-run the five-criterion eligibility test under the *Electoral Boundaries Commission Act, RSA 2000 c. E-3* §15(2) using the correct statutory thresholds, for every electoral division (ED) in either 2026 commission map that the audit previously flagged as invoking §15(2). The prior §2.4 audit (`report_academic.md`) used three threshold errors identified in `findings/terms_of_reference_audit.md`:
 
 - Criterion (a): missed the alternative "15 000 km² surveyed area" limb
 - Criterion (b): used "100 km from a major centre" instead of the statutory **"more than 150 km from the Legislature Building in Edmonton by the most direct highway route"**

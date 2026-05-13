@@ -221,7 +221,7 @@ Further: the academic paper (`:534`) admits "the stronger claim 'without recent 
 - "...the sentence a paragraph later: 'My majority colleagues do not agree with me on this point.'"
 - "The defence that 'the commission endorsed this' does not survive a reading of the commission's own paperwork."
 
-**Evidence:** `analysis/reports/chair_recommendation_5_analysis.md:45`:
+**Evidence:** `findings/chair_recommendation_5_analysis.md:45`:
 > "My majority colleagues do not agree with me on this point."
 
 Note: I could not find evidence in the source files I reviewed for the phrase "That is why I am alone in making this recommendation." The chair analysis doc quotes only "My majority colleagues do not agree with me on this point." The magazine's opening paragraph attributes a two-sentence quotation to Miller with the second sentence appearing to be supplied by the magazine itself, not the chair.

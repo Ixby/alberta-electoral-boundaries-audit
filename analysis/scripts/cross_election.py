@@ -48,7 +48,7 @@ Outputs
   data/cross_election_per_map.csv
   data/cross_election_per_map.json
 
-Forward:  analysis/reports/cross_election_robustness.md
+Forward:  findings/cross_election_robustness.md
 Backward:
   data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
   data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg

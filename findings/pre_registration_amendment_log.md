@@ -264,7 +264,7 @@ Three events after this amendment was filed:
 **After (v0_9 canonical):** **48.31% at p98.5** (top 1.5%).  
 **Rationale:** 52.8% was an attribution artefact from the 83-of-89 geometric dropouts. 48.31% is the structurally and mathematically absolute value under the fully-hardened substrate. The core finding is unchanged: the minority map remains an extreme statistical outlier (only ~3,750 of 250,000 neutral procedures reach this value), crossing all pre-registered structural irregularity tests.
 
-*Note: Amendment 4 predates the final canonical 1,010,000-plan ensemble run on official EA shapefiles (completed 2026-05-12). See `data/simulation_convergence_diagnostics_canonical.json` and `analysis/reports/joint_outlier_score.json` for the authoritative canonical numbers.*
+*Note: Amendment 4 predates the final canonical 1,010,000-plan ensemble run on official EA shapefiles (completed 2026-05-12). See `data/simulation_convergence_diagnostics_canonical.json` and `findings/joint_outlier_score.json` for the authoritative canonical numbers.*
 
 ---
 

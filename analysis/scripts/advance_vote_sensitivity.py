@@ -11,7 +11,7 @@ Outputs all four scenarios (2 maps x 2 substrates) and writes a JSON to
 data/advance_vote_sensitivity.json with the seats_at_50_50 deltas
 between A and B.
 
-Forward: analysis/reports/advance_vote_sensitivity.md
+Forward: findings/advance_vote_sensitivity.md
 Backward:
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
   data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg

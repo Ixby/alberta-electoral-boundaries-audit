@@ -43,7 +43,7 @@ Output:
     A single line on stdout: anchored_pct as a float (e.g. "71.0").
 
 Forward:
-    analysis/reports/dangerzone_metric_definitions.md
+    findings/dangerzone_metric_definitions.md
     analysis/scripts/score_hybridization.py
 Backward:
     analysis/scripts/municipal_anchoring.py

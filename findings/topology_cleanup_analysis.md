@@ -109,11 +109,11 @@ against the winner, so "winner area" doesn't grow beyond the union.
 |------|---------|
 | `data/v0_2_canonical_majority_2026_eds_topoclean.gpkg` | Cleaned majority DPG |
 | `data/v0_2_canonical_minority_2026_eds_topoclean.gpkg` | Cleaned minority DPG |
-| `analysis/reports/topology_cleanup_log.csv` | Per-ED before/after areas |
-| `analysis/reports/topology_cleanup_summary.json` | Validation gates + stats |
+| `findings/topology_cleanup_log.csv` | Per-ED before/after areas |
+| `findings/topology_cleanup_summary.json` | Validation gates + stats |
 | `data/v0_2_votes_2023_majority_maup.csv` | MAUP-v2 per-ED majority votes |
 | `data/v0_2_votes_2023_minority_maup.csv` | MAUP-v2 per-ED minority votes |
-| `analysis/reports/assignment_va_to_2026_assignments_maup_v2.csv` | Per-VA attribution |
+| `findings/assignment_va_to_2026_assignments_maup_v2.csv` | Per-VA attribution |
 | `analysis/reports/v0_2_phase4c_maup_summary.json` | MAUP-v2 summary |
 
 ## Results — MAUP re-run on cleaned DPGs
@@ -232,5 +232,5 @@ use v0_2 cleaned geometry.
 * MAUP-v1 script (historical baseline, unchanged): `analysis/scripts/assignment_va_attribution_maup.py`
 * MAUP-v1 summary (historical): `analysis/reports/v0_1_phase4c_maup_summary.json`
 * MAUP-v2 summary: `analysis/reports/v0_2_phase4c_maup_summary.json`
-* Cleanup summary: `analysis/reports/topology_cleanup_summary.json`
-* Per-ED cleanup log: `analysis/reports/topology_cleanup_log.csv`
+* Cleanup summary: `findings/topology_cleanup_summary.json`
+* Per-ED cleanup log: `findings/topology_cleanup_log.csv`

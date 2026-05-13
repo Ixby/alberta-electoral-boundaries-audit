@@ -48,7 +48,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### CRIT-03. The "materially wrong on three of them" framing in `report_public.md` misrepresents the scope
 **Claim (verbatim):** "the chair's own claim that five minority configurations had 'no public support' turned out to be materially wrong on three of them" — `report_public.md` line 25
 **Stated value:** 3 of 5 Miller-named configurations were materially wrong.
-**Source of truth:** `analysis/reports/submission_search_findings.md` and `analysis/reports/claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
+**Source of truth:** `findings/submission_search_findings.md` and `findings/claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
 **Delta:** The public report's intro promises "three of five" but the support refutation actually hits one of Miller's five (Chestermere) plus two configurations Miller did not specifically disavow in Appendix C. The in-body Table 2 (line 147–154) lists all seven correctly, but the intro's phrasing inflates the hit rate against what Miller specifically claimed.
 **Recommendation:** Tighten the intro to "the chair's own claim that five minority configurations had no public support turned out to be materially wrong on Chestermere, and his broader 'no public support' framing mischaracterized the record on two additional configurations the minority adopted from the submissions." Or equivalent.
 
@@ -82,8 +82,8 @@ Overall posture: the two reports are substantially reproducible from the checked
 **Claim (verbatim):** "The commission took 1,345 written submissions across two rounds of hearings. I was able to keyword-search 1,252 of them." — `report_public.md` line 144
 **Stated value:** 1,345
 **Verified value:**
-- `analysis/reports/submission_search_findings.md` line 3: "~1,340 public submissions"
-- `analysis/reports/submission_search_findings.md` line 7: "1,252 of ~1,340 (93.4%)"
+- `findings/submission_search_findings.md` line 3: "~1,340 public submissions"
+- `findings/submission_search_findings.md` line 7: "1,252 of ~1,340 (93.4%)"
 - `report_academic.md` line 538: "approximately 1,340"
 **Source of truth:** No source in the repo gives 1,345; every internal reference uses "~1,340" or "approximately 1,340."
 **Recommendation:** Change "1,345" to "approximately 1,340" in `report_public.md` to match the academic report and the submission search findings, or cite the specific source if 1,345 is the actual commission-reported count.
@@ -123,7 +123,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-03. Greg Clark "In Canada, we don't want elected officials drawing their own election maps" — not verified from X
 **Claim (verbatim):** "Commissioner Greg Clark, one of the two opposition-nominated majority members — Clark had been nominated by NDP leader Naheed Nenshi — posted on X after the report dropped. 'In Canada,' he wrote, 'we don't want elected officials drawing their own election maps.'" — `report_public.md` line 230
-**Verified source:** `analysis/reports/chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
+**Verified source:** `findings/chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
 **Delta:** The direction of Clark's view is internally corroborated (Miller's own text in the PDF disavows majority endorsement of R5). The specific "In Canada, we don't want..." wording is not archival-verified in the repo.
 **Recommendation:** Mark as "needs manual verification" against the X thread (Wayback capture or direct archive URL).
 
@@ -148,7 +148,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 | Chestermere as its own unit | 3 support, 1 oppose |
 | Red Deer hybrids | 4 support, 4 oppose, 15 neutral |
 
-**Verified value (from `analysis/reports/submission_search_findings.md` and `report_academic.md` §5.4.1):**
+**Verified value (from `findings/submission_search_findings.md` and `report_academic.md` §5.4.1):**
 - RMH-Banff Park: **3 explicit supporters + ≥4 aligned = 7 total leaning-support**, 1 oppose, ~15 neutral (20 total mentions)
 - ODH: **2 supporters**, 2 opposers, 1 neutral (5 total mentions)
 - Chestermere: 3 supporters, **3 opposers** (not 1), 7 neutral (13 total)
@@ -190,7 +190,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 Script output confirms 2015 EG asymmetry is +0.03 pp (essentially zero). This is reported in academic §3.5 but is not in the Abstract or §7 six-dimensions table.
 
 ### INFO-02. Three comparator cases (Quebec 1992, Ontario 1996, BC 2008) are internally documented but without academic citation
-`analysis/methodology/academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `analysis/reports/bias_audit.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `section_D_procedural.md` comparators but could use a cited academic source.
+`analysis/methodology/academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `findings/partisan_bias_summary.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `section_D_procedural.md` comparators but could use a cited academic source.
 
 ### INFO-03. "1.5-point swing" as "the middle of the map-effect estimate" (public report line 270)
 The Monte Carlo mean is −1.23 pp; the median is −1.40 pp; the sensitivity range is 0.51 to 1.52 pp. 1.5 pp is at the upper end of the range, not the middle (which is closer to 1.0 pp). "Midpoint of 1.0 to 1.5" would be technically more accurate; "middle of the estimate" reads like a point-estimate midpoint.

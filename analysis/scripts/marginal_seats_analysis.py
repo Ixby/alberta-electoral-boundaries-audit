@@ -23,7 +23,7 @@ Inputs:
 
 Outputs:
     Stdout summary tables + a short findings block that is also written
-    into analysis/reports/marginal_seats_findings.md by a sibling task.
+    into findings/marginal_seats_findings.md by a sibling task.
 
 No pandas/numpy dependency — stdlib only.
 """

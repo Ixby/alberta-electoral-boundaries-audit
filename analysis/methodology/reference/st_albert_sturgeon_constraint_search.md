@@ -36,7 +36,7 @@ Approach 2 *was* run for this file. Approach 3 *was* run for this file. Findings
 - **Majority district populations:** `data/majority_2026_populations.csv` — St. Albert (row 82) **59,935** (+9.11%); St. Albert-Sturgeon (row 83, hybrid) **54,214** (-1.30%).
 - **MCMC ensemble (header only, no per-district assignments):** `data/mcmc_checkpoints_250k_v0_8/chain{0,1,2,3}_samples.csv` (4 chains, 250k samples each, ~30MB per file).
 - **School-division geometry:** `analysis/methodology/school_division_coherence.md` — St. Albert Public Schools serves City of St. Albert only; Sturgeon Public Schools serves Morinville/Legal/Gibbons/Sturgeon County (not the City of St. Albert).
-- **Public-submission inventory:** `analysis/reports/claim_significance_analysis.md` row 7 — zero engaged-citizen submissions propose a clearly distinct minority alternative for St. Albert-Sturgeon.
+- **Public-submission inventory:** `findings/claim_significance_analysis.md` row 7 — zero engaged-citizen submissions propose a clearly distinct minority alternative for St. Albert-Sturgeon.
 
 ## Findings
 
@@ -108,7 +108,7 @@ The 'Stands' verdict itself is robust under all three rewrites. The substantive 
 ## Files
 
 - This file: `analysis/methodology/st_albert_sturgeon_constraint_search.md`.
-- Cross-references: `analysis/methodology/school_division_coherence.md` (St. Albert-area subsection); `analysis/methodology/minority_rationales_validation.md` (St. Albert-Sturgeon not separately listed); `analysis/reports/claim_significance_analysis.md` row 7; `report_academic.md` §5.9.6 Claim 7.
+- Cross-references: `analysis/methodology/school_division_coherence.md` (St. Albert-area subsection); `analysis/methodology/minority_rationales_validation.md` (St. Albert-Sturgeon not separately listed); `findings/claim_significance_analysis.md` row 7; `report_academic.md` §5.9.6 Claim 7.
 - Inputs used: `data/alberta_2021_csd_populations.csv`; `data/minority_2026_populations.csv`; `data/majority_2026_populations.csv`.
 - *Not* used (because not feasible from filed data): `data/mcmc_checkpoints_250k_v0_8/chain*_samples.csv` — the ensemble checkpoints store only aggregate per-step metrics, not per-district assignments.
 

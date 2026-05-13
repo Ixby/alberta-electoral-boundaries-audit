@@ -7,7 +7,7 @@ forward_dependencies:
   - report_academic.md §3.11 (baseline scorecard; the pre-registered tests are its forward column)
   - analysis/v0_1_red_team_round_2.md §D17 (vulnerability this closes)
 backward_dependencies:
-  - analysis/reports/track_c_checklist_baseline_scoring.md (test list, thresholds, pass/fail criteria)
+  - findings/checklist_baseline_scoring.md (test list, thresholds, pass/fail criteria)
   - report_public.md §"What a gerrymander in the 91-seat map would actually look like" (public-facing checklist)
   - report_academic.md §3.7–3.10 (signature-detection methodology)
 ---
@@ -158,7 +158,7 @@ The pre-registration draft is `analysis/reports/pre_registration_draft.md`. The 
 3. **Upload the pre-registration document.**
    - In the project's Files tab, upload the PDF export of `analysis/reports/pre_registration_draft.md`.
    - Also upload the markdown source for reproducibility.
-   - Optional: upload a copy of `analysis/reports/track_c_checklist_baseline_scoring.md` as the baseline scorecard referenced in §3.
+   - Optional: upload a copy of `findings/checklist_baseline_scoring.md` as the baseline scorecard referenced in §3.
 
 4. **Start a new Registration.**
    - From the project page, click the "Registrations" tab, then "Add New Registration."
@@ -215,4 +215,4 @@ This sub-agent has not created an OSF account, submitted the registration, or co
 - AsPredicted feature set: aspredicted.org (as of 2026-04-22); Wharton Credibility Lab documentation.
 - Registered Reports at *Political Analysis*: Oxford Academic journal pages (as of 2026-04-22).
 - D17 vulnerability: `analysis/v0_1_red_team_round_2.md`.
-- Checklist content source: `analysis/reports/track_c_checklist_baseline_scoring.md` and `report_public.md` §"What a gerrymander in the 91-seat map would actually look like".
+- Checklist content source: `findings/checklist_baseline_scoring.md` and `report_public.md` §"What a gerrymander in the 91-seat map would actually look like".

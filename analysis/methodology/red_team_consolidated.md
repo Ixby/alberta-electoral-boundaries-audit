@@ -37,7 +37,7 @@ The tables below summarise which red-team findings have been addressed by the T0
 | SCI-stats-01 — MCMC p100 / p1.6 tail claims not supported by ESS ≈ 150 | **ADDRESSED** | `report_academic.md` §5.4 — explicit tail-downgrade paragraph; raw p100 and p1.6 bounded to p95.35 and p2.5 at chain effective precision; minority seats-at-50/50 retracted to p89.72 |
 | SCI-attribution-01 — swing-VA exposure not quantified | **ADDRESSED** | `report_academic.md` §5.2.7 — new Core-vs-Margin VA partition paragraph; upper-bound ±1.5 pp swing at risk from Margin VAs, insufficient to bridge −1.42 pp ↔ +4.15 pp gap |
 | SCI-glossary-01 — sign-convention not defined prominently | **ADDRESSED** | `report_academic.md` §4.3 — glossary block before B1 definition: negative = UCP advantage, positive = NDP advantage, universal; cross-convention reconciliation with S-M literature |
-| ACA-airdrie — 530 km² Airdrie overlap could be misread as commission error | **ADDRESSED** | `analysis/reports/airdrie_overlap_report.md` header — framed as DPG transcription artifact; VA assignment falls back to correct `parent_ed_2019` crosswalk; feeds §5.2.7 Margin-VA insulation |
+| ACA-airdrie — 530 km² Airdrie overlap could be misread as commission error | **ADDRESSED** | `findings/airdrie_overlap_report.md` header — framed as DPG transcription artifact; VA assignment falls back to correct `parent_ed_2019` crosswalk; feeds §5.2.7 Margin-VA insulation |
 | SCI-citations-01 — Pal 2015 / Pal 2019 fabricated citations | **NOT APPLICABLE** | Verified: `report_academic.md` does not cite Pal at all; the flagged references appear only in self-critical red-team docs (this file) and in the planning-target literature-review doc. No paper-facing correction needed |
 
 ### Addressed in T2 (commit de7c48e) — multiple-comparison posture
@@ -149,9 +149,9 @@ Predictions (e.g., "the November 2026 MLA committee map will likely…") must be
 3. **Analysis documents underpinning named-actor characterisations**
    - `analysis/methodology/minority_rationales_validation.md`
    - `analysis/methodology/school_division_coherence.md`
-   - `analysis/reports/section_C_geographic_coherence.md`
-   - `analysis/reports/bias_audit.md`
-   - `analysis/reports/design_critique.md`
+   - `findings/geographic_coherence.md`
+   - `findings/partisan_bias_summary.md`
+   - `analysis/review/design_critique.md`
 4. **Scripts producing numerical claims in the reports**
    - `analysis/scripts/packing_cracking_analysis.py`
    - `analysis/scripts/monte_carlo_ci.py`
@@ -2386,7 +2386,7 @@ and beyond what the earlier passes already flagged.
 | ACA-19 | MED | D1 | L264 | "the full 2015-to-2019 crosswalk at `data/2015_to_2019_crosswalk.csv`" — file exists in repo per framework file-inventory; 2015 vote attribution is a load-bearing input to the 2015 cross-election asymmetry (+0.03 pp). The crosswalk's construction methodology (per-precinct mapping, vote-share interpolation rules) needs a documented methodology trace. If the crosswalk file's header lacks provenance, D5. |
 | ACA-20 | MED | D2 | L303 | "Chen and Rodden (2013) argue that urban-concentrated parties are systematically disadvantaged by neutrally-drawn maps through a *packing mechanism*" — paraphrase of the Chen-Rodden thesis. The DOI citation at L971 is verified (references-pass INFO); the paraphrase direction is correct. MED because the paraphrase is defensible; a more-exact summary would say Chen-Rodden argue residential segregation produces this effect for Democrats in US urban contexts, and the transfer to Canadian / NDP context is the audit's own empirical question. The paper does clarify this at §3.6 L311, so the MED is downgraded to a style note. |
 | ACA-21 | MED | D2 | L229 | "Stephanopoulos and McGhee (2018) revisit the efficiency-gap debate and acknowledge the metric's sensitivity to modeling choices" — this citation supports the audit's Monte Carlo framing; the 2018 Stanford Law Review piece is in References at L1009. Check whether S&M 2018 specifically "acknowledges sensitivity to modeling choices" as the audit claims, or whether they defend the metric against critics. MED because the citation is real and broadly consistent; precision on what S&M 2018 actually argue would tighten the chain. |
-| ACA-22 | MED | D3, D6 | L568–L583 | "tiered verdict" on the chair's "no public support" claim — the tier labels *precisely wrong* / *effectively wrong* / *precisely and effectively wrong* / *defensible* are novel coinages. Defensible as the audit's own analytic framework, but a hostile reader will test whether the coinage was pre-registered or invented during analysis. Recommend adding a line: "These tier labels were specified in `analysis/reports/claim_significance_analysis.md` before running the search" (if true); or label as "post-hoc analytic categorisation" (if not). |
+| ACA-22 | MED | D3, D6 | L568–L583 | "tiered verdict" on the chair's "no public support" claim — the tier labels *precisely wrong* / *effectively wrong* / *precisely and effectively wrong* / *defensible* are novel coinages. Defensible as the audit's own analytic framework, but a hostile reader will test whether the coinage was pre-registered or invented during analysis. Recommend adding a line: "These tier labels were specified in `findings/claim_significance_analysis.md` before running the search" (if true); or label as "post-hoc analytic categorisation" (if not). |
 | ACA-23 | MED | D1 | L514 | "A CSD-level overlay (Track H; script `analysis/scripts/csd_community_splits.py`) computes, per map, the count of populated CSDs (population ≥ 1,000) spanning two or more electoral divisions" — script exists per file inventory; results (66/191, 66/191, 54/191 lower bound) are load-bearing for a "metric is a null symmetric" finding that constrains the C-section claim. D4 reproducibility check needed. |
 | ACA-24 | MED | D1 | L520 | "StatsCan Table 98-10-0459 (2021 Census journey-to-work) disaggregates Cochrane CSD commute destinations: of 8,550 Cochrane workers with an Alberta place of work, 4,205 (49.2%) work within Cochrane, 3,065 (35.8%) commute to Calgary CY" — specific numbers from StatsCan table. Table reference is named; specific number extraction needs artifact link (`analysis/methodology/cochrane_journey_to_work.md`; the paper does reference this file). MED because the cite chain exists but the journey-to-work doc itself should be verified to carry the same numbers. |
 | ACA-25 | MED | D1, D6 | L518 | "20 of 21 cross at least one school-division boundary" — adverse finding against the minority report's school-district rationales. Anchors to `analysis/methodology/school_division_coherence.md`. Load-bearing for the paper's "structural school-district crossings" claim. D1 passes if the school-division-coherence analysis file enumerates the 21 hybrids + their boundary crossings with Alberta Education primary-source link. |
@@ -2698,7 +2698,7 @@ When rate limits reset, four agents run in parallel:
 | S1-02 | **HIGH** | S1 | §5.4 submission-search; `analysis/scripts/submission_search.py` build_patterns | Submission-archive keyword list (seven regex patterns) was created in commit `42d2925` **before** the `"what a gerrymander would look like"` checklist was written (`2838028`). S6 of the checklist depends on a keyword classification whose rules were fixed pre-checklist; pattern-shaping during the 88-comment manual-review stage is a researcher degree of freedom that was not disclosed. |
 | S1-03 | **HIGH** | S1 / S9 | §3.9 E2 reformulation | E2 was reformulated from "narrow eligibility" to "substantive choice-over-alternatives" after the §15(2) re-audit showed the narrow test would fail. Disclosed in-paper, but the reformulation fits the Hauke–Kerridge optional-stopping pattern (rule changed after observing data crossed the threshold). Keeping the signature in the formal count without an external committed criteria set risks Type-I inflation in the three-signature headline. |
 | S1-04 | **HIGH** | S1 / S9 | §3.13 counter-tests (Lethbridge, Red Deer 4-way splits) | Paper acknowledges "specified and executed in the same analytical pass" and excludes them from the formal signature count. Caveat is present but the adjacent §3.10 "signatures summary" table and the §7 synthesis still list "three formal signatures"; if these counter-tests were added, the count would be five, and the §3.12 checklist's S2 "new signatures appear beyond the minority's set" result would change from "0 new" to "2 candidate new." Keep current caveat, but flag that the paper's `S2 = 0` claim is partly an artefact of the separation rule. |
-| S1-05 | **MED** | S1 | `analysis/reports/track_c_checklist_baseline_scoring.md` | The Track-C baseline scoring was committed `59d5984 2026-04-22 13:13:48` — after the packing/cracking detection (`282bc6d 10:56:11`) and after the submission-search tier analysis (`339b72e 10:11:27`). The checklist was written with knowledge of how the 89-seat maps would score; "pre-registered for the November map" is correct but "calibrated before looking at the data" is not. |
+| S1-05 | **MED** | S1 | `findings/checklist_baseline_scoring.md` | The Track-C baseline scoring was committed `59d5984 2026-04-22 13:13:48` — after the packing/cracking detection (`282bc6d 10:56:11`) and after the submission-search tier analysis (`339b72e 10:11:27`). The checklist was written with knowledge of how the 89-seat maps would score; "pre-registered for the November map" is correct but "calibrated before looking at the data" is not. |
 | S2-01 | **CRITICAL** | S2 | §3.11 MCMC headline percentiles | `data/simulation_convergence_diagnostics_100k.json`: autocorrelation time τ = 624–674, **effective sample size per metric = 148–160**. The paper reports p100 on mean-median and seats-at-50/50 against "10,000 alternatives" but the effective independent sample is ≈150. The p100 claim is statistically ≈ one-effective-sample resolution; the defensible language is p ≥ 95 or "no observed sample was more extreme." |
 | S2-02 | **CRITICAL** | S2 / S9 | §3.11 MCMC headline percentiles | The untracked `data/simulated_ensemble_percentiles_full_100k.csv` (100k samples, full-coverage rescore) **already exists** and produces materially different numbers: minority mean-median p98.76 (not p100), minority seats@50/50 **p94.27** (below the 95 threshold; no longer an outlier), majority mean-median **p92.66** (paper says p6.6 — opposite tail), majority seats@50/50 **p57.86** (paper says p1.7 — no longer NDP-favoured outlier), minority declination **p1.56** (strongly NDP-favoured by declination). The paper's §3.11 headline is stale. |
 | S2-03 | **HIGH** | S2 | §3.3, §3.4, §3.5, §3.11, §3.12 — family of tests | The audit runs at least 13 distinct statistical tests on overlapping 2023 vote data (listed in §"Explicit test inventory" below). No family-wise error-rate control is reported. Under Bonferroni at α=0.05, per-test threshold is 0.0038; under Benjamini-Hochberg, at least one claimed finding (the MCMC p100 claim) does not survive when corrected. |
@@ -3497,7 +3497,7 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 ### §S10.2 HIGH S10 findings
 
 **S10-01 (HIGH). Pre-registration is not yet filed.**
-- **Claim:** §3.12 says "submission-ready document is in `analysis/reports/pre_registration_draft.md`; the platform survey and submission instructions are in `analysis/reports/pre_registration_platform_analysis.md`. Once submitted, the OSF-assigned DOI will appear in §3.12 and the audit's README as the time-stamped third-party custody record." Embargoed release scheduled for 2026-11-02.
+- **Claim:** §3.12 says "submission-ready document is in `analysis/reports/pre_registration_draft.md`; the platform survey and submission instructions are in `findings/pre_registration_platform_analysis.md`. Once submitted, the OSF-assigned DOI will appear in §3.12 and the audit's README as the time-stamped third-party custody record." Embargoed release scheduled for 2026-11-02.
 - **Reviewer objection:** A methods paper claiming pre-registration protection for P/C/E signature thresholds cannot cite an OSF DOI that doesn't exist yet. Intra-session git-timestamp provenance (§3.7 at "2 hours 24 minutes before the detection runs") is weaker than third-party OSF custody; a reviewer will ask where the DOI is.
 - **Recommendation:** **File the OSF pre-registration before submission** (embargoed or not). Backdate the claim in §3.12 to cite the actual DOI. If OSF filing is genuinely tied to 2026-11-02 deadline, either (a) submit the paper after 2026-11-02 or (b) file without embargo now and simply note "embargoed for 2026-11-02 map release" is not necessary for the paper's pre-registration protection — you just need the DOI.
 
@@ -3667,7 +3667,7 @@ To bring prior-art engagement to peer-review-ready state, add the following to t
 
 ### 4.6 Design Self-Critique
 
-*Source: `analysis/reports/design_critique.md`*
+*Source: `analysis/review/design_critique.md`*
 
 # Design Critique — Alberta Electoral Boundaries Audit
 
@@ -4089,7 +4089,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### CRIT-03. The "materially wrong on three of them" framing in `report_public.md` misrepresents the scope
 **Claim (verbatim):** "the chair's own claim that five minority configurations had 'no public support' turned out to be materially wrong on three of them" — `report_public.md` line 25
 **Stated value:** 3 of 5 Miller-named configurations were materially wrong.
-**Source of truth:** `analysis/reports/submission_search_findings.md` and `analysis/reports/claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
+**Source of truth:** `findings/submission_search_findings.md` and `findings/claim_significance_analysis.md` identify three configurations as "precisely and effectively wrong": Rocky Mountain House-Banff Park, Olds-Three Hills-Didsbury, and Chestermere. Miller's Appendix C-quoted list in the same documents is: **Airdrie, Cochrane, Chestermere, Red Deer, St. Albert**. Of those five, only Chestermere appears on the "materially wrong" list. RMH-Banff and Olds-ODH were not among Miller's original five — the audit added them as extensions to test.
 **Delta:** The public report's intro promises "three of five" but the support refutation actually hits one of Miller's five (Chestermere) plus two configurations Miller did not specifically disavow in Appendix C. The in-body Table 2 (line 147–154) lists all seven correctly, but the intro's phrasing inflates the hit rate against what Miller specifically claimed.
 **Recommendation:** Tighten the intro to "the chair's own claim that five minority configurations had no public support turned out to be materially wrong on Chestermere, and his broader 'no public support' framing mischaracterized the record on two additional configurations the minority adopted from the submissions." Or equivalent.
 
@@ -4123,8 +4123,8 @@ Overall posture: the two reports are substantially reproducible from the checked
 **Claim (verbatim):** "The commission took 1,345 written submissions across two rounds of hearings. I was able to keyword-search 1,252 of them." — `report_public.md` line 144
 **Stated value:** 1,345
 **Verified value:**
-- `analysis/reports/submission_search_findings.md` line 3: "~1,340 public submissions"
-- `analysis/reports/submission_search_findings.md` line 7: "1,252 of ~1,340 (93.4%)"
+- `findings/submission_search_findings.md` line 3: "~1,340 public submissions"
+- `findings/submission_search_findings.md` line 7: "1,252 of ~1,340 (93.4%)"
 - `report_academic.md` line 538: "approximately 1,340"
 **Source of truth:** No source in the repo gives 1,345; every internal reference uses "~1,340" or "approximately 1,340."
 **Recommendation:** Change "1,345" to "approximately 1,340" in `report_public.md` to match the academic report and the submission search findings, or cite the specific source if 1,345 is the actual commission-reported count.
@@ -4164,7 +4164,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-03. Greg Clark "In Canada, we don't want elected officials drawing their own election maps" — not verified from X
 **Claim (verbatim):** "Commissioner Greg Clark, one of the two opposition-nominated majority members — Clark had been nominated by NDP leader Naheed Nenshi — posted on X after the report dropped. 'In Canada,' he wrote, 'we don't want elected officials drawing their own election maps.'" — `report_public.md` line 230
-**Verified source:** `analysis/reports/chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
+**Verified source:** `findings/chair_recommendation_5_analysis.md` line 48 acknowledges: *"Commissioner Greg Clark, one of the two opposition-nominated majority commissioners... posted a thread on X / social media after the final report's tabling in April 2026 clarifying that the 91-seat call came from the chair alone, not from the majority commissioners. Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). **Full citation pending direct archival retrieval** at @GregClarkAB; the substance is already established by Miller's own in-text admission above."*
 **Delta:** The direction of Clark's view is internally corroborated (Miller's own text in the PDF disavows majority endorsement of R5). The specific "In Canada, we don't want..." wording is not archival-verified in the repo.
 **Recommendation:** Mark as "needs manual verification" against the X thread (Wayback capture or direct archive URL).
 
@@ -4189,7 +4189,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 | Chestermere as its own unit | 3 support, 1 oppose |
 | Red Deer hybrids | 4 support, 4 oppose, 15 neutral |
 
-**Verified value (from `analysis/reports/submission_search_findings.md` and `report_academic.md` §5.4.1):**
+**Verified value (from `findings/submission_search_findings.md` and `report_academic.md` §5.4.1):**
 - RMH-Banff Park: **3 explicit supporters + ≥4 aligned = 7 total leaning-support**, 1 oppose, ~15 neutral (20 total mentions)
 - ODH: **2 supporters**, 2 opposers, 1 neutral (5 total mentions)
 - Chestermere: 3 supporters, **3 opposers** (not 1), 7 neutral (13 total)
@@ -4231,7 +4231,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 Script output confirms 2015 EG asymmetry is +0.03 pp (essentially zero). This is reported in academic §3.5 but is not in the Abstract or §7 six-dimensions table.
 
 ### INFO-02. Three comparator cases (Quebec 1992, Ontario 1996, BC 2008) are internally documented but without academic citation
-`analysis/methodology/academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `analysis/reports/bias_audit.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `section_D_procedural.md` comparators but could use a cited academic source.
+`analysis/methodology/academic_literature_review.md` line 38 acknowledges: "Comparator cases: Quebec 1992, Ontario 1996, BC 2008. — cited but without academic sources backing the comparisons." `findings/partisan_bias_summary.md` line 125–127 acknowledges the uniqueness framing is overbroad and recommends softening. The claim "None of the three dissolved the commission mid-cycle and installed a legislative committee in its place" (`report_public.md` line 35) is internally supported by the `section_D_procedural.md` comparators but could use a cited academic source.
 
 ### INFO-03. "1.5-point swing" as "the middle of the map-effect estimate" (public report line 270)
 The Monte Carlo mean is −1.23 pp; the median is −1.40 pp; the sensitivity range is 0.51 to 1.52 pp. 1.5 pp is at the upper end of the range, not the middle (which is closer to 1.0 pp). "Midpoint of 1.0 to 1.5" would be technically more accurate; "middle of the estimate" reads like a point-estimate midpoint.
@@ -4534,7 +4534,7 @@ Further: the academic paper (`:534`) admits "the stronger claim 'without recent 
 - "...the sentence a paragraph later: 'My majority colleagues do not agree with me on this point.'"
 - "The defence that 'the commission endorsed this' does not survive a reading of the commission's own paperwork."
 
-**Evidence:** `analysis/reports/chair_recommendation_5_analysis.md:45`:
+**Evidence:** `findings/chair_recommendation_5_analysis.md:45`:
 > "My majority colleagues do not agree with me on this point."
 
 Note: I could not find evidence in the source files I reviewed for the phrase "That is why I am alone in making this recommendation." The chair analysis doc quotes only "My majority colleagues do not agree with me on this point." The magazine's opening paragraph attributes a two-sentence quotation to Miller with the second sentence appearing to be supplied by the magazine itself, not the chair.
@@ -5319,7 +5319,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 
 **Citation in audit:**
 - `report_public.md:268` "On the night of May 29, 2023, a vote count in Calgary-Acadia came in five one-hundredths of a percentage point apart."
-- `analysis/reports/marginal_seats_findings.md:55` shows Calgary-Acadia at NDP +0.05 pp.
+- `findings/marginal_seats_findings.md:55` shows Calgary-Acadia at NDP +0.05 pp.
 
 **What the source says:** Public reports (e.g., daveberta.substack.com "Top 12 closest races of Alberta's 2023 election") and Global News describe Calgary-Acadia as NDP +7 votes, with an all-candidate margin of approximately 0.03 percentage points.
 
@@ -5336,7 +5336,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 **Citation in audit:**
 - `report_public.md:230` "Commissioner Greg Clark, one of the two opposition-nominated majority members — Clark had been nominated by NDP leader Naheed Nenshi — posted on X after the report dropped. 'In Canada,' he wrote, 'we don't want elected officials drawing their own election maps.'"
 - `report_public.md:349` "Commissioner Greg Clark's post on X, April 2026, referenced at rabble.ca and albertapolitics.substack.com"
-- `analysis/reports/chair_recommendation_5_analysis.md:48` "Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB."
+- `findings/chair_recommendation_5_analysis.md:48` "Clark's thread was referenced by multiple outlets (rabble.ca, albertapolitics.substack.com). Full citation pending direct archival retrieval at @GregClarkAB."
 
 **What the source says:** WebFetch to `https://x.com/GregClarkAB` returned a 402 (paywall / rate limit). WebSearch for the exact phrase "In Canada, we don't want elected officials drawing their own election maps" attributed to Clark did not return the X post directly; `albertapolitics.ca` April 16/22 articles and `daveberta.ca` did not contain the quote in the fetched content. The internal analysis file even flags "Full citation pending direct archival retrieval."
 
@@ -5351,7 +5351,7 @@ The audit's phrasing ("never even casually considered abusing my power") is clos
 ### MED-03. Miller's "substantively unreasonable" and "s. 3 Charter" framings conflated with the chair alone
 
 **Citation in audit:**
-- `analysis/reports/chair_recommendation_5_analysis.md:77` "The chair's Addendum specifically described the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert as 'not something that I can condone' and said the minority report was 'substantively unreasonable' and 'likely to offend s. 3 of the Charter.'"
+- `findings/chair_recommendation_5_analysis.md:77` "The chair's Addendum specifically described the minority's hybrids in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert as 'not something that I can condone' and said the minority report was 'substantively unreasonable' and 'likely to offend s. 3 of the Charter.'"
 
 **What the source says:** PDF p. 67 (Miller's addendum) contains: "This is unlike the other hybrids the minority has proposed in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert. The minority's radical about face and substantive unreasonableness regarding these hybrids, to say nothing about the many other administrative and constitutional law problems with their report, is not something that I can condone." Verified verbatim.
 
@@ -5437,11 +5437,11 @@ The phrase "cheating to secure themselves a supermajority" — the audit quotes 
 
 ### LOW-03. `report_public.md:338–340` internal analysis links are relative paths
 
-**Citation:** The further-reading list uses relative paths like `analysis/reports/marginal_seats_findings.md`. These resolve when viewing from the repo root but break when the file is rendered via the `willconner.ca` URL or any other mirror.
+**Citation:** The further-reading list uses relative paths like `findings/marginal_seats_findings.md`. These resolve when viewing from the repo root but break when the file is rendered via the `willconner.ca` URL or any other mirror.
 
 **Severity:** LOW.
 
-**Recommendation:** Use GitHub blob URLs (e.g., `https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/analysis/reports/marginal_seats_findings.md`) so the links resolve when the piece is hosted off-repo.
+**Recommendation:** Use GitHub blob URLs (e.g., `https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/findings/marginal_seats_findings.md`) so the links resolve when the piece is hosted off-repo.
 
 ---
 
@@ -5459,7 +5459,7 @@ Verified by `ls -la analysis/`:
 
 The internal cross-references are a closed loop; the audit's forward-reading path resolves without breaks.
 
-### INFO-02. Source for the Calgary-Acadia +0.05 pp margin (`report_public.md:268`) is correctly grounded in `analysis/reports/marginal_seats_findings.md:55`, which in turn grounds in `data/alberta_2023_results.csv`
+### INFO-02. Source for the Calgary-Acadia +0.05 pp margin (`report_public.md:268`) is correctly grounded in `findings/marginal_seats_findings.md:55`, which in turn grounds in `data/alberta_2023_results.csv`
 
 The audit's internal grounding is consistent, even where it differs from public reporting's 0.03 figure (see MED-01).
 
@@ -5470,8 +5470,8 @@ The audit's internal grounding is consistent, even where it differs from public 
 1. **Miller "My majority colleagues do not agree with me on this point"** — `report_public.md:13`, `report_academic.md:512`, `chair_recommendation_5_analysis.md:44`. Verified verbatim against `.temp/commission_report.pdf` p. 66. PASS.
 2. **Miller "That is why I am alone in making this recommendation"** — `report_public.md:13`. Verified verbatim p. 66. PASS.
 3. **Miller "This fifth recommendation is formulated for the express purpose of dissuading the Legislature from accepting the minority report"** — `report_public.md:232`, `report_academic.md:520`. Verified verbatim p. 66. PASS.
-4. **Miller "not something that I can condone"** — `analysis/reports/chair_recommendation_5_analysis.md:77`. Verified verbatim p. 67. PASS.
-5. **Recommendation 5 text (a–d)** — `analysis/reports/chair_recommendation_5_analysis.md:25–32`. Verified verbatim p. 66. PASS.
+4. **Miller "not something that I can condone"** — `findings/chair_recommendation_5_analysis.md:77`. Verified verbatim p. 67. PASS.
+5. **Recommendation 5 text (a–d)** — `findings/chair_recommendation_5_analysis.md:25–32`. Verified verbatim p. 66. PASS.
 6. **Nenshi "full-on assault on our democracy"** — `report_public.md:17`. Verified against Rimbey Review, Lacombe Express, Stettler Independent, DiscoverAirdrie — all three mirrors carry the same quote verbatim. PASS with the caveat that the quote is from the floor of the legislature and is consistently reproduced.
 7. **Smith "I've been asking every member to look at page 66"** — `report_public.md:39`. Verified verbatim against DiscoverAirdrie April 17, 2026. PASS.
 8. **Pancholi "89 seats that the UCP gave them to work with"** — `report_public.md:(implicit)`. Verified verbatim against DiscoverAirdrie. PASS.

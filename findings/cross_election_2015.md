@@ -369,7 +369,7 @@ Proposed paragraph body:
   minority-majority asymmetry comparison on EG, mean-median, B4,
   declination).
 - `analysis/scripts/2015_cross_election.py` (reproducible pipeline).
-- `analysis/reports/2015_cross_election_analysis.md` (this document).
+- `findings/cross_election_2015.md` (this document).
 
 ## Caveats
 

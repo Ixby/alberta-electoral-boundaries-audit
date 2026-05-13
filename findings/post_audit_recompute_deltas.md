@@ -118,7 +118,7 @@ The canonical ensemble uses official Elections Alberta shapefiles and produces s
 
 ## R `redist` cross-validation result
 
-**Resolved 2026-04-26/27.** Full results in `analysis/reports/redist_python_comparison.md`.
+**Resolved 2026-04-26/27.** Full results in `findings/redist_python_comparison.md`.
 
 The R SMC cross-validation **failed the ±0.5pp tolerance** — the two samplers produce materially different distributions. Under Python ReCom the v0_9 minority map's seats@50/50 (0.4831) sits at the 98.6th percentile; under R SMC (Harvard `redist`, 5k importance-weighted plans) it sits near the median (~28–58% of plans reach or exceed it, run-stochastic due to RNG state consumption by `library(redistmetrics)`).
 

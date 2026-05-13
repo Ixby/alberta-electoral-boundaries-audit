@@ -8,10 +8,10 @@ forward_dependencies:
 backward_dependencies:
   - analysis/scripts/packing_cracking_analysis.py (B1–B6 partisan metrics)
   - analysis/scripts/electoral_forensics_population.py (A1–A3 population findings)
-  - analysis/reports/justification_tests_findings.md (population-math verdicts)
-  - analysis/reports/submission_search_findings.md (public-support tiers)
+  - findings/justification_tests_findings.md (population-math verdicts)
+  - findings/submission_search_findings.md (public-support tiers)
   - analysis/methodology/minority_rationales_validation.md (rationale verdicts)
-  - analysis/reports/chair_recommendation_5_analysis.md (R5 conditions as extra gates)
+  - findings/chair_recommendation_5_analysis.md (R5 conditions as extra gates)
 ---
 
 # Track C — pre-registered checklist baseline scoring
@@ -36,7 +36,7 @@ The checklist is reproduced verbatim from `report_public.md` §"What a gerrymand
 | Majority 2026 | 0.36% gap — no | 2 EDs — no | None — no | **0 / 3** |
 | Minority 2026 | 12.20% gap — yes | 4 EDs — yes | RMH-Banff Park — yes | **3 / 3** |
 
-**Score.** Majority: strong signal NOT detected. Minority: strong signal detected (by definition — minority is where they were originally identified). Sources: `analysis/scripts/electoral_forensics_population.py` (Calgary zone gap); `analysis/reports/section_C_geographic_coherence.md` (Airdrie partition, RMH-Banff Park shape).
+**Score.** Majority: strong signal NOT detected. Minority: strong signal detected (by definition — minority is where they were originally identified). Sources: `analysis/scripts/electoral_forensics_population.py` (Calgary zone gap); `findings/geographic_coherence.md` (Airdrie partition, RMH-Banff Park shape).
 
 ### S2. New signatures appear
 
@@ -47,7 +47,7 @@ The checklist is reproduced verbatim from `report_public.md` §"What a gerrymand
 | Majority 2026 | No (Calgary zone gap 0.36% ≈ neutral) | No | No | **0** |
 | Minority 2026 | No (Edmonton unpacked; NDP cluster preserved) | No (beyond Airdrie and Chestermere already in S1) | No (beyond RMH-Banff already in S1) | **0** |
 
-**Score.** Neither map introduces new signatures beyond S1's set. Source: spatial audit in `analysis/reports/section_C_geographic_coherence.md` and `analysis/methodology/uncertainty_and_shapefile_impact.md`.
+**Score.** Neither map introduces new signatures beyond S1's set. Source: spatial audit in `findings/geographic_coherence.md` and `analysis/methodology/uncertainty_and_shapefile_impact.md`.
 
 ### S3. Both extra rural seats have engineered boundaries
 
@@ -80,7 +80,7 @@ The checklist is reproduced verbatim from `report_public.md` §"What a gerrymand
 | Majority 2026 | Preserves the principle for Olds area and Chestermere (not the specific minority labels); does not preserve RMH-Banff Park | No (majority rejected Airdrie 4-way and Nolan Hill-Cochrane) | **No inversion** |
 | Minority 2026 | Yes — RMH-Banff Park, ODH rural unit, Chestermere separation | Yes — Airdrie 4-way, Nolan Hill-Cochrane | **Partial inversion** (minority keeps both supported and unsupported, not inverting *which* it keeps — it keeps the full minority programme) |
 
-**Score.** Majority: no inversion. Minority: does not invert in the "drops supported, keeps unsupported" sense — it keeps both — so the inversion signal is not technically triggered. The unsupported configurations (Airdrie 4-way, Nolan Hill-Cochrane) are nonetheless present in the minority, which is a weaker signal captured by S1. Source: `analysis/reports/submission_search_findings.md`, tier table in `analysis/reports/claim_significance_analysis.md`.
+**Score.** Majority: no inversion. Minority: does not invert in the "drops supported, keeps unsupported" sense — it keeps both — so the inversion signal is not technically triggered. The unsupported configurations (Airdrie 4-way, Nolan Hill-Cochrane) are nonetheless present in the minority, which is a weaker signal captured by S1. Source: `findings/submission_search_findings.md`, tier table in `findings/claim_significance_analysis.md`.
 
 ---
 
@@ -146,7 +146,7 @@ These gates were added to the evidence base after the original checklist was wri
 | (c) Revert south-of-NSR Edmonton districts to interim map | N/A | N/A | Same |
 | (d) Restore Clearwater / western Mountain View s.15(2) district | N/A | N/A | Same |
 
-**Score.** R5(a)–(d) are specifically triggered only when the 91-seat fallback is activated. Both 89-seat maps predate that trigger. Deferred to the November map. Source: `analysis/reports/chair_recommendation_5_analysis.md`.
+**Score.** R5(a)–(d) are specifically triggered only when the 91-seat fallback is activated. Both 89-seat maps predate that trigger. Deferred to the November map. Source: `findings/chair_recommendation_5_analysis.md`.
 
 ### X2. Rationale-against-data checks
 
@@ -154,7 +154,7 @@ These gates were added to the evidence base after the original checklist was wri
 |---|---|---|
 | Shared-schools claim (Bow-Springbank, Red Deer-Sylvan Lake) | N/A (majority does not use this rationale) | **Contradicted** (Alberta Education school-division boundaries disagree) |
 | Commuter-tie claim for Nolan Hill-Cochrane | N/A | **Unsupported** at CSD resolution |
-| Five population-math justifications | N/A (majority does not invoke them) | **All five FAIL** (`analysis/reports/justification_tests_findings.md`) |
+| Five population-math justifications | N/A (majority does not invoke them) | **All five FAIL** (`findings/justification_tests_findings.md`) |
 | Piikani / Peigan naming | N/A | Naming observation, no fault finding |
 
 **Score.** Minority: three rationales contradicted or unsupported, five population-math tests failed. Majority: no tested rationales triggered a contradiction. Source: `analysis/methodology/minority_rationales_validation.md`.
@@ -230,9 +230,9 @@ The November sub-audit should fill the rightmost column in the same structure. A
 
 - Checklist source: `report_public.md` §"What a gerrymander in the 91-seat map would actually look like" (v0.12 state, committed 41c361d).
 - Metrics source: `analysis/scripts/packing_cracking_analysis.py` (B2, B3, B4, B6); `analysis/scripts/electoral_forensics_population.py` (A1, A2, A3).
-- Public-support tiers: `analysis/reports/submission_search_findings.md` + `analysis/reports/claim_significance_analysis.md`.
+- Public-support tiers: `findings/submission_search_findings.md` + `findings/claim_significance_analysis.md`.
 - Rationale checks: `analysis/methodology/minority_rationales_validation.md`.
-- Chair R5 conditions: `analysis/reports/chair_recommendation_5_analysis.md`.
+- Chair R5 conditions: `findings/chair_recommendation_5_analysis.md`.
 - 338 validation: `analysis/methodology/338canada_riding_level.md`.
 - Cochrane commute: `analysis/methodology/cochrane_journey_to_work.md`.
 

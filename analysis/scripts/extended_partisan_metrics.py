@@ -17,7 +17,7 @@ For each metric, computes:
 Uses v0_7 shapefiles for 2026 maps (89 EDs, full coverage).
 
 Outputs:
-  analysis/reports/extended_partisan_metrics.md
+  findings/extended_partisan_metrics.md
   data/extended_partisan_metrics.json
 
 Backward:
@@ -26,7 +26,7 @@ Backward:
   data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg
   data/simulated_ensemble_raw_samples_100k.csv
 Forward:
-  analysis/reports/extended_partisan_metrics.md
+  findings/extended_partisan_metrics.md
 """
 from __future__ import annotations
 

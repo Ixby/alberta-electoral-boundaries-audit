@@ -10,12 +10,12 @@ Replaces the DPG-based 250k ensemble for all Channel 1 percentile placements.
 Backward dependencies:
   data/simulated_ensemble_raw_samples_canonical.csv
   data/simulation_real_map_scores_canonical.json
-  analysis/reports/szat_summary.json          (Channel 2 p-value)
-  analysis/reports/neighbour_drain_analysis.md (Channel 3 result, read manually)
+  findings/szat_summary.json          (Channel 2 p-value)
+  findings/neighbour_drain_analysis.md (Channel 3 result, read manually)
 
 Forward dependencies:
-  analysis/reports/joint_outlier_score.json
-  analysis/reports/joint_outlier_score_summary.md
+  findings/joint_outlier_score.json
+  findings/joint_outlier_score_summary.md
 """
 from __future__ import annotations
 
@@ -494,7 +494,7 @@ center (p = {maj_m['joint_partisan_p']:.2e}) — outlier on MM in the NDP-favour
 ---
 
 *Script: `analysis/scripts/joint_outlier_score_canonical.py`*
-*Full output: `analysis/reports/joint_outlier_score.json`*
+*Full output: `findings/joint_outlier_score.json`*
 """
 
     with open(OUT_MD, "w", encoding="utf-8") as f:

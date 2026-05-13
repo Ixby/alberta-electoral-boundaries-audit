@@ -325,7 +325,7 @@ pass. They fall into three categories, all documented in the graph's
 
 1. **Markdown writeup outputs** — many scripts have a `Forward:` line
    naming an output markdown file (e.g.,
-   `analysis/reports/topology_cleanup_analysis.md`). These writeups
+   `findings/topology_cleanup_analysis.md`). These writeups
    are not modelled as graph nodes because they are narrative prose, not
    independent data artefacts. If the writeup contains a quantitative
    claim the audit relies on, that claim is elevated into the L3

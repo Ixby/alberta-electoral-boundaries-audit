@@ -7,7 +7,7 @@ type: reports
 # Municipal-boundary anchoring analysis (Precision Option C, Issue #4)
 
 **Companion script:** `analysis/scripts/municipal_anchoring.py`
-**Outputs:** `data/v0_4_canonical_{majority,minority}_2026_eds_anchored.gpkg`; per-ED log at `analysis/reports/municipal_anchoring_log.csv`; summary at `data/v0_1_municipal_anchoring_summary.json`.
+**Outputs:** `data/v0_4_canonical_{majority,minority}_2026_eds_anchored.gpkg`; per-ED log at `findings/municipal_anchoring_log.csv`; summary at `data/v0_1_municipal_anchoring_summary.json`.
 **Date:** 2026-04-24.
 
 ## Method
@@ -70,7 +70,7 @@ A hostile reviewer asking "what does the minority's ~1.42 pp headline EG shift a
 
 St. Albert (82 %), St. Albert-Sturgeon (81 %), Edmonton-Spruce Grove (92 %) are minority EDs with *higher* anchoring than the majority map's equivalents. This tells us the minority map is not uniformly ignoring municipal boundaries — it is selectively ignoring them in specific regions (Calgary metropolitan area; rural north) while respecting them in others (north Edmonton, mountain parks).
 
-The per-ED log (`analysis/reports/municipal_anchoring_log.csv`) allows direct inspection of which EDs drive the overall 14.5 % minority number vs the majority's 71 %.
+The per-ED log (`findings/municipal_anchoring_log.csv`) allows direct inspection of which EDs drive the overall 14.5 % minority number vs the majority's 71 %.
 
 ### Relationship to the Stony Plain-Drayton Valley overlap issue
 
@@ -78,7 +78,7 @@ The session-topology-cleanup analysis (Issue A, commit 452f841) identified Stony
 
 ## Suggested paper insertion (§5.8 Geographic coherence, as a new subsection)
 
-> **Municipal-boundary anchoring audit.** A fourth §5.8 dimension compares the two maps' propensity to follow existing municipal edges. Using Statistics Canada's 2021 Census Sub-Division boundaries (the AMA-equivalent gazetted municipal layer) as a reference, each DPG perimeter segment that sits within 500 m of a CSD edge over a contiguous ≥ 1 km length is classified as "municipally-anchored." The majority 2026 map anchors **71.0 %** of its total perimeter (16,598 km of 23,361 km) to municipal edges; the minority 2026 map anchors **14.5 %** (3,344 km of 23,128 km). The **4.9× asymmetry** is the largest single-dimension difference between the two proposals in the §5.8 suite. Thirteen majority EDs anchor above 90 % of their perimeter (Drumheller-Stettler 99.3 %, Lloydminster-Wainwright 99.0 %, Fort Saskatchewan-Vegreville 95.2 %, etc.); only three minority EDs do. Canadian redistribution commissions typically follow municipal boundaries where the population math permits, because doing so preserves community-of-interest and simplifies voter comprehension; the minority's 14.5 % overall anchoring represents a material departure from that practice. This finding is orthogonal to the §5.2 partisan-bias measurements — no vote data is used — and strengthens the §5.8 geographic-coherence bundle. Full methodology and per-ED breakdown at `analysis/reports/municipal_anchoring_analysis.md`; snapped canonical shapefiles at `data/v0_4_canonical_{majority,minority}_2026_eds_anchored.gpkg`.
+> **Municipal-boundary anchoring audit.** A fourth §5.8 dimension compares the two maps' propensity to follow existing municipal edges. Using Statistics Canada's 2021 Census Sub-Division boundaries (the AMA-equivalent gazetted municipal layer) as a reference, each DPG perimeter segment that sits within 500 m of a CSD edge over a contiguous ≥ 1 km length is classified as "municipally-anchored." The majority 2026 map anchors **71.0 %** of its total perimeter (16,598 km of 23,361 km) to municipal edges; the minority 2026 map anchors **14.5 %** (3,344 km of 23,128 km). The **4.9× asymmetry** is the largest single-dimension difference between the two proposals in the §5.8 suite. Thirteen majority EDs anchor above 90 % of their perimeter (Drumheller-Stettler 99.3 %, Lloydminster-Wainwright 99.0 %, Fort Saskatchewan-Vegreville 95.2 %, etc.); only three minority EDs do. Canadian redistribution commissions typically follow municipal boundaries where the population math permits, because doing so preserves community-of-interest and simplifies voter comprehension; the minority's 14.5 % overall anchoring represents a material departure from that practice. This finding is orthogonal to the §5.2 partisan-bias measurements — no vote data is used — and strengthens the §5.8 geographic-coherence bundle. Full methodology and per-ED breakdown at `findings/municipal_anchoring_analysis.md`; snapped canonical shapefiles at `data/v0_4_canonical_{majority,minority}_2026_eds_anchored.gpkg`.
 
 ## Limitations
 
@@ -94,7 +94,7 @@ The session-topology-cleanup analysis (Issue A, commit 452f841) identified Stony
 | `analysis/scripts/municipal_anchoring.py` | ~27 KB | The pipeline |
 | `data/v0_4_canonical_majority_2026_eds_anchored.gpkg` | 7.7 MB | Anchored majority shapefile |
 | `data/v0_4_canonical_minority_2026_eds_anchored.gpkg` | 6.8 MB | Anchored minority shapefile |
-| `analysis/reports/municipal_anchoring_log.csv` | 17 KB | Per-ED anchoring log (178 rows) |
+| `findings/municipal_anchoring_log.csv` | 17 KB | Per-ED anchoring log (178 rows) |
 | `data/v0_1_municipal_anchoring_summary.json` | 4.7 KB | Summary statistics |
 | `data/alberta_2021_csds.gpkg` | (repo pre-existing) | StatsCan CSD source |
 

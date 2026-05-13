@@ -10,7 +10,7 @@ type: project
 
 ## Why this check exists
 
-The Lane-2 headline finding (`analysis/reports/municipal_anchoring_analysis.md`) is that the 2026 minority map anchors only 14.5% of its province-wide perimeter to StatCan 2021 CSD edges, vs. 71.0% (2026 majority) and 75.2% (2019 enacted) under the same snap-tolerance method. A foreseeable hostile-witness counter is: *"the minority map didn't abandon anchoring — it anchored to highways, rivers, and county lines instead of arbitrary municipal borders. The 14.5% number is a measurement failure, not a map failure."* This memo tests that counter on its own terms by re-running the identical snap method against a different substrate.
+The Lane-2 headline finding (`findings/municipal_anchoring_analysis.md`) is that the 2026 minority map anchors only 14.5% of its province-wide perimeter to StatCan 2021 CSD edges, vs. 71.0% (2026 majority) and 75.2% (2019 enacted) under the same snap-tolerance method. A foreseeable hostile-witness counter is: *"the minority map didn't abandon anchoring — it anchored to highways, rivers, and county lines instead of arbitrary municipal borders. The 14.5% number is a measurement failure, not a map failure."* This memo tests that counter on its own terms by re-running the identical snap method against a different substrate.
 
 ## Method
 

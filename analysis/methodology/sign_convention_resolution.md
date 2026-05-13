@@ -191,7 +191,7 @@ not edited here):
    note above is added to the reports. **No code change is required
    for the direction claim to hold** — only a glossary / footnote.
 
-5. The Track Z analysis (`analysis/reports/2015_cross_election_analysis.md`)
+5. The Track Z analysis (`findings/cross_election_2015.md`)
    states at §6 and again at §"Sign-convention note" that v0_3's labels
    are inverted relative to the "gerrymandering literature's
    convention for 'pro-UCP'." Track Z's claim is incorrect: v0_3 is

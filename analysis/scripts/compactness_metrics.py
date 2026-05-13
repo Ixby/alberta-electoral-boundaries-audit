@@ -22,7 +22,7 @@ Inputs:
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 
 Outputs:
-  analysis/reports/compactness_metrics.csv
+  findings/compactness_metrics.csv
       Columns: map, name, area_km2, perimeter_km, polsby_popper,
                pp_percentile_rank
   data/compactness_summary.json
@@ -34,7 +34,7 @@ Author: v0.1 audit pipeline — geometry analysis per test-selection-rationale
 §6.1 / apparatus-defense §2.1. Generated 2026-04-24.
 
 Forward deps:
-  - analysis/reports/compactness_metrics.csv (consumed by section MD)
+  - findings/compactness_metrics.csv (consumed by section MD)
   - data/compactness_summary.json (consumed by report_academic.md §5.x)
 
 Backward deps:

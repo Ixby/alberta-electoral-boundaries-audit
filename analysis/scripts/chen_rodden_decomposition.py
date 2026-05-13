@@ -65,12 +65,12 @@ Inputs
 
 Outputs
 -------
-- analysis/reports/chen_rodden_decomposition.md (writeup)
+- findings/chen_rodden_decomposition.md (writeup)
 - data/chen_rodden_decomposition.csv (decomposition table,
   machine-readable)
 - data/chen_rodden_decomposition.json (structured summary)
 
-Forward: analysis/reports/chen_rodden_decomposition.md
+Forward: findings/chen_rodden_decomposition.md
 Backward:
   data/simulated_ensemble_raw_samples_100k.csv
   data/simulation_real_map_scores_full_v2.json

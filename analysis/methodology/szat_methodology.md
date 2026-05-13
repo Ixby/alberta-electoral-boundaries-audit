@@ -125,7 +125,7 @@ round 5,500,000, committed at git hash `d2aea42` before any simulation results.
 
 ## §4 — Output Specification
 
-Primary output: `analysis/reports/szat_results.csv`
+Primary output: `findings/szat_results.csv`
 
 | Column | Description |
 |---|---|
@@ -141,7 +141,7 @@ Primary output: `analysis/reports/szat_results.csv`
 | `region` | Calgary / Edmonton / Rest of Alberta / Mountain-West |
 | `notes` | Unresolved flag if applicable |
 
-Summary output: `analysis/reports/szat_summary.json`
+Summary output: `findings/szat_summary.json`
 
     {
       "szat_score": <float>,

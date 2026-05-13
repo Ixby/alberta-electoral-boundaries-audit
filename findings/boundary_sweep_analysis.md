@@ -149,5 +149,5 @@ A sweep is recorded as:
 > hybrids whose boundary is multi-segment or wraps around a First Nation
 > reserve (Chestermere-Strathmore, Edmonton-Beaumont, Fort McMurray-Lac La Biche); for these cases the v0_2 geometry is retained
 > unchanged. The per-ED sweep log is at
-> `analysis/reports/tier_c_sweep_log.csv` and full methodology is
+> `findings/tier_c_sweep_log.csv` and full methodology is
 > documented in §E.7 below.

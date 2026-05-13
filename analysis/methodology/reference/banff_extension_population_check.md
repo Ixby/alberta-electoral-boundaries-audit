@@ -127,7 +127,7 @@ For the working-ranches sub-claim, StatsCan Census of Agriculture 2021 table 32-
 
 - This file: `analysis/methodology/banff_extension_population_check.md`.
 - Inputs: `data/shapefiles/derived/v0_8_refined_minority_2026_eds.gpkg`; `data/shapefiles/reference/alberta_2021_das.gpkg`; `data/alberta_2021_da_populations.csv`.
-- Cross-references: `analysis/reports/justification_tests_findings.md` Test 2; `analysis/methodology/minority_rationales_validation.md` §R12; `report_academic.md` §5.1.4, §5.3.3, §5.9.6 Claim 3.
+- Cross-references: `findings/justification_tests_findings.md` Test 2; `analysis/methodology/minority_rationales_validation.md` §R12; `report_academic.md` §5.1.4, §5.3.3, §5.9.6 Claim 3.
 
 ## Caveats
 

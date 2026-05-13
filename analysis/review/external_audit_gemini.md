@@ -92,7 +92,7 @@ The audit author accepts all three confirmed findings and has triggered remediat
 2. **CRITICAL #2 fix** — force explicit key alignment in array extraction. Estimated: 5 min implementation.
 3. **HIGH fix** — add `index.duplicated(keep="first")` deduplication to `score_exogenous_map()`. Estimated: 5 min implementation.
 4. **Regression tests** — add the three tests Gemini specified (CRS enforcement on `score_exogenous_map`, state persistence in chunked `run_ensemble`, sjoin deduplication on overlapping mock polygons). Estimated: 1 hour.
-5. **Re-run + delta report** — rerun the 2M MCMC ensemble; compare new percentile placements to the buggy version's published values; document any deltas in `analysis/reports/post_audit_recompute_deltas.md`.
+5. **Re-run + delta report** — rerun the 2M MCMC ensemble; compare new percentile placements to the buggy version's published values; document any deltas in `findings/post_audit_recompute_deltas.md`.
 6. **Public-report update** — depending on the delta, either confirm the headline finding holds (no prose change needed) or re-state the finding honestly to reflect the corrected numbers.
 
 The audit's pre-registration discipline requires the post-audit deltas to be reported in a dated amendment. If the recomputed `seats@50/50` ensemble ceiling rises above the minority's 52.8%, the "no map in 2M reaches it" claim is retracted and replaced with the corrected finding.

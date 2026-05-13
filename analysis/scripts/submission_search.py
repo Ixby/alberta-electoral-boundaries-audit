@@ -11,7 +11,7 @@ Dependencies:
 - Backward: pdfplumber, re, urllib, csv, pathlib
 Produces:
   data/submission_search_dataset.csv
-  analysis/reports/submission_search_findings.md
+  findings/submission_search_findings.md
   analysis/methodology/submission_search_log.md
 
 Usage:

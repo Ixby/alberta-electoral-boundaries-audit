@@ -61,7 +61,7 @@ Parameters held identical to the headline CSD run:
     VERTEX_DENSIFY_M  = 50.0
 
 Forward:
-    analysis/reports/natural_anchoring_secondary_check.md
+    findings/natural_anchoring_secondary_check.md
 Backward:
     analysis/scripts/_fetch_osm_natural.py  (OSM data fetch + cache)
     analysis/scripts/score_anchoring.py     (CSD comparator)

@@ -63,7 +63,7 @@ Usage
 
 Dependencies
 ------------
-Forward: analysis/reports/regional_swing_robustness.md (interprets output)
+Forward: findings/regional_swing_robustness.md (interprets output)
 Backward:
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
   data/alberta_2019_results.csv

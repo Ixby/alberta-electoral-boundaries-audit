@@ -14,7 +14,7 @@ Reports:
   - Change from 2019 baseline
 
 Outputs:
-  analysis/reports/municipal_splits.md
+  findings/municipal_splits.md
   data/municipal_splits.json
 
 Backward:

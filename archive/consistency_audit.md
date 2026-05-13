@@ -84,8 +84,8 @@ counts, ±1% for populations.
 | 33 | 2023 NDP 2P = 777,404 | `report_academic.md:108,636` | 2023 CSV | 777,404 | exact | OK |
 | 34 | 2023 UCP 2P = 928,900 | `report_academic.md:108,636` | 2023 CSV | 928,900 | exact | OK |
 | 35 | 2023 total 2P = 1,706,304 | `report_academic.md:108,636` | sum | 1,706,304 | exact | OK |
-| 36 | 2015 prov total = 1,433,745 | `analysis/reports/2015_cross_election_analysis.md:73` | `data/alberta_2015_results.csv` total_all | 1,433,745 | exact | OK |
-| 37 | 2015 NDP 2P = 43.98% | `analysis/reports/2015_cross_election_analysis.md:76` | 2015 CSV | 43.97% | within tol | OK |
+| 36 | 2015 prov total = 1,433,745 | `findings/cross_election_2015.md:73` | `data/alberta_2015_results.csv` total_all | 1,433,745 | exact | OK |
+| 37 | 2015 NDP 2P = 43.98% | `findings/cross_election_2015.md:76` | 2015 CSV | 43.97% | within tol | OK |
 | 38 | 2015 rural NDP 2P = 35.05% | `analysis/scripts/monte_carlo_ci.py:13` | Track Z computed | not reverified | n/a | CHECK NEEDED |
 | 39 | 2019 rural NDP 2P = 26.47% | `analysis/scripts/monte_carlo_ci.py:13` | Track Z computed | 26.5% (v0_3 rerun) | within tol | OK |
 | 40 | 2023 rural NDP 2P = 33.47% / 33.5% | `analysis/scripts/monte_carlo_ci.py`, v0_2 rerun | v0_2 `main()` prints 33.5% | within tol | OK |
@@ -98,7 +98,7 @@ counts, ±1% for populations.
 | 47 | Ensemble N = 150 plans | multiple | chen_rodden script | not re-executed | n/a | CHECK NEEDED |
 | 48 | Ensemble median EG = -2.3% to -2.4% (full-vote) | multiple | chen_rodden script | not re-executed | n/a | CHECK NEEDED |
 | 49 | Airdrie population = 84,000 (both reports) | `report_public.md:154,274,319,399`, `report_academic.md:340` | StatsCan 2021 census = 74,100; 2024 estimate = 84,045 | **inconsistent with own data** | MEDIUM — see note |
-| 50 | Airdrie population = 74,100 (2021) | `analysis/reports/justification_tests_findings.md:95`, `report_public.md:319` | StatsCan 2021 census | 74,100 | OK | OK |
+| 50 | Airdrie population = 74,100 (2021) | `findings/justification_tests_findings.md:95`, `report_public.md:319` | StatsCan 2021 census | 74,100 | OK | OK |
 | 51 | Red Deer population = 106,000 | `report_public.md:306,377`, `section_C_geographic_coherence.md:62` | StatsCan 2021 = 100,844 | 100,844 | 5.2% high | MINOR — uses 2024 estimate rounded up |
 | 52 | Red Deer population = 100,844 | `report_public.md:320`, `justification_tests_findings.md:120` | StatsCan 2021 | 100,844 | exact | OK |
 | 53 | Cochrane population = 34,000 | `report_public.md:281`, `section_C_geographic_coherence.md:58` | StatsCan 2021 CSD | not reverified | n/a | CHECK NEEDED |
@@ -181,7 +181,7 @@ counts, ±1% for populations.
 
 **Summary of re-framings needed:**
 
-1. **Track Z file** (`analysis/reports/2015_cross_election_analysis.md`):
+1. **Track Z file** (`findings/cross_election_2015.md`):
    Currently states "compute_metrics convention: positive EG = pro-UCP."
    This is the S-M-canonical convention but OPPOSITE to the paper's
    running convention ("negative EG = UCP advantage"). Either
@@ -217,7 +217,7 @@ merged into `maps/`. References did not get updated.
 
 | # | Cited path | Cited in | Actual location | Severity |
 |---|---|---|---|---|
-| F6 | `rural_gap_ed_comparison.csv` (no dir prefix) | `analysis/reports/rural_gap_findings.md:125` | `analysis/rural_gap_ed_comparison.csv` | LOW — relative to the file it's cited in, this is OK |
+| F6 | `rural_gap_ed_comparison.csv` (no dir prefix) | `findings/rural_gap_findings.md:125` | `analysis/rural_gap_ed_comparison.csv` | LOW — relative to the file it's cited in, this is OK |
 
 ### Broken references (file moved to historical/ but still cited at original path)
 
@@ -242,7 +242,7 @@ Full orphan audit not performed (too expensive in tokens). Spot-check:
   `report_academic.md:870`. File exists.
 - `analysis/methodology/commission_source_provenance.md` — cited in
   `report_academic.md:131,871`. File exists.
-- `analysis/reports/byelection_assessment.md` — cited in
+- `findings/byelection_assessment.md` — cited in
   `report_academic.md:262,872`. File exists.
 - `analysis/methodology/appendix_c_legal_baseline.md` — cited in
   `report_academic.md:832,873`. File exists.
@@ -251,7 +251,7 @@ Full orphan audit not performed (too expensive in tokens). Spot-check:
 - `analysis/methodology/canadian_base_rate_computed.md` — cited at `report_academic.md:875`.
   File exists.
 - `analysis/reports/pre_registration_draft.md`,
-  `analysis/reports/pre_registration_platform_analysis.md` —
+  `findings/pre_registration_platform_analysis.md` —
   cited at `report_academic.md:386,876`. Files exist.
 - `analysis/methodology/338canada_riding_level.md` — cited at
   `report_academic.md:264,881`. File exists.
@@ -326,13 +326,13 @@ gaps, not hallucinations.**
 - **Premier Smith quote "did not want to lose two rural ridings":**
   Cited in three places in `report_public.md`. Attributed to Rimbey
   Review April 16, 2026 (`report_public.md:489`). Cannot be
-  independently verified in this session. `analysis/reports/91_seat_preliminary.md:30`
+  independently verified in this session. `findings/lunty_91_seat_preliminary.md:30`
   also attributes to Rimbey Review Apr 16. Internal consistency OK.
   **Flag: single-source attribution** — if the Premier's remarks exist
   elsewhere (Hansard, news conference transcript), a corroborating
   source would strengthen the quote.
 - **Chair Miller Recommendation 5 quote (pp. 66-67):** Cited in
-  `analysis/reports/chair_recommendation_5_analysis.md:23-40`. The `.temp/commission_report.pdf`
+  `findings/chair_recommendation_5_analysis.md:23-40`. The `.temp/commission_report.pdf`
   file is present in the repo's `.temp/` directory. The quote verbatim
   is reproduced; this is the authoritative source. OK subject to the
   PDF's text-extraction integrity.
@@ -375,7 +375,7 @@ gaps, not hallucinations.**
    > `analysis/methodology/sign_convention_resolution.md`.
 
 2. **[CRITICAL — Track Z framing collision]** Amend
-   `analysis/reports/2015_cross_election_analysis.md`. The current file
+   `findings/cross_election_2015.md`. The current file
    describes the code's EG as matching "the gerrymandering literature's
    convention for pro-UCP" (positive = pro-UCP). This is the S-M
    canonical convention but OPPOSITE to the paper's running convention.
@@ -400,7 +400,7 @@ gaps, not hallucinations.**
 
 4. **[MEDIUM — broken file refs]** Fix `source_maps/` prefix in 5 files:
    - `report_academic.md:25,437,438,439`
-   - `analysis/reports/section_C_geographic_coherence.md:104`
+   - `findings/geographic_coherence.md:104`
    - `analysis/methodology/data_preparation.md:129-131`
    - `analysis/methodology/shape_refinement.md:18`
 
@@ -471,6 +471,6 @@ gaps, not hallucinations.**
 ## Appendix — audit artefact list
 
 - `analysis/methodology/sign_convention_resolution.md` — Phase 1 verdict.
-- `analysis/reports/consistency_audit.md` — this file (Phases 2-6).
+- `archive/consistency_audit.md` — this file (Phases 2-6).
 - No structured CSV or data artefacts generated; tables above include
   all numerical comparisons.

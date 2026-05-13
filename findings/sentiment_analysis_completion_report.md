@@ -84,7 +84,7 @@ Scan types: full_corpus (submissions), hansard_r1, hansard_r2 (Hansard turns)
 
 ### 4. Cross-Reference Analysis (Rationales × Public Sentiment)
 
-**Document:** `analysis/reports/sentiment_rationale_crossreference.md`  
+**Document:** `findings/sentiment_rationale_crossreference.md`  
 **Status:** COMPLETE (committed b79e56e)
 
 **Purpose:** Map public sentiment against minority's stated justifications and their validation verdicts.
@@ -256,7 +256,7 @@ Sentiment analysis is **exploratory-reproducible, but severely limited by incomp
 ## Files Modified/Created
 
 **New files:**
-- `analysis/reports/sentiment_rationale_crossreference.md` — Cross-reference analysis
+- `findings/sentiment_rationale_crossreference.md` — Cross-reference analysis
 
 **Modified files:**
 - `outputs/academic_report/report_academic.md` — §5.9.4.6 updated with LLM results

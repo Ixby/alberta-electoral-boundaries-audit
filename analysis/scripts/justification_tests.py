@@ -15,7 +15,7 @@ Depends on:
 
 Outputs:
     data/justification_test_inputs.csv   (intermediate tables)
-    analysis/reports/justification_tests_findings.md (written verdicts)
+    findings/justification_tests_findings.md (written verdicts)
 
 Run:
     python analysis/scripts/v0_1_justification_tests.py

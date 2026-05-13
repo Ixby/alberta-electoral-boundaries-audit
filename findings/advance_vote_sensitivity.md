@@ -55,4 +55,4 @@ The 1pp threshold is not strictly cleared on absolute movement, so this finding 
 
 ## One-line summary for methodological_defenses.md §1.1
 
-> *Empirical refutation (2026-04-26):* `advance_vote_splat.py` apportions the missing 47.5% of votes to VAs by Election-Day two-party shares; re-scoring v0_9 majority and minority shifts both maps' `seats@50/50` by exactly +1.12 pp and preserves the 2.25-pp relative gap between them to 4 decimal places. The defense's symmetry argument is empirically confirmed. (`analysis/reports/advance_vote_sensitivity.md`, `data/advance_vote_sensitivity.json`)
+> *Empirical refutation (2026-04-26):* `advance_vote_splat.py` apportions the missing 47.5% of votes to VAs by Election-Day two-party shares; re-scoring v0_9 majority and minority shifts both maps' `seats@50/50` by exactly +1.12 pp and preserves the 2.25-pp relative gap between them to 4 decimal places. The defense's symmetry argument is empirically confirmed. (`findings/advance_vote_sensitivity.md`, `data/advance_vote_sensitivity.json`)

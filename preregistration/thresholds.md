@@ -21,7 +21,7 @@ backward_dependencies:
   - analysis/scripts/packing_cracking_analysis.py (B-series thresholds, 70/30 urban weight)
   - analysis/scripts/monte_carlo_ci.py (Monte Carlo N, Uniform sampling ranges, 95 % CI)
   - analysis/scripts/check_voice_and_readability.py (Flesch-Kincaid targets)
-  - analysis/reports/act_amendment_proposal.md (reform-proposal thresholds)
+  - docs/act_amendment_proposal.md (reform-proposal thresholds)
 ---
 
 # Threshold provenance compendium

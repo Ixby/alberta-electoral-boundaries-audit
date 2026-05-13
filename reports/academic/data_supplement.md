@@ -94,8 +94,8 @@ python -m pytest tests/ -v
 
 | Output file | Generating script | Report section |
 |---|---|---|
-| `analysis/reports/joint_outlier_score.json` | `joint_outlier_score_canonical.py` | §5.2 (Ch1 Mahalanobis) |
-| `analysis/reports/szat_summary.json` | `szat.py` | §5.3 (Ch2 SZAT) |
+| `findings/joint_outlier_score.json` | `joint_outlier_score_canonical.py` | §5.2 (Ch1 Mahalanobis) |
+| `findings/szat_summary.json` | `szat.py` | §5.3 (Ch2 SZAT) |
 | `data/outputs/rhat_diagnostic_section_b.json` | `simulation_convergence_diagnostics.py` | §5.4 (convergence) |
 | `data/outputs/szat_robustness_section_a.json` | `szat.py` (10-seed replay) | §5.2.10 (robustness) |
 | `data/outputs/csd_anchoring_results.json` | `mcmc_anchoring_ensemble.py` | §5.4.9 (anchoring) |
@@ -115,7 +115,7 @@ All values below are drawn from committed output files at HEAD `7b7b2fe`. File p
 
 ### Ch1 — Partisan Joint Outlier (Mahalanobis)
 
-Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, base_seed=1432864451. Covariance matrix estimated from the full 1M ensemble. Source: `analysis/reports/joint_outlier_score.json`.
+Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, base_seed=1432864451. Covariance matrix estimated from the full 1M ensemble. Source: `findings/joint_outlier_score.json`.
 
 | Map | D | D² | Joint p |
 |---|---|---|---|
@@ -123,13 +123,13 @@ Ensemble: 1,010,000 neutral plans, 4 chains × 252,500 steps, ReCom algorithm, b
 | Majority (March 2026) | 2.802 | 7.85 | 0.097 (within null) |
 | Enacted 2019 (baseline) | — | — | 0.013 |
 
-The four component metrics (efficiency gap, mean-median, declination, seats at 50/50) are available in `analysis/reports/joint_outlier_score.json`.
+The four component metrics (efficiency gap, mean-median, declination, seats at 50/50) are available in `findings/joint_outlier_score.json`.
 
 **Pre-registration status:** Ch1 was not pre-registered before execution. See §D7 for the timing disclosure.
 
 ### Ch2 — Swing Zone Allocation Test (SZAT)
 
-Source: `analysis/reports/szat_summary.json`.
+Source: `findings/szat_summary.json`.
 
 | Parameter | Value |
 |---|---|
@@ -146,7 +146,7 @@ Source: `analysis/reports/szat_summary.json`.
 
 ### Fisher Combination (Ch1 × Ch2)
 
-Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — PASS). Channels treated as empirically near-independent. Source: `analysis/reports/joint_outlier_score.json`.
+Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — PASS). Channels treated as empirically near-independent. Source: `findings/joint_outlier_score.json`.
 
 | Statistic | Value |
 |---|---|
@@ -156,7 +156,7 @@ Independence test: Pearson ρ = −0.0014, p = 0.888 (|ρ| < 0.30 threshold — 
 
 ### Ch3 — Neighbour-Drain Label Shuffle
 
-Source: `analysis/reports/intermap_permutation_test_results.json`. **Not included in Fisher combination.**
+Source: `findings/intermap_permutation_test_results.json`. **Not included in Fisher combination.**
 
 | Map | p | Result |
 |---|---|---|

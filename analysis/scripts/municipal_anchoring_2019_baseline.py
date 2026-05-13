@@ -35,7 +35,7 @@ inputs/columns rather than retrofit the 2026 script.
   * data/2019_municipal_anchoring_summary.json (matches 2026 schema)
 
 Forward:
-  analysis/reports/municipal_anchoring_analysis.md  (verdict section)
+  findings/municipal_anchoring_analysis.md  (verdict section)
 Backward:
   analysis/scripts/municipal_anchoring.py
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
@@ -419,7 +419,7 @@ def main():
             "_2019_overall_pct": overall_pct,
             "_2026_majority_overall_pct_headline": 71.0,
             "_2026_minority_overall_pct_headline": 14.5,
-            "_2026_headline_source": "analysis/reports/municipal_anchoring_analysis.md",
+            "_2026_headline_source": "findings/municipal_anchoring_analysis.md",
         },
         "outputs": {
             "log_csv": str(OUT_CSV),

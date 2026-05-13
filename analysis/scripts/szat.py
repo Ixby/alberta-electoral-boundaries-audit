@@ -20,8 +20,8 @@ data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
 
 Outputs
 -------
-analysis/reports/szat_results.csv      — per-VA swing-zone table
-analysis/reports/szat_summary.json     — map-level summary + bootstrap
+findings/szat_results.csv      — per-VA swing-zone table
+findings/szat_summary.json     — map-level summary + bootstrap
 
 EG sign convention (McGhee / Stephanopoulos 2014, U. Chi. L. Rev. 82(2)):
   positive EG = more NDP votes wasted than UCP (UCP structural advantage)
@@ -40,8 +40,8 @@ Backward dependencies:
   analysis/scripts/drand_seed.py
 
 Forward dependencies:
-  analysis/reports/szat_results.csv
-  analysis/reports/szat_summary.json
+  findings/szat_results.csv
+  findings/szat_summary.json
 """
 from __future__ import annotations
 

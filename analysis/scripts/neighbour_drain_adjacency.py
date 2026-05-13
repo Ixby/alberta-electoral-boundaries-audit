@@ -17,10 +17,10 @@ A genuine partisan-drain signature requires coupling — the same party being
 packed in X and cracked in Y.
 
 Outputs:
-  - analysis/reports/neighbour_drain_log.csv (per-pair metadata)
+  - findings/neighbour_drain_log.csv (per-pair metadata)
   - data/neighbour_drain_summary.json (aggregate stats)
   - maps/neighbour_drain_phase_space_{2019,majority,minority}.svg (heatmaps)
-  - analysis/reports/neighbour_drain_analysis.md (writeup)
+  - findings/neighbour_drain_analysis.md (writeup)
 
 Author: v0.1 audit pipeline — Test 3A per test-selection-rationale §6.1 /
 apparatus-defense §2.1. Generated 2026-04-24.
@@ -957,7 +957,7 @@ other two maps across all threshold pairs in the sensitivity grid.
 
 ## Outputs
 
-- Per-pair log: `analysis/reports/neighbour_drain_log.csv`
+- Per-pair log: `findings/neighbour_drain_log.csv`
 - Summary JSON: `data/neighbour_drain_summary.json`
 - Phase-space plots: `maps/neighbour_drain_phase_space_{{2019,majority,minority}}.svg`
 """

@@ -212,7 +212,7 @@ The closest methodological analogs are spatial autocorrelation approaches (Moran
 
   intensity(X, Y) = max(0, s_X − 0.15) × max(0, 0.05 − m_Y)
 
-and the label-shuffle null distribution are new analytical contributions. Results are reported in `analysis/reports/neighbour_drain_analysis.md` and the academic report.
+and the label-shuffle null distribution are new analytical contributions. Results are reported in `findings/neighbour_drain_analysis.md` and the academic report.
 
 ### Literature to cite when publishing
 
@@ -238,7 +238,7 @@ SZAT asks a different question from all of these: not "is the map anomalous comp
 
 **"Swing-Zone Allocation Test"** (SZAT) is introduced in this audit ([AsPredicted #289,469](https://aspredicted.org/9zr792.pdf), filed 2026-05-07, made public 2026-05-07). A swing zone is a Voting Area whose centroid falls in a different Electoral Division under Map A than Map B. SZAT score = EG(A) − EG(B) summed over swing zones only, tested against a permutation null in which each swing zone is randomly assigned to either map's configuration. The test is generalizable to any pair of maps covering the same geography.
 
-Applied to the 2026 Alberta commission proposals against canonical Elections Alberta shapefiles: SZAT score = +0.039211 (p = 0.0024, two-tailed bootstrap, full-recompute, N = 10,000, seed 23687475). The minority map's boundary choices increase NDP vote waste by 3.9 percentage points relative to the majority map, with the dominant contribution from Rest of Alberta (+0.015) and Edmonton (+0.008). Full methodology: `analysis/methodology/szat_proposal.md`. Results: `analysis/reports/szat_summary.json`.
+Applied to the 2026 Alberta commission proposals against canonical Elections Alberta shapefiles: SZAT score = +0.039211 (p = 0.0024, two-tailed bootstrap, full-recompute, N = 10,000, seed 23687475). The minority map's boundary choices increase NDP vote waste by 3.9 percentage points relative to the majority map, with the dominant contribution from Rest of Alberta (+0.015) and Edmonton (+0.008). Full methodology: `analysis/methodology/szat_proposal.md`. Results: `findings/szat_summary.json`.
   > ℹ **p-value history:** original additive-delta approximation gave p = 0.000; 500-perm full-recompute check gave p ~ 0.012; definitive 10k full-recompute run (Election-Day-only substrate) gives p = 0.0044; re-run with full advance-vote substrate (2026-05-10) gives p = 0.0024 (swing zone count 2108 → 2110). H0 rejected at α = 0.05 throughout.
 
 **Generalisation note (documented for future work):** The majority-vs-minority framing is natural for this audit, but the same test applies to any proposed map against the current enacted baseline. Comparing proposed-vs-2019 would test whether a new map's specific boundary changes improve or worsen efficiency relative to the prior plan — potentially more useful to courts and commissions than a between-proposals comparison.

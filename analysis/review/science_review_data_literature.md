@@ -228,7 +228,7 @@ A peer reviewer in *Election Law Journal* or *Statistics and Public Policy* woul
 ### §S10.2 HIGH S10 findings
 
 **S10-01 (HIGH). Pre-registration is not yet filed.**
-- **Claim:** §3.12 says "submission-ready document is in `analysis/reports/pre_registration_draft.md`; the platform survey and submission instructions are in `analysis/reports/pre_registration_platform_analysis.md`. Once submitted, the OSF-assigned DOI will appear in §3.12 and the audit's README as the time-stamped third-party custody record." Embargoed release scheduled for 2026-11-02.
+- **Claim:** §3.12 says "submission-ready document is in `analysis/reports/pre_registration_draft.md`; the platform survey and submission instructions are in `findings/pre_registration_platform_analysis.md`. Once submitted, the OSF-assigned DOI will appear in §3.12 and the audit's README as the time-stamped third-party custody record." Embargoed release scheduled for 2026-11-02.
 - **Reviewer objection:** A methods paper claiming pre-registration protection for P/C/E signature thresholds cannot cite an OSF DOI that doesn't exist yet. Intra-session git-timestamp provenance (§3.7 at "2 hours 24 minutes before the detection runs") is weaker than third-party OSF custody; a reviewer will ask where the DOI is.
 - **Recommendation:** **File the OSF pre-registration before submission** (embargoed or not). Backdate the claim in §3.12 to cite the actual DOI. If OSF filing is genuinely tied to 2026-11-02 deadline, either (a) submit the paper after 2026-11-02 or (b) file without embargo now and simply note "embargoed for 2026-11-02 map release" is not necessary for the paper's pre-registration protection — you just need the DOI.
 

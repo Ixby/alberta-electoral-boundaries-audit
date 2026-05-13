@@ -8,7 +8,7 @@ forward_dependencies:
 backward_dependencies:
   - analysis/reports/plan_b_cross_check.md — Track K, the empirical anchor that the §12(3) rule is being overridden in practice
   - analysis/cycle_lag_analysis.md — Track L, the cycle-lag quantification that motivates the reform
-  - analysis/reports/ai_use_recommendations_for_committee.md §2.5 — methodology-level sibling; this proposal is the policy-level counterpart
+  - docs/ai_use_recommendations_for_committee.md §2.5 — methodology-level sibling; this proposal is the policy-level counterpart
   - Electoral Boundaries Commission Act, RSA 2000 c E-3, §§ 12–15
   - Reference re Provincial Electoral Boundaries (Saskatchewan), [1991] 2 SCR 158
   - Electoral Boundaries Readjustment Act, RSC 1985 c E-3

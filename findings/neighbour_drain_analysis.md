@@ -119,6 +119,6 @@ Tests B2 and B3 (§5.3.1, §5.3.2) measure packing and cracking as separable who
 
 ## Outputs
 
-- Per-pair log: `analysis/reports/neighbour_drain_log.csv`
+- Per-pair log: `findings/neighbour_drain_log.csv`
 - Summary JSON: `data/neighbour_drain_summary.json`
 - Phase-space plots: `maps/neighbour_drain_phase_space_{2019,majority,minority}.svg`

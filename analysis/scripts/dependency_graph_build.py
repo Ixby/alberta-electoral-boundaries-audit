@@ -603,14 +603,14 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "VA-to-2026-ED assignments (centroid + MAUP)",
         "type": "phase4_output",
-        "path": "analysis/assignment_va_to_2026_assignments.csv, analysis/reports/assignment_va_to_2026_assignments_maup.csv, analysis/reports/assignment_va_to_2026_assignments_maup_v2.csv, analysis/reports/phase4c_va_to_2026_assignments_maup.csv",
+        "path": "analysis/assignment_va_to_2026_assignments.csv, findings/assignment_va_to_2026_assignments_maup.csv, findings/assignment_va_to_2026_assignments_maup_v2.csv, findings/phase4c_va_to_2026_assignments_maup.csv",
     },
     {
         "id": "L1:constructed.phase4c_maup_summary",
         "layer": "L1",
         "name": "Phase 4C MAUP summary JSON (v0_1/v0_2/v0_5)",
         "type": "phase4_output",
-        "path": "analysis/reports/v0_1_phase4c_maup_summary.json, analysis/reports/v0_2_phase4c_maup_summary.json, analysis/reports/phase4c_maup_summary.json",
+        "path": "analysis/reports/v0_1_phase4c_maup_summary.json, analysis/reports/v0_2_phase4c_maup_summary.json, findings/phase4c_maup_summary.json",
     },
     # Anchoring summaries
     {
@@ -618,21 +618,21 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Municipal anchoring summary (v0_4)",
         "type": "anchoring_output",
-        "path": "data/v0_1_municipal_anchoring_summary.json, analysis/reports/municipal_anchoring_log.csv",
+        "path": "data/v0_1_municipal_anchoring_summary.json, findings/municipal_anchoring_log.csv",
     },
     {
         "id": "L1:constructed.da_anchoring_summary",
         "layer": "L1",
         "name": "DA boundary anchoring summary (v0_5)",
         "type": "anchoring_output",
-        "path": "data/v0_1_da_anchoring_summary.json, analysis/reports/da_anchoring_log.csv",
+        "path": "data/v0_1_da_anchoring_summary.json, findings/da_anchoring_log.csv",
     },
     {
         "id": "L1:constructed.topology_cleanup_log",
         "layer": "L1",
         "name": "Topology cleanup log (v0_1 → v0_2)",
         "type": "anchoring_output",
-        "path": "data/tier_c_sweep_summary.json, analysis/reports/topology_cleanup_summary.json, analysis/reports/topology_cleanup_log.csv",
+        "path": "data/tier_c_sweep_summary.json, findings/topology_cleanup_summary.json, findings/topology_cleanup_log.csv",
     },
     # Perturbation samples
     {
@@ -711,7 +711,7 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Submission archive keyword-search dataset + findings",
         "type": "derived_data",
-        "path": "data/submission_search_dataset.csv, analysis/reports/submission_search_findings.md",
+        "path": "data/submission_search_dataset.csv, findings/submission_search_findings.md",
     },
     {
         "id": "L1:constructed.boundary_refinement_impact",
@@ -760,7 +760,7 @@ L1_NODES: List[Dict[str, Any]] = [
         "layer": "L1",
         "name": "Max-DPI commission-map extractions (bottleneck audit)",
         "type": "derived_data",
-        "path": "analysis/reports/max_dpi_extract.json, analysis/reports/max_dpi_inspect.json",
+        "path": "archive/provisional_geometries/max_dpi_extract.json, archive/provisional_geometries/max_dpi_inspect.json",
     },
 ]
 
@@ -2364,7 +2364,7 @@ def resolve_dependency(path_str: str) -> str | None:
         return find_l2_id(norm)
     # Report output markdown: treat as a Forward artefact (L1-style doc).
     # We won't create a node for each markdown output; instead ignore them
-    # unless they are analysis/reports under explicit tracking.
+    # unless they are findings/ under explicit tracking.
     return None
 
 

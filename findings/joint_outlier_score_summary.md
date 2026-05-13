@@ -110,4 +110,4 @@ The majority map sits at Mahalanobis distance 2.69 from the ensemble centre (p â
 ---
 
 *Script: `analysis/scripts/joint_outlier_score_canonical.py`*
-*Full output: `analysis/reports/joint_outlier_score.json`*
+*Full output: `findings/joint_outlier_score.json`*

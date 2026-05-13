@@ -2,9 +2,9 @@
 name: Alberta government administrative databases survey — candidates for a non-partisan sub-provincial population source of truth
 description: Inventory, reliability assessment, constitutional-suitability analysis, and composite-basis recommendation for the §12 amendment proposal. Identifies which provincial and federal administrative data sources could serve as a legislatively-recognised population base for electoral-boundary redistribution, and how they should be wired into the Option B composite basis.
 forward_dependencies:
-  - analysis/reports/act_amendment_proposal.md Phase 5 Option B §12(5) — this survey specifies which datasets the statute should name as the composite components and which should be the tie-breaker
-  - analysis/reports/act_amendment_proposal.md Phase 4 objection 4.2 — this survey sharpens the "political vulnerability of provincial estimates" answer by quantifying which non-provincial cross-checks are available
-  - analysis/reports/ai_use_recommendations_for_committee.md §2.5 — methodology-level sibling on data-source transparency
+  - docs/act_amendment_proposal.md Phase 5 Option B §12(5) — this survey specifies which datasets the statute should name as the composite components and which should be the tie-breaker
+  - docs/act_amendment_proposal.md Phase 4 objection 4.2 — this survey sharpens the "political vulnerability of provincial estimates" answer by quantifying which non-provincial cross-checks are available
+  - docs/ai_use_recommendations_for_committee.md §2.5 — methodology-level sibling on data-source transparency
 backward_dependencies:
   - analysis/reports/plan_b_cross_check.md — Track K, empirical anchor that §12(3) is being overridden in practice
   - analysis/cycle_lag_analysis.md — Track L, cycle-lag quantification that motivates data-source reform
@@ -265,7 +265,7 @@ The Statistics Act, RSC 1985 c S-19, is a federal statute establishing Statistic
 
 ### 3.3 Provincial jurisdiction — prior practice
 
-The comparative scan in `analysis/reports/act_amendment_proposal.md` §2 documents that British Columbia uses BC Stats estimates (post-census), Quebec uses the electoral list, and Ontario inherits federal census data by construction. None of these choices has been constitutionally challenged on data-source grounds. The practice of provincial jurisdictions selecting their own data source is well-established.
+The comparative scan in `docs/act_amendment_proposal.md` §2 documents that British Columbia uses BC Stats estimates (post-census), Quebec uses the electoral list, and Ontario inherits federal census data by construction. None of these choices has been constitutionally challenged on data-source grounds. The practice of provincial jurisdictions selecting their own data source is well-established.
 
 ### 3.4 Constitutional verdict
 

@@ -60,7 +60,7 @@ All 10 seeds fixed here before execution. Results reported regardless of directi
 
 **Result summary:** p ∈ [0.0025, 0.0043], median = 0.0031. All 10 seeds p < 0.05. Primary result (p = 0.0024) is seed-stable. SZAT score fixed at +0.039211 (deterministic observed value); only the bootstrap p varies across seeds.
 
-**Note on seed wiring:** `szat.py` does not accept a command-line `--seed` argument — it always calls `get_canonical_seed("szat-bootstrap")` from `drand_seed.py`. Robustness runs were executed by replaying the bootstrap kernel directly (same VA data from `analysis/reports/szat_results.csv`, same permutation logic) with each pre-committed seed via a standalone script. This is methodologically equivalent: the SZAT score is a deterministic observed statistic; only the bootstrap null distribution varies with seed.
+**Note on seed wiring:** `szat.py` does not accept a command-line `--seed` argument — it always calls `get_canonical_seed("szat-bootstrap")` from `drand_seed.py`. Robustness runs were executed by replaying the bootstrap kernel directly (same VA data from `findings/szat_results.csv`, same permutation logic) with each pre-committed seed via a standalone script. This is methodologically equivalent: the SZAT score is a deterministic observed statistic; only the bootstrap null distribution varies with seed.
 
 Output: `data/outputs/szat_robustness_section_a.json`
 
