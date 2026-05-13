@@ -272,6 +272,7 @@ one edit in one file, not 9 script edits.
 paths:
   findings_dir: findings    # was analysis/reports
 ```
+**Case-sensitivity warning:** Use lowercase `findings` exactly as above. `Findings` or `FINDINGS` will work on Windows/macOS (case-insensitive) but fail on Linux/GitHub Actions (case-sensitive). The directory created by `git mv analysis/reports findings` will be lowercase; the config entry must match exactly.
 
 ```python
 # data_loader.py — add accessor (alongside existing CONFIG dict):
@@ -424,7 +425,7 @@ Before the first `git mv`:
 
 1. **Clean working directory.** `git status` must show nothing staged or modified. A dirty tree means `git reset --hard HEAD` is NOT a safe undo — it would destroy uncommitted work. Stash or commit everything first.
 2. **Dedicated branch.** `git checkout -b feat/restructure` — do not work on `main`. The restructure is one atomic operation that merges after full verification, not a series of incremental commits to main.
-3. **Code freeze.** Declare no other branches should merge during execution. The restructure touches paths that active development branches may also be editing. Estimated window: 4 hours.
+3. **Code freeze.** Declare no other branches should merge during execution. The restructure touches paths that active development branches may also be editing. Estimated window: 4–8 hours (allow a full day; if Step 12 fails and requires debugging, a 4-hour estimate bleeds into an overnight freeze).
 
 **If anything goes wrong mid-execution:** `git reset --hard HEAD && git clean -fd` returns to the exact pre-restructure state — but only if the working directory was clean when you started.
 
@@ -434,10 +435,17 @@ Before the first `git mv`:
 
 0. **Pre-move hash capture + grep sweep.**
    ```powershell
-   # Capture current FROZEN_MANIFEST hash as pre-restructure baseline
-   python -c "import hashlib, json, pathlib; [print(p, hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()[:12]) for p in sorted(pathlib.Path('findings').rglob('*')) if pathlib.Path(p).is_file()]" > pre_restructure_hashes.txt
+   # Capture pre-restructure baseline — filter hidden metadata files
+   python -c "
+   import hashlib, pathlib
+   skip = {'.DS_Store', '.gitkeep', '.gitignore', 'Thumbs.db'}
+   for p in sorted(pathlib.Path('analysis/reports').rglob('*')):
+       if p.is_file() and p.name not in skip:
+           h = hashlib.sha256(p.read_bytes()).hexdigest()[:12]
+           print(p, h)
+   " > pre_restructure_hashes.txt
    ```
-   *(Run after `findings/` exists, i.e. after Step 5 — or against `analysis/reports/` before the move.)*
+   *(Run against `analysis/reports/` before the move; post-hash runs against `findings/`.)*
 
    Grep sweep — catches .py, .md, .yaml, .json:
    ```powershell
@@ -463,8 +471,16 @@ Before the first `git mv`:
 6. Add `findings_dir` key to `config.yaml`; add `FINDINGS` accessor to `data_loader.py`; update 9 scripts to import it
 7. Build script `SRC_MD` path fix (`build_pdf.py` and `build_academic_pdf.py`)
 8. Write READMEs for all 9 directories in the table above
-9. Add OSF registration links and "Date Registered" headers to all 7 files in `preregistration/`
-10. Update root `README.md`: add note that `data/outputs/district_patterns/` is the machine-readable geographic record of packing/cracking/draining patterns (visualization code sunsetted; underlying spatial evidence preserved)
+9. Add OSF registration links and "Date Registered" headers to all 7 files in `preregistration/`.
+   Template for each file header:
+   ```markdown
+   **Date registered:** YYYY-MM-DD
+   **Registry:** [AsPredicted #XXXXX](https://aspredicted.org/XXXXX) / [OSF #XXXXX](https://osf.io/XXXXX)
+   **Status:** Frozen — this document reflects commitments made before data examination.
+   ```
+10. Update root `README.md`:
+    - Add note that `data/outputs/district_patterns/` is the machine-readable geographic record of packing/cracking/draining patterns (visualization code sunsetted; underlying spatial evidence preserved)
+    - Add an ASCII directory overview at the top of the findings/methodology sections so a first-time reader has a "You Are Here" map without needing to open TREE.md
 11. Run broken-link check:
     ```powershell
     # Check all markdown cross-references resolve
@@ -500,6 +516,12 @@ Before the first `git mv`:
     ```
     Expected diff: file paths change (analysis/reports/ → findings/); hashes are identical.
     Any hash change means a script wrote different output — investigate before committing.
+
+    Once hashes are confirmed identical, add a verification timestamp to `findings/README.md`:
+    ```markdown
+    *Structure verified YYYY-MM-DD. Pre/post hash comparison confirmed no data changed
+    during restructure (see pre_restructure_hashes.txt, deleted after commit).*
+    ```
 
 14. **TREE.md path lint.** Parse `TREE.md` for any file path strings (lines matching
     ` ├── ` or ` └── ` that contain a `.` extension or path separator) and call
