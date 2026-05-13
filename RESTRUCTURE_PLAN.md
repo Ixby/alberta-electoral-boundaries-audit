@@ -1,7 +1,7 @@
 # Restructure Plan — Alberta Audit Repository
 
 *Planning document. Delete after execution is complete.*
-*Drafted 2026-05-13. Grounded 2026-05-13 (all file paths verified). Status: APPROVED — not yet executed.*
+*Drafted 2026-05-13. Re-grounded 2026-05-13 after Step 0 sweep: script count corrected (9→14), file inventory expanded to 96 files, pre_registration_platform_analysis.md disposition corrected. Status: READY — not yet executed.*
 
 ---
 
@@ -245,7 +245,7 @@ handling, not test design.
 - `composite_shapefiles_log.md`
 - `self_check_protocol.md`
 
-*(Note: `mcmc_100k_and_full_coverage.md` moves to `archive/provisional_geometries/` — see above. `pre_registration_platform_analysis.md` does not exist.)*
+*(Note: `mcmc_100k_and_full_coverage.md` moves to `archive/provisional_geometries/` — see above. `pre_registration_platform_analysis.md` exists in `analysis/reports/` and moves to `findings/` unchanged — see complete inventory below.)*
 
 ---
 
@@ -263,9 +263,9 @@ Rewrite `analysis/methodology/README.md` to serve as a navigation index for the 
 
 **Implementation approach: route through `config.yaml`, not a bulk string replace.**
 
-Rather than replacing the hardcoded path constant in 9 scripts, add a key to `config.yaml`
+Rather than replacing the hardcoded path constant in 14 scripts, add a key to `config.yaml`
 and update `data_loader.py` to expose it. This means future directory renames require
-one edit in one file, not 9 script edits.
+one edit in one file, not 14 script edits.
 
 ```yaml
 # config.yaml — add under paths:
@@ -290,20 +290,160 @@ from analysis.scripts.utils.data_loader import FINDINGS as REPORTS
 
 The `REPORTS` alias preserves all downstream references within each script unchanged.
 
-Affected scripts (9 total — grounded 2026-05-13):
+Affected scripts (14 total — grounded 2026-05-13 Step 0 sweep):
 
-| Script | Variable name |
+| Script | Variable / pattern | Line |
+|---|---|---|
+| `intermap_permutation_test.py` | `REPORTS = ROOT / "analysis" / "reports"` | 74 |
+| `joint_outlier_score_canonical.py` | `REPORTS = ROOT / "analysis" / "reports"` | 48 |
+| `joint_outlier_score.py` | `REPORTS = ROOT / "analysis" / "reports"` | 69 |
+| `population_consistency.py` | `REPORTS = ROOT / "analysis" / "reports"` | 68 |
+| `szat_2019_baseline.py` | `REPORTS = ROOT / "analysis" / "reports"` | 68 |
+| `szat_validate.py` | `REPORTS = ROOT / "analysis" / "reports"` | 42 |
+| `szat.py` | `REPORTS = ROOT / "analysis" / "reports"` | 74 |
+| `extended_partisan_metrics.py` | `RPTS = ROOT / "analysis" / "reports"` | 56 |
+| `municipal_splits.py` | `RPTS = ROOT / "analysis" / "reports"` | 50 |
+| `simulation_short_bursts.py` | `RPTS = ROOT / "analysis" / "reports"` | 84 |
+| `drain_label_shuffle_null.py` | `out_reports = ROOT / "analysis" / "reports"` | 198 (in main()) |
+| `neighbour_drain_adjacency.py` | `out_reports_dir = ROOT / "analysis" / "reports"` | 491 (in main()) |
+| `november_red_alert_scorecard.py` | `ROOT / "analysis" / "reports" / f"november..."` | 415 (in main()) |
+| `s15_ratio_test.py` | `os.path.join(dirname(__file__), "..", "reports", ...)` | 37, 40 |
+
+*Note on scripts with path in main() (`drain_label_shuffle_null`, `neighbour_drain_adjacency`, `november_red_alert_scorecard`, `simulation_short_bursts`): path is constructed inside `main()`, not as a module-level constant. Import `FINDINGS as RPTS` (or matching name) at module level.*
+
+*Note on `s15_ratio_test.py`: uses `os.path.join(dirname(__file__), "..", "reports", ...)`. Change both `INPUT_CSV` and `OUTPUT_CSV` to `ROOT / "findings" / "..."` using the FINDINGS import.*
+
+Also update:
+- `dependency_graph_build.py` — embeds `analysis/reports/` as string data in JSON. Update string data separately.
+- `submission_search.py` — docstring only references `analysis/reports/submission_search_findings.md`; update docstring after restructure.
+
+**All 96 files in `analysis/reports/` — complete inventory with dispositions:**
+
+*Step 0 grounding (2026-05-13): actual count is 96, not ~15. The original plan only covered files discovered before the Step 0 sweep.*
+
+**Script outputs (CSV/JSON) — move to `findings/`, keep exact names (scripts write here):**
+
+| File | Generating script |
 |---|---|
-| `intermap_permutation_test.py` | `REPORTS` |
-| `joint_outlier_score_canonical.py` | `REPORTS` |
-| `joint_outlier_score.py` | `REPORTS` |
-| `population_consistency.py` | `REPORTS` |
-| `szat_2019_baseline.py` | `REPORTS` |
-| `szat_validate.py` | `REPORTS` |
-| `szat.py` | `REPORTS` |
-| `drain_label_shuffle_null.py` | `out_reports` (different variable name, same path string) |
+| `adjacency_analysis.csv` | `neighbour_drain_adjacency.py` |
+| `advance_vote_splat_diagnostics.csv` | `advance_vote_splat.py` |
+| `assignment_va_to_2026_assignments_maup.csv` | MAUP attribution scripts |
+| `assignment_va_to_2026_assignments_maup_v2.csv` | MAUP attribution scripts |
+| `boundary_propagation_log.csv` | boundary propagation script |
+| `boundary_propagation_summary.json` | boundary propagation script |
+| `compactness_metrics.csv` | `compactness_metrics.py` |
+| `contiguity_check.csv` | geometry validation script |
+| `da_anchoring_log.csv` | `score_anchoring.py` |
+| `intermap_permutation_test_results.json` | `intermap_permutation_test.py` |
+| `joint_outlier_score.json` | `joint_outlier_score.py` |
+| `municipal_anchoring_log.csv` | `score_anchoring.py` |
+| `neighbour_drain_log.csv` | `neighbour_drain_adjacency.py` |
+| `phase4c_maup_summary.json` | MAUP Phase 4C script |
+| `phase4c_va_to_2026_assignments_maup.csv` | MAUP Phase 4C script |
+| `phase4f_summary.json` | Phase 4F script |
+| `population_consistency.csv` | `population_consistency.py` |
+| `s15_deviation_compliance.csv` | `s15_ratio_test.py` |
+| `szat_2019_baseline.json` | `szat_2019_baseline.py` |
+| `szat_results.csv` | `szat.py` |
+| `szat_results_full_votes.csv` | `szat.py` |
+| `szat_summary.json` | `szat.py` |
+| `szat_summary_full_votes.json` | `szat.py` |
+| `tier_c_crop_manifest.json` | tier_c sweep script |
+| `tier_c_sweep_log.csv` | tier_c sweep script |
+| `topology_cleanup_log.csv` | topology cleanup script |
+| `topology_cleanup_summary.json` | topology cleanup script |
 
-Also update: `dependency_graph_build.py` — embeds `analysis/reports/` as string data inside JSON output. Update string data separately from the `REPORTS=` bulk replace.
+**Script outputs (MD) — move to `findings/`, keep exact names (scripts write here):**
+
+| File | Generating script |
+|---|---|
+| `drain_label_shuffle_null.md` | `drain_label_shuffle_null.py` |
+| `extended_partisan_metrics.md` | `extended_partisan_metrics.py` |
+| `intermap_permutation_test_results.md` | `intermap_permutation_test.py` |
+| `joint_outlier_score_summary.md` | `joint_outlier_score_canonical.py` |
+| `municipal_anchoring_analysis.md` | `score_anchoring.py` |
+| `municipal_splits.md` | `municipal_splits.py` |
+| `neighbour_drain_analysis.md` | `neighbour_drain_adjacency.py` |
+| `simulation_short_bursts.md` | `simulation_short_bursts.py` |
+| `submission_search_findings.md` | `submission_search.py` |
+
+**Move to `archive/provisional_geometries/` (DPG-era outputs):**
+
+| File |
+|---|
+| `approximate_shape_analysis.md` |
+| `build_v7_log.csv` |
+| `build_v7_summary.json` |
+| `max_dpi_extract.json` |
+| `max_dpi_inspect.json` |
+
+**Move to `docs/` (policy/operational documents, not test findings):**
+
+| File |
+|---|
+| `act_amendment_proposal.md` |
+| `ai_use_recommendations_for_committee.md` |
+
+**Archive to `archive/` (historical analysis, not current findings):**
+
+| File | Reason |
+|---|---|
+| `consistency_audit.md` | Sign-convention phases 2-6; unique content not in sign_convention_resolution.md |
+
+**Delete (process artifacts):**
+
+| File | Reason |
+|---|---|
+| `article_figures_v3.md` | Superseded by article_figures.py and generate_infographic_v3.py |
+| `plan_b_cross_check.md` | Planning artifact |
+| `wayback_spn2_request.md` | Process log for a single archive request |
+
+**Human analysis docs — move to `findings/` with name changes listed:**
+
+| Old name | New name |
+|---|---|
+| `2015_cross_election_analysis.md` | `cross_election_2015.md` |
+| `91_seat_preliminary.md` | `lunty_91_seat_preliminary.md` |
+| `bias_audit.md` | `partisan_bias_summary.md` |
+| `ndp_burst_symmetry.md` | `burst_symmetry_analysis.md` |
+| `section_4_geometry_provenance.md` | `geometry_provenance.md` |
+| `section_A_population_equality.md` | `population_equality.md` |
+| `section_C_geographic_coherence.md` | `geographic_coherence.md` |
+| `section_D_procedural.md` | `procedural_analysis.md` |
+| `sensitivity_report.md` | `sensitivity_analysis.md` |
+| `tier_c_sweep_analysis.md` | `boundary_sweep_analysis.md` |
+| `track_c_checklist_baseline_scoring.md` | `checklist_baseline_scoring.md` |
+
+**Human analysis docs — move to `findings/` unchanged:**
+
+All of the following keep their names:
+
+`advance_vote_sensitivity.md`, `airdrie_highway_pretext.md`, `airdrie_overlap_report.md`,
+`assignment_gerrymander_comparison.md`, `byelection_assessment.md`,
+`chair_recommendation_5_analysis.md`, `chen_rodden_decomposition.md`,
+`claim_significance_analysis.md`, `cross_election_robustness.md`,
+`cycle_lag_analysis.md`, `da_anchoring_analysis.md`,
+`dangerzone_metric_definitions.md`, `edmonton_beaumont_log.md`,
+`gerrymetrics_comparison.md`, `historical_eg_baseline.md`,
+`justification_tests_findings.md`, `marginal_seats_findings.md`,
+`maup_area_weighted_analysis.md`, `maup_centroid_sensitivity.md`,
+`methods_paper_draft.md`, `natural_anchoring_secondary_check.md`,
+`polsby_popper_verdict.md`, `post_audit_recompute_deltas.md`,
+`pre_registration_amendment_log.md`, `pre_registration_platform_analysis.md`,
+`redist_python_comparison.md`, `regional_swing_robustness.md`,
+`reock_verdict.md`, `rural_gap_findings.md`,
+`sentiment_analysis_completion_report.md`, `sentiment_rationale_crossreference.md`,
+`submission_search_log.md`, `terms_of_reference_audit.md`,
+`topology_cleanup_analysis.md`, `va_spatial_integrity_report.md`,
+`vote_anywhere_report.md`
+
+**Media — move to `findings/`:**
+
+| File | Note |
+|---|---|
+| `airdrie_four_way_split_teardown.png` | Keep; move to `findings/` unchanged |
+
+**README.md** — already in `analysis/reports/`; update for `findings/` context (not deleted).
 
 **File renames within `findings/`** — human-written docs only (script outputs keep their names):
 
@@ -425,7 +565,20 @@ Before the first `git mv`:
 
 1. **Clean working directory.** `git status` must show nothing staged or modified. A dirty tree means `git reset --hard HEAD` is NOT a safe undo — it would destroy uncommitted work. Stash or commit everything first.
 2. **Dedicated branch.** `git checkout -b feat/restructure` — do not work on `main`. The restructure is one atomic operation that merges after full verification, not a series of incremental commits to main.
-3. **Code freeze.** Declare no other branches should merge during execution. The restructure touches paths that active development branches may also be editing. Estimated window: 4–8 hours (allow a full day; if Step 12 fails and requires debugging, a 4-hour estimate bleeds into an overnight freeze).
+3. **Code freeze.** Declare no other branches should merge during execution. The restructure touches paths that active development branches may also be editing. Estimated window: 4–8 hours (allow a full day; if Step 13 fails and requires debugging, a 4-hour estimate bleeds into an overnight freeze).
+4. **`.gitignore` fix — REQUIRED before `git mv` to `archive/`.** The current `.gitignore` contains the line `archive/`. This is an unanchored rule matching any `archive/` directory in the tree. When `git mv dpg archive/provisional_geometries` stages new index entries under `archive/`, git may silently refuse to track them if the path matches `.gitignore`. Fix: remove (or scope to a specific path) the `archive/` line from `.gitignore` before running Commit A. Commit the `.gitignore` change as a standalone micro-commit on `feat/restructure` *before* the main Commit A so that the `archive/` exception is in the index when the `git mv` runs.
+5. **CRS verification — note in `findings/README.md`.** The 57 GeoJSON files extracted from `interactive_proofs/public/data/` are in **CRS84 (WGS84, EPSG:4326, lon/lat axis order)** — confirmed by `urn:ogc:def:crs:OGC:1.3:CRS84` in the `crs` key. The canonical audit shapefiles are EPSG:3400 (Alberta 10-TM). The GeoJSON files are for display/web use; their CRS is intentional and correct for that purpose. Add the following note to `findings/README.md` under the `data/outputs/district_patterns/` entry: *"GeoJSON files are in CRS84/WGS84 (EPSG:4326). The canonical audit shapefiles are EPSG:3400 (Alberta 10-TM). Do not reproject the GeoJSONs for analysis — they are display copies only."*
+6. **s15_ratio_test.py path trap — full pathlib migration required.** The script uses `os.path.join(os.path.dirname(__file__), "..", "reports", ...)`. After the restructure, `"reports"` in this relative expression resolves to `analysis/reports/` → renamed to gone. A naive string change from `"reports"` to `"findings"` would resolve to `analysis/findings/` (wrong directory, does not exist) and crash silently or with a confusing FileNotFoundError. The correct fix in Commit B: fully migrate both `INPUT_CSV` and `OUTPUT_CSV` to the ROOT-based pathlib pattern:
+   ```python
+   ROOT = Path(__file__).resolve().parent.parent.parent
+   INPUT_CSV = ROOT / "findings" / "population_consistency.csv"
+   OUTPUT_CSV = ROOT / "findings" / "s15_deviation_compliance.csv"
+   ```
+   Verify: `ROOT / "findings"` resolves to the repo root, not `analysis/findings/`.
+
+**Dependency graph ghost nodes — grounded (low risk).** `dependency_graph_build.py` references the three defense files only in its module docstring (line 4), not as hardcoded graph nodes. The `.dot` and `.json` graph data do not contain `test_apparatus_defense`, `warrington_declination_defense`, or `urban_weight_defense` as node IDs. Ghost node risk is low. Still run `dependency_graph_render.py` after the merge (Step 6) and visually inspect — if a node for `analysis/methodology/methodological_defenses.md` appears isolated or over-connected, update its edges in `dependency_graph_build.py`.
+
+**Dirty-check guard test.** Before relying on the guard added to `run_audit.py` (Step 13b), test it explicitly: manually edit one protected output file (e.g. add a blank line to `findings/szat_summary.json`), then run `python run_audit.py`. The guard should abort with the manual-changes message. Undo the manual edit afterward. Do not ship the guard untested.
 
 **If anything goes wrong mid-execution:** `git reset --hard HEAD && git clean -fd` returns to the exact pre-restructure state — but only if the working directory was clean when you started.
 
@@ -454,8 +607,37 @@ Before the first `git mv`:
    ```
    Resolve any surprises before proceeding.
 
-1. Remove all identified files (`git rm`) — reduces index noise before renames
-2. Merge defense docs into `methodological_defenses.md`:
+**Two-pass commit strategy — the entire execution splits into exactly two commits:**
+
+> **Commit A (The Move):** Steps 1–5 only. Every operation is a `git mv` or new empty directory. Zero content edits. This gives git a 100%-match rename record with no ambiguity.
+>
+> **Commit B (The Polish):** Steps 6–11 only. All content changes: file merges, script path updates, READMEs, link fixes, file deletions. No `git mv` in this commit.
+>
+> Reason: git builds rename detection by comparing blob SHAs between removed and added entries. A content edit in the same commit forces git to ask "same file with edits, or different file?" Splitting that question away preserves `git log --follow` for every renamed file. It also makes the commit history legible: Commit A is the topology change, Commit B is the content work.
+
+---
+
+**COMMIT A — The Move**
+
+0.5. **Fix `.gitignore`:** Remove the bare `archive/` line. Commit this change alone on `feat/restructure` before any `git mv`. Without this, files moved into `archive/provisional_geometries/` will not be staged by git.
+
+1. Create new directories (`preregistration/`, `archive/`, `docs/`, `analysis/methodology/provenance/`, `analysis/methodology/reference/`, `analysis/review/`). Git does not track empty directories — each must have at least one file moved into it within Commit A or it will vanish from the index. All six directories have files mapped to them in the inventory above. Smallest is `docs/` (4 files: `act_amendment_proposal.md`, `ai_use_recommendations_for_committee.md`, `changedetection_setup.md`, `external_tool_validation.md`). If any of those four files do not exist at move time, add a `docs/.gitkeep` before committing.
+2. Tier 1 `git mv` operations — all moves with zero code deps (preregistration files, archive/provisional_geometries, methodology subdirs, review/ renames)
+3. Move process-artifact files to `archive/` or delete with `git rm` (the files in the remove lists above)
+4. Extract React app data assets: `cp interactive_proofs/public/data/*.geojson data/outputs/district_patterns/` and `cp interactive_proofs/public/data/events.json data/outputs/district_patterns/packing_cracking_events.json`; then `git rm -r interactive_proofs/`
+5. **Directory moves as standalone `git mv`:**
+   - `git mv analysis/reports findings`
+   - `git mv outputs reports`
+   - `git mv reports/academic_report reports/academic`
+   - `git mv reports/public_report reports/public`
+   - All file renames within `findings/` (see rename table — `section_A_population_equality.md` → `population_equality.md` etc.)
+   - **→ `git commit` here. This is Commit A.**
+
+---
+
+**COMMIT B — The Polish**
+
+6. Merge defense docs into `methodological_defenses.md`:
    - Add named sections with explicit anchors: `## Test Apparatus Defense {#test-apparatus-defense}` etc.
    - Each merged section opens with a standard metadata block:
      ```
@@ -464,31 +646,49 @@ Before the first `git mv`:
      **Key evidence:** [pointer to the primary supporting file or section]
      ```
    - Update all 4 files with broken links (report_academic.md ×5, README.md, null_hypothesis…, dependency_graph_build.py docstring)
-   - Then `git rm` the 3 source files
-3. Create new directories (`preregistration/`, `archive/`, `analysis/methodology/provenance/`, `analysis/methodology/reference/`, `analysis/review/`)
-4. Tier 1 moves (`git mv`) — zero code deps
-5. Tier 2 moves (`git mv analysis/reports findings`, `git mv outputs reports`)
-6. Add `findings_dir` key to `config.yaml`; add `FINDINGS` accessor to `data_loader.py`; update 9 scripts to import it
-7. Build script `SRC_MD` path fix (`build_pdf.py` and `build_academic_pdf.py`)
-8. Write READMEs for all 9 directories in the table above
-9. Add OSF registration links and "Date Registered" headers to all 7 files in `preregistration/`.
+   - `git rm` the 3 source files
+   - **Run `python analysis/scripts/dependency_graph_build.py` then `python analysis/scripts/dependency_graph_render.py` and inspect the output.** The `.dot` file references the three individual defense docs as nodes; after the merge those paths no longer exist. Verify the rendered graph does not have a broken or cluttered "super-node" for methodological defenses. If the graph has an isolated orphan node or a hub with 20+ edges that obscures the surrounding structure, update `dependency_graph_build.py` to reference `methodological_defenses.md` as a single node with the appropriate edges.
+7. Add `findings_dir` key to `config.yaml`; add `FINDINGS` accessor to `data_loader.py`; update 14 scripts to import it (see affected-scripts table in Tier 2); fix `s15_ratio_test.py` `os.path.join` pattern separately
+8. Build script `SRC_MD` path fix (`build_pdf.py` and `build_academic_pdf.py`)
+9. Write READMEs for all 9 directories in the table above
+10. Add OSF registration links and "Date Registered" headers to all 7 files in `preregistration/`.
    Template for each file header:
    ```markdown
    **Date registered:** YYYY-MM-DD
    **Registry:** [AsPredicted #XXXXX](https://aspredicted.org/XXXXX) / [OSF #XXXXX](https://osf.io/XXXXX)
    **Status:** Frozen — this document reflects commitments made before data examination.
    ```
-10. Update root `README.md`:
+   Template for each file header:
+   ```markdown
+   **Date registered:** YYYY-MM-DD
+   **Registry:** [AsPredicted #XXXXX](https://aspredicted.org/XXXXX) / [OSF #XXXXX](https://osf.io/XXXXX)
+   **Status:** Frozen — this document reflects commitments made before data examination.
+   ```
+---
+
+**POST-COMMIT-B — Verification and merge**
+
+11. Update root `README.md`:
     - Add note that `data/outputs/district_patterns/` is the machine-readable geographic record of packing/cracking/draining patterns (visualization code sunsetted; underlying spatial evidence preserved)
-    - Add an ASCII directory overview at the top of the findings/methodology sections so a first-time reader has a "You Are Here" map without needing to open TREE.md
-11. Run broken-link check:
+    - Add "You Are Here" ASCII directory overview (see below); use this as the orientation map for a first-time reader:
+      ```
+      alberta_audit/
+      ├── preregistration/   # The Promises  (committed before testing)
+      ├── data/              # The Evidence  (raw inputs, never modified)
+      ├── analysis/          # The Lab       (scripts + methodology)
+      ├── findings/          # The Verdict   (statistical results)
+      └── reports/           # The Publication (final PDFs)
+      ```
+    - Also update `.github/workflows/recompute-on-shapefile-release.yml` lines 151–152: change `analysis/reports/v0_1_official_recompute_deltas_*.md` → `findings/v0_1_official_recompute_deltas_*.md` and the amendment stub path similarly. These are in the PR checklist text; they don't break CI but become stale documentation.
+12. Run broken-link check:
     ```powershell
-    # Check all markdown cross-references resolve
-    markdown-link-check --quiet (Get-ChildItem -Recurse -Filter "*.md" | Select -ExpandProperty FullName)
-    # Or if not installed: grep for .md links and spot-check
-    grep -r "\](analysis/methodology/\|analysis/red_team/\|analysis/reports/" --include="*.md"
+    # Primary: grep for stale paths across all markdown files (no Node.js required)
+    grep -r "analysis/reports\|analysis/red_team\|outputs/academic_report\|outputs/public_report" --include="*.md" -l
+    # Secondary (if markdown-link-check is installed — Node.js tool, not in requirements):
+    # markdown-link-check --quiet $(Get-ChildItem -Recurse -Filter "*.md" | Select -ExpandProperty FullName)
     ```
-12. Run verification:
+    Fix any hits before proceeding. The grep check is the primary gate; it catches the renamed directories without requiring Node.js in the environment.
+13. Run verification:
     ```
     python -m pytest tests/ -x -q
     python run_audit.py
@@ -509,7 +709,7 @@ Before the first `git mv`:
     Prevents the failure mode where a script finds an old version of the file at a legacy
     path and silently "succeeds" without actually running.
 
-13. Post-restructure hash comparison:
+14. Post-restructure hash comparison:
     ```powershell
     python -c "import hashlib, json, pathlib; [print(p, hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()[:12]) for p in sorted(pathlib.Path('findings').rglob('*')) if pathlib.Path(p).is_file()]" > post_restructure_hashes.txt
     diff pre_restructure_hashes.txt post_restructure_hashes.txt
@@ -523,7 +723,7 @@ Before the first `git mv`:
     during restructure (see pre_restructure_hashes.txt, deleted after commit).*
     ```
 
-14. **TREE.md path lint.** Parse `TREE.md` for any file path strings (lines matching
+15. **TREE.md path lint.** Parse `TREE.md` for any file path strings (lines matching
     ` ├── ` or ` └── ` that contain a `.` extension or path separator) and call
     `os.path.exists()` on each. Any annotation that points to a non-existent file is a
     curation lag — fix before committing. This is the validation that the curated navigation
@@ -539,7 +739,7 @@ Before the first `git mv`:
     "
     ```
 
-15. Commit in one clean commit; delete `RESTRUCTURE_PLAN.md`, `pre_restructure_hashes.txt`, `post_restructure_hashes.txt`; merge `feat/restructure` to `main`
+16. Delete planning artifacts (`RESTRUCTURE_PLAN.md`, `pre_restructure_hashes.txt`, `post_restructure_hashes.txt`) as a cleanup commit; merge `feat/restructure` to `main`
 
 ---
 

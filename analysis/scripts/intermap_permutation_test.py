@@ -455,7 +455,7 @@ position by no more than randomly drawn pairs of constraint-legal neutral maps.
 
 ## Version B — Mahalanobis Joint (one-tailed in distance)
 
-Metrics: efficiency\_gap, mean\_median, declination, seats\_at\_50\_50.
+Metrics: efficiency\\_gap, mean\\_median, declination, seats\\_at\\_50\\_50.
 Covariance matrix Σ estimated from the {output['ensemble_n']:,}-plan ensemble.
 
 | | Value |
