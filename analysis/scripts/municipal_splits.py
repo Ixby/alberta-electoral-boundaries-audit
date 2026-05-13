@@ -47,7 +47,12 @@ warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parent.parent.parent
 logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
-RPTS = ROOT / "analysis" / "reports"
+try:
+    from analysis.utils.data_loader import FINDINGS as RPTS
+except ImportError:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
+    from data_loader import FINDINGS as RPTS
 RPTS.mkdir(parents=True, exist_ok=True)
 
 CSD_PATH = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"

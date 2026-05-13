@@ -2,6 +2,8 @@
 name: Retraction pathway — named conditions under which each finding is retracted
 description: Per-finding pre-committed retraction conditions, responding to the 2026-04-24 "end-boss" critique (Ontological Gap + Confirmatory Bias Engine). For every load-bearing finding in report_academic.md §§5.1-5.9, this document names specific data or evidence that would force retraction. Without a retraction pathway, the audit is criticism, not forensics.
 type: methodology
+osf_id: w2s8k
+osf_url: https://osf.io/w2s8k
 ---
 
 # Retraction pathway — named conditions under which each audit finding is retracted

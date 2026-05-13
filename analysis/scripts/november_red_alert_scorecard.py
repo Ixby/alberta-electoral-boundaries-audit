@@ -45,6 +45,16 @@ except ImportError:
     import data_loader
 
 
+def _get_findings_dir() -> Path:
+    try:
+        from analysis.utils.data_loader import FINDINGS
+        return FINDINGS
+    except ImportError:
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+        from data_loader import FINDINGS
+        return FINDINGS
+
+
 import argparse
 import json
 import sys
@@ -412,7 +422,7 @@ def main() -> int:
     # Write report
     today = date.today().isoformat()
     out_path = (
-        ROOT / "analysis" / "reports" / f"november_red_alert_{args.map_name}_{today}.md"
+        _get_findings_dir() / f"november_red_alert_{args.map_name}_{today}.md"
     )
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fired_count = sum(1 for r in results if r.fired)

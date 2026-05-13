@@ -81,7 +81,12 @@ def _pick_path(plan: str):
 
 ROOT = HERE.parent.parent
 DATA = data_loader._resolve_path("data")
-RPTS = ROOT / "analysis" / "reports"
+try:
+    from analysis.utils.data_loader import FINDINGS as RPTS
+except ImportError:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
+    from data_loader import FINDINGS as RPTS
 
 OUT_CSV = DATA / "simulation_short_bursts.csv"
 OUT_JSON = DATA / "simulation_short_bursts_summary.json"

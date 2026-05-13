@@ -4,7 +4,7 @@ s15_ratio_test.py — EBCA §15 population deviation compliance test
 Computes deviation from the provincial quota for every ED in both maps,
 then classifies each ED against the §15(1) normal band and §15(2) exception.
 
-Outputs: analysis/reports/s15_deviation_compliance.csv
+Outputs: findings/s15_deviation_compliance.csv
 
 §15(1) normal band: ±25% of provincial quota
 §15(2) floor:       −50% (absolute statutory minimum even with exception)
@@ -32,13 +32,18 @@ Classifications written to the output:
 
 import csv
 import os
+from pathlib import Path
 
-INPUT_CSV = os.path.join(
-    os.path.dirname(__file__), "..", "reports", "population_consistency.csv"
-)
-OUTPUT_CSV = os.path.join(
-    os.path.dirname(__file__), "..", "reports", "s15_deviation_compliance.csv"
-)
+try:
+    from analysis.utils.data_loader import FINDINGS as _FINDINGS
+except ImportError:
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    from data_loader import FINDINGS as _FINDINGS
+
+# ROOT-based paths — immune to the ../reports relative-path trap
+INPUT_CSV = _FINDINGS / "population_consistency.csv"
+OUTPUT_CSV = _FINDINGS / "s15_deviation_compliance.csv"
 
 # §15(2) invocations as registered. Source: s15_2_reaudit.md §4.
 # Keys are (map, ed_name) tuples matching the ed_name column in the input CSV.

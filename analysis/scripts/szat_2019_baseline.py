@@ -65,7 +65,12 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = data_loader._resolve_path("data")
-REPORTS = ROOT / "analysis" / "reports"
+try:
+    from analysis.utils.data_loader import FINDINGS as REPORTS
+except ImportError:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
+    from data_loader import FINDINGS as REPORTS
 REPORTS.mkdir(parents=True, exist_ok=True)
 
 VA_FILE = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"

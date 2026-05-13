@@ -1,5 +1,7 @@
 # Terms of Reference / Mandate — Verbatim Extract from Alberta 2025-26 EBC Final Report
 
+> **Pre-registration:** [OSF w2s8k](https://osf.io/w2s8k) (primary audit registration)
+
 **Purpose.** Permanent unedited reference copy of the mandating-instrument language the commission quoted about itself. Extracted from `.temp/commission_report.pdf` (tabled March 23, 2026), first ~33 pages. All quotes are verbatim.
 
 **Methodology.** `pdfplumber` text extraction of pp. 1–33, 58–67. No paraphrase, no redaction. Minor hyphenation artifacts from PDF layout are preserved.

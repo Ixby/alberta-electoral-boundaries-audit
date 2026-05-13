@@ -37,6 +37,10 @@ def get_config() -> dict:
 # do `from data_loader import CONFIG`. New code should call get_config().
 CONFIG = get_config()
 
+# Findings directory — where all analysis scripts write their outputs.
+# Config key: paths.findings_dir (default: "findings" if key absent).
+FINDINGS = ROOT_DIR / CONFIG.get("paths", {}).get("findings_dir", "findings")
+
 
 def _resolve_path(rel_path: str) -> Path:
     """Resolves a config relative path to an absolute Path object."""

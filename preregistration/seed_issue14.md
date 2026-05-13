@@ -1,5 +1,7 @@
 # Seed Commitment — Issue #14 Counter-Map Challenge
 
+> **Pre-registration:** OSF submission pending at time of writing.
+
 **Date:** 2026-05-10
 **Purpose:** Pre-commit the random seed for the Issue #14 Trade-off Frontier counter-map run before any analysis is executed.
 

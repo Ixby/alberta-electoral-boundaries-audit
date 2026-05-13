@@ -195,7 +195,12 @@ def main() -> None:
     print(f"Drand seed (salt='{SALT}'): {seed}")
     print(f"Drand round: 5500000  (verify: drand.cloudflare.com/public/5500000)")
 
-    out_reports = ROOT / "analysis" / "reports"
+    try:
+        from analysis.utils.data_loader import FINDINGS as out_reports
+    except ImportError:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+        from data_loader import FINDINGS as out_reports
     out_data = data_loader._resolve_path("data")
     out_reports.mkdir(parents=True, exist_ok=True)
 

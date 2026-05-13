@@ -28,14 +28,14 @@ from pathlib import Path
 import markdown
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-SRC_MD = REPO_ROOT / "report_academic.md"
+SRC_MD = REPO_ROOT / "reports" / "academic" / "report_academic.md"
 import tempfile as _tempfile
 
 # Write the intermediate article PDF + HTML to .temp/ rather than the
 # repo root; only the merged report_public.pdf is the published artefact.
 _TMP_DIR = REPO_ROOT / ".temp"
 _TMP_DIR.mkdir(exist_ok=True)
-OUT_PDF = REPO_ROOT / "report_academic.pdf"
+OUT_PDF = REPO_ROOT / "reports" / "academic" / "report_academic.pdf"
 OUT_HTML = _TMP_DIR / "report_academic.html"
 
 CHROME_CANDIDATES = [

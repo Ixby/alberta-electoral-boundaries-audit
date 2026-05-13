@@ -1,5 +1,7 @@
 # Pre-Registration Salt Audit Trail
 
+> **Pre-registration:** [OSF qsgy8](https://osf.io/qsgy8) (MCMC seed) · [OSF 6pt83](https://osf.io/6pt83) (SZAT seed)
+
 **Purpose:** Establish that MCMC and SZAT salt strings were fixed before results
 were observed, satisfying the chain-of-custody requirement for pre-registered
 ensemble tests.

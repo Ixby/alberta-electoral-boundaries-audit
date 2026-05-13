@@ -2,6 +2,8 @@
 name: Null hypotheses and pass criteria — pre-commitment register
 description: Pre-commits what "not guilty" looks like for each test in the audit's battery, including the five combined novel tests. Responds directly to the 2026-04-24 hard-audit critique that any test without a stated pass criterion is a prosecution tool, not a neutral measurement. Ties into the OSF pre-registration.
 type: methodology
+osf_id: 2gue9
+osf_url: https://osf.io/2gue9
 ---
 
 # Null hypotheses and pass criteria — pre-commitment register
@@ -320,7 +322,7 @@ The next commit that touches `report_academic.md` will add this three-axis class
 
 ### 7.7 Integration with the apparatus defense
 
-This §7 extends `analysis/methodology/test_apparatus_defense.md` §1.3 (where we identified the three places of highest exposure). The three-axis framework formalises what "defensible" means per finding rather than per test: a defensible finding is one that survives perturbation on at least one of Vote-Substrate, Attribution-Method, or Population-Data. A *strongly* defensible finding survives all three.
+This §7 extends `analysis/methodology/methodological_defenses.md#test-apparatus-defense` §1.3 (where we identified the three places of highest exposure). The three-axis framework formalises what "defensible" means per finding rather than per test: a defensible finding is one that survives perturbation on at least one of Vote-Substrate, Attribution-Method, or Population-Data. A *strongly* defensible finding survives all three.
 
 The apparatus's defense-in-depth is therefore the distribution of [SRD] tags across the six §6 dimensions. If every dimension has at least one [SRD] finding, the audit is structurally over-determined on the directional claim. If some dimensions have no [SRD] findings, those dimensions are weak pillars and the audit must disclose that explicitly.
 

@@ -1,5 +1,7 @@
 # Seed Commitment — Robustness, Diagnostics, and Pending Channels
 
+> **Pre-registration:** [OSF s58a6](https://osf.io/s58a6)
+
 **Date:** 2026-05-10
 **Purpose:** Pre-commit all random seeds for the three-section robustness/rerun registration before any analyses are executed.
 

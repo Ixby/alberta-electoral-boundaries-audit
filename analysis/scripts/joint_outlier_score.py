@@ -66,7 +66,12 @@ warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 MCMC = data_loader._resolve_path("data") / "outputs" / "mcmc"
-REPORTS = ROOT / "analysis" / "reports"
+try:
+    from analysis.utils.data_loader import FINDINGS as REPORTS
+except ImportError:
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
+    from data_loader import FINDINGS as REPORTS
 
 ENSEMBLE_CSV = MCMC / "simulated_ensemble_raw_samples_250k.csv"
 REAL_SCORES = MCMC / "simulation_real_map_scores_full_v2.json"

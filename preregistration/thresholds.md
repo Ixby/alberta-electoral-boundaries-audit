@@ -1,6 +1,8 @@
 ---
 name: Threshold provenance compendium — Alberta Electoral Boundaries Audit
 description: Paper-grade appendix defending every numeric threshold used in the audit. Each threshold is traced to a statutory source, a literature source, a first-principles derivation, or a modelling convention. Where no literature source exists, the derivation is given and defended on proportional-anchoring or conservatism grounds. Load-bearing thresholds (P1, P2, 70/30 urban weight) carry an explicit ±20 % sensitivity check.
+osf_id: r3zm7
+osf_url: https://osf.io/r3zm7
 forward_dependencies:
   - report_academic.md §1.1 (integrity gates), §2 (Section A), §3 (Section B), §3.7–3.9 (signatures), §3.13 (stress-test grades), §7 (synthesis)
   - report_public.md (plain-language surfacing of §A, §B, §C signatures)

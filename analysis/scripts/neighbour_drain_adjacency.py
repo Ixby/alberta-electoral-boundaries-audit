@@ -488,7 +488,12 @@ def run_map(
 
 def main() -> None:
     out_data_dir = data_loader._resolve_path("data")
-    out_reports_dir = ROOT / "analysis" / "reports"
+    try:
+        from analysis.utils.data_loader import FINDINGS as out_reports_dir
+    except ImportError:
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+        from data_loader import FINDINGS as out_reports_dir
     out_maps_dir = ROOT / "maps"
     for d in (out_data_dir, out_reports_dir, out_maps_dir):
         d.mkdir(parents=True, exist_ok=True)

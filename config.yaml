@@ -12,6 +12,9 @@ data:
   reference_dir: "data/shapefiles/reference"
   canonical_dir: "data/shapefiles/canonical"
 
+paths:
+  findings_dir: findings    # was analysis/reports
+
 maps:
   majority:
     path: "data/shapefiles/canonical/ea_majority_2026_eds.gpkg"

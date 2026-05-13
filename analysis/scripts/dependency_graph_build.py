@@ -1,7 +1,7 @@
 """Build the Alberta audit dependency DAG.
 
 This script produces the machine-readable directed acyclic graph of the
-Alberta audit specified in ``analysis/methodology/test_apparatus_defense.md``
+Alberta audit specified in ``analysis/methodology/methodological_defenses.md#test-apparatus-defense``
 section 3 and the PO synthesis ("Novel Combined Test: The Dependency Graph").
 
 Nodes are organized into four layers:

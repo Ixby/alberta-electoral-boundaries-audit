@@ -13,7 +13,7 @@ Internal working documents covering pre-registration, methodological decisions, 
 | `threshold_provenance.md` | Justification for every numerical threshold used in the audit |
 | `null_hypothesis_and_exoneration_criteria.md` | Null hypotheses and criteria for exonerating the Commission |
 | `test_selection_rationale.md` | Rationale for which statistical tests were chosen and which were rejected |
-| `test_apparatus_defense.md` | Defense of the test apparatus against anticipated challenges |
+| `methodological_defenses.md` | Pre-emptive adversarial review (Parts 1–4) + consolidated test apparatus, Warrington declination, and urban weight defenses |
 | `canonical_shapefile_methodology.md` | How DPG-derived shapefiles were constructed and quality-checked |
 | `shapefile_redteam_report.md` | Red-team review specific to shapefile construction |
 | `sign_convention_resolution.md` | Resolution of sign ambiguity in efficiency-gap calculations |

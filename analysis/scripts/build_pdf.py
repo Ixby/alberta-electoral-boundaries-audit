@@ -28,7 +28,7 @@ from pathlib import Path
 import markdown
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-SRC_MD = REPO_ROOT / "report_public.md"
+SRC_MD = REPO_ROOT / "reports" / "public" / "report_public.md"
 import tempfile as _tempfile
 
 # Write the intermediate article PDF + HTML to .temp/ rather than the
