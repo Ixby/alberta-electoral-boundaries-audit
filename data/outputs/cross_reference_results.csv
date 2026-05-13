@@ -1,0 +1,26 @@
+rationale_id,district,verdict,configs_matched,n_oppose,n_support,n_neutral,n_total,oppose_pct,support_pct,alignment_summary
+R1,Calgary-Nolan Hill-Cochrane,PARTIALLY SUPPORTS,Calgary-Nolan Hill-Cochrane hybrid,38,12,48,98,76.0,24.0,CONTRA_COMMISSION
+R2,Calgary-Peigan-Chestermere,INCONCLUSIVE / LEANS CONTRADICTS,Chestermere merging with Calgary,31,8,25,64,79.5,20.5,ALIGNS_WITH_AUDIT
+R3,Calgary-Airdrie,SUPPORTS,Airdrie 4-way split,38,12,66,116,76.0,24.0,CONTRA_COMMISSION
+R4,Calgary-Foothills-Airdrie West,SUPPORTS general,,0,0,0,0,,,NO_CONFIG_MATCH
+R5,Calgary-Bow-Springbank,INCONCLUSIVE (schools contradicts),,0,0,0,0,,,NO_CONFIG_MATCH
+R6,Calgary-North West-Bearspaw,SUPPORTS,,0,0,0,0,,,NO_CONFIG_MATCH
+R7,Calgary-West-Tsuutina,SUPPORTS,,0,0,0,0,,,NO_CONFIG_MATCH
+R8,Red Deer-Blackfalds,SUPPORTS narrow,,0,0,0,0,,,NO_CONFIG_MATCH
+R9,Red Deer-Innisfail,SUPPORTS,,0,0,0,0,,,NO_CONFIG_MATCH
+R10,Red Deer-Lacombe,PARTIALLY SUPPORTS,"Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",58,24,91,173,70.7,29.3,CONTRA_COMMISSION
+R11,Red Deer-Sylvan Lake,INCONCLUSIVE / LEANS CONTRADICTS,,0,0,0,0,,,NO_CONFIG_MATCH
+R12,Rocky Mountain House-Banff Park,PARTIALLY SUPPORTS (historical); CLOSED-FAIL (area via Test 2),Rocky Mountain House-Banff Park hybrid,81,75,60,216,51.9,48.1,ALIGNS_WITH_AUDIT
+R13,Olds-Three Hills-Didsbury,PARTIALLY SUPPORTS; CLOSED-FAIL on Airdrie slice,Olds-Three Hills-Didsbury extending to Airdrie,12,15,39,66,44.4,55.6,CONTRA_AUDIT
+R14,Airdrie East,nan,,0,0,0,0,,,NO_CONFIG_MATCH
+R15,Central Peace-Notley,SUPPORTS,,0,0,0,0,,,NO_CONFIG_MATCH
+R16,Lesser Slave Lake,SUPPORTS,,0,0,0,0,,,NO_CONFIG_MATCH
+R17,Hybrid doctrine general,INCONCLUSIVE,,0,0,0,0,,,NO_CONFIG_MATCH
+R18,Growth uncertainty hedge,Self-hedged,,0,0,0,0,,,NO_CONFIG_MATCH
+R19,Set-aside motion (rural),PARTIALLY SUPPORTS,,0,0,0,0,,,NO_CONFIG_MATCH
+R20,Set-aside legitimacy,nan,,0,0,0,0,,,NO_CONFIG_MATCH
+R21,Growth justifies more seats,SUPPORTS directional,,0,0,0,0,,,NO_CONFIG_MATCH
+R22,Effective representation,nan,,0,0,0,0,,,NO_CONFIG_MATCH
+R23,Procedural legitimacy,nan,,0,0,0,0,,,NO_CONFIG_MATCH
+R24,Motion terms,INCONCLUSIVE (legal),,0,0,0,0,,,NO_CONFIG_MATCH
+R25,20% growth since 2017,SUPPORTS directional,,0,0,0,0,,,NO_CONFIG_MATCH

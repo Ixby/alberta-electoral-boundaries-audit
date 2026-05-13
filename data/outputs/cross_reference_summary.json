@@ -1,0 +1,41 @@
+{
+  "total_rationales": 25,
+  "rationales_with_config_match": 6,
+  "aligns_with_commission": 0,
+  "contra_commission": 3,
+  "aligns_with_audit_finding": 2,
+  "contra_audit": 1,
+  "no_taking_sides": 0,
+  "top_opposed_configs": [
+    {
+      "district": "Rocky Mountain House-Banff Park",
+      "n_oppose": 81,
+      "oppose_pct": 51.9,
+      "verdict": "PARTIALLY SUPPORTS (historical); CLOSED-FAIL (area via Test 2)"
+    },
+    {
+      "district": "Red Deer-Lacombe",
+      "n_oppose": 58,
+      "oppose_pct": 70.7,
+      "verdict": "PARTIALLY SUPPORTS"
+    },
+    {
+      "district": "Calgary-Nolan Hill-Cochrane",
+      "n_oppose": 38,
+      "oppose_pct": 76.0,
+      "verdict": "PARTIALLY SUPPORTS"
+    },
+    {
+      "district": "Calgary-Airdrie",
+      "n_oppose": 38,
+      "oppose_pct": 76.0,
+      "verdict": "SUPPORTS"
+    },
+    {
+      "district": "Calgary-Peigan-Chestermere",
+      "n_oppose": 31,
+      "oppose_pct": 79.5,
+      "verdict": "INCONCLUSIVE / LEANS CONTRADICTS"
+    }
+  ]
+}

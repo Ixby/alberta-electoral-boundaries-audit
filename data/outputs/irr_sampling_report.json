@@ -1,0 +1,138 @@
+{
+  "seed": 670497761,
+  "seed_salt": "alberta-audit-irr-sample",
+  "drand_round": 6099592,
+  "total_sample_n": 60,
+  "input_file": "quotes_verified.csv",
+  "total_classified_rows": 827,
+  "stratification": [
+    {
+      "configuration": "Airdrie 4-way split",
+      "classification": "Active Opposition",
+      "cell_n": 38,
+      "target_n": 2
+    },
+    {
+      "configuration": "Airdrie 4-way split",
+      "classification": "Active Support",
+      "cell_n": 12,
+      "target_n": 1
+    },
+    {
+      "configuration": "Airdrie 4-way split",
+      "classification": "Neutral/Contextual",
+      "cell_n": 66,
+      "target_n": 5
+    },
+    {
+      "configuration": "Calgary-Nolan Hill-Cochrane hybrid",
+      "classification": "Active Opposition",
+      "cell_n": 38,
+      "target_n": 2
+    },
+    {
+      "configuration": "Calgary-Nolan Hill-Cochrane hybrid",
+      "classification": "Active Support",
+      "cell_n": 12,
+      "target_n": 1
+    },
+    {
+      "configuration": "Calgary-Nolan Hill-Cochrane hybrid",
+      "classification": "Neutral/Contextual",
+      "cell_n": 48,
+      "target_n": 4
+    },
+    {
+      "configuration": "Chestermere merging with Calgary",
+      "classification": "Active Opposition",
+      "cell_n": 31,
+      "target_n": 2
+    },
+    {
+      "configuration": "Chestermere merging with Calgary",
+      "classification": "Active Support",
+      "cell_n": 8,
+      "target_n": 1
+    },
+    {
+      "configuration": "Chestermere merging with Calgary",
+      "classification": "Neutral/Contextual",
+      "cell_n": 25,
+      "target_n": 1
+    },
+    {
+      "configuration": "Olds-Three Hills-Didsbury extending to Airdrie",
+      "classification": "Active Opposition",
+      "cell_n": 12,
+      "target_n": 1
+    },
+    {
+      "configuration": "Olds-Three Hills-Didsbury extending to Airdrie",
+      "classification": "Active Support",
+      "cell_n": 15,
+      "target_n": 1
+    },
+    {
+      "configuration": "Olds-Three Hills-Didsbury extending to Airdrie",
+      "classification": "Neutral/Contextual",
+      "cell_n": 39,
+      "target_n": 3
+    },
+    {
+      "configuration": "Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",
+      "classification": "Active Opposition",
+      "cell_n": 58,
+      "target_n": 5
+    },
+    {
+      "configuration": "Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",
+      "classification": "Active Support",
+      "cell_n": 24,
+      "target_n": 1
+    },
+    {
+      "configuration": "Red Deer hybrid ridings (Blackfalds, Sylvan Lake, Innisfail)",
+      "classification": "Neutral/Contextual",
+      "cell_n": 91,
+      "target_n": 7
+    },
+    {
+      "configuration": "Rocky Mountain House-Banff Park hybrid",
+      "classification": "Active Opposition",
+      "cell_n": 81,
+      "target_n": 6
+    },
+    {
+      "configuration": "Rocky Mountain House-Banff Park hybrid",
+      "classification": "Active Support",
+      "cell_n": 75,
+      "target_n": 6
+    },
+    {
+      "configuration": "Rocky Mountain House-Banff Park hybrid",
+      "classification": "Neutral/Contextual",
+      "cell_n": 60,
+      "target_n": 5
+    },
+    {
+      "configuration": "St. Albert merging with Sturgeon County",
+      "classification": "Active Opposition",
+      "cell_n": 28,
+      "target_n": 2
+    },
+    {
+      "configuration": "St. Albert merging with Sturgeon County",
+      "classification": "Active Support",
+      "cell_n": 27,
+      "target_n": 1
+    },
+    {
+      "configuration": "St. Albert merging with Sturgeon County",
+      "classification": "Neutral/Contextual",
+      "cell_n": 39,
+      "target_n": 3
+    }
+  ],
+  "annotation_prompt": "Based on the text excerpt below, classify this submission's stance on the named boundary configuration. Choose one of: Active Opposition / Active Support / Neutral/Contextual / Unrelated.",
+  "instructions": "Fill in 'human_label' for each row. Valid values: Active Opposition, Active Support, Neutral/Contextual, Unrelated. After annotation, run compute_kappa.py against this file."
+}
