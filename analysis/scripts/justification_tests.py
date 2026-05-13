@@ -19,6 +19,11 @@ Outputs:
 
 Run:
     python analysis/scripts/v0_1_justification_tests.py
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

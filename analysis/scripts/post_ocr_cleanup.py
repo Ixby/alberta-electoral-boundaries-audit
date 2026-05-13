@@ -15,6 +15,11 @@ Only the 10 already-processed R1 IDs need cleanup.
 
 Usage:
     python analysis/scripts/post_ocr_cleanup.py [--dry-run]
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

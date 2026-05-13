@@ -19,6 +19,11 @@ Check 2: Bootstrap approximation fidelity
   produce qualitatively similar p-values. The additive approximation captures
   only direct swing-zone effects (~55% of the score); the full-recompute null
   is the pre-registered method used in szat.py.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

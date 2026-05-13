@@ -32,6 +32,11 @@ Backward deps:
   - data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp (2019 polygons)
   - data/v0_2_canonical_majority_2026_eds_topoclean.gpkg
   - data/v0_2_canonical_minority_2026_eds_topoclean.gpkg
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

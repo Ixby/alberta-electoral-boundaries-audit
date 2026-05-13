@@ -7,6 +7,13 @@ A2: Geographic asymmetry (Calgary NE/central vs S/W; NDP-leaning vs UCP-leaning)
 A3: s.15(2) eligibility audit for protected ridings
 
 Output is printed and also captured for the Section A MD.
+
+Backward:
+  data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_minority_2026_eds.gpkg
+Forward:
+  findings/population_equality.md
+  findings/population_consistency.csv
 """
 from __future__ import annotations
 

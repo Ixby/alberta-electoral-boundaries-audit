@@ -1,4 +1,10 @@
-"""Infographic v3 — 1920×1080, redesigned for readability; canonical values throughout."""
+"""Infographic v3 — 1920×1080, redesigned for readability; canonical values throughout.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
+"""
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt

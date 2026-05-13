@@ -4,6 +4,11 @@ Official Elections Alberta shapefiles were released after the DPG analysis
 phase completed. All active analysis scripts should use these paths.
 
 DPGs (data/shapefiles/derived/) are deprecated — kept for provenance only.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from pathlib import Path
 import sys

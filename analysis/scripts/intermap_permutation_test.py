@@ -33,11 +33,11 @@ EG sign convention (per szat.py, McGhee / Stephanopoulos 2014):
 Pre-registration: OSF yvc7g (https://osf.io/yvc7g), committed at git ba0e686.
 See TODO.md "Inter-Map Comparison Permutation Test (Ch1-COMP)" for full spec.
 
-Backward dependencies:
+Backward:
   data/simulated_ensemble_raw_samples_canonical.csv
   data/simulation_real_map_scores_canonical.json
 
-Forward dependencies:
+Forward:
   findings/intermap_permutation_test_results.json
   findings/intermap_permutation_test_results.md
 """

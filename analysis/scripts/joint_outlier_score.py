@@ -41,6 +41,11 @@ Two channels are combined:
 Outputs:
   findings/joint_outlier_score.json
   findings/joint_outlier_score_summary.md
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

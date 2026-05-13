@@ -50,6 +50,11 @@ Dependencies:
 
 Author: Sub-agent Track Q for fortification b1_b6.
 Date: 2026-04-22
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

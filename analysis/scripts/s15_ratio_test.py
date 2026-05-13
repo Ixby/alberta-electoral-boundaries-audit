@@ -28,6 +28,11 @@ Classifications written to the output:
   VIOLATION_UNDER  — deviation < −25%; no registered §15(2) invocation
   S15_IN_BAND      — deviation within ±25% but §15(2) invoked (notable: not
                      required but also not unlawful)
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import csv

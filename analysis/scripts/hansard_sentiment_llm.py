@@ -17,6 +17,11 @@ Source files expected at:
 
 Usage:
     python analysis/scripts/hansard_sentiment_llm.py [--dry-run]
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 from __future__ import annotations

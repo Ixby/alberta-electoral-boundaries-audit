@@ -6,6 +6,11 @@ intensity-weighted net sentiment table.
 
 Replaces the placeholder note with the LLM-scored intensity-weighted
 net rankings from intensity_summary_table.csv.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import csv

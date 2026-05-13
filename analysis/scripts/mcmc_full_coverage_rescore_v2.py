@@ -8,6 +8,11 @@ target) and use the session-11 canonical 89-ED coverage per map.
 
 Writes to data/simulation_real_map_scores_full_v2.json and
 data/simulated_ensemble_percentiles_full_v2.csv.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

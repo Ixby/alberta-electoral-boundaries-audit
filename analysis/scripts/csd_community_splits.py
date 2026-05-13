@@ -14,6 +14,11 @@ Dependencies (backward): alberta_2021_csds.gpkg, alberta_2021_csd_populations.cs
 alberta_2019_eds/*.shp, majority_hybrid_crosswalk.csv,
 minority_hybrid_crosswalk.csv
 Dependencies (forward): analysis/methodology/csd_community_splits.md
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 # Version: 0.1 series  (last updated 2026-04-26)

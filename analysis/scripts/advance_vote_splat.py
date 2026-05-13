@@ -19,6 +19,11 @@ Outputs
 -------
   data/va_polygons_with_full_2023_votes.gpkg
   analysis/advance_vote_splat_diagnostics.csv
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 # Version: 0.1 series  (last updated 2026-04-26)

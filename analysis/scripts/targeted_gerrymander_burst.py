@@ -13,6 +13,11 @@ or exceeds the minority's value, it confirms the framing "the minority
 sits in a place a non-neutral procedure could find on purpose." If it
 does not, the finding becomes "the minority is somewhere even targeted
 procedures struggle to reach."
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 # Version: 0.1 series  (last updated 2026-04-26)

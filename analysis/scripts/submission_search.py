@@ -16,6 +16,11 @@ Produces:
 
 Usage:
   python analysis/scripts/submission_search.py [--phase={download|parse|search|all}]
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

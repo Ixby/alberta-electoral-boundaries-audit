@@ -32,6 +32,11 @@ Usage:
 Outputs:
     data/outputs/csd_anchoring_ensemble.csv   -- per-plan anchoring fractions
     data/outputs/csd_anchoring_results.json   -- real-map scores and percentiles
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

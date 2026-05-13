@@ -2,6 +2,11 @@
 """
 Historical Durability Sweep (Implementation)
 Runs the official minority map against historical 338Canada snapshots.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 import json
 import csv

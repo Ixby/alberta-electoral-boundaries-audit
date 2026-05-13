@@ -15,6 +15,11 @@ submissions on the next pass (they won't be in the progress CSV yet).
 Requirements: pymupdf (fitz), easyocr, Pillow
 Usage:
     python analysis/scripts/submission_ocr_recovery.py [--dry-run]
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

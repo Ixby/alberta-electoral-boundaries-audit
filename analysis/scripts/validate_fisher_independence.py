@@ -15,6 +15,11 @@ Backward dependencies:
 Run after szat.py has been executed with the new np.save code:
   python analysis/scripts/szat.py
   python analysis/scripts/validate_fisher_independence.py
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

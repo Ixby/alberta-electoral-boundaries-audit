@@ -10,6 +10,11 @@ where the percentile shifts by >= 3 pp between attribution variants.
 
 Run from repo root:
     python analysis/scripts/attribution_sensitivity_check.py
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import sys

@@ -6,6 +6,11 @@ the weighted-net intensity metrics for §5.9.4.6.
 
 Input: data/outputs/sentiment_intensity_scores.csv (from sentiment_intensity_score.py)
 Output: data/outputs/intensity_summary_table.csv + display to stdout
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import csv

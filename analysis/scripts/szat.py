@@ -33,13 +33,13 @@ EG sign convention (McGhee / Stephanopoulos 2014, U. Chi. L. Rev. 82(2)):
 Bootstrap seed: get_canonical_seed("szat-bootstrap") from drand_seed.py.
 Fallback seed 20260506 used if drand_seed is unavailable.
 
-Backward dependencies:
+Backward:
   data/shapefiles/canonical/ea_majority_2026_eds.gpkg
   data/shapefiles/canonical/ea_minority_2026_eds.gpkg
   data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
   analysis/scripts/drand_seed.py
 
-Forward dependencies:
+Forward:
   findings/szat_results.csv
   findings/szat_summary.json
 """

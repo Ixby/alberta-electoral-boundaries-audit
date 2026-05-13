@@ -13,6 +13,11 @@ Signature: a3e407621f675ed8e1dae35703167315197c559ce6d1ebea264e571f8202a3ad79329
 
 Any reviewer can query https://drand.cloudflare.com/public/5500000 to verify
 this payload against the League of Entropy's public key.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import hashlib

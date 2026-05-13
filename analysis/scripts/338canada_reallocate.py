@@ -23,6 +23,11 @@ Outputs:
   data/338canada_reallocated_minority.csv
   (Phase 2 comparison and summary counts print to stdout and are captured
    in 338canada_riding_level.md.)
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

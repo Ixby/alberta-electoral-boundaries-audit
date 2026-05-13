@@ -22,6 +22,11 @@ Usage:
 Outputs:
     data/outputs/irr_validation_sample.csv  -- sample for human annotation
     data/outputs/irr_sampling_report.json   -- stratification details
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

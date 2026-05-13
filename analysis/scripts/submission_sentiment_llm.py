@@ -15,6 +15,11 @@ Requirements:
 
 Usage:
   python analysis/scripts/submission_sentiment_llm.py
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import csv

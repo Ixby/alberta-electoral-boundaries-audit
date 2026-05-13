@@ -5,6 +5,11 @@ proxy EG-asymmetry applies a 0.455x deflator to the seat-share asymmetry,
 calibrated to the measured 0.51 pp EG asymmetry for the Alberta 2026 cycle.
 
 No file I/O: pure dataclass, takes constructor arguments only.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

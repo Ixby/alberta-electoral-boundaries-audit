@@ -21,6 +21,11 @@ Dependencies
              data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
   Backward : data/reock_per_district.csv
              findings/reock_verdict.md
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 # Version: 0.9 series  (last updated 2026-04-26)

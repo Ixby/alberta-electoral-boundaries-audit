@@ -109,6 +109,7 @@ digraph audit_dependency_graph {
     "L2:article_figures" [label="article_figures", fillcolor="#fce4a7"];
     "L2:assignment_prep" [label="Phase 4C preparation", fillcolor="#fce4a7"];
     "L2:build_academic_html" [label="Build academic HTML", fillcolor="#fce4a7"];
+    "L2:build_academic_pdf" [label="build_academic_pdf", fillcolor="#fce4a7"];
     "L2:build_cover" [label="Build cover page", fillcolor="#fce4a7"];
     "L2:build_pdf" [label="Build PDF", fillcolor="#fce4a7"];
     "L2:check_voice_and_readability" [label="Voice and readability checker", fillcolor="#fce4a7"];
@@ -121,7 +122,10 @@ digraph audit_dependency_graph {
     "L2:electoral_forensics_population" [label="Electoral forensics — population equality\n(A1/A2/A2b)", fillcolor="#fce4a7"];
     "L2:extended_partisan_metrics" [label="extended_partisan_metrics", fillcolor="#fce4a7"];
     "L2:historical_eg_baseline" [label="historical_eg_baseline", fillcolor="#fce4a7"];
+    "L2:intermap_permutation_test" [label="intermap_permutation_test", fillcolor="#fce4a7"];
+    "L2:joint_outlier_score_canonical" [label="joint_outlier_score_canonical", fillcolor="#fce4a7"];
     "L2:mcmc_ensemble" [label="mcmc_ensemble", fillcolor="#fce4a7"];
+    "L2:mcmc_ensemble_canonical" [label="mcmc_ensemble_canonical", fillcolor="#fce4a7"];
     "L2:monte_carlo_ci" [label="v0_3 Monte Carlo CI (B-family 2000-sample\nsensitivity)", fillcolor="#fce4a7"];
     "L2:municipal_anchoring_2019_baseline" [label="municipal_anchoring_2019_baseline", fillcolor="#fce4a7"];
     "L2:municipal_splits" [label="municipal_splits", fillcolor="#fce4a7"];
@@ -131,9 +135,12 @@ digraph audit_dependency_graph {
     "L2:score_hybridization" [label="score_hybridization", fillcolor="#fce4a7"];
     "L2:score_natural_anchoring" [label="score_natural_anchoring", fillcolor="#fce4a7"];
     "L2:seats_at_50_50_regional" [label="seats_at_50_50_regional", fillcolor="#fce4a7"];
+    "L2:simulation_convergence_diagnostics" [label="simulation_convergence_diagnostics", fillcolor="#fce4a7"];
     "L2:simulation_multichain_ensemble" [label="simulation_multichain_ensemble", fillcolor="#fce4a7"];
     "L2:simulation_short_bursts" [label="simulation_short_bursts", fillcolor="#fce4a7"];
     "L2:submission_search" [label="Submission archive keyword search", fillcolor="#fce4a7"];
+    "L2:submission_sentiment_llm_full" [label="submission_sentiment_llm_full", fillcolor="#fce4a7"];
+    "L2:szat" [label="szat", fillcolor="#fce4a7"];
     "L2:third_party_sensitivity" [label="third_party_sensitivity", fillcolor="#fce4a7"];
     "L2:v0_1_2015_cross_election" [label="2015 cross-election extension", fillcolor="#fce4a7"];
     "L2:v0_1_338canada_historical" [label="338Canada historical-snapshot reallocation", fillcolor="#fce4a7"];
@@ -279,6 +286,7 @@ digraph audit_dependency_graph {
     "L3:finding.synthesis_six_dimensions" [label="§6\nSynthesis — six independent dimensions\npoint same direction (minority more\nUCP-favorable)", fillcolor="#f2c6c6"];
   }
   "L2:_fetch_osm_natural" -> "L2:score_natural_anchoring" [style=solid, color="#333333"];
+  "L0:doc.frozen_manifest" -> "L2:build_academic_pdf" [style=solid, color="#333333"];
   "L1:constructed.mcmc_ensemble_100k" -> "L2:chen_rodden_decomposition" [style=solid, color="#333333"];
   "L0:data.2019_ed_shapefile" -> "L2:core_retention" [style=solid, color="#333333"];
   "L0:data.2019_ed_shapefile" -> "L2:cross_election" [style=solid, color="#333333"];

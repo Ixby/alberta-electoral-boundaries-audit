@@ -1,4 +1,10 @@
-"""One-page PNG infographic of the 2026 Alberta Electoral Boundaries audit results."""
+"""One-page PNG infographic of the 2026 Alberta Electoral Boundaries audit results.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
+"""
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt

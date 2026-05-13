@@ -2,9 +2,9 @@
   "meta": {
     "schema_version": "v0_1",
     "date_built": "2026-05-13",
-    "commit": "d4ff49b803a67388d230d9664d0654819949b0b3",
-    "node_count": 256,
-    "edge_count": 412,
+    "commit": "b4f4ba5904c495cdc3fe4992192ba831a0832a37",
+    "node_count": 263,
+    "edge_count": 413,
     "acyclic": true,
     "orphan_nodes": [
       "L1:constructed.phase4c_maup_summary",
@@ -16,7 +16,13 @@
       "L2:dependency_graph_render",
       "L2:dependency_query",
       "L2:derive_boundaries",
+      "L2:intermap_permutation_test",
+      "L2:joint_outlier_score_canonical",
+      "L2:mcmc_ensemble_canonical",
+      "L2:simulation_convergence_diagnostics",
       "L2:simulation_short_bursts",
+      "L2:submission_sentiment_llm_full",
+      "L2:szat",
       "L2:third_party_sensitivity",
       "L2:v0_1_assignment_va_attribution",
       "L2:v0_1_assignment_va_attribution_maup",
@@ -49,6 +55,9 @@
       "Backward source unresolved in analysis/scripts/annotate_ensemble_seats_chart.py: 'Forward : report_public.md (seats_at_50_50 ensemble figure reference)'",
       "Forward target unresolved in analysis/scripts/article_figures.py: 'report_public.md (consumes the PNGs)'",
       "Backward source unresolved in analysis/scripts/article_figures.py: 'stdlib + matplotlib + numpy'",
+      "Forward target unresolved in analysis/scripts/build_academic_pdf.py: 'outputs/academic_report/report_academic.pdf'",
+      "Forward target unresolved in analysis/scripts/build_pdf.py: 'outputs/public_report/report_public.pdf'",
+      "Backward source unresolved in analysis/scripts/build_pdf.py: 'outputs/public_report/report_public.md'",
       "Forward target unresolved in analysis/scripts/chen_rodden_decomposition.py: 'findings/chen_rodden_decomposition.md'",
       "Backward source unresolved in analysis/scripts/chen_rodden_decomposition.py: 'data/simulation_real_map_scores_full_v2.json'",
       "Backward source unresolved in analysis/scripts/chen_rodden_decomposition.py: 'data/simulation_real_map_scores_full_100k.json'",
@@ -65,19 +74,39 @@
       "Backward source unresolved in analysis/scripts/dependency_graph_render.py: 'analysis/methodology/audit_dependency_graph.dot'",
       "Forward target unresolved in analysis/scripts/dependency_query.py: '(stdout analysis report)'",
       "Backward source unresolved in analysis/scripts/dependency_query.py: 'analysis/methodology/audit_dependency_graph.json'",
+      "Forward target unresolved in analysis/scripts/electoral_forensics_population.py: 'findings/population_equality.md'",
+      "Forward target unresolved in analysis/scripts/electoral_forensics_population.py: 'findings/population_consistency.csv'",
+      "Backward source unresolved in analysis/scripts/electoral_forensics_population.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/electoral_forensics_population.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
       "Forward target unresolved in analysis/scripts/extended_partisan_metrics.py: 'findings/extended_partisan_metrics.md'",
       "Backward source unresolved in analysis/scripts/extended_partisan_metrics.py: 'data/shapefiles/derived/va_polygons_with_2023_votes.gpkg'",
       "Backward source unresolved in analysis/scripts/extended_partisan_metrics.py: 'data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/extended_partisan_metrics.py: 'data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg'",
       "Forward target unresolved in analysis/scripts/historical_eg_baseline.py: 'findings/historical_eg_baseline.md'",
+      "Forward target unresolved in analysis/scripts/intermap_permutation_test.py: 'findings/intermap_permutation_test_results.json'",
+      "Forward target unresolved in analysis/scripts/intermap_permutation_test.py: 'findings/intermap_permutation_test_results.md'",
+      "Backward source unresolved in analysis/scripts/intermap_permutation_test.py: 'data/simulated_ensemble_raw_samples_canonical.csv'",
+      "Backward source unresolved in analysis/scripts/intermap_permutation_test.py: 'data/simulation_real_map_scores_canonical.json'",
+      "Forward target unresolved in analysis/scripts/joint_outlier_score_canonical.py: 'findings/joint_outlier_score.json'",
+      "Forward target unresolved in analysis/scripts/joint_outlier_score_canonical.py: 'findings/joint_outlier_score_summary.md'",
+      "Backward source unresolved in analysis/scripts/joint_outlier_score_canonical.py: 'data/outputs/simulation_real_map_scores_canonical.json'",
       "Forward target unresolved in analysis/scripts/mcmc_ensemble.py: 'analysis/methodology/mcmc_ensemble.md (interprets outputs)'",
       "Backward source unresolved in analysis/scripts/mcmc_ensemble.py: 'data/v0_1_approximate_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/mcmc_ensemble.py: 'data/v0_1_refined_v6_minority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/mcmc_ensemble.py: 'gerrychain, geopandas, matplotlib, numpy, pandas'",
+      "Forward target unresolved in analysis/scripts/mcmc_ensemble_canonical.py: 'findings/joint_outlier_score_summary.md (Channel 1 update)'",
+      "Forward target unresolved in analysis/scripts/mcmc_ensemble_canonical.py: 'findings/post_audit_recompute_deltas.md (canonical delta)'",
+      "Backward source unresolved in analysis/scripts/mcmc_ensemble_canonical.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/mcmc_ensemble_canonical.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/mcmc_ensemble_canonical.py: 'data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg (or 2023_votes)'",
+      "Backward source unresolved in analysis/scripts/mcmc_ensemble_canonical.py: 'analysis/scripts/mcmc_ensemble.py (build_va_graph, run_ensemble, seat_results)'",
       "Forward target unresolved in analysis/scripts/municipal_anchoring_2019_baseline.py: 'findings/municipal_anchoring_analysis.md'",
       "Backward source unresolved in analysis/scripts/municipal_splits.py: 'data/shapefiles/derived/va_polygons_with_2023_votes.gpkg'",
       "Backward source unresolved in analysis/scripts/municipal_splits.py: 'data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/municipal_splits.py: 'data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg'",
+      "Forward target unresolved in analysis/scripts/packing_cracking_analysis.py: 'findings/partisan_bias_summary.md'",
+      "Forward target unresolved in analysis/scripts/packing_cracking_analysis.py: 'findings/extended_partisan_metrics.md'",
+      "Backward source unresolved in analysis/scripts/packing_cracking_analysis.py: 'data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg'",
       "Forward target unresolved in analysis/scripts/score_anchoring.py: 'findings/dangerzone_metric_definitions.md'",
       "Forward target unresolved in analysis/scripts/score_hybridization.py: 'findings/dangerzone_metric_definitions.md'",
       "Forward target unresolved in analysis/scripts/score_natural_anchoring.py: 'findings/natural_anchoring_secondary_check.md'",
@@ -90,6 +119,8 @@
       "Backward source unresolved in analysis/scripts/seats_at_50_50_regional.py: 'data/v0_10_topological_minority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/seats_at_50_50_regional.py: 'data/verification_assignments_raw.npz'",
       "Backward source unresolved in analysis/scripts/seats_at_50_50_regional.py: 'numpy, pandas, geopandas'",
+      "Forward target unresolved in analysis/scripts/simulation_convergence_diagnostics.py: 'data/outputs/simulation_convergence_diagnostics_canonical.json'",
+      "Backward source unresolved in analysis/scripts/simulation_convergence_diagnostics.py: 'data/simulation_checkpoints_canonical/'",
       "Forward target unresolved in analysis/scripts/simulation_multichain_ensemble.py: 'analysis/v0_1_mcmc_multichain_writeup.md (to be authored once run)'",
       "Backward source unresolved in analysis/scripts/simulation_multichain_ensemble.py: 'analysis/scripts/v0_1_mcmc_ensemble.py (build_va_graph, run_ensemble, seat_results)'",
       "Backward source unresolved in analysis/scripts/simulation_multichain_ensemble.py: 'analysis/scripts/v0_1_mcmc_full_coverage_rescore_100k.py (efficiency_gap, mean_median,'",
@@ -99,10 +130,19 @@
       "Backward source unresolved in analysis/scripts/simulation_short_bursts.py: 'data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/simulation_short_bursts.py: 'data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg'",
       "Backward source unresolved in analysis/scripts/simulation_short_bursts.py: 'data/shapefiles/derived/va_polygons_with_2023_votes.gpkg'",
+      "Forward target unresolved in analysis/scripts/submission_sentiment_llm_full.py: 'findings/sentiment_analysis_completion_report.md'",
+      "Backward source unresolved in analysis/scripts/submission_sentiment_llm_full.py: 'data/raw/submissions/'",
+      "Forward target unresolved in analysis/scripts/szat.py: 'findings/szat_results.csv'",
+      "Forward target unresolved in analysis/scripts/szat.py: 'findings/szat_summary.json'",
+      "Backward source unresolved in analysis/scripts/szat.py: 'data/shapefiles/canonical/ea_majority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/szat.py: 'data/shapefiles/canonical/ea_minority_2026_eds.gpkg'",
+      "Backward source unresolved in analysis/scripts/szat.py: 'data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg'",
       "Forward target unresolved in analysis/scripts/third_party_sensitivity.py: '(consumed by report/D1 analysis)'",
       "Dropping edge with missing endpoint: L2:* -> L2:dependency_graph_build",
+      "Dropping edge with missing endpoint: L2:drand_seed -> L2:mcmc_ensemble_canonical",
       "Dropping edge with missing endpoint: L2:municipal_anchoring -> L2:municipal_anchoring_2019_baseline",
       "Dropping edge with missing endpoint: L2:municipal_anchoring -> L2:score_anchoring",
+      "Dropping edge with missing endpoint: L2:drand_seed -> L2:szat",
       "Dropping edge with missing endpoint: L2:eg_utils -> L2:third_party_sensitivity",
       "Dropping edge with missing endpoint: L2:v0_1_phase_4c_va_attribution_maup_v2 -> L3:finding.b2_maup_v1_topology_artefact",
       "Dropping edge with missing endpoint: L2:v0_1_phase_4c_va_attribution_maup_v3_v05 -> L3:finding.b2_v05_signflip",
@@ -112,11 +152,11 @@
     "counts_per_layer": {
       "L0": 32,
       "L1": 53,
-      "L2": 97,
+      "L2": 104,
       "L3": 74
     },
     "edge_counts_per_type": {
-      "required": 354,
+      "required": 355,
       "corroborating": 23,
       "validating": 35
     },
@@ -145,7 +185,7 @@
     "top5_outdegree_l3sources": [
       [
         "L0:doc.frozen_manifest",
-        36
+        37
       ],
       [
         "L0:data.2023_statement_of_vote",
@@ -892,6 +932,15 @@
       "has_header": false
     },
     {
+      "id": "L2:build_academic_pdf",
+      "layer": "L2",
+      "name": "build_academic_pdf",
+      "type": "measurement_script",
+      "path": "analysis/scripts/build_academic_pdf.py",
+      "role": "",
+      "has_header": true
+    },
+    {
       "id": "L2:build_cover",
       "layer": "L2",
       "name": "Build cover page",
@@ -907,7 +956,7 @@
       "type": "measurement_script",
       "path": "analysis/scripts/build_pdf.py",
       "role": "PDF assembly from academic HTML.",
-      "has_header": false
+      "has_header": true
     },
     {
       "id": "L2:check_voice_and_readability",
@@ -979,7 +1028,7 @@
       "type": "measurement_script",
       "path": "analysis/scripts/electoral_forensics_population.py",
       "role": "MAD, Calgary zone gap, urban/rural regional breakdown.",
-      "has_header": false
+      "has_header": true
     },
     {
       "id": "L2:extended_partisan_metrics",
@@ -1000,11 +1049,38 @@
       "has_header": true
     },
     {
+      "id": "L2:intermap_permutation_test",
+      "layer": "L2",
+      "name": "intermap_permutation_test",
+      "type": "measurement_script",
+      "path": "analysis/scripts/intermap_permutation_test.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:joint_outlier_score_canonical",
+      "layer": "L2",
+      "name": "joint_outlier_score_canonical",
+      "type": "measurement_script",
+      "path": "analysis/scripts/joint_outlier_score_canonical.py",
+      "role": "",
+      "has_header": true
+    },
+    {
       "id": "L2:mcmc_ensemble",
       "layer": "L2",
       "name": "mcmc_ensemble",
       "type": "measurement_script",
       "path": "analysis/scripts/mcmc_ensemble.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:mcmc_ensemble_canonical",
+      "layer": "L2",
+      "name": "mcmc_ensemble_canonical",
+      "type": "measurement_script",
+      "path": "analysis/scripts/mcmc_ensemble_canonical.py",
       "role": "",
       "has_header": true
     },
@@ -1042,7 +1118,7 @@
       "type": "measurement_script",
       "path": "analysis/scripts/packing_cracking_analysis.py",
       "role": "Efficiency gap, mean-median, seats@50/50, and declination on three maps.",
-      "has_header": false
+      "has_header": true
     },
     {
       "id": "L2:parse_2015_results",
@@ -1090,6 +1166,15 @@
       "has_header": true
     },
     {
+      "id": "L2:simulation_convergence_diagnostics",
+      "layer": "L2",
+      "name": "simulation_convergence_diagnostics",
+      "type": "measurement_script",
+      "path": "analysis/scripts/simulation_convergence_diagnostics.py",
+      "role": "",
+      "has_header": true
+    },
+    {
       "id": "L2:simulation_multichain_ensemble",
       "layer": "L2",
       "name": "simulation_multichain_ensemble",
@@ -1115,6 +1200,24 @@
       "path": "analysis/scripts/submission_search.py",
       "role": "Produces submission_search_dataset.csv with per-configuration counts.",
       "has_header": false
+    },
+    {
+      "id": "L2:submission_sentiment_llm_full",
+      "layer": "L2",
+      "name": "submission_sentiment_llm_full",
+      "type": "measurement_script",
+      "path": "analysis/scripts/submission_sentiment_llm_full.py",
+      "role": "",
+      "has_header": true
+    },
+    {
+      "id": "L2:szat",
+      "layer": "L2",
+      "name": "szat",
+      "type": "measurement_script",
+      "path": "analysis/scripts/szat.py",
+      "role": "",
+      "has_header": true
     },
     {
       "id": "L2:third_party_sensitivity",
@@ -2226,6 +2329,12 @@
       "target": "L2:score_natural_anchoring",
       "type": "required",
       "sensitivity": "script Forward: header"
+    },
+    {
+      "source": "L0:doc.frozen_manifest",
+      "target": "L2:build_academic_pdf",
+      "type": "required",
+      "sensitivity": "script Backward: header"
     },
     {
       "source": "L1:constructed.mcmc_ensemble_100k",

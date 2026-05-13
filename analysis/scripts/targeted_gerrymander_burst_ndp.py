@@ -11,6 +11,11 @@ territory (52.87%).
 
 This is the symmetry check the audit's own discipline requires: every
 test applied to one map must be applied to the others.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 # Version: 0.1 series  (last updated 2026-04-26)

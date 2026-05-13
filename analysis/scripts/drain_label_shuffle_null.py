@@ -28,6 +28,11 @@ Backward deps:
   - data/alberta_2023_results.csv
   - data/v0_2_canonical_majority_2026_eds_topoclean.gpkg (or v0_8 series)
   - data/v0_2_canonical_minority_2026_eds_topoclean.gpkg (or v0_8 series)
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

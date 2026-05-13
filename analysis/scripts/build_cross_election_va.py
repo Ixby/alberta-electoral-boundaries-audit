@@ -13,6 +13,11 @@ them identically to the canonical 2023 file.
 Purpose: Alberta-specific EG threshold durability analysis across election
 cycles. The p95 EG from the neutral ensemble under each year's votes reveals
 whether the jurisdiction-specific investigable threshold is election-stable.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import sys

@@ -29,6 +29,11 @@ After N = 2,000 samples, report:
   - Fraction of runs with same-sign asymmetry (directional consistency)
 
 A directional claim is defensible if the 95% CI does not cross zero.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import random

@@ -2,6 +2,11 @@
 """
 Federal-Boundary Correlation (Implementation)
 Checks provincial map against federal boundaries for community splitting.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 import geopandas as gpd
 from pathlib import Path

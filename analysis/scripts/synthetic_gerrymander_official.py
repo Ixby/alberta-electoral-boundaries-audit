@@ -3,6 +3,11 @@
 Synthetic Gerrymander Detection (Implementation)
 Extracts extreme outliers from the 100k simulated maps to act as synthetic "known bads"
 and passes them through the test battery to prove it triggers the alarm.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 import pandas as pd
 from pathlib import Path

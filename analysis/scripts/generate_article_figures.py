@@ -36,6 +36,11 @@ Dependencies
              report_public.md (four figure references updated to _v3)
 
 Author: sub-agent, article figure redesign, 2026-04-23
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

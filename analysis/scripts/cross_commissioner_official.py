@@ -2,6 +2,11 @@
 """
 Cross-Commissioner Attribution (Implementation)
 Analyzes concentration of fractured boundaries per specific commissioner.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 import geopandas as gpd
 from pathlib import Path

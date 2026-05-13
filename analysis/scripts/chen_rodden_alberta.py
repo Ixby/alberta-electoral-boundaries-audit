@@ -45,6 +45,11 @@ Outputs:
   - analysis/methodology/chen_rodden_alberta_validation.md — interpretive report
 
 Author: Track U subagent, 2026-04-22
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

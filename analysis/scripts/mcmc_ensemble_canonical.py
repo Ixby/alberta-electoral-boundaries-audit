@@ -33,14 +33,14 @@ Usage
 -----
     python analysis/scripts/mcmc_ensemble_canonical.py [--n-steps 100000]
 
-Backward dependencies:
+Backward:
   data/shapefiles/canonical/ea_majority_2026_eds.gpkg
   data/shapefiles/canonical/ea_minority_2026_eds.gpkg
   data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg (or 2023_votes)
   analysis/scripts/mcmc_ensemble.py (build_va_graph, run_ensemble, seat_results)
   analysis/scripts/drand_seed.py
 
-Forward dependencies:
+Forward:
   findings/joint_outlier_score_summary.md (Channel 1 update)
   findings/post_audit_recompute_deltas.md (canonical delta)
 """

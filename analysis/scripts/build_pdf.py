@@ -14,6 +14,11 @@ Output: report_public.pdf at the repo root.
 Dependencies: markdown (pip install markdown). Chrome or Edge at the
 standard Windows install paths. Network access on first run for the
 Google Fonts @import (cached afterward).
+
+Backward:
+  outputs/public_report/report_public.md
+Forward:
+  outputs/public_report/report_public.pdf
 """
 from __future__ import annotations
 

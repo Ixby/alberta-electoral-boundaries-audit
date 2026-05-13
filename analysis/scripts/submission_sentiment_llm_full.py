@@ -22,6 +22,11 @@ Output:
 Resume: re-running the script skips submissions already in the progress file.
 
 Cost estimate: ~1,252 submissions × $0.13/call ≈ $163 USD at sonnet pricing.
+
+Backward:
+  data/raw/submissions/
+Forward:
+  findings/sentiment_analysis_completion_report.md
 """
 
 from __future__ import annotations

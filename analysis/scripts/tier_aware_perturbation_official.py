@@ -2,6 +2,11 @@
 """
 Tier-Aware DPG-Perturbation CI (Implementation)
 Applies Tier-based margin of errors to the official v11 shapefiles.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 import geopandas as gpd
 import numpy as np

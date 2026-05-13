@@ -16,6 +16,12 @@ Backward dependencies:
 Forward dependencies:
   findings/joint_outlier_score.json
   findings/joint_outlier_score_summary.md
+
+Backward:
+  data/outputs/simulation_real_map_scores_canonical.json
+Forward:
+  findings/joint_outlier_score.json
+  findings/joint_outlier_score_summary.md
 """
 from __future__ import annotations
 

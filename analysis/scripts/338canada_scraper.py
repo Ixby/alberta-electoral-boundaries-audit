@@ -17,6 +17,11 @@ Output columns:
   ndp_share, ndp_moe, ndp_low, ndp_high,
   other_share, leading_party, win_prob_leader,
   ucp_win_prob, ndp_win_prob, snapshot_date, source_url
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

@@ -10,6 +10,11 @@ Dependencies:
 Produces:
   data/submission_search_dataset.csv (updated with source=ocr rows)
   analysis/v0_1_submission_ocr_log.md
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

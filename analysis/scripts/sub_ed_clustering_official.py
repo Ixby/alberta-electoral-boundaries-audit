@@ -2,6 +2,11 @@
 """
 Sub-ED Clustering Analysis (Implementation)
 Calculates spatial clustering of the hybrid (fractured) districts in the official map.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 import geopandas as gpd
 import numpy as np

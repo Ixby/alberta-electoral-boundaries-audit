@@ -9,6 +9,11 @@ has deployed the same 'Surgical Fortification' tactics.
 
 Tripwires:
 1. Mid-Sized City Integrity (The Drain Pattern)
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import os

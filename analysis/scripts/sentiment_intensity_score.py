@@ -24,6 +24,11 @@ Usage:
     python analysis/scripts/sentiment_intensity_score.py [--dry-run]
 
 Cost estimate: ~459 active rows × $0.03/call ≈ $14 USD at sonnet pricing.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 from __future__ import annotations

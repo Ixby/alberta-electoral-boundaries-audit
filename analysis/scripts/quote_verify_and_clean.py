@@ -19,6 +19,11 @@ Outputs:
 
 Usage:
     python analysis/scripts/quote_verify_and_clean.py
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

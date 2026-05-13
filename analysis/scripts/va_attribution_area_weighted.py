@@ -38,6 +38,11 @@ analysis/scripts/mcmc_ensemble.py:score_exogenous_map  (centroid baseline being 
 
 Type: project
 Version: v0.9 (2026-04-26)
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 

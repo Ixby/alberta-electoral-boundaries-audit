@@ -16,6 +16,11 @@ Usage:
 Re-runnable: works against a partial run (any sample count >= 4 per chain).
 The script reports the sample count used per chain so a later check can
 distinguish in-progress diagnostics from final-run diagnostics.
+
+Backward:
+  data/simulation_checkpoints_canonical/
+Forward:
+  data/outputs/simulation_convergence_diagnostics_canonical.json
 """
 from __future__ import annotations
 

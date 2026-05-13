@@ -1,4 +1,10 @@
-"""Infographic v2 — 1920 × 1080, laptop-optimised, 4-colour semantic palette."""
+"""Infographic v2 — 1920 × 1080, laptop-optimised, 4-colour semantic palette.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
+"""
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt

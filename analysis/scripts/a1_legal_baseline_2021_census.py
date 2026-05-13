@@ -46,6 +46,11 @@ Both methods project inputs to EPSG:3401 (Alberta 10TM-AEP) for metric
 area. Invalid geometries are self-healed via buffer(0).
 
 House voice. No emoji.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

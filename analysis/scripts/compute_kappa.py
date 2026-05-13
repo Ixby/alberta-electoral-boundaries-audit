@@ -22,6 +22,11 @@ Interpretation thresholds (Landis & Koch 1977):
     0.80 – 1.00 = Almost perfect
 
 Acceptable for publication: kappa >= 0.60 (Substantial or better).
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

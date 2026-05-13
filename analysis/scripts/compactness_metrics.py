@@ -41,6 +41,11 @@ Backward deps:
   - data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
   - data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

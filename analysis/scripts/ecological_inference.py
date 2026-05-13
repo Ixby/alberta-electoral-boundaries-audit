@@ -8,6 +8,11 @@ Voting (RPV).
 
 Note: Full implementation requires PyMC or specialized R libraries.
 This provides the deterministic Duncan & Davis bounds for the test suite.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 import numpy as np

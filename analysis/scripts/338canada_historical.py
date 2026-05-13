@@ -28,6 +28,11 @@ Outputs:
 
 Usage:
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_338canada_historical.py
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

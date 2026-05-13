@@ -59,6 +59,12 @@ Methodology note on 2026 attribution:
       approximation entirely. Results from this script are intermediate
       estimates suitable for direction-of-shift analysis; magnitude
       precision requires the measured version.
+
+Backward:
+  data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg
+Forward:
+  findings/partisan_bias_summary.md
+  findings/extended_partisan_metrics.md
 """
 
 import csv

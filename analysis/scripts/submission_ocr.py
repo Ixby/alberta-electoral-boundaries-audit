@@ -16,6 +16,11 @@ Approach:
 3. Try to re-detect missing EBC-2025-X-NNN IDs from OCR text.
 4. For each recovered submission, run the 7 keyword regex patterns from submission_search.py.
 5. Append new hit rows to data/submission_search_dataset.csv with source='ocr'.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

@@ -15,6 +15,11 @@ Output: report_public.pdf at the repo root (cover + article merged).
         maps/cover_art.svg as the hero image (also referenced in cover).
 
 Dependencies: geopandas, shapely, matplotlib, markdown, pypdf, pypdfium2.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

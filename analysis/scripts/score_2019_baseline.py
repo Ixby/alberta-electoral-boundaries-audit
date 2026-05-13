@@ -35,6 +35,11 @@ Outputs
 Usage
 -----
     python analysis/scripts/score_2019_baseline.py
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 

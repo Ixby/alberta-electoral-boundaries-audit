@@ -11,6 +11,11 @@ for sentiment analysis pipelines.
 5. Health check module
 6. Idempotent checkpoints for safe resumption
 7. Real-time progress dashboard
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 
 from __future__ import annotations

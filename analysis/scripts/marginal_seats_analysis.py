@@ -26,6 +26,11 @@ Outputs:
     into findings/marginal_seats_findings.md by a sibling task.
 
 No pandas/numpy dependency — stdlib only.
+
+Backward:
+  # REVIEW: verify inputs before publication
+Forward:
+  # REVIEW: verify outputs before publication
 """
 from __future__ import annotations
 
