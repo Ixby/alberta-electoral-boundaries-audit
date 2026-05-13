@@ -233,7 +233,7 @@ def cross_check_2019_votes():
     import csv, os
 
     here = os.path.dirname(os.path.abspath(__file__))
-    path_2019 = os.path.join(here, "..", "data", "alberta_2019_results.csv")
+    path_2019 = os.path.join(here, "..", "..", "data", "reference", "alberta_2019_results.csv")
 
     # Load 2019 per-ED NDP/UCP totals
     dists_2019_votes = []
