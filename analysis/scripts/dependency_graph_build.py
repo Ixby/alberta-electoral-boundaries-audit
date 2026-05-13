@@ -57,6 +57,12 @@ from collections import defaultdict, deque
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Set, Tuple
 
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = data_loader._resolve_path("data")
 SCRIPTS = ROOT / "analysis" / "scripts"
