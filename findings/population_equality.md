@@ -59,31 +59,29 @@ All 28 majority Calgary EDs and all 29 minority Calgary EDs classified with no r
 The Electoral Boundaries Commission Act §15(2) permits a district up to −50% variance (vs the standard ±25%) if it meets at least 3 of the following 5 criteria independently of the boundary drawing:
 
 (a) area > 20,000 km²
-(b) > 100 km from the nearest major centre
-(c) no town with 4,000+ population in the district
-(d) significant Indigenous population / reserves
-(e) shared border with another province or the US
+(b) > 150 km from the Legislature Building by most direct highway (distance to nearest ED boundary)
+(c) no town with population exceeding 8,000 in the district (Municipality of Crowsnest Pass excluded per §15(3))
+(d) contains an Indian reserve or a Métis settlement (presence test, not a demographic threshold)
+(e) a portion of the ED boundary is coterminous with a provincial boundary
 
-Each proposal invokes s.15(2) for three ridings. Criteria evaluated against 2021 census data, Natural Resources Canada atlas, and Treaty boundary maps.
+Each proposal invokes s.15(2) for three ridings. Criteria evaluated against EBC Final Report (March 2026), 2021 census data, Natural Resources Canada atlas, and Treaty boundary maps.
 
-| Riding                                          | Dev%    | (a)>20k km² | (b)>100km | (c)no 4k+ town | (d)Indig. | (e)border | Met | Verdict |
-| ----------------------------------------------- | ------- | ----------- | --------- | -------------- | --------- | --------- | --- | ------- |
-| Central Peace-Notley (majority)                 | −47.7%  | ✓           | ✓         | ✗ (Peace River) | ✓         | ✓ (BC)    | **4/5** | PASS |
-| Lesser Slave Lake (majority)                    | −45.4%  | ✓           | ✓         | ✗ (Slave Lake)  | ✓         | ✗         | **3/5** | PASS (minimum) |
-| Canmore-Banff (majority)                        | −27.2%  | ✗ (~8,500)  | borderline | ✗ (Canmore, Banff) | ✗     | ✓ (BC)    | **1/5** | **FLAG** |
-| Central Peace-Notley (minority)                 | −44.6%  | ✓           | ✓         | ✗               | ✓         | ✓         | **4/5** | PASS |
-| Lesser Slave Lake (minority)                    | −45.4%  | ✓           | ✓         | ✗               | ✓         | ✗         | **3/5** | PASS (minimum) |
-| Rocky Mountain House-Banff Park (minority)      | −30.3%  | ✓ (via NP extension) | borderline | ✗ (RMH) | ✗       | ✓ (via NP) | **2/5** | **FLAG** |
+| Riding | Dev% | (a)>20k km² | (b)>150km Legislature | (c)no 8k+ town | (d)Indig. | (e)border | Met | Verdict |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Central Peace-Notley (majority) | −47.7% | ✓ | ✓ | ✓ (Peace River ~6,500) | ✓ | ✓ (BC) | **5/5** | PASS |
+| Lesser Slave Lake (majority) | −45.4% | ✓ | ✓ | ✓ (Slave Lake ~7,000) | ✓ (14 communities) | ✗ | **4/5** | PASS |
+| Canmore-Banff (majority) | −27.2% | ✗ (~8,500 km²) | ✓ (~340 km) | ✗ (Canmore ~15,990) | ✓ (Stoney Nakoda, Eden Valley 216) | ✓ (BC) | **3/5** | PASS |
+| Central Peace-Notley (minority) | −44.6% | ✓ | ✓ | ✓ | ✓ | ✓ | **5/5** | PASS |
+| Lesser Slave Lake (minority) | −45.4% | ✓ | ✓ | ✓ | ✓ | ✗ | **4/5** | PASS |
+| Rocky Mountain House-Banff Park (minority) | −30.3% | ✓ (via NP ext.) | ✓ (~195 km) | ✓ (RMH ~6,765) | ✓ (Big Horn, O'Chiese, Stoney, Sunchild) | ✓ (via NP ext.) | **5/5** | PASS (engineered) |
 
-### Detail on flagged ridings
+All six invocations are statutorily eligible. Verdict for the minority's Rocky Mountain House-Banff Park requires note:
 
-**Canmore-Banff (majority, 1/5).** Area roughly 8,500 km² — nowhere near the 20,000 km² threshold. Contains Canmore (~15,000) and Banff townsite (~8,000), so the "no 4,000+ town" criterion fails twice. Indigenous population limited (the Stoney Nakoda lands fall largely in an adjacent ED). Distance to Calgary is ~110 km for Canmore — borderline on (b). Only (e) — the BC border — is uncontested. Standard reading: does **not** meet 3/5.
-
-**Rocky Mountain House-Banff Park (minority, 2/5).** This is the riding the commission chair flagged by name as a boundary "drawn to qualify." Its ~22,000 km² area barely clears the threshold, and the clearance comes from extending the ED through uninhabited Banff National Park to reach the BC border. Absent the NP extension, the area is well under 20,000 km² **and** there is no provincial border. In other words, the NP extension single-handedly accounts for two of its criteria passes (a) and (e). Rocky Mountain House (~6,600) fails (c). Indigenous presence limited inside the boundary. Effective independent criteria passed, setting aside the NP extension: likely 0–1.
+**Rocky Mountain House-Banff Park (minority, 5/5 — engineered).** The commission chair described this boundary as "artificially extending its boundary to the province's western border with British Columbia (taking part of Banff National Park, where no one lives), which is a bad faith effort to ensure it can be protected under s. 15(2)" (EBC Final Report, p. 10). The statutory test is met: criteria (a) and (e) both pass. But both pass *only because* the boundary was extended through uninhabited national park territory. Absent the NP extension the area is ~15,000 km² (failing (a)) and there is no BC border (failing (e)). The commission chair's own characterisation is preserved here because it is the primary-source description of the engineering mechanism — not an inference by this audit. The RMH area independently satisfies (b), (c), and (d) regardless of the NP extension (3/5 minimum without it). The boundary extension adds two additional criteria passes but no represented community.
 
 ### Symmetric note
 
-Both maps have **one of three** s.15(2) invocations that fails the 3/5 test by standard criteria reading. This is a wash in count, but the character of the two failures is different: the majority's Canmore-Banff is a ~27% deviation that looks hard to justify on any reading; the minority's Rocky Mountain House-Banff Park is a ~30% deviation whose pass-by-geometry hinges on a visibly engineered boundary extension. The majority's failure looks like a judgment call on a mid-variance riding; the minority's failure looks like a boundary drawn to manufacture the qualification.
+Both maps have three s.15(2) invocations that pass the 3/5 statutory test. The count is a wash. The character diverges: the majority's Canmore-Banff passes on genuine criteria (b), (d), (e) despite the small area; the minority's Rocky Mountain House-Banff Park passes all five criteria but two of those passes (area and border) depend on an extension through uninhabited park territory that the commission chair called "bad faith." No invocation fails the statutory threshold on either map.
 
 ## Symmetric Assessment
 
@@ -95,7 +93,7 @@ Both maps have **one of three** s.15(2) invocations that fails the 3/5 test by s
 | A1: max +deviation                    | +14.3%        | **+24.1%**    | Minority near statutory cap                                |
 | A2: Calgary NE/central − S/W gap       | **+0.4%**     | **+12.2%**    | Majority neutral; minority shows strong packing signal     |
 | A2b: Rest-of-province mean pop        | 52,281        | **50,336**    | Minority gives rural 3.9% smaller mean → overrepresentation |
-| A3: s.15(2) protected failing 3/5     | 1/3 (Canmore) | 1/3 (RMH-BP)  | Equal count; minority's failure more engineered            |
+| A3: s.15(2) invocations failing 3/5   | 0/3           | 0/3           | All six pass; minority's RMH-BP passes via engineered NP boundary extension (commission chair: "bad faith") |
 
 **Population-equality finding.** On pure headcount terms both maps are statutorily permissible (no ED over ±25% except s.15(2) invocations, which both maps use up to the legal maximum of 3). On fairness terms the two maps diverge sharply. The majority proposal has tight, roughly neutral dispersion with one judgment-call s.15(2). The minority proposal has wider dispersion concentrated in a pattern — NE/central Calgary packed ~12% larger than S/W Calgary, rural mean population dropped below the majority's — that systematically over-represents UCP-leaning geography and under-represents NDP-leaning urban geography. This is a population-equality correlate of the B1–B4 partisan-bias asymmetry.
 
