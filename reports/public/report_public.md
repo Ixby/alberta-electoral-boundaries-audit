@@ -245,6 +245,18 @@ The same verdict in plain summary form, leading with the structural finding beca
 
 ---
 
+## Two Things That Would Make the Next Audit Unnecessary
+
+This audit ran into two data problems that have nothing to do with the commission and everything to do with how Alberta's electoral system is designed. Both are fixable.
+
+**Elections Alberta should record where advance voters live.** About half of all Alberta votes are now cast before election day — advance polls, mobile polls, special ballots. Elections Alberta reports these results as totals for each electoral division, not by specific Voting Area. That means roughly 395,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood on a map. They are counted; they just can't be located. The information already exists: every advance voter is checked against a voters list to confirm which district they live in. Recording the voter's home Voting Area at that point — no extra forms, no interaction with the voter — would give analysts, journalists, and future auditors a complete geographic picture of where Alberta's voters actually live. Without it, any spatial analysis of Alberta elections is working with half the data.
+
+**Alberta should wait for the 2026 census before drawing the next map.** Canada counts its population every ten years. The 2026 census enumeration happens in spring 2026; Statistics Canada releases usable sub-provincial data roughly two years later, in 2027 or 2028. The commission that drew the maps assessed in this audit had to use the 2021 census — already four years old when the maps were drawn, and potentially fourteen years old by the time those boundaries retire. Fast-growing cities like Airdrie and Chestermere will change by 40% or more over that window. Rural communities will shrink. The map will be wrong from the day it is used. A straightforward change to the *Electoral Boundaries Commission Act* could require that any new commission be appointed only after Statistics Canada releases the most current dissemination-area data from the preceding census. The result: maps that reflect where Albertans actually live, not where they lived a decade ago.
+
+Neither of these is a finding about the current commission's maps. They are observations about a system that makes accurate electoral analysis harder than it needs to be. They are offered here as practical suggestions, not conclusions.
+
+---
+
 ## References & Methodology
 
 While this report summarizes the audit for a general audience, the underlying methodology relies on established political science and legal literature on electoral boundary design. Key references include:
