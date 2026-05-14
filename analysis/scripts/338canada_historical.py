@@ -53,7 +53,7 @@ from typing import Dict, List, Tuple, Optional
 HERE = os.path.dirname(os.path.abspath(__file__))
 AUDIT_ROOT = os.path.dirname(os.path.dirname(HERE))
 DATA = os.path.join(AUDIT_ROOT, "data")
-HIST_DIR = os.path.join(DATA, "polling_338_historical")
+HIST_DIR = os.path.join(DATA, "reference", "polling_338_historical")
 os.makedirs(HIST_DIR, exist_ok=True)
 
 UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"
@@ -843,7 +843,7 @@ def main():
     print(f"  snapshots in series: {landing['n_snapshots']}")
     print(f"  series: {list(landing['series'].keys())}")
     print(f"  date range: {landing['dates'][0]} to {landing['dates'][-1]}")
-    out_csv = os.path.join(DATA, "338canada_historical_snapshots.csv")
+    out_csv = os.path.join(DATA, "reference", "338canada_historical_snapshots.csv")
     write_historical_aggregate_csv(landing, out_csv)
     print(f"  wrote {out_csv}")
 
@@ -903,7 +903,7 @@ def main():
         "\nPhase 3: pre-2023 per-riding Wayback pulls (window = last capture "
         f"per riding in {PRE23_WINDOW[0]}-{PRE23_WINDOW[1]})."
     )
-    ridings_index_path = os.path.join(DATA, "338canada_ridings_index.csv")
+    ridings_index_path = os.path.join(DATA, "reference", "338canada_ridings_index.csv")
     if not os.path.exists(ridings_index_path):
         print(f"  no ridings index at {ridings_index_path}; skipping per-riding phase.")
         return
@@ -983,7 +983,7 @@ def main():
     # Population loader (for merge rule)
     pops = {}
     with open(
-        os.path.join(DATA, "alberta_2019_populations.csv"), encoding="utf-8"
+        os.path.join(DATA, "reference", "alberta_2019_populations.csv"), encoding="utf-8"
     ) as f:
         for r in csv.DictReader(f):
             pops[r["ed_name"]] = int(r["population_2017_report"])
@@ -993,7 +993,7 @@ def main():
     # baseline comparison.
     current_t338: Dict[str, Dict] = {}
     with open(
-        os.path.join(DATA, "338canada_per_riding_87seat.csv"), encoding="utf-8"
+        os.path.join(DATA, "reference", "338canada_per_riding_87seat.csv"), encoding="utf-8"
     ) as f:
         for r in csv.DictReader(f):
             current_t338[r["district"]] = {

@@ -47,10 +47,10 @@ DERIVED = DATA / "shapefiles" / "derived"
 
 VA_ED = DERIVED / "va_polygons_with_2023_votes.gpkg"
 VA_FULL = DERIVED / "va_polygons_with_full_2023_votes.gpkg"
-MAJ_V9 = DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
-MIN_V9 = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
+MAJ_V9 = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
+MIN_V9 = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 
-OUT_JSON = DATA / "advance_vote_sensitivity.json"
+OUT_JSON = DATA / "outputs" / "advance_vote_sensitivity.json"
 
 
 def load_va(path: Path, ucp_col: str, ndp_col: str, other_col: str) -> gpd.GeoDataFrame:

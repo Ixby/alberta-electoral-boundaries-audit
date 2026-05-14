@@ -18,7 +18,7 @@ Step 4  Validate conservation; print province-wide NDP-share comparison.
 Outputs
 -------
   data/va_polygons_with_full_2023_votes.gpkg
-  analysis/advance_vote_splat_diagnostics.csv
+  data/outputs/advance_vote_splat_diagnostics.csv
 
 Backward:
   # REVIEW: verify inputs before publication

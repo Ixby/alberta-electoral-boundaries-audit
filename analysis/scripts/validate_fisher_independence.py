@@ -34,7 +34,7 @@ REPO = Path(__file__).resolve().parent.parent.parent
 DATA = REPO / "data"
 DEFENSE_DOC = REPO / "analysis" / "methodology" / "fisher_independence_defense.md"
 
-ENSEMBLE_CSV = DATA / "simulated_ensemble_raw_samples_canonical.csv"
+ENSEMBLE_CSV = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
 BOOTSTRAP_NPY = DATA / "szat_bootstrap_eg_samples.npy"
 PARTISAN_COLS = ["efficiency_gap", "mean_median", "declination"]
 

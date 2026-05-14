@@ -101,7 +101,7 @@ def run_tripwires(eds_gdf_path, cities_gdf_path=None):
                 (t for t in target_cities if t.lower() in city_name.lower()), city_name
             )
             pop = city_populations.get(clean_name, 50000)
-            expected_seats = math.ceil(pop / 51648.0)
+            expected_seats = math.ceil(pop / 53722.0)  # floor(4,888,723 / 91)
 
             if num_splits > expected_seats:
                 print(

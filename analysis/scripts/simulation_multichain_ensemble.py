@@ -85,26 +85,19 @@ from mcmc_ensemble import (  # noqa: E402
 )
 from gerrychain.tree import recursive_tree_part  # noqa: E402
 
-# The rescore script exposes DataFrame-shaped metric fns. We don't strictly need
-# them for per-step scoring (run_ensemble/seat_results already yield all four
-# metrics per step), but we import them so the one-to-one equivalence between
-# streaming metrics and post-hoc pooled metrics is documented in imports — and
-# so future maintainers see the canonical source of the metric definitions.
-from mcmc_full_coverage_rescore_100k import (  # noqa: E402, F401
-    efficiency_gap,
-    mean_median,
-    declination,
-    seats_at_50_50,
-)
+# Metric functions (efficiency_gap, mean_median, declination, seats_at_50_50)
+# are computed inside run_ensemble → seat_results (mcmc_ensemble.py).
+# mcmc_full_coverage_rescore_100k.py no longer exists; the canonical rescore
+# script is mcmc_full_coverage_rescore_v2.py.
 
 ROOT = HERE.parent.parent  # scripts/ -> analysis/ -> repo root
 DATA = data_loader._resolve_path("data")
 DATA.mkdir(parents=True, exist_ok=True)
 
-SAMPLES_CSV = DATA / "simulation_multichain_samples.csv"
-POOLED_CSV = DATA / "simulation_multichain_pooled.csv"
-RHAT_JSON = DATA / "simulation_multichain_rhat.json"
-SUMMARY_MD = DATA / "simulation_multichain_summary.md"
+SAMPLES_CSV = DATA / "outputs" / "simulation_multichain_samples.csv"
+POOLED_CSV = DATA / "outputs" / "simulation_multichain_pooled.csv"
+RHAT_JSON = DATA / "outputs" / "simulation_multichain_rhat.json"
+SUMMARY_MD = DATA / "outputs" / "simulation_multichain_summary.md"
 
 METRIC_KEYS = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
 METRIC_LABELS = {

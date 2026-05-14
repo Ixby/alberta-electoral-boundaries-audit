@@ -15,21 +15,31 @@ DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 OFFICIAL_MINORITY = DATA_DIR / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 
 def main():
+    raise NotImplementedError(
+        "STUB — DO NOT RUN. This script produces synthetic commissioner authorship data "
+        "(hard-coded {'Commissioner_X': 18, 'Commissioner_Y': 3}) that is not derived "
+        "from any real source. Citing any output from this script is citing invented "
+        "values. Real implementation requires: (1) a provenance log linking boundary "
+        "segments to individual commission sessions, (2) a spatial join of segments to "
+        "EDs, and (3) attribution to named commissioners. That data does not exist in "
+        "this repository. Rename to cross_commissioner_stub.py if preserving for "
+        "documentation purposes."
+    )
     if not OFFICIAL_MINORITY.exists():
         print(f"ERROR: Official shapefile not found at {OFFICIAL_MINORITY}")
         return
-        
+
     print(f"Loading official minority boundaries from {OFFICIAL_MINORITY.name}...")
     gdf = gpd.read_file(OFFICIAL_MINORITY)
-    
+
     print("Loading Minority Report authorship metadata...")
     # Mocking authorship metadata since it's not strictly encoded in GPKG
     # We will simulate that 21 hybrid districts exist, and assign authorship
     # highly disproportionately to a single commissioner to test the flag.
-    
+
     hybrids = gdf.head(21).copy()
     print(f"Tracking provenance for {len(hybrids)} heavily modified 'hybrid' districts.")
-    
+
     authorship_counts = {"Commissioner_X": 18, "Commissioner_Y": 3}
     
     print(f"\nAuthorship concentration:")

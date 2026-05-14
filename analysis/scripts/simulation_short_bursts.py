@@ -18,8 +18,8 @@ Outputs:
   findings/simulation_short_bursts.md
 
 Backward:
-  data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg
-  data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_minority_2026_eds.gpkg
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
 Forward:
   report_academic.md §5.4 (MCMC Run #3 supplement)
@@ -37,6 +37,10 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import json
 import random as _random
@@ -56,27 +60,19 @@ from mcmc_ensemble import (
     seat_results,
     score_exogenous_map,
     pct_rank,
-    MAJ_V7_PATH,
-    MIN_V7_PATH,
-    MAJ_V8_PATH,
-    MIN_V8_PATH,
-    MAJ_V8_CANON_PATH,
-    MIN_V8_CANON_PATH,
 )
 
+# Canonical Elections Alberta shapefiles — the authoritative inputs
+_CANON_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "shapefiles" / "canonical"
+MAJ_CANON_PATH = _CANON_DIR / "ea_majority_2026_eds.gpkg"
+MIN_CANON_PATH = _CANON_DIR / "ea_minority_2026_eds.gpkg"
 
-def _pick_path(plan: str):
-    """Prefer v0_8 refined, then v0_8 canonical, then v0_7 canonical."""
+
+def _pick_path(plan: str) -> Path:
+    """Return canonical Elections Alberta shapefile for the given plan."""
     if plan == "majority":
-        for p in (MAJ_V8_PATH, MAJ_V8_CANON_PATH, MAJ_V7_PATH):
-            if p.exists():
-                return p
-        return MAJ_V7_PATH
-    else:
-        for p in (MIN_V8_PATH, MIN_V8_CANON_PATH, MIN_V7_PATH):
-            if p.exists():
-                return p
-        return MIN_V7_PATH
+        return MAJ_CANON_PATH
+    return MIN_CANON_PATH
 
 
 ROOT = HERE.parent.parent
@@ -190,8 +186,8 @@ def main(
     ranks = {}
     for label, m_real in [
         ("2019_enacted", m_2019),
-        ("majority_2026_v7", m_maj),
-        ("minority_2026_v7", m_min),
+        ("majority_2026", m_maj),
+        ("minority_2026", m_min),
     ]:
         if m_real is None:
             continue
@@ -263,6 +259,7 @@ def main(
     OUT_MD.write_text("\n".join(md), encoding="utf-8")
     print(f"Wrote {OUT_MD}")
     print(f"\nDone in {time.time()-t0:.0f}s")
+    _log_run(__file__, [str(p) for p in [OUT_CSV, OUT_JSON, OUT_MD]], time.time() - t0)
 
 
 if __name__ == "__main__":

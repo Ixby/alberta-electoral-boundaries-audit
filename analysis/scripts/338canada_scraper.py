@@ -38,8 +38,8 @@ from typing import Dict, List, Tuple, Optional
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 AUDIT_ROOT = os.path.dirname(os.path.dirname(HERE))
-INDEX_CSV = os.path.join(AUDIT_ROOT, "data", "338canada_ridings_index.csv")
-OUT_CSV = os.path.join(AUDIT_ROOT, "data", "338canada_per_riding_87seat.csv")
+INDEX_CSV = os.path.join(AUDIT_ROOT, "data", "reference", "338canada_ridings_index.csv")
+OUT_CSV = os.path.join(AUDIT_ROOT, "data", "reference", "338canada_per_riding_87seat.csv")
 
 URL_TMPL = "https://338canada.com/alberta/{code}e.htm"
 UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"

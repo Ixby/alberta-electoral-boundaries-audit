@@ -10,10 +10,9 @@ documented split. Party abbreviation "RBC" = right-bloc conservative (historical
 naming convention used across 2015–2023 Alberta elections).
 
 Backward:
-  data/2023_results.xlsx
-  data/2015_results.xlsx
+  # REVIEW: pure function — no file I/O; inputs passed by caller
 Forward:
-  findings/historical_eg_baseline.md
+  # REVIEW: pure function — no file I/O; outputs returned to caller
 """
 from __future__ import annotations
 

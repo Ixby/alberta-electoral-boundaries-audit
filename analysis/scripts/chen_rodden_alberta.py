@@ -33,7 +33,7 @@ TEST 2 — Simulated-ensemble proxy (seeded random-walk).
     flip-walk on DAs).
   - For each sampled plan, compute efficiency gap, mean-median,
     NDP seat count. Compare the distribution to the 2019 baseline
-    EG of −2.64%.
+    EG of +2.41% (canonical value from simulation_real_map_scores_canonical.json).
 
 TEST 3 — Urban-margin vs rural-margin asymmetry (fallback / cross-check).
   - If NDP-winning urban margins are significantly larger than UCP-winning
@@ -721,6 +721,13 @@ def main():
     print(f"\n  Ensemble saved to {out_csv}")
 
     # Summary for the markdown report
+    import json as _j
+    _canon_path = os.path.join(ROOT, "data", "outputs", "simulation_real_map_scores_canonical.json")
+    _baseline_2019_eg = (
+        _j.load(open(_canon_path))["2019_enacted"]["efficiency_gap"]
+        if os.path.exists(_canon_path)
+        else None
+    )
     egs = np.array([p["eg"] for p in plans])
     seats = np.array([p["ndp_seats"] for p in plans])
     mms = np.array([p["mm"] for p in plans])
@@ -742,7 +749,7 @@ def main():
             "mm_median": float(np.median(mms)),
         },
         "margins": margins,
-        "baseline_2019_eg": -0.0264,
+        "baseline_2019_eg": _baseline_2019_eg,
     }
 
     # dump a json-like summary for the MD writer

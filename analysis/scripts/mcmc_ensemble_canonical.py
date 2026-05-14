@@ -57,6 +57,10 @@ except ImportError:
     import data_loader
     from canonical_manifest import verify_canonical_files
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import argparse
 import json
@@ -98,10 +102,10 @@ MAJ_CANONICAL = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 MIN_CANONICAL = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 CANONICAL_NAME_COL = "EDName2025"
 
-SAMPLES_CSV     = DATA / "simulated_ensemble_raw_samples_canonical.csv"
-SCORES_JSON     = DATA / "simulation_real_map_scores_canonical.json"
-PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_canonical.csv"
-CONVERGENCE_JSON = DATA / "simulation_convergence_diagnostics_canonical.json"
+SAMPLES_CSV     = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+SCORES_JSON     = DATA / "outputs" / "simulation_real_map_scores_canonical.json"
+PERCENTILES_CSV = DATA / "outputs" / "simulated_ensemble_percentiles_canonical.csv"
+CONVERGENCE_JSON = DATA / "outputs" / "simulation_convergence_diagnostics_canonical.json"
 CHECKPOINT_DIR  = DATA / "simulation_checkpoints_canonical"
 
 METRIC_KEYS = [
@@ -189,10 +193,10 @@ def main(
         convergence_json = CONVERGENCE_JSON
         checkpoint_dir   = CHECKPOINT_DIR
     else:
-        samples_csv      = DATA / f"simulated_ensemble_raw_samples_{run_id}.csv"
-        scores_json      = DATA / f"simulation_real_map_scores_{run_id}.json"
-        percentiles_csv  = DATA / f"simulated_ensemble_percentiles_{run_id}.csv"
-        convergence_json = DATA / f"simulation_convergence_diagnostics_{run_id}.json"
+        samples_csv      = DATA / "outputs" / f"simulated_ensemble_raw_samples_{run_id}.csv"
+        scores_json      = DATA / "outputs" / f"simulation_real_map_scores_{run_id}.json"
+        percentiles_csv  = DATA / "outputs" / f"simulated_ensemble_percentiles_{run_id}.csv"
+        convergence_json = DATA / "outputs" / f"simulation_convergence_diagnostics_{run_id}.json"
         checkpoint_dir   = DATA / f"simulation_checkpoints_{run_id}"
 
     # va_pop_from_das.csv may have been moved to data/outputs/ during cleanup.
@@ -346,6 +350,7 @@ def main(
 
     print()
     print(f"[{time.strftime('%H:%M:%S')}] done in {time.time()-t_start:.0f}s total", flush=True)
+    _log_run(__file__, [str(p) for p in [samples_csv, scores_json, percentiles_csv, convergence_json]], time.time() - t_start)
 
 
 if __name__ == "__main__":

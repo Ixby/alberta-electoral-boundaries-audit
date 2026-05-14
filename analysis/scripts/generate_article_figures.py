@@ -81,9 +81,7 @@ DATA = data_loader._resolve_path("data")
 OUT = data_loader._resolve_path("data") / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-PATH_MIN_V7 = (
-    DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
-)
+PATH_MIN_V7 = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 PATH_CSDS = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 PATH_2019 = (
     DATA

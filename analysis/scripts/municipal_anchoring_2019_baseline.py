@@ -56,6 +56,10 @@ except ImportError:
     import data_loader
     from eg_utils import InsufficientDataError
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import json
 import time
@@ -322,6 +326,7 @@ def anchor_map(eds, edges, name_col, label):
 
 
 def main():
+    t_main = time.time()
     print("=" * 72)
     print("  2019 BASELINE municipal-boundary anchoring (Lane 2 historical)")
     print("=" * 72)
@@ -462,6 +467,7 @@ def main():
     print("\n" + "=" * 72)
     print("  2019 BASELINE COMPLETE")
     print("=" * 72)
+    _log_run(__file__, [str(p) for p in [OUT_CSV, OUT_SUMMARY]], time.time() - t_main)
 
 
 if __name__ == "__main__":

@@ -356,96 +356,122 @@ def a2_regional_breakdown(maj: pd.DataFrame, minr: pd.DataFrame):
 # A3 — s.15(2) eligibility audit
 # The 5 statutory criteria (Electoral Boundaries Commission Act s.15(2)):
 #   (a) area > 20,000 km²
-#   (b) > 100 km from nearest major centre
-#   (c) no town with 4,000+ population within the proposed ED
-#   (d) significant Indigenous population / reserves
-#   (e) shared border with another province or the US
+#   (b) > 150 km from the Legislature Building by most direct highway
+#         (distance to the NEAREST BOUNDARY of the proposed ED — EBCA s.15(2)(b))
+#   (c) no town with population exceeding 8,000 within the proposed ED
+#         (Municipality of Crowsnest Pass is not a "town" — EBCA s.15(3))
+#   (d) contains an Indian reserve or a Métis settlement (presence test)
+#   (e) a portion of the ED boundary is coterminous with a provincial boundary
 # At least 3 of 5 must be satisfied for a riding to qualify.
 # ---------------------------------------------------------------------------
 
-# Reference data compiled from publicly available sources
-# (Natural Resources Canada atlas, StatsCan 2021 census, Treaty maps).
-# These are evaluated independently of the boundary drawing.
+# Reference data compiled from publicly available sources.
+# Sources: EBC Final Report March 2026, StatsCan 2021 census, NRCan atlas, Treaty maps.
+# dist_legislature_km: approximate distance from Legislature Building (Edmonton) to
+# nearest ED boundary by most direct highway. All values substantially > 150 km threshold;
+# exact values are approximate.
+# town_8000_plus: True if any town in the ED has population > 8,000 (2021 census).
+# - Peace River (town): ~6,500 (2021 census) — below 8,000 threshold
+# - Slave Lake (town): ~7,000 (2021 census) — below 8,000 threshold
+# - Canmore (town): ~15,990 (2021 census) — above 8,000 threshold
+# - Rocky Mountain House (town): ~6,765 (2021 census) — below 8,000 threshold
+# Sources for Indigenous criterion: EBC Final Report March 2026 (communities listed);
+# EBCA s.15(2)(d) is a presence test (one reserve or settlement suffices).
 S15_2_CRITERIA = {
     # Majority proposal
     "Central Peace-Notley (majority)": {
         "dev_pct": -47.7,
         "area_km2": 38500,  # Peace Country north of Grande Prairie
-        "dist_major_centre_km": 165,  # Edmonton ~460km, nearest major Grande Prairie 100km from riding centroid
-        "town_4000_plus": True,  # Peace River (pop ~6,800) falls inside
-        "indigenous_significant": True,  # Treaty 8, multiple First Nations
-        "shared_border": True,  # BC border
+        "dist_legislature_km": 280,  # approx. Edmonton to southern CPN boundary by Hwy 43
+        "town_8000_plus": False,  # Peace River ~6,500 — no town exceeds 8,000
+        "indigenous_significant": True,  # Treaty 8; multiple First Nations incl. Dene Tha', Woodland Cree
+        "shared_border": True,  # BC border (western)
         "criteria_met": None,  # computed below
         "notes": (
-            "Peace River exceeds 4,000 threshold, so (c) fails. "
-            "(a),(b),(d),(e) pass => 4/5 criteria met."
+            "(a) 38,500 km² > 20,000 ✓; (b) ~280 km > 150 ✓; "
+            "(c) Peace River ~6,500 < 8,000 — no town exceeds threshold ✓; "
+            "(d) Treaty 8 First Nations present ✓; (e) BC border ✓. "
+            "All 5 criteria pass => 5/5 PASS. "
+            "Source: EBC Final Report March 2026; StatsCan 2021 census."
         ),
     },
     "Lesser Slave Lake (majority)": {
         "dev_pct": -45.4,
-        "area_km2": 55000,  # expansive N/NW Alberta
-        "dist_major_centre_km": 250,  # >100km from Edmonton/GP
-        "town_4000_plus": True,  # Slave Lake (pop ~6,800)
-        "indigenous_significant": True,  # multiple Métis Settlements, Treaty 8 First Nations
-        "shared_border": False,  # interior — does not share provincial/US border
+        "area_km2": 69566,  # from EBC Final Report canonical shapefile computation
+        "dist_legislature_km": 235,  # approx. Edmonton to Slave Lake area by Hwy 2/18/2
+        "town_8000_plus": False,  # Slave Lake ~7,000 — below 8,000 threshold
+        "indigenous_significant": True,  # 14 First Nations and Métis communities (EBC Final Report)
+        "shared_border": False,  # interior — does not share provincial border
         "criteria_met": None,
         "notes": (
-            "(c) and (e) fail. (a),(b),(d) pass => 3/5 criteria met — "
-            "minimum threshold, qualifies."
+            "(a) 69,566 km² > 20,000 ✓; (b) ~235 km > 150 ✓; "
+            "(c) Slave Lake ~7,000 < 8,000 — no town exceeds threshold ✓; "
+            "(d) 14 First Nations and Métis communities ✓; (e) no border ✗. "
+            "4/5 criteria pass => 4/5 PASS. "
+            "Source: EBC Final Report March 2026; StatsCan 2021 census."
         ),
     },
     "Canmore-Banff (majority)": {
         "dev_pct": -27.2,
-        "area_km2": 8500,  # Banff/Kananaskis corridor, smaller
-        "dist_major_centre_km": 85,  # Calgary ~110km, Banff townsite ~130km from Calgary
-        "town_4000_plus": True,  # Canmore (pop ~15,000), Banff townsite (~8,000)
-        "indigenous_significant": False,  # Stoney Nakoda partially adjacent but largely in other ED
-        "shared_border": True,  # BC border
+        "area_km2": 8500,  # Banff/Kananaskis corridor
+        "dist_legislature_km": 340,  # approx. Edmonton to eastern Canmore-Banff boundary by Hwy 2 then Hwy 1
+        "town_8000_plus": True,  # Canmore ~15,990 exceeds 8,000 (Banff town ~7,847 does not)
+        "indigenous_significant": True,  # Stoney Nakoda Nation, Eden Valley 216 (EBC Final Report)
+        "shared_border": True,  # BC border via Banff NP
         "criteria_met": None,
         "notes": (
-            "Area < 20,000 km² so (a) fails. Canmore + Banff both exceed "
-            "4,000 so (c) fails. Indigenous presence limited, so (d) "
-            "contested. (b) borderline — Canmore is ~100km from Calgary. "
-            "(e) passes. Only 1–2 of 5 criteria pass; DOES NOT MEET 3/5 "
-            "threshold by standard reading. FLAG."
+            "(a) ~8,500 km² < 20,000 ✗; (b) ~340 km > 150 ✓; "
+            "(c) Canmore ~15,990 exceeds 8,000 ✗; (d) Stoney Nakoda Nation, Eden Valley 216 ✓; "
+            "(e) BC border ✓. (a) and (c) fail; (b),(d),(e) pass => 3/5 PASS. "
+            "Source: EBC Final Report March 2026; StatsCan 2021 census."
         ),
     },
     # Minority proposal
     "Central Peace-Notley (minority)": {
         "dev_pct": -44.6,
         "area_km2": 38500,
-        "dist_major_centre_km": 165,
-        "town_4000_plus": True,
+        "dist_legislature_km": 280,
+        "town_8000_plus": False,
         "indigenous_significant": True,
         "shared_border": True,
         "criteria_met": None,
-        "notes": "Same underlying geography as majority. 4/5 criteria met.",
+        "notes": (
+            "Same underlying geography as majority. "
+            "5/5 criteria pass => 5/5 PASS."
+        ),
     },
     "Lesser Slave Lake (minority)": {
         "dev_pct": -45.4,
-        "area_km2": 55000,
-        "dist_major_centre_km": 250,
-        "town_4000_plus": True,
+        "area_km2": 69566,
+        "dist_legislature_km": 235,
+        "town_8000_plus": False,
         "indigenous_significant": True,
         "shared_border": False,
         "criteria_met": None,
-        "notes": "Same geography as majority. 3/5 criteria met — minimum.",
+        "notes": (
+            "Same geography as majority. "
+            "4/5 criteria pass => 4/5 PASS."
+        ),
     },
     "Rocky Mountain House-Banff Park (minority)": {
         "dev_pct": -30.3,
-        "area_km2": 22000,  # extended through Banff National Park per chair's concern
-        "dist_major_centre_km": 95,  # Red Deer ~85km, Calgary ~130km
-        "town_4000_plus": True,  # Rocky Mountain House (pop ~6,600), Sundre also
-        "indigenous_significant": False,  # limited reserves within proposed boundary
+        "area_km2": 22000,  # extended through Banff National Park per commission chair
+        "dist_legislature_km": 195,  # approx. Edmonton to nearest RMH-area boundary by Hwy 2/11
+        "town_8000_plus": False,  # Rocky Mountain House ~6,765 — below 8,000 threshold
+        "indigenous_significant": True,  # Big Horn, O'Chiese, Stoney 142/143/144, Sunchild (EBC Final Report p.352)
         "shared_border": True,  # extended boundary reaches BC via Banff NP
         "criteria_met": None,
         "notes": (
-            "Area (a) passes only due to extension through uninhabited "
-            "Banff National Park — flagged by the commission chair as a "
-            "boundary drawn to qualify. (b) borderline (~95km from Red "
-            "Deer). (c) fails (Rocky Mountain House > 4,000). (d) "
-            "contested. (e) passes only via the NP extension. "
-            "Boundary appears ENGINEERED to meet (a) and (e). FLAG."
+            "(a) ~22,000 km² > 20,000 ✓ (only due to Banff NP extension); "
+            "(b) ~195 km > 150 ✓; (c) RMH ~6,765 < 8,000 — no town exceeds threshold ✓; "
+            "(d) Big Horn, O'Chiese, Stoney 142/143/144, Sunchild reserves ✓; "
+            "(e) BC border ✓ (only via NP extension). "
+            "5/5 criteria pass => 5/5 PASS, but (a) and (e) pass ONLY because the "
+            "minority extended the boundary through uninhabited Banff NP — "
+            "the commission chair called this 'a bad faith effort' (EBC Final Report p.10). "
+            "Absent the NP extension: ~15,000 km² area fails (a); no border fails (e); "
+            "effective independent criteria: 3/5 (borderline). "
+            "Source: EBC Final Report March 2026 pp.10, 352; StatsCan 2021 census."
         ),
     },
 }
@@ -455,9 +481,9 @@ def tally_criteria(entry: dict) -> int:
     count = 0
     if entry["area_km2"] and entry["area_km2"] > 20000:
         count += 1
-    if entry["dist_major_centre_km"] and entry["dist_major_centre_km"] > 100:
+    if entry["dist_legislature_km"] and entry["dist_legislature_km"] > 150:
         count += 1
-    if entry["town_4000_plus"] is False:
+    if entry["town_8000_plus"] is False:
         count += 1
     if entry["indigenous_significant"] is True:
         count += 1
@@ -500,8 +526,8 @@ def print_a3():
 
 
 def main():
-    maj = pd.read_csv(DATA / "majority_2026_populations.csv")
-    minr = pd.read_csv(DATA / "minority_2026_populations.csv")
+    maj = pd.read_csv(DATA / "reference" / "majority_2026_populations.csv")
+    minr = pd.read_csv(DATA / "reference" / "minority_2026_populations.csv")
 
     print(f"Loaded {len(maj)} majority EDs, {len(minr)} minority EDs")
     prov_avg = maj["population"].sum() / len(maj)

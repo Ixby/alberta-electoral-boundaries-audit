@@ -87,9 +87,9 @@ import geopandas as gpd
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = data_loader._resolve_path("data")
 
-CSD_POP_CSV = DATA / "alberta_2021_csd_populations.csv"
+CSD_POP_CSV = DATA / "reference" / "alberta_2021_csd_populations.csv"
 CSD_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
-DA_POP_CSV = DATA / "alberta_2021_da_populations.csv"
+DA_POP_CSV = DATA / "reference" / "alberta_2021_da_populations.csv"
 DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 ED_SHP = (
     DATA
@@ -98,9 +98,9 @@ ED_SHP = (
     / "alberta_2019_eds"
     / "EDS_ENACTED_BILL33_15DEC2017.shp"
 )
-ED_2019_COMM_CSV = DATA / "alberta_2019_populations.csv"
+ED_2019_COMM_CSV = DATA / "reference" / "alberta_2019_populations.csv"
 
-OUT_CSV = DATA / "a1_legal_baseline_2019eds_2021census.csv"
+OUT_CSV = DATA / "outputs" / "a1_legal_baseline_2019eds_2021census.csv"
 
 # Common projection for the spatial overlay — EPSG:3401 is the 10TM AEP
 # Forest projection used by Alberta Environment and Parks for the ED

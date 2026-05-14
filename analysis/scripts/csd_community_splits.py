@@ -47,8 +47,8 @@ INTERSECT_ABS_THRESHOLD_M2 = 1_000_000  # 1 km^2
 
 def main():
     # Load CSDs with geometry
-    csds = gpd.read_file(os.path.join(DATA, "alberta_2021_csds.gpkg"))
-    pops = pd.read_csv(os.path.join(DATA, "alberta_2021_csd_populations.csv"))
+    csds = gpd.read_file(os.path.join(DATA, "shapefiles", "reference", "alberta_2021_csds.gpkg"))
+    pops = pd.read_csv(os.path.join(DATA, "reference", "alberta_2021_csd_populations.csv"))
     pops["CSDUID"] = pops["ALT_GEO_CODE"].astype(str)
     csds["CSDUID"] = csds["CSDUID"].astype(str)
 
@@ -61,7 +61,7 @@ def main():
 
     # Load 2019 EDs, project CSDs to ED CRS
     eds_2019 = gpd.read_file(
-        os.path.join(DATA, "alberta_2019_eds", "EDS_ENACTED_BILL33_15DEC2017.shp")
+        os.path.join(DATA, "shapefiles", "reference", "alberta_2019_eds", "EDS_ENACTED_BILL33_15DEC2017.shp")
     )
     csds_p = csds.to_crs(eds_2019.crs)
 
@@ -91,8 +91,8 @@ def main():
     )
 
     # Load crosswalks
-    maj = pd.read_csv(os.path.join(DATA, "majority_hybrid_crosswalk.csv"))
-    mnr = pd.read_csv(os.path.join(DATA, "minority_hybrid_crosswalk.csv"))
+    maj = pd.read_csv(os.path.join(DATA, "outputs", "majority_hybrid_crosswalk.csv"))
+    mnr = pd.read_csv(os.path.join(DATA, "outputs", "minority_hybrid_crosswalk.csv"))
 
     # Build 2019->set-of-2026 maps. If a 2019 ED appears twice (hybrid splitting
     # into multiple 2026 EDs), include both 2026 EDs.
@@ -200,7 +200,7 @@ def main():
     out = pd.DataFrame(rows).sort_values(
         ["splits_2019", "population_2021"], ascending=[False, False]
     )
-    out_path = os.path.join(DATA, "csd_splits_summary.csv")
+    out_path = os.path.join(DATA, "outputs", "csd_splits_summary.csv")
     out.to_csv(out_path, index=False, encoding="utf-8")
 
     # Console summary

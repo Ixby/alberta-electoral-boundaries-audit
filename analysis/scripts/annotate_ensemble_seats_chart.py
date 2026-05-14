@@ -47,15 +47,15 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = data_loader._resolve_path("data")
-SAMPLES_CSV = DATA / "outputs" / "mcmc" / "simulated_ensemble_raw_samples.csv"
-PERCENTILES_CSV = DATA / "outputs" / "mcmc" / "simulated_ensemble_percentiles_250k.csv"
-OUT = DATA / "maps" / "mcmc" / "ensemble_distribution_250k_v0_9_seats_at_50_50.svg"
+SAMPLES_CSV = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+PERCENTILES_CSV = DATA / "outputs" / "simulated_ensemble_percentiles_canonical.csv"
+OUT = DATA / "maps" / "mcmc" / "ensemble_distribution_canonical_seats_at_50_50.svg"
 
-# Canonical v0_9 real-map scores (from final_real_map_scores.json)
+# Canonical real-map seats_at_50_50 scores (from findings/joint_outlier_score.json)
 REAL_MAPS = {
     "2019 enacted": 0.45977011494252873,
     "Majority 2026": 0.4606741573033708,
-    "Minority 2026": 0.48314606741573035,
+    "Minority 2026": 0.516854,
 }
 
 COLORS = {

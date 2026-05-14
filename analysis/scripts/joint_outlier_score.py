@@ -51,6 +51,7 @@ from __future__ import annotations
 
 
 import sys
+import time
 from pathlib import Path
 try:
     import data_loader
@@ -58,6 +59,10 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import json
 import warnings
@@ -70,7 +75,7 @@ from scipy import stats
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-MCMC = data_loader._resolve_path("data") / "outputs" / "mcmc"
+OUTPUTS = data_loader._resolve_path("data") / "outputs"
 try:
     from analysis.utils.data_loader import FINDINGS as REPORTS
 except ImportError:
@@ -78,19 +83,19 @@ except ImportError:
     _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
     from data_loader import FINDINGS as REPORTS
 
-ENSEMBLE_CSV = MCMC / "simulated_ensemble_raw_samples_250k.csv"
-REAL_SCORES = MCMC / "simulation_real_map_scores_full_v2.json"
+ENSEMBLE_CSV = OUTPUTS / "simulated_ensemble_raw_samples_canonical.csv"
+REAL_SCORES = OUTPUTS / "simulation_real_map_scores_canonical.json"
 SZAT_JSON = REPORTS / "szat_summary.json"
 OUT_JSON = REPORTS / "joint_outlier_score.json"
 OUT_MD = REPORTS / "joint_outlier_score_summary.md"
 
 PARTISAN_COLS = ["efficiency_gap", "mean_median", "declination", "seats_at_50_50"]
 
-# Map keys in simulation_real_map_scores_full_v2.json
+# Map keys in simulation_real_map_scores_canonical.json
 MAP_KEYS = {
-    "minority": "minority 2026 (canonical, full-VA)",
-    "majority": "majority 2026 (canonical, full-VA)",
-    "enacted": "2019 enacted (full)",
+    "minority": "minority_2026",
+    "majority": "majority_2026",
+    "enacted": "2019_enacted",
 }
 
 # SZAT p-value floor: 0/10000 permutations exceeded observed score.
@@ -155,6 +160,7 @@ def fisher_combine(p_values: list[float]) -> tuple[float, float]:
 
 
 def run() -> None:
+    t0 = time.time()
     print("Loading 250k ensemble...")
     ensemble = pd.read_csv(ENSEMBLE_CSV)
     print(f"  Rows: {len(ensemble):,}  Cols: {ensemble.columns.tolist()}")
@@ -222,26 +228,36 @@ def run() -> None:
     print(f"  Fisher T = {T:.3f}  (chi-sq df=4)  combined p = {p_combined:.2e}")
 
     # ── Structural metric notes ────────────────────────────────────────────────
+    # Values loaded dynamically from real map scores; no hardcoded constants.
+    _min = real.get(MAP_KEYS["minority"], {})
+    _maj = real.get(MAP_KEYS["majority"], {})
+    _min_mad = _min.get("population_mad")
+    _maj_mad = _maj.get("population_mad")
+    _min_reock = _min.get("reock_proxy_pct_below_030")
+    _maj_reock = _maj.get("reock_proxy_pct_below_030")
 
     structural_notes = {
         "municipal_anchoring": {
-            "minority_pct": 14.5,
-            "majority_pct": 71.0,
+            "status": (
+                "RETRACTED — canonical shapefiles placed both 2026 maps within the "
+                "Canadian comparator norm. DPG-era values (14.5% minority / 71.0% majority) "
+                "are superseded. See analysis/methodology/canonical_shapefile_log.md."
+            ),
+            "minority_pct_canonical": 72.0,
+            "majority_pct_canonical": 80.0,
             "enacted_2019_pct": 73.8,
-            "departure_factor_vs_comparators": 4.9,
-            "p_value": "pending — Canadian comparator distribution too thin for rigorous p-value; "
-            "4.9x below comparator norm is the reported summary statistic",
+            "p_value": "not computed — finding retracted on canonical geometry",
         },
         "population_mad_ratio": {
-            "minority_mad": 4707,
-            "majority_mad": 3180,
-            "ratio_minority_majority": round(4707 / 3180, 3),
+            "minority_mad": _min_mad,
+            "majority_mad": _maj_mad,
+            "ratio_minority_majority": round(_min_mad / _maj_mad, 3) if (_min_mad and _maj_mad) else None,
             "p_value": "pending — per-plan MAD not in ensemble outputs",
         },
         "reock_asymmetry": {
-            "minority_pct_below_0_30": 34.8,
-            "majority_pct_below_0_30": 13.5,
-            "ratio": round(34.8 / 13.5, 2),
+            "minority_pct_below_0_30": round(_min_reock * 100, 3) if _min_reock is not None else None,
+            "majority_pct_below_0_30": round(_maj_reock * 100, 3) if _maj_reock is not None else None,
+            "ratio": round(_min_reock / _maj_reock, 2) if (_min_reock and _maj_reock) else None,
             "p_value": "pending — per-plan Reock not in ensemble outputs",
         },
         "neighbour_drain": {
@@ -404,6 +420,7 @@ center (p = {results['majority']['joint_partisan_p']:.2e}) — not an outlier.
     print(f"  Fisher combined:             p = {p_combined:.2e}")
     print(f"  Pending channels: 4")
     print(f"{'='*60}")
+    _log_run(__file__, [str(p) for p in [OUT_JSON, OUT_MD]], time.time() - t0)
 
 
 if __name__ == "__main__":

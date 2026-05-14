@@ -85,7 +85,7 @@ CSS = r"""
     color: #7a7a7a;
     letter-spacing: 2pt;
     font-weight: 600;
-  }
+  */ }
   @top-right { content: none; /*
     content: string(chapter);
     font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
@@ -94,12 +94,12 @@ CSS = r"""
     letter-spacing: 2pt;
     font-weight: 600;
     text-transform: uppercase;
-  }
+  */ }
 }
 
 @page :first {
-  @top-left { content: none; /* content: ""; }
-  @top-right { content: none; /* content: ""; }
+  @top-left { content: none; /* content: ""; */ }
+  @top-right { content: none; /* content: ""; */ }
   @bottom-center { content: ""; }
 }
 

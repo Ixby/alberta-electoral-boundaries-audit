@@ -118,7 +118,7 @@ EXPECTED_COUNTS = {
     "minority_2026": 89,
 }
 
-OUT_CSV = ROOT / "analysis" / "reports" / "compactness_metrics.csv"
+OUT_CSV = data_loader._resolve_path("findings") / "compactness_metrics.csv"
 OUT_JSON = data_loader._resolve_path("data") / "compactness_summary.json"
 
 # Alberta TM — EPSG:3401 (NAD83 / Alberta 10-TM Forest)

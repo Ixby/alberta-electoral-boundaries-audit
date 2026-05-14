@@ -62,9 +62,9 @@ REFERENCE = DATA.parent / "data" / "reference"
 if not REFERENCE.exists():
     REFERENCE = DATA / "reference"
 
-SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples_canonical.csv"
-SCORES_JSON = DATA / "simulation_real_map_scores_canonical.json"
-PERCENTILES_CSV = DATA / "simulated_ensemble_percentiles_canonical.csv"
+SAMPLES_CSV = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+SCORES_JSON = DATA / "outputs" / "simulation_real_map_scores_canonical.json"
+PERCENTILES_CSV = DATA / "outputs" / "simulated_ensemble_percentiles_canonical.csv"
 POP_2019_CSV = REFERENCE / "alberta_2019_populations.csv"
 OUT_JSON = DATA / "outputs" / "score_2019_baseline.json"
 

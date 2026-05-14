@@ -106,7 +106,7 @@ ED_LAYERS = {
     "majority_2026": {
         "path": _maj_path,
         "name_col": _maj_col,
-        "commission_csv": DATA / "majority_2026_populations.csv",
+        "commission_csv": DATA / "reference" / "majority_2026_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population",
         "provincial_quota": PROVINCIAL_QUOTA_2026,
@@ -115,7 +115,7 @@ ED_LAYERS = {
     "minority_2026": {
         "path": _min_path,
         "name_col": _min_col,
-        "commission_csv": DATA / "minority_2026_populations.csv",
+        "commission_csv": DATA / "reference" / "minority_2026_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population",
         "provincial_quota": PROVINCIAL_QUOTA_2026,
@@ -125,7 +125,7 @@ ED_LAYERS = {
         "path": DATA
         / "shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp",
         "name_col": "EDName2017",
-        "commission_csv": DATA / "alberta_2019_populations.csv",
+        "commission_csv": DATA / "reference" / "alberta_2019_populations.csv",
         "commission_name_col": "ed_name",
         "commission_pop_col": "population_2017_report",
         "provincial_quota": None,  # computed from data
@@ -134,7 +134,7 @@ ED_LAYERS = {
 }
 
 DA_SHAPEFILE = DATA / "shapefiles/reference/alberta_2021_das.gpkg"
-DA_POP_CSV = DATA / "alberta_2021_da_populations.csv"
+DA_POP_CSV = DATA / "reference" / "alberta_2021_da_populations.csv"
 
 
 # ---------------------------------------------------------------------------

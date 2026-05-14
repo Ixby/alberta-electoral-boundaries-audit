@@ -37,6 +37,7 @@ Forward:
 
 import csv
 import os
+import time
 from pathlib import Path
 
 try:
@@ -45,6 +46,11 @@ except ImportError:
     import sys
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     from data_loader import FINDINGS as _FINDINGS
+
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 # ROOT-based paths — immune to the ../reports relative-path trap
 INPUT_CSV = _FINDINGS / "population_consistency.csv"
@@ -141,6 +147,7 @@ def classify(deviation: float, invocation: dict | None) -> str:
 
 
 def run() -> None:
+    t0 = time.time()
     rows = load_populations(INPUT_CSV)
 
     # Statutory test applies to 2026 maps only; 2019 has 87 EDs and a
@@ -242,6 +249,8 @@ def run() -> None:
             print(f"\nNotable — §15(2) invoked within normal band ({map_id}):")
             for r in in_band_invocations:
                 print(f"  {r['ed_name']:50s} {r['deviation_pct']:+.1f}%")
+
+    _log_run(__file__, [str(OUTPUT_CSV)], time.time() - t0)
 
 
 if __name__ == "__main__":

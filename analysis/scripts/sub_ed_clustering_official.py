@@ -17,6 +17,16 @@ DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 OFFICIAL_MINORITY = DATA_DIR / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 
 def main():
+    raise NotImplementedError(
+        "STUB — DO NOT RUN. This script classifies 'hybrid' (city-rural fractured) "
+        "districts using Polsby-Popper < 0.25 as a proxy. That proxy is wrong: "
+        "a long thin rural ED may score PP < 0.25 without being a city-rural hybrid; "
+        "a compact hybrid ED may score PP > 0.25. The proxy conflates compactness with "
+        "hybrid status. Real hybrid classification requires matching EDs against the "
+        "commission's narrative classification or a spatial overlay with municipal "
+        "boundaries. The clustering and flagging output from this script is based on "
+        "a methodologically unjustified proxy and must not be cited."
+    )
     if not OFFICIAL_MINORITY.exists():
         print(f"ERROR: Official shapefile not found at {OFFICIAL_MINORITY}")
         return

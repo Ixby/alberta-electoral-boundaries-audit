@@ -68,6 +68,10 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import os
 import sys
@@ -105,15 +109,15 @@ ED2019_PATH = (
     / "alberta_2019_eds"
     / "EDS_ENACTED_BILL33_15DEC2017.shp"
 )
-MAJ_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
-MIN_PATH = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+MAJ_PATH = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
+MIN_PATH = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 # Legacy aliases kept so callers that import these names don't break
 MIN_V6_PATH = MIN_PATH
 MIN_V5_PATH = MIN_PATH
 MAJ_V7_PATH = MAJ_PATH
 MIN_V7_PATH = MIN_PATH
 
-SAMPLES_CSV = DATA / "simulated_ensemble_raw_samples.csv"
+SAMPLES_CSV = DATA / "outputs" / "simulated_ensemble_raw_samples.csv"
 
 
 # ---- metrics ----------------------------------------------------------------
@@ -400,7 +404,7 @@ def run_ensemble(
     pop_deviation: float = 0.25,
     verbose: bool = True,
     return_final_partition: bool = False,
-    seed: int = 42,
+    seed: int | None = None,
 ):
     """Run ReCom chain for n_steps; return list of per-step metric dicts.
 
@@ -704,6 +708,7 @@ def plot_metric(
 
 
 def main(n_steps: int = 5000, seed: int = None):
+    t0 = time.time()
     from drand_seed import get_canonical_seed
 
     seed = seed if seed is not None else get_canonical_seed("mcmc_ensemble")
@@ -810,7 +815,7 @@ def main(n_steps: int = 5000, seed: int = None):
             )
 
     summary_df = pd.DataFrame(summary)
-    summary_csv = DATA / "simulated_ensemble_percentiles.csv"
+    summary_csv = DATA / "outputs" / "simulated_ensemble_percentiles.csv"
     summary_df.to_csv(summary_csv, index=False)
     print(f"  wrote {summary_csv}")
 
@@ -835,7 +840,7 @@ def main(n_steps: int = 5000, seed: int = None):
         "n_steps": int(n_steps),
         "seed": int(seed),
     }
-    with open(DATA / "simulation_real_map_scores.json", "w", encoding="utf-8") as f:
+    with open(DATA / "outputs" / "simulation_real_map_scores.json", "w", encoding="utf-8") as f:
         json.dump(real_json, f, indent=2, default=float)
 
     # Flag outliers
@@ -855,6 +860,7 @@ def main(n_steps: int = 5000, seed: int = None):
 
     print()
     print(f"[{time.strftime('%H:%M:%S')}] done.")
+    _log_run(__file__, [str(p) for p in [SAMPLES_CSV, summary_csv]], time.time() - t0)
 
 
 if __name__ == "__main__":
@@ -948,7 +954,7 @@ def plot_running_mean(metric_key: str, values: np.ndarray, out_path: Path, label
     )
     ax.set_xlabel("Sample index")
     ax.set_ylabel(f"Running mean of {label}")
-    ax.set_title(f"Running mean — {label}  (100k ReCom samples, seed 42)")
+    ax.set_title(f"Running mean — {label}  (canonical ReCom ensemble)")
     ax.grid(axis="both", linestyle=":", linewidth=0.5, alpha=0.6)
     ax.legend(loc="best", fontsize=9)
     fig.tight_layout()

@@ -479,7 +479,7 @@ def write_outputs(rows, totals, pos_counts, files_searched, log):
 
     # Write per-configuration position breakdown — the primary research finding
     # ("X submissions oppose Airdrie 4-way split") that was previously discarded.
-    pos_csv_path = DATA / "submission_position_counts.csv"
+    pos_csv_path = DATA / "outputs" / "submission_position_counts.csv"
     pos_fields = ["configuration", "supporting", "opposing", "ambiguous-leaning-support",
                   "ambiguous-leaning-oppose", "ambiguous", "neutral", "total_hits"]
     with pos_csv_path.open("w", newline="", encoding="utf-8") as f:
@@ -495,7 +495,7 @@ def write_outputs(rows, totals, pos_counts, files_searched, log):
             w.writerow(row)
     log.append(f"[out] wrote {pos_csv_path}")
 
-    csv_path = DATA / "submission_search_dataset.csv"
+    csv_path = DATA / "outputs" / "submission_search_dataset.csv"
     fields = [
         "submission_id",
         "round",
@@ -568,7 +568,7 @@ def main():
             )
         )
     # write log
-    (ANALYSIS / "submission_search_log.md").write_text(
+    (DATA / "outputs" / "submission_search_log.md").write_text(
         "# submission_search log\n\n" + "\n".join(log) + "\n", encoding="utf-8"
     )
     print("\n".join(log[-30:]))

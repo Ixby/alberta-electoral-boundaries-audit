@@ -318,7 +318,7 @@ def main():
             )
 
     # Update CSV — add source column to existing + append OCR rows
-    csv_path = DATA / "submission_search_dataset.csv"
+    csv_path = DATA / "outputs" / "submission_search_dataset.csv"
     existing = []
     existing_fields = []
     with csv_path.open("r", encoding="utf-8", newline="") as f:
@@ -376,7 +376,7 @@ if __name__ == "__main__":
         hits = [
             k.replace("mentions_", "")
             for k, v in r.items()
-            if k.startswith("mentions_") and v is True or v == "True"
+            if k.startswith("mentions_") and (v is True or v == "True")
         ]
         print(
             f"  {r['submission_id']} [{r['position_on_mentioned']}]: {','.join(hits)}"

@@ -49,6 +49,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 import warnings
 from pathlib import Path
 
@@ -61,6 +62,11 @@ except ImportError:
     import data_loader
     from canonical_manifest import verify_canonical_files
     from eg_utils import compute_eg, InsufficientDataError
+
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import geopandas as gpd
 import numpy as np
@@ -184,6 +190,7 @@ def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
 
 
 def run() -> None:
+    t0 = time.time()
     parser = argparse.ArgumentParser(description="Swing-Zone Allocation Test")
     parser.add_argument(
         "--full-votes", action="store_true",
@@ -448,6 +455,7 @@ def run() -> None:
     print(f"\nResults written:")
     print(f"  {out_csv}")
     print(f"  {out_json}")
+    _log_run(__file__, [str(p) for p in [out_csv, out_json]], time.time() - t0)
 
 
 if __name__ == "__main__":

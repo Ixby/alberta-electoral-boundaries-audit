@@ -43,8 +43,8 @@ import matplotlib.pyplot as plt
 import pypdf
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-ALBERTA_EDS = REPO_data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2019_eds"
-DERIVED = REPO_data_loader._resolve_path("data") / "shapefiles" / "derived"
+ALBERTA_EDS = data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2019_eds"
+DERIVED = data_loader._resolve_path("data") / "shapefiles" / "derived"
 # Prefer v0_9 (topological VA-dissolve, gapless by construction) →
 # v0_8 refined → v0_8 canonical → v0_7 canonical
 APPROX_MAJ_CANDIDATES = [
@@ -66,7 +66,7 @@ VA_TO_2026_ASSIGNMENTS = (
     REPO_ROOT / "analysis" / "assignment_va_to_2026_assignments.csv"
 )
 
-COVER_ART_PNG = REPO_data_loader._resolve_path("data") / "maps" / "cover_art.png"
+COVER_ART_PNG = data_loader._resolve_path("data") / "maps" / "cover_art.png"
 OUT_PDF = (
     REPO_ROOT / "report_public.pdf"
 )  # final = cover + article (the only PDF in the repo root)
@@ -95,7 +95,7 @@ def find_browser() -> str:
 
 
 VA_VOTES_PATH = (
-    REPO_data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
+    data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 )
 
 
@@ -180,7 +180,7 @@ def build_cover_art() -> Path:
     # CANNOT model the partisan effect of the boundary shift; it's an
     # illustrative fill, not a quantitative claim, and the cover caption
     # discloses it.
-    crosswalk_path = REPO_data_loader._resolve_path("data") / "minority_hybrid_crosswalk.csv"
+    crosswalk_path = data_loader._resolve_path("data") / "minority_hybrid_crosswalk.csv"
     if VA_VOTES_PATH.exists() and crosswalk_path.exists():
         import pandas as pd
 

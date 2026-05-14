@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import sys
 import logging
+import time
 from pathlib import Path
 try:
     import data_loader
@@ -37,6 +38,10 @@ except ImportError:
     import data_loader
     from canonical_manifest import verify_canonical_files
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import json
 import warnings
@@ -58,9 +63,9 @@ except ImportError:
     _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
     from data_loader import FINDINGS as REPORTS
 
-ENSEMBLE_CSV      = DATA / "simulated_ensemble_raw_samples_canonical.csv"
-REAL_SCORES       = DATA / "simulation_real_map_scores_canonical.json"
-CONVERGENCE_JSON  = DATA / "simulation_convergence_diagnostics_canonical.json"
+ENSEMBLE_CSV      = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+REAL_SCORES       = DATA / "outputs" / "simulation_real_map_scores_canonical.json"
+CONVERGENCE_JSON  = DATA / "outputs" / "simulation_convergence_diagnostics_canonical.json"
 SZAT_JSON         = REPORTS / "szat_summary.json"
 DRAIN_JSON        = DATA / "drain_label_shuffle_null.json"
 OUT_JSON          = REPORTS / "joint_outlier_score.json"
@@ -76,8 +81,9 @@ MAP_KEYS = {
 }
 
 # Fallback n_eff used if convergence diagnostics JSON is absent or unreadable.
-# Per convergence_diagnostics_canonical.json the actual minimum across metrics
-# is 224 (most conservative for Hotelling T²: smaller n_eff → larger p-value).
+# Per simulation_convergence_diagnostics_canonical.json the actual minimum across
+# the 4 partisan metrics is 1428 (mean_median; pooled 1,010k sample run).
+# This fallback is only used when the file is missing or unreadable.
 _N_EFF_FALLBACK = 224
 
 
@@ -158,6 +164,7 @@ def fisher_combine(p_values: list[float]) -> tuple[float, float]:
 
 
 def run() -> None:
+    t0 = time.time()
     verify_canonical_files()
     print("Loading canonical 100k ensemble...")
     ensemble = pd.read_csv(ENSEMBLE_CSV)
@@ -517,6 +524,7 @@ center (p = {maj_m['joint_partisan_p']:.2e}) — outlier on MM in the NDP-favour
     print(f"  Channel 3 (drain, minority): p = {drain_minority_p:.4f} (NOT in Fisher)")
     print(f"  Pending channels: 3")
     print(f"{'='*60}")
+    _log_run(__file__, [str(p) for p in [OUT_JSON, OUT_MD]], time.time() - t0)
 
 
 if __name__ == "__main__":

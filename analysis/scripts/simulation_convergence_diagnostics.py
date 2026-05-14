@@ -35,9 +35,14 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import json
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -48,9 +53,9 @@ sys.path.insert(0, str(HERE))
 from mcmc_ensemble import autocorrelation_ess
 
 REPO_ROOT = HERE.parent.parent
-CHECKPOINT_DIR = REPO_data_loader._resolve_path("data") / "simulation_checkpoints_250k_final"
-CANONICAL_CSV = REPO_data_loader._resolve_path("data") / "simulated_ensemble_raw_samples_canonical.csv"
-OUT_JSON = REPO_data_loader._resolve_path("data") / "simulation_convergence_diagnostics_per_chain.json"
+CHECKPOINT_DIR = data_loader._resolve_path("data") / "simulation_checkpoints_canonical"
+CANONICAL_CSV = data_loader._resolve_path("data") / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+OUT_JSON = data_loader._resolve_path("data") / "outputs" / "simulation_convergence_diagnostics_canonical.json"
 
 METRICS = ("efficiency_gap", "mean_median", "declination", "seats_at_50_50")
 
@@ -132,6 +137,7 @@ def gelman_rubin_rhat(chains: list[np.ndarray]) -> dict:
 
 
 def main() -> int:
+    t0 = time.time()
     print(f"[diagnostics] reading per-chain CSVs from {CHECKPOINT_DIR}")
     chain_paths = sorted(CHECKPOINT_DIR.glob("chain*_samples.csv"))
     if len(chain_paths) < 2:
@@ -281,6 +287,7 @@ def main() -> int:
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(out, indent=2))
     print(f"[diagnostics] wrote {OUT_JSON.relative_to(REPO_ROOT)}")
+    _log_run(__file__, [str(OUT_JSON)], time.time() - t0)
     return 0
 
 

@@ -312,8 +312,8 @@ def test_2_city_split_counter_test(maj: pd.DataFrame, minr: pd.DataFrame) -> lis
 
 def main():
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
-    maj = pd.read_csv(DATA / "majority_2026_populations.csv")
-    minr = pd.read_csv(DATA / "minority_2026_populations.csv")
+    maj = pd.read_csv(DATA / "reference" / "majority_2026_populations.csv")
+    minr = pd.read_csv(DATA / "reference" / "minority_2026_populations.csv")
 
     print("=" * 70)
     print("Track Q counter-test — symmetry-of-test-selection check")

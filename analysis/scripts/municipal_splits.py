@@ -20,8 +20,8 @@ Outputs:
 Backward:
   data/shapefiles/reference/alberta_2021_csds.gpkg
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
-  data/shapefiles/derived/v0_7_canonical_majority_2026_eds.gpkg
-  data/shapefiles/derived/v0_7_canonical_minority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_minority_2026_eds.gpkg
 """
 from __future__ import annotations
 
@@ -36,6 +36,11 @@ try:
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
+
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import json, sys, time, warnings
 import numpy as np
@@ -57,8 +62,8 @@ RPTS.mkdir(parents=True, exist_ok=True)
 
 CSD_PATH = DATA / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 VA_PATH = DATA / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-MAJ_V7 = DATA / "shapefiles" / "derived" / "v0_7_canonical_majority_2026_eds.gpkg"
-MIN_V7 = DATA / "shapefiles" / "derived" / "v0_7_canonical_minority_2026_eds.gpkg"
+MAJ_V7 = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
+MIN_V7 = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 
 OUT_JSON = DATA / "municipal_splits.json"
 OUT_MD = RPTS / "municipal_splits.md"
@@ -349,6 +354,7 @@ def main():
     OUT_MD.write_text("\n".join(md), encoding="utf-8")
     print(f"Wrote {OUT_MD}")
     print(f"\nDone in {time.time()-t0:.0f}s")
+    _log_run(__file__, [str(p) for p in [OUT_JSON, OUT_MD]], time.time() - t0)
 
 
 if __name__ == "__main__":

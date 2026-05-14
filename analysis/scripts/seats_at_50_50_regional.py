@@ -117,9 +117,9 @@ MAJ_CANONICAL = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 MIN_CANONICAL = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 CANONICAL_ID_COL = "EDName2025"
 
-# Legacy DPG paths (archived; used only with --all-three for historical comparison)
-MAJ_V9 = DATA / "shapefiles" / "derived" / "v0_10_topological_majority_2026_eds.gpkg"
-MIN_V9 = DATA / "shapefiles" / "derived" / "v0_10_topological_minority_2026_eds.gpkg"
+# Canonical shapefiles — supersede all DPG-era v0_10 paths
+MAJ_V9 = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
+MIN_V9 = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 
 
 # ------------------------------------------------------------------

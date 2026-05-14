@@ -48,7 +48,7 @@ QUOTA_MAX = round(QUOTA_AVG * 1.25)  # 68,661
 
 
 def load_csd_populations() -> pd.DataFrame:
-    pop = pd.read_csv(DATA / "alberta_2021_csd_populations.csv")
+    pop = pd.read_csv(DATA / "reference" / "alberta_2021_csd_populations.csv")
     return pop
 
 
@@ -58,11 +58,11 @@ def load_csd_geo() -> gpd.GeoDataFrame:
 
 
 def load_minority() -> pd.DataFrame:
-    return pd.read_csv(DATA / "minority_2026_populations.csv")
+    return pd.read_csv(DATA / "reference" / "minority_2026_populations.csv")
 
 
 def load_majority() -> pd.DataFrame:
-    return pd.read_csv(DATA / "majority_2026_populations.csv")
+    return pd.read_csv(DATA / "reference" / "majority_2026_populations.csv")
 
 
 def load_2019_eds() -> gpd.GeoDataFrame:

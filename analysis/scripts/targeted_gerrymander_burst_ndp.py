@@ -50,7 +50,7 @@ from gerrychain.proposals import recom
 from gerrychain.tree import recursive_tree_part, bipartition_tree
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-OUT_DIR = REPO_data_loader._resolve_path("data")
+OUT_DIR = data_loader._resolve_path("data")
 OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_targeted_burst_ndp.log"
 OUT_TRACE = OUT_DIR / "targeted_burst_ndp_trace.csv"
 OUT_BEST = OUT_DIR / "targeted_burst_ndp_best.json"
@@ -58,7 +58,7 @@ OUT_BEST = OUT_DIR / "targeted_burst_ndp_best.json"
 POP_DEVIATION = 0.25
 BURST_LENGTH = 50
 N_BURSTS = 800
-SEED = 137  # same seed as the UCP-maximization run for symmetry
+SEED = 137  # TODO: replace with Cloudflare drand-derived seed (project convention — see drand_seed.py)
 
 
 def _ts():
@@ -69,8 +69,9 @@ def score(partition):
     """Return (score, metrics). For the NDP-maximizing variant, we
     minimise seats@50/50 — i.e. the most-NDP-favouring map has the
     LOWEST seats@50/50, and we hill-climb DOWNWARD."""
-    ucp = np.array(list(partition["ucp"].values()), dtype=float)
-    ndp = np.array(list(partition["ndp"].values()), dtype=float)
+    keys = list(partition.parts.keys())  # explicit alignment — prevents dict order mismatch
+    ucp = np.array([partition["ucp"][k] for k in keys], dtype=float)
+    ndp = np.array([partition["ndp"][k] for k in keys], dtype=float)
     s = seat_results(ucp, ndp)
     return s["seats_at_50_50"], s
 

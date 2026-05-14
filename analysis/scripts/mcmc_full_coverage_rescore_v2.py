@@ -47,10 +47,10 @@ import geopandas as gpd
 import pandas as pd
 
 MAJ_CANON_GPKG = (
-    DATA / "shapefiles" / "derived" / "v0_1_canonical_majority_2026_eds.gpkg"
+    DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 )
 MIN_CANON_GPKG = (
-    DATA / "shapefiles" / "derived" / "v0_1_canonical_minority_2026_eds.gpkg"
+    DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 )
 VA_GPKG_FULL = DATA / "shapefiles" / "derived" / "va_polygons_with_full_2023_votes.gpkg"
 

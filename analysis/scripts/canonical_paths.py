@@ -15,7 +15,7 @@ import sys
 
 # Resolve ROOT dynamically relative to this file
 ROOT = Path(__file__).resolve().parent.parent.parent
-sys.path.insert(0, str(ROOT / "analysis" / "scripts" / "utils"))
+sys.path.insert(0, str(ROOT / "analysis" / "utils"))
 import data_loader
 
 def _resolve_from_config(config_path_str: str) -> Path:

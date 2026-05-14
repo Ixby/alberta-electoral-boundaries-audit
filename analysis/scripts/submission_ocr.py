@@ -369,7 +369,7 @@ def run():
         fn.write_text(text, encoding="utf-8", errors="replace")
 
     # Append to CSV — first read existing, then rewrite with added source column and new rows
-    csv_path = DATA / "submission_search_dataset.csv"
+    csv_path = DATA / "outputs" / "submission_search_dataset.csv"
     existing = []
     existing_fields = []
     with csv_path.open("r", encoding="utf-8", newline="") as f:

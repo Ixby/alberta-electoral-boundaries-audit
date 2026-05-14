@@ -2,31 +2,21 @@
 score_hybridization.py - Lane-2 Dangerzone metric #2 (hybrid ED count)
 ======================================================================
 
-The audit's published prose (e.g. `report_public.md:248`,
-`report_academic.md:2156`, `REPRODUCING.md:132`) reports three hybrid-ED
-counts:
+The computable hybrid-ED counts under the area-share rule (city/non-city
+area >= 5% of ED on each side) are:
 
-    2019 enacted  =  8 hybrid EDs
-    2026 majority =  9 hybrid EDs
-    2026 minority = 25 hybrid EDs
+    2019 enacted  =  8 hybrid EDs  (exact match to narrative)
+    2026 majority = 14 hybrid EDs
+    2026 minority = 17 hybrid EDs
 
-Those numbers are NOT computed by any script in the repository. They come
-
-import sys
-import logging
-from pathlib import Path
-try:
-    import data_loader
-except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
-    import data_loader
-
-from a manual narrative classification by the author (compare the lists
-in `report_public.md:252-255` and the `MAJORITY_2026_MAPPING` /
-`MINORITY_2026_MAPPING` "blend" tags in
-`analysis/scripts/packing_cracking_analysis.py`, neither of which
-yields 9/25/8 directly). This is documented as a critical finding in
-`findings/dangerzone_metric_definitions.md`.
+Earlier drafts cited manual narrative counts of 9/25/8. Those were NOT
+computed by any script; they reflected the author's subjective taxonomy
+of which districts were "genuinely" city-rural hybrids by intent. No
+computable rule reproduces the 9/25 pair within +/- 2 EDs on both maps
+simultaneously. The computable 14/17/8 are the operative values in all
+analysis downstream of this script (ensemble scoring, November-map
+tripwire). See `findings/dangerzone_metric_definitions.md` for the full
+validation table.
 
 For the 100,000-plan ReCom ensemble we need a COMPUTABLE rule. This
 script implements one and validates that it preserves the qualitative
@@ -98,11 +88,18 @@ from __future__ import annotations
 
 
 import argparse
+import logging
 import sys
 import warnings
 from pathlib import Path
 
 import geopandas as gpd
+
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
 
 warnings.filterwarnings("ignore")
 

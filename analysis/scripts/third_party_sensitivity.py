@@ -24,11 +24,17 @@ from __future__ import annotations
 import csv
 import re
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "utils"))
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 from packing_cracking_analysis import (
     MAJORITY_2026_MAPPING,
@@ -129,6 +135,7 @@ def _validate(estimates: list[dict], label: str) -> tuple[bool, str]:
 
 
 def main() -> None:
+    t0 = time.time()
     print("=" * 72)
     print("  D1: Third-Party Vote Sensitivity Analysis")
     print("  Rules: (A) Drop  (B) Pro-rate  (C) Trailing-party")
@@ -257,6 +264,7 @@ def main() -> None:
                     "ucp_seats":    m["ucp_seats"],
                 })
     print(f"\n  Output: {OUTPUT_CSV}")
+    _log_run(__file__, [str(OUTPUT_CSV)], time.time() - t0)
 
 
 if __name__ == "__main__":

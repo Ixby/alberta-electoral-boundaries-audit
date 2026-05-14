@@ -41,8 +41,8 @@ logger = logging.getLogger(__name__)
 
 # ── Path setup ───────────────────────────────────────────────────────────────
 
-INPUT_CSV  = DATA_DIR / "submission_search_dataset.csv"
-OUTPUT_CSV = DATA_DIR / "submission_sentiment_llm_results.csv"
+INPUT_CSV  = DATA_DIR / "outputs" / "submission_search_dataset.csv"
+OUTPUT_CSV = DATA_DIR / "outputs" / "submission_sentiment_llm_results.csv"
 
 # ── Configuration columns → human descriptions ────────────────────────────────
 # The search dataset uses column names prefixed with "mentions_"; map those to
@@ -165,8 +165,9 @@ def main():
         fields = ["submission_id", "configuration", "classification",
                   "reasoning", "exact_quote", "quote_verified"]
         with OUTPUT_CSV.open("w", newline="", encoding="utf-8") as f:
-            csv.DictWriter(f, fieldnames=fields).writeheader()
-            csv.DictWriter(f, fieldnames=fields).writerows(results)
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader()
+            w.writerows(results)
 
     print(f"\nDone. {len(results)} rows written -> {OUTPUT_CSV}")
     if errors:

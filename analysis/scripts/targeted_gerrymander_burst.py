@@ -52,7 +52,7 @@ from gerrychain.proposals import recom
 from gerrychain.tree import recursive_tree_part, bipartition_tree
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-OUT_DIR = REPO_data_loader._resolve_path("data")
+OUT_DIR = data_loader._resolve_path("data")
 OUT_LOG = REPO_ROOT / "analysis" / "reports" / "v0_1_targeted_burst.log"
 OUT_TRACE = OUT_DIR / "targeted_burst_trace.csv"
 OUT_BEST = OUT_DIR / "targeted_burst_best.json"
@@ -60,7 +60,7 @@ OUT_BEST = OUT_DIR / "targeted_burst_best.json"
 POP_DEVIATION = 0.25  # same as ensemble
 BURST_LENGTH = 50  # steps per burst (Cannon et al. typical)
 N_BURSTS = 800  # 800 * 50 = 40k total steps; ~5-10 min wall time
-SEED = 137
+SEED = 137  # TODO: replace with Cloudflare drand-derived seed (project convention — see drand_seed.py)
 
 
 def _ts():

@@ -87,6 +87,12 @@ from shapely.geometry import LinearRing, LineString, MultiLineString, Point
 from shapely.ops import linemerge, unary_union
 from shapely.strtree import STRtree
 
+try:
+    import data_loader
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+    import data_loader
+
 warnings.filterwarnings("ignore")
 
 ROOT = Path(__file__).resolve().parent.parent.parent

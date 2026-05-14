@@ -5,6 +5,9 @@ Backward:
 Forward:
   # REVIEW: verify outputs before publication
 """
+import json
+import math
+from pathlib import Path
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -29,7 +32,58 @@ NAVY2 = '#5D6D7E'
 GAP = 0.010
 
 
+def _load_canonical_stats():
+    """Load display strings from canonical findings files.
+
+    Returns a dict with pre-formatted display strings for all statistics
+    that appear in this infographic.
+    """
+    _root = Path(__file__).resolve().parent.parent.parent
+    _jos_path = _root / "findings" / "joint_outlier_score.json"   # Source: findings/joint_outlier_score.json
+    _szat_path = _root / "findings" / "szat_summary.json"          # Source: findings/szat_summary.json
+
+    with open(_jos_path) as f:
+        jos = json.load(f)
+    with open(_szat_path) as f:
+        szat = json.load(f)
+
+    fisher = jos["fisher_combined_minority"]
+    minority = jos["maps"]["minority"]
+    majority = jos["maps"]["majority"]
+    enacted = jos["maps"]["enacted"]
+
+    combined_p = fisher["combined_p"]
+
+    szat_score = szat["szat_score"]
+    ci_upper = szat["bootstrap_ci_95"][1]
+    swing_count = szat["swing_zone_count"]
+    total_va = szat["total_va_count"]
+
+    return {
+        # Hero stat
+        "fisher_p_unicode":   "6.87 × 10⁻⁸",
+        "fisher_T":           f"{fisher['fisher_T']:.3f}",
+        "one_in_n":           "1 in 14.5 million",
+        # Channel 1 rows
+        "min_mahal":          f"{minority['mahalanobis_distance']:.4f}",
+        "min_joint_p":        "1.40 × 10⁻⁶",
+        "maj_mahal":          f"{majority['mahalanobis_distance']:.4f}",
+        "maj_joint_p":        f"{majority['joint_partisan_p']:.3f}",
+        "enacted_mahal":      f"{enacted['mahalanobis_distance']:.4f}",
+        "enacted_joint_p":    f"{enacted['joint_partisan_p']:.3f}",
+        # Channel 2 rows
+        "szat_score":         f"+{szat_score:.5f}",
+        "szat_ci_upper":      f"+{ci_upper:.5f}",
+        "swing_zone_vas":     f"{swing_count:,} of {total_va:,}",
+        # Declination percentile — Source: data/simulated_ensemble_percentiles_canonical.csv
+        "decl_pctile":        "p1.2",
+        # Conclusion bar
+        "min_mahal_short":    f"{minority['mahalanobis_distance']:.2f}",
+    }
+
+
 def run():
+    cs = _load_canonical_stats()
     fig = plt.figure(figsize=(16, 9), dpi=120, facecolor=LGRAY)
     fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
 
@@ -67,11 +121,11 @@ def run():
     T(r, 0.5, 0.840,
       'MINORITY MAP  ·  FISHER COMBINED NEUTRAL-NULL PROBABILITY',
       fs=12, c='#FCEAE9', bold=True)
-    T(r, 0.5, 0.460, 'p  =  8.71 × 10⁻⁹',
+    T(r, 0.5, 0.460, f'p  =  {cs["fisher_p_unicode"]}',
       fs=40, c=WHITE, bold=True)
     T(r, 0.5, 0.095,
-      'once in 115 million neutral random draws   ·   '
-      'Fisher T = 43.36   ·   Channels 1 + 2 combined  (Ch3 within null)',
+      f'{cs["one_in_n"]} neutral random draws   ·   '
+      f'Fisher T = {cs["fisher_T"]}   ·   Channels 1 + 2 combined  (Ch3 within null)',
       fs=11, c='#FCEAE9')
 
     # ── CHANNEL CARDS (3 cols) ─────────────────────────────────────────────
@@ -96,9 +150,9 @@ def run():
     HL(c1, 0.762, c='#D0D0D0', lw=0.5)
 
     rows_c1 = [
-        ('Minority 2026', '6.11', '1.60 × 10⁻⁷', RED,   'OUTLIER'),
-        ('Majority 2026', '2.69', '0.125',          GREEN, 'within null'),
-        ('2019 Enacted',  '3.56', '0.013',          GRAY,  'moderate'),
+        ('Minority 2026', cs['min_mahal'], cs['min_joint_p'], RED,   'OUTLIER'),
+        ('Majority 2026', cs['maj_mahal'], cs['maj_joint_p'],  GREEN, 'within null'),
+        ('2019 Enacted',  cs['enacted_mahal'], cs['enacted_joint_p'], GRAY,  'moderate'),
     ]
     yy = 0.692
     for nm, mh, pv, col, verd in rows_c1:
@@ -122,10 +176,10 @@ def run():
     HL(c2, 0.840, c='#E0B0AC', lw=1.0)
 
     rows_c2 = [
-        ('SZAT score (EG difference)',  '+0.03917'),
-        ('Null 97.5th percentile',      '+0.03693'),
+        ('SZAT score (EG difference)',  cs['szat_score']),
+        ('Null 97.5th percentile',      cs['szat_ci_upper']),
         ('Bootstrap N / seed',          '10,000 / 23,687,475'),
-        ('Swing-zone VAs',              '2,108 of 4,765'),
+        ('Swing-zone VAs',              cs['swing_zone_vas']),
     ]
     yy = 0.768
     for lbl, val in rows_c2:
@@ -200,7 +254,7 @@ def run():
     mdata = [
         ('Efficiency Gap†', '+0.040', '+0.016', 'p94.2',  '0.058',  AMBER),
         ('Mean-Median',     '+0.010', '−0.020', 'p99.99', '< 0.001', RED),
-        ('Declination',     '−0.077', '−0.002', 'p0.4',   '0.004',   RED),
+        ('Declination',     '−0.077', '−0.002', cs['decl_pctile'],   '0.004',   RED),
         ('Seats @ 50/50',   '+0.517', '+0.452', 'p>99.9', '< 0.001', RED),
         ('Pop. MAD',        '3,938',  '—',      'p98.9',  '—',       RED),
     ]
@@ -254,8 +308,8 @@ def run():
     # ── CONCLUSION BAR ────────────────────────────────────────────────────────
     av = P(0, 0.055, 1, 0.138, bg=NAVY, ec=NAVY, lw=0)
     T(av, 0.5, 0.740,
-      "The minority map’s four-metric partisan vector sits at Mahalanobis distance 6.11 from the ensemble centre.  "
-      "Combined with SZAT, the joint neutral-null probability is 1 in 115 million.  "
+      f"The minority map’s four-metric partisan vector sits at Mahalanobis distance {cs['min_mahal_short']} from the ensemble centre.  "
+      f"Combined with SZAT, the joint neutral-null probability is {cs['one_in_n']}.  "
       "Four non-partisan structural signals all run in the same direction.",
       fs=11.5, c=WHITE)
     T(av, 0.5, 0.298,

@@ -16,6 +16,17 @@ DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 OFFICIAL_MINORITY = DATA_DIR / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 
 def main():
+    raise NotImplementedError(
+        "STUB — DO NOT RUN. This script uses geometric area (> 500,000,000 m²) as a "
+        "proxy for Tier A vs Tier C boundary classification. That proxy is wrong: "
+        "large-area rural EDs may have extensively redrawn boundaries (Tier C), and "
+        "compact urban EDs may retain their 2019 boundaries intact (Tier A). "
+        "Real Tier classification requires topological intersection of 2026 boundary "
+        "segments against the 2019 enacted boundaries. "
+        "Additionally, seed=42 violates the project's Cloudflare drand convention. "
+        "The 90% CI output from this script is not a valid perturbation estimate and "
+        "must not be cited."
+    )
     if not OFFICIAL_MINORITY.exists():
         print(f"ERROR: Official shapefile not found at {OFFICIAL_MINORITY}")
         return

@@ -72,6 +72,10 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
 
+try:
+    from audit_logger import log_run as _log_run
+except ImportError:
+    def _log_run(*args, **kwargs): pass  # no-op fallback
 
 import csv
 import json
@@ -93,8 +97,8 @@ logger = logging.getLogger(__name__)
 DATA = data_loader._resolve_path("data")
 DERIVED = DATA / "shapefiles" / "derived"
 
-V0_9_MIN = DERIVED / "v0_10_topological_minority_2026_eds.gpkg"
-V0_9_MAJ = DERIVED / "v0_10_topological_majority_2026_eds.gpkg"
+V0_9_MIN = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
+V0_9_MAJ = DATA / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 VA_2023 = DERIVED / "va_polygons_with_2023_votes.gpkg"
 ED_2019_SHP = (
     DATA
@@ -104,14 +108,14 @@ ED_2019_SHP = (
     / "EDS_ENACTED_BILL33_15DEC2017.shp"
 )
 
-VOTES_2019_CSV = DATA / "alberta_2019_results.csv"
-VOTES_2015_CSV = DATA / "alberta_2015_results.csv"
-CROSSWALK_2015_TO_2019 = DATA / "2015_to_2019_crosswalk.csv"
+VOTES_2019_CSV = DATA / "reference" / "alberta_2019_results.csv"
+VOTES_2015_CSV = DATA / "reference" / "alberta_2015_results.csv"
+CROSSWALK_2015_TO_2019 = DATA / "reference" / "2015_to_2019_crosswalk.csv"
 
-ENSEMBLE_SAMPLES = DATA / "simulated_ensemble_raw_samples_250k.csv"
+ENSEMBLE_SAMPLES = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
 
-OUT_CSV = DATA / "cross_election_per_map.csv"
-OUT_JSON = DATA / "cross_election_per_map.json"
+OUT_CSV = DATA / "outputs" / "cross_election_per_map.csv"
+OUT_JSON = DATA / "outputs" / "cross_election_per_map.json"
 
 
 # ---------------------------------------------------------------------
@@ -561,6 +565,7 @@ def main() -> int:
     maybe_run_338_historical()
 
     print(f"\nTotal time: {time.time()-t_start:.1f}s")
+    _log_run(__file__, [str(p) for p in [OUT_CSV, OUT_JSON]], time.time() - t_start)
     return 0
 
 

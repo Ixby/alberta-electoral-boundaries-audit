@@ -35,6 +35,7 @@ from __future__ import annotations
 
 
 import csv
+import json
 import os
 import sys
 import statistics
@@ -58,7 +59,7 @@ def load_338() -> Dict[str, Dict]:
     """Return {district: {ucp_share, ndp_share, ucp_win, ndp_win, lead}}."""
     out = {}
     with open(
-        os.path.join(DATA, "338canada_per_riding_87seat.csv"), encoding="utf-8"
+        os.path.join(DATA, "reference", "338canada_per_riding_87seat.csv"), encoding="utf-8"
     ) as f:
         for r in csv.DictReader(f):
             out[r["district"]] = {
@@ -78,7 +79,7 @@ def load_338() -> Dict[str, Dict]:
 def load_2019_populations() -> Dict[str, int]:
     out = {}
     with open(
-        os.path.join(DATA, "alberta_2019_populations.csv"), encoding="utf-8"
+        os.path.join(DATA, "reference", "alberta_2019_populations.csv"), encoding="utf-8"
     ) as f:
         for r in csv.DictReader(f):
             out[r["ed_name"]] = int(r["population_2017_report"])
@@ -322,13 +323,24 @@ def main():
         print(f"    No-data rows: {blank}")
 
     # -----------------------------------------------------------------
-    # Compare to audit B1 central (hard-coded from audit output):
-    # packing_cracking_analysis.py produces:
-    #   Majority 2026: UCP 38, NDP 51
-    #   Minority 2026: UCP 37, NDP 52
+    # Compare to canonical 2023-vote seat results loaded from
+    # simulation_real_map_scores_canonical.json. These reflect actual
+    # 2023 election votes applied to each proposed map via VA polygon
+    # spatial attribution (the authoritative audit seat counts).
     # -----------------------------------------------------------------
-    audit_maj = {"UCP": 38, "NDP": 51}
-    audit_min = {"UCP": 37, "NDP": 52}
+    _scores_path = os.path.join(DATA, "outputs", "simulation_real_map_scores_canonical.json")
+    with open(_scores_path) as _f:
+        _scores = json.load(_f)
+    _n_maj = _scores["majority_2026"]["n_districts"]
+    _n_min = _scores["minority_2026"]["n_districts"]
+    audit_maj = {
+        "UCP": _scores["majority_2026"]["ucp_seats"],
+        "NDP": _n_maj - _scores["majority_2026"]["ucp_seats"],
+    }
+    audit_min = {
+        "UCP": _scores["minority_2026"]["ucp_seats"],
+        "NDP": _n_min - _scores["minority_2026"]["ucp_seats"],
+    }
     print(
         "\n=== DELTA vs audit B1 central (338-reallocated minus audit 2023 projection) ==="
     )

@@ -125,7 +125,7 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
     population-justified count is computed from each city's 2021 census
     population divided by Alberta's per-district average population.
     """
-    avg_pop_per_district = 47_889  # 2021 Alberta pop / 91 seats
+    avg_pop_per_district = 53_722  # floor(4,888,723 / 91) — TBF-adjusted population, 91-seat Lunty committee basis
     # Per-city populations (2021 census) — pre-registered constants
     # so the threshold logic doesn't move when a new city polygon is added.
     cities = {

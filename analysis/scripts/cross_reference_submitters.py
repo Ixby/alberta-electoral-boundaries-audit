@@ -37,7 +37,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 SENTIMENT_CSV = ROOT / "data/outputs/quotes_verified.csv"
 FALLBACK_SENTIMENT = ROOT / "data/outputs/submission_sentiment_llm_full_results.csv"
-RATIONALES_CSV = ROOT / "data/outputs/minority_rationales.csv"
+RATIONALES_CSV = ROOT / "data" / "reference" / "minority_rationales.csv"
 OUTPUT_CSV = ROOT / "data/outputs/cross_reference_results.csv"
 SUMMARY_JSON = ROOT / "data/outputs/cross_reference_summary.json"
 
