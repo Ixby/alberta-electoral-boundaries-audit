@@ -54,6 +54,14 @@ The canonical ensemble uses official Elections Alberta shapefiles (`ea_majority_
 
 ---
 
+## Cover visualization
+
+The cover map (`data/maps/cover_art.png`; script `analysis/scripts/build_cover.py`) renders the minority commission's 2026 proposal as a population-density-weighted vote-share choropleth of Alberta's 4,765 Voting Areas. Each VA polygon is filled with a colour interpolated linearly from NDP-orange (rgb 0.92, 0.45, 0.10) to UCP-blue (rgb 0.13, 0.36, 0.62) against each VA's 2023 election-day two-party UCP share (colour scale normalised vmin = 0.30, vmax = 0.80). Fill intensity is modulated by log₁₀ population density: the weight maps [−8, −3] log₁₀ persons/m² to [0.10, 1.0], blending from near-ivory at the sparse end to the saturated partisan colour at the moderate end, then darkening to 30% of the base colour at the highest densities to preserve contrast in Calgary and Edmonton cores. VAs with no direct centroid-in-polygon join receive vote share from crosswalk-inherited 2019 parent EDs; VAs with no crosswalk parent receive the K = 25 nearest-VA aggregate as a final fallback. The minority commission's ED boundaries are overlaid in dark grey (linewidth 0.20); the provincial silhouette in accent red (linewidth 0.65).
+
+The visualization corrects the geographic distortion produced by whole-riding colour fills on standard election maps, where large rural ridings dominate the visual field despite comparatively sparse populations. By saturating colour only where population density is high, the render makes the urban-core concentration of competitive voters visible as a primary feature of Alberta's political geography rather than a small detail lost in a sea of rural blue. This is directly relevant to the audit's structural findings: the boundary choices that matter most — the NW Calgary zone, the Airdrie split, the lasso corridor — fall precisely in the high-density zones where the map's partisan signal is strongest.
+
+---
+
 ## Author disclosure
 
 **Author and audit design:** Will Conner, Mount Royal University, BSc Computer Information Systems (4th year student).
