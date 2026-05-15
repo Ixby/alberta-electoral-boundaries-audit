@@ -73,18 +73,32 @@ def load_shapefile(path_key: str, crs: int = None) -> gpd.GeoDataFrame:
     return gdf
 
 def get_map(map_name: str) -> gpd.GeoDataFrame:
-    """
-    Loads a predefined map from the config (e.g., 'majority', 'minority', 'enacted_2019').
+    """Load a predefined map from the config.
+
+    Accepts either role-based keys ('map_a', 'map_b', 'reference') or
+    backward-compatible keys ('majority', 'minority', 'enacted_2019').
     """
     maps_config = get_config().get("maps", {})
     if map_name not in maps_config:
         raise KeyError(f"Map '{map_name}' not defined in config.yaml under 'maps'.")
-        
+
     path = maps_config[map_name].get("path")
     if not path:
         raise ValueError(f"No path defined for map '{map_name}' in config.yaml.")
-        
+
     return load_shapefile(path)
+
+
+def get_map_config(map_name: str) -> dict:
+    """Return the full config block for a named map (path, id_col, label, role).
+
+    Accepts either role-based ('map_a', 'map_b', 'reference') or
+    backward-compatible ('majority', 'minority', 'enacted_2019') keys.
+    """
+    maps_config = get_config().get("maps", {})
+    if map_name not in maps_config:
+        raise KeyError(f"Map '{map_name}' not defined in config.yaml under 'maps'.")
+    return maps_config[map_name]
 
 def get_substrate() -> gpd.GeoDataFrame:
     """
@@ -105,3 +119,29 @@ def get_substrate() -> gpd.GeoDataFrame:
 def get_columns() -> dict:
     """Returns the column mappings defined in the config."""
     return get_config().get("substrate", {}).get("columns", {})
+
+
+def get_party_labels() -> dict:
+    """Return the parties block from config: incumbent, opposition, incumbent_historical.
+
+    Falls back to Alberta-specific defaults so scripts are not broken if the
+    parties block is absent (e.g., when running against a pre-Track-F config).
+    """
+    defaults = {
+        "incumbent": "UCP",
+        "opposition": "NDP",
+        "incumbent_historical": "RBC",
+    }
+    cfg = get_config().get("parties", {})
+    return {**defaults, **cfg}
+
+
+def get_election_config() -> dict:
+    """Return the elections block from config: current_year, boundary_year, baseline_years."""
+    defaults = {
+        "current_year": 2023,
+        "boundary_year": 2026,
+        "baseline_years": [2019, 2015],
+    }
+    cfg = get_config().get("elections", {})
+    return {**defaults, **cfg}

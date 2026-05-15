@@ -22,9 +22,15 @@ import sys
 from pathlib import Path
 try:
     import data_loader
+    from data_loader import get_party_labels
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
     import data_loader
+    from data_loader import get_party_labels
+
+_LABELS = get_party_labels()
+_OPP = _LABELS["opposition"]
+_INC = _LABELS["incumbent"]
 
 import pandas as pd
 import numpy as np
@@ -273,8 +279,8 @@ def a2_robustness_check(maj: pd.DataFrame, minr: pd.DataFrame):
     # Load 2023 winners per 2019 Calgary ED
     r2023 = pd.read_csv(DATA / "alberta_2023_results.csv")
     r2023_cal = r2023[r2023["region"] == "Calgary"]
-    ndp_2019 = set(r2023_cal[r2023_cal["winner_party"] == "NDP"]["ed_name"])
-    ucp_2019 = set(r2023_cal[r2023_cal["winner_party"] == "UCP"]["ed_name"])
+    ndp_2019 = set(r2023_cal[r2023_cal["winner_party"] == _OPP]["ed_name"])
+    ucp_2019 = set(r2023_cal[r2023_cal["winner_party"] == _INC]["ed_name"])
 
     def winner_class(ed: str) -> str:
         # Try to match 2026 name to 2019 name via stem (before first hyphen after Calgary)

@@ -16,6 +16,23 @@ paths:
   findings_dir: findings    # was analysis/reports
 
 maps:
+  # Role-based keys (jurisdiction-portable names; use these in new scripts)
+  map_a:
+    path: "data/shapefiles/canonical/ea_majority_2026_eds.gpkg"
+    id_col: "EDName2025"
+    label: "Majority 2026"
+    role: "incumbent_preferred"
+  map_b:
+    path: "data/shapefiles/canonical/ea_minority_2026_eds.gpkg"
+    id_col: "EDName2025"
+    label: "Minority 2026"
+    role: "commission_alternative"
+  reference:
+    path: "data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp"
+    id_col: "EDName2017"
+    label: "2019 Enacted"
+    role: "baseline"
+  # Backward-compatible aliases (kept for existing scripts)
   majority:
     path: "data/shapefiles/canonical/ea_majority_2026_eds.gpkg"
     id_col: "EDName2025"
@@ -38,6 +55,16 @@ substrate:
     other_votes: "va_other_full"      # Third-party/independent votes
     population: "pop_2021"       # Population column
     geographic_id: "VA_NUMBER"   # Unique identifier for the polygon
+
+parties:
+  incumbent: "UCP"             # party in government; positive EG = NDP structural advantage
+  opposition: "NDP"            # challenging party
+  incumbent_historical: "RBC"  # right-bloc label used in pre-2023 historical data
+
+elections:
+  current_year: 2023           # most recent election results used for vote attribution
+  boundary_year: 2026          # year the new boundaries take effect
+  baseline_years: [2019, 2015] # cross-validation elections
 
 audit:
   # Expected constants for validation

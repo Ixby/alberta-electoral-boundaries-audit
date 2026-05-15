@@ -47,10 +47,14 @@ import sys
 import logging
 from pathlib import Path
 try:
-    import data_loader
+    from data_loader import get_party_labels
 except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
-    import data_loader
+    from data_loader import get_party_labels
+
+_LABELS = get_party_labels()
+_OPP = _LABELS["opposition"]
+_INC = _LABELS["incumbent"]
 
 
 import json
@@ -143,11 +147,11 @@ def compute_ed_metrics(votes: Dict[str, Tuple[int, int]]) -> pd.DataFrame:
         s = max(surplus, 0) / total
         m = abs(ndp - ucp) / total
         if ndp > ucp:
-            winner = "NDP"
-            loser = "UCP"
+            winner = _OPP
+            loser = _INC
         elif ucp > ndp:
-            winner = "UCP"
-            loser = "NDP"
+            winner = _INC
+            loser = _OPP
         else:
             winner = "TIE"
             loser = "TIE"

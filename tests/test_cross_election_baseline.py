@@ -26,67 +26,69 @@ from canadian_base_rate_compute import Cycle
 
 # ============================================================
 # historical_eg_baseline.compute_eg
+# Input dicts use generic role keys: "opposition" / "incumbent"
+# opp_label passed explicitly so tests are config-independent.
 # Uses integer threshold: tt // 2 + 1 (discrete wasted-vote form)
-# Sign: code_eg = (NDP_wasted - RBC_wasted) / total_2p
-#   positive → NDP structural disadvantage
-#   negative → RBC structural disadvantage
+# Sign: code_eg = (opp_wasted - inc_wasted) / total_2p
+#   positive → opposition structural disadvantage
+#   negative → incumbent structural disadvantage
 # ============================================================
 
 
 def test_eg_symmetric_two_districts():
     """Mirror-image two-district map: EG = 0 exactly.
 
-    D1: NDP 60, RBC 40 (NDP wins); thr=51; ndp_w=9, rbc_w=40
-    D2: NDP 40, RBC 60 (RBC wins); thr=51; ndp_w=40, rbc_w=9
+    D1: opp 60, inc 40 (opp wins); thr=51; opp_w=9, inc_w=40
+    D2: opp 40, inc 60 (inc wins); thr=51; opp_w=40, inc_w=9
     EG = (9+40 - 40+9) / 200 = 0
     Note: compute_eg returns code_eg_pct (already × 100, rounded to 4dp).
     """
     districts = [
-        {"ndp": 60, "rbc": 40, "actual_winner": "NDP"},
-        {"ndp": 40, "rbc": 60, "actual_winner": "RBC"},
+        {"opposition": 60, "incumbent": 40, "actual_winner": "OPP"},
+        {"opposition": 40, "incumbent": 60, "actual_winner": "INC"},
     ]
-    result = compute_eg(districts, "symmetric")
+    result = compute_eg(districts, "symmetric", opp_label="OPP")
     assert result["code_eg_pct"] == pytest.approx(0.0)
 
 
-def test_eg_packed_ndp_is_positive():
-    """NDP packing: one safe NDP seat, two narrow RBC wins → positive EG."""
+def test_eg_packed_opposition_is_positive():
+    """Opposition packing: one safe opposition seat, two narrow incumbent wins → positive EG."""
     districts = [
-        {"ndp": 80, "rbc": 20, "actual_winner": "NDP"},
-        {"ndp": 45, "rbc": 55, "actual_winner": "RBC"},
-        {"ndp": 45, "rbc": 55, "actual_winner": "RBC"},
+        {"opposition": 80, "incumbent": 20, "actual_winner": "OPP"},
+        {"opposition": 45, "incumbent": 55, "actual_winner": "INC"},
+        {"opposition": 45, "incumbent": 55, "actual_winner": "INC"},
     ]
-    result = compute_eg(districts, "packed_ndp")
+    result = compute_eg(districts, "packed_opp", opp_label="OPP")
     assert result["code_eg_pct"] > 0
 
 
-def test_eg_packed_rbc_is_negative():
-    """RBC packing: one safe RBC seat, two narrow NDP wins → negative EG."""
+def test_eg_packed_incumbent_is_negative():
+    """Incumbent packing: one safe incumbent seat, two narrow opposition wins → negative EG."""
     districts = [
-        {"ndp": 55, "rbc": 45, "actual_winner": "NDP"},
-        {"ndp": 55, "rbc": 45, "actual_winner": "NDP"},
-        {"ndp": 20, "rbc": 80, "actual_winner": "RBC"},
+        {"opposition": 55, "incumbent": 45, "actual_winner": "OPP"},
+        {"opposition": 55, "incumbent": 45, "actual_winner": "OPP"},
+        {"opposition": 20, "incumbent": 80, "actual_winner": "INC"},
     ]
-    result = compute_eg(districts, "packed_rbc")
+    result = compute_eg(districts, "packed_inc", opp_label="OPP")
     assert result["code_eg_pct"] < 0
 
 
 def test_eg_formula_exact_three_districts():
     """Verify exact arithmetic on a known three-district case.
 
-    D1: NDP 60, RBC 40, NDP wins; thr=100//2+1=51; ndp_w=9,  rbc_w=40
-    D2: NDP 40, RBC 60, RBC wins; thr=51;            ndp_w=40, rbc_w=9
-    D3: NDP 40, RBC 60, RBC wins; thr=51;            ndp_w=40, rbc_w=9
+    D1: opp 60, inc 40, opp wins; thr=100//2+1=51; opp_w=9,  inc_w=40
+    D2: opp 40, inc 60, inc wins; thr=51;            opp_w=40, inc_w=9
+    D3: opp 40, inc 60, inc wins; thr=51;            opp_w=40, inc_w=9
     total_2p = 300
     code_eg = (9+40+40 - 40+9+9) / 300 = 31/300
     code_eg_pct = round(31/300 * 100, 4) = 10.3333
     """
     districts = [
-        {"ndp": 60, "rbc": 40, "actual_winner": "NDP"},
-        {"ndp": 40, "rbc": 60, "actual_winner": "RBC"},
-        {"ndp": 40, "rbc": 60, "actual_winner": "RBC"},
+        {"opposition": 60, "incumbent": 40, "actual_winner": "OPP"},
+        {"opposition": 40, "incumbent": 60, "actual_winner": "INC"},
+        {"opposition": 40, "incumbent": 60, "actual_winner": "INC"},
     ]
-    result = compute_eg(districts, "formula")
+    result = compute_eg(districts, "formula", opp_label="OPP")
     assert result["code_eg_pct"] == pytest.approx(31 / 300 * 100, rel=1e-3)
 
 
@@ -97,27 +99,27 @@ def test_eg_raises_on_empty_input():
 
 
 def test_eg_returns_dict_with_required_keys():
-    """Result dict must include code_eg_pct and vote/win counts."""
+    """Result dict must include code_eg_pct and win counts."""
     districts = [
-        {"ndp": 60, "rbc": 40, "actual_winner": "NDP"},
-        {"ndp": 40, "rbc": 60, "actual_winner": "RBC"},
+        {"opposition": 60, "incumbent": 40, "actual_winner": "OPP"},
+        {"opposition": 40, "incumbent": 60, "actual_winner": "INC"},
     ]
-    result = compute_eg(districts, "keys_check")
+    result = compute_eg(districts, "keys_check", opp_label="OPP")
     assert "code_eg_pct" in result
-    assert "ndp_wins" in result
-    assert "rbc_wins" in result
+    assert "opposition_wins" in result
+    assert "incumbent_wins" in result
 
 
 def test_eg_winner_counts_correct():
     """Win counts match the actual_winner labels."""
     districts = [
-        {"ndp": 60, "rbc": 40, "actual_winner": "NDP"},
-        {"ndp": 55, "rbc": 45, "actual_winner": "NDP"},
-        {"ndp": 30, "rbc": 70, "actual_winner": "RBC"},
+        {"opposition": 60, "incumbent": 40, "actual_winner": "OPP"},
+        {"opposition": 55, "incumbent": 45, "actual_winner": "OPP"},
+        {"opposition": 30, "incumbent": 70, "actual_winner": "INC"},
     ]
-    result = compute_eg(districts, "win_counts")
-    assert result["ndp_wins"] == 2
-    assert result["rbc_wins"] == 1
+    result = compute_eg(districts, "win_counts", opp_label="OPP")
+    assert result["opposition_wins"] == 2
+    assert result["incumbent_wins"] == 1
 
 
 # ============================================================
