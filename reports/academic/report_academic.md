@@ -9,7 +9,7 @@
 > **Funding:** This research received no external funding. All costs were borne by the author.
 > **Competing interests:** The author declares no competing interests.
 > **Institutional affiliation:** The author is a student at Mount Royal University. This research was conducted independently and was not commissioned as coursework. The views expressed are the author's own and do not represent Mount Royal University.
-> **Relationships:** The author has no employment, contractual, or advisory relationship with Elections Alberta, the Electoral Boundaries Commission, or any provincial political party.
+> **Relationships:** The author has no employment, contractual, or advisory relationship with Elections Alberta, the Electoral Boundaries Commission, or any provincial political party. The author has previously donated to and volunteered for the NDP. No compensation was received for this research from any party, and the methodology was pre-registered and applied symmetrically to both maps before results were examined.
 
 > **Pre-publication status.** This monograph has not been publicly released. Integration of canonical Elections Alberta shapefiles (received 2026-05-06) is ongoing; individual section results may shift as recomputation continues. The codebase is also undergoing cleanup and script-count reduction. Do not cite, quote, or distribute without confirming the current status of the specific finding.
 
