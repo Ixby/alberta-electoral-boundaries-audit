@@ -54,6 +54,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `natural_anchoring_secondary_check.md` | Secondary natural-feature anchoring check (rivers, escarpments) |
 | `va_spatial_integrity_report.md` | Spatial integrity of vote-anywhere polygons |
 | `vote_anywhere_report.md` | Vote-anywhere coverage findings |
+| `lesser_slave_lake_va043_representation_gap.md` | Lesser Slave Lake VA 043 representation gap: Woodland Cree community boundary analysis |
 | `geometry_provenance.md` | Geometry provenance chain and canonical shapefile transition log |
 
 ---
@@ -62,6 +63,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 
 | File | Description |
 |---|---|
+| `ebc_s15_selective_application.md` | * Section 15 selective application: unequal deviation justification across EDs |
 | `byelection_assessment.md` | Impact assessment for pending by-elections under each map |
 | `justification_tests_findings.md` | Commission justification-text statistical tests |
 | `pre_registration_amendment_log.md` | Pre-registration amendment log (OSF entries and change justifications) |
