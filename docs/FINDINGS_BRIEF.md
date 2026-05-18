@@ -184,7 +184,7 @@ All tests were written down and publicly filed **before** the results were exami
 
 I'm a student at Mount Royal University. I did this on my own — it was not assigned as coursework and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta, the commission, or any political party.
 
-I have donated to and volunteered for the NDP. I'm telling you that because my political history could affect how I look at this issue. The main protection against that is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and all data and code are public so anyone can check my work. I paid for this research myself.
+I have supported parties on all sides of the political spectrum depending on the election. I'm telling you that because my political history could affect how I look at this issue. The main protection against that is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and all data and code are public so anyone can check my work. I paid for this research myself.
 
 ---
 
