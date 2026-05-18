@@ -21,8 +21,20 @@
     header {
       background: #1a2e45;
       color: #fff;
-      padding: 2.5rem 1.5rem 2rem;
-      text-align: center;
+      padding: 2.5rem 2rem 2rem;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 0;
     }
 
     header h1 {
@@ -36,8 +48,6 @@
     header .subtitle {
       font-size: 1rem;
       opacity: 0.78;
-      max-width: 640px;
-      margin: 0 auto;
     }
 
     header .badge {
@@ -50,6 +60,13 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.85);
+    }
+
+    .header-image {
+      flex-shrink: 0;
+      max-height: 600px;
+      width: auto;
+      display: block;
     }
 
     nav {
@@ -224,16 +241,12 @@
 
     footer a { color: rgba(255,255,255,0.85); }
 
-    .hero-image {
-      width: 100%;
-      max-height: 340px;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
+    @media (max-width: 700px) {
+      .header-inner { flex-direction: column; gap: 1.5rem; }
+      .header-image { max-height: 300px; }
     }
 
     @media (max-width: 540px) {
-      .hero-image { max-height: 200px; }
       .findings-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -241,11 +254,13 @@
 <body>
 
 <header>
-  <img src="images/cover_art.png" alt="Alberta electoral district maps — majority and minority proposals side by side" class="hero-image">
-  <div class="container">
-    <h1>Alberta Electoral Boundary Audit</h1>
-    <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
-    <span class="badge">Official Elections Alberta maps &mdash; May 2026</span>
+  <div class="header-inner">
+    <div class="header-text">
+      <h1>Alberta Electoral Boundary Audit</h1>
+      <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
+      <span class="badge">Official Elections Alberta maps &mdash; May 2026</span>
+    </div>
+    <img src="images/cover_art.png" alt="Alberta electoral district maps — majority and minority proposals side by side" class="header-image">
   </div>
 </header>
 
