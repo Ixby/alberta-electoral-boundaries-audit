@@ -1,0 +1,26 @@
+{
+  "outputs/phase4c_canonical_results.json": {
+    "sha256": "6615844f9b984a4a1722b993fc60bc2e1d47268be9688b72321bf2bd2073e1a3",
+    "description": "Phase 4C canonical partisan bias results"
+  },
+  "outputs/simulated_ensemble_percentiles_canonical.csv": {
+    "sha256": "c8322582382dfee3d6a6ee0c79140cb93000d2e394a48d1f27da7fb0a100b7a5",
+    "description": "MCMC ensemble percentile table (canonical shapefiles)"
+  },
+  "outputs/simulation_real_map_scores_canonical.json": {
+    "sha256": "0a9eadfd65916c565ae062e3ec9899a18d195465cec95399044bb07a8dcf50ff",
+    "description": "Real-map metric scores against canonical ensemble"
+  },
+  "outputs/simulation_convergence_diagnostics_canonical.json": {
+    "sha256": "8b0fa771e6361309017cba7b14192a3729ac82e4ea8189a5bc5d9c6e8fbb59e3",
+    "description": "MCMC convergence diagnostics (Gelman-Rubin, ESS)"
+  },
+  "outputs/phase4c_per_ed_votes_majority.csv": {
+    "sha256": "be08dc5727bbb0062756d122daaa49c54a362a8b97381cd7a30c9a48b74e48c5",
+    "description": "Per-ED vote totals \u2014 majority map (Phase 4C)"
+  },
+  "outputs/phase4c_per_ed_votes_minority.csv": {
+    "sha256": "288ceb83bbbb321ac80214cd38364485c74f1c533f0b40f879c297ccf94c28fd",
+    "description": "Per-ED vote totals \u2014 minority map (Phase 4C)"
+  }
+}
