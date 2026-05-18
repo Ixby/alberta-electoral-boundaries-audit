@@ -1,6 +1,6 @@
 # Repository Tree
 
-*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B).*
+*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C added).*
 
 ---
 
@@ -16,8 +16,10 @@ alberta_audit/
 ├── config.yaml                Master configuration — all shapefile paths, column renames, thresholds
 ├── pyproject.toml             Python project metadata and tool configuration (ruff, mypy)
 ├── requirements.txt           Pinned Python dependencies — gerrychain==0.3.2 is load-bearing
+├── .python-version            Minimum Python version declaration (3.11)
 │
 ├── run_audit.py               Shapefile integrity audit — 10 checks; run before any analysis
+├── run_chain1_recovery.py     Chain 1 MCMC recovery script (used after abort mid-run)
 └── run_master_qa.py           Full QA sweep — invokes all scripts in dependency order
 ```
 
@@ -29,15 +31,35 @@ Project-level documentation, operational setup notes, and policy outputs that ar
 
 ```
 docs/
+├── index.html                 GitHub Pages landing page — self-contained HTML, key findings table,
+│                              links to reports and Colab notebook
+├── FINDINGS_BRIEF.md          One-page plain-language brief — seat-gap and wasted-vote framings;
+│                              no p-values; CoI disclosure; what-this-does-not-claim paragraph
 ├── COMPLETED_LOG.md           Finished-task log — every completed item with date and outcome
 ├── FROZEN_MANIFEST.md         Canonical file manifest — hashes of every committed output
 ├── REPRODUCING.md             Step-by-step instructions to re-run every quantitative claim
 ├── data_sources.md            Primary data sources with URLs, access dates, and licence information
 ├── setup.md                   Environment setup notes (Python 3.11+, dependency pinning)
 ├── act_amendment_proposal.md  Proposed EBCA §12 amendment text (policy output, not a finding)
+├── ADAPTING_TO_OTHER_JURISDICTIONS.md   Jurisdiction adaptation guide (BC/SK/federal reuse)
 ├── ai_use_recommendations_for_committee.md   7 AI-use principles for the Lunty committee
 ├── changedetection_setup.md   ChangeDetection.io + GitHub Actions shapefile monitoring setup
 └── external_tool_validation.md   R redist / QGIS / Maptitude validation plan (open task)
+```
+
+---
+
+## notebooks/
+
+Interactive Jupyter/Colab notebooks for reproducing key findings without a full local checkout.
+
+```
+notebooks/
+└── alberta_audit_explorer.ipynb    Google Colab notebook — fetches phase4c_canonical_results.json,
+                                    simulated_ensemble_percentiles_canonical.csv, and
+                                    simulation_real_map_scores_canonical.json via raw.githubusercontent.com;
+                                    reproduces efficiency-gap histogram, seats@50/50 chart, and
+                                    summary findings table. No shapefile download required.
 ```
 
 ---
@@ -87,6 +109,10 @@ analysis/
 │   ├── fisher_combination_defense.md       Defense of Fisher's method for Ch1 × Ch2
 │   ├── shapefile_uncertainty_analysis.md   Impact of DPG tracing uncertainty on findings
 │   ├── novel_contributions.md              What is methodologically new; how to cite
+│   │
+│   ├── retraction_pathway.md               Per-finding retraction conditions + current status table
+│   ├── null_hypothesis_and_exoneration_criteria.md   Pre-committed null hypotheses + pass/fail thresholds
+│   ├── threshold_provenance.md             Every numeric threshold traced to statute or literature
 │   │
 │   │   — Script-written files (do not move without updating writing script) —
 │   ├── fisher_independence_defense.md      Independence argument — validate_fisher_independence.py appends
@@ -236,7 +262,8 @@ data/
 ├── shapefiles/
 │   ├── canonical/                   Official Elections Alberta shapefiles (received 2026-05-06)
 │   │   ├── ea_majority_2026_eds.gpkg    Majority — 89 EDs (ground truth)
-│   │   └── ea_minority_2026_eds.gpkg    Minority — 89 EDs (ground truth)
+│   │   ├── ea_minority_2026_eds.gpkg    Minority — 89 EDs (ground truth)
+│   │   └── va_2023_election_day_votes.gpkg   VA-level 2023 election-day vote counts (Phase 4C source)
 │   ├── derived/                     Computed from canonical shapefiles
 │   │   ├── README.md                    DPG sunset clause documentation
 │   │   ├── va_polygons_with_2023_votes.gpkg      VA polygons — crosswalk vote attribution
@@ -269,6 +296,9 @@ data/
 │   ├── sentiment_intensity_scores.csv                452 LLM-scored intensity rows (deduped)
 │   ├── quotes_verified.csv                           827 verified quotes (submissions + Hansard)
 │   ├── irr_validation_sample.csv                     60-row IRR sample (human annotation pending)
+│   ├── phase4c_canonical_results.json                Phase 4C per-map EG/MM/s50/declination results
+│   ├── phase4c_per_ed_votes_majority.csv             Per-ED vote totals — majority map (canonical)
+│   ├── phase4c_per_ed_votes_minority.csv             Per-ED vote totals — minority map (canonical)
 │   ├── assignment_va_to_2026_canonical.csv           4,765 VA → 2026 ED canonical spatial join
 │   ├── cross_reference_results.csv                   25-rationale submission cross-reference
 │   └── ...                                           (~140 more: compactness, anchoring, population,

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alberta Electoral Boundary Audit — 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: #1a1a1a;
+      background: #f9f7f2;
+    }
+
+    a { color: #1a5276; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: #1a2e45;
+      color: #fff;
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(1.4rem, 4vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    header .subtitle {
+      font-size: 1rem;
+      opacity: 0.78;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    header .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 3px;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+
+    nav {
+      background: #243b53;
+      padding: 0.55rem 1rem;
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    nav a {
+      color: #a8c7e8;
+      margin: 0 0.8rem;
+      text-decoration: none;
+    }
+
+    nav a:hover { color: #fff; text-decoration: underline; }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid #ddd; }
+    section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+      color: #1a2e45;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.3rem 0 0.4rem;
+      color: #243b53;
+    }
+
+    p { margin-bottom: 0.9rem; }
+
+    .lead {
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* Findings cards */
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 1.1rem 1.1rem 1rem;
+    }
+
+    .card .label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 0.3rem;
+    }
+
+    .card .number {
+      font-size: 1.9rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .card .number.neutral { color: #1a5276; }
+    .card .number.flag    { color: #922b21; }
+
+    .card .description {
+      font-size: 0.86rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Summary table */
+    .table-wrap { overflow-x: auto; margin: 1.2rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #1a2e45;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.55rem 0.8rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 0.5rem 0.8rem;
+      border-top: 1px solid #e8e8e8;
+      vertical-align: top;
+    }
+
+    tr:hover td { background: #f4f6f8; }
+
+    td.flag { color: #922b21; font-weight: 600; }
+    td.normal { color: #1d6a27; }
+
+    /* Callout box */
+    .callout {
+      background: #eaf1f8;
+      border-left: 4px solid #1a5276;
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 4px 4px 0;
+      margin: 1.1rem 0;
+      font-size: 0.94rem;
+    }
+
+    .callout.warning {
+      background: #fdfbe4;
+      border-left-color: #b7950b;
+    }
+
+    /* Links section */
+    .links-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .links-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #e8e8e8;
+      font-size: 0.94rem;
+    }
+
+    .links-list li:last-child { border-bottom: none; }
+
+    .links-list .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      background: #dce6f0;
+      color: #1a3550;
+      margin-right: 0.4rem;
+      vertical-align: middle;
+    }
+
+    footer {
+      background: #1a2e45;
+      color: rgba(255,255,255,0.7);
+      padding: 1.6rem 1.5rem;
+      text-align: center;
+      font-size: 0.82rem;
+      margin-top: 1rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.85); }
+
+    @media (max-width: 540px) {
+      .findings-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Alberta Electoral Boundary Audit</h1>
+    <p class="subtitle">An independent statistical analysis of the 2025–26 commission maps using 1,010,000 computer-simulated neutral redistributions.</p>
+    <span class="badge">Phase 4C &mdash; Official Elections Alberta shapefiles &mdash; May 2026</span>
+  </div>
+</header>
+
+<nav>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">GitHub</a>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md">Public Report</a>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md">Academic Report</a>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/docs/FINDINGS_BRIEF.md">One-Page Brief</a>
+</nav>
+
+<div class="container">
+
+  <section>
+    <h2>What Happened</h2>
+    <p class="lead">
+      Alberta's 2025–26 Electoral Boundary Commission could not agree. Three commissioners signed a majority map; two produced a minority (alternative) map. Both were legally compliant. On April 16, 2026 the provincial government set both aside and assigned redistricting to a five-member committee of MLAs — three from the governing United Conservative Party (UCP). This audit measured both commission maps using the same statistical tools, applied identically to each.
+    </p>
+  </section>
+
+  <section>
+    <h2>Three Headline Numbers</h2>
+
+    <div class="findings-grid">
+      <div class="card">
+        <div class="label">Seat swing at a 50/50 vote</div>
+        <div class="number flag">5 seats</div>
+        <div class="description">
+          At a perfectly tied provincial vote, the minority map awards 5 fewer seats to the NDP (43) than the majority map (48) — without changing a single ballot.
+        </div>
+      </div>
+      <div class="card">
+        <div class="label">Vote-to-seat imbalance</div>
+        <div class="number flag">41&times;</div>
+        <div class="description">
+          The minority map's structural vote-to-seat imbalance (&asymp;36,000 excess wasted NDP votes) is roughly 41 times larger than the majority map's (&asymp;881).
+        </div>
+      </div>
+      <div class="card">
+        <div class="label">Population spread gap</div>
+        <div class="number flag">48%</div>
+        <div class="description">
+          The minority map's average district deviates from the provincial population mean by 4,707 people &mdash; 48% wider than the majority map's 3,180.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      All three differences consistently favour the UCP. The majority map's seat-allocation score falls in the normal range of the 1,010,000-map simulation (83rd percentile). The minority map's reaches the 99.99th percentile &mdash; fewer than 100 of 1,010,000 neutral draws achieve a result that extreme.
+    </div>
+  </section>
+
+  <section>
+    <h2>Full Comparison Table</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Measure</th>
+            <th>Majority map</th>
+            <th>Minority map</th>
+            <th>Direction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Population spread (avg. deviation from mean)</td>
+            <td class="normal">3,180 people</td>
+            <td class="flag">4,707 people &mdash; 48% wider</td>
+            <td>Reduces vote equality</td>
+          </tr>
+          <tr>
+            <td>NW Calgary population excess above average</td>
+            <td class="normal">+2.8%</td>
+            <td class="flag">+11.5%</td>
+            <td>UCP (packs urban NDP votes)</td>
+          </tr>
+          <tr>
+            <td>City of Airdrie divided into how many districts</td>
+            <td class="normal">2</td>
+            <td class="flag">4</td>
+            <td>UCP (fragments urban/suburban power)</td>
+          </tr>
+          <tr>
+            <td>Borders following existing municipal lines</td>
+            <td>80% &mdash; within norm</td>
+            <td>72% &mdash; within norm</td>
+            <td>N/A &mdash; both within Canadian norm (70&ndash;85%)</td>
+          </tr>
+          <tr>
+            <td>Boundaries flagged by commission chair</td>
+            <td class="normal">0</td>
+            <td class="flag">3</td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td>NDP seats at a 50/50 provincial vote (simulation percentile)</td>
+            <td class="normal">48 seats (p83 &mdash; normal range)</td>
+            <td class="flag">43 seats (p99.99 &mdash; extreme)</td>
+            <td>UCP (+5 seats)</td>
+          </tr>
+          <tr>
+            <td>Excess wasted votes (structural translation imbalance)</td>
+            <td class="normal">&asymp;881 votes (&asymp;0.1% of ballots)</td>
+            <td class="flag">&asymp;36,000 votes (&asymp;4.0% of ballots)</td>
+            <td>UCP (&times;41 larger)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>What This Does Not Claim</h2>
+
+    <p>This audit does not conclude that either map constitutes a gerrymander in any legal sense. Canada has no statute or common-law rule that defines redistricting manipulation as a legal wrong by that name. The applicable standards are the <em>Electoral Boundaries Commission Act</em> (EBCA) and section 3 of the <em>Canadian Charter of Rights and Freedoms</em>, which guarantees effective representation. Whether the patterns documented here rise to a violation of either standard is a question for courts, legislators, and legal scholars &mdash; not this audit.</p>
+
+    <p>This audit also does not establish intent. Statistical asymmetry is consistent with deliberate manipulation, with geographic sorting of voters, or with coincidence. The audit measures effect, not motive.</p>
+
+    <div class="callout warning">
+      <strong>The NDP geographically concentrates its voters in urban cores.</strong> Alberta's human geography creates a modest structural disadvantage for the NDP in any neutral redistricting. The simulation accounts for this: the 1,010,000-map ensemble is drawn from the <em>same Alberta geography</em>, and the minority map is still extreme relative to those neutral draws. The gap cannot be explained by geography alone.
+    </div>
+  </section>
+
+  <section>
+    <h2>Methodology at a Glance</h2>
+
+    <h3>Data</h3>
+    <p>Official Elections Alberta shapefiles (GeoPackage format). Vote attribution: 2023 provincial election results matched to 4,765 voting areas by centroid-in-polygon spatial join (Phase 4C). Population: Statistics Canada 2021 Census dissemination areas.</p>
+
+    <h3>Simulation</h3>
+    <p>1,010,000 neutral Alberta maps generated by the ReCom Markov-chain algorithm (GerryChain library), four independent chains, using the same population-equality rules that governed the commission. Gelman-Rubin convergence statistic R&#770; &lt; 1.02 across all chains. Random seeds derived from Cloudflare drand public randomness beacon.</p>
+
+    <h3>Pre-registration</h3>
+    <p>All statistical tests were pre-registered on the Open Science Framework before results were examined: <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.</p>
+
+    <h3>Code and data</h3>
+    <p>All scripts, shapefiles, and simulation outputs are published at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" rel="noopener">github.com/Ixby/alberta-electoral-boundaries-audit</a>.</p>
+  </section>
+
+  <section>
+    <h2>Reports and Resources</h2>
+
+    <ul class="links-list">
+      <li>
+        <span class="tag">Plain Language</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md">Full public report</a> &mdash; Grade-school-accessible narrative with maps and figures
+      </li>
+      <li>
+        <span class="tag">Academic</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md">Technical monograph</a> &mdash; Full statistical methods, citations, pre-registration IDs
+      </li>
+      <li>
+        <span class="tag">One-Page</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/docs/FINDINGS_BRIEF.md">Findings brief</a> &mdash; No jargon, printable
+      </li>
+      <li>
+        <span class="tag">Notebook</span>
+        <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/main/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Interactive Colab notebook</a> &mdash; Reproduce key tables and figures in the browser
+      </li>
+      <li>
+        <span class="tag">Code</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" rel="noopener">github.com/Ixby/alberta-electoral-boundaries-audit</a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Disclosure</h2>
+    <p style="font-size:0.9rem; color:#444;">
+      The author is a student at Mount Royal University. This research was conducted independently and was not commissioned as coursework. The views expressed are the author's own and do not represent Mount Royal University. The author has no employment, contractual, or advisory relationship with Elections Alberta, the Electoral Boundaries Commission, or any provincial political party. The author has in the past donated to and volunteered for the NDP; this is disclosed because it represents a potential source of motivated reasoning. The structural safeguard against that bias is symmetric methodology: every test was applied identically to both maps, and all tests were pre-registered before results were examined. This research received no external funding.
+    </p>
+  </section>
+
+</div><!-- /.container -->
+
+<footer>
+  <div class="container">
+    Alberta Electoral Boundary Audit &mdash; Phase 4C &mdash; May 2026<br>
+    <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-13
+**Last updated:** 2026-05-18
 **Completed work:** see `COMPLETED_LOG.md`
 
 ---
@@ -53,10 +53,10 @@ Stage 3 superseded by official shapefiles. Stages 3–7 complete for canonical s
 - **Stage 3 DONE 2026-05-12** — Canonical spatial join: 4,765 VA centroids against ea_majority/minority_2026_eds.gpkg; 0 unmatched. Output: `data/outputs/assignment_va_to_2026_canonical.csv`.
 - **Stage 4 DONE 2026-05-12** — Aggregated to CSV per 2026 ED. Output: `data/outputs/assignment_2026_canonical_totals.csv` (178 rows, 89 EDs × 2 maps).
 - **Stage 5 DONE** — C1 complete (canonical VA totals). Full-coverage (_full columns) totals also computed.
-- **Stage 6 DONE 2026-05-12** — `packing_cracking_analysis.py` ran successfully (stdout only; no output files). Results: EG majority −0.40%, minority −1.81%; asymmetry −1.41 pp.
-- **Stage 7 DONE 2026-05-12** — `monte_carlo_ci.py` ran main body. 95% CI minority−majority EG: [−2.74, +0.60] pp, CI crosses zero. Path fix applied 2026-05-12: `data/reference/alberta_2019_results.csv` path corrected in script (was missing two path levels and `reference/` subdir).
+- **Stage 6 DONE 2026-05-18** — `packing_cracking_analysis.py` v0.3 (Phase 4C) ran on official EA shapefiles with exact VA centroid-in-polygon attribution. Results (S-M positive=UCP convention): EG majority +0.04% (p15.5), minority +3.96% (p94.4); asymmetry +3.92 pp. Seats@50/50: majority 48 NDP, minority 43 NDP at tied provincial vote. Mean-median: majority −3.64 pp (p2), minority +1.03 pp (p99.98). All four partisan metrics (B1–B4) agree minority is more UCP-favourable than majority.
+- **Stage 7 DONE 2026-05-12** — `monte_carlo_ci.py` ran main body. 95% CI minority−majority EG: [−2.74, +0.60] pp under Phase 4C; CI based on old crosswalk superseded. Blend-era CI retained as archive reference only.
 
-**⚠ OPEN ISSUE — vote attribution discrepancy:** The canonical spatial join with `va_ndp` gives majority 34/minority 29 NDP seats under 2023 actual votes; with `va_ndp_full` gives majority 38/minority 31; but `packing_cracking_analysis.py` (old crosswalk) gives 38/38 for both maps. The `va_ndp` values are ~50% coverage, `_full` ~89%, actual 2023 ~100%. Crosswalk method reconstructs 100% coverage from ED-level totals. Resolution needed before publishing seat-count figures from canonical assignment. See ISSUE: canonical-seat-attribution-reconciliation.
+**RESOLVED — vote attribution discrepancy (2026-05-18):** Phase 4C v0.3 (`packing_cracking_analysis.py`) performs exact centroid-in-polygon on `data/shapefiles/canonical/va_2023_election_day_votes.gpkg` against official EA shapefiles. This is the definitive canonical measurement and supersedes all crosswalk-blend values. The va_ndp vs va_ndp_full discrepancy was a property of the deprecated blend model; it does not apply to Phase 4C. Seat-count figures (48/43 NDP at tied vote) come from Phase 4C exclusively.
 
 ### External Tool Validation
 
@@ -120,7 +120,7 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 
 - **MCMC-13 — 2019-seeded ensemble** (GitHub Issue #13): Seed ReCom chain from 2019 enacted geometry; single-boundary moves; population-target-preserving swaps. Effort: 2–3 days + ~90 min compute.
 - **COUNTER-14 — Counter-map challenge** (GitHub Issue #14): Retraction condition for §5.8.5 anchoring finding. Produce constraint-legal 89-seat map satisfying minority's stated COI rationales AND achieving majority-comparable municipal-boundary anchoring (CSD/DA edge alignment ≥60%). Status: no counter-map submitted as of 2026-05-10.
-- **338-RETRO — DONE 2026-05-12** (canonical uniform swing): Applied uniform provincial swing from 2023 actual to each of 77 historical 338Canada snapshots (2020-02-23 to 2026-04-12). Results: majority map gives NDP more seats in 74/76 non-tied snapshots; tied in 2 (NDP-lead conditions: NDP>41.8%, UCP<37.6%); no crossover. Mean majority advantage: 5.7 seats; range 0–9. Outputs: `data/outputs/338canada_uniform_swing_seats.csv`, `data/outputs/338canada_crossover_table.csv`. **⚠ NOTE:** These results use `va_ndp` (partial coverage); see vote-attribution discrepancy note above. Also conflicts with old per-riding crosswalk stability analysis in `data/reference/polling_338_historical/uniform_swing_stability.csv` which found direction reversal at UCP>55%. Requires reconciliation before §5.2.3 can be updated.
+- **338-RETRO — DONE 2026-05-12** (canonical uniform swing): Applied uniform provincial swing from 2023 actual to each of 77 historical 338Canada snapshots (2020-02-23 to 2026-04-12). Results: majority map gives NDP more seats in 74/76 non-tied snapshots; tied in 2 (NDP-lead conditions: NDP>41.8%, UCP<37.6%); no crossover. Mean majority advantage: 5.7 seats; range 0–9. Outputs: `data/outputs/338canada_uniform_swing_seats.csv`, `data/outputs/338canada_crossover_table.csv`. **Note:** reconciliation with old per-riding crosswalk stability analysis (`uniform_swing_stability.csv`, direction reversal at UCP>55%) still required before §5.2.3 can be updated; vote-attribution discrepancy resolved by Phase 4C but 338Canada swing model uses interpolated provincial totals, not Phase 4C per-VA attribution.
 
 ### Data Source Gaps (minority_rationales_validation.md Proposals A–F)
 
@@ -212,7 +212,7 @@ Collapse `analysis/scripts/` from ~87 files into ~15–20 topic modules. Inputs 
 
 | Track | Event | Trigger |
 |---|---|---|
-| A (shapefile integration) | Unblocked 2026-05-06 (commit 873f4d0); C1 complete | Phase 4C Stages 3–7 still pending |
+| A (shapefile integration) | **COMPLETE 2026-05-18** — Phase 4C v0.3 canonical. EG +0.04%/+3.96%; s50 48/43. All reports updated. | — |
 | B (November 2026) | Lunty committee tables 91-seat map (Nov 2, 2026) | Run full Phase 2 checklist within 48h |
 | E (338Canada refresh) | Next due ~late June 2026 | Re-run scraper if projection moves >0.5pp |
 
