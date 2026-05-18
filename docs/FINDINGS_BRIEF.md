@@ -93,7 +93,7 @@ All tests were written down and locked in before the results were examined. This
 
 I'm a student at Mount Royal University. I did this research on my own — it wasn't assigned as coursework and the university didn't commission it. My opinions are my own and don't represent the university. I have no connection to Elections Alberta, the commission, or any political party.
 
-I have donated to and volunteered for the NDP in the past. I'm telling you that because it could affect how I look at this issue. The main protection against that bias is the method: I tested both maps the same way, I wrote down my predictions before looking at the results, and all the data and code are public so anyone can check my work. I funded this research myself.
+I have donated to and volunteered for the NDP in the past, and have also donated to parties on the other side of Alberta politics. I'm telling you that because my political history could affect how I look at this issue. The main protection against that bias is the method: I tested both maps the same way, I wrote down my predictions before looking at the results, and all the data and code are public so anyone can check my work. I funded this research myself.
 
 ---
 
