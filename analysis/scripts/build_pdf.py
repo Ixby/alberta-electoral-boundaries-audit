@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -976,6 +977,10 @@ def main() -> int:
     print(
         f"[build_pdf] Wrote {OUT_PDF.name} " f"({pdf_kb:.1f} KB) at {OUT_PDF.resolve()}"
     )
+    # Copy article PDF to the canonical published location.
+    PUBLISHED = REPO_ROOT / "reports" / "public" / "report_public.pdf"
+    shutil.copy2(OUT_PDF, PUBLISHED)
+    print(f"[build_pdf] Published -> {PUBLISHED.relative_to(REPO_ROOT)}")
     return 0
 
 
