@@ -1,0 +1,28 @@
+{
+  "majority": {
+    "eg": 0.000982,
+    "mean_median": -0.036191,
+    "declination": -0.015636,
+    "seats_at_50": 0.539326,
+    "n_eds": 89,
+    "total_ndp": 381932,
+    "total_ucp": 514712,
+    "total_other": 35520
+  },
+  "minority": {
+    "eg": 0.040194,
+    "mean_median": 0.010402,
+    "declination": 0.046345,
+    "seats_at_50": 0.483146,
+    "n_eds": 89,
+    "total_ndp": 381931,
+    "total_ucp": 514712,
+    "total_other": 35519
+  },
+  "comparison": {
+    "eg_gap_minority_minus_majority": 0.039212,
+    "mm_gap_minority_minus_majority": 0.046593,
+    "seats50_gap_minority_minus_majority": -0.05618,
+    "note": "positive gap = minority more UCP-favourable than majority (EG convention: positive EG = UCP structural advantage)"
+  }
+}

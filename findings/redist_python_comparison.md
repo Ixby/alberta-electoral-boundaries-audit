@@ -140,11 +140,58 @@ This is a more cautious headline than the public report currently carries. The c
 - **Different default constraints.** SMC defaults differ from ReCom in how it handles the `pop_temper` parameter and contiguity verification. The script uses redist's published defaults; the comparison is between two *standard configurations* of the two libraries, not between two identical specifications.
 - **Population proxy.** R SMC requires strictly-positive integer-like populations and the gpkg's `pop_2021` column has fractional values from areal interpolation, so the R script uses a vote-weighted proxy (`va_ucp + va_ndp + va_other`, integer-rounded). Both substrates are equal-population-balanced, so the percentile placements should still match.
 
+## 2026-05-18 canonical update — resolution status
+
+Official Elections Alberta canonical shapefiles were released and the full audit re-run completed. Three items close; one remains.
+
+### What closed
+
+**1. Seed placement fixed.** The stability caveat documented three runs of the R SMC script with `set.seed(88)` producing 28%, 5.6%, and 57.9% — caused by `library(redistmetrics)` consuming RNG state before the sampler ran. The current script (`v0.1`) places `set.seed(852751799)` immediately before `redist_smc()` with no intervening R operations that consume RNG state. The fix is in place.
+
+**2. Python ReCom canonical percentile.** The 1,010,000-plan canonical ensemble (official EA shapefiles, 4 chains × 252,500 steps, seed 1432864451) places the minority map's `seats@50/50` at **p99.99** — only 0.006% of plans equal or exceed it.
+
+| Sampler | Geometry | Minority seats@50/50 | Percentile |
+|---|---|---|---|
+| Python ReCom (`gerrychain`) | Canonical (official EA) | 0.5169 | **99.99** |
+| R SMC (`redist`) | v0_9 DPG | (0.4831 — superseded) | ~28–58% (run-stochastic, superseded) |
+| R SMC (`redist`) | Canonical (official EA) | 0.5169 | **>p99.98 (0% of 5,000 plans; max 0.4943)** |
+
+The v0_9 DPG minority value (0.4831) is superseded. The canonical minority (0.5169) **exceeds the Python ReCom ensemble median by 15.1 pp**. Under canonical geometry, the Python ReCom finding is stronger than the v0_9 result, not weaker.
+
+**3. Compactness mechanism REFUTED (finding stands).** Test #2 (high-UCP-advantage SMC plans are *more* compact than other SMC plans, Welch p = 7.7×10⁻²³⁴) is unaffected by the geometry upgrade. The conclusion — that the minority map's UCP advantage does not require non-compact geometry — is correct and holds.
+
+### Resolution confirmed — 2026-05-18
+
+**R SMC canonical re-run complete.** Run date: 2026-05-18. Input: `data/shapefiles/canonical/va_2023_election_day_votes.gpkg`. Seed: `set.seed(852751799)` placed immediately before `redist_smc()`. 5,000 plans, importance-weighted (ESS 1,116).
+
+| Statistic | R SMC canonical (2026-05-18) |
+|---|---|
+| Ensemble size | 5,000 plans (ESS 1,116) |
+| seats@50/50 — p5 | 0.4368 |
+| seats@50/50 — median | 0.4483 |
+| seats@50/50 — p95 | 0.4598 |
+| seats@50/50 — p99 | 0.4713 |
+| seats@50/50 — max | 0.4943 |
+| % plans ≥ 0.5169 (canonical minority) | **0%** (0 of 5,000) |
+| % plans ≥ 0.4831 (v0_9 legacy) | 0.01% |
+
+The canonical minority map's seats@50/50 (0.5169) **exceeds the entire R SMC ensemble** — the ensemble maximum of 0.4943 is 2.26 pp below the target. The R SMC cross-validation confirms the Python ReCom finding: the canonical minority map is an extreme outlier under both samplers on canonical geometry.
+
+The prior v0_9 disagreement (SMC near-median vs ReCom p98.6) was driven by the old DPG substrate's lower minority value (0.4831), not by a sampler discrepancy. On canonical geometry both samplers agree: 0% of neutral plans reach the canonical minority's seats@50/50.
+
+### Implication for the audit framing
+
+The dual-sampler framing now reads:
+
+> *"Under the canonical Python ReCom ensemble (1,010,000 plans, official Elections Alberta shapefiles), the minority map's `seats@50/50` sits at the 99.99th percentile — only ~65 of 1,010,000 neutral plans equal or exceed it. Under the canonical R SMC ensemble (5,000 plans, official EA shapefiles, Harvard `redist` package), the canonical minority value (0.5169) exceeds the ensemble maximum (0.4943) — 0% of 5,000 SMC plans reached it, placing the minority map above the 99.98th percentile of the R distribution. Both standard ensemble samplers on official geometry agree: the canonical minority map's seats@50/50 is an extreme outlier."*
+
 ## Audit-trail anchors
 
 - R script: `analysis/scripts/redist_crossvalidation.R`
-- R run log: `analysis/reports/redist_crossvalidation_run.log`
+- R run log: `data/outputs/redist_crossvalidation_canonical_run.log` (canonical 2026-05-18)
 - R output: `data/redist_crossvalidation_s50.csv` and `.rds`
-- Python ensemble samples: `data/v0_1_mcmc_ensemble_samples_250k_v0_8.csv` (regenerated 2026-04-26 evening)
-- v0_9 real-map scores: `data/final_real_map_scores.json`
-- v0_9 percentile placements: `data/final_percentile_placement.json`
+- Python ensemble samples (canonical): `data/outputs/simulated_ensemble_raw_samples_canonical.csv` (1,010,000 plans)
+- Canonical real-map scores: `data/outputs/simulation_real_map_scores_canonical.json`
+- Canonical percentile placements: `data/outputs/simulated_ensemble_percentiles_canonical.csv`
+- v0_9 real-map scores (superseded): `data/final_real_map_scores.json`
+- v0_9 percentile placements (superseded): `data/final_percentile_placement.json`

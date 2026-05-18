@@ -231,6 +231,7 @@ SZAT decomposes the between-map efficiency-gap difference into the specific boun
 - **Stephanopoulos & McGhee (2015)** — EG at the whole-map level; does not decompose to individual boundary decisions.
 - **Chen & Rodden (2013)** — decomposes EG into geography vs. drawing at the map level using an ensemble median; does not decompose to individual VA-boundary choices.
 - **Altman & McDonald (2011).** "BARD: Better Automated Redistricting." *Journal of Statistical Software* 42(4): 1–28. — simulation-based comparison of map alternatives; does not identify which specific boundaries drive partisan differences.
+- **Barton, Jeffrey, and Jon X. Eguia. 2024.** "A decomposition of partisan advantage in electoral district maps." *Electoral Studies* (ISSN 0261-3794). SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4347992. — decomposes a single map's partisan advantage into four contributing factors: (1) the fairness metric, (2) political geography, (3) redistricting legal constraints, and (4) the discretionary choice of which specific map to adopt. Distinguishes maps where advantage reflects non-partisan causes (geography, constraints) from maps where it is attributable to deliberate partisan map-choice; applied to 2021–22 US congressional maps. **Closest published parallel to SZAT**: Barton-Eguia isolates the "discretionary choice" component at the map level; SZAT operationalises that same component at the Voting Area boundary-choice level between two real proposed maps. Cite as the intellectual antecedent in any publication of SZAT.
 
 SZAT asks a different question from all of these: not "is the map anomalous compared to neutral draws?" but "which of the specific boundary decisions that differ between two real proposed maps are responsible for the between-map partisan-efficiency gap?"
 
@@ -245,9 +246,11 @@ Applied to the 2026 Alberta commission proposals against canonical Elections Alb
 
 ### SZAT citations for publication
 
-- Stephanopoulos & McGhee (2015) — EG framework the decomposition lives on
-- Chen & Rodden (2013) — geography-vs-drawing decomposition (SZAT is the boundary-choice-level complement)
-- State: "the decomposition of between-map EG differences to individual Voting Area boundary choices, and its permutation test, are novel to this audit"
+- Stephanopoulos & McGhee (2015) — EG framework the decomposition builds on
+- Chen & Rodden (2013) — map-level geography-vs-drawing decomposition (SZAT is the boundary-choice-level operationalisation)
+- Altman & McDonald (2011) — simulation-based map comparison (SZAT is the between-map boundary-specific complement)
+- **Barton & Eguia (2024)** — closest published parallel; cite as intellectual antecedent for the "discretionary choice" decomposition logic
+- State: "the decomposition of between-map EG differences to individual Voting Area boundary choices, and its permutation bootstrap, are novel to this audit; the closest published decomposition framework is Barton & Eguia (2024), which isolates the discretionary-choice factor at the map level rather than the boundary-choice level"
 
 ---
 

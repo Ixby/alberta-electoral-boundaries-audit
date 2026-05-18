@@ -1,10 +1,56 @@
 ---
 name: reock_verdict
-description: Does the Lane 2 lasso/non-compactness claim survive the Reock metric on the v0_9 topological substrate?
+description: Reock compactness per district for both 2026 maps. Contains results for both v0_9 derived substrate and canonical EA shapefiles.
 type: project
 ---
 
-# v0_9 Reock verdict
+# Reock verdict
+
+## Canonical EA shapefiles (authoritative, 2026-05-18)
+
+**Inputs:** `ea_minority_2026_eds.gpkg`, `ea_majority_2026_eds.gpkg` (official Elections Alberta, received 2026-05-06).
+**Script:** `analysis/scripts/reock.py` (canonical path preference via `_pick_gpkg()`).
+**Data:** `data/reock_per_district.csv` (178 rows, 89 minority + 89 majority).
+**CRS:** EPSG:3401 (Alberta 10-degree TM).
+**Algorithm:** `shapely.minimum_bounding_circle` (GEOS, Shapely 2.0+) with Welzl fallback.
+
+| Metric | Minority | Majority |
+|---|---|---|
+| EDs scored | 89/89 | 89/89 |
+| Mean Reock | **0.465** | 0.453 |
+| Median Reock | 0.463 | 0.458 |
+| Reock < 0.30 | **4/89 = 4.5%** | 6/89 = 6.7% |
+
+**Bottom 5 by Reock (minority):** Calgary-Mountainview 0.227, Calgary-Hays 0.229, Calgary-De Winton 0.285, Calgary-Peigan-Chestermere 0.300, Canmore-Kananaskis 0.305.
+
+**Bottom 5 by Reock (majority):** Calgary-McKenzie 0.168, Calgary-West-Elbow Valley 0.178, Canmore-Banff 0.219, Calgary-Glenmore-Tsuut'ina 0.251, Okotoks-Diamond Valley 0.287.
+
+**Named lasso districts (canonical):**
+
+| District (minority) | Reock (canonical) | Flag (Reock < 0.30) |
+|---|---|---|
+| Calgary-Nolan Hill-Cochrane | 0.357 | not flagged |
+| Calgary-Foothills-Airdrie West | 0.345 | not flagged |
+| Edmonton-Enoch-Devon | 0.562 | not flagged |
+| Stony Plain-Drayton Valley | 0.411 | not flagged |
+| Rocky Mountain House-Banff Park | 0.640 | not flagged |
+| majority Stony Plain-Drayton Valley | 0.347 | not flagged |
+
+**Interpretation.** Under canonical EA geometry, the majority map has more below-threshold districts (6 vs 4) and a lower mean Reock. The direction from the v0_9 derived analysis (minority less compact, ~2.58× asymmetry) does not hold under official geometry. None of the named lasso districts are flagged by Reock on canonical EA shapefiles. The canonical Reock metric does not independently support a "minority systematically less compact" conclusion.
+
+**Why canonical differs from v0_9.** The v0_9 substrate dissolved VA polygons to produce ED shapes — VA polygon boundaries contribute to the perimeter and bounding-circle, creating granular geometry that penalises elongated corridors more severely. The canonical EA shapefiles use clean administrative boundary lines and have fewer perimeter vertices. Compactness scores are generally higher (better) on canonical geometry, and the minority's corridor-shaped EDs are less penalised at this resolution.
+
+---
+
+# v0_9 Reock verdict (historical — derived substrate)
+
+**Status: SUPERSEDED by canonical EA results above. Retained for delta comparison.**
+
+**Status at writing:** claim survives, and survives more cleanly than under Polsby-Popper. Reock is the metric on which the chair's "lasso-shaped corridor" framing actually has teeth.
+
+## Headline
+
+Four of the five publicly-named lasso districts in the **minority** are below the conventional Reock < 0.30 flag threshold under the v0_9 substrate; the fifth is above. The one outlier is the rural Rocky Mountain House-Banff Park district, where the minimum bounding circle is dominated by a single linear corridor along the eastern Rockies — the geometry is non-compact under PP (perimeter), but its enclosing circle is not pathologically large relative to its area.
 
 **Status: claim survives, and survives more cleanly than under Polsby-Popper.** Reock is the metric on which the chair's "lasso-shaped corridor" framing actually has teeth.
 

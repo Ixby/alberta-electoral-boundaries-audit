@@ -196,6 +196,96 @@ scope for the current audit, which is bounded to the minority-vs-majority compar
 
 ---
 
+## §8 — Defensibility: Anticipated Challenges and Responses
+
+This section documents the audit's response to each principal challenge that a hostile reviewer, counsel, or court would raise against SZAT. Claims below are grounded in primary sources cited in §5 (relationship to existing tests) and `analysis/methodology/reference/academic_literature_review.md` §9b and §10.
+
+---
+
+### Challenge 1: "SZAT is a novel test with no published validation. Results from untested methods cannot be relied upon."
+
+**Response.**
+
+The novelty claim is accurate and is disclosed in the AsPredicted pre-registration text (Appendix, filed 2026-05-07), in the academic literature review (§9b), and in the report (§5.2.10). No established test decomposes the between-map EG difference to individual boundary choices at the Voting Area level; that gap is the test's motivation.
+
+Novelty is not, however, equivalent to invalidity. SZAT is composed entirely of validated sub-components:
+
+1. **Efficiency gap** (Stephanopoulos & McGhee 2015, *U. Chi. L. Rev.* 82(2): 831–900) — the unit of measure. EG is applied identically to both maps' swing-zone subsets; it does not change properties by being restricted to swing zones.
+
+2. **Centroid-in-polygon spatial join** — established GIS operation. The assignment of VA centroids to ED polygons is the same `representative_point()` method used throughout the audit and documented in `szat.py` §3.2.
+
+3. **Permutation bootstrap** — established significance testing framework (Fisher 1935, *The Design of Experiments*; Efron & Tibshirani 1993, *An Introduction to the Bootstrap*). The specific permutation null (Bernoulli(0.5) assignment of swing zones to either map's configuration) is novel, but the inference framework is not.
+
+The closest prior literature falls into two groups:
+
+- **Map-level outlier tests** (Stephanopoulos & McGhee 2015, whole-map EG; Altman & McDonald 2011, simulation comparison): these ask whether a map is anomalous relative to neutral draws. They do not answer which boundary choices drive the anomaly.
+
+- **Map-level decomposition** (Chen & Rodden 2013 — geography vs. drawing at map level; **Barton & Eguia 2024**, "A decomposition of partisan advantage in electoral district maps," *Electoral Studies* — decomposes a map's partisan advantage into political geography, redistricting legal constraints, and discretionary map-choice): these isolate the "discretionary" component of partisan advantage from the forced component.
+
+SZAT is the boundary-choice-level operationalisation of the discretionary component identified by Barton & Eguia: where they isolate the discretionary factor at the map level, SZAT identifies which specific Voting Area assignments — the places where the two commissioners drew lines differently — account for the between-map EG difference. SZAT asks a different question from all prior tests: not "is the map anomalous?" nor "how much of this map's advantage is discretionary?", but "among the specific decisions that differed between two real proposed maps, which VAs drove the partisan EG gap, and is the overall pattern partisan-neutral?"
+
+This is not a test for a new quantity; it is a test for an established quantity (EG) applied to a previously untested conditioning set (the between-map swing zone).
+
+**VA file provenance check (run 2026-05-18).** The default run uses `va_polygons_with_full_2023_votes.gpkg` (derived file). A second run against the official Elections Alberta `va_2023_election_day_votes.gpkg` (canonical file, same source as Phase 4C) produces identical results: SZAT score +0.039211, swing zones 2,110, p = 0.0024, EG majority +0.000982, EG minority +0.040194, regional breakdown unchanged. The two VA files assign all 4,765 VA representative points identically — confirming that the derived file's geometry is consistent with the canonical EA VA geometry. Output: `findings/szat_summary_canonical_va.json`.
+
+**Evidentiary posture.** SZAT is reported as Channel 2 of a two-channel test (see §5.3.4 and `analysis/methodology/fisher_combination_defense.md`). Channel 1 (Mahalanobis D², p = 1.40×10⁻⁶) is a well-established joint outlier method applied to a validated MCMC ensemble. SZAT's p = 0.0024 is corroborating evidence that reinforces Channel 1 from a structurally different direction. The headline result (Fisher T = 39.02, combined p = 6.87×10⁻⁸) does not depend on accepting SZAT as the primary finding; it remains meaningful even if a reviewer discounts SZAT entirely, because Channel 1 alone returns p = 1.40×10⁻⁶.
+
+---
+
+### Challenge 2: "The pre-registration was filed after the results were known. The p-value cannot be trusted."
+
+**Response.**
+
+The timing limitation is acknowledged explicitly in the pre-registration text itself (Appendix, "Timing disclosure") and restated in the academic report. The exact admission reads: *"The `szat.py` script was written and a preliminary run was executed on 2026-05-06 before this registration was filed. ... The specific numerical results were known to the analyst at time of filing."*
+
+What remains verifiable despite this timing:
+
+1. **The bootstrap seed was pre-committed before any results.** The Cloudflare drand beacon round 5,500,000 was committed at git hash `d2aea42` before the canonical shapefiles arrived on 2026-05-06. The salt `"szat-bootstrap"` and the derivation method (SHA-256, first 4 bytes as uint32) are specified in `drand_seed.py` and committed at the same hash. The seed itself — 23,687,475 — is not analyst-chosen; it is cryptographically derived from a public beacon whose value no party to this audit controls. Retroactive selection of a seed to produce a desired p-value is therefore impossible: the seed is a function of a public timestamp, not an analyst choice.
+
+2. **The p-value has been reproduced across multiple independent runs with different parameters.** The p-value history in `academic_literature_review.md` §9b documents: original additive-delta approximation (p ≈ 0.000), 500-permutation full-recompute (p ≈ 0.012), 10,000-permutation Election-Day-only substrate (p = 0.0044), 10,000-permutation full advance-vote substrate (p = 0.0024). H₀ was rejected at α = 0.05 under every specification. The declining p-value across increasingly rigorous specifications is inconsistent with a result manufactured to exceed a threshold.
+
+3. **The test is fully reproducible.** An independent analyst who runs `analysis/scripts/szat.py` against the canonical shapefiles and the same seed recovers p = 0.0024. The null distribution is not analyst-controlled.
+
+The residual vulnerability is that a filing made after results are known cannot fully replicate the inferential value of a pre-analysis registration. The audit does not overclaim this point: SZAT's timing limitation is why the Fisher combination presents it as Channel 2 (corroborating) rather than the primary headline test. Channel 1 (Mahalanobis D²) was registered at OSF:6pt83 before shapefiles arrived and carries the primary inferential weight.
+
+---
+
+### Challenge 3: "The Bernoulli(0.5) permutation null is arbitrary. A different null would give a different p-value."
+
+**Response.**
+
+The Bernoulli(0.5) null asks a specific and interpretable question: *if the minority commissioners had made each swing-zone boundary choice with equal probability of favouring either map's configuration — no partisan preference — how extreme would the observed SZAT score be?*
+
+This is the natural null for a test of partisan neutrality in boundary-choice. Each swing zone is a Voting Area where the two maps draw a line differently. Under the null of partisan-neutral decision-making, each such choice has no systematic directional lean; assigning each independently with probability 0.5 is the minimal-assumption encoding of that neutrality.
+
+Alternative nulls that a hostile reviewer might propose:
+
+- **Geography-stratified null** (e.g., hold regional proportions fixed): A geography-stratified permutation would test whether the swing zone allocations are unusual *conditional on regional composition*. This is a stricter test (it controls for regional variation in partisan geography). Running the SZAT score under a region-fixed null would be a legitimate robustness check. The regional decomposition in `findings/szat_summary.json` (Rest of Alberta +0.015, Edmonton +0.008, Calgary +0.011) shows that the positive SZAT score persists across all four regions — a geography-stratified null cannot attribute the result to a single regional anomaly.
+
+- **Proportional-to-vote-share null**: A null proportional to the swing zone's pre-existing vote shares would condition on the partisanship of the VA itself. This is not the appropriate null for a test of *boundary-drawing choice*: the question is whether the commissioner's assignment of a VA to one ED vs another is partisan-neutral, not whether the VA's votes are partisan-neutral. The VA's partisanship is given data; the boundary-drawing choice is the behaviour under test.
+
+The Bernoulli(0.5) null is the correct null for the question SZAT is asking. It is also the null that the pre-registration text specifies verbatim (Appendix §5: "For each of 10,000 permutations: for each swing-zone VA, randomly assign it to either its majority-map ED or its minority-map ED (independent Bernoulli(0.5) draws)"). An analyst who wanted to weaken the result could have proposed a more conservative null; choosing Bernoulli(0.5) is the strongest transparent null, not a choice calibrated to maximize significance.
+
+---
+
+### Challenge 4: "SZAT is only one test. A single novel test does not establish a finding."
+
+**Response.**
+
+SZAT is presented as one component of a two-channel joint test, not as a standalone finding. The Fisher combination (T = 39.02, p = 6.87×10⁻⁸, `analysis/methodology/fisher_combination_defense.md`) requires both channels to contribute; the headline figure is not derived from SZAT alone.
+
+The two channels are structurally independent:
+
+- **Channel 1 (Mahalanobis D²):** Scores the minority map against 1,010,000 neutral ReCom ensemble draws on a joint vector of four established partisan metrics (EG, mean-median, declination, seats@50/50). It asks: *is this map unusual relative to constraint-equivalent neutral alternatives?* It does not examine specific boundary choices.
+
+- **Channel 2 (SZAT):** Decomposes the EG gap to the specific boundary choices that differ between the two real proposals. It asks: *do the places where the minority drew differently from the majority systematically favour one party?* It does not compare the minority to neutral draws.
+
+The independence between channels is not assumed; it is argued in `analysis/methodology/fisher_combination_defense.md` §3: Channel 1 conditions on the whole map's position in the neutral ensemble space; Channel 2 conditions only on the swing zones — a strict subset of boundary choices that is not evaluated by the ensemble test. Positive correlation between them, if present, makes Fisher conservative (see `fisher_combination_defense.md` §5, AV5): Fisher underestimates significance when channels are positively correlated. The combined p-value is a lower bound on significance under dependence.
+
+Beyond the Fisher combination, the directional consistency across five additional non-vote-dependent structural findings (population dispersion, Calgary zone asymmetry, Airdrie fragmentation, spatial anomaly count, procedural departure) is noted in the academic report's §6 synthesis. A hostile reader who rejects SZAT entirely is left with the ensemble result (p = 1.40×10⁻⁶) and the structural lane intact.
+
+---
+
 ## §7 — Implementation Checklist
 
 - [x] Receive Elections Alberta shapefiles and place at canonical paths

@@ -911,8 +911,25 @@ def post_process_html(html: str) -> str:
     return html
 
 
+def resolve_report_tokens(text: str) -> str:
+    """Replace {{R|key}} tokens with values from data/outputs/report_numbers.json."""
+    import json
+    numbers_path = REPO_ROOT / "data" / "outputs" / "report_numbers.json"
+    if not numbers_path.exists():
+        return text
+    numbers = json.loads(numbers_path.read_text(encoding="utf-8"))
+
+    def replacer(m: re.Match) -> str:
+        key = m.group(1)
+        val = numbers.get(key)
+        return str(val) if val is not None else m.group(0)
+
+    return re.sub(r"\{\{R\|([^}]+)\}\}", replacer, text)
+
+
 def md_to_html(src_path: Path) -> str:
     text = src_path.read_text(encoding="utf-8")
+    text = resolve_report_tokens(text)
     md = markdown.Markdown(
         extensions=["tables", "fenced_code", "extra", "sane_lists", "attr_list"]
     )

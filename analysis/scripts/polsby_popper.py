@@ -92,17 +92,26 @@ def polsby_popper(geom) -> float:
     return (4.0 * math.pi * geom.area) / (perim * perim)
 
 
+def _name_col(gdf: gpd.GeoDataFrame) -> str:
+    """Return the ED name column, handling both canonical and derived schemas."""
+    for col in ("EDName2025", "name_2026", "EDName2017", "EDNAME"):
+        if col in gdf.columns:
+            return col
+    raise KeyError(f"No recognized ED name column in {list(gdf.columns)}")
+
+
 def score_map(gpkg_path: Path, label: str) -> pd.DataFrame:
     gdf = gpd.read_file(gpkg_path)
     if gdf.crs is None or gdf.crs.to_string() != TARGET_CRS:
         gdf = gdf.to_crs(TARGET_CRS)
+    name_col = _name_col(gdf)
     rows = []
     for _, r in gdf.iterrows():
         g = r.geometry
         rows.append(
             {
                 "map": label,
-                "ed_name": r["name_2026"],
+                "ed_name": r[name_col],
                 "area_m2": g.area if g is not None else None,
                 "perimeter_m": g.length if g is not None else None,
                 "polsby_popper": polsby_popper(g),

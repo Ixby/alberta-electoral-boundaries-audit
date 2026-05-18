@@ -88,7 +88,7 @@ occurs roughly once in every 15 million draws.
 | --- | --- | --- |
 | Municipal anchoring departure | Both maps within Canadian norm (majority 80%, minority 72%) on canonical shapefiles — anchoring channel not executable as outlier test | Retracted — not available as a channel |
 | Population MAD ratio | Per-plan MAD not in ensemble outputs — requires MCMC rerun with population capture | Minority 1.48× majority |
-| Reock asymmetry | Per-plan Reock not in ensemble outputs — requires MCMC rerun | Minority 2.58× majority on % below 0.30 |
+| Reock asymmetry | Per-plan Reock not in ensemble outputs — requires MCMC rerun | **Retracted (v0_9 substrate).** Canonical EA shapefiles reverse the direction: majority 6.7% (6/89) below 0.30 vs minority 4.5% (4/89). v0_9 had shown minority 2.58× majority (34.8% vs 13.5%). See `findings/reock_verdict.md`. |
 
 ---
 

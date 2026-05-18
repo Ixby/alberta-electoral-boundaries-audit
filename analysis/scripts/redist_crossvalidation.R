@@ -36,15 +36,19 @@ library(sf)
 library(dplyr)
 
 # ----- Step A: Load the input data ----------------------------------
-# These are the same input files the Python pipeline uses.
+# Canonical VA — official Elections Alberta election-day vote file.
+# Row order matches the derived VA (VA_NUMBER ordering verified 2026-05-18),
+# so the pop_cache join below is valid on this substrate.
+# Column names: va_ucp, va_ndp, va_other (election-day only; no _full suffix).
+# UCP share from canonical: ~57.4% — matches simulation_real_map_scores_canonical.json.
 
-va <- st_read("data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg")
+va <- st_read("data/shapefiles/canonical/va_2023_election_day_votes.gpkg")
 cat("Loaded", nrow(va), "voting areas\n")
 cat("Column names:", paste(names(va), collapse = ", "), "\n")
 
-# Sanity-check: _full columns give ~855k UCP / ~690k NDP (~89% coverage)
-total_ucp <- sum(va$va_ucp_full, na.rm = TRUE)
-total_ndp <- sum(va$va_ndp_full, na.rm = TRUE)
+# Sanity-check: canonical election-day columns give ~515k UCP / ~382k NDP (100% coverage)
+total_ucp <- sum(va$va_ucp, na.rm = TRUE)
+total_ndp <- sum(va$va_ndp, na.rm = TRUE)
 cat("Total UCP votes:", total_ucp, "\n")
 cat("Total NDP votes:", total_ndp, "\n")
 cat("UCP share:", round(total_ucp / (total_ucp + total_ndp) * 100, 2), "%\n")
@@ -114,14 +118,14 @@ ensemble <- redist_smc(
 # Note the +1e-9 epsilon (LOW finding from the Gemini code audit).
 
 ucp_share_per_district <- function(plan_assignment, va_data) {
-  ucp <- tapply(va_data$va_ucp_full, plan_assignment, sum)
-  ndp <- tapply(va_data$va_ndp_full, plan_assignment, sum)
+  ucp <- tapply(va_data$va_ucp, plan_assignment, sum)
+  ndp <- tapply(va_data$va_ndp, plan_assignment, sum)
   ucp / (ucp + ndp)
 }
 
 seats_at_50_50 <- function(plan_assignment, va_data) {
   shares <- ucp_share_per_district(plan_assignment, va_data)
-  global_share <- sum(va_data$va_ucp_full) / sum(va_data$va_ucp_full + va_data$va_ndp_full)
+  global_share <- sum(va_data$va_ucp) / sum(va_data$va_ucp + va_data$va_ndp)
   shift <- 0.5 - global_share
   shifted_shares <- pmin(pmax(shares + shift, 0), 1)
   mean(shifted_shares > 0.5 + 1e-9)
@@ -177,20 +181,24 @@ cat("  p5:        ", round(qs[1], 4), "\n")
 cat("  p95:       ", round(qs[3], 4), "\n")
 cat("  p99:       ", round(qs[4], 4), "\n")
 cat("  max:       ", round(max(s50_values), 4), "\n")
-cat("  weighted % >= 0.4831 (v0_9 minority): ",
+cat("  weighted % >= 0.5169 (canonical minority, UCP fraction): ",
+    round(100 * sum(weights[s50_values >= 0.5169]) / sum(weights), 2), "%\n")
+cat("  weighted % >= 0.4831 (v0_9 DPG minority, legacy reference): ",
     round(100 * sum(weights[s50_values >= 0.4831]) / sum(weights), 2), "%\n")
 cat("\n")
-cat("Python ensemble published values (post-audit reference):\n")
-cat("  See analysis/reports/post_audit_recompute_deltas.md for the\n")
-cat("  corrected percentile placements from the 100k pre-registered\n")
-cat("  baseline ensemble. The earlier 2M exploratory enlargement was\n")
-cat("  cancelled in favour of the standard 100k after diagnostics\n")
-cat("  confirmed gold-standard convergence at much smaller sample sizes.\n")
+cat("Canonical-geometry reference values (authoritative as of 2026-05-18):\n")
+cat("  Python ReCom (1,010,000 plans, canonical EA shapefiles):\n")
+cat("    minority seats@50/50 = 0.5169  percentile = 99.99 (p_raw = 0.006%)\n")
+cat("    Source: data/outputs/simulated_ensemble_percentiles_canonical.csv\n")
+cat("  This R SMC run used DERIVED geometry (v0_9 DPG VA substrate);\n")
+cat("  canonical re-run required for a valid canonical comparison.\n")
+cat("  See findings/redist_python_comparison.md §2026-05-18 for resolution.\n")
 cat("\n")
 cat("  Buggy pre-audit 2M values, archived for delta comparison only:\n")
 cat("    median: 0.4483, p5: 0.4253, p95: 0.4828, max: 0.5172\n")
 cat("\n")
 cat("Pass criterion: R values within +/-0.5pp of corrected Python values.\n")
+cat("  Status: PENDING canonical R re-run (see findings/redist_python_comparison.md).\n")
 
 # Compute Polsby-Popper compactness per plan for the falsification tests
 # proposed by the PO ("the mechanism is the geometry"). Mean PP across the
@@ -209,17 +217,19 @@ cat("  p5:     ", round(quantile(mean_pp_per_plan, 0.05), 4), "\n")
 cat("  p95:    ", round(quantile(mean_pp_per_plan, 0.95), 4), "\n")
 
 # FALSIFICATION TESTS (PO design):
-# Test #2: do the SMC plans that reach the minority's 0.4831 seats@50/50
+# Test #2: do the SMC plans that reach the canonical minority's 0.5169 seats@50/50
 # have systematically lower compactness than the rest?
+# Note: canonical threshold is 0.5169 (official EA geometry, 2026-05-18).
+# Legacy v0_9 threshold was 0.4831; kept below for historical comparison.
 # Test #4: how do the SMC compactness distribution and the Python ReCom
 # compactness distribution compare? (Python comparison done in a separate
 # script.)
-high_ucp_mask <- s50_values >= 0.4831
+high_ucp_mask <- s50_values >= 0.5169
 if (sum(high_ucp_mask) > 0) {
   high_pp <- mean_pp_per_plan[high_ucp_mask]
   low_pp  <- mean_pp_per_plan[!high_ucp_mask]
   cat("Falsification Test #2 — does high-UCP-advantage need non-compact geometry?\n")
-  cat(sprintf("  N high-UCP plans (s50 >= 0.4831): %d\n", sum(high_ucp_mask)))
+  cat(sprintf("  N high-UCP plans (s50 >= 0.5169, canonical threshold): %d\n", sum(high_ucp_mask)))
   cat(sprintf("  Mean PP, high-UCP plans:  %.4f (lower = less compact)\n",
               mean(high_pp)))
   cat(sprintf("  Mean PP, other plans:     %.4f\n", mean(low_pp)))

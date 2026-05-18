@@ -1,10 +1,58 @@
 ---
 name: polsby_popper_verdict
-description: Does the Lane 2 lasso/non-compactness claim survive the v0_9 topological substrate?
+description: Polsby-Popper compactness per district for both 2026 maps. Contains results for both v0_9 derived substrate and canonical EA shapefiles.
 type: project
 ---
 
-# v0_9 Polsby-Popper verdict
+# Polsby-Popper verdict
+
+## Canonical EA shapefiles (authoritative, 2026-05-18)
+
+**Inputs:** `ea_minority_2026_eds.gpkg`, `ea_majority_2026_eds.gpkg` (official Elections Alberta, received 2026-05-06).
+**Script:** `analysis/scripts/polsby_popper.py` (canonical path preference via `_pick_gpkg()`).
+**Data:** `data/polsby_popper_per_district.csv` (178 rows, 89 minority + 89 majority).
+**CRS:** EPSG:3401 (Alberta 10-degree TM).
+
+| Metric | Minority | Majority |
+|---|---|---|
+| EDs scored | 89/89 | 89/89 |
+| Mean PP | **0.432** | 0.437 |
+| Median PP | 0.437 | 0.437 |
+| PP < 0.25 | **6/89 = 6.7%** | 8/89 = 9.0% |
+
+**Bottom 5 by PP (minority):** Canmore-Kananaskis 0.175, Lethbridge-Fort Macleod-Crowsnest Pass 0.226, Edmonton-South 0.229, Edmonton-Windermere 0.234, Calgary-Nolan Hill-Cochrane 0.236.
+
+**Bottom 5 by PP (majority):** Canmore-Banff 0.149, Livingstone-Macleod 0.196, Stony Plain-Drayton Valley 0.205, Edmonton-South 0.229, Edmonton-Windermere 0.234.
+
+**Named lasso districts (canonical):**
+
+| District (minority) | PP (canonical) | Flag (PP < 0.25) |
+|---|---|---|
+| Calgary-Nolan Hill-Cochrane | 0.236 | **borderline** |
+| Calgary-Foothills-Airdrie West | 0.415 | not flagged |
+| Edmonton-Enoch-Devon | 0.534 | not flagged |
+| Stony Plain-Drayton Valley | 0.310 | not flagged |
+| Calgary-Airdrie | 0.526 | not flagged |
+| majority Stony Plain-Drayton Valley | 0.205 | **flagged** |
+
+**Interpretation.** Under canonical EA geometry, the majority map has more below-threshold districts (8 vs 6) and a slightly higher mean PP. The direction from the v0_9 derived analysis (minority less compact) does not hold under official geometry. Calgary-Nolan Hill-Cochrane is borderline (0.236, just above 0.25), not clearly flagged. The PP metric on canonical EA shapefiles does not support a "minority significantly less compact" conclusion.
+
+**The chair's qualitative lasso flag for Calgary-Nolan Hill-Cochrane is independent of any PP score.** The narrow-waist visual shape is real and documented in the commission's published materials; this verdict speaks only to the PP metric.
+
+---
+
+# v0_9 Polsby-Popper verdict (historical — derived substrate)
+
+**Status: SUPERSEDED by canonical EA results above. Retained for delta comparison.**
+
+**Status at writing:** claim survives directionally, but the specific 7.1% / 3.5% framing and one of the five named lasso districts do not.
+
+## Headline
+
+Two of the five publicly-named lasso districts are **above** the conventional PP < 0.25 flag threshold under the v0_9 topological substrate:
+
+- **Calgary-Nolan Hill-Cochrane (minority): PP = 0.402 — above 0.25.** This is the single district the commission chair flagged by name as a "lasso-shaped corridor". Under the gapless / overlap-free v0_9 substrate it scores in the *moderate* compactness band, not the *low* band. It still has a visible narrow waist on the map, but the Polsby-Popper number does not by itself put it in flag territory. The chair's qualitative flag is independent of any PP threshold; this verdict is only about whether the PP metric supports the flag.
+- **Calgary-Airdrie (minority): PP = 0.286** — above 0.25, low end of moderate.
 
 **Status: claim survives directionally, but the specific 7.1% / 3.5% framing and one of the five named lasso districts do not.**
 

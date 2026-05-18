@@ -2,8 +2,11 @@
 Phase 1 — Population Equality (Section A)
 Alberta Electoral Boundaries Audit v0.8
 
+Lane 2 (Structural), Step 1 of 1: Population equality (A1–A3)
+Standalone — no upstream script dependencies; feeds Lane 2 structural scorecard
+
 A1: Variance distribution for each 2026 map
-A2: Geographic asymmetry (Calgary NE/central vs S/W; NDP-leaning vs UCP-leaning)
+A2: Geographic asymmetry (Calgary NE/central vs S/W geographic zones)
 A3: s.15(2) eligibility audit for protected ridings
 
 Output is printed and also captured for the Section A MD.
@@ -103,8 +106,8 @@ def print_a1(maj: pd.DataFrame, minr: pd.DataFrame) -> list[dict]:
 
 # ---------------------------------------------------------------------------
 # A2 — Geographic asymmetry
-# Classify Calgary EDs into NE/central (historically NDP-competitive) vs
-# S/W (historically UCP-dominant). Test whether one region is systematically
+# Classify Calgary EDs into NE/central (Zone A) vs S/W (Zone B) by
+# purely geographic criteria. Test whether one zone is systematically
 # over- or under-populated relative to the other under each 2026 map.
 #
 # Classification uses both ED name geography and 2023 results as cross-check.
@@ -119,18 +122,16 @@ def print_a1(maj: pd.DataFrame, minr: pd.DataFrame) -> list[dict]:
 #   Zone B: Calgary EDs whose centroid lies south or west of that line.
 #           This captures S, SW, and W Calgary.
 #
-# The partisan correlation of these zones (Zone A historically NDP-
-# competitive, Zone B historically UCP-dominant) is a property of voter
-# geography; it is NOT baked into the classification. The test below
-# measures whether either zone has systematically larger or smaller
-# population than the other, and reports the gap without direction-
-# loaded interpretation. Partisan interpretation is a separate step in
-# the written analysis.
+# The partisan correlation of these zones is a property of voter
+# geography observable from public election results; it is NOT baked
+# into the classification rule. The test measures whether either zone
+# has systematically larger or smaller population than the other under
+# each 2026 map, and reports the gap without pre-assigned direction.
+# Partisan interpretation is a separate step in the written analysis.
 #
-# Robustness: run_alternative_classification() below re-runs the A2
-# test using a purely data-driven rule (2023 UCP-won EDs vs 2023 NDP-
-# won EDs mapped forward by name match) so the classification itself
-# can be falsified.
+# Robustness: a2_robustness_check() below re-runs the A2 test using a
+# purely data-driven rule (2023 UCP-won EDs vs 2023 NDP-won EDs mapped
+# forward by name match) so the classification itself can be falsified.
 CALGARY_ZONE_A = {  # North / East / Central geographic zone
     "Calgary-Beddington",
     "Calgary-Bhullar-McCall",

@@ -1,6 +1,9 @@
 """
 joint_outlier_score_canonical.py -- Joint Outlier Score (Duck Score), canonical run
 
+Lane 1 (Statistical), Fisher combination: Mahalanobis D² (Channel 1) + SZAT (Channel 2) -> headline p-value
+Reads Channel 2 p-value from: findings/szat_summary.json
+
 Same methodology as joint_outlier_score.py but uses the canonical 100k ensemble
 (simulated_ensemble_raw_samples_canonical.csv) and canonical real-map scores
 (simulation_real_map_scores_canonical.json).

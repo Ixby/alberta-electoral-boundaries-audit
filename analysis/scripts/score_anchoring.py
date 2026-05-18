@@ -2,6 +2,9 @@
 score_anchoring.py — Lane-2 Dangerzone metric #1 (municipal anchoring %)
 ========================================================================
 
+Lane 2 (Structural), Ancillary: Municipal-boundary anchoring fraction
+Standalone — result feeds §5.8.5 and §6 structural synthesis
+
 Wraps the operational definition documented in
 `analysis/scripts/municipal_anchoring.py` (and validated against 2019 in
 `analysis/scripts/municipal_anchoring_2019_baseline.py`) as a

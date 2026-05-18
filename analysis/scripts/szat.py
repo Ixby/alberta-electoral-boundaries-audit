@@ -1,6 +1,10 @@
 """
 szat.py — Swing-Zone Allocation Test
 
+Lane 1 (Statistical), Channel 2 (standalone): Swing-Zone Allocation Test
+Precursor: phase4c_canonical_attribution uses the same VA representative_point assignment method
+Feeds: joint_outlier_score_canonical (Channel 2 p-value input for Fisher combination)
+
 Decomposes the efficiency-gap difference between the minority and majority
 2026 Alberta Electoral Boundary Commission maps into the specific boundary
 choices (swing zones) that drive it.
@@ -196,19 +200,29 @@ def run() -> None:
         "--full-votes", action="store_true",
         help="Use full-vote columns (va_ucp_full/va_ndp_full) instead of election-day."
     )
+    parser.add_argument(
+        "--va-file", type=str, default=None,
+        help="Override default VA file path (e.g., canonical va_2023_election_day_votes.gpkg)."
+    )
     args = parser.parse_args()
 
     ucp_col = "va_ucp_full" if args.full_votes else "va_ucp"
     ndp_col = "va_ndp_full" if args.full_votes else "va_ndp"
     substrate_label = "full (advance+election-day; ~1,544k)" if args.full_votes else "election-day (~896k)"
 
+    va_path = Path(args.va_file) if args.va_file else VA_FILE
+    if args.va_file:
+        substrate_label += f" [canonical VA: {va_path.name}]"
+
     suffix = "_full_votes" if args.full_votes else ""
+    if args.va_file:
+        suffix += "_canonical_va"
     out_csv = REPORTS / f"szat_results{suffix}.csv"
     out_json = REPORTS / f"szat_summary{suffix}.json"
 
     verify_canonical_files()
     print("Loading shapefiles...")
-    va_gdf = gpd.read_file(VA_FILE)
+    va_gdf = gpd.read_file(va_path)
     maj_gdf = gpd.read_file(MAJ_FILE)
     min_gdf = gpd.read_file(MIN_FILE)
 

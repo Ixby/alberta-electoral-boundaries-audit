@@ -1,6 +1,11 @@
 """
 mcmc_ensemble_canonical.py
 --------------------------
+
+Lane 1 (Statistical), Step 3 of 3: Neutral-ensemble generation + real-map scoring
+Chain: phase4c_canonical_attribution → packing_cracking_analysis → mcmc_ensemble_canonical
+Forward: joint_outlier_score_canonical (Mahalanobis D² + Fisher combination)
+
 100k ReCom MCMC ensemble re-run against official Elections Alberta canonical
 shapefiles (ea_majority_2026_eds.gpkg / ea_minority_2026_eds.gpkg).
 
@@ -175,6 +180,7 @@ def main(
     chunk_size: int = 5000,
     run_id: str = "canonical",
     va_file: Path = None,
+    first_chain_idx: int = 0,
 ):
     verify_canonical_files()
     from drand_seed import get_canonical_seed
@@ -264,7 +270,7 @@ def main(
     chain_paths = [checkpoint_dir / f"chain{i}_samples.csv" for i in range(n_chains)]
     va_file_str = str(va_file) if va_file is not None else ""
     work_items = [
-        (i, n_steps_per_chain, seed, pop_deviation, str(chain_paths[i]), chunk_size, va_file_str)
+        (i + first_chain_idx, n_steps_per_chain, seed, pop_deviation, str(chain_paths[i]), chunk_size, va_file_str)
         for i in range(n_chains)
     ]
 
@@ -367,6 +373,10 @@ if __name__ == "__main__":
                         help="Override VA polygons file (e.g. for cross-election threshold "
                              "analysis). Must have va_ndp/va_ucp columns. Default: canonical "
                              "2023-votes file.")
+    parser.add_argument("--first-chain-idx", type=int, default=0,
+                        help="Offset added to chain index when deriving per-chain seeds. "
+                             "Use 1 to skip chain 0 when chain 0's seed produces an "
+                             "unresolvable bipartition (e.g. b5_variant seed 1155916443).")
     args = parser.parse_args()
     os.environ.setdefault("PYTHONIOENCODING", "utf-8")
     main(
@@ -377,4 +387,5 @@ if __name__ == "__main__":
         chunk_size=args.chunk_size,
         run_id=args.run_id,
         va_file=Path(args.va_file) if args.va_file else None,
+        first_chain_idx=args.first_chain_idx,
     )

@@ -5,6 +5,11 @@ description: Compares VA-resolution measured results against the v0.2 proportion
 
 # Phase 4C vs v0.2 gerrymander-metric comparison
 
+*Declination sign convention: positive = pro-UCP (Warrington 2018, matching
+`mcmc_ensemble.py`). Values sign-corrected 2026-05-18; earlier versions of this
+document used the inverted convention (positive = pro-NDP) from the pre-fix
+`packing_cracking_analysis.py`.*
+
 ## Summary
 
 Phase 4C assigns 4,765 VA polygons to their 2026 EDs using spatial
@@ -23,7 +28,7 @@ reproduce the v0.2 asymmetry finding, for reasons explained below.
 | B2 Efficiency gap | -2.64% | -0.85% | -1.36% |
 | B3 Mean-median | -2.22pp | -0.18pp | -0.34pp |
 | B4 NDP @ 50/50 | 46 | 44 | 42 |
-| B6 Declination | -0.0341 | -0.0210 | -0.0150 |
+| B6 Declination | +0.0341 | +0.0210 | +0.0150 |
 | **Min-Maj asymmetry (EG)** | | | **-0.51pp** |
 
 ### v0.2 (proportional-estimate, w=0.85 urban blend, full 2023 vote) — preferred
@@ -74,12 +79,12 @@ All 89 EDs fully resolved in both maps after:
 | B2 Efficiency gap | +2.41% | +1.44% | +1.75% |
 | B3 Mean-median | -0.77pp | -0.79pp | -1.79pp |
 | B4 NDP @ 50/50 | 47 | 48 | 46 |
-| B6 Declination | +0.0270 | +0.0167 | -0.0061 |
+| B6 Declination | -0.0270 | -0.0167 | +0.0061 |
 | **Min-Maj asymmetry (EG)** | | | **+0.31pp** |
 
 Note: +EG = minority map is *less* pro-UCP than majority on this metric;
 B3 and B6 tell the opposite story (minority mean-median -1.79pp vs -0.79pp
-and negative declination signal pro-UCP lean). No single-metric conclusion
+and positive declination signal pro-UCP lean). No single-metric conclusion
 is warranted from Phase 4C alone.
 
 ### Monte Carlo 95% CIs (Phase 4C v2, 2,000 draws)
@@ -90,12 +95,46 @@ is warranted from Phase 4C alone.
 | EG median | +0.16% | +1.50% |
 | Mean-median | [-2.58pp, +0.58pp] | [-3.21pp, -0.31pp] |
 | NDP @ 50/50 | [44, 50] | [45, 50] |
-| Declination | [-0.0552, +0.0543] | [-0.0611, +0.0679] |
+| Declination | [-0.0543, +0.0552] | [-0.0679, +0.0611] |
 | EG negative (pro-UCP) | 48.4% | 23.9% |
 
 Mean-median CI for minority does not cross zero ([-3.21pp, -0.31pp]),
 indicating a statistically consistent pro-UCP lean on that metric under
 Election-Day vote distribution. All other CIs cross zero.
+
+### Phase 4C canonical — official EA shapefiles, pure spatial join (2026-05-17)
+
+Authoritative re-run using `phase4c_canonical_attribution.py` directly
+against the official Elections Alberta shapefiles (`ea_majority_2026_eds.gpkg`,
+`ea_minority_2026_eds.gpkg`, received 2026-05-06). Replaces crosswalk +
+nearest-ED fallback assignments (206 majority / 74 minority) with canonical
+centroid-in-polygon for all VAs. Source: `data/outputs/phase4c_canonical_results.json`.
+
+Sign convention: EG positive = UCP structural advantage (NDP wastes more votes).
+MM positive = mean NDP share > median (NDP voters more uniformly spread).
+Declination: script uses positive = pro-NDP; document convention is positive = pro-UCP;
+values below are in **document convention** (signs flipped from JSON).
+
+| Metric | Majority | Minority | Asymmetry (Min − Maj) |
+|---|---|---|---|
+| Two-party votes | 896,644 | 896,644 | — |
+| EDs resolved | 89/89 | 89/89 | — |
+| EG (positive = UCP advantage) | +0.10% | +4.02% | **+3.92pp** |
+| Mean-median (NDP share) | −3.62pp | +1.04pp | +4.66pp |
+| B4 NDP @ 50/50 | 48 | 43 | −5 seats |
+| Declination (doc conv., +pro-UCP) | +0.016 | −0.046 | — |
+
+**Interpretation.** The seats@50/50 direction (majority gives NDP 5 more seats than
+minority) is consistent with and strengthens the MCMC canonical finding
+(minority NDP@50/50 at p99.99). EG asymmetry (+3.92pp) is larger than the
+Phase 4C v2 estimate (+0.31pp) because canonical spatial assignment produces
+different per-ED vote distributions from the crosswalk approximation. Declination
+and mean-median are mixed: minority declination is pro-NDP under election-day
+votes, consistent with a packing pattern (NDP concentrated in fewer safer seats).
+
+This run supersedes Phase 4C v2 for the authoritative seats@50/50 comparison.
+The v0.2 blended-crosswalk comparison (+0.85, −1.41pp EG asymmetry) remains
+separately documented as the full-vote estimate.
 
 ## Why the results differ
 

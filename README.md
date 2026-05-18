@@ -51,6 +51,9 @@ To reproduce the core findings or run your own analysis, you can get the environ
 git clone https://github.com/Ixby/alberta-electoral-boundaries-audit.git
 cd alberta-electoral-boundaries-audit
 
+# 1b. Pull Git LFS files (MCMC checkpoints, ~1 GB — required for ensemble re-runs)
+git lfs install && git lfs pull
+
 # 2. Install dependencies
 pip install -r requirements.txt
 
@@ -143,9 +146,9 @@ This audit is not finished. The following are genuinely unresolved.
 
 **The counter-map challenge (Issue #14).** The §5.8.5 anchoring finding has a retraction condition: produce a map that achieves the minority's stated community-of-interest objectives with majority-comparable municipal-boundary anchoring. Producing that map requires the commission's drawing tools and the official 2026 shapefiles. No counter-map has been produced. If one is, §5.8.5 retracts.
 
-**1M MCMC ESS-upgrade run — complete (2026-05-12).** The authoritative ensemble is 1,010,000 plans (4 chains × 252,500 steps, same seed and shapefiles as the initial 250k run). Partisan-metric ESS is 1,429–1,682. The ESS-adjusted lower bound for the seats@50/50 flag rose from p89.72 (below p95 at 250k) to ≈p98 (above p95 at 1M), reinstating the flag. All headline p-values and percentile placements in §5.4.9 reflect the 1M ensemble. An independent seed check (Section C, seed 3562959107, 100k plans) confirmed the population MAD and Reock null findings; partisan metrics are consistent within sampling variation.
+**1,010,000-plan MCMC ESS-upgrade run — complete (2026-05-12).** The authoritative ensemble is 1,010,000 plans (4 chains × 252,500 steps, same seed and shapefiles as the initial 250k run). Partisan-metric ESS is 1,429–1,682. The ESS-adjusted lower bound for the seats@50/50 flag rose from p89.72 (below p95 at 250k) to ≈p98 (above p95 at 1,010,000 plans), reinstating the flag. All headline p-values and percentile placements in §5.4.9 reflect the 1,010,000-plan ensemble. An independent seed check (Section C, seed 3562959107, 100k plans) confirmed the population MAD and Reock null findings; partisan metrics are consistent within sampling variation.
 
-*Note on why the 1M Ch1 p-value is less extreme than the 100k run:* as the ensemble grew from 100k to 1M plans (n_eff 379 → 1,429 for the minimum metric), the Mahalanobis covariance matrix was estimated more precisely. The better-calibrated covariance shows the minority map is somewhat less extreme than the noisier 100k estimate suggested — Ch1 p moved from 1.60×10⁻⁷ to 1.40×10⁻⁶. This is a calibration effect, not a weakening of the finding. The Fisher combined p (6.87×10⁻⁸) remains overwhelming; the individual metric percentiles (mean-median p99.98, seats@50/50 p99.99) are stronger, not weaker, in the 1M run.
+*Note on why the 1,010,000-plan Ch1 p-value is less extreme than the 100k run:* as the ensemble grew from 100k to 1,010,000 plans (n_eff 379 → 1,429 for the minimum metric), the Mahalanobis covariance matrix was estimated more precisely. The better-calibrated covariance shows the minority map is somewhat less extreme than the noisier 100k estimate suggested — Ch1 p moved from 1.60×10⁻⁷ to 1.40×10⁻⁶. This is a calibration effect, not a weakening of the finding. The Fisher combined p (6.87×10⁻⁸) remains overwhelming; the individual metric percentiles (mean-median p99.98, seats@50/50 p99.99) are stronger, not weaker, in the 1,010,000-plan run.
 
 **The 2019-seeded MCMC ensemble (Issue #13).** The constraint-bound ensemble in §5.4 starts from a random seed, not from the 2019 enacted map. A chain seeded at the 2019 enacted geometry would more directly model incremental commission drawing and might place both 2026 recommendations differently within the ensemble distribution.
 

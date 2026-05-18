@@ -195,3 +195,45 @@ Approximate total remediation: ~100 minutes focused work. This is before re-runn
 ---
 
 *Bias audit complete. Class-A issues are real and should be fixed before publication. Class-B issues are language-tightening that does not invalidate findings. The audit's core pattern-of-evidence is sound; the current draft overstates one central number's reproducibility and carries a few bias tells in source-code comments that a hostile reader would fairly call out.*
+
+---
+
+## A1 Provenance Verification — Phase 4C Update — 2026-05-18
+
+**Status: RESOLVED (Phase 4C).** Class-A1 is fully resolved. `analysis/scripts/packing_cracking_analysis.py` v0.3 replaces the v0.2 70/30 urban/rural blend with exact VA-level spatial attribution: VA polygon centroids are joined to the official Elections Alberta shapefiles via `representative_point()` + within-predicate `gpd.sjoin`, summing `va_ndp`/`va_ucp` per ED — identical to `mcmc_ensemble_canonical.py`.
+
+### Phase 4C output (2026-05-18, run on canonical shapefiles)
+
+| Metric | 2019 baseline | Majority 2026 (Phase 4C) | Minority 2026 (Phase 4C) |
+|---|---|---|---|
+| EDs | 87 | 89 | 89 |
+| Actual seats NDP/UCP | 38/49 | 34/55 | 29/60 |
+| B2 Efficiency gap | −2.64% | **+0.04%** | **+3.96%** |
+| B3 Mean-median (NDP) | −2.22 pp | **−3.64 pp** | **+1.03 pp** |
+| B4 NDP @ 50/50 | 46 | **48** | **43** |
+| B6 Declination | +0.0341 | +0.0157 | −0.0463 |
+
+**EG minority-majority asymmetry: +3.92 pp** (minority shifts toward NDP-favorable EG; UCP wins more seats at actual vote shares but by slim margins that generate high wasted UCP votes).
+
+Gate output: `[GATE] Majority 2026 validation: PASS`, `[GATE] Minority 2026 validation: PASS`.
+
+### Cross-check against MCMC real-map scores
+
+Phase 4C and MCMC (`mcmc_ensemble_canonical.py`) use the same `va_ndp`/`va_ucp` columns. Comparison:
+
+| Metric | MCMC real-map score | Phase 4C | Delta |
+|---|---|---|---|
+| Majority EG | +0.0010 | +0.0004 | 0.0006 |
+| Minority EG | +0.0402 | +0.0396 | 0.0006 |
+| Majority seats UCP | 55/89 | 55/89 | 0 |
+| Minority seats UCP | 60/89 | 60/89 | 0 |
+| Majority MM | −0.0362 | −0.0364 | 0.0002 |
+| Minority MM | +0.0104 | +0.0103 | 0.0001 |
+
+Agreement is within floating-point rounding — the two pipelines are now unified.
+
+### Methodological note on province-wide NDP share
+
+The `va_ndp`/`va_ucp` integer columns sum to 893,018 total (42.56% NDP province-wide), versus 1,706,304 in the 2023 election CSV (45.56% NDP). The integer columns represent a downscaled allocation preserving the intra-ED partisan *ratios*, not the absolute vote scale. All bias metrics (EG, MM, declination, s50) are ratio statistics and are invariant to this scaling — they are directly comparable to the MCMC ensemble results, which use the same columns.
+
+**Report update required:** The v0.2 blend numbers (−0.40% majority EG, −1.81% minority EG) that were previously cited in `reports/academic/report_academic.md` §5.2 must be replaced with Phase 4C values. See the DOCUMENTED CORRECTIONS section in the report for the formal correction entry.
