@@ -47,13 +47,16 @@ ALBERTA_EDS = data_loader._resolve_path("data") / "shapefiles" / "reference" / "
 DERIVED = data_loader._resolve_path("data") / "shapefiles" / "derived"
 # Prefer v0_9 (topological VA-dissolve, gapless by construction) →
 # v0_8 refined → v0_8 canonical → v0_7 canonical
+CANONICAL = data_loader._resolve_path("data") / "shapefiles" / "canonical"
 APPROX_MAJ_CANDIDATES = [
+    CANONICAL / "ea_majority_2026_eds.gpkg",
     DERIVED / "v0_10_topological_majority_2026_eds.gpkg",
     DERIVED / "v0_8_refined_majority_2026_eds.gpkg",
     DERIVED / "v0_8_canonical_majority_2026_eds.gpkg",
     DERIVED / "v0_7_canonical_majority_2026_eds.gpkg",
 ]
 APPROX_MIN_CANDIDATES = [
+    CANONICAL / "ea_minority_2026_eds.gpkg",
     DERIVED / "v0_10_topological_minority_2026_eds.gpkg",
     DERIVED / "v0_8_refined_minority_2026_eds.gpkg",
     DERIVED / "v0_8_canonical_minority_2026_eds.gpkg",
@@ -275,15 +278,10 @@ def build_cover_art() -> Path:
     #    centre heatmap (where within an ED the people actually are). The
     #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
     #    the 89-district structure remains visible.
-    cover_ivory = "#cccccc"  # 20% grey backdrop (lighter than 50% #808080)
-    # Single-hero composition: the v0_9 minority map fills the canvas.
-    # The earlier 3-tile version (v0_7 ghost / v0_9 hero / v0_8 ghost)
-    # was visually elegant but the per-VA texture and the line-drawing
-    # detail of the minority commission's choices need every pixel of
-    # the hero to read at print scale.
+    blend_ivory = "#f5efe0"  # warm-white blend target for sparse rural VAs
     fig, ax = plt.subplots(figsize=(6.0, 9), dpi=300)
-    fig.patch.set_facecolor(cover_ivory)
-    ax.set_facecolor(cover_ivory)
+    fig.patch.set_facecolor('none')   # transparent background
+    ax.set_facecolor('none')          # transparent axes
     ax.set_aspect("equal")
     ax.axis("off")
 
@@ -328,7 +326,7 @@ def build_cover_art() -> Path:
     d_min, d_max = -8.0, -3.0
     weight = ((log_d - d_min) / (d_max - d_min)).clip(0.10, 1.0)
 
-    ivory_rgb = np.array(mcolors.to_rgb(cover_ivory))
+    ivory_rgb = np.array(mcolors.to_rgb(blend_ivory))
 
     def _va_fill(ucp_share, w):
         # Three-stop blend: ivory (very low density) → partisan colour
@@ -380,7 +378,7 @@ def build_cover_art() -> Path:
     province.boundary.plot(
         ax=ax,
         edgecolor="#7a1f1f",  # title-accent red
-        linewidth=0.65,
+        linewidth=2.0,
     )
 
     ax.margins(0.005)
@@ -392,7 +390,8 @@ def build_cover_art() -> Path:
         dpi=300,
         bbox_inches="tight",
         pad_inches=0.02,
-        facecolor=cover_ivory,
+        facecolor='none',
+        transparent=True,
     )
     plt.close(fig)
     print(f"[build_cover] Wrote hero art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
