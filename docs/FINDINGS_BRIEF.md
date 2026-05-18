@@ -127,6 +127,6 @@ I have supported parties on all sides of the political spectrum depending on the
 
 ---
 
-*Full plain-language report (longer, with maps): [`report_public.md`](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md)*
-*Full technical report: [`report_academic.md`](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md)*
+*Full plain-language report (longer, with maps): [`report_public.md`](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.md)*
+*Full technical report: [`report_academic.md`](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md)*
 *All data and code: [github.com/Ixby/alberta-electoral-boundaries-audit](https://github.com/Ixby/alberta-electoral-boundaries-audit)*
