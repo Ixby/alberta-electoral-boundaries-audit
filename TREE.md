@@ -1,6 +1,6 @@
 # Repository Tree
 
-*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C added).*
+*Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C live on GitHub Pages).*
 
 ---
 
@@ -31,10 +31,14 @@ Project-level documentation, operational setup notes, and policy outputs that ar
 
 ```
 docs/
-├── index.html                 GitHub Pages landing page — self-contained HTML, key findings table,
-│                              links to reports and Colab notebook
-├── FINDINGS_BRIEF.md          One-page plain-language brief — seat-gap and wasted-vote framings;
-│                              no p-values; CoI disclosure; what-this-does-not-claim paragraph
+├── index.html                 GitHub Pages landing page — cover art, key findings table, links to
+│                              reports and Colab notebook; written for readers new to the topic
+├── FINDINGS_BRIEF.md          One-page plain-language brief (Markdown) — seat-gap and wasted-vote
+│                              framings; no p-values; CoI disclosure; concept-first explanations
+├── FINDINGS_BRIEF.html        Print-ready single-page brief (HTML) — same content as .md; open in
+│                              Chrome and File → Print → Save as PDF to generate the PDF deliverable
+├── images/
+│   └── lane1_dotplot.svg      Copy of data/maps/article/lane1_dotplot.svg for GitHub Pages hosting
 ├── COMPLETED_LOG.md           Finished-task log — every completed item with date and outcome
 ├── FROZEN_MANIFEST.md         Canonical file manifest — hashes of every committed output
 ├── REPRODUCING.md             Step-by-step instructions to re-run every quantitative claim

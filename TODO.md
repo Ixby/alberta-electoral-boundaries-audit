@@ -149,7 +149,7 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 
 ### Media Prep Kit
 
-1. **1-page non-technical summary** — no p-values, no EG; use seat-gap and wasted-vote framings
+1. **DONE 2026-05-18 — 1-page non-technical summary**: `docs/FINDINGS_BRIEF.md` (Markdown) and `docs/FINDINGS_BRIEF.html` (print-to-PDF via Chrome). Concept-first, no p-values, no EG acronym; seat-gap and wasted-vote framings; CoI disclosure; what-this-does-not-claim block. GitHub Pages live at `docs/index.html`.
 2. **Visual asset package** — 3–5 key figures export-ready (300 dpi PNG); existing SVGs in `data/maps/mcmc/` are candidates
 3. **FAQ document** — 10 questions a journalist or MLA would ask; pre-drafted answers; include "what this study does NOT claim"
 4. **Contact list** — Bratt + 2 others willing to field media calls; confirmation required before release
