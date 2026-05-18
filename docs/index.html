@@ -234,114 +234,118 @@
 <header>
   <div class="container">
     <h1>Alberta Electoral Boundary Audit</h1>
-    <p class="subtitle">An independent statistical analysis of the 2025–26 commission maps using 1,010,000 computer-simulated neutral redistributions.</p>
-    <span class="badge">Phase 4C &mdash; Official Elections Alberta shapefiles &mdash; May 2026</span>
+    <p class="subtitle">An independent look at Alberta's two 2026 riding maps — using 1,010,000 computer-drawn comparison maps to see if the results are normal or unusual.</p>
+    <span class="badge">Official Elections Alberta maps &mdash; May 2026</span>
   </div>
 </header>
 
 <nav>
   <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">GitHub</a>
-  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md">Public Report</a>
-  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md">Academic Report</a>
-  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/docs/FINDINGS_BRIEF.md">One-Page Brief</a>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md">Full Public Report</a>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md">Technical Report</a>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/docs/FINDINGS_BRIEF.md">One-Page Summary</a>
 </nav>
 
 <div class="container">
 
   <section>
-    <h2>What Happened</h2>
+    <h2>What happened</h2>
     <p class="lead">
-      Alberta's 2025–26 Electoral Boundary Commission could not agree. Three commissioners signed a majority map; two produced a minority (alternative) map. Both were legally compliant. On April 16, 2026 the provincial government set both aside and assigned redistricting to a five-member committee of MLAs — three from the governing United Conservative Party (UCP). This audit measured both commission maps using the same statistical tools, applied identically to each.
+      Alberta has 89 seats in its legislature. A five-person commission was appointed to draw the riding boundaries — the lines that determine which communities each seat represents. The commission split: three members produced one map, and two members produced a different one. On April 16, 2026, the provincial government rejected both and handed the job to a five-MLA committee, three of whom are from the governing United Conservative Party (UCP). This audit compared the two commission maps using the same tests, applied equally to both.
     </p>
+    <div class="callout">
+      <strong>What is a riding?</strong> A riding (also called an electoral district) is the area you share with your MLA. Every riding elects one person to the legislature. Where the boundary lines go matters: move a few streets one way and a neighbourhood ends up in a rural riding. Move them the other way and it stays with other city residents. Those choices can change how many seats each party wins &mdash; even without changing a single vote.
+    </div>
   </section>
 
   <section>
-    <h2>Three Headline Numbers</h2>
+    <h2>Three key numbers</h2>
 
     <div class="findings-grid">
       <div class="card">
-        <div class="label">Seat swing at a 50/50 vote</div>
+        <div class="label">Seats at a tied vote</div>
         <div class="number flag">5 seats</div>
         <div class="description">
-          At a perfectly tied provincial vote, the minority map awards 5 fewer seats to the NDP (43) than the majority map (48) — without changing a single ballot.
+          If the vote split exactly 50-50, the minority map gives the NDP 43 seats and the majority map gives them 48 &mdash; a 5-seat swing, without changing a single ballot.
         </div>
       </div>
       <div class="card">
-        <div class="label">Vote-to-seat imbalance</div>
+        <div class="label">Wasted vote gap</div>
         <div class="number flag">41&times;</div>
         <div class="description">
-          The minority map's structural vote-to-seat imbalance (&asymp;36,000 excess wasted NDP votes) is roughly 41 times larger than the majority map's (&asymp;881).
+          The minority map wastes roughly 36,000 more NDP votes than UCP votes. The majority map's gap is only ~881. The minority map's gap is 41 times larger.
         </div>
       </div>
       <div class="card">
-        <div class="label">Population spread gap</div>
+        <div class="label">Riding size spread</div>
         <div class="number flag">48%</div>
         <div class="description">
-          The minority map's average district deviates from the provincial population mean by 4,707 people &mdash; 48% wider than the majority map's 3,180.
+          The minority map's ridings vary more in population &mdash; 4,707 people off average versus 3,180 under the majority map. More variation means votes don't count equally.
         </div>
       </div>
     </div>
 
     <div class="callout">
-      All three differences consistently favour the UCP. The majority map's seat-allocation score falls in the normal range of the 1,010,000-map simulation (83rd percentile). The minority map's reaches the 99.99th percentile &mdash; fewer than 100 of 1,010,000 neutral draws achieve a result that extreme.
+      A computer program drew 1,010,000 random Alberta maps, all following the same rules the commission had to follow. The majority map's seat result was normal &mdash; most random maps look similar. The minority map's result was extreme: <strong>fewer than 100 of the 1,010,000 random maps</strong> produced a seat split that far in favour of the UCP at a tied vote.
     </div>
   </section>
 
   <section>
-    <h2>Full Comparison Table</h2>
+    <h2>Full comparison table</h2>
+    <p>Every test was run the same way on both maps. Green = within normal range. Red = flagged as unusual.</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Measure</th>
+            <th>What was measured</th>
             <th>Majority map</th>
             <th>Minority map</th>
-            <th>Direction</th>
+            <th>Who benefits</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Population spread (avg. deviation from mean)</td>
-            <td class="normal">3,180 people</td>
-            <td class="flag">4,707 people &mdash; 48% wider</td>
+            <td>How much riding sizes vary (lower is fairer)</td>
+            <td class="normal">3,180 people off average</td>
+            <td class="flag">4,707 people off average &mdash; 48% worse</td>
             <td>Reduces vote equality</td>
           </tr>
           <tr>
-            <td>NW Calgary population excess above average</td>
-            <td class="normal">+2.8%</td>
-            <td class="flag">+11.5%</td>
-            <td>UCP (packs urban NDP votes)</td>
+            <td>Northwest Calgary: how far above average in population</td>
+            <td class="normal">+2.8% above average</td>
+            <td class="flag">+11.5% above average</td>
+            <td>UCP (NDP votes piled into fewer ridings)</td>
           </tr>
           <tr>
-            <td>City of Airdrie divided into how many districts</td>
-            <td class="normal">2</td>
-            <td class="flag">4</td>
-            <td>UCP (fragments urban/suburban power)</td>
+            <td>How many pieces is the City of Airdrie split into</td>
+            <td class="normal">2 pieces</td>
+            <td class="flag">4 pieces</td>
+            <td>UCP (dilutes Airdrie's political voice)</td>
           </tr>
           <tr>
-            <td>Borders following existing municipal lines</td>
-            <td>80% &mdash; within norm</td>
-            <td>72% &mdash; within norm</td>
-            <td>N/A &mdash; both within Canadian norm (70&ndash;85%)</td>
+            <td>How much of each border follows existing city/town lines</td>
+            <td>80% &mdash; normal</td>
+            <td>72% &mdash; normal</td>
+            <td>Neither &mdash; both within the normal Canadian range</td>
           </tr>
           <tr>
-            <td>Boundaries flagged by commission chair</td>
+            <td>Boundaries the commission chair flagged as unusual</td>
             <td class="normal">0</td>
             <td class="flag">3</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td>NDP seats at a 50/50 provincial vote (simulation percentile)</td>
-            <td class="normal">48 seats (p83 &mdash; normal range)</td>
-            <td class="flag">43 seats (p99.99 &mdash; extreme)</td>
+            <td>NDP seats at a perfectly tied (50/50) provincial vote</td>
+            <td class="normal">48 seats &mdash; normal range</td>
+            <td class="flag">43 seats &mdash; extreme (top 0.01% of random maps)</td>
             <td>UCP (+5 seats)</td>
           </tr>
           <tr>
-            <td>Excess wasted votes (structural translation imbalance)</td>
+            <td>Extra wasted NDP votes compared to UCP</td>
             <td class="normal">&asymp;881 votes (&asymp;0.1% of ballots)</td>
             <td class="flag">&asymp;36,000 votes (&asymp;4.0% of ballots)</td>
-            <td>UCP (&times;41 larger)</td>
+            <td>UCP (&times;41 larger gap)</td>
           </tr>
         </tbody>
       </table>
@@ -349,52 +353,52 @@
   </section>
 
   <section>
-    <h2>What This Does Not Claim</h2>
+    <h2>What this does not say</h2>
 
-    <p>This audit does not conclude that either map constitutes a gerrymander in any legal sense. Canada has no statute or common-law rule that defines redistricting manipulation as a legal wrong by that name. The applicable standards are the <em>Electoral Boundaries Commission Act</em> (EBCA) and section 3 of the <em>Canadian Charter of Rights and Freedoms</em>, which guarantees effective representation. Whether the patterns documented here rise to a violation of either standard is a question for courts, legislators, and legal scholars &mdash; not this audit.</p>
+    <p><strong>It does not call either map a "gerrymander."</strong> "Gerrymander" is an American legal term for a specific kind of unconstitutional map. Canada does not have that law. In Canada, the legal question is whether voters have "effective representation" under the <em>Charter of Rights and Freedoms</em> and whether the commission followed the <em>Electoral Boundaries Commission Act</em>. That question belongs to courts and legislators &mdash; not this audit.</p>
 
-    <p>This audit also does not establish intent. Statistical asymmetry is consistent with deliberate manipulation, with geographic sorting of voters, or with coincidence. The audit measures effect, not motive.</p>
+    <p><strong>It does not say anyone did this on purpose.</strong> Statistics show what a map does, not what the people who drew it intended. There is no way to prove intent from numbers alone.</p>
 
     <div class="callout warning">
-      <strong>The NDP geographically concentrates its voters in urban cores.</strong> Alberta's human geography creates a modest structural disadvantage for the NDP in any neutral redistricting. The simulation accounts for this: the 1,010,000-map ensemble is drawn from the <em>same Alberta geography</em>, and the minority map is still extreme relative to those neutral draws. The gap cannot be explained by geography alone.
+      <strong>What about urban concentration?</strong> NDP voters are concentrated in city cores. Even a perfectly neutral map tends to give the NDP a small disadvantage, because votes packed into a few ridings win big there but leave nothing for surrounding ridings. The 1,010,000 random maps in the simulation were drawn using actual Alberta geography &mdash; this is already accounted for. The minority map is still extreme compared to those neutral draws. The difference cannot be explained by geography alone.
     </div>
   </section>
 
   <section>
-    <h2>Methodology at a Glance</h2>
+    <h2>How the analysis was done</h2>
 
-    <h3>Data</h3>
-    <p>Official Elections Alberta shapefiles (GeoPackage format). Vote attribution: 2023 provincial election results matched to 4,765 voting areas by centroid-in-polygon spatial join (Phase 4C). Population: Statistics Canada 2021 Census dissemination areas.</p>
+    <h3>The maps</h3>
+    <p>Official Elections Alberta riding maps in digital format, received May 6, 2026. The 2023 election results were matched to each riding by checking which riding each polling station fell inside.</p>
 
-    <h3>Simulation</h3>
-    <p>1,010,000 neutral Alberta maps generated by the ReCom Markov-chain algorithm (GerryChain library), four independent chains, using the same population-equality rules that governed the commission. Gelman-Rubin convergence statistic R&#770; &lt; 1.02 across all chains. Random seeds derived from Cloudflare drand public randomness beacon.</p>
+    <h3>The computer simulation</h3>
+    <p>A program called GerryChain drew 1,010,000 new riding maps for Alberta, following the same population rules the commission had to follow. This gives a baseline for what a "normal" Alberta map looks like. The commission maps are then compared against that baseline. Four independent runs were done to make sure the results were consistent.</p>
 
     <h3>Pre-registration</h3>
-    <p>All statistical tests were pre-registered on the Open Science Framework before results were examined: <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.</p>
+    <p>All tests were written down and publicly filed <em>before</em> the results were examined. This prevents cherry-picking results after the fact. Registration IDs: <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.</p>
 
     <h3>Code and data</h3>
-    <p>All scripts, shapefiles, and simulation outputs are published at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" rel="noopener">github.com/Ixby/alberta-electoral-boundaries-audit</a>.</p>
+    <p>Everything is public: <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" rel="noopener">github.com/Ixby/alberta-electoral-boundaries-audit</a>. Anyone can download the data and re-run the analysis.</p>
   </section>
 
   <section>
-    <h2>Reports and Resources</h2>
+    <h2>Reports and resources</h2>
 
     <ul class="links-list">
       <li>
         <span class="tag">Plain Language</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md">Full public report</a> &mdash; Grade-school-accessible narrative with maps and figures
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md">Full public report</a> &mdash; Long-form, with maps and illustrations
       </li>
       <li>
         <span class="tag">Academic</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md">Technical monograph</a> &mdash; Full statistical methods, citations, pre-registration IDs
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md">Technical report</a> &mdash; Full methods and citations for researchers
       </li>
       <li>
         <span class="tag">One-Page</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/docs/FINDINGS_BRIEF.md">Findings brief</a> &mdash; No jargon, printable
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/docs/FINDINGS_BRIEF.md">One-page summary</a> &mdash; Printable, plain language
       </li>
       <li>
         <span class="tag">Notebook</span>
-        <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/main/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Interactive Colab notebook</a> &mdash; Reproduce key tables and figures in the browser
+        <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/main/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Interactive notebook</a> &mdash; Run the charts yourself in your browser, no install needed
       </li>
       <li>
         <span class="tag">Code</span>
@@ -404,9 +408,12 @@
   </section>
 
   <section>
-    <h2>Disclosure</h2>
+    <h2>About me</h2>
     <p style="font-size:0.9rem; color:#444;">
-      The author is a student at Mount Royal University. This research was conducted independently and was not commissioned as coursework. The views expressed are the author's own and do not represent Mount Royal University. The author has no employment, contractual, or advisory relationship with Elections Alberta, the Electoral Boundaries Commission, or any provincial political party. The author has in the past donated to and volunteered for the NDP; this is disclosed because it represents a potential source of motivated reasoning. The structural safeguard against that bias is symmetric methodology: every test was applied identically to both maps, and all tests were pre-registered before results were examined. This research received no external funding.
+      I'm a student at Mount Royal University. I did this research on my own &mdash; it wasn't assigned as coursework and the university didn't commission it. My views are my own and don't represent the university. I have no connection to Elections Alberta, the commission, or any political party.
+    </p>
+    <p style="font-size:0.9rem; color:#444;">
+      I have donated to and volunteered for the NDP in the past. I'm telling you that because it could affect how I look at this issue. The main protection against that bias is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and put everything online so anyone can check my work. I paid for this research myself.
     </p>
   </section>
 
@@ -414,7 +421,7 @@
 
 <footer>
   <div class="container">
-    Alberta Electoral Boundary Audit &mdash; Phase 4C &mdash; May 2026<br>
+    Alberta Electoral Boundary Audit &mdash; May 2026<br>
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
   </div>
 </footer>

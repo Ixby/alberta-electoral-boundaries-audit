@@ -1,60 +1,102 @@
-# Alberta Electoral Boundary Audit: Plain-Language Findings Brief
+# Alberta's Two Electoral Maps: What the Numbers Show
 
-**May 2026 — Phase 4C canonical results**
-
----
-
-## Background
-
-In 2025–26, Alberta's Electoral Boundary Commission produced two competing maps for the province's 89 electoral districts. Three commissioners signed the majority map; two signed the alternative (minority) map. On April 16, 2026, the provincial government set both maps aside and assigned the redrawing task to a five-member committee of MLAs — three from the governing United Conservative Party. This audit measured both commission maps using identical statistical methods applied symmetrically. All analysis uses official Elections Alberta shapefiles.
+**A plain-language summary — May 2026**
 
 ---
 
-## What the Audit Found
+## What happened
 
-**The two maps differ on six measurable structural properties, and the differences consistently point in the same direction.**
+Alberta has 89 seats in its legislature. To decide which communities each seat represents, the province uses an independent commission — a group of five appointed people who draw the riding boundaries. (A "riding" is your local electoral district, the area you share with your MLA.) In 2025-26, the commission could not agree. Three members produced one map. Two members produced a different map.
 
-### 1. Population equality
+On April 16, 2026, the provincial government rejected both commission maps and handed the job to a five-person committee of MLAs. Three of the five MLAs are from the governing United Conservative Party (UCP).
 
-Every electoral district should contain close to the same number of people. The tighter the spread, the more equal each citizen's vote. Under the majority map, the average district deviates from the provincial mean by approximately **3,180 people**. Under the minority map, that figure is **4,707 people — 48% wider** than under the majority map.
-
-### 2. Seat allocation at a tied vote
-
-The most direct test: hold the provincial vote at exactly 50% for each party and ask how many seats each map awards. At a perfect tie, the majority map produces approximately **48 NDP seats** (53.9%) out of 89. The minority map produces approximately **43 NDP seats** (48.3%) — a **5-seat swing to the UCP** relative to the majority map, without changing a single vote.
-
-This was tested against a computer simulation of 1,010,000 independently drawn neutral Alberta maps using the same population rules. The majority map's result sits inside the normal range (83rd percentile). The minority map's result is reached by fewer than 100 of 1,010,000 neutral draws.
-
-### 3. Vote-to-seat translation imbalance
-
-In any election, some votes are "wasted" — cast for a losing candidate, or piled onto a winner who didn't need them. When one party's votes are systematically wasted at a higher rate, the map gives the other party's votes more seat-earning power per ballot. This analysis measures that imbalance across all 89 districts.
-
-Under the **majority map**, the gap in wasted votes between the two parties amounts to roughly **881 votes** out of 896,644 partisan ballots cast — about 0.1% of the total. Under the **minority map**, the same calculation yields a gap of roughly **36,000 votes** — about 4.0% of all ballots cast. The minority map's structural vote-to-seat imbalance is approximately **41 times larger** than the majority map's. Both gaps favour the UCP.
-
-### 4. Calgary and Airdrie district structure
-
-The minority map splits the City of Airdrie into **four separate districts**, each attached to a different rural or Calgary-edge constituency, where the majority map uses two. The minority map over-represents Calgary's northwest quadrant — a predominantly UCP area — by **11.5% above the provincial average**, compared to **2.8%** under the majority map.
+This audit used math and computer simulations to ask: do the two commission maps treat both parties' voters equally?
 
 ---
 
-## What This Audit Does Not Claim
+## Why riding boundaries matter
 
-This audit does not conclude that either map constitutes a gerrymander in any legal sense. Canada has no statute or common-law rule that defines redistricting manipulation as a legal wrong by that name. The applicable legal standards in Canada are the *Electoral Boundaries Commission Act* (EBCA), which governs the commission's process, and section 3 of the *Canadian Charter of Rights and Freedoms*, which guarantees the right to effective representation. Whether the statistical patterns documented here rise to a violation of either standard is a question for courts, legislators, and legal scholars — not this audit.
-
-This audit also does not establish intent. Statistical asymmetry is consistent with deliberate manipulation, with geographic sorting of voters, or with coincidence. The audit measures effect, not motive.
+Where the lines go matters a lot. Move a few streets one direction and a city neighbourhood ends up paired with a rural area. Move them the other way and it stays with other city residents. Those choices can change how many seats each party wins — even if every single vote stays the same. That is what this audit measures.
 
 ---
 
-## Methodology Note
+## Finding 1: The ridings aren't the same size
 
-All results use the official Elections Alberta shapefiles (GeoPackage format, Phase 4C release). Vote attribution is computed by centroid-in-polygon spatial join of 4,765 voting areas to the proposed district boundaries. The simulation ensemble consists of 1,010,000 neutral maps generated via Markov-chain redistricting (ReCom algorithm) under the same population-equality rules that governed the commission. Analysis is pre-registered on the Open Science Framework (OSF:6pt83, AsPredicted:#289,469, AsPredicted:#289,451). Full methodology is in the academic report.
+Every riding should hold roughly the same number of people. That way, your vote counts about as much as anyone else's.
+
+- Under the **majority map**: the average riding is off from the ideal by about **3,180 people**.
+- Under the **minority map**: the same gap is **4,707 people — 48% worse**.
+
+Bigger gaps mean some ridings are much more crowded than others. A vote in a small, sparse riding carries more weight than a vote in an overcrowded one.
 
 ---
 
-## Disclosure
+## Finding 2: At a 50/50 tied vote, one map gives the UCP 5 extra seats
 
-The author is a student at Mount Royal University. This research was conducted independently and was not commissioned as coursework. The views expressed are the author's own and do not represent Mount Royal University. The author has no employment, contractual, or advisory relationship with Elections Alberta, the Electoral Boundaries Commission, or any provincial political party. The author has in the past donated to and volunteered for the NDP; this is disclosed because it is a potential source of motivated reasoning. The methodology — symmetric measurement of both maps, pre-registration of all tests before examining results, and open publication of all data and code — is the structural safeguard against that bias. This research received no external funding.
+Imagine every Alberta voter split exactly 50-50 between the NDP and UCP. What would happen?
+
+| Map | NDP seats | UCP seats |
+|---|---|---|
+| Majority map | **48** | 41 |
+| Minority map | **43** | 46 |
+
+That is a **5-seat swing** to the UCP — without changing a single vote. Just by drawing the lines differently.
+
+To check how unusual this is, a computer program drew **1,010,000 random Alberta maps**, all following the same rules the commission had to follow. The majority map's result looked normal — it sits in the middle of the pack. The minority map's result was extreme: **fewer than 100 of the 1,010,000 random maps** produced a result that far in favour of the UCP.
 
 ---
 
-*Full reports: `reports/academic/report_academic.md` (technical monograph) and `reports/public/report_public.md` (plain-language).*
-*Data and code: [github.com/Ixby/alberta-electoral-boundaries-audit](https://github.com/Ixby/alberta-electoral-boundaries-audit)*
+## Finding 3: NDP votes are wasted at a much higher rate under the minority map
+
+Every election, some votes are "wasted." A vote is wasted if it goes to a candidate who lost. A vote is also wasted if it gets piled onto a winner who already had more than enough votes to win. When one party's votes are wasted at a much higher rate than the other's, that party needs more total votes to win the same number of seats.
+
+Think of it this way. Say you have a bag of coins and you want to win as many games as possible. If you spend way more coins than you need in games you'd win easily anyway, those extra coins did nothing. Your opponent, spending just enough to win every close game, gets more wins per coin.
+
+Across 896,644 votes cast for the two main parties in 2023:
+
+- Under the **majority map**: NDP voters wasted roughly **881 more votes** than UCP voters — about 0.1% of all ballots.
+- Under the **minority map**: NDP voters wasted roughly **36,000 more votes** than UCP voters — about 4.0% of all ballots.
+
+The minority map's gap is about **41 times larger**. Both gaps favour the UCP.
+
+---
+
+## Finding 4: Airdrie and northwest Calgary
+
+**Airdrie** is a city of about 85,000 people — bigger than Red Deer. It has one city council, one school board, and one tax bill. The majority map splits Airdrie between **2 ridings**. The minority map splits it between **4 ridings**, each one attached to a different rural or Calgary-edge area. With four different MLAs, no single politician is primarily there for Airdrie as a whole city.
+
+**Northwest Calgary** is a largely UCP-supporting area. The minority map packs **11.5% more people than average** into that area's ridings. That means lots of extra UCP votes pile up in ridings they already win easily — while other ridings have more competition per seat. The majority map has northwest Calgary only **2.8% above average**.
+
+---
+
+## What this audit does NOT say
+
+**It does not say either map is a "gerrymander."** "Gerrymander" is an American legal term for a specific kind of unconstitutional voting map. Canada doesn't have that law. In Canada, the legal question is whether voters have "effective representation" under the *Charter of Rights and Freedoms* and whether the commission followed the *Electoral Boundaries Commission Act*. That question belongs to courts and legislators — not this audit.
+
+**It does not say anyone did this on purpose.** The numbers show what the maps *do*, not what the people who drew them *intended*. Statistics cannot prove intent.
+
+**It already accounts for geography.** NDP voters are concentrated in city cores. Even a perfectly neutral map tends to give the NDP a slight disadvantage, because voters packed together in a few ridings win big there but don't have leftover votes to compete in surrounding areas. The 1,010,000 random maps in the simulation were drawn using actual Alberta geography, so this is already baked in. The minority map's numbers are still extreme compared to those neutral draws.
+
+---
+
+## How the analysis was done
+
+All results use the official Elections Alberta maps, received May 6, 2026. The 2023 election results were matched to each riding by finding which riding each polling station fell inside.
+
+The 1,010,000 random maps were generated by a computer program that redraws riding boundaries under the same rules the commission had — same population limits, same province, same geography. This is a standard tool in redistricting research.
+
+All tests were written down and locked in before the results were examined. This is called "pre-registration" and it prevents a researcher from running many tests and only reporting the ones that look good. The registrations are filed publicly at OSF:6pt83, AsPredicted:#289,469, and AsPredicted:#289,451.
+
+---
+
+## About me
+
+I'm a student at Mount Royal University. I did this research on my own — it wasn't assigned as coursework and the university didn't commission it. My opinions are my own and don't represent the university. I have no connection to Elections Alberta, the commission, or any political party.
+
+I have donated to and volunteered for the NDP in the past. I'm telling you that because it could affect how I look at this issue. The main protection against that bias is the method: I tested both maps the same way, I wrote down my predictions before looking at the results, and all the data and code are public so anyone can check my work. I funded this research myself.
+
+---
+
+*Full public report (longer, with maps): [`report_public.md`](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/public/report_public.md)*
+*Full technical report: [`report_academic.md`](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/main/reports/academic/report_academic.md)*
+*All data and code: [github.com/Ixby/alberta-electoral-boundaries-audit](https://github.com/Ixby/alberta-electoral-boundaries-audit)*
