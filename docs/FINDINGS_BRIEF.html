@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alberta Electoral Boundary Audit — Findings Brief</title>
+  <style>
+    /* ── Screen styles ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 11.5pt;
+      line-height: 1.6;
+      color: #111;
+      background: #e8e4dc;
+      padding: 2rem;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .doc-header {
+      border-bottom: 2.5px solid #1a2e45;
+      padding-bottom: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .doc-header h1 {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #1a2e45;
+      line-height: 1.2;
+      margin-bottom: 0.25rem;
+    }
+
+    .doc-header .meta {
+      font-size: 9.5pt;
+      color: #555;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    /* ── Cover graphic ───────────────────────────────────────────── */
+    .cover-figure {
+      margin: 1rem 0 1.3rem;
+      text-align: center;
+    }
+
+    .cover-figure img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    .cover-figure figcaption {
+      font-size: 8.5pt;
+      color: #555;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* ── Sections ────────────────────────────────────────────────── */
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #1a2e45;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 1.3rem 0 0.4rem;
+      border-left: 3px solid #1a2e45;
+      padding-left: 0.5rem;
+    }
+
+    h2.first { margin-top: 0; }
+
+    p { margin-bottom: 0.7rem; font-size: 11pt; }
+
+    strong { color: #111; }
+
+    /* ── Findings table ──────────────────────────────────────────── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5pt;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      margin: 0.8rem 0 1rem;
+    }
+
+    th {
+      background: #1a2e45;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.35rem 0.5rem;
+      text-align: left;
+    }
+
+    td {
+      padding: 0.3rem 0.5rem;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) td { background: #f6f6f6; }
+
+    td.flag { color: #8b1a1a; font-weight: 600; }
+    td.ok   { color: #1a5c1a; }
+
+    /* ── Callout ─────────────────────────────────────────────────── */
+    .callout {
+      border-left: 3px solid #1a5276;
+      background: #f0f5fa;
+      padding: 0.5rem 0.7rem;
+      margin: 0.7rem 0;
+      font-size: 10.5pt;
+    }
+
+    /* ── Two-column layout ───────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 0.7rem 0;
+    }
+
+    .two-col .col h3 {
+      font-size: 10pt;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #555;
+      margin-bottom: 0.2rem;
+    }
+
+    .two-col .col p { font-size: 10pt; }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    .doc-footer {
+      border-top: 1px solid #ccc;
+      margin-top: 1.5rem;
+      padding-top: 0.7rem;
+      font-size: 8.5pt;
+      color: #666;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    }
+
+    .doc-footer a { color: #1a5276; }
+
+    /* ── Print styles ────────────────────────────────────────────── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; max-width: 100%; padding: 1.5cm 1.8cm; }
+      h2 { page-break-after: avoid; }
+      table { page-break-inside: avoid; }
+      .cover-figure { page-break-inside: avoid; }
+
+      @page {
+        size: Letter;
+        margin: 1.5cm 1.8cm;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="doc-header">
+    <h1>Alberta Electoral Boundary Audit: Findings Brief</h1>
+    <div class="meta">May 2026 &nbsp;·&nbsp; Official Elections Alberta shapefiles &nbsp;·&nbsp; github.com/Ixby/alberta-electoral-boundaries-audit</div>
+  </div>
+
+  <!-- Cover graphic -->
+  <figure class="cover-figure">
+    <img src="../data/maps/article/lane1_dotplot.svg"
+         alt="Each dot represents one of 1 million randomly drawn Alberta maps. The majority map marker sits near the centre of the distribution. The minority map marker is at the far right edge — fewer than 100 of 1 million random maps reach that position.">
+    <figcaption>Where each commission map sits relative to 1 million computer-drawn neutral Alberta maps. A marker at the far right means the map gives the UCP far more seats at a tied vote than a typical neutral map would. Majority map (green): normal range. Minority map (red): extreme right edge.</figcaption>
+  </figure>
+
+  <!-- Background -->
+  <h2 class="first">What happened</h2>
+  <p>Alberta has 89 seats in its legislature. An independent commission was appointed to draw the riding boundaries — the lines that determine which communities each seat represents. In 2025-26 the commission split: three members produced one map, two members produced a different one. On April 16, 2026, the government rejected both and gave the job to a five-MLA committee, three of whom are from the governing United Conservative Party (UCP). This audit compared the two commission maps using the same tests, applied equally to both.</p>
+
+  <div class="callout"><strong>Why riding boundaries matter:</strong> Move a line a few streets over and thousands of voters shift from one riding to another — changing who wins that riding without a single person changing their vote. Move enough lines and you can change the outcome of an election.</div>
+
+  <!-- Key findings table -->
+  <h2>What the audit found — six measures, same tests on both maps</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>What was measured</th>
+        <th>Majority map</th>
+        <th>Minority map</th>
+        <th>Direction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>How unequal are riding sizes?</td>
+        <td class="ok">3,180 people off average</td>
+        <td class="flag">4,707 — 48% worse</td>
+        <td>Reduces vote equality</td>
+      </tr>
+      <tr>
+        <td>NW Calgary: how far above average?</td>
+        <td class="ok">+2.8%</td>
+        <td class="flag">+11.5%</td>
+        <td>UCP</td>
+      </tr>
+      <tr>
+        <td>City of Airdrie split into how many pieces?</td>
+        <td class="ok">2</td>
+        <td class="flag">4 (each attached to a different rural area)</td>
+        <td>UCP</td>
+      </tr>
+      <tr>
+        <td>Borders following existing city/town limits</td>
+        <td>80% — within norm</td>
+        <td>72% — within norm</td>
+        <td>Neither — both normal</td>
+      </tr>
+      <tr>
+        <td>Boundaries flagged by commission chair</td>
+        <td class="ok">0</td>
+        <td class="flag">3</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>NDP seats at a perfectly tied (50-50) vote</td>
+        <td class="ok">48 seats — normal range</td>
+        <td class="flag">43 seats — extreme (fewer than 100 of 1 million random maps reach this)</td>
+        <td>UCP (+5 seats)</td>
+      </tr>
+      <tr>
+        <td>Extra wasted NDP votes vs UCP votes</td>
+        <td class="ok">~881 votes — 0.1% of ballots</td>
+        <td class="flag">~36,000 votes — 4.0% of ballots (41× larger)</td>
+        <td>UCP</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Explain wasted votes and seat swing -->
+  <div class="two-col">
+    <div class="col">
+      <h3>What is a "wasted vote"?</h3>
+      <p>A vote is wasted if it didn't affect the outcome — either it went to a losing candidate, or it got piled onto a winner who already had more than enough. When one party's votes are wasted at a much higher rate, their supporters need more total votes to win the same number of seats.</p>
+    </div>
+    <div class="col">
+      <h3>Why does 5 seats matter?</h3>
+      <p>You need 45 seats to control the legislature. At a tied vote, the majority map gives the NDP 48 seats — a governing majority. The minority map gives the NDP 43 — three short, and the UCP 46 — a majority for them instead. Same votes, different government.</p>
+    </div>
+  </div>
+
+  <!-- What this doesn't say -->
+  <h2>What this does not say</h2>
+  <p><strong>It does not call either map illegal.</strong> The legal question in Canada is whether voters have "effective representation" under the <em>Charter of Rights and Freedoms</em> and whether the commission followed the <em>Electoral Boundaries Commission Act</em>. That is a question for courts and legislators — not this audit.</p>
+  <p><strong>It does not say anyone cheated.</strong> Statistics show what a map does, not what its authors intended. The same outcome can come from deliberate choices, geography, or coincidence.</p>
+  <p><strong>It accounts for geography.</strong> NDP voters are concentrated in city centres, which creates a built-in disadvantage on any neutral map. The 1 million random maps in the simulation use real Alberta geography — this is already factored in. The minority map is still extreme relative to those neutral draws.</p>
+
+  <!-- Methodology -->
+  <h2>How the analysis was done</h2>
+  <p>All results use the official Elections Alberta riding maps (received May 6, 2026). Vote attribution is from the 2023 election, matched to each riding by geographic location. The 1 million random comparison maps were generated by a standard redistricting research tool (GerryChain) following the same population rules the commission had to follow. All tests were written down and publicly filed before results were examined — pre-registration IDs: OSF:6pt83, AsPredicted:#289,469, AsPredicted:#289,451.</p>
+
+  <!-- Footer / disclosure -->
+  <div class="doc-footer">
+    <strong>About the author:</strong> Student at Mount Royal University. Independent research, not commissioned as coursework. No connection to Elections Alberta, the commission, or any party. The author has supported parties on all sides of the political spectrum depending on the election; the structural safeguard against bias is symmetric methodology and pre-registration. No external funding.<br>
+    <strong>Full reports and data:</strong> <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
+  </div>
+
+</div><!-- /.page -->
+</body>
+</html>
