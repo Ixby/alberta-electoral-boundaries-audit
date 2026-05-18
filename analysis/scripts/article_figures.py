@@ -55,8 +55,8 @@ OUT.mkdir(parents=True, exist_ok=True)
 # Editorial palette
 NDP_ORANGE = "#ea7414"
 UCP_BLUE = "#225d9e"
-MAJORITY_PURPLE = "#7a4d8a"
-MINORITY_GREEN = "#4a8a5c"
+MAJORITY_GREEN = "#1d6a27"   # consistent with notebook and HTML tables
+MINORITY_RED = "#922b21"     # consistent with notebook and HTML tables
 NEUTRAL_2019 = "#666666"
 RULE_GREY = "#888888"
 TEXT_DARK = "#1a1a1a"
@@ -92,8 +92,8 @@ def build_lane1_dotplot() -> Path:
     alberta_line = 4.11  # ensemble p95 from simulated_ensemble_percentiles_canonical.csv (0.041086)
     us_line = 7.00
     rows = [
-        ("Majority 2026", 0.10, MAJORITY_PURPLE),
-        ("Minority 2026", 4.02, MINORITY_GREEN),
+        ("Majority 2026", 0.10, MAJORITY_GREEN),
+        ("Minority 2026", 4.02, MINORITY_RED),
     ]
 
     y_positions = [1, 0]
@@ -254,22 +254,22 @@ def build_lane2_bars() -> Path:
         ax.spines["bottom"].set_color("#aaaaaa")
         ax.spines["bottom"].set_linewidth(0.6)
 
-        # Majority bar (y=1, purple)
+        # Majority bar (y=1, green)
         ax.barh(
             1,
             maj,
             height=bar_h,
-            color=MAJORITY_PURPLE,
+            color=MAJORITY_GREEN,
             alpha=0.9,
             edgecolor="none",
             zorder=2,
         )
-        # Minority bar (y=0, green)
+        # Minority bar (y=0, red)
         ax.barh(
             0,
             mino,
             height=bar_h,
-            color=MINORITY_GREEN,
+            color=MINORITY_RED,
             alpha=0.9,
             edgecolor="none",
             zorder=2,
@@ -323,8 +323,8 @@ def build_lane2_bars() -> Path:
 
     # Shared legend at top of figure
     legend_elements = [
-        mpatches.Patch(facecolor=MAJORITY_PURPLE, alpha=0.9, label="Majority 2026"),
-        mpatches.Patch(facecolor=MINORITY_GREEN, alpha=0.9, label="Minority 2026"),
+        mpatches.Patch(facecolor=MAJORITY_GREEN, alpha=0.9, label="Majority 2026"),
+        mpatches.Patch(facecolor=MINORITY_RED, alpha=0.9, label="Minority 2026"),
         plt.Line2D(
             [0],
             [0],
@@ -366,8 +366,8 @@ def build_bias_structure_matrix() -> Path:
     visual. Two-axis plot:
       x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles, 50k 2-chain ensemble)
       y = Lane 2 structural-irregularity count (of 5 pre-registered tests)
-    Three points: 2019 enacted (grey), Majority 2026 (purple), Minority
-    2026 (green). Both threshold lines (Alberta ~4%, US 7%) plus the
+    Three points: 2019 enacted (grey), Majority 2026 (green), Minority
+    2026 (red). Both threshold lines (Alberta ~4%, US 7%) plus the
     structural-irregularity outlier line (4 of 5). The top-right
     quadrant is the danger zone."""
 
@@ -377,8 +377,8 @@ def build_bias_structure_matrix() -> Path:
     # Three real maps — canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
     points = [
         ("2019 enacted", 2.41, 0, NEUTRAL_2019),
-        ("Majority 2026", 0.10, 0, MAJORITY_PURPLE),
-        ("Minority 2026", 4.02, 5, MINORITY_GREEN),
+        ("Majority 2026", 0.10, 0, MAJORITY_GREEN),
+        ("Minority 2026", 4.02, 5, MINORITY_RED),
     ]
 
     threshold_eg_alberta = (

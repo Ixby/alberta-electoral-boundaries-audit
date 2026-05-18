@@ -267,9 +267,11 @@
       <h1>Alberta Electoral Boundary Audit</h1>
       <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
       <span class="badge">Official Elections Alberta maps &mdash; May 2026</span>
-      <p class="cover-note">The map at right is the minority commission's 2026 proposal &mdash; the one this audit ends up critiquing most heavily. Each riding is coloured by its 2023 vote: blue for UCP-leaning districts, orange for NDP-leaning. Colour intensity reflects where people actually live: bright and saturated in dense urban cores, pale and faded in sparse rural areas.</p>
+      <p class="cover-note">The map at right is the minority commission's 2026 proposal &mdash; the one that sits furthest from the neutral ensemble in statistical testing. Each riding is coloured by its 2023 vote: blue for UCP-leaning districts, orange for NDP-leaning. Colour intensity reflects where people actually live: bright and saturated in dense urban cores, pale and faded in sparse rural areas.</p>
     </div>
-    <img src="images/cover_art.png" alt="Alberta electoral district maps — majority and minority proposals side by side" class="header-image">
+    <a href="images/cover_art.png" target="_blank" rel="noopener" title="Open full resolution">
+      <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image">
+    </a>
   </div>
 </header>
 
@@ -277,12 +279,18 @@
   <a href="https://ixby.github.io/alberta-electoral-boundaries-audit/">Home</a>
   <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/FINDINGS_BRIEF.md">Summary</a>
   <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.pdf">Full Public Report</a>
-  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md">Technical Report</a>
   <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Interactive Notebook</a>
+  <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md">Technical Report</a>
   <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">GitHub Repository</a>
 </nav>
 
 <div class="container">
+
+  <div style="padding: 1.5rem 0 0.5rem;">
+    <div class="callout" style="background: #eef6e8; border-left-color: #1d6a27; font-size: 1.02rem; line-height: 1.65;">
+      <strong>The bottom line:</strong> if the next Alberta election ends in a perfectly tied 50/50 vote, the minority commission map gives the UCP a majority government &mdash; and the majority commission map gives the NDP one. Same votes, same voters, different maps, different government. Fewer than 100 of the 1,010,000 neutral comparison maps produced a seat split as extreme as the minority map's.
+    </div>
+  </div>
 
   <section>
     <h2>Start here: why riding lines matter</h2>
@@ -312,7 +320,7 @@
            alt="Dot plot showing where each commission map sits relative to 1 million randomly drawn neutral Alberta maps. The majority map dot is near the centre. The minority map dot is far to the right edge."
            style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
       <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">
-        Each dot is one of the 1 million computer-drawn comparison maps. The two large markers show where the majority map (green) and minority map (red) fall. A dot far to the right means the map gives the UCP more seats than a typical neutral map would.
+        Each dot is one of the 1 million computer-drawn comparison maps. The two large markers show where the majority map (dark green) and minority map (dark red) fall. A dot far to the right means the map gives the UCP more seats than a typical neutral map would.
       </figcaption>
     </figure>
 
@@ -486,6 +494,9 @@
     </p>
     <p style="font-size:0.9rem; color:#444;">
       I have supported parties on all sides of the political spectrum depending on the election. I'm telling you that because my political history could affect how I look at this issue. The main protection against that is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and put everything online so anyone can check my work. I paid for this research myself.
+    </p>
+    <p style="font-size:0.9rem; color:#444;">
+      Pre-registration records (written before results were examined): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.
     </p>
   </section>
 
