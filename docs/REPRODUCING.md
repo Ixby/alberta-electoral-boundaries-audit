@@ -4,6 +4,16 @@ This document is the entry point for anyone who wants to **audit the audit**: re
 
 ---
 
+## Quick start — no installation required
+
+Open the interactive notebook in your browser via Google Colab. It fetches all pre-computed outputs from GitHub and runs the charts in ~30 seconds with no local setup:
+
+**[Open in Colab →](https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb)**
+
+Click **Runtime → Run all** to execute every cell. The notebook does not re-run the MCMC ensemble (that requires a local clone); it reproduces all headline charts and numbers from the committed output files.
+
+---
+
 ## What you can verify, and how long it takes
 
 | Verification | Wall time | Hardware |
@@ -188,9 +198,9 @@ The "where this audit falls short" honest self-assessment is in the public repor
 
 This is a single-author audit (Will Conner, project author) executed with substantial assistance from three AI systems:
 
-- **Claude Opus 4.7 (Anthropic)** — primary co-author for code, prose, hypothesis-tracker maintenance, and editorial work. Authored most commits; runs as the operating shell during analysis sessions.
-- **Google Gemini 3.1 Pro** — collaborative commentator. Worked through SZAT methodology verbiage and statistical positioning; worked through scorecard justifications; contributed to the methodological-defenses appendix (`analysis/methodology/methodological_defenses.md`).
-- **OpenAI Codex** — adversarial commentator; contributed primarily to literature review and source identification.
+- **Claude Sonnet 4.6 / Opus 4 (Anthropic)** — primary co-author for code, prose, hypothesis-tracker maintenance, and editorial work. Authored most commits; runs as the operating shell during analysis sessions.
+- **Google Gemini (Google DeepMind)** — collaborative commentator. Worked through SZAT methodology verbiage and statistical positioning; worked through scorecard justifications; contributed to the methodological-defenses appendix ([`analysis/methodology/methodological_defenses.md`](https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/analysis/methodology/methodological_defenses.md)).
+- **OpenAI o-series / GPT-4 (OpenAI)** — adversarial commentator; contributed primarily to literature review and source identification.
 
 **Attribution policy.** Every commit in this repo records its substantive co-author via `Co-Authored-By:` trailers. When a finding originated with one of the AI collaborators, the trailer names them — *not* as a deflection of authorial responsibility (the project author signs off on every change) but so a future reader can trace the provenance of any specific number, fix, or framing back to its source. This audit treats the AI tools as named external collaborators rather than invisible production infrastructure, in keeping with the audit's general transparency standard.
 
