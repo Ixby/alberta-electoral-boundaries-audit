@@ -257,18 +257,14 @@ def build_cover_art() -> Path:
                 f"{n_nearest} EDs with no crosswalk parent"
             )
 
-    # 3. Direct UCP-blue → NDP-orange interpolation. The norm window
-    #    is wide (30–80% UCP share) so rural EDs are not all clipped to
-    #    full saturation — a 70% UCP rural ED should look different from
-    #    an 85% UCP rural ED. With the heatmap-style density modulation
-    #    below, the partisan colour itself does not need to be
-    #    aggressively saturated to communicate the lean.
-    ndp_orange = (0.92, 0.45, 0.10)
-    ucp_blue = (0.13, 0.36, 0.62)
+    # 3. Direct UCP-blue → NDP-orange interpolation. Tighter norm window
+    #    (35–75%) pushes more EDs toward full saturation for a bolder look.
+    ndp_orange = (0.92, 0.40, 0.05)   # richer orange
+    ucp_blue   = (0.08, 0.28, 0.58)   # deeper blue
     cmap = mcolors.LinearSegmentedColormap.from_list(
         "ucp_ndp_direct", [ndp_orange, ucp_blue], N=256
     )
-    norm = mcolors.Normalize(vmin=0.30, vmax=0.80, clip=True)
+    norm = mcolors.Normalize(vmin=0.35, vmax=0.75, clip=True)
 
     # 4. Render — VA-level fill with population-density lightness modulation.
     #    Each VA gets the partisan colour of its assigned 2026 ED (hue), and
@@ -278,7 +274,6 @@ def build_cover_art() -> Path:
     #    centre heatmap (where within an ED the people actually are). The
     #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
     #    the 89-district structure remains visible.
-    blend_ivory = "#f5efe0"  # warm-white blend target for sparse rural VAs
     fig, ax = plt.subplots(figsize=(6.0, 9), dpi=300)
     fig.patch.set_facecolor('none')   # transparent background
     ax.set_facecolor('none')          # transparent axes
@@ -319,41 +314,30 @@ def build_cover_art() -> Path:
     import numpy as np
 
     log_d = np.log10(density.replace(0, np.nan)).fillna(-12.0)
-    # Wider range gives a more gradual spillover from rural-pale to
-    # urban-saturated, and the curve maps to [0.10, 1.0] so very-low-
-    # density rural VAs are pale (without vanishing) and very-high-
-    # density urban VAs hit max intensity.
-    d_min, d_max = -8.0, -3.0
-    weight = ((log_d - d_min) / (d_max - d_min)).clip(0.10, 1.0)
+    d_min, d_max = -8.5, -3.5
+    weight = ((log_d - d_min) / (d_max - d_min)).clip(0.0, 1.0)
 
-    ivory_rgb = np.array(mcolors.to_rgb(blend_ivory))
+    _white = np.array([1.0, 1.0, 1.0])
 
     def _va_fill(ucp_share, w):
-        # Three-stop blend: ivory (very low density) → partisan colour
-        # (moderate density) → darkened partisan colour (very high
-        # density). The darken-at-top-end gives the cover real contrast
-        # in the Calgary/Edmonton cores instead of capping at the
-        # cmap's saturated colour.
+        # Density encoded as lightness, not alpha — fully opaque throughout.
+        # Sparse rural → pale tint of the partisan colour.
+        # Dense urban  → full saturation.
+        # No semi-transparent patches; the map reads cleanly at any zoom.
         base = np.array(cmap(norm(ucp_share)))[:3]
-        # Linear two-segment interpolation through `base` at w=0.5
-        if w < 0.5:
-            t = w / 0.5  # 0..1
-            blended = (1 - t) * ivory_rgb + t * base
-        else:
-            t = (w - 0.5) / 0.5  # 0..1
-            # Darken: scale toward 30% of original (preserves hue)
-            dark = 0.30 * base
-            blended = (1 - t) * base + t * dark
-        return mcolors.to_hex(blended)
+        t = float(np.clip(w ** 0.6, 0.18, 1.0))   # gamma curve keeps rural readable
+        colored = (1.0 - t) * _white + t * base
+        return (*colored, 1.0)   # always fully opaque
 
     va_render["_fill"] = [
         _va_fill(s, w) for s, w in zip(va_render["parent_ucp_share"], weight.values)
     ]
 
-    # 4a. Base layer: v0_9 EDs fill removed to prevent a massive solid blue overlay
-    #     across uninhabited rural areas.
-    # eds["_base_fill"] = [ _va_fill(s, 0.35) for s in eds["ucp_share"] ]
-    # eds.plot(ax=ax, color=eds["_base_fill"].tolist(), linewidth=0)
+    # 4a. Province interior fill: white so sparse rural areas (low alpha VAs)
+    #     show white rather than the transparent page background. Outside the
+    #     province boundary remains transparent (shows the dark page through).
+    province = eds.dissolve()
+    province.plot(ax=ax, color="white", linewidth=0)
 
     # 4b. VA layer on top — heatmap-modulated fills carry the population-
     #     density signal where VAs exist (i.e. where people actually live).
@@ -368,17 +352,15 @@ def build_cover_art() -> Path:
     eds.boundary.plot(
         ax=ax,
         edgecolor="#1a1a1a",
-        linewidth=0.20,
+        linewidth=0.55,
     )
 
-    # 4d. Provincial outline: dissolve all EDs to a single Alberta polygon
-    #     and trace its outer edge in the same accent red as the title's
-    #     period so the silhouette pops off the grey backdrop.
-    province = eds.dissolve()
+    # 4d. Provincial outline: trace the outer edge in the same accent red
+    #     as the title's period so the silhouette pops off the dark backdrop.
     province.boundary.plot(
         ax=ax,
         edgecolor="#7a1f1f",  # title-accent red
-        linewidth=2.0,
+        linewidth=3.5,
     )
 
     ax.margins(0.005)
@@ -387,7 +369,7 @@ def build_cover_art() -> Path:
     COVER_ART_PNG.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(
         COVER_ART_PNG,
-        dpi=300,
+        dpi=600,
         bbox_inches="tight",
         pad_inches=0.02,
         facecolor='none',
@@ -697,10 +679,10 @@ body::before {
 """
 
 
-def build_cover_html(hero_png: Path) -> str:
+def build_cover_html(hero_path: Path) -> str:
     # Embed the hero via file:// URL so Chrome finds it at render time.
     # Use plain string replace to avoid str.format colliding with CSS braces.
-    hero_src = hero_png.resolve().as_uri()
+    hero_src = hero_path.resolve().as_uri()
     return COVER_HTML.replace("{hero_src}", hero_src)
 
 
