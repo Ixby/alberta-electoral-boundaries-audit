@@ -1,3 +1,16 @@
+# Line endings — normalize to LF in the repo; check out as-is on all platforms
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Explicit binaries (no EOL processing)
+*.png binary
+*.jpg binary
+*.pdf binary
+*.svg binary
+
+# LFS
 data/mcmc_checkpoints_*/chain*_samples.csv filter=lfs diff=lfs merge=lfs -text
 data/v0_1_targeted_burst*_trace.csv filter=lfs diff=lfs merge=lfs -text
 *.gpkg filter=lfs diff=lfs merge=lfs -text
