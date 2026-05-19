@@ -2,7 +2,9 @@
 
 *Two recommendations, one commission: measuring the structural distance between them.*
 
-> **Pre-publication status.** This audit has not been publicly released. Integration of canonical Elections Alberta shapefiles (received 2026-05-06) is ongoing and individual findings may shift as recomputation continues. The codebase is also undergoing cleanup and script-count reduction. Do not cite, quote, or distribute specific findings without first confirming their current status in the relevant report section.
+## Public Summary
+
+**https://ixby.github.io/alberta-electoral-boundaries-audit/**
 
 ---
 
