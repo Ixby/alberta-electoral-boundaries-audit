@@ -186,7 +186,7 @@ def draw_bar(
             boxstyle="round,pad=0.0,rounding_size=0.006",
             facecolor=seg.color,
             edgecolor=COLOR_INK,
-            linewidth=1.1,
+            linewidth=0.77,
             zorder=3,
         )
         ax.add_patch(rect)
@@ -568,7 +568,7 @@ def load_calgary_hybrids_with_fallback() -> dict[str, object]:
     ]
     out: dict[str, object] = {}
     for name in wanted:
-        sub = gmin[gmin["name_2026"] == name]
+        sub = gmin[gmin["EDName2025"] == name]
         if sub.empty or sub.iloc[0].geometry is None or sub.iloc[0].geometry.is_empty:
             # Proxy fallback
             if name == "Calgary-West-Tsuut'ina":
@@ -653,7 +653,7 @@ def draw_calgary(fig_path: Path) -> dict:
         ax=ax,
         facecolor="#ececec",
         edgecolor="#9a9a9a",
-        linewidth=1.4,
+        linewidth=1.0,
         zorder=2,
     )
 
@@ -676,7 +676,7 @@ def draw_calgary(fig_path: Path) -> dict:
             ax=ax,
             facecolor=color,
             edgecolor="#111111",
-            linewidth=1.2,
+            linewidth=0.84,
             alpha=0.85,
             zorder=4,
         )

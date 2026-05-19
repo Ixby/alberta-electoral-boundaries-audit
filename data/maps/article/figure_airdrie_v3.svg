@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-04-28T14:58:08.289549</dc:date>
+    <dc:date>2026-05-19T08:59:33.993907</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -2131,7 +2131,7 @@ Q 25.2 100.872 25.2 102.88944
 L 25.2 149.29056 
 Q 25.2 151.308 28.224 151.308 
 z
-" clip-path="url(#p88480f3618)" style="fill: #e07a1c; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf3ba9b5cd6)" style="fill: #1a7a6e; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 255.024 151.308 
@@ -2144,7 +2144,7 @@ Q 252 100.872 252 102.88944
 L 252 149.29056 
 Q 252 151.308 255.024 151.308 
 z
-" clip-path="url(#p88480f3618)" style="fill: #f2a14e; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf3ba9b5cd6)" style="fill: #2ea594; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_4">
     <!-- Minority proposal  ·  4 segments, only one named Airdrie -->
@@ -2239,7 +2239,7 @@ Q 25.2 198.3816 25.2 200.39904
 L 25.2 246.80016 
 Q 25.2 248.8176 28.224 248.8176 
 z
-" clip-path="url(#p88480f3618)" style="fill: #79b1bc; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf3ba9b5cd6)" style="fill: #b48cd9; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 141.624 248.8176 
@@ -2252,7 +2252,7 @@ Q 138.6 198.3816 138.6 200.39904
 L 138.6 246.80016 
 Q 138.6 248.8176 141.624 248.8176 
 z
-" clip-path="url(#p88480f3618)" style="fill: #2f6b7a; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf3ba9b5cd6)" style="fill: #6b35a7; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 255.024 248.8176 
@@ -2265,7 +2265,7 @@ Q 252 198.3816 252 200.39904
 L 252 246.80016 
 Q 252 248.8176 255.024 248.8176 
 z
-" clip-path="url(#p88480f3618)" style="fill: #254a5a; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf3ba9b5cd6)" style="fill: #4d2080; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 368.424 248.8176 
@@ -2278,7 +2278,7 @@ Q 365.4 198.3816 365.4 200.39904
 L 365.4 246.80016 
 Q 365.4 248.8176 368.424 248.8176 
 z
-" clip-path="url(#p88480f3618)" style="fill: #4d92a3; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#pf3ba9b5cd6)" style="fill: #8f55c9; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_5">
     <!-- The minority cuts Airdrie into four pieces, each attached to a different surrounding district. Only one of the -->
@@ -3350,7 +3350,7 @@ z
    </g>
    <g id="text_7">
     <!-- Airdrie-East -->
-    <g style="fill: #141414" transform="translate(107.424453 128.941406) scale(0.11 -0.11)">
+    <g style="fill: #ffffff" transform="translate(107.424453 128.941406) scale(0.11 -0.11)">
      <defs>
       <path id="Arial-BoldMT-2d" d="M 359 1222 
 L 359 2100 
@@ -3664,7 +3664,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p88480f3618">
+  <clipPath id="pf3ba9b5cd6">
    <rect x="0" y="0" width="504" height="336.24"/>
   </clipPath>
  </defs>

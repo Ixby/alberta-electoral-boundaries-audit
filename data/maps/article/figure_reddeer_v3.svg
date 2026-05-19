@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-04-28T14:58:08.622229</dc:date>
+    <dc:date>2026-05-19T08:59:34.228478</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -2066,7 +2066,7 @@ Q 25.2 100.872 25.2 102.88944
 L 25.2 149.29056 
 Q 25.2 151.308 28.224 151.308 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #e07a1c; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #1a7a6e; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 141.624 151.308 
@@ -2079,7 +2079,7 @@ Q 138.6 100.872 138.6 102.88944
 L 138.6 149.29056 
 Q 138.6 151.308 141.624 151.308 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #f2a14e; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #2ea594; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 255.024 151.308 
@@ -2092,7 +2092,7 @@ Q 252 100.872 252 102.88944
 L 252 149.29056 
 Q 252 151.308 255.024 151.308 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #8b5a2b; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #8b5a2b; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 368.424 151.308 
@@ -2105,7 +2105,7 @@ Q 365.4 100.872 365.4 102.88944
 L 365.4 149.29056 
 Q 365.4 151.308 368.424 151.308 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #8b5a2b; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #8b5a2b; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_4">
     <!-- Minority proposal  ·  4 Red Deer-prefixed hybrids -->
@@ -2367,7 +2367,7 @@ Q 25.2 198.3816 25.2 200.39904
 L 25.2 246.80016 
 Q 25.2 248.8176 28.224 248.8176 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #2f6b7a; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #6b35a7; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 141.624 248.8176 
@@ -2380,7 +2380,7 @@ Q 138.6 198.3816 138.6 200.39904
 L 138.6 246.80016 
 Q 138.6 248.8176 141.624 248.8176 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #4d92a3; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #8f55c9; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 255.024 248.8176 
@@ -2393,7 +2393,7 @@ Q 252 198.3816 252 200.39904
 L 252 246.80016 
 Q 252 248.8176 255.024 248.8176 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #254a5a; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #4d2080; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 368.424 248.8176 
@@ -2406,7 +2406,7 @@ Q 365.4 198.3816 365.4 200.39904
 L 365.4 246.80016 
 Q 365.4 248.8176 368.424 248.8176 
 z
-" clip-path="url(#p891fc7c90c)" style="fill: #79b1bc; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p32ec4b4552)" style="fill: #b48cd9; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_5">
     <!-- The minority attaches a Red Deer prefix to every adjacent rural riding. Same footprint; four city-named -->
@@ -3396,7 +3396,7 @@ z
    </g>
    <g id="text_7">
     <!-- Red Deer-North -->
-    <g style="fill: #141414" transform="translate(41.258437 123.76331) scale(0.11 -0.11)">
+    <g style="fill: #ffffff" transform="translate(41.258437 123.76331) scale(0.11 -0.11)">
      <defs>
       <path id="Arial-BoldMT-4e" d="M 475 0 
 L 475 4581 
@@ -3430,7 +3430,7 @@ z
    </g>
    <g id="text_8">
     <!-- compact city -->
-    <g style="fill: #3a3a3a" transform="translate(59.116812 142.283861) scale(0.082 -0.082)">
+    <g style="fill: #ece6d4" transform="translate(59.116812 142.283861) scale(0.082 -0.082)">
      <use xlink:href="#Arial-ItalicMT-63"/>
      <use xlink:href="#Arial-ItalicMT-6f" transform="translate(50 0)"/>
      <use xlink:href="#Arial-ItalicMT-6d" transform="translate(105.615234 0)"/>
@@ -3889,7 +3889,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p891fc7c90c">
+  <clipPath id="p32ec4b4552">
    <rect x="0" y="0" width="504" height="336.24"/>
   </clipPath>
  </defs>

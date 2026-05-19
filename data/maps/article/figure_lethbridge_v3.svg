@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-04-28T14:58:08.469519</dc:date>
+    <dc:date>2026-05-19T08:59:34.112282</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -35,7 +35,7 @@ L 346.752 208.4688
 L 346.752 202.41648 
 L 337.68 202.41648 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #8b5a2b; stroke: #5a3a1c; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #8b5a2b; stroke: #5a3a1c; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_3">
     <path d="M 337.68 223.5996 
@@ -43,7 +43,7 @@ L 346.752 223.5996
 L 346.752 217.54728 
 L 337.68 217.54728 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #8b5a2b; stroke: #5a3a1c; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #8b5a2b; stroke: #5a3a1c; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 337.68 238.7304 
@@ -51,7 +51,7 @@ L 346.752 238.7304
 L 346.752 232.67808 
 L 337.68 232.67808 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #8b5a2b; stroke: #5a3a1c; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #8b5a2b; stroke: #5a3a1c; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="text_1">
     <!-- Lethbridge: two plans, two stories -->
@@ -2095,7 +2095,7 @@ Q 25.2 100.872 25.2 102.88944
 L 25.2 149.29056 
 Q 25.2 151.308 28.224 151.308 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #e07a1c; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #1a7a6e; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 255.024 151.308 
@@ -2108,7 +2108,7 @@ Q 252 100.872 252 102.88944
 L 252 149.29056 
 Q 252 151.308 255.024 151.308 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #f2a14e; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #2ea594; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_4">
     <!-- Minority proposal  ·  3 Lethbridge-prefixed hybrids -->
@@ -2334,7 +2334,7 @@ Q 25.2 198.3816 25.2 200.39904
 L 25.2 246.80016 
 Q 25.2 248.8176 28.224 248.8176 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #2f6b7a; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #6b35a7; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 115.278545 248.8176 
@@ -2347,7 +2347,7 @@ Q 112.254545 198.3816 112.254545 200.39904
 L 112.254545 246.80016 
 Q 112.254545 248.8176 115.278545 248.8176 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #4d92a3; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #8f55c9; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 228.449455 248.8176 
@@ -2360,7 +2360,7 @@ Q 225.425455 198.3816 225.425455 200.39904
 L 225.425455 246.80016 
 Q 225.425455 248.8176 228.449455 248.8176 
 z
-" clip-path="url(#pd8f0fa921b)" style="fill: #254a5a; stroke: #141414; stroke-width: 1.1; stroke-linejoin: miter"/>
+" clip-path="url(#p8399f40154)" style="fill: #4d2080; stroke: #141414; stroke-width: 0.77; stroke-linejoin: miter"/>
    </g>
    <g id="text_5">
     <!-- Rural pulls -->
@@ -3579,7 +3579,7 @@ z
    </g>
    <g id="text_11">
     <!-- Lethbridge-East -->
-    <g style="fill: #141414" transform="translate(96.738125 128.869219) scale(0.11 -0.11)">
+    <g style="fill: #ffffff" transform="translate(96.738125 128.869219) scale(0.11 -0.11)">
      <defs>
       <path id="Arial-BoldMT-45" d="M 466 0 
 L 466 4581 
@@ -3957,7 +3957,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pd8f0fa921b">
+  <clipPath id="p8399f40154">
    <rect x="0" y="0" width="504" height="336.24"/>
   </clipPath>
  </defs>
