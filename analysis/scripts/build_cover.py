@@ -341,10 +341,13 @@ def build_cover_art() -> Path:
 
     # 4b. VA layer on top — heatmap-modulated fills carry the population-
     #     density signal where VAs exist (i.e. where people actually live).
+    # VA edges at 0.2 so the tessellation is subtly visible; ED edges are
+    # exactly 2× that (0.4) so the district structure reads over the VA grid.
     va_render.plot(
         ax=ax,
         color=va_render["_fill"].tolist(),
-        linewidth=0,
+        edgecolor="#1a1a1a",
+        linewidth=0.2,
     )
 
     # 4c. ED boundaries overlaid last so the 89-district structure
@@ -352,7 +355,7 @@ def build_cover_art() -> Path:
     eds.boundary.plot(
         ax=ax,
         edgecolor="#1a1a1a",
-        linewidth=0.55,
+        linewidth=0.4,
     )
 
     # 4d. Provincial outline: trace the outer edge in the same accent red
