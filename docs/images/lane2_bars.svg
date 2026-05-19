@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="440.922pt" height="479.178656pt" viewBox="0 0 440.922 479.178656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="440.922pt" height="544.698656pt" viewBox="0 0 440.922 544.698656" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-05-18T17:23:33.932117</dc:date>
+    <dc:date>2026-05-19T17:34:14.342824</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,19 +21,19 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 479.178656 
-L 440.922 479.178656 
-L 440.922 -0 
-L 0 -0 
+   <path d="M 0 544.698656 
+L 440.922 544.698656 
+L 440.922 0 
+L 0 0 
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 44.928 117.3888 
-L 402.048 117.3888 
-L 402.048 74.304 
-L 44.928 74.304 
+    <path d="M 44.928 127.6272 
+L 402.048 127.6272 
+L 402.048 84.384 
+L 44.928 84.384 
 z
 " style="fill: #ffffff"/>
    </g>
@@ -41,17 +41,17 @@ z
     <g id="xtick_1">
      <g id="line2d_1">
       <defs>
-       <path id="ma70ae343ed" d="M 0 0 
+       <path id="mcfde8dcfde" d="M 0 0 
 L 0 3 
 " style="stroke: #555555; stroke-width: 0.5"/>
       </defs>
       <g>
-       <use xlink:href="#ma70ae343ed" x="44.928" y="117.3888" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="44.928" y="127.6272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_1">
       <!-- 0 -->
-      <g style="fill: #555555" transform="translate(42.779875 129.180363) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(42.779875 139.418762) scale(0.07 -0.07)">
        <defs>
         <path id="Georgia-30" d="M 3209 2919 
 Q 3409 2678 3507 2354 
@@ -90,12 +90,12 @@ z
     <g id="xtick_2">
      <g id="line2d_2">
       <g>
-       <use xlink:href="#ma70ae343ed" x="99.869538" y="117.3888" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="99.869538" y="127.6272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_2">
       <!-- 10 -->
-      <g style="fill: #555555" transform="translate(96.217507 129.180363) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(96.217507 139.418762) scale(0.07 -0.07)">
        <defs>
         <path id="Georgia-31" d="M 2528 0 
 L 422 0 
@@ -130,12 +130,12 @@ z
     <g id="xtick_3">
      <g id="line2d_3">
       <g>
-       <use xlink:href="#ma70ae343ed" x="154.811077" y="117.3888" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="154.811077" y="127.6272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_3">
       <!-- 20 -->
-      <g style="fill: #555555" transform="translate(150.707874 129.180363) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(150.707874 139.418762) scale(0.07 -0.07)">
        <defs>
         <path id="Georgia-32" d="M 3272 0 
 L 344 0 
@@ -183,12 +183,12 @@ z
     <g id="xtick_4">
      <g id="line2d_4">
       <g>
-       <use xlink:href="#ma70ae343ed" x="209.752615" y="117.3888" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="209.752615" y="127.6272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_4">
       <!-- 30 -->
-      <g style="fill: #555555" transform="translate(205.673475 129.180363) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(205.673475 139.418762) scale(0.07 -0.07)">
        <defs>
         <path id="Georgia-33" d="M 1522 -1141 
 Q 1228 -1141 984 -1067 
@@ -260,12 +260,12 @@ z
     <g id="xtick_5">
      <g id="line2d_5">
       <g>
-       <use xlink:href="#ma70ae343ed" x="264.694154" y="117.3888" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="264.694154" y="127.6272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_5">
       <!-- 40 -->
-      <g style="fill: #555555" transform="translate(260.568529 129.180363) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(260.568529 139.418762) scale(0.07 -0.07)">
        <defs>
         <path id="Georgia-34" d="M 3388 281 
 L 2753 281 
@@ -295,12 +295,12 @@ z
     <g id="xtick_6">
      <g id="line2d_6">
       <g>
-       <use xlink:href="#ma70ae343ed" x="319.635692" y="117.3888" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="319.635692" y="127.6272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_6">
       <!-- 50 -->
-      <g style="fill: #555555" transform="translate(315.638583 129.180363) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(315.638583 139.418762) scale(0.07 -0.07)">
        <defs>
         <path id="Georgia-35" d="M 2634 1466 
 Q 2841 1303 2977 1047 
@@ -348,12 +348,12 @@ z
     <g id="xtick_7">
      <g id="line2d_7">
       <g>
-       <use xlink:href="#ma70ae343ed" x="374.577231" y="117.3888" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="374.577231" y="127.6272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_7">
       <!-- 60 -->
-      <g style="fill: #555555" transform="translate(370.448325 129.180363) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(370.448325 139.418762) scale(0.07 -0.07)">
        <defs>
         <path id="Georgia-36" d="M 3359 1441 
 Q 3359 1116 3242 831 
@@ -396,7 +396,7 @@ z
     </g>
     <g id="text_8">
      <!-- pp below the 70–85 pp norm -->
-     <g style="fill: #666666" transform="translate(178.645344 137.99005) scale(0.07 -0.07)">
+     <g style="fill: #666666" transform="translate(178.645344 148.22845) scale(0.07 -0.07)">
       <defs>
        <path id="Georgia-70" d="M 3041 2716 
 Q 3225 2497 3326 2208 
@@ -958,7 +958,7 @@ z
      <g id="line2d_8"/>
      <g id="text_9">
       <!-- Minority -->
-      <g style="fill: #1a1a1a" transform="translate(12.753 110.431566) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(12.753 120.633966) scale(0.075 -0.075)">
        <defs>
         <path id="Georgia-4d" d="M 5644 0 
 L 3684 0 
@@ -1102,7 +1102,7 @@ z
      <g id="line2d_9"/>
      <g id="text_10">
       <!-- Majority -->
-      <g style="fill: #1a1a1a" transform="translate(13.411594 90.847566) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(13.411594 100.977966) scale(0.075 -0.075)">
        <defs>
         <path id="Georgia-61" d="M 3144 56 
 Q 2997 3 2886 -30 
@@ -1211,29 +1211,29 @@ z
     </g>
    </g>
    <g id="patch_3">
-    <path d="M 44.928 93.3984 
-L 204.258462 93.3984 
-L 204.258462 82.6272 
-L 44.928 82.6272 
+    <path d="M 44.928 103.5486 
+L 204.258462 103.5486 
+L 204.258462 92.7378 
+L 44.928 92.7378 
 z
-" clip-path="url(#p5ad8463ac9)" style="fill: #1d6a27; opacity: 0.9"/>
+" clip-path="url(#pae97e4ce9d)" style="fill: #1a7a6e; opacity: 0.9"/>
    </g>
    <g id="patch_4">
-    <path d="M 44.928 112.9824 
-L 349.853538 112.9824 
-L 349.853538 102.2112 
-L 44.928 102.2112 
+    <path d="M 44.928 123.2046 
+L 349.853538 123.2046 
+L 349.853538 112.3938 
+L 44.928 112.3938 
 z
-" clip-path="url(#p5ad8463ac9)" style="fill: #922b21; opacity: 0.9"/>
+" clip-path="url(#pae97e4ce9d)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_5">
-    <path d="M 44.928 117.3888 
-L 402.048 117.3888 
+    <path d="M 44.928 127.6272 
+L 402.048 127.6272 
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_11">
     <!-- 29 -->
-    <g style="fill: #1a1a1a" transform="translate(211.400862 90.034284) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(213.186462 100.164684) scale(0.075 -0.075)">
      <defs>
       <path id="Georgia-39" d="M 3300 1613 
 Q 3300 1069 3128 589 
@@ -1275,7 +1275,7 @@ z
    </g>
    <g id="text_12">
     <!-- 55.5 -->
-    <g style="fill: #1a1a1a" transform="translate(356.995938 109.618284) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(358.781538 119.820684) scale(0.075 -0.075)">
      <defs>
       <path id="Georgia-Bold-35" d="M 3013 1481 
 Q 3247 1325 3406 1061 
@@ -1332,7 +1332,7 @@ z
    </g>
    <g id="text_13">
     <!-- Municipal anchoring -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 61.745219) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 71.825219) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-4d" d="M 6309 0 
 L 3906 0 
@@ -1892,7 +1892,7 @@ z
      <use xlink:href="#Georgia-Bold-67" transform="translate(1017.578125 0)"/>
     </g>
     <!-- departure from norm -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 71.304) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 81.384) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-64" d="M 4222 66 
 L 2681 -25 
@@ -2134,10 +2134,10 @@ z
   </g>
   <g id="axes_2">
    <g id="patch_6">
-    <path d="M 44.928 184.17024 
-L 402.048 184.17024 
-L 402.048 141.08544 
-L 44.928 141.08544 
+    <path d="M 44.928 205.46496 
+L 402.048 205.46496 
+L 402.048 162.22176 
+L 44.928 162.22176 
 z
 " style="fill: #ffffff"/>
    </g>
@@ -2145,12 +2145,12 @@ z
     <g id="xtick_8">
      <g id="line2d_10">
       <g>
-       <use xlink:href="#ma70ae343ed" x="44.928" y="184.17024" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="44.928" y="205.46496" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_14">
       <!-- 0 -->
-      <g style="fill: #555555" transform="translate(42.779875 195.961803) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(42.779875 217.256522) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-30"/>
       </g>
      </g>
@@ -2158,12 +2158,12 @@ z
     <g id="xtick_9">
      <g id="line2d_11">
       <g>
-       <use xlink:href="#ma70ae343ed" x="109.858909" y="184.17024" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="109.858909" y="205.46496" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_15">
       <!-- 10 -->
-      <g style="fill: #555555" transform="translate(106.206878 195.961803) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(106.206878 217.256522) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
        <use xlink:href="#Georgia-30" transform="translate(42.96875 0)"/>
       </g>
@@ -2172,12 +2172,12 @@ z
     <g id="xtick_10">
      <g id="line2d_12">
       <g>
-       <use xlink:href="#ma70ae343ed" x="174.789818" y="184.17024" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="174.789818" y="205.46496" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_16">
       <!-- 20 -->
-      <g style="fill: #555555" transform="translate(170.686615 195.961803) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(170.686615 217.256522) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-32"/>
        <use xlink:href="#Georgia-30" transform="translate(55.859375 0)"/>
       </g>
@@ -2186,12 +2186,12 @@ z
     <g id="xtick_11">
      <g id="line2d_13">
       <g>
-       <use xlink:href="#ma70ae343ed" x="239.720727" y="184.17024" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="239.720727" y="205.46496" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_17">
       <!-- 30 -->
-      <g style="fill: #555555" transform="translate(235.641587 195.961803) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(235.641587 217.256522) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-33"/>
        <use xlink:href="#Georgia-30" transform="translate(55.175781 0)"/>
       </g>
@@ -2200,12 +2200,12 @@ z
     <g id="xtick_12">
      <g id="line2d_14">
       <g>
-       <use xlink:href="#ma70ae343ed" x="304.651636" y="184.17024" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="304.651636" y="205.46496" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_18">
       <!-- 40 -->
-      <g style="fill: #555555" transform="translate(300.526011 195.961803) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(300.526011 217.256522) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-34"/>
        <use xlink:href="#Georgia-30" transform="translate(56.494141 0)"/>
       </g>
@@ -2214,12 +2214,12 @@ z
     <g id="xtick_13">
      <g id="line2d_15">
       <g>
-       <use xlink:href="#ma70ae343ed" x="369.582545" y="184.17024" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="369.582545" y="205.46496" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_19">
       <!-- 50 -->
-      <g style="fill: #555555" transform="translate(365.585436 195.961803) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(365.585436 217.256522) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-35"/>
        <use xlink:href="#Georgia-30" transform="translate(52.832031 0)"/>
       </g>
@@ -2227,7 +2227,7 @@ z
     </g>
     <g id="text_20">
      <!-- % widening relative to ensemble -->
-     <g style="fill: #666666" transform="translate(173.648547 204.77149) scale(0.07 -0.07)">
+     <g style="fill: #666666" transform="translate(173.648547 226.06621) scale(0.07 -0.07)">
       <defs>
        <path id="Georgia-25" d="M 2463 3384 
 Q 2463 2834 2166 2531 
@@ -2517,7 +2517,7 @@ z
      <g id="line2d_16"/>
      <g id="text_21">
       <!-- Minority -->
-      <g style="fill: #1a1a1a" transform="translate(12.753 177.213006) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(12.753 198.471726) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-69" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6e" transform="translate(122.021484 0)"/>
@@ -2533,7 +2533,7 @@ z
      <g id="line2d_17"/>
      <g id="text_22">
       <!-- Majority -->
-      <g style="fill: #1a1a1a" transform="translate(13.411594 157.629006) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(13.411594 178.815726) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-61" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6a" transform="translate(143.115234 0)"/>
@@ -2547,35 +2547,35 @@ z
     </g>
    </g>
    <g id="patch_7">
-    <path d="M 44.928 160.17984 
-L 44.928 160.17984 
-L 44.928 149.40864 
-L 44.928 149.40864 
+    <path d="M 44.928 181.38636 
+L 44.928 181.38636 
+L 44.928 170.57556 
+L 44.928 170.57556 
 z
-" clip-path="url(#p32fefafb88)" style="fill: #1d6a27; opacity: 0.9"/>
+" clip-path="url(#p4bba59e136)" style="fill: #1a7a6e; opacity: 0.9"/>
    </g>
    <g id="patch_8">
-    <path d="M 44.928 179.76384 
-L 356.596364 179.76384 
-L 356.596364 168.99264 
-L 44.928 168.99264 
+    <path d="M 44.928 201.04236 
+L 356.596364 201.04236 
+L 356.596364 190.23156 
+L 44.928 190.23156 
 z
-" clip-path="url(#p32fefafb88)" style="fill: #922b21; opacity: 0.9"/>
+" clip-path="url(#p4bba59e136)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_9">
-    <path d="M 44.928 184.17024 
-L 402.048 184.17024 
+    <path d="M 44.928 205.46496 
+L 402.048 205.46496 
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_23">
     <!-- 0 -->
-    <g style="fill: #1a1a1a" transform="translate(52.0704 156.815724) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(59.2128 178.002444) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-30"/>
     </g>
    </g>
    <g id="text_24">
     <!-- 48 -->
-    <g style="fill: #1a1a1a" transform="translate(363.738764 176.399724) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(365.524364 197.658444) scale(0.075 -0.075)">
      <defs>
       <path id="Georgia-Bold-34" d="M 3941 31 
 L 3269 31 
@@ -2646,7 +2646,7 @@ z
    </g>
    <g id="text_25">
     <!-- Population spread -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 128.53144) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 149.66776) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-50" d="M 4372 3325 
 Q 4372 2950 4217 2679 
@@ -2747,7 +2747,7 @@ z
      <use xlink:href="#Georgia-Bold-64" transform="translate(879.980469 0)"/>
     </g>
     <!-- (MAD widening) -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 138.08544) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 159.22176) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-28" d="M 2650 -1025 
 Q 2222 -969 1811 -772 
@@ -2923,10 +2923,10 @@ z
   </g>
   <g id="axes_3">
    <g id="patch_10">
-    <path d="M 44.928 250.95168 
-L 402.048 250.95168 
-L 402.048 207.86688 
-L 44.928 207.86688 
+    <path d="M 44.928 283.30272 
+L 402.048 283.30272 
+L 402.048 240.05952 
+L 44.928 240.05952 
 z
 " style="fill: #ffffff"/>
    </g>
@@ -2934,12 +2934,12 @@ z
     <g id="xtick_14">
      <g id="line2d_18">
       <g>
-       <use xlink:href="#ma70ae343ed" x="44.928" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="44.928" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_26">
       <!-- 0 -->
-      <g style="fill: #555555" transform="translate(42.779875 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(42.779875 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-30"/>
       </g>
      </g>
@@ -2947,12 +2947,12 @@ z
     <g id="xtick_15">
      <g id="line2d_19">
       <g>
-       <use xlink:href="#ma70ae343ed" x="89.568" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="89.568" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_27">
       <!-- 2 -->
-      <g style="fill: #555555" transform="translate(87.612922 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(87.612922 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-32"/>
       </g>
      </g>
@@ -2960,12 +2960,12 @@ z
     <g id="xtick_16">
      <g id="line2d_20">
       <g>
-       <use xlink:href="#ma70ae343ed" x="134.208" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="134.208" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_28">
       <!-- 4 -->
-      <g style="fill: #555555" transform="translate(132.2305 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(132.2305 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-34"/>
       </g>
      </g>
@@ -2973,12 +2973,12 @@ z
     <g id="xtick_17">
      <g id="line2d_21">
       <g>
-       <use xlink:href="#ma70ae343ed" x="178.848" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="178.848" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_29">
       <!-- 6 -->
-      <g style="fill: #555555" transform="translate(176.867219 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(176.867219 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-36"/>
       </g>
      </g>
@@ -2986,12 +2986,12 @@ z
     <g id="xtick_18">
      <g id="line2d_22">
       <g>
-       <use xlink:href="#ma70ae343ed" x="223.488" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="223.488" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_30">
       <!-- 8 -->
-      <g style="fill: #555555" transform="translate(221.401125 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(221.401125 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-38"/>
       </g>
      </g>
@@ -2999,12 +2999,12 @@ z
     <g id="xtick_19">
      <g id="line2d_23">
       <g>
-       <use xlink:href="#ma70ae343ed" x="268.128" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="268.128" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_31">
       <!-- 10 -->
-      <g style="fill: #555555" transform="translate(264.475969 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(264.475969 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
        <use xlink:href="#Georgia-30" transform="translate(42.96875 0)"/>
       </g>
@@ -3013,12 +3013,12 @@ z
     <g id="xtick_20">
      <g id="line2d_24">
       <g>
-       <use xlink:href="#ma70ae343ed" x="312.768" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="312.768" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_32">
       <!-- 12 -->
-      <g style="fill: #555555" transform="translate(309.309016 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(309.309016 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
        <use xlink:href="#Georgia-32" transform="translate(42.96875 0)"/>
       </g>
@@ -3027,12 +3027,12 @@ z
     <g id="xtick_21">
      <g id="line2d_25">
       <g>
-       <use xlink:href="#ma70ae343ed" x="357.408" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="357.408" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_33">
       <!-- 14 -->
-      <g style="fill: #555555" transform="translate(353.926594 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(353.926594 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
        <use xlink:href="#Georgia-34" transform="translate(42.96875 0)"/>
       </g>
@@ -3041,12 +3041,12 @@ z
     <g id="xtick_22">
      <g id="line2d_26">
       <g>
-       <use xlink:href="#ma70ae343ed" x="402.048" y="250.95168" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="402.048" y="283.30272" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_34">
       <!-- 16 -->
-      <g style="fill: #555555" transform="translate(398.563312 262.743243) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(398.563312 295.094282) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
        <use xlink:href="#Georgia-36" transform="translate(42.96875 0)"/>
       </g>
@@ -3054,7 +3054,7 @@ z
     </g>
     <g id="text_35">
      <!-- % above provincial average -->
-     <g style="fill: #666666" transform="translate(181.657531 271.55293) scale(0.07 -0.07)">
+     <g style="fill: #666666" transform="translate(181.657531 303.90397) scale(0.07 -0.07)">
       <defs>
        <path id="Georgia-63" d="M 1650 -81 
 Q 981 -81 603 362 
@@ -3121,7 +3121,7 @@ z
      <g id="line2d_27"/>
      <g id="text_36">
       <!-- Minority -->
-      <g style="fill: #1a1a1a" transform="translate(12.753 243.994446) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(12.753 276.309486) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-69" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6e" transform="translate(122.021484 0)"/>
@@ -3137,7 +3137,7 @@ z
      <g id="line2d_28"/>
      <g id="text_37">
       <!-- Majority -->
-      <g style="fill: #1a1a1a" transform="translate(13.411594 224.410446) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(13.411594 256.653486) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-61" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6a" transform="translate(143.115234 0)"/>
@@ -3151,34 +3151,34 @@ z
     </g>
    </g>
    <g id="patch_11">
-    <path d="M 44.928 226.96128 
-L 53.856 226.96128 
-L 53.856 216.19008 
-L 44.928 216.19008 
+    <path d="M 44.928 259.22412 
+L 53.856 259.22412 
+L 53.856 248.41332 
+L 44.928 248.41332 
 z
-" clip-path="url(#pb03c352f01)" style="fill: #1d6a27; opacity: 0.9"/>
+" clip-path="url(#p823d9f4d9c)" style="fill: #1a7a6e; opacity: 0.9"/>
    </g>
    <g id="patch_12">
-    <path d="M 44.928 246.54528 
-L 317.232 246.54528 
-L 317.232 235.77408 
-L 44.928 235.77408 
+    <path d="M 44.928 278.88012 
+L 317.232 278.88012 
+L 317.232 268.06932 
+L 44.928 268.06932 
 z
-" clip-path="url(#pb03c352f01)" style="fill: #922b21; opacity: 0.9"/>
+" clip-path="url(#p823d9f4d9c)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_13">
-    <path d="M 44.928 250.95168 
-L 402.048 250.95168 
+    <path d="M 44.928 283.30272 
+L 402.048 283.30272 
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="line2d_29">
-    <path d="M 156.528 250.95168 
-L 156.528 207.86688 
-" clip-path="url(#pb03c352f01)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
+    <path d="M 156.528 283.30272 
+L 156.528 240.05952 
+" clip-path="url(#p823d9f4d9c)" style="fill: none; stroke-dasharray: 0.74,0.32; stroke-dashoffset: 0; stroke: #7b2d3e; stroke-width: 0.2"/>
    </g>
    <g id="text_38">
     <!-- 0.4 -->
-    <g style="fill: #1a1a1a" transform="translate(60.9984 223.597164) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(62.784 255.840204) scale(0.075 -0.075)">
      <defs>
       <path id="Georgia-2e" d="M 1297 359 
 Q 1297 184 1170 60 
@@ -3199,7 +3199,7 @@ z
    </g>
    <g id="text_39">
     <!-- 12.2 -->
-    <g style="fill: #1a1a1a" transform="translate(324.3744 243.181164) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(326.16 275.496204) scale(0.075 -0.075)">
      <defs>
       <path id="Georgia-Bold-31" d="M 2956 0 
 L 378 0 
@@ -3270,7 +3270,7 @@ z
    </g>
    <g id="text_40">
     <!-- NW Calgary district size -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 195.31288) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 227.50552) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-4e" d="M 5309 4191 
 Q 5222 4181 5059 4156 
@@ -3483,7 +3483,7 @@ z
      <use xlink:href="#Georgia-Bold-65" transform="translate(1175.78125 0)"/>
     </g>
     <!-- excess over average -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 204.86688) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 237.05952) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-78" d="M 3744 0 
 L 1791 0 
@@ -3599,10 +3599,10 @@ z
   </g>
   <g id="axes_4">
    <g id="patch_14">
-    <path d="M 44.928 317.73312 
-L 402.048 317.73312 
-L 402.048 274.64832 
-L 44.928 274.64832 
+    <path d="M 44.928 361.14048 
+L 402.048 361.14048 
+L 402.048 317.89728 
+L 44.928 317.89728 
 z
 " style="fill: #ffffff"/>
    </g>
@@ -3610,12 +3610,12 @@ z
     <g id="xtick_23">
      <g id="line2d_30">
       <g>
-       <use xlink:href="#ma70ae343ed" x="44.928" y="317.73312" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="44.928" y="361.14048" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_41">
       <!-- 0 -->
-      <g style="fill: #555555" transform="translate(42.779875 329.524683) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(42.779875 372.932042) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-30"/>
       </g>
      </g>
@@ -3623,12 +3623,12 @@ z
     <g id="xtick_24">
      <g id="line2d_31">
       <g>
-       <use xlink:href="#ma70ae343ed" x="116.352" y="317.73312" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="116.352" y="361.14048" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_42">
       <!-- 1 -->
-      <g style="fill: #555555" transform="translate(114.848094 329.524683) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(114.848094 372.932042) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
       </g>
      </g>
@@ -3636,12 +3636,12 @@ z
     <g id="xtick_25">
      <g id="line2d_32">
       <g>
-       <use xlink:href="#ma70ae343ed" x="187.776" y="317.73312" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="187.776" y="361.14048" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_43">
       <!-- 2 -->
-      <g style="fill: #555555" transform="translate(185.820922 329.524683) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(185.820922 372.932042) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-32"/>
       </g>
      </g>
@@ -3649,12 +3649,12 @@ z
     <g id="xtick_26">
      <g id="line2d_33">
       <g>
-       <use xlink:href="#ma70ae343ed" x="259.2" y="317.73312" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="259.2" y="361.14048" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_44">
       <!-- 3 -->
-      <g style="fill: #555555" transform="translate(257.268984 329.524683) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(257.268984 372.932042) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-33"/>
       </g>
      </g>
@@ -3662,12 +3662,12 @@ z
     <g id="xtick_27">
      <g id="line2d_34">
       <g>
-       <use xlink:href="#ma70ae343ed" x="330.624" y="317.73312" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="330.624" y="361.14048" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_45">
       <!-- 4 -->
-      <g style="fill: #555555" transform="translate(328.6465 329.524683) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(328.6465 372.932042) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-34"/>
       </g>
      </g>
@@ -3675,19 +3675,19 @@ z
     <g id="xtick_28">
      <g id="line2d_35">
       <g>
-       <use xlink:href="#ma70ae343ed" x="402.048" y="317.73312" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="402.048" y="361.14048" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_46">
       <!-- 5 -->
-      <g style="fill: #555555" transform="translate(400.199016 329.524683) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(400.199016 372.932042) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-35"/>
       </g>
      </g>
     </g>
     <g id="text_47">
      <!-- count -->
-     <g style="fill: #666666" transform="translate(214.723234 338.33437) scale(0.07 -0.07)">
+     <g style="fill: #666666" transform="translate(214.723234 381.74173) scale(0.07 -0.07)">
       <defs>
        <path id="Georgia-75" d="M 3528 56 
 L 2525 -13 
@@ -3745,7 +3745,7 @@ z
      <g id="line2d_36"/>
      <g id="text_48">
       <!-- Minority -->
-      <g style="fill: #1a1a1a" transform="translate(12.753 310.775886) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(12.753 354.147246) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-69" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6e" transform="translate(122.021484 0)"/>
@@ -3761,7 +3761,7 @@ z
      <g id="line2d_37"/>
      <g id="text_49">
       <!-- Majority -->
-      <g style="fill: #1a1a1a" transform="translate(13.411594 291.191886) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(13.411594 334.491246) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-61" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6a" transform="translate(143.115234 0)"/>
@@ -3775,40 +3775,40 @@ z
     </g>
    </g>
    <g id="patch_15">
-    <path d="M 44.928 293.74272 
-L 44.928 293.74272 
-L 44.928 282.97152 
-L 44.928 282.97152 
+    <path d="M 44.928 337.06188 
+L 44.928 337.06188 
+L 44.928 326.25108 
+L 44.928 326.25108 
 z
-" clip-path="url(#pcfe549138b)" style="fill: #1d6a27; opacity: 0.9"/>
+" clip-path="url(#p105a38b4af)" style="fill: #1a7a6e; opacity: 0.9"/>
    </g>
    <g id="patch_16">
-    <path d="M 44.928 313.32672 
-L 259.2 313.32672 
-L 259.2 302.55552 
-L 44.928 302.55552 
+    <path d="M 44.928 356.71788 
+L 259.2 356.71788 
+L 259.2 345.90708 
+L 44.928 345.90708 
 z
-" clip-path="url(#pcfe549138b)" style="fill: #922b21; opacity: 0.9"/>
+" clip-path="url(#p105a38b4af)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_17">
-    <path d="M 44.928 317.73312 
-L 402.048 317.73312 
+    <path d="M 44.928 361.14048 
+L 402.048 361.14048 
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="line2d_38">
-    <path d="M 116.352 317.73312 
-L 116.352 274.64832 
-" clip-path="url(#pcfe549138b)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
+    <path d="M 116.352 361.14048 
+L 116.352 317.89728 
+" clip-path="url(#p105a38b4af)" style="fill: none; stroke-dasharray: 0.74,0.32; stroke-dashoffset: 0; stroke: #7b2d3e; stroke-width: 0.2"/>
    </g>
    <g id="text_50">
     <!-- 0 -->
-    <g style="fill: #1a1a1a" transform="translate(52.0704 290.378604) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(59.2128 333.677964) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-30"/>
     </g>
    </g>
    <g id="text_51">
     <!-- 3 -->
-    <g style="fill: #1a1a1a" transform="translate(266.3424 309.962604) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(268.128 353.333964) scale(0.075 -0.075)">
      <defs>
       <path id="Georgia-Bold-33" d="M 3238 1050 
 Q 3425 925 3550 717 
@@ -3869,7 +3869,7 @@ z
    </g>
    <g id="text_52">
     <!-- Chair-flagged -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 262.09432) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 305.34328) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-2d" d="M 2159 1359 
 L 266 1359 
@@ -3894,7 +3894,7 @@ z
      <use xlink:href="#Georgia-Bold-64" transform="translate(630.126953 0)"/>
     </g>
     <!-- anomalies -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 271.64832) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 314.89728) scale(0.085 -0.085)">
      <use xlink:href="#Georgia-Bold-61"/>
      <use xlink:href="#Georgia-Bold-6e" transform="translate(59.570312 0)"/>
      <use xlink:href="#Georgia-Bold-6f" transform="translate(128.564453 0)"/>
@@ -3909,10 +3909,10 @@ z
   </g>
   <g id="axes_5">
    <g id="patch_18">
-    <path d="M 44.928 384.51456 
-L 402.048 384.51456 
-L 402.048 341.42976 
-L 44.928 341.42976 
+    <path d="M 44.928 438.97824 
+L 402.048 438.97824 
+L 402.048 395.73504 
+L 44.928 395.73504 
 z
 " style="fill: #ffffff"/>
    </g>
@@ -3920,12 +3920,12 @@ z
     <g id="xtick_29">
      <g id="line2d_39">
       <g>
-       <use xlink:href="#ma70ae343ed" x="44.928" y="384.51456" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="44.928" y="438.97824" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_53">
       <!-- 0.0 -->
-      <g style="fill: #555555" transform="translate(39.688391 396.306123) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(39.688391 450.769802) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-30"/>
        <use xlink:href="#Georgia-2e" transform="translate(61.376953 0)"/>
        <use xlink:href="#Georgia-30" transform="translate(88.330078 0)"/>
@@ -3935,12 +3935,12 @@ z
     <g id="xtick_30">
      <g id="line2d_40">
       <g>
-       <use xlink:href="#ma70ae343ed" x="104.448" y="384.51456" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="104.448" y="438.97824" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_54">
       <!-- 0.5 -->
-      <g style="fill: #555555" transform="translate(99.507531 396.306123) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(99.507531 450.769802) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-30"/>
        <use xlink:href="#Georgia-2e" transform="translate(61.376953 0)"/>
        <use xlink:href="#Georgia-35" transform="translate(88.330078 0)"/>
@@ -3950,12 +3950,12 @@ z
     <g id="xtick_31">
      <g id="line2d_41">
       <g>
-       <use xlink:href="#ma70ae343ed" x="163.968" y="384.51456" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="163.968" y="438.97824" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_55">
       <!-- 1.0 -->
-      <g style="fill: #555555" transform="translate(159.372609 396.306123) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(159.372609 450.769802) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
        <use xlink:href="#Georgia-2e" transform="translate(42.96875 0)"/>
        <use xlink:href="#Georgia-30" transform="translate(69.921875 0)"/>
@@ -3965,12 +3965,12 @@ z
     <g id="xtick_32">
      <g id="line2d_42">
       <g>
-       <use xlink:href="#ma70ae343ed" x="223.488" y="384.51456" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="223.488" y="438.97824" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_56">
       <!-- 1.5 -->
-      <g style="fill: #555555" transform="translate(219.19175 396.306123) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(219.19175 450.769802) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
        <use xlink:href="#Georgia-2e" transform="translate(42.96875 0)"/>
        <use xlink:href="#Georgia-35" transform="translate(69.921875 0)"/>
@@ -3980,12 +3980,12 @@ z
     <g id="xtick_33">
      <g id="line2d_43">
       <g>
-       <use xlink:href="#ma70ae343ed" x="283.008" y="384.51456" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="283.008" y="438.97824" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_57">
       <!-- 2.0 -->
-      <g style="fill: #555555" transform="translate(277.961437 396.306123) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(277.961437 450.769802) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-32"/>
        <use xlink:href="#Georgia-2e" transform="translate(55.859375 0)"/>
        <use xlink:href="#Georgia-30" transform="translate(82.8125 0)"/>
@@ -3995,12 +3995,12 @@ z
     <g id="xtick_34">
      <g id="line2d_44">
       <g>
-       <use xlink:href="#ma70ae343ed" x="342.528" y="384.51456" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="342.528" y="438.97824" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_58">
       <!-- 2.5 -->
-      <g style="fill: #555555" transform="translate(337.780578 396.306123) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(337.780578 450.769802) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-32"/>
        <use xlink:href="#Georgia-2e" transform="translate(55.859375 0)"/>
        <use xlink:href="#Georgia-35" transform="translate(82.8125 0)"/>
@@ -4010,12 +4010,12 @@ z
     <g id="xtick_35">
      <g id="line2d_45">
       <g>
-       <use xlink:href="#ma70ae343ed" x="402.048" y="384.51456" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="402.048" y="438.97824" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_59">
       <!-- 3.0 -->
-      <g style="fill: #555555" transform="translate(397.0255 396.306123) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(397.0255 450.769802) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-33"/>
        <use xlink:href="#Georgia-2e" transform="translate(55.175781 0)"/>
        <use xlink:href="#Georgia-30" transform="translate(82.128906 0)"/>
@@ -4024,7 +4024,7 @@ z
     </g>
     <g id="text_60">
      <!-- additional splits -->
-     <g style="fill: #666666" transform="translate(198.622687 405.11581) scale(0.07 -0.07)">
+     <g style="fill: #666666" transform="translate(198.622687 459.57949) scale(0.07 -0.07)">
       <use xlink:href="#Georgia-61"/>
       <use xlink:href="#Georgia-64" transform="translate(50.390625 0)"/>
       <use xlink:href="#Georgia-64" transform="translate(107.8125 0)"/>
@@ -4050,7 +4050,7 @@ z
      <g id="line2d_46"/>
      <g id="text_61">
       <!-- Minority -->
-      <g style="fill: #1a1a1a" transform="translate(12.753 377.557326) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(12.753 431.985006) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-69" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6e" transform="translate(122.021484 0)"/>
@@ -4066,7 +4066,7 @@ z
      <g id="line2d_47"/>
      <g id="text_62">
       <!-- Majority -->
-      <g style="fill: #1a1a1a" transform="translate(13.411594 357.973326) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(13.411594 412.329006) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-61" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6a" transform="translate(143.115234 0)"/>
@@ -4080,46 +4080,41 @@ z
     </g>
    </g>
    <g id="patch_19">
-    <path d="M 44.928 360.52416 
-L 44.928 360.52416 
-L 44.928 349.75296 
-L 44.928 349.75296 
+    <path d="M 44.928 414.89964 
+L 44.928 414.89964 
+L 44.928 404.08884 
+L 44.928 404.08884 
 z
-" clip-path="url(#pf896b67487)" style="fill: #1d6a27; opacity: 0.9"/>
+" clip-path="url(#pbac768aaf2)" style="fill: #1a7a6e; opacity: 0.9"/>
    </g>
    <g id="patch_20">
-    <path d="M 44.928 380.10816 
-L 283.008 380.10816 
-L 283.008 369.33696 
-L 44.928 369.33696 
+    <path d="M 44.928 434.55564 
+L 283.008 434.55564 
+L 283.008 423.74484 
+L 44.928 423.74484 
 z
-" clip-path="url(#pf896b67487)" style="fill: #922b21; opacity: 0.9"/>
+" clip-path="url(#pbac768aaf2)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_21">
-    <path d="M 44.928 384.51456 
-L 402.048 384.51456 
+    <path d="M 44.928 438.97824 
+L 402.048 438.97824 
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_48">
-    <path d="M 44.928 384.51456 
-L 44.928 341.42976 
-" clip-path="url(#pf896b67487)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
    </g>
    <g id="text_63">
     <!-- 0 -->
-    <g style="fill: #1a1a1a" transform="translate(52.0704 357.160044) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(59.2128 411.515724) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-30"/>
     </g>
    </g>
    <g id="text_64">
     <!-- 2 -->
-    <g style="fill: #1a1a1a" transform="translate(290.1504 376.744044) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(291.936 431.171724) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-Bold-32"/>
     </g>
    </g>
    <g id="text_65">
     <!-- Airdrie city splits -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 328.87576) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 383.18104) scale(0.085 -0.085)">
      <use xlink:href="#Georgia-Bold-41"/>
      <use xlink:href="#Georgia-Bold-69" transform="translate(75.830078 0)"/>
      <use xlink:href="#Georgia-Bold-72" transform="translate(111.181641 0)"/>
@@ -4141,7 +4136,7 @@ L 44.928 341.42976
      <use xlink:href="#Georgia-Bold-73" transform="translate(835.791016 0)"/>
     </g>
     <!-- (above minimum of 2) -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 338.42976) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 392.73504) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-62" d="M 3909 1528 
 Q 3909 825 3445 362 
@@ -4211,95 +4206,95 @@ z
   </g>
   <g id="axes_6">
    <g id="patch_22">
-    <path d="M 44.928 451.296 
-L 402.048 451.296 
-L 402.048 408.2112 
-L 44.928 408.2112 
+    <path d="M 44.928 516.816 
+L 402.048 516.816 
+L 402.048 473.5728 
+L 44.928 473.5728 
 z
 " style="fill: #ffffff"/>
    </g>
    <g id="matplotlib.axis_11">
     <g id="xtick_36">
-     <g id="line2d_49">
+     <g id="line2d_48">
       <g>
-       <use xlink:href="#ma70ae343ed" x="44.928" y="451.296" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="44.928" y="516.816" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_66">
       <!-- 0 -->
-      <g style="fill: #555555" transform="translate(42.779875 463.087562) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(42.779875 528.607562) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-30"/>
       </g>
      </g>
     </g>
     <g id="xtick_37">
-     <g id="line2d_50">
+     <g id="line2d_49">
       <g>
-       <use xlink:href="#ma70ae343ed" x="109.858909" y="451.296" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="109.858909" y="516.816" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_67">
       <!-- 1 -->
-      <g style="fill: #555555" transform="translate(108.355003 463.087562) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(108.355003 528.607562) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-31"/>
       </g>
      </g>
     </g>
     <g id="xtick_38">
-     <g id="line2d_51">
+     <g id="line2d_50">
       <g>
-       <use xlink:href="#ma70ae343ed" x="174.789818" y="451.296" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="174.789818" y="516.816" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_68">
       <!-- 2 -->
-      <g style="fill: #555555" transform="translate(172.83474 463.087562) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(172.83474 528.607562) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-32"/>
       </g>
      </g>
     </g>
     <g id="xtick_39">
-     <g id="line2d_52">
+     <g id="line2d_51">
       <g>
-       <use xlink:href="#ma70ae343ed" x="239.720727" y="451.296" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="239.720727" y="516.816" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_69">
       <!-- 3 -->
-      <g style="fill: #555555" transform="translate(237.789712 463.087562) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(237.789712 528.607562) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-33"/>
       </g>
      </g>
     </g>
     <g id="xtick_40">
-     <g id="line2d_53">
+     <g id="line2d_52">
       <g>
-       <use xlink:href="#ma70ae343ed" x="304.651636" y="451.296" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="304.651636" y="516.816" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_70">
       <!-- 4 -->
-      <g style="fill: #555555" transform="translate(302.674136 463.087562) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(302.674136 528.607562) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-34"/>
       </g>
      </g>
     </g>
     <g id="xtick_41">
-     <g id="line2d_54">
+     <g id="line2d_53">
       <g>
-       <use xlink:href="#ma70ae343ed" x="369.582545" y="451.296" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
+       <use xlink:href="#mcfde8dcfde" x="369.582545" y="516.816" style="fill: #555555; stroke: #555555; stroke-width: 0.5"/>
       </g>
      </g>
      <g id="text_71">
       <!-- 5 -->
-      <g style="fill: #555555" transform="translate(367.733561 463.087562) scale(0.07 -0.07)">
+      <g style="fill: #555555" transform="translate(367.733561 528.607562) scale(0.07 -0.07)">
        <use xlink:href="#Georgia-35"/>
       </g>
      </g>
     </g>
     <g id="text_72">
      <!-- tests failing -->
-     <g style="fill: #666666" transform="translate(205.706359 471.900531) scale(0.07 -0.07)">
+     <g style="fill: #666666" transform="translate(205.706359 537.420531) scale(0.07 -0.07)">
       <defs>
        <path id="Georgia-66" d="M 2519 4466 
 Q 2519 4325 2444 4228 
@@ -4356,10 +4351,10 @@ z
    </g>
    <g id="matplotlib.axis_12">
     <g id="ytick_11">
-     <g id="line2d_55"/>
+     <g id="line2d_54"/>
      <g id="text_73">
       <!-- Minority -->
-      <g style="fill: #1a1a1a" transform="translate(12.753 444.338766) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(12.753 509.822766) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-69" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6e" transform="translate(122.021484 0)"/>
@@ -4372,10 +4367,10 @@ z
      </g>
     </g>
     <g id="ytick_12">
-     <g id="line2d_56"/>
+     <g id="line2d_55"/>
      <g id="text_74">
       <!-- Majority -->
-      <g style="fill: #1a1a1a" transform="translate(13.411594 424.754766) scale(0.075 -0.075)">
+      <g style="fill: #1a1a1a" transform="translate(13.411594 490.166766) scale(0.075 -0.075)">
        <use xlink:href="#Georgia-4d"/>
        <use xlink:href="#Georgia-61" transform="translate(92.724609 0)"/>
        <use xlink:href="#Georgia-6a" transform="translate(143.115234 0)"/>
@@ -4389,46 +4384,46 @@ z
     </g>
    </g>
    <g id="patch_23">
-    <path d="M 44.928 427.3056 
-L 44.928 427.3056 
-L 44.928 416.5344 
-L 44.928 416.5344 
+    <path d="M 44.928 492.7374 
+L 44.928 492.7374 
+L 44.928 481.9266 
+L 44.928 481.9266 
 z
-" clip-path="url(#pdae33ea2b0)" style="fill: #1d6a27; opacity: 0.9"/>
+" clip-path="url(#p9d10f9413c)" style="fill: #1a7a6e; opacity: 0.9"/>
    </g>
    <g id="patch_24">
-    <path d="M 44.928 446.8896 
-L 369.582545 446.8896 
-L 369.582545 436.1184 
-L 44.928 436.1184 
+    <path d="M 44.928 512.3934 
+L 369.582545 512.3934 
+L 369.582545 501.5826 
+L 44.928 501.5826 
 z
-" clip-path="url(#pdae33ea2b0)" style="fill: #922b21; opacity: 0.9"/>
+" clip-path="url(#p9d10f9413c)" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="patch_25">
-    <path d="M 44.928 451.296 
-L 402.048 451.296 
+    <path d="M 44.928 516.816 
+L 402.048 516.816 
 " style="fill: none; stroke: #aaaaaa; stroke-width: 0.6; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="line2d_57">
-    <path d="M 304.651636 451.296 
-L 304.651636 408.2112 
-" clip-path="url(#pdae33ea2b0)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #7b2d3e"/>
+   <g id="line2d_56">
+    <path d="M 304.651636 516.816 
+L 304.651636 473.5728 
+" clip-path="url(#p9d10f9413c)" style="fill: none; stroke-dasharray: 0.74,0.32; stroke-dashoffset: 0; stroke: #7b2d3e; stroke-width: 0.2"/>
    </g>
    <g id="text_75">
     <!-- 0 -->
-    <g style="fill: #1a1a1a" transform="translate(52.0704 423.941484) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(59.2128 489.353484) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-30"/>
     </g>
    </g>
    <g id="text_76">
     <!-- 5 -->
-    <g style="fill: #1a1a1a" transform="translate(376.724945 443.525484) scale(0.075 -0.075)">
+    <g style="fill: #1a1a1a" transform="translate(378.510545 509.009484) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-Bold-35"/>
     </g>
    </g>
    <g id="text_77">
     <!-- Structural-irregularity -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 395.6572) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 461.0188) scale(0.085 -0.085)">
      <defs>
       <path id="Georgia-Bold-53" d="M 2075 -119 
 Q 1669 -119 1317 -19 
@@ -4503,7 +4498,7 @@ z
      <use xlink:href="#Georgia-Bold-79" transform="translate(1111.71875 0)"/>
     </g>
     <!-- score (of 5 tests) -->
-    <g style="fill: #1a1a1a" transform="translate(44.928 405.2112) scale(0.085 -0.085)">
+    <g style="fill: #1a1a1a" transform="translate(44.928 470.5728) scale(0.085 -0.085)">
      <use xlink:href="#Georgia-Bold-73"/>
      <use xlink:href="#Georgia-Bold-63" transform="translate(51.269531 0)"/>
      <use xlink:href="#Georgia-Bold-6f" transform="translate(104.394531 0)"/>
@@ -4642,16 +4637,16 @@ z
   </g>
   <g id="legend_1">
    <g id="patch_26">
-    <path d="M 204.922547 23.075531 
-L 219.922547 23.075531 
-L 219.922547 17.825531 
-L 204.922547 17.825531 
+    <path d="M 204.922547 23.795531 
+L 219.922547 23.795531 
+L 219.922547 18.545531 
+L 204.922547 18.545531 
 z
-" style="fill: #1d6a27; opacity: 0.9"/>
+" style="fill: #1a7a6e; opacity: 0.9"/>
    </g>
    <g id="text_79">
     <!-- Majority 2026 -->
-    <g transform="translate(222.922547 23.075531) scale(0.075 -0.075)">
+    <g transform="translate(222.922547 23.795531) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-4d"/>
      <use xlink:href="#Georgia-61" transform="translate(92.724609 0)"/>
      <use xlink:href="#Georgia-6a" transform="translate(143.115234 0)"/>
@@ -4668,16 +4663,16 @@ z
     </g>
    </g>
    <g id="patch_27">
-    <path d="M 277.974891 23.075531 
-L 292.974891 23.075531 
-L 292.974891 17.825531 
-L 277.974891 17.825531 
+    <path d="M 277.974891 23.795531 
+L 292.974891 23.795531 
+L 292.974891 18.545531 
+L 277.974891 18.545531 
 z
-" style="fill: #922b21; opacity: 0.9"/>
+" style="fill: #6b35a7; opacity: 0.9"/>
    </g>
    <g id="text_80">
     <!-- Minority 2026 -->
-    <g transform="translate(295.974891 23.075531) scale(0.075 -0.075)">
+    <g transform="translate(295.974891 23.795531) scale(0.075 -0.075)">
      <use xlink:href="#Georgia-4d"/>
      <use xlink:href="#Georgia-69" transform="translate(92.724609 0)"/>
      <use xlink:href="#Georgia-6e" transform="translate(122.021484 0)"/>
@@ -4693,15 +4688,15 @@ z
      <use xlink:href="#Georgia-36" transform="translate(586.230469 0)"/>
     </g>
    </g>
-   <g id="line2d_58">
-    <path d="M 351.685828 20.450531 
-L 359.185828 20.450531 
-L 366.685828 20.450531 
+   <g id="line2d_57">
+    <path d="M 351.685828 21.170531 
+L 359.185828 21.170531 
+L 366.685828 21.170531 
 " style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #7b2d3e; stroke-width: 0.9"/>
    </g>
    <g id="text_81">
     <!-- Pass/fail threshold -->
-    <g transform="translate(369.685828 23.075531) scale(0.075 -0.075)">
+    <g transform="translate(369.685828 23.795531) scale(0.075 -0.075)">
      <defs>
       <path id="Georgia-50" d="M 3700 3341 
 Q 3700 2994 3564 2726 
@@ -4777,23 +4772,23 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p5ad8463ac9">
-   <rect x="44.928" y="74.304" width="357.12" height="43.0848"/>
+  <clipPath id="pae97e4ce9d">
+   <rect x="44.928" y="84.384" width="357.12" height="43.2432"/>
   </clipPath>
-  <clipPath id="p32fefafb88">
-   <rect x="44.928" y="141.08544" width="357.12" height="43.0848"/>
+  <clipPath id="p4bba59e136">
+   <rect x="44.928" y="162.22176" width="357.12" height="43.2432"/>
   </clipPath>
-  <clipPath id="pb03c352f01">
-   <rect x="44.928" y="207.86688" width="357.12" height="43.0848"/>
+  <clipPath id="p823d9f4d9c">
+   <rect x="44.928" y="240.05952" width="357.12" height="43.2432"/>
   </clipPath>
-  <clipPath id="pcfe549138b">
-   <rect x="44.928" y="274.64832" width="357.12" height="43.0848"/>
+  <clipPath id="p105a38b4af">
+   <rect x="44.928" y="317.89728" width="357.12" height="43.2432"/>
   </clipPath>
-  <clipPath id="pf896b67487">
-   <rect x="44.928" y="341.42976" width="357.12" height="43.0848"/>
+  <clipPath id="pbac768aaf2">
+   <rect x="44.928" y="395.73504" width="357.12" height="43.2432"/>
   </clipPath>
-  <clipPath id="pdae33ea2b0">
-   <rect x="44.928" y="408.2112" width="357.12" height="43.0848"/>
+  <clipPath id="p9d10f9413c">
+   <rect x="44.928" y="473.5728" width="357.12" height="43.2432"/>
   </clipPath>
  </defs>
 </svg>
