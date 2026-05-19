@@ -346,16 +346,16 @@ def build_cover_art() -> Path:
     va_render.plot(
         ax=ax,
         color=va_render["_fill"].tolist(),
-        edgecolor="#1a1a1a",
-        linewidth=0.2,
+        edgecolor="#ffffff",
+        linewidth=1,
     )
 
     # 4c. ED boundaries overlaid last so the 89-district structure
     #     remains readable through the heatmap.
     eds.boundary.plot(
         ax=ax,
-        edgecolor="#1a1a1a",
-        linewidth=0.4,
+        edgecolor="#000000",
+        linewidth=2,
     )
 
     # 4d. Provincial outline: trace the outer edge in the same accent red
