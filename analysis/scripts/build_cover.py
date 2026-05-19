@@ -355,7 +355,7 @@ def build_cover_art() -> Path:
     eds.boundary.plot(
         ax=ax,
         edgecolor="#000000",
-        linewidth=2,
+        linewidth=1,
     )
 
     # 4d. Provincial outline: trace the outer edge in the same accent red
