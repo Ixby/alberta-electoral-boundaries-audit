@@ -13,17 +13,18 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 
-# ── Palette ───────────────────────────────────────────────────────────────────
+# ── Palette — source of truth is palette.py ───────────────────────────────
+# Convention: RED/LRED = minority 2026 (purple); GREEN/LGRN = majority 2026 (teal)
 NAVY  = '#1B2A4A'
-RED   = '#B03A2E'
-AMBER = '#B07A2E'   # below-threshold / marginal findings
-GREEN = '#1A7A3C'
+RED   = '#6B35A7'   # minority 2026 map / outlier / rejected null
+AMBER = '#B07A2E'   # below-threshold / marginal findings (unchanged)
+GREEN = '#1A7A6E'   # majority 2026 map / within null / pass
 WHITE = '#FFFFFF'
 LGRAY = '#ECEEF1'   # page background
 
-LRED  = '#FBF0EF'
+LRED  = '#EDE3F7'
 LAMB  = '#FDF6EE'
-LGRN  = '#EFF7F1'
+LGRN  = '#D0EEEA'
 
 DARK  = '#1C2833'
 GRAY  = '#5A6A78'

@@ -13,16 +13,17 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 
-# ── Palette: 4 semantic roles ─────────────────────────────────────────────
+# ── Palette — source of truth is palette.py ───────────────────────────────
+# Convention: RED/LRED = minority 2026 (purple); GREEN/LGRN = majority 2026 (teal)
 NAVY  = '#1B2A4A'   # chrome: header, footer, borders, section titles
-RED   = '#B03A2E'   # alarm:  outlier / rejected null
-GREEN = '#1A7A3C'   # clear:  within null / pass
+RED   = '#6B35A7'   # alarm:  minority 2026 map / outlier / rejected null
+GREEN = '#1A7A6E'   # clear:  majority 2026 map / within null / pass
 WHITE = '#FFFFFF'   # neutral: card backgrounds
 LGRAY = '#E9EAEC'   # page background + alternating table rows
 
 # Derived tints (background fills only — same semantic meaning as parent)
-LRED  = '#FAEAE9'
-LGRN  = '#E9F5EC'
+LRED  = '#EDE3F7'
+LGRN  = '#D0EEEA'
 
 # Text
 DARK  = '#1C2833'   # primary body text

@@ -52,16 +52,13 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 OUT = data_loader._resolve_path("data") / "maps" / "article"
 OUT.mkdir(parents=True, exist_ok=True)
 
-# Editorial palette
-NDP_ORANGE = "#ea7414"
-UCP_BLUE = "#225d9e"
-MAJORITY_GREEN = "#1d6a27"   # consistent with notebook and HTML tables
-MINORITY_RED = "#922b21"     # consistent with notebook and HTML tables
-NEUTRAL_2019 = "#666666"
-RULE_GREY = "#888888"
-TEXT_DARK = "#1a1a1a"
-THRESHOLD_RED = "#7b2d3e"
-NORM_BAND_GREEN = "#cfe5d0"
+# Editorial palette — source of truth is palette.py; do not redeclare here
+from palette import (
+    MINORITY_PURPLE, MINORITY_PURPLE_LIGHT,
+    MAJORITY_TEAL, MAJORITY_TEAL_LIGHT,
+    NDP_ORANGE, UCP_BLUE,
+    NEUTRAL_2019, RULE_GREY, TEXT_DARK, THRESHOLD_RED, NORM_BAND,
+)
 
 # matplotlib defaults — try to match the article's print typography
 plt.rcParams.update(
@@ -85,19 +82,22 @@ plt.rcParams.update(
 
 def build_lane1_dotplot() -> Path:
     """Lane 1 EG dot plot — canonical official EA shapefile values against two reference
-    lines: the audit's Alberta-calibrated p95 (~4.1%) and the US 7% line."""
-    fig, ax = plt.subplots(figsize=(6.4, 2.6), dpi=300)
+    lines: the audit's Alberta-calibrated p95 (~4.1%) and the US gerrymander signal line (7%)."""
+    fig, ax = plt.subplots(figsize=(6.4, 3.0), dpi=300)
 
     # canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
     alberta_line = 4.11  # ensemble p95 from simulated_ensemble_percentiles_canonical.csv (0.041086)
     us_line = 7.00
+    # (row_label, value, color, val_label_x_offset, val_label_ha)
+    # Minority dot sits at 4.02 — only 0.09 from the Alberta threshold line at 4.11.
+    # Offset its value label left so it doesn't land on the vertical rule.
     rows = [
-        ("Majority 2026", 0.10, MAJORITY_GREEN),
-        ("Minority 2026", 4.02, MINORITY_RED),
+        ("Majority 2026", 0.10, MAJORITY_TEAL,   0.00, "center"),
+        ("Minority 2026", 4.02, MINORITY_PURPLE, -0.28, "right"),
     ]
 
     y_positions = [1, 0]
-    for (label, full, color), y in zip(rows, y_positions):
+    for (label, full, color, val_x_off, val_ha), y in zip(rows, y_positions):
         ax.plot(
             full,
             y,
@@ -119,10 +119,10 @@ def build_lane1_dotplot() -> Path:
             fontweight="bold",
         )
         ax.text(
-            full,
-            y - 0.32,
+            full + val_x_off,
+            y - 0.34,
             f"{full:+.2f}%",
-            ha="center",
+            ha=val_ha,
             va="top",
             fontsize=8,
             color=TEXT_DARK,
@@ -143,12 +143,12 @@ def build_lane1_dotplot() -> Path:
         linespacing=1.0,
     )
 
-    # US 7% line (Whitford v. Gill literature reference)
+    # US gerrymander signal line — Whitford v. Gill literature reference (7%)
     ax.axvline(us_line, color="#888888", lw=0.9, linestyle=":", zorder=1)
     ax.text(
         us_line + 0.15,
         1.85,
-        "US line\n7%",
+        "US gerrymander\nsignal line\n7%",
         color="#666666",
         fontsize=7,
         fontweight="bold",
@@ -241,7 +241,7 @@ def build_lane2_bars() -> Path:
 
     n = len(tests)
     fig, axes = plt.subplots(
-        n, 1, figsize=(6.4, 6.8), dpi=300, gridspec_kw={"hspace": 0.55}
+        n, 1, figsize=(6.4, 7.8), dpi=300, gridspec_kw={"hspace": 0.80}
     )
     fig.patch.set_facecolor("white")
 
@@ -259,7 +259,7 @@ def build_lane2_bars() -> Path:
             1,
             maj,
             height=bar_h,
-            color=MAJORITY_GREEN,
+            color=MAJORITY_TEAL,
             alpha=0.9,
             edgecolor="none",
             zorder=2,
@@ -269,30 +269,34 @@ def build_lane2_bars() -> Path:
             0,
             mino,
             height=bar_h,
-            color=MINORITY_RED,
+            color=MINORITY_PURPLE,
             alpha=0.9,
             edgecolor="none",
             zorder=2,
         )
 
-        # Threshold line
-        if threshold is not None:
+        # Threshold line — skip x=0 (would draw on the axis spine)
+        if threshold is not None and threshold > 0:
             ax.axvline(threshold, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=3)
 
-        # Value annotations on bar end
-        offset = xmax * 0.02
+        # Value annotations — for zero bars use a right-anchored label at a small
+        # positive x so the text doesn't stack on the axis spine or the bar edge.
+        offset = xmax * 0.025
+        maj_x = max(maj, xmax * 0.04) if maj == 0 else maj + offset
+        maj_ha = "left"
         ax.text(
-            max(maj, 0) + offset,
+            maj_x,
             1,
             f"{maj:g}",
             va="center",
-            ha="left",
+            ha=maj_ha,
             fontsize=7.5,
             color=TEXT_DARK,
         )
         label_mino = f"{mino:g}" if isinstance(mino, float) else str(mino)
+        mino_x = max(mino, xmax * 0.04) if mino == 0 else mino + offset
         ax.text(
-            max(mino, 0) + offset,
+            mino_x,
             0,
             label_mino,
             va="center",
@@ -323,8 +327,8 @@ def build_lane2_bars() -> Path:
 
     # Shared legend at top of figure
     legend_elements = [
-        mpatches.Patch(facecolor=MAJORITY_GREEN, alpha=0.9, label="Majority 2026"),
-        mpatches.Patch(facecolor=MINORITY_RED, alpha=0.9, label="Minority 2026"),
+        mpatches.Patch(facecolor=MAJORITY_TEAL, alpha=0.9, label="Majority 2026"),
+        mpatches.Patch(facecolor=MINORITY_PURPLE, alpha=0.9, label="Minority 2026"),
         plt.Line2D(
             [0],
             [0],
@@ -377,8 +381,8 @@ def build_bias_structure_matrix() -> Path:
     # Three real maps — canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
     points = [
         ("2019 enacted", 2.41, 0, NEUTRAL_2019),
-        ("Majority 2026", 0.10, 0, MAJORITY_GREEN),
-        ("Minority 2026", 4.02, 5, MINORITY_RED),
+        ("Majority 2026", 0.10, 0, MAJORITY_TEAL),
+        ("Minority 2026", 4.02, 5, MINORITY_PURPLE),
     ]
 
     threshold_eg_alberta = (
@@ -450,7 +454,7 @@ def build_bias_structure_matrix() -> Path:
     ax.text(
         threshold_eg_us,
         YMAX - 0.05,
-        "US line 7%",
+        "US gerrymander signal line 7%",
         color="#555555",
         fontsize=8.5,
         fontweight="bold",
@@ -516,10 +520,14 @@ def build_bias_structure_matrix() -> Path:
         ax.scatter(x, y, s=240, c=color, edgecolors=TEXT_DARK, linewidths=1.4, zorder=4)
 
     # Per-dot labels — placed to avoid overlap, with v0_9 values shown
+    # Label offsets chosen to prevent three specific collisions:
+    # - "2019 enacted" previously placed below y=0 dot, val text fell below ylim=-0.6 → moved above
+    # - "Minority 2026" dot at (4.02, 5) is near Alberta bbox at top → offset further down
+    # - "Majority 2026" and "2019 enacted" both at y=0; offset in opposite directions to separate
     label_specs = {
-        "2019 enacted": ((+0.3, -0.42), "left", "top", "+2.4% / 0 of 5"),
-        "Majority 2026": ((+0.3, +0.25), "left", "bottom", "+0.1% / 0 of 5"),
-        "Minority 2026": ((-0.3, -0.18), "right", "top", "+4.0% / 5 of 5"),
+        "2019 enacted":  ((+0.30, +0.32), "left", "bottom", "+2.4% / 0 of 5"),
+        "Majority 2026": ((-0.30, +0.28), "right", "bottom", "+0.1% / 0 of 5"),
+        "Minority 2026": ((-0.30, -0.55), "right", "top",    "+4.0% / 5 of 5"),
     }
     for label, x, y, color in points:
         (ox, oy), ha, va, val = label_specs[label]
@@ -534,7 +542,13 @@ def build_bias_structure_matrix() -> Path:
             va=va,
         )
         ax.text(
-            x + ox, y + oy - 0.30, val, fontsize=8, color="#555555", ha=ha, va="top"
+            x + ox,
+            y + oy + (0.22 if va == "bottom" else -0.28),
+            val,
+            fontsize=8,
+            color="#555555",
+            ha=ha,
+            va=va,
         )
 
     # Axes

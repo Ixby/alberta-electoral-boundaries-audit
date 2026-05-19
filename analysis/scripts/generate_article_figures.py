@@ -106,19 +106,19 @@ COLOR_INK = "#141414"  # near-black
 COLOR_INK_SOFT = "#3a3a3a"  # body
 COLOR_GREY_MUTED = "#8a8a8a"  # credit line
 
-# Majority = warm orange family (segments distinct but related)
+# Majority = teal family (source of truth: palette.py MAJORITY_SEGMENT_COLORS)
 MAJORITY_SEGMENT_COLORS = (
-    "#e07a1c",  # saturated orange
-    "#f2a14e",  # softer tangerine
-    "#c95a0c",  # deeper burnt orange
-    "#f5c38a",  # pale ochre
+    "#1A7A6E",  # primary teal
+    "#2EA594",  # lighter teal
+    "#115249",  # deep teal
+    "#5CBDB0",  # pale teal
 )
-# Minority = cool teal/slate family (segments distinct but related)
+# Minority = purple family (source of truth: palette.py MINORITY_SEGMENT_COLORS)
 MINORITY_SEGMENT_COLORS = (
-    "#2f6b7a",  # teal
-    "#4d92a3",  # lighter teal
-    "#254a5a",  # deep slate
-    "#79b1bc",  # pale teal
+    "#6B35A7",  # primary purple
+    "#8F55C9",  # lighter purple
+    "#4D2080",  # deep purple
+    "#B48CD9",  # pale purple
 )
 # Rural-carve colour for segments whose primary population is outside the
 # city - visually distinct from both palette families.
