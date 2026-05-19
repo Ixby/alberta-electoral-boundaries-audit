@@ -363,7 +363,7 @@ def build_cover_art() -> Path:
     province.boundary.plot(
         ax=ax,
         edgecolor="#7a1f1f",  # title-accent red
-        linewidth=3.5,
+        linewidth=0.2,
     )
 
     ax.margins(0.005)

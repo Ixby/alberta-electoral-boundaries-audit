@@ -130,7 +130,7 @@ def build_lane1_dotplot() -> Path:
         )
 
     # Alberta-calibrated threshold line (ensemble p95)
-    ax.axvline(alberta_line, color=THRESHOLD_RED, lw=0.2, linestyle="--", zorder=1)
+    ax.axvline(alberta_line, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=1)
     ax.text(
         alberta_line + 0.15,
         1.85,
@@ -277,7 +277,7 @@ def build_lane2_bars() -> Path:
 
         # Threshold line — skip x=0 (would draw on the axis spine)
         if threshold is not None and threshold > 0:
-            ax.axvline(threshold, color=THRESHOLD_RED, lw=0.2, linestyle="--", zorder=3)
+            ax.axvline(threshold, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=3)
 
         # Value annotations — for zero bars use a right-anchored label at a small
         # positive x so the text doesn't stack on the axis spine or the bar edge.
@@ -429,10 +429,10 @@ def build_bias_structure_matrix() -> Path:
 
     # Threshold lines
     ax.axvline(
-        threshold_eg_alberta, color=THRESHOLD_RED, lw=0.2, linestyle="--", zorder=1
+        threshold_eg_alberta, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1
     )
     ax.axvline(threshold_eg_us, color="#888888", lw=1.0, linestyle=":", zorder=1)
-    ax.axhline(threshold_struct, color=THRESHOLD_RED, lw=0.2, linestyle="--", zorder=1)
+    ax.axhline(threshold_struct, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1)
 
     # Threshold labels — placed in the top margin, well clear of dots
     ax.text(
