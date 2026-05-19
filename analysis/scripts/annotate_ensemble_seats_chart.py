@@ -47,7 +47,22 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 DATA = data_loader._resolve_path("data")
-SAMPLES_CSV = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+_SAMPLES_LFS = DATA / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+_CHECKPOINT_DIR = DATA / "simulation_checkpoints_canonical"
+# Fall back to checkpoint chain CSVs when the LFS-backed samples CSV is unavailable locally
+def _load_samples_csv() -> "pd.DataFrame":
+    import pandas as _pd
+    try:
+        df = _pd.read_csv(_SAMPLES_LFS)
+        if "seats_at_50_50" not in df.columns:
+            raise ValueError("LFS pointer — not real data")
+        return df
+    except Exception:
+        parts = []
+        for p in sorted(_CHECKPOINT_DIR.glob("chain*_samples.csv")):
+            parts.append(_pd.read_csv(p))
+        return _pd.concat(parts, ignore_index=True)
+SAMPLES_CSV = None  # unused; call _load_samples_csv() instead
 PERCENTILES_CSV = DATA / "outputs" / "simulated_ensemble_percentiles_canonical.csv"
 OUT = DATA / "maps" / "mcmc" / "ensemble_distribution_canonical_seats_at_50_50.svg"
 
@@ -60,8 +75,8 @@ REAL_MAPS = {
 
 COLORS = {
     "2019 enacted": "#1f2937",
-    "Majority 2026": "#7a4d8a",  # majority purple
-    "Minority 2026": "#4a8a5c",  # minority green
+    "Majority 2026": "#1A7A6E",  # majority teal
+    "Minority 2026": "#6B35A7",  # minority purple
 }
 
 TEXT_DARK = "#1a1a1a"
@@ -72,7 +87,7 @@ def pct_rank(values: np.ndarray, x: float) -> float:
 
 
 def main() -> None:
-    df = pd.read_csv(SAMPLES_CSV)
+    df = _load_samples_csv()
     vals = df["seats_at_50_50"].dropna().to_numpy()
     n_sample = len(vals)
     # The canonical ensemble is 250,000 steps; the raw samples CSV may be

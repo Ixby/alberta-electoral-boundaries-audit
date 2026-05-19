@@ -672,11 +672,13 @@ def plot_metric(
         p95, ax.get_ylim()[1] * 0.92, "95th  ", color="#444", fontsize=8, ha="right"
     )
 
-    colors = {
-        "2019 enacted": "#1f2937",
-        "majority 2026 (approx)": "#c43f3f",
-        "minority 2026 v6 (approx)": "#2b6cb0",
-    }
+    def _line_color(label: str) -> str:
+        lo = label.lower()
+        if "minority" in lo:
+            return "#6B35A7"
+        if "majority" in lo:
+            return "#1A7A6E"
+        return "#1f2937"
 
     for label, value in real_maps.items():
         if value is None or np.isnan(value):
@@ -686,7 +688,7 @@ def plot_metric(
             value,
             linestyle="-",
             linewidth=2.2,
-            color=colors.get(label, "black"),
+            color=_line_color(label),
             label=f"{label}: {value:+.4f}  (p{pr:.1f})",
             zorder=4,
         )
