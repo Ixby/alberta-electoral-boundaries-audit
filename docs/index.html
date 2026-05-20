@@ -897,8 +897,13 @@
     <div class="zi-row"><span class="zi-key">Dbl-click</span> reset</div>
     <div class="zi-row"><span class="zi-key">Esc</span> close</div>
   </div>
+  <div id="map-selector">
+    <button class="ms-btn ms-active" data-map="minority">Minority</button>
+    <button class="ms-btn" data-map="majority">Majority</button>
+    <button class="ms-btn" data-map="2019">2019</button>
+  </div>
   <div id="zoom-stage">
-    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_hires.svg"
+    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
       title="Alberta electoral district map — full resolution"></object>
   </div>
   <div id="ed-tooltip"></div>
@@ -990,6 +995,28 @@
     white-space: nowrap;
   }
   #ed-tooltip strong { display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
+  /* Map selector — top-left pill */
+  #map-selector {
+    position: absolute; top: 12px; left: 12px; z-index: 9002;
+    display: flex; gap: 4px;
+    background: rgba(12,14,20,0.82); border-radius: 8px; padding: 4px;
+    backdrop-filter: blur(6px);
+  }
+  .ms-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 5px 11px; border-radius: 5px; cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .ms-btn[data-map="minority"]:hover,
+  .ms-btn[data-map="minority"].ms-active { background: rgba(107,53,167,0.35); border-color: #6B35A7; color: #d4b0ff; }
+  .ms-btn[data-map="majority"]:hover,
+  .ms-btn[data-map="majority"].ms-active { background: rgba(26,122,110,0.35); border-color: #1A7A6E; color: #8eecd8; }
+  .ms-btn[data-map="2019"]:hover,
+  .ms-btn[data-map="2019"].ms-active    { background: rgba(74,85,104,0.45);  border-color: #718096; color: #e2e8f0; }
   /* Touch tap callout — bottom-anchored panel */
   #ed-callout {
     display: none; position: fixed; z-index: 9003;
@@ -1031,7 +1058,10 @@
 <script>
   // Pre-fetch ED hover data at page load so it's ready when the overlay opens.
   let _edHover = null;
-  fetch('data/ed_hover.json').then(r => r.json()).then(d => { _edHover = d; }).catch(() => {});
+  fetch('data/ed_hover_minority.json')
+    .then(r => r.json())
+    .then(d => { _edHover = {}; d.forEach(rec => { _edHover[rec.id] = rec; }); })
+    .catch(() => {});
 
   (function () {
     const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
@@ -1350,7 +1380,85 @@
       document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
       _callout.style.display = 'block';
     }
-    function _hideCallout() { _callout.style.display = 'none'; }
+    function _hideCallout() {
+      _callout.style.display = 'none';
+      _clearEdHighlight();
+    }
+
+    // ── Map selector ──────────────────────────────────────────────────────────
+    const _mapSvgUrls = {
+      minority: 'images/cover_art_minority_hires.svg',
+      majority: 'images/cover_art_majority_hires.svg',
+      '2019':   'images/cover_art_2019_hires.svg',
+    };
+    const _mapJsonUrls = {
+      minority: 'data/ed_hover_minority.json',
+      majority: 'data/ed_hover_majority.json',
+      '2019':   'data/ed_hover_2019.json',
+    };
+    const _mapContextLabels = {
+      minority: '2026 minority proposal · 2023 election results',
+      majority: '2026 majority proposal · 2023 election results',
+      '2019':   '2019 enacted boundaries · 2023 election results',
+    };
+    const _mapAccentColors = {
+      minority: '#6B35A7',
+      majority: '#1A7A6E',
+      '2019':   '#718096',
+    };
+    let _activeMap = 'minority';
+
+    // ── Active ED boundary highlight ──────────────────────────────────────────
+    let _highlightPath = null;
+    function _setEdHighlight(pathEl) {
+      _clearEdHighlight();
+      if (!svgEl || !pathEl) return;
+      const color = _mapAccentColors[_activeMap] || '#fff';
+      _highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      _highlightPath.setAttribute('d', pathEl.getAttribute('d'));
+      _highlightPath.setAttribute('fill', 'none');
+      _highlightPath.setAttribute('stroke', color);
+      _highlightPath.setAttribute('stroke-width', '2');
+      _highlightPath.setAttribute('stroke-linejoin', 'round');
+      _highlightPath.setAttribute('pointer-events', 'none');
+      _highlightPath.style.vectorEffect = 'non-scaling-stroke';
+      svgEl.appendChild(_highlightPath);
+    }
+    function _clearEdHighlight() {
+      if (_highlightPath) { _highlightPath.remove(); _highlightPath = null; }
+    }
+
+    function switchMap(key) {
+      if (key === _activeMap || !_mapSvgUrls[key]) return;
+      _activeMap = key;
+      document.querySelectorAll('.ms-btn').forEach(b => {
+        b.classList.toggle('ms-active', b.dataset.map === key);
+      });
+      const ctxEl = document.getElementById('ec-context');
+      if (ctxEl) ctxEl.textContent = _mapContextLabels[key];
+      _hideCallout();
+      ready = false;
+      fetch(_mapSvgUrls[key])
+        .then(r => r.text())
+        .then(text => {
+          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          const root = doc.documentElement;
+          if (root && root.tagName.toLowerCase() !== 'parsererror') {
+            if (svgEl) { svgEl.remove(); svgEl = null; }
+            _activateInlineSVG(document.importNode(root, true));
+            if (overlay.style.display !== 'none') resetVB();
+          } else { ready = true; }
+        })
+        .catch(() => { ready = true; });
+      fetch(_mapJsonUrls[key])
+        .then(r => r.json())
+        .then(d => { _edHover = {}; d.forEach(rec => { _edHover[rec.id] = rec; }); })
+        .catch(() => { _edHover = null; });
+    }
+
+    document.querySelectorAll('.ms-btn').forEach(b => {
+      b.addEventListener('click', () => switchMap(b.dataset.map));
+    });
 
     // ── Snap-to-ED animation ───────────────────────────────────────────────
     function _animateToVB(targetVB, dur) {
@@ -1454,6 +1562,7 @@
         const hit = _tipTarget(e);
         if (hit) {
           _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+          _setEdHighlight(hit);
           _snapToED(hit);
         } else _hideCallout();
       }

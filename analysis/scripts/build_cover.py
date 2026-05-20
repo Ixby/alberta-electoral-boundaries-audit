@@ -102,6 +102,33 @@ VA_VOTES_PATH = (
     data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
 )
 
+_DOCS = REPO_ROOT / "docs"
+
+# Per-map output paths and source configs for the interactive viewer.
+MAP_VARIANTS = {
+    "minority": {
+        "candidates": APPROX_MIN_CANDIDATES,
+        "shp": None,
+        "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
+        "svg": _DOCS / "images" / "cover_art_minority_hires.svg",
+        "json": _DOCS / "data" / "ed_hover_minority.json",
+    },
+    "majority": {
+        "candidates": APPROX_MAJ_CANDIDATES,
+        "shp": None,
+        "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
+        "svg": _DOCS / "images" / "cover_art_majority_hires.svg",
+        "json": _DOCS / "data" / "ed_hover_majority.json",
+    },
+    "2019": {
+        "candidates": None,
+        "shp": ALBERTA_EDS / "EDS_ENACTED_BILL33_15DEC2017.shp",
+        "name_candidates": ["EDName2017", "EDName2025", "ED_NAME", "NAME"],
+        "svg": _DOCS / "images" / "cover_art_2019_hires.svg",
+        "json": _DOCS / "data" / "ed_hover_2019.json",
+    },
+}
+
 
 def _load_official_2023_results() -> dict:
     """Parse data/raw/2023_results.xlsx for official 2023 EA results.
@@ -228,32 +255,26 @@ def _pick(candidates):
     return None
 
 
-def build_cover_art() -> Path:
-    """Cover hero: the 2026 minority commission map, rendered in its actual
-    geographic positions, with each ED coloured by 2023 two-party vote share.
+def build_cover_art(map_key: str = "minority") -> Path:
+    """Render one of three map variants coloured by 2023 two-party vote share.
 
-    No radial displacement, no exploded-diagram pull-apart, no perspective
-    scaling — just the map as the minority commissioners proposed it.
-
-    Colour:
-    - Direct UCP-blue ↔ NDP-orange interpolation, centred on 50/50.
-      Canadian convention: UCP/Conservative blue, NDP orange.
-    - VA centroids spatially joined into v0_8 EDs for per-ED 2023 totals.
-      EDs catching zero VAs (inherited-empty from v0_7) get neutral grey.
+    map_key: "minority" | "majority" | "2019"
     """
     import matplotlib.colors as mcolors
 
-    # 1. Pick map (prefer v0_8 refined → canonical → v0_7).
-    # Use the MINORITY map: this is the map the audit ends up critiquing,
-    # so it's the one the cover should put in front of the reader.
-    map_path = _pick(APPROX_MIN_CANDIDATES)
-    if map_path is None:
-        raise FileNotFoundError("No minority GPKG candidate available")
-    print(f"[build_cover] Hero ED source: {map_path.name}")
+    cfg = MAP_VARIANTS[map_key]
+    if cfg["shp"]:
+        map_path = Path(cfg["shp"])
+        if not map_path.exists():
+            raise FileNotFoundError(f"2019 reference shapefile not found: {map_path}")
+    else:
+        map_path = _pick(cfg["candidates"])
+        if map_path is None:
+            raise FileNotFoundError(f"No {map_key} GPKG candidate available")
+    print(f"[build_cover] [{map_key}] ED source: {map_path.name}")
 
     eds = gpd.read_file(map_path).to_crs(3401)
-    _name_candidates = ["name_2026", "EDName2025", "ED_NAME", "NAME"]
-    name_col = next((c for c in _name_candidates if c in eds.columns), eds.columns[0])
+    name_col = next((c for c in cfg["name_candidates"] if c in eds.columns), eds.columns[0])
     eds = eds[eds.geometry.area > 1e6].copy().reset_index(drop=True)
     print(f"[build_cover] {len(eds)} non-empty EDs to render")
 
@@ -540,20 +561,38 @@ def build_cover_art() -> Path:
     ax.margins(0.005)
     plt.tight_layout(pad=0)
 
-    COVER_ART_PNG.parent.mkdir(parents=True, exist_ok=True)
+    svg_out = cfg["svg"]
+    json_out = cfg["json"]
+    svg_out.parent.mkdir(parents=True, exist_ok=True)
+
     _save_kwargs = dict(bbox_inches="tight", pad_inches=0.02, facecolor="none", transparent=True)
-    plt.savefig(COVER_ART_PNG, dpi=200, **_save_kwargs)
-    print(f"[build_cover] Wrote screen-res art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
+    if map_key == "minority":
+        COVER_ART_PNG.parent.mkdir(parents=True, exist_ok=True)
+        plt.savefig(COVER_ART_PNG, dpi=200, **_save_kwargs)
+        print(f"[build_cover] Wrote screen-res art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
     plt.rcParams['path.simplify'] = False
-    plt.savefig(COVER_ART_HIRES_SVG, format="svg", **_save_kwargs)
+    plt.savefig(str(svg_out), format="svg", **_save_kwargs)
     plt.rcParams['path.simplify'] = True
-    print(f"[build_cover] Wrote hi-res SVG {COVER_ART_HIRES_SVG.relative_to(REPO_ROOT)}")
+    print(f"[build_cover] [{map_key}] Wrote hi-res SVG {svg_out.relative_to(REPO_ROOT)}")
     plt.close(fig)
 
-    _tag_ed_hover_paths(COVER_ART_HIRES_SVG, len(eds))
-    _export_ed_hover_json(eds, name_col, REPO_ROOT / "docs" / "data" / "ed_hover.json")
+    _tag_ed_hover_paths(svg_out, len(eds))
+    _export_ed_hover_json(eds, name_col, json_out)
+
+    # Keep legacy paths in sync so existing embed still works
+    if map_key == "minority":
+        import shutil
+        shutil.copy2(str(svg_out), str(COVER_ART_HIRES_SVG))
+        shutil.copy2(str(json_out), str(REPO_ROOT / "docs" / "data" / "ed_hover.json"))
 
     return COVER_ART_PNG
+
+
+def build_map_variants() -> None:
+    """Build majority and 2019 map variants for the interactive viewer selector."""
+    for key in ("majority", "2019"):
+        print(f"[build_cover] Building {key} map variant...")
+        build_cover_art(map_key=key)
 
 
 # ==========================================================
@@ -918,8 +957,10 @@ def merge_pdfs(cover_pdf: Path, article_pdf: Path, out_pdf: Path) -> None:
 
 
 def main() -> int:
-    # 1. Hero art
+    # 1. Hero art (minority = default / cover page map)
     hero_png = build_cover_art()
+    # 1b. Majority and 2019 variants for the interactive selector
+    build_map_variants()
 
     # 2. Cover HTML
     cover_html = build_cover_html(hero_png)
