@@ -902,6 +902,12 @@
     <button class="ms-btn" data-map="majority">Majority</button>
     <button class="ms-btn" data-map="2019">2019</button>
   </div>
+  <div id="zone-nav">
+    <span class="zn-label">Jump to</span>
+    <button class="zn-btn" data-zone="airdrie">Airdrie</button>
+    <button class="zn-btn" data-zone="nw-calgary">NW Calgary</button>
+    <button class="zn-btn" data-zone="rmh-banff">RMH&#8202;–&#8202;Banff</button>
+  </div>
   <div id="zoom-stage">
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
       title="Alberta electoral district map — full resolution"></object>
@@ -933,6 +939,7 @@
       <span class="ec-dot">&middot;</span>
       <span id="ec-pop"></span>
     </div>
+    <div id="ec-compare"></div>
   </div>
 </div>
 
@@ -1065,15 +1072,65 @@
     display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;
   }
   .ec-dot { opacity: 0.4; }
+  #ec-compare {
+    display: none; flex-wrap: wrap; align-items: center;
+    gap: 0.5rem; margin-top: 0.65rem;
+    padding-top: 0.55rem; border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.72rem;
+  }
+  .ec-cmp-header { color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.65rem; }
+  .ec-cmp-item { display: flex; align-items: center; gap: 0.25rem; }
+  .ec-cmp-label {
+    font-size: 0.63rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: rgba(255,255,255,0.38);
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 3px;
+    padding: 0.05rem 0.35rem;
+  }
+  .ec-cmp-val { color: rgba(255,255,255,0.7); font-variant-numeric: tabular-nums; }
+  .ec-cmp-unique { color: rgba(255,180,60,0.75); font-style: italic; font-size: 0.68rem; }
+  /* Zone nav — contested-zone jump buttons */
+  #zone-nav {
+    position: absolute; top: 52px; left: 12px; z-index: 9002;
+    display: flex; align-items: center; gap: 4px;
+    background: rgba(12,14,20,0.75); border-radius: 8px; padding: 4px 6px;
+    backdrop-filter: blur(6px);
+  }
+  .zn-label {
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.07em;
+    text-transform: uppercase; color: rgba(255,255,255,0.32);
+    padding-right: 2px; white-space: nowrap;
+  }
+  .zn-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 5px; cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .zn-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 </style>
 
 <script>
-  // Pre-fetch ED hover data at page load so it's ready when the overlay opens.
-  let _edHover = null;
-  fetch('data/ed_hover_minority.json')
-    .then(r => r.json())
-    .then(d => { _edHover = {}; d.forEach(rec => { _edHover[rec.id] = rec; }); })
-    .catch(() => {});
+  // Pre-fetch all three hover datasets so cross-map comparison is available
+  // immediately after the overlay opens, regardless of which map is active.
+  let _edHover = null;                              // current map, keyed by id
+  const _allHoverData = {};                         // key → {id: rec}
+  const _nameIndex = {};                            // key → {name: rec}
+
+  function _loadHoverJson(key, url) {
+    fetch(url).then(r => r.json()).then(d => {
+      const byId = {}, byName = {};
+      d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
+      _allHoverData[key] = byId;
+      _nameIndex[key] = byName;
+      if (key === 'minority') _edHover = byId;
+    }).catch(() => {});
+  }
+  _loadHoverJson('minority', 'data/ed_hover_minority.json');
+  _loadHoverJson('majority', 'data/ed_hover_majority.json');
+  _loadHoverJson('2019',    'data/ed_hover_2019.json');
 
   (function () {
     const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
@@ -1412,11 +1469,34 @@
       document.getElementById('ec-va-count').textContent = d.va_count ? d.va_count + ' voting areas' : '';
       const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
       document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
+      // Cross-map comparison
+      const cmpEl = document.getElementById('ec-compare');
+      if (cmpEl) {
+        const others = ['minority', 'majority', '2019'].filter(k => k !== _activeMap);
+        const parts = others.map(k => {
+          const rec = _nameIndex[k] && _nameIndex[k][d.name];
+          if (!rec) return null;
+          const label = k === 'minority' ? 'Min.' : k === 'majority' ? 'Maj.' : '2019';
+          const w = rec.ucp_pct > rec.ndp_pct
+            ? '<span class="ec-cmp-val">UCP ' + rec.ucp_pct + '%</span>'
+            : '<span class="ec-cmp-val">NDP ' + rec.ndp_pct + '%</span>';
+          return '<span class="ec-cmp-item"><span class="ec-cmp-label">' + label + '</span>' + w + '</span>';
+        }).filter(Boolean);
+        if (parts.length) {
+          cmpEl.innerHTML = '<span class="ec-cmp-header">Other maps</span>' + parts.join('');
+          cmpEl.style.display = 'flex';
+        } else {
+          cmpEl.innerHTML = '<span class="ec-cmp-unique">Boundary unique to this map</span>';
+          cmpEl.style.display = 'flex';
+        }
+      }
+      _selectedEdName = d.name;
       _callout.classList.add('ec-visible');
     }
     function _hideCallout() {
       if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
       _callout.classList.remove('ec-visible');
+      _selectedEdName = null;
       _clearEdHighlight();
     }
 
@@ -1453,6 +1533,7 @@
     }
 
     // ── Active ED boundary highlight ──────────────────────────────────────────
+    let _selectedEdName = null;
     let _highlightPath = null;
     function _setEdHighlight(pathEl) {
       _clearEdHighlight();
@@ -1493,6 +1574,18 @@
           const root = doc.documentElement;
           if (root && root.tagName.toLowerCase() !== 'parsererror') {
             _activateInlineSVG(document.importNode(root, true), savedVB);
+            // Sync _edHover to newly active map
+            if (_allHoverData[key] && Object.keys(_allHoverData[key]).length) {
+              _edHover = _allHoverData[key];
+            }
+            // Re-select previously selected ED by name in new map
+            if (_selectedEdName) {
+              const rec = _nameIndex[key] && _nameIndex[key][_selectedEdName];
+              if (rec) {
+                const path = svgEl && svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
+                if (path) { _showCallout(rec); _setEdHighlight(path); }
+              } else { _selectedEdName = null; }
+            }
           } else { ready = true; }
           stage.style.opacity = '';
           setTimeout(() => { stage.style.transition = ''; }, 200);
@@ -1504,7 +1597,13 @@
         });
       fetch(_mapJsonUrls[key])
         .then(r => r.json())
-        .then(d => { _edHover = {}; d.forEach(rec => { _edHover[rec.id] = rec; }); })
+        .then(d => {
+          const byId = {}, byName = {};
+          d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
+          _allHoverData[key] = byId;
+          _nameIndex[key] = byName;
+          _edHover = byId;
+        })
         .catch(() => { _edHover = null; });
     }
 
@@ -1513,6 +1612,44 @@
     });
 
     document.getElementById('ec-close').addEventListener('click', _hideCallout);
+
+    // ── Zone navigation — jump to contested boundary areas ────────────────────
+    const _zoneKeywords = {
+      'airdrie':    ['airdrie'],
+      'nw-calgary': ['nolan hill', 'cochrane', 'rocky ridge', 'bearspaw'],
+      'rmh-banff':  ['rocky mountain house', 'banff', 'clearwater'],
+    };
+
+    function _zoomToZone(zoneKey) {
+      if (!svgEl || mode !== 'viewbox' || !_edHover) return;
+      const keywords = _zoneKeywords[zoneKey];
+      if (!keywords) return;
+      const paths = svgEl.querySelectorAll('[data-ed-id]');
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity, found = false;
+      paths.forEach(p => {
+        const id = parseInt(p.getAttribute('data-ed-id'), 10);
+        const rec = _edHover[id];
+        if (!rec) return;
+        const name = rec.name.toLowerCase();
+        if (!keywords.some(kw => name.includes(kw))) return;
+        const bb = p.getBBox();
+        minX = Math.min(minX, bb.x); minY = Math.min(minY, bb.y);
+        maxX = Math.max(maxX, bb.x + bb.width); maxY = Math.max(maxY, bb.y + bb.height);
+        found = true;
+      });
+      if (!found) return;
+      const pad = Math.max(maxX - minX, maxY - minY) * 0.3;
+      const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+      let tw = (maxX - minX) + pad * 2, th = (maxY - minY) + pad * 2;
+      const r = _getStageRect();
+      if (tw / th < r.width / r.height) tw = th * r.width / r.height;
+      else th = tw * r.height / r.width;
+      _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 280);
+    }
+
+    document.querySelectorAll('.zn-btn').forEach(b => {
+      b.addEventListener('click', () => _zoomToZone(b.dataset.zone));
+    });
 
     // ── Snap-to-ED animation ───────────────────────────────────────────────
     function _animateToVB(targetVB, dur) {

@@ -544,11 +544,14 @@ def build_cover_art(map_key: str = "minority") -> Path:
     for _c in ax.collections[_nb:]:
         _c.set_gid("ed_boundary_layer")
 
-    # 4d. Provincial outline: trace the outer edge in the same accent red
-    #     as the title's period so the silhouette pops off the dark backdrop.
-    province.boundary.plot(
+    # 4d. Provincial outline: use unary_union to merge all ED polygons into a
+    #     single geometry before drawing the boundary — this removes interior
+    #     topology gaps that would otherwise render as spurious red line caps.
+    from shapely.ops import unary_union
+    _outer = gpd.GeoDataFrame(geometry=[unary_union(eds.geometry)], crs=eds.crs)
+    _outer.boundary.plot(
         ax=ax,
-        edgecolor="#7a1f1f",  # title-accent red
+        edgecolor="#7a1f1f",  # title-accent red (outer edge only)
         linewidth=0.2,
         rasterized=False,
     )
