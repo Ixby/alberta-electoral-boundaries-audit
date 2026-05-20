@@ -1015,8 +1015,17 @@
     let natVB = null;  // { x, y, w, h } — SVG's full coordinate space
     let curVB = null;
 
+    // Cache stage rect so wheel/pointermove don't force synchronous layout.
+    // Invalidated on open and resize.
+    let _stageRect = null;
+    function _getStageRect() {
+      return _stageRect || (_stageRect = stage.getBoundingClientRect());
+    }
+    window.addEventListener('resize', () => { _stageRect = null; });
+
     function _renderBounds() {
-      const sw = stage.offsetWidth, sh = stage.offsetHeight;
+      const r = _getStageRect();
+      const sw = r.width, sh = r.height;
       const ar = natVB.w / natVB.h;
       let rw, rh;
       if (ar < sw / sh) { rh = sh; rw = sh * ar; }
@@ -1024,10 +1033,18 @@
       return { rw, rh, ox: (sw - rw) / 2, oy: (sh - rh) / 2 };
     }
 
+    // Batch viewBox writes to one per animation frame — eliminates jank from
+    // high-frequency wheel/pointermove events flushing layout on every tick.
+    let _rafId = null;
     function applyVB(vb) {
       curVB = vb;
-      svgEl.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
-      if (zoomPct) zoomPct.textContent = Math.round(natVB.w / vb.w * 100) + '%';
+      if (_rafId === null) {
+        _rafId = requestAnimationFrame(() => {
+          _rafId = null;
+          svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
+          if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+        });
+      }
     }
 
     function resetVB() { applyVB({ ...natVB }); }
@@ -1146,6 +1163,7 @@
 
     // ── Open / close ──────────────────────────────────────────────────────
     function open() {
+      _stageRect = null;  // stage may have reflowed since last open
       overlay.style.display = 'block';
       document.body.style.overflow = 'hidden';
       if (!ready) return;
@@ -1180,7 +1198,7 @@
 
     stage.addEventListener('wheel', e => {
       e.preventDefault();
-      const r = stage.getBoundingClientRect();
+      const r = _getStageRect();
       zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.12 : 1 / 1.12);
     }, { passive: false });
 
@@ -1296,7 +1314,7 @@
                               e.touches[0].clientY - e.touches[1].clientY);
       const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
       const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-      const r = stage.getBoundingClientRect();
+      const r = _getStageRect();
       if (lastDist) zoomAt(midX - r.left, midY - r.top, dist / lastDist);
       if (lastMid) {
         const dx = midX - lastMid.x, dy = midY - lastMid.y;

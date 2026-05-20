@@ -397,8 +397,8 @@ def build_cover_art() -> Path:
     va_render.plot(
         ax=ax,
         color=va_render["_fill"].tolist(),
-        edgecolor="none",
-        linewidth=0,
+        edgecolor="#333333",
+        linewidth=0.25,
         rasterized=False,
     )
 
@@ -407,7 +407,7 @@ def build_cover_art() -> Path:
     eds.boundary.plot(
         ax=ax,
         edgecolor="#000000",
-        linewidth=0.1,
+        linewidth=0.75,
         rasterized=False,
     )
 
