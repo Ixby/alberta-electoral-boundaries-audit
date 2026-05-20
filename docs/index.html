@@ -1352,6 +1352,50 @@
     }
     function _hideCallout() { _callout.style.display = 'none'; }
 
+    // ── Snap-to-ED animation ───────────────────────────────────────────────
+    function _animateToVB(targetVB, dur) {
+      if (_settleTimer !== null) { clearTimeout(_settleTimer); _settleTimer = null; }
+      if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+      const startVB = { ...curVB };
+      if (!settledVB) {
+        settledVB = { ...curVB };
+        svgEl.style.willChange = 'transform';
+        svgEl.style.transformOrigin = '0 0';
+      }
+      const t0 = performance.now();
+      function step(now) {
+        const t = Math.min((now - t0) / dur, 1);
+        const ease = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+        curVB = {
+          x: startVB.x + (targetVB.x - startVB.x) * ease,
+          y: startVB.y + (targetVB.y - startVB.y) * ease,
+          w: startVB.w + (targetVB.w - startVB.w) * ease,
+          h: startVB.h + (targetVB.h - startVB.h) * ease,
+        };
+        const { rw, rh, ox, oy } = _renderBounds();
+        const sx = settledVB.w / curVB.w;
+        svgEl.style.transform =
+          `translate(${(settledVB.x - curVB.x)*rw/curVB.w + ox*(1-1/sx)}px,` +
+          `${(settledVB.y - curVB.y)*rh/curVB.h + oy*(1-1/sx)}px) scale(${sx})`;
+        if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+        if (t < 1) { requestAnimationFrame(step); }
+        else { _settleTimer = setTimeout(_doSettle, SETTLE_MS); }
+      }
+      requestAnimationFrame(step);
+    }
+
+    function _snapToED(pathEl) {
+      if (!svgEl || mode !== 'viewbox') return;
+      const bb = pathEl.getBBox();
+      const pad = Math.max(bb.width, bb.height) * 0.35;
+      let tw = bb.width + pad * 2, th = bb.height + pad * 2;
+      const r = _getStageRect();
+      if (tw / th < r.width / r.height) tw = th * r.width / r.height;
+      else th = tw * r.height / r.width;
+      const cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
+      _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 360);
+    }
+
     function _tipTarget(e) {
       // pointer capture redirects e.target to the stage during drag/touch,
       // so use elementFromPoint which hits the actual SVG path under the finger.
@@ -1408,8 +1452,10 @@
       // Touch tap (no drag movement) → show bottom callout or hide if off ED
       if (!_dragMoved && e.pointerType === 'touch' && mode === 'viewbox' && _edHover) {
         const hit = _tipTarget(e);
-        if (hit) _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
-        else _hideCallout();
+        if (hit) {
+          _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+          _snapToED(hit);
+        } else _hideCallout();
       }
       drag = null;
     });
