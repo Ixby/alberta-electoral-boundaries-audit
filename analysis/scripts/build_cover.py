@@ -147,7 +147,7 @@ def _export_ed_hover_json(eds, name_col: str, out_path: Path) -> None:
             "pop": int(row.get("pop", 0)),
         })
     out_path.write_text(json.dumps(records, ensure_ascii=False), encoding="utf-8")
-    print(f"[build_cover] Exported hover data for {len(records)} EDs → {out_path.name}")
+    print(f"[build_cover] Exported hover data for {len(records)} EDs -> {out_path.name}")
 
 
 def _pick(candidates):
@@ -424,7 +424,7 @@ def build_cover_art() -> Path:
     #     but tagged with data-ed-id in SVG post-processing so the browser can
     #     identify which ED the cursor is over for the hover tooltip.
     _n = len(ax.collections)
-    eds.plot(ax=ax, facecolor="none", edgecolor="none", linewidth=0, rasterized=False)
+    eds.plot(ax=ax, facecolor=(0, 0, 0, 0), edgecolor=(0, 0, 0, 0), linewidth=0, rasterized=False)
     for _c in ax.collections[_n:]:
         _c.set_gid("ed_hover_layer")
 
