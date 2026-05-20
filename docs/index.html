@@ -902,6 +902,12 @@
       title="Alberta electoral district map — full resolution"></object>
   </div>
   <div id="ed-tooltip"></div>
+  <div id="ed-callout" aria-live="polite">
+    <div id="ec-name"></div>
+    <div id="ec-bar"><div id="ec-ucp-bar"></div><div id="ec-ndp-bar"></div></div>
+    <div id="ec-split"><span id="ec-ucp-label"></span><span id="ec-ndp-label"></span></div>
+    <div id="ec-pop"></div>
+  </div>
 </div>
 
 <footer>
@@ -964,6 +970,33 @@
     white-space: nowrap;
   }
   #ed-tooltip strong { display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
+  /* Touch tap callout — bottom-anchored panel */
+  #ed-callout {
+    display: none; position: fixed; z-index: 9003;
+    left: 0; right: 0; bottom: 0;
+    background: rgba(12,14,20,0.97);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px 18px 0 0;
+    padding: 1.1rem 1.4rem 2rem;
+    backdrop-filter: blur(10px);
+    color: #fff; pointer-events: auto;
+  }
+  #ec-name {
+    font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;
+    letter-spacing: 0.01em;
+  }
+  #ec-bar {
+    display: flex; height: 10px; border-radius: 5px;
+    overflow: hidden; margin-bottom: 0.4rem;
+  }
+  #ec-ucp-bar { background: #142e94; }
+  #ec-ndp-bar { background: #e86310; }
+  #ec-split {
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; color: rgba(255,255,255,0.75);
+    margin-bottom: 0.5rem;
+  }
+  #ec-pop { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
 </style>
 
 <script>
@@ -1220,7 +1253,8 @@
     function close() {
       overlay.style.display = 'none';
       document.body.style.overflow = '';
-      document.getElementById('ed-tooltip').style.display = 'none';
+      _hideTip();
+      _hideCallout();
     }
 
     trigger.addEventListener('click', e => { e.preventDefault(); open(); });
@@ -1269,6 +1303,21 @@
     }
 
     function _hideTip() { _tip.style.display = 'none'; }
+
+    // ── Touch callout (bottom panel on tap) ───────────────────────────────
+    const _callout = document.getElementById('ed-callout');
+    function _showCallout(d) {
+      if (!d) return;
+      document.getElementById('ec-name').textContent = d.name;
+      document.getElementById('ec-ucp-bar').style.width = d.ucp_pct + '%';
+      document.getElementById('ec-ndp-bar').style.width = d.ndp_pct + '%';
+      document.getElementById('ec-ucp-label').textContent = 'UCP ' + d.ucp_pct + '%';
+      document.getElementById('ec-ndp-label').textContent = 'NDP ' + d.ndp_pct + '%';
+      const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
+      document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
+      _callout.style.display = 'block';
+    }
+    function _hideCallout() { _callout.style.display = 'none'; }
 
     function _tipTarget(e) {
       // pointer capture redirects e.target to the stage during drag/touch,
@@ -1323,11 +1372,11 @@
       if (!drag || drag.id !== e.pointerId) return;
       try { stage.releasePointerCapture(e.pointerId); } catch (_) {}
       stage.classList.remove('dragging');
-      // Touch tap (no drag movement) → show tooltip or hide if off ED
+      // Touch tap (no drag movement) → show bottom callout or hide if off ED
       if (!_dragMoved && e.pointerType === 'touch' && mode === 'viewbox' && _edHover) {
         const hit = _tipTarget(e);
-        if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
-        else _hideTip();
+        if (hit) _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+        else _hideCallout();
       }
       drag = null;
     });
