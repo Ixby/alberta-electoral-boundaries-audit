@@ -1275,14 +1275,18 @@
       if (mode === 'viewbox') resetVB(); else resetFallback();
     });
 
-    // ── Pinch-to-zoom (2-finger touch only) ───────────────────────────────
-    let lastDist = null;
+    // ── Pinch-to-zoom + 2-finger pan ──────────────────────────────────────
+    // Each frame: zoom centered on the midpoint (distance delta), then pan
+    // by the midpoint's own movement. Both gestures work simultaneously.
+    let lastDist = null, lastMid = null;
     stage.addEventListener('touchstart', e => {
       if (e.touches.length === 2) {
         if (drag) { drag = null; stage.classList.remove('dragging'); }
         _hideTip();
         lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
                               e.touches[0].clientY - e.touches[1].clientY);
+        lastMid = { x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+                    y: (e.touches[0].clientY + e.touches[1].clientY) / 2 };
       }
     }, { passive: true });
     stage.addEventListener('touchmove', e => {
@@ -1290,15 +1294,24 @@
       e.preventDefault();
       const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
                               e.touches[0].clientY - e.touches[1].clientY);
-      if (lastDist) {
-        const r = stage.getBoundingClientRect();
-        zoomAt((e.touches[0].clientX + e.touches[1].clientX) / 2 - r.left,
-               (e.touches[0].clientY + e.touches[1].clientY) / 2 - r.top,
-               dist / lastDist);
+      const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+      const r = stage.getBoundingClientRect();
+      if (lastDist) zoomAt(midX - r.left, midY - r.top, dist / lastDist);
+      if (lastMid) {
+        const dx = midX - lastMid.x, dy = midY - lastMid.y;
+        if (mode === 'viewbox') {
+          vbPanBy(dx, dy);
+        } else {
+          fbTx += dx; fbTy += dy;
+          fbImg.style.left = Math.round(fbTx) + 'px';
+          fbImg.style.top  = Math.round(fbTy) + 'px';
+        }
       }
       lastDist = dist;
+      lastMid = { x: midX, y: midY };
     }, { passive: false });
-    stage.addEventListener('touchend', () => { lastDist = null; });
+    stage.addEventListener('touchend', () => { lastDist = null; lastMid = null; });
   })();
 </script>
 </body>
