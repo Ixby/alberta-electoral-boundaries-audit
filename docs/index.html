@@ -901,6 +901,7 @@
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_hires.svg"
       title="Alberta electoral district map — full resolution"></object>
   </div>
+  <div id="ed-tooltip"></div>
 </div>
 
 <footer>
@@ -952,9 +953,23 @@
     border-top: 1px solid rgba(255,255,255,0.15);
     margin: 0.35rem 0;
   }
+  #ed-tooltip {
+    display: none; position: fixed; z-index: 9002;
+    background: rgba(10,10,10,0.88);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px; padding: 0.45rem 0.7rem;
+    color: #fff; font-size: 0.76rem; line-height: 1.65;
+    pointer-events: none; backdrop-filter: blur(4px);
+    white-space: nowrap;
+  }
+  #ed-tooltip strong { display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
 </style>
 
 <script>
+  // Pre-fetch ED hover data at page load so it's ready when the overlay opens.
+  let _edHover = null;
+  fetch('data/ed_hover.json').then(r => r.json()).then(d => { _edHover = d; }).catch(() => {});
+
   (function () {
     const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
     const sections = navLinks
@@ -1139,6 +1154,7 @@
     function close() {
       overlay.style.display = 'none';
       document.body.style.overflow = '';
+      document.getElementById('ed-tooltip').style.display = 'none';
     }
 
     trigger.addEventListener('click', e => { e.preventDefault(); open(); });
@@ -1215,6 +1231,38 @@
       lastDist = dist;
     }, { passive: false });
     stage.addEventListener('touchend', () => { lastDist = null; });
+
+    // ── ED hover tooltip ──────────────────────────────────────────────────
+    const _tip = document.getElementById('ed-tooltip');
+
+    function _showTip(d, x, y) {
+      if (!d) return;
+      _tip.innerHTML =
+        `<strong>${d.name}</strong>` +
+        `UCP&nbsp;${d.ucp_pct}%&nbsp;&nbsp;NDP&nbsp;${d.ndp_pct}%` +
+        (d.votes ? `<br>${d.votes.toLocaleString()}&nbsp;votes&nbsp;(2023)` : '') +
+        (d.pop   ? `<br>Pop.&nbsp;${d.pop.toLocaleString()}` : '');
+      _tip.style.display = 'block';
+      const pad = 14, tw = _tip.offsetWidth, th = _tip.offsetHeight;
+      let lx = x + pad, ly = y + pad;
+      if (lx + tw > window.innerWidth)  lx = x - tw - pad;
+      if (ly + th > window.innerHeight) ly = y - th - pad;
+      _tip.style.left = lx + 'px';
+      _tip.style.top  = ly + 'px';
+    }
+
+    function _hideTip() { _tip.style.display = 'none'; }
+
+    stage.addEventListener('pointermove', e => {
+      if (!ready || mode !== 'viewbox' || !_edHover) return;
+      const hit = e.target && e.target.closest ? e.target.closest('[data-ed-id]') : null;
+      if (hit) {
+        _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+      } else {
+        _hideTip();
+      }
+    });
+    stage.addEventListener('pointerleave', _hideTip);
   })();
 </script>
 </body>

@@ -103,6 +103,53 @@ VA_VOTES_PATH = (
 )
 
 
+def _tag_ed_hover_paths(svg_path: Path, n_eds: int) -> None:
+    """Post-process the hi-res SVG: stamp data-ed-id and pointer-events on the
+    transparent hit-detection layer so the browser can map pointer position to
+    an ED index for the hover tooltip."""
+    import xml.etree.ElementTree as ET
+    from io import StringIO
+
+    ns = "http://www.w3.org/2000/svg"
+    ET.register_namespace("", ns)
+    ET.register_namespace("xlink", "http://www.w3.org/1999/xlink")
+
+    tree = ET.parse(str(svg_path))
+    root = tree.getroot()
+    hit_g = root.find(f".//{{{ns}}}g[@id='ed_hover_layer']")
+    if hit_g is None:
+        print("[build_cover] WARN: ed_hover_layer not found in SVG — hover disabled")
+        return
+    paths = hit_g.findall(f"{{{ns}}}path")
+    for i, p in enumerate(paths[:n_eds]):
+        p.set("data-ed-id", str(i))
+        p.set("pointer-events", "all")
+    buf = StringIO()
+    tree.write(buf, encoding="unicode")
+    svg_path.write_text(buf.getvalue(), encoding="utf-8")
+    print(f"[build_cover] Tagged {min(len(paths), n_eds)} hit-detection paths in SVG")
+
+
+def _export_ed_hover_json(eds, name_col: str, out_path: Path) -> None:
+    """Export per-ED tooltip data: name, vote split, total votes, population."""
+    import json
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    records = []
+    for i, row in eds.iterrows():
+        ucp = float(row.get("ucp_share", 0.5))
+        records.append({
+            "id": i,
+            "name": str(row[name_col]),
+            "ucp_pct": round(ucp * 100, 1),
+            "ndp_pct": round((1.0 - ucp) * 100, 1),
+            "votes": int(row.get("total", 0)),
+            "pop": int(row.get("pop", 0)),
+        })
+    out_path.write_text(json.dumps(records, ensure_ascii=False), encoding="utf-8")
+    print(f"[build_cover] Exported hover data for {len(records)} EDs → {out_path.name}")
+
+
 def _pick(candidates):
     for p in candidates:
         if p.exists():
@@ -141,25 +188,24 @@ def build_cover_art() -> Path:
     # 2. Per-ED 2023 vote share via VA-centroid spatial join
     if VA_VOTES_PATH.exists():
         va = gpd.read_file(VA_VOTES_PATH).to_crs(3401)
-        va_pts = gpd.GeoDataFrame(
-            {"va_ucp": va["va_ucp"].fillna(0), "va_ndp": va["va_ndp"].fillna(0)},
-            geometry=va.geometry.centroid,
-            crs=3401,
-        )
+        _va_cols = {"va_ucp": va["va_ucp"].fillna(0), "va_ndp": va["va_ndp"].fillna(0)}
+        if "pop_2021" in va.columns:
+            _va_cols["pop_2021"] = va["pop_2021"].fillna(0)
+        va_pts = gpd.GeoDataFrame(_va_cols, geometry=va.geometry.centroid, crs=3401)
         joined = gpd.sjoin(
             va_pts,
             eds[[name_col, "geometry"]],
             how="left",
             predicate="within",
         )
-        agg = (
-            joined.groupby(name_col)
-            .agg(ucp=("va_ucp", "sum"), ndp=("va_ndp", "sum"))
-            .reset_index()
-        )
+        _agg_kw = {"ucp": ("va_ucp", "sum"), "ndp": ("va_ndp", "sum")}
+        if "pop_2021" in joined.columns:
+            _agg_kw["pop"] = ("pop_2021", "sum")
+        agg = joined.groupby(name_col).agg(**_agg_kw).reset_index()
         agg["total"] = (agg["ucp"] + agg["ndp"]).clip(lower=1)
         agg["ucp_share"] = agg["ucp"] / agg["total"]
-        eds = eds.merge(agg[[name_col, "ucp_share", "total"]], on=name_col, how="left")
+        _merge_cols = [name_col, "ucp_share", "total"] + (["pop"] if "pop" in agg.columns else [])
+        eds = eds.merge(agg[_merge_cols], on=name_col, how="left")
     else:
         print(
             f"[build_cover] WARN: {VA_VOTES_PATH.name} not found; "
@@ -167,8 +213,12 @@ def build_cover_art() -> Path:
         )
         eds["ucp_share"] = 0.5
         eds["total"] = 0
+        eds["pop"] = 0
     eds["ucp_share"] = eds["ucp_share"].fillna(0.5)
     eds["total"] = eds["total"].fillna(0)
+    if "pop" not in eds.columns:
+        eds["pop"] = 0
+    eds["pop"] = eds["pop"].fillna(0).astype(int)
     eds["inferred"] = False
     print(
         f"[build_cover] {int((eds['total'] > 0).sum())}/{len(eds)} EDs received VA votes"
@@ -370,6 +420,14 @@ def build_cover_art() -> Path:
         rasterized=False,
     )
 
+    # 4e. Transparent hit-detection polygon layer — one polygon per ED, invisible
+    #     but tagged with data-ed-id in SVG post-processing so the browser can
+    #     identify which ED the cursor is over for the hover tooltip.
+    _n = len(ax.collections)
+    eds.plot(ax=ax, facecolor="none", edgecolor="none", linewidth=0, rasterized=False)
+    for _c in ax.collections[_n:]:
+        _c.set_gid("ed_hover_layer")
+
     ax.margins(0.005)
     plt.tight_layout(pad=0)
 
@@ -382,6 +440,10 @@ def build_cover_art() -> Path:
     plt.rcParams['path.simplify'] = True
     print(f"[build_cover] Wrote hi-res SVG {COVER_ART_HIRES_SVG.relative_to(REPO_ROOT)}")
     plt.close(fig)
+
+    _tag_ed_hover_paths(COVER_ART_HIRES_SVG, len(eds))
+    _export_ed_hover_json(eds, name_col, REPO_ROOT / "docs" / "data" / "ed_hover.json")
+
     return COVER_ART_PNG
 
 
