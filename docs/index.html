@@ -1184,58 +1184,7 @@
       zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.12 : 1 / 1.12);
     }, { passive: false });
 
-    // ── Pan ───────────────────────────────────────────────────────────────
-    let drag = null;
-    stage.addEventListener('mousedown', e => {
-      if (e.button !== 0 || !ready) return;
-      drag = { cx: e.clientX, cy: e.clientY };
-      if (mode === 'fallback') { drag.tx = fbTx; drag.ty = fbTy; }
-      stage.classList.add('dragging');
-    });
-    window.addEventListener('mousemove', e => {
-      if (!drag || !ready) return;
-      const dx = e.clientX - drag.cx, dy = e.clientY - drag.cy;
-      if (mode === 'viewbox') {
-        vbPanBy(dx, dy);
-        drag.cx = e.clientX; drag.cy = e.clientY;
-      } else {
-        fbTx = drag.tx + dx; fbTy = drag.ty + dy;
-        fbImg.style.left = Math.round(fbTx) + 'px';
-        fbImg.style.top  = Math.round(fbTy) + 'px';
-      }
-    });
-    window.addEventListener('mouseup', () => { drag = null; stage.classList.remove('dragging'); });
-
-    stage.addEventListener('dblclick', () => {
-      if (!ready) return;
-      if (mode === 'viewbox') resetVB(); else resetFallback();
-    });
-
-    // ── Pinch-to-zoom ─────────────────────────────────────────────────────
-    let lastDist = null;
-    stage.addEventListener('touchstart', e => {
-      if (e.touches.length === 2) {
-        _hideTip();
-        lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
-                              e.touches[0].clientY - e.touches[1].clientY);
-      }
-    }, { passive: true });
-    stage.addEventListener('touchmove', e => {
-      if (e.touches.length !== 2 || !ready) return;
-      e.preventDefault();
-      const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
-                              e.touches[0].clientY - e.touches[1].clientY);
-      if (lastDist) {
-        const r = stage.getBoundingClientRect();
-        zoomAt((e.touches[0].clientX + e.touches[1].clientX) / 2 - r.left,
-               (e.touches[0].clientY + e.touches[1].clientY) / 2 - r.top,
-               dist / lastDist);
-      }
-      lastDist = dist;
-    }, { passive: false });
-    stage.addEventListener('touchend', () => { lastDist = null; });
-
-    // ── ED hover tooltip ──────────────────────────────────────────────────
+    // ── Tooltip helpers ───────────────────────────────────────────────────
     const _tip = document.getElementById('ed-tooltip');
 
     function _showTip(d, x, y) {
@@ -1260,22 +1209,96 @@
       return e.target && e.target.closest ? e.target.closest('[data-ed-id]') : null;
     }
 
-    // Mouse: follow cursor (hover)
-    stage.addEventListener('pointermove', e => {
-      if (!ready || mode !== 'viewbox' || !_edHover || e.pointerType === 'touch') return;
-      const hit = _tipTarget(e);
-      if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
-      else _hideTip();
+    // ── Unified drag + tap (pointer events, mouse and touch) ──────────────
+    // setPointerCapture routes all subsequent pointer events to stage even
+    // when the pointer leaves its bounds, replacing window mousemove/mouseup.
+    let drag = null, _dragMoved = false;
+
+    stage.addEventListener('pointerdown', e => {
+      if (!ready) return;
+      if (!e.isPrimary) {
+        // Second finger arriving — cancel any in-progress single-touch drag
+        if (drag) { drag = null; stage.classList.remove('dragging'); }
+        return;
+      }
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      drag = { cx: e.clientX, cy: e.clientY, startX: e.clientX, startY: e.clientY, id: e.pointerId };
+      _dragMoved = false;
+      try { stage.setPointerCapture(e.pointerId); } catch (_) {}
+      stage.classList.add('dragging');
     });
+
+    stage.addEventListener('pointermove', e => {
+      if (!ready) return;
+      // Mouse hover tooltip (only when not dragging — capture changes e.target during drag)
+      if (e.pointerType !== 'touch' && !drag && mode === 'viewbox' && _edHover) {
+        const hit = _tipTarget(e);
+        if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+        else _hideTip();
+      }
+      if (!drag || drag.id !== e.pointerId) return;
+      const dx = e.clientX - drag.cx, dy = e.clientY - drag.cy;
+      // Apply a small threshold to distinguish tap from drag on touch
+      if (!_dragMoved && Math.hypot(e.clientX - drag.startX, e.clientY - drag.startY) < 6) return;
+      if (!_dragMoved) { _dragMoved = true; _hideTip(); }
+      drag.cx = e.clientX; drag.cy = e.clientY;
+      if (mode === 'viewbox') {
+        vbPanBy(dx, dy);
+      } else {
+        fbTx += dx; fbTy += dy;
+        fbImg.style.left = Math.round(fbTx) + 'px';
+        fbImg.style.top  = Math.round(fbTy) + 'px';
+      }
+    });
+
+    stage.addEventListener('pointerup', e => {
+      if (!drag || drag.id !== e.pointerId) return;
+      try { stage.releasePointerCapture(e.pointerId); } catch (_) {}
+      stage.classList.remove('dragging');
+      // Touch tap (no drag movement) → show tooltip or hide if off ED
+      if (!_dragMoved && e.pointerType === 'touch' && mode === 'viewbox' && _edHover) {
+        const hit = _tipTarget(e);
+        if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+        else _hideTip();
+      }
+      drag = null;
+    });
+
+    stage.addEventListener('pointercancel', e => {
+      if (drag && drag.id === e.pointerId) { drag = null; stage.classList.remove('dragging'); }
+    });
+
     stage.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') _hideTip(); });
 
-    // Touch: tap to show, tap elsewhere or pinch to hide
-    stage.addEventListener('pointerdown', e => {
-      if (!ready || mode !== 'viewbox' || !_edHover || e.pointerType !== 'touch') return;
-      const hit = _tipTarget(e);
-      if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
-      else _hideTip();
+    stage.addEventListener('dblclick', () => {
+      if (!ready) return;
+      if (mode === 'viewbox') resetVB(); else resetFallback();
     });
+
+    // ── Pinch-to-zoom (2-finger touch only) ───────────────────────────────
+    let lastDist = null;
+    stage.addEventListener('touchstart', e => {
+      if (e.touches.length === 2) {
+        if (drag) { drag = null; stage.classList.remove('dragging'); }
+        _hideTip();
+        lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                              e.touches[0].clientY - e.touches[1].clientY);
+      }
+    }, { passive: true });
+    stage.addEventListener('touchmove', e => {
+      if (e.touches.length !== 2 || !ready) return;
+      e.preventDefault();
+      const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                              e.touches[0].clientY - e.touches[1].clientY);
+      if (lastDist) {
+        const r = stage.getBoundingClientRect();
+        zoomAt((e.touches[0].clientX + e.touches[1].clientX) / 2 - r.left,
+               (e.touches[0].clientY + e.touches[1].clientY) / 2 - r.top,
+               dist / lastDist);
+      }
+      lastDist = dist;
+    }, { passive: false });
+    stage.addEventListener('touchend', () => { lastDist = null; });
   })();
 </script>
 </body>
