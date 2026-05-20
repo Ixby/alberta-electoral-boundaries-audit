@@ -908,6 +908,7 @@
   </div>
   <div id="ed-tooltip"></div>
   <div id="ed-callout" aria-live="polite">
+    <button id="ec-close">&times;</button>
     <div id="ec-header">
       <div id="ec-name"></div>
       <div id="ec-context">2026 minority proposal &middot; 2023 election results</div>
@@ -1016,18 +1017,29 @@
   .ms-btn[data-map="majority"]:hover,
   .ms-btn[data-map="majority"].ms-active { background: rgba(26,122,110,0.35); border-color: #1A7A6E; color: #8eecd8; }
   .ms-btn[data-map="2019"]:hover,
-  .ms-btn[data-map="2019"].ms-active    { background: rgba(74,85,104,0.45);  border-color: #718096; color: #e2e8f0; }
+  .ms-btn[data-map="2019"].ms-active    { background: rgba(0,0,0,0.45);  border-color: #555; color: #fff; }
   /* Touch tap callout — bottom-anchored panel */
   #ed-callout {
-    display: none; position: fixed; z-index: 9003;
+    position: fixed; z-index: 9003;
     left: 0; right: 0; bottom: 0;
     background: rgba(12,14,20,0.97);
     border-top: 1px solid rgba(255,255,255,0.12);
     border-radius: 18px 18px 0 0;
     padding: 1.1rem 1.4rem 1.8rem;
     backdrop-filter: blur(10px);
-    color: #fff; pointer-events: auto;
+    color: #fff;
+    pointer-events: none;
+    transform: translateY(100%);
+    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  #ed-callout.ec-visible { transform: translateY(0); pointer-events: auto; }
+  #ec-close {
+    position: absolute; top: 0.55rem; right: 0.9rem;
+    background: none; border: none;
+    color: rgba(255,255,255,0.45); font-size: 1.5rem; line-height: 1;
+    cursor: pointer; padding: 0.2rem 0.4rem;
+  }
+  #ec-close:hover { color: #fff; }
   #ec-header { margin-bottom: 0.85rem; }
   #ec-name { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; }
   #ec-context { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.15rem; }
@@ -1114,6 +1126,9 @@
       return _stageRect || (_stageRect = stage.getBoundingClientRect());
     }
     window.addEventListener('resize', () => { _stageRect = null; });
+    if (window.ResizeObserver) {
+      new ResizeObserver(() => { _stageRect = null; if (svgEl && mode === 'viewbox') _doSettle(); }).observe(stage);
+    }
 
     function _renderBounds() {
       const r = _getStageRect();
@@ -1193,7 +1208,7 @@
       const lx = mx - ox, ly = my - oy;
       const svgX = curVB.x + (lx / rw) * curVB.w;
       const svgY = curVB.y + (ly / rh) * curVB.h;
-      const newW = Math.max(natVB.w / 100000, Math.min(natVB.w * 20, curVB.w / factor));
+      const newW = Math.max(natVB.w / 1000, Math.min(natVB.w * 20, curVB.w / factor));
       const newH = newW * (natVB.h / natVB.w);
       applyVB({ x: svgX - (lx / rw) * newW, y: svgY - (ly / rh) * newH, w: newW, h: newH });
     }
@@ -1203,8 +1218,7 @@
       applyVB({ x: curVB.x - (dx / rw) * curVB.w, y: curVB.y - (dy / rh) * curVB.h, w: curVB.w, h: curVB.h });
     }
 
-    function _activateInlineSVG(node) {
-      // Style and size the SVG to fill the stage, then record viewBox state.
+    function _activateInlineSVG(node, preserveVB) {
       node.setAttribute('width', '100%');
       node.setAttribute('height', '100%');
       node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
@@ -1229,7 +1243,22 @@
       mode = 'viewbox';
       ready = true;
       _applyBoundaryColor(node, _activeMap);
-      if (overlay.style.display !== 'none') resetVB();
+      if (overlay.style.display !== 'none') {
+        if (preserveVB) {
+          // Restore saved view without resetting to full province
+          if (_settleTimer !== null) { clearTimeout(_settleTimer); _settleTimer = null; }
+          if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+          settledVB = null;
+          curVB = { ...preserveVB };
+          svgEl.style.transform = '';
+          svgEl.style.willChange = '';
+          svgEl.style.transformOrigin = '';
+          svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
+          if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+        } else {
+          resetVB();
+        }
+      }
     }
 
     // ── Fallback state ────────────────────────────────────────────────────
@@ -1344,7 +1373,7 @@
     stage.addEventListener('wheel', e => {
       e.preventDefault();
       const r = _getStageRect();
-      zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.12 : 1 / 1.12);
+      zoomAt(e.clientX - r.left, e.clientY - r.top, Math.pow(0.88, e.deltaY / 100));
     }, { passive: false });
 
     // ── Tooltip helpers ───────────────────────────────────────────────────
@@ -1383,10 +1412,11 @@
       document.getElementById('ec-va-count').textContent = d.va_count ? d.va_count + ' voting areas' : '';
       const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
       document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
-      _callout.style.display = 'block';
+      _callout.classList.add('ec-visible');
     }
     function _hideCallout() {
-      _callout.style.display = 'none';
+      if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+      _callout.classList.remove('ec-visible');
       _clearEdHighlight();
     }
 
@@ -1409,16 +1439,16 @@
     const _mapAccentColors = {
       minority: '#6B35A7',
       majority: '#1A7A6E',
-      '2019':   '#718096',
+      '2019':   '#000000',
     };
     let _activeMap = 'minority';
 
     // ── Map-wide boundary color ───────────────────────────────────────────────
     function _applyBoundaryColor(svgNode, mapKey) {
       if (!svgNode) return;
-      const color = _mapAccentColors[mapKey] || '#718096';
+      const color = _mapAccentColors[mapKey] || '#555';
       const g = svgNode.querySelector('#ed_boundary_layer');
-      if (!g) return;
+      if (!g) { console.warn('[map] ed_boundary_layer not found in SVG'); return; }
       g.querySelectorAll('path').forEach(p => p.setAttribute('stroke', color));
     }
 
@@ -1451,17 +1481,27 @@
       const ctxEl = document.getElementById('ec-context');
       if (ctxEl) ctxEl.textContent = _mapContextLabels[key];
       _hideCallout();
+      _edHover = null;
+      const savedVB = curVB ? { ...curVB } : null;
       ready = false;
+      stage.style.opacity = '0.45';
+      stage.style.transition = 'opacity 0.15s';
       fetch(_mapSvgUrls[key])
         .then(r => r.text())
         .then(text => {
           const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
           const root = doc.documentElement;
           if (root && root.tagName.toLowerCase() !== 'parsererror') {
-            _activateInlineSVG(document.importNode(root, true));
+            _activateInlineSVG(document.importNode(root, true), savedVB);
           } else { ready = true; }
+          stage.style.opacity = '';
+          setTimeout(() => { stage.style.transition = ''; }, 200);
         })
-        .catch(() => { ready = true; });
+        .catch(() => {
+          ready = true;
+          stage.style.opacity = '';
+          setTimeout(() => { stage.style.transition = ''; }, 200);
+        });
       fetch(_mapJsonUrls[key])
         .then(r => r.json())
         .then(d => { _edHover = {}; d.forEach(rec => { _edHover[rec.id] = rec; }); })
@@ -1471,6 +1511,8 @@
     document.querySelectorAll('.ms-btn').forEach(b => {
       b.addEventListener('click', () => switchMap(b.dataset.map));
     });
+
+    document.getElementById('ec-close').addEventListener('click', _hideCallout);
 
     // ── Snap-to-ED animation ───────────────────────────────────────────────
     function _animateToVB(targetVB, dur) {
@@ -1513,7 +1555,7 @@
       if (tw / th < r.width / r.height) tw = th * r.width / r.height;
       else th = tw * r.height / r.width;
       const cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
-      _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 360);
+      _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 280);
     }
 
     function _tipTarget(e) {
@@ -1523,28 +1565,54 @@
       return el && el.closest ? el.closest('[data-ed-id]') : null;
     }
 
-    // ── Unified drag + tap (pointer events, mouse and touch) ──────────────
-    // setPointerCapture routes all subsequent pointer events to stage even
-    // when the pointer leaves its bounds, replacing window mousemove/mouseup.
+    // ── Unified drag + tap + pinch (Pointer Events — all gesture types) ──────
     let drag = null, _dragMoved = false;
+    const _ptrs = new Map();
+    let _lastPinchDist = null, _lastPinchMid = null;
+
+    function _ptrMid() {
+      const [a, b] = [..._ptrs.values()];
+      return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+    }
+    function _ptrDist() {
+      const [a, b] = [..._ptrs.values()];
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
 
     stage.addEventListener('pointerdown', e => {
       if (!ready) return;
-      if (!e.isPrimary) {
-        // Second finger arriving — cancel any in-progress single-touch drag
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      _ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      try { stage.setPointerCapture(e.pointerId); } catch (_) {}
+      if (_ptrs.size === 2) {
         if (drag) { drag = null; stage.classList.remove('dragging'); }
+        _hideTip();
+        _lastPinchDist = _ptrDist();
+        _lastPinchMid = _ptrMid();
         return;
       }
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (_ptrs.size > 2) return;
       drag = { cx: e.clientX, cy: e.clientY, startX: e.clientX, startY: e.clientY, id: e.pointerId };
       _dragMoved = false;
-      try { stage.setPointerCapture(e.pointerId); } catch (_) {}
       stage.classList.add('dragging');
     });
 
     stage.addEventListener('pointermove', e => {
-      if (!ready) return;
-      // Mouse hover tooltip (only when not dragging — capture changes e.target during drag)
+      if (!ready || !_ptrs.has(e.pointerId)) return;
+      _ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+      if (_ptrs.size >= 2) {
+        const dist = _ptrDist(), mid = _ptrMid(), r = _getStageRect();
+        if (_lastPinchDist && dist > 0) zoomAt(mid.x - r.left, mid.y - r.top, dist / _lastPinchDist);
+        if (_lastPinchMid) {
+          if (mode === 'viewbox') vbPanBy(mid.x - _lastPinchMid.x, mid.y - _lastPinchMid.y);
+          else { fbTx += mid.x - _lastPinchMid.x; fbTy += mid.y - _lastPinchMid.y;
+                 fbImg.style.left = Math.round(fbTx) + 'px'; fbImg.style.top = Math.round(fbTy) + 'px'; }
+        }
+        _lastPinchDist = dist; _lastPinchMid = mid;
+        return;
+      }
+
       if (e.pointerType !== 'touch' && !drag && mode === 'viewbox' && _edHover) {
         const hit = _tipTarget(e);
         if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
@@ -1552,83 +1620,54 @@
       }
       if (!drag || drag.id !== e.pointerId) return;
       const dx = e.clientX - drag.cx, dy = e.clientY - drag.cy;
-      // Apply a small threshold to distinguish tap from drag on touch
       if (!_dragMoved && Math.hypot(e.clientX - drag.startX, e.clientY - drag.startY) < 6) return;
       if (!_dragMoved) { _dragMoved = true; _hideTip(); }
       drag.cx = e.clientX; drag.cy = e.clientY;
-      if (mode === 'viewbox') {
-        vbPanBy(dx, dy);
-      } else {
-        fbTx += dx; fbTy += dy;
-        fbImg.style.left = Math.round(fbTx) + 'px';
-        fbImg.style.top  = Math.round(fbTy) + 'px';
-      }
+      if (mode === 'viewbox') vbPanBy(dx, dy);
+      else { fbTx += dx; fbTy += dy; fbImg.style.left = Math.round(fbTx) + 'px'; fbImg.style.top = Math.round(fbTy) + 'px'; }
     });
 
+    let _lastTap = 0;
+
     stage.addEventListener('pointerup', e => {
-      if (!drag || drag.id !== e.pointerId) return;
+      _ptrs.delete(e.pointerId);
       try { stage.releasePointerCapture(e.pointerId); } catch (_) {}
+      if (_ptrs.size < 2) { _lastPinchDist = null; _lastPinchMid = null; }
+      if (!drag || drag.id !== e.pointerId) return;
       stage.classList.remove('dragging');
-      // Touch tap (no drag movement) → show bottom callout or hide if off ED
-      if (!_dragMoved && e.pointerType === 'touch' && mode === 'viewbox' && _edHover) {
-        const hit = _tipTarget(e);
-        if (hit) {
-          _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
-          _setEdHighlight(hit);
-          _snapToED(hit);
-        } else _hideCallout();
+      if (!_dragMoved && e.pointerType === 'touch' && mode === 'viewbox') {
+        const now = performance.now();
+        if (now - _lastTap < 300) {
+          _hideCallout();
+          _animateToVB({ ...natVB }, 280);
+          _lastTap = 0;
+        } else {
+          _lastTap = now;
+          if (_edHover) {
+            const hit = _tipTarget(e);
+            if (hit) {
+              _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+              _setEdHighlight(hit);
+              _snapToED(hit);
+            } else _hideCallout();
+          }
+        }
       }
       drag = null;
     });
 
     stage.addEventListener('pointercancel', e => {
+      _ptrs.delete(e.pointerId);
       if (drag && drag.id === e.pointerId) { drag = null; stage.classList.remove('dragging'); }
+      if (_ptrs.size < 2) { _lastPinchDist = null; _lastPinchMid = null; }
     });
 
     stage.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') _hideTip(); });
 
     stage.addEventListener('dblclick', () => {
       if (!ready) return;
-      if (mode === 'viewbox') resetVB(); else resetFallback();
+      if (mode === 'viewbox') _animateToVB({ ...natVB }, 280); else resetFallback();
     });
-
-    // ── Pinch-to-zoom + 2-finger pan ──────────────────────────────────────
-    // Each frame: zoom centered on the midpoint (distance delta), then pan
-    // by the midpoint's own movement. Both gestures work simultaneously.
-    let lastDist = null, lastMid = null;
-    stage.addEventListener('touchstart', e => {
-      if (e.touches.length === 2) {
-        if (drag) { drag = null; stage.classList.remove('dragging'); }
-        _hideTip();
-        lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
-                              e.touches[0].clientY - e.touches[1].clientY);
-        lastMid = { x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
-                    y: (e.touches[0].clientY + e.touches[1].clientY) / 2 };
-      }
-    }, { passive: true });
-    stage.addEventListener('touchmove', e => {
-      if (e.touches.length !== 2 || !ready) return;
-      e.preventDefault();
-      const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
-                              e.touches[0].clientY - e.touches[1].clientY);
-      const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-      const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-      const r = _getStageRect();
-      if (lastDist) zoomAt(midX - r.left, midY - r.top, dist / lastDist);
-      if (lastMid) {
-        const dx = midX - lastMid.x, dy = midY - lastMid.y;
-        if (mode === 'viewbox') {
-          vbPanBy(dx, dy);
-        } else {
-          fbTx += dx; fbTy += dy;
-          fbImg.style.left = Math.round(fbTx) + 'px';
-          fbImg.style.top  = Math.round(fbTy) + 'px';
-        }
-      }
-      lastDist = dist;
-      lastMid = { x: midX, y: midY };
-    }, { passive: false });
-    stage.addEventListener('touchend', () => { lastDist = null; lastMid = null; });
   })();
 </script>
 </body>
