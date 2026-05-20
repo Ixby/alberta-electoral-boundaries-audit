@@ -1209,7 +1209,11 @@
       node.setAttribute('height', '100%');
       node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
       node.style.cssText = 'position:absolute;left:0;top:0;display:block;touch-action:none;';
-      stage.replaceChild(node, obj);  // adopts node into main document
+      const _cur = (svgEl && svgEl.parentNode === stage) ? svgEl
+                 : (obj.parentNode === stage)             ? obj
+                 : null;
+      if (_cur) stage.replaceChild(node, _cur);
+      else stage.appendChild(node);
 
       const vb = node.viewBox.baseVal;
       if (vb.width && vb.height) {
@@ -1454,9 +1458,7 @@
           const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
           const root = doc.documentElement;
           if (root && root.tagName.toLowerCase() !== 'parsererror') {
-            if (svgEl) { svgEl.remove(); svgEl = null; }
             _activateInlineSVG(document.importNode(root, true));
-            if (overlay.style.display !== 'none') resetVB();
           } else { ready = true; }
         })
         .catch(() => { ready = true; });
