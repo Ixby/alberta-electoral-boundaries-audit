@@ -1224,7 +1224,10 @@
     function _hideTip() { _tip.style.display = 'none'; }
 
     function _tipTarget(e) {
-      return e.target && e.target.closest ? e.target.closest('[data-ed-id]') : null;
+      // pointer capture redirects e.target to the stage during drag/touch,
+      // so use elementFromPoint which hits the actual SVG path under the finger.
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      return el && el.closest ? el.closest('[data-ed-id]') : null;
     }
 
     // ── Unified drag + tap (pointer events, mouse and touch) ──────────────
