@@ -1033,41 +1033,68 @@
       return { rw, rh, ox: (sw - rw) / 2, oy: (sh - rh) / 2 };
     }
 
-    // During 1-finger drag: apply CSS translate (compositor-threaded, no SVG
-    // rasterization).  settledVB = the viewBox the SVG is actually rendering;
-    // curVB = logical current position.  On drag end, commit curVB to the
-    // viewBox attribute and reset the transform.
-    // Outside of drag: rAF-batch the viewBox setAttribute so rapid wheel/pinch
-    // events coalesce into one repaint per frame.
-    let _rafId = null, _pendingTx = 0, _pendingTy = 0;
-    let settledVB = null;  // set on pointerdown, cleared on pointerup
+    // All gestures (drag, wheel, pinch) use CSS transform: translate+scale on
+    // the SVG element — compositor-threaded, no SVG re-rasterization per frame.
+    // settledVB = the viewBox actually rendered; curVB = logical destination.
+    // After SETTLE_MS of no new gesture events, the viewBox attribute is
+    // committed to curVB and the transform reset (one clean vector re-render).
+    let _rafId = null, _pendingTx = 0, _pendingTy = 0, _pendingSx = 1;
+    let settledVB = null, _settleTimer = null;
+    const SETTLE_MS = 90;
+
+    function _doSettle() {
+      _settleTimer = null;
+      if (!svgEl || !curVB) return;
+      settledVB = null;
+      if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+      svgEl.style.transform = '';
+      svgEl.style.willChange = '';
+      svgEl.style.transformOrigin = '';
+      svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
+      if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+    }
 
     function applyVB(vb) {
+      if (!settledVB) {
+        // First change since last settle — snapshot current rendered position.
+        settledVB = { ...curVB };
+        if (svgEl) { svgEl.style.willChange = 'transform'; svgEl.style.transformOrigin = '0 0'; }
+      }
       curVB = vb;
-      if (drag && settledVB) {
-        // Drag path: CSS translate, no viewBox change.
-        const { rw, rh } = _renderBounds();
-        _pendingTx = -(curVB.x - settledVB.x) / settledVB.w * rw;
-        _pendingTy = -(curVB.y - settledVB.y) / settledVB.h * rh;
-        if (_rafId === null) {
-          _rafId = requestAnimationFrame(() => {
-            _rafId = null;
-            svgEl.style.transform = `translate(${_pendingTx}px,${_pendingTy}px)`;
-          });
-        }
-      } else {
-        // Non-drag: rAF-batched viewBox write.
-        if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+      // CSS transform: translate(tx,ty) scale(sx) maps settledVB rendering
+      // to appear as curVB. With transform-origin:0 0:
+      //   sx = settledVB.w / curVB.w
+      //   tx = (settledVB.x - curVB.x)*rw/curVB.w + ox*(1 - 1/sx)
+      const { rw, rh, ox, oy } = _renderBounds();
+      const sx = settledVB.w / curVB.w;
+      _pendingTx = (settledVB.x - curVB.x) * rw / curVB.w + ox * (1 - 1 / sx);
+      _pendingTy = (settledVB.y - curVB.y) * rh / curVB.h + oy * (1 - 1 / sx);
+      _pendingSx = sx;
+      if (_rafId === null) {
         _rafId = requestAnimationFrame(() => {
           _rafId = null;
-          svgEl.style.transform = '';
-          svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
+          if (svgEl) svgEl.style.transform =
+            `translate(${_pendingTx}px,${_pendingTy}px) scale(${_pendingSx})`;
           if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
         });
       }
+      if (_settleTimer !== null) clearTimeout(_settleTimer);
+      _settleTimer = setTimeout(_doSettle, SETTLE_MS);
     }
 
-    function resetVB() { applyVB({ ...natVB }); }
+    function resetVB() {
+      if (_settleTimer !== null) { clearTimeout(_settleTimer); _settleTimer = null; }
+      if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+      settledVB = null;
+      curVB = { ...natVB };
+      if (svgEl) {
+        svgEl.style.transform = '';
+        svgEl.style.willChange = '';
+        svgEl.style.transformOrigin = '';
+        svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
+      }
+      if (zoomPct) zoomPct.textContent = '100%';
+    }
 
     function vbZoomAt(mx, my, factor) {
       const { rw, rh, ox, oy } = _renderBounds();
@@ -1265,10 +1292,6 @@
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       drag = { cx: e.clientX, cy: e.clientY, startX: e.clientX, startY: e.clientY, id: e.pointerId };
       _dragMoved = false;
-      if (mode === 'viewbox' && svgEl) {
-        settledVB = { ...curVB };            // snapshot for CSS translate reference
-        svgEl.style.willChange = 'transform'; // promote to compositor layer
-      }
       try { stage.setPointerCapture(e.pointerId); } catch (_) {}
       stage.classList.add('dragging');
     });
@@ -1306,21 +1329,11 @@
         if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
         else _hideTip();
       }
-      settledVB = null;
       drag = null;
-      if (mode === 'viewbox' && svgEl) {
-        svgEl.style.willChange = '';
-        if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
-        applyVB(curVB);  // settle CSS translate → viewBox
-      }
     });
 
     stage.addEventListener('pointercancel', e => {
-      if (drag && drag.id === e.pointerId) {
-        drag = null; stage.classList.remove('dragging');
-        settledVB = null;
-        if (mode === 'viewbox' && svgEl) { svgEl.style.willChange = ''; applyVB(curVB); }
-      }
+      if (drag && drag.id === e.pointerId) { drag = null; stage.classList.remove('dragging'); }
     });
 
     stage.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') _hideTip(); });
@@ -1336,11 +1349,7 @@
     let lastDist = null, lastMid = null;
     stage.addEventListener('touchstart', e => {
       if (e.touches.length === 2) {
-        if (drag) {
-          drag = null; stage.classList.remove('dragging');
-          settledVB = null;
-          if (mode === 'viewbox' && svgEl) { svgEl.style.willChange = ''; applyVB(curVB); }
-        }
+        if (drag) { drag = null; stage.classList.remove('dragging'); }
         _hideTip();
         lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
                               e.touches[0].clientY - e.touches[1].clientY);
