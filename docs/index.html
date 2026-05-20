@@ -1539,18 +1539,44 @@
       _clearEdHighlight();
       if (!svgEl || !pathEl) return;
       const color = _mapAccentColors[_activeMap] || '#fff';
-      _highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      _highlightPath.setAttribute('d', pathEl.getAttribute('d'));
-      _highlightPath.setAttribute('fill', 'none');
-      _highlightPath.setAttribute('stroke', color);
-      _highlightPath.setAttribute('stroke-width', '2');
-      _highlightPath.setAttribute('stroke-linejoin', 'round');
+      const d = pathEl.getAttribute('d');
+      _highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'g');
       _highlightPath.setAttribute('pointer-events', 'none');
-      _highlightPath.style.vectorEffect = 'non-scaling-stroke';
+      const glow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      glow.setAttribute('d', d);
+      glow.setAttribute('fill', 'none');
+      glow.setAttribute('stroke', color);
+      glow.setAttribute('stroke-width', '9');
+      glow.setAttribute('stroke-linejoin', 'round');
+      glow.style.vectorEffect = 'non-scaling-stroke';
+      glow.style.opacity = '0.3';
+      glow.style.filter = 'drop-shadow(0 0 5px ' + color + ')';
+      const sharp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      sharp.setAttribute('d', d);
+      sharp.setAttribute('fill', 'none');
+      sharp.setAttribute('stroke', color);
+      sharp.setAttribute('stroke-width', '3.5');
+      sharp.setAttribute('stroke-linejoin', 'round');
+      sharp.style.vectorEffect = 'non-scaling-stroke';
+      _highlightPath.appendChild(glow);
+      _highlightPath.appendChild(sharp);
       svgEl.appendChild(_highlightPath);
     }
     function _clearEdHighlight() {
       if (_highlightPath) { _highlightPath.remove(); _highlightPath = null; }
+    }
+    function _activateCenterED() {
+      if (!svgEl || !_edHover || !curVB) return;
+      const cx = curVB.x + curVB.w / 2, cy = curVB.y + curVB.h / 2;
+      let bestPath = null, bestDist = Infinity;
+      svgEl.querySelectorAll('[data-ed-id]').forEach(p => {
+        const bb = p.getBBox();
+        const dist = Math.hypot(bb.x + bb.width / 2 - cx, bb.y + bb.height / 2 - cy);
+        if (dist < bestDist) { bestDist = dist; bestPath = p; }
+      });
+      if (!bestPath) return;
+      const rec = _edHover[parseInt(bestPath.getAttribute('data-ed-id'), 10)];
+      if (rec) { _showCallout(rec); _setEdHighlight(bestPath); }
     }
 
     function switchMap(key) {
@@ -1561,6 +1587,7 @@
       });
       const ctxEl = document.getElementById('ec-context');
       if (ctxEl) ctxEl.textContent = _mapContextLabels[key];
+      const savedName = _selectedEdName;
       _hideCallout();
       _edHover = null;
       const savedVB = curVB ? { ...curVB } : null;
@@ -1574,18 +1601,16 @@
           const root = doc.documentElement;
           if (root && root.tagName.toLowerCase() !== 'parsererror') {
             _activateInlineSVG(document.importNode(root, true), savedVB);
-            // Sync _edHover to newly active map
             if (_allHoverData[key] && Object.keys(_allHoverData[key]).length) {
               _edHover = _allHoverData[key];
             }
-            // Re-select previously selected ED by name in new map
-            if (_selectedEdName) {
-              const rec = _nameIndex[key] && _nameIndex[key][_selectedEdName];
+            if (savedName) {
+              const rec = _nameIndex[key] && _nameIndex[key][savedName];
               if (rec) {
                 const path = svgEl && svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
                 if (path) { _showCallout(rec); _setEdHighlight(path); }
-              } else { _selectedEdName = null; }
-            }
+              } else { _activateCenterED(); }
+            } else { _activateCenterED(); }
           } else { ready = true; }
           stage.style.opacity = '';
           setTimeout(() => { stage.style.transition = ''; }, 200);
