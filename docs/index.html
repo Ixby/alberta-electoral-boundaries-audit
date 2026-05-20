@@ -1224,6 +1224,7 @@
       svgEl = node;
       mode = 'viewbox';
       ready = true;
+      _applyBoundaryColor(node, _activeMap);
       if (overlay.style.display !== 'none') resetVB();
     }
 
@@ -1407,6 +1408,15 @@
       '2019':   '#718096',
     };
     let _activeMap = 'minority';
+
+    // ── Map-wide boundary color ───────────────────────────────────────────────
+    function _applyBoundaryColor(svgNode, mapKey) {
+      if (!svgNode) return;
+      const color = _mapAccentColors[mapKey] || '#718096';
+      const g = svgNode.querySelector('#ed_boundary_layer');
+      if (!g) return;
+      g.querySelectorAll('path').forEach(p => p.setAttribute('stroke', color));
+    }
 
     // ── Active ED boundary highlight ──────────────────────────────────────────
     let _highlightPath = null;

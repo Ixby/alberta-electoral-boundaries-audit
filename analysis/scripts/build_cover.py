@@ -532,14 +532,17 @@ def build_cover_art(map_key: str = "minority") -> Path:
         rasterized=False,
     )
 
-    # 4c. ED boundaries overlaid last so the 89-district structure
-    #     remains readable through the heatmap.
+    # 4c. ED boundaries — tagged with GID so the viewer can recolour them
+    #     dynamically per active map (purple / teal / grey).
+    _nb = len(ax.collections)
     eds.boundary.plot(
         ax=ax,
-        edgecolor="#000000",
+        edgecolor="#718096",  # neutral grey; viewer overrides per map key
         linewidth=0.1,
         rasterized=False,
     )
+    for _c in ax.collections[_nb:]:
+        _c.set_gid("ed_boundary_layer")
 
     # 4d. Provincial outline: trace the outer edge in the same accent red
     #     as the title's period so the silhouette pops off the dark backdrop.
