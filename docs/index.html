@@ -897,16 +897,20 @@
     <div class="zi-row"><span class="zi-key">Dbl-click</span> reset</div>
     <div class="zi-row"><span class="zi-key">Esc</span> close</div>
   </div>
-  <div id="map-selector">
-    <button class="ms-btn ms-active" data-map="minority">Minority</button>
-    <button class="ms-btn" data-map="majority">Majority</button>
-    <button class="ms-btn" data-map="2019">2019</button>
-  </div>
-  <div id="zone-nav">
-    <span class="zn-label">Jump to</span>
-    <button class="zn-btn" data-zone="airdrie">Airdrie</button>
-    <button class="zn-btn" data-zone="nw-calgary">NW Calgary</button>
-    <button class="zn-btn" data-zone="rmh-banff">RMH&#8202;–&#8202;Banff</button>
+  <div id="top-bar">
+    <div class="tb-group">
+      <button class="tb-btn tb-map-primary" data-map="minority">Min</button>
+      <button class="tb-btn" data-map="majority">Maj</button>
+      <button class="tb-btn" data-map="2019">2019</button>
+    </div>
+    <div class="tb-sep"></div>
+    <div class="tb-group">
+      <button class="tb-btn tb-layer-on" data-layer="vote">Vote</button>
+      <button class="tb-btn" data-layer="ed-fill">Fill</button>
+      <button class="tb-btn tb-layer-on" data-layer="ed-lines">Lines</button>
+    </div>
+    <div class="tb-sep"></div>
+    <button class="tb-btn" data-layer="lock">Lock</button>
   </div>
   <div id="zoom-stage">
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
@@ -1003,28 +1007,40 @@
     white-space: nowrap;
   }
   #ed-tooltip strong { display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
-  /* Map selector — top-left pill */
-  #map-selector {
-    position: absolute; top: 12px; left: 12px; z-index: 9002;
-    display: flex; gap: 4px;
-    background: rgba(12,14,20,0.82); border-radius: 8px; padding: 4px;
-    backdrop-filter: blur(6px);
+  /* ── Unified top bar ─────────────────────────────────────────────────────── */
+  #top-bar {
+    position: absolute;
+    top: 10px; left: 10px; right: 52px;
+    z-index: 9002;
+    display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
+    background: rgba(10,12,18,0.88);
+    border-radius: 10px; padding: 5px 8px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.07);
   }
-  .ms-btn {
+  .tb-group { display: flex; gap: 4px; align-items: center; }
+  .tb-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.12); margin: 0 2px; flex-shrink: 0; }
+  .tb-btn {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.18);
-    color: rgba(255,255,255,0.6);
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-    padding: 5px 11px; border-radius: 5px; cursor: pointer;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.35);
+    font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 5px 10px; border-radius: 6px; cursor: pointer;
+    transition: background 0.13s, color 0.13s, border-color 0.13s;
     white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
-  .ms-btn[data-map="minority"]:hover,
-  .ms-btn[data-map="minority"].ms-active { background: rgba(107,53,167,0.35); border-color: #6B35A7; color: #d4b0ff; }
-  .ms-btn[data-map="majority"]:hover,
-  .ms-btn[data-map="majority"].ms-active { background: rgba(26,122,110,0.35); border-color: #1A7A6E; color: #8eecd8; }
-  .ms-btn[data-map="2019"]:hover,
-  .ms-btn[data-map="2019"].ms-active    { background: rgba(0,0,0,0.45);  border-color: #555; color: #fff; }
+  .tb-btn:hover { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); }
+  .tb-btn[data-map="minority"].tb-map-primary  { background: rgba(107,53,167,0.4); border-color: #6B35A7; color: #d4b0ff; }
+  .tb-btn[data-map="majority"].tb-map-primary  { background: rgba(26,122,110,0.4); border-color: #1A7A6E; color: #8eecd8; }
+  .tb-btn[data-map="2019"].tb-map-primary      { background: rgba(80,80,80,0.35);  border-color: #888;   color: #fff; }
+  .tb-btn[data-map="minority"].tb-map-overlay  { border-color: rgba(107,53,167,0.7); color: rgba(180,130,255,0.8); }
+  .tb-btn[data-map="majority"].tb-map-overlay  { border-color: rgba(26,122,110,0.7); color: rgba(100,210,185,0.8); }
+  .tb-btn[data-map="2019"].tb-map-overlay      { border-color: rgba(160,160,160,0.6); color: rgba(210,210,210,0.8); }
+  .tb-btn.tb-layer-on { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9); }
+  .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(255,200,0,0.12); border-color: rgba(255,200,0,0.45); color: rgba(255,210,60,0.95); }
+  @media (max-width: 700px) { #zoom-instructions { display: none; } }
   /* Touch tap callout — bottom-anchored panel */
   #ed-callout {
     position: fixed; z-index: 9003;
@@ -1088,28 +1104,6 @@
   }
   .ec-cmp-val { color: rgba(255,255,255,0.7); font-variant-numeric: tabular-nums; }
   .ec-cmp-unique { color: rgba(255,180,60,0.75); font-style: italic; font-size: 0.68rem; }
-  /* Zone nav — contested-zone jump buttons */
-  #zone-nav {
-    position: absolute; top: 52px; left: 12px; z-index: 9002;
-    display: flex; align-items: center; gap: 4px;
-    background: rgba(12,14,20,0.75); border-radius: 8px; padding: 4px 6px;
-    backdrop-filter: blur(6px);
-  }
-  .zn-label {
-    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.07em;
-    text-transform: uppercase; color: rgba(255,255,255,0.32);
-    padding-right: 2px; white-space: nowrap;
-  }
-  .zn-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.5);
-    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
-    padding: 4px 8px; border-radius: 5px; cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-  }
-  .zn-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 </style>
 
 <script>
@@ -1299,7 +1293,9 @@
       svgEl = node;
       mode = 'viewbox';
       ready = true;
-      _applyBoundaryColor(node, _activeMap);
+      _applyBoundaryColor(node, _mapPrimary);
+      _reapplyLayers();
+      _syncOverlays();
       if (overlay.style.display !== 'none') {
         if (preserveVB) {
           // Restore saved view without resetting to full province
@@ -1472,7 +1468,7 @@
       // Cross-map comparison
       const cmpEl = document.getElementById('ec-compare');
       if (cmpEl) {
-        const others = ['minority', 'majority', '2019'].filter(k => k !== _activeMap);
+        const others = ['minority', 'majority', '2019'].filter(k => k !== _mapPrimary);
         const parts = others.map(k => {
           const rec = _nameIndex[k] && _nameIndex[k][d.name];
           if (!rec) return null;
@@ -1521,7 +1517,12 @@
       majority: '#1A7A6E',
       '2019':   '#000000',
     };
-    let _activeMap = 'minority';
+    const _mapOn      = { minority: true, majority: false, '2019': false };
+    let   _mapPrimary = 'minority';
+    const _svgCache   = {};
+    const _overlayInSvg = {};
+    const _layerState = { vote: true, 'ed-fill': false, 'ed-lines': true };
+    let   _mapLocked  = false;
 
     // ── Map-wide boundary color ───────────────────────────────────────────────
     function _applyBoundaryColor(svgNode, mapKey) {
@@ -1538,7 +1539,7 @@
     function _setEdHighlight(pathEl) {
       _clearEdHighlight();
       if (!svgEl || !pathEl) return;
-      const color = _mapAccentColors[_activeMap] || '#fff';
+      const color = _mapAccentColors[_mapPrimary] || '#fff';
       const d = pathEl.getAttribute('d');
       _highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'g');
       _highlightPath.setAttribute('pointer-events', 'none');
@@ -1566,7 +1567,7 @@
       if (_highlightPath) { _highlightPath.remove(); _highlightPath = null; }
     }
     function _activateCenterED() {
-      if (!svgEl || !_edHover || !curVB) return;
+      if (_mapLocked || !svgEl || !_edHover || !curVB) return;
       const cx = curVB.x + curVB.w / 2, cy = curVB.y + curVB.h / 2;
       let bestPath = null, bestDist = Infinity;
       svgEl.querySelectorAll('[data-ed-id]').forEach(p => {
@@ -1579,105 +1580,190 @@
       if (rec) { _showCallout(rec); _setEdHighlight(bestPath); }
     }
 
-    function switchMap(key) {
-      if (key === _activeMap || !_mapSvgUrls[key]) return;
-      _activeMap = key;
-      document.querySelectorAll('.ms-btn').forEach(b => {
-        b.classList.toggle('ms-active', b.dataset.map === key);
+    // ── Map overlay system ─────────────────────────────────────────────────────
+
+    function _extractBoundaryGroup(key) {
+      var doc = _svgCache[key];
+      if (!doc) return null;
+      var g = doc.querySelector('#ed_boundary_layer');
+      if (!g) return null;
+      var clone = document.importNode(g, true);
+      clone.querySelectorAll('path').forEach(function(p) {
+        p.setAttribute('stroke', _mapAccentColors[key] || '#555');
       });
-      const ctxEl = document.getElementById('ec-context');
+      clone.setAttribute('pointer-events', 'none');
+      clone.id = 'ed-boundary-overlay-' + key;
+      return clone;
+    }
+
+    function _syncOverlays() {
+      ['minority', 'majority', '2019'].forEach(function(key) {
+        if (!_mapOn[key] || key === _mapPrimary) {
+          if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
+          return;
+        }
+        if (!_overlayInSvg[key] && svgEl) _fetchAndOverlay(key);
+      });
+    }
+
+    function _fetchAndOverlay(key) {
+      function apply() {
+        if (!_mapOn[key] || key === _mapPrimary || !svgEl) return;
+        var g = _extractBoundaryGroup(key);
+        if (g) { svgEl.appendChild(g); _overlayInSvg[key] = g; }
+      }
+      if (_svgCache[key]) { apply(); return; }
+      fetch(_mapSvgUrls[key]).then(function(r) { return r.text(); }).then(function(text) {
+        _svgCache[key] = new DOMParser().parseFromString(text, 'image/svg+xml');
+        apply();
+      }).catch(function() {});
+    }
+
+    function _updateMapButtons() {
+      document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
+        var key = b.dataset.map;
+        b.classList.toggle('tb-map-primary', _mapOn[key] && key === _mapPrimary);
+        b.classList.toggle('tb-map-overlay',  _mapOn[key] && key !== _mapPrimary);
+      });
+    }
+
+    function _doSwitchPrimary(key) {
+      var ctxEl = document.getElementById('ec-context');
       if (ctxEl) ctxEl.textContent = _mapContextLabels[key];
-      const savedName = _selectedEdName;
+      var savedName = _selectedEdName;
       _hideCallout();
       _edHover = null;
-      const savedVB = curVB ? { ...curVB } : null;
+      var savedVB = curVB ? Object.assign({}, curVB) : null;
       ready = false;
       stage.style.opacity = '0.45';
       stage.style.transition = 'opacity 0.15s';
       fetch(_mapSvgUrls[key])
-        .then(r => r.text())
-        .then(text => {
-          const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
-          const root = doc.documentElement;
+        .then(function(r) { return r.text(); })
+        .then(function(text) {
+          var doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          _svgCache[key] = doc;
+          var root = doc.documentElement;
           if (root && root.tagName.toLowerCase() !== 'parsererror') {
             _activateInlineSVG(document.importNode(root, true), savedVB);
             if (_allHoverData[key] && Object.keys(_allHoverData[key]).length) {
               _edHover = _allHoverData[key];
             }
             if (savedName) {
-              const rec = _nameIndex[key] && _nameIndex[key][savedName];
+              var rec = _nameIndex[key] && _nameIndex[key][savedName];
               if (rec) {
-                const path = svgEl && svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
+                var path = svgEl && svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
                 if (path) { _showCallout(rec); _setEdHighlight(path); }
               } else { _activateCenterED(); }
             } else { _activateCenterED(); }
           } else { ready = true; }
           stage.style.opacity = '';
-          setTimeout(() => { stage.style.transition = ''; }, 200);
+          setTimeout(function() { stage.style.transition = ''; }, 200);
         })
-        .catch(() => {
+        .catch(function() {
           ready = true;
           stage.style.opacity = '';
-          setTimeout(() => { stage.style.transition = ''; }, 200);
+          setTimeout(function() { stage.style.transition = ''; }, 200);
         });
       fetch(_mapJsonUrls[key])
-        .then(r => r.json())
-        .then(d => {
-          const byId = {}, byName = {};
-          d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          var byId = {}, byName = {};
+          d.forEach(function(rec) { byId[rec.id] = rec; byName[rec.name] = rec; });
           _allHoverData[key] = byId;
           _nameIndex[key] = byName;
           _edHover = byId;
+          if (_layerState['ed-fill']) _applyEdFillLayer(true);
         })
-        .catch(() => { _edHover = null; });
+        .catch(function() { _edHover = null; });
     }
 
-    document.querySelectorAll('.ms-btn').forEach(b => {
-      b.addEventListener('click', () => switchMap(b.dataset.map));
+    function toggleMap(key) {
+      if (!_mapSvgUrls[key]) return;
+      if (_mapOn[key]) {
+        if (key === _mapPrimary) {
+          var next = ['minority', 'majority', '2019'].find(function(k) { return k !== key && _mapOn[k]; });
+          if (!next) return;
+          _mapOn[key] = false;
+          if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
+          _mapPrimary = next;
+          _doSwitchPrimary(next);
+        } else {
+          _mapOn[key] = false;
+          if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
+        }
+      } else {
+        _mapOn[key] = true;
+        _mapPrimary = key;
+        _doSwitchPrimary(key);
+      }
+      _updateMapButtons();
+    }
+
+    document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
+      b.addEventListener('click', function() { toggleMap(b.dataset.map); });
     });
 
     document.getElementById('ec-close').addEventListener('click', _hideCallout);
 
-    // ── Zone navigation — jump to contested boundary areas ────────────────────
-    const _zoneKeywords = {
-      'airdrie':    ['airdrie'],
-      'nw-calgary': ['nolan hill', 'cochrane', 'rocky ridge', 'bearspaw'],
-      'rmh-banff':  ['rocky mountain house', 'banff', 'clearwater'],
-    };
+    // ── Layer panel ────────────────────────────────────────────────────────────
 
-    function _zoomToZone(zoneKey) {
-      if (!svgEl || mode !== 'viewbox' || !_edHover) return;
-      const keywords = _zoneKeywords[zoneKey];
-      if (!keywords) return;
-      const paths = svgEl.querySelectorAll('[data-ed-id]');
-      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity, found = false;
-      paths.forEach(p => {
-        const id = parseInt(p.getAttribute('data-ed-id'), 10);
-        const rec = _edHover[id];
-        if (!rec) return;
-        const name = rec.name.toLowerCase();
-        if (!keywords.some(kw => name.includes(kw))) return;
-        const bb = p.getBBox();
-        minX = Math.min(minX, bb.x); minY = Math.min(minY, bb.y);
-        maxX = Math.max(maxX, bb.x + bb.width); maxY = Math.max(maxY, bb.y + bb.height);
-        found = true;
+    function _applyVoteLayer(on) {
+      if (!svgEl) return;
+      var g = svgEl.querySelector('#PatchCollection_1');
+      if (g) g.style.display = on ? '' : 'none';
+    }
+    function _applyEdFillLayer(on) {
+      if (!svgEl || !_edHover) return;
+      var g = svgEl.querySelector('#ed_hover_layer');
+      if (!g) return;
+      g.querySelectorAll('[data-ed-id]').forEach(function(p) {
+        if (on) {
+          var id = parseInt(p.getAttribute('data-ed-id'), 10);
+          var rec = _edHover[id];
+          if (rec) {
+            var isUCP = rec.ucp_pct >= rec.ndp_pct;
+            var pct = Math.max(rec.ucp_pct, rec.ndp_pct);
+            var a = (0.15 + Math.min((pct - 50) / 35, 1) * 0.5).toFixed(2);
+            p.style.fill = isUCP ? 'rgba(20,46,148,' + a + ')' : 'rgba(232,99,16,' + a + ')';
+          }
+        } else { p.style.fill = ''; }
       });
-      if (!found) return;
-      const pad = Math.max(maxX - minX, maxY - minY) * 0.3;
-      const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
-      let tw = (maxX - minX) + pad * 2, th = (maxY - minY) + pad * 2;
-      const r = _getStageRect();
-      if (tw / th < r.width / r.height) tw = th * r.width / r.height;
-      else th = tw * r.height / r.width;
-      _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 280);
+    }
+    function _applyEdLinesLayer(on) {
+      if (!svgEl) return;
+      var g = svgEl.querySelector('#ed_boundary_layer');
+      if (g) g.style.display = on ? '' : 'none';
+      Object.keys(_overlayInSvg).forEach(function(k) {
+        var og = _overlayInSvg[k];
+        if (og) og.style.display = on ? '' : 'none';
+      });
+    }
+    function _reapplyLayers() {
+      _applyVoteLayer(_layerState.vote);
+      _applyEdFillLayer(_layerState['ed-fill']);
+      _applyEdLinesLayer(_layerState['ed-lines']);
     }
 
-    document.querySelectorAll('.zn-btn').forEach(b => {
-      b.addEventListener('click', () => _zoomToZone(b.dataset.zone));
+    document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
+      b.addEventListener('click', function() {
+        var key = b.dataset.layer;
+        if (key === 'lock') {
+          _mapLocked = !_mapLocked;
+          b.classList.toggle('tb-layer-on', _mapLocked);
+          return;
+        }
+        var on = !_layerState[key];
+        _layerState[key] = on;
+        b.classList.toggle('tb-layer-on', on);
+        if (key === 'vote')     _applyVoteLayer(on);
+        if (key === 'ed-fill')  _applyEdFillLayer(on);
+        if (key === 'ed-lines') _applyEdLinesLayer(on);
+      });
     });
 
     // ── Snap-to-ED animation ───────────────────────────────────────────────
     function _animateToVB(targetVB, dur) {
+      if (_mapLocked) return;
       if (_settleTimer !== null) { clearTimeout(_settleTimer); _settleTimer = null; }
       if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
       const startVB = { ...curVB };
