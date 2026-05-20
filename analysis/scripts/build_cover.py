@@ -103,6 +103,51 @@ VA_VOTES_PATH = (
 )
 
 
+def _load_official_2023_results() -> dict:
+    """Parse data/raw/2023_results.xlsx for official 2023 EA results.
+
+    Returns {ed_name_2019: {"ucp": int, "ndp": int}} keyed by 2019 ED name.
+    Returns {} if the source files are missing.
+    """
+    import pandas as pd
+    import geopandas as gpd
+
+    xlsx_path = REPO_ROOT / "data" / "raw" / "2023_results.xlsx"
+    shp_path = (
+        REPO_ROOT / "data" / "shapefiles" / "reference"
+        / "alberta_2019_eds" / "EDS_ENACTED_BILL33_15DEC2017.shp"
+    )
+    if not xlsx_path.exists() or not shp_path.exists():
+        return {}
+
+    eds2019 = gpd.read_file(str(shp_path))
+    num_to_name = {int(r.EDNumber20): r.EDName2017 for _, r in eds2019.iterrows()}
+
+    xl = pd.ExcelFile(str(xlsx_path))
+    results = {}
+    for sheet in xl.sheet_names:
+        ed_name = num_to_name.get(int(sheet))
+        if ed_name is None:
+            continue
+        df = xl.parse(sheet, header=None)
+        headers = df.iloc[0].tolist()
+        ndp_cols = [i for i, h in enumerate(headers) if isinstance(h, str) and "\nNDP" in h]
+        ucp_cols = [i for i, h in enumerate(headers) if isinstance(h, str) and "\nUCP" in h]
+        total_row = next(
+            (row for _, row in df.iterrows()
+             if "Total (All Voting Options)" in str(row.iloc[1] if len(row) > 1 else "")),
+            None,
+        )
+        if total_row is None or not ndp_cols or not ucp_cols:
+            continue
+        ndp = sum(float(total_row.iloc[c]) for c in ndp_cols if pd.notna(total_row.iloc[c]))
+        ucp = sum(float(total_row.iloc[c]) for c in ucp_cols if pd.notna(total_row.iloc[c]))
+        results[ed_name] = {"ucp": int(ucp), "ndp": int(ndp)}
+
+    print(f"[build_cover] Loaded official 2023 results for {len(results)} 2019 EDs")
+    return results
+
+
 def _tag_ed_hover_paths(svg_path: Path, n_eds: int) -> None:
     """Post-process the hi-res SVG: stamp data-ed-id and pointer-events on the
     transparent hit-detection layer so the browser can map pointer position to
@@ -131,22 +176,44 @@ def _tag_ed_hover_paths(svg_path: Path, n_eds: int) -> None:
 
 
 def _export_ed_hover_json(eds, name_col: str, out_path: Path) -> None:
-    """Export per-ED tooltip data: name, vote split, total votes, population."""
+    """Export per-ED tooltip data: name, vote split, official vote counts, population."""
     import json
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     records = []
+    has_official = "official_ucp" in eds.columns
     for i, row in eds.iterrows():
-        ucp = float(row.get("ucp_share", 0.5))
-        total = int(row.get("total", 0))
+        ucp_share = float(row.get("ucp_share", 0.5))
+        va_total = int(row.get("total", 0))
+
+        if has_official:
+            off_ucp = int(round(row.get("official_ucp", 0)))
+            off_ndp = int(round(row.get("official_ndp", 0)))
+            off_total = off_ucp + off_ndp
+        else:
+            off_total = 0
+
+        if off_total > 0:
+            ucp_votes = off_ucp
+            ndp_votes = off_ndp
+            votes = off_total
+            ucp_pct = round(off_ucp / off_total * 100, 1)
+            ndp_pct = round(off_ndp / off_total * 100, 1)
+        else:
+            ucp_votes = round(ucp_share * va_total)
+            ndp_votes = va_total - ucp_votes
+            votes = va_total
+            ucp_pct = round(ucp_share * 100, 1)
+            ndp_pct = round((1.0 - ucp_share) * 100, 1)
+
         records.append({
             "id": i,
             "name": str(row[name_col]),
-            "ucp_pct": round(ucp * 100, 1),
-            "ndp_pct": round((1.0 - ucp) * 100, 1),
-            "ucp_votes": round(ucp * total),
-            "ndp_votes": total - round(ucp * total),
-            "votes": total,
+            "ucp_pct": ucp_pct,
+            "ndp_pct": ndp_pct,
+            "ucp_votes": ucp_votes,
+            "ndp_votes": ndp_votes,
+            "votes": votes,
             "pop": int(row.get("pop", 0)),
             "va_count": int(row.get("va_count", 0)),
         })
@@ -191,9 +258,14 @@ def build_cover_art() -> Path:
     print(f"[build_cover] {len(eds)} non-empty EDs to render")
 
     # 2. Per-ED 2023 vote share via VA-centroid spatial join
+    official_2023 = _load_official_2023_results()
     if VA_VOTES_PATH.exists():
         va = gpd.read_file(VA_VOTES_PATH).to_crs(3401)
-        _va_cols = {"va_ucp": va["va_ucp"].fillna(0), "va_ndp": va["va_ndp"].fillna(0)}
+        _va_cols = {
+            "va_ucp": va["va_ucp"].fillna(0),
+            "va_ndp": va["va_ndp"].fillna(0),
+            "parent_ed_2019": va["parent_ed_2019"].fillna(""),
+        }
         if "pop_2021" in va.columns:
             _va_cols["pop_2021"] = va["pop_2021"].fillna(0)
         va_pts = gpd.GeoDataFrame(_va_cols, geometry=va.geometry.centroid, crs=3401)
@@ -211,6 +283,38 @@ def build_cover_art() -> Path:
         agg["ucp_share"] = agg["ucp"] / agg["total"]
         _merge_cols = [name_col, "ucp_share", "total", "va_count"] + (["pop"] if "pop" in agg.columns else [])
         eds = eds.merge(agg[_merge_cols], on=name_col, how="left")
+
+        # Scale to official totals: distribute each 2019 ED's full results
+        # (election-day + advance + vote-anywhere) to 2026 EDs proportionally
+        # by how many VA election-day voters are in each 2026 ED slice.
+        if official_2023:
+            import pandas as _pd
+            va_ed19_totals = (
+                va.groupby("parent_ed_2019")[["va_ucp", "va_ndp"]]
+                .sum()
+                .assign(va_total=lambda d: (d["va_ucp"] + d["va_ndp"]).clip(lower=1))
+                .reset_index()
+            )
+            joined_notnull = joined[joined[name_col].notna()].copy()
+            pair = (
+                joined_notnull.groupby([name_col, "parent_ed_2019"])[["va_ucp", "va_ndp"]]
+                .sum()
+                .reset_index()
+            )
+            pair = pair.merge(va_ed19_totals[["parent_ed_2019", "va_total"]], on="parent_ed_2019", how="left")
+            pair["va_total"] = pair["va_total"].fillna(1)
+            pair["frac"] = (pair["va_ucp"] + pair["va_ndp"]) / pair["va_total"]
+            pair["off_ucp"] = pair.apply(
+                lambda r: r["frac"] * official_2023.get(r["parent_ed_2019"], {}).get("ucp", 0), axis=1
+            )
+            pair["off_ndp"] = pair.apply(
+                lambda r: r["frac"] * official_2023.get(r["parent_ed_2019"], {}).get("ndp", 0), axis=1
+            )
+            official_agg = pair.groupby(name_col)[["off_ucp", "off_ndp"]].sum().reset_index()
+            official_agg.columns = [name_col, "official_ucp", "official_ndp"]
+            eds = eds.merge(official_agg, on=name_col, how="left")
+            eds["official_ucp"] = eds["official_ucp"].fillna(0)
+            eds["official_ndp"] = eds["official_ndp"].fillna(0)
     else:
         print(
             f"[build_cover] WARN: {VA_VOTES_PATH.name} not found; "
