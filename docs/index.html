@@ -920,6 +920,7 @@
     position: absolute; inset: 0;
     overflow: hidden;
     cursor: grab;
+    touch-action: none;
   }
   #zoom-stage.dragging { cursor: grabbing; }
   #zoom-obj {
@@ -1051,7 +1052,7 @@
       node.setAttribute('width', '100%');
       node.setAttribute('height', '100%');
       node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-      node.style.cssText = 'position:absolute;left:0;top:0;display:block;';
+      node.style.cssText = 'position:absolute;left:0;top:0;display:block;touch-action:none;';
       stage.replaceChild(node, obj);  // adopts node into main document
 
       const vb = node.viewBox.baseVal;
@@ -1213,9 +1214,11 @@
     // ── Pinch-to-zoom ─────────────────────────────────────────────────────
     let lastDist = null;
     stage.addEventListener('touchstart', e => {
-      if (e.touches.length === 2)
+      if (e.touches.length === 2) {
+        _hideTip();
         lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
                               e.touches[0].clientY - e.touches[1].clientY);
+      }
     }, { passive: true });
     stage.addEventListener('touchmove', e => {
       if (e.touches.length !== 2 || !ready) return;
@@ -1253,16 +1256,26 @@
 
     function _hideTip() { _tip.style.display = 'none'; }
 
+    function _tipTarget(e) {
+      return e.target && e.target.closest ? e.target.closest('[data-ed-id]') : null;
+    }
+
+    // Mouse: follow cursor (hover)
     stage.addEventListener('pointermove', e => {
-      if (!ready || mode !== 'viewbox' || !_edHover) return;
-      const hit = e.target && e.target.closest ? e.target.closest('[data-ed-id]') : null;
-      if (hit) {
-        _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
-      } else {
-        _hideTip();
-      }
+      if (!ready || mode !== 'viewbox' || !_edHover || e.pointerType === 'touch') return;
+      const hit = _tipTarget(e);
+      if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+      else _hideTip();
     });
-    stage.addEventListener('pointerleave', _hideTip);
+    stage.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') _hideTip(); });
+
+    // Touch: tap to show, tap elsewhere or pinch to hide
+    stage.addEventListener('pointerdown', e => {
+      if (!ready || mode !== 'viewbox' || !_edHover || e.pointerType !== 'touch') return;
+      const hit = _tipTarget(e);
+      if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+      else _hideTip();
+    });
   })();
 </script>
 </body>
