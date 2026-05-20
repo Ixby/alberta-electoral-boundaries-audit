@@ -70,6 +70,7 @@ VA_TO_2026_ASSIGNMENTS = (
 )
 
 COVER_ART_PNG = data_loader._resolve_path("data") / "maps" / "cover_art.png"
+COVER_ART_HIRES_SVG = data_loader._resolve_path("data") / "maps" / "cover_art_hires.svg"
 OUT_PDF = (
     REPO_ROOT / "report_public.pdf"
 )  # final = cover + article (the only PDF in the repo root)
@@ -337,7 +338,7 @@ def build_cover_art() -> Path:
     #     show white rather than the transparent page background. Outside the
     #     province boundary remains transparent (shows the dark page through).
     province = eds.dissolve()
-    province.plot(ax=ax, color="white", linewidth=0)
+    province.plot(ax=ax, color="white", linewidth=0, rasterized=False)
 
     # 4b. VA layer on top — heatmap-modulated fills carry the population-
     #     density signal where VAs exist (i.e. where people actually live).
@@ -346,8 +347,9 @@ def build_cover_art() -> Path:
     va_render.plot(
         ax=ax,
         color=va_render["_fill"].tolist(),
-        edgecolor="#ffffff",
-        linewidth=1,
+        edgecolor="none",
+        linewidth=0,
+        rasterized=False,
     )
 
     # 4c. ED boundaries overlaid last so the 89-district structure
@@ -355,7 +357,8 @@ def build_cover_art() -> Path:
     eds.boundary.plot(
         ax=ax,
         edgecolor="#000000",
-        linewidth=1,
+        linewidth=0.1,
+        rasterized=False,
     )
 
     # 4d. Provincial outline: trace the outer edge in the same accent red
@@ -364,22 +367,21 @@ def build_cover_art() -> Path:
         ax=ax,
         edgecolor="#7a1f1f",  # title-accent red
         linewidth=0.2,
+        rasterized=False,
     )
 
     ax.margins(0.005)
     plt.tight_layout(pad=0)
 
     COVER_ART_PNG.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(
-        COVER_ART_PNG,
-        dpi=600,
-        bbox_inches="tight",
-        pad_inches=0.02,
-        facecolor='none',
-        transparent=True,
-    )
+    _save_kwargs = dict(bbox_inches="tight", pad_inches=0.02, facecolor="none", transparent=True)
+    plt.savefig(COVER_ART_PNG, dpi=200, **_save_kwargs)
+    print(f"[build_cover] Wrote screen-res art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
+    plt.rcParams['path.simplify'] = False
+    plt.savefig(COVER_ART_HIRES_SVG, format="svg", **_save_kwargs)
+    plt.rcParams['path.simplify'] = True
+    print(f"[build_cover] Wrote hi-res SVG {COVER_ART_HIRES_SVG.relative_to(REPO_ROOT)}")
     plt.close(fig)
-    print(f"[build_cover] Wrote hero art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
     return COVER_ART_PNG
 
 

@@ -73,13 +73,13 @@ REAL_MAPS = {
     "Minority 2026": 0.516854,
 }
 
-COLORS = {
-    "2019 enacted": "#1f2937",
-    "Majority 2026": "#1A7A6E",  # majority teal
-    "Minority 2026": "#6B35A7",  # minority purple
-}
+from palette import MAJORITY_TEAL, MINORITY_PURPLE, NEUTRAL_2019, TEXT_DARK
 
-TEXT_DARK = "#1a1a1a"
+COLORS = {
+    "2019 enacted": NEUTRAL_2019,
+    "Majority 2026": MAJORITY_TEAL,
+    "Minority 2026": MINORITY_PURPLE,
+}
 
 
 def pct_rank(values: np.ndarray, x: float) -> float:

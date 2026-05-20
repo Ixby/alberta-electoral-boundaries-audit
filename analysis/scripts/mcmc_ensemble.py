@@ -73,6 +73,13 @@ try:
 except ImportError:
     def _log_run(*args, **kwargs): pass  # no-op fallback
 
+try:
+    from palette import MAJORITY_TEAL as _MAJORITY_TEAL, MINORITY_PURPLE as _MINORITY_PURPLE, NEUTRAL_2019 as _NEUTRAL_2019
+except ImportError:
+    _MAJORITY_TEAL = "#1A7A6E"
+    _MINORITY_PURPLE = "#6B35A7"
+    _NEUTRAL_2019 = "#666666"
+
 import os
 import sys
 import time
@@ -675,10 +682,10 @@ def plot_metric(
     def _line_color(label: str) -> str:
         lo = label.lower()
         if "minority" in lo:
-            return "#6B35A7"
+            return _MINORITY_PURPLE
         if "majority" in lo:
-            return "#1A7A6E"
-        return "#1f2937"
+            return _MAJORITY_TEAL
+        return _NEUTRAL_2019
 
     for label, value in real_maps.items():
         if value is None or np.isnan(value):

@@ -273,7 +273,7 @@
       <span class="badge">Official Elections Alberta maps &mdash; May 2026</span>
       <p class="cover-note">The map at right is the minority commission's 2026 proposal &mdash; the one that sits furthest from the neutral ensemble in statistical testing. Each riding is coloured by its 2023 vote: blue for UCP-leaning districts, orange for NDP-leaning. Colour intensity reflects where people actually live: bright and saturated in dense urban cores, pale and faded in sparse rural areas.</p>
     </div>
-    <a href="images/cover_art.png" target="_blank" rel="noopener" title="Open full resolution">
+    <a href="#" id="zoom-trigger" title="Click to zoom" style="cursor:zoom-in; display:inline-block;">
       <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image">
     </a>
   </div>
@@ -289,6 +289,8 @@
   <a href="#section-7">7: November</a>
   <a href="#section-8">8: Invisible</a>
   <a href="#resources">Resources</a>
+  <a href="#retractions">Retractions</a>
+  <a href="#references">References</a>
 </nav>
 
 <div class="container">
@@ -310,11 +312,11 @@
 
   <section id="section-2">
     <h2>2: How the Commission Broke</h2>
-    <p>Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Both are legal under the <em>Electoral Boundaries Commission Act</em>. The governing party is the United Conservative Party (UCP); its main opposition is the New Democratic Party (NDP). Alberta also has smaller parties — the Alberta Party, the Liberal Party of Alberta, and others — that contest seats but whose combined provincial vote share has remained low enough in recent elections that they do not materially affect the audit's partisan-fairness calculations, which are grounded in the 2023 UCP–NDP vote split. This audit measured both maps using the same methods, applied identically. Three findings stand out.</p>
+    <p>Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Commission Chair Justice Dallas K. Miller and two opposition-nominated commissioners wrote the majority report; two government-nominated commissioners — Dr. Julian Martin and John D. Evans — wrote the minority report. The split centred on how to draw boundaries in fast-growing urban-edge communities: the majority gave Airdrie two districts, the minority four; the majority drew northwest Calgary's divisions close to the provincial average size, the minority drew them 11.5% above it. Both maps follow the same statute; the disagreement was about which specific geographic configurations best served the communities being drawn. Both are legal under the <em>Electoral Boundaries Commission Act</em>. The governing party is the United Conservative Party (UCP); its main opposition is the New Democratic Party (NDP). Alberta also has smaller parties — the Alberta Party, the Liberal Party of Alberta, and others — that contest seats but whose combined provincial vote share has remained low enough in recent elections that they do not materially affect the audit's partisan-fairness calculations, which are grounded in the 2023 UCP–NDP vote split. This audit measured both maps using the same methods, applied identically. Three findings stand out.</p>
     <ol style="margin: 0.8rem 0 0.9rem 1.4rem;">
       <li style="margin-bottom: 0.6rem;"><strong>The two maps differ on six things you can measure without looking at any election results:</strong> how evenly people are spread across districts, whether voters are concentrated, how badly cities are cut up, whether borders follow city limits, the shape of the districts, and how many boundaries the commission's own chair flagged as anomalous. The minority map differs from the majority on every one of them.</li>
       <li style="margin-bottom: 0.6rem;"><strong>The direction runs against the places where the governing party is weakest.</strong> Calgary's northwest quadrant, the City of Airdrie, urban areas with established municipal boundaries — the communities most affected by the minority map's structural differences are the same ones where the governing party's opponents are strongest. The audit cannot determine intent. It can measure effect.</li>
-      <li style="margin-bottom: 0.6rem;"><strong>The process now promoting the minority map has no precedent in Canada.</strong> No other province lets a cabinet hand redistricting to a committee its own party controls partway through a redistribution cycle. Most provinces either require the legislature to debate the commissioners' map first, or give the commission's map automatic effect unless overridden. Alberta does neither. On April 16, the government set both commission maps aside and assigned the work to a five-member committee of MLAs (Members of the Legislative Assembly), three from the governing United Conservative Party (UCP).</li>
+      <li style="margin-bottom: 0.6rem;"><strong>The process now promoting the minority map has no precedent in Canada.</strong> No other province lets a cabinet hand redistricting to a committee its own party controls partway through a redistribution cycle. Most provinces either require the legislature to debate the commissioners' map first, or give the commission's map automatic effect unless overridden. Alberta does neither. On April 16, the government set both commission maps aside and assigned the work to a five-member committee of MLAs (Members of the Legislative Assembly), three from the governing United Conservative Party (UCP). Alberta's <em>Electoral Boundaries Commission Act</em> requires the legislature to pass a separate Electoral Districts Act to give a commission report legal effect — the commission report itself changes nothing. Most other provinces make a commission's report legally effective unless the legislature actively overrides it; Alberta's default reverses that, meaning the governing party controls whether any commission map ever becomes law. The government's stated justification was to implement Commission Chair Justice Miller's Recommendation 5, which proposed a 91-seat legislature; but Miller had written that recommendation specifically to dissuade the legislature from adopting the minority map, and noted his majority colleagues did not endorse it — the government adopted the seat-count while replacing the map-drawing itself with a committee it controls.</li>
     </ol>
     <p><strong>The process is its own finding, separate from the maps.</strong></p>
   </section>
@@ -394,7 +396,9 @@
 
     <div class="callout">
       <p><strong>VOCABULARY</strong></p>
-      <p><strong>Efficiency gap.</strong> A single number that measures how lopsidedly a party's votes are translated into seats. Positive numbers favour conservatives; negative favour the NDP. The audit uses ~5% as Alberta's outlier line — roughly the level only 5% of computer-simulated Alberta maps cross.</p>
+      <p><strong>Efficiency gap.</strong> A single number that measures how lopsidedly a party's votes are translated into seats. Positive numbers favour the UCP; negative favour the NDP. The audit uses ~5% as Alberta's outlier line — the value exceeded by only 5% of the 1,010,000 neutral Alberta-specific simulations. This threshold is not borrowed from US or general literature; a threshold calibrated to another jurisdiction would be wrong because Alberta's natural geography produces a different neutral range.</p>
+      <p><strong>Mean-median difference.</strong> The gap between a party's median district vote share and its mean district vote share. When one party wins many close races, the median sits above the mean — those votes are distributed efficiently. When a party wins many races by large margins, the mean sits above the median — votes are being wasted. A large mean-median gap in one direction flags structural inefficiency in how one side's votes are spread across districts.</p>
+      <p><strong>Percentile ranking.</strong> In this audit, a "percentile" is a rank within the 1,010,000 neutral simulated maps. "p94" means 94% of neutral maps score lower — the real map is more extreme than 94% of neutral draws. "p99.99" means fewer than 1 in 10,000 neutral maps reach that level.</p>
       <p><strong>Anchoring.</strong> The fraction of an electoral border that lies on a pre-existing administrative line — a city limit, a school-division boundary, a Statistics Canada census line.</p>
     </div>
 
@@ -428,12 +432,9 @@
 
     <p><strong>Where it departs from municipal lines, it departs at strategically important places.</strong> When electoral maps follow the edge of a city or town, voters recognize where their division begins and ends — the property-tax line, the school-division line, the local-election ward line, and the provincial-election line all coincide. Statistics Canada publishes these boundaries for free. On official Elections Alberta shapefiles, both maps follow municipal lines at comparable overall rates: the majority at 80%, the minority at 72%, both within Canada's 70–85% norm (Quebec: 78%, Ontario: 82%, BC: 71%; comparator commissions documented in the monograph). (The audit's initial provisional analysis showed the minority anchoring at only 15%; that figure did not survive recomputation on official shapefiles — see the correction note below.) The striking observation is not the overall rate but where the minority's departures are concentrated: the three boundaries the commission's own chair flagged as anomalous — Rocky Mountain House–Banff Park's extension into uninhabited national-park land, the Nolan Hill–Cochrane lasso corridor, and the Olds–North Airdrie reach — are each departures from pre-existing civic geography in the exact urban-edge zones where pairing urban and rural voters most directly affects which party wins the seat.</p>
 
-    <p><strong>One area of Calgary is carved up to concentrate NDP voters into larger-than-average divisions.</strong> In Calgary's northwest quadrant, the minority map's divisions average 11.5% above the province-wide population — versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. This is <em>packing</em>: concentrating one party's voters into fewer, larger districts so each of their ballots weighs less. Packing and <em>cracking</em> (splitting a party's voters thinly across districts they narrowly lose) are the two classic gerrymandering moves; both shrink a party's seat count below its vote share.</p>
+    <p>The minority commissioners gave reasons for each of the three flagged boundaries. For Rocky Mountain House–Banff Park, they cited geographic size, the Highway 22 corridor, and the proximity of First Nations reserves to Rocky Mountain House; the commission chair called the extension into uninhabited national park land "a bad faith effort" to satisfy the area criterion, and that phrase appears in the commission's official final report. For Nolan Hill–Cochrane, they cited shared transportation and employment ties between northwest Calgary and Cochrane; Statistics Canada journey-to-work data shows only 35.8% of Cochrane workers travel to Calgary at all, with most working within Cochrane itself. For the Olds–North Airdrie reach, they cited Highway 2 corridor continuity; the audit found the specific Airdrie extension fails on population grounds. Independent check found five of the minority's six published sub-rationales fail or only partially hold against primary data.</p>
 
-    <div class="callout">
-      <p><strong>A NOTE ON LEGAL TERMINOLOGY</strong></p>
-      <p>"Gerrymandering" has no legal definition in Canadian law. The word is used throughout this report in its everyday political sense — manipulating electoral boundaries for partisan advantage. The legal tests that actually apply in Canada are different: whether boundaries provide "effective representation" under s.3 of the <em>Charter of Rights and Freedoms</em> (the constitutional standard the Supreme Court of Canada set in the 1991 <em>Saskatchewan Reference</em>), and whether the commission followed the rules of Alberta's <em>Electoral Boundaries Commission Act</em>. The audit's findings are evidence bearing on those legal questions. They are not proof of a legally-defined wrong, and this report does not describe them that way.</p>
-    </div>
+    <p><strong>One area of Calgary is carved up to concentrate NDP voters into larger-than-average divisions.</strong> In Calgary's northwest quadrant, the minority map's divisions average 11.5% above the province-wide population — versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. This is <em>packing</em>: concentrating one party's voters into fewer, larger districts so each of their ballots weighs less. Packing and <em>cracking</em> (splitting a party's voters thinly across districts they narrowly lose) are the two classic gerrymandering moves; both shrink a party's seat count below its vote share.</p>
 
     <p>The commission chair — appointed under the same Act, working from the same submissions — flagged three boundaries on the minority map as geographically anomalous: Rocky Mountain House–Banff Park's extension into uninhabited national park land; the Calgary-Nolan Hill–Cochrane lasso-shaped corridor; the Olds–Three Hills–Didsbury reach into north Airdrie. The majority received zero such flags from the same chair. (The chair's published criticism covers seven boundary configurations in total — four geometric flags in the main report and three in Appendix C. This audit independently confirmed anomalous geometry for three of the four geometric flags; the fourth, Calgary-Foothills-Airdrie West, did not meet the audit's confirmation threshold.)</p>
   </section>
@@ -441,11 +442,16 @@
   <section id="section-5">
     <h2>5: The Impact on the Ground</h2>
 
+    <div class="callout">
+      <p><strong>LANE 1 AND LANE 2</strong></p>
+      <p><strong>Lane 1 (numbers)</strong> uses election results to test whether the map converts votes into seats fairly — it asks how the map performs across different vote splits. <strong>Lane 2 (structure)</strong> examines only the drawn lines — city splits, population spread, boundary shapes — with no election data at all. Each lane is independent: a map can fail one while passing the other. The minority proposal fails both; the majority passes both.</p>
+    </div>
+
     <p>Lane 1 depends on which election results you score the maps against. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
       <img src="images/lane2_bars.svg" alt="Bar chart comparing five structural-fairness tests side by side. The majority map bars sit at zero or well inside safe ranges. The minority map bars cross every threshold by a wide margin." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The five structural-fairness tests, side by side. Green bars are the majority map, dark red bars are the minority map. The dashed red line in each row marks the failing point. The dark red bars cross every line by a wide margin. The green bars sit flat at zero or stay well inside the safe range.</figcaption>
+      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The five structural-fairness tests, side by side. Teal bars are the majority map; purple bars are the minority map. The dashed line in each row marks the failing threshold. The minority bars cross every threshold by a wide margin. The majority bars sit flat at zero or well inside the safe range.</figcaption>
     </figure>
 
     <p>The same five tests in tabular form, with each test's threshold stated alongside the result. The bottom row is the audit's <em>summary</em> — the count of tests each map fails out of the five.</p>
@@ -511,9 +517,25 @@
   <section id="section-6">
     <h2>6: How &#8220;Clean Gerrymanders&#8221; Work</h2>
 
+    <div class="callout">
+      <p><strong>A NOTE ON LEGAL TERMINOLOGY</strong></p>
+      <p>"Gerrymandering" has no legal definition in Canadian law. The word is used throughout this report in its everyday political sense — manipulating electoral boundaries for partisan advantage. The legal tests that actually apply in Canada are different: whether boundaries provide "effective representation" under s.3 of the <em>Charter of Rights and Freedoms</em> (the constitutional standard the Supreme Court of Canada set in the 1991 <em>Saskatchewan Reference</em>), and whether the commission followed the rules of Alberta's <em>Electoral Boundaries Commission Act</em>. The audit's findings are evidence bearing on those legal questions. They are not proof of a legally-defined wrong, and this report does not describe them that way.</p>
+    </div>
+
     <p>The cleanest single question to ask of any electoral map is this: if the province's vote split exactly evenly between the two main parties, what seat count would the map produce? This holds the electorate constant and asks the map alone what it does.</p>
 
     <p>To answer this, the audit generated 1,010,000 computer-simulated, mathematically neutral Alberta maps (4 independent chains &times; 252,500 steps, base seed from Cloudflare drand beacon, pre-registered at OSF before execution) using the official Elections Alberta shapefiles, holding to the exact same statutory rules and geographic boundaries the commission used. We then placed the commission's two 2026 maps into that distribution to see how normal they are.</p>
+
+    <div class="callout">
+      <p><strong>HOW THE SIMULATION WORKS</strong></p>
+      <p><strong>MCMC (Markov Chain Monte Carlo)</strong> is a method for exploring a large space — here, the space of all legal Alberta maps — by taking random steps from a starting point. Each step proposes a small swap between adjacent districts; if the result stays within the statutory rules, it becomes the new starting point. After enough steps, the visited maps form a representative sample of legal plans. The simulation is seeded from the Cloudflare drand public randomness beacon to prevent any cherry-picking of starting conditions.</p>
+      <p><strong>ReCom (Redistricting Compiler)</strong> is the specific algorithm used here. Each step merges two adjacent districts into one region and re-splits it randomly into two new valid districts, preserving contiguity and population balance by construction — so the algorithm never needs to reject an invalid proposal.</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>PRE-REGISTRATION</strong></p>
+      <p>Pre-registration means writing down the exact tests, thresholds, and predicted directions before looking at any data, and locking those commitments into a public time-stamped record. The Open Science Framework (OSF) is the public repository where this audit's commitments are filed. It prevents retrofitting: if a result doesn't emerge cleanly, the threshold cannot be changed after the fact and then presented as always having been the test. All five structural tests and four partisan-fairness metrics in this audit were registered at OSF before any simulation was run.</p>
+    </div>
 
     <p>In Alberta, the neutral answer is not 50/50. <em>Across 1,010,000 computer-simulated legal Alberta maps, the median map gives the UCP only 44.8% of the seats at 50/50 votes</em> — a typical Alberta map under neutral votes hands the NDP a small seat majority. This is counterintuitive but mechanical: rural UCP voters win their ridings by 60-40 margins (wasting many "extra" UCP votes), while urban NDP voters win their ridings by tighter 51-49 margins (wasting fewer NDP votes per win). At neutrality, NDP comes out ahead on seat efficiency.</p>
 
@@ -548,7 +570,7 @@
       </table>
     </div>
 
-    <p>A note on seat counts. The 2026 commission maps each have <strong>89</strong> districts; the audit's computer simulation runs on the <strong>87</strong>-district 2019 map (its starting substrate); the November Lunty committee will produce <strong>91</strong>. All percentages are seat <em>shares</em>, comparable across these denominators.</p>
+    <p>A note on seat counts. The 2026 commission maps each have <strong>89</strong> districts; the audit's computer simulation runs on the <strong>87</strong>-district 2019 map (its starting substrate); the November Lunty committee will produce <strong>91</strong>. All percentages are seat <em>shares</em>, comparable across these denominators. The simulation uses the 2019 map as its starting point because the ReCom algorithm needs a legally enacted map to propose swaps from — the 2019 map is the last enacted Alberta electoral map. Using either commission proposal as the substrate would be circular: we would be measuring whether a map is extreme compared to maps derived from itself.</p>
 
     <p>The results — placing the three real maps in this distribution — point to a specific, surgical pattern of boundary drawing.</p>
 
@@ -563,7 +585,7 @@
             <th>Map</th>
             <th>Efficiency gap</th>
             <th>Mean-median</th>
-            <th>Declination</th>
+            <th><a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Declination measures the angular difference between the seats-votes curve for each party. Negative values favour the UCP; positive favour the NDP.">Declination</a></th>
             <th>Seats at 50/50</th>
           </tr>
         </thead>
@@ -586,7 +608,7 @@
       </table>
     </div>
 
-    <p>The majority map sits comfortably inside the normal range on three of four metrics. Its mean-median sits at p2 in the NDP-favourable direction — an unusual result but pointing the wrong way to help the UCP. The minority map is in the tail on all four, each pointing in the same partisan direction.</p>
+    <p>The majority map sits comfortably inside the normal range on three of four metrics. Its mean-median sits at p2 in the NDP-favourable direction — an unusual result but pointing the wrong way to help the UCP. The majority map's close adherence to municipal boundaries places NDP-heavy urban cores into their own compact districts, where NDP votes win by efficient margins while UCP rural wins tend to be by larger margins; this mild structural NDP efficiency advantage is what shows up in the mean-median measure. The minority map is in the tail on all four, each pointing in the same partisan direction.</p>
 
     <h3>The 50/50 tipping point: fewer than 100 of 1,010,000 neutral maps reach it</h3>
 
@@ -625,9 +647,14 @@
 
     <h3>What this means in plain language</h3>
 
-    <p>The official shapefiles reveal a map that is statistically extreme in the same partisan direction on all four measures at once. The joint probability of a neutral drawing process producing a map this extreme across all four measures simultaneously is roughly one in 15 million (p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, pre-registered Fisher combined test). That is not a rounding error or a measurement artefact — it is the same answer from four independent statistical instruments read in the same room.</p>
+    <p>The official shapefiles reveal a map that is statistically extreme in the same partisan direction on all four measures at once. The joint probability of a neutral drawing process producing a map this extreme across all four measures simultaneously is roughly one in 15 million (p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, <a href="https://osf.io/6pt83" rel="noopener">pre-registered Fisher combined test</a>). That is not a rounding error or a measurement artefact — it is the same answer from four independent statistical instruments read in the same room.</p>
 
-    <p><strong>Two questions, one answer.</strong> The 1,010,000-map simulation asks: <em>is this map extreme compared to neutral maps drawn on the same Alberta geography?</em> A second, separate test — called the Swing-Zone Allocation Test — asks a different question: <em>are the specific lines on the map partisan-neutral?</em> It works by looking only at the Voting Areas where the minority drew differently from the majority and asking whether those particular choices, taken together, shifted vote efficiency in one party's direction. Because it compares only the places where the two maps differ, it automatically controls for everything they share — the same provincial geography, the same population targets, the same statutory rules. Both questions return the same answer. That is why the one-in-15-million figure is a combined result rather than a single test: it is two independent lines of evidence converging.</p>
+    <div class="callout">
+      <p><strong>SWING-ZONE ALLOCATION TEST (SZAT)</strong></p>
+      <p>SZAT is the audit's second independent test, and it asks a different question from the simulation: not "is this map extreme overall?" but "are the specific line choices partisan-neutral?" It works by isolating only the Voting Areas where the minority's map differs from the majority's — the contested re-draws — and testing whether those particular choices, taken together, shift vote efficiency in one party's direction. Because it compares only the points of departure, it automatically controls for everything the two maps share: the same geography, population targets, and statutory rules. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Technical details and bootstrap results &rarr;</a></p>
+    </div>
+
+    <p><strong>Two questions, one answer.</strong> The 1,010,000-map simulation asks: <em>is this map extreme compared to neutral maps drawn on the same Alberta geography?</em> A second, separate test — called the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Swing-Zone Allocation Test</a> — asks a different question: <em>are the specific lines on the map partisan-neutral?</em> It works by looking only at the Voting Areas where the minority drew differently from the majority and asking whether those particular choices, taken together, shifted vote efficiency in one party's direction. Because it compares only the places where the two maps differ, it automatically controls for everything they share — the same provincial geography, the same population targets, the same statutory rules. Both questions return the same answer. That is why the one-in-15-million figure is a combined result rather than a single test: it is two independent lines of evidence converging.</p>
 
     <p>This explains why the minority proposal had to be such an extreme statistical outlier (p99.99) against 1,010,000 neutral simulations. In an 89-seat legislature, a two-thirds supermajority requires exactly 60 seats. You do not hit the 60-seat supermajority threshold by drawing natural, community-respecting boundaries; you have to surgically force the map to get there.</p>
 
@@ -640,7 +667,7 @@
 
     <h3>Confirmation from the targeted-procedure test</h3>
 
-    <p>To be sure this isn't a quirk of the neutral simulation's known compactness preference, the audit ran a targeted hill-climbing procedure (Cannon et al. 2022 — the standard tool in the redistricting-statistics literature for exploring biased-but-legal maps) in both directions: maximising UCP seats and maximising NDP seats. Same number of steps (40,000) in each direction, same statutory constraints, same provincial geometry.</p>
+    <p>To be sure this isn't a quirk of the neutral simulation's known compactness preference, the audit ran a targeted hill-climbing procedure (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon et al. 2022 — cited and described in the technical report</a>) in both directions: maximising UCP seats and maximising NDP seats. Same number of steps (40,000) in each direction, same statutory constraints, same provincial geometry.</p>
 
     <div class="table-wrap">
       <table>
@@ -746,30 +773,13 @@
       </table>
     </div>
 
-    <p><strong>Why Lane 2 carries the case.</strong> The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. The minority crosses every one; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup> (pre-registered Fisher combined test, OSF <a href="https://osf.io/6pt83" rel="noopener">6pt83</a>). The question of whether Lane 2's unusual geometry is the specific <em>mechanism</em> behind the Lane 1 numbers was tested and the answer is no — see <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. Lane 2 is the central finding. Lane 1 corroborates without carrying.</p>
+    <p><strong>Why Lane 2 carries the case.</strong> The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. The minority crosses every one; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup> (pre-registered Fisher combined test — a method that combines four independent test results into a single probability by multiplying their individual tail probabilities; the combined figure is far smaller than any single test's because all four point the same direction; OSF <a href="https://osf.io/6pt83" rel="noopener">6pt83</a>). The question of whether Lane 2's unusual geometry is the specific <em>mechanism</em> behind the Lane 1 numbers was tested and the answer is no — see <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. The Swing-Zone Allocation Test shows the contested boundary choices are partisan-skewed, but the tested question was whether the boundary shapes themselves — the lasso corridor, the park extension — are the direct cause of the seat swing; they are not. The seat effect comes from how redrawn Voting Area assignments shift vote efficiency across districts, not from the shapes per se. Both lanes flag the minority map; they reach that conclusion through independent instruments. Lane 2 is the central finding. Lane 1 corroborates without carrying.</p>
 
     <div class="callout">
       <p><strong>THE PLAIN READING.</strong> Two commission proposals were drawn in the same room, by five commissioners working from the same rules and the same data. Neither is law. The majority proposal is the kind of map a neutral procedure routinely produces: clean on every one of the audit's pre-registered structural tests, comfortably inside the simulated partisan-fairness distribution. The minority proposal is something else. It crosses four of five structural-irregularity tests — chair-flagged lasso corridors (3 confirmed of 7 configurations criticized), the four-way Airdrie split, the national-park extension, and the 48%-wider population spread — and on 1,010,000 computer-simulated neutral maps drawn from the official Elections Alberta shapefiles, its <code>seats@50/50</code> value is reached by fewer than 100 neutral maps. (Municipal anchoring is the fifth pre-registered test; it is retracted — both proposals fall within the 70–85% Canadian norm on official shapefiles. See the correction note below.) All four partisan-fairness measures simultaneously place it in the statistical tail; the joint probability of that combination under a neutral drawing process is roughly one in 15 million. The audit tested whether the unusual geometry is the specific mechanism that produces the seat advantage; that claim did not survive the falsification. What does survive: same room, same rules, same data, two very different proposals, and only one of them has the structural pattern that researchers flag for further inquiry. Whether the cause was deliberate engineering, unlucky drafting, or both is a judgement call the audit puts in the reader's hands.</p>
       <p>We measured the effects. We can't read minds.</p>
     </div>
 
-    <div class="callout warning">
-      <p><strong>RETRACTION CONDITIONS</strong></p>
-      <p>The audit's findings are pre-committed to falsifiability. Retractions apply per-finding. If any condition below materialises, the specific finding it relates to is retracted publicly within 30 days. The overall verdict (directional consistency across multiple independent tests) is retracted only if at least three of the tests fail.</p>
-      <ol style="margin: 0.6rem 0 0 1.4rem;">
-        <li style="margin-bottom: 0.5rem;"><strong>A counter-map exists.</strong> Someone produces a legal Alberta map satisfying the minority's own community-of-interest reasons (Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park) <em>and</em> anchoring on municipal boundaries at majority-comparable rates. Open challenge — <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a> on the audit's GitHub repository.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>The Neighbour-Drain Pass fails the label-shuffling null.</strong> If the v2 continuous drain score (Phase B of <code>drain_v2_plan.md</code>) falls in the extreme upper tail (p &lt; 0.05) of random permutations across the fixed contiguity graph, the "pre-registered pass" is retracted and reclassified as a detected spatial signature.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>A pre-2026 internal commission document surfaces.</strong> Showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>The 2027 election result, fought on either of these maps, contradicts the percentile readings.</strong> If the partisan-fairness direction the audit projects from 2023 votes turns out to be wrong on actual votes, the Lane 1 finding gets revisited.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>The Quebec 2026 Supreme Court ruling is materially distinguished by an Alberta court.</strong> If a court reviewing the April 16 Alberta motion finds the Alberta situation is constitutionally distinct from Quebec's — for example, because the Lunty committee is structured differently from a legislative-freeze law, or because Alberta's effective-representation analysis differs from Quebec's — the audit's procedural critique of the motion weakens.</li>
-      </ol>
-    </div>
-
-    <div class="callout warning">
-      <p><strong>DOCUMENTED CORRECTIONS (canonical recomputation, 2026-05-11)</strong></p>
-      <p>The following early finding did not survive reanalysis against official Elections Alberta shapefiles (received 2026-05-06). It is retained here per the audit's pre-committed policy of never deleting failed findings.</p>
-      <p><strong>Municipal anchoring (retracted).</strong> Early analysis using provisional map boundaries showed the minority map anchored to municipal lines only 15% of the time — 4.9&times; below the 70–85% Canadian norm. This figure was an artefact of the provisional (DPG-era) boundary reconstructions. On official Elections Alberta canonical shapefiles, both maps anchor within the Canadian norm: majority 80%, minority 72%. The municipal-anchoring <em>divergence</em> between the two maps is not a signal that survives canonical recomputation. The three boundary anomalies flagged by the commission chair (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) remain and are not affected by this correction.</p>
-    </div>
   </section>
 
   <section id="section-8">
@@ -785,24 +795,20 @@
 
     <p>When the commission initially considered eliminating the Lesser Slave Lake division and merging it into a larger riding, it was working without geographic vote data from those communities. The commission eventually preserved the division — after 80+ public submissions, many from the Indigenous communities in the northern part of the riding — invoking a provincial law that allows ridings with First Nations and M&#233;tis communities to have smaller populations than the provincial average. They got there. But the data they were working with didn't show them who was voting in the communities they were deciding to protect.</p>
 
+    <div class="callout">
+      <p><strong>SECTION 15(2) EBCA</strong></p>
+      <p>Section 15(2) of Alberta's <em>Electoral Boundaries Commission Act</em> is a discretionary provision that allows commissions to protect undersize ridings — those more than 25% below the provincial population average — when the riding meets at least three of five specific criteria: (a) geographic area exceeding 20,000 km², (b) distance more than 150 km from the Legislature Building by most direct highway route, (c) absence of any town with more than 8,000 residents, (d) presence of an Indian reserve or a Métis settlement, and (e) whether the riding is coterminous with a boundary of the Province of Alberta. The provision is not automatic; the commission must judge whether the criteria are met. Lesser Slave Lake independently meets four of the five.</p>
+    </div>
+
     <p>The interim rationale for eliminating the riding was population: at roughly 27,000 residents, Lesser Slave Lake sits about 45% below the provincial average, approaching the legal floor. That reads as a straightforward application of the rules. It isn't. Alberta law gives commissions explicit discretion to protect undersize ridings when at least three of five specific criteria apply — and Lesser Slave Lake meets four of them independently. Its area is 69,566 km² (criterion a — threshold 20,000 km²). Its nearest boundary is more than 150 km from the Legislature by highway (criterion b). No town in the riding has a population over 8,000 (criterion c). And the riding contains fourteen Indian reserves and M&#233;tis settlements whose communities share a common northern geography, a common dependence on mobile polling to vote at all, and a collective interest in having a representative primarily accountable to northern Alberta (criterion d). Under the proposed Mackenzie merger, that collective voice would have been permanently absorbed into a riding where the other party wins by more than two to one — not because those communities changed, but because the lines around them did. Each of those four criteria is an objective fact about the riding's geography, not a judgment call. Together they describe a constituency the provision was written to protect: remote, large, sparsely populated, and containing communities whose representation interest cannot be read from raw population numbers. You need three to qualify; Lesser Slave Lake has four. Treating the population shortfall as if it compelled elimination misreads the statute. The commission's reversal was the correct application of the law, not a concession to political pressure.</p>
 
     <p>Here is the other side of that story: while the Indigenous communities in Lesser Slave Lake were fighting to be counted, the dissenting commissioners proposed protecting a different riding by drawing its boundary through Banff National Park, where no one lives. The commission's own chair called that "a bad faith effort" to claim the legal protection. That phrase is in the commission's official final report. The protection designed for remote communities with Indigenous populations was used, in the minority's map, to defend a boundary through uninhabited wilderness. The communities it was designed to help had to fight for it through public submissions. The Lunty committee will face the same §&#x2009;15(2) decision in November — with no statutory requirement to hold public hearings, and no guarantee that the 80 submissions that reversed the commission's interim position will carry the same weight a second time.</p>
 
     <p><strong>Alberta should wait for the 2026 census before drawing the next map.</strong> Canada counts its population every ten years. The 2026 census enumeration happens in spring 2026; Statistics Canada releases usable sub-provincial data roughly two years later, in 2027 or 2028. The commission that drew the maps assessed in this audit had to use the 2021 census — already four years old when the maps were drawn, and potentially fourteen years old by the time those boundaries retire. Fast-growing cities like Airdrie and Chestermere will change by 40% or more over that window. Rural communities will shrink. The map will be wrong from the day it is used. A straightforward change to the <em>Electoral Boundaries Commission Act</em> could require that any new commission be appointed only after Statistics Canada releases the most current dissemination-area data from the preceding census. The result: maps that reflect where Albertans actually live, not where they lived a decade ago.</p>
 
+    <p>The Lunty committee is operating under the existing statute, which sets no census-timing requirement, and cannot unilaterally delay past its November 2026 deadline. This recommendation applies to a future amendment to the <em>Electoral Boundaries Commission Act</em>, not to the current process. The tension is real: a committee required to deliver a map by November is working from data that will already be five years old — naming that constraint is more useful than pretending it does not exist.</p>
+
     <p>Neither of these is a finding about the current commission's maps. They are observations about a system that makes accurate electoral analysis harder than it needs to be. They are offered here as practical suggestions, not conclusions. Both are genuinely fixable, and fixing them would make every future commission — and every future audit — work from better ground.</p>
-  </section>
-
-  <section id="references">
-    <h2>References &amp; Methodology</h2>
-
-    <p>While this report summarizes the audit for a general audience, the underlying methodology relies on established political science and legal literature on electoral boundary design. Key references include:</p>
-
-    <ul style="margin: 0.8rem 0 0.9rem 1.4rem; line-height: 1.7;">
-      <li style="margin-bottom: 0.5rem;"><strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269. (Establishes the framework for evaluating how "natural packing" of urban voters interacts with neutrally drawn boundaries).</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press. (The foundational text on the history and structural norms of independent Canadian boundary commissions).</li>
-    </ul>
   </section>
 
   <section id="resources">
@@ -832,6 +838,39 @@
     </ul>
   </section>
 
+  <section id="retractions">
+    <h2>Retractions and Corrections</h2>
+
+    <div class="callout warning">
+      <p><strong>RETRACTION CONDITIONS</strong></p>
+      <p>The audit's findings are pre-committed to falsifiability. Retractions apply per-finding. If any condition below materialises, the specific finding it relates to is retracted publicly within 30 days. The overall verdict (directional consistency across multiple independent tests) is retracted only if at least three of the tests fail.</p>
+      <ol style="margin: 0.6rem 0 0 1.4rem;">
+        <li style="margin-bottom: 0.5rem;"><strong>A counter-map exists.</strong> Someone produces a legal Alberta map satisfying the minority's own community-of-interest reasons (Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park) <em>and</em> anchoring on municipal boundaries at majority-comparable rates. Open challenge — <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a> on the audit's GitHub repository.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>The Neighbour-Drain Pass fails the label-shuffling null.</strong> If the v2 continuous drain score (Phase B of <code>drain_v2_plan.md</code>) falls in the extreme upper tail (p &lt; 0.05) of random permutations across the fixed contiguity graph, the "pre-registered pass" is retracted and reclassified as a detected spatial signature.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>A pre-2026 internal commission document surfaces.</strong> Showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>The 2027 election result, fought on either of these maps, contradicts the percentile readings.</strong> If the partisan-fairness direction the audit projects from 2023 votes turns out to be wrong on actual votes, the Lane 1 finding gets revisited.</li>
+        <li style="margin-bottom: 0.5rem;"><strong>The Quebec 2026 Supreme Court ruling is materially distinguished by an Alberta court.</strong> (On April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada upheld, 7–2 and from the bench, a Quebec Court of Appeal ruling that the Legault government's 2024 legislative freeze on its own redistricting commission violated the Charter's democratic-representation guarantee under s.3. The SCC held that a legislature cannot block independent commission redistricting work to preserve specific regional outcomes — the same class of argument the Alberta minority commissioners advance for retaining certain ridings. Whether Alberta's structure — reassigning redistricting to an MLA committee rather than freezing a commission outright — is constitutionally distinguishable from Quebec's is the open question.) If a court reviewing the April 16 Alberta motion finds the Alberta situation is constitutionally distinct from Quebec's — for example, because the Lunty committee is structured differently from a legislative-freeze law, or because Alberta's effective-representation analysis differs from Quebec's — the audit's procedural critique of the motion weakens.</li>
+      </ol>
+    </div>
+
+    <div class="callout warning">
+      <p><strong>DOCUMENTED CORRECTIONS (canonical recomputation, 2026-05-11)</strong></p>
+      <p>The following early finding did not survive reanalysis against official Elections Alberta shapefiles (received 2026-05-06). It is retained here per the audit's pre-committed policy of never deleting failed findings.</p>
+      <p><strong>Municipal anchoring (retracted).</strong> Early analysis using provisional map boundaries showed the minority map anchored to municipal lines only 15% of the time — 4.9&times; below the 70–85% Canadian norm. This figure was an artefact of the provisional (DPG-era) boundary reconstructions. On official Elections Alberta canonical shapefiles, both maps anchor within the Canadian norm: majority 80%, minority 72%. The municipal-anchoring <em>divergence</em> between the two maps is not a signal that survives canonical recomputation. The three boundary anomalies flagged by the commission chair (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) remain and are not affected by this correction.</p>
+    </div>
+  </section>
+
+  <section id="references">
+    <h2>References &amp; Methodology</h2>
+
+    <p>While this report summarizes the audit for a general audience, the underlying methodology relies on established political science and legal literature on electoral boundary design. Key references include:</p>
+
+    <ul style="margin: 0.8rem 0 0.9rem 1.4rem; line-height: 1.7;">
+      <li style="margin-bottom: 0.5rem;"><strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269. (Establishes the framework for evaluating how "natural packing" of urban voters interacts with neutrally drawn boundaries).</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press. (The foundational text on the history and structural norms of independent Canadian boundary commissions).</li>
+    </ul>
+  </section>
+
   <section>
     <h2>About me</h2>
     <p style="font-size:0.9rem; color:#444;">
@@ -847,12 +886,73 @@
 
 </div><!-- /.container -->
 
+<!-- Zoom overlay -->
+<div id="zoom-overlay" aria-modal="true" role="dialog" aria-label="Map zoom viewer" style="display:none;">
+  <button id="zoom-close" title="Close (Esc)">&times;</button>
+  <div id="zoom-instructions">
+    <div class="zi-row zi-level"><span class="zi-key">Zoom</span> <span id="zoom-pct">100%</span></div>
+    <div class="zi-divider"></div>
+    <div class="zi-row"><span class="zi-key">Scroll</span> zoom in / out</div>
+    <div class="zi-row"><span class="zi-key">Drag</span> pan</div>
+    <div class="zi-row"><span class="zi-key">Dbl-click</span> reset</div>
+    <div class="zi-row"><span class="zi-key">Esc</span> close</div>
+  </div>
+  <div id="zoom-stage">
+    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_hires.svg"
+      title="Alberta electoral district map — full resolution"></object>
+  </div>
+</div>
+
 <footer>
   <div class="container">
     Alberta Electoral Boundary Audit &mdash; May 2026<br>
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
   </div>
 </footer>
+
+<style>
+  #zoom-overlay {
+    position: fixed; inset: 0; z-index: 9000;
+    background: rgba(0,0,0,0.92);
+  }
+  #zoom-stage {
+    position: absolute; inset: 0;
+    overflow: hidden;
+    cursor: grab;
+  }
+  #zoom-stage.dragging { cursor: grabbing; }
+  #zoom-obj {
+    position: absolute; display: block; border: 0;
+  }
+  #zoom-close {
+    position: fixed; top: 1rem; right: 1.4rem; z-index: 9001;
+    background: none; border: none;
+    color: #fff; font-size: 2.4rem; line-height: 1;
+    cursor: pointer; opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+  #zoom-close:hover { opacity: 1; }
+  #zoom-instructions {
+    position: fixed; bottom: 1.2rem; right: 1.2rem; z-index: 9001;
+    background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px; padding: 0.55rem 0.8rem;
+    color: rgba(255,255,255,0.75); font-size: 0.75rem;
+    line-height: 1.7; pointer-events: none;
+    backdrop-filter: blur(4px);
+  }
+  .zi-row { display: flex; align-items: baseline; gap: 0.5rem; }
+  .zi-key {
+    display: inline-block; min-width: 5.2em;
+    font-weight: 700; color: #fff;
+    font-size: 0.72rem; letter-spacing: 0.03em;
+  }
+  .zi-level { margin-bottom: 0.25rem; }
+  #zoom-pct { font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; }
+  .zi-divider {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin: 0.35rem 0;
+  }
+</style>
 
 <script>
   (function () {
@@ -874,6 +974,247 @@
     }, { rootMargin: '-50px 0px -60% 0px', threshold: 0 });
 
     sections.forEach(s => observer.observe(s));
+  })();
+
+  // ── Zoom viewer — inline SVG adoption (true infinite zoom, no tile ceiling)
+  //    Primary: adopt SVG node from <object> contentDocument into main document.
+  //    Secondary: XHR-parse and importNode (HTTP or Firefox file://).
+  //    Tertiary fallback: img.width resize (Chrome file://).
+  //
+  //    Once inline, the browser renders SVG vector paths directly from the main
+  //    document's paint record. ViewBox manipulation re-renders from paths at
+  //    display resolution — no GPU tile rasterization limit at any zoom level.
+  (function () {
+    const overlay  = document.getElementById('zoom-overlay');
+    const stage    = document.getElementById('zoom-stage');
+    const obj      = document.getElementById('zoom-obj');
+    const trigger  = document.getElementById('zoom-trigger');
+    const closeBtn = document.getElementById('zoom-close');
+    const zoomPct  = document.getElementById('zoom-pct');
+
+    let mode = null, ready = false;  // 'viewbox' | 'fallback'
+
+    // ── ViewBox state ─────────────────────────────────────────────────────
+    let svgEl = null;
+    let natVB = null;  // { x, y, w, h } — SVG's full coordinate space
+    let curVB = null;
+
+    function _renderBounds() {
+      const sw = stage.offsetWidth, sh = stage.offsetHeight;
+      const ar = natVB.w / natVB.h;
+      let rw, rh;
+      if (ar < sw / sh) { rh = sh; rw = sh * ar; }
+      else               { rw = sw; rh = sw / ar; }
+      return { rw, rh, ox: (sw - rw) / 2, oy: (sh - rh) / 2 };
+    }
+
+    function applyVB(vb) {
+      curVB = vb;
+      svgEl.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+      if (zoomPct) zoomPct.textContent = Math.round(natVB.w / vb.w * 100) + '%';
+    }
+
+    function resetVB() { applyVB({ ...natVB }); }
+
+    function vbZoomAt(mx, my, factor) {
+      const { rw, rh, ox, oy } = _renderBounds();
+      const lx = mx - ox, ly = my - oy;
+      const svgX = curVB.x + (lx / rw) * curVB.w;
+      const svgY = curVB.y + (ly / rh) * curVB.h;
+      const newW = Math.max(natVB.w / 100000, Math.min(natVB.w * 20, curVB.w / factor));
+      const newH = newW * (natVB.h / natVB.w);
+      applyVB({ x: svgX - (lx / rw) * newW, y: svgY - (ly / rh) * newH, w: newW, h: newH });
+    }
+
+    function vbPanBy(dx, dy) {
+      const { rw, rh } = _renderBounds();
+      applyVB({ x: curVB.x - (dx / rw) * curVB.w, y: curVB.y - (dy / rh) * curVB.h, w: curVB.w, h: curVB.h });
+    }
+
+    function _activateInlineSVG(node) {
+      // Style and size the SVG to fill the stage, then record viewBox state.
+      node.setAttribute('width', '100%');
+      node.setAttribute('height', '100%');
+      node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      node.style.cssText = 'position:absolute;left:0;top:0;display:block;';
+      stage.replaceChild(node, obj);  // adopts node into main document
+
+      const vb = node.viewBox.baseVal;
+      if (vb.width && vb.height) {
+        natVB = { x: vb.x, y: vb.y, w: vb.width, h: vb.height };
+      } else {
+        const w = parseFloat(node.getAttribute('width'))  || 432;
+        const h = parseFloat(node.getAttribute('height')) || 648;
+        natVB = { x: 0, y: 0, w, h };
+        node.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      }
+      curVB = { ...natVB };
+      svgEl = node;
+      mode = 'viewbox';
+      ready = true;
+      if (overlay.style.display !== 'none') resetVB();
+    }
+
+    // ── Fallback state ────────────────────────────────────────────────────
+    let fbImg = null, fbNatW = 0, fbNatH = 0, fbScale = 1, fbTx = 0, fbTy = 0;
+
+    function applyFallback() {
+      const w = Math.max(1, Math.round(fbNatW * fbScale));
+      const h = Math.max(1, Math.round(fbNatH * fbScale));
+      fbImg.width = w; fbImg.height = h;
+      fbImg.style.left = Math.round(fbTx) + 'px';
+      fbImg.style.top  = Math.round(fbTy) + 'px';
+      if (zoomPct) zoomPct.textContent = Math.round(fbScale * 100) + '%';
+    }
+
+    function resetFallback() {
+      const sw = stage.offsetWidth, sh = stage.offsetHeight;
+      fbScale = Math.min(sw / fbNatW, sh / fbNatH) * 0.94;
+      fbTx = (sw - fbNatW * fbScale) / 2;
+      fbTy = (sh - fbNatH * fbScale) / 2;
+      applyFallback();
+    }
+
+    function initFallback() {
+      mode = 'fallback';
+      fbImg = document.createElement('img');
+      fbImg.src = obj.data; fbImg.alt = obj.title; fbImg.draggable = false;
+      fbImg.style.cssText = 'position:absolute;display:block;user-select:none;pointer-events:none;';
+      stage.replaceChild(fbImg, obj);
+      function onLoad() {
+        fbNatW = fbImg.naturalWidth || 600; fbNatH = fbImg.naturalHeight || 900;
+        ready = true;
+        if (overlay.style.display !== 'none') resetFallback();
+      }
+      if (fbImg.complete && fbImg.naturalWidth) onLoad();
+      else fbImg.onload = onLoad;
+    }
+
+    // ── Initialisation ────────────────────────────────────────────────────
+    function _xhrFallback() {
+      // Try XHR inline injection (works over HTTP or Firefox file://)
+      try {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', obj.data, true);
+        xhr.onload = () => {
+          if (xhr.status === 200 || xhr.status === 0) {
+            const doc = new DOMParser().parseFromString(xhr.responseText, 'image/svg+xml');
+            const root = doc.documentElement;
+            if (root && root.tagName.toLowerCase() !== 'parsererror') {
+              _activateInlineSVG(document.importNode(root, true));
+              return;
+            }
+          }
+          initFallback();
+        };
+        xhr.onerror = initFallback;
+        xhr.send();
+      } catch (e) { initFallback(); }
+    }
+
+    function tryInit() {
+      if (ready) return;
+      // Primary: adopt the already-parsed SVG from the object's nested document.
+      // replaceChild implicitly adopts the node — no re-download, no re-parse.
+      const doc = obj.contentDocument || (obj.getSVGDocument && obj.getSVGDocument());
+      if (doc && doc.documentElement && doc.documentElement.tagName.toLowerCase() === 'svg') {
+        _activateInlineSVG(doc.documentElement);
+        return;
+      }
+      // Secondary: XHR then importNode
+      _xhrFallback();
+    }
+
+    obj.addEventListener('load', tryInit);
+    if (obj.contentDocument && obj.contentDocument.readyState === 'complete') tryInit();
+
+    // ── Open / close ──────────────────────────────────────────────────────
+    function open() {
+      overlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      if (!ready) return;
+      if (mode === 'viewbox') resetVB(); else resetFallback();
+    }
+
+    function close() {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    trigger.addEventListener('click', e => { e.preventDefault(); open(); });
+    closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+
+    // ── Zoom ──────────────────────────────────────────────────────────────
+    function zoomAt(mx, my, factor) {
+      if (!ready) return;
+      if (mode === 'viewbox') {
+        vbZoomAt(mx, my, factor);
+      } else {
+        const newScale = Math.min(Math.max(fbScale * factor, 0.05), 500);
+        const ratio = newScale / fbScale;
+        fbTx = mx - ratio * (mx - fbTx);
+        fbTy = my - ratio * (my - fbTy);
+        fbScale = newScale;
+        applyFallback();
+      }
+    }
+
+    stage.addEventListener('wheel', e => {
+      e.preventDefault();
+      const r = stage.getBoundingClientRect();
+      zoomAt(e.clientX - r.left, e.clientY - r.top, e.deltaY < 0 ? 1.12 : 1 / 1.12);
+    }, { passive: false });
+
+    // ── Pan ───────────────────────────────────────────────────────────────
+    let drag = null;
+    stage.addEventListener('mousedown', e => {
+      if (e.button !== 0 || !ready) return;
+      drag = { cx: e.clientX, cy: e.clientY };
+      if (mode === 'fallback') { drag.tx = fbTx; drag.ty = fbTy; }
+      stage.classList.add('dragging');
+    });
+    window.addEventListener('mousemove', e => {
+      if (!drag || !ready) return;
+      const dx = e.clientX - drag.cx, dy = e.clientY - drag.cy;
+      if (mode === 'viewbox') {
+        vbPanBy(dx, dy);
+        drag.cx = e.clientX; drag.cy = e.clientY;
+      } else {
+        fbTx = drag.tx + dx; fbTy = drag.ty + dy;
+        fbImg.style.left = Math.round(fbTx) + 'px';
+        fbImg.style.top  = Math.round(fbTy) + 'px';
+      }
+    });
+    window.addEventListener('mouseup', () => { drag = null; stage.classList.remove('dragging'); });
+
+    stage.addEventListener('dblclick', () => {
+      if (!ready) return;
+      if (mode === 'viewbox') resetVB(); else resetFallback();
+    });
+
+    // ── Pinch-to-zoom ─────────────────────────────────────────────────────
+    let lastDist = null;
+    stage.addEventListener('touchstart', e => {
+      if (e.touches.length === 2)
+        lastDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                              e.touches[0].clientY - e.touches[1].clientY);
+    }, { passive: true });
+    stage.addEventListener('touchmove', e => {
+      if (e.touches.length !== 2 || !ready) return;
+      e.preventDefault();
+      const dist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX,
+                              e.touches[0].clientY - e.touches[1].clientY);
+      if (lastDist) {
+        const r = stage.getBoundingClientRect();
+        zoomAt((e.touches[0].clientX + e.touches[1].clientX) / 2 - r.left,
+               (e.touches[0].clientY + e.touches[1].clientY) / 2 - r.top,
+               dist / lastDist);
+      }
+      lastDist = dist;
+    }, { passive: false });
+    stage.addEventListener('touchend', () => { lastDist = null; });
   })();
 </script>
 </body>

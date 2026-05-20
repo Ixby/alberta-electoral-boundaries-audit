@@ -14,17 +14,25 @@ import matplotlib.pyplot as plt
 import os
 
 # ── Palette — source of truth is palette.py ───────────────────────────────
-# Convention: RED/LRED = minority 2026 (purple); GREEN/LGRN = majority 2026 (teal)
+from palette import (
+    MINORITY_PURPLE, MINORITY_PURPLE_LIGHT,
+    MAJORITY_TEAL, MAJORITY_TEAL_LIGHT,
+)
 NAVY  = '#1B2A4A'
-RED   = '#6B35A7'   # minority 2026 map / outlier / rejected null
 AMBER = '#B07A2E'   # below-threshold / marginal findings (unchanged)
-GREEN = '#1A7A6E'   # majority 2026 map / within null / pass
 WHITE = '#FFFFFF'
 LGRAY = '#ECEEF1'   # page background
 
-LRED  = '#EDE3F7'
+MINORITY_COLOR  = MINORITY_PURPLE
+MAJORITY_COLOR  = MAJORITY_TEAL
+LMINORITY_COLOR = MINORITY_PURPLE_LIGHT
+LMAJORITY_COLOR = MAJORITY_TEAL_LIGHT
+# Body aliases — do not reassign; values are canonical from palette
+RED  = MINORITY_COLOR
+GREEN = MAJORITY_COLOR
+LRED  = LMINORITY_COLOR
+LGRN  = LMAJORITY_COLOR
 LAMB  = '#FDF6EE'
-LGRN  = '#D0EEEA'
 
 DARK  = '#1C2833'
 GRAY  = '#5A6A78'
