@@ -138,13 +138,17 @@ def _export_ed_hover_json(eds, name_col: str, out_path: Path) -> None:
     records = []
     for i, row in eds.iterrows():
         ucp = float(row.get("ucp_share", 0.5))
+        total = int(row.get("total", 0))
         records.append({
             "id": i,
             "name": str(row[name_col]),
             "ucp_pct": round(ucp * 100, 1),
             "ndp_pct": round((1.0 - ucp) * 100, 1),
-            "votes": int(row.get("total", 0)),
+            "ucp_votes": round(ucp * total),
+            "ndp_votes": total - round(ucp * total),
+            "votes": total,
             "pop": int(row.get("pop", 0)),
+            "va_count": int(row.get("va_count", 0)),
         })
     out_path.write_text(json.dumps(records, ensure_ascii=False), encoding="utf-8")
     print(f"[build_cover] Exported hover data for {len(records)} EDs -> {out_path.name}")
@@ -181,7 +185,8 @@ def build_cover_art() -> Path:
     print(f"[build_cover] Hero ED source: {map_path.name}")
 
     eds = gpd.read_file(map_path).to_crs(3401)
-    name_col = "name_2026" if "name_2026" in eds.columns else eds.columns[0]
+    _name_candidates = ["name_2026", "EDName2025", "ED_NAME", "NAME"]
+    name_col = next((c for c in _name_candidates if c in eds.columns), eds.columns[0])
     eds = eds[eds.geometry.area > 1e6].copy().reset_index(drop=True)
     print(f"[build_cover] {len(eds)} non-empty EDs to render")
 
@@ -198,13 +203,13 @@ def build_cover_art() -> Path:
             how="left",
             predicate="within",
         )
-        _agg_kw = {"ucp": ("va_ucp", "sum"), "ndp": ("va_ndp", "sum")}
+        _agg_kw = {"ucp": ("va_ucp", "sum"), "ndp": ("va_ndp", "sum"), "va_count": ("va_ucp", "count")}
         if "pop_2021" in joined.columns:
             _agg_kw["pop"] = ("pop_2021", "sum")
         agg = joined.groupby(name_col).agg(**_agg_kw).reset_index()
         agg["total"] = (agg["ucp"] + agg["ndp"]).clip(lower=1)
         agg["ucp_share"] = agg["ucp"] / agg["total"]
-        _merge_cols = [name_col, "ucp_share", "total"] + (["pop"] if "pop" in agg.columns else [])
+        _merge_cols = [name_col, "ucp_share", "total", "va_count"] + (["pop"] if "pop" in agg.columns else [])
         eds = eds.merge(agg[_merge_cols], on=name_col, how="left")
     else:
         print(

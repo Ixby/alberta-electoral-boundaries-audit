@@ -903,10 +903,30 @@
   </div>
   <div id="ed-tooltip"></div>
   <div id="ed-callout" aria-live="polite">
-    <div id="ec-name"></div>
+    <div id="ec-header">
+      <div id="ec-name"></div>
+      <div id="ec-context">2026 minority proposal &middot; 2023 election results</div>
+    </div>
     <div id="ec-bar"><div id="ec-ucp-bar"></div><div id="ec-ndp-bar"></div></div>
-    <div id="ec-split"><span id="ec-ucp-label"></span><span id="ec-ndp-label"></span></div>
-    <div id="ec-pop"></div>
+    <div id="ec-split">
+      <div class="ec-party ec-ucp">
+        <span class="ec-pct" id="ec-ucp-pct"></span>
+        <span class="ec-party-name">UCP</span>
+        <span class="ec-votes" id="ec-ucp-votes"></span>
+      </div>
+      <div class="ec-party ec-ndp">
+        <span class="ec-pct" id="ec-ndp-pct"></span>
+        <span class="ec-party-name">NDP</span>
+        <span class="ec-votes" id="ec-ndp-votes"></span>
+      </div>
+    </div>
+    <div id="ec-meta">
+      <span id="ec-total-votes"></span>
+      <span class="ec-dot">&middot;</span>
+      <span id="ec-va-count"></span>
+      <span class="ec-dot">&middot;</span>
+      <span id="ec-pop"></span>
+    </div>
   </div>
 </div>
 
@@ -977,26 +997,35 @@
     background: rgba(12,14,20,0.97);
     border-top: 1px solid rgba(255,255,255,0.12);
     border-radius: 18px 18px 0 0;
-    padding: 1.1rem 1.4rem 2rem;
+    padding: 1.1rem 1.4rem 1.8rem;
     backdrop-filter: blur(10px);
     color: #fff; pointer-events: auto;
   }
-  #ec-name {
-    font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;
-    letter-spacing: 0.01em;
-  }
+  #ec-header { margin-bottom: 0.85rem; }
+  #ec-name { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; }
+  #ec-context { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.15rem; }
   #ec-bar {
     display: flex; height: 10px; border-radius: 5px;
-    overflow: hidden; margin-bottom: 0.4rem;
+    overflow: hidden; margin-bottom: 0.55rem;
   }
   #ec-ucp-bar { background: #142e94; }
   #ec-ndp-bar { background: #e86310; }
   #ec-split {
     display: flex; justify-content: space-between;
-    font-size: 0.8rem; color: rgba(255,255,255,0.75);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
   }
-  #ec-pop { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+  .ec-party { display: flex; flex-direction: column; gap: 0.1rem; }
+  .ec-party.ec-ndp { text-align: right; }
+  .ec-pct { font-size: 1.15rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .ec-ucp .ec-pct { color: #6b8fd4; }
+  .ec-ndp .ec-pct { color: #e8934a; }
+  .ec-party-name { font-size: 0.7rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+  .ec-votes { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-variant-numeric: tabular-nums; }
+  #ec-meta {
+    font-size: 0.75rem; color: rgba(255,255,255,0.38);
+    display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;
+  }
+  .ec-dot { opacity: 0.4; }
 </style>
 
 <script>
@@ -1311,8 +1340,12 @@
       document.getElementById('ec-name').textContent = d.name;
       document.getElementById('ec-ucp-bar').style.width = d.ucp_pct + '%';
       document.getElementById('ec-ndp-bar').style.width = d.ndp_pct + '%';
-      document.getElementById('ec-ucp-label').textContent = 'UCP ' + d.ucp_pct + '%';
-      document.getElementById('ec-ndp-label').textContent = 'NDP ' + d.ndp_pct + '%';
+      document.getElementById('ec-ucp-pct').textContent = d.ucp_pct + '%';
+      document.getElementById('ec-ndp-pct').textContent = d.ndp_pct + '%';
+      document.getElementById('ec-ucp-votes').textContent = d.ucp_votes ? d.ucp_votes.toLocaleString() + ' votes' : '';
+      document.getElementById('ec-ndp-votes').textContent = d.ndp_votes ? d.ndp_votes.toLocaleString() + ' votes' : '';
+      document.getElementById('ec-total-votes').textContent = d.votes ? d.votes.toLocaleString() + ' total votes' : '';
+      document.getElementById('ec-va-count').textContent = d.va_count ? d.va_count + ' voting areas' : '';
       const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
       document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
       _callout.style.display = 'block';
