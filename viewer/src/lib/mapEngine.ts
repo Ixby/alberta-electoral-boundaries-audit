@@ -414,13 +414,13 @@ export function init(basePath: string): void {
         const _mapAccentColors = {
           minority: '#6B35A7',
           majority: '#1A7A6E',
-          '2019':   '#000000',
+          '2019':   '#aaaaaa',
         };
         const _mapOn      = { minority: true, majority: false, '2019': false };
         let   _mapPrimary = 'minority';
         const _svgCache   = {};
         const _overlayInSvg = {};
-        const _layerState = { vote: true, 'ed-fill': false, 'ed-lines': true };
+        const _layerState = { vote: true, 'ed-fill': true, 'ed-lines': true };
         let   _mapLocked  = false;
 
         // ── Map-wide boundary color ───────────────────────────────────────────────

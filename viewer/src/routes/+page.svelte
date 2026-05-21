@@ -651,7 +651,7 @@
     <div class="tb-sep"></div>
     <div class="tb-group">
       <button class="tb-btn tb-layer-on" data-layer="vote">Vote</button>
-      <button class="tb-btn" data-layer="ed-fill">Fill</button>
+      <button class="tb-btn tb-layer-on" data-layer="ed-fill">Fill</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Lines</button>
     </div>
     <div class="tb-sep"></div>
