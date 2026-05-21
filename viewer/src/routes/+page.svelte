@@ -869,7 +869,6 @@
       background: #1a2e45;
       color: #fff;
       padding: 2.5rem clamp(1.2rem, 4vw, 3.5rem) 2rem;
-      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: center;
