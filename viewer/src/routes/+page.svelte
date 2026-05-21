@@ -21,6 +21,20 @@
   });
 </script>
 
+<nav>
+  <a href="#section-1">1: Map</a>
+  <a href="#section-2">2: The Split</a>
+  <a href="#section-3">3: Litmus Test</a>
+  <a href="#section-4">4: Crack &amp; Pack</a>
+  <a href="#section-5">5: Impact</a>
+  <a href="#section-6">6: Gerrymanders</a>
+  <a href="#section-7">7: November</a>
+  <a href="#section-8">8: Invisible</a>
+  <a href="#retractions">9: Retractions</a>
+  <a href="#references">10: References</a>
+  <a href="#resources">11: Resources</a>
+</nav>
+
 <header>
   <div class="header-inner">
     <div class="header-text">
@@ -36,20 +50,6 @@
     </a>
   </div>
 </header>
-
-<nav>
-  <a href="#section-1">1: Map</a>
-  <a href="#section-2">2: The Split</a>
-  <a href="#section-3">3: Litmus Test</a>
-  <a href="#section-4">4: Crack &amp; Pack</a>
-  <a href="#section-5">5: Impact</a>
-  <a href="#section-6">6: Gerrymanders</a>
-  <a href="#section-7">7: November</a>
-  <a href="#section-8">8: Invisible</a>
-  <a href="#resources">9: Resources</a>
-  <a href="#retractions">10: Retractions</a>
-  <a href="#references">11: References</a>
-</nav>
 
 <div class="container">
 
@@ -619,35 +619,8 @@
     <p>Neither of these is a finding about the current commission's maps. They are observations about a system that makes accurate electoral analysis harder than it needs to be. They are offered here as practical suggestions, not conclusions. Both are genuinely fixable, and fixing them would make every future commission — and every future audit — work from better ground.</p>
   </section>
 
-  <section id="resources">
-    <h2>9: Reports and Resources</h2>
-
-    <ul class="links-list">
-      <li>
-        <span class="tag">Plain Language</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.pdf">Full public report</a> &mdash; Long-form, with maps, for general readers
-      </li>
-      <li>
-        <span class="tag">Summary</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/FINDINGS_BRIEF.md">Summary of findings</a> &mdash; Plain-language overview, explains every concept from scratch
-      </li>
-      <li>
-        <span class="tag">Academic</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md">Technical report</a> &mdash; Full methods and citations for researchers
-      </li>
-      <li>
-        <span class="tag">Notebook</span>
-        <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Interactive notebook</a> &mdash; Run the charts yourself in your browser, no install needed
-      </li>
-      <li>
-        <span class="tag">Code</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" rel="noopener">github.com/Ixby/alberta-electoral-boundaries-audit</a>
-      </li>
-    </ul>
-  </section>
-
   <section id="retractions">
-    <h2>10: Retractions and Corrections</h2>
+    <h2>9: Retractions and Corrections</h2>
 
     <div class="callout warning">
       <p><strong>RETRACTION CONDITIONS</strong></p>
@@ -692,7 +665,7 @@
   </section>
 
   <section id="references">
-    <h2>11: References &amp; Methodology</h2>
+    <h2>10: References &amp; Methodology</h2>
 
     <p>The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.</p>
 
@@ -719,6 +692,33 @@
     <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: #333;">Statutes</h3>
     <ul style="margin: 0 0 0.5rem 1.4rem; line-height: 1.7;">
       <li style="margin-bottom: 0.5rem;"><em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3.</li>
+    </ul>
+  </section>
+
+  <section id="resources">
+    <h2>11: Reports and Resources</h2>
+
+    <ul class="links-list">
+      <li>
+        <span class="tag">Plain Language</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.pdf">Full public report</a> &mdash; Long-form, with maps, for general readers
+      </li>
+      <li>
+        <span class="tag">Summary</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/FINDINGS_BRIEF.md">Summary of findings</a> &mdash; Plain-language overview, explains every concept from scratch
+      </li>
+      <li>
+        <span class="tag">Academic</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md">Technical report</a> &mdash; Full methods and citations for researchers
+      </li>
+      <li>
+        <span class="tag">Notebook</span>
+        <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Interactive notebook</a> &mdash; Run the charts yourself in your browser, no install needed
+      </li>
+      <li>
+        <span class="tag">Code</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" rel="noopener">github.com/Ixby/alberta-electoral-boundaries-audit</a>
+      </li>
     </ul>
   </section>
 
