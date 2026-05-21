@@ -5,6 +5,19 @@
 
   onMount(() => {
     init(base);
+
+    const lb = document.getElementById('fig-lightbox') as HTMLElement;
+    const lbImg = document.getElementById('fig-lightbox-img') as HTMLImageElement;
+    document.querySelectorAll('figure img').forEach(img => {
+      (img as HTMLElement).addEventListener('click', () => {
+        lbImg.src = (img as HTMLImageElement).src;
+        lb.classList.add('open');
+      });
+    });
+    lb.addEventListener('click', () => lb.classList.remove('open'));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lb.classList.remove('open');
+    });
   });
 </script>
 
@@ -33,9 +46,9 @@
   <a href="#section-6">6: Gerrymanders</a>
   <a href="#section-7">7: November</a>
   <a href="#section-8">8: Invisible</a>
-  <a href="#resources">Resources</a>
-  <a href="#retractions">Retractions</a>
-  <a href="#references">References</a>
+  <a href="#resources">9: Resources</a>
+  <a href="#retractions">10: Retractions</a>
+  <a href="#references">11: References</a>
 </nav>
 
 <div class="container">
@@ -599,7 +612,7 @@
   </section>
 
   <section id="resources">
-    <h2>Reports and resources</h2>
+    <h2>9: Reports and Resources</h2>
 
     <ul class="links-list">
       <li>
@@ -626,7 +639,7 @@
   </section>
 
   <section id="retractions">
-    <h2>Retractions and Corrections</h2>
+    <h2>10: Retractions and Corrections</h2>
 
     <div class="callout warning">
       <p><strong>RETRACTION CONDITIONS</strong></p>
@@ -648,13 +661,33 @@
   </section>
 
   <section id="references">
-    <h2>References &amp; Methodology</h2>
+    <h2>11: References &amp; Methodology</h2>
 
-    <p>While this report summarizes the audit for a general audience, the underlying methodology relies on established political science and legal literature on electoral boundary design. Key references include:</p>
+    <p>The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.</p>
 
-    <ul style="margin: 0.8rem 0 0.9rem 1.4rem; line-height: 1.7;">
-      <li style="margin-bottom: 0.5rem;"><strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269. (Establishes the framework for evaluating how "natural packing" of urban voters interacts with neutrally drawn boundaries).</li>
-      <li style="margin-bottom: 0.5rem;"><strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press. (The foundational text on the history and structural norms of independent Canadian boundary commissions).</li>
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: #333;">Academic literature</h3>
+    <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
+      <li style="margin-bottom: 0.5rem;"><strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269.</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Courtney, John C. 2001.</strong> <em>Commissioned Ridings: Designing Canada's Electoral Districts</em>. Montreal and Kingston: McGill-Queen's University Press.</li>
+      <li style="margin-bottom: 0.5rem;"><strong>DeFord, Daryl, Moon Duchin, and Justin Solomon. 2021.</strong> "Recombination: A Family of Markov Chains for Redistricting." <em>Harvard Data Science Review</em> 3(1). (The ReCom algorithm used to generate the 1,010,000-map ensemble.)</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Gelman, Andrew, and Gary King. 1994.</strong> "A Unified Method of Evaluating Electoral Systems and Redistricting Plans." <em>American Journal of Political Science</em> 38(2): 514–554.</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Katz, Jonathan N., Gary King, and Elizabeth Rosenblatt. 2020.</strong> "Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies." <em>American Political Science Review</em> 114(1): 164–178.</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Pal, Michael. 2015.</strong> "The Fractured Right to Vote." <em>McGill Law Journal</em> 61(2): 231–274. (Canadian constitutional framework for electoral boundaries.)</li>
+      <li style="margin-bottom: 0.5rem;"><strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2014.</strong> "Partisan Gerrymandering and the Efficiency Gap." <em>University of Chicago Law Review</em> 82(2): 831–900. (Source of the efficiency gap measure used throughout.)</li>
+    </ul>
+
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: #333;">Court cases</h3>
+    <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
+      <li style="margin-bottom: 0.5rem;"><em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (The leading Supreme Court of Canada authority on the constitutional standard for electoral boundary drawing.)</li>
+      <li style="margin-bottom: 0.5rem;"><em>Figueroa v. Canada (Attorney General)</em>, [2003] 1 SCR 912.</li>
+      <li style="margin-bottom: 0.5rem;"><em>Raîche v. Canada (Attorney General)</em>, 2004 FC 679.</li>
+      <li style="margin-bottom: 0.5rem;"><em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (U.S. Supreme Court; establishes the non-justiciability of partisan gerrymandering claims in federal courts — context for why Canada's s.3 effective-representation standard differs.)</li>
+    </ul>
+
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: #333;">Statutes</h3>
+    <ul style="margin: 0 0 0.5rem 1.4rem; line-height: 1.7;">
+      <li style="margin-bottom: 0.5rem;"><em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3.</li>
     </ul>
   </section>
 
@@ -675,6 +708,11 @@
   </section>
 
 </div><!-- /.container -->
+
+<!-- Figure lightbox -->
+<div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view">
+  <img id="fig-lightbox-img" alt="">
+</div>
 
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label="Map zoom viewer" style="display:none;">
@@ -786,11 +824,16 @@
     header {
       background: #1a2e45;
       color: #fff;
-      padding: 2.5rem 2rem 2rem;
+      padding: 2.5rem clamp(1.2rem, 4vw, 3.5rem) 2rem;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
     }
 
     .header-inner {
-      max-width: 1100px;
+      max-width: 100%;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -862,9 +905,10 @@
     nav a.active { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.6); padding-bottom: 1px; }
 
     .container {
-      max-width: min(1100px, 94vw);
-      margin: 0 auto;
-      padding: 0 1.2rem;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 clamp(1.2rem, 4vw, 3.5rem);
+      box-sizing: border-box;
     }
 
     section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid #ddd; scroll-margin-top: 50px; }
@@ -1114,21 +1158,23 @@
   .tb-btn.tb-layer-on { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9); }
   .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(255,200,0,0.12); border-color: rgba(255,200,0,0.45); color: rgba(255,210,60,0.95); }
   @media (max-width: 700px) { #zoom-instructions { display: none; } }
-  /* Touch tap callout — bottom-anchored panel */
+  /* District callout — floating tooltip near click/tap */
   #ed-callout {
     position: fixed; z-index: 9003;
-    left: 0; right: 0; bottom: 0;
+    left: 10px; top: 10px; right: auto; bottom: auto;
+    width: 270px;
     background: rgba(12,14,20,0.97);
-    border-top: 1px solid rgba(255,255,255,0.12);
-    border-radius: 18px 18px 0 0;
-    padding: 1.1rem 1.4rem 1.8rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 0.9rem 1.2rem 1.1rem;
     backdrop-filter: blur(10px);
     color: #fff;
     pointer-events: none;
-    transform: translateY(100%);
-    transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.55);
+    transition: opacity 0.15s;
   }
-  #ed-callout.ec-visible { transform: translateY(0); pointer-events: auto; }
+  #ed-callout.ec-visible { opacity: 1; pointer-events: auto; transform: none; }
   #ec-close {
     position: absolute; top: 0.55rem; right: 0.9rem;
     background: none; border: none;
@@ -1290,5 +1336,22 @@
     font-weight: 600;
   }
   #map-intro-close:hover { background: #7f46c0; }
+  }
+
+  /* Figure image lightbox */
+  figure img { cursor: zoom-in; }
+  #fig-lightbox {
+    position: fixed; inset: 0; z-index: 8000;
+    background: rgba(0,0,0,0.90);
+    display: none; align-items: center; justify-content: center;
+    cursor: zoom-out;
+  }
+  #fig-lightbox.open { display: flex; }
+  #fig-lightbox img {
+    max-width: 92vw; max-height: 92dvh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.6);
+    cursor: zoom-out;
   }
 </style>

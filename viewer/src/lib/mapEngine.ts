@@ -350,9 +350,9 @@ export function init(basePath: string): void {
 
         function _hideTip() { _tip.style.display = 'none'; }
 
-        // ── Touch callout (bottom panel on tap) ───────────────────────────────
+        // ── District callout (floating tooltip on click/tap) ─────────────────
         const _callout = document.getElementById('ed-callout');
-        function _showCallout(d) {
+        function _showCallout(d, clientX, clientY) {
           if (!d) return;
           document.getElementById('ec-name').textContent = d.name;
           document.getElementById('ec-ucp-bar').style.width = d.ucp_pct + '%';
@@ -399,6 +399,21 @@ export function init(basePath: string): void {
             }
           }
           _selectedEdName = d.name;
+          // Position near click/tap, clamped to viewport
+          if (clientX !== undefined && clientY !== undefined) {
+            var cW = _callout.offsetWidth || 270, cH = _callout.offsetHeight || 200;
+            var vW = window.innerWidth, vH = window.innerHeight;
+            var left = clientX + 18;
+            var top  = clientY - Math.round(cH / 2);
+            if (left + cW > vW - 12) left = clientX - cW - 18;
+            if (left < 8) left = 8;
+            if (top < 8) top = 8;
+            if (top + cH > vH - 8) top = vH - cH - 8;
+            _callout.style.left   = left + 'px';
+            _callout.style.top    = top  + 'px';
+            _callout.style.right  = 'auto';
+            _callout.style.bottom = 'auto';
+          }
           _callout.classList.add('ec-visible');
         }
         function _hideCallout() {
@@ -755,9 +770,17 @@ export function init(basePath: string): void {
           requestAnimationFrame(step);
         }
 
+        function _isEdVisible(bb) {
+          if (!curVB || !bb.width || !bb.height) return false;
+          var xOv = Math.max(0, Math.min(bb.x + bb.width, curVB.x + curVB.w) - Math.max(bb.x, curVB.x));
+          var yOv = Math.max(0, Math.min(bb.y + bb.height, curVB.y + curVB.h) - Math.max(bb.y, curVB.y));
+          return (xOv * yOv) / (bb.width * bb.height) >= 0.60;
+        }
+
         function _snapToED(pathEl) {
           if (!svgEl || mode !== 'viewbox') return;
           const bb = pathEl.getBBox();
+          if (_isEdVisible(bb)) return;
           const pad = Math.max(bb.width, bb.height) * 0.35;
           let tw = bb.width + pad * 2, th = bb.height + pad * 2;
           const r = _getStageRect();
@@ -856,7 +879,7 @@ export function init(basePath: string): void {
                 if (_edHover) {
                   const hit = _tipTarget(e);
                   if (hit) {
-                    _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+                    _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
                     _setEdHighlight(hit);
                     _snapToED(hit);
                   } else _hideCallout();
@@ -866,7 +889,7 @@ export function init(basePath: string): void {
               const hit = _tipTarget(e);
               if (hit) {
                 _hideTip();
-                _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+                _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
                 _setEdHighlight(hit);
                 if (!_mapLocked) _snapToED(hit);
               } else {
@@ -955,12 +978,40 @@ export function init(basePath: string): void {
           });
         }
 
+        function _zoomToAnomalyDistricts(attempt) {
+          if (!svgEl || !ready) {
+            if ((attempt || 0) < 25) setTimeout(function() { _zoomToAnomalyDistricts((attempt || 0) + 1); }, 120);
+            return;
+          }
+          var combined = null;
+          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
+            if (!_anomalyIds.has(parseInt(p.getAttribute('data-ed-id'), 10))) return;
+            var bb = p.getBBox();
+            if (!combined) combined = { x: bb.x, y: bb.y, r: bb.x + bb.width, b: bb.y + bb.height };
+            else {
+              combined.x = Math.min(combined.x, bb.x);
+              combined.y = Math.min(combined.y, bb.y);
+              combined.r = Math.max(combined.r, bb.x + bb.width);
+              combined.b = Math.max(combined.b, bb.y + bb.height);
+            }
+          });
+          if (!combined) return;
+          var w = (combined.r - combined.x) * 1.40, h = (combined.b - combined.y) * 1.40;
+          var cx = (combined.x + combined.r) / 2, cy = (combined.y + combined.b) / 2;
+          var r = _getStageRect();
+          if (r.width / r.height > w / h) w = h * r.width / r.height;
+          else h = w * r.height / r.width;
+          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 380);
+        }
+
         document.querySelectorAll('[data-anomaly]').forEach(function(b) {
           b.addEventListener('click', function() {
+            var wasOff = !_anomalyOn;
             if (overlay.style.display !== 'block') open();
             _anomalyOn = !_anomalyOn;
             b.classList.toggle('tb-layer-on', _anomalyOn);
             _applyAnomalyHighlight();
+            if (_anomalyOn && wasOff && !_mapLocked) _zoomToAnomalyDistricts(0);
           });
         });
 
