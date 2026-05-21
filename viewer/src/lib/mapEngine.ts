@@ -1052,6 +1052,43 @@ export function init(basePath: string): void {
           });
         });
 
+        // ── Named-ED zoom (inline "show ↗" buttons) ──────────────────────────────
+        function _zoomToEd(name, attempt) {
+          if (!svgEl || !ready) {
+            if ((attempt || 0) < 20) setTimeout(function() { _zoomToEd(name, (attempt || 0) + 1); }, 120);
+            return;
+          }
+          // Try current primary map first, then minority, majority, 2019
+          var mapOrder = [_mapPrimary, 'minority', 'majority', '2019'].filter(
+            function(k, i, a) { return a.indexOf(k) === i; }
+          );
+          var rec = null;
+          for (var i = 0; i < mapOrder.length; i++) {
+            var idx = _nameIndex[mapOrder[i]];
+            if (idx && idx[name]) { rec = idx[name]; break; }
+          }
+          if (!rec) return;
+          var path = svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec.id + '"]');
+          if (!path) return;
+          var bb = path.getBBox();
+          var pad = 1.7;
+          var w = bb.width * pad, h = bb.height * pad;
+          var cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
+          var r = _getStageRect();
+          if (r.width / r.height > w / h) w = h * r.width / r.height;
+          else h = w * r.height / r.width;
+          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 380);
+          _showCallout(rec);
+          _setEdHighlight(path);
+        }
+
+        document.querySelectorAll('[data-ed-name]').forEach(function(b) {
+          b.addEventListener('click', function() {
+            if (overlay.style.display !== 'block') open();
+            _zoomToEd(b.getAttribute('data-ed-name'), 0);
+          });
+        });
+
         // ── Map onboarding modal ──────────────────────────────────────────────────
         (function() {
           const modal    = document.getElementById('map-intro-modal');
