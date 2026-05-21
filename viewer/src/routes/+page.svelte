@@ -184,6 +184,10 @@
       Both maps are legal. The four-way split is a choice.
     </div>
 
+    <p style="text-align:center; margin: 0.2rem 0 1.1rem;">
+      <button class="anomaly-trigger" data-anomaly="airdrie">Show flagged districts on map</button>
+    </p>
+
     <p><strong>Where it departs from municipal lines, it departs at strategically important places.</strong> When electoral maps follow the edge of a city or town, voters recognize where their division begins and ends — the property-tax line, the school-division line, the local-election ward line, and the provincial-election line all coincide. Statistics Canada publishes these boundaries for free. On official Elections Alberta shapefiles, both maps follow municipal lines at comparable overall rates: the majority at 80%, the minority at 72%, both within Canada's 70–85% norm (Quebec: 78%, Ontario: 82%, BC: 71%; comparator commissions documented in the monograph). (The audit's initial provisional analysis showed the minority anchoring at only 15%; that figure did not survive recomputation on official shapefiles — see the correction note below.) The striking observation is not the overall rate but where the minority's departures are concentrated: the three boundaries the commission's own chair flagged as anomalous — Rocky Mountain House–Banff Park's extension into uninhabited national-park land, the Nolan Hill–Cochrane lasso corridor, and the Olds–North Airdrie reach — are each departures from pre-existing civic geography in the exact urban-edge zones where pairing urban and rural voters most directly affects which party wins the seat.</p>
 
     <p>The minority commissioners gave reasons for each of the three flagged boundaries. For Rocky Mountain House–Banff Park, they cited geographic size, the Highway 22 corridor, and the proximity of First Nations reserves to Rocky Mountain House; the commission chair called the extension into uninhabited national park land "a bad faith effort" to satisfy the area criterion, and that phrase appears in the commission's official final report. For Nolan Hill–Cochrane, they cited shared transportation and employment ties between northwest Calgary and Cochrane; Statistics Canada journey-to-work data shows only 35.8% of Cochrane workers travel to Calgary at all, with most working within Cochrane itself. For the Olds–North Airdrie reach, they cited Highway 2 corridor continuity; the audit found the specific Airdrie extension fails on population grounds. Independent check found five of the minority's six published sub-rationales fail or only partially hold against primary data.</p>
@@ -675,8 +679,6 @@
     <div class="tb-sep"></div>
     <button class="tb-btn" data-layer="lock">Lock</button>
     <div class="tb-sep"></div>
-    <button class="tb-btn" data-anomaly="airdrie">Anomaly</button>
-    <div class="tb-sep"></div>
     <div id="tb-search-wrap">
       <input id="tb-search" type="search" placeholder="Find district…" autocomplete="off" spellcheck="false">
       <ul id="tb-search-results"></ul>
@@ -735,9 +737,9 @@
       <li><strong>Fill</strong> &mdash; colour districts by their assigned boundaries</li>
       <li><strong>Lines</strong> &mdash; show or hide district boundary edges</li>
       <li><strong>Lock</strong> &mdash; prevent the map from auto-panning when you click a district</li>
-      <li><strong>Anomaly</strong> &mdash; highlight the four Airdrie districts and the NW Calgary zone the audit flagged as structurally unusual</li>
+      <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
     </ul>
-    <p><strong>Try this:</strong> Click <em>Anomaly</em> to highlight the boundary anomalies, then click any highlighted district to see its vote data and how it compares across all three maps.</p>
+    <p><strong>Try this:</strong> In §4 below, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone, then click any highlighted district to see its vote data and compare across all three maps.</p>
     <button id="map-intro-close">Got it</button>
   </div>
 </div>
@@ -803,7 +805,7 @@
 
     .header-image {
       flex-shrink: 0;
-      max-height: 600px;
+      max-height: min(600px, calc(100svh - 140px));
       width: auto;
       display: block;
     }
@@ -994,7 +996,7 @@
 
     @media (max-width: 700px) {
       .header-inner { flex-direction: column; gap: 1.5rem; }
-      .header-image { max-height: 300px; }
+      .header-image { max-height: min(300px, 45svh); }
     }
 
     @media (max-width: 540px) {
@@ -1004,6 +1006,7 @@
 #zoom-overlay {
     position: fixed; inset: 0; z-index: 9000;
     background: rgba(0,0,0,0.92);
+    width: 100dvw; height: 100dvh;
   }
   #zoom-stage {
     position: absolute; inset: 0;
@@ -1151,7 +1154,22 @@
   .ec-cmp-val { color: rgba(255,255,255,0.7); font-variant-numeric: tabular-nums; }
   .ec-cmp-unique { color: rgba(255,180,60,0.75); font-style: italic; font-size: 0.68rem; }
 
-  /* Anomaly button */
+  /* In-article anomaly trigger */
+  .anomaly-trigger {
+    background: #fff3e0;
+    border: 1px solid rgba(200,110,0,0.4);
+    border-radius: 5px;
+    color: #7a3e00;
+    cursor: pointer;
+    font-size: 0.84rem;
+    font-family: inherit;
+    padding: 0.3rem 1rem;
+    transition: background 0.12s;
+  }
+  .anomaly-trigger:hover { background: #ffe0b2; border-color: rgba(200,110,0,0.7); }
+  .anomaly-trigger.tb-layer-on { background: #ffe0b2; border-color: rgba(200,110,0,0.7); font-weight: 600; }
+
+  /* Anomaly button (legacy in-bar style, kept for reference) */
   .tb-btn[data-anomaly].tb-layer-on {
     background: rgba(255,140,0,0.15);
     border-color: rgba(255,165,0,0.55);

@@ -955,8 +955,9 @@ export function init(basePath: string): void {
           });
         }
 
-        document.querySelectorAll('.tb-btn[data-anomaly]').forEach(function(b) {
+        document.querySelectorAll('[data-anomaly]').forEach(function(b) {
           b.addEventListener('click', function() {
+            if (overlay.style.display !== 'block') open();
             _anomalyOn = !_anomalyOn;
             b.classList.toggle('tb-layer-on', _anomalyOn);
             _applyAnomalyHighlight();
