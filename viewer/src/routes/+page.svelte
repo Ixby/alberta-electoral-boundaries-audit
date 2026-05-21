@@ -179,6 +179,14 @@
   <section id="section-4">
     <h2>4: Cracking, Packing, and Draining</h2>
 
+    <div class="callout">
+      <p><strong>Three moves, one playbook</strong></p>
+      <p><strong>Packing</strong> means cramming one party's voters into districts that party wins by landslides — each packed ballot still counts, but it contributes nothing beyond victory. Large, lopsided wins. Wasted votes.</p>
+      <p><strong>Cracking</strong> means splitting a community across multiple districts so it wins none of them outright. A city strong enough to carry two seats gets carved into four, each tethered to a different rural area. Diluted votes. No seat for anyone.</p>
+      <p><strong>Draining</strong> is the spatial companion: packed and cracked districts are placed next to each other so that over-concentrated supporters on one side "drain" voting power away from the contested districts nearby. The adjacency pattern amplifies both effects — packing and cracking reinforce each other across district lines.</p>
+      <p>All three can occur without any explicit partisan intent. What the audit measures is whether the pattern — and its statistical magnitude — is consistent with what a neutral map-drawing process produces. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md#5-results" rel="noopener">Full methodology at §5 of the technical report.</a></p>
+    </div>
+
     <figure style="margin:1.2rem 0;text-align:center;">
       <img src="images/figure_airdrie_v3.svg" alt="Map showing the division of Airdrie into four separate districts under the minority map" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
       <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The division of Airdrie into four separate districts under the minority map, diluting its urban voting power.</figcaption>
@@ -643,14 +651,37 @@
 
     <div class="callout warning">
       <p><strong>RETRACTION CONDITIONS</strong></p>
-      <p>The audit's findings are pre-committed to falsifiability. Retractions apply per-finding. If any condition below materialises, the specific finding it relates to is retracted publicly within 30 days. The overall verdict (directional consistency across multiple independent tests) is retracted only if at least three of the tests fail.</p>
-      <ol style="margin: 0.6rem 0 0 1.4rem;">
-        <li style="margin-bottom: 0.5rem;"><strong>A counter-map exists.</strong> Someone produces a legal Alberta map satisfying the minority's own community-of-interest reasons (Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park) <em>and</em> anchoring on municipal boundaries at majority-comparable rates. Open challenge — <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a> on the audit's GitHub repository.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>The Neighbour-Drain Pass fails the label-shuffling null.</strong> If the v2 continuous drain score (Phase B of <code>drain_v2_plan.md</code>) falls in the extreme upper tail (p &lt; 0.05) of random permutations across the fixed contiguity graph, the "pre-registered pass" is retracted and reclassified as a detected spatial signature.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>A pre-2026 internal commission document surfaces.</strong> Showing the minority's choices were a deliberate response to documented community submissions rather than drafting choices.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>The 2027 election result, fought on either of these maps, contradicts the percentile readings.</strong> If the partisan-fairness direction the audit projects from 2023 votes turns out to be wrong on actual votes, the Lane 1 finding gets revisited.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>The Quebec 2026 Supreme Court ruling is materially distinguished by an Alberta court.</strong> (On April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada upheld, 7–2 and from the bench, a Quebec Court of Appeal ruling that the Legault government's 2024 legislative freeze on its own redistricting commission violated the Charter's democratic-representation guarantee under s.3. The SCC held that a legislature cannot block independent commission redistricting work to preserve specific regional outcomes — the same class of argument the Alberta minority commissioners advance for retaining certain ridings. Whether Alberta's structure — reassigning redistricting to an MLA committee rather than freezing a commission outright — is constitutionally distinguishable from Quebec's is the open question.) If a court reviewing the April 16 Alberta motion finds the Alberta situation is constitutionally distinct from Quebec's — for example, because the Lunty committee is structured differently from a legislative-freeze law, or because Alberta's effective-representation analysis differs from Quebec's — the audit's procedural critique of the motion weakens.</li>
-      </ol>
+      <p>Every finding is pre-committed to a specific falsification condition. If any condition below materialises, the finding it names is retracted publicly within 30 days. The overall directional conclusion — that the minority map sits outside the neutral range on multiple independent tests — is retracted only if at least three of the five tests fail.</p>
+
+      <div style="margin: 0.8rem 0 0; border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
+        <p style="margin: 0 0 0.2rem;"><strong>Condition 1 — A counter-map exists</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The structural finding that the Airdrie four-way split and the three chair-flagged boundaries cannot be explained by the minority's stated community-of-interest rationale.</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: someone produces a legal Alberta map that satisfies the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — and anchors on municipal lines at majority-comparable rates. Open challenge at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.</p>
+      </div>
+
+      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
+        <p style="margin: 0 0 0.2rem;"><strong>Condition 2 — The Neighbour-Drain pre-registered pass is reversed</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The Section 3 table entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: the v2 continuous drain score falls in the extreme upper tail (p &lt; 0.05) of random permutations across the fixed contiguity graph, meaning the pass was a measurement artefact of the v1 binary scoring method rather than a genuine null result.</p>
+      </div>
+
+      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
+        <p style="margin: 0 0 0.2rem;"><strong>Condition 3 — A pre-2026 commission document surfaces</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The inference that the minority's boundary choices were drafting decisions rather than responses to documented community submissions.</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: an internal commission document dated before the minority's final boundary choices shows those choices were explicitly driven by community submissions the audit has not seen — not by the six published sub-rationales the audit tested.</p>
+      </div>
+
+      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
+        <p style="margin: 0 0 0.2rem;"><strong>Condition 4 — The 2027 election result contradicts the simulation</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The Lane 1 finding — that the minority map's seats@50/50 score sits at the 99.99th percentile of 1,010,000 neutral draws.</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: if the 2027 provincial election is fought on either commission map and the actual partisan seat split contradicts the directional projection from 2023 votes, the Lane 1 percentile findings are revisited against actual results.</p>
+      </div>
+
+      <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
+        <p style="margin: 0 0 0.2rem;"><strong>Condition 5 — An Alberta court distinguishes the Quebec SCC ruling</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The Section 7 procedural argument that the April 16 motion to replace the commission with the Lunty committee sits in the same constitutional class as Quebec's 2024 redistricting freeze.</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Background: on April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada upheld, 7–2 and from the bench, a Quebec Court of Appeal ruling that the Legault government's legislative freeze on its redistricting commission violated the Charter's s.3 democratic-representation guarantee. Condition: a court reviewing the Alberta motion finds it constitutionally distinct — for example, because reassigning the work to an MLA committee differs structurally from a legislative freeze, or because Alberta's effective-representation analysis under s.3 comes out differently than Quebec's.</p>
+      </div>
     </div>
 
     <div class="callout warning">
