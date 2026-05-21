@@ -75,7 +75,7 @@ The visualization corrects the geographic distortion produced by whole-riding co
 
 **AI use disclosure.** Three large language models were used as analytical and writing assistants throughout this project: **Claude Pro Max** (Anthropic), **Gemini Pro** (Google), and **Codex** (OpenAI). Claude's contributions included drafting and revising report text, proposing analysis structure, identifying consistency gaps across documents, and surfacing methodological edge cases (e.g., the Vote Anywhere apportionment issue and the pre-registration disclosure requirement). Gemini Pro contributed to code review and cross-validation of analytical outputs. Codex contributed to scripting and data-processing tasks. All substantive claims — metric values, thresholds, data provenance, and code outputs — were verified against primary sources and script outputs by the author. No AI tool executed code or accessed external data independently. All script runs were performed by the author.
 
-**No commercial tools.** No traditional statistical software (R, Stata, SPSS), no GIS desktop software (QGIS, ArcGIS), and no commercial election-analytics platforms were used.
+**No commercial tools.** No GIS desktop software (QGIS, ArcGIS) and no commercial election-analytics platforms were used. R 4.6 was used for one cross-validation script (`analysis/scripts/redist_crossvalidation.R`) using the Harvard `redist` package (SMC sampler) to provide algorithm-independent corroboration of the Python GerryChain ReCom headline finding ([§5.4.9](#sec-5-4-9)). No other R packages were used. Stata and SPSS were not used.
 
 **No paid data.** All inputs are public. Every number in this audit is reproducible by running a script in `analysis/scripts/` against a dataset in `data/`.
 
@@ -93,9 +93,100 @@ The visualization corrects the geographic distortion produced by whole-riding co
 - **gerrychain** — MCMC ensemble generation; canonical 1,010,000-plan run (4 chains × 252,500 steps) against official EA shapefiles ([§5.4.9](#sec-5-4-9)); DPG-substrate development runs of 250k–2,000,000 samples documented in [§5.4.1](#sec-5-4-1)–[§5.4.8](#sec-5-4-8)
 - **pdfplumber** — PDF table extraction for commission report and Appendix E parsing
 - **geopy + rapidfuzz** — geocoding and fuzzy-string matching
+- **R 4.6** — cross-validation only; `redist` package (SMC sampler, Harvard); one script ([§5.4.9](#sec-5-4-9))
 - **git, GitHub CLI** — version control; public repository [Ixby/alberta-electoral-boundaries-audit](https://github.com/Ixby/alberta-electoral-boundaries-audit)
 
-Scripts authored for this audit: `analysis/scripts/packing_cracking_analysis.py` (symmetric three-map partisan-bias pipeline), `analysis/scripts/electoral_forensics_population.py` (population-equality analysis A1/A2/A3), `analysis/scripts/monte_carlo_ci.py` (Monte Carlo CI ensemble), `analysis/scripts/a1_legal_baseline_2021_census.py` (2021-census-direct A1 for 2019 EDs), `analysis/scripts/majority_symmetry_counter_test.py` (symmetry-of-test-selection counter-test), `analysis/scripts/csd_community_splits.py` (CSD-level community-splits overlay), `analysis/scripts/338canada_scraper.py` + `analysis/scripts/338canada_reallocate.py` (338Canada per-riding integration), `analysis/methodology/cochrane_journey_to_work.md` (journey-to-work commute analysis).
+**Scripts authored for this audit:**
+
+*Lane 1 — Statistical*
+
+| Script | Purpose | Report section |
+|---|---|---|
+| `packing_cracking_analysis.py` | B1–B6 partisan-bias metrics (symmetric, all three maps) | §5.2 |
+| `mcmc_ensemble_canonical.py` | 1,010,000-plan ReCom neutral ensemble on canonical shapefiles | §5.4 |
+| `simulation_convergence_diagnostics.py` | Per-chain ESS, ρ\_lag1, Gelman-Rubin R̂ | §5.4.8 |
+| `joint_outlier_score_canonical.py` | Mahalanobis D² joint outlier score | §5.4.9 |
+| `szat.py` | Swing-Zone Allocation Test — boundary-choice EG decomposition | §5.2.10 |
+| `validate_fisher_independence.py` | Spearman correlation between Ch1 and Ch2 channels | §5.5 |
+| `intermap_permutation_test.py` | Directional inter-map partisan-gap permutation test | §5.2.11 |
+| `targeted_gerrymander_burst.py` | UCP-direction hill-climbing upper bound | §5.4.11 |
+| `targeted_gerrymander_burst_ndp.py` | NDP-direction symmetric hill-climbing lower bound | §5.4.11 |
+| `simulation_short_bursts.py` | Short-burst reachability from 2019 baseline | §5.4.10 |
+| `neighbour_drain_adjacency.py` | Packing-cracking adjacency signature (coupled-chain count) | §5.3 |
+| `drain_label_shuffle_null.py` | Label-shuffle permutation null for drain test | §5.3.5 |
+| `historical_eg_baseline.py` | Historical efficiency-gap baseline for Alberta elections | §5.2.9 |
+| `chen_rodden_alberta.py` | Chen-Rodden geography vs drawing decomposition | §5.2.7 |
+| `ecological_inference.py` | Ecological inference bounds on demographic voting | §5.2.8 |
+| `marginal_seats_analysis.py` | Marginal-seat uniform-swing analysis | §5.2 |
+| `november_tripwires.py` | Pre-registered automated checks for November 91-seat map | §5.5 |
+| `november_red_alert_scorecard.py` | Lunty committee tripwire detection scorecard | §5.5 |
+| `redist_crossvalidation.R` | R SMC cross-validation (Harvard `redist`; algorithm-independence) | §5.4.9 |
+
+*Lane 2 — Structural*
+
+| Script | Purpose | Report section |
+|---|---|---|
+| `electoral_forensics_population.py` | A1–A3 population equality (MAD, variance, legal-floor) | §5.1 |
+| `score_anchoring.py` | Municipal-boundary anchoring fraction per map | §5.8 |
+| `municipal_splits.py` | Municipal-split count across all three maps | §5.8 |
+| `polsby_popper.py` | Polsby-Popper compactness for all EDs | §5.8 |
+| `reock.py` | Reock compactness (smallest-enclosing-circle method) | §5.8 |
+| `a1_legal_baseline_2021_census.py` | 2021-census A1 baseline for 2019 enacted map | §5.1 |
+| `s15_ratio_test.py` | EBCA §15(2) population-deviation compliance | §4.1 |
+| `justification_tests.py` | Testable-rationale verification for contested EDs | §5.9 |
+| `score_hybridization.py` | Hybrid-ED (city-splitting) metric | §5.3.5 |
+| `compactness_metrics.py` | Plan-level compactness summary | §5.8 |
+| `csd_community_splits.py` | CSD-level community-splits overlay | §5.8 |
+| `majority_symmetry_counter_test.py` | Test-selection symmetry counter-test | §5.6 |
+| `mcmc_anchoring_ensemble.py` | Anchoring mini-ensemble via CSD edge-crossing metric | §5.8 |
+
+*Robustness and sensitivity*
+
+| Script | Purpose | Addresses |
+|---|---|---|
+| `advance_vote_splat.py` | Advance-ballot VA apportionment (proportional smear) | H8 |
+| `advance_vote_sensitivity.py` | Election-day vs full-vote substrate sensitivity | H8 |
+| `seats_at_50_50_regional.py` | Regional-swing robustness against uniform-swing assumption | H5 |
+| `cross_election.py` | Three-election (2015/2019/2023) direction check | H7 |
+| `third_party_sensitivity.py` | Third-party vote allocation sensitivity | H6 |
+| `attribution_sensitivity_check.py` | MAUP area-weighted attribution sensitivity | §5.4 |
+| `monte_carlo_ci.py` | Monte Carlo confidence intervals over modeling choices | §5.4 |
+| `szat_2019_baseline.py` | SZAT applied to 2019 enacted baseline | §5.2.10 |
+| `score_natural_anchoring.py` | Natural-feature (highway/river) anchoring secondary check | H4 |
+| `va_attribution_area_weighted.py` | Area-weighted MAUP check for VA-to-ED attribution | §5.4 |
+
+*Submission analysis (§5.9)*
+
+| Script | Purpose |
+|---|---|
+| `submission_search.py` | Keyword search across 1,140+ public submissions |
+| `submission_sentiment_llm.py` | LLM zero-shot sentiment classification |
+| `submission_sentiment_llm_full.py` | Full-corpus LLM classification across all configurations |
+| `hansard_sentiment_llm.py` | Hansard hearing transcript sentiment |
+| `aggregate_sentiment_intensity.py` | Intensity aggregation by configuration |
+| `sentiment_intensity_score.py` | 1–3 intensity scoring per row |
+| `cross_reference_submitters.py` | Rationale cross-reference (CONTRA_COMMISSION flags) |
+| `compute_kappa.py` | Cohen's κ inter-rater reliability |
+| `validation_sample.py` | Stratified validation sample for IRR |
+
+*Data preparation*
+
+| Script | Purpose |
+|---|---|
+| `build_canonical_va_votes.py` | Canonical 2023 VA election-day vote file |
+| `phase4c_canonical_attribution.py` | Phase 4C canonical VA-to-ED attribution |
+| `build_cross_election_va.py` | 2015/2019 cross-election VA vote files |
+| `submission_ocr.py` / `submission_ocr_recovery.py` | OCR for image-only submission PDFs |
+
+*External data*
+
+| Script | Purpose |
+|---|---|
+| `338canada_scraper.py` | 338Canada per-riding Alberta projections |
+| `338canada_historical.py` | Historical 338Canada Alberta snapshots 2020–2026 |
+| `338canada_reallocate.py` | Projection reallocation through hybrid-ED crosswalks |
+| `canadian_base_rate_compute.py` | Canadian provincial EG base rates |
+| `_fetch_osm_natural.py` | OSM highway and river data for natural anchoring |
 
 **Data sources:**
 
@@ -220,7 +311,7 @@ This section consolidates the audit's data-provenance disclosures — primary so
 |---|---|---|---|
 | Elections Alberta 2023 Statement of Vote | `data/2023_results.xlsx` | https://www.elections.ab.ca/uploads/2023-Provincial-General-Election-Statement-of-Vote.xlsx | `FROZEN_MANIFEST.md` (2026-04-22 access) |
 | Commission final report (majority + minority) | `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv`; map images in `maps/*.jpg` | https://www.elections.ab.ca/uploads/abebc_2026_rpt_final.pdf | `FROZEN_MANIFEST.md` (2026-03-23 publication) |
-| Elections Alberta GIS page (2026 shapefiles) | (not available) | https://www.elections.ab.ca/resources/maps/ | `FROZEN_MANIFEST.md` — 2019 / 2023 polygons present, 2026 not yet published |
+| Elections Alberta 2026 ED shapefiles | `data/shapefiles/canonical/` | https://www.elections.ab.ca/resources/maps/ | Released 2026-05-06; confirmed final by EA Geomatics Team Lead (personal correspondence, R. Mok, 2026-05-19) |
 | StatsCan 2021 Census Dissemination Areas | `data/alberta_2021_da_populations.csv`, `data/alberta_2021_das.gpkg` | https://www12.statcan.gc.ca/census-recensement/2021/geo/sip-pis/boundary-limites/ | `FROZEN_MANIFEST.md` |
 | Alberta Treasury Board Office of Statistics and Information quarterly estimates | (embedded in commission totals) | https://open.alberta.ca/dataset/alberta-population-estimates | `FROZEN_MANIFEST.md` |
 | StatsCan Table 17-10-0009 (quarterly provincial estimates) | (cited; not persisted) | https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000901 | `FROZEN_MANIFEST.md` |
@@ -231,7 +322,7 @@ This section consolidates the audit's data-provenance disclosures — primary so
 
 Three coverage gaps constrain the audit's scope. Each is disclosed rather than papered over.
 
-1. **2026 polygon shapefiles not released; formal request pending.** Elections Alberta's GIS page (accessed 2026-04-22) carries 2019 ED polygons and 2023 VA polygons but does not yet carry 2026 ED polygons. A formal written request for the 2026 boundary shapefiles has been filed with Elections Alberta. No response has been received as of the publication date of this report. In parallel, synthetic 2026 ED polygons were constructed from the commission's report text, Appendix E boundary descriptions, and the methodology documented in `archive/provisional_geometries/approximate_shape_analysis.md` and `analysis/methodology/shape_refinement_v2.md`. Three iterative refinement passes — snapping to OSM road, waterway, railway, and administrative-boundary features within progressively tighter buffers — reduced the positional error on Tier A/B district boundaries to a maximum of ±1 km (mean shift 97 m after v1; residual voter-assignment impact after v3: 1,012 votes across 4 VAs, approximately 0.06% of 2023 total valid votes). Tier C hybrid boundaries remain unresolvable at shapefile-grade precision from commission text alone. Full refinement log and per-boundary confidence classification at `analysis/methodology/shape_refinement_v2.md` and `data/boundary_refinement_impact_v3.csv`. Results that depend on precise geometry — Polsby-Popper and Reock compactness for Tier C EDs, the full GerryChain ReCom ensemble seeded from 2026 geometry, and precise VA-polygon vote attribution — remain pending the official shapefile release or a response to the formal request.
+1. **2026 polygon shapefiles released; formal request answered.** Elections Alberta's GIS page did not carry 2026 ED polygons at the time of the audit's initial scope definition (accessed 2026-04-22). A formal written request for the 2026 boundary shapefiles was filed with Elections Alberta. EA's Geomatics Team Lead confirmed on 2026-05-19 (personal correspondence, R. Mok) that the 2026-05-06 shapefile release is final for the commission maps. The canonical shapefiles are now the basis for all spatial analysis in this audit (`data/shapefiles/canonical/`); all results in §5 inherit from this source. **DPG era (historical, now superseded).** Prior to the 2026-05-06 release, Derived Provisional Geometries (DPGs) were constructed from the commission's report text and Appendix E boundary descriptions; methodology documented in `archive/provisional_geometries/approximate_shape_analysis.md` and `analysis/methodology/shape_refinement_v2.md`. Three iterative refinement passes reduced positional error on Tier A/B boundaries to ≤1 km (mean shift 97 m after v1; residual voter-assignment impact: 1,012 votes across 4 VAs, approximately 0.06% of 2023 valid votes). All DPG-era findings have been recomputed from canonical shapefiles. Per the DPG sunset clause in `analysis/methodology/canonical_shapefile_log.md`, DPG results are archived and no longer the primary analysis basis.
 2. **Majority-proposal map imagery incomplete.** The working bundle has the majority's Calgary map. The majority Alberta overview, Edmonton, and other-cities panels are not in the bundle. Visual inspection of the majority is therefore limited to its Calgary districts. [§5.8.1](#sec-5-8-1) discloses this scope narrowing.
 3. **~88 public submissions (6.6%) could not be machine-parsed.** Their PDFs are image-only scans lacking a text layer. The submission-archive verification ([§5.9.4](#sec-5-9-4)) rests on identified counter-examples in the 1,252 parseable submissions rather than exhaustive enumeration of all ~1,340.
 4. **Third-party vote allocation: B2 (EG) is sensitive to the trailing-party rule. B3 (mean-median) is not.** The 2023 Alberta statement of vote includes 58,232 votes cast for parties other than NDP or UCP (3.30% of valid votes) across 79 of 87 existing EDs. The audit's primary analysis excludes these votes (Rule A: drop, converting all margins to NDP/UCP two-party share). Two alternative allocations were tested symmetrically via `analysis/scripts/third_party_sensitivity.py` (2026-05-09). Rule B (pro-rate other votes to NDP/UCP in proportion to observed two-party shares) shifts the minority-majority EG asymmetry by 0.02 pp and leaves the direction unchanged (minority −1.87%, majority −0.44%, delta −1.43 pp). Rule C (assign all other votes to the trailing party in each district) reverses the EG direction for *both* maps: minority EG +7.41%, majority +4.16% (positive = NDP-favourable under this paper's convention). The mechanical reason: in dominant NDP urban seats, assigning other votes to UCP as the trailing party generates large UCP wasted-vote quantities that overwhelm NDP's urban over-concentration, flipping the EG sign. The minority map, which contains more dominant NDP urban seats than the majority, flips further (+3.25 pp gap, reversed direction). B3 (mean-median) holds its direction under all three rules. B6 (declination) follows EG and reverses under Rule C. The paper reports Rule A as the primary metric and Rule C as a deliberate falsification probe. The Ch1 (Mahalanobis joint tail) and Ch2 (SZAT bootstrap EG) statistics are computed from the same Rule A two-party shares and are unaffected by Rules B or C.
