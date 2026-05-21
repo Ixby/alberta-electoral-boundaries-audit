@@ -114,7 +114,8 @@ def build_lane1_dotplot() -> Path:
 
     # p95 dashed reference line
     ax.axvline(p95_val, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=2)
-    ax.text(p95_val + 0.12, 0.97, "p95\n4.1%",
+    # p95 label sits lower so it doesn't collide with the nearby minority label
+    ax.text(p95_val + 0.12, 0.76, "p95\n4.1%",
             color=THRESHOLD_RED, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 
@@ -123,14 +124,14 @@ def build_lane1_dotplot() -> Path:
     ax.axvline(majority_eg, color=MAJORITY_TEAL,   lw=2.0, zorder=5)
     ax.axvline(enacted_eg,  color=NEUTRAL_2019,    lw=1.3, linestyle="--", zorder=4)
 
-    # Labels — minority goes left of its line to clear the p95 label at 4.22
+    # Labels staggered vertically to prevent collision between closely-spaced lines
     ax.text(minority_eg - 0.15, 0.97, "Minority 2026\n+4.02%, p94",
             color=MINORITY_PURPLE, fontsize=6.5, fontweight="bold",
             ha="right", va="top", transform=bx)
     ax.text(majority_eg, 0.97, "Majority 2026\n+0.10%, p15",
             color=MAJORITY_TEAL, fontsize=6.5, fontweight="bold",
             ha="center", va="top", transform=bx)
-    ax.text(enacted_eg + 0.12, 0.97, "2019 enacted\n+2.41%, p69",
+    ax.text(enacted_eg + 0.12, 0.86, "2019 enacted\n+2.41%, p69",
             color=NEUTRAL_2019, fontsize=6.5, fontweight="bold",
             ha="left", va="top", transform=bx)
 

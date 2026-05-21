@@ -5,7 +5,7 @@ import { resolve, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const src = resolve(__dirname, '../../../data/maps/article');
+const src = resolve(__dirname, '../../data/maps/article');
 const dst = resolve(__dirname, '../../docs/images');
 
 if (!existsSync(src)) {

@@ -1,3 +1,7 @@
+<svelte:head>
+  <meta name="description" content="Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests.">
+</svelte:head>
+
 <script lang="ts">
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
@@ -21,7 +25,7 @@
   });
 </script>
 
-<nav>
+<nav aria-label="Page sections">
   <a href="#" class="nav-home" aria-label="Back to top">↑</a>
   <a href="#section-1">1: Map</a>
   <a href="#section-2">2: The Split</a>
@@ -56,7 +60,7 @@
   </div>
 </header>
 
-<div class="container">
+<main class="container">
 
   <div style="padding: 1.5rem 0 0.5rem;">
     <div class="callout" style="background:#F0EBF8; border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
@@ -72,7 +76,7 @@
   </div>
 
   <section id="section-1">
-    <h2>1: The Map</h2>
+    <h2>1: The Map <a href="#section-1" class="section-link" aria-label="Link to section 1">#</a></h2>
     <p>The cover map is the best single image in this audit. Here is how to read it.</p>
     <p>Alberta is divided into 4,765 Voting Areas — small geographic zones Elections Alberta uses to count polling-station ballots. Each one is coloured by how people in it actually voted in 2023: orange where NDP votes are concentrated, blue where UCP votes are concentrated. But the colour only becomes dark and saturated where a lot of people live. A Voting Area that covers hundreds of square kilometres of parkland or farmland stays pale — nearly invisible. The map lights up where people are, and fades where they aren't.</p>
     <p>This is very different from the Alberta you see on election night. Most election maps colour entire ridings solid blue or orange based on who won. Rural ridings are geographically large and the UCP wins most of them, so election-night Alberta looks like a wall of blue with small orange pockets in Edmonton and Calgary. The cover map uses the same votes and the same geography — but shows them weighted by where people actually live. What appears is a province where most of the population is concentrated in a dense arc of cities, and those cities vote very differently from the rural map that normally represents them.</p>
@@ -81,7 +85,7 @@
   </section>
 
   <section id="section-2">
-    <h2>2: How the Commission Broke</h2>
+    <h2>2: How the Commission Broke <a href="#section-2" class="section-link" aria-label="Link to section 2">#</a></h2>
     <p>Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Commission Chair Justice Dallas K. Miller and two opposition-nominated commissioners wrote the majority report; two government-nominated commissioners — Dr. Julian Martin and John D. Evans — wrote the minority report. The split centred on how to draw boundaries in fast-growing urban-edge communities: the majority gave Airdrie two districts, the minority four; the majority drew northwest Calgary's divisions close to the provincial average size, the minority drew them 11.5% above it. Both maps follow the same statute; the disagreement was about which specific geographic configurations best served the communities being drawn. Both are legal under the <em>Electoral Boundaries Commission Act</em>. The governing party is the United Conservative Party (UCP); its main opposition is the New Democratic Party (NDP). Alberta also has smaller parties — the Alberta Party, the Liberal Party of Alberta, and others — that contest seats but whose combined provincial vote share has remained low enough in recent elections that they do not materially affect the audit's partisan-fairness calculations, which are grounded in the 2023 UCP–NDP vote split. This audit measured both maps using the same methods, applied identically. Three findings stand out.</p>
     <ol style="margin: 0.8rem 0 0.9rem 1.4rem;">
       <li style="margin-bottom: 0.6rem;"><strong>The two maps differ on six things you can measure without looking at any election results:</strong> how evenly people are spread across districts, whether voters are concentrated, how badly cities are cut up, whether borders follow city limits, the shape of the districts, and how many boundaries the commission's own chair flagged as anomalous. The minority map differs from the majority on every one of them.</li>
@@ -97,7 +101,7 @@
   </div>
 
   <section id="section-3">
-    <h2>3: The 1,010,000-Map Litmus Test</h2>
+    <h2>3: The 1,010,000-Map Litmus Test <a href="#section-3" class="section-link" aria-label="Link to section 3">#</a></h2>
 
     <figure style="margin:1.2rem 0;text-align:center;">
       <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+4.0%), in the shaded right tail. The majority map (teal line) sits at +0.1%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
@@ -183,7 +187,7 @@
   </section>
 
   <section id="section-4">
-    <h2>4: Cracking, Packing, and Draining</h2>
+    <h2>4: Cracking, Packing, and Draining <a href="#section-4" class="section-link" aria-label="Link to section 4">#</a></h2>
 
     <div class="callout">
       <p><strong>Three moves, one playbook</strong></p>
@@ -227,7 +231,7 @@
   </section>
 
   <section id="section-5">
-    <h2>5: The Impact on the Ground</h2>
+    <h2>5: The Impact on the Ground <a href="#section-5" class="section-link" aria-label="Link to section 5">#</a></h2>
 
     <div class="callout">
       <p><strong>LANE 1 AND LANE 2</strong></p>
@@ -302,7 +306,7 @@
   </section>
 
   <section id="section-6">
-    <h2>6: How &#8220;Clean Gerrymanders&#8221; Work</h2>
+    <h2>6: How &#8220;Clean Gerrymanders&#8221; Work <a href="#section-6" class="section-link" aria-label="Link to section 6">#</a></h2>
 
     <div class="callout">
       <p><strong>A NOTE ON LEGAL TERMINOLOGY</strong></p>
@@ -572,7 +576,7 @@
   </section>
 
   <section id="section-7">
-    <h2>7: What Happens in November</h2>
+    <h2>7: What Happens in November <a href="#section-7" class="section-link" aria-label="Link to section 7">#</a></h2>
 
     <div class="callout" style="background:#F5F5F5; border-left-color:#888; font-size:0.95rem;">
       <p style="margin:0;"><strong>CONTEXT</strong> — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in §3–§6 above.</p>
@@ -604,7 +608,7 @@
   </section>
 
   <section id="section-8">
-    <h2>8: The Invisible Part</h2>
+    <h2>8: The Invisible Part <a href="#section-8" class="section-link" aria-label="Link to section 8">#</a></h2>
 
     <p>This audit ran into two data problems that have nothing to do with the commission and everything to do with how Alberta's electoral system is designed. Both are fixable.</p>
 
@@ -633,7 +637,7 @@
   </section>
 
   <section id="retractions">
-    <h2>9: Retractions and Corrections</h2>
+    <h2>9: Retractions and Corrections <a href="#retractions" class="section-link" aria-label="Link to retractions">#</a></h2>
 
     <div class="callout warning">
       <p><strong>RETRACTION CONDITIONS</strong></p>
@@ -678,7 +682,7 @@
   </section>
 
   <section id="references">
-    <h2>10: References &amp; Methodology</h2>
+    <h2>10: References &amp; Methodology <a href="#references" class="section-link" aria-label="Link to references">#</a></h2>
 
     <p>The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.</p>
 
@@ -709,7 +713,7 @@
   </section>
 
   <section id="resources">
-    <h2>11: Reports and Resources</h2>
+    <h2>11: Reports and Resources <a href="#resources" class="section-link" aria-label="Link to resources">#</a></h2>
 
     <ul class="links-list">
       <li>
@@ -751,7 +755,7 @@
     </p>
   </section>
 
-</div><!-- /.container -->
+</main><!-- /.container -->
 
 <a href="#" id="back-top" aria-label="Back to top">↑</a>
 
@@ -987,10 +991,31 @@
       text-decoration: none;
     }
 
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.75rem;
+      padding: 0 0.2rem;
+    }
     nav a:hover { color: #fff; text-decoration: underline; }
-    nav a.active { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.6); padding-bottom: 1px; }
+    nav a.active { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.6); }
     nav a.nav-home { color: rgba(255,255,255,0.45); margin-right: 1.4rem; font-size: 1.05rem; text-decoration: none; }
     nav a.nav-home:hover { color: #fff; text-decoration: none; }
+
+    .section-link {
+      color: transparent;
+      font-size: 0.72em;
+      font-weight: 400;
+      margin-left: 0.4em;
+      text-decoration: none;
+      vertical-align: middle;
+      transition: color 0.15s;
+      user-select: none;
+    }
+    h2:hover .section-link, .section-link:hover, .section-link:focus {
+      color: #6b8eb0;
+      text-decoration: none;
+    }
 
     .container {
       width: 100%;

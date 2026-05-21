@@ -23,7 +23,7 @@ export function init(basePath: string): void {
       (function () {
         const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
         const sections = navLinks
-          .map(a => document.querySelector(a.getAttribute('href')))
+          .map(a => { const h = a.getAttribute('href'); return (h && h.length > 1) ? document.querySelector(h) : null; })
           .filter(Boolean);
 
         function setActive(id) {
