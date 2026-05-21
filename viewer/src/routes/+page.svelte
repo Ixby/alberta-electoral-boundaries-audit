@@ -780,6 +780,8 @@
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Lines</button>
     </div>
     <div class="tb-sep"></div>
+    <button class="tb-btn" data-anomaly="airdrie" title="Highlight chair-flagged districts — Airdrie 4-way split and NW Calgary zone">Flag</button>
+    <div class="tb-sep"></div>
     <button class="tb-btn" data-layer="lock">Lock</button>
     <div class="tb-sep"></div>
     <div id="tb-search-wrap">
@@ -1281,11 +1283,48 @@
   .anomaly-trigger:hover { background: #ffe0b2; border-color: rgba(200,110,0,0.7); }
   .anomaly-trigger.tb-layer-on { background: #ffe0b2; border-color: rgba(200,110,0,0.7); font-weight: 600; }
 
-  /* Anomaly button (legacy in-bar style, kept for reference) */
+  /* Flagged-districts button — red when active */
   .tb-btn[data-anomaly].tb-layer-on {
-    background: rgba(255,140,0,0.15);
-    border-color: rgba(255,165,0,0.55);
-    color: rgba(255,180,30,0.95);
+    background: rgba(230,57,70,0.15);
+    border-color: rgba(230,57,70,0.60);
+    color: rgba(255,120,130,0.95);
+  }
+
+  /* Flagged-district overlay animations */
+  @keyframes anomaly-pulse {
+    0%, 100% {
+      opacity: 0.90;
+      filter: drop-shadow(0 0 3px #e63946) drop-shadow(0 0 7px #e6394866);
+    }
+    50% {
+      opacity: 0.48;
+      filter: drop-shadow(0 0 9px #e63946) drop-shadow(0 0 20px #e63946aa);
+    }
+  }
+  @keyframes anomaly-bounce {
+    0%, 100% { transform: scale(1);     }
+    40%, 60%  { transform: scale(1.045); }
+  }
+  @keyframes anomaly-glow-pulse {
+    0%, 100% { opacity: 0.18; }
+    50%       { opacity: 0.45; }
+  }
+  @keyframes anomaly-fill-pulse {
+    0%, 100% { opacity: 0.85; }
+    50%       { opacity: 0.40; }
+  }
+  .anomaly-pulse-path {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation:
+      anomaly-pulse  2s ease-in-out infinite,
+      anomaly-bounce 2s ease-in-out infinite;
+  }
+  .anomaly-glow-path {
+    animation: anomaly-glow-pulse 2s ease-in-out infinite;
+  }
+  .anomaly-fill-path {
+    animation: anomaly-fill-pulse 2s ease-in-out infinite;
   }
 
   /* EG choropleth button — same pattern as lock amber but green-teal for distinction */

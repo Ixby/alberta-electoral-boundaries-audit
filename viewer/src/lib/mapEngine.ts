@@ -962,20 +962,57 @@ export function init(basePath: string): void {
         // ── Anomaly highlight ─────────────────────────────────────────────────────
         // Airdrie four-way split: ids 1, 13, 20, 51. NW Calgary anomaly zone: id 23.
         const _anomalyIds = new Set([1, 13, 20, 51, 23]);
-        let   _anomalyOn  = false;
+        let   _anomalyOn      = false;
+        let   _anomalyOverlay = null;
 
         function _applyAnomalyHighlight() {
           if (!svgEl) return;
-          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(p => {
+          if (_anomalyOverlay) { _anomalyOverlay.remove(); _anomalyOverlay = null; }
+          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(p => { p.style.fill = 'none'; });
+          if (!_anomalyOn) return;
+
+          const NS = 'http://www.w3.org/2000/svg';
+          _anomalyOverlay = document.createElementNS(NS, 'g');
+          _anomalyOverlay.setAttribute('id', 'anomaly-overlay');
+          _anomalyOverlay.setAttribute('pointer-events', 'none');
+
+          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
             const id = parseInt(p.getAttribute('data-ed-id'), 10);
-            if (_anomalyOn) {
-              p.style.fill = _anomalyIds.has(id)
-                ? 'rgba(255,140,0,0.38)'
-                : 'rgba(0,0,0,0.22)';
-            } else {
-              p.style.fill = 'none';
-            }
+            if (!_anomalyIds.has(id)) return;
+            const d = p.getAttribute('d');
+
+            // Blurred glow layer
+            const glow = document.createElementNS(NS, 'path');
+            glow.setAttribute('d', d);
+            glow.setAttribute('fill', 'none');
+            glow.setAttribute('stroke', '#e63946');
+            glow.setAttribute('stroke-width', '12');
+            glow.setAttribute('stroke-linejoin', 'round');
+            glow.style.vectorEffect = 'non-scaling-stroke';
+            glow.setAttribute('class', 'anomaly-glow-path');
+            _anomalyOverlay.appendChild(glow);
+
+            // Tint fill
+            const tint = document.createElementNS(NS, 'path');
+            tint.setAttribute('d', d);
+            tint.setAttribute('fill', 'rgba(230,57,70,0.10)');
+            tint.setAttribute('stroke', 'none');
+            tint.setAttribute('class', 'anomaly-fill-path');
+            _anomalyOverlay.appendChild(tint);
+
+            // Sharp animated outline
+            const outline = document.createElementNS(NS, 'path');
+            outline.setAttribute('d', d);
+            outline.setAttribute('fill', 'none');
+            outline.setAttribute('stroke', '#e63946');
+            outline.setAttribute('stroke-width', '3');
+            outline.setAttribute('stroke-linejoin', 'round');
+            outline.style.vectorEffect = 'non-scaling-stroke';
+            outline.setAttribute('class', 'anomaly-pulse-path');
+            _anomalyOverlay.appendChild(outline);
           });
+
+          svgEl.appendChild(_anomalyOverlay);
         }
 
         function _zoomToAnomalyDistricts(attempt) {
