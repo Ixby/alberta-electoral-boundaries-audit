@@ -40,7 +40,7 @@
     <div class="header-text">
       <h1>Alberta Electoral Boundary Audit</h1>
       <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
-      <span class="badge">Official Elections Alberta maps &mdash; May 2026</span>
+      <span class="badge">Official Elections Alberta maps &mdash; May 2026 &ensp;&middot;&ensp; Published May 2026</span>
       <p class="cover-note">This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries &mdash; or layer all three to see exactly where they diverge. <strong>Vote</strong> colours each polling area by how people voted in 2023; <strong>Fill</strong> adds partisan shading by district; <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.</p>
       <p class="cover-note" style="margin-top:0.55rem;">Try locking the viewport and flipping between maps &mdash; watch a boundary shift while the voters underneath stay still. That&rsquo;s the whole question in one gesture.</p>
       <p class="cover-note" style="margin-top:0.55rem;">When you&rsquo;re done exploring, scroll down for the summary. For the full technical analysis, see the Resources section. All data is official Elections Alberta shapefiles and other government and open-source records.</p>
@@ -62,6 +62,7 @@
       <p style="margin:0 0 0.6rem;">Alberta's redistribution commission split 3&ndash;2 in 2026 and produced two different proposed maps. The government set both aside and assigned redistricting to a five-member committee of MLAs (the Lunty committee), expected to report in November 2026. Neither commission map is law.</p>
       <p style="margin:0 0 0.6rem;">This audit tested both commission maps the same way, using 1,010,000 computer-drawn neutral maps built from the official Elections Alberta shapefiles as a reference point. The majority proposal sits within the neutral range on every pre-registered test. The minority proposal crosses four of five structural tests, and its partisan-fairness seat split at a 50/50 vote is reached by fewer than 100 of those neutral maps &mdash; a joint probability of roughly 1 in 15 million under a neutral drawing process.</p>
       <p style="margin:0;">The audit measures outcomes, not intent. When the Lunty committee releases its map, this audit will apply the same tests to it.</p>
+      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:#555;">Pre-registered falsification conditions and retraction commitments are in <a href="#retractions">§9</a>.</p>
     </div>
   </div>
 
@@ -521,34 +522,8 @@
     <p>This is the structural-bias finding the audit holds with confidence. It is geometry-only; it does not depend on any election result; it does not move when polls do.</p>
 
     <p><strong>One caveat the audit takes seriously.</strong> A real electorate is not a uniform 50/50. Voters can swamp any map's structural lean with enough swing — a particularly upset or inspired electorate will tip the result regardless of how the boundaries are drawn. The 50/50 test isolates <em>the map's contribution to the outcome</em>, not the outcome itself. What it shows is what the map does when the electorate doesn't decide for it.</p>
-  </section>
 
-  <section id="section-7">
-    <h2>7: What Happens in November</h2>
-
-    <p>Neither commission map is in force. The government set both aside in April 2026 and referred redistricting to the Lunty committee. That committee — five MLAs, three from the governing UCP — is expected to release its proposed boundaries in November 2026. When it does, this audit will apply the same methodology to evaluate it. What follows is the evaluation of the two commission proposals.</p>
-
-    <h3>Why the Committee Is Anomalous</h3>
-
-    <p>Canadian redistricting practice has, since the 1960s, settled on a single model: an independent commission, insulated from government direction, produces boundary recommendations; the legislature may debate them but cannot easily override them without a formal legislative vote. Alberta's statutory process under the <em>Electoral Boundaries Commission Act</em> follows this template — but with one structural difference from most provinces: Alberta's commission report has no automatic legal effect. Under the Act, a separate Electoral Districts Act must be passed by the legislature to give any commission map force of law. That means the government of the day controls not only whether the commission map is debated, but whether it ever becomes law at all. Other Canadian jurisdictions take the opposite default: the commission's recommendations take effect unless the legislature affirmatively votes to override them.</p>
-
-    <p>What the government did in April 2026 has no recorded precedent in post-Confederation redistricting: it allowed a completed, published commission process to conclude — both majority and minority reports filed — and then referred the redistricting task to a five-member committee of MLAs whose majority (three of five) is held by the governing party, without bringing either commission report to a vote. The Lunty committee is not a commission. It has no statutory independence from the government's legislative direction. Its three-member UCP majority mirrors the government's control of the legislature. No other Canadian province has transferred redistricting authority, mid-cycle, to a government-controlled legislative committee after an independent commission had completed its work.</p>
-
-    <h3>The Constitutional Framework</h3>
-
-    <p>Section 3 of the <em>Charter of Rights and Freedoms</em> — "Every citizen of Canada has the right to vote in an election of members of the House of Commons or of a legislative assembly" — has been interpreted by the Supreme Court of Canada to guarantee not merely the act of casting a ballot but <em>effective representation</em>. The leading authority is <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em> [1991] 2 SCR 158, in which McLachlin J. (as she then was) wrote for the majority that the purpose of s.3 "is not equality of voting power per se, but the right to effective representation." Population parity is the primary consideration; departures are permitted when justified by community of interest, geography, history, or minority-representation objectives.</p>
-
-    <p>The Saskatchewan framework does not categorically prohibit partisan considerations in redistricting. What it establishes is that boundary maps must, on the whole, provide effective representation to voters — and that systematic impairment of one identifiable group's ability to elect proportionate representation is the pattern that s.3 challenges target. The audit's statistical and structural findings — the minority map's position at the 99.99th percentile of 1,010,000 neutral draws, its crossing of all five structural thresholds, the identified communities affected — are the evidentiary record a s.3 applicant would need to assemble. Whether that record meets the constitutional threshold is a legal question this audit does not decide; the audit reports the measurement.</p>
-
-    <p>The committee's legality as a process is a separate question. Alberta's <em>Electoral Boundaries Commission Act</em> does not expressly prohibit the legislature from constituting a parallel redistricting body, because the Act contemplates that the legislature will enact the final boundaries through ordinary legislation regardless. Whether the committee process, if it produces a map with the structural and statistical profile of the minority proposal, could survive a s.3 Charter challenge turns on whether effective representation is achievable under the resulting boundaries — the same test that would apply to any commission-produced map.</p>
-
-    <h3>The Quebec Contrast</h3>
-
-    <p>Quebec offers the comparison most relevant to Alberta's situation. Quebec's Commission de la représentation électorale (CRE) is a permanent, independent electoral boundaries body, not an ad hoc commission constituted per redistribution cycle. The CRE operates continuously and cannot be dissolved or bypassed by cabinet action. Under Quebec's <em>Loi électorale</em>, the National Assembly must adopt the CRE's recommendations unless it votes to deviate — and deviations require a two-thirds majority of all members of the Assembly, not a bare legislative majority. The practical effect is that a governing party cannot, acting alone with its own majority, substitute its preferred map for the commission's. Cross-party agreement is constitutionally required to override the independent body's judgment.</p>
-
-    <p>Quebec's model emerged partly from lessons about what happens when redistricting is not insulated from partisan control. The contrast with Alberta's current process — where a majority-controlled committee has replaced the commission's work before the legislature has voted on either commission report — illustrates the structural difference between redistricting systems that assume partisan pressure and design against it, versus systems where that pressure has a clearer path to the outcome.</p>
-
-    <p>The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change.</p>
+    <h3>The verdict</h3>
 
     <p>The audit's central finding is geometric. <strong>Lane 2 — the structural-irregularity scorecard — is the foundation; Lane 1 is the proof that the geometry is doing partisan work.</strong></p>
 
@@ -585,9 +560,42 @@
       </table>
     </div>
 
-    <p><strong>Why Lane 2 carries the case.</strong> The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. The minority crosses every one; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup> (pre-registered Fisher combined test — a method that combines four independent test results into a single probability by multiplying their individual tail probabilities; the combined figure is far smaller than any single test's because all four point the same direction; OSF <a href="https://osf.io/6pt83" rel="noopener">6pt83</a>). The question of whether Lane 2's unusual geometry is the specific <em>mechanism</em> behind the Lane 1 numbers was tested and the answer is no — see <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. The Swing-Zone Allocation Test shows the contested boundary choices are partisan-skewed, but the tested question was whether the boundary shapes themselves — the lasso corridor, the park extension — are the direct cause of the seat swing; they are not. The seat effect comes from how redrawn Voting Area assignments shift vote efficiency across districts, not from the shapes per se. Both lanes flag the minority map; they reach that conclusion through independent instruments. Lane 2 is the central finding. Lane 1 corroborates without carrying.</p>
+    <details style="margin:1rem 0; padding:0.8rem 1rem; background:#f8f8f8; border:1px solid #e0e0e0; border-radius:4px;">
+      <summary style="cursor:pointer; font-weight:600; color:#333;">Why Lane 2 carries the case — technical detail</summary>
+      <p style="margin:0.7rem 0 0;">The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. The minority crosses every one; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup> (pre-registered Fisher combined test — a method that combines four independent test results into a single probability by multiplying their individual tail probabilities; the combined figure is far smaller than any single test's because all four point the same direction; OSF <a href="https://osf.io/6pt83" rel="noopener">6pt83</a>). The question of whether Lane 2's unusual geometry is the specific <em>mechanism</em> behind the Lane 1 numbers was tested and the answer is no — see <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. The Swing-Zone Allocation Test shows the contested boundary choices are partisan-skewed, but the tested question was whether the boundary shapes themselves — the lasso corridor, the park extension — are the direct cause of the seat swing; they are not. The seat effect comes from how redrawn Voting Area assignments shift vote efficiency across districts, not from the shapes per se. Both lanes flag the minority map; they reach that conclusion through independent instruments. Lane 2 is the central finding. Lane 1 corroborates without carrying.</p>
+    </details>
+  </section>
 
+  <section id="section-7">
+    <h2>7: What Happens in November</h2>
 
+    <div class="callout" style="background:#F5F5F5; border-left-color:#888; font-size:0.95rem;">
+      <p style="margin:0;"><strong>CONTEXT</strong> — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in §3–§6 above.</p>
+    </div>
+
+    <p>Neither commission map is in force. The government set both aside in April 2026 and referred redistricting to the Lunty committee. That committee — five MLAs, three from the governing UCP — is expected to release its proposed boundaries in November 2026. When it does, this audit will apply the same methodology to evaluate it.</p>
+
+    <h3>Why the Committee Is Anomalous</h3>
+
+    <p>Canadian redistricting practice has, since the 1960s, settled on a single model: an independent commission, insulated from government direction, produces boundary recommendations; the legislature may debate them but cannot easily override them without a formal legislative vote. Alberta's statutory process under the <em>Electoral Boundaries Commission Act</em> follows this template — but with one structural difference from most provinces: Alberta's commission report has no automatic legal effect. Under the Act, a separate Electoral Districts Act must be passed by the legislature to give any commission map force of law. That means the government of the day controls not only whether the commission map is debated, but whether it ever becomes law at all. Other Canadian jurisdictions take the opposite default: the commission's recommendations take effect unless the legislature affirmatively votes to override them.</p>
+
+    <p>What the government did in April 2026 has no recorded precedent in post-Confederation redistricting: it allowed a completed, published commission process to conclude — both majority and minority reports filed — and then referred the redistricting task to a five-member committee of MLAs whose majority (three of five) is held by the governing party, without bringing either commission report to a vote. The Lunty committee is not a commission. It has no statutory independence from the government's legislative direction. Its three-member UCP majority mirrors the government's control of the legislature. No other Canadian province has transferred redistricting authority, mid-cycle, to a government-controlled legislative committee after an independent commission had completed its work.</p>
+
+    <h3>The Constitutional Framework</h3>
+
+    <p>Section 3 of the <em>Charter of Rights and Freedoms</em> — "Every citizen of Canada has the right to vote in an election of members of the House of Commons or of a legislative assembly" — has been interpreted by the Supreme Court of Canada to guarantee not merely the act of casting a ballot but <em>effective representation</em>. The leading authority is <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em> [1991] 2 SCR 158, in which McLachlin J. (as she then was) wrote for the majority that the purpose of s.3 "is not equality of voting power per se, but the right to effective representation." Population parity is the primary consideration; departures are permitted when justified by community of interest, geography, history, or minority-representation objectives.</p>
+
+    <p>The Saskatchewan framework does not categorically prohibit partisan considerations in redistricting. What it establishes is that boundary maps must, on the whole, provide effective representation to voters — and that systematic impairment of one identifiable group's ability to elect proportionate representation is the pattern that s.3 challenges target. The audit's statistical and structural findings — the minority map's position at the 99.99th percentile of 1,010,000 neutral draws, its crossing of all five structural thresholds, the identified communities affected — are the evidentiary record a s.3 applicant would need to assemble. Whether that record meets the constitutional threshold is a legal question this audit does not decide; the audit reports the measurement.</p>
+
+    <p>The committee's legality as a process is a separate question. Alberta's <em>Electoral Boundaries Commission Act</em> does not expressly prohibit the legislature from constituting a parallel redistricting body, because the Act contemplates that the legislature will enact the final boundaries through ordinary legislation regardless. Whether the committee process, if it produces a map with the structural and statistical profile of the minority proposal, could survive a s.3 Charter challenge turns on whether effective representation is achievable under the resulting boundaries — the same test that would apply to any commission-produced map.</p>
+
+    <h3>The Quebec Contrast</h3>
+
+    <p>Quebec offers the comparison most relevant to Alberta's situation. Quebec's Commission de la représentation électorale (CRE) is a permanent, independent electoral boundaries body, not an ad hoc commission constituted per redistribution cycle. The CRE operates continuously and cannot be dissolved or bypassed by cabinet action. Under Quebec's <em>Loi électorale</em>, the National Assembly must adopt the CRE's recommendations unless it votes to deviate — and deviations require a two-thirds majority of all members of the Assembly, not a bare legislative majority. The practical effect is that a governing party cannot, acting alone with its own majority, substitute its preferred map for the commission's. Cross-party agreement is constitutionally required to override the independent body's judgment.</p>
+
+    <p>Quebec's model emerged partly from lessons about what happens when redistricting is not insulated from partisan control. The contrast with Alberta's current process — where a majority-controlled committee has replaced the commission's work before the legislature has voted on either commission report — illustrates the structural difference between redistricting systems that assume partisan pressure and design against it, versus systems where that pressure has a clearer path to the outcome.</p>
+
+    <p>The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change.</p>
   </section>
 
   <section id="section-8">
@@ -595,7 +603,7 @@
 
     <p>This audit ran into two data problems that have nothing to do with the commission and everything to do with how Alberta's electoral system is designed. Both are fixable.</p>
 
-    <p><strong>Elections Alberta already has the data to tell us where advance voters live — it just doesn't publish it.</strong> About half of all Alberta votes are now cast before election day — advance polls, mobile polls, special ballots. Elections Alberta reports these results as totals for each electoral division, not by specific Voting Area. That means roughly 395,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood on a map. They are counted; they just can't be located. This is not a technical problem. Every advance voter is checked against a voters list before receiving their ballot, and that list links each voter to their specific Voting Area. The information exists at the moment of voting. Elections Alberta simply does not retain or publish that link in its results. No change to the voting process is required — only a change to what EA reports from data it already holds.</p>
+    <p><strong>Elections Alberta already has the data to tell us where advance voters live — it just doesn't publish it.</strong> About half of all Alberta votes are now cast before election day — advance polls, mobile polls, special ballots. Elections Alberta reports these results as totals for each electoral division, not by specific Voting Area. That means roughly 395,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood on a map. They are counted; they just can't be located. This is not a technical problem. Every advance voter is checked against a voters list before receiving their ballot, and that list links each voter to their specific Voting Area. The information exists at the moment of voting. Elections Alberta simply does not publish that link in its results. No change to the voting process is required — only a change to what EA reports from data it already holds.</p>
 
     <p>This affects the commissioners too, not just outside analysts. When a commission decides whether to keep Airdrie whole or split it, whether a corridor between two communities makes sense, whether a proposed boundary divides a natural constituency — those are judgments that depend on knowing where voters live. Commissioners work from the same published dataset as everyone else. Half the geographic signal about the communities they are drawing boundaries around is missing for them as well.</p>
 
@@ -740,6 +748,8 @@
 
 </div><!-- /.container -->
 
+<a href="#" id="back-top" aria-label="Back to top">↑</a>
+
 <!-- Figure lightbox -->
 <div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view">
   <img id="fig-lightbox-img" alt="">
@@ -823,14 +833,15 @@
 <div id="map-intro-modal" style="display:none;">
   <div id="map-intro-inner">
     <h3>How to use the map</h3>
+    <p style="margin:0 0 0.7rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Vote</strong> to colour each area by 2023 results, then click <strong>Min → Maj</strong> to watch the boundaries shift while the voters stay still.</p>
     <ul>
       <li><strong>Min / Maj / 2019</strong> &mdash; switch which commission map you&rsquo;re viewing as the primary layer</li>
       <li><strong>Vote</strong> &mdash; show 2023 election results as partisan colour in each district</li>
-      <li><strong>EG</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured (exclusive with Vote)</li>
       <li><strong>Fill</strong> &mdash; colour districts by their assigned boundaries</li>
       <li><strong>Lines</strong> &mdash; show or hide district boundary edges</li>
       <li><strong>Lock</strong> &mdash; prevent the map from auto-panning when you click a district</li>
       <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
+      <li><strong>EG</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured (exclusive with Vote)</li>
     </ul>
     <p><strong>Try this:</strong> In §4 below, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone, then click any highlighted district to see its vote data and compare across all three maps.</p>
     <button id="map-intro-close">Got it</button>
@@ -1385,4 +1396,19 @@
     box-shadow: 0 0 60px rgba(0,0,0,0.6);
     cursor: zoom-out;
   }
+
+  /* Back-to-top button */
+  #back-top {
+    position: fixed; bottom: 1.6rem; right: 1.4rem;
+    width: 2.6rem; height: 2.6rem;
+    background: #6B35A7; color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; text-decoration: none;
+    opacity: 0.72; transition: opacity 0.2s;
+    z-index: 200;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  #back-top:hover { opacity: 1; }
+  @media (max-width: 600px) { #back-top { bottom: 1rem; right: 0.8rem; } }
 </style>
