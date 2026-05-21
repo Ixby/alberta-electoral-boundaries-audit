@@ -95,31 +95,17 @@ CRS_PLOT = 3401  # NAD83 / Alberta 10-TM Forest, metres
 
 # ---------------------------------------------------------------------------
 # Palette & typography
-#
-# Warm (orange/ochre) for the majority proposal, cool (teal/slate) for the
-# minority, neutral ivory for background. Rural carve segments get a
-# distinct earthy tone so the reader sees "this slice belongs to something
-# that is not the city."
+
+from palette import (
+    MAJORITY_SEGMENT_COLORS,
+    MINORITY_SEGMENT_COLORS,
+)
 
 COLOR_BG = "#faf6ee"  # ivory page
 COLOR_INK = "#141414"  # near-black
 COLOR_INK_SOFT = "#3a3a3a"  # body
 COLOR_GREY_MUTED = "#8a8a8a"  # credit line
 
-# Majority = teal family (source of truth: palette.py MAJORITY_SEGMENT_COLORS)
-MAJORITY_SEGMENT_COLORS = (
-    "#1A7A6E",  # primary teal
-    "#2EA594",  # lighter teal
-    "#115249",  # deep teal
-    "#5CBDB0",  # pale teal
-)
-# Minority = purple family (source of truth: palette.py MINORITY_SEGMENT_COLORS)
-MINORITY_SEGMENT_COLORS = (
-    "#6B35A7",  # primary purple
-    "#8F55C9",  # lighter purple
-    "#4D2080",  # deep purple
-    "#B48CD9",  # pale purple
-)
 # Rural-carve colour for segments whose primary population is outside the
 # city - visually distinct from both palette families.
 COLOR_RURAL = "#8b5a2b"  # muted umber

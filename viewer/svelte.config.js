@@ -22,7 +22,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: process.env.VITE_BASE ?? '/alberta-electoral-boundaries-audit'
+			base: process.env.VITE_BASE ?? ''
 		}
 	}
 };
