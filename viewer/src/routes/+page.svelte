@@ -39,6 +39,9 @@
 <div class="container">
 
   <div style="padding: 1.5rem 0 0.5rem;">
+    <div class="callout" style="background:#F0EBF8; border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
+      <p style="margin:0;"><strong>Bottom line:</strong> The commission&rsquo;s minority map would occur by chance in fewer than 1&nbsp;in&nbsp;14.5&nbsp;million randomly drawn maps. The majority map falls well within normal range.</p>
+    </div>
     <div class="callout" style="background: #D0EEEA; border-left-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
       <p style="margin:0 0 0.6rem;"><strong>TL;DR</strong></p>
       <p style="margin:0 0 0.6rem;">Alberta's redistribution commission split 3&ndash;2 in 2026 and produced two different proposed maps. The government set both aside and assigned redistricting to a five-member committee of MLAs (the Lunty committee), expected to report in November 2026. Neither commission map is law.</p>
@@ -67,12 +70,17 @@
     <p><strong>The process is its own finding, separate from the maps.</strong></p>
   </section>
 
+  <div class="callout" style="background:#EAF3FF; border-left-color:#2B5BA1; margin:0.5rem 0 1rem;">
+    <p style="margin:0 0 0.4rem;"><strong>Structural audit results — before any statistics:</strong></p>
+    <p style="margin:0;">The majority map crosses <strong>zero of five</strong> pre-registered structural thresholds. The minority map crosses <strong>all five</strong>. These are geometric measurements — population spread, <abbr title="how closely a district's borders follow pre-existing city and municipal limits, rather than cutting through them">municipal anchoring</abbr>, Airdrie split count, NW Calgary population excess, and chair-flagged boundary anomalies — that require no election data and no statistical sampler. The next section tests both maps against 1,010,000 computer-generated neutral maps and reaches the same conclusion through a completely different instrument.</p>
+  </div>
+
   <section id="section-3">
     <h2>3: The 1,010,000-Map Litmus Test</h2>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane1_dotplot.svg" alt="Dot plot showing where each commission map sits in the distribution of 1,010,000 neutral Alberta maps. The majority map sits near the centre at +0.1%. The minority map sits at +4.0%, near the far right tail." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">How skewed each commission proposal looks on the partisan-fairness number. The majority proposal sits at +0.1% — inside the normal range. The minority proposal sits at +4.0%, just below the Alberta line at ~4.1%. The further right the dot, the more the proposal favours the UCP relative to its provincial vote share.</figcaption>
+      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+4.0%), in the shaded right tail. The majority map (teal line) sits at +0.1%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
+      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">Distribution of <abbr title="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP">efficiency gaps</abbr> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +4.0% sits at the 94th <abbr title="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this">percentile</abbr> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.1% is indistinguishable from what a neutral process typically produces.</figcaption>
     </figure>
 
     <p>The table compares the two maps. The first five rows use no election results — they're properties of the lines themselves. The last two depend on how votes were attributed to each district.</p>
@@ -395,6 +403,15 @@
 
     <p>The official shapefiles reveal a map that is statistically extreme in the same partisan direction on all four measures at once. The joint probability of a neutral drawing process producing a map this extreme across all four measures simultaneously is roughly one in 15 million (p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, <a href="https://osf.io/6pt83" rel="noopener">pre-registered Fisher combined test</a>). That is not a rounding error or a measurement artefact — it is the same answer from four independent statistical instruments read in the same room.</p>
 
+    <details style="margin:0.8rem 0 1rem; border-left:3px solid #bbb; padding:0.4rem 0 0.4rem 0.9rem;">
+      <summary style="cursor:pointer; font-weight:600; color:#444; font-size:0.93rem; user-select:none;">What this p-value means — and what it doesn&rsquo;t</summary>
+      <div style="margin-top:0.6rem; font-size:0.92rem; line-height:1.6; color:#333;">
+        <p style="margin:0 0 0.5rem;">A p-value answers one question: if the map were drawn by a neutral process, how often would we see a result this extreme or more extreme? At p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, the answer is about once in 14.5 million trials.</p>
+        <p style="margin:0 0 0.5rem;">This is a frequentist hypothesis test, not a measurement of intent. It does not say the commission intended to gerrymander, and it does not quantify how unfair the map is in practical terms. It says the boundary pattern is statistically inconsistent with a neutral drawing process — the same conclusion a randomized audit would reach regardless of who drew the map or why.</p>
+        <p style="margin:0;">The test was pre-registered before the data were analyzed (<a href="https://osf.io/w2s8k" rel="noopener">OSF registration w2s8k</a>). The pre-registration specifies the null hypothesis, the metrics, and the rejection threshold in advance, so the result cannot be attributed to choosing a favorable framing after seeing the numbers.</p>
+      </div>
+    </details>
+
     <div class="callout">
       <p><strong>SWING-ZONE ALLOCATION TEST (SZAT)</strong></p>
       <p>SZAT is the audit's second independent test, and it asks a different question from the simulation: not "is this map extreme overall?" but "are the specific line choices partisan-neutral?" It works by isolating only the Voting Areas where the minority's map differs from the majority's — the contested re-draws — and testing whether those particular choices, taken together, shift vote efficiency in one party's direction. Because it compares only the points of departure, it automatically controls for everything the two maps share: the same geography, population targets, and statutory rules. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Technical details and bootstrap results &rarr;</a></p>
@@ -656,6 +673,8 @@
     </div>
     <div class="tb-sep"></div>
     <button class="tb-btn" data-layer="lock">Lock</button>
+    <div class="tb-sep"></div>
+    <button class="tb-btn" data-anomaly="airdrie">Anomaly</button>
   </div>
   <div id="zoom-stage">
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
@@ -698,6 +717,23 @@
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
   </div>
 </footer>
+
+<!-- Map onboarding modal — shown once per session via sessionStorage; logic in mapEngine.ts -->
+<div id="map-intro-modal" style="display:none;">
+  <div id="map-intro-inner">
+    <h3>How to use the map</h3>
+    <ul>
+      <li><strong>Min / Maj / 2019</strong> &mdash; switch which commission map you&rsquo;re viewing as the primary layer</li>
+      <li><strong>Vote</strong> &mdash; show 2023 election results as partisan colour in each district</li>
+      <li><strong>Fill</strong> &mdash; colour districts by their assigned boundaries</li>
+      <li><strong>Lines</strong> &mdash; show or hide district boundary edges</li>
+      <li><strong>Lock</strong> &mdash; prevent the map from auto-panning when you click a district</li>
+      <li><strong>Anomaly</strong> &mdash; highlight the four Airdrie districts and the NW Calgary zone the audit flagged as structurally unusual</li>
+    </ul>
+    <p><strong>Try this:</strong> Click <em>Anomaly</em> to highlight the boundary anomalies, then click any highlighted district to see its vote data and how it compares across all three maps.</p>
+    <button id="map-intro-close">Got it</button>
+  </div>
+</div>
 
 <style>
   :global {
@@ -1107,5 +1143,47 @@
   }
   .ec-cmp-val { color: rgba(255,255,255,0.7); font-variant-numeric: tabular-nums; }
   .ec-cmp-unique { color: rgba(255,180,60,0.75); font-style: italic; font-size: 0.68rem; }
+
+  /* Anomaly button */
+  .tb-btn[data-anomaly].tb-layer-on {
+    background: rgba(255,140,0,0.15);
+    border-color: rgba(255,165,0,0.55);
+    color: rgba(255,180,30,0.95);
+  }
+
+  /* Map onboarding modal */
+  #map-intro-modal {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.58);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+  }
+  #map-intro-inner {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 430px;
+    width: 90%;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 28px rgba(0,0,0,0.55);
+  }
+  #map-intro-inner h3 { margin: 0 0 0.8rem; font-size: 1.1rem; color: #fff; }
+  #map-intro-inner ul { margin: 0 0 0.8rem; padding-left: 1.2rem; }
+  #map-intro-inner li { margin-bottom: 0.4rem; }
+  #map-intro-inner p { margin: 0 0 1rem; }
+  #map-intro-close {
+    background: #6B35A7;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  #map-intro-close:hover { background: #7f46c0; }
   }
 </style>

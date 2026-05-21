@@ -194,6 +194,7 @@ export function init(basePath: string): void {
           ready = true;
           _applyBoundaryColor(node, _mapPrimary);
           _reapplyLayers();
+          if (typeof _applyAnomalyHighlight === 'function') _applyAnomalyHighlight();
           _syncOverlays();
           if (overlay.style.display !== 'none') {
             if (preserveVB) {
@@ -827,5 +828,50 @@ export function init(basePath: string): void {
           if (!ready) return;
           if (mode === 'viewbox') _animateToVB({ ...natVB }, 280); else resetFallback();
         });
+
+        // ── Anomaly highlight ─────────────────────────────────────────────────────
+        // Airdrie four-way split: ids 1, 13, 20, 51. NW Calgary anomaly zone: id 23.
+        const _anomalyIds = new Set([1, 13, 20, 51, 23]);
+        let   _anomalyOn  = false;
+
+        function _applyAnomalyHighlight() {
+          if (!svgEl) return;
+          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(p => {
+            const id = parseInt(p.getAttribute('data-ed-id'), 10);
+            if (_anomalyOn) {
+              p.style.fill = _anomalyIds.has(id)
+                ? 'rgba(255,140,0,0.38)'
+                : 'rgba(0,0,0,0.22)';
+            } else {
+              p.style.fill = 'none';
+            }
+          });
+        }
+
+        document.querySelectorAll('.tb-btn[data-anomaly]').forEach(function(b) {
+          b.addEventListener('click', function() {
+            _anomalyOn = !_anomalyOn;
+            b.classList.toggle('tb-layer-on', _anomalyOn);
+            _applyAnomalyHighlight();
+          });
+        });
+
+        // ── Map onboarding modal ──────────────────────────────────────────────────
+        (function() {
+          const modal    = document.getElementById('map-intro-modal');
+          const closeBtn = document.getElementById('map-intro-close');
+          if (!modal || !closeBtn) return;
+          if (!sessionStorage.getItem('map-intro-seen')) {
+            modal.style.display = 'flex';
+          }
+          function _closeModal() {
+            sessionStorage.setItem('map-intro-seen', '1');
+            modal.style.display = 'none';
+          }
+          closeBtn.addEventListener('click', _closeModal);
+          modal.addEventListener('click', e => { if (e.target === modal) _closeModal(); });
+          document.addEventListener('keydown', e => { if (e.key === 'Escape') _closeModal(); });
+        })();
+
       })();
 }

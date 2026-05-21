@@ -3,10 +3,10 @@ v0_1_article_figures.py
 
 Generate the inline figures the magazine article embeds:
 
-  1. lane1_dotplot.svg    — Lane 1 EG before/after dot plot. Four dots:
-     Majority partial (-1.29%), Majority full (+6.43%), Minority partial
-     (-2.71%), Minority full (+9.21%), arrows showing the partial→full
-     shift, vertical line at the ensemble p95 (4.37%).
+  1. lane1_dotplot.svg    — Lane 1 EG histogram: 250,000 neutral-ensemble
+     maps shown as bars, right tail (p90+) shaded in red. Vertical lines
+     for Minority 2026 (+4.02%, p94), Majority 2026 (+0.10%, p15), and
+     2019 enacted (+2.41%, p69). p95 reference line dashed.
   2. lane2_bars.svg       — Lane 2 horizontal bar chart of structural
      irregularities, one row per test, magnitude relative to comparator
      norm; majority + minority side by side; norm band shaded.
@@ -81,121 +81,77 @@ plt.rcParams.update(
 
 
 def build_lane1_dotplot() -> Path:
-    """Lane 1 EG dot plot — canonical official EA shapefile values against two reference
-    lines: the audit's Alberta-calibrated p95 (~4.1%) and the US gerrymander signal line (7%)."""
-    fig, ax = plt.subplots(figsize=(6.4, 3.0), dpi=300)
+    """Lane 1 EG histogram — 250k neutral-ensemble maps with real-map lines overlaid."""
+    import pandas as _pd
+    import matplotlib.transforms as _mtrans
+    from matplotlib.colors import to_rgba
 
-    # canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
-    alberta_line = 4.11  # ensemble p95 from simulated_ensemble_percentiles_canonical.csv (0.041086)
-    us_line = 7.00
-    # (row_label, value, color, val_label_x_offset, val_label_ha)
-    # Minority dot sits at 4.02 — only 0.09 from the Alberta threshold line at 4.11.
-    # Offset its value label left so it doesn't land on the vertical rule.
-    rows = [
-        ("Majority 2026", 0.10, MAJORITY_TEAL,   0.00, "center"),
-        ("Minority 2026", 4.02, MINORITY_PURPLE, -0.28, "right"),
+    samples_path = ROOT / "data" / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"
+    eg_pct = _pd.read_csv(samples_path, usecols=["efficiency_gap"])["efficiency_gap"].values * 100
+
+    # Verified from simulation_real_map_scores_canonical.json and
+    # simulated_ensemble_percentiles_canonical.csv
+    minority_eg = 4.02   # p94.4 of neutral ensemble
+    majority_eg = 0.10   # p15.5
+    enacted_eg  = 2.41   # p69.0, 2019 enacted baseline
+    p95_val     = 4.10   # ensemble p95
+
+    fig, ax = plt.subplots(figsize=(6.4, 3.4), dpi=300)
+
+    counts, edges = np.histogram(eg_pct, bins=80)
+    centers = (edges[:-1] + edges[1:]) / 2
+    widths  = edges[1:]  - edges[:-1]
+
+    p90_val = float(np.percentile(eg_pct, 90))
+    bar_colors = [
+        to_rgba(THRESHOLD_RED, 0.28) if c >= p90_val else to_rgba(RULE_GREY, 0.55)
+        for c in centers
     ]
+    ax.bar(centers, counts, width=widths, color=bar_colors, linewidth=0)
 
-    y_positions = [1, 0]
-    for (label, full, color, val_x_off, val_ha), y in zip(rows, y_positions):
-        ax.plot(
-            full,
-            y,
-            "o",
-            markersize=12,
-            color=color,
-            markeredgecolor=TEXT_DARK,
-            markeredgewidth=0.6,
-            zorder=4,
-        )
-        ax.text(
-            -4.5,
-            y,
-            label,
-            ha="left",
-            va="center",
-            fontsize=9,
-            color=TEXT_DARK,
-            fontweight="bold",
-        )
-        ax.text(
-            full + val_x_off,
-            y - 0.34,
-            f"{full:+.2f}%",
-            ha=val_ha,
-            va="top",
-            fontsize=8,
-            color=TEXT_DARK,
-            fontweight="bold",
-        )
+    # Blended transform: x in data coords, y in axes fraction (0=bottom, 1=top)
+    bx = _mtrans.blended_transform_factory(ax.transData, ax.transAxes)
 
-    # Alberta-calibrated threshold line (ensemble p95)
-    ax.axvline(alberta_line, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=1)
-    ax.text(
-        alberta_line + 0.15,
-        1.85,
-        "Alberta line\n~4.1%",
-        color=THRESHOLD_RED,
-        fontsize=7,
-        fontweight="bold",
-        ha="left",
-        va="top",
-        linespacing=1.0,
-    )
+    # p95 dashed reference line
+    ax.axvline(p95_val, color=THRESHOLD_RED, lw=1.0, linestyle="--", zorder=2)
+    ax.text(p95_val + 0.12, 0.97, "p95\n4.1%",
+            color=THRESHOLD_RED, fontsize=6.5, fontweight="bold",
+            ha="left", va="top", transform=bx)
 
-    # US gerrymander signal line — Whitford v. Gill literature reference (7%)
-    ax.axvline(us_line, color="#888888", lw=0.9, linestyle=":", zorder=1)
-    ax.text(
-        us_line + 0.15,
-        1.85,
-        "US gerrymander\nsignal line\n7%",
-        color="#666666",
-        fontsize=7,
-        fontweight="bold",
-        ha="left",
-        va="top",
-        linespacing=1.0,
-    )
+    # Real-map vertical lines
+    ax.axvline(minority_eg, color=MINORITY_PURPLE, lw=2.0, zorder=5)
+    ax.axvline(majority_eg, color=MAJORITY_TEAL,   lw=2.0, zorder=5)
+    ax.axvline(enacted_eg,  color=NEUTRAL_2019,    lw=1.3, linestyle="--", zorder=4)
 
-    # Zero line for reference
-    ax.axvline(0, color="#cccccc", lw=0.5, zorder=0)
+    # Labels — minority goes left of its line to clear the p95 label at 4.22
+    ax.text(minority_eg - 0.15, 0.97, "Minority 2026\n+4.02%, p94",
+            color=MINORITY_PURPLE, fontsize=6.5, fontweight="bold",
+            ha="right", va="top", transform=bx)
+    ax.text(majority_eg, 0.97, "Majority 2026\n+0.10%, p15",
+            color=MAJORITY_TEAL, fontsize=6.5, fontweight="bold",
+            ha="center", va="top", transform=bx)
+    ax.text(enacted_eg + 0.12, 0.97, "2019 enacted\n+2.41%, p69",
+            color=NEUTRAL_2019, fontsize=6.5, fontweight="bold",
+            ha="left", va="top", transform=bx)
 
-    # Tail labels
-    ax.text(
-        -4.8,
-        1.85,
-        "<- NDP-favoured",
-        color=NDP_ORANGE,
-        fontsize=7,
-        fontweight="bold",
-        ha="left",
-        va="top",
-    )
-    ax.text(
-        9.5,
-        1.85,
-        "UCP-favoured ->",
-        color=UCP_BLUE,
-        fontsize=7,
-        fontweight="bold",
-        ha="right",
-        va="top",
-    )
+    # Directional labels at top corners
+    ax.text(0.02, 0.99, "← NDP-favoured",
+            color=NDP_ORANGE, fontsize=7, fontweight="bold",
+            ha="left", va="top", transform=ax.transAxes)
+    ax.text(0.98, 0.99, "UCP-favoured →",
+            color=UCP_BLUE, fontsize=7, fontweight="bold",
+            ha="right", va="top", transform=ax.transAxes)
 
-    # Axes — tighter x-range: both dots are under 2%; reference lines at 4% and 7%
     ax.set_xlim(-5, 10)
-    ax.set_ylim(-0.7, 2.1)
-    ax.set_yticks([])
-    ax.set_xlabel(
-        "Efficiency gap (signed; positive = UCP-favoured)", fontsize=8, color="#444"
-    )
+    ax.set_xlabel("Efficiency gap (positive = UCP-favoured)", fontsize=8, color="#444")
+    ax.set_ylabel("Neutral maps", fontsize=8, color="#444")
     ax.set_xticks([-4, -2, 0, 2, 4, 6, 8])
     ax.set_xticklabels(["-4%", "-2%", "0%", "+2%", "+4%", "+6%", "+8%"])
-    ax.tick_params(axis="x", direction="out", length=3, pad=2)
+    ax.tick_params(axis="both", direction="out", length=3, pad=2)
 
-    fig.tight_layout(pad=0.3)
+    fig.tight_layout(pad=0.4)
     out = OUT / "lane1_dotplot.svg"
-    fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.04, facecolor="white")
+    fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.06, facecolor="white")
     plt.close(fig)
     return out
 
