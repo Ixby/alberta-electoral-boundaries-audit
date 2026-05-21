@@ -365,7 +365,15 @@ export function init(basePath: string): void {
           document.getElementById('ec-va-count').textContent = d.va_count ? d.va_count + ' voting areas' : '';
           const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
           document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
-          // Cross-map comparison
+          // Dynamic context label
+          const ctxEl = document.getElementById('ec-context');
+          if (ctxEl) {
+            const mapLabel = _mapPrimary === 'minority' ? '2026 minority proposal'
+                           : _mapPrimary === 'majority' ? '2026 majority proposal'
+                           : '2019 enacted map';
+            ctxEl.textContent = mapLabel + ' · 2023 election results';
+          }
+          // Cross-map comparison — show winner + loser pct for each other map
           const cmpEl = document.getElementById('ec-compare');
           if (cmpEl) {
             const others = ['minority', 'majority', '2019'].filter(k => k !== _mapPrimary);
@@ -373,10 +381,14 @@ export function init(basePath: string): void {
               const rec = _nameIndex[k] && _nameIndex[k][d.name];
               if (!rec) return null;
               const label = k === 'minority' ? 'Min.' : k === 'majority' ? 'Maj.' : '2019';
-              const w = rec.ucp_pct > rec.ndp_pct
-                ? '<span class="ec-cmp-val">UCP ' + rec.ucp_pct + '%</span>'
-                : '<span class="ec-cmp-val">NDP ' + rec.ndp_pct + '%</span>';
-              return '<span class="ec-cmp-item"><span class="ec-cmp-label">' + label + '</span>' + w + '</span>';
+              const ucpFirst = rec.ucp_pct >= rec.ndp_pct;
+              const winner = ucpFirst
+                ? '<span class="ec-cmp-val ec-cmp-ucp">UCP ' + rec.ucp_pct + '%</span>'
+                : '<span class="ec-cmp-val ec-cmp-ndp">NDP ' + rec.ndp_pct + '%</span>';
+              const loser = ucpFirst
+                ? '<span class="ec-cmp-second">NDP ' + rec.ndp_pct + '%</span>'
+                : '<span class="ec-cmp-second">UCP ' + rec.ucp_pct + '%</span>';
+              return '<span class="ec-cmp-item"><span class="ec-cmp-label">' + label + '</span>' + winner + '<span class="ec-cmp-sep">/</span>' + loser + '</span>';
             }).filter(Boolean);
             if (parts.length) {
               cmpEl.innerHTML = '<span class="ec-cmp-header">Other maps</span>' + parts.join('');
@@ -421,7 +433,7 @@ export function init(basePath: string): void {
         let   _mapPrimary = 'minority';
         const _svgCache   = {};
         const _overlayInSvg = {};
-        const _layerState = { vote: true, 'ed-fill': true, 'ed-lines': true };
+        const _layerState = { vote: true, 'ed-fill': true, 'ed-lines': true, eg: false };
         let   _mapLocked  = false;
 
         // ── Map-wide boundary color ───────────────────────────────────────────────
@@ -638,10 +650,48 @@ export function init(basePath: string): void {
             if (og) og.style.display = on ? '' : 'none';
           });
         }
+        // ── EG-contribution choropleth ────────────────────────────────────────────
+        // Per-ED efficiency gap contribution: (ucp_wasted - ndp_wasted) / provincial_votes.
+        // Positive = UCP-favoured (NDP wastes more in this district), blue tint.
+        // Negative = NDP-favoured (UCP wastes more), orange tint.
+        function _computeEGContribs() {
+          if (!_edHover) return {};
+          var recs = Object.values(_edHover);
+          var totalVotes = recs.reduce(function(s, r) { return s + (r.votes || 0); }, 0);
+          if (!totalVotes) return {};
+          var contribs = {};
+          recs.forEach(function(r) {
+            var ucp = r.ucp_votes || 0, ndp = r.ndp_votes || 0, tot = r.votes || (ucp + ndp);
+            var half = tot / 2;
+            var ucpWon = ucp > ndp;
+            var ucpWasted = ucpWon ? ucp - half : ucp;
+            var ndpWasted = !ucpWon ? ndp - half : ndp;
+            contribs[r.id] = (ucpWasted - ndpWasted) / totalVotes;
+          });
+          return contribs;
+        }
+        function _applyEGLayer(on) {
+          if (!svgEl) return;
+          var contribs = on ? _computeEGContribs() : {};
+          var vals = on ? Object.values(contribs).map(Math.abs) : [1];
+          var maxVal = vals.length ? Math.max.apply(null, vals) : 1;
+          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
+            if (!on) { p.style.fill = 'none'; return; }
+            var id = parseInt(p.getAttribute('data-ed-id'), 10);
+            var v = contribs[id] || 0;
+            var t = maxVal > 0 ? Math.min(Math.abs(v) / maxVal, 1) : 0;
+            var alpha = (0.12 + t * 0.58).toFixed(2);
+            p.style.fill = v >= 0
+              ? 'rgba(20,46,148,' + alpha + ')'    // UCP blue
+              : 'rgba(232,99,16,' + alpha + ')';   // NDP orange
+          });
+        }
+
         function _reapplyLayers() {
           _applyVoteLayer(_layerState.vote);
           _applyEdFillLayer(_layerState['ed-fill']);
           _applyEdLinesLayer(_layerState['ed-lines']);
+          if (_layerState.eg) _applyEGLayer(true);
         }
 
         document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
@@ -653,11 +703,22 @@ export function init(basePath: string): void {
               return;
             }
             var on = !_layerState[key];
+            // EG and Vote are mutually exclusive fill modes
+            if (key === 'eg' && on && _layerState.vote) {
+              _layerState.vote = false;
+              document.querySelector('.tb-btn[data-layer="vote"]').classList.remove('tb-layer-on');
+            }
+            if (key === 'vote' && on && _layerState.eg) {
+              _layerState.eg = false;
+              _applyEGLayer(false);
+              document.querySelector('.tb-btn[data-layer="eg"]').classList.remove('tb-layer-on');
+            }
             _layerState[key] = on;
             b.classList.toggle('tb-layer-on', on);
             if (key === 'vote')     _applyVoteLayer(on);
             if (key === 'ed-fill')  _applyEdFillLayer(on);
             if (key === 'ed-lines') _applyEdLinesLayer(on);
+            if (key === 'eg')       _applyEGLayer(on);
           });
         });
 
@@ -828,6 +889,52 @@ export function init(basePath: string): void {
           if (!ready) return;
           if (mode === 'viewbox') _animateToVB({ ...natVB }, 280); else resetFallback();
         });
+
+        // ── ED search ─────────────────────────────────────────────────────────────
+        (function() {
+          var searchInput   = document.getElementById('tb-search');
+          var searchResults = document.getElementById('tb-search-results');
+          if (!searchInput || !searchResults) return;
+
+          searchInput.addEventListener('input', function() {
+            var q = searchInput.value.trim().toLowerCase();
+            searchResults.innerHTML = '';
+            if (q.length < 2) { searchResults.style.display = 'none'; return; }
+            var idx = _nameIndex[_mapPrimary] || {};
+            var names = Object.keys(idx).filter(function(n) { return n.toLowerCase().indexOf(q) !== -1; }).slice(0, 8);
+            if (!names.length) { searchResults.style.display = 'none'; return; }
+            names.forEach(function(name) {
+              var li = document.createElement('li');
+              li.textContent = name;
+              li.addEventListener('mousedown', function(e) {
+                e.preventDefault(); // keep input focused
+                searchInput.value = '';
+                searchResults.style.display = 'none';
+                if (!svgEl || !_edHover) return;
+                var rec = idx[name];
+                if (!rec) return;
+                var path = svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
+                if (path) {
+                  _showCallout(rec);
+                  _setEdHighlight(path);
+                  if (!_mapLocked) _snapToED(path);
+                }
+              });
+              searchResults.appendChild(li);
+            });
+            searchResults.style.display = 'block';
+          });
+
+          document.addEventListener('click', function(e) {
+            if (e.target !== searchInput && e.target !== searchResults && !searchResults.contains(e.target)) {
+              searchResults.style.display = 'none';
+            }
+          });
+
+          searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { searchInput.value = ''; searchResults.style.display = 'none'; }
+          });
+        })();
 
         // ── Anomaly highlight ─────────────────────────────────────────────────────
         // Airdrie four-way split: ids 1, 13, 20, 51. NW Calgary anomaly zone: id 23.

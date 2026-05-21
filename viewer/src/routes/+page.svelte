@@ -667,7 +667,8 @@
     </div>
     <div class="tb-sep"></div>
     <div class="tb-group">
-      <button class="tb-btn tb-layer-on" data-layer="vote">Vote</button>
+      <button class="tb-btn tb-layer-on" data-layer="vote" title="2023 vote-share fill">Vote</button>
+      <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">EG</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-fill">Fill</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Lines</button>
     </div>
@@ -675,6 +676,11 @@
     <button class="tb-btn" data-layer="lock">Lock</button>
     <div class="tb-sep"></div>
     <button class="tb-btn" data-anomaly="airdrie">Anomaly</button>
+    <div class="tb-sep"></div>
+    <div id="tb-search-wrap">
+      <input id="tb-search" type="search" placeholder="Find district…" autocomplete="off" spellcheck="false">
+      <ul id="tb-search-results"></ul>
+    </div>
   </div>
   <div id="zoom-stage">
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
@@ -725,6 +731,7 @@
     <ul>
       <li><strong>Min / Maj / 2019</strong> &mdash; switch which commission map you&rsquo;re viewing as the primary layer</li>
       <li><strong>Vote</strong> &mdash; show 2023 election results as partisan colour in each district</li>
+      <li><strong>EG</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured (exclusive with Vote)</li>
       <li><strong>Fill</strong> &mdash; colour districts by their assigned boundaries</li>
       <li><strong>Lines</strong> &mdash; show or hide district boundary edges</li>
       <li><strong>Lock</strong> &mdash; prevent the map from auto-panning when you click a district</li>
@@ -1150,6 +1157,62 @@
     border-color: rgba(255,165,0,0.55);
     color: rgba(255,180,30,0.95);
   }
+
+  /* EG choropleth button — same pattern as lock amber but green-teal for distinction */
+  .tb-btn[data-layer="eg"].tb-layer-on {
+    background: rgba(0,200,160,0.12);
+    border-color: rgba(0,200,160,0.45);
+    color: rgba(80,230,200,0.95);
+  }
+
+  /* Cross-map comparison — coloured party values */
+  .ec-cmp-ucp { color: rgba(120,150,255,0.9); }
+  .ec-cmp-ndp { color: rgba(255,160,80,0.9); }
+  .ec-cmp-sep { color: rgba(255,255,255,0.25); font-size: 0.65rem; margin: 0 1px; }
+  .ec-cmp-second { color: rgba(255,255,255,0.38); font-size: 0.67rem; font-variant-numeric: tabular-nums; }
+
+  /* ED search in top bar */
+  #tb-search-wrap { position: relative; display: flex; align-items: center; }
+  #tb-search {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.85);
+    border-radius: 4px;
+    padding: 0.18rem 0.5rem;
+    font-size: 0.76rem;
+    width: 138px;
+    outline: none;
+    font-family: inherit;
+  }
+  #tb-search:focus { border-color: rgba(255,255,255,0.38); }
+  #tb-search::placeholder { color: rgba(255,255,255,0.32); }
+  #tb-search::-webkit-search-cancel-button { opacity: 0.4; cursor: pointer; }
+  #tb-search-results {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    min-width: 210px;
+    background: #1a1a2e;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 5px;
+    list-style: none;
+    margin: 0; padding: 0.25rem 0;
+    z-index: 300;
+    max-height: 240px;
+    overflow-y: auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  }
+  #tb-search-results li {
+    padding: 0.32rem 0.75rem;
+    color: rgba(255,255,255,0.78);
+    font-size: 0.78rem;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #tb-search-results li:hover { background: rgba(255,255,255,0.08); }
 
   /* Map onboarding modal */
   #map-intro-modal {
