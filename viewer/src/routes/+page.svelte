@@ -46,12 +46,13 @@
       <p class="cover-note" style="margin-top:0.55rem;">Try locking the viewport and flipping between maps &mdash; watch a boundary shift while the voters underneath stay still. That&rsquo;s the whole question in one gesture.</p>
       <p class="cover-note" style="margin-top:0.55rem;">When you&rsquo;re done exploring, scroll down for the summary. For the full technical analysis, see the Resources section. All data is official Elections Alberta shapefiles and other government and open-source records.</p>
     </div>
-    <a href="#" id="zoom-trigger" title="Click to open interactive map" aria-label="Open interactive map">
+    <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map">
       <div class="hero-map-wrap">
         <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager">
+        <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="">
         <div class="hero-map-hint">Click to explore interactively</div>
       </div>
-    </a>
+    </button>
   </div>
 </header>
 
@@ -924,21 +925,22 @@
       color: rgba(255,255,255,0.85);
     }
 
+    .hero-map-btn {
+      background: none; border: none; padding: 0;
+      flex-shrink: 0; cursor: zoom-in;
+      display: block;
+    }
     .hero-map-wrap {
       position: relative;
-      flex-shrink: 0;
       display: inline-block;
-      border-radius: 6px;
-      outline: 2.5px solid rgba(212,175,55,0.75);
-      box-shadow: 0 0 0 4px rgba(212,175,55,0.18), 0 0 20px rgba(212,175,55,0.12);
-      animation: hero-pulse 2.8s ease-in-out infinite;
-      cursor: zoom-in;
     }
-    @keyframes hero-pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(212,175,55,0.20), 0 0 16px rgba(212,175,55,0.10); }
-      50%       { box-shadow: 0 0 0 7px rgba(212,175,55,0.35), 0 0 32px rgba(212,175,55,0.22); }
+    .province-border-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
-    .hero-map-wrap:hover { animation: none; box-shadow: 0 0 0 5px rgba(212,175,55,0.55), 0 0 28px rgba(212,175,55,0.30); }
     .hero-map-hint {
       position: absolute;
       bottom: 0.7rem;
