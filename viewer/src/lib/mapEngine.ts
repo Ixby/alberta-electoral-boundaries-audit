@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿﻿﻿﻿﻿﻿﻿// @ts-nocheck
 
 export function init(basePath: string): void {
     // Pre-fetch all three hover datasets so cross-map comparison is available
@@ -192,6 +192,7 @@ export function init(basePath: string): void {
           svgEl = node;
           mode = 'viewbox';
           ready = true;
+          var skel = document.getElementById('zoom-skeleton'); if (skel) skel.classList.add('hidden');
           _applyBoundaryColor(node, _mapPrimary);
           _reapplyLayers();
           if (typeof _applyAnomalyHighlight === 'function') _applyAnomalyHighlight();
@@ -352,6 +353,41 @@ export function init(basePath: string): void {
 
         // ── District callout (floating tooltip on click/tap) ─────────────────
         const _callout = document.getElementById('ed-callout');
+
+        // Position callout on whichever side of the highlighted path has most room.
+        // Call after ec-visible is added so offsetWidth/Height are measurable.
+        function _positionCalloutAwayFromPath(pathEl) {
+          if (_calloutDragged || !pathEl || !curVB) return;
+          var bb = pathEl.getBBox();
+          var r = _getStageRect();
+          var edLeft   = r.left + (bb.x             - curVB.x) / curVB.w * r.width;
+          var edRight  = r.left + (bb.x + bb.width  - curVB.x) / curVB.w * r.width;
+          var edTop    = r.top  + (bb.y             - curVB.y) / curVB.h * r.height;
+          var edBottom = r.top  + (bb.y + bb.height - curVB.y) / curVB.h * r.height;
+          var cW = _callout.offsetWidth  || 270;
+          var cH = _callout.offsetHeight || 210;
+          var vW = window.innerWidth, vH = window.innerHeight;
+          var pad = 16;
+          var left, top;
+          if (vW - edRight - pad >= cW) {
+            left = edRight + pad;
+            top  = Math.round((edTop + edBottom) / 2 - cH / 2);
+          } else if (edLeft - pad >= cW) {
+            left = edLeft - cW - pad;
+            top  = Math.round((edTop + edBottom) / 2 - cH / 2);
+          } else if (vH - edBottom - pad >= cH) {
+            top  = edBottom + pad;
+            left = Math.round((edLeft + edRight) / 2 - cW / 2);
+          } else {
+            top  = edTop - cH - pad;
+            left = Math.round((edLeft + edRight) / 2 - cW / 2);
+          }
+          _callout.style.left   = Math.max(8, Math.min(vW - cW - 8, left)) + 'px';
+          _callout.style.top    = Math.max(8, Math.min(vH - cH - 8, top))  + 'px';
+          _callout.style.right  = 'auto';
+          _callout.style.bottom = 'auto';
+        }
+
         function _showCallout(d, clientX, clientY) {
           if (!d) return;
           document.getElementById('ec-name').textContent = d.name;
@@ -365,6 +401,17 @@ export function init(basePath: string): void {
           document.getElementById('ec-va-count').textContent = d.va_count ? d.va_count + ' voting areas' : '';
           const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
           document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
+          // EG contribution per district
+          const egEl = document.getElementById('ec-eg');
+          if (egEl) {
+            if (d.eg !== undefined && d.eg !== null) {
+              const sign = d.eg >= 0 ? '+' : '';
+              egEl.textContent = sign + (d.eg * 100).toFixed(2) + '%';
+              egEl.className = d.eg >= 0 ? 'ec-eg-ucp' : 'ec-eg-ndp';
+            } else {
+              egEl.textContent = ''; egEl.className = '';
+            }
+          }
           // Dynamic context label
           const ctxEl = document.getElementById('ec-context');
           if (ctxEl) {
@@ -416,12 +463,42 @@ export function init(basePath: string): void {
           }
           _callout.classList.add('ec-visible');
         }
+        var _calloutDragged = false;
+        var _calloutDragOX = 0, _calloutDragOY = 0, _calloutDragSX = 0, _calloutDragSY = 0;
+
         function _hideCallout() {
           if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
-          _callout.classList.remove('ec-visible');
+          _callout.classList.remove('ec-visible', 'ec-dragging');
+          _calloutDragged = false;
           _selectedEdName = null;
           _clearEdHighlight();
         }
+
+        // Draggable callout — user can pin it anywhere
+        _callout.addEventListener('pointerdown', function(e) {
+          if (e.target.id === 'ec-close') return;
+          _callout.setPointerCapture(e.pointerId);
+          _callout.classList.add('ec-dragging');
+          var rect = _callout.getBoundingClientRect();
+          _calloutDragSX = rect.left; _calloutDragSY = rect.top;
+          _calloutDragOX = e.clientX - rect.left; _calloutDragOY = e.clientY - rect.top;
+          e.preventDefault();
+        });
+        _callout.addEventListener('pointermove', function(e) {
+          if (!_callout.classList.contains('ec-dragging')) return;
+          var newL = e.clientX - _calloutDragOX;
+          var newT = e.clientY - _calloutDragOY;
+          var cW = _callout.offsetWidth, cH = _callout.offsetHeight;
+          newL = Math.max(4, Math.min(window.innerWidth  - cW - 4, newL));
+          newT = Math.max(4, Math.min(window.innerHeight - cH - 4, newT));
+          _callout.style.left = newL + 'px'; _callout.style.top = newT + 'px';
+          _callout.style.right = 'auto'; _callout.style.bottom = 'auto';
+        });
+        _callout.addEventListener('pointerup', function(e) {
+          if (!_callout.classList.contains('ec-dragging')) return;
+          _callout.classList.remove('ec-dragging');
+          _calloutDragged = true;
+        });
 
         // ── Map selector ──────────────────────────────────────────────────────────
         const _mapSvgUrls = {
@@ -504,7 +581,7 @@ export function init(basePath: string): void {
           });
           if (!bestPath) return;
           const rec = _edHover[parseInt(bestPath.getAttribute('data-ed-id'), 10)];
-          if (rec) { _showCallout(rec); _setEdHighlight(bestPath); }
+          if (rec) { _showCallout(rec); _setEdHighlight(bestPath); requestAnimationFrame(function() { _positionCalloutAwayFromPath(bestPath); }); }
         }
 
         // ── Map overlay system ─────────────────────────────────────────────────────
@@ -562,6 +639,7 @@ export function init(basePath: string): void {
           _edHover = null;
           var savedVB = curVB ? Object.assign({}, curVB) : null;
           ready = false;
+          var _skelEl = document.getElementById('zoom-skeleton'); if (_skelEl) _skelEl.classList.remove('hidden');
           stage.style.opacity = '0.45';
           stage.style.transition = 'opacity 0.15s';
           fetch(_mapSvgUrls[key])
@@ -653,7 +731,7 @@ export function init(basePath: string): void {
                 var a = (0.15 + Math.min((pct - 50) / 35, 1) * 0.5).toFixed(2);
                 p.style.fill = isUCP ? 'rgba(20,46,148,' + a + ')' : 'rgba(232,99,16,' + a + ')';
               }
-            } else { p.style.fill = ''; }
+            } else { p.style.fill = 'rgba(180,180,180,0.10)'; }
           });
         }
         function _applyEdLinesLayer(on) {
@@ -1080,6 +1158,7 @@ export function init(basePath: string): void {
           _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 380);
           _showCallout(rec);
           _setEdHighlight(path);
+          requestAnimationFrame(function() { _positionCalloutAwayFromPath(path); });
         }
 
         document.querySelectorAll('[data-ed-name]').forEach(function(b) {

@@ -22,6 +22,7 @@
 </script>
 
 <nav>
+  <a href="#" class="nav-home" aria-label="Back to top">↑</a>
   <a href="#section-1">1: Map</a>
   <a href="#section-2">2: The Split</a>
   <a href="#section-3">3: Litmus Test</a>
@@ -40,13 +41,16 @@
     <div class="header-text">
       <h1>Alberta Electoral Boundary Audit</h1>
       <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
-      <span class="badge">Official Elections Alberta maps &mdash; May 2026 &ensp;&middot;&ensp; Published May 2026</span>
-      <p class="cover-note">This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries &mdash; or layer all three to see exactly where they diverge. <strong>Vote</strong> colours each polling area by how people voted in 2023; <strong>Fill</strong> adds partisan shading by district; <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.</p>
+      <span class="badge">Official Elections Alberta maps &mdash; Published May 2026</span>
+      <p class="cover-note">This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries &mdash; or layer all three to see exactly where they diverge. <strong>Detail</strong> colours each polling area by how people voted in 2023; <strong>Trend</strong> adds partisan shading by district (blue UCP, orange NDP); <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.</p>
       <p class="cover-note" style="margin-top:0.55rem;">Try locking the viewport and flipping between maps &mdash; watch a boundary shift while the voters underneath stay still. That&rsquo;s the whole question in one gesture.</p>
       <p class="cover-note" style="margin-top:0.55rem;">When you&rsquo;re done exploring, scroll down for the summary. For the full technical analysis, see the Resources section. All data is official Elections Alberta shapefiles and other government and open-source records.</p>
     </div>
-    <a href="#" id="zoom-trigger" title="Click to zoom" style="cursor:zoom-in; display:inline-block;">
-      <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image">
+    <a href="#" id="zoom-trigger" title="Click to open interactive map" aria-label="Open interactive map">
+      <div class="hero-map-wrap">
+        <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager">
+        <div class="hero-map-hint">Click to explore interactively</div>
+      </div>
     </a>
   </div>
 </header>
@@ -774,9 +778,9 @@
     </div>
     <div class="tb-sep"></div>
     <div class="tb-group">
-      <button class="tb-btn tb-layer-on" data-layer="vote" title="2023 vote-share fill">Vote</button>
+      <button class="tb-btn tb-layer-on" data-layer="vote" title="Show 2023 vote results at polling-area granularity">Detail</button>
       <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">EG</button>
-      <button class="tb-btn tb-layer-on" data-layer="ed-fill">Fill</button>
+      <button class="tb-btn tb-layer-on" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Trend</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Lines</button>
     </div>
     <div class="tb-sep"></div>
@@ -790,6 +794,12 @@
     </div>
   </div>
   <div id="zoom-stage">
+    <div id="zoom-skeleton" aria-hidden="true">
+      <div class="skel-bar skel-bar-1"></div>
+      <div class="skel-bar skel-bar-2"></div>
+      <div class="skel-bar skel-bar-3"></div>
+      <div class="skel-label">Loading map…</div>
+    </div>
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
       title="Alberta electoral district map — full resolution"></object>
   </div>
@@ -820,6 +830,7 @@
       <span class="ec-dot">&middot;</span>
       <span id="ec-pop"></span>
     </div>
+    <div id="ec-eg-row"><span class="ec-eg-label">EG contribution</span> <span id="ec-eg"></span></div>
     <div id="ec-compare"></div>
   </div>
 </div>
@@ -835,15 +846,15 @@
 <div id="map-intro-modal" style="display:none;">
   <div id="map-intro-inner">
     <h3>How to use the map</h3>
-    <p style="margin:0 0 0.7rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Vote</strong> to colour each area by 2023 results, then click <strong>Min → Maj</strong> to watch the boundaries shift while the voters stay still.</p>
+    <p style="margin:0 0 0.7rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Min → Maj</strong> to watch the boundaries shift while the voters stay still. The <strong>Trend</strong> colours show which party holds each district.</p>
     <ul>
       <li><strong>Min / Maj / 2019</strong> &mdash; switch which commission map you&rsquo;re viewing as the primary layer</li>
-      <li><strong>Vote</strong> &mdash; show 2023 election results as partisan colour in each district</li>
-      <li><strong>Fill</strong> &mdash; colour districts by their assigned boundaries</li>
+      <li><strong>Trend</strong> &mdash; colour districts by partisan outcome (UCP blue, NDP orange); neutral grey when off</li>
+      <li><strong>Detail</strong> &mdash; show 2023 vote results at polling-area granularity underneath</li>
       <li><strong>Lines</strong> &mdash; show or hide district boundary edges</li>
       <li><strong>Lock</strong> &mdash; prevent the map from auto-panning when you click a district</li>
       <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
-      <li><strong>EG</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured (exclusive with Vote)</li>
+      <li><strong>EG</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured</li>
     </ul>
     <p><strong>Try this:</strong> In §4 below, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone, then click any highlighted district to see its vote data and compare across all three maps.</p>
     <button id="map-intro-close">Got it</button>
@@ -913,11 +924,41 @@
       color: rgba(255,255,255,0.85);
     }
 
-    .header-image {
+    .hero-map-wrap {
+      position: relative;
       flex-shrink: 0;
+      display: inline-block;
+      border-radius: 6px;
+      outline: 2.5px solid rgba(212,175,55,0.75);
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.18), 0 0 20px rgba(212,175,55,0.12);
+      animation: hero-pulse 2.8s ease-in-out infinite;
+      cursor: zoom-in;
+    }
+    @keyframes hero-pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(212,175,55,0.20), 0 0 16px rgba(212,175,55,0.10); }
+      50%       { box-shadow: 0 0 0 7px rgba(212,175,55,0.35), 0 0 32px rgba(212,175,55,0.22); }
+    }
+    .hero-map-wrap:hover { animation: none; box-shadow: 0 0 0 5px rgba(212,175,55,0.55), 0 0 28px rgba(212,175,55,0.30); }
+    .hero-map-hint {
+      position: absolute;
+      bottom: 0.7rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,46,69,0.82);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.72rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(212,175,55,0.4);
+    }
+    .header-image {
       max-height: min(600px, calc(100svh - 140px));
       width: auto;
       display: block;
+      border-radius: 6px;
     }
 
     .cover-note {
@@ -946,6 +987,8 @@
 
     nav a:hover { color: #fff; text-decoration: underline; }
     nav a.active { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.6); padding-bottom: 1px; }
+    nav a.nav-home { color: rgba(255,255,255,0.45); margin-right: 1.4rem; font-size: 1.05rem; text-decoration: none; }
+    nav a.nav-home:hover { color: #fff; text-decoration: none; }
 
     .container {
       width: 100%;
@@ -1124,8 +1167,29 @@
     overflow: hidden;
     cursor: grab;
     touch-action: none;
+    will-change: transform;
   }
   #zoom-stage.dragging { cursor: grabbing; }
+  /* Loading skeleton */
+  #zoom-skeleton {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.2rem; pointer-events: none; z-index: 2;
+    background: #0d1a26;
+  }
+  #zoom-skeleton.hidden { display: none; }
+  .skel-bar {
+    height: 12px; border-radius: 6px; background: rgba(255,255,255,0.07);
+    animation: skel-shimmer 1.5s ease-in-out infinite;
+  }
+  .skel-bar-1 { width: 55%; }
+  .skel-bar-2 { width: 40%; animation-delay: 0.2s; }
+  .skel-bar-3 { width: 48%; animation-delay: 0.4s; }
+  .skel-label { color: rgba(255,255,255,0.28); font-size: 0.8rem; letter-spacing: 0.06em; }
+  @keyframes skel-shimmer {
+    0%, 100% { opacity: 0.5; }
+    50%       { opacity: 1.0; }
+  }
   #zoom-obj {
     position: absolute; display: block; border: 0;
   }
@@ -1218,6 +1282,8 @@
     transition: opacity 0.15s;
   }
   #ed-callout.ec-visible { opacity: 1; pointer-events: auto; transform: none; }
+  #ed-callout.ec-visible:not(.ec-dragging) { cursor: grab; }
+  #ed-callout.ec-dragging { cursor: grabbing; user-select: none; transition: none; }
   #ec-close {
     position: absolute; top: 0.55rem; right: 0.9rem;
     background: none; border: none;
@@ -1250,6 +1316,14 @@
     display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;
   }
   .ec-dot { opacity: 0.4; }
+  #ec-eg-row {
+    font-size: 0.73rem; margin-top: 0.35rem;
+    display: flex; align-items: center; gap: 0.35rem;
+  }
+  .ec-eg-label { color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.65rem; }
+  #ec-eg { font-variant-numeric: tabular-nums; font-weight: 600; }
+  #ec-eg.ec-eg-ucp { color: #82b4e0; }
+  #ec-eg.ec-eg-ndp { color: #f4a26a; }
   #ec-compare {
     display: none; flex-wrap: wrap; align-items: center;
     gap: 0.5rem; margin-top: 0.65rem;
