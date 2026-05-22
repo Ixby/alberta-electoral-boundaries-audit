@@ -385,44 +385,10 @@ export function init(basePath: string): void {
 
         function _hideTip() { _tip.style.display = 'none'; }
 
-        // ── District callout (floating tooltip on click/tap) ─────────────────
+        // ── District callout (anchored right panel) ──────────────────────────
         const _callout = document.getElementById('ed-callout');
 
-        // Position callout on whichever side of the highlighted path has most room.
-        // Call after ec-visible is added so offsetWidth/Height are measurable.
-        function _positionCalloutAwayFromPath(pathEl) {
-          if (_calloutDragged || !pathEl || !curVB) return;
-          var bb = pathEl.getBBox();
-          var r = _getStageRect();
-          var edLeft   = r.left + (bb.x             - curVB.x) / curVB.w * r.width;
-          var edRight  = r.left + (bb.x + bb.width  - curVB.x) / curVB.w * r.width;
-          var edTop    = r.top  + (bb.y             - curVB.y) / curVB.h * r.height;
-          var edBottom = r.top  + (bb.y + bb.height - curVB.y) / curVB.h * r.height;
-          var cW = _callout.offsetWidth  || 270;
-          var cH = _callout.offsetHeight || 210;
-          var vW = window.innerWidth, vH = window.innerHeight;
-          var pad = 16;
-          var left, top;
-          if (vW - edRight - pad >= cW) {
-            left = edRight + pad;
-            top  = Math.round((edTop + edBottom) / 2 - cH / 2);
-          } else if (edLeft - pad >= cW) {
-            left = edLeft - cW - pad;
-            top  = Math.round((edTop + edBottom) / 2 - cH / 2);
-          } else if (vH - edBottom - pad >= cH) {
-            top  = edBottom + pad;
-            left = Math.round((edLeft + edRight) / 2 - cW / 2);
-          } else {
-            top  = edTop - cH - pad;
-            left = Math.round((edLeft + edRight) / 2 - cW / 2);
-          }
-          _callout.style.left   = Math.max(8, Math.min(vW - cW - 8, left)) + 'px';
-          _callout.style.top    = Math.max(8, Math.min(vH - cH - 8, top))  + 'px';
-          _callout.style.right  = 'auto';
-          _callout.style.bottom = 'auto';
-        }
-
-        function _showCallout(d, clientX, clientY) {
+        function _showCallout(d) {
           if (!d) return;
           document.getElementById('ec-name').textContent = d.name;
           document.getElementById('ec-ucp-bar').style.width = d.ucp_pct + '%';
@@ -480,59 +446,14 @@ export function init(basePath: string): void {
             }
           }
           _selectedEdName = d.name;
-          // Position near click/tap, clamped to viewport
-          if (clientX !== undefined && clientY !== undefined) {
-            var cW = _callout.offsetWidth || 270, cH = _callout.offsetHeight || 200;
-            var vW = window.innerWidth, vH = window.innerHeight;
-            var left = clientX + 18;
-            var top  = clientY - Math.round(cH / 2);
-            if (left + cW > vW - 12) left = clientX - cW - 18;
-            if (left < 8) left = 8;
-            if (top < 8) top = 8;
-            if (top + cH > vH - 8) top = vH - cH - 8;
-            _callout.style.left   = left + 'px';
-            _callout.style.top    = top  + 'px';
-            _callout.style.right  = 'auto';
-            _callout.style.bottom = 'auto';
-          }
           _callout.classList.add('ec-visible');
         }
-        var _calloutDragged = false;
-        var _calloutDragOX = 0, _calloutDragOY = 0, _calloutDragSX = 0, _calloutDragSY = 0;
-
         function _hideCallout() {
           if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
-          _callout.classList.remove('ec-visible', 'ec-dragging');
-          _calloutDragged = false;
+          _callout.classList.remove('ec-visible');
           _selectedEdName = null;
           _clearEdHighlight();
         }
-
-        // Draggable callout — user can pin it anywhere
-        _callout.addEventListener('pointerdown', function(e) {
-          if (e.target.id === 'ec-close') return;
-          _callout.setPointerCapture(e.pointerId);
-          _callout.classList.add('ec-dragging');
-          var rect = _callout.getBoundingClientRect();
-          _calloutDragSX = rect.left; _calloutDragSY = rect.top;
-          _calloutDragOX = e.clientX - rect.left; _calloutDragOY = e.clientY - rect.top;
-          e.preventDefault();
-        });
-        _callout.addEventListener('pointermove', function(e) {
-          if (!_callout.classList.contains('ec-dragging')) return;
-          var newL = e.clientX - _calloutDragOX;
-          var newT = e.clientY - _calloutDragOY;
-          var cW = _callout.offsetWidth, cH = _callout.offsetHeight;
-          newL = Math.max(4, Math.min(window.innerWidth  - cW - 4, newL));
-          newT = Math.max(4, Math.min(window.innerHeight - cH - 4, newT));
-          _callout.style.left = newL + 'px'; _callout.style.top = newT + 'px';
-          _callout.style.right = 'auto'; _callout.style.bottom = 'auto';
-        });
-        _callout.addEventListener('pointerup', function(e) {
-          if (!_callout.classList.contains('ec-dragging')) return;
-          _callout.classList.remove('ec-dragging');
-          _calloutDragged = true;
-        });
 
         // ── Map selector ──────────────────────────────────────────────────────────
         const _mapSvgUrls = {
@@ -568,7 +489,11 @@ export function init(basePath: string): void {
           const color = _mapAccentColors[mapKey] || '#555';
           const g = svgNode.querySelector('#ed_boundary_layer');
           if (!g) { console.warn('[map] ed_boundary_layer not found in SVG'); return; }
-          g.querySelectorAll('path').forEach(p => p.setAttribute('stroke', color));
+          g.querySelectorAll('path').forEach(p => {
+            p.setAttribute('stroke', color);
+            p.setAttribute('stroke-width', '2');
+            p.setAttribute('stroke-opacity', '1');
+          });
         }
 
         // ── Active ED boundary highlight ──────────────────────────────────────────
@@ -615,7 +540,7 @@ export function init(basePath: string): void {
           });
           if (!bestPath) return;
           const rec = _edHover[parseInt(bestPath.getAttribute('data-ed-id'), 10)];
-          if (rec) { _showCallout(rec); _setEdHighlight(bestPath); requestAnimationFrame(function() { _positionCalloutAwayFromPath(bestPath); }); }
+          if (rec) { _showCallout(rec); _setEdHighlight(bestPath); }
         }
 
         // ── Map overlay system ─────────────────────────────────────────────────────
@@ -628,6 +553,8 @@ export function init(basePath: string): void {
           var clone = document.importNode(g, true);
           clone.querySelectorAll('path').forEach(function(p) {
             p.setAttribute('stroke', _mapAccentColors[key] || '#555');
+            p.setAttribute('stroke-width', '1');
+            p.setAttribute('stroke-opacity', '0.45');
           });
           clone.setAttribute('pointer-events', 'none');
           clone.id = 'ed-boundary-overlay-' + key;
@@ -1005,7 +932,7 @@ export function init(basePath: string): void {
                 if (_edHover) {
                   const hit = _tipTarget(e);
                   if (hit) {
-                    _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+                    _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
                     _setEdHighlight(hit);
                     _snapToED(hit);
                   } else _hideCallout();
@@ -1015,7 +942,7 @@ export function init(basePath: string): void {
               const hit = _tipTarget(e);
               if (hit) {
                 _hideTip();
-                _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+                _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
                 _setEdHighlight(hit);
                 if (!_mapLocked) _snapToED(hit);
               } else {
@@ -1206,7 +1133,6 @@ export function init(basePath: string): void {
           _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 380);
           _showCallout(rec);
           _setEdHighlight(path);
-          requestAnimationFrame(function() { _positionCalloutAwayFromPath(path); });
         }
 
         document.querySelectorAll('[data-ed-name]').forEach(function(b) {

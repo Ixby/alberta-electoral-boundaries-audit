@@ -40,7 +40,7 @@
 </script>
 
 <nav aria-label="Page sections">
-  <a href="#top" class="nav-home" aria-label="Back to top">↑</a>
+  <a href="#top" class="nav-home" aria-label="Back to top"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
   <a href="#section-1">1: Map</a>
   <a href="#section-2">2: The Split</a>
   <a href="#section-3">3: Litmus Test</a>
@@ -791,19 +791,19 @@
   </div>
   <div id="top-bar">
     <div class="tb-group">
-      <button class="tb-btn tb-map-primary" data-map="minority">Min</button>
-      <button class="tb-btn" data-map="majority">Maj</button>
+      <button class="tb-btn tb-map-primary" data-map="minority">Minority</button>
+      <button class="tb-btn" data-map="majority">Majority</button>
       <button class="tb-btn" data-map="2019">2019</button>
     </div>
     <div class="tb-sep"></div>
     <div class="tb-group">
-      <button class="tb-btn tb-layer-on" data-layer="vote" title="Show 2023 vote results at polling-area granularity">Detail</button>
-      <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">EG</button>
-      <button class="tb-btn tb-layer-on" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Trend</button>
-      <button class="tb-btn tb-layer-on" data-layer="ed-lines">Lines</button>
+      <button class="tb-btn tb-layer-on" data-layer="vote" title="Show 2023 vote results at polling-area granularity">Vote %</button>
+      <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">Eff. Gap</button>
+      <button class="tb-btn tb-layer-on" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Partisan</button>
+      <button class="tb-btn tb-layer-on" data-layer="ed-lines">Borders</button>
     </div>
     <div class="tb-sep"></div>
-    <button class="tb-btn" data-anomaly="airdrie" title="Highlight chair-flagged districts — Airdrie 4-way split and NW Calgary zone">Flag</button>
+    <button class="tb-btn" data-anomaly="airdrie" title="Highlight chair-flagged districts — Airdrie 4-way split and NW Calgary zone">Flagged</button>
     <div class="tb-sep"></div>
     <button class="tb-btn" data-layer="lock">Lock</button>
     <div class="tb-sep"></div>
@@ -865,15 +865,15 @@
 <div id="map-intro-modal" style="display:none;">
   <div id="map-intro-inner">
     <h3>How to use the map</h3>
-    <p style="margin:0 0 0.7rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Min → Maj</strong> to watch the boundaries shift while the voters stay still. The <strong>Trend</strong> colours show which party holds each district.</p>
+    <p style="margin:0 0 0.7rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Minority → Majority</strong> to watch the boundaries shift while the voters stay still. The <strong>Partisan</strong> colours show which party holds each district.</p>
     <ul>
-      <li><strong>Min / Maj / 2019</strong> &mdash; switch which commission map you&rsquo;re viewing as the primary layer</li>
-      <li><strong>Trend</strong> &mdash; colour districts by partisan outcome (UCP blue, NDP orange); neutral grey when off</li>
-      <li><strong>Detail</strong> &mdash; show 2023 vote results at polling-area granularity underneath</li>
-      <li><strong>Lines</strong> &mdash; show or hide district boundary edges</li>
+      <li><strong>Minority / Majority / 2019</strong> &mdash; switch which commission map you&rsquo;re viewing as the primary layer</li>
+      <li><strong>Partisan</strong> &mdash; colour districts by partisan outcome (UCP blue, NDP orange); neutral grey when off</li>
+      <li><strong>Vote %</strong> &mdash; show 2023 vote results at polling-area granularity underneath</li>
+      <li><strong>Borders</strong> &mdash; show or hide district boundary edges</li>
       <li><strong>Lock</strong> &mdash; prevent the map from auto-panning when you click a district</li>
       <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
-      <li><strong>EG</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured</li>
+      <li><strong>Eff. Gap</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured</li>
     </ul>
     <p><strong>Try this:</strong> In §4 below, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone, then click any highlighted district to see its vote data and compare across all three maps.</p>
     <button id="map-intro-close">Got it</button>
@@ -997,7 +997,12 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
+    nav::-webkit-scrollbar { display: none; }
 
     nav a {
       color: #a8c7e8;
@@ -1296,7 +1301,7 @@
     border: 1px solid rgba(255,255,255,0.12);
     color: rgba(255,255,255,0.55);
     font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
-    padding: 5px 10px; border-radius: 6px; cursor: pointer;
+    padding: 6px 12px; border-radius: 6px; cursor: pointer;
     transition: background 0.13s, color 0.13s, border-color 0.13s;
     white-space: nowrap;
     -webkit-tap-highlight-color: transparent;
@@ -1312,25 +1317,43 @@
   .tb-btn.tb-layer-on { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9); }
   .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(255,200,0,0.12); border-color: rgba(255,200,0,0.45); color: rgba(255,210,60,0.95); }
   @media (max-width: 700px) { #zoom-instructions { display: none; } }
-  /* District callout — floating tooltip near click/tap */
+  /* District callout — anchored right panel (slides in on click) */
   #ed-callout {
-    position: fixed; z-index: 9003;
-    left: 10px; top: 10px; right: auto; bottom: auto;
-    width: 270px;
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    z-index: 9003;
+    width: clamp(260px, 33vw, 360px);
     background: rgba(12,14,20,0.97);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    box-shadow: -4px 0 24px rgba(0,0,0,0.6);
     padding: 0.9rem 1.2rem 1.1rem;
     backdrop-filter: blur(10px);
     color: #fff;
     pointer-events: none;
-    opacity: 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.55);
-    transition: opacity 0.15s;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.22s ease;
   }
-  #ed-callout.ec-visible { opacity: 1; pointer-events: auto; transform: none; }
-  #ed-callout.ec-visible:not(.ec-dragging) { cursor: grab; }
-  #ed-callout.ec-dragging { cursor: grabbing; user-select: none; transition: none; }
+  #ed-callout.ec-visible {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  @media (max-width: 700px) {
+    #ed-callout {
+      top: auto;
+      left: 0;
+      right: 0;
+      width: auto;
+      height: min(280px, 33vh);
+      border-left: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.6);
+      transform: translateY(100%);
+    }
+    #ed-callout.ec-visible {
+      transform: translateY(0);
+    }
+  }
   #ec-close {
     position: absolute; top: 0.55rem; right: 0.9rem;
     background: none; border: none;
