@@ -1547,7 +1547,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  #tb-search-results li:hover { background: rgba(255,255,255,0.08); }
+  #tb-search-results li:hover,
+  #tb-search-results li.sr-active { background: rgba(255,255,255,0.12); }
 
   /* Map onboarding modal */
   #map-intro-modal {
