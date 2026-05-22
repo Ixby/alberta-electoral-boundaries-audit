@@ -490,9 +490,9 @@ export function init(basePath: string): void {
           const g = svgNode.querySelector('#ed_boundary_layer');
           if (!g) { console.warn('[map] ed_boundary_layer not found in SVG'); return; }
           g.querySelectorAll('path').forEach(p => {
-            p.setAttribute('stroke', color);
-            p.setAttribute('stroke-width', '2');
-            p.setAttribute('stroke-opacity', '1');
+            p.style.stroke = color;
+            p.style.strokeWidth = '2';
+            p.style.strokeOpacity = '1';
           });
         }
 
@@ -552,9 +552,9 @@ export function init(basePath: string): void {
           if (!g) return null;
           var clone = document.importNode(g, true);
           clone.querySelectorAll('path').forEach(function(p) {
-            p.setAttribute('stroke', _mapAccentColors[key] || '#555');
-            p.setAttribute('stroke-width', '1');
-            p.setAttribute('stroke-opacity', '0.45');
+            p.style.stroke = _mapAccentColors[key] || '#555';
+            p.style.strokeWidth = '1';
+            p.style.strokeOpacity = '0.45';
           });
           clone.setAttribute('pointer-events', 'none');
           clone.id = 'ed-boundary-overlay-' + key;
