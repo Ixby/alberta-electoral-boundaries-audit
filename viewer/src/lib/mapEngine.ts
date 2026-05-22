@@ -193,6 +193,16 @@ export function init(basePath: string): void {
           mode = 'viewbox';
           ready = true;
           var skel = document.getElementById('zoom-skeleton'); if (skel) skel.classList.add('hidden');
+          // Pre-warm the other two maps so switching is instant
+          setTimeout(function() {
+            ['minority', 'majority', '2019'].forEach(function(k) {
+              if (!_svgCache[k]) {
+                fetch(_mapSvgUrls[k]).then(function(r) { return r.text(); })
+                  .then(function(t) { _svgCache[k] = new DOMParser().parseFromString(t, 'image/svg+xml'); })
+                  .catch(function() {});
+              }
+            });
+          }, 400);
           _applyBoundaryColor(node, _mapPrimary);
           _reapplyLayers();
           if (typeof _applyAnomalyHighlight === 'function') _applyAnomalyHighlight();
@@ -638,48 +648,62 @@ export function init(basePath: string): void {
           _hideCallout();
           _edHover = null;
           var savedVB = curVB ? Object.assign({}, curVB) : null;
-          ready = false;
-          var _skelEl = document.getElementById('zoom-skeleton'); if (_skelEl) _skelEl.classList.remove('hidden');
-          stage.style.opacity = '0.45';
-          stage.style.transition = 'opacity 0.15s';
-          fetch(_mapSvgUrls[key])
-            .then(function(r) { return r.text(); })
-            .then(function(text) {
-              var doc = new DOMParser().parseFromString(text, 'image/svg+xml');
-              _svgCache[key] = doc;
-              var root = doc.documentElement;
-              if (root && root.tagName.toLowerCase() !== 'parsererror') {
-                _activateInlineSVG(document.importNode(root, true), savedVB);
-                if (_allHoverData[key] && Object.keys(_allHoverData[key]).length) {
-                  _edHover = _allHoverData[key];
-                }
-                if (savedName) {
-                  var rec = _nameIndex[key] && _nameIndex[key][savedName];
-                  if (rec) {
-                    var path = svgEl && svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
-                    if (path) { _showCallout(rec); _setEdHighlight(path); }
-                  } else { _activateCenterED(); }
+          // Helper: activate a parsed SVG document as the new primary
+          function _applySvgDoc(doc) {
+            var root = doc.documentElement;
+            if (root && root.tagName.toLowerCase() !== 'parsererror') {
+              _activateInlineSVG(document.importNode(root, true), savedVB);
+              if (_allHoverData[key] && Object.keys(_allHoverData[key]).length) {
+                _edHover = _allHoverData[key];
+              }
+              if (savedName) {
+                var rec = _nameIndex[key] && _nameIndex[key][savedName];
+                if (rec) {
+                  var path = svgEl && svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
+                  if (path) { _showCallout(rec); _setEdHighlight(path); }
                 } else { _activateCenterED(); }
-              } else { ready = true; }
-              stage.style.opacity = '';
-              setTimeout(function() { stage.style.transition = ''; }, 200);
-            })
-            .catch(function() {
-              ready = true;
-              stage.style.opacity = '';
-              setTimeout(function() { stage.style.transition = ''; }, 200);
-            });
-          fetch(_mapJsonUrls[key])
-            .then(function(r) { return r.json(); })
-            .then(function(d) {
-              var byId = {}, byName = {};
-              d.forEach(function(rec) { byId[rec.id] = rec; byName[rec.name] = rec; });
-              _allHoverData[key] = byId;
-              _nameIndex[key] = byName;
-              _edHover = byId;
-              if (_layerState['ed-fill']) _applyEdFillLayer(true);
-            })
-            .catch(function() { _edHover = null; });
+              } else { _activateCenterED(); }
+            } else { ready = true; }
+            stage.style.opacity = '';
+            setTimeout(function() { stage.style.transition = ''; }, 200);
+          }
+
+          if (_svgCache[key]) {
+            // Cache hit — instant, no loading state needed
+            _applySvgDoc(_svgCache[key]);
+          } else {
+            // Cache miss — show loading state while fetching
+            ready = false;
+            var _skelEl = document.getElementById('zoom-skeleton'); if (_skelEl) _skelEl.classList.remove('hidden');
+            stage.style.opacity = '0.45';
+            stage.style.transition = 'opacity 0.15s';
+            fetch(_mapSvgUrls[key])
+              .then(function(r) { return r.text(); })
+              .then(function(text) {
+                var doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+                _svgCache[key] = doc;
+                _applySvgDoc(doc);
+              })
+              .catch(function() {
+                ready = true;
+                stage.style.opacity = '';
+                setTimeout(function() { stage.style.transition = ''; }, 200);
+              });
+          }
+          // JSON is pre-fetched at init via _loadHoverJson; only fetch if not yet ready
+          if (!(_allHoverData[key] && Object.keys(_allHoverData[key]).length)) {
+            fetch(_mapJsonUrls[key])
+              .then(function(r) { return r.json(); })
+              .then(function(d) {
+                var byId = {}, byName = {};
+                d.forEach(function(rec) { byId[rec.id] = rec; byName[rec.name] = rec; });
+                _allHoverData[key] = byId;
+                _nameIndex[key] = byName;
+                _edHover = byId;
+                if (_layerState['ed-fill']) _applyEdFillLayer(true);
+              })
+              .catch(function() { _edHover = null; });
+          }
         }
 
         function toggleMap(key) {

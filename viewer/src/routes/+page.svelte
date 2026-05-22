@@ -538,7 +538,7 @@
 
     <p>The audit's central finding is geometric. <strong>Lane 2 — the structural-irregularity scorecard — is the foundation; Lane 1 is the proof that the geometry is doing partisan work.</strong></p>
 
-    <p>The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the proposal fails, out of five, where higher means more structural problems). The bottom-left corner is "clean on both lanes." The top-right corner is "out of bounds on both lanes."</p>
+    <p>The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the proposal fails, out of five, where higher means more structural problems).</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
       <img src="images/verdict_quadrant.svg" alt="Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="474" height="351" loading="lazy">
@@ -894,15 +894,15 @@
     }
 
     .header-inner {
-      max-width: 100%;
+      max-width: 1060px;
       margin: 0 auto;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 2.5rem;
     }
 
     .header-text {
-      flex: 1;
+      flex: 0 1 500px;
       min-width: 0;
     }
 

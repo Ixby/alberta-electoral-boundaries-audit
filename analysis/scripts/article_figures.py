@@ -332,8 +332,8 @@ def build_bias_structure_matrix() -> Path:
     structural-irregularity outlier line (4 of 5). The top-right
     quadrant is the danger zone."""
 
-    fig, ax = plt.subplots(figsize=(6.8, 5.2), dpi=300)
-    fig.subplots_adjust(top=0.86, bottom=0.16, left=0.13, right=0.97)
+    fig, ax = plt.subplots(figsize=(7.2, 5.4), dpi=300)
+    fig.subplots_adjust(top=0.88, bottom=0.16, left=0.13, right=0.97)
 
     # Three real maps — canonical official EA shapefiles (simulation_real_map_scores_canonical.json)
     points = [
@@ -351,179 +351,106 @@ def build_bias_structure_matrix() -> Path:
     XMIN, XMAX = -1, 9
     YMIN, YMAX = -0.6, 5.7
 
-    # Quadrant shading: gradient from clean (no shade) to both-lane outlier (deep)
-    # bottom-left clean: no shading
-    # top-left structural-only: light pink
-    # bottom-right partisan-only: light pink
-    # top-right both-lane outlier: deeper pink
+    # Quadrant shading
     ax.axhspan(
-        threshold_struct,
-        YMAX,
-        xmin=0,
-        xmax=(threshold_eg_alberta - XMIN) / (XMAX - XMIN),
-        facecolor="#fdf2f4",
-        alpha=0.65,
-        zorder=0,
+        threshold_struct, YMAX,
+        xmin=0, xmax=(threshold_eg_alberta - XMIN) / (XMAX - XMIN),
+        facecolor="#fdf2f4", alpha=0.65, zorder=0,
     )
     ax.axvspan(
-        threshold_eg_alberta,
-        XMAX,
-        ymin=0,
-        ymax=(threshold_struct - YMIN) / (YMAX - YMIN),
-        facecolor="#fdf2f4",
-        alpha=0.65,
-        zorder=0,
+        threshold_eg_alberta, XMAX,
+        ymin=0, ymax=(threshold_struct - YMIN) / (YMAX - YMIN),
+        facecolor="#fdf2f4", alpha=0.65, zorder=0,
     )
     ax.axvspan(
-        threshold_eg_alberta,
-        XMAX,
-        ymin=(threshold_struct - YMIN) / (YMAX - YMIN),
-        ymax=1.0,
-        facecolor="#f9d8de",
-        alpha=0.75,
-        zorder=0,
+        threshold_eg_alberta, XMAX,
+        ymin=(threshold_struct - YMIN) / (YMAX - YMIN), ymax=1.0,
+        facecolor="#f9d8de", alpha=0.75, zorder=0,
     )
 
     # Threshold lines
-    ax.axvline(
-        threshold_eg_alberta, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1
-    )
+    ax.axvline(threshold_eg_alberta, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1)
     ax.axvline(threshold_eg_us, color="#888888", lw=1.0, linestyle=":", zorder=1)
     ax.axhline(threshold_struct, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1)
 
-    # Threshold labels — placed in the top margin, well clear of dots
+    # Threshold labels — each placed to avoid the data dots
+    # Alberta line: labeled on the LEFT of the dashed vertical, at mid-chart (below Minority dot)
     ax.text(
-        threshold_eg_alberta,
-        YMAX - 0.05,
-        "Alberta line ~4.1%",
-        color=THRESHOLD_RED,
-        fontsize=8.5,
-        fontweight="bold",
-        ha="center",
-        va="bottom",
-        bbox=dict(
-            boxstyle="round,pad=0.18",
-            facecolor="white",
-            edgecolor=THRESHOLD_RED,
-            lw=0.6,
-        ),
+        threshold_eg_alberta - 0.15, 2.1,
+        "Alberta\nline ~4.1%",
+        color=THRESHOLD_RED, fontsize=8, fontweight="bold",
+        ha="right", va="center",
     )
+    # Structural-outlier line: labeled on the RIGHT margin to clear the data area
     ax.text(
-        threshold_eg_us,
-        YMAX - 0.05,
-        "US gerrymander signal line 7%",
-        color="#555555",
-        fontsize=8.5,
-        fontweight="bold",
-        ha="center",
-        va="bottom",
-        bbox=dict(
-            boxstyle="round,pad=0.18", facecolor="white", edgecolor="#888888", lw=0.6
-        ),
+        XMAX - 0.15, threshold_struct + 0.08,
+        "structural-outlier\nline (4 of 5 tests)",
+        color=THRESHOLD_RED, fontsize=7.5, fontstyle="italic",
+        ha="right", va="bottom",
     )
+    # US signal: compact label at the base of the dotted vertical line
     ax.text(
-        XMIN + 0.2,
-        threshold_struct + 0.04,
-        "structural-outlier line (4 of 5 tests fail)",
-        color=THRESHOLD_RED,
-        fontsize=8,
-        fontweight="bold",
-        ha="left",
-        va="bottom",
-        style="italic",
+        threshold_eg_us + 0.12, YMIN + 0.12,
+        "7%\nUS\nsignal",
+        color="#888888", fontsize=7, fontweight="bold",
+        ha="left", va="bottom",
     )
 
-    # Corner annotations — lightweight, low-contrast text in each
-    # quadrant so the reader knows what each corner means
+    # DANGER ZONE watermark — light, centered in the shaded top-right quadrant
     ax.text(
-        XMIN + 0.15,
-        YMIN + 0.15,
-        "clean on both lanes",
-        color="#7a7066",
-        fontsize=8,
-        fontstyle="italic",
-        ha="left",
-        va="bottom",
-    )
-    ax.text(
-        XMIN + 0.15,
-        YMAX - 0.2,
-        "structural outlier\n(Lane 2 only)",
-        color="#9a3340",
-        fontsize=8,
-        fontstyle="italic",
-        ha="left",
-        va="top",
-        linespacing=1.15,
-    )
-    ax.text(
-        XMAX - 0.15,
-        YMAX - 0.2,
-        "DANGER ZONE\nboth lanes flag",
-        color="#9a3340",
-        fontsize=8.5,
-        fontweight="bold",
-        ha="right",
-        va="top",
-        linespacing=1.15,
+        (threshold_eg_alberta + XMAX) / 2, (threshold_struct + YMAX) / 2,
+        "DANGER ZONE",
+        color="#9a3340", fontsize=10, fontweight="bold",
+        ha="center", va="center", alpha=0.30,
     )
 
     # Plot dots — larger and slightly brighter, with white halo
-    # for visual pop against the shaded background
     for label, x, y, color in points:
-        ax.scatter(
-            x, y, s=320, c="white", edgecolors="white", linewidths=2.5, zorder=3
-        )  # halo
+        ax.scatter(x, y, s=320, c="white", edgecolors="white", linewidths=2.5, zorder=3)
         ax.scatter(x, y, s=240, c=color, edgecolors=TEXT_DARK, linewidths=1.4, zorder=4)
 
-    # Per-dot labels — placed to avoid overlap, with v0_9 values shown
-    # Label offsets chosen to prevent three specific collisions:
-    # - "2019 enacted" previously placed below y=0 dot, val text fell below ylim=-0.6 → moved above
-    # - "Minority 2026" dot at (4.02, 5) is near Alberta bbox at top → offset further down
-    # - "Majority 2026" and "2019 enacted" both at y=0; offset in opposite directions to separate
-    label_specs = {
-        "2019 enacted":  ((+0.30, +0.32), "left", "bottom", "+2.4% / 0 of 5"),
-        "Majority 2026": ((-0.30, +0.28), "right", "bottom", "+0.1% / 0 of 5"),
-        "Minority 2026": ((-0.30, -0.55), "right", "top",    "+4.0% / 5 of 5"),
-    }
-    for label, x, y, color in points:
-        (ox, oy), ha, va, val = label_specs[label]
-        ax.text(
-            x + ox,
-            y + oy,
-            label,
-            fontsize=10,
-            fontweight="bold",
-            color=TEXT_DARK,
-            ha=ha,
-            va=va,
-        )
-        ax.text(
-            x + ox,
-            y + oy + (0.22 if va == "bottom" else -0.28),
-            val,
-            fontsize=8,
-            color="#555555",
-            ha=ha,
-            va=va,
-        )
+    # Dot labels via annotate — connector lines make dot/label relationships unambiguous
+    # Minority 2026 at (4.02, 5): label to the right and below, arrow points up-left to dot
+    ax.annotate(
+        "Minority 2026\n+4.0% / 5 of 5",
+        xy=(4.02, 5.0), xytext=(5.6, 4.0),
+        fontsize=8.5, fontweight="bold", color=MINORITY_PURPLE,
+        ha="left", va="top",
+        arrowprops=dict(arrowstyle="-", color=MINORITY_PURPLE, lw=0.9,
+                        shrinkA=0, shrinkB=7),
+        zorder=5,
+    )
+    # Majority 2026 at (0.10, 0): label above-left
+    ax.annotate(
+        "Majority 2026\n+0.1% / 0 of 5",
+        xy=(0.10, 0.0), xytext=(-0.7, 1.55),
+        fontsize=8.5, fontweight="bold", color=MAJORITY_TEAL,
+        ha="left", va="bottom",
+        arrowprops=dict(arrowstyle="-", color=MAJORITY_TEAL, lw=0.9,
+                        shrinkA=0, shrinkB=7),
+        zorder=5,
+    )
+    # 2019 enacted at (2.41, 0): label above-right
+    ax.annotate(
+        "2019 enacted\n+2.4% / 0 of 5",
+        xy=(2.41, 0.0), xytext=(3.5, 1.0),
+        fontsize=8.5, fontweight="bold", color=NEUTRAL_2019,
+        ha="left", va="bottom",
+        arrowprops=dict(arrowstyle="-", color=NEUTRAL_2019, lw=0.9,
+                        shrinkA=0, shrinkB=7),
+        zorder=5,
+    )
 
     # Axes
     ax.set_xlim(XMIN, XMAX)
     ax.set_ylim(YMIN, YMAX)
     ax.set_xlabel(
         "Lane 1: Efficiency gap (signed %)\nfurther right = more UCP-favoured",
-        fontsize=9.5,
-        color=TEXT_DARK,
-        labelpad=8,
-        linespacing=1.2,
+        fontsize=9.5, color=TEXT_DARK, labelpad=8, linespacing=1.2,
     )
     ax.set_ylabel(
         "Lane 2: Structural-irregularity count (of 5)\nhigher = more structural problems",
-        fontsize=9.5,
-        color=TEXT_DARK,
-        labelpad=8,
-        linespacing=1.2,
+        fontsize=9.5, color=TEXT_DARK, labelpad=8, linespacing=1.2,
     )
     ax.set_xticks([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
     ax.set_xticklabels(
@@ -540,21 +467,8 @@ def build_bias_structure_matrix() -> Path:
 
     ax.set_title(
         "The Bias-Structure Matrix",
-        fontsize=12.5,
-        fontweight="bold",
-        loc="left",
-        color=TEXT_DARK,
-        pad=14,
-    )
-    ax.text(
-        XMIN,
-        YMAX + 0.55,
-        "Each dot is one map. Top-right corner = both lanes flag the map. Bottom-left = clean on both.",
-        ha="left",
-        va="bottom",
-        fontsize=8.5,
-        color="#555555",
-        style="italic",
+        fontsize=12.5, fontweight="bold",
+        loc="left", color=TEXT_DARK, pad=10,
     )
 
     out = OUT / "bias_structure_matrix.svg"
