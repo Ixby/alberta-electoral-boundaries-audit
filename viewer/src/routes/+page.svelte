@@ -1043,7 +1043,7 @@
       box-sizing: border-box;
     }
 
-    section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid #ddd; scroll-margin-top: 50px; }
+    section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid #ddd; scroll-margin-top: 72px; }
     section:last-of-type { border-bottom: none; }
     /* Defer layout of sections far below the fold — browser skips paint until near viewport */
     #section-5, #section-6, #section-7, #section-8,
