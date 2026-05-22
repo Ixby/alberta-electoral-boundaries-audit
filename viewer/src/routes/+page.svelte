@@ -14,21 +14,33 @@
 
     const lb = document.getElementById('fig-lightbox') as HTMLElement;
     const lbImg = document.getElementById('fig-lightbox-img') as HTMLImageElement;
+    let lbPrevFocus: Element | null = null;
+
+    function openLb(src: string) {
+      lbImg.src = src;
+      lb.style.display = 'flex';
+      lbPrevFocus = document.activeElement;
+      lb.focus();
+    }
+    function closeLb() {
+      lb.style.display = 'none';
+      if (lbPrevFocus instanceof HTMLElement) lbPrevFocus.focus();
+      lbPrevFocus = null;
+    }
+
     document.querySelectorAll('figure img').forEach(img => {
-      (img as HTMLElement).addEventListener('click', () => {
-        lbImg.src = (img as HTMLImageElement).src;
-        lb.classList.add('open');
-      });
+      (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLImageElement).src));
     });
-    lb.addEventListener('click', () => lb.classList.remove('open'));
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') lb.classList.remove('open');
+    lb.addEventListener('click', closeLb);
+    lb.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'Tab') e.preventDefault(); // no focusable children to cycle
     });
   });
 </script>
 
 <nav aria-label="Page sections">
-  <a href="#" class="nav-home" aria-label="Back to top">↑</a>
+  <a href="#top" class="nav-home" aria-label="Back to top">↑</a>
   <a href="#section-1">1: Map</a>
   <a href="#section-2">2: The Split</a>
   <a href="#section-3">3: Litmus Test</a>
@@ -614,7 +626,7 @@
 
     <p>This audit ran into two data problems that have nothing to do with the commission and everything to do with how Alberta's electoral system is designed. Both are fixable.</p>
 
-    <p><strong>Elections Alberta already has the data to tell us where advance voters live — it just doesn't publish it.</strong> About half of all Alberta votes are now cast before election day — advance polls, mobile polls, special ballots. Elections Alberta reports these results as totals for each electoral division, not by specific Voting Area. That means roughly 395,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood on a map. They are counted; they just can't be located. This is not a technical problem. Every advance voter is checked against a voters list before receiving their ballot, and that list links each voter to their specific Voting Area. The information exists at the moment of voting. Elections Alberta simply does not publish that link in its results. No change to the voting process is required — only a change to what EA reports from data it already holds.</p>
+    <p><strong>Elections Alberta already has the data to tell us where advance voters live — it just doesn't publish it.</strong> About half of all Alberta votes are now cast before election day — advance polls, mobile polls, special ballots. Elections Alberta reports these results as totals for each electoral division, not by specific Voting Area. That means roughly 395,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood on a map. They are counted; they just can't be located. This is not a technical problem. Every advance voter is checked against a voters list before receiving their ballot, and that list links each voter to their specific Voting Area. That information exists at the moment of voting but is never published. No change to the voting process is required — only a change to what EA reports from data it already holds.</p>
 
     <p>This affects the commissioners too, not just outside analysts. When a commission decides whether to keep Airdrie whole or split it, whether a corridor between two communities makes sense, whether a proposed boundary divides a natural constituency — those are judgments that depend on knowing where voters live. Commissioners work from the same published dataset as everyone else. Half the geographic signal about the communities they are drawing boundaries around is missing for them as well.</p>
 
@@ -759,10 +771,10 @@
 
 </main><!-- /.container -->
 
-<a href="#" id="back-top" aria-label="Back to top">↑</a>
+<a href="#top" id="back-top" aria-label="Back to top">↑</a>
 
 <!-- Figure lightbox -->
-<div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view">
+<div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view" tabindex="-1">
   <img id="fig-lightbox-img" alt="">
 </div>
 
@@ -1028,6 +1040,12 @@
 
     section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid #ddd; scroll-margin-top: 50px; }
     section:last-of-type { border-bottom: none; }
+    /* Defer layout of sections far below the fold — browser skips paint until near viewport */
+    #section-5, #section-6, #section-7, #section-8,
+    #retractions, #references, #resources {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 1px auto 600px;
+    }
 
     h2 {
       font-size: 1.25rem;
@@ -1276,7 +1294,7 @@
   .tb-btn {
     background: transparent;
     border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.55);
     font-size: 0.64rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
     padding: 5px 10px; border-radius: 6px; cursor: pointer;
     transition: background 0.13s, color 0.13s, border-color 0.13s;
@@ -1552,7 +1570,7 @@
     display: none; align-items: center; justify-content: center;
     cursor: zoom-out;
   }
-  #fig-lightbox.open { display: flex; }
+  #fig-lightbox:focus { outline: none; }
   #fig-lightbox img {
     max-width: 92vw; max-height: 92dvh;
     object-fit: contain;

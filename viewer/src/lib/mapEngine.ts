@@ -299,10 +299,20 @@ export function init(basePath: string): void {
         if (obj.contentDocument && obj.contentDocument.readyState === 'complete') tryInit();
 
         // ── Open / close ──────────────────────────────────────────────────────
+        var _prevFocus: Element | null = null;
+        function _overlayFocusable() {
+          return Array.from(overlay.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          )).filter(el => !el.hasAttribute('disabled'));
+        }
+
         function open() {
           _stageRect = null;  // stage may have reflowed since last open
           overlay.style.display = 'block';
           document.body.style.overflow = 'hidden';
+          _prevFocus = document.activeElement;
+          var focusable = _overlayFocusable();
+          if (focusable.length) focusable[0].focus();
           if (!ready) return;
           if (mode === 'viewbox') resetVB(); else resetFallback();
         }
@@ -312,7 +322,21 @@ export function init(basePath: string): void {
           document.body.style.overflow = '';
           _hideTip();
           _hideCallout();
+          if (_prevFocus instanceof HTMLElement) { _prevFocus.focus(); }
+          _prevFocus = null;
         }
+
+        overlay.addEventListener('keydown', function(e: KeyboardEvent) {
+          if (e.key !== 'Tab') return;
+          var focusable = _overlayFocusable();
+          if (focusable.length === 0) return;
+          var first = focusable[0], last = focusable[focusable.length - 1];
+          if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+          } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
+        });
 
         trigger.addEventListener('click', e => { e.preventDefault(); open(); });
         closeBtn.addEventListener('click', close);
