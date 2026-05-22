@@ -1,5 +1,7 @@
 <svelte:head>
   <meta name="description" content="Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests.">
+  <link rel="icon" type="image/svg+xml" href="{base}/favicon.svg">
+  <link rel="apple-touch-icon" href="{base}/favicon.svg">
 </svelte:head>
 
 <script lang="ts">
@@ -52,8 +54,8 @@
     </div>
     <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map">
       <div class="hero-map-wrap">
-        <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager">
-        <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="">
+        <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager" width="1020" height="1807">
+        <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="" fetchpriority="high" loading="eager">
         <div class="hero-map-hint">Click to explore interactively</div>
       </div>
     </button>
@@ -104,7 +106,7 @@
     <h2>3: The 1,010,000-Map Litmus Test <a href="#section-3" class="section-link" aria-label="Link to section 3">#</a></h2>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+4.0%), in the shaded right tail. The majority map (teal line) sits at +0.1%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
+      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+4.0%), in the shaded right tail. The majority map (teal line) sits at +0.1%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="463" height="247" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">Distribution of <abbr title="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP">efficiency gaps</abbr> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +4.0% sits at the 94th <abbr title="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this">percentile</abbr> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.1% is indistinguishable from what a neutral process typically produces.</figcaption>
     </figure>
 
@@ -198,7 +200,7 @@
     </div>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/figure_airdrie_v3.svg" alt="Map showing the division of Airdrie into four separate districts under the minority map" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
+      <img src="images/figure_airdrie_v3.svg" alt="Map showing the division of Airdrie into four separate districts under the minority map" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="504" height="336" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The division of Airdrie into four separate districts under the minority map, diluting its urban voting power.</figcaption>
     </figure>
 
@@ -241,7 +243,7 @@
     <p>Lane 1 depends on which election results you score the maps against. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane2_bars.svg" alt="Bar chart comparing five structural-fairness tests side by side. The majority map bars sit at zero or well inside safe ranges. The minority map bars cross every threshold by a wide margin." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
+      <img src="images/lane2_bars.svg" alt="Bar chart comparing five structural-fairness tests side by side. The majority map bars sit at zero or well inside safe ranges. The minority map bars cross every threshold by a wide margin." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="441" height="545" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The five structural-fairness tests, side by side. Teal bars are the majority map; purple bars are the minority map. The dashed line in each row marks the failing threshold. The minority bars cross every threshold by a wide margin. The majority bars sit flat at zero or well inside the safe range.</figcaption>
     </figure>
 
@@ -539,7 +541,7 @@
     <p>The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the proposal fails, out of five, where higher means more structural problems). The bottom-left corner is "clean on both lanes." The top-right corner is "out of bounds on both lanes."</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/verdict_quadrant.svg" alt="Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;">
+      <img src="images/verdict_quadrant.svg" alt="Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="474" height="351" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The two ways of measuring the two commission proposals, plotted together. Left-to-right: how skewed the proposal looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the proposal fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 proposal stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 proposal is a structural outlier on all five tests; its efficiency gap (+4.0%) sits just below the Alberta threshold line.</figcaption>
     </figure>
 
