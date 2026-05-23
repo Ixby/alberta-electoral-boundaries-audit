@@ -175,10 +175,16 @@ export function init(basePath: string): void {
           if (_cur) stage.replaceChild(node, _cur);
           else stage.appendChild(node);
 
-          // ed_hover_layer paths have fill:none, so pointer-events defaults to none.
-          // Set pointer-events:all so elementFromPoint hits them for click/hover.
+          // ed_hover_layer paths have fill:none, so pointer-events is visiblePainted
+          // by default, giving zero hit area. Set all on each path so
+          // document.elementsFromPoint returns them for click/hover targets.
           const _hoverLayer = node.querySelector('#ed_hover_layer');
-          if (_hoverLayer) _hoverLayer.style.pointerEvents = 'all';
+          if (_hoverLayer) {
+            _hoverLayer.style.pointerEvents = 'all';
+            _hoverLayer.querySelectorAll('path[data-ed-id]').forEach(function(p) {
+              p.style.pointerEvents = 'all';
+            });
+          }
 
           const vb = node.viewBox.baseVal;
           if (vb.width && vb.height) {

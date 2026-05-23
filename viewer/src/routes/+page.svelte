@@ -870,7 +870,11 @@
 
 <a href="#top" id="back-top" aria-label="Back to top">↑</a>
 
-<div id="site-copyright" aria-label="Copyright notice">&copy; Will Conner 2026</div>
+<div id="site-copyright" aria-label="Creative Commons BY-NC-SA 4.0">
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Creative Commons Attribution-NonCommercial-ShareAlike 4.0">
+    <img src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" alt="CC BY-NC-SA 4.0" width="80" height="15">
+  </a>
+</div>
 
 <!-- Figure lightbox -->
 <div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view" tabindex="-1">
@@ -1820,14 +1824,17 @@
     pointer-events: none;
   }
 
-  /* Persistent copyright notice */
+  /* Persistent CC badge */
   #site-copyright {
     position: fixed; bottom: 0.45rem; right: 1rem;
-    font-size: 0.65rem; color: rgba(0,0,0,0.35);
-    pointer-events: none; z-index: 300;
-    letter-spacing: 0.01em;
+    z-index: 300; opacity: 0.45; pointer-events: auto;
+    transition: opacity 0.15s;
   }
-  :root[data-theme="dark"] #site-copyright { color: rgba(255,255,255,0.22); }
+  #site-copyright:hover { opacity: 0.85; }
+  #site-copyright a { display: block; line-height: 0; }
+  #site-copyright img { display: block; }
+  :root[data-theme="dark"] #site-copyright { opacity: 0.3; }
+  :root[data-theme="dark"] #site-copyright:hover { opacity: 0.7; }
 
   /* Back-to-top button */
   #back-top {
