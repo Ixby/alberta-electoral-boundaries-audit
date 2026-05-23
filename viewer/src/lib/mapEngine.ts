@@ -639,17 +639,24 @@ export function init(basePath: string): void {
             b.classList.toggle('tb-map-primary', !!_mapPrimary && _mapOn[key] && key === _mapPrimary);
             b.classList.toggle('tb-map-overlay',  !!_mapPrimary && _mapOn[key] && key !== _mapPrimary);
           });
-          // Flagged only works when minority is the top layer
-          var minorityIsTop = _mapPrimary === 'minority';
-          document.querySelectorAll('[data-anomaly]').forEach(function(b) {
-            b.disabled = !minorityIsTop;
-            b.classList.toggle('tb-btn-disabled', !minorityIsTop);
-            if (!minorityIsTop && _anomalyOn) {
-              _anomalyOn = false;
-              b.classList.remove('tb-layer-on');
-              if (svgEl) _applyAnomalyHighlight();
-            }
-          });
+          // Clear anomaly state when minority is no longer the top layer
+          if (_mapPrimary !== 'minority' && _anomalyOn) {
+            _anomalyOn = false;
+            document.querySelectorAll('[data-anomaly]').forEach(function(b) { b.classList.remove('tb-layer-on'); });
+            if (svgEl) _applyAnomalyHighlight();
+          }
+        }
+
+        // Hoist a map to the top of the stack without toggling it off
+        function _activateAsTop(key) {
+          if (!_mapSvgUrls[key]) return;
+          if (_mapPrimary === key) return; // already top
+          _mapOn[key] = true;
+          _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== key; });
+          _mapActivationOrder.push(key);
+          _mapPrimary = key;
+          _doSwitchPrimary(key);
+          _updateMapButtons();
         }
 
         function _doSwitchPrimary(key) {
@@ -1267,7 +1274,7 @@ export function init(basePath: string): void {
 
         document.querySelectorAll('[data-anomaly]').forEach(function(b) {
           b.addEventListener('click', function() {
-            if (_mapPrimary !== 'minority') return; // Flagged only active under minority map
+            _activateAsTop('minority');
             var wasOff = !_anomalyOn;
             if (overlay.style.display !== 'block') open();
             _anomalyOn = !_anomalyOn;

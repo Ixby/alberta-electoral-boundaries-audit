@@ -906,9 +906,14 @@
       <input id="tb-search" type="search" placeholder="Find district…" autocomplete="off" spellcheck="false">
       <ul id="tb-search-results"></ul>
     </div>
+    <div class="tb-sep"></div>
+    <div id="ec-zoom-section">
+      <span id="zoom-pct">100%</span>
+      <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label="Map zoom">
+    </div>
     <button id="ec-close" class="tb-btn tb-close-btn" title="Clear selection">&times;</button>
   </div>
-  <!-- ed-callout sits directly below top-bar in #hud column -->
+  <!-- ed-callout — only shown when an ED is selected -->
   <div id="ed-callout" aria-live="polite">
     <div id="ec-ed-section">
       <div id="ec-name"></div>
@@ -933,10 +938,6 @@
       <div id="ec-eg-row"><span class="ec-eg-label">EG</span> <span id="ec-eg"></span></div>
       <div id="ec-context"></div>
       <div id="ec-compare"></div>
-    </div>
-    <div id="ec-zoom-section">
-      <span id="zoom-pct">100%</span>
-      <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label="Map zoom">
     </div>
   </div>
   </div><!-- /#hud -->
@@ -1466,7 +1467,7 @@
   .skel-province-glow {
     fill: none; stroke: #F5A623; stroke-width: 12;
     stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 12 83;
+    stroke-dasharray: 12 612;
     stroke-dashoffset: 1872;
     opacity: 0.22;
     filter: url(#skel-glow);
@@ -1475,7 +1476,7 @@
   .skel-province-shine {
     fill: none; stroke: #F5A623; stroke-width: 2.5;
     stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 5 90;
+    stroke-dasharray: 5 619;
     stroke-dashoffset: 1872;
     animation: skel-race 4.5s linear infinite;
   }
@@ -1567,7 +1568,7 @@
   .tb-btn[data-anomaly]:disabled,
   .tb-btn[data-anomaly].tb-btn-disabled     { opacity: 0.32; cursor: not-allowed; border-color: rgba(128,128,128,0.25); color: rgba(128,128,128,0.45); }
   @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
-  /* District info bar — sits directly below top-bar in #hud column */
+  /* District info bar — only rendered when an ED is selected */
   #ed-callout {
     background: rgba(10,12,18,0.92);
     border: 1px solid rgba(255,255,255,0.08);
@@ -1575,20 +1576,19 @@
     padding: 5px 10px;
     backdrop-filter: blur(10px);
     color: #fff;
-    display: flex; align-items: center; gap: 10px;
+    display: none; align-items: center; gap: 10px;
     min-height: 38px;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
   #ed-callout.ec-visible {
+    display: flex;
     border-color: rgba(245,166,35,0.75);
     box-shadow: 0 0 0 1px rgba(245,166,35,0.25), 0 0 12px rgba(245,166,35,0.15);
   }
-  /* ED info section — only visible when an ED is selected */
   #ec-ed-section {
-    display: none; align-items: center; gap: 8px;
+    display: flex; align-items: center; gap: 8px;
     flex: 1; min-width: 0; overflow: hidden;
   }
-  #ed-callout.ec-visible #ec-ed-section { display: flex; }
   #ec-close { display: none; }
   #hud.ec-has-ed #ec-close { display: inline-flex; }
   .tb-close-btn { font-size: 1.1rem; line-height: 1; padding: 4px 9px; }
@@ -1620,10 +1620,10 @@
   #ec-eg.ec-eg-ndp { color: #f4a26a; }
   #ec-context { display: none; }
   #ec-compare { display: none !important; }
-  /* Zoom section — always visible at right end */
+  /* Zoom section — lives in top-bar */
   #ec-zoom-section {
     display: flex; align-items: center; gap: 7px;
-    margin-left: auto; flex-shrink: 0;
+    flex-shrink: 0;
   }
   #zoom-slider {
     width: 100px; cursor: pointer;
