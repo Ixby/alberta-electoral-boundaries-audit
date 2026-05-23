@@ -495,7 +495,7 @@ export function init(basePath: string): void {
         const _mapAccentColors = {
           minority: '#6B35A7',
           majority: '#1A7A6E',
-          '2019':   '#c4687a',
+          '2019':   '#7a98b4',
         };
         const _mapOn      = { minority: false, majority: false, '2019': true };
         let   _mapPrimary = '2019';
