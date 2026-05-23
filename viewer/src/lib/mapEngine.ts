@@ -417,7 +417,7 @@ export function init(basePath: string): void {
           document.getElementById('ec-ucp-votes').textContent = d.ucp_votes ? d.ucp_votes.toLocaleString() + ' votes' : '';
           document.getElementById('ec-ndp-votes').textContent = d.ndp_votes ? d.ndp_votes.toLocaleString() + ' votes' : '';
           document.getElementById('ec-total-votes').textContent = d.votes ? d.votes.toLocaleString() + ' total votes' : '';
-          document.getElementById('ec-va-count').textContent = d.va_count ? d.va_count + ' voting areas' : '';
+          const vaEl = document.getElementById('ec-va-count'); if (vaEl) vaEl.textContent = d.va_count ? d.va_count + ' voting areas' : '';
           const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
           document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
           // EG contribution per district
