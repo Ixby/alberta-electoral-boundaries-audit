@@ -864,9 +864,13 @@
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Borders</button>
     </div>
     <div class="tb-sep"></div>
-    <button class="tb-btn" data-anomaly="airdrie" title="Highlight chair-flagged districts — Airdrie 4-way split and NW Calgary zone">Flagged</button>
+    <button class="tb-btn" data-anomaly="airdrie" title="Highlight districts flagged by Justice Miller (commission chair): Nolan Hill–Cochrane, Olds–Three Hills–Didsbury, Rocky Mtn House–Banff Park">Flagged</button>
     <div class="tb-sep"></div>
-    <button class="tb-btn" data-layer="lock">Pin Map</button>
+    <button class="tb-btn tb-pin-btn" data-layer="lock" title="Pin Map — prevent auto-pan on district click" aria-label="Pin Map">
+      <svg class="pin-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
+        <path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.9 5.9 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182a.5.5 0 0 1-.707-.707l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.9 5.9 0 0 1 1.013.16l3.134-3.133a3 3 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146"/>
+      </svg>
+    </button>
     <div class="tb-sep"></div>
     <div id="tb-search-wrap">
       <input id="tb-search" type="search" placeholder="Find district…" autocomplete="off" spellcheck="false">
@@ -946,7 +950,7 @@
       <li><strong>Partisan</strong> &mdash; colour districts by partisan outcome (UCP blue, NDP orange); neutral grey when off</li>
       <li><strong>Vote %</strong> &mdash; show 2023 vote results at polling-area granularity underneath</li>
       <li><strong>Borders</strong> &mdash; show or hide district boundary edges</li>
-      <li><strong>Pin Map</strong> &mdash; prevent the map from auto-panning when you click a district</li>
+      <li><strong>Pin</strong> (pin icon, turns red when active) &mdash; prevent the map from auto-panning when you click a district</li>
       <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
       <li><strong>Wasted</strong> &mdash; shade each district by its efficiency-gap contribution (wasted votes): blue = UCP-favoured, orange = NDP-favoured</li>
     </ul>
@@ -1445,7 +1449,9 @@
   .tb-btn[data-map="majority"].tb-map-overlay  { border-color: rgba(26,122,110,0.7); color: rgba(100,210,185,0.8); }
   .tb-btn[data-map="2019"].tb-map-overlay      { border-color: rgba(245,166,35,0.6); color: rgba(245,200,100,0.8); }
   .tb-btn.tb-layer-on { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9); }
-  .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(255,200,0,0.12); border-color: rgba(255,200,0,0.45); color: rgba(255,210,60,0.95); }
+  .tb-pin-btn { padding: 4px 8px; }
+  .tb-pin-btn .pin-icon { display: block; }
+  .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(220,30,30,0.15); border-color: rgba(220,30,30,0.6); color: #f05050; }
   @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
   /* District info bar — sits directly below top-bar in #hud column */
   #ed-callout {

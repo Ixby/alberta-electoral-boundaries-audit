@@ -107,12 +107,14 @@ export function init(basePath: string): void {
           if (!svgEl || !curVB) return;
           settledVB = null;
           if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+          // Frame 1: reset transform + commit viewBox (compositor swap)
           svgEl.style.transform = '';
           svgEl.style.willChange = '';
           svgEl.style.transformOrigin = '';
           svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
           _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
-          _updateStrokeWidths();
+          // Frame 2: update stroke widths after browser renders the new viewBox
+          requestAnimationFrame(_updateStrokeWidths);
         }
 
         function applyVB(vb) {
@@ -522,7 +524,7 @@ export function init(basePath: string): void {
           if (!svgEl || !natVB || !curVB) return;
           var zf = natVB.w / curVB.w;                            // 1 = 100%, 4 = 400%
           var primaryW = Math.min(1.8, Math.max(0.06, 0.5 / zf));
-          var overlayW = primaryW * 0.6;                         // proportional, slightly thinner
+          var overlayW = Math.min(0.35, primaryW * 0.6);         // proportional but capped thinner
           var pBound = svgEl.querySelector('#ed_boundary_layer');
           if (pBound) {
             pBound.querySelectorAll('path').forEach(function(p) {
@@ -596,7 +598,7 @@ export function init(basePath: string): void {
           var clone = document.importNode(g, true);
           var zf = (natVB && curVB) ? natVB.w / curVB.w : 1;
           var primaryW = Math.min(1.8, Math.max(0.06, 0.5 / zf));
-          var sw = primaryW * 0.6;
+          var sw = Math.min(0.35, primaryW * 0.6);
           clone.querySelectorAll('path').forEach(function(p) {
             p.style.stroke = _mapAccentColors[key] || '#555';
             p.style.strokeWidth = String(sw);
@@ -1159,8 +1161,12 @@ export function init(basePath: string): void {
         })();
 
         // ── Anomaly highlight ─────────────────────────────────────────────────────
-        // Airdrie four-way split: ids 1, 13, 20, 51. NW Calgary anomaly zone: id 23.
-        const _anomalyIds = new Set([1, 13, 20, 51, 23]);
+        // Districts flagged by commission chair (Justice Miller) on the minority map:
+        //   20 = Calgary-Nolan Hill-Cochrane (lasso corridor)
+        //   75 = Olds-Three Hills-Didsbury (reach into north Airdrie)
+        //   81 = Rocky Mountain House-Banff Park (national-park extension)
+        // Source: commission final report, confirmed by audit geometry tests.
+        const _anomalyIds = new Set([20, 75, 81]);
         let   _anomalyOn      = false;
         let   _anomalyOverlay = null;
 
