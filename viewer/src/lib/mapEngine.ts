@@ -986,6 +986,18 @@ export function init(basePath: string): void {
           _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 420);
         }
 
+        function _zoomEdTo70(pathEl) {
+          if (!svgEl || mode !== 'viewbox' || _mapLocked) return;
+          const bb = pathEl.getBBox();
+          const r = _getStageRect();
+          // Pick the viewBox width so the ED's bbox fills 70% in the limiting dimension
+          const vw = Math.max(bb.width / 0.70, bb.height / 0.70 * r.width / r.height);
+          const vh = vw * r.height / r.width;
+          const cx = bb.x + bb.width  / 2;
+          const cy = bb.y + bb.height / 2;
+          _animateToVB({ x: cx - vw/2, y: cy - vh/2, w: vw, h: vh }, 380);
+        }
+
         function _tipTarget(e) {
           // elementsFromPoint returns the full hit stack — needed because SVG paths with
           // fill:none may not be topmost even with pointer-events:all on the parent group.
@@ -1072,8 +1084,9 @@ export function init(basePath: string): void {
             if (e.pointerType === 'touch') {
               const now = performance.now();
               if (now - _lastTap < 300) {
-                _hideCallout();
-                _animateToVB({ ...natVB }, 420);
+                const hit = _tipTarget(e);
+                if (hit) { _zoomEdTo70(hit); }
+                else { _hideCallout(); _animateToVB({ ...natVB }, 420); }
                 _lastTap = 0;
               } else {
                 _lastTap = now;
@@ -1109,9 +1122,13 @@ export function init(basePath: string): void {
 
         stage.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') _hideTip(); });
 
-        stage.addEventListener('dblclick', () => {
+        stage.addEventListener('dblclick', e => {
           if (!ready) return;
-          if (mode === 'viewbox') _animateToVB({ ...natVB }, 420); else resetFallback();
+          if (mode === 'viewbox') {
+            const hit = _tipTarget(e);
+            if (hit) _zoomEdTo70(hit);
+            else _animateToVB({ ...natVB }, 420);
+          } else resetFallback();
         });
 
         // ── Zoom slider ───────────────────────────────────────────────────────────
