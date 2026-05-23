@@ -6,21 +6,21 @@ type: methodology
 
 > **Backward:**
 > - `findings/redist_python_comparison.md` — current dual-sampler cross-validation (ReCom + SMC) this plan would extend with a third sampler
-> - `preregistration/revrecom_amendment_DRAFT.md` — pre-registration amendment draft (must be signed and locked before the run)
+> - `proposals/revrecom/pre_registration_amendment_DRAFT.md` — pre-registration amendment draft (must be signed and locked before the run)
 > - `analysis/scripts/mcmc_ensemble_canonical.py` — the existing ReCom pipeline that built the 1.01M-plan canonical ensemble; this run reuses its graph, constraints, and scorer
 > - `data/shapefiles/canonical/va_2023_election_day_votes.gpkg` — canonical VA adjacency substrate (4,765 nodes / 13,385 edges)
 > - external tools (not yet installed): `frcw.rs` Rust binary (https://github.com/mggg/frcw.rs) or `gerrytools.mgrp` Docker wrapper
 > - cited references: Cannon, Goldbloom-Helzner, Gupta, Matthews, Suwal 2022 — "Spanning Trees and Redistricting", arXiv:2210.01401; Chen 2025 — "Balanced Spanning Tree Distributions Have Separation Fairness", arXiv:2509.15137
 >
 > **Forward:**
-> - `preregistration/revrecom_amendment_DRAFT.md` — pre-reg amendment, must be locked before run
+> - `proposals/revrecom/pre_registration_amendment_DRAFT.md` — pre-reg amendment, must be locked before run
 > - `findings/redist_python_comparison.md` — would gain a third column (RevReCom percentile) and a tri-sampler reconciliation paragraph if executed
 > - `reports/academic/report_academic.md` §5.4 — would incorporate the RevReCom result into the joint outlier analysis
 > - `TODO.md` — flags this plan as ready-to-run pending PI authorization
 
 # Reversible ReCom (RevReCom / Forest-ReCom) — run plan
 
-**Status as of 2026-05-23: PREP COMPLETE, NOT RUN.** This file is a ready-to-execute plan. The principal investigator (Will Conner) must explicitly authorize the run, lock the pre-registration amendment (`preregistration/revrecom_amendment_DRAFT.md`), and confirm the compute environment before any chain is started. Until that point no graph export, no Rust build, no chain proposals — no compute consumed beyond what produced this file.
+**Status as of 2026-05-23: PREP COMPLETE, NOT RUN.** This file is a ready-to-execute plan. The principal investigator (Will Conner) must explicitly authorize the run, lock the pre-registration amendment (`proposals/revrecom/pre_registration_amendment_DRAFT.md`), and confirm the compute environment before any chain is started. Until that point no graph export, no Rust build, no chain proposals — no compute consumed beyond what produced this file.
 
 ## Why this would be run
 
@@ -61,13 +61,13 @@ A pre-committed list. The run produces these outputs regardless of which way the
 6. **Mahalanobis joint outlier.** Recompute the four-metric joint distance for both maps under the RevReCom covariance. Compare D² and the chi-squared p-value to the existing ReCom-derived D² (5.72 minority, 1.67 majority).
 7. **Joint-distribution comparison plot.** Overlay RevReCom and ReCom seats@50/50 distributions on a single histogram with the real-map markers.
 
-**Publish-regardless commitment.** Every item above will be published in `findings/redist_python_comparison.md` and in `reports/academic/report_academic.md` §5.4 within 7 days of the run completing, regardless of whether the result confirms, partly confirms, or contradicts the existing ReCom + SMC finding. If the result contradicts the headline (minority not in the extreme upper tail under RevReCom), `findings/redist_python_comparison.md` will be updated to lead with that contradiction and the audit's central claim will be re-framed accordingly. The pre-registration amendment at `preregistration/revrecom_amendment_DRAFT.md` is the binding instrument; the principal investigator must sign and lock it before authorizing the run.
+**Publish-regardless commitment.** Every item above will be published in `findings/redist_python_comparison.md` and in `reports/academic/report_academic.md` §5.4 within 7 days of the run completing, regardless of whether the result confirms, partly confirms, or contradicts the existing ReCom + SMC finding. If the result contradicts the headline (minority not in the extreme upper tail under RevReCom), `findings/redist_python_comparison.md` will be updated to lead with that contradiction and the audit's central claim will be re-framed accordingly. The pre-registration amendment at `proposals/revrecom/pre_registration_amendment_DRAFT.md` is the binding instrument; the principal investigator must sign and lock it before authorizing the run.
 
 ## Implementation steps
 
 When authorized, the run sequence is:
 
-1. **Lock pre-reg.** Sign `preregistration/revrecom_amendment_DRAFT.md` (rename to drop `_DRAFT`), include drand round number, commit and push.
+1. **Lock pre-reg.** Sign `proposals/revrecom/pre_registration_amendment_DRAFT.md` (rename to drop `_DRAFT`), include drand round number, commit and push.
 2. **Build `frcw.rs`.** Clone https://github.com/mggg/frcw.rs into `/opt/` or equivalent. `RUSTFLAGS="-C target-cpu=native" cargo build --release`. ~5–15 min if Rust toolchain is pre-installed; longer if not.
 3. **Write graph adapter.** New script `analysis/scripts/export_graph_to_frcw_json.py` reads the canonical 2023 VA gpkg and writes a frcw-format JSON. Schema: `{"nodes": [...], "edges": [...], "node_attrs": {"pop_2021": [...], "assignment_2019": [...]}}`. ~30–60 min coding + verification against a known-good frcw example.
 4. **Sanity run.** Run frcw with `--n-steps 10000 --variant reversible` on the exported graph. Verify it produces a JSONL output and parses cleanly. ~5–10 min.
@@ -89,13 +89,13 @@ Total clock from authorization to published write-up, on a working machine: **6�
 - The graph adapter is **not written**. Implementing it would consume some hours of coding and is conditional on the authorization.
 - The Rust toolchain is **not installed**. `cargo build --release` is **not run**.
 - No chain proposals have been made. The RevReCom ensemble does not exist.
-- The pre-reg amendment file (`preregistration/revrecom_amendment_DRAFT.md`) is created in DRAFT form but contains a placeholder for the drand seed round number; it must be filled in and signed at authorization time.
+- The pre-reg amendment file (`proposals/revrecom/pre_registration_amendment_DRAFT.md`) is created in DRAFT form but contains a placeholder for the drand seed round number; it must be filled in and signed at authorization time.
 
 ## How to authorize
 
 To go from PREP COMPLETE to RUNNING, the principal investigator must:
 
-1. Open `preregistration/revrecom_amendment_DRAFT.md`, fill in the drand round number (the first drand-beacon round above the current wall-clock minute) and the date, then save and commit (renaming to drop `_DRAFT`).
+1. Open `proposals/revrecom/pre_registration_amendment_DRAFT.md`, fill in the drand round number (the first drand-beacon round above the current wall-clock minute) and the date, then save and commit (renaming to drop `_DRAFT`).
 2. Confirm the parameters in this file (§"Parameters — pre-committed before run") are accepted as-is, or amend them in this file before running.
 3. Instruct Claude (or self-execute) to begin step 2 of §"Implementation steps."
 

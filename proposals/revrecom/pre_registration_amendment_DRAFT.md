@@ -5,7 +5,7 @@ type: preregistration
 ---
 
 > **Backward:**
-> - `analysis/methodology/revrecom_run_plan.md` — operational run plan that this amendment governs
+> - `proposals/revrecom/run_plan.md` — operational run plan that this amendment governs
 > - `preregistration/null_hypotheses.md` — parent pre-registration document
 > - `preregistration/seed_commitments.md` — drand-beacon seed-commitment convention used throughout the audit
 >
@@ -37,7 +37,7 @@ The principal investigator's primary methodological concern in adding this run i
 
 ## Pre-committed parameters
 
-Locked in `analysis/methodology/revrecom_run_plan.md` §"Parameters — pre-committed before run." Key bindings:
+Locked in `proposals/revrecom/run_plan.md` §"Parameters — pre-committed before run." Key bindings:
 
 - Sampler: `frcw --variant reversible` (Rust binary, MGGG-canonical at https://github.com/mggg/frcw.rs)
 - Graph: canonical VA adjacency, 4,765 nodes / 13,385 edges, bit-identical to the ReCom and SMC inputs
