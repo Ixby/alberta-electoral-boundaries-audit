@@ -499,9 +499,10 @@ export function init(basePath: string): void {
         };
         const _mapOn      = { minority: false, majority: false, '2019': true };
         let   _mapPrimary = '2019';
+        var   _mapActivationOrder = ['2019'];  // ordered by activation time; last element = current top
         const _svgCache   = {};
         const _overlayInSvg = {};
-        const _layerState = { vote: true, 'ed-fill': true, 'ed-lines': true, eg: false };
+        const _layerState = { vote: true, 'ed-fill': false, 'ed-lines': true, eg: false };
         let   _mapLocked  = false;
 
         // ── Map-wide boundary color ───────────────────────────────────────────────
@@ -527,12 +528,19 @@ export function init(basePath: string): void {
           if (!svgEl || !natVB || !curVB) return;
           var zf = natVB.w / curVB.w;                            // 1 = 100%, 4 = 400%
           var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
+          var overlayW = Math.min(0.35, primaryW * 0.6);
           var pBound = svgEl.querySelector('#ed_boundary_layer');
           if (pBound) {
             pBound.querySelectorAll('path').forEach(function(p) {
               p.style.strokeWidth = String(primaryW);
             });
           }
+          ['minority', 'majority', '2019'].forEach(function(key) {
+            var og = _overlayInSvg[key];
+            if (og) og.querySelectorAll('path').forEach(function(p) {
+              p.style.strokeWidth = String(overlayW);
+            });
+          });
         }
 
         // ── Active ED boundary highlight ──────────────────────────────────────────
@@ -585,18 +593,20 @@ export function init(basePath: string): void {
         function _extractBoundaryGroup(key) {
           var doc = _svgCache[key];
           if (!doc) return null;
-          var g = doc.querySelector('#ed_hover_layer');
+          var g = doc.querySelector('#ed_boundary_layer');
           if (!g) return null;
           var clone = document.importNode(g, true);
-          var accent = _mapAccentColors[key] || '#555';
+          var zf = (natVB && curVB) ? natVB.w / curVB.w : 1;
+          var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
+          var sw = Math.min(0.35, primaryW * 0.6);
           clone.querySelectorAll('path').forEach(function(p) {
-            p.style.fill = accent;
-            p.style.fillOpacity = '0.10';
-            p.style.stroke = 'none';
-            p.style.pointerEvents = 'none';
+            p.style.stroke = _mapAccentColors[key] || '#555';
+            p.style.strokeWidth = String(sw);
+            p.style.strokeOpacity = '0.55';
+            p.style.fill = 'none';
           });
           clone.setAttribute('pointer-events', 'none');
-          clone.id = 'ed-fill-overlay-' + key;
+          clone.id = 'ed-boundary-overlay-' + key;
           return clone;
         }
 
@@ -628,6 +638,17 @@ export function init(basePath: string): void {
             var key = b.dataset.map;
             b.classList.toggle('tb-map-primary', !!_mapPrimary && _mapOn[key] && key === _mapPrimary);
             b.classList.toggle('tb-map-overlay',  !!_mapPrimary && _mapOn[key] && key !== _mapPrimary);
+          });
+          // Flagged only works when minority is the top layer
+          var minorityIsTop = _mapPrimary === 'minority';
+          document.querySelectorAll('[data-anomaly]').forEach(function(b) {
+            b.disabled = !minorityIsTop;
+            b.classList.toggle('tb-btn-disabled', !minorityIsTop);
+            if (!minorityIsTop && _anomalyOn) {
+              _anomalyOn = false;
+              b.classList.remove('tb-layer-on');
+              if (svgEl) _applyAnomalyHighlight();
+            }
           });
         }
 
@@ -699,37 +720,32 @@ export function init(basePath: string): void {
         function toggleMap(key) {
           if (!_mapSvgUrls[key]) return;
           if (!_mapOn[key]) {
-            // Off → On: if no primary exists make it primary, else add as overlay
+            // Toggle ON — becomes the new top layer
             _mapOn[key] = true;
-            if (!_mapPrimary) {
-              _mapPrimary = key;
-              _doSwitchPrimary(key);
-            } else {
-              _syncOverlays();
-            }
-            _updateMapButtons();
-            return;
-          }
-          if (key !== _mapPrimary) {
-            // Overlay → Primary: promote; old primary becomes overlay
+            _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== key; });
+            _mapActivationOrder.push(key);
             _mapPrimary = key;
-            _doSwitchPrimary(key);
-            _updateMapButtons();
-            return;
-          }
-          // Primary → Off
-          var next = ['minority', 'majority', '2019'].find(function(k) { return k !== key && _mapOn[k]; });
-          _mapOn[key] = false;
-          if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
-          if (next) {
-            _mapPrimary = next;
-            _doSwitchPrimary(next);
+            _doSwitchPrimary(key);  // old primary becomes overlay via _syncOverlays inside
           } else {
-            // All maps off — clear the stage and show skeleton
-            _mapPrimary = null;
-            if (svgEl) { svgEl.remove(); svgEl = null; }
-            var skelEl = document.getElementById('zoom-skeleton');
-            if (skelEl) skelEl.classList.remove('hidden');
+            // Toggle OFF
+            _mapOn[key] = false;
+            _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== key; });
+            if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
+            if (key === _mapPrimary) {
+              // Was the top — promote next most-recently-activated map
+              var next = _mapActivationOrder.length > 0
+                ? _mapActivationOrder[_mapActivationOrder.length - 1] : null;
+              if (next) {
+                _mapPrimary = next;
+                _doSwitchPrimary(next);
+              } else {
+                _mapPrimary = null;
+                if (svgEl) { svgEl.remove(); svgEl = null; }
+                var skelEl = document.getElementById('zoom-skeleton');
+                if (skelEl) skelEl.classList.remove('hidden');
+              }
+            }
+            // If it was an overlay, overlay reference was already removed above
           }
           _updateMapButtons();
         }
@@ -768,6 +784,10 @@ export function init(basePath: string): void {
           if (!svgEl) return;
           var g = svgEl.querySelector('#ed_boundary_layer');
           if (g) g.style.display = on ? '' : 'none';
+          ['minority', 'majority', '2019'].forEach(function(key) {
+            var og = _overlayInSvg[key];
+            if (og) og.style.display = on ? '' : 'none';
+          });
         }
         // ── EG-contribution choropleth ────────────────────────────────────────────
         // Per-ED efficiency gap contribution: (ucp_wasted - ndp_wasted) / provincial_votes.
@@ -885,10 +905,15 @@ export function init(basePath: string): void {
         }
 
         function _tipTarget(e) {
-          // pointer capture redirects e.target to the stage during drag/touch,
-          // so use elementFromPoint which hits the actual SVG path under the finger.
-          const el = document.elementFromPoint(e.clientX, e.clientY);
-          return el && el.closest ? el.closest('[data-ed-id]') : null;
+          // elementsFromPoint returns the full hit stack — needed because SVG paths with
+          // fill:none may not be topmost even with pointer-events:all on the parent group.
+          var els = document.elementsFromPoint
+            ? document.elementsFromPoint(e.clientX, e.clientY)
+            : [document.elementFromPoint(e.clientX, e.clientY)];
+          for (var i = 0; i < els.length; i++) {
+            if (els[i] && els[i].hasAttribute && els[i].hasAttribute('data-ed-id')) return els[i];
+          }
+          return null;
         }
 
         // ── Unified drag + tap + pinch (Pointer Events — all gesture types) ──────
@@ -1062,6 +1087,8 @@ export function init(basePath: string): void {
 
             if (fromMap !== _mapPrimary) {
               _mapOn[fromMap] = true;
+              _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== fromMap; });
+              _mapActivationOrder.push(fromMap);
               _mapPrimary = fromMap;
               _updateMapButtons();
               _doSwitchPrimary(fromMap);
@@ -1197,14 +1224,6 @@ export function init(basePath: string): void {
             glow.setAttribute('class', 'anomaly-glow-path');
             _anomalyOverlay.appendChild(glow);
 
-            // Tint fill
-            const tint = document.createElementNS(NS, 'path');
-            tint.setAttribute('d', d);
-            tint.setAttribute('fill', 'rgba(230,57,70,0.10)');
-            tint.setAttribute('stroke', 'none');
-            tint.setAttribute('class', 'anomaly-fill-path');
-            _anomalyOverlay.appendChild(tint);
-
             // Sharp animated outline
             const outline = document.createElementNS(NS, 'path');
             outline.setAttribute('d', d);
@@ -1248,17 +1267,11 @@ export function init(basePath: string): void {
 
         document.querySelectorAll('[data-anomaly]').forEach(function(b) {
           b.addEventListener('click', function() {
+            if (_mapPrimary !== 'minority') return; // Flagged only active under minority map
             var wasOff = !_anomalyOn;
             if (overlay.style.display !== 'block') open();
             _anomalyOn = !_anomalyOn;
             b.classList.toggle('tb-layer-on', _anomalyOn);
-            // Auto-switch to minority map — all flagged EDs are minority-map configs
-            if (_anomalyOn && _mapPrimary !== 'minority') {
-              _mapOn['minority'] = true;
-              _mapPrimary = 'minority';
-              _doSwitchPrimary('minority');
-              _updateMapButtons();
-            }
             _applyAnomalyHighlight();
             if (_anomalyOn && wasOff && !_mapLocked) _zoomToAnomalyDistricts(0);
           });

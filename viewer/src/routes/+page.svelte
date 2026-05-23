@@ -19,9 +19,9 @@
   import { base } from '$app/paths';
   import { init } from '$lib/mapEngine';
 
-  let skelPhrase = 'loading fun…';
+  let skelPhrase = 'Loading Map Explorer…';
   const _SKEL_PHRASES = [
-    'loading fun…', 'drawing Alberta…', 'crunching the numbers…',
+    'Loading Map Explorer…', 'drawing Alberta…', 'crunching the numbers…',
     'counting every vote…', 'plotting the boundaries…', 'almost there…',
   ];
   let _skelIdx = 0;
@@ -890,7 +890,7 @@
     <div class="tb-sep"></div>
     <div class="tb-group">
       <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">Wasted</button>
-      <button class="tb-btn tb-layer-on" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Partisan</button>
+      <button class="tb-btn" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Partisan</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Borders</button>
     </div>
     <div class="tb-sep"></div>
@@ -1564,6 +1564,8 @@
   .tb-btn[data-layer="ed-lines"].tb-layer-on    { background: rgba(96,120,145,0.12); border-color: #607890; color: #98B8CC; }
   .tb-btn[data-anomaly]                     { border-color: rgba(208,85,64,0.38); color: rgba(208,85,64,0.78); }
   .tb-btn[data-anomaly].tb-layer-on         { background: rgba(208,85,64,0.15); border-color: #D05540; color: #F09080; }
+  .tb-btn[data-anomaly]:disabled,
+  .tb-btn[data-anomaly].tb-btn-disabled     { opacity: 0.32; cursor: not-allowed; border-color: rgba(128,128,128,0.25); color: rgba(128,128,128,0.45); }
   @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
   /* District info bar — sits directly below top-bar in #hud column */
   #ed-callout {
