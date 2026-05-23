@@ -12,15 +12,15 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 
 > ### Is the proposed map a gerrymander?
 >
-> One of the two maps under consideration — the *minority* map — shows clear signs that it would be one. Every structural test this audit runs flags the minority map; none flag the alternative (the *majority* map).
+> "Gerrymander" is not a term Canadian courts use. But if it were — in the everyday sense most people mean by it — the evidence in this audit would reasonably support calling the *minority proposal*, if enacted, a heavily gerrymandered map. Every structural test this audit runs flags the minority proposal; none flag the alternative (the *majority proposal*).
 >
 > ### What does "gerrymander" mean in Canadian law?
 >
-> Canada doesn't use the word in court. Our test is different: whether the boundaries give voters *effective representation* under section 3 of the Charter. The minority map raises serious questions under that test; only a judge can answer them definitively, and no one has asked one yet.
+> It doesn't. The Canadian test is different: whether the boundaries give voters *effective representation* under section 3 of the Charter. The minority proposal raises serious questions under that test; only a judge can answer them definitively, and no one has asked one yet.
 >
 > ### What does it mean for Albertans?
 >
-> If the minority map were adopted, the math suggests that a 50/50 provincial vote would still produce a supermajority for one party in the legislature. The majority map produces a much more balanced result at the same vote split. Whether that tradeoff is acceptable is a question for Albertans, not for this audit.
+> The Alberta legislature has 87 seats; 58 is the two-thirds supermajority threshold most often cited, and 60 is the round-number figure that has dominated public discussion. The audit's measurements suggest the minority proposal would make it substantially easier for one party to reach a 60-seat supermajority than the majority proposal would, at the same level of provincial support. Whether that tradeoff is acceptable is a question for Albertans, not for this audit.
 >
 > **[Read the legal context →](/law)**  ·  **[See how we tested →](/methods)**
 
@@ -28,16 +28,18 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 
 **Editorial notes:**
 
-- "Clear signs that it would be one" rather than "is one" — preserves the audit's epistemic stance (we measure structure, not intent).
-- "Only a judge can answer them definitively, and no one has asked one yet" — flags that a Charter challenge is hypothetical, prevents the reader from inferring that litigation is underway.
-- "Whether that tradeoff is acceptable is a question for Albertans, not for this audit" — explicit hand-off to the reader. The empower-don't-advocate principle in three words.
-- Italics on *minority* and *majority* the first time each appears. These are common English words being used in a specific technical sense; the italics signal that.
+- The verdict's Q1 uses a doubly-conditional construction ("if gerrymander were a Canadian legal term, in the everyday sense, the evidence would support…") to answer the question the reader is actually asking without literally calling the proposal a gerrymander. The audit cannot apply a term Canadian law doesn't have. But it can describe what the evidence would support if that term were available, and it can do so in the same plain-language frame the reader is using.
+- "If enacted" — second conditional. The minority proposal hasn't been adopted; it's a discarded commissioners' submission that the Lunty committee may forward to the legislature.
+- "It doesn't" — Q2's one-sentence opening. Direct, accurate, and immediately reframes to the *effective representation* test.
+- "60-seat supermajority… at the same level of provincial support" — frames the supermajority finding as a likelihood differential between the two proposals at any given vote share. This is what the seats@50/50 result actually measures (only ~100 of 1.01M neutral maps tip into supermajority territory at 50/50; the minority proposal does). The verdict does not claim a specific election result.
+- "58 is the two-thirds supermajority threshold most often cited, and 60 is the round-number figure that has dominated public discussion" — names both numbers so the reader doesn't have to choose between accuracy and the figure they've been hearing in coverage.
+- "Whether that tradeoff is acceptable is a question for Albertans, not for this audit." — explicit hand-off. The empower-don't-advocate principle in one sentence.
+- Italics on *minority proposal* and *majority proposal* the first time each appears. These are common words being used in a specific procedural sense; the italics signal that.
 - The two CTA buttons should be visually distinct from each other and from the main text — e.g., one in the `/law` accent color, one in the `/methods` accent color.
 
-**Alternates to consider:**
+**Open verification (needs your call):**
 
-- *"…would still produce a supermajority"* — a punchier version: *"would still hand a supermajority to one party."* Slight loss of neutrality; the verb "hand" implies a recipient. The current "produce" keeps it mechanical.
-- The closing question of #3 could be removed (`Whether that tradeoff…`) for brevity. Keeping it because it's the one sentence on the page that names the reader's role.
+- The Q3 phrasing *"would make it substantially easier for one party to reach a 60-seat supermajority… at the same level of provincial support"* — is this directly supported by the seats@50/50 + tipping-point findings as the audit has them, or am I extrapolating beyond what's been measured? If the audit's actual statement is narrower (e.g., specifically at the 50/50 split and not "any level of provincial support"), tell me and I'll tighten the phrasing.
 
 ---
 
@@ -51,12 +53,12 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 >
 > | | |
 > |---|---|
-> | ✓ | Fewer than 1 in 14.5 million randomly generated comparison maps produced patterns as extreme as the minority map on all four statistical measures combined. |
-> | ✓ | The minority map fails 5 of 5 pre-registered structural tests. The majority map fails 0 of 5. |
-> | ✓ | These results are consistent with what a partisan-targeted map would look like, and inconsistent with what the random comparison set produces. |
+> | ✓ | Fewer than 1 in 14.5 million randomly generated comparison maps produced patterns as extreme as the minority proposal on all four statistical measures combined. |
+> | ✓ | The minority proposal fails 5 of 5 pre-registered structural tests. The majority proposal fails 0 of 5. |
+> | ✓ | These results are consistent with maps that produce strong partisan effects, and inconsistent with what the random comparison set produces. |
 > | ✗ | The audit does *not* establish that any commissioner intended the partisan effects it measures. Boundary geometry cannot reveal intent. |
 > | ✗ | The audit does *not* predict what the Lunty committee will choose, what the November 2026 vote will be, or how Albertans will react. |
-> | ✗ | The audit does *not* predict how a court would rule if a Charter challenge were brought against either map. |
+> | ✗ | The audit does *not* predict how a court would rule if a Charter challenge were brought against either proposal. |
 > | ✗ | The audit does *not* tell any individual voter what position to take or what to do with this information. That's yours to decide. |
 
 ---
@@ -66,13 +68,13 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 - The asymmetry (3 "can" rows, 4 "can't" rows) is deliberate. Limits matter more for an audit's credibility than findings do. A reader who finishes this card knows what they can and can't rely on.
 - The last "can't" row is the empowerment principle stated as the audit's own boundary. It's the bridge into "How to engage."
 - "Fewer than 1 in 14.5 million" — kept verbatim from the existing site. It carries weight that a smaller, more recent-feeling number would not.
-- "Consistent with… and inconsistent with…" is careful language. It doesn't say "this map was drawn to be a gerrymander"; it says "this map looks like ones that are, and not like ones that aren't."
+- "Consistent with maps that produce strong partisan effects" — phrased to avoid implying intent ("targeted" would carry agency). The structure of the sentence still conveys the asymmetry: the minority proposal looks like the partisan-effect cluster of the comparison set, not the neutral cluster.
 
 ---
 
 ## Part 3 — Glossary (`viewer/src/lib/glossary.ts`)
 
-29 terms grouped by tier. Each entry has:
+32 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
 - `definition` — 2–3 sentences, plain language, no math notation, no Latin where avoidable
 - `href` — anchor on `/law` or `/methods` for "Learn more →"
@@ -83,11 +85,11 @@ Tier indicates where the term *first appears* in the site flow. A term may appea
 
 ```ts
 electoralDistrict: {
-  term: 'Electoral district',
-  definition: 'The geographic area that elects one member to the provincial legislature. ' +
-              'Often shortened to "ED." Each electoral district has one MLA. (The word ' +
-              '"riding" usually refers to federal districts; in the provincial context ' +
-              'the proper term is electoral district.)',
+  term: 'Electoral district (ED)',
+  definition: 'The geographic area that elects one member to the provincial ' +
+              'legislature. Often shortened to "ED" after first use. Each ED has ' +
+              'one MLA. (The word "riding" usually refers to federal districts; ' +
+              'in the provincial context the proper term is electoral district.)',
   href: undefined,
 },
 
@@ -149,10 +151,13 @@ packing: {
 
 draining: {
   term: 'Draining',
-  definition: 'A gerrymandering technique that shifts a district\'s political character ' +
-              'by altering its boundaries — for example, extending a riding into ' +
-              'uninhabited land, or splitting it along non-municipal lines to remove ' +
-              'specific voter blocs.',
+  definition: 'A term this audit uses for a follow-on effect of cracking and packing: ' +
+              'the wasted votes those techniques produce get pushed into strategically ' +
+              'chosen places, altering the political character of nearby electoral ' +
+              'districts. It is the audit\'s own framing rather than an established ' +
+              'concept in the redistricting literature — the audit tests for the effect ' +
+              'and finds results consistent with it, but treats it as exploratory ' +
+              'rather than a settled methodology.',
   href: '/methods#cracking-packing-draining',
 },
 
@@ -187,10 +192,10 @@ effectiveRepresentation: {
 luntyCommittee: {
   term: 'Lunty committee',
   definition: 'The MLA committee, chaired by Brandon Lunty, that is choosing between ' +
-              'the commission\'s majority and minority map proposals before the ' +
-              'November 2026 deadline. It is not part of the standard Electoral ' +
-              'Boundaries Commission Act process; the legislature created it for ' +
-              'this specific decision.',
+              'the commission\'s majority and minority proposals before the November ' +
+              '2026 deadline. It is not part of the standard Electoral Boundaries ' +
+              'Commission Act process; the legislature created it for this specific ' +
+              'decision.',
   href: '/law#committee-anomaly',
 },
 
@@ -267,6 +272,34 @@ defaultAdopt: {
               'process leaves the decision to the legislature instead, which is one ' +
               'of the structural distinctions this audit examines.',
   href: '/law#default-adopt',
+},
+
+quebecCRE: {
+  term: 'Quebec CRE',
+  definition: 'The Commission de la représentation électorale du Québec — Quebec\'s ' +
+              'permanent, independent body that draws provincial electoral boundaries. ' +
+              'Unlike Alberta\'s process, Quebec requires a two-thirds legislative ' +
+              'majority to override the CRE\'s recommendations.',
+  href: '/law#quebec-contrast',
+},
+
+bcEBC: {
+  term: 'BC EBC',
+  definition: 'The British Columbia Electoral Boundaries Commission — BC\'s ' +
+              'periodically-constituted body that recommends provincial boundary ' +
+              'changes. Like federal commissions, BC operates under a default-adopt ' +
+              'rule: the legislature must act explicitly to reject the commission\'s ' +
+              'recommendations rather than to accept them.',
+  href: '/law#bc-contrast',
+},
+
+federalCommissions: {
+  term: 'Federal boundary commissions',
+  definition: 'Independent commissions established once per decade after each census ' +
+              'to redraw federal electoral districts in each province. They operate ' +
+              'under the Electoral Boundaries Readjustment Act with a default-adopt ' +
+              'rule and a structured public-hearing process.',
+  href: '/law#federal-contrast',
 },
 ```
 
@@ -398,11 +431,11 @@ hillClimbing: {
 Things to settle before the glossary ships:
 
 1. **"Gerrymander" — capitalization and italics.** Currently lowercase in body text. AP and CP style both treat it as lowercase. Confirming.
-2. **"Riding" vs "electoral district" — resolved.** *Riding* is the federal term; *electoral district* (or "ED") is the provincial term and the right word for an Alberta audit. The site uses *electoral district* / *ED* throughout. The *riding* glossary entry exists to catch readers who arrive with the wrong word and gently correct them.
-3. **"Majority/minority commissioners" vs "majority/minority map."** The current site uses both. The verdict block uses the *map* phrasing because the *commissioners* phrasing tempts readers to score the people. Recommend standardizing to *map* throughout, with one explicit footnote on `/` that the names come from the 3–2 commission split.
+2. **"Riding" vs "electoral district" — resolved.** *Riding* is the federal term; *electoral district* (or "ED") is the provincial term and the right word for an Alberta audit. **Implementation note:** during content migration, normalize *riding* → *electoral district* / *ED* across the entire existing prose. Each route defines "electoral district (ED)" on first occurrence, then uses *ED* thereafter for readability. The *riding* glossary entry exists to catch readers who arrive with the wrong word and gently correct them.
+3. **Naming — resolved.** The maps haven't been adopted; they were discarded by the commission as competing submissions to the Lunty committee. The site uses *minority proposal* and *majority proposal* throughout. One explicit footnote on `/` (first occurrence) explains that the names come from the 3–2 commission split.
 4. **Whether to name the parties in the verdict.** Currently it says "one party" — not naming UCP or NDP. Pros: keeps the audit neutral, lets the reader's mental model fill in either party. Cons: a reader who already knows the politics will read "one party" as evasive. The existing site does name UCP and NDP throughout. Decision: name them in the lived examples on `/`, but in the verdict block keep "one party" — the verdict is about structure, not partisanship.
 5. **UCP/NDP glossary entries — added.** Short factual entries with no editorial framing.
-6. **Order of "How we tested →" vs "Read the legal context →"** in the verdict CTAs. Current order matches the narrative-law-science depth ordering, so law first.
+6. **CTA order — keeping current.** *Read the legal context →* appears before *See how we tested →* because that matches the recommended depth order (narrative → law → science) you endorsed earlier. A reader who wants the answer fastest reads the verdict and stops; a reader who wants context next reaches the legal framing before the methodology. Override if you'd rather lead with the math.
 
 ---
 
