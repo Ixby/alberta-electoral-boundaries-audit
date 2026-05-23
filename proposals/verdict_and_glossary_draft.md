@@ -51,7 +51,7 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 >
 > | | |
 > |---|---|
-> | ✓ | Only about 7 of the 1,010,000 randomly generated comparison maps produced patterns as extreme as the minority map on all four statistical measures combined. |
+> | ✓ | Fewer than 1 in 14.5 million randomly generated comparison maps produced patterns as extreme as the minority map on all four statistical measures combined. |
 > | ✓ | The minority map fails 5 of 5 pre-registered structural tests. The majority map fails 0 of 5. |
 > | ✓ | These results are consistent with what a partisan-targeted map would look like, and inconsistent with what the random comparison set produces. |
 > | ✗ | The audit does *not* establish that any commissioner intended the partisan effects it measures. Boundary geometry cannot reveal intent. |
@@ -65,14 +65,14 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 
 - The asymmetry (3 "can" rows, 4 "can't" rows) is deliberate. Limits matter more for an audit's credibility than findings do. A reader who finishes this card knows what they can and can't rely on.
 - The last "can't" row is the empowerment principle stated as the audit's own boundary. It's the bridge into "How to engage."
-- "About 7 of 1,010,000" is more accessible than the existing "fewer than 1 in 14.5 million." The two phrasings express the same fact; the first one is easier to picture.
+- "Fewer than 1 in 14.5 million" — kept verbatim from the existing site. It carries weight that a smaller, more recent-feeling number would not.
 - "Consistent with… and inconsistent with…" is careful language. It doesn't say "this map was drawn to be a gerrymander"; it says "this map looks like ones that are, and not like ones that aren't."
 
 ---
 
 ## Part 3 — Glossary (`viewer/src/lib/glossary.ts`)
 
-27 terms grouped by tier. Each entry has:
+29 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
 - `definition` — 2–3 sentences, plain language, no math notation, no Latin where avoidable
 - `href` — anchor on `/law` or `/methods` for "Learn more →"
@@ -85,15 +85,17 @@ Tier indicates where the term *first appears* in the site flow. A term may appea
 electoralDistrict: {
   term: 'Electoral district',
   definition: 'The geographic area that elects one member to the provincial legislature. ' +
-              'In Alberta these are also called "ridings" or "constituencies." Each ' +
-              'electoral district has one MLA.',
-  href: undefined, // no deeper page; the definition is complete
+              'Often shortened to "ED." Each electoral district has one MLA. (The word ' +
+              '"riding" usually refers to federal districts; in the provincial context ' +
+              'the proper term is electoral district.)',
+  href: undefined,
 },
 
 riding: {
   term: 'Riding',
-  definition: 'Informal Canadian term for an electoral district. Used interchangeably ' +
-              'with "constituency" and "ED."',
+  definition: 'In Canadian usage, this most often refers to a federal electoral ' +
+              'district. The Alberta provincial equivalent is called an "electoral ' +
+              'district" (ED). The audit uses the provincial term throughout.',
   href: undefined,
 },
 
@@ -101,6 +103,21 @@ mla: {
   term: 'MLA',
   definition: 'Member of the Legislative Assembly — the person elected from one ' +
               'electoral district to represent it in the Alberta legislature.',
+  href: undefined,
+},
+
+ucp: {
+  term: 'UCP',
+  definition: 'United Conservative Party — Alberta\'s current governing provincial ' +
+              'party. Formed in 2017 from the merger of the Progressive Conservatives ' +
+              'and the Wildrose Party; has held government since 2019.',
+  href: undefined,
+},
+
+ndp: {
+  term: 'NDP',
+  definition: 'New Democratic Party (Alberta NDP) — Alberta\'s current official ' +
+              'opposition. The Alberta NDP held government from 2015 to 2019.',
   href: undefined,
 },
 
@@ -381,10 +398,10 @@ hillClimbing: {
 Things to settle before the glossary ships:
 
 1. **"Gerrymander" — capitalization and italics.** Currently lowercase in body text. AP and CP style both treat it as lowercase. Confirming.
-2. **"Riding" vs "electoral district" — pick one in the body text.** Both have entries above so the reader sees them both. The narrative voice on `/` could go either way. *Riding* is more conversational and Canadian; *electoral district* matches official language. Suggestion: use *riding* in `/` body text and *electoral district* on `/law` and `/methods`.
+2. **"Riding" vs "electoral district" — resolved.** *Riding* is the federal term; *electoral district* (or "ED") is the provincial term and the right word for an Alberta audit. The site uses *electoral district* / *ED* throughout. The *riding* glossary entry exists to catch readers who arrive with the wrong word and gently correct them.
 3. **"Majority/minority commissioners" vs "majority/minority map."** The current site uses both. The verdict block uses the *map* phrasing because the *commissioners* phrasing tempts readers to score the people. Recommend standardizing to *map* throughout, with one explicit footnote on `/` that the names come from the 3–2 commission split.
 4. **Whether to name the parties in the verdict.** Currently it says "one party" — not naming UCP or NDP. Pros: keeps the audit neutral, lets the reader's mental model fill in either party. Cons: a reader who already knows the politics will read "one party" as evasive. The existing site does name UCP and NDP throughout. Decision: name them in the lived examples on `/`, but in the verdict block keep "one party" — the verdict is about structure, not partisanship.
-5. **Whether to include UCP/NDP at all in the glossary.** Currently not included. The site assumes the reader knows what these are. For the high-school-educated curious Albertan, that's a defensible assumption. If not, two short entries are cheap to add.
+5. **UCP/NDP glossary entries — added.** Short factual entries with no editorial framing.
 6. **Order of "How we tested →" vs "Read the legal context →"** in the verdict CTAs. Current order matches the narrative-law-science depth ordering, so law first.
 
 ---
