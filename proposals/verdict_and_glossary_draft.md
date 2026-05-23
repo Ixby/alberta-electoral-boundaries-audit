@@ -37,21 +37,13 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 - Italics on *minority proposal* and *majority proposal* the first time each appears. These are common words being used in a specific procedural sense; the italics signal that.
 - The two CTA buttons should be visually distinct from each other and from the main text — e.g., one in the `/law` accent color, one in the `/methods` accent color.
 
-**Identified research gap (raised in review):**
+**Identified research gap — scoped as a proposal:**
 
-The seats@50/50 result and the tipping-point statistic both measure behaviour at the 50/50 vote split. They do not establish how the minority proposal behaves at other plausible vote shares (e.g., 48/52, 47/53). The substantive question — *does the minority proposal make it materially easier for one party to reach a two-thirds supermajority at the vote shares Albertans actually deliver?* — is exactly what this audit needs to answer in order to fully support the kind of verdict the public is asking for.
+The `seats@50/50` result and the tipping-point statistic both measure behaviour at the 50/50 vote split. They do not establish how the minority proposal behaves at other plausible vote shares (e.g., 48/52, 47/53). The substantive question — *does the minority proposal make it materially easier for one party to reach a two-thirds supermajority at the vote shares Albertans actually deliver?* — is what would let Q3 be tightened from "the audit has not yet tested" to a concrete vote-share range.
 
-This is an analytical extension, not a content question. The existing ensemble of 1.01M maps presumably contains the simulated district-by-district vote data needed to compute seats-vs-vote-share curves under various uniform-swing assumptions. If the data supports it, the test is:
+A pre-execution proposal now exists at `proposals/cross_vote_share/` (status PREP COMPLETE, NOT AUTHORIZED). It reuses the canonical uniform-swing algorithm against the existing 1.01M-plan ensemble and the per-district vote artifacts for both proposals — no new ensemble run required. The pre-registration amendment is drafted but unsigned; the parameter grid (UCP share {0.45, …, 0.55} in 1% steps), the finding criteria, and the publish-regardless commitment are all pinned in advance so the result cannot be reframed post-hoc.
 
-1. For each of the 1.01M neutral comparison maps, plus the minority proposal and the majority proposal, apply a uniform swing across a range of vote splits (say, 45/55 → 55/45 in 1% steps).
-2. At each split, compute the seat count for each party.
-3. Plot the proposal's curves on top of the ensemble distribution. Identify the vote-share range over which the minority proposal sits in the supermajority region while the ensemble does not.
-
-If that test produces results that hold up, Q3 can be tightened to make a claim about the vote-share range — "from X% to Y%, the minority proposal puts one party past the two-thirds supermajority threshold; the majority proposal does not." That's the verdict the public discourse is asking for.
-
-If the test produces ambiguous results, Q3 stays in its current honest-about-limits form.
-
-**Status:** flagged as a follow-up. Out of scope for this content-restructure proposal. Tell me if you want me to scope it as its own proposal in `proposals/`.
+If the test is authorized and run, Q3 gets one additional sentence naming the vote-share range at which each proposal crosses 58 seats. If the test produces a null (both proposals stay inside the ensemble's central 95% band across the full grid), Q3 gets a narrowing sentence — "extreme at 50/50, symmetric across 45–55%." Either result is publishable. Until the PI authorizes the run, Q3 stays in its current honest-about-limits form.
 
 ---
 
@@ -84,7 +76,40 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 
 ---
 
-## Part 3 — Glossary (`viewer/src/lib/glossary.ts`)
+## Part 3 — Section 1 onboarding (`/`, immediately below the boundary card)
+
+The first piece of body prose after the verdict and the boundary card. The reader arrives knowing nothing — possibly without a clear sense of what an electoral district is, who their MLA is, or why a map matters. This section onboards them in ~400 words. No statistical jargon. No legal jargon. Second-person. Empower-don't-advocate.
+
+---
+
+> ### What is redistricting and why should you care?
+>
+> Every voter in Alberta lives in an *electoral district* — a slice of the province that elects one person to the legislature. There are 87 districts. Each district elects one MLA. When you cast a ballot in a provincial election, you are choosing the MLA for the district you live in. That is the entire connection most Albertans have to the legislature: one MLA, one district, one vote.
+>
+> Those district lines are not permanent. People move, neighbourhoods grow, rural areas thin out, cities sprawl. Every eight to ten years, Alberta is supposed to redraw the lines so each district is roughly the right size and reflects the way Albertans actually live now. The body that does the redrawing is the *Electoral Boundaries Commission* — an independent commission with judges, lawyers, and public members, not politicians.
+>
+> That is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a *majority proposal* (backed by three commissioners) and a *minority proposal* (backed by two). Both are sitting on the table. A separate committee of MLAs chaired by Brandon Lunty — appointed by the Premier for this specific decision — is choosing between them. The legislature must approve whichever one survives that committee before November 2026.
+>
+> Why it matters to you: the lines decide who your MLA is. They decide which neighbourhoods, towns, and concerns get represented together. If your city is split across four MLAs instead of one, no single representative is accountable for the city as a whole. If your community of interest — a small town, a rural region, a downtown core — is divided between districts, your voice on provincial decisions is diluted. The map also shapes which party can form a government, and at what margins. The audit's specific finding (that the minority proposal sits at a structural extreme) is the reason you are reading this site, but the broader question is older and applies to every redistricting cycle: do the lines reflect the way Albertans live, or do they shape the politics that follow?
+>
+> The rest of this page walks through what the two proposed maps actually do.
+
+---
+
+**Editorial notes:**
+
+- The opening sentence starts where the reader is, not where the technical material is. "A slice of the province that elects one person to the legislature" replaces any phrasing like "geographic area returning one MLA" — same meaning, plainer words. The reader who doesn't know what an MLA is gets a working definition in the next sentence ("each district elects one MLA"), and the Tier 1 glossary entry catches anyone who needs more.
+- "One MLA, one district, one vote." — establishes the personal stake before any structural argument. The reader should feel implicated by the time the redistricting machinery is introduced.
+- "Every eight to ten years, Alberta is supposed to redraw the lines…" — "supposed to" is doing real work. It signals that the process has a normative shape (independent, periodic, neutral) without yet alleging it has been violated. The verdict argues that; this onboarding section sets up the standard the verdict measures against.
+- The pivot "That is the standard process. This time, the standard process produced something unusual." is the article's whole thesis in two sentences. The reader who stops here still leaves with the right shape of the story.
+- The 3–2 commission split and the Lunty committee chain of authority are stated *in prose* here, not just in the verdict's footnote. The reader who skipped the footnote still gets the provenance. Both anchors (footnote on `/` Q1, prose paragraph in Section 1) reinforce each other.
+- "Why it matters to you" — paragraph 4 is the personal-to-provincial ladder previewed. Section 5 ("What this means for you and your community") will expand each rung; this paragraph is the trailer.
+- The closing question — "do the lines reflect the way Albertans live, or do they shape the politics that follow?" — is deliberately a question, not a thesis. The audit answers part of it (the minority proposal's structural extremes); the broader question is older and bigger than any one cycle. Framing it as a question rather than an answer is the empower-don't-advocate principle applied to the section's last line.
+- "The rest of this page walks through what the two proposed maps actually do." — explicit hand-off to Section 2 (The Map) and Section 3 (Two Maps, One Commission, One Deadline). The reader knows where they're going.
+
+---
+
+## Part 4 — Glossary (`viewer/src/lib/glossary.ts`)
 
 33 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
@@ -448,11 +473,11 @@ hillClimbing: {
 
 ---
 
-## Part 4 — Open editorial choices
+## Part 5 — Open editorial choices
 
 Things to settle before the glossary ships:
 
-1. **"Gerrymander" — capitalization and italics.** Currently lowercase in body text. AP and CP style both treat it as lowercase. Confirming.
+1. **"Gerrymander" — resolved.** Lowercase in body text. AP and CP style both treat it as a common noun (the eponym is centuries old and naturalized). No italics except on first occurrence where the audit is naming the term itself rather than using it.
 2. **"Riding" vs "electoral district" — resolved.** *Riding* is the federal term; *electoral district* (or "ED") is the provincial term and the right word for an Alberta audit. **Implementation note:** during content migration, normalize *riding* → *electoral district* / *ED* across the entire existing prose. Each route defines "electoral district (ED)" on first occurrence, then uses *ED* thereafter for readability. The *riding* glossary entry exists to catch readers who arrive with the wrong word and gently correct them.
 3. **Naming — resolved.** The site uses *minority proposal* and *majority proposal* throughout. A short footnote attaches to the first occurrence on `/`:
 
@@ -465,7 +490,7 @@ Things to settle before the glossary ships:
 
 ---
 
-## Part 5 — What's not in this draft (deliberately)
+## Part 6 — What's not in this draft (deliberately)
 
 - **Section transitions and lead-in text.** Each route's section-by-section prose comes in a later editorial pass; this draft is just the verdict, the boundary card, and the defined vocabulary that the rest of the site will reference.
 - **References list (academic + legal).** Already exists in the current site and migrates wholesale.
