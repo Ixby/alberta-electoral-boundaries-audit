@@ -325,6 +325,7 @@ export function init(basePath: string): void {
           overlay.style.display = 'block';
           document.body.style.overflow = 'hidden';
           _updateMapButtons();
+          _maybeShowIntro();
           _prevFocus = document.activeElement;
           var focusable = _overlayFocusable();
           if (focusable.length) focusable[0].focus();
@@ -1295,21 +1296,25 @@ export function init(basePath: string): void {
         });
 
         // ── Map onboarding modal ──────────────────────────────────────────────────
+        // Wired once; shown on first map-tool open, not on page load.
         (function() {
           const modal    = document.getElementById('map-intro-modal');
           const closeBtn = document.getElementById('map-intro-close');
           if (!modal || !closeBtn) return;
-          if (!sessionStorage.getItem('map-intro-seen')) {
-            modal.style.display = 'flex';
-          }
           function _closeModal() {
             sessionStorage.setItem('map-intro-seen', '1');
             modal.style.display = 'none';
           }
           closeBtn.addEventListener('click', _closeModal);
-          modal.addEventListener('click', e => { if (e.target === modal) _closeModal(); });
-          document.addEventListener('keydown', e => { if (e.key === 'Escape') _closeModal(); });
+          modal.addEventListener('click', function(e) { if (e.target === modal) _closeModal(); });
+          document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.style.display !== 'none') _closeModal(); });
         })();
+
+        function _maybeShowIntro() {
+          if (sessionStorage.getItem('map-intro-seen')) return;
+          var modal = document.getElementById('map-intro-modal');
+          if (modal) modal.style.display = 'flex';
+        }
 
       })();
 }
