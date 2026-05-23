@@ -143,13 +143,13 @@
   <a href="#section-6">Gerrymanders</a>
   <a href="#section-7">Lunty</a>
   <a href="#section-8">Suggestions</a>
-  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode">
-    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
-    <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
-  </button>
   <a href="#retractions">Retractions</a>
   <a href="#references">References</a>
-  <a href="#resources">Resources</a>
+  <a href="#resources">Technical</a>
+  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode">
+    <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
+    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
+  </button>
   </div>
 </nav>
 
@@ -175,7 +175,7 @@
 
   <div style="padding: 1.5rem 0 0.5rem;">
     <div class="callout" style="background:#F0EBF8; border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
-      <p style="margin:0;"><strong>Bottom line:</strong> The commission&rsquo;s minority map would occur by chance in fewer than 1&nbsp;in&nbsp;14.5&nbsp;million randomly drawn maps. The majority map falls well within normal range.</p>
+      <p style="margin:0;"><strong>Is the minority map a gerrymander?</strong> The commission&rsquo;s minority map would occur by chance in fewer than 1&nbsp;in&nbsp;14.5&nbsp;million randomly drawn maps. The majority map falls well within normal range.</p>
     </div>
     <div class="callout" style="background: #D0EEEA; border-left-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
       <p style="margin:0 0 0.6rem;"><strong>TL;DR</strong></p>
@@ -824,7 +824,7 @@
   </section>
 
   <section id="resources">
-    <h2>11: Reports and Resources <a href="#resources" class="section-link" aria-label="Link to resources">#</a></h2>
+    <h2>11: Technical <a href="#resources" class="section-link" aria-label="Link to technical">#</a></h2>
 
     <ul class="links-list">
       <li>
@@ -889,7 +889,6 @@
     </div>
     <div class="tb-sep"></div>
     <div class="tb-group">
-      <button class="tb-btn tb-layer-on" data-layer="vote" title="Show 2023 vote results at polling-area granularity">Vote %</button>
       <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">Wasted</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Partisan</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Borders</button>
@@ -928,7 +927,7 @@
       </div>
       <div id="ec-meta">
         <span id="ec-total-votes"></span>
-        <span id="ec-va-count"></span>
+        <span class="ec-meta-sep">·</span>
         <span id="ec-pop"></span>
       </div>
       <div id="ec-eg-row"><span class="ec-eg-label">EG</span> <span id="ec-eg"></span></div>
@@ -964,7 +963,7 @@
   </div>
   <div id="ed-tooltip"></div>
   <div id="map-attribution">
-    <span id="map-ea-credit">Map data: <a href="https://www.elections.ab.ca/resource-centre/maps-data/" target="_blank" rel="noopener">Elections Alberta</a></span>
+    <span id="map-ea-credit">Map data: <a href="https://www.elections.ab.ca/resources/maps/" target="_blank" rel="noopener">Elections Alberta</a></span>
     <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Text content: CC BY-NC-SA 4.0">
       <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt="Creative Commons BY-NC-SA 4.0" width="80" height="15">
     </a>
@@ -1185,18 +1184,19 @@
     .nav-theme-btn {
       display: inline-flex; align-items: center; justify-content: center;
       background: none; border: none; cursor: pointer;
-      color: rgba(255,255,255,0.45); padding: 0 0.55rem;
+      color: #F5C518; padding: 0 0.55rem;
       margin-left: 0.4rem; padding-left: 0.8rem;
       border-left: 1px solid rgba(255,255,255,0.15);
       min-height: 2.6rem;
       transition: color 0.15s;
     }
     .nav-theme-btn:hover { color: #fff; }
-    /* Moon visible in light mode; sun visible in dark mode */
-    .icon-sun { display: none; }
-    .icon-moon { display: block; }
-    :root[data-theme="dark"] .icon-sun { display: block; }
-    :root[data-theme="dark"] .icon-moon { display: none; }
+    /* Sun shown (and yellow) in light mode; moon shown (and bright blue) in dark mode */
+    .icon-sun { display: block; }
+    .icon-moon { display: none; }
+    :root[data-theme="dark"] .nav-theme-btn { color: #4FC3F7; }
+    :root[data-theme="dark"] .icon-sun { display: none; }
+    :root[data-theme="dark"] .icon-moon { display: block; }
 
     .section-link {
       color: transparent;
@@ -1556,8 +1556,6 @@
   .tb-pin-btn .pin-icon { display: block; }
   .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(220,30,30,0.15); border-color: rgba(220,30,30,0.6); color: #f05050; }
   /* Distinct color identity per layer/feature button */
-  .tb-btn[data-layer="vote"]                { border-color: rgba(79,136,200,0.32); color: rgba(79,136,200,0.7); }
-  .tb-btn[data-layer="vote"].tb-layer-on    { background: rgba(79,136,200,0.14); border-color: #4F88C8; color: #A4CFF0; }
   .tb-btn[data-layer="eg"]                  { border-color: rgba(200,136,42,0.32); color: rgba(200,136,42,0.7); }
   .tb-btn[data-layer="eg"].tb-layer-on      { background: rgba(200,136,42,0.14); border-color: #C8882A; color: #F0C070; }
   .tb-btn[data-layer="ed-fill"]             { border-color: rgba(184,85,168,0.32); color: rgba(184,85,168,0.7); }
@@ -1577,6 +1575,11 @@
     color: #fff;
     display: flex; align-items: center; gap: 10px;
     min-height: 38px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  #ed-callout.ec-visible {
+    border-color: rgba(245,166,35,0.75);
+    box-shadow: 0 0 0 1px rgba(245,166,35,0.25), 0 0 12px rgba(245,166,35,0.15);
   }
   /* ED info section — only visible when an ED is selected */
   #ec-ed-section {
@@ -1600,10 +1603,11 @@
   .ec-ucp .ec-pct { color: #6b8fd4; }
   .ec-ndp .ec-pct { color: #e8934a; }
   .ec-party-name { font-size: 0.63rem; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; text-transform: uppercase; }
-  .ec-votes { display: none; }
+  .ec-votes { font-size: 0.63rem; color: rgba(255,255,255,0.45); white-space: nowrap; }
   #ec-meta { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
-  #ec-pop { font-size: 0.72rem; color: rgba(255,255,255,0.4); white-space: nowrap; }
-  #ec-total-votes { display: none; }
+  #ec-pop { font-size: 0.7rem; color: rgba(255,255,255,0.55); white-space: nowrap; }
+  #ec-total-votes { font-size: 0.7rem; color: rgba(255,255,255,0.55); white-space: nowrap; }
+  .ec-meta-sep { font-size: 0.65rem; color: rgba(255,255,255,0.25); }
   #ec-va-count { display: none; }
   #ec-eg-row {
     display: flex; align-items: center; gap: 4px; flex-shrink: 0;
@@ -1672,20 +1676,11 @@
     border-color: var(--link);
   }
 
-  /* Flagged-district overlay animations */
+  /* Flagged-district overlay animations — opacity-only keyframes so the
+     filter is baked into the static rule and never repainted per-frame */
   @keyframes anomaly-pulse {
-    0%, 100% {
-      opacity: 0.90;
-      filter: drop-shadow(0 0 3px #e63946) drop-shadow(0 0 7px #e6394866);
-    }
-    50% {
-      opacity: 0.48;
-      filter: drop-shadow(0 0 9px #e63946) drop-shadow(0 0 20px #e63946aa);
-    }
-  }
-  @keyframes anomaly-bounce {
-    0%, 100% { transform: scale(1);     }
-    40%, 60%  { transform: scale(1.045); }
+    0%, 100% { opacity: 0.90; }
+    50%       { opacity: 0.42; }
   }
   @keyframes anomaly-glow-pulse {
     0%, 100% { opacity: 0.18; }
@@ -1693,20 +1688,21 @@
   }
   @keyframes anomaly-fill-pulse {
     0%, 100% { opacity: 0.85; }
-    50%       { opacity: 0.40; }
+    50%       { opacity: 0.38; }
   }
   .anomaly-pulse-path {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation:
-      anomaly-pulse  2s ease-in-out infinite,
-      anomaly-bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px #e63946) drop-shadow(0 0 14px #e6394877);
+    will-change: opacity;
+    animation: anomaly-pulse 2.4s ease-in-out infinite;
   }
   .anomaly-glow-path {
-    animation: anomaly-glow-pulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px #e63946);
+    will-change: opacity;
+    animation: anomaly-glow-pulse 2.4s ease-in-out infinite;
   }
   .anomaly-fill-path {
-    animation: anomaly-fill-pulse 2s ease-in-out infinite;
+    will-change: opacity;
+    animation: anomaly-fill-pulse 2.4s ease-in-out infinite;
   }
 
   /* Cross-map comparison — coloured party values */

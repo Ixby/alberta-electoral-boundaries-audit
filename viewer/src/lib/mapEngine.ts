@@ -100,7 +100,7 @@ export function init(basePath: string): void {
         // committed to curVB and the transform reset (one clean vector re-render).
         let _rafId = null, _pendingTx = 0, _pendingTy = 0, _pendingSx = 1;
         let settledVB = null, _settleTimer = null;
-        const SETTLE_MS = 90;
+        const SETTLE_MS = 250;
 
         function _doSettle() {
           _settleTimer = null;
@@ -176,6 +176,8 @@ export function init(basePath: string): void {
         }
 
         function _activateInlineSVG(node, preserveVB) {
+          // Null out stale references so _syncOverlays re-adds them to the new node
+          ['minority', 'majority', '2019'].forEach(function(k) { _overlayInSvg[k] = null; });
           node.setAttribute('width', '100%');
           node.setAttribute('height', '100%');
           node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
@@ -499,7 +501,7 @@ export function init(basePath: string): void {
         let   _mapPrimary = '2019';
         const _svgCache   = {};
         const _overlayInSvg = {};
-        const _layerState = { vote: true, 'ed-fill': true, 'ed-lines': true, eg: false };
+        const _layerState = { vote: false, 'ed-fill': true, 'ed-lines': true, eg: false };
         let   _mapLocked  = false;
 
         // ── Map-wide boundary color ───────────────────────────────────────────────
@@ -524,22 +526,13 @@ export function init(basePath: string): void {
         function _updateStrokeWidths() {
           if (!svgEl || !natVB || !curVB) return;
           var zf = natVB.w / curVB.w;                            // 1 = 100%, 4 = 400%
-          var primaryW = Math.min(1.8, Math.max(0.06, 0.5 / zf));
-          var overlayW = Math.min(0.35, primaryW * 0.6);         // proportional but capped thinner
+          var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
           var pBound = svgEl.querySelector('#ed_boundary_layer');
           if (pBound) {
             pBound.querySelectorAll('path').forEach(function(p) {
               p.style.strokeWidth = String(primaryW);
             });
           }
-          ['minority', 'majority', '2019'].forEach(function(key) {
-            var og = _overlayInSvg[key];
-            if (og) {
-              og.querySelectorAll('path').forEach(function(p) {
-                p.style.strokeWidth = String(overlayW);
-              });
-            }
-          });
         }
 
         // ── Active ED boundary highlight ──────────────────────────────────────────
@@ -548,24 +541,22 @@ export function init(basePath: string): void {
         function _setEdHighlight(pathEl) {
           _clearEdHighlight();
           if (!svgEl || !pathEl) return;
-          const color = '#F5A623'; // EA yellow — consistent selection ring across all maps
           const d = pathEl.getAttribute('d');
           _highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'g');
           _highlightPath.setAttribute('pointer-events', 'none');
           const glow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
           glow.setAttribute('d', d);
           glow.setAttribute('fill', 'none');
-          glow.setAttribute('stroke', color);
-          glow.setAttribute('stroke-width', '9');
+          glow.setAttribute('stroke', 'rgba(255,255,255,0.25)');
+          glow.setAttribute('stroke-width', '6');
           glow.setAttribute('stroke-linejoin', 'round');
           glow.style.vectorEffect = 'non-scaling-stroke';
-          glow.style.opacity = '0.3';
-          glow.style.filter = 'drop-shadow(0 0 5px ' + color + ')';
+          glow.style.filter = 'blur(2px)';
           const sharp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
           sharp.setAttribute('d', d);
           sharp.setAttribute('fill', 'none');
-          sharp.setAttribute('stroke', color);
-          sharp.setAttribute('stroke-width', '3.5');
+          sharp.setAttribute('stroke', '#ffffff');
+          sharp.setAttribute('stroke-width', '2.5');
           sharp.setAttribute('stroke-linejoin', 'round');
           sharp.style.vectorEffect = 'non-scaling-stroke';
           _highlightPath.appendChild(glow);
@@ -594,19 +585,18 @@ export function init(basePath: string): void {
         function _extractBoundaryGroup(key) {
           var doc = _svgCache[key];
           if (!doc) return null;
-          var g = doc.querySelector('#ed_boundary_layer');
+          var g = doc.querySelector('#ed_hover_layer');
           if (!g) return null;
           var clone = document.importNode(g, true);
-          var zf = (natVB && curVB) ? natVB.w / curVB.w : 1;
-          var primaryW = Math.min(1.8, Math.max(0.06, 0.5 / zf));
-          var sw = Math.min(0.35, primaryW * 0.6);
+          var accent = _mapAccentColors[key] || '#555';
           clone.querySelectorAll('path').forEach(function(p) {
-            p.style.stroke = _mapAccentColors[key] || '#555';
-            p.style.strokeWidth = String(sw);
-            p.style.strokeOpacity = '0.45';
+            p.style.fill = accent;
+            p.style.fillOpacity = '0.10';
+            p.style.stroke = 'none';
+            p.style.pointerEvents = 'none';
           });
           clone.setAttribute('pointer-events', 'none');
-          clone.id = 'ed-boundary-overlay-' + key;
+          clone.id = 'ed-fill-overlay-' + key;
           return clone;
         }
 
@@ -636,8 +626,8 @@ export function init(basePath: string): void {
         function _updateMapButtons() {
           document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
             var key = b.dataset.map;
-            b.classList.toggle('tb-map-primary', _mapOn[key] && key === _mapPrimary);
-            b.classList.toggle('tb-map-overlay',  _mapOn[key] && key !== _mapPrimary);
+            b.classList.toggle('tb-map-primary', !!_mapPrimary && _mapOn[key] && key === _mapPrimary);
+            b.classList.toggle('tb-map-overlay',  !!_mapPrimary && _mapOn[key] && key !== _mapPrimary);
           });
         }
 
@@ -709,9 +699,14 @@ export function init(basePath: string): void {
         function toggleMap(key) {
           if (!_mapSvgUrls[key]) return;
           if (!_mapOn[key]) {
-            // Off → Overlay: add without changing primary
+            // Off → On: if no primary exists make it primary, else add as overlay
             _mapOn[key] = true;
-            _syncOverlays();
+            if (!_mapPrimary) {
+              _mapPrimary = key;
+              _doSwitchPrimary(key);
+            } else {
+              _syncOverlays();
+            }
             _updateMapButtons();
             return;
           }
@@ -722,13 +717,20 @@ export function init(basePath: string): void {
             _updateMapButtons();
             return;
           }
-          // Primary → Off: need another map on to take over
+          // Primary → Off
           var next = ['minority', 'majority', '2019'].find(function(k) { return k !== key && _mapOn[k]; });
-          if (!next) return;
           _mapOn[key] = false;
           if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
-          _mapPrimary = next;
-          _doSwitchPrimary(next);
+          if (next) {
+            _mapPrimary = next;
+            _doSwitchPrimary(next);
+          } else {
+            // All maps off — clear the stage and show skeleton
+            _mapPrimary = null;
+            if (svgEl) { svgEl.remove(); svgEl = null; }
+            var skelEl = document.getElementById('zoom-skeleton');
+            if (skelEl) skelEl.classList.remove('hidden');
+          }
           _updateMapButtons();
         }
 
@@ -766,10 +768,6 @@ export function init(basePath: string): void {
           if (!svgEl) return;
           var g = svgEl.querySelector('#ed_boundary_layer');
           if (g) g.style.display = on ? '' : 'none';
-          Object.keys(_overlayInSvg).forEach(function(k) {
-            var og = _overlayInSvg[k];
-            if (og) og.style.display = on ? '' : 'none';
-          });
         }
         // ── EG-contribution choropleth ────────────────────────────────────────────
         // Per-ED efficiency gap contribution: (ucp_wasted - ndp_wasted) / provincial_votes.
@@ -847,7 +845,7 @@ export function init(basePath: string): void {
           const t0 = performance.now();
           function step(now) {
             const t = Math.min((now - t0) / dur, 1);
-            const ease = t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+            const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic — fast start, buttery decel
             curVB = {
               x: startVB.x + (targetVB.x - startVB.x) * ease,
               y: startVB.y + (targetVB.y - startVB.y) * ease,
@@ -883,7 +881,7 @@ export function init(basePath: string): void {
           if (tw / th < r.width / r.height) tw = th * r.width / r.height;
           else th = tw * r.height / r.width;
           const cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
-          _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 280);
+          _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 420);
         }
 
         function _tipTarget(e) {
@@ -968,7 +966,7 @@ export function init(basePath: string): void {
               const now = performance.now();
               if (now - _lastTap < 300) {
                 _hideCallout();
-                _animateToVB({ ...natVB }, 280);
+                _animateToVB({ ...natVB }, 420);
                 _lastTap = 0;
               } else {
                 _lastTap = now;
@@ -1006,7 +1004,7 @@ export function init(basePath: string): void {
 
         stage.addEventListener('dblclick', () => {
           if (!ready) return;
-          if (mode === 'viewbox') _animateToVB({ ...natVB }, 280); else resetFallback();
+          if (mode === 'viewbox') _animateToVB({ ...natVB }, 420); else resetFallback();
         });
 
         // ── Zoom slider ───────────────────────────────────────────────────────────
@@ -1245,7 +1243,7 @@ export function init(basePath: string): void {
           var r = _getStageRect();
           if (r.width / r.height > w / h) w = h * r.width / r.height;
           else h = w * r.height / r.width;
-          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 380);
+          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 500);
         }
 
         document.querySelectorAll('[data-anomaly]').forEach(function(b) {
@@ -1291,7 +1289,7 @@ export function init(basePath: string): void {
           var r = _getStageRect();
           if (r.width / r.height > w / h) w = h * r.width / r.height;
           else h = w * r.height / r.width;
-          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 380);
+          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 500);
           _showCallout(rec);
           _setEdHighlight(path);
         }

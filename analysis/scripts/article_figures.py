@@ -152,6 +152,12 @@ def build_lane1_dotplot() -> Path:
     ax.set_xticklabels(["-4%", "-2%", "0%", "+2%", "+4%", "+6%", "+8%"])
     ax.tick_params(axis="both", direction="out", length=3, pad=2)
 
+    # Two-tone x-axis: orange for negative EG (NDP-favoured), blue for positive (UCP-favoured)
+    ax.spines["bottom"].set_visible(False)
+    _bx = ax.get_xaxis_transform()
+    ax.plot([-5, 0], [0, 0], transform=_bx, color=NDP_ORANGE, lw=1.0, clip_on=False, zorder=10)
+    ax.plot([0, 10], [0, 0], transform=_bx, color=UCP_BLUE,   lw=1.0, clip_on=False, zorder=10)
+
     fig.tight_layout(pad=0.4)
     out = OUT / "lane1_dotplot.svg"
     fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.06, facecolor="white")
@@ -325,14 +331,14 @@ def build_lane2_bars() -> Path:
 
 
 def build_bias_structure_matrix() -> Path:
-    """The Bias-Structure Matrix — the article's primary rhetorical
-    visual. Two-axis plot:
+    """The Map Scorecard — the article's primary rhetorical visual.
+    Two-axis plot:
       x = Lane 1 efficiency gap (signed %; canonical official EA shapefiles, 50k 2-chain ensemble)
       y = Lane 2 structural-irregularity count (of 5 pre-registered tests)
     Three points: 2019 enacted (grey), Majority 2026 (green), Minority
     2026 (red). Both threshold lines (Alberta ~4%, US 7%) plus the
     structural-irregularity outlier line (4 of 5). The top-right
-    quadrant is the danger zone."""
+    quadrant is the danger zone; the other two shaded quadrants are sus zones."""
 
     fig, ax = plt.subplots(figsize=(7.2, 5.4), dpi=300)
     fig.subplots_adjust(top=0.88, bottom=0.16, left=0.13, right=0.97)
@@ -353,16 +359,16 @@ def build_bias_structure_matrix() -> Path:
     XMIN, XMAX = -1, 9
     YMIN, YMAX = -0.6, 5.7
 
-    # Quadrant shading
+    # Quadrant shading — sus zones yellow, danger zone pink
     ax.axhspan(
         threshold_struct, YMAX,
         xmin=0, xmax=(threshold_eg_alberta - XMIN) / (XMAX - XMIN),
-        facecolor="#fdf2f4", alpha=0.65, zorder=0,
+        facecolor="#FFF9C4", alpha=0.75, zorder=0,
     )
     ax.axvspan(
         threshold_eg_alberta, XMAX,
         ymin=0, ymax=(threshold_struct - YMIN) / (YMAX - YMIN),
-        facecolor="#fdf2f4", alpha=0.65, zorder=0,
+        facecolor="#FFF9C4", alpha=0.75, zorder=0,
     )
     ax.axvspan(
         threshold_eg_alberta, XMAX,
@@ -370,72 +376,84 @@ def build_bias_structure_matrix() -> Path:
         facecolor="#f9d8de", alpha=0.75, zorder=0,
     )
 
-    # Threshold lines
+    # Threshold lines — zorder=1 so they sit behind the dots (zorder 3-4)
     ax.axvline(threshold_eg_alberta, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1)
     ax.axvline(threshold_eg_us, color="#888888", lw=1.0, linestyle=":", zorder=1)
     ax.axhline(threshold_struct, color=THRESHOLD_RED, lw=1.2, linestyle="--", zorder=1)
 
-    # Threshold labels — each placed to avoid the data dots
-    # Alberta line: labeled on the LEFT of the dashed vertical, at mid-chart (below Minority dot)
+    # Threshold labels — top of chart, inside the box, consistent "line" verbiage
     ax.text(
-        threshold_eg_alberta - 0.15, 2.1,
+        threshold_eg_alberta - 0.12, YMAX - 0.18,
         "Alberta\nline ~4.1%",
-        color=THRESHOLD_RED, fontsize=8, fontweight="bold",
-        ha="right", va="center",
+        color=THRESHOLD_RED, fontsize=7.5, fontweight="bold",
+        ha="right", va="top",
     )
-    # Structural-outlier line: labeled on the RIGHT margin to clear the data area
     ax.text(
-        XMAX - 0.15, threshold_struct + 0.08,
-        "structural-outlier\nline (4 of 5 tests)",
-        color=THRESHOLD_RED, fontsize=7.5, fontstyle="italic",
-        ha="right", va="bottom",
+        threshold_eg_us - 0.12, YMAX - 0.18,
+        "US\nline 7%",
+        color="#888888", fontsize=7.5, fontweight="bold",
+        ha="right", va="top",
     )
-    # US signal: compact label at the base of the dotted vertical line
+    # Structural-outlier line: labeled to the left of the dashed horizontal, inside chart
     ax.text(
-        threshold_eg_us + 0.12, YMIN + 0.12,
-        "7%\nUS\nsignal",
-        color="#888888", fontsize=7, fontweight="bold",
+        XMIN + 0.12, threshold_struct + 0.08,
+        "structural-outlier line (4 of 5 tests)",
+        color=THRESHOLD_RED, fontsize=7, fontstyle="italic",
         ha="left", va="bottom",
     )
 
-    # DANGER ZONE watermark — light, centered in the shaded top-right quadrant
+    # Zone watermarks — alpha matches DANGER ZONE convention
     ax.text(
         (threshold_eg_alberta + XMAX) / 2, (threshold_struct + YMAX) / 2,
         "DANGER ZONE",
         color="#9a3340", fontsize=10, fontweight="bold",
         ha="center", va="center", alpha=0.30,
     )
+    # Top-left sus zone: x in [XMIN, threshold_eg_alberta], y in [threshold_struct, YMAX]
+    ax.text(
+        (XMIN + threshold_eg_alberta) / 2, (threshold_struct + YMAX) / 2,
+        "SUS",
+        color="#8A7800", fontsize=10, fontweight="bold",
+        ha="center", va="center", alpha=0.35,
+    )
+    # Bottom-right sus zone: x in [threshold_eg_alberta, XMAX], y in [YMIN, threshold_struct]
+    ax.text(
+        (threshold_eg_alberta + XMAX) / 2, (YMIN + threshold_struct) / 2,
+        "SUS",
+        color="#8A7800", fontsize=10, fontweight="bold",
+        ha="center", va="center", alpha=0.35,
+    )
 
-    # Plot dots — larger and slightly brighter, with white halo
+    # Plot dots — larger and slightly brighter, with white halo (zorder 3-4, above threshold lines)
     for label, x, y, color in points:
         ax.scatter(x, y, s=320, c="white", edgecolors="white", linewidths=2.5, zorder=3)
         ax.scatter(x, y, s=240, c=color, edgecolors=TEXT_DARK, linewidths=1.4, zorder=4)
 
-    # Dot labels via annotate — connector lines make dot/label relationships unambiguous
-    # Minority 2026 at (4.02, 5): label to the right and below, arrow points up-left to dot
+    # Dot labels — close to origin, inside the zone the dot sits in
+    # Minority 2026 at (4.02, 5.0) → TOP-LEFT SUS zone [x<4.11, y>4]; label left and below the dot
     ax.annotate(
         "Minority 2026\n+4.0% / 5 of 5",
-        xy=(4.02, 5.0), xytext=(5.6, 4.0),
+        xy=(4.02, 5.0), xytext=(2.2, 4.65),
         fontsize=8.5, fontweight="bold", color=MINORITY_PURPLE,
-        ha="left", va="top",
+        ha="right", va="top",
         arrowprops=dict(arrowstyle="-", color=MINORITY_PURPLE, lw=0.9,
                         shrinkA=0, shrinkB=7),
         zorder=5,
     )
-    # Majority 2026 at (0.10, 0): label above-left
+    # Majority 2026 at (0.10, 0): label slightly above-right, safe zone
     ax.annotate(
         "Majority 2026\n+0.1% / 0 of 5",
-        xy=(0.10, 0.0), xytext=(-0.7, 1.55),
+        xy=(0.10, 0.0), xytext=(0.5, 1.1),
         fontsize=8.5, fontweight="bold", color=MAJORITY_TEAL,
         ha="left", va="bottom",
         arrowprops=dict(arrowstyle="-", color=MAJORITY_TEAL, lw=0.9,
                         shrinkA=0, shrinkB=7),
         zorder=5,
     )
-    # 2019 enacted at (2.41, 0): label above-right
+    # 2019 enacted at (2.41, 0): label slightly above-left, safe zone
     ax.annotate(
         "2019 enacted\n+2.4% / 0 of 5",
-        xy=(2.41, 0.0), xytext=(3.5, 1.0),
+        xy=(2.41, 0.0), xytext=(2.8, 1.1),
         fontsize=8.5, fontweight="bold", color=NEUTRAL_2019,
         ha="left", va="bottom",
         arrowprops=dict(arrowstyle="-", color=NEUTRAL_2019, lw=0.9,
@@ -463,12 +481,16 @@ def build_bias_structure_matrix() -> Path:
     ax.tick_params(axis="both", direction="out", length=4, pad=3, colors=TEXT_DARK)
     for spine in ("top", "right"):
         ax.spines[spine].set_visible(False)
-    for spine in ("left", "bottom"):
-        ax.spines[spine].set_color("#888888")
-        ax.spines[spine].set_linewidth(0.7)
+    ax.spines["left"].set_color("#888888")
+    ax.spines["left"].set_linewidth(0.7)
+    # Two-tone x-axis: orange for negative EG (NDP-favoured), blue for positive (UCP-favoured)
+    ax.spines["bottom"].set_visible(False)
+    _bx = ax.get_xaxis_transform()
+    ax.plot([XMIN, 0], [0, 0], transform=_bx, color=NDP_ORANGE, lw=1.2, clip_on=False, zorder=10)
+    ax.plot([0, XMAX], [0, 0], transform=_bx, color=UCP_BLUE,   lw=1.2, clip_on=False, zorder=10)
 
     ax.set_title(
-        "The Bias-Structure Matrix",
+        "The Map Scorecard",
         fontsize=12.5, fontweight="bold",
         loc="left", color=TEXT_DARK, pad=10,
     )
