@@ -74,9 +74,9 @@
     mapOnEvent(recordEvent);
 
     dntActive = isDNT();
-    const stored = getStoredChoice();
-    if (stored !== null) {
-      setParticipation(stored === 'yes');
+    const storedConsent = getStoredChoice();
+    if (storedConsent !== null) {
+      setParticipation(storedConsent === 'yes');
     } else {
       setTimeout(() => { showParticipation = true; }, 900);
     }
