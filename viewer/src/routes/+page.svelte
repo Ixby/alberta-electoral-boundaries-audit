@@ -912,9 +912,11 @@
   </div><!-- /#hud -->
   <div id="zoom-stage">
     <div id="zoom-skeleton" aria-hidden="true">
-      <div class="skel-bar skel-bar-1"></div>
-      <div class="skel-bar skel-bar-2"></div>
-      <div class="skel-bar skel-bar-3"></div>
+      <!-- Shimmering Alberta outline — aspect ratio ~1:1.85, perimeter ≈ 538 SVG units -->
+      <svg class="skel-province-svg" viewBox="0 0 100 185" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <path class="skel-province-bg"    d="M 4,4 L 96,4 L 96,181 L 4,181 Z" />
+        <path class="skel-province-shine" d="M 4,4 L 96,4 L 96,181 L 4,181 Z" />
+      </svg>
       <div class="skel-label">Loading map…</div>
     </div>
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_2019_hires.svg"
@@ -1369,26 +1371,38 @@
     will-change: transform;
   }
   #zoom-stage.dragging { cursor: grabbing; }
-  /* Loading skeleton */
+  /* Loading skeleton — shimmering Alberta outline */
   #zoom-skeleton {
     position: absolute; inset: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 1.2rem; pointer-events: none; z-index: 2;
+    gap: 1.4rem; pointer-events: none; z-index: 2;
     background: #0d1a26;
   }
   #zoom-skeleton.hidden { display: none; }
-  .skel-bar {
-    height: 12px; border-radius: 6px; background: rgba(255,255,255,0.07);
-    animation: skel-shimmer 1.5s ease-in-out infinite;
+  .skel-province-svg {
+    height: 52%; max-width: 38%; width: auto;
   }
-  .skel-bar-1 { width: 55%; }
-  .skel-bar-2 { width: 40%; animation-delay: 0.2s; }
-  .skel-bar-3 { width: 48%; animation-delay: 0.4s; }
+  .skel-province-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.07);
+    stroke-width: 2.5;
+  }
+  .skel-province-shine {
+    fill: none;
+    stroke: #F5A623;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    /* Three short dashes racing around the 538-unit perimeter */
+    stroke-dasharray: 45 134 45 134 45 135;
+    stroke-dashoffset: 538;
+    animation: skel-race 1.1s linear infinite;
+    filter: drop-shadow(0 0 5px rgba(245,166,35,0.7));
+  }
+  @keyframes skel-race {
+    from { stroke-dashoffset: 538; }
+    to   { stroke-dashoffset: 0; }
+  }
   .skel-label { color: rgba(255,255,255,0.28); font-size: 0.8rem; letter-spacing: 0.06em; }
-  @keyframes skel-shimmer {
-    0%, 100% { opacity: 0.5; }
-    50%       { opacity: 1.0; }
-  }
   #zoom-obj {
     position: absolute; display: block; border: 0;
   }
