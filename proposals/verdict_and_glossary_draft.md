@@ -20,7 +20,7 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 >
 > ### What does it mean for Albertans?
 >
-> At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme — fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because Alberta's 87-seat legislature works differently above a two-thirds supermajority: the opposition loses much of its procedural power to hold the government accountable. Whether the proposal's tilt is large enough to push one party past that threshold at vote shares *other* than 50/50 is a question this audit has not yet tested. Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit.
+> At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme — fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because at 58 of 87 seats — a two-thirds supermajority — the governing party unlocks extraordinary procedural powers: it can waive standard notice periods and push public bills through multiple legislative stages in a single day, bypassing deliberation checks that normally constrain it. Whether the minority proposal's tilt is large enough to push one party past that 58-seat threshold at vote shares *other* than 50/50 is a question this audit has not yet tested. Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit.
 >
 > **[Read the legal context →](/law)**  ·  **[See how we tested →](/methods)**
 
@@ -32,7 +32,7 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 - "If enacted" — second conditional. The minority proposal hasn't been adopted; it's a discarded commissioners' submission that the Lunty committee may forward to the legislature.
 - "It doesn't" — Q2's one-sentence opening. Direct, accurate, and immediately reframes to the *effective representation* test.
 - Q3 deliberately states what the audit *has* measured (the 50/50 result) and what it has *not* yet measured (behaviour at other vote shares). The earlier draft asserted a likelihood differential "at the same level of provincial support" — but the audit hasn't tested vote shares other than 50/50, so that phrasing overreached. The current draft is narrower and honest about the limit, which is the kind of constraint that earns the reader's trust in everything else.
-- "Two-thirds supermajority" (no specific seat count) keeps the verdict to the substantive procedural point. The exact threshold (58 strictly mathematically, vs. 59 if the rule is ">2/3" rather than "≥2/3", vs. 60 as a round-figure heuristic in public discourse) is something the deeper section on `/` can pin down. The verdict doesn't need to.
+- The supermajority effect is now narrow and concrete: at 58 of 87 seats (mathematically 2/3 × 87 = 58), a governing party can waive notice periods and accelerate bills through multiple stages in a single day. Standard legislation and budgets only need a simple majority; the 58-seat threshold is the one that unlocks *procedural* shortcuts. The earlier draft said "the opposition loses much of its procedural power to hold the government accountable" — too broad. The current phrasing names the specific capabilities and lets the reader judge their weight.
 - "Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit." — explicit hand-off. The empower-don't-advocate principle in one sentence.
 - Italics on *minority proposal* and *majority proposal* the first time each appears. These are common words being used in a specific procedural sense; the italics signal that.
 - The two CTA buttons should be visually distinct from each other and from the main text — e.g., one in the `/law` accent color, one in the `/methods` accent color.
@@ -86,7 +86,7 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 
 ## Part 3 — Glossary (`viewer/src/lib/glossary.ts`)
 
-32 terms grouped by tier. Each entry has:
+33 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
 - `definition` — 2–3 sentences, plain language, no math notation, no Latin where avoidable
 - `href` — anchor on `/law` or `/methods` for "Learn more →"
@@ -201,13 +201,23 @@ effectiveRepresentation: {
   href: '/law#effective-representation',
 },
 
+ebc: {
+  term: 'Electoral Boundaries Commission (EBC)',
+  definition: 'The body that draws Alberta\'s provincial electoral boundaries under ' +
+              'the EBCA. The 2026 commission was chaired by Justice Miller and ' +
+              'split 3–2 among its commissioners, producing two competing ' +
+              'proposals (the majority and minority proposals) rather than a single ' +
+              'recommendation.',
+  href: '/law#ebc',
+},
+
 luntyCommittee: {
   term: 'Lunty committee',
-  definition: 'The MLA committee, chaired by Brandon Lunty, that is choosing between ' +
-              'the commission\'s majority and minority proposals before the November ' +
-              '2026 deadline. It is not part of the standard Electoral Boundaries ' +
-              'Commission Act process; the legislature created it for this specific ' +
-              'decision.',
+  definition: 'An MLA committee chaired by Brandon Lunty — an MLA appointed by ' +
+              'the Premier — that is choosing between the EBC\'s majority and ' +
+              'minority proposals before the November 2026 deadline. The committee ' +
+              'is separate from the EBC; the legislature created it for this ' +
+              'specific decision and it is not part of the standard EBCA process.',
   href: '/law#committee-anomaly',
 },
 
@@ -444,7 +454,11 @@ Things to settle before the glossary ships:
 
 1. **"Gerrymander" — capitalization and italics.** Currently lowercase in body text. AP and CP style both treat it as lowercase. Confirming.
 2. **"Riding" vs "electoral district" — resolved.** *Riding* is the federal term; *electoral district* (or "ED") is the provincial term and the right word for an Alberta audit. **Implementation note:** during content migration, normalize *riding* → *electoral district* / *ED* across the entire existing prose. Each route defines "electoral district (ED)" on first occurrence, then uses *ED* thereafter for readability. The *riding* glossary entry exists to catch readers who arrive with the wrong word and gently correct them.
-3. **Naming — resolved.** The maps haven't been adopted; they were discarded by the commission as competing submissions to the Lunty committee. The site uses *minority proposal* and *majority proposal* throughout. One explicit footnote on `/` (first occurrence) explains that the names come from the 3–2 commission split.
+3. **Naming — resolved.** The site uses *minority proposal* and *majority proposal* throughout. A short footnote attaches to the first occurrence on `/`:
+
+   > *The "majority" and "minority" names come from a 3–2 split among the Electoral Boundaries Commission (chaired by Justice Miller), which produced two competing proposals rather than a single recommendation. A separate MLA committee chaired by Brandon Lunty — a Premier-appointed MLA — is now choosing between them before the November 2026 deadline.*
+
+   That establishes the chain of authority (commission → competing proposals → Lunty committee → legislature) once, in one place, so deeper sections don't need to keep re-explaining it.
 4. **Whether to name the parties in the verdict.** Currently it says "one party" — not naming UCP or NDP. Pros: keeps the audit neutral, lets the reader's mental model fill in either party. Cons: a reader who already knows the politics will read "one party" as evasive. The existing site does name UCP and NDP throughout. Decision: name them in the lived examples on `/`, but in the verdict block keep "one party" — the verdict is about structure, not partisanship.
 5. **UCP/NDP glossary entries — added.** Short factual entries with no editorial framing.
 6. **CTA order — keeping current.** *Read the legal context →* appears before *See how we tested →* because that matches the recommended depth order (narrative → law → science) you endorsed earlier. A reader who wants the answer fastest reads the verdict and stops; a reader who wants context next reaches the legal framing before the methodology. Override if you'd rather lead with the math.
