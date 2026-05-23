@@ -906,7 +906,7 @@
     </div>
     <div id="ec-zoom-section">
       <span id="zoom-pct">100%</span>
-      <input type="range" id="zoom-slider" min="25" max="1600" step="5" value="100" aria-label="Map zoom">
+      <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label="Map zoom">
     </div>
   </div>
   </div><!-- /#hud -->

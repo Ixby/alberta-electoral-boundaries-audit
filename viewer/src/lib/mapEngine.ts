@@ -62,7 +62,7 @@ export function init(basePath: string): void {
         const _zoomSlider = document.getElementById('zoom-slider');
         function _updateZoomDisplay(pct) {
           if (zoomPct) zoomPct.textContent = pct + '%';
-          if (_zoomSlider) _zoomSlider.value = String(Math.min(1600, Math.max(25, pct)));
+          if (_zoomSlider) _zoomSlider.value = String(Math.min(3000, Math.max(25, pct)));
         }
 
         let mode = null, ready = false;  // 'viewbox' | 'fallback'
@@ -165,7 +165,7 @@ export function init(basePath: string): void {
           const lx = mx - ox, ly = my - oy;
           const svgX = curVB.x + (lx / rw) * curVB.w;
           const svgY = curVB.y + (ly / rh) * curVB.h;
-          const newW = Math.max(natVB.w / 1000, Math.min(natVB.w * 20, curVB.w / factor));
+          const newW = Math.max(natVB.w / 3000, Math.min(natVB.w * 20, curVB.w / factor));
           const newH = newW * (natVB.h / natVB.w);
           applyVB({ x: svgX - (lx / rw) * newW, y: svgY - (ly / rh) * newH, w: newW, h: newH });
         }
