@@ -1279,6 +1279,7 @@
       top: 0;
       z-index: 100;
     }
+    @media (max-width: 660px) { nav { display: none; } }
     .nav-inner {
       display: flex;
       align-items: center;
