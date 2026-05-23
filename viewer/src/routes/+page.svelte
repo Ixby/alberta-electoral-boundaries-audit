@@ -18,7 +18,7 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { init, onEvent as mapOnEvent, getState, applyState } from '$lib/mapEngine';
-  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin } from '$lib/share';
+  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, getStoredChoice, storeChoice } from '$lib/share';
 
   // ── Share / participation state ───────────────────────────────────────────
   let showParticipation = $state(false);
@@ -74,7 +74,12 @@
     mapOnEvent(recordEvent);
 
     dntActive = isDNT();
-    setTimeout(() => { showParticipation = true; }, 900);
+    const stored = getStoredChoice();
+    if (stored !== null) {
+      setParticipation(stored === 'yes');
+    } else {
+      setTimeout(() => { showParticipation = true; }, 900);
+    }
 
     // ── Skeleton phrase cycling ───────────────────────────────────────────────
     setInterval(() => {
@@ -938,8 +943,10 @@
     <p class="part-dnt">Your browser has Do Not Track enabled. No is pre-selected on your behalf. You can change your answer.</p>
     {/if}
     <div class="part-actions">
-      <button class="part-btn part-no" onclick={() => { setParticipation(false); showParticipation = false; }}>No thanks</button>
-      <button class="part-btn part-yes" onclick={() => { setParticipation(true); showParticipation = false; }}>Yes, connect</button>
+      <button class="part-btn" class:part-primary={dntActive} class:part-secondary={!dntActive}
+        onclick={() => { storeChoice(false); setParticipation(false); showParticipation = false; }}>No thanks</button>
+      <button class="part-btn" class:part-primary={!dntActive} class:part-secondary={dntActive}
+        onclick={() => { storeChoice(true); setParticipation(true); showParticipation = false; }}>Yes, connect</button>
     </div>
     <p class="part-policy"><a href="{base}/privacy-policy.md" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
   </div>
@@ -1242,6 +1249,19 @@
       width: auto;
       display: block;
       border-radius: 6px;
+    }
+
+    @media (max-width: 660px) {
+      header { padding: 0; }
+      .header-inner { flex-direction: column; gap: 0; align-items: stretch; }
+      .header-text { flex: none; padding: 1.3rem 1.2rem 1.2rem; order: 2; }
+      .hero-map-btn { order: 1; width: 100%; display: block; flex-shrink: 0; }
+      .hero-map-wrap { display: block; width: 100%; overflow: hidden; }
+      .header-image {
+        width: 100%; height: 56vw; max-height: none;
+        object-fit: cover; object-position: center 22%; border-radius: 0;
+      }
+      .cover-note { display: none; }
     }
 
     .cover-note {
@@ -1986,8 +2006,8 @@
     transition: opacity 0.15s;
   }
   :global(.part-btn:hover) { opacity: 0.82; }
-  :global(.part-no)  { background: var(--btn-muted, #e8e8e8); color: var(--text, #111); }
-  :global(.part-yes) { background: #6B35A7; color: #fff; }
+  :global(.part-secondary) { background: var(--btn-muted, #e8e8e8); color: var(--text, #111); }
+  :global(.part-primary)   { background: #6B35A7; color: #fff; }
   :global(.part-policy) {
     font-size: 0.78rem !important; text-align: right;
     margin: 0 !important; color: var(--text-muted, #888) !important;
@@ -2035,5 +2055,14 @@
   :global(.share-load-input::placeholder) { opacity: 0.4; }
   :global(.share-error) {
     font-size: 0.76rem; color: #e57373; margin-top: 0.3rem;
+  }
+  @media (max-width: 520px) {
+    :global(#share-panel) {
+      position: fixed;
+      top: auto; bottom: 0; left: 0; right: 0;
+      width: 100%; border-radius: 14px 14px 0 0;
+      padding: 1.1rem 1rem 1.4rem;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
+    }
   }
 </style>

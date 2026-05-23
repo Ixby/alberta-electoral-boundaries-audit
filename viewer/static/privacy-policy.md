@@ -133,7 +133,8 @@ You have the right not to be remembered.
 
 Will Conner  
 wconn161@mtroyal.ca  
-Mount Royal University, Department of Policy Studies  
+
+This project is independent and is not affiliated with or endorsed by any institution.
 
 Questions, concerns, and deletion requests are answered within 10 business days.
 

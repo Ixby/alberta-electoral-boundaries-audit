@@ -5,7 +5,7 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-18
+**Last updated:** 2026-05-23
 **Completed work:** see `COMPLETED_LOG.md`
 
 ---
@@ -67,6 +67,20 @@ Stage 3 superseded by official shapefiles. Stages 3–7 complete for canonical s
 - **Phase 1 (highest priority):** R `redist` package cross-validation — independently reproduce seats@50/50. Effort: 1 evening + ~90 min runtime.
 - **Phase 2:** QGIS visual inspection using official shapefiles. Effort: 1 h setup + 1 afternoon.
 - **Phase 2.5:** Maptitude free-trial cross-validation. Effort: 4 h setup + 2 h QA.
+
+---
+
+## HIGH — Viewer: Phase 2 Supabase Backend
+
+Wire the client-side share system (already built in `viewer/src/lib/share.ts`) to a Supabase backend.
+
+- **shares table** — `{ code TEXT PRIMARY KEY, map_state JSONB, created_at TIMESTAMPTZ }`. Anon SELECT; anon INSERT (one row per code, upsert-safe).
+- **telemetry table** — `{ id UUID PK, flight_path JSONB, session_context JSONB, feature_summary JSONB, created_at TIMESTAMPTZ }`. No FK to shares — the two tables have no shared key by design.
+- **RLS** — INSERT to telemetry requires DNT attestation column (`dnt_ok BOOLEAN NOT NULL`); RLS rejects rows where `dnt_ok = false`. Client-side check is a courtesy; DB enforces.
+- **DNT commitment** — SHA-256 hash of `isDNT()` source paired with a Cloudflare drand beacon round committed to the repo before data collection is enabled. Hash mismatch triggers freeze state (all further writes blocked).
+- **Client wiring** — `share.ts` `submitShare()`: on Share click, if `participates()`, POST flight path + session context to telemetry; separately upsert share code. If not participating, skip telemetry.
+- **Env vars** — `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY` in `viewer/.env.local` (gitignored).
+- **Blocked on:** Supabase MCP `list_organizations` returned internal error 2026-05-23 — retry when MCP is healthy.
 
 ---
 
@@ -209,6 +223,20 @@ Current §5.8.4 notes Enoch Cree Nation (Reserve 135) PP=0.065 and Tsuut'ina com
 
 ---
 
+## MEDIUM — Viewer: mapEngine.ts Modularization
+
+`viewer/src/lib/mapEngine.ts` is ~1,350 lines inside a single `init()` closure. Split into responsibility-based modules:
+
+- `svg-loader.ts` — fetch, cache, and inject SVG assets
+- `pan-zoom.ts` — pointer/touch/wheel pan and zoom, viewBox management
+- `overlay-manager.ts` — multi-map stacking, `_syncOverlays`, `_doSwitchPrimary`
+- `layer-controls.ts` — vote/fill/lines/EG layer apply functions
+- `ed-callout.ts` — ED hover, callout bar, search, highlight
+
+Exported surface stays the same (`init`, `onEvent`, `getState`, `applyState`). No new functionality; `// @ts-nocheck` already in place. Prerequisite: Phase 2 Supabase done (avoids merge conflicts during active wiring).
+
+---
+
 ## MEDIUM — Restructure / Hygiene
 
 ### Repository Restructure
@@ -241,6 +269,17 @@ Collapse `analysis/scripts/` from ~87 files into ~15–20 topic modules. Inputs 
 # M3 — LUNTY RELEASE (Nov 2, 2026)
 
 **Moved to `private_workspace/M3_LUNTY_RELEASE.md`.** Re-merge into this file only after the Lunty committee tables its 91-seat map.
+
+### Viewer: Animated Boundary Morphs (edutainment chapter)
+
+Play through 91 representative MCMC ensemble draws, animating how district boundaries drift while voters stay put. Makes the structural argument visceral — viewers see how much a boundary could move under a neutral drawing process, which is harder to dismiss than a p-value.
+
+- Pre-process 91 ensemble shapefiles → SVG path sets (one per ED per draw)
+- SVG boundary morphing between draws (FLUBBER or custom interpolation)
+- Chapter UI: play/pause, ensemble-index slider, per-ED highlight
+- Each s.15(2) ED independently justifies its boundaries; the ensemble surfaces whether better-fitting alternatives exist
+- If s.15(2) boundary optimality is tested, new null hypothesis requires OSF pre-registration with a new drand seed before data is examined
+- **Trigger:** Lunty committee tables its 91-seat map; apply same boundary-morph treatment to all three comparison maps simultaneously
 
 ---
 
