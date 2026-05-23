@@ -1,3 +1,6 @@
+// Alberta Electoral Boundary Audit — copy-figures build script
+// © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+// https://ixby.github.io
 // Syncs generated article figures from data/maps/article/ into docs/images/.
 // Run after regenerating Python figure scripts; before npm run build.
 import { cpSync, existsSync, readdirSync } from 'fs';

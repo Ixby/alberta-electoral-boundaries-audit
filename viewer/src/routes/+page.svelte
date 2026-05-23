@@ -1,5 +1,15 @@
+<!--
+  Alberta Electoral Boundary Audit — main page
+  © Will Conner 2026
+  Text/content: CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+  Code: GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+  https://ixby.github.io
+-->
 <svelte:head>
   <meta name="description" content="Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests.">
+  <meta name="author" content="Will Conner">
+  <meta name="copyright" content="© Will Conner 2026">
+  <meta name="license" content="Text/content: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); Code: GNU GPL v3.0 (https://www.gnu.org/licenses/gpl-3.0.html)">
   <link rel="icon" type="image/svg+xml" href="{base}/favicon.svg">
   <link rel="apple-touch-icon" href="{base}/favicon.svg">
 </svelte:head>
@@ -829,6 +839,8 @@
 
 <a href="#top" id="back-top" aria-label="Back to top">↑</a>
 
+<div id="site-copyright" aria-label="Copyright notice">&copy; Will Conner 2026</div>
+
 <!-- Figure lightbox -->
 <div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view" tabindex="-1">
   <img id="fig-lightbox-img" alt="">
@@ -847,7 +859,7 @@
     <div class="tb-sep"></div>
     <div class="tb-group">
       <button class="tb-btn tb-layer-on" data-layer="vote" title="Show 2023 vote results at polling-area granularity">Vote %</button>
-      <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">Eff. Gap</button>
+      <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">Wasted</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Partisan</button>
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Borders</button>
     </div>
@@ -910,6 +922,10 @@
 <footer>
   <div class="container">
     Alberta Electoral Boundary Audit &mdash; May 2026<br>
+    &copy; Will Conner 2026 &mdash;
+    Text: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> &mdash;
+    Code: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a><br>
+    <a href="https://ixby.github.io">ixby.github.io</a> &mdash;
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
   </div>
 </footer>
@@ -926,7 +942,7 @@
       <li><strong>Borders</strong> &mdash; show or hide district boundary edges</li>
       <li><strong>Pin Map</strong> &mdash; prevent the map from auto-panning when you click a district</li>
       <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
-      <li><strong>Eff. Gap</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured</li>
+      <li><strong>Wasted</strong> &mdash; shade each district by its efficiency-gap contribution (wasted votes): blue = UCP-favoured, orange = NDP-favoured</li>
     </ul>
     <p><strong>Try this:</strong> In §4 below, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone, then click any highlighted district to see its vote data and compare across all three maps.</p>
     <button id="map-intro-close">Got it</button>
@@ -1681,6 +1697,15 @@
     cursor: default;
     pointer-events: none;
   }
+
+  /* Persistent copyright notice */
+  #site-copyright {
+    position: fixed; bottom: 0.45rem; right: 1rem;
+    font-size: 0.65rem; color: rgba(0,0,0,0.35);
+    pointer-events: none; z-index: 300;
+    letter-spacing: 0.01em;
+  }
+  :root[data-theme="dark"] #site-copyright { color: rgba(255,255,255,0.22); }
 
   /* Back-to-top button */
   #back-top {

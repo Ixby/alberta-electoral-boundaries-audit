@@ -1,4 +1,7 @@
-﻿﻿﻿﻿﻿﻿﻿// @ts-nocheck
+﻿﻿﻿﻿﻿﻿﻿// Alberta Electoral Boundary Audit — map engine
+// © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+// https://ixby.github.io
+// @ts-nocheck
 
 export function init(basePath: string): void {
     // Pre-fetch all three hover datasets so cross-map comparison is available
@@ -109,6 +112,7 @@ export function init(basePath: string): void {
           svgEl.style.transformOrigin = '';
           svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
           _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
+          _updateStrokeWidths();
         }
 
         function applyVB(vb) {
@@ -151,6 +155,7 @@ export function init(basePath: string): void {
             svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
           }
           _updateZoomDisplay(100);
+          _updateStrokeWidths();
         }
 
         function vbZoomAt(mx, my, factor) {
@@ -212,6 +217,7 @@ export function init(basePath: string): void {
           _reapplyLayers();
           if (typeof _applyAnomalyHighlight === 'function') _applyAnomalyHighlight();
           _syncOverlays();
+          _updateStrokeWidths();
           if (overlay.style.display !== 'none') {
             if (preserveVB) {
               // Restore saved view without resetting to full province
@@ -224,6 +230,7 @@ export function init(basePath: string): void {
               svgEl.style.transformOrigin = '';
               svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
               _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
+              _updateStrokeWidths();
             } else {
               resetVB();
             }
@@ -503,6 +510,31 @@ export function init(basePath: string): void {
             p.style.strokeWidth = '0.5';
             p.style.strokeOpacity = '1';
           });
+          _updateStrokeWidths();
+        }
+
+        // ── Zoom-relative stroke widths ────────────────────────────────────────
+        // Keeps lines visually proportional as the user zooms in/out.
+        // Primary floor=0.12 ceil=1.8; overlay floor=0.07 ceil=1.1 (SVG user units).
+        function _updateStrokeWidths() {
+          if (!svgEl || !natVB || !curVB) return;
+          var zf = natVB.w / curVB.w;                            // 1 = 100%, 4 = 400%
+          var primaryW = Math.min(1.8, Math.max(0.12, 0.5 / zf));
+          var overlayW = Math.min(1.1, Math.max(0.07, 0.3 / zf));
+          var pBound = svgEl.querySelector('#ed_boundary_layer');
+          if (pBound) {
+            pBound.querySelectorAll('path').forEach(function(p) {
+              p.style.strokeWidth = String(primaryW);
+            });
+          }
+          ['minority', 'majority', '2019'].forEach(function(key) {
+            var og = _overlayInSvg[key];
+            if (og) {
+              og.querySelectorAll('path').forEach(function(p) {
+                p.style.strokeWidth = String(overlayW);
+              });
+            }
+          });
         }
 
         // ── Active ED boundary highlight ──────────────────────────────────────────
@@ -560,9 +592,11 @@ export function init(basePath: string): void {
           var g = doc.querySelector('#ed_boundary_layer');
           if (!g) return null;
           var clone = document.importNode(g, true);
+          var zf = (natVB && curVB) ? natVB.w / curVB.w : 1;
+          var sw = Math.min(1.1, Math.max(0.07, 0.3 / zf));
           clone.querySelectorAll('path').forEach(function(p) {
             p.style.stroke = _mapAccentColors[key] || '#555';
-            p.style.strokeWidth = '0.3';
+            p.style.strokeWidth = String(sw);
             p.style.strokeOpacity = '0.45';
           });
           clone.setAttribute('pointer-events', 'none');
@@ -780,16 +814,6 @@ export function init(basePath: string): void {
               return;
             }
             var on = !_layerState[key];
-            // EG and Vote are mutually exclusive fill modes
-            if (key === 'eg' && on && _layerState.vote) {
-              _layerState.vote = false;
-              document.querySelector('.tb-btn[data-layer="vote"]').classList.remove('tb-layer-on');
-            }
-            if (key === 'vote' && on && _layerState.eg) {
-              _layerState.eg = false;
-              _applyEGLayer(false);
-              document.querySelector('.tb-btn[data-layer="eg"]').classList.remove('tb-layer-on');
-            }
             _layerState[key] = on;
             b.classList.toggle('tb-layer-on', on);
             if (key === 'vote')     _applyVoteLayer(on);
