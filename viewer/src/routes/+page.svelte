@@ -18,7 +18,7 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { init, onEvent as mapOnEvent, getState, applyState } from '$lib/mapEngine';
-  import { isDNT, setParticipation, recordEvent, encodeState, decodeState } from '$lib/share';
+  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin } from '$lib/share';
 
   // ── Share / participation state ───────────────────────────────────────────
   let showParticipation = $state(false);
@@ -56,6 +56,7 @@
     const decoded = decodeState(trimmed);
     if (!decoded) { loadError = 'Unrecognised code — check spelling.'; return; }
     applyState(decoded.primary, decoded.mapOn, decoded.layers);
+    setOrigin(trimmed.toLowerCase().trim());
     showSharePanel = false;
     loadInput  = '';
     loadError  = '';

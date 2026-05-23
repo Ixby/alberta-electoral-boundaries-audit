@@ -76,6 +76,7 @@ Steps are numbered in order. No time elapsed between steps is recorded — seque
 - Language — a value like *en-CA* or *fr-CA*
 - Approximate region, if you chose to provide it (see below)
 - How long you spent on the page before sharing, in one of five tiers: under 1 minute, 1–3 minutes, 3–10 minutes, 10–30 minutes, or 30 minutes or more
+- Origin code — if your session began by loading someone else's share code, that code is recorded as the starting point of your session. If your session began from the default configuration, this field is null. This lets us distinguish pure exploration from sessions that build on a prior shared configuration.
 
 ---
 

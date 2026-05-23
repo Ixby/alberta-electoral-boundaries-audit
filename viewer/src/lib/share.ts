@@ -123,8 +123,9 @@ export function decodeState(code: string): MapState | null {
 
 // ── Participation + flight path ───────────────────────────────────────────────
 
-let _participates = false;
+let _participates  = false;
 let _flightPath: FlightEvent[] = [];
+let _originCode: string | null = null;  // null = default start; code = loaded from share
 
 export function isDNT(): boolean {
 	return navigator.doNotTrack === '1';
@@ -133,6 +134,15 @@ export function isDNT(): boolean {
 export function setParticipation(yes: boolean): void {
 	_participates = yes;
 	_flightPath   = [];
+	_originCode   = null;
+}
+
+export function setOrigin(code: string | null): void {
+	_originCode = code;
+}
+
+export function getOrigin(): string | null {
+	return _originCode;
 }
 
 export function participates(): boolean {
