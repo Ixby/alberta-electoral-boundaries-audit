@@ -300,8 +300,8 @@
     <h2>3: The 1,010,000-Map Litmus Test <a href="#section-3" class="section-link" aria-label="Link to section 3">#</a></h2>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+4.0%), in the shaded right tail. The majority map (teal line) sits at +0.1%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="463" height="247" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +4.0% sits at the 94th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.1% is indistinguishable from what a neutral process typically produces.</figcaption>
+      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+3.96%), in the shaded right tail. The majority map (teal line) sits at +0.04%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="463" height="247" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +3.96% sits at the 94th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.04% is indistinguishable from what a neutral process typically produces.</figcaption>
     </figure>
 
     <p>The table compares the two maps. The first five rows use no election results — they're properties of the lines themselves. The last two depend on how votes were attributed to each district.</p>
@@ -354,10 +354,10 @@
             <td><strong>UCP</strong></td>
           </tr>
           <tr>
-            <td>Compactness-Weighted Efficiency Gap</td>
-            <td class="normal">+1.5%</td>
-            <td class="flag">-2.4%</td>
-            <td><strong>UCP</strong> (via irregular shapes)</td>
+            <td>Efficiency Gap (percentile in 1,010,000-map simulation)</td>
+            <td class="normal">+0.04% — p15.5 (normal range)</td>
+            <td class="flag">+3.96% — p94.4</td>
+            <td><strong>UCP</strong></td>
           </tr>
           <tr>
             <td>Packing-cracking neighbourhood pattern</td>
@@ -377,7 +377,7 @@
       <p><strong>Anchoring.</strong> The fraction of an electoral border that lies on a pre-existing administrative line — a city limit, a school-division boundary, a Statistics Canada census line.</p>
     </div>
 
-    <p>The bottom rows depend on election results. The <em>seats@50/50</em> test holds the electorate at perfect parity (UCP and NDP each win exactly half the votes province-wide) and asks how many seats the map awards the UCP. A neutral Alberta map produces a median around 44.8% UCP seats — Alberta's geography (NDP voters concentrated in city cores, UCP voters spread across rural ridings) gives the NDP a small efficiency advantage at neutrality. The majority map at 46.1% sits at the 83rd percentile of the 1,010,000-map simulation (normal range). The minority map at 51.7% is at the 99.99th percentile — fewer than 100 of 1,010,000 neutral draws reach that value. The <em>efficiency gap</em> number measures how lopsidedly each party's votes get translated into seats; on the official Elections Alberta shapefiles the minority's efficiency gap is +4.0%, placing it at the 94th percentile — just below the audit's 95th-percentile outlier line. The verdict section unpacks the consequences.</p>
+    <p>The bottom rows depend on election results. The <em>seats@50/50</em> test holds the electorate at perfect parity (UCP and NDP each win exactly half the votes province-wide) and asks how many seats the map awards the UCP. A neutral Alberta map produces a median around 44.8% UCP seats — Alberta's geography (NDP voters concentrated in city cores, UCP voters spread across rural ridings) gives the NDP a small efficiency advantage at neutrality. The majority map at 46.1% sits at the 83rd percentile of the 1,010,000-map simulation (normal range). The minority map at 51.7% is at the 99.99th percentile — fewer than 100 of 1,010,000 neutral draws reach that value. The <em>efficiency gap</em> number measures how lopsidedly each party's votes get translated into seats; on the official Elections Alberta shapefiles the minority's efficiency gap is +3.96%, placing it at the 94.4th percentile — just below the audit's 95th-percentile outlier line. The verdict section unpacks the consequences.</p>
 
     <p>The last row is where the minority map has fewer coupled chain signals than the majority on the neighbour-drain test: 2 against the majority's 6 (and the 2019 enacted map's 5). The audit pre-registered this test before measuring, and the minority's lower count is a genuine pre-registered PASS — the minority does not show the classic pack-and-drain adjacency pattern. It is the single test where the minority numerically outperforms the majority. §5.3.5 of the academic report explains why: the minority achieves its partisan effect through hybridization (city-splitting that internalises packing and cracking within individual EDs), which is invisible to an adjacency-chain test that only measures how packed districts cluster next to cracked ones.</p>
   </section>
@@ -579,14 +579,14 @@
         <tbody>
           <tr>
             <td>Majority 2026</td>
-            <td class="normal">+0.1% (p15)</td>
+            <td class="normal">+0.04% (p15.5)</td>
             <td>&#8722;3.6% (p2)</td>
             <td>+0.027 (p81)</td>
             <td class="normal">46.1% (p83)</td>
           </tr>
           <tr>
             <td>Minority 2026</td>
-            <td class="flag"><strong>+4.0% (p94)</strong></td>
+            <td class="flag"><strong>+3.96% (p94.4)</strong></td>
             <td class="flag"><strong>+1.0% (p99.98)</strong></td>
             <td class="flag"><strong>&#8722;0.077 (p1.2)</strong></td>
             <td class="flag"><strong>51.7% (p99.99)</strong></td>
@@ -754,12 +754,12 @@
           <tr>
             <td><strong>Majority 2026</strong></td>
             <td class="normal">clean — crosses <em>no</em> structural threshold</td>
-            <td class="normal">inside the normal range on every metric (<code>seats@50/50</code> 46.1% — p83; efficiency gap +0.1%)</td>
+            <td class="normal">inside the normal range on every metric (<code>seats@50/50</code> 46.1% — p83; efficiency gap +0.04%)</td>
           </tr>
           <tr>
             <td><strong>Minority 2026</strong></td>
             <td class="flag"><strong>crosses 4 of 5 structural thresholds</strong> by a wide margin (anchoring neutral — both maps within Canadian norm)</td>
-            <td class="flag">statistical outlier on all four partisan-fairness measures simultaneously — <code>seats@50/50</code> 51.7% (p99.99, fewer than 100 of 1,010,000 reach it); efficiency gap +4.0% (p94); all four pre-registered; Fisher combined p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup></td>
+            <td class="flag">statistical outlier on all four partisan-fairness measures simultaneously — <code>seats@50/50</code> 51.7% (p99.99, fewer than 100 of 1,010,000 reach it); efficiency gap +3.96% (p94.4); all four pre-registered; Fisher combined p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup></td>
           </tr>
         </tbody>
       </table>
