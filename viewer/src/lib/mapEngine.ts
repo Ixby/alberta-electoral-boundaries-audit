@@ -16,7 +16,7 @@ export function init(basePath: string): void {
           d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
           _allHoverData[key] = byId;
           _nameIndex[key] = byName;
-          if (key === '2019') _edHover = byId;
+          if (key === _mapPrimary) _edHover = byId;
         }).catch(() => {});
       }
       _loadHoverJson('minority', 'data/ed_hover_minority.json');
