@@ -72,13 +72,14 @@ from matplotlib.patches import Rectangle
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 logger = logging.getLogger(__name__)
 
-# Reuse the existing symmetric estimator so we match §5.3 substrate exactly.
+# Reuse the canonical scorer so we match §5.3 canonical vote attribution exactly.
+# (Prior DPG-era version imported estimate_2026 + manual MAJORITY/MINORITY_2026_MAPPING
+# constants; those were removed in the canonical refactor in favour of centroid-in-polygon
+# spatial join against official EA shapefiles. The drain test now follows suit.)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from packing_cracking_analysis import (  # noqa: E402
     load_2023_results,
-    estimate_2026,
-    MAJORITY_2026_MAPPING,
-    MINORITY_2026_MAPPING,
+    score_map_by_spatial_join,
 )
 
 # ---------------------------------------------------------------------
@@ -496,13 +497,15 @@ def run_map(
 
 
 def main() -> None:
-    out_data_dir = data_loader._resolve_path("data")
     try:
+        from analysis.utils import data_loader as _data_loader
         from analysis.utils.data_loader import FINDINGS as out_reports_dir
     except ImportError:
         import sys as _sys
         _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+        import data_loader as _data_loader
         from data_loader import FINDINGS as out_reports_dir
+    out_data_dir = _data_loader._resolve_path("data")
     out_maps_dir = ROOT / "maps"
     for d in (out_data_dir, out_reports_dir, out_maps_dir):
         d.mkdir(parents=True, exist_ok=True)
@@ -515,22 +518,35 @@ def main() -> None:
     print("\nLoading 2023 two-party vote totals per 2019 ED...")
     dists_2019 = load_2023_results()
     votes_2019 = {d["ed"]: (d["ndp"], d["ucp"]) for d in dists_2019}
+    print(f"  2019: {len(votes_2019)} EDs with two-party totals")
 
-    rural = [d for d in dists_2019 if d["region"] == "Rest of Alberta"]
-    rural_ndp = sum(d["ndp"] for d in rural) / sum(d["ndp"] + d["ucp"] for d in rural)
-    print(f"  Rural NDP share (used for blending): {rural_ndp*100:.1f}%")
+    # --- Canonical 2026 vote attribution via VA centroid-in-polygon spatial join ---
+    # Mirrors mcmc_ensemble_canonical.py / packing_cracking_analysis.py exactly.
+    # The canonical EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg)
+    # plus the canonical VA gpkg (va_2023_election_day_votes.gpkg) replace the DPG-era
+    # 2019->2026 mapping that the original drain script used.
+    canonical_va_gpkg = (
+        out_data_dir / "shapefiles" / "canonical" / "va_2023_election_day_votes.gpkg"
+    )
+    canonical_maj_gpkg = (
+        out_data_dir / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
+    )
+    canonical_min_gpkg = (
+        out_data_dir / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
+    )
+    print(f"\nReading canonical VA shapefile: {canonical_va_gpkg.name}")
+    va_gdf = gpd.read_file(canonical_va_gpkg)
+    print(f"  {len(va_gdf)} VAs loaded  CRS={va_gdf.crs}")
 
-    # Majority 2026 estimate
-    print("\nEstimating 2023 two-party votes on Majority 2026 EDs...")
-    maj_list = estimate_2026(dists_2019, MAJORITY_2026_MAPPING, rural_ndp)
+    print("\nScoring Majority 2026 EDs via canonical VA centroid-in-polygon spatial join...")
+    maj_list = score_map_by_spatial_join(va_gdf, canonical_maj_gpkg, "EDName2025")
     votes_maj = {d["ed"]: (d["ndp"], d["ucp"]) for d in maj_list}
-    print(f"  {len(votes_maj)} majority EDs estimated")
+    print(f"  {len(votes_maj)} majority EDs scored")
 
-    # Minority 2026 estimate
-    print("\nEstimating 2023 two-party votes on Minority 2026 EDs...")
-    min_list = estimate_2026(dists_2019, MINORITY_2026_MAPPING, rural_ndp)
+    print("\nScoring Minority 2026 EDs via canonical VA centroid-in-polygon spatial join...")
+    min_list = score_map_by_spatial_join(va_gdf, canonical_min_gpkg, "EDName2025")
     votes_min = {d["ed"]: (d["ndp"], d["ucp"]) for d in min_list}
-    print(f"  {len(votes_min)} minority EDs estimated")
+    print(f"  {len(votes_min)} minority EDs scored")
 
     # --- Load shapefiles ---
     print("\nLoading shapefiles...")
