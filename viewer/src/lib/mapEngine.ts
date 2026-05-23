@@ -515,12 +515,14 @@ export function init(basePath: string): void {
 
         // ── Zoom-relative stroke widths ────────────────────────────────────────
         // Keeps lines visually proportional as the user zooms in/out.
-        // Primary floor=0.12 ceil=1.8; overlay floor=0.07 ceil=1.1 (SVG user units).
+        // Overlay is always 60% of primary (slightly thinner, same zoom tracking).
+        // Floor/ceil in SVG user units; at 400%+ zoom floors are intentionally
+        // very thin so overlays don't clutter the primary boundaries.
         function _updateStrokeWidths() {
           if (!svgEl || !natVB || !curVB) return;
           var zf = natVB.w / curVB.w;                            // 1 = 100%, 4 = 400%
-          var primaryW = Math.min(1.8, Math.max(0.12, 0.5 / zf));
-          var overlayW = Math.min(1.1, Math.max(0.07, 0.3 / zf));
+          var primaryW = Math.min(1.8, Math.max(0.06, 0.5 / zf));
+          var overlayW = primaryW * 0.6;                         // proportional, slightly thinner
           var pBound = svgEl.querySelector('#ed_boundary_layer');
           if (pBound) {
             pBound.querySelectorAll('path').forEach(function(p) {
@@ -593,7 +595,8 @@ export function init(basePath: string): void {
           if (!g) return null;
           var clone = document.importNode(g, true);
           var zf = (natVB && curVB) ? natVB.w / curVB.w : 1;
-          var sw = Math.min(1.1, Math.max(0.07, 0.3 / zf));
+          var primaryW = Math.min(1.8, Math.max(0.06, 0.5 / zf));
+          var sw = primaryW * 0.6;
           clone.querySelectorAll('path').forEach(function(p) {
             p.style.stroke = _mapAccentColors[key] || '#555';
             p.style.strokeWidth = String(sw);
