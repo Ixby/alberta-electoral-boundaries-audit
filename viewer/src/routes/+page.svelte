@@ -259,15 +259,15 @@
 <main class="container">
 
   <div style="padding: 1.5rem 0 0.5rem;">
-    <div class="callout" style="background:#F0EBF8; border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
+    <div class="callout callout-minority" style="border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
       <p style="margin:0;"><strong>Is the minority map a gerrymander?</strong> The commission&rsquo;s minority map would occur by chance in fewer than 1&nbsp;in&nbsp;14.5&nbsp;million randomly drawn maps. The majority map falls well within normal range.</p>
     </div>
-    <div class="callout" style="background: #D0EEEA; border-left-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
+    <div class="callout callout-tldr" style="border-left-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
       <p style="margin:0 0 0.6rem;"><strong>TL;DR</strong></p>
       <p style="margin:0 0 0.6rem;">Alberta's redistribution commission split 3&ndash;2 in 2026 and produced two different proposed maps. The government set both aside and assigned redistricting to a five-member committee of MLAs (the Lunty committee), expected to report in November 2026. Neither commission map is law.</p>
       <p style="margin:0 0 0.6rem;">This audit tested both commission maps the same way, using 1,010,000 computer-drawn neutral maps built from the official Elections Alberta shapefiles as a reference point. The majority proposal sits within the neutral range on every pre-registered test. The minority proposal crosses four of five structural tests, and its partisan-fairness seat split at a 50/50 vote is reached by fewer than 100 of those neutral maps &mdash; a joint probability of roughly 1 in 15 million under a neutral drawing process.</p>
       <p style="margin:0;">The audit measures outcomes, not intent. When the Lunty committee releases its map, this audit will apply the same tests to it.</p>
-      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:#555;">Pre-registered falsification conditions and retraction commitments are in <a href="#retractions">§9</a>.</p>
+      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:var(--text-muted);">Pre-registered falsification conditions and retraction commitments are in <a href="#retractions">§9</a>.</p>
     </div>
   </div>
 
@@ -291,7 +291,7 @@
     <p><strong>The process is its own finding, separate from the maps.</strong></p>
   </section>
 
-  <div class="callout" style="background:#EAF3FF; border-left-color:#2B5BA1; margin:0.5rem 0 1rem;">
+  <div class="callout callout-info" style="border-left-color:#2B5BA1; margin:0.5rem 0 1rem;">
     <p style="margin:0 0 0.4rem;"><strong>Structural audit results — before any statistics:</strong></p>
     <p style="margin:0;">The majority map crosses <strong>zero of five</strong> pre-registered structural thresholds. The minority map crosses <strong>all five</strong>. These are geometric measurements — population spread, <button class="vocab-term" data-def="how closely a district's borders follow pre-existing city and municipal limits, rather than cutting through them" aria-expanded="false">municipal anchoring</button>, Airdrie split count, NW Calgary population excess, and chair-flagged boundary anomalies — that require no election data and no statistical sampler. The next section tests both maps against 1,010,000 computer-generated neutral maps and reaches the same conclusion through a completely different instrument.</p>
   </div>
@@ -300,8 +300,8 @@
     <h2>3: The 1,010,000-Map Litmus Test <a href="#section-3" class="section-link" aria-label="Link to section 3">#</a></h2>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+3.96%), in the shaded right tail. The majority map (teal line) sits at +0.04%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="463" height="247" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +3.96% sits at the 94th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.04% is indistinguishable from what a neutral process typically produces.</figcaption>
+      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+3.96%), in the shaded right tail. The majority map (teal line) sits at +0.04%, well within the normal range." class="chart-img" style="max-width: 100%;" width="463" height="247" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +3.96% sits at the 94th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.04% is indistinguishable from what a neutral process typically produces.</figcaption>
     </figure>
 
     <p>The table compares the two maps. The first five rows use no election results — they're properties of the lines themselves. The last two depend on how votes were attributed to each district.</p>
@@ -394,8 +394,8 @@
     </div>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/figure_airdrie_v3.svg" alt="Map showing the division of Airdrie into four separate districts under the minority map" style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="504" height="336" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The division of Airdrie into four separate districts under the minority map, diluting its urban voting power.</figcaption>
+      <img src="images/figure_airdrie_v3.svg" alt="Map showing the division of Airdrie into four separate districts under the minority map" class="chart-img" style="max-width: 100%;" width="504" height="336" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">The division of Airdrie into four separate districts under the minority map, diluting its urban voting power.</figcaption>
     </figure>
 
     <p>The five commissioners worked from the same statutory rules, the same provincial geography, the same archive of 1,140 public submissions, and the same demographic data. Their two competing drafts agree on most of Alberta. Where the drafts diverge, they diverge on choices someone in the room had to make. Three of those choices are worth seeing as choices, not numbers.</p>
@@ -437,8 +437,8 @@
     <p>Lane 1 depends on which election results you score the maps against. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane2_bars.svg" alt="Bar chart comparing five structural-fairness tests side by side. The majority map bars sit at zero or well inside safe ranges. The minority map bars cross every threshold by a wide margin." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="441" height="545" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The five structural-fairness tests, side by side. Teal bars are the majority map; purple bars are the minority map. The dashed line in each row marks the failing threshold. The minority bars cross every threshold by a wide margin. The majority bars sit flat at zero or well inside the safe range.</figcaption>
+      <img src="images/lane2_bars.svg" alt="Bar chart comparing five structural-fairness tests side by side. The majority map bars sit at zero or well inside safe ranges. The minority map bars cross every threshold by a wide margin." class="chart-img" style="max-width: 100%;" width="441" height="545" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">The five structural-fairness tests, side by side. Teal bars are the majority map; purple bars are the minority map. The dashed line in each row marks the failing threshold. The minority bars cross every threshold by a wide margin. The majority bars sit flat at zero or well inside the safe range.</figcaption>
     </figure>
 
     <p>The same five tests in tabular form, with each test's threshold stated alongside the result. The bottom row is the audit's <em>summary</em> — the count of tests each map fails out of the five.</p>
@@ -735,8 +735,8 @@
     <p>The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the proposal fails, out of five, where higher means more structural problems).</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/verdict_quadrant.svg" alt="Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="474" height="351" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">The two ways of measuring the two commission proposals, plotted together. Left-to-right: how skewed the proposal looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the proposal fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 proposal stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 proposal is a structural outlier on all five tests; its efficiency gap (+4.0%) sits just below the Alberta threshold line.</figcaption>
+      <img src="images/verdict_quadrant.svg" alt="Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region." class="chart-img" style="max-width: 100%;" width="474" height="351" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">The two ways of measuring the two commission proposals, plotted together. Left-to-right: how skewed the proposal looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the proposal fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 proposal stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 proposal is a structural outlier on all five tests; its efficiency gap (+4.0%) sits just below the Alberta threshold line.</figcaption>
     </figure>
 
     <p>The same verdict in plain summary form, leading with the structural finding because that is what the cross-validated evidence supports most strongly:</p>
@@ -774,7 +774,7 @@
   <section id="section-7">
     <h2>7: The Lunty Committee <a href="#section-7" class="section-link" aria-label="Link to section 7">#</a></h2>
 
-    <div class="callout" style="background:#F5F5F5; border-left-color:#888; font-size:0.95rem;">
+    <div class="callout callout-neutral" style="border-left-color:#888; font-size:0.95rem;">
       <p style="margin:0;"><strong>CONTEXT</strong> — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in §3–§6 above.</p>
     </div>
 
@@ -841,31 +841,31 @@
 
       <div style="margin: 0.8rem 0 0; border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
         <p style="margin: 0 0 0.2rem;"><strong>Condition 1 — A counter-map exists</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The structural finding that the Airdrie four-way split and the three chair-flagged boundaries cannot be explained by the minority's stated community-of-interest rationale.</p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The structural finding that the Airdrie four-way split and the three chair-flagged boundaries cannot be explained by the minority's stated community-of-interest rationale.</p>
         <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: someone produces a legal Alberta map that satisfies the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — and anchors on municipal lines at majority-comparable rates. Open challenge at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
         <p style="margin: 0 0 0.2rem;"><strong>Condition 2 — The Neighbour-Drain pre-registered pass is reversed</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The Section 3 table entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.</p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The Section 3 table entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.</p>
         <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: the v2 continuous drain score falls in the extreme upper tail (p &lt; 0.05) of random permutations across the fixed contiguity graph, meaning the pass was a measurement artefact of the v1 binary scoring method rather than a genuine null result.</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
         <p style="margin: 0 0 0.2rem;"><strong>Condition 3 — A pre-2026 commission document surfaces</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The inference that the minority's boundary choices were drafting decisions rather than responses to documented community submissions.</p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The inference that the minority's boundary choices were drafting decisions rather than responses to documented community submissions.</p>
         <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: an internal commission document dated before the minority's final boundary choices shows those choices were explicitly driven by community submissions the audit has not seen — not by the six published sub-rationales the audit tested.</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
         <p style="margin: 0 0 0.2rem;"><strong>Condition 4 — The 2027 election result contradicts the simulation</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The Lane 1 finding — that the minority map's seats@50/50 score sits at the 99.99th percentile of 1,010,000 neutral draws.</p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The Lane 1 finding — that the minority map's seats@50/50 score sits at the 99.99th percentile of 1,010,000 neutral draws.</p>
         <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: if the 2027 provincial election is fought on either commission map and the actual partisan seat split contradicts the directional projection from 2023 votes, the Lane 1 percentile findings are revisited against actual results.</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
         <p style="margin: 0 0 0.2rem;"><strong>Condition 5 — An Alberta court distinguishes the Quebec SCC ruling</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: #555;"><em>What gets retracted:</em> The Section 7 procedural argument that the April 16 motion to replace the commission with the Lunty committee sits in the same constitutional class as Quebec's 2024 redistricting freeze.</p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The Section 7 procedural argument that the April 16 motion to replace the commission with the Lunty committee sits in the same constitutional class as Quebec's 2024 redistricting freeze.</p>
         <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Background: on April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada upheld, 7–2 and from the bench, a Quebec Court of Appeal ruling that the Legault government's legislative freeze on its redistricting commission violated the Charter's s.3 democratic-representation guarantee. Condition: a court reviewing the Alberta motion finds it constitutionally distinct — for example, because reassigning the work to an MLA committee differs structurally from a legislative freeze, or because Alberta's effective-representation analysis under s.3 comes out differently than Quebec's.</p>
       </div>
     </div>
@@ -882,7 +882,7 @@
 
     <p>The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.</p>
 
-    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: #333;">Academic literature</h3>
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">Academic literature</h3>
     <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
       <li style="margin-bottom: 0.5rem;"><strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.</li>
       <li style="margin-bottom: 0.5rem;"><strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269.</li>
@@ -894,7 +894,7 @@
       <li style="margin-bottom: 0.5rem;"><strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2014.</strong> "Partisan Gerrymandering and the Efficiency Gap." <em>University of Chicago Law Review</em> 82(2): 831–900. (Source of the efficiency gap measure used throughout.)</li>
     </ul>
 
-    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: #333;">Court cases</h3>
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">Court cases</h3>
     <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
       <li style="margin-bottom: 0.5rem;"><em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (The leading Supreme Court of Canada authority on the constitutional standard for electoral boundary drawing.)</li>
       <li style="margin-bottom: 0.5rem;"><em>Figueroa v. Canada (Attorney General)</em>, [2003] 1 SCR 912.</li>
@@ -902,7 +902,7 @@
       <li style="margin-bottom: 0.5rem;"><em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (U.S. Supreme Court; establishes the non-justiciability of partisan gerrymandering claims in federal courts — context for why Canada's s.3 effective-representation standard differs.)</li>
     </ul>
 
-    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: #333;">Statutes</h3>
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">Statutes</h3>
     <ul style="margin: 0 0 0.5rem 1.4rem; line-height: 1.7;">
       <li style="margin-bottom: 0.5rem;"><em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3.</li>
     </ul>
@@ -937,16 +937,16 @@
 
   <section>
     <h2>About me</h2>
-    <p style="font-size:0.9rem; color:#444;">
+    <p style="font-size:0.9rem; color:var(--text-muted);">
       I'm a student at Mount Royal University. I did this research on my own &mdash; it was not assigned as coursework and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta, the commission, or any political party.
     </p>
-    <p style="font-size:0.9rem; color:#444;">
+    <p style="font-size:0.9rem; color:var(--text-muted);">
       I have supported parties on all sides of the political spectrum depending on the election. I'm telling you that because my political history could affect how I look at this issue. The main protection against that is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I genuinely want to know.
     </p>
-    <p style="font-size:0.9rem; color:#444;">
+    <p style="font-size:0.9rem; color:var(--text-muted);">
       Pre-registration records (written before results were examined): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.
     </p>
-    <p style="font-size:0.9rem; color:#444;">
+    <p style="font-size:0.9rem; color:var(--text-muted);">
       Questions or corrections: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>
     </p>
   </section>
@@ -1527,6 +1527,24 @@
       background: var(--callout-warn);
       border-left-color: #b7950b;
     }
+
+    .callout-minority { background: #F0EBF8; }
+    .callout-tldr     { background: #D0EEEA; }
+    .callout-info     { background: #EAF3FF; }
+    .callout-neutral  { background: #F5F5F5; }
+
+    :root[data-theme="dark"] .callout-minority { background: #1e1230; }
+    :root[data-theme="dark"] .callout-tldr     { background: #0c2520; }
+    :root[data-theme="dark"] .callout-info     { background: #111e2e; }
+    :root[data-theme="dark"] .callout-neutral  { background: #26272f; }
+
+    .chart-img {
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      background: var(--table-bg);
+      padding: 0.5rem;
+    }
+    :root[data-theme="dark"] .chart-img { filter: brightness(0.88) contrast(0.95); }
 
     /* Links section */
     .links-list {
