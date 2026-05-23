@@ -1,12 +1,17 @@
 ---
 name: v0_9_natural_anchoring_secondary_check
-description: Does the minority map's 14.5% municipal-anchoring deficit survive a natural-anchoring substrate (highways + rivers)? Verdict — INVERTS. On natural features the three maps are statistically indistinguishable (40.2 / 38.4 / 40.1), so the hostile-witness attack on the CSD-only metric lands and Lane 2's anchoring axis needs to be reframed.
+description: Pre-canonical secondary check — does the DPG-era minority map's 14.5% municipal-anchoring deficit survive a natural-anchoring substrate (highways + rivers)? Verdict on the DPG substrate — INVERTS (40.2 / 38.4 / 40.1). SUPERSEDED on canonical geometry: the headline 14.5% itself did not survive canonical recomputation (canonical anchoring is majority 80.0% / minority 72.0%, both within the Canadian norm), so the question this check was designed to answer no longer applies. See banner.
 type: project
 ---
 
+> **Status — SUPERSEDED on canonical geometry. Read this first.**
+> This memo was written to test whether the DPG-era headline finding (majority 71.0% / minority 14.5% / 2019-enacted 75.2% municipal anchoring, a 4.9× asymmetry) was substrate-robust or whether it inverted under a natural-feature substrate. The DPG-era natural-feature finding (majority 38.4% / minority 40.1% — statistical tie) is correctly reported in this file, but **the headline 14.5% that this check was designed to challenge was itself retracted on canonical recomputation**. On official Elections Alberta shapefiles (received 2026-05-06, canonical run 2026-05-12), municipal anchoring is **majority 80.0% / minority 72.0%** — both within the 70–85% Canadian comparator norm. The 4.9× DPG-era asymmetry does not survive canonical geometry, so the "hostile-witness attack" this memo was hardening Lane 2 against is now obsolete in the form it considered.
+>
+> The natural-anchoring methodology (highways + rivers from OSM, CSD-substitute substrate test) is reproducible and remains a valid methodological pattern. The substantive Lane-2 case has shifted: with municipal anchoring no longer the headline, the substrate-stable legs are urban hybridization, Airdrie city-splitting, and the chair-flagged cartographic anomalies in the majority report's response text.
+
 # v0_9 Natural-anchoring secondary check (Lane-2 anchoring substrate audit)
 
-**Status: the minority map's anchoring asymmetry INVERTS under a natural-feature substrate. The hostile-witness attack on the headline 14.5% lands. Lane 2's anchoring axis cannot be carried as "the minority abandoned anchoring" — it must be reframed as "the minority abandoned *municipal* anchoring specifically."**
+**Pre-canonical status (kept as historical record): the DPG-era minority map's anchoring asymmetry INVERTS under a natural-feature substrate. On canonical geometry the headline 14.5% itself does not hold (canonical municipal anchoring: majority 80.0% / minority 72.0%, both within the Canadian norm); this inversion check therefore answers a question that the canonical recomputation has already moot.**
 
 ## Why this check exists
 

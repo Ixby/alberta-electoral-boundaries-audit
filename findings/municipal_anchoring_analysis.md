@@ -1,8 +1,13 @@
 ---
 name: Municipal-boundary anchoring analysis (Precision Option C)
-description: Snaps DPG perimeters to StatsCan 2021 CSD (AMA-equivalent) boundaries wherever the DPG and CSD edges coincide within a 500m snap tolerance. Produces v0_4 canonical shapefiles. Striking majority-vs-minority asymmetry surfaces.
+description: Snaps DPG perimeters to StatsCan 2021 CSD (AMA-equivalent) boundaries wherever the DPG and CSD edges coincide within a 500m snap tolerance. Produces v0_4 canonical shapefiles. Striking majority-vs-minority asymmetry surfaces. SUPERSEDED on canonical geometry — see banner.
 type: reports
 ---
+
+> **Status — SUPERSEDED on canonical geometry. Read this first.**
+> This analysis was run against **pre-canonical Derived Provisional Geometry (DPG)** perimeters and produced the headline majority/minority anchoring split (71.0% / 14.5%, a 4.9× asymmetry) that the audit publicly carried until 2026-05-06. On official Elections Alberta shapefiles (received 2026-05-06, canonical run 2026-05-12), the same anchoring methodology applied to the canonical perimeters produces **majority 80.0% / minority 72.0%** — both within the 70–85% Canadian comparator norm. The 4.9× asymmetry **did not survive canonical recomputation and is retracted** (see README §"What the audit finds" and methods-paper §7.1, Stage 9).
+>
+> The numbers in this file are kept as a complete record of the DPG-era analysis. They are **not** live claims. The current Lane-2 case rests on the legs that *did* survive the canonical recomputation: urban hybridization, Airdrie city-splitting, and the chair-flagged cartographic anomalies in the majority report's response text.
 
 # Municipal-boundary anchoring analysis (Precision Option C, Issue #4)
 

@@ -1,8 +1,13 @@
 ---
 name: DA-boundary anchoring analysis (Precision Option C-extended)
-description: Snaps remaining free DPG perimeter segments to Statistics Canada 2021 Dissemination Area (DA) edges wherever the DPG and DA edges coincide within a 150m snap tolerance. Produces v0_5 canonical shapefiles. Extends Issue #4 municipal anchoring by handling urban-interior boundaries.
+description: Snaps remaining free DPG perimeter segments to Statistics Canada 2021 Dissemination Area (DA) edges wherever the DPG and DA edges coincide within a 150m snap tolerance. Produces v0_5 canonical shapefiles. Extends Issue #4 municipal anchoring by handling urban-interior boundaries. SUPERSEDED on canonical geometry — see banner.
 type: reports
 ---
+
+> **Status — SUPERSEDED on canonical geometry. Read this first.**
+> This analysis extends `municipal_anchoring_analysis.md` with a DA-edge anchoring pass and was run against **pre-canonical DPG** perimeters. The v0_5 totals reported here (majority 79.6% / minority 16.5%, ratio 5.1×) and the carried-forward v0_4 input numbers (majority 71.0% / minority 14.5%) **did not survive canonical recomputation**. On official Elections Alberta shapefiles (received 2026-05-06, canonical run 2026-05-12) the canonical municipal-anchoring totals are **majority 80.0% / minority 72.0%** — both within the 70–85% Canadian comparator norm; the 4.9× / 5.1× asymmetry **is retracted** (see README §"What the audit finds" and methods-paper §7.1, Stage 9).
+>
+> The numbers in this file are kept as a complete record of the DPG-era DA-anchoring methodology — the snap-tolerance approach, the v0_4 → v0_5 contribution-decomposition logic, and the per-ED breakdowns are all reproducible — but the headline majority/minority anchoring asymmetry no longer carries on canonical geometry. The current Lane-2 case rests on urban hybridization, Airdrie city-splitting, and the chair-flagged cartographic anomalies.
 
 # DA-boundary anchoring analysis (Precision Option C-extended)
 
