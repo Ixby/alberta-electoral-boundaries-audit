@@ -16,7 +16,7 @@ export function init(basePath: string): void {
           d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
           _allHoverData[key] = byId;
           _nameIndex[key] = byName;
-          if (key === _mapPrimary) _edHover = byId;
+          if (key === _mapPrimary) { _edHover = byId; _reapplyLayers(); }
         }).catch(() => {});
       }
       _loadHoverJson('minority', 'data/ed_hover_minority.json');
@@ -559,7 +559,6 @@ export function init(basePath: string): void {
           glow.setAttribute('stroke-width', '6');
           glow.setAttribute('stroke-linejoin', 'round');
           glow.style.vectorEffect = 'non-scaling-stroke';
-          glow.style.filter = 'blur(2px)';
           const sharp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
           sharp.setAttribute('d', d);
           sharp.setAttribute('fill', 'none');
