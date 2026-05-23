@@ -48,7 +48,7 @@ inputs/columns rather than retrofit the 2026 script.
   * data/2019_municipal_anchoring_summary.json (matches 2026 schema)
 
 Forward:
-  findings/municipal_anchoring_analysis.md  (verdict section)
+  archive/dpg_era/municipal_anchoring_analysis.md  (verdict section)
 Backward:
   analysis/scripts/municipal_anchoring.py
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
@@ -448,7 +448,7 @@ def main():
                 "RETRACTED on canonical shapefile recomputation (2026-05-06). The "
                 "4.9× DPG-era asymmetry did not survive canonical geometry."
             ),
-            "_2026_dpg_source_retracted": "findings/municipal_anchoring_analysis.md (carries SUPERSEDED banner)",
+            "_2026_dpg_source_retracted": "archive/dpg_era/municipal_anchoring_analysis.md (carries SUPERSEDED banner)",
         },
         "outputs": {
             "log_csv": str(OUT_CSV),
