@@ -95,12 +95,11 @@
       skelPhrase = _SKEL_PHRASES[_skelIdx];
     }, 2800);
 
-    // ── Dark mode — light by default; user toggle persisted in localStorage ─
+    // ── Dark mode — respects OS preference; user override persisted in localStorage ─
     const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
-      darkMode = true;
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    darkMode = storedTheme === 'dark' || (storedTheme === null && prefersDark);
+    // app.html inline script already set the attribute to avoid FOUC; sync state var only
 
     // ── Lightbox ───────────────────────────────────────────────────────────
     const lb = document.getElementById('fig-lightbox') as HTMLElement;
