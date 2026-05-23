@@ -56,6 +56,11 @@ export function init(basePath: string): void {
         const trigger  = document.getElementById('zoom-trigger');
         const closeBtn = document.getElementById('zoom-close');
         const zoomPct  = document.getElementById('zoom-pct');
+        const _zoomSlider = document.getElementById('zoom-slider');
+        function _updateZoomDisplay(pct) {
+          if (zoomPct) zoomPct.textContent = pct + '%';
+          if (_zoomSlider) _zoomSlider.value = String(Math.min(1600, Math.max(100, pct)));
+        }
 
         let mode = null, ready = false;  // 'viewbox' | 'fallback'
 
@@ -103,7 +108,7 @@ export function init(basePath: string): void {
           svgEl.style.willChange = '';
           svgEl.style.transformOrigin = '';
           svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
-          if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+          _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
         }
 
         function applyVB(vb) {
@@ -127,7 +132,7 @@ export function init(basePath: string): void {
               _rafId = null;
               if (svgEl) svgEl.style.transform =
                 `translate(${_pendingTx}px,${_pendingTy}px) scale(${_pendingSx})`;
-              if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+              _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
             });
           }
           if (_settleTimer !== null) clearTimeout(_settleTimer);
@@ -145,7 +150,7 @@ export function init(basePath: string): void {
             svgEl.style.transformOrigin = '';
             svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
           }
-          if (zoomPct) zoomPct.textContent = '100%';
+          _updateZoomDisplay(100);
         }
 
         function vbZoomAt(mx, my, factor) {
@@ -218,7 +223,7 @@ export function init(basePath: string): void {
               svgEl.style.willChange = '';
               svgEl.style.transformOrigin = '';
               svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
-              if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+              _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
             } else {
               resetVB();
             }
@@ -234,7 +239,7 @@ export function init(basePath: string): void {
           fbImg.width = w; fbImg.height = h;
           fbImg.style.left = Math.round(fbTx) + 'px';
           fbImg.style.top  = Math.round(fbTy) + 'px';
-          if (zoomPct) zoomPct.textContent = Math.round(fbScale * 100) + '%';
+          _updateZoomDisplay(Math.round(fbScale * 100));
         }
 
         function resetFallback() {
@@ -474,7 +479,7 @@ export function init(basePath: string): void {
         const _mapAccentColors = {
           minority: '#6B35A7',
           majority: '#1A7A6E',
-          '2019':   '#aaaaaa',
+          '2019':   '#F5A623',
         };
         const _mapOn      = { minority: true, majority: false, '2019': false };
         let   _mapPrimary = 'minority';
@@ -491,7 +496,7 @@ export function init(basePath: string): void {
           if (!g) { console.warn('[map] ed_boundary_layer not found in SVG'); return; }
           g.querySelectorAll('path').forEach(p => {
             p.style.stroke = color;
-            p.style.strokeWidth = '2';
+            p.style.strokeWidth = '0.5';
             p.style.strokeOpacity = '1';
           });
         }
@@ -553,7 +558,7 @@ export function init(basePath: string): void {
           var clone = document.importNode(g, true);
           clone.querySelectorAll('path').forEach(function(p) {
             p.style.stroke = _mapAccentColors[key] || '#555';
-            p.style.strokeWidth = '1';
+            p.style.strokeWidth = '0.3';
             p.style.strokeOpacity = '0.45';
           });
           clone.setAttribute('pointer-events', 'none');
@@ -816,7 +821,7 @@ export function init(basePath: string): void {
             svgEl.style.transform =
               `translate(${(settledVB.x - curVB.x)*rw/curVB.w + ox*(1-1/sx)}px,` +
               `${(settledVB.y - curVB.y)*rh/curVB.h + oy*(1-1/sx)}px) scale(${sx})`;
-            if (zoomPct) zoomPct.textContent = Math.round(natVB.w / curVB.w * 100) + '%';
+            _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
             if (t < 1) { requestAnimationFrame(step); }
             else { _settleTimer = setTimeout(_doSettle, SETTLE_MS); }
           }
@@ -830,10 +835,10 @@ export function init(basePath: string): void {
           return (xOv * yOv) / (bb.width * bb.height) >= 0.60;
         }
 
-        function _snapToED(pathEl) {
+        function _snapToED(pathEl, force) {
           if (!svgEl || mode !== 'viewbox') return;
           const bb = pathEl.getBBox();
-          if (_isEdVisible(bb)) return;
+          if (!force && _isEdVisible(bb)) return;
           const pad = Math.max(bb.width, bb.height) * 0.35;
           let tw = bb.width + pad * 2, th = bb.height + pad * 2;
           const r = _getStageRect();
@@ -966,6 +971,22 @@ export function init(basePath: string): void {
           if (mode === 'viewbox') _animateToVB({ ...natVB }, 280); else resetFallback();
         });
 
+        // ── Zoom slider ───────────────────────────────────────────────────────────
+        function _zoomToPct(pct) {
+          if (!ready || mode !== 'viewbox' || !natVB || !curVB) return;
+          var targetW = natVB.w * 100 / pct;
+          var targetH = natVB.h * 100 / pct;
+          var cx = curVB.x + curVB.w / 2;
+          var cy = curVB.y + curVB.h / 2;
+          curVB = { x: cx - targetW/2, y: cy - targetH/2, w: targetW, h: targetH };
+          _doSettle();
+        }
+        if (_zoomSlider) {
+          _zoomSlider.addEventListener('input', function() {
+            _zoomToPct(parseInt(_zoomSlider.value, 10));
+          });
+        }
+
         // ── ED search ─────────────────────────────────────────────────────────────
         (function() {
           var searchInput   = document.getElementById('tb-search');
@@ -988,19 +1009,36 @@ export function init(basePath: string): void {
 
           function _srSelect(li) {
             if (!li) return;
-            var name = li.textContent;
+            var name = li.dataset.edName || li.textContent.replace(/\s*(Min|Maj|2019)$/, '').trim();
+            var fromMap = li.dataset.edMap || _mapPrimary;
             searchInput.value = name;
             searchResults.style.display = 'none';
             _srActive = -1;
             if (!svgEl) return;
-            var idx = _nameIndex[_mapPrimary] || {};
-            var rec = idx[name];
-            if (!rec) return;
-            var path = svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec.id + '"]');
-            if (path) {
-              _showCallout(rec);
-              _setEdHighlight(path);
-              if (!_mapLocked) _snapToED(path);
+
+            function navigateToEd(mapKey, edName) {
+              var idx2 = _nameIndex[mapKey] || {};
+              var rec2 = idx2[edName];
+              if (!rec2) return;
+              var path = svgEl && svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec2.id + '"]');
+              if (path) { _showCallout(rec2); _setEdHighlight(path); if (!_mapLocked) _snapToED(path, true); }
+            }
+
+            if (fromMap !== _mapPrimary) {
+              _mapOn[fromMap] = true;
+              _mapPrimary = fromMap;
+              _updateMapButtons();
+              _doSwitchPrimary(fromMap);
+              var _pendingName = name, _waitAttempts = 0;
+              (function waitAndNav() {
+                if (!svgEl || !ready) {
+                  if (++_waitAttempts < 30) { setTimeout(waitAndNav, 150); return; }
+                  return;
+                }
+                navigateToEd(fromMap, _pendingName);
+              })();
+            } else {
+              navigateToEd(_mapPrimary, name);
             }
           }
 
@@ -1009,12 +1047,34 @@ export function init(basePath: string): void {
             searchResults.innerHTML = '';
             _srActive = -1;
             if (q.length < 2) { searchResults.style.display = 'none'; return; }
-            var idx = _nameIndex[_mapPrimary] || {};
-            var names = Object.keys(idx).filter(function(n) { return n.toLowerCase().indexOf(q) !== -1; }).slice(0, 10);
-            if (!names.length) { searchResults.style.display = 'none'; return; }
-            names.forEach(function(name) {
+            // Search all 3 maps, current primary first
+            var seen = new Set(), results = [];
+            var mapOrder = [_mapPrimary, 'minority', 'majority', '2019'].filter(
+              function(k, i, a) { return a.indexOf(k) === i; }
+            );
+            mapOrder.forEach(function(k) {
+              var idx2 = _nameIndex[k] || {};
+              Object.keys(idx2).forEach(function(n) {
+                if (n.toLowerCase().indexOf(q) !== -1 && !seen.has(n)) {
+                  seen.add(n); results.push({ name: n, map: k });
+                }
+              });
+            });
+            results = results.slice(0, 12);
+            if (!results.length) { searchResults.style.display = 'none'; return; }
+            results.forEach(function(r) {
               var li = document.createElement('li');
-              li.textContent = name;
+              li.dataset.edName = r.name;
+              li.dataset.edMap = r.map;
+              var nameSpan = document.createElement('span');
+              nameSpan.textContent = r.name;
+              li.appendChild(nameSpan);
+              if (r.map !== _mapPrimary) {
+                var tag = document.createElement('span');
+                tag.className = 'sr-map-tag';
+                tag.textContent = r.map === '2019' ? '2019' : r.map === 'minority' ? 'Min' : 'Maj';
+                li.appendChild(tag);
+              }
               li.addEventListener('mousedown', function(e) {
                 e.preventDefault(); // keep input focused, prevent blur
               });

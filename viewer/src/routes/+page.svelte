@@ -12,14 +12,12 @@
   onMount(() => {
     init(base);
 
-    // ── Dark mode ──────────────────────────────────────────────────────────
+    // ── Dark mode — light by default; user toggle persisted in localStorage ─
     const root = document.documentElement;
     const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    if (stored === 'dark') root.setAttribute('data-theme', 'dark');
     document.getElementById('theme-toggle')?.addEventListener('click', () => {
-      const isDark = root.getAttribute('data-theme') === 'dark'
-        || (!root.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
-      const next = isDark ? 'light' : 'dark';
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
     });
@@ -102,7 +100,10 @@
   <a href="#section-6">Gerrymanders</a>
   <a href="#section-7">November</a>
   <a href="#section-8">Invisible</a>
-  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode"><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg></button>
+  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode">
+    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
+    <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
+  </button>
   <a href="#retractions">Retractions</a>
   <a href="#references">References</a>
   <a href="#resources">Resources</a>
@@ -836,14 +837,6 @@
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label="Map zoom viewer" style="display:none;">
   <button id="zoom-close" title="Close (Esc)">&times;</button>
-  <div id="zoom-instructions">
-    <div class="zi-row zi-level"><span class="zi-key">Zoom</span> <span id="zoom-pct">100%</span></div>
-    <div class="zi-divider"></div>
-    <div class="zi-row"><span class="zi-key">Scroll</span> zoom in / out</div>
-    <div class="zi-row"><span class="zi-key">Drag</span> pan</div>
-    <div class="zi-row"><span class="zi-key">Dbl-click</span> reset</div>
-    <div class="zi-row"><span class="zi-key">Esc</span> close</div>
-  </div>
   <div id="top-bar">
     <div class="tb-group">
       <button class="tb-btn tb-map-primary" data-map="minority">Minority</button>
@@ -879,33 +872,35 @@
   </div>
   <div id="ed-tooltip"></div>
   <div id="ed-callout" aria-live="polite">
-    <button id="ec-close">&times;</button>
-    <div id="ec-header">
+    <div id="ec-ed-section">
+      <button id="ec-close" title="Close">&times;</button>
       <div id="ec-name"></div>
-      <div id="ec-context">2026 minority proposal &middot; 2023 election results</div>
-    </div>
-    <div id="ec-bar"><div id="ec-ucp-bar"></div><div id="ec-ndp-bar"></div></div>
-    <div id="ec-split">
-      <div class="ec-party ec-ucp">
-        <span class="ec-pct" id="ec-ucp-pct"></span>
-        <span class="ec-party-name">UCP</span>
-        <span class="ec-votes" id="ec-ucp-votes"></span>
+      <div id="ec-bar"><div id="ec-ucp-bar"></div><div id="ec-ndp-bar"></div></div>
+      <div id="ec-split">
+        <div class="ec-party ec-ucp">
+          <span class="ec-pct" id="ec-ucp-pct"></span>
+          <span class="ec-party-name">UCP</span>
+          <span class="ec-votes" id="ec-ucp-votes"></span>
+        </div>
+        <div class="ec-party ec-ndp">
+          <span class="ec-pct" id="ec-ndp-pct"></span>
+          <span class="ec-party-name">NDP</span>
+          <span class="ec-votes" id="ec-ndp-votes"></span>
+        </div>
       </div>
-      <div class="ec-party ec-ndp">
-        <span class="ec-pct" id="ec-ndp-pct"></span>
-        <span class="ec-party-name">NDP</span>
-        <span class="ec-votes" id="ec-ndp-votes"></span>
+      <div id="ec-meta">
+        <span id="ec-total-votes"></span>
+        <span id="ec-va-count"></span>
+        <span id="ec-pop"></span>
       </div>
+      <div id="ec-eg-row"><span class="ec-eg-label">EG</span> <span id="ec-eg"></span></div>
+      <div id="ec-context"></div>
+      <div id="ec-compare"></div>
     </div>
-    <div id="ec-meta">
-      <span id="ec-total-votes"></span>
-      <span class="ec-dot">&middot;</span>
-      <span id="ec-va-count"></span>
-      <span class="ec-dot">&middot;</span>
-      <span id="ec-pop"></span>
+    <div id="ec-zoom-section">
+      <span id="zoom-pct">100%</span>
+      <input type="range" id="zoom-slider" min="100" max="1600" step="10" value="100" aria-label="Map zoom">
     </div>
-    <div id="ec-eg-row"><span class="ec-eg-label">EG contribution</span> <span id="ec-eg"></span></div>
-    <div id="ec-compare"></div>
   </div>
 </div>
 
@@ -956,30 +951,9 @@
   --tag-bg:          #dce6f0;
   --tag-text:        #1a3550;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:            #0f1117;
-    --bg-alt:        #161b27;
-    --text:          #dde2ed;
-    --text-muted:    #8890a4;
-    --text-subtle:   #7a8296;
-    --lead:          #b8c2d8;
-    --heading:       #9eb8d0;
-    --heading-2:     #8aa6be;
-    --link:          #6ab0d8;
-    --border:        #252b3a;
-    --border-subtle: #1e2433;
-    --table-bg:      #161b27;
-    --row-hover:     #1c2234;
-    --callout-bg:    #0d1929;
-    --callout-warn:  #1c1800;
-    --tag-bg:        #1a2840;
-    --tag-text:      #9ab8d4;
-  }
-}
 :root[data-theme="dark"] {
-  --bg:            #0f1117;
-  --bg-alt:        #161b27;
+  --bg:            #1e1f26;
+  --bg-alt:        #26272f;
   --text:          #dde2ed;
   --text-muted:    #8890a4;
   --text-subtle:   #7a8296;
@@ -987,13 +961,13 @@
   --heading:       #9eb8d0;
   --heading-2:     #8aa6be;
   --link:          #6ab0d8;
-  --border:        #252b3a;
-  --border-subtle: #1e2433;
-  --table-bg:      #161b27;
-  --row-hover:     #1c2234;
-  --callout-bg:    #0d1929;
-  --callout-warn:  #1c1800;
-  --tag-bg:        #1a2840;
+  --border:        #38394a;
+  --border-subtle: #2e2f3e;
+  --table-bg:      #26272f;
+  --row-hover:     #2e303a;
+  --callout-bg:    #1c253a;
+  --callout-warn:  #2a2300;
+  --tag-bg:        #252f45;
   --tag-text:      #9ab8d4;
 }
 
@@ -1146,6 +1120,11 @@
       transition: color 0.15s;
     }
     .nav-theme-btn:hover { color: #fff; }
+    /* Moon visible in light mode; sun visible in dark mode */
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    :root[data-theme="dark"] .icon-sun { display: block; }
+    :root[data-theme="dark"] .icon-moon { display: none; }
 
     .section-link {
       color: transparent;
@@ -1379,26 +1358,7 @@
     transition: opacity 0.15s;
   }
   #zoom-close:hover { opacity: 1; }
-  #zoom-instructions {
-    position: fixed; bottom: 1.2rem; right: 1.2rem; z-index: 9001;
-    background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 6px; padding: 0.55rem 0.8rem;
-    color: rgba(255,255,255,0.75); font-size: 0.75rem;
-    line-height: 1.7; pointer-events: none;
-    backdrop-filter: blur(4px);
-  }
-  .zi-row { display: flex; align-items: baseline; gap: 0.5rem; }
-  .zi-key {
-    display: inline-block; min-width: 5.2em;
-    font-weight: 700; color: #fff;
-    font-size: 0.72rem; letter-spacing: 0.03em;
-  }
-  .zi-level { margin-bottom: 0.25rem; }
-  #zoom-pct { font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; }
-  .zi-divider {
-    border-top: 1px solid rgba(255,255,255,0.15);
-    margin: 0.35rem 0;
-  }
+  #zoom-pct { font-weight: 700; color: rgba(255,255,255,0.75); font-variant-numeric: tabular-nums; font-size: 0.72rem; min-width: 3em; text-align: right; }
   #ed-tooltip {
     display: none; position: fixed; z-index: 9002;
     background: rgba(10,10,10,0.88);
@@ -1436,95 +1396,76 @@
   .tb-btn:hover { border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); }
   .tb-btn[data-map="minority"].tb-map-primary  { background: rgba(107,53,167,0.4); border-color: #6B35A7; color: #d4b0ff; }
   .tb-btn[data-map="majority"].tb-map-primary  { background: rgba(26,122,110,0.4); border-color: #1A7A6E; color: #8eecd8; }
-  .tb-btn[data-map="2019"].tb-map-primary      { background: rgba(80,80,80,0.35);  border-color: #888;   color: #fff; }
+  .tb-btn[data-map="2019"].tb-map-primary      { background: rgba(245,166,35,0.25); border-color: #F5A623; color: #ffe8a0; }
   .tb-btn[data-map="minority"].tb-map-overlay  { border-color: rgba(107,53,167,0.7); color: rgba(180,130,255,0.8); }
   .tb-btn[data-map="majority"].tb-map-overlay  { border-color: rgba(26,122,110,0.7); color: rgba(100,210,185,0.8); }
-  .tb-btn[data-map="2019"].tb-map-overlay      { border-color: rgba(160,160,160,0.6); color: rgba(210,210,210,0.8); }
+  .tb-btn[data-map="2019"].tb-map-overlay      { border-color: rgba(245,166,35,0.6); color: rgba(245,200,100,0.8); }
   .tb-btn.tb-layer-on { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9); }
   .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(255,200,0,0.12); border-color: rgba(255,200,0,0.45); color: rgba(255,210,60,0.95); }
-  @media (max-width: 700px) { #zoom-instructions { display: none; } }
-  /* District callout — anchored right panel (slides in on click) */
+  @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
+  /* District info bar — horizontal bar at bottom of map overlay */
   #ed-callout {
     position: absolute;
-    top: 0; right: 0; bottom: 0;
+    left: 10px; right: 52px; bottom: 10px;
     z-index: 9003;
-    width: clamp(260px, 33vw, 360px);
-    background: rgba(12,14,20,0.97);
-    border-left: 1px solid rgba(255,255,255,0.1);
-    box-shadow: -4px 0 24px rgba(0,0,0,0.6);
-    padding: 0.9rem 1.2rem 1.1rem;
+    background: rgba(10,12,18,0.92);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 5px 10px;
     backdrop-filter: blur(10px);
     color: #fff;
-    pointer-events: none;
-    overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.22s ease;
-  }
-  #ed-callout.ec-visible {
-    transform: translateX(0);
     pointer-events: auto;
+    display: flex; align-items: center; gap: 10px;
+    min-height: 38px;
   }
-  @media (max-width: 700px) {
-    #ed-callout {
-      top: auto;
-      left: 0;
-      right: 0;
-      width: auto;
-      height: min(280px, 33vh);
-      border-left: none;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 -4px 24px rgba(0,0,0,0.6);
-      transform: translateY(100%);
-    }
-    #ed-callout.ec-visible {
-      transform: translateY(0);
-    }
+  /* ED info section — only visible when an ED is selected */
+  #ec-ed-section {
+    display: none; align-items: center; gap: 8px;
+    flex: 1; min-width: 0; overflow: hidden;
   }
+  #ed-callout.ec-visible #ec-ed-section { display: flex; }
   #ec-close {
-    position: absolute; top: 0.55rem; right: 0.9rem;
+    flex-shrink: 0;
     background: none; border: none;
-    color: rgba(255,255,255,0.45); font-size: 1.5rem; line-height: 1;
-    cursor: pointer; padding: 0.2rem 0.4rem;
+    color: rgba(255,255,255,0.4); font-size: 1.2rem; line-height: 1;
+    cursor: pointer; padding: 0.1rem 0.3rem;
   }
   #ec-close:hover { color: #fff; }
-  #ec-header { margin-bottom: 0.85rem; }
-  #ec-name { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; }
-  #ec-context { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.15rem; }
+  #ec-name { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; max-width: 180px; }
   #ec-bar {
-    display: flex; height: 10px; border-radius: 5px;
-    overflow: hidden; margin-bottom: 0.55rem;
+    display: flex; height: 6px; border-radius: 3px;
+    overflow: hidden; flex-shrink: 0; width: 72px;
   }
   #ec-ucp-bar { background: #142e94; }
   #ec-ndp-bar { background: #e86310; }
-  #ec-split {
-    display: flex; justify-content: space-between;
-    margin-bottom: 0.8rem;
-  }
-  .ec-party { display: flex; flex-direction: column; gap: 0.1rem; }
-  .ec-party.ec-ndp { text-align: right; }
-  .ec-pct { font-size: 1.15rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  #ec-split { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+  .ec-party { display: flex; align-items: center; gap: 3px; }
+  .ec-pct { font-size: 0.8rem; font-weight: 700; font-variant-numeric: tabular-nums; }
   .ec-ucp .ec-pct { color: #6b8fd4; }
   .ec-ndp .ec-pct { color: #e8934a; }
-  .ec-party-name { font-size: 0.7rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
-  .ec-votes { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-variant-numeric: tabular-nums; }
-  #ec-meta {
-    font-size: 0.75rem; color: rgba(255,255,255,0.38);
-    display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;
-  }
-  .ec-dot { opacity: 0.4; }
+  .ec-party-name { font-size: 0.63rem; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; text-transform: uppercase; }
+  .ec-votes { display: none; }
+  #ec-meta { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+  #ec-pop { font-size: 0.72rem; color: rgba(255,255,255,0.4); white-space: nowrap; }
+  #ec-total-votes { display: none; }
+  #ec-va-count { display: none; }
   #ec-eg-row {
-    font-size: 0.73rem; margin-top: 0.35rem;
-    display: flex; align-items: center; gap: 0.35rem;
+    display: flex; align-items: center; gap: 4px; flex-shrink: 0;
   }
-  .ec-eg-label { color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.65rem; }
-  #ec-eg { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .ec-eg-label { color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.6rem; }
+  #ec-eg { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.72rem; }
   #ec-eg.ec-eg-ucp { color: #82b4e0; }
   #ec-eg.ec-eg-ndp { color: #f4a26a; }
-  #ec-compare {
-    display: none; flex-wrap: wrap; align-items: center;
-    gap: 0.5rem; margin-top: 0.65rem;
-    padding-top: 0.55rem; border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.72rem;
+  #ec-context { display: none; }
+  #ec-compare { display: none !important; }
+  /* Zoom section — always visible at right end */
+  #ec-zoom-section {
+    display: flex; align-items: center; gap: 7px;
+    margin-left: auto; flex-shrink: 0;
+  }
+  #zoom-slider {
+    width: 100px; cursor: pointer;
+    accent-color: rgba(255,255,255,0.55);
   }
   .ec-cmp-header { color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.65rem; }
   .ec-cmp-item { display: flex; align-items: center; gap: 0.25rem; }
@@ -1558,9 +1499,9 @@
     align-items: center;
     padding: 0.05em 0.42em 0.08em;
     background: transparent;
-    border: 1px solid rgba(26,46,69,0.22);
+    border: 1px solid var(--border);
     border-radius: 3px;
-    color: #1a5276;
+    color: var(--link);
     font-size: 0.77em;
     font-family: inherit;
     cursor: pointer;
@@ -1571,8 +1512,8 @@
     margin-left: 0.2em;
   }
   .ed-trigger:hover {
-    background: rgba(26,46,69,0.07);
-    border-color: rgba(26,46,69,0.4);
+    background: var(--callout-bg);
+    border-color: var(--link);
   }
 
   /* Flagged-districts button — red when active */
@@ -1674,7 +1615,14 @@
     text-overflow: ellipsis;
   }
   #tb-search-results li:hover,
-  #tb-search-results li.sr-active { background: rgba(255,255,255,0.12); }
+  #tb-search-results li.sr-active { background: rgba(255,255,255,0.18); color: #fff; }
+  .sr-map-tag {
+    display: inline-block; margin-left: 0.4em;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px; padding: 0.05rem 0.28rem;
+    color: rgba(255,255,255,0.55); vertical-align: middle;
+  }
 
   /* Map onboarding modal */
   #map-intro-modal {
