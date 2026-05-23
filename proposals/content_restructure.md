@@ -15,6 +15,17 @@ A curious Albertan who:
 
 The site must onboard this reader, then layer depth on top. Engaged advocates, MLAs, EAs, and academics are served by the deeper routes — they are not the reason `/` exists.
 
+## Editorial principle: empower, don't advocate
+
+The author has opinions about which map is better and what reforms Alberta should adopt. The site does not. Every action-layer section is written to enable the reader to form and act on their own conclusions, not to import the author's. Concretely:
+
+- **No "support the majority map" framing.** The audit shows what each map does structurally; the reader decides what to do with that.
+- **No "Recommendations for X" sections.** They become "Reform pathways" that present options other jurisdictions use, with their tradeoffs, leaving the choice to the reader.
+- **"Contact your MLA" prompts ask questions, not request positions.** The reader writes their own ask.
+- **Comparative framing over prescriptive.** "Quebec does X, BC does Y, the federal commissions do Z, Alberta does W" — readers see the contrast and judge for themselves.
+
+This principle distinguishes the audit from advocacy material and is the source of its credibility. When in doubt: describe, don't direct.
+
 ## Diagnosis
 
 Feedback says the read is dense. The audit currently:
@@ -40,8 +51,8 @@ Each route serves a deeper audience and ends with a "what you can do" section ca
 
 | Route | Audience | Voice | Ends with |
 |---|---|---|---|
-| `/` | Curious citizen, low prior knowledge | Conversational, second-person, concrete examples (Airdrie, your MLA) | "What you can do" — call your MLA, attend a hearing, submit a brief |
-| `/law` | Advocates, journalists, MLAs, policy staff | Plain professional, citation-aware, structural | "Recommendations for Elections Alberta and the Government of Alberta" |
+| `/` | Curious citizen, low prior knowledge | Conversational, second-person, concrete examples (Airdrie, your MLA) | "How to engage" — postcode lookup, contact channels, question prompts, hearing dates |
+| `/law` | Advocates, journalists, MLAs, policy staff | Plain professional, citation-aware, structural | "Reform pathways" — levers other jurisdictions use, with tradeoffs, no endorsement |
 | `/methods` | Statisticians, GIS analysts, legal scholars, opposing experts | Technical, precise, reproducibility-focused | "Reproducing this audit" — code, notebooks, OSF pre-registration, data downloads |
 
 A reader can stop at any tier and still leave with a complete, defensible understanding at that level. A reader who wants more is signposted to the next tier at every relevant point.
@@ -110,13 +121,13 @@ A small, persistent "What we can and can't say" block:
 8. **What this audit can and can't tell you** (new, ~300 words)
    Restates the epistemic boundary card now that the reader has context. Concrete examples of valid inference vs. overreach.
 
-9. **What you can do** (new, ~500 words)
-   The action layer. Five concrete steps, each one sentence to a short paragraph:
-   - **Look up your riding** under both maps (link to the cover map with a per-postal-code lookup if practical, otherwise the full list).
-   - **Find and contact your MLA.** Sample message language that asks specific, answerable questions. ("Did you read the audit? Will you support the majority map?")
-   - **Attend or watch the next public hearing** — date, place, livestream link if available.
-   - **Submit a written brief** to the Lunty committee — what to include, where to send it, deadline.
-   - **Talk to your neighbors.** Share the link to `/`. One sentence per person reaches more decision-makers than one petition signature.
+9. **How to engage** (new, ~500 words)
+   The participation layer. Five concrete enablers, each one sentence to a short paragraph. Written to make action possible, not to direct what the action should be:
+   - **Look up your riding** under both maps (postal-code lookup widget; see Postal-code lookup section below).
+   - **Find and contact your MLA.** Provide the contact channel and a list of *questions* the reader can ask — not positions to demand. Examples: "Have you read the audit?" "Which structural tests do you find most or least compelling, and why?" "What process would you use to weigh public input against the commission's submission?" The reader assembles the message that reflects their own view.
+   - **Attend or watch the next public hearing.** Date, location, livestream link, deadline to register a speaking slot. Sourced from a single maintained JSON file with a "last verified" date visible to the reader.
+   - **Submit a written brief.** What the committee accepts, where to send it, the deadline. The site does not template the brief's content — that's the reader's voice.
+   - **Share with people you know.** A short link, a one-sentence neutral framing, and a note that personal conversations move opinion more than petition signatures. No script.
 
 10. **Going deeper** (new, ~250 words)
     Signposts to `/law` (for advocates, MLAs, policy staff) and `/methods` (for analysts and scholars). Brief description of what each route offers and why a reader might continue.
@@ -145,20 +156,24 @@ Pulls together everything currently scattered across Section 6 intro, Section 7,
 4. **The Quebec contrast** (~300 words) — existing lines 670–674. Quebec's permanent CRE, the two-thirds override, and the April 22 2026 SCC ruling. Why Alberta's process is structurally different.
 5. **The committee anomaly** (~300 words) — existing Section 7's "Why the Committee Is Anomalous." The Lunty committee replacing the commission; default legal effect; how this differs from other provinces.
 6. **What this audit can and cannot establish legally** (~200 words) — explicit statement of epistemic limits. The audit produces structural evidence relevant to a s.3 challenge; it does not adjudicate one.
-7. **Recommendations for Elections Alberta** (new, ~250 words) — process improvements the agency can adopt without legislative change. Suggestions are framed as "consider," not "must":
-   - Publish chair flags and minority-commissioner dissents in a structured, machine-readable format.
-   - Require commissions to publish their response to every public submission, including the rationale for accepting or rejecting it.
-   - Mandate an independent methodological audit of every proposed map before public hearings close.
-   - Require commissions to publish boundary alternatives they considered and rejected, with reasons.
-8. **Recommendations for the Government of Alberta** (new, ~250 words) — structural reform that requires legislative or constitutional change:
-   - Move toward the Quebec model: an independent CRE-equivalent with permanent jurisdiction and a supermajority override.
-   - Require the commission to use municipal boundaries as anchors with explicit thresholds and explicit derogation criteria.
-   - Time redistricting to follow the decennial census instead of preceding it.
-   - Constitutionally entrench the commission's default-adopt status (closing the procedural gap the Lunty committee exposes).
-9. **What advocates and citizens can do** (new, ~200 words) — practical pathways:
-   - The Charter challenge route: who has standing, what the record needs, what the typical timeline looks like.
-   - Engaging Elections Alberta through formal complaint channels.
-   - Working with sitting MLAs (opposition and government back-bench) on private members' motions.
+7. **Reform pathways: process** (new, ~350 words) — *Procedural levers that exist within the current statutory framework, and how comparable jurisdictions use them.* The section presents options without endorsing any. Each item names the lever, the jurisdictions that use it, and the tradeoffs an Alberta reader should weigh:
+   - **Published response to public submissions.** Some federal commissions publish a structured response to every submission with accept/reject rationale; Alberta's EBCA does not require this. Tradeoff: transparency vs. commissioner workload.
+   - **Independent methodological audit before hearings close.** Practice varies. Tradeoff: rigor vs. timeline pressure.
+   - **Disclosure of considered-and-rejected alternatives.** Tradeoff: shows the decision space vs. risks producing "kitchen sink" defenses.
+   - **Machine-readable publication of chair flags and dissents.** Tradeoff: enables third-party analysis (like this audit) vs. shifts political weight to whoever owns the analysis.
+   The reader judges which levers, if any, they would advocate for.
+8. **Reform pathways: structural** (new, ~350 words) — *Constitutional and statutory changes other jurisdictions have made. Presented as a comparison table, not a recommendation list.*
+   - **Independent permanent commission (Quebec CRE model).** Standing body with constitutional protection. Tradeoff: insulation from political cycle vs. accountability to elected legislatures.
+   - **Supermajority override (Quebec ⅔ rule).** Tradeoff: shields against narrow partisan flips vs. risks deadlock.
+   - **Constitutionally entrenched default-adopt status.** Tradeoff: closes the procedural gap the Lunty committee exposes vs. removes a check the legislature currently has.
+   - **Census-timed redistricting.** Use the next decennial census as the trigger, not the preceding one. Tradeoff: better data vs. longer staleness at end of cycle.
+   - **Anchoring thresholds with explicit derogation criteria.** Tradeoff: predictability vs. flexibility for genuinely unique geography.
+   The section concludes: "These are the levers that exist. Whether to pull any, and which combination, is a question for the public and the legislature — not for this audit."
+9. **Pathways for engagement** (new, ~250 words) — practical channels, neutrally described:
+   - The Charter challenge route: who has standing, what evidentiary record is needed, typical timeline. Descriptive, not encouraging.
+   - Formal complaint channels at Elections Alberta. What they can and can't address.
+   - Private members' motions and the existing legislative committee process. How a citizen contacts a member who sits on relevant committees.
+   - Public hearings and brief submission to the Lunty committee (cross-link to `/`'s "How to engage" section).
 10. **Legal references** — court cases and statutes from existing Section 10.
 
 Each legal term `<Gloss>`-wrapped: *s.3 Charter*, *effective representation*, *Saskatchewan Reference*, *parity of voting power*, *community of interest*, *EBCA*, *standing*, *Charter challenge*.
@@ -189,6 +204,51 @@ The deepest pool — for readers who want to verify or replicate the claim.
 12. **Academic references** — from existing Section 10.
 
 Each statistical term `<Gloss>`-wrapped: *efficiency gap*, *mean-median gap*, *declination*, *seats@50/50*, *MCMC*, *ReCom*, *ensemble*, *percentile*, *p-value*, *anchoring*, *SZAT*, *Lane 1*, *Lane 2*.
+
+## Postal-code → riding lookup
+
+The "Look up your riding" CTA on `/` is the single most important call-to-action for an undecided reader. It needs to be cheap, fast, free, and respectful of privacy. Canada Post charges for their address data product; we use free Canadian sources instead.
+
+**Two-tier lookup:**
+
+1. **FSA-only (default, instant, offline).** The first three characters of a postal code (the Forward Sortation Area) cover roughly 270 areas in Alberta. We ship a static JSON table `viewer/static/data/fsa_to_ed.json` mapping each Alberta FSA → list of EDs it overlaps (both maps). Typing `T2N` returns "Your FSA is in Calgary-Currie (minority map) / Calgary-Currie (majority map)" instantly with no network call. For most users this resolution is sufficient because most FSAs fall entirely within a single ED.
+2. **Full postcode (precise, opt-in, rate-limited).** When the FSA spans multiple EDs (the JSON marks these), the UI offers: "Your FSA overlaps 3 ridings. Enter your full postal code for exact lookup." On opt-in we call OpenStreetMap's Nominatim API (`https://nominatim.openstreetmap.org/search?postalcode=T2N+4M2&country=CA&format=json`), retrieve a lat/lon, then run point-in-polygon against the ED shapefiles we already have. Results cached in `sessionStorage` so the same postcode isn't re-queried in a session.
+
+**Generating the FSA table** (one-time build step):
+
+- Source 1: Statistics Canada's Postal Code Conversion File (PCCF) — free, downloadable, gives postal code → census division → we map census division to ED. Best precision.
+- Source 2 (fallback / verification): OSM has FSA boundary polygons under `boundary=postal_code, postal_code=T2N`. We can dissolve these against our ED polygons to produce the overlap table.
+- Output: a ~50KB JSON file shipped with the site, no API needed at runtime for the default path.
+
+**Nominatim usage policy compliance:**
+
+- Set `User-Agent: alberta-electoral-boundaries-audit (contact@…)`.
+- Cap to 1 request/second client-side via a small queue.
+- Cache every result in `sessionStorage` to avoid repeat hits.
+- Treat any failure (network, rate limit, ambiguous match) as graceful degradation — fall back to FSA-only message with a "Try again in a moment, or browse the map" CTA.
+- For high traffic spikes, consider proxying through the static-site host or upgrading to a self-hosted Nominatim instance. Out of scope for v1.
+
+**Privacy:**
+
+- Postcode is queried only on explicit opt-in click; no auto-submit.
+- No postcode is logged to any analytics; the network call goes only to OSM.
+- A one-line "Privacy" note next to the input explains this.
+- Nothing is stored in `localStorage`; `sessionStorage` clears on tab close.
+
+**Failure modes & UX:**
+
+- Invalid format (non-Canadian postcode): inline error, no network call.
+- FSA unknown (e.g. a new FSA not yet in the shipped JSON): "Not in our index — try the full postcode option" plus a link to file an issue.
+- Multiple-ED ambiguous FSA without opt-in: list all overlapping EDs with "Most likely yours: X" if the JSON marks a dominant ED.
+
+**Files added:**
+
+| File | Purpose |
+|---|---|
+| `viewer/static/data/fsa_to_ed.json` | FSA → ED list, both maps. ~50 KB. |
+| `viewer/src/lib/PostcodeLookup.svelte` | Input + result UI, called from `/` and (smaller variant) from `/methods` if useful. |
+| `viewer/src/lib/postcodeLookup.ts` | Pure logic: parse postcode, FSA table lookup, Nominatim fetch with rate limit + cache. |
+| `viewer/scripts/build_fsa_to_ed.py` (or `.js`) | One-time build script using PCCF + shapefiles. Re-run when boundaries change. |
 
 ## Shared layout
 
@@ -354,24 +414,21 @@ Each phase is a separable commit. The site is shippable at every step (Phase 0 o
 - Multilingual (French) version.
 - Reader-progress indicator across the three routes.
 - Interactive Lane 1 / Lane 2 calculator on `/methods`.
-- A per-postal-code "find your riding under both maps" widget on `/` (the "What you can do" section assumes this either exists or links out to a manual lookup; building it is its own project).
-- Sample-letter generator for MLA outreach.
+- Sample-letter generator for MLA outreach. (Deliberately excluded — runs counter to the empower-don't-advocate principle. Reader writes their own.)
+- Petition or signature-gathering integration. (Same reason.)
+- Multi-language translation.
 
-## Open questions (resolve before implementation)
+## Resolved follow-ups
 
-1. **History-of-gerrymandering depth.** The proposal allots ~400 words. Could expand to a sidebar or its own subroute (`/history`). Recommend keeping it on `/` and brief — readers don't need *Rucho* in detail, they need to know the word has a 200-year pedigree and is used internationally for a reason.
-2. **"What you can do" specificity.** The proposal lists five steps. Two depend on external information that ages (next hearing date, brief deadline). Need either:
-   - A maintained JSON file the page reads, with a "last verified" date, OR
-   - Generic guidance that points to Elections Alberta's own page rather than naming specific dates.
-3. **Personal-to-provincial ladder lookup.** "Look up your riding" is a powerful CTA but only works if there's a lookup tool. Options:
-   - Use the existing cover map's ED-selection (now multi-select per the prior proposal) plus a postal-code search box (which exists per `mapEngine.ts:970-1064`).
-   - Defer the postal-code-to-riding lookup to a follow-up; for now, link to Elections Alberta's existing tool.
-   - Recommend: leverage the existing search box, add a "find by postal code" prompt that geocodes to ED via a static lookup table.
-4. **Recommendations on `/law` — neutrality.** "Recommendations for Elections Alberta / Government of Alberta" risks crossing from audit into advocacy. The audit's credibility depends on staying analytical. Options:
-   - Frame strictly as "structural reforms that would prevent this audit's findings from being possible in future" (analytical framing).
-   - Frame as explicit author advocacy in a clearly-labeled section ("Author's recommendations") separating it from the audit findings.
-   - Recommend: the second framing. Mixing audit and advocacy without label damages both.
-5. **Multi-language reach.** Alberta has substantial French and Indigenous-language speaking populations. Out of scope here but flag for an editorial roadmap.
+- **Postal-code lookup:** in scope. FSA-only via static JSON by default; OSM Nominatim for full postcode on opt-in. See Postal-code lookup section above.
+- **Advocacy vs. empowerment:** resolved. Editorial principle established at the top of this proposal. `/law` "Recommendations" sections rewritten as neutral "Reform pathways" presenting options other jurisdictions use, with tradeoffs, no endorsement. `/` "What you can do" rewritten as "How to engage" — provides channels and question prompts, not positions to advocate.
+
+## Open questions (still to resolve before implementation)
+
+1. **History-of-gerrymandering depth.** The proposal allots ~400 words. Could expand to its own subroute (`/history`). Recommend keeping it on `/` and brief — readers don't need *Rucho* in detail, they need to know the word has a 200-year pedigree and is used internationally for a reason.
+2. **Hearing-date freshness.** The "Attend a public hearing" enabler depends on dates that age. Plan: a single `viewer/static/data/engagement.json` file with the hearing schedule, brief-submission deadline, and a `last_verified` timestamp visible to the reader ("Verified 2026-05-23 — check Elections Alberta for the latest"). Confirms the data has a maintenance cost; needs an owner.
+3. **PCCF licensing.** Statistics Canada's PCCF is free but has terms of use (attribution, no resale). Need a one-line license check before bundling it in the build script. OSM FSA polygons (ODbL) require attribution in the site footer; confirm the existing footer accommodates this.
+4. **Multi-language reach.** Alberta has substantial French and Indigenous-language speaking populations. Out of scope here but flag for an editorial roadmap.
 
 ## Files touched
 
@@ -383,6 +440,11 @@ Each phase is a separable commit. The site is shippable at every step (Phase 0 o
 | `viewer/src/routes/methods/+page.svelte` | **New.** Pulls existing methodology content from current Sections 3, 5, 6, 8 (methods parts), 9. |
 | `viewer/src/lib/Gloss.svelte` | **New.** Reusable click-to-define popover. |
 | `viewer/src/lib/glossary.ts` | **New.** Single source of truth for ~15 defined terms. |
+| `viewer/src/lib/PostcodeLookup.svelte` | **New.** Postal-code → riding UI; FSA-first, Nominatim opt-in. |
+| `viewer/src/lib/postcodeLookup.ts` | **New.** Pure logic (parse, FSA table, rate-limited fetch, cache). |
+| `viewer/static/data/fsa_to_ed.json` | **New.** FSA → ED list, both maps. ~50 KB. |
+| `viewer/static/data/engagement.json` | **New.** Hearing dates, brief deadline, `last_verified` timestamp. |
+| `viewer/scripts/build_fsa_to_ed.py` | **New.** One-time build from PCCF + shapefiles. |
 | `viewer/src/routes/+page.svelte` (script tag) | Add hash-redirect for legacy anchors. |
 
 ## Acceptance criteria
@@ -397,5 +459,7 @@ Each phase is a separable commit. The site is shippable at every step (Phase 0 o
 - All existing external links to anchored sections still land at the correct content (via preserved IDs or hash redirect).
 - Word-count distribution roughly matches: `/` ~4,500, `/law` ~2,500, `/methods` ~3,500 (up from one ~8,400-word scroll, but distributed across three audience-tiered routes so each is shorter than today's monolith).
 - A reader with no prior knowledge of redistricting can read only `/` and come away knowing what was decided, what's at stake for them, and one thing they can do.
-- A reader with a policy or legal background can read `/` + `/law` and come away with both the popular and the doctrinal framing, plus concrete reform recommendations.
+- A reader with a policy or legal background can read `/` + `/law` and come away with both the popular and the doctrinal framing, plus a neutral comparison of reform pathways used in other jurisdictions.
+- No section of the site tells a reader which map to support, what position to advocate, or what reform Alberta should adopt. Channels and choices are provided; conclusions are the reader's.
+- The postal-code lookup returns a riding name within 100ms for the FSA path and within 2s for the full-postcode path; gracefully degrades on Nominatim failure.
 - A reader with a statistical or GIS background can read `/methods` directly and either reproduce or critique the analysis using the materials linked there.
