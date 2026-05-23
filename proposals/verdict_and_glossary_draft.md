@@ -20,7 +20,7 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 >
 > ### What does it mean for Albertans?
 >
-> The Alberta legislature has 87 seats; 58 is the two-thirds supermajority threshold most often cited, and 60 is the round-number figure that has dominated public discussion. The audit's measurements suggest the minority proposal would make it substantially easier for one party to reach a 60-seat supermajority than the majority proposal would, at the same level of provincial support. Whether that tradeoff is acceptable is a question for Albertans, not for this audit.
+> At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme — fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because Alberta's 87-seat legislature works differently above a two-thirds supermajority: the opposition loses much of its procedural power to hold the government accountable. Whether the proposal's tilt is large enough to push one party past that threshold at vote shares *other* than 50/50 is a question this audit has not yet tested. Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit.
 >
 > **[Read the legal context →](/law)**  ·  **[See how we tested →](/methods)**
 
@@ -31,15 +31,27 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 - The verdict's Q1 uses a doubly-conditional construction ("if gerrymander were a Canadian legal term, in the everyday sense, the evidence would support…") to answer the question the reader is actually asking without literally calling the proposal a gerrymander. The audit cannot apply a term Canadian law doesn't have. But it can describe what the evidence would support if that term were available, and it can do so in the same plain-language frame the reader is using.
 - "If enacted" — second conditional. The minority proposal hasn't been adopted; it's a discarded commissioners' submission that the Lunty committee may forward to the legislature.
 - "It doesn't" — Q2's one-sentence opening. Direct, accurate, and immediately reframes to the *effective representation* test.
-- "60-seat supermajority… at the same level of provincial support" — frames the supermajority finding as a likelihood differential between the two proposals at any given vote share. This is what the seats@50/50 result actually measures (only ~100 of 1.01M neutral maps tip into supermajority territory at 50/50; the minority proposal does). The verdict does not claim a specific election result.
-- "58 is the two-thirds supermajority threshold most often cited, and 60 is the round-number figure that has dominated public discussion" — names both numbers so the reader doesn't have to choose between accuracy and the figure they've been hearing in coverage.
-- "Whether that tradeoff is acceptable is a question for Albertans, not for this audit." — explicit hand-off. The empower-don't-advocate principle in one sentence.
+- Q3 deliberately states what the audit *has* measured (the 50/50 result) and what it has *not* yet measured (behaviour at other vote shares). The earlier draft asserted a likelihood differential "at the same level of provincial support" — but the audit hasn't tested vote shares other than 50/50, so that phrasing overreached. The current draft is narrower and honest about the limit, which is the kind of constraint that earns the reader's trust in everything else.
+- "Two-thirds supermajority" (no specific seat count) keeps the verdict to the substantive procedural point. The exact threshold (58 strictly mathematically, vs. 59 if the rule is ">2/3" rather than "≥2/3", vs. 60 as a round-figure heuristic in public discourse) is something the deeper section on `/` can pin down. The verdict doesn't need to.
+- "Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit." — explicit hand-off. The empower-don't-advocate principle in one sentence.
 - Italics on *minority proposal* and *majority proposal* the first time each appears. These are common words being used in a specific procedural sense; the italics signal that.
 - The two CTA buttons should be visually distinct from each other and from the main text — e.g., one in the `/law` accent color, one in the `/methods` accent color.
 
-**Open verification (needs your call):**
+**Identified research gap (raised in review):**
 
-- The Q3 phrasing *"would make it substantially easier for one party to reach a 60-seat supermajority… at the same level of provincial support"* — is this directly supported by the seats@50/50 + tipping-point findings as the audit has them, or am I extrapolating beyond what's been measured? If the audit's actual statement is narrower (e.g., specifically at the 50/50 split and not "any level of provincial support"), tell me and I'll tighten the phrasing.
+The seats@50/50 result and the tipping-point statistic both measure behaviour at the 50/50 vote split. They do not establish how the minority proposal behaves at other plausible vote shares (e.g., 48/52, 47/53). The substantive question — *does the minority proposal make it materially easier for one party to reach a two-thirds supermajority at the vote shares Albertans actually deliver?* — is exactly what this audit needs to answer in order to fully support the kind of verdict the public is asking for.
+
+This is an analytical extension, not a content question. The existing ensemble of 1.01M maps presumably contains the simulated district-by-district vote data needed to compute seats-vs-vote-share curves under various uniform-swing assumptions. If the data supports it, the test is:
+
+1. For each of the 1.01M neutral comparison maps, plus the minority proposal and the majority proposal, apply a uniform swing across a range of vote splits (say, 45/55 → 55/45 in 1% steps).
+2. At each split, compute the seat count for each party.
+3. Plot the proposal's curves on top of the ensemble distribution. Identify the vote-share range over which the minority proposal sits in the supermajority region while the ensemble does not.
+
+If that test produces results that hold up, Q3 can be tightened to make a claim about the vote-share range — "from X% to Y%, the minority proposal puts one party past the two-thirds supermajority threshold; the majority proposal does not." That's the verdict the public discourse is asking for.
+
+If the test produces ambiguous results, Q3 stays in its current honest-about-limits form.
+
+**Status:** flagged as a follow-up. Out of scope for this content-restructure proposal. Tell me if you want me to scope it as its own proposal in `proposals/`.
 
 ---
 
