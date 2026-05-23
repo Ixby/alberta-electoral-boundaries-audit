@@ -88,11 +88,11 @@ from drand_seed import get_canonical_seed  # noqa: E402
 BOOTSTRAP_SEED: int = get_canonical_seed("lunty-bootstrap")
 
 VA_VOTES_PATH = (
-    data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-)
+    data_loader._resolve_path("data") / "shapefiles" / "canonical" / "va_2023_election_day_votes.gpkg"
+)  # canonical VA polygons + 2023 election-day votes (was derived/v0_8 DPG; switched to canonical 2026-05-23)
 ALBERTA_CSDS = (
-    data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_csds.gpkg"
-)  # may not exist
+    data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
+)  # canonical StatsCan 2021 CSDs — required for MO #1 and MO #3
 RECOM_SAMPLES = data_loader._resolve_path("data") / "simulated_ensemble_raw_samples_250k.csv"
 SMC_OUTPUT = data_loader._resolve_path("data") / "redist_crossvalidation_s50.csv"
 
@@ -390,6 +390,15 @@ def main() -> int:
         help="The map's seats@50/50 score, if precomputed. "
         "If omitted and --skip-mcmc set, MO #4 is skipped.",
     )
+    parser.add_argument(
+        "--out-dir",
+        type=str,
+        default=None,
+        help="Directory to write the scorecard report into. Defaults to "
+        "findings/ (live audit). For dry-runs against synthetic inputs, "
+        "pass a path under proposals/lunty_dry_run/ so test outputs are "
+        "not mistaken for live audit findings.",
+    )
     args = parser.parse_args()
 
     if not args.shapefile.exists():
@@ -426,15 +435,24 @@ def main() -> int:
 
     # Write report
     today = date.today().isoformat()
-    out_path = (
-        _get_findings_dir() / f"november_red_alert_{args.map_name}_{today}.md"
-    )
+    out_dir = Path(args.out_dir).resolve() if args.out_dir else _get_findings_dir()
+    out_path = out_dir / f"november_red_alert_{args.map_name}_{today}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fired_count = sum(1 for r in results if r.fired)
+
+    # Render shapefile path relative to repo root when possible; fall back to the
+    # absolute path so the report is still well-formed when the input lives
+    # outside ROOT (e.g. a synthetic test input passed via absolute path).
+    shapefile_abs = args.shapefile.resolve()
+    try:
+        shapefile_display = str(shapefile_abs.relative_to(ROOT))
+    except ValueError:
+        shapefile_display = str(shapefile_abs)
+
     with out_path.open("w", encoding="utf-8") as f:
         f.write(f"# November Red Alert Scorecard — {args.map_name}\n\n")
         f.write(f"Date: {today}  \n")
-        f.write(f"Shapefile: `{args.shapefile.relative_to(ROOT)}`  \n")
+        f.write(f"Shapefile: `{shapefile_display}`  \n")
         f.write(f"Tripwires fired: **{fired_count} of {len(results)}**\n\n")
         for r in results:
             badge = "🔴 **FIRED**" if r.fired else "⚪ clean"
