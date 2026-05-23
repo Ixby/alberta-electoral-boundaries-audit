@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
+		"prebuild": "node scripts/clean-app-chunks.mjs",
 		"build": "vite build",
 		"postbuild": "node scripts/merge-to-docs.mjs",
 		"preview": "vite preview",
