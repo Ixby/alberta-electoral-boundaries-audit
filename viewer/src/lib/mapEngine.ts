@@ -702,23 +702,27 @@ export function init(basePath: string): void {
 
         function toggleMap(key) {
           if (!_mapSvgUrls[key]) return;
-          if (_mapOn[key]) {
-            if (key === _mapPrimary) {
-              var next = ['minority', 'majority', '2019'].find(function(k) { return k !== key && _mapOn[k]; });
-              if (!next) return;
-              _mapOn[key] = false;
-              if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
-              _mapPrimary = next;
-              _doSwitchPrimary(next);
-            } else {
-              _mapOn[key] = false;
-              if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
-            }
-          } else {
+          if (!_mapOn[key]) {
+            // Off → Overlay: add without changing primary
             _mapOn[key] = true;
+            _syncOverlays();
+            _updateMapButtons();
+            return;
+          }
+          if (key !== _mapPrimary) {
+            // Overlay → Primary: promote; old primary becomes overlay
             _mapPrimary = key;
             _doSwitchPrimary(key);
+            _updateMapButtons();
+            return;
           }
+          // Primary → Off: need another map on to take over
+          var next = ['minority', 'majority', '2019'].find(function(k) { return k !== key && _mapOn[k]; });
+          if (!next) return;
+          _mapOn[key] = false;
+          if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
+          _mapPrimary = next;
+          _doSwitchPrimary(next);
           _updateMapButtons();
         }
 

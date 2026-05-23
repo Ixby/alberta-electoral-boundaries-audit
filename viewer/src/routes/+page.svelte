@@ -917,6 +917,9 @@
       title="Alberta electoral district map — full resolution"></object>
   </div>
   <div id="ed-tooltip"></div>
+  <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Text content: CC BY-NC-SA 4.0">
+    <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt="Creative Commons BY-NC-SA 4.0" width="80" height="15">
+  </a>
 </div>
 
 <footer>
@@ -1338,6 +1341,13 @@
     background: rgba(0,0,0,0.92);
     width: 100dvw; height: 100dvh;
   }
+  #map-cc-badge {
+    position: absolute; bottom: 0.6rem; left: 0.8rem;
+    z-index: 9003; opacity: 0.55; transition: opacity 0.15s;
+    display: block; line-height: 0;
+  }
+  #map-cc-badge:hover { opacity: 1; }
+  #map-cc-badge img { display: block; }
   #zoom-stage {
     position: absolute; inset: 0;
     overflow: hidden;
