@@ -3,7 +3,7 @@
 > - `reports/public/report_public.md` — plain-language report cross-referenced in the deeper-reading list
 > - `docs/FINDINGS_BRIEF.md` — one-page brief linked as the fastest entry point
 > - `findings/population_equality.md` — source of population MAD A1 numbers
-> - `findings/packing_cracking_findings.md` — source of partisan-metric headline values
+> - `findings/partisan_bias_summary.md` — source of partisan-metric headline values (+3.92 pp EG, +4.66 pp mean-median, +5.62 pp seats@50/50)
 > - `findings/intermap_permutation_test_results.md` — source of the Ch1-COMP inter-map test results
 > - `findings/joint_outlier_score_summary.md` — Mahalanobis joint outlier (Ch1) numbers
 > - `findings/airdrie_overlap_report.md` — Airdrie four-way split documentation
@@ -70,13 +70,22 @@ The result shows Alberta weighted by where people live rather than by land area.
 
 ## Repository Architecture
 
-This repository is structured to enforce a strict separation of concerns for independent auditors:
-* **`analysis/`** (The Engine): Contains all execution code (`scripts/`), text reports (`reports/`), and diagnostic logs (`logs/`).
-* **`data/`** (The Store): Contains unaltered source material (`raw/`), immutable standards (`reference/`), geospatial boundaries (`shapefiles/`), and all computed metrics and MCMC simulation distributions (`outputs/`). Code never lives here.
-* **`tests/`** (The Harness): The Pytest suite enforcing byte-for-byte integrity and mathematical proofs.
-* **`maps/`** (The Visuals): Cover art and generated visual plots.
-* **`pipeline_snapshots/`** (The Backup): Automated snapshots taken by the reproducibility scripts to calculate deltas between pipeline runs without destroying data.
-* **`historical/`** (The Vault): Old scripts, abandoned methodologies, and historical shapefiles kept strictly for scientific provenance and transparency.
+This repository is structured to enforce a strict separation of concerns for independent auditors. **Live tier** (the audit's current claims):
+
+* **`findings/`** — Per-test analyses; one file per substantive finding. Each declares its `Backward:` / `Forward:` dependencies in its own header.
+* **`reports/`** — `reports/academic/report_academic.md` is the full technical monograph; `reports/public/report_public.md` is the plain-language report.
+* **`analysis/`** — Execution code (`scripts/`), live methodology rationale (`methodology/`), and review records (`review/`). Diagnostic logs live in `data/logs/`.
+* **`data/`** — Unaltered source material, immutable standards (`reference/`), geospatial boundaries (`shapefiles/`), and all computed metrics and MCMC simulation distributions (`outputs/`). Code never lives here. The `data/maps/` subdirectory holds cover art and generated visual plots.
+* **`preregistration/`** — Pre-committed null hypotheses, drand-beacon seed commitments, retraction conditions, and amendment log.
+* **`docs/`** — Reproducer instructions (`docs/REPRODUCING.md`), one-page brief (`docs/FINDINGS_BRIEF.md`), policy proposals, and rendered HTML for GitHub Pages.
+* **`notebooks/`** — Colab-ready exploratory notebook (`notebooks/alberta_audit_explorer.ipynb`).
+* **`tests/`** — The Pytest suite enforcing byte-for-byte integrity and mathematical proofs.
+* **`viewer/`** — Svelte source for the public web summary (built and deployed via `docs/`).
+
+**Out-of-band tiers** (clearly labelled, see the Reading guide above):
+
+* **`archive/`** — Retracted or superseded analyses, kept intact for trail-of-work transparency. Each subdirectory has its own README explaining what's there and why.
+* **`proposals/`** — Speculative future work not yet authorized or run. Each proposal has its own README documenting the plan and the authorization gate.
 
 ---
 
@@ -98,7 +107,7 @@ pip install -r requirements.txt
 # 3. Verify the installation by running the baseline packing/cracking script
 python3 analysis/scripts/packing_cracking_analysis.py
 ```
-For detailed instructions on recreating the derived shapefiles or running the MCMC ensemble, see [`REPRODUCING.md`](REPRODUCING.md).
+For detailed instructions on recreating the derived shapefiles or running the MCMC ensemble, see [`docs/REPRODUCING.md`](docs/REPRODUCING.md).
 
 ---
 
@@ -118,7 +127,7 @@ For detailed instructions on recreating the derived shapefiles or running the MC
 
 **MCMC neutral-ensemble outlier test (§5.4, Ch1).** The minority map's four partisan metrics jointly produce Mahalanobis D = 5.72 against the canonical ensemble covariance (p = 1.40×10⁻⁶). Against the 1 million-plan canonical ensemble (n_eff 1,429–1,682), three of four metrics individually exceed the 95th percentile: mean-median at p99.98, declination at p1.21 (NDP-tail), and seats@50/50 at p99.99 (ESS-adjusted lower bound ≈p98, above p95 — flag reinstated). Efficiency gap at p94.4 remains below the threshold and is not flagged. The joint Mahalanobis result stands. The majority sits at p0.92 — within the neutral null on all metrics.
 
-**Fisher combined test (§5.4).** Fisher's method applied to Ch1 (Mahalanobis, p = 1.40×10⁻⁶) and Ch2 (SZAT swing-zone bootstrap, p = 0.0024) yields a joint p = 6.87×10⁻⁸ — approximately one in 115 million neutral draws. Both channels are seeded from publicly-verifiable drand League of Entropy beacon rounds predating the shapefile release. The combined finding is robust across Fisher, Stouffer, and Cauchy combination methods.
+**Fisher combined test (§5.4).** Fisher's method applied to Ch1 (Mahalanobis, p = 1.40×10⁻⁶) and Ch2 (SZAT swing-zone bootstrap, p = 0.0024) yields a joint p = 6.87×10⁻⁸ — approximately one in 14.5 million neutral draws. Both channels are seeded from publicly-verifiable drand League of Entropy beacon rounds predating the shapefile release. The combined finding is robust across Fisher, Stouffer, and Cauchy combination methods.
 
 **Inter-map comparison test (§5.4, Ch1-COMP).** Pre-registered at OSF yvc7g. Does the minority-majority gap exceed the distance between randomly chosen neutral-plan pairs? Version A (EG-only): p = 0.0303. Version B (Mahalanobis joint): p = 0.0001. Both significant. The written prediction before running was that Version A would likely fail — it passed. The inter-map Mahalanobis distance (D = 7.19) exceeds each map's individual distance from the ensemble centroid (minority D = 5.71, majority D = 2.79), confirming the maps are positioned on opposite flanks of partisan-metric space rather than being co-located.
 
@@ -147,16 +156,16 @@ Both maps satisfy the law. The table below states the structural distance betwee
 | Dimension | Majority 2026 | Minority 2026 | Gap |
 |---|---|---|---|
 | Population MAD (persons) | 3,180 | 4,707 | Minority 48% higher variance |
-| Calgary NW zone population excess | +2.8% above mean | +11.5% above mean | Minority 4.1× the threshold value |
+| Calgary NW zone population excess | +2.8% above mean | +11.5% above mean | 8.7 pp gap; minority 2.3× the +5% threshold, majority below it |
 | Airdrie partition count | 2 EDs | 4 EDs | Minority 2× more fragments |
 | Municipal-boundary anchoring *(retracted — canonical)* | 80.0% of perimeter | 72.0% of perimeter | Both within 70–85% Canadian norm; DPG-era values 71%/14.5%/4.9× did not survive shapefile recomputation |
 | Chair-flagged cartographic anomalies | 0 | 3 | — |
 | Efficiency gap (Phase 4C, canonical EA shapefiles) | +0.10% | +4.02% | Both below 7% reference; minority 40× more UCP-structural than majority (positive = UCP structural advantage) |
-| Coupled packing-cracking adjacencies | 3 (matches 2019 baseline) | 0 (pre-registered pass) | Minority eliminates the signature |
+| Coupled packing-cracking adjacencies (v0_8 canonical substrate) | 6 | 2 | Minority's coupled count is 0.33× majority's — pre-registered PASS for the minority on this specific test; §5.3.5 explains the hybridization mechanism that produces the partisan effect without coupled adjacencies |
 
 The first five rows are vote-independent. They are measurable against public official records and do not change if the partisan substrate changes; the municipal-anchoring row is retracted on canonical geometry (both maps within norm). The last two rows depend on vote data; the sixth row's direction is not robust to the choice of spatial-attribution method; the seventh row is a finding in favour of the minority map.
 
-A map with 4.9× lower municipal-boundary anchoring produces electoral divisions that are harder for voters to connect to their lived experience of municipal geography. A map that splits a city of 85,805 into four divisions — each identified with a different surrounding community — imposes a navigational cost on residents of that city that a two-division split does not. Neither cost is measured in dollars; both are structural costs to effective representation as the *Saskatchewan Reference* [1991] articulates it.
+A map that splits a city of 85,805 into four divisions — each identified with a different surrounding community — imposes a navigational cost on residents of that city that a two-division split does not. Three boundaries flagged by the commission chair in the official hearing record impose interpretive costs of the same kind — a corridor district whose narrow waist links Nolan Hill to Cochrane, an extension running through uninhabited Banff National Park, and a district named for three smaller towns whose population is dwarfed by the fourth community the district captures. Neither cost is measured in dollars; both are structural costs to effective representation as the *Saskatchewan Reference* [1991] articulates it.
 
 The status quo cost — of not auditing — is the alternative: accepting or rejecting either recommendation on the basis of commentary and intuition rather than measurement.
 
@@ -172,7 +181,7 @@ The status quo cost — of not auditing — is the alternative: accepting or rej
 
 **The same tests run on both maps.** Every metric applied to the minority recommendation is applied identically to the majority and to the 2019 enacted map. There is no test in this audit that runs only on the minority. This is the discipline the paper calls test-application symmetry.
 
-**The apparatus has a dependency graph.** 234 analytical nodes across 454 directed edges — acyclic, zero orphan findings. Any dataset can be invalidated and the cascade of orphaned findings is computable in real time: `python analysis/scripts/dependency_query.py --invalidate L0:data.2023_statement_of_vote`. Invalidating the entire 2023 vote dataset orphans 48 of 74 findings — but leaves 26 that span population, geography, procedural, and geometry-only dimensions. The audit's headline does not collapse if the partisan-vote data is challenged.
+**The apparatus has a dependency graph.** 263 analytical nodes across 413 directed edges — acyclic, zero orphan findings. Any dataset can be invalidated and the cascade of orphaned findings is computable in real time: `python analysis/scripts/dependency_query.py --invalidate L0:data.2023_statement_of_vote`. Invalidating the entire 2023 vote dataset still leaves the population-equality, Calgary zone, Airdrie fragmentation, and chair-flagged anomaly findings standing — the audit's headline does not collapse if the partisan-vote data is challenged.
 
 ---
 
@@ -182,7 +191,7 @@ This audit is not finished. The following are genuinely unresolved.
 
 **Official geometry (Issue #1 — resolved 2026-05-06).** Elections Alberta released official vector shapefiles (`ea_majority_2026_eds.gpkg`, `ea_minority_2026_eds.gpkg`) on May 6, 2026 (commit `873f4d0`). All Derived Provisional Geometries have been replaced by the canonical boundaries; §5.2.7's direction claim is now anchored to official Elections Alberta shapefiles and the method-sensitivity noted in earlier versions of this section no longer applies. The DPG reconstruction pipeline remains documented for reproducibility.
 
-**The counter-map challenge (Issue #14).** The §5.8.5 anchoring finding has a retraction condition: produce a map that achieves the minority's stated community-of-interest objectives with majority-comparable municipal-boundary anchoring. Producing that map requires the commission's drawing tools and the official 2026 shapefiles. No counter-map has been produced. If one is, §5.8.5 retracts.
+**The counter-map challenge (Issue #14) — moot on canonical geometry.** The §5.8.5 anchoring finding's original retraction condition was: produce a map that achieves the minority's stated community-of-interest objectives with majority-comparable municipal-boundary anchoring. On canonical Elections Alberta shapefiles, both 2026 maps already fall within the 70–85% Canadian comparator norm (majority 80.0%, minority 72.0%), so the DPG-era 4.9× anchoring asymmetry the challenge was designed to falsify no longer exists. The §5.8.5 anchoring claim is retracted; the challenge is moot in its original form. The audit's live structural-coherence claim now rests on urban hybridization (§5.3.2), Airdrie city-splitting, and the chair-flagged cartographic anomalies (§5.8.2) — each of which carries its own named retraction condition in `analysis/methodology/retraction_pathway.md`.
 
 **1 million-plan MCMC ESS-upgrade run — complete (2026-05-12).** The authoritative ensemble is 1 million plans (4 chains × 252,500 steps, same seed and shapefiles as the initial 250k run). Partisan-metric ESS is 1,429–1,682. The ESS-adjusted lower bound for the seats@50/50 flag rose from p89.72 (below p95 at 250k) to ≈p98 (above p95 at 1 million plans), reinstating the flag. All headline p-values and percentile placements in §5.4.9 reflect the 1 million-plan ensemble. An independent seed check (Section C, seed 3562959107, 100k plans) confirmed the population MAD and Reock null findings; partisan metrics are consistent within sampling variation.
 
@@ -202,7 +211,7 @@ This audit is not finished. The following are genuinely unresolved.
 
 **Ask the Lunty committee about its process.** The Special Select Committee is due to report by November 2, 2026. Specific questions worth asking: What evaluation criteria were established before the committee began drawing? Will prompts and inputs to any AI tools used in the process be published? Will an ensemble of alternative maps be generated and published alongside the final map?
 
-**Share the public-audience report.** [`report_public.md`](report_public.md) is written for a general audience. It covers the five findings, the gerrymander checklist, and what the April 16 pivot means — without requiring any background in electoral systems or statistics.
+**Share the public-audience report.** [`reports/public/report_public.md`](reports/public/report_public.md) is written for a general audience. It covers the surviving structural findings, the gerrymander checklist, and what the April 16 pivot means — without requiring any background in electoral systems or statistics.
 
 The audit is a measurement, not an advocacy document. It does not argue for either recommendation to be adopted. The Lunty committee has the authority to produce a new map entirely; the audit's job is to document what the commission's two proposals look like under systematic measurement.
 
@@ -230,7 +239,6 @@ The audit is most usefully challenged by people with expertise in electoral geog
 - **[report_academic.md](reports/academic/report_academic.md)** — The full monograph (pre-publication, continuously updated): executive summary, methods, §§5.1–5.10 results, seven measurement layers, dependency DAG, limitations, and falsifiability hooks. Start here to challenge a specific finding.
 - **[analysis/methodology/retraction_pathway.md](analysis/methodology/retraction_pathway.md)** — Named retraction conditions per finding. The fastest path to either retracting a claim or confirming it holds.
 - **[analysis/methodology/null_hypothesis_and_exoneration_criteria.md](analysis/methodology/null_hypothesis_and_exoneration_criteria.md)** — Pre-committed null hypotheses, pass thresholds, and Structural/Robust/Durable classification for every finding.
-- **[analysis/methodology/plain_language_defense_summary.md](analysis/methodology/plain_language_defense_summary.md)** — One-page synthesis of the full plain-language defense, organized by the six challenge categories most likely to arise (scope, test rigging, simulation validity, threshold arbitrariness, AI use, retracted finding).
 - **[analysis/methodology/plain_language_defense.md](analysis/methodology/plain_language_defense.md)** — Full entry-by-entry defense: 215 assertion/why/answer entries covering every substantive claim in the monograph, written for a reader with no background in GIS, statistics, or political science.
 - **[analysis/methodology/methodological_defenses.md#test-apparatus-defense](analysis/methodology/methodological_defenses.md#test-apparatus-defense)** — Per-test criticism and response. Answers "are you making up metrics to have metrics?"
 - **[analysis/methodology/threshold_provenance.md](analysis/methodology/threshold_provenance.md)** — Every numeric threshold traced to a statutory source, a literature citation, or a first-principles derivation. 41 thresholds catalogued, including three Alberta-calibrated EG alternatives (jurisdiction-normed range 1.01 %–9.71 %).
