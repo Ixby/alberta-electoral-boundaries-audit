@@ -122,11 +122,11 @@ export function init(basePath: string): void {
           // CSS transform: translate(tx,ty) scale(sx) maps settledVB rendering
           // to appear as curVB. With transform-origin:0 0:
           //   sx = settledVB.w / curVB.w
-          //   tx = (settledVB.x - curVB.x)*rw/curVB.w + ox*(1 - 1/sx)
+          //   tx = (settledVB.x - curVB.x)*rw/curVB.w + ox*(1 - sx)
           const { rw, rh, ox, oy } = _renderBounds();
           const sx = settledVB.w / curVB.w;
-          _pendingTx = (settledVB.x - curVB.x) * rw / curVB.w + ox * (1 - 1 / sx);
-          _pendingTy = (settledVB.y - curVB.y) * rh / curVB.h + oy * (1 - 1 / sx);
+          _pendingTx = (settledVB.x - curVB.x) * rw / curVB.w + ox * (1 - sx);
+          _pendingTy = (settledVB.y - curVB.y) * rh / curVB.h + oy * (1 - sx);
           _pendingSx = sx;
           if (_rafId === null) {
             _rafId = requestAnimationFrame(() => {
@@ -957,8 +957,8 @@ export function init(basePath: string): void {
             const { rw, rh, ox, oy } = _renderBounds();
             const sx = settledVB.w / curVB.w;
             svgEl.style.transform =
-              `translate(${(settledVB.x - curVB.x)*rw/curVB.w + ox*(1-1/sx)}px,` +
-              `${(settledVB.y - curVB.y)*rh/curVB.h + oy*(1-1/sx)}px) scale(${sx})`;
+              `translate(${(settledVB.x - curVB.x)*rw/curVB.w + ox*(1-sx)}px,` +
+              `${(settledVB.y - curVB.y)*rh/curVB.h + oy*(1-sx)}px) scale(${sx})`;
             _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
             if (t < 1) { requestAnimationFrame(step); }
             else { _settleTimer = setTimeout(_doSettle, SETTLE_MS); }
