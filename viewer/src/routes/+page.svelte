@@ -837,6 +837,7 @@
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label="Map zoom viewer" style="display:none;">
   <button id="zoom-close" title="Close (Esc)">&times;</button>
+  <div id="hud">
   <div id="top-bar">
     <div class="tb-group">
       <button class="tb-btn tb-map-primary" data-map="minority">Minority</button>
@@ -860,17 +861,7 @@
       <ul id="tb-search-results"></ul>
     </div>
   </div>
-  <div id="zoom-stage">
-    <div id="zoom-skeleton" aria-hidden="true">
-      <div class="skel-bar skel-bar-1"></div>
-      <div class="skel-bar skel-bar-2"></div>
-      <div class="skel-bar skel-bar-3"></div>
-      <div class="skel-label">Loading map…</div>
-    </div>
-    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
-      title="Alberta electoral district map — full resolution"></object>
-  </div>
-  <div id="ed-tooltip"></div>
+  <!-- ed-callout sits directly below top-bar in #hud column -->
   <div id="ed-callout" aria-live="polite">
     <div id="ec-ed-section">
       <button id="ec-close" title="Close">&times;</button>
@@ -899,9 +890,21 @@
     </div>
     <div id="ec-zoom-section">
       <span id="zoom-pct">100%</span>
-      <input type="range" id="zoom-slider" min="100" max="1600" step="10" value="100" aria-label="Map zoom">
+      <input type="range" id="zoom-slider" min="25" max="1600" step="5" value="100" aria-label="Map zoom">
     </div>
   </div>
+  </div><!-- /#hud -->
+  <div id="zoom-stage">
+    <div id="zoom-skeleton" aria-hidden="true">
+      <div class="skel-bar skel-bar-1"></div>
+      <div class="skel-bar skel-bar-2"></div>
+      <div class="skel-bar skel-bar-3"></div>
+      <div class="skel-label">Loading map…</div>
+    </div>
+    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
+      title="Alberta electoral district map — full resolution"></object>
+  </div>
+  <div id="ed-tooltip"></div>
 </div>
 
 <footer>
@@ -1369,11 +1372,17 @@
     white-space: nowrap;
   }
   #ed-tooltip strong { display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
-  /* ── Unified top bar ─────────────────────────────────────────────────────── */
-  #top-bar {
+  /* ── HUD: stacks top-bar + info-bar as a column ─────────────────────────── */
+  #hud {
     position: absolute;
     top: 10px; left: 10px; right: 52px;
     z-index: 9002;
+    display: flex; flex-direction: column; gap: 5px;
+    pointer-events: none;
+  }
+  #hud > * { pointer-events: auto; }
+  /* ── Unified top bar ─────────────────────────────────────────────────────── */
+  #top-bar {
     display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
     background: rgba(10,12,18,0.88);
     border-radius: 10px; padding: 5px 8px;
@@ -1403,18 +1412,14 @@
   .tb-btn.tb-layer-on { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.9); }
   .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(255,200,0,0.12); border-color: rgba(255,200,0,0.45); color: rgba(255,210,60,0.95); }
   @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
-  /* District info bar — horizontal bar at bottom of map overlay */
+  /* District info bar — sits directly below top-bar in #hud column */
   #ed-callout {
-    position: absolute;
-    left: 10px; right: 52px; bottom: 10px;
-    z-index: 9003;
     background: rgba(10,12,18,0.92);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
     padding: 5px 10px;
     backdrop-filter: blur(10px);
     color: #fff;
-    pointer-events: auto;
     display: flex; align-items: center; gap: 10px;
     min-height: 38px;
   }

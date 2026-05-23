@@ -59,7 +59,7 @@ export function init(basePath: string): void {
         const _zoomSlider = document.getElementById('zoom-slider');
         function _updateZoomDisplay(pct) {
           if (zoomPct) zoomPct.textContent = pct + '%';
-          if (_zoomSlider) _zoomSlider.value = String(Math.min(1600, Math.max(100, pct)));
+          if (_zoomSlider) _zoomSlider.value = String(Math.min(1600, Math.max(25, pct)));
         }
 
         let mode = null, ready = false;  // 'viewbox' | 'fallback'
