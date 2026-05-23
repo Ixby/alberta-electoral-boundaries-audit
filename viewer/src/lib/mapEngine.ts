@@ -3,6 +3,14 @@
 // https://ixby.github.io
 // @ts-nocheck
 
+let _onEvent      = null;
+let _getState     = null;
+let _applyStateFn = null;
+
+export function onEvent(cb)                                 { _onEvent = cb; }
+export function getState()                                  { return _getState ? _getState() : null; }
+export function applyState(primary, mapOn, layers)          { if (_applyStateFn) _applyStateFn(primary, mapOn, layers); }
+
 export function init(basePath: string): void {
     // Pre-fetch all three hover datasets so cross-map comparison is available
       // immediately after the overlay opens, regardless of which map is active.
@@ -498,6 +506,43 @@ export function init(basePath: string): void {
         const _layerState = { vote: true, 'ed-fill': false, 'ed-lines': true, eg: false };
         let   _mapLocked  = false;
 
+        // ── Share bridge ──────────────────────────────────────────────────────
+        _getState = function() {
+          return {
+            primary: _mapPrimary,
+            mapOn:   { minority: _mapOn.minority, majority: _mapOn.majority, '2019': _mapOn['2019'] },
+            layers:  { vote: _layerState.vote, 'ed-fill': _layerState['ed-fill'], 'ed-lines': _layerState['ed-lines'], eg: _layerState.eg },
+            viewport: svgEl && natVB && curVB ? {
+              cx_norm: Math.max(0, Math.min(1, (curVB.x + curVB.w / 2 - natVB.x) / natVB.w)),
+              cy_norm: Math.max(0, Math.min(1, (curVB.y + curVB.h / 2 - natVB.y) / natVB.h)),
+              zoom:    curVB.w / natVB.w,
+            } : { cx_norm: 0.5, cy_norm: 0.5, zoom: 1.0 },
+          };
+        };
+        _applyStateFn = function(primary, targetMapOn, targetLayers) {
+          _mapPrimary       = primary;
+          _mapOn.minority   = !!targetMapOn.minority;
+          _mapOn.majority   = !!targetMapOn.majority;
+          _mapOn['2019']    = !!targetMapOn['2019'];
+          _mapActivationOrder = ['minority', 'majority', '2019'].filter(function(k) { return _mapOn[k]; });
+          var pi = _mapActivationOrder.indexOf(primary);
+          if (pi !== -1) { _mapActivationOrder.splice(pi, 1); _mapActivationOrder.push(primary); }
+          _doSwitchPrimary(primary);
+          _syncOverlays();
+          ['vote', 'ed-fill', 'ed-lines', 'eg'].forEach(function(k) {
+            var on = !!targetLayers[k];
+            _layerState[k] = on;
+            var btn = document.querySelector('.tb-btn[data-layer="' + k + '"]');
+            if (btn) btn.classList.toggle('tb-layer-on', on);
+            if (k === 'vote')     _applyVoteLayer(on);
+            if (k === 'ed-fill')  _applyEdFillLayer(on);
+            if (k === 'ed-lines') _applyEdLinesLayer(on);
+            if (k === 'eg')       _applyEGLayer(on);
+          });
+          _updateMapButtons();
+        };
+        function _emit(event) { if (_onEvent) _onEvent(event); }
+
         // ── Map-wide boundary color ───────────────────────────────────────────────
         function _applyBoundaryColor(svgNode, mapKey) {
           if (!svgNode) return;
@@ -578,7 +623,7 @@ export function init(basePath: string): void {
           });
           if (!bestPath) return;
           const rec = _edHover[parseInt(bestPath.getAttribute('data-ed-id'), 10)];
-          if (rec) { _showCallout(rec); _setEdHighlight(bestPath); }
+          if (rec) { _showCallout(rec); _setEdHighlight(bestPath); _emit({ type: 'ed_focus', ed_id: parseInt(bestPath.getAttribute('data-ed-id'), 10) }); }
         }
 
         // ── Map overlay system ─────────────────────────────────────────────────────
@@ -748,6 +793,7 @@ export function init(basePath: string): void {
             // If it was an overlay, overlay reference was already removed above
           }
           _updateMapButtons();
+          _emit({ type: 'map_switch', primary: _mapPrimary, mapOn: { minority: _mapOn.minority, majority: _mapOn.majority, '2019': _mapOn['2019'] } });
         }
 
         document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
@@ -861,6 +907,7 @@ export function init(basePath: string): void {
             if (key === 'ed-fill')  _applyEdFillLayer(on);
             if (key === 'ed-lines') _applyEdLinesLayer(on);
             if (key === 'eg')       _applyEGLayer(on);
+            _emit({ type: 'layer', key: key, on: on });
           });
         });
 

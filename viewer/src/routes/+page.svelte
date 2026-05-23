@@ -17,7 +17,49 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
-  import { init } from '$lib/mapEngine';
+  import { init, onEvent as mapOnEvent, getState, applyState } from '$lib/mapEngine';
+  import { isDNT, setParticipation, recordEvent, encodeState, decodeState } from '$lib/share';
+
+  // ── Share / participation state ───────────────────────────────────────────
+  let showParticipation = $state(false);
+  let dntActive         = $state(false);
+  let showSharePanel    = $state(false);
+  let shareCode         = $state('');
+  let loadInput         = $state('');
+  let copyLabel         = $state('Copy');
+  let loadError         = $state('');
+
+  function _generateCode() {
+    const s = getState();
+    shareCode = s ? (encodeState(s) ?? '—') : '—';
+  }
+
+  function toggleSharePanel() {
+    showSharePanel = !showSharePanel;
+    if (showSharePanel) { _generateCode(); loadError = ''; }
+  }
+
+  async function copyCode() {
+    if (!shareCode || shareCode === '—') return;
+    try {
+      await navigator.clipboard.writeText(shareCode);
+      copyLabel = 'Copied!';
+    } catch {
+      copyLabel = 'Failed';
+    }
+    setTimeout(() => { copyLabel = 'Copy'; }, 2000);
+  }
+
+  function loadShare() {
+    const trimmed = loadInput.trim();
+    if (!trimmed) return;
+    const decoded = decodeState(trimmed);
+    if (!decoded) { loadError = 'Unrecognised code — check spelling.'; return; }
+    applyState(decoded.primary, decoded.mapOn, decoded.layers);
+    showSharePanel = false;
+    loadInput  = '';
+    loadError  = '';
+  }
 
   let skelPhrase = 'Loading Map Explorer…';
   const _SKEL_PHRASES = [
@@ -28,6 +70,10 @@
 
   onMount(() => {
     init(base);
+    mapOnEvent(recordEvent);
+
+    dntActive = isDNT();
+    setTimeout(() => { showParticipation = true; }, 900);
 
     // ── Skeleton phrase cycling ───────────────────────────────────────────────
     setInterval(() => {
@@ -881,6 +927,24 @@
   <img id="fig-lightbox-img" alt="">
 </div>
 
+<!-- Participation prompt -->
+{#if showParticipation}
+<div id="participation-overlay" role="dialog" aria-modal="true" aria-labelledby="part-heading">
+  <div id="participation-card">
+    <h2 id="part-heading">May we connect anonymous usage data?</h2>
+    <p>This audit is ongoing research. Connecting anonymous data helps us understand how people navigate the tool and where the design can improve. No personal information is collected — all inputs are pre-anonymized in your browser before anything is transmitted.</p>
+    {#if dntActive}
+    <p class="part-dnt">Your browser has Do Not Track enabled. No is pre-selected on your behalf. You can change your answer.</p>
+    {/if}
+    <div class="part-actions">
+      <button class="part-btn part-no" onclick={() => { setParticipation(false); showParticipation = false; }}>No thanks</button>
+      <button class="part-btn part-yes" onclick={() => { setParticipation(true); showParticipation = false; }}>Yes, connect</button>
+    </div>
+    <p class="part-policy"><a href="{base}/privacy-policy.md" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
+  </div>
+</div>
+{/if}
+
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label="Map zoom viewer" style="display:none;">
   <button id="zoom-close" title="Close (Esc)">&times;</button>
@@ -916,6 +980,39 @@
       <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label="Map zoom">
     </div>
     <button id="ec-close" class="tb-btn tb-close-btn" title="Clear selection">&times;</button>
+    <div class="tb-sep"></div>
+    <div id="tb-share-wrap">
+      <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title="Share or load a map configuration">Share</button>
+      {#if showSharePanel}
+      <div id="share-panel" role="dialog" aria-label="Share map configuration">
+        <div class="share-section">
+          <div class="share-label">Share this configuration</div>
+          <div class="share-code-row">
+            <span class="share-code">{shareCode}</span>
+            <button class="share-action-btn" onclick={copyCode}>{copyLabel}</button>
+          </div>
+          <div class="share-hint">Type this code into any browser running the audit to load this configuration. The code is never placed in a URL.</div>
+        </div>
+        <div class="share-divider"></div>
+        <div class="share-section">
+          <div class="share-label">Load a configuration</div>
+          <div class="share-load-row">
+            <input
+              class="share-load-input"
+              type="text"
+              placeholder="alpine-eagle-banff"
+              bind:value={loadInput}
+              onkeydown={(e) => { if (e.key === 'Enter') loadShare(); }}
+              spellcheck="false"
+              autocomplete="off"
+            />
+            <button class="share-action-btn" onclick={loadShare}>Load</button>
+          </div>
+          {#if loadError}<div class="share-error">{loadError}</div>{/if}
+        </div>
+      </div>
+      {/if}
+    </div>
   </div>
   <!-- ed-callout — only shown when an ED is selected -->
   <div id="ed-callout" aria-live="polite">
@@ -1850,4 +1947,92 @@
   }
   #back-top:hover { opacity: 1; }
   @media (max-width: 600px) { #back-top { bottom: 1rem; right: 0.8rem; } }
+
+  /* ── Participation prompt ─────────────────────────────────────────────── */
+  :global(#participation-overlay) {
+    position: fixed; inset: 0; z-index: 9000;
+    background: rgba(0,0,0,0.55);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+  }
+  :global(#participation-card) {
+    background: var(--bg, #fff);
+    color: var(--text, #111);
+    border-radius: 10px;
+    padding: 2rem 2.2rem;
+    max-width: 480px; width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  }
+  :global(#participation-card h2) {
+    margin: 0 0 1rem; font-size: 1.15rem; font-weight: 600; line-height: 1.3;
+  }
+  :global(#participation-card p) {
+    margin: 0 0 0.9rem; font-size: 0.88rem; line-height: 1.55; color: var(--text-muted, #444);
+  }
+  :global(.part-dnt) {
+    font-size: 0.82rem !important;
+    background: rgba(107,53,167,0.08);
+    border-left: 3px solid #6B35A7;
+    padding: 0.5rem 0.7rem;
+    border-radius: 0 4px 4px 0;
+  }
+  :global(.part-actions) {
+    display: flex; gap: 0.6rem; justify-content: flex-end; margin: 1.2rem 0 0.8rem;
+  }
+  :global(.part-btn) {
+    padding: 0.5rem 1.2rem; border-radius: 6px;
+    border: none; cursor: pointer; font-size: 0.88rem; font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  :global(.part-btn:hover) { opacity: 0.82; }
+  :global(.part-no)  { background: var(--btn-muted, #e8e8e8); color: var(--text, #111); }
+  :global(.part-yes) { background: #6B35A7; color: #fff; }
+  :global(.part-policy) {
+    font-size: 0.78rem !important; text-align: right;
+    margin: 0 !important; color: var(--text-muted, #888) !important;
+  }
+  :global(.part-policy a) { color: inherit; text-decoration: underline; opacity: 0.7; }
+
+  /* ── Share panel ─────────────────────────────────────────────────────── */
+  :global(#tb-share-wrap) { position: relative; }
+  :global(#share-panel) {
+    position: absolute; top: calc(100% + 6px); right: 0;
+    background: var(--bg, #1a1a1a); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 0.85rem; width: 320px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    z-index: 8000;
+  }
+  :global(.share-section) { display: flex; flex-direction: column; gap: 0.45rem; }
+  :global(.share-label) { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.55; }
+  :global(.share-code-row) { display: flex; align-items: center; gap: 0.5rem; }
+  :global(.share-code) {
+    flex: 1; font-family: monospace; font-size: 0.92rem; font-weight: 600;
+    letter-spacing: 0.02em; background: rgba(255,255,255,0.06);
+    padding: 0.4rem 0.6rem; border-radius: 5px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  :global(.share-action-btn) {
+    padding: 0.35rem 0.75rem; border-radius: 5px; border: none;
+    background: #6B35A7; color: #fff; font-size: 0.8rem; font-weight: 500;
+    cursor: pointer; white-space: nowrap; transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+  :global(.share-action-btn:hover) { opacity: 0.82; }
+  :global(.share-hint) {
+    font-size: 0.74rem; opacity: 0.5; line-height: 1.4;
+  }
+  :global(.share-divider) {
+    height: 1px; background: rgba(255,255,255,0.1); margin: 0.7rem 0;
+  }
+  :global(.share-load-row) { display: flex; gap: 0.5rem; }
+  :global(.share-load-input) {
+    flex: 1; padding: 0.38rem 0.55rem; border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.06); color: inherit;
+    font-family: monospace; font-size: 0.85rem;
+  }
+  :global(.share-load-input::placeholder) { opacity: 0.4; }
+  :global(.share-error) {
+    font-size: 0.76rem; color: #e57373; margin-top: 0.3rem;
+  }
 </style>
