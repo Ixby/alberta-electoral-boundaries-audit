@@ -85,9 +85,17 @@
   ];
   let _skelIdx = 0;
 
+  let _codeRefreshTimer: ReturnType<typeof setTimeout> | null = null;
+
+  function _scheduleCodeRefresh() {
+    if (!showSharePanel) return;
+    if (_codeRefreshTimer) clearTimeout(_codeRefreshTimer);
+    _codeRefreshTimer = setTimeout(() => { _generateCode(); _codeRefreshTimer = null; }, 200);
+  }
+
   onMount(() => {
     init(base);
-    mapOnEvent(recordEvent);
+    mapOnEvent((event) => { recordEvent(event); _scheduleCodeRefresh(); });
 
     dntActive = isDNT();
     const storedConsent = getStoredChoice();

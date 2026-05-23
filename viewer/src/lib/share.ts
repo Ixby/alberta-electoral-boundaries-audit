@@ -123,9 +123,13 @@ export function decodeState(code: string): MapState | null {
 
 // ── Participation + flight path ───────────────────────────────────────────────
 
+const _sessionId: string = crypto.randomUUID();  // unique per page-load; never transmitted in share code
+
 let _participates  = false;
 let _flightPath: FlightEvent[] = [];
 let _originCode: string | null = null;  // null = default start; code = loaded from share
+
+export function getSessionId(): string { return _sessionId; }
 
 export function isDNT(): boolean {
 	return navigator.doNotTrack === '1';
