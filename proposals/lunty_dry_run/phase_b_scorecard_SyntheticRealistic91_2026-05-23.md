@@ -1,4 +1,4 @@
-# November Red Alert Scorecard — SyntheticRealistic91
+# Phase B Scorecard — SyntheticRealistic91
 
 Date: 2026-05-23  
 Shapefile: `proposals/lunty_dry_run/synthetic_realistic_91_test_input.gpkg`  

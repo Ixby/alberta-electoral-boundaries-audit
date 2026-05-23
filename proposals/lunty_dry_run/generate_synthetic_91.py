@@ -2,8 +2,8 @@
 generate_synthetic_91.py — produce a neutral synthetic 91-district plan for dry-runs.
 
 This script generates ONE valid 91-district plan from the canonical VA adjacency
-graph for the sole purpose of testing the November Red Alert Scorecard
-(analysis/scripts/november_red_alert_scorecard.py) on a 91-district input before
+graph for the sole purpose of testing the Phase B Scorecard
+(analysis/scripts/phase_b_scorecard.py) on a 91-district input before
 the real Lunty Special Select Committee map drops on 2026-11-02.
 
 **This script does not produce a prediction.** The output plan is a random
@@ -198,7 +198,7 @@ def main() -> int:
     print("It is NOT a prediction of the Lunty committee's output.")
     print()
     print("Next step: run the scorecard against it:")
-    print(f"  python analysis/scripts/november_red_alert_scorecard.py "
+    print(f"  python analysis/scripts/phase_b_scorecard.py "
           f"--shapefile {OUT_GPKG} --map-name SyntheticNeutral91 "
           "--name-col EDName2025 --skip-mcmc")
     return 0

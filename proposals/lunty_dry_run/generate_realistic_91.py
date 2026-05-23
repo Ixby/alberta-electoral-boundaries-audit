@@ -194,7 +194,7 @@ def main() -> int:
     print("The 2 splits are an arbitrary 'preempt 2031-cycle overflow' choice.")
     print()
     print("Next step:")
-    print(f"  python analysis/scripts/november_red_alert_scorecard.py "
+    print(f"  python analysis/scripts/phase_b_scorecard.py "
           f"--shapefile {OUT_GPKG} --map-name SyntheticRealistic91 "
           "--name-col EDName2025 --out-dir proposals/lunty_dry_run --skip-mcmc")
     return 0

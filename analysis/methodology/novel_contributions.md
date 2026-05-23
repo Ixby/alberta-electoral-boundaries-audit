@@ -125,7 +125,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 
 **ii. Jurisdiction-calibrated Lane 1 thresholds.** Rather than applying the Stephanopoulos-McGhee 7% EG threshold (derived from US elections data, never judicially adopted), the framework derives its Lane 1 thresholds from the jurisdiction's own neutral-draw MCMC ensemble. The Alberta-calibrated 95th-percentile EG is 3.86% — nearly half the US-derived figure — and is the operative threshold for this audit's Lane 1 verdict.
 
-**iii. Pre-registered prospective scorecard.** The "what a gerrymander would look like" checklist is published and OSF-time-stamped *before* the Lunty committee's 91-seat map is produced (embargo release 2026-11-02). When the map is tabled, the same scripts and thresholds applied in §5 of this audit are re-run without modification. The pre-registration converts the framework from an audit-voice opinion into a classical hypothesis test against a future observable. Code: `analysis/scripts/november_red_alert_scorecard.py`.
+**iii. Pre-registered prospective scorecard.** The "what a gerrymander would look like" checklist is published and OSF-time-stamped *before* the Lunty committee's 91-seat map is produced (embargo release 2026-11-02). When the map is tabled, the same scripts and thresholds applied in §5 of this audit are re-run without modification. The pre-registration converts the framework from an audit-voice opinion into a classical hypothesis test against a future observable. Code: `analysis/scripts/phase_b_scorecard.py`.
 
 **iv. Signature threshold with explicit cross-evidence requirement.** The checklist's "sure-sign" verdict requires three formal signatures *plus* at least one new signature *plus* either ensemble-outlier placement or public-support-inversion. This multi-criteria threshold is explicitly borrowed from the multi-criteria discipline in Katz, King & Rosenblatt (2020) and Altman & McDonald (2011) — no single metric is dispositive, but directional consistency across independent metrics is. The audit applies this discipline to both lanes simultaneously.
 
@@ -147,7 +147,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 - AsPredicted #289,455 — Lunty 91-seat forensic scorecard (prospective; pending November map)
 - OSF embargo release: 2026-11-02
 - Checklist: `findings/checklist_baseline_scoring.md`
-- Script: `analysis/scripts/november_red_alert_scorecard.py`
+- Script: `analysis/scripts/phase_b_scorecard.py`
 
 ---
 

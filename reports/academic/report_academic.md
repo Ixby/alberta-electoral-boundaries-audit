@@ -145,7 +145,7 @@ The visualization corrects the geographic distortion produced by whole-riding co
 | `ecological_inference.py` | Ecological inference bounds on demographic voting | §5.2.8 |
 | `marginal_seats_analysis.py` | Marginal-seat uniform-swing analysis | §5.2 |
 | `november_tripwires.py` | Pre-registered automated checks for November 91-seat map | §5.5 |
-| `november_red_alert_scorecard.py` | Lunty committee tripwire detection scorecard | §5.5 |
+| `phase_b_scorecard.py` | Lunty committee tripwire detection scorecard (Phase B confirmatory test) | §5.5 |
 | `redist_crossvalidation.R` | R SMC cross-validation (Harvard `redist`; algorithm-independence) | §5.4.9 |
 
 *Lane 2 — Structural*

@@ -1,11 +1,11 @@
 ---
 name: Lunty dry-run — synthetic 91-district test inputs for the November scorecard
-description: "Synthetic 91-district plans used only to dry-run analysis/scripts/november_red_alert_scorecard.py before the real Lunty Special Select Committee map drops on 2026-11-02. Nothing in this directory is a prediction of what Lunty will produce. The synthetic plans exist to test the scorecard plumbing and surface 91-district edge cases that would otherwise be discovered during the live 72-hour window."
+description: "Synthetic 91-district plans used only to dry-run analysis/scripts/phase_b_scorecard.py before the real Lunty Special Select Committee map drops on 2026-11-02. Nothing in this directory is a prediction of what Lunty will produce. The synthetic plans exist to test the scorecard plumbing and surface 91-district edge cases that would otherwise be discovered during the live 72-hour window."
 type: project
 ---
 
 > **Backward:**
-> - `analysis/scripts/november_red_alert_scorecard.py` — the scorecard being dry-run
+> - `analysis/scripts/phase_b_scorecard.py` — the scorecard being dry-run
 > - `analysis/scripts/mcmc_ensemble.py` — provides `build_va_graph()` used by the generator
 > - `data/shapefiles/canonical/va_2023_election_day_votes.gpkg` — canonical VA substrate (LFS-tracked)
 > - `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`, `ea_minority_2026_eds.gpkg` — canonical commission maps used as a starting point for the "realistic-plausible" synthetic plan (Approach B)
@@ -13,12 +13,12 @@ type: project
 >
 > **Forward:**
 > - `proposals/lunty_dry_run/dry_run_report.md` — what worked and what bugs surfaced
-> - `analysis/scripts/november_red_alert_scorecard.py` — bug fixes discovered here flow back to the scorecard for the live Nov 2 run
+> - `analysis/scripts/phase_b_scorecard.py` — bug fixes discovered here flow back to the scorecard for the live Nov 2 run
 > - (leaf otherwise — synthetic inputs are not consumed by any live analysis; they exist solely for testing the production pipeline)
 
 # Lunty dry-run — synthetic 91-district test inputs
 
-**This directory is not part of the audit.** It is a dry-run sandbox for the November 2026 Lunty Special Select Committee scorecard (`analysis/scripts/november_red_alert_scorecard.py`).
+**This directory is not part of the audit.** It is a dry-run sandbox for the November 2026 Lunty Special Select Committee scorecard (`analysis/scripts/phase_b_scorecard.py`).
 
 ## Why this exists
 
@@ -38,7 +38,7 @@ This directory's purpose is to **find those bugs now, with synthetic inputs**, s
 |---|---|
 | `generate_synthetic_91.py` | Generator script. Builds a 91-district plan from the canonical VA adjacency graph using a ReCom proposal step seeded from a clearly-non-real label ("DRY_RUN_SYNTHETIC"). Output is a GeoPackage with one polygon per synthetic district, named `Synthetic-01` through `Synthetic-91`. |
 | `synthetic_neutral_91_test_input.gpkg` | Output of the generator. A 91-district plan that satisfies the audit's standard constraints (±25% population balance, contiguity) but has **no committee-style adjustment** — it's just a random valid plan. Use case: confirms the scorecard handles arbitrary 91-district input. |
-| `dry_run_report.md` | What worked, what didn't, what bugs were fixed in `analysis/scripts/november_red_alert_scorecard.py` as a result. |
+| `dry_run_report.md` | What worked, what didn't, what bugs were fixed in `analysis/scripts/phase_b_scorecard.py` as a result. |
 
 ## Naming convention
 

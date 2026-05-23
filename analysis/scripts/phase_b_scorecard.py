@@ -1,4 +1,4 @@
-"""November Red Alert Scorecard — tripwire for the Lunty committee's 91-seat map.
+"""Phase B Scorecard — tripwire for the Lunty Special Select Committee's 91-seat map (the audit's Phase B / confirmatory test).
 
 Watches for the four-part MO that the minority commission map
 demonstrated:
@@ -25,7 +25,7 @@ Inputs:
                       for prose-only iteration).
 
 Outputs:
-  findings/november_red_alert_<map_name>_<date>.md
+  findings/phase_b_scorecard_<map_name>_<date>.md
 
 This scorecard is one of the prospective components of the
 pre-registered audit (RQ8-9): the threshold-firing logic was
@@ -80,6 +80,7 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 from drand_seed import get_canonical_seed  # noqa: E402
+from score_anchoring import score_anchoring as _score_anchoring_headline  # noqa: E402
 
 # Canonical seed for all bootstrap resampling in this script.
 # Derived from drand round 5500000 (Cloudflare League of Entropy).
@@ -274,13 +275,17 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
     )
 
 
-def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
+def mo3_municipal_anchoring(eds: gpd.GeoDataFrame, shapefile_path: Path) -> TripwireResult:
     """Re-run the audit's existing anchoring metric on the new map.
 
-    The metric is the fraction of the total inter-district boundary
-    length that coincides (within a small tolerance) with a pre-existing
-    municipal/CSD boundary. The minority map sat at 15%, the majority at
-    71%; the 70% threshold is the Canadian-norm lower bound.
+    Delegates to score_anchoring.score_anchoring() so MO #3 reports the
+    same metric in the same units that the 70% Canadian-norm threshold
+    was calibrated against. Until 2026-05-23 this function carried a
+    parallel implementation (25m buffer intersection) that diverged
+    ~2x from the headline measurement on the same input; the threshold
+    was calibrated against the headline, so the mismatched body fired
+    on virtually every commission map. See proposals/lunty_dry_run/
+    dry_run_report.md Bug #8 for the full diagnosis.
     """
     if not ALBERTA_CSDS.exists():
         return TripwireResult(
@@ -289,21 +294,8 @@ def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
             summary=f"SKIPPED — Alberta CSD polygon file missing at "
             f"{ALBERTA_CSDS.relative_to(ROOT)}.",
         )
-    csd = gpd.read_file(ALBERTA_CSDS).to_crs(eds.crs)
-    csd_boundary = csd.boundary.unary_union
-    # Inter-district boundary length: total ED border minus shared
-    # boundary with another ED (= twice-counted) — we just sum each
-    # ED's boundary and the inter-ED edges are double-counted, so
-    # take the unary_union perimeter instead.
-    eds_union = eds.unary_union
-    total_boundary = eds.boundary.unary_union
-    # Length of total boundary that lies on a CSD line (within 25m
-    # buffer to absorb digitisation noise)
-    csd_buffer = csd_boundary.buffer(25.0)
-    on_csd = total_boundary.intersection(csd_buffer)
-    anchored_frac = (
-        on_csd.length / total_boundary.length if total_boundary.length > 0 else 0.0
-    )
+    anchored_pct = _score_anchoring_headline(shapefile_path)
+    anchored_frac = anchored_pct / 100.0
     return TripwireResult(
         name="MO #3 — Municipal de-anchoring",
         fired=anchored_frac < MO3_ANCHORING_THRESHOLD,
@@ -314,6 +306,7 @@ def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
         detail={
             "anchored_fraction": anchored_frac,
             "threshold": MO3_ANCHORING_THRESHOLD,
+            "methodology": "score_anchoring.py (tier-ordered snap, SNAP_TOL_M=500, VERTEX_DENSIFY_M=50)",
         },
     )
 
@@ -477,7 +470,7 @@ def main() -> int:
     print("[scorecard] running MO #2 — Lasso compactness...")
     results.append(mo2_lasso_compactness(eds, name_col))
     print("[scorecard] running MO #3 — Municipal anchoring...")
-    results.append(mo3_municipal_anchoring(eds))
+    results.append(mo3_municipal_anchoring(eds, args.shapefile.resolve()))
     if args.map_s50 is not None:
         print("[scorecard] running MO #4 — Sampler divergence...")
         results.append(mo4_sampler_divergence(args.map_s50))
@@ -498,7 +491,7 @@ def main() -> int:
     # Write report
     today = date.today().isoformat()
     out_dir = Path(args.out_dir).resolve() if args.out_dir else _get_findings_dir()
-    out_path = out_dir / f"november_red_alert_{args.map_name}_{today}.md"
+    out_path = out_dir / f"phase_b_scorecard_{args.map_name}_{today}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fired_count = sum(1 for r in results if r.fired)
 
@@ -512,7 +505,7 @@ def main() -> int:
         shapefile_display = str(shapefile_abs)
 
     with out_path.open("w", encoding="utf-8") as f:
-        f.write(f"# November Red Alert Scorecard — {args.map_name}\n\n")
+        f.write(f"# Phase B Scorecard — {args.map_name}\n\n")
         f.write(f"Date: {today}  \n")
         f.write(f"Shapefile: `{shapefile_display}`  \n")
         f.write(f"Tripwires fired: **{fired_count} of {len(results)}**\n\n")

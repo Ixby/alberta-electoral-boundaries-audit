@@ -1,8 +1,8 @@
-# November Red Alert Scorecard — SyntheticNeutral91
+# Phase B Scorecard — SyntheticNeutral91WithMO4
 
 Date: 2026-05-23  
 Shapefile: `proposals/lunty_dry_run/synthetic_neutral_91_test_input.gpkg`  
-Tripwires fired: **2 of 3**
+Tripwires fired: **2 of 4**
 
 ## MO #1 — Drain Pattern (city cracking) — 🔴 **FIRED**
 
@@ -49,6 +49,19 @@ municipal anchoring = 19.0% (Canadian norm threshold 70%)
 {
   "anchored_fraction": 0.1897484352668329,
   "threshold": 0.7
+}
+```
+
+## MO #4 — Sampler divergence — ⚪ clean
+
+map seats@50/50 = 0.4505 → ReCom percentile 51.6, SMC percentile 55.6, divergence -4.0pp (threshold 25pp)
+
+```json
+{
+  "recom_percentile": 51.623069306930695,
+  "smc_percentile": 55.612148830223276,
+  "divergence_pp": -3.989079523292581,
+  "threshold_pp": 25
 }
 ```
 
