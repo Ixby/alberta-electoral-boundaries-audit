@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/chen_rodden_alberta.py` — implements the Alberta-specific Moran's I and ensemble validation
+> - `analysis/scripts/chen_rodden_decomposition.py` — geography-vs-drawing decomposition
+> - Chen & Rodden (2013) "Unintentional Gerrymandering," *QJPS* 8(3): 239–269
+>
+> **Forward:**
+> - `findings/chen_rodden_decomposition.md` — companion decomposition result
+> - `reports/academic/report_academic.md` §5.2 — incorporates Chen-Rodden framing
+> - (leaf — reference validation of literature applicability to Alberta)
+
 # Chen & Rodden (2013) validation for Alberta — v0.1
 
 **Track U subagent, 2026-04-22.** Does the "unintentional gerrymandering" argument transfer from the US context to Alberta?

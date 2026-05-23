@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/scripts/hash_inputs.py` — produces the automated SHA256 verification this file complements
+> - `data/raw/98-401-X2021024_English_CSV_data.csv` — Statistics Canada DA-level census file documented here
+>
+> **Forward:**
+> - `docs/FROZEN_MANIFEST.md` — references this file for inputs excluded from automated hashing
+> - (leaf otherwise — data-provenance reference)
+
 # Data Sources
 
 ## Files excluded from automated SHA256 verification (`hash_inputs.py`)

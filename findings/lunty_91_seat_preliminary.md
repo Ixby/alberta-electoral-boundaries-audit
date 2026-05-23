@@ -1,3 +1,12 @@
+> **Backward:**
+> - news reporting on the Lunty MLA committee (CBC, Rimbey Review, DiscoverAirdrie, Global News, The Albertan, factsmtr)
+> - majority 89-seat commission report (allocation reference)
+>
+> **Forward:**
+> - `findings/checklist_baseline_scoring.md` — feeds the November 2026 signature-detection baseline
+> - `findings/README.md` — indexes this finding
+> - (leaf — preliminary scoping; supersedes when an actual 91-seat map is tabled)
+
 # v0.1 — 91-Seat Proposal: Preliminary Analysis
 
 > **DISCLAIMER — READ FIRST.**

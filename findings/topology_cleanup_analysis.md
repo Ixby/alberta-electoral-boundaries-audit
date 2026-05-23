@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/topology_cleanup.py` — companion script that performs the cleanup
+> - `analysis/scripts/assignment_va_attribution_maup.py` — MAUP attribution re-run on cleaned DPGs
+> - `data/v0_1_canonical_majority_2026_eds.gpkg`, `data/v0_1_canonical_minority_2026_eds.gpkg` — input DPGs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.2.7 — paper-ready paragraph derived from this cleanup
+> - `findings/README.md` — indexes this finding
+
 # v0_1 Topology Cleanup — eliminating inter-ED DPG polygon overlap
 
 **Scope.** The canonical v0_1 Derived Provisional Geometry (DPG) files

@@ -1,3 +1,10 @@
+> **Backward:**
+> - `docs/COMPLETED_LOG.md` — completed-work counterpart; items move there when done
+> - `reports/academic/report_academic.md` — outstanding tasks track sections of this monograph
+>
+> **Forward:**
+> - (leaf — project-management ledger; consumed by contributors only, no programmatic consumers)
+
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)

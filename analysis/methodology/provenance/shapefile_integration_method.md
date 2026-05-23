@@ -6,6 +6,16 @@ version: 0.1
 date: 2026-04-23
 ---
 
+> **Backward:**
+> - Commission printed cartographic maps (~1:1,000,000 province; 1:200,000 Calgary/Edmonton) — primary source
+> - `analysis/methodology/provenance/boundary_transcription.md` — Phase 1 visual transcription
+> - OSM feature classes (roads, rivers, rail, admin lines)
+>
+> **Forward:**
+> - `data/shapefiles/derived/` — derived boundary outputs
+> - `reports/academic/report_academic.md` §6.8 — incorporates this methodology
+> - `analysis/methodology/provenance/shapefile_changelog.md` — version history of derived shapefiles
+
 # §6.8 Derived boundary construction
 
 ## 6.8.1 Problem statement

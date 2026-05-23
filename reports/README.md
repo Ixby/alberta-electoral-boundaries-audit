@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — index/README for the reports/ directory)
+>
+> **Forward:**
+> - (leaf — directory index; reviewer-facing navigation)
+
 Published report outputs.
 
 | Directory | Contents |

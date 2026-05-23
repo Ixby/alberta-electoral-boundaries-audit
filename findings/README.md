@@ -1,3 +1,10 @@
+> **Backward:**
+> - all `findings/*.md` files this directory indexes
+> - `analysis/scripts/` — companion scripts that produce the regenerable outputs cataloged here
+>
+> **Forward:**
+> - (leaf — index for the `findings/` directory; reviewer-facing only)
+
 Analytical findings reports, pipeline logs, and regenerable data outputs produced by the scripts in `../analysis/scripts/`.
 
 > **CRS note:** GeoJSON files in `data/outputs/district_patterns/` are CRS84/WGS84 (EPSG:4326). The canonical audit shapefiles are EPSG:3400 (Alberta 10-TM). Do not reproject the GeoJSONs for analysis — they are display copies only.

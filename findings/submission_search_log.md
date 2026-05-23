@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/submission_search.py` — companion script that produced this log
+> - 27 batch PDFs from elections.ab.ca (raw submissions)
+>
+> **Forward:**
+> - `findings/submission_search_findings.md` — narrative built on the search output
+> - `findings/README.md` — indexes this finding
+> - (leaf — log file; reviewer-facing)
+
 # submission_search log
 
 [download] OK  6,328,532 EBC2025Submissions1-50ForPosting.pdf

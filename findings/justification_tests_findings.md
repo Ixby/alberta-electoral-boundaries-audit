@@ -1,3 +1,15 @@
+> **Backward:**
+> - `analysis/scripts/justification_tests.py` — companion script that runs the five tests
+> - `data/alberta_2021_csds.gpkg`, `data/alberta_2021_csd_populations.csv` — StatsCan CSD inputs
+> - `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` — Bill 33 areas
+> - `data/minority_2026_populations.csv`, `data/majority_2026_populations.csv` — Commission variance tables
+> - `data/justification_test_inputs.csv` — intermediate inputs written by the script
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the FAIL/PASS verdicts
+> - `findings/README.md` — indexes this finding
+> - `analysis/methodology/reference/minority_rationales_validation.md` — cross-references the test verdicts
+
 # v0.1 Justification Tests — Findings
 
 **Scope.** Test whether the 2026 Alberta Electoral Boundaries Commission minority

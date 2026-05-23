@@ -1,3 +1,12 @@
+> **Backward:**
+> - `data/issue14_feasibility_qgis.gpkg` — the inspection layer this guide drives
+> - `analysis/scripts/score_anchoring.py`, `score_natural_anchoring.py` — produce the anchoring percentages
+> - `preregistration/seed_issue14.md` — pre-commitment record
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — Issue #14 feasibility outcome
+> - (leaf — reviewer-facing manual QGIS inspection guide)
+
 # Issue #14 Feasibility Check — Manual QGIS Inspection
 
 ## Quick Start

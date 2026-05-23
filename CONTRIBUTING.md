@@ -1,3 +1,12 @@
+> **Backward:**
+> - `README.md` — referenced for the Quickstart
+> - `docs/REPRODUCING.md` — referenced for pipeline-reproduction instructions
+> - `analysis/methodology/retraction_pathway.md` — referenced for finding-challenge workflow
+> - `DEPENDENCY_CONVENTION.md` — the dependency-declaration rule contributors must follow
+>
+> **Forward:**
+> - (leaf — contributor-facing guidance; no programmatic consumers)
+
 # Contributing to the Alberta Electoral Boundary Audit
 
 Thank you for your interest in contributing! This project is an open, reproducible forensic audit. We welcome scrutiny, corrections, and new methodological approaches.

@@ -1,3 +1,18 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — full technical monograph this report condenses
+> - `findings/population_equality.md` — population MAD numbers cited
+> - `findings/packing_cracking_findings.md` — partisan-metric numbers cited
+> - `findings/airdrie_overlap_report.md` — Airdrie split narrative
+> - `findings/joint_outlier_score_summary.md` — Mahalanobis joint outlier
+> - `findings/checklist_baseline_scoring.md` — gerrymander checklist source
+> - `analysis/methodology/threshold_provenance.md` — threshold context
+>
+> **Forward:**
+> - `reports/public/report_public.pdf` — print-ready PDF derivative
+> - `README.md` — links to this as the public-audience report
+> - `docs/FINDINGS_BRIEF.md` — even shorter brief derived from same findings
+> - (leaf otherwise — general-audience report, public-facing)
+
 # Two Maps, Then None: Inside Alberta's 2026 Boundary Audit
 
 *A plain-language look at the 2025–26 Electoral Boundary Commission, the math behind the minority map, and what comes next.*

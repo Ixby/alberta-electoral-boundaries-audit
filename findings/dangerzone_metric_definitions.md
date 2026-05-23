@@ -9,6 +9,22 @@ type: project
 >
 > What this file still validly demonstrates: (i) the scorer is deterministic and reproduces *its* substrate's anchoring number to ±0.2 pp; (ii) the methodology transfers across substrates. What this file should **not** be read as: a claim that 71.0% / 14.5% / 75.2% are live numbers — they are DPG-era validation targets only. The hybrid-count axis (the second scoring function) is unaffected by the canonical recomputation and remains a live Lane-2 leg.
 
+> **Backward:**
+> - `analysis/scripts/score_anchoring.py` — companion CLI scorer (municipal-anchoring %)
+> - `analysis/scripts/score_hybridization.py` — companion CLI scorer (hybrid ED count)
+> - `analysis/scripts/municipal_anchoring.py` — headline anchoring methodology source
+> - `analysis/scripts/packing_cracking_analysis.py` — manual MAJORITY/MINORITY mapping reference
+> - `data/shapefiles/reference/alberta_2021_csds.gpkg` — StatsCan 2021 CSD reference layer
+> - `data/shapefiles/derived/v0_2_canonical_majority_2026_eds_topoclean.gpkg`, `data/shapefiles/derived/v0_2_canonical_minority_2026_eds_topoclean.gpkg`
+> - `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
+> - 100,000-plan ReCom ensemble for Nov 2 distribution comparison
+>
+> **Forward:**
+> - November 2 Lunty 91-seat classification — uses both metrics on the new map
+> - `findings/municipal_anchoring_analysis.md` — anchoring leg
+> - `reports/public/report_public.md`, `reports/academic/report_academic.md` — checklist sources
+> - `findings/README.md` — indexes this finding
+
 # Dangerzone metric definitions (Lane-2 substrate-stable axes)
 
 **Pipeline step 1 of 3.** Pre-registers the two axes the November classification framework will use. The Nov 2 Lunty 91-seat map will be scored on both metrics, plotted against the 100,000-plan ReCom ensemble's distribution on the same metrics, and classified by where it lands relative to a pre-registered threshold line drawn before the Nov 2 release.

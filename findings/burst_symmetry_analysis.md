@@ -15,6 +15,18 @@ backward_dependencies:
   - analysis/reports/v0_1_targeted_burst_ndp.log — NDP burst trace
 ---
 
+> **Backward:**
+> - `analysis/scripts/targeted_gerrymander_burst.py` — UCP-maximizing burst
+> - `analysis/scripts/targeted_gerrymander_burst_ndp.py` — NDP-maximizing burst (mirror)
+> - `data/targeted_burst_best.json`, `data/targeted_burst_ndp_best.json` — burst outputs
+> - `data/simulated_ensemble_raw_samples_250k.csv` — neutral 250k v0_9 ensemble
+> - `data/final_real_map_scores.json` — v0_9 real-map seats@50/50 scores
+> - `analysis/reports/v0_1_targeted_burst.log`, `analysis/reports/v0_1_targeted_burst_ndp.log` — burst traces
+>
+> **Forward:**
+> - `reports/public/report_public.md` §"Confirmation from the targeted-procedure test" — verdict source for the table at line 330
+> - `findings/README.md` — indexes this finding
+
 # v0_9 NDP-burst symmetry test — verdict
 
 ## Setup

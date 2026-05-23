@@ -1,3 +1,29 @@
+> **Backward:**
+> - `findings/population_equality.md` — A1 MAD numbers integrated into §5.1
+> - `findings/packing_cracking_findings.md` — partisan-metrics integrated into §5.2
+> - `findings/joint_outlier_score_summary.md` — Mahalanobis Ch1 integrated into §5.4
+> - `findings/intermap_permutation_test_results.md` — Ch1-COMP results integrated into §5.4
+> - `findings/airdrie_overlap_report.md` — Airdrie four-way split integrated into §5.3.2
+> - `findings/cycle_lag_analysis.md` — direction-of-travel narrative in §5.4.10
+> - `findings/chen_rodden_decomposition.md` — partisan-geography decomposition
+> - `findings/methods_paper_draft.md` — companion methodology paper
+> - `analysis/methodology/retraction_pathway.md` — named retraction conditions per finding
+> - `analysis/methodology/null_hypothesis_and_exoneration_criteria.md` — pass thresholds
+> - `analysis/methodology/threshold_provenance.md` — threshold derivations cited throughout
+> - `preregistration/null_hypotheses.md` — pre-committed null hypotheses
+> - `preregistration/thresholds.md` — pre-registered threshold compendium
+> - `preregistration/seed_commitments.md` — drand-pinned random seeds
+> - `docs/FROZEN_MANIFEST.md` — pinned external sources
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — 1M-plan canonical ensemble
+> - `analysis/scripts/packing_cracking_analysis.py` — Phase 4C partisan-metric script
+>
+> **Forward:**
+> - `reports/academic/report_academic.pdf` — print-ready PDF derivative
+> - `reports/public/report_public.md` — plain-language summary derived from this
+> - `docs/FINDINGS_BRIEF.md` — one-page brief condensed from this
+> - `README.md` — repository overview that cites this as the technical monograph
+> - (leaf otherwise — primary monograph, reviewer-facing and external-citation surface)
+
 # Alberta Electoral Boundaries Audit — Comprehensive Forensic Audit Monograph
 
 **A symmetric, reproducible forensic assessment of the 2025–26 Electoral Boundaries Commission's majority and minority recommendations**

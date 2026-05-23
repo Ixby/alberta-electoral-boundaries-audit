@@ -1,3 +1,13 @@
+> **Backward:**
+> - Commission final report (PDF) — primary source for verbatim data-source disclosures
+> - Alberta Treasury Board OSI July 2024 estimate — cited basis verified
+> - `analysis/reports/plan_b_cross_check.md` — Track K headline finding
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §4.1.3 (provenance framework) — incorporates Track O findings
+> - `docs/act_amendment_proposal.md` — disclosure-language recommendation feeds here
+> - (leaf — provenance trace record)
+
 # v0.1 Commission Source Provenance — Track O
 
 **Purpose.** Trace the provenance of every population figure the 2025-2026

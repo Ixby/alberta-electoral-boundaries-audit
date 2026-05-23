@@ -15,6 +15,19 @@ backward_dependencies:
   - data/advance_vote_sensitivity.json — full output
 ---
 
+> **Backward:**
+> - `analysis/scripts/advance_vote_splat.py` — produces the smeared advance-vote substrate
+> - `analysis/scripts/advance_vote_sensitivity.py` — re-scores v0_9 maps under both substrates
+> - `data/shapefiles/derived/va_polygons_with_2023_votes.gpkg` — Election-Day-only substrate
+> - `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` — full (Election-Day + advance) substrate
+> - `data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg`, `data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg`
+> - `data/advance_vote_sensitivity.json` — full output
+>
+> **Forward:**
+> - `analysis/methodology/methodological_defenses.md` §1.1 — quantified-insignificance line for insertion
+> - `reports/public/report_public.md` — empirical backing for existing caveat language
+> - `findings/README.md` — indexes this finding
+
 # v0_9 advance-vote sensitivity — verdict
 
 ## The attack vector

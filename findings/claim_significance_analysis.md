@@ -1,3 +1,11 @@
+> **Backward:**
+> - `data/submission_search_dataset.csv` — 70 hits across 1,252 submissions
+> - `findings/submission_search_findings.md` — prior keyword-search pass
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the per-configuration verdict table
+> - `findings/README.md` — indexes this finding
+
 # v0_1 — Significance of Public Support for Minority Configurations
 
 **Purpose.** The chair asserted in Appendix C that the dissenting minority's disputed configurations had "no public support" in the written submissions. A prior keyword-search pass (`submission_search_findings.md`) refuted that claim *precisely* on several configurations — at least some supporting submissions exist. This document asks the next question: **was the chair's characterization also *effectively* wrong — i.e., a material misrepresentation of what the public record shows — or merely technically defeated by a handful of outliers?**

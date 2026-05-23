@@ -8,9 +8,17 @@ load these files; it raises CanonicalFileError on mismatch.
 Hashes were recorded on 2026-05-08 against Elections Alberta canonical
 shapefiles (ea_*_2026_eds.gpkg) and the derived VA polygon file.
 
-Forward dependencies: none
-Backward dependencies: szat.py, mcmc_ensemble_canonical.py,
-    joint_outlier_score_canonical.py (all call verify_canonical_files)
+Backward:
+  data/shapefiles/canonical/ea_majority_2026_eds.gpkg     — canonical majority shapefile
+  data/shapefiles/canonical/ea_minority_2026_eds.gpkg     — canonical minority shapefile
+  data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg — derived VA polygons
+  (any other file added to CANONICAL_HASHES below)
+
+Forward:
+  analysis/scripts/szat.py                                — calls verify_canonical_files()
+  analysis/scripts/mcmc_ensemble_canonical.py             — calls verify_canonical_files()
+  analysis/scripts/joint_outlier_score_canonical.py       — calls verify_canonical_files()
+  (any script that loads a canonical file should call verify_canonical_files first)
 """
 from __future__ import annotations
 

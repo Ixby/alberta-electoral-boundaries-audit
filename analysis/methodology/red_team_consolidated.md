@@ -4,6 +4,14 @@ description: Merged record of all 23 red team, peer review, and editorial QA doc
 type: reference
 ---
 
+> **Backward:**
+> - `analysis/review/` — all 23 source red-team / peer-review / editorial QA documents (consolidated here 2026-04-23)
+> - `analysis/review/legal_review_framework.md`, `science_review_framework.md` — frameworks applied
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — final manuscript incorporates resolved findings
+> - (leaf — consolidated red-team record)
+
 # Red Team and Peer Review — Consolidated Record
 
 This file consolidates 23 separate red team, peer review, and editorial QA documents produced during the Alberta Redistricting Audit (2026). Merged 2026-04-23. Source files removed after consolidation.

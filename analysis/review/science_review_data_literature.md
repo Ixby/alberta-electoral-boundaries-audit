@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/review/science_review_framework.md` — S6, S7, S10 dimensions
+> - `reports/academic/report_academic.md` — file audited end-to-end
+> - `data/` artifacts — coverage / integrity checked with pandas + geopandas
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — findings consumed before release sign-off
+> - (leaf — science red-team record)
+
 # Science red-team: S6 prior art, S7 data quality, S10 peer-review readiness
 
 **Scope:** Alberta Electoral Boundaries Audit, `report_academic.md` and supporting data artifacts (as of 2026-04-23).

@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/electoral_forensics_population.py` — A3 §15(2) eligibility test implementation
+> - `findings/terms_of_reference_audit.md` — identified the three threshold errors corrected here
+> - `.temp/commission_report.pdf` — statutory text source (pp. 15–16, 291–292)
+> - `preregistration/terms_of_reference.md` — statutory baseline
+>
+> **Forward:**
+> - `analysis/methodology/szat_methodology.md` — SZAT motivated by §15(2) re-audit findings
+> - `reports/academic/report_academic.md` §2.4, §5.1 — consumes the corrected §15(2) verdicts
+
 # s.15(2) Re-Audit — Alberta 2025-26 EBC (Corrected Thresholds)
 
 **Purpose.** Re-run the five-criterion eligibility test under the *Electoral Boundaries Commission Act, RSA 2000 c. E-3* §15(2) using the correct statutory thresholds, for every electoral division (ED) in either 2026 commission map that the audit previously flagged as invoking §15(2). The prior §2.4 audit (`report_academic.md`) used three threshold errors identified in `findings/terms_of_reference_audit.md`:

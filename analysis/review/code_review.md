@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/scripts/*.py` — Python codebase under hostile review
+> - `analysis/review/legal_review_framework.md`, `science_review_framework.md` — severity language
+>
+> **Forward:**
+> - `analysis/review/code_fixes_deferred.md` — companion fixes log
+> - (leaf — code red-team record)
+
 # Code red team — findings
 
 Hostile review of the Python code under `alberta_audit/analysis/`. Severity labels:

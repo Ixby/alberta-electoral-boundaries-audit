@@ -1,3 +1,22 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — full monograph from which headline findings are summarised
+> - `reports/public/report_public.md` — plain-language report cross-referenced in the deeper-reading list
+> - `docs/FINDINGS_BRIEF.md` — one-page brief linked as the fastest entry point
+> - `findings/population_equality.md` — source of population MAD A1 numbers
+> - `findings/packing_cracking_findings.md` — source of partisan-metric headline values
+> - `findings/intermap_permutation_test_results.md` — source of the Ch1-COMP inter-map test results
+> - `findings/joint_outlier_score_summary.md` — Mahalanobis joint outlier (Ch1) numbers
+> - `findings/airdrie_overlap_report.md` — Airdrie four-way split documentation
+> - `analysis/methodology/retraction_pathway.md` — named retraction conditions referenced throughout
+> - `analysis/methodology/null_hypothesis_and_exoneration_criteria.md` — pre-committed pass thresholds
+> - `analysis/methodology/threshold_provenance.md` — threshold derivations cited (EG, anchoring)
+> - `analysis/methodology/audit_dependency_graph_readme.md` — 234-node DAG referenced in "apparatus" section
+> - `docs/act_amendment_proposal.md` — §12 amendment policy recommendation
+> - `docs/ai_use_recommendations_for_committee.md` — AI-use disciplines for Lunty committee
+>
+> **Forward:**
+> - (leaf — repository landing page; reviewer-facing and external-citation surface)
+
 # Alberta Electoral Boundary Commission 2025–26 — Forensic Audit
 
 *Two recommendations, one commission: measuring the structural distance between them.*

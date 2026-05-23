@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/neighbour_drain_adjacency.py` — original v0_8 test implementation
+> - `analysis/scripts/drain_label_shuffle_null.py` — v2 null-distribution implementation
+> - `findings/drain_label_shuffle_null.md` — companion result write-up
+>
+> **Forward:**
+> - `analysis/scripts/neighbour_drain_adjacency.py` — successor implementations consume this design
+> - `reports/academic/report_academic.md` §5.3.5 — incorporates the neighbour-drain test result
+
 # Drain Metric v2 — Improvement Plan
 
 *Document status: pre-registered design*  

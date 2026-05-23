@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — this README indexes the directory; no data inputs)
+>
+> **Forward:**
+> - (leaf — reviewer-facing index of `analysis/methodology/reference/`)
+
 Reference materials supporting specific methodological claims and boundary judgments.
 
 | File | Description |

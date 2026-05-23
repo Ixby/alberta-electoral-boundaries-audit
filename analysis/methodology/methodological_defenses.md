@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/advance_vote_splat.py` — empirical refutation of the advance-vote attack (Part 1.1)
+> - `analysis/scripts/va_attribution_area_weighted.py` — empirical refutation of the centroid fallacy (Part 1.2)
+> - `analysis/scripts/mcmc_ensemble.py`, `mcmc_ensemble_canonical.py` — MCMC baseline whose defenses are catalogued (Part 2)
+> - `findings/advance_vote_sensitivity.md`, `findings/maup_centroid_sensitivity.md` — sensitivity outputs cited
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.4, §6 — incorporates defense arguments
+> - `analysis/methodology/test_selection_rationale.md` — cross-references defended tests
+> - (leaf — reviewer-facing adversarial appendix)
+
 # Methodological Defenses & Limitations (Adversarial Appendix)
 
 ## Purpose

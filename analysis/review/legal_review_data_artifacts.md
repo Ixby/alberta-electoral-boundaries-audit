@@ -1,3 +1,12 @@
+> **Backward:**
+> - `data/` — 88 artifacts reviewed
+> - `FROZEN_MANIFEST.md`, `data/data_acquisition_manifest.md`, `data/alberta_shapefiles_README.md`, `analysis/methodology/data_preparation.md` — reference manifests
+> - `analysis/review/legal_review_framework.md` — D5 dimension applied
+>
+> **Forward:**
+> - `FROZEN_MANIFEST.md` — updates triggered by HIGH findings
+> - (leaf — data-artifact legal-defensibility audit)
+
 # Legal red-team findings — `data/` artifact provenance
 
 **Framework:** `analysis/red_team/legal_red_team_framework.md` Dimension **D5** (Data provenance).

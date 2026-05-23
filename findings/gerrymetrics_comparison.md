@@ -1,3 +1,12 @@
+> **Backward:**
+> - audit's own EG / mean-median / declination / partisan-bias implementation
+> - external `gerrymetrics` library run on the same inputs
+> - 2019 enacted, majority 2026, and minority 2026 vote-attributed inputs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the cross-validation match
+> - `findings/README.md` — indexes this finding
+
 # gerrymetrics Cross-Validation & EG Variant Family
 
 All metrics computed with equal-turnout assumption. Sign convention: **positive = UCP-favoured** throughout.

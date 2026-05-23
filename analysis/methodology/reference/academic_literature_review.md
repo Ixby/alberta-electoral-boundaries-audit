@@ -1,3 +1,12 @@
+> **Backward:**
+> - Published academic literature (Stephanopoulos & McGhee, McDonald & Best, Warrington, Chen & Rodden, Gelman & King, etc.)
+> - `analysis/methodology/reference/citation_verification.md` — verification companion
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — bibliography and §B framing draws from this review
+> - `analysis/methodology/szat_methodology.md` §9 — cites this review
+> - (leaf — literature reference)
+
 # Academic Literature Review and Gaps
 
 **Purpose.** Identify academic work on electoral redistricting, partisan bias measurement, and Canadian boundary commissions that this audit has overlooked or failed to incorporate. Flag what should be read, what should be cited, and what should be implemented if feasible with FOSS and public data.

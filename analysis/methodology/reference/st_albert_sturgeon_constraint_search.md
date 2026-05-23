@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/methodology/reference/minority_rationales_inventory.md` — R1–R18 inventory (no R-entry for St. Albert-Sturgeon)
+> - `analysis/methodology/reference/school_division_coherence.md` — St. Albert subsection
+> - `data/mcmc_checkpoints_250k_v0_8/` — MCMC ensemble for counterfactual querying
+> - `reports/public/report_public.md` line 201 — public-report claim audited
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.9 — Claim 7 verdict
+> - (leaf — reference check on a specific public-report claim)
+
 # v0.1 St. Albert-Sturgeon — Counterfactual Non-Existence Constraint-Search Check
 
 **Date:** 2026-04-26

@@ -11,6 +11,16 @@ backward_dependencies:
   - analysis/v0_1_fortification_a1_a5.md §A1 — the CI-crosses-zero concern this track was to address
 ---
 
+> **Backward:**
+> - `data/alberta_byelections_2019_2026.csv` — byelection vote data acquired in Phase 1
+> - `analysis/scripts/monte_carlo_ci.py` — RT3 framework this assessment tests against
+> - `analysis/scripts/cross_election_rural_baseline.py` — 2015/2019/2023 rural baseline
+> - `analysis/v0_1_fortification_a1_a5.md` §A1 — the CI-crosses-zero concern this track was to address
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §3.5 — cross-election footnote (proposed insertion)
+> - `findings/README.md` — indexes this finding
+
 # Byelection assessment
 
 ## Phase 1 — What was acquired

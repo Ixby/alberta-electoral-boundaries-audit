@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/scripts/electoral_forensics_population.py` — A2 zone-gap test whose vintage is audited here
+> - 2021 Federal Census, Calgary Open Data Portal (Socrata `e7ib-v9n4`, `jd78-wxjp`, `k4pr-cznc`) — external data sources surveyed
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.1 — informs the A2 robustness discussion
+> - (leaf — methodology rationale documenting data-vintage constraints)
+
 # v0.1 Calgary Data Sources Audit — post-2021, sub-city
 
 **Question:** Track L's A2 zone-gap finding (Calgary minority: +12.20% NE/central-vs-S/W; majority: +0.36%) uses 2021 Census dissemination-area populations. Does any publicly-available Calgary dataset newer than the 2021 Census exist at ward, community, or other sub-CMA geography that could be used to re-run A2 at a fresher vintage? Track L's verdict was "blocked: Calgary cancelled its civic census in 2020." This audit verifies that claim.

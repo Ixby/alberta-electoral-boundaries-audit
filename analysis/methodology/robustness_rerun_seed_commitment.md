@@ -4,6 +4,16 @@ description: Pre-committed seeds for all secondary robustness ensemble runs. The
 type: methodology
 ---
 
+> **Backward:**
+> - `analysis/scripts/drand_seed.py` — derives the salted seeds committed here
+> - `preregistration/seed_robustness_rerun.md` — pre-commitment record
+> - drand League of Entropy beacon round 5500000 — source of public randomness
+>
+> **Forward:**
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — runs use these committed seeds
+> - `reports/academic/report_academic.md` §5.4.9 — cites robustness rerun central-tendency checks
+> - (leaf — seed commitment ledger)
+
 # Robustness rerun seed commitments
 
 Secondary ensemble runs use the same drand beacon round (5500000) as the canonical run but derive seeds from distinct salts. This preserves the impartiality guarantee (seeds anchored to a public, verifiable randomness source) while producing statistically independent random walks.

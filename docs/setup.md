@@ -1,3 +1,11 @@
+> **Backward:**
+> - `requirements.txt` — pinned library layer this file complements
+> - `docs/FROZEN_MANIFEST.md` — external-URL pin layer this file complements
+>
+> **Forward:**
+> - `docs/REPRODUCING.md` — references this file for interpreter pin
+> - (leaf otherwise — environment-setup documentation)
+
 # Setup — pinned interpreter and build environment
 
 This file pins the Python interpreter and OS environment used to produce

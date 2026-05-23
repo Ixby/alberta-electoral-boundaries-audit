@@ -1,3 +1,14 @@
+> **Backward:**
+> - `.temp/commission_report.pdf` — EBC Final Report (March 2026)
+> - EBCA RSA 2000 c E-3 §15 statutory text
+> - `findings/terms_of_reference_audit.md` — terms-of-reference baseline
+> - `analysis/methodology/s15_2_reaudit.md` — re-audited §15(2) thresholds
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.1.5 and §5.3.4 — incorporates the selective-application finding
+> - `findings/lesser_slave_lake_va043_representation_gap.md` — cross-references the LSL/RMH differential treatment
+> - `findings/README.md` — indexes this finding
+
 # Finding: §15(2) EBCA — Selective Application Between Majority and Minority Maps
 
 **Status:** SUPPORTED — primary source evidence (EBC Final Report, March 2026)

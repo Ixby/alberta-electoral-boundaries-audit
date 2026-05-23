@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/joint_outlier_score_canonical.py` — Fisher combination implementation producing T = 39.02
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — Ch1 Mahalanobis input (1M-plan ensemble)
+> - `analysis/scripts/szat.py` — Ch2 SZAT bootstrap input
+> - `analysis/methodology/fisher_independence_defense.md` — independence assumption (AV5)
+> - `preregistration/seed_commitments.md` — OSF qsgy8, r3zm7 pre-registrations
+>
+> **Forward:**
+> - `findings/joint_outlier_score_summary.md` — narrative summary of the combined result
+> - `reports/academic/report_academic.md` §5.5 — incorporates Fisher T and combined p
+
 # Fisher Combination Defense
 
 **Purpose:** Exhaustive anticipation of reviewer objections to the Fisher combination of

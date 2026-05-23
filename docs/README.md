@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — index/README for the docs/ directory)
+>
+> **Forward:**
+> - (leaf — directory index; reviewer-facing navigation)
+
 Project-level documentation and operational records.
 
 | File | Description |

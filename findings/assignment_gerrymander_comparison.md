@@ -3,6 +3,16 @@ name: Phase 4C vs v0.2 comparison
 description: Compares VA-resolution measured results against the v0.2 proportional-estimate (70/30 blend) approach. Documents what Phase 4C resolves, what it cannot, and why the results differ from v0.2.
 ---
 
+> **Backward:**
+> - `analysis/scripts/packing_cracking_analysis.py` — produces the partisan metrics under both substrates
+> - `analysis/scripts/mcmc_ensemble.py` — declination sign convention reference
+> - `analysis/methodology/canonical_shapefile_methodology.md` §6.8.4 — urban-weight derivation
+> - Phase 4C VA-resolution and v0.2 proportional-estimate inputs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the Phase 4C vs v0.2 comparison
+> - `findings/README.md` — indexes this finding
+
 # Phase 4C vs v0.2 gerrymander-metric comparison
 
 *Declination sign convention: positive = pro-UCP (Warrington 2018, matching

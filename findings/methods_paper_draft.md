@@ -4,6 +4,15 @@ description: Standalone methodology paper companion to the Alberta 2025-26 audit
 type: reports
 ---
 
+> **Backward:**
+> - `reports/academic/report_academic.md` — companion empirical paper this methods paper distils
+> - Alberta 2025-26 audit DPG pipeline (topology cleanup, anchoring, sweep, MAUP comparisons)
+> - MGGG / Chen-Rodden 2013 / Stephanopoulos-McGhee 2015 — prior-art context
+>
+> **Forward:**
+> - (leaf — standalone methods-paper draft; targeted at arXiv / Political Analysis / JORS / PS)
+> - `findings/README.md` — indexes this finding
+
 # Derived Provisional Geometries for Electoral Audits: Honest-Bounded Inference When Official Shapefiles Are Unavailable
 
 **Author:** Will Conner, Mount Royal University (BSc Computer Information Systems, 4th year).

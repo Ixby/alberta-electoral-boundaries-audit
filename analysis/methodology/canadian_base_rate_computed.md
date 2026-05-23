@@ -12,6 +12,15 @@ backward_dependencies:
   - data/338canada_reallocated_majority.csv, data/338canada_reallocated_minority.csv (audit's Alberta 2025-26 anchor)
 ---
 
+> **Backward:**
+> - `analysis/scripts/canadian_base_rate_compute.py` — original n=7 base-rate computation
+> - `analysis/scripts/packing_cracking_analysis.py` — EG formula used in the audit
+> - `data/338canada_reallocated_majority.csv`, `data/338canada_reallocated_minority.csv` — Alberta 2025-26 anchor data
+>
+> **Forward:**
+> - `data/canadian_redistribution_base_rate.csv` — updated comparator distribution
+> - `reports/academic/report_academic.md` §3.3, §5.2.1 — consumes the §7A recalibration
+
 # Canadian inter-map EG asymmetry base rate — Track V
 
 ## 1. The base-rate gap this file closes

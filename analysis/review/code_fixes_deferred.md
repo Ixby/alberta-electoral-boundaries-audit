@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/review/code_review.md` — original findings whose fixes are logged here
+> - `analysis/scripts/*.py` — scripts patched
+>
+> **Forward:**
+> - `reports/academic/report_academic.md`, `reports/public/report_public.md` — drift flagged for parent review
+> - (leaf — fixes log / code-fix record)
+
 # Code red team — fixes log
 
 Companion to `analysis/red_team/red_team_code.md`. Each section below cites

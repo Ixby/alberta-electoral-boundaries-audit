@@ -4,6 +4,14 @@ description: Step-by-step instructions for cross-validating the Alberta Electora
 type: methodology
 ---
 
+> **Backward:**
+> - `analysis/scripts/redist_crossvalidation.R` — the R cross-validation script Phase 1 walks through
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — Python ensemble the R run is cross-validated against
+> - `reports/academic/report_academic.md` §5.4.9 — the headline finding being cross-validated
+>
+> **Forward:**
+> - (leaf — reviewer-facing instructional document; no programmatic consumers)
+
 # External-tool validation plan
 
 This document walks through cross-validating the audit using three tools the university has access to. The plan is sequenced from highest-value to optional polish:

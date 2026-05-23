@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/methodology/reference/minority_rationales_inventory.md` — R3, R4, R14, R18 inventory entries
+> - `reports/public/report_public.md` line 199 — the public-report claim audited
+> - Statistics Canada 2021 Census Profile (98-10-0019 series) — demographic source
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.9 — Claim 6 evaluation
+> - `findings/airdrie_highway_pretext.md` — companion Airdrie finding
+> - (leaf — reference check on a specific public-report claim)
+
 # v0.1 Airdrie Four-Quadrant Demographic Comparison Check
 
 **Date:** 2026-04-26

@@ -1,3 +1,15 @@
+> **Backward:**
+> - `analysis/scripts/338canada_scraper.py` — per-riding scraper
+> - `analysis/scripts/338canada_reallocate.py` — reallocation through hybrid crosswalks
+> - https://338canada.com/alberta/NNNNe.htm — primary per-riding source
+> - `data/alberta_2023_results.csv` — B1 cross-validation input
+>
+> **Forward:**
+> - `data/338canada_per_riding_87seat.csv`, `data/338canada_reallocated_majority.csv`, `data/338canada_reallocated_minority.csv` — outputs consumed downstream
+> - `analysis/methodology/canadian_base_rate_computed.md` — Alberta anchor data
+> - `reports/academic/report_academic.md` §5.2 — cross-validates B1-B4
+> - (leaf — reference data pull record)
+
 # 338Canada riding-level pull and cross-validation (Track J)
 
 **Date accessed:** 2026-04-22

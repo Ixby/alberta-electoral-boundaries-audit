@@ -11,6 +11,15 @@ type: project
 >
 > **What the pre-canonical sections show but no longer support:** the DPG-era v0_9 minority value (0.4831) and the apparent ReCom-vs-SMC disagreement (98.6 vs ~28%) were driven by the now-superseded DPG substrate, not by a sampler discrepancy. The DPG-era municipal-anchoring numbers cited inline (minority 14.5%, majority 71%) were retracted on canonical recomputation (canonical anchoring: majority 80.0%, minority 72.0%, both within the 70–85% Canadian comparator norm; see README and `findings/methods_paper_draft.md`). Pre-canonical inline numbers below are kept for trail-of-work transparency, not as live claims.
 
+> **Backward:**
+> - `analysis/scripts/redist_crossvalidation.R` — R SMC sampler run
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — Python ReCom canonical ensemble run
+> - canonical 2023 VA adjacency graph (4,765 nodes / 13,385 edges)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the cross-validation finding
+> - `findings/README.md` — indexes this finding
+
 # R vs Python cross-validation — 2026-04-26 / 27 (pre-canonical), 2026-05-18 (canonical re-run)
 
 ## Why this matters

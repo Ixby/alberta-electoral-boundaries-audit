@@ -1,3 +1,12 @@
+> **Backward:**
+> - `reports/public/report_public.md` — file audited
+> - `analysis/review/legal_review_framework.md` — D2 dimension applied
+> - Commission PDF, Hansard PDFs (docs.assembly.ab.ca), Globe & Mail op-ed, Wesley Substack, rabble.ca — primary sources
+>
+> **Forward:**
+> - `reports/public/report_public.md` — quote corrections applied
+> - (leaf — byte-level quote verification record)
+
 # Quote verification log — `report_public.md`
 
 **Standard:** byte-level verbatim match against primary source.

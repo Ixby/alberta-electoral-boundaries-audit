@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/review/peer_review_methods.md` — Reviewer #1 input
+> - `analysis/review/peer_review_legal.md` — Reviewer #2 input
+> - `analysis/review/peer_review_canadian.md` — Reviewer #3 input
+> - `reports/academic/report_academic.md` — manuscript under synthesis
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — major-revision edits applied per synthesis
+> - (leaf — editor's synthesis of peer reviews)
+
 # Editor's Synthesis — Peer Reviews of `report_academic.md`
 
 **Manuscript:** *Alberta Electoral Boundaries Audit — Academic and Legal Edition* (v0.1 draft, 2026-04-23).

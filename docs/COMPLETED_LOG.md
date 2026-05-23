@@ -1,3 +1,10 @@
+> **Backward:**
+> - `TODO.md` — items migrate here as they complete
+> - `analysis/methodology/editorial_pass_log.md` — granular per-item editorial records
+>
+> **Forward:**
+> - (leaf — project-management archive; consumed by contributors only)
+
 # Alberta Audit — Completed Work Log
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)

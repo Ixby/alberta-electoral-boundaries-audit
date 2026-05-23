@@ -4,6 +4,14 @@ description: Complete dated chain of all amendments to the audit's pre-registere
 type: project
 ---
 
+> **Backward:**
+> - `analysis/reports/pre_registration_draft.md` — the document being amended
+> - `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md` and the other dated amendment files merged here
+>
+> **Forward:**
+> - `findings/README.md` — indexes this finding
+> - (leaf — consolidated amendment record; reviewer-facing)
+
 # Pre-registration amendment log
 
 **Registration:** Pre-registered signature-detection checklist for the Alberta MLA Special Select Committee's electoral boundary map.  

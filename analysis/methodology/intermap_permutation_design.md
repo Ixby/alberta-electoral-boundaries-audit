@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/intermap_permutation_test.py` — produces the test result
+> - `analysis/scripts/drand_seed.py` — derives the pre-committed seed from the drand beacon
+> - `preregistration/seed_commitments.md` — OSF yvc7g pre-registration record
+> - `data/shapefiles/canonical/` — official EA shapefiles (input substrate)
+>
+> **Forward:**
+> - `findings/intermap_permutation_test_results.md` — companion result write-up
+> - `reports/academic/report_academic.md` §5.2 (B7) — incorporates Ch1-COMP into the test battery
+
 # Ch1-COMP: Inter-Map Comparison Permutation Test
 
 **Purpose:** Full documentation of the inter-map partisan-bias comparison test —

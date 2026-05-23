@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/methodology/reference/minority_rationales_validation.md` — Track I parent (R5, R11 explicit tests)
+> - `data/minority_2026_populations.csv` — `region_type` column identifies hybrids
+> - Alberta Education school-authority maps and directory (https://www.alberta.ca/alberta-school-division-maps)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.9 — informs school-coherence framing
+> - `findings/justification_tests_findings.md` — companion population-math closure
+> - (leaf — reference check across all minority hybrids)
+
 # v0.1 School-Division Coherence of the Minority 2026 Hybrid Configurations
 
 ## Purpose

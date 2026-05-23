@@ -12,6 +12,18 @@ backward_dependencies:
   - data/v0_1_mcmc_*.csv, data/simulation_convergence_diagnostics_100k.json, data/canadian_redistribution_base_rate.csv
 ---
 
+> **Backward:**
+> - `analysis/review/science_review_framework.md` — S1–S10 dimensions
+> - `analysis/review/legal_review_framework.md` — shared severity language
+> - `reports/academic/report_academic.md`, `analysis/methodology/mcmc_ensemble.md`, `analysis/methodology/canadian_base_rate_computed.md` — files audited
+> - `data/v0_1_mcmc_*.csv`, `data/simulation_convergence_diagnostics_100k.json`, `data/canadian_redistribution_base_rate.csv` — data evidence
+>
+> **Forward:**
+> - `analysis/review/science_review_reproducibility.md` (S3, S4, S5, S8) — sibling pass
+> - `analysis/review/science_review_data_literature.md` (S6, S7, S10) — sibling pass
+> - `reports/academic/report_academic.md` — findings consumed before release sign-off
+> - (leaf — science red-team record)
+
 # Science red-team — design, statistics, and claim calibration
 
 **Date:** 2026-04-23

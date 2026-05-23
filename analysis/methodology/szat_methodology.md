@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/szat.py` — primary SZAT implementation
+> - `analysis/scripts/szat_2019_baseline.py`, `szat_validate.py` — baseline and validation runs
+> - `analysis/methodology/population_deviation_reaudit.md` — §15(2) re-audit that motivated SZAT
+> - `preregistration/seed_commitments.md` — AsPredicted #289,469 pre-registration anchor
+>
+> **Forward:**
+> - `analysis/methodology/fisher_combination_defense.md` — consumes SZAT Ch2 p = 0.0024
+> - `analysis/methodology/test_selection_rationale.md` — places SZAT in the test battery
+> - `reports/academic/report_academic.md` §5.2.10 — incorporates SZAT finding
+
 # Swing-Zone Allocation Test (SZAT) — Methodology and Pre-Registration
 
 *Consolidation of `szat_proposal.md` (design and method) and

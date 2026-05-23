@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/scripts/submission_search.py` — produces this log
+> - `analysis/scripts/submission_ocr.py`, `submission_ocr_analyze.py`, `submission_ocr_recovery.py` — downstream OCR pipeline
+> - EBC2025 submission PDFs (Elections Alberta public release)
+>
+> **Forward:**
+> - (leaf — run log / provenance record for the submission corpus ingestion)
+
 # submission_search log
 
 [download] OK  6,328,532 EBC2025Submissions1-50ForPosting.pdf

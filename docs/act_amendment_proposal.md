@@ -19,6 +19,17 @@ backward_dependencies:
   - Courtney, J. C., Commissioned Ridings (McGill-Queen's, 2001)
 ---
 
+> **Backward:**
+> - `findings/cycle_lag_analysis.md` — Track L cycle-lag quantification that motivates the reform
+> - `analysis/reports/plan_b_cross_check.md` — Track K empirical anchor that §12(3) is overridden in practice
+> - `docs/ai_use_recommendations_for_committee.md` — methodology-level sibling proposal
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5 Recommendations — incorporates this proposal
+> - `reports/public/report_public.md` — narrative consumer of the policy proposal
+> - `README.md` — links to this document under Forward-looking recommendations
+> - (leaf otherwise — public policy reform proposal, reviewer-facing)
+
 # A proposal to amend §12 of the Alberta Electoral Boundaries Commission Act
 
 **Scope.** The *Electoral Boundaries Commission Act*, RSA 2000 c E-3 §12

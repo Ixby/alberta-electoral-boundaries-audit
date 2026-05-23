@@ -24,6 +24,18 @@ backward_dependencies:
   - docs/act_amendment_proposal.md (reform-proposal thresholds)
 ---
 
+> **Backward:**
+> - `analysis/scripts/electoral_forensics_population.py` — A1/A2/A3 threshold consumers
+> - `analysis/scripts/packing_cracking_analysis.py` — B-series threshold consumers
+> - `analysis/scripts/monte_carlo_ci.py` — MC sampling-range thresholds
+> - `analysis/methodology/threshold_provenance.md` — the canonical threshold derivation document
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §1.1, §2, §3, §5.2.8 — integrity gates and threshold citations
+> - `reports/public/report_public.md` — plain-language surfacing of thresholds
+> - `findings/checklist_baseline_scoring.md` — scoring tied to these thresholds
+> - (terminal — pre-registration record; reviewer-facing)
+
 # Threshold provenance compendium
 
 **Purpose.** Every numeric threshold that functions as a gate, criterion, or cutoff anywhere in the audit is catalogued here with its provenance (statute, literature, first principles, or modelling convention), a short defence paragraph, and — for load-bearing thresholds — an explicit ±20 % sensitivity check. The compendium is designed to answer a hostile reviewer who asks "why this number, and not a different number?" without waving at an external authority that does not actually support the choice.

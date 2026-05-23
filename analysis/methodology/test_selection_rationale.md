@@ -4,6 +4,15 @@ description: A methodological reflection on the audit's test battery. Answers: w
 type: methodology
 ---
 
+> **Backward:**
+> - `analysis/scripts/electoral_forensics_population.py`, `packing_cracking_analysis.py`, `mcmc_ensemble.py`, `mcmc_ensemble_canonical.py`, `szat.py`, `intermap_permutation_test.py`, `neighbour_drain_adjacency.py` — the test battery implementations indexed here
+> - `analysis/methodology/methodological_defenses.md` — defenses each test addresses
+> - `analysis/methodology/threshold_provenance.md` — thresholds referenced per test
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §2, §4, §5, §6 — material indexed and reorganised here
+> - (leaf — methodology rationale for reviewers)
+
 # Test selection rationale — why these tests, not others
 
 **Purpose.** This file is a methodological reflection on the audit's test battery. It is written for reviewers asking why the audit chose the specific tests it ran rather than others, how those choices defend against standard criticisms, what improvements have already landed in response to red-team feedback, and what combined or novel tests could strengthen future work. It is NOT a new empirical result; it reorganises material that is scattered across §§2, 4, 5, 6 of the monograph and the analysis/red_team/ subfolder.

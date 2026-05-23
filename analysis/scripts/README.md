@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — this README indexes the directory; no data inputs)
+>
+> **Forward:**
+> - (leaf — reviewer-facing index of `analysis/scripts/`)
+
 Python scripts that run every stage of the Alberta electoral boundary audit, from shape construction through statistical analysis to publication output.
 
 ## Key analysis scripts

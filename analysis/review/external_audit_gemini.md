@@ -4,6 +4,15 @@ description: Independent code audit performed by Gemini against the external-cod
 type: methodology
 ---
 
+> **Backward:**
+> - `analysis/methodology/reference/external_code_audit_scope.md` — brief that scoped this audit
+> - `analysis/scripts/mcmc_ensemble_250k_v0_8.py` and other scripts — codebase audited
+>
+> **Forward:**
+> - `analysis/review/external_audit_meridian.md` — second-pass audit built on these fixes
+> - `analysis/review/code_fixes_deferred.md` — fixes triaged from this audit
+> - (leaf — external code-audit record)
+
 # External code-audit findings — Gemini, 2026-04-26
 
 Audit performed using the brief at `external_code_audit_brief.md`. Gemini's response provided in two passes (initial pass blocked on code access; second pass after code was supplied directly produced 4 findings: 2 critical, 1 high, 1 medium).

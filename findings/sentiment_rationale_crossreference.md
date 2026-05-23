@@ -1,3 +1,12 @@
+> **Backward:**
+> - `data/outputs/sentiment_intensity_scores.csv` — per-submission LLM sentiment scores (920 rows)
+> - `data/outputs/intensity_summary_table.csv` — aggregated sentiment by configuration
+> - `analysis/methodology/minority_rationales_validation.md` — R1–R11 rationale verdicts
+>
+> **Forward:**
+> - `findings/README.md` — indexes this finding
+> - (leaf — narrative cross-reference; no programmatic consumers)
+
 # Sentiment Analysis × Minority Rationales Cross-Reference
 
 **Purpose:** Compare public submission sentiment (LLM-scored, 920 rows) against the minority commission's stated justifications and their validation verdicts. Tests whether configurations with stronger rationale support received stronger public support.

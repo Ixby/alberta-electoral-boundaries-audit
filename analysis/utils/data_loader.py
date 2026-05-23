@@ -4,6 +4,15 @@ Centralized Data Loader Utility
 Handles loading configuration from config.yaml, reading shapefiles via GeoPandas,
 standardizing Coordinate Reference Systems (CRS), and providing a unified interface
 for all analytical scripts to access data.
+
+Backward:
+  config.yaml                                              — central config
+  (paths it returns resolve to data/, data/shapefiles/, etc. — depends on caller)
+
+Forward:
+  (broad utility import across analysis/scripts/*.py — any script that resolves
+   data paths or loads shapefiles. Concrete importers found by
+   `grep -rln "from .*data_loader import\|data_loader\." analysis/scripts/`.)
 """
 
 import yaml

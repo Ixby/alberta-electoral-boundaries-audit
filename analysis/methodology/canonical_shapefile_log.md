@@ -4,6 +4,15 @@ description: Provenance of official Elections Alberta shapefiles, EA GIS corresp
 type: reference
 ---
 
+> **Backward:**
+> - Elections Alberta GIS (Raymond Mok, 2026-05-06) — source of canonical shapefiles
+> - `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`, `ea_minority_2026_eds.gpkg`, `va_2023_election_day_votes.gpkg` — files documented here
+> - `data/provenance_manifest.json` — provenance manifest
+>
+> **Forward:**
+> - `analysis/scripts/mcmc_ensemble_canonical.py`, `joint_outlier_score_canonical.py`, `szat.py` — consume canonical shapefiles
+> - `reports/academic/report_academic.md` §4.1.4, §7 (Acknowledgments) — cites EA GIS correspondence and shapefile receipt
+
 # Canonical Shapefile Log
 
 ## 1. Shapefile receipt

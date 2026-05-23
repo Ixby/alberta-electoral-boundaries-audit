@@ -6,6 +6,16 @@ osf_id: 2gue9
 osf_url: https://osf.io/2gue9
 ---
 
+> **Backward:**
+> - `preregistration/thresholds.md` — threshold compendium these pass criteria reference
+> - OSF 2gue9 — public pre-registration of these criteria
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §§5.1–5.4 — each finding cross-references its pass criterion
+> - `analysis/methodology/null_hypothesis_and_exoneration_criteria.md` — operational counterpart
+> - `preregistration/retraction_conditions.md` — paired retraction conditions
+> - (terminal — pre-registration record; reviewer-facing pre-commitment)
+
 # Null hypotheses and pass criteria — pre-commitment register
 
 **Date of pre-commitment:** 2026-04-24 (Algorithmic lock-in and November baseline)

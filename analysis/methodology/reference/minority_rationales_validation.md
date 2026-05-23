@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/methodology/reference/minority_rationales_inventory.md` — R1–R18 inventory
+> - `findings/justification_tests_findings.md` — Phase 1 population/area math closure
+> - StatsCan 2021 Census Journey-to-Work (98-10-0459) — primary source
+>
+> **Forward:**
+> - `analysis/methodology/reference/school_division_coherence.md` — widened school-coherence check building on this
+> - `reports/academic/report_academic.md` §5.9 — incorporates per-rationale verdicts
+> - (leaf — reference validation of minority rationales)
+
 # v0.1 Minority Rationales — Phase 2 Validation + Phase 3 Synthesis
 
 Rationales are tested against the most authoritative public dataset for each type. Verdict keys:

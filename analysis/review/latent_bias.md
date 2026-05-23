@@ -1,3 +1,10 @@
+> **Backward:**
+> - `reports/public/report_public.md` (395 lines, 2026-04-23) — the file under review
+>
+> **Forward:**
+> - `reports/public/report_public.md` — edits applied in response to bias findings
+> - (leaf — latent-bias red-team record)
+
 # Latent-bias red team — findings
 
 Scope: `report_public.md` (395 lines, final state 2026-04-23). Read against 15-point latent-bias checklist. This pass looks for bias the author's overt prior declaration does not cover — places where language, framing, selection, voice, or silent assumption tilts sharper than the evidence.

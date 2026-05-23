@@ -1,3 +1,15 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — full monograph this brief condenses
+> - `reports/public/report_public.md` — plain-language narrative this brief further condenses
+> - `findings/population_equality.md` — source of Finding 1 (A1) numbers
+> - `findings/packing_cracking_findings.md` — source of seat-gap numbers
+> - `findings/airdrie_overlap_report.md` — Airdrie four-way split data
+>
+> **Forward:**
+> - `README.md` — links to this as the "fastest entry point"
+> - `docs/FINDINGS_BRIEF.html` — print-ready HTML version
+> - (leaf otherwise — reviewer-facing one-page brief)
+
 # Alberta's Two Electoral Maps: A Summary of Findings
 
 **May 2026**

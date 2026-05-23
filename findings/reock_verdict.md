@@ -4,6 +4,15 @@ description: Reock compactness per district for both 2026 maps. Contains results
 type: project
 ---
 
+> **Backward:**
+> - `analysis/scripts/reock.py` — companion compactness script
+> - `data/ea_minority_2026_eds.gpkg`, `data/ea_majority_2026_eds.gpkg` — canonical Elections Alberta shapefiles
+> - `data/reock_per_district.csv` — per-ED Reock outputs (178 rows)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the canonical Reock results
+> - `findings/README.md` — indexes this finding
+
 # Reock verdict
 
 ## Canonical EA shapefiles (authoritative, 2026-05-18)

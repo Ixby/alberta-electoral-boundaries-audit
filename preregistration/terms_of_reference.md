@@ -1,3 +1,11 @@
+> **Backward:**
+> - `.temp/commission_report.pdf` — 2026 EBC final report this verbatim-extracts from
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — references the commission's own mandate language
+> - `findings/justification_tests_findings.md` — uses these quotes for justification-test scoring
+> - (terminal — pre-registration record; reviewer-facing reference document)
+
 # Terms of Reference / Mandate — Verbatim Extract from Alberta 2025-26 EBC Final Report
 
 > **Pre-registration:** [OSF w2s8k](https://osf.io/w2s8k) (primary audit registration)

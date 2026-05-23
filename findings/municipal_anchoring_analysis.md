@@ -9,6 +9,20 @@ type: reports
 >
 > The numbers in this file are kept as a complete record of the DPG-era analysis. They are **not** live claims. The current Lane-2 case rests on the legs that *did* survive the canonical recomputation: urban hybridization, Airdrie city-splitting, and the chair-flagged cartographic anomalies in the majority report's response text.
 
+> **Backward:**
+> - `analysis/scripts/municipal_anchoring.py` — companion script
+> - `analysis/scripts/municipal_anchoring_2019_baseline.py` — 2019 baseline companion
+> - v0_2 topology-clean canonical DPG shapefiles (input)
+> - Statistics Canada 2021 CSD boundaries (423 Alberta CSDs)
+>
+> **Forward:**
+> - `data/v0_4_canonical_majority_2026_eds_anchored.gpkg`, `data/v0_4_canonical_minority_2026_eds_anchored.gpkg` — produced GPKGs
+> - `findings/municipal_anchoring_log.csv`, `data/v0_1_municipal_anchoring_summary.json` — produced logs
+> - `findings/da_anchoring_analysis.md` — extends with DA-edge anchoring
+> - `findings/dangerzone_metric_definitions.md` — uses the methodology for Lane-2 scoring
+> - `reports/academic/report_academic.md` — incorporates the (now-retracted) DPG-era headline
+> - `findings/README.md` — indexes this finding
+
 # Municipal-boundary anchoring analysis (Precision Option C, Issue #4)
 
 **Companion script:** `analysis/scripts/municipal_anchoring.py`

@@ -9,6 +9,17 @@ type: reports
 >
 > The numbers in this file are kept as a complete record of the DPG-era DA-anchoring methodology — the snap-tolerance approach, the v0_4 → v0_5 contribution-decomposition logic, and the per-ED breakdowns are all reproducible — but the headline majority/minority anchoring asymmetry no longer carries on canonical geometry. The current Lane-2 case rests on urban hybridization, Airdrie city-splitting, and the chair-flagged cartographic anomalies.
 
+> **Backward:**
+> - `analysis/scripts/da_boundary_anchoring.py` — companion script
+> - `data/v0_4_canonical_majority_2026_eds_anchored.gpkg`, `data/v0_4_canonical_minority_2026_eds_anchored.gpkg` — inputs from `findings/municipal_anchoring_analysis.md`
+> - `data/alberta_2021_das.gpkg` — Statistics Canada 2021 Dissemination Areas
+>
+> **Forward:**
+> - `data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg`, `data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg` — produced GPKGs
+> - `findings/da_anchoring_log.csv`, `data/v0_1_da_anchoring_summary.json` — produced logs
+> - `reports/academic/report_academic.md` — incorporates the (now-retracted) DPG-era anchoring ladder
+> - `findings/README.md` — indexes this finding
+
 # DA-boundary anchoring analysis (Precision Option C-extended)
 
 **Companion script:** `analysis/scripts/da_boundary_anchoring.py`

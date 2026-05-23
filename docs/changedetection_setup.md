@@ -1,3 +1,9 @@
+> **Backward:**
+> - `docs/FROZEN_MANIFEST.md` — Elections Alberta source URLs this watcher monitors
+>
+> **Forward:**
+> - (leaf — operational setup guide for the automation pipeline; no programmatic consumers)
+
 # ChangeDetection.io watcher — Elections Alberta shapefile release
 
 This document is the setup guide for the **primary detector** in the audit's automation pipeline: a [ChangeDetection.io](https://changedetection.io/) watcher that monitors Elections Alberta's web pages for the release of the official 2026 boundary shapefiles. When the watcher detects a change, it fires a webhook to the audit's GitHub Actions workflow, which automatically runs the audit pipeline against the new files.

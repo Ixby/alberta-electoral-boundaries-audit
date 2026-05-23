@@ -1,3 +1,11 @@
+> **Backward:**
+> - municipal-split detection script in `analysis/scripts/` (companion analysis)
+> - 2019, majority 2026, and minority 2026 ED shapefiles; municipality population/centroid inputs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates municipal-split counts
+> - `findings/README.md` — indexes this finding
+
 # Municipal Splits — Alberta 2026 Electoral Maps
 
 Significant municipalities: Cities, Towns, Specialized Municipalities with ≥300 VA votes (~3,000 residents).

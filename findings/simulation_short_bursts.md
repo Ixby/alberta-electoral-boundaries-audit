@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/simulation_short_bursts.py` — companion script that runs the short-burst MCMC chains
+> - `data/outputs/` ensemble outputs from the burst run
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the burst percentile-rank findings
+> - `findings/README.md` — indexes this finding
+> - `findings/burst_symmetry_analysis.md` — related burst-based analysis
+
 # MCMC Short-Burst Analysis — Alberta 2026 Electoral Maps
 
 **Config:** 500 bursts × 10 steps each; pop deviation ±25%; seed 42.

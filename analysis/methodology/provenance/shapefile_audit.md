@@ -5,6 +5,15 @@ type: project
 date: 2026-04-23
 ---
 
+> **Backward:**
+> - `data/shapefiles/canonical/` — VA polygons and canonical 2026 ED shapefiles audited
+> - `analysis/scripts/phase4c_canonical_attribution.py` — Phase 4C assignment pipeline audited
+>
+> **Forward:**
+> - `analysis/methodology/provenance/shapefile_changelog.md` — version history record
+> - `reports/academic/report_academic.md` §6 — incorporates the audit verdict
+> - (leaf — shapefile red-team audit)
+
 # Shapefile and VA data red-team report
 
 **Scope:** VA polygon substrate, canonical majority/minority 2026 ED shapefiles,

@@ -4,6 +4,16 @@ description: Second-pass independent code audit of the Alberta Electoral Boundar
 type: methodology
 ---
 
+> **Backward:**
+> - `analysis/methodology/reference/external_code_audit_scope.md` — brief that scoped this audit
+> - `analysis/scripts/` — codebase audited (commit `73544a3` post-Gemini)
+> - `analysis/review/external_audit_gemini.md` — first-pass audit findings built on
+>
+> **Forward:**
+> - `analysis/review/code_fixes_deferred.md` — fixes triaged from this audit
+> - `reports/academic/report_academic.md` §6 — convergence-quality framing revised in response
+> - (leaf — external code-audit record)
+
 # Code audit findings — Meridian (Claude Opus 4.7) + 2026-04-26
 
 ## Summary

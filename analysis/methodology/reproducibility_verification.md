@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/scripts/packing_cracking_analysis.py`, `electoral_forensics_population.py`, `mcmc_ensemble.py` — baseline scripts whose reproducibility is verified
+> - `analysis/scripts/check_voice_and_readability.py` — documentation-pipeline script verified
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §6 — cites verification verdict
+> - (leaf — reproducibility audit record)
+
 # v0_1 Reproducibility Verification Log
 
 **Date:** 2026-04-22

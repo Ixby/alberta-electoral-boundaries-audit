@@ -1,3 +1,12 @@
+> **Backward:**
+> - `reports/public/report_public.md` — the file under review
+> - `analysis/review/legal_review_framework.md` — D1–D10 framework applied
+>
+> **Forward:**
+> - `analysis/review/legal_review_academic_report.md` — sibling academic-report pass
+> - `reports/public/report_public.md` — edits applied per findings
+> - (leaf — legal red-team record)
+
 # Legal red-team — `report_public.md`
 
 **Standard:** defensible under hostile cross-examination in a court of law.

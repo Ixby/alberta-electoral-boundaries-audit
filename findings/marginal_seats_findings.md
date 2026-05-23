@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/scripts/marginal_seats_analysis.py` — companion script that produces the swing tables
+> - `data/v0_1_alberta_2015_results.csv`, `data/v0_1_alberta_2019_results.csv`, `data/v0_1_alberta_2023_results.csv` — election results inputs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the marginal-seat tables
+> - `findings/README.md` — indexes this finding
+
 # Marginal Seats and Uniform-Swing Analysis — v0.1
 
 **Purpose.** The audit's partisan-shift range is abstract (roughly

@@ -10,8 +10,12 @@ chen_rodden_alberta.py, historical_eg_baseline.py, and overlap_zone_diagnostic.p
 is intentionally NOT unified here — see REMEDIATION_LOG.md 2026-05-09 for the
 reasoning. Those implementations serve different data contexts and are kept local.
 
-Forward dependencies: none
-Backward dependencies: szat.py, szat_validate.py
+Backward:
+  (none — pure helper module; computes from caller-provided per-ED vote arrays)
+
+Forward:
+  analysis/scripts/szat.py                                 — uses _ed_waste / EG computation
+  analysis/scripts/szat_validate.py                        — validates szat against eg_utils
 """
 from __future__ import annotations
 

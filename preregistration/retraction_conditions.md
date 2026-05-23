@@ -6,6 +6,16 @@ osf_id: w2s8k
 osf_url: https://osf.io/w2s8k
 ---
 
+> **Backward:**
+> - `preregistration/null_hypotheses.md` — pass thresholds the retraction conditions are paired to
+> - `analysis/methodology/null_hypothesis_and_exoneration_criteria.md` — the audit-side exoneration criteria
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §§5.1–5.9 — each load-bearing finding cross-references this
+> - `analysis/methodology/retraction_pathway.md` — operational counterpart of these conditions
+> - `README.md` — references this for the "named retraction condition" challenge framework
+> - (terminal — pre-registration record; reviewer-facing falsifiability commitment)
+
 # Retraction pathway — named conditions under which each audit finding is retracted
 
 **Date of pre-commitment:** 2026-04-24

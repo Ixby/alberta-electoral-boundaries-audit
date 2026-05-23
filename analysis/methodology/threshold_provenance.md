@@ -4,6 +4,16 @@ description: Per-threshold documentation of the source, justification, and audit
 type: methodology
 ---
 
+> **Backward:**
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — produces the ensemble percentiles thresholds reference
+> - `analysis/scripts/joint_outlier_score_canonical.py` — Fisher combination thresholds
+> - `analysis/scripts/szat.py` — SZAT bootstrap threshold
+> - `preregistration/thresholds.md` — pre-committed numeric thresholds
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5, §7 — every numeric threshold cited in the report traces back here
+> - `analysis/methodology/test_selection_rationale.md` — references thresholds chosen per test
+
 # Threshold provenance
 
 Every numeric threshold used to make a pass/fail or flag/no-flag decision in this audit is listed here, with the literature or statutory source that justifies it. The column "Alberta application" describes how the audit uses the threshold, including any adaptation from the original source.

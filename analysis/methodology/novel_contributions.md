@@ -1,3 +1,13 @@
+> **Backward:**
+> - `findings/methods_paper_draft.md` — DPG standalone paper skeleton
+> - `analysis/methodology/reference/academic_literature_review.md` §9–9b — prior-art placement
+> - `analysis/methodology/szat_methodology.md`, `neighbour_drain_design.md` — companion novel-test designs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates novelty claims
+> - `findings/methods_paper_draft.md` — consumes novelty framing
+> - (leaf — methodology reference for novel contributions)
+
 # Novel Methodological Contributions — Alberta 2025-26 Electoral Boundaries Audit
 
 **Status:** Active reference. Updated 2026-05-07.
