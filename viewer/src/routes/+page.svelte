@@ -21,6 +21,7 @@
   import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, getStoredChoice, storeChoice } from '$lib/share';
 
   // ── Share / participation state ───────────────────────────────────────────
+  let navOpen           = $state(false);
   let showParticipation = $state(false);
   let dntActive         = $state(false);
   let showSharePanel    = $state(false);
@@ -202,7 +203,35 @@
     <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
     <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
   </button>
+  <button id="hamburger" class="nav-hamburger" aria-label="Toggle navigation" aria-expanded={navOpen}
+    onclick={() => navOpen = !navOpen}>
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
+      {#if navOpen}
+        <path d="M2 2l14 14M2 16L16 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+      {:else}
+        <rect y="2"  width="18" height="2" rx="1"/>
+        <rect y="8"  width="18" height="2" rx="1"/>
+        <rect y="14" width="18" height="2" rx="1"/>
+      {/if}
+    </svg>
+  </button>
   </div>
+  {#if navOpen}
+  <div id="nav-drawer" role="menu">
+    <a href="#top"         role="menuitem" onclick={() => navOpen = false}>↑ Top</a>
+    <a href="#section-1"  role="menuitem" onclick={() => navOpen = false}>Map</a>
+    <a href="#section-2"  role="menuitem" onclick={() => navOpen = false}>The Split</a>
+    <a href="#section-3"  role="menuitem" onclick={() => navOpen = false}>Litmus Test</a>
+    <a href="#section-4"  role="menuitem" onclick={() => navOpen = false}>Crack &amp; Pack</a>
+    <a href="#section-5"  role="menuitem" onclick={() => navOpen = false}>Impact</a>
+    <a href="#section-6"  role="menuitem" onclick={() => navOpen = false}>Gerrymanders</a>
+    <a href="#section-7"  role="menuitem" onclick={() => navOpen = false}>Lunty</a>
+    <a href="#section-8"  role="menuitem" onclick={() => navOpen = false}>Suggestions</a>
+    <a href="#retractions" role="menuitem" onclick={() => navOpen = false}>Retractions</a>
+    <a href="#references" role="menuitem" onclick={() => navOpen = false}>References</a>
+    <a href="#resources"  role="menuitem" onclick={() => navOpen = false}>Technical</a>
+  </div>
+  {/if}
 </nav>
 
 <header>
@@ -1279,9 +1308,38 @@
       top: 0;
       z-index: 100;
     }
+    .nav-hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.75); padding: 0 0.55rem;
+      min-height: 2.6rem; align-items: center; justify-content: center;
+      transition: color 0.15s;
+    }
+    .nav-hamburger:hover { color: #fff; }
+    #nav-drawer {
+      display: none;
+    }
     @media (max-width: 660px) {
-      nav a { display: none; }
-      .nav-inner { justify-content: flex-end; min-height: 2.2rem; }
+      nav a:not(.nav-home) { display: none; }
+      .nav-home { display: none; }
+      .nav-hamburger { display: inline-flex; }
+      .nav-inner { justify-content: flex-end; min-height: 2.4rem; }
+      #nav-drawer {
+        display: flex; flex-direction: column;
+        background: #1e3352;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding: 0.4rem 0 0.6rem;
+      }
+      #nav-drawer a {
+        display: block;
+        color: rgba(255,255,255,0.78);
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      #nav-drawer a:last-child { border-bottom: none; }
+      #nav-drawer a:hover { background: rgba(255,255,255,0.06); color: #fff; }
     }
     .nav-inner {
       display: flex;
