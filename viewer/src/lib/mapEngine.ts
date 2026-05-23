@@ -13,7 +13,7 @@ export function init(basePath: string): void {
           d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
           _allHoverData[key] = byId;
           _nameIndex[key] = byName;
-          if (key === 'minority') _edHover = byId;
+          if (key === '2019') _edHover = byId;
         }).catch(() => {});
       }
       _loadHoverJson('minority', 'data/ed_hover_minority.json');
@@ -315,6 +315,7 @@ export function init(basePath: string): void {
           _stageRect = null;  // stage may have reflowed since last open
           overlay.style.display = 'block';
           document.body.style.overflow = 'hidden';
+          _updateMapButtons();
           _prevFocus = document.activeElement;
           var focusable = _overlayFocusable();
           if (focusable.length) focusable[0].focus();
@@ -484,8 +485,8 @@ export function init(basePath: string): void {
           majority: '#1A7A6E',
           '2019':   '#F5A623',
         };
-        const _mapOn      = { minority: true, majority: false, '2019': false };
-        let   _mapPrimary = 'minority';
+        const _mapOn      = { minority: false, majority: false, '2019': true };
+        let   _mapPrimary = '2019';
         const _svgCache   = {};
         const _overlayInSvg = {};
         const _layerState = { vote: true, 'ed-fill': true, 'ed-lines': true, eg: false };

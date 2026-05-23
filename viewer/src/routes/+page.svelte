@@ -840,9 +840,9 @@
   <div id="hud">
   <div id="top-bar">
     <div class="tb-group">
-      <button class="tb-btn tb-map-primary" data-map="minority">Minority</button>
+      <button class="tb-btn" data-map="minority">Minority</button>
       <button class="tb-btn" data-map="majority">Majority</button>
-      <button class="tb-btn" data-map="2019">2019</button>
+      <button class="tb-btn tb-map-primary" data-map="2019">Current</button>
     </div>
     <div class="tb-sep"></div>
     <div class="tb-group">
@@ -854,7 +854,7 @@
     <div class="tb-sep"></div>
     <button class="tb-btn" data-anomaly="airdrie" title="Highlight chair-flagged districts — Airdrie 4-way split and NW Calgary zone">Flagged</button>
     <div class="tb-sep"></div>
-    <button class="tb-btn" data-layer="lock">Lock</button>
+    <button class="tb-btn" data-layer="lock">Pin Map</button>
     <div class="tb-sep"></div>
     <div id="tb-search-wrap">
       <input id="tb-search" type="search" placeholder="Find district…" autocomplete="off" spellcheck="false">
@@ -901,7 +901,7 @@
       <div class="skel-bar skel-bar-3"></div>
       <div class="skel-label">Loading map…</div>
     </div>
-    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_minority_hires.svg"
+    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_2019_hires.svg"
       title="Alberta electoral district map — full resolution"></object>
   </div>
   <div id="ed-tooltip"></div>
@@ -924,7 +924,7 @@
       <li><strong>Partisan</strong> &mdash; colour districts by partisan outcome (UCP blue, NDP orange); neutral grey when off</li>
       <li><strong>Vote %</strong> &mdash; show 2023 vote results at polling-area granularity underneath</li>
       <li><strong>Borders</strong> &mdash; show or hide district boundary edges</li>
-      <li><strong>Lock</strong> &mdash; prevent the map from auto-panning when you click a district</li>
+      <li><strong>Pin Map</strong> &mdash; prevent the map from auto-panning when you click a district</li>
       <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
       <li><strong>Eff. Gap</strong> &mdash; shade each district by its efficiency-gap contribution: blue = UCP-favoured, orange = NDP-favoured</li>
     </ul>
