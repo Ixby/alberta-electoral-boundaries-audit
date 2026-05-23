@@ -343,6 +343,9 @@ export function init(basePath: string): void {
           _hideCallout();
           if (_prevFocus instanceof HTMLElement) { _prevFocus.focus(); }
           _prevFocus = null;
+          // Hide intro modal without marking seen — it will re-show on next open until dismissed
+          var _intro = document.getElementById('map-intro-modal');
+          if (_intro) _intro.style.display = 'none';
         }
 
         overlay.addEventListener('keydown', function(e: KeyboardEvent) {
@@ -359,7 +362,12 @@ export function init(basePath: string): void {
 
         trigger.addEventListener('click', e => { e.preventDefault(); open(); });
         closeBtn.addEventListener('click', close);
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+        document.addEventListener('keydown', e => {
+          if (e.key !== 'Escape') return;
+          var _intro = document.getElementById('map-intro-modal');
+          if (_intro && _intro.style.display !== 'none') return; // let modal handle its own Escape
+          close();
+        });
         overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
 
         // ── Zoom ──────────────────────────────────────────────────────────────
