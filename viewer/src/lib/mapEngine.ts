@@ -501,7 +501,7 @@ export function init(basePath: string): void {
         let   _mapPrimary = '2019';
         const _svgCache   = {};
         const _overlayInSvg = {};
-        const _layerState = { vote: false, 'ed-fill': true, 'ed-lines': true, eg: false };
+        const _layerState = { vote: true, 'ed-fill': true, 'ed-lines': true, eg: false };
         let   _mapLocked  = false;
 
         // ── Map-wide boundary color ───────────────────────────────────────────────
