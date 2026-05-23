@@ -472,7 +472,7 @@ Measurement validity in quantitative social science has four canonical forms (Me
 
 - **Convergent validity.** Within the B-family, five metrics (EG/MM/Seats/Declination/MCMC-percentile) plus the four-seven spatial layers in §5.2.7 all measure partisan bias. They agree directionally in 90.5 % of Monte Carlo samples (§5.2.3) and disagree on mechanism (§5.2.4). The disagreement is *reported*, making convergent validity visible and auditable.
 
-- **Discriminant validity.** The A-family and B-family and C-family measure distinct constructs; their findings can diverge (§5.1 population equality is UCP-favourable across all maps; §5.2 partisan bias is measurement-resolution-dependent; §5.8 geographic coherence has the 4.9× anchoring asymmetry). The audit does not claim these three findings collapse into one meta-finding.
+- **Discriminant validity.** The A-family and B-family and C-family measure distinct constructs; their findings can diverge (§5.1 population equality is UCP-favourable across all maps; §5.2 partisan bias is measurement-resolution-dependent; §5.8 geographic coherence shows asymmetric structural anomalies — three chair-flagged cartographic anomalies under the minority and zero under the majority, plus the Airdrie 4-vs-2 city-splitting divergence — rather than the now-retracted anchoring asymmetry, which did not survive canonical recomputation). The audit does not claim these three findings collapse into one meta-finding.
 
 - **Predictive / criterion validity.** The November 2026 committee's 91-seat map is the out-of-sample test the audit explicitly pre-registers against (Track C in `migration.md` / private `live_tasks.md`). Until that map is tabled, criterion validity is pending.
 
