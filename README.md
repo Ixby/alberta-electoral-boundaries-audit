@@ -27,6 +27,19 @@
 
 ---
 
+## Reading guide
+
+The audit's **live claims and current methodology** are in this README and in `findings/`, `reports/`, `analysis/methodology/`, and `preregistration/`. Everything in those directories is current as of the canonical Elections Alberta shapefile recomputation (2026-05-12); numbers in any individual file should be cross-checkable against the on-disk data referenced in that file's `Backward:` block.
+
+Two top-level directories are **not** part of the live audit:
+
+- `archive/` holds retracted or superseded analyses, kept intact for trail-of-work transparency. The DPG-era anchoring findings (majority 71.0% / minority 14.5% / 4.9× asymmetry) live there along with the pre-canonical sampler-disagreement framing. **Skip unless** you are auditing the retraction history or following the methods-paper case study (see `archive/dpg_era/README.md`).
+- `proposals/` holds speculative future work that has not been authorized, has not been pre-registered in non-draft form, and has not been run. **Skip unless** you want to know what work might be done next (see `proposals/README.md`).
+
+Every script and document in the repository declares its upstream and downstream dependencies in its own header (`Backward:` / `Forward:` block); the convention is documented in `DEPENDENCY_CONVENTION.md`. There is no central dependency map — to walk the chain in either direction from any file, grep that file's header.
+
+---
+
 The 2025–26 Alberta Electoral Boundary Commission produced two competing recommendations — a majority and a minority — both legally compliant with the *Electoral Boundaries Commission Act*. The Act does not resolve between them. This audit measures the structural distance between the two maps on dimensions that have nothing to do with which party benefits.
 
 **Airdrie.** The City of Airdrie has a population of approximately 85,805 residents (City of Airdrie 2024 municipal census, July 2, 2024) — above the statutory ceiling for a single electoral division under the Act's ±25% population band. The majority recommendation splits it across two electoral divisions. The minority recommendation splits it across four, placing each quarter of the city into a division anchored in a different surrounding region. Both maps satisfy the law. Neither is required to use four instead of two. That is a drawing choice.
