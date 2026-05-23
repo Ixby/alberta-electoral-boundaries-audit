@@ -10,6 +10,17 @@ Positive eg_i → UCP-favoured district.  Negative → NDP-favoured.
 
 Output field: "eg" (float, 4 decimal places, units = fraction of province vote).
 Existing fields are preserved; file is rewritten in-place.
+
+Backward:
+  docs/data/ed_hover_minority.json          — read for ucp/ndp per-district totals
+  docs/data/ed_hover_majority.json          — read for ucp/ndp per-district totals
+  docs/data/ed_hover_2019.json              — read for ucp/ndp per-district totals
+
+Forward:
+  docs/data/ed_hover_minority.json          — same files rewritten with 'eg' field added
+  docs/data/ed_hover_majority.json
+  docs/data/ed_hover_2019.json
+  viewer/                                   — Svelte app consumes these JSONs on map hover
 """
 from __future__ import annotations
 import json

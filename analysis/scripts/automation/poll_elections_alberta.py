@@ -21,6 +21,15 @@ Usage:
 
 Watched pages (update this list when the audit identifies new tracking
 endpoints, or when Elections Alberta restructures their site):
+
+Backward:
+  .temp/automation_state/last_hashes.json   — last-seen page hashes (state)
+  https://elections.ab.ca/... (external)    — Elections Alberta release pages
+
+Forward:
+  .temp/inbound/                            — downloaded .gpkg/.zip artifacts
+  .github/workflows/recompute-on-shapefile-release.yml — triggered by exit 0
+  analysis/scripts/recompute_against_official_shapefiles.sh — downstream recompute
 """
 
 import argparse

@@ -9,6 +9,14 @@ Convention
 Import this module; do not redeclare these constants in individual scripts.
 The palette is the single source of truth for all audit visualisations and
 the HTML report.  It is not user-facing; values propagate at build/render time.
+
+Backward:
+  (none — utility module / constants; no data inputs)
+
+Forward:
+  (any analysis/scripts/*.py that builds figures or maps; broad utility import.
+   Concrete importers found by `grep -rln "from .*palette import\\|palette\\." analysis/scripts/`.
+   Renaming a constant here requires checking that grep first.)
 """
 
 # ---------------------------------------------------------------------------

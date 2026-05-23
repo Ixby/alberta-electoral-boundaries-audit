@@ -10,6 +10,15 @@ Run:
   python analysis/scripts/build_html_reports.py academic # academic only
 
 Dependencies: pip install markdown
+
+Backward:
+  reports/public/report_public.md            — public-report markdown source
+  reports/academic/report_academic.md        — academic-report markdown source
+
+Forward:
+  docs/report_public.html                    — rendered public report
+  docs/report_academic.html                  — rendered academic report
+  (consumed by GitHub Pages at https://ixby.github.io/alberta-electoral-boundaries-audit/)
 """
 from __future__ import annotations
 

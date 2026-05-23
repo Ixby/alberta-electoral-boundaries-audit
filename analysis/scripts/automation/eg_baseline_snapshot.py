@@ -3,10 +3,19 @@ eg_baseline_snapshot.py — Record EG values from callable implementations befor
 
 Run once before Step 1.1 is finalized. Saves results to eg_baseline_values.json.
 mcmc_ensemble.py is handled via manual inspection (EG is inline, no callable function).
-Delete this file after Step 1.1 verification passes.
+One-off verification script — delete after Step 1.1 verification passes.
 
 EXECUTOR: verify ED_VOTES_PATH against a1_legal_baseline_2021_census.py / data_loader.py.
 It must be the file with per-ED ndp and ucp vote columns, NOT the ensemble CSV.
+
+Backward:
+  data/<per-ED votes CSV>                            — must have 'ndp' and 'ucp' columns
+  analysis/scripts/a1_legal_baseline_2021_census.py  — canonical per-ED votes source
+  analysis/scripts/data_loader.py                    — path-resolution helper
+
+Forward:
+  data/eg_baseline_values.json                       — pre-extraction EG snapshot
+  (one-off verification script; deletable post-verification)
 """
 from __future__ import annotations
 
