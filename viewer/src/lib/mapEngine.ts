@@ -390,8 +390,9 @@ export function init(basePath: string): void {
 
         function _hideTip() { _tip.style.display = 'none'; }
 
-        // ── District callout (anchored right panel) ──────────────────────────
+        // ── District callout (info bar) ───────────────────────────────────────
         const _callout = document.getElementById('ed-callout');
+        const _hud     = document.getElementById('hud');
 
         function _showCallout(d) {
           if (!d) return;
@@ -452,10 +453,12 @@ export function init(basePath: string): void {
           }
           _selectedEdName = d.name;
           _callout.classList.add('ec-visible');
+          if (_hud) _hud.classList.add('ec-has-ed');
         }
         function _hideCallout() {
           if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
           _callout.classList.remove('ec-visible');
+          if (_hud) _hud.classList.remove('ec-has-ed');
           _selectedEdName = null;
           _clearEdHighlight();
         }

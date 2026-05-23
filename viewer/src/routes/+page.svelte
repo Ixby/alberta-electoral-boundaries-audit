@@ -860,11 +860,11 @@
       <input id="tb-search" type="search" placeholder="Find district…" autocomplete="off" spellcheck="false">
       <ul id="tb-search-results"></ul>
     </div>
+    <button id="ec-close" class="tb-btn tb-close-btn" title="Clear selection">&times;</button>
   </div>
   <!-- ed-callout sits directly below top-bar in #hud column -->
   <div id="ed-callout" aria-live="polite">
     <div id="ec-ed-section">
-      <button id="ec-close" title="Close">&times;</button>
       <div id="ec-name"></div>
       <div id="ec-bar"><div id="ec-ucp-bar"></div><div id="ec-ndp-bar"></div></div>
       <div id="ec-split">
@@ -1429,13 +1429,9 @@
     flex: 1; min-width: 0; overflow: hidden;
   }
   #ed-callout.ec-visible #ec-ed-section { display: flex; }
-  #ec-close {
-    flex-shrink: 0;
-    background: none; border: none;
-    color: rgba(255,255,255,0.4); font-size: 1.2rem; line-height: 1;
-    cursor: pointer; padding: 0.1rem 0.3rem;
-  }
-  #ec-close:hover { color: #fff; }
+  #ec-close { display: none; }
+  #hud.ec-has-ed #ec-close { display: inline-flex; }
+  .tb-close-btn { font-size: 1.1rem; line-height: 1; padding: 4px 9px; }
   #ec-name { font-size: 0.82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; max-width: 180px; }
   #ec-bar {
     display: flex; height: 6px; border-radius: 3px;
