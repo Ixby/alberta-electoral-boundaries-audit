@@ -27,7 +27,14 @@ Official Elections Alberta shapefiles were received on **2026-05-06** in respons
 
 Files are stored at `data/shapefiles/canonical/`. They are tracked via Git LFS. SHA-256 hashes are recorded in `data/provenance_manifest.json` (relative path keys `outputs/…`; shapefiles not yet hashed in the manifest — add when needed).
 
-The §4.1.4 sunset clause was triggered on receipt and partially fulfilled: the 2026-proposal-shapefile trigger closed on 2026-05-18 with the Phase 4C canonical re-run. The November 2026 committee-map trigger remains open pending the Lunty committee's report.
+The §4.1.4 sunset clause was triggered on receipt and resolved in two stages:
+
+- **2026-05-18 (day 12, inside the two-week window).** Headline-recompute obligation closed with the Phase 4C canonical re-run (`packing_cracking_analysis.py` against the canonical EA shapefiles).
+- **2026-05-23 (day 17, three days over the two-week window).** Full canonical integration closed: R `redist` SMC canonical cross-check (2026-05-18), §5.3.5 neighbour-drain canonical re-run (2026-05-23), DPG-mess pruning (DPG-era findings moved to `archive/dpg_era/`), scripts purged of DPG-era constants, repo-wide `Backward:`/`Forward:` dependency-declaration convention added. The three-day overshoot is disclosed in `findings/methods_paper_draft.md` §6 + §7.1 Stage 12 and in `findings/pre_registration_amendment_log.md`.
+
+The sunset-clause window itself was originally posted as 48 hours and relaxed to two weeks in Amendment 2 Change 11 (2026-04-26); see `findings/pre_registration_amendment_log.md` Change 11 for the disclosed reason (solo researcher without monitoring automation). The clause is **in-repo discipline, not externally pre-registered** — the four OSF dossiers contain `dpg2_experiment_plan.md` + `drain_v2_plan.md`; neither specifies a timeline.
+
+The November 2026 committee-map trigger remains open pending the Lunty Special Select Committee's report. Per OSF [qsgy8](https://osf.io/qsgy8/) / AsPredicted #289,455, the **scorecard methodology** is externally pre-registered and locked; the internal operational standard for applying it is 72 hours from map release per Amendment 2 Bucket C.
 
 ---
 

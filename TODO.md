@@ -226,7 +226,7 @@ Collapse `analysis/scripts/` from ~87 files into ~15–20 topic modules. Inputs 
 | Track | Event | Trigger |
 |---|---|---|
 | A (shapefile integration) | **COMPLETE 2026-05-18** — Phase 4C v0.3 canonical. EG +0.04%/+3.96%; s50 48/43. All reports updated. | — |
-| B (November 2026) | Lunty committee tables 91-seat map (Nov 2, 2026) | Run full Phase 2 checklist within 48h |
+| B (November 2026) | Lunty committee tables 91-seat map (Nov 2, 2026) | Run full Phase 2 checklist within 72h (operational standard per Amendment 2 Bucket C; scorecard methodology pre-registered at OSF qsgy8 / AsPredicted #289,455) |
 | E (338Canada refresh) | Next due ~late June 2026 | Re-run scraper if projection moves >0.5pp |
 
 ---
