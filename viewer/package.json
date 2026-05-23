@@ -6,7 +6,6 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"prebuild": "node scripts/clean-app-chunks.mjs",
 		"postbuild": "node scripts/merge-to-docs.mjs",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
