@@ -401,9 +401,71 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    # --- Pre-flight checks ----------------------------------------------------
+    # On the live Nov 2 run, the 72-hour clock starts the moment the Lunty map
+    # drops. We want the scorecard to error out LOUDLY at the start if a required
+    # input file is missing or unreadable (e.g., LFS not pulled), rather than
+    # silently skipping MOs and producing a misleading "0 of 3 fired" output.
+    preflight_errors: list[str] = []
+
     if not args.shapefile.exists():
-        print(f"ERROR: shapefile not found at {args.shapefile}", file=sys.stderr)
+        preflight_errors.append(f"input shapefile not found at {args.shapefile}")
+
+    # ALBERTA_CSDS is required by MO #1 (drain pattern) and MO #3 (municipal
+    # anchoring); MO #2 (lasso) also reads it for the urban-share half of the
+    # tripwire. Without it, three of four MOs degrade or skip silently.
+    if not ALBERTA_CSDS.exists():
+        preflight_errors.append(
+            f"Alberta CSD reference not found at {ALBERTA_CSDS} "
+            f"(required by MO #1 + MO #2 + MO #3). "
+            f"Most likely cause: Git LFS not pulled — run `git lfs pull` to materialise."
+        )
+    else:
+        # Distinguish a real gpkg from an LFS pointer file (132 bytes of ASCII).
+        # An LFS-tracked file with `GIT_LFS_SKIP_SMUDGE=1` or a failed smudge
+        # leaves a pointer file in place; reading it as a gpkg later would
+        # raise pyogrio.errors.DataSourceError mid-MO with an unhelpful message.
+        try:
+            with open(ALBERTA_CSDS, "rb") as _f:
+                _head = _f.read(64)
+            if _head.startswith(b"version https://git-lfs"):
+                preflight_errors.append(
+                    f"{ALBERTA_CSDS} is an LFS pointer file (not the actual gpkg). "
+                    f"Run `git lfs pull` to materialise the binary."
+                )
+        except OSError as e:
+            preflight_errors.append(f"could not read {ALBERTA_CSDS}: {e}")
+
+    # VA_VOTES_PATH is required by MO #2 (urban-share check inside lasso).
+    if not VA_VOTES_PATH.exists():
+        preflight_errors.append(
+            f"VA shapefile not found at {VA_VOTES_PATH} "
+            f"(required by MO #2 urban-share check). "
+            f"Most likely cause: Git LFS not pulled — run `git lfs pull` to materialise."
+        )
+    else:
+        try:
+            with open(VA_VOTES_PATH, "rb") as _f:
+                _head = _f.read(64)
+            if _head.startswith(b"version https://git-lfs"):
+                preflight_errors.append(
+                    f"{VA_VOTES_PATH} is an LFS pointer file (not the actual gpkg). "
+                    f"Run `git lfs pull` to materialise the binary."
+                )
+        except OSError as e:
+            preflight_errors.append(f"could not read {VA_VOTES_PATH}: {e}")
+
+    if preflight_errors:
+        print(
+            "[scorecard] PRE-FLIGHT FAILED — the live scorecard cannot run because "
+            "one or more required reference files are missing or unreadable. "
+            "Fix all errors below and re-invoke; do NOT proceed with partial outputs.",
+            file=sys.stderr,
+        )
+        for err in preflight_errors:
+            print(f"  - {err}", file=sys.stderr)
         return 2
+    # --- End pre-flight checks ------------------------------------------------
 
     eds = gpd.read_file(args.shapefile).to_crs(3401)
     name_col = args.name_col if args.name_col in eds.columns else eds.columns[0]

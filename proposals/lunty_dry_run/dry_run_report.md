@@ -133,8 +133,11 @@ This is informative for the live Nov 2 run: if the Lunty committee's map fires M
 
 The scorecard is now production-ready for the live Nov 2 run with respect to the six bugs surfaced. Before the live run:
 
-1. **Pre-flight check (HIGH priority).** Add `assert ALBERTA_CSDS.exists()` and `assert VA_VOTES_PATH.exists()` at the top of `main()` so the scorecard errors out loudly instead of silently skipping MOs.
+1. **Pre-flight check (HIGH priority) — DONE 2026-05-23.** Added explicit existence + LFS-pointer-vs-binary checks at the top of `main()` for both `ALBERTA_CSDS` and `VA_VOTES_PATH`. The scorecard now errors out loudly (exit code 2 with a clear `git lfs pull` instruction) instead of silently skipping MOs. Tested three ways:
+   - **LFS pointers in place (no binaries):** pre-flight catches both files, reports them as pointer files, exits 2.
+   - **Binaries materialised:** pre-flight passes; MO #1/#2/#3 run; output written as expected.
+   - **Missing input shapefile:** pre-flight catches the missing input, exits 2.
 2. **MO #4 dry-run (MEDIUM priority).** Run the scorecard without `--skip-mcmc` against the synthetic plan, or against the canonical majority/minority maps, to confirm the ensemble-comparison code can handle a 91-district input.
 3. **Phase B (LOW priority).** Build the realistic-plausible 91-district input and re-run the scorecard.
 
-All three are "do before Nov 2" items but none are blocking the live run as long as the operator pulls all LFS files first.
+Items 2 and 3 are "do before Nov 2" items but none are blocking the live run as long as the operator pulls all LFS files first.
