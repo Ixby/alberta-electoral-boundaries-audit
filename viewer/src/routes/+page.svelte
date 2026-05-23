@@ -20,7 +20,7 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { init, onEvent as mapOnEvent, getState, applyState } from '$lib/mapEngine';
-  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, getStoredChoice, storeChoice } from '$lib/share';
+  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, getStoredChoice, storeChoice, saveShare, flushTelemetry, type FlightEvent } from '$lib/share';
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -42,6 +42,7 @@
   function _generateCode() {
     const s = getState();
     shareCode = s ? (encodeState(s) ?? '—') : '—';
+    if (shareCode !== '—' && s) saveShare(shareCode, s);
   }
 
   function toggleSharePanel() {
@@ -95,7 +96,10 @@
 
   onMount(() => {
     init(base);
-    mapOnEvent((event) => { recordEvent(event); _scheduleCodeRefresh(); });
+    mapOnEvent((event: FlightEvent) => { recordEvent(event); _scheduleCodeRefresh(); });
+
+    window.addEventListener('beforeunload', flushTelemetry);
+    const _telemetryInterval = setInterval(flushTelemetry, 30_000);
 
     dntActive = isDNT();
     const storedConsent = getStoredChoice();
@@ -201,6 +205,11 @@
         }
       });
     });
+
+    return () => {
+      clearInterval(_telemetryInterval);
+      window.removeEventListener('beforeunload', flushTelemetry);
+    };
   });
 </script>
 
@@ -1633,15 +1642,16 @@
   /* Expandable detail panels — follow visual language */
   :global(details.audit-detail) {
     margin: 0.8rem 0 1rem;
-    border-left: 3px solid rgba(245,166,35,0.7);
-    background: rgba(245,166,35,0.05);
+    border-left: 3px solid rgba(107,53,167,0.55);
+    background: rgba(107,53,167,0.05);
     border-radius: 0 4px 4px 0;
     padding: 0.45rem 0 0.45rem 0.9rem;
   }
   :global(details.audit-detail summary) {
     cursor: pointer; list-style: none; user-select: none;
-    font-weight: 600; font-size: 0.9rem; color: #F5A623;
+    font-weight: 600; font-size: 0.9rem; color: #6B35A7;
   }
+  :root[data-theme="dark"] :global(details.audit-detail summary) { color: #b48fd4; }
   :global(details.audit-detail summary::-webkit-details-marker) { display: none; }
   :global(details.audit-detail summary::before) { content: '▶ '; font-size: 0.7em; }
   :global(details.audit-detail[open] summary::before) { content: '▼ '; }
@@ -1650,17 +1660,17 @@
   :global(.audit-detail-body p) { margin: 0 0 0.5rem; }
   /* Vocab term — inline expandable definitions */
   :global(.vocab-term) {
-    border-bottom: 1.5px dashed rgba(245,166,35,0.65);
+    border-bottom: 1.5px dashed rgba(107,53,167,0.55);
     cursor: pointer; color: inherit;
     display: inline; background: none; border-top: none; border-left: none; border-right: none;
     font: inherit; padding: 0; text-align: left;
   }
-  :global(.vocab-term:hover) { border-bottom-color: #F5A623; }
+  :global(.vocab-term:hover) { border-bottom-color: #6B35A7; }
   :global(.vocab-panel) {
     display: block;
-    background: rgba(245,166,35,0.07); border-left: 3px solid #F5A623;
+    background: rgba(107,53,167,0.07); border-left: 3px solid #6B35A7;
     border-radius: 0 4px 4px 0; padding: 0.3rem 0.8rem; margin: 0.35rem 0;
-    font-size: 0.86rem; line-height: 1.5; color: rgba(255,255,255,0.8);
+    font-size: 0.86rem; line-height: 1.5; color: var(--text);
   }
   #zoom-stage {
     position: absolute; inset: 0;

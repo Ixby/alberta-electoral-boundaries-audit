@@ -905,6 +905,19 @@ export function init(basePath: string): void {
         _loadHoverJson('majority', 'data/ed_hover_majority.json');
         _loadHoverJson('2019',    'data/ed_hover_2019.json');
 
+        function _setLayerOn(key, on) {
+          if (_layerState[key] === on) return;
+          _layerState[key] = on;
+          document.querySelectorAll('.tb-btn[data-layer="' + key + '"]').forEach(function(btn) {
+            btn.classList.toggle('tb-layer-on', on);
+          });
+          if (key === 'vote')     _applyVoteLayer(on);
+          if (key === 'ed-fill')  _applyEdFillLayer(on);
+          if (key === 'ed-lines') _applyEdLinesLayer(on);
+          if (key === 'eg')       _applyEGLayer(on);
+          _emit({ type: 'layer', key: key, on: on });
+        }
+
         document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
           b.addEventListener('click', function() {
             var key = b.dataset.layer;
@@ -914,13 +927,9 @@ export function init(basePath: string): void {
               return;
             }
             var on = !_layerState[key];
-            _layerState[key] = on;
-            b.classList.toggle('tb-layer-on', on);
-            if (key === 'vote')     _applyVoteLayer(on);
-            if (key === 'ed-fill')  _applyEdFillLayer(on);
-            if (key === 'ed-lines') _applyEdLinesLayer(on);
-            if (key === 'eg')       _applyEGLayer(on);
-            _emit({ type: 'layer', key: key, on: on });
+            _setLayerOn(key, on);
+            if (key === 'ed-fill' && on && _layerState['eg'])      _setLayerOn('eg', false);
+            if (key === 'eg'      && on && _layerState['ed-fill']) _setLayerOn('ed-fill', false);
           });
         });
 
@@ -1346,7 +1355,11 @@ export function init(basePath: string): void {
             _anomalyOn = !_anomalyOn;
             b.classList.toggle('tb-layer-on', _anomalyOn);
             _applyAnomalyHighlight();
-            if (_anomalyOn && wasOff && !_mapLocked) _zoomToAnomalyDistricts(0);
+            if (_anomalyOn && wasOff) {
+              if (!_layerState['eg'])     _setLayerOn('eg', true);
+              if (_layerState['ed-fill']) _setLayerOn('ed-fill', false);
+              if (!_mapLocked) _zoomToAnomalyDistricts(0);
+            }
           });
         });
 

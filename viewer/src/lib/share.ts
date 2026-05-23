@@ -1,4 +1,4 @@
-// Alberta Electoral Boundary Audit — share encoding · participation · flight path
+// Alberta Electoral Boundary Audit — share encoding · participation · flight path · telemetry
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 
 // ── Word lists (27 × 27 × 27 = 19,683 codes; 19,200 valid) ──────────────────
@@ -173,4 +173,28 @@ export function recordEvent(event: FlightEvent): void {
 
 export function getFlightPath(): FlightEvent[] {
 	return [..._flightPath];
+}
+
+// ── Supabase persistence ──────────────────────────────────────────────────────
+
+import { db } from './db';
+
+export function saveShare(code: string, state: MapState): void {
+	if (!code || code === '—') return;
+	db.from('shares').upsert(
+		{ code, state_json: state, origin_code: _originCode },
+		{ onConflict: 'code', ignoreDuplicates: true },
+	).then(undefined, () => {});
+}
+
+export function flushTelemetry(): void {
+	if (!_participates || _flightPath.length === 0) return;
+	const rows = _flightPath.map(event => ({
+		session_id: _sessionId,
+		origin_code: _originCode,
+		event_type:  event.type,
+		payload:     event,
+	}));
+	_flightPath = [];
+	db.from('telemetry').insert(rows).then(undefined, () => {});
 }
