@@ -146,23 +146,65 @@ Three of four MOs computed; MO #4 (sampler divergence) was deliberately skipped 
 
 This is informative for the live Nov 2 run: if the Lunty committee's map fires MO #1 and MO #3, that does **not** automatically mean the map is a gerrymander — it means the map departs from typical Canadian committee practice in the same way a random partition would. The substantive interpretation requires looking at *which* cities/regions trigger which MO, the magnitude of departure, and (when MO #4 runs) where the map sits in the canonical ReCom + SMC ensembles. The scorecard is a tripwire, not a verdict.
 
+## Phase B — Realistic-plausible 91-district input (2026-05-23)
+
+Started from the canonical Elections Alberta majority recommendation (89 EDs) and added two plausible committee-style splits — Calgary-McKenzie and Edmonton-McClung, the two largest EDs by population in canonical majority. Each split bisects the contained VAs perpendicular to the ED's longer axis ("preempt 2031-cycle overflow" rationale — defensible-but-arbitrary, not a Lunty prediction). Generator: `proposals/lunty_dry_run/generate_realistic_91.py` (deterministic).
+
+**Phase B scorecard result:**
+
+| MO | Phase B (canonical maj + 2 splits) | Note |
+|---|---|---|
+| MO #1 — Drain Pattern | 🔴 FIRED: Lethbridge **4 districts (2.0× ratio)** | This fires on **canonical majority itself** — see Finding #1 below |
+| MO #2 — Lasso compactness | ⚪ clean (PP p10 = 0.263) | PP threshold is real-map-like, not random-like |
+| MO #3 — Municipal de-anchoring | 🔴 FIRED: **36.0%** (Canadian norm threshold 70%) | **Disagrees with `score_anchoring.py`'s 80.0% on the same input** — see Bug #8 below |
+| MO #4 — Sampler divergence | ⚪ clean: ReCom p77.8 vs SMC p95.2, divergence −17.4pp | Larger than Phase A's −4.0 pp but still under the 25pp threshold |
+
+### Finding #1 (substantive) — the canonical majority itself trips MO #1 and MO #3
+
+Ran the scorecard against the **unmodified canonical majority gpkg** (89 EDs, no committee-style splits) as a sanity baseline. Result: identical to Phase B on MO #1, MO #3, and MO #4. The 2 splits added in Phase B do not materially change any MO output.
+
+This means: **the canonical majority recommendation itself tripwires the scorecard on MO #1 (Lethbridge over-split, 2.0× ratio) and MO #3 (36.1% anchoring by MO #3's measure)**. The audit's own commission-majority baseline fires 2 of 4 channels.
+
+The honest interpretation: the scorecard's thresholds are calibrated to flag departure from *committee best practice*, and the canonical majority itself contains a debatable design choice on Lethbridge (4 districts for a city of 98,406 vs population-justified 2). When the Lunty committee's 91-seat map is scored on Nov 2, MO #1 + MO #3 are likely to fire regardless of whether the committee has produced a gerrymander, because the canonical majority baseline already fires them. **The scorecard should be read as a differential measurement against canonical majority, not as an absolute pass/fail.** This needs to be disclosed in the methods paper §6 + the live-Nov-2 prose framing.
+
+### Bug #8 — MO #3 anchoring methodology disagrees with `score_anchoring.py` by ~2×
+
+**Severity:** **CRITICAL** for the live Nov 2 run — false-positive risk on every input.
+
+**Symptom:** Scorecard against unmodified canonical majority gpkg reports MO #3 anchoring at **36.1%**. The audit's headline anchoring number for the same input (per `analysis/scripts/score_anchoring.py`, `findings/redist_python_comparison.md`, `README.md`) is **80.0%**. These cannot both be right.
+
+**Cause (probable):** The two scripts use different anchoring methodologies:
+- `score_anchoring.py` (headline): tier-ordered snap to CSD edges with `SNAP_TOL_M=500.0`, vertex density 50m, contiguous ≥1km segments counted as anchored. Returns ~80% for canonical majority, ~72% for canonical minority. This is the methodology the audit publishes.
+- MO #3 inside the scorecard: a different implementation in `mo3_municipal_anchoring()` that produces 36% on the same input. The implementation appears to use a simpler "fraction of perimeter within X meters of any CSD edge" measure with different parameters or a different denominator.
+
+**Impact:** The MO #3 threshold (70%, the Canadian comparator norm) was calibrated against the *headline* anchoring methodology (which gives 70-85% on Canadian commission maps), but the MO #3 *measurement* gives a number that's ~half that on the same input. So MO #3 will fire on essentially every commission map, including the audit's own majority recommendation. This is a calibration/measurement mismatch, not just a different number.
+
+**Fix candidates (ordered by safety):**
+1. Replace MO #3's implementation with a call into `score_anchoring.py`'s methodology so the measurement and the threshold use the same units.
+2. Re-calibrate the MO #3 threshold to match the existing MO #3 measurement (i.e., what is the 70-85% norm under *MO #3's* methodology, on Canadian comparator maps?).
+3. Disclose the methodology mismatch in the live-Nov-2 output and report both numbers.
+
+**Recommended:** option 1 (unify methodologies). The headline `score_anchoring.py` methodology is the one with documented provenance, threshold calibration, and external validation; MO #3 should match it, not invent a second methodology.
+
+### Finding #2 — MO #4 divergence on canonical majority is non-trivial
+
+Canonical majority's `seats@50/50 = 0.4607` sits at ReCom p77.8 (1.01M ensemble) and SMC p95.2 (5,000-plan importance-weighted). Divergence of **−17.4pp**. Under the pre-registered 25pp MO #4 threshold this does not fire, but it's the largest divergence we've seen on any non-pathological input. It's worth being aware that the canonical majority is sampler-asymmetric — ReCom places it near median-tail; SMC places it firmly in the upper tail. For Lunty: if the committee map sits anywhere near the canonical majority's position, MO #4 will be close to threshold.
+
 ## What this dry-run did not cover
 
-- **MO #4 (Sampler divergence).** Requires a ReCom ensemble + R `redist` SMC ensemble run against the 91-district synthetic plan. Plumbing not exercised here. Estimated 1–2 hours of compute. Should be done before Nov 2 if there's any uncertainty about whether the existing canonical ensembles (87 districts) can score a 91-district input, or whether a fresh 91-district ensemble must be generated.
-- **Realistic-plausible 91-district input (Phase B).** The neutral synthetic plan is not committee-like. A Phase B input that starts from the canonical majority (87 EDs) and adds 4 splits in plausible adjustment locations would test the scorecard against a more committee-like product. Not executed in Phase A.
-- **EBCA ±25% population balance.** The synthetic plan has 48.7% envelope. A real committee map would be tighter; whether the scorecard handles tighter or looser inputs differently is not yet tested.
-- **Names with special characters.** The synthetic districts are `Synthetic-01` through `Synthetic-91` (ASCII-safe). The Lunty committee might use names with diacritics (e.g., "Bonnyville-Cold Lake-St. Paul") or special punctuation. Not exercised here.
+- **EBCA ±25% population balance.** The Phase A neutral synthetic plan has 48.7% envelope; the Phase B realistic synthetic plan inherits canonical majority's tight balance for 87 EDs and a rough half/half split for the 2 new sub-EDs. A real Lunty map would be tighter; whether the scorecard handles tighter or looser inputs differently is not yet tested.
+- **Names with special characters.** The synthetic districts use ASCII-safe names. The Lunty committee might use names with diacritics or special punctuation. Not exercised here.
+- **CSD layer year sensitivity.** MO #1 and MO #3 use `alberta_2021_csds.gpkg`. If StatsCan updates the CSD layer to 2026 reference before Nov 2, the scorecard will need to be re-checked against the new file.
 
 ## Recommendation
 
-The scorecard is now production-ready for the live Nov 2 run with respect to the seven bugs surfaced. Before the live run:
+Eight production bugs surfaced and seven fixed. **Bug #8 is critical and not yet fixed.** Status before the live Nov 2 run:
 
-1. **Pre-flight check (HIGH priority) — DONE 2026-05-23.** Added explicit existence + LFS-pointer-vs-binary checks at the top of `main()` for `args.shapefile`, `ALBERTA_CSDS`, and `VA_VOTES_PATH`. The scorecard now errors out loudly (exit code 2 with a clear `git lfs pull` instruction) instead of silently skipping MOs. Tested three ways:
-   - **LFS pointers in place (no binaries):** pre-flight catches both files, reports them as pointer files, exits 2.
-   - **Binaries materialised:** pre-flight passes; MO #1/#2/#3 run; output written as expected.
-   - **Missing input shapefile:** pre-flight catches the missing input, exits 2.
-2. **MO #4 dry-run (MEDIUM priority) — DONE 2026-05-23.** Surfaced Bug #7 (stale DPG-era ensemble path) and confirmed plumbing now works end-to-end with the canonical 1.01M ReCom + 5,000-plan SMC ensembles. **Important finding:** the canonical 87-district ensembles can score a 91-district input directly, because `seats@50/50` is a fractional UCP share normalized by district count. **No fresh 91-district ensemble needs to be generated for Nov 2** — the canonical files are the right baseline.
-3. **Phase B (LOW priority).** Build the realistic-plausible 91-district input (canonical majority + 4 committee-style splits) and re-run the scorecard. Still useful as sensitivity-testing for the scorecard against committee-like inputs.
-4. **Follow-up hardening (LOW priority).** Extend the pre-flight check to also cover `RECOM_SAMPLES` and `SMC_OUTPUT` so the failure mode is uniform across all required references. Currently MO #4 self-skips with a visible "SKIPPED — pre-existing ensemble outputs missing" message; not as loud as the pre-flight exit-2 path but not silent either.
+1. **Pre-flight check — DONE 2026-05-23.**
+2. **MO #4 dry-run — DONE 2026-05-23.** Surfaced Bug #7 (stale DPG ensemble path), fixed. Canonical 87-district ensembles score 91-district inputs directly; no fresh ensemble needed.
+3. **Phase B (realistic-plausible synthetic) — DONE 2026-05-23.** Surfaced Bug #8 (MO #3 anchoring methodology mismatch) and Finding #1 (canonical majority itself tripwires MO #1 + MO #3). Plumbing verified; thresholds need re-thinking.
+4. **Bug #8 — MO #3 anchoring methodology mismatch (HIGH priority, NOT YET FIXED).** The scorecard's MO #3 implementation gives 36.1% anchoring on canonical majority where `score_anchoring.py` gives 80.0%. Either MO #3 should call into `score_anchoring.py` (recommended) or its 70% threshold must be re-calibrated against MO #3's own measurement. **Fix before Nov 2 or the live scorecard will produce a false-positive on virtually every input.**
+5. **Methods paper §6 / live-Nov-2 prose disclosure (MEDIUM priority).** Disclose that MO #1 + MO #3 fire on the canonical majority recommendation itself (Finding #1). The scorecard is a *differential* signal between Lunty's map and canonical majority, not an absolute pass/fail. Without this disclosure, a reviewer who runs the scorecard on canonical majority will catch the audit in an apparent inconsistency.
+6. **Follow-up hardening (LOW priority).** Extend the pre-flight check to also cover `RECOM_SAMPLES` and `SMC_OUTPUT`. Currently MO #4 self-skips with a visible message; not silent but not as loud as pre-flight exit-2.
 
-The live Nov 2 run is now blocked by zero items as long as the operator pulls all LFS files first.
+**Live Nov 2 run is blocked by item 4 (Bug #8 fix).** Items 5 and 6 are quality improvements that don't block the run but should be addressed.
