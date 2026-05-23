@@ -510,7 +510,7 @@ export function init(basePath: string): void {
         function _setEdHighlight(pathEl) {
           _clearEdHighlight();
           if (!svgEl || !pathEl) return;
-          const color = _mapAccentColors[_mapPrimary] || '#fff';
+          const color = '#F5A623'; // EA yellow — consistent selection ring across all maps
           const d = pathEl.getAttribute('d');
           _highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'g');
           _highlightPath.setAttribute('pointer-events', 'none');
