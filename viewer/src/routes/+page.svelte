@@ -1259,7 +1259,7 @@
       .hero-map-wrap { display: block; width: 100%; overflow: hidden; }
       .header-image {
         width: 100%; height: 56vw; max-height: none;
-        object-fit: cover; object-position: center 58%; border-radius: 0;
+        object-fit: cover; object-position: 35% 62%; border-radius: 0;
       }
       .province-border-overlay { display: none; }
       .cover-note { display: none; }
