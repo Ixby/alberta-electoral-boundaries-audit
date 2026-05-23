@@ -107,6 +107,30 @@ pyogrio.errors.DataSourceError: 'data/shapefiles/derived/va_polygons_with_2023_v
 
 **Fix:** Updated `VA_VOTES_PATH` to `data/shapefiles/canonical/va_2023_election_day_votes.gpkg`. The schemas of the two files are similar but the canonical version is the authoritative substrate going forward.
 
+### Bug #7 — `RECOM_SAMPLES` points at deleted DPG-era 250k ensemble (MO #4 silently skips)
+
+**Severity:** **CRITICAL** — surfaces only when MO #4 actually runs (i.e., when the operator passes `--map-s50` or removes `--skip-mcmc`). Equivalent to Bugs #3/#4 but for the partisan-bias channel rather than the structural channel.
+
+**Symptom:** With `--map-s50 X` passed and the old `RECOM_SAMPLES` path:
+```
+MO #4 — Sampler divergence: SKIPPED — pre-existing ensemble outputs missing.
+```
+
+**Cause:** `RECOM_SAMPLES` constant pointed at `data/simulated_ensemble_raw_samples_250k.csv` — the DPG-era 250k ensemble — which doesn't exist in the canonical repo at all. The canonical 1,010,000-plan ReCom samples live at `data/outputs/simulated_ensemble_raw_samples_canonical.csv` (LFS-tracked, ~170 MB).
+
+**Fix:** Updated `RECOM_SAMPLES` to the canonical 1.01M file. The fix is consistent with Stage 11 of the methods paper's case-study arc: the 1.01M canonical ensemble (4 chains × 252,500 steps, seed 1432864451) is the authoritative ensemble for every partisan-metric percentile placement.
+
+**Caught by:** The MO #4 dry-run added 2026-05-23 (this report's later section).
+
+### Pre-flight check (Bugs #3/#4/#5/#6/#7 hardening)
+
+Added 2026-05-23. The scorecard now performs explicit existence + LFS-pointer-vs-binary checks on every required reference path (`args.shapefile`, `ALBERTA_CSDS`, `VA_VOTES_PATH`) at the top of `main()` and aborts with a clear `git lfs pull` instruction if any check fails. Equivalent guards on `RECOM_SAMPLES` and `SMC_OUTPUT` are not yet in pre-flight because MO #4 already self-skips with a visible "SKIPPED — pre-existing ensemble outputs missing" message; consider adding them in a follow-up so the failure modes are uniform.
+
+Verified three ways:
+- **LFS pointers in place (no binaries):** pre-flight catches both `ALBERTA_CSDS` and `VA_VOTES_PATH`, lists both with `git lfs pull` remediation, exits 2.
+- **Binaries materialised:** pre-flight passes; MO #1/#2/#3 run; output written as expected.
+- **Missing input shapefile:** pre-flight catches the missing input, exits 2.
+
 ## Scorecard results on the synthetic neutral plan
 
 Three of four MOs computed; MO #4 (sampler divergence) was deliberately skipped (`--skip-mcmc`) because it requires a ReCom + SMC ensemble run against the synthetic plan. That's a separate dry-run task (estimated 1–2 hours of compute) and would be the next step if MO #4 plumbing also needs to be verified before Nov 2.
@@ -116,7 +140,7 @@ Three of four MOs computed; MO #4 (sampler divergence) was deliberately skipped 
 | MO #1 — Drain Pattern (city cracking) | 🔴 FIRED | 2 cities flagged: Lethbridge (3 districts, ratio 1.5×), St. Albert (3 districts, ratio 1.5×) | Correct behavior: a random partition that doesn't respect city boundaries will over-split mid-sized cities. Fires as designed. |
 | MO #2 — Lasso (surgical non-compactness) | ⚪ clean | No districts hit both bottom-decile PP (threshold 0.149) AND mixed urban-rural composition | Correct behavior: random partitions tend to be moderately compact and either fully urban or fully rural, rarely both at once. Doesn't fire as designed. |
 | MO #3 — Municipal de-anchoring | 🔴 FIRED | Municipal anchoring = 19.0% (Canadian norm threshold 70%) | Correct behavior: a random partition doesn't follow municipal edges. Fires as designed; this is the expected null-baseline anchoring for a random tree-partition. |
-| MO #4 — Sampler divergence | (skipped, `--skip-mcmc`) | — | Plumbing not yet dry-run. |
+| MO #4 — Sampler divergence | ⚪ clean | map s50 = 0.4505 → ReCom percentile 51.6 (of canonical 1.01M ensemble); SMC percentile 55.6 (of canonical 5,000-plan weighted ensemble); divergence −4.0 pp; threshold 25 pp | Correct behavior: a random partition converges to the ensemble median, so the two samplers agree (small divergence). MO #4 fires only when ReCom and SMC fundamentally disagree on where the map sits — the signature of deliberate non-compactness exploitation. Plumbing fully verified 2026-05-23. |
 
 **Important reading frame.** 2 of 3 tripwires firing on a synthetic *random* plan is not a "false positive" — it is exactly what the audit's framework predicts. The pre-registered thresholds are calibrated to flag departure from *committee practice* (which respects communities-of-interest and municipal boundaries), not departure from a random null. A random partition will routinely cross MO #1 and MO #3 thresholds because it doesn't respect any of the discipline a real committee imposes.
 
@@ -131,13 +155,14 @@ This is informative for the live Nov 2 run: if the Lunty committee's map fires M
 
 ## Recommendation
 
-The scorecard is now production-ready for the live Nov 2 run with respect to the six bugs surfaced. Before the live run:
+The scorecard is now production-ready for the live Nov 2 run with respect to the seven bugs surfaced. Before the live run:
 
-1. **Pre-flight check (HIGH priority) — DONE 2026-05-23.** Added explicit existence + LFS-pointer-vs-binary checks at the top of `main()` for both `ALBERTA_CSDS` and `VA_VOTES_PATH`. The scorecard now errors out loudly (exit code 2 with a clear `git lfs pull` instruction) instead of silently skipping MOs. Tested three ways:
+1. **Pre-flight check (HIGH priority) — DONE 2026-05-23.** Added explicit existence + LFS-pointer-vs-binary checks at the top of `main()` for `args.shapefile`, `ALBERTA_CSDS`, and `VA_VOTES_PATH`. The scorecard now errors out loudly (exit code 2 with a clear `git lfs pull` instruction) instead of silently skipping MOs. Tested three ways:
    - **LFS pointers in place (no binaries):** pre-flight catches both files, reports them as pointer files, exits 2.
    - **Binaries materialised:** pre-flight passes; MO #1/#2/#3 run; output written as expected.
    - **Missing input shapefile:** pre-flight catches the missing input, exits 2.
-2. **MO #4 dry-run (MEDIUM priority).** Run the scorecard without `--skip-mcmc` against the synthetic plan, or against the canonical majority/minority maps, to confirm the ensemble-comparison code can handle a 91-district input.
-3. **Phase B (LOW priority).** Build the realistic-plausible 91-district input and re-run the scorecard.
+2. **MO #4 dry-run (MEDIUM priority) — DONE 2026-05-23.** Surfaced Bug #7 (stale DPG-era ensemble path) and confirmed plumbing now works end-to-end with the canonical 1.01M ReCom + 5,000-plan SMC ensembles. **Important finding:** the canonical 87-district ensembles can score a 91-district input directly, because `seats@50/50` is a fractional UCP share normalized by district count. **No fresh 91-district ensemble needs to be generated for Nov 2** — the canonical files are the right baseline.
+3. **Phase B (LOW priority).** Build the realistic-plausible 91-district input (canonical majority + 4 committee-style splits) and re-run the scorecard. Still useful as sensitivity-testing for the scorecard against committee-like inputs.
+4. **Follow-up hardening (LOW priority).** Extend the pre-flight check to also cover `RECOM_SAMPLES` and `SMC_OUTPUT` so the failure mode is uniform across all required references. Currently MO #4 self-skips with a visible "SKIPPED — pre-existing ensemble outputs missing" message; not as loud as the pre-flight exit-2 path but not silent either.
 
-Items 2 and 3 are "do before Nov 2" items but none are blocking the live run as long as the operator pulls all LFS files first.
+The live Nov 2 run is now blocked by zero items as long as the operator pulls all LFS files first.

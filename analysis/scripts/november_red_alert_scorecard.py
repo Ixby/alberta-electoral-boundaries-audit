@@ -93,8 +93,8 @@ VA_VOTES_PATH = (
 ALBERTA_CSDS = (
     data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 )  # canonical StatsCan 2021 CSDs — required for MO #1 and MO #3
-RECOM_SAMPLES = data_loader._resolve_path("data") / "simulated_ensemble_raw_samples_250k.csv"
-SMC_OUTPUT = data_loader._resolve_path("data") / "redist_crossvalidation_s50.csv"
+RECOM_SAMPLES = data_loader._resolve_path("data") / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"  # canonical 1.01M-plan ReCom ensemble (was DPG-era 250k; LFS-tracked, ~170 MB; switched 2026-05-23)
+SMC_OUTPUT = data_loader._resolve_path("data") / "redist_crossvalidation_s50.csv"  # canonical SMC 5,000 plans, importance-weighted, ESS 1,116
 
 # Pre-registered tripwire thresholds (committed to before the Lunty
 # committee began work).
