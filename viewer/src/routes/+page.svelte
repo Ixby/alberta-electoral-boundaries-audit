@@ -1693,12 +1693,11 @@
     50%       { opacity: 0.38; }
   }
   .anomaly-pulse-path {
-    filter: drop-shadow(0 0 6px #e63946) drop-shadow(0 0 14px #e6394877);
+    filter: drop-shadow(0 0 2px #e63946);
     will-change: opacity;
     animation: anomaly-pulse 2.4s ease-in-out infinite;
   }
   .anomaly-glow-path {
-    filter: drop-shadow(0 0 12px #e63946);
     will-change: opacity;
     animation: anomaly-glow-pulse 2.4s ease-in-out infinite;
   }

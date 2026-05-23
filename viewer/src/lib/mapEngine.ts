@@ -10,19 +10,6 @@ export function init(basePath: string): void {
       const _allHoverData = {};                         // key → {id: rec}
       const _nameIndex = {};                            // key → {name: rec}
 
-      function _loadHoverJson(key, url) {
-        fetch(url).then(r => r.json()).then(d => {
-          const byId = {}, byName = {};
-          d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
-          _allHoverData[key] = byId;
-          _nameIndex[key] = byName;
-          if (key === _mapPrimary) { _edHover = byId; _reapplyLayers(); }
-        }).catch(() => {});
-      }
-      _loadHoverJson('minority', 'data/ed_hover_minority.json');
-      _loadHoverJson('majority', 'data/ed_hover_majority.json');
-      _loadHoverJson('2019',    'data/ed_hover_2019.json');
-
       (function () {
         const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
         const sections = navLinks
@@ -559,6 +546,7 @@ export function init(basePath: string): void {
           glow.setAttribute('stroke-width', '6');
           glow.setAttribute('stroke-linejoin', 'round');
           glow.style.vectorEffect = 'non-scaling-stroke';
+          glow.style.filter = 'blur(2px)';
           const sharp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
           sharp.setAttribute('d', d);
           sharp.setAttribute('fill', 'none');
@@ -838,6 +826,19 @@ export function init(basePath: string): void {
           _applyEdLinesLayer(_layerState['ed-lines']);
           if (_layerState.eg) _applyEGLayer(true);
         }
+
+        function _loadHoverJson(key, url) {
+          fetch(url).then(r => r.json()).then(d => {
+            const byId = {}, byName = {};
+            d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
+            _allHoverData[key] = byId;
+            _nameIndex[key] = byName;
+            if (key === _mapPrimary) { _edHover = byId; _reapplyLayers(); }
+          }).catch(() => {});
+        }
+        _loadHoverJson('minority', 'data/ed_hover_minority.json');
+        _loadHoverJson('majority', 'data/ed_hover_majority.json');
+        _loadHoverJson('2019',    'data/ed_hover_2019.json');
 
         document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
           b.addEventListener('click', function() {
