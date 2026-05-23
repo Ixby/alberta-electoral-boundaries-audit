@@ -24,6 +24,13 @@
   let navOpen           = $state(false);
   let showParticipation = $state(false);
   let dntActive         = $state(false);
+  let darkMode          = $state(false);
+
+  function toggleTheme() {
+    darkMode = !darkMode;
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }
   let showSharePanel    = $state(false);
   let shareCode         = $state('');
   let loadInput         = $state('');
@@ -89,14 +96,11 @@
     }, 2800);
 
     // ── Dark mode — light by default; user toggle persisted in localStorage ─
-    const root = document.documentElement;
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark') root.setAttribute('data-theme', 'dark');
-    document.getElementById('theme-toggle')?.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      darkMode = true;
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
 
     // ── Lightbox ───────────────────────────────────────────────────────────
     const lb = document.getElementById('fig-lightbox') as HTMLElement;
@@ -199,7 +203,7 @@
   <a href="#retractions">Retractions</a>
   <a href="#references">References</a>
   <a href="#resources">Technical</a>
-  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode">
+  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode" onclick={toggleTheme}>
     <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
     <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
   </button>
