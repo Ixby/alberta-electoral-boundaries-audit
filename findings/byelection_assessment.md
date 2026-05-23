@@ -1,6 +1,6 @@
 ---
 name: Alberta provincial byelection assessment (2019-2026) — Track S
-description: Acquires every Alberta provincial byelection held 2019-01-01 to 2026-04-22, assesses methodological usefulness for the boundaries audit, and judges whether incorporating byelection data strengthens any existing finding. Honest verdict: the 2022-2025 byelections are not a usefully additive cross-election baseline for the audit's RT3 stability test, and only one (Olds-Didsbury-Three Hills, June 2025) is materially informative for a contested-configuration finding.
+description: "Acquires every Alberta provincial byelection held 2019-01-01 to 2026-04-22, assesses methodological usefulness for the boundaries audit, and judges whether incorporating byelection data strengthens any existing finding. Honest verdict — the 2022-2025 byelections are not a usefully additive cross-election baseline for the audit's RT3 stability test, and only one (Olds-Didsbury-Three Hills, June 2025) is materially informative for a contested-configuration finding."
 forward_dependencies:
   - report_academic.md — §3.5 cross-election paragraph (proposed footnote-grade insertion)
   - report_public.md — no change recommended

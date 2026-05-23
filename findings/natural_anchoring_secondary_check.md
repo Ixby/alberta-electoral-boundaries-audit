@@ -1,6 +1,6 @@
 ---
 name: v0_9_natural_anchoring_secondary_check
-description: Pre-canonical secondary check — does the DPG-era minority map's 14.5% municipal-anchoring deficit survive a natural-anchoring substrate (highways + rivers)? Verdict on the DPG substrate — INVERTS (40.2 / 38.4 / 40.1). SUPERSEDED on canonical geometry: the headline 14.5% itself did not survive canonical recomputation (canonical anchoring is majority 80.0% / minority 72.0%, both within the Canadian norm), so the question this check was designed to answer no longer applies. See banner.
+description: "Pre-canonical secondary check — does the DPG-era minority map's 14.5% municipal-anchoring deficit survive a natural-anchoring substrate (highways + rivers)? Verdict on the DPG substrate — INVERTS (40.2 / 38.4 / 40.1). SUPERSEDED on canonical geometry — the headline 14.5% itself did not survive canonical recomputation (canonical anchoring is majority 80.0% / minority 72.0%, both within the Canadian norm), so the question this check was designed to answer no longer applies. See banner."
 type: project
 ---
 

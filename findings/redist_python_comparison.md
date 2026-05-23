@@ -1,6 +1,6 @@
 ---
 name: R `redist` (SMC) vs Python `gerrychain` (ReCom) cross-validation
-description: Side-by-side comparison of percentile placements for the 2026 majority and minority maps' seats@50/50 across two fundamentally different ensemble samplers — Python's ReCom Markov chain (1,010,000 plans, canonical, via `gerrychain`) and R's Sequential Monte Carlo (5,000 plans, canonical, via Harvard's `redist`). On canonical Elections Alberta shapefiles the two samplers agree: the minority map's seats@50/50 (0.5169) lies above the SMC ensemble maximum (0.4943) and at ReCom p99.99.
+description: "Side-by-side comparison of percentile placements for the 2026 majority and minority maps' seats@50/50 across two fundamentally different ensemble samplers — Python's ReCom Markov chain (1,010,000 plans, canonical, via `gerrychain`) and R's Sequential Monte Carlo (5,000 plans, canonical, via Harvard's `redist`). On canonical Elections Alberta shapefiles the two samplers agree — the minority map's seats@50/50 (0.5169) lies above the SMC ensemble maximum (0.4943) and at ReCom p99.99."
 type: project
 ---
 

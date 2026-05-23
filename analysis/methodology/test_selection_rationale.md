@@ -1,6 +1,6 @@
 ---
 name: Test selection rationale — why these tests, not others; criticisms + defenses; improvements made + still possible
-description: A methodological reflection on the audit's test battery. Answers: why these specific tests, what their criticisms are, how we defend against them, what we've already improved, and what combined or novel tests (drain effects, boundary-chain analyses) could add. Companion to the empirical paper extraction (Issue #11).
+description: "A methodological reflection on the audit's test battery. Answers — why these specific tests, what their criticisms are, how we defend against them, what we've already improved, and what combined or novel tests (drain effects, boundary-chain analyses) could add. Companion to the empirical paper extraction (Issue #11)."
 type: methodology
 ---
 
