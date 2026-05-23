@@ -1162,12 +1162,13 @@ export function init(basePath: string): void {
         })();
 
         // ── Anomaly highlight ─────────────────────────────────────────────────────
-        // Districts flagged by commission chair (Justice Miller) on the minority map:
-        //   20 = Calgary-Nolan Hill-Cochrane (lasso corridor)
-        //   75 = Olds-Three Hills-Didsbury (reach into north Airdrie)
-        //   81 = Rocky Mountain House-Banff Park (national-park extension)
-        // Source: commission final report, confirmed by audit geometry tests.
-        const _anomalyIds = new Set([20, 75, 81]);
+        // All 7 configurations criticized by commission chair (Justice Miller):
+        //   Geometric flags (4): 13=Foothills-Airdrie West, 20=Nolan Hill-Cochrane,
+        //                        75=Olds-Three Hills-Didsbury, 81=RMH-Banff Park
+        //   Appendix C (no public support): 57=Chestermere-Strathmore,
+        //                        80=Red Deer-Sylvan Lake, 83=St Albert
+        // Source: AEBC (2026) majority report §5.8.2 + Appendix C; union = 7 configs.
+        const _anomalyIds = new Set([13, 20, 57, 75, 80, 81, 83]);
         let   _anomalyOn      = false;
         let   _anomalyOverlay = null;
 
@@ -1253,6 +1254,13 @@ export function init(basePath: string): void {
             if (overlay.style.display !== 'block') open();
             _anomalyOn = !_anomalyOn;
             b.classList.toggle('tb-layer-on', _anomalyOn);
+            // Auto-switch to minority map — all flagged EDs are minority-map configs
+            if (_anomalyOn && _mapPrimary !== 'minority') {
+              _mapOn['minority'] = true;
+              _mapPrimary = 'minority';
+              _doSwitchPrimary('minority');
+              _updateMapButtons();
+            }
             _applyAnomalyHighlight();
             if (_anomalyOn && wasOff && !_mapLocked) _zoomToAnomalyDistricts(0);
           });

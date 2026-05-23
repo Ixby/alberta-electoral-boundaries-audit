@@ -133,6 +133,38 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 - Missing: Airdrie, Chestermere, Sylvan Lake, Innisfail, Red Deer origin-CSD tables
 - Impact: R2/R5/R11 verdicts currently INCONCLUSIVE
 
+### VA-Level Map Interaction (Viewer Enhancement)
+
+Feature: users click a Voting Area polygon on any map and see its vote counts and distribution.
+
+**Blocker:** VA polygons in the generated SVGs (`PatchCollection_1`) have no data attributes. Three 36 MB SVGs must be regenerated.
+
+**Step 1 — SVG regeneration (`build_cover.py`):**
+- Locate the `PatchCollection_1` path-rendering loop in `build_cover.py`
+- For each VA polygon, inject `data-va-id="{sheet_num}_{poll_letter}"` (or `data-va-id="{voting_areas}"` if the VA identifier in `polls_2023_unified.csv` is stable)
+- Map each PatchCollection path index → VA row in the same iteration order the script uses to build the PatchCollection
+- Regenerate: `cover_art_minority_hires.svg`, `cover_art_majority_hires.svg`, `cover_art_2019_hires.svg` (36 MB each)
+
+**Step 2 — Build `va_hover_*.json`:**
+- Input: `data/outputs/polls_2023_unified.csv` + `data/outputs/assignment_va_to_2026_canonical.csv`
+- One file per map (minority/majority/2019) because VA→ED attribution differs per map
+- Output schema per VA: `{va_id, ed_name, poll_name, ucp_votes, ndp_votes, other_votes, valid_votes, ucp_pct, ndp_pct}`
+- Deploy to `docs/data/va_hover_minority.json`, `va_hover_majority.json`, `va_hover_2019.json`
+
+**Step 3 — mapEngine.ts update:**
+- Add `_allVaData[key]` alongside `_allHoverData[key]`; load `va_hover_*.json` lazily at map open
+- Add click listener on `#PatchCollection_1 path[data-va-id]` within the primary SVG
+- Show VA sub-callout (below ED callout): poll name, parent ED, UCP/NDP/other counts + percentages
+- VA callout independently dismissible; selecting an ED clears the VA callout
+
+**Step 4 — Deploy SVGs:**
+- After SVG regeneration, run `npm run build` and push to GitHub Pages
+- Verify: `docs/images/cover_art_*_hires.svg` updated; `docs/data/va_hover_*.json` present
+
+**Effort estimate:** Step 1 (1–2 h code + 20 min render per SVG × 3), Step 2 (1 h), Step 3 (2–3 h), Step 4 (30 min).
+
+---
+
 ### Manual Source Verifications
 
 - ~~RMH-Banff attribution — verify against Hansard/X-thread sources before CRIT-B deletion~~ **DONE 2026-05-09** (see COMPLETED_LOG.md)

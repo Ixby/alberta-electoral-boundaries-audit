@@ -19,8 +19,21 @@
   import { base } from '$app/paths';
   import { init } from '$lib/mapEngine';
 
+  let skelPhrase = 'loading fun…';
+  const _SKEL_PHRASES = [
+    'loading fun…', 'drawing Alberta…', 'crunching the numbers…',
+    'counting every vote…', 'plotting the boundaries…', 'almost there…',
+  ];
+  let _skelIdx = 0;
+
   onMount(() => {
     init(base);
+
+    // ── Skeleton phrase cycling ───────────────────────────────────────────────
+    setInterval(() => {
+      _skelIdx = (_skelIdx + 1) % _SKEL_PHRASES.length;
+      skelPhrase = _SKEL_PHRASES[_skelIdx];
+    }, 2800);
 
     // ── Dark mode — light by default; user toggle persisted in localStorage ─
     const root = document.documentElement;
@@ -96,6 +109,26 @@
       if (e.key === 'Escape') closeLb();
       if (e.key === 'Tab') e.preventDefault();
     });
+
+    // ── Vocab term expand/collapse ────────────────────────────────────────────
+    document.querySelectorAll('.vocab-term').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const def = (btn as HTMLElement).dataset.def ?? '';
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // Remove any existing panel for this term
+        const existing = (btn as HTMLElement).nextElementSibling;
+        if (existing && existing.classList.contains('vocab-panel')) existing.remove();
+        if (!isOpen) {
+          const panel = document.createElement('span');
+          panel.className = 'vocab-panel';
+          panel.textContent = def;
+          (btn as HTMLElement).insertAdjacentElement('afterend', panel);
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   });
 </script>
 
@@ -108,8 +141,8 @@
   <a href="#section-4">Crack &amp; Pack</a>
   <a href="#section-5">Impact</a>
   <a href="#section-6">Gerrymanders</a>
-  <a href="#section-7">November</a>
-  <a href="#section-8">Invisible</a>
+  <a href="#section-7">Lunty</a>
+  <a href="#section-8">Suggestions</a>
   <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode">
     <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
     <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
@@ -126,9 +159,7 @@
       <h1>Alberta Electoral Boundary Audit</h1>
       <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
       <span class="badge">Official Elections Alberta maps &mdash; Published May 2026</span>
-      <p class="cover-note">This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries &mdash; or layer all three to see exactly where they diverge. <strong>Detail</strong> colours each polling area by how people voted in 2023; <strong>Trend</strong> adds partisan shading by district (blue UCP, orange NDP); <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.</p>
-      <p class="cover-note" style="margin-top:0.55rem;">Try locking the viewport and flipping between maps &mdash; watch a boundary shift while the voters underneath stay still. That&rsquo;s the whole question in one gesture.</p>
-      <p class="cover-note" style="margin-top:0.55rem;">When you&rsquo;re done exploring, scroll down for the summary. For the full technical analysis, see the Resources section. All data is official Elections Alberta shapefiles and other government and open-source records.</p>
+      <p class="cover-note">Click to zoom and explore all three boundary proposals simultaneously. Pin the viewport and flip between maps &mdash; boundaries shift, voters stay put. Scroll down for the analysis.</p>
     </div>
     <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map">
       <div class="hero-map-wrap">
@@ -177,7 +208,7 @@
 
   <div class="callout" style="background:#EAF3FF; border-left-color:#2B5BA1; margin:0.5rem 0 1rem;">
     <p style="margin:0 0 0.4rem;"><strong>Structural audit results — before any statistics:</strong></p>
-    <p style="margin:0;">The majority map crosses <strong>zero of five</strong> pre-registered structural thresholds. The minority map crosses <strong>all five</strong>. These are geometric measurements — population spread, <abbr title="how closely a district's borders follow pre-existing city and municipal limits, rather than cutting through them">municipal anchoring</abbr>, Airdrie split count, NW Calgary population excess, and chair-flagged boundary anomalies — that require no election data and no statistical sampler. The next section tests both maps against 1,010,000 computer-generated neutral maps and reaches the same conclusion through a completely different instrument.</p>
+    <p style="margin:0;">The majority map crosses <strong>zero of five</strong> pre-registered structural thresholds. The minority map crosses <strong>all five</strong>. These are geometric measurements — population spread, <button class="vocab-term" data-def="how closely a district's borders follow pre-existing city and municipal limits, rather than cutting through them" aria-expanded="false">municipal anchoring</button>, Airdrie split count, NW Calgary population excess, and chair-flagged boundary anomalies — that require no election data and no statistical sampler. The next section tests both maps against 1,010,000 computer-generated neutral maps and reaches the same conclusion through a completely different instrument.</p>
   </div>
 
   <section id="section-3">
@@ -185,7 +216,7 @@
 
     <figure style="margin:1.2rem 0;text-align:center;">
       <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+4.0%), in the shaded right tail. The majority map (teal line) sits at +0.1%, well within the normal range." style="max-width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #fff; padding: 0.5rem;" width="463" height="247" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">Distribution of <abbr title="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP">efficiency gaps</abbr> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +4.0% sits at the 94th <abbr title="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this">percentile</abbr> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.1% is indistinguishable from what a neutral process typically produces.</figcaption>
+      <figcaption style="font-size: 0.82rem; color: #666; margin-top: 0.4rem;">Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +4.0% sits at the 94th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.1% is indistinguishable from what a neutral process typically produces.</figcaption>
     </figure>
 
     <p>The table compares the two maps. The first five rows use no election results — they're properties of the lines themselves. The last two depend on how votes were attributed to each district.</p>
@@ -520,12 +551,12 @@
 
     <p>The official shapefiles reveal a map that is statistically extreme in the same partisan direction on all four measures at once. The joint probability of a neutral drawing process producing a map this extreme across all four measures simultaneously is roughly one in 15 million (p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, <a href="https://osf.io/6pt83" rel="noopener">pre-registered Fisher combined test</a>). That is not a rounding error or a measurement artefact — it is the same answer from four independent statistical instruments read in the same room.</p>
 
-    <details style="margin:0.8rem 0 1rem; border-left:3px solid #bbb; padding:0.4rem 0 0.4rem 0.9rem;">
-      <summary style="cursor:pointer; font-weight:600; color:#444; font-size:0.93rem; user-select:none;">What this p-value means — and what it doesn&rsquo;t</summary>
-      <div style="margin-top:0.6rem; font-size:0.92rem; line-height:1.6; color:#333;">
-        <p style="margin:0 0 0.5rem;">A p-value answers one question: if the map were drawn by a neutral process, how often would we see a result this extreme or more extreme? At p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, the answer is about once in 14.5 million trials.</p>
-        <p style="margin:0 0 0.5rem;">This is a frequentist hypothesis test, not a measurement of intent. It does not say the commission intended to gerrymander, and it does not quantify how unfair the map is in practical terms. It says the boundary pattern is statistically inconsistent with a neutral drawing process — the same conclusion a randomized audit would reach regardless of who drew the map or why.</p>
-        <p style="margin:0;">The test was pre-registered before the data were analyzed (<a href="https://osf.io/w2s8k" rel="noopener">OSF registration w2s8k</a>). The pre-registration specifies the null hypothesis, the metrics, and the rejection threshold in advance, so the result cannot be attributed to choosing a favorable framing after seeing the numbers.</p>
+    <details class="audit-detail">
+      <summary>What this p-value means — and what it doesn&rsquo;t</summary>
+      <div class="audit-detail-body">
+        <p>A p-value answers one question: if the map were drawn by a neutral process, how often would we see a result this extreme or more extreme? At p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, the answer is about once in 14.5 million trials.</p>
+        <p>This is a frequentist hypothesis test, not a measurement of intent. It does not say the commission intended to gerrymander, and it does not quantify how unfair the map is in practical terms. It says the boundary pattern is statistically inconsistent with a neutral drawing process — the same conclusion a randomized audit would reach regardless of who drew the map or why.</p>
+        <p>The test was pre-registered before the data were analyzed (<a href="https://osf.io/w2s8k" rel="noopener">OSF registration w2s8k</a>). The pre-registration specifies the null hypothesis, the metrics, and the rejection threshold in advance, so the result cannot be attributed to choosing a favorable framing after seeing the numbers.</p>
       </div>
     </details>
 
@@ -649,14 +680,14 @@
       </table>
     </div>
 
-    <details style="margin:1rem 0; padding:0.8rem 1rem; background:#f8f8f8; border:1px solid #e0e0e0; border-radius:4px;">
-      <summary style="cursor:pointer; font-weight:600; color:#333;">Why Lane 2 carries the case — technical detail</summary>
+    <details class="audit-detail">
+      <summary>Why Lane 2 carries the case — technical detail</summary>
       <p style="margin:0.7rem 0 0;">The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. The minority crosses every one; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup> (pre-registered Fisher combined test — a method that combines four independent test results into a single probability by multiplying their individual tail probabilities; the combined figure is far smaller than any single test's because all four point the same direction; OSF <a href="https://osf.io/6pt83" rel="noopener">6pt83</a>). The question of whether Lane 2's unusual geometry is the specific <em>mechanism</em> behind the Lane 1 numbers was tested and the answer is no — see <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. The Swing-Zone Allocation Test shows the contested boundary choices are partisan-skewed, but the tested question was whether the boundary shapes themselves — the lasso corridor, the park extension — are the direct cause of the seat swing; they are not. The seat effect comes from how redrawn Voting Area assignments shift vote efficiency across districts, not from the shapes per se. Both lanes flag the minority map; they reach that conclusion through independent instruments. Lane 2 is the central finding. Lane 1 corroborates without carrying.</p>
     </details>
   </section>
 
   <section id="section-7">
-    <h2>7: What Happens in November <a href="#section-7" class="section-link" aria-label="Link to section 7">#</a></h2>
+    <h2>7: The Lunty Committee <a href="#section-7" class="section-link" aria-label="Link to section 7">#</a></h2>
 
     <div class="callout" style="background:#F5F5F5; border-left-color:#888; font-size:0.95rem;">
       <p style="margin:0;"><strong>CONTEXT</strong> — This section describes the process that replaced the commission and the legal framework that applies to it. It is not part of the statistical findings. The findings are in §3–§6 above.</p>
@@ -688,11 +719,11 @@
   </section>
 
   <section id="section-8">
-    <h2>8: The Invisible Part <a href="#section-8" class="section-link" aria-label="Link to section 8">#</a></h2>
+    <h2>8: Suggestions <a href="#section-8" class="section-link" aria-label="Link to section 8">#</a></h2>
 
     <p>This audit ran into two data problems that have nothing to do with the commission and everything to do with how Alberta's electoral system is designed. Both are fixable.</p>
 
-    <p><strong>Elections Alberta already has the data to tell us where advance voters live — it just doesn't publish it.</strong> About half of all Alberta votes are now cast before election day — advance polls, mobile polls, special ballots. Elections Alberta reports these results as totals for each electoral division, not by specific Voting Area. That means roughly 395,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood on a map. They are counted; they just can't be located. This is not a technical problem. Every advance voter is checked against a voters list before receiving their ballot, and that list links each voter to their specific Voting Area. That information exists at the moment of voting but is never published. No change to the voting process is required — only a change to what EA reports from data it already holds.</p>
+    <p><strong>About half of all Alberta votes now arrive before election day</strong> — advance polls, mobile polls, special ballots. Elections Alberta reports these results as totals for each electoral division, not by specific Voting Area. That means roughly 395,000 NDP and UCP votes cast in 2023 cannot be pinned to any neighbourhood on a map. They are counted; they just can't be located. Every advance voter is checked against a voters list before receiving their ballot, and that list links each voter to their specific Voting Area. Publishing VA-level advance-vote totals would not require any change to the voting process — only to what EA reports.</p>
 
     <p>This affects the commissioners too, not just outside analysts. When a commission decides whether to keep Airdrie whole or split it, whether a corridor between two communities makes sense, whether a proposed boundary divides a natural constituency — those are judgments that depend on knowing where voters live. Commissioners work from the same published dataset as everyone else. Half the geographic signal about the communities they are drawing boundaries around is missing for them as well.</p>
 
@@ -864,7 +895,7 @@
       <button class="tb-btn tb-layer-on" data-layer="ed-lines">Borders</button>
     </div>
     <div class="tb-sep"></div>
-    <button class="tb-btn" data-anomaly="airdrie" title="Highlight districts flagged by Justice Miller (commission chair): Nolan Hill–Cochrane, Olds–Three Hills–Didsbury, Rocky Mtn House–Banff Park">Flagged</button>
+    <button class="tb-btn" data-anomaly="airdrie" title="All 7 configurations flagged by commission chair Justice Miller — switches to minority map automatically">Flagged</button>
     <div class="tb-sep"></div>
     <button class="tb-btn tb-pin-btn" data-layer="lock" title="Pin Map — prevent auto-pan on district click" aria-label="Pin Map">
       <svg class="pin-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
@@ -912,22 +943,32 @@
   </div><!-- /#hud -->
   <div id="zoom-stage">
     <div id="zoom-skeleton" aria-hidden="true">
-      <!-- Shimmering Alberta outline — aspect ratio ~1:1.85, perimeter ≈ 538 SVG units -->
-      <svg class="skel-province-svg" viewBox="0 0 100 185" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <path class="skel-province-bg"    d="M 4,4 L 96,4 L 96,181 L 4,181 Z" />
-        <path class="skel-province-shine" d="M 4,4 L 96,4 L 96,181 L 4,181 Z" />
-      </svg>
-      <div class="skel-label">Loading map…</div>
+      <!-- Alberta province outline — 31-pt RDP simplification, perimeter ≈ 1872 SVG units -->
+      <div class="skel-inner">
+        <svg class="skel-province-svg" viewBox="0 0 368 651" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <filter id="skel-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <path class="skel-province-bg"   d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
+          <path class="skel-province-glow" d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
+          <path class="skel-province-shine" d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
+        </svg>
+        <div class="skel-phrase">{skelPhrase}</div>
+      </div>
     </div>
     <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_2019_hires.svg"
       title="Alberta electoral district map — full resolution"></object>
   </div>
   <div id="ed-tooltip"></div>
   <div id="map-attribution">
-    <span id="map-ea-credit">Map data: <a href="https://www.elections.ab.ca/" target="_blank" rel="noopener">Elections Alberta</a> (public domain)</span>
+    <span id="map-ea-credit">Map data: <a href="https://www.elections.ab.ca/resource-centre/maps-data/" target="_blank" rel="noopener">Elections Alberta</a></span>
     <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Text content: CC BY-NC-SA 4.0">
       <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt="Creative Commons BY-NC-SA 4.0" width="80" height="15">
     </a>
+    <span id="map-cc-owner">2026 Will Conner</span>
   </div>
 </div>
 
@@ -1363,6 +1404,39 @@
   #map-ea-credit a { color: rgba(255,255,255,0.9); text-decoration: underline; }
   #map-cc-badge { display: block; line-height: 0; }
   #map-cc-badge img { display: block; }
+  #map-cc-owner { font-size: 0.6rem; color: rgba(255,255,255,0.7); white-space: nowrap; }
+  /* Expandable detail panels — follow visual language */
+  :global(details.audit-detail) {
+    margin: 0.8rem 0 1rem;
+    border-left: 3px solid rgba(245,166,35,0.7);
+    background: rgba(245,166,35,0.05);
+    border-radius: 0 4px 4px 0;
+    padding: 0.45rem 0 0.45rem 0.9rem;
+  }
+  :global(details.audit-detail summary) {
+    cursor: pointer; list-style: none; user-select: none;
+    font-weight: 600; font-size: 0.9rem; color: #F5A623;
+  }
+  :global(details.audit-detail summary::-webkit-details-marker) { display: none; }
+  :global(details.audit-detail summary::before) { content: '▶ '; font-size: 0.7em; }
+  :global(details.audit-detail[open] summary::before) { content: '▼ '; }
+  :global(details.audit-detail[open] summary) { margin-bottom: 0.5rem; }
+  :global(.audit-detail-body) { font-size: 0.91rem; line-height: 1.65; color: inherit; }
+  :global(.audit-detail-body p) { margin: 0 0 0.5rem; }
+  /* Vocab term — inline expandable definitions */
+  :global(.vocab-term) {
+    border-bottom: 1.5px dashed rgba(245,166,35,0.65);
+    cursor: pointer; color: inherit;
+    display: inline; background: none; border-top: none; border-left: none; border-right: none;
+    font: inherit; padding: 0; text-align: left;
+  }
+  :global(.vocab-term:hover) { border-bottom-color: #F5A623; }
+  :global(.vocab-panel) {
+    display: block;
+    background: rgba(245,166,35,0.07); border-left: 3px solid #F5A623;
+    border-radius: 0 4px 4px 0; padding: 0.3rem 0.8rem; margin: 0.35rem 0;
+    font-size: 0.86rem; line-height: 1.5; color: rgba(255,255,255,0.8);
+  }
   #zoom-stage {
     position: absolute; inset: 0;
     overflow: hidden;
@@ -1371,38 +1445,53 @@
     will-change: transform;
   }
   #zoom-stage.dragging { cursor: grabbing; }
-  /* Loading skeleton — shimmering Alberta outline */
+  /* Loading skeleton — shimmering Alberta province outline */
   #zoom-skeleton {
     position: absolute; inset: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 1.4rem; pointer-events: none; z-index: 2;
+    pointer-events: none; z-index: 2;
     background: #0d1a26;
   }
   #zoom-skeleton.hidden { display: none; }
-  .skel-province-svg {
-    height: 52%; max-width: 38%; width: auto;
+  .skel-inner {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    height: 55%; max-width: 36%;
   }
+  .skel-province-svg { height: 100%; width: auto; }
   .skel-province-bg {
-    fill: none;
-    stroke: rgba(255,255,255,0.07);
-    stroke-width: 2.5;
+    fill: none; stroke: rgba(255,255,255,0.05); stroke-width: 3;
+    stroke-linejoin: round; stroke-linecap: round;
+  }
+  .skel-province-glow {
+    fill: none; stroke: #F5A623; stroke-width: 12;
+    stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 12 83;
+    stroke-dashoffset: 1872;
+    opacity: 0.22;
+    filter: url(#skel-glow);
+    animation: skel-race 4.5s linear infinite;
   }
   .skel-province-shine {
-    fill: none;
-    stroke: #F5A623;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    /* Three short dashes racing around the 538-unit perimeter */
-    stroke-dasharray: 45 134 45 134 45 135;
-    stroke-dashoffset: 538;
-    animation: skel-race 1.1s linear infinite;
-    filter: drop-shadow(0 0 5px rgba(245,166,35,0.7));
+    fill: none; stroke: #F5A623; stroke-width: 2.5;
+    stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 5 90;
+    stroke-dashoffset: 1872;
+    animation: skel-race 4.5s linear infinite;
   }
   @keyframes skel-race {
-    from { stroke-dashoffset: 538; }
+    from { stroke-dashoffset: 1872; }
     to   { stroke-dashoffset: 0; }
   }
-  .skel-label { color: rgba(255,255,255,0.28); font-size: 0.8rem; letter-spacing: 0.06em; }
+  .skel-phrase {
+    position: absolute; top: 48%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255,255,255,0.78);
+    font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+    font-style: italic; font-size: 1.05rem;
+    text-align: center; pointer-events: none; white-space: nowrap;
+    text-shadow: 0 0 14px rgba(245,166,35,0.45), 0 0 30px rgba(245,166,35,0.2);
+  }
   #zoom-obj {
     position: absolute; display: block; border: 0;
   }
@@ -1466,6 +1555,17 @@
   .tb-pin-btn { padding: 4px 8px; }
   .tb-pin-btn .pin-icon { display: block; }
   .tb-btn[data-layer="lock"].tb-layer-on { background: rgba(220,30,30,0.15); border-color: rgba(220,30,30,0.6); color: #f05050; }
+  /* Distinct color identity per layer/feature button */
+  .tb-btn[data-layer="vote"]                { border-color: rgba(79,136,200,0.32); color: rgba(79,136,200,0.7); }
+  .tb-btn[data-layer="vote"].tb-layer-on    { background: rgba(79,136,200,0.14); border-color: #4F88C8; color: #A4CFF0; }
+  .tb-btn[data-layer="eg"]                  { border-color: rgba(200,136,42,0.32); color: rgba(200,136,42,0.7); }
+  .tb-btn[data-layer="eg"].tb-layer-on      { background: rgba(200,136,42,0.14); border-color: #C8882A; color: #F0C070; }
+  .tb-btn[data-layer="ed-fill"]             { border-color: rgba(184,85,168,0.32); color: rgba(184,85,168,0.7); }
+  .tb-btn[data-layer="ed-fill"].tb-layer-on { background: rgba(184,85,168,0.14); border-color: #B855A8; color: #E898D8; }
+  .tb-btn[data-layer="ed-lines"]                { border-color: rgba(96,120,145,0.32); color: rgba(96,120,145,0.7); }
+  .tb-btn[data-layer="ed-lines"].tb-layer-on    { background: rgba(96,120,145,0.12); border-color: #607890; color: #98B8CC; }
+  .tb-btn[data-anomaly]                     { border-color: rgba(208,85,64,0.38); color: rgba(208,85,64,0.78); }
+  .tb-btn[data-anomaly].tb-layer-on         { background: rgba(208,85,64,0.15); border-color: #D05540; color: #F09080; }
   @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
   /* District info bar — sits directly below top-bar in #hud column */
   #ed-callout {
@@ -1572,13 +1672,6 @@
     border-color: var(--link);
   }
 
-  /* Flagged-districts button — red when active */
-  .tb-btn[data-anomaly].tb-layer-on {
-    background: rgba(230,57,70,0.15);
-    border-color: rgba(230,57,70,0.60);
-    color: rgba(255,120,130,0.95);
-  }
-
   /* Flagged-district overlay animations */
   @keyframes anomaly-pulse {
     0%, 100% {
@@ -1614,13 +1707,6 @@
   }
   .anomaly-fill-path {
     animation: anomaly-fill-pulse 2s ease-in-out infinite;
-  }
-
-  /* EG choropleth button — same pattern as lock amber but green-teal for distinction */
-  .tb-btn[data-layer="eg"].tb-layer-on {
-    background: rgba(0,200,160,0.12);
-    border-color: rgba(0,200,160,0.45);
-    color: rgba(80,230,200,0.95);
   }
 
   /* Cross-map comparison — coloured party values */
