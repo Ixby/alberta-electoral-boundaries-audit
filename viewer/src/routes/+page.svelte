@@ -2061,13 +2061,18 @@
   :global(.share-error) {
     font-size: 0.76rem; color: #e57373; margin-top: 0.3rem;
   }
-  @media (max-width: 520px) {
+  @media (max-width: 600px) {
+    /* backdrop-filter on #top-bar traps position:fixed children — clear it so
+       the share panel can escape to the viewport bottom as a proper sheet */
+    #top-bar { backdrop-filter: none; }
+    :global(#tb-share-wrap) { position: static; }
     :global(#share-panel) {
       position: fixed;
       top: auto; bottom: 0; left: 0; right: 0;
       width: 100%; border-radius: 14px 14px 0 0;
       padding: 1.1rem 1rem 1.4rem;
       box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
+      z-index: 9002;
     }
   }
 </style>
