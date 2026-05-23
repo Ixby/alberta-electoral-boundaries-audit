@@ -1,3 +1,5 @@
+# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+# Data: Elections Alberta (public domain) | https://ixby.github.io
 """Chen-Rodden geography-vs-drawing decomposition for Alberta's 2019 / 2026
 maps against the 100,000-plan MCMC neutral ensemble.
 

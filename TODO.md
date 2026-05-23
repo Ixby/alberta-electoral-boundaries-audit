@@ -1,3 +1,7 @@
+<!--
+© Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+Data: Elections Alberta (public domain) | https://ixby.github.io
+-->
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)

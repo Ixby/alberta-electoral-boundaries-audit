@@ -1,3 +1,5 @@
+# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+# Data: Elections Alberta (public domain) | https://ixby.github.io
 """Per-chain ESS and Gelman-Rubin R-hat for the corrected 2M MCMC ensemble.
 
 Addresses Gemini's design-review #1 (statistical defensibility): the

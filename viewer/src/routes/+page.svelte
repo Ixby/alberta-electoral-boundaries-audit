@@ -917,9 +917,12 @@
       title="Alberta electoral district map — full resolution"></object>
   </div>
   <div id="ed-tooltip"></div>
-  <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Text content: CC BY-NC-SA 4.0">
-    <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt="Creative Commons BY-NC-SA 4.0" width="80" height="15">
-  </a>
+  <div id="map-attribution">
+    <span id="map-ea-credit">Map data: <a href="https://www.elections.ab.ca/" target="_blank" rel="noopener">Elections Alberta</a> (public domain)</span>
+    <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Text content: CC BY-NC-SA 4.0">
+      <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt="Creative Commons BY-NC-SA 4.0" width="80" height="15">
+    </a>
+  </div>
 </div>
 
 <footer>
@@ -1341,12 +1344,18 @@
     background: rgba(0,0,0,0.92);
     width: 100dvw; height: 100dvh;
   }
-  #map-cc-badge {
+  #map-attribution {
     position: absolute; bottom: 0.6rem; left: 0.8rem;
     z-index: 9003; opacity: 0.55; transition: opacity 0.15s;
-    display: block; line-height: 0;
+    display: flex; align-items: center; gap: 0.5rem;
   }
-  #map-cc-badge:hover { opacity: 1; }
+  #map-attribution:hover { opacity: 1; }
+  #map-ea-credit {
+    font-size: 0.6rem; color: rgba(255,255,255,0.8);
+    white-space: nowrap;
+  }
+  #map-ea-credit a { color: rgba(255,255,255,0.9); text-decoration: underline; }
+  #map-cc-badge { display: block; line-height: 0; }
   #map-cc-badge img { display: block; }
   #zoom-stage {
     position: absolute; inset: 0;

@@ -1,3 +1,5 @@
+# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+# Data: Elections Alberta (public domain) | https://ixby.github.io
 """drain_label_shuffle_null.py — Continuous drain_score + 10,000 label-shuffle null.
 
 Pre-registered in AsPredicted #289451 (Neighbour-Drain: A Local Pack-Crack

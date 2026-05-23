@@ -1,3 +1,7 @@
+<!--
+© Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+Data: Elections Alberta (public domain) | https://ixby.github.io
+-->
 # Alberta Electoral Boundaries Audit — Comprehensive Forensic Audit Monograph
 
 **A symmetric, reproducible forensic assessment of the 2025–26 Electoral Boundaries Commission's majority and minority recommendations**

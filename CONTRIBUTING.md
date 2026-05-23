@@ -1,3 +1,7 @@
+<!--
+© Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+Data: Elections Alberta (public domain) | https://ixby.github.io
+-->
 # Contributing to the Alberta Electoral Boundary Audit
 
 Thank you for your interest in contributing! This project is an open, reproducible forensic audit. We welcome scrutiny, corrections, and new methodological approaches.

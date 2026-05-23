@@ -1,3 +1,5 @@
+# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+# Data: Elections Alberta (public domain) | https://ixby.github.io
 """Build VA shapefiles with 2019 and 2015 election vote attribution.
 
 Uses the canonical EA VA polygons (parent_ed_2019 crosswalk) and ED-level

@@ -1,3 +1,5 @@
+# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+# Data: Elections Alberta (public domain) | https://ixby.github.io
 """
 _fetch_osm_natural.py — fetch Alberta-wide OSM highways and rivers for the
 natural-anchoring secondary check. Caches to data/osm/ as GeoJSON-like JSON

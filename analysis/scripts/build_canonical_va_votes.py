@@ -1,3 +1,5 @@
+# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+# Data: Elections Alberta (public domain) | https://ixby.github.io
 """Build canonical VA-level election-day vote attribution for 2023 Alberta general election.
 
 Only election-day ballot rows carry a VA assignment in Elections Alberta's published

@@ -1,3 +1,7 @@
+<!--
+© Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+Data: Elections Alberta (public domain) | https://ixby.github.io
+-->
 # Alberta Electoral Boundary Commission 2025–26 — Forensic Audit
 
 *Two recommendations, one commission: measuring the structural distance between them.*

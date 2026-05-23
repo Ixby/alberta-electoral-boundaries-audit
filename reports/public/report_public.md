@@ -1,3 +1,7 @@
+<!--
+© Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
+Data: Elections Alberta (public domain) | https://ixby.github.io
+-->
 # Two Maps, Then None: Inside Alberta's 2026 Boundary Audit
 
 *A plain-language look at the 2025–26 Electoral Boundary Commission, the math behind the minority map, and what comes next.*

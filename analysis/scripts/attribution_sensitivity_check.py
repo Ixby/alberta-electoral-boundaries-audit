@@ -1,3 +1,5 @@
+# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+# Data: Elections Alberta (public domain) | https://ixby.github.io
 """Attribution Sensitivity Check — partial vs full VA vote coverage.
 
 Scores both 2026 canonical maps under:
