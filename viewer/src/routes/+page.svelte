@@ -948,7 +948,7 @@
       <button class="part-btn" class:part-primary={!dntActive} class:part-secondary={dntActive}
         onclick={() => { storeChoice(true); setParticipation(true); showParticipation = false; }}>Yes, connect</button>
     </div>
-    <p class="part-policy"><a href="{base}/privacy-policy.md" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
+    <p class="part-policy"><a href="{base}/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
   </div>
 </div>
 {/if}
