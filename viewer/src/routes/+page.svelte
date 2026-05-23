@@ -1345,7 +1345,7 @@
     width: 100dvw; height: 100dvh;
   }
   #map-attribution {
-    position: absolute; bottom: 0.6rem; left: 0.8rem;
+    position: absolute; bottom: 0.6rem; right: 0.8rem;
     z-index: 9003; opacity: 0.55; transition: opacity 0.15s;
     display: flex; align-items: center; gap: 0.5rem;
   }
