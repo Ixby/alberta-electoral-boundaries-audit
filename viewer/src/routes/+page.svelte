@@ -14,6 +14,8 @@
   <link rel="apple-touch-icon" href="{base}/favicon.svg">
 </svelte:head>
 
+<svelte:window onkeydown={handleWindowKeydown} />
+
 <script lang="ts">
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
@@ -45,6 +47,12 @@
   function toggleSharePanel() {
     showSharePanel = !showSharePanel;
     if (showSharePanel) { _generateCode(); loadError = ''; }
+  }
+
+  function closeSharePanel() { showSharePanel = false; }
+
+  function handleWindowKeydown(e: KeyboardEvent) {
+    if (e.key === 'Escape' && showSharePanel) closeSharePanel();
   }
 
   async function copyCode() {
@@ -1024,7 +1032,9 @@
     <div id="tb-share-wrap">
       <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title="Share or load a map configuration">Share</button>
       {#if showSharePanel}
-      <div id="share-panel" role="dialog" aria-label="Share map configuration">
+      <div class="share-backdrop" onclick={closeSharePanel} aria-hidden="true"></div>
+      <div id="share-panel" role="dialog" aria-label="Share map configuration" aria-modal="true">
+        <button class="share-close" onclick={closeSharePanel} aria-label="Close share panel">✕</button>
         <div class="share-section">
           <div class="share-label">Share this configuration</div>
           <div class="share-code-row">
@@ -2099,6 +2109,17 @@
   :global(.part-policy a) { color: inherit; text-decoration: underline; opacity: 0.7; }
 
   /* ── Share panel ─────────────────────────────────────────────────────── */
+  :global(.share-backdrop) {
+    position: fixed; inset: 0; z-index: 7999;
+  }
+  :global(.share-close) {
+    position: absolute; top: 0.5rem; right: 0.55rem;
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.45); font-size: 0.95rem; line-height: 1;
+    padding: 0.2rem 0.35rem; border-radius: 4px;
+    transition: color 0.15s;
+  }
+  :global(.share-close:hover) { color: rgba(255,255,255,0.85); }
   :global(#tb-share-wrap) { position: relative; }
   :global(#share-panel) {
     position: absolute; top: calc(100% + 6px); right: 0;
@@ -2145,6 +2166,7 @@
        the share panel can escape to the viewport bottom as a proper sheet */
     #top-bar { backdrop-filter: none; }
     :global(#tb-share-wrap) { position: static; }
+    :global(.share-backdrop) { z-index: 9001; }
     :global(#share-panel) {
       position: fixed;
       top: auto; bottom: 0; left: 0; right: 0;
