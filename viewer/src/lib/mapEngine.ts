@@ -549,10 +549,17 @@ export function init(basePath: string): void {
           const color = _mapAccentColors[mapKey] || '#555';
           const g = svgNode.querySelector('#ed_boundary_layer');
           if (!g) { console.warn('[map] ed_boundary_layer not found in SVG'); return; }
-          g.querySelectorAll('path').forEach(p => {
+          // Hide the direct-child polygon outlines (each ED drawn as closed path → double lines).
+          // Only LineCollection_1 draws each boundary once; use that exclusively.
+          Array.from(g.children).forEach(function(child) {
+            if (child.tagName === 'path') child.style.display = 'none';
+          });
+          const lc = g.querySelector('#LineCollection_1');
+          if (lc) lc.querySelectorAll('path').forEach(p => {
             p.style.stroke = color;
             p.style.strokeWidth = '0.5';
             p.style.strokeOpacity = '1';
+            p.style.fill = 'none';
           });
           _updateStrokeWidths();
         }
@@ -567,17 +574,18 @@ export function init(basePath: string): void {
           var zf = natVB.w / curVB.w;                            // 1 = 100%, 4 = 400%
           var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
           var overlayW = Math.min(0.35, primaryW * 0.6);
-          var pBound = svgEl.querySelector('#ed_boundary_layer');
-          if (pBound) {
-            pBound.querySelectorAll('path').forEach(function(p) {
-              p.style.strokeWidth = String(primaryW);
-            });
-          }
+          var pLc = svgEl.querySelector('#ed_boundary_layer #LineCollection_1');
+          if (pLc) pLc.querySelectorAll('path').forEach(function(p) {
+            p.style.strokeWidth = String(primaryW);
+          });
           ['minority', 'majority', '2019'].forEach(function(key) {
             var og = _overlayInSvg[key];
-            if (og) og.querySelectorAll('path').forEach(function(p) {
-              p.style.strokeWidth = String(overlayW);
-            });
+            if (og) {
+              var lc = og.querySelector('#LineCollection_1');
+              if (lc) lc.querySelectorAll('path').forEach(function(p) {
+                p.style.strokeWidth = String(overlayW);
+              });
+            }
           });
         }
 
@@ -634,10 +642,15 @@ export function init(basePath: string): void {
           var g = doc.querySelector('#ed_boundary_layer');
           if (!g) return null;
           var clone = document.importNode(g, true);
+          // Hide direct-child polygon outlines — same fix as _applyBoundaryColor.
+          Array.from(clone.children).forEach(function(child) {
+            if (child.tagName === 'path') child.style.display = 'none';
+          });
           var zf = (natVB && curVB) ? natVB.w / curVB.w : 1;
           var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
           var sw = Math.min(0.35, primaryW * 0.6);
-          clone.querySelectorAll('path').forEach(function(p) {
+          var lc = clone.querySelector('#LineCollection_1');
+          if (lc) lc.querySelectorAll('path').forEach(function(p) {
             p.style.stroke = _mapAccentColors[key] || '#555';
             p.style.strokeWidth = String(sw);
             p.style.strokeOpacity = '0.55';
