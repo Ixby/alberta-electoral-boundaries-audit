@@ -25,6 +25,10 @@ Items must complete before either report goes public.
 
 ---
 
+## READY TO RUN — Awaiting Explicit Authorization
+
+- **REVRECOM-01 — Reversible ReCom (RevReCom / Forest-ReCom) robustness check.** **STATUS: PREP COMPLETE 2026-05-23, NOT RUN — needs explicit principal-investigator authorization before any compute is consumed.** Plan, parameters, expected outputs, and publish-regardless commitment language are documented at `analysis/methodology/revrecom_run_plan.md`; binding pre-registration amendment in draft form at `preregistration/revrecom_amendment_DRAFT.md`. Targeted methodological inoculation against the reviewer objection that ReCom has no writable stationary distribution (Cannon, Goldbloom-Helzner et al. 2022, arXiv:2210.01401). Estimated clock from authorization to published write-up: 6–10 hours, dominated by chain wall-time. To authorize: (i) fill in the drand round number and signature in the pre-reg amendment, drop `_DRAFT` from the filename, commit; (ii) confirm the parameters in the run plan are accepted as-is; (iii) explicitly instruct Claude (or self-execute) to begin step 2 of the implementation sequence in the run plan. Do **not** start without all three.
+
 ## CRITICAL — Deferred Statistical Extensions
 
 - **FUTURE-01** Two-tier MCMC population constraint — EBCA §15(2) permits up to −50% deviation for qualifying EDs. Deferred to post-review. **Decision 2026-05-11:** leave the registered ensemble (OSF qsgy8) untouched for the audit; the idea may appear as a thought-exercise or Section 14 discussion item. A proper implementation would require a separate pre-registered robustness ensemble with new drand seed and would need to solve the seeder-feasibility issue documented at `mcmc_ensemble.py` lines 463–481.
