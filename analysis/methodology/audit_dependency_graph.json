@@ -2241,14 +2241,14 @@
     {
       "id": "L3:finding.c5_municipal_anchoring_asymmetry",
       "layer": "L3",
-      "name": "Municipal-anchoring — majority 71.0% vs minority 14.5% (4.9× asymmetry)",
+      "name": "Municipal-anchoring (§5.8.5) — RETRACTED on canonical geometry; DPG-era 4.9× asymmetry (maj 71.0% / min 14.5%) did not survive (canonical: maj 80.0% / min 72.0%, both within 70-85% Canadian norm)",
       "type": "finding",
       "report_section": "5.8.5"
     },
     {
       "id": "L3:finding.c5_da_anchoring_extension",
       "layer": "L3",
-      "name": "DA-anchoring extension — combined 79.6% majority vs 16.5% minority (5.1× asymmetry preserved)",
+      "name": "DA-anchoring extension (§5.8.5) — SUPERSEDED on canonical geometry; DPG-era v0_5 totals (maj 79.6% / min 16.5%, 5.1× ratio) carried the same DPG substrate as the retracted municipal-anchoring headline and did not survive canonical recomputation (canonical municipal-only: maj 80.0% / min 72.0%)",
       "type": "finding",
       "report_section": "5.8.5"
     },

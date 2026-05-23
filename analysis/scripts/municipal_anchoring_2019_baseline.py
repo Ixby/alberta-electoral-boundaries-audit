@@ -6,7 +6,19 @@ from __future__ import annotations
 Companion to `analysis/scripts/municipal_anchoring.py`. Runs the *identical*
 snap-to-CSD-edge methodology against the 2019 enacted Alberta electoral-
 division shapefile, producing a province-wide anchoring percentage that the
-2026 majority (71.0 %) and minority (14.5 %) numbers can be compared to.
+2026 maps' canonical anchoring numbers (majority 80.0 % / minority 72.0 %)
+can be compared to.
+
+**STATUS — PARTIALLY SUPERSEDED.** This script was written when the audit's
+headline 2026 anchoring numbers were the DPG-era values majority 71.0 % /
+minority 14.5 % (a 4.9× asymmetry). Those values were RETRACTED on canonical
+recomputation: on official Elections Alberta shapefiles (received 2026-05-06)
+the canonical anchoring percentages are majority 80.0 % / minority 72.0 %,
+both within the 70–85 % Canadian comparator norm (see README §"What the
+audit finds" and methods-paper §7.1, Stage 9). The 2019 baseline produced
+by this script is still a valid comparator — the 2019-baseline methodology
+is unchanged — but the "comparison_to_2026" block now references canonical
+2026 numbers, not the retracted DPG headline.
 
 **Why a separate script.** `municipal_anchoring.py` hardcodes 2026 v0_3/v0_2
 DPG inputs and a `name_2026` column. The 2019 shapefile uses `EDName2017`
@@ -16,15 +28,16 @@ inputs/columns rather than retrofit the 2026 script.
 **Methodology parity.**
   * Same snap tolerance (500 m), vertex densify (50 m), min anchored
     segment (1 km).
-  * Same StatsCan 2021 CSD reference layer (the 2026 audit's headline
-    71.0 % / 14.5 % numbers used the 2021 CSDs as the AMA-equivalent
-    gazette; using the same reference for 2019 isolates the *map's* anchoring
-    from any drift in the municipal layer between vintages).
-  * `USE_DA_SUPPLEMENT = False`: the report's headline 2026 numbers
-    (71.0 % / 14.5 %) come from a no-DA-supplement run; the DA-supplemented
-    re-run produced 83.4 % / 36.8 % (see v0_1_municipal_anchoring_summary.json).
-    We match the headline methodology so the 2019 number drops directly
-    into the comparison table.
+  * Same StatsCan 2021 CSD reference layer (both DPG-era and canonical
+    2026 anchoring runs use the 2021 CSDs as the AMA-equivalent gazette;
+    using the same reference for 2019 isolates the *map's* anchoring from
+    any drift in the municipal layer between vintages).
+  * `USE_DA_SUPPLEMENT = False`: both the retracted DPG-era headline
+    (71.0 % / 14.5 %) and the canonical headline (80.0 % / 72.0 %) come
+    from no-DA-supplement runs; the DPG-era DA-supplemented re-run produced
+    79.6 % / 16.5 % (also retracted as superseded). We match the no-DA-
+    supplement methodology so the 2019 number drops directly into the
+    canonical comparison table.
   * No topology re-resolve pass (the 2019 shapefile is the legally enacted
     map; vertex snapping inside the 500 m tolerance does not produce
     overlap pairs that need adjudication, and we are computing a metric
@@ -105,7 +118,7 @@ SNAP_TOL_M = 500.0
 DA_SNAP_TOL_M = 150.0
 MIN_SEGMENT_COVERAGE_M = 1000.0
 VERTEX_DENSIFY_M = 50.0
-USE_DA_SUPPLEMENT = False  # match the 2026 headline (71.0 % / 14.5 %)
+USE_DA_SUPPLEMENT = False  # match the 2026 canonical headline (maj 80.0 % / min 72.0 %, no-DA-supplement run; DPG-era 71.0 / 14.5 retracted)
 
 
 def _keep_polys(geom):
@@ -384,9 +397,11 @@ def main():
             "min_segment_coverage_m": MIN_SEGMENT_COVERAGE_M,
             "da_supplemented": USE_DA_SUPPLEMENT and DA_GPKG.exists(),
             "parity_note": (
-                "Methodology held identical to the 2026 headline run that "
-                "produced the 71.0 % majority / 14.5 % minority numbers in "
-                "municipal_anchoring_analysis.md. USE_DA_SUPPLEMENT=False."
+                "Methodology held identical to the 2026 anchoring runs. Canonical "
+                "headline (post-2026-05-06): maj 80.0 % / min 72.0 %, both within "
+                "the 70-85 % Canadian comparator norm. DPG-era headline (retracted "
+                "on canonical recomputation): maj 71.0 % / min 14.5 %. "
+                "USE_DA_SUPPLEMENT=False matches both runs."
             ),
         },
         "sources": {
@@ -422,9 +437,18 @@ def main():
         },
         "comparison_to_2026": {
             "_2019_overall_pct": overall_pct,
-            "_2026_majority_overall_pct_headline": 71.0,
-            "_2026_minority_overall_pct_headline": 14.5,
-            "_2026_headline_source": "findings/municipal_anchoring_analysis.md",
+            "_2026_majority_overall_pct_canonical": 80.0,
+            "_2026_minority_overall_pct_canonical": 72.0,
+            "_2026_canonical_norm_band_pct": "70.0-85.0 (Canadian comparator)",
+            "_2026_canonical_source": "README.md §'What the audit finds'; methods-paper §7.1, Stage 9",
+            "_2026_dpg_majority_overall_pct_RETRACTED": 71.0,
+            "_2026_dpg_minority_overall_pct_RETRACTED": 14.5,
+            "_2026_dpg_retraction_note": (
+                "DPG-era values are kept for trail-of-work transparency; they were "
+                "RETRACTED on canonical shapefile recomputation (2026-05-06). The "
+                "4.9× DPG-era asymmetry did not survive canonical geometry."
+            ),
+            "_2026_dpg_source_retracted": "findings/municipal_anchoring_analysis.md (carries SUPERSEDED banner)",
         },
         "outputs": {
             "log_csv": str(OUT_CSV),
@@ -448,13 +472,16 @@ def main():
         f"anchored {tot_anchored:,.0f} km"
     )
     print()
-    print(f"  Comparison to 2026 headline numbers:")
-    print(f"    2019 enacted     : {overall_pct:5.1f}%")
+    print(f"  Comparison to 2026 canonical headline numbers (post-2026-05-06):")
+    print(f"    2019 enacted              : {overall_pct:5.1f} %")
     print(
-        f"    2026 majority    :  71.0 %  (delta vs 2019: {71.0 - overall_pct:+5.1f} pp)"
+        f"    2026 majority (canonical) :  80.0 %  (delta vs 2019: {80.0 - overall_pct:+5.1f} pp)"
     )
     print(
-        f"    2026 minority    :  14.5 %  (delta vs 2019: {14.5 - overall_pct:+5.1f} pp)"
+        f"    2026 minority (canonical) :  72.0 %  (delta vs 2019: {72.0 - overall_pct:+5.1f} pp)"
+    )
+    print(
+        f"    (DPG-era headline RETRACTED: maj 71.0 % / min 14.5 %; did not survive canonical recomputation)"
     )
 
     print("\n  Top-10 most-anchored 2019 EDs:")

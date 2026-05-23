@@ -3,13 +3,22 @@ score_natural_anchoring.py — Lane-2 secondary check (natural anchoring %)
 =========================================================================
 Companion / counterfactual to `analysis/scripts/score_anchoring.py`.
 
-The headline Lane-2 finding is that the 2026 minority map anchors only 14.5%
-of its perimeter to StatsCan 2021 CSD edges, vs. 71.0% (2026 majority) and
-75.2% (2019 enacted). A hostile-witness counter is "the minority map didn't
-abandon anchoring; it anchored to highways, rivers, and county lines instead
-of municipal CSD borders, so the 14.5% number is a measurement failure, not
-a map failure." This script tests that counter directly by re-running the
-identical snap-tolerance method against a *different* edge substrate built
+**STATUS — PURPOSE LARGELY MOOT ON CANONICAL GEOMETRY.** This script was
+written to test a hostile-witness counter to the DPG-era headline that the
+2026 minority map anchored only 14.5% of its perimeter to StatsCan 2021 CSD
+edges (vs. 71.0% majority, 75.2% 2019 enacted) — the counter being that the
+minority anchored to highways/rivers/county lines instead. On canonical
+geometry the DPG-era 14.5% headline did NOT survive (canonical municipal
+anchoring is majority 80.0% / minority 72.0%, both within the 70-85%
+Canadian comparator norm; see README §"What the audit finds" and
+methods-paper §7.1, Stage 9). So the question this script was designed to
+answer ("does the 14.5% measurement-failure narrative hold?") is no longer
+the live question. The natural-anchoring methodology is still a reproducible
+substrate-cross-check pattern, kept for trail-of-work transparency.
+
+The original framing (DPG-era) was that this script tests the hostile-witness
+counter directly by re-running the identical snap-tolerance method against
+a *different* edge substrate built
 
 import sys
 from pathlib import Path
@@ -36,10 +45,12 @@ from physical and administrative features other than CSDs:
                   documented in municipal_anchoring.py:15-24). Not included
                   in this run; documented as a residual caveat. Note that
                   Alberta's MD/county/SM jurisdictions ARE present in the
-                  StatsCan 2021 CSD layer used by the headline run as types
-                  MD/SM/SA, so any "county-line anchoring" the minority map
-                  performs is already captured in the 14.5% number — this
-                  is a meaningful caveat for the hostile-witness reading.
+                  StatsCan 2021 CSD layer used by both the (retracted) DPG-era
+                  and canonical municipal-anchoring runs as types MD/SM/SA,
+                  so any "county-line anchoring" performed by either map is
+                  already captured in the municipal-anchoring number (DPG-era
+                  14.5% minority, retracted; canonical 72.0% minority, live)
+                  — this is a meaningful caveat for the hostile-witness reading.
 
 CLI:
     python analysis/scripts/score_natural_anchoring.py \\
@@ -434,8 +445,10 @@ def main():
             ),
             "parity_note": (
                 "Snap tolerance and vertex densification held identical to "
-                "score_anchoring.py (the audit's headline CSD-anchoring run "
-                "that produced 71.0% / 14.5% / 75.2%)."
+                "score_anchoring.py. Reference values produced by the parent "
+                "CSD-anchoring methodology: canonical (current) majority 80.0% / "
+                "minority 72.0%; DPG-era (RETRACTED on canonical recomputation) "
+                "majority 71.0% / minority 14.5%."
             ),
         },
         "sources": {
@@ -465,8 +478,9 @@ def main():
                     "Not on disk; not included in this run. Note that AB MD/SM/SA "
                     "jurisdictions are already covered in the StatCan 2021 CSD "
                     "layer used by score_anchoring.py, so any 'county-line' "
-                    "anchoring the minority map performs is captured by the "
-                    "headline 14.5% number."
+                    "anchoring performed by either map is captured by the "
+                    "municipal-anchoring number (canonical: minority 72.0%; "
+                    "DPG-era 14.5% retracted)."
                 ),
                 "used": False,
             },
