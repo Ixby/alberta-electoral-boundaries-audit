@@ -89,7 +89,7 @@ If you click **Share**, we also save your ending map view (which map is active, 
 - Time zone and language (e.g. America/Edmonton, en-CA)
 - Full date and time of the share
 - If you loaded someone else's share code first, that code is noted as your starting point
-- Your approximate region (10 km grid), if you allowed location access when you consented
+- Your approximate region (10 km grid), if you allowed GPS access when you consented to analytics
 
 ---
 
@@ -150,7 +150,7 @@ The map view and location data are encrypted because they encode where you were 
 
 ## Data retention
 
-All stored records are anonymized before they reach our database. We keep them indefinitely as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.
+All stored records are anonymized before they reach our database. The database is hosted in Canada (ca-central-1). We keep records indefinitely as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.
 
 ---
 
@@ -160,8 +160,6 @@ You have the right not to be remembered.
 
 - **Choose No thanks** at the prompt and nothing is recorded.
 - **Turn on Do Not Track** in your browser and No thanks is pre-selected for you.
-- **Delete a share code** by emailing it to wconn161@mtroyal.ca — we will delete it and confirm.
-- **Confirm a share code exists or not** by emailing the same address. We cannot search by identity because none was collected.
 
 ---
 

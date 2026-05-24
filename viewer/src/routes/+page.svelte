@@ -2096,6 +2096,8 @@
     padding: 1.5rem;
     max-width: 430px;
     width: 90%;
+    max-height: 70vh;
+    overflow-y: auto;
     font-size: 0.92rem;
     line-height: 1.6;
     box-shadow: 0 4px 28px rgba(0,0,0,0.55);

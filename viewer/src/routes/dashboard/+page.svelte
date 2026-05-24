@@ -14,23 +14,25 @@
   type EdRow = { id: number; name: string; count: number };
 
   // ── State ─────────────────────────────────────────────────────────────────
-  let loading = true;
-  let err: string | null = null;
+  let loading      = $state(true);
+  let err          = $state<string | null>(null);
 
-  let allEvents: RawEvent[] = [];
-  let edHover: any[] = [];
+  let allEvents    = $state<RawEvent[]>([]);
+  let edHover      = $state<any[]>([]);
 
-  let totalSessions = 0, totalEvents = 0, totalShares = 0;
-  let sessions: Session[] = [];
-  let edCounts: EdRow[] = [];
-  let maxCount = 1;
+  let totalSessions = $state(0);
+  let totalEvents   = $state(0);
+  let totalShares   = $state(0);
+  let sessions      = $state<Session[]>([]);
+  let edCounts      = $state<EdRow[]>([]);
+  let maxCount      = $state(1);
 
-  let selectedId: string | null = null;
-  let replayEvents: RawEvent[] = [];
+  let selectedId   = $state<string | null>(null);
+  let replayEvents = $state<RawEvent[]>([]);
 
   let heatmapEl: HTMLDivElement;
-  let heatmapLoaded = false;
-  let heatmapLoading = false;
+  let heatmapLoaded  = $state(false);
+  let heatmapLoading = $state(false);
 
   const MAP_LABEL: Record<string, string> = { minority: 'Minority', majority: 'Majority', '2019': 'Current' };
 
