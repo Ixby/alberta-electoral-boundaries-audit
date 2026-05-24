@@ -177,11 +177,23 @@ def _measure_ring(
     return perim, anchored
 
 
-def score_anchoring(shapefile_path: Path) -> float:
-    """Compute the province-wide municipal-anchored-perimeter percentage."""
-    eds = gpd.read_file(shapefile_path)
+def score_anchoring(shapefile_or_gdf) -> float:
+    """Compute the province-wide municipal-anchored-perimeter percentage.
+
+    Accepts either a path (str/Path) to a shapefile/GPKG, or an already-loaded
+    GeoDataFrame. Callers that have already pre-processed `eds` (reprojected,
+    filtered) should pass the GeoDataFrame so this function honours the
+    preprocessing instead of re-reading the file from disk.
+    """
+    if isinstance(shapefile_or_gdf, gpd.GeoDataFrame):
+        eds = shapefile_or_gdf
+        source_desc = f"<GeoDataFrame n={len(eds)}>"
+    else:
+        shapefile_path = Path(shapefile_or_gdf)
+        eds = gpd.read_file(shapefile_path)
+        source_desc = str(shapefile_path)
     if eds.crs is None:
-        raise ValueError(f"{shapefile_path} has no CRS; cannot project to CSD layer")
+        raise ValueError(f"{source_desc} has no CRS; cannot project to CSD layer")
     edges = _load_csd_edges(eds.crs)
 
     # Build STRtree once over individual line strings

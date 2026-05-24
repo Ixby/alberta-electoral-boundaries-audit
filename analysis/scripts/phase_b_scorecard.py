@@ -80,7 +80,9 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 from drand_seed import get_canonical_seed  # noqa: E402
-from score_anchoring import score_anchoring as _score_anchoring_headline  # noqa: E402
+# score_anchoring is imported lazily inside mo3_municipal_anchoring so that any
+# import-time failure (missing config, sys.path issue) surfaces in main()'s
+# preflight diagnostics rather than killing the script before preflight runs.
 
 # Canonical seed for all bootstrap resampling in this script.
 # Derived from drand round 5500000 (Cloudflare League of Entropy).
@@ -144,11 +146,15 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
     csd_path = ALBERTA_CSDS
     flagged = []
     if not csd_path.exists():
+        try:
+            csd_display = str(csd_path.relative_to(ROOT))
+        except ValueError:
+            csd_display = str(csd_path)
         return TripwireResult(
             name="MO #1 — Drain Pattern (city cracking)",
             fired=False,
             summary=f"SKIPPED — Alberta CSD polygon file missing at "
-            f"{csd_path.relative_to(ROOT)}. Cannot count district-per-city "
+            f"{csd_display}. Cannot count district-per-city "
             f"intersections without it.",
         )
     csd = gpd.read_file(csd_path).to_crs(eds.crs)
@@ -275,7 +281,7 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
     )
 
 
-def mo3_municipal_anchoring(eds: gpd.GeoDataFrame, shapefile_path: Path) -> TripwireResult:
+def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
     """Re-run the audit's existing anchoring metric on the new map.
 
     Delegates to score_anchoring.score_anchoring() so MO #3 reports the
@@ -286,15 +292,46 @@ def mo3_municipal_anchoring(eds: gpd.GeoDataFrame, shapefile_path: Path) -> Trip
     was calibrated against the headline, so the mismatched body fired
     on virtually every commission map. See proposals/lunty_dry_run/
     dry_run_report.md Bug #8 for the full diagnosis.
+
+    Passes the already-loaded, already-reprojected `eds` GeoDataFrame
+    through to score_anchoring so any caller-side preprocessing
+    (to_crs(3401) in main, future filtering) is honoured. Previously
+    this function ignored `eds` and re-read the shapefile from disk,
+    which would silently diverge from the eds MO #1 / MO #2 ran against.
     """
     if not ALBERTA_CSDS.exists():
+        try:
+            csd_display = str(ALBERTA_CSDS.relative_to(ROOT))
+        except ValueError:
+            csd_display = str(ALBERTA_CSDS)
         return TripwireResult(
             name="MO #3 — Municipal de-anchoring",
             fired=False,
-            summary=f"SKIPPED — Alberta CSD polygon file missing at "
-            f"{ALBERTA_CSDS.relative_to(ROOT)}.",
+            summary=f"SKIPPED — Alberta CSD polygon file missing at {csd_display}.",
         )
-    anchored_pct = _score_anchoring_headline(shapefile_path)
+
+    # Lazy import: defer until preflight has passed so any import-time
+    # failure (missing config, sys.path issue) appears as an MO #3 error
+    # rather than killing the script before MO #1 / MO #2 can run.
+    try:
+        from score_anchoring import score_anchoring as _score_anchoring_headline
+    except ImportError as e:
+        return TripwireResult(
+            name="MO #3 — Municipal de-anchoring",
+            fired=False,
+            summary=f"ERRORED — could not import score_anchoring: {e}",
+        )
+
+    try:
+        anchored_pct = _score_anchoring_headline(eds)
+    except (ValueError, OSError, RuntimeError) as e:
+        # Don't let MO #3 crash the whole scorecard mid-run — MO #4 / MO #5
+        # are still worth attempting. Surface the failure in the report.
+        return TripwireResult(
+            name="MO #3 — Municipal de-anchoring",
+            fired=False,
+            summary=f"ERRORED — score_anchoring raised {type(e).__name__}: {e}",
+        )
     anchored_frac = anchored_pct / 100.0
     return TripwireResult(
         name="MO #3 — Municipal de-anchoring",
@@ -448,6 +485,34 @@ def main() -> int:
         except OSError as e:
             preflight_errors.append(f"could not read {VA_VOTES_PATH}: {e}")
 
+    # RECOM_SAMPLES and SMC_OUTPUT are required by MO #4 (sampler divergence).
+    # MO #4 only runs when --map-s50 is provided; preflight matches that gate.
+    # Both are LFS-tracked CSVs that the preflight should sniff for pointer-
+    # vs-binary, otherwise pd.read_csv either silently misreads a pointer file
+    # or raises KeyError on the 'seats_at_50_50' lookup mid-MO #4.
+    if args.map_s50 is not None:
+        for mo4_path, mo4_name in (
+            (RECOM_SAMPLES, "RECOM ensemble CSV"),
+            (SMC_OUTPUT, "SMC cross-validation CSV"),
+        ):
+            if not mo4_path.exists():
+                preflight_errors.append(
+                    f"{mo4_name} not found at {mo4_path} "
+                    f"(required by MO #4 sampler divergence when --map-s50 is set). "
+                    f"Most likely cause: Git LFS not pulled — run `git lfs pull` to materialise."
+                )
+                continue
+            try:
+                with open(mo4_path, "rb") as _f:
+                    _head = _f.read(64)
+                if _head.startswith(b"version https://git-lfs"):
+                    preflight_errors.append(
+                        f"{mo4_path} is an LFS pointer file (not the actual CSV). "
+                        f"Run `git lfs pull` to materialise the binary."
+                    )
+            except OSError as e:
+                preflight_errors.append(f"could not read {mo4_path}: {e}")
+
     if preflight_errors:
         print(
             "[scorecard] PRE-FLIGHT FAILED — the live scorecard cannot run because "
@@ -470,7 +535,7 @@ def main() -> int:
     print("[scorecard] running MO #2 — Lasso compactness...")
     results.append(mo2_lasso_compactness(eds, name_col))
     print("[scorecard] running MO #3 — Municipal anchoring...")
-    results.append(mo3_municipal_anchoring(eds, args.shapefile.resolve()))
+    results.append(mo3_municipal_anchoring(eds))
     if args.map_s50 is not None:
         print("[scorecard] running MO #4 — Sampler divergence...")
         results.append(mo4_sampler_divergence(args.map_s50))
