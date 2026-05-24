@@ -53,7 +53,6 @@ export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
     else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
   });
 
-  triggerEl.addEventListener('click', e => { e.preventDefault(); open(); });
   closeBtnEl.addEventListener('click', close);
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;

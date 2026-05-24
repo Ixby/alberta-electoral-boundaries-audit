@@ -29,9 +29,9 @@
     if (!_mePromise) {
       _mePromise = (async () => {
         _ME = await import('$lib/mapEngine');
+        _ME.init(base);
         const obj = document.getElementById('zoom-obj') as HTMLObjectElement;
         if (obj) obj.data = `${base}/images/cover_art_2019_hires.svg`;
-        _ME.init(base);
         _ME.onEvent((event: FlightEvent) => { recordEvent(event); _scheduleCodeRefresh(); });
         if (_pendingState) {
           _ME.applyState(_pendingState.primary, _pendingState.mapOn, _pendingState.layers);
