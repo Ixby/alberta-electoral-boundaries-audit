@@ -28,7 +28,19 @@
     <section>
       <h2>Overview</h2>
       <p>This tool is a public-interest statistical audit of Alberta's 2023 electoral boundary commission process. It is not a commercial product and does not run advertisements. This policy explains what is collected, by whom, how it is used, and how you can opt out.</p>
-      <p>The principle behind our data practices: observe reliably what we can, find useful patterns, respect the right of every person not to be remembered. Enough information to be useful. Not enough to be snoopy.</p>
+    </section>
+
+    <section>
+      <h2>The principle</h2>
+      <p>Citizens should be able to understand how their government works without worrying that someone is watching over their shoulder. Every design choice in this tool follows from that.</p>
+
+      <h3>Nothing leaves your browser without your consent</h3>
+      <p>All data is assembled in your browser first. Nothing is transmitted unless you explicitly clicked <strong>Yes</strong> at the participation prompt <em>and</em> then clicked <strong>Share</strong>. If you clicked <strong>No thanks</strong> — or closed the tab, or shared without consenting — nothing was recorded. These are not policy commitments enforced by honour; they are code paths. <code>recordEvent()</code> and <code>flushTelemetry()</code> both check the consent flag as their first instruction. There is no other path to the database.</p>
+
+      <h3>Individual identification is impossible by design</h3>
+      <p>The data we collect is specifically structured to make identifying any individual technically impossible — not merely against the rules. Viewport position is quantized to a 5×5 grid before it leaves your device: all of Alberta divided into 25 cells, each roughly the size of a major city. Zoom is one of four coarse tiers. No timestamps are recorded between events — we capture the sequence of what you looked at, not how long you spent. No raw browser fingerprint is transmitted. No precise coordinates leave your device at any point.</p>
+      <p>We are interested in the stories that groups tell — which parts of the map draw attention, which proposals people compare, where the audit lands when people find it worth sharing. We are not interested in you specifically. The architecture is built to make "you specifically" technically unreachable, not merely policy-prohibited.</p>
+      <p>If we were ordered by a court to identify a specific person from our data, we could not do it. That is not a promise. It is a structural fact.</p>
     </section>
 
     <section>
