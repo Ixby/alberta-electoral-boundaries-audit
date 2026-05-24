@@ -133,11 +133,16 @@ export function initGestures(ctx: MapCtx, stage): void {
           if (ctx.edHover) {
             const hit = tipTarget(e);
             if (hit) {
-              _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
-              _setEdHighlight(hit);
-              _snapToED(hit);
               const vaHit = _vaDataForMap() ? vaTarget(e) : null;
-              if (vaHit) _showVaCallout(_vaRec(vaHit)); else _hideVaCallout();
+              const vaRec  = vaHit ? _vaRec(vaHit) : null;
+              if (vaRec && vaRec.ed_name && vaRec.ed_name === ctx.selectedEdName) {
+                _showVaCallout(vaRec);
+              } else {
+                _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+                _setEdHighlight(hit);
+                _snapToED(hit);
+                _hideVaCallout();
+              }
             } else { _hideCallout(); _hideVaCallout(); }
           }
         }
@@ -145,11 +150,16 @@ export function initGestures(ctx: MapCtx, stage): void {
         const hit = tipTarget(e);
         if (hit) {
           hideTip();
-          _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
-          _setEdHighlight(hit);
-          if (!ctx.mapLocked) _snapToED(hit);
           const vaHit = _vaDataForMap() ? vaTarget(e) : null;
-          if (vaHit) _showVaCallout(_vaRec(vaHit)); else _hideVaCallout();
+          const vaRec  = vaHit ? _vaRec(vaHit) : null;
+          if (vaRec && vaRec.ed_name && vaRec.ed_name === ctx.selectedEdName) {
+            _showVaCallout(vaRec);
+          } else {
+            _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+            _setEdHighlight(hit);
+            if (!ctx.mapLocked) _snapToED(hit);
+            _hideVaCallout();
+          }
         } else { _hideCallout(); _hideVaCallout(); }
       }
     }
