@@ -4,7 +4,31 @@
 
 ---
 
-## Part 1 — Hero verdict block (`/`, above the fold)
+## Part 1 — Document opener (`/`, very top of page, above the verdict)
+
+A short first-person paragraph in the author's voice. Sits at the very top of `/`, immediately above the verdict card. Sets the tone — inclusive, party-neutral, foundational — before any structural finding lands.
+
+---
+
+> ### Who's this for?
+>
+> Us. All of us. Rural, Urban, curious, wonk, journalist, lawyer, academic, politician — all of us. Because it impacts all of us. Whether or not you like the party in power, what the split commission produced has never been done before. And it's given us the opportunity to peer inside the machine in ways we never could before. Now we can establish a baseline — a series of tests, and everything that comes after can be graded on it. Let me show you what I found.
+
+---
+
+**Editorial notes:**
+
+- First person ("us," "let me show you what I found") and singular author voice — distinct from the institutional third-person of the audit's findings sections. The voice is intentional: it signals that a person did this work, takes responsibility for it, and is inviting the reader in. The shift to third-person evidential voice begins at the verdict card immediately below.
+- The audience list ("Rural, Urban, curious, wonk, journalist, lawyer, academic, politician") is the answer to anyone who suspects the audit is coded for one side. Naming every plausible reader on the list neutralises that suspicion before the verdict's structural findings arrive. The repeated "all of us" is rhetorical anchoring, not redundancy.
+- "Whether or not you like the party in power" is the explicit party-neutrality move. The audit's findings happen to grade the minority proposal harshly; the opener names that anyone, including supporters of the governing party, can read what follows without being asked to change sides. Combined with the three-question lens in Section 5, this is the strongest available defence against partisan-coding accusations.
+- "What the split commission produced has never been done before" is a factual claim — the 3–2 EBC split producing two competing proposals rather than a single recommendation is genuinely unprecedented in Alberta's redistricting history. The footnote on the verdict's Q1 already establishes the chain of authority; this sentence is the consequence the reader should sit with.
+- "Peer inside the machine" frames the audit as a tool that creates visibility, not as a verdict imposed from outside. "Establish a baseline — a series of tests, and everything that comes after can be graded on it" positions the work as foundational: this isn't just an opinion on the 2026 cycle, it's a yardstick for every cycle after. That framing is the most credible long-term argument for why a curious citizen should care, regardless of how this particular cycle resolves.
+- "Let me show you what I found" is the explicit hand-off into the verdict card. Personal, direct, and one beat before the structural evidence lands.
+- Light copyediting was applied to the author's draft (typos: Wether → Whether, commision → commission, oppurtunity → opportunity, "A series of test" → "A series of tests", "politician.." → "politician —"). The author's voice, rhythm, and capitalisation choices (Rural / Urban capitalised; the rest lower-case) are preserved exactly.
+
+---
+
+## Part 2 — Hero verdict block (`/`, above the fold)
 
 A single bordered card. Three questions, three short answers. Two routing CTAs at the bottom. Sits above the cover map.
 
@@ -47,7 +71,7 @@ If the test is authorized and run, Q3 gets one additional sentence naming the vo
 
 ---
 
-## Part 2 — Epistemic boundary card (`/`, immediately below the verdict)
+## Part 3 — Epistemic boundary card (`/`, immediately below the verdict)
 
 A smaller, plainer card. Two columns: what the audit can say vs. what it can't. Reads in 30 seconds. Establishes credibility by acknowledging limits before any deeper claim is made.
 
@@ -76,7 +100,7 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 
 ---
 
-## Part 3 — Section 1 onboarding (`/`, immediately below the boundary card)
+## Part 4 — Section 1 onboarding (`/`, immediately below the boundary card)
 
 The first piece of body prose after the verdict and the boundary card. The reader arrives knowing nothing — possibly without a clear sense of what an electoral district is, who their MLA is, or why a map matters. This section onboards them in ~400 words. No statistical jargon. No legal jargon. Second-person. Empower-don't-advocate.
 
@@ -109,7 +133,7 @@ The first piece of body prose after the verdict and the boundary card. The reade
 
 ---
 
-## Part 4 — Section 5 personal-to-provincial ladder (`/`, mid-page)
+## Part 5 — Section 5 personal-to-provincial ladder (`/`, mid-page)
 
 The biggest piece of new prose on `/`. Sits after Section 4 ("What the Minority Map Does on the Ground" — existing content, to be condensed during implementation) and before Section 6 ("A short history of gerrymandering" — also new). Five short subsections, ~180 words each, that walk the reader from their own ballot up to the legislature. Empower-don't-advocate throughout: every claim is a description the reader can verify, not a position they're being asked to adopt. Each subsection ends with a question or pivot that hands the next rung to the reader.
 
@@ -174,7 +198,7 @@ The biggest piece of new prose on `/`. Sits after Section 4 ("What the Minority 
 
 ---
 
-## Part 5 — Glossary (`viewer/src/lib/glossary.ts`)
+## Part 6 — Glossary (`viewer/src/lib/glossary.ts`)
 
 33 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
@@ -538,7 +562,7 @@ hillClimbing: {
 
 ---
 
-## Part 6 — Open editorial choices
+## Part 7 — Open editorial choices
 
 Things to settle before the glossary ships:
 
@@ -555,7 +579,7 @@ Things to settle before the glossary ships:
 
 ---
 
-## Part 7 — What's not in this draft (deliberately)
+## Part 8 — What's not in this draft (deliberately)
 
 - **Section transitions and lead-in text.** Each route's section-by-section prose comes in a later editorial pass; this draft is just the verdict, the boundary card, and the defined vocabulary that the rest of the site will reference.
 - **References list (academic + legal).** Already exists in the current site and migrates wholesale.
