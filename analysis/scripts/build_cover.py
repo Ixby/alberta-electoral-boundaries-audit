@@ -114,6 +114,7 @@ MAP_VARIANTS = {
         "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
         "svg": _DOCS / "images" / "cover_art_minority_hires.svg",
         "json": _DOCS / "data" / "ed_hover_minority.json",
+        "va_json": _DOCS / "data" / "va_hover_minority.json",
     },
     "majority": {
         "candidates": APPROX_MAJ_CANDIDATES,
@@ -121,6 +122,7 @@ MAP_VARIANTS = {
         "name_candidates": ["name_2026", "EDName2025", "ED_NAME", "NAME"],
         "svg": _DOCS / "images" / "cover_art_majority_hires.svg",
         "json": _DOCS / "data" / "ed_hover_majority.json",
+        "va_json": _DOCS / "data" / "va_hover_majority.json",
     },
     "2019": {
         "candidates": None,
@@ -128,6 +130,7 @@ MAP_VARIANTS = {
         "name_candidates": ["EDName2017", "EDName2025", "ED_NAME", "NAME"],
         "svg": _DOCS / "images" / "cover_art_2019_hires.svg",
         "json": _DOCS / "data" / "ed_hover_2019.json",
+        "va_json": _DOCS / "data" / "va_hover_2019.json",
     },
 }
 
@@ -214,13 +217,14 @@ def _tag_ed_hover_paths(svg_path: Path, n_eds: int) -> None:
         removed = 0
         updated = 0
         _fill_re = re.compile(r"fill:([^;]+)")
-        for path in list(pc2.findall(f"{{{ns}}}path")):
+        for i, path in enumerate(list(pc2.findall(f"{{{ns}}}path"))):
             d = path.get("d", "")
             if len(d) < 80:
                 # Pacman node: tiny VA fragment, remove it entirely.
                 pc2.remove(path)
                 removed += 1
                 continue
+            path.set("data-va-id", str(i))
             # Micro-stroke matching fill; painted under fill so it only
             # bleeds outward into any coordinate-rounding gap (≤ 0.001 SVG units).
             style = path.get("style", "")
@@ -282,6 +286,37 @@ def _export_ed_hover_json(eds, name_col: str, out_path: Path) -> None:
     print(f"[build_cover] Exported hover data for {len(records)} EDs -> {out_path.name}")
 
 
+def _export_va_hover_json(va_render, va_ed_map, out_path: Path) -> None:
+    """Export per-VA tooltip data: poll name, 2026 ED assignment, vote split."""
+    import json
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    records = []
+    for seq_i, (_, row) in enumerate(va_render.iterrows()):
+        va_ucp   = float(row.get("va_ucp",   0) or 0)
+        va_ndp   = float(row.get("va_ndp",   0) or 0)
+        va_other = float(row.get("va_other", 0) or 0)
+        two_party  = max(va_ucp + va_ndp, 1.0)
+        valid_votes = int(round(va_ucp + va_ndp + va_other))
+        ucp_pct = round(va_ucp / two_party * 100, 1)
+        ndp_pct = round(va_ndp / two_party * 100, 1)
+        va_number = row.get("VA_NUMBER", "")
+        ed_name_raw = va_ed_map.get(seq_i)
+        records.append({
+            "va_id":      seq_i,
+            "ed_name":    "" if (ed_name_raw is None or ed_name_raw != ed_name_raw) else str(ed_name_raw),
+            "poll_name":  f"Poll {va_number}",
+            "ucp_votes":  int(round(va_ucp)),
+            "ndp_votes":  int(round(va_ndp)),
+            "other_votes": int(round(va_other)),
+            "valid_votes": valid_votes,
+            "ucp_pct":    ucp_pct,
+            "ndp_pct":    ndp_pct,
+        })
+    out_path.write_text(json.dumps(records, ensure_ascii=False), encoding="utf-8")
+    print(f"[build_cover] Exported VA hover data for {len(records)} VAs -> {out_path.name}")
+
+
 def _pick(candidates):
     for p in candidates:
         if p.exists():
@@ -314,6 +349,7 @@ def build_cover_art(map_key: str = "minority") -> Path:
 
     # 2. Per-ED 2023 vote share via VA-centroid spatial join
     official_2023 = _load_official_2023_results()
+    _va_ed_map = None
     if VA_VOTES_PATH.exists():
         va = gpd.read_file(VA_VOTES_PATH).to_crs(3401)
         _va_cols = {
@@ -330,6 +366,7 @@ def build_cover_art(map_key: str = "minority") -> Path:
             how="left",
             predicate="within",
         )
+        _va_ed_map = joined.groupby(joined.index)[name_col].first()
         _agg_kw = {"ucp": ("va_ucp", "sum"), "ndp": ("va_ndp", "sum"), "va_count": ("va_ucp", "count")}
         if "pop_2021" in joined.columns:
             _agg_kw["pop"] = ("pop_2021", "sum")
@@ -503,7 +540,7 @@ def build_cover_art(map_key: str = "minority") -> Path:
     # naturally because most VAs in an ED tend to lean the same way.
     import pandas as pd
 
-    va_render = va.copy()
+    va_render = va.copy().reset_index(drop=True)
     va_ucp_total = va_render["va_ucp"].fillna(0)
     va_ndp_total = va_render["va_ndp"].fillna(0)
     va_two_party = (va_ucp_total + va_ndp_total).clip(lower=1.0)
@@ -618,6 +655,9 @@ def build_cover_art(map_key: str = "minority") -> Path:
 
     _tag_ed_hover_paths(svg_out, len(eds))
     _export_ed_hover_json(eds, name_col, json_out)
+    va_json_out = cfg.get("va_json")
+    if va_json_out is not None and _va_ed_map is not None:
+        _export_va_hover_json(va_render, _va_ed_map, va_json_out)
 
     # Keep legacy paths in sync so existing embed still works
     if map_key == "minority":
