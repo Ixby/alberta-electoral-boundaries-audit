@@ -34,5 +34,43 @@ export default {
 		},
 		cta_law: 'Basahin ang legal na konteksto →',
 		cta_methods: 'Tingnan kung paano namin sinubukan →'
+	},
+	head: {
+		title: 'Pag-audit ng Hangganan ng Halalan sa Alberta',
+		meta_description:
+			'Estadistikong pag-audit ng komisyon ng hangganan ng halalan sa Alberta sa 2026 — 1,010,000 neutral na mga mapa, opisyal na mga shapefile ng Elections Alberta, mga pre-registered na pagsusulit.'
+	},
+	nav: {
+		home_aria: 'Bumalik sa itaas',
+		theme_aria: 'Palitan ang madilim / maliwanag na mode',
+		theme_title: 'Palitan ang madilim na mode',
+		map: 'Mapa',
+		split: 'Ang Paghahati',
+		litmus: 'Pagsusulit',
+		crack_pack: 'Crack at Pack',
+		impact: 'Epekto',
+		gerrymanders: 'Mga Gerrymander',
+		november: 'Nobyembre',
+		invisible: 'Hindi Nakikita',
+		retractions: 'Mga Pagbawi',
+		references: 'Mga Sanggunian',
+		resources: 'Mga Mapagkukunan'
+	},
+	hero: {
+		h1: 'Pag-audit ng Hangganan ng Halalan sa Alberta',
+		subtitle:
+			'Ang komisyon ng Alberta ay nagprodyus ng dalawang mapa ng riding sa 2026. Inihambing ng audit na ito ang mga ito — gamit ang parehong mga pagsusulit, na inilapat nang pantay sa pareho — upang itanong kung pareho nilang itinuturing ang mga botante.',
+		badge: 'Mga opisyal na mapa ng Elections Alberta — Inilathala noong Mayo 2026',
+		cover_note_1:
+			'Ang mapang ito ang pinakamahusay na paraan upang magsimula. I-click ito upang mag-zoom at galugarin. Ang mga pindutan sa itaas ay nagpapalipat sa pagitan ng mapa ng minorya, mapa ng mayorya, at mga hangganan na nasaad noong 2019 — o ilatag ang lahat ng tatlo upang makita kung saan sila eksaktong nag-iiba. Kinukulayan ng <strong>Detail</strong> ang bawat polling area ayon sa paano bumoto ang mga tao noong 2023; nagdadagdag ang <strong>Trend</strong> ng partisan shading bawat distrito (asul UCP, kahel NDP); ginagawang on/off ng <strong>Lines</strong> ang mga hangganan. Ang <strong>Find</strong> ay lumulukso sa anumang riding ayon sa pangalan.',
+		cover_note_2:
+			'Subukang i-lock ang viewport at mag-flip sa pagitan ng mga mapa — pagmasdan ang isang hangganan na lumilipat habang ang mga botante sa ilalim ay nananatiling tahimik. Iyon ang buong tanong sa isang galaw.',
+		cover_note_3:
+			'Kapag tapos ka nang mag-explore, mag-scroll pababa para sa buod. Para sa kumpletong teknikal na pagsusuri, tingnan ang seksyon ng Mga Mapagkukunan. Lahat ng data ay mula sa opisyal na shapefile ng Elections Alberta at iba pang gobyerno at open-source na mga rekord.',
+		image_alt:
+			'Mga mapa ng distritong pang-eleksyon sa Alberta — panukala ng minorya ng komisyon, kinulayan ayon sa boto noong 2023',
+		map_hint: 'I-click upang galugarin nang interactive',
+		btn_title: 'I-click upang buksan ang interactive na mapa',
+		btn_aria: 'Buksan ang interactive na mapa'
 	}
 } as const;

@@ -36,5 +36,42 @@ export default {
 		},
 		cta_law: '閱讀法律背景 →',
 		cta_methods: '查看我們如何測試 →'
+	},
+	head: {
+		title: '阿爾伯塔選舉邊界審計',
+		meta_description:
+			'對阿爾伯塔2026年選舉邊界委員會的統計審計——101萬張中立地圖、Elections Alberta官方shapefile、預先註冊的測試。'
+	},
+	nav: {
+		home_aria: '返回頂部',
+		theme_aria: '切換深色 / 淺色模式',
+		theme_title: '切換深色模式',
+		map: '地圖',
+		split: '分裂',
+		litmus: '試金石',
+		crack_pack: '分散與集中',
+		impact: '影響',
+		gerrymanders: '選區操控',
+		november: '十一月',
+		invisible: '隱形',
+		retractions: '撤回',
+		references: '參考資料',
+		resources: '資源'
+	},
+	hero: {
+		h1: '阿爾伯塔選舉邊界審計',
+		subtitle:
+			'阿爾伯塔的委員會在2026年提出了兩份選區地圖。本次審計對它們進行了比較——使用相同的測試,平等地應用於兩者——以詢問它們是否以同樣的方式對待選民。',
+		badge: 'Elections Alberta 官方地圖——2026年5月發佈',
+		cover_note_1:
+			'這張地圖是最好的入口。點擊它即可縮放和探索。頂部按鈕可在少數派地圖、多數派地圖和2019年頒布的邊界之間切換——或疊加三者以查看它們的分歧之處。<strong>Detail</strong> 根據2023年人們的投票情況為每個投票區上色;<strong>Trend</strong> 按選區添加黨派色調(藍色UCP,橙色NDP);<strong>Lines</strong> 切換邊界的開關。<strong>Find</strong> 按名稱跳轉到任何選區。',
+		cover_note_2:
+			'嘗試鎖定視圖並在地圖之間切換——觀察一條邊界在下方選民保持不動時如何移動。這就是整個問題,用一個動作表達。',
+		cover_note_3:
+			'當您探索完畢後,向下滾動查看摘要。如需完整的技術分析,請參閱「資源」部分。所有數據均來自 Elections Alberta 官方shapefile以及其他政府和開源記錄。',
+		image_alt: '阿爾伯塔選區地圖——委員會少數派提議,按2023年投票上色',
+		map_hint: '點擊進行互動式探索',
+		btn_title: '點擊打開互動式地圖',
+		btn_aria: '打開互動式地圖'
 	}
 } as const;

@@ -1,5 +1,6 @@
 <svelte:head>
-  <meta name="description" content="Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests.">
+  <title>{t(lang.current, 'head.title')}</title>
+  <meta name="description" content={t(lang.current, 'head.meta_description')}>
   <link rel="icon" type="image/svg+xml" href="{base}/favicon.svg">
   <link rel="apple-touch-icon" href="{base}/favicon.svg">
 </svelte:head>
@@ -8,6 +9,8 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { init } from '$lib/mapEngine';
+  import { lang } from '$lib/i18n/store.svelte';
+  import { t } from '$lib/i18n/dict';
 
   onMount(() => {
     init(base);
@@ -93,40 +96,40 @@
 
 <nav aria-label="Page sections">
   <div class="nav-inner">
-  <a href="#top" class="nav-home" aria-label="Back to top"><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
-  <a href="#section-1">Map</a>
-  <a href="#section-2">The Split</a>
-  <a href="#section-3">Litmus Test</a>
-  <a href="#section-4">Crack &amp; Pack</a>
-  <a href="#section-5">Impact</a>
-  <a href="#section-6">Gerrymanders</a>
-  <a href="#section-7">November</a>
-  <a href="#section-8">Invisible</a>
-  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode"><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg></button>
-  <a href="#retractions">Retractions</a>
-  <a href="#references">References</a>
-  <a href="#resources">Resources</a>
+  <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
+  <a href="#section-1">{t(lang.current, 'nav.map')}</a>
+  <a href="#section-2">{t(lang.current, 'nav.split')}</a>
+  <a href="#section-3">{t(lang.current, 'nav.litmus')}</a>
+  <a href="#section-4">{t(lang.current, 'nav.crack_pack')}</a>
+  <a href="#section-5">{t(lang.current, 'nav.impact')}</a>
+  <a href="#section-6">{t(lang.current, 'nav.gerrymanders')}</a>
+  <a href="#section-7">{t(lang.current, 'nav.november')}</a>
+  <a href="#section-8">{t(lang.current, 'nav.invisible')}</a>
+  <button id="theme-toggle" class="nav-theme-btn" aria-label={t(lang.current, 'nav.theme_aria')} title={t(lang.current, 'nav.theme_title')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg></button>
+  <a href="#retractions">{t(lang.current, 'nav.retractions')}</a>
+  <a href="#references">{t(lang.current, 'nav.references')}</a>
+  <a href="#resources">{t(lang.current, 'nav.resources')}</a>
   </div>
 </nav>
 
 <header>
   <div class="header-inner">
     <div class="header-text">
-      <h1>Alberta Electoral Boundary Audit</h1>
-      <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
-      <span class="badge">Official Elections Alberta maps &mdash; Published May 2026</span>
-      <p class="cover-note">This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries &mdash; or layer all three to see exactly where they diverge. <strong>Detail</strong> colours each polling area by how people voted in 2023; <strong>Trend</strong> adds partisan shading by district (blue UCP, orange NDP); <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.</p>
-      <p class="cover-note" style="margin-top:0.55rem;">Try locking the viewport and flipping between maps &mdash; watch a boundary shift while the voters underneath stay still. That&rsquo;s the whole question in one gesture.</p>
-      <p class="cover-note" style="margin-top:0.55rem;">When you&rsquo;re done exploring, scroll down for the summary. For the full technical analysis, see the Resources section. All data is official Elections Alberta shapefiles and other government and open-source records.</p>
+      <h1>{t(lang.current, 'hero.h1')}</h1>
+      <p class="subtitle">{t(lang.current, 'hero.subtitle')}</p>
+      <span class="badge">{t(lang.current, 'hero.badge')}</span>
+      <p class="cover-note">{@html t(lang.current, 'hero.cover_note_1')}</p>
+      <p class="cover-note" style="margin-top:0.55rem;">{t(lang.current, 'hero.cover_note_2')}</p>
+      <p class="cover-note" style="margin-top:0.55rem;">{t(lang.current, 'hero.cover_note_3')}</p>
     </div>
-    <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map">
+    <button id="zoom-trigger" class="hero-map-btn" title={t(lang.current, 'hero.btn_title')} aria-label={t(lang.current, 'hero.btn_aria')}>
       <div class="hero-map-wrap">
         <picture>
           <source srcset="images/cover_art.webp" type="image/webp">
-          <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager" width="1020" height="1807">
+          <img src="images/cover_art.png" alt={t(lang.current, 'hero.image_alt')} class="header-image" fetchpriority="high" loading="eager" width="1020" height="1807">
         </picture>
         <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="" fetchpriority="high" loading="eager">
-        <div class="hero-map-hint">Click to explore interactively</div>
+        <div class="hero-map-hint">{t(lang.current, 'hero.map_hint')}</div>
       </div>
     </button>
   </div>

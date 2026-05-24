@@ -32,5 +32,43 @@ export default {
 		},
 		cta_law: 'Read the legal context →',
 		cta_methods: 'See how we tested →'
+	},
+	head: {
+		title: 'Alberta Electoral Boundary Audit',
+		meta_description:
+			"Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests."
+	},
+	nav: {
+		home_aria: 'Back to top',
+		theme_aria: 'Toggle dark/light mode',
+		theme_title: 'Toggle dark mode',
+		map: 'Map',
+		split: 'The Split',
+		litmus: 'Litmus Test',
+		crack_pack: 'Crack & Pack',
+		impact: 'Impact',
+		gerrymanders: 'Gerrymanders',
+		november: 'November',
+		invisible: 'Invisible',
+		retractions: 'Retractions',
+		references: 'References',
+		resources: 'Resources'
+	},
+	hero: {
+		h1: 'Alberta Electoral Boundary Audit',
+		subtitle:
+			"Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.",
+		badge: 'Official Elections Alberta maps — Published May 2026',
+		cover_note_1:
+			'This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries — or layer all three to see exactly where they diverge. <strong>Detail</strong> colours each polling area by how people voted in 2023; <strong>Trend</strong> adds partisan shading by district (blue UCP, orange NDP); <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.',
+		cover_note_2:
+			"Try locking the viewport and flipping between maps — watch a boundary shift while the voters underneath stay still. That's the whole question in one gesture.",
+		cover_note_3:
+			"When you're done exploring, scroll down for the summary. For the full technical analysis, see the Resources section. All data is official Elections Alberta shapefiles and other government and open-source records.",
+		image_alt:
+			'Alberta electoral district maps — minority commission proposal, coloured by 2023 vote',
+		map_hint: 'Click to explore interactively',
+		btn_title: 'Click to open interactive map',
+		btn_aria: 'Open interactive map'
 	}
 } as const;

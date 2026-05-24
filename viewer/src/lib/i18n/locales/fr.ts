@@ -33,5 +33,43 @@ export default {
 		},
 		cta_law: 'Lire le contexte juridique →',
 		cta_methods: 'Voir notre méthodologie →'
+	},
+	head: {
+		title: 'Audit des limites électorales de l\'Alberta',
+		meta_description:
+			"Audit statistique de la commission albertaine de délimitation électorale de 2026 — 1 010 000 cartes neutres, fichiers officiels d'Elections Alberta, tests pré-enregistrés."
+	},
+	nav: {
+		home_aria: 'Retour en haut',
+		theme_aria: 'Basculer le mode sombre / clair',
+		theme_title: 'Basculer le mode sombre',
+		map: 'Carte',
+		split: 'La Division',
+		litmus: 'Test décisif',
+		crack_pack: 'Diviser et entasser',
+		impact: 'Conséquences',
+		gerrymanders: 'Découpages partisans',
+		november: 'Novembre',
+		invisible: 'L\'invisible',
+		retractions: 'Rétractations',
+		references: 'Références',
+		resources: 'Ressources'
+	},
+	hero: {
+		h1: 'Audit des limites électorales de l\'Alberta',
+		subtitle:
+			"La commission albertaine a produit deux cartes de circonscriptions en 2026. Cet audit les a comparées — en appliquant les mêmes tests, également aux deux — pour déterminer si elles traitent les électeurs de la même manière.",
+		badge: 'Cartes officielles d\'Elections Alberta — publiées en mai 2026',
+		cover_note_1:
+			"Cette carte est la meilleure porte d'entrée. Cliquez pour zoomer et explorer. Les boutons en haut permettent de basculer entre la proposition minoritaire, la proposition majoritaire et les limites adoptées en 2019 — ou de superposer les trois pour voir exactement où elles divergent. <strong>Detail</strong> colore chaque zone de vote selon le résultat de 2023 ; <strong>Trend</strong> ajoute un ombrage partisan par circonscription (bleu UCP, orange NDP) ; <strong>Lines</strong> active ou désactive les limites. <strong>Find</strong> permet de trouver une circonscription par son nom.",
+		cover_note_2:
+			"Essayez de verrouiller l'affichage et de passer d'une carte à l'autre — observez une limite se déplacer tandis que les électeurs en dessous restent en place. C'est toute la question en un seul geste.",
+		cover_note_3:
+			"Quand vous avez fini d'explorer, faites défiler vers le bas pour le résumé. Pour l'analyse technique complète, voir la section Ressources. Toutes les données proviennent des fichiers officiels d'Elections Alberta et d'autres sources gouvernementales et ouvertes.",
+		image_alt:
+			'Cartes des circonscriptions électorales de l\'Alberta — proposition minoritaire de la commission, coloriée selon les votes de 2023',
+		map_hint: 'Cliquer pour explorer de façon interactive',
+		btn_title: 'Cliquer pour ouvrir la carte interactive',
+		btn_aria: 'Ouvrir la carte interactive'
 	}
 } as const;
