@@ -162,7 +162,7 @@ Feature: users click a Voting Area polygon on any map and see its vote counts an
 **Step 2 — Build `va_hover_*.json`:**
 - Input: `data/outputs/polls_2023_unified.csv` + `data/outputs/assignment_va_to_2026_canonical.csv`
 - One file per map (minority/majority/2019) because VA→ED attribution differs per map
-- Output schema per VA: `{va_id, ed_name, poll_name, ucp_votes, ndp_votes, other_votes, valid_votes, ucp_pct, ndp_pct}`
+- Output schema per VA: `{va_id, ed_name, poll_name, ucp_votes, ndp_votes, other_votes, in_person_votes, ucp_pct, ndp_pct}`
 - Deploy to `docs/data/va_hover_minority.json`, `va_hover_majority.json`, `va_hover_2019.json`
 
 **Step 3 — mapEngine.ts update:**

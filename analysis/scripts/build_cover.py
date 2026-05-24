@@ -297,19 +297,19 @@ def _export_va_hover_json(va_render, va_ed_map, out_path: Path) -> None:
         va_ndp   = float(row.get("va_ndp",   0) or 0)
         va_other = float(row.get("va_other", 0) or 0)
         two_party  = max(va_ucp + va_ndp, 1.0)
-        valid_votes = int(round(va_ucp + va_ndp + va_other))
+        in_person_votes = int(round(va_ucp + va_ndp + va_other))
         ucp_pct = round(va_ucp / two_party * 100, 1)
         ndp_pct = round(va_ndp / two_party * 100, 1)
         va_number = row.get("VA_NUMBER", "")
         ed_name_raw = va_ed_map.get(seq_i)
         records.append({
-            "va_id":      seq_i,
-            "ed_name":    "" if (ed_name_raw is None or ed_name_raw != ed_name_raw) else str(ed_name_raw),
-            "poll_name":  f"Poll {va_number}",
-            "ucp_votes":  int(round(va_ucp)),
-            "ndp_votes":  int(round(va_ndp)),
-            "other_votes": int(round(va_other)),
-            "valid_votes": valid_votes,
+            "va_id":        seq_i,
+            "ed_name":      "" if (ed_name_raw is None or ed_name_raw != ed_name_raw) else str(ed_name_raw),
+            "poll_name":    f"Poll {va_number}",
+            "ucp_votes":    int(round(va_ucp)),
+            "ndp_votes":    int(round(va_ndp)),
+            "other_votes":  int(round(va_other)),
+            "in_person_votes": in_person_votes,
             "ucp_pct":    ucp_pct,
             "ndp_pct":    ndp_pct,
         })
