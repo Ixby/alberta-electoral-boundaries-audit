@@ -287,8 +287,8 @@
     <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map">
       <div class="hero-map-wrap">
         <picture>
-          <source type="image/webp" srcset="images/cover_art.webp">
-          <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager" width="1020" height="1807">
+          <source type="image/webp" srcset="images/cover_art.webp 680w" sizes="(min-width: 600px) 339px, 90vw">
+          <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager" width="680" height="1205">
         </picture>
         <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="" fetchpriority="high" loading="eager">
         <div class="hero-map-hint">Click to explore interactively</div>

@@ -9,6 +9,8 @@
 
 import type { MapCtx } from './types';
 
+const _fmt = new Intl.NumberFormat();
+
 // ── Tooltip ───────────────────────────────────────────────────────────────────
 
 export function showTip(d, x: number, y: number): void {
@@ -18,8 +20,8 @@ export function showTip(d, x: number, y: number): void {
   tip.innerHTML =
     `<strong>${d.name}</strong>` +
     `UCP&nbsp;${d.ucp_pct}%&nbsp;&nbsp;NDP&nbsp;${d.ndp_pct}%` +
-    (d.votes ? `<br>${d.votes.toLocaleString()}&nbsp;votes&nbsp;(2023)` : '') +
-    (d.pop   ? `<br>Pop.&nbsp;${d.pop.toLocaleString()}` : '');
+    (d.votes ? `<br>${_fmt.format(d.votes)}&nbsp;votes&nbsp;(2023)` : '') +
+    (d.pop   ? `<br>Pop.&nbsp;${_fmt.format(d.pop)}` : '');
   tip.style.display = 'block';
   const pad = 14, tw = tip.offsetWidth, th = tip.offsetHeight;
   let lx = x + pad, ly = y + pad;
@@ -43,13 +45,13 @@ export function showCallout(ctx: MapCtx, d): void {
   document.getElementById('ec-ndp-bar').style.width = d.ndp_pct + '%';
   document.getElementById('ec-ucp-pct').textContent = d.ucp_pct + '%';
   document.getElementById('ec-ndp-pct').textContent = d.ndp_pct + '%';
-  document.getElementById('ec-ucp-votes').textContent = d.ucp_votes ? d.ucp_votes.toLocaleString() + ' votes' : '';
-  document.getElementById('ec-ndp-votes').textContent = d.ndp_votes ? d.ndp_votes.toLocaleString() + ' votes' : '';
-  document.getElementById('ec-total-votes').textContent = d.votes ? d.votes.toLocaleString() + ' total votes' : '';
+  document.getElementById('ec-ucp-votes').textContent = d.ucp_votes ? _fmt.format(d.ucp_votes) + ' votes' : '';
+  document.getElementById('ec-ndp-votes').textContent = d.ndp_votes ? _fmt.format(d.ndp_votes) + ' votes' : '';
+  document.getElementById('ec-total-votes').textContent = d.votes ? _fmt.format(d.votes) + ' total votes' : '';
   const vaEl = document.getElementById('ec-va-count');
   if (vaEl) vaEl.textContent = d.va_count ? d.va_count + ' voting areas' : '';
   const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
-  document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
+  document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + _fmt.format(popN) : '';
 
   const egEl = document.getElementById('ec-eg');
   if (egEl) {
