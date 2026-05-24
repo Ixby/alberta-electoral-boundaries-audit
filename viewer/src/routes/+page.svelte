@@ -11,6 +11,8 @@
   import { init } from '$lib/mapEngine';
   import { lang } from '$lib/i18n/store.svelte';
   import { t } from '$lib/i18n/dict';
+  import Gloss from '$lib/components/Gloss.svelte';
+  import LanguageSelector from '$lib/components/LanguageSelector.svelte';
 
   onMount(() => {
     init(base);
@@ -96,19 +98,21 @@
 
 <nav aria-label="Page sections">
   <div class="nav-inner">
-  <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
-  <a href="#section-1">{t(lang.current, 'nav.map')}</a>
-  <a href="#section-2">{t(lang.current, 'nav.split')}</a>
-  <a href="#section-3">{t(lang.current, 'nav.litmus')}</a>
-  <a href="#section-4">{t(lang.current, 'nav.crack_pack')}</a>
-  <a href="#section-5">{t(lang.current, 'nav.impact')}</a>
-  <a href="#section-6">{t(lang.current, 'nav.gerrymanders')}</a>
-  <a href="#section-7">{t(lang.current, 'nav.november')}</a>
-  <a href="#section-8">{t(lang.current, 'nav.invisible')}</a>
-  <button id="theme-toggle" class="nav-theme-btn" aria-label={t(lang.current, 'nav.theme_aria')} title={t(lang.current, 'nav.theme_title')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg></button>
-  <a href="#retractions">{t(lang.current, 'nav.retractions')}</a>
-  <a href="#references">{t(lang.current, 'nav.references')}</a>
-  <a href="#resources">{t(lang.current, 'nav.resources')}</a>
+    <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
+    <a href="#verdict-heading">{t(lang.current, 'nav.verdict')}</a>
+    <a href="#what-is-redistricting">{t(lang.current, 'nav.why')}</a>
+    <a href="#section-1">{t(lang.current, 'nav.map')}</a>
+    <a href="#section-2">{t(lang.current, 'nav.split')}</a>
+    <a href="#section-3">{t(lang.current, 'nav.litmus')}</a>
+    <a href="#what-this-means">{t(lang.current, 'nav.for_you')}</a>
+    <a href="#history-of-gerrymandering">{t(lang.current, 'nav.history')}</a>
+    <a href="#canada-is-different">{t(lang.current, 'nav.canada')}</a>
+    <a href="#section-7">{t(lang.current, 'nav.november')}</a>
+    <a href="#references">{t(lang.current, 'nav.references')}</a>
+    <div class="nav-controls">
+      <LanguageSelector />
+      <button id="theme-toggle" class="nav-theme-btn" aria-label={t(lang.current, 'nav.theme_aria')} title={t(lang.current, 'nav.theme_title')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg></button>
+    </div>
   </div>
 </nav>
 
@@ -181,6 +185,15 @@
   <p>{@html t(lang.current, 'section1.p3')}</p>
   <p>{@html t(lang.current, 'section1.p4')}</p>
   <p>{t(lang.current, 'section1.p5')}</p>
+  <aside class="key-terms">
+    <p class="lead">{t(lang.current, 'section1.key_terms_lead')}</p>
+    <ul>
+      <li><Gloss id="electoral-district">{t(lang.current, 'glossary.electoral-district.term')}</Gloss></li>
+      <li><Gloss id="mla">{t(lang.current, 'glossary.mla.term')}</Gloss></li>
+      <li><Gloss id="ebc">{t(lang.current, 'glossary.ebc.term')}</Gloss></li>
+      <li><Gloss id="lunty-committee">{t(lang.current, 'glossary.lunty-committee.term')}</Gloss></li>
+    </ul>
+  </aside>
 </section>
 
 <main class="container">
@@ -1238,6 +1251,30 @@
   font-weight: 500;
   color: var(--heading);
 }
+.key-terms {
+  margin: 1.4rem 0 0;
+  padding: 0.85rem 1rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: 5px;
+  font-size: 0.92rem;
+}
+.key-terms .lead {
+  margin: 0 0 0.5rem !important;
+  color: var(--text-muted, #666);
+  font-size: 0.85rem;
+}
+.key-terms ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+}
+.key-terms li {
+  display: inline;
+}
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -1429,6 +1466,29 @@
       transition: color 0.15s;
     }
     .nav-theme-btn:hover { color: #fff; }
+    .nav-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding-left: 0.6rem;
+      margin-left: 0.6rem;
+      border-left: 1px solid rgba(255,255,255,0.15);
+    }
+    .nav-controls :global(.lang-trigger) {
+      color: rgba(255,255,255,0.65);
+      border-color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+      padding: 0.2rem 0.5rem;
+    }
+    .nav-controls :global(.lang-trigger:hover) {
+      color: #fff;
+      border-color: rgba(255,255,255,0.55);
+    }
+    .nav-controls .nav-theme-btn {
+      border-left: 0;
+      margin-left: 0;
+      padding-left: 0.4rem;
+    }
 
     .section-link {
       color: transparent;

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import { lang, LANG_LABELS } from '$lib/i18n/store.svelte';
-	import LanguageSelector from '$lib/components/LanguageSelector.svelte';
 	import TranslationDisclaimer from '$lib/components/TranslationDisclaimer.svelte';
 
 	let { children } = $props();
@@ -33,17 +32,4 @@
 
 <TranslationDisclaimer />
 
-<div class="lang-selector-anchor">
-	<LanguageSelector />
-</div>
-
 {@render children()}
-
-<style>
-	.lang-selector-anchor {
-		position: fixed;
-		top: 0.75rem;
-		right: 0.75rem;
-		z-index: 100;
-	}
-</style>

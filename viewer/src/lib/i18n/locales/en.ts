@@ -44,11 +44,16 @@ export default {
 		home_aria: 'Back to top',
 		theme_aria: 'Toggle dark/light mode',
 		theme_title: 'Toggle dark mode',
+		verdict: 'Verdict',
+		why: 'Why?',
 		map: 'Map',
 		split: 'The Split',
-		litmus: 'Litmus Test',
+		litmus: 'Litmus',
 		crack_pack: 'Crack & Pack',
+		for_you: 'For You',
 		impact: 'Impact',
+		history: 'History',
+		canada: 'Canada',
 		gerrymanders: 'Gerrymanders',
 		november: 'November',
 		invisible: 'Invisible',
@@ -96,7 +101,8 @@ export default {
 		p2: 'Those district lines are not permanent. People move, neighbourhoods grow, rural areas thin out, cities sprawl. Every eight to ten years, Alberta is supposed to redraw the lines so each district is roughly the right size and reflects the way Albertans actually live now. The body that does the redrawing is the <em>Electoral Boundaries Commission</em> — an independent commission with judges, lawyers, and public members, not politicians.',
 		p3: "That is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a <em>majority proposal</em> (backed by three commissioners) and a <em>minority proposal</em> (backed by two). Both are sitting on the table. A separate committee of MLAs chaired by Brandon Lunty — appointed by the Premier for this specific decision — is choosing between them. The legislature must approve whichever one survives that committee before November 2026.",
 		p4: "Why it matters to you: the lines decide who your MLA is. They decide which neighbourhoods, towns, and concerns get represented together. If your city is split across four MLAs instead of one, no single representative is accountable for the city as a whole. If your community of interest — a small town, a rural region, a downtown core — is divided between districts, your voice on provincial decisions is diluted. The map also shapes which party can form a government, and at what margins. The audit's specific finding (that the minority proposal sits at a structural extreme) is the reason you are reading this site, but the broader question is older and applies to every redistricting cycle: do the lines reflect the way Albertans live, or do they shape the politics that follow?",
-		p5: 'The rest of this page walks through what the two proposed maps actually do.'
+		p5: 'The rest of this page walks through what the two proposed maps actually do.',
+		key_terms_lead: 'Key terms in this section — click to read:'
 	},
 	section5: {
 		heading: 'What this means for you and your community',
@@ -137,6 +143,89 @@ export default {
 		p4: "<strong>The United Kingdom</strong> uses four permanent Boundary Commissions — one each for England, Scotland, Wales, and Northern Ireland — staffed by judges and senior civil servants. They redraw lines roughly every eight years against fixed rules (population equality, geographic coherence, respect for local government boundaries). Parliament can in theory reject the commissions' recommendations, but in practice virtually never does; the convention is that the commissions' judgment stands.",
 		p5: "<strong>Australia</strong> delegates the work to the Australian Electoral Commission, a federal independent agency with full authority over both election administration and boundaries. Redistributions happen automatically when a state's seat count changes or seven years pass since the last one. The commissioners' decisions are reviewable on procedural grounds but not on partisan ones. Like the U.K., the result is that gerrymandering as Americans know it is virtually unheard of.",
 		p6: 'These three cases bracket the spectrum: courts staying out (U.S.), independent commissions with strong parliamentary deference (U.K.), and a permanent independent agency with full authority (Australia). Canada sits somewhere different again — which is what the next section takes up.'
+	},
+	glossary: {
+		more_link: 'Learn more →',
+		'electoral-district': {
+			term: 'Electoral district (ED)',
+			definition:
+				'The geographic area that elects one member to the provincial legislature. Often shortened to "ED" after first use. Each ED has one MLA. (The word "riding" usually refers to federal districts; in the provincial context the proper term is electoral district.)'
+		},
+		riding: {
+			term: 'Riding',
+			definition:
+				'In Canadian usage, this most often refers to a federal electoral district. The Alberta provincial equivalent is called an "electoral district" (ED). The audit uses the provincial term throughout.'
+		},
+		mla: {
+			term: 'MLA',
+			definition:
+				'Member of the Legislative Assembly — the person elected from one electoral district to represent it in the Alberta legislature.'
+		},
+		ucp: {
+			term: 'UCP',
+			definition:
+				"United Conservative Party — Alberta's current governing provincial party. Formed in 2017 from the merger of the Progressive Conservatives and the Wildrose Party; has held government since 2019."
+		},
+		ndp: {
+			term: 'NDP',
+			definition:
+				"New Democratic Party (Alberta NDP) — Alberta's current official opposition. The Alberta NDP held government from 2015 to 2019."
+		},
+		gerrymander: {
+			term: 'Gerrymander',
+			definition:
+				'A map drawn so that one political party wins more seats than its share of the vote would suggest. The word comes from an 1812 Massachusetts district shaped like a salamander. It is not a legal term in Canada, but the concept is widely studied.'
+		},
+		cracking: {
+			term: 'Cracking',
+			definition:
+				"A gerrymandering technique that splits a voting bloc across many districts so it never reaches a majority in any single one. For example, dividing a city across four ridings so its voters are outnumbered in each."
+		},
+		packing: {
+			term: 'Packing',
+			definition:
+				"A gerrymandering technique that concentrates one party's voters into a small number of districts. The party wins those districts overwhelmingly but \"wastes\" many votes — leaving fewer of its voters available to compete in other districts."
+		},
+		draining: {
+			term: 'Draining',
+			definition:
+				"A term this audit uses for a follow-on effect of cracking and packing: the wasted votes those techniques produce get pushed into strategically chosen places, altering the political character of nearby electoral districts. It is the audit's own framing rather than an established concept in the redistricting literature — the audit tests for the effect and finds results consistent with it, but treats it as exploratory rather than a settled methodology."
+		},
+		anchoring: {
+			term: 'Anchoring',
+			definition:
+				'How firmly the proposed boundaries follow existing municipal lines (city limits, town boundaries). A highly anchored map mostly respects those lines; a loosely anchored map departs from them often — especially at politically meaningful spots, which is a structural warning sign.'
+		},
+		'charter-s3': {
+			term: 'Section 3 of the Charter',
+			definition:
+				'The section of the Canadian Charter of Rights and Freedoms that guarantees citizens the right to vote. Canadian courts have interpreted it not as a strict "one person, one vote" rule but as a right to "effective representation."'
+		},
+		'effective-representation': {
+			term: 'Effective representation',
+			definition:
+				"The standard Canadian courts apply when judging electoral boundaries. It means voters should have a meaningful voice — not just numerical equality of riding populations, but also recognition of community ties, geography, and minority representation. The leading statement is from the Supreme Court of Canada's 1991 Saskatchewan Reference."
+		},
+		ebc: {
+			term: 'Electoral Boundaries Commission (EBC)',
+			definition:
+				"The body that draws Alberta's provincial electoral boundaries under the EBCA. The 2026 commission was chaired by Justice Miller and split 3–2 among its commissioners, producing two competing proposals (the majority and minority proposals) rather than a single recommendation."
+		},
+		'lunty-committee': {
+			term: 'Lunty committee',
+			definition:
+				"An MLA committee chaired by Brandon Lunty — an MLA appointed by the Premier — that is choosing between the EBC's majority and minority proposals before the November 2026 deadline. The committee is separate from the EBC; the legislature created it for this specific decision and it is not part of the standard EBCA process."
+		},
+		ebca: {
+			term: 'EBCA',
+			definition:
+				'The Alberta Electoral Boundaries Commission Act — the law that governs how electoral boundaries are drawn in the province. It sets up the commission, the public-hearing process, and the rules for when a new map takes effect.'
+		},
+		fsa: {
+			term: 'Forward sortation area (FSA)',
+			definition:
+				'The first three characters of a Canadian postal code (the letter-digit-letter part). About 270 FSAs cover Alberta. Most fall entirely within a single electoral district.'
+		}
 	},
 	body: {
 		section_link_aria: 'Link to section',
