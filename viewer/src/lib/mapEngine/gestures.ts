@@ -8,7 +8,7 @@
 import type { MapCtx } from './types';
 import { vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, animateToVB as vpAnimateToVB, getStageRect as vpGetStageRect } from './viewport';
 import { applyFallback as sl_applyFallback, resetFallback as sl_resetFallback } from './svgLoader';
-import { tipTarget, showTip, hideTip, showCallout, hideCallout, setEdHighlight, snapToED, zoomEdTo70 } from './edInteraction';
+import { tipTarget, vaTarget, showTip, hideTip, showCallout, hideCallout, showVaCallout, hideVaCallout, setEdHighlight, snapToED, zoomEdTo70 } from './edInteraction';
 
 export function initGestures(ctx: MapCtx, stage): void {
   // ctx-bound local helpers (declared once, reused by all handlers)
@@ -16,9 +16,17 @@ export function initGestures(ctx: MapCtx, stage): void {
   function _getStageRect()        { return vpGetStageRect(ctx); }
   function _showCallout(d)        { showCallout(ctx, d); }
   function _hideCallout()         { hideCallout(ctx); }
+  function _showVaCallout(d)      { showVaCallout(ctx, d); }
+  function _hideVaCallout()       { hideVaCallout(ctx); }
   function _setEdHighlight(p)     { setEdHighlight(ctx, p); }
   function _snapToED(pathEl, force) { snapToED(ctx, pathEl, !!force, _animateToVB, _getStageRect); }
   function _zoomEdTo70(pathEl)    { zoomEdTo70(ctx, pathEl, _animateToVB, _getStageRect); }
+
+  function _vaDataForMap() { return ctx.allVaData && ctx.allVaData[ctx.mapPrimary]; }
+  function _vaRec(el) {
+    const vaData = _vaDataForMap();
+    return vaData ? vaData[el.getAttribute('data-va-id')] : null;
+  }
 
   // ── Unified zoom (viewbox + fallback) ────────────────────────────────────
   function zoomAt(mx, my, factor) {
@@ -118,14 +126,19 @@ export function initGestures(ctx: MapCtx, stage): void {
         if (now - ctx.lastTap < 300) {
           const hit = tipTarget(e);
           if (hit) { _zoomEdTo70(hit); }
-          else { _hideCallout(); _animateToVB({ ...ctx.natVB }, 420); }
+          else { _hideCallout(); _hideVaCallout(); _animateToVB({ ...ctx.natVB }, 420); }
           ctx.lastTap = 0;
         } else {
           ctx.lastTap = now;
           if (ctx.edHover) {
             const hit = tipTarget(e);
-            if (hit) { _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]); _setEdHighlight(hit); _snapToED(hit); }
-            else _hideCallout();
+            if (hit) {
+              _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+              _setEdHighlight(hit);
+              _snapToED(hit);
+              const vaHit = _vaDataForMap() ? vaTarget(e) : null;
+              if (vaHit) _showVaCallout(_vaRec(vaHit)); else _hideVaCallout();
+            } else { _hideCallout(); _hideVaCallout(); }
           }
         }
       } else if (ctx.edHover) {
@@ -135,7 +148,9 @@ export function initGestures(ctx: MapCtx, stage): void {
           _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
           _setEdHighlight(hit);
           if (!ctx.mapLocked) _snapToED(hit);
-        } else { _hideCallout(); }
+          const vaHit = _vaDataForMap() ? vaTarget(e) : null;
+          if (vaHit) _showVaCallout(_vaRec(vaHit)); else _hideVaCallout();
+        } else { _hideCallout(); _hideVaCallout(); }
       }
     }
     ctx.drag = null;

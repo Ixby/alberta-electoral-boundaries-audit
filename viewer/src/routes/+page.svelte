@@ -1194,6 +1194,23 @@
     </div>
   </div>
   </div><!-- /#hud -->
+  <!-- va-callout — shown alongside ed-callout when VA data is available and a VA is hit -->
+  <div id="va-callout" aria-live="polite">
+    <div id="vc-name"></div>
+    <div id="vc-bar"><div id="vc-ucp-bar"></div><div id="vc-ndp-bar"></div></div>
+    <div id="vc-split">
+      <div class="vc-party vc-ucp">
+        <span class="vc-pct" id="vc-ucp-pct"></span>
+        <span class="vc-party-name">UCP</span>
+      </div>
+      <div class="vc-party vc-ndp">
+        <span class="vc-pct" id="vc-ndp-pct"></span>
+        <span class="vc-party-name">NDP</span>
+      </div>
+    </div>
+    <span id="vc-total"></span>
+    <button id="vc-close" title="Close">&times;</button>
+  </div>
   <div id="zoom-stage">
     <div id="zoom-skeleton" aria-hidden="true">
       <!-- Alberta province outline — 31-pt RDP simplification, perimeter ≈ 1872 SVG units -->
@@ -1942,6 +1959,40 @@
   #ec-eg.ec-eg-ndp { color: #f4a26a; }
   #ec-context { display: none; }
   #ec-compare { display: none !important; }
+  /* VA callout — secondary panel shown when VA data is loaded and a VA is clicked */
+  #va-callout {
+    display: none;
+    position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+    background: rgba(10,12,18,0.92);
+    border: 1.5px solid rgba(255,255,255,0.07);
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 7px 14px 9px;
+    align-items: center; gap: 8px;
+    z-index: 110; min-width: 220px; max-width: 90vw;
+    font-size: 0.75rem; color: rgba(255,255,255,0.8);
+    transition: border-color 0.2s;
+  }
+  #va-callout.vc-visible {
+    display: flex;
+    border-color: rgba(255,255,255,0.18);
+  }
+  #vc-name { font-size: 0.72rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; max-width: 160px; }
+  #vc-bar { display: flex; height: 4px; border-radius: 2px; overflow: hidden; flex-shrink: 0; width: 52px; }
+  #vc-ucp-bar { background: #142e94; }
+  #vc-ndp-bar { background: #e86310; }
+  #vc-split { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+  .vc-party { display: flex; align-items: center; gap: 3px; }
+  .vc-pct { font-size: 0.75rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .vc-ucp .vc-pct { color: #6b8fd4; }
+  .vc-ndp .vc-pct { color: #e8934a; }
+  .vc-party-name { font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; text-transform: uppercase; }
+  #vc-total { font-size: 0.65rem; color: rgba(255,255,255,0.45); white-space: nowrap; flex: 1; }
+  #vc-close {
+    background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer;
+    font-size: 1rem; line-height: 1; padding: 2px 4px; flex-shrink: 0;
+  }
+  #vc-close:hover { color: rgba(255,255,255,0.75); }
   /* Zoom section — lives in top-bar */
   #ec-zoom-section {
     display: flex; align-items: center; gap: 7px;

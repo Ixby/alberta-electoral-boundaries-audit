@@ -158,6 +158,44 @@ export function tipTarget(e): Element | null {
   return null;
 }
 
+export function vaTarget(e): Element | null {
+  const els = document.elementsFromPoint
+    ? document.elementsFromPoint(e.clientX, e.clientY)
+    : [document.elementFromPoint(e.clientX, e.clientY)];
+  for (let i = 0; i < els.length; i++) {
+    if (els[i] && els[i].hasAttribute && els[i].hasAttribute('data-va-id')) return els[i];
+  }
+  return null;
+}
+
+// ── VA callout ────────────────────────────────────────────────────────────────
+
+export function showVaCallout(ctx: MapCtx, d): void {
+  if (!d) return;
+  const el = document.getElementById('va-callout');
+  if (!el) return;
+  const nameEl = document.getElementById('vc-name');
+  if (nameEl) nameEl.textContent = d.poll_name || '';
+  const ucpEl = document.getElementById('vc-ucp-pct');
+  if (ucpEl) ucpEl.textContent = d.ucp_pct != null ? d.ucp_pct + '%' : '';
+  const ndpEl = document.getElementById('vc-ndp-pct');
+  if (ndpEl) ndpEl.textContent = d.ndp_pct != null ? d.ndp_pct + '%' : '';
+  const ucpBarEl = document.getElementById('vc-ucp-bar');
+  if (ucpBarEl) ucpBarEl.style.width = (d.ucp_pct || 0) + '%';
+  const ndpBarEl = document.getElementById('vc-ndp-bar');
+  if (ndpBarEl) ndpBarEl.style.width = (d.ndp_pct || 0) + '%';
+  const totalEl = document.getElementById('vc-total');
+  if (totalEl) totalEl.textContent = d.valid_votes ? _fmt.format(d.valid_votes) + ' valid votes' : '';
+  ctx.selectedVaId = d.va_id != null ? String(d.va_id) : null;
+  el.classList.add('vc-visible');
+}
+
+export function hideVaCallout(ctx: MapCtx): void {
+  const el = document.getElementById('va-callout');
+  if (el) el.classList.remove('vc-visible');
+  ctx.selectedVaId = null;
+}
+
 export function isEdVisible(ctx: MapCtx, bb): boolean {
   if (!ctx.curVB || !bb.width || !bb.height) return false;
   const xOv = Math.max(0, Math.min(bb.x + bb.width, ctx.curVB.x + ctx.curVB.w) - Math.max(bb.x, ctx.curVB.x));

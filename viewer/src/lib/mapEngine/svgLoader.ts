@@ -29,6 +29,29 @@ export function mergeVaPaths(svgRoot: Element): void {
   if (!g) return;
   const paths = Array.from(g.querySelectorAll('path'));
   if (paths.length < 50) return; // already merged
+  const doc = g.ownerDocument;
+  const ns = 'http://www.w3.org/2000/svg';
+
+  // Build #va_hover_layer from paths that carry data-va-id, before the merge destroys them.
+  // No-op until SVGs are regenerated with data-va-id attributes.
+  const vaPaths = paths.filter(function(p) { return p.hasAttribute('data-va-id'); });
+  if (vaPaths.length > 0 && !svgRoot.querySelector('#va_hover_layer')) {
+    const vaLayer = doc.createElementNS(ns, 'g');
+    vaLayer.id = 'va_hover_layer';
+    for (const p of vaPaths) {
+      const cp = doc.createElementNS(ns, 'path');
+      cp.setAttribute('d', p.getAttribute('d') || '');
+      cp.setAttribute('data-va-id', p.getAttribute('data-va-id'));
+      cp.setAttribute('style', 'fill:transparent;stroke:none');
+      cp.style.pointerEvents = 'all';
+      vaLayer.appendChild(cp);
+    }
+    // Insert immediately after ed_hover_layer so VA paths sit on top for hit detection.
+    const edLayer = svgRoot.querySelector('#ed_hover_layer');
+    if (edLayer && edLayer.parentNode) edLayer.parentNode.insertBefore(vaLayer, edLayer.nextSibling);
+    else svgRoot.appendChild(vaLayer);
+  }
+
   const byColor = new Map<string, string[]>();
   for (const p of paths) {
     const st = p.getAttribute('style') || '';
@@ -48,8 +71,6 @@ export function mergeVaPaths(svgRoot: Element): void {
     }
     if (d) byColor.get(fill)!.push(d);
   }
-  const doc = g.ownerDocument;
-  const ns = 'http://www.w3.org/2000/svg';
   while (g.firstChild) g.removeChild(g.firstChild);
   for (const [fill, ds] of byColor) {
     const cp = doc.createElementNS(ns, 'path');

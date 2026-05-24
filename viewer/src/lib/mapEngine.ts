@@ -7,7 +7,7 @@ import { initNavScrollspy } from './mapEngine/navScrollspy';
 import { initIntroModal }   from './mapEngine/introModal';
 import { hasSeenIntro }     from './prefs';
 import { applyVoteLayer, applyEdFillLayer, applyEdLinesLayer, applyEGLayer, setLayerOn } from './mapEngine/layers';
-import { hideTip, showCallout, hideCallout, setEdHighlight, activateCenterED, snapToED } from './mapEngine/edInteraction';
+import { hideTip, showCallout, hideCallout, hideVaCallout, setEdHighlight, activateCenterED, snapToED } from './mapEngine/edInteraction';
 import { initSearch } from './mapEngine/search';
 import { applyAnomalyHighlight, initAnomalyButtons } from './mapEngine/anomaly';
 import { initNamedEdButtons } from './mapEngine/namedEdZoom';
@@ -15,7 +15,7 @@ import { initViewport, getStageRect, animateToVB as vpAnimateToVB, resetVB as vp
 import { activateInlineSVG as sl_activateInlineSVG, applyFallback as sl_applyFallback, resetFallback as sl_resetFallback, tryInit as sl_tryInit } from './mapEngine/svgLoader';
 import { initGestures } from './mapEngine/gestures';
 import { initOverlay } from './mapEngine/overlay';
-import { applyBoundaryColor as mpApplyBoundaryColor, syncOverlays as mpSyncOverlays, updateMapButtons as mpUpdateMapButtons, doSwitchPrimary as mpDoSwitchPrimary, activateAsTop as mpActivateAsTop, toggleMap as mpToggleMap, loadHoverJson as mpLoadHoverJson } from './mapEngine/maps';
+import { applyBoundaryColor as mpApplyBoundaryColor, syncOverlays as mpSyncOverlays, updateMapButtons as mpUpdateMapButtons, doSwitchPrimary as mpDoSwitchPrimary, activateAsTop as mpActivateAsTop, toggleMap as mpToggleMap, loadHoverJson as mpLoadHoverJson, loadVaJson as mpLoadVaJson } from './mapEngine/maps';
 
 let _onEvent      = null;
 let _getState     = null;
@@ -90,6 +90,10 @@ export function init(basePath: string): void {
           allHoverData:       {},         // mapKey → { id: rec }
           nameIndex:          {},         // mapKey → { name: rec }
 
+          // VA (voting area) data (pre-fetched at init; no-op until SVGs carry data-va-id)
+          allVaData:          {},         // mapKey → { va_id: rec }
+          selectedVaId:       null,
+
           // ED selection
           selectedEdName:     null,
           highlightPath:      null,
@@ -129,7 +133,7 @@ export function init(basePath: string): void {
 
         // ── District callout (info bar) ───────────────────────────────────────
         function _showCallout(d) { showCallout(ctx, d); }
-        function _hideCallout()  { hideCallout(ctx); }
+        function _hideCallout()  { hideCallout(ctx); hideVaCallout(ctx); }
 
         // ── Map selector ──────────────────────────────────────────────────────────
         const _mapSvgUrls = {
@@ -141,6 +145,11 @@ export function init(basePath: string): void {
           minority: 'data/ed_hover_minority.json',
           majority: 'data/ed_hover_majority.json',
           '2019':   'data/ed_hover_2019.json',
+        };
+        const _mapVaJsonUrls = {
+          minority: 'data/va_hover_minority.json',
+          majority: 'data/va_hover_majority.json',
+          '2019':   'data/va_hover_2019.json',
         };
 
         // ── SVG loader deps + event wiring (after _mapSvgUrls is defined) ────────────
@@ -227,6 +236,13 @@ export function init(basePath: string): void {
         mpLoadHoverJson(ctx, 'minority', _mapJsonUrls.minority);
         mpLoadHoverJson(ctx, 'majority', _mapJsonUrls.majority);
         mpLoadHoverJson(ctx, '2019',    _mapJsonUrls['2019']);
+
+        mpLoadVaJson(ctx, 'minority', _mapVaJsonUrls.minority);
+        mpLoadVaJson(ctx, 'majority', _mapVaJsonUrls.majority);
+        mpLoadVaJson(ctx, '2019',    _mapVaJsonUrls['2019']);
+
+        const vcClose = document.getElementById('vc-close');
+        if (vcClose) vcClose.addEventListener('click', function() { hideVaCallout(ctx); });
 
         document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
           b.addEventListener('click', function() {

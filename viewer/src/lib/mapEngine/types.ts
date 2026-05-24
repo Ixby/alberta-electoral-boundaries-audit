@@ -53,6 +53,10 @@ export type MapCtx = {
   allHoverData:       Record<string, Record<string, any>>;
   nameIndex:          Record<string, Record<string, any>>;
 
+  // VA (voting area) data
+  allVaData:          Record<string, Record<string, any>>;
+  selectedVaId:       string | null;
+
   // ED selection
   selectedEdName:     string | null;
   highlightPath:      SVGGElement | null;

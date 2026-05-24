@@ -233,3 +233,11 @@ export function loadHoverJson(ctx: MapCtx, key, url): void {
     if (key === ctx.mapPrimary) { ctx.edHover = byId; reapplyLayers(ctx); }
   }).catch(() => {});
 }
+
+export function loadVaJson(ctx: MapCtx, key, url): void {
+  fetch(url).then(r => r.json()).then(d => {
+    const byId = {};
+    d.forEach(rec => { byId[String(rec.va_id)] = rec; });
+    ctx.allVaData[key] = byId;
+  }).catch(() => {});
+}
