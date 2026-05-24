@@ -17,7 +17,7 @@
 <svelte:window onkeydown={handleWindowKeydown} />
 
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { base } from '$app/paths';
   type MapEngineModule = Awaited<typeof import('$lib/mapEngine')>;
   let _ME: MapEngineModule | null = null;
@@ -129,10 +129,16 @@
     }, 200);
   }
 
+  let _telemetryInterval: ReturnType<typeof setInterval>;
+  onDestroy(() => {
+    clearInterval(_telemetryInterval);
+    if (typeof window !== 'undefined') window.removeEventListener('beforeunload', flushTelemetry);
+  });
+
   onMount(async () => {
 
     window.addEventListener('beforeunload', flushTelemetry);
-    const _telemetryInterval = setInterval(flushTelemetry, 30_000);
+    _telemetryInterval = setInterval(flushTelemetry, 30_000);
 
     dntActive = isDNT();
     const storedConsent = await getStoredConsent();
@@ -268,10 +274,6 @@
       });
     });
 
-    return () => {
-      clearInterval(_telemetryInterval);
-      window.removeEventListener('beforeunload', flushTelemetry);
-    };
   });
 </script>
 

@@ -142,7 +142,7 @@
 
     <section>
       <h2>Data retention</h2>
-      <p>All stored records are anonymized before they reach our database. We keep them indefinitely as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.</p>
+      <p>All stored records are anonymized before they reach our database. The database is hosted in Canada (ca-central-1). We keep records indefinitely as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.</p>
     </section>
 
     <section>

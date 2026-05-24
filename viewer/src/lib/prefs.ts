@@ -23,11 +23,12 @@ function _importKey(): Promise<CryptoKey> {
 	return _keyPromise;
 }
 
-function _b64enc(buf: ArrayBuffer): string {
-	return btoa(String.fromCharCode(...new Uint8Array(buf)));
+function _b64enc(buf: ArrayBuffer | Uint8Array): string {
+	const bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
+	return btoa(String.fromCharCode(...bytes));
 }
-function _b64dec(s: string): Uint8Array {
-	return Uint8Array.from(atob(s), c => c.charCodeAt(0));
+function _b64dec(s: string): Uint8Array<ArrayBuffer> {
+	return Uint8Array.from(atob(s), c => c.charCodeAt(0)) as Uint8Array<ArrayBuffer>;
 }
 
 async function _encrypt(text: string): Promise<string> {

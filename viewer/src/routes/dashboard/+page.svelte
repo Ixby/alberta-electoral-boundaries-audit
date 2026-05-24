@@ -37,7 +37,7 @@
   const MAP_LABEL: Record<string, string> = { minority: 'Minority', majority: 'Majority', '2019': 'Current' };
 
   // ── Init ──────────────────────────────────────────────────────────────────
-  function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
+  function withTimeout<T>(p: PromiseLike<T>, ms: number): Promise<T> {
     let id: ReturnType<typeof setTimeout>;
     const timeout = new Promise<T>((_, reject) => {
       id = setTimeout(() => reject(new Error('request timed out')), ms);
