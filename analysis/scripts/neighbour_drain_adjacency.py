@@ -122,6 +122,76 @@ NAME_REMAP_2019_SHP_TO_CSV = {
 
 
 # ---------------------------------------------------------------------
+# Canonical map scoring (strict)
+# ---------------------------------------------------------------------
+
+
+def _score_canonical_map_strict(
+    va_gdf: gpd.GeoDataFrame,
+    ed_gpkg: Path,
+    label: str,
+) -> Tuple[Dict[str, Tuple[int, int]], str]:
+    """Score a canonical 2026 ED gpkg, raising if the spatial join drops any ED.
+
+    Fixes three issues with calling score_map_by_spatial_join directly:
+
+    - CRS mismatch: va_gdf was not reprojected to the ED CRS before sjoin,
+      so a CRS divergence would silently misjoin centroids and produce
+      empty / biased votes dicts. Now reprojects when CRSes differ.
+    - Hardcoded name column: 'EDName2025' was assumed; the function now
+      auto-detects between 'EDName2025' (canonical) and 'name_2026'
+      (derived/fallback) by reading the gpkg headers.
+    - Silent ED drop: EDs whose polygon contained no VA centroid were
+      silently omitted from votes_maj / votes_min, producing a hole in
+      the downstream adjacency graph instead of an error. Now raises
+      with the list of missing EDs so the operator can investigate
+      before publishing the drain analysis.
+
+    Returns:
+        votes: dict mapping ED name -> (ndp_votes, ucp_votes)
+        name_col: the column resolved for this shapefile (for downstream use)
+    """
+    eds_gdf = gpd.read_file(ed_gpkg)
+    if "EDName2025" in eds_gdf.columns:
+        name_col = "EDName2025"
+    elif "name_2026" in eds_gdf.columns:
+        name_col = "name_2026"
+    else:
+        raise RuntimeError(
+            f"{label}: shapefile {ed_gpkg.name} has neither 'EDName2025' "
+            f"nor 'name_2026' column; got {list(eds_gdf.columns)}"
+        )
+    expected = set(eds_gdf[name_col])
+
+    # Reproject VAs to ED CRS if they differ. score_map_by_spatial_join
+    # delegates to gpd.sjoin which silently misjoins (or warns and proceeds)
+    # on CRS mismatch.
+    if (
+        va_gdf.crs is not None
+        and eds_gdf.crs is not None
+        and va_gdf.crs != eds_gdf.crs
+    ):
+        va_local = va_gdf.to_crs(eds_gdf.crs)
+    else:
+        va_local = va_gdf
+
+    scored = score_map_by_spatial_join(va_local, ed_gpkg, name_col)
+    votes = {d["ed"]: (d["ndp"], d["ucp"]) for d in scored}
+
+    missing = expected - set(votes.keys())
+    if missing:
+        raise RuntimeError(
+            f"{label}: spatial join dropped {len(missing)} ED(s) with no "
+            f"matching VA centroid: {sorted(missing)}. This usually means "
+            f"the VA shapefile and ED shapefile have a CRS or geometry "
+            f"mismatch, or an ED is small enough that no VA's "
+            f"representative_point() falls inside its polygon. Investigate "
+            f"before publishing the drain analysis."
+        )
+    return votes, name_col
+
+
+# ---------------------------------------------------------------------
 # Core metrics per ED
 # ---------------------------------------------------------------------
 
@@ -539,13 +609,15 @@ def main() -> None:
     print(f"  {len(va_gdf)} VAs loaded  CRS={va_gdf.crs}")
 
     print("\nScoring Majority 2026 EDs via canonical VA centroid-in-polygon spatial join...")
-    maj_list = score_map_by_spatial_join(va_gdf, canonical_maj_gpkg, "EDName2025")
-    votes_maj = {d["ed"]: (d["ndp"], d["ucp"]) for d in maj_list}
+    votes_maj, _ = _score_canonical_map_strict(
+        va_gdf, canonical_maj_gpkg, "majority"
+    )
     print(f"  {len(votes_maj)} majority EDs scored")
 
     print("\nScoring Minority 2026 EDs via canonical VA centroid-in-polygon spatial join...")
-    min_list = score_map_by_spatial_join(va_gdf, canonical_min_gpkg, "EDName2025")
-    votes_min = {d["ed"]: (d["ndp"], d["ucp"]) for d in min_list}
+    votes_min, _ = _score_canonical_map_strict(
+        va_gdf, canonical_min_gpkg, "minority"
+    )
     print(f"  {len(votes_min)} minority EDs scored")
 
     # --- Load shapefiles ---
