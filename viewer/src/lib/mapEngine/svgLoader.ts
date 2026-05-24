@@ -34,7 +34,11 @@ export function mergeVaPaths(svgRoot: Element): void {
     const m = st.match(/fill:\s*([^;]+)/);
     const fill = m ? m[1].trim() : (p.getAttribute('fill') || '#808080');
     if (!byColor.has(fill)) byColor.set(fill, []);
-    const d = p.getAttribute('d');
+    let d = p.getAttribute('d') || '';
+    // Make first moveto absolute so subpaths position correctly in the compound path.
+    // SVG treats a leading 'm' as 'M' only for the very first subpath; subsequent
+    // lowercase 'm' values are relative to the previous current point.
+    if (d.charAt(0) === 'm') d = 'M' + d.slice(1);
     if (d) byColor.get(fill)!.push(d);
   }
   const doc = g.ownerDocument;
