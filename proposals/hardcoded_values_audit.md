@@ -84,9 +84,13 @@ Remaining literals in this class that have **not** been wrapped in a resolver:
 
 Cosmetic. No behaviour change from naming them. Worth doing in a future cleanup pass.
 
-### E — Actual inconsistency (real finding)
+### E — Actual inconsistency (real finding) — **RESOLVED 2026-05-24**
 
-The notable finding from this audit:
+**Resolution:** the PI confirmed on 2026-05-24 that the 8-vs-10 city-set asymmetry was unintentional. Fixed in the same day's commit by consolidating both lists into a single module-level `LUNTY_CITIES` dict and deriving `LUNTY_CITY_CSD_CODES` from it, so the two cannot drift relative to each other. mo2's urban-share denominator now includes Spruce Grove (CSD 4811053) and Leduc (CSD 4811028) as it should have all along.
+
+**Output-change implication:** any district overlapping Spruce Grove or Leduc may see its MO #2 urban-share fraction shift relative to dry-run scorecards generated before the fix — VAs in those two cities were previously counted as rural (0) and are now counted as urban (1). A district whose urban share was previously below 40% may now cross into the 40-60% mid-band and flag MO #2. Re-run the scorecard on the canonical inputs and on the dry-run synthetic inputs, and disclose any flipped tripwires in the dry-run report.
+
+The notable finding from this audit (kept below for the trail-of-work record):
 
 **`phase_b_scorecard.py` maintains two separately-defined city lists that overlap but are not identical.**
 

@@ -112,6 +112,33 @@ MO3_ANCHORING_THRESHOLD = 0.70  # Canadian norm; 70% lower bound
 MO4_SAMPLER_DIVERGENCE_PP = 25  # divergence in s@50 percentile rank
 # between ReCom and SMC, in pp
 
+# Per-city populations (2021 census) and CSD codes used by both MO #1
+# (drain pattern; per-city population-justified district count) and
+# MO #2 (lasso compactness; urban-share denominator). Single source of
+# truth so the two lists cannot drift relative to each other.
+#
+# Until 2026-05-24 mo1 carried a 10-city local dict while mo2 carried
+# an 8-city local set that silently dropped Spruce Grove and Leduc;
+# the divergence was unintentional and is fixed here by consolidating
+# into one constant. Any district overlapping Spruce Grove (CSD
+# 4811053) or Leduc (CSD 4811028) may see its MO #2 urban-share
+# fraction shift relative to dry-run scorecards generated before
+# 2026-05-24 — re-run the scorecard on the canonical inputs to see
+# the corrected output and disclose any flipped tripwires.
+LUNTY_CITIES = {
+    "Calgary":        {"pop": 1_306_784, "csd_code": 4806016},
+    "Edmonton":       {"pop": 1_010_899, "csd_code": 4811062},
+    "Red Deer":       {"pop":   100_844, "csd_code": 4806036},
+    "Lethbridge":     {"pop":    98_406, "csd_code": 4802012},
+    "St. Albert":     {"pop":    68_232, "csd_code": 4811049},
+    "Medicine Hat":   {"pop":    63_271, "csd_code": 4801006},
+    "Grande Prairie": {"pop":    64_141, "csd_code": 4819030},
+    "Airdrie":        {"pop":    74_100, "csd_code": 4806008},
+    "Spruce Grove":   {"pop":    37_645, "csd_code": 4811053},
+    "Leduc":          {"pop":    34_094, "csd_code": 4811028},
+}
+LUNTY_CITY_CSD_CODES = {c["csd_code"] for c in LUNTY_CITIES.values()}
+
 
 @dataclass
 class TripwireResult:
@@ -129,20 +156,6 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
     population divided by Alberta's per-district average population.
     """
     avg_pop_per_district = 53_722  # floor(4,888,723 / 91) — TBF-adjusted population, 91-seat Lunty committee basis
-    # Per-city populations (2021 census) — pre-registered constants
-    # so the threshold logic doesn't move when a new city polygon is added.
-    cities = {
-        "Calgary": {"pop": 1_306_784, "csd_codes": [4806016]},
-        "Edmonton": {"pop": 1_010_899, "csd_codes": [4811062]},
-        "Red Deer": {"pop": 100_844, "csd_codes": [4806036]},
-        "Lethbridge": {"pop": 98_406, "csd_codes": [4802012]},
-        "St. Albert": {"pop": 68_232, "csd_codes": [4811049]},
-        "Medicine Hat": {"pop": 63_271, "csd_codes": [4801006]},
-        "Grande Prairie": {"pop": 64_141, "csd_codes": [4819030]},
-        "Airdrie": {"pop": 74_100, "csd_codes": [4806008]},
-        "Spruce Grove": {"pop": 37_645, "csd_codes": [4811053]},
-        "Leduc": {"pop": 34_094, "csd_codes": [4811028]},
-    }
     csd_path = ALBERTA_CSDS
     flagged = []
     if not csd_path.exists():
@@ -158,10 +171,8 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
             f"intersections without it.",
         )
     csd = gpd.read_file(csd_path).to_crs(eds.crs)
-    for city_name, meta in cities.items():
-        city_geom = csd[
-            csd["CSDUID"].astype(str).isin([str(c) for c in meta["csd_codes"]])
-        ]
+    for city_name, meta in LUNTY_CITIES.items():
+        city_geom = csd[csd["CSDUID"].astype(str) == str(meta["csd_code"])]
         if city_geom.empty:
             continue
         # Count districts whose interior intersects this city's polygon
@@ -224,17 +235,9 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
         )
     va = gpd.read_file(VA_VOTES_PATH).to_crs(eds.crs)
     csd = gpd.read_file(ALBERTA_CSDS).to_crs(eds.crs)
-    big_city_codes = {
-        4806016,
-        4811062,
-        4806036,
-        4802012,
-        4811049,
-        4801006,
-        4819030,
-        4806008,
-    }
-    big_city = csd[csd["CSDUID"].astype(str).isin([str(c) for c in big_city_codes])]
+    big_city = csd[
+        csd["CSDUID"].astype(str).isin([str(c) for c in LUNTY_CITY_CSD_CODES])
+    ]
     va_centroids = gpd.GeoDataFrame(
         {"_idx": range(len(va))},
         geometry=va.geometry.centroid,
