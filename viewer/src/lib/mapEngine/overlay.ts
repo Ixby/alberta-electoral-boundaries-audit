@@ -1,0 +1,65 @@
+// @ts-nocheck
+// Alberta Electoral Boundary Audit — overlay open / close / focus management
+// © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
+//
+// deps shape:
+//   { updateMapButtons, maybeShowIntro, resetVB, resetFallback, hideTip, hideCallout }
+
+import type { MapCtx } from './types';
+
+function _overlayFocusable(overlayEl) {
+  return Array.from(overlayEl.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  )).filter(el => !el.hasAttribute('disabled'));
+}
+
+// Returns { open, close } so callers can pass them to other modules as deps.
+export function initOverlay(ctx: MapCtx, overlayEl, triggerEl, closeBtnEl, deps) {
+
+  function open() {
+    ctx.stageRect = null;
+    overlayEl.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    deps.updateMapButtons();
+    deps.maybeShowIntro();
+    ctx.prevFocus = document.activeElement;
+    const focusable = _overlayFocusable(overlayEl);
+    if (focusable.length) focusable[0].focus();
+    if (!ctx.ready) return;
+    if (ctx.mode === 'viewbox') deps.resetVB(); else deps.resetFallback();
+  }
+
+  function close() {
+    overlayEl.style.display = 'none';
+    document.body.style.overflow = '';
+    deps.hideTip();
+    deps.hideCallout();
+    if (ctx.prevFocus instanceof HTMLElement) ctx.prevFocus.focus();
+    ctx.prevFocus = null;
+    // Hide intro modal without marking seen — re-shows on next open until dismissed
+    const intro = document.getElementById('map-intro-modal');
+    if (intro) intro.style.display = 'none';
+  }
+
+  // Tab trap
+  overlayEl.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab') return;
+    const focusable = _overlayFocusable(overlayEl);
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+    else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+  });
+
+  triggerEl.addEventListener('click', e => { e.preventDefault(); open(); });
+  closeBtnEl.addEventListener('click', close);
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    const intro = document.getElementById('map-intro-modal');
+    if (intro && intro.style.display !== 'none') return; // let modal handle its own Escape
+    close();
+  });
+  overlayEl.addEventListener('click', e => { if (e.target === overlayEl) close(); });
+
+  return { open, close };
+}
