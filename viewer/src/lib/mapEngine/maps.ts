@@ -9,6 +9,7 @@
 import type { MapCtx } from './types';
 import { updateStrokeWidths } from './viewport';
 import { applyEdFillLayer, reapplyLayers } from './layers';
+import { mergeVaPaths } from './svgLoader';
 
 export const MAP_ACCENT_COLORS: Record<string, string> = {
   minority: '#6B35A7',
@@ -73,7 +74,9 @@ export function fetchAndOverlay(ctx: MapCtx, key, deps): void {
   }
   if (ctx.svgCache[key]) { apply(); return; }
   fetch(deps.svgUrls[key]).then(function(r) { return r.text(); }).then(function(text) {
-    ctx.svgCache[key] = new DOMParser().parseFromString(text, 'image/svg+xml');
+    const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+    mergeVaPaths(doc.documentElement);
+    ctx.svgCache[key] = doc;
     apply();
   }).catch(function() {});
 }
@@ -143,6 +146,7 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
       .then(function(r) { return r.text(); })
       .then(function(text) {
         const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+        mergeVaPaths(doc.documentElement);
         ctx.svgCache[key] = doc;
         _applySvgDoc(doc);
       })

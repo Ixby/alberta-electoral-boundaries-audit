@@ -17,9 +17,41 @@ import type { MapCtx } from './types';
 import { updateZoomDisplay, updateStrokeWidths, resetVB as vpResetVB } from './viewport';
 import { reapplyLayers } from './layers';
 
+// ── VA path merge (perf) ──────────────────────────────────────────────────────
+// Collapses 4 771 individually-stroked VA polygons in #PatchCollection_2 into
+// one compound <path> per fill colour (~6–8 total). Reduces Firefox's Skia
+// stroke-per-path cost from ~2 400 ms to negligible on a typical load.
+// Safe: PatchCollection_2 is purely visual; hover/click lives in #ed_hover_layer.
+
+export function mergeVaPaths(svgRoot: Element): void {
+  const g = svgRoot.querySelector('#PatchCollection_2');
+  if (!g) return;
+  const paths = Array.from(g.querySelectorAll('path'));
+  if (paths.length < 50) return; // already merged
+  const byColor = new Map<string, string[]>();
+  for (const p of paths) {
+    const st = p.getAttribute('style') || '';
+    const m = st.match(/fill:\s*([^;]+)/);
+    const fill = m ? m[1].trim() : (p.getAttribute('fill') || '#808080');
+    if (!byColor.has(fill)) byColor.set(fill, []);
+    const d = p.getAttribute('d');
+    if (d) byColor.get(fill)!.push(d);
+  }
+  const doc = g.ownerDocument;
+  const ns = 'http://www.w3.org/2000/svg';
+  while (g.firstChild) g.removeChild(g.firstChild);
+  for (const [fill, ds] of byColor) {
+    const cp = doc.createElementNS(ns, 'path');
+    cp.setAttribute('d', ds.join(' '));
+    cp.setAttribute('style', 'fill:' + fill);
+    g.appendChild(cp);
+  }
+}
+
 // ── activateInlineSVG ─────────────────────────────────────────────────────────
 
 export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay, deps): void {
+  mergeVaPaths(node);
   ['minority', 'majority', '2019'].forEach(function(k) { ctx.overlayInSvg[k] = null; });
   node.setAttribute('width', '100%');
   node.setAttribute('height', '100%');
@@ -58,7 +90,11 @@ export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay,
     ['minority', 'majority', '2019'].forEach(function(k) {
       if (!ctx.svgCache[k]) {
         fetch(deps.svgUrls[k]).then(function(r) { return r.text(); })
-          .then(function(t) { ctx.svgCache[k] = new DOMParser().parseFromString(t, 'image/svg+xml'); })
+          .then(function(t) {
+            const doc = new DOMParser().parseFromString(t, 'image/svg+xml');
+            mergeVaPaths(doc.documentElement);
+            ctx.svgCache[k] = doc;
+          })
           .catch(function() {});
       }
     });
