@@ -112,6 +112,11 @@
   </div>
 </nav>
 
+<section class="opener-block container" aria-labelledby="opener-heading">
+  <h2 id="opener-heading">{t(lang.current, 'opener.heading')}</h2>
+  <p>{t(lang.current, 'opener.body')}</p>
+</section>
+
 <header>
   <div class="header-inner">
     <div class="header-text">
@@ -134,6 +139,39 @@
     </button>
   </div>
 </header>
+
+<section class="verdict-block container" aria-labelledby="verdict-heading">
+  <h2 id="verdict-heading" class="visually-hidden">Verdict</h2>
+  <div class="verdict-q">
+    <h3>{t(lang.current, 'verdict.q1.heading')}</h3>
+    <p>{t(lang.current, 'verdict.q1.body')}</p>
+  </div>
+  <div class="verdict-q">
+    <h3>{t(lang.current, 'verdict.q2.heading')}</h3>
+    <p>{t(lang.current, 'verdict.q2.body')}</p>
+  </div>
+  <div class="verdict-q">
+    <h3>{t(lang.current, 'verdict.q3.heading')}</h3>
+    <p>{t(lang.current, 'verdict.q3.body')}</p>
+  </div>
+  <div class="verdict-ctas">
+    <a href="#section-2" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
+    <a href="#section-3" class="verdict-cta">{t(lang.current, 'verdict.cta_methods')}</a>
+  </div>
+</section>
+
+<section class="boundary-block container" aria-labelledby="boundary-heading">
+  <h2 id="boundary-heading">{t(lang.current, 'boundary.heading')}</h2>
+  <ul class="boundary-list">
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_1')}</span></li>
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_2')}</span></li>
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_3')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_1')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_2')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_3')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_4')}</span></li>
+  </ul>
+</section>
 
 <main class="container">
 
@@ -962,6 +1000,125 @@
   --tag-bg:          #dce6f0;
   --tag-text:        #1a3550;
 }
+
+/* --- Editorial blocks: opener, verdict, boundary card --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.opener-block {
+  padding: 1.6rem 1rem 0.4rem;
+}
+.opener-block h2 {
+  font-size: 1.15rem;
+  color: var(--heading);
+  margin: 0 0 0.55rem;
+  font-weight: 600;
+}
+.opener-block p {
+  font-size: 1.0rem;
+  line-height: 1.65;
+  color: var(--lead);
+  margin: 0;
+}
+
+.verdict-block {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-alt);
+}
+.verdict-q {
+  margin-bottom: 1.1rem;
+}
+.verdict-q:last-of-type {
+  margin-bottom: 1.4rem;
+}
+.verdict-q h3 {
+  font-size: 1.1rem;
+  color: var(--heading);
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+}
+.verdict-q p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text);
+}
+.verdict-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+.verdict-cta {
+  text-decoration: none;
+  color: var(--link);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.verdict-cta:hover {
+  text-decoration: underline;
+}
+
+.boundary-block {
+  margin-top: 1.2rem;
+  padding: 1.2rem 1.2rem 1.4rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+}
+.boundary-block h2 {
+  font-size: 1.0rem;
+  color: var(--heading);
+  margin: 0 0 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.boundary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.boundary-list .row {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  align-items: start;
+  gap: 0.4rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--border-subtle);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.boundary-list .row:last-child {
+  border-bottom: 0;
+}
+.boundary-list .mark {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.boundary-list .can .mark {
+  color: #2c7a4a;
+}
+.boundary-list .cant .mark {
+  color: #a8423b;
+}
+.boundary-list .text {
+  color: var(--text);
+}
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg:            #0f1117;

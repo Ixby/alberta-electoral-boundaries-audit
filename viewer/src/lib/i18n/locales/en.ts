@@ -70,5 +70,22 @@ export default {
 		map_hint: 'Click to explore interactively',
 		btn_title: 'Click to open interactive map',
 		btn_aria: 'Open interactive map'
+	},
+	boundary: {
+		heading: "What this audit can and can't tell you",
+		can_1:
+			'Fewer than 1 in 14.5 million randomly generated comparison maps produced patterns as extreme as the minority proposal on all four statistical measures combined.',
+		can_2:
+			'The minority proposal fails 5 of 5 pre-registered structural tests. The majority proposal fails 0 of 5.',
+		can_3:
+			'These results are consistent with maps that produce strong partisan effects, and inconsistent with what the random comparison set produces.',
+		cant_1:
+			'The audit does <strong>not</strong> establish that any commissioner intended the partisan effects it measures. Boundary geometry cannot reveal intent.',
+		cant_2:
+			'The audit does <strong>not</strong> predict what the Lunty committee will choose, what the November 2026 vote will be, or how Albertans will react.',
+		cant_3:
+			'The audit does <strong>not</strong> predict how a court would rule if a Charter challenge were brought against either proposal.',
+		cant_4:
+			"The audit does <strong>not</strong> tell any individual voter what position to take or what to do with this information. That's yours to decide."
 	}
 } as const;

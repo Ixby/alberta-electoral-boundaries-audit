@@ -72,5 +72,22 @@ export default {
 		map_hint: 'I-click upang galugarin nang interactive',
 		btn_title: 'I-click upang buksan ang interactive na mapa',
 		btn_aria: 'Buksan ang interactive na mapa'
+	},
+	boundary: {
+		heading: 'Kung ano ang masasabi at hindi masasabi ng audit na ito',
+		can_1:
+			'Mas mababa sa 1 sa 14.5 milyong random na nilikhang mga mapa ng paghahambing ang nagprodyus ng mga pattern na kasinghirap ng panukala ng minorya sa lahat ng apat na estadistikong sukat na pinagsama.',
+		can_2:
+			'Ang panukala ng minorya ay bumagsak sa 5 sa 5 pre-registered na istrukturang pagsusulit. Ang panukala ng mayorya ay bumagsak sa 0 sa 5.',
+		can_3:
+			'Ang mga resultang ito ay tugma sa mga mapa na nagpoprodyus ng malalakas na epektong partisan, at hindi tugma sa kung ano ang prinopodyus ng random na set ng paghahambing.',
+		cant_1:
+			'Ang audit ay <strong>hindi</strong> nagtatatag na anumang komisyonado ay may intensyon sa mga epektong partisan na sinusukat nito. Hindi maipakikita ng geometriya ng hangganan ang intensyon.',
+		cant_2:
+			'Ang audit ay <strong>hindi</strong> humuhula kung ano ang pipiliin ng Lunty committee, kung ano ang magiging boto sa Nobyembre 2026, o kung paano magrereaksyon ang mga Albertan.',
+		cant_3:
+			'Ang audit ay <strong>hindi</strong> humuhula kung paano huhusgahan ng isang korte kung magsasampa ng Charter challenge laban sa alinmang panukala.',
+		cant_4:
+			'Ang audit ay <strong>hindi</strong> nagsasabi sa anumang indibidwal na botante kung anong posisyon ang dapat kunin o ano ang gagawin sa impormasyong ito. Sa inyo iyon na desisyon.'
 	}
 } as const;

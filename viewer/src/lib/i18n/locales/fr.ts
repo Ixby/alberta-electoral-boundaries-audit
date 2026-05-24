@@ -71,5 +71,22 @@ export default {
 		map_hint: 'Cliquer pour explorer de façon interactive',
 		btn_title: 'Cliquer pour ouvrir la carte interactive',
 		btn_aria: 'Ouvrir la carte interactive'
+	},
+	boundary: {
+		heading: "Ce que cet audit peut et ne peut pas vous dire",
+		can_1:
+			"Moins d'une carte sur 14,5 millions de cartes de comparaison générées aléatoirement a produit des motifs aussi extrêmes que la proposition minoritaire sur l'ensemble des quatre mesures statistiques combinées.",
+		can_2:
+			"La proposition minoritaire échoue à 5 des 5 tests structurels pré-enregistrés. La proposition majoritaire échoue à 0 sur 5.",
+		can_3:
+			"Ces résultats sont cohérents avec des cartes qui produisent de forts effets partisans, et incohérents avec ce que produit l'ensemble de comparaison aléatoire.",
+		cant_1:
+			"L'audit n'établit <strong>pas</strong> qu'un commissaire ait eu l'intention de produire les effets partisans mesurés. La géométrie des limites ne peut révéler l'intention.",
+		cant_2:
+			"L'audit ne prédit <strong>pas</strong> ce que le comité Lunty choisira, ce que sera le vote de novembre 2026, ni comment les Albertains réagiront.",
+		cant_3:
+			"L'audit ne prédit <strong>pas</strong> comment un tribunal trancherait si une contestation fondée sur la Charte était intentée contre l'une ou l'autre proposition.",
+		cant_4:
+			"L'audit ne dit <strong>pas</strong> à un électeur quelle position adopter ni quoi faire de cette information. Cela vous appartient."
 	}
 } as const;
