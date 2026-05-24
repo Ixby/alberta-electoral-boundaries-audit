@@ -1,7 +1,7 @@
 # Privacy and Data Retention Policy
 
 **Alberta Electoral Boundary Audit**
-Effective: 2026-05-23
+Effective: 2026-05-24
 Maintained by: Will Conner
 
 ---
@@ -106,7 +106,26 @@ Your flight path, session context, and feature summary are stored separately and
 
 ## Three-Word Share Codes
 
-Share codes are displayed on screen. They are copied to your clipboard only when you click the Copy button. They are never placed in a URL, never written to a cookie, and never transmitted as part of a link. Browser history, referrer headers, and server logs will not contain the code. Recipients enter the code directly into the site to load the shared map state.
+Share codes are displayed on screen. They are copied to your clipboard only when you click the Copy button. They are never placed in a URL and never transmitted as part of a link. Browser history, referrer headers, and server logs will not contain the code. Recipients enter the code directly into the site to load the shared map state.
+
+The most recent code you generated is stored in an encrypted cookie so your map state is restored on your next visit — see Cookies below.
+
+---
+
+## Cookies
+
+This site sets one cookie: `ab_audit_prefs`. It contains four values:
+
+- **Consent** — yes or no, as you answered the participation prompt
+- **Theme** — dark or light, if you toggled it
+- **Intro seen** — whether you have already dismissed the map intro
+- **Last map state** — the share code for the map configuration you were last at, so your view is restored on your next visit
+
+The cookie is encrypted with AES-256-GCM in your browser before it is written. The server never sees the plaintext — the decryption key lives in the client code, not on any server. The cookie is also flagged `Secure`, meaning it is only transmitted over HTTPS, and `SameSite=Strict`, meaning it is never sent as part of a cross-site request.
+
+The last map state is encrypted because it encodes where you were in the map — which proposal you were examining, which layers you had on, where your viewport was positioned. That is your business, not anyone else's. Encrypting it means the cookie is opaque to anyone who might intercept it, log it, or read it off your device.
+
+The cookie expires after one year. Clearing your cookies removes it.
 
 ---
 
