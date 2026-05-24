@@ -28,6 +28,12 @@ We are interested in the stories that groups tell — which parts of the map dra
 
 If we were ordered by a court to identify a specific person from our data, we could not do it. That is not a promise. It is a structural fact.
 
+### See what we see
+
+The analytics dashboard shows the actual data we have collected — which districts people clicked, which maps they explored, and the full sequence of each session. Nothing is hidden or summarized away from it.
+
+→ [Open the analytics dashboard](../dashboard)
+
 ---
 
 ## What GitHub Pages collects
@@ -91,14 +97,6 @@ If you click **Share**, we also save your ending map view (which map is active, 
 When you share, you may be asked if you want to include your approximate location. This is entirely optional and separate from the main consent.
 
 If you say yes, your browser fetches your GPS coordinates and we immediately round them to the nearest degree of latitude and longitude — a grid cell roughly 100 km across. The precise coordinates are discarded right there in the browser and never leave your device. What we receive is a broad region like "Calgary area" or "Peace Country."
-
----
-
-## See what we see
-
-The analytics dashboard shows the actual data we have collected — which districts people clicked, which maps they explored, and the full sequence of each session. Nothing is hidden or summarized away from it.
-
-→ [Open the analytics dashboard](../dashboard)
 
 ---
 

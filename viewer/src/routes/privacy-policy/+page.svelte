@@ -41,6 +41,10 @@
       <p>The data is deliberately blurry. Your map position is rounded to one of 25 large regions before it leaves your browser — each region is roughly the size of a major Alberta city. Zoom level is one of four coarse buckets. We record the sequence of what you looked at, but not how long you spent on anything. No browser fingerprint. No precise coordinates.</p>
       <p>We are interested in the stories that groups tell — which parts of the map draw attention, which proposals people compare, where the audit lands when people find it worth sharing. We are not interested in you specifically. The design makes "you specifically" technically unreachable, not merely against our policy.</p>
       <p>If we were ordered by a court to identify a specific person from our data, we could not do it. That is not a promise. It is a structural fact.</p>
+
+      <h3>See what we see</h3>
+      <p>The analytics dashboard shows the actual data we have collected — which districts people clicked, which maps they explored, and the full sequence of each session. Nothing is hidden or summarized away from it.</p>
+      <p><a href="{base}/dashboard" class="dashboard-link">Open the analytics dashboard →</a></p>
     </section>
 
     <section>
@@ -103,12 +107,6 @@
       <h2>What we never collect</h2>
       <p>No name. No email. No IP address. No precise location. No raw browser fingerprint. No cross-session identifier — each page load gets a temporary ID that exists only in memory and disappears when you close the tab.</p>
       <p>Everything is rounded or bucketed in your browser before anything is sent. The server never sees a precise value.</p>
-    </section>
-
-    <section class="see-section">
-      <h2>See what we see</h2>
-      <p>The analytics dashboard shows the actual data we have collected — which districts people clicked, which maps they explored, and the full sequence of each session. Nothing is hidden or summarized away from it.</p>
-      <p><a href="{base}/dashboard" class="dashboard-link">Open the analytics dashboard →</a></p>
     </section>
 
     <section>
@@ -278,18 +276,6 @@
   }
   li { margin-bottom: 0.45rem; }
 
-  .see-section {
-    background: rgba(107,53,167,0.05);
-    border: 1px solid rgba(107,53,167,0.18);
-    border-radius: 8px;
-    padding: 1.4rem 1.6rem;
-  }
-  :global(:root[data-theme="dark"]) .see-section {
-    background: rgba(107,53,167,0.10);
-    border-color: rgba(107,53,167,0.3);
-  }
-  .see-section h2 { color: #6B35A7; }
-  :global(:root[data-theme="dark"]) .see-section h2 { color: #b080e8; }
   .dashboard-link {
     display: inline-block;
     margin-top: 0.3rem;
