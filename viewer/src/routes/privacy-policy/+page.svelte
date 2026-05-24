@@ -105,6 +105,12 @@
       <p>Everything is rounded or bucketed in your browser before anything is sent. The server never sees a precise value.</p>
     </section>
 
+    <section class="see-section">
+      <h2>See what we see</h2>
+      <p>The analytics dashboard shows the actual data we have collected — which districts people clicked, which maps they explored, and the full sequence of each session. Nothing is hidden or summarized away from it.</p>
+      <p><a href="{base}/dashboard" class="dashboard-link">Open the analytics dashboard →</a></p>
+    </section>
+
     <section>
       <h2>Share codes</h2>
       <p>Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To load someone's shared view, the recipient types the code directly into the site.</p>
@@ -271,6 +277,31 @@
     margin-bottom: 0.85rem;
   }
   li { margin-bottom: 0.45rem; }
+
+  .see-section {
+    background: rgba(107,53,167,0.05);
+    border: 1px solid rgba(107,53,167,0.18);
+    border-radius: 8px;
+    padding: 1.4rem 1.6rem;
+  }
+  :global(:root[data-theme="dark"]) .see-section {
+    background: rgba(107,53,167,0.10);
+    border-color: rgba(107,53,167,0.3);
+  }
+  .see-section h2 { color: #6B35A7; }
+  :global(:root[data-theme="dark"]) .see-section h2 { color: #b080e8; }
+  .dashboard-link {
+    display: inline-block;
+    margin-top: 0.3rem;
+    background: #6B35A7;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 5px;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .dashboard-link:hover { background: #5a2a90; }
 
   blockquote {
     border-left: 3px solid #6B35A7;

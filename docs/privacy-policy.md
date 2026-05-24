@@ -94,6 +94,14 @@ If you say yes, your browser fetches your GPS coordinates and we immediately rou
 
 ---
 
+## See what we see
+
+The analytics dashboard shows the actual data we have collected — which districts people clicked, which maps they explored, and the full sequence of each session. Nothing is hidden or summarized away from it.
+
+→ [Open the analytics dashboard](../dashboard)
+
+---
+
 ## What we never collect
 
 No name. No email. No IP address. No precise location. No raw browser fingerprint. No cross-session identifier — each page load gets a temporary ID that exists only in memory and disappears when you close the tab.
