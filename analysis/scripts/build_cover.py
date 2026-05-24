@@ -541,6 +541,14 @@ def build_cover_art(map_key: str = "minority") -> Path:
     import pandas as pd
 
     va_render = va.copy().reset_index(drop=True)
+    # to_crs(3401) splits 3 VAs into 2–5 parts, producing more SVG paths than rows.
+    # data-va-id is assigned by enumerate over SVG paths, so any split breaks the
+    # path-index → JSON-va_id correspondence for all subsequent rows.
+    # Fix: replace multi-part geometries with their largest polygon part (one path per row).
+    va_render["geometry"] = [
+        max(g.geoms, key=lambda p: p.area) if g.geom_type == "MultiPolygon" and len(g.geoms) > 1 else g
+        for g in va_render.geometry
+    ]
     va_ucp_total = va_render["va_ucp"].fillna(0)
     va_ndp_total = va_render["va_ndp"].fillna(0)
     va_two_party = (va_ucp_total + va_ndp_total).clip(lower=1.0)
