@@ -20,7 +20,8 @@
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
   import { init, onEvent as mapOnEvent, getState, applyState } from '$lib/mapEngine';
-  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, getStoredChoice, storeChoice, saveShare, flushTelemetry, type FlightEvent } from '$lib/share';
+  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, type FlightEvent } from '$lib/share';
+  import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode } from '$lib/prefs';
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -31,7 +32,7 @@
   function toggleTheme() {
     darkMode = !darkMode;
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+    storeTheme(darkMode ? 'dark' : 'light');
   }
   let showSharePanel    = $state(false);
   let shareCode         = $state('');
@@ -42,7 +43,7 @@
   function _generateCode() {
     const s = getState();
     shareCode = s ? (encodeState(s) ?? '—') : '—';
-    if (shareCode !== '—' && s) saveShare(shareCode, s);
+    if (shareCode !== '—' && s) { saveShare(shareCode, s); storeLastCode(shareCode); }
   }
 
   function toggleSharePanel() {
@@ -89,9 +90,15 @@
   let _codeRefreshTimer: ReturnType<typeof setTimeout> | null = null;
 
   function _scheduleCodeRefresh() {
-    if (!showSharePanel) return;
     if (_codeRefreshTimer) clearTimeout(_codeRefreshTimer);
-    _codeRefreshTimer = setTimeout(() => { _generateCode(); _codeRefreshTimer = null; }, 200);
+    _codeRefreshTimer = setTimeout(() => {
+      _codeRefreshTimer = null;
+      const s = getState();
+      const code = s ? (encodeState(s) ?? null) : null;
+      if (!code || !s) return;
+      storeLastCode(code);
+      if (showSharePanel) { shareCode = code; saveShare(code, s); }
+    }, 200);
   }
 
   onMount(() => {
@@ -102,11 +109,18 @@
     const _telemetryInterval = setInterval(flushTelemetry, 30_000);
 
     dntActive = isDNT();
-    const storedConsent = getStoredChoice();
+    const storedConsent = getStoredConsent();
     if (storedConsent !== null) {
       setParticipation(storedConsent === 'yes');
     } else {
       setTimeout(() => { showParticipation = true; }, 900);
+    }
+
+    // ── Session resume ────────────────────────────────────────────────────────
+    const lastCode = getLastCode();
+    if (lastCode) {
+      const lastState = decodeState(lastCode);
+      if (lastState) { applyState(lastState.primary, lastState.mapOn, lastState.layers); setOrigin(lastCode); }
     }
 
     // ── Skeleton phrase cycling ───────────────────────────────────────────────
@@ -115,8 +129,8 @@
       skelPhrase = _SKEL_PHRASES[_skelIdx];
     }, 2800);
 
-    // ── Dark mode — respects OS preference; user override persisted in localStorage ─
-    const storedTheme = localStorage.getItem('theme');
+    // ── Dark mode — respects OS preference; user override persisted in cookie ──
+    const storedTheme = getStoredTheme();
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     darkMode = storedTheme === 'dark' || (storedTheme === null && prefersDark);
     // app.html inline script already set the attribute to avoid FOUC; sync state var only
@@ -272,7 +286,10 @@
     </div>
     <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map">
       <div class="hero-map-wrap">
-        <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager" width="1020" height="1807">
+        <picture>
+          <source type="image/webp" srcset="images/cover_art.webp">
+          <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager" width="1020" height="1807">
+        </picture>
         <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="" fetchpriority="high" loading="eager">
         <div class="hero-map-hint">Click to explore interactively</div>
       </div>
@@ -1001,9 +1018,9 @@
     {/if}
     <div class="part-actions">
       <button class="part-btn" class:part-primary={dntActive} class:part-secondary={!dntActive}
-        onclick={() => { storeChoice(false); setParticipation(false); showParticipation = false; }}>No thanks</button>
+        onclick={() => { storeConsent(false); setParticipation(false); showParticipation = false; }}>No thanks</button>
       <button class="part-btn" class:part-primary={!dntActive} class:part-secondary={dntActive}
-        onclick={() => { storeChoice(true); setParticipation(true); showParticipation = false; }}>Yes, connect</button>
+        onclick={() => { storeConsent(true); setParticipation(true); showParticipation = false; }}>Yes, connect</button>
     </div>
     <p class="part-policy"><a href="{base}/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
   </div>

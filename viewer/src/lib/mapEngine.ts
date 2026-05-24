@@ -1,7 +1,13 @@
-﻿﻿﻿﻿﻿﻿﻿// Alberta Electoral Boundary Audit — map engine
+﻿﻿// Alberta Electoral Boundary Audit — map engine
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 // https://ixby.github.io
 // @ts-nocheck
+
+import { initNavScrollspy } from './mapEngine/navScrollspy';
+import { initIntroModal }   from './mapEngine/introModal';
+import { hasSeenIntro }     from './prefs';
+import { applyVoteLayer, applyEdFillLayer, applyEdLinesLayer, applyEGLayer, reapplyLayers, setLayerOn } from './mapEngine/layers';
+import { showTip, hideTip, showCallout, hideCallout, setEdHighlight, clearEdHighlight, activateCenterED, tipTarget, isEdVisible, snapToED, zoomEdTo70 } from './mapEngine/edInteraction';
 
 let _onEvent      = null;
 let _getState     = null;
@@ -12,32 +18,7 @@ export function getState()                                  { return _getState ?
 export function applyState(primary, mapOn, layers)          { if (_applyStateFn) _applyStateFn(primary, mapOn, layers); }
 
 export function init(basePath: string): void {
-    // Pre-fetch all three hover datasets so cross-map comparison is available
-      // immediately after the overlay opens, regardless of which map is active.
-      let _edHover = null;                              // current map, keyed by id
-      const _allHoverData = {};                         // key → {id: rec}
-      const _nameIndex = {};                            // key → {name: rec}
-
-      (function () {
-        const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
-        const sections = navLinks
-          .map(a => { const h = a.getAttribute('href'); return (h && h.length > 1) ? document.querySelector(h) : null; })
-          .filter(Boolean);
-
-        function setActive(id) {
-          navLinks.forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-          });
-        }
-
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) setActive(entry.target.id);
-          });
-        }, { rootMargin: '-50px 0px -60% 0px', threshold: 0 });
-
-        sections.forEach(s => observer.observe(s));
-      })();
+    initNavScrollspy();
 
       // ── Zoom viewer — inline SVG adoption (true infinite zoom, no tile ceiling)
       //    Primary: adopt SVG node from <object> contentDocument into main document.
@@ -60,96 +41,147 @@ export function init(basePath: string): void {
           if (_zoomSlider) _zoomSlider.value = String(Math.min(3000, Math.max(25, pct)));
         }
 
-        let mode = null, ready = false;  // 'viewbox' | 'fallback'
+        // ── Shared mutable state ──────────────────────────────────────────────────
+        const ctx = {
+          // SVG load mode
+          mode:               null,       // 'viewbox' | 'fallback' | null
+          ready:              false,
 
-        // ── ViewBox state ─────────────────────────────────────────────────────
-        let svgEl = null;
-        let natVB = null;  // { x, y, w, h } — SVG's full coordinate space
-        let curVB = null;
+          // Viewport
+          svgEl:              null,
+          natVB:              null,       // { x, y, w, h } — SVG full coordinate space
+          curVB:              null,
+          settledVB:          null,
 
-        // Cache stage rect so wheel/pointermove don't force synchronous layout.
-        // Invalidated on open and resize.
-        let _stageRect = null;
+          // Stage rect cache (invalidated on open/resize)
+          stageRect:          null,
+
+          // RAF / CSS-transform animation
+          rafId:              null,
+          pendingTx:          0,
+          pendingTy:          0,
+          pendingSx:          1,
+          settleTimer:        null,
+
+          // Fallback image state
+          fbImg:              null,
+          fbNatW:             0,
+          fbNatH:             0,
+          fbScale:            1,
+          fbTx:               0,
+          fbTy:               0,
+
+          // Focus management (overlay open/close)
+          prevFocus:          null,
+
+          // Map selector state
+          mapOn:              { minority: false, majority: false, '2019': true },
+          mapPrimary:         '2019',
+          mapActivationOrder: ['2019'],
+          svgCache:           {},
+          overlayInSvg:       {},
+          layerState:         { vote: true, 'ed-fill': false, 'ed-lines': true, eg: false },
+          mapLocked:          false,
+
+          // ED hover data (pre-fetched at init)
+          edHover:            null,       // current-map records keyed by id
+          allHoverData:       {},         // mapKey → { id: rec }
+          nameIndex:          {},         // mapKey → { name: rec }
+
+          // ED selection
+          selectedEdName:     null,
+          highlightPath:      null,
+
+          // Anomaly highlight
+          anomalyOn:          false,
+          anomalyOverlay:     null,
+
+          // Gesture state
+          drag:               null,
+          dragMoved:          false,
+          ptrs:               new Map(),
+          lastPinchDist:      null,
+          lastPinchMid:       null,
+          lastTap:            0,
+        };
         function _getStageRect() {
-          return _stageRect || (_stageRect = stage.getBoundingClientRect());
+          return ctx.stageRect || (ctx.stageRect = stage.getBoundingClientRect());
         }
-        window.addEventListener('resize', () => { _stageRect = null; });
+        window.addEventListener('resize', () => { ctx.stageRect = null; });
         if (window.ResizeObserver) {
-          new ResizeObserver(() => { _stageRect = null; if (svgEl && mode === 'viewbox') _doSettle(); }).observe(stage);
+          new ResizeObserver(() => { ctx.stageRect = null; if (ctx.svgEl && ctx.mode === 'viewbox') _doSettle(); }).observe(stage);
         }
 
         function _renderBounds() {
           const r = _getStageRect();
           const sw = r.width, sh = r.height;
-          const ar = natVB.w / natVB.h;
+          const ar = ctx.natVB.w / ctx.natVB.h;
           let rw, rh;
           if (ar < sw / sh) { rh = sh; rw = sh * ar; }
           else               { rw = sw; rh = sw / ar; }
           return { rw, rh, ox: (sw - rw) / 2, oy: (sh - rh) / 2 };
         }
 
-        // All gestures (drag, wheel, pinch) use CSS transform: translate+scale on
+        // All gestures (ctx.drag, wheel, pinch) use CSS transform: translate+scale on
         // the SVG element — compositor-threaded, no SVG re-rasterization per frame.
-        // settledVB = the viewBox actually rendered; curVB = logical destination.
+        // ctx.settledVB = the viewBox actually rendered; ctx.curVB = logical destination.
         // After SETTLE_MS of no new gesture events, the viewBox attribute is
-        // committed to curVB and the transform reset (one clean vector re-render).
-        let _rafId = null, _pendingTx = 0, _pendingTy = 0, _pendingSx = 1;
-        let settledVB = null, _settleTimer = null;
+        // committed to ctx.curVB and the transform reset (one clean vector re-render).
         const SETTLE_MS = 250;
 
         function _doSettle() {
-          _settleTimer = null;
-          if (!svgEl || !curVB) return;
-          settledVB = null;
-          if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
+          ctx.settleTimer = null;
+          if (!ctx.svgEl || !ctx.curVB) return;
+          ctx.settledVB = null;
+          if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
           // Frame 1: reset transform + commit viewBox (compositor swap)
-          svgEl.style.transform = '';
-          svgEl.style.willChange = '';
-          svgEl.style.transformOrigin = '';
-          svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
-          _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
+          ctx.svgEl.style.transform = '';
+          ctx.svgEl.style.willChange = '';
+          ctx.svgEl.style.transformOrigin = '';
+          ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
+          _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
           // Frame 2: update stroke widths after browser renders the new viewBox
           requestAnimationFrame(_updateStrokeWidths);
         }
 
         function applyVB(vb) {
-          if (!settledVB) {
+          if (!ctx.settledVB) {
             // First change since last settle — snapshot current rendered position.
-            settledVB = { ...curVB };
-            if (svgEl) { svgEl.style.willChange = 'transform'; svgEl.style.transformOrigin = '0 0'; }
+            ctx.settledVB = { ...ctx.curVB };
+            if (ctx.svgEl) { ctx.svgEl.style.willChange = 'transform'; ctx.svgEl.style.transformOrigin = '0 0'; }
           }
-          curVB = vb;
-          // CSS transform: translate(tx,ty) scale(sx) maps settledVB rendering
-          // to appear as curVB. With transform-origin:0 0:
-          //   sx = settledVB.w / curVB.w
-          //   tx = (settledVB.x - curVB.x)*rw/curVB.w + ox*(1 - sx)
+          ctx.curVB = vb;
+          // CSS transform: translate(tx,ty) scale(sx) maps ctx.settledVB rendering
+          // to appear as ctx.curVB. With transform-origin:0 0:
+          //   sx = ctx.settledVB.w / ctx.curVB.w
+          //   tx = (ctx.settledVB.x - ctx.curVB.x)*rw/ctx.curVB.w + ox*(1 - sx)
           const { rw, rh, ox, oy } = _renderBounds();
-          const sx = settledVB.w / curVB.w;
-          _pendingTx = (settledVB.x - curVB.x) * rw / curVB.w + ox * (1 - sx);
-          _pendingTy = (settledVB.y - curVB.y) * rh / curVB.h + oy * (1 - sx);
-          _pendingSx = sx;
-          if (_rafId === null) {
-            _rafId = requestAnimationFrame(() => {
-              _rafId = null;
-              if (svgEl) svgEl.style.transform =
-                `translate(${_pendingTx}px,${_pendingTy}px) scale(${_pendingSx})`;
-              _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
+          const sx = ctx.settledVB.w / ctx.curVB.w;
+          ctx.pendingTx = (ctx.settledVB.x - ctx.curVB.x) * rw / ctx.curVB.w + ox * (1 - sx);
+          ctx.pendingTy = (ctx.settledVB.y - ctx.curVB.y) * rh / ctx.curVB.h + oy * (1 - sx);
+          ctx.pendingSx = sx;
+          if (ctx.rafId === null) {
+            ctx.rafId = requestAnimationFrame(() => {
+              ctx.rafId = null;
+              if (ctx.svgEl) ctx.svgEl.style.transform =
+                `translate(${ctx.pendingTx}px,${ctx.pendingTy}px) scale(${ctx.pendingSx})`;
+              _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
             });
           }
-          if (_settleTimer !== null) clearTimeout(_settleTimer);
-          _settleTimer = setTimeout(_doSettle, SETTLE_MS);
+          if (ctx.settleTimer !== null) clearTimeout(ctx.settleTimer);
+          ctx.settleTimer = setTimeout(_doSettle, SETTLE_MS);
         }
 
         function resetVB() {
-          if (_settleTimer !== null) { clearTimeout(_settleTimer); _settleTimer = null; }
-          if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
-          settledVB = null;
-          curVB = { ...natVB };
-          if (svgEl) {
-            svgEl.style.transform = '';
-            svgEl.style.willChange = '';
-            svgEl.style.transformOrigin = '';
-            svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
+          if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
+          if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
+          ctx.settledVB = null;
+          ctx.curVB = { ...ctx.natVB };
+          if (ctx.svgEl) {
+            ctx.svgEl.style.transform = '';
+            ctx.svgEl.style.willChange = '';
+            ctx.svgEl.style.transformOrigin = '';
+            ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
           }
           _updateZoomDisplay(100);
           _updateStrokeWidths();
@@ -158,26 +190,26 @@ export function init(basePath: string): void {
         function vbZoomAt(mx, my, factor) {
           const { rw, rh, ox, oy } = _renderBounds();
           const lx = mx - ox, ly = my - oy;
-          const svgX = curVB.x + (lx / rw) * curVB.w;
-          const svgY = curVB.y + (ly / rh) * curVB.h;
-          const newW = Math.max(natVB.w / 3000, Math.min(natVB.w * 20, curVB.w / factor));
-          const newH = newW * (natVB.h / natVB.w);
+          const svgX = ctx.curVB.x + (lx / rw) * ctx.curVB.w;
+          const svgY = ctx.curVB.y + (ly / rh) * ctx.curVB.h;
+          const newW = Math.max(ctx.natVB.w / 3000, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
+          const newH = newW * (ctx.natVB.h / ctx.natVB.w);
           applyVB({ x: svgX - (lx / rw) * newW, y: svgY - (ly / rh) * newH, w: newW, h: newH });
         }
 
         function vbPanBy(dx, dy) {
           const { rw, rh } = _renderBounds();
-          applyVB({ x: curVB.x - (dx / rw) * curVB.w, y: curVB.y - (dy / rh) * curVB.h, w: curVB.w, h: curVB.h });
+          applyVB({ x: ctx.curVB.x - (dx / rw) * ctx.curVB.w, y: ctx.curVB.y - (dy / rh) * ctx.curVB.h, w: ctx.curVB.w, h: ctx.curVB.h });
         }
 
         function _activateInlineSVG(node, preserveVB) {
           // Null out stale references so _syncOverlays re-adds them to the new node
-          ['minority', 'majority', '2019'].forEach(function(k) { _overlayInSvg[k] = null; });
+          ['minority', 'majority', '2019'].forEach(function(k) { ctx.overlayInSvg[k] = null; });
           node.setAttribute('width', '100%');
           node.setAttribute('height', '100%');
           node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
           node.style.cssText = 'position:absolute;left:0;top:0;display:block;touch-action:none;';
-          const _cur = (svgEl && svgEl.parentNode === stage) ? svgEl
+          const _cur = (ctx.svgEl && ctx.svgEl.parentNode === stage) ? ctx.svgEl
                      : (obj.parentNode === stage)             ? obj
                      : null;
           if (_cur) stage.replaceChild(node, _cur);
@@ -196,45 +228,45 @@ export function init(basePath: string): void {
 
           const vb = node.viewBox.baseVal;
           if (vb.width && vb.height) {
-            natVB = { x: vb.x, y: vb.y, w: vb.width, h: vb.height };
+            ctx.natVB = { x: vb.x, y: vb.y, w: vb.width, h: vb.height };
           } else {
             const w = parseFloat(node.getAttribute('width'))  || 432;
             const h = parseFloat(node.getAttribute('height')) || 648;
-            natVB = { x: 0, y: 0, w, h };
+            ctx.natVB = { x: 0, y: 0, w, h };
             node.setAttribute('viewBox', `0 0 ${w} ${h}`);
           }
-          curVB = { ...natVB };
-          svgEl = node;
-          mode = 'viewbox';
-          ready = true;
+          ctx.curVB = { ...ctx.natVB };
+          ctx.svgEl = node;
+          ctx.mode = 'viewbox';
+          ctx.ready = true;
           var skel = document.getElementById('zoom-skeleton'); if (skel) skel.classList.add('hidden');
           // Pre-warm the other two maps so switching is instant
           setTimeout(function() {
             ['minority', 'majority', '2019'].forEach(function(k) {
-              if (!_svgCache[k]) {
+              if (!ctx.svgCache[k]) {
                 fetch(_mapSvgUrls[k]).then(function(r) { return r.text(); })
-                  .then(function(t) { _svgCache[k] = new DOMParser().parseFromString(t, 'image/svg+xml'); })
+                  .then(function(t) { ctx.svgCache[k] = new DOMParser().parseFromString(t, 'image/svg+xml'); })
                   .catch(function() {});
               }
             });
           }, 400);
-          _applyBoundaryColor(node, _mapPrimary);
-          _reapplyLayers();
+          _applyBoundaryColor(node, ctx.mapPrimary);
+          reapplyLayers(ctx);
           if (typeof _applyAnomalyHighlight === 'function') _applyAnomalyHighlight();
           _syncOverlays();
           _updateStrokeWidths();
           if (overlay.style.display !== 'none') {
             if (preserveVB) {
               // Restore saved view without resetting to full province
-              if (_settleTimer !== null) { clearTimeout(_settleTimer); _settleTimer = null; }
-              if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
-              settledVB = null;
-              curVB = { ...preserveVB };
-              svgEl.style.transform = '';
-              svgEl.style.willChange = '';
-              svgEl.style.transformOrigin = '';
-              svgEl.setAttribute('viewBox', `${curVB.x} ${curVB.y} ${curVB.w} ${curVB.h}`);
-              _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
+              if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
+              if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
+              ctx.settledVB = null;
+              ctx.curVB = { ...preserveVB };
+              ctx.svgEl.style.transform = '';
+              ctx.svgEl.style.willChange = '';
+              ctx.svgEl.style.transformOrigin = '';
+              ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
+              _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
               _updateStrokeWidths();
             } else {
               resetVB();
@@ -243,38 +275,37 @@ export function init(basePath: string): void {
         }
 
         // ── Fallback state ────────────────────────────────────────────────────
-        let fbImg = null, fbNatW = 0, fbNatH = 0, fbScale = 1, fbTx = 0, fbTy = 0;
 
         function applyFallback() {
-          const w = Math.max(1, Math.round(fbNatW * fbScale));
-          const h = Math.max(1, Math.round(fbNatH * fbScale));
-          fbImg.width = w; fbImg.height = h;
-          fbImg.style.left = Math.round(fbTx) + 'px';
-          fbImg.style.top  = Math.round(fbTy) + 'px';
-          _updateZoomDisplay(Math.round(fbScale * 100));
+          const w = Math.max(1, Math.round(ctx.fbNatW * ctx.fbScale));
+          const h = Math.max(1, Math.round(ctx.fbNatH * ctx.fbScale));
+          ctx.fbImg.width = w; ctx.fbImg.height = h;
+          ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px';
+          ctx.fbImg.style.top  = Math.round(ctx.fbTy) + 'px';
+          _updateZoomDisplay(Math.round(ctx.fbScale * 100));
         }
 
         function resetFallback() {
           const sw = stage.offsetWidth, sh = stage.offsetHeight;
-          fbScale = Math.min(sw / fbNatW, sh / fbNatH) * 0.94;
-          fbTx = (sw - fbNatW * fbScale) / 2;
-          fbTy = (sh - fbNatH * fbScale) / 2;
+          ctx.fbScale = Math.min(sw / ctx.fbNatW, sh / ctx.fbNatH) * 0.94;
+          ctx.fbTx = (sw - ctx.fbNatW * ctx.fbScale) / 2;
+          ctx.fbTy = (sh - ctx.fbNatH * ctx.fbScale) / 2;
           applyFallback();
         }
 
         function initFallback() {
-          mode = 'fallback';
-          fbImg = document.createElement('img');
-          fbImg.src = obj.data; fbImg.alt = obj.title; fbImg.draggable = false;
-          fbImg.style.cssText = 'position:absolute;display:block;user-select:none;pointer-events:none;';
-          stage.replaceChild(fbImg, obj);
+          ctx.mode = 'fallback';
+          ctx.fbImg = document.createElement('img');
+          ctx.fbImg.src = obj.data; ctx.fbImg.alt = obj.title; ctx.fbImg.draggable = false;
+          ctx.fbImg.style.cssText = 'position:absolute;display:block;user-select:none;pointer-events:none;';
+          stage.replaceChild(ctx.fbImg, obj);
           function onLoad() {
-            fbNatW = fbImg.naturalWidth || 600; fbNatH = fbImg.naturalHeight || 900;
-            ready = true;
+            ctx.fbNatW = ctx.fbImg.naturalWidth || 600; ctx.fbNatH = ctx.fbImg.naturalHeight || 900;
+            ctx.ready = true;
             if (overlay.style.display !== 'none') resetFallback();
           }
-          if (fbImg.complete && fbImg.naturalWidth) onLoad();
-          else fbImg.onload = onLoad;
+          if (ctx.fbImg.complete && ctx.fbImg.naturalWidth) onLoad();
+          else ctx.fbImg.onload = onLoad;
         }
 
         // ── Initialisation ────────────────────────────────────────────────────
@@ -300,7 +331,7 @@ export function init(basePath: string): void {
         }
 
         function tryInit() {
-          if (ready) return;
+          if (ctx.ready) return;
           // Primary: adopt the already-parsed SVG from the object's nested document.
           // replaceChild implicitly adopts the node — no re-download, no re-parse.
           const doc = obj.contentDocument || (obj.getSVGDocument && obj.getSVGDocument());
@@ -316,7 +347,6 @@ export function init(basePath: string): void {
         if (obj.contentDocument && obj.contentDocument.readyState === 'complete') tryInit();
 
         // ── Open / close ──────────────────────────────────────────────────────
-        var _prevFocus: Element | null = null;
         function _overlayFocusable() {
           return Array.from(overlay.querySelectorAll<HTMLElement>(
             'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -324,16 +354,16 @@ export function init(basePath: string): void {
         }
 
         function open() {
-          _stageRect = null;  // stage may have reflowed since last open
+          ctx.stageRect = null;  // stage may have reflowed since last open
           overlay.style.display = 'block';
           document.body.style.overflow = 'hidden';
           _updateMapButtons();
           _maybeShowIntro();
-          _prevFocus = document.activeElement;
+          ctx.prevFocus = document.activeElement;
           var focusable = _overlayFocusable();
           if (focusable.length) focusable[0].focus();
-          if (!ready) return;
-          if (mode === 'viewbox') resetVB(); else resetFallback();
+          if (!ctx.ready) return;
+          if (ctx.mode === 'viewbox') resetVB(); else resetFallback();
         }
 
         function close() {
@@ -341,8 +371,8 @@ export function init(basePath: string): void {
           document.body.style.overflow = '';
           _hideTip();
           _hideCallout();
-          if (_prevFocus instanceof HTMLElement) { _prevFocus.focus(); }
-          _prevFocus = null;
+          if (ctx.prevFocus instanceof HTMLElement) { ctx.prevFocus.focus(); }
+          ctx.prevFocus = null;
           // Hide intro modal without marking seen — it will re-show on next open until dismissed
           var _intro = document.getElementById('map-intro-modal');
           if (_intro) _intro.style.display = 'none';
@@ -372,15 +402,15 @@ export function init(basePath: string): void {
 
         // ── Zoom ──────────────────────────────────────────────────────────────
         function zoomAt(mx, my, factor) {
-          if (!ready) return;
-          if (mode === 'viewbox') {
+          if (!ctx.ready) return;
+          if (ctx.mode === 'viewbox') {
             vbZoomAt(mx, my, factor);
           } else {
-            const newScale = Math.min(Math.max(fbScale * factor, 0.05), 500);
-            const ratio = newScale / fbScale;
-            fbTx = mx - ratio * (mx - fbTx);
-            fbTy = my - ratio * (my - fbTy);
-            fbScale = newScale;
+            const newScale = Math.min(Math.max(ctx.fbScale * factor, 0.05), 500);
+            const ratio = newScale / ctx.fbScale;
+            ctx.fbTx = mx - ratio * (mx - ctx.fbTx);
+            ctx.fbTy = my - ratio * (my - ctx.fbTy);
+            ctx.fbScale = newScale;
             applyFallback();
           }
         }
@@ -392,98 +422,12 @@ export function init(basePath: string): void {
         }, { passive: false });
 
         // ── Tooltip helpers ───────────────────────────────────────────────────
-        const _tip = document.getElementById('ed-tooltip');
-
-        function _showTip(d, x, y) {
-          if (!d) return;
-          _tip.innerHTML =
-            `<strong>${d.name}</strong>` +
-            `UCP&nbsp;${d.ucp_pct}%&nbsp;&nbsp;NDP&nbsp;${d.ndp_pct}%` +
-            (d.votes ? `<br>${d.votes.toLocaleString()}&nbsp;votes&nbsp;(2023)` : '') +
-            (d.pop   ? `<br>Pop.&nbsp;${d.pop.toLocaleString()}` : '');
-          _tip.style.display = 'block';
-          const pad = 14, tw = _tip.offsetWidth, th = _tip.offsetHeight;
-          let lx = x + pad, ly = y + pad;
-          if (lx + tw > window.innerWidth)  lx = x - tw - pad;
-          if (ly + th > window.innerHeight) ly = y - th - pad;
-          _tip.style.left = lx + 'px';
-          _tip.style.top  = ly + 'px';
-        }
-
-        function _hideTip() { _tip.style.display = 'none'; }
+        function _showTip(d, x, y) { showTip(d, x, y); }
+        function _hideTip()        { hideTip(); }
 
         // ── District callout (info bar) ───────────────────────────────────────
-        const _callout = document.getElementById('ed-callout');
-        const _hud     = document.getElementById('hud');
-
-        function _showCallout(d) {
-          if (!d) return;
-          document.getElementById('ec-name').textContent = d.name;
-          document.getElementById('ec-ucp-bar').style.width = d.ucp_pct + '%';
-          document.getElementById('ec-ndp-bar').style.width = d.ndp_pct + '%';
-          document.getElementById('ec-ucp-pct').textContent = d.ucp_pct + '%';
-          document.getElementById('ec-ndp-pct').textContent = d.ndp_pct + '%';
-          document.getElementById('ec-ucp-votes').textContent = d.ucp_votes ? d.ucp_votes.toLocaleString() + ' votes' : '';
-          document.getElementById('ec-ndp-votes').textContent = d.ndp_votes ? d.ndp_votes.toLocaleString() + ' votes' : '';
-          document.getElementById('ec-total-votes').textContent = d.votes ? d.votes.toLocaleString() + ' total votes' : '';
-          const vaEl = document.getElementById('ec-va-count'); if (vaEl) vaEl.textContent = d.va_count ? d.va_count + ' voting areas' : '';
-          const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
-          document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + popN.toLocaleString() : '';
-          // EG contribution per district
-          const egEl = document.getElementById('ec-eg');
-          if (egEl) {
-            if (d.eg !== undefined && d.eg !== null) {
-              const sign = d.eg >= 0 ? '+' : '';
-              egEl.textContent = sign + (d.eg * 100).toFixed(2) + '%';
-              egEl.className = d.eg >= 0 ? 'ec-eg-ucp' : 'ec-eg-ndp';
-            } else {
-              egEl.textContent = ''; egEl.className = '';
-            }
-          }
-          // Dynamic context label
-          const ctxEl = document.getElementById('ec-context');
-          if (ctxEl) {
-            const mapLabel = _mapPrimary === 'minority' ? '2026 minority proposal'
-                           : _mapPrimary === 'majority' ? '2026 majority proposal'
-                           : '2019 enacted map';
-            ctxEl.textContent = mapLabel + ' · 2023 election results';
-          }
-          // Cross-map comparison — show winner + loser pct for each other map
-          const cmpEl = document.getElementById('ec-compare');
-          if (cmpEl) {
-            const others = ['minority', 'majority', '2019'].filter(k => k !== _mapPrimary);
-            const parts = others.map(k => {
-              const rec = _nameIndex[k] && _nameIndex[k][d.name];
-              if (!rec) return null;
-              const label = k === 'minority' ? 'Min.' : k === 'majority' ? 'Maj.' : '2019';
-              const ucpFirst = rec.ucp_pct >= rec.ndp_pct;
-              const winner = ucpFirst
-                ? '<span class="ec-cmp-val ec-cmp-ucp">UCP ' + rec.ucp_pct + '%</span>'
-                : '<span class="ec-cmp-val ec-cmp-ndp">NDP ' + rec.ndp_pct + '%</span>';
-              const loser = ucpFirst
-                ? '<span class="ec-cmp-second">NDP ' + rec.ndp_pct + '%</span>'
-                : '<span class="ec-cmp-second">UCP ' + rec.ucp_pct + '%</span>';
-              return '<span class="ec-cmp-item"><span class="ec-cmp-label">' + label + '</span>' + winner + '<span class="ec-cmp-sep">/</span>' + loser + '</span>';
-            }).filter(Boolean);
-            if (parts.length) {
-              cmpEl.innerHTML = '<span class="ec-cmp-header">Other maps</span>' + parts.join('');
-              cmpEl.style.display = 'flex';
-            } else {
-              cmpEl.innerHTML = '<span class="ec-cmp-unique">Boundary unique to this map</span>';
-              cmpEl.style.display = 'flex';
-            }
-          }
-          _selectedEdName = d.name;
-          _callout.classList.add('ec-visible');
-          if (_hud) _hud.classList.add('ec-has-ed');
-        }
-        function _hideCallout() {
-          if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
-          _callout.classList.remove('ec-visible');
-          if (_hud) _hud.classList.remove('ec-has-ed');
-          _selectedEdName = null;
-          _clearEdHighlight();
-        }
+        function _showCallout(d) { showCallout(ctx, d); }
+        function _hideCallout()  { hideCallout(ctx); }
 
         // ── Map selector ──────────────────────────────────────────────────────────
         const _mapSvgUrls = {
@@ -506,46 +450,39 @@ export function init(basePath: string): void {
           majority: '#1A7A6E',
           '2019':   '#7a98b4',
         };
-        const _mapOn      = { minority: false, majority: false, '2019': true };
-        let   _mapPrimary = '2019';
-        var   _mapActivationOrder = ['2019'];  // ordered by activation time; last element = current top
-        const _svgCache   = {};
-        const _overlayInSvg = {};
-        const _layerState = { vote: true, 'ed-fill': false, 'ed-lines': true, eg: false };
-        let   _mapLocked  = false;
 
         // ── Share bridge ──────────────────────────────────────────────────────
         _getState = function() {
           return {
-            primary: _mapPrimary,
-            mapOn:   { minority: _mapOn.minority, majority: _mapOn.majority, '2019': _mapOn['2019'] },
-            layers:  { vote: _layerState.vote, 'ed-fill': _layerState['ed-fill'], 'ed-lines': _layerState['ed-lines'], eg: _layerState.eg },
-            viewport: svgEl && natVB && curVB ? {
-              cx_norm: Math.max(0, Math.min(1, (curVB.x + curVB.w / 2 - natVB.x) / natVB.w)),
-              cy_norm: Math.max(0, Math.min(1, (curVB.y + curVB.h / 2 - natVB.y) / natVB.h)),
-              zoom:    curVB.w / natVB.w,
+            primary: ctx.mapPrimary,
+            mapOn:   { minority: ctx.mapOn.minority, majority: ctx.mapOn.majority, '2019': ctx.mapOn['2019'] },
+            layers:  { vote: ctx.layerState.vote, 'ed-fill': ctx.layerState['ed-fill'], 'ed-lines': ctx.layerState['ed-lines'], eg: ctx.layerState.eg },
+            viewport: ctx.svgEl && ctx.natVB && ctx.curVB ? {
+              cx_norm: Math.max(0, Math.min(1, (ctx.curVB.x + ctx.curVB.w / 2 - ctx.natVB.x) / ctx.natVB.w)),
+              cy_norm: Math.max(0, Math.min(1, (ctx.curVB.y + ctx.curVB.h / 2 - ctx.natVB.y) / ctx.natVB.h)),
+              zoom:    ctx.curVB.w / ctx.natVB.w,
             } : { cx_norm: 0.5, cy_norm: 0.5, zoom: 1.0 },
           };
         };
         _applyStateFn = function(primary, targetMapOn, targetLayers) {
-          _mapPrimary       = primary;
-          _mapOn.minority   = !!targetMapOn.minority;
-          _mapOn.majority   = !!targetMapOn.majority;
-          _mapOn['2019']    = !!targetMapOn['2019'];
-          _mapActivationOrder = ['minority', 'majority', '2019'].filter(function(k) { return _mapOn[k]; });
-          var pi = _mapActivationOrder.indexOf(primary);
-          if (pi !== -1) { _mapActivationOrder.splice(pi, 1); _mapActivationOrder.push(primary); }
+          ctx.mapPrimary       = primary;
+          ctx.mapOn.minority   = !!targetMapOn.minority;
+          ctx.mapOn.majority   = !!targetMapOn.majority;
+          ctx.mapOn['2019']    = !!targetMapOn['2019'];
+          ctx.mapActivationOrder = ['minority', 'majority', '2019'].filter(function(k) { return ctx.mapOn[k]; });
+          var pi = ctx.mapActivationOrder.indexOf(primary);
+          if (pi !== -1) { ctx.mapActivationOrder.splice(pi, 1); ctx.mapActivationOrder.push(primary); }
           _doSwitchPrimary(primary);
           _syncOverlays();
           ['vote', 'ed-fill', 'ed-lines', 'eg'].forEach(function(k) {
             var on = !!targetLayers[k];
-            _layerState[k] = on;
+            ctx.layerState[k] = on;
             var btn = document.querySelector('.tb-btn[data-layer="' + k + '"]');
             if (btn) btn.classList.toggle('tb-layer-on', on);
-            if (k === 'vote')     _applyVoteLayer(on);
-            if (k === 'ed-fill')  _applyEdFillLayer(on);
-            if (k === 'ed-lines') _applyEdLinesLayer(on);
-            if (k === 'eg')       _applyEGLayer(on);
+            if (k === 'vote')     applyVoteLayer(ctx, on);
+            if (k === 'ed-fill')  applyEdFillLayer(ctx, on);
+            if (k === 'ed-lines') applyEdLinesLayer(ctx, on);
+            if (k === 'eg')       applyEGLayer(ctx, on);
           });
           _updateMapButtons();
         };
@@ -578,16 +515,16 @@ export function init(basePath: string): void {
         // Floor/ceil in SVG user units; at 400%+ zoom floors are intentionally
         // very thin so overlays don't clutter the primary boundaries.
         function _updateStrokeWidths() {
-          if (!svgEl || !natVB || !curVB) return;
-          var zf = natVB.w / curVB.w;                            // 1 = 100%, 4 = 400%
+          if (!ctx.svgEl || !ctx.natVB || !ctx.curVB) return;
+          var zf = ctx.natVB.w / ctx.curVB.w;                            // 1 = 100%, 4 = 400%
           var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
           var overlayW = Math.min(0.35, primaryW * 0.6);
-          var pLc = svgEl.querySelector('#ed_boundary_layer #LineCollection_1');
+          var pLc = ctx.svgEl.querySelector('#ed_boundary_layer #LineCollection_1');
           if (pLc) pLc.querySelectorAll('path').forEach(function(p) {
             p.style.strokeWidth = String(primaryW);
           });
           ['minority', 'majority', '2019'].forEach(function(key) {
-            var og = _overlayInSvg[key];
+            var og = ctx.overlayInSvg[key];
             if (og) {
               var lc = og.querySelector('#LineCollection_1');
               if (lc) lc.querySelectorAll('path').forEach(function(p) {
@@ -598,54 +535,14 @@ export function init(basePath: string): void {
         }
 
         // ── Active ED boundary highlight ──────────────────────────────────────────
-        let _selectedEdName = null;
-        let _highlightPath = null;
-        function _setEdHighlight(pathEl) {
-          _clearEdHighlight();
-          if (!svgEl || !pathEl) return;
-          const d = pathEl.getAttribute('d');
-          _highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-          _highlightPath.setAttribute('pointer-events', 'none');
-          const glow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          glow.setAttribute('d', d);
-          glow.setAttribute('fill', 'none');
-          glow.setAttribute('stroke', 'rgba(255,255,255,0.25)');
-          glow.setAttribute('stroke-width', '6');
-          glow.setAttribute('stroke-linejoin', 'round');
-          glow.style.vectorEffect = 'non-scaling-stroke';
-          glow.style.filter = 'blur(2px)';
-          const sharp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          sharp.setAttribute('d', d);
-          sharp.setAttribute('fill', 'none');
-          sharp.setAttribute('stroke', '#ffffff');
-          sharp.setAttribute('stroke-width', '2.5');
-          sharp.setAttribute('stroke-linejoin', 'round');
-          sharp.style.vectorEffect = 'non-scaling-stroke';
-          _highlightPath.appendChild(glow);
-          _highlightPath.appendChild(sharp);
-          svgEl.appendChild(_highlightPath);
-        }
-        function _clearEdHighlight() {
-          if (_highlightPath) { _highlightPath.remove(); _highlightPath = null; }
-        }
-        function _activateCenterED() {
-          if (_mapLocked || !svgEl || !_edHover || !curVB) return;
-          const cx = curVB.x + curVB.w / 2, cy = curVB.y + curVB.h / 2;
-          let bestPath = null, bestDist = Infinity;
-          svgEl.querySelectorAll('[data-ed-id]').forEach(p => {
-            const bb = p.getBBox();
-            const dist = Math.hypot(bb.x + bb.width / 2 - cx, bb.y + bb.height / 2 - cy);
-            if (dist < bestDist) { bestDist = dist; bestPath = p; }
-          });
-          if (!bestPath) return;
-          const rec = _edHover[parseInt(bestPath.getAttribute('data-ed-id'), 10)];
-          if (rec) { _showCallout(rec); _setEdHighlight(bestPath); _emit({ type: 'ed_focus', ed_id: parseInt(bestPath.getAttribute('data-ed-id'), 10) }); }
-        }
+        function _setEdHighlight(p)   { setEdHighlight(ctx, p); }
+        function _clearEdHighlight()   { clearEdHighlight(ctx); }
+        function _activateCenterED()   { activateCenterED(ctx, _animateToVB, _emit); }
 
         // ── Map overlay system ─────────────────────────────────────────────────────
 
         function _extractBoundaryGroup(key) {
-          var doc = _svgCache[key];
+          var doc = ctx.svgCache[key];
           if (!doc) return null;
           var g = doc.querySelector('#ed_boundary_layer');
           if (!g) return null;
@@ -654,7 +551,7 @@ export function init(basePath: string): void {
           Array.from(clone.children).forEach(function(child) {
             if (child.tagName === 'path') child.style.display = 'none';
           });
-          var zf = (natVB && curVB) ? natVB.w / curVB.w : 1;
+          var zf = (ctx.natVB && ctx.curVB) ? ctx.natVB.w / ctx.curVB.w : 1;
           var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
           var sw = Math.min(0.35, primaryW * 0.6);
           var lc = clone.querySelector('#LineCollection_1');
@@ -671,23 +568,23 @@ export function init(basePath: string): void {
 
         function _syncOverlays() {
           ['minority', 'majority', '2019'].forEach(function(key) {
-            if (!_mapOn[key] || key === _mapPrimary) {
-              if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
+            if (!ctx.mapOn[key] || key === ctx.mapPrimary) {
+              if (ctx.overlayInSvg[key]) { ctx.overlayInSvg[key].remove(); ctx.overlayInSvg[key] = null; }
               return;
             }
-            if (!_overlayInSvg[key] && svgEl) _fetchAndOverlay(key);
+            if (!ctx.overlayInSvg[key] && ctx.svgEl) _fetchAndOverlay(key);
           });
         }
 
         function _fetchAndOverlay(key) {
           function apply() {
-            if (!_mapOn[key] || key === _mapPrimary || !svgEl) return;
+            if (!ctx.mapOn[key] || key === ctx.mapPrimary || !ctx.svgEl) return;
             var g = _extractBoundaryGroup(key);
-            if (g) { svgEl.appendChild(g); _overlayInSvg[key] = g; }
+            if (g) { ctx.svgEl.appendChild(g); ctx.overlayInSvg[key] = g; }
           }
-          if (_svgCache[key]) { apply(); return; }
+          if (ctx.svgCache[key]) { apply(); return; }
           fetch(_mapSvgUrls[key]).then(function(r) { return r.text(); }).then(function(text) {
-            _svgCache[key] = new DOMParser().parseFromString(text, 'image/svg+xml');
+            ctx.svgCache[key] = new DOMParser().parseFromString(text, 'image/svg+xml');
             apply();
           }).catch(function() {});
         }
@@ -695,25 +592,25 @@ export function init(basePath: string): void {
         function _updateMapButtons() {
           document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
             var key = b.dataset.map;
-            b.classList.toggle('tb-map-primary', !!_mapPrimary && _mapOn[key] && key === _mapPrimary);
-            b.classList.toggle('tb-map-overlay',  !!_mapPrimary && _mapOn[key] && key !== _mapPrimary);
+            b.classList.toggle('tb-map-primary', !!ctx.mapPrimary && ctx.mapOn[key] && key === ctx.mapPrimary);
+            b.classList.toggle('tb-map-overlay',  !!ctx.mapPrimary && ctx.mapOn[key] && key !== ctx.mapPrimary);
           });
           // Clear anomaly state when minority is no longer the top layer
-          if (_mapPrimary !== 'minority' && _anomalyOn) {
-            _anomalyOn = false;
+          if (ctx.mapPrimary !== 'minority' && ctx.anomalyOn) {
+            ctx.anomalyOn = false;
             document.querySelectorAll('[data-anomaly]').forEach(function(b) { b.classList.remove('tb-layer-on'); });
-            if (svgEl) _applyAnomalyHighlight();
+            if (ctx.svgEl) _applyAnomalyHighlight();
           }
         }
 
         // Hoist a map to the top of the stack without toggling it off
         function _activateAsTop(key) {
           if (!_mapSvgUrls[key]) return;
-          if (_mapPrimary === key) return; // already top
-          _mapOn[key] = true;
-          _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== key; });
-          _mapActivationOrder.push(key);
-          _mapPrimary = key;
+          if (ctx.mapPrimary === key) return; // already top
+          ctx.mapOn[key] = true;
+          ctx.mapActivationOrder = ctx.mapActivationOrder.filter(function(k) { return k !== key; });
+          ctx.mapActivationOrder.push(key);
+          ctx.mapPrimary = key;
           _doSwitchPrimary(key);
           _updateMapButtons();
         }
@@ -721,36 +618,36 @@ export function init(basePath: string): void {
         function _doSwitchPrimary(key) {
           var ctxEl = document.getElementById('ec-context');
           if (ctxEl) ctxEl.textContent = _mapContextLabels[key];
-          var savedName = _selectedEdName;
+          var savedName = ctx.selectedEdName;
           _hideCallout();
-          _edHover = null;
-          var savedVB = curVB ? Object.assign({}, curVB) : null;
+          ctx.edHover = null;
+          var savedVB = ctx.curVB ? Object.assign({}, ctx.curVB) : null;
           // Helper: activate a parsed SVG document as the new primary
           function _applySvgDoc(doc) {
             var root = doc.documentElement;
             if (root && root.tagName.toLowerCase() !== 'parsererror') {
               _activateInlineSVG(document.importNode(root, true), savedVB);
-              if (_allHoverData[key] && Object.keys(_allHoverData[key]).length) {
-                _edHover = _allHoverData[key];
+              if (ctx.allHoverData[key] && Object.keys(ctx.allHoverData[key]).length) {
+                ctx.edHover = ctx.allHoverData[key];
               }
               if (savedName) {
-                var rec = _nameIndex[key] && _nameIndex[key][savedName];
+                var rec = ctx.nameIndex[key] && ctx.nameIndex[key][savedName];
                 if (rec) {
-                  var path = svgEl && svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
+                  var path = ctx.svgEl && ctx.svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
                   if (path) { _showCallout(rec); _setEdHighlight(path); }
                 } else { _activateCenterED(); }
               } else { _activateCenterED(); }
-            } else { ready = true; }
+            } else { ctx.ready = true; }
             stage.style.opacity = '';
             setTimeout(function() { stage.style.transition = ''; }, 200);
           }
 
-          if (_svgCache[key]) {
+          if (ctx.svgCache[key]) {
             // Cache hit — instant, no loading state needed
-            _applySvgDoc(_svgCache[key]);
+            _applySvgDoc(ctx.svgCache[key]);
           } else {
             // Cache miss — show loading state while fetching
-            ready = false;
+            ctx.ready = false;
             var _skelEl = document.getElementById('zoom-skeleton'); if (_skelEl) _skelEl.classList.remove('hidden');
             stage.style.opacity = '0.45';
             stage.style.transition = 'opacity 0.15s';
@@ -758,55 +655,55 @@ export function init(basePath: string): void {
               .then(function(r) { return r.text(); })
               .then(function(text) {
                 var doc = new DOMParser().parseFromString(text, 'image/svg+xml');
-                _svgCache[key] = doc;
+                ctx.svgCache[key] = doc;
                 _applySvgDoc(doc);
               })
               .catch(function() {
-                ready = true;
+                ctx.ready = true;
                 stage.style.opacity = '';
                 setTimeout(function() { stage.style.transition = ''; }, 200);
               });
           }
-          // JSON is pre-fetched at init via _loadHoverJson; only fetch if not yet ready
-          if (!(_allHoverData[key] && Object.keys(_allHoverData[key]).length)) {
+          // JSON is pre-fetched at init via _loadHoverJson; only fetch if not yet ctx.ready
+          if (!(ctx.allHoverData[key] && Object.keys(ctx.allHoverData[key]).length)) {
             fetch(_mapJsonUrls[key])
               .then(function(r) { return r.json(); })
               .then(function(d) {
                 var byId = {}, byName = {};
                 d.forEach(function(rec) { byId[rec.id] = rec; byName[rec.name] = rec; });
-                _allHoverData[key] = byId;
-                _nameIndex[key] = byName;
-                _edHover = byId;
-                if (_layerState['ed-fill']) _applyEdFillLayer(true);
+                ctx.allHoverData[key] = byId;
+                ctx.nameIndex[key] = byName;
+                ctx.edHover = byId;
+                if (ctx.layerState['ed-fill']) applyEdFillLayer(ctx, true);
               })
-              .catch(function() { _edHover = null; });
+              .catch(function() { ctx.edHover = null; });
           }
         }
 
         function toggleMap(key) {
           if (!_mapSvgUrls[key]) return;
-          if (!_mapOn[key]) {
+          if (!ctx.mapOn[key]) {
             // Toggle ON — becomes the new top layer
-            _mapOn[key] = true;
-            _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== key; });
-            _mapActivationOrder.push(key);
-            _mapPrimary = key;
+            ctx.mapOn[key] = true;
+            ctx.mapActivationOrder = ctx.mapActivationOrder.filter(function(k) { return k !== key; });
+            ctx.mapActivationOrder.push(key);
+            ctx.mapPrimary = key;
             _doSwitchPrimary(key);  // old primary becomes overlay via _syncOverlays inside
           } else {
             // Toggle OFF
-            _mapOn[key] = false;
-            _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== key; });
-            if (_overlayInSvg[key]) { _overlayInSvg[key].remove(); _overlayInSvg[key] = null; }
-            if (key === _mapPrimary) {
+            ctx.mapOn[key] = false;
+            ctx.mapActivationOrder = ctx.mapActivationOrder.filter(function(k) { return k !== key; });
+            if (ctx.overlayInSvg[key]) { ctx.overlayInSvg[key].remove(); ctx.overlayInSvg[key] = null; }
+            if (key === ctx.mapPrimary) {
               // Was the top — promote next most-recently-activated map
-              var next = _mapActivationOrder.length > 0
-                ? _mapActivationOrder[_mapActivationOrder.length - 1] : null;
+              var next = ctx.mapActivationOrder.length > 0
+                ? ctx.mapActivationOrder[ctx.mapActivationOrder.length - 1] : null;
               if (next) {
-                _mapPrimary = next;
+                ctx.mapPrimary = next;
                 _doSwitchPrimary(next);
               } else {
-                _mapPrimary = null;
-                if (svgEl) { svgEl.remove(); svgEl = null; }
+                ctx.mapPrimary = null;
+                if (ctx.svgEl) { ctx.svgEl.remove(); ctx.svgEl = null; }
                 var skelEl = document.getElementById('zoom-skeleton');
                 if (skelEl) skelEl.classList.remove('hidden');
               }
@@ -814,7 +711,7 @@ export function init(basePath: string): void {
             // If it was an overlay, overlay reference was already removed above
           }
           _updateMapButtons();
-          _emit({ type: 'map_switch', primary: _mapPrimary, mapOn: { minority: _mapOn.minority, majority: _mapOn.majority, '2019': _mapOn['2019'] } });
+          _emit({ type: 'map_switch', primary: ctx.mapPrimary, mapOn: { minority: ctx.mapOn.minority, majority: ctx.mapOn.majority, '2019': ctx.mapOn['2019'] } });
         }
 
         document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
@@ -825,164 +722,74 @@ export function init(basePath: string): void {
 
         // ── Layer panel ────────────────────────────────────────────────────────────
 
-        function _applyVoteLayer(on) {
-          if (!svgEl) return;
-          var g = svgEl.querySelector('#PatchCollection_1');
-          if (g) g.style.display = on ? '' : 'none';
-        }
-        function _applyEdFillLayer(on) {
-          if (!svgEl || !_edHover) return;
-          var g = svgEl.querySelector('#ed_hover_layer');
-          if (!g) return;
-          g.querySelectorAll('[data-ed-id]').forEach(function(p) {
-            if (on) {
-              var id = parseInt(p.getAttribute('data-ed-id'), 10);
-              var rec = _edHover[id];
-              if (rec) {
-                var isUCP = rec.ucp_pct >= rec.ndp_pct;
-                var pct = Math.max(rec.ucp_pct, rec.ndp_pct);
-                var a = (0.15 + Math.min((pct - 50) / 35, 1) * 0.5).toFixed(2);
-                p.style.fill = isUCP ? 'rgba(20,46,148,' + a + ')' : 'rgba(232,99,16,' + a + ')';
-              }
-            } else { p.style.fill = 'rgba(180,180,180,0.10)'; }
-          });
-        }
-        function _applyEdLinesLayer(on) {
-          if (!svgEl) return;
-          var g = svgEl.querySelector('#ed_boundary_layer');
-          if (g) g.style.display = on ? '' : 'none';
-          ['minority', 'majority', '2019'].forEach(function(key) {
-            var og = _overlayInSvg[key];
-            if (og) og.style.display = on ? '' : 'none';
-          });
-        }
-        // ── EG-contribution choropleth ────────────────────────────────────────────
-        // Per-ED efficiency gap contribution: (ucp_wasted - ndp_wasted) / provincial_votes.
-        // Positive = UCP-favoured (NDP wastes more in this district), blue tint.
-        // Negative = NDP-favoured (UCP wastes more), orange tint.
-        function _computeEGContribs() {
-          if (!_edHover) return {};
-          var recs = Object.values(_edHover);
-          var totalVotes = recs.reduce(function(s, r) { return s + (r.votes || 0); }, 0);
-          if (!totalVotes) return {};
-          var contribs = {};
-          recs.forEach(function(r) {
-            var ucp = r.ucp_votes || 0, ndp = r.ndp_votes || 0, tot = r.votes || (ucp + ndp);
-            var half = tot / 2;
-            var ucpWon = ucp > ndp;
-            var ucpWasted = ucpWon ? ucp - half : ucp;
-            var ndpWasted = !ucpWon ? ndp - half : ndp;
-            contribs[r.id] = (ucpWasted - ndpWasted) / totalVotes;
-          });
-          return contribs;
-        }
-        function _applyEGLayer(on) {
-          if (!svgEl) return;
-          var contribs = on ? _computeEGContribs() : {};
-          var vals = on ? Object.values(contribs).map(Math.abs) : [1];
-          var maxVal = vals.length ? Math.max.apply(null, vals) : 1;
-          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
-            if (!on) { p.style.fill = 'none'; return; }
-            var id = parseInt(p.getAttribute('data-ed-id'), 10);
-            var v = contribs[id] || 0;
-            var t = maxVal > 0 ? Math.min(Math.abs(v) / maxVal, 1) : 0;
-            var alpha = (0.12 + t * 0.58).toFixed(2);
-            p.style.fill = v >= 0
-              ? 'rgba(20,46,148,' + alpha + ')'    // UCP blue
-              : 'rgba(232,99,16,' + alpha + ')';   // NDP orange
-          });
-        }
-
-        function _reapplyLayers() {
-          _applyVoteLayer(_layerState.vote);
-          _applyEdFillLayer(_layerState['ed-fill']);
-          _applyEdLinesLayer(_layerState['ed-lines']);
-          if (_layerState.eg) _applyEGLayer(true);
-        }
-
         function _loadHoverJson(key, url) {
           fetch(url).then(r => r.json()).then(d => {
             const byId = {}, byName = {};
             d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
-            _allHoverData[key] = byId;
-            _nameIndex[key] = byName;
-            if (key === _mapPrimary) { _edHover = byId; _reapplyLayers(); }
+            ctx.allHoverData[key] = byId;
+            ctx.nameIndex[key] = byName;
+            if (key === ctx.mapPrimary) { ctx.edHover = byId; reapplyLayers(ctx); }
           }).catch(() => {});
         }
         _loadHoverJson('minority', 'data/ed_hover_minority.json');
         _loadHoverJson('majority', 'data/ed_hover_majority.json');
         _loadHoverJson('2019',    'data/ed_hover_2019.json');
 
-        function _setLayerOn(key, on) {
-          if (_layerState[key] === on) return;
-          _layerState[key] = on;
-          document.querySelectorAll('.tb-btn[data-layer="' + key + '"]').forEach(function(btn) {
-            btn.classList.toggle('tb-layer-on', on);
-          });
-          if (key === 'vote')     _applyVoteLayer(on);
-          if (key === 'ed-fill')  _applyEdFillLayer(on);
-          if (key === 'ed-lines') _applyEdLinesLayer(on);
-          if (key === 'eg')       _applyEGLayer(on);
-          _emit({ type: 'layer', key: key, on: on });
-        }
-
         document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
           b.addEventListener('click', function() {
             var key = b.dataset.layer;
             if (key === 'lock') {
-              _mapLocked = !_mapLocked;
-              b.classList.toggle('tb-layer-on', _mapLocked);
+              ctx.mapLocked = !ctx.mapLocked;
+              b.classList.toggle('tb-layer-on', ctx.mapLocked);
               return;
             }
-            var on = !_layerState[key];
-            _setLayerOn(key, on);
-            if (key === 'ed-fill' && on && _layerState['eg'])      _setLayerOn('eg', false);
-            if (key === 'eg'      && on && _layerState['ed-fill']) _setLayerOn('ed-fill', false);
+            var on = !ctx.layerState[key];
+            setLayerOn(ctx, key, on, _emit);
+            if (key === 'ed-fill' && on && ctx.layerState['eg'])      setLayerOn(ctx, 'eg', false, _emit);
+            if (key === 'eg'      && on && ctx.layerState['ed-fill']) setLayerOn(ctx, 'ed-fill', false, _emit);
           });
         });
 
         // ── Snap-to-ED animation ───────────────────────────────────────────────
         function _animateToVB(targetVB, dur) {
-          if (_mapLocked) return;
-          if (_settleTimer !== null) { clearTimeout(_settleTimer); _settleTimer = null; }
-          if (_rafId !== null) { cancelAnimationFrame(_rafId); _rafId = null; }
-          const startVB = { ...curVB };
-          if (!settledVB) {
-            settledVB = { ...curVB };
-            svgEl.style.willChange = 'transform';
-            svgEl.style.transformOrigin = '0 0';
+          if (ctx.mapLocked) return;
+          if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
+          if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
+          const startVB = { ...ctx.curVB };
+          if (!ctx.settledVB) {
+            ctx.settledVB = { ...ctx.curVB };
+            ctx.svgEl.style.willChange = 'transform';
+            ctx.svgEl.style.transformOrigin = '0 0';
           }
           const t0 = performance.now();
           function step(now) {
             const t = Math.min((now - t0) / dur, 1);
             const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic — fast start, buttery decel
-            curVB = {
+            ctx.curVB = {
               x: startVB.x + (targetVB.x - startVB.x) * ease,
               y: startVB.y + (targetVB.y - startVB.y) * ease,
               w: startVB.w + (targetVB.w - startVB.w) * ease,
               h: startVB.h + (targetVB.h - startVB.h) * ease,
             };
             const { rw, rh, ox, oy } = _renderBounds();
-            const sx = settledVB.w / curVB.w;
-            svgEl.style.transform =
-              `translate(${(settledVB.x - curVB.x)*rw/curVB.w + ox*(1-sx)}px,` +
-              `${(settledVB.y - curVB.y)*rh/curVB.h + oy*(1-sx)}px) scale(${sx})`;
-            _updateZoomDisplay(Math.round(natVB.w / curVB.w * 100));
+            const sx = ctx.settledVB.w / ctx.curVB.w;
+            ctx.svgEl.style.transform =
+              `translate(${(ctx.settledVB.x - ctx.curVB.x)*rw/ctx.curVB.w + ox*(1-sx)}px,` +
+              `${(ctx.settledVB.y - ctx.curVB.y)*rh/ctx.curVB.h + oy*(1-sx)}px) scale(${sx})`;
+            _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
             if (t < 1) { requestAnimationFrame(step); }
-            else { _settleTimer = setTimeout(_doSettle, SETTLE_MS); }
+            else { ctx.settleTimer = setTimeout(_doSettle, SETTLE_MS); }
           }
           requestAnimationFrame(step);
         }
 
-        function _isEdVisible(bb) {
-          if (!curVB || !bb.width || !bb.height) return false;
-          var xOv = Math.max(0, Math.min(bb.x + bb.width, curVB.x + curVB.w) - Math.max(bb.x, curVB.x));
-          var yOv = Math.max(0, Math.min(bb.y + bb.height, curVB.y + curVB.h) - Math.max(bb.y, curVB.y));
-          return (xOv * yOv) / (bb.width * bb.height) >= 0.60;
-        }
+        function _isEdVisible(bb)      { return isEdVisible(ctx, bb); }
+        function _snapToED(pathEl, force) { snapToED(ctx, pathEl, !!force, _animateToVB, _getStageRect); }
+        function _zoomEdTo70(pathEl)      { zoomEdTo70(ctx, pathEl, _animateToVB, _getStageRect); }
+        function _tipTarget(e)            { return tipTarget(e); }
 
         function _snapToED(pathEl, force) {
-          if (!svgEl || mode !== 'viewbox') return;
+          if (!ctx.svgEl || ctx.mode !== 'viewbox') return;
           const bb = pathEl.getBBox();
           if (!force && _isEdVisible(bb)) return;
           const pad = Math.max(bb.width, bb.height) * 0.35;
@@ -995,7 +802,7 @@ export function init(basePath: string): void {
         }
 
         function _zoomEdTo70(pathEl) {
-          if (!svgEl || mode !== 'viewbox' || _mapLocked) return;
+          if (!ctx.svgEl || ctx.mode !== 'viewbox' || ctx.mapLocked) return;
           const bb = pathEl.getBBox();
           const r = _getStageRect();
           // Pick the viewBox width so the ED's bbox fills 70% in the limiting dimension
@@ -1018,135 +825,131 @@ export function init(basePath: string): void {
           return null;
         }
 
-        // ── Unified drag + tap + pinch (Pointer Events — all gesture types) ──────
-        let drag = null, _dragMoved = false;
-        const _ptrs = new Map();
-        let _lastPinchDist = null, _lastPinchMid = null;
+        // ── Unified ctx.drag + tap + pinch (Pointer Events — all gesture types) ──────
 
         function _ptrMid() {
-          const [a, b] = [..._ptrs.values()];
+          const [a, b] = [...ctx.ptrs.values()];
           return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
         }
         function _ptrDist() {
-          const [a, b] = [..._ptrs.values()];
+          const [a, b] = [...ctx.ptrs.values()];
           return Math.hypot(a.x - b.x, a.y - b.y);
         }
 
         stage.addEventListener('pointerdown', e => {
-          if (!ready) return;
+          if (!ctx.ready) return;
           if (e.pointerType === 'mouse' && e.button !== 0) return;
-          _ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+          ctx.ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
           try { stage.setPointerCapture(e.pointerId); } catch (_) {}
-          if (_ptrs.size === 2) {
-            if (drag) { drag = null; stage.classList.remove('dragging'); }
+          if (ctx.ptrs.size === 2) {
+            if (ctx.drag) { ctx.drag = null; stage.classList.remove('dragging'); }
             _hideTip();
-            _lastPinchDist = _ptrDist();
-            _lastPinchMid = _ptrMid();
+            ctx.lastPinchDist = _ptrDist();
+            ctx.lastPinchMid = _ptrMid();
             return;
           }
-          if (_ptrs.size > 2) return;
-          drag = { cx: e.clientX, cy: e.clientY, startX: e.clientX, startY: e.clientY, id: e.pointerId };
-          _dragMoved = false;
+          if (ctx.ptrs.size > 2) return;
+          ctx.drag = { cx: e.clientX, cy: e.clientY, startX: e.clientX, startY: e.clientY, id: e.pointerId };
+          ctx.dragMoved = false;
           stage.classList.add('dragging');
         });
 
         stage.addEventListener('pointermove', e => {
-          if (!ready || !_ptrs.has(e.pointerId)) return;
-          _ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+          if (!ctx.ready || !ctx.ptrs.has(e.pointerId)) return;
+          ctx.ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
-          if (_ptrs.size >= 2) {
+          if (ctx.ptrs.size >= 2) {
             const dist = _ptrDist(), mid = _ptrMid(), r = _getStageRect();
-            if (_lastPinchDist && dist > 0) zoomAt(mid.x - r.left, mid.y - r.top, dist / _lastPinchDist);
-            if (_lastPinchMid) {
-              if (mode === 'viewbox') vbPanBy(mid.x - _lastPinchMid.x, mid.y - _lastPinchMid.y);
-              else { fbTx += mid.x - _lastPinchMid.x; fbTy += mid.y - _lastPinchMid.y;
-                     fbImg.style.left = Math.round(fbTx) + 'px'; fbImg.style.top = Math.round(fbTy) + 'px'; }
+            if (ctx.lastPinchDist && dist > 0) zoomAt(mid.x - r.left, mid.y - r.top, dist / ctx.lastPinchDist);
+            if (ctx.lastPinchMid) {
+              if (ctx.mode === 'viewbox') vbPanBy(mid.x - ctx.lastPinchMid.x, mid.y - ctx.lastPinchMid.y);
+              else { ctx.fbTx += mid.x - ctx.lastPinchMid.x; ctx.fbTy += mid.y - ctx.lastPinchMid.y;
+                     ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px'; ctx.fbImg.style.top = Math.round(ctx.fbTy) + 'px'; }
             }
-            _lastPinchDist = dist; _lastPinchMid = mid;
+            ctx.lastPinchDist = dist; ctx.lastPinchMid = mid;
             return;
           }
 
-          if (e.pointerType !== 'touch' && !drag && mode === 'viewbox' && _edHover) {
+          if (e.pointerType !== 'touch' && !ctx.drag && ctx.mode === 'viewbox' && ctx.edHover) {
             const hit = _tipTarget(e);
-            if (hit) _showTip(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
+            if (hit) _showTip(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
             else _hideTip();
           }
-          if (!drag || drag.id !== e.pointerId) return;
-          const dx = e.clientX - drag.cx, dy = e.clientY - drag.cy;
-          if (!_dragMoved && Math.hypot(e.clientX - drag.startX, e.clientY - drag.startY) < 6) return;
-          if (!_dragMoved) { _dragMoved = true; _hideTip(); }
-          drag.cx = e.clientX; drag.cy = e.clientY;
-          if (mode === 'viewbox') vbPanBy(dx, dy);
-          else { fbTx += dx; fbTy += dy; fbImg.style.left = Math.round(fbTx) + 'px'; fbImg.style.top = Math.round(fbTy) + 'px'; }
+          if (!ctx.drag || ctx.drag.id !== e.pointerId) return;
+          const dx = e.clientX - ctx.drag.cx, dy = e.clientY - ctx.drag.cy;
+          if (!ctx.dragMoved && Math.hypot(e.clientX - ctx.drag.startX, e.clientY - ctx.drag.startY) < 6) return;
+          if (!ctx.dragMoved) { ctx.dragMoved = true; _hideTip(); }
+          ctx.drag.cx = e.clientX; ctx.drag.cy = e.clientY;
+          if (ctx.mode === 'viewbox') vbPanBy(dx, dy);
+          else { ctx.fbTx += dx; ctx.fbTy += dy; ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px'; ctx.fbImg.style.top = Math.round(ctx.fbTy) + 'px'; }
         });
 
-        let _lastTap = 0;
 
         stage.addEventListener('pointerup', e => {
-          _ptrs.delete(e.pointerId);
+          ctx.ptrs.delete(e.pointerId);
           try { stage.releasePointerCapture(e.pointerId); } catch (_) {}
-          if (_ptrs.size < 2) { _lastPinchDist = null; _lastPinchMid = null; }
-          if (!drag || drag.id !== e.pointerId) return;
+          if (ctx.ptrs.size < 2) { ctx.lastPinchDist = null; ctx.lastPinchMid = null; }
+          if (!ctx.drag || ctx.drag.id !== e.pointerId) return;
           stage.classList.remove('dragging');
-          if (!_dragMoved && mode === 'viewbox') {
+          if (!ctx.dragMoved && ctx.mode === 'viewbox') {
             if (e.pointerType === 'touch') {
               const now = performance.now();
-              if (now - _lastTap < 300) {
+              if (now - ctx.lastTap < 300) {
                 const hit = _tipTarget(e);
                 if (hit) { _zoomEdTo70(hit); }
-                else { _hideCallout(); _animateToVB({ ...natVB }, 420); }
-                _lastTap = 0;
+                else { _hideCallout(); _animateToVB({ ...ctx.natVB }, 420); }
+                ctx.lastTap = 0;
               } else {
-                _lastTap = now;
-                if (_edHover) {
+                ctx.lastTap = now;
+                if (ctx.edHover) {
                   const hit = _tipTarget(e);
                   if (hit) {
-                    _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+                    _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
                     _setEdHighlight(hit);
                     _snapToED(hit);
                   } else _hideCallout();
                 }
               }
-            } else if (_edHover) {
+            } else if (ctx.edHover) {
               const hit = _tipTarget(e);
               if (hit) {
                 _hideTip();
-                _showCallout(_edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
+                _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
                 _setEdHighlight(hit);
-                if (!_mapLocked) _snapToED(hit);
+                if (!ctx.mapLocked) _snapToED(hit);
               } else {
                 _hideCallout();
               }
             }
           }
-          drag = null;
+          ctx.drag = null;
         });
 
         stage.addEventListener('pointercancel', e => {
-          _ptrs.delete(e.pointerId);
-          if (drag && drag.id === e.pointerId) { drag = null; stage.classList.remove('dragging'); }
-          if (_ptrs.size < 2) { _lastPinchDist = null; _lastPinchMid = null; }
+          ctx.ptrs.delete(e.pointerId);
+          if (ctx.drag && ctx.drag.id === e.pointerId) { ctx.drag = null; stage.classList.remove('dragging'); }
+          if (ctx.ptrs.size < 2) { ctx.lastPinchDist = null; ctx.lastPinchMid = null; }
         });
 
         stage.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') _hideTip(); });
 
         stage.addEventListener('dblclick', e => {
-          if (!ready) return;
-          if (mode === 'viewbox') {
+          if (!ctx.ready) return;
+          if (ctx.mode === 'viewbox') {
             const hit = _tipTarget(e);
             if (hit) _zoomEdTo70(hit);
-            else _animateToVB({ ...natVB }, 420);
+            else _animateToVB({ ...ctx.natVB }, 420);
           } else resetFallback();
         });
 
         // ── Zoom slider ───────────────────────────────────────────────────────────
         function _zoomToPct(pct) {
-          if (!ready || mode !== 'viewbox' || !natVB || !curVB) return;
-          var targetW = natVB.w * 100 / pct;
-          var targetH = natVB.h * 100 / pct;
-          var cx = curVB.x + curVB.w / 2;
-          var cy = curVB.y + curVB.h / 2;
-          curVB = { x: cx - targetW/2, y: cy - targetH/2, w: targetW, h: targetH };
+          if (!ctx.ready || ctx.mode !== 'viewbox' || !ctx.natVB || !ctx.curVB) return;
+          var targetW = ctx.natVB.w * 100 / pct;
+          var targetH = ctx.natVB.h * 100 / pct;
+          var cx = ctx.curVB.x + ctx.curVB.w / 2;
+          var cy = ctx.curVB.y + ctx.curVB.h / 2;
+          ctx.curVB = { x: cx - targetW/2, y: cy - targetH/2, w: targetW, h: targetH };
           _doSettle();
         }
         if (_zoomSlider) {
@@ -1178,37 +981,37 @@ export function init(basePath: string): void {
           function _srSelect(li) {
             if (!li) return;
             var name = li.dataset.edName || li.textContent.replace(/\s*(Min|Maj|2019)$/, '').trim();
-            var fromMap = li.dataset.edMap || _mapPrimary;
+            var fromMap = li.dataset.edMap || ctx.mapPrimary;
             searchInput.value = name;
             searchResults.style.display = 'none';
             _srActive = -1;
-            if (!svgEl) return;
+            if (!ctx.svgEl) return;
 
             function navigateToEd(mapKey, edName) {
-              var idx2 = _nameIndex[mapKey] || {};
+              var idx2 = ctx.nameIndex[mapKey] || {};
               var rec2 = idx2[edName];
               if (!rec2) return;
-              var path = svgEl && svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec2.id + '"]');
-              if (path) { _showCallout(rec2); _setEdHighlight(path); if (!_mapLocked) _snapToED(path, true); }
+              var path = ctx.svgEl && ctx.svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec2.id + '"]');
+              if (path) { _showCallout(rec2); _setEdHighlight(path); if (!ctx.mapLocked) _snapToED(path, true); }
             }
 
-            if (fromMap !== _mapPrimary) {
-              _mapOn[fromMap] = true;
-              _mapActivationOrder = _mapActivationOrder.filter(function(k) { return k !== fromMap; });
-              _mapActivationOrder.push(fromMap);
-              _mapPrimary = fromMap;
+            if (fromMap !== ctx.mapPrimary) {
+              ctx.mapOn[fromMap] = true;
+              ctx.mapActivationOrder = ctx.mapActivationOrder.filter(function(k) { return k !== fromMap; });
+              ctx.mapActivationOrder.push(fromMap);
+              ctx.mapPrimary = fromMap;
               _updateMapButtons();
               _doSwitchPrimary(fromMap);
               var _pendingName = name, _waitAttempts = 0;
               (function waitAndNav() {
-                if (!svgEl || !ready) {
+                if (!ctx.svgEl || !ctx.ready) {
                   if (++_waitAttempts < 30) { setTimeout(waitAndNav, 150); return; }
                   return;
                 }
                 navigateToEd(fromMap, _pendingName);
               })();
             } else {
-              navigateToEd(_mapPrimary, name);
+              navigateToEd(ctx.mapPrimary, name);
             }
           }
 
@@ -1219,11 +1022,11 @@ export function init(basePath: string): void {
             if (q.length < 2) { searchResults.style.display = 'none'; return; }
             // Search all 3 maps, current primary first
             var seen = new Set(), results = [];
-            var mapOrder = [_mapPrimary, 'minority', 'majority', '2019'].filter(
+            var mapOrder = [ctx.mapPrimary, 'minority', 'majority', '2019'].filter(
               function(k, i, a) { return a.indexOf(k) === i; }
             );
             mapOrder.forEach(function(k) {
-              var idx2 = _nameIndex[k] || {};
+              var idx2 = ctx.nameIndex[k] || {};
               Object.keys(idx2).forEach(function(n) {
                 if (n.toLowerCase().indexOf(q) !== -1 && !seen.has(n)) {
                   seen.add(n); results.push({ name: n, map: k });
@@ -1239,7 +1042,7 @@ export function init(basePath: string): void {
               var nameSpan = document.createElement('span');
               nameSpan.textContent = r.name;
               li.appendChild(nameSpan);
-              if (r.map !== _mapPrimary) {
+              if (r.map !== ctx.mapPrimary) {
                 var tag = document.createElement('span');
                 tag.className = 'sr-map-tag';
                 tag.textContent = r.map === '2019' ? '2019' : r.map === 'minority' ? 'Min' : 'Maj';
@@ -1301,21 +1104,19 @@ export function init(basePath: string): void {
         //                        80=Red Deer-Sylvan Lake, 83=St Albert
         // Source: AEBC (2026) majority report §5.8.2 + Appendix C; union = 7 configs.
         const _anomalyIds = new Set([13, 20, 57, 75, 80, 81, 83]);
-        let   _anomalyOn      = false;
-        let   _anomalyOverlay = null;
 
         function _applyAnomalyHighlight() {
-          if (!svgEl) return;
-          if (_anomalyOverlay) { _anomalyOverlay.remove(); _anomalyOverlay = null; }
-          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(p => { p.style.fill = 'none'; });
-          if (!_anomalyOn) return;
+          if (!ctx.svgEl) return;
+          if (ctx.anomalyOverlay) { ctx.anomalyOverlay.remove(); ctx.anomalyOverlay = null; }
+          ctx.svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(p => { p.style.fill = 'none'; });
+          if (!ctx.anomalyOn) return;
 
           const NS = 'http://www.w3.org/2000/svg';
-          _anomalyOverlay = document.createElementNS(NS, 'g');
-          _anomalyOverlay.setAttribute('id', 'anomaly-overlay');
-          _anomalyOverlay.setAttribute('pointer-events', 'none');
+          ctx.anomalyOverlay = document.createElementNS(NS, 'g');
+          ctx.anomalyOverlay.setAttribute('id', 'anomaly-overlay');
+          ctx.anomalyOverlay.setAttribute('pointer-events', 'none');
 
-          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
+          ctx.svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
             const id = parseInt(p.getAttribute('data-ed-id'), 10);
             if (!_anomalyIds.has(id)) return;
             const d = p.getAttribute('d');
@@ -1329,7 +1130,7 @@ export function init(basePath: string): void {
             glow.setAttribute('stroke-linejoin', 'round');
             glow.style.vectorEffect = 'non-scaling-stroke';
             glow.setAttribute('class', 'anomaly-glow-path');
-            _anomalyOverlay.appendChild(glow);
+            ctx.anomalyOverlay.appendChild(glow);
 
             // Sharp animated outline
             const outline = document.createElementNS(NS, 'path');
@@ -1340,19 +1141,19 @@ export function init(basePath: string): void {
             outline.setAttribute('stroke-linejoin', 'round');
             outline.style.vectorEffect = 'non-scaling-stroke';
             outline.setAttribute('class', 'anomaly-pulse-path');
-            _anomalyOverlay.appendChild(outline);
+            ctx.anomalyOverlay.appendChild(outline);
           });
 
-          svgEl.appendChild(_anomalyOverlay);
+          ctx.svgEl.appendChild(ctx.anomalyOverlay);
         }
 
         function _zoomToAnomalyDistricts(attempt) {
-          if (!svgEl || !ready) {
+          if (!ctx.svgEl || !ctx.ready) {
             if ((attempt || 0) < 25) setTimeout(function() { _zoomToAnomalyDistricts((attempt || 0) + 1); }, 120);
             return;
           }
           var combined = null;
-          svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
+          ctx.svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
             if (!_anomalyIds.has(parseInt(p.getAttribute('data-ed-id'), 10))) return;
             var bb = p.getBBox();
             if (!combined) combined = { x: bb.x, y: bb.y, r: bb.x + bb.width, b: bb.y + bb.height };
@@ -1375,36 +1176,36 @@ export function init(basePath: string): void {
         document.querySelectorAll('[data-anomaly]').forEach(function(b) {
           b.addEventListener('click', function() {
             _activateAsTop('minority');
-            var wasOff = !_anomalyOn;
+            var wasOff = !ctx.anomalyOn;
             if (overlay.style.display !== 'block') open();
-            _anomalyOn = !_anomalyOn;
-            b.classList.toggle('tb-layer-on', _anomalyOn);
+            ctx.anomalyOn = !ctx.anomalyOn;
+            b.classList.toggle('tb-layer-on', ctx.anomalyOn);
             _applyAnomalyHighlight();
-            if (_anomalyOn && wasOff) {
-              if (!_layerState['eg'])     _setLayerOn('eg', true);
-              if (_layerState['ed-fill']) _setLayerOn('ed-fill', false);
-              if (!_mapLocked) _zoomToAnomalyDistricts(0);
+            if (ctx.anomalyOn && wasOff) {
+              if (!ctx.layerState['eg'])     setLayerOn(ctx, 'eg', true, _emit);
+              if (ctx.layerState['ed-fill']) setLayerOn(ctx, 'ed-fill', false, _emit);
+              if (!ctx.mapLocked) _zoomToAnomalyDistricts(0);
             }
           });
         });
 
         // ── Named-ED zoom (inline "show ↗" buttons) ──────────────────────────────
         function _zoomToEd(name, attempt) {
-          if (!svgEl || !ready) {
+          if (!ctx.svgEl || !ctx.ready) {
             if ((attempt || 0) < 20) setTimeout(function() { _zoomToEd(name, (attempt || 0) + 1); }, 120);
             return;
           }
           // Try current primary map first, then minority, majority, 2019
-          var mapOrder = [_mapPrimary, 'minority', 'majority', '2019'].filter(
+          var mapOrder = [ctx.mapPrimary, 'minority', 'majority', '2019'].filter(
             function(k, i, a) { return a.indexOf(k) === i; }
           );
           var rec = null;
           for (var i = 0; i < mapOrder.length; i++) {
-            var idx = _nameIndex[mapOrder[i]];
+            var idx = ctx.nameIndex[mapOrder[i]];
             if (idx && idx[name]) { rec = idx[name]; break; }
           }
           if (!rec) return;
-          var path = svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec.id + '"]');
+          var path = ctx.svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec.id + '"]');
           if (!path) return;
           var bb = path.getBBox();
           var pad = 1.7;
@@ -1426,22 +1227,10 @@ export function init(basePath: string): void {
         });
 
         // ── Map onboarding modal ──────────────────────────────────────────────────
-        // Wired once; shown on first map-tool open, not on page load.
-        (function() {
-          const modal    = document.getElementById('map-intro-modal');
-          const closeBtn = document.getElementById('map-intro-close');
-          if (!modal || !closeBtn) return;
-          function _closeModal() {
-            sessionStorage.setItem('map-intro-seen', '1');
-            modal.style.display = 'none';
-          }
-          closeBtn.addEventListener('click', _closeModal);
-          modal.addEventListener('click', function(e) { if (e.target === modal) _closeModal(); });
-          document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.style.display !== 'none') _closeModal(); });
-        })();
+        initIntroModal();  // wires close-btn, backdrop-click, and Escape handlers
 
         function _maybeShowIntro() {
-          if (sessionStorage.getItem('map-intro-seen')) return;
+          if (hasSeenIntro()) return;
           var modal = document.getElementById('map-intro-modal');
           if (modal) modal.style.display = 'flex';
         }
