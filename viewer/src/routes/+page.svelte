@@ -1788,7 +1788,7 @@
   .skel-province-glow {
     fill: none; stroke: #FFBE00; stroke-width: 12;
     stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 12 612;
+    stroke-dasharray: 12 362;
     stroke-dashoffset: 1872;
     opacity: 0.22;
     filter: url(#skel-glow);
@@ -1797,7 +1797,7 @@
   .skel-province-shine {
     fill: none; stroke: #FFBE00; stroke-width: 2.5;
     stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 5 619;
+    stroke-dasharray: 5 369;
     stroke-dashoffset: 1872;
     animation: skel-race 4.5s linear infinite;
   }

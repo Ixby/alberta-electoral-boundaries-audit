@@ -19,8 +19,9 @@ import { reapplyLayers } from './layers';
 
 // ── VA path merge (perf) ──────────────────────────────────────────────────────
 // Collapses 4 771 individually-stroked VA polygons in #PatchCollection_2 into
-// one compound <path> per fill colour (~6–8 total). Reduces Firefox's Skia
-// stroke-per-path cost from ~2 400 ms to negligible on a typical load.
+// one compound <path> per fill colour (~1 400 unique colours in the choropleth).
+// Eliminates all stroke computation in that group, cutting Firefox's Skia
+// SkPathStroker cost from ~2 400 ms to negligible on a typical load.
 // Safe: PatchCollection_2 is purely visual; hover/click lives in #ed_hover_layer.
 
 export function mergeVaPaths(svgRoot: Element): void {
@@ -35,10 +36,16 @@ export function mergeVaPaths(svgRoot: Element): void {
     const fill = m ? m[1].trim() : (p.getAttribute('fill') || '#808080');
     if (!byColor.has(fill)) byColor.set(fill, []);
     let d = p.getAttribute('d') || '';
-    // Make first moveto absolute so subpaths position correctly in the compound path.
-    // SVG treats a leading 'm' as 'M' only for the very first subpath; subsequent
-    // lowercase 'm' values are relative to the previous current point.
-    if (d.charAt(0) === 'm') d = 'M' + d.slice(1);
+    // Subsequent subpaths in a compound path treat a leading 'm' as relative to the
+    // previous current point, not the SVG origin. Fix: make the moveto absolute (M)
+    // but insert an explicit 'l' so the implicit lineto commands that follow stay
+    // relative — changing 'm' to 'M' alone would flip them to absolute 'L', which
+    // draws lines toward the SVG origin instead.
+    if (d.charAt(0) === 'm') {
+      const NUM = '[-+]?(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][-+]?\\d+)?';
+      const moveRe = new RegExp('^m\\s*(' + NUM + ')[\\s,]+(' + NUM + ')\\s*');
+      d = d.replace(moveRe, 'M $1 $2 l ');
+    }
     if (d) byColor.get(fill)!.push(d);
   }
   const doc = g.ownerDocument;
