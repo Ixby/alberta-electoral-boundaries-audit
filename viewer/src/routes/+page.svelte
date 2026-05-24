@@ -1829,6 +1829,7 @@
     color: #fff;
     display: none; align-items: center; gap: 10px;
     min-height: 38px;
+    align-self: flex-start;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
   #ed-callout.ec-visible {
