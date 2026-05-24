@@ -113,12 +113,59 @@ DA_GPKG = DATA / "shapefiles" / "reference" / "alberta_2021_das.gpkg"
 OUT_CSV = DATA / "2019_municipal_anchoring.csv"
 OUT_SUMMARY = DATA / "2019_municipal_anchoring_summary.json"
 
+# Canonical 2026 anchoring values used in the comparison_to_2026 block.
+# Preferred source: data/outputs/canonical_anchoring_summary.json — if that file
+# exists, _resolve_canonical_anchoring() reads from it so a re-computation of
+# canonical anchoring is picked up automatically. If the file is missing the
+# fallback literals below are used and a loud warning is printed; the fallback
+# is a transcription of methods-paper §7.1 Stage 9 (post-2026-05-06 official
+# Elections Alberta shapefiles).
+CANONICAL_ANCHORING_JSON = DATA / "outputs" / "canonical_anchoring_summary.json"
+_CANONICAL_MAJORITY_PCT_FALLBACK = 80.0
+_CANONICAL_MINORITY_PCT_FALLBACK = 72.0
+
+
+def _resolve_canonical_anchoring() -> tuple[float, float, str]:
+    """Return (majority_pct, minority_pct, provenance_string).
+
+    Prefer the canonical summary JSON so this script picks up any re-
+    computation drift automatically. Fall back to literals with a loud
+    warning so a missing file does not produce stale comparisons silently.
+    """
+    if CANONICAL_ANCHORING_JSON.exists():
+        try:
+            with open(CANONICAL_ANCHORING_JSON) as f:
+                data = json.load(f)
+            maj = float(data["majority_pct"])
+            mn = float(data["minority_pct"])
+            return maj, mn, f"file:{CANONICAL_ANCHORING_JSON.name}"
+        except (KeyError, ValueError, OSError) as e:
+            print(
+                f"  [WARN] {CANONICAL_ANCHORING_JSON.name} exists but could not "
+                f"be parsed ({type(e).__name__}: {e}); falling back to literals.",
+                file=sys.stderr,
+            )
+    print(
+        f"  [WARN] {CANONICAL_ANCHORING_JSON.name} not found; using literal "
+        f"fallback (majority {_CANONICAL_MAJORITY_PCT_FALLBACK}%, minority "
+        f"{_CANONICAL_MINORITY_PCT_FALLBACK}%) transcribed from methods-paper "
+        f"§7.1 Stage 9. Drift detection is disabled until canonical anchoring "
+        f"run writes the summary JSON.",
+        file=sys.stderr,
+    )
+    return (
+        _CANONICAL_MAJORITY_PCT_FALLBACK,
+        _CANONICAL_MINORITY_PCT_FALLBACK,
+        "literal-fallback",
+    )
+
+
 # Methodology — held identical to the 2026 headline run
 SNAP_TOL_M = 500.0
 DA_SNAP_TOL_M = 150.0
 MIN_SEGMENT_COVERAGE_M = 1000.0
 VERTEX_DENSIFY_M = 50.0
-USE_DA_SUPPLEMENT = False  # match the 2026 canonical headline (maj 80.0 % / min 72.0 %, no-DA-supplement run; DPG-era 71.0 / 14.5 retracted)
+USE_DA_SUPPLEMENT = False  # match the 2026 canonical headline (no-DA-supplement run; DPG-era 71.0 / 14.5 retracted)
 
 
 def _keep_polys(geom):
@@ -345,6 +392,11 @@ def main():
     print("=" * 72)
     print(f"  USE_DA_SUPPLEMENT = {USE_DA_SUPPLEMENT}  (matches 2026 headline run)")
     print(f"  SNAP_TOL_M = {SNAP_TOL_M}")
+    canonical_maj_pct, canonical_min_pct, canonical_source = _resolve_canonical_anchoring()
+    print(
+        f"  canonical 2026 reference: maj {canonical_maj_pct:.1f}% / "
+        f"min {canonical_min_pct:.1f}% (source: {canonical_source})"
+    )
     print()
 
     eds = gpd.read_file(EDS_2019_SHP)
@@ -397,11 +449,12 @@ def main():
             "min_segment_coverage_m": MIN_SEGMENT_COVERAGE_M,
             "da_supplemented": USE_DA_SUPPLEMENT and DA_GPKG.exists(),
             "parity_note": (
-                "Methodology held identical to the 2026 anchoring runs. Canonical "
-                "headline (post-2026-05-06): maj 80.0 % / min 72.0 %, both within "
-                "the 70-85 % Canadian comparator norm. DPG-era headline (retracted "
-                "on canonical recomputation): maj 71.0 % / min 14.5 %. "
-                "USE_DA_SUPPLEMENT=False matches both runs."
+                f"Methodology held identical to the 2026 anchoring runs. Canonical "
+                f"headline (post-2026-05-06): maj {canonical_maj_pct:.1f} % / "
+                f"min {canonical_min_pct:.1f} %, both within the 70-85 % "
+                f"Canadian comparator norm. DPG-era headline (retracted on "
+                f"canonical recomputation): maj 71.0 % / min 14.5 %. "
+                f"USE_DA_SUPPLEMENT=False matches both runs."
             ),
         },
         "sources": {
@@ -437,10 +490,10 @@ def main():
         },
         "comparison_to_2026": {
             "_2019_overall_pct": overall_pct,
-            "_2026_majority_overall_pct_canonical": 80.0,
-            "_2026_minority_overall_pct_canonical": 72.0,
+            "_2026_majority_overall_pct_canonical": canonical_maj_pct,
+            "_2026_minority_overall_pct_canonical": canonical_min_pct,
             "_2026_canonical_norm_band_pct": "70.0-85.0 (Canadian comparator)",
-            "_2026_canonical_source": "README.md §'What the audit finds'; methods-paper §7.1, Stage 9",
+            "_2026_canonical_source": canonical_source,
             "_2026_dpg_majority_overall_pct_RETRACTED": 71.0,
             "_2026_dpg_minority_overall_pct_RETRACTED": 14.5,
             "_2026_dpg_retraction_note": (
@@ -472,13 +525,15 @@ def main():
         f"anchored {tot_anchored:,.0f} km"
     )
     print()
-    print(f"  Comparison to 2026 canonical headline numbers (post-2026-05-06):")
+    print(f"  Comparison to 2026 canonical headline numbers (source: {canonical_source}):")
     print(f"    2019 enacted              : {overall_pct:5.1f} %")
     print(
-        f"    2026 majority (canonical) :  80.0 %  (delta vs 2019: {80.0 - overall_pct:+5.1f} pp)"
+        f"    2026 majority (canonical) : {canonical_maj_pct:5.1f} %  "
+        f"(delta vs 2019: {canonical_maj_pct - overall_pct:+5.1f} pp)"
     )
     print(
-        f"    2026 minority (canonical) :  72.0 %  (delta vs 2019: {72.0 - overall_pct:+5.1f} pp)"
+        f"    2026 minority (canonical) : {canonical_min_pct:5.1f} %  "
+        f"(delta vs 2019: {canonical_min_pct - overall_pct:+5.1f} pp)"
     )
     print(
         f"    (DPG-era headline RETRACTED: maj 71.0 % / min 14.5 %; did not survive canonical recomputation)"
