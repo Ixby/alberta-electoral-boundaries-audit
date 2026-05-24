@@ -43,7 +43,7 @@
       <p>If your browser sends a Do Not Track signal, <strong>No</strong> is pre-selected and the reason is noted. You can change your answer either way.</p>
       <p>If you answer <strong>No</strong>, the data collection system is disabled for your session. Nothing is recorded, including if you later use the share feature.</p>
       <p>If you answer <strong>Yes</strong>, the collection system is armed from that moment forward. The starting map configuration is not collected — we set it and already know it. What we collect is where you end up and how you got there.</p>
-      <p>Your answer is saved in a first-party cookie (<code>ab_audit_consent</code>, one year, SameSite=Strict). On return visits the prompt is skipped and your stored choice is applied immediately. There is no re-asking. No consent is sought at share time. No data is collected retroactively.</p>
+      <p>Your answer is saved in a first-party cookie (<code>ab_audit_prefs</code>, one year, SameSite=Strict) alongside your other site preferences (colour theme, whether you have seen the map-tool introduction, and the last map configuration you viewed). On return visits the prompt is skipped and your stored choice is applied immediately. There is no re-asking. No consent is sought at share time. No data is collected retroactively.</p>
     </section>
 
     <section>

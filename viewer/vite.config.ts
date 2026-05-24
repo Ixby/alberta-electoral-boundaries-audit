@@ -5,6 +5,10 @@ import { resolve, extname } from 'path';
 
 // docs/ lives one level above viewer/
 const docsDir = resolve(process.cwd(), '../docs');
+// Strip the SvelteKit base path prefix from incoming URLs before mapping to docs/.
+// In dev (VITE_BASE unset), base is '' so no prefix is stripped.
+// In production, VITE_BASE = '/alberta-electoral-boundaries-audit' is stripped.
+const _devBase = (process.env.VITE_BASE ?? '').replace(/\/$/, '');
 
 const MIME: Record<string, string> = {
 	'.json': 'application/json',
@@ -22,7 +26,11 @@ function serveDocsAssets(): import('vite').Plugin {
 		configureServer(server) {
 			server.middlewares.use((req: any, res: any, next: () => void) => {
 				const raw: string = req.url ?? '';
-				const stripped = raw.split('?')[0].replace(/^\/[^/]+(?=\/)/, '');
+				const path = raw.split('?')[0];
+				// Remove the base-path prefix (if any) to get the docs-relative path.
+				const stripped = _devBase && path.startsWith(_devBase)
+					? path.slice(_devBase.length) || '/'
+					: path;
 				if (!stripped || stripped === '/') return next();
 				const candidate = resolve(docsDir, stripped.replace(/^\//, ''));
 				if (existsSync(candidate) && !candidate.endsWith('index.html')) {

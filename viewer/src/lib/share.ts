@@ -135,19 +135,6 @@ export function isDNT(): boolean {
 	return navigator.doNotTrack === '1';
 }
 
-const _COOKIE = 'ab_audit_consent';
-
-export function getStoredChoice(): 'yes' | 'no' | null {
-	const m = document.cookie.match(/(?:^|;\s*)ab_audit_consent=([^;]+)/);
-	return m ? (m[1] as 'yes' | 'no') : null;
-}
-
-export function storeChoice(yes: boolean): void {
-	const exp = new Date();
-	exp.setFullYear(exp.getFullYear() + 1);
-	document.cookie = `${_COOKIE}=${yes ? 'yes' : 'no'}; expires=${exp.toUTCString()}; path=/; SameSite=Strict`;
-}
-
 export function setParticipation(yes: boolean): void {
 	_participates = yes;
 	_flightPath   = [];
