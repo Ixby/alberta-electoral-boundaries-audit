@@ -26,7 +26,7 @@ export function initGestures(ctx: MapCtx, stage): void {
     if (ctx.mode === 'viewbox') {
       vpVbZoomAt(ctx, mx, my, factor);
     } else {
-      const newScale = Math.min(Math.max(ctx.fbScale * factor, 0.05), 500);
+      const newScale = Math.min(Math.max(ctx.fbScale * factor, 0.05), 200);
       const ratio = newScale / ctx.fbScale;
       ctx.fbTx = mx - ratio * (mx - ctx.fbTx);
       ctx.fbTy = my - ratio * (my - ctx.fbTy);

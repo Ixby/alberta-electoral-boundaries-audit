@@ -142,7 +142,7 @@ export function vbZoomAt(ctx: MapCtx, mx: number, my: number, factor: number): v
   const lx = mx - ox, ly = my - oy;
   const svgX = ctx.curVB.x + (lx / rw) * ctx.curVB.w;
   const svgY = ctx.curVB.y + (ly / rh) * ctx.curVB.h;
-  const newW = Math.max(ctx.natVB.w / 3000, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
+  const newW = Math.max(ctx.natVB.w / 200, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
   const newH = newW * (ctx.natVB.h / ctx.natVB.w);
   _applyVB(ctx, { x: svgX - (lx / rw) * newW, y: svgY - (ly / rh) * newH, w: newW, h: newH });
 }
