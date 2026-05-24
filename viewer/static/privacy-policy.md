@@ -8,161 +8,151 @@ Maintained by: Will Conner
 
 ## Overview
 
-This tool is a public-interest statistical audit of Alberta's 2023 electoral boundary commission process. It is not a commercial product and does not run advertisements. This policy explains what is collected, by whom, how it is used, and how you can opt out.
-
-The principle behind our data practices: observe reliably what we can, find useful patterns, respect the right of every person not to be remembered. Enough information to be useful. Not enough to be snoopy.
+This tool is a public-interest audit of Alberta's 2023 electoral boundary commission process. It is not a commercial product and runs no advertisements. This page explains what data is collected, why, what is never collected, and how you can opt out.
 
 ---
 
-## What GitHub Pages Collects
+## The principle
 
-This site is hosted on GitHub Pages (pages.github.com). GitHub's infrastructure automatically records standard server-access logs when any page is loaded: your IP address, browser user-agent string, referring URL, and request timestamp. We do not receive, access, or control these logs. They are governed exclusively by GitHub's Privacy Statement (github.com/site/privacy). We have no relationship with GitHub beyond being a hosting customer.
+Citizens should be able to understand how their government works without worrying that someone is watching over their shoulder. Every design choice in this tool follows from that.
+
+### Nothing leaves your browser without your consent
+
+All data is assembled in your browser first. Nothing is sent to our database unless you clicked **Yes, I'll help** at the prompt when you first opened MapExplorer. If you clicked **No thanks**, nothing is recorded — not even if you later share a map view.
+
+### We couldn't identify you even if we tried
+
+The data is deliberately blurry. Your map position is rounded to one of 25 large regions before it leaves your browser — each region is roughly the size of a major Alberta city. Zoom level is one of four coarse buckets. We record the sequence of what you looked at, but not how long you spent on anything. No browser fingerprint. No precise coordinates.
+
+We are interested in the stories that groups tell — which parts of the map draw attention, which proposals people compare, where the audit lands when people find it worth sharing. We are not interested in you specifically. The design makes "you specifically" technically unreachable, not merely against our policy.
+
+If we were ordered by a court to identify a specific person from our data, we could not do it. That is not a promise. It is a structural fact.
+
+---
+
+## What GitHub Pages collects
+
+This site is hosted on GitHub Pages. GitHub's servers automatically log basic request details when any page loads — your IP address, browser type, referring page, and timestamp. We do not receive or control these logs; they are governed by GitHub's Privacy Statement (docs.github.com/en/site-policy). We have no relationship with GitHub beyond hosting.
 
 ---
 
 ## Participation
 
-When the page loads, you are asked one question:
+When you open MapExplorer, you see one prompt: *Help us refine MapExplorer*.
 
-> *May we connect anonymous usage data?*
+If your browser has Do Not Track turned on, **No thanks** is pre-selected and the reason is shown. You can still switch to **Yes, I'll help** if you want.
 
-The default answer is **No**. If your browser sends a Do Not Track signal, No is pre-selected and the reason is noted. You can change your answer either way.
+If you choose **No thanks**, that is the end of it. Nothing is recorded for your session.
 
-If you answer **No**, the data collection system is disabled for your session. Nothing is recorded, including if you later use the share feature.
-
-If you answer **Yes**, the collection system is armed from that moment forward. The starting map configuration is not collected — we set it and already know it. What we collect is where you end up and how you got there.
-
-There is no re-asking. No consent is sought at share time. No data is collected retroactively.
+If you choose **Yes, I'll help**, we begin collecting your exploration path from that moment. Your answer is saved in a cookie so the prompt does not appear again on future visits.
 
 ---
 
 ## Do Not Track
 
-If your browser sends `DNT: 1`, No is pre-selected in the participation prompt and the reason is shown. You can still choose Yes if you want to participate — your explicit choice overrides the browser signal. If you leave the answer at No or decline, nothing is recorded.
+If your browser sends a Do Not Track signal, **No thanks** is pre-selected when you open MapExplorer. You can override it — your explicit choice wins.
 
-The database enforces this independently of the client. Every write to our database carries a verifiable commitment: the hash of the DNT-handling code deployed to the site, paired with a publicly declared randomness beacon from Cloudflare drand (drand.cloudflare.com). The beacon round is committed to our source repository before data collection is enabled, so no one can retroactively forge a seed that would validate a compromised version of the check.
-
-If the DNT-handling code is altered, the hash changes, the write is rejected, and the database enters a freeze state — all further writes are blocked until a human operator reviews the discrepancy and re-establishes a valid commitment. The beacon is public and auditable by anyone. There is no way for this check to silently fail.
+We take Do Not Track seriously at the database level too. If the code that handles this signal is ever changed without a corresponding update to our audit trail, our database automatically stops accepting new data until a human reviews the discrepancy. There is no way for this check to fail silently.
 
 ---
 
-## What We Collect
+## What we collect
 
-Data is collected only from sessions where participation was confirmed and the session has not been flagged as Do Not Track.
+Only collected if you chose **Yes, I'll help**.
 
-**Flight-path events** — the sequence of maps, layers, and districts you visited — are periodically sent to our database as you explore, approximately every 30 seconds. If you close the tab without sharing, your ending state is not recorded, but exploration events already sent are retained as research data.
+As you explore MapExplorer, we periodically record your exploration path — roughly every 30 seconds. Each step is one of:
 
-**Your ending state** — the share code — is written to a separate table only when you click Share. The two records share no common key; there is no way to link a specific share code to the exploration events that preceded it.
+- Which electoral district you clicked
+- Which map you switched to
+- Which data layer you turned on or off
 
-When you click Share, the following is written to our database:
+We record what you looked at, in order — not how long you spent on each thing.
 
-**Ending state.** The map configuration you arrived at: which map is primary, which overlays are active, which layer toggles are on, which electoral district (if any) is highlighted, and your viewport position and zoom level. This is the meaningful signal — it shows where people land and what they find worth sharing.
+If you click **Share**, we also save your ending map view (which map is active, which overlays are on, roughly where your viewport is). This goes into a separate table with no link back to your exploration path — so no one can look up a share code and find out how you got there.
 
-**Flight path.** The sequence of interactions that led to your ending state. Each step is one of five event types:
+### What we record when you share
 
-- *Viewport* — map centre (rounded to ~8 km grid), zoom level (one decimal place), active map, overlays, and layers at that moment
-- *Map switch* — which map you left and which you moved to
-- *Overlay toggle* — which overlay was turned on or off
-- *Layer toggle* — which layer was turned on or off
-- *ED focus* — which electoral district you clicked
-
-Steps are numbered in order. No time elapsed between steps is recorded — sequence is captured, pace is not.
-
-**Feature summary.** Derived from the flight path in the browser before anything is transmitted: which maps were activated, whether overlays were used, whether layers were changed, which electoral districts were clicked, whether the search and lock features were used.
-
-**Session context.** Recorded once at share time:
-
-- Day of week and hour of day — no full date, no minute
-- Browser family and major version, parsed from the user-agent string in the browser — used to catch layout or interaction issues that vary by browser, not to characterize users by browser preference; the raw user-agent string is discarded and never transmitted
-- Viewport width and height, rounded to the nearest 100 pixels
-- Device class: mobile, tablet, or desktop, derived from viewport width
-- Timezone — a value like *America/Edmonton* shared by millions of people
-- Language — a value like *en-CA* or *fr-CA*
-- Approximate region, if you chose to provide it (see below)
-- How long you spent on the page before sharing, in one of five tiers: under 1 minute, 1–3 minutes, 3–10 minutes, 10–30 minutes, or 30 minutes or more
-- Origin code — if your session began by loading someone else's share code, that code is recorded as the starting point of your session. If your session began from the default configuration, this field is null. This lets us distinguish pure exploration from sessions that build on a prior shared configuration.
+- Which map was active and which others were visible
+- Which data layers were on
+- Which district (if any) was highlighted
+- Roughly where you were on the map and how zoomed in
+- Roughly how long you had been on the page (one of five buckets: under 1 min, 1–3, 3–10, 10–30, 30+)
+- Browser family (e.g. Chrome, Safari) — raw browser string is discarded
+- Screen size, rounded to the nearest 100 pixels
+- Device type: phone, tablet, or desktop
+- Time zone and language (e.g. America/Edmonton, en-CA)
+- Day of week and hour — no full date, no minutes
+- If you loaded someone else's share code first, that code is noted as your starting point
 
 ---
 
-## Approximate Region (Optional)
+## Optional: approximate region
 
-During the share flow you may be asked whether to include your approximate location. This is separate from the participation consent given on load and is entirely optional.
+When you share, you may be asked if you want to include your approximate location. This is entirely optional and separate from the main consent.
 
-If you accept, your browser requests your position via the Geolocation API. Before anything leaves your device, the coordinates are snapped to the nearest 1-degree grid cell — approximately 100 km in Alberta. The raw coordinates are discarded locally. The value transmitted identifies a broad region (Calgary area, Edmonton area, Lethbridge area) without identifying a neighbourhood, street, or address.
-
----
-
-## Pre-Anonymization
-
-All location values — viewport coordinates, zoom level, and optional geolocation — are reduced to their anonymized form in your browser before any data is transmitted. The server never receives a precise value. There is nothing to redact because identifying precision is discarded before it leaves your device.
-
-No name. No email address. No IP address. No raw user-agent string. No persistent identifier across sessions. An in-memory token stitches your flight-path events into a sequence for the duration of the page load; it is never transmitted and is gone when the tab closes.
+If you say yes, your browser fetches your GPS coordinates and we immediately round them to the nearest degree of latitude and longitude — a grid cell roughly 100 km across. The precise coordinates are discarded right there in the browser and never leave your device. What we receive is a broad region like "Calgary area" or "Peace Country."
 
 ---
 
-## What You Can Retrieve
+## What we never collect
 
-Entering a share code into the site returns the map configuration that was saved — the ending state. That is all.
+No name. No email. No IP address. No precise location. No raw browser fingerprint. No cross-session identifier — each page load gets a temporary ID that exists only in memory and disappears when you close the tab.
 
-Your flight path, session context, and feature summary are stored separately and are not retrievable by share code. This is not a restriction enforced by application logic that could be changed; the two records have no shared key. The connection between a specific share code and the telemetry collected in that session does not exist in the database. Neither you nor anyone else can retrieve it, because there is nothing to retrieve.
+Everything is rounded or bucketed in your browser before anything is sent. The server never sees a precise value.
 
 ---
 
-## Three-Word Share Codes
+## Share codes
 
-Share codes are displayed on screen. They are copied to your clipboard only when you click the Copy button. They are never placed in a URL and never transmitted as part of a link. Browser history, referrer headers, and server logs will not contain the code. Recipients enter the code directly into the site to load the shared map state.
+Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To load someone's shared view, the recipient types the code directly into the site.
 
-The most recent code you generated is stored in an encrypted cookie so your map state is restored on your next visit — see Cookies below.
+Your most recent share code is stored in a cookie so your map view is restored on your next visit.
 
 ---
 
 ## Cookies
 
-This site sets one cookie: `ab_audit_prefs`. It contains four values:
+This site sets one cookie that stores four things:
 
-- **Consent** — yes or no, as you answered the participation prompt
-- **Theme** — dark or light, if you toggled it
-- **Intro seen** — whether you have already dismissed the map intro
-- **Last map state** — the share code for the map configuration you were last at, so your view is restored on your next visit
+- **Your consent choice** — yes or no
+- **Colour theme** — dark or light, if you changed it
+- **Intro dismissed** — so the map introduction doesn't repeat
+- **Last map view** — so your view is restored on your next visit
 
-The cookie is encrypted with AES-256-GCM in your browser before it is written. The server never sees the plaintext — the decryption key lives in the client code, not on any server. The cookie is also flagged `Secure`, meaning it is only transmitted over HTTPS, and `SameSite=Strict`, meaning it is never sent as part of a cross-site request.
+The cookie is encrypted in your browser before it is written — the server never sees the contents. It is only sent over HTTPS and is never shared with other sites. It expires after one year. You can remove it by clearing your cookies.
 
-The last map state is encrypted because it encodes where you were in the map — which proposal you were examining, which layers you had on, where your viewport was positioned. That is your business, not anyone else's. Encrypting it means the cookie is opaque to anyone who might intercept it, log it, or read it off your device.
-
-The cookie expires after one year. Clearing your cookies removes it.
+The last map view is encrypted because it encodes where you were in the map — which proposal you were looking at, which layers were on, where your viewport was. That is your business, not anyone else's.
 
 ---
 
-## Data Retention
+## Data retention
 
-All records are pre-anonymized before storage and contain no personally identifying information. We retain them indefinitely as research data. Aggregate patterns derived from the database are also retained indefinitely.
-
-If we determine that a record contains PII — which the pre-anonymization architecture is designed to prevent — that record will be encrypted immediately, distilled to non-identifying statistics, and permanently deleted within 30 days.
+All stored records are anonymized before they reach our database. We keep them indefinitely as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.
 
 ---
 
-## Your Rights
+## Your rights
 
 You have the right not to be remembered.
 
-- **Answer No** at the participation prompt, and nothing is recorded for your session.
-- **Enable Do Not Track** in your browser, and No is pre-selected on your behalf.
-- **Share codes you generate** can be deleted on request. Send the code to wconn161@mtroyal.ca and we will delete it and confirm in writing.
-- **Confirmation**: you may request written confirmation that a specific share code exists or does not exist in our database. We cannot search by identity — none was collected.
+- **Choose No thanks** at the prompt and nothing is recorded.
+- **Turn on Do Not Track** in your browser and No thanks is pre-selected for you.
+- **Delete a share code** by emailing it to wconn161@mtroyal.ca — we will delete it and confirm.
+- **Confirm a share code exists or not** by emailing the same address. We cannot search by identity because none was collected.
 
 ---
 
 ## Contact
 
-Will Conner  
-wconn161@mtroyal.ca  
+Will Conner
+wconn161@mtroyal.ca
 
-This project is independent and is not affiliated with or endorsed by any institution.
+Independent research — not affiliated with or endorsed by any institution.
 
-Questions, concerns, and deletion requests are answered within 10 business days.
+Questions and deletion requests answered within 10 business days.
 
 ---
 
-## Policy Updates
+## Policy updates
 
-When this policy changes, the effective date at the top is updated and the change is committed to the public git repository (github.com/ixby/alberta-electoral-boundaries-audit). The commit history is the changelog. Any change that expands what is collected or how it is used is noted in the commit message.
+When this policy changes, the effective date at the top is updated and the change is committed to the public git repository (github.com/ixby/alberta-electoral-boundaries-audit). The commit history is the changelog. Any change that expands what is collected is noted in the commit message.
