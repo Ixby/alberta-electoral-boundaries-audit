@@ -92,7 +92,20 @@ def build_canonical_va_graph():
     if not POP_CACHE.exists():
         raise FileNotFoundError(f"Missing {POP_CACHE}")
     pop_df = pd.read_csv(POP_CACHE).set_index("va_row_idx")["pop_2021"]
-    va["pop_2021"] = va.index.map(pop_df).fillna(0.0)
+    mapped = va.index.map(pop_df)
+    if mapped.isna().any():
+        n_missing = int(mapped.isna().sum())
+        raise RuntimeError(
+            f"POP_CACHE row indices do not align with VA shapefile: "
+            f"{n_missing} of {len(va)} VAs have no matching pop_2021 row. "
+            f"Most likely cause: {POP_CACHE.name} was generated against a "
+            f"different vintage of {VA_PATH.name} than the one loaded here. "
+            f"Regenerate the pop cache against the current VA shapefile "
+            f"before re-running. (The previous code silently fillna'd to 0.0 "
+            f"and floored to pop=1, producing a 'successful' synthetic plan "
+            f"against entirely fabricated populations.)"
+        )
+    va["pop_2021"] = mapped
     va["pop_2021"] = np.maximum(va["pop_2021"], 1.0)  # floor to avoid zero-pop nodes
     print(f"  total 2021 pop across VAs: {va['pop_2021'].sum():,.0f}")
 

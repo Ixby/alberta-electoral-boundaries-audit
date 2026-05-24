@@ -50,6 +50,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent.parent
 MAJ_GPKG = ROOT / "data" / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
 VA_GPKG = ROOT / "data" / "shapefiles" / "canonical" / "va_2023_election_day_votes.gpkg"
+POP_CACHE = ROOT / "data" / "va_pop_from_das.csv"
 OUT_GPKG = ROOT / "proposals" / "lunty_dry_run" / "synthetic_realistic_91_test_input.gpkg"
 
 # Two largest-population EDs in the canonical majority map. Splitting them is a
@@ -85,10 +86,16 @@ def split_ed(va_subset: gpd.GeoDataFrame, ed_name: str, original_geom) -> list[d
             print(f"WARNING: {ed_name}-{label} got 0 VAs", file=sys.stderr)
             continue
         sub_geom = chunk.geometry.unary_union
+        # Per-chunk actual population from the per-VA pop attribution.
+        # Previously this slot was hardcoded to original_pop/2 at the call
+        # site, which masked any real population imbalance when the
+        # bisection split VAs evenly but populations unevenly (e.g.
+        # Calgary-McKenzie's residential vs industrial halves).
+        sub_pop = float(chunk["pop_2021"].sum())
         out_rows.append({
             "EDName2025": f"{ed_name}-{label}",
             "EDNum2025": None,  # synthetic; original EDNum doesn't apply
-            "PopCensus": None,  # filled below from VA-level totals
+            "PopCensus": sub_pop,
             "geometry": sub_geom,
             "_va_ucp": float(chunk["va_ucp"].sum()),
             "_va_ndp": float(chunk["va_ndp"].sum()),
@@ -111,11 +118,28 @@ def main() -> int:
     if va.crs != maj.crs:
         va = va.to_crs(maj.crs)
 
+    # Attach per-VA 2021 population so split halves can report their
+    # actual populations instead of a hardcoded original_pop/2 (which
+    # would mask the residential-vs-industrial population imbalance the
+    # bisection is supposed to surface for the scorecard to flag).
+    if not POP_CACHE.exists():
+        raise FileNotFoundError(f"Missing {POP_CACHE} (needed for per-half PopCensus)")
+    pop_df = pd.read_csv(POP_CACHE).set_index("va_row_idx")["pop_2021"]
+    mapped = va.index.map(pop_df)
+    if mapped.isna().any():
+        n_missing = int(mapped.isna().sum())
+        raise RuntimeError(
+            f"POP_CACHE row indices do not align with VA shapefile: "
+            f"{n_missing} of {len(va)} VAs have no matching pop_2021 row. "
+            f"Regenerate {POP_CACHE.name} against the current {VA_GPKG.name}."
+        )
+    va["pop_2021"] = mapped.astype(float)
+
     # Spatial-join VAs → majority EDs (centroid-in-polygon)
     va_pts = va.copy()
     va_pts["geometry"] = va_pts.geometry.representative_point()
     joined = gpd.sjoin(
-        va_pts[["va_ucp", "va_ndp", "va_other", "geometry"]],
+        va_pts[["va_ucp", "va_ndp", "va_other", "pop_2021", "geometry"]],
         maj[["EDName2025", "geometry"]],
         how="left",
         predicate="within",
@@ -139,7 +163,7 @@ def main() -> int:
                 new_rows.append({
                     "EDName2025": s["EDName2025"],
                     "EDNum2025": s["EDNum2025"],
-                    "PopCensus": float(ed_row["PopCensus"]) / 2,  # rough half
+                    "PopCensus": s["PopCensus"],  # actual sum of per-VA pop_2021
                     "Km2": None,
                     "Hectares": None,
                     "Acres": None,
