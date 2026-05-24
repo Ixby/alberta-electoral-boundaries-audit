@@ -88,7 +88,7 @@
         <li>Screen size, rounded to the nearest 100 pixels</li>
         <li>Device type: phone, tablet, or desktop</li>
         <li>Time zone and language (e.g. America/Edmonton, en-CA)</li>
-        <li>Day of week and hour — no full date, no minutes</li>
+        <li>Full date and time of the share</li>
         <li>If you loaded someone else's share code first, that code is noted as your starting point</li>
       </ul>
     </section>
@@ -109,6 +109,13 @@
       <h2>Share codes</h2>
       <p>Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To load someone's shared view, the recipient types the code directly into the site.</p>
       <p>Your most recent share code is stored in a cookie so your map view is restored on your next visit.</p>
+
+      <h3>There are only 19,200 possible codes</h3>
+      <p>Share codes represent map configurations, not people. There are exactly 19,200 valid combinations of map, overlays, layers, and viewport region — so two people exploring independently can easily arrive at the same code. This is expected and intentional. When it happens, we record two arrivals at the same map state, which is exactly the signal we're looking for: it tells us that configuration is genuinely interesting, not just a one-off. No two sessions are merged or linked because of a shared code.</p>
+
+      <h3>What can and cannot be linked</h3>
+      <p>Share codes and flight paths are impossible to link. They are stored in separate database tables with no shared key — not a privacy policy restriction, an architectural one. There is no query that connects them.</p>
+      <p>Web server logs work the same way. When your browser loads this page, GitHub's servers record your IP address. When your flight-path events reach our database, they carry a session identifier — a random string that exists only in your browser's memory for that page load. Your IP address is never stored in our database. The session identifier is never sent to GitHub's servers. The two pieces of information were never associated, so there is nothing to link.</p>
     </section>
 
     <section>
