@@ -12,6 +12,7 @@ import { initSearch } from './mapEngine/search';
 import { applyAnomalyHighlight, initAnomalyButtons } from './mapEngine/anomaly';
 import { initNamedEdButtons } from './mapEngine/namedEdZoom';
 import { initViewport, getStageRect, animateToVB as vpAnimateToVB, resetVB as vpResetVB, vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, updateZoomDisplay, updateStrokeWidths } from './mapEngine/viewport';
+import { activateInlineSVG as sl_activateInlineSVG, applyFallback as sl_applyFallback, resetFallback as sl_resetFallback, tryInit as sl_tryInit } from './mapEngine/svgLoader';
 
 let _onEvent      = null;
 let _getState     = null;
@@ -108,149 +109,10 @@ export function init(basePath: string): void {
         function vbZoomAt(mx, my, factor)     { vpVbZoomAt(ctx, mx, my, factor); }
         function vbPanBy(dx, dy)              { vpVbPanBy(ctx, dx, dy); }
 
-        function _activateInlineSVG(node, preserveVB) {
-          // Null out stale references so _syncOverlays re-adds them to the new node
-          ['minority', 'majority', '2019'].forEach(function(k) { ctx.overlayInSvg[k] = null; });
-          node.setAttribute('width', '100%');
-          node.setAttribute('height', '100%');
-          node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-          node.style.cssText = 'position:absolute;left:0;top:0;display:block;touch-action:none;';
-          const _cur = (ctx.svgEl && ctx.svgEl.parentNode === stage) ? ctx.svgEl
-                     : (obj.parentNode === stage)             ? obj
-                     : null;
-          if (_cur) stage.replaceChild(node, _cur);
-          else stage.appendChild(node);
-
-          // ed_hover_layer paths have fill:none, so pointer-events is visiblePainted
-          // by default, giving zero hit area. Set all on each path so
-          // document.elementsFromPoint returns them for click/hover targets.
-          const _hoverLayer = node.querySelector('#ed_hover_layer');
-          if (_hoverLayer) {
-            _hoverLayer.style.pointerEvents = 'all';
-            _hoverLayer.querySelectorAll('path[data-ed-id]').forEach(function(p) {
-              p.style.pointerEvents = 'all';
-            });
-          }
-
-          const vb = node.viewBox.baseVal;
-          if (vb.width && vb.height) {
-            ctx.natVB = { x: vb.x, y: vb.y, w: vb.width, h: vb.height };
-          } else {
-            const w = parseFloat(node.getAttribute('width'))  || 432;
-            const h = parseFloat(node.getAttribute('height')) || 648;
-            ctx.natVB = { x: 0, y: 0, w, h };
-            node.setAttribute('viewBox', `0 0 ${w} ${h}`);
-          }
-          ctx.curVB = { ...ctx.natVB };
-          ctx.svgEl = node;
-          ctx.mode = 'viewbox';
-          ctx.ready = true;
-          var skel = document.getElementById('zoom-skeleton'); if (skel) skel.classList.add('hidden');
-          // Pre-warm the other two maps so switching is instant
-          setTimeout(function() {
-            ['minority', 'majority', '2019'].forEach(function(k) {
-              if (!ctx.svgCache[k]) {
-                fetch(_mapSvgUrls[k]).then(function(r) { return r.text(); })
-                  .then(function(t) { ctx.svgCache[k] = new DOMParser().parseFromString(t, 'image/svg+xml'); })
-                  .catch(function() {});
-              }
-            });
-          }, 400);
-          _applyBoundaryColor(node, ctx.mapPrimary);
-          reapplyLayers(ctx);
-          if (typeof _applyAnomalyHighlight === 'function') _applyAnomalyHighlight();
-          _syncOverlays();
-          updateStrokeWidths(ctx);
-          if (overlay.style.display !== 'none') {
-            if (preserveVB) {
-              // Restore saved view without resetting to full province
-              if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
-              if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
-              ctx.settledVB = null;
-              ctx.curVB = { ...preserveVB };
-              ctx.svgEl.style.transform = '';
-              ctx.svgEl.style.willChange = '';
-              ctx.svgEl.style.transformOrigin = '';
-              ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
-              updateZoomDisplay(ctx);
-              updateStrokeWidths(ctx);
-            } else {
-              resetVB();
-            }
-          }
-        }
-
-        // ── Fallback state ────────────────────────────────────────────────────
-
-        function applyFallback() {
-          const w = Math.max(1, Math.round(ctx.fbNatW * ctx.fbScale));
-          const h = Math.max(1, Math.round(ctx.fbNatH * ctx.fbScale));
-          ctx.fbImg.width = w; ctx.fbImg.height = h;
-          ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px';
-          ctx.fbImg.style.top  = Math.round(ctx.fbTy) + 'px';
-          updateZoomDisplay(ctx);
-        }
-
-        function resetFallback() {
-          const sw = stage.offsetWidth, sh = stage.offsetHeight;
-          ctx.fbScale = Math.min(sw / ctx.fbNatW, sh / ctx.fbNatH) * 0.94;
-          ctx.fbTx = (sw - ctx.fbNatW * ctx.fbScale) / 2;
-          ctx.fbTy = (sh - ctx.fbNatH * ctx.fbScale) / 2;
-          applyFallback();
-        }
-
-        function initFallback() {
-          ctx.mode = 'fallback';
-          ctx.fbImg = document.createElement('img');
-          ctx.fbImg.src = obj.data; ctx.fbImg.alt = obj.title; ctx.fbImg.draggable = false;
-          ctx.fbImg.style.cssText = 'position:absolute;display:block;user-select:none;pointer-events:none;';
-          stage.replaceChild(ctx.fbImg, obj);
-          function onLoad() {
-            ctx.fbNatW = ctx.fbImg.naturalWidth || 600; ctx.fbNatH = ctx.fbImg.naturalHeight || 900;
-            ctx.ready = true;
-            if (overlay.style.display !== 'none') resetFallback();
-          }
-          if (ctx.fbImg.complete && ctx.fbImg.naturalWidth) onLoad();
-          else ctx.fbImg.onload = onLoad;
-        }
-
-        // ── Initialisation ────────────────────────────────────────────────────
-        function _xhrFallback() {
-          // Try XHR inline injection (works over HTTP or Firefox file://)
-          try {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', obj.data, true);
-            xhr.onload = () => {
-              if (xhr.status === 200 || xhr.status === 0) {
-                const doc = new DOMParser().parseFromString(xhr.responseText, 'image/svg+xml');
-                const root = doc.documentElement;
-                if (root && root.tagName.toLowerCase() !== 'parsererror') {
-                  _activateInlineSVG(document.importNode(root, true));
-                  return;
-                }
-              }
-              initFallback();
-            };
-            xhr.onerror = initFallback;
-            xhr.send();
-          } catch (e) { initFallback(); }
-        }
-
-        function tryInit() {
-          if (ctx.ready) return;
-          // Primary: adopt the already-parsed SVG from the object's nested document.
-          // replaceChild implicitly adopts the node — no re-download, no re-parse.
-          const doc = obj.contentDocument || (obj.getSVGDocument && obj.getSVGDocument());
-          if (doc && doc.documentElement && doc.documentElement.tagName.toLowerCase() === 'svg') {
-            _activateInlineSVG(doc.documentElement);
-            return;
-          }
-          // Secondary: XHR then importNode
-          _xhrFallback();
-        }
-
-        obj.addEventListener('load', tryInit);
-        if (obj.contentDocument && obj.contentDocument.readyState === 'complete') tryInit();
+        // ── SVG loader thin wrappers — declared here (hoisted), deps wired after _mapSvgUrls ──
+        function _activateInlineSVG(node, pVB) { sl_activateInlineSVG(ctx, node, pVB, stage, overlay, _svgDeps); }
+        function applyFallback()               { sl_applyFallback(ctx); }
+        function resetFallback()               { sl_resetFallback(ctx, stage); }
 
         // ── Open / close ──────────────────────────────────────────────────────
         function _overlayFocusable() {
@@ -356,6 +218,17 @@ export function init(basePath: string): void {
           majority: '#1A7A6E',
           '2019':   '#7a98b4',
         };
+
+        // ── SVG loader deps + event wiring (after _mapSvgUrls is defined) ────────────
+        const _svgDeps = {
+          obj,
+          svgUrls: _mapSvgUrls,
+          applyBoundaryColor: (n, k) => _applyBoundaryColor(n, k),
+          applyAnomalyHighlight: () => _applyAnomalyHighlight(),
+          syncOverlays: () => _syncOverlays(),
+        };
+        obj.addEventListener('load', () => sl_tryInit(ctx, obj, stage, overlay, _svgDeps));
+        if (obj.contentDocument && obj.contentDocument.readyState === 'complete') sl_tryInit(ctx, obj, stage, overlay, _svgDeps);
 
         // ── Share bridge ──────────────────────────────────────────────────────
         _getState = function() {
