@@ -1037,16 +1037,17 @@
 {#if showParticipation}
 <div id="participation-overlay" role="dialog" aria-modal="true" aria-labelledby="part-heading">
   <div id="participation-card">
-    <h2 id="part-heading">May we connect anonymous usage data?</h2>
-    <p>This audit is ongoing research. Connecting anonymous data helps us understand how people navigate the tool and where the design can improve. No personal information is collected — all inputs are pre-anonymized in your browser before anything is transmitted.</p>
+    <h2 id="part-heading">Help us refine MapExplorer</h2>
+    <p>When you share a view, we'd like to record which maps and districts you explored and where you landed — to understand what's useful and make the tool better.</p>
+    <p class="part-no-collect">We never collect your name, IP address, or precise location. Everything is anonymized in your browser before it leaves. We couldn't identify you from the data even if ordered to.</p>
     {#if dntActive}
-    <p class="part-dnt">Your browser has Do Not Track enabled. No is pre-selected on your behalf. You can change your answer.</p>
+    <p class="part-dnt">Your browser has Do Not Track enabled. No is pre-selected on your behalf. You can still choose Yes.</p>
     {/if}
     <div class="part-actions">
       <button class="part-btn" class:part-primary={dntActive} class:part-secondary={!dntActive}
         onclick={() => { storeConsent(false); setParticipation(false); showParticipation = false; }}>No thanks</button>
       <button class="part-btn" class:part-primary={!dntActive} class:part-secondary={dntActive}
-        onclick={() => { storeConsent(true); setParticipation(true); showParticipation = false; }}>Yes, connect</button>
+        onclick={() => { storeConsent(true); setParticipation(true); showParticipation = false; }}>Yes, I'll help</button>
     </div>
     <p class="part-policy"><a href="{base}/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
   </div>
@@ -2145,6 +2146,11 @@
   }
   :global(#participation-card p) {
     margin: 0 0 0.9rem; font-size: 0.88rem; line-height: 1.55; color: var(--text-muted, #444);
+  }
+  :global(.part-no-collect) {
+    font-size: 0.82rem !important;
+    color: var(--text-muted, #666) !important;
+    opacity: 0.85;
   }
   :global(.part-dnt) {
     font-size: 0.82rem !important;
