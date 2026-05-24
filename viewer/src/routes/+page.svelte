@@ -155,8 +155,8 @@
     <p>{t(lang.current, 'verdict.q3.body')}</p>
   </div>
   <div class="verdict-ctas">
-    <a href="#section-2" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
-    <a href="#section-3" class="verdict-cta">{t(lang.current, 'verdict.cta_methods')}</a>
+    <a href="{base}/law/?lang={lang.current}" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
+    <a href="{base}/methods/?lang={lang.current}" class="verdict-cta">{t(lang.current, 'verdict.cta_methods')}</a>
   </div>
 </section>
 
@@ -183,19 +183,6 @@
 </section>
 
 <main class="container">
-
-  <div style="padding: 1.5rem 0 0.5rem;">
-    <div class="callout" style="background:#F0EBF8; border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
-      <p style="margin:0;"><strong>Bottom line:</strong> The commission&rsquo;s minority map would occur by chance in fewer than 1&nbsp;in&nbsp;14.5&nbsp;million randomly drawn maps. The majority map falls well within normal range.</p>
-    </div>
-    <div class="callout" style="background: #D0EEEA; border-left-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
-      <p style="margin:0 0 0.6rem;"><strong>TL;DR</strong></p>
-      <p style="margin:0 0 0.6rem;">Alberta's redistribution commission split 3&ndash;2 in 2026 and produced two different proposed maps. The government set both aside and assigned redistricting to a five-member committee of MLAs (the Lunty committee), expected to report in November 2026. Neither commission map is law.</p>
-      <p style="margin:0 0 0.6rem;">This audit tested both commission maps the same way, using 1,010,000 computer-drawn neutral maps built from the official Elections Alberta shapefiles as a reference point. The majority proposal sits within the neutral range on every pre-registered test. The minority proposal crosses four of five structural tests, and its partisan-fairness seat split at a 50/50 vote is reached by fewer than 100 of those neutral maps &mdash; a joint probability of roughly 1 in 15 million under a neutral drawing process.</p>
-      <p style="margin:0;">The audit measures outcomes, not intent. When the Lunty committee releases its map, this audit will apply the same tests to it.</p>
-      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:#555;">Pre-registered falsification conditions and retraction commitments are in <a href="#retractions">§9</a>.</p>
-    </div>
-  </div>
 
   <section id="section-1">
     <h2>1: The Map <a href="#section-1" class="section-link" aria-label="Link to section 1">#</a></h2>

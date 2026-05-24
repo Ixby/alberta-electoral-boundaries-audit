@@ -136,6 +136,22 @@ export default {
 		p5: "<strong>Australia</strong> delegates the work to the Australian Electoral Commission, a federal independent agency with full authority over both election administration and boundaries. Redistributions happen automatically when a state's seat count changes or seven years pass since the last one. The commissioners' decisions are reviewable on procedural grounds but not on partisan ones. Like the U.K., the result is that gerrymandering as Americans know it is virtually unheard of.",
 		p6: 'These three cases bracket the spectrum: courts staying out (U.S.), independent commissions with strong parliamentary deference (U.K.), and a permanent independent agency with full authority (Australia). Canada sits somewhere different again — which is what the next section takes up.'
 	},
+	law: {
+		title: 'Legal context — Alberta Electoral Boundary Audit',
+		heading: 'The legal context',
+		lede: 'Deeper treatment of why "gerrymander" is not the legal vocabulary in Canada, what the Charter section 3 "effective representation" test actually requires, how comparable jurisdictions structure their commissions differently, and what reform pathways exist for Alberta.',
+		coming_soon:
+			'This route is under active development. The current homepage already names the constitutional frame in Section 7 ("Canada is different — and similar"); the deeper treatment — the Saskatchewan Reference reasoning in full, the standing question for a Charter challenge, and a comparison table of provincial commission structures — lands here as it is drafted. See the editorial scaffold in the project repository under proposals/verdict_and_glossary_draft.md.',
+		back: '← Back to the homepage'
+	},
+	methods: {
+		title: 'How we tested — Alberta Electoral Boundary Audit',
+		heading: 'How we tested',
+		lede: 'Deeper treatment of the 1.01M-plan ReCom ensemble, the five pre-registered structural tests, the targeted-procedure (hill-climbing) test, the sampler cross-validation, and the pre-registration / falsification framework.',
+		coming_soon:
+			'This route is under active development. The current homepage names the headline numbers in the verdict block and the structural tests in passing; the deeper treatment — the lane-1 vs lane-2 framing, the four statistical measures explained, the five pre-registered structural tests with their pass/fail thresholds, and reproduction instructions — lands here as it is drafted. See the editorial scaffold in the project repository under proposals/verdict_and_glossary_draft.md.',
+		back: '← Back to the homepage'
+	},
 	section7: {
 		heading: 'Canada is different — and similar',
 		p1: 'Canada belongs to the same family as the U.S., the U.K., and Australia. We elect single members from geographic districts under first-past-the-post. We redraw the lines periodically — federally after each decennial census, provincially on staggered schedules. We inherited the basic machinery from the same Westminster roots. So far, no surprises.',

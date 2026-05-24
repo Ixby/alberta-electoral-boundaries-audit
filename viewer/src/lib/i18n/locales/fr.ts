@@ -137,6 +137,22 @@ export default {
 		p5: "<strong>L'Australie</strong> délègue le travail à la Commission électorale australienne, une agence fédérale indépendante avec autorité complète sur l'administration des élections et sur les limites. Les redécoupages ont lieu automatiquement quand le nombre de sièges d'un État change ou que sept ans se sont écoulés depuis le dernier. Les décisions des commissaires peuvent être révisées sur des motifs procéduraux mais pas sur des motifs partisans. Comme au Royaume-Uni, le résultat est que le découpage partisan tel que les Américains le connaissent est pratiquement inconnu.",
 		p6: "Ces trois cas encadrent le spectre : tribunaux qui restent à l'écart (États-Unis), commissions indépendantes avec forte déférence parlementaire (Royaume-Uni), et agence indépendante permanente avec autorité complète (Australie). Le Canada se situe encore ailleurs — ce que la prochaine section aborde."
 	},
+	law: {
+		title: "Contexte juridique — Audit des limites électorales de l'Alberta",
+		heading: 'Le contexte juridique',
+		lede: "Traitement approfondi des raisons pour lesquelles « gerrymander » n'est pas le vocabulaire juridique au Canada, de ce qu'exige réellement le critère de « représentation effective » de l'article 3 de la Charte, de la façon dont les juridictions comparables structurent leurs commissions différemment, et des voies de réforme qui existent pour l'Alberta.",
+		coming_soon:
+			"Cette page est en développement actif. La page d'accueil nomme déjà le cadre constitutionnel à la section 7 (« Le Canada est différent — et semblable ») ; le traitement plus profond — le raisonnement complet du Renvoi de la Saskatchewan, la question de la qualité pour agir lors d'une contestation fondée sur la Charte et un tableau comparatif des structures des commissions provinciales — sera publié ici au fur et à mesure de la rédaction. Voir l'ébauche éditoriale dans le dépôt du projet sous proposals/verdict_and_glossary_draft.md.",
+		back: "← Retour à la page d'accueil"
+	},
+	methods: {
+		title: "Méthodologie — Audit des limites électorales de l'Alberta",
+		heading: 'Comment nous avons testé',
+		lede: "Traitement approfondi de l'ensemble ReCom de 1,01 million de plans, des cinq tests structurels pré-enregistrés, du test de procédure ciblée (hill-climbing), de la validation croisée des échantillonneurs, et du cadre de pré-enregistrement et de falsification.",
+		coming_soon:
+			"Cette page est en développement actif. La page d'accueil nomme les chiffres clés dans le bloc de verdict et les tests structurels au passage ; le traitement plus profond — le cadrage voie 1 / voie 2, les quatre mesures statistiques expliquées, les cinq tests structurels pré-enregistrés avec leurs seuils de réussite/échec, et les instructions de reproduction — sera publié ici au fur et à mesure de la rédaction. Voir l'ébauche éditoriale dans le dépôt du projet sous proposals/verdict_and_glossary_draft.md.",
+		back: "← Retour à la page d'accueil"
+	},
 	section7: {
 		heading: 'Le Canada est différent — et semblable',
 		p1: "Le Canada appartient à la même famille que les États-Unis, le Royaume-Uni et l'Australie. Nous élisons des membres uniques à partir de circonscriptions géographiques selon le scrutin majoritaire uninominal. Nous retraçons les limites périodiquement — au fédéral après chaque recensement décennal, dans les provinces selon des calendriers échelonnés. Nous avons hérité de la machinerie de base des mêmes racines de Westminster. Jusqu'ici, aucune surprise.",
