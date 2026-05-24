@@ -332,7 +332,7 @@
       <span class="badge">Official Elections Alberta maps &mdash; Published May 2026</span>
       <p class="cover-note">Click to zoom and explore all three boundary proposals simultaneously. Pin the viewport and flip between maps &mdash; boundaries shift, voters stay put. Scroll down for the analysis.</p>
     </div>
-    <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map" onclick={handleZoomTrigger}>
+    <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Click to explore interactively" onclick={handleZoomTrigger}>
       <div class="hero-map-wrap">
         <picture>
           <source type="image/webp" srcset="images/cover_art.webp 680w" sizes="(min-width: 600px) 339px, 90vw">
@@ -1581,6 +1581,8 @@
 
     .card .number.neutral { color: #1a5276; }
     .card .number.flag    { color: #6B35A7; }
+    :root[data-theme="dark"] .card .number.neutral { color: #6ab0d8; }
+    :root[data-theme="dark"] .card .number.flag    { color: #c090f0; }
 
     .card .description {
       font-size: 0.86rem;
@@ -1619,6 +1621,8 @@
 
     td.flag { color: #6B35A7; font-weight: 600; }
     td.normal { color: #1A7A6E; }
+    :root[data-theme="dark"] td.flag   { color: #c090f0; }
+    :root[data-theme="dark"] td.normal { color: #3dcfba; }
 
     /* Callout box */
     .callout {
