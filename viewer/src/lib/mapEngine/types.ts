@@ -72,4 +72,7 @@ export type MapCtx = {
   lastPinchDist:      number | null;
   lastPinchMid:       { x: number; y: number } | null;
   lastTap:            number;
+
+  // viewport cache
+  _lastStrokeW?:      number;
 };

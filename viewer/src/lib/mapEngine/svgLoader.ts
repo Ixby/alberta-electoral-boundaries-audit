@@ -175,6 +175,8 @@ export function resetFallback(ctx: MapCtx, stage): void {
 
 export function initFallback(ctx: MapCtx, obj, stage, overlay): void {
   ctx.mode = 'fallback';
+  const notice = document.getElementById('map-fallback-notice');
+  if (notice) { notice.style.display = ''; setTimeout(() => { notice.style.display = 'none'; }, 6000); }
   ctx.fbImg = document.createElement('img');
   ctx.fbImg.src = obj.data; ctx.fbImg.alt = obj.title; ctx.fbImg.draggable = false;
   ctx.fbImg.style.cssText = 'position:absolute;display:block;user-select:none;pointer-events:none;';

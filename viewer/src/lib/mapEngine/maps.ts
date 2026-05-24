@@ -161,6 +161,12 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
       .catch(function() {
         ctx.ready = true;
         if (stage) { stage.style.opacity = ''; setTimeout(function() { stage.style.transition = ''; }, 200); }
+        const errEl = document.getElementById('map-load-error');
+        if (errEl) {
+          errEl.textContent = 'Could not load the ' + key + ' map — check your connection.';
+          errEl.style.display = '';
+          setTimeout(function() { errEl.style.display = 'none'; }, 5000);
+        }
       });
   }
   // JSON pre-fetched at init via loadHoverJson; only fetch if not yet available

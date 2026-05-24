@@ -126,7 +126,11 @@ export function initGestures(ctx: MapCtx, stage): void {
         if (now - ctx.lastTap < 300) {
           const hit = tipTarget(e);
           if (hit) { _zoomEdTo70(hit); }
-          else { _hideCallout(); _hideVaCallout(); _animateToVB({ ...ctx.natVB }, 420); }
+          else {
+            const _wasSelected = !!ctx.selectedEdName;
+            _hideCallout(); _hideVaCallout();
+            if (!_wasSelected) _animateToVB({ ...ctx.natVB }, 420);
+          }
           ctx.lastTap = 0;
         } else {
           ctx.lastTap = now;
@@ -181,5 +185,25 @@ export function initGestures(ctx: MapCtx, stage): void {
       if (hit) _zoomEdTo70(hit);
       else _animateToVB({ ...ctx.natVB }, 420);
     } else sl_resetFallback(ctx, stage);
+  });
+
+  // ── Keyboard pan / zoom ───────────────────────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (!ctx.ready || ctx.mode !== 'viewbox') return;
+    const overlay = document.getElementById('zoom-overlay');
+    if (!overlay || overlay.style.display === 'none') return;
+    const active = document.activeElement;
+    if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SELECT')) return;
+    const r = _getStageRect();
+    const PAN = 0.18;
+    switch (e.key) {
+      case 'ArrowLeft':  e.preventDefault(); vpVbPanBy(ctx,  r.width  * PAN, 0); break;
+      case 'ArrowRight': e.preventDefault(); vpVbPanBy(ctx, -r.width  * PAN, 0); break;
+      case 'ArrowUp':    e.preventDefault(); vpVbPanBy(ctx, 0,  r.height * PAN); break;
+      case 'ArrowDown':  e.preventDefault(); vpVbPanBy(ctx, 0, -r.height * PAN); break;
+      case '+': case '=': e.preventDefault(); vpVbZoomAt(ctx, r.width / 2, r.height / 2, 1.3); break;
+      case '-': case '_': e.preventDefault(); vpVbZoomAt(ctx, r.width / 2, r.height / 2, 1 / 1.3); break;
+      case '0':           e.preventDefault(); _animateToVB({ ...ctx.natVB }, 420); break;
+    }
   });
 }

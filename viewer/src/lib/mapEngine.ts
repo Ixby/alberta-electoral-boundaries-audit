@@ -289,6 +289,13 @@ export function init(basePath: string): void {
 
         // ── Map onboarding modal ──────────────────────────────────────────────────
         initIntroModal();  // wires close-btn, backdrop-click, and Escape handlers
+        const _helpBtn = document.getElementById('tb-help-btn');
+        if (_helpBtn) {
+          _helpBtn.addEventListener('click', () => {
+            const modal = document.getElementById('map-intro-modal');
+            if (modal) modal.style.display = 'flex';
+          });
+        }
 
         async function _maybeShowIntro() {
           if (await hasSeenIntro()) return;

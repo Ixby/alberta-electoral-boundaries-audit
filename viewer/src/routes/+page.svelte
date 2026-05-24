@@ -17,7 +17,7 @@
 <svelte:window onkeydown={handleWindowKeydown} />
 
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount, onDestroy, tick } from 'svelte';
   import { base } from '$app/paths';
   type MapEngineModule = Awaited<typeof import('$lib/mapEngine')>;
   let _ME: MapEngineModule | null = null;
@@ -75,7 +75,14 @@
 
   function toggleSharePanel() {
     showSharePanel = !showSharePanel;
-    if (showSharePanel) { _generateCode(); loadError = ''; }
+    if (showSharePanel) {
+      _generateCode(); loadError = '';
+      tick().then(() => {
+        const panel = document.getElementById('share-panel');
+        const first = panel?.querySelector('button, input') as HTMLElement | null;
+        first?.focus();
+      });
+    }
   }
 
   function closeSharePanel() { showSharePanel = false; }
@@ -249,9 +256,10 @@
       (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLImageElement).src));
     });
     lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+    (document.getElementById('fig-lightbox-close') as HTMLElement)?.addEventListener('click', closeLb);
     lb.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeLb();
-      if (e.key === 'Tab') e.preventDefault();
+      if (e.key === 'Tab') { e.preventDefault(); (document.getElementById('fig-lightbox-close') as HTMLElement)?.focus(); }
     });
 
     // ── Vocab term expand/collapse ────────────────────────────────────────────
@@ -1054,6 +1062,7 @@
 
 <!-- Figure lightbox -->
 <div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view" tabindex="-1">
+  <button id="fig-lightbox-close" aria-label="Close enlarged figure (Esc)">&times;</button>
   <img id="fig-lightbox-img" alt="">
 </div>
 
@@ -1097,7 +1106,7 @@
 
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label="Map zoom viewer" style="display:none;">
-  <button id="zoom-close" title="Close (Esc)">&times;</button>
+  <button id="zoom-close" aria-label="Close map viewer" title="Close (Esc)">&times;</button>
   <div id="hud">
   <div id="top-bar">
     <div class="tb-group">
@@ -1114,6 +1123,8 @@
     <div class="tb-sep"></div>
     <button class="tb-btn" data-anomaly="airdrie" title="All 7 configurations flagged by commission chair Justice Miller — switches to minority map automatically">Flagged</button>
     <div class="tb-sep"></div>
+    <button class="tb-btn tb-help-btn" id="tb-help-btn" aria-label="Map help" title="How to use the map">?</button>
+    <div class="tb-sep"></div>
     <button class="tb-btn tb-pin-btn" data-layer="lock" title="Pin Map — prevent auto-pan on district click" aria-label="Pin Map">
       <svg class="pin-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
         <path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.9 5.9 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182a.5.5 0 0 1-.707-.707l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.9 5.9 0 0 1 1.013.16l3.134-3.133a3 3 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146"/>
@@ -1129,13 +1140,21 @@
       <span id="zoom-pct">100%</span>
       <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label="Map zoom">
     </div>
-    <button id="ec-close" class="tb-btn tb-close-btn" title="Clear selection">&times;</button>
+    <button id="ec-close" class="tb-btn tb-close-btn" aria-label="Clear district selection" title="Clear selection">&times;</button>
     <div class="tb-sep"></div>
     <div id="tb-share-wrap">
       <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title="Share or load a map configuration">Share</button>
       {#if showSharePanel}
       <div class="share-backdrop" onclick={closeSharePanel} aria-hidden="true"></div>
-      <div id="share-panel" role="dialog" aria-label="Share map configuration" aria-modal="true">
+      <div id="share-panel" role="dialog" aria-label="Share map configuration" aria-modal="true" tabindex="-1"
+           onkeydown={(e: KeyboardEvent) => {
+             if (e.key !== 'Tab') return;
+             const focusable = Array.from(document.getElementById('share-panel')?.querySelectorAll('button, input') ?? []) as HTMLElement[];
+             if (!focusable.length) return;
+             const first = focusable[0], last = focusable[focusable.length - 1];
+             if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+             else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+           }}>
         <button class="share-close" onclick={closeSharePanel} aria-label="Close share panel">✕</button>
         <div class="share-section">
           <div class="share-label">Share this configuration</div>
@@ -1191,8 +1210,11 @@
       <div id="ec-eg-row"><span class="ec-eg-label">EG</span> <span id="ec-eg"></span></div>
       <div id="ec-context"></div>
       <div id="ec-compare"></div>
+      <div id="ec-va-hint" style="display:none;">Click within this district to see polling station results</div>
     </div>
   </div>
+  <div id="map-load-error" style="display:none;"></div>
+  <div id="map-fallback-notice" style="display:none;">Map loaded in low-resolution mode — district detail unavailable</div>
   </div><!-- /#hud -->
   <!-- va-callout — shown alongside ed-callout when VA data is available and a VA is hit -->
   <div id="va-callout" aria-live="polite">
@@ -1209,8 +1231,9 @@
       </div>
     </div>
     <span id="vc-total"></span>
-    <button id="vc-close" title="Close">&times;</button>
+    <button id="vc-close" aria-label="Close polling station detail" title="Close">&times;</button>
   </div>
+  <div id="sr-announce" role="status" aria-live="polite" class="sr-only"></div>
   <div id="zoom-stage">
     <div id="zoom-skeleton" aria-hidden="true">
       <!-- Alberta province outline — 31-pt RDP simplification, perimeter ≈ 1872 SVG units -->
@@ -1257,13 +1280,14 @@
 <div id="map-intro-modal" style="display:none;">
   <div id="map-intro-inner">
     <h3>How to use the map</h3>
-    <p style="margin:0 0 0.65rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Minority → Majority</strong> to watch the boundaries shift while the voters stay still.</p>
     <ul>
-      <li><strong>Minority / Majority / 2019</strong> &mdash; switch the active map</li>
-      <li><strong>Partisan</strong> &mdash; colour districts by UCP/NDP outcome</li>
-      <li><strong>Vote %</strong> &mdash; polling-area vote data under the boundaries</li>
-      <li><strong>Wasted</strong> &mdash; shade by efficiency-gap contribution</li>
-      <li><strong>Find district</strong> &mdash; jump to any district by name</li>
+      <li><strong>Click any district</strong> &mdash; see 2023 election results and snap to it</li>
+      <li><strong>Click within a selected district</strong> &mdash; see individual polling station results (colour = vote split)</li>
+      <li><strong>Double-click a district</strong> &mdash; zoom to fill screen; double-click empty space to zoom out</li>
+      <li><strong>Minority / Majority / Current</strong> &mdash; switch the active boundary map</li>
+      <li><strong>Partisan / Wasted / Borders</strong> &mdash; toggle data layers</li>
+      <li><strong>Find district</strong> &mdash; jump by name; arrow keys pan, + / &minus; zoom</li>
+      <li><strong>Escape</strong> &mdash; close this viewer</li>
     </ul>
     <p style="margin:0 0 0.9rem; font-size:0.9rem;">In §4, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone.</p>
     <button id="map-intro-close">Got it</button>
@@ -2183,6 +2207,15 @@
     overflow: hidden;
   }
   #fig-lightbox:focus { outline: none; }
+  #fig-lightbox-close {
+    position: absolute; top: 12px; right: 16px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; font-size: 1.4rem; line-height: 1;
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1;
+  }
+  #fig-lightbox-close:hover { background: rgba(255,255,255,0.22); }
   #fig-lightbox img {
     max-width: 92vw; max-height: 92dvh;
     object-fit: contain;
@@ -2191,6 +2224,59 @@
     transform-origin: center center;
     cursor: default;
     pointer-events: none;
+  }
+
+  /* Screen-reader only */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0;
+    margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+
+  /* Tooltip must never capture pointer events */
+  #ed-tooltip { pointer-events: none; }
+
+  /* District name truncation */
+  #ec-name {
+    max-width: min(300px, calc(100vw - 140px));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* VA hint in ED callout */
+  #ec-va-hint {
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.42);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  /* Help button */
+  .tb-help-btn { font-size: 0.8rem !important; font-weight: 700; }
+
+  /* Map load error / fallback notices */
+  #map-load-error, #map-fallback-notice {
+    color: #fff;
+    font-size: 0.72rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(6px);
+    align-self: flex-start;
+    pointer-events: none;
+  }
+  #map-load-error    { background: rgba(180,60,40,0.88); }
+  #map-fallback-notice { background: rgba(120,80,10,0.88); }
+
+  /* Mobile toolbar: horizontal scroll instead of wrap */
+  @media (max-width: 600px) {
+    #top-bar {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    #top-bar::-webkit-scrollbar { display: none; }
   }
 
   /* Persistent CC badge */

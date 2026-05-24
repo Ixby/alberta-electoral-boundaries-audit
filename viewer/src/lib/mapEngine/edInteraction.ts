@@ -22,13 +22,11 @@ export function showTip(d, x: number, y: number): void {
     `UCP&nbsp;${d.ucp_pct}%&nbsp;&nbsp;NDP&nbsp;${d.ndp_pct}%` +
     (d.votes ? `<br>${_fmt.format(d.votes)}&nbsp;votes&nbsp;(2023)` : '') +
     (d.pop   ? `<br>Pop.&nbsp;${_fmt.format(d.pop)}` : '');
-  tip.style.display = 'block';
-  const pad = 14, tw = tip.offsetWidth, th = tip.offsetHeight;
+  const pad = 14, tw = 200, th = 60; // fixed estimates — avoids synchronous layout read on pointermove
   let lx = x + pad, ly = y + pad;
   if (lx + tw > window.innerWidth)  lx = x - tw - pad;
   if (ly + th > window.innerHeight) ly = y - th - pad;
-  tip.style.left = lx + 'px';
-  tip.style.top  = ly + 'px';
+  tip.style.cssText = `display:block;left:${lx}px;top:${ly}px`;
 }
 
 export function hideTip(): void {
@@ -98,6 +96,10 @@ export function showCallout(ctx: MapCtx, d): void {
   }
 
   ctx.selectedEdName = d.name;
+  const srEl = document.getElementById('sr-announce');
+  if (srEl) srEl.textContent = d.name + ' — UCP ' + d.ucp_pct + '%, NDP ' + d.ndp_pct + '%';
+  const vaHint = document.getElementById('ec-va-hint');
+  if (vaHint) vaHint.style.display = (ctx.allVaData && ctx.allVaData[ctx.mapPrimary] && Object.keys(ctx.allVaData[ctx.mapPrimary]).length) ? '' : 'none';
   const callout = document.getElementById('ed-callout');
   const hud     = document.getElementById('hud');
   if (callout) callout.classList.add('ec-visible');
@@ -105,13 +107,16 @@ export function showCallout(ctx: MapCtx, d): void {
 }
 
 export function hideCallout(ctx: MapCtx): void {
-  if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
   const callout = document.getElementById('ed-callout');
   const hud     = document.getElementById('hud');
   if (callout) callout.classList.remove('ec-visible');
   if (hud) hud.classList.remove('ec-has-ed');
   ctx.selectedEdName = null;
   clearEdHighlight(ctx);
+  const srEl = document.getElementById('sr-announce');
+  if (srEl) srEl.textContent = '';
+  const vaHint = document.getElementById('ec-va-hint');
+  if (vaHint) vaHint.style.display = 'none';
 }
 
 // ── ED highlight ──────────────────────────────────────────────────────────────
@@ -174,6 +179,8 @@ export function showVaCallout(ctx: MapCtx, d): void {
   if (!d) return;
   const el = document.getElementById('va-callout');
   if (!el) return;
+  const vaHint = document.getElementById('ec-va-hint');
+  if (vaHint) vaHint.style.display = 'none';
   const nameEl = document.getElementById('vc-name');
   if (nameEl) nameEl.textContent = d.poll_name || '';
   const ucpEl = document.getElementById('vc-ucp-pct');
@@ -200,7 +207,7 @@ export function isEdVisible(ctx: MapCtx, bb): boolean {
   if (!ctx.curVB || !bb.width || !bb.height) return false;
   const xOv = Math.max(0, Math.min(bb.x + bb.width, ctx.curVB.x + ctx.curVB.w) - Math.max(bb.x, ctx.curVB.x));
   const yOv = Math.max(0, Math.min(bb.y + bb.height, ctx.curVB.y + ctx.curVB.h) - Math.max(bb.y, ctx.curVB.y));
-  return (xOv * yOv) / (bb.width * bb.height) >= 0.60;
+  return (xOv * yOv) / (bb.width * bb.height) >= 0.95;
 }
 
 // ── Navigation ────────────────────────────────────────────────────────────────
