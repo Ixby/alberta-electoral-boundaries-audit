@@ -17,7 +17,7 @@
     <div class="header-text">
       <div class="site-label">Alberta Electoral Boundary Audit</div>
       <h1>Privacy &amp; Data Retention Policy</h1>
-      <p class="meta">Effective: 2026-05-23 · Maintained by Will Conner</p>
+      <p class="meta">Effective: 2026-05-24 · Maintained by Will Conner</p>
     </div>
   </div>
 </header>
@@ -109,7 +109,22 @@
 
     <section>
       <h2>Three-Word Share Codes</h2>
-      <p>Share codes are displayed on screen. They are copied to your clipboard only when you click the Copy button. They are never placed in a URL, never written to a cookie, and never transmitted as part of a link. Browser history, referrer headers, and server logs will not contain the code. Recipients enter the code directly into the site to load the shared map state.</p>
+      <p>Share codes are displayed on screen. They are copied to your clipboard only when you click the Copy button. They are never placed in a URL and never transmitted as part of a link. Browser history, referrer headers, and server logs will not contain the code. Recipients enter the code directly into the site to load the shared map state.</p>
+      <p>The most recent code you generated is stored in an encrypted cookie so your map state is restored on your next visit — see Cookies below.</p>
+    </section>
+
+    <section>
+      <h2>Cookies</h2>
+      <p>This site sets one cookie: <code>ab_audit_prefs</code>. It contains four values:</p>
+      <ul>
+        <li><strong>Consent</strong> — yes or no, as you answered the participation prompt</li>
+        <li><strong>Theme</strong> — dark or light, if you toggled it</li>
+        <li><strong>Intro seen</strong> — whether you have already dismissed the map intro</li>
+        <li><strong>Last map state</strong> — the share code for the map configuration you were last at, so your view is restored on your next visit</li>
+      </ul>
+      <p>The cookie is encrypted with AES-256-GCM in your browser before it is written. The server never sees the plaintext — the decryption key lives in the client code, not on any server. The cookie is also flagged <code>Secure</code>, meaning it is only transmitted over HTTPS, and <code>SameSite=Strict</code>, meaning it is never sent as part of a cross-site request.</p>
+      <p>The last map state is encrypted because it encodes where you were in the map — which proposal you were examining, which layers you had on, where your viewport was positioned. That is your business, not anyone else's. Encrypting it means the cookie is opaque to anyone who might intercept it, log it, or read it off your device.</p>
+      <p>The cookie expires after one year. Clearing your cookies removes it.</p>
     </section>
 
     <section>
@@ -155,11 +170,18 @@
     color: #1a1a1a;
     background: #f9f7f2;
   }
+  :global(:root[data-theme="dark"] body) {
+    color: #dde2ed;
+    background: #1e1f26;
+  }
 
   header {
     background: #1a2e45;
     color: #fff;
     padding: 2rem clamp(1.2rem, 4vw, 3.5rem);
+  }
+  :global(:root[data-theme="dark"]) header {
+    background: #111722;
   }
 
   .header-inner {
@@ -212,6 +234,9 @@
     padding-bottom: 2.4rem;
     border-bottom: 1px solid #e0ddd6;
   }
+  :global(:root[data-theme="dark"]) section {
+    border-bottom-color: #2e3040;
+  }
   section:last-child {
     border-bottom: none;
     margin-bottom: 0;
@@ -225,6 +250,7 @@
     margin-bottom: 0.8rem;
     letter-spacing: -0.01em;
   }
+  :global(:root[data-theme="dark"]) h2 { color: #a8c4e0; }
 
   h3 {
     font-size: 0.95rem;
@@ -232,6 +258,7 @@
     color: #243b53;
     margin: 1.2rem 0 0.5rem;
   }
+  :global(:root[data-theme="dark"]) h3 { color: #8890a4; }
 
   p { margin-bottom: 0.85rem; }
   p:last-child { margin-bottom: 0; }
@@ -251,6 +278,10 @@
     font-style: italic;
     color: #333;
   }
+  :global(:root[data-theme="dark"]) blockquote {
+    background: rgba(107,53,167,0.12);
+    color: #c4b8d8;
+  }
 
   code {
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
@@ -260,9 +291,14 @@
     border-radius: 3px;
     color: #1a2e45;
   }
+  :global(:root[data-theme="dark"]) code {
+    background: rgba(255,255,255,0.08);
+    color: #a8c4e0;
+  }
 
   a { color: #1a5276; }
   a:hover { text-decoration: underline; }
+  :global(:root[data-theme="dark"]) a { color: #6aaddb; }
 
   @media (max-width: 600px) {
     h2 { font-size: 1.05rem; }
