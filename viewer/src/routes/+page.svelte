@@ -144,15 +144,16 @@
   <h2 id="verdict-heading" class="visually-hidden">Verdict</h2>
   <div class="verdict-q">
     <h3>{t(lang.current, 'verdict.q1.heading')}</h3>
-    <p>{t(lang.current, 'verdict.q1.body')}</p>
+    <p>{@html t(lang.current, 'verdict.q1.body')}</p>
+    <p class="verdict-footnote">{t(lang.current, 'verdict.q1.footnote')}</p>
   </div>
   <div class="verdict-q">
     <h3>{t(lang.current, 'verdict.q2.heading')}</h3>
-    <p>{t(lang.current, 'verdict.q2.body')}</p>
+    <p>{@html t(lang.current, 'verdict.q2.body')}</p>
   </div>
   <div class="verdict-q">
     <h3>{t(lang.current, 'verdict.q3.heading')}</h3>
-    <p>{t(lang.current, 'verdict.q3.body')}</p>
+    <p>{@html t(lang.current, 'verdict.q3.body')}</p>
   </div>
   <div class="verdict-ctas">
     <a href="#canada-is-different" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
@@ -1098,6 +1099,17 @@
   margin: 0;
   line-height: 1.6;
   color: var(--text);
+}
+.verdict-q em {
+  font-style: italic;
+}
+.verdict-footnote {
+  margin-top: 0.6rem !important;
+  font-size: 0.85rem;
+  color: var(--text-muted, #666);
+  line-height: 1.5;
+  border-left: 2px solid var(--border-subtle);
+  padding-left: 0.7rem;
 }
 .verdict-ctas {
   display: flex;

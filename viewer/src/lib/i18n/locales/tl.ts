@@ -20,17 +20,19 @@ export default {
 		q1: {
 			heading: 'Ang iminungkahing mapa ba ay isang gerrymander?',
 			body:
-				'Ang "gerrymander" ay hindi terminong ginagamit ng mga korte sa Canada. Ngunit kung gagamitin ito — sa pang-araw-araw na kahulugang ibinibigay ng karamihan — ang mga ebidensya sa audit na ito ay makatuwirang sumusuporta sa pagtawag sa panukala ng minorya, kung ito ay magiging batas, bilang isang mapa na malalim na gerrymandered. Lahat ng istrukturang pagsusulit ng audit na ito ay tumutukoy sa panukala ng minorya; wala ni isa ang tumutukoy sa kabilang panukala (ang panukala ng mayorya).'
+				'Ang "gerrymander" ay hindi terminong ginagamit ng mga korte sa Canada. Ngunit kung gagamitin ito — sa pang-araw-araw na kahulugang ibinibigay ng karamihan — ang mga ebidensya sa audit na ito ay makatuwirang sumusuporta sa pagtawag sa <em>panukala ng minorya</em>, kung ito ay magiging batas, bilang isang mapa na malalim na gerrymandered. Lahat ng istrukturang pagsusulit ng audit na ito ay tumutukoy sa <em>panukala ng minorya</em>; wala ni isa ang tumutukoy sa kabilang panukala (ang <em>panukala ng mayorya</em>).',
+			footnote:
+				'Ang mga pangalang "mayorya" at "minorya" ay galing sa 3–2 na paghahati sa Electoral Boundaries Commission (pinamumunuan ni Justice Miller), na nagprodyus ng dalawang nagtutunggaling panukala sa halip na isang rekomendasyon. Isang hiwalay na komite ng mga MLA na pinamumunuan ni Brandon Lunty — isang MLA na hinirang ng Premier — ang pumipili ngayon sa pagitan ng mga ito bago ang takdang petsa ng Nobyembre 2026.'
 		},
 		q2: {
 			heading: 'Ano ang ibig sabihin ng "gerrymander" sa batas ng Canada?',
 			body:
-				'Wala. Iba ang pagsusuri ng Canada: kung binibigyan ng epektibong representasyon ang mga botante sa ilalim ng seksyon 3 ng Charter. Ang panukala ng minorya ay nagdudulot ng mga seryosong tanong sa ilalim ng pagsusuring iyon; isang hukom lamang ang makakasagot ng tiyak, at walang sinuman pa ang nagtanong sa kanya.'
+				'Wala. Iba ang pagsusuri ng Canada: kung binibigyan ng <em>epektibong representasyon</em> ang mga botante sa ilalim ng seksyon 3 ng Charter. Ang panukala ng minorya ay nagdudulot ng mga seryosong tanong sa ilalim ng pagsusuring iyon; isang hukom lamang ang makakasagot ng tiyak, at walang sinuman pa ang nagtanong sa kanya.'
 		},
 		q3: {
 			heading: 'Ano ang ibig sabihin nito para sa mga Albertan?',
 			body:
-				'Sa isang 50/50 na boto sa probinsya, inilalagay ng mga sukat ng audit ang panukala ng minorya sa isang istrukturang sukdulan — mas mababa sa 100 ng 1.01 milyong neutral na mga mapa ng paghahambing ang nagbibigay ng kaparehong uri ng kawalan ng balanse sa upuan. Mahalaga ang kawalan ng balanseng iyon dahil sa 58 ng 87 upuan — isang dalawang-katlong supermayorya — ang naghaharing partido ay nakakakuha ng pambihirang mga kapangyarihang pamamaraan: maaari nitong tanggalin ang karaniwang mga panahon ng abiso at itulak ang mga panukalang batas sa pamamagitan ng maraming yugto ng pambabatasan sa isang araw lamang, lampas sa mga pagsusuri ng paglalapat na karaniwang nagpipigil sa kanya. Kung ang pagkakahilig ng panukala ng minorya ay sapat na laki upang itulak ang isang partido lampas sa hangganang 58-upuan sa mga sukat ng boto bukod sa 50/50 ay isang tanong na hindi pa sinuri ng audit na ito. Kung katanggap-tanggap ang pagpapalitan mismo ay isang tanong para sa mga Albertan, hindi para sa audit na ito.'
+				'Sa isang 50/50 na boto sa probinsya, inilalagay ng mga sukat ng audit ang panukala ng minorya sa isang istrukturang sukdulan — mas mababa sa 100 ng 1.01 milyong neutral na mga mapa ng paghahambing ang nagbibigay ng kaparehong uri ng kawalan ng balanse sa upuan. Mahalaga ang kawalan ng balanseng iyon dahil sa 58 ng 87 upuan — isang dalawang-katlong supermayorya — ang naghaharing partido ay nakakakuha ng pambihirang mga kapangyarihang pamamaraan: maaari nitong tanggalin ang karaniwang mga panahon ng abiso at itulak ang mga panukalang batas sa pamamagitan ng maraming yugto ng pambabatasan sa isang araw lamang, lampas sa mga pagsusuri ng paglalapat na karaniwang nagpipigil sa kanya. Kung ang pagkakahilig ng panukala ng minorya ay sapat na laki upang itulak ang isang partido lampas sa hangganang 58-upuan sa mga sukat ng boto na <em>iba</em> sa 50/50 ay isang tanong na hindi pa sinuri ng audit na ito. Kung katanggap-tanggap ang pagpapalitan mismo ay isang tanong para sa mga Albertan, hindi para sa audit na ito.'
 		},
 		cta_law: 'Basahin ang legal na konteksto →',
 		cta_methods: 'Tingnan kung paano namin sinubukan →'

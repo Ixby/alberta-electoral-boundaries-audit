@@ -19,17 +19,19 @@ export default {
 		q1: {
 			heading: 'La carte proposée est-elle un découpage partisan ?',
 			body:
-				"« Gerrymander » n'est pas un terme employé par les tribunaux canadiens. Mais s'il l'était — au sens courant que la plupart des gens lui donnent — les éléments de cet audit appuieraient raisonnablement la qualification de la proposition minoritaire, si elle était adoptée, comme une carte fortement remaniée à des fins partisanes. Tous les tests structurels de cet audit signalent la proposition minoritaire ; aucun ne signale l'autre (la proposition majoritaire)."
+				"« Gerrymander » n'est pas un terme employé par les tribunaux canadiens. Mais s'il l'était — au sens courant que la plupart des gens lui donnent — les éléments de cet audit appuieraient raisonnablement la qualification de la <em>proposition minoritaire</em>, si elle était adoptée, comme une carte fortement remaniée à des fins partisanes. Tous les tests structurels de cet audit signalent la <em>proposition minoritaire</em> ; aucun ne signale l'autre (la <em>proposition majoritaire</em>).",
+			footnote:
+				"Les noms « majorité » et « minorité » proviennent d'une division 3 contre 2 au sein de la Commission de délimitation électorale (présidée par le juge Miller), qui a produit deux propositions concurrentes plutôt qu'une seule recommandation. Un comité distinct de MLA présidé par Brandon Lunty — un MLA nommé par le Premier ministre — choisit actuellement entre les deux avant la date limite de novembre 2026."
 		},
 		q2: {
 			heading: 'Que signifie « gerrymander » en droit canadien ?',
 			body:
-				"Rien. Le critère canadien est différent : il s'agit de savoir si les limites garantissent aux électeurs une représentation effective au sens de l'article 3 de la Charte. La proposition minoritaire soulève de sérieuses questions sous ce critère ; seul un juge peut y répondre de façon définitive, et personne n'en a saisi un."
+				"Rien. Le critère canadien est différent : il s'agit de savoir si les limites garantissent aux électeurs une <em>représentation effective</em> au sens de l'article 3 de la Charte. La proposition minoritaire soulève de sérieuses questions sous ce critère ; seul un juge peut y répondre de façon définitive, et personne n'en a saisi un."
 		},
 		q3: {
 			heading: 'Qu\'est-ce que cela signifie pour les Albertains ?',
 			body:
-				"Lors d'un vote provincial à 50/50, les mesures de l'audit placent la proposition minoritaire dans un extrême structurel — moins de 100 des 1,01 million de cartes neutres de comparaison produisent un déséquilibre de sièges comparable. Ce déséquilibre compte parce qu'à 58 sièges sur 87 — une majorité des deux tiers — le parti au pouvoir débloque des pouvoirs procéduraux exceptionnels : il peut écarter les délais d'avis habituels et faire franchir à un projet de loi public plusieurs étapes législatives en une seule journée, contournant les freins délibératifs qui le contraignent normalement. Savoir si l'inclinaison de la proposition minoritaire est assez forte pour porter un parti au-delà de ce seuil de 58 sièges à des résultats de vote autres que 50/50 est une question que cet audit n'a pas encore examinée. Savoir si le compromis lui-même est acceptable est une question pour les Albertains, et non pour cet audit."
+				"Lors d'un vote provincial à 50/50, les mesures de l'audit placent la proposition minoritaire dans un extrême structurel — moins de 100 des 1,01 million de cartes neutres de comparaison produisent un déséquilibre de sièges comparable. Ce déséquilibre compte parce qu'à 58 sièges sur 87 — une majorité des deux tiers — le parti au pouvoir débloque des pouvoirs procéduraux exceptionnels : il peut écarter les délais d'avis habituels et faire franchir à un projet de loi public plusieurs étapes législatives en une seule journée, contournant les freins délibératifs qui le contraignent normalement. Savoir si l'inclinaison de la proposition minoritaire est assez forte pour porter un parti au-delà de ce seuil de 58 sièges à des résultats de vote <em>autres</em> que 50/50 est une question que cet audit n'a pas encore examinée. Savoir si le compromis lui-même est acceptable est une question pour les Albertains, et non pour cet audit."
 		},
 		cta_law: 'Lire le contexte juridique →',
 		cta_methods: 'Voir notre méthodologie →'
