@@ -67,7 +67,9 @@
 
     <section>
       <h2>What We Collect</h2>
-      <p>Data is collected only from sessions where participation was confirmed and the session has not been flagged as Do Not Track. Nothing is transmitted until you click Share. If you close the tab without sharing, nothing is recorded.</p>
+      <p>Data is collected only from sessions where participation was confirmed and the session has not been flagged as Do Not Track.</p>
+      <p><strong>Flight-path events</strong> — the sequence of maps, layers, and districts you visited — are periodically sent to our database as you explore, approximately every 30 seconds. If you close the tab without sharing, your ending state is not recorded, but exploration events already sent are retained as research data.</p>
+      <p><strong>Your ending state</strong> — the share code — is written to a separate table only when you click Share. The two records share no common key; there is no way to link a specific share code to the exploration events that preceded it.</p>
       <p>When you click Share, the following is written to our database:</p>
 
       <h3>Ending state</h3>

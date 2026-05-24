@@ -48,7 +48,11 @@ If the DNT-handling code is altered, the hash changes, the write is rejected, an
 
 ## What We Collect
 
-Data is collected only from sessions where participation was confirmed and the session has not been flagged as Do Not Track. Nothing is transmitted until you click Share. If you close the tab without sharing, nothing is recorded.
+Data is collected only from sessions where participation was confirmed and the session has not been flagged as Do Not Track.
+
+**Flight-path events** — the sequence of maps, layers, and districts you visited — are periodically sent to our database as you explore, approximately every 30 seconds. If you close the tab without sharing, your ending state is not recorded, but exploration events already sent are retained as research data.
+
+**Your ending state** — the share code — is written to a separate table only when you click Share. The two records share no common key; there is no way to link a specific share code to the exploration events that preceded it.
 
 When you click Share, the following is written to our database:
 

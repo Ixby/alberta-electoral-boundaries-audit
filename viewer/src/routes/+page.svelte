@@ -1038,7 +1038,7 @@
 <div id="participation-overlay" role="dialog" aria-modal="true" aria-labelledby="part-heading">
   <div id="participation-card">
     <h2 id="part-heading">Help us refine MapExplorer</h2>
-    <p>When you share a view, we'd like to record which maps and districts you explored and where you landed — to understand what's useful and make the tool better.</p>
+    <p>As you explore, we track which maps and districts you visit and periodically send that to our research database. Sharing a view also saves where you ended up. The goal: understand what's useful and make the tool better.</p>
     <p class="part-no-collect">We never collect your name, IP address, or precise location. Everything is anonymized in your browser before it leaves. We couldn't identify you from the data even if ordered to.</p>
     {#if dntActive}
     <p class="part-dnt">Your browser has Do Not Track enabled. No is pre-selected on your behalf. You can still choose Yes.</p>
