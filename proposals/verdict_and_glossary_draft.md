@@ -109,7 +109,50 @@ The first piece of body prose after the verdict and the boundary card. The reade
 
 ---
 
-## Part 4 — Glossary (`viewer/src/lib/glossary.ts`)
+## Part 4 — Section 5 personal-to-provincial ladder (`/`, mid-page)
+
+The biggest piece of new prose on `/`. Sits after Section 4 ("What the Minority Map Does on the Ground" — existing content, to be condensed during implementation) and before Section 6 ("A short history of gerrymandering" — also new). Five short subsections, ~180 words each, that walk the reader from their own ballot up to the legislature. Empower-don't-advocate throughout: every claim is a description the reader can verify, not a position they're being asked to adopt. Each subsection ends with a question or pivot that hands the next rung to the reader.
+
+---
+
+> ### What this means for you and your community
+>
+> #### You.
+>
+> Your electoral district decides who represents you in the legislature. Right now you live in one of 87 districts. Under both proposed maps you may live in a different one — possibly with a different MLA, possibly anchored to different neighbouring communities. If you don't know what district you're in right now, or who your MLA is, you're not alone: most Albertans couldn't name their MLA. But the boundary lines are not abstract. They decide whose phone number is on your local representative's office wall, whose neighbourhood petition gets your name attached to it, whose concerns your MLA hears about first. The postal-code lookup on this site shows which district you sit in under each proposal. If your district changes, your representative changes — and your representative's relationship to your community changes with it.
+>
+> #### Your community.
+>
+> Communities are not abstract either. A high school's catchment area, a chamber of commerce, a faith community, a neighbourhood association — these are real groupings of people with shared local concerns. When a boundary line cuts through them, no single MLA is responsible for the whole. Take Airdrie under the minority proposal: a city of about 74,000 people sliced into four electoral districts, each anchored to a different rural hinterland. No single representative is accountable for Airdrie as a city. The same dynamic plays out anywhere a town, neighbourhood, or recognised community of interest is split — the bigger the split, the weaker the representation. The audit measures *municipal anchoring* (what fraction of each district's perimeter follows existing municipal lines), and the minority proposal scores notably lower than the majority on that test.
+>
+> #### Your municipality.
+>
+> When a city is fractured across many representatives, its ability to bargain on provincial decisions weakens. A council asking for transit funding, a school board negotiating a new school, a mayor lobbying for highway extensions — each of those goes better when the city can point to a few MLAs who owe accountability to the city as a whole. The minority proposal splits Calgary's northwest quadrant across multiple districts whose vote-share patterns suggest *packing* (concentrating one party's voters into a few high-margin seats) on top of *cracking* (splitting the other party's voters across many low-margin seats). Whether the pattern is intentional is a question the audit cannot answer — boundary geometry doesn't reveal intent. What it can say is that the four statistical measures flag the same districts that the structural tests flag, and that the alternative proposal does not produce the same fingerprint.
+>
+> #### Your region.
+>
+> Beyond city limits, the line between urban and rural matters too. Rural Alberta has different needs than urban Alberta — different infrastructure, different industries, different population density. The standard EBCA process allows district populations to vary by up to 25% so that one rural MLA isn't representing a geography the size of southern France. Canadian law treats that variance as legitimate. But there's a difference between a rural district that follows existing county lines and one whose boundary reaches into an adjacent city to capture specific neighbourhoods. On the minority proposal, several districts fail the audit's anchoring tests precisely at politically meaningful spots — the boundary departs from the municipal line, then returns, often around a specific neighbourhood whose vote pattern would otherwise tilt the seat. The majority proposal does not produce that fingerprint.
+>
+> #### Your province.
+>
+> Finally, the lines shape who governs. A map that produces a 60-seat majority on a 52% vote is a different map than one that produces a 55-seat majority on the same vote. At a hypothetical 50/50 provincial split, the audit's measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. What that means at the *two-thirds supermajority threshold* — 58 of 87 seats, the point at which the governing party can waive notice periods and push bills through multiple legislative stages in a single day — is a question this audit has not yet tested across the range of vote shares Albertans actually deliver. The verdict block at the top of this page is honest about that limit. Whether that limit matters enough to act on is a question for you, not for this audit.
+
+---
+
+**Editorial notes:**
+
+- The "You → Your community → Your municipality → Your region → Your province" ladder is the structure that makes a 900-word block readable. Each rung is the next-largest scale; each ends with a hand-off to the next; each is short enough to read in 30 seconds. A reader who stops anywhere on the ladder still leaves with a complete frame for the rung they stopped on.
+- "You" leads with the postcode lookup because that's the only action a reader can take without first agreeing with anything. The audit's empowerment principle starts with "give the reader the tool" before "make the argument."
+- "Your community" anchors the Airdrie example — the canonical lived case the existing prose already uses. Importing it here keeps the new section consistent with the rest of `/` and means the reader has seen the example once before the deeper section gets into the structural mechanics. The municipal-anchoring metric is glossed inline so a reader who skipped the glossary still gets a working definition.
+- "Your municipality" introduces *packing* and *cracking* in passing — they're in the Tier 1 glossary, so a click-popover reader gets the definitions; a glossary-skipper still picks up the rough meaning from the parenthetical. The "intent vs. fingerprint" caveat is repeated here because it's the single most important epistemic boundary in the audit, and the deeper-section reader needs it at the moment they meet the packing/cracking framing.
+- "Your region" is where the rural-vs-urban dimension lives. The "geography the size of southern France" line is a deliberately concrete and slightly playful frame for the 25% variance — readers who have never thought about Alberta's geography in those terms now have a hook. The "departs from the municipal line, then returns, often around a specific neighbourhood whose vote pattern would otherwise tilt the seat" sentence is the most pointed structural claim in the section; it's calibrated against what the audit actually finds without naming a party.
+- "Your province" deliberately uses the same "this audit has not yet tested" honesty the top-of-page verdict uses. The supermajority point is the punchline of the whole section, but the honest caveat about the cross-vote-share gap is what keeps the audit's credibility. The closing sentence — "Whether that limit matters enough to act on is a question for you, not for this audit." — restates the empower-don't-advocate principle as the section's own hand-off.
+- Italics on jargon terms (*packing*, *cracking*, *municipal anchoring*, *two-thirds supermajority threshold*) signal "this is a defined term; the popover has more" without breaking the reading rhythm.
+- The whole section assumes Section 4 has already shown the Airdrie split visually on the map. If implementation reorders the page, Airdrie either needs a one-line picture-the-scene addition here or the section needs a glance-back link to Section 4.
+
+---
+
+## Part 5 — Glossary (`viewer/src/lib/glossary.ts`)
 
 33 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
@@ -473,7 +516,7 @@ hillClimbing: {
 
 ---
 
-## Part 5 — Open editorial choices
+## Part 6 — Open editorial choices
 
 Things to settle before the glossary ships:
 
@@ -490,7 +533,7 @@ Things to settle before the glossary ships:
 
 ---
 
-## Part 6 — What's not in this draft (deliberately)
+## Part 7 — What's not in this draft (deliberately)
 
 - **Section transitions and lead-in text.** Each route's section-by-section prose comes in a later editorial pass; this draft is just the verdict, the boundary card, and the defined vocabulary that the rest of the site will reference.
 - **References list (academic + legal).** Already exists in the current site and migrates wholesale.
