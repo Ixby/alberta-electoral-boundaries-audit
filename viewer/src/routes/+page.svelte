@@ -1238,17 +1238,15 @@
 <div id="map-intro-modal" style="display:none;">
   <div id="map-intro-inner">
     <h3>How to use the map</h3>
-    <p style="margin:0 0 0.7rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Minority → Majority</strong> to watch the boundaries shift while the voters stay still. The <strong>Partisan</strong> colours show which party holds each district.</p>
+    <p style="margin:0 0 0.65rem; font-size:0.93rem;"><strong>Start here:</strong> click <strong>Minority → Majority</strong> to watch the boundaries shift while the voters stay still.</p>
     <ul>
-      <li><strong>Minority / Majority / 2019</strong> &mdash; switch which commission map you&rsquo;re viewing as the primary layer</li>
-      <li><strong>Partisan</strong> &mdash; colour districts by partisan outcome (UCP blue, NDP orange); neutral grey when off</li>
-      <li><strong>Vote %</strong> &mdash; show 2023 vote results at polling-area granularity underneath</li>
-      <li><strong>Borders</strong> &mdash; show or hide district boundary edges</li>
-      <li><strong>Pin</strong> (pin icon, turns red when active) &mdash; prevent the map from auto-panning when you click a district</li>
-      <li><strong>Find district</strong> &mdash; type any district name to jump to it</li>
-      <li><strong>Wasted</strong> &mdash; shade each district by its efficiency-gap contribution (wasted votes): blue = UCP-favoured, orange = NDP-favoured</li>
+      <li><strong>Minority / Majority / 2019</strong> &mdash; switch the active map</li>
+      <li><strong>Partisan</strong> &mdash; colour districts by UCP/NDP outcome</li>
+      <li><strong>Vote %</strong> &mdash; polling-area vote data under the boundaries</li>
+      <li><strong>Wasted</strong> &mdash; shade by efficiency-gap contribution</li>
+      <li><strong>Find district</strong> &mdash; jump to any district by name</li>
     </ul>
-    <p><strong>Try this:</strong> In §4 below, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone, then click any highlighted district to see its vote data and compare across all three maps.</p>
+    <p style="margin:0 0 0.9rem; font-size:0.9rem;">In §4, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone.</p>
     <button id="map-intro-close">Got it</button>
   </div>
 </div>
@@ -2096,8 +2094,6 @@
     padding: 1.5rem;
     max-width: 430px;
     width: 90%;
-    max-height: 70vh;
-    overflow-y: auto;
     font-size: 0.92rem;
     line-height: 1.6;
     box-shadow: 0 4px 28px rgba(0,0,0,0.55);
