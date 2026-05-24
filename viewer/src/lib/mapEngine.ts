@@ -20,10 +20,12 @@ import { applyBoundaryColor as mpApplyBoundaryColor, syncOverlays as mpSyncOverl
 let _onEvent      = null;
 let _getState     = null;
 let _applyStateFn = null;
+let _openFn: (() => void) | null = null;
 
 export function onEvent(cb)                                 { _onEvent = cb; }
 export function getState()                                  { return _getState ? _getState() : null; }
 export function applyState(primary, mapOn, layers)          { if (_applyStateFn) _applyStateFn(primary, mapOn, layers); }
+export function openOverlay(): void                         { if (_openFn) _openFn(); }
 
 export function init(basePath: string): void {
     initNavScrollspy();
@@ -40,7 +42,6 @@ export function init(basePath: string): void {
         const overlay  = document.getElementById('zoom-overlay');
         const stage    = document.getElementById('zoom-stage');
         const obj      = document.getElementById('zoom-obj');
-        const trigger  = document.getElementById('zoom-trigger');
         const closeBtn = document.getElementById('zoom-close');
         // ── Shared mutable state ──────────────────────────────────────────────────
         const ctx = {
@@ -116,7 +117,7 @@ export function init(basePath: string): void {
         function resetFallback()               { sl_resetFallback(ctx, stage); }
 
         // ── Open / close ──────────────────────────────────────────────────────
-        const { open, close } = initOverlay(ctx, overlay, trigger, closeBtn, {
+        const { open, close } = initOverlay(ctx, overlay, closeBtn, {
           updateMapButtons: () => _updateMapButtons(),
           maybeShowIntro:   () => _maybeShowIntro(),
           resetVB:          () => resetVB(),
@@ -124,6 +125,7 @@ export function init(basePath: string): void {
           hideTip:          () => hideTip(),
           hideCallout:      () => _hideCallout(),
         });
+        _openFn = open;
 
         // ── District callout (info bar) ───────────────────────────────────────
         function _showCallout(d) { showCallout(ctx, d); }

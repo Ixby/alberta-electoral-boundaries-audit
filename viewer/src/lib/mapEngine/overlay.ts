@@ -14,7 +14,9 @@ function _overlayFocusable(overlayEl) {
 }
 
 // Returns { open, close } so callers can pass them to other modules as deps.
-export function initOverlay(ctx: MapCtx, overlayEl, triggerEl, closeBtnEl, deps) {
+// Trigger wiring is NOT done here — the caller owns the first trigger click
+// (lazy-load pattern: Svelte intercepts, dynamic-imports the engine, then calls open()).
+export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
 
   function open() {
     ctx.stageRect = null;

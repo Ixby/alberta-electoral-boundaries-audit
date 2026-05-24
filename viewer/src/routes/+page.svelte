@@ -19,7 +19,34 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
-  import { init, onEvent as mapOnEvent, getState, applyState } from '$lib/mapEngine';
+  type MapEngineModule = Awaited<typeof import('$lib/mapEngine')>;
+  let _ME: MapEngineModule | null = null;
+  let _mePromise: Promise<void> | null = null;
+  let _pendingState: { primary: string; mapOn: Record<string,boolean>; layers: Record<string,boolean> } | null = null;
+
+  async function ensureMapLoaded(): Promise<void> {
+    if (_ME) return;
+    if (!_mePromise) {
+      _mePromise = (async () => {
+        _ME = await import('$lib/mapEngine');
+        const obj = document.getElementById('zoom-obj') as HTMLObjectElement;
+        if (obj) obj.data = `${base}/images/cover_art_2019_hires.svg`;
+        _ME.init(base);
+        _ME.onEvent((event: FlightEvent) => { recordEvent(event); _scheduleCodeRefresh(); });
+        if (_pendingState) {
+          _ME.applyState(_pendingState.primary, _pendingState.mapOn, _pendingState.layers);
+          _pendingState = null;
+        }
+      })();
+    }
+    return _mePromise;
+  }
+
+  async function handleZoomTrigger(e: Event): Promise<void> {
+    e.preventDefault();
+    await ensureMapLoaded();
+    _ME?.openOverlay();
+  }
   import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, type FlightEvent } from '$lib/share';
   import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode } from '$lib/prefs';
 
@@ -41,7 +68,7 @@
   let loadError         = $state('');
 
   function _generateCode() {
-    const s = getState();
+    const s = _ME ? _ME.getState() : null;
     shareCode = s ? (encodeState(s) ?? '—') : '—';
     if (shareCode !== '—' && s) { saveShare(shareCode, s); storeLastCode(shareCode); }
   }
@@ -73,7 +100,8 @@
     if (!trimmed) return;
     const decoded = decodeState(trimmed);
     if (!decoded) { loadError = 'Unrecognised code — check spelling.'; return; }
-    applyState(decoded.primary, decoded.mapOn, decoded.layers);
+    if (_ME) { _ME.applyState(decoded.primary, decoded.mapOn, decoded.layers); }
+    else { _pendingState = { primary: decoded.primary, mapOn: decoded.mapOn, layers: decoded.layers }; }
     setOrigin(trimmed.toLowerCase().trim());
     showSharePanel = false;
     loadInput  = '';
@@ -93,7 +121,7 @@
     if (_codeRefreshTimer) clearTimeout(_codeRefreshTimer);
     _codeRefreshTimer = setTimeout(() => {
       _codeRefreshTimer = null;
-      const s = getState();
+      const s = _ME ? _ME.getState() : null;
       const code = s ? (encodeState(s) ?? null) : null;
       if (!code || !s) return;
       storeLastCode(code);
@@ -102,8 +130,6 @@
   }
 
   onMount(async () => {
-    init(base);
-    mapOnEvent((event: FlightEvent) => { recordEvent(event); _scheduleCodeRefresh(); });
 
     window.addEventListener('beforeunload', flushTelemetry);
     const _telemetryInterval = setInterval(flushTelemetry, 30_000);
@@ -120,7 +146,7 @@
     const lastCode = await getLastCode();
     if (lastCode) {
       const lastState = decodeState(lastCode);
-      if (lastState) { applyState(lastState.primary, lastState.mapOn, lastState.layers); setOrigin(lastCode); }
+      if (lastState) { _pendingState = { primary: lastState.primary, mapOn: lastState.mapOn, layers: lastState.layers }; setOrigin(lastCode); }
     }
 
     // ── Skeleton phrase cycling ───────────────────────────────────────────────
@@ -284,7 +310,7 @@
       <span class="badge">Official Elections Alberta maps &mdash; Published May 2026</span>
       <p class="cover-note">Click to zoom and explore all three boundary proposals simultaneously. Pin the viewport and flip between maps &mdash; boundaries shift, voters stay put. Scroll down for the analysis.</p>
     </div>
-    <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map">
+    <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Open interactive map" onclick={handleZoomTrigger}>
       <div class="hero-map-wrap">
         <picture>
           <source type="image/webp" srcset="images/cover_art.webp 680w" sizes="(min-width: 600px) 339px, 90vw">
@@ -1144,7 +1170,7 @@
         <div class="skel-phrase">{skelPhrase}</div>
       </div>
     </div>
-    <object id="zoom-obj" type="image/svg+xml" data="images/cover_art_2019_hires.svg"
+    <object id="zoom-obj" type="image/svg+xml" data=""
       title="Alberta electoral district map — full resolution"></object>
   </div>
   <div id="ed-tooltip"></div>
