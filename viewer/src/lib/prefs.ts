@@ -1,76 +1,123 @@
-// Alberta Electoral Boundary Audit — user preferences (single cookie)
+// Alberta Electoral Boundary Audit — user preferences (single encrypted cookie)
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
-// Cookie: ab_audit_prefs (1 year, SameSite=Strict, path=/)
-// Format: pipe-separated key=value pairs, e.g. c=yes|t=dark|i=1|s=alpine-badger-banff
+// Cookie: ab_audit_prefs (1 year, SameSite=Strict, Secure, path=/)
+// Value:  AES-256-GCM ciphertext — base64(iv).base64(ciphertext)
+// Plaintext format: pipe-separated key=value pairs, e.g. c=yes|t=dark|i=1|s=alpine-badger-banff
 // Keys:   c (consent: yes/no)         t (theme: dark/light)
 //         i (intro seen: 1)           s (last share code: word-word-word)
+//
+// Theme is also mirrored to localStorage['ab_pref_t'] so app.html can prevent
+// FOUC synchronously without decrypting the cookie.
 
 const COOKIE = 'ab_audit_prefs';
+const KEY_B64 = 'YRQH2/GoqjVopQ+jKyRBKUYHDsnKe/Vg6DDrHHBr0gE=';
 
-function _parse(): Record<string, string> {
+let _keyPromise: Promise<CryptoKey> | null = null;
+function _importKey(): Promise<CryptoKey> {
+	if (!_keyPromise) {
+		const raw = Uint8Array.from(atob(KEY_B64), c => c.charCodeAt(0));
+		_keyPromise = crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['encrypt', 'decrypt']);
+	}
+	return _keyPromise;
+}
+
+function _b64enc(buf: ArrayBuffer): string {
+	return btoa(String.fromCharCode(...new Uint8Array(buf)));
+}
+function _b64dec(s: string): Uint8Array {
+	return Uint8Array.from(atob(s), c => c.charCodeAt(0));
+}
+
+async function _encrypt(text: string): Promise<string> {
+	const key = await _importKey();
+	const iv  = crypto.getRandomValues(new Uint8Array(12));
+	const ct  = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(text));
+	return `${_b64enc(iv)}.${_b64enc(ct)}`;
+}
+
+async function _decrypt(encoded: string): Promise<string | null> {
+	const dot = encoded.indexOf('.');
+	if (dot < 0) return null;
+	try {
+		const key = await _importKey();
+		const iv  = _b64dec(encoded.slice(0, dot));
+		const ct  = _b64dec(encoded.slice(dot + 1));
+		const pt  = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct);
+		return new TextDecoder().decode(pt);
+	} catch {
+		return null;
+	}
+}
+
+async function _parse(): Promise<Record<string, string>> {
 	const m = document.cookie.match(/(?:^|;\s*)ab_audit_prefs=([^;]+)/);
 	if (!m) return {};
+	const plain = await _decrypt(decodeURIComponent(m[1]));
+	if (!plain) return {};
 	const out: Record<string, string> = {};
-	for (const pair of m[1].split('|')) {
+	for (const pair of plain.split('|')) {
 		const eq = pair.indexOf('=');
 		if (eq > 0) out[pair.slice(0, eq)] = pair.slice(eq + 1);
 	}
 	return out;
 }
 
-function _write(prefs: Record<string, string>): void {
-	const val = Object.entries(prefs).map(([k, v]) => `${k}=${v}`).join('|');
-	const exp = new Date();
+async function _write(prefs: Record<string, string>): Promise<void> {
+	const plain = Object.entries(prefs).map(([k, v]) => `${k}=${v}`).join('|');
+	const enc   = await _encrypt(plain);
+	const exp   = new Date();
 	exp.setFullYear(exp.getFullYear() + 1);
-	document.cookie = `${COOKIE}=${val}; expires=${exp.toUTCString()}; path=/; SameSite=Strict`;
+	const secure = location.protocol === 'https:' ? '; Secure' : '';
+	document.cookie = `${COOKIE}=${encodeURIComponent(enc)}; expires=${exp.toUTCString()}; path=/; SameSite=Strict${secure}`;
 }
 
-function _set(key: string, value: string | null): void {
-	const prefs = _parse();
+async function _set(key: string, value: string | null): Promise<void> {
+	const prefs = await _parse();
 	if (value === null) delete prefs[key];
 	else prefs[key] = value;
-	_write(prefs);
+	await _write(prefs);
 }
 
-function _get(key: string): string | null {
-	return _parse()[key] ?? null;
+async function _get(key: string): Promise<string | null> {
+	return (await _parse())[key] ?? null;
 }
 
 // ── Analytics consent ─────────────────────────────────────────────────────────
-export function getStoredConsent(): 'yes' | 'no' | null {
-	const v = _get('c');
+export async function getStoredConsent(): Promise<'yes' | 'no' | null> {
+	const v = await _get('c');
 	return v === 'yes' || v === 'no' ? v : null;
 }
 
-export function storeConsent(yes: boolean): void {
-	_set('c', yes ? 'yes' : 'no');
+export async function storeConsent(yes: boolean): Promise<void> {
+	await _set('c', yes ? 'yes' : 'no');
 }
 
 // ── Theme ─────────────────────────────────────────────────────────────────────
-export function getStoredTheme(): 'dark' | 'light' | null {
-	const v = _get('t');
+export async function getStoredTheme(): Promise<'dark' | 'light' | null> {
+	const v = await _get('t');
 	return v === 'dark' || v === 'light' ? v : null;
 }
 
-export function storeTheme(theme: 'dark' | 'light'): void {
-	_set('t', theme);
+export async function storeTheme(theme: 'dark' | 'light'): Promise<void> {
+	localStorage.setItem('ab_pref_t', theme);
+	await _set('t', theme);
 }
 
 // ── Intro modal ───────────────────────────────────────────────────────────────
-export function hasSeenIntro(): boolean {
-	return _get('i') === '1';
+export async function hasSeenIntro(): Promise<boolean> {
+	return (await _get('i')) === '1';
 }
 
-export function markIntroSeen(): void {
-	_set('i', '1');
+export async function markIntroSeen(): Promise<void> {
+	await _set('i', '1');
 }
 
 // ── Last share code (session resume) ─────────────────────────────────────────
-export function getLastCode(): string | null {
-	return _get('s') || null;
+export async function getLastCode(): Promise<string | null> {
+	return (await _get('s')) || null;
 }
 
-export function storeLastCode(code: string): void {
-	_set('s', code);
+export async function storeLastCode(code: string): Promise<void> {
+	await _set('s', code);
 }

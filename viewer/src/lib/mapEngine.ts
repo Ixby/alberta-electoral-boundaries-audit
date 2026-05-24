@@ -948,8 +948,8 @@ export function init(basePath: string): void {
         // ── Map onboarding modal ──────────────────────────────────────────────────
         initIntroModal();  // wires close-btn, backdrop-click, and Escape handlers
 
-        function _maybeShowIntro() {
-          if (hasSeenIntro()) return;
+        async function _maybeShowIntro() {
+          if (await hasSeenIntro()) return;
           var modal = document.getElementById('map-intro-modal');
           if (modal) modal.style.display = 'flex';
         }

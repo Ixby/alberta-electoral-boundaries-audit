@@ -7,7 +7,7 @@
 // and returns early when the modal is visible — so this handler only fires
 // when the overlay Escape has already stood down.
 
-import { hasSeenIntro, markIntroSeen } from '../prefs';
+import { markIntroSeen } from '../prefs';
 
 export function initIntroModal(): void {
   const modal    = document.getElementById('map-intro-modal');

@@ -8,9 +8,7 @@
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/favicon.svg">
 		<script>
 			(function(){
-				var m=document.cookie.match(/(?:^|;\s*)ab_audit_prefs=([^;]+)/);
-				var t=m&&m[1].match(/(?:^|\|)t=([^|]+)/);
-				var theme=t?t[1]:null;
+				var theme=localStorage.getItem('ab_pref_t');
 				if(theme==='dark'||(theme===null&&window.matchMedia('(prefers-color-scheme:dark)').matches)){
 					document.documentElement.setAttribute('data-theme','dark');
 				}

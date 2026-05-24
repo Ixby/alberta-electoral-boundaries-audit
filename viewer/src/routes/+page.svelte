@@ -101,7 +101,7 @@
     }, 200);
   }
 
-  onMount(() => {
+  onMount(async () => {
     init(base);
     mapOnEvent((event: FlightEvent) => { recordEvent(event); _scheduleCodeRefresh(); });
 
@@ -109,7 +109,7 @@
     const _telemetryInterval = setInterval(flushTelemetry, 30_000);
 
     dntActive = isDNT();
-    const storedConsent = getStoredConsent();
+    const storedConsent = await getStoredConsent();
     if (storedConsent !== null) {
       setParticipation(storedConsent === 'yes');
     } else {
@@ -117,7 +117,7 @@
     }
 
     // ── Session resume ────────────────────────────────────────────────────────
-    const lastCode = getLastCode();
+    const lastCode = await getLastCode();
     if (lastCode) {
       const lastState = decodeState(lastCode);
       if (lastState) { applyState(lastState.primary, lastState.mapOn, lastState.layers); setOrigin(lastCode); }
@@ -130,7 +130,7 @@
     }, 2800);
 
     // ── Dark mode — respects OS preference; user override persisted in cookie ──
-    const storedTheme = getStoredTheme();
+    const storedTheme = await getStoredTheme();
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     darkMode = storedTheme === 'dark' || (storedTheme === null && prefersDark);
     // app.html inline script already set the attribute to avoid FOUC; sync state var only
