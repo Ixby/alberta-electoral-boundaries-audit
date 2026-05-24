@@ -198,7 +198,42 @@ The biggest piece of new prose on `/`. Sits after Section 4 ("What the Minority 
 
 ---
 
-## Part 6 — Glossary (`viewer/src/lib/glossary.ts`)
+## Part 6 — Section 6 history of gerrymandering (`/`, after the personal-to-provincial ladder)
+
+A short narrative section that gives the reader the word's origin and three quick country snapshots — bracketing the spectrum of how democracies handle boundary-drawing — before Section 7 takes up the Canadian case in detail. Third-person, ~400 words, four paragraphs. Voice shifts from Section 5's second-person personal address to a more narrative register; that shift is the cue that we are stepping back from the reader's own district to look at the larger landscape.
+
+---
+
+> ### A short history of gerrymandering
+>
+> The word comes from 1812. Massachusetts governor Elbridge Gerry signed off on a state-senate map whose districts were so contorted to favour his party that a Boston cartoonist drew one of them as a salamander — wings, claws, a forked tongue. The cartoonist's pun, *Gerry-mander*, stuck. The shape stuck too: two centuries later, the word still means drawing electoral lines to engineer a partisan outcome.
+>
+> The term endures because the problem endures. Anywhere voters choose representatives from geographic districts, someone has to draw the lines, and the lines can be drawn many ways. Different countries have arrived at different answers about who should do the drawing and what should constrain them.
+>
+> **The United States** treats partisan gerrymandering as a problem the federal courts mostly cannot fix. In *Rucho v. Common Cause* (2019), the U.S. Supreme Court ruled that partisan gerrymanders are "political questions" outside its jurisdiction. Some states (California, Michigan) have responded by creating independent citizen commissions to draw their own lines; others (Texas, North Carolina) have continued to draw openly partisan maps and defended them on the basis that *Rucho* permits it.
+>
+> **The United Kingdom** uses four permanent Boundary Commissions — one each for England, Scotland, Wales, and Northern Ireland — staffed by judges and senior civil servants. They redraw lines roughly every eight years against fixed rules (population equality, geographic coherence, respect for local government boundaries). Parliament can in theory reject the commissions' recommendations, but in practice virtually never does; the convention is that the commissions' judgment stands.
+>
+> **Australia** delegates the work to the Australian Electoral Commission, a federal independent agency with full authority over both election administration and boundaries. Redistributions happen automatically when a state's seat count changes or seven years pass since the last one. The commissioners' decisions are reviewable on procedural grounds but not on partisan ones. Like the U.K., the result is that gerrymandering as Americans know it is virtually unheard of.
+>
+> These three cases bracket the spectrum: courts staying out (U.S.), independent commissions with strong parliamentary deference (U.K.), and a permanent independent agency with full authority (Australia). Canada sits somewhere different again — which is what the next section takes up.
+
+---
+
+**Editorial notes:**
+
+- The 1812 salamander origin is included because it makes the term concrete and gives the reader a memorable hook. A reader who arrives knowing only "gerrymander = bad word politicians use" leaves with a picture: a man named Gerry, a map shaped like a lizard, two centuries of inheritance. Concrete beats abstract every time on the curious-citizen route.
+- Three countries, not five or ten. The selection is deliberate — they bracket the *institutional* spectrum (judicial deference / parliamentary deference / agency authority), not the partisan one. A reader who finishes this section has a frame for evaluating any redistricting system, not a list of "good" and "bad" countries.
+- *Rucho* is named once and characterised in three words ("political questions" outside the courts' jurisdiction). The full holding has nuances the curious-citizen reader doesn't need; the `/law` route can carry the longer treatment for engaged readers.
+- "Texas and North Carolina have continued to draw openly partisan maps and defended them on the basis that *Rucho* permits it" — descriptive, not judgmental. The audit observes that these states do this; the reader judges whether that is good or bad. Empower-don't-advocate.
+- The U.K. paragraph names "respect for local government boundaries" specifically — that's the U.K.'s anchoring analogue, and naming it earns continuity with the Alberta audit's own anchoring metric. A reader who has reached Section 6 has already seen "municipal anchoring" in the verdict and in Section 5; meeting the same concept in the U.K. context primes them for the Section 7 Canadian comparison.
+- "Gerrymandering as Americans know it is virtually unheard of" — true of both the U.K. and Australia, said once for both. Avoids implying that the U.S. is the global default; in fact among Westminster-tradition democracies it is the outlier.
+- The closing sentence is the explicit hand-off to Section 7 ("Canada is different — and similar"). Each homepage section ends with a one-line bridge into the next; this is the bridge.
+- No second-person address in this section. Section 5 is intensely personal ("your MLA," "your community"); Section 6 deliberately pulls back to historical and comparative narrative. That register shift gives the reader a brief breath before Section 7's deeper-stakes Canadian material.
+
+---
+
+## Part 7 — Glossary (`viewer/src/lib/glossary.ts`)
 
 33 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
@@ -562,7 +597,7 @@ hillClimbing: {
 
 ---
 
-## Part 7 — Open editorial choices
+## Part 8 — Open editorial choices
 
 Things to settle before the glossary ships:
 
@@ -579,7 +614,7 @@ Things to settle before the glossary ships:
 
 ---
 
-## Part 8 — What's not in this draft (deliberately)
+## Part 9 — What's not in this draft (deliberately)
 
 - **Section transitions and lead-in text.** Each route's section-by-section prose comes in a later editorial pass; this draft is just the verdict, the boundary card, and the defined vocabulary that the rest of the site will reference.
 - **References list (academic + legal).** Already exists in the current site and migrates wholesale.
