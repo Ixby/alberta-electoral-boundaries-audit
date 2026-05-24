@@ -8,6 +8,9 @@ import { initIntroModal }   from './mapEngine/introModal';
 import { hasSeenIntro }     from './prefs';
 import { applyVoteLayer, applyEdFillLayer, applyEdLinesLayer, applyEGLayer, reapplyLayers, setLayerOn } from './mapEngine/layers';
 import { showTip, hideTip, showCallout, hideCallout, setEdHighlight, clearEdHighlight, activateCenterED, tipTarget, isEdVisible, snapToED, zoomEdTo70 } from './mapEngine/edInteraction';
+import { initSearch } from './mapEngine/search';
+import { applyAnomalyHighlight, initAnomalyButtons } from './mapEngine/anomaly';
+import { initNamedEdButtons } from './mapEngine/namedEdZoom';
 
 let _onEvent      = null;
 let _getState     = null;
@@ -788,43 +791,6 @@ export function init(basePath: string): void {
         function _zoomEdTo70(pathEl)      { zoomEdTo70(ctx, pathEl, _animateToVB, _getStageRect); }
         function _tipTarget(e)            { return tipTarget(e); }
 
-        function _snapToED(pathEl, force) {
-          if (!ctx.svgEl || ctx.mode !== 'viewbox') return;
-          const bb = pathEl.getBBox();
-          if (!force && _isEdVisible(bb)) return;
-          const pad = Math.max(bb.width, bb.height) * 0.35;
-          let tw = bb.width + pad * 2, th = bb.height + pad * 2;
-          const r = _getStageRect();
-          if (tw / th < r.width / r.height) tw = th * r.width / r.height;
-          else th = tw * r.height / r.width;
-          const cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
-          _animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 420);
-        }
-
-        function _zoomEdTo70(pathEl) {
-          if (!ctx.svgEl || ctx.mode !== 'viewbox' || ctx.mapLocked) return;
-          const bb = pathEl.getBBox();
-          const r = _getStageRect();
-          // Pick the viewBox width so the ED's bbox fills 70% in the limiting dimension
-          const vw = Math.max(bb.width / 0.70, bb.height / 0.70 * r.width / r.height);
-          const vh = vw * r.height / r.width;
-          const cx = bb.x + bb.width  / 2;
-          const cy = bb.y + bb.height / 2;
-          _animateToVB({ x: cx - vw/2, y: cy - vh/2, w: vw, h: vh }, 380);
-        }
-
-        function _tipTarget(e) {
-          // elementsFromPoint returns the full hit stack — needed because SVG paths with
-          // fill:none may not be topmost even with pointer-events:all on the parent group.
-          var els = document.elementsFromPoint
-            ? document.elementsFromPoint(e.clientX, e.clientY)
-            : [document.elementFromPoint(e.clientX, e.clientY)];
-          for (var i = 0; i < els.length; i++) {
-            if (els[i] && els[i].hasAttribute && els[i].hasAttribute('data-ed-id')) return els[i];
-          }
-          return null;
-        }
-
         // ── Unified ctx.drag + tap + pinch (Pointer Events — all gesture types) ──────
 
         function _ptrMid() {
@@ -959,271 +925,24 @@ export function init(basePath: string): void {
         }
 
         // ── ED search ─────────────────────────────────────────────────────────────
-        (function() {
-          var searchInput   = document.getElementById('tb-search');
-          var searchResults = document.getElementById('tb-search-results');
-          if (!searchInput || !searchResults) return;
-
-          var _srActive = -1;
-
-          function _srItems() {
-            return Array.from(searchResults.querySelectorAll('li'));
-          }
-
-          function _srHighlight(newIdx) {
-            var items = _srItems();
-            if (!items.length) return;
-            _srActive = Math.max(0, Math.min(items.length - 1, newIdx));
-            items.forEach(function(li, i) { li.classList.toggle('sr-active', i === _srActive); });
-            items[_srActive].scrollIntoView({ block: 'nearest' });
-          }
-
-          function _srSelect(li) {
-            if (!li) return;
-            var name = li.dataset.edName || li.textContent.replace(/\s*(Min|Maj|2019)$/, '').trim();
-            var fromMap = li.dataset.edMap || ctx.mapPrimary;
-            searchInput.value = name;
-            searchResults.style.display = 'none';
-            _srActive = -1;
-            if (!ctx.svgEl) return;
-
-            function navigateToEd(mapKey, edName) {
-              var idx2 = ctx.nameIndex[mapKey] || {};
-              var rec2 = idx2[edName];
-              if (!rec2) return;
-              var path = ctx.svgEl && ctx.svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec2.id + '"]');
-              if (path) { _showCallout(rec2); _setEdHighlight(path); if (!ctx.mapLocked) _snapToED(path, true); }
-            }
-
-            if (fromMap !== ctx.mapPrimary) {
-              ctx.mapOn[fromMap] = true;
-              ctx.mapActivationOrder = ctx.mapActivationOrder.filter(function(k) { return k !== fromMap; });
-              ctx.mapActivationOrder.push(fromMap);
-              ctx.mapPrimary = fromMap;
-              _updateMapButtons();
-              _doSwitchPrimary(fromMap);
-              var _pendingName = name, _waitAttempts = 0;
-              (function waitAndNav() {
-                if (!ctx.svgEl || !ctx.ready) {
-                  if (++_waitAttempts < 30) { setTimeout(waitAndNav, 150); return; }
-                  return;
-                }
-                navigateToEd(fromMap, _pendingName);
-              })();
-            } else {
-              navigateToEd(ctx.mapPrimary, name);
-            }
-          }
-
-          searchInput.addEventListener('input', function() {
-            var q = searchInput.value.trim().toLowerCase();
-            searchResults.innerHTML = '';
-            _srActive = -1;
-            if (q.length < 2) { searchResults.style.display = 'none'; return; }
-            // Search all 3 maps, current primary first
-            var seen = new Set(), results = [];
-            var mapOrder = [ctx.mapPrimary, 'minority', 'majority', '2019'].filter(
-              function(k, i, a) { return a.indexOf(k) === i; }
-            );
-            mapOrder.forEach(function(k) {
-              var idx2 = ctx.nameIndex[k] || {};
-              Object.keys(idx2).forEach(function(n) {
-                if (n.toLowerCase().indexOf(q) !== -1 && !seen.has(n)) {
-                  seen.add(n); results.push({ name: n, map: k });
-                }
-              });
-            });
-            results = results.slice(0, 12);
-            if (!results.length) { searchResults.style.display = 'none'; return; }
-            results.forEach(function(r) {
-              var li = document.createElement('li');
-              li.dataset.edName = r.name;
-              li.dataset.edMap = r.map;
-              var nameSpan = document.createElement('span');
-              nameSpan.textContent = r.name;
-              li.appendChild(nameSpan);
-              if (r.map !== ctx.mapPrimary) {
-                var tag = document.createElement('span');
-                tag.className = 'sr-map-tag';
-                tag.textContent = r.map === '2019' ? '2019' : r.map === 'minority' ? 'Min' : 'Maj';
-                li.appendChild(tag);
-              }
-              li.addEventListener('mousedown', function(e) {
-                e.preventDefault(); // keep input focused, prevent blur
-              });
-              li.addEventListener('click', function(e) {
-                e.stopPropagation(); // prevent overlay's click-to-close handler
-                _srSelect(li);
-              });
-              li.addEventListener('mouseover', function() {
-                _srActive = _srItems().indexOf(li);
-                _srItems().forEach(function(item) { item.classList.toggle('sr-active', item === li); });
-              });
-              searchResults.appendChild(li);
-            });
-            searchResults.style.display = 'block';
-          });
-
-          searchInput.addEventListener('keydown', function(e) {
-            var items = _srItems();
-            if (e.key === 'ArrowDown') {
-              e.preventDefault();
-              if (searchResults.style.display === 'none') return;
-              _srHighlight(_srActive < 0 ? 0 : _srActive + 1);
-            } else if (e.key === 'ArrowUp') {
-              e.preventDefault();
-              if (searchResults.style.display === 'none') return;
-              _srHighlight(_srActive <= 0 ? 0 : _srActive - 1);
-            } else if (e.key === 'Enter') {
-              e.preventDefault();
-              var target = _srActive >= 0 ? items[_srActive] : (items.length === 1 ? items[0] : null);
-              if (target) _srSelect(target);
-            } else if (e.key === 'Escape') {
-              searchInput.value = '';
-              searchResults.style.display = 'none';
-              _srActive = -1;
-            } else if (e.key === 'Tab') {
-              searchResults.style.display = 'none';
-              _srActive = -1;
-            }
-          });
-
-          document.addEventListener('click', function(e) {
-            if (e.target !== searchInput && !searchResults.contains(e.target)) {
-              searchResults.style.display = 'none';
-              _srActive = -1;
-            }
-          });
-        })();
-
-        // ── Anomaly highlight ─────────────────────────────────────────────────────
-        // All 7 configurations criticized by commission chair (Justice Miller):
-        //   Geometric flags (4): 13=Foothills-Airdrie West, 20=Nolan Hill-Cochrane,
-        //                        75=Olds-Three Hills-Didsbury, 81=RMH-Banff Park
-        //   Appendix C (no public support): 57=Chestermere-Strathmore,
-        //                        80=Red Deer-Sylvan Lake, 83=St Albert
-        // Source: AEBC (2026) majority report §5.8.2 + Appendix C; union = 7 configs.
-        const _anomalyIds = new Set([13, 20, 57, 75, 80, 81, 83]);
-
-        function _applyAnomalyHighlight() {
-          if (!ctx.svgEl) return;
-          if (ctx.anomalyOverlay) { ctx.anomalyOverlay.remove(); ctx.anomalyOverlay = null; }
-          ctx.svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(p => { p.style.fill = 'none'; });
-          if (!ctx.anomalyOn) return;
-
-          const NS = 'http://www.w3.org/2000/svg';
-          ctx.anomalyOverlay = document.createElementNS(NS, 'g');
-          ctx.anomalyOverlay.setAttribute('id', 'anomaly-overlay');
-          ctx.anomalyOverlay.setAttribute('pointer-events', 'none');
-
-          ctx.svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
-            const id = parseInt(p.getAttribute('data-ed-id'), 10);
-            if (!_anomalyIds.has(id)) return;
-            const d = p.getAttribute('d');
-
-            // Blurred glow layer
-            const glow = document.createElementNS(NS, 'path');
-            glow.setAttribute('d', d);
-            glow.setAttribute('fill', 'none');
-            glow.setAttribute('stroke', '#e63946');
-            glow.setAttribute('stroke-width', '12');
-            glow.setAttribute('stroke-linejoin', 'round');
-            glow.style.vectorEffect = 'non-scaling-stroke';
-            glow.setAttribute('class', 'anomaly-glow-path');
-            ctx.anomalyOverlay.appendChild(glow);
-
-            // Sharp animated outline
-            const outline = document.createElementNS(NS, 'path');
-            outline.setAttribute('d', d);
-            outline.setAttribute('fill', 'none');
-            outline.setAttribute('stroke', '#e63946');
-            outline.setAttribute('stroke-width', '3');
-            outline.setAttribute('stroke-linejoin', 'round');
-            outline.style.vectorEffect = 'non-scaling-stroke';
-            outline.setAttribute('class', 'anomaly-pulse-path');
-            ctx.anomalyOverlay.appendChild(outline);
-          });
-
-          ctx.svgEl.appendChild(ctx.anomalyOverlay);
-        }
-
-        function _zoomToAnomalyDistricts(attempt) {
-          if (!ctx.svgEl || !ctx.ready) {
-            if ((attempt || 0) < 25) setTimeout(function() { _zoomToAnomalyDistricts((attempt || 0) + 1); }, 120);
-            return;
-          }
-          var combined = null;
-          ctx.svgEl.querySelectorAll('#ed_hover_layer path[data-ed-id]').forEach(function(p) {
-            if (!_anomalyIds.has(parseInt(p.getAttribute('data-ed-id'), 10))) return;
-            var bb = p.getBBox();
-            if (!combined) combined = { x: bb.x, y: bb.y, r: bb.x + bb.width, b: bb.y + bb.height };
-            else {
-              combined.x = Math.min(combined.x, bb.x);
-              combined.y = Math.min(combined.y, bb.y);
-              combined.r = Math.max(combined.r, bb.x + bb.width);
-              combined.b = Math.max(combined.b, bb.y + bb.height);
-            }
-          });
-          if (!combined) return;
-          var w = (combined.r - combined.x) * 1.40, h = (combined.b - combined.y) * 1.40;
-          var cx = (combined.x + combined.r) / 2, cy = (combined.y + combined.b) / 2;
-          var r = _getStageRect();
-          if (r.width / r.height > w / h) w = h * r.width / r.height;
-          else h = w * r.height / r.width;
-          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 500);
-        }
-
-        document.querySelectorAll('[data-anomaly]').forEach(function(b) {
-          b.addEventListener('click', function() {
-            _activateAsTop('minority');
-            var wasOff = !ctx.anomalyOn;
-            if (overlay.style.display !== 'block') open();
-            ctx.anomalyOn = !ctx.anomalyOn;
-            b.classList.toggle('tb-layer-on', ctx.anomalyOn);
-            _applyAnomalyHighlight();
-            if (ctx.anomalyOn && wasOff) {
-              if (!ctx.layerState['eg'])     setLayerOn(ctx, 'eg', true, _emit);
-              if (ctx.layerState['ed-fill']) setLayerOn(ctx, 'ed-fill', false, _emit);
-              if (!ctx.mapLocked) _zoomToAnomalyDistricts(0);
-            }
-          });
+        initSearch(ctx, {
+          showCallout: _showCallout, setEdHighlight: _setEdHighlight, snapToED: _snapToED,
+          updateMapButtons: _updateMapButtons, doSwitchPrimary: _doSwitchPrimary,
         });
 
-        // ── Named-ED zoom (inline "show ↗" buttons) ──────────────────────────────
-        function _zoomToEd(name, attempt) {
-          if (!ctx.svgEl || !ctx.ready) {
-            if ((attempt || 0) < 20) setTimeout(function() { _zoomToEd(name, (attempt || 0) + 1); }, 120);
-            return;
-          }
-          // Try current primary map first, then minority, majority, 2019
-          var mapOrder = [ctx.mapPrimary, 'minority', 'majority', '2019'].filter(
-            function(k, i, a) { return a.indexOf(k) === i; }
-          );
-          var rec = null;
-          for (var i = 0; i < mapOrder.length; i++) {
-            var idx = ctx.nameIndex[mapOrder[i]];
-            if (idx && idx[name]) { rec = idx[name]; break; }
-          }
-          if (!rec) return;
-          var path = ctx.svgEl.querySelector('#ed_hover_layer path[data-ed-id="' + rec.id + '"]');
-          if (!path) return;
-          var bb = path.getBBox();
-          var pad = 1.7;
-          var w = bb.width * pad, h = bb.height * pad;
-          var cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2;
-          var r = _getStageRect();
-          if (r.width / r.height > w / h) w = h * r.width / r.height;
-          else h = w * r.height / r.width;
-          _animateToVB({ x: cx - w/2, y: cy - h/2, w: w, h: h }, 500);
-          _showCallout(rec);
-          _setEdHighlight(path);
-        }
+        // ── Anomaly highlight ─────────────────────────────────────────────────────
+        function _applyAnomalyHighlight() { applyAnomalyHighlight(ctx); }
+        initAnomalyButtons(ctx, {
+          activateAsTop: _activateAsTop, open: open, emit: _emit,
+          isOverlayOpen: function() { return overlay.style.display === 'block'; },
+          animateToVB: _animateToVB, getStageRect: _getStageRect,
+        });
 
-        document.querySelectorAll('[data-ed-name]').forEach(function(b) {
-          b.addEventListener('click', function() {
-            if (overlay.style.display !== 'block') open();
-            _zoomToEd(b.getAttribute('data-ed-name'), 0);
-          });
+        // ── Named-ED zoom (inline buttons) ──────────────────────────────────────
+        initNamedEdButtons(ctx, {
+          open: open, isOverlayOpen: function() { return overlay.style.display === 'block'; },
+          animateToVB: _animateToVB, getStageRect: _getStageRect,
+          showCallout: _showCallout, setEdHighlight: _setEdHighlight,
         });
 
         // ── Map onboarding modal ──────────────────────────────────────────────────
