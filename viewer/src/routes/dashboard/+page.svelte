@@ -35,19 +35,30 @@
   const MAP_LABEL: Record<string, string> = { minority: 'Minority', majority: 'Majority', '2019': 'Current' };
 
   // ── Init ──────────────────────────────────────────────────────────────────
+  function withTimeout<T>(p: Promise<T>, ms: number): Promise<T> {
+    let id: ReturnType<typeof setTimeout>;
+    const timeout = new Promise<T>((_, reject) => {
+      id = setTimeout(() => reject(new Error('request timed out')), ms);
+    });
+    return Promise.race([p, timeout]).finally(() => clearTimeout(id));
+  }
+
   onMount(async () => {
     try {
-      const [evRes, shRes, hover] = await Promise.all([
-        db.from('telemetry').select('id, session_id, event_type, payload, created_at').order('id'),
-        db.from('shares').select('code', { count: 'exact', head: true }),
-        fetch(`${base}/data/ed_hover_2019.json`).then(r => r.json()),
+      const [evResult, shResult, hoverResult] = await Promise.allSettled([
+        withTimeout(db.from('telemetry').select('id, session_id, event_type, payload, created_at').order('id'), 10_000),
+        withTimeout(db.from('shares').select('id', { count: 'exact' }).limit(0), 10_000),
+        withTimeout(fetch(`${base}/data/ed_hover_2019.json`).then(r => { if (!r.ok) throw new Error(`${r.status}`); return r.json(); }), 10_000),
       ]);
+
+      if (evResult.status === 'rejected') throw new Error(`Telemetry: ${(evResult as PromiseRejectedResult).reason?.message ?? (evResult as PromiseRejectedResult).reason}`);
+      const evRes = (evResult as PromiseFulfilledResult<any>).value;
       if (evRes.error) throw new Error(evRes.error.message);
 
-      allEvents = evRes.data ?? [];
-      edHover  = hover ?? [];
-      totalShares  = shRes.count ?? 0;
-      totalEvents  = allEvents.length;
+      allEvents   = evRes.data ?? [];
+      edHover     = hoverResult.status === 'fulfilled' ? (hoverResult.value ?? []) : [];
+      totalShares = shResult.status === 'fulfilled'   ? ((shResult.value as any).count ?? 0) : 0;
+      totalEvents = allEvents.length;
 
       // Sessions
       const map: Record<string, Session> = {};

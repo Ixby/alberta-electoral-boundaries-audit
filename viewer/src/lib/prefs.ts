@@ -6,6 +6,7 @@
 // Plaintext format: pipe-separated key=value pairs, e.g. c=yes|t=dark|i=1|s=alpine-badger-banff
 // Keys:   c (consent: yes/no)         t (theme: dark/light)
 //         i (intro seen: 1)           s (last share code: word-word-word)
+//         g (GPS region: lat,lng)     l (browser language: e.g. en-CA)
 //
 // Theme is also mirrored to localStorage['ab_pref_t'] so app.html can prevent
 // FOUC synchronously without decrypting the cookie.
@@ -120,4 +121,28 @@ export async function getLastCode(): Promise<string | null> {
 
 export async function storeLastCode(code: string): Promise<void> {
 	await _set('s', code);
+}
+
+// ── GPS region (10 km grid, 0.1° resolution) ──────────────────────────────────
+export async function getStoredGps(): Promise<{ lat: number; lng: number } | null> {
+	const v = await _get('g');
+	if (!v) return null;
+	const [lat, lng] = v.split(',').map(Number);
+	if (isNaN(lat) || isNaN(lng)) return null;
+	return { lat, lng };
+}
+
+export async function storeGps(lat: number, lng: number): Promise<void> {
+	const rLat = Math.round(lat * 10) / 10;
+	const rLng = Math.round(lng * 10) / 10;
+	await _set('g', `${rLat},${rLng}`);
+}
+
+// ── Browser language ──────────────────────────────────────────────────────────
+export async function getStoredLanguage(): Promise<string | null> {
+	return (await _get('l')) || null;
+}
+
+export async function storeLanguage(lang: string): Promise<void> {
+	await _set('l', lang);
 }

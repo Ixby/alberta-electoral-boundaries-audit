@@ -47,8 +47,8 @@
     await ensureMapLoaded();
     _ME?.openOverlay();
   }
-  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, type FlightEvent } from '$lib/share';
-  import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode } from '$lib/prefs';
+  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, setGpsRegion, setLanguage, type FlightEvent } from '$lib/share';
+  import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode, getStoredGps, storeGps, getStoredLanguage, storeLanguage } from '$lib/prefs';
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -147,6 +147,28 @@
     if (lastCode) {
       const lastState = decodeState(lastCode);
       if (lastState) { _pendingState = { primary: lastState.primary, mapOn: lastState.mapOn, layers: lastState.layers }; setOrigin(lastCode); }
+    }
+
+    // ── GPS + language (returning consented users) ────────────────────────────
+    if (storedConsent === 'yes') {
+      const storedLang = await getStoredLanguage();
+      if (storedLang) { setLanguage(storedLang); }
+      else { await storeLanguage(navigator.language); setLanguage(navigator.language); }
+
+      const storedGps = await getStoredGps();
+      if (storedGps) {
+        setGpsRegion(storedGps.lat, storedGps.lng);
+      } else if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          async (pos) => {
+            const lat = Math.round(pos.coords.latitude  * 10) / 10;
+            const lng = Math.round(pos.coords.longitude * 10) / 10;
+            await storeGps(lat, lng);
+            setGpsRegion(lat, lng);
+          },
+          () => {},
+        );
+      }
     }
 
     // ── Skeleton phrase cycling ───────────────────────────────────────────────
@@ -1047,7 +1069,24 @@
       <button class="part-btn" class:part-primary={dntActive} class:part-secondary={!dntActive}
         onclick={() => { storeConsent(false); setParticipation(false); showParticipation = false; }}>No thanks</button>
       <button class="part-btn" class:part-primary={!dntActive} class:part-secondary={dntActive}
-        onclick={() => { storeConsent(true); setParticipation(true); showParticipation = false; }}>Yes, I'll help</button>
+        onclick={async () => {
+          await storeConsent(true);
+          setParticipation(true);
+          showParticipation = false;
+          await storeLanguage(navigator.language);
+          setLanguage(navigator.language);
+          if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(
+              async (pos) => {
+                const lat = Math.round(pos.coords.latitude  * 10) / 10;
+                const lng = Math.round(pos.coords.longitude * 10) / 10;
+                await storeGps(lat, lng);
+                setGpsRegion(lat, lng);
+              },
+              () => {},
+            );
+          }
+        }}>Yes, I'll help</button>
     </div>
     <p class="part-policy"><a href="{base}/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
   </div>

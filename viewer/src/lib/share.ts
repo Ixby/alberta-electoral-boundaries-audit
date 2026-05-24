@@ -128,6 +128,8 @@ const _sessionId: string = crypto.randomUUID();  // unique per page-load; never 
 let _participates  = false;
 let _flightPath: FlightEvent[] = [];
 let _originCode: string | null = null;  // null = default start; code = loaded from share
+let _gpsRegion: { lat: number; lng: number } | null = null;
+let _language: string | null = null;
 
 export function getSessionId(): string { return _sessionId; }
 
@@ -153,6 +155,14 @@ export function participates(): boolean {
 	return _participates;
 }
 
+export function setGpsRegion(lat: number, lng: number): void {
+	_gpsRegion = { lat, lng };
+}
+
+export function setLanguage(lang: string): void {
+	_language = lang;
+}
+
 export function recordEvent(event: FlightEvent): void {
 	if (!_participates) return;
 	_flightPath.push(event);
@@ -168,8 +178,11 @@ import { db } from './db';
 
 export function saveShare(code: string, state: MapState): void {
 	if (!code || code === '—') return;
+	const payload: Record<string, unknown> = { ...state };
+	if (_gpsRegion) { payload.region_lat = _gpsRegion.lat; payload.region_lng = _gpsRegion.lng; }
+	if (_language)  payload.language = _language;
 	db.from('shares').upsert(
-		{ code, state_json: state, origin_code: _originCode },
+		{ code, state_json: payload, origin_code: _originCode },
 		{ onConflict: 'code', ignoreDuplicates: true },
 	).then(undefined, () => {});
 }

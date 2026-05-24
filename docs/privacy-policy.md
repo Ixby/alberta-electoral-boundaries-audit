@@ -89,14 +89,19 @@ If you click **Share**, we also save your ending map view (which map is active, 
 - Time zone and language (e.g. America/Edmonton, en-CA)
 - Full date and time of the share
 - If you loaded someone else's share code first, that code is noted as your starting point
+- Your approximate region (10 km grid), if you allowed location access when you consented
 
 ---
 
 ## Optional: approximate region
 
-When you share, you may be asked if you want to include your approximate location. This is entirely optional and separate from the main consent.
+When you choose **Yes, I'll help**, your browser asks for GPS permission as part of consent. This is entirely optional — you can accept analytics and deny GPS, and that's fine.
 
-If you say yes, your browser fetches your GPS coordinates and we immediately round them to the nearest degree of latitude and longitude — a grid cell roughly 100 km across. The precise coordinates are discarded right there in the browser and never leave your device. What we receive is a broad region like "Calgary area" or "Peace Country."
+If you allow location access, your browser reads your GPS coordinates and we immediately round them to the nearest tenth of a degree of latitude and longitude — a grid cell roughly 10 km across. The precise coordinates are discarded right there in the browser and never leave your device. What we receive is a broad region like "Calgary area" or "Peace Country."
+
+If you've already consented but haven't granted GPS, the request may appear silently in the background on your next visit. Denying it has no effect on your participation in analytics.
+
+Your approximate region is stored in your cookie and included with share events so we can understand which parts of Alberta find the audit most useful.
 
 ---
 
@@ -110,9 +115,9 @@ Everything is rounded or bucketed in your browser before anything is sent. The s
 
 ## Share codes
 
-Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To load someone's shared view, the recipient types the code directly into the site.
+Your cookie always holds a code for your current map view — it is updated continuously as you explore, every few hundred milliseconds. Clicking **Share** reveals that code so you can copy it. Nothing new is generated at that moment; the code was already there.
 
-Your most recent share code is stored in a cookie so your map view is restored on your next visit.
+Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To load someone's shared view, the recipient types the code directly into the site.
 
 ### There are only 19,200 possible codes
 
@@ -128,16 +133,18 @@ Web server logs work the same way. When your browser loads this page, GitHub's s
 
 ## Cookies
 
-This site sets one cookie that stores four things:
+This site sets one cookie that stores six things:
 
 - **Your consent choice** — yes or no
 - **Colour theme** — dark or light, if you changed it
 - **Intro dismissed** — so the map introduction doesn't repeat
-- **Last map view** — so your view is restored on your next visit
+- **Current map view** — updated continuously as you explore, so your view is restored on your next visit
+- **Approximate region** — your 10 km GPS grid cell, if you allowed location access
+- **Browser language** — e.g. en-CA, to understand which language communities find the audit
 
 The cookie is encrypted in your browser before it is written — the server never sees the contents. It is only sent over HTTPS and is never shared with other sites. It expires after one year. You can remove it by clearing your cookies.
 
-The last map view is encrypted because it encodes where you were in the map — which proposal you were looking at, which layers were on, where your viewport was. That is your business, not anyone else's.
+The map view and location data are encrypted because they encode where you were — which proposal you were looking at, which layers were on, where your viewport was. That is your business, not anyone else's.
 
 ---
 

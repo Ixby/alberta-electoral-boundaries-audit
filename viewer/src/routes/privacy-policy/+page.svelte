@@ -94,13 +94,16 @@
         <li>Time zone and language (e.g. America/Edmonton, en-CA)</li>
         <li>Full date and time of the share</li>
         <li>If you loaded someone else's share code first, that code is noted as your starting point</li>
+        <li>Your approximate region (10 km grid), if you allowed GPS access when you consented to analytics</li>
       </ul>
     </section>
 
     <section>
       <h2>Optional: approximate region</h2>
-      <p>When you share, you may be asked if you want to include your approximate location. This is entirely optional and separate from the main consent.</p>
-      <p>If you say yes, your browser fetches your GPS coordinates and we immediately round them to the nearest degree of latitude and longitude — a grid cell roughly 100 km across. The precise coordinates are discarded right there in the browser and never leave your device. What we receive is a broad region like "Calgary area" or "Peace Country."</p>
+      <p>When you choose <strong>Yes, I'll help</strong>, your browser asks for GPS permission as part of consent. This is entirely optional — you can accept analytics and deny GPS, and that's fine.</p>
+      <p>If you allow location access, your browser reads your GPS coordinates and we immediately round them to the nearest tenth of a degree of latitude and longitude — a grid cell roughly 10 km across. The precise coordinates are discarded right there in the browser and never leave your device. What we receive is a broad region like "Calgary area" or "Peace Country."</p>
+      <p>If you've already consented but haven't granted GPS, the request may appear silently in the background on your next visit. Denying it has no effect on your participation in analytics.</p>
+      <p>Your approximate region is stored in your cookie and included with share events so we can understand which parts of Alberta find the audit most useful.</p>
     </section>
 
     <section>
@@ -111,8 +114,8 @@
 
     <section>
       <h2>Share codes</h2>
+      <p>Your cookie always holds a code for your current map view — it is updated continuously as you explore, every few hundred milliseconds. Clicking <strong>Share</strong> reveals that code so you can copy it. Nothing new is generated at that moment; the code was already there.</p>
       <p>Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To load someone's shared view, the recipient types the code directly into the site.</p>
-      <p>Your most recent share code is stored in a cookie so your map view is restored on your next visit.</p>
 
       <h3>There are only 19,200 possible codes</h3>
       <p>Share codes represent map configurations, not people. There are exactly 19,200 valid combinations of map, overlays, layers, and viewport region — so two people exploring independently can easily arrive at the same code. This is expected and intentional. When it happens, we record two arrivals at the same map state, which is exactly the signal we're looking for: it tells us that configuration is genuinely interesting, not just a one-off. No two sessions are merged or linked because of a shared code.</p>
@@ -124,15 +127,17 @@
 
     <section>
       <h2>Cookies</h2>
-      <p>This site sets one cookie that stores four things:</p>
+      <p>This site sets one cookie that stores six things:</p>
       <ul>
         <li><strong>Your consent choice</strong> — yes or no</li>
         <li><strong>Colour theme</strong> — dark or light, if you changed it</li>
         <li><strong>Intro dismissed</strong> — so the map introduction doesn't repeat</li>
-        <li><strong>Last map view</strong> — so your view is restored on your next visit</li>
+        <li><strong>Current map view</strong> — updated continuously as you explore, so your view is restored on your next visit</li>
+        <li><strong>Approximate region</strong> — your 10 km GPS grid cell, if you allowed location access</li>
+        <li><strong>Browser language</strong> — e.g. en-CA, to understand which language communities find the audit</li>
       </ul>
       <p>The cookie is encrypted in your browser before it is written — the server never sees the contents. It is only sent over HTTPS and is never shared with other sites. It expires after one year. You can remove it by clearing your cookies.</p>
-      <p>The last map view is encrypted because it encodes where you were in the map — which proposal you were looking at, which layers were on, where your viewport was. That is your business, not anyone else's.</p>
+      <p>The map view and location data are encrypted because they encode where you were — which proposal you were looking at, which layers were on, where your viewport was. That is your business, not anyone else's.</p>
     </section>
 
     <section>
@@ -146,8 +151,6 @@
       <ul>
         <li><strong>Choose No thanks</strong> at the prompt and nothing is recorded.</li>
         <li><strong>Turn on Do Not Track</strong> in your browser and No thanks is pre-selected for you.</li>
-        <li><strong>Delete a share code</strong> by emailing it to <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a> — we will delete it and confirm.</li>
-        <li><strong>Confirm a share code exists or not</strong> by emailing the same address. We cannot search by identity because none was collected.</li>
       </ul>
     </section>
 
