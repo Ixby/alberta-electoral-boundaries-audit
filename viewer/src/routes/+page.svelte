@@ -2164,6 +2164,8 @@
   :global(.part-btn:hover) { opacity: 0.82; }
   :global(.part-secondary) { background: var(--btn-muted, #e8e8e8); color: var(--text, #111); }
   :global(.part-primary)   { background: #6B35A7; color: #fff; }
+  :root[data-theme="dark"] :global(.part-secondary) { background: #3a3b47; color: var(--text); }
+  :root[data-theme="dark"] :global(.part-primary)   { background: #8B50D4; color: #fff; }
   :global(.part-policy) {
     font-size: 0.78rem !important; text-align: right;
     margin: 0 !important; color: var(--text-muted, #888) !important;
