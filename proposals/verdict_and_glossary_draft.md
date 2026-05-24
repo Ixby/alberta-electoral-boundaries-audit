@@ -233,7 +233,45 @@ A short narrative section that gives the reader the word's origin and three quic
 
 ---
 
-## Part 7 — Glossary (`viewer/src/lib/glossary.ts`)
+## Part 7 — Section 7 Canada is different and similar (`/`, after the history)
+
+The bridge from the international snapshot in Section 6 to the deeper legal framing on `/law`. Six paragraphs, ~500 words. Stays in Section 6's third-person narrative register, but threads back to the audit's specific findings (the 25% variance from Section 5's "Your region," the Lunty committee from the verdict's Q1 footnote) so a reader who has scrolled this far feels the section ties the threads together.
+
+---
+
+> ### Canada is different — and similar
+>
+> Canada belongs to the same family as the U.S., the U.K., and Australia. We elect single members from geographic districts under first-past-the-post. We redraw the lines periodically — federally after each decennial census, provincially on staggered schedules. We inherited the basic machinery from the same Westminster roots. So far, no surprises.
+>
+> What sets Canada apart is the test the lines have to pass.
+>
+> In American constitutional law, the binding rule is *one person, one vote* — districts must have populations as nearly equal as practicable, and large departures require strict justification. In Canadian constitutional law, the binding rule is different. Section 3 of the *Canadian Charter of Rights and Freedoms* guarantees every citizen the right to vote. In *Reference re Provincial Electoral Boundaries (Sask.)* — the 1991 Saskatchewan Reference, the leading case — the Supreme Court of Canada interpreted that right as a right to *effective representation*, not a right to mathematical equality of district populations.
+>
+> That distinction matters. Effective representation allows district populations to vary, sometimes substantially, when there are good reasons: vast rural geographies one MLA cannot reasonably serve at standard population density, communities of interest that should be kept together, minority representation mathematical equality would dilute. The Saskatchewan Reference made that flexibility constitutional. The EBCA's 25% population variance — the rule that protects rural Alberta seats — flows directly from it.
+>
+> The catch is that flexibility cuts both ways. If a commission can legitimately depart from population equality for the right reasons, it can also depart from population equality for the wrong ones. Canadian law has no American-style mathematical floor to fall back on. It has the effective-representation test, applied by judges, after the fact, in litigation. Most jurisdictions guard against the wrong reasons with structural protections: federal redistricting commissions are insulated by statute and their recommendations take effect automatically if Parliament does not act on them within a deadline. Quebec uses a permanent independent commission whose work the National Assembly can override only with a two-thirds supermajority. British Columbia operates under a similar default-adopt rule.
+>
+> Alberta is the exception. Under the *Electoral Boundaries Commission Act*, the commission's report is a recommendation only — the legislature must vote to enact it. That is normally a formality. In the 2026 cycle, the commission split 3–2 and produced two competing proposals; the legislature created a separate MLA committee, chaired by a Premier-appointed MLA, to choose between them. Nothing in Canadian constitutional law required that committee to exist. Nothing requires its choice to follow the commission's process. That is the structural gap this audit is examining.
+>
+> So when Canadian courts say "gerrymander" isn't their legal vocabulary, they are not saying the underlying concept does not apply here. They are saying the test is different — effective representation, not mathematical equality. Whether the minority proposal meets that test is exactly the question this audit has measured the geometry against, and exactly the question only a judge can answer definitively. The longer legal treatment — the *Saskatchewan Reference* reasoning in full, the contrast with other provinces, the standing question, and the available reform pathways — lives at `/law`.
+
+---
+
+**Editorial notes:**
+
+- Two-move structure: similarities first, differences second. Naming the shared Westminster machinery before naming what makes Canada distinctive earns the right to be heard on the distinctive part. A reader who arrives suspicious that Canadian-exceptionalism arguments are usually thin gets a section that takes the shared ground seriously before introducing the distinctive ground.
+- "One person, one vote" is named explicitly as the American rule and then contrasted directly with effective representation. That binary gives the reader a single hook to remember the whole legal distinction. A reader who keeps nothing else from Section 7 still leaves with "the American test is mathematical equality; the Canadian test is effective representation."
+- The 25%-variance loop back to Section 5's "Your region" is the section's load-bearing connective tissue. A rural reader who has just been told (Section 5) that the variance protects rural seats now learns (Section 7) that the variance is constitutionally grounded in the same effective-representation principle that allows the minority proposal's anchoring failures to be legally tested. Same principle, two consequences.
+- "The catch is that flexibility cuts both ways" — names the structural cost of Canada's choice without prescribing whether the choice was right. A different country could have decided differently; Canada decided this. The audit observes the consequence; the reader judges whether the trade-off was worth it.
+- The Quebec two-thirds and BC default-adopt mentions preview Tier-2 glossary terms (already defined for the `/law` route). On `/` they are named briefly enough that a click-popover reader gets the definition and a glossary-skipper still picks up the rough shape from context.
+- The Lunty-committee paragraph repeats the verdict's Q1 footnote provenance language ("a separate MLA committee, chaired by a Premier-appointed MLA"). Consistent phrasing across the document so a reader who notices the repetition reads it as authoritative, not as redundancy.
+- "Nothing required that committee to exist. Nothing requires its choice to follow the commission's process. That is the structural gap this audit is examining." — the most pointed structural claim in Section 7. Calibrated against what `/law`'s "committee anomaly" section will treat in more detail; brief enough on `/` that the curious-reader audience absorbs the shape without being asked to take a position.
+- The closing sentence is the explicit bridge to `/law`. It names what the deeper route covers (*Saskatchewan Reference* in full, comparative material, standing, reform pathways) so a reader who clicks through arrives knowing what they will find.
+- No second-person address in this section, matching Section 6. The personal-stakes voice returns in Section 9 ("How to engage").
+
+---
+
+## Part 8 — Glossary (`viewer/src/lib/glossary.ts`)
 
 33 terms grouped by tier. Each entry has:
 - `term` — the canonical capitalized display form
@@ -597,7 +635,7 @@ hillClimbing: {
 
 ---
 
-## Part 8 — Open editorial choices
+## Part 9 — Open editorial choices
 
 Things to settle before the glossary ships:
 
@@ -614,7 +652,7 @@ Things to settle before the glossary ships:
 
 ---
 
-## Part 9 — What's not in this draft (deliberately)
+## Part 10 — What's not in this draft (deliberately)
 
 - **Section transitions and lead-in text.** Each route's section-by-section prose comes in a later editorial pass; this draft is just the verdict, the boundary card, and the defined vocabulary that the rest of the site will reference.
 - **References list (academic + legal).** Already exists in the current site and migrates wholesale.
