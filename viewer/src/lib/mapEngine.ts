@@ -11,6 +11,7 @@ import { showTip, hideTip, showCallout, hideCallout, setEdHighlight, clearEdHigh
 import { initSearch } from './mapEngine/search';
 import { applyAnomalyHighlight, initAnomalyButtons } from './mapEngine/anomaly';
 import { initNamedEdButtons } from './mapEngine/namedEdZoom';
+import { initViewport, getStageRect, animateToVB as vpAnimateToVB, resetVB as vpResetVB, vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, updateZoomDisplay, updateStrokeWidths } from './mapEngine/viewport';
 
 let _onEvent      = null;
 let _getState     = null;
@@ -37,13 +38,6 @@ export function init(basePath: string): void {
         const obj      = document.getElementById('zoom-obj');
         const trigger  = document.getElementById('zoom-trigger');
         const closeBtn = document.getElementById('zoom-close');
-        const zoomPct  = document.getElementById('zoom-pct');
-        const _zoomSlider = document.getElementById('zoom-slider');
-        function _updateZoomDisplay(pct) {
-          if (zoomPct) zoomPct.textContent = pct + '%';
-          if (_zoomSlider) _zoomSlider.value = String(Math.min(3000, Math.max(25, pct)));
-        }
-
         // ── Shared mutable state ──────────────────────────────────────────────────
         const ctx = {
           // SVG load mode
@@ -107,103 +101,12 @@ export function init(basePath: string): void {
           lastPinchMid:       null,
           lastTap:            0,
         };
-        function _getStageRect() {
-          return ctx.stageRect || (ctx.stageRect = stage.getBoundingClientRect());
-        }
-        window.addEventListener('resize', () => { ctx.stageRect = null; });
-        if (window.ResizeObserver) {
-          new ResizeObserver(() => { ctx.stageRect = null; if (ctx.svgEl && ctx.mode === 'viewbox') _doSettle(); }).observe(stage);
-        }
+        initViewport(ctx);
+        function _getStageRect() { return getStageRect(ctx); }
 
-        function _renderBounds() {
-          const r = _getStageRect();
-          const sw = r.width, sh = r.height;
-          const ar = ctx.natVB.w / ctx.natVB.h;
-          let rw, rh;
-          if (ar < sw / sh) { rh = sh; rw = sh * ar; }
-          else               { rw = sw; rh = sw / ar; }
-          return { rw, rh, ox: (sw - rw) / 2, oy: (sh - rh) / 2 };
-        }
-
-        // All gestures (ctx.drag, wheel, pinch) use CSS transform: translate+scale on
-        // the SVG element — compositor-threaded, no SVG re-rasterization per frame.
-        // ctx.settledVB = the viewBox actually rendered; ctx.curVB = logical destination.
-        // After SETTLE_MS of no new gesture events, the viewBox attribute is
-        // committed to ctx.curVB and the transform reset (one clean vector re-render).
-        const SETTLE_MS = 250;
-
-        function _doSettle() {
-          ctx.settleTimer = null;
-          if (!ctx.svgEl || !ctx.curVB) return;
-          ctx.settledVB = null;
-          if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
-          // Frame 1: reset transform + commit viewBox (compositor swap)
-          ctx.svgEl.style.transform = '';
-          ctx.svgEl.style.willChange = '';
-          ctx.svgEl.style.transformOrigin = '';
-          ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
-          _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
-          // Frame 2: update stroke widths after browser renders the new viewBox
-          requestAnimationFrame(_updateStrokeWidths);
-        }
-
-        function applyVB(vb) {
-          if (!ctx.settledVB) {
-            // First change since last settle — snapshot current rendered position.
-            ctx.settledVB = { ...ctx.curVB };
-            if (ctx.svgEl) { ctx.svgEl.style.willChange = 'transform'; ctx.svgEl.style.transformOrigin = '0 0'; }
-          }
-          ctx.curVB = vb;
-          // CSS transform: translate(tx,ty) scale(sx) maps ctx.settledVB rendering
-          // to appear as ctx.curVB. With transform-origin:0 0:
-          //   sx = ctx.settledVB.w / ctx.curVB.w
-          //   tx = (ctx.settledVB.x - ctx.curVB.x)*rw/ctx.curVB.w + ox*(1 - sx)
-          const { rw, rh, ox, oy } = _renderBounds();
-          const sx = ctx.settledVB.w / ctx.curVB.w;
-          ctx.pendingTx = (ctx.settledVB.x - ctx.curVB.x) * rw / ctx.curVB.w + ox * (1 - sx);
-          ctx.pendingTy = (ctx.settledVB.y - ctx.curVB.y) * rh / ctx.curVB.h + oy * (1 - sx);
-          ctx.pendingSx = sx;
-          if (ctx.rafId === null) {
-            ctx.rafId = requestAnimationFrame(() => {
-              ctx.rafId = null;
-              if (ctx.svgEl) ctx.svgEl.style.transform =
-                `translate(${ctx.pendingTx}px,${ctx.pendingTy}px) scale(${ctx.pendingSx})`;
-              _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
-            });
-          }
-          if (ctx.settleTimer !== null) clearTimeout(ctx.settleTimer);
-          ctx.settleTimer = setTimeout(_doSettle, SETTLE_MS);
-        }
-
-        function resetVB() {
-          if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
-          if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
-          ctx.settledVB = null;
-          ctx.curVB = { ...ctx.natVB };
-          if (ctx.svgEl) {
-            ctx.svgEl.style.transform = '';
-            ctx.svgEl.style.willChange = '';
-            ctx.svgEl.style.transformOrigin = '';
-            ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
-          }
-          _updateZoomDisplay(100);
-          _updateStrokeWidths();
-        }
-
-        function vbZoomAt(mx, my, factor) {
-          const { rw, rh, ox, oy } = _renderBounds();
-          const lx = mx - ox, ly = my - oy;
-          const svgX = ctx.curVB.x + (lx / rw) * ctx.curVB.w;
-          const svgY = ctx.curVB.y + (ly / rh) * ctx.curVB.h;
-          const newW = Math.max(ctx.natVB.w / 3000, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
-          const newH = newW * (ctx.natVB.h / ctx.natVB.w);
-          applyVB({ x: svgX - (lx / rw) * newW, y: svgY - (ly / rh) * newH, w: newW, h: newH });
-        }
-
-        function vbPanBy(dx, dy) {
-          const { rw, rh } = _renderBounds();
-          applyVB({ x: ctx.curVB.x - (dx / rw) * ctx.curVB.w, y: ctx.curVB.y - (dy / rh) * ctx.curVB.h, w: ctx.curVB.w, h: ctx.curVB.h });
-        }
+        function resetVB()                    { vpResetVB(ctx); }
+        function vbZoomAt(mx, my, factor)     { vpVbZoomAt(ctx, mx, my, factor); }
+        function vbPanBy(dx, dy)              { vpVbPanBy(ctx, dx, dy); }
 
         function _activateInlineSVG(node, preserveVB) {
           // Null out stale references so _syncOverlays re-adds them to the new node
@@ -257,7 +160,7 @@ export function init(basePath: string): void {
           reapplyLayers(ctx);
           if (typeof _applyAnomalyHighlight === 'function') _applyAnomalyHighlight();
           _syncOverlays();
-          _updateStrokeWidths();
+          updateStrokeWidths(ctx);
           if (overlay.style.display !== 'none') {
             if (preserveVB) {
               // Restore saved view without resetting to full province
@@ -269,8 +172,8 @@ export function init(basePath: string): void {
               ctx.svgEl.style.willChange = '';
               ctx.svgEl.style.transformOrigin = '';
               ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
-              _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
-              _updateStrokeWidths();
+              updateZoomDisplay(ctx);
+              updateStrokeWidths(ctx);
             } else {
               resetVB();
             }
@@ -285,7 +188,7 @@ export function init(basePath: string): void {
           ctx.fbImg.width = w; ctx.fbImg.height = h;
           ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px';
           ctx.fbImg.style.top  = Math.round(ctx.fbTy) + 'px';
-          _updateZoomDisplay(Math.round(ctx.fbScale * 100));
+          updateZoomDisplay(ctx);
         }
 
         function resetFallback() {
@@ -509,32 +412,7 @@ export function init(basePath: string): void {
             p.style.strokeOpacity = '1';
             p.style.fill = 'none';
           });
-          _updateStrokeWidths();
-        }
-
-        // ── Zoom-relative stroke widths ────────────────────────────────────────
-        // Keeps lines visually proportional as the user zooms in/out.
-        // Overlay is always 60% of primary (slightly thinner, same zoom tracking).
-        // Floor/ceil in SVG user units; at 400%+ zoom floors are intentionally
-        // very thin so overlays don't clutter the primary boundaries.
-        function _updateStrokeWidths() {
-          if (!ctx.svgEl || !ctx.natVB || !ctx.curVB) return;
-          var zf = ctx.natVB.w / ctx.curVB.w;                            // 1 = 100%, 4 = 400%
-          var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
-          var overlayW = Math.min(0.35, primaryW * 0.6);
-          var pLc = ctx.svgEl.querySelector('#ed_boundary_layer #LineCollection_1');
-          if (pLc) pLc.querySelectorAll('path').forEach(function(p) {
-            p.style.strokeWidth = String(primaryW);
-          });
-          ['minority', 'majority', '2019'].forEach(function(key) {
-            var og = ctx.overlayInSvg[key];
-            if (og) {
-              var lc = og.querySelector('#LineCollection_1');
-              if (lc) lc.querySelectorAll('path').forEach(function(p) {
-                p.style.strokeWidth = String(overlayW);
-              });
-            }
-          });
+          updateStrokeWidths(ctx);
         }
 
         // ── Active ED boundary highlight ──────────────────────────────────────────
@@ -754,37 +632,7 @@ export function init(basePath: string): void {
         });
 
         // ── Snap-to-ED animation ───────────────────────────────────────────────
-        function _animateToVB(targetVB, dur) {
-          if (ctx.mapLocked) return;
-          if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
-          if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
-          const startVB = { ...ctx.curVB };
-          if (!ctx.settledVB) {
-            ctx.settledVB = { ...ctx.curVB };
-            ctx.svgEl.style.willChange = 'transform';
-            ctx.svgEl.style.transformOrigin = '0 0';
-          }
-          const t0 = performance.now();
-          function step(now) {
-            const t = Math.min((now - t0) / dur, 1);
-            const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic — fast start, buttery decel
-            ctx.curVB = {
-              x: startVB.x + (targetVB.x - startVB.x) * ease,
-              y: startVB.y + (targetVB.y - startVB.y) * ease,
-              w: startVB.w + (targetVB.w - startVB.w) * ease,
-              h: startVB.h + (targetVB.h - startVB.h) * ease,
-            };
-            const { rw, rh, ox, oy } = _renderBounds();
-            const sx = ctx.settledVB.w / ctx.curVB.w;
-            ctx.svgEl.style.transform =
-              `translate(${(ctx.settledVB.x - ctx.curVB.x)*rw/ctx.curVB.w + ox*(1-sx)}px,` +
-              `${(ctx.settledVB.y - ctx.curVB.y)*rh/ctx.curVB.h + oy*(1-sx)}px) scale(${sx})`;
-            _updateZoomDisplay(Math.round(ctx.natVB.w / ctx.curVB.w * 100));
-            if (t < 1) { requestAnimationFrame(step); }
-            else { ctx.settleTimer = setTimeout(_doSettle, SETTLE_MS); }
-          }
-          requestAnimationFrame(step);
-        }
+        function _animateToVB(targetVB, dur) { vpAnimateToVB(ctx, targetVB, dur); }
 
         function _isEdVisible(bb)      { return isEdVisible(ctx, bb); }
         function _snapToED(pathEl, force) { snapToED(ctx, pathEl, !!force, _animateToVB, _getStageRect); }
@@ -907,22 +755,6 @@ export function init(basePath: string): void {
             else _animateToVB({ ...ctx.natVB }, 420);
           } else resetFallback();
         });
-
-        // ── Zoom slider ───────────────────────────────────────────────────────────
-        function _zoomToPct(pct) {
-          if (!ctx.ready || ctx.mode !== 'viewbox' || !ctx.natVB || !ctx.curVB) return;
-          var targetW = ctx.natVB.w * 100 / pct;
-          var targetH = ctx.natVB.h * 100 / pct;
-          var cx = ctx.curVB.x + ctx.curVB.w / 2;
-          var cy = ctx.curVB.y + ctx.curVB.h / 2;
-          ctx.curVB = { x: cx - targetW/2, y: cy - targetH/2, w: targetW, h: targetH };
-          _doSettle();
-        }
-        if (_zoomSlider) {
-          _zoomSlider.addEventListener('input', function() {
-            _zoomToPct(parseInt(_zoomSlider.value, 10));
-          });
-        }
 
         // ── ED search ─────────────────────────────────────────────────────────────
         initSearch(ctx, {
