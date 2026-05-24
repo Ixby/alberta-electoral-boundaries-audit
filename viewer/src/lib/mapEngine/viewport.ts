@@ -107,7 +107,7 @@ export function updateStrokeWidths(ctx: MapCtx): void {
   var zf = ctx.natVB.w / ctx.curVB.w;
   var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
   var overlayW = Math.min(0.35, primaryW * 0.6);
-  var pLc = ctx.svgEl.querySelector('#ed_boundary_layer #LineCollection_1');
+  var pLc = ctx.svgEl.querySelector('#LineCollection_1');
   if (pLc) pLc.querySelectorAll('path').forEach(function(p) {
     p.style.strokeWidth = String(primaryW);
   });

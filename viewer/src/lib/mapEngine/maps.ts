@@ -33,7 +33,7 @@ export function applyBoundaryColor(ctx: MapCtx, svgNode, mapKey): void {
   Array.from(g.children).forEach(function(child) {
     if (child.tagName === 'path') child.style.display = 'none';
   });
-  const lc = g.querySelector('#LineCollection_1');
+  const lc = svgNode.querySelector('#LineCollection_1');
   if (lc) lc.querySelectorAll('path').forEach(p => {
     p.style.stroke = color;
     p.style.strokeWidth = '0.5';
@@ -48,17 +48,13 @@ export function applyBoundaryColor(ctx: MapCtx, svgNode, mapKey): void {
 export function extractBoundaryGroup(ctx: MapCtx, key): Element | null {
   const doc = ctx.svgCache[key];
   if (!doc) return null;
-  const g = doc.querySelector('#ed_boundary_layer');
-  if (!g) return null;
-  const clone = document.importNode(g, true);
-  Array.from(clone.children).forEach(function(child) {
-    if (child.tagName === 'path') child.style.display = 'none';
-  });
+  const lc = doc.querySelector('#LineCollection_1');
+  if (!lc) return null;
+  const clone = document.importNode(lc, true);
   const zf = (ctx.natVB && ctx.curVB) ? ctx.natVB.w / ctx.curVB.w : 1;
   const primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
   const sw = Math.min(0.35, primaryW * 0.6);
-  const lc = clone.querySelector('#LineCollection_1');
-  if (lc) lc.querySelectorAll('path').forEach(function(p) {
+  clone.querySelectorAll('path').forEach(function(p) {
     p.style.stroke = MAP_ACCENT_COLORS[key] || '#555';
     p.style.strokeWidth = String(sw);
     p.style.strokeOpacity = '0.55';
