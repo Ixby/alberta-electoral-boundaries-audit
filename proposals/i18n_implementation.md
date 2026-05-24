@@ -1,21 +1,143 @@
 ---
-name: Homepage i18n — Canadian French, Tagalog, Punjabi with browser-language detection
-description: "Ready-to-execute plan for adding a language selector to / that supports English, Canadian French (fr-CA), Tagalog (tl), and Punjabi (pa, Gurmukhi). Includes architecture decisions (detection priority, URL strategy, persistence, fallback), drop-in implementation code for a Svelte 5 runes store + selector component, sample translations of the document opener in all three target languages, and a quality-gate plan that's honest about which translations are ready to ship versus which need native-speaker review before going live. Status PREP COMPLETE — implementation is drafted to drop in, but no viewer files are touched until the PI authorizes the translation-quality gate (in particular, native-speaker sign-off on Tagalog and Punjabi)."
+name: Homepage i18n — English + French + Tagalog + Punjabi + Simplified & Traditional Chinese
+description: "AUTHORIZED 2026-05-24. Adds a language selector to / supporting English, Canadian French (fr-CA), Tagalog (tl), Punjabi (pa, Gurmukhi), Simplified Chinese (zh-Hans, for Mandarin speakers), and Traditional Chinese (zh-Hant, for Cantonese / Hong Kong readership). Every non-English locale carries an explicit AI-translation disclaimer inviting the reader to report errors or volunteer to translate. Detection: URL ?lang= -> localStorage -> navigator.languages -> default 'en'. Implementation lives in viewer/src/lib/i18n/ and viewer/src/lib/components/. This document is the design source of truth; the actual code is the implementation."
 type: methodology
 ---
 
 > **Backward:**
 > - `proposals/verdict_and_glossary_draft.md` — the source-of-truth English content this plan translates
 > - `proposals/content_restructure.md` — the audience-tier architecture this plan inherits
-> - `viewer/src/routes/+page.svelte` — the file the selector and the translated content drop into
 > - `viewer/svelte.config.js` — adapter-static configuration (query-param i18n is what fits)
 >
 > **Forward:**
-> - `viewer/src/lib/i18n/` — new directory created if authorized
-> - `viewer/src/lib/components/LanguageSelector.svelte` — new component created if authorized
-> - native-speaker review queue for Tagalog and Punjabi before those locales go live
+> - `viewer/src/lib/i18n/` — the live implementation (store, dictionary, per-locale files)
+> - `viewer/src/lib/components/LanguageSelector.svelte` — the selector UI
+> - `viewer/src/lib/components/TranslationDisclaimer.svelte` — the AI-translation banner shown on non-English locales
+> - `viewer/src/routes/+layout.svelte` — mounts the selector + disclaimer, sets `<html lang>`, emits `hreflang`
 
-# Homepage i18n — Canadian French, Tagalog, Punjabi
+# Homepage i18n — six locales with AI-translation disclaimer
+
+**Status as of 2026-05-24: AUTHORIZED.** PI authorized the architecture and the six-locale scope; this document is now the design record. The live implementation is in `viewer/src/lib/i18n/` and `viewer/src/lib/components/`. Translation quality is honestly disclosed — every non-English page shows an AI-translation banner inviting the reader to report errors or volunteer to translate.
+
+## Why these six locales
+
+Statistics Canada 2021 Census, Alberta:
+
+| Locale | Language | Reach | Notes |
+|---|---|---|---|
+| `en` | English | 76% mother tongue | Source of truth |
+| `fr` | Canadian French | 1.5%, plus federal official-language conventions | Communities in NE Alberta (St. Paul, Bonnyville, Plamondon, Falher) + Edmonton |
+| `tl` | Tagalog | 2.5%, fastest-growing | Calgary, Edmonton |
+| `pa` | Punjabi (Gurmukhi) | 2.2% | Calgary, Edmonton |
+| `zh-Hans` | Simplified Chinese | Mandarin speakers, ~1.7% | Mainland-China-origin readers |
+| `zh-Hant` | Traditional Chinese | Cantonese speakers, ~1.3% | Hong-Kong-origin readers; same standard written Chinese, Traditional script |
+
+Combined Chinese (Mandarin + Cantonese) is ~3% — outranks both Tagalog and Punjabi by raw speaker count. Splitting into `zh-Hans` and `zh-Hant` lets Mandarin and Cantonese readers each see their conventional script. Standard written Chinese (the formal civic-document register) is largely identical between the two; only the character set differs. Colloquial written Cantonese (粵文) is not used for formal civic text and is not the target here.
+
+Indigenous-language reach (Cree, Blackfoot, Dene, Stoney Nakoda) remains a separate engagement that must work with the Treaty 6 / 7 / 8 nations' language authorities — not a top-down AI translation.
+
+## The AI-translation disclaimer
+
+Every non-English locale renders a banner at the top of the page, in that locale, with the following structure:
+
+> This site has been translated by AI. Some content may still appear in English while translations are in progress. If you notice errors or would like to help translate this project, please contact us.
+
+The banner:
+
+- Is honest about machine translation (no pretending a human translator vetted it).
+- Acknowledges the partial-translation state — some pages or sections may still be English until the dictionary covers them.
+- Invites the community in. The volunteer call is the most important part: native speakers reading their language on a civic-document site are the right reviewers, and the volunteer call gives them an explicit lane to participate.
+- Links to `#contact` (the existing site's contact anchor) so the reach-out path is one click away.
+
+The disclaimer does **not** appear on the English page, because the English content is the source of truth and is not AI-translated. The selector remains visible on every locale so a reader who landed on English by accident can switch.
+
+## Architecture (committed)
+
+### Detection priority (highest → lowest wins)
+
+1. URL `?lang=` parameter
+2. `localStorage.audit_lang` (saved choice)
+3. `navigator.languages` match against the supported set (prefix match: `fr-CA` matches `fr`; `zh-CN` matches `zh-Hans`; `zh-HK`/`zh-TW` match `zh-Hant`)
+4. Default: `en`
+
+### URL strategy
+
+Query parameter `?lang=fr` (or `tl`, `pa`, `zh-Hans`, `zh-Hant`). Fits `adapter-static` without per-language route trees; the single prerendered page applies the language client-side via the Svelte store.
+
+### Persistence
+
+`localStorage.audit_lang`, set when the selector changes language, read on page load as the second-priority signal.
+
+### Fallback
+
+Every translation key falls back to English if missing. UI never goes blank. Untranslated sections render in English. Combined with the disclaimer banner, the reader understands they are seeing a mix of translated and source-language content.
+
+### Supported set (committed)
+
+```ts
+export const SUPPORTED_LANGS = ['en', 'fr', 'tl', 'pa', 'zh-Hans', 'zh-Hant'] as const;
+```
+
+Native-name selector labels:
+
+| Locale | Native label | English label | `<html lang>` |
+|---|---|---|---|
+| `en` | English | English | `en` |
+| `fr` | Français | French (Canadian) | `fr-CA` |
+| `tl` | Tagalog | Tagalog | `tl` |
+| `pa` | ਪੰਜਾਬੀ | Punjabi | `pa` |
+| `zh-Hans` | 简体中文 | Chinese (Simplified) | `zh-Hans` |
+| `zh-Hant` | 繁體中文 | Chinese (Traditional) | `zh-Hant` |
+
+## File layout (implemented)
+
+```
+viewer/src/lib/i18n/
+  store.ts                      # Svelte 5 rune store, detection, persistence
+  dict.ts                       # t() function, lookup, fallback
+  locales/
+    en.ts
+    fr.ts
+    tl.ts
+    pa.ts
+    zh-Hans.ts
+    zh-Hant.ts
+
+viewer/src/lib/components/
+  LanguageSelector.svelte       # native-name dropdown
+  TranslationDisclaimer.svelte  # AI-translation banner, shown when lang != 'en'
+
+viewer/src/routes/
+  +layout.svelte                # mounts selector + disclaimer, binds <html lang>, emits hreflang
+```
+
+## Translation quality and review
+
+| Locale | Confidence | Review path |
+|---|---|---|
+| `en` | Source | n/a |
+| `fr` | Strong; Canadian-French register choices (vous, élus, mordus de politique, point de repère) deliberately picked | One editorial pass by anyone with native or near-native French is sufficient |
+| `tl` | Competent at meaning; register and idiom imperfect | Native review actively invited via the banner; structural errors should be reported |
+| `pa` | Competent at meaning; Gurmukhi script confirmed; Eastern-Punjabi vocabulary used | Native review actively invited via the banner |
+| `zh-Hans` | Strong at meaning; standard written Mandarin register | Native review actively invited via the banner |
+| `zh-Hant` | Same text as `zh-Hans` converted to Traditional characters; the formal civic-document register is essentially identical between Simplified and Traditional | Native review actively invited via the banner |
+
+The disclaimer is what makes shipping all six locales at once defensible: the reader is told up front that the translation is AI-generated, and the volunteer call gives the audit a clear improvement path. This is the same pattern Wikipedia and similar civic-information sites use for machine-assisted translations.
+
+## Rollout (implemented in this commit)
+
+1. Infrastructure (`store.ts`, `dict.ts`) ✓
+2. Components (`LanguageSelector`, `TranslationDisclaimer`) ✓
+3. Layout integration (`+layout.svelte` mounts both, sets `<html lang>`, emits `hreflang`) ✓
+4. Per-locale dictionaries (en, fr, tl, pa, zh-Hans, zh-Hant) seeded with the document opener + verdict + CTAs + disclaimer text ✓
+5. Existing `+page.svelte` content remains untranslated for now — the new editorial content (per `proposals/verdict_and_glossary_draft.md`) will be wired through `t()` as it lands in the viewer. The disclaimer's "some content may still appear in English" sentence covers the partial-translation state honestly.
+
+## Open questions deferred to follow-up
+
+- **Selector position and styling.** Initial placement is top-right of the page; CSS uses inherited colours so it adapts to light/dark mode. Visual refinement is a separate pass.
+- **`#contact` anchor.** The disclaimer links to `#contact`. The existing `+page.svelte` has a Resources section near the bottom; whoever wires the new editorial content should add a `#contact` anchor (or update the disclaimer link to whatever the canonical contact mechanism becomes).
+- **Native translators.** The volunteer call invites them. Once volunteers are identified, their corrections land in the per-locale files via pull request; the AI-disclaimer banner stays until a locale is fully human-reviewed (a future commit can hide the banner on a per-locale basis once review completes).
+
 
 **Status as of 2026-05-24: PREP COMPLETE, NOT AUTHORIZED.** The architecture, implementation code, and sample translations below are drafted to drop into the viewer cleanly. No live viewer files are touched until the PI authorizes the translation-quality gate, specifically: confirming that Canadian French is suitable for the audit's register (model-generated is acceptable for a first pass) and that Tagalog and Punjabi will go through native-speaker review before those locales are advertised on the language selector.
 
