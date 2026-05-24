@@ -155,8 +155,8 @@
     <p>{t(lang.current, 'verdict.q3.body')}</p>
   </div>
   <div class="verdict-ctas">
-    <a href="{base}/law/?lang={lang.current}" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
-    <a href="{base}/methods/?lang={lang.current}" class="verdict-cta">{t(lang.current, 'verdict.cta_methods')}</a>
+    <a href="#canada-is-different" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
+    <a href="#section-3" class="verdict-cta">{t(lang.current, 'verdict.cta_methods')}</a>
   </div>
 </section>
 
