@@ -178,9 +178,15 @@ def _load_official_2023_results() -> dict:
 
 
 def _tag_ed_hover_paths(svg_path: Path, n_eds: int) -> None:
-    """Post-process the hi-res SVG: stamp data-ed-id and pointer-events on the
-    transparent hit-detection layer so the browser can map pointer position to
-    an ED index for the hover tooltip."""
+    """Post-process the hi-res SVG:
+    1. Stamp data-ed-id and pointer-events on the hit-detection layer.
+    2. Remove pacman nodes — VA paths with d-attr < 80 chars that are too tiny
+       to render meaningfully and appear as artifacts at high zoom.
+    3. Add a micro-stroke matching each VA's fill colour (stroke-width 0.002,
+       paint-order: stroke fill) so coordinate-rounding gaps between adjacent
+       polygons are invisible even at maximum zoom.
+    """
+    import re
     import xml.etree.ElementTree as ET
     from io import StringIO
 
@@ -190,18 +196,44 @@ def _tag_ed_hover_paths(svg_path: Path, n_eds: int) -> None:
 
     tree = ET.parse(str(svg_path))
     root = tree.getroot()
+
+    # ── 1. Hit-detection layer ────────────────────────────────────────────────
     hit_g = root.find(f".//{{{ns}}}g[@id='ed_hover_layer']")
     if hit_g is None:
         print("[build_cover] WARN: ed_hover_layer not found in SVG — hover disabled")
-        return
-    paths = hit_g.findall(f"{{{ns}}}path")
-    for i, p in enumerate(paths[:n_eds]):
-        p.set("data-ed-id", str(i))
-        p.set("pointer-events", "all")
+    else:
+        paths = hit_g.findall(f"{{{ns}}}path")
+        for i, p in enumerate(paths[:n_eds]):
+            p.set("data-ed-id", str(i))
+            p.set("pointer-events", "all")
+        print(f"[build_cover] Tagged {min(len(paths), n_eds)} hit-detection paths in SVG")
+
+    # ── 2 & 3. VA layer: pacman removal + gap-filling micro-stroke ────────────
+    pc2 = root.find(f".//{{{ns}}}g[@id='PatchCollection_2']")
+    if pc2 is not None:
+        removed = 0
+        updated = 0
+        _fill_re = re.compile(r"fill:([^;]+)")
+        for path in list(pc2.findall(f"{{{ns}}}path")):
+            d = path.get("d", "")
+            if len(d) < 80:
+                # Pacman node: tiny VA fragment, remove it entirely.
+                pc2.remove(path)
+                removed += 1
+                continue
+            # Micro-stroke matching fill; painted under fill so it only
+            # bleeds outward into any coordinate-rounding gap (≤ 0.001 SVG units).
+            style = path.get("style", "")
+            m = _fill_re.search(style)
+            fill = m.group(1).strip() if m else "none"
+            path.set("style", f"{style};stroke:{fill};stroke-width:0.002;paint-order:stroke fill")
+            updated += 1
+        print(f"[build_cover] VA layer: removed {removed} pacman nodes, "
+              f"added gap-fill stroke to {updated} paths")
+
     buf = StringIO()
     tree.write(buf, encoding="unicode")
     svg_path.write_text(buf.getvalue(), encoding="utf-8")
-    print(f"[build_cover] Tagged {min(len(paths), n_eds)} hit-detection paths in SVG")
 
 
 def _export_ed_hover_json(eds, name_col: str, out_path: Path) -> None:
