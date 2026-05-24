@@ -1742,7 +1742,7 @@
     stroke-linejoin: round; stroke-linecap: round;
   }
   .skel-province-glow {
-    fill: none; stroke: #7a98b4; stroke-width: 12;
+    fill: none; stroke: #FFBE00; stroke-width: 12;
     stroke-linecap: round; stroke-linejoin: round;
     stroke-dasharray: 12 612;
     stroke-dashoffset: 1872;
@@ -1751,7 +1751,7 @@
     animation: skel-race 4.5s linear infinite;
   }
   .skel-province-shine {
-    fill: none; stroke: #7a98b4; stroke-width: 2.5;
+    fill: none; stroke: #FFBE00; stroke-width: 2.5;
     stroke-linecap: round; stroke-linejoin: round;
     stroke-dasharray: 5 619;
     stroke-dashoffset: 1872;
@@ -1768,7 +1768,7 @@
     font-family: 'Palatino Linotype', Palatino, Georgia, serif;
     font-style: italic; font-size: 1.05rem;
     text-align: center; pointer-events: none; white-space: nowrap;
-    text-shadow: 0 0 14px rgba(122,152,180,0.45), 0 0 30px rgba(122,152,180,0.2);
+    text-shadow: 0 0 14px rgba(255,190,0,0.45), 0 0 30px rgba(255,190,0,0.2);
   }
   #zoom-obj {
     position: absolute; display: block; border: 0;
