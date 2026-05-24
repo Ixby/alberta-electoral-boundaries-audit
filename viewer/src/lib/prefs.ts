@@ -69,7 +69,7 @@ async function _write(prefs: Record<string, string>): Promise<void> {
 	const plain = Object.entries(prefs).map(([k, v]) => `${k}=${v}`).join('|');
 	const enc   = await _encrypt(plain);
 	const exp   = new Date();
-	exp.setFullYear(exp.getFullYear() + 1);
+	exp.setTime(exp.getTime() + 10 * 60 * 1000);
 	const secure = location.protocol === 'https:' ? '; Secure' : '';
 	document.cookie = `${COOKIE}=${encodeURIComponent(enc)}; expires=${exp.toUTCString()}; path=/; SameSite=Strict${secure}`;
 }

@@ -1892,7 +1892,7 @@
   /* District info bar — only rendered when an ED is selected */
   #ed-callout {
     background: rgba(10,12,18,0.92);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 2px solid rgba(255,255,255,0.08);
     border-radius: 10px;
     padding: 5px 10px;
     backdrop-filter: blur(10px);
@@ -1904,8 +1904,8 @@
   }
   #ed-callout.ec-visible {
     display: flex;
-    border-color: rgba(122,152,180,0.75);
-    box-shadow: 0 0 0 1px rgba(122,152,180,0.25), 0 0 12px rgba(122,152,180,0.15);
+    border-color: #F5A800;
+    box-shadow: 0 0 0 1px rgba(245,168,0,0.25), 0 0 12px rgba(245,168,0,0.15);
   }
   #ec-ed-section {
     display: flex; align-items: center; gap: 8px;
