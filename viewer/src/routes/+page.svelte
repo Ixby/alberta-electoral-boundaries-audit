@@ -339,11 +339,6 @@
   {/if}
 </nav>
 
-<section class="opener-block container" aria-labelledby="opener-heading">
-  <h2 id="opener-heading">{t(lang.current, 'opener.heading')}</h2>
-  <p>{t(lang.current, 'opener.body')}</p>
-</section>
-
 <header>
   <div class="header-inner">
     <div class="header-text">
@@ -364,6 +359,11 @@
     </button>
   </div>
 </header>
+
+<section class="opener-block container" aria-labelledby="opener-heading">
+  <h2 id="opener-heading">{t(lang.current, 'opener.heading')}</h2>
+  <p>{t(lang.current, 'opener.body')}</p>
+</section>
 
 <section class="verdict-block container" aria-labelledby="verdict-heading">
   <h2 id="verdict-heading" class="visually-hidden">Verdict</h2>

@@ -83,18 +83,24 @@
 	}
 	.lang-trigger {
 		background: transparent;
-		border: 1px solid currentColor;
-		padding: 0.3rem 0.6rem;
+		border: 1px solid rgba(255, 255, 255, 0.18);
+		padding: 0.25rem 0.55rem;
 		border-radius: 4px;
 		cursor: pointer;
 		color: inherit;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
+		gap: 0.35rem;
 		font: inherit;
+		line-height: 1.2;
+		transition: color 0.15s, border-color 0.15s, background 0.15s;
+	}
+	.lang-trigger:hover {
+		color: #fff;
+		border-color: rgba(255, 255, 255, 0.4);
 	}
 	.lang-trigger:focus-visible {
-		outline: 2px solid currentColor;
+		outline: 2px solid var(--link, currentColor);
 		outline-offset: 2px;
 	}
 	.caret {
@@ -108,13 +114,13 @@
 		margin: 0;
 		padding: 0.25rem 0;
 		list-style: none;
-		background: var(--bg, white);
-		color: var(--fg, inherit);
-		border: 1px solid currentColor;
+		background: var(--bg-alt, var(--bg, white));
+		color: var(--text, inherit);
+		border: 1px solid var(--border, currentColor);
 		border-radius: 4px;
 		min-width: 13rem;
 		z-index: 50;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 	}
 	.lang-option {
 		display: flex;
