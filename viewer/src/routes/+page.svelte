@@ -704,272 +704,272 @@
   </section>
 
   <section id="section-6">
-    <h2>6: How &#8220;Clean Gerrymanders&#8221; Work <a href="#section-6" class="section-link" aria-label="Link to section 6">#</a></h2>
+    <h2>{t(lang.current, 'body.clean.heading')} <a href="#section-6" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 6">#</a></h2>
 
     <div class="callout">
-      <p><strong>A NOTE ON LEGAL TERMINOLOGY</strong></p>
-      <p>"Gerrymandering" has no legal definition in Canadian law. The word is used throughout this report in its everyday political sense — manipulating electoral boundaries for partisan advantage. The legal tests that actually apply in Canada are different: whether boundaries provide "effective representation" under s.3 of the <em>Charter of Rights and Freedoms</em> (the constitutional standard the Supreme Court of Canada set in the 1991 <em>Saskatchewan Reference</em>), and whether the commission followed the rules of Alberta's <em>Electoral Boundaries Commission Act</em>. The audit's findings are evidence bearing on those legal questions. They are not proof of a legally-defined wrong, and this report does not describe them that way.</p>
+      <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
+      <p>{@html t(lang.current, 'body.clean.legal_body')}</p>
     </div>
 
-    <p>The cleanest single question to ask of any electoral map is this: if the province's vote split exactly evenly between the two main parties, what seat count would the map produce? This holds the electorate constant and asks the map alone what it does.</p>
+    <p>{t(lang.current, 'body.clean.intro_p1')}</p>
 
-    <p>To answer this, the audit generated 1,010,000 computer-simulated, mathematically neutral Alberta maps (4 independent chains &times; 252,500 steps, base seed from Cloudflare drand beacon, pre-registered at OSF before execution) using the official Elections Alberta shapefiles, holding to the exact same statutory rules and geographic boundaries the commission used. We then placed the commission's two 2026 maps into that distribution to see how normal they are.</p>
+    <p>{t(lang.current, 'body.clean.intro_p2')}</p>
 
     <div class="callout">
-      <p><strong>HOW THE SIMULATION WORKS</strong></p>
-      <p><strong>MCMC (Markov Chain Monte Carlo)</strong> is a method for exploring a large space — here, the space of all legal Alberta maps — by taking random steps from a starting point. Each step proposes a small swap between adjacent districts; if the result stays within the statutory rules, it becomes the new starting point. After enough steps, the visited maps form a representative sample of legal plans. The simulation is seeded from the Cloudflare drand public randomness beacon to prevent any cherry-picking of starting conditions.</p>
-      <p><strong>ReCom (Redistricting Compiler)</strong> is the specific algorithm used here. Each step merges two adjacent districts into one region and re-splits it randomly into two new valid districts, preserving contiguity and population balance by construction — so the algorithm never needs to reject an invalid proposal.</p>
+      <p><strong>{t(lang.current, 'body.clean.howmcmc_label')}</strong></p>
+      <p>{@html t(lang.current, 'body.clean.howmcmc_mcmc')}</p>
+      <p>{@html t(lang.current, 'body.clean.howmcmc_recom')}</p>
     </div>
 
     <div class="callout">
-      <p><strong>PRE-REGISTRATION</strong></p>
-      <p>Pre-registration means writing down the exact tests, thresholds, and predicted directions before looking at any data, and locking those commitments into a public time-stamped record. The Open Science Framework (OSF) is the public repository where this audit's commitments are filed. It prevents retrofitting: if a result doesn't emerge cleanly, the threshold cannot be changed after the fact and then presented as always having been the test. All five structural tests and four partisan-fairness metrics in this audit were registered at OSF before any simulation was run.</p>
+      <p><strong>{t(lang.current, 'body.clean.prereg_label')}</strong></p>
+      <p>{t(lang.current, 'body.clean.prereg_body')}</p>
     </div>
 
-    <p>In Alberta, the neutral answer is not 50/50. <em>Across 1,010,000 computer-simulated legal Alberta maps, the median map gives the UCP only 44.8% of the seats at 50/50 votes</em> — a typical Alberta map under neutral votes hands the NDP a small seat majority. This is counterintuitive but mechanical: rural UCP voters win their ridings by 60-40 margins (wasting many "extra" UCP votes), while urban NDP voters win their ridings by tighter 51-49 margins (wasting fewer NDP votes per win). At neutrality, NDP comes out ahead on seat efficiency.</p>
+    <p>{@html t(lang.current, 'body.clean.neutral_p')}</p>
 
-    <p>The full distribution from the canonical 1,010,000-map simulation:</p>
+    <p>{t(lang.current, 'body.clean.full_dist')}</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Where the map sits</th>
-            <th>UCP seats at 50/50 votes</th>
+            <th>{t(lang.current, 'body.clean.t1_col_a')}</th>
+            <th>{t(lang.current, 'body.clean.t1_col_b')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Median Alberta map</td>
-            <td class="normal">44.8% — NDP slight seat majority</td>
+            <td>{t(lang.current, 'body.clean.t1_r1_a')}</td>
+            <td class="normal">{t(lang.current, 'body.clean.t1_r1_b')}</td>
           </tr>
           <tr>
-            <td>95th-percentile map</td>
-            <td>47.1%</td>
+            <td>{t(lang.current, 'body.clean.t1_r2_a')}</td>
+            <td>{t(lang.current, 'body.clean.t1_r2_b')}</td>
           </tr>
           <tr>
-            <td>99th-percentile map</td>
-            <td>48.4%</td>
+            <td>{t(lang.current, 'body.clean.t1_r3_a')}</td>
+            <td>{t(lang.current, 'body.clean.t1_r3_b')}</td>
           </tr>
           <tr>
-            <td><strong>Maximum across 1,010,000 maps</strong></td>
-            <td class="flag"><strong>below 51.7% (fewer than 100 plans reach this value)</strong></td>
+            <td>{@html t(lang.current, 'body.clean.t1_r4_a')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t1_r4_b')}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p>A note on seat counts. The 2026 commission maps each have <strong>89</strong> districts; the audit's computer simulation runs on the <strong>87</strong>-district 2019 map (its starting substrate); the November Lunty committee will produce <strong>91</strong>. All percentages are seat <em>shares</em>, comparable across these denominators. The simulation uses the 2019 map as its starting point because the ReCom algorithm needs a legally enacted map to propose swaps from — the 2019 map is the last enacted Alberta electoral map. Using either commission proposal as the substrate would be circular: we would be measuring whether a map is extreme compared to maps derived from itself.</p>
+    <p>{@html t(lang.current, 'body.clean.seat_count_note')}</p>
 
-    <p>The results — placing the three real maps in this distribution — point to a specific, surgical pattern of boundary drawing.</p>
+    <p>{t(lang.current, 'body.clean.pattern_intro')}</p>
 
-    <h3>All four statistical measures fire simultaneously</h3>
+    <h3>{t(lang.current, 'body.clean.sub1_h')}</h3>
 
-    <p>When the official Elections Alberta shapefiles are used, the minority map is a statistical outlier on every partisan-fairness metric — not just the tipping-point one.</p>
+    <p>{t(lang.current, 'body.clean.sub1_p')}</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Map</th>
-            <th>Efficiency gap</th>
-            <th>Mean-median</th>
-            <th><a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Declination measures the angular difference between the seats-votes curve for each party. Negative values favour the UCP; positive favour the NDP.">Declination</a></th>
-            <th>Seats at 50/50</th>
+            <th>{t(lang.current, 'body.clean.t2_col_a')}</th>
+            <th>{t(lang.current, 'body.clean.t2_col_b')}</th>
+            <th>{t(lang.current, 'body.clean.t2_col_c')}</th>
+            <th>{@html t(lang.current, 'body.clean.t2_col_d')}</th>
+            <th>{t(lang.current, 'body.clean.t2_col_e')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Majority 2026</td>
-            <td class="normal">+0.04% (p15.5)</td>
-            <td>&#8722;3.6% (p2)</td>
-            <td>+0.027 (p81)</td>
-            <td class="normal">46.1% (p83)</td>
+            <td>{t(lang.current, 'body.clean.t2_r1_a')}</td>
+            <td class="normal">{t(lang.current, 'body.clean.t2_r1_b')}</td>
+            <td>{t(lang.current, 'body.clean.t2_r1_c')}</td>
+            <td>{t(lang.current, 'body.clean.t2_r1_d')}</td>
+            <td class="normal">{t(lang.current, 'body.clean.t2_r1_e')}</td>
           </tr>
           <tr>
-            <td>Minority 2026</td>
-            <td class="flag"><strong>+3.96% (p94.4)</strong></td>
-            <td class="flag"><strong>+1.0% (p99.98)</strong></td>
-            <td class="flag"><strong>&#8722;0.077 (p1.2)</strong></td>
-            <td class="flag"><strong>51.7% (p99.99)</strong></td>
+            <td>{t(lang.current, 'body.clean.t2_r2_a')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t2_r2_b')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t2_r2_c')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t2_r2_d')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t2_r2_e')}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p>The majority map sits comfortably inside the normal range on three of four metrics. Its mean-median sits at p2 in the NDP-favourable direction — an unusual result but pointing the wrong way to help the UCP. The majority map's close adherence to municipal boundaries places NDP-heavy urban cores into their own compact districts, where NDP votes win by efficient margins while UCP rural wins tend to be by larger margins; this mild structural NDP efficiency advantage is what shows up in the mean-median measure. The minority map is in the tail on all four, each pointing in the same partisan direction.</p>
+    <p>{t(lang.current, 'body.clean.sub1_close')}</p>
 
-    <h3>The 50/50 tipping point: fewer than 100 of 1,010,000 neutral maps reach it</h3>
+    <h3>{t(lang.current, 'body.clean.sub2_h')}</h3>
 
-    <p>The tipping-point metric is the most intuitive: if the province split exactly 50/50 between the two parties, how many seats does each map give the UCP?</p>
+    <p>{t(lang.current, 'body.clean.sub2_p')}</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Map</th>
-            <th>UCP seats at 50/50 votes</th>
-            <th>Where it sits</th>
+            <th>{t(lang.current, 'body.clean.t3_col_a')}</th>
+            <th>{t(lang.current, 'body.clean.t3_col_b')}</th>
+            <th>{t(lang.current, 'body.clean.t3_col_c')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>2019 enacted</td>
-            <td class="normal">46.0%</td>
-            <td class="normal">83rd percentile — inside the normal range</td>
+            <td>{t(lang.current, 'body.clean.t3_r1_a')}</td>
+            <td class="normal">{t(lang.current, 'body.clean.t3_r1_b')}</td>
+            <td class="normal">{t(lang.current, 'body.clean.t3_r1_c')}</td>
           </tr>
           <tr>
-            <td><strong>Majority 2026</strong></td>
-            <td class="normal"><strong>46.1%</strong></td>
-            <td class="normal"><strong>83rd percentile — well within bounds</strong></td>
+            <td>{@html t(lang.current, 'body.clean.t3_r2_a')}</td>
+            <td class="normal">{@html t(lang.current, 'body.clean.t3_r2_b')}</td>
+            <td class="normal">{@html t(lang.current, 'body.clean.t3_r2_c')}</td>
           </tr>
           <tr>
-            <td><strong>Minority 2026</strong></td>
-            <td class="flag"><strong>51.7% (46 seats)</strong></td>
-            <td class="flag"><strong>99.99th percentile — fewer than 100 of 1,010,000 neutral draws reach this</strong></td>
+            <td>{@html t(lang.current, 'body.clean.t3_r3_a')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t3_r3_b')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t3_r3_c')}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p>Fewer than 100 of 1,010,000 computer-simulated neutral Alberta maps produced a <code>seats@50/50</code> value as high as the minority proposal's. Based on actual recent voting patterns, it would award the UCP 60 seats (compared to 55 in the majority proposal). The majority proposal is the kind of map a neutral procedure routinely generates. The minority proposal is the kind of map you have to specifically aim to draw.</p>
+    <p>{t(lang.current, 'body.clean.sub2_close')}</p>
 
-    <h3>What this means in plain language</h3>
+    <h3>{t(lang.current, 'body.clean.sub3_h')}</h3>
 
-    <p>The official shapefiles reveal a map that is statistically extreme in the same partisan direction on all four measures at once. The joint probability of a neutral drawing process producing a map this extreme across all four measures simultaneously is roughly one in 15 million (p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, <a href="https://osf.io/6pt83" rel="noopener">pre-registered Fisher combined test</a>). That is not a rounding error or a measurement artefact — it is the same answer from four independent statistical instruments read in the same room.</p>
+    <p>{@html t(lang.current, 'body.clean.sub3_p')}</p>
 
     <details class="audit-detail">
-      <summary>What this p-value means — and what it doesn&rsquo;t</summary>
+      <summary>{t(lang.current, 'body.clean.details_summary')}</summary>
       <div class="audit-detail-body">
-        <p>A p-value answers one question: if the map were drawn by a neutral process, how often would we see a result this extreme or more extreme? At p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>, the answer is about once in 14.5 million trials.</p>
-        <p>This is a frequentist hypothesis test, not a measurement of intent. It does not say the commission intended to gerrymander, and it does not quantify how unfair the map is in practical terms. It says the boundary pattern is statistically inconsistent with a neutral drawing process — the same conclusion a randomized audit would reach regardless of who drew the map or why.</p>
-        <p>The test was pre-registered before the data were analyzed (<a href="https://osf.io/w2s8k" rel="noopener">OSF registration w2s8k</a>). The pre-registration specifies the null hypothesis, the metrics, and the rejection threshold in advance, so the result cannot be attributed to choosing a favorable framing after seeing the numbers.</p>
+        <p>{@html t(lang.current, 'body.clean.details_p1')}</p>
+        <p>{t(lang.current, 'body.clean.details_p2')}</p>
+        <p>{@html t(lang.current, 'body.clean.details_p3')}</p>
       </div>
     </details>
 
     <div class="callout">
-      <p><strong>SWING-ZONE ALLOCATION TEST (SZAT)</strong></p>
-      <p>SZAT is the audit's second independent test, and it asks a different question from the simulation: not "is this map extreme overall?" but "are the specific line choices partisan-neutral?" It works by isolating only the Voting Areas where the minority's map differs from the majority's — the contested re-draws — and testing whether those particular choices, taken together, shift vote efficiency in one party's direction. Because it compares only the points of departure, it automatically controls for everything the two maps share: the same geography, population targets, and statutory rules. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Technical details and bootstrap results &rarr;</a></p>
+      <p><strong>{t(lang.current, 'body.clean.szat_label')}</strong></p>
+      <p>{@html t(lang.current, 'body.clean.szat_body')}</p>
     </div>
 
-    <p><strong>Two questions, one answer.</strong> The 1,010,000-map simulation asks: <em>is this map extreme compared to neutral maps drawn on the same Alberta geography?</em> A second, separate test — called the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Swing-Zone Allocation Test</a> — asks a different question: <em>are the specific lines on the map partisan-neutral?</em> It works by looking only at the Voting Areas where the minority drew differently from the majority and asking whether those particular choices, taken together, shifted vote efficiency in one party's direction. Because it compares only the places where the two maps differ, it automatically controls for everything they share — the same provincial geography, the same population targets, the same statutory rules. Both questions return the same answer. That is why the one-in-15-million figure is a combined result rather than a single test: it is two independent lines of evidence converging.</p>
+    <p>{@html t(lang.current, 'body.clean.two_q')}</p>
 
-    <p>This explains why the minority proposal had to be such an extreme statistical outlier (p99.99) against 1,010,000 neutral simulations. In an 89-seat legislature, a two-thirds supermajority requires exactly 60 seats. You do not hit the 60-seat supermajority threshold by drawing natural, community-respecting boundaries; you have to surgically force the map to get there.</p>
+    <p>{t(lang.current, 'body.clean.super_lead')}</p>
 
     <div class="callout">
-      <p><strong>WHY A SUPERMAJORITY MATTERS</strong></p>
-      <p>Under Canada's Westminster parliamentary system, a simple majority (45 seats) is enough to pass routine laws and budgets. But securing a two-thirds supermajority (60 seats) grants a government near-absolute control. It allows the ruling party to effortlessly invoke "closure" to shut down debate, rewrite the rules of the legislature without opposition consent, and completely dominate all legislative committees. More importantly, it makes a Premier mathematically bulletproof to internal revolts — even if half a dozen backbenchers cross the floor, the government retains absolute control. A simple majority lets you drive the car; a 60-seat supermajority lets you rewrite the traffic laws.</p>
+      <p><strong>{t(lang.current, 'body.clean.super_label')}</strong></p>
+      <p>{t(lang.current, 'body.clean.super_body')}</p>
     </div>
 
-    <p>By strategically diluting urban voters into surrounding rural-edge districts (the "urban hybridization" pattern identified in Lane 2), the minority proposal engineers the exact structural firewall needed to secure those 60 seats. The Lane 2 structural finding and the Lane 1 statistical finding converge on the same proposal, the same direction, and the same communities.</p>
+    <p>{t(lang.current, 'body.clean.super_close')}</p>
 
-    <h3>Confirmation from the targeted-procedure test</h3>
+    <h3>{t(lang.current, 'body.clean.sub4_h')}</h3>
 
-    <p>To be sure this isn't a quirk of the neutral simulation's known compactness preference, the audit ran a targeted hill-climbing procedure (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon et al. 2022 — cited and described in the technical report</a>) in both directions: maximising UCP seats and maximising NDP seats. Same number of steps (40,000) in each direction, same statutory constraints, same provincial geometry.</p>
+    <p>{@html t(lang.current, 'body.clean.sub4_p')}</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Procedure</th>
-            <th>Most-extreme value reached</th>
-            <th>What it tells us</th>
+            <th>{t(lang.current, 'body.clean.t4_col_a')}</th>
+            <th>{t(lang.current, 'body.clean.t4_col_b')}</th>
+            <th>{t(lang.current, 'body.clean.t4_col_c')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Neutral MCMC, max produced</td>
-            <td>below 51.7% UCP seats @ 50/50</td>
-            <td>The natural ceiling under neutral drawing</td>
+            <td>{t(lang.current, 'body.clean.t4_r1_a')}</td>
+            <td>{t(lang.current, 'body.clean.t4_r1_b')}</td>
+            <td>{t(lang.current, 'body.clean.t4_r1_c')}</td>
           </tr>
           <tr>
-            <td>Neutral MCMC, min produced</td>
-            <td>~39% UCP seats @ 50/50</td>
-            <td>The natural floor under neutral drawing</td>
+            <td>{t(lang.current, 'body.clean.t4_r2_a')}</td>
+            <td>{t(lang.current, 'body.clean.t4_r2_b')}</td>
+            <td>{t(lang.current, 'body.clean.t4_r2_c')}</td>
           </tr>
           <tr>
-            <td>Targeted hill-climb, UCP-maximizing</td>
-            <td class="flag"><strong>52.9%</strong></td>
-            <td>What a procedure deliberately aiming for UCP advantage can reach</td>
+            <td>{t(lang.current, 'body.clean.t4_r3_a')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t4_r3_b')}</td>
+            <td>{t(lang.current, 'body.clean.t4_r3_c')}</td>
           </tr>
           <tr>
-            <td>Targeted hill-climb, NDP-maximizing</td>
-            <td><strong>37.9%</strong></td>
-            <td>What a procedure deliberately aiming for NDP advantage can reach (below the neutral floor)</td>
+            <td>{t(lang.current, 'body.clean.t4_r4_a')}</td>
+            <td>{@html t(lang.current, 'body.clean.t4_r4_b')}</td>
+            <td>{t(lang.current, 'body.clean.t4_r4_c')}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p>The minority map's 51.7% sits closer to the targeted-UCP ceiling (52.9%) than to the neutral median (44.8%). The majority map's 46.1% sits at the neutral median. Both the 2019 enacted map and the 2026 majority fall comfortably within what neutral procedure routinely produces — different vote shares, same zone of unremarkable outcomes. The majority continues 2019 Alberta practice on the partisan-fairness axis the same way it continues 2019 practice on municipal anchoring (80.0% vs 2019's 75.2%). Two maps drawn under the same Alberta rules, by the same five commissioners, in the same room: one lands where neutral procedures routinely produce, the other lands where you have to specifically aim to land.</p>
+    <p>{t(lang.current, 'body.clean.sub4_close')}</p>
 
-    <p><em>That</em> is the shape of the finding, and it is also the framing a court would actually apply.</p>
+    <p>{@html t(lang.current, 'body.clean.sub4_quote')}</p>
 
-    <h3>Ruling Out Alternative Explanations</h3>
+    <h3>{t(lang.current, 'body.clean.sub5_h')}</h3>
 
-    <p>When presented with a statistical outlier of this magnitude, a rigorous audit must rule out innocent explanations before attributing these patterns to deliberate design. The structural data (Lane 2) systematically dismantles the standard alternative defenses:</p>
+    <p>{t(lang.current, 'body.clean.sub5_p')}</p>
 
     <ol style="margin: 0.8rem 0 0.9rem 1.4rem;">
-      <li style="margin-bottom: 0.6rem;"><strong>The "Natural Political Geography" Defense:</strong> <em>("Urban voters are naturally packed; the map just reflects Alberta's geography.")</em> The 1,010,000 simulations already account for Alberta's natural geography. The simulation proves that while geography gives the UCP a baseline efficiency advantage, it naturally caps around the 83rd to 90th percentile. The minority map sits at the 99.99th percentile — an extreme outlier <em>even when compared to Alberta's naturally skewed baseline</em>.</li>
-      <li style="margin-bottom: 0.6rem;"><strong>The "Communities of Interest" Defense:</strong> <em>("The odd shapes were drawn to keep specific communities together.")</em> If you are trying to keep communities together, you follow municipal borders. The majority map followed existing city limits 80% of the time. The minority map followed them 72% of the time — both within the 70–85% Canadian norm. What the minority map does do is actively split the unified city of Airdrie into four separate pieces, and place three of its boundary decisions precisely in the urban-edge zones the commission chair flagged as geometrically anomalous — choices that cannot be explained by community-of-interest logic.</li>
-      <li style="margin-bottom: 0.6rem;"><strong>The "Population Equality" Defense:</strong> <em>("They had to draw weird boundaries to make sure every district had the exact same population.")</em> The minority map is actually much <em>worse</em> at population equality. Its Population Mean Absolute Deviation (MAD) was 4,707 — 48% wider than the majority map's 3,180 — placing it at the 99th percentile of the canonical ensemble (only 1 in 100 neutral maps produces a worse spread). It sacrificed population equality to achieve its shape.</li>
-      <li style="margin-bottom: 0.6rem;"><strong>The "Incompetence or Bad Luck" Defense:</strong> <em>("They just drew a sloppy map and got unlucky with the numbers.")</em> Hitting exactly 60 seats for a supermajority while also splitting Airdrie into four pieces and placing three boundaries in the exact zones the commission's own chair flagged as anomalous requires surgical precision. The joint probability of accidentally drawing a map that hits the extreme statistical tail across four independent partisan metrics simultaneously is roughly <strong>1 in 15 million</strong> (p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup>). You cannot blunder your way into the 99.99th percentile.</li>
+      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.clean.defense1')}</li>
+      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.clean.defense2')}</li>
+      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.clean.defense3')}</li>
+      <li style="margin-bottom: 0.6rem;">{@html t(lang.current, 'body.clean.defense4')}</li>
     </ol>
 
-    <p>What the data shows is that the minority proposal worsened both population parity and community coherence relative to what the same five commissioners produced simultaneously under identical statutory rules. The audit does not determine what the minority commissioners intended — boundary geometry cannot reveal intent — but the structural departure from both the neutral ensemble and the majority proposal's output stands regardless of intention.</p>
+    <p>{t(lang.current, 'body.clean.sub5_close')}</p>
 
-    <h3>A note on the R cross-validation</h3>
+    <h3>{t(lang.current, 'body.clean.sub6_h')}</h3>
 
-    <p>An earlier version of this audit (using approximated rather than official shapefiles) cross-validated the Python ReCom ensemble against the R <code>redist</code> package's Sequential Monte Carlo sampler. That cross-check produced unstable results: across three runs with the same nominal seed, the fraction of plans reaching the old minority value (48.3% on the approximated geometry) was 5.6%, then 28%, then 58% — a sampler-convergence failure, not a discovery. The full write-up is at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.</p>
+    <p>{@html t(lang.current, 'body.clean.sub6_p1')}</p>
 
-    <p>With official Elections Alberta shapefiles, the minority map's <code>seats@50/50</code> rises to 51.7% — a value fewer than 100 of 1,010,000 neutral plans reach. The R cross-validation question becomes moot: zero plans from either sampler reach the canonical value at comparable sample sizes.</p>
+    <p>{@html t(lang.current, 'body.clean.sub6_p2')}</p>
 
-    <p><strong>The asymmetry around 50/50 is more telling than the inversion itself.</strong> A precision sweep of the seat-vote curve at 0.01-percentage-point resolution finds the minority map keeps the UCP at or above the 45-seat legislative-majority threshold down to a UCP provincial vote share of about <strong>49.7%</strong>. That is technically a vote-seat inversion — the UCP would form government on the minority map while losing the popular vote by 0.3 percentage points — but 0.3 points is well within ordinary polling noise, so on its own this is not a dramatic finding. What <em>is</em> dramatic is the contrast: on the <strong>majority</strong> map, the UCP would need to <em>win</em> the popular vote by about 4 percentage points to reach the same 45-seat threshold. Both maps face the same Alberta geography and the same statutory rules; the gap between them — 0.3pp vs +4pp — is structural difference, not noise.</p>
+    <p>{@html t(lang.current, 'body.clean.sub6_asymm')}</p>
 
-    <p>This is the structural-bias finding the audit holds with confidence. It is geometry-only; it does not depend on any election result; it does not move when polls do.</p>
+    <p>{t(lang.current, 'body.clean.sub6_close')}</p>
 
-    <p><strong>One caveat the audit takes seriously.</strong> A real electorate is not a uniform 50/50. Voters can swamp any map's structural lean with enough swing — a particularly upset or inspired electorate will tip the result regardless of how the boundaries are drawn. The 50/50 test isolates <em>the map's contribution to the outcome</em>, not the outcome itself. What it shows is what the map does when the electorate doesn't decide for it.</p>
+    <p>{@html t(lang.current, 'body.clean.sub6_caveat')}</p>
 
-    <h3>The verdict</h3>
+    <h3>{t(lang.current, 'body.clean.sub7_h')}</h3>
 
-    <p>The audit's central finding is geometric. <strong>Lane 2 — the structural-irregularity scorecard — is the foundation; Lane 1 is the proof that the geometry is doing partisan work.</strong></p>
+    <p>{@html t(lang.current, 'body.clean.sub7_p1')}</p>
 
-    <p>The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the proposal fails, out of five, where higher means more structural problems).</p>
+    <p>{t(lang.current, 'body.clean.sub7_p2')}</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/verdict_quadrant.svg" alt="Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region." class="chart-img" style="max-width: 100%;" width="474" height="351" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">The two ways of measuring the two commission proposals, plotted together. Left-to-right: how skewed the proposal looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the proposal fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 proposal stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 proposal is a structural outlier on all five tests; its efficiency gap (+4.0%) sits just below the Alberta threshold line.</figcaption>
+      <img src="images/verdict_quadrant.svg" alt={t(lang.current, 'body.clean.verdict_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="351" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.clean.verdict_fig_caption')}</figcaption>
     </figure>
 
-    <p>The same verdict in plain summary form, leading with the structural finding because that is what the cross-validated evidence supports most strongly:</p>
+    <p>{t(lang.current, 'body.clean.verdict_table_intro')}</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th></th>
-            <th>Lane 2: Structure (geometry-only, no votes)</th>
-            <th>Lane 1: Numbers (vote-dependent)</th>
+            <th>{t(lang.current, 'body.clean.t5_col_b')}</th>
+            <th>{t(lang.current, 'body.clean.t5_col_c')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Majority 2026</strong></td>
-            <td class="normal">clean — crosses <em>no</em> structural threshold</td>
-            <td class="normal">inside the normal range on every metric (<code>seats@50/50</code> 46.1% — p83; efficiency gap +0.04%)</td>
+            <td>{@html t(lang.current, 'body.clean.t5_r1_a')}</td>
+            <td class="normal">{@html t(lang.current, 'body.clean.t5_r1_b')}</td>
+            <td class="normal">{@html t(lang.current, 'body.clean.t5_r1_c')}</td>
           </tr>
           <tr>
-            <td><strong>Minority 2026</strong></td>
-            <td class="flag"><strong>crosses 4 of 5 structural thresholds</strong> by a wide margin (anchoring neutral — both maps within Canadian norm)</td>
-            <td class="flag">statistical outlier on all four partisan-fairness measures simultaneously — <code>seats@50/50</code> 51.7% (p99.99, fewer than 100 of 1,010,000 reach it); efficiency gap +3.96% (p94.4); all four pre-registered; Fisher combined p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup></td>
+            <td>{@html t(lang.current, 'body.clean.t5_r2_a')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t5_r2_b')}</td>
+            <td class="flag">{@html t(lang.current, 'body.clean.t5_r2_c')}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <details class="audit-detail">
-      <summary>Why Lane 2 carries the case — technical detail</summary>
-      <p style="margin:0.7rem 0 0;">The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. The minority crosses every one; the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p&nbsp;=&nbsp;6.87&times;10<sup>&#8722;8</sup> (pre-registered Fisher combined test — a method that combines four independent test results into a single probability by multiplying their individual tail probabilities; the combined figure is far smaller than any single test's because all four point the same direction; OSF <a href="https://osf.io/6pt83" rel="noopener">6pt83</a>). The question of whether Lane 2's unusual geometry is the specific <em>mechanism</em> behind the Lane 1 numbers was tested and the answer is no — see <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. The Swing-Zone Allocation Test shows the contested boundary choices are partisan-skewed, but the tested question was whether the boundary shapes themselves — the lasso corridor, the park extension — are the direct cause of the seat swing; they are not. The seat effect comes from how redrawn Voting Area assignments shift vote efficiency across districts, not from the shapes per se. Both lanes flag the minority map; they reach that conclusion through independent instruments. Lane 2 is the central finding. Lane 1 corroborates without carrying.</p>
+      <summary>{t(lang.current, 'body.clean.details2_summary')}</summary>
+      <p style="margin:0.7rem 0 0;">{@html t(lang.current, 'body.clean.details2_p')}</p>
     </details>
   </section>
 
