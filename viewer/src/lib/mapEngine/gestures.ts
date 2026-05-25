@@ -145,7 +145,6 @@ export function initGestures(ctx: MapCtx, stage): void {
                 _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
                 _setEdHighlight(hit);
                 _snapToED(hit);
-                _hideVaCallout();
               }
             } else { _hideCallout(); _hideVaCallout(); }
           }
@@ -162,7 +161,6 @@ export function initGestures(ctx: MapCtx, stage): void {
             _showCallout(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)]);
             _setEdHighlight(hit);
             if (!ctx.mapLocked) _snapToED(hit);
-            _hideVaCallout();
           }
         } else { _hideCallout(); _hideVaCallout(); }
       }

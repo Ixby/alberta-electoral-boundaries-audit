@@ -10,6 +10,7 @@ import type { MapCtx } from './types';
 import { updateStrokeWidths } from './viewport';
 import { applyEdFillLayer, reapplyLayers } from './layers';
 import { mergeVaPaths } from './svgLoader';
+import { showVaCallout } from './edInteraction';
 
 export const MAP_ACCENT_COLORS: Record<string, string> = {
   minority: '#6B35A7',
@@ -40,6 +41,7 @@ export function applyBoundaryColor(ctx: MapCtx, svgNode, mapKey): void {
     const targets = lc.tagName.toLowerCase() === 'path'
       ? [lc] : Array.from(lc.querySelectorAll('path'));
     targets.forEach(function(p) {
+      p.removeAttribute('clip-path');
       p.style.stroke = color;
       p.style.strokeWidth = '0.5';
       p.style.strokeOpacity = '1';
@@ -64,6 +66,7 @@ export function extractBoundaryGroup(ctx: MapCtx, key): Element | null {
   const targets = clone.tagName.toLowerCase() === 'path'
     ? [clone] : Array.from(clone.querySelectorAll('path'));
   targets.forEach(function(p) {
+    p.removeAttribute('clip-path');
     p.style.stroke = MAP_ACCENT_COLORS[key] || '#555';
     p.style.strokeWidth = String(sw);
     p.style.strokeOpacity = '0.55';
@@ -121,6 +124,7 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
   const ctxEl = document.getElementById('ec-context');
   if (ctxEl) ctxEl.textContent = MAP_CONTEXT_LABELS[key];
   const savedName = ctx.selectedEdName;
+  const savedVaId = ctx.selectedVaId;
   deps.hideCallout();
   ctx.edHover = null;
   const savedVB = ctx.curVB ? Object.assign({}, ctx.curVB) : null;
@@ -133,11 +137,18 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
       if (ctx.allHoverData[key] && Object.keys(ctx.allHoverData[key]).length) {
         ctx.edHover = ctx.allHoverData[key];
       }
-      if (savedName) {
-        const rec = ctx.nameIndex[key] && ctx.nameIndex[key][savedName];
+      // VA is the focal point when selected; fall back to ED name
+      const vaRec = savedVaId && ctx.allVaData && ctx.allVaData[key] && ctx.allVaData[key][savedVaId];
+      const focalName = vaRec ? vaRec.ed_name : savedName;
+      if (focalName) {
+        const rec = ctx.nameIndex[key] && ctx.nameIndex[key][focalName];
         if (rec) {
           const path = ctx.svgEl && ctx.svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
-          if (path) { deps.showCallout(rec); deps.setEdHighlight(path); }
+          if (path) {
+            deps.showCallout(rec);
+            deps.setEdHighlight(path);
+            if (vaRec) showVaCallout(ctx, vaRec);
+          }
         } else { deps.activateCenterED(); }
       } else { deps.activateCenterED(); }
     } else { ctx.ready = true; }

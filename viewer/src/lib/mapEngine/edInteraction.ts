@@ -192,7 +192,7 @@ export function showVaCallout(ctx: MapCtx, d): void {
   const ndpBarEl = document.getElementById('vc-ndp-bar');
   if (ndpBarEl) ndpBarEl.style.width = (d.ndp_pct || 0) + '%';
   const totalEl = document.getElementById('vc-total');
-  if (totalEl) totalEl.textContent = d.in_person_votes ? _fmt.format(d.in_person_votes) + ' in person votes' : '';
+  if (totalEl) totalEl.textContent = d.in_person_votes ? _fmt.format(d.in_person_votes) + ' in-person votes (excl. Vote Anywhere)' : '';
   ctx.selectedVaId = d.va_id != null ? String(d.va_id) : null;
   el.classList.add('vc-visible');
 }

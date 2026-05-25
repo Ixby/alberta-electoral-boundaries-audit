@@ -1141,9 +1141,9 @@
       <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label="Map zoom">
     </div>
     <button id="ec-close" class="tb-btn tb-close-btn" aria-label="Clear district selection" title="Clear selection">&times;</button>
-    <div class="tb-sep"></div>
-    <div id="tb-share-wrap">
-      <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title="Share or load a map configuration">Share</button>
+  </div>
+  <div id="tb-share-wrap">
+    <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title="Share or load a map configuration">Share</button>
       {#if showSharePanel}
       <div class="share-backdrop" onclick={closeSharePanel} aria-hidden="true"></div>
       <div id="share-panel" role="dialog" aria-label="Share map configuration" aria-modal="true" tabindex="-1"
@@ -1184,7 +1184,6 @@
       </div>
       {/if}
     </div>
-  </div>
   <!-- ed-callout — only shown when an ED is selected -->
   <div id="ed-callout" aria-live="polite">
     <div id="ec-ed-section">
@@ -1213,10 +1212,6 @@
       <div id="ec-va-hint" style="display:none;">Click within this district to see polling station results</div>
     </div>
   </div>
-  <div id="map-load-error" style="display:none;"></div>
-  <div id="map-fallback-notice" style="display:none;">Map loaded in low-resolution mode — district detail unavailable</div>
-  </div><!-- /#hud -->
-  <!-- va-callout — shown alongside ed-callout when VA data is available and a VA is hit -->
   <div id="va-callout" aria-live="polite">
     <div id="vc-name"></div>
     <div id="vc-bar"><div id="vc-ucp-bar"></div><div id="vc-ndp-bar"></div></div>
@@ -1233,6 +1228,9 @@
     <span id="vc-total"></span>
     <button id="vc-close" aria-label="Close polling station detail" title="Close">&times;</button>
   </div>
+  <div id="map-load-error" style="display:none;"></div>
+  <div id="map-fallback-notice" style="display:none;">Map loaded in low-resolution mode — district detail unavailable</div>
+  </div><!-- /#hud -->
   <div id="sr-announce" role="status" aria-live="polite" class="sr-only"></div>
   <div id="zoom-stage">
     <div id="zoom-skeleton" aria-hidden="true">
@@ -1983,23 +1981,28 @@
   #ec-eg.ec-eg-ndp { color: #f4a26a; }
   #ec-context { display: none; }
   #ec-compare { display: none !important; }
-  /* VA callout — secondary panel shown when VA data is loaded and a VA is clicked */
+  /* VA callout — secondary panel attached directly below #ed-callout in the HUD column */
   #va-callout {
     display: none;
-    position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
     background: rgba(10,12,18,0.92);
     border: 1.5px solid rgba(255,255,255,0.07);
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-    padding: 7px 14px 9px;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    margin-top: -5px; /* collapse the HUD gap to attach flush against ed-callout */
+    padding: 5px 14px 9px;
     align-items: center; gap: 8px;
-    z-index: 110; min-width: 220px; max-width: 90vw;
+    max-width: 100%;
     font-size: 0.75rem; color: rgba(255,255,255,0.8);
     transition: border-color 0.2s;
   }
   #va-callout.vc-visible {
     display: flex;
     border-color: rgba(255,255,255,0.18);
+  }
+  /* When VA callout is visible, remove bottom rounding from ED callout so they merge */
+  #hud:has(#va-callout.vc-visible) #ed-callout {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
   #vc-name { font-size: 0.72rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; max-width: 160px; }
   #vc-bar { display: flex; height: 4px; border-radius: 2px; overflow: hidden; flex-shrink: 0; width: 52px; }
@@ -2370,12 +2373,17 @@
     transition: color 0.15s;
   }
   :global(.share-close:hover) { color: rgba(255,255,255,0.85); }
-  :global(#tb-share-wrap) { position: relative; }
+  :global(#tb-share-wrap) {
+    position: absolute; top: 5px; right: 0;
+    z-index: 200;
+  }
   :global(#share-panel) {
     position: absolute; top: calc(100% + 6px); right: 0;
-    background: var(--bg, #1a1a1a); border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(10,12,18,0.95); border: 1px solid rgba(255,255,255,0.14);
+    backdrop-filter: blur(12px);
     border-radius: 8px; padding: 0.85rem; width: 320px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+    max-width: calc(100vw - 16px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.55);
     z-index: 8000;
   }
   :global(.share-section) { display: flex; flex-direction: column; gap: 0.45rem; }
@@ -2412,10 +2420,6 @@
     font-size: 0.76rem; color: #e57373; margin-top: 0.3rem;
   }
   @media (max-width: 600px) {
-    /* backdrop-filter on #top-bar traps position:fixed children — clear it so
-       the share panel can escape to the viewport bottom as a proper sheet */
-    #top-bar { backdrop-filter: none; }
-    :global(#tb-share-wrap) { position: static; }
     :global(.share-backdrop) { z-index: 9001; }
     :global(#share-panel) {
       position: fixed;
