@@ -629,78 +629,78 @@
   </section>
 
   <section id="section-5">
-    <h2>5: The Impact on the Ground <a href="#section-5" class="section-link" aria-label="Link to section 5">#</a></h2>
+    <h2>{t(lang.current, 'body.impact.heading')} <a href="#section-5" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 5">#</a></h2>
 
     <div class="callout">
-      <p><strong>LANE 1 AND LANE 2</strong></p>
-      <p><strong>Lane 1 (numbers)</strong> uses election results to test whether the map converts votes into seats fairly — it asks how the map performs across different vote splits. <strong>Lane 2 (structure)</strong> examines only the drawn lines — city splits, population spread, boundary shapes — with no election data at all. Each lane is independent: a map can fail one while passing the other. The minority proposal fails both; the majority passes both.</p>
+      <p><strong>{t(lang.current, 'body.impact.lanes_label')}</strong></p>
+      <p>{@html t(lang.current, 'body.impact.lanes_body')}</p>
     </div>
 
-    <p>Lane 1 depends on which election results you score the maps against. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.</p>
+    <p>{t(lang.current, 'body.impact.intro')}</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane2_bars.svg" alt="Bar chart comparing five structural-fairness tests side by side. The majority map bars sit at zero or well inside safe ranges. The minority map bars cross every threshold by a wide margin." class="chart-img" style="max-width: 100%;" width="441" height="545" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">The five structural-fairness tests, side by side. Teal bars are the majority map; purple bars are the minority map. The dashed line in each row marks the failing threshold. The minority bars cross every threshold by a wide margin. The majority bars sit flat at zero or well inside the safe range.</figcaption>
+      <img src="images/lane2_bars.svg" alt={t(lang.current, 'body.impact.fig_alt')} class="chart-img" style="max-width: 100%;" width="441" height="545" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.impact.fig_caption')}</figcaption>
     </figure>
 
-    <p>The same five tests in tabular form, with each test's threshold stated alongside the result. The bottom row is the audit's <em>summary</em> — the count of tests each map fails out of the five.</p>
+    <p>{@html t(lang.current, 'body.impact.table_intro')}</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Test</th>
-            <th>Majority map</th>
-            <th>Minority map</th>
-            <th>Direction / Beneficiary</th>
+            <th>{t(lang.current, 'body.impact.table_col_test')}</th>
+            <th>{t(lang.current, 'body.impact.table_col_majority')}</th>
+            <th>{t(lang.current, 'body.impact.table_col_minority')}</th>
+            <th>{t(lang.current, 'body.impact.table_col_direction')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Border follows existing municipal lines (70–85% Canadian norm)</td>
-            <td class="normal">80% — within norm</td>
-            <td>72% — within norm</td>
-            <td>N/A — both within Canadian norm</td>
+            <td>{t(lang.current, 'body.impact.table_r1_a')}</td>
+            <td class="normal">{t(lang.current, 'body.impact.table_r1_b')}</td>
+            <td>{t(lang.current, 'body.impact.table_r1_c')}</td>
+            <td>{t(lang.current, 'body.impact.table_r1_d')}</td>
           </tr>
           <tr>
-            <td>Population spread (tighter is better)</td>
-            <td class="normal">3,180</td>
-            <td class="flag">4,707 — 48% wider</td>
-            <td>Structural (Reduces vote equality)</td>
+            <td>{t(lang.current, 'body.impact.table_r2_a')}</td>
+            <td class="normal">{t(lang.current, 'body.impact.table_r2_b')}</td>
+            <td class="flag">{t(lang.current, 'body.impact.table_r2_c')}</td>
+            <td>{t(lang.current, 'body.impact.table_r2_d')}</td>
           </tr>
           <tr>
-            <td>NW Calgary population excess above average</td>
-            <td class="normal">2.8%</td>
-            <td class="flag">11.5%</td>
-            <td><strong>UCP</strong> (Packs urban NDP votes)</td>
+            <td>{t(lang.current, 'body.impact.table_r3_a')}</td>
+            <td class="normal">{t(lang.current, 'body.impact.table_r3_b')}</td>
+            <td class="flag">{t(lang.current, 'body.impact.table_r3_c')}</td>
+            <td>{@html t(lang.current, 'body.impact.table_r3_d')}</td>
           </tr>
           <tr>
-            <td>Boundaries flagged by the commission's own chair</td>
-            <td class="normal">0</td>
-            <td class="flag">3</td>
-            <td>N/A</td>
+            <td>{t(lang.current, 'body.impact.table_r4_a')}</td>
+            <td class="normal">{t(lang.current, 'body.impact.table_r4_b')}</td>
+            <td class="flag">{t(lang.current, 'body.impact.table_r4_c')}</td>
+            <td>{t(lang.current, 'body.impact.table_r4_d')}</td>
           </tr>
           <tr>
-            <td>Airdrie split (constraint minimum: 2)</td>
-            <td class="normal">2 pieces</td>
-            <td class="flag">4 pieces</td>
-            <td><strong>UCP</strong> (Cracks urban/suburban power)</td>
+            <td>{t(lang.current, 'body.impact.table_r5_a')}</td>
+            <td class="normal">{t(lang.current, 'body.impact.table_r5_b')}</td>
+            <td class="flag">{t(lang.current, 'body.impact.table_r5_c')}</td>
+            <td>{@html t(lang.current, 'body.impact.table_r5_d')}</td>
           </tr>
           <tr>
-            <td><strong>Pre-registered summary</strong> (&ge; 4 of 5 = outlier)</td>
-            <td class="normal"><strong>0 of 5 fired</strong></td>
-            <td class="flag"><strong>4 of 5 fired</strong> (anchoring test neutral — both maps within Canadian norm; remaining 4 tests all fire)</td>
-            <td><strong>UCP</strong></td>
+            <td>{@html t(lang.current, 'body.impact.table_r6_a')}</td>
+            <td class="normal">{@html t(lang.current, 'body.impact.table_r6_b')}</td>
+            <td class="flag">{@html t(lang.current, 'body.impact.table_r6_c')}</td>
+            <td>{@html t(lang.current, 'body.impact.table_r6_d')}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <p>A separate finding — applied only to the minority because the minority is the map whose contested redraws are public (the majority did not publish a contested-redraw rationale list; the seven-rationale audit cannot be applied symmetrically and is reported as a single flag, not as additional rows in the structural-irregularity count) — is that <strong>five of six of the minority commissioners' published rationales fail under independent check</strong>. (A seventh redraw the audit had previously listed turned out to rest on a federal-boundary claim that cannot be located in the minority report; it has been removed rather than left as a weak claim.)</p>
+    <p>{@html t(lang.current, 'body.impact.rationales_p')}</p>
 
-    <p>The audit also tested the chair's separate, blanket assertion in Appendix C that the minority's seven contested hybrid configurations had <strong>no public support</strong> in the 1,140+ public submissions. A keyword search across the full submission archive (94% machine-parsed, 6% image-only and excluded; methodology and per-configuration evidence at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/submission_search_findings.md" rel="noopener">findings/submission_search_findings.md</a>) returned a more nuanced picture than either the chair's blanket claim or its blanket dismissal: the chair was right on three of seven (Airdrie 4-way split, Calgary–Nolan-Hill–Cochrane hybrid, and the St. Albert minority alternative each lack any documented support), wrong on three of seven (Rocky Mountain House–Banff Park drew an explicit, detailed proposal from at least one Clearwater-area submission plus several aligned ones; Olds–Three-Hills–Didsbury was supported by Beiseker residents in writing; Chestermere drew multiple submissions opposing a Calgary merger that materially align with the minority's intent), and partially wrong on one (Red Deer hybrids drew a peri-Red-Deer hybrid proposal from a sitting Red Deer councillor, with directional but not configuration-exact alignment). The chair's Appendix C "no public support" sweep is therefore demonstrably overbroad — three of seven are demonstrably false — but it is not invented out of whole cloth, since three of seven do hold up. <strong>This finding cuts against the chair, not against the minority.</strong></p>
+    <p>{@html t(lang.current, 'body.impact.chair_appendix_p')}</p>
 
-    <p><strong>On Lane 2, the majority crosses zero structural thresholds. The minority crosses every one of them by a wide margin.</strong></p>
+    <p>{@html t(lang.current, 'body.impact.summary_p')}</p>
   </section>
 
   <section id="section-6">
