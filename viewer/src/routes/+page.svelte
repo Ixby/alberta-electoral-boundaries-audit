@@ -291,50 +291,63 @@
 
 <nav aria-label="Page sections">
   <div class="nav-inner">
-  <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
-  <a href="#section-1">{t(lang.current, 'nav.map')}</a>
-  <a href="#section-2">{t(lang.current, 'nav.split')}</a>
-  <a href="#section-3">{t(lang.current, 'nav.litmus')}</a>
-  <a href="#section-4">{t(lang.current, 'nav.crack_pack')}</a>
-  <a href="#section-5">{t(lang.current, 'nav.impact')}</a>
-  <a href="#section-6">{t(lang.current, 'nav.gerrymanders')}</a>
-  <a href="#section-7">{t(lang.current, 'nav.lunty')}</a>
-  <a href="#section-8">{t(lang.current, 'nav.suggestions')}</a>
-  <a href="#retractions">{t(lang.current, 'nav.retractions')}</a>
-  <a href="#references">{t(lang.current, 'nav.references')}</a>
-  <a href="#resources">{t(lang.current, 'nav.technical')}</a>
-  <LanguageSelector />
-  <button id="theme-toggle" class="nav-theme-btn" aria-label={t(lang.current, 'nav.theme_aria')} title={t(lang.current, 'nav.theme_title')} onclick={toggleTheme}>
-    <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
-    <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
-  </button>
-  <button id="hamburger" class="nav-hamburger" aria-label={t(lang.current, 'nav.nav_aria')} aria-expanded={navOpen}
-    onclick={() => navOpen = !navOpen}>
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
-      {#if navOpen}
-        <path d="M2 2l14 14M2 16L16 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-      {:else}
-        <rect y="2"  width="18" height="2" rx="1"/>
-        <rect y="8"  width="18" height="2" rx="1"/>
-        <rect y="14" width="18" height="2" rx="1"/>
-      {/if}
-    </svg>
-  </button>
+    <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
+    <div class="nav-landmarks">
+      <a href="#verdict-heading">{t(lang.current, 'nav.verdict')}</a>
+      <a href="#section-1">{t(lang.current, 'nav.findings')}</a>
+      <a href="#history-of-gerrymandering">{t(lang.current, 'nav.history')}</a>
+      <a href="#section-8">{t(lang.current, 'nav.reform')}</a>
+      <a href="#references">{t(lang.current, 'nav.notes')}</a>
+    </div>
+    <div class="nav-tools">
+      <LanguageSelector />
+      <button id="theme-toggle" class="nav-theme-btn" aria-label={t(lang.current, 'nav.theme_aria')} title={t(lang.current, 'nav.theme_title')} onclick={toggleTheme}>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
+        <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
+      </button>
+      <button id="hamburger" class="nav-hamburger" aria-label={t(lang.current, 'nav.nav_aria')} aria-expanded={navOpen}
+        onclick={() => navOpen = !navOpen}>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
+          {#if navOpen}
+            <path d="M2 2l14 14M2 16L16 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+          {:else}
+            <rect y="2"  width="18" height="2" rx="1"/>
+            <rect y="8"  width="18" height="2" rx="1"/>
+            <rect y="14" width="18" height="2" rx="1"/>
+          {/if}
+        </svg>
+      </button>
+    </div>
   </div>
   {#if navOpen}
   <div id="nav-drawer" role="menu">
-    <a href="#top"         role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.drawer_top')}</a>
-    <a href="#section-1"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.map')}</a>
-    <a href="#section-2"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.split')}</a>
-    <a href="#section-3"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.litmus')}</a>
-    <a href="#section-4"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.crack_pack')}</a>
-    <a href="#section-5"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.impact')}</a>
-    <a href="#section-6"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.gerrymanders')}</a>
-    <a href="#section-7"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.lunty')}</a>
-    <a href="#section-8"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.suggestions')}</a>
+    <a href="#top" class="drawer-top" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.drawer_top')}</a>
+
+    <h4 class="drawer-group">{t(lang.current, 'nav.group_overview')}</h4>
+    <a href="#verdict-heading" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.verdict')}</a>
+    <a href="#what-is-redistricting" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.why')}</a>
+    <a href="#section-1" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.map')}</a>
+
+    <h4 class="drawer-group">{t(lang.current, 'nav.group_audit')}</h4>
+    <a href="#section-2" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.split')}</a>
+    <a href="#section-3" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.litmus')}</a>
+    <a href="#section-4" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.crack_pack')}</a>
+    <a href="#what-this-means" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.for_you')}</a>
+    <a href="#section-5" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.impact')}</a>
+    <a href="#section-6" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.gerrymanders')}</a>
+
+    <h4 class="drawer-group">{t(lang.current, 'nav.group_context')}</h4>
+    <a href="#history-of-gerrymandering" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.history_full')}</a>
+    <a href="#canada-is-different" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.canada')}</a>
+    <a href="#section-7" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.lunty')}</a>
+
+    <h4 class="drawer-group">{t(lang.current, 'nav.group_forward')}</h4>
+    <a href="#section-8" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.suggestions')}</a>
+
+    <h4 class="drawer-group">{t(lang.current, 'nav.group_apparatus')}</h4>
     <a href="#retractions" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.retractions')}</a>
     <a href="#references" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.references')}</a>
-    <a href="#resources"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.technical')}</a>
+    <a href="#resources" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.technical')}</a>
   </div>
   {/if}
 </nav>
@@ -1727,50 +1740,30 @@
       top: 0;
       z-index: 100;
     }
-    .nav-hamburger {
-      display: none;
-      background: none; border: none; cursor: pointer;
-      color: rgba(255,255,255,0.75); padding: 0 0.55rem;
-      min-height: 2.6rem; align-items: center; justify-content: center;
-      transition: color 0.15s;
-    }
-    .nav-hamburger:hover { color: #fff; }
-    #nav-drawer {
-      display: none;
-    }
-    @media (max-width: 660px) {
-      nav a:not(.nav-home) { display: none; }
-      .nav-home { display: none; }
-      .nav-hamburger { display: inline-flex; }
-      .nav-inner { justify-content: flex-end; min-height: 2.4rem; }
-      #nav-drawer {
-        display: flex; flex-direction: column;
-        background: #1e3352;
-        border-top: 1px solid rgba(255,255,255,0.08);
-        padding: 0.4rem 0 0.6rem;
-      }
-      #nav-drawer a {
-        display: block;
-        color: rgba(255,255,255,0.78);
-        text-decoration: none;
-        font-size: 0.9rem;
-        padding: 0.6rem 1.2rem;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-      }
-      #nav-drawer a:last-child { border-bottom: none; }
-      #nav-drawer a:hover { background: rgba(255,255,255,0.06); color: #fff; }
-    }
     .nav-inner {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 0.4rem;
       padding: 0 0.75rem;
+      min-height: 2.6rem;
+    }
+    .nav-landmarks {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
       overflow-x: auto;
-      white-space: nowrap;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
-    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-landmarks::-webkit-scrollbar { display: none; }
+    .nav-tools {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding-left: 0.6rem;
+      border-left: 1px solid rgba(255,255,255,0.15);
+    }
 
     nav a {
       color: #a8c7e8;
@@ -1784,14 +1777,70 @@
     }
     nav a:hover { color: #fff; text-decoration: underline; }
     nav a.active { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.6); }
-    nav a.nav-home { color: rgba(255,255,255,0.45); padding-right: 0.8rem; margin-right: 0.4rem; border-right: 1px solid rgba(255,255,255,0.15); text-decoration: none; }
+    nav a.nav-home {
+      color: rgba(255,255,255,0.55);
+      padding: 0 0.6rem 0 0.2rem;
+      margin-right: 0.4rem;
+      border-right: 1px solid rgba(255,255,255,0.15);
+      text-decoration: none;
+    }
     nav a.nav-home:hover { color: #fff; text-decoration: none; }
+
+    .nav-hamburger {
+      display: inline-flex;
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,0.75); padding: 0 0.4rem;
+      min-height: 2.6rem; align-items: center; justify-content: center;
+      transition: color 0.15s;
+    }
+    .nav-hamburger:hover { color: #fff; }
+
+    #nav-drawer {
+      display: flex;
+      flex-direction: column;
+      background: #1e3352;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 0.4rem 0 0.8rem;
+      max-height: calc(100vh - 2.6rem);
+      overflow-y: auto;
+    }
+    #nav-drawer a {
+      display: block;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.92rem;
+      padding: 0.5rem 1.2rem;
+    }
+    #nav-drawer a:hover {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      text-decoration: none;
+    }
+    #nav-drawer a.drawer-top {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      padding: 0.4rem 1.2rem 0.6rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    #nav-drawer .drawer-group {
+      margin: 0.6rem 0 0.15rem;
+      padding: 0 1.2rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    @media (max-width: 660px) {
+      .nav-landmarks { display: none; }
+      .nav-tools { border-left: none; padding-left: 0; margin-left: auto; }
+    }
+
     .nav-theme-btn {
       display: inline-flex; align-items: center; justify-content: center;
       background: none; border: none; cursor: pointer;
-      color: #F5C518; padding: 0 0.55rem;
-      margin-left: 0.4rem; padding-left: 0.8rem;
-      border-left: 1px solid rgba(255,255,255,0.15);
+      color: #F5C518; padding: 0 0.4rem;
       min-height: 2.6rem;
       transition: color 0.15s;
     }
