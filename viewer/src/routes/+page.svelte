@@ -449,89 +449,89 @@
   </div>
 
   <section id="section-3">
-    <h2>3: The 1,010,000-Map Litmus Test <a href="#section-3" class="section-link" aria-label="Link to section 3">#</a></h2>
+    <h2>{t(lang.current, 'body.litmus.heading')} <a href="#section-3" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 3">#</a></h2>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/lane1_dotplot.svg" alt="Histogram showing the distribution of efficiency gaps across 250,000 neutral Alberta maps. Most maps cluster near zero. The minority commission map (purple line) sits at the 94th percentile (+3.96%), in the shaded right tail. The majority map (teal line) sits at +0.04%, well within the normal range." class="chart-img" style="max-width: 100%;" width="463" height="247" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">Distribution of <button class="vocab-term" data-def="a measure of how lopsidedly votes are converted into seats — positive values favour the UCP, negative values favour the NDP" aria-expanded="false">efficiency gaps</button> across 250,000 neutral Alberta maps drawn from the same geography. Most neutral maps cluster near zero; the shaded right tail marks the top 10%. The minority proposal&rsquo;s +3.96% sits at the 94th <button class="vocab-term" data-def="the percentage of maps that scored lower — p94 means 94 out of 100 neutral maps were less partisan than this" aria-expanded="false">percentile</button> — a region fewer than 6 in 100 neutral maps ever reach. The majority proposal&rsquo;s +0.04% is indistinguishable from what a neutral process typically produces.</figcaption>
+      <img src="images/lane1_dotplot.svg" alt={t(lang.current, 'body.litmus.fig_alt')} class="chart-img" style="max-width: 100%;" width="463" height="247" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{@html t(lang.current, 'body.litmus.fig_caption')}</figcaption>
     </figure>
 
-    <p>The table compares the two maps. The first five rows use no election results — they're properties of the lines themselves. The last two depend on how votes were attributed to each district.</p>
+    <p>{t(lang.current, 'body.litmus.table_intro')}</p>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
-            <th>What was measured</th>
-            <th>Majority map</th>
-            <th>Minority map</th>
-            <th>Direction / Beneficiary</th>
+            <th>{t(lang.current, 'body.litmus.table_col_measured')}</th>
+            <th>{t(lang.current, 'body.litmus.table_col_majority')}</th>
+            <th>{t(lang.current, 'body.litmus.table_col_minority')}</th>
+            <th>{t(lang.current, 'body.litmus.table_col_direction')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Population spread across districts (tighter is better)</td>
-            <td class="normal">3,180</td>
-            <td class="flag">4,707 — 48% wider</td>
-            <td>Structural (Reduces vote equality)</td>
+            <td>{t(lang.current, 'body.litmus.table_r1_a')}</td>
+            <td class="normal">{t(lang.current, 'body.litmus.table_r1_b')}</td>
+            <td class="flag">{t(lang.current, 'body.litmus.table_r1_c')}</td>
+            <td>{t(lang.current, 'body.litmus.table_r1_d')}</td>
           </tr>
           <tr>
-            <td>NW Calgary population excess above average</td>
-            <td class="normal">2.8%</td>
-            <td class="flag">11.5%</td>
-            <td><strong>UCP</strong> (Packs urban NDP votes)</td>
+            <td>{t(lang.current, 'body.litmus.table_r2_a')}</td>
+            <td class="normal">{t(lang.current, 'body.litmus.table_r2_b')}</td>
+            <td class="flag">{t(lang.current, 'body.litmus.table_r2_c')}</td>
+            <td>{@html t(lang.current, 'body.litmus.table_r2_d')}</td>
           </tr>
           <tr>
-            <td>Airdrie split</td>
-            <td class="normal">2 divisions</td>
-            <td class="flag">4 divisions</td>
-            <td><strong>UCP</strong> (Cracks urban/suburban power)</td>
+            <td>{t(lang.current, 'body.litmus.table_r3_a')}</td>
+            <td class="normal">{t(lang.current, 'body.litmus.table_r3_b')}</td>
+            <td class="flag">{t(lang.current, 'body.litmus.table_r3_c')}</td>
+            <td>{@html t(lang.current, 'body.litmus.table_r3_d')}</td>
           </tr>
           <tr>
-            <td>Borders that follow existing municipal lines</td>
-            <td>80% — within norm</td>
-            <td>72% — within norm</td>
-            <td>N/A — both within Canadian norm (70–85%)</td>
+            <td>{t(lang.current, 'body.litmus.table_r4_a')}</td>
+            <td>{t(lang.current, 'body.litmus.table_r4_b')}</td>
+            <td>{t(lang.current, 'body.litmus.table_r4_c')}</td>
+            <td>{t(lang.current, 'body.litmus.table_r4_d')}</td>
           </tr>
           <tr>
-            <td>Boundaries flagged by the commission chair</td>
-            <td class="normal">0</td>
-            <td class="flag">3</td>
-            <td>N/A</td>
+            <td>{t(lang.current, 'body.litmus.table_r5_a')}</td>
+            <td class="normal">{t(lang.current, 'body.litmus.table_r5_b')}</td>
+            <td class="flag">{t(lang.current, 'body.litmus.table_r5_c')}</td>
+            <td>{t(lang.current, 'body.litmus.table_r5_d')}</td>
           </tr>
           <tr>
-            <td>Seats at 50/50 votes (percentile in 1,010,000-map simulation)</td>
-            <td class="normal">46.1% — p83 (normal range)</td>
-            <td class="flag">51.7% — p99.99 (fewer than 100 of 1,010,000 reach this)</td>
-            <td><strong>UCP</strong></td>
+            <td>{t(lang.current, 'body.litmus.table_r6_a')}</td>
+            <td class="normal">{t(lang.current, 'body.litmus.table_r6_b')}</td>
+            <td class="flag">{t(lang.current, 'body.litmus.table_r6_c')}</td>
+            <td>{@html t(lang.current, 'body.litmus.table_r6_d')}</td>
           </tr>
           <tr>
-            <td>Efficiency Gap (percentile in 1,010,000-map simulation)</td>
-            <td class="normal">+0.04% — p15.5 (normal range)</td>
-            <td class="flag">+3.96% — p94.4</td>
-            <td><strong>UCP</strong></td>
+            <td>{t(lang.current, 'body.litmus.table_r7_a')}</td>
+            <td class="normal">{t(lang.current, 'body.litmus.table_r7_b')}</td>
+            <td class="flag">{t(lang.current, 'body.litmus.table_r7_c')}</td>
+            <td>{@html t(lang.current, 'body.litmus.table_r7_d')}</td>
           </tr>
           <tr>
-            <td>Packing-cracking neighbourhood pattern</td>
-            <td>6 coupled chain signals</td>
-            <td class="normal">2 (pre-registered PASS)</td>
-            <td>Neutral — minority achieves partisan effect via hybridization, not adjacency drain (§5.3.5)</td>
+            <td>{t(lang.current, 'body.litmus.table_r8_a')}</td>
+            <td>{t(lang.current, 'body.litmus.table_r8_b')}</td>
+            <td class="normal">{t(lang.current, 'body.litmus.table_r8_c')}</td>
+            <td>{t(lang.current, 'body.litmus.table_r8_d')}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout">
-      <p><strong>VOCABULARY</strong></p>
-      <p><strong>Efficiency gap.</strong> A single number that measures how lopsidedly a party's votes are translated into seats. Positive numbers favour the UCP; negative favour the NDP. The audit uses ~5% as Alberta's outlier line — the value exceeded by only 5% of the 1,010,000 neutral Alberta-specific simulations. This threshold is not borrowed from US or general literature; a threshold calibrated to another jurisdiction would be wrong because Alberta's natural geography produces a different neutral range.</p>
-      <p><strong>Mean-median difference.</strong> The gap between a party's median district vote share and its mean district vote share. When one party wins many close races, the median sits above the mean — those votes are distributed efficiently. When a party wins many races by large margins, the mean sits above the median — votes are being wasted. A large mean-median gap in one direction flags structural inefficiency in how one side's votes are spread across districts.</p>
-      <p><strong>Percentile ranking.</strong> In this audit, a "percentile" is a rank within the 1,010,000 neutral simulated maps. "p94" means 94% of neutral maps score lower — the real map is more extreme than 94% of neutral draws. "p99.99" means fewer than 1 in 10,000 neutral maps reach that level.</p>
-      <p><strong>Anchoring.</strong> The fraction of an electoral border that lies on a pre-existing administrative line — a city limit, a school-division boundary, a Statistics Canada census line.</p>
+      <p><strong>{t(lang.current, 'body.litmus.vocab_label')}</strong></p>
+      <p>{@html t(lang.current, 'body.litmus.vocab_eg')}</p>
+      <p>{@html t(lang.current, 'body.litmus.vocab_mm')}</p>
+      <p>{@html t(lang.current, 'body.litmus.vocab_percentile')}</p>
+      <p>{@html t(lang.current, 'body.litmus.vocab_anchoring')}</p>
     </div>
 
-    <p>The bottom rows depend on election results. The <em>seats@50/50</em> test holds the electorate at perfect parity (UCP and NDP each win exactly half the votes province-wide) and asks how many seats the map awards the UCP. A neutral Alberta map produces a median around 44.8% UCP seats — Alberta's geography (NDP voters concentrated in city cores, UCP voters spread across rural ridings) gives the NDP a small efficiency advantage at neutrality. The majority map at 46.1% sits at the 83rd percentile of the 1,010,000-map simulation (normal range). The minority map at 51.7% is at the 99.99th percentile — fewer than 100 of 1,010,000 neutral draws reach that value. The <em>efficiency gap</em> number measures how lopsidedly each party's votes get translated into seats; on the official Elections Alberta shapefiles the minority's efficiency gap is +3.96%, placing it at the 94.4th percentile — just below the audit's 95th-percentile outlier line. The verdict section unpacks the consequences.</p>
+    <p>{@html t(lang.current, 'body.litmus.closing_p1')}</p>
 
-    <p>The last row is where the minority map has fewer coupled chain signals than the majority on the neighbour-drain test: 2 against the majority's 6 (and the 2019 enacted map's 5). The audit pre-registered this test before measuring, and the minority's lower count is a genuine pre-registered PASS — the minority does not show the classic pack-and-drain adjacency pattern. It is the single test where the minority numerically outperforms the majority. §5.3.5 of the academic report explains why: the minority achieves its partisan effect through hybridization (city-splitting that internalises packing and cracking within individual EDs), which is invisible to an adjacency-chain test that only measures how packed districts cluster next to cracked ones.</p>
+    <p>{t(lang.current, 'body.litmus.closing_p2')}</p>
   </section>
 
   <section id="section-4">
