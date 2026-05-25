@@ -106,7 +106,7 @@ The first piece of body prose after the verdict and the boundary card. The reade
 
 ---
 
-> ### What is redistricting and why should you care?
+> ### What is redistricting, and why it matters
 >
 > Every voter in Alberta lives in an *electoral district* — a slice of the province that elects one person to the legislature. There are 87 districts. Each district elects one MLA. When you cast a ballot in a provincial election, you are choosing the MLA for the district you live in. That is the entire connection most Albertans have to the legislature: one MLA, one district, one vote.
 >

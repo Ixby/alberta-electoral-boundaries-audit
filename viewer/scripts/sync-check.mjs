@@ -52,7 +52,7 @@ const PROBES = [
 	{ key: 'boundary.heading', anchor: "What this audit can and can't tell you" },
 	{ key: 'boundary.can_1', anchor: 'Fewer than 1 in 14.5 million randomly generated comparison maps' },
 	// Section 1 (onboarding)
-	{ key: 'section1.heading', anchor: 'What is redistricting and why should you care' },
+	{ key: 'section1.heading', anchor: 'What is redistricting, and why it matters' },
 	{ key: 'section1.p1', anchor: 'one MLA, one district, one vote' },
 	{ key: 'section1.p3', anchor: 'split 3–2 on what the map should look like' },
 	// Section 5 (ladder)

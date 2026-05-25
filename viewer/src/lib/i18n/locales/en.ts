@@ -28,7 +28,7 @@ export default {
 				"It doesn't. The Canadian test is different: whether the boundaries give voters <em>effective representation</em> under section 3 of the Charter. The minority proposal raises serious questions under that test; only a judge can answer them definitively, and no one has asked one yet."
 		},
 		q3: {
-			heading: 'What does it mean for Albertans?',
+			heading: "What's at stake for Albertans?",
 			body:
 				"At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme — fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because at 58 of 87 seats — a two-thirds supermajority — the governing party unlocks extraordinary procedural powers: it can waive standard notice periods and push public bills through multiple legislative stages in a single day, bypassing deliberation checks that normally constrain it. Whether the minority proposal's tilt is large enough to push one party past that 58-seat threshold at vote shares <em>other</em> than 50/50 is a question this audit has not yet tested. Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit."
 		},
@@ -115,7 +115,7 @@ export default {
 			"The audit does <strong>not</strong> tell any individual voter what position to take or what to do with this information. That's yours to decide."
 	},
 	section1: {
-		heading: 'What is redistricting and why should you care?',
+		heading: 'What is redistricting, and why it matters',
 		p1: 'Every voter in Alberta lives in an <em>electoral district</em> — a slice of the province that elects one person to the legislature. There are 87 districts. Each district elects one MLA. When you cast a ballot in a provincial election, you are choosing the MLA for the district you live in. That is the entire connection most Albertans have to the legislature: one MLA, one district, one vote.',
 		p2: 'Those district lines are not permanent. People move, neighbourhoods grow, rural areas thin out, cities sprawl. Every eight to ten years, Alberta is supposed to redraw the lines so each district is roughly the right size and reflects the way Albertans actually live now. The body that does the redrawing is the <em>Electoral Boundaries Commission</em> — an independent commission with judges, lawyers, and public members, not politicians.',
 		p3: "That is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a <em>majority proposal</em> (backed by three commissioners) and a <em>minority proposal</em> (backed by two). Both are sitting on the table. A separate committee of MLAs chaired by Brandon Lunty — appointed by the Premier for this specific decision — is choosing between them. The legislature must approve whichever one survives that committee before November 2026.",
@@ -261,7 +261,7 @@ export default {
 			body: 'The majority map crosses <strong>zero of five</strong> pre-registered structural thresholds. The minority map crosses <strong>all five</strong>. These are geometric measurements — population spread, <button class="vocab-term" data-def="how closely a district\'s borders follow pre-existing city and municipal limits, rather than cutting through them" aria-expanded="false">municipal anchoring</button>, Airdrie split count, NW Calgary population excess, and chair-flagged boundary anomalies — that require no election data and no statistical sampler. The next section tests both maps against 1,010,000 computer-generated neutral maps and reaches the same conclusion through a completely different instrument.'
 		},
 		clean: {
-			heading: '6: How "Clean Gerrymanders" Work',
+			heading: "6: When a fair-looking map isn't",
 			legal_label: 'A NOTE ON LEGAL TERMINOLOGY',
 			legal_body: '"Gerrymandering" has no legal definition in Canadian law. The word is used throughout this report in its everyday political sense — manipulating electoral boundaries for partisan advantage. The legal tests that actually apply in Canada are different: whether boundaries provide "effective representation" under s.3 of the <em>Charter of Rights and Freedoms</em> (the constitutional standard the Supreme Court of Canada set in the 1991 <em>Saskatchewan Reference</em>), and whether the commission followed the rules of Alberta\'s <em>Electoral Boundaries Commission Act</em>. The audit\'s findings are evidence bearing on those legal questions. They are not proof of a legally-defined wrong, and this report does not describe them that way.',
 			intro_p1: "The cleanest single question to ask of any electoral map is this: if the province's vote split exactly evenly between the two main parties, what seat count would the map produce? This holds the electorate constant and asks the map alone what it does.",
@@ -381,7 +381,7 @@ export default {
 			details2_p: "The audit pre-registered five structural-irregularity tests on April 24, 2026 before the final simulation results were compiled. Anchoring is neutral for both maps; on the remaining four tests the minority crosses every one and the majority crosses none. Those measurements are geometric — they don't depend on any statistical sampler or any vote attribution. Lane 1 (the partisan-fairness numbers) corroborates Lane 2 strongly under canonical official shapefiles: the minority is a statistical outlier on all four pre-registered metrics simultaneously, with a joint neutral-null probability of p&nbsp;=&nbsp;6.87×10<sup>−8</sup> (pre-registered Fisher combined test — a method that combines four independent test results into a single probability by multiplying their individual tail probabilities; the combined figure is far smaller than any single test's because all four point the same direction; OSF <a href=\"https://osf.io/6pt83\" rel=\"noopener\">6pt83</a>). The question of whether Lane 2's unusual geometry is the specific <em>mechanism</em> behind the Lane 1 numbers was tested and the answer is no — see <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md\" rel=\"noopener\">findings/redist_python_comparison.md</a>. The Swing-Zone Allocation Test shows the contested boundary choices are partisan-skewed, but the tested question was whether the boundary shapes themselves — the lasso corridor, the park extension — are the direct cause of the seat swing; they are not. The seat effect comes from how redrawn Voting Area assignments shift vote efficiency across districts, not from the shapes per se. Both lanes flag the minority map; they reach that conclusion through independent instruments. Lane 2 is the central finding. Lane 1 corroborates without carrying."
 		},
 		impact: {
-			heading: '5: The Impact on the Ground',
+			heading: '5: Effects on Representation',
 			lanes_label: 'LANE 1 AND LANE 2',
 			lanes_body: '<strong>Lane 1 (numbers)</strong> uses election results to test whether the map converts votes into seats fairly — it asks how the map performs across different vote splits. <strong>Lane 2 (structure)</strong> examines only the drawn lines — city splits, population spread, boundary shapes — with no election data at all. Each lane is independent: a map can fail one while passing the other. The minority proposal fails both; the majority passes both.',
 			intro: "Lane 1 depends on which election results you score the maps against. Lane 2 does not. The structural evidence is in the maps themselves — drawn lines, split cities, where the boundaries do and don't follow administrative lines that exist for other reasons. On these tests, the two maps are not close.",
@@ -492,7 +492,7 @@ export default {
 			closing_p2: "The last row is where the minority map has fewer coupled chain signals than the majority on the neighbour-drain test: 2 against the majority's 6 (and the 2019 enacted map's 5). The audit pre-registered this test before measuring, and the minority's lower count is a genuine pre-registered PASS — the minority does not show the classic pack-and-drain adjacency pattern. It is the single test where the minority numerically outperforms the majority. §5.3.5 of the academic report explains why: the minority achieves its partisan effect through hybridization (city-splitting that internalises packing and cracking within individual EDs), which is invisible to an adjacency-chain test that only measures how packed districts cluster next to cracked ones."
 		},
 		commission_split: {
-			heading: '2: How the Commission Broke',
+			heading: '2: How the Commission Split',
 			intro: 'Alberta\'s Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Commission Chair Justice Dallas K. Miller and two opposition-nominated commissioners wrote the majority report; two government-nominated commissioners — Dr. Julian Martin and John D. Evans — wrote the minority report. The split centred on how to draw boundaries in fast-growing urban-edge communities: the majority gave Airdrie two districts, the minority four; the majority drew northwest Calgary\'s divisions close to the provincial average size, the minority drew them 11.5% above it. Both maps follow the same statute; the disagreement was about which specific geographic configurations best served the communities being drawn. Both are legal under the <em>Electoral Boundaries Commission Act</em>. The governing party is the United Conservative Party (UCP); its main opposition is the New Democratic Party (NDP). Alberta also has smaller parties — the Alberta Party, the Liberal Party of Alberta, and others — that contest seats but whose combined provincial vote share has remained low enough in recent elections that they do not materially affect the audit\'s partisan-fairness calculations, which are grounded in the 2023 UCP–NDP vote split. This audit measured both maps using the same methods, applied identically. Three findings stand out.',
 			finding1: '<strong>The two maps differ on six things you can measure without looking at any election results:</strong> how evenly people are spread across districts, whether voters are concentrated, how badly cities are cut up, whether borders follow city limits, the shape of the districts, and how many boundaries the commission\'s own chair flagged as anomalous. The minority map differs from the majority on every one of them.',
 			finding2: '<strong>Every measured difference cuts the same way.</strong> Everywhere the two maps diverge — northwest Calgary, Airdrie, urban areas with clear city limits — the minority map draws boundaries that spread NDP votes thinner and let UCP votes count more efficiently. The communities most reshaped by the minority map are the same communities where the NDP is strongest. The audit cannot determine intent. It can measure effect.',
@@ -525,7 +525,7 @@ export default {
 				"The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change."
 		},
 		references: {
-			heading: '10: References &amp; Methodology',
+			heading: '10: References and Methodology',
 			heading_aria: 'Link to references',
 			intro:
 				'The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.',
@@ -534,7 +534,7 @@ export default {
 			h_statutes: 'Statutes'
 		},
 		resources: {
-			heading: '11: Technical',
+			heading: '11: Technical Appendix',
 			heading_aria: 'Link to technical',
 			tag_plain: 'Plain Language',
 			plain_label: 'Full public report',
