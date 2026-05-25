@@ -523,6 +523,38 @@ export default {
 			closing:
 				"The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change."
 		},
+		retractions: {
+			heading: '9: Retractions and Corrections',
+			heading_aria: 'Link to retractions',
+			conditions_label: 'RETRACTION CONDITIONS',
+			conditions_intro:
+				'Every finding is pre-committed to a specific falsification condition. If any condition below materialises, the finding it names is retracted publicly within 30 days. The overall directional conclusion — that the minority map sits outside the neutral range on multiple independent tests — is retracted only if at least three of the five tests fail.',
+			c1_title: 'Condition 1 — A counter-map exists',
+			c1_what: "<em>What gets retracted:</em> The structural finding that the Airdrie four-way split and the three chair-flagged boundaries cannot be explained by the minority's stated community-of-interest rationale.",
+			c1_cond:
+				"Condition: someone produces a legal Alberta map that satisfies the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — and anchors on municipal lines at majority-comparable rates. Open challenge at <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
+			c2_title: 'Condition 2 — The Neighbour-Drain pre-registered pass is reversed',
+			c2_what: '<em>What gets retracted:</em> The Section 3 table entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.',
+			c2_cond:
+				'Condition: the v2 continuous drain score falls in the extreme upper tail (p &lt; 0.05) of random permutations across the fixed contiguity graph, meaning the pass was a measurement artefact of the v1 binary scoring method rather than a genuine null result.',
+			c3_title: 'Condition 3 — A pre-2026 commission document surfaces',
+			c3_what: "<em>What gets retracted:</em> The inference that the minority's boundary choices were drafting decisions rather than responses to documented community submissions.",
+			c3_cond:
+				"Condition: an internal commission document dated before the minority's final boundary choices shows those choices were explicitly driven by community submissions the audit has not seen — not by the six published sub-rationales the audit tested.",
+			c4_title: 'Condition 4 — The 2027 election result contradicts the simulation',
+			c4_what: "<em>What gets retracted:</em> The Lane 1 finding — that the minority map's seats@50/50 score sits at the 99.99th percentile of 1,010,000 neutral draws.",
+			c4_cond:
+				'Condition: if the 2027 provincial election is fought on either commission map and the actual partisan seat split contradicts the directional projection from 2023 votes, the Lane 1 percentile findings are revisited against actual results.',
+			c5_title: 'Condition 5 — An Alberta court distinguishes the Quebec SCC ruling',
+			c5_what: '<em>What gets retracted:</em> The Section 7 procedural argument that the April 16 motion to replace the commission with the Lunty committee sits in the same constitutional class as Quebec\'s 2024 redistricting freeze.',
+			c5_cond:
+				"Background: on April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada upheld, 7–2 and from the bench, a Quebec Court of Appeal ruling that the Legault government's legislative freeze on its redistricting commission violated the Charter's s.3 democratic-representation guarantee. Condition: a court reviewing the Alberta motion finds it constitutionally distinct — for example, because reassigning the work to an MLA committee differs structurally from a legislative freeze, or because Alberta's effective-representation analysis under s.3 comes out differently than Quebec's.",
+			corr_label: 'DOCUMENTED CORRECTIONS (canonical recomputation, 2026-05-11)',
+			corr_intro:
+				"The following early finding did not survive reanalysis against official Elections Alberta shapefiles (received 2026-05-06). It is retained here per the audit's pre-committed policy of never deleting failed findings.",
+			corr_municipal:
+				"<strong>Municipal anchoring (retracted).</strong> Early analysis using provisional map boundaries showed the minority map anchored to municipal lines only 15% of the time — 4.9&times; below the 70–85% Canadian norm. This figure was an artefact of the provisional (DPG-era) boundary reconstructions. On official Elections Alberta canonical shapefiles, both maps anchor within the Canadian norm: majority 80%, minority 72%. The municipal-anchoring <em>divergence</em> between the two maps is not a signal that survives canonical recomputation. The three boundary anomalies flagged by the commission chair (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) remain and are not affected by this correction."
+		},
 		suggestions: {
 			heading: '8: Suggestions',
 			heading_aria: 'Link to section 8',

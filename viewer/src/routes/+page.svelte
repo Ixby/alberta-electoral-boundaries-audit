@@ -1048,47 +1048,47 @@
   </section>
 
   <section id="retractions">
-    <h2>9: Retractions and Corrections <a href="#retractions" class="section-link" aria-label="Link to retractions">#</a></h2>
+    <h2>{t(lang.current, 'body.retractions.heading')} <a href="#retractions" class="section-link" aria-label={t(lang.current, 'body.retractions.heading_aria')}>#</a></h2>
 
     <div class="callout warning">
-      <p><strong>RETRACTION CONDITIONS</strong></p>
-      <p>Every finding is pre-committed to a specific falsification condition. If any condition below materialises, the finding it names is retracted publicly within 30 days. The overall directional conclusion — that the minority map sits outside the neutral range on multiple independent tests — is retracted only if at least three of the five tests fail.</p>
+      <p><strong>{t(lang.current, 'body.retractions.conditions_label')}</strong></p>
+      <p>{t(lang.current, 'body.retractions.conditions_intro')}</p>
 
       <div style="margin: 0.8rem 0 0; border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>Condition 1 — A counter-map exists</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The structural finding that the Airdrie four-way split and the three chair-flagged boundaries cannot be explained by the minority's stated community-of-interest rationale.</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: someone produces a legal Alberta map that satisfies the minority's own stated reasons — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — and anchors on municipal lines at majority-comparable rates. Open challenge at <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14" rel="noopener">Issue #14</a>.</p>
+        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c1_title')}</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c1_what')}</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c1_cond')}</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>Condition 2 — The Neighbour-Drain pre-registered pass is reversed</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The Section 3 table entry recording the minority map as a pre-registered PASS on the neighbour-drain adjacency test.</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: the v2 continuous drain score falls in the extreme upper tail (p &lt; 0.05) of random permutations across the fixed contiguity graph, meaning the pass was a measurement artefact of the v1 binary scoring method rather than a genuine null result.</p>
+        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c2_title')}</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c2_what')}</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c2_cond')}</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>Condition 3 — A pre-2026 commission document surfaces</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The inference that the minority's boundary choices were drafting decisions rather than responses to documented community submissions.</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: an internal commission document dated before the minority's final boundary choices shows those choices were explicitly driven by community submissions the audit has not seen — not by the six published sub-rationales the audit tested.</p>
+        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c3_title')}</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c3_what')}</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c3_cond')}</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>Condition 4 — The 2027 election result contradicts the simulation</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The Lane 1 finding — that the minority map's seats@50/50 score sits at the 99.99th percentile of 1,010,000 neutral draws.</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Condition: if the 2027 provincial election is fought on either commission map and the actual partisan seat split contradicts the directional projection from 2023 votes, the Lane 1 percentile findings are revisited against actual results.</p>
+        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c4_title')}</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c4_what')}</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c4_cond')}</p>
       </div>
 
       <div style="border-top: 1px solid rgba(180,120,0,0.25); padding-top: 0.7rem;">
-        <p style="margin: 0 0 0.2rem;"><strong>Condition 5 — An Alberta court distinguishes the Quebec SCC ruling</strong></p>
-        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);"><em>What gets retracted:</em> The Section 7 procedural argument that the April 16 motion to replace the commission with the Lunty committee sits in the same constitutional class as Quebec's 2024 redistricting freeze.</p>
-        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">Background: on April 22, 2026 — six days after Alberta's April 16 motion — the Supreme Court of Canada upheld, 7–2 and from the bench, a Quebec Court of Appeal ruling that the Legault government's legislative freeze on its redistricting commission violated the Charter's s.3 democratic-representation guarantee. Condition: a court reviewing the Alberta motion finds it constitutionally distinct — for example, because reassigning the work to an MLA committee differs structurally from a legislative freeze, or because Alberta's effective-representation analysis under s.3 comes out differently than Quebec's.</p>
+        <p style="margin: 0 0 0.2rem;"><strong>{t(lang.current, 'body.retractions.c5_title')}</strong></p>
+        <p style="margin: 0 0 0.3rem; font-size: 0.92rem; color: var(--text-muted);">{@html t(lang.current, 'body.retractions.c5_what')}</p>
+        <p style="margin: 0 0 0.7rem; font-size: 0.93rem;">{@html t(lang.current, 'body.retractions.c5_cond')}</p>
       </div>
     </div>
 
     <div class="callout warning">
-      <p><strong>DOCUMENTED CORRECTIONS (canonical recomputation, 2026-05-11)</strong></p>
-      <p>The following early finding did not survive reanalysis against official Elections Alberta shapefiles (received 2026-05-06). It is retained here per the audit's pre-committed policy of never deleting failed findings.</p>
-      <p><strong>Municipal anchoring (retracted).</strong> Early analysis using provisional map boundaries showed the minority map anchored to municipal lines only 15% of the time — 4.9&times; below the 70–85% Canadian norm. This figure was an artefact of the provisional (DPG-era) boundary reconstructions. On official Elections Alberta canonical shapefiles, both maps anchor within the Canadian norm: majority 80%, minority 72%. The municipal-anchoring <em>divergence</em> between the two maps is not a signal that survives canonical recomputation. The three boundary anomalies flagged by the commission chair (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) remain and are not affected by this correction.</p>
+      <p><strong>{t(lang.current, 'body.retractions.corr_label')}</strong></p>
+      <p>{t(lang.current, 'body.retractions.corr_intro')}</p>
+      <p>{@html t(lang.current, 'body.retractions.corr_municipal')}</p>
     </div>
   </section>
 
