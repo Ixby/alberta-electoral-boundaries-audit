@@ -1123,7 +1123,8 @@
       <p>{@html t(lang.current, 'body.suggestions.ebca_body')}</p>
     </div>
 
-    <p>{@html t(lang.current, 'body.suggestions.rationale_p')}</p>
+    <p>{@html t(lang.current, 'body.suggestions.rationale_p1')}</p>
+    <p>{@html t(lang.current, 'body.suggestions.rationale_p2')}</p>
 
     <p>{@html t(lang.current, 'body.suggestions.banff_p')}</p>
 

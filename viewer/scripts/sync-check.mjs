@@ -47,7 +47,7 @@ const PROBES = [
 	{ key: 'verdict.q1.body', anchor: 'reasonably support calling the' },
 	{ key: 'verdict.q1.footnote', anchor: '"majority" and "minority" names come from a 3–2 split' },
 	{ key: 'verdict.q2.body', anchor: 'whether the boundaries give voters' },
-	{ key: 'verdict.q3.body', anchor: 'two-thirds supermajority — the governing party unlocks extraordinary procedural powers' },
+	{ key: 'verdict.q3.body', anchor: 'two-thirds supermajority, the governing party unlocks extraordinary procedural powers' },
 	// Boundary card
 	{ key: 'boundary.heading', anchor: "What this audit can and can't tell you" },
 	{ key: 'boundary.can_1', anchor: 'Fewer than 1 in 14.5 million randomly generated comparison maps' },
