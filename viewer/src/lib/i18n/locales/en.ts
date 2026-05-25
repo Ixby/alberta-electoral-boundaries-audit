@@ -523,6 +523,39 @@ export default {
 			closing:
 				"The audit will apply the same tests to the Lunty committee's map when it is released. The constitutional and comparative observations above are contextual; the methodology does not change."
 		},
+		references: {
+			heading: '10: References &amp; Methodology',
+			heading_aria: 'Link to references',
+			intro:
+				'The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.',
+			h_academic: 'Academic literature',
+			h_cases: 'Court cases',
+			h_statutes: 'Statutes'
+		},
+		resources: {
+			heading: '11: Technical',
+			heading_aria: 'Link to technical',
+			tag_plain: 'Plain Language',
+			plain_label: 'Full public report',
+			plain_desc: 'Long-form, with maps, for general readers',
+			tag_summary: 'Summary',
+			summary_label: 'Summary of findings',
+			summary_desc: 'Plain-language overview, explains every concept from scratch',
+			tag_academic: 'Academic',
+			academic_label: 'Technical report',
+			academic_desc: 'Full methods and citations for researchers',
+			tag_notebook: 'Notebook',
+			notebook_label: 'Interactive notebook',
+			notebook_desc: 'Run the charts yourself in your browser, no install needed',
+			tag_code: 'Code'
+		},
+		about_me: {
+			heading: 'About me',
+			p1: "I'm a student at Mount Royal University. I did this research on my own — it was not assigned as coursework and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta, the commission, or any political party.",
+			p2: "I have supported parties on all sides of the political spectrum depending on the election. I'm telling you that because my political history could affect how I look at this issue. The main protection against that is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I genuinely want to know.",
+			p3: 'Pre-registration records (written before results were examined): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
+			p4: 'Questions or corrections: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+		},
 		retractions: {
 			heading: '9: Retractions and Corrections',
 			heading_aria: 'Link to retractions',

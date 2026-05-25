@@ -1093,11 +1093,11 @@
   </section>
 
   <section id="references">
-    <h2>10: References &amp; Methodology <a href="#references" class="section-link" aria-label="Link to references">#</a></h2>
+    <h2>{@html t(lang.current, 'body.references.heading')} <a href="#references" class="section-link" aria-label={t(lang.current, 'body.references.heading_aria')}>#</a></h2>
 
-    <p>The underlying methodology draws on established political science, statistics, and legal literature. Full citations follow American Political Science Association (APSA) style; court cases follow Canadian legal convention. The complete reference list appears in the <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technical report</a>. Key sources are listed here.</p>
+    <p>{@html t(lang.current, 'body.references.intro')}</p>
 
-    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">Academic literature</h3>
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">{t(lang.current, 'body.references.h_academic')}</h3>
     <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
       <li style="margin-bottom: 0.5rem;"><strong>Alberta Electoral Boundaries Commission. 2026.</strong> <em>2025–26 Electoral Boundaries Commission Final Report (Majority and Minority)</em>. Government of Alberta.</li>
       <li style="margin-bottom: 0.5rem;"><strong>Chen, Jowei, and Jonathan Rodden. 2013.</strong> "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures." <em>Quarterly Journal of Political Science</em> 8(3): 239–269.</li>
@@ -1109,7 +1109,7 @@
       <li style="margin-bottom: 0.5rem;"><strong>Stephanopoulos, Nicholas O., and Eric M. McGhee. 2014.</strong> "Partisan Gerrymandering and the Efficiency Gap." <em>University of Chicago Law Review</em> 82(2): 831–900. (Source of the efficiency gap measure used throughout.)</li>
     </ul>
 
-    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">Court cases</h3>
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">{t(lang.current, 'body.references.h_cases')}</h3>
     <ul style="margin: 0 0 1rem 1.4rem; line-height: 1.7;">
       <li style="margin-bottom: 0.5rem;"><em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em>, [1991] 2 SCR 158. (The leading Supreme Court of Canada authority on the constitutional standard for electoral boundary drawing.)</li>
       <li style="margin-bottom: 0.5rem;"><em>Figueroa v. Canada (Attorney General)</em>, [2003] 1 SCR 912.</li>
@@ -1117,52 +1117,52 @@
       <li style="margin-bottom: 0.5rem;"><em>Rucho v. Common Cause</em>, 139 S. Ct. 2484 (2019). (U.S. Supreme Court; establishes the non-justiciability of partisan gerrymandering claims in federal courts — context for why Canada's s.3 effective-representation standard differs.)</li>
     </ul>
 
-    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">Statutes</h3>
+    <h3 style="margin: 1.2rem 0 0.5rem; font-size: 1rem; color: var(--heading-2);">{t(lang.current, 'body.references.h_statutes')}</h3>
     <ul style="margin: 0 0 0.5rem 1.4rem; line-height: 1.7;">
       <li style="margin-bottom: 0.5rem;"><em>Electoral Boundaries Commission Act</em>, RSA 2000, c E-3.</li>
     </ul>
   </section>
 
   <section id="resources">
-    <h2>11: Technical <a href="#resources" class="section-link" aria-label="Link to technical">#</a></h2>
+    <h2>{t(lang.current, 'body.resources.heading')} <a href="#resources" class="section-link" aria-label={t(lang.current, 'body.resources.heading_aria')}>#</a></h2>
 
     <ul class="links-list">
       <li>
-        <span class="tag">Plain Language</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.pdf">Full public report</a> &mdash; Long-form, with maps, for general readers
+        <span class="tag">{t(lang.current, 'body.resources.tag_plain')}</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/public/report_public.pdf">{t(lang.current, 'body.resources.plain_label')}</a> &mdash; {t(lang.current, 'body.resources.plain_desc')}
       </li>
       <li>
-        <span class="tag">Summary</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/FINDINGS_BRIEF.md">Summary of findings</a> &mdash; Plain-language overview, explains every concept from scratch
+        <span class="tag">{t(lang.current, 'body.resources.tag_summary')}</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/docs/FINDINGS_BRIEF.md">{t(lang.current, 'body.resources.summary_label')}</a> &mdash; {t(lang.current, 'body.resources.summary_desc')}
       </li>
       <li>
-        <span class="tag">Academic</span>
-        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md">Technical report</a> &mdash; Full methods and citations for researchers
+        <span class="tag">{t(lang.current, 'body.resources.tag_academic')}</span>
+        <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md">{t(lang.current, 'body.resources.academic_label')}</a> &mdash; {t(lang.current, 'body.resources.academic_desc')}
       </li>
       <li>
-        <span class="tag">Notebook</span>
-        <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener">Interactive notebook</a> &mdash; Run the charts yourself in your browser, no install needed
+        <span class="tag">{t(lang.current, 'body.resources.tag_notebook')}</span>
+        <a href="https://colab.research.google.com/github/Ixby/alberta-electoral-boundaries-audit/blob/master/notebooks/alberta_audit_explorer.ipynb" rel="noopener">{t(lang.current, 'body.resources.notebook_label')}</a> &mdash; {t(lang.current, 'body.resources.notebook_desc')}
       </li>
       <li>
-        <span class="tag">Code</span>
+        <span class="tag">{t(lang.current, 'body.resources.tag_code')}</span>
         <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit" rel="noopener">github.com/Ixby/alberta-electoral-boundaries-audit</a>
       </li>
     </ul>
   </section>
 
   <section>
-    <h2>About me</h2>
+    <h2>{t(lang.current, 'body.about_me.heading')}</h2>
     <p style="font-size:0.9rem; color:var(--text-muted);">
-      I'm a student at Mount Royal University. I did this research on my own &mdash; it was not assigned as coursework and the university did not commission it. My views are my own and do not represent the university. I have no connection to Elections Alberta, the commission, or any political party.
+      {t(lang.current, 'body.about_me.p1')}
     </p>
     <p style="font-size:0.9rem; color:var(--text-muted);">
-      I have supported parties on all sides of the political spectrum depending on the election. I'm telling you that because my political history could affect how I look at this issue. The main protection against that is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I genuinely want to know.
+      {t(lang.current, 'body.about_me.p2')}
     </p>
     <p style="font-size:0.9rem; color:var(--text-muted);">
-      Pre-registration records (written before results were examined): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.
+      {@html t(lang.current, 'body.about_me.p3')}
     </p>
     <p style="font-size:0.9rem; color:var(--text-muted);">
-      Questions or corrections: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>
+      {@html t(lang.current, 'body.about_me.p4')}
     </p>
   </section>
 
