@@ -535,47 +535,47 @@
   </section>
 
   <section id="section-4">
-    <h2>4: Cracking, Packing, and Draining <a href="#section-4" class="section-link" aria-label="Link to section 4">#</a></h2>
+    <h2>{t(lang.current, 'body.cpd.heading')} <a href="#section-4" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 4">#</a></h2>
 
     <div class="callout">
-      <p><strong>Three moves, one playbook</strong></p>
-      <p><strong>Packing</strong> means cramming one party's voters into districts that party wins by landslides — each packed ballot still counts, but it contributes nothing beyond victory. Large, lopsided wins. Wasted votes.</p>
-      <p><strong>Cracking</strong> means splitting a community across multiple districts so it wins none of them outright. A city strong enough to carry two seats gets carved into four, each tethered to a different rural area. Diluted votes. No seat for anyone.</p>
-      <p><strong>Draining</strong> is the spatial companion: packed and cracked districts are placed next to each other so that over-concentrated supporters on one side "drain" voting power away from the contested districts nearby. The adjacency pattern amplifies both effects — packing and cracking reinforce each other across district lines.</p>
-      <p>All three can occur without any explicit partisan intent. What the audit measures is whether the pattern — and its statistical magnitude — is consistent with what a neutral map-drawing process produces. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md#5-results" rel="noopener">Full methodology at §5 of the technical report.</a></p>
+      <p><strong>{t(lang.current, 'body.cpd.vocab_label')}</strong></p>
+      <p>{@html t(lang.current, 'body.cpd.vocab_packing')}</p>
+      <p>{@html t(lang.current, 'body.cpd.vocab_cracking')}</p>
+      <p>{@html t(lang.current, 'body.cpd.vocab_draining')}</p>
+      <p>{@html t(lang.current, 'body.cpd.vocab_disclaimer')}</p>
     </div>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/figure_airdrie_v3.svg" alt="Map showing the division of Airdrie into four separate districts under the minority map" class="chart-img" style="max-width: 100%;" width="504" height="336" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">The division of Airdrie into four separate districts under the minority map, diluting its urban voting power.</figcaption>
+      <img src="images/figure_airdrie_v3.svg" alt={t(lang.current, 'body.cpd.fig_alt')} class="chart-img" style="max-width: 100%;" width="504" height="336" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.cpd.fig_caption')}</figcaption>
     </figure>
 
-    <p>The five commissioners worked from the same statutory rules, the same provincial geography, the same archive of 1,140 public submissions, and the same demographic data. Their two competing drafts agree on most of Alberta. Where the drafts diverge, they diverge on choices someone in the room had to make. Three of those choices are worth seeing as choices, not numbers.</p>
+    <p>{t(lang.current, 'body.cpd.intro')}</p>
 
-    <p><strong>It splits the City of Airdrie into four pieces.</strong> The law caps each electoral division at one-and-a-quarter times the provincial average, so Airdrie needs at least two divisions. The majority map gives it two. The minority gives it four — north to Calgary-Nolan Hill-Cochrane, east to Airdrie East, west to Calgary-Foothills-Airdrie West, and centre-south to Calgary-Airdrie — each one stapled to a different rural or Calgary-edge district. An Airdrie resident with a question for her MLA has to know which quarter of the city she lives in before she can call the right office. Her neighbours two blocks over will give her three different answers. The PTA at her child's school cannot send a single delegation to one MLA on a school-funding question; they have to coordinate four delegations to four offices, each MLA primarily accountable to a different rural or suburban constituency. The minor-hockey association, the food bank, the Chamber of Commerce — every organization that operates citywide now operates across four provincial ridings.</p>
+    <p>{@html t(lang.current, 'body.cpd.airdrie_p')}</p>
 
     <div class="callout">
-      <p><strong>WHY AIRDRIE MATTERS</strong></p>
-      <p>Airdrie is the largest Alberta city without its own MLA. At 85,805 people (2024 municipal census) it is bigger than Red Deer; it has one council, one tax bill, one school division — every civic system treats it as a unit.</p>
-      <p>Splitting it across four provincial divisions — Calgary-Airdrie, Calgary-Foothills-Airdrie West, Calgary-Nolan Hill-Cochrane, and Airdrie East — each primarily identified with a different surrounding jurisdiction, removes Airdrie from the political map at the level of government that draws it. The city has 85,805 residents and zero seats in the legislature where a majority of voters call the place home.</p>
-      <p>A four-way split is invisible to every partisan-fairness test except the one that asks: can a voter find their MLA?</p>
+      <p><strong>{t(lang.current, 'body.cpd.airdrie_callout_label')}</strong></p>
+      <p>{t(lang.current, 'body.cpd.airdrie_callout_p1')}</p>
+      <p>{t(lang.current, 'body.cpd.airdrie_callout_p2')}</p>
+      <p>{t(lang.current, 'body.cpd.airdrie_callout_p3')}</p>
     </div>
 
     <div class="callout">
-      Both maps are legal. The four-way split is a choice.
+      {t(lang.current, 'body.cpd.airdrie_callout_summary')}
     </div>
 
     <p style="text-align:center; margin: 0.2rem 0 1.1rem;">
-      <button class="anomaly-trigger" data-anomaly="airdrie">Show flagged districts on map</button>
+      <button class="anomaly-trigger" data-anomaly="airdrie">{t(lang.current, 'body.cpd.airdrie_btn')}</button>
     </p>
 
-    <p><strong>Where it departs from municipal lines, it departs at strategically important places.</strong> When electoral maps follow the edge of a city or town, voters recognize where their division begins and ends — the property-tax line, the school-division line, the local-election ward line, and the provincial-election line all coincide. Statistics Canada publishes these boundaries for free. On official Elections Alberta shapefiles, both maps follow municipal lines at comparable overall rates: the majority at 80%, the minority at 72%, both within Canada's 70–85% norm (Quebec: 78%, Ontario: 82%, BC: 71%; comparator commissions documented in the monograph). (The audit's initial provisional analysis showed the minority anchoring at only 15%; that figure did not survive recomputation on official shapefiles — see the correction note below.) The striking observation is not the overall rate but where the minority's departures are concentrated: the three boundaries the commission's own chair flagged as anomalous — Rocky Mountain House–Banff Park <button class="ed-trigger" data-ed-name="Rocky Mountain House-Banff Park">show ↗</button>'s extension into uninhabited national-park land, the Nolan Hill–Cochrane <button class="ed-trigger" data-ed-name="Calgary-Nolan Hill-Cochrane">show ↗</button> lasso corridor, and the Olds–North Airdrie <button class="ed-trigger" data-ed-name="Olds-Three Hills-Didsbury">show ↗</button> reach — are each departures from pre-existing civic geography in the exact urban-edge zones where pairing urban and rural voters most directly affects which party wins the seat.</p>
+    <p>{@html t(lang.current, 'body.cpd.anchoring_p')}</p>
 
-    <p>The minority commissioners gave reasons for each of the three flagged boundaries. For Rocky Mountain House–Banff Park, they cited geographic size, the Highway 22 corridor, and the proximity of First Nations reserves to Rocky Mountain House; the commission chair called the extension into uninhabited national park land "a bad faith effort" to satisfy the area criterion, and that phrase appears in the commission's official final report. For Nolan Hill–Cochrane, they cited shared transportation and employment ties between northwest Calgary and Cochrane; Statistics Canada journey-to-work data shows only 35.8% of Cochrane workers travel to Calgary at all, with most working within Cochrane itself. For the Olds–North Airdrie reach, they cited Highway 2 corridor continuity; the audit found the specific Airdrie extension fails on population grounds. Independent check found five of the minority's six published sub-rationales fail or only partially hold against primary data.</p>
+    <p>{t(lang.current, 'body.cpd.anchoring_followup')}</p>
 
-    <p><strong>One area of Calgary is carved up to concentrate NDP voters into larger-than-average divisions.</strong> In Calgary's northwest quadrant <button class="ed-trigger" data-ed-name="Calgary-North West-Bearspaw">show ↗</button>, the minority map's divisions average 11.5% above the province-wide population — versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. This is <em>packing</em>: concentrating one party's voters into fewer, larger districts so each of their ballots weighs less. Packing and <em>cracking</em> (splitting a party's voters thinly across districts they narrowly lose) are the two classic gerrymandering moves; both shrink a party's seat count below its vote share.</p>
+    <p>{@html t(lang.current, 'body.cpd.packing_p')}</p>
 
-    <p>The commission chair — appointed under the same Act, working from the same submissions — flagged three boundaries on the minority map as geographically anomalous: Rocky Mountain House–Banff Park's extension into uninhabited national park land; the Calgary-Nolan Hill–Cochrane lasso-shaped corridor; the Olds–Three Hills–Didsbury reach into north Airdrie. The majority received zero such flags from the same chair. (The chair's published criticism covers seven boundary configurations in total — four geometric flags in the main report and three in Appendix C. This audit independently confirmed anomalous geometry for three of the four geometric flags; the fourth, Calgary-Foothills-Airdrie West <button class="ed-trigger" data-ed-name="Calgary-Foothills-Airdrie West">show ↗</button>, did not meet the audit's confirmation threshold.)</p>
+    <p>{@html t(lang.current, 'body.cpd.chair_p')}</p>
   </section>
 
   <section class="editorial-block" id="what-this-means" aria-labelledby="s5-heading">
