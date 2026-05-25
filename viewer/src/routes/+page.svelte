@@ -56,6 +56,8 @@
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
+  let navScrolled       = $state(false);
+  let activeLandmark    = $state<string>('');
   let showParticipation = $state(false);
   let dntActive         = $state(false);
   let darkMode          = $state(false);
@@ -266,6 +268,53 @@
       if (e.key === 'Tab') { e.preventDefault(); (document.getElementById('fig-lightbox-close') as HTMLElement)?.focus(); }
     });
 
+    // ── Nav: scroll shadow + active-landmark tracking ─────────────────────────
+    const onScroll = () => { navScrolled = window.scrollY > 8; };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Map each landmark to the set of section anchors it represents (in order).
+    // The currently-visible section's landmark wins.
+    const landmarkOf: Record<string, string> = {
+      'verdict-heading': 'verdict',
+      'boundary-heading': 'verdict',
+      'what-is-redistricting': 'verdict',
+      'section-1': 'findings',
+      'section-2': 'findings',
+      'section-3': 'findings',
+      'section-4': 'findings',
+      'what-this-means': 'findings',
+      'section-5': 'findings',
+      'section-6': 'findings',
+      'history-of-gerrymandering': 'history',
+      'canada-is-different': 'history',
+      'section-7': 'history',
+      'section-8': 'reform',
+      'retractions': 'notes',
+      'references': 'notes',
+      'resources': 'notes'
+    };
+    const observed = Object.keys(landmarkOf)
+      .map(id => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    if (observed.length && typeof IntersectionObserver !== 'undefined') {
+      const seen = new Set<string>();
+      const obs = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) seen.add(entry.target.id);
+            else seen.delete(entry.target.id);
+          }
+          // Pick the topmost intersecting landmark by document order
+          const orderedIds = Object.keys(landmarkOf);
+          const firstSeen = orderedIds.find(id => seen.has(id));
+          activeLandmark = firstSeen ? landmarkOf[firstSeen] : '';
+        },
+        { rootMargin: '-72px 0px -55% 0px', threshold: 0 }
+      );
+      observed.forEach(el => obs.observe(el));
+    }
+
     // ── Vocab term expand/collapse ────────────────────────────────────────────
     document.querySelectorAll('.vocab-term').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -289,15 +338,15 @@
   });
 </script>
 
-<nav aria-label="Page sections">
+<nav aria-label="Page sections" class:scrolled={navScrolled}>
   <div class="nav-inner">
     <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
     <div class="nav-landmarks">
-      <a href="#verdict-heading">{t(lang.current, 'nav.verdict')}</a>
-      <a href="#section-1">{t(lang.current, 'nav.findings')}</a>
-      <a href="#history-of-gerrymandering">{t(lang.current, 'nav.history')}</a>
-      <a href="#section-8">{t(lang.current, 'nav.reform')}</a>
-      <a href="#references">{t(lang.current, 'nav.notes')}</a>
+      <a href="#verdict-heading" class:active={activeLandmark === 'verdict'}>{t(lang.current, 'nav.verdict')}</a>
+      <a href="#section-1" class:active={activeLandmark === 'findings'}>{t(lang.current, 'nav.findings')}</a>
+      <a href="#history-of-gerrymandering" class:active={activeLandmark === 'history'}>{t(lang.current, 'nav.history')}</a>
+      <a href="#section-8" class:active={activeLandmark === 'reform'}>{t(lang.current, 'nav.reform')}</a>
+      <a href="#references" class:active={activeLandmark === 'notes'}>{t(lang.current, 'nav.notes')}</a>
     </div>
     <div class="nav-tools">
       <LanguageSelector />
@@ -1735,23 +1784,32 @@
     }
 
     nav {
-      background: #243b53;
+      background: #1e3552;
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: box-shadow 0.18s ease;
     }
+    nav.scrolled {
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
+    }
+    :root[data-theme="dark"] nav { background: #1a1e2d; }
+    :root[data-theme="dark"] nav.scrolled { box-shadow: 0 2px 14px rgba(0, 0, 0, 0.55); }
+
     .nav-inner {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0 0.75rem;
-      min-height: 2.6rem;
+      gap: 0.3rem;
+      padding: 0 max(0.75rem, env(safe-area-inset-left)) 0 max(0.75rem, env(safe-area-inset-right));
+      min-height: 2.75rem;
+      max-width: 1400px;
+      margin: 0 auto;
     }
     .nav-landmarks {
       flex: 1;
       display: flex;
       align-items: center;
-      gap: 0.15rem;
+      gap: 0.1rem;
       overflow-x: auto;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
@@ -1760,79 +1818,119 @@
     .nav-tools {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      padding-left: 0.6rem;
-      border-left: 1px solid rgba(255,255,255,0.15);
+      gap: 0.25rem;
+      padding-left: 0.5rem;
+      margin-left: 0.25rem;
+      border-left: 1px solid rgba(255,255,255,0.12);
     }
 
     nav a {
-      color: #a8c7e8;
+      color: rgba(255, 255, 255, 0.72);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      font-size: 0.82rem;
-      min-height: 2.6rem;
-      padding: 0 0.55rem;
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      min-height: 2.75rem;
+      padding: 0 0.7rem;
       white-space: nowrap;
+      position: relative;
+      transition: color 0.15s ease, background 0.15s ease;
     }
-    nav a:hover { color: #fff; text-decoration: underline; }
-    nav a.active { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.6); }
-    nav a.nav-home {
-      color: rgba(255,255,255,0.55);
-      padding: 0 0.6rem 0 0.2rem;
-      margin-right: 0.4rem;
-      border-right: 1px solid rgba(255,255,255,0.15);
+    nav a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
       text-decoration: none;
     }
-    nav a.nav-home:hover { color: #fff; text-decoration: none; }
+    nav a:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.55);
+      outline-offset: -3px;
+      border-radius: 3px;
+    }
+    nav .nav-landmarks a.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    nav .nav-landmarks a.active::after {
+      content: '';
+      position: absolute;
+      left: 0.7rem;
+      right: 0.7rem;
+      bottom: 0;
+      height: 2px;
+      background: #4FC3F7;
+      border-radius: 1px;
+    }
+    :root:not([data-theme="dark"]) nav .nav-landmarks a.active::after { background: #6FD3FB; }
+
+    nav a.nav-home {
+      color: rgba(255,255,255,0.55);
+      padding: 0 0.65rem 0 0.3rem;
+      margin-right: 0.2rem;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      text-decoration: none;
+    }
+    nav a.nav-home:hover {
+      color: #fff;
+      background: transparent;
+    }
+    nav a.nav-home.active::after { display: none; }
 
     .nav-hamburger {
       display: inline-flex;
       background: none; border: none; cursor: pointer;
-      color: rgba(255,255,255,0.75); padding: 0 0.4rem;
-      min-height: 2.6rem; align-items: center; justify-content: center;
-      transition: color 0.15s;
+      color: rgba(255,255,255,0.72); padding: 0 0.45rem;
+      min-height: 2.75rem; align-items: center; justify-content: center;
+      border-radius: 4px;
+      transition: color 0.15s ease, background 0.15s ease;
     }
-    .nav-hamburger:hover { color: #fff; }
+    .nav-hamburger:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+    .nav-hamburger[aria-expanded="true"] { color: #fff; background: rgba(255, 255, 255, 0.08); }
 
     #nav-drawer {
       display: flex;
       flex-direction: column;
-      background: #1e3352;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      background: #15263d;
+      border-top: 1px solid rgba(255,255,255,0.06);
       padding: 0.4rem 0 0.8rem;
-      max-height: calc(100vh - 2.6rem);
+      max-height: calc(100vh - 2.75rem);
       overflow-y: auto;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
     }
+    :root[data-theme="dark"] #nav-drawer { background: #131623; }
+
     #nav-drawer a {
       display: block;
       color: rgba(255,255,255,0.82);
       text-decoration: none;
       font-size: 0.92rem;
-      padding: 0.5rem 1.2rem;
+      padding: 0.55rem 1.4rem;
+      transition: background 0.12s ease, color 0.12s ease;
     }
     #nav-drawer a:hover {
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.07);
       color: #fff;
       text-decoration: none;
     }
     #nav-drawer a.drawer-top {
       color: rgba(255,255,255,0.55);
       font-size: 0.82rem;
-      padding: 0.4rem 1.2rem 0.6rem;
+      padding: 0.45rem 1.4rem 0.65rem;
       border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 0.3rem;
     }
     #nav-drawer .drawer-group {
-      margin: 0.6rem 0 0.15rem;
-      padding: 0 1.2rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      margin: 0.7rem 0 0.2rem;
+      padding: 0 1.4rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.42);
     }
 
-    @media (max-width: 660px) {
+    @media (max-width: 720px) {
       .nav-landmarks { display: none; }
       .nav-tools { border-left: none; padding-left: 0; margin-left: auto; }
     }
@@ -1840,11 +1938,12 @@
     .nav-theme-btn {
       display: inline-flex; align-items: center; justify-content: center;
       background: none; border: none; cursor: pointer;
-      color: #F5C518; padding: 0 0.4rem;
-      min-height: 2.6rem;
-      transition: color 0.15s;
+      color: #F5C518; padding: 0 0.45rem;
+      min-height: 2.75rem;
+      border-radius: 4px;
+      transition: color 0.15s ease, background 0.15s ease;
     }
-    .nav-theme-btn:hover { color: #fff; }
+    .nav-theme-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
     /* Sun shown (and yellow) in light mode; moon shown (and bright blue) in dark mode */
     .icon-sun { display: block; }
     .icon-moon { display: none; }
