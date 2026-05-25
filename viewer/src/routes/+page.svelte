@@ -67,6 +67,29 @@
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
     storeTheme(darkMode ? 'dark' : 'light');
   }
+
+  function toggleNavDrawer() {
+    navOpen = !navOpen;
+    if (navOpen) {
+      tick().then(() => {
+        const first = document.querySelector<HTMLElement>('#nav-drawer a');
+        first?.focus();
+      });
+    }
+  }
+  function closeNavDrawer() {
+    if (!navOpen) return;
+    navOpen = false;
+    tick().then(() => document.getElementById('hamburger')?.focus());
+  }
+  $effect(() => {
+    if (!navOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.stopPropagation(); closeNavDrawer(); }
+    };
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
+  });
   let showSharePanel    = $state(false);
   let shareCode         = $state('');
   let loadInput         = $state('');
@@ -305,22 +328,27 @@
     const observed = Object.keys(landmarkOf)
       .map(id => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
-    if (observed.length && typeof IntersectionObserver !== 'undefined') {
-      const seen = new Set<string>();
-      const obs = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) seen.add(entry.target.id);
-            else seen.delete(entry.target.id);
-          }
-          // Pick the topmost intersecting landmark by document order
-          const orderedIds = Object.keys(landmarkOf);
-          const firstSeen = orderedIds.find(id => seen.has(id));
-          activeLandmark = firstSeen ? landmarkOf[firstSeen] : '';
-        },
-        { rootMargin: '-72px 0px -55% 0px', threshold: 0 }
-      );
-      observed.forEach(el => obs.observe(el));
+    if (observed.length) {
+      // Observed anchors are headings (point elements). To avoid the active
+      // pill clearing whenever no heading is inside a trigger band, pick the
+      // last anchor whose top has scrolled above a line just under the nav.
+      // The pill stays on that landmark until a later anchor crosses the line,
+      // so deep scrolling inside a section keeps its parent highlighted.
+      const orderedIds = Object.keys(landmarkOf);
+      const updateActive = () => {
+        const triggerY = 80;
+        let lastPassed: string | null = null;
+        for (const id of orderedIds) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          if (el.getBoundingClientRect().top <= triggerY) lastPassed = id;
+          else break;
+        }
+        activeLandmark = lastPassed ? landmarkOf[lastPassed] : '';
+      };
+      window.addEventListener('scroll', updateActive, { passive: true });
+      window.addEventListener('resize', updateActive);
+      updateActive();
     }
 
     // ── Vocab term expand/collapse ────────────────────────────────────────────
@@ -346,15 +374,17 @@
   });
 </script>
 
+<a class="skip-link" href="#main">{t(lang.current, 'nav.skip_to_content')}</a>
+
 <nav aria-label="Page sections" class:scrolled={navScrolled}>
   <div class="nav-inner">
     <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
     <div class="nav-landmarks">
-      <a href="#verdict-heading" class:active={activeLandmark === 'verdict'}>{t(lang.current, 'nav.verdict')}</a>
-      <a href="#section-1" class:active={activeLandmark === 'findings'}>{t(lang.current, 'nav.findings')}</a>
-      <a href="#history-of-gerrymandering" class:active={activeLandmark === 'history'}>{t(lang.current, 'nav.history')}</a>
-      <a href="#section-8" class:active={activeLandmark === 'reform'}>{t(lang.current, 'nav.reform')}</a>
-      <a href="#references" class:active={activeLandmark === 'notes'}>{t(lang.current, 'nav.notes')}</a>
+      <a href="#verdict-heading" class:active={activeLandmark === 'verdict'} aria-current={activeLandmark === 'verdict' ? 'location' : undefined}>{t(lang.current, 'nav.verdict')}</a>
+      <a href="#section-1" class:active={activeLandmark === 'findings'} aria-current={activeLandmark === 'findings' ? 'location' : undefined}>{t(lang.current, 'nav.findings')}</a>
+      <a href="#history-of-gerrymandering" class:active={activeLandmark === 'history'} aria-current={activeLandmark === 'history' ? 'location' : undefined}>{t(lang.current, 'nav.history')}</a>
+      <a href="#section-8" class:active={activeLandmark === 'reform'} aria-current={activeLandmark === 'reform' ? 'location' : undefined}>{t(lang.current, 'nav.reform')}</a>
+      <a href="#references" class:active={activeLandmark === 'notes'} aria-current={activeLandmark === 'notes' ? 'location' : undefined}>{t(lang.current, 'nav.notes')}</a>
     </div>
     <div class="nav-tools">
       <LanguageSelector />
@@ -362,8 +392,8 @@
         <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
         <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
       </button>
-      <button id="hamburger" class="nav-hamburger" aria-label={t(lang.current, 'nav.nav_aria')} aria-expanded={navOpen}
-        onclick={() => navOpen = !navOpen}>
+      <button id="hamburger" class="nav-hamburger" aria-label={t(lang.current, 'nav.nav_aria')} aria-expanded={navOpen} aria-controls="nav-drawer"
+        onclick={toggleNavDrawer}>
         <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
           {#if navOpen}
             <path d="M2 2l14 14M2 16L16 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
@@ -377,34 +407,34 @@
     </div>
   </div>
   {#if navOpen}
-  <div id="nav-drawer" role="menu">
-    <a href="#top" class="drawer-top" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.drawer_top')}</a>
+  <div id="nav-drawer" aria-label={t(lang.current, 'nav.nav_aria')}>
+    <a href="#top" class="drawer-top" onclick={closeNavDrawer}>{t(lang.current, 'nav.drawer_top')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_overview')}</h4>
-    <a href="#verdict-heading" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.verdict')}</a>
-    <a href="#what-is-redistricting" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.why')}</a>
-    <a href="#section-1" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.map')}</a>
+    <a href="#verdict-heading" onclick={closeNavDrawer}>{t(lang.current, 'nav.verdict')}</a>
+    <a href="#what-is-redistricting" onclick={closeNavDrawer}>{t(lang.current, 'nav.why')}</a>
+    <a href="#section-1" onclick={closeNavDrawer}>{t(lang.current, 'nav.map')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_audit')}</h4>
-    <a href="#section-2" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.split')}</a>
-    <a href="#section-3" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.litmus')}</a>
-    <a href="#section-4" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.crack_pack')}</a>
-    <a href="#what-this-means" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.for_you')}</a>
-    <a href="#section-5" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.impact')}</a>
-    <a href="#section-6" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.gerrymanders')}</a>
+    <a href="#section-2" onclick={closeNavDrawer}>{t(lang.current, 'nav.split')}</a>
+    <a href="#section-3" onclick={closeNavDrawer}>{t(lang.current, 'nav.litmus')}</a>
+    <a href="#section-4" onclick={closeNavDrawer}>{t(lang.current, 'nav.crack_pack')}</a>
+    <a href="#what-this-means" onclick={closeNavDrawer}>{t(lang.current, 'nav.for_you')}</a>
+    <a href="#section-5" onclick={closeNavDrawer}>{t(lang.current, 'nav.impact')}</a>
+    <a href="#section-6" onclick={closeNavDrawer}>{t(lang.current, 'nav.gerrymanders')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_context')}</h4>
-    <a href="#history-of-gerrymandering" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.history_full')}</a>
-    <a href="#canada-is-different" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.canada')}</a>
-    <a href="#section-7" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.lunty')}</a>
+    <a href="#history-of-gerrymandering" onclick={closeNavDrawer}>{t(lang.current, 'nav.history_full')}</a>
+    <a href="#canada-is-different" onclick={closeNavDrawer}>{t(lang.current, 'nav.canada')}</a>
+    <a href="#section-7" onclick={closeNavDrawer}>{t(lang.current, 'nav.lunty')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_forward')}</h4>
-    <a href="#section-8" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.suggestions')}</a>
+    <a href="#section-8" onclick={closeNavDrawer}>{t(lang.current, 'nav.suggestions')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_apparatus')}</h4>
-    <a href="#retractions" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.retractions')}</a>
-    <a href="#references" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.references')}</a>
-    <a href="#resources" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.technical')}</a>
+    <a href="#retractions" onclick={closeNavDrawer}>{t(lang.current, 'nav.retractions')}</a>
+    <a href="#references" onclick={closeNavDrawer}>{t(lang.current, 'nav.references')}</a>
+    <a href="#resources" onclick={closeNavDrawer}>{t(lang.current, 'nav.technical')}</a>
   </div>
   {/if}
 </nav>
@@ -478,7 +508,7 @@
   <p>{t(lang.current, 'section1.p5')}</p>
 </section>
 
-<main class="container">
+<main id="main" class="container" tabindex="-1">
 
   <div style="padding: 1.5rem 0 0.5rem;">
     <div class="callout callout-minority" style="border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
@@ -1791,6 +1821,28 @@
       max-width: 380px;
     }
 
+    .skip-link {
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5rem;
+      background: #0a1e36;
+      color: #fff;
+      padding: 0.55rem 0.95rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 200;
+      transform: translateY(-150%);
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
     nav {
       background: #1e3552;
       position: sticky;
@@ -1808,7 +1860,9 @@
       display: flex;
       align-items: center;
       gap: 0.3rem;
-      padding: 0 max(0.75rem, env(safe-area-inset-left)) 0 max(0.75rem, env(safe-area-inset-right));
+      padding-block: 0;
+      padding-inline-start: max(0.75rem, env(safe-area-inset-left));
+      padding-inline-end: max(0.75rem, env(safe-area-inset-right));
       min-height: 2.75rem;
       max-width: 1400px;
       margin: 0 auto;
@@ -1883,7 +1937,19 @@
       color: #fff;
       background: transparent;
     }
+    nav a.nav-home:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.55);
+      outline-offset: -3px;
+      border-radius: 3px;
+    }
     nav a.nav-home.active::after { display: none; }
+
+    .nav-hamburger:focus-visible,
+    .nav-theme-btn:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.55);
+      outline-offset: -3px;
+      border-radius: 3px;
+    }
 
     .nav-hamburger {
       display: inline-flex;

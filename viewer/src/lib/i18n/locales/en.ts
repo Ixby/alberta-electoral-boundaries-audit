@@ -41,6 +41,7 @@ export default {
 			"Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests."
 	},
 	nav: {
+		skip_to_content: 'Skip to content',
 		home_aria: 'Back to top',
 		theme_aria: 'Toggle dark/light mode',
 		theme_title: 'Toggle dark mode',
