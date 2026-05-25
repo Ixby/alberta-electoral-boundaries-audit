@@ -1144,46 +1144,46 @@
   </div>
   <div id="tb-share-wrap">
     <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title="Share or load a map configuration">Share</button>
-      {#if showSharePanel}
-      <div class="share-backdrop" onclick={closeSharePanel} aria-hidden="true"></div>
-      <div id="share-panel" role="dialog" aria-label="Share map configuration" aria-modal="true" tabindex="-1"
-           onkeydown={(e: KeyboardEvent) => {
-             if (e.key !== 'Tab') return;
-             const focusable = Array.from(document.getElementById('share-panel')?.querySelectorAll('button, input') ?? []) as HTMLElement[];
-             if (!focusable.length) return;
-             const first = focusable[0], last = focusable[focusable.length - 1];
-             if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
-             else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
-           }}>
-        <button class="share-close" onclick={closeSharePanel} aria-label="Close share panel">✕</button>
-        <div class="share-section">
-          <div class="share-label">Share this configuration</div>
-          <div class="share-code-row">
-            <span class="share-code">{shareCode}</span>
-            <button class="share-action-btn" onclick={copyCode}>{copyLabel}</button>
-          </div>
-          <div class="share-hint">Type this code into any browser running the audit to load this configuration. The code is never placed in a URL.</div>
+    {#if showSharePanel}
+    <div class="share-backdrop" onclick={closeSharePanel} aria-hidden="true"></div>
+    <div id="share-panel" role="dialog" aria-label="Share map configuration" aria-modal="true" tabindex="-1"
+         onkeydown={(e: KeyboardEvent) => {
+           if (e.key !== 'Tab') return;
+           const focusable = Array.from(document.getElementById('share-panel')?.querySelectorAll('button, input') ?? []) as HTMLElement[];
+           if (!focusable.length) return;
+           const first = focusable[0], last = focusable[focusable.length - 1];
+           if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+           else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+         }}>
+      <button class="share-close" onclick={closeSharePanel} aria-label="Close share panel">✕</button>
+      <div class="share-section">
+        <div class="share-label">Share this configuration</div>
+        <div class="share-code-row">
+          <span class="share-code">{shareCode}</span>
+          <button class="share-action-btn" onclick={copyCode}>{copyLabel}</button>
         </div>
-        <div class="share-divider"></div>
-        <div class="share-section">
-          <div class="share-label">Load a configuration</div>
-          <div class="share-load-row">
-            <input
-              class="share-load-input"
-              type="text"
-              placeholder="alpine-eagle-banff"
-              bind:value={loadInput}
-              onkeydown={(e) => { if (e.key === 'Enter') loadShare(); }}
-              spellcheck="false"
-              autocomplete="off"
-            />
-            <button class="share-action-btn" onclick={loadShare}>Load</button>
-          </div>
-          {#if loadError}<div class="share-error">{loadError}</div>{/if}
-        </div>
+        <div class="share-hint">Type this code into any browser running the audit to load this configuration. The code is never placed in a URL.</div>
       </div>
-      {/if}
+      <div class="share-divider"></div>
+      <div class="share-section">
+        <div class="share-label">Load a configuration</div>
+        <div class="share-load-row">
+          <input
+            class="share-load-input"
+            type="text"
+            placeholder="alpine-eagle-banff"
+            bind:value={loadInput}
+            onkeydown={(e) => { if (e.key === 'Enter') loadShare(); }}
+            spellcheck="false"
+            autocomplete="off"
+          />
+          <button class="share-action-btn" onclick={loadShare}>Load</button>
+        </div>
+        {#if loadError}<div class="share-error">{loadError}</div>{/if}
+      </div>
     </div>
+    {/if}
+  </div>
   <!-- ed-callout — only shown when an ED is selected -->
   <div id="ed-callout" aria-live="polite">
     <div id="ec-ed-section">
@@ -1999,8 +1999,10 @@
     display: flex;
     border-color: rgba(255,255,255,0.18);
   }
-  /* When VA callout is visible, remove bottom rounding from ED callout so they merge */
-  #hud:has(#va-callout.vc-visible) #ed-callout {
+  /* When VA callout is visible, remove bottom rounding from ED callout so they merge.
+     :has() for modern browsers; .ec-has-va class is a JS-set fallback for older ones. */
+  #hud:has(#va-callout.vc-visible) #ed-callout,
+  #ed-callout.ec-has-va {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }

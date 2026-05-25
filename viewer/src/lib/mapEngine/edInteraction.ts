@@ -195,12 +195,17 @@ export function showVaCallout(ctx: MapCtx, d): void {
   if (totalEl) totalEl.textContent = d.in_person_votes ? _fmt.format(d.in_person_votes) + ' in-person votes (excl. Vote Anywhere)' : '';
   ctx.selectedVaId = d.va_id != null ? String(d.va_id) : null;
   el.classList.add('vc-visible');
+  // Fallback for browsers without :has() support — merge ed-callout's bottom with va-callout
+  const edCallout = document.getElementById('ed-callout');
+  if (edCallout) edCallout.classList.add('ec-has-va');
 }
 
 export function hideVaCallout(ctx: MapCtx): void {
   const el = document.getElementById('va-callout');
   if (el) el.classList.remove('vc-visible');
   ctx.selectedVaId = null;
+  const edCallout = document.getElementById('ed-callout');
+  if (edCallout) edCallout.classList.remove('ec-has-va');
 }
 
 export function isEdVisible(ctx: MapCtx, bb): boolean {
