@@ -632,6 +632,8 @@
     <p>{@html t(lang.current, 'body.litmus.closing_p1')}</p>
 
     <p>{t(lang.current, 'body.litmus.closing_p2')}</p>
+
+    <p class="back-link"><a href="#verdict-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
   </section>
 
   <section id="section-4">
@@ -726,6 +728,8 @@
     <p>{@html t(lang.current, 'editorial_canada.p5')}</p>
     <p>{@html t(lang.current, 'editorial_canada.p6')}</p>
     <p>{@html t(lang.current, 'editorial_canada.p7')}</p>
+
+    <p class="back-link"><a href="#verdict-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
   </section>
 
   <section id="section-5">
@@ -1563,6 +1567,24 @@
     font-size: 0.95rem;
   }
   :global(.verdict-cta:hover) { text-decoration: underline; }
+
+  .back-link {
+    margin-top: 1.4rem;
+    font-size: 0.88rem;
+    text-align: right;
+    opacity: 0.7;
+  }
+  .back-link a {
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+    padding-bottom: 1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .back-link a:hover {
+    color: var(--link);
+    border-bottom-color: var(--link);
+  }
   :global(.boundary-block) {
     margin-top: 1.2rem;
     padding: 1.2rem 1.2rem 1.4rem;
