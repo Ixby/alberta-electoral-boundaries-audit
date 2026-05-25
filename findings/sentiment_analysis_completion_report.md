@@ -1,3 +1,15 @@
+> **Backward:**
+> - `analysis/scripts/sentiment_intensity_score.py` — sentiment intensity LLM scoring
+> - `analysis/scripts/aggregate_sentiment_intensity.py` — aggregation script
+> - `analysis/scripts/submission_sentiment_llm_full.py` — full-corpus scan
+> - `data/outputs/sentiment_intensity_scores.csv`, `data/outputs/intensity_summary_table.csv` — outputs
+>
+> **Forward:**
+> - `findings/sentiment_rationale_crossreference.md` — narrative consumer of the scoring outputs
+> - `reports/academic/report_academic.md` §5.9.4.6 — incorporates the sentiment findings
+> - `findings/README.md` — indexes this finding
+> - (leaf — completion report; reviewer-facing summary of work delivered)
+
 # Sentiment Analysis — Completion Report
 
 **Project:** Alberta Electoral Boundaries Audit, Phase 1  

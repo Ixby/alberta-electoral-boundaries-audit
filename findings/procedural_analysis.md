@@ -1,3 +1,12 @@
+> **Backward:**
+> - Alberta Electoral Boundaries Commission Act (statutory inputs)
+> - 2025 Electoral Boundaries Commission interim and final (majority + minority) reports
+> - 1,140+ public submissions to the commission (Appendix C claim verification)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the procedural verdicts
+> - `findings/README.md` — indexes this finding
+
 # Section D — Procedural Audit
 
 **Sanity-check preamble.** The cartographic question (Sections A, B, C) asks whether the maps themselves advantage one party. The procedural question asks whether the *process* that produced them — and the process that dispositioned them after tabling — met the fairness standards Canadian provinces have built up since *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991] 2 SCR 158. These are related but distinguishable: a fair process can produce flawed maps, and a flawed process can produce defensible maps. Treated in its own section.

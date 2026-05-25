@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/historical_eg_baseline.py` — companion script
+> - `analysis/scripts/packing_cracking_analysis.py` — code_eg convention and 2026 EG values
+> - 2015, 2019, 2023 Alberta provincial election vote totals
+> - `analysis/methodology/sign_convention_resolution.md` — sign convention reconciliation
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the Alberta-specific EG range
+> - `findings/README.md` — indexes this finding
+
 # Alberta Historical Efficiency Gap Baseline — v0.1
 
 **Issue:** #16  |  **Script:** `analysis/scripts/historical_eg_baseline.py`

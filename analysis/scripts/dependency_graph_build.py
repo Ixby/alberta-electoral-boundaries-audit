@@ -2017,7 +2017,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
     {
         "id": "L3:finding.c5_municipal_anchoring_asymmetry",
         "report_section": "5.8.5",
-        "name": "Municipal-anchoring — majority 71.0% vs minority 14.5% (4.9× asymmetry)",
+        "name": "Municipal-anchoring (§5.8.5) — RETRACTED on canonical geometry; DPG-era 4.9× asymmetry (maj 71.0% / min 14.5%) did not survive (canonical: maj 80.0% / min 72.0%, both within 70-85% Canadian norm)",
         "evidence": [
             ("L0:data.2021_csds_gpkg", "required", "CSD reference"),
             ("L1:constructed.dpg_v0_2_topoclean", "required", "input DPG"),
@@ -2033,7 +2033,7 @@ L3_FINDINGS: List[Dict[str, Any]] = [
     {
         "id": "L3:finding.c5_da_anchoring_extension",
         "report_section": "5.8.5",
-        "name": "DA-anchoring extension — combined 79.6% majority vs 16.5% minority (5.1× asymmetry preserved)",
+        "name": "DA-anchoring extension (§5.8.5) — SUPERSEDED on canonical geometry; DPG-era v0_5 totals (maj 79.6% / min 16.5%, 5.1× ratio) carried the same DPG substrate as the retracted municipal-anchoring headline and did not survive canonical recomputation (canonical municipal-only: maj 80.0% / min 72.0%)",
         "evidence": [
             ("L0:data.2021_das_gpkg", "required", "DA reference"),
             (

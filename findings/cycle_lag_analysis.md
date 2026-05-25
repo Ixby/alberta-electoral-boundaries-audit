@@ -13,6 +13,18 @@ backward_dependencies:
   - Alberta Electoral Boundaries Commission Act §§ 13–15
 ---
 
+> **Backward:**
+> - `data/province_wide_drift_2019.csv`, `data/province_wide_drift_majority.csv`, `data/province_wide_drift_minority.csv`
+> - Statistics Canada Table 17-10-0009 — quarterly population estimates
+> - Alberta TBF quarterly population reports, 2021 Q2 through 2025 Q2
+> - Alberta Electoral Boundaries Commission Act §§ 13–15
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §2 (Population Equality) — candidate insertion at new §2.5
+> - `reports/public/report_public.md` — candidate short paragraph
+> - `docs/ai_use_recommendations_for_committee.md` §2.5 — possible addendum
+> - `findings/README.md` — indexes this finding
+
 # Cycle-lag analysis
 
 **Scope.** The Alberta *Electoral Boundaries Commission Act* requires the commission to work from "the most recent census." In practice that means May-2021 census data is the legally operative baseline for the February-2025 commission, and the same 2021 data will remain the legal baseline for any election held on the new map until the next commission is struck (most likely in the early 2030s). This document quantifies how stale that baseline is at each point in the cycle, checks whether the staleness alone is enough to push districts outside the ±25% legal window, and flags the audit findings that strengthen, weaken, or reverse when a best-available Plan B population is substituted for the legal baseline.

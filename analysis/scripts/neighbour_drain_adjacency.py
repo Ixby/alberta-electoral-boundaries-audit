@@ -74,13 +74,14 @@ from matplotlib.patches import Rectangle
 ROOT = Path(__file__).resolve().parent.parent.parent  # .../alberta_audit
 logger = logging.getLogger(__name__)
 
-# Reuse the existing symmetric estimator so we match §5.3 substrate exactly.
+# Reuse the canonical scorer so we match §5.3 canonical vote attribution exactly.
+# (Prior DPG-era version imported estimate_2026 + manual MAJORITY/MINORITY_2026_MAPPING
+# constants; those were removed in the canonical refactor in favour of centroid-in-polygon
+# spatial join against official EA shapefiles. The drain test now follows suit.)
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from packing_cracking_analysis import (  # noqa: E402
     load_2023_results,
-    estimate_2026,
-    MAJORITY_2026_MAPPING,
-    MINORITY_2026_MAPPING,
+    score_map_by_spatial_join,
 )
 
 # ---------------------------------------------------------------------
@@ -120,6 +121,76 @@ SENSITIVITY_GRID = [(0.10, 0.08), (0.15, 0.05), (0.20, 0.03)]
 NAME_REMAP_2019_SHP_TO_CSV = {
     "Calgary-McCall": "Calgary-Bhullar-McCall",
 }
+
+
+# ---------------------------------------------------------------------
+# Canonical map scoring (strict)
+# ---------------------------------------------------------------------
+
+
+def _score_canonical_map_strict(
+    va_gdf: gpd.GeoDataFrame,
+    ed_gpkg: Path,
+    label: str,
+) -> Tuple[Dict[str, Tuple[int, int]], str]:
+    """Score a canonical 2026 ED gpkg, raising if the spatial join drops any ED.
+
+    Fixes three issues with calling score_map_by_spatial_join directly:
+
+    - CRS mismatch: va_gdf was not reprojected to the ED CRS before sjoin,
+      so a CRS divergence would silently misjoin centroids and produce
+      empty / biased votes dicts. Now reprojects when CRSes differ.
+    - Hardcoded name column: 'EDName2025' was assumed; the function now
+      auto-detects between 'EDName2025' (canonical) and 'name_2026'
+      (derived/fallback) by reading the gpkg headers.
+    - Silent ED drop: EDs whose polygon contained no VA centroid were
+      silently omitted from votes_maj / votes_min, producing a hole in
+      the downstream adjacency graph instead of an error. Now raises
+      with the list of missing EDs so the operator can investigate
+      before publishing the drain analysis.
+
+    Returns:
+        votes: dict mapping ED name -> (ndp_votes, ucp_votes)
+        name_col: the column resolved for this shapefile (for downstream use)
+    """
+    eds_gdf = gpd.read_file(ed_gpkg)
+    if "EDName2025" in eds_gdf.columns:
+        name_col = "EDName2025"
+    elif "name_2026" in eds_gdf.columns:
+        name_col = "name_2026"
+    else:
+        raise RuntimeError(
+            f"{label}: shapefile {ed_gpkg.name} has neither 'EDName2025' "
+            f"nor 'name_2026' column; got {list(eds_gdf.columns)}"
+        )
+    expected = set(eds_gdf[name_col])
+
+    # Reproject VAs to ED CRS if they differ. score_map_by_spatial_join
+    # delegates to gpd.sjoin which silently misjoins (or warns and proceeds)
+    # on CRS mismatch.
+    if (
+        va_gdf.crs is not None
+        and eds_gdf.crs is not None
+        and va_gdf.crs != eds_gdf.crs
+    ):
+        va_local = va_gdf.to_crs(eds_gdf.crs)
+    else:
+        va_local = va_gdf
+
+    scored = score_map_by_spatial_join(va_local, ed_gpkg, name_col)
+    votes = {d["ed"]: (d["ndp"], d["ucp"]) for d in scored}
+
+    missing = expected - set(votes.keys())
+    if missing:
+        raise RuntimeError(
+            f"{label}: spatial join dropped {len(missing)} ED(s) with no "
+            f"matching VA centroid: {sorted(missing)}. This usually means "
+            f"the VA shapefile and ED shapefile have a CRS or geometry "
+            f"mismatch, or an ED is small enough that no VA's "
+            f"representative_point() falls inside its polygon. Investigate "
+            f"before publishing the drain analysis."
+        )
+    return votes, name_col
 
 
 # ---------------------------------------------------------------------
@@ -498,13 +569,15 @@ def run_map(
 
 
 def main() -> None:
-    out_data_dir = data_loader._resolve_path("data")
     try:
+        from analysis.utils import data_loader as _data_loader
         from analysis.utils.data_loader import FINDINGS as out_reports_dir
     except ImportError:
         import sys as _sys
         _sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "utils"))
+        import data_loader as _data_loader
         from data_loader import FINDINGS as out_reports_dir
+    out_data_dir = _data_loader._resolve_path("data")
     out_maps_dir = ROOT / "maps"
     for d in (out_data_dir, out_reports_dir, out_maps_dir):
         d.mkdir(parents=True, exist_ok=True)
@@ -517,22 +590,37 @@ def main() -> None:
     print("\nLoading 2023 two-party vote totals per 2019 ED...")
     dists_2019 = load_2023_results()
     votes_2019 = {d["ed"]: (d["ndp"], d["ucp"]) for d in dists_2019}
+    print(f"  2019: {len(votes_2019)} EDs with two-party totals")
 
-    rural = [d for d in dists_2019 if d["region"] == "Rest of Alberta"]
-    rural_ndp = sum(d["ndp"] for d in rural) / sum(d["ndp"] + d["ucp"] for d in rural)
-    print(f"  Rural NDP share (used for blending): {rural_ndp*100:.1f}%")
+    # --- Canonical 2026 vote attribution via VA centroid-in-polygon spatial join ---
+    # Mirrors mcmc_ensemble_canonical.py / packing_cracking_analysis.py exactly.
+    # The canonical EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg)
+    # plus the canonical VA gpkg (va_2023_election_day_votes.gpkg) replace the DPG-era
+    # 2019->2026 mapping that the original drain script used.
+    canonical_va_gpkg = (
+        out_data_dir / "shapefiles" / "canonical" / "va_2023_election_day_votes.gpkg"
+    )
+    canonical_maj_gpkg = (
+        out_data_dir / "shapefiles" / "canonical" / "ea_majority_2026_eds.gpkg"
+    )
+    canonical_min_gpkg = (
+        out_data_dir / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
+    )
+    print(f"\nReading canonical VA shapefile: {canonical_va_gpkg.name}")
+    va_gdf = gpd.read_file(canonical_va_gpkg)
+    print(f"  {len(va_gdf)} VAs loaded  CRS={va_gdf.crs}")
 
-    # Majority 2026 estimate
-    print("\nEstimating 2023 two-party votes on Majority 2026 EDs...")
-    maj_list = estimate_2026(dists_2019, MAJORITY_2026_MAPPING, rural_ndp)
-    votes_maj = {d["ed"]: (d["ndp"], d["ucp"]) for d in maj_list}
-    print(f"  {len(votes_maj)} majority EDs estimated")
+    print("\nScoring Majority 2026 EDs via canonical VA centroid-in-polygon spatial join...")
+    votes_maj, _ = _score_canonical_map_strict(
+        va_gdf, canonical_maj_gpkg, "majority"
+    )
+    print(f"  {len(votes_maj)} majority EDs scored")
 
-    # Minority 2026 estimate
-    print("\nEstimating 2023 two-party votes on Minority 2026 EDs...")
-    min_list = estimate_2026(dists_2019, MINORITY_2026_MAPPING, rural_ndp)
-    votes_min = {d["ed"]: (d["ndp"], d["ucp"]) for d in min_list}
-    print(f"  {len(votes_min)} minority EDs estimated")
+    print("\nScoring Minority 2026 EDs via canonical VA centroid-in-polygon spatial join...")
+    votes_min, _ = _score_canonical_map_strict(
+        va_gdf, canonical_min_gpkg, "minority"
+    )
+    print(f"  {len(votes_min)} minority EDs scored")
 
     # --- Load shapefiles ---
     print("\nLoading shapefiles...")

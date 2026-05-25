@@ -1,3 +1,11 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — the design under critique
+> - `analysis/scripts/monte_carlo_ci.py` — implements the Monte Carlo bootstrap fix discussed
+>
+> **Forward:**
+> - `analysis/methodology/methodological_defenses.md` — many critiques addressed via defenses
+> - (leaf — design red-team record)
+
 # Design Critique — Alberta Electoral Boundaries Audit
 
 **Purpose.** Red-team the audit's own design. Identify every gap, assumption, or methodological choice that a hostile critic could exploit. Fix what can be fixed with FOSS and public data; document what can't.

@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/*.py` — 45 scripts statically read and re-run
+> - `requirements.txt`, `setup.md`, `FROZEN_MANIFEST.md` — reproducibility surface audited
+> - `analysis/review/legal_review_framework.md` — D4 dimension applied
+>
+> **Forward:**
+> - `analysis/review/code_fixes_deferred.md` — fixes triaged from this audit
+> - (leaf — script-level legal-defensibility audit)
+
 # Legal red team — analysis scripts
 
 Dimension D4 (methodology reproducibility) audit of every script under

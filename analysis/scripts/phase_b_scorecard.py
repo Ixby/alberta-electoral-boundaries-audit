@@ -1,6 +1,4 @@
-# © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
-# Data: Elections Alberta (public domain) | https://ixby.github.io
-"""November Red Alert Scorecard — tripwire for the Lunty committee's 91-seat map.
+"""Phase B Scorecard — tripwire for the Lunty Special Select Committee's 91-seat map (the audit's Phase B / confirmatory test).
 
 Watches for the four-part MO that the minority commission map
 demonstrated:
@@ -27,7 +25,7 @@ Inputs:
                       for prose-only iteration).
 
 Outputs:
-  findings/november_red_alert_<map_name>_<date>.md
+  findings/phase_b_scorecard_<map_name>_<date>.md
 
 This scorecard is one of the prospective components of the
 pre-registered audit (RQ8-9): the threshold-firing logic was
@@ -82,6 +80,9 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
 
 from drand_seed import get_canonical_seed  # noqa: E402
+# score_anchoring is imported lazily inside mo3_municipal_anchoring so that any
+# import-time failure (missing config, sys.path issue) surfaces in main()'s
+# preflight diagnostics rather than killing the script before preflight runs.
 
 # Canonical seed for all bootstrap resampling in this script.
 # Derived from drand round 5500000 (Cloudflare League of Entropy).
@@ -90,13 +91,13 @@ from drand_seed import get_canonical_seed  # noqa: E402
 BOOTSTRAP_SEED: int = get_canonical_seed("lunty-bootstrap")
 
 VA_VOTES_PATH = (
-    data_loader._resolve_path("data") / "shapefiles" / "derived" / "va_polygons_with_2023_votes.gpkg"
-)
+    data_loader._resolve_path("data") / "shapefiles" / "canonical" / "va_2023_election_day_votes.gpkg"
+)  # canonical VA polygons + 2023 election-day votes (was derived/v0_8 DPG; switched to canonical 2026-05-23)
 ALBERTA_CSDS = (
-    data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_csds.gpkg"
-)  # may not exist
-RECOM_SAMPLES = data_loader._resolve_path("data") / "simulated_ensemble_raw_samples_250k.csv"
-SMC_OUTPUT = data_loader._resolve_path("data") / "redist_crossvalidation_s50.csv"
+    data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
+)  # canonical StatsCan 2021 CSDs — required for MO #1 and MO #3
+RECOM_SAMPLES = data_loader._resolve_path("data") / "outputs" / "simulated_ensemble_raw_samples_canonical.csv"  # canonical 1.01M-plan ReCom ensemble (was DPG-era 250k; LFS-tracked, ~170 MB; switched 2026-05-23)
+SMC_OUTPUT = data_loader._resolve_path("data") / "redist_crossvalidation_s50.csv"  # canonical SMC 5,000 plans, importance-weighted, ESS 1,116
 
 # Pre-registered tripwire thresholds (committed to before the Lunty
 # committee began work).
@@ -110,6 +111,33 @@ MO2_PP_PERCENTILE_THRESHOLD = 10  # bottom decile of Polsby-Popper
 MO3_ANCHORING_THRESHOLD = 0.70  # Canadian norm; 70% lower bound
 MO4_SAMPLER_DIVERGENCE_PP = 25  # divergence in s@50 percentile rank
 # between ReCom and SMC, in pp
+
+# Per-city populations (2021 census) and CSD codes used by both MO #1
+# (drain pattern; per-city population-justified district count) and
+# MO #2 (lasso compactness; urban-share denominator). Single source of
+# truth so the two lists cannot drift relative to each other.
+#
+# Until 2026-05-24 mo1 carried a 10-city local dict while mo2 carried
+# an 8-city local set that silently dropped Spruce Grove and Leduc;
+# the divergence was unintentional and is fixed here by consolidating
+# into one constant. Any district overlapping Spruce Grove (CSD
+# 4811053) or Leduc (CSD 4811028) may see its MO #2 urban-share
+# fraction shift relative to dry-run scorecards generated before
+# 2026-05-24 — re-run the scorecard on the canonical inputs to see
+# the corrected output and disclose any flipped tripwires.
+LUNTY_CITIES = {
+    "Calgary":        {"pop": 1_306_784, "csd_code": 4806016},
+    "Edmonton":       {"pop": 1_010_899, "csd_code": 4811062},
+    "Red Deer":       {"pop":   100_844, "csd_code": 4806036},
+    "Lethbridge":     {"pop":    98_406, "csd_code": 4802012},
+    "St. Albert":     {"pop":    68_232, "csd_code": 4811049},
+    "Medicine Hat":   {"pop":    63_271, "csd_code": 4801006},
+    "Grande Prairie": {"pop":    64_141, "csd_code": 4819030},
+    "Airdrie":        {"pop":    74_100, "csd_code": 4806008},
+    "Spruce Grove":   {"pop":    37_645, "csd_code": 4811053},
+    "Leduc":          {"pop":    34_094, "csd_code": 4811028},
+}
+LUNTY_CITY_CSD_CODES = {c["csd_code"] for c in LUNTY_CITIES.values()}
 
 
 @dataclass
@@ -128,35 +156,23 @@ def mo1_drain_pattern(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResult:
     population divided by Alberta's per-district average population.
     """
     avg_pop_per_district = 53_722  # floor(4,888,723 / 91) — TBF-adjusted population, 91-seat Lunty committee basis
-    # Per-city populations (2021 census) — pre-registered constants
-    # so the threshold logic doesn't move when a new city polygon is added.
-    cities = {
-        "Calgary": {"pop": 1_306_784, "csd_codes": [4806016]},
-        "Edmonton": {"pop": 1_010_899, "csd_codes": [4811062]},
-        "Red Deer": {"pop": 100_844, "csd_codes": [4806036]},
-        "Lethbridge": {"pop": 98_406, "csd_codes": [4802012]},
-        "St. Albert": {"pop": 68_232, "csd_codes": [4811049]},
-        "Medicine Hat": {"pop": 63_271, "csd_codes": [4801006]},
-        "Grande Prairie": {"pop": 64_141, "csd_codes": [4819030]},
-        "Airdrie": {"pop": 74_100, "csd_codes": [4806008]},
-        "Spruce Grove": {"pop": 37_645, "csd_codes": [4811053]},
-        "Leduc": {"pop": 34_094, "csd_codes": [4811028]},
-    }
     csd_path = ALBERTA_CSDS
     flagged = []
     if not csd_path.exists():
+        try:
+            csd_display = str(csd_path.relative_to(ROOT))
+        except ValueError:
+            csd_display = str(csd_path)
         return TripwireResult(
             name="MO #1 — Drain Pattern (city cracking)",
             fired=False,
             summary=f"SKIPPED — Alberta CSD polygon file missing at "
-            f"{csd_path.relative_to(ROOT)}. Cannot count district-per-city "
+            f"{csd_display}. Cannot count district-per-city "
             f"intersections without it.",
         )
     csd = gpd.read_file(csd_path).to_crs(eds.crs)
-    for city_name, meta in cities.items():
-        city_geom = csd[
-            csd["CSDUID"].astype(str).isin([str(c) for c in meta["csd_codes"]])
-        ]
+    for city_name, meta in LUNTY_CITIES.items():
+        city_geom = csd[csd["CSDUID"].astype(str) == str(meta["csd_code"])]
         if city_geom.empty:
             continue
         # Count districts whose interior intersects this city's polygon
@@ -219,17 +235,9 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
         )
     va = gpd.read_file(VA_VOTES_PATH).to_crs(eds.crs)
     csd = gpd.read_file(ALBERTA_CSDS).to_crs(eds.crs)
-    big_city_codes = {
-        4806016,
-        4811062,
-        4806036,
-        4802012,
-        4811049,
-        4801006,
-        4819030,
-        4806008,
-    }
-    big_city = csd[csd["CSDUID"].astype(str).isin([str(c) for c in big_city_codes])]
+    big_city = csd[
+        csd["CSDUID"].astype(str).isin([str(c) for c in LUNTY_CITY_CSD_CODES])
+    ]
     va_centroids = gpd.GeoDataFrame(
         {"_idx": range(len(va))},
         geometry=va.geometry.centroid,
@@ -279,33 +287,55 @@ def mo2_lasso_compactness(eds: gpd.GeoDataFrame, name_col: str) -> TripwireResul
 def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
     """Re-run the audit's existing anchoring metric on the new map.
 
-    The metric is the fraction of the total inter-district boundary
-    length that coincides (within a small tolerance) with a pre-existing
-    municipal/CSD boundary. The minority map sat at 15%, the majority at
-    71%; the 70% threshold is the Canadian-norm lower bound.
+    Delegates to score_anchoring.score_anchoring() so MO #3 reports the
+    same metric in the same units that the 70% Canadian-norm threshold
+    was calibrated against. Until 2026-05-23 this function carried a
+    parallel implementation (25m buffer intersection) that diverged
+    ~2x from the headline measurement on the same input; the threshold
+    was calibrated against the headline, so the mismatched body fired
+    on virtually every commission map. See proposals/lunty_dry_run/
+    dry_run_report.md Bug #8 for the full diagnosis.
+
+    Passes the already-loaded, already-reprojected `eds` GeoDataFrame
+    through to score_anchoring so any caller-side preprocessing
+    (to_crs(3401) in main, future filtering) is honoured. Previously
+    this function ignored `eds` and re-read the shapefile from disk,
+    which would silently diverge from the eds MO #1 / MO #2 ran against.
     """
     if not ALBERTA_CSDS.exists():
+        try:
+            csd_display = str(ALBERTA_CSDS.relative_to(ROOT))
+        except ValueError:
+            csd_display = str(ALBERTA_CSDS)
         return TripwireResult(
             name="MO #3 — Municipal de-anchoring",
             fired=False,
-            summary=f"SKIPPED — Alberta CSD polygon file missing at "
-            f"{ALBERTA_CSDS.relative_to(ROOT)}.",
+            summary=f"SKIPPED — Alberta CSD polygon file missing at {csd_display}.",
         )
-    csd = gpd.read_file(ALBERTA_CSDS).to_crs(eds.crs)
-    csd_boundary = csd.boundary.unary_union
-    # Inter-district boundary length: total ED border minus shared
-    # boundary with another ED (= twice-counted) — we just sum each
-    # ED's boundary and the inter-ED edges are double-counted, so
-    # take the unary_union perimeter instead.
-    eds_union = eds.unary_union
-    total_boundary = eds.boundary.unary_union
-    # Length of total boundary that lies on a CSD line (within 25m
-    # buffer to absorb digitisation noise)
-    csd_buffer = csd_boundary.buffer(25.0)
-    on_csd = total_boundary.intersection(csd_buffer)
-    anchored_frac = (
-        on_csd.length / total_boundary.length if total_boundary.length > 0 else 0.0
-    )
+
+    # Lazy import: defer until preflight has passed so any import-time
+    # failure (missing config, sys.path issue) appears as an MO #3 error
+    # rather than killing the script before MO #1 / MO #2 can run.
+    try:
+        from score_anchoring import score_anchoring as _score_anchoring_headline
+    except ImportError as e:
+        return TripwireResult(
+            name="MO #3 — Municipal de-anchoring",
+            fired=False,
+            summary=f"ERRORED — could not import score_anchoring: {e}",
+        )
+
+    try:
+        anchored_pct = _score_anchoring_headline(eds)
+    except (ValueError, OSError, RuntimeError) as e:
+        # Don't let MO #3 crash the whole scorecard mid-run — MO #4 / MO #5
+        # are still worth attempting. Surface the failure in the report.
+        return TripwireResult(
+            name="MO #3 — Municipal de-anchoring",
+            fired=False,
+            summary=f"ERRORED — score_anchoring raised {type(e).__name__}: {e}",
+        )
+    anchored_frac = anchored_pct / 100.0
     return TripwireResult(
         name="MO #3 — Municipal de-anchoring",
         fired=anchored_frac < MO3_ANCHORING_THRESHOLD,
@@ -316,6 +346,7 @@ def mo3_municipal_anchoring(eds: gpd.GeoDataFrame) -> TripwireResult:
         detail={
             "anchored_fraction": anchored_frac,
             "threshold": MO3_ANCHORING_THRESHOLD,
+            "methodology": "score_anchoring.py (tier-ordered snap, SNAP_TOL_M=500, VERTEX_DENSIFY_M=50)",
         },
     )
 
@@ -392,11 +423,110 @@ def main() -> int:
         help="The map's seats@50/50 score, if precomputed. "
         "If omitted and --skip-mcmc set, MO #4 is skipped.",
     )
+    parser.add_argument(
+        "--out-dir",
+        type=str,
+        default=None,
+        help="Directory to write the scorecard report into. Defaults to "
+        "findings/ (live audit). For dry-runs against synthetic inputs, "
+        "pass a path under proposals/lunty_dry_run/ so test outputs are "
+        "not mistaken for live audit findings.",
+    )
     args = parser.parse_args()
 
+    # --- Pre-flight checks ----------------------------------------------------
+    # On the live Nov 2 run, the 72-hour clock starts the moment the Lunty map
+    # drops. We want the scorecard to error out LOUDLY at the start if a required
+    # input file is missing or unreadable (e.g., LFS not pulled), rather than
+    # silently skipping MOs and producing a misleading "0 of 3 fired" output.
+    preflight_errors: list[str] = []
+
     if not args.shapefile.exists():
-        print(f"ERROR: shapefile not found at {args.shapefile}", file=sys.stderr)
+        preflight_errors.append(f"input shapefile not found at {args.shapefile}")
+
+    # ALBERTA_CSDS is required by MO #1 (drain pattern) and MO #3 (municipal
+    # anchoring); MO #2 (lasso) also reads it for the urban-share half of the
+    # tripwire. Without it, three of four MOs degrade or skip silently.
+    if not ALBERTA_CSDS.exists():
+        preflight_errors.append(
+            f"Alberta CSD reference not found at {ALBERTA_CSDS} "
+            f"(required by MO #1 + MO #2 + MO #3). "
+            f"Most likely cause: Git LFS not pulled — run `git lfs pull` to materialise."
+        )
+    else:
+        # Distinguish a real gpkg from an LFS pointer file (132 bytes of ASCII).
+        # An LFS-tracked file with `GIT_LFS_SKIP_SMUDGE=1` or a failed smudge
+        # leaves a pointer file in place; reading it as a gpkg later would
+        # raise pyogrio.errors.DataSourceError mid-MO with an unhelpful message.
+        try:
+            with open(ALBERTA_CSDS, "rb") as _f:
+                _head = _f.read(64)
+            if _head.startswith(b"version https://git-lfs"):
+                preflight_errors.append(
+                    f"{ALBERTA_CSDS} is an LFS pointer file (not the actual gpkg). "
+                    f"Run `git lfs pull` to materialise the binary."
+                )
+        except OSError as e:
+            preflight_errors.append(f"could not read {ALBERTA_CSDS}: {e}")
+
+    # VA_VOTES_PATH is required by MO #2 (urban-share check inside lasso).
+    if not VA_VOTES_PATH.exists():
+        preflight_errors.append(
+            f"VA shapefile not found at {VA_VOTES_PATH} "
+            f"(required by MO #2 urban-share check). "
+            f"Most likely cause: Git LFS not pulled — run `git lfs pull` to materialise."
+        )
+    else:
+        try:
+            with open(VA_VOTES_PATH, "rb") as _f:
+                _head = _f.read(64)
+            if _head.startswith(b"version https://git-lfs"):
+                preflight_errors.append(
+                    f"{VA_VOTES_PATH} is an LFS pointer file (not the actual gpkg). "
+                    f"Run `git lfs pull` to materialise the binary."
+                )
+        except OSError as e:
+            preflight_errors.append(f"could not read {VA_VOTES_PATH}: {e}")
+
+    # RECOM_SAMPLES and SMC_OUTPUT are required by MO #4 (sampler divergence).
+    # MO #4 only runs when --map-s50 is provided; preflight matches that gate.
+    # Both are LFS-tracked CSVs that the preflight should sniff for pointer-
+    # vs-binary, otherwise pd.read_csv either silently misreads a pointer file
+    # or raises KeyError on the 'seats_at_50_50' lookup mid-MO #4.
+    if args.map_s50 is not None:
+        for mo4_path, mo4_name in (
+            (RECOM_SAMPLES, "RECOM ensemble CSV"),
+            (SMC_OUTPUT, "SMC cross-validation CSV"),
+        ):
+            if not mo4_path.exists():
+                preflight_errors.append(
+                    f"{mo4_name} not found at {mo4_path} "
+                    f"(required by MO #4 sampler divergence when --map-s50 is set). "
+                    f"Most likely cause: Git LFS not pulled — run `git lfs pull` to materialise."
+                )
+                continue
+            try:
+                with open(mo4_path, "rb") as _f:
+                    _head = _f.read(64)
+                if _head.startswith(b"version https://git-lfs"):
+                    preflight_errors.append(
+                        f"{mo4_path} is an LFS pointer file (not the actual CSV). "
+                        f"Run `git lfs pull` to materialise the binary."
+                    )
+            except OSError as e:
+                preflight_errors.append(f"could not read {mo4_path}: {e}")
+
+    if preflight_errors:
+        print(
+            "[scorecard] PRE-FLIGHT FAILED — the live scorecard cannot run because "
+            "one or more required reference files are missing or unreadable. "
+            "Fix all errors below and re-invoke; do NOT proceed with partial outputs.",
+            file=sys.stderr,
+        )
+        for err in preflight_errors:
+            print(f"  - {err}", file=sys.stderr)
         return 2
+    # --- End pre-flight checks ------------------------------------------------
 
     eds = gpd.read_file(args.shapefile).to_crs(3401)
     name_col = args.name_col if args.name_col in eds.columns else eds.columns[0]
@@ -428,15 +558,24 @@ def main() -> int:
 
     # Write report
     today = date.today().isoformat()
-    out_path = (
-        _get_findings_dir() / f"november_red_alert_{args.map_name}_{today}.md"
-    )
+    out_dir = Path(args.out_dir).resolve() if args.out_dir else _get_findings_dir()
+    out_path = out_dir / f"phase_b_scorecard_{args.map_name}_{today}.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fired_count = sum(1 for r in results if r.fired)
+
+    # Render shapefile path relative to repo root when possible; fall back to the
+    # absolute path so the report is still well-formed when the input lives
+    # outside ROOT (e.g. a synthetic test input passed via absolute path).
+    shapefile_abs = args.shapefile.resolve()
+    try:
+        shapefile_display = str(shapefile_abs.relative_to(ROOT))
+    except ValueError:
+        shapefile_display = str(shapefile_abs)
+
     with out_path.open("w", encoding="utf-8") as f:
-        f.write(f"# November Red Alert Scorecard — {args.map_name}\n\n")
+        f.write(f"# Phase B Scorecard — {args.map_name}\n\n")
         f.write(f"Date: {today}  \n")
-        f.write(f"Shapefile: `{args.shapefile.relative_to(ROOT)}`  \n")
+        f.write(f"Shapefile: `{shapefile_display}`  \n")
         f.write(f"Tripwires fired: **{fired_count} of {len(results)}**\n\n")
         for r in results:
             badge = "🔴 **FIRED**" if r.fired else "⚪ clean"

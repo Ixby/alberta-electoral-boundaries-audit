@@ -1,3 +1,13 @@
+> **Backward:**
+> - `findings/methods_paper_draft.md` — DPG standalone paper skeleton
+> - `analysis/methodology/reference/academic_literature_review.md` §9–9b — prior-art placement
+> - `analysis/methodology/szat_methodology.md`, `neighbour_drain_design.md` — companion novel-test designs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates novelty claims
+> - `findings/methods_paper_draft.md` — consumes novelty framing
+> - (leaf — methodology reference for novel contributions)
+
 # Novel Methodological Contributions — Alberta 2025-26 Electoral Boundaries Audit
 
 **Status:** Active reference. Updated 2026-05-07.
@@ -31,7 +41,7 @@ Existing redistricting-analysis frameworks (MGGG, Chen & Rodden 2013, Stephanopo
 
 **v. Programmatic alignment proof without reference polygons.** Standard ground-truth validation (intersection-over-union against an authoritative polygon set) is unavailable in the DPG posture. The audit introduces a point-based validation substitute: topology checks (ED count, residual overlap, coverage), city-centre landmark containment tests against Statistics Canada CSD representative points, and cross-plan area consistency. This validates that derived polygons are in the right place without requiring authoritative polygons to compare against.
 
-**vi. Sunset clause as pre-registration commitment.** All DPG-dependent findings are published with a timestamped public obligation to re-run every analysis against official geometry within 48 hours of its release and to disclose any sign-flip or material magnitude change. This inverts the usual "caveated-final" posture into a falsifiable commitment. If the authors fail to honour it, that failure is itself publicly documented.
+**vi. Sunset clause as in-repo discipline.** All DPG-dependent findings are published with a dated public obligation to re-run every analysis against official geometry within **two weeks** of its release (relaxed from 48 hours in Amendment 2 Change 11, 2026-04-26, on the honest basis that a solo researcher without monitoring automation cannot turn a full canonical integration in 48 hours) and to disclose any sign-flip or material magnitude change. This is **in-repo discipline, not externally pre-registered** — the four externally registered OSF dossiers (w2s8k, r3zm7, qsgy8, 6pt83) contain `dpg2_experiment_plan.md` and `drain_v2_plan.md`; neither file specifies a recompute timeline. The methodological contribution is the *discipline of recomputation with public sign-flip disclosure*, not the speed of recomputation. The audit's commit log makes compliance verifiable: on the Alberta 2025-26 case study, the EA-shapefile trigger fired 2026-05-06; headline recompute closed 2026-05-18 (day 12, within window); full canonical integration closed 2026-05-23 (day 17, three days over). Both windows publicly documented in `findings/methods_paper_draft.md` §6 + §7.1 Stages 11–12.
 
 ### Claim to novelty
 
@@ -115,7 +125,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 
 **ii. Jurisdiction-calibrated Lane 1 thresholds.** Rather than applying the Stephanopoulos-McGhee 7% EG threshold (derived from US elections data, never judicially adopted), the framework derives its Lane 1 thresholds from the jurisdiction's own neutral-draw MCMC ensemble. The Alberta-calibrated 95th-percentile EG is 3.86% — nearly half the US-derived figure — and is the operative threshold for this audit's Lane 1 verdict.
 
-**iii. Pre-registered prospective scorecard.** The "what a gerrymander would look like" checklist is published and OSF-time-stamped *before* the Lunty committee's 91-seat map is produced (embargo release 2026-11-02). When the map is tabled, the same scripts and thresholds applied in §5 of this audit are re-run without modification. The pre-registration converts the framework from an audit-voice opinion into a classical hypothesis test against a future observable. Code: `analysis/scripts/november_red_alert_scorecard.py`.
+**iii. Pre-registered prospective scorecard.** The "what a gerrymander would look like" checklist is published and OSF-time-stamped *before* the Lunty committee's 91-seat map is produced (embargo release 2026-11-02). When the map is tabled, the same scripts and thresholds applied in §5 of this audit are re-run without modification. The pre-registration converts the framework from an audit-voice opinion into a classical hypothesis test against a future observable. Code: `analysis/scripts/phase_b_scorecard.py`.
 
 **iv. Signature threshold with explicit cross-evidence requirement.** The checklist's "sure-sign" verdict requires three formal signatures *plus* at least one new signature *plus* either ensemble-outlier placement or public-support-inversion. This multi-criteria threshold is explicitly borrowed from the multi-criteria discipline in Katz, King & Rosenblatt (2020) and Altman & McDonald (2011) — no single metric is dispositive, but directional consistency across independent metrics is. The audit applies this discipline to both lanes simultaneously.
 
@@ -137,7 +147,7 @@ Existing audit frameworks (MGGG redistricting tools; Chen & Rodden 2013; Stephan
 - AsPredicted #289,455 — Lunty 91-seat forensic scorecard (prospective; pending November map)
 - OSF embargo release: 2026-11-02
 - Checklist: `findings/checklist_baseline_scoring.md`
-- Script: `analysis/scripts/november_red_alert_scorecard.py`
+- Script: `analysis/scripts/phase_b_scorecard.py`
 
 ---
 

@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/methodology/reference/minority_rationales_inventory.md` — R11 inventory entry
+> - `analysis/methodology/reference/school_division_coherence.md` — Red Deer / Sylvan Lake school-coherence finding
+> - `reports/public/report_public.md` — public-report claim audited
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.9 — Claim assessment incorporates the qualitative finding
+> - (leaf — reference check on a specific public-report claim)
+
 # v0.1 Red Deer-Sylvan Lake — "8% of Red Deer's School-Aged Population" Magnitude Check
 
 **Date:** 2026-04-26

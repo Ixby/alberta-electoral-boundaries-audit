@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/joint_outlier_score_canonical.py` — Fisher combination implementation (lines 214–223)
+> - `analysis/scripts/validate_fisher_independence.py` — computes ρ between Ch1 and Ch2 channels
+> - `analysis/scripts/szat.py` — produces `data/szat_bootstrap_eg_samples.npy` (Ch2 input)
+> - `analysis/methodology/fisher_combination_defense.md` — parent defense document (AV5)
+>
+> **Forward:**
+> - `analysis/methodology/fisher_combination_defense.md` §AV5 — consumes the independence verdict
+> - `reports/academic/report_academic.md` §5.5 — cites independence ρ for Fisher combination
+
 # Fisher Combination Independence Defense
 
 **Test location:** `joint_outlier_score_canonical.py:214–223`

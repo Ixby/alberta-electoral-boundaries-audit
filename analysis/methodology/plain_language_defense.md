@@ -1,3 +1,11 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — every assertion paraphrased here originates in the academic monograph
+> - `analysis/methodology/methodological_defenses.md` — adversarial defenses underlying the responses
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — Appendix / reviewer-facing companion
+> - (leaf — reader-facing plain-language defense document)
+
 # Plain-Language Defense — Alberta Electoral Boundaries Audit
 
 *Consolidation of `plain_language_defense.md` (215 assertions, all sections)

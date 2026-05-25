@@ -1,3 +1,14 @@
+> **Backward:**
+> - `.temp/ebc_2017_final.pdf` and `.temp/ebc_2017_text.txt` — 2017 EBC final report (source of crosswalk truth)
+> - `data/alberta_2015_results.csv` — pre-2017 ED vote totals
+> - `data/2015_to_2019_crosswalk.csv` — produced crosswalk (87→87)
+> - 2019 enacted ED boundaries
+>
+> **Forward:**
+> - `findings/cross_election_robustness.md` — uses the 2015 attribution for the three-election table
+> - `reports/academic/report_academic.md` — incorporates the 2015 third-data-point
+> - `findings/README.md` — indexes this finding
+
 # 2015-vote cross-election analysis (v0.1)
 
 ## Scope

@@ -13,8 +13,22 @@ Wraps the operational definition documented in
 single-input CLI scoring function suitable for batch evaluation across the
 100,000-plan ReCom ensemble.
 
-Operational definition (held identical to the audit's headline run that
-produced the published 71.0% / 14.5% / 75.2% numbers):
+Operational definition (held identical to the audit's anchoring runs). The
+scorer is substrate-agnostic: it computes anchored % from whatever shapefile
+you point it at. Reference values produced by this methodology, for the
+records:
+
+  * **Canonical (current, post-2026-05-06 official EA shapefiles):**
+    majority 80.0 % / minority 72.0 % / 2019 enacted ≈ 75 %, all within
+    the 70-85 % Canadian comparator norm.
+  * **DPG-era (RETRACTED on canonical recomputation; kept here for
+    trail-of-work transparency):** majority 71.0 % / minority 14.5 % /
+    2019 enacted 75.2 %. The DPG-era 4.9× asymmetry did not survive
+    canonical geometry — see README §"What the audit finds" and
+    methods-paper §7.1, Stage 9.
+
+The script logic below is unchanged across the DPG → canonical transition;
+only the inputs differ. The operational steps are:
 
   1. Load the input shapefile/GPKG (any polygon layer, any CRS).
   2. Load the StatsCan 2021 CSD boundaries (the audit's AMA-equivalent
@@ -34,10 +48,14 @@ produced the published 71.0% / 14.5% / 75.2% numbers):
      decimal place. Identical formula to the headline `_pct_coverage`
      in `municipal_anchoring.py:609`.
 
-Parameters held identical to the headline run:
-    SNAP_TOL_M           = 500.0    (matches DPG ±500m error budget)
+Parameters held identical across DPG-era and canonical runs:
+    SNAP_TOL_M           = 500.0    (matches DPG ±500m error budget; tolerable
+                                     on canonical because canonical edges fall
+                                     well within the same band)
     VERTEX_DENSIFY_M     = 50.0
-    USE_DA_SUPPLEMENT    = False    (matches the headline 71.0/14.5/75.2)
+    USE_DA_SUPPLEMENT    = False    (no-DA-supplement run, matches both the
+                                     retracted DPG-era headline and the
+                                     canonical headline)
     No topology re-resolve pass — we are computing a metric, not
     producing a v0_4 GPKG.
 
@@ -45,7 +63,7 @@ CLI:
     python analysis/scripts/score_anchoring.py --shapefile PATH
 
 Output:
-    A single line on stdout: anchored_pct as a float (e.g. "71.0").
+    A single line on stdout: anchored_pct as a float (e.g. "80.0").
 
 Forward:
     findings/dangerzone_metric_definitions.md
@@ -85,7 +103,8 @@ warnings.filterwarnings("ignore")
 ROOT = Path(__file__).resolve().parent.parent.parent
 CSD_GPKG = data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2021_csds.gpkg"
 
-# Held identical to the headline run that produced 71.0 / 14.5 / 75.2
+# Held identical across DPG-era (retracted 71.0 / 14.5 / 75.2) and canonical
+# (current 80.0 / 72.0 / ~75) runs — scorer is substrate-agnostic.
 SNAP_TOL_M: float = 500.0
 VERTEX_DENSIFY_M: float = 50.0
 
@@ -160,11 +179,23 @@ def _measure_ring(
     return perim, anchored
 
 
-def score_anchoring(shapefile_path: Path) -> float:
-    """Compute the province-wide municipal-anchored-perimeter percentage."""
-    eds = gpd.read_file(shapefile_path)
+def score_anchoring(shapefile_or_gdf) -> float:
+    """Compute the province-wide municipal-anchored-perimeter percentage.
+
+    Accepts either a path (str/Path) to a shapefile/GPKG, or an already-loaded
+    GeoDataFrame. Callers that have already pre-processed `eds` (reprojected,
+    filtered) should pass the GeoDataFrame so this function honours the
+    preprocessing instead of re-reading the file from disk.
+    """
+    if isinstance(shapefile_or_gdf, gpd.GeoDataFrame):
+        eds = shapefile_or_gdf
+        source_desc = f"<GeoDataFrame n={len(eds)}>"
+    else:
+        shapefile_path = Path(shapefile_or_gdf)
+        eds = gpd.read_file(shapefile_path)
+        source_desc = str(shapefile_path)
     if eds.crs is None:
-        raise ValueError(f"{shapefile_path} has no CRS; cannot project to CSD layer")
+        raise ValueError(f"{source_desc} has no CRS; cannot project to CSD layer")
     edges = _load_csd_edges(eds.crs)
 
     # Build STRtree once over individual line strings

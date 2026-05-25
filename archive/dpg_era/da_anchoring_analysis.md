@@ -1,8 +1,24 @@
 ---
 name: DA-boundary anchoring analysis (Precision Option C-extended)
-description: Snaps remaining free DPG perimeter segments to Statistics Canada 2021 Dissemination Area (DA) edges wherever the DPG and DA edges coincide within a 150m snap tolerance. Produces v0_5 canonical shapefiles. Extends Issue #4 municipal anchoring by handling urban-interior boundaries.
+description: Snaps remaining free DPG perimeter segments to Statistics Canada 2021 Dissemination Area (DA) edges wherever the DPG and DA edges coincide within a 150m snap tolerance. Produces v0_5 canonical shapefiles. Extends Issue #4 municipal anchoring by handling urban-interior boundaries. SUPERSEDED on canonical geometry — see banner.
 type: reports
 ---
+
+> **Status — SUPERSEDED on canonical geometry. Read this first.**
+> This analysis extends `municipal_anchoring_analysis.md` with a DA-edge anchoring pass and was run against **pre-canonical DPG** perimeters. The v0_5 totals reported here (majority 79.6% / minority 16.5%, ratio 5.1×) and the carried-forward v0_4 input numbers (majority 71.0% / minority 14.5%) **did not survive canonical recomputation**. On official Elections Alberta shapefiles (received 2026-05-06, canonical run 2026-05-12) the canonical municipal-anchoring totals are **majority 80.0% / minority 72.0%** — both within the 70–85% Canadian comparator norm; the 4.9× / 5.1× asymmetry **is retracted** (see README §"What the audit finds" and methods-paper §7.1, Stage 9).
+>
+> The numbers in this file are kept as a complete record of the DPG-era DA-anchoring methodology — the snap-tolerance approach, the v0_4 → v0_5 contribution-decomposition logic, and the per-ED breakdowns are all reproducible — but the headline majority/minority anchoring asymmetry no longer carries on canonical geometry. The current Lane-2 case rests on urban hybridization, Airdrie city-splitting, and the chair-flagged cartographic anomalies.
+
+> **Backward:**
+> - `analysis/scripts/da_boundary_anchoring.py` — companion script
+> - `data/v0_4_canonical_majority_2026_eds_anchored.gpkg`, `data/v0_4_canonical_minority_2026_eds_anchored.gpkg` — inputs from `archive/dpg_era/municipal_anchoring_analysis.md`
+> - `data/alberta_2021_das.gpkg` — Statistics Canada 2021 Dissemination Areas
+>
+> **Forward:**
+> - `data/v0_5_canonical_majority_2026_eds_da_anchored.gpkg`, `data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg` — produced GPKGs
+> - `findings/da_anchoring_log.csv`, `data/v0_1_da_anchoring_summary.json` — produced logs
+> - `reports/academic/report_academic.md` — incorporates the (now-retracted) DPG-era anchoring ladder
+> - `findings/README.md` — indexes this finding
 
 # DA-boundary anchoring analysis (Precision Option C-extended)
 
@@ -144,7 +160,7 @@ The minority's Stony Plain-Drayton Valley ED DA-anchors 67 % of its perimeter ag
 
 ## Suggested paper insertion (§5.8.5 extension)
 
-> **DA-boundary anchoring audit (extension).** A fifth §5.8 dimension snaps the residual (municipally-unanchored) DPG perimeter to Statistics Canada 2021 Dissemination Area (DA) boundaries — survey-grade (<1 m) lines partitioning the full province at census-block resolution. Using the 150 m snap tolerance with a 100 m near-parallel-alignment contiguity requirement, and restricting to segments not already municipally-anchored, the majority 2026 map gains an additional **7.7 percentage points** of perimeter coverage (1,666 km of new survey-grade anchoring), reaching a **total anchored fraction of 79.6 %** (17,144 km of 21,552 km). The minority 2026 map gains **6.6 percentage points** of DA anchoring (1,351 km) and reaches a total anchored fraction of **16.5 %**. The **majority/minority ratio of anchored perimeter is essentially unchanged (5.1× vs v0_4's 4.9×)**, confirming that the §5.8 geographic-coherence asymmetry is a property of the maps themselves, not an artifact of which reference geography (municipal vs DA) is chosen. At the per-ED level, DA anchoring lifts thirteen majority interior-urban EDs (Calgary-Klein, Edmonton-Glenora-Riverview, Edmonton-West Henday, Edmonton-Strathcona, Edmonton-McClung, and eight others) from 0 % at v0_4 to ≥ 97 % at v0_5 — these are EDs that sit entirely inside Calgary or Edmonton, where no CSD edge exists and the commission drew lines along street centrelines that DA boundaries follow natively. The same lift is seen on the minority side for Calgary-South East, Edmonton-Whitemud, Edmonton-Strathcona, Calgary-Varsity, and Calgary-Mountain View. The mean measured DPG-to-DA residual distance before snapping is 33 m on the majority and 53 m on the minority anchored segments, indicating the v0_1 canonical tracing had roughly ±30-50 m residual error against the true DA geography; post-snap these segments are at ±1 m. Full methodology and per-ED breakdown at `findings/da_anchoring_analysis.md`; snapped canonical shapefiles at `data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg`.
+> **DA-boundary anchoring audit (extension).** A fifth §5.8 dimension snaps the residual (municipally-unanchored) DPG perimeter to Statistics Canada 2021 Dissemination Area (DA) boundaries — survey-grade (<1 m) lines partitioning the full province at census-block resolution. Using the 150 m snap tolerance with a 100 m near-parallel-alignment contiguity requirement, and restricting to segments not already municipally-anchored, the majority 2026 map gains an additional **7.7 percentage points** of perimeter coverage (1,666 km of new survey-grade anchoring), reaching a **total anchored fraction of 79.6 %** (17,144 km of 21,552 km). The minority 2026 map gains **6.6 percentage points** of DA anchoring (1,351 km) and reaches a total anchored fraction of **16.5 %**. The **majority/minority ratio of anchored perimeter is essentially unchanged (5.1× vs v0_4's 4.9×)**, confirming that the §5.8 geographic-coherence asymmetry is a property of the maps themselves, not an artifact of which reference geography (municipal vs DA) is chosen. At the per-ED level, DA anchoring lifts thirteen majority interior-urban EDs (Calgary-Klein, Edmonton-Glenora-Riverview, Edmonton-West Henday, Edmonton-Strathcona, Edmonton-McClung, and eight others) from 0 % at v0_4 to ≥ 97 % at v0_5 — these are EDs that sit entirely inside Calgary or Edmonton, where no CSD edge exists and the commission drew lines along street centrelines that DA boundaries follow natively. The same lift is seen on the minority side for Calgary-South East, Edmonton-Whitemud, Edmonton-Strathcona, Calgary-Varsity, and Calgary-Mountain View. The mean measured DPG-to-DA residual distance before snapping is 33 m on the majority and 53 m on the minority anchored segments, indicating the v0_1 canonical tracing had roughly ±30-50 m residual error against the true DA geography; post-snap these segments are at ±1 m. Full methodology and per-ED breakdown at `archive/dpg_era/da_anchoring_analysis.md`; snapped canonical shapefiles at `data/v0_5_canonical_{majority,minority}_2026_eds_da_anchored.gpkg`.
 
 ## Limitations
 
@@ -163,6 +179,6 @@ The minority's Stony Plain-Drayton Valley ED DA-anchors 67 % of its perimeter ag
 | `data/v0_5_canonical_minority_2026_eds_da_anchored.gpkg` | 12.5 MB | DA-anchored minority shapefile |
 | `findings/da_anchoring_log.csv` | 26 KB | Per-ED DA-anchoring log (178 rows) |
 | `data/v0_1_da_anchoring_summary.json` | 5.1 KB | Summary statistics |
-| `findings/da_anchoring_analysis.md` | this file | Writeup |
+| `archive/dpg_era/da_anchoring_analysis.md` | this file | Writeup |
 | `data/alberta_2021_das.gpkg` | (repo pre-existing) | StatsCan 2021 DA source, 6,203 polygons |
 | `data/alberta_2021_csds.gpkg` | (repo pre-existing) | StatsCan 2021 CSD source, used for muni-mask |

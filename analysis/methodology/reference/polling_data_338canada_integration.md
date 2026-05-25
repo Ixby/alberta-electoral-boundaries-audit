@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/338canada_scraper.py` — current snapshot extraction
+> - https://338canada.com/alberta/ — primary source
+>
+> **Forward:**
+> - `analysis/methodology/reference/polling_data_338canada_riding_level.md` — per-riding companion
+> - `reports/academic/report_academic.md` §5.2.3 — cross-election robustness consumes the polling integration
+> - (leaf — reference data integration assessment)
+
 # 338Canada Alberta projection — integration assessment
 
 **Date accessed:** 2026-04-22

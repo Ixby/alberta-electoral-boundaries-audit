@@ -4,6 +4,18 @@ description: Does the v0_9 minority's outlier status hold across 2015, 2019, and
 type: project
 ---
 
+> **Backward:**
+> - `analysis/scripts/cross_election.py` — produces the 2015/2019/2023 metrics on v0_9 polygons
+> - `analysis/scripts/cross_election_v8_full.py` — earlier version, shape reused
+> - `analysis/scripts/mcmc_ensemble.py` — provides `seat_results()` definition and the 100k ensemble
+> - `data/v0_1_mcmc_ensemble_samples_250k_v0_8.csv` — ensemble samples for percentile placement
+> - `data/reference/polling_338_historical/stability_table.csv` — 338Canada historical snapshots
+> - `analysis/scripts/338canada_historical.py` — produces the 338 cross-check
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the three-election robustness table
+> - `findings/README.md` — indexes this finding
+
 # v0_9 cross-election robustness
 
 **Status: directionally holds 3-of-3, with caveats. The minority is more pro-UCP than the majority on `seats_at_50_50` under all three election-year vote distributions.** The 2023 ensemble-percentile defence is partially contaminated by vote-level mismatch and should be reported with that caveat.

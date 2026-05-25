@@ -1,8 +1,29 @@
 ---
 name: Dangerzone metric definitions (Lane-2 substrate-stable axes)
-description: Operational definitions and validation for the two scoring functions (municipal-anchoring %, hybrid-ED count) that will plot the Nov 2 Lunty 91-seat map against the 100,000-plan ReCom ensemble. Anchoring reproduces the published 71.0/14.5/75.2 numbers exactly. Hybridization cannot reproduce the published 9/25/8 - those are a manual taxonomy, not a computable rule. The directional finding survives; the absolute integers do not.
+description: Operational definitions and validation for the two scoring functions (municipal-anchoring %, hybrid-ED count) that will plot the Nov 2 Lunty 91-seat map against the 100,000-plan ReCom ensemble. Anchoring reproduces the published 71.0/14.5/75.2 numbers exactly on the DPG v0_2 substrate (now SUPERSEDED — see banner; canonical equivalents are majority 80.0% / minority 72.0%). Hybridization cannot reproduce the published 9/25/8 - those are a manual taxonomy, not a computable rule. The directional finding survives on canonical geometry only as hybridization; the anchoring half was retracted.
 type: project
 ---
+
+> **Status — partially SUPERSEDED on canonical geometry. Read this first.**
+> The script-validation table below confirms that the anchoring scorer reproduces the **published DPG-era numbers (71.0% majority / 14.5% minority / 75.2% 2019-enacted)** exactly on the v0_2 DPG substrate it was developed against. Those *published* numbers were retracted on canonical recomputation: on official Elections Alberta shapefiles (received 2026-05-06), the same methodology produces **majority 80.0% / minority 72.0%** — both within the 70–85% Canadian comparator norm — and the 4.9× DPG-era asymmetry **does not survive** (see README §"What the audit finds" and methods-paper §7.1, Stage 9).
+>
+> What this file still validly demonstrates: (i) the scorer is deterministic and reproduces *its* substrate's anchoring number to ±0.2 pp; (ii) the methodology transfers across substrates. What this file should **not** be read as: a claim that 71.0% / 14.5% / 75.2% are live numbers — they are DPG-era validation targets only. The hybrid-count axis (the second scoring function) is unaffected by the canonical recomputation and remains a live Lane-2 leg.
+
+> **Backward:**
+> - `analysis/scripts/score_anchoring.py` — companion CLI scorer (municipal-anchoring %)
+> - `analysis/scripts/score_hybridization.py` — companion CLI scorer (hybrid ED count)
+> - `analysis/scripts/municipal_anchoring.py` — headline anchoring methodology source
+> - `analysis/scripts/packing_cracking_analysis.py` — manual MAJORITY/MINORITY mapping reference
+> - `data/shapefiles/reference/alberta_2021_csds.gpkg` — StatsCan 2021 CSD reference layer
+> - `data/shapefiles/derived/v0_2_canonical_majority_2026_eds_topoclean.gpkg`, `data/shapefiles/derived/v0_2_canonical_minority_2026_eds_topoclean.gpkg`
+> - `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
+> - 100,000-plan ReCom ensemble for Nov 2 distribution comparison
+>
+> **Forward:**
+> - November 2 Lunty 91-seat classification — uses both metrics on the new map
+> - `archive/dpg_era/municipal_anchoring_analysis.md` — anchoring leg
+> - `reports/public/report_public.md`, `reports/academic/report_academic.md` — checklist sources
+> - `findings/README.md` — indexes this finding
 
 # Dangerzone metric definitions (Lane-2 substrate-stable axes)
 
@@ -18,7 +39,7 @@ Both scripts take a single polygon shapefile (ED-level, any CRS) and emit a sing
 
 **Operational definition.** Load the input shapefile; load the StatsCan 2021 CSD boundaries (`data/shapefiles/reference/alberta_2021_csds.gpkg`) and reproject to the input CRS; union all CSD boundaries into one MultiLineString edge network. For every polygon in the input, walk its boundary at 50 m vertex spacing; for each densified vertex, snap to the nearest CSD edge if and only if the edge is within 500 m. Sum the original-densified segment length whose head-vertex was snapped (the "anchored" perimeter). Return `100.0 * total_anchored_m / total_perimeter_m` rounded to one decimal.
 
-**Parameters held identical to the audit's headline run** (`analysis/scripts/municipal_anchoring.py`): `SNAP_TOL_M = 500.0`, `VERTEX_DENSIFY_M = 50.0`, `USE_DA_SUPPLEMENT = False`. No topology re-resolve pass (we are computing a metric, not producing a v0_4 GPKG). The headline numbers in `findings/municipal_anchoring_analysis.md` were produced from `v0_2_canonical_*_topoclean.gpkg` substrates with `USE_DA_SUPPLEMENT = False`; same substrate is used for validation here.
+**Parameters held identical to the audit's headline run** (`analysis/scripts/municipal_anchoring.py`): `SNAP_TOL_M = 500.0`, `VERTEX_DENSIFY_M = 50.0`, `USE_DA_SUPPLEMENT = False`. No topology re-resolve pass (we are computing a metric, not producing a v0_4 GPKG). The headline numbers in `archive/dpg_era/municipal_anchoring_analysis.md` were produced from `v0_2_canonical_*_topoclean.gpkg` substrates with `USE_DA_SUPPLEMENT = False`; same substrate is used for validation here.
 
 ## Metric 2: Hybrid ED count
 

@@ -4,6 +4,15 @@ description: Polsby-Popper compactness per district for both 2026 maps. Contains
 type: project
 ---
 
+> **Backward:**
+> - `analysis/scripts/polsby_popper.py` — companion compactness script
+> - `data/ea_minority_2026_eds.gpkg`, `data/ea_majority_2026_eds.gpkg` — canonical EA shapefiles
+> - `data/polsby_popper_per_district.csv` — per-ED PP outputs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the canonical PP results
+> - `findings/README.md` — indexes this finding
+
 # Polsby-Popper verdict
 
 ## Canonical EA shapefiles (authoritative, 2026-05-18)

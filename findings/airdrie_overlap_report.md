@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/airdrie_overlap_diagnostic.py` — companion script that produces the overlap diagnostic
+> - `data/v0_1_canonical_minority_2026_eds.gpkg` — input polygons
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.2.7 — uses the overlap quantification for the Margin VA argument
+> - `analysis/methodology/provenance/shapefile_audit.md` — references the DPG transcription artifact
+> - `findings/README.md` — indexes this finding
+
 # Calgary-Airdrie Overlap Diagnostic Report
 **Generated:** 2026-04-23 21:11
 **Script:** `analysis/scripts/airdrie_overlap_diagnostic.py`

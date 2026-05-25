@@ -1,3 +1,13 @@
+> **Backward:**
+> - `.temp/appendix_e_text.txt` — extracted commission final-report Appendix E text (pp. 285–362)
+> - Alberta Legislative Assembly April 16, 2026 motion and media reporting (CBC Edmonton, Calgary Journal, Black Press, National Observer)
+> - `findings/justification_tests_findings.md` — Phase 1 closed-fail population/area tests
+>
+> **Forward:**
+> - `analysis/methodology/reference/minority_rationales_validation.md` — Phase 2 validation builds on this inventory
+> - `analysis/methodology/reference/school_division_coherence.md`, `airdrie_quadrant_demographic_comparison.md`, `lethbridge_federal_boundary_check.md`, `st_albert_sturgeon_constraint_search.md`, `red_deer_sylvan_lake_school_age_magnitude.md`, `banff_extension_population_check.md` — per-claim reference checks consume the inventory
+> - `reports/academic/report_academic.md` §5.9 — incorporates rationale inventory
+
 # v0.1 Minority and Government Rationales — Structured Inventory
 
 **Scope.** Every rationale offered by (a) the two dissenting minority commissioners in Appendix E of the 2025–26 EBC final report, (b) Premier Smith and UCP ministers, (c) UCP MLAs including committee chair Brandon Lunty, and (d) the April 16, 2026 motion itself, for either the contested minority-map configurations or the decision to set aside the commission's majority report.

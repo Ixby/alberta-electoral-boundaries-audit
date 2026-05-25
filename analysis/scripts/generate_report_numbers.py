@@ -22,6 +22,24 @@ Key sources read:
   data/outputs/regional_swing_canonical.json             — regional swing sensitivity
   data/outputs/szat_robustness_section_a.json            — SZAT p-values
   data/outputs/extended_partisan_metrics.json            — additional metrics
+
+Backward:
+  data/outputs/simulation_real_map_scores_canonical.json
+  data/outputs/simulated_ensemble_percentiles_canonical.csv
+  data/outputs/simulation_convergence_diagnostics_canonical.json
+  data/outputs/csd_anchoring_results.json
+  data/outputs/municipal_splits.json
+  data/outputs/cross_election_v8_full.json
+  data/outputs/regional_swing_canonical.json
+  data/outputs/szat_robustness_section_a.json
+  data/outputs/extended_partisan_metrics.json
+
+Forward:
+  data/outputs/report_numbers.json          — single source of truth for {{R|key}} tokens
+  reports/academic/report_academic.md       — consumes via {{R|key}} substitution
+  reports/public/report_public.md           — consumes via {{R|key}} substitution
+  analysis/scripts/build_pdf.py             — substitutes tokens at PDF build
+  analysis/scripts/build_academic_pdf.py    — substitutes tokens at PDF build
 """
 
 from __future__ import annotations

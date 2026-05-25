@@ -1,3 +1,14 @@
+> **Backward:**
+> - `data/shapefiles/derived/v0_8_refined_minority_2026_eds.gpkg` — minority district polygon
+> - `data/shapefiles/reference/alberta_2021_das.gpkg` — Statistics Canada DA boundaries
+> - Appendix E (p. 352) — minority's stated R12 rationale
+> - Canada National Parks Act, S.C. 2000, c. 32, ss. 15–16 — statutory entailment for "zero ranches" claim
+>
+> **Forward:**
+> - `reports/public/report_public.md` line 200 — the public-report claim audited here
+> - `reports/academic/report_academic.md` §5.9 — supports R12 rationale assessment
+> - (leaf — reference check on a specific public-report claim)
+
 # v0.1 Rocky Mountain House-Banff Park — National-Park Extension Population & Ranching Check
 
 **Date:** 2026-04-26

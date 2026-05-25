@@ -4,6 +4,15 @@ description: Named conditions under which each active audit finding retracts, pl
 type: methodology
 ---
 
+> **Backward:**
+> - `preregistration/retraction_conditions.md` — pre-committed retraction conditions
+> - `analysis/scripts/electoral_forensics_population.py` — produces A1/A2 findings tracked here
+> - `analysis/scripts/szat.py`, `mcmc_ensemble_canonical.py`, `joint_outlier_score_canonical.py` — produce findings tracked here
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §1 (introduction), §5 — cites retraction commitments
+> - (leaf — retraction record / commitment ledger)
+
 # Retraction pathway
 
 Each active finding in this audit has a named retraction condition committed before the finding was published. A finding retracts — meaning it is moved from the active findings section to the DOCUMENTED CORRECTIONS box — when the condition is empirically met. The audit's pre-registration (§1 introduction) commits to publishing any retraction within 30 days of receiving the falsifying evidence.

@@ -1,3 +1,14 @@
+> **Backward:**
+> - `.temp/commission_report.pdf` — EBC final report pp. 1, 13–16, 27–33, 58–67
+> - Electoral Boundaries Commission Act RSA 2000 c. E-3 (King's Printer 2024-12-05 consolidation)
+> - `analysis/methodology/terms_of_reference_verbatim.md` — verbatim TOR text
+> - `reports/academic/report_academic.md`, `reports/public/report_public.md` — claims under audit
+>
+> **Forward:**
+> - `reports/academic/report_academic.md`, `reports/public/report_public.md` — incorporates TOR-audit verdicts (CONFIRMED / NEEDS QUALIFICATION / DISCREPANCY)
+> - `findings/ebc_s15_selective_application.md` — uses §15 baseline
+> - `findings/README.md` — indexes this finding
+
 # Terms of Reference Audit — Alberta 2025-26 EBC
 
 Cross-check of every TOR-dependent claim in `report_academic.md` and `report_public.md` against the commission's own statement of its mandate (`terms_of_reference_verbatim.md`) and the verbatim text of the **Electoral Boundaries Commission Act, RSA 2000 c. E-3** (office consolidation current as of Dec 5, 2024, retrieved from Alberta King's Printer PDF, reference: `kings-printer.alberta.ca/documents/Acts/E03.pdf`).

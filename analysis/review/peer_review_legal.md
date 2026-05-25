@@ -1,3 +1,11 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — the manuscript under review
+> - Saskatchewan Reference [1991] 2 SCR 158; Driedger / Rizzo / Rucho — legal sources cited
+>
+> **Forward:**
+> - `analysis/review/editor_synthesis.md` — synthesises this review with #1 and #3
+> - (leaf — peer-review record)
+
 # Peer Review — Reviewer #2 (legal-institutional)
 
 **Manuscript:** "Alberta Electoral Boundaries Audit — Academic and Legal Edition" (draft, April 2026)

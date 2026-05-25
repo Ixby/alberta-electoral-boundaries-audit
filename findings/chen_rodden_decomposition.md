@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/chen_rodden_decomposition.py` — companion script
+> - `data/simulated_ensemble_raw_samples_100k.csv` — 100,000-plan neutral ensemble
+> - `data/simulation_real_map_scores_full_v2.json` — session-12 canonical + full-VA real-map scores
+> - `data/simulation_real_map_scores_full_100k.json` — substrate-matched cross-check
+>
+> **Forward:**
+> - `data/chen_rodden_decomposition.csv`, `data/chen_rodden_decomposition.json` — produced outputs
+> - `reports/academic/report_academic.md` §5.2.5 — suggested insertion
+> - `findings/README.md` — indexes this finding
+
 # Chen-Rodden geography-vs-drawing decomposition — v0.1
 
 **T3.2, Gemini Phase E.3 response, 2026-04-23.** Decomposes the partisan-bias

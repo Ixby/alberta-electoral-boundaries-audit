@@ -4,6 +4,18 @@ description: Side-by-side comparison of the audit's pre-audit (buggy) v0_8-subst
 type: project
 ---
 
+> **Backward:**
+> - `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md` — the amendment this delta filing fulfils
+> - `data/final_real_map_scores.json` — v0_9 corrected real-map values
+> - corrected 100k pre-registered baseline ensemble outputs
+> - `historical/simulation_checkpoints_partial_2m_killed/` — cancelled 2M partial samples (audit trail)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the corrected v0_9 values
+> - `findings/README.md` — indexes this finding
+> - `analysis/methodology/retraction_pathway.md` — references the deltas
+> - `analysis/review/external_audit_gemini.md` — discusses the audit closure
+
 # Post-audit recompute deltas — 2026-04-26
 
 **Filed in fulfilment of:** `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md`

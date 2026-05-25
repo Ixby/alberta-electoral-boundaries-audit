@@ -1,3 +1,12 @@
+> **Backward:**
+> - Cloudflare drand beacon, round 6099592 — the public randomness source
+>
+> **Forward:**
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — Section C MCMC consumes this seed
+> - `analysis/scripts/szat.py` — SZAT robustness seeds consume this
+> - `reports/academic/report_academic.md` §5.4.9 — reports the seeded results
+> - (terminal — pre-registration record; reviewer-facing seed audit trail)
+
 # Seed Commitment — Robustness, Diagnostics, and Pending Channels
 
 > **Pre-registration:** [OSF s58a6](https://osf.io/s58a6)

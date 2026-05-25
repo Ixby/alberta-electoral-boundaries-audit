@@ -1,3 +1,12 @@
+> **Backward:**
+> - `maps/minority_calgary.jpg`, `maps/minority_alberta_overview.jpg` and related visual extracts
+> - minority and majority commission report PDFs (variance tables, written descriptions)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the geographic-coherence findings
+> - `findings/README.md` — indexes this finding
+> - `findings/checklist_baseline_scoring.md` — feeds into checklist scoring
+
 # Section C — Geographic Coherence (Visual Spatial Audit)
 
 **Sanity-check preamble.** A neutral proposal should have reasonably compact districts whose boundaries track natural geography (rivers, highways, municipal limits) and keep communities of interest — municipalities, First Nations reserves, school divisions — intact where possible. The kinds of shapes that signal intent are:

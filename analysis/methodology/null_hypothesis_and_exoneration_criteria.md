@@ -4,6 +4,14 @@ description: Per-test null hypotheses, pass/fail thresholds, pre-registration ID
 type: methodology
 ---
 
+> **Backward:**
+> - `preregistration/null_hypotheses.md` — pre-committed null hypotheses
+> - `analysis/scripts/electoral_forensics_population.py`, `packing_cracking_analysis.py`, `mcmc_ensemble_canonical.py`, `szat.py`, `intermap_permutation_test.py`, `neighbour_drain_adjacency.py` — implementations of each tabulated test
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §1, §5 — cites null definitions and exoneration criteria
+> - `analysis/methodology/retraction_pathway.md` — companion retraction criteria
+
 # Null hypotheses and exoneration criteria
 
 This document is the authoritative lookup for what each test in the audit battery was testing, what would constitute a pass or fail, and what pre-registration anchors the test definition. It covers both the current exploratory run (2026 commission maps) and the forthcoming confirmatory run (November 2026 Lunty-committee map).

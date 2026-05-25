@@ -1,3 +1,11 @@
+> **Backward:**
+> - Cloudflare drand beacon, round 6099799 — the public randomness source
+>
+> **Forward:**
+> - `analysis/scripts/countermap_search.py` — Issue #14 trade-off frontier run consuming this seed
+> - `reports/academic/report_academic.md` §5.8.5 — counter-map challenge referenced
+> - (terminal — pre-registration record; reviewer-facing seed audit trail)
+
 # Seed Commitment — Issue #14 Counter-Map Challenge
 
 > **Pre-registration:** OSF submission pending at time of writing.

@@ -6,6 +6,16 @@ osf_id: w2s8k
 osf_url: https://osf.io/w2s8k
 ---
 
+> **Backward:**
+> - `preregistration/null_hypotheses.md` — pass thresholds the retraction conditions are paired to
+> - `analysis/methodology/null_hypothesis_and_exoneration_criteria.md` — the audit-side exoneration criteria
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §§5.1–5.9 — each load-bearing finding cross-references this
+> - `analysis/methodology/retraction_pathway.md` — operational counterpart of these conditions
+> - `README.md` — references this for the "named retraction condition" challenge framework
+> - (terminal — pre-registration record; reviewer-facing falsifiability commitment)
+
 # Retraction pathway — named conditions under which each audit finding is retracted
 
 **Date of pre-commitment:** 2026-04-24
@@ -20,7 +30,9 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 ## 0. Meta-commitment
 
-**The audit honours any retraction condition that materialises within 48 hours of that condition becoming known.** If a condition is equivocal (the evidence is suggestive but not conclusive), the finding is downgraded rather than fully retracted, and the downgrade is documented. The commit message for a retraction-driven change cites this document and the specific condition row.
+**The audit honours any retraction condition that materialises within 48 hours of that condition becoming known (in-repo discipline).** If a condition is equivocal (the evidence is suggestive but not conclusive), the finding is downgraded rather than fully retracted, and the downgrade is documented. The commit message for a retraction-driven change cites this document and the specific condition row.
+
+The 48-hour meta-commitment is **internal discipline**, not externally pre-registered. The four OSF registrations (w2s8k, r3zm7, qsgy8, 6pt83) each contain `dpg2_experiment_plan.md` and `drain_v2_plan.md`; neither file specifies retraction timing. The 48-hour figure here, and the separate two-week sunset-clause window in §6.1 (relaxed from 48 hours in Amendment 2 Change 11), are both in-repo aspirations. They are forcing-function-grade, not real-time-grade — observed turnaround on the EA-shapefile trigger was 12 days for the headline recompute (within the two-week window) and 17 days for full canonical integration (three days over). Compliance is publicly verifiable in the commit log.
 
 ---
 
@@ -65,7 +77,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 ### 2.5 §5.2.7 cross-method disagreement
 
-- **Retraction condition.** The disagreement itself IS the finding, so the retraction is triggered by a resolution of the disagreement: if officially released official 2026 shapefiles (Issue #1) produce a MAUP-v2 rerun on authoritative geometry with a CI tighter than ±0.5 pp that falls on one side of zero, the "disagreement" framing becomes "converged estimate" and the §5.2.7 multi-layer presentation is collapsed to a single authoritative number. The §4.1.4 sunset clause binds this retraction within 48 hours of shapefile release.
+- **Retraction condition.** The disagreement itself IS the finding, so the retraction is triggered by a resolution of the disagreement: if officially released official 2026 shapefiles (Issue #1) produce a MAUP-v2 rerun on authoritative geometry with a CI tighter than ±0.5 pp that falls on one side of zero, the "disagreement" framing becomes "converged estimate" and the §5.2.7 multi-layer presentation is collapsed to a single authoritative number. The §4.1.4 sunset clause binds this retraction within two weeks of shapefile release (in-repo discipline; window relaxed from 48 hours in Amendment 2 Change 11, 2026-04-26).
 
 ### 2.6 Ch1-COMP inter-map comparison permutation test (OSF yvc7g, EXECUTED 2026-05-10)
 
@@ -126,7 +138,7 @@ This is the audit's "suicide note": a reviewer can use this document to tell *in
 
 ### 6.1 Sunset clause — master retractor
 
-- **Retraction condition** (from `report_academic.md` §4.1.4). Every DPG-dependent metric in the paper is retracted and recomputed within 48 hours of Elections Alberta publishing official 2026 topological shapefiles. This is the master retractor that supersedes individual DPG-dependent findings if shapefiles release.
+- **Retraction condition** (from `report_academic.md` §4.1.4 / `findings/methods_paper_draft.md` §6). Every DPG-dependent metric in the paper is retracted and recomputed within **two weeks** of Elections Alberta publishing official 2026 topological shapefiles. This is the master retractor that supersedes individual DPG-dependent findings if shapefiles release. The window was originally posted as 48 hours and **relaxed to two weeks in Amendment 2 Change 11 (2026-04-26)** on the disclosed basis that a solo researcher without monitoring automation cannot turn a full canonical integration in 48 hours. The recompute requirement, sign-flip disclosure, and symmetric application were unchanged across the relaxation. **This sunset-clause window is in-repo discipline, not externally pre-registered** — the four OSF registrations contain `dpg2_experiment_plan.md` and `drain_v2_plan.md`, neither of which specifies a timeline. On the Alberta 2025-26 case study the EA-shapefile trigger fired on 2026-05-06; the headline recompute (Phase 4C canonical) closed on 2026-05-18 (day 12, within window); full canonical integration including the §5.3.5 drain re-run closed on 2026-05-23 (day 17, three days over). Both timestamps are verifiable in the commit log.
 
 ### 6.2 v0_5 empty-polygon defect
 

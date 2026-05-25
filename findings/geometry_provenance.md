@@ -1,3 +1,13 @@
+> **Backward:**
+> - Elections Alberta GIS data page (2019 ED shapefiles, 2023 VA shapefiles)
+> - `analysis/scripts/poll_attribution_skeleton.py` — Phase 4C poll-attribution pipeline
+> - commission final report PDF (84 MB; not in working bundle)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — Technical Data Statement consumer
+> - Phase 5 MCMC B5 and compactness C1/C2 tests — gated on this provenance verdict
+> - `findings/README.md` — indexes this finding
+
 # Section 4 — Boundary Geometry & Attribution Provenance
 
 **Sanity-check preamble.** This section documents the state of geometric data for the three maps under evaluation. It produces the Technical Data Statement required by Phase 6 and the pass/fail signal for Phase 5 (MCMC ensemble B5 and compactness tests C1, C2). The core integrity rule: if the geometry isn't trustworthy, do not run B5/C1/C2 on it. Report the block honestly.

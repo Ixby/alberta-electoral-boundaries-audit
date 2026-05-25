@@ -18,6 +18,17 @@ backward_dependencies:
   - Reference re Provincial Electoral Boundaries (Saskatchewan), [1991] 2 SCR 158
 ---
 
+> **Backward:**
+> - `analysis/reports/plan_b_cross_check.md` — Track K empirical anchor
+> - `analysis/cycle_lag_analysis.md` — Track L cycle-lag quantification
+> - `analysis/methodology/calgary_data_sources_audit.md` — Calgary sub-city analogue
+> - Alberta EBCA RSA 2000 c E-3 §12; Constitution Act 1867 §51; Charter §3; Statistics Act; AHCIA; FOIPP; Reference re Sask 1991
+>
+> **Forward:**
+> - `docs/act_amendment_proposal.md` Phase 4, Phase 5 Option B §12(5) — this survey informs the amendment proposal
+> - `docs/ai_use_recommendations_for_committee.md` §2.5 — methodology sibling on transparency
+> - (leaf — provincial-scale data-source survey)
+
 # Alberta government administrative databases — survey for the §12 amendment
 
 **Purpose.** The reform proposal's Option B names a "composite basis" built from the Alberta Treasury Board and Finance (TBF) provincial quarterly estimate and the Statistics Canada quarterly provincial estimate (Table 17-10-0009), with a ±2% tie-breaker. Objection 4.2 flags that any rule anchored on a provincial-agency estimate is only as robust as that agency's current independence. This survey inventories every Alberta government administrative database that tracks population at sub-provincial geography on a cadence faster than the decennial census, assesses each for independence, auditability, completeness, and cross-check potential, then recommends which candidate(s) should be written into a reformed §12.

@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/mcmc_ensemble.py` — produced the pre-shapefile ensemble result whose uncertainty is propagated here
+> - `analysis/scripts/electoral_forensics_population.py` — A2 zone-gap finding under uncertainty assessment
+> - `findings/maup_area_weighted_analysis.md`, `findings/maup_centroid_sensitivity.md` — companion sensitivity analyses
+>
+> **Forward:**
+> - `analysis/methodology/canonical_shapefile_log.md` — closed many of the gaps documented here on shapefile receipt
+> - `reports/academic/report_academic.md` §5.4, §6 — consumes the confidence intervals
+> - (leaf — reviewer-facing uncertainty assessment)
+
 # Uncertainty Analysis and Shapefile-Impact Assessment
 
 **Purpose.** Answer three linked questions with documented confidence:

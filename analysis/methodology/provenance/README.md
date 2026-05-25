@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — this README indexes the directory; no data inputs)
+>
+> **Forward:**
+> - (leaf — reviewer-facing index of `analysis/methodology/provenance/`)
+
 Provenance and audit-trail documents for the primary data products.
 
 | File | Description |

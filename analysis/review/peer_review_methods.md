@@ -1,3 +1,11 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — the manuscript under review
+> - `analysis/scripts/mcmc_ensemble_100k.py`, `mcmc_ensemble.py` — code reviewer #1 inspected
+>
+> **Forward:**
+> - `analysis/review/editor_synthesis.md` — synthesises this review with #2 and #3
+> - (leaf — peer-review record)
+
 # Peer review — Reviewer #1 (methods)
 
 **Manuscript:** *Alberta Electoral Boundaries Audit — Academic and Legal Edition* (submitted as `report_academic.md`, IMRAD reorganisation dated 2026-04-23).

@@ -10,6 +10,17 @@ backward_dependencies:
   - Calgary Journal article 2026-04-21 (source of Premier Smith's claim)
 ---
 
+> **Backward:**
+> - `.temp/commission_report.pdf` — source (Addendum pp. 66–67)
+> - Calgary Journal article 2026-04-21 (source of Premier Smith's claim)
+> - CBC News Edmonton 2026-04-16 coverage
+>
+> **Forward:**
+> - `reports/public/report_public.md` §"The government and the commission" — update required
+> - `reports/academic/report_academic.md` §Procedural — update required
+> - `analysis/methodology/reference/minority_rationales_validation.md` — to reconcile
+> - `findings/README.md` — indexes this finding
+
 # Chair Recommendation 5 analysis
 
 **Date:** 2026-04-22

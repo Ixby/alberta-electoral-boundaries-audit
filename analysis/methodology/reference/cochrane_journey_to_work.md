@@ -1,3 +1,12 @@
+> **Backward:**
+> - Statistics Canada Table 98-10-0459-01 — primary source (2021 Census CSD-level commuting flows)
+> - `.temp/cochrane_ab.csv` — extracted Cochrane-as-residence subset
+>
+> **Forward:**
+> - `data/cochrane_journey_to_work.csv` — output consumed downstream
+> - `analysis/methodology/reference/minority_rationales_validation.md` R1 — Cochrane→Nolan Hill commute defence
+> - `reports/academic/report_academic.md` §5.9 — incorporates the commute-tie verdict
+
 # v0.1 Cochrane Journey-to-Work — Track G
 
 **Verdict: INCONCLUSIVE at CSD resolution, with a strong prior against the minority's Nolan Hill-Cochrane hybrid as a "commuter-tie" district.**

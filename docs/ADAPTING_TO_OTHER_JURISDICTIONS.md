@@ -1,3 +1,13 @@
+> **Backward:**
+> - `config.yaml` — the single-file adaptation point this guide centres on
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — MCMC framework being adapted
+> - `analysis/scripts/szat.py` — SZAT test being adapted
+> - `analysis/scripts/packing_cracking_analysis.py` — partisan-metrics script
+> - `reports/academic/report_academic.md` — methodology source being ported
+>
+> **Forward:**
+> - (leaf — external-jurisdiction porting guide; consumed by future researchers only)
+
 # Adapting this audit to other jurisdictions
 
 This document is for the next researcher — whether running Alberta 2031, BC 2028, Saskatchewan 2029, or a federal redistribution cycle — who wants to apply this methodology without starting from scratch. The audit was designed with portability in mind: the statistical pipeline is jurisdiction-agnostic, and the configuration layer separates jurisdiction-specific parameters from the analysis code.

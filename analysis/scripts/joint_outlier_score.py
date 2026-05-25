@@ -383,7 +383,7 @@ occurs roughly once in every {int(round(1/p_combined)):,} draws (if p_combined >
 | Channel | Reason pending | Expected direction |
 | --- | --- | --- |
 | Neighbour-Drain label-shuffle null | AsPredicted #289,451 not yet executed | Expected: minority more extreme |
-| Municipal anchoring departure | Canadian comparator distribution too thin for rigorous p-value | Minority 4.9× below comparator norm |
+| Municipal anchoring departure | RETRACTED on canonical geometry (§5.8.5) — DPG-era 4.9× ratio did not survive; canonical: maj 80.0% / min 72.0%, both within 70–85% Canadian norm | No longer a pending channel |
 | Population MAD ratio | Per-plan MAD not in ensemble outputs | Minority 1.48× majority |
 | Reock asymmetry | Per-plan Reock not in ensemble outputs | Minority 2.58× majority on % below 0.30 |
 

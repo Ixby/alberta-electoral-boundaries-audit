@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — this README indexes the directory; no data inputs)
+>
+> **Forward:**
+> - (leaf — reviewer-facing index of internal working documents in `analysis/methodology/`)
+
 Internal working documents covering pre-registration, methodological decisions, red-team review, and audit scaffolding — not public outputs.
 
 | File | Description |

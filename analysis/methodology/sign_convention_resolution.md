@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/scripts/packing_cracking_analysis.py` — `compute_metrics()` lines 131–142, the formula audited here
+> - Stephanopoulos & McGhee (2015) — canonical EG convention reference
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.2 — consumes the resolved sign convention for EG language
+> - (leaf — methodology rationale)
+
 # Sign-convention resolution — v0_1
 
 **Scope.** Answer the Track Z question: under what sign convention is the

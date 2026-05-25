@@ -12,6 +12,13 @@ Usage:
   python analysis/scripts/check_voice_and_readability.py
   python analysis/scripts/check_voice_and_readability.py --report academic
   python analysis/scripts/check_voice_and_readability.py --report public
+
+Backward:
+  reports/academic/report_academic.md       — academic-voice target check
+  reports/public/report_public.md           — public-voice target check
+
+Forward:
+  (leaf — CI advisory; stdout only, no artifact written)
 """
 
 import argparse

@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — this README indexes the directory; no data inputs)
+>
+> **Forward:**
+> - (leaf — reviewer-facing index of `analysis/review/`)
+
 Review documents: peer review, legal review, code review, and design critique.
 
 ## External reviews

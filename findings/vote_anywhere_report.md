@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/polls_2023_unified.csv` — unified 2023 polls source
+> - `data/alberta_2023_results.csv` — per-ED valid-vote totals
+>
+> **Forward:**
+> - `findings/advance_vote_sensitivity.md` — uses the VAN exclusion (C5)
+> - `reports/academic/report_academic.md` — incorporates the VAN identification
+> - `findings/README.md` — indexes this finding
+
 # Vote Anywhere (VAN) Identification Report
 ## Task A — C5 Analysis
 **Source file:** `analysis/polls_2023_unified.csv`

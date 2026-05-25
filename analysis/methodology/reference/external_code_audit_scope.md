@@ -4,6 +4,15 @@ description: A single self-contained document an audit author can hand to a diff
 type: methodology
 ---
 
+> **Backward:**
+> - `tests/test_scoring.py` — the in-house pytest suite the audit relies on
+> - `analysis/scripts/` — codebase scoped for external review
+>
+> **Forward:**
+> - `analysis/review/external_audit_gemini.md` — Gemini's response to this brief
+> - `analysis/review/external_audit_meridian.md` — Meridian's response to this brief
+> - (leaf — copy-pastable brief for external AI reviewers)
+
 # Code-audit brief — please review this codebase as an independent auditor
 
 You are being asked to perform an **independent, hostile code audit** of a public-interest forensic-redistricting research project. The author wants you to find bugs they cannot see. The author has done their own internal QA and has built a small automated test suite. They are explicitly asking you to look beyond what they have already checked and to be sceptical of their work. Treat this as adversarial code review — the goal is to surface real issues, not to flatter the codebase.

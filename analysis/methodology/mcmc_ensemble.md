@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/mcmc_ensemble.py` — initial gerrychain ReCom chain implementation
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — canonical 1M-step run
+> - `data/shapefiles/canonical/va_2023_election_day_votes.gpkg` — VA polygons + 2023 vote totals
+> - `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`, `ea_minority_2026_eds.gpkg` — real maps scored against the ensemble
+>
+> **Forward:**
+> - `analysis/methodology/methodological_defenses.md` Part 2 — defends the MCMC baseline against §15(2) and "random soup" objections
+> - `analysis/methodology/test_selection_rationale.md` §B5 — places this test in the audit battery
+> - `reports/academic/report_academic.md` §5.4 — consumes the ensemble percentile results
+
 # v0.1 MCMC Ensemble Gerrymandering Test
 
 **Run date:** 2026-04-23

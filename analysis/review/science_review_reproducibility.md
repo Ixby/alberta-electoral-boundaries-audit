@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/review/science_review_framework.md` — S1–S10 dimensions
+> - `analysis/review/science_review_design_stats.md`, `science_review_data_literature.md` — sibling passes
+> - `reports/academic/report_academic.md`, `analysis/scripts/*.py` — files audited for conceptual reproducibility
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §10 (Falsifiability) — findings consumed in revisions
+> - (leaf — science red-team record)
+
 # Science red-team — Reproducibility (S3), Falsifiability (S4), Confounder control (S5), Researcher degrees of freedom (S8)
 
 **Directive anchor:** `analysis/science_red_team_framework.md`

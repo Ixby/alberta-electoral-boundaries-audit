@@ -1,3 +1,11 @@
+> **Backward:**
+> - `reports/public/report_public.md` (all PARTs, Kicker, Wallet, Limits) — under review
+> - `reports/academic/report_academic.md` (Abstract, §7 Synthesis, §8, §10, §11) — under review
+>
+> **Forward:**
+> - `reports/public/report_public.md`, `reports/academic/report_academic.md` — edits applied per findings
+> - (leaf — conclusions / synthesis red-team record)
+
 # Conclusions / synthesis red team — findings
 
 **Scope:** adversarial review of `report_public.md` (all PARTs, Kicker, Wallet, Limits) and `report_academic.md` (Abstract, §7 Synthesis, §8 Interpretation notes, §10 Falsifiability, §11 Legal Note), plus cross-consistency between the two. Reviewer posture: genuinely hostile, from both pro-government (Reader A) and anti-government (Reader B) angles.

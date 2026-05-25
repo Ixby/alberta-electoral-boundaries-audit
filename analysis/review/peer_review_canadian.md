@@ -1,3 +1,11 @@
+> **Backward:**
+> - `reports/academic/report_academic.md` — the manuscript under review
+> - Carty / Pal / Courtney / Wesley scholarship — comparator literature
+>
+> **Forward:**
+> - `analysis/review/editor_synthesis.md` — synthesises this review with #1 and #2
+> - (leaf — peer-review record)
+
 # Peer Review — Reviewer #3 (Canadian political-science perspective)
 
 **Manuscript:** "Alberta Electoral Boundaries Audit — Academic and Legal Edition" (`report_academic.md`, April 2026 draft).

@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/recompute_against_official_shapefiles.sh` — invokes the canonical shapefile build
+> - `analysis/methodology/provenance/shapefile_integration_method.md` — methodology this log records
+> - OSM road networks, EA commission maps — feature sources for boundary snapping
+>
+> **Forward:**
+> - `data/shapefiles/canonical/` — built artefacts referenced downstream
+> - `analysis/methodology/canonical_shapefile_log.md` — companion canonical log
+> - (leaf — build-log / provenance record)
+
 # Canonical shapefile build log
 Date: 2026-04-23T19:22:04.027237
 

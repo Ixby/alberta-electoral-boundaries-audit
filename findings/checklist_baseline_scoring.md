@@ -14,6 +14,20 @@ backward_dependencies:
   - findings/chair_recommendation_5_analysis.md (R5 conditions as extra gates)
 ---
 
+> **Backward:**
+> - `analysis/scripts/packing_cracking_analysis.py` — B1–B6 partisan metrics
+> - `analysis/scripts/electoral_forensics_population.py` — A1–A3 population findings
+> - `findings/justification_tests_findings.md` — population-math verdicts
+> - `findings/submission_search_findings.md` — public-support tiers
+> - `analysis/methodology/reference/minority_rationales_validation.md` — rationale verdicts
+> - `findings/chair_recommendation_5_analysis.md` — R5 conditions as extra gates
+>
+> **Forward:**
+> - Track C re-audit of November committee map (same scoring method applied to new 91-seat map)
+> - `reports/public/report_public.md` §"What a gerrymander would actually look like" — checklist source
+> - `reports/academic/report_academic.md` §3.7–3.10 — signature-detection methodology
+> - `findings/README.md` — indexes this finding
+
 # Track C — pre-registered checklist baseline scoring
 
 **Date:** 2026-04-22

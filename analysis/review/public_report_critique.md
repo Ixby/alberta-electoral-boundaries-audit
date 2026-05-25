@@ -1,3 +1,10 @@
+> **Backward:**
+> - `reports/public/report_public.md` — the public-facing feature under critique
+>
+> **Forward:**
+> - `reports/public/report_public.md` — edits applied per the shared edit list
+> - (leaf — editorial / writing critique record)
+
 # Editor and Writer Critique — `report_public.md`
 
 A staged debate between two personas over the Alberta Electoral Boundaries Audit feature as currently drafted. Marion is a senior magazine editor. Declan is a senior long-form writer. They disagree, concede, and end with a shared edit list.

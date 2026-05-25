@@ -1,3 +1,12 @@
+> **Backward:**
+> - ReCom ensembles at varied population tolerances and ensemble sizes (250k canonical, 100k and 2M sweeps)
+> - buffer-distance sweep outputs from the adjacency-graph construction scripts
+> - urban-weight blending sensitivity outputs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the sensitivity sweep table
+> - `findings/README.md` — indexes this finding
+
 # Sensitivity Analysis
 
 This document reports the structural robustness of the core redistricting findings under systematic parameter variation. A hallmark of forensic gerrymandering detection is that the qualitative finding must survive reasonable perturbations of the procedural constraints. 

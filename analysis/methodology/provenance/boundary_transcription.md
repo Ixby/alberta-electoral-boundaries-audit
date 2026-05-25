@@ -1,3 +1,12 @@
+> **Backward:**
+> - `maps/hires/v0_1_minority_p359_map73.png`, `p360_map74.png`, `p361_map75.png`, `p362_map76.png` — 600-DPI commission map extracts
+> - Commission report Appendix maps — primary visual source
+>
+> **Forward:**
+> - `analysis/methodology/provenance/shapefile_integration_method.md` — Phase 2 OSM re-snap consumes transcription targets
+> - `data/shapefiles/derived/` — derived shapefiles built from transcribed feature targets
+> - (leaf — Phase 1 transcription record)
+
 # v0_1 Commission-PNG Boundary Transcription (Track Y-prime Phase 1)
 
 ## Purpose

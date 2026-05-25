@@ -2,6 +2,14 @@
 © Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
 Data: Elections Alberta (public domain) | https://ixby.github.io
 -->
+> **Backward:**
+> - `reports/academic/report_academic.md` — the manuscript this supplement indexes
+> - `analysis/scripts/` — primary outputs referenced for verification
+> - `preregistration/` — pre-registration record cited
+>
+> **Forward:**
+> - (leaf — peer-review navigation aid; reviewer-facing only)
+
 # Data Supplement — Alberta Electoral Boundaries Audit (Phase 1)
 
 **Document type:** Peer-review navigation aid  

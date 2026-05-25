@@ -1,3 +1,14 @@
+> **Backward:**
+> - `requirements.txt` — pinned Python dependencies the instructions install
+> - `docs/setup.md` — interpreter and platform pin
+> - `docs/FROZEN_MANIFEST.md` — external-URL pinning referenced for inputs
+> - `analysis/scripts/mcmc_verification_subset.py` — verification spot-check the doc walks through
+> - `analysis/scripts/packing_cracking_analysis.py` — canonical Phase 4C script invoked
+> - `notebooks/alberta_audit_explorer.ipynb` — Colab quick-start referenced
+>
+> **Forward:**
+> - (leaf — reproducer-facing instructions; consumed by external auditors only)
+
 # Reproducing this audit
 
 This document is the entry point for anyone who wants to **audit the audit**: re-run the analyses, verify the headline numbers, or extend the methodology with their own checks. The audit is designed to be reproducible from a clean clone of the repository on a modern laptop. If anything below doesn't work as described, that's a bug — please open a GitHub issue.

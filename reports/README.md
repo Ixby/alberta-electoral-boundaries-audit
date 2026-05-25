@@ -2,6 +2,12 @@
 © Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
 Data: Elections Alberta (public domain) | https://ixby.github.io
 -->
+> **Backward:**
+> - (none — index/README for the reports/ directory)
+>
+> **Forward:**
+> - (leaf — directory index; reviewer-facing navigation)
+
 Published report outputs.
 
 | Directory | Contents |

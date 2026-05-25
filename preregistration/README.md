@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — index/README for the preregistration/ directory)
+>
+> **Forward:**
+> - (leaf — directory index; reviewer-facing navigation)
+
 Pre-registration documents for the 2026 Alberta Electoral Boundaries Audit.
 
 | File | Description |

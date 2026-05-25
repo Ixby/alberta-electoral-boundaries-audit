@@ -1,3 +1,12 @@
+> **Backward:**
+> - `analysis/scripts/338canada_historical.py` — extraction pipeline
+> - https://338canada.com/alberta/ + Wayback Machine — primary sources
+>
+> **Forward:**
+> - `data/338canada_historical_snapshots.csv` — extracted time series
+> - `reports/academic/report_academic.md` §5.2.3 — cross-election robustness consumes historical projections
+> - (leaf — reference data extraction record)
+
 # 338Canada historical projections — Alberta (Track AA)
 
 **Date run:** 2026-04-22

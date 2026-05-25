@@ -18,6 +18,19 @@ backward_dependencies:
   - data/maup_centroid_sensitivity.json — full output
 ---
 
+> **Backward:**
+> - `analysis/scripts/va_attribution_area_weighted.py` — area-weighted apportionment
+> - `analysis/scripts/_v0_9_maup_compare.py` — centroid-vs-area-weighted re-scoring driver
+> - `analysis/scripts/mcmc_ensemble.py` — `seat_results()` and `score_exogenous_map()`
+> - `analysis/scripts/assignment_va_attribution.py` — original centroid attribution
+> - `analysis/scripts/assignment_va_attribution_maup.py` — prior MAUP work
+> - `data/shapefiles/derived/va_polygons_with_2023_votes.gpkg`, `data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg`, `data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg`
+> - `data/votes_2023_majority_area_weighted.csv`, `data/votes_2023_minority_area_weighted.csv`, `data/maup_centroid_sensitivity.json`
+>
+> **Forward:**
+> - `analysis/methodology/methodological_defenses.md` §1.2 "The Centroid Fallacy (Ecological MAUP)" — quantified-insignificance line for insertion
+> - `findings/README.md` — indexes this finding
+
 # v0_9 MAUP centroid-vs-area-weighted sensitivity — verdict
 
 ## The attack vector

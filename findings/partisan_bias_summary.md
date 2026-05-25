@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/packing_cracking_analysis.py` (and `v0_1_packing_cracking_analysis.py`) — B1–B6 partisan-bias computations
+> - `analysis/scripts/electoral_forensics_population.py` — Calgary zone classification under review
+> - audit prompts and prior carry-forward tables (audit subject)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the bias-audit class-A/class-B verdicts
+> - `findings/post_audit_recompute_deltas.md` — references the partisan-bias inputs
+> - `findings/README.md` — indexes this finding
+
 # Bias Audit — Alberta Electoral Boundaries Audit
 
 **Purpose.** Read the prompt, code, and written findings looking for baked-in partisan framing, asymmetric scrutiny, loaded language, or unreproducible claims that would compromise the audit's credibility regardless of whether its headline finding is directionally correct.

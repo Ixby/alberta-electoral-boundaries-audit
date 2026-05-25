@@ -1,3 +1,16 @@
+> **Backward:**
+> - `analysis/scripts/joint_outlier_score_canonical.py` — companion script (Mahalanobis + Fisher combination)
+> - canonical 1,010,000-plan ensemble (4 chains × 252,500 steps; OSF s58a6/w2s8k)
+> - `findings/extended_partisan_metrics.md` — per-metric inputs to the Mahalanobis channel
+> - `findings/drain_label_shuffle_null.md` — neighbour-drain channel inputs
+> - SZAT bootstrap null outputs (AsPredicted #289,469)
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the joint outlier score
+> - `reports/public/report_public.md` — references the joint probability headline
+> - `analysis/methodology/fisher_combination_defense.md` — defends the Fisher combination procedure
+> - `findings/README.md` — indexes this finding
+
 # Joint Outlier Score — Alberta 2026 EBC Maps
 
 **Date:** 2026-05-07 (updated 2026-05-12 to canonical 1M ensemble)

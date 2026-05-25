@@ -1,3 +1,13 @@
+> **Backward:**
+> - extended-metrics computation script (companion in `analysis/scripts/`)
+> - v0_7 shapefiles (89 EDs)
+> - 10k ReCom MCMC samples (seed 42, ±25%) for percentile placement
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the extended partisan metrics
+> - `findings/joint_outlier_score_summary.md` — uses these metrics as channel inputs
+> - `findings/README.md` — indexes this finding
+
 # Extended Partisan Metrics — Alberta 2026 Electoral Maps
 
 Computed against v0_7 shapefiles (89 EDs, full province coverage).

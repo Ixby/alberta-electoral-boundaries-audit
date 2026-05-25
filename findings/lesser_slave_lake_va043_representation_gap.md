@@ -1,3 +1,18 @@
+> **Backward:**
+> - `data/polls_2023_unified.csv` — EA 2023 results
+> - `data/EA_Voting_Area_Boundaries_2023.shp` — EA canonical VA boundaries
+> - `data/va_pop_from_das.csv` — 2021 Census DA populations
+> - `.temp/commission_report.pdf` — EBC final report (March 2026)
+> - ISC First Nations Population Profiles April 2026 (Bands 453, 459, 478)
+> - Statistics Canada Indigenous Population Profile 2021
+> - Alberta *Election Act* RSA 2000 c E-1
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §3.2, §5.1.5, §5.3.4 — incorporates the VA 043 finding
+> - `reports/public/report_public.md` "The Invisible Part" — narrative consumer
+> - `findings/ebc_s15_selective_application.md` — cross-reference
+> - `findings/README.md` — indexes this finding
+
 # Finding: VA 043 (ED 70) — Geographic Representation Gap, §15(2) Selective Application, and Commission Reversal
 
 **Status:** SUPPORTED — primary source verified (EBC Final Report March 2026, EA canonical vote data)

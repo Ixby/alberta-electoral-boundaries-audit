@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/intermap_permutation_test.py` — companion script that runs the permutation test
+> - `data/outputs/simulated_ensemble_raw_samples_canonical.csv` — 250,000-plan neutral ensemble used as null
+> - `analysis/methodology/intermap_permutation_design.md` — pre-registered test design
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the EG and Mahalanobis p-values
+> - `reports/academic/data_supplement.md` — references the permutation results
+> - `findings/README.md` — indexes this finding
+> - `findings/cycle_lag_analysis.md` — cross-references the inter-map result
+
 # Inter-Map Comparison Permutation Test (Ch1-COMP)
 
 **Script:** `analysis/scripts/intermap_permutation_test.py`

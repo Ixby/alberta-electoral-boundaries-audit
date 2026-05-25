@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/submission_search.py` — companion keyword-search pipeline (pdfplumber + regex)
+> - 27 batch PDFs from elections.ab.ca (raw submissions)
+> - `data/submission_search_dataset.csv` — per-submission dataset produced by the search
+>
+> **Forward:**
+> - `findings/claim_significance_analysis.md` — quantifies the engagement/net/absolute support framework on top of these counts
+> - `reports/academic/report_academic.md` — incorporates the keyword-search findings
+> - `reports/public/report_public.md` — references the chair-claim refutations
+> - `findings/README.md` — indexes this finding
+
 # v0_1 Submission keyword-search findings
 
 **Scope:** Keyword search of ~1,340 public submissions to the 2025–2026 Alberta Electoral Boundaries Commission to verify or refute the chair's Appendix C claim that the minority's proposed hybrid configurations for Airdrie, Cochrane/Nolan-Hill, Chestermere, Red Deer, St. Albert, and the Rocky Mountain House–Banff park s.15(2) invocation had NO public support in the written submissions.

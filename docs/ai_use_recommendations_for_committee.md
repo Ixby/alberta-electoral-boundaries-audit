@@ -10,6 +10,17 @@ backward_dependencies:
   - v1_2_gerrymander_audit_prompt.md §Defensibility Audit Gate (DA1–DA7)
 ---
 
+> **Backward:**
+> - `reports/academic/report_academic.md` §5.10 — methodology discipline this proposal extends
+> - `analysis/methodology/methodological_defenses.md` — defensibility gates referenced (DA1–DA7)
+> - `docs/act_amendment_proposal.md` — policy-level sibling reform proposal
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §Recommendations — incorporates the AI-use principles
+> - `reports/public/report_public.md` — referenced for general-audience summary
+> - `README.md` — links to this document as the AI-use proposal
+> - (leaf otherwise — public policy recommendation, reviewer-facing)
+
 # AI-use recommendations for the Alberta Electoral Boundaries MLA Committee
 
 **Audience.** The Special Select Committee of MLAs chaired by Brandon Lunty, MLA for Leduc-Beaumont. This document is technical advice on *how* to use AI tools responsibly if the committee chooses to use them. It does not take a position on whether the committee should use them.

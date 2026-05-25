@@ -1,3 +1,13 @@
+> **Backward:**
+> - majority 2026 and minority 2026 commission population/variance tables
+> - 2021 Census CSD inputs and Calgary zone classifications
+> - Alberta Electoral Boundaries Commission Act §15(2) statutory criteria
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates A1/A2/A3 results
+> - `findings/README.md` — indexes this finding
+> - `findings/partisan_bias_summary.md` — cross-references the population-equality signal
+
 # Section A — Population Equality
 
 **Sanity-check preamble.** Under a neutral redistribution, variance should be modest and symmetric. EDs above +10% and below −10% from the provincial average should appear in comparable numbers across both 2026 proposals. If one proposal has markedly wider dispersion, or a directional geographic asymmetry (e.g., urban ridings of one political lean systematically larger), that is a detectable population-equality signal. s.15(2) protected ridings should independently satisfy 3 of 5 statutory criteria — if not, their boundaries have plausibly been drawn *to* qualify.

@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/url_archival_log.md` — per-URL archival reasoning and coverage summary
+> - `requirements.txt` — pinned library layer this file complements
+> - `docs/setup.md` — pinned interpreter layer this file complements
+>
+> **Forward:**
+> - `docs/REPRODUCING.md` — references this manifest for URL-pinning
+> - `reports/academic/report_academic.md` — every primary-source citation traces back here
+> - `docs/data_sources.md` — narrative descriptions of these sources
+> - (leaf otherwise — reproducibility-against-URL-drift reference)
+
 # Frozen Manifest — external URLs and data-source last-access log
 
 **Audit:** Alberta Electoral Boundaries Audit, report_academic.md v0.2

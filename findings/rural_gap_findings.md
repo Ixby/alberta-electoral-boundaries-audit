@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/rural_gap_dissection.py` — companion script
+> - `data/majority_2026_populations.csv`, `data/minority_2026_populations.csv` — population tables
+> - majority and minority hybrid crosswalks + Appendix-E minority crosswalk
+> - 2019 and 2023 official election results
+>
+> **Forward:**
+> - `findings/population_equality.md` — uses the rural-gap context
+> - `reports/academic/report_academic.md` — incorporates the rural dissection
+> - `findings/README.md` — indexes this finding
+
 # v0.1 Rural-Gap Dissection — What's Hiding in the 3.9% Gap
 
 **Scope.** Forensic drill-down on the audit's summary line:

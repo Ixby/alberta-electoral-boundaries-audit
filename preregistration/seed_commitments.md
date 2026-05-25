@@ -1,3 +1,13 @@
+> **Backward:**
+> - Cloudflare drand beacon — public randomness source for all salts
+> - OSF qsgy8 (MCMC seed) and OSF 6pt83 (SZAT seed) — public pre-registrations
+>
+> **Forward:**
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — consumes the `mcmc_ensemble_250k` salt
+> - `analysis/scripts/szat.py` — consumes the `szat-bootstrap` salt
+> - `reports/academic/report_academic.md` §5.4, §5.2.10 — reports results seeded from this salt audit
+> - (terminal — pre-registration record; reviewer-facing chain-of-custody document)
+
 # Pre-Registration Salt Audit Trail
 
 > **Pre-registration:** [OSF qsgy8](https://osf.io/qsgy8) (MCMC seed) · [OSF 6pt83](https://osf.io/6pt83) (SZAT seed)

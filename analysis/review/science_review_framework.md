@@ -1,3 +1,11 @@
+> **Backward:**
+> - The repository as a whole (all files under `alberta_audit/` excluding `historical/`, `.temp/`)
+> - `analysis/review/legal_review_framework.md` — companion legal framework
+>
+> **Forward:**
+> - `analysis/review/science_review_design_stats.md`, `science_review_reproducibility.md`, `science_review_data_literature.md` — passes built on this framework
+> - (leaf — framework / shared severity language for all science review passes)
+
 # Science-standard red-team framework
 
 **Directive:** red-team every file in the repo to a standard defensible under peer review (2026-04-23).

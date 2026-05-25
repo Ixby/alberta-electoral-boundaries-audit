@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/attribution_sensitivity_check.py` — produces the sensitivity comparison
+> - `analysis/scripts/va_attribution_area_weighted.py`, `phase4c_canonical_attribution.py` — attribution implementations
+> - `data/shapefiles/canonical/va_2023_election_day_votes.gpkg` — VA polygons with vote totals
+>
+> **Forward:**
+> - `data/outputs/attribution_sensitivity_check.json` — output consumed by methodology defenses
+> - `analysis/methodology/methodological_defenses.md` Part 1 — companion centroid-fallacy defense
+> - `reports/academic/report_academic.md` §6 — cites attribution provenance
+
 # Attribution Sensitivity Robustness Check
 
 **Date:** 2026-05-12

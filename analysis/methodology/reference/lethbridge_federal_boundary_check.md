@@ -1,3 +1,12 @@
+> **Backward:**
+> - `.temp/appendix_e_text.txt` (Appendix E pp. 1016–1067, pp. 2205–2299) — source text searched
+> - `analysis/methodology/reference/minority_rationales_inventory.md` — companion inventory
+> - `reports/public/report_public.md` — public-report claim audited
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.9.6 — Claim 5 verdict
+> - (leaf — reference check on a specific public-report claim)
+
 # v0.1 Lethbridge Provincial Split — Federal-Boundary "Match" Claim Check
 
 **Date:** 2026-04-26

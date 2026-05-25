@@ -2,10 +2,17 @@
 © Will Conner 2026 | CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>
 Data: Elections Alberta (public domain) | https://ixby.github.io
 -->
+> **Backward:**
+> - `docs/COMPLETED_LOG.md` — completed-work counterpart; items move there when done
+> - `reports/academic/report_academic.md` — outstanding tasks track sections of this monograph
+>
+> **Forward:**
+> - (leaf — project-management ledger; consumed by contributors only, no programmatic consumers)
+
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-23
+**Last updated:** 2026-05-18
 **Completed work:** see `COMPLETED_LOG.md`
 
 ---
@@ -21,6 +28,12 @@ Items must complete before either report goes public.
 - **VERIFY — Seidle resolved, Small pending** The original Seidle (1991) *Rethinking Government* citation was wrong (finance volume, not commission structure) and was removed in ES-29. Search confirmed Seidle has no RCERF volume on boundary commissions — his volumes are 4 (*Comparative Issues in Party and Election Finance*) and 5 (*Issues in Party and Election Finance in Canada*), both on finance. The correct RCERF boundary-reform volume is: **Small, D. (ed.) (1991). *Drawing the Map: Equality and Efficacy of the Vote in Canadian Electoral Boundary Reform*. Research Studies, Vol. 11, Royal Commission on Electoral Reform and Party Financing. Dundurn Press.** §5.9.3 already has Courtney (2001) covering the commission model; Small adds a primary RCERF-layer citation. **Action required:** read Small (1991) Vol. 11 and add citation to §5.9.3 body and References when content is verified. Low-risk to publish without it — does not block publication.
 
 ---
+
+## READY TO RUN — Awaiting Explicit Authorization
+
+- **DRAIN-CANONICAL-01 — Re-run §5.3.5 neighbour-drain adjacency test on canonical Elections Alberta shapefiles. — DONE 2026-05-23.** Executed. Canonical result: minority 1 coupled chain signal vs majority 2 vs 2019 enacted 5; ratio 0.50× minority/majority. Pre-registered PASS (≤ 1.5× threshold) holds. Direction matches v0_2 (minority < majority), not v0_8's reversal. Clean topology — zero K-nearest fallback for any of the three maps. The DPG-era runs (v0_2: 2/6 at 0.33×; v0_8: 4/3 at 1.33×) are documented in `findings/neighbour_drain_analysis.md` as superseded. Script source modifications (drain script now uses canonical `score_map_by_spatial_join` from `packing_cracking_analysis.py` for 2026 vote attribution instead of the removed DPG-era `estimate_2026` + manual MAJORITY/MINORITY_2026_MAPPING constants). README §"What the audit finds" and the structural-cost table updated; methodological_defenses.md §2.1 updated. See COMPLETED_LOG.md (when added).
+
+- **REVRECOM-01 — Reversible ReCom (RevReCom / Forest-ReCom) robustness check.** **STATUS: PREP COMPLETE 2026-05-23, NOT RUN — needs explicit principal-investigator authorization before any compute is consumed.** Plan, parameters, expected outputs, and publish-regardless commitment language are documented at `proposals/revrecom/run_plan.md`; binding pre-registration amendment in draft form at `proposals/revrecom/pre_registration_amendment_DRAFT.md`. Targeted methodological inoculation against the reviewer objection that ReCom has no writable stationary distribution (Cannon, Goldbloom-Helzner et al. 2022, arXiv:2210.01401). Estimated clock from authorization to published write-up: 6–10 hours, dominated by chain wall-time. To authorize: (i) fill in the drand round number and signature in the pre-reg amendment, drop `_DRAFT` from the filename, commit; (ii) confirm the parameters in the run plan are accepted as-is; (iii) explicitly instruct Claude (or self-execute) to begin step 2 of the implementation sequence in the run plan. Do **not** start without all three.
 
 ## CRITICAL — Deferred Statistical Extensions
 
@@ -67,20 +80,6 @@ Stage 3 superseded by official shapefiles. Stages 3–7 complete for canonical s
 - **Phase 1 (highest priority):** R `redist` package cross-validation — independently reproduce seats@50/50. Effort: 1 evening + ~90 min runtime.
 - **Phase 2:** QGIS visual inspection using official shapefiles. Effort: 1 h setup + 1 afternoon.
 - **Phase 2.5:** Maptitude free-trial cross-validation. Effort: 4 h setup + 2 h QA.
-
----
-
-## HIGH — Viewer: Phase 2 Supabase Backend
-
-Wire the client-side share system (already built in `viewer/src/lib/share.ts`) to a Supabase backend.
-
-- **shares table** — `{ code TEXT PRIMARY KEY, map_state JSONB, created_at TIMESTAMPTZ }`. Anon SELECT; anon INSERT (one row per code, upsert-safe).
-- **telemetry table** — `{ id UUID PK, flight_path JSONB, session_context JSONB, feature_summary JSONB, created_at TIMESTAMPTZ }`. No FK to shares — the two tables have no shared key by design.
-- **RLS** — INSERT to telemetry requires DNT attestation column (`dnt_ok BOOLEAN NOT NULL`); RLS rejects rows where `dnt_ok = false`. Client-side check is a courtesy; DB enforces.
-- **DNT commitment** — SHA-256 hash of `isDNT()` source paired with a Cloudflare drand beacon round committed to the repo before data collection is enabled. Hash mismatch triggers freeze state (all further writes blocked).
-- **Client wiring** — `share.ts` `submitShare()`: on Share click, if `participates()`, POST flight path + session context to telemetry; separately upsert share code. If not participating, skip telemetry.
-- **Env vars** — `VITE_SUPABASE_URL` + `VITE_SUPABASE_ANON_KEY` in `viewer/.env.local` (gitignored).
-- **Blocked on:** Supabase MCP `list_organizations` returned internal error 2026-05-23 — retry when MCP is healthy.
 
 ---
 
@@ -147,38 +146,6 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 - Missing: Airdrie, Chestermere, Sylvan Lake, Innisfail, Red Deer origin-CSD tables
 - Impact: R2/R5/R11 verdicts currently INCONCLUSIVE
 
-### VA-Level Map Interaction (Viewer Enhancement)
-
-Feature: users click a Voting Area polygon on any map and see its vote counts and distribution.
-
-**Blocker:** VA polygons in the generated SVGs (`PatchCollection_1`) have no data attributes. Three 36 MB SVGs must be regenerated.
-
-**Step 1 — SVG regeneration (`build_cover.py`):**
-- Locate the `PatchCollection_1` path-rendering loop in `build_cover.py`
-- For each VA polygon, inject `data-va-id="{sheet_num}_{poll_letter}"` (or `data-va-id="{voting_areas}"` if the VA identifier in `polls_2023_unified.csv` is stable)
-- Map each PatchCollection path index → VA row in the same iteration order the script uses to build the PatchCollection
-- Regenerate: `cover_art_minority_hires.svg`, `cover_art_majority_hires.svg`, `cover_art_2019_hires.svg` (36 MB each)
-
-**Step 2 — Build `va_hover_*.json`:**
-- Input: `data/outputs/polls_2023_unified.csv` + `data/outputs/assignment_va_to_2026_canonical.csv`
-- One file per map (minority/majority/2019) because VA→ED attribution differs per map
-- Output schema per VA: `{va_id, ed_name, poll_name, ucp_votes, ndp_votes, other_votes, in_person_votes, ucp_pct, ndp_pct}`
-- Deploy to `docs/data/va_hover_minority.json`, `va_hover_majority.json`, `va_hover_2019.json`
-
-**Step 3 — mapEngine.ts update:**
-- Add `_allVaData[key]` alongside `_allHoverData[key]`; load `va_hover_*.json` lazily at map open
-- Add click listener on `#PatchCollection_1 path[data-va-id]` within the primary SVG
-- Show VA sub-callout (below ED callout): poll name, parent ED, UCP/NDP/other counts + percentages
-- VA callout independently dismissible; selecting an ED clears the VA callout
-
-**Step 4 — Deploy SVGs:**
-- After SVG regeneration, run `npm run build` and push to GitHub Pages
-- Verify: `docs/images/cover_art_*_hires.svg` updated; `docs/data/va_hover_*.json` present
-
-**Effort estimate:** Step 1 (1–2 h code + 20 min render per SVG × 3), Step 2 (1 h), Step 3 (2–3 h), Step 4 (30 min).
-
----
-
 ### Manual Source Verifications
 
 - ~~RMH-Banff attribution — verify against Hansard/X-thread sources before CRIT-B deletion~~ **DONE 2026-05-09** (see COMPLETED_LOG.md)
@@ -223,20 +190,6 @@ Current §5.8.4 notes Enoch Cree Nation (Reserve 135) PP=0.065 and Tsuut'ina com
 
 ---
 
-## MEDIUM — Viewer: mapEngine.ts Modularization
-
-`viewer/src/lib/mapEngine.ts` is ~1,350 lines inside a single `init()` closure. Split into responsibility-based modules:
-
-- `svg-loader.ts` — fetch, cache, and inject SVG assets
-- `pan-zoom.ts` — pointer/touch/wheel pan and zoom, viewBox management
-- `overlay-manager.ts` — multi-map stacking, `_syncOverlays`, `_doSwitchPrimary`
-- `layer-controls.ts` — vote/fill/lines/EG layer apply functions
-- `ed-callout.ts` — ED hover, callout bar, search, highlight
-
-Exported surface stays the same (`init`, `onEvent`, `getState`, `applyState`). No new functionality; `// @ts-nocheck` already in place. Prerequisite: Phase 2 Supabase done (avoids merge conflicts during active wiring).
-
----
-
 ## MEDIUM — Restructure / Hygiene
 
 ### Repository Restructure
@@ -270,17 +223,6 @@ Collapse `analysis/scripts/` from ~87 files into ~15–20 topic modules. Inputs 
 
 **Moved to `private_workspace/M3_LUNTY_RELEASE.md`.** Re-merge into this file only after the Lunty committee tables its 91-seat map.
 
-### Viewer: Animated Boundary Morphs (edutainment chapter)
-
-Play through 91 representative MCMC ensemble draws, animating how district boundaries drift while voters stay put. Makes the structural argument visceral — viewers see how much a boundary could move under a neutral drawing process, which is harder to dismiss than a p-value.
-
-- Pre-process 91 ensemble shapefiles → SVG path sets (one per ED per draw)
-- SVG boundary morphing between draws (FLUBBER or custom interpolation)
-- Chapter UI: play/pause, ensemble-index slider, per-ED highlight
-- Each s.15(2) ED independently justifies its boundaries; the ensemble surfaces whether better-fitting alternatives exist
-- If s.15(2) boundary optimality is tested, new null hypothesis requires OSF pre-registration with a new drand seed before data is examined
-- **Trigger:** Lunty committee tables its 91-seat map; apply same boundary-morph treatment to all three comparison maps simultaneously
-
 ---
 
 # Date-Gated External Events
@@ -288,7 +230,7 @@ Play through 91 representative MCMC ensemble draws, animating how district bound
 | Track | Event | Trigger |
 |---|---|---|
 | A (shapefile integration) | **COMPLETE 2026-05-18** — Phase 4C v0.3 canonical. EG +0.04%/+3.96%; s50 48/43. All reports updated. | — |
-| B (November 2026) | Lunty committee tables 91-seat map (Nov 2, 2026) | Run full Phase 2 checklist within 48h |
+| B (November 2026) | Lunty committee tables 91-seat map (Nov 2, 2026) | Run full Phase 2 checklist within 72h (operational standard per Amendment 2 Bucket C; scorecard methodology pre-registered at OSF qsgy8 / AsPredicted #289,455) |
 | E (338Canada refresh) | Next due ~late June 2026 | Re-run scraper if projection moves >0.5pp |
 
 ---

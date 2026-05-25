@@ -12,6 +12,17 @@ backward_dependencies:
   - report_academic.md §3.7–3.10 (signature-detection methodology)
 ---
 
+> **Backward:**
+> - `findings/checklist_baseline_scoring.md` — test list, thresholds, pass/fail criteria
+> - `reports/public/report_public.md` — public-facing checklist
+> - `reports/academic/report_academic.md` §3.7–3.10 — signature-detection methodology
+> - `analysis/v0_1_red_team_round_2.md` §D17 — vulnerability this closes
+>
+> **Forward:**
+> - `analysis/reports/pre_registration_draft.md` — submission-ready pre-registration document
+> - `reports/academic/report_academic.md` §3.11 — baseline scorecard
+> - `findings/README.md` — indexes this finding
+
 # Track W — pre-registration platform survey and recommendation
 
 **Date:** 2026-04-22

@@ -1,3 +1,9 @@
+> **Backward:**
+> - (none — manually maintained inventory of the repository layout)
+>
+> **Forward:**
+> - (leaf — reviewer-facing navigation reference; not consumed by any script)
+
 # Repository Tree
 
 *Post-restructure layout. Restructure executed in commits `aecc6f0` (COMMIT A) and `f2f9545` (Commit B). Last updated 2026-05-18 (Phase 4C canonical, Hardening Plan A–G complete, deliverables A/B/C live on GitHub Pages).*

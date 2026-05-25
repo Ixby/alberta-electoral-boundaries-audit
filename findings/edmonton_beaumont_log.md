@@ -1,3 +1,12 @@
+> **Backward:**
+> - Edmonton-Beaumont polygon construction script (companion)
+> - `data/v0_1_canonical_majority_2026_eds.gpkg`, `data/v0_1_canonical_minority_2026_eds.gpkg`
+> - OSM Beaumont geometry query
+>
+> **Forward:**
+> - `findings/README.md` â€” indexes this finding
+> - (leaf â€” construction/validation log; reviewer-facing only)
+
 # Edmonton-Beaumont polygon + red-team validation log
 Date: 2026-04-23T20:28:14.382964
 
@@ -46,7 +55,7 @@ RED-TEAM VALIDATION
     C-sweep                  :   4  [medium]
     C-2019-blend             :   2  [lower]
     C-osm-construct          :   1  [lower]
-  Area range: 10.6 – 109222.0 km2
+  Area range: 10.6 ï¿½ 109222.0 km2
   Checking pairwise overlaps (full NxN)...
   [WARN] 81 overlapping pairs found
 
@@ -66,7 +75,7 @@ RED-TEAM VALIDATION
     B                        :   2  [high]
     C-2019-split             :   1  [lower]
     C-2019-direct            :   1  [lower]
-  Area range: 12.2 – 104403.5 km2
+  Area range: 12.2 ï¿½ 104403.5 km2
   Checking pairwise overlaps (full NxN)...
   [WARN] 95 overlapping pairs found
   [NOTE] Edmonton-Beaumont exists in minority file too (check if correctly named)

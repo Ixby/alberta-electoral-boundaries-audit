@@ -1,3 +1,10 @@
+> **Backward:**
+> - all `findings/*.md` files this directory indexes
+> - `analysis/scripts/` — companion scripts that produce the regenerable outputs cataloged here
+>
+> **Forward:**
+> - (leaf — index for the `findings/` directory; reviewer-facing only)
+
 Analytical findings reports, pipeline logs, and regenerable data outputs produced by the scripts in `../analysis/scripts/`.
 
 > **CRS note:** GeoJSON files in `data/outputs/district_patterns/` are CRS84/WGS84 (EPSG:4326). The canonical audit shapefiles are EPSG:3400 (Alberta 10-TM). Do not reproject the GeoJSONs for analysis — they are display copies only.
@@ -16,8 +23,8 @@ Files marked * are directly cited in both the public report and the academic mon
 | `partisan_bias_summary.md` | * Partisan bias B1–B6: packing, cracking, efficiency gap across all three maps |
 | `historical_eg_baseline.md` | * Efficiency-gap baseline from 2015–2023 Alberta elections |
 | `neighbour_drain_analysis.md` | * Neighbour-drain effect findings |
-| `da_anchoring_analysis.md` | * Dissemination-area boundary anchor results and discrepancy log |
-| `municipal_anchoring_analysis.md` | * Municipal boundary anchor results |
+| `../archive/dpg_era/da_anchoring_analysis.md` | * Dissemination-area boundary anchor results — **RETRACTED on canonical geometry** (moved to archive 2026-05-23) |
+| `../archive/dpg_era/municipal_anchoring_analysis.md` | * Municipal boundary anchor results — **RETRACTED on canonical geometry** (moved to archive 2026-05-23) |
 | `terms_of_reference_audit.md` | * Audit against Electoral Boundaries Commission Terms of Reference |
 | `chair_recommendation_5_analysis.md` | * Analysis of Commission Chair Recommendation 5 |
 | `joint_outlier_score_summary.md` | * Joint Mahalanobis D² outlier score summary (Fisher-combined p-value) |
@@ -51,7 +58,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `airdrie_highway_pretext.md` | Airdrie boundary and Highway 2 corridor alignment analysis |
 | `airdrie_overlap_report.md` | Airdrie four-way split: overlap area calculation |
 | `municipal_splits.md` | Municipal boundary splits by commission map |
-| `natural_anchoring_secondary_check.md` | Secondary natural-feature anchoring check (rivers, escarpments) |
+| `../archive/dpg_era/natural_anchoring_secondary_check.md` | Secondary natural-feature anchoring check (rivers, escarpments) — **MOOT on canonical geometry** (moved to archive 2026-05-23; the headline 14.5% it was designed to test was retracted) |
 | `va_spatial_integrity_report.md` | Spatial integrity of vote-anywhere polygons |
 | `vote_anywhere_report.md` | Vote-anywhere coverage findings |
 | `lesser_slave_lake_va043_representation_gap.md` | Lesser Slave Lake VA 043 representation gap: Woodland Cree community boundary analysis |

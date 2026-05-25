@@ -15,6 +15,17 @@ backward_dependencies:
   - analysis/cycle_lag_analysis.md (2025 mid-year comparison)
 ---
 
+> **Backward:**
+> - `analysis/scripts/a1_legal_baseline_2021_census.py` — produces this computation
+> - `data/alberta_2021_da_populations.csv`, `data/alberta_2021_das.gpkg` — 2021 Census DA inputs
+> - `data/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` — 2019 ED boundary set
+> - `data/alberta_2019_populations.csv` — 2017 EBC reference values
+>
+> **Forward:**
+> - `data/a1_legal_baseline_2019eds_2021census.csv` — per-ED output
+> - `reports/academic/report_academic.md` — candidate Appendix C integration
+> - `analysis/v0_1_fortification_a1_a5.md` — fulfills F7
+
 # Appendix C — 2021-census legal-baseline A1 for the 2019 map
 
 ## C.1 Purpose and scope

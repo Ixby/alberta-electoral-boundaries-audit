@@ -1,3 +1,11 @@
+> **Backward:**
+> - `reports/public/report_public.md`, `reports/academic/report_academic.md` — files audited
+> - `analysis/scripts/`, `data/`, `.temp/commission_report.pdf` — primary sources for verification
+>
+> **Forward:**
+> - `reports/public/report_public.md`, `reports/academic/report_academic.md` — findings drive edits
+> - (leaf — assertion-level red-team record)
+
 # Assertions red team — findings
 
 **Audit date:** 2026-04-23

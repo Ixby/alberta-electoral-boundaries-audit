@@ -1,3 +1,14 @@
+> **Backward:**
+> - `analysis/scripts/advance_vote_splat.py` — empirical refutation of the advance-vote attack (Part 1.1)
+> - `analysis/scripts/va_attribution_area_weighted.py` — empirical refutation of the centroid fallacy (Part 1.2)
+> - `analysis/scripts/mcmc_ensemble.py`, `mcmc_ensemble_canonical.py` — MCMC baseline whose defenses are catalogued (Part 2)
+> - `findings/advance_vote_sensitivity.md`, `findings/maup_centroid_sensitivity.md` — sensitivity outputs cited
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5.4, §6 — incorporates defense arguments
+> - `analysis/methodology/test_selection_rationale.md` — cross-references defended tests
+> - (leaf — reviewer-facing adversarial appendix)
+
 # Methodological Defenses & Limitations (Adversarial Appendix)
 
 ## Purpose
@@ -229,7 +240,7 @@ Define $(X, Y)$ as an **adjacency-chain signal** if $s_X \geq 0.15$ (X is packed
 
 **Implementation.** `geopandas.sjoin(predicate='touches')` for adjacency; per-ED vote totals from 2023 Statement of Vote (already in the repo at `data/alberta_2023_results.csv`); threshold loop + chain-count aggregation. ~200 lines of Python. Runtime negligible. **Effort: 2 days** including writeup + sensitivity table.
 
-**Status.** Executed. Canonical geometry result (§5.3.5): **2 coupled chain signals (minority) vs 6 (majority) vs 5 (2019 enacted)**. Pre-registered pass criterion — coupled count ratio ≤ 1.5× — met at 0.33× (PASS). The minority's low adjacency-chain count does not exonerate it; §5.3.5 establishes that the minority achieves partisan effect via **hybridization** (city-splitting that internalises packing and cracking within hybrid EDs), not via the classic pack-and-drain adjacency model this test measures. A v0_8 full-coverage re-run (reported transparently in §5.3.5) gave the opposite directional pattern (minority 4, majority 3); pre-registered pass criterion still met (1.33× < 1.5×). The cross-substrate disagreement is documented. See `outputs/academic_report/report_academic.md` §5.3.5.
+**Status.** Executed on canonical geometry (2026-05-23). Canonical Elections Alberta shapefile result (§5.3.5): **1 coupled chain signal (minority) vs 2 (majority) vs 5 (2019 enacted)**. Pre-registered pass criterion — coupled count ratio ≤ 1.5× — met at 0.50× (PASS). The minority's low adjacency-chain count does not exonerate it; §5.3.5 establishes that the minority achieves partisan effect via **hybridization** (city-splitting that internalises packing and cracking within hybrid EDs), not via the classic pack-and-drain adjacency model this test measures. Clean topology on canonical (zero K-nearest fallback across all three maps). Two DPG-era predecessor runs are documented in `findings/neighbour_drain_analysis.md`: v0_2 substrate (2/6, ratio 0.33×) and v0_8 substrate (4/3, ratio 1.33× — reversed direction, still passes). The canonical result supersedes both. See `findings/neighbour_drain_analysis.md` and `reports/academic/report_academic.md` §5.3.5.
 
 #### 2.2 Boundary-chain test (systemic vs ad-hoc)
 
@@ -472,7 +483,7 @@ Measurement validity in quantitative social science has four canonical forms (Me
 
 - **Convergent validity.** Within the B-family, five metrics (EG/MM/Seats/Declination/MCMC-percentile) plus the four-seven spatial layers in §5.2.7 all measure partisan bias. They agree directionally in 90.5 % of Monte Carlo samples (§5.2.3) and disagree on mechanism (§5.2.4). The disagreement is *reported*, making convergent validity visible and auditable.
 
-- **Discriminant validity.** The A-family and B-family and C-family measure distinct constructs; their findings can diverge (§5.1 population equality is UCP-favourable across all maps; §5.2 partisan bias is measurement-resolution-dependent; §5.8 geographic coherence has the 4.9× anchoring asymmetry). The audit does not claim these three findings collapse into one meta-finding.
+- **Discriminant validity.** The A-family and B-family and C-family measure distinct constructs; their findings can diverge (§5.1 population equality is UCP-favourable across all maps; §5.2 partisan bias is measurement-resolution-dependent; §5.8 geographic coherence shows asymmetric structural anomalies — three chair-flagged cartographic anomalies under the minority and zero under the majority, plus the Airdrie 4-vs-2 city-splitting divergence — rather than the now-retracted anchoring asymmetry, which did not survive canonical recomputation). The audit does not claim these three findings collapse into one meta-finding.
 
 - **Predictive / criterion validity.** The November 2026 committee's 91-seat map is the out-of-sample test the audit explicitly pre-registers against (Track C in `migration.md` / private `live_tasks.md`). Until that map is tabled, criterion validity is pending.
 

@@ -15,6 +15,19 @@ Outputs
 -------
   data/maps/mcmc/ensemble_distribution_{run_id}_{metric}.svg
   data/maps/mcmc/running_mean_{run_id}_{metric}.svg
+
+Backward:
+  data/outputs/simulated_ensemble_raw_samples_canonical.csv  — MCMC chain samples
+  data/outputs/simulation_real_map_scores_canonical.json     — real-map scores
+  data/outputs/simulation_convergence_diagnostics_canonical.json — chain diagnostics
+  analysis/scripts/palette.py                                — figure colours
+  analysis/scripts/mcmc_ensemble.py                          — chain producer (figures replot logic mirrors)
+
+Forward:
+  data/maps/mcmc/ensemble_distribution_{run_id}_{metric}.svg — distribution figures
+  data/maps/mcmc/running_mean_{run_id}_{metric}.svg          — convergence figures
+  reports/academic/report_academic.md                        — embeds the SVGs
+  reports/public/report_public.md                            — embeds the SVGs
 """
 from __future__ import annotations
 

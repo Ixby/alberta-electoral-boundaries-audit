@@ -1,3 +1,11 @@
+> **Backward:**
+> - `analysis/methodology/reference/academic_literature_review.md` — the file whose citations are verified here
+> - JSTOR, publisher landing pages, King's Printer PDF, Statutes/Reports databases — verification sources
+>
+> **Forward:**
+> - `analysis/methodology/reference/academic_literature_review.md` — corrections applied per this verification log
+> - (leaf — verification record)
+
 # Codex: Citation Verification Findings
 
 Date: 2026-05-06  

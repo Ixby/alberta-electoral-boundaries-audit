@@ -4,6 +4,16 @@ description: Does the minority map's p98.6 seats@50/50 finding survive a regiona
 type: project
 ---
 
+> **Backward:**
+> - `analysis/scripts/seats_at_50_50_regional.py` — companion script producing the regional-swing recomputation
+> - `verification_assignments_raw.npz` — 10k verification subset with per-VA assignments
+> - 2019 → 2023 two-party regional swing inputs
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` — incorporates the regional-swing robustness check
+> - `findings/joint_outlier_score_summary.md` — cross-references the recomputed percentiles
+> - `findings/README.md` — indexes this finding
+
 # v0_9 regional-swing robustness check
 
 **Status: the headline p98.6 finding for the minority map COLLAPSES under regional swing — the minority drops to p50.7. But the same recomputation puts the *majority* map at p99.5 in the opposite direction. The uniform-swing assumption was load-bearing; the headline framing has to change, but a defensible (different) outlier story replaces it.**

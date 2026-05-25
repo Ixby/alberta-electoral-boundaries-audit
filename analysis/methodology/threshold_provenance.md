@@ -4,6 +4,16 @@ description: Per-threshold documentation of the source, justification, and audit
 type: methodology
 ---
 
+> **Backward:**
+> - `analysis/scripts/mcmc_ensemble_canonical.py` — produces the ensemble percentiles thresholds reference
+> - `analysis/scripts/joint_outlier_score_canonical.py` — Fisher combination thresholds
+> - `analysis/scripts/szat.py` — SZAT bootstrap threshold
+> - `preregistration/thresholds.md` — pre-committed numeric thresholds
+>
+> **Forward:**
+> - `reports/academic/report_academic.md` §5, §7 — every numeric threshold cited in the report traces back here
+> - `analysis/methodology/test_selection_rationale.md` — references thresholds chosen per test
+
 # Threshold provenance
 
 Every numeric threshold used to make a pass/fail or flag/no-flag decision in this audit is listed here, with the literature or statutory source that justifies it. The column "Alberta application" describes how the audit uses the threshold, including any adaptation from the original source.
@@ -41,7 +51,7 @@ Every numeric threshold used to make a pass/fail or flag/no-flag decision in thi
 | Threshold | Value | Source | Alberta application |
 |---|---|---|---|
 | Municipal (CSD) boundary anchoring Canadian norm | 70–85% | Established from comparator provinces (federal 2022 Alberta sub-commission, BC 2023, Saskatchewan 2022, Manitoba 2018, Alberta 2017). Computed in `analysis/methodology/canadian_base_rate_computed.md`. | Both 2026 maps within norm on canonical geometry: minority 72.0%, majority 80.0%. Municipal anchoring finding **retracted** per DPG sunset clause. |
-| DA-boundary anchoring (secondary) | No Canadian norm established | Insufficient comparator data; the DA anchoring result is presented as a map-comparison finding (majority +7.7 pp, minority +6.6 pp from 2019 baseline) rather than against an absolute threshold. | See `findings/da_anchoring_analysis.md`. |
+| DA-boundary anchoring (secondary) | No Canadian norm established | Insufficient comparator data; the DA anchoring result is presented as a map-comparison finding (majority +7.7 pp, minority +6.6 pp from 2019 baseline) rather than against an absolute threshold. | See `archive/dpg_era/da_anchoring_analysis.md`. |
 
 ---
 

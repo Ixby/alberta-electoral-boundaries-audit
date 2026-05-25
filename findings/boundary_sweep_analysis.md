@@ -1,3 +1,13 @@
+> **Backward:**
+> - `analysis/scripts/generate_topological_boundaries.py` — sweep companion script
+> - `data/v0_2_canonical_majority_2026_eds_topoclean.gpkg`, `data/v0_2_canonical_minority_2026_eds_topoclean.gpkg` — inputs
+> - 2021 Census DA-dissolve populations and 2021→2024 growth factor
+>
+> **Forward:**
+> - `data/v0_3_canonical_majority_2026_eds_swept.gpkg`, `data/v0_3_canonical_minority_2026_eds_swept.gpkg`, `data/validation_deltas_v2.csv` — produced outputs
+> - `reports/academic/report_academic.md` — incorporates the sweep convergence
+> - `findings/README.md` — indexes this finding
+
 # Tier-C Parametric Sweep Extension — v0_3 Canonical Build
 
 **Generated:** 2026-04-24T00:46:33
