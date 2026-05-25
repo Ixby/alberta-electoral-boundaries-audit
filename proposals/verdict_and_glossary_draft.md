@@ -40,11 +40,11 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 >
 > ### What does "gerrymander" mean in Canadian law?
 >
-> It doesn't. The Canadian test is different: whether the boundaries give voters *effective representation* under section 3 of the Charter. The minority proposal raises serious questions under that test; only a judge can answer them definitively, and no one has asked one yet.
+> There isn't one. The Canadian test is different: whether the boundaries give voters *effective representation* under section 3 of the Charter. The minority proposal raises serious questions under that test; only a judge can answer them definitively, and no one has asked one yet.
 >
 > ### What's at stake for Albertans?
 >
-> At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme — fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because at 58 of 87 seats — a two-thirds supermajority — the governing party unlocks extraordinary procedural powers: it can waive standard notice periods and push public bills through multiple legislative stages in a single day, bypassing deliberation checks that normally constrain it. Whether the minority proposal's tilt is large enough to push one party past that 58-seat threshold at vote shares *other* than 50/50 is a question this audit has not yet tested. Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit.
+> At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme — fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because at 58 of 87 seats — a two-thirds supermajority — the governing party unlocks extraordinary procedural powers: it can waive standard notice periods and push public bills through multiple legislative stages in a single day, bypassing deliberation checks that normally constrain it. Whether the minority proposal's tilt is large enough to push one party past that 58-seat threshold at vote shares *other* than 50/50 is a question this audit has not yet tested. Whether that imbalance is acceptable is a question for Albertans, not for this audit.
 >
 > **[Read the legal context →](/law)**  ·  **[See how we tested →](/methods)**
 
@@ -54,10 +54,10 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 
 - The verdict's Q1 uses a doubly-conditional construction ("if gerrymander were a Canadian legal term, in the everyday sense, the evidence would support…") to answer the question the reader is actually asking without literally calling the proposal a gerrymander. The audit cannot apply a term Canadian law doesn't have. But it can describe what the evidence would support if that term were available, and it can do so in the same plain-language frame the reader is using.
 - "If enacted" — second conditional. The minority proposal hasn't been adopted; it's a discarded commissioners' submission that the Lunty committee may forward to the legislature.
-- "It doesn't" — Q2's one-sentence opening. Direct, accurate, and immediately reframes to the *effective representation* test.
+- "There isn't one" — Q2's one-sentence opening. Direct, accurate, and immediately reframes to the *effective representation* test.
 - Q3 deliberately states what the audit *has* measured (the 50/50 result) and what it has *not* yet measured (behaviour at other vote shares). Naming the limit explicitly — rather than asserting a likelihood differential at vote shares the audit hasn't tested — is the kind of constraint that earns the reader's trust in everything else.
 - The supermajority effect is named narrowly and concretely: at 58 of 87 seats (mathematically 2/3 × 87 = 58), a governing party can waive notice periods and accelerate bills through multiple stages in a single day. Standard legislation and budgets only need a simple majority; the 58-seat threshold is the one that unlocks *procedural* shortcuts. Naming the specific capabilities lets the reader judge their weight; a broader claim about "the opposition losing accountability" would overstate what the supermajority actually enables.
-- "Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit." — explicit hand-off. The empower-don't-advocate principle in one sentence.
+- "Whether that imbalance is acceptable is a question for Albertans, not for this audit." — explicit hand-off. The empower-don't-advocate principle in one sentence.
 - Italics on *minority proposal* and *majority proposal* the first time each appears. These are common words being used in a specific procedural sense; the italics signal that.
 - The two CTA buttons should be visually distinct from each other and from the main text — e.g., one in the `/law` accent color, one in the `/methods` accent color.
 
