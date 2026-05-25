@@ -46,6 +46,8 @@ export default {
 		home_aria: 'Bumalik sa itaas',
 		theme_aria: 'Palitan ang madilim / maliwanag na mode',
 		theme_title: 'Palitan ang madilim na mode',
+		nav_aria: 'I-toggle ang nabigasyon',
+		drawer_top: '↑ Itaas',
 		verdict: 'Hatol',
 		why: 'Bakit?',
 		map: 'Mapa',
@@ -58,16 +60,20 @@ export default {
 		canada: 'Canada',
 		gerrymanders: 'Mga Gerrymander',
 		november: 'Nobyembre',
+		lunty: 'Lunty',
 		invisible: 'Hindi Nakikita',
+		suggestions: 'Mga Mungkahi',
 		retractions: 'Mga Pagbawi',
 		references: 'Mga Sanggunian',
-		resources: 'Mga Mapagkukunan'
+		resources: 'Mga Mapagkukunan',
+		technical: 'Teknikal'
 	},
 	hero: {
 		h1: 'Pag-audit ng Hangganan ng Halalan sa Alberta',
 		subtitle:
 			'Ang komisyon ng Alberta ay nagprodyus ng dalawang mapa ng riding sa 2026. Inihambing ng audit na ito ang mga ito — gamit ang parehong mga pagsusulit, na inilapat nang pantay sa pareho — upang itanong kung pareho nilang itinuturing ang mga botante.',
 		badge: 'Mga opisyal na mapa ng Elections Alberta — Inilathala noong Mayo 2026',
+		cover_note: 'I-click upang mag-zoom at galugarin ang lahat ng tatlong panukala ng hangganan nang sabay-sabay. I-pin ang viewport at mag-flip sa pagitan ng mga mapa — gumagalaw ang mga hangganan, nananatili ang mga botante. Mag-scroll pababa para sa pagsusuri.',
 		cover_note_1:
 			'Ang mapang ito ang pinakamahusay na paraan upang magsimula. I-click ito upang mag-zoom at galugarin. Ang mga pindutan sa itaas ay nagpapalipat sa pagitan ng mapa ng minorya, mapa ng mayorya, at mga hangganan na nasaad noong 2019 — o ilatag ang lahat ng tatlo upang makita kung saan sila eksaktong nag-iiba. Kinukulayan ng <strong>Detail</strong> ang bawat polling area ayon sa paano bumoto ang mga tao noong 2023; nagdadagdag ang <strong>Trend</strong> ng partisan shading bawat distrito (asul UCP, kahel NDP); ginagawang on/off ng <strong>Lines</strong> ang mga hangganan. Ang <strong>Find</strong> ay lumulukso sa anumang riding ayon sa pangalan.',
 		cover_note_2:

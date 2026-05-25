@@ -44,11 +44,13 @@ export default {
 		home_aria: 'Back to top',
 		theme_aria: 'Toggle dark/light mode',
 		theme_title: 'Toggle dark mode',
+		nav_aria: 'Toggle navigation',
+		drawer_top: '↑ Top',
 		verdict: 'Verdict',
 		why: 'Why?',
 		map: 'Map',
 		split: 'The Split',
-		litmus: 'Litmus',
+		litmus: 'Litmus Test',
 		crack_pack: 'Crack & Pack',
 		for_you: 'For You',
 		impact: 'Impact',
@@ -56,16 +58,20 @@ export default {
 		canada: 'Canada',
 		gerrymanders: 'Gerrymanders',
 		november: 'November',
+		lunty: 'Lunty',
 		invisible: 'Invisible',
+		suggestions: 'Suggestions',
 		retractions: 'Retractions',
 		references: 'References',
-		resources: 'Resources'
+		resources: 'Resources',
+		technical: 'Technical'
 	},
 	hero: {
 		h1: 'Alberta Electoral Boundary Audit',
 		subtitle:
 			"Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.",
 		badge: 'Official Elections Alberta maps — Published May 2026',
+		cover_note: 'Click to zoom and explore all three boundary proposals simultaneously. Pin the viewport and flip between maps — boundaries shift, voters stay put. Scroll down for the analysis.',
 		cover_note_1:
 			'This map is the best way in. Click it to zoom and explore. The buttons at the top switch between the minority map, the majority map, and the 2019 enacted boundaries — or layer all three to see exactly where they diverge. <strong>Detail</strong> colours each polling area by how people voted in 2023; <strong>Trend</strong> adds partisan shading by district (blue UCP, orange NDP); <strong>Lines</strong> toggles boundaries on and off. <strong>Find</strong> jumps to any riding by name.',
 		cover_note_2:
@@ -76,7 +82,7 @@ export default {
 			'Alberta electoral district maps — minority commission proposal, coloured by 2023 vote',
 		map_hint: 'Click to explore interactively',
 		btn_title: 'Click to open interactive map',
-		btn_aria: 'Open interactive map'
+		btn_aria: 'Click to explore interactively'
 	},
 	boundary: {
 		heading: "What this audit can and can't tell you",

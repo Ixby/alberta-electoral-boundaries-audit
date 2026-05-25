@@ -6,7 +6,8 @@
   https://ixby.github.io
 -->
 <svelte:head>
-  <meta name="description" content="Statistical audit of Alberta's 2026 electoral boundary commission — 1,010,000 neutral maps, official Elections Alberta shapefiles, pre-registered tests.">
+  <title>{t(lang.current, 'head.title')}</title>
+  <meta name="description" content={t(lang.current, 'head.meta_description')}>
   <meta name="author" content="Will Conner">
   <meta name="copyright" content="© Will Conner 2026">
   <meta name="license" content="Text/content: CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/); Code: GNU GPL v3.0 (https://www.gnu.org/licenses/gpl-3.0.html)">
@@ -49,6 +50,9 @@
   }
   import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, setGpsRegion, setLanguage, type FlightEvent } from '$lib/share';
   import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode, getStoredGps, storeGps, getStoredLanguage, storeLanguage } from '$lib/prefs';
+  import { lang } from '$lib/i18n/store.svelte';
+  import { t } from '$lib/i18n/dict';
+  import LanguageSelector from '$lib/components/LanguageSelector.svelte';
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -287,23 +291,24 @@
 
 <nav aria-label="Page sections">
   <div class="nav-inner">
-  <a href="#top" class="nav-home" aria-label="Back to top"><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
-  <a href="#section-1">Map</a>
-  <a href="#section-2">The Split</a>
-  <a href="#section-3">Litmus Test</a>
-  <a href="#section-4">Crack &amp; Pack</a>
-  <a href="#section-5">Impact</a>
-  <a href="#section-6">Gerrymanders</a>
-  <a href="#section-7">Lunty</a>
-  <a href="#section-8">Suggestions</a>
-  <a href="#retractions">Retractions</a>
-  <a href="#references">References</a>
-  <a href="#resources">Technical</a>
-  <button id="theme-toggle" class="nav-theme-btn" aria-label="Toggle dark/light mode" title="Toggle dark mode" onclick={toggleTheme}>
+  <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
+  <a href="#section-1">{t(lang.current, 'nav.map')}</a>
+  <a href="#section-2">{t(lang.current, 'nav.split')}</a>
+  <a href="#section-3">{t(lang.current, 'nav.litmus')}</a>
+  <a href="#section-4">{t(lang.current, 'nav.crack_pack')}</a>
+  <a href="#section-5">{t(lang.current, 'nav.impact')}</a>
+  <a href="#section-6">{t(lang.current, 'nav.gerrymanders')}</a>
+  <a href="#section-7">{t(lang.current, 'nav.lunty')}</a>
+  <a href="#section-8">{t(lang.current, 'nav.suggestions')}</a>
+  <a href="#retractions">{t(lang.current, 'nav.retractions')}</a>
+  <a href="#references">{t(lang.current, 'nav.references')}</a>
+  <a href="#resources">{t(lang.current, 'nav.technical')}</a>
+  <LanguageSelector />
+  <button id="theme-toggle" class="nav-theme-btn" aria-label={t(lang.current, 'nav.theme_aria')} title={t(lang.current, 'nav.theme_title')} onclick={toggleTheme}>
     <svg class="icon-sun" width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-9a1 1 0 0 0 1-1V2a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm0 14a1 1 0 0 0 1-1v-1a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1zm7-7a1 1 0 0 0 0-2h-1a1 1 0 0 0 0 2h1zM4 10a1 1 0 0 0-1-1H2a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1zm10.95-4.95a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm-9.9 9.9a1 1 0 0 0-1.41-1.41l-.71.71a1 1 0 0 0 1.41 1.41l.71-.71zm9.9.01a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71zm-9.9-9.9a1 1 0 0 0 1.41-1.41l-.71-.71a1 1 0 0 0-1.41 1.41l.71.71z"/></svg>
     <svg class="icon-moon" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z"/></svg>
   </button>
-  <button id="hamburger" class="nav-hamburger" aria-label="Toggle navigation" aria-expanded={navOpen}
+  <button id="hamburger" class="nav-hamburger" aria-label={t(lang.current, 'nav.nav_aria')} aria-expanded={navOpen}
     onclick={() => navOpen = !navOpen}>
     <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
       {#if navOpen}
@@ -318,18 +323,18 @@
   </div>
   {#if navOpen}
   <div id="nav-drawer" role="menu">
-    <a href="#top"         role="menuitem" onclick={() => navOpen = false}>↑ Top</a>
-    <a href="#section-1"  role="menuitem" onclick={() => navOpen = false}>Map</a>
-    <a href="#section-2"  role="menuitem" onclick={() => navOpen = false}>The Split</a>
-    <a href="#section-3"  role="menuitem" onclick={() => navOpen = false}>Litmus Test</a>
-    <a href="#section-4"  role="menuitem" onclick={() => navOpen = false}>Crack &amp; Pack</a>
-    <a href="#section-5"  role="menuitem" onclick={() => navOpen = false}>Impact</a>
-    <a href="#section-6"  role="menuitem" onclick={() => navOpen = false}>Gerrymanders</a>
-    <a href="#section-7"  role="menuitem" onclick={() => navOpen = false}>Lunty</a>
-    <a href="#section-8"  role="menuitem" onclick={() => navOpen = false}>Suggestions</a>
-    <a href="#retractions" role="menuitem" onclick={() => navOpen = false}>Retractions</a>
-    <a href="#references" role="menuitem" onclick={() => navOpen = false}>References</a>
-    <a href="#resources"  role="menuitem" onclick={() => navOpen = false}>Technical</a>
+    <a href="#top"         role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.drawer_top')}</a>
+    <a href="#section-1"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.map')}</a>
+    <a href="#section-2"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.split')}</a>
+    <a href="#section-3"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.litmus')}</a>
+    <a href="#section-4"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.crack_pack')}</a>
+    <a href="#section-5"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.impact')}</a>
+    <a href="#section-6"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.gerrymanders')}</a>
+    <a href="#section-7"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.lunty')}</a>
+    <a href="#section-8"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.suggestions')}</a>
+    <a href="#retractions" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.retractions')}</a>
+    <a href="#references" role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.references')}</a>
+    <a href="#resources"  role="menuitem" onclick={() => navOpen = false}>{t(lang.current, 'nav.technical')}</a>
   </div>
   {/if}
 </nav>
@@ -337,19 +342,19 @@
 <header>
   <div class="header-inner">
     <div class="header-text">
-      <h1>Alberta Electoral Boundary Audit</h1>
-      <p class="subtitle">Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.</p>
-      <span class="badge">Official Elections Alberta maps &mdash; Published May 2026</span>
-      <p class="cover-note">Click to zoom and explore all three boundary proposals simultaneously. Pin the viewport and flip between maps &mdash; boundaries shift, voters stay put. Scroll down for the analysis.</p>
+      <h1>{t(lang.current, 'hero.h1')}</h1>
+      <p class="subtitle">{t(lang.current, 'hero.subtitle')}</p>
+      <span class="badge">{t(lang.current, 'hero.badge')}</span>
+      <p class="cover-note">{t(lang.current, 'hero.cover_note')}</p>
     </div>
-    <button id="zoom-trigger" class="hero-map-btn" title="Click to open interactive map" aria-label="Click to explore interactively" onclick={handleZoomTrigger}>
+    <button id="zoom-trigger" class="hero-map-btn" title={t(lang.current, 'hero.btn_title')} aria-label={t(lang.current, 'hero.btn_aria')} onclick={handleZoomTrigger}>
       <div class="hero-map-wrap">
         <picture>
           <source type="image/webp" srcset="images/cover_art.webp 680w" sizes="(min-width: 600px) 339px, 90vw">
-          <img src="images/cover_art.png" alt="Alberta electoral district maps — minority commission proposal, coloured by 2023 vote" class="header-image" fetchpriority="high" loading="eager" width="680" height="1205">
+          <img src="images/cover_art.png" alt={t(lang.current, 'hero.image_alt')} class="header-image" fetchpriority="high" loading="eager" width="680" height="1205">
         </picture>
         <img src="images/province_outline.svg" class="province-border-overlay" aria-hidden="true" alt="" fetchpriority="high" loading="eager">
-        <div class="hero-map-hint">Click to explore interactively</div>
+        <div class="hero-map-hint">{t(lang.current, 'hero.map_hint')}</div>
       </div>
     </button>
   </div>

@@ -46,6 +46,8 @@ export default {
 		home_aria: '返回顶部',
 		theme_aria: '切换深色 / 浅色模式',
 		theme_title: '切换深色模式',
+		nav_aria: '切换导航',
+		drawer_top: '↑ 顶部',
 		verdict: '结论',
 		why: '为什么?',
 		map: '地图',
@@ -58,16 +60,20 @@ export default {
 		canada: '加拿大',
 		gerrymanders: '选区操控',
 		november: '十一月',
+		lunty: 'Lunty',
 		invisible: '隐形',
+		suggestions: '建议',
 		retractions: '撤回',
 		references: '参考资料',
-		resources: '资源'
+		resources: '资源',
+		technical: '技术'
 	},
 	hero: {
 		h1: '阿尔伯塔选举边界审计',
 		subtitle:
 			'阿尔伯塔的委员会在2026年提出了两份选区地图。本次审计对它们进行了比较——使用相同的测试,平等地应用于两者——以询问它们是否以同样的方式对待选民。',
 		badge: 'Elections Alberta 官方地图——2026年5月发布',
+		cover_note: '点击同时缩放和探索所有三份边界提议。固定视口并在地图之间切换——边界移动,选民保持不变。向下滚动查看分析。',
 		cover_note_1:
 			'这张地图是最好的入口。点击它即可缩放和探索。顶部按钮可在少数派地图、多数派地图和2019年颁布的边界之间切换——或叠加三者以查看它们的分歧之处。<strong>Detail</strong> 根据2023年人们的投票情况为每个投票区上色;<strong>Trend</strong> 按选区添加党派色调(蓝色UCP,橙色NDP);<strong>Lines</strong> 切换边界的开关。<strong>Find</strong> 按名称跳转到任何选区。',
 		cover_note_2:

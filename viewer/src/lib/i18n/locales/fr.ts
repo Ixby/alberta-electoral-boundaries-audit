@@ -45,11 +45,13 @@ export default {
 		home_aria: 'Retour en haut',
 		theme_aria: 'Basculer le mode sombre / clair',
 		theme_title: 'Basculer le mode sombre',
+		nav_aria: 'Basculer la navigation',
+		drawer_top: '↑ Haut',
 		verdict: 'Verdict',
 		why: 'Pourquoi ?',
 		map: 'Carte',
 		split: 'La Division',
-		litmus: 'Test',
+		litmus: 'Test décisif',
 		crack_pack: 'Diviser et entasser',
 		for_you: 'Pour vous',
 		impact: 'Conséquences',
@@ -57,16 +59,20 @@ export default {
 		canada: 'Canada',
 		gerrymanders: 'Découpages partisans',
 		november: 'Novembre',
+		lunty: 'Lunty',
 		invisible: 'L\'invisible',
+		suggestions: 'Suggestions',
 		retractions: 'Rétractations',
 		references: 'Références',
-		resources: 'Ressources'
+		resources: 'Ressources',
+		technical: 'Technique'
 	},
 	hero: {
 		h1: 'Audit des limites électorales de l\'Alberta',
 		subtitle:
 			"La commission albertaine a produit deux cartes de circonscriptions en 2026. Cet audit les a comparées — en appliquant les mêmes tests, également aux deux — pour déterminer si elles traitent les électeurs de la même manière.",
 		badge: 'Cartes officielles d\'Elections Alberta — publiées en mai 2026',
+		cover_note: 'Cliquez pour zoomer et explorer les trois propositions simultanément. Verrouillez la vue et passez d\'une carte à l\'autre — les frontières bougent, les électeurs restent. Faites défiler pour voir l\'analyse.',
 		cover_note_1:
 			"Cette carte est la meilleure porte d'entrée. Cliquez pour zoomer et explorer. Les boutons en haut permettent de basculer entre la proposition minoritaire, la proposition majoritaire et les limites adoptées en 2019 — ou de superposer les trois pour voir exactement où elles divergent. <strong>Detail</strong> colore chaque zone de vote selon le résultat de 2023 ; <strong>Trend</strong> ajoute un ombrage partisan par circonscription (bleu UCP, orange NDP) ; <strong>Lines</strong> active ou désactive les limites. <strong>Find</strong> permet de trouver une circonscription par son nom.",
 		cover_note_2:
