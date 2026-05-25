@@ -339,6 +339,11 @@
   {/if}
 </nav>
 
+<section class="opener-block container" aria-labelledby="opener-heading">
+  <h2 id="opener-heading">{t(lang.current, 'opener.heading')}</h2>
+  <p>{t(lang.current, 'opener.body')}</p>
+</section>
+
 <header>
   <div class="header-inner">
     <div class="header-text">
@@ -359,6 +364,49 @@
     </button>
   </div>
 </header>
+
+<section class="verdict-block container" aria-labelledby="verdict-heading">
+  <h2 id="verdict-heading" class="visually-hidden">Verdict</h2>
+  <div class="verdict-q">
+    <h3>{t(lang.current, 'verdict.q1.heading')}</h3>
+    <p>{@html t(lang.current, 'verdict.q1.body')}</p>
+    <p class="verdict-footnote">{t(lang.current, 'verdict.q1.footnote')}</p>
+  </div>
+  <div class="verdict-q">
+    <h3>{t(lang.current, 'verdict.q2.heading')}</h3>
+    <p>{@html t(lang.current, 'verdict.q2.body')}</p>
+  </div>
+  <div class="verdict-q">
+    <h3>{t(lang.current, 'verdict.q3.heading')}</h3>
+    <p>{@html t(lang.current, 'verdict.q3.body')}</p>
+  </div>
+  <div class="verdict-ctas">
+    <a href="#canada-is-different" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
+    <a href="#section-3" class="verdict-cta">{t(lang.current, 'verdict.cta_methods')}</a>
+  </div>
+</section>
+
+<section class="boundary-block container" aria-labelledby="boundary-heading">
+  <h2 id="boundary-heading">{t(lang.current, 'boundary.heading')}</h2>
+  <ul class="boundary-list">
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_1')}</span></li>
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_2')}</span></li>
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_3')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_1')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_2')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_3')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_4')}</span></li>
+  </ul>
+</section>
+
+<section class="editorial-block container" id="what-is-redistricting" aria-labelledby="s1-heading">
+  <h2 id="s1-heading">{t(lang.current, 'section1.heading')}</h2>
+  <p>{@html t(lang.current, 'section1.p1')}</p>
+  <p>{@html t(lang.current, 'section1.p2')}</p>
+  <p>{@html t(lang.current, 'section1.p3')}</p>
+  <p>{@html t(lang.current, 'section1.p4')}</p>
+  <p>{t(lang.current, 'section1.p5')}</p>
+</section>
 
 <main class="container">
 
@@ -528,6 +576,56 @@
     <p><strong>One area of Calgary is carved up to concentrate NDP voters into larger-than-average divisions.</strong> In Calgary's northwest quadrant <button class="ed-trigger" data-ed-name="Calgary-North West-Bearspaw">show ↗</button>, the minority map's divisions average 11.5% above the province-wide population — versus 2.8% on the majority. The same geographic zone, drawn by the same commission under the same constraints, produces districts a quarter larger on one map than on the other. This is <em>packing</em>: concentrating one party's voters into fewer, larger districts so each of their ballots weighs less. Packing and <em>cracking</em> (splitting a party's voters thinly across districts they narrowly lose) are the two classic gerrymandering moves; both shrink a party's seat count below its vote share.</p>
 
     <p>The commission chair — appointed under the same Act, working from the same submissions — flagged three boundaries on the minority map as geographically anomalous: Rocky Mountain House–Banff Park's extension into uninhabited national park land; the Calgary-Nolan Hill–Cochrane lasso-shaped corridor; the Olds–Three Hills–Didsbury reach into north Airdrie. The majority received zero such flags from the same chair. (The chair's published criticism covers seven boundary configurations in total — four geometric flags in the main report and three in Appendix C. This audit independently confirmed anomalous geometry for three of the four geometric flags; the fourth, Calgary-Foothills-Airdrie West <button class="ed-trigger" data-ed-name="Calgary-Foothills-Airdrie West">show ↗</button>, did not meet the audit's confirmation threshold.)</p>
+  </section>
+
+  <section class="editorial-block" id="what-this-means" aria-labelledby="s5-heading">
+    <h2 id="s5-heading">{t(lang.current, 'section5.heading')}</h2>
+    <p>{t(lang.current, 'section5.intro_p1')}</p>
+    <ol class="ladder-questions">
+      <li><strong>{t(lang.current, 'section5.intro_q1')}</strong></li>
+      <li><strong>{t(lang.current, 'section5.intro_q2')}</strong></li>
+      <li><strong>{t(lang.current, 'section5.intro_q3')}</strong></li>
+    </ol>
+    <p>{t(lang.current, 'section5.intro_p2')}</p>
+
+    <h3 class="rung">{t(lang.current, 'section5.you_h')}</h3>
+    <p>{t(lang.current, 'section5.you_p')}</p>
+
+    <h3 class="rung">{t(lang.current, 'section5.community_h')}</h3>
+    <p>{@html t(lang.current, 'section5.community_p')}</p>
+
+    <h3 class="rung">{t(lang.current, 'section5.municipality_h')}</h3>
+    <p>{@html t(lang.current, 'section5.municipality_p')}</p>
+
+    <h3 class="rung">{t(lang.current, 'section5.region_h')}</h3>
+    <p>{t(lang.current, 'section5.region_p1')}</p>
+    <p>{@html t(lang.current, 'section5.region_p2')}</p>
+    <p>{@html t(lang.current, 'section5.region_p3')}</p>
+    <p>{t(lang.current, 'section5.region_p4')}</p>
+
+    <h3 class="rung">{t(lang.current, 'section5.province_h')}</h3>
+    <p>{@html t(lang.current, 'section5.province_p')}</p>
+  </section>
+
+  <section class="editorial-block" id="history-of-gerrymandering" aria-labelledby="s6-heading">
+    <h2 id="s6-heading">{t(lang.current, 'section6.heading')}</h2>
+    <p>{@html t(lang.current, 'section6.p1')}</p>
+    <p>{t(lang.current, 'section6.p2')}</p>
+    <p>{@html t(lang.current, 'section6.p3')}</p>
+    <p>{@html t(lang.current, 'section6.p4')}</p>
+    <p>{@html t(lang.current, 'section6.p5')}</p>
+    <p>{t(lang.current, 'section6.p6')}</p>
+  </section>
+
+  <section class="editorial-block" id="canada-is-different" aria-labelledby="s7-heading">
+    <h2 id="s7-heading">{t(lang.current, 'section7.heading')}</h2>
+    <p>{t(lang.current, 'section7.p1')}</p>
+    <p>{t(lang.current, 'section7.p2')}</p>
+    <p>{@html t(lang.current, 'section7.p3')}</p>
+    <p>{@html t(lang.current, 'section7.p4')}</p>
+    <p>{@html t(lang.current, 'section7.p5')}</p>
+    <p>{@html t(lang.current, 'section7.p6')}</p>
+    <p>{@html t(lang.current, 'section7.p7')}</p>
   </section>
 
   <section id="section-5">
@@ -1298,6 +1396,170 @@
 </div>
 
 <style>
+  /* --- Editorial blocks: opener, verdict, boundary card, sections 1/5/6/7 --- */
+  :global(.visually-hidden) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  :global(.opener-block) {
+    padding: 1.6rem 1rem 0.4rem;
+  }
+  :global(.opener-block h2) {
+    font-size: 1.15rem;
+    color: var(--heading);
+    margin: 0 0 0.55rem;
+    font-weight: 600;
+  }
+  :global(.opener-block p) {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--lead);
+    margin: 0;
+  }
+  :global(.verdict-block) {
+    margin-top: 1.5rem;
+    padding: 1.5rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-alt);
+  }
+  :global(.verdict-q) { margin-bottom: 1.1rem; }
+  :global(.verdict-q:last-of-type) { margin-bottom: 1.4rem; }
+  :global(.verdict-q h3) {
+    font-size: 1.1rem;
+    color: var(--heading);
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+  }
+  :global(.verdict-q p) { margin: 0; line-height: 1.6; color: var(--text); }
+  :global(.verdict-q em) { font-style: italic; }
+  :global(.verdict-footnote) {
+    margin-top: 0.6rem !important;
+    font-size: 0.85rem;
+    color: var(--text-muted, #666);
+    line-height: 1.5;
+    border-left: 2px solid var(--border-subtle);
+    padding-left: 0.7rem;
+  }
+  :global(.verdict-ctas) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 1rem;
+  }
+  :global(.verdict-cta) {
+    text-decoration: none;
+    color: var(--link);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  :global(.verdict-cta:hover) { text-decoration: underline; }
+  :global(.boundary-block) {
+    margin-top: 1.2rem;
+    padding: 1.2rem 1.2rem 1.4rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+  }
+  :global(.boundary-block h2) {
+    font-size: 1rem;
+    color: var(--heading);
+    margin: 0 0 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  :global(.boundary-list) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+  :global(.boundary-list .row) {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    align-items: start;
+    gap: 0.4rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--border-subtle);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  :global(.boundary-list .row:last-child) { border-bottom: 0; }
+  :global(.boundary-list .mark) {
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+  :global(.boundary-list .can .mark) { color: #2c7a4a; }
+  :global(.boundary-list .cant .mark) { color: #a8423b; }
+  :global(.boundary-list .text) { color: var(--text); }
+
+  :global(.editorial-block) {
+    padding: 2rem 0 1.6rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+  :global(.editorial-block:first-of-type) {
+    border-top: 0;
+    margin-top: 1.4rem;
+  }
+  :global(.editorial-block h2) {
+    font-size: 1.45rem;
+    color: var(--heading);
+    margin: 0 0 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  :global(.editorial-block h3.rung) {
+    font-size: 1.05rem;
+    color: var(--heading-2);
+    margin: 1.4rem 0 0.4rem;
+    font-weight: 600;
+  }
+  :global(.editorial-block p) {
+    margin: 0 0 0.9rem;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  :global(.editorial-block p:last-of-type) { margin-bottom: 0; }
+  :global(.editorial-block em) { font-style: italic; color: var(--text); }
+  :global(.ladder-questions) {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: grid;
+    gap: 0.4rem;
+    counter-reset: ladder;
+  }
+  :global(.ladder-questions li) {
+    display: grid;
+    grid-template-columns: 1.7rem 1fr;
+    gap: 0.5rem;
+    align-items: baseline;
+    padding: 0.5rem 0.8rem;
+    background: var(--bg-alt);
+    border-left: 3px solid var(--link);
+    border-radius: 3px;
+    counter-increment: ladder;
+  }
+  :global(.ladder-questions li::before) {
+    content: counter(ladder) ".";
+    color: var(--link);
+    font-weight: 600;
+  }
+  :global(.ladder-questions strong) {
+    font-weight: 500;
+    color: var(--heading);
+  }
+
   :global {
 :root {
   --bg:              #f9f7f2;
