@@ -466,7 +466,7 @@
 </section>
 
 <section class="verdict-block container" aria-labelledby="verdict-heading">
-  <h2 id="verdict-heading" class="visually-hidden">Verdict</h2>
+  <h2 id="verdict-heading" class="visually-hidden">{t(lang.current, 'nav.verdict')}</h2>
   <div class="verdict-q">
     <h3>{t(lang.current, 'verdict.q1.heading')}</h3>
     <p>{@html t(lang.current, 'verdict.q1.body')}</p>
