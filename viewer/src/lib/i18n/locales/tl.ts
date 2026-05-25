@@ -86,7 +86,7 @@ export default {
 		btn_title: 'I-click upang buksan ang interactive na mapa',
 		btn_aria: 'Buksan ang interactive na mapa'
 	},
-	section1: {
+	editorial_intro: {
 		heading: 'Ano ang redistricting at bakit ito ay dapat mahalaga sa iyo?',
 		p1: 'Ang bawat botante sa Alberta ay naninirahan sa isang <em>elektoral na distrito</em> — isang seksyon ng probinsya na pumipili ng isang tao sa lehislatura. May 87 distrito. Ang bawat distrito ay pumipili ng isang MLA. Kapag ikaw ay bumoboto sa isang elektoral na probinsya, pinipili mo ang MLA para sa distrito kung saan ka nakatira. Iyon ang buong koneksyon ng karamihan sa mga Albertan sa lehislatura: isang MLA, isang distrito, isang boto.',
 		p2: 'Ang mga linyang ito ng distrito ay hindi permanente. Lumilipat ang mga tao, lumalago ang mga kapitbahayan, ang mga lugar sa kanayunan ay nagiging manipis, at ang mga lungsod ay lumalawak. Tuwing walo hanggang sampung taon, dapat na muling iguhit ng Alberta ang mga linya upang ang bawat distrito ay nasa tamang sukat at sumasalamin sa kung paano talaga nakatira ang mga Albertan ngayon. Ang katawan na muling gumuhit ay ang <em>Komisyon ng Hangganan ng Halalan</em> — isang independiyenteng komisyon na may mga huwes, abugado, at miyembro ng publiko, hindi mga politiko.',

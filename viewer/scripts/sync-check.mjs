@@ -52,20 +52,20 @@ const PROBES = [
 	{ key: 'boundary.heading', anchor: "What this audit can and can't tell you" },
 	{ key: 'boundary.can_1', anchor: 'Fewer than 1 in 14.5 million randomly generated comparison maps' },
 	// Section 1 (onboarding)
-	{ key: 'section1.heading', anchor: 'What is redistricting, and why it matters' },
-	{ key: 'section1.p1', anchor: 'one MLA, one district, one vote' },
-	{ key: 'section1.p3', anchor: 'split 3–2 on what the map should look like' },
+	{ key: 'editorial_intro.heading', anchor: 'What is redistricting, and why it matters' },
+	{ key: 'editorial_intro.p1', anchor: 'one MLA, one district, one vote' },
+	{ key: 'editorial_intro.p3', anchor: 'split 3–2 on what the map should look like' },
 	// Section 5 (ladder)
-	{ key: 'section5.intro_q1', anchor: 'Where does your MLA live' },
-	{ key: 'section5.intro_q3', anchor: 'demands of the head dominate the demands of the tails' },
-	{ key: 'section5.region_p3', anchor: 'rural communities are being attached as the' },
-	{ key: 'section5.province_p', anchor: 'sum every district\'s answers to the three questions' },
+	{ key: 'editorial_reflect.intro_q1', anchor: 'Where does your MLA live' },
+	{ key: 'editorial_reflect.intro_q3', anchor: 'demands of the head dominate the demands of the tails' },
+	{ key: 'editorial_reflect.region_p3', anchor: 'rural communities are being attached as the' },
+	{ key: 'editorial_reflect.province_p', anchor: 'sum every district\'s answers to the three questions' },
 	// Section 6 (history)
-	{ key: 'section6.p1', anchor: 'Massachusetts governor Elbridge Gerry' },
-	{ key: 'section6.p3', anchor: 'Rucho v. Common Cause' },
+	{ key: 'editorial_history.p1', anchor: 'Massachusetts governor Elbridge Gerry' },
+	{ key: 'editorial_history.p3', anchor: 'Rucho v. Common Cause' },
 	// Section 7 (Canada)
-	{ key: 'section7.p3', anchor: 'Saskatchewan Reference' },
-	{ key: 'section7.p4', anchor: '25% population variance' }
+	{ key: 'editorial_canada.p3', anchor: 'Saskatchewan Reference' },
+	{ key: 'editorial_canada.p4', anchor: '25% population variance' }
 ];
 
 /**

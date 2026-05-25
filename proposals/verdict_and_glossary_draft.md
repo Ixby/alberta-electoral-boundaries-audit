@@ -42,7 +42,7 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 >
 > It doesn't. The Canadian test is different: whether the boundaries give voters *effective representation* under section 3 of the Charter. The minority proposal raises serious questions under that test; only a judge can answer them definitively, and no one has asked one yet.
 >
-> ### What does it mean for Albertans?
+> ### What's at stake for Albertans?
 >
 > At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme — fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because at 58 of 87 seats — a two-thirds supermajority — the governing party unlocks extraordinary procedural powers: it can waive standard notice periods and push public bills through multiple legislative stages in a single day, bypassing deliberation checks that normally constrain it. Whether the minority proposal's tilt is large enough to push one party past that 58-seat threshold at vote shares *other* than 50/50 is a question this audit has not yet tested. Whether the tradeoff itself is acceptable is a question for Albertans, not for this audit.
 >
@@ -139,7 +139,7 @@ The biggest piece of new prose on `/`. Sits after Section 4 ("What the Minority 
 
 ---
 
-> ### What this means for you and your community
+> ### Interlude: What this means for you and your community
 >
 > Set aside, for a moment, the question of which party gains or loses seats. Politicians and parties tend to frame this as a fight over power concentration in the legislature, and at that scale it is. But power concentration in the legislature is not where you experience these maps. You experience them through three concrete questions about your own district:
 >
@@ -204,7 +204,7 @@ A short narrative section that gives the reader the word's origin and three quic
 
 ---
 
-> ### A short history of gerrymandering
+> ### Context: A short history of gerrymandering
 >
 > The word comes from 1812. Massachusetts governor Elbridge Gerry signed off on a state-senate map whose districts were so contorted to favour his party that a Boston cartoonist drew one of them as a salamander — wings, claws, a forked tongue. The cartoonist's pun, *Gerry-mander*, stuck. The shape stuck too: two centuries later, the word still means drawing electoral lines to engineer a partisan outcome.
 >
@@ -239,7 +239,7 @@ The bridge from the international snapshot in Section 6 to the deeper legal fram
 
 ---
 
-> ### Canada is different — and similar
+> ### Context: Canada is different — and similar
 >
 > Canada belongs to the same family as the U.S., the U.K., and Australia. We elect single members from geographic districts under first-past-the-post. We redraw the lines periodically — federally after each decennial census, provincially on staggered schedules. We inherited the basic machinery from the same Westminster roots. So far, no surprises.
 >

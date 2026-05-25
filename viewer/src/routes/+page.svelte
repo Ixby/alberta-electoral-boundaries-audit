@@ -500,12 +500,12 @@
 </section>
 
 <section class="editorial-block container" id="what-is-redistricting" aria-labelledby="s1-heading">
-  <h2 id="s1-heading">{t(lang.current, 'section1.heading')}</h2>
-  <p>{@html t(lang.current, 'section1.p1')}</p>
-  <p>{@html t(lang.current, 'section1.p2')}</p>
-  <p>{@html t(lang.current, 'section1.p3')}</p>
-  <p>{@html t(lang.current, 'section1.p4')}</p>
-  <p>{t(lang.current, 'section1.p5')}</p>
+  <h2 id="s1-heading">{t(lang.current, 'editorial_intro.heading')}</h2>
+  <p>{@html t(lang.current, 'editorial_intro.p1')}</p>
+  <p>{@html t(lang.current, 'editorial_intro.p2')}</p>
+  <p>{@html t(lang.current, 'editorial_intro.p3')}</p>
+  <p>{@html t(lang.current, 'editorial_intro.p4')}</p>
+  <p>{t(lang.current, 'editorial_intro.p5')}</p>
 </section>
 
 <main id="main" class="container" tabindex="-1">
@@ -679,53 +679,53 @@
   </section>
 
   <section class="editorial-block" id="what-this-means" aria-labelledby="s5-heading">
-    <h2 id="s5-heading">{t(lang.current, 'section5.heading')}</h2>
-    <p>{t(lang.current, 'section5.intro_p1')}</p>
+    <h2 id="s5-heading">{t(lang.current, 'editorial_reflect.heading')}</h2>
+    <p>{t(lang.current, 'editorial_reflect.intro_p1')}</p>
     <ol class="ladder-questions">
-      <li><strong>{t(lang.current, 'section5.intro_q1')}</strong></li>
-      <li><strong>{t(lang.current, 'section5.intro_q2')}</strong></li>
-      <li><strong>{t(lang.current, 'section5.intro_q3')}</strong></li>
+      <li><strong>{t(lang.current, 'editorial_reflect.intro_q1')}</strong></li>
+      <li><strong>{t(lang.current, 'editorial_reflect.intro_q2')}</strong></li>
+      <li><strong>{t(lang.current, 'editorial_reflect.intro_q3')}</strong></li>
     </ol>
-    <p>{t(lang.current, 'section5.intro_p2')}</p>
+    <p>{t(lang.current, 'editorial_reflect.intro_p2')}</p>
 
-    <h3 class="rung">{t(lang.current, 'section5.you_h')}</h3>
-    <p>{t(lang.current, 'section5.you_p')}</p>
+    <h3 class="rung">{t(lang.current, 'editorial_reflect.you_h')}</h3>
+    <p>{t(lang.current, 'editorial_reflect.you_p')}</p>
 
-    <h3 class="rung">{t(lang.current, 'section5.community_h')}</h3>
-    <p>{@html t(lang.current, 'section5.community_p')}</p>
+    <h3 class="rung">{t(lang.current, 'editorial_reflect.community_h')}</h3>
+    <p>{@html t(lang.current, 'editorial_reflect.community_p')}</p>
 
-    <h3 class="rung">{t(lang.current, 'section5.municipality_h')}</h3>
-    <p>{@html t(lang.current, 'section5.municipality_p')}</p>
+    <h3 class="rung">{t(lang.current, 'editorial_reflect.municipality_h')}</h3>
+    <p>{@html t(lang.current, 'editorial_reflect.municipality_p')}</p>
 
-    <h3 class="rung">{t(lang.current, 'section5.region_h')}</h3>
-    <p>{t(lang.current, 'section5.region_p1')}</p>
-    <p>{@html t(lang.current, 'section5.region_p2')}</p>
-    <p>{@html t(lang.current, 'section5.region_p3')}</p>
-    <p>{t(lang.current, 'section5.region_p4')}</p>
+    <h3 class="rung">{t(lang.current, 'editorial_reflect.region_h')}</h3>
+    <p>{t(lang.current, 'editorial_reflect.region_p1')}</p>
+    <p>{@html t(lang.current, 'editorial_reflect.region_p2')}</p>
+    <p>{@html t(lang.current, 'editorial_reflect.region_p3')}</p>
+    <p>{t(lang.current, 'editorial_reflect.region_p4')}</p>
 
-    <h3 class="rung">{t(lang.current, 'section5.province_h')}</h3>
-    <p>{@html t(lang.current, 'section5.province_p')}</p>
+    <h3 class="rung">{t(lang.current, 'editorial_reflect.province_h')}</h3>
+    <p>{@html t(lang.current, 'editorial_reflect.province_p')}</p>
   </section>
 
   <section class="editorial-block" id="history-of-gerrymandering" aria-labelledby="s6-heading">
-    <h2 id="s6-heading">{t(lang.current, 'section6.heading')}</h2>
-    <p>{@html t(lang.current, 'section6.p1')}</p>
-    <p>{t(lang.current, 'section6.p2')}</p>
-    <p>{@html t(lang.current, 'section6.p3')}</p>
-    <p>{@html t(lang.current, 'section6.p4')}</p>
-    <p>{@html t(lang.current, 'section6.p5')}</p>
-    <p>{t(lang.current, 'section6.p6')}</p>
+    <h2 id="s6-heading">{t(lang.current, 'editorial_history.heading')}</h2>
+    <p>{@html t(lang.current, 'editorial_history.p1')}</p>
+    <p>{t(lang.current, 'editorial_history.p2')}</p>
+    <p>{@html t(lang.current, 'editorial_history.p3')}</p>
+    <p>{@html t(lang.current, 'editorial_history.p4')}</p>
+    <p>{@html t(lang.current, 'editorial_history.p5')}</p>
+    <p>{t(lang.current, 'editorial_history.p6')}</p>
   </section>
 
   <section class="editorial-block" id="canada-is-different" aria-labelledby="s7-heading">
-    <h2 id="s7-heading">{t(lang.current, 'section7.heading')}</h2>
-    <p>{t(lang.current, 'section7.p1')}</p>
-    <p>{t(lang.current, 'section7.p2')}</p>
-    <p>{@html t(lang.current, 'section7.p3')}</p>
-    <p>{@html t(lang.current, 'section7.p4')}</p>
-    <p>{@html t(lang.current, 'section7.p5')}</p>
-    <p>{@html t(lang.current, 'section7.p6')}</p>
-    <p>{@html t(lang.current, 'section7.p7')}</p>
+    <h2 id="s7-heading">{t(lang.current, 'editorial_canada.heading')}</h2>
+    <p>{t(lang.current, 'editorial_canada.p1')}</p>
+    <p>{t(lang.current, 'editorial_canada.p2')}</p>
+    <p>{@html t(lang.current, 'editorial_canada.p3')}</p>
+    <p>{@html t(lang.current, 'editorial_canada.p4')}</p>
+    <p>{@html t(lang.current, 'editorial_canada.p5')}</p>
+    <p>{@html t(lang.current, 'editorial_canada.p6')}</p>
+    <p>{@html t(lang.current, 'editorial_canada.p7')}</p>
   </section>
 
   <section id="section-5">

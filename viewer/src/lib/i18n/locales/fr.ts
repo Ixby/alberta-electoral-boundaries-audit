@@ -102,7 +102,7 @@ export default {
 		cant_4:
 			"L'audit ne dit <strong>pas</strong> à un électeur quelle position adopter ni quoi faire de cette information. Cela vous appartient."
 	},
-	section1: {
+	editorial_intro: {
 		heading: 'Qu\'est-ce que la redéfinition des circonscriptions et pourquoi devriez-vous vous y intéresser ?',
 		p1: "Chaque électeur de l'Alberta vit dans une <em>circonscription électorale</em> — une portion de la province qui élit une personne à l'assemblée législative. Il y a 87 circonscriptions. Chaque circonscription élit un MLA. Quand vous votez à une élection provinciale, vous choisissez le MLA de la circonscription où vous habitez. C'est tout le lien que la plupart des Albertains entretiennent avec l'assemblée législative : un MLA, une circonscription, un vote.",
 		p2: "Ces limites ne sont pas permanentes. Les gens déménagent, les quartiers grandissent, les régions rurales se vident, les villes s'étendent. Tous les huit à dix ans, l'Alberta est censée redessiner les limites pour que chaque circonscription soit à peu près de la bonne taille et reflète la façon dont les Albertains vivent réellement aujourd'hui. L'organisme qui s'en charge est la <em>Commission de délimitation électorale</em> — une commission indépendante composée de juges, d'avocats et de membres du public, et non de politiciens.",
@@ -110,7 +110,7 @@ export default {
 		p4: "Pourquoi cela compte pour vous : les limites décident qui est votre MLA. Elles décident quels quartiers, quelles villes et quelles préoccupations sont représentés ensemble. Si votre ville est divisée entre quatre MLA plutôt qu'un seul, aucun représentant unique n'est responsable de la ville dans son ensemble. Si votre communauté d'intérêts — une petite ville, une région rurale, un centre-ville — est divisée entre plusieurs circonscriptions, votre voix sur les décisions provinciales est diluée. La carte façonne aussi quel parti peut former un gouvernement, et à quelle marge. La conclusion précise de cet audit (que la proposition minoritaire se situe dans un extrême structurel) est la raison pour laquelle vous lisez ce site, mais la question plus large est plus ancienne et s'applique à chaque cycle de redécoupage : les limites reflètent-elles la façon dont les Albertains vivent, ou façonnent-elles la politique qui suit ?",
 		p5: "Le reste de cette page parcourt ce que les deux cartes proposées font réellement."
 	},
-	section5: {
+	editorial_reflect: {
 		heading: 'Ce que cela signifie pour vous et votre communauté',
 		intro_p1:
 			"Mettons de côté, pour un instant, la question de savoir quel parti gagne ou perd des sièges. Les politiciens et les partis tendent à présenter cela comme une lutte pour la concentration du pouvoir à l'assemblée législative, et à cette échelle c'en est une. Mais la concentration du pouvoir à l'assemblée n'est pas là où vous vivez ces cartes. Vous les vivez à travers trois questions concrètes sur votre propre circonscription :",
@@ -141,7 +141,7 @@ export default {
 		province_p:
 			"L'assemblée législative est ce que vous obtenez quand vous additionnez les réponses de chaque circonscription aux trois questions ci-dessus. Si la plupart des circonscriptions sont ancrées à des communautés dont les MLA y vivent réellement, l'assemblée représente ces communautés. Si la plupart des circonscriptions ont des queues rurales rattachées à des têtes urbaines, l'assemblée représente les têtes — et les queues obtiennent l'attention qui reste. La question partisane — quel parti remporte la majorité — est en aval de cela. La question de la supermajorité — savoir si un parti franchit 58 des 87 sièges et débloque des raccourcis procéduraux comme la levée des délais d'avis ou l'accélération de projets de loi à travers plusieurs étapes en une seule journée — est en aval de <em>cela</em>. Lors d'un vote provincial hypothétique à 50/50, les mesures de l'audit placent la proposition minoritaire dans un extrême structurel : moins de 100 des 1,01 million de cartes neutres de comparaison produisent un déséquilibre de sièges comparable. Savoir si ce déséquilibre porte un parti au-delà de 58 sièges aux résultats de vote que les Albertains livrent réellement est une question que cet audit n'a pas encore directement examinée ; le verdict en haut de cette page est honnête sur cette lacune. Savoir si la réponse à l'une de ces questions compte assez pour agir est, encore une fois, une question pour vous."
 	},
-	section6: {
+	editorial_history: {
 		heading: 'Une brève histoire du découpage partisan',
 		p1: "Le mot vient de 1812. Le gouverneur du Massachusetts Elbridge Gerry a approuvé une carte sénatoriale dont les circonscriptions étaient si tordues pour favoriser son parti qu'un caricaturiste bostonien en a dessiné une comme une salamandre — ailes, griffes, langue fourchue. Le jeu de mots du caricaturiste, <em>Gerry-mander</em>, est resté. La forme aussi : deux siècles plus tard, le mot signifie toujours tracer des limites électorales pour produire un résultat partisan.",
 		p2: "Le terme perdure parce que le problème perdure. Partout où les électeurs choisissent des représentants à partir de circonscriptions géographiques, quelqu'un doit tracer les limites, et les limites peuvent être tracées de plusieurs façons. Différents pays sont arrivés à différentes réponses sur qui devrait faire le tracé et ce qui devrait l'encadrer.",
@@ -150,7 +150,7 @@ export default {
 		p5: "<strong>L'Australie</strong> délègue le travail à la Commission électorale australienne, une agence fédérale indépendante avec autorité complète sur l'administration des élections et sur les limites. Les redécoupages ont lieu automatiquement quand le nombre de sièges d'un État change ou que sept ans se sont écoulés depuis le dernier. Les décisions des commissaires peuvent être révisées sur des motifs procéduraux mais pas sur des motifs partisans. Comme au Royaume-Uni, le résultat est que le découpage partisan tel que les Américains le connaissent est pratiquement inconnu.",
 		p6: "Ces trois cas encadrent le spectre : tribunaux qui restent à l'écart (États-Unis), commissions indépendantes avec forte déférence parlementaire (Royaume-Uni), et agence indépendante permanente avec autorité complète (Australie). Le Canada se situe encore ailleurs — ce que la prochaine section aborde."
 	},
-	section7: {
+	editorial_canada: {
 		heading: 'Le Canada est différent — et semblable',
 		p1: "Le Canada appartient à la même famille que les États-Unis, le Royaume-Uni et l'Australie. Nous élisons des membres uniques à partir de circonscriptions géographiques selon le scrutin majoritaire uninominal. Nous retraçons les limites périodiquement — au fédéral après chaque recensement décennal, dans les provinces selon des calendriers échelonnés. Nous avons hérité de la machinerie de base des mêmes racines de Westminster. Jusqu'ici, aucune surprise.",
 		p2: "Ce qui distingue le Canada, c'est le critère que les limites doivent satisfaire.",

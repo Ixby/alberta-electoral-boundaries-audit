@@ -114,7 +114,7 @@ export default {
 		cant_4:
 			"The audit does <strong>not</strong> tell any individual voter what position to take or what to do with this information. That's yours to decide."
 	},
-	section1: {
+	editorial_intro: {
 		heading: 'What is redistricting, and why it matters',
 		p1: 'Every voter in Alberta lives in an <em>electoral district</em> — a slice of the province that elects one person to the legislature. There are 87 districts. Each district elects one MLA. When you cast a ballot in a provincial election, you are choosing the MLA for the district you live in. That is the entire connection most Albertans have to the legislature: one MLA, one district, one vote.',
 		p2: 'Those district lines are not permanent. People move, neighbourhoods grow, rural areas thin out, cities sprawl. Every eight to ten years, Alberta is supposed to redraw the lines so each district is roughly the right size and reflects the way Albertans actually live now. The body that does the redrawing is the <em>Electoral Boundaries Commission</em> — an independent commission with judges, lawyers, and public members, not politicians.',
@@ -123,8 +123,8 @@ export default {
 		p5: 'The rest of this page walks through what the two proposed maps actually do.',
 		key_terms_lead: 'Key terms in this section — click to read:'
 	},
-	section5: {
-		heading: 'What this means for you and your community',
+	editorial_reflect: {
+		heading: 'Interlude: What this means for you and your community',
 		intro_p1:
 			"Set aside, for a moment, the question of which party gains or loses seats. Politicians and parties tend to frame this as a fight over power concentration in the legislature, and at that scale it is. But power concentration in the legislature is not where you experience these maps. You experience them through three concrete questions about your own district:",
 		intro_q1: 'Where does your MLA live?',
@@ -154,8 +154,8 @@ export default {
 		province_p:
 			"The legislature is what you get when you sum every district's answers to the three questions above. If most districts are anchored to communities whose MLAs actually live in them, the legislature represents those communities. If most districts have rural tails attached to urban heads, the legislature represents the heads — and the tails get whatever attention is left over. The partisan question — which party wins a majority — is downstream of that. The supermajority question — whether one party crosses 58 of 87 seats and unlocks procedural shortcuts like waiving notice periods or accelerating bills through multiple stages in a single day — is downstream of <em>that</em>. At a hypothetical 50/50 provincial split, the audit's measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. Whether that imbalance pushes a party past 58 seats at the vote shares Albertans actually deliver is a question this audit has not yet directly tested; the summary at the top of this page is honest about the gap. Whether the answer to any of these questions matters enough to act on is, again, a question for you."
 	},
-	section6: {
-		heading: 'A short history of gerrymandering',
+	editorial_history: {
+		heading: 'Context: A short history of gerrymandering',
 		p1: 'The word comes from 1812. Massachusetts governor Elbridge Gerry signed off on a state-senate map whose districts were so contorted to favour his party that a Boston cartoonist drew one of them as a salamander — wings, claws, a forked tongue. The cartoonist\'s pun, <em>Gerry-mander</em>, stuck. The shape stuck too: two centuries later, the word still means drawing electoral lines to engineer a partisan outcome.',
 		p2: 'The term endures because the problem endures. Anywhere voters choose representatives from geographic districts, someone has to draw the lines, and the lines can be drawn many ways. Different countries have arrived at different answers about who should do the drawing and what should constrain them.',
 		p3: '<strong>The United States</strong> treats partisan gerrymandering as a problem the federal courts mostly cannot fix. In <em>Rucho v. Common Cause</em> (2019), the U.S. Supreme Court ruled that partisan gerrymanders are "political questions" outside its jurisdiction. Some states (California, Michigan) have responded by creating independent citizen commissions to draw their own lines; others (Texas, North Carolina) have continued to draw openly partisan maps and defended them on the basis that <em>Rucho</em> permits it.',
@@ -617,8 +617,8 @@ export default {
 				"Neither of these is a finding about the current commission's maps. They are observations about a system that makes accurate electoral analysis harder than it needs to be. They are offered here as practical suggestions, not conclusions. Both are genuinely fixable, and fixing them would make every future commission — and every future audit — work from better ground."
 		}
 	},
-	section7: {
-		heading: 'Canada is different — and similar',
+	editorial_canada: {
+		heading: 'Context: Canada is different — and similar',
 		p1: 'Canada belongs to the same family as the U.S., the U.K., and Australia. We elect single members from geographic districts under first-past-the-post. We redraw the lines periodically — federally after each decennial census, provincially on staggered schedules. We inherited the basic machinery from the same Westminster roots. So far, no surprises.',
 		p2: 'What sets Canada apart is the test the lines have to pass.',
 		p3: 'In American constitutional law, the binding rule is <em>one person, one vote</em> — districts must have populations as nearly equal as practicable, and large departures require strict justification. In Canadian constitutional law, the binding rule is different. Section 3 of the <em>Canadian Charter of Rights and Freedoms</em> guarantees every citizen the right to vote. In <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — the 1991 Saskatchewan Reference, the leading case — the Supreme Court of Canada interpreted that right as a right to <em>effective representation</em>, not a right to mathematical equality of district populations.',
