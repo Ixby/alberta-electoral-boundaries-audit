@@ -61,7 +61,9 @@ export function extractBoundaryGroup(ctx: MapCtx, key): Element | null {
   const clone = document.importNode(lc, true);
   const zf = (ctx.natVB && ctx.curVB) ? ctx.natVB.w / ctx.curVB.w : 1;
   const primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
-  const sw = Math.min(0.35, primaryW * 0.6);
+  const sw = primaryW * 0.7; // proportional to primary; no absolute cap so default-zoom overlays stay above sub-pixel
+  // Force _lastStrokeW recompute so the new overlay actually receives a stroke update from updateStrokeWidths
+  ctx._lastStrokeW = undefined;
   // LineCollection_1 may itself be a <path> (not a container <g>)
   const targets = clone.tagName.toLowerCase() === 'path'
     ? [clone] : Array.from(clone.querySelectorAll('path'));
@@ -81,7 +83,11 @@ export function fetchAndOverlay(ctx: MapCtx, key, deps): void {
   function apply() {
     if (!ctx.mapOn[key] || key === ctx.mapPrimary || !ctx.svgEl) return;
     const g = extractBoundaryGroup(ctx, key);
-    if (g) { ctx.svgEl.appendChild(g); ctx.overlayInSvg[key] = g; }
+    if (g) {
+      ctx.svgEl.appendChild(g);
+      ctx.overlayInSvg[key] = g;
+      updateStrokeWidths(ctx); // ensure overlay paths get correct stroke width now (cache was just invalidated)
+    }
   }
   if (ctx.svgCache[key]) { apply(); return; }
   fetch(deps.svgUrls[key]).then(function(r) { return r.text(); }).then(function(text) {

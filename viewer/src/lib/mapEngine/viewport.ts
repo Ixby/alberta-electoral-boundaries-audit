@@ -108,19 +108,20 @@ export function updateStrokeWidths(ctx: MapCtx): void {
   var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
   if (Math.abs(primaryW - (ctx._lastStrokeW ?? -1)) < 0.005) return;
   ctx._lastStrokeW = primaryW;
-  var overlayW = Math.min(0.35, primaryW * 0.6);
+  var overlayW = primaryW * 0.7; // proportional to primary, no absolute cap (0.35 cap was sub-pixel at default zoom)
   var pLc = ctx.svgEl.querySelector('#LineCollection_1');
   if (pLc) pLc.querySelectorAll('path').forEach(function(p) {
     p.style.strokeWidth = String(primaryW);
   });
   ['minority', 'majority', '2019'].forEach(function(key) {
     var og = ctx.overlayInSvg[key];
-    if (og) {
-      var lc = og.querySelector('#LineCollection_1');
-      if (lc) lc.querySelectorAll('path').forEach(function(p) {
-        p.style.strokeWidth = String(overlayW);
-      });
-    }
+    if (!og) return;
+    // og is the renamed clone of LineCollection_1 (id is now "ed-boundary-overlay-{key}").
+    // Query paths directly on og — not via "#LineCollection_1" which no longer matches.
+    var paths = og.tagName.toLowerCase() === 'path' ? [og] : og.querySelectorAll('path');
+    paths.forEach(function(p) {
+      p.style.strokeWidth = String(overlayW);
+    });
   });
 }
 
