@@ -625,5 +625,105 @@ export default {
 		p5: 'The catch is that flexibility cuts both ways. If a commission can legitimately depart from population equality for the right reasons, it can also depart from population equality for the wrong ones. Canadian law has no American-style mathematical floor to fall back on. It has the effective-representation test, applied by judges, after the fact, in litigation. Most jurisdictions guard against the wrong reasons with structural protections: federal redistricting commissions are insulated by statute and their recommendations take effect automatically if Parliament does not act on them within a deadline. Quebec uses a permanent independent commission whose work the National Assembly can override only with a two-thirds supermajority. British Columbia operates under a similar default-adopt rule.',
 		p6: 'Alberta is the exception. Under the <em>Electoral Boundaries Commission Act</em>, the commission\'s report is a recommendation only — the legislature must vote to enact it. That is normally a formality. In the 2026 cycle, the commission split 3–2 and produced two competing proposals; the legislature created a separate MLA committee, chaired by a Premier-appointed MLA, to choose between them. Nothing in Canadian constitutional law required that committee to exist. Nothing requires its choice to follow the commission\'s process. That is the structural gap this audit is examining.',
 		p7: 'So when Canadian courts say "gerrymander" isn\'t their legal vocabulary, they are not saying the underlying concept does not apply here. They are saying the test is different — effective representation, not mathematical equality. Whether the minority proposal meets that test is exactly the question this audit has measured the geometry against, and exactly the question only a judge can answer definitively. The <em>Saskatchewan Reference</em> reasoning in full, the contrast with other provinces, the standing question, and the available reform pathways are treated in <a href="#references">the references section below</a>.'
+	},
+	chrome: {
+		back_to_top: 'Back to top',
+		license_title: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0',
+		license_alt: 'CC BY-NC-SA 4.0',
+		license_aria: 'Creative Commons BY-NC-SA 4.0',
+		lightbox: {
+			fig_aria: 'Figure enlarged view',
+			fig_close_aria: 'Close enlarged figure (Esc)',
+			map_aria: 'Map zoom viewer',
+			map_close_aria: 'Close map viewer',
+			close_title: 'Close (Esc)'
+		},
+		participation: {
+			heading: 'Help us refine MapExplorer',
+			body:
+				"As you explore, we track which maps and districts you visit and periodically send that to our research database. Sharing a view also saves where you ended up. The goal: understand what's useful and make the tool better.",
+			no_collect:
+				"We never collect your name, IP address, or precise location. Everything is anonymized in your browser before it leaves. We couldn't identify you from the data even if ordered to.",
+			dnt:
+				'Your browser has Do Not Track enabled. No is pre-selected on your behalf. You can still choose Yes.',
+			no_thanks: 'No thanks',
+			yes_help: "Yes, I'll help",
+			privacy_policy: 'Privacy policy'
+		},
+		share: {
+			button: 'Share',
+			button_title: 'Share or load a map configuration',
+			dialog_aria: 'Share map configuration',
+			close_aria: 'Close share panel',
+			share_label: 'Share this configuration',
+			share_hint:
+				'Type this code into any browser running the audit to load this configuration. The code is never placed in a URL.',
+			load_label: 'Load a configuration',
+			load_btn: 'Load',
+			load_placeholder: 'alpine-eagle-banff',
+			copy: 'Copy',
+			copied: 'Copied!',
+			copy_failed: 'Failed',
+			unrecognised: 'Unrecognised code — check spelling.'
+		},
+		map: {
+			minority: 'Minority',
+			majority: 'Majority',
+			current: 'Current',
+			wasted: 'Wasted',
+			wasted_title: 'Efficiency-gap contribution per district',
+			partisan: 'Partisan',
+			partisan_title:
+				'Colour each district by partisan outcome (UCP blue / NDP orange)',
+			borders: 'Borders',
+			flagged: 'Flagged',
+			flagged_title:
+				'All 7 configurations flagged by commission chair Justice Miller — switches to minority map automatically',
+			help_aria: 'Map help',
+			help_title: 'How to use the map',
+			pin_aria: 'Pin Map',
+			pin_title: 'Pin Map — prevent auto-pan on district click',
+			search_placeholder: 'Find district…',
+			zoom_aria: 'Map zoom',
+			clear_aria: 'Clear district selection',
+			clear_title: 'Clear selection',
+			va_hint: 'Click within this district to see polling station results',
+			va_close_aria: 'Close polling station detail',
+			va_close_title: 'Close',
+			fallback:
+				'Map loaded in low-resolution mode — district detail unavailable',
+			object_title: 'Alberta electoral district map — full resolution',
+			ea_credit: 'Map data:',
+			cc_title: 'Text content: CC BY-NC-SA 4.0',
+			cc_alt: 'Creative Commons BY-NC-SA 4.0'
+		},
+		map_intro: {
+			heading: 'How to use the map',
+			click_district: 'Click any district',
+			click_district_desc: 'see 2023 election results and snap to it',
+			click_within: 'Click within a selected district',
+			click_within_desc:
+				'see individual polling station results (colour = vote split)',
+			dblclick: 'Double-click a district',
+			dblclick_desc:
+				'zoom to fill screen; double-click empty space to zoom out',
+			layers_primary: 'Minority / Majority / Current',
+			layers_primary_desc: 'switch the active boundary map',
+			layers_data: 'Partisan / Wasted / Borders',
+			layers_data_desc: 'toggle data layers',
+			search: 'Find district',
+			search_desc: 'jump by name; arrow keys pan, + / − zoom',
+			escape: 'Escape',
+			escape_desc: 'close this viewer',
+			s4_tip:
+				'In §4, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone.',
+			got_it: 'Got it'
+		},
+		footer: {
+			title: 'Alberta Electoral Boundary Audit — May 2026',
+			copyright: '© Will Conner 2026 —',
+			text_label: 'Text:',
+			code_label: 'Code:'
+		}
 	}
 } as const;

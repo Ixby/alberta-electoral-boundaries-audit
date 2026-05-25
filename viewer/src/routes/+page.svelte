@@ -70,8 +70,16 @@
   let showSharePanel    = $state(false);
   let shareCode         = $state('');
   let loadInput         = $state('');
-  let copyLabel         = $state('Copy');
-  let loadError         = $state('');
+  let copyState         = $state<'idle' | 'copied' | 'failed'>('idle');
+  let loadErrorKey      = $state<'' | 'unrecognised'>('');
+  const copyLabel       = $derived(
+    copyState === 'copied' ? t(lang.current, 'chrome.share.copied')
+    : copyState === 'failed' ? t(lang.current, 'chrome.share.copy_failed')
+    : t(lang.current, 'chrome.share.copy')
+  );
+  const loadError       = $derived(
+    loadErrorKey === 'unrecognised' ? t(lang.current, 'chrome.share.unrecognised') : ''
+  );
 
   function _generateCode() {
     const s = _ME ? _ME.getState() : null;
@@ -82,7 +90,7 @@
   function toggleSharePanel() {
     showSharePanel = !showSharePanel;
     if (showSharePanel) {
-      _generateCode(); loadError = '';
+      _generateCode(); loadErrorKey = '';
       tick().then(() => {
         const panel = document.getElementById('share-panel');
         const first = panel?.querySelector('button, input') as HTMLElement | null;
@@ -101,24 +109,24 @@
     if (!shareCode || shareCode === '—') return;
     try {
       await navigator.clipboard.writeText(shareCode);
-      copyLabel = 'Copied!';
+      copyState = 'copied';
     } catch {
-      copyLabel = 'Failed';
+      copyState = 'failed';
     }
-    setTimeout(() => { copyLabel = 'Copy'; }, 2000);
+    setTimeout(() => { copyState = 'idle'; }, 2000);
   }
 
   function loadShare() {
     const trimmed = loadInput.trim();
     if (!trimmed) return;
     const decoded = decodeState(trimmed);
-    if (!decoded) { loadError = 'Unrecognised code — check spelling.'; return; }
+    if (!decoded) { loadErrorKey = 'unrecognised'; return; }
     if (_ME) { _ME.applyState(decoded.primary, decoded.mapOn, decoded.layers); }
     else { _pendingState = { primary: decoded.primary, mapOn: decoded.mapOn, layers: decoded.layers }; }
     setOrigin(trimmed.toLowerCase().trim());
     showSharePanel = false;
     loadInput  = '';
-    loadError  = '';
+    loadErrorKey = '';
   }
 
   let skelPhrase = 'Loading Map Explorer…';
@@ -1217,17 +1225,17 @@
 
 </main><!-- /.container -->
 
-<a href="#top" id="back-top" aria-label="Back to top">↑</a>
+<a href="#top" id="back-top" aria-label={t(lang.current, 'chrome.back_to_top')}>↑</a>
 
-<div id="site-copyright" aria-label="Creative Commons BY-NC-SA 4.0">
-  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Creative Commons Attribution-NonCommercial-ShareAlike 4.0">
-    <img src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" alt="CC BY-NC-SA 4.0" width="80" height="15">
+<div id="site-copyright" aria-label={t(lang.current, 'chrome.license_aria')}>
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title={t(lang.current, 'chrome.license_title')}>
+    <img src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" alt={t(lang.current, 'chrome.license_alt')} width="80" height="15">
   </a>
 </div>
 
 <!-- Figure lightbox -->
-<div id="fig-lightbox" role="dialog" aria-modal="true" aria-label="Figure enlarged view" tabindex="-1">
-  <button id="fig-lightbox-close" aria-label="Close enlarged figure (Esc)">&times;</button>
+<div id="fig-lightbox" role="dialog" aria-modal="true" aria-label={t(lang.current, 'chrome.lightbox.fig_aria')} tabindex="-1">
+  <button id="fig-lightbox-close" aria-label={t(lang.current, 'chrome.lightbox.fig_close_aria')}>&times;</button>
   <img id="fig-lightbox-img" alt="">
 </div>
 
@@ -1235,15 +1243,15 @@
 {#if showParticipation}
 <div id="participation-overlay" role="dialog" aria-modal="true" aria-labelledby="part-heading">
   <div id="participation-card">
-    <h2 id="part-heading">Help us refine MapExplorer</h2>
-    <p>As you explore, we track which maps and districts you visit and periodically send that to our research database. Sharing a view also saves where you ended up. The goal: understand what's useful and make the tool better.</p>
-    <p class="part-no-collect">We never collect your name, IP address, or precise location. Everything is anonymized in your browser before it leaves. We couldn't identify you from the data even if ordered to.</p>
+    <h2 id="part-heading">{t(lang.current, 'chrome.participation.heading')}</h2>
+    <p>{t(lang.current, 'chrome.participation.body')}</p>
+    <p class="part-no-collect">{t(lang.current, 'chrome.participation.no_collect')}</p>
     {#if dntActive}
-    <p class="part-dnt">Your browser has Do Not Track enabled. No is pre-selected on your behalf. You can still choose Yes.</p>
+    <p class="part-dnt">{t(lang.current, 'chrome.participation.dnt')}</p>
     {/if}
     <div class="part-actions">
       <button class="part-btn" class:part-primary={dntActive} class:part-secondary={!dntActive}
-        onclick={() => { storeConsent(false); setParticipation(false); showParticipation = false; }}>No thanks</button>
+        onclick={() => { storeConsent(false); setParticipation(false); showParticipation = false; }}>{t(lang.current, 'chrome.participation.no_thanks')}</button>
       <button class="part-btn" class:part-primary={!dntActive} class:part-secondary={dntActive}
         onclick={async () => {
           await storeConsent(true);
@@ -1262,56 +1270,56 @@
               () => {},
             );
           }
-        }}>Yes, I'll help</button>
+        }}>{t(lang.current, 'chrome.participation.yes_help')}</button>
     </div>
-    <p class="part-policy"><a href="{base}/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy policy</a></p>
+    <p class="part-policy"><a href="{base}/privacy-policy" target="_blank" rel="noopener noreferrer">{t(lang.current, 'chrome.participation.privacy_policy')}</a></p>
   </div>
 </div>
 {/if}
 
 <!-- Zoom overlay -->
-<div id="zoom-overlay" aria-modal="true" role="dialog" aria-label="Map zoom viewer" style="display:none;">
-  <button id="zoom-close" aria-label="Close map viewer" title="Close (Esc)">&times;</button>
+<div id="zoom-overlay" aria-modal="true" role="dialog" aria-label={t(lang.current, 'chrome.lightbox.map_aria')} style="display:none;">
+  <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')}>&times;</button>
   <div id="hud">
   <div id="top-bar">
     <div class="tb-group">
-      <button class="tb-btn" data-map="minority">Minority</button>
-      <button class="tb-btn" data-map="majority">Majority</button>
-      <button class="tb-btn tb-map-primary" data-map="2019">Current</button>
+      <button class="tb-btn" data-map="minority">{t(lang.current, 'chrome.map.minority')}</button>
+      <button class="tb-btn" data-map="majority">{t(lang.current, 'chrome.map.majority')}</button>
+      <button class="tb-btn tb-map-primary" data-map="2019">{t(lang.current, 'chrome.map.current')}</button>
     </div>
     <div class="tb-sep"></div>
     <div class="tb-group">
-      <button class="tb-btn" data-layer="eg" title="Efficiency-gap contribution per district">Wasted</button>
-      <button class="tb-btn" data-layer="ed-fill" title="Colour each district by partisan outcome (UCP blue / NDP orange)">Partisan</button>
-      <button class="tb-btn tb-layer-on" data-layer="ed-lines">Borders</button>
+      <button class="tb-btn" data-layer="eg" title={t(lang.current, 'chrome.map.wasted_title')}>{t(lang.current, 'chrome.map.wasted')}</button>
+      <button class="tb-btn" data-layer="ed-fill" title={t(lang.current, 'chrome.map.partisan_title')}>{t(lang.current, 'chrome.map.partisan')}</button>
+      <button class="tb-btn tb-layer-on" data-layer="ed-lines">{t(lang.current, 'chrome.map.borders')}</button>
     </div>
     <div class="tb-sep"></div>
-    <button class="tb-btn" data-anomaly="airdrie" title="All 7 configurations flagged by commission chair Justice Miller — switches to minority map automatically">Flagged</button>
+    <button class="tb-btn" data-anomaly="airdrie" title={t(lang.current, 'chrome.map.flagged_title')}>{t(lang.current, 'chrome.map.flagged')}</button>
     <div class="tb-sep"></div>
-    <button class="tb-btn tb-help-btn" id="tb-help-btn" aria-label="Map help" title="How to use the map">?</button>
+    <button class="tb-btn tb-help-btn" id="tb-help-btn" aria-label={t(lang.current, 'chrome.map.help_aria')} title={t(lang.current, 'chrome.map.help_title')}>?</button>
     <div class="tb-sep"></div>
-    <button class="tb-btn tb-pin-btn" data-layer="lock" title="Pin Map — prevent auto-pan on district click" aria-label="Pin Map">
+    <button class="tb-btn tb-pin-btn" data-layer="lock" title={t(lang.current, 'chrome.map.pin_title')} aria-label={t(lang.current, 'chrome.map.pin_aria')}>
       <svg class="pin-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true">
         <path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.9 5.9 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182a.5.5 0 0 1-.707-.707l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.9 5.9 0 0 1 1.013.16l3.134-3.133a3 3 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146"/>
       </svg>
     </button>
     <div class="tb-sep"></div>
     <div id="tb-search-wrap">
-      <input id="tb-search" type="search" placeholder="Find district…" autocomplete="off" spellcheck="false">
+      <input id="tb-search" type="search" placeholder={t(lang.current, 'chrome.map.search_placeholder')} autocomplete="off" spellcheck="false">
       <ul id="tb-search-results"></ul>
     </div>
     <div class="tb-sep"></div>
     <div id="ec-zoom-section">
       <span id="zoom-pct">100%</span>
-      <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label="Map zoom">
+      <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label={t(lang.current, 'chrome.map.zoom_aria')}>
     </div>
-    <button id="ec-close" class="tb-btn tb-close-btn" aria-label="Clear district selection" title="Clear selection">&times;</button>
+    <button id="ec-close" class="tb-btn tb-close-btn" aria-label={t(lang.current, 'chrome.map.clear_aria')} title={t(lang.current, 'chrome.map.clear_title')}>&times;</button>
   </div>
   <div id="tb-share-wrap">
-    <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title="Share or load a map configuration">Share</button>
+    <button class="tb-btn" id="tb-share-btn" onclick={toggleSharePanel} title={t(lang.current, 'chrome.share.button_title')}>{t(lang.current, 'chrome.share.button')}</button>
     {#if showSharePanel}
     <div class="share-backdrop" onclick={closeSharePanel} aria-hidden="true"></div>
-    <div id="share-panel" role="dialog" aria-label="Share map configuration" aria-modal="true" tabindex="-1"
+    <div id="share-panel" role="dialog" aria-label={t(lang.current, 'chrome.share.dialog_aria')} aria-modal="true" tabindex="-1"
          onkeydown={(e: KeyboardEvent) => {
            if (e.key !== 'Tab') return;
            const focusable = Array.from(document.getElementById('share-panel')?.querySelectorAll('button, input') ?? []) as HTMLElement[];
@@ -1320,29 +1328,29 @@
            if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
            else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
          }}>
-      <button class="share-close" onclick={closeSharePanel} aria-label="Close share panel">✕</button>
+      <button class="share-close" onclick={closeSharePanel} aria-label={t(lang.current, 'chrome.share.close_aria')}>✕</button>
       <div class="share-section">
-        <div class="share-label">Share this configuration</div>
+        <div class="share-label">{t(lang.current, 'chrome.share.share_label')}</div>
         <div class="share-code-row">
           <span class="share-code">{shareCode}</span>
           <button class="share-action-btn" onclick={copyCode}>{copyLabel}</button>
         </div>
-        <div class="share-hint">Type this code into any browser running the audit to load this configuration. The code is never placed in a URL.</div>
+        <div class="share-hint">{t(lang.current, 'chrome.share.share_hint')}</div>
       </div>
       <div class="share-divider"></div>
       <div class="share-section">
-        <div class="share-label">Load a configuration</div>
+        <div class="share-label">{t(lang.current, 'chrome.share.load_label')}</div>
         <div class="share-load-row">
           <input
             class="share-load-input"
             type="text"
-            placeholder="alpine-eagle-banff"
+            placeholder={t(lang.current, 'chrome.share.load_placeholder')}
             bind:value={loadInput}
             onkeydown={(e) => { if (e.key === 'Enter') loadShare(); }}
             spellcheck="false"
             autocomplete="off"
           />
-          <button class="share-action-btn" onclick={loadShare}>Load</button>
+          <button class="share-action-btn" onclick={loadShare}>{t(lang.current, 'chrome.share.load_btn')}</button>
         </div>
         {#if loadError}<div class="share-error">{loadError}</div>{/if}
       </div>
@@ -1374,7 +1382,7 @@
       <div id="ec-eg-row"><span class="ec-eg-label">EG</span> <span id="ec-eg"></span></div>
       <div id="ec-context"></div>
       <div id="ec-compare"></div>
-      <div id="ec-va-hint" style="display:none;">Click within this district to see polling station results</div>
+      <div id="ec-va-hint" style="display:none;">{t(lang.current, 'chrome.map.va_hint')}</div>
     </div>
   </div>
   <div id="va-callout" aria-live="polite">
@@ -1391,10 +1399,10 @@
       </div>
     </div>
     <span id="vc-total"></span>
-    <button id="vc-close" aria-label="Close polling station detail" title="Close">&times;</button>
+    <button id="vc-close" aria-label={t(lang.current, 'chrome.map.va_close_aria')} title={t(lang.current, 'chrome.map.va_close_title')}>&times;</button>
   </div>
   <div id="map-load-error" style="display:none;"></div>
-  <div id="map-fallback-notice" style="display:none;">Map loaded in low-resolution mode — district detail unavailable</div>
+  <div id="map-fallback-notice" style="display:none;">{t(lang.current, 'chrome.map.fallback')}</div>
   </div><!-- /#hud -->
   <div id="sr-announce" role="status" aria-live="polite" class="sr-only"></div>
   <div id="zoom-stage">
@@ -1416,13 +1424,13 @@
       </div>
     </div>
     <object id="zoom-obj" type="image/svg+xml" data=""
-      title="Alberta electoral district map — full resolution"></object>
+      title={t(lang.current, 'chrome.map.object_title')}></object>
   </div>
   <div id="ed-tooltip"></div>
   <div id="map-attribution">
-    <span id="map-ea-credit">Map data: <a href="https://www.elections.ab.ca/resources/maps/" target="_blank" rel="noopener">Elections Alberta</a></span>
-    <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title="Text content: CC BY-NC-SA 4.0">
-      <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt="Creative Commons BY-NC-SA 4.0" width="80" height="15">
+    <span id="map-ea-credit">{t(lang.current, 'chrome.map.ea_credit')} <a href="https://www.elections.ab.ca/resources/maps/" target="_blank" rel="noopener">Elections Alberta</a></span>
+    <a id="map-cc-badge" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener" title={t(lang.current, 'chrome.map.cc_title')}>
+      <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" alt={t(lang.current, 'chrome.map.cc_alt')} width="80" height="15">
     </a>
     <span id="map-cc-owner">2026 Will Conner</span>
   </div>
@@ -1430,10 +1438,10 @@
 
 <footer>
   <div class="container">
-    Alberta Electoral Boundary Audit &mdash; May 2026<br>
-    &copy; Will Conner 2026 &mdash;
-    Text: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> &mdash;
-    Code: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a><br>
+    {t(lang.current, 'chrome.footer.title')}<br>
+    {t(lang.current, 'chrome.footer.copyright')}
+    {t(lang.current, 'chrome.footer.text_label')} <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> &mdash;
+    {t(lang.current, 'chrome.footer.code_label')} <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a><br>
     <a href="https://ixby.github.io">ixby.github.io</a> &mdash;
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
   </div>
@@ -1442,18 +1450,18 @@
 <!-- Map onboarding modal — shown once per session via sessionStorage; logic in mapEngine.ts -->
 <div id="map-intro-modal" style="display:none;">
   <div id="map-intro-inner">
-    <h3>How to use the map</h3>
+    <h3>{t(lang.current, 'chrome.map_intro.heading')}</h3>
     <ul>
-      <li><strong>Click any district</strong> &mdash; see 2023 election results and snap to it</li>
-      <li><strong>Click within a selected district</strong> &mdash; see individual polling station results (colour = vote split)</li>
-      <li><strong>Double-click a district</strong> &mdash; zoom to fill screen; double-click empty space to zoom out</li>
-      <li><strong>Minority / Majority / Current</strong> &mdash; switch the active boundary map</li>
-      <li><strong>Partisan / Wasted / Borders</strong> &mdash; toggle data layers</li>
-      <li><strong>Find district</strong> &mdash; jump by name; arrow keys pan, + / &minus; zoom</li>
-      <li><strong>Escape</strong> &mdash; close this viewer</li>
+      <li><strong>{t(lang.current, 'chrome.map_intro.click_district')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.click_district_desc')}</li>
+      <li><strong>{t(lang.current, 'chrome.map_intro.click_within')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.click_within_desc')}</li>
+      <li><strong>{t(lang.current, 'chrome.map_intro.dblclick')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.dblclick_desc')}</li>
+      <li><strong>{t(lang.current, 'chrome.map_intro.layers_primary')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.layers_primary_desc')}</li>
+      <li><strong>{t(lang.current, 'chrome.map_intro.layers_data')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.layers_data_desc')}</li>
+      <li><strong>{t(lang.current, 'chrome.map_intro.search')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.search_desc')}</li>
+      <li><strong>{t(lang.current, 'chrome.map_intro.escape')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.escape_desc')}</li>
     </ul>
-    <p style="margin:0 0 0.9rem; font-size:0.9rem;">In §4, click <em>Show flagged districts on map</em> to highlight the Airdrie split and NW Calgary zone.</p>
-    <button id="map-intro-close">Got it</button>
+    <p style="margin:0 0 0.9rem; font-size:0.9rem;">{@html t(lang.current, 'chrome.map_intro.s4_tip')}</p>
+    <button id="map-intro-close">{t(lang.current, 'chrome.map_intro.got_it')}</button>
   </div>
 </div>
 
