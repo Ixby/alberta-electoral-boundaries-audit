@@ -483,6 +483,10 @@
   <div class="stakes-scorecard" aria-labelledby="stakes-scorecard-h">
     <h3 id="stakes-scorecard-h">{t(lang.current, 'stakes.scorecard_h')}</h3>
     <p class="stakes-scorecard-intro">{t(lang.current, 'stakes.scorecard_intro')}</p>
+    <figure class="stakes-scorecard-fig">
+      <img src="{base}/images/stakes_quadrant.svg" alt={t(lang.current, 'stakes.scorecard_fig_alt')} width="474" height="351" loading="lazy">
+      <figcaption>{t(lang.current, 'stakes.scorecard_fig_caption')}</figcaption>
+    </figure>
     <div class="stakes-scorecard-table-wrap">
       <table class="stakes-scorecard-table">
         <thead>
@@ -1600,6 +1604,23 @@
     font-size: 0.9rem !important;
     line-height: 1.5 !important;
     color: var(--text-muted) !important;
+  }
+  :global(.stakes-scorecard-fig) {
+    margin: 0.4rem 0 1.1rem;
+    text-align: center;
+  }
+  :global(.stakes-scorecard-fig img) {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  :global(.stakes-scorecard-fig figcaption) {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    text-align: left;
   }
   :global(.stakes-scorecard-table-wrap) {
     overflow-x: auto;

@@ -142,7 +142,7 @@ This site sets one cookie that stores six things:
 - **Approximate region** — your 10 km GPS grid cell, if you allowed location access
 - **Browser language** — e.g. en-CA, to understand which language communities find the audit
 
-The cookie is encrypted in your browser before it is written — the server never sees the contents. It is only sent over HTTPS and is never shared with other sites. It expires after one year. You can remove it by clearing your cookies.
+The cookie is encrypted in your browser before it is written — the server never sees the contents. It is only sent over HTTPS and is never shared with other sites. It expires after one week. You can remove it by clearing your cookies.
 
 The map view and location data are encrypted because they encode where you were — which proposal you were looking at, which layers were on, where your viewport was. That is your business, not anyone else's.
 

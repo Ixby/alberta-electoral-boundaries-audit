@@ -35,6 +35,10 @@ export default {
 		cta_law: 'Read the legal context →',
 		cta_methods: 'See how we tested →',
 		scorecard_h: 'The scorecard',
+		scorecard_fig_alt:
+			'Scatter plot: efficiency gap on the horizontal axis, count of structural tests failed on the vertical axis. The 2019 enacted map and the 2026 majority map cluster in the safe lower-left corner. The 2026 minority map appears alone in the upper-right outlier region.',
+		scorecard_fig_caption:
+			'Both lanes on one picture. Horizontal: how skewed the partisan-fairness number is (right = more UCP-favoured). Vertical: how many of five structural-fairness tests the map fails. Bottom-left is the safe corner where neutral procedures routinely land; the upper-right is the outlier region. The 2019 enacted map and the 2026 majority sit in the safe corner. The 2026 minority sits alone in the outlier region.',
 		scorecard_intro:
 			'Two independent measurements applied to both maps under the same pre-registered thresholds. Structure (left column) uses only the shape of the lines — no election results. Numbers (right column) tests how the lines convert votes into seats. Both lanes reach the same conclusion.',
 		scorecard_col_b: 'Structure (geometry only, no votes)',

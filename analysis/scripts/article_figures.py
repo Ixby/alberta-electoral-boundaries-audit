@@ -12,7 +12,7 @@ Generate the inline figures the magazine article embeds:
   2. lane2_bars.svg       — Lane 2 horizontal bar chart of structural
      irregularities, one row per test, magnitude relative to comparator
      norm; majority + minority side by side; norm band shaded.
-  3. verdict_quadrant.svg — 2×2 quadrant: x-axis "Lane 1 (numbers, EG)";
+  3. stakes_quadrant.svg — 2×2 quadrant: x-axis "Lane 1 (numbers, EG)";
      y-axis "Lane 2 (structural-irregularity count)"; three dots
      (2019 enacted, Majority 2026, Minority 2026) labelled.
 
@@ -497,9 +497,9 @@ def build_bias_structure_matrix() -> Path:
 
     out = OUT / "bias_structure_matrix.svg"
     fig.savefig(out, dpi=300, bbox_inches="tight", pad_inches=0.10, facecolor="white")
-    # verdict_quadrant.svg is the article-facing name for this chart
+    # stakes_quadrant.svg is the article-facing name for this chart
     fig.savefig(
-        OUT / "verdict_quadrant.svg",
+        OUT / "stakes_quadrant.svg",
         dpi=300,
         bbox_inches="tight",
         pad_inches=0.10,
