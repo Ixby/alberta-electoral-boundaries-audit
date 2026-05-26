@@ -439,27 +439,6 @@
   {/if}
 </nav>
 
-<section class="stakes-block container" aria-labelledby="stakes-heading">
-  <h2 id="stakes-heading" class="visually-hidden">{t(lang.current, 'nav.stakes')}</h2>
-  <div class="stakes-q">
-    <h3>{t(lang.current, 'stakes.q1.heading')}</h3>
-    <p>{@html t(lang.current, 'stakes.q1.body')}</p>
-    <p class="stakes-footnote">{t(lang.current, 'stakes.q1.footnote')}</p>
-  </div>
-  <div class="stakes-q">
-    <h3>{t(lang.current, 'stakes.q2.heading')}</h3>
-    <p>{@html t(lang.current, 'stakes.q2.body')}</p>
-  </div>
-  <div class="stakes-q">
-    <h3>{t(lang.current, 'stakes.q3.heading')}</h3>
-    <p>{@html t(lang.current, 'stakes.q3.body')}</p>
-  </div>
-  <div class="stakes-ctas">
-    <a href="#canada-is-different" class="stakes-cta">{t(lang.current, 'stakes.cta_law')}</a>
-    <a href="#section-3" class="stakes-cta">{t(lang.current, 'stakes.cta_methods')}</a>
-  </div>
-</section>
-
 <header>
   <div class="header-inner">
     <div class="header-text">
@@ -484,6 +463,27 @@
 <section class="opener-block container" aria-labelledby="opener-heading">
   <h2 id="opener-heading">{t(lang.current, 'opener.heading')}</h2>
   <p>{t(lang.current, 'opener.body')}</p>
+</section>
+
+<section class="stakes-block container" aria-labelledby="stakes-heading">
+  <h2 id="stakes-heading" class="visually-hidden">{t(lang.current, 'nav.stakes')}</h2>
+  <div class="stakes-q">
+    <h3>{t(lang.current, 'stakes.q1.heading')}</h3>
+    <p>{@html t(lang.current, 'stakes.q1.body')}</p>
+    <p class="stakes-footnote">{t(lang.current, 'stakes.q1.footnote')}</p>
+  </div>
+  <div class="stakes-q">
+    <h3>{t(lang.current, 'stakes.q2.heading')}</h3>
+    <p>{@html t(lang.current, 'stakes.q2.body')}</p>
+  </div>
+  <div class="stakes-q">
+    <h3>{t(lang.current, 'stakes.q3.heading')}</h3>
+    <p>{@html t(lang.current, 'stakes.q3.body')}</p>
+  </div>
+  <div class="stakes-ctas">
+    <a href="#canada-is-different" class="stakes-cta">{t(lang.current, 'stakes.cta_law')}</a>
+    <a href="#section-3" class="stakes-cta">{t(lang.current, 'stakes.cta_methods')}</a>
+  </div>
 </section>
 
 <section class="boundary-block container" aria-labelledby="boundary-heading">
@@ -1748,6 +1748,10 @@
       flex-direction: column;
       justify-content: center;
       box-sizing: border-box;
+      /* Fill the visible viewport below the sticky nav so all prose lands
+         below the fold; the reader scrolls past the title card to reach
+         Stakes and everything else. 100svh accounts for mobile UI chrome. */
+      min-height: calc(100svh - 2.75rem);
     }
 
     .header-inner {
