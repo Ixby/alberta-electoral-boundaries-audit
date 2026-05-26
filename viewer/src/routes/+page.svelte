@@ -2074,6 +2074,13 @@
 
     section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid var(--border); scroll-margin-top: 72px; }
     section:last-of-type { border-bottom: none; }
+
+    /* The verdict and boundary blocks anchor on a visually-hidden h2 inside the
+       section, not on the section itself, so the section rule's scroll-margin
+       doesn't apply when those ids are the jump target. Match the offset on
+       the h2 ids directly so back-links land at the heading rather than
+       behind the sticky nav. */
+    #verdict-heading, #boundary-heading { scroll-margin-top: 72px; }
     /* Defer layout of sections far below the fold — browser skips paint until near viewport */
     #section-5, #section-6, #section-7, #section-8,
     #retractions, #references, #resources {
