@@ -33,7 +33,21 @@ export default {
 				"At a 50/50 provincial vote, the audit's measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. That imbalance matters because at 58 of 87 seats (a two-thirds supermajority) the governing party unlocks extraordinary procedural powers. It can waive standard notice periods and push public bills through multiple legislative stages in a single day, bypassing deliberation checks that normally constrain it. Whether the minority proposal's tilt is large enough to push one party past that 58-seat threshold at vote shares <em>other</em> than 50/50 is a question this audit has not yet tested. Whether that imbalance is acceptable is a question for Albertans, not for this audit."
 		},
 		cta_law: 'Read the legal context →',
-		cta_methods: 'See how we tested →'
+		cta_methods: 'See how we tested →',
+		scorecard_h: 'The scorecard',
+		scorecard_intro:
+			'Two independent measurements applied to both maps under the same pre-registered thresholds. Structure (left column) uses only the shape of the lines — no election results. Numbers (right column) tests how the lines convert votes into seats. Both lanes reach the same conclusion.',
+		scorecard_col_b: 'Structure (geometry only, no votes)',
+		scorecard_col_c: 'Numbers (vote-dependent)',
+		scorecard_r1_a: 'Majority 2026',
+		scorecard_r1_b: 'passes — crosses no structural threshold',
+		scorecard_r1_c: 'inside the normal range on every measure',
+		scorecard_r2_a: 'Minority 2026',
+		scorecard_r2_b: 'fails 4 of 5 structural thresholds (anchoring neutral for both)',
+		scorecard_r2_c:
+			'outlier on all four partisan-fairness measures — <code>seats@50/50</code> 51.7% at the 99.99th percentile; fewer than 100 of 1,010,000 neutral maps reach this',
+		scorecard_close:
+			'Two independent measurements, one answer. The convergence is the audit\'s strongest single signal.'
 	},
 	head: {
 		title: 'Alberta Electoral Boundary Audit',

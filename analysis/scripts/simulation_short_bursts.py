@@ -11,8 +11,15 @@ metrics. The distribution of burst-endpoint scores characterises the
 the 2019 baseline, or does it require an unusually long random walk?"
 
 References: DeFord et al. (2021) "Recombination: A family of Markov chains
-for redistricting." Short-burst evaluation of maps against the ensemble is
-discussed in MGGG workshop notes and Chikina et al. (2017).
+for redistricting" — the ReCom proposal used inside each burst. Short
+bursts as a formalised sampling/search technique were introduced by
+Cannon, Goldbloom-Helzner, Gupta, Matthews & Suwal (2022) "Voting Rights,
+Markov Chains, and Optimization by Short Bursts." This script applies
+bursts for neighbourhood characterisation (random walks from a fixed
+start, not hill-climbing); the targeted hill-climbing use of short
+bursts lives in targeted_gerrymander_burst.py. Earlier non-mixing-chain
+significance reasoning in Chikina et al. (2017) and MGGG workshop notes
+is adjacent but addresses a different statistical question.
 
 Outputs:
   data/simulation_short_bursts.csv        — 5,000 burst-endpoint rows

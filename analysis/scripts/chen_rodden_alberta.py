@@ -19,10 +19,18 @@ TEST 1 — Spatial autocorrelation proxy (Moran's I).
     clustered (consistent with natural packing); near-zero Moran's I
     means NDP voters are spatially dispersed (Chen-Rodden would not
     transfer).
-  - Comparison benchmark: Chen & Rodden (2013 Table 2) report
-    Democratic-share Moran's I in the 0.45-0.65 range for
-    Pennsylvania / Florida / Massachusetts / Michigan VTDs. Higher
-    values (more clustering) mean stronger natural packing.
+  - Comparison: Chen & Rodden (2013) document substantial positive
+    spatial autocorrelation of Democratic vote share at the VTD level
+    across the US states underpinning their unintentional-
+    gerrymandering claim. Magnitudes vary by state and aggregation
+    unit; rather than quoting a single comparator figure, this script
+    reports Alberta's measured Moran's I directly and interprets it
+    against the standard spatial-statistics bands ("clearly clustered"
+    I > 0.3; "moderately clustered" 0.15-0.30; "near-random" |I| <
+    0.15) on the substantive question of whether the natural-packing
+    mechanism is operating. Any specific Chen-Rodden table comparator
+    should be re-verified against the published article before being
+    quoted in an external write-up.
 
 TEST 2 — Simulated-ensemble proxy (seeded random-walk).
   - Build a contiguity graph of 2019 EDs (87 units).

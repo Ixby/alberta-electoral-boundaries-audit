@@ -7,7 +7,10 @@ Computes additional partisan bias metrics beyond the four in the MCMC ensemble:
 
   - Partisan Bias (seats-votes asymmetry at 50%)
   - Lopsided Margins (t-test: Wang 2016)
-  - Partisan Gini (area between seats-votes curve and symmetry line)
+  - Proportionality Deviation (area between seats-votes curve and the 1:1
+    proportionality line; *not* the symmetry-curve Partisan Gini of
+    King 1989 / Gelman & King 1994 — that is a separate measure this
+    script does not compute)
   - Responsiveness (slope of seats-votes curve at 50%)
   - Declination variant (already have but included for completeness)
 
@@ -178,8 +181,15 @@ def lopsided_margins(ucp_shares: np.ndarray) -> tuple[float, float]:
     Wang (2016) lopsided margins test.
     Split districts into UCP wins and NDP wins.
     Test: do the two parties win by systematically different margins?
-    UCP wins by abnormally large margins → packing signal.
-    Returns (t_statistic, p_value). Positive t = UCP wins by larger margins.
+
+    Positive t = UCP wins by larger margins than NDP. The packed party is the
+    one whose wins are larger; in Alberta this is UCP (large rural wins),
+    which wastes UCP votes on landslide margins and is the structural source
+    of UCP's natural disadvantage under neutral redistricting (the same
+    mechanism Chen & Rodden 2013 documents for US Democrats in urban cores,
+    applied here to UCP in rural Alberta).
+
+    Returns (t_statistic, p_value).
     """
     ucp_wins = ucp_shares[ucp_shares > 0.5 + 1e-9] - 0.5  # margins for UCP wins
     ndp_wins = 0.5 - ucp_shares[ucp_shares < 0.5 - 1e-9]  # margins for NDP wins
@@ -190,10 +200,19 @@ def lopsided_margins(ucp_shares: np.ndarray) -> tuple[float, float]:
     return float(t), float(p)
 
 
-def partisan_gini(ucp_shares: np.ndarray) -> float:
+def proportionality_deviation(ucp_shares: np.ndarray) -> float:
     """
-    Partisan Gini: area between the seats-votes curve and the symmetry line.
-    Positive = UCP-favoured asymmetry.
+    Proportionality deviation: area between the seats-votes curve and the
+    1:1 proportionality line s(v) = v. Positive = UCP gets more seats than
+    proportional across the swing range.
+
+    Note this is NOT the symmetry-curve Partisan Gini of King 1989 /
+    Gelman & King 1994, which integrates the area between s(v) and its
+    mirror image 1 - s(1 - v). The two measures answer different
+    questions: this one asks how far the map departs from strict
+    proportionality; the symmetry Gini asks how unequally the two parties
+    are treated under swapped vote shares. The audit reports this measure
+    under its accurate name to avoid conflating the two in citations.
     """
     swings = np.linspace(-0.3, 0.3, 300)
     sv = seats_votes_curve(ucp_shares, swings)
@@ -221,7 +240,7 @@ def all_metrics(ucp_shares: np.ndarray, label: str) -> dict:
     """Compute all extended metrics for one map."""
     pb = partisan_bias(ucp_shares)
     t, p = lopsided_margins(ucp_shares)
-    gini = partisan_gini(ucp_shares)
+    gini = proportionality_deviation(ucp_shares)
     resp = responsiveness(ucp_shares)
     n = len(ucp_shares)
     mean_vs = float(np.nanmean(ucp_shares))
@@ -240,7 +259,7 @@ def all_metrics(ucp_shares: np.ndarray, label: str) -> dict:
         "partisan_bias": pb,
         "lopsided_t": t,
         "lopsided_p": p,
-        "partisan_gini": gini,
+        "proportionality_deviation": gini,
         "responsiveness": resp,
     }
 
@@ -312,7 +331,7 @@ def main():
                 "pb_pct": res.get("partisan_bias_percentile", float("nan")),
                 "lopsided_t": res["lopsided_t"],
                 "lopsided_p": res["lopsided_p"],
-                "partisan_gini": res["partisan_gini"],
+                "proportionality_deviation": res["proportionality_deviation"],
                 "responsiveness": res["responsiveness"],
             }
         )
@@ -336,7 +355,7 @@ def main():
         "",
         "## Results",
         "",
-        "| Map | N EDs | Partisan Bias | PB pct | Lopsided-t | Lopsided-p | Partisan Gini | Responsiveness |",
+        "| Map | N EDs | Partisan Bias | PB pct | Lopsided-t | Lopsided-p | Proportionality Deviation | Responsiveness |",
         "|-----|-------|--------------|--------|-----------|-----------|--------------|----------------|",
     ]
     for r in rows:
@@ -344,7 +363,7 @@ def main():
         md_lines.append(
             f"| {r['map']} | {r['n']} | {r['partisan_bias']:+.4f} | {pb_pct} "
             f"| {r['lopsided_t']:+.3f} | {r['lopsided_p']:.3f} "
-            f"| {r['partisan_gini']:+.4f} | {r['responsiveness']:.2f} |"
+            f"| {r['proportionality_deviation']:+.4f} | {r['responsiveness']:.2f} |"
         )
     md_lines += [
         "",
@@ -352,7 +371,7 @@ def main():
         "",
         "**Partisan Bias**: Positive = UCP gets >50% of seats at 50/50 vote.",
         "**Lopsided Margins t**: Positive = UCP wins by larger margins than NDP (packing signal).",
-        "**Partisan Gini**: Positive = asymmetry favours UCP across the full seats-votes curve.",
+        "**Proportionality Deviation**: Positive = asymmetry favours UCP across the full seats-votes curve.",
         "**Responsiveness**: How many extra seats per 1% vote swing. Lower = more entrenched.",
         "",
         f"_Generated {time.strftime('%Y-%m-%d %H:%M')} — elapsed {time.time()-t0:.0f}s_",

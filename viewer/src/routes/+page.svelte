@@ -480,6 +480,34 @@
     <h3>{t(lang.current, 'stakes.q3.heading')}</h3>
     <p>{@html t(lang.current, 'stakes.q3.body')}</p>
   </div>
+  <div class="stakes-scorecard" aria-labelledby="stakes-scorecard-h">
+    <h3 id="stakes-scorecard-h">{t(lang.current, 'stakes.scorecard_h')}</h3>
+    <p class="stakes-scorecard-intro">{t(lang.current, 'stakes.scorecard_intro')}</p>
+    <div class="stakes-scorecard-table-wrap">
+      <table class="stakes-scorecard-table">
+        <thead>
+          <tr>
+            <th aria-hidden="true"></th>
+            <th>{t(lang.current, 'stakes.scorecard_col_b')}</th>
+            <th>{t(lang.current, 'stakes.scorecard_col_c')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="stakes-scorecard-pass">
+            <th scope="row">{t(lang.current, 'stakes.scorecard_r1_a')}</th>
+            <td>{t(lang.current, 'stakes.scorecard_r1_b')}</td>
+            <td>{t(lang.current, 'stakes.scorecard_r1_c')}</td>
+          </tr>
+          <tr class="stakes-scorecard-fail">
+            <th scope="row">{t(lang.current, 'stakes.scorecard_r2_a')}</th>
+            <td>{t(lang.current, 'stakes.scorecard_r2_b')}</td>
+            <td>{@html t(lang.current, 'stakes.scorecard_r2_c')}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="stakes-scorecard-close">{t(lang.current, 'stakes.scorecard_close')}</p>
+  </div>
   <div class="stakes-ctas">
     <a href="#canada-is-different" class="stakes-cta">{t(lang.current, 'stakes.cta_law')}</a>
     <a href="#section-3" class="stakes-cta">{t(lang.current, 'stakes.cta_methods')}</a>
@@ -1552,6 +1580,78 @@
     border-left: 2px solid var(--border-subtle);
     padding-left: 0.7rem;
   }
+  :global(.stakes-scorecard) {
+    margin: 1.6rem 0 1.4rem;
+    padding: 1.1rem 1.2rem 1.2rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--nav-accent);
+    border-radius: 6px;
+    background: var(--bg);
+  }
+  :global(.stakes-scorecard h3) {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--heading);
+  }
+  :global(.stakes-scorecard-intro) {
+    margin: 0 0 0.9rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: var(--text-muted) !important;
+  }
+  :global(.stakes-scorecard-table-wrap) {
+    overflow-x: auto;
+    margin: 0 -0.2rem;
+  }
+  :global(.stakes-scorecard-table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+  :global(.stakes-scorecard-table th),
+  :global(.stakes-scorecard-table td) {
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  :global(.stakes-scorecard-table thead th) {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  :global(.stakes-scorecard-table tbody th) {
+    font-weight: 700;
+    color: var(--heading);
+    white-space: nowrap;
+  }
+  :global(.stakes-scorecard-pass td) {
+    background: rgba(76, 175, 80, 0.06);
+  }
+  :global(.stakes-scorecard-fail td) {
+    background: rgba(229, 115, 115, 0.08);
+    color: var(--text);
+  }
+  :root[data-theme="dark"] :global(.stakes-scorecard-pass td) {
+    background: rgba(76, 175, 80, 0.10);
+  }
+  :root[data-theme="dark"] :global(.stakes-scorecard-fail td) {
+    background: rgba(229, 115, 115, 0.13);
+  }
+  :global(.stakes-scorecard-close) {
+    margin: 0.9rem 0 0 !important;
+    font-size: 0.92rem !important;
+    font-style: italic;
+    color: var(--text) !important;
+    text-align: center;
+  }
+
   :global(.stakes-ctas) {
     display: flex;
     flex-wrap: wrap;
