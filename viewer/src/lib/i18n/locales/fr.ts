@@ -15,7 +15,7 @@ export default {
 		body:
 			"À nous. À nous tous. Aux ruraux, aux urbains, aux curieux, aux mordus de politique, aux journalistes, aux avocats, aux universitaires, aux élus — à nous tous. Parce que cela nous touche tous. Que vous aimiez ou non le parti au pouvoir, ce que la commission divisée a produit ne s'était jamais vu auparavant. Et cela nous donne l'occasion d'observer la mécanique de l'intérieur comme nous n'avions jamais pu le faire. Nous pouvons maintenant établir un point de repère — une série de tests, et tout ce qui suivra pourra être évalué à cette aune. Laissez-moi vous montrer ce que j'ai trouvé."
 	},
-	verdict: {
+	stakes: {
 		q1: {
 			heading: 'La carte proposée est-elle un découpage partisan ?',
 			body:
@@ -47,7 +47,7 @@ export default {
 		theme_title: 'Basculer le mode sombre',
 		nav_aria: 'Basculer la navigation',
 		drawer_top: '↑ Haut',
-		verdict: 'Verdict',
+		stakes: 'Stakes',
 		why: 'Pourquoi ?',
 		map: 'Carte',
 		split: 'La Division',
@@ -139,7 +139,7 @@ export default {
 			"L'audit ne propose pas de retirer des sièges à l'Alberta rurale. Il demande si les limites respectent les communautés rurales que ces sièges sont censés représenter, ou si la géographie rurale est utilisée comme ballast pour absorber les votes urbains dans des circonscriptions dont le centre est ailleurs. Si vous vivez dans l'une de ces queues rurales, la question de savoir laquelle des cartes sera adoptée décide si votre MLA représente la communauté rurale où vous vivez réellement, ou un district urbain dont les limites incluent simplement votre terrain.",
 		province_h: 'Votre province.',
 		province_p:
-			"L'assemblée législative est ce que vous obtenez quand vous additionnez les réponses de chaque circonscription aux trois questions ci-dessus. Si la plupart des circonscriptions sont ancrées à des communautés dont les MLA y vivent réellement, l'assemblée représente ces communautés. Si la plupart des circonscriptions ont des queues rurales rattachées à des têtes urbaines, l'assemblée représente les têtes — et les queues obtiennent l'attention qui reste. La question partisane — quel parti remporte la majorité — est en aval de cela. La question de la supermajorité — savoir si un parti franchit 58 des 87 sièges et débloque des raccourcis procéduraux comme la levée des délais d'avis ou l'accélération de projets de loi à travers plusieurs étapes en une seule journée — est en aval de <em>cela</em>. Lors d'un vote provincial hypothétique à 50/50, les mesures de l'audit placent la proposition minoritaire dans un extrême structurel : moins de 100 des 1,01 million de cartes neutres de comparaison produisent un déséquilibre de sièges comparable. Savoir si ce déséquilibre porte un parti au-delà de 58 sièges aux résultats de vote que les Albertains livrent réellement est une question que cet audit n'a pas encore directement examinée ; le verdict en haut de cette page est honnête sur cette lacune. Savoir si la réponse à l'une de ces questions compte assez pour agir est, encore une fois, une question pour vous."
+			"L'assemblée législative est ce que vous obtenez quand vous additionnez les réponses de chaque circonscription aux trois questions ci-dessus. Si la plupart des circonscriptions sont ancrées à des communautés dont les MLA y vivent réellement, l'assemblée représente ces communautés. Si la plupart des circonscriptions ont des queues rurales rattachées à des têtes urbaines, l'assemblée représente les têtes — et les queues obtiennent l'attention qui reste. La question partisane — quel parti remporte la majorité — est en aval de cela. La question de la supermajorité — savoir si un parti franchit 58 des 87 sièges et débloque des raccourcis procéduraux comme la levée des délais d'avis ou l'accélération de projets de loi à travers plusieurs étapes en une seule journée — est en aval de <em>cela</em>. Lors d'un vote provincial hypothétique à 50/50, les mesures de l'audit placent la proposition minoritaire dans un extrême structurel : moins de 100 des 1,01 million de cartes neutres de comparaison produisent un déséquilibre de sièges comparable. Savoir si ce déséquilibre porte un parti au-delà de 58 sièges aux résultats de vote que les Albertains livrent réellement est une question que cet audit n'a pas encore directement examinée ; les questions d'ouverture en haut de cette page sont honnêtes sur cette lacune. Savoir si la réponse à l'une de ces questions compte assez pour agir est, encore une fois, une question pour vous."
 	},
 	editorial_history: {
 		heading: 'Une brève histoire du découpage partisan',

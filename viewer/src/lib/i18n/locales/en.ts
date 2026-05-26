@@ -1,5 +1,5 @@
 // English — source of truth.
-// Mirrors the editorial content in proposals/verdict_and_glossary_draft.md.
+// Mirrors the editorial content in proposals/stakes_and_glossary_draft.md.
 export default {
 	selector: {
 		label: 'Choose language'
@@ -14,7 +14,7 @@ export default {
 		body:
 			"Us. All of us. Rural, Urban, curious, wonk, journalist, lawyer, academic, politician — all of us. Because it impacts all of us. Whether or not you like the party in power, what the split commission produced has never been done before. And it's given us the opportunity to peer inside the machine in ways we never could before. Now we can establish a baseline — a series of tests, and everything that comes after can be graded on it. Let me show you what I found."
 	},
-	verdict: {
+	stakes: {
 		q1: {
 			heading: 'Is the proposed map a gerrymander?',
 			body:
@@ -48,7 +48,7 @@ export default {
 		nav_aria: 'Open table of contents',
 		drawer_top: '↑ Top',
 		// Compact landmarks shown on the sticky bar
-		verdict: 'Stakes',
+		stakes: 'Stakes',
 		findings: 'Findings',
 		history: 'History',
 		reform: 'Reform',
@@ -366,9 +366,9 @@ export default {
 			sub7_h: 'The bottom line',
 			sub7_p1: 'The audit\'s central finding is geometric. <strong>Lane 2 — the structural-irregularity scorecard — is the foundation; Lane 1 is the proof that the geometry is doing partisan work.</strong>',
 			sub7_p2: 'The chart below puts both lanes on a single picture. The horizontal axis is Lane 1 (the partisan-fairness efficiency gap, where further right means more UCP-favoured); the vertical axis is Lane 2 (the count of structural-fairness tests the proposal fails, out of five, where higher means more structural problems).',
-			verdict_fig_alt: 'Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region.',
-			verdict_fig_caption: 'The two ways of measuring the two commission proposals, plotted together. Left-to-right: how skewed the proposal looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the proposal fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 proposal stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 proposal is a structural outlier on every test that distinguishes the two maps (4 of 5; the fifth, anchoring, is neutral for both); its efficiency gap (+4.0%) sits just below the Alberta threshold line.',
-			verdict_table_intro: 'The same findings in plain summary form, leading with the structural finding because that is what the cross-validated evidence supports most strongly:',
+			stakes_fig_alt: 'Scatter plot with efficiency gap on the horizontal axis and count of structural tests failed on the vertical axis. The 2019 enacted map and the majority 2026 map cluster in the safe lower-left corner. The minority 2026 map appears in the upper-right outlier region.',
+			stakes_fig_caption: 'The two ways of measuring the two commission proposals, plotted together. Left-to-right: how skewed the proposal looks on the partisan-fairness number — the further right, the more it favours the UCP. Bottom-to-top: how many of five structural-fairness tests the proposal fails — the higher, the worse. The 2019 enacted map sits in the safe corner: low on both. The majority 2026 proposal stays flat at zero structural problems and near-zero partisan skew (+0.1%). The minority 2026 proposal is a structural outlier on every test that distinguishes the two maps (4 of 5; the fifth, anchoring, is neutral for both); its efficiency gap (+4.0%) sits just below the Alberta threshold line.',
+			stakes_table_intro: 'The same findings in plain summary form, leading with the structural finding because that is what the cross-validated evidence supports most strongly:',
 			t5_col_b: 'Lane 2: Structure (geometry-only, no votes)',
 			t5_col_c: 'Lane 1: Numbers (vote-dependent)',
 			t5_r1_a: '<strong>Majority 2026</strong>',

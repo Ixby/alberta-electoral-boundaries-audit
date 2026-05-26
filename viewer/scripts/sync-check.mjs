@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * sync-check.mjs — flag drift between proposals/verdict_and_glossary_draft.md
+ * sync-check.mjs — flag drift between proposals/stakes_and_glossary_draft.md
  * and viewer/src/lib/i18n/locales/en.ts.
  *
  * The editorial draft (proposal) carries the canonical prose + rationale notes.
@@ -23,7 +23,7 @@ import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, '..', '..');
-const proposalPath = resolve(repoRoot, 'proposals/verdict_and_glossary_draft.md');
+const proposalPath = resolve(repoRoot, 'proposals/stakes_and_glossary_draft.md');
 const localePath = resolve(repoRoot, 'viewer/src/lib/i18n/locales/en.ts');
 
 const proposal = readFileSync(proposalPath, 'utf8');
@@ -43,11 +43,11 @@ const PROBES = [
 	// Opener
 	{ key: 'opener.body', anchor: 'Rural, Urban, curious, wonk, journalist, lawyer, academic, politician' },
 	{ key: 'opener.body', anchor: 'peer inside the machine' },
-	// Verdict
-	{ key: 'verdict.q1.body', anchor: 'reasonably support calling the' },
-	{ key: 'verdict.q1.footnote', anchor: '"majority" and "minority" names come from a 3–2 split' },
-	{ key: 'verdict.q2.body', anchor: 'whether the boundaries give voters' },
-	{ key: 'verdict.q3.body', anchor: 'two-thirds supermajority) the governing party unlocks extraordinary procedural powers' },
+	// Stakes
+	{ key: 'stakes.q1.body', anchor: 'reasonably support calling the' },
+	{ key: 'stakes.q1.footnote', anchor: '"majority" and "minority" names come from a 3–2 split' },
+	{ key: 'stakes.q2.body', anchor: 'whether the boundaries give voters' },
+	{ key: 'stakes.q3.body', anchor: 'two-thirds supermajority) the governing party unlocks extraordinary procedural powers' },
 	// Boundary card
 	{ key: 'boundary.heading', anchor: "What this audit can and can't tell you" },
 	{ key: 'boundary.can_1', anchor: 'Fewer than 1 in 14.5 million randomly generated comparison maps' },
@@ -110,7 +110,7 @@ if (failures === 0) {
 	process.exit(0);
 } else {
 	console.error(`\nFAILED  ${failures} of ${PROBES.length} probes drifted.`);
-	console.error('Resolve: edit either the proposal (proposals/verdict_and_glossary_draft.md)');
+	console.error('Resolve: edit either the proposal (proposals/stakes_and_glossary_draft.md)');
 	console.error('or the locale (viewer/src/lib/i18n/locales/en.ts) so the prose matches.');
 	process.exit(1);
 }

@@ -307,9 +307,9 @@
     // Map each landmark to the set of section anchors it represents (in order).
     // The currently-visible section's landmark wins.
     const landmarkOf: Record<string, string> = {
-      'verdict-heading': 'verdict',
-      'boundary-heading': 'verdict',
-      'what-is-redistricting': 'verdict',
+      'stakes-heading': 'stakes',
+      'boundary-heading': 'stakes',
+      'what-is-redistricting': 'stakes',
       'section-1': 'findings',
       'section-2': 'findings',
       'section-3': 'findings',
@@ -380,7 +380,7 @@
   <div class="nav-inner">
     <a href="#top" class="nav-home" aria-label={t(lang.current, 'nav.home_aria')}><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg></a>
     <div class="nav-landmarks">
-      <a href="#verdict-heading" class:active={activeLandmark === 'verdict'} aria-current={activeLandmark === 'verdict' ? 'location' : undefined}>{t(lang.current, 'nav.verdict')}</a>
+      <a href="#stakes-heading" class:active={activeLandmark === 'stakes'} aria-current={activeLandmark === 'stakes' ? 'location' : undefined}>{t(lang.current, 'nav.stakes')}</a>
       <a href="#section-1" class:active={activeLandmark === 'findings'} aria-current={activeLandmark === 'findings' ? 'location' : undefined}>{t(lang.current, 'nav.findings')}</a>
       <a href="#history-of-gerrymandering" class:active={activeLandmark === 'history'} aria-current={activeLandmark === 'history' ? 'location' : undefined}>{t(lang.current, 'nav.history')}</a>
       <a href="#section-8" class:active={activeLandmark === 'reform'} aria-current={activeLandmark === 'reform' ? 'location' : undefined}>{t(lang.current, 'nav.reform')}</a>
@@ -411,7 +411,7 @@
     <a href="#top" class="drawer-top" onclick={closeNavDrawer}>{t(lang.current, 'nav.drawer_top')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_overview')}</h4>
-    <a href="#verdict-heading" onclick={closeNavDrawer}>{t(lang.current, 'nav.verdict')}</a>
+    <a href="#stakes-heading" onclick={closeNavDrawer}>{t(lang.current, 'nav.stakes')}</a>
     <a href="#what-is-redistricting" onclick={closeNavDrawer}>{t(lang.current, 'nav.why')}</a>
     <a href="#section-1" onclick={closeNavDrawer}>{t(lang.current, 'nav.map')}</a>
 
@@ -439,6 +439,27 @@
   {/if}
 </nav>
 
+<section class="stakes-block container" aria-labelledby="stakes-heading">
+  <h2 id="stakes-heading" class="visually-hidden">{t(lang.current, 'nav.stakes')}</h2>
+  <div class="stakes-q">
+    <h3>{t(lang.current, 'stakes.q1.heading')}</h3>
+    <p>{@html t(lang.current, 'stakes.q1.body')}</p>
+    <p class="stakes-footnote">{t(lang.current, 'stakes.q1.footnote')}</p>
+  </div>
+  <div class="stakes-q">
+    <h3>{t(lang.current, 'stakes.q2.heading')}</h3>
+    <p>{@html t(lang.current, 'stakes.q2.body')}</p>
+  </div>
+  <div class="stakes-q">
+    <h3>{t(lang.current, 'stakes.q3.heading')}</h3>
+    <p>{@html t(lang.current, 'stakes.q3.body')}</p>
+  </div>
+  <div class="stakes-ctas">
+    <a href="#canada-is-different" class="stakes-cta">{t(lang.current, 'stakes.cta_law')}</a>
+    <a href="#section-3" class="stakes-cta">{t(lang.current, 'stakes.cta_methods')}</a>
+  </div>
+</section>
+
 <header>
   <div class="header-inner">
     <div class="header-text">
@@ -463,27 +484,6 @@
 <section class="opener-block container" aria-labelledby="opener-heading">
   <h2 id="opener-heading">{t(lang.current, 'opener.heading')}</h2>
   <p>{t(lang.current, 'opener.body')}</p>
-</section>
-
-<section class="verdict-block container" aria-labelledby="verdict-heading">
-  <h2 id="verdict-heading" class="visually-hidden">{t(lang.current, 'nav.verdict')}</h2>
-  <div class="verdict-q">
-    <h3>{t(lang.current, 'verdict.q1.heading')}</h3>
-    <p>{@html t(lang.current, 'verdict.q1.body')}</p>
-    <p class="verdict-footnote">{t(lang.current, 'verdict.q1.footnote')}</p>
-  </div>
-  <div class="verdict-q">
-    <h3>{t(lang.current, 'verdict.q2.heading')}</h3>
-    <p>{@html t(lang.current, 'verdict.q2.body')}</p>
-  </div>
-  <div class="verdict-q">
-    <h3>{t(lang.current, 'verdict.q3.heading')}</h3>
-    <p>{@html t(lang.current, 'verdict.q3.body')}</p>
-  </div>
-  <div class="verdict-ctas">
-    <a href="#canada-is-different" class="verdict-cta">{t(lang.current, 'verdict.cta_law')}</a>
-    <a href="#section-3" class="verdict-cta">{t(lang.current, 'verdict.cta_methods')}</a>
-  </div>
 </section>
 
 <section class="boundary-block container" aria-labelledby="boundary-heading">
@@ -633,7 +633,7 @@
 
     <p>{t(lang.current, 'body.litmus.closing_p2')}</p>
 
-    <p class="back-link"><a href="#verdict-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
+    <p class="back-link"><a href="#stakes-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
   </section>
 
   <section id="section-4">
@@ -729,7 +729,7 @@
     <p>{@html t(lang.current, 'editorial_canada.p6')}</p>
     <p>{@html t(lang.current, 'editorial_canada.p7')}</p>
 
-    <p class="back-link"><a href="#verdict-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
+    <p class="back-link"><a href="#stakes-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
   </section>
 
   <section id="section-5">
@@ -1041,11 +1041,11 @@
     <p>{t(lang.current, 'body.clean.sub7_p2')}</p>
 
     <figure style="margin:1.2rem 0;text-align:center;">
-      <img src="images/verdict_quadrant.svg" alt={t(lang.current, 'body.clean.verdict_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="351" loading="lazy">
-      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.clean.verdict_fig_caption')}</figcaption>
+      <img src="images/stakes_quadrant.svg" alt={t(lang.current, 'body.clean.stakes_fig_alt')} class="chart-img" style="max-width: 100%;" width="474" height="351" loading="lazy">
+      <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{t(lang.current, 'body.clean.stakes_fig_caption')}</figcaption>
     </figure>
 
-    <p>{t(lang.current, 'body.clean.verdict_table_intro')}</p>
+    <p>{t(lang.current, 'body.clean.stakes_table_intro')}</p>
 
     <div class="table-wrap">
       <table>
@@ -1501,7 +1501,7 @@
 </div>
 
 <style>
-  /* --- Editorial blocks: opener, verdict, boundary card, sections 1/5/6/7 --- */
+  /* --- Editorial blocks: opener, stakes, boundary card, sections 1/5/6/7 --- */
   :global(.visually-hidden) {
     position: absolute;
     width: 1px;
@@ -1528,24 +1528,24 @@
     color: var(--lead);
     margin: 0;
   }
-  :global(.verdict-block) {
+  :global(.stakes-block) {
     margin-top: 1.5rem;
     padding: 1.5rem 1.2rem;
     border: 1px solid var(--border);
     border-radius: 8px;
     background: var(--bg-alt);
   }
-  :global(.verdict-q) { margin-bottom: 1.1rem; }
-  :global(.verdict-q:last-of-type) { margin-bottom: 1.4rem; }
-  :global(.verdict-q h3) {
+  :global(.stakes-q) { margin-bottom: 1.1rem; }
+  :global(.stakes-q:last-of-type) { margin-bottom: 1.4rem; }
+  :global(.stakes-q h3) {
     font-size: 1.1rem;
     color: var(--heading);
     margin: 0 0 0.4rem;
     font-weight: 600;
   }
-  :global(.verdict-q p) { margin: 0; line-height: 1.6; color: var(--text); }
-  :global(.verdict-q em) { font-style: italic; }
-  :global(.verdict-footnote) {
+  :global(.stakes-q p) { margin: 0; line-height: 1.6; color: var(--text); }
+  :global(.stakes-q em) { font-style: italic; }
+  :global(.stakes-footnote) {
     margin-top: 0.6rem !important;
     font-size: 0.85rem;
     color: var(--text-muted, #666);
@@ -1553,20 +1553,20 @@
     border-left: 2px solid var(--border-subtle);
     padding-left: 0.7rem;
   }
-  :global(.verdict-ctas) {
+  :global(.stakes-ctas) {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem 1rem;
     border-top: 1px solid var(--border-subtle);
     padding-top: 1rem;
   }
-  :global(.verdict-cta) {
+  :global(.stakes-cta) {
     text-decoration: none;
     color: var(--link);
     font-weight: 500;
     font-size: 0.95rem;
   }
-  :global(.verdict-cta:hover) { text-decoration: underline; }
+  :global(.stakes-cta:hover) { text-decoration: underline; }
 
   .back-link {
     margin-top: 1.4rem;
@@ -2075,12 +2075,12 @@
     section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid var(--border); scroll-margin-top: 72px; }
     section:last-of-type { border-bottom: none; }
 
-    /* The verdict and boundary blocks anchor on a visually-hidden h2 inside the
+    /* The stakes and boundary blocks anchor on a visually-hidden h2 inside the
        section, not on the section itself, so the section rule's scroll-margin
        doesn't apply when those ids are the jump target. Match the offset on
        the h2 ids directly so back-links land at the heading rather than
        behind the sticky nav. */
-    #verdict-heading, #boundary-heading { scroll-margin-top: 72px; }
+    #stakes-heading, #boundary-heading { scroll-margin-top: 72px; }
     /* Defer layout of sections far below the fold — browser skips paint until near viewport */
     #section-5, #section-6, #section-7, #section-8,
     #retractions, #references, #resources {

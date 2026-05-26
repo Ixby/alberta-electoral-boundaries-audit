@@ -1,12 +1,12 @@
-# Verdict + Glossary — Editorial Draft
+# Stakes + Glossary — Editorial Draft
 
 **Status:** DRAFT. Pre-implementation editorial content for the content-restructure proposal. Every word is a starting point for your edit, not a final position. The voice aims for high-school-educated, civically curious, no prior knowledge of redistricting, no political prior — and follows the empower-don't-advocate principle from `proposals/content_restructure.md`.
 
 ---
 
-## Part 1 — Document opener (`/`, very top of page, above the verdict)
+## Part 1 — Document opener (`/`, very top of page, above the stakes)
 
-A short first-person paragraph in the author's voice. Sits at the very top of `/`, immediately above the verdict card. Sets the tone — inclusive, party-neutral, foundational — before any structural finding lands.
+A short first-person paragraph in the author's voice. Sits at the very top of `/`, immediately above the stakes card. Sets the tone — inclusive, party-neutral, foundational — before any structural finding lands.
 
 ---
 
@@ -18,17 +18,17 @@ A short first-person paragraph in the author's voice. Sits at the very top of `/
 
 **Editorial notes:**
 
-- First person ("us," "let me show you what I found") and singular author voice — distinct from the institutional third-person of the audit's findings sections. The voice is intentional: it signals that a person did this work, takes responsibility for it, and is inviting the reader in. The shift to third-person evidential voice begins at the verdict card immediately below.
-- The audience list ("Rural, Urban, curious, wonk, journalist, lawyer, academic, politician") is the answer to anyone who suspects the audit is coded for one side. Naming every plausible reader on the list neutralises that suspicion before the verdict's structural findings arrive. The repeated "all of us" is rhetorical anchoring, not redundancy.
+- First person ("us," "let me show you what I found") and singular author voice — distinct from the institutional third-person of the audit's findings sections. The voice is intentional: it signals that a person did this work, takes responsibility for it, and is inviting the reader in. The shift to third-person evidential voice begins at the stakes card immediately below.
+- The audience list ("Rural, Urban, curious, wonk, journalist, lawyer, academic, politician") is the answer to anyone who suspects the audit is coded for one side. Naming every plausible reader on the list neutralises that suspicion before the stakes's structural findings arrive. The repeated "all of us" is rhetorical anchoring, not redundancy.
 - "Whether or not you like the party in power" is the explicit party-neutrality move. The audit's findings happen to grade the minority proposal harshly; the opener names that anyone, including supporters of the governing party, can read what follows without being asked to change sides. Combined with the three-question lens in Section 5, this is the strongest available defence against partisan-coding accusations.
-- "What the split commission produced has never been done before" is a factual claim — the 3–2 EBC split producing two competing proposals rather than a single recommendation is genuinely unprecedented in Alberta's redistricting history. The footnote on the verdict's Q1 already establishes the chain of authority; this sentence is the consequence the reader should sit with.
-- "Peer inside the machine" frames the audit as a tool that creates visibility, not as a verdict imposed from outside. "Establish a baseline — a series of tests, and everything that comes after can be graded on it" positions the work as foundational: this isn't just an opinion on the 2026 cycle, it's a yardstick for every cycle after. That framing is the most credible long-term argument for why a curious citizen should care, regardless of how this particular cycle resolves.
-- "Let me show you what I found" is the explicit hand-off into the verdict card. Personal, direct, and one beat before the structural evidence lands.
+- "What the split commission produced has never been done before" is a factual claim — the 3–2 EBC split producing two competing proposals rather than a single recommendation is genuinely unprecedented in Alberta's redistricting history. The footnote on the stakes's Q1 already establishes the chain of authority; this sentence is the consequence the reader should sit with.
+- "Peer inside the machine" frames the audit as a tool that creates visibility, not as a stakes imposed from outside. "Establish a baseline — a series of tests, and everything that comes after can be graded on it" positions the work as foundational: this isn't just an opinion on the 2026 cycle, it's a yardstick for every cycle after. That framing is the most credible long-term argument for why a curious citizen should care, regardless of how this particular cycle resolves.
+- "Let me show you what I found" is the explicit hand-off into the stakes card. Personal, direct, and one beat before the structural evidence lands.
 - Light copyediting was applied to the author's draft (typos: Wether → Whether, commision → commission, oppurtunity → opportunity, "A series of test" → "A series of tests", "politician.." → "politician —"). The author's voice, rhythm, and capitalisation choices (Rural / Urban capitalised; the rest lower-case) are preserved exactly.
 
 ---
 
-## Part 2 — Hero verdict block (`/`, above the fold)
+## Part 2 — Hero stakes block (`/`, above the fold)
 
 A single bordered card. Three questions, three short answers. Two routing CTAs at the bottom. Sits above the cover map.
 
@@ -52,7 +52,7 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 
 **Editorial notes:**
 
-- The verdict's Q1 uses a doubly-conditional construction ("if gerrymander were a Canadian legal term, in the everyday sense, the evidence would support…") to answer the question the reader is actually asking without literally calling the proposal a gerrymander. The audit cannot apply a term Canadian law doesn't have. But it can describe what the evidence would support if that term were available, and it can do so in the same plain-language frame the reader is using.
+- The stakes's Q1 uses a doubly-conditional construction ("if gerrymander were a Canadian legal term, in the everyday sense, the evidence would support…") to answer the question the reader is actually asking without literally calling the proposal a gerrymander. The audit cannot apply a term Canadian law doesn't have. But it can describe what the evidence would support if that term were available, and it can do so in the same plain-language frame the reader is using.
 - "If enacted" — second conditional. The minority proposal hasn't been adopted; it's a discarded commissioners' submission that the Lunty committee may forward to the legislature.
 - "There isn't one" — Q2's one-sentence opening. Direct, accurate, and immediately reframes to the *effective representation* test.
 - Q3 deliberately states what the audit *has* measured (the 50/50 result) and what it has *not* yet measured (behaviour at other vote shares). Naming the limit explicitly — rather than asserting a likelihood differential at vote shares the audit hasn't tested — is the kind of constraint that earns the reader's trust in everything else.
@@ -71,7 +71,7 @@ If the test is authorized and run, Q3 gets one additional sentence naming the vo
 
 ---
 
-## Part 3 — Epistemic boundary card (`/`, immediately below the verdict)
+## Part 3 — Epistemic boundary card (`/`, immediately below the stakes)
 
 A smaller, plainer card. Two columns: what the audit can say vs. what it can't. Reads in 30 seconds. Establishes credibility by acknowledging limits before any deeper claim is made.
 
@@ -102,7 +102,7 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 
 ## Part 4 — Section 1 onboarding (`/`, immediately below the boundary card)
 
-The first piece of body prose after the verdict and the boundary card. The reader arrives knowing nothing — possibly without a clear sense of what an electoral district is, who their MLA is, or why a map matters. This section onboards them in ~400 words. No statistical jargon. No legal jargon. Second-person. Empower-don't-advocate.
+The first piece of body prose after the stakes and the boundary card. The reader arrives knowing nothing — possibly without a clear sense of what an electoral district is, who their MLA is, or why a map matters. This section onboards them in ~400 words. No statistical jargon. No legal jargon. Second-person. Empower-don't-advocate.
 
 ---
 
@@ -124,9 +124,9 @@ The first piece of body prose after the verdict and the boundary card. The reade
 
 - The opening sentence starts where the reader is, not where the technical material is. "A slice of the province that elects one person to the legislature" replaces any phrasing like "geographic area returning one MLA" — same meaning, plainer words. The reader who doesn't know what an MLA is gets a working definition in the next sentence ("each district elects one MLA"), and the Tier 1 glossary entry catches anyone who needs more.
 - "One MLA, one district, one vote." — establishes the personal stake before any structural argument. The reader should feel implicated by the time the redistricting machinery is introduced.
-- "Every eight to ten years, Alberta is supposed to redraw the lines…" — "supposed to" is doing real work. It signals that the process has a normative shape (independent, periodic, neutral) without yet alleging it has been violated. The verdict argues that; this onboarding section sets up the standard the verdict measures against.
+- "Every eight to ten years, Alberta is supposed to redraw the lines…" — "supposed to" is doing real work. It signals that the process has a normative shape (independent, periodic, neutral) without yet alleging it has been violated. The stakes argues that; this onboarding section sets up the standard the stakes measures against.
 - The pivot "That is the standard process. This time, the standard process produced something unusual." is the article's whole thesis in two sentences. The reader who stops here still leaves with the right shape of the story.
-- The 3–2 commission split and the Lunty committee chain of authority are stated *in prose* here, not just in the verdict's footnote. The reader who skipped the footnote still gets the provenance. Both anchors (footnote on `/` Q1, prose paragraph in Section 1) reinforce each other.
+- The 3–2 commission split and the Lunty committee chain of authority are stated *in prose* here, not just in the stakes's footnote. The reader who skipped the footnote still gets the provenance. Both anchors (footnote on `/` Q1, prose paragraph in Section 1) reinforce each other.
 - "Why it matters to you" — paragraph 4 is the personal-to-provincial ladder previewed. Section 5 ("What this means for you and your community") will expand each rung; this paragraph is the trailer.
 - The closing question — "do the lines reflect the way Albertans live, or do they shape the politics that follow?" — is deliberately a question, not a thesis. The audit answers part of it (the minority proposal's structural extremes); the broader question is older and bigger than any one cycle. Framing it as a question rather than an answer is the empower-don't-advocate principle applied to the section's last line.
 - "The rest of this page walks through what the two proposed maps actually do." — explicit hand-off to Section 2 (The Map) and Section 3 (Two Maps, One Commission, One Deadline). The reader knows where they're going.
@@ -173,7 +173,7 @@ The biggest piece of new prose on `/`. Sits after Section 4 ("What the Minority 
 >
 > #### Your province.
 >
-> The legislature is what you get when you sum every district's answers to the three questions above. If most districts are anchored to communities whose MLAs actually live in them, the legislature represents those communities. If most districts have rural tails attached to urban heads, the legislature represents the heads — and the tails get whatever attention is left over. The partisan question — which party wins a majority — is downstream of that. The supermajority question — whether one party crosses 58 of 87 seats and unlocks procedural shortcuts like waiving notice periods or accelerating bills through multiple stages in a single day — is downstream of *that*. At a hypothetical 50/50 provincial split, the audit's measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. Whether that imbalance pushes a party past 58 seats at the vote shares Albertans actually deliver is a question this audit has not yet directly tested; the verdict at the top of this page is honest about the gap. Whether the answer to any of these questions matters enough to act on is, again, a question for you.
+> The legislature is what you get when you sum every district's answers to the three questions above. If most districts are anchored to communities whose MLAs actually live in them, the legislature represents those communities. If most districts have rural tails attached to urban heads, the legislature represents the heads — and the tails get whatever attention is left over. The partisan question — which party wins a majority — is downstream of that. The supermajority question — whether one party crosses 58 of 87 seats and unlocks procedural shortcuts like waiving notice periods or accelerating bills through multiple stages in a single day — is downstream of *that*. At a hypothetical 50/50 provincial split, the audit's measurements place the minority proposal at a structural extreme: fewer than 100 of the 1.01 million neutral comparison maps produce the same kind of seat imbalance. Whether that imbalance pushes a party past 58 seats at the vote shares Albertans actually deliver is a question this audit has not yet directly tested; the stakes at the top of this page is honest about the gap. Whether the answer to any of these questions matters enough to act on is, again, a question for you.
 
 ---
 
@@ -192,7 +192,7 @@ The biggest piece of new prose on `/`. Sits after Section 4 ("What the Minority 
 - "An MLA elected from that kind of district is most likely to live, campaign, and prioritise where the votes are" — phrased as a likely outcome rather than a certainty. The audit can measure the geometry; the representation-quality implication is a reasonable inference, not a measurement, and the prose calibrates accordingly.
 - The closing question — "decides whether your MLA represents the rural community you actually live in, or an urban district whose lines happen to include your land" — is deliberately phrased so the answer depends on which map gets enacted, not on which party the reader supports. Reader empowerment, not advocacy.
 - "Your province" presents the legislature as the **sum** of every district's answers to the three questions, not as a separate top-down partisan-power story. The partisan-majority question is "downstream of that"; the supermajority question is "downstream of *that*." That ordering matches what the audit actually measures (district-level geometry) and what it has not (vote-share-conditional seat behaviour). Leading with "the lines shape who governs" would import the parties' framing — the very frame the section's opener sets aside.
-- The supermajority point appears in this rung as one of several downstream consequences, not as the rung's punchline. It needs to be named because Q3 of the verdict names it; flagging it as a question the audit has not yet answered at the relevant vote shares keeps the section's voice consistent with the verdict's honesty.
+- The supermajority point appears in this rung as one of several downstream consequences, not as the rung's punchline. It needs to be named because Q3 of the stakes names it; flagging it as a question the audit has not yet answered at the relevant vote shares keeps the section's voice consistent with the stakes's honesty.
 - Italics on jargon terms (*packing*, *cracking*, *municipal anchoring*, *two-thirds supermajority threshold*) signal "this is a defined term; the popover has more" without breaking the reading rhythm.
 - The whole section assumes Section 4 has already shown the Airdrie split visually on the map. If implementation reorders the page, Airdrie either needs a one-line picture-the-scene addition here or the section needs a glance-back link to Section 4.
 
@@ -226,7 +226,7 @@ A short narrative section that gives the reader the word's origin and three quic
 - Three countries, not five or ten. The selection is deliberate — they bracket the *institutional* spectrum (judicial deference / parliamentary deference / agency authority), not the partisan one. A reader who finishes this section has a frame for evaluating any redistricting system, not a list of "good" and "bad" countries.
 - *Rucho* is named once and characterised in three words ("political questions" outside the courts' jurisdiction). The full holding has nuances the curious-citizen reader doesn't need; the `/law` route can carry the longer treatment for engaged readers.
 - "Texas and North Carolina have continued to draw openly partisan maps and defended them on the basis that *Rucho* permits it" — descriptive, not judgmental. The audit observes that these states do this; the reader judges whether that is good or bad. Empower-don't-advocate.
-- The U.K. paragraph names "respect for local government boundaries" specifically — that's the U.K.'s anchoring analogue, and naming it earns continuity with the Alberta audit's own anchoring metric. A reader who has reached Section 6 has already seen "municipal anchoring" in the verdict and in Section 5; meeting the same concept in the U.K. context primes them for the Section 7 Canadian comparison.
+- The U.K. paragraph names "respect for local government boundaries" specifically — that's the U.K.'s anchoring analogue, and naming it earns continuity with the Alberta audit's own anchoring metric. A reader who has reached Section 6 has already seen "municipal anchoring" in the stakes and in Section 5; meeting the same concept in the U.K. context primes them for the Section 7 Canadian comparison.
 - "Gerrymandering as Americans know it is virtually unheard of" — true of both the U.K. and Australia, said once for both. Avoids implying that the U.S. is the global default; in fact among Westminster-tradition democracies it is the outlier.
 - The closing sentence is the explicit hand-off to Section 7 ("Canada is different — and similar"). Each homepage section ends with a one-line bridge into the next; this is the bridge.
 - No second-person address in this section. Section 5 is intensely personal ("your MLA," "your community"); Section 6 deliberately pulls back to historical and comparative narrative. That register shift gives the reader a brief breath before Section 7's deeper-stakes Canadian material.
@@ -235,7 +235,7 @@ A short narrative section that gives the reader the word's origin and three quic
 
 ## Part 7 — Section 7 Canada is different and similar (`/`, after the history)
 
-The bridge from the international snapshot in Section 6 to the deeper legal framing on `/law`. Six paragraphs, ~500 words. Stays in Section 6's third-person narrative register, but threads back to the audit's specific findings (the 25% variance from Section 5's "Your region," the Lunty committee from the verdict's Q1 footnote) so a reader who has scrolled this far feels the section ties the threads together.
+The bridge from the international snapshot in Section 6 to the deeper legal framing on `/law`. Six paragraphs, ~500 words. Stays in Section 6's third-person narrative register, but threads back to the audit's specific findings (the 25% variance from Section 5's "Your region," the Lunty committee from the stakes's Q1 footnote) so a reader who has scrolled this far feels the section ties the threads together.
 
 ---
 
@@ -264,7 +264,7 @@ The bridge from the international snapshot in Section 6 to the deeper legal fram
 - The 25%-variance loop back to Section 5's "Your region" is the section's load-bearing connective tissue. A rural reader who has just been told (Section 5) that the variance protects rural seats now learns (Section 7) that the variance is constitutionally grounded in the same effective-representation principle that allows the minority proposal's anchoring failures to be legally tested. Same principle, two consequences.
 - "The catch is that flexibility cuts both ways" — names the structural cost of Canada's choice without prescribing whether the choice was right. A different country could have decided differently; Canada decided this. The audit observes the consequence; the reader judges whether the trade-off was worth it.
 - The Quebec two-thirds and BC default-adopt mentions preview Tier-2 glossary terms (already defined for the `/law` route). On `/` they are named briefly enough that a click-popover reader gets the definition and a glossary-skipper still picks up the rough shape from context.
-- The Lunty-committee paragraph repeats the verdict's Q1 footnote provenance language ("a separate MLA committee, chaired by a Premier-appointed MLA"). Consistent phrasing across the document so a reader who notices the repetition reads it as authoritative, not as redundancy.
+- The Lunty-committee paragraph repeats the stakes's Q1 footnote provenance language ("a separate MLA committee, chaired by a Premier-appointed MLA"). Consistent phrasing across the document so a reader who notices the repetition reads it as authoritative, not as redundancy.
 - "Nothing required that committee to exist. Nothing requires its choice to follow the commission's process. That is the structural gap this audit is examining." — the most pointed structural claim in Section 7. Calibrated against what `/law`'s "committee anomaly" section will treat in more detail; brief enough on `/` that the curious-reader audience absorbs the shape without being asked to take a position.
 - The closing sentence is the explicit bridge to `/law`. It names what the deeper route covers (*Saskatchewan Reference* in full, comparative material, standing, reform pathways) so a reader who clicks through arrives knowing what they will find.
 - No second-person address in this section, matching Section 6. The personal-stakes voice returns in Section 9 ("How to engage").
@@ -646,24 +646,24 @@ Things to settle before the glossary ships:
    > *The "majority" and "minority" names come from a 3–2 split among the Electoral Boundaries Commission (chaired by Justice Miller), which produced two competing proposals rather than a single recommendation. A separate MLA committee chaired by Brandon Lunty — a Premier-appointed MLA — is now choosing between them before the November 2026 deadline.*
 
    That establishes the chain of authority (commission → competing proposals → Lunty committee → legislature) once, in one place, so deeper sections don't need to keep re-explaining it.
-4. **Whether to name the parties in the verdict.** Currently it says "one party" — not naming UCP or NDP. Pros: keeps the audit neutral, lets the reader's mental model fill in either party. Cons: a reader who already knows the politics will read "one party" as evasive. The existing site does name UCP and NDP throughout. Decision: name them in the lived examples on `/`, but in the verdict block keep "one party" — the verdict is about structure, not partisanship.
+4. **Whether to name the parties in the stakes.** Currently it says "one party" — not naming UCP or NDP. Pros: keeps the audit neutral, lets the reader's mental model fill in either party. Cons: a reader who already knows the politics will read "one party" as evasive. The existing site does name UCP and NDP throughout. Decision: name them in the lived examples on `/`, but in the stakes block keep "one party" — the stakes is about structure, not partisanship.
 5. **UCP/NDP glossary entries — added.** Short factual entries with no editorial framing.
-6. **CTA order — keeping current.** *Read the legal context →* appears before *See how we tested →* because that matches the recommended depth order (narrative → law → science) you endorsed earlier. A reader who wants the answer fastest reads the verdict and stops; a reader who wants context next reaches the legal framing before the methodology. Override if you'd rather lead with the math.
+6. **CTA order — keeping current.** *Read the legal context →* appears before *See how we tested →* because that matches the recommended depth order (narrative → law → science) you endorsed earlier. A reader who wants the answer fastest reads the stakes and stops; a reader who wants context next reaches the legal framing before the methodology. Override if you'd rather lead with the math.
 
 ---
 
 ## Part 10 — What's not in this draft (deliberately)
 
-- **Section transitions and lead-in text.** Each route's section-by-section prose comes in a later editorial pass; this draft is just the verdict, the boundary card, and the defined vocabulary that the rest of the site will reference.
+- **Section transitions and lead-in text.** Each route's section-by-section prose comes in a later editorial pass; this draft is just the stakes, the boundary card, and the defined vocabulary that the rest of the site will reference.
 - **References list (academic + legal).** Already exists in the current site and migrates wholesale.
 - **The "How to engage" copy block.** Depends on `engagement.json` schema being defined first (see open question #2 in `content_restructure.md`).
-- **Verdict block visual treatment.** Color, border, typography are CSS questions; this draft only fixes the language.
+- **Stakes block visual treatment.** Color, border, typography are CSS questions; this draft only fixes the language.
 
 ---
 
 ## Sign-off questions
 
-- Does the verdict block answer the question a curious Albertan is actually asking when they land on `/`?
+- Does the stakes block answer the question a curious Albertan is actually asking when they land on `/`?
 - Is the boundary card too long, too short, or roughly right?
 - Are there terms in the glossary that should be cut (already self-explanatory) or merged?
 - Are there terms that should be added (jargon you know you use that isn't here)?

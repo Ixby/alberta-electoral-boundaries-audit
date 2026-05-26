@@ -16,7 +16,7 @@ export default {
 		body:
 			"Para sa atin. Para sa ating lahat. Sa mga taga-bukid, sa mga taga-lungsod, sa mga curious, sa mga mahilig sa pulitika, sa mga mamamahayag, sa mga abugado, sa mga akademiko, sa mga pulitiko — para sa ating lahat. Dahil nakakaapekto ito sa ating lahat. Anuman ang iyong palagay sa partidong nasa poder, ang ginawa ng hating komisyon ay hindi pa nangyari noon. At binigyan tayo nito ng pagkakataong masilip ang loob ng makinarya sa paraang hindi pa natin nagawa. Ngayon ay maaari na tayong magtatag ng isang batayan — isang serye ng mga pagsusulit, at lahat ng susunod ay maaaring sukatin batay dito. Hayaan ninyong ipakita ko sa inyo ang aking natuklasan."
 	},
-	verdict: {
+	stakes: {
 		q1: {
 			heading: 'Ang iminungkahing mapa ba ay isang gerrymander?',
 			body:
@@ -48,7 +48,7 @@ export default {
 		theme_title: 'Palitan ang madilim na mode',
 		nav_aria: 'I-toggle ang nabigasyon',
 		drawer_top: '↑ Itaas',
-		verdict: 'Hatol',
+		stakes: 'Hatol',
 		why: 'Bakit?',
 		map: 'Mapa',
 		split: 'Ang Paghahati',
