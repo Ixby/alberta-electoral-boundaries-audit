@@ -3600,20 +3600,12 @@ z
     </g>
    </g>
    <g id="text_24">
-    <!-- SUS -->
-    <g style="fill: #8a7800; opacity: 0.35" transform="translate(147.63693 67.113674) scale(0.1 -0.1)">
-     <use xlink:href="#Georgia-Bold-53"/>
-     <use xlink:href="#Georgia-Bold-55" transform="translate(64.892578 0)"/>
-     <use xlink:href="#Georgia-Bold-53" transform="translate(148.242188 0)"/>
-    </g>
+    <!-- WARNING -->
+    <text x="159.04" y="64" style="fill: #F2A900; opacity: 0.45; font-family: Georgia, serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central;">WARNING</text>
    </g>
    <g id="text_25">
-    <!-- SUS -->
-    <g style="fill: #8a7800; opacity: 0.35" transform="translate(365.36493 207.081674) scale(0.1 -0.1)">
-     <use xlink:href="#Georgia-Bold-53"/>
-     <use xlink:href="#Georgia-Bold-55" transform="translate(64.892578 0)"/>
-     <use xlink:href="#Georgia-Bold-53" transform="translate(148.242188 0)"/>
-    </g>
+    <!-- WARNING -->
+    <text x="376.77" y="204" style="fill: #F2A900; opacity: 0.45; font-family: Georgia, serif; font-weight: bold; font-size: 12px; text-anchor: middle; dominant-baseline: central;">WARNING</text>
    </g>
    <g id="PathCollection_1">
     <defs>

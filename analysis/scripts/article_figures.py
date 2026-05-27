@@ -409,19 +409,20 @@ def build_bias_structure_matrix() -> Path:
         color="#9a3340", fontsize=10, fontweight="bold",
         ha="center", va="center", alpha=0.30,
     )
-    # Top-left sus zone: x in [XMIN, threshold_eg_alberta], y in [threshold_struct, YMAX]
+    # Top-left warning zone: x in [XMIN, threshold_eg_alberta], y in [threshold_struct, YMAX]
+    # EA-style amber/yellow signals caution without the DANGER ZONE's red weight.
     ax.text(
         (XMIN + threshold_eg_alberta) / 2, (threshold_struct + YMAX) / 2,
-        "SUS",
-        color="#8A7800", fontsize=10, fontweight="bold",
-        ha="center", va="center", alpha=0.35,
+        "WARNING",
+        color="#F2A900", fontsize=10, fontweight="bold",
+        ha="center", va="center", alpha=0.45,
     )
-    # Bottom-right sus zone: x in [threshold_eg_alberta, XMAX], y in [YMIN, threshold_struct]
+    # Bottom-right warning zone: x in [threshold_eg_alberta, XMAX], y in [YMIN, threshold_struct]
     ax.text(
         (threshold_eg_alberta + XMAX) / 2, (YMIN + threshold_struct) / 2,
-        "SUS",
-        color="#8A7800", fontsize=10, fontweight="bold",
-        ha="center", va="center", alpha=0.35,
+        "WARNING",
+        color="#F2A900", fontsize=10, fontweight="bold",
+        ha="center", va="center", alpha=0.45,
     )
 
     # Plot dots — larger and slightly brighter, with white halo (zorder 3-4, above threshold lines)
