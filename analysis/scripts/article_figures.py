@@ -145,18 +145,18 @@ def build_lane1_dotplot() -> Path:
             color=UCP_BLUE, fontsize=7, fontweight="bold",
             ha="right", va="top", transform=ax.transAxes)
 
-    ax.set_xlim(-5, 10)
+    ax.set_xlim(-7, 7)
     ax.set_xlabel("Efficiency gap (positive = UCP-favoured)", fontsize=8, color="#444")
     ax.set_ylabel("Neutral maps", fontsize=8, color="#444")
-    ax.set_xticks([-4, -2, 0, 2, 4, 6, 8])
-    ax.set_xticklabels(["-4%", "-2%", "0%", "+2%", "+4%", "+6%", "+8%"])
+    ax.set_xticks([-6, -4, -2, 0, 2, 4, 6])
+    ax.set_xticklabels(["-6%", "-4%", "-2%", "0%", "+2%", "+4%", "+6%"])
     ax.tick_params(axis="both", direction="out", length=3, pad=2)
 
     # Two-tone x-axis: orange for negative EG (NDP-favoured), blue for positive (UCP-favoured)
     ax.spines["bottom"].set_visible(False)
     _bx = ax.get_xaxis_transform()
-    ax.plot([-5, 0], [0, 0], transform=_bx, color=NDP_ORANGE, lw=1.0, clip_on=False, zorder=10)
-    ax.plot([0, 10], [0, 0], transform=_bx, color=UCP_BLUE,   lw=1.0, clip_on=False, zorder=10)
+    ax.plot([-7, 0], [0, 0], transform=_bx, color=NDP_ORANGE, lw=1.0, clip_on=False, zorder=10)
+    ax.plot([0, 7], [0, 0], transform=_bx, color=UCP_BLUE,   lw=1.0, clip_on=False, zorder=10)
 
     fig.tight_layout(pad=0.4)
     out = OUT / "lane1_dotplot.svg"
@@ -356,7 +356,7 @@ def build_bias_structure_matrix() -> Path:
     threshold_eg_us = 7.0
     threshold_struct = 4
 
-    XMIN, XMAX = -1, 9
+    XMIN, XMAX = -7, 7
     YMIN, YMAX = -0.6, 5.7
 
     # Quadrant shading — sus zones yellow, danger zone pink
@@ -473,9 +473,9 @@ def build_bias_structure_matrix() -> Path:
         "Lane 2: Structural-irregularity count (of 5)\nhigher = more structural problems",
         fontsize=9.5, color=TEXT_DARK, labelpad=8, linespacing=1.2,
     )
-    ax.set_xticks([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    ax.set_xticks([-6, -4, -2, 0, 2, 4, 6])
     ax.set_xticklabels(
-        ["-1%", "0%", "+1%", "+2%", "+3%", "+4%", "+5%", "+6%", "+7%", "+8%", "+9%"],
+        ["-6%", "-4%", "-2%", "0%", "+2%", "+4%", "+6%"],
         fontsize=8.5,
     )
     ax.set_yticks([0, 1, 2, 3, 4, 5])
