@@ -122,6 +122,7 @@ export function init(basePath: string): void {
           resetVB:          () => resetVB(),
           hideTip:          () => hideTip(),
           hideCallout:      () => _hideCallout(),
+          primeOnce:        () => _primeMapData(),
         });
         _openFn = open;
 
@@ -229,15 +230,18 @@ export function init(basePath: string): void {
         const _ecCloseBtn = document.getElementById(DOM_IDS.ecClose);
         if (_ecCloseBtn) _ecCloseBtn.addEventListener('click', _hideCallout);
 
-        // ── Layer panel ────────────────────────────────────────────────────────────
-
-        mpLoadHoverJson(ctx, 'minority', _mapJsonUrls.minority);
-        mpLoadHoverJson(ctx, 'majority', _mapJsonUrls.majority);
-        mpLoadHoverJson(ctx, '2019',    _mapJsonUrls['2019']);
-
-        mpLoadVaJson(ctx, 'minority', _mapVaJsonUrls.minority);
-        mpLoadVaJson(ctx, 'majority', _mapVaJsonUrls.majority);
-        mpLoadVaJson(ctx, '2019',    _mapVaJsonUrls['2019']);
+        // ── Lazy map-data load (fired on first overlay open) ──────────────────
+        // Defers 6 JSON downloads from init to first open so the page-load
+        // critical path stays empty of map-tool work. The primeOnce gate in
+        // overlay.ts ensures this runs at most once per session.
+        function _primeMapData() {
+          mpLoadHoverJson(ctx, 'minority', _mapJsonUrls.minority);
+          mpLoadHoverJson(ctx, 'majority', _mapJsonUrls.majority);
+          mpLoadHoverJson(ctx, '2019',    _mapJsonUrls['2019']);
+          mpLoadVaJson(ctx, 'minority', _mapVaJsonUrls.minority);
+          mpLoadVaJson(ctx, 'majority', _mapVaJsonUrls.majority);
+          mpLoadVaJson(ctx, '2019',    _mapVaJsonUrls['2019']);
+        }
 
         const vcClose = document.getElementById(DOM_IDS.vcClose);
         if (vcClose) vcClose.addEventListener('click', function() { hideVaCallout(ctx); });

@@ -10,6 +10,10 @@ type OverlayDeps = {
   resetVB:          () => void;
   hideTip:          () => void;
   hideCallout:      () => void;
+  // Called exactly once on the first open — used to kick off the hover/VA
+  // JSON downloads (deferred from init so the page-load critical path stays
+  // empty of map-tool work).
+  primeOnce:        () => void;
 };
 
 function _overlayFocusable(overlayEl: HTMLElement): HTMLElement[] {
@@ -22,8 +26,10 @@ function _overlayFocusable(overlayEl: HTMLElement): HTMLElement[] {
 // Trigger wiring is NOT done here — the caller owns the first trigger click
 // (lazy-load pattern: Svelte intercepts, dynamic-imports the engine, then calls open()).
 export function initOverlay(ctx: MapCtx, overlayEl: HTMLElement, closeBtnEl: HTMLElement, deps: OverlayDeps) {
+  let _primed = false;
 
   function open() {
+    if (!_primed) { _primed = true; deps.primeOnce(); }
     ctx.stageRect = null;
     overlayEl.style.display = 'block';
     document.body.style.overflow = 'hidden';
