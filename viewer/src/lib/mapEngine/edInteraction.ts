@@ -1,20 +1,41 @@
-// @ts-nocheck
 // Alberta Electoral Boundary Audit — ED interaction
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
 // Tooltip, callout, ED highlight, snap-to-ED, zoom-to-ED.
-// Reads/writes: ctx.svgEl, ctx.edHover, ctx.curVB, ctx.mapPrimary, ctx.nameIndex,
-//               ctx.selectedEdName, ctx.highlightPath, ctx.mode, ctx.mapLocked, ctx.rafId.
 // animateToVB and getStageRect are passed as callbacks to avoid circular deps with viewport.
 
-import type { MapCtx, MapEngineEventHandler } from './types';
+import type { MapCtx, MapEngineEventHandler, MapKey, ViewBox } from './types';
 import { DOM_IDS } from './domIds';
 
 const _fmt = new Intl.NumberFormat();
 
+type EdRec = {
+  id: number;
+  name: string;
+  ucp_pct: number;
+  ndp_pct: number;
+  ucp_votes?: number;
+  ndp_votes?: number;
+  votes?: number;
+  pop?: number;
+  va_count?: number;
+  eg?: number | null;
+};
+
+type VaRec = {
+  va_id?: string | number;
+  poll_name?: string;
+  ucp_pct?: number;
+  ndp_pct?: number;
+  in_person_votes?: number;
+  ed_name?: string;
+};
+
+type BBox = { x: number; y: number; width: number; height: number };
+
 // ── Tooltip ───────────────────────────────────────────────────────────────────
 
-export function showTip(d, x: number, y: number): void {
+export function showTip(d: EdRec | undefined, x: number, y: number): void {
   if (!d) return;
   const tip = document.getElementById(DOM_IDS.edTooltip);
   if (!tip) return;
@@ -37,20 +58,29 @@ export function hideTip(): void {
 
 // ── Callout ───────────────────────────────────────────────────────────────────
 
-export function showCallout(ctx: MapCtx, d): void {
+function _setText(id: string, text: string): void {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text;
+}
+function _setWidth(id: string, pct: number | string): void {
+  const el = document.getElementById(id) as HTMLElement | null;
+  if (el) el.style.width = pct + '%';
+}
+
+export function showCallout(ctx: MapCtx, d: EdRec | undefined): void {
   if (!d) return;
-  document.getElementById(DOM_IDS.ecName).textContent = d.name;
-  document.getElementById(DOM_IDS.ecUcpBar).style.width = d.ucp_pct + '%';
-  document.getElementById(DOM_IDS.ecNdpBar).style.width = d.ndp_pct + '%';
-  document.getElementById(DOM_IDS.ecUcpPct).textContent = d.ucp_pct + '%';
-  document.getElementById(DOM_IDS.ecNdpPct).textContent = d.ndp_pct + '%';
-  document.getElementById(DOM_IDS.ecUcpVotes).textContent = d.ucp_votes ? _fmt.format(d.ucp_votes) + ' votes' : '';
-  document.getElementById(DOM_IDS.ecNdpVotes).textContent = d.ndp_votes ? _fmt.format(d.ndp_votes) + ' votes' : '';
-  document.getElementById(DOM_IDS.ecTotalVotes).textContent = d.votes ? _fmt.format(d.votes) + ' total votes' : '';
+  _setText(DOM_IDS.ecName, d.name);
+  _setWidth(DOM_IDS.ecUcpBar, d.ucp_pct);
+  _setWidth(DOM_IDS.ecNdpBar, d.ndp_pct);
+  _setText(DOM_IDS.ecUcpPct, d.ucp_pct + '%');
+  _setText(DOM_IDS.ecNdpPct, d.ndp_pct + '%');
+  _setText(DOM_IDS.ecUcpVotes, d.ucp_votes ? _fmt.format(d.ucp_votes) + ' votes' : '');
+  _setText(DOM_IDS.ecNdpVotes, d.ndp_votes ? _fmt.format(d.ndp_votes) + ' votes' : '');
+  _setText(DOM_IDS.ecTotalVotes, d.votes ? _fmt.format(d.votes) + ' total votes' : '');
   const vaEl = document.getElementById(DOM_IDS.ecVaCount);
   if (vaEl) vaEl.textContent = d.va_count ? d.va_count + ' voting areas' : '';
   const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
-  document.getElementById(DOM_IDS.ecPop).textContent = popN ? 'Pop. ' + _fmt.format(popN) : '';
+  _setText(DOM_IDS.ecPop, popN ? 'Pop. ' + _fmt.format(popN) : '');
 
   const egEl = document.getElementById(DOM_IDS.ecEg);
   if (egEl) {
@@ -73,9 +103,10 @@ export function showCallout(ctx: MapCtx, d): void {
 
   const cmpEl = document.getElementById(DOM_IDS.ecCompare);
   if (cmpEl) {
-    const others = ['minority', 'majority', '2019'].filter(k => k !== ctx.mapPrimary);
+    const others = (['minority', 'majority', '2019'] as const).filter(k => k !== ctx.mapPrimary);
     const parts = others.map(function(k) {
-      const rec = ctx.nameIndex[k] && ctx.nameIndex[k][d.name];
+      const idx = ctx.nameIndex[k];
+      const rec = idx && idx[d.name] as EdRec | undefined;
       if (!rec) return null;
       const label = k === 'minority' ? 'Min.' : k === 'majority' ? 'Maj.' : '2019';
       const ucpFirst = rec.ucp_pct >= rec.ndp_pct;
@@ -86,7 +117,7 @@ export function showCallout(ctx: MapCtx, d): void {
         ? '<span class="ec-cmp-second">NDP ' + rec.ndp_pct + '%</span>'
         : '<span class="ec-cmp-second">UCP ' + rec.ucp_pct + '%</span>';
       return '<span class="ec-cmp-item"><span class="ec-cmp-label">' + label + '</span>' + winner + '<span class="ec-cmp-sep">/</span>' + loser + '</span>';
-    }).filter(Boolean);
+    }).filter((s): s is string => s !== null);
     if (parts.length) {
       cmpEl.innerHTML = '<span class="ec-cmp-header">Other maps</span>' + parts.join('');
       cmpEl.style.display = 'flex';
@@ -100,7 +131,10 @@ export function showCallout(ctx: MapCtx, d): void {
   const srEl = document.getElementById(DOM_IDS.srAnnounce);
   if (srEl) srEl.textContent = d.name + ' — UCP ' + d.ucp_pct + '%, NDP ' + d.ndp_pct + '%';
   const vaHint = document.getElementById(DOM_IDS.ecVaHint);
-  if (vaHint) vaHint.style.display = (ctx.allVaData && ctx.allVaData[ctx.mapPrimary] && Object.keys(ctx.allVaData[ctx.mapPrimary]).length) ? '' : 'none';
+  if (vaHint) {
+    const vaForMap = ctx.mapPrimary ? ctx.allVaData[ctx.mapPrimary] : null;
+    vaHint.style.display = (vaForMap && Object.keys(vaForMap).length) ? '' : 'none';
+  }
   const callout = document.getElementById(DOM_IDS.edCallout);
   const hud     = document.getElementById(DOM_IDS.hud);
   if (callout) callout.classList.add('ec-visible');
@@ -122,30 +156,32 @@ export function hideCallout(ctx: MapCtx): void {
 
 // ── ED highlight ──────────────────────────────────────────────────────────────
 
-export function setEdHighlight(ctx: MapCtx, pathEl): void {
+export function setEdHighlight(ctx: MapCtx, pathEl: SVGGraphicsElement | null): void {
   clearEdHighlight(ctx);
   if (!ctx.svgEl || !pathEl) return;
-  const d = pathEl.getAttribute('d');
-  ctx.highlightPath = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  ctx.highlightPath.setAttribute('pointer-events', 'none');
-  const glow = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  const d = pathEl.getAttribute('d') || '';
+  const NS = 'http://www.w3.org/2000/svg';
+  const hp = document.createElementNS(NS, 'g');
+  hp.setAttribute('pointer-events', 'none');
+  const glow = document.createElementNS(NS, 'path');
   glow.setAttribute('d', d);
   glow.setAttribute('fill', 'none');
   glow.setAttribute('stroke', 'rgba(255,255,255,0.25)');
   glow.setAttribute('stroke-width', '6');
   glow.setAttribute('stroke-linejoin', 'round');
-  glow.style.vectorEffect = 'non-scaling-stroke';
-  glow.style.filter = 'blur(2px)';
-  const sharp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  (glow as SVGPathElement).style.vectorEffect = 'non-scaling-stroke';
+  (glow as SVGPathElement).style.filter = 'blur(2px)';
+  const sharp = document.createElementNS(NS, 'path');
   sharp.setAttribute('d', d);
   sharp.setAttribute('fill', 'none');
   sharp.setAttribute('stroke', '#ffffff');
   sharp.setAttribute('stroke-width', '2.5');
   sharp.setAttribute('stroke-linejoin', 'round');
-  sharp.style.vectorEffect = 'non-scaling-stroke';
-  ctx.highlightPath.appendChild(glow);
-  ctx.highlightPath.appendChild(sharp);
-  ctx.svgEl.appendChild(ctx.highlightPath);
+  (sharp as SVGPathElement).style.vectorEffect = 'non-scaling-stroke';
+  hp.appendChild(glow);
+  hp.appendChild(sharp);
+  ctx.svgEl.appendChild(hp);
+  ctx.highlightPath = hp as unknown as SVGGElement;
 }
 
 export function clearEdHighlight(ctx: MapCtx): void {
@@ -154,20 +190,20 @@ export function clearEdHighlight(ctx: MapCtx): void {
 
 // ── Hit-testing ───────────────────────────────────────────────────────────────
 
-export function tipTarget(e): Element | null {
+export function tipTarget(e: { clientX: number; clientY: number }): Element | null {
   const els = document.elementsFromPoint
     ? document.elementsFromPoint(e.clientX, e.clientY)
-    : [document.elementFromPoint(e.clientX, e.clientY)];
+    : ([document.elementFromPoint(e.clientX, e.clientY)].filter(Boolean) as Element[]);
   for (let i = 0; i < els.length; i++) {
     if (els[i] && els[i].hasAttribute && els[i].hasAttribute('data-ed-id')) return els[i];
   }
   return null;
 }
 
-export function vaTarget(e): Element | null {
+export function vaTarget(e: { clientX: number; clientY: number }): Element | null {
   const els = document.elementsFromPoint
     ? document.elementsFromPoint(e.clientX, e.clientY)
-    : [document.elementFromPoint(e.clientX, e.clientY)];
+    : ([document.elementFromPoint(e.clientX, e.clientY)].filter(Boolean) as Element[]);
   for (let i = 0; i < els.length; i++) {
     if (els[i] && els[i].hasAttribute && els[i].hasAttribute('data-va-id')) return els[i];
   }
@@ -176,24 +212,18 @@ export function vaTarget(e): Element | null {
 
 // ── VA callout ────────────────────────────────────────────────────────────────
 
-export function showVaCallout(ctx: MapCtx, d): void {
+export function showVaCallout(ctx: MapCtx, d: VaRec | undefined): void {
   if (!d) return;
   const el = document.getElementById(DOM_IDS.vaCallout);
   if (!el) return;
   const vaHint = document.getElementById(DOM_IDS.ecVaHint);
   if (vaHint) vaHint.style.display = 'none';
-  const nameEl = document.getElementById(DOM_IDS.vcName);
-  if (nameEl) nameEl.textContent = d.poll_name || '';
-  const ucpEl = document.getElementById(DOM_IDS.vcUcpPct);
-  if (ucpEl) ucpEl.textContent = d.ucp_pct != null ? d.ucp_pct + '%' : '';
-  const ndpEl = document.getElementById(DOM_IDS.vcNdpPct);
-  if (ndpEl) ndpEl.textContent = d.ndp_pct != null ? d.ndp_pct + '%' : '';
-  const ucpBarEl = document.getElementById(DOM_IDS.vcUcpBar);
-  if (ucpBarEl) ucpBarEl.style.width = (d.ucp_pct || 0) + '%';
-  const ndpBarEl = document.getElementById(DOM_IDS.vcNdpBar);
-  if (ndpBarEl) ndpBarEl.style.width = (d.ndp_pct || 0) + '%';
-  const totalEl = document.getElementById(DOM_IDS.vcTotal);
-  if (totalEl) totalEl.textContent = d.in_person_votes ? _fmt.format(d.in_person_votes) + ' in-person votes (excl. Vote Anywhere)' : '';
+  _setText(DOM_IDS.vcName, d.poll_name || '');
+  _setText(DOM_IDS.vcUcpPct, d.ucp_pct != null ? d.ucp_pct + '%' : '');
+  _setText(DOM_IDS.vcNdpPct, d.ndp_pct != null ? d.ndp_pct + '%' : '');
+  _setWidth(DOM_IDS.vcUcpBar, d.ucp_pct || 0);
+  _setWidth(DOM_IDS.vcNdpBar, d.ndp_pct || 0);
+  _setText(DOM_IDS.vcTotal, d.in_person_votes ? _fmt.format(d.in_person_votes) + ' in-person votes (excl. Vote Anywhere)' : '');
   ctx.selectedVaId = d.va_id != null ? String(d.va_id) : null;
   el.classList.add('vc-visible');
   // Fallback for browsers without :has() support — merge ed-callout's bottom with va-callout
@@ -209,7 +239,7 @@ export function hideVaCallout(ctx: MapCtx): void {
   if (edCallout) edCallout.classList.remove('ec-has-va');
 }
 
-export function isEdVisible(ctx: MapCtx, bb): boolean {
+export function isEdVisible(ctx: MapCtx, bb: BBox): boolean {
   if (!ctx.curVB || !bb.width || !bb.height) return false;
   const xOv = Math.max(0, Math.min(bb.x + bb.width, ctx.curVB.x + ctx.curVB.w) - Math.max(bb.x, ctx.curVB.x));
   const yOv = Math.max(0, Math.min(bb.y + bb.height, ctx.curVB.y + ctx.curVB.h) - Math.max(bb.y, ctx.curVB.y));
@@ -218,7 +248,16 @@ export function isEdVisible(ctx: MapCtx, bb): boolean {
 
 // ── Navigation ────────────────────────────────────────────────────────────────
 
-export function snapToED(ctx: MapCtx, pathEl, force: boolean, animateToVB, getStageRect): void {
+type AnimateToVB = (vb: ViewBox, dur: number) => void;
+type GetStageRect = () => DOMRect;
+
+export function snapToED(
+  ctx: MapCtx,
+  pathEl: SVGGraphicsElement,
+  force: boolean,
+  animateToVB: AnimateToVB,
+  getStageRect: GetStageRect,
+): void {
   if (!ctx.svgEl || ctx.mode !== 'viewbox') return;
   const bb = pathEl.getBBox();
   if (!force && isEdVisible(ctx, bb)) return;
@@ -231,7 +270,12 @@ export function snapToED(ctx: MapCtx, pathEl, force: boolean, animateToVB, getSt
   animateToVB({ x: cx - tw/2, y: cy - th/2, w: tw, h: th }, 420);
 }
 
-export function zoomEdTo70(ctx: MapCtx, pathEl, animateToVB, getStageRect): void {
+export function zoomEdTo70(
+  ctx: MapCtx,
+  pathEl: SVGGraphicsElement,
+  animateToVB: AnimateToVB,
+  getStageRect: GetStageRect,
+): void {
   if (!ctx.svgEl || ctx.mode !== 'viewbox' || ctx.mapLocked) return;
   const bb = pathEl.getBBox();
   const r = getStageRect();
@@ -242,20 +286,26 @@ export function zoomEdTo70(ctx: MapCtx, pathEl, animateToVB, getStageRect): void
   animateToVB({ x: cx - vw/2, y: cy - vh/2, w: vw, h: vh }, 380);
 }
 
-export function activateCenterED(ctx: MapCtx, animateToVB, emit: MapEngineEventHandler): void {
+export function activateCenterED(ctx: MapCtx, animateToVB: AnimateToVB, emit: MapEngineEventHandler): void {
   if (ctx.mapLocked || !ctx.svgEl || !ctx.edHover || !ctx.curVB) return;
   const cx = ctx.curVB.x + ctx.curVB.w / 2, cy = ctx.curVB.y + ctx.curVB.h / 2;
-  let bestPath = null, bestDist = Infinity;
-  ctx.svgEl.querySelectorAll('[data-ed-id]').forEach(p => {
+  let bestPath: SVGGraphicsElement | null = null;
+  let bestDist = Infinity;
+  ctx.svgEl.querySelectorAll<SVGGraphicsElement>('[data-ed-id]').forEach(p => {
     const bb = p.getBBox();
     const dist = Math.hypot(bb.x + bb.width / 2 - cx, bb.y + bb.height / 2 - cy);
     if (dist < bestDist) { bestDist = dist; bestPath = p; }
   });
   if (!bestPath) return;
-  const rec = ctx.edHover[parseInt(bestPath.getAttribute('data-ed-id'), 10)];
+  // Local non-null alias so the closure-mutated bestPath narrows correctly.
+  const path = bestPath as SVGGraphicsElement;
+  const edId = parseInt(path.getAttribute('data-ed-id') || '0', 10);
+  const rec = ctx.edHover[edId] as EdRec | undefined;
   if (rec) {
     showCallout(ctx, rec);
-    setEdHighlight(ctx, bestPath);
-    emit({ type: 'ed_focus', ed_id: parseInt(bestPath.getAttribute('data-ed-id'), 10) });
+    setEdHighlight(ctx, path);
+    emit({ type: 'ed_focus', ed_id: edId });
   }
+  // Silence unused-import warning when callers pass animateToVB but no caller uses it here.
+  void animateToVB;
 }

@@ -23,7 +23,7 @@
   type MapEngineModule = Awaited<typeof import('$lib/mapEngine')>;
   let _ME: MapEngineModule | null = null;
   let _mePromise: Promise<void> | null = null;
-  let _pendingState: { primary: string; mapOn: Record<string,boolean>; layers: Record<string,boolean> } | null = null;
+  let _pendingState: Pick<MapState, 'primary' | 'mapOn' | 'layers'> | null = null;
 
   async function ensureMapLoaded(): Promise<void> {
     if (_ME) return;
@@ -48,7 +48,7 @@
     await ensureMapLoaded();
     _ME?.openOverlay();
   }
-  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, setGpsRegion, setLanguage, type FlightEvent } from '$lib/share';
+  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, setGpsRegion, setLanguage, type FlightEvent, type MapState } from '$lib/share';
   import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode, getStoredGps, storeGps, getStoredLanguage, storeLanguage } from '$lib/prefs';
   import { lang } from '$lib/i18n/store.svelte';
   import { t } from '$lib/i18n/dict';

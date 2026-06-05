@@ -1,7 +1,6 @@
 ﻿﻿// Alberta Electoral Boundary Audit — map engine
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 // https://ixby.github.io
-// @ts-nocheck
 
 import { initNavScrollspy } from './mapEngine/navScrollspy';
 import { initIntroModal }   from './mapEngine/introModal';
@@ -16,19 +15,22 @@ import { activateInlineSVG as sl_activateInlineSVG, tryInit as sl_tryInit } from
 import { initGestures } from './mapEngine/gestures';
 import { initOverlay } from './mapEngine/overlay';
 import { applyBoundaryColor as mpApplyBoundaryColor, syncOverlays as mpSyncOverlays, updateMapButtons as mpUpdateMapButtons, doSwitchPrimary as mpDoSwitchPrimary, activateAsTop as mpActivateAsTop, toggleMap as mpToggleMap, loadHoverJson as mpLoadHoverJson, loadVaJson as mpLoadVaJson } from './mapEngine/maps';
-import type { MapEngineEvent, MapEngineEventHandler } from './mapEngine/types';
+import type { MapEngineEvent, MapEngineEventHandler, MapCtx, MapKey, LayerKey, ViewBox } from './mapEngine/types';
+import type { MapState } from './share';
 import { DOM_IDS } from './mapEngine/domIds';
 
 export type { MapEngineEvent, MapEngineEventHandler };
 
 let _onEvent: MapEngineEventHandler | null = null;
-let _getState     = null;
-let _applyStateFn = null;
+let _getState: (() => MapState) | null = null;
+let _applyStateFn: ((primary: MapKey, mapOn: Record<MapKey, boolean>, layers: Record<LayerKey, boolean>) => void) | null = null;
 let _openFn: (() => void) | null = null;
 
 export function onEvent(cb: MapEngineEventHandler)          { _onEvent = cb; }
-export function getState()                                  { return _getState ? _getState() : null; }
-export function applyState(primary, mapOn, layers)          { if (_applyStateFn) _applyStateFn(primary, mapOn, layers); }
+export function getState(): MapState | null                 { return _getState ? _getState() : null; }
+export function applyState(primary: MapKey, mapOn: Record<MapKey, boolean>, layers: Record<LayerKey, boolean>): void {
+  if (_applyStateFn) _applyStateFn(primary, mapOn, layers);
+}
 export function openOverlay(): void                         { if (_openFn) _openFn(); }
 
 export function init(basePath: string): void {
@@ -42,12 +44,12 @@ export function init(basePath: string): void {
       //    document's paint record. ViewBox manipulation re-renders from paths at
       //    display resolution — no GPU tile rasterization limit at any zoom level.
       (function () {
-        const overlay  = document.getElementById(DOM_IDS.zoomOverlay);
-        const stage    = document.getElementById(DOM_IDS.zoomStage);
-        const obj      = document.getElementById(DOM_IDS.zoomObj);
-        const closeBtn = document.getElementById(DOM_IDS.zoomClose);
+        const overlay  = document.getElementById(DOM_IDS.zoomOverlay) as HTMLElement;
+        const stage    = document.getElementById(DOM_IDS.zoomStage)   as HTMLElement;
+        const obj      = document.getElementById(DOM_IDS.zoomObj)     as HTMLObjectElement;
+        const closeBtn = document.getElementById(DOM_IDS.zoomClose)   as HTMLElement;
         // ── Shared mutable state ──────────────────────────────────────────────────
-        const ctx = {
+        const ctx: MapCtx = {
           // SVG load mode
           mode:               null,       // 'viewbox' | null
           ready:              false,
@@ -111,7 +113,7 @@ export function init(basePath: string): void {
         function resetVB() { vpResetVB(ctx); }
 
         // ── SVG loader thin wrapper — declared here (hoisted), deps wired after _mapSvgUrls ──
-        function _activateInlineSVG(node, pVB) { sl_activateInlineSVG(ctx, node, pVB, stage, overlay, _svgDeps); }
+        function _activateInlineSVG(node: SVGSVGElement, pVB?: ViewBox) { sl_activateInlineSVG(ctx, node, pVB, stage, overlay, _svgDeps); }
 
         // ── Open / close ──────────────────────────────────────────────────────
         const { open, close } = initOverlay(ctx, overlay, closeBtn, {
@@ -124,21 +126,21 @@ export function init(basePath: string): void {
         _openFn = open;
 
         // ── District callout (info bar) ───────────────────────────────────────
-        function _showCallout(d) { showCallout(ctx, d); }
-        function _hideCallout()  { hideCallout(ctx); hideVaCallout(ctx); }
+        function _showCallout(d: any) { showCallout(ctx, d); }
+        function _hideCallout()       { hideCallout(ctx); hideVaCallout(ctx); }
 
         // ── Map selector ──────────────────────────────────────────────────────────
-        const _mapSvgUrls = {
+        const _mapSvgUrls: Record<MapKey, string> = {
           minority: `${basePath}/images/cover_art_minority_hires.svg`,
           majority: `${basePath}/images/cover_art_majority_hires.svg`,
           '2019':   `${basePath}/images/cover_art_2019_hires.svg`,
         };
-        const _mapJsonUrls = {
+        const _mapJsonUrls: Record<MapKey, string> = {
           minority: 'data/ed_hover_minority.json',
           majority: 'data/ed_hover_majority.json',
           '2019':   'data/ed_hover_2019.json',
         };
-        const _mapVaJsonUrls = {
+        const _mapVaJsonUrls: Record<MapKey, string> = {
           minority: 'data/va_hover_minority.json',
           majority: 'data/va_hover_majority.json',
           '2019':   'data/va_hover_2019.json',
@@ -148,7 +150,7 @@ export function init(basePath: string): void {
         const _svgDeps = {
           obj,
           svgUrls: _mapSvgUrls,
-          applyBoundaryColor: (n, k) => _applyBoundaryColor(n, k),
+          applyBoundaryColor: (n: SVGSVGElement, k: MapKey | null) => _applyBoundaryColor(n, k),
           applyAnomalyHighlight: () => _applyAnomalyHighlight(),
           syncOverlays: () => _syncOverlays(),
         };
@@ -159,19 +161,19 @@ export function init(basePath: string): void {
         const _mapsDeps = {
           svgUrls: _mapSvgUrls,
           jsonUrls: _mapJsonUrls,
-          activateInlineSVG: (node, pVB) => _activateInlineSVG(node, pVB),
-          showCallout:        (d) => _showCallout(d),
+          activateInlineSVG: (node: SVGSVGElement, pVB?: ViewBox | null) => _activateInlineSVG(node, pVB || undefined),
+          showCallout:        (d: any) => _showCallout(d),
           hideCallout:        () => _hideCallout(),
-          setEdHighlight:     (p) => _setEdHighlight(p),
+          setEdHighlight:     (p: SVGGraphicsElement) => _setEdHighlight(p),
           activateCenterED:   () => _activateCenterED(),
           applyAnomalyHighlight: () => _applyAnomalyHighlight(),
-          emit:               (e) => _emit(e),
+          emit:               (e: MapEngineEvent) => _emit(e),
         };
 
         // ── Share bridge ──────────────────────────────────────────────────────
         _getState = function() {
           return {
-            primary: ctx.mapPrimary,
+            primary: (ctx.mapPrimary || '2019') as MapKey,
             mapOn:   { minority: ctx.mapOn.minority, majority: ctx.mapOn.majority, '2019': ctx.mapOn['2019'] },
             layers:  { vote: ctx.layerState.vote, 'ed-fill': ctx.layerState['ed-fill'], 'ed-lines': ctx.layerState['ed-lines'], eg: ctx.layerState.eg },
             viewport: ctx.svgEl && ctx.natVB && ctx.curVB ? {
@@ -181,20 +183,20 @@ export function init(basePath: string): void {
             } : { cx_norm: 0.5, cy_norm: 0.5, zoom: 1.0 },
           };
         };
-        _applyStateFn = function(primary, targetMapOn, targetLayers) {
+        _applyStateFn = function(primary: MapKey, targetMapOn: Record<MapKey, boolean>, targetLayers: Record<LayerKey, boolean>) {
           ctx.mapPrimary       = primary;
           ctx.mapOn.minority   = !!targetMapOn.minority;
           ctx.mapOn.majority   = !!targetMapOn.majority;
           ctx.mapOn['2019']    = !!targetMapOn['2019'];
-          ctx.mapActivationOrder = ['minority', 'majority', '2019'].filter(function(k) { return ctx.mapOn[k]; });
-          var pi = ctx.mapActivationOrder.indexOf(primary);
+          ctx.mapActivationOrder = (['minority', 'majority', '2019'] as const).filter(function(k) { return ctx.mapOn[k]; });
+          const pi = ctx.mapActivationOrder.indexOf(primary);
           if (pi !== -1) { ctx.mapActivationOrder.splice(pi, 1); ctx.mapActivationOrder.push(primary); }
           _doSwitchPrimary(primary);
           _syncOverlays();
-          ['vote', 'ed-fill', 'ed-lines', 'eg'].forEach(function(k) {
-            var on = !!targetLayers[k];
+          (['vote', 'ed-fill', 'ed-lines', 'eg'] as const).forEach(function(k) {
+            const on = !!targetLayers[k];
             ctx.layerState[k] = on;
-            var btn = document.querySelector('.tb-btn[data-layer="' + k + '"]');
+            const btn = document.querySelector('.tb-btn[data-layer="' + k + '"]');
             if (btn) btn.classList.toggle('tb-layer-on', on);
             if (k === 'vote')     applyVoteLayer(ctx, on);
             if (k === 'ed-fill')  applyEdFillLayer(ctx, on);
@@ -206,22 +208,26 @@ export function init(basePath: string): void {
         function _emit(event: MapEngineEvent) { if (_onEvent) _onEvent(event); }
 
         // ── Maps thin wrappers ────────────────────────────────────────────────────
-        function _applyBoundaryColor(svgNode, mapKey) { mpApplyBoundaryColor(ctx, svgNode, mapKey); }
+        function _applyBoundaryColor(svgNode: SVGSVGElement, mapKey: MapKey | null) { mpApplyBoundaryColor(ctx, svgNode, mapKey); }
         function _syncOverlays()                       { mpSyncOverlays(ctx, _mapsDeps); }
         function _updateMapButtons()                   { mpUpdateMapButtons(ctx, _mapsDeps); }
-        function _doSwitchPrimary(key)                 { mpDoSwitchPrimary(ctx, key, _mapsDeps); }
-        function _activateAsTop(key)                   { mpActivateAsTop(ctx, key, _mapsDeps); }
-        function toggleMap(key)                        { mpToggleMap(ctx, key, _mapsDeps); }
+        function _doSwitchPrimary(key: MapKey)         { mpDoSwitchPrimary(ctx, key, _mapsDeps); }
+        function _activateAsTop(key: MapKey)           { mpActivateAsTop(ctx, key, _mapsDeps); }
+        function toggleMap(key: MapKey)                { mpToggleMap(ctx, key, _mapsDeps); }
 
         // ── Active ED boundary highlight ──────────────────────────────────────────
-        function _setEdHighlight(p)  { setEdHighlight(ctx, p); }
+        function _setEdHighlight(p: SVGGraphicsElement) { setEdHighlight(ctx, p); }
         function _activateCenterED() { activateCenterED(ctx, _animateToVB, _emit); }
 
-        document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
-          b.addEventListener('click', function() { toggleMap(b.dataset.map); });
+        document.querySelectorAll<HTMLElement>('.tb-btn[data-map]').forEach(function(b) {
+          b.addEventListener('click', function() {
+            const key = b.dataset.map as MapKey | undefined;
+            if (key) toggleMap(key);
+          });
         });
 
-        document.getElementById(DOM_IDS.ecClose).addEventListener('click', _hideCallout);
+        const _ecCloseBtn = document.getElementById(DOM_IDS.ecClose);
+        if (_ecCloseBtn) _ecCloseBtn.addEventListener('click', _hideCallout);
 
         // ── Layer panel ────────────────────────────────────────────────────────────
 
@@ -236,24 +242,26 @@ export function init(basePath: string): void {
         const vcClose = document.getElementById(DOM_IDS.vcClose);
         if (vcClose) vcClose.addEventListener('click', function() { hideVaCallout(ctx); });
 
-        document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
+        document.querySelectorAll<HTMLElement>('.tb-btn[data-layer]').forEach(function(b) {
           b.addEventListener('click', function() {
-            var key = b.dataset.layer;
+            const key = b.dataset.layer;
+            if (!key) return;
             if (key === 'lock') {
               ctx.mapLocked = !ctx.mapLocked;
               b.classList.toggle('tb-layer-on', ctx.mapLocked);
               return;
             }
-            var on = !ctx.layerState[key];
-            setLayerOn(ctx, key, on, _emit);
-            if (key === 'ed-fill' && on && ctx.layerState['eg'])      setLayerOn(ctx, 'eg', false, _emit);
-            if (key === 'eg'      && on && ctx.layerState['ed-fill']) setLayerOn(ctx, 'ed-fill', false, _emit);
+            const lKey = key as LayerKey;
+            const on = !ctx.layerState[lKey];
+            setLayerOn(ctx, lKey, on, _emit);
+            if (lKey === 'ed-fill' && on && ctx.layerState['eg'])      setLayerOn(ctx, 'eg', false, _emit);
+            if (lKey === 'eg'      && on && ctx.layerState['ed-fill']) setLayerOn(ctx, 'ed-fill', false, _emit);
           });
         });
 
         // ── Snap-to-ED animation ───────────────────────────────────────────────
-        function _animateToVB(targetVB, dur) { vpAnimateToVB(ctx, targetVB, dur); }
-        function _snapToED(pathEl, force) { snapToED(ctx, pathEl, !!force, _animateToVB, _getStageRect); }
+        function _animateToVB(targetVB: ViewBox, dur: number) { vpAnimateToVB(ctx, targetVB, dur); }
+        function _snapToED(pathEl: SVGGraphicsElement, force?: boolean) { snapToED(ctx, pathEl, !!force, _animateToVB, _getStageRect); }
 
         // ── Gestures ──────────────────────────────────────────────────────────────
         initGestures(ctx, stage);

@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Alberta Electoral Boundary Audit — map onboarding modal
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
@@ -14,18 +13,19 @@ export function initIntroModal(): void {
   const modal    = document.getElementById(DOM_IDS.mapIntroModal);
   const closeBtn = document.getElementById(DOM_IDS.mapIntroClose);
   if (!modal || !closeBtn) return;
+  const modalEl = modal as HTMLElement;
 
   function _closeModal() {
     markIntroSeen();
-    modal.style.display = 'none';
+    modalEl.style.display = 'none';
   }
 
   closeBtn.addEventListener('click', _closeModal);
-  modal.addEventListener('click', function(e) { if (e.target === modal) _closeModal(); });
+  modalEl.addEventListener('click', function(e) { if (e.target === modalEl) _closeModal(); });
 
   // Registered AFTER the overlay's Escape handler so ordering is preserved:
   // overlay handler checks modal visibility and returns early → this handler fires.
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.style.display !== 'none') _closeModal();
+    if (e.key === 'Escape' && modalEl.style.display !== 'none') _closeModal();
   });
 }

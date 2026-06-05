@@ -1,15 +1,19 @@
-// @ts-nocheck
 // Alberta Electoral Boundary Audit — overlay open / close / focus management
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
-//
-// deps shape:
-//   { updateMapButtons, maybeShowIntro, resetVB, hideTip, hideCallout }
 
 import type { MapCtx } from './types';
 import { DOM_IDS } from './domIds';
 
-function _overlayFocusable(overlayEl) {
-  return Array.from(overlayEl.querySelectorAll(
+type OverlayDeps = {
+  updateMapButtons: () => void;
+  maybeShowIntro:   () => void;
+  resetVB:          () => void;
+  hideTip:          () => void;
+  hideCallout:      () => void;
+};
+
+function _overlayFocusable(overlayEl: HTMLElement): HTMLElement[] {
+  return Array.from(overlayEl.querySelectorAll<HTMLElement>(
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
   )).filter(el => !el.hasAttribute('disabled'));
 }
@@ -17,7 +21,7 @@ function _overlayFocusable(overlayEl) {
 // Returns { open, close } so callers can pass them to other modules as deps.
 // Trigger wiring is NOT done here — the caller owns the first trigger click
 // (lazy-load pattern: Svelte intercepts, dynamic-imports the engine, then calls open()).
-export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
+export function initOverlay(ctx: MapCtx, overlayEl: HTMLElement, closeBtnEl: HTMLElement, deps: OverlayDeps) {
 
   function open() {
     ctx.stageRect = null;
@@ -40,7 +44,7 @@ export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
     if (ctx.prevFocus instanceof HTMLElement) ctx.prevFocus.focus();
     ctx.prevFocus = null;
     // Hide intro modal without marking seen — re-shows on next open until dismissed
-    const intro = document.getElementById(DOM_IDS.mapIntroModal);
+    const intro = document.getElementById(DOM_IDS.mapIntroModal) as HTMLElement | null;
     if (intro) intro.style.display = 'none';
   }
 
@@ -57,7 +61,7 @@ export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
   closeBtnEl.addEventListener('click', close);
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    const intro = document.getElementById(DOM_IDS.mapIntroModal);
+    const intro = document.getElementById(DOM_IDS.mapIntroModal) as HTMLElement | null;
     if (intro && intro.style.display !== 'none') return; // let modal handle its own Escape
     close();
   });

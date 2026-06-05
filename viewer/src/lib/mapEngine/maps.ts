@@ -1,25 +1,32 @@
-// @ts-nocheck
 // Alberta Electoral Boundary Audit — map switcher, overlays, boundary colour
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
-//
-// deps shape:
-//   { svgUrls, jsonUrls, activateInlineSVG, showCallout, hideCallout,
-//     setEdHighlight, activateCenterED, applyAnomalyHighlight, emit }
 
-import type { MapCtx } from './types';
+import type { MapCtx, MapEngineEventHandler, MapKey, ViewBox } from './types';
 import { updateStrokeWidths } from './viewport';
 import { applyEdFillLayer, reapplyLayers } from './layers';
 import { mergeVaPaths } from './svgLoader';
 import { showVaCallout } from './edInteraction';
 import { DOM_IDS } from './domIds';
 
-export const MAP_ACCENT_COLORS: Record<string, string> = {
+type MapsDeps = {
+  svgUrls:              Record<MapKey, string>;
+  jsonUrls:             Record<MapKey, string>;
+  activateInlineSVG:    (node: SVGSVGElement, preserveVB: ViewBox | null | undefined) => void;
+  showCallout:          (rec: any) => void;
+  hideCallout:          () => void;
+  setEdHighlight:       (pathEl: SVGGraphicsElement) => void;
+  activateCenterED:     () => void;
+  applyAnomalyHighlight:() => void;
+  emit:                 MapEngineEventHandler;
+};
+
+export const MAP_ACCENT_COLORS: Record<MapKey, string> = {
   minority: '#6B35A7',
   majority: '#1A7A6E',
   '2019':   '#7a98b4',
 };
 
-const MAP_CONTEXT_LABELS: Record<string, string> = {
+const MAP_CONTEXT_LABELS: Record<MapKey, string> = {
   minority: '2026 minority proposal · 2023 election results',
   majority: '2026 majority proposal · 2023 election results',
   '2019':   '2019 enacted boundaries · 2023 election results',
@@ -27,20 +34,21 @@ const MAP_CONTEXT_LABELS: Record<string, string> = {
 
 // ── Boundary colour ───────────────────────────────────────────────────────────
 
-export function applyBoundaryColor(ctx: MapCtx, svgNode, mapKey): void {
-  if (!svgNode) return;
+export function applyBoundaryColor(ctx: MapCtx, svgNode: Element | null, mapKey: MapKey | null): void {
+  if (!svgNode || !mapKey) return;
   const color = MAP_ACCENT_COLORS[mapKey] || '#555';
   const g = svgNode.querySelector('#ed_boundary_layer');
   if (!g) { console.warn('[map] ed_boundary_layer not found in SVG'); return; }
   // Hide direct-child polygon outlines — only LineCollection_1 draws each boundary once.
   Array.from(g.children).forEach(function(child) {
-    if (child.tagName === 'path') child.style.display = 'none';
+    if (child.tagName === 'path') (child as SVGPathElement).style.display = 'none';
   });
   const lc = svgNode.querySelector('#LineCollection_1');
   if (lc) {
     // LineCollection_1 may itself be a <path> (not a container <g>)
-    const targets = lc.tagName.toLowerCase() === 'path'
-      ? [lc] : Array.from(lc.querySelectorAll('path'));
+    const targets: SVGPathElement[] = lc.tagName.toLowerCase() === 'path'
+      ? [lc as unknown as SVGPathElement]
+      : Array.from(lc.querySelectorAll<SVGPathElement>('path'));
     targets.forEach(function(p) {
       p.removeAttribute('clip-path');
       p.style.stroke = color;
@@ -54,7 +62,7 @@ export function applyBoundaryColor(ctx: MapCtx, svgNode, mapKey): void {
 
 // ── Overlay system ────────────────────────────────────────────────────────────
 
-export function extractBoundaryGroup(ctx: MapCtx, key): Element | null {
+export function extractBoundaryGroup(ctx: MapCtx, key: MapKey): Element | null {
   const doc = ctx.svgCache[key];
   if (!doc) return null;
   const lc = doc.querySelector('#LineCollection_1');
@@ -66,8 +74,9 @@ export function extractBoundaryGroup(ctx: MapCtx, key): Element | null {
   // Force _lastStrokeW recompute so the new overlay actually receives a stroke update from updateStrokeWidths
   ctx._lastStrokeW = undefined;
   // LineCollection_1 may itself be a <path> (not a container <g>)
-  const targets = clone.tagName.toLowerCase() === 'path'
-    ? [clone] : Array.from(clone.querySelectorAll('path'));
+  const targets: SVGPathElement[] = clone.tagName.toLowerCase() === 'path'
+    ? [clone as unknown as SVGPathElement]
+    : Array.from(clone.querySelectorAll<SVGPathElement>('path'));
   targets.forEach(function(p) {
     p.removeAttribute('clip-path');
     p.style.stroke = MAP_ACCENT_COLORS[key] || '#555';
@@ -80,7 +89,7 @@ export function extractBoundaryGroup(ctx: MapCtx, key): Element | null {
   return clone;
 }
 
-export function fetchAndOverlay(ctx: MapCtx, key, deps): void {
+export function fetchAndOverlay(ctx: MapCtx, key: MapKey, deps: MapsDeps): void {
   function apply() {
     if (!ctx.mapOn[key] || key === ctx.mapPrimary || !ctx.svgEl) return;
     const g = extractBoundaryGroup(ctx, key);
@@ -99,10 +108,11 @@ export function fetchAndOverlay(ctx: MapCtx, key, deps): void {
   }).catch(function() {});
 }
 
-export function syncOverlays(ctx: MapCtx, deps): void {
-  ['minority', 'majority', '2019'].forEach(function(key) {
+export function syncOverlays(ctx: MapCtx, deps: MapsDeps): void {
+  (['minority', 'majority', '2019'] as const).forEach(function(key) {
     if (!ctx.mapOn[key] || key === ctx.mapPrimary) {
-      if (ctx.overlayInSvg[key]) { ctx.overlayInSvg[key].remove(); ctx.overlayInSvg[key] = null; }
+      const existing = ctx.overlayInSvg[key];
+      if (existing) { (existing as Element).remove(); ctx.overlayInSvg[key] = null; }
       return;
     }
     if (!ctx.overlayInSvg[key] && ctx.svgEl) fetchAndOverlay(ctx, key, deps);
@@ -111,9 +121,10 @@ export function syncOverlays(ctx: MapCtx, deps): void {
 
 // ── Map buttons ───────────────────────────────────────────────────────────────
 
-export function updateMapButtons(ctx: MapCtx, deps): void {
-  document.querySelectorAll('.tb-btn[data-map]').forEach(function(b) {
-    const key = b.dataset.map;
+export function updateMapButtons(ctx: MapCtx, deps: MapsDeps): void {
+  document.querySelectorAll<HTMLElement>('.tb-btn[data-map]').forEach(function(b) {
+    const key = b.dataset.map as MapKey | undefined;
+    if (!key) return;
     b.classList.toggle('tb-map-primary', !!ctx.mapPrimary && ctx.mapOn[key] && key === ctx.mapPrimary);
     b.classList.toggle('tb-map-overlay',  !!ctx.mapPrimary && ctx.mapOn[key] && key !== ctx.mapPrimary);
   });
@@ -127,30 +138,32 @@ export function updateMapButtons(ctx: MapCtx, deps): void {
 
 // ── Primary map switching ─────────────────────────────────────────────────────
 
-export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
+export function doSwitchPrimary(ctx: MapCtx, key: MapKey, deps: MapsDeps): void {
   const ctxEl = document.getElementById(DOM_IDS.ecContext);
   if (ctxEl) ctxEl.textContent = MAP_CONTEXT_LABELS[key];
   const savedName = ctx.selectedEdName;
   const savedVaId = ctx.selectedVaId;
   deps.hideCallout();
   ctx.edHover = null;
-  const savedVB = ctx.curVB ? Object.assign({}, ctx.curVB) : null;
+  const savedVB: ViewBox | null = ctx.curVB ? Object.assign({} as ViewBox, ctx.curVB) : null;
   const stage = document.getElementById(DOM_IDS.zoomStage);
 
-  function _applySvgDoc(doc) {
+  function _applySvgDoc(doc: Document) {
     const root = doc.documentElement;
     if (root && root.tagName.toLowerCase() !== 'parsererror') {
-      deps.activateInlineSVG(document.importNode(root, true), savedVB);
+      deps.activateInlineSVG(document.importNode(root, true) as unknown as SVGSVGElement, savedVB);
       if (ctx.allHoverData[key] && Object.keys(ctx.allHoverData[key]).length) {
         ctx.edHover = ctx.allHoverData[key];
       }
       // VA is the focal point when selected; fall back to ED name
-      const vaRec = savedVaId && ctx.allVaData && ctx.allVaData[key] && ctx.allVaData[key][savedVaId];
-      const focalName = vaRec ? vaRec.ed_name : savedName;
+      const vaForMap = ctx.allVaData[key];
+      const vaRec = savedVaId && vaForMap ? vaForMap[savedVaId] : null;
+      const focalName: string | null = vaRec ? vaRec.ed_name : savedName;
       if (focalName) {
-        const rec = ctx.nameIndex[key] && ctx.nameIndex[key][focalName];
+        const nameIdx = ctx.nameIndex[key];
+        const rec = nameIdx && nameIdx[focalName];
         if (rec) {
-          const path = ctx.svgEl && ctx.svgEl.querySelector('[data-ed-id="' + rec.id + '"]');
+          const path = ctx.svgEl && ctx.svgEl.querySelector<SVGGraphicsElement>('[data-ed-id="' + rec.id + '"]');
           if (path) {
             deps.showCallout(rec);
             deps.setEdHighlight(path);
@@ -191,8 +204,9 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
   if (!(ctx.allHoverData[key] && Object.keys(ctx.allHoverData[key]).length)) {
     fetch(deps.jsonUrls[key])
       .then(function(r) { return r.json(); })
-      .then(function(d) {
-        const byId = {}, byName = {};
+      .then(function(d: any[]) {
+        const byId: Record<number, any> = {};
+        const byName: Record<string, any> = {};
         d.forEach(function(rec) { byId[rec.id] = rec; byName[rec.name] = rec; });
         ctx.allHoverData[key] = byId;
         ctx.nameIndex[key] = byName;
@@ -203,7 +217,7 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
   }
 }
 
-export function activateAsTop(ctx: MapCtx, key, deps): void {
+export function activateAsTop(ctx: MapCtx, key: MapKey, deps: MapsDeps): void {
   if (!deps.svgUrls[key]) return;
   if (ctx.mapPrimary === key) return;
   ctx.mapOn[key] = true;
@@ -214,7 +228,7 @@ export function activateAsTop(ctx: MapCtx, key, deps): void {
   updateMapButtons(ctx, deps);
 }
 
-export function toggleMap(ctx: MapCtx, key, deps): void {
+export function toggleMap(ctx: MapCtx, key: MapKey, deps: MapsDeps): void {
   if (!deps.svgUrls[key]) return;
   if (!ctx.mapOn[key]) {
     // Toggle ON — becomes the new top layer
@@ -227,10 +241,11 @@ export function toggleMap(ctx: MapCtx, key, deps): void {
     // Toggle OFF
     ctx.mapOn[key] = false;
     ctx.mapActivationOrder = ctx.mapActivationOrder.filter(function(k) { return k !== key; });
-    if (ctx.overlayInSvg[key]) { ctx.overlayInSvg[key].remove(); ctx.overlayInSvg[key] = null; }
+    const existing = ctx.overlayInSvg[key];
+    if (existing) { (existing as Element).remove(); ctx.overlayInSvg[key] = null; }
     if (key === ctx.mapPrimary) {
-      const next = ctx.mapActivationOrder.length > 0
-        ? ctx.mapActivationOrder[ctx.mapActivationOrder.length - 1] : null;
+      const next: MapKey | null = ctx.mapActivationOrder.length > 0
+        ? (ctx.mapActivationOrder[ctx.mapActivationOrder.length - 1] as MapKey) : null;
       if (next) {
         ctx.mapPrimary = next;
         doSwitchPrimary(ctx, next, deps);
@@ -243,14 +258,21 @@ export function toggleMap(ctx: MapCtx, key, deps): void {
     }
   }
   updateMapButtons(ctx, deps);
-  deps.emit({ type: 'map_switch', primary: ctx.mapPrimary, mapOn: { minority: ctx.mapOn.minority, majority: ctx.mapOn.majority, '2019': ctx.mapOn['2019'] } });
+  if (ctx.mapPrimary) {
+    deps.emit({
+      type: 'map_switch',
+      primary: ctx.mapPrimary,
+      mapOn: { minority: ctx.mapOn.minority, majority: ctx.mapOn.majority, '2019': ctx.mapOn['2019'] },
+    });
+  }
 }
 
 // ── Hover JSON pre-fetch ──────────────────────────────────────────────────────
 
-export function loadHoverJson(ctx: MapCtx, key, url): void {
-  fetch(url).then(r => r.json()).then(d => {
-    const byId = {}, byName = {};
+export function loadHoverJson(ctx: MapCtx, key: MapKey, url: string): void {
+  fetch(url).then(r => r.json()).then((d: any[]) => {
+    const byId: Record<number, any> = {};
+    const byName: Record<string, any> = {};
     d.forEach(rec => { byId[rec.id] = rec; byName[rec.name] = rec; });
     ctx.allHoverData[key] = byId;
     ctx.nameIndex[key] = byName;
@@ -258,9 +280,9 @@ export function loadHoverJson(ctx: MapCtx, key, url): void {
   }).catch(() => {});
 }
 
-export function loadVaJson(ctx: MapCtx, key, url): void {
-  fetch(url).then(r => r.json()).then(d => {
-    const byId = {};
+export function loadVaJson(ctx: MapCtx, key: MapKey, url: string): void {
+  fetch(url).then(r => r.json()).then((d: any[]) => {
+    const byId: Record<string, any> = {};
     d.forEach(rec => { byId[String(rec.va_id)] = rec; });
     ctx.allVaData[key] = byId;
   }).catch(() => {});

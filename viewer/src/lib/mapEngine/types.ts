@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Alberta Electoral Boundary Audit — MapCtx type
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
@@ -46,7 +45,7 @@ export type MapCtx = {
 
   // Map selector state
   mapOn:              Record<string, boolean>;
-  mapPrimary:         string | null;
+  mapPrimary:         MapKey | null;
   mapActivationOrder: string[];
   svgCache:           Record<string, Document>;
   overlayInSvg:       Record<string, Element | null>;

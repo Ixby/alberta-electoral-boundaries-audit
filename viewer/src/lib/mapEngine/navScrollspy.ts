@@ -1,14 +1,13 @@
-// @ts-nocheck
 // Alberta Electoral Boundary Audit — nav scroll-spy
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 
 export function initNavScrollspy(): void {
-  const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+  const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('nav a[href^="#"]'));
   const sections = navLinks
     .map(a => { const h = a.getAttribute('href'); return (h && h.length > 1) ? document.querySelector(h) : null; })
-    .filter(Boolean);
+    .filter((el): el is Element => el !== null);
 
-  function setActive(id) {
+  function setActive(id: string) {
     navLinks.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === '#' + id);
     });

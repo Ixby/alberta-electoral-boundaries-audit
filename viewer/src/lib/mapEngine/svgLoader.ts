@@ -10,12 +10,19 @@
 //
 // If both paths fail, the user sees #map-load-error. There is no bitmap
 // fallback — the site is HTTP-served and same-origin, so the SVG must load.
-// @ts-nocheck
 
-import type { MapCtx } from './types';
+import type { MapCtx, MapKey, ViewBox } from './types';
 import { updateZoomDisplay, updateStrokeWidths, resetVB as vpResetVB } from './viewport';
 import { reapplyLayers } from './layers';
 import { DOM_IDS } from './domIds';
+
+export type SvgLoaderDeps = {
+  obj:                   HTMLObjectElement;
+  svgUrls:               Record<MapKey, string>;
+  applyBoundaryColor:    (node: SVGSVGElement, key: MapKey | null) => void;
+  applyAnomalyHighlight: () => void;
+  syncOverlays:          () => void;
+};
 
 // ── VA path merge (perf) ──────────────────────────────────────────────────────
 // Collapses 4 771 individually-stroked VA polygons in #PatchCollection_2 into
@@ -36,12 +43,12 @@ export function mergeVaPaths(svgRoot: Element): void {
   // No-op until SVGs are regenerated with data-va-id attributes.
   const vaPaths = paths.filter(function(p) { return p.hasAttribute('data-va-id'); });
   if (vaPaths.length > 0 && !svgRoot.querySelector('#va_hover_layer')) {
-    const vaLayer = doc.createElementNS(ns, 'g');
+    const vaLayer = doc.createElementNS(ns, 'g') as SVGGElement;
     vaLayer.id = 'va_hover_layer';
     for (const p of vaPaths) {
-      const cp = doc.createElementNS(ns, 'path');
+      const cp = doc.createElementNS(ns, 'path') as SVGPathElement;
       cp.setAttribute('d', p.getAttribute('d') || '');
-      cp.setAttribute('data-va-id', p.getAttribute('data-va-id'));
+      cp.setAttribute('data-va-id', p.getAttribute('data-va-id') || '');
       cp.setAttribute('style', 'fill:transparent;stroke:none');
       cp.style.pointerEvents = 'all';
       vaLayer.appendChild(cp);
@@ -81,23 +88,30 @@ export function mergeVaPaths(svgRoot: Element): void {
 
 // ── activateInlineSVG ─────────────────────────────────────────────────────────
 
-export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay, deps): void {
+export function activateInlineSVG(
+  ctx: MapCtx,
+  node: SVGSVGElement,
+  preserveVB: ViewBox | undefined,
+  stage: HTMLElement,
+  overlay: HTMLElement,
+  deps: SvgLoaderDeps,
+): void {
   mergeVaPaths(node);
-  ['minority', 'majority', '2019'].forEach(function(k) { ctx.overlayInSvg[k] = null; });
+  (['minority', 'majority', '2019'] as const).forEach(function(k) { ctx.overlayInSvg[k] = null; });
   node.setAttribute('width', '100%');
   node.setAttribute('height', '100%');
   node.setAttribute('preserveAspectRatio', 'xMidYMid meet');
   node.style.cssText = 'position:absolute;left:0;top:0;display:block;touch-action:none;';
-  const _cur = (ctx.svgEl && ctx.svgEl.parentNode === stage) ? ctx.svgEl
+  const _cur: Element | null = (ctx.svgEl && ctx.svgEl.parentNode === stage) ? ctx.svgEl
              : (deps.obj && deps.obj.parentNode === stage)   ? deps.obj
              : null;
   if (_cur) stage.replaceChild(node, _cur);
   else stage.appendChild(node);
 
-  const _hoverLayer = node.querySelector('#ed_hover_layer');
+  const _hoverLayer = node.querySelector<SVGGElement>('#ed_hover_layer');
   if (_hoverLayer) {
     _hoverLayer.style.pointerEvents = 'all';
-    _hoverLayer.querySelectorAll('path[data-ed-id]').forEach(function(p) {
+    _hoverLayer.querySelectorAll<SVGPathElement>('path[data-ed-id]').forEach(function(p) {
       p.style.pointerEvents = 'all';
     });
   }
@@ -106,8 +120,8 @@ export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay,
   if (vb.width && vb.height) {
     ctx.natVB = { x: vb.x, y: vb.y, w: vb.width, h: vb.height };
   } else {
-    const w = parseFloat(node.getAttribute('width'))  || 432;
-    const h = parseFloat(node.getAttribute('height')) || 648;
+    const w = parseFloat(node.getAttribute('width')  || '') || 432;
+    const h = parseFloat(node.getAttribute('height') || '') || 648;
     ctx.natVB = { x: 0, y: 0, w, h };
     node.setAttribute('viewBox', `0 0 ${w} ${h}`);
   }
@@ -115,10 +129,10 @@ export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay,
   ctx.svgEl = node;
   ctx.mode = 'viewbox';
   ctx.ready = true;
-  var skel = document.getElementById(DOM_IDS.zoomSkeleton); if (skel) skel.classList.add('hidden');
+  const skel = document.getElementById(DOM_IDS.zoomSkeleton); if (skel) skel.classList.add('hidden');
   // Pre-warm the other two maps so switching is instant
   setTimeout(function() {
-    ['minority', 'majority', '2019'].forEach(function(k) {
+    (['minority', 'majority', '2019'] as const).forEach(function(k) {
       if (!ctx.svgCache[k]) {
         fetch(deps.svgUrls[k]).then(function(r) { return r.text(); })
           .then(function(t) {
@@ -130,7 +144,7 @@ export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay,
       }
     });
   }, 400);
-  deps.applyBoundaryColor(node, ctx.mapPrimary);
+  deps.applyBoundaryColor(node, ctx.mapPrimary as MapKey | null);
   reapplyLayers(ctx);
   deps.applyAnomalyHighlight();
   deps.syncOverlays();
@@ -162,7 +176,7 @@ function showLoadError(): void {
   el.textContent = 'Could not load the boundary map. Try reloading the page.';
 }
 
-export function xhrLoad(ctx: MapCtx, obj, stage, overlay, deps): void {
+export function xhrLoad(ctx: MapCtx, obj: HTMLObjectElement, stage: HTMLElement, overlay: HTMLElement, deps: SvgLoaderDeps): void {
   try {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', obj.data, true);
@@ -171,7 +185,7 @@ export function xhrLoad(ctx: MapCtx, obj, stage, overlay, deps): void {
         const doc = new DOMParser().parseFromString(xhr.responseText, 'image/svg+xml');
         const root = doc.documentElement;
         if (root && root.tagName.toLowerCase() !== 'parsererror') {
-          activateInlineSVG(ctx, document.importNode(root, true), undefined, stage, overlay, deps);
+          activateInlineSVG(ctx, document.importNode(root, true) as unknown as SVGSVGElement, undefined, stage, overlay, deps);
           return;
         }
       }
@@ -184,11 +198,12 @@ export function xhrLoad(ctx: MapCtx, obj, stage, overlay, deps): void {
   }
 }
 
-export function tryInit(ctx: MapCtx, obj, stage, overlay, deps): void {
+export function tryInit(ctx: MapCtx, obj: HTMLObjectElement, stage: HTMLElement, overlay: HTMLElement, deps: SvgLoaderDeps): void {
   if (ctx.ready) return;
-  const doc = obj.contentDocument || (obj.getSVGDocument && obj.getSVGDocument());
+  const objAny = obj as HTMLObjectElement & { getSVGDocument?: () => Document | null };
+  const doc = objAny.contentDocument || (objAny.getSVGDocument && objAny.getSVGDocument());
   if (doc && doc.documentElement && doc.documentElement.tagName.toLowerCase() === 'svg') {
-    activateInlineSVG(ctx, doc.documentElement, undefined, stage, overlay, deps);
+    activateInlineSVG(ctx, doc.documentElement as unknown as SVGSVGElement, undefined, stage, overlay, deps);
     return;
   }
   xhrLoad(ctx, obj, stage, overlay, deps);

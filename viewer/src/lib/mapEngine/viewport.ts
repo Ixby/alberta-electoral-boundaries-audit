@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Alberta Electoral Boundary Audit — viewport & animation
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
@@ -11,7 +10,7 @@
 // ctx properties accessed here are fixed-shape (defined once in mapEngine.ts),
 // so V8 uses inline caches — no hidden-class churn.
 
-import type { MapCtx, ViewBox } from './types';
+import type { MapCtx, ViewBox, MapKey } from './types';
 import { DOM_IDS } from './domIds';
 
 const SETTLE_MS = 250;
@@ -30,7 +29,8 @@ function _updateZoomDisplay(ctx: MapCtx): void {
 function _renderBounds(ctx: MapCtx): { rw: number; rh: number; ox: number; oy: number } {
   const r = getStageRect(ctx);
   const sw = r.width, sh = r.height;
-  const ar = ctx.natVB.w / ctx.natVB.h;
+  const natVB = ctx.natVB!;
+  const ar = natVB.w / natVB.h;
   let rw: number, rh: number;
   if (ar < sw / sh) { rh = sh; rw = sh * ar; }
   else               { rw = sw; rh = sw / ar; }
@@ -51,15 +51,17 @@ function _doSettle(ctx: MapCtx): void {
 }
 
 function _applyVB(ctx: MapCtx, vb: ViewBox): void {
+  if (!ctx.curVB) return;
   if (!ctx.settledVB) {
     ctx.settledVB = { ...ctx.curVB };
     if (ctx.svgEl) { ctx.svgEl.style.willChange = 'transform'; ctx.svgEl.style.transformOrigin = '0 0'; }
   }
   ctx.curVB = vb;
+  const settledVB = ctx.settledVB;
   const { rw, rh, ox, oy } = _renderBounds(ctx);
-  const sx = ctx.settledVB.w / ctx.curVB.w;
-  ctx.pendingTx = (ctx.settledVB.x - ctx.curVB.x) * rw / ctx.curVB.w + ox * (1 - sx);
-  ctx.pendingTy = (ctx.settledVB.y - ctx.curVB.y) * rh / ctx.curVB.h + oy * (1 - sx);
+  const sx = settledVB.w / ctx.curVB.w;
+  ctx.pendingTx = (settledVB.x - ctx.curVB.x) * rw / ctx.curVB.w + ox * (1 - sx);
+  ctx.pendingTy = (settledVB.y - ctx.curVB.y) * rh / ctx.curVB.h + oy * (1 - sx);
   ctx.pendingSx = sx;
   if (ctx.rafId === null) {
     ctx.rafId = requestAnimationFrame(() => {
@@ -75,10 +77,10 @@ function _applyVB(ctx: MapCtx, vb: ViewBox): void {
 
 function _zoomToPct(ctx: MapCtx, pct: number): void {
   if (!ctx.ready || !ctx.natVB || !ctx.curVB) return;
-  var targetW = ctx.natVB.w * 100 / pct;
-  var targetH = ctx.natVB.h * 100 / pct;
-  var cx = ctx.curVB.x + ctx.curVB.w / 2;
-  var cy = ctx.curVB.y + ctx.curVB.h / 2;
+  const targetW = ctx.natVB.w * 100 / pct;
+  const targetH = ctx.natVB.h * 100 / pct;
+  const cx = ctx.curVB.x + ctx.curVB.w / 2;
+  const cy = ctx.curVB.y + ctx.curVB.h / 2;
   ctx.curVB = { x: cx - targetW/2, y: cy - targetH/2, w: targetW, h: targetH };
   _doSettle(ctx);
 }
@@ -99,28 +101,30 @@ export function updateZoomDisplay(ctx: MapCtx): void {
 
 export function updateStrokeWidths(ctx: MapCtx): void {
   if (!ctx.svgEl || !ctx.natVB || !ctx.curVB) return;
-  var zf = ctx.natVB.w / ctx.curVB.w;
-  var primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
+  const zf = ctx.natVB.w / ctx.curVB.w;
+  const primaryW = Math.min(2.5, Math.max(0.10, 1.0 / zf));
   if (Math.abs(primaryW - (ctx._lastStrokeW ?? -1)) < 0.005) return;
   ctx._lastStrokeW = primaryW;
-  var overlayW = primaryW * 0.7; // proportional to primary, no absolute cap (0.35 cap was sub-pixel at default zoom)
-  var pLc = ctx.svgEl.querySelector('#LineCollection_1');
-  if (pLc) pLc.querySelectorAll('path').forEach(function(p) {
+  const overlayW = primaryW * 0.7; // proportional to primary, no absolute cap (0.35 cap was sub-pixel at default zoom)
+  const pLc = ctx.svgEl.querySelector('#LineCollection_1');
+  if (pLc) pLc.querySelectorAll<SVGPathElement>('path').forEach(function(p) {
     p.style.strokeWidth = String(primaryW);
   });
-  ['minority', 'majority', '2019'].forEach(function(key) {
-    var og = ctx.overlayInSvg[key];
+  (['minority', 'majority', '2019'] as const).forEach(function(key) {
+    const og = ctx.overlayInSvg[key] as SVGElement | null;
     if (!og) return;
     // og is the renamed clone of LineCollection_1 (id is now "ed-boundary-overlay-{key}").
     // Query paths directly on og — not via "#LineCollection_1" which no longer matches.
-    var paths = og.tagName.toLowerCase() === 'path' ? [og] : og.querySelectorAll('path');
-    paths.forEach(function(p) {
+    const paths: ArrayLike<SVGPathElement> =
+      og.tagName.toLowerCase() === 'path' ? [og as SVGPathElement] : og.querySelectorAll<SVGPathElement>('path');
+    Array.from(paths).forEach(function(p) {
       p.style.strokeWidth = String(overlayW);
     });
   });
 }
 
 export function resetVB(ctx: MapCtx): void {
+  if (!ctx.natVB) return;
   if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
   if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
   ctx.settledVB = null;
@@ -136,6 +140,7 @@ export function resetVB(ctx: MapCtx): void {
 }
 
 export function vbZoomAt(ctx: MapCtx, mx: number, my: number, factor: number): void {
+  if (!ctx.natVB || !ctx.curVB) return;
   const { rw, rh, ox, oy } = _renderBounds(ctx);
   const lx = mx - ox, ly = my - oy;
   const svgX = ctx.curVB.x + (lx / rw) * ctx.curVB.w;
@@ -146,35 +151,40 @@ export function vbZoomAt(ctx: MapCtx, mx: number, my: number, factor: number): v
 }
 
 export function vbPanBy(ctx: MapCtx, dx: number, dy: number): void {
+  if (!ctx.curVB) return;
   const { rw, rh } = _renderBounds(ctx);
   _applyVB(ctx, { x: ctx.curVB.x - (dx / rw) * ctx.curVB.w, y: ctx.curVB.y - (dy / rh) * ctx.curVB.h, w: ctx.curVB.w, h: ctx.curVB.h });
 }
 
 export function animateToVB(ctx: MapCtx, targetVB: ViewBox, dur: number): void {
   if (ctx.mapLocked) return;
+  if (!ctx.curVB || !ctx.svgEl) return;
   if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
   if (ctx.rafId !== null) { cancelAnimationFrame(ctx.rafId); ctx.rafId = null; }
-  const startVB = { ...ctx.curVB };
+  const startVB: ViewBox = { ...ctx.curVB };
   if (!ctx.settledVB) {
     ctx.settledVB = { ...ctx.curVB };
     ctx.svgEl.style.willChange = 'transform';
     ctx.svgEl.style.transformOrigin = '0 0';
   }
+  const settledVB = ctx.settledVB;
+  const svgEl = ctx.svgEl;
   const t0 = performance.now();
   function step(now: number) {
     const t = Math.min((now - t0) / dur, 1);
     const ease = 1 - Math.pow(1 - t, 3);
-    ctx.curVB = {
+    const cur: ViewBox = {
       x: startVB.x + (targetVB.x - startVB.x) * ease,
       y: startVB.y + (targetVB.y - startVB.y) * ease,
       w: startVB.w + (targetVB.w - startVB.w) * ease,
       h: startVB.h + (targetVB.h - startVB.h) * ease,
     };
+    ctx.curVB = cur;
     const { rw, rh, ox, oy } = _renderBounds(ctx);
-    const sx = ctx.settledVB.w / ctx.curVB.w;
-    ctx.svgEl.style.transform =
-      `translate(${(ctx.settledVB.x - ctx.curVB.x)*rw/ctx.curVB.w + ox*(1-sx)}px,` +
-      `${(ctx.settledVB.y - ctx.curVB.y)*rh/ctx.curVB.h + oy*(1-sx)}px) scale(${sx})`;
+    const sx = settledVB.w / cur.w;
+    svgEl.style.transform =
+      `translate(${(settledVB.x - cur.x)*rw/cur.w + ox*(1-sx)}px,` +
+      `${(settledVB.y - cur.y)*rh/cur.h + oy*(1-sx)}px) scale(${sx})`;
     _updateZoomDisplay(ctx);
     if (t < 1) { requestAnimationFrame(step); }
     else { ctx.settleTimer = setTimeout(() => _doSettle(ctx), SETTLE_MS); }

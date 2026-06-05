@@ -38,16 +38,17 @@ const MAP_KEYS = ['minority', 'majority', '2019'] as const;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
+import type { MapEngineEvent, MapKey, LayerKey } from './mapEngine/types';
+
 export type MapState = {
-	primary:  string;
-	mapOn:    Record<string, boolean>;
-	layers:   Record<string, boolean>;
+	primary:  MapKey;
+	mapOn:    Record<MapKey, boolean>;
+	layers:   Record<LayerKey, boolean>;
 	viewport: { cx_norm: number; cy_norm: number; zoom: number };
 };
 
 // Re-exported from mapEngine/types.ts so external callers (share-link UI)
 // don't have to reach into the engine namespace.
-import type { MapEngineEvent } from './mapEngine/types';
 export type FlightEvent = MapEngineEvent;
 
 // ── Encode ────────────────────────────────────────────────────────────────────
@@ -100,13 +101,14 @@ export function decodeState(code: string): MapState | null {
 	const primary = MAP_KEYS[pIdx];
 	const others  = MAP_KEYS.filter(k => k !== primary);
 
+	const mapOn: Record<MapKey, boolean> = { minority: false, majority: false, '2019': false };
+	mapOn[primary]   = true;
+	mapOn[others[0]] = !!(oBits & 1);
+	mapOn[others[1]] = !!(oBits & 2);
+
 	return {
 		primary,
-		mapOn: {
-			[primary]:   true,
-			[others[0]]: !!(oBits & 1),
-			[others[1]]: !!(oBits & 2),
-		},
+		mapOn,
 		layers: {
 			'vote':     !!(lBits & 1),
 			'ed-fill':  !!(lBits & 2),
