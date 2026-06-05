@@ -1,17 +1,16 @@
-// @ts-nocheck
-// Alberta Electoral Boundary Audit — SVG loader & fallback
+// Alberta Electoral Boundary Audit — SVG loader
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
-// Three-tier SVG loading strategy (highest → lowest fidelity):
+// Two load paths (both yield an inline SVG in the main document):
 //   1. Adopt from <object> contentDocument (no re-download, no re-parse).
-//   2. XHR + DOMParser + importNode (HTTP or Firefox file://).
-//   3. <img> resize fallback (Chrome file://).
+//   2. XHR + DOMParser + importNode (when contentDocument is not yet ready).
 //
-// After adoption the SVG is inline in the main document; the browser renders
-// vector paths at display resolution — no GPU tile limit at any zoom level.
+// Both result in inline SVG; the browser renders vector paths at display
+// resolution — no GPU tile limit at any zoom level.
 //
-// deps shape:
-//   { svgUrls, applyBoundaryColor, applyAnomalyHighlight, syncOverlays }
+// If both paths fail, the user sees #map-load-error. There is no bitmap
+// fallback — the site is HTTP-served and same-origin, so the SVG must load.
+// @ts-nocheck
 
 import type { MapCtx } from './types';
 import { updateZoomDisplay, updateStrokeWidths, resetVB as vpResetVB } from './viewport';
@@ -46,7 +45,6 @@ export function mergeVaPaths(svgRoot: Element): void {
       cp.style.pointerEvents = 'all';
       vaLayer.appendChild(cp);
     }
-    // Insert immediately after ed_hover_layer so VA paths sit on top for hit detection.
     const edLayer = svgRoot.querySelector('#ed_hover_layer');
     if (edLayer && edLayer.parentNode) edLayer.parentNode.insertBefore(vaLayer, edLayer.nextSibling);
     else svgRoot.appendChild(vaLayer);
@@ -154,43 +152,16 @@ export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay,
   }
 }
 
-// ── Fallback (img-based) ──────────────────────────────────────────────────────
+// ── XHR load (when contentDocument isn't yet available) ──────────────────────
 
-export function applyFallback(ctx: MapCtx): void {
-  const w = Math.max(1, Math.round(ctx.fbNatW * ctx.fbScale));
-  const h = Math.max(1, Math.round(ctx.fbNatH * ctx.fbScale));
-  ctx.fbImg.width = w; ctx.fbImg.height = h;
-  ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px';
-  ctx.fbImg.style.top  = Math.round(ctx.fbTy) + 'px';
-  updateZoomDisplay(ctx);
+function showLoadError(): void {
+  const el = document.getElementById('map-load-error');
+  if (!el) return;
+  el.style.display = '';
+  el.textContent = 'Could not load the boundary map. Try reloading the page.';
 }
 
-export function resetFallback(ctx: MapCtx, stage): void {
-  const sw = stage.offsetWidth, sh = stage.offsetHeight;
-  ctx.fbScale = Math.min(sw / ctx.fbNatW, sh / ctx.fbNatH) * 0.94;
-  ctx.fbTx = (sw - ctx.fbNatW * ctx.fbScale) / 2;
-  ctx.fbTy = (sh - ctx.fbNatH * ctx.fbScale) / 2;
-  applyFallback(ctx);
-}
-
-export function initFallback(ctx: MapCtx, obj, stage, overlay): void {
-  ctx.mode = 'fallback';
-  const notice = document.getElementById('map-fallback-notice');
-  if (notice) { notice.style.display = ''; setTimeout(() => { notice.style.display = 'none'; }, 6000); }
-  ctx.fbImg = document.createElement('img');
-  ctx.fbImg.src = obj.data; ctx.fbImg.alt = obj.title; ctx.fbImg.draggable = false;
-  ctx.fbImg.style.cssText = 'position:absolute;display:block;user-select:none;pointer-events:none;';
-  stage.replaceChild(ctx.fbImg, obj);
-  function onLoad() {
-    ctx.fbNatW = ctx.fbImg.naturalWidth || 600; ctx.fbNatH = ctx.fbImg.naturalHeight || 900;
-    ctx.ready = true;
-    if (overlay.style.display !== 'none') resetFallback(ctx, stage);
-  }
-  if (ctx.fbImg.complete && ctx.fbImg.naturalWidth) onLoad();
-  else ctx.fbImg.onload = onLoad;
-}
-
-export function xhrFallback(ctx: MapCtx, obj, stage, overlay, deps): void {
+export function xhrLoad(ctx: MapCtx, obj, stage, overlay, deps): void {
   try {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', obj.data, true);
@@ -203,11 +174,13 @@ export function xhrFallback(ctx: MapCtx, obj, stage, overlay, deps): void {
           return;
         }
       }
-      initFallback(ctx, obj, stage, overlay);
+      showLoadError();
     };
-    xhr.onerror = () => initFallback(ctx, obj, stage, overlay);
+    xhr.onerror = () => showLoadError();
     xhr.send();
-  } catch (e) { initFallback(ctx, obj, stage, overlay); }
+  } catch (_e) {
+    showLoadError();
+  }
 }
 
 export function tryInit(ctx: MapCtx, obj, stage, overlay, deps): void {
@@ -217,5 +190,5 @@ export function tryInit(ctx: MapCtx, obj, stage, overlay, deps): void {
     activateInlineSVG(ctx, doc.documentElement, undefined, stage, overlay, deps);
     return;
   }
-  xhrFallback(ctx, obj, stage, overlay, deps);
+  xhrLoad(ctx, obj, stage, overlay, deps);
 }

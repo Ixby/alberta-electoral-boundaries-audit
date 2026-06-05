@@ -7,7 +7,6 @@
 
 import type { MapCtx } from './types';
 import { vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, animateToVB as vpAnimateToVB, getStageRect as vpGetStageRect } from './viewport';
-import { applyFallback as sl_applyFallback, resetFallback as sl_resetFallback } from './svgLoader';
 import { tipTarget, vaTarget, showTip, hideTip, showCallout, hideCallout, showVaCallout, hideVaCallout, setEdHighlight, snapToED, zoomEdTo70 } from './edInteraction';
 
 export function initGestures(ctx: MapCtx, stage): void {
@@ -28,19 +27,10 @@ export function initGestures(ctx: MapCtx, stage): void {
     return vaData ? vaData[el.getAttribute('data-va-id')] : null;
   }
 
-  // ── Unified zoom (viewbox + fallback) ────────────────────────────────────
+  // ── Zoom ──────────────────────────────────────────────────────────────────
   function zoomAt(mx, my, factor) {
     if (!ctx.ready) return;
-    if (ctx.mode === 'viewbox') {
-      vpVbZoomAt(ctx, mx, my, factor);
-    } else {
-      const newScale = Math.min(Math.max(ctx.fbScale * factor, 0.05), 200);
-      const ratio = newScale / ctx.fbScale;
-      ctx.fbTx = mx - ratio * (mx - ctx.fbTx);
-      ctx.fbTy = my - ratio * (my - ctx.fbTy);
-      ctx.fbScale = newScale;
-      sl_applyFallback(ctx);
-    }
+    vpVbZoomAt(ctx, mx, my, factor);
   }
 
   // ── Pinch helpers ─────────────────────────────────────────────────────────
@@ -86,18 +76,12 @@ export function initGestures(ctx: MapCtx, stage): void {
     if (ctx.ptrs.size >= 2) {
       const dist = _ptrDist(), mid = _ptrMid(), r = _getStageRect();
       if (ctx.lastPinchDist && dist > 0) zoomAt(mid.x - r.left, mid.y - r.top, dist / ctx.lastPinchDist);
-      if (ctx.lastPinchMid) {
-        if (ctx.mode === 'viewbox') vpVbPanBy(ctx, mid.x - ctx.lastPinchMid.x, mid.y - ctx.lastPinchMid.y);
-        else {
-          ctx.fbTx += mid.x - ctx.lastPinchMid.x; ctx.fbTy += mid.y - ctx.lastPinchMid.y;
-          ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px'; ctx.fbImg.style.top = Math.round(ctx.fbTy) + 'px';
-        }
-      }
+      if (ctx.lastPinchMid) vpVbPanBy(ctx, mid.x - ctx.lastPinchMid.x, mid.y - ctx.lastPinchMid.y);
       ctx.lastPinchDist = dist; ctx.lastPinchMid = mid;
       return;
     }
 
-    if (e.pointerType !== 'touch' && !ctx.drag && ctx.mode === 'viewbox' && ctx.edHover) {
+    if (e.pointerType !== 'touch' && !ctx.drag && ctx.edHover) {
       const hit = tipTarget(e);
       if (hit) showTip(ctx.edHover[parseInt(hit.getAttribute('data-ed-id'), 10)], e.clientX, e.clientY);
       else hideTip();
@@ -107,11 +91,7 @@ export function initGestures(ctx: MapCtx, stage): void {
     if (!ctx.dragMoved && Math.hypot(e.clientX - ctx.drag.startX, e.clientY - ctx.drag.startY) < 6) return;
     if (!ctx.dragMoved) { ctx.dragMoved = true; hideTip(); }
     ctx.drag.cx = e.clientX; ctx.drag.cy = e.clientY;
-    if (ctx.mode === 'viewbox') vpVbPanBy(ctx, dx, dy);
-    else {
-      ctx.fbTx += dx; ctx.fbTy += dy;
-      ctx.fbImg.style.left = Math.round(ctx.fbTx) + 'px'; ctx.fbImg.style.top = Math.round(ctx.fbTy) + 'px';
-    }
+    vpVbPanBy(ctx, dx, dy);
   });
 
   stage.addEventListener('pointerup', e => {
@@ -120,7 +100,7 @@ export function initGestures(ctx: MapCtx, stage): void {
     if (ctx.ptrs.size < 2) { ctx.lastPinchDist = null; ctx.lastPinchMid = null; }
     if (!ctx.drag || ctx.drag.id !== e.pointerId) return;
     stage.classList.remove('dragging');
-    if (!ctx.dragMoved && ctx.mode === 'viewbox') {
+    if (!ctx.dragMoved) {
       if (e.pointerType === 'touch') {
         const now = performance.now();
         if (now - ctx.lastTap < 300) {
@@ -178,16 +158,14 @@ export function initGestures(ctx: MapCtx, stage): void {
 
   stage.addEventListener('dblclick', e => {
     if (!ctx.ready) return;
-    if (ctx.mode === 'viewbox') {
-      const hit = tipTarget(e);
-      if (hit) _zoomEdTo70(hit);
-      else _animateToVB({ ...ctx.natVB }, 420);
-    } else sl_resetFallback(ctx, stage);
+    const hit = tipTarget(e);
+    if (hit) _zoomEdTo70(hit);
+    else _animateToVB({ ...ctx.natVB }, 420);
   });
 
   // ── Keyboard pan / zoom ───────────────────────────────────────────────────
   document.addEventListener('keydown', e => {
-    if (!ctx.ready || ctx.mode !== 'viewbox') return;
+    if (!ctx.ready) return;
     const overlay = document.getElementById('zoom-overlay');
     if (!overlay || overlay.style.display === 'none') return;
     const active = document.activeElement;

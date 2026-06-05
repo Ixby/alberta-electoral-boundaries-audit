@@ -712,8 +712,6 @@ export default {
 			va_hint: 'Click within this district to see polling station results',
 			va_close_aria: 'Close polling station detail',
 			va_close_title: 'Close',
-			fallback:
-				'Map loaded in low-resolution mode — district detail unavailable',
 			object_title: 'Alberta electoral district map — full resolution',
 			ea_credit: 'Map data:',
 			cc_title: 'Text content: CC BY-NC-SA 4.0',

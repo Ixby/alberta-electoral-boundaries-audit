@@ -18,14 +18,8 @@ const SETTLE_MS = 250;
 // ── Internal helpers ──────────────────────────────────────────────────────────
 
 function _updateZoomDisplay(ctx: MapCtx): void {
-  let pct: number;
-  if (ctx.mode === 'fallback') {
-    pct = Math.round(ctx.fbScale * 100);
-  } else if (ctx.natVB && ctx.curVB) {
-    pct = Math.round(ctx.natVB.w / ctx.curVB.w * 100);
-  } else {
-    return;
-  }
+  if (!ctx.natVB || !ctx.curVB) return;
+  const pct = Math.round(ctx.natVB.w / ctx.curVB.w * 100);
   const el  = document.getElementById('zoom-pct');
   const sl  = document.getElementById('zoom-slider') as HTMLInputElement | null;
   if (el) el.textContent = pct + '%';
@@ -79,7 +73,7 @@ function _applyVB(ctx: MapCtx, vb: ViewBox): void {
 }
 
 function _zoomToPct(ctx: MapCtx, pct: number): void {
-  if (!ctx.ready || ctx.mode !== 'viewbox' || !ctx.natVB || !ctx.curVB) return;
+  if (!ctx.ready || !ctx.natVB || !ctx.curVB) return;
   var targetW = ctx.natVB.w * 100 / pct;
   var targetH = ctx.natVB.h * 100 / pct;
   var cx = ctx.curVB.x + ctx.curVB.w / 2;
@@ -194,7 +188,7 @@ export function initViewport(ctx: MapCtx): void {
   if (window.ResizeObserver) {
     new ResizeObserver(() => {
       ctx.stageRect = null;
-      if (ctx.svgEl && ctx.mode === 'viewbox') _doSettle(ctx);
+      if (ctx.svgEl && ctx.ready) _doSettle(ctx);
     }).observe(stage);
   }
   const slider = document.getElementById('zoom-slider') as HTMLInputElement | null;

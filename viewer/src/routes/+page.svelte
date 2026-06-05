@@ -1468,7 +1468,6 @@
     <button id="vc-close" aria-label={t(lang.current, 'chrome.map.va_close_aria')} title={t(lang.current, 'chrome.map.va_close_title')}>&times;</button>
   </div>
   <div id="map-load-error" style="display:none;"></div>
-  <div id="map-fallback-notice" style="display:none;">{t(lang.current, 'chrome.map.fallback')}</div>
   </div><!-- /#hud -->
   <div id="sr-announce" role="status" aria-live="polite" class="sr-only"></div>
   <div id="zoom-stage">
@@ -2934,8 +2933,8 @@
   /* Help button */
   .tb-help-btn { font-size: 0.8rem !important; font-weight: 700; }
 
-  /* Map load error / fallback notices */
-  #map-load-error, #map-fallback-notice {
+  /* Map load error notice */
+  #map-load-error {
     color: #fff;
     font-size: 0.72rem;
     padding: 5px 10px;
@@ -2943,9 +2942,8 @@
     backdrop-filter: blur(6px);
     align-self: flex-start;
     pointer-events: none;
+    background: rgba(180,60,40,0.88);
   }
-  #map-load-error    { background: rgba(180,60,40,0.88); }
-  #map-fallback-notice { background: rgba(120,80,10,0.88); }
 
   /* Mobile toolbar: horizontal scroll instead of wrap */
   @media (max-width: 600px) {

@@ -9,7 +9,7 @@ export type ViewBox = { x: number; y: number; w: number; h: number };
 
 export type MapCtx = {
   // SVG load mode
-  mode:               'viewbox' | 'fallback' | null;
+  mode:               'viewbox' | null;
   ready:              boolean;
 
   // Viewport
@@ -27,14 +27,6 @@ export type MapCtx = {
   pendingTy:          number;
   pendingSx:          number;
   settleTimer:        ReturnType<typeof setTimeout> | null;
-
-  // Fallback image state
-  fbImg:              HTMLImageElement | null;
-  fbNatW:             number;
-  fbNatH:             number;
-  fbScale:            number;
-  fbTx:               number;
-  fbTy:               number;
 
   // Focus management
   prevFocus:          Element | null;

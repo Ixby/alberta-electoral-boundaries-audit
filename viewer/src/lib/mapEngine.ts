@@ -12,7 +12,7 @@ import { initSearch } from './mapEngine/search';
 import { applyAnomalyHighlight, initAnomalyButtons } from './mapEngine/anomaly';
 import { initNamedEdButtons } from './mapEngine/namedEdZoom';
 import { initViewport, getStageRect, animateToVB as vpAnimateToVB, resetVB as vpResetVB } from './mapEngine/viewport';
-import { activateInlineSVG as sl_activateInlineSVG, applyFallback as sl_applyFallback, resetFallback as sl_resetFallback, tryInit as sl_tryInit } from './mapEngine/svgLoader';
+import { activateInlineSVG as sl_activateInlineSVG, tryInit as sl_tryInit } from './mapEngine/svgLoader';
 import { initGestures } from './mapEngine/gestures';
 import { initOverlay } from './mapEngine/overlay';
 import { applyBoundaryColor as mpApplyBoundaryColor, syncOverlays as mpSyncOverlays, updateMapButtons as mpUpdateMapButtons, doSwitchPrimary as mpDoSwitchPrimary, activateAsTop as mpActivateAsTop, toggleMap as mpToggleMap, loadHoverJson as mpLoadHoverJson, loadVaJson as mpLoadVaJson } from './mapEngine/maps';
@@ -32,8 +32,7 @@ export function init(basePath: string): void {
 
       // ── Zoom viewer — inline SVG adoption (true infinite zoom, no tile ceiling)
       //    Primary: adopt SVG node from <object> contentDocument into main document.
-      //    Secondary: XHR-parse and importNode (HTTP or Firefox file://).
-      //    Tertiary fallback: img.width resize (Chrome file://).
+      //    Secondary: XHR-parse and importNode (when contentDocument isn't ready).
       //
       //    Once inline, the browser renders SVG vector paths directly from the main
       //    document's paint record. ViewBox manipulation re-renders from paths at
@@ -46,7 +45,7 @@ export function init(basePath: string): void {
         // ── Shared mutable state ──────────────────────────────────────────────────
         const ctx = {
           // SVG load mode
-          mode:               null,       // 'viewbox' | 'fallback' | null
+          mode:               null,       // 'viewbox' | null
           ready:              false,
 
           // Viewport
@@ -64,14 +63,6 @@ export function init(basePath: string): void {
           pendingTy:          0,
           pendingSx:          1,
           settleTimer:        null,
-
-          // Fallback image state
-          fbImg:              null,
-          fbNatW:             0,
-          fbNatH:             0,
-          fbScale:            1,
-          fbTx:               0,
-          fbTy:               0,
 
           // Focus management (overlay open/close)
           prevFocus:          null,
@@ -115,17 +106,14 @@ export function init(basePath: string): void {
 
         function resetVB() { vpResetVB(ctx); }
 
-        // ── SVG loader thin wrappers — declared here (hoisted), deps wired after _mapSvgUrls ──
+        // ── SVG loader thin wrapper — declared here (hoisted), deps wired after _mapSvgUrls ──
         function _activateInlineSVG(node, pVB) { sl_activateInlineSVG(ctx, node, pVB, stage, overlay, _svgDeps); }
-        function applyFallback()               { sl_applyFallback(ctx); }
-        function resetFallback()               { sl_resetFallback(ctx, stage); }
 
         // ── Open / close ──────────────────────────────────────────────────────
         const { open, close } = initOverlay(ctx, overlay, closeBtn, {
           updateMapButtons: () => _updateMapButtons(),
           maybeShowIntro:   () => _maybeShowIntro(),
           resetVB:          () => resetVB(),
-          resetFallback:    () => resetFallback(),
           hideTip:          () => hideTip(),
           hideCallout:      () => _hideCallout(),
         });

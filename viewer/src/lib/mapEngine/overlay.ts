@@ -3,7 +3,7 @@
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 //
 // deps shape:
-//   { updateMapButtons, maybeShowIntro, resetVB, resetFallback, hideTip, hideCallout }
+//   { updateMapButtons, maybeShowIntro, resetVB, hideTip, hideCallout }
 
 import type { MapCtx } from './types';
 
@@ -28,7 +28,7 @@ export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
     const focusable = _overlayFocusable(overlayEl);
     if (focusable.length) focusable[0].focus();
     if (!ctx.ready) return;
-    if (ctx.mode === 'viewbox') deps.resetVB(); else deps.resetFallback();
+    deps.resetVB();
   }
 
   function close() {
