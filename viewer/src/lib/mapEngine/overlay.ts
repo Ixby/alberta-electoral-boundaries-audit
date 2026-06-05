@@ -3,6 +3,7 @@
 
 import type { MapCtx } from './types';
 import { DOM_IDS } from './domIds';
+import { hideIntro } from './introModal';
 
 type OverlayDeps = {
   updateMapButtons: () => void;
@@ -49,9 +50,8 @@ export function initOverlay(ctx: MapCtx, overlayEl: HTMLElement, closeBtnEl: HTM
     deps.hideCallout();
     if (ctx.prevFocus instanceof HTMLElement) ctx.prevFocus.focus();
     ctx.prevFocus = null;
-    // Hide intro modal without marking seen — re-shows on next open until dismissed
-    const intro = document.getElementById(DOM_IDS.mapIntroModal) as HTMLElement | null;
-    if (intro) intro.style.display = 'none';
+    // Hide intro modal without marking seen — re-shows on next open until dismissed.
+    hideIntro();
   }
 
   // Tab trap

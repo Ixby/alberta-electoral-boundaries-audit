@@ -3,8 +3,7 @@
 // https://ixby.github.io
 
 import { initNavScrollspy } from './mapEngine/navScrollspy';
-import { initIntroModal }   from './mapEngine/introModal';
-import { hasSeenIntro }     from './prefs';
+import { initIntroModal, maybeShowIntro } from './mapEngine/introModal';
 import { applyVoteLayer, applyEdFillLayer, applyEdLinesLayer, applyEGLayer, setLayerOn } from './mapEngine/layers';
 import { hideTip, showCallout, hideCallout, hideVaCallout, setEdHighlight, activateCenterED, snapToED } from './mapEngine/edInteraction';
 import { initSearch } from './mapEngine/search';
@@ -292,20 +291,10 @@ export function init(basePath: string): void {
         });
 
         // ── Map onboarding modal ──────────────────────────────────────────────────
-        initIntroModal();  // wires close-btn, backdrop-click, and Escape handlers
-        const _helpBtn = document.getElementById(DOM_IDS.tbHelpBtn);
-        if (_helpBtn) {
-          _helpBtn.addEventListener('click', () => {
-            const modal = document.getElementById(DOM_IDS.mapIntroModal);
-            if (modal) modal.style.display = 'flex';
-          });
-        }
-
-        async function _maybeShowIntro() {
-          if (await hasSeenIntro()) return;
-          var modal = document.getElementById(DOM_IDS.mapIntroModal);
-          if (modal) modal.style.display = 'flex';
-        }
+        // initIntroModal wires the close button, backdrop click, Escape key,
+        // and the toolbar help button — all DOM ownership lives in introModal.ts.
+        initIntroModal();
+        function _maybeShowIntro() { void maybeShowIntro(); }
 
       })();
 }
