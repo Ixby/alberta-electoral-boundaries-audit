@@ -5,7 +5,7 @@
 // Reads/writes: ctx.svgEl, ctx.edHover, ctx.layerState, ctx.overlayInSvg.
 // No dependency on viewport, gestures, or the event bridge (_emit is a callback).
 
-import type { MapCtx } from './types';
+import type { MapCtx, MapEngineEventHandler, LayerKey } from './types';
 
 export function applyVoteLayer(ctx: MapCtx, on: boolean): void {
   if (!ctx.svgEl) return;
@@ -82,7 +82,7 @@ export function reapplyLayers(ctx: MapCtx): void {
   if (ctx.layerState.eg) applyEGLayer(ctx, true);
 }
 
-export function setLayerOn(ctx: MapCtx, key: string, on: boolean, emit: (e: any) => void): void {
+export function setLayerOn(ctx: MapCtx, key: LayerKey, on: boolean, emit: MapEngineEventHandler): void {
   if (ctx.layerState[key] === on) return;
   ctx.layerState[key] = on;
   document.querySelectorAll('.tb-btn[data-layer="' + key + '"]').forEach(function(btn) {

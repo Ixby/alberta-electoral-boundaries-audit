@@ -7,7 +7,7 @@
 //               ctx.selectedEdName, ctx.highlightPath, ctx.mode, ctx.mapLocked, ctx.rafId.
 // animateToVB and getStageRect are passed as callbacks to avoid circular deps with viewport.
 
-import type { MapCtx } from './types';
+import type { MapCtx, MapEngineEventHandler } from './types';
 
 const _fmt = new Intl.NumberFormat();
 
@@ -241,7 +241,7 @@ export function zoomEdTo70(ctx: MapCtx, pathEl, animateToVB, getStageRect): void
   animateToVB({ x: cx - vw/2, y: cy - vh/2, w: vw, h: vh }, 380);
 }
 
-export function activateCenterED(ctx: MapCtx, animateToVB, emit): void {
+export function activateCenterED(ctx: MapCtx, animateToVB, emit: MapEngineEventHandler): void {
   if (ctx.mapLocked || !ctx.svgEl || !ctx.edHover || !ctx.curVB) return;
   const cx = ctx.curVB.x + ctx.curVB.w / 2, cy = ctx.curVB.y + ctx.curVB.h / 2;
   let bestPath = null, bestDist = Infinity;

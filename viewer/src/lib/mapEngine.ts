@@ -16,13 +16,16 @@ import { activateInlineSVG as sl_activateInlineSVG, tryInit as sl_tryInit } from
 import { initGestures } from './mapEngine/gestures';
 import { initOverlay } from './mapEngine/overlay';
 import { applyBoundaryColor as mpApplyBoundaryColor, syncOverlays as mpSyncOverlays, updateMapButtons as mpUpdateMapButtons, doSwitchPrimary as mpDoSwitchPrimary, activateAsTop as mpActivateAsTop, toggleMap as mpToggleMap, loadHoverJson as mpLoadHoverJson, loadVaJson as mpLoadVaJson } from './mapEngine/maps';
+import type { MapEngineEvent, MapEngineEventHandler } from './mapEngine/types';
 
-let _onEvent      = null;
+export type { MapEngineEvent, MapEngineEventHandler };
+
+let _onEvent: MapEngineEventHandler | null = null;
 let _getState     = null;
 let _applyStateFn = null;
 let _openFn: (() => void) | null = null;
 
-export function onEvent(cb)                                 { _onEvent = cb; }
+export function onEvent(cb: MapEngineEventHandler)          { _onEvent = cb; }
 export function getState()                                  { return _getState ? _getState() : null; }
 export function applyState(primary, mapOn, layers)          { if (_applyStateFn) _applyStateFn(primary, mapOn, layers); }
 export function openOverlay(): void                         { if (_openFn) _openFn(); }
@@ -199,7 +202,7 @@ export function init(basePath: string): void {
           });
           _updateMapButtons();
         };
-        function _emit(event) { if (_onEvent) _onEvent(event); }
+        function _emit(event: MapEngineEvent) { if (_onEvent) _onEvent(event); }
 
         // ── Maps thin wrappers ────────────────────────────────────────────────────
         function _applyBoundaryColor(svgNode, mapKey) { mpApplyBoundaryColor(ctx, svgNode, mapKey); }

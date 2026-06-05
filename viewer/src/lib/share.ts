@@ -45,10 +45,10 @@ export type MapState = {
 	viewport: { cx_norm: number; cy_norm: number; zoom: number };
 };
 
-export type FlightEvent =
-	| { type: 'map_switch'; primary: string; mapOn: Record<string, boolean> }
-	| { type: 'layer';      key: string;     on: boolean }
-	| { type: 'ed_focus';   ed_id: number };
+// Re-exported from mapEngine/types.ts so external callers (share-link UI)
+// don't have to reach into the engine namespace.
+import type { MapEngineEvent } from './mapEngine/types';
+export type FlightEvent = MapEngineEvent;
 
 // ── Encode ────────────────────────────────────────────────────────────────────
 
