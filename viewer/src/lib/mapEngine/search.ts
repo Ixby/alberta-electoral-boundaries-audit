@@ -5,6 +5,7 @@
 
 import type { MapCtx, MapKey } from './types';
 import { DOM_IDS } from './domIds';
+import { awaitReady } from './readyState';
 
 type SearchDeps = {
   showCallout:       (rec: any) => void;
@@ -59,15 +60,9 @@ export function initSearch(ctx: MapCtx, deps: SearchDeps): void {
       ctx.mapPrimary = fromMap;
       updateMapButtons();
       doSwitchPrimary(fromMap);
-      const _pendingName = name;
-      let _waitAttempts = 0;
-      (function waitAndNav() {
-        if (!ctx.svgEl || !ctx.ready) {
-          if (++_waitAttempts < 30) { setTimeout(waitAndNav, 150); return; }
-          return;
-        }
-        navigateToEd(fromMap, _pendingName);
-      })();
+      awaitReady(ctx, 4500)
+        .then(() => { if (ctx.svgEl) navigateToEd(fromMap, name); })
+        .catch(() => {});
     } else {
       navigateToEd(ctx.mapPrimary as MapKey, name);
     }

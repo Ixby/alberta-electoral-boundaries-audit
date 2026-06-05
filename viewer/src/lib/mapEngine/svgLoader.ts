@@ -15,6 +15,7 @@ import type { MapCtx, MapKey, ViewBox } from './types';
 import { updateZoomDisplay, updateStrokeWidths, resetVB as vpResetVB } from './viewport';
 import { reapplyLayers } from './layers';
 import { DOM_IDS } from './domIds';
+import { notifyReady } from './readyState';
 
 export type SvgLoaderDeps = {
   obj:                   HTMLObjectElement;
@@ -129,6 +130,7 @@ export function activateInlineSVG(
   ctx.svgEl = node;
   ctx.mode = 'viewbox';
   ctx.ready = true;
+  notifyReady(ctx);
   const skel = document.getElementById(DOM_IDS.zoomSkeleton); if (skel) skel.classList.add('hidden');
   // Pre-warm the other two maps so switching is instant
   setTimeout(function() {

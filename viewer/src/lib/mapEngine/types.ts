@@ -77,6 +77,10 @@ export type MapCtx = {
   lastPinchMid:       { x: number; y: number } | null;
   lastTap:            number;
 
+  // Ready signalling: callbacks waiting for the next ready=true transition.
+  // Drained by notifyReady() from activateInlineSVG / doSwitchPrimary.
+  readyWaiters:       Array<() => void>;
+
   // viewport cache
   _lastStrokeW?:      number;
 };

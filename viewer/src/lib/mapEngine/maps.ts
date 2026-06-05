@@ -7,6 +7,7 @@ import { applyEdFillLayer, reapplyLayers } from './layers';
 import { mergeVaPaths } from './svgLoader';
 import { showVaCallout } from './edInteraction';
 import { DOM_IDS } from './domIds';
+import { notifyReady } from './readyState';
 
 type MapsDeps = {
   svgUrls:              Record<MapKey, string>;
@@ -171,7 +172,7 @@ export function doSwitchPrimary(ctx: MapCtx, key: MapKey, deps: MapsDeps): void 
           }
         } else { deps.activateCenterED(); }
       } else { deps.activateCenterED(); }
-    } else { ctx.ready = true; }
+    } else { ctx.ready = true; notifyReady(ctx); }
     if (stage) { stage.style.opacity = ''; setTimeout(function() { stage.style.transition = ''; }, 200); }
   }
 
@@ -191,6 +192,7 @@ export function doSwitchPrimary(ctx: MapCtx, key: MapKey, deps: MapsDeps): void 
       })
       .catch(function() {
         ctx.ready = true;
+        notifyReady(ctx);
         if (stage) { stage.style.opacity = ''; setTimeout(function() { stage.style.transition = ''; }, 200); }
         const errEl = document.getElementById(DOM_IDS.mapLoadError);
         if (errEl) {

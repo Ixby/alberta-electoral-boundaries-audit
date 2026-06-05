@@ -105,6 +105,9 @@ export function init(basePath: string): void {
           lastPinchDist:      null,
           lastPinchMid:       null,
           lastTap:            0,
+
+          // Ready-state signalling
+          readyWaiters:       [],
         };
         initViewport(ctx);
         function _getStageRect() { return getStageRect(ctx); }

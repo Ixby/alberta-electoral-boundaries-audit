@@ -5,6 +5,7 @@
 // flies the viewport to the named district with callout + highlight.
 
 import type { MapCtx, ViewBox } from './types';
+import { awaitReady } from './readyState';
 
 type NamedEdDeps = {
   open: () => void;
@@ -15,11 +16,9 @@ type NamedEdDeps = {
   setEdHighlight: (pathEl: SVGGraphicsElement) => void;
 };
 
-export function zoomToEd(ctx: MapCtx, name: string, attempt: number, deps: NamedEdDeps): void {
-  if (!ctx.svgEl || !ctx.ready) {
-    if ((attempt || 0) < 20) setTimeout(function() { zoomToEd(ctx, name, (attempt || 0) + 1, deps); }, 120);
-    return;
-  }
+export async function zoomToEd(ctx: MapCtx, name: string, deps: NamedEdDeps): Promise<void> {
+  try { await awaitReady(ctx, 3000); } catch (_) { return; }
+  if (!ctx.svgEl) return;
   const mapOrder = [ctx.mapPrimary, 'minority', 'majority', '2019'].filter(
     function(k, i, a) { return k !== null && a.indexOf(k) === i; }
   );
@@ -49,7 +48,7 @@ export function initNamedEdButtons(ctx: MapCtx, deps: NamedEdDeps): void {
     b.addEventListener('click', function() {
       if (!deps.isOverlayOpen()) deps.open();
       const name = b.getAttribute('data-ed-name');
-      if (name) zoomToEd(ctx, name, 0, deps);
+      if (name) void zoomToEd(ctx, name, deps);
     });
   });
 }
