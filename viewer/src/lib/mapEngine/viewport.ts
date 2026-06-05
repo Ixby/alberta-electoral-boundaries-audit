@@ -12,6 +12,7 @@
 // so V8 uses inline caches — no hidden-class churn.
 
 import type { MapCtx, ViewBox } from './types';
+import { DOM_IDS } from './domIds';
 
 const SETTLE_MS = 250;
 
@@ -20,8 +21,8 @@ const SETTLE_MS = 250;
 function _updateZoomDisplay(ctx: MapCtx): void {
   if (!ctx.natVB || !ctx.curVB) return;
   const pct = Math.round(ctx.natVB.w / ctx.curVB.w * 100);
-  const el  = document.getElementById('zoom-pct');
-  const sl  = document.getElementById('zoom-slider') as HTMLInputElement | null;
+  const el  = document.getElementById(DOM_IDS.zoomPct);
+  const sl  = document.getElementById(DOM_IDS.zoomSlider) as HTMLInputElement | null;
   if (el) el.textContent = pct + '%';
   if (sl) sl.value = String(Math.min(3000, Math.max(25, pct)));
 }
@@ -86,7 +87,7 @@ function _zoomToPct(ctx: MapCtx, pct: number): void {
 
 export function getStageRect(ctx: MapCtx): DOMRect {
   if (!ctx.stageRect) {
-    const stage = document.getElementById('zoom-stage');
+    const stage = document.getElementById(DOM_IDS.zoomStage);
     ctx.stageRect = stage ? stage.getBoundingClientRect() : new DOMRect();
   }
   return ctx.stageRect;
@@ -182,7 +183,7 @@ export function animateToVB(ctx: MapCtx, targetVB: ViewBox, dur: number): void {
 }
 
 export function initViewport(ctx: MapCtx): void {
-  const stage = document.getElementById('zoom-stage');
+  const stage = document.getElementById(DOM_IDS.zoomStage);
   if (!stage) return;
   window.addEventListener('resize', () => { ctx.stageRect = null; });
   if (window.ResizeObserver) {
@@ -191,7 +192,7 @@ export function initViewport(ctx: MapCtx): void {
       if (ctx.svgEl && ctx.ready) _doSettle(ctx);
     }).observe(stage);
   }
-  const slider = document.getElementById('zoom-slider') as HTMLInputElement | null;
+  const slider = document.getElementById(DOM_IDS.zoomSlider) as HTMLInputElement | null;
   if (slider) {
     slider.addEventListener('input', function() {
       _zoomToPct(ctx, parseInt(slider.value, 10));

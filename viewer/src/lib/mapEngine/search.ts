@@ -6,12 +6,13 @@
 // deps: showCallout, setEdHighlight, snapToED, updateMapButtons, doSwitchPrimary.
 
 import type { MapCtx } from './types';
+import { DOM_IDS } from './domIds';
 
 export function initSearch(ctx: MapCtx, deps): void {
   const { showCallout, setEdHighlight, snapToED, updateMapButtons, doSwitchPrimary } = deps;
 
-  const searchInput   = document.getElementById('tb-search');
-  const searchResults = document.getElementById('tb-search-results');
+  const searchInput   = document.getElementById(DOM_IDS.tbSearch);
+  const searchResults = document.getElementById(DOM_IDS.tbSearchResults);
   if (!searchInput || !searchResults) return;
 
   let _srActive = -1;

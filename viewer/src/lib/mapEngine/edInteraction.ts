@@ -8,6 +8,7 @@
 // animateToVB and getStageRect are passed as callbacks to avoid circular deps with viewport.
 
 import type { MapCtx, MapEngineEventHandler } from './types';
+import { DOM_IDS } from './domIds';
 
 const _fmt = new Intl.NumberFormat();
 
@@ -15,7 +16,7 @@ const _fmt = new Intl.NumberFormat();
 
 export function showTip(d, x: number, y: number): void {
   if (!d) return;
-  const tip = document.getElementById('ed-tooltip');
+  const tip = document.getElementById(DOM_IDS.edTooltip);
   if (!tip) return;
   tip.innerHTML =
     `<strong>${d.name}</strong>` +
@@ -30,7 +31,7 @@ export function showTip(d, x: number, y: number): void {
 }
 
 export function hideTip(): void {
-  const tip = document.getElementById('ed-tooltip');
+  const tip = document.getElementById(DOM_IDS.edTooltip);
   if (tip) tip.style.display = 'none';
 }
 
@@ -38,20 +39,20 @@ export function hideTip(): void {
 
 export function showCallout(ctx: MapCtx, d): void {
   if (!d) return;
-  document.getElementById('ec-name').textContent = d.name;
-  document.getElementById('ec-ucp-bar').style.width = d.ucp_pct + '%';
-  document.getElementById('ec-ndp-bar').style.width = d.ndp_pct + '%';
-  document.getElementById('ec-ucp-pct').textContent = d.ucp_pct + '%';
-  document.getElementById('ec-ndp-pct').textContent = d.ndp_pct + '%';
-  document.getElementById('ec-ucp-votes').textContent = d.ucp_votes ? _fmt.format(d.ucp_votes) + ' votes' : '';
-  document.getElementById('ec-ndp-votes').textContent = d.ndp_votes ? _fmt.format(d.ndp_votes) + ' votes' : '';
-  document.getElementById('ec-total-votes').textContent = d.votes ? _fmt.format(d.votes) + ' total votes' : '';
-  const vaEl = document.getElementById('ec-va-count');
+  document.getElementById(DOM_IDS.ecName).textContent = d.name;
+  document.getElementById(DOM_IDS.ecUcpBar).style.width = d.ucp_pct + '%';
+  document.getElementById(DOM_IDS.ecNdpBar).style.width = d.ndp_pct + '%';
+  document.getElementById(DOM_IDS.ecUcpPct).textContent = d.ucp_pct + '%';
+  document.getElementById(DOM_IDS.ecNdpPct).textContent = d.ndp_pct + '%';
+  document.getElementById(DOM_IDS.ecUcpVotes).textContent = d.ucp_votes ? _fmt.format(d.ucp_votes) + ' votes' : '';
+  document.getElementById(DOM_IDS.ecNdpVotes).textContent = d.ndp_votes ? _fmt.format(d.ndp_votes) + ' votes' : '';
+  document.getElementById(DOM_IDS.ecTotalVotes).textContent = d.votes ? _fmt.format(d.votes) + ' total votes' : '';
+  const vaEl = document.getElementById(DOM_IDS.ecVaCount);
   if (vaEl) vaEl.textContent = d.va_count ? d.va_count + ' voting areas' : '';
   const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
-  document.getElementById('ec-pop').textContent = popN ? 'Pop. ' + _fmt.format(popN) : '';
+  document.getElementById(DOM_IDS.ecPop).textContent = popN ? 'Pop. ' + _fmt.format(popN) : '';
 
-  const egEl = document.getElementById('ec-eg');
+  const egEl = document.getElementById(DOM_IDS.ecEg);
   if (egEl) {
     if (d.eg !== undefined && d.eg !== null) {
       const sign = d.eg >= 0 ? '+' : '';
@@ -62,7 +63,7 @@ export function showCallout(ctx: MapCtx, d): void {
     }
   }
 
-  const ctxEl = document.getElementById('ec-context');
+  const ctxEl = document.getElementById(DOM_IDS.ecContext);
   if (ctxEl) {
     const mapLabel = ctx.mapPrimary === 'minority' ? '2026 minority proposal'
                    : ctx.mapPrimary === 'majority' ? '2026 majority proposal'
@@ -70,7 +71,7 @@ export function showCallout(ctx: MapCtx, d): void {
     ctxEl.textContent = mapLabel + ' · 2023 election results';
   }
 
-  const cmpEl = document.getElementById('ec-compare');
+  const cmpEl = document.getElementById(DOM_IDS.ecCompare);
   if (cmpEl) {
     const others = ['minority', 'majority', '2019'].filter(k => k !== ctx.mapPrimary);
     const parts = others.map(function(k) {
@@ -96,26 +97,26 @@ export function showCallout(ctx: MapCtx, d): void {
   }
 
   ctx.selectedEdName = d.name;
-  const srEl = document.getElementById('sr-announce');
+  const srEl = document.getElementById(DOM_IDS.srAnnounce);
   if (srEl) srEl.textContent = d.name + ' — UCP ' + d.ucp_pct + '%, NDP ' + d.ndp_pct + '%';
-  const vaHint = document.getElementById('ec-va-hint');
+  const vaHint = document.getElementById(DOM_IDS.ecVaHint);
   if (vaHint) vaHint.style.display = (ctx.allVaData && ctx.allVaData[ctx.mapPrimary] && Object.keys(ctx.allVaData[ctx.mapPrimary]).length) ? '' : 'none';
-  const callout = document.getElementById('ed-callout');
-  const hud     = document.getElementById('hud');
+  const callout = document.getElementById(DOM_IDS.edCallout);
+  const hud     = document.getElementById(DOM_IDS.hud);
   if (callout) callout.classList.add('ec-visible');
   if (hud) hud.classList.add('ec-has-ed');
 }
 
 export function hideCallout(ctx: MapCtx): void {
-  const callout = document.getElementById('ed-callout');
-  const hud     = document.getElementById('hud');
+  const callout = document.getElementById(DOM_IDS.edCallout);
+  const hud     = document.getElementById(DOM_IDS.hud);
   if (callout) callout.classList.remove('ec-visible');
   if (hud) hud.classList.remove('ec-has-ed');
   ctx.selectedEdName = null;
   clearEdHighlight(ctx);
-  const srEl = document.getElementById('sr-announce');
+  const srEl = document.getElementById(DOM_IDS.srAnnounce);
   if (srEl) srEl.textContent = '';
-  const vaHint = document.getElementById('ec-va-hint');
+  const vaHint = document.getElementById(DOM_IDS.ecVaHint);
   if (vaHint) vaHint.style.display = 'none';
 }
 
@@ -177,34 +178,34 @@ export function vaTarget(e): Element | null {
 
 export function showVaCallout(ctx: MapCtx, d): void {
   if (!d) return;
-  const el = document.getElementById('va-callout');
+  const el = document.getElementById(DOM_IDS.vaCallout);
   if (!el) return;
-  const vaHint = document.getElementById('ec-va-hint');
+  const vaHint = document.getElementById(DOM_IDS.ecVaHint);
   if (vaHint) vaHint.style.display = 'none';
-  const nameEl = document.getElementById('vc-name');
+  const nameEl = document.getElementById(DOM_IDS.vcName);
   if (nameEl) nameEl.textContent = d.poll_name || '';
-  const ucpEl = document.getElementById('vc-ucp-pct');
+  const ucpEl = document.getElementById(DOM_IDS.vcUcpPct);
   if (ucpEl) ucpEl.textContent = d.ucp_pct != null ? d.ucp_pct + '%' : '';
-  const ndpEl = document.getElementById('vc-ndp-pct');
+  const ndpEl = document.getElementById(DOM_IDS.vcNdpPct);
   if (ndpEl) ndpEl.textContent = d.ndp_pct != null ? d.ndp_pct + '%' : '';
-  const ucpBarEl = document.getElementById('vc-ucp-bar');
+  const ucpBarEl = document.getElementById(DOM_IDS.vcUcpBar);
   if (ucpBarEl) ucpBarEl.style.width = (d.ucp_pct || 0) + '%';
-  const ndpBarEl = document.getElementById('vc-ndp-bar');
+  const ndpBarEl = document.getElementById(DOM_IDS.vcNdpBar);
   if (ndpBarEl) ndpBarEl.style.width = (d.ndp_pct || 0) + '%';
-  const totalEl = document.getElementById('vc-total');
+  const totalEl = document.getElementById(DOM_IDS.vcTotal);
   if (totalEl) totalEl.textContent = d.in_person_votes ? _fmt.format(d.in_person_votes) + ' in-person votes (excl. Vote Anywhere)' : '';
   ctx.selectedVaId = d.va_id != null ? String(d.va_id) : null;
   el.classList.add('vc-visible');
   // Fallback for browsers without :has() support — merge ed-callout's bottom with va-callout
-  const edCallout = document.getElementById('ed-callout');
+  const edCallout = document.getElementById(DOM_IDS.edCallout);
   if (edCallout) edCallout.classList.add('ec-has-va');
 }
 
 export function hideVaCallout(ctx: MapCtx): void {
-  const el = document.getElementById('va-callout');
+  const el = document.getElementById(DOM_IDS.vaCallout);
   if (el) el.classList.remove('vc-visible');
   ctx.selectedVaId = null;
-  const edCallout = document.getElementById('ed-callout');
+  const edCallout = document.getElementById(DOM_IDS.edCallout);
   if (edCallout) edCallout.classList.remove('ec-has-va');
 }
 

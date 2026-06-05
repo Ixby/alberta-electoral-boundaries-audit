@@ -6,6 +6,7 @@
 //   { updateMapButtons, maybeShowIntro, resetVB, hideTip, hideCallout }
 
 import type { MapCtx } from './types';
+import { DOM_IDS } from './domIds';
 
 function _overlayFocusable(overlayEl) {
   return Array.from(overlayEl.querySelectorAll(
@@ -39,7 +40,7 @@ export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
     if (ctx.prevFocus instanceof HTMLElement) ctx.prevFocus.focus();
     ctx.prevFocus = null;
     // Hide intro modal without marking seen — re-shows on next open until dismissed
-    const intro = document.getElementById('map-intro-modal');
+    const intro = document.getElementById(DOM_IDS.mapIntroModal);
     if (intro) intro.style.display = 'none';
   }
 
@@ -56,7 +57,7 @@ export function initOverlay(ctx: MapCtx, overlayEl, closeBtnEl, deps) {
   closeBtnEl.addEventListener('click', close);
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    const intro = document.getElementById('map-intro-modal');
+    const intro = document.getElementById(DOM_IDS.mapIntroModal);
     if (intro && intro.style.display !== 'none') return; // let modal handle its own Escape
     close();
   });

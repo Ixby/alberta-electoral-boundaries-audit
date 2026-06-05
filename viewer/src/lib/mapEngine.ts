@@ -17,6 +17,7 @@ import { initGestures } from './mapEngine/gestures';
 import { initOverlay } from './mapEngine/overlay';
 import { applyBoundaryColor as mpApplyBoundaryColor, syncOverlays as mpSyncOverlays, updateMapButtons as mpUpdateMapButtons, doSwitchPrimary as mpDoSwitchPrimary, activateAsTop as mpActivateAsTop, toggleMap as mpToggleMap, loadHoverJson as mpLoadHoverJson, loadVaJson as mpLoadVaJson } from './mapEngine/maps';
 import type { MapEngineEvent, MapEngineEventHandler } from './mapEngine/types';
+import { DOM_IDS } from './mapEngine/domIds';
 
 export type { MapEngineEvent, MapEngineEventHandler };
 
@@ -41,10 +42,10 @@ export function init(basePath: string): void {
       //    document's paint record. ViewBox manipulation re-renders from paths at
       //    display resolution — no GPU tile rasterization limit at any zoom level.
       (function () {
-        const overlay  = document.getElementById('zoom-overlay');
-        const stage    = document.getElementById('zoom-stage');
-        const obj      = document.getElementById('zoom-obj');
-        const closeBtn = document.getElementById('zoom-close');
+        const overlay  = document.getElementById(DOM_IDS.zoomOverlay);
+        const stage    = document.getElementById(DOM_IDS.zoomStage);
+        const obj      = document.getElementById(DOM_IDS.zoomObj);
+        const closeBtn = document.getElementById(DOM_IDS.zoomClose);
         // ── Shared mutable state ──────────────────────────────────────────────────
         const ctx = {
           // SVG load mode
@@ -220,7 +221,7 @@ export function init(basePath: string): void {
           b.addEventListener('click', function() { toggleMap(b.dataset.map); });
         });
 
-        document.getElementById('ec-close').addEventListener('click', _hideCallout);
+        document.getElementById(DOM_IDS.ecClose).addEventListener('click', _hideCallout);
 
         // ── Layer panel ────────────────────────────────────────────────────────────
 
@@ -232,7 +233,7 @@ export function init(basePath: string): void {
         mpLoadVaJson(ctx, 'majority', _mapVaJsonUrls.majority);
         mpLoadVaJson(ctx, '2019',    _mapVaJsonUrls['2019']);
 
-        const vcClose = document.getElementById('vc-close');
+        const vcClose = document.getElementById(DOM_IDS.vcClose);
         if (vcClose) vcClose.addEventListener('click', function() { hideVaCallout(ctx); });
 
         document.querySelectorAll('.tb-btn[data-layer]').forEach(function(b) {
@@ -280,17 +281,17 @@ export function init(basePath: string): void {
 
         // ── Map onboarding modal ──────────────────────────────────────────────────
         initIntroModal();  // wires close-btn, backdrop-click, and Escape handlers
-        const _helpBtn = document.getElementById('tb-help-btn');
+        const _helpBtn = document.getElementById(DOM_IDS.tbHelpBtn);
         if (_helpBtn) {
           _helpBtn.addEventListener('click', () => {
-            const modal = document.getElementById('map-intro-modal');
+            const modal = document.getElementById(DOM_IDS.mapIntroModal);
             if (modal) modal.style.display = 'flex';
           });
         }
 
         async function _maybeShowIntro() {
           if (await hasSeenIntro()) return;
-          var modal = document.getElementById('map-intro-modal');
+          var modal = document.getElementById(DOM_IDS.mapIntroModal);
           if (modal) modal.style.display = 'flex';
         }
 

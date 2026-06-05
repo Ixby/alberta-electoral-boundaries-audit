@@ -8,10 +8,11 @@
 // when the overlay Escape has already stood down.
 
 import { markIntroSeen } from '../prefs';
+import { DOM_IDS } from './domIds';
 
 export function initIntroModal(): void {
-  const modal    = document.getElementById('map-intro-modal');
-  const closeBtn = document.getElementById('map-intro-close');
+  const modal    = document.getElementById(DOM_IDS.mapIntroModal);
+  const closeBtn = document.getElementById(DOM_IDS.mapIntroClose);
   if (!modal || !closeBtn) return;
 
   function _closeModal() {

@@ -15,6 +15,7 @@
 import type { MapCtx } from './types';
 import { updateZoomDisplay, updateStrokeWidths, resetVB as vpResetVB } from './viewport';
 import { reapplyLayers } from './layers';
+import { DOM_IDS } from './domIds';
 
 // ── VA path merge (perf) ──────────────────────────────────────────────────────
 // Collapses 4 771 individually-stroked VA polygons in #PatchCollection_2 into
@@ -114,7 +115,7 @@ export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay,
   ctx.svgEl = node;
   ctx.mode = 'viewbox';
   ctx.ready = true;
-  var skel = document.getElementById('zoom-skeleton'); if (skel) skel.classList.add('hidden');
+  var skel = document.getElementById(DOM_IDS.zoomSkeleton); if (skel) skel.classList.add('hidden');
   // Pre-warm the other two maps so switching is instant
   setTimeout(function() {
     ['minority', 'majority', '2019'].forEach(function(k) {
@@ -155,7 +156,7 @@ export function activateInlineSVG(ctx: MapCtx, node, preserveVB, stage, overlay,
 // ── XHR load (when contentDocument isn't yet available) ──────────────────────
 
 function showLoadError(): void {
-  const el = document.getElementById('map-load-error');
+  const el = document.getElementById(DOM_IDS.mapLoadError);
   if (!el) return;
   el.style.display = '';
   el.textContent = 'Could not load the boundary map. Try reloading the page.';

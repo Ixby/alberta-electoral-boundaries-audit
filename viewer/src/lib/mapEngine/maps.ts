@@ -11,6 +11,7 @@ import { updateStrokeWidths } from './viewport';
 import { applyEdFillLayer, reapplyLayers } from './layers';
 import { mergeVaPaths } from './svgLoader';
 import { showVaCallout } from './edInteraction';
+import { DOM_IDS } from './domIds';
 
 export const MAP_ACCENT_COLORS: Record<string, string> = {
   minority: '#6B35A7',
@@ -127,14 +128,14 @@ export function updateMapButtons(ctx: MapCtx, deps): void {
 // ── Primary map switching ─────────────────────────────────────────────────────
 
 export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
-  const ctxEl = document.getElementById('ec-context');
+  const ctxEl = document.getElementById(DOM_IDS.ecContext);
   if (ctxEl) ctxEl.textContent = MAP_CONTEXT_LABELS[key];
   const savedName = ctx.selectedEdName;
   const savedVaId = ctx.selectedVaId;
   deps.hideCallout();
   ctx.edHover = null;
   const savedVB = ctx.curVB ? Object.assign({}, ctx.curVB) : null;
-  const stage = document.getElementById('zoom-stage');
+  const stage = document.getElementById(DOM_IDS.zoomStage);
 
   function _applySvgDoc(doc) {
     const root = doc.documentElement;
@@ -165,7 +166,7 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
     _applySvgDoc(ctx.svgCache[key]);
   } else {
     ctx.ready = false;
-    const skelEl = document.getElementById('zoom-skeleton'); if (skelEl) skelEl.classList.remove('hidden');
+    const skelEl = document.getElementById(DOM_IDS.zoomSkeleton); if (skelEl) skelEl.classList.remove('hidden');
     if (stage) { stage.style.opacity = '0.45'; stage.style.transition = 'opacity 0.15s'; }
     fetch(deps.svgUrls[key])
       .then(function(r) { return r.text(); })
@@ -178,7 +179,7 @@ export function doSwitchPrimary(ctx: MapCtx, key, deps): void {
       .catch(function() {
         ctx.ready = true;
         if (stage) { stage.style.opacity = ''; setTimeout(function() { stage.style.transition = ''; }, 200); }
-        const errEl = document.getElementById('map-load-error');
+        const errEl = document.getElementById(DOM_IDS.mapLoadError);
         if (errEl) {
           errEl.textContent = 'Could not load the ' + key + ' map — check your connection.';
           errEl.style.display = '';
@@ -236,7 +237,7 @@ export function toggleMap(ctx: MapCtx, key, deps): void {
       } else {
         ctx.mapPrimary = null;
         if (ctx.svgEl) { ctx.svgEl.remove(); ctx.svgEl = null; }
-        const skelEl = document.getElementById('zoom-skeleton');
+        const skelEl = document.getElementById(DOM_IDS.zoomSkeleton);
         if (skelEl) skelEl.classList.remove('hidden');
       }
     }

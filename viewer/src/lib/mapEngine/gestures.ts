@@ -8,6 +8,7 @@
 import type { MapCtx } from './types';
 import { vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, animateToVB as vpAnimateToVB, getStageRect as vpGetStageRect } from './viewport';
 import { tipTarget, vaTarget, showTip, hideTip, showCallout, hideCallout, showVaCallout, hideVaCallout, setEdHighlight, snapToED, zoomEdTo70 } from './edInteraction';
+import { DOM_IDS } from './domIds';
 
 export function initGestures(ctx: MapCtx, stage): void {
   // ctx-bound local helpers (declared once, reused by all handlers)
@@ -166,7 +167,7 @@ export function initGestures(ctx: MapCtx, stage): void {
   // ── Keyboard pan / zoom ───────────────────────────────────────────────────
   document.addEventListener('keydown', e => {
     if (!ctx.ready) return;
-    const overlay = document.getElementById('zoom-overlay');
+    const overlay = document.getElementById(DOM_IDS.zoomOverlay);
     if (!overlay || overlay.style.display === 'none') return;
     const active = document.activeElement;
     if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SELECT')) return;
