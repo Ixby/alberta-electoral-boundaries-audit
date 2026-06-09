@@ -36,6 +36,7 @@ export const GLOSSARY: Record<string, GlossaryEntry> = {
 	'effective-representation': { id: 'effective-representation', href: '#canada-is-different' },
 	ebc: { id: 'ebc', href: '#what-is-redistricting' },
 	'lunty-committee': { id: 'lunty-committee', href: '#section-7' },
+	'advisory-panel': { id: 'advisory-panel', href: '#section-7' },
 	ebca: { id: 'ebca', href: '#canada-is-different' },
 	fsa: { id: 'fsa', href: null }
 };

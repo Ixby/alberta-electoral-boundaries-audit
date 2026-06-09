@@ -206,8 +206,12 @@ the audit's §D (Procedural) section:
 ## 7. Open items / follow-up
 
 - Watch Lunty committee announcements for an interim map or population table.
-- Watch the independent advisory panel (membership and terms of reference not
-  yet published as of 2026-04-22).
+- Advisory panel membership confirmed under Government Motion 37 (April 21,
+  2026): Hon. Monte Solberg and Darwin Durnie (Premier's nominees) and
+  Dr. Gerard Kennedy and Brent Robinson (Opposition nominees). The fifth
+  seat — a chair nominated by a sitting or retired judge — went unfilled
+  after Alberta's acting chief justice declined to make a nomination.
+  Terms of reference not yet published.
 - If and when a 91-seat map is tabled, rerun:
   - LH index on the full 91-seat allocation,
   - the rural-mean gap script (`rural_gap_dissection.py`) against the

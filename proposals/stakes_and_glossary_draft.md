@@ -400,11 +400,27 @@ ebc: {
 
 luntyCommittee: {
   term: 'Lunty committee',
-  definition: 'An MLA committee chaired by Brandon Lunty — an MLA appointed by ' +
-              'the Premier — that is choosing between the EBC\'s majority and ' +
-              'minority proposals before the November 2026 deadline. The committee ' +
-              'is separate from the EBC; the legislature created it for this ' +
-              'specific decision and it is not part of the standard EBCA process.',
+  definition: 'A five-MLA Select Special Committee on Electoral Boundaries ' +
+              'chaired by Brandon Lunty — a Premier-appointed MLA — created ' +
+              'under Government Motion 37 (April 21, 2026). The committee ' +
+              'oversees a separate four-person Independent Advisory Panel ' +
+              'that draws the actual map; the committee then reports to the ' +
+              'Legislature before the November 2026 deadline. Both bodies ' +
+              'are separate from the EBC and are not part of the standard ' +
+              'EBCA process.',
+  href: '/law#committee-anomaly',
+},
+
+advisoryPanel: {
+  term: 'Independent Advisory Panel',
+  definition: 'The four-person panel appointed by the Lunty committee under ' +
+              'clause C(d)(ii) of Government Motion 37 to draw a 91-seat ' +
+              'boundary recommendation. The Premier nominated the Hon. ' +
+              'Monte Solberg and Darwin Durnie; the Leader of the Opposition ' +
+              'nominated Dr. Gerard Kennedy and Brent Robinson. A fifth seat ' +
+              '— a chair nominated by a sitting or retired judge — went ' +
+              'unfilled after Alberta\'s acting chief justice declined to ' +
+              'make a nomination.',
   href: '/law#committee-anomaly',
 },
 
@@ -643,9 +659,9 @@ Things to settle before the glossary ships:
 2. **"Riding" vs "electoral district" — resolved.** *Riding* is the federal term; *electoral district* (or "ED") is the provincial term and the right word for an Alberta audit. **Implementation note:** during content migration, normalize *riding* → *electoral district* / *ED* across the entire existing prose. Each route defines "electoral district (ED)" on first occurrence, then uses *ED* thereafter for readability. The *riding* glossary entry exists to catch readers who arrive with the wrong word and gently correct them.
 3. **Naming — resolved.** The site uses *minority proposal* and *majority proposal* throughout. A short footnote attaches to the first occurrence on `/`:
 
-   > *The "majority" and "minority" names come from a 3–2 split among the Electoral Boundaries Commission (chaired by Justice Miller), which produced two competing proposals rather than a single recommendation. A separate MLA committee chaired by Brandon Lunty — a Premier-appointed MLA — is now choosing between them before the November 2026 deadline.*
+   > *The "majority" and "minority" names come from a 3–2 split among the Electoral Boundaries Commission (chaired by Justice Miller), which produced two competing proposals rather than a single recommendation. The legislature has since set both aside and referred redistricting to a five-MLA committee chaired by Brandon Lunty (a Premier-appointed MLA); the committee oversees a separate four-person Independent Advisory Panel — two members nominated by the Premier (Hon. Monte Solberg and Darwin Durnie), two by the Leader of the Opposition (Dr. Gerard Kennedy and Brent Robinson) — tasked with producing a new 91-seat boundary proposal before the November 2026 deadline.*
 
-   That establishes the chain of authority (commission → competing proposals → Lunty committee → legislature) once, in one place, so deeper sections don't need to keep re-explaining it.
+   That establishes the chain of authority (commission → competing proposals set aside → Lunty committee → Independent Advisory Panel → new map → legislature) once, in one place, so deeper sections don't need to keep re-explaining it.
 4. **Whether to name the parties in the stakes.** Currently it says "one party" — not naming UCP or NDP. Pros: keeps the audit neutral, lets the reader's mental model fill in either party. Cons: a reader who already knows the politics will read "one party" as evasive. The existing site does name UCP and NDP throughout. Decision: name them in the lived examples on `/`, but in the stakes block keep "one party" — the stakes is about structure, not partisanship.
 5. **UCP/NDP glossary entries — added.** Short factual entries with no editorial framing.
 6. **CTA order — keeping current.** *Read the legal context →* appears before *See how we tested →* because that matches the recommended depth order (narrative → law → science) you endorsed earlier. A reader who wants the answer fastest reads the stakes and stops; a reader who wants context next reaches the legal framing before the methodology. Override if you'd rather lead with the math.
