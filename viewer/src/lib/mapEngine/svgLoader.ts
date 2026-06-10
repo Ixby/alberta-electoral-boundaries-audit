@@ -32,6 +32,16 @@ export type SvgLoaderDeps = {
 // SkPathStroker cost from ~2 400 ms to negligible on a typical load.
 // Safe: PatchCollection_2 is purely visual; hover/click lives in #ed_hover_layer.
 
+// Match #ffffff, #FFF, white, rgb(255,255,255), rgba(255,255,255,…).
+// Matplotlib writes whichever encoding it feels like; one canonical check.
+function _isWhiteFill(fill: string): boolean {
+  const f = fill.toLowerCase().replace(/\s+/g, '');
+  if (f === '#fff' || f === '#ffffff' || f === 'white') return true;
+  if (f.startsWith('rgb(255,255,255)')) return true;
+  if (f.startsWith('rgba(255,255,255,')) return true;
+  return false;
+}
+
 export function mergeVaPaths(svgRoot: Element): void {
   const g = svgRoot.querySelector('#PatchCollection_2');
   if (!g) return;
@@ -64,6 +74,15 @@ export function mergeVaPaths(svgRoot: Element): void {
     const st = p.getAttribute('style') || '';
     const m = st.match(/fill:\s*([^;]+)/);
     const fill = m ? m[1].trim() : (p.getAttribute('fill') || '#808080');
+    // Skip pure-white fills entirely. These are "no data" VAs in the source
+    // SVG (industrial land, water bodies, zero-eligible-voter zones) that
+    // matplotlib rendered as #ffffff because no vote share applied. As fills
+    // they read visually as opaque white gaps INSIDE coloured clusters —
+    // sharper than any real geographic feature should look. Dropping them
+    // from the merge lets the ED-level accent tint underneath show through,
+    // so a "no data" zone fades into its district rather than punching a
+    // hole in it.
+    if (_isWhiteFill(fill)) continue;
     if (!byColor.has(fill)) byColor.set(fill, []);
     let d = p.getAttribute('d') || '';
     // Subsequent subpaths in a compound path treat a leading 'm' as relative
