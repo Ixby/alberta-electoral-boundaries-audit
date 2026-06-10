@@ -1414,7 +1414,10 @@
   <div id="hud">
   {#if !devNoticeDismissed}
     <div id="map-dev-notice" role="note">
-      <span aria-hidden="true" class="mdn-icon">🚧</span>
+      <span aria-hidden="true" class="mdn-icon"
+        onclick={(e) => { e.currentTarget.parentElement?.classList.toggle('mdn-expanded'); }}
+        onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.currentTarget.parentElement?.classList.toggle('mdn-expanded'); } }}
+        role="button" tabindex="0">🚧</span>
       <span class="mdn-msg">{devNoticeParts.pre}<a href="mailto:wconn161@mtroyal.ca">{devNoticeParts.label}</a>{devNoticeParts.post}</span>
       <button class="mdn-dismiss" onclick={dismissDevNotice} aria-label={t(lang.current, 'chrome.map.dev_notice_dismiss')}>&times;</button>
     </div>
@@ -2588,6 +2591,12 @@
     z-index: 9002;
     display: flex; flex-direction: column; gap: 5px;
     pointer-events: none;
+
+    /* Mobile: hug the edges and tighten gaps so the map gets more screen */
+    @media (max-width: 600px) {
+      top: 6px; left: 6px; right: 44px;
+      gap: 3px;
+    }
   }
   #hud > * { pointer-events: auto; }
   /* Map Explorer development notice — amber strip at the top of the HUD */
@@ -2611,6 +2620,30 @@
     padding: 0 2px;
   }
   #map-dev-notice .mdn-dismiss:hover { color: #fff; }
+
+  /* Mobile: collapse dev notice into a compact pill */
+  @media (max-width: 600px) {
+    #map-dev-notice {
+      gap: 5px;
+      padding: 4px 7px;
+      font-size: 0.66rem;
+      line-height: 1.3;
+      align-items: center;
+    }
+    /* Two-state mobile dev notice: tap the icon to expand the message */
+    #map-dev-notice:not(.mdn-expanded) .mdn-msg { display: none; }
+    #map-dev-notice:not(.mdn-expanded)::after {
+      content: 'BETA — tap for details';
+      flex: 1 1 auto;
+      color: rgba(255, 230, 180, 0.85);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.6rem;
+    }
+    #map-dev-notice.mdn-expanded::after { display: none; }
+    #map-dev-notice .mdn-icon { cursor: pointer; }
+  }
   /* ── Unified top bar ─────────────────────────────────────────────────────── */
   #top-bar {
     display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
@@ -2655,6 +2688,28 @@
   .tb-btn[data-anomaly]:disabled,
   .tb-btn[data-anomaly].tb-btn-disabled     { opacity: 0.32; cursor: not-allowed; border-color: rgba(128,128,128,0.25); color: rgba(128,128,128,0.45); }
   @media (max-width: 700px) { #ec-name { max-width: 120px; } #zoom-slider { width: 70px; } }
+
+  /* Mobile: tighten top bar so the map gets more real estate */
+  @media (max-width: 600px) {
+    #top-bar {
+      gap: 3px;
+      padding: 4px 5px;
+      border-radius: 8px;
+    }
+    .tb-group { gap: 3px; }
+    .tb-sep { display: none; }   /* drop separators on phone — chip outlines provide visual grouping */
+    .tb-btn {
+      padding: 5px 8px;
+      font-size: 0.58rem;
+      letter-spacing: 0.03em;
+    }
+    .tb-pin-btn { padding: 3px 6px; }
+    .tb-help-btn { padding: 5px 9px; }
+  }
+  @media (max-width: 380px) {
+    /* Very narrow phones — only show button data-label icons via abbreviated text */
+    .tb-btn { padding: 4px 6px; font-size: 0.54rem; }
+  }
   /* District info bar — only rendered when an ED is selected */
   #ed-callout {
     background: rgba(10,12,18,0.92);
@@ -2708,6 +2763,28 @@
   #ec-eg.ec-eg-ndp { color: #f4a26a; }
   #ec-context { display: none; }
   #ec-compare { display: none !important; }
+
+  /* Mobile: keep the district info compact and never let it cut off mid-percentage */
+  @media (max-width: 600px) {
+    #ed-callout { padding: 4px 7px; gap: 6px; min-height: 34px; flex-wrap: wrap; row-gap: 3px; }
+    #ec-ed-section { gap: 6px; min-width: 0; }
+    #ec-name { font-size: 0.78rem; max-width: 110px; }
+    #ec-bar { width: 56px; height: 5px; }
+    #ec-split { gap: 4px; }
+    .ec-pct { font-size: 0.72rem; }
+    .ec-party-name { display: none; }   /* "UCP" / "NDP" labels redundant with bar colours */
+    .ec-votes { display: none; }        /* hide raw vote counts on phones */
+    #ec-meta { gap: 4px; flex-wrap: wrap; }
+    #ec-pop, #ec-total-votes { font-size: 0.64rem; }
+    .ec-meta-sep { display: none; }
+    .ec-eg-label { font-size: 0.55rem; }
+    #ec-eg { font-size: 0.68rem; }
+  }
+  @media (max-width: 380px) {
+    #ec-name { max-width: 92px; font-size: 0.74rem; }
+    #ec-bar { width: 44px; }
+    #ec-pop { display: none; }   /* the population fits poorly on the narrowest phones */
+  }
   /* VA callout — secondary panel attached directly below #ed-callout in the HUD column */
   #va-callout {
     display: none;
