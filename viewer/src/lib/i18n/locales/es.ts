@@ -11,7 +11,12 @@ export default {
 	disclaimer: {
 		text:
 			'Este sitio ha sido traducido por IA. Es posible que parte del contenido todavía aparezca en inglés mientras las traducciones están en curso. Si nota errores o quisiera ayudar a traducir este proyecto, por favor %s.',
-		link_label: 'contáctenos'
+		link_label: 'contáctenos',
+		// {count} is replaced at runtime with the live word count of the
+		// English prose, so volunteer translators know the size of the job
+		// before raising their hand. Computed, never hardcoded — it stays
+		// correct as the prose grows.
+		word_count: 'Para darle una idea de la escala: la prosa en inglés suma alrededor de {count} palabras. Puede contribuir con todo o solo con una parte — en la mayoría de los casos el trabajo consiste en corregir errores menores que cometió la máquina, no en traducir desde cero.'
 	},
 	opener: {
 		heading: '¿Para quién es esto?',
@@ -47,6 +52,16 @@ export default {
 			'Dos mediciones independientes aplicadas a ambos mapas bajo los mismos umbrales preregistrados. La estructura usa solo la forma de las líneas — ningún resultado electoral. Los números prueban cómo las líneas convierten votos en escaños. Ambas vías llegan a la misma conclusión.',
 		scorecard_close:
 			'Dos mediciones independientes, una sola respuesta. La convergencia es la señal individual más fuerte de la auditoría.'
+	},
+	top_callouts: {
+		gerrymander_lead: '\u00bfEs el mapa minoritario un gerrymander?',
+		gerrymander_body: 'El mapa minoritario de la comisión ocurriría por azar en menos de 1 de cada 14,5 millones de mapas dibujados aleatoriamente. El mapa mayoritario queda cómodamente dentro del rango normal.',
+		tldr_label: 'En breve',
+		tldr_p1: 'La comisión de redistribución de Alberta se dividió 3-2 en 2026 y produjo dos mapas propuestos diferentes. El gobierno los apartó a ambos y asignó la redistribución a un comité de cinco MLA (el comité Lunty), que se espera informe en noviembre de 2026. Ninguno de los mapas de la comisión es ley.',
+		tldr_p2: 'Esta auditoría puso a prueba ambos mapas de la comisión de la misma manera, usando 1.010.000 mapas neutros generados por computadora a partir de los shapefiles oficiales de Elections Alberta como punto de referencia. La propuesta mayoritaria se sitúa dentro del rango neutro en cada prueba preregistrada. La propuesta minoritaria cruza cuatro de cinco pruebas estructurales, y su reparto de escaños bajo equidad partidaria con un voto del 50/50 lo alcanzan menos de 100 de esos mapas neutros &mdash; una probabilidad conjunta de aproximadamente 1 en 15 millones bajo un proceso de dibujo neutro.',
+		tldr_p3: 'La auditoría mide resultados, no intenciones. Cuando el comité Lunty publique su mapa, esta auditoría le aplicará las mismas pruebas.',
+		tldr_footer: 'Las condiciones de falsificación preregistradas y los compromisos de retractación están en %s.',
+		tldr_footer_link: '\u00a79'
 	},
 	head: {
 		title: 'Auditoría de los Límites Electorales de Alberta',
@@ -577,6 +592,13 @@ export default {
 			p3: 'Registros de preregistro (escritos antes de examinar los resultados): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
 			p4: 'Preguntas o correcciones: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
 		},
+		translation_about: {
+			heading: 'Sobre esta traducción',
+			p1: 'Usted está leyendo una traducción por IA, producida por el modelo Fable 5 de Anthropic y a la espera de revisión por hablantes nativos. La versión en inglés es el texto autoritativo: si algo en esta traducción no queda claro o parece incorrecto, rige el original en inglés.',
+			p2: 'La calidad de la traducción importa aquí de una manera en que no importa en la mayoría de los sitios web — esta auditoría hace afirmaciones estadísticas sobre la equidad electoral, y un número mal traducido o una oración con el matiz equivocado engaña de maneras difíciles de detectar para el lector. La traducción automática de prosa cívico-estadística es genuinamente difícil, y es probable que haya errores.',
+			p3: 'Si usted es hablante nativo y detecta un error — o quisiera revisar una sección como es debido — por favor %s. Para darle una idea de la escala: la prosa en inglés suma alrededor de {count} palabras. Puede encargarse de todo o solo de una parte, y en la mayoría de los casos el trabajo consiste en corregir errores menores que cometió la máquina más que en traducir desde cero — incluso revisar una sola sección ayuda.',
+			p3_link: 'escríbanos'
+		},
 		retractions: {
 			heading: '9: Retractaciones y correcciones',
 			heading_aria: 'Enlace a las retractaciones',
@@ -769,7 +791,9 @@ export default {
 			title: 'Auditoría de los Límites Electorales de Alberta — mayo de 2026',
 			copyright: '© Will Conner 2026 —',
 			text_label: 'Texto:',
-			code_label: 'Código:'
+			code_label: 'Código:',
+			translation_label: 'Traducciones:',
+			translation_credit: 'Anthropic Fable 5 (IA) — a la espera de revisión por hablantes nativos'
 		}
 	}
 } as const;

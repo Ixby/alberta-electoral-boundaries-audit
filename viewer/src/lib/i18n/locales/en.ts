@@ -49,6 +49,16 @@ export default {
 		scorecard_close:
 			'Two independent measurements, one answer. The convergence is the audit\'s strongest single signal.'
 	},
+	top_callouts: {
+		gerrymander_lead: 'Is the minority map a gerrymander?',
+		gerrymander_body: 'The commission\u2019s minority map would occur by chance in fewer than 1&nbsp;in&nbsp;14.5&nbsp;million randomly drawn maps. The majority map falls well within normal range.',
+		tldr_label: 'TL;DR',
+		tldr_p1: 'Alberta\u2019s redistribution commission split 3&ndash;2 in 2026 and produced two different proposed maps. The government set both aside and assigned redistricting to a five-member committee of MLAs (the Lunty committee), expected to report in November 2026. Neither commission map is law.',
+		tldr_p2: 'This audit tested both commission maps the same way, using 1,010,000 computer-drawn neutral maps built from the official Elections Alberta shapefiles as a reference point. The majority proposal sits within the neutral range on every pre-registered test. The minority proposal crosses four of five structural tests, and its partisan-fairness seat split at a 50/50 vote is reached by fewer than 100 of those neutral maps \u2014 a joint probability of roughly 1 in 15 million under a neutral drawing process.',
+		tldr_p3: 'The audit measures outcomes, not intent. When the Lunty committee releases its map, this audit will apply the same tests to it.',
+		tldr_footer: 'Pre-registered falsification conditions and retraction commitments are in %s.',
+		tldr_footer_link: '\u00a79'
+	},
 	head: {
 		title: 'Alberta Electoral Boundary Audit',
 		meta_description:

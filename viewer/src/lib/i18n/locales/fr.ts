@@ -45,6 +45,16 @@ export default {
 		scorecard_close:
 			"Deux mesures indépendantes, une seule réponse. La convergence est le signal unique le plus fort de l'audit."
 	},
+	top_callouts: {
+		gerrymander_lead: 'La carte minoritaire est-elle un découpage partisan ?',
+		gerrymander_body: 'La carte minoritaire de la commission se produirait par hasard dans moins d\'une carte sur 14,5 millions tirées aléatoirement. La carte majoritaire reste bien à l\'intérieur de la plage normale.',
+		tldr_label: 'En bref',
+		tldr_p1: 'La commission de délimitation albertaine s\'est divisée 3-2 en 2026 et a produit deux cartes proposées différentes. Le gouvernement les a toutes deux écartées et a confié le redécoupage à un comité de cinq MLA (le comité Lunty), qui doit rendre compte en novembre 2026. Aucune des deux cartes commissaires n\'a force de loi.',
+		tldr_p2: 'Cet audit a testé les deux cartes commissaires de la même manière, en utilisant 1&nbsp;010&nbsp;000 cartes neutres tirées par ordinateur à partir des fichiers officiels d\'Elections Alberta comme point de référence. La proposition majoritaire se situe à l\'intérieur de la plage neutre pour chaque test pré-enregistré. La proposition minoritaire échoue à quatre des cinq tests structurels, et son partage de sièges sur le critère d\'équité partisane à un vote 50/50 est atteint par moins de 100 de ces cartes neutres &mdash; une probabilité conjointe d\'environ 1 sur 15 millions sous un processus de tirage neutre.',
+		tldr_p3: 'L\'audit mesure les résultats, non l\'intention. Lorsque le comité Lunty publiera sa carte, cet audit lui appliquera les mêmes tests.',
+		tldr_footer: 'Les conditions de falsification pré-enregistrées et les engagements de rétractation se trouvent dans %s.',
+		tldr_footer_link: '\u00a79'
+	},
 	head: {
 		title: "Audit des limites électorales de l'Alberta",
 		meta_description:

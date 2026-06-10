@@ -50,6 +50,16 @@ export default {
 		scorecard_close:
 			'Zwei unabhängige Messungen, eine Antwort. Diese Konvergenz ist das stärkste Einzelsignal des Audits.'
 	},
+	top_callouts: {
+		gerrymander_lead: 'Ist die Minderheitenkarte ein Gerrymander?',
+		gerrymander_body: 'Die Minderheitenkarte der Kommission würde durch Zufall in weniger als 1 von 14,5 Millionen zufällig gezogenen Karten auftreten. Die Mehrheitskarte liegt sicher im Normalbereich.',
+		tldr_label: 'Kurzfassung',
+		tldr_p1: 'Albertas Wahlbezirkskommission spaltete sich 2026 mit 3:2 und produzierte zwei unterschiedliche vorgeschlagene Karten. Die Regierung legte beide beiseite und übertrug die Neueinteilung einem Ausschuss von fünf MLAs (dem Lunty-Ausschuss), der bis November 2026 berichten soll. Keine der Kommissionskarten ist Gesetz.',
+		tldr_p2: 'Diese Prüfung testete beide Kommissionskarten auf dieselbe Weise, mit 1.010.000 computer-gezeichneten neutralen Karten auf Grundlage der offiziellen Elections-Alberta-Shapefiles als Bezugspunkt. Der Mehrheitsvorschlag liegt bei jedem vorregistrierten Test im neutralen Bereich. Der Minderheitsvorschlag überschreitet vier von fünf strukturellen Tests, und seine Sitzverteilung bei einer 50/50-Abstimmung wird von weniger als 100 dieser neutralen Karten erreicht &mdash; eine gemeinsame Wahrscheinlichkeit von rund 1 zu 15 Millionen unter einem neutralen Zeichenprozess.',
+		tldr_p3: 'Die Prüfung misst Ergebnisse, nicht Absicht. Wenn der Lunty-Ausschuss seine Karte veröffentlicht, wird diese Prüfung dieselben Tests darauf anwenden.',
+		tldr_footer: 'Vorregistrierte Falsifikationsbedingungen und Rücknahmeverpflichtungen finden sich in %s.',
+		tldr_footer_link: '\u00a79'
+	},
 	head: {
 		title: 'Audit der Wahlbezirksgrenzen Albertas',
 		meta_description:

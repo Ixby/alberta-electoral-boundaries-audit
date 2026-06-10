@@ -591,14 +591,14 @@
 
   <div style="padding: 1.5rem 0 0.5rem;">
     <div class="callout callout-minority" style="border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
-      <p style="margin:0;"><strong>Is the minority map a gerrymander?</strong> The commission&rsquo;s minority map would occur by chance in fewer than 1&nbsp;in&nbsp;14.5&nbsp;million randomly drawn maps. The majority map falls well within normal range.</p>
+      <p style="margin:0;"><strong>{t(lang.current, 'top_callouts.gerrymander_lead')}</strong> {@html t(lang.current, 'top_callouts.gerrymander_body')}</p>
     </div>
     <div class="callout callout-tldr" style="border-left-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
-      <p style="margin:0 0 0.6rem;"><strong>TL;DR</strong></p>
-      <p style="margin:0 0 0.6rem;">Alberta's redistribution commission split 3&ndash;2 in 2026 and produced two different proposed maps. The government set both aside and assigned redistricting to a five-member committee of MLAs (the Lunty committee), expected to report in November 2026. Neither commission map is law.</p>
-      <p style="margin:0 0 0.6rem;">This audit tested both commission maps the same way, using 1,010,000 computer-drawn neutral maps built from the official Elections Alberta shapefiles as a reference point. The majority proposal sits within the neutral range on every pre-registered test. The minority proposal crosses four of five structural tests, and its partisan-fairness seat split at a 50/50 vote is reached by fewer than 100 of those neutral maps &mdash; a joint probability of roughly 1 in 15 million under a neutral drawing process.</p>
-      <p style="margin:0;">The audit measures outcomes, not intent. When the Lunty committee releases its map, this audit will apply the same tests to it.</p>
-      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:var(--text-muted);">Pre-registered falsification conditions and retraction commitments are in <a href="#retractions">§9</a>.</p>
+      <p style="margin:0 0 0.6rem;"><strong>{t(lang.current, 'top_callouts.tldr_label')}</strong></p>
+      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p1')}</p>
+      <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p2')}</p>
+      <p style="margin:0;">{t(lang.current, 'top_callouts.tldr_p3')}</p>
+      <p style="margin:0.6rem 0 0; font-size:0.88rem; color:var(--text-muted);">{@html t(lang.current, 'top_callouts.tldr_footer').replace('%s', '<a href=\"#retractions\">' + t(lang.current, 'top_callouts.tldr_footer_link') + '</a>')}</p>
     </div>
   </div>
 
