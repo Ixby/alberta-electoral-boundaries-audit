@@ -36,7 +36,7 @@ function _updateZoomDisplay(ctx: MapCtx): void {
   if (_cachedZoomPctEl === null) _cachedZoomPctEl = document.getElementById(DOM_IDS.zoomPct);
   if (_cachedZoomSlider === null) _cachedZoomSlider = document.getElementById(DOM_IDS.zoomSlider) as HTMLInputElement | null;
   if (_cachedZoomPctEl) _cachedZoomPctEl.textContent = pct + '%';
-  if (_cachedZoomSlider) _cachedZoomSlider.value = String(Math.min(3000, Math.max(25, pct)));
+  if (_cachedZoomSlider) _cachedZoomSlider.value = String(Math.min(50000, Math.max(25, pct)));
 }
 
 function _renderBounds(ctx: MapCtx): { rw: number; rh: number; ox: number; oy: number } {
@@ -58,6 +58,12 @@ function _doSettle(ctx: MapCtx): void {
   ctx.svgEl.style.transform = '';
   ctx.svgEl.style.willChange = '';
   ctx.svgEl.style.transformOrigin = '';
+  // Restore crisp rendering on settle. During a gesture the SVG layer is
+  // composited at optimizeSpeed (cheap nearest-neighbour scaling) so the
+  // GPU doesn't spend per-frame work on antialiased upscaling at extreme
+  // zoom; on settle the viewBox commits and we want the new raster to be
+  // crisp again.
+  ctx.svgEl.style.imageRendering = '';
   ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
   _updateZoomDisplay(ctx);
   requestAnimationFrame(() => updateStrokeWidths(ctx));
@@ -67,7 +73,16 @@ function _applyVB(ctx: MapCtx, vb: ViewBox): void {
   if (!ctx.curVB) return;
   if (!ctx.settledVB) {
     ctx.settledVB = { ...ctx.curVB };
-    if (ctx.svgEl) { ctx.svgEl.style.willChange = 'transform'; ctx.svgEl.style.transformOrigin = '0 0'; }
+    if (ctx.svgEl) {
+      ctx.svgEl.style.willChange = 'transform';
+      ctx.svgEl.style.transformOrigin = '0 0';
+      // Switch to cheap composite scaling for the in-flight gesture. At
+      // extreme zoom the GPU layer is being upscaled (or downscaled)
+      // every frame; smoothing each one is per-pixel work the user
+      // won't actually see during the motion. _doSettle restores the
+      // default ('auto') as part of committing the new viewBox.
+      ctx.svgEl.style.imageRendering = 'optimizeSpeed';
+    }
   }
   ctx.curVB = vb;
   const settledVB = ctx.settledVB;
@@ -179,6 +194,7 @@ export function resetVB(ctx: MapCtx): void {
     ctx.svgEl.style.transform = '';
     ctx.svgEl.style.willChange = '';
     ctx.svgEl.style.transformOrigin = '';
+    ctx.svgEl.style.imageRendering = '';
     ctx.svgEl.setAttribute('viewBox', `${ctx.curVB.x} ${ctx.curVB.y} ${ctx.curVB.w} ${ctx.curVB.h}`);
   }
   _updateZoomDisplay(ctx);
@@ -191,7 +207,7 @@ export function vbZoomAt(ctx: MapCtx, mx: number, my: number, factor: number): v
   const lx = mx - ox, ly = my - oy;
   const svgX = ctx.curVB.x + (lx / rw) * ctx.curVB.w;
   const svgY = ctx.curVB.y + (ly / rh) * ctx.curVB.h;
-  const newW = Math.max(ctx.natVB.w / 200, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
+  const newW = Math.max(ctx.natVB.w / 500, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
   const newH = newW * (ctx.natVB.h / ctx.natVB.w);
   _applyVB(ctx, { x: svgX - (lx / rw) * newW, y: svgY - (ly / rh) * newH, w: newW, h: newH });
 }
@@ -234,7 +250,7 @@ export function vbPinch(
 
   // New viewBox dimensions: scale current by (dist/lastDist), clamp to native bounds
   const factor = dist / lastDist;
-  const newW = Math.max(ctx.natVB.w / 200, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
+  const newW = Math.max(ctx.natVB.w / 500, Math.min(ctx.natVB.w * 20, ctx.curVB.w / factor));
   const newH = newW * (ctx.natVB.h / ctx.natVB.w);
 
   // New viewBox origin: place svgX,svgY under the CURRENT frame's mid

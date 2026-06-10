@@ -1355,7 +1355,7 @@
     <div class="tb-sep"></div>
     <div id="ec-zoom-section">
       <span id="zoom-pct">100%</span>
-      <input type="range" id="zoom-slider" min="25" max="3000" step="5" value="100" aria-label={t(lang.current, 'chrome.map.zoom_aria')}>
+      <input type="range" id="zoom-slider" min="25" max="50000" step="5" value="100" aria-label={t(lang.current, 'chrome.map.zoom_aria')}>
     </div>
     <button id="ec-close" class="tb-btn tb-close-btn" aria-label={t(lang.current, 'chrome.map.clear_aria')} title={t(lang.current, 'chrome.map.clear_title')}>&times;</button>
   </div>
