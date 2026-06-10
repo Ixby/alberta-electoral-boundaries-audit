@@ -28,6 +28,8 @@
 	<!-- Tell search engines which language variant each query-param URL serves -->
 	<link rel="alternate" hreflang="en" href="{canonicalBase}/?lang=en" />
 	<link rel="alternate" hreflang="fr-CA" href="{canonicalBase}/?lang=fr" />
+	<link rel="alternate" hreflang="de" href="{canonicalBase}/?lang=de" />
+	<link rel="alternate" hreflang="uk" href="{canonicalBase}/?lang=uk" />
 	<link rel="alternate" hreflang="tl" href="{canonicalBase}/?lang=tl" />
 	<link rel="alternate" hreflang="pa" href="{canonicalBase}/?lang=pa" />
 	<link rel="alternate" hreflang="zh-Hans" href="{canonicalBase}/?lang=zh-Hans" />

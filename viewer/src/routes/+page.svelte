@@ -2175,12 +2175,15 @@
        the h2 ids directly so back-links land at the heading rather than
        behind the sticky nav. */
     #stakes-heading, #boundary-heading { scroll-margin-top: 72px; }
-    /* Defer layout of sections far below the fold — browser skips paint until near viewport */
-    #section-5, #section-6, #section-7, #section-8,
-    #retractions, #references, #resources {
-      content-visibility: auto;
-      contain-intrinsic-size: auto 1px auto 600px;
-    }
+    /* NOTE: these sections used to carry content-visibility:auto with a
+       600px contain-intrinsic-size placeholder as a below-the-fold paint
+       optimization. Removed deliberately: every one of them is an anchor
+       target from the nav, and the placeholder estimate made anchor jumps
+       land mid-paragraph — the browser scrolled to where the section would
+       be if the skipped sections above it were really 600px each, then
+       they rendered at true height (3000–6000px) and pushed the target
+       far below the viewport. Anchor correctness beats a paint
+       micro-optimization on prose. */
 
     h2 {
       font-size: 1.25rem;
