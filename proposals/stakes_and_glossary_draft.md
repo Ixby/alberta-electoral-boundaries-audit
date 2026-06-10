@@ -81,12 +81,13 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 >
 > | | |
 > |---|---|
-> | ✓ | Fewer than 1 in 14.5 million randomly generated comparison maps produced patterns as extreme as the minority proposal on all four statistical measures combined. |
-> | ✓ | The minority proposal fails 4 of 5 pre-registered structural tests; the fifth (anchoring) is neutral — both maps fall within the Canadian norm. The majority proposal fails 0 of the 4 firing. |
-> | ✓ | These results are consistent with maps that produce strong partisan effects, and inconsistent with what the random comparison set produces. |
+> | ✓ | The minority map's geometry crosses 4 of 5 pre-registered structural thresholds *without using any election data at all*. The fifth (anchoring) is neutral. The majority crosses 0 of the 4 firing. These tests measure properties of the boundary lines themselves — district shape, municipal anchoring, population spread — and reach the conclusion before any vote is counted. |
+> | ✓ | Separately, when election data is brought in, the minority map sits at the 99.99th percentile of 1.01 million algorithmically-drawn comparison maps held to the same statutory rules. Fewer than 100 of those 1.01 million neutral maps reach the same seat imbalance. The combined statistical signal is approximately 1 in 14.5 million under a neutral drawing process. Two independent instruments — geometric and statistical — reach the same conclusion. |
+> | ✓ | Three of the configurations the minority proposal contains were flagged in writing by Commission Chair Justice Miller in §5.8.2 of the majority report and Appendix C. The audit's tests were run with no knowledge of his flags and surface the same regions. A third independent instrument — judicial — converges on the same boundaries. |
 > | ✗ | The audit does *not* establish that any commissioner intended the partisan effects it measures. Boundary geometry cannot reveal intent. |
 > | ✗ | The audit does *not* predict what the Lunty committee will choose, what the November 2026 vote will be, or how Albertans will react. |
 > | ✗ | The audit does *not* predict how a court would rule if a Charter challenge were brought against either proposal. |
+> | ✗ | The audit does *not* claim the 1-in-14.5-million figure is the probability that a gerrymander occurred. That number is the tail probability of the minority's geometry under a neutral algorithmic null. It is evidence the neutral null is implausible. It is not a posterior probability of partisan intent — that question requires evidence the geometry cannot supply. |
 > | ✗ | The audit does *not* tell any individual voter what position to take or what to do with this information. That's yours to decide. |
 
 ---

@@ -505,6 +505,7 @@
     <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_2')}</span></li>
     <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_3')}</span></li>
     <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_4')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_5')}</span></li>
   </ul>
 </section>
 

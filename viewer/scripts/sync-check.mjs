@@ -50,7 +50,7 @@ const PROBES = [
 	{ key: 'stakes.q3.body', anchor: 'two-thirds supermajority) the governing party unlocks extraordinary procedural powers' },
 	// Boundary card
 	{ key: 'boundary.heading', anchor: "What this audit can and can't tell you" },
-	{ key: 'boundary.can_1', anchor: 'Fewer than 1 in 14.5 million randomly generated comparison maps' },
+	{ key: 'boundary.can_1', anchor: 'crosses 4 of 5 pre-registered structural thresholds' },
 	// Section 1 (onboarding)
 	{ key: 'editorial_intro.heading', anchor: 'What is redistricting, and why it matters' },
 	{ key: 'editorial_intro.p1', anchor: 'one MLA, one district, one vote' },
