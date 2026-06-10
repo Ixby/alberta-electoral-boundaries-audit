@@ -2573,6 +2573,10 @@
     transition: opacity 0.15s;
   }
   #zoom-close:hover { opacity: 1; }
+  /* Mobile: smaller close button so it doesn't overlap the BORDERS chip */
+  @media (max-width: 600px) {
+    #zoom-close { top: 0.5rem; right: 0.6rem; font-size: 1.6rem; padding: 0 4px; }
+  }
   #zoom-pct { font-weight: 700; color: rgba(255,255,255,0.75); font-variant-numeric: tabular-nums; font-size: 0.72rem; min-width: 3em; text-align: right; }
   #ed-tooltip {
     display: none; position: fixed; z-index: 9002;
@@ -2594,7 +2598,7 @@
 
     /* Mobile: hug the edges and tighten gaps so the map gets more screen */
     @media (max-width: 600px) {
-      top: 6px; left: 6px; right: 44px;
+      top: 6px; left: 6px; right: 36px;  /* clears the smaller mobile close button */
       gap: 3px;
     }
   }
