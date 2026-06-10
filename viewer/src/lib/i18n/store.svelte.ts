@@ -70,11 +70,15 @@ function detectInitialLang(): Lang {
 let _lang = $state<Lang>('en');
 
 if (browser) {
-	_lang = detectInitialLang();
-	// Sync URL so a shared link reflects the detected language
+	// Use a local const for the sync side-effects so we never read the
+	// `$state` variable at module scope (which Svelte 5 flags as a
+	// non-reactive capture and which is genuinely the wrong shape for
+	// any future readers of `_lang` on this branch).
+	const initial = detectInitialLang();
+	_lang = initial;
 	const url = new URL(window.location.href);
-	if (url.searchParams.get(URL_PARAM) !== _lang) {
-		url.searchParams.set(URL_PARAM, _lang);
+	if (url.searchParams.get(URL_PARAM) !== initial) {
+		url.searchParams.set(URL_PARAM, initial);
 		window.history.replaceState({}, '', url.toString());
 	}
 }
