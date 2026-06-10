@@ -1,6 +1,12 @@
 import { browser } from '$app/environment';
 
-export const SUPPORTED_LANGS = ['en', 'fr', 'de', 'uk', 'tl', 'pa', 'zh-Hans', 'zh-Hant'] as const;
+// Order = approximate Alberta speakers (2021 Census mother tongue):
+// English (majority) → Tagalog ~99k → Punjabi ~86k → French ~72k →
+// Cantonese ~46k (zh-Hant) → Mandarin ~43k (zh-Hans) → German ~36k
+// (plus Hutterite/Mennonite Plautdietsch communities) → Ukrainian ~14k
+// (plus the post-2022 arrival wave the census predates). The language
+// dropdown renders in this order.
+export const SUPPORTED_LANGS = ['en', 'tl', 'pa', 'fr', 'zh-Hant', 'zh-Hans', 'de', 'uk'] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 
 export const LANG_LABELS: Record<
