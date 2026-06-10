@@ -61,9 +61,23 @@ The ReCom ensemble respects population + contiguity but not s.15(2) tiers, commu
 3. Run 250,000 plans minimum; ideally a second 1M canonical run.
 4. Re-score real maps' Mahalanobis joint and per-metric percentiles against this constrained ensemble; report the deltas.
 
-**Acceptance criterion:** `findings/constrained_ensemble_robustness.md` with per-metric and joint percentiles under the constrained null; a sentence stating whether the Lane-1 placements hold. Expected outcome (honest): the constrained ensemble *will* reduce the tail extremity because it cuts out impossible-but-otherwise-extreme draws. The question is by how much.
+**Acceptance criterion:** `findings/constrained_ensemble_robustness.md` with per-metric and joint percentiles under the constrained null; a sentence stating whether the Lane-1 placements hold.
 
 **Cost estimate:** 6–8 h compute + 1–2 days script work.
+
+### T1.4a — Population-weighted MAUP attribution per plan against the 1.01M ensemble
+**Status: 🟠 PC QUEUE — needs ~8 h dedicated compute window (parallelizable to ~30–45 min on 16 cores)**
+
+The 2026-06-10 MAUP-attribution finding (`findings/maup_attribution_canonical.md`) ran population-weighted attribution on the *real maps only* and showed centroid is invariant to attribution method to within 0.1 pp on every Lane-1 metric. The published percentile placements (p94.4 on minority EG, etc.) however are calibrated against an ensemble built using centroid attribution per plan. Publication-grade move: rerun the attribution layer per ensemble plan and re-score the real maps against the resulting pop-weighted ensemble distribution.
+
+**Resolution path:**
+1. Extract per-plan VA assignments from the canonical chain (10k verification subset is on disk at `data/outputs/mcmc/verification_assignments_raw.npz`; extending to 1M needs the per-plan assignment archive — same LFS data debt as T1.1).
+2. For each plan, apply `va_attribution_population_weighted.py` to the plan's VA-to-ED assignment.
+3. Aggregate to the ensemble's marginal partisan-metric distributions; place the real maps' pop-weighted values against the new distributions.
+
+**Compute:** ~30 s × 1.01M plans = ~8 h single-core; ~30–45 min on a 16-core PC.
+
+**Acceptance:** `findings/maup_population_weighted_ensemble.md` reporting placements under (a) centroid-attrib against centroid-built ensemble (current canonical) and (b) pop-weighted-attrib against pop-weighted-built ensemble. If they agree within ±2 percentile points, the audit's percentile claims survive a publication-grade attribution audit.
 
 ### T1.5 — Short-bursts hill-climb rerun on canonical (UCP-objective and NDP-objective)
 **Status: 🟡 SCRIPT REPAIRED + READY; full run needs dedicated compute window**
@@ -222,7 +236,18 @@ Verified that `analysis/scripts/mcmc_ensemble.py:789` uses Warrington (2018) con
 `preregistration/november_2026_scoring_spec.md` written. Substrate, metrics, thresholds, the 2×2 verdict surface, the 72-hour publication commitment, and the substrate-iteration handling rule are all frozen. The doc declares two scripts (`run_structural_battery.py` and `verdict_synthesis.py`) that need to be written before 2026-10-01 — those gaps are now tracked in this remediation queue as T5.1a/T5.1b. The drand pinning is queued for the next routine drand round following this commit; seed commitment will be appended to `preregistration/seed_commitments.md` under entry `november_2026_scoring_spec`.
 
 ### T5.1a — Write `analysis/scripts/run_structural_battery.py`
-**Status: 🟢 STUB LANDED 2026-06-10; S4 functional; S1/S2/S3/S5/S6 wire-in pending**
+**Status: 🟢 ALL SIX METRICS FUNCTIONAL 2026-06-10**
+
+### T5.1c — Calibrate the November structural-lane thresholds
+**Status: 🔴 REQUIRES DESIGN DECISION before Lunty map publishes**
+
+The November spec sets every S1–S5 threshold at "≥ 1.5× majority's baseline." With the full battery wired on canonical geometry, the minority itself only fires 1 of 6 flags (S6 chair-hybrids = 6 patterns). All structural ratios (minority/majority) sit at 1.30–1.39× — below the 1.5× multiplier. The current thresholds therefore demand a Lunty map MORE extreme than the minority on multiple dimensions to trigger the "replicated" verdict, which is a high bar that the minority itself cannot clear.
+
+Two design questions:
+1. Is "replicated" supposed to mean *match or exceed* the minority's anomalies (anchor to minority), or *significantly exceed* the majority's baseline (1.5× current multiplier)?
+2. If the answer to (1) is "match or exceed minority," should the thresholds anchor directly to minority's measured values rather than 1.5× majority's?
+
+**Recommendation:** lower the multiplier to ~1.2× (so the minority's 1.30–1.39× ratios cross the line and "replicated" becomes a credible classification for the minority itself), or switch the threshold language to "≥ midpoint between majority and minority's measured values." Either change needs to land in `preregistration/november_2026_scoring_spec.md` as Amendment 9 before the Lunty map publishes.
 
 The November scoring spec references this script as the structural-lane (S1–S6) battery runner. Stub committed 2026-06-10. Smoke-tested against canonical minority shapefile: S4 (Polsby-Popper) executes end-to-end and returns 0.437 median (above the 0.248 threshold; no flag). S1, S2, S3, S5, S6 emit `flag: null` with specific wire-in pointers in `_note`. The verdict counts `null` as "did not execute" (not as a flag), so the script refuses to publish a final verdict until the stubs land.
 

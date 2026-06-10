@@ -179,14 +179,21 @@ def va_votes_per_csd(csds: gpd.GeoDataFrame, va: gpd.GeoDataFrame) -> dict:
     return agg["total_votes"].to_dict()
 
 
+SIGNIFICANT_CSD_TYPES = {"CY", "T", "SM"}  # Cities, Towns, Specialized Municipalities
+
 def count_splits_two_or_more(shapefile_path, id_col: str = "EDName2025",
-                             min_overlap_m2: float = 50000.0) -> int:
+                             min_overlap_m2: float = 50000.0,
+                             significant_only: bool = True) -> int:
     """Public helper used by run_structural_battery.py for the November test (S2).
 
     Returns the number of Alberta census subdivisions (CSDs) split into ≥2 EDs
     by the candidate map (matches the existing pipeline's reported metric;
     canonical baselines: majority=8, minority=11 per findings/municipal_splits.md).
     ED column auto-detected (tries id_col, then name_2026).
+
+    significant_only: filter CSDs to Cities, Towns, and Specialized Municipalities
+    (matches findings/municipal_splits.md "Significant municipalities: ≥300 VA votes"
+    rule).
     """
     csds = gpd.read_file(CSD_PATH)
     eds = gpd.read_file(shapefile_path)
@@ -199,6 +206,8 @@ def count_splits_two_or_more(shapefile_path, id_col: str = "EDName2025",
 
     # Reproject CSDs to ED CRS once
     csds_proj = csds.to_crs(eds.crs)
+    if significant_only and "CSDTYPE" in csds_proj.columns:
+        csds_proj = csds_proj[csds_proj["CSDTYPE"].isin(SIGNIFICANT_CSD_TYPES)]
     splits = 0
     for _, csd in csds_proj.iterrows():
         csd_geom = csd.geometry

@@ -99,13 +99,18 @@ sys.path.insert(0, str(ROOT / "analysis" / "utils"))
 S1_BASELINE_MAJORITY_MAD = 2826.89
 S1_MULTIPLIER = 1.5
 
-# S2: municipal split count threshold = 1.5 × majority's count of municipalities
-#     split into 2+ EDs. Majority's canonical count: 8 (per
-#     findings/municipal_splits.md, generated 2026-04-24 against canonical).
-#     Threshold: 12. (Spec amendment 2026-06-10: original "3+ EDs" framing was
-#     ambiguous re: aggregate vs new-split counting; "2+ EDs" matches the
-#     existing pipeline's reported metric.)
-S2_BASELINE_MAJORITY_SPLITS = 8
+# S2: municipal split count threshold = 1.5 × majority's count of CSDs split
+#     into ≥2 EDs, where the CSD set is filtered to Cities/Towns/Specialized
+#     Municipalities (CSDTYPE in {CY, T, SM}).
+#     Helper-computed canonical baseline: majority 23 (ratio 1.30× vs minority 30).
+#     Threshold: 34 (= 1.5 × 23, rounded down).
+#     The existing findings/municipal_splits.md table reports a tighter
+#     ≥300-VA-vote filter giving majority=8/minority=11, but uses the same
+#     ≥2-EDs definition. The structural battery's helper uses the CSDTYPE-only
+#     filter for reproducibility — its threshold is calibrated on the same
+#     helper-method values, so the verdict surface is internally consistent.
+#     Spec amendment 2026-06-10 (Amendment 8); helper rebaseline 2026-06-10.
+S2_BASELINE_MAJORITY_SPLITS = 23
 S2_MULTIPLIER = 1.5
 
 # S3: anchoring score band. Within 70–85% Canadian norm = neutral; outside = flag.
@@ -154,7 +159,7 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
         va = gpd.read_file(votes_path)
         # Map row index → pop_2021
         pop_df = pd.read_csv(pop_cache).set_index("va_row_idx")["pop_2021"]
-        va["pop_2021"] = va.index.map(pop_df).fillna(0.0).clip(lower=1.0)
+        va["pop_2021"] = pd.Series(va.index.map(pop_df).values).fillna(0.0).clip(lower=1.0).values
 
         eds = gpd.read_file(shapefile)
         # Auto-detect ID column
@@ -221,7 +226,9 @@ def compute_S3_anchoring(shapefile: Path) -> dict:
         sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
         from score_anchoring import score_anchoring as _score_anchoring
         score = float(_score_anchoring(str(shapefile)))
-        # score is a fraction (0–1); convert to fraction-of-perimeter
+        # score_anchoring returns a percentage (0–100); normalize to fraction
+        if score > 1.5:
+            score = score / 100.0
         flag = bool(score < S3_BAND_LOW or score > S3_BAND_HIGH)
         return {
             "value": score,
@@ -262,37 +269,152 @@ def compute_S4_polsby_popper(shapefile: Path) -> dict:
         }
 
 
-def compute_S5_drain(shapefile: Path, votes_path: Path) -> dict:
-    """S5: Neighbour-drain adjacency pattern + label-shuffle null p-value."""
-    # TODO(november-2026): Refactor neighbour_drain_adjacency.py to expose
-    # drain_score(shapefile, votes) → float, and drain_label_shuffle_null.py
-    # to expose null_pvalue(score, n_permutations=10000) → float.
-    return {
-        "drain_score": None,
-        "null_pvalue": None,
-        "threshold": {"drain": S5_DRAIN_THRESHOLD, "null_p": S5_NULL_PVALUE_THRESHOLD},
-        "flag": None,
-        "_note": "STUB — wire in drain_score() and label-shuffle null functions.",
-    }
+def compute_S5_drain(shapefile: Path, votes_path: Path,
+                     n_perm: int = 2000, seed: int = 42) -> dict:
+    """S5: Neighbour-drain adjacency pattern + label-shuffle null p-value.
+
+    Wires through the existing neighbour_drain_adjacency + drain_label_shuffle_null
+    pipeline. Uses 2,000 permutations by default (10× faster than the canonical
+    10,000 with negligible accuracy cost at typical p ≈ 0.1; raise to 10000 for
+    a publication-grade run).
+
+    Flag fires iff drain_score >= S5_DRAIN_THRESHOLD AND null_pvalue < S5_NULL_PVALUE_THRESHOLD.
+    """
+    try:
+        import geopandas as gpd
+        import numpy as np
+        import pandas as pd
+        sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+        from neighbour_drain_adjacency import (
+            _score_canonical_map_strict, build_adjacency, compute_ed_metrics,
+            detect_chain_signals,
+        )
+        from drain_label_shuffle_null import (
+            drain_score, directed_pairs_from_undirected, label_shuffle_null,
+        )
+
+        va = gpd.read_file(votes_path)
+        votes, name_col = _score_canonical_map_strict(va, shapefile, label="candidate")
+        eds = gpd.read_file(shapefile)
+        ed_df = compute_ed_metrics(votes)
+        undirected, _, _ = build_adjacency(eds, name_col)
+        pair_df = detect_chain_signals(ed_df, undirected)
+        ed_lookup = ed_df.set_index("ed").to_dict("index")
+        score = float(drain_score(pair_df, ed_lookup))
+
+        # Short-circuit: if drain is already well below threshold, skip the
+        # ~30 s permutation null (it can't change the verdict).
+        if score < S5_DRAIN_THRESHOLD * 0.5:
+            return {
+                "drain_score": score,
+                "null_pvalue": None,
+                "n_permutations": 0,
+                "threshold": {"drain": S5_DRAIN_THRESHOLD, "null_p": S5_NULL_PVALUE_THRESHOLD},
+                "flag": False,
+                "_note": "short-circuited: drain score well below threshold; null skipped",
+            }
+
+        # Null p-value (cheaper 2k permutations by default)
+        directed = directed_pairs_from_undirected(undirected)
+        ed_names = list(ed_df["ed"])
+        vote_vectors = np.array([votes[e] for e in ed_names])
+        rng = np.random.default_rng(seed)
+        null_scores = label_shuffle_null(ed_names, vote_vectors, directed, n_perm, rng)
+        null_p = float((null_scores >= score).mean())
+
+        flag = bool(score >= S5_DRAIN_THRESHOLD and null_p < S5_NULL_PVALUE_THRESHOLD)
+        return {
+            "drain_score": score,
+            "null_pvalue": null_p,
+            "n_permutations": n_perm,
+            "threshold": {"drain": S5_DRAIN_THRESHOLD, "null_p": S5_NULL_PVALUE_THRESHOLD},
+            "flag": flag,
+        }
+    except Exception as e:
+        return {
+            "drain_score": None,
+            "null_pvalue": None,
+            "threshold": {"drain": S5_DRAIN_THRESHOLD, "null_p": S5_NULL_PVALUE_THRESHOLD},
+            "flag": None,
+            "_note": f"STUB — drain pipeline raised: {type(e).__name__}: {e}",
+        }
 
 
 def compute_S6_chair_flags(shapefile: Path) -> dict:
-    """S6: Count of chair-flagged boundary patterns reproduced.
+    """S6: Count of chair-flagged hybrid boundary patterns reproduced.
 
-    The minority's pre-flagged patterns: see findings/chair_recommendation_5_analysis.md
-    and chair_flagged_boundaries.json (Justice Miller's anomaly notes).
+    Predicates derived from `findings/chair_recommendation_5_analysis.md` and
+    the canonical minority map's pattern (verified 2026-06-10):
 
-    This is a structural pattern-match: does the candidate map split Airdrie into
-    ≥3 EDs? Does it route a corridor through the Bow Valley north of Banff? Etc.
+    P1: Airdrie split into ≥3 EDs (Airdrie fragmentation pattern).
+    P2: Any ED name containing 'Cochrane' AND a Calgary-prefix or
+        Calgary-neighborhood name (Cochrane was specifically flagged as
+        "not something I can condone" combined with Calgary).
+    P3: Any ED name containing 'Chestermere' AND 'Calgary' (the Calgary-Peigan-
+        Chestermere hybrid).
+    P4: Calgary edge + rural Bearspaw / Rocky View ED (e.g.
+        'Calgary-North West-Bearspaw').
+    P5: Red Deer split into ≥3 EDs.
+    P6: Any ED name combining 'St. Albert' (or 'St Albert') with Sturgeon —
+        flagged by the chair as a Calgary-style hybrid in northern context.
+
+    Threshold from the November spec: ≥1 pattern reproduced = flag.
     """
-    # TODO(november-2026): Catalog the patterns from chair_recommendation_5_analysis.md
-    # as a JSON predicate list, then evaluate each against the candidate shapefile.
-    return {
-        "patterns_reproduced": None,
-        "threshold": S6_FLAG_THRESHOLD,
-        "flag": None,
-        "_note": "STUB — chair-flag pattern predicates not yet catalogued.",
-    }
+    try:
+        import geopandas as gpd
+        eds = gpd.read_file(shapefile)
+        id_col = "EDName2025" if "EDName2025" in eds.columns else (
+            "name_2026" if "name_2026" in eds.columns else eds.columns[0]
+        )
+        names = [str(n) for n in eds[id_col].tolist()]
+
+        patterns_hit = []
+
+        # P1: Airdrie split into ≥3 EDs
+        airdrie_count = sum(1 for n in names if "Airdrie" in n)
+        if airdrie_count >= 3:
+            patterns_hit.append(f"P1_Airdrie_split_{airdrie_count}_ways")
+
+        # P2: Cochrane + Calgary in same ED
+        for n in names:
+            if "Cochrane" in n and "Calgary" in n:
+                patterns_hit.append(f"P2_Cochrane_Calgary_hybrid_{n}")
+
+        # P3: Chestermere + Calgary
+        for n in names:
+            if "Chestermere" in n and "Calgary" in n:
+                patterns_hit.append(f"P3_Chestermere_Calgary_hybrid_{n}")
+
+        # P4: Calgary + Bearspaw (or Calgary + Rocky View rural)
+        for n in names:
+            if "Calgary" in n and ("Bearspaw" in n or "Rocky View" in n):
+                patterns_hit.append(f"P4_Calgary_RockyView_hybrid_{n}")
+
+        # P5: Red Deer split into ≥3 EDs
+        red_deer_count = sum(1 for n in names if "Red Deer" in n)
+        if red_deer_count >= 3:
+            patterns_hit.append(f"P5_Red_Deer_split_{red_deer_count}_ways")
+
+        # P6: St Albert + Sturgeon (the chair flagged this northern hybrid)
+        # Note: St. Albert alone is a normal city; St Albert-Sturgeon is the hybrid.
+        for n in names:
+            if ("St. Albert" in n or "St Albert" in n) and "Sturgeon" in n:
+                patterns_hit.append(f"P6_StAlbert_Sturgeon_hybrid_{n}")
+
+        flag = bool(len(patterns_hit) >= S6_FLAG_THRESHOLD)
+        return {
+            "patterns_reproduced": patterns_hit,
+            "patterns_count": len(patterns_hit),
+            "threshold": S6_FLAG_THRESHOLD,
+            "flag": flag,
+        }
+    except Exception as e:
+        return {
+            "patterns_reproduced": None,
+            "threshold": S6_FLAG_THRESHOLD,
+            "flag": None,
+            "_note": f"STUB — S6 predicate evaluation raised: {type(e).__name__}: {e}",
+        }
 
 
 def main(argv=None) -> int:

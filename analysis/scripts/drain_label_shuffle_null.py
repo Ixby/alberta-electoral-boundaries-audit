@@ -67,12 +67,11 @@ from neighbour_drain_adjacency import (  # noqa: E402
     S_THRESHOLD,
     M_THRESHOLD,
 )
-from packing_cracking_analysis import (  # noqa: E402
-    load_2023_results,
-    estimate_2026,
-    MAJORITY_2026_MAPPING,
-    MINORITY_2026_MAPPING,
-)
+# Lazy imports — the DPG-era symbols (estimate_2026, MAJORITY_2026_MAPPING,
+# MINORITY_2026_MAPPING) are only needed by main() for the historical v0_8
+# scoring path. The drain_score / label_shuffle_null helpers used by the
+# November structural battery (run_structural_battery.py S5) don't need them.
+# Importing inside main() keeps the module importable on canonical substrate.
 
 SALT = "drain-label-shuffle"
 N_PERMUTATIONS = 10_000
@@ -213,6 +212,9 @@ def main() -> None:
 
     # Load votes
     print("\nLoading 2023 two-party results...")
+    from packing_cracking_analysis import (  # noqa: E402, lazy
+        load_2023_results, estimate_2026, MAJORITY_2026_MAPPING, MINORITY_2026_MAPPING,
+    )
     dists_2019 = load_2023_results()
     votes_2019 = {d["ed"]: (d["ndp"], d["ucp"]) for d in dists_2019}
     rural = [d for d in dists_2019 if d["region"] == "Rest of Alberta"]
