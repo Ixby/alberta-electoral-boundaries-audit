@@ -1,18 +1,7 @@
-> **Backward:**
-> - `analysis/scripts/intermap_permutation_test.py` — companion script that runs the permutation test
-> - `data/outputs/simulated_ensemble_raw_samples_canonical.csv` — 250,000-plan neutral ensemble used as null
-> - `analysis/methodology/intermap_permutation_design.md` — pre-registered test design
->
-> **Forward:**
-> - `reports/academic/report_academic.md` — incorporates the EG and Mahalanobis p-values
-> - `reports/academic/data_supplement.md` — references the permutation results
-> - `findings/README.md` — indexes this finding
-> - `findings/cycle_lag_analysis.md` — cross-references the inter-map result
-
 # Inter-Map Comparison Permutation Test (Ch1-COMP)
 
 **Script:** `analysis/scripts/intermap_permutation_test.py`
-**Ensemble:** `simulated_ensemble_raw_samples_canonical.csv` (250,000 plans)
+**Ensemble:** `simulated_ensemble_raw_samples_canonical.csv` (1,010,000 plans)
 **RNG seed:** 1823538405 (fixed; document in output for reproducibility)
 **N pairs:** 10,000
 
@@ -35,11 +24,11 @@ position by no more than randomly drawn pairs of constraint-legal neutral maps.
 | | Value |
 |---|---|
 | Observed EG(minority) − EG(majority) | +3.92 pp |
-| Null SD (random pairs) | 2.12 pp |
-| Null 95th percentile | +3.43 pp |
-| z-score | 1.849 |
-| **p (one-tailed)** | **0.0303** |
-| p (two-tailed) | 0.0647 |
+| Null SD (random pairs) | 2.16 pp |
+| Null 95th percentile | +3.57 pp |
+| z-score | 1.817 |
+| **p (one-tailed)** | **0.0340** |
+| p (two-tailed) | 0.0689 |
 | Result | **p < 0.05 — SIGNIFICANT** |
 
 *EG sign convention: positive = more NDP votes wasted (UCP structural advantage).*
@@ -49,15 +38,15 @@ position by no more than randomly drawn pairs of constraint-legal neutral maps.
 ## Version B — Mahalanobis Joint (one-tailed in distance)
 
 Metrics: efficiency\_gap, mean\_median, declination, seats\_at\_50\_50.
-Covariance matrix Σ estimated from the 250,000-plan ensemble.
+Covariance matrix Σ estimated from the 1,010,000-plan ensemble.
 
 | | Value |
 |---|---|
-| Observed Mahalanobis distance | 7.1904 |
-| Null mean distance (random pairs) | 2.6589 |
-| Null SD | 0.9808 |
-| Null 95th percentile | 4.3755 |
-| **p** | **0.0001** |
+| Observed Mahalanobis distance | 7.1683 |
+| Null mean distance (random pairs) | 2.6668 |
+| Null SD | 0.9885 |
+| Null 95th percentile | 4.4250 |
+| **p** | **0.0000** |
 | Result | **p < 0.05 — SIGNIFICANT** |
 
 **Per-metric breakdown:**
@@ -77,11 +66,11 @@ Covariance matrix Σ estimated from the 250,000-plan ensemble.
 
 | Test | Map | Mahalanobis D | p |
 |---|---|---|---|
-| Ch1 (vs ensemble) | Minority | 5.7079 | 1.46e-06 |
-| Ch1 (vs ensemble) | Majority | 2.7895 | 9.99e-02 |
-| Ch1-COMP (vs each other) | Minority vs Majority | 7.1904 | 0.0001 |
+| Ch1 (vs ensemble) | Minority | 5.7157 | 1.40e-06 |
+| Ch1 (vs ensemble) | Majority | 2.8022 | 9.71e-02 |
+| Ch1-COMP (vs each other) | Minority vs Majority | 7.1683 | 0.0000 |
 
-The Ch1 absolute-position result (minority p = 1.46e-06) remains the primary significance
+The Ch1 absolute-position result (minority p = 1.40e-06) remains the primary significance
 finding. Ch1-COMP tests the *comparison* — whether the two maps differ more than random neutral
 pairs, not whether either is an outlier in the ensemble.
 

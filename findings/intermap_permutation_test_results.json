@@ -11,7 +11,7 @@
     "verify_url": "https://drand.cloudflare.com/public/5500000",
     "note": "SHA256(randomness_hex + salt)[:4] as uint32. Pre-dates analysis run."
   },
-  "ensemble_n": 250000,
+  "ensemble_n": 1010000,
   "partisan_cols": [
     "efficiency_gap",
     "mean_median",
@@ -28,26 +28,26 @@
   },
   "version_a_eg_only": {
     "observed_eg_diff_pp": 3.9211,
-    "null_sd_pp": 2.1203,
-    "null_p95_pp": 3.4338,
+    "null_sd_pp": 2.1575,
+    "null_p95_pp": 3.5679,
     "null_95pct_interval_pp": [
-      -4.2227,
-      4.0877
+      -4.2747,
+      4.2152
     ],
-    "z_score": 1.8493,
-    "p_one_tailed": 0.0303,
-    "p_two_tailed": 0.0647,
+    "z_score": 1.8174,
+    "p_one_tailed": 0.034,
+    "p_two_tailed": 0.0689,
     "n_pairs": 10000,
     "significant_at_005_one_tailed": true,
     "significant_at_005_two_tailed": false,
-    "interpretation": "Observed minority-majority EG gap = +3.92 pp. Null 95th percentile = 3.43 pp. One-tailed p = 0.0303."
+    "interpretation": "Observed minority-majority EG gap = +3.92 pp. Null 95th percentile = 3.57 pp. One-tailed p = 0.0340."
   },
   "version_b_mahalanobis_joint": {
-    "observed_mahalanobis_distance": 7.190411,
-    "null_mean_distance": 2.658899,
-    "null_sd_distance": 0.980762,
-    "null_p95_distance": 4.375475,
-    "p_one_tailed": 0.0001,
+    "observed_mahalanobis_distance": 7.168328,
+    "null_mean_distance": 2.666768,
+    "null_sd_distance": 0.988458,
+    "null_p95_distance": 4.425021,
+    "p_one_tailed": 0.0,
     "significant_at_005": true,
     "n_pairs": 10000,
     "metrics_minority_more_ucp_favorable": 3,
@@ -77,22 +77,22 @@
         "minority_more_ucp_favorable": true
       }
     },
-    "interpretation": "Observed inter-map Mahalanobis distance = 7.1904. Null 95th percentile = 4.3755. p = 0.0001. 3/4 metrics point minority more UCP-favorable."
+    "interpretation": "Observed inter-map Mahalanobis distance = 7.1683. Null 95th percentile = 4.4250. p = 0.0000. 3/4 metrics point minority more UCP-favorable."
   },
   "context_absolute_positions": {
     "minority_vs_ensemble": {
-      "mahalanobis_distance": 5.7079,
-      "p_chi2": 1.46e-06,
+      "mahalanobis_distance": 5.7157,
+      "p_chi2": 1.4e-06,
       "note": "Ch1 result (minority absolute position vs neutral ensemble)"
     },
     "majority_vs_ensemble": {
-      "mahalanobis_distance": 2.7895,
-      "p_chi2": 0.09993576,
+      "mahalanobis_distance": 2.8022,
+      "p_chi2": 0.09713382,
       "note": "Ch1 result (majority absolute position vs neutral ensemble)"
     },
     "intermap_distance": {
-      "mahalanobis_distance": 7.190411,
-      "p": 0.0001,
+      "mahalanobis_distance": 7.168328,
+      "p": 0.0,
       "note": "Version B result (minority vs majority, comparison test)"
     }
   },

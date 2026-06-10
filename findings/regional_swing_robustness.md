@@ -2,7 +2,12 @@
 name: v0_9_regional_swing_robustness
 description: Does the minority map's p98.6 seats@50/50 finding survive a regional-swing recomputation?
 type: project
+status: SUPERSEDED — DPG-substrate reading; replaced by canonical recomputation
+superseded_by: findings/regional_swing_canonical_robustness.md
+superseded_date: 2026-06-10
 ---
+
+> ⚠️ **SUPERSEDED 2026-06-10.** This document records the regional-swing recomputation against the v0_9 DPG-era minority map (uniform-swing s50 ≈ 0.483, regional-swing s50 ≈ 0.42, dropping the minority to p50.7). The **canonical Elections Alberta shapefiles** produced a minority with uniform-swing s50 = 0.5169 and regional-swing s50 = 0.4607 — *above* the maximum of every plan in the 10k verification subset, p100 against both swings. The v0_9 reading underestimated the minority's Lane-1 effect because DPG attribution missed rural-ED VAs that biased seat counts toward NDP. The canonical recomputation supersedes this finding's headline. The methodology, the regional-swing calibration, and the limitations section below are still accurate; only the v0_9-specific s50 values and the "p98.6 collapses to p50.7" headline are superseded. See `findings/regional_swing_canonical_robustness.md` for the canonical reading.
 
 > **Backward:**
 > - `analysis/scripts/seats_at_50_50_regional.py` — companion script producing the regional-swing recomputation
@@ -10,13 +15,16 @@ type: project
 > - 2019 → 2023 two-party regional swing inputs
 >
 > **Forward:**
-> - `reports/academic/report_academic.md` — incorporates the regional-swing robustness check
+> - `findings/regional_swing_canonical_robustness.md` — **canonical reading; supersedes this file's headline**
+> - `reports/academic/report_academic.md` — incorporates the canonical regional-swing robustness check
 > - `findings/joint_outlier_score_summary.md` — cross-references the recomputed percentiles
 > - `findings/README.md` — indexes this finding
 
-# v0_9 regional-swing robustness check
+# v0_9 regional-swing robustness check *(SUPERSEDED — see canonical reading)*
 
-**Status: the headline p98.6 finding for the minority map COLLAPSES under regional swing — the minority drops to p50.7. But the same recomputation puts the *majority* map at p99.5 in the opposite direction. The uniform-swing assumption was load-bearing; the headline framing has to change, but a defensible (different) outlier story replaces it.**
+**Original status (v0_9 reading, superseded): the headline p98.6 finding for the minority map COLLAPSES under regional swing — the minority drops to p50.7. But the same recomputation puts the *majority* map at p99.5 in the opposite direction. The uniform-swing assumption was load-bearing; the headline framing has to change, but a defensible (different) outlier story replaces it.**
+
+**Current status (canonical reading, 2026-06-10): the v0_9 reading was an artefact of DPG-substrate underestimation of the minority's seat effect. Under canonical Elections Alberta shapefiles, regional-swing recomputation does *not* falsify Lane 1 — the minority's regional-swing s50 of 0.4607 sits above every plan in the 10k verification subset. See `findings/regional_swing_canonical_robustness.md`.**
 
 ## What the hostile-witness attack said
 
