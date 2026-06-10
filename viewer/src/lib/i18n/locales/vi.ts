@@ -649,3 +649,140 @@ export default {
 				'Cả hai điều này đều không phải là phát hiện về các bản đồ của ủy ban hiện tại. Chúng là những quan sát về một hệ thống làm cho phân tích bầu cử chính xác khó hơn cần thiết. Chúng được cung cấp ở đây như những đề xuất thực tế, không phải là kết luận. Cả hai đều có thể khắc phục được thực sự, và việc khắc phục chúng sẽ làm cho mọi ủy ban tương lai — và mọi cuộc kiểm toán tương lai — làm việc từ cơ sở tốt hơn.'
 		}
 	},
+	editorial_canada: {
+		heading: 'Bối cảnh: Canada khác biệt — và tương tự',
+		p1: 'Canada thuộc cùng họ với Hoa Kỳ, Vương quốc Anh và Úc. Chúng tôi bầu các thành viên đơn lẻ từ các khu vực địa lý theo nguyên tắc người về đầu tiên thắng. Chúng tôi vẽ lại các đường định kỳ — liên bang sau mỗi cuộc điều tra dân số mười năm, cấp tỉnh theo lịch xen kẽ. Chúng tôi thừa hưởng cơ chế cơ bản từ cùng các gốc rễ Westminster. Cho đến nay, không có gì bất ngờ.',
+		p2: 'Điều khiến Canada khác biệt là bài kiểm tra mà các đường phải vượt qua.',
+		p3: 'Trong luật hiến pháp Hoa Kỳ, quy tắc ràng buộc là <em>một người, một phiếu</em> — các khu vực phải có dân số gần bằng nhau như thực tế có thể, và sự khởi hành lớn đòi hỏi sự biện minh nghiêm ngặt. Trong luật hiến pháp Canada, quy tắc ràng buộc thì khác. Điều 3 của <em>Hiến chương Quyền và Tự do Canada</em> đảm bảo cho mọi công dân quyền bỏ phiếu. Trong <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — Tham chiếu Saskatchewan năm 1991, vụ kiện dẫn đầu — Tòa án Tối cao Canada đã giải thích quyền này là quyền có <em>đại diện hiệu quả</em>, không phải là quyền có sự bình đẳng toán học về dân số khu vực.',
+		p4: 'Sự khác biệt đó quan trọng. Đại diện hiệu quả cho phép dân số khu vực thay đổi, đôi khi đáng kể, khi có lý do chính đáng: các địa lý nông thôn rộng lớn mà một MLA không thể phục vụ hợp lý ở mật độ dân số tiêu chuẩn, các cộng đồng lợi ích nên được giữ cùng nhau, đại diện thiểu số mà sự bình đẳng toán học sẽ pha loãng. Tham chiếu Saskatchewan đã làm cho sự linh hoạt đó trở thành hiến pháp. Sự chênh lệch dân số 25% của EBCA — quy tắc bảo vệ các ghế nông thôn Alberta — bắt nguồn trực tiếp từ đó.',
+		p5: 'Điều trớ trêu là sự linh hoạt cắt theo cả hai hướng. Nếu một ủy ban có thể chính đáng đi chệch khỏi sự bình đẳng dân số vì những lý do đúng đắn, nó cũng có thể đi chệch khỏi sự bình đẳng dân số vì những lý do sai. Luật Canada không có sàn toán học kiểu Mỹ để dựa vào. Nó có bài kiểm tra đại diện hiệu quả, được áp dụng bởi các thẩm phán, sau sự việc, trong vụ kiện. Hầu hết các khu vực tài phán bảo vệ chống lại những lý do sai bằng các bảo vệ cấu trúc: các ủy ban phân định lại liên bang được cách ly bởi đạo luật và các khuyến nghị của họ tự động có hiệu lực nếu Quốc hội không hành động về chúng trong thời hạn. Quebec sử dụng một ủy ban độc lập thường trực mà Quốc hội chỉ có thể ghi đè với đa số siêu hai phần ba. British Columbia hoạt động theo một quy tắc mặc định chấp nhận tương tự.',
+		p6: 'Alberta là ngoại lệ. Theo <em>Luật Ủy ban Ranh giới Bầu cử</em>, báo cáo của ủy ban chỉ là một khuyến nghị — cơ quan lập pháp phải bỏ phiếu để ban hành nó. Sự chấp thuận thường là một hình thức. Trong chu kỳ 2026, ủy ban chia 3–2 và tạo ra hai đề xuất cạnh tranh; cơ quan lập pháp đã tạo ra một ủy ban MLA riêng biệt, do một MLA do Thủ hiến bổ nhiệm làm chủ tọa, để lựa chọn giữa chúng. Không có gì trong luật hiến pháp Canada yêu cầu ủy ban tồn tại. Không có gì yêu cầu sự lựa chọn của nó phải tuân theo quy trình của ủy ban. Đây là khoảng cách cấu trúc mà cuộc kiểm toán này đang xem xét.',
+		p7: 'Vì vậy, khi các tòa án Canada nói "gerrymander" không phải là từ vựng pháp lý của họ, họ không nói rằng khái niệm cơ bản không áp dụng ở đây. Họ đang nói rằng bài kiểm tra khác — đại diện hiệu quả, không phải bình đẳng toán học. Liệu đề xuất thiểu số có đáp ứng bài kiểm tra đó hay không chính xác là câu hỏi mà cuộc kiểm toán này đã đo lường hình học và chính xác là câu hỏi mà chỉ có thẩm phán mới có thể trả lời dứt khoát. Lý luận <em>Tham chiếu Saskatchewan</em> đầy đủ, sự tương phản với các tỉnh khác, câu hỏi về tư cách, và các con đường cải cách có sẵn được đề cập trong <a href="#references">phần tài liệu tham khảo bên dưới</a>.'
+	},
+	chrome: {
+		back_to_top: 'Quay về đầu trang',
+		license_title: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0',
+		license_alt: 'CC BY-NC-SA 4.0',
+		license_aria: 'Creative Commons BY-NC-SA 4.0',
+		back_to_stakes: '↑ Quay lại Vấn đề',
+		lightbox: {
+			fig_aria: 'Hình được xem phóng to',
+			fig_close_aria: 'Đóng hình phóng to (Esc)',
+			map_aria: 'Trình xem thu phóng bản đồ',
+			map_close_aria: 'Đóng trình xem bản đồ',
+			close_title: 'Đóng (Esc)'
+		},
+		participation: {
+			heading: 'Giúp chúng tôi tinh chỉnh MapExplorer',
+			body:
+				'Khi bạn khám phá, chúng tôi theo dõi các bản đồ và khu vực bạn ghé thăm và định kỳ gửi dữ liệu đến cơ sở dữ liệu nghiên cứu của chúng tôi. Chia sẻ một góc nhìn cũng lưu lại nơi bạn đã kết thúc. Mục tiêu: hiểu điều gì hữu ích và làm cho công cụ tốt hơn.',
+			no_collect:
+				'Chúng tôi không bao giờ thu thập tên, địa chỉ IP hoặc vị trí chính xác của bạn. Mọi thứ được ẩn danh trong trình duyệt của bạn trước khi nó rời đi. Chúng tôi không thể xác định bạn từ dữ liệu ngay cả khi được yêu cầu.',
+			dnt:
+				'Trình duyệt của bạn đã bật Do Not Track. Không được chọn trước thay cho bạn. Bạn vẫn có thể chọn Có.',
+			no_thanks: 'Không, cảm ơn',
+			yes_help: 'Có, tôi sẽ giúp',
+			privacy_policy: 'Chính sách bảo mật'
+		},
+		share: {
+			button: 'Chia sẻ',
+			button_title: 'Chia sẻ hoặc tải cấu hình bản đồ',
+			dialog_aria: 'Chia sẻ cấu hình bản đồ',
+			close_aria: 'Đóng bảng chia sẻ',
+			share_label: 'Chia sẻ cấu hình này',
+			share_hint:
+				'Nhập mã này vào bất kỳ trình duyệt nào đang chạy cuộc kiểm toán để tải cấu hình này. Mã không bao giờ được đặt trong URL.',
+			load_label: 'Tải một cấu hình',
+			load_btn: 'Tải',
+			load_placeholder: 'alpine-eagle-banff',
+			copy: 'Sao chép',
+			copied: 'Đã sao chép!',
+			copy_failed: 'Thất bại',
+			unrecognised: 'Mã không được nhận dạng — kiểm tra chính tả.'
+		},
+		map: {
+			minority: 'Thiểu số',
+			majority: 'Đa số',
+			current: 'Hiện tại',
+			wasted: 'Lãng phí',
+			wasted_title: 'Đóng góp khoảng cách hiệu quả cho mỗi khu vực',
+			partisan: 'Đảng phái',
+			partisan_title:
+				'Tô màu mỗi khu vực theo kết quả đảng phái (UCP xanh / NDP cam)',
+			borders: 'Ranh giới',
+			flagged: 'Đã gắn cờ',
+			flagged_title:
+				'Tất cả 7 cấu hình được chủ tịch ủy ban Thẩm phán Miller gắn cờ — tự động chuyển sang bản đồ thiểu số',
+			help_aria: 'Trợ giúp bản đồ',
+			help_title: 'Cách sử dụng bản đồ',
+			pin_aria: 'Ghim bản đồ',
+			pin_title: 'Ghim bản đồ — ngăn tự động pan khi nhấp vào khu vực',
+			search_placeholder: 'Tìm khu vực…',
+			zoom_aria: 'Thu phóng bản đồ',
+			clear_aria: 'Xóa lựa chọn khu vực',
+			clear_title: 'Xóa lựa chọn',
+			va_hint: 'Nhấp vào trong khu vực này để xem kết quả điểm bỏ phiếu',
+			va_close_aria: 'Đóng chi tiết điểm bỏ phiếu',
+			va_close_title: 'Đóng',
+			object_title: 'Bản đồ khu vực bầu cử Alberta — độ phân giải đầy đủ',
+			ea_credit: 'Dữ liệu bản đồ:',
+			cc_title: 'Nội dung văn bản: CC BY-NC-SA 4.0',
+			cc_alt: 'Creative Commons BY-NC-SA 4.0',
+			votes_suffix: 'phiếu',
+			total_votes_suffix: 'tổng số phiếu',
+			pop_prefix: 'Dân số',
+			voting_areas_suffix: 'khu vực bỏ phiếu',
+			other_maps: 'Bản đồ khác',
+			unique_boundary: 'Ranh giới duy nhất cho bản đồ này',
+			in_person_votes: 'phiếu bầu trực tiếp (loại trừ Vote Anywhere)',
+			load_error_generic: 'Không thể tải bản đồ ranh giới. Hãy thử tải lại trang.',
+			load_error_map: 'Không thể tải bản đồ {key} — kiểm tra kết nối của bạn.',
+			context_minority: 'Đề xuất thiểu số 2026 · Kết quả bầu cử 2023',
+			context_majority: 'Đề xuất đa số 2026 · Kết quả bầu cử 2023',
+			context_2019: 'Ranh giới được ban hành 2019 · Kết quả bầu cử 2023',
+			tag_min: 'Th.s',
+			tag_maj: 'Đa',
+			tag_2019: '2019',
+			dev_notice:
+				'Map Explorer đang được phát triển trực tiếp liên tục và đôi khi có thể bị hỏng. Nếu có điều gì trông sai, hãy quay lại sau vài ngày — vấn đề có thể đã được giải quyết. Hoan nghênh các đề xuất: %s.',
+			dev_notice_email_label: 'gửi email cho tôi',
+			dev_notice_dismiss: 'Bỏ qua thông báo phát triển',
+			skel_1: 'Đang tải Map Explorer…',
+			skel_2: 'đang vẽ Alberta…',
+			skel_3: 'đang tính toán các con số…',
+			skel_4: 'đang đếm mọi phiếu bầu…',
+			skel_5: 'đang vẽ các ranh giới…',
+			skel_6: 'gần xong rồi…'
+		},
+		map_intro: {
+			heading: 'Cách sử dụng bản đồ',
+			click_district: 'Nhấp vào bất kỳ khu vực nào',
+			click_district_desc: 'xem kết quả bầu cử 2023 và snap vào nó',
+			click_within: 'Nhấp vào trong một khu vực đã chọn',
+			click_within_desc:
+				'xem kết quả điểm bỏ phiếu cá nhân (màu sắc = phân chia phiếu bầu)',
+			dblclick: 'Nhấp đúp vào một khu vực',
+			dblclick_desc:
+				'phóng to để lấp đầy màn hình; nhấp đúp vào khoảng trống để thu nhỏ',
+			layers_primary: 'Thiểu số / Đa số / Hiện tại',
+			layers_primary_desc: 'chuyển đổi bản đồ ranh giới đang hoạt động',
+			layers_data: 'Đảng phái / Lãng phí / Ranh giới',
+			layers_data_desc: 'bật/tắt các lớp dữ liệu',
+			search: 'Tìm khu vực',
+			search_desc: 'nhảy theo tên; phím mũi tên di chuyển, + / − thu phóng',
+			escape: 'Escape',
+			escape_desc: 'đóng trình xem này',
+			s4_tip:
+				'Trong §4, nhấp vào <em>Hiển thị các khu vực được gắn cờ trên bản đồ</em> để làm nổi bật sự chia Airdrie và khu vực NW Calgary.',
+			got_it: 'Đã hiểu'
+		},
+		footer: {
+			title: 'Kiểm toán Ranh giới Bầu cử Alberta — Tháng 5 năm 2026',
+			copyright: '© Will Conner 2026 —',
+			text_label: 'Văn bản:',
+			code_label: 'Mã:',
+			translation_label: 'Bản dịch:',
+			translation_credit: 'Anthropic Fable 5 (AI) — đang chờ đánh giá của người bản xứ'
+		}
+	}
+} as const;
