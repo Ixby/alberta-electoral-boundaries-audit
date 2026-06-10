@@ -66,15 +66,24 @@ export function mergeVaPaths(svgRoot: Element): void {
     const fill = m ? m[1].trim() : (p.getAttribute('fill') || '#808080');
     if (!byColor.has(fill)) byColor.set(fill, []);
     let d = p.getAttribute('d') || '';
-    // Subsequent subpaths in a compound path treat a leading 'm' as relative to the
-    // previous current point, not the SVG origin. Fix: make the moveto absolute (M)
-    // but insert an explicit 'l' so the implicit lineto commands that follow stay
-    // relative — changing 'm' to 'M' alone would flip them to absolute 'L', which
-    // draws lines toward the SVG origin instead.
+    // Subsequent subpaths in a compound path treat a leading 'm' as relative
+    // to the previous current point, not the SVG origin. Fix: make the moveto
+    // absolute (M). If the original path used 'm' as the start of an implicit
+    // lineto run (e.g. 'm x y X Y X Y …'), insert an explicit 'l ' so the
+    // implicit linetos stay relative. If the next token is an explicit
+    // command letter (e.g. 'm x y c …') do NOT insert 'l' — the previous
+    // unconditional 'l ' insertion produced 'l c …' (an 'l' with no
+    // coordinates), which renderers handle inconsistently and was the source
+    // of the pacman / triangle-wedge artifact at high zoom.
     if (d.charAt(0) === 'm') {
       const NUM = '[-+]?(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][-+]?\\d+)?';
       const moveRe = new RegExp('^m\\s*(' + NUM + ')[\\s,]+(' + NUM + ')\\s*');
-      d = d.replace(moveRe, 'M $1 $2 l ');
+      const match = d.match(moveRe);
+      if (match) {
+        const tail = d.slice(match[0].length);
+        const needsImplicitL = /^[-+0-9.]/.test(tail);
+        d = 'M ' + match[1] + ' ' + match[2] + ' ' + (needsImplicitL ? 'l ' : '') + tail;
+      }
     }
     if (d) byColor.get(fill)!.push(d);
   }
@@ -83,6 +92,13 @@ export function mergeVaPaths(svgRoot: Element): void {
     const cp = doc.createElementNS(ns, 'path');
     cp.setAttribute('d', ds.join(' '));
     cp.setAttribute('style', 'fill:' + fill);
+    // evenodd defends against the other half of the pacman artifact: when
+    // multiple same-colour polygons in the merged compound path have mixed
+    // winding directions, the default nonzero fill rule cancels at shared
+    // edges and produces visible wedges. The Alberta VAs are
+    // geographically disjoint, so evenodd's "every subpath fills
+    // independently" rule is the semantically correct choice.
+    cp.setAttribute('fill-rule', 'evenodd');
     g.appendChild(cp);
   }
 }
@@ -116,6 +132,21 @@ export function activateInlineSVG(
       p.style.pointerEvents = 'all';
     });
   }
+
+  // Strip redundant clip-path attributes from every path. Matplotlib decorates
+  // each of its ~7,300 output paths with `clip-path="url(#…)"` referencing a
+  // single view-boundary rect — but the SVG viewBox already enforces the same
+  // boundary. Firefox re-evaluates the clip-rect intersection against every
+  // path on every frame even during compositor-only CSS transform updates,
+  // which is the primary source of mobile/desktop Firefox drag lag on this
+  // SVG (chrome / blink caches the result; Firefox does not).
+  // `applyBoundaryColor` strips clip-path from LineCollection_1's paths
+  // separately when the boundary colour is set; this is the bulk strip for
+  // the other ~5,000 paths (PatchCollection_2 + ed_hover_layer +
+  // PatchCollection_1).
+  node.querySelectorAll<SVGElement>('[clip-path]').forEach(function(el) {
+    el.removeAttribute('clip-path');
+  });
 
   const vb = node.viewBox.baseVal;
   if (vb.width && vb.height) {

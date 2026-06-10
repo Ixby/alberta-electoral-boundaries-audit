@@ -79,8 +79,14 @@ function _applyVB(ctx: MapCtx, vb: ViewBox): void {
   if (ctx.rafId === null) {
     ctx.rafId = requestAnimationFrame(() => {
       ctx.rafId = null;
+      // translate3d (not translate) forces Firefox to promote the SVG
+      // element to a compositor layer — without the Z component Firefox
+      // does NOT reliably treat the transform as a composite-only update
+      // on SVG elements with many child paths, and every frame becomes a
+      // full SVG repaint instead of a GPU translate. Chrome promotes
+      // either way, so this is invisible there.
       if (ctx.svgEl) ctx.svgEl.style.transform =
-        `translate(${ctx.pendingTx}px,${ctx.pendingTy}px) scale(${ctx.pendingSx})`;
+        `translate3d(${ctx.pendingTx}px,${ctx.pendingTy}px,0) scale(${ctx.pendingSx})`;
       _updateZoomDisplay(ctx);
     });
   }
@@ -269,8 +275,8 @@ export function animateToVB(ctx: MapCtx, targetVB: ViewBox, dur: number): void {
     const { rw, rh, ox, oy } = _renderBounds(ctx);
     const sx = settledVB.w / cur.w;
     svgEl.style.transform =
-      `translate(${(settledVB.x - cur.x)*rw/cur.w + ox*(1-sx)}px,` +
-      `${(settledVB.y - cur.y)*rh/cur.h + oy*(1-sx)}px) scale(${sx})`;
+      `translate3d(${(settledVB.x - cur.x)*rw/cur.w + ox*(1-sx)}px,` +
+      `${(settledVB.y - cur.y)*rh/cur.h + oy*(1-sx)}px,0) scale(${sx})`;
     _updateZoomDisplay(ctx);
     if (t < 1) { requestAnimationFrame(step); }
     else { ctx.settleTimer = setTimeout(() => _doSettle(ctx), SETTLE_MS); }
