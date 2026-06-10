@@ -7,6 +7,7 @@ import type { MapCtx, MapKey } from './types';
 import { DOM_IDS } from './domIds';
 import { awaitReady } from './readyState';
 import { STR } from './strings';
+import { clearEdHighlight } from './edInteraction';
 
 type SearchDeps = {
   showCallout:       (rec: any) => void;
@@ -35,6 +36,7 @@ export function initSearch(ctx: MapCtx, deps: SearchDeps): void {
     _srActive = Math.max(0, Math.min(items.length - 1, newIdx));
     items.forEach(function(li, i) { li.classList.toggle('sr-active', i === _srActive); });
     items[_srActive].scrollIntoView({ block: 'nearest' });
+    _previewHighlight(items[_srActive]);
   }
 
   function _srSelect(li: HTMLLIElement | null) {
@@ -69,25 +71,46 @@ export function initSearch(ctx: MapCtx, deps: SearchDeps): void {
     }
   }
 
-  searchInput.addEventListener('input', function() {
-    const q = searchInput.value.trim().toLowerCase();
+  // ── Live map highlight while browsing the list ────────────────────────────
+  // As the user hovers or arrow-keys through entries, the corresponding
+  // district lights up on the map (no viewport snap — just the glow), so
+  // scrolling the list doubles as a tour of the map. Entries from other
+  // maps can't be highlighted without a map switch and are skipped.
+  function _previewHighlight(li: HTMLLIElement | null) {
+    if (!li || !ctx.svgEl) return;
+    const name = li.dataset.edName || '';
+    const fromMap = li.dataset.edMap as MapKey | undefined;
+    if (fromMap && fromMap !== ctx.mapPrimary) { _restoreSelectionHighlight(); return; }
+    const idx2 = ctx.mapPrimary ? ctx.nameIndex[ctx.mapPrimary] : null;
+    const rec = idx2 ? idx2[name] : null;
+    if (!rec) return;
+    const path = ctx.svgEl.querySelector<SVGGraphicsElement>('#ed_hover_layer path[data-ed-id="' + rec.id + '"]');
+    if (path) setEdHighlight(path);
+  }
+
+  // On dropdown close (without selection), restore the highlight to the
+  // currently selected district if there is one; otherwise clear the
+  // transient preview glow.
+  function _restoreSelectionHighlight() {
+    if (!ctx.svgEl) return;
+    if (ctx.selectedEdName && ctx.mapPrimary) {
+      const idx2 = ctx.nameIndex[ctx.mapPrimary];
+      const rec = idx2 ? idx2[ctx.selectedEdName] : null;
+      const path = rec ? ctx.svgEl.querySelector<SVGGraphicsElement>('#ed_hover_layer path[data-ed-id="' + rec.id + '"]') : null;
+      if (path) { setEdHighlight(path); return; }
+    }
+    clearEdHighlight(ctx);
+  }
+
+  function _closeDropdown() {
+    searchResults!.style.display = 'none';
+    _srActive = -1;
+    _restoreSelectionHighlight();
+  }
+
+  function _renderResults(results: Array<{ name: string; map: MapKey }>) {
     searchResults!.innerHTML = '';
     _srActive = -1;
-    if (q.length < 2) { searchResults!.style.display = 'none'; return; }
-    const seen = new Set<string>();
-    let results: Array<{ name: string; map: MapKey }> = [];
-    const mapOrder = ([ctx.mapPrimary, 'minority', 'majority', '2019'] as Array<MapKey | null>).filter(
-      function(k, i, a) { return k !== null && a.indexOf(k) === i; }
-    ) as MapKey[];
-    mapOrder.forEach(function(k) {
-      const idx2 = ctx.nameIndex[k] || {};
-      Object.keys(idx2).forEach(function(n) {
-        if (n.toLowerCase().indexOf(q) !== -1 && !seen.has(n)) {
-          seen.add(n); results.push({ name: n, map: k });
-        }
-      });
-    });
-    results = results.slice(0, 12);
     if (!results.length) { searchResults!.style.display = 'none'; return; }
     results.forEach(function(r) {
       const li = document.createElement('li');
@@ -107,10 +130,48 @@ export function initSearch(ctx: MapCtx, deps: SearchDeps): void {
       li.addEventListener('mouseover', function() {
         _srActive = _srItems().indexOf(li);
         _srItems().forEach(function(item) { item.classList.toggle('sr-active', item === li); });
+        _previewHighlight(li);
       });
       searchResults!.appendChild(li);
     });
-    searchResults.style.display = 'block';
+    searchResults!.style.display = 'block';
+  }
+
+  function _collectResults(q: string): Array<{ name: string; map: MapKey }> {
+    const seen = new Set<string>();
+    const results: Array<{ name: string; map: MapKey }> = [];
+    const mapOrder = ([ctx.mapPrimary, 'minority', 'majority', '2019'] as Array<MapKey | null>).filter(
+      function(k, i, a) { return k !== null && a.indexOf(k) === i; }
+    ) as MapKey[];
+    mapOrder.forEach(function(k) {
+      const idx2 = ctx.nameIndex[k] || {};
+      Object.keys(idx2).forEach(function(n) {
+        if ((q === '' || n.toLowerCase().indexOf(q) !== -1) && !seen.has(n)) {
+          seen.add(n); results.push({ name: n, map: k });
+        }
+      });
+    });
+    // Alphabetical within each map group keeps the full-list browse sane;
+    // primary-map entries naturally sort first because they were seen first.
+    results.sort(function(a, b) {
+      const aPrimary = a.map === ctx.mapPrimary ? 0 : 1;
+      const bPrimary = b.map === ctx.mapPrimary ? 0 : 1;
+      if (aPrimary !== bPrimary) return aPrimary - bPrimary;
+      return a.name.localeCompare(b.name);
+    });
+    return results;
+  }
+
+  // Focus (or click into) the empty search box → show the full scrollable
+  // riding list so users can browse without knowing any names. The list
+  // is capped only by the dropdown's own max-height + scroll.
+  searchInput.addEventListener('focus', function() {
+    if (searchInput.value.trim() === '') _renderResults(_collectResults(''));
+  });
+
+  searchInput.addEventListener('input', function() {
+    const q = searchInput.value.trim().toLowerCase();
+    _renderResults(_collectResults(q));
   });
 
   searchInput.addEventListener('keydown', function(e) {
@@ -129,18 +190,15 @@ export function initSearch(ctx: MapCtx, deps: SearchDeps): void {
       if (target) _srSelect(target);
     } else if (e.key === 'Escape') {
       searchInput.value = '';
-      searchResults!.style.display = 'none';
-      _srActive = -1;
+      _closeDropdown();
     } else if (e.key === 'Tab') {
-      searchResults!.style.display = 'none';
-      _srActive = -1;
+      _closeDropdown();
     }
   });
 
   document.addEventListener('click', function(e) {
     if (e.target !== searchInput && !searchResults!.contains(e.target as Node)) {
-      searchResults!.style.display = 'none';
-      _srActive = -1;
+      _closeDropdown();
     }
   });
 }
