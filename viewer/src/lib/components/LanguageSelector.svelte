@@ -130,9 +130,24 @@
 		border: 1px solid var(--border, currentColor);
 		border-radius: 6px;
 		min-width: 13rem;
+		max-height: min(70vh, 26rem);
+		overflow-y: auto;
+		overscroll-behavior: contain;
 		z-index: 50;
 		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 		animation: lang-menu-in 0.12s ease-out;
+		scrollbar-width: thin;
+		scrollbar-color: rgba(127, 127, 127, 0.4) transparent;
+	}
+	.lang-menu::-webkit-scrollbar {
+		width: 8px;
+	}
+	.lang-menu::-webkit-scrollbar-thumb {
+		background: rgba(127, 127, 127, 0.4);
+		border-radius: 4px;
+	}
+	.lang-menu::-webkit-scrollbar-thumb:hover {
+		background: rgba(127, 127, 127, 0.6);
 	}
 	@keyframes lang-menu-in {
 		from { opacity: 0; transform: translateY(-4px); }
