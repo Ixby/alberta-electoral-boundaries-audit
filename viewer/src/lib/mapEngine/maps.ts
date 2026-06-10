@@ -8,6 +8,8 @@ import { mergeVaPaths } from './svgLoader';
 import { showVaCallout } from './edInteraction';
 import { DOM_IDS } from './domIds';
 import { notifyReady } from './readyState';
+import { MAP_ACCENT_COLORS as ACCENT_COLORS } from './constants';
+export { MAP_ACCENT_COLORS } from './constants';
 
 type MapsDeps = {
   svgUrls:              Record<MapKey, string>;
@@ -21,12 +23,6 @@ type MapsDeps = {
   emit:                 MapEngineEventHandler;
 };
 
-export const MAP_ACCENT_COLORS: Record<MapKey, string> = {
-  minority: '#6B35A7',
-  majority: '#1A7A6E',
-  '2019':   '#7a98b4',
-};
-
 const MAP_CONTEXT_LABELS: Record<MapKey, string> = {
   minority: '2026 minority proposal · 2023 election results',
   majority: '2026 majority proposal · 2023 election results',
@@ -37,7 +33,7 @@ const MAP_CONTEXT_LABELS: Record<MapKey, string> = {
 
 export function applyBoundaryColor(ctx: MapCtx, svgNode: Element | null, mapKey: MapKey | null): void {
   if (!svgNode || !mapKey) return;
-  const color = MAP_ACCENT_COLORS[mapKey] || '#555';
+  const color = ACCENT_COLORS[mapKey] || '#555';
   const g = svgNode.querySelector('#ed_boundary_layer');
   if (!g) { console.warn('[map] ed_boundary_layer not found in SVG'); return; }
   // Hide direct-child polygon outlines — only LineCollection_1 draws each boundary once.
@@ -80,7 +76,7 @@ export function extractBoundaryGroup(ctx: MapCtx, key: MapKey): Element | null {
     : Array.from(clone.querySelectorAll<SVGPathElement>('path'));
   targets.forEach(function(p) {
     p.removeAttribute('clip-path');
-    p.style.stroke = MAP_ACCENT_COLORS[key] || '#555';
+    p.style.stroke = ACCENT_COLORS[key] || '#555';
     p.style.strokeWidth = String(sw);
     p.style.strokeOpacity = '0.55';
     p.style.fill = 'none';

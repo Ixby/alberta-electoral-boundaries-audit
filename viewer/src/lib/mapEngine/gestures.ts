@@ -5,7 +5,7 @@
 // No promises, no async, no closures that re-allocate on each event.
 
 import type { MapCtx, ViewBox } from './types';
-import { vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, animateToVB as vpAnimateToVB, getStageRect as vpGetStageRect } from './viewport';
+import { vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, vbPinch as vpVbPinch, animateToVB as vpAnimateToVB, getStageRect as vpGetStageRect, commitSettle as vpCommitSettle } from './viewport';
 import { tipTarget, vaTarget, showTip, hideTip, showCallout, hideCallout, showVaCallout, hideVaCallout, setEdHighlight, snapToED, zoomEdTo70 } from './edInteraction';
 import { DOM_IDS } from './domIds';
 
@@ -57,6 +57,7 @@ export function initGestures(ctx: MapCtx, stage: HTMLElement): void {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
     ctx.ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
     try { stage.setPointerCapture(e.pointerId); } catch (_) {}
+    ctx.gestureActive = true;
     if (ctx.ptrs.size === 2) {
       if (ctx.drag) { ctx.drag = null; stage.classList.remove('dragging'); }
       hideTip();
@@ -76,8 +77,15 @@ export function initGestures(ctx: MapCtx, stage: HTMLElement): void {
 
     if (ctx.ptrs.size >= 2) {
       const dist = _ptrDist(), mid = _ptrMid(), r = _getStageRect();
-      if (ctx.lastPinchDist && dist > 0) zoomAt(mid.x - r.left, mid.y - r.top, dist / ctx.lastPinchDist);
-      if (ctx.lastPinchMid) vpVbPanBy(ctx, mid.x - ctx.lastPinchMid.x, mid.y - ctx.lastPinchMid.y);
+      // Single composite pinch transform — replaces what used to be two
+      // sequential calls (zoomAt + panBy) per pointermove. The composite
+      // formulation in viewport.vbPinch reads stage.curVB exactly once and
+      // writes exactly one updated viewBox + RAF, so iOS's coalesced or
+      // out-of-order pointermove events can't desync the zoom and pan
+      // half-steps against each other.
+      if (ctx.lastPinchDist && ctx.lastPinchMid) {
+        vpVbPinch(ctx, ctx.lastPinchMid, ctx.lastPinchDist, mid, dist, r.left, r.top);
+      }
       ctx.lastPinchDist = dist; ctx.lastPinchMid = mid;
       return;
     }
@@ -99,6 +107,12 @@ export function initGestures(ctx: MapCtx, stage: HTMLElement): void {
     ctx.ptrs.delete(e.pointerId);
     try { stage.releasePointerCapture(e.pointerId); } catch (_) {}
     if (ctx.ptrs.size < 2) { ctx.lastPinchDist = null; ctx.lastPinchMid = null; }
+    if (ctx.ptrs.size === 0) {
+      // All fingers up → end of gesture. Settle to commit viewBox now
+      // (the in-gesture suppression in _applyVB means no timer was queued).
+      ctx.gestureActive = false;
+      vpCommitSettle(ctx);
+    }
     if (!ctx.drag || ctx.drag.id !== e.pointerId) return;
     stage.classList.remove('dragging');
     if (!ctx.dragMoved) {
@@ -153,6 +167,7 @@ export function initGestures(ctx: MapCtx, stage: HTMLElement): void {
     ctx.ptrs.delete(e.pointerId);
     if (ctx.drag && ctx.drag.id === e.pointerId) { ctx.drag = null; stage.classList.remove('dragging'); }
     if (ctx.ptrs.size < 2) { ctx.lastPinchDist = null; ctx.lastPinchMid = null; }
+    if (ctx.ptrs.size === 0) { ctx.gestureActive = false; vpCommitSettle(ctx); }
   });
 
   stage.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') hideTip(); });

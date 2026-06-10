@@ -76,6 +76,10 @@ export type MapCtx = {
   lastPinchDist:      number | null;
   lastPinchMid:       { x: number; y: number } | null;
   lastTap:            number;
+  // True while at least one pointer is down with active map manipulation
+  // (drag or pinch). Used to suppress the settle-timer commit that would
+  // re-rasterize the SVG mid-gesture and cause a visible jump.
+  gestureActive:      boolean;
 
   // Ready signalling: callbacks waiting for the next ready=true transition.
   // Drained by notifyReady() from activateInlineSVG / doSwitchPrimary.

@@ -105,6 +105,7 @@ export function init(basePath: string): void {
           lastPinchDist:      null,
           lastPinchMid:       null,
           lastTap:            0,
+          gestureActive:      false,
 
           // Ready-state signalling
           readyWaiters:       [],

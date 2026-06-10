@@ -5,8 +5,19 @@
 // No dependency on viewport, gestures, or the event bridge (_emit is a callback).
 
 import type { MapCtx, MapEngineEventHandler, LayerKey, MapKey } from './types';
+import { MAP_ACCENT_COLORS, MAP_ACCENT_FILL_ALPHA } from './constants';
 
 type EdHoverRec = { id: number; ucp_pct: number; ndp_pct: number; ucp_votes?: number; ndp_votes?: number; votes?: number };
+
+// "#6B35A7" → "rgba(107, 53, 167, alpha)". The accent palette is hex so we
+// parse once per call; with three accents this is the right scale of cheap.
+function _hexToRgba(hex: string, alpha: number): string {
+  const h = hex.replace('#', '');
+  const r = parseInt(h.slice(0, 2), 16);
+  const g = parseInt(h.slice(2, 4), 16);
+  const b = parseInt(h.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
 
 export function applyVoteLayer(ctx: MapCtx, on: boolean): void {
   if (!ctx.svgEl) return;
@@ -15,12 +26,20 @@ export function applyVoteLayer(ctx: MapCtx, on: boolean): void {
 }
 
 export function applyEdFillLayer(ctx: MapCtx, on: boolean): void {
-  if (!ctx.svgEl || !ctx.edHover) return;
+  if (!ctx.svgEl) return;
   const edHover = ctx.edHover;
   const g = ctx.svgEl.querySelector('#ed_hover_layer');
   if (!g) return;
+  // Off-state fill: the active map's accent at low opacity, so a viewer
+  // can read "this is the minority view" / "this is the majority view" at
+  // a glance regardless of which other layers are toggled. The partisan
+  // (on=true) and EG (applyEGLayer) overlays paint on top of this when
+  // their toggles fire, so the accent only shows when nothing else is
+  // colouring the ED.
+  const accentHex = ctx.mapPrimary ? MAP_ACCENT_COLORS[ctx.mapPrimary] : '#8a8a8a';
+  const offFill = _hexToRgba(accentHex, MAP_ACCENT_FILL_ALPHA);
   g.querySelectorAll<SVGPathElement>('[data-ed-id]').forEach(function(p) {
-    if (on) {
+    if (on && edHover) {
       const id = parseInt(p.getAttribute('data-ed-id') || '0', 10);
       const rec = edHover[id] as EdHoverRec | undefined;
       if (rec) {
@@ -28,8 +47,10 @@ export function applyEdFillLayer(ctx: MapCtx, on: boolean): void {
         const pct = Math.max(rec.ucp_pct, rec.ndp_pct);
         const a = (0.15 + Math.min((pct - 50) / 35, 1) * 0.5).toFixed(2);
         p.style.fill = isUCP ? 'rgba(20,46,148,' + a + ')' : 'rgba(232,99,16,' + a + ')';
+      } else {
+        p.style.fill = offFill;
       }
-    } else { p.style.fill = 'rgba(180,180,180,0.10)'; }
+    } else { p.style.fill = offFill; }
   });
 }
 
