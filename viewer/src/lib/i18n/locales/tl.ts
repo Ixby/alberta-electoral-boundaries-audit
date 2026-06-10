@@ -98,7 +98,7 @@ export default {
 	boundary: {
 		heading: 'Kung ano ang masasabi at hindi masasabi ng audit na ito',
 		can_1:
-			'Mas mababa sa 1 sa 14.5 milyong random na nilikhang mga mapa ng paghahambing ang nagprodyus ng mga pattern na kasinghirap ng panukala ng minorya sa lahat ng apat na estadistikong sukat na pinagsama.',
+			'Mas mababa sa 1 sa 350,000g random na nilikhang mga mapa ng paghahambing ang nagprodyus ng mga pattern na kasinghirap ng panukala ng minorya sa lahat ng apat na estadistikong sukat na pinagsama.',
 		can_2:
 			'Ang panukala ng minorya ay bumagsak sa 4 sa 5 pre-registered na istrukturang pagsusulit; ang ikalima (anchoring) ay neutral — ang parehong mapa ay nasa loob ng pamantayang Canadian. Ang panukala ng mayorya ay bumagsak sa 0 sa 4 na tumama.',
 		can_3:

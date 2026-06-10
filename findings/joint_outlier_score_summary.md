@@ -78,20 +78,18 @@ The majority map's drain_score (0.0002) is significantly *below* the null mean (
 
 ---
 
-## Fisher Combined (Channels 1 + 2, minority only)
+## Joint statistic (Channels 1 + 2, minority only) — revised 2026-06-10
 
 | Channel | p-value |
 | --- | --- |
 | Partisan joint (Mahalanobis) | 1.40×10⁻⁶ |
 | SZAT bootstrap | 0.0024 |
-| **Fisher combined** | **6.87×10⁻⁸** |
+| **Dependence-robust upper bound (Bonferroni, 2 × min p)** | **≤ 2.80×10⁻⁶** |
+| Earlier Fisher combination (now retired as headline; superseded) | 6.87×10⁻⁸ |
 
-Fisher T = 39.02, chi-sq df = 4.
+Fisher T = 39.02, chi-sq df = 4. **The Fisher figure assumes Ch1 ⊥ Ch2 and is anti-conservative under positive dependence (Brown 1975).** Ch1's Mahalanobis vector includes the efficiency gap; Ch2 (SZAT) *is* an efficiency-gap decomposition on the same vote substrate. The two channels are not independent — they share underlying 2023 vote-attribution data and overlap in the EG dimension specifically — so the audit's reported joint headline is now the Bonferroni upper bound (p ≤ 2.80×10⁻⁶, ≈ 1 in 357,000), which is valid under arbitrary dependence between the channels. A dependence-aware combination (Brown's scaled χ² or the Cauchy combination per Liu & Xie 2020) is listed as future work in the monograph §10.2.
 
-**Reading:** p = 6.87×10⁻⁸ is the probability that a neutral-draw process
-produces a map simultaneously this extreme on both the partisan feature vector and
-the swing-zone boundary allocation. Under the neutral null, this combination
-occurs roughly once in every 15 million draws.
+**Reading:** p ≤ 2.80×10⁻⁶ is the dependence-robust upper bound on the probability that a neutral-draw process produces a map simultaneously this extreme on both the partisan feature vector (Mahalanobis distance) and the swing-zone boundary allocation. Under the neutral ReCom reference distribution (which does not enforce every statutory criterion the commission worked under), this joint event occurs at most about once in every 357,000 draws.
 
 ---
 
@@ -109,8 +107,9 @@ occurs roughly once in every 15 million draws.
 
 The duck test made precise: the minority map's four-dimensional partisan feature
 vector sits at Mahalanobis distance 5.72 from the canonical 1M ensemble centre
-(p = 1.40×10⁻⁶). Combined with the SZAT result (p = 0.0024) and Fisher's
-method, the joint neutral-null probability is p = 6.87×10⁻⁸.
+(p = 1.40×10⁻⁶). Combined with the SZAT result (p = 0.0024) under the
+dependence-robust Bonferroni bound, the joint neutral-null upper bound is
+p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000).
 
 Three metrics individually flag above the 95th percentile (MM p99.98, Decl p1.21 NDP-tail, seats@50/50 p99.99). EG at p94.4 does not individually flag but contributes to the joint Mahalanobis distance.
 
