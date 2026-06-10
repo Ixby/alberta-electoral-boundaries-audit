@@ -5,7 +5,7 @@
 // No promises, no async, no closures that re-allocate on each event.
 
 import type { MapCtx, ViewBox } from './types';
-import { vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, vbPinch as vpVbPinch, animateToVB as vpAnimateToVB, getStageRect as vpGetStageRect, commitSettle as vpCommitSettle } from './viewport';
+import { vbZoomAt as vpVbZoomAt, vbPanBy as vpVbPanBy, vbPinch as vpVbPinch, animateToVB as vpAnimateToVB, getStageRect as vpGetStageRect, commitSettle as vpCommitSettle, rasterIsStale as vpRasterIsStale } from './viewport';
 import { tipTarget, vaTarget, showTip, hideTip, showCallout, hideCallout, showVaCallout, hideVaCallout, setEdHighlight, snapToED, zoomEdTo70 } from './edInteraction';
 import { DOM_IDS } from './domIds';
 
@@ -55,6 +55,13 @@ export function initGestures(ctx: MapCtx, stage: HTMLElement): void {
   stage.addEventListener('pointerdown', e => {
     if (!ctx.ready) return;
     if (e.pointerType === 'mouse' && e.button !== 0) return;
+    // Pre-settle if the cached raster scale is significantly different from
+    // the current viewBox scale. Without this, a drag at 30× zoom over a
+    // raster cached at 1× makes the GPU stretch a stale, low-resolution
+    // layer every frame — that's the "drag feels heavy" symptom at extreme
+    // zoom. The settle is cheap at extreme zoom because only the small
+    // visible viewBox region needs rendering.
+    if (ctx.ptrs.size === 0 && vpRasterIsStale(ctx)) vpCommitSettle(ctx);
     ctx.ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
     try { stage.setPointerCapture(e.pointerId); } catch (_) {}
     ctx.gestureActive = true;

@@ -13,17 +13,30 @@
 import type { MapCtx, ViewBox, MapKey } from './types';
 import { DOM_IDS } from './domIds';
 
-const SETTLE_MS = 250;
+const SETTLE_MS = 150;
+// Above this ratio between current scale and the cached "settled" scale we
+// pre-settle on pointerdown so a drag at extreme zoom starts on a fresh
+// raster instead of stretching a stale-scale layer 30× per frame on the GPU.
+const STALE_SCALE_RATIO = 2.0;
 
-// ── Internal helpers ──────────────────────────────────────────────────────────
+// ── Cached DOM element refs ───────────────────────────────────────────────────
+// _updateZoomDisplay used to do two getElementById calls per RAF. At 60Hz
+// that's 120 DOM lookups/second + a slider.value write that triggers a tiny
+// reflow of the slider thumb. Cache the lookups and skip the slider write
+// when the value hasn't actually changed.
+let _cachedZoomPctEl: HTMLElement | null = null;
+let _cachedZoomSlider: HTMLInputElement | null = null;
+let _lastDisplayedPct = -1;
 
 function _updateZoomDisplay(ctx: MapCtx): void {
   if (!ctx.natVB || !ctx.curVB) return;
   const pct = Math.round(ctx.natVB.w / ctx.curVB.w * 100);
-  const el  = document.getElementById(DOM_IDS.zoomPct);
-  const sl  = document.getElementById(DOM_IDS.zoomSlider) as HTMLInputElement | null;
-  if (el) el.textContent = pct + '%';
-  if (sl) sl.value = String(Math.min(3000, Math.max(25, pct)));
+  if (pct === _lastDisplayedPct) return; // pure pan → nothing to update
+  _lastDisplayedPct = pct;
+  if (_cachedZoomPctEl === null) _cachedZoomPctEl = document.getElementById(DOM_IDS.zoomPct);
+  if (_cachedZoomSlider === null) _cachedZoomSlider = document.getElementById(DOM_IDS.zoomSlider) as HTMLInputElement | null;
+  if (_cachedZoomPctEl) _cachedZoomPctEl.textContent = pct + '%';
+  if (_cachedZoomSlider) _cachedZoomSlider.value = String(Math.min(3000, Math.max(25, pct)));
 }
 
 function _renderBounds(ctx: MapCtx): { rw: number; rh: number; ox: number; oy: number } {
@@ -82,12 +95,24 @@ function _applyVB(ctx: MapCtx, vb: ViewBox): void {
   ctx.settleTimer = setTimeout(() => _doSettle(ctx), SETTLE_MS);
 }
 
-// Kept as a no-op shim for the call site in gestures.ts pointerup — the
-// natural settle timer in _applyVB handles end-of-gesture settle correctly
-// on its own; calling _doSettle synchronously on pointerup forced an
-// unnecessary extra re-rasterize on every finger-lift.
-export function commitSettle(_ctx: MapCtx): void {
-  // intentionally empty
+// Synchronous settle. Called from gestures.ts pointerdown when the cached
+// raster scale is significantly different from where the user is currently
+// looking — without this, panning at 30× zoom over a raster cached at 1×
+// makes the GPU stretch a stale layer every frame, which is the actual
+// source of the "drag feels heavy" symptom at extreme zoom.
+export function commitSettle(ctx: MapCtx): void {
+  if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
+  _doSettle(ctx);
+}
+
+// True when the current viewBox scale is significantly different from the
+// scale of the raster layer the browser has cached. The 2× ratio is the
+// point at which GPU stretching of the stale layer starts being noticeably
+// blurry/expensive on mobile.
+export function rasterIsStale(ctx: MapCtx): boolean {
+  if (!ctx.settledVB || !ctx.curVB) return false;
+  const ratio = ctx.settledVB.w / ctx.curVB.w;
+  return ratio >= STALE_SCALE_RATIO || ratio <= 1 / STALE_SCALE_RATIO;
 }
 
 function _zoomToPct(ctx: MapCtx, pct: number): void {
