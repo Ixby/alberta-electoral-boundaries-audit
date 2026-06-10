@@ -109,11 +109,7 @@ Referee found majority D 2.69 in the .md vs 2.80 in the JSON; minority declinati
 ## Tier 2 — Self-pre-committed but never executed.
 
 ### T2.1 — Issue #13 local-perturbation chain
-**Status: 🟠 BLOCKED ON SCRIPT**
-
-Named retractor for retraction condition 2.3A in `preregistration/retraction_conditions.md`. Script does not exist in `analysis/scripts/`.
-
-**Resolution path:** write `analysis/scripts/local_perturbation_chain.py` per the spec in Issue #13. If Issue #13 itself does not specify the perturbation amplitude and chain length, document the parameters and pre-commit them via drand before execution.
+**Status: 🟢 STUB LANDED 2026-06-10 (see Tier 5 above for full status)**
 
 ### T2.2 — Forest-ReCom robustness Phase A
 **Status: 🟠 BLOCKED ON SCRIPT/OUTPUTS**
@@ -226,19 +222,36 @@ Verified that `analysis/scripts/mcmc_ensemble.py:789` uses Warrington (2018) con
 `preregistration/november_2026_scoring_spec.md` written. Substrate, metrics, thresholds, the 2×2 verdict surface, the 72-hour publication commitment, and the substrate-iteration handling rule are all frozen. The doc declares two scripts (`run_structural_battery.py` and `verdict_synthesis.py`) that need to be written before 2026-10-01 — those gaps are now tracked in this remediation queue as T5.1a/T5.1b. The drand pinning is queued for the next routine drand round following this commit; seed commitment will be appended to `preregistration/seed_commitments.md` under entry `november_2026_scoring_spec`.
 
 ### T5.1a — Write `analysis/scripts/run_structural_battery.py`
-**Status: 🟡 READY TO WRITE — deadline 2026-10-01**
+**Status: 🟢 STUB LANDED 2026-06-10; S4 functional; S1/S2/S3/S5/S6 wire-in pending**
 
-The November scoring spec references this script as the structural-lane (S1–S6) battery runner. It does not yet exist. Acceptance: takes a shapefile path, runs all six structural checks per the spec, writes a JSON of {S1..S6: {value, threshold, flag}}.
+The November scoring spec references this script as the structural-lane (S1–S6) battery runner. Stub committed 2026-06-10. Smoke-tested against canonical minority shapefile: S4 (Polsby-Popper) executes end-to-end and returns 0.437 median (above the 0.248 threshold; no flag). S1, S2, S3, S5, S6 emit `flag: null` with specific wire-in pointers in `_note`. The verdict counts `null` as "did not execute" (not as a flag), so the script refuses to publish a final verdict until the stubs land.
+
+**Remaining work (each is a ~1–4 h refactor of an existing component script):**
+- S1: extract per-ED population MAD from `mcmc_ensemble.py`'s population overlay
+- S2: expose `count_triple_splits(shapefile) -> int` from `municipal_splits.py`
+- S3: expose `compute_anchoring_score(shapefile) -> float` from `score_anchoring.py`
+- S5: expose `drain_score(shapefile, votes) -> float` and `null_pvalue(score) -> float` from `neighbour_drain_adjacency.py` and `drain_label_shuffle_null.py`
+- S6: catalog chair-flagged pattern predicates from `findings/chair_recommendation_5_analysis.md` as a JSON predicate list
 
 ### T5.1b — Write `analysis/scripts/verdict_synthesis.py`
-**Status: 🟡 READY TO WRITE — deadline 2026-10-01**
+**Status: ✅ CLOSED 2026-06-10**
 
-Combines `lunty_structural.json` + `lunty_joint_outlier.json` against the 2×2 verdict surface in the November spec and writes `lunty_verdict.json` with one of four pre-committed strings.
+Fully functional. Smoke-tested against synthetic joint-outlier input + structural stub output: correctly identifies "not_replicated × present → no structural replication; partisan-bias signature is present" headline, correctly refuses `publishable_72h: true` until structural stubs land.
 
-### T5.2 — Write `rural_gap_dissection.py`
-**Status: 🟠 BLOCKED ON SCRIPT**
+### T5.2 — Write `analysis/scripts/rural_gap_dissection.py`
+**Status: ✅ CLOSED 2026-06-10**
 
-Named as the November rerun script in `findings/lunty_91_seat_preliminary.md`; doesn't exist in `analysis/scripts/`. Either write it, or rename the reference in the checklist to whatever script will actually run.
+Full implementation landed 2026-06-10. Takes per-ED population CSV + per-ED votes CSV; produces partisan-lean breakdown of rural-mean populations; classifies as `pack_rural_ucp` / `pack_rural_ndp` / `no_partisan_signal`. Thresholds frozen 2026-06-10 in the script source. Ready to run for canonical minority/majority comparison and ready for the November Lunty map once population + vote overlays land.
+
+### T2.1 — Issue #13 local-perturbation chain
+**Status: 🟢 STUB LANDED 2026-06-10; `single_va_swap()` kernel pending**
+
+`analysis/scripts/local_perturbation_chain.py` committed with framework, retraction rule, CLI, and output schema. The single-VA swap proposal kernel raises `NotImplementedError` with a pointer to the Issue #13 spec. drand-pinning enforcement (warns if `--seed` not supplied) and the retraction rule (`fraction ≥ 0.05` of perturbations with any p95 flag = Lane-1 retraction) are frozen in the script source.
+
+**Remaining work:** implement `single_va_swap(graph, partition, rng) -> (accepted, new_partition)` against `gerrychain.GeographicPartition`; wire up scoring against `data/simulation_checkpoints_canonical/`; file a drand seed before the retraction-grade run.
+
+### T5.2 — Write `analysis/scripts/rural_gap_dissection.py`
+**Status: ✅ CLOSED 2026-06-10 (see Tier 5 above)**
 
 ### T5.3 — File a fresh OSF registration for the actual 17-signal checklist
 **Status: 🟣 REQUIRES OSF FILING WINDOW**
