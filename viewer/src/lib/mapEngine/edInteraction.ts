@@ -6,6 +6,7 @@
 
 import type { MapCtx, MapEngineEventHandler, MapKey, ViewBox } from './types';
 import { DOM_IDS } from './domIds';
+import { STR } from './strings';
 
 const _fmt = new Intl.NumberFormat();
 
@@ -74,13 +75,13 @@ export function showCallout(ctx: MapCtx, d: EdRec | undefined): void {
   _setWidth(DOM_IDS.ecNdpBar, d.ndp_pct);
   _setText(DOM_IDS.ecUcpPct, d.ucp_pct + '%');
   _setText(DOM_IDS.ecNdpPct, d.ndp_pct + '%');
-  _setText(DOM_IDS.ecUcpVotes, d.ucp_votes ? _fmt.format(d.ucp_votes) + ' votes' : '');
-  _setText(DOM_IDS.ecNdpVotes, d.ndp_votes ? _fmt.format(d.ndp_votes) + ' votes' : '');
-  _setText(DOM_IDS.ecTotalVotes, d.votes ? _fmt.format(d.votes) + ' total votes' : '');
+  _setText(DOM_IDS.ecUcpVotes, d.ucp_votes ? _fmt.format(d.ucp_votes) + ' ' + STR.votesSuffix : '');
+  _setText(DOM_IDS.ecNdpVotes, d.ndp_votes ? _fmt.format(d.ndp_votes) + ' ' + STR.votesSuffix : '');
+  _setText(DOM_IDS.ecTotalVotes, d.votes ? _fmt.format(d.votes) + ' ' + STR.totalVotesSuffix : '');
   const vaEl = document.getElementById(DOM_IDS.ecVaCount);
-  if (vaEl) vaEl.textContent = d.va_count ? d.va_count + ' voting areas' : '';
+  if (vaEl) vaEl.textContent = d.va_count ? d.va_count + ' ' + STR.votingAreasSuffix : '';
   const popN = d.pop ? Math.round(d.pop / 100) * 100 : 0;
-  _setText(DOM_IDS.ecPop, popN ? 'Pop. ' + _fmt.format(popN) : '');
+  _setText(DOM_IDS.ecPop, popN ? STR.popPrefix + ' ' + _fmt.format(popN) : '');
 
   const egEl = document.getElementById(DOM_IDS.ecEg);
   if (egEl) {
@@ -95,10 +96,9 @@ export function showCallout(ctx: MapCtx, d: EdRec | undefined): void {
 
   const ctxEl = document.getElementById(DOM_IDS.ecContext);
   if (ctxEl) {
-    const mapLabel = ctx.mapPrimary === 'minority' ? '2026 minority proposal'
-                   : ctx.mapPrimary === 'majority' ? '2026 majority proposal'
-                   : '2019 enacted map';
-    ctxEl.textContent = mapLabel + ' · 2023 election results';
+    ctxEl.textContent = ctx.mapPrimary === 'minority' ? STR.contextMinority
+                      : ctx.mapPrimary === 'majority' ? STR.contextMajority
+                      : STR.context2019;
   }
 
   const cmpEl = document.getElementById(DOM_IDS.ecCompare);
@@ -108,7 +108,7 @@ export function showCallout(ctx: MapCtx, d: EdRec | undefined): void {
       const idx = ctx.nameIndex[k];
       const rec = idx && idx[d.name] as EdRec | undefined;
       if (!rec) return null;
-      const label = k === 'minority' ? 'Min.' : k === 'majority' ? 'Maj.' : '2019';
+      const label = k === 'minority' ? STR.tagMin + '.' : k === 'majority' ? STR.tagMaj + '.' : STR.tag2019;
       const ucpFirst = rec.ucp_pct >= rec.ndp_pct;
       const winner = ucpFirst
         ? '<span class="ec-cmp-val ec-cmp-ucp">UCP ' + rec.ucp_pct + '%</span>'
@@ -119,10 +119,10 @@ export function showCallout(ctx: MapCtx, d: EdRec | undefined): void {
       return '<span class="ec-cmp-item"><span class="ec-cmp-label">' + label + '</span>' + winner + '<span class="ec-cmp-sep">/</span>' + loser + '</span>';
     }).filter((s): s is string => s !== null);
     if (parts.length) {
-      cmpEl.innerHTML = '<span class="ec-cmp-header">Other maps</span>' + parts.join('');
+      cmpEl.innerHTML = '<span class="ec-cmp-header">' + STR.otherMaps + '</span>' + parts.join('');
       cmpEl.style.display = 'flex';
     } else {
-      cmpEl.innerHTML = '<span class="ec-cmp-unique">Boundary unique to this map</span>';
+      cmpEl.innerHTML = '<span class="ec-cmp-unique">' + STR.uniqueBoundary + '</span>';
       cmpEl.style.display = 'flex';
     }
   }
@@ -223,7 +223,7 @@ export function showVaCallout(ctx: MapCtx, d: VaRec | undefined): void {
   _setText(DOM_IDS.vcNdpPct, d.ndp_pct != null ? d.ndp_pct + '%' : '');
   _setWidth(DOM_IDS.vcUcpBar, d.ucp_pct || 0);
   _setWidth(DOM_IDS.vcNdpBar, d.ndp_pct || 0);
-  _setText(DOM_IDS.vcTotal, d.in_person_votes ? _fmt.format(d.in_person_votes) + ' in-person votes (excl. Vote Anywhere)' : '');
+  _setText(DOM_IDS.vcTotal, d.in_person_votes ? _fmt.format(d.in_person_votes) + ' ' + STR.inPersonVotes : '');
   ctx.selectedVaId = d.va_id != null ? String(d.va_id) : null;
   el.classList.add('vc-visible');
   // Fallback for browsers without :has() support — merge ed-callout's bottom with va-callout

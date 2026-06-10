@@ -8,6 +8,7 @@ import { mergeVaPaths } from './svgLoader';
 import { showVaCallout } from './edInteraction';
 import { DOM_IDS } from './domIds';
 import { notifyReady } from './readyState';
+import { STR } from './strings';
 import { MAP_ACCENT_COLORS as ACCENT_COLORS } from './constants';
 export { MAP_ACCENT_COLORS } from './constants';
 
@@ -23,11 +24,11 @@ type MapsDeps = {
   emit:                 MapEngineEventHandler;
 };
 
-const MAP_CONTEXT_LABELS: Record<MapKey, string> = {
-  minority: '2026 minority proposal · 2023 election results',
-  majority: '2026 majority proposal · 2023 election results',
-  '2019':   '2019 enacted boundaries · 2023 election results',
-};
+function _contextLabel(key: MapKey): string {
+  return key === 'minority' ? STR.contextMinority
+       : key === 'majority' ? STR.contextMajority
+       : STR.context2019;
+}
 
 // ── Boundary colour ───────────────────────────────────────────────────────────
 
@@ -137,7 +138,7 @@ export function updateMapButtons(ctx: MapCtx, deps: MapsDeps): void {
 
 export function doSwitchPrimary(ctx: MapCtx, key: MapKey, deps: MapsDeps): void {
   const ctxEl = document.getElementById(DOM_IDS.ecContext);
-  if (ctxEl) ctxEl.textContent = MAP_CONTEXT_LABELS[key];
+  if (ctxEl) ctxEl.textContent = _contextLabel(key);
   const savedName = ctx.selectedEdName;
   const savedVaId = ctx.selectedVaId;
   deps.hideCallout();
@@ -192,7 +193,7 @@ export function doSwitchPrimary(ctx: MapCtx, key: MapKey, deps: MapsDeps): void 
         if (stage) { stage.style.opacity = ''; setTimeout(function() { stage.style.transition = ''; }, 200); }
         const errEl = document.getElementById(DOM_IDS.mapLoadError);
         if (errEl) {
-          errEl.textContent = 'Could not load the ' + key + ' map — check your connection.';
+          errEl.textContent = STR.loadErrorMap.replace('{key}', key);
           errEl.style.display = '';
           setTimeout(function() { errEl.style.display = 'none'; }, 5000);
         }

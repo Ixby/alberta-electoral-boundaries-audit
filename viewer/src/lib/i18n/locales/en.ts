@@ -713,7 +713,31 @@ export default {
 			object_title: 'Alberta electoral district map — full resolution',
 			ea_credit: 'Map data:',
 			cc_title: 'Text content: CC BY-NC-SA 4.0',
-			cc_alt: 'Creative Commons BY-NC-SA 4.0'
+			cc_alt: 'Creative Commons BY-NC-SA 4.0',
+			// Engine-internal strings (callouts, errors, loading) — injected into
+			// the framework-free map engine via setEngineStrings() at init and on
+			// every language switch.
+			votes_suffix: 'votes',
+			total_votes_suffix: 'total votes',
+			pop_prefix: 'Pop.',
+			voting_areas_suffix: 'voting areas',
+			other_maps: 'Other maps',
+			unique_boundary: 'Boundary unique to this map',
+			in_person_votes: 'in-person votes (excl. Vote Anywhere)',
+			load_error_generic: 'Could not load the boundary map. Try reloading the page.',
+			load_error_map: 'Could not load the {key} map — check your connection.',
+			context_minority: '2026 minority proposal · 2023 election results',
+			context_majority: '2026 majority proposal · 2023 election results',
+			context_2019: '2019 enacted boundaries · 2023 election results',
+			tag_min: 'Min',
+			tag_maj: 'Maj',
+			tag_2019: '2019',
+			skel_1: 'Loading Map Explorer…',
+			skel_2: 'drawing Alberta…',
+			skel_3: 'crunching the numbers…',
+			skel_4: 'counting every vote…',
+			skel_5: 'plotting the boundaries…',
+			skel_6: 'almost there…'
 		},
 		map_intro: {
 			heading: 'How to use the map',

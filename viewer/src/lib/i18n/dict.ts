@@ -1,5 +1,7 @@
 import en from './locales/en';
 import fr from './locales/fr';
+import de from './locales/de';
+import uk from './locales/uk';
 import tl from './locales/tl';
 import pa from './locales/pa';
 import zhHans from './locales/zh-Hans';
@@ -9,6 +11,8 @@ import type { Lang } from './store.svelte';
 const dictionaries: Record<Lang, unknown> = {
 	en,
 	fr,
+	de,
+	uk,
 	tl,
 	pa,
 	'zh-Hans': zhHans,

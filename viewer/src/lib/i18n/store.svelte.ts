@@ -1,6 +1,6 @@
 import { browser } from '$app/environment';
 
-export const SUPPORTED_LANGS = ['en', 'fr', 'tl', 'pa', 'zh-Hans', 'zh-Hant'] as const;
+export const SUPPORTED_LANGS = ['en', 'fr', 'de', 'uk', 'tl', 'pa', 'zh-Hans', 'zh-Hant'] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 
 export const LANG_LABELS: Record<
@@ -9,6 +9,8 @@ export const LANG_LABELS: Record<
 > = {
 	en: { native: 'English', english: 'English', htmlLang: 'en' },
 	fr: { native: 'Français', english: 'French (Canadian)', htmlLang: 'fr-CA' },
+	de: { native: 'Deutsch', english: 'German', htmlLang: 'de' },
+	uk: { native: 'Українська', english: 'Ukrainian', htmlLang: 'uk' },
 	tl: { native: 'Tagalog', english: 'Tagalog', htmlLang: 'tl' },
 	pa: { native: 'ਪੰਜਾਬੀ', english: 'Punjabi', htmlLang: 'pa' },
 	'zh-Hans': { native: '简体中文', english: 'Chinese (Simplified)', htmlLang: 'zh-Hans' },

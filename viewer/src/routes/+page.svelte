@@ -25,10 +25,34 @@
   let _mePromise: Promise<void> | null = null;
   let _pendingState: Pick<MapState, 'primary' | 'mapOn' | 'layers'> | null = null;
 
+  // Push the current language's engine strings into the framework-free
+  // map engine. Called at engine init and again on every language switch.
+  async function _syncEngineStrings(): Promise<void> {
+    const { setEngineStrings } = await import('$lib/mapEngine/strings');
+    setEngineStrings({
+      votesSuffix:       t(lang.current, 'chrome.map.votes_suffix'),
+      totalVotesSuffix:  t(lang.current, 'chrome.map.total_votes_suffix'),
+      popPrefix:         t(lang.current, 'chrome.map.pop_prefix'),
+      votingAreasSuffix: t(lang.current, 'chrome.map.voting_areas_suffix'),
+      otherMaps:         t(lang.current, 'chrome.map.other_maps'),
+      uniqueBoundary:    t(lang.current, 'chrome.map.unique_boundary'),
+      inPersonVotes:     t(lang.current, 'chrome.map.in_person_votes'),
+      loadErrorGeneric:  t(lang.current, 'chrome.map.load_error_generic'),
+      loadErrorMap:      t(lang.current, 'chrome.map.load_error_map'),
+      contextMinority:   t(lang.current, 'chrome.map.context_minority'),
+      contextMajority:   t(lang.current, 'chrome.map.context_majority'),
+      context2019:       t(lang.current, 'chrome.map.context_2019'),
+      tagMin:            t(lang.current, 'chrome.map.tag_min'),
+      tagMaj:            t(lang.current, 'chrome.map.tag_maj'),
+      tag2019:           t(lang.current, 'chrome.map.tag_2019'),
+    });
+  }
+
   async function ensureMapLoaded(): Promise<void> {
     if (_ME) return;
     if (!_mePromise) {
       _mePromise = (async () => {
+        await _syncEngineStrings();
         _ME = await import('$lib/mapEngine');
         _ME.init(base);
         const obj = document.getElementById('zoom-obj') as HTMLObjectElement;
@@ -48,6 +72,15 @@
     await ensureMapLoaded();
     _ME?.openOverlay();
   }
+
+  // Re-inject engine strings whenever the language changes after the
+  // engine has loaded (callouts and error messages re-render with the
+  // new language on next interaction; the context line updates on next
+  // map switch).
+  $effect(() => {
+    void lang.current;
+    if (_ME) void _syncEngineStrings();
+  });
   import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, setGpsRegion, setLanguage, type FlightEvent, type MapState } from '$lib/share';
   import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode, getStoredGps, storeGps, getStoredLanguage, storeLanguage } from '$lib/prefs';
   import { lang } from '$lib/i18n/store.svelte';
@@ -152,11 +185,14 @@
     loadErrorKey = '';
   }
 
-  let skelPhrase = 'Loading Map Explorer…';
-  const _SKEL_PHRASES = [
-    'Loading Map Explorer…', 'drawing Alberta…', 'crunching the numbers…',
-    'counting every vote…', 'plotting the boundaries…', 'almost there…',
-  ];
+  // Loading-skeleton phrases, translated. $derived so a language switch
+  // mid-load updates the cycling phrase live.
+  const _skelPhrases = $derived([
+    t(lang.current, 'chrome.map.skel_1'), t(lang.current, 'chrome.map.skel_2'),
+    t(lang.current, 'chrome.map.skel_3'), t(lang.current, 'chrome.map.skel_4'),
+    t(lang.current, 'chrome.map.skel_5'), t(lang.current, 'chrome.map.skel_6'),
+  ]);
+  let skelPhrase = $state('');
   let _skelIdx = 0;
 
   let _codeRefreshTimer: ReturnType<typeof setTimeout> | null = null;
@@ -223,8 +259,8 @@
 
     // ── Skeleton phrase cycling ───────────────────────────────────────────────
     setInterval(() => {
-      _skelIdx = (_skelIdx + 1) % _SKEL_PHRASES.length;
-      skelPhrase = _SKEL_PHRASES[_skelIdx];
+      _skelIdx = (_skelIdx + 1) % _skelPhrases.length;
+      skelPhrase = _skelPhrases[_skelIdx];
     }, 2800);
 
     // ── Dark mode — respects OS preference; user override persisted in cookie ──
@@ -1463,7 +1499,7 @@
           <path class="skel-province-glow" d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
           <path class="skel-province-shine" d="M 3.25 362.94 L 29.50 4.65 L 179.23 10.25 L 319.11 4.73 L 364.29 640.15 L 209.77 646.12 L 183.67 611.14 L 186.95 584.77 L 173.60 554.80 L 166.69 558.07 L 162.81 546.63 L 150.86 539.82 L 151.53 532.09 L 128.45 512.37 L 114.98 483.74 L 105.51 488.91 L 92.08 460.83 L 83.31 464.03 L 74.42 457.99 L 78.14 448.63 L 68.85 441.88 L 60.55 448.87 L 55.96 421.21 L 47.96 418.82 L 37.39 397.66 L 33.59 403.79 L 22.32 389.51 L 11.03 387.32 L 4.87 374.07 L 11.52 371.29 L 3.25 362.94 Z" />
         </svg>
-        <div class="skel-phrase">{skelPhrase}</div>
+        <div class="skel-phrase">{skelPhrase || _skelPhrases[0]}</div>
       </div>
     </div>
     <object id="zoom-obj" type="image/svg+xml" data=""

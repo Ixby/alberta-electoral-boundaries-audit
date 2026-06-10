@@ -15,6 +15,7 @@ import type { MapCtx, MapKey, ViewBox } from './types';
 import { updateZoomDisplay, updateStrokeWidths, resetVB as vpResetVB } from './viewport';
 import { reapplyLayers } from './layers';
 import { DOM_IDS } from './domIds';
+import { STR } from './strings';
 import { notifyReady } from './readyState';
 
 export type SvgLoaderDeps = {
@@ -225,7 +226,7 @@ function showLoadError(): void {
   const el = document.getElementById(DOM_IDS.mapLoadError);
   if (!el) return;
   el.style.display = '';
-  el.textContent = 'Could not load the boundary map. Try reloading the page.';
+  el.textContent = STR.loadErrorGeneric;
 }
 
 export function xhrLoad(ctx: MapCtx, obj: HTMLObjectElement, stage: HTMLElement, overlay: HTMLElement, deps: SvgLoaderDeps): void {

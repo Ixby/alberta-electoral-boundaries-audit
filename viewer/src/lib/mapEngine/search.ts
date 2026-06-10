@@ -6,6 +6,7 @@
 import type { MapCtx, MapKey } from './types';
 import { DOM_IDS } from './domIds';
 import { awaitReady } from './readyState';
+import { STR } from './strings';
 
 type SearchDeps = {
   showCallout:       (rec: any) => void;
@@ -98,7 +99,7 @@ export function initSearch(ctx: MapCtx, deps: SearchDeps): void {
       if (r.map !== ctx.mapPrimary) {
         const tag = document.createElement('span');
         tag.className = 'sr-map-tag';
-        tag.textContent = r.map === '2019' ? '2019' : r.map === 'minority' ? 'Min' : 'Maj';
+        tag.textContent = r.map === '2019' ? STR.tag2019 : r.map === 'minority' ? STR.tagMin : STR.tagMaj;
         li.appendChild(tag);
       }
       li.addEventListener('mousedown', function(e) { e.preventDefault(); });
