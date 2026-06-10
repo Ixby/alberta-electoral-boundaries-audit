@@ -3,10 +3,27 @@ import { browser } from '$app/environment';
 // Order = approximate Alberta speakers (2021 Census mother tongue):
 // English (majority) → Tagalog ~99k → Punjabi ~86k → French ~72k →
 // Spanish ~62k → Arabic ~55k → Cantonese ~46k (zh-Hant) → Mandarin
-// ~43k (zh-Hans) → German ~36k (plus Hutterite/Mennonite Plautdietsch
-// communities) → Ukrainian ~14k (plus the post-2022 arrival wave the
-// census predates). The language dropdown renders in this order.
-export const SUPPORTED_LANGS = ['en', 'tl', 'pa', 'fr', 'es', 'ar', 'zh-Hant', 'zh-Hans', 'de', 'uk'] as const;
+// ~43k (zh-Hans) → German ~36k → Hindi ~32k → Vietnamese ~25k →
+// Korean ~17k → Urdu ~17k → Polish ~15k → Ukrainian ~14k (plus the
+// post-2022 arrival wave the census predates). The language dropdown
+// renders in this order.
+export const SUPPORTED_LANGS = [
+	'en',
+	'tl',
+	'pa',
+	'fr',
+	'es',
+	'ar',
+	'zh-Hant',
+	'zh-Hans',
+	'de',
+	'hi',
+	'vi',
+	'ko',
+	'ur',
+	'pl',
+	'uk'
+] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 
 export const LANG_LABELS: Record<
@@ -22,6 +39,11 @@ export const LANG_LABELS: Record<
 	'zh-Hant': { native: '繁體中文', english: 'Chinese (Traditional)', htmlLang: 'zh-Hant', dir: 'ltr' },
 	'zh-Hans': { native: '简体中文', english: 'Chinese (Simplified)', htmlLang: 'zh-Hans', dir: 'ltr' },
 	de: { native: 'Deutsch', english: 'German', htmlLang: 'de', dir: 'ltr' },
+	hi: { native: 'हिन्दी', english: 'Hindi', htmlLang: 'hi', dir: 'ltr' },
+	vi: { native: 'Tiếng Việt', english: 'Vietnamese', htmlLang: 'vi', dir: 'ltr' },
+	ko: { native: '한국어', english: 'Korean', htmlLang: 'ko', dir: 'ltr' },
+	ur: { native: 'اردو', english: 'Urdu', htmlLang: 'ur', dir: 'rtl' },
+	pl: { native: 'Polski', english: 'Polish', htmlLang: 'pl', dir: 'ltr' },
 	uk: { native: 'Українська', english: 'Ukrainian', htmlLang: 'uk', dir: 'ltr' }
 };
 

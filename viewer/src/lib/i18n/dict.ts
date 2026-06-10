@@ -6,6 +6,11 @@ import ar from './locales/ar';
 import uk from './locales/uk';
 import tl from './locales/tl';
 import pa from './locales/pa';
+import hi from './locales/hi';
+import vi from './locales/vi';
+import ko from './locales/ko';
+import ur from './locales/ur';
+import pl from './locales/pl';
 import zhHans from './locales/zh-Hans';
 import zhHant from './locales/zh-Hant';
 import type { Lang } from './store.svelte';
@@ -19,6 +24,11 @@ const dictionaries: Record<Lang, unknown> = {
 	uk,
 	tl,
 	pa,
+	hi,
+	vi,
+	ko,
+	ur,
+	pl,
 	'zh-Hans': zhHans,
 	'zh-Hant': zhHant
 };

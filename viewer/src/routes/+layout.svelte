@@ -41,6 +41,11 @@
 	<link rel="alternate" hreflang="pa" href="{canonicalBase}/?lang=pa" />
 	<link rel="alternate" hreflang="zh-Hans" href="{canonicalBase}/?lang=zh-Hans" />
 	<link rel="alternate" hreflang="zh-Hant" href="{canonicalBase}/?lang=zh-Hant" />
+	<link rel="alternate" hreflang="hi" href="{canonicalBase}/?lang=hi" />
+	<link rel="alternate" hreflang="vi" href="{canonicalBase}/?lang=vi" />
+	<link rel="alternate" hreflang="ko" href="{canonicalBase}/?lang=ko" />
+	<link rel="alternate" hreflang="ur" href="{canonicalBase}/?lang=ur" />
+	<link rel="alternate" hreflang="pl" href="{canonicalBase}/?lang=pl" />
 	<link rel="alternate" hreflang="x-default" href="{canonicalBase}/" />
 </svelte:head>
 
