@@ -122,7 +122,8 @@ def run_bursts(
         np.random.seed(int(bs) % (2**32))  # gerrychain-compat: seeds legacy RNG
         _random.seed(int(bs) % (2**32))  # gerrychain-compat: seeds global Python random
         rows = run_ensemble(
-            graph, assignment, burst_len, pop_deviation=pop_deviation, verbose=False
+            graph, assignment, burst_len, pop_deviation=pop_deviation, verbose=False,
+            seed=int(bs) % (2**31 - 1)
         )
         if rows:
             last = rows[-1]

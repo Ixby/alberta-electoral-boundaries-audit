@@ -1,4 +1,7 @@
 {
+  "_SUPERSEDED": "DPG-era v0_5 substrate (data/v0_5_canonical_*_eds_da_anchored.gpkg). Superseded by data/outputs/phase4c_canonical_results.json (canonical EA shapefiles).",
+  "_superseded_date": "2026-06-10",
+  "_replaced_by": "see _SUPERSEDED",
   "inputs": {
     "va_gpkg": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\va_polygons_with_full_2023_votes.gpkg",
     "majority_canonical": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_majority_2026_eds_da_anchored.gpkg",

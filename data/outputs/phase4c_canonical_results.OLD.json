@@ -1,5 +1,4 @@
 {
-  "_CONVENTION_NOTE": "PHASE 4C CONVENTION: seats_at_50 here is the NDP seat fraction. The chain ensemble in simulation_real_map_scores_canonical.json reports the UCP seat fraction. NDP_fraction + UCP_fraction = 1. Minority canonical s50: this file reports 0.4831 (NDP); chain reports 0.5169 (UCP) \u2014 same fact, opposite party reference. Declination: this file uses Warrington with NDP-as-R (positive = NDP advantage); chain uses Warrington with UCP-as-R (positive = UCP advantage). The signs are opposite.",
   "majority": {
     "eg": 0.000982,
     "mean_median": -0.036191,

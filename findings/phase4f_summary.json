@@ -1,4 +1,7 @@
 {
+  "_SUPERSEDED": "DPG-era v0_5 hardstop validation against an outdated population baseline. Superseded by canonical-substrate population validation; see findings/cycle_lag_analysis.md and data/INTEGRITY_STATUS.md.",
+  "_superseded_date": "2026-06-10",
+  "_replaced_by": "see _SUPERSEDED",
   "inputs": {
     "majority_canonical": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_majority_2026_eds_da_anchored.gpkg",
     "minority_canonical": "C:\\Users\\email\\Documents\\Claude\\Projects\\Electoral Boundary Analysis\\alberta_audit\\data\\v0_5_canonical_minority_2026_eds_da_anchored.gpkg"

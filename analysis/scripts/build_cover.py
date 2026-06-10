@@ -47,22 +47,17 @@ import pypdf
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ALBERTA_EDS = data_loader._resolve_path("data") / "shapefiles" / "reference" / "alberta_2019_eds"
 DERIVED = data_loader._resolve_path("data") / "shapefiles" / "derived"
-# Prefer v0_9 (topological VA-dissolve, gapless by construction) →
-# v0_8 refined → v0_8 canonical → v0_7 canonical
+# Canonical Elections Alberta shapefiles only. The earlier DPG fallback
+# chain (v0_10_topological → v0_8_refined → v0_8_canonical → v0_7_canonical)
+# was removed 2026-06-10: it would silently fall through to DPG geometry if
+# canonical were ever moved or missing, contaminating the cover render. Now
+# the script fails loudly if canonical is absent.
 CANONICAL = data_loader._resolve_path("data") / "shapefiles" / "canonical"
 APPROX_MAJ_CANDIDATES = [
     CANONICAL / "ea_majority_2026_eds.gpkg",
-    DERIVED / "v0_10_topological_majority_2026_eds.gpkg",
-    DERIVED / "v0_8_refined_majority_2026_eds.gpkg",
-    DERIVED / "v0_8_canonical_majority_2026_eds.gpkg",
-    DERIVED / "v0_7_canonical_majority_2026_eds.gpkg",
 ]
 APPROX_MIN_CANDIDATES = [
     CANONICAL / "ea_minority_2026_eds.gpkg",
-    DERIVED / "v0_10_topological_minority_2026_eds.gpkg",
-    DERIVED / "v0_8_refined_minority_2026_eds.gpkg",
-    DERIVED / "v0_8_canonical_minority_2026_eds.gpkg",
-    DERIVED / "v0_7_canonical_minority_2026_eds.gpkg",
 ]
 # Phase 4C VA→2026-ED assignments (conservation-exact crosswalk authored by
 # the topological resolver). Used by the heatmap fill to assign each VA
