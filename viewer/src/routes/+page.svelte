@@ -1287,7 +1287,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="contact">
     <h2>{t(lang.current, 'body.about_me.heading')}</h2>
     <p style="font-size:0.9rem; color:var(--text-muted);">
       {t(lang.current, 'body.about_me.p1')}
