@@ -1520,7 +1520,8 @@
     {t(lang.current, 'chrome.footer.title')}<br>
     {t(lang.current, 'chrome.footer.copyright')}
     {t(lang.current, 'chrome.footer.text_label')} <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> &mdash;
-    {t(lang.current, 'chrome.footer.code_label')} <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a><br>
+    {t(lang.current, 'chrome.footer.code_label')} <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3.0</a> &mdash;
+    {t(lang.current, 'chrome.footer.translation_label')} {t(lang.current, 'chrome.footer.translation_credit')}<br>
     <a href="https://ixby.github.io">ixby.github.io</a> &mdash;
     <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit">github.com/Ixby/alberta-electoral-boundaries-audit</a>
   </div>

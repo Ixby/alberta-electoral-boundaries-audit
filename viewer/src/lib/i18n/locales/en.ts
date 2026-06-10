@@ -7,7 +7,12 @@ export default {
 	disclaimer: {
 		text:
 			'This site has been translated by AI. Some content may still appear in English while translations are in progress. If you notice errors or would like to help translate this project, please %s.',
-		link_label: 'contact us'
+		link_label: 'contact us',
+		// {count} is replaced at runtime with the live word count of the
+		// English prose, so volunteer translators know the size of the job
+		// before raising their hand. Computed, never hardcoded — it stays
+		// correct as the prose grows.
+		word_count: 'For scale: the English prose runs about {count} words.'
 	},
 	opener: {
 		heading: "Who's this for?",
@@ -765,7 +770,9 @@ export default {
 			title: 'Alberta Electoral Boundary Audit — May 2026',
 			copyright: '© Will Conner 2026 —',
 			text_label: 'Text:',
-			code_label: 'Code:'
+			code_label: 'Code:',
+			translation_label: 'Translations:',
+			translation_credit: 'Anthropic Fable 5 (AI) — awaiting native-speaker review'
 		}
 	}
 } as const;
