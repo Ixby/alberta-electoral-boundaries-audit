@@ -228,7 +228,7 @@ When the MLA committee tables its 91-seat map, score the map on the same signals
 | W2 Calgary zone gap similar to minority's | No (0.36%) | Yes (12.20%) | — |
 | W3 Nolan Hill-Cochrane kept without better justification | No | Yes | — |
 | P1 committee proceedings closed | No | No | — (likely **yes** for November) |
-| P2 advisory panel members not named | No | No | — (**no** as of 2026-04-21: Solberg + Durnie nominated by Premier, Kennedy + Robinson by Opposition under Motion 37; chair seat unfilled) |
+| P2 advisory panel members not named | No | No | — (**no** as of 2026-06: Solberg + Durnie nominated by Premier, Kennedy + Robinson by Opposition under Motion 37 (passed 2026-04-21); chair seat unfilled) |
 | P3 draft not released for public comment | No | No | — (committee mandate excludes public hearings) |
 | P4 adopted without amendment or dissent | No | No | — |
 | P5 AI tools used without disclosure | No | No | — (depends on committee practice) |

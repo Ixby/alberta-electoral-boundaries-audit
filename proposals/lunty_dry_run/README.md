@@ -1,6 +1,6 @@
 ---
 name: Lunty dry-run — synthetic 91-district test inputs for the November scorecard
-description: "Synthetic 91-district plans used only to dry-run analysis/scripts/phase_b_scorecard.py before the real Lunty Special Select Committee map drops on 2026-11-02. Nothing in this directory is a prediction of what Lunty will produce. The synthetic plans exist to test the scorecard plumbing and surface 91-district edge cases that would otherwise be discovered during the live 72-hour window."
+description: "Synthetic 91-district plans used only to dry-run analysis/scripts/phase_b_scorecard.py before the real Lunty Select Special Committee map drops on 2026-11-02. Nothing in this directory is a prediction of what Lunty will produce. The synthetic plans exist to test the scorecard plumbing and surface 91-district edge cases that would otherwise be discovered during the live 72-hour window."
 type: project
 ---
 
@@ -18,7 +18,7 @@ type: project
 
 # Lunty dry-run — synthetic 91-district test inputs
 
-**This directory is not part of the audit.** It is a dry-run sandbox for the November 2026 Lunty Special Select Committee scorecard (`analysis/scripts/phase_b_scorecard.py`).
+**This directory is not part of the audit.** It is a dry-run sandbox for the November 2026 Lunty Select Special Committee scorecard (`analysis/scripts/phase_b_scorecard.py`).
 
 ## Why this exists
 

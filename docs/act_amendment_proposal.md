@@ -822,7 +822,7 @@ commission's present basis.)
 
 ## Phase 6 — Implementation notes: what the 2026 committee can do now
 
-The MLA Special Select Committee chaired by Brandon Lunty (due
+The MLA Select Special Committee chaired by Brandon Lunty (due
 November 2, 2026) cannot amend the Act within its own report. It
 can, however, adopt the *discipline* of either option without
 waiting for the legislature. Two specific steps are recommended.

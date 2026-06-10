@@ -36,7 +36,7 @@ A single bordered card. Three questions, three short answers. Two routing CTAs a
 
 > ### Is the proposed map a gerrymander?
 >
-> "Gerrymander" is not a term Canadian courts use. But if it were — in the everyday sense most people mean by it — the evidence in this audit would reasonably support calling the *minority proposal*, if enacted, a heavily gerrymandered map. Every structural test this audit runs flags the minority proposal; none flag the alternative (the *majority proposal*).
+> "Gerrymander" is not a term Canadian courts use. But if it were — in the everyday sense most people mean by it — the evidence in this audit would reasonably support calling the *minority proposal*, if enacted, a heavily gerrymandered map. Four of the five structural tests this audit runs flag the *minority proposal* and none flag the alternative (the *majority proposal*); the fifth test is neutral for both.
 >
 > ### What does "gerrymander" mean in Canadian law?
 >
@@ -82,7 +82,7 @@ A smaller, plainer card. Two columns: what the audit can say vs. what it can't. 
 > | | |
 > |---|---|
 > | ✓ | Fewer than 1 in 14.5 million randomly generated comparison maps produced patterns as extreme as the minority proposal on all four statistical measures combined. |
-> | ✓ | The minority proposal fails 5 of 5 pre-registered structural tests. The majority proposal fails 0 of 5. |
+> | ✓ | The minority proposal fails 4 of 5 pre-registered structural tests; the fifth (anchoring) is neutral — both maps fall within the Canadian norm. The majority proposal fails 0 of the 4 firing. |
 > | ✓ | These results are consistent with maps that produce strong partisan effects, and inconsistent with what the random comparison set produces. |
 > | ✗ | The audit does *not* establish that any commissioner intended the partisan effects it measures. Boundary geometry cannot reveal intent. |
 > | ✗ | The audit does *not* predict what the Lunty committee will choose, what the November 2026 vote will be, or how Albertans will react. |
@@ -112,7 +112,7 @@ The first piece of body prose after the stakes and the boundary card. The reader
 >
 > Those district lines are not permanent. People move, neighbourhoods grow, rural areas thin out, cities sprawl. Every eight to ten years, Alberta is supposed to redraw the lines so each district is roughly the right size and reflects the way Albertans actually live now. The body that does the redrawing is the *Electoral Boundaries Commission* — an independent commission with judges, lawyers, and public members, not politicians.
 >
-> That is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a *majority proposal* (backed by three commissioners) and a *minority proposal* (backed by two). Both are sitting on the table — and the legislature has set both aside. Under Government Motion 37 (April 21, 2026), a separate committee of MLAs chaired by Brandon Lunty — appointed by the Premier for this specific decision — now oversees a four-person Independent Advisory Panel tasked with producing a new 91-seat map. The legislature must approve whatever the committee delivers before November 2026.
+> That is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a *majority proposal* (backed by three commissioners) and a *minority proposal* (backed by two). Both are sitting on the table — and the legislature has set both aside. A separate committee of MLAs chaired by Brandon Lunty — appointed by the Premier for this specific decision — now oversees a four-person Independent Advisory Panel, constituted under Government Motion 37 (passed April 21, 2026), tasked with producing a new 91-seat map. The legislature must approve whatever the committee delivers before November 2026.
 >
 > Why it matters to you: the lines decide who your MLA is. They decide which neighbourhoods, towns, and concerns get represented together. If your city is split across four MLAs instead of one, no single representative is accountable for the city as a whole. If your community of interest — a small town, a rural region, a downtown core — is divided between districts, your voice on provincial decisions is diluted. The map also shapes which party can form a government, and at what margins. The audit's specific finding (that the minority proposal sits at a structural extreme) is the reason you are reading this site, but the broader question is older and applies to every redistricting cycle: do the lines reflect the way Albertans live, or do they shape the politics that follow?
 >
@@ -401,10 +401,12 @@ ebc: {
 luntyCommittee: {
   term: 'Lunty committee',
   definition: 'A five-MLA Select Special Committee on Electoral Boundaries ' +
-              'chaired by Brandon Lunty — a Premier-appointed MLA — created ' +
-              'under Government Motion 37 (April 21, 2026). The committee ' +
-              'oversees a separate four-person Independent Advisory Panel ' +
-              'that draws the actual map; the committee then reports to the ' +
+              'chaired by Brandon Lunty — a Premier-appointed MLA — established ' +
+              'by the Legislative Assembly\'s Motion 19 (April 16, 2026), which ' +
+              'set aside both commission reports. The committee oversees a ' +
+              'separate four-person Independent Advisory Panel, constituted ' +
+              'under Government Motion 37 (passed April 21, 2026), that draws ' +
+              'the actual map; the committee then reports to the ' +
               'Legislature before the November 2026 deadline. Both bodies ' +
               'are separate from the EBC and are not part of the standard ' +
               'EBCA process.',
@@ -418,9 +420,9 @@ advisoryPanel: {
               'boundary recommendation. The Premier nominated the Hon. ' +
               'Monte Solberg and Darwin Durnie; the Leader of the Opposition ' +
               'nominated Dr. Gerard Kennedy and Brent Robinson. A fifth seat ' +
-              '— a chair nominated by a sitting or retired judge — went ' +
+              '— a sitting or retired judge to serve as chair — went ' +
               'unfilled after Alberta\'s acting chief justice declined to ' +
-              'make a nomination.',
+              'nominate one.',
   href: '/law#committee-anomaly',
 },
 

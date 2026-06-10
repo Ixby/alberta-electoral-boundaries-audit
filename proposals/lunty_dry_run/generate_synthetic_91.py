@@ -4,7 +4,7 @@ generate_synthetic_91.py — produce a neutral synthetic 91-district plan for dr
 This script generates ONE valid 91-district plan from the canonical VA adjacency
 graph for the sole purpose of testing the Phase B Scorecard
 (analysis/scripts/phase_b_scorecard.py) on a 91-district input before
-the real Lunty Special Select Committee map drops on 2026-11-02.
+the real Lunty Select Special Committee map drops on 2026-11-02.
 
 **This script does not produce a prediction.** The output plan is a random
 recursive-tree-partition draw with no committee-style adjustment, no

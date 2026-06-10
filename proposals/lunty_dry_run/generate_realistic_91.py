@@ -3,7 +3,7 @@ generate_realistic_91.py — Phase B synthetic 91-district input.
 
 Starts from the canonical Elections Alberta majority recommendation (89 EDs)
 and adds 2 plausible committee-style splits to produce a 91-district plan
-that looks more like a real Lunty Special Select Committee output than a
+that looks more like a real Lunty Select Special Committee output than a
 random recursive-tree partition does.
 
 **This script does NOT produce a prediction.** It produces a synthetic

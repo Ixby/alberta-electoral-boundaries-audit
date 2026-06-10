@@ -54,7 +54,7 @@ The 2025–26 Alberta Electoral Boundary Commission produced two competing recom
 
 These are three of four surviving structural dimensions where the audit finds the minority recommendation diverges from the majority in consistent and measurable directions. In none of the three cases is the divergence legally prohibited. In none of the three cases does the measure depend on partisan vote data. And in none of the three cases is the divergence explained by Alberta's geography: the same provincial constraint set produces it on both maps, and a 1 million-plan MCMC ensemble confirms that the minority's values sit further from the constraint-bound expectation than the majority's.
 
-This audit was produced as a personal research project by Will Conner, a Mount Royal University student, following the April 16, 2026 government decision to refer the commission's work to a Special Select Committee of MLAs. It is not affiliated with any political party, campaign, or advocacy organization. All code, data, and methodology are published here in reproducible form. The audit applies identical methodology to both maps.
+This audit was produced as a personal research project by Will Conner, a Mount Royal University student, following the April 16, 2026 government decision to refer the commission's work to a Select Special Committee of MLAs. It is not affiliated with any political party, campaign, or advocacy organization. All code, data, and methodology are published here in reproducible form. The audit applies identical methodology to both maps.
 
 > **New here?** The fastest entry points:
 > - **[One-page brief](docs/FINDINGS_BRIEF.md)** — seat counts, wasted votes, plain English, no background needed. Print-ready PDF version: [`docs/FINDINGS_BRIEF.html`](docs/FINDINGS_BRIEF.html) (open in Chrome → File → Print → Save as PDF).
@@ -213,7 +213,7 @@ This audit is not finished. The following are genuinely unresolved.
 
 **Challenge the audit.** Read `analysis/methodology/retraction_pathway.md`. Find a specific finding and its named retraction condition. Produce the data or argument that triggers it. The retraction conditions are public, concrete, and dated.
 
-**Ask the Lunty committee about its process.** The Special Select Committee is due to report by November 2, 2026. Specific questions worth asking: What evaluation criteria were established before the committee began drawing? Will prompts and inputs to any AI tools used in the process be published? Will an ensemble of alternative maps be generated and published alongside the final map?
+**Ask the Lunty committee about its process.** The Select Special Committee is due to report by November 2, 2026. Specific questions worth asking: What evaluation criteria were established before the committee began drawing? Will prompts and inputs to any AI tools used in the process be published? Will an ensemble of alternative maps be generated and published alongside the final map?
 
 **Share the public-audience report.** [`reports/public/report_public.md`](reports/public/report_public.md) is written for a general audience. It covers the surviving structural findings, the gerrymander checklist, and what the April 16 pivot means — without requiring any background in electoral systems or statistics.
 
