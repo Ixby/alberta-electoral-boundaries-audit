@@ -1,3 +1,15 @@
+---
+status: PARTIALLY SUPERSEDED — 250k/100k/2M substrate-era; canonical 1.01M now headline
+superseded_date: 2026-06-10
+note: |
+  Sensitivity values cited here predate the canonical 1.01M run. Per the independent referee
+  pass, flagged as the thinnest evidence trail in findings/: short, no script paths, no
+  script-to-claim mapping. Either expand with current canonical-era sweeps and reproducible
+  commands, or fold into the monograph appendix.
+---
+
+> [SUPERSEDED IN PART 2026-06-10] - substrate-era numbers; canonical sweep pending.
+
 > **Backward:**
 > - ReCom ensembles at varied population tolerances and ensemble sizes (250k canonical, 100k and 2M sweeps)
 > - buffer-distance sweep outputs from the adjacency-graph construction scripts

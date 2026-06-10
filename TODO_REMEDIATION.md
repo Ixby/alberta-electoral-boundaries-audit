@@ -66,9 +66,18 @@ The ReCom ensemble respects population + contiguity but not s.15(2) tiers, commu
 **Cost estimate:** 6–8 h compute + 1–2 days script work.
 
 ### T1.5 — Short-bursts hill-climb rerun on canonical (UCP-objective and NDP-objective)
-**Status: 🟡 EXECUTING — neighbourhood-characterisation bursts running 2026-06-10**
+**Status: 🟡 SCRIPT REPAIRED + READY; full run needs dedicated compute window**
 
-§5.4.8's "empirical proof of the non-neutral pathway" hits 52.87%, matching the v0_8 superseded substrate. This pass: `analysis/scripts/simulation_short_bursts.py` was repaired (a `seed=None` bug in the per-burst seed pass-through), then launched against canonical EA shapefiles. The default 500-burst × 10-step run is in progress (≈15–20 min on the 4,765-VA graph). When it lands the output goes to `findings/simulation_short_bursts.md` and `data/simulation_short_bursts_summary.json`; §5.4.8 paragraph rewriting can then follow.
+§5.4.8's "empirical proof of the non-neutral pathway" hits 52.87%, matching the v0_8 superseded substrate. This pass: `analysis/scripts/simulation_short_bursts.py` was repaired (a `seed=None` bug in the per-burst seed pass-through to `run_ensemble`) and is now ready to run against canonical EA shapefiles. **Profiling on the canonical 4,765-VA graph shows each ReCom step costs ~10–15 s** (the bipartition_tree generation is heavy at 89 districts × n=4765); a 500-burst × 10-step run is ~60–120 min wall clock. This session attempted a 50-burst preview but did not complete in the available compute window. The script is correct and ready; the run should happen in a session with a 1–2-hour dedicated compute slot.
+
+Reproduction command (once ready):
+```bash
+nohup python analysis/scripts/simulation_short_bursts.py > /tmp/bursts.log 2>&1 &
+# wait ~60 min; outputs land at:
+#   findings/simulation_short_bursts.md
+#   data/simulation_short_bursts_summary.json
+#   data/simulation_short_bursts.csv
+```
 
 **Acceptance criterion (unchanged):** §5.4.8 paragraph rewritten to lead with the canonical-substrate maximum, with the v0_8 number relegated to a "superseded estimate" footnote. Targeted hill-climb (separate script `targeted_gerrymander_burst.py`) still pending — that one is the "deliberate non-neutral pathway" test rather than the neutral-neighbourhood characterisation; queued under T1.5b.
 
@@ -114,11 +123,9 @@ OSF-registered in `preregistration/osf_forest_recom_robustness.md`. `data/output
 **Resolution path:** run the registered Forest-ReCom variant; produce the documented outputs.
 
 ### T2.3 — Phase 4C status reconciliation
-**Status: 🔴 REQUIRES INSPECTION + DECISION**
+**Status: ✅ CLOSED 2026-06-10**
 
-One defense doc says Phase 4C is unexecuted ("until that step is executed, the efficiency gap estimates carry uncertainty"). Another says it *was* executed with a +0.0000 pp shift and bypassed. Both cannot be true. The referee pass flagged this as a load-bearing contradiction inside the defense layer.
-
-**Resolution path:** locate `data/outputs/phase4c_canonical_results.json` (it exists per `ls data/outputs/`); reconcile its content with both defense documents; rewrite whichever defense is stale.
+The contradiction was inside `analysis/methodology/plain_language_defense.md` — same document, two adjacent entries (~250 lines apart) said opposite things about Phase 4C. Phase 4C was actually re-run today against canonical Elections Alberta shapefiles (`analysis/scripts/phase4c_canonical_attribution.py`) and produces the canonical real-map numbers (minority EG +4.02%, minority s50 = 0.5169 UCP / 0.4831 NDP). Both defense entries were rewritten to point at the canonical execution and disambiguate "Phase 4C VA-polygon attribution" (now executed) from "MAUP centroid-vs-area-weighted test on the v0_9 substrate" (the +0.0000 pp shift that was being mis-cited as Phase 4C's result). `methodological_defenses.md` was not affected — its +0.0000 pp entry correctly refers to MAUP on v0_9, not Phase 4C.
 
 ### T2.4 — LLM sentiment IRR/kappa completion
 **Status: 🔴 REQUIRES HUMAN HANDS**

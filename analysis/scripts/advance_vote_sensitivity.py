@@ -1,7 +1,7 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 # Version: v0.9
-"""v0_9 advance-vote sensitivity: re-score v0_9 majority and minority maps
+"""Advance-vote sensitivity: re-score canonical majority and minority maps
 under (A) Election-Day votes only and (B) Election-Day + smeared advance
 votes (advance_vote_splat output).
 
@@ -118,8 +118,8 @@ def main():
         ("with_advance_smear", va_full),
     ]:
         for map_name, map_path in [
-            ("v0_9_majority", MAJ_V9),
-            ("v0_9_minority", MIN_V9),
+            ("canonical_majority", MAJ_V9),
+            ("canonical_minority", MIN_V9),
         ]:
             m = score_map(va, map_path)
             key = f"{map_name}__{substrate_name}"
@@ -133,7 +133,7 @@ def main():
 
     # Compute deltas
     deltas = {}
-    for map_name in ("v0_9_majority", "v0_9_minority"):
+    for map_name in ("canonical_majority", "canonical_minority"):
         a = results[f"{map_name}__election_day_only"]["seats_at_50_50"]
         b = results[f"{map_name}__with_advance_smear"]["seats_at_50_50"]
         deltas[map_name] = {

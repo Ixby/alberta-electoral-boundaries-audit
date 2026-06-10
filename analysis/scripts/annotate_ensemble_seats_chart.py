@@ -3,7 +3,7 @@
 """
 annotate_ensemble_seats_chart.py
 
-Regenerates the seats_at_50_50 ensemble distribution chart (v0_9, 250k)
+Regenerates the seats_at_50_50 ensemble distribution chart (canonical, 1.01M)
 with an explanatory callout annotation at the minority 2026 vertical line.
 
 This script reads the existing raw samples CSV rather than re-running the
@@ -12,7 +12,7 @@ but adds the callout so the chart is self-contained for a lay reader.
 
 Output
 ------
-  data/maps/mcmc/ensemble_distribution_250k_v0_9_seats_at_50_50.svg  (overwrite)
+  data/maps/mcmc/ensemble_distribution_canonical_seats_at_50_50.svg  (overwrite)
 
 Run
 ---
@@ -174,7 +174,7 @@ def main() -> None:
     ax.set_ylabel(f"Count (out of {n_sample:,} samples)", fontsize=10)
     ax.set_title(
         "Ensemble distribution — UCP seat share at 50/50 vote\n"
-        "(ReCom on 2019 enacted map, VA-level atomic units, v0_9 substrate, 2023 votes)",
+        "(ReCom on 2019 enacted map, VA-level atomic units, canonical EA shapefiles, 2023 votes)",
         fontsize=10,
     )
     ax.legend(loc="upper left", framealpha=0.95, fontsize=9)

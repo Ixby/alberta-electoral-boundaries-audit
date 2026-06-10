@@ -1,3 +1,15 @@
+---
+status: SUPERSEDED — v0_9 substrate; +1.12 pp narrowing reversed by topology cleanup
+superseded_date: 2026-06-10
+superseded_by: findings/topology_cleanup_analysis.md (+3.35 pp reversal)
+note: |
+  The +1.12 pp narrowing on Lane 1 reported here was computed against the v0_9 substrate.
+  Topology cleanup reversed the direction to +3.35 pp. Windows paths in the methodology
+  section are stale; canonical pipeline uses canonical_paths.py.
+---
+
+> [SUPERSEDED 2026-06-10] - v0_9 substrate; values reversed by topology_cleanup_analysis.md.
+
 # MAUP Area-Weighted VA Attribution — Alternative to Centroid-in-Polygon
 
 **Generated:** 2026-04-23

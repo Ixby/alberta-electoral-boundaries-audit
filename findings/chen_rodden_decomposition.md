@@ -1,6 +1,17 @@
+---
+status: SUPERSEDED — 100k v0_8/v0_9-era ensemble (ESS ~150); canonical 1.01M rerun pending
+superseded_date: 2026-06-10
+note: |
+  Chen-Rodden decomposition was computed against the 100k v0_8/v0_9 ensemble with ESS ~ 150.
+  The audit now reports against the canonical 1,010,000-plan ensemble (ESS ~ 1,500).
+  Methodology unchanged; numerical values to be regenerated against canonical.
+---
+
+> [SUPERSEDED 2026-06-10] - 100k v0_8/v0_9 substrate; canonical 1.01M rerun pending.
+
 > **Backward:**
 > - `analysis/scripts/chen_rodden_decomposition.py` — companion script
-> - `data/simulated_ensemble_raw_samples_100k.csv` — 100,000-plan neutral ensemble
+> - `data/simulated_ensemble_raw_samples_100k.csv` — 100,000-plan neutral ensemble (superseded; canonical is the 1.01M run)
 > - `data/simulation_real_map_scores_full_v2.json` — session-12 canonical + full-VA real-map scores
 > - `data/simulation_real_map_scores_full_100k.json` — substrate-matched cross-check
 >

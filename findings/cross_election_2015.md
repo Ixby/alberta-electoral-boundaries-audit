@@ -1,3 +1,15 @@
+---
+status: SUPERSEDED — blend-substrate era; canonical recomputation pending (TODO_REMEDIATION T4.1)
+superseded_date: 2026-06-10
+note: |
+  The headline -0.51 pp asymmetry reported here was computed under the v0_8 blended-crosswalk
+  attribution. Canonical recomputation gives +3.92 pp asymmetry — same direction across 2019
+  and 2023, but with opposite sign and 4x larger magnitude than the blend reading. The
+  methodology in this doc is sound; only the substrate-specific numerical values are stale.
+---
+
+> [SUPERSEDED 2026-06-10] - blend-substrate values; canonical replacement pending.
+
 > **Backward:**
 > - `.temp/ebc_2017_final.pdf` and `.temp/ebc_2017_text.txt` — 2017 EBC final report (source of crosswalk truth)
 > - `data/alberta_2015_results.csv` — pre-2017 ED vote totals
