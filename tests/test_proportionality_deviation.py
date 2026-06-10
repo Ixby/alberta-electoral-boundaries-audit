@@ -83,6 +83,13 @@ class TestPartisanBias:
         bias = epm.partisan_bias(shares)
         assert bias > 0
 
+    def test_known_value_one_win_in_five_at_even_swing(self):
+        # Ported from the retired test_extended_metrics.py: at a uniform
+        # swing to v=0.5 the UCP holds 1 of 5 seats ⇒ bias = 0.2 − 0.5 = −0.3.
+        shares = np.array([0.6, 0.4, 0.4, 0.4, 0.4])
+        bias = epm.partisan_bias(shares)
+        assert bias == pytest.approx(-0.3, abs=1e-5)
+
 
 # ── lopsided_margins (Wang 2016) ──────────────────────────────────────────────
 
@@ -112,6 +119,14 @@ class TestLopsidedMargins:
         shares = np.array([0.05, 0.10, 0.15, 0.20, 0.51, 0.53, 0.54, 0.55])
         t, _ = epm.lopsided_margins(shares)
         assert t < 0
+
+    def test_mirror_symmetric_margins_give_t_zero_p_one(self):
+        # Ported from the retired test_extended_metrics.py: identical win
+        # margins on both sides (5/10/15 points each way) ⇒ t = 0, p = 1.
+        shares = np.array([0.55, 0.60, 0.65, 0.35, 0.40, 0.45])
+        t, p = epm.lopsided_margins(shares)
+        assert t == pytest.approx(0.0, abs=1e-5)
+        assert p == pytest.approx(1.0, abs=1e-5)
 
 
 # ── proportionality_deviation (the renamed metric) ───────────────────────────
@@ -155,3 +170,11 @@ class TestResponsiveness:
         shares = np.array([0.30, 0.40, 0.45, 0.50, 0.55, 0.60, 0.70])
         r = epm.responsiveness(shares)
         assert r >= 0
+
+    def test_all_seats_flip_on_tiny_swing_pins_known_slope(self):
+        # Ported from the retired test_extended_metrics.py: every district
+        # exactly at 0.5 means the whole house flips on an infinitesimal
+        # swing — the numerical derivative pins at 50.0 for this implementation.
+        shares = np.array([0.5] * 10)
+        r = epm.responsiveness(shares)
+        assert r == pytest.approx(50.0, abs=1e-5)

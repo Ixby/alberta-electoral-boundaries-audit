@@ -149,6 +149,23 @@ VA_VOTES_PATH = (
 )
 
 
+def _va_votes_unavailable_reason():
+    """Return a skip reason when the VA votes GPKG can't actually be read.
+
+    Two unavailability modes: the file is absent, or it exists only as a
+    Git LFS pointer (a ~130-byte text stub starting with 'version https://
+    git-lfs...') because the clone couldn't run `git lfs pull`. Reading the
+    pointer with pyogrio raises DataSourceError, so detect it up front.
+    """
+    if not VA_VOTES_PATH.exists():
+        return f"VA votes file not present at {VA_VOTES_PATH}"
+    with open(VA_VOTES_PATH, "rb") as fh:
+        head = fh.read(64)
+    if head.startswith(b"version https://git-lfs"):
+        return f"VA votes file is an un-pulled Git LFS pointer: {VA_VOTES_PATH}"
+    return None
+
+
 def _load_va_votes():
     """Load voting-area-level UCP/NDP votes, keyed by VA ID."""
     import geopandas as gpd
@@ -213,10 +230,11 @@ def test_verification_subset_recompute_spot_check():
     step N, and a hostile expert loads the saved assignment for step N
     and recomputes from scratch, they get the same number.
     """
-    if not VA_VOTES_PATH.exists():
+    unavailable = _va_votes_unavailable_reason()
+    if unavailable:
         import pytest
 
-        pytest.skip(f"VA votes file not present at {VA_VOTES_PATH}")
+        pytest.skip(unavailable)
 
     metrics = pd.read_csv(VERIFICATION_METRICS)
     npz = np.load(VERIFICATION_ASSIGNMENTS)
