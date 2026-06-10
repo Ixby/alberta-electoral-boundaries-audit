@@ -1,6 +1,8 @@
 import en from './locales/en';
 import fr from './locales/fr';
 import de from './locales/de';
+import es from './locales/es';
+import ar from './locales/ar';
 import uk from './locales/uk';
 import tl from './locales/tl';
 import pa from './locales/pa';
@@ -12,6 +14,8 @@ const dictionaries: Record<Lang, unknown> = {
 	en,
 	fr,
 	de,
+	es,
+	ar,
 	uk,
 	tl,
 	pa,

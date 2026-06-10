@@ -2,25 +2,27 @@ import { browser } from '$app/environment';
 
 // Order = approximate Alberta speakers (2021 Census mother tongue):
 // English (majority) → Tagalog ~99k → Punjabi ~86k → French ~72k →
-// Cantonese ~46k (zh-Hant) → Mandarin ~43k (zh-Hans) → German ~36k
-// (plus Hutterite/Mennonite Plautdietsch communities) → Ukrainian ~14k
-// (plus the post-2022 arrival wave the census predates). The language
-// dropdown renders in this order.
-export const SUPPORTED_LANGS = ['en', 'tl', 'pa', 'fr', 'zh-Hant', 'zh-Hans', 'de', 'uk'] as const;
+// Spanish ~62k → Arabic ~55k → Cantonese ~46k (zh-Hant) → Mandarin
+// ~43k (zh-Hans) → German ~36k (plus Hutterite/Mennonite Plautdietsch
+// communities) → Ukrainian ~14k (plus the post-2022 arrival wave the
+// census predates). The language dropdown renders in this order.
+export const SUPPORTED_LANGS = ['en', 'tl', 'pa', 'fr', 'es', 'ar', 'zh-Hant', 'zh-Hans', 'de', 'uk'] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 
 export const LANG_LABELS: Record<
 	Lang,
-	{ native: string; english: string; htmlLang: string }
+	{ native: string; english: string; htmlLang: string; dir: 'ltr' | 'rtl' }
 > = {
-	en: { native: 'English', english: 'English', htmlLang: 'en' },
-	fr: { native: 'Français', english: 'French (Canadian)', htmlLang: 'fr-CA' },
-	de: { native: 'Deutsch', english: 'German', htmlLang: 'de' },
-	uk: { native: 'Українська', english: 'Ukrainian', htmlLang: 'uk' },
-	tl: { native: 'Tagalog', english: 'Tagalog', htmlLang: 'tl' },
-	pa: { native: 'ਪੰਜਾਬੀ', english: 'Punjabi', htmlLang: 'pa' },
-	'zh-Hans': { native: '简体中文', english: 'Chinese (Simplified)', htmlLang: 'zh-Hans' },
-	'zh-Hant': { native: '繁體中文', english: 'Chinese (Traditional)', htmlLang: 'zh-Hant' }
+	en: { native: 'English', english: 'English', htmlLang: 'en', dir: 'ltr' },
+	tl: { native: 'Tagalog', english: 'Tagalog', htmlLang: 'tl', dir: 'ltr' },
+	pa: { native: 'ਪੰਜਾਬੀ', english: 'Punjabi', htmlLang: 'pa', dir: 'ltr' },
+	fr: { native: 'Français', english: 'French (Canadian)', htmlLang: 'fr-CA', dir: 'ltr' },
+	es: { native: 'Español', english: 'Spanish', htmlLang: 'es', dir: 'ltr' },
+	ar: { native: 'العربية', english: 'Arabic', htmlLang: 'ar', dir: 'rtl' },
+	'zh-Hant': { native: '繁體中文', english: 'Chinese (Traditional)', htmlLang: 'zh-Hant', dir: 'ltr' },
+	'zh-Hans': { native: '简体中文', english: 'Chinese (Simplified)', htmlLang: 'zh-Hans', dir: 'ltr' },
+	de: { native: 'Deutsch', english: 'German', htmlLang: 'de', dir: 'ltr' },
+	uk: { native: 'Українська', english: 'Ukrainian', htmlLang: 'uk', dir: 'ltr' }
 };
 
 const STORAGE_KEY = 'audit_lang';
