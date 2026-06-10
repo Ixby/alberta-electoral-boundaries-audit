@@ -72,22 +72,22 @@ function _applyVB(ctx: MapCtx, vb: ViewBox): void {
     });
   }
   if (ctx.settleTimer !== null) clearTimeout(ctx.settleTimer);
-  // Skip settle scheduling while an active gesture is in flight. The settle
-  // commits viewBox-as-attribute and forces an SVG re-rasterize that takes
-  // ~5–20 ms on the hires cover art; if it fires mid-pinch (e.g. during a
-  // slow pause between two finger motions) the visual jumps. We let the
-  // pointerup handler trigger settle once the gesture ends.
-  if (!ctx.gestureActive) {
-    ctx.settleTimer = setTimeout(() => _doSettle(ctx), SETTLE_MS);
-  }
+  // The reset-on-every-_applyVB pattern is self-correcting: during a fast
+  // gesture the timer is reset every ~16 ms so settle never fires; during a
+  // pause >250 ms the SVG commits its viewBox and re-rasterizes at the
+  // current resolution, which is what we want (the GPU stops upscaling a
+  // stale raster). Suppressing this during gestures sounded right but kept
+  // the rasterized layer at a stale low-resolution baseline at extreme
+  // zooms, which is the actual cause of mobile lag at scale 30×.
+  ctx.settleTimer = setTimeout(() => _doSettle(ctx), SETTLE_MS);
 }
 
-// Explicit settle trigger — used by the gesture engine on pointerup when the
-// gesture flag clears, so the SVG re-rasterizes to its final viewBox once
-// without interfering with the gesture itself.
-export function commitSettle(ctx: MapCtx): void {
-  if (ctx.settleTimer !== null) { clearTimeout(ctx.settleTimer); ctx.settleTimer = null; }
-  _doSettle(ctx);
+// Kept as a no-op shim for the call site in gestures.ts pointerup — the
+// natural settle timer in _applyVB handles end-of-gesture settle correctly
+// on its own; calling _doSettle synchronously on pointerup forced an
+// unnecessary extra re-rasterize on every finger-lift.
+export function commitSettle(_ctx: MapCtx): void {
+  // intentionally empty
 }
 
 function _zoomToPct(ctx: MapCtx, pct: number): void {
