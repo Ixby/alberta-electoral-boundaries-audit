@@ -130,25 +130,59 @@ STRUCTURAL_REPLICATED_THRESHOLD = 3   # ≥ 3 flags = "replicated"
 
 
 def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
-    """S1: Per-ED population MAD against the 2021 census baseline.
+    """S1: Per-ED population MAD (median absolute deviation from median).
 
-    Reads the candidate shapefile, computes per-ED population by overlaying
-    the canonical 2021-census-on-VA population table. MAD = mean absolute
-    deviation from ideal per-district population.
+    Mirrors the formula in mcmc_ensemble.py:390 so the structural test is
+    placeable against the canonical chain ensemble percentiles. Uses the
+    cached VA→pop_2021 overlay (`data/va_pop_from_das.csv`).
 
     Threshold: candidate MAD ≥ 1.5 × S1_BASELINE_MAJORITY_MAD = flag.
     """
-    # TODO(november-2026): Wire in the per-ED population computation. The
-    # canonical pipeline already does this in mcmc_ensemble.py via
-    # data/va_pop_from_das.csv overlay. Extract into a helper.
-    # Stub returns NaN with the threshold annotation; verdict_synthesis.py
-    # treats NaN as "did not execute" rather than as a flag.
-    return {
-        "value": float("nan"),
-        "threshold": S1_BASELINE_MAJORITY_MAD * S1_MULTIPLIER,
-        "flag": None,
-        "_note": "STUB — wire in per-ED population overlay before November.",
-    }
+    try:
+        import geopandas as gpd
+        import pandas as pd
+        import numpy as np
+
+        pop_cache = ROOT / "data" / "va_pop_from_das.csv"
+        if not pop_cache.exists():
+            return {
+                "value": None,
+                "threshold": S1_BASELINE_MAJORITY_MAD * S1_MULTIPLIER,
+                "flag": None,
+                "_note": f"STUB — population cache missing: {pop_cache}",
+            }
+        va = gpd.read_file(votes_path)
+        # Map row index → pop_2021
+        pop_df = pd.read_csv(pop_cache).set_index("va_row_idx")["pop_2021"]
+        va["pop_2021"] = va.index.map(pop_df).fillna(0.0).clip(lower=1.0)
+
+        eds = gpd.read_file(shapefile)
+        # Auto-detect ID column
+        id_col = "EDName2025" if "EDName2025" in eds.columns else (
+            "name_2026" if "name_2026" in eds.columns else eds.columns[0]
+        )
+        eds = eds.to_crs(va.crs)
+        # Spatial join VA centroids → ED
+        va_centroids = va.copy()
+        va_centroids["geometry"] = va.geometry.representative_point()
+        joined = gpd.sjoin(va_centroids[["pop_2021", "geometry"]], eds[[id_col, "geometry"]],
+                           how="inner", predicate="within")
+        pop_by_ed = joined.groupby(id_col)["pop_2021"].sum().values
+        mad = float(np.median(np.abs(pop_by_ed - np.median(pop_by_ed))))
+        threshold = S1_BASELINE_MAJORITY_MAD * S1_MULTIPLIER
+        flag = bool(mad >= threshold)
+        return {
+            "value": mad,
+            "threshold": threshold,
+            "flag": flag,
+        }
+    except Exception as e:
+        return {
+            "value": None,
+            "threshold": S1_BASELINE_MAJORITY_MAD * S1_MULTIPLIER,
+            "flag": None,
+            "_note": f"STUB — population MAD computation raised: {e}",
+        }
 
 
 def compute_S2_municipal_splits(shapefile: Path, reference: Path) -> dict:
