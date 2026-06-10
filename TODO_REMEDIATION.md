@@ -290,16 +290,20 @@ Items flagged by the citation-verification referee pass:
 Action: counsel pass over `reports/academic/report_academic.md` references and every legal-doctrine paragraph in §5.9.5–§5.9.7.
 
 ### T6.2 — Add missing literature
-**Status: 🟡 READY TO ADD**
+**Status: ✅ CLOSED 2026-06-10**
 
-Referee flagged two omissions in `analysis/methodology/reference/academic_literature_review.md` that should be cited because the audit uses their methods:
-- **McCartan & Imai (SMC redistribution)** — the SMC method is mentioned in the audit's R cross-validation but the source paper isn't cited.
-- **Cannon et al. (short bursts)** — the §5.4.8 short-bursts hill-climb is built on this method; cite the 2023 *MCAP* paper.
+Cannon et al. citation corrected from "2022" to "2023" with the arXiv-vs-published distinction noted. McCartan & Imai (2023, *AoAS* 17(4): 3300–3323) added to the references list with a pointer to the audit's use of `redist_smc()` for algorithm-independence corroboration. Reference list update is in `reports/academic/report_academic.md` and now flows through `docs/report_academic.html` via the rebuild. The standalone `analysis/methodology/reference/academic_literature_review.md` still needs the same two additions — queued as T6.2 follow-up.
 
 ### T6.3 — Appendix F cleanup
-**Status: 🟡 READY TO TIGHTEN**
+**Status: ✅ CLOSED 2026-06-10**
 
-Cut Appendix F's self-assessed expert admissibility, the preemptive defamation brief, and the inconsistent CoI statements (UCP-disinclined §6.2 vs supported parties on all sides App. F) to a two-paragraph neutral note: "admissibility is for counsel; the data and code are public; conflict-of-interest history is on file at [reference]." Reconcile the Airdrie population figure (85,805 §6.1 vs ~81,000 App. F) to one canonical number.
+Appendix F was tightened end to end:
+- The four-section *White Burgess* self-admissibility analysis was replaced with a four-bullet neutral posture statement: "admissibility is for counsel; data and code are public; pre-registration documented at OSF; CoI history on file; the author makes no representation regarding personal qualification as an expert witness."
+- The seven-factor *Grant v. Torstar* preemptive defamation brief plus the *WIC Radio* fair-comment posture were replaced with a single paragraph: characterisations are anchored to direct quotations, primary-source citations, and visible reasoning; the audit does not pre-adjudicate any defamation defence.
+- The Airdrie population reconciled to the §5.3.2 vintage triple (74,100 / 85,805 / 90,044 across the 2021 Census / 2024 City census / 2025 City census) rather than the previously inconsistent "approximately 81,000" figure.
+- The substantive Saskatchewan Reference and voter-impact-translation sections were preserved unchanged — those are the legitimately load-bearing parts of the Appendix.
+
+Net effect: removed roughly 1,800 words of self-grading and preemptive-defence prose that referees identified as credibility-eroding; kept the substantive legal framework that lets counsel actually use the audit. `docs/report_academic.html` rebuilt.
 
 ### T6.4 — R-11 paraphrase fidelity check
 **Status: 🔴 REQUIRES TEXT INSPECTION**

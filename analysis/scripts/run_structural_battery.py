@@ -100,9 +100,12 @@ S1_BASELINE_MAJORITY_MAD = 2826.89
 S1_MULTIPLIER = 1.5
 
 # S2: municipal split count threshold = 1.5 × majority's count of municipalities
-#     split into 3+ EDs. Majority's canonical count: 8 (per municipal_splits.py
-#     canonical run). Frozen 2026-06-10.
-S2_BASELINE_MAJORITY_TRIPLE_SPLITS = 8
+#     split into 2+ EDs. Majority's canonical count: 8 (per
+#     findings/municipal_splits.md, generated 2026-04-24 against canonical).
+#     Threshold: 12. (Spec amendment 2026-06-10: original "3+ EDs" framing was
+#     ambiguous re: aggregate vs new-split counting; "2+ EDs" matches the
+#     existing pipeline's reported metric.)
+S2_BASELINE_MAJORITY_SPLITS = 8
 S2_MULTIPLIER = 1.5
 
 # S3: anchoring score band. Within 70–85% Canadian norm = neutral; outside = flag.
@@ -151,39 +154,52 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
 def compute_S2_municipal_splits(shapefile: Path, reference: Path) -> dict:
     """S2: Count of municipalities split into ≥3 EDs.
 
-    Imports the scoring logic from municipal_splits.py rather than shelling out.
-    """
-    # TODO(november-2026): Refactor municipal_splits.py to expose a callable
-    # `count_triple_splits(shapefile_path: Path) -> int` and use it here.
-    return {
-        "value": None,
-        "threshold": int(S2_BASELINE_MAJORITY_TRIPLE_SPLITS * S2_MULTIPLIER),
-        "flag": None,
-        "_note": "STUB — extract count_triple_splits() from municipal_splits.py.",
-    }
-
-
-def compute_S3_anchoring(shapefile: Path) -> dict:
-    """S3: % population in EDs anchored to a single municipality or county.
-
-    Uses score_anchoring.py's compute_anchoring_score().
+    Uses municipal_splits.count_splits_two_or_more().
     """
     try:
         sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
-        from score_anchoring import compute_anchoring_score
-        score = compute_anchoring_score(shapefile)
+        from municipal_splits import count_splits_two_or_more
+        n = int(count_splits_two_or_more(shapefile))
+        threshold = int(S2_BASELINE_MAJORITY_SPLITS * S2_MULTIPLIER)
+        flag = bool(n >= threshold)
+        return {
+            "value": n,
+            "threshold": threshold,
+            "flag": flag,
+        }
+    except Exception as e:
+        return {
+            "value": None,
+            "threshold": int(S2_BASELINE_MAJORITY_SPLITS * S2_MULTIPLIER),
+            "flag": None,
+            "_note": f"STUB — count_splits_two_or_more() raised: {e}",
+        }
+
+
+def compute_S3_anchoring(shapefile: Path) -> dict:
+    """S3: Province-wide municipal-anchored-perimeter percentage.
+
+    Uses score_anchoring.score_anchoring(). Note: this is percentage of ED
+    perimeter that follows CSD boundaries (Canadian norm 70–85%), not
+    population-in-anchored-EDs. The November spec band is the same.
+    """
+    try:
+        sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
+        from score_anchoring import score_anchoring as _score_anchoring
+        score = float(_score_anchoring(str(shapefile)))
+        # score is a fraction (0–1); convert to fraction-of-perimeter
         flag = bool(score < S3_BAND_LOW or score > S3_BAND_HIGH)
         return {
-            "value": float(score),
+            "value": score,
             "threshold": [S3_BAND_LOW, S3_BAND_HIGH],
             "flag": flag,
         }
-    except (ImportError, AttributeError) as e:
+    except Exception as e:
         return {
             "value": None,
             "threshold": [S3_BAND_LOW, S3_BAND_HIGH],
             "flag": None,
-            "_note": f"STUB — score_anchoring.compute_anchoring_score not exposed yet ({e}).",
+            "_note": f"STUB — score_anchoring raised: {e}",
         }
 
 

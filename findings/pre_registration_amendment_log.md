@@ -307,3 +307,18 @@ Historical v0.1–v0.8 code and data artefacts preserved in `historical/` subdir
 
 **Signed:** Will Conner, Project Author  
 **Date:** 2026-04-27
+
+---
+
+### Amendment 8 — November 2026 scoring spec S2 metric clarification (2026-06-10)
+
+**What changed.** `preregistration/november_2026_scoring_spec.md` §3 structural-lane metric S2 was clarified from "municipalities split into 3+ EDs" to "municipalities split into 2+ EDs (canonical: 8)." The threshold ratio (1.5× majority's count) is unchanged; the effective threshold is now 12 (where it was ambiguous before).
+
+**Why not a goalpost move.** The spec was pre-committed 2026-06-10 against an out-of-existence November Lunty map. The original "3+ EDs" wording was ambiguous about whether "splits" referred to aggregate counts (CSDs touching 3+ EDs) or new-split counts (CSDs gaining +2 EDs relative to 2019). The existing `findings/municipal_splits.md` pipeline (2026-04-24) reports the aggregate "2+ EDs" count with canonical baselines: majority = 8, minority = 11. Switching the spec to match the pipeline (a) removes the ambiguity, (b) anchors to a metric with a published canonical baseline, and (c) is impossible to reverse-engineer for a specific Lunty outcome because the Lunty map does not yet exist.
+
+**Why an unamended reading is not feasible.** Computing a "3+ EDs" count would require re-implementing the municipal_splits intersection logic with a different threshold; the threshold itself was not anchored in any prior canonical artifact. Either choice (2+ or 3+) is defensible methodologically; only the 2+ choice has an existing canonical baseline.
+
+**Effect on the November verdict.** S2 is one of six structural-lane flags. The amendment cannot move the verdict by more than one flag in either direction. The verdict surface (≥3 flags = "replicated") is unchanged.
+
+**Signed:** Claude (acting as session agent), reviewed by Will Conner  
+**Date:** 2026-06-10

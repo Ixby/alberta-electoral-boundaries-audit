@@ -179,6 +179,48 @@ def va_votes_per_csd(csds: gpd.GeoDataFrame, va: gpd.GeoDataFrame) -> dict:
     return agg["total_votes"].to_dict()
 
 
+def count_splits_two_or_more(shapefile_path, id_col: str = "EDName2025",
+                             min_overlap_m2: float = 50000.0) -> int:
+    """Public helper used by run_structural_battery.py for the November test (S2).
+
+    Returns the number of Alberta census subdivisions (CSDs) split into ≥2 EDs
+    by the candidate map (matches the existing pipeline's reported metric;
+    canonical baselines: majority=8, minority=11 per findings/municipal_splits.md).
+    ED column auto-detected (tries id_col, then name_2026).
+    """
+    csds = gpd.read_file(CSD_PATH)
+    eds = gpd.read_file(shapefile_path)
+    if id_col not in eds.columns:
+        # Adapt to v0_9 / legacy column
+        if "name_2026" in eds.columns:
+            id_col = "name_2026"
+        else:
+            raise KeyError(f"shapefile has neither {id_col!r} nor 'name_2026'; got {list(eds.columns)}")
+
+    # Reproject CSDs to ED CRS once
+    csds_proj = csds.to_crs(eds.crs)
+    splits = 0
+    for _, csd in csds_proj.iterrows():
+        csd_geom = csd.geometry
+        if csd_geom is None or csd_geom.is_empty:
+            continue
+        ed_hits = 0
+        for _, ed in eds.iterrows():
+            if ed.geometry is None or ed.geometry.is_empty:
+                continue
+            try:
+                inter = csd_geom.intersection(ed.geometry)
+            except Exception:
+                continue
+            if inter.is_empty:
+                continue
+            if inter.area >= min_overlap_m2:
+                ed_hits += 1
+        if ed_hits >= 2:
+            splits += 1
+    return splits
+
+
 def main():
     t0 = time.time()
     print("[municipal splits] Loading data...")

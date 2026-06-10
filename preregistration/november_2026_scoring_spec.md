@@ -42,7 +42,7 @@ The audit applies the same battery used in `reports/academic/report_academic.md`
 | ID | Metric | Threshold | How it's read |
 |---|---|---|---|
 | S1 | Population MAD (per-ED deviation from ideal) | ≥ 1.5× the majority commission proposal's MAD | flag |
-| S2 | Municipal split count | ≥ 1.5× majority's count of municipalities split into 3+ EDs | flag |
+| S2 | Municipal split count | ≥ 1.5× majority's count of municipalities split into 2+ EDs (canonical: 8) | flag |
 | S3 | Anchoring score (% population in EDs anchored to single municipality / county) | within 70–85% Canadian norm = neutral; outside the band = flag | flag if outside |
 | S4 | Polsby–Popper compactness median | < majority's median by 0.10 or more | flag |
 | S5 | Neighbour-drain adjacency pattern score | drain_score > 0.05 AND label-shuffle null p < 0.05 | flag |
