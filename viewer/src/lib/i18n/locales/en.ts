@@ -744,6 +744,10 @@ export default {
 			tag_min: 'Min',
 			tag_maj: 'Maj',
 			tag_2019: '2019',
+			dev_notice:
+				'Map Explorer is under continuous live development and may sometimes break. If something looks wrong, come back in a few days — the issue will likely be resolved. Suggestions are welcome: %s.',
+			dev_notice_email_label: 'email me',
+			dev_notice_dismiss: 'Dismiss development notice',
 			skel_1: 'Loading Map Explorer…',
 			skel_2: 'drawing Alberta…',
 			skel_3: 'crunching the numbers…',

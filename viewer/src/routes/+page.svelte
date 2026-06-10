@@ -199,6 +199,25 @@
     loadErrorKey = '';
   }
 
+  // Map Explorer development notice — dismissible per session. It returns
+  // next session deliberately: the tool is genuinely changing day to day,
+  // and a user who dismissed it last week deserves the reminder.
+  let devNoticeDismissed = $state(false);
+  if (typeof sessionStorage !== 'undefined') {
+    devNoticeDismissed = sessionStorage.getItem('map_dev_notice_dismissed') === '1';
+  }
+  function dismissDevNotice() {
+    devNoticeDismissed = true;
+    try { sessionStorage.setItem('map_dev_notice_dismissed', '1'); } catch {}
+  }
+  const devNoticeParts = $derived.by(() => {
+    const raw = t(lang.current, 'chrome.map.dev_notice');
+    const label = t(lang.current, 'chrome.map.dev_notice_email_label');
+    const idx = raw.indexOf('%s');
+    if (idx < 0) return { pre: raw, label, post: '' };
+    return { pre: raw.slice(0, idx), label, post: raw.slice(idx + 2) };
+  });
+
   // Loading-skeleton phrases, translated. $derived so a language switch
   // mid-load updates the cycling phrase live.
   const _skelPhrases = $derived([
@@ -1393,6 +1412,13 @@
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label={t(lang.current, 'chrome.lightbox.map_aria')} style="display:none;">
   <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')}>&times;</button>
   <div id="hud">
+  {#if !devNoticeDismissed}
+    <div id="map-dev-notice" role="note">
+      <span aria-hidden="true" class="mdn-icon">🚧</span>
+      <span class="mdn-msg">{devNoticeParts.pre}<a href="mailto:wconn161@mtroyal.ca">{devNoticeParts.label}</a>{devNoticeParts.post}</span>
+      <button class="mdn-dismiss" onclick={dismissDevNotice} aria-label={t(lang.current, 'chrome.map.dev_notice_dismiss')}>&times;</button>
+    </div>
+  {/if}
   <div id="top-bar">
     <div class="tb-group">
       <button class="tb-btn" data-map="minority">{t(lang.current, 'chrome.map.minority')}</button>
@@ -2564,6 +2590,27 @@
     pointer-events: none;
   }
   #hud > * { pointer-events: auto; }
+  /* Map Explorer development notice — amber strip at the top of the HUD */
+  #map-dev-notice {
+    display: flex; align-items: flex-start; gap: 7px;
+    background: rgba(120, 84, 10, 0.92);
+    border: 1px solid rgba(255, 200, 60, 0.35);
+    border-radius: 8px;
+    padding: 5px 9px;
+    color: rgba(255, 240, 210, 0.95);
+    font-size: 0.72rem; line-height: 1.45;
+    backdrop-filter: blur(8px);
+  }
+  #map-dev-notice .mdn-icon { flex: 0 0 auto; font-size: 0.85em; }
+  #map-dev-notice .mdn-msg { flex: 1 1 auto; }
+  #map-dev-notice a { color: inherit; text-decoration: underline; font-weight: 600; }
+  #map-dev-notice .mdn-dismiss {
+    flex: 0 0 auto;
+    background: none; border: none; cursor: pointer;
+    color: rgba(255, 240, 210, 0.7); font-size: 1rem; line-height: 1;
+    padding: 0 2px;
+  }
+  #map-dev-notice .mdn-dismiss:hover { color: #fff; }
   /* ── Unified top bar ─────────────────────────────────────────────────────── */
   #top-bar {
     display: flex; align-items: center; gap: 5px; flex-wrap: wrap;
