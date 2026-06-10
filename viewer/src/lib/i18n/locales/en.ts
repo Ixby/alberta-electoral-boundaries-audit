@@ -40,16 +40,7 @@ export default {
 		scorecard_fig_caption:
 			'Both lanes on one picture. Horizontal: how skewed the partisan-fairness number is (right = more UCP-favoured). Vertical: how many of five structural-fairness tests the map fails. Bottom-left is the safe corner where neutral procedures routinely land; the upper-right is the outlier region. The 2019 enacted map and the 2026 majority sit in the safe corner. The 2026 minority sits alone in the outlier region.',
 		scorecard_intro:
-			'Two independent measurements applied to both maps under the same pre-registered thresholds. Structure (left column) uses only the shape of the lines — no election results. Numbers (right column) tests how the lines convert votes into seats. Both lanes reach the same conclusion.',
-		scorecard_col_b: 'Structure (geometry only, no votes)',
-		scorecard_col_c: 'Numbers (vote-dependent)',
-		scorecard_r1_a: 'Majority 2026',
-		scorecard_r1_b: 'passes — crosses no structural threshold',
-		scorecard_r1_c: 'inside the normal range on every measure',
-		scorecard_r2_a: 'Minority 2026',
-		scorecard_r2_b: 'fails 4 of 5 structural thresholds (anchoring neutral for both)',
-		scorecard_r2_c:
-			'outlier on all four partisan-fairness measures — <code>seats@50/50</code> 51.7% at the 99.99th percentile; fewer than 100 of 1,010,000 neutral maps reach this',
+			'Two independent measurements applied to both maps under the same pre-registered thresholds. Structure uses only the shape of the lines — no election results. Numbers tests how the lines convert votes into seats. Both lanes reach the same conclusion.',
 		scorecard_close:
 			'Two independent measurements, one answer. The convergence is the audit\'s strongest single signal.'
 	},
@@ -136,7 +127,7 @@ export default {
 		heading: 'What is redistricting, and why it matters',
 		p1: 'Every voter in Alberta lives in an <em>electoral district</em> — a slice of the province that elects one person to the legislature. There are 87 districts. Each district elects one MLA. When you cast a ballot in a provincial election, you are choosing the MLA for the district you live in. For most Albertans, that is the whole connection to the legislature: one MLA, one district, one vote.',
 		p2: 'Those district lines are not permanent. People move, neighbourhoods grow, rural areas thin out, cities sprawl. Every eight to ten years, Alberta is supposed to redraw the lines so each district is roughly the right size and reflects the way Albertans actually live now. The body that does the redrawing is the <em>Electoral Boundaries Commission</em> — an independent commission with judges, lawyers, and public members, not politicians.',
-		p3: "This is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a <em>majority proposal</em> (backed by three commissioners) and a <em>minority proposal</em> (backed by two). Both are sitting on the table. A separate committee of MLAs chaired by Brandon Lunty — appointed by the Premier for this specific decision — is choosing between them. The legislature must approve whichever one survives the committee before November 2026.",
+		p3: "This is the standard process. This time, the standard process produced something unusual. The commission's five members split 3–2 on what the map should look like, and rather than settling on one recommendation they produced two: a <em>majority proposal</em> (backed by three commissioners) and a <em>minority proposal</em> (backed by two). Both are sitting on the table — and the legislature has set both aside. Under Government Motion 37 (April 21, 2026), a separate committee of MLAs chaired by Brandon Lunty — appointed by the Premier for this specific decision — now oversees a four-person Independent Advisory Panel tasked with producing a new 91-seat map. The legislature must approve whatever the committee delivers before November 2026.",
 		p4: "Why it matters to you: the lines decide who your MLA is. They decide which neighbourhoods, towns, and concerns get represented together. If your city is split across four MLAs instead of one, no single representative is accountable for the city as a whole. If your community of interest — a small town, a rural region, a downtown core — is divided between districts, your voice on provincial decisions is diluted. The map also shapes which party can form a government, and at what margins. The audit's specific finding (the minority proposal sits at a structural extreme) is the reason you are reading this site, but the broader question is older and applies to every redistricting cycle: do the lines reflect the way Albertans live, or do they shape the politics following?",
 		p5: 'The rest of this page walks through what the two proposed maps actually do.',
 		key_terms_lead: 'Key terms in this section — click to read:'
