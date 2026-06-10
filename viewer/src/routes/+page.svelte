@@ -81,9 +81,23 @@
     void lang.current;
     if (_ME) void _syncEngineStrings();
   });
+
+  // "About this translation" help sentence: split the %s link placeholder
+  // and inject the live prose word count, mirroring the top disclaimer.
+  const translationHelpParts = $derived.by(() => {
+    const raw = t(lang.current, 'body.translation_about.p3').replace(
+      '{count}',
+      proseWordCount.toLocaleString()
+    );
+    const label = t(lang.current, 'body.translation_about.p3_link');
+    const idx = raw.indexOf('%s');
+    if (idx < 0) return { pre: raw, label, post: '' };
+    return { pre: raw.slice(0, idx), label, post: raw.slice(idx + 2) };
+  });
   import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, setGpsRegion, setLanguage, type FlightEvent, type MapState } from '$lib/share';
   import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode, getStoredGps, storeGps, getStoredLanguage, storeLanguage } from '$lib/prefs';
   import { lang } from '$lib/i18n/store.svelte';
+  import { proseWordCount } from '$lib/i18n/wordCount';
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
 
@@ -1302,6 +1316,24 @@
       {@html t(lang.current, 'body.about_me.p4')}
     </p>
   </section>
+
+  {#if lang.current !== 'en'}
+    <!-- Rendered only on translated versions — sits under About me so the
+         translation provenance reads as part of the audit's transparency
+         apparatus, alongside the author's own disclosure. -->
+    <section id="about-translation">
+      <h2>{t(lang.current, 'body.translation_about.heading')}</h2>
+      <p style="font-size:0.9rem; color:var(--text-muted);">
+        {t(lang.current, 'body.translation_about.p1')}
+      </p>
+      <p style="font-size:0.9rem; color:var(--text-muted);">
+        {t(lang.current, 'body.translation_about.p2')}
+      </p>
+      <p style="font-size:0.9rem; color:var(--text-muted);">
+        {translationHelpParts.pre}<a href="mailto:wconn161@mtroyal.ca">{translationHelpParts.label}</a>{translationHelpParts.post}
+      </p>
+    </section>
+  {/if}
 
 </main><!-- /.container -->
 

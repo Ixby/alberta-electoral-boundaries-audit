@@ -12,7 +12,7 @@ export default {
 		// English prose, so volunteer translators know the size of the job
 		// before raising their hand. Computed, never hardcoded — it stays
 		// correct as the prose grows.
-		word_count: 'For scale: the English prose runs about {count} words.'
+		word_count: 'For scale: the English prose runs about {count} words. You are welcome to contribute to all of it or just a portion \u2014 in most cases the work is correcting minor errors the machine made, not translating from scratch.'
 	},
 	opener: {
 		heading: "Who's this for?",
@@ -577,6 +577,13 @@ export default {
 			p2: "I have voted for different parties in different elections, across the political spectrum. I'm telling you because my political history could affect how I look at this issue. The main protection against it is the method: I tested both maps the same way, wrote down my predictions before looking at the results, and put everything online so anyone can check my work. I paid for this research myself. If you find something I got wrong, I genuinely want to know.",
 			p3: 'Pre-registration records (written before results were examined): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
 			p4: 'Questions or corrections: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+		},
+		translation_about: {
+			heading: 'About this translation',
+			p1: 'You are reading an AI translation, produced by Anthropic\u2019s Fable 5 model and awaiting native-speaker review. The English version is the authoritative text: if anything in this translation is unclear or seems wrong, the English original governs.',
+			p2: 'Translation quality matters here in a way it doesn\u2019t on most websites \u2014 this audit makes statistical claims about electoral fairness, and a mistranslated number or a wrongly-hedged sentence misleads in ways that are hard for a reader to detect. Machine translation of civic-statistical prose is genuinely difficult, and errors are likely.',
+			p3: 'If you are a native speaker and you spot an error \u2014 or you\u2019d like to review a section properly \u2014 please %s. For scale: the English prose runs about {count} words. You are welcome to take on all of it or just a portion, and in most cases the work is correcting minor errors the machine made rather than translating from scratch \u2014 even reviewing a single section helps.',
+			p3_link: 'get in touch'
 		},
 		retractions: {
 			heading: '9: Retractions and Corrections',
