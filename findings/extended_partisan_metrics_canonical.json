@@ -1,0 +1,41 @@
+{
+  "test": "Extended partisan metrics \u2014 CANONICAL substrate",
+  "script_commit": "2c3b9ce0f276f10c0749d50b26e09ece2792236a",
+  "ensemble_size": 1010000,
+  "per_map": {
+    "majority_2026": {
+      "n_districts": 89,
+      "mean_ucp_vote_share": 0.5651079558948549,
+      "ucp_wins": 55,
+      "partisan_bias": -0.02808988764044945,
+      "lopsided_t": 3.8003845156618343,
+      "lopsided_p": 0.00026736581974965513,
+      "proportionality_deviation": 0.02369498746417688,
+      "responsiveness": 1.1235955056179774,
+      "partisan_bias_percentile": 93.30712871287129
+    },
+    "minority_2026": {
+      "n_districts": 89,
+      "mean_ucp_vote_share": 0.5721514064880445,
+      "ucp_wins": 60,
+      "partisan_bias": 0.016853932584269704,
+      "lopsided_t": 3.169027941098357,
+      "lopsided_p": 0.0021649554032131153,
+      "proportionality_deviation": 0.027123646355566806,
+      "responsiveness": 1.6853932584269649,
+      "partisan_bias_percentile": 99.99346534653465
+    },
+    "enacted_2019": {
+      "n_districts": 87,
+      "mean_ucp_vote_share": 0.5701329161743978,
+      "ucp_wins": 57,
+      "partisan_bias": -0.005747126436781602,
+      "lopsided_t": 3.0702186334693997,
+      "lopsided_p": 0.002887475501944752,
+      "proportionality_deviation": 0.025178928648492492,
+      "responsiveness": 2.8735632183908066,
+      "partisan_bias_percentile": 99.21950495049505
+    }
+  },
+  "supersedes": "findings/extended_partisan_metrics.md (v0_7 substrate + 10k ReCom)"
+}

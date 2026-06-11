@@ -152,12 +152,19 @@
       "p_value": "pending — per-plan Reock not in ensemble outputs"
     },
     "neighbour_drain": {
-      "minority_drain_score": 0.006176,
-      "majority_drain_score": 0.000179,
-      "minority_p": 0.1342,
-      "majority_z": -2.915,
-      "note": "minority within null (p=0.1342); majority anomalously low (p<0.0001). Channel not included in Fisher combination.",
-      "SUBSTRATE_STATUS": "SUBSTRATE-STALE 2026-06-11. The drain_score values above were computed on a DPG-era / blended-vote substrate. On canonical EA shapefiles + canonical VA centroid-in-polygon attribution (the substrate every other channel uses) the continuous drain_score gives majority=0.00721, minority=0.00059 — the direction REVERSES (majority > minority, matching the §5.3.5 coupled-count table). The 'majority z=-2.915 anomalously low' claim is therefore substrate-bound and has been RETRACTED in reports/academic/report_academic.md §5.3.5 pending a canonical-substrate Phase B null re-run. See findings/drain_metric_validation.md for the substrate-refresh evidence."
+      "_SUPERSEDED": "2026-06-11. Replaced by canonical-substrate Phase B re-run at findings/drain_label_shuffle_null_canonical.md and findings/drain_label_shuffle_null_canonical.json.",
+      "canonical_majority_drain_score": 0.007213,
+      "canonical_minority_drain_score": 0.000591,
+      "canonical_enacted_2019_drain_score": 0.001530,
+      "canonical_majority_z": -3.173,
+      "canonical_minority_z": -2.750,
+      "canonical_enacted_2019_z": -3.520,
+      "canonical_note": "All three maps anomalously low against canonical-substrate label-shuffle null (10,000 perms); 2019 enacted most anomalous (z=-3.52), majority second (-3.17), minority third (-2.75). Pre-registered Prediction A (drain(maj) > drain(min)) CONFIRMS on canonical substrate. Metric does not discriminate the 2026 commission maps from the 2019 baseline at the directional level; Channel 3 remains excluded from the Bonferroni headline combination.",
+      "stale_majority_drain_score": 0.000179,
+      "stale_minority_drain_score": 0.006176,
+      "stale_minority_p": 0.1342,
+      "stale_majority_z": -2.915,
+      "stale_note": "DPG-era / blended-vote substrate; superseded by canonical values above."
     }
   },
   "caveats": [

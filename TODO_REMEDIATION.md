@@ -209,23 +209,22 @@ Per `findings/dpg_legacy_audit.md` §"Cosmetic but worth queuing", sweep these f
 - `analysis/methodology/szat_methodology.md`, `methodological_defenses.md`, `plain_language_defense.md`, `reference/banff_extension_population_check.md`, `reference/airdrie_quadrant_demographic_comparison.md` — DPG framing language for files that are now canonical-content.
 
 ### T4.6 — Re-execute the v0_5-substrate hardstop validation against canonical
-**Status: 🟠 BLOCKED ON SCRIPT verification**
+**Status: ✅ CLOSED 2026-06-11**
 
-The monograph §3.3 hardstop counts ("81 of 86 majority / 87 of 89 minority") derive from the now-bannered `findings/phase4f_summary.json` (v0_5 substrate). Re-run the population-hardstop validation against canonical EA shapefiles to produce a canonical-substrate equivalent. If the script is `analysis/scripts/phase4f_validation.py` (verify), invoke against `data/shapefiles/canonical/ea_*_2026_eds.gpkg` and replace the v0_5 numbers in §3.3 with the canonical equivalents.
+Canonical-substrate Phase 4F population-hardstop validation completed against official Elections Alberta shapefiles + Statistics Canada 2021 DAs (script `analysis/scripts/phase4f_hardstop_canonical.py`; result `findings/phase4f_hardstop_canonical.md`). On clean canonical geometry **89 of 89 majority EDs and 89 of 89 minority EDs fail the 2 % hardstop** (median |Δ| = 9.6 % majority / 10.4 % minority; max 47.0 % / 41.9 %). The v0_5 counts (81/86 + 87/89) were lower only because the DPG substrate had 27 majority and 22 minority EDs with zero scoreable population (the polygons did not exist in v0_5); those EDs passed by being missing rather than by being within threshold. Monograph §3.3 has been refreshed with the canonical reading.
 
 ### T4.7 — Substrate-provenance sweep (2026-06-11) — canonical Phase B drain null + extended-partisan-metrics canonical recompute
-**Status: 🟡 PARTIALLY CLOSED — banners landed; recomputes queued**
+**Status: ✅ CLOSED 2026-06-11**
 
-A repo-wide substrate-provenance inventory (2026-06-11) confirmed every headline-cited number except two trace back to canonical inputs (`data/shapefiles/canonical/ea_*_2026_eds.gpkg` + `va_2023_election_day_votes.gpkg` + 1,010,000-plan ReCom ensemble). The two stale remainders, both now bannered:
+Both canonical recomputes landed in the same session:
 
-1. **`findings/drain_label_shuffle_null.md`** — continuous drain_score (majority = 0.000179, minority = 0.006176, z = −2.915) computed on DPG-era blended substrate. Canonical-substrate sanity check in `findings/drain_metric_validation.md` gives majority = 0.00721 > minority = 0.00059 (direction reverses). The §5.3.5 retraction has landed; the canonical-substrate Phase B null re-run (~6h) is queued: re-run `drain_label_shuffle_null.py` after rewiring its vote loader from `_blend` to `score_map_by_spatial_join(va_gpkg, ea_shp, EDName2025)`.
-2. **`findings/extended_partisan_metrics.md`** — Partisan Bias, Lopsided-t, Partisan Gini, Responsiveness on v0_7 DPG shapefiles + 10k ReCom. The Lopsided-t values (3.43 / 3.05) appear in §1.1 BH-table rows 5–6 but the audit's headline does not depend on them (§5.2.9 discloses them as a structural property of Alberta's political geography present on all three maps). Canonical recompute against canonical EA shapefiles + 1.01M-plan ensemble is queued.
+1. **`findings/drain_label_shuffle_null_canonical.md`** — canonical-substrate Phase B null (10,000 label-shuffle permutations). Results: majority drain = 0.007213 (z = −3.173), minority = 0.000591 (z = −2.750), 2019 enacted = 0.001530 (z = −3.520). Pre-registered Prediction A (drain(majority) > drain(minority)) CONFIRMS on canonical; "majority singularly anomalously low" framing does NOT survive — all three maps are anomalously low against their own canonical null, with the 2019 enacted baseline the most anomalous of the three. Channel 3 remains excluded from the Bonferroni headline. Old v0_2 / blended-substrate file (`findings/drain_label_shuffle_null.md`) bannered SUPERSEDED.
 
-Also flagged in the inventory (not yet acted on):
-- `findings/joint_outlier_score.json` `neighbour_drain` block — `SUBSTRATE_STATUS` retraction field added 2026-06-11.
-- `findings/joint_outlier_score_summary.md` §"Channel 3" — substrate-stale banner added 2026-06-11.
+2. **`findings/extended_partisan_metrics_canonical.md`** — canonical Partisan Bias, Lopsided-t, Proportionality Deviation, Responsiveness on canonical EA shapefiles + 1,010,000-plan ReCom ensemble. Lopsided-t majority = +3.80 (was 3.43 v0_7); Lopsided-t minority = +3.17 (was 3.05 v0_7); 2019 enacted = +3.07. Lopsided Margins finding remains a structural property of Alberta's political geography on all three maps. §1.1 BH-table rows 5–6 refreshed with the canonical t-values; §5.2.9 rewritten in place. Minority PB sign-flipped on canonical (+0.0169 vs v0_7 −0.0422) — substrate artefact, headline does not depend on PB. Old v0_7 file (`findings/extended_partisan_metrics.md`) bannered SUPERSEDED.
 
-Other v0_5 / v0_7 / v0_8 substrate references in the academic report are *transparently disclosed inline* (§5.2.9 header explicitly says "v0_7 geometry"; §5.3.5 v0_8 cross-substrate disagreement reported; §3.3 hardstops banner the v0_5 origin; §1.2 caveats list inheritance-empty EDs). The audit does not silently mix substrates; all remaining stale numbers are either bannered or annotated.
+`findings/joint_outlier_score.json` `neighbour_drain` block updated with canonical values; stale values preserved under `stale_*` keys for trail-of-work. `findings/joint_outlier_score_summary.md` Channel 3 section updated.
+
+Every headline-cited number now traces to canonical inputs.
 
 ### T4.2 — Rewrite `external_tool_validation.md` against canonical
 **Status: ✅ CLOSED 2026-06-11**

@@ -104,6 +104,9 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `drain_label_shuffle_null.md` | Neighbour-drain null distribution: label-shuffle test |
 | `t3_2_majority_rural_isolation.md` | T3.2 counter-test — majority rural-isolation pre-registered scan (verdict: H₀ supported) |
 | `drain_metric_validation.md` | Justify-or-drop validation of the §5.3.5 drain metric: V1 construct validity (PASS), V2 LISA framing (FAIL, retracted), V3 canonical-substrate direction (PASS, identifies substrate-staleness in published Phase B + joint-outlier numbers) |
+| `drain_label_shuffle_null_canonical.md` | Canonical-substrate Phase B label-shuffle null (10K perms; all three maps z < -2.7; Prediction A confirms on canonical) — supersedes `drain_label_shuffle_null.md` |
+| `extended_partisan_metrics_canonical.md` | Canonical-substrate extended partisan metrics (PB, Lopsided-t, Proportionality Deviation, Responsiveness; canonical EA shapefiles + 1.01M ReCom ensemble) — supersedes `extended_partisan_metrics.md` |
+| `phase4f_hardstop_canonical.md` | Canonical-substrate population-hardstop validation (89/89 majority + 89/89 minority fail 2% on canonical; clean cycle-lag measurement) — supersedes `phase4f_summary.json` |
 
 ---
 

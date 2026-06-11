@@ -1,0 +1,1161 @@
+{
+  "test": "Phase 4F population-hardstop validation \u2014 CANONICAL substrate",
+  "script_commit": "2c3b9ce0f276f10c0749d50b26e09ece2792236a",
+  "hardstop_threshold_pct": 2.0,
+  "warn_threshold_pct": 0.5,
+  "per_map": {
+    "majority_2026": {
+      "plan": "majority_2026",
+      "n_eds_scored": 89,
+      "n_warn_0p5pct": 89,
+      "n_hardstop_2pct": 89,
+      "max_abs_delta_pct": 47.02288091456238,
+      "median_abs_delta_pct": 9.598323564890533,
+      "top5_hardstops": [
+        {
+          "ed_name": "Calgary-North East",
+          "pop_published": 54541,
+          "pop_2021_from_das": 28894.250520388534,
+          "delta_scaled_pct": -47.02288091456238
+        },
+        {
+          "ed_name": "Edmonton-Windermere",
+          "pop_published": 56944,
+          "pop_2021_from_das": 36138.08327352771,
+          "delta_scaled_pct": -36.53750478798871
+        },
+        {
+          "ed_name": "Calgary-Shaw",
+          "pop_published": 58171,
+          "pop_2021_from_das": 38535.57451573287,
+          "delta_scaled_pct": -33.75466380888609
+        },
+        {
+          "ed_name": "Calgary-South East",
+          "pop_published": 53551,
+          "pop_2021_from_das": 35768.53685470777,
+          "delta_scaled_pct": -33.206593985718726
+        },
+        {
+          "ed_name": "Edmonton-South",
+          "pop_published": 60775,
+          "pop_2021_from_das": 41166.66120869279,
+          "delta_scaled_pct": -32.2638235973792
+        }
+      ],
+      "all_eds": [
+        {
+          "ed_name": "Calgary-Acadia",
+          "pop_published": 55791,
+          "pop_2021_from_das": 50134.01791698665,
+          "delta_scaled_pct": -10.139596140978558
+        },
+        {
+          "ed_name": "Calgary-Beddington",
+          "pop_published": 56024,
+          "pop_2021_from_das": 50857.23284466083,
+          "delta_scaled_pct": -9.22241745562468
+        },
+        {
+          "ed_name": "Calgary-Bhullar-McCall",
+          "pop_published": 55887,
+          "pop_2021_from_das": 38531.439199046945,
+          "delta_scaled_pct": -31.054736881480586
+        },
+        {
+          "ed_name": "Calgary-Bow",
+          "pop_published": 54981,
+          "pop_2021_from_das": 47914.08354035964,
+          "delta_scaled_pct": -12.853379275823206
+        },
+        {
+          "ed_name": "Calgary-Buffalo",
+          "pop_published": 58777,
+          "pop_2021_from_das": 40765.171515746966,
+          "delta_scaled_pct": -30.6443481025793
+        },
+        {
+          "ed_name": "Calgary-Confluence",
+          "pop_published": 58632,
+          "pop_2021_from_das": 49832.59690134387,
+          "delta_scaled_pct": -15.007850830017954
+        },
+        {
+          "ed_name": "Calgary-Cross",
+          "pop_published": 59491,
+          "pop_2021_from_das": 52804.810913348534,
+          "delta_scaled_pct": -11.238992598294644
+        },
+        {
+          "ed_name": "Calgary-Currie",
+          "pop_published": 58111,
+          "pop_2021_from_das": 50171.246029335,
+          "delta_scaled_pct": -13.66308267051849
+        },
+        {
+          "ed_name": "Calgary-East",
+          "pop_published": 58308,
+          "pop_2021_from_das": 52711.40949578363,
+          "delta_scaled_pct": -9.598323564890533
+        },
+        {
+          "ed_name": "Calgary-Edgemont",
+          "pop_published": 55141,
+          "pop_2021_from_das": 50263.47956207959,
+          "delta_scaled_pct": -8.84554222433472
+        },
+        {
+          "ed_name": "Calgary-Elbow",
+          "pop_published": 55297,
+          "pop_2021_from_das": 47178.088738146726,
+          "delta_scaled_pct": -14.682372030767086
+        },
+        {
+          "ed_name": "Calgary-Falconridge-Conrich",
+          "pop_published": 56661,
+          "pop_2021_from_das": 46010.99526756728,
+          "delta_scaled_pct": -18.796005598970574
+        },
+        {
+          "ed_name": "Calgary-Fish Creek",
+          "pop_published": 55403,
+          "pop_2021_from_das": 50988.624903563315,
+          "delta_scaled_pct": -7.967754627793955
+        },
+        {
+          "ed_name": "Calgary-Glenmore-Tsuut'ina",
+          "pop_published": 56970,
+          "pop_2021_from_das": 50584.97092152387,
+          "delta_scaled_pct": -11.207704192515589
+        },
+        {
+          "ed_name": "Calgary-Hays",
+          "pop_published": 52147,
+          "pop_2021_from_das": 45509.177854808215,
+          "delta_scaled_pct": -12.729058517636268
+        },
+        {
+          "ed_name": "Calgary-Klein",
+          "pop_published": 56292,
+          "pop_2021_from_das": 49572.705039182125,
+          "delta_scaled_pct": -11.936500676504433
+        },
+        {
+          "ed_name": "Calgary-Lougheed",
+          "pop_published": 59554,
+          "pop_2021_from_das": 53342.39169526203,
+          "delta_scaled_pct": -10.430211748560923
+        },
+        {
+          "ed_name": "Calgary-McKenzie",
+          "pop_published": 62772,
+          "pop_2021_from_das": 56312.00263539089,
+          "delta_scaled_pct": -10.291208444225306
+        },
+        {
+          "ed_name": "Calgary-Mountain View",
+          "pop_published": 54396,
+          "pop_2021_from_das": 46366.20481565872,
+          "delta_scaled_pct": -14.761738334328408
+        },
+        {
+          "ed_name": "Calgary-North",
+          "pop_published": 57945,
+          "pop_2021_from_das": 48118.372260998476,
+          "delta_scaled_pct": -16.95854299594706
+        },
+        {
+          "ed_name": "Calgary-North East",
+          "pop_published": 54541,
+          "pop_2021_from_das": 28894.250520388534,
+          "delta_scaled_pct": -47.02288091456238
+        },
+        {
+          "ed_name": "Calgary-North West",
+          "pop_published": 52488,
+          "pop_2021_from_das": 47451.23221273216,
+          "delta_scaled_pct": -9.596036784156073
+        },
+        {
+          "ed_name": "Calgary-Nose Creek",
+          "pop_published": 55155,
+          "pop_2021_from_das": 37617.87830667886,
+          "delta_scaled_pct": -31.796068703329055
+        },
+        {
+          "ed_name": "Calgary-Shaw",
+          "pop_published": 58171,
+          "pop_2021_from_das": 38535.57451573287,
+          "delta_scaled_pct": -33.75466380888609
+        },
+        {
+          "ed_name": "Calgary-South East",
+          "pop_published": 53551,
+          "pop_2021_from_das": 35768.53685470777,
+          "delta_scaled_pct": -33.206593985718726
+        },
+        {
+          "ed_name": "Calgary-Symons Valley",
+          "pop_published": 54797,
+          "pop_2021_from_das": 45113.81876841416,
+          "delta_scaled_pct": -17.67100613461657
+        },
+        {
+          "ed_name": "Calgary-Varsity",
+          "pop_published": 57166,
+          "pop_2021_from_das": 50824.68271222156,
+          "delta_scaled_pct": -11.092812664483152
+        },
+        {
+          "ed_name": "Calgary-West-Elbow Valley",
+          "pop_published": 54167,
+          "pop_2021_from_das": 48582.97471631405,
+          "delta_scaled_pct": -10.308906315073664
+        },
+        {
+          "ed_name": "Edmonton-Beaumont",
+          "pop_published": 55802,
+          "pop_2021_from_das": 42093.336699275605,
+          "delta_scaled_pct": -24.566616430816808
+        },
+        {
+          "ed_name": "Edmonton-Beverly-Clareview",
+          "pop_published": 57481,
+          "pop_2021_from_das": 53293.27635577935,
+          "delta_scaled_pct": -7.285404993338057
+        },
+        {
+          "ed_name": "Edmonton-Castle Downs",
+          "pop_published": 59612,
+          "pop_2021_from_das": 50758.423722520805,
+          "delta_scaled_pct": -14.852003417901086
+        },
+        {
+          "ed_name": "Edmonton-City Centre",
+          "pop_published": 57312,
+          "pop_2021_from_das": 49263.121605188084,
+          "delta_scaled_pct": -14.04396704845742
+        },
+        {
+          "ed_name": "Edmonton-Decore",
+          "pop_published": 57959,
+          "pop_2021_from_das": 52785.21415464307,
+          "delta_scaled_pct": -8.926630627438236
+        },
+        {
+          "ed_name": "Edmonton-Ellerslie",
+          "pop_published": 59760,
+          "pop_2021_from_das": 54164.58214674372,
+          "delta_scaled_pct": -9.363149018166466
+        },
+        {
+          "ed_name": "Edmonton-Enoch",
+          "pop_published": 56894,
+          "pop_2021_from_das": 44221.194523958,
+          "delta_scaled_pct": -22.274414658913063
+        },
+        {
+          "ed_name": "Edmonton-Glenora-Riverview",
+          "pop_published": 56622,
+          "pop_2021_from_das": 52077.12829367752,
+          "delta_scaled_pct": -8.02668875405758
+        },
+        {
+          "ed_name": "Edmonton-Gold Bar",
+          "pop_published": 54981,
+          "pop_2021_from_das": 51879.32922564568,
+          "delta_scaled_pct": -5.641350237999169
+        },
+        {
+          "ed_name": "Edmonton-Highlands-Norwood",
+          "pop_published": 51806,
+          "pop_2021_from_das": 45173.300632140155,
+          "delta_scaled_pct": -12.802955966219828
+        },
+        {
+          "ed_name": "Edmonton-Manning",
+          "pop_published": 56901,
+          "pop_2021_from_das": 45361.88682267488,
+          "delta_scaled_pct": -20.27928011339892
+        },
+        {
+          "ed_name": "Edmonton-McClung",
+          "pop_published": 61859,
+          "pop_2021_from_das": 57052.19062809926,
+          "delta_scaled_pct": -7.770590167802159
+        },
+        {
+          "ed_name": "Edmonton-Meadows",
+          "pop_published": 56880,
+          "pop_2021_from_das": 39157.47599566198,
+          "delta_scaled_pct": -31.15774262366037
+        },
+        {
+          "ed_name": "Edmonton-Mill Woods",
+          "pop_published": 59673,
+          "pop_2021_from_das": 55548.71635273514,
+          "delta_scaled_pct": -6.911473609948994
+        },
+        {
+          "ed_name": "Edmonton-North West",
+          "pop_published": 61226,
+          "pop_2021_from_das": 54756.08297608212,
+          "delta_scaled_pct": -10.567270479727368
+        },
+        {
+          "ed_name": "Edmonton-Rutherford",
+          "pop_published": 58082,
+          "pop_2021_from_das": 53869.467317884715,
+          "delta_scaled_pct": -7.252733518328028
+        },
+        {
+          "ed_name": "Edmonton-South",
+          "pop_published": 60775,
+          "pop_2021_from_das": 41166.66120869279,
+          "delta_scaled_pct": -32.2638235973792
+        },
+        {
+          "ed_name": "Edmonton-Strathcona",
+          "pop_published": 56165,
+          "pop_2021_from_das": 50431.55830450338,
+          "delta_scaled_pct": -10.208210977471062
+        },
+        {
+          "ed_name": "Edmonton-West Henday",
+          "pop_published": 61775,
+          "pop_2021_from_das": 50696.947838383036,
+          "delta_scaled_pct": -17.932905158424873
+        },
+        {
+          "ed_name": "Edmonton-Whitemud",
+          "pop_published": 60347,
+          "pop_2021_from_das": 55408.76076648991,
+          "delta_scaled_pct": -8.183073282035707
+        },
+        {
+          "ed_name": "Edmonton-Windermere",
+          "pop_published": 56944,
+          "pop_2021_from_das": 36138.08327352771,
+          "delta_scaled_pct": -36.53750478798871
+        },
+        {
+          "ed_name": "Airdrie-East",
+          "pop_published": 53809,
+          "pop_2021_from_das": 48252.20727412127,
+          "delta_scaled_pct": -10.32688346908274
+        },
+        {
+          "ed_name": "Airdrie-West",
+          "pop_published": 48145,
+          "pop_2021_from_das": 38466.80909397816,
+          "delta_scaled_pct": -20.102172408395134
+        },
+        {
+          "ed_name": "Barrhead-Westlock-Athabasca",
+          "pop_published": 52249,
+          "pop_2021_from_das": 49608.53591890982,
+          "delta_scaled_pct": -5.053616492354259
+        },
+        {
+          "ed_name": "Camrose",
+          "pop_published": 54653,
+          "pop_2021_from_das": 51723.50451553733,
+          "delta_scaled_pct": -5.3601732465970215
+        },
+        {
+          "ed_name": "Canmore-Banff",
+          "pop_published": 39961,
+          "pop_2021_from_das": 31344.08442129774,
+          "delta_scaled_pct": -21.56331317710333
+        },
+        {
+          "ed_name": "Central Peace-Notley",
+          "pop_published": 28715,
+          "pop_2021_from_das": 27059.92643995816,
+          "delta_scaled_pct": -5.763794393320011
+        },
+        {
+          "ed_name": "Chestermere-Strathmore",
+          "pop_published": 56679,
+          "pop_2021_from_das": 47367.667725053514,
+          "delta_scaled_pct": -16.42818729149506
+        },
+        {
+          "ed_name": "Cochrane-Springbank",
+          "pop_published": 56487,
+          "pop_2021_from_das": 49026.70526699528,
+          "delta_scaled_pct": -13.207100276178089
+        },
+        {
+          "ed_name": "Cold Lake-Bonnyville-St. Paul",
+          "pop_published": 55809,
+          "pop_2021_from_das": 52592.575744464295,
+          "delta_scaled_pct": -5.76327161485729
+        },
+        {
+          "ed_name": "Drumheller-Stettler",
+          "pop_published": 50626,
+          "pop_2021_from_das": 48991.598645585225,
+          "delta_scaled_pct": -3.228383349296359
+        },
+        {
+          "ed_name": "Fort McMurray-Lac La Biche",
+          "pop_published": 52847,
+          "pop_2021_from_das": 42426.27093480802,
+          "delta_scaled_pct": -19.718676680212656
+        },
+        {
+          "ed_name": "Fort McMurray-Wood Buffalo",
+          "pop_published": 49615,
+          "pop_2021_from_das": 47318.83860735819,
+          "delta_scaled_pct": -4.627958062363815
+        },
+        {
+          "ed_name": "Fort Saskatchewan-Vegreville",
+          "pop_published": 54278,
+          "pop_2021_from_das": 50785.990774841484,
+          "delta_scaled_pct": -6.433562815797406
+        },
+        {
+          "ed_name": "Grande Prairie",
+          "pop_published": 50352,
+          "pop_2021_from_das": 46720.63897371166,
+          "delta_scaled_pct": -7.2119499251039425
+        },
+        {
+          "ed_name": "Grande Prairie-Wapiti",
+          "pop_published": 53781,
+          "pop_2021_from_das": 50096.06238372186,
+          "delta_scaled_pct": -6.8517461859730036
+        },
+        {
+          "ed_name": "High River-Vulcan-Siksika",
+          "pop_published": 53351,
+          "pop_2021_from_das": 49207.00418613934,
+          "delta_scaled_pct": -7.767419193380929
+        },
+        {
+          "ed_name": "Lacombe-Clearwater",
+          "pop_published": 55750,
+          "pop_2021_from_das": 50693.36334907446,
+          "delta_scaled_pct": -9.070200270718455
+        },
+        {
+          "ed_name": "Leduc-Devon",
+          "pop_published": 56572,
+          "pop_2021_from_das": 51347.61651486449,
+          "delta_scaled_pct": -9.234928030006916
+        },
+        {
+          "ed_name": "Lesser Slave Lake",
+          "pop_published": 30011,
+          "pop_2021_from_das": 29050.439489781726,
+          "delta_scaled_pct": -3.2006947793085017
+        },
+        {
+          "ed_name": "Lethbridge-East",
+          "pop_published": 57463,
+          "pop_2021_from_das": 48552.405277885606,
+          "delta_scaled_pct": -15.506664674859291
+        },
+        {
+          "ed_name": "Lethbridge-West",
+          "pop_published": 54235,
+          "pop_2021_from_das": 49805.723061174984,
+          "delta_scaled_pct": -8.166823893841645
+        },
+        {
+          "ed_name": "Livingstone-Macleod",
+          "pop_published": 50144,
+          "pop_2021_from_das": 46926.09908212698,
+          "delta_scaled_pct": -6.417319954277718
+        },
+        {
+          "ed_name": "Lloydminster-Wainwright",
+          "pop_published": 50139,
+          "pop_2021_from_das": 47414.47637016045,
+          "delta_scaled_pct": -5.433940903966068
+        },
+        {
+          "ed_name": "Medicine Hat-Brooks",
+          "pop_published": 54833,
+          "pop_2021_from_das": 51553.20329948404,
+          "delta_scaled_pct": -5.98142852026327
+        },
+        {
+          "ed_name": "Medicine Hat-Cypress",
+          "pop_published": 54210,
+          "pop_2021_from_das": 49847.23886444563,
+          "delta_scaled_pct": -8.047889938303578
+        },
+        {
+          "ed_name": "Mountain View-Kneehill",
+          "pop_published": 52432,
+          "pop_2021_from_das": 49172.50926035531,
+          "delta_scaled_pct": -6.216605774421511
+        },
+        {
+          "ed_name": "Okotoks-Diamond Valley",
+          "pop_published": 55284,
+          "pop_2021_from_das": 51168.73264925699,
+          "delta_scaled_pct": -7.443866852512496
+        },
+        {
+          "ed_name": "Peace River",
+          "pop_published": 43399,
+          "pop_2021_from_das": 40289.924614701624,
+          "delta_scaled_pct": -7.163933236476362
+        },
+        {
+          "ed_name": "Red Deer-North",
+          "pop_published": 53798,
+          "pop_2021_from_das": 46849.480650304875,
+          "delta_scaled_pct": -12.915943621872794
+        },
+        {
+          "ed_name": "Red Deer-South",
+          "pop_published": 59123,
+          "pop_2021_from_das": 53777.61248148944,
+          "delta_scaled_pct": -9.041130386669414
+        },
+        {
+          "ed_name": "Sherwood Park",
+          "pop_published": 52475,
+          "pop_2021_from_das": 47790.07460015827,
+          "delta_scaled_pct": -8.92791881818339
+        },
+        {
+          "ed_name": "Spruce Grove",
+          "pop_published": 55930,
+          "pop_2021_from_das": 50153.48194413139,
+          "delta_scaled_pct": -10.328120965257664
+        },
+        {
+          "ed_name": "St. Albert",
+          "pop_published": 59935,
+          "pop_2021_from_das": 56709.948398979126,
+          "delta_scaled_pct": -5.3809153266386485
+        },
+        {
+          "ed_name": "St. Albert-Sturgeon",
+          "pop_published": 54214,
+          "pop_2021_from_das": 51048.98423916513,
+          "delta_scaled_pct": -5.838004502222429
+        },
+        {
+          "ed_name": "Stony Plain-Drayton Valley",
+          "pop_published": 55743,
+          "pop_2021_from_das": 52886.836437485676,
+          "delta_scaled_pct": -5.123806688757915
+        },
+        {
+          "ed_name": "Strathcona-Sherwood Park",
+          "pop_published": 51020,
+          "pop_2021_from_das": 49308.44825495168,
+          "delta_scaled_pct": -3.354668257640762
+        },
+        {
+          "ed_name": "Sylvan Lake-Innisfail",
+          "pop_published": 55290,
+          "pop_2021_from_das": 50569.21062689509,
+          "delta_scaled_pct": -8.538233628332268
+        },
+        {
+          "ed_name": "Taber-Cardston",
+          "pop_published": 54933,
+          "pop_2021_from_das": 51983.33446578542,
+          "delta_scaled_pct": -5.369569355787199
+        },
+        {
+          "ed_name": "West Yellowhead",
+          "pop_published": 56562,
+          "pop_2021_from_das": 54815.9992524707,
+          "delta_scaled_pct": -3.086879437660094
+        },
+        {
+          "ed_name": "Wetaskiwin-Ponoka-Maskwacis",
+          "pop_published": 56399,
+          "pop_2021_from_das": 53808.60032152325,
+          "delta_scaled_pct": -4.592988667311036
+        }
+      ]
+    },
+    "minority_2026": {
+      "plan": "minority_2026",
+      "n_eds_scored": 89,
+      "n_warn_0p5pct": 89,
+      "n_hardstop_2pct": 89,
+      "max_abs_delta_pct": 41.91942474494436,
+      "median_abs_delta_pct": 10.205048946058797,
+      "top5_hardstops": [
+        {
+          "ed_name": "Calgary-North East",
+          "pop_published": 68145,
+          "pop_2021_from_das": 39579.00800755767,
+          "delta_scaled_pct": -41.91942474494436
+        },
+        {
+          "ed_name": "Edmonton-Windermere",
+          "pop_published": 56944,
+          "pop_2021_from_das": 36138.08327352771,
+          "delta_scaled_pct": -36.53750478798871
+        },
+        {
+          "ed_name": "Calgary-South East",
+          "pop_published": 54045,
+          "pop_2021_from_das": 36185.868801855475,
+          "delta_scaled_pct": -33.04492774196415
+        },
+        {
+          "ed_name": "Edmonton-South",
+          "pop_published": 60775,
+          "pop_2021_from_das": 41166.66120869279,
+          "delta_scaled_pct": -32.2638235973792
+        },
+        {
+          "ed_name": "Calgary-Buffalo",
+          "pop_published": 66801,
+          "pop_2021_from_das": 45375.8485883974,
+          "delta_scaled_pct": -32.07309982126406
+        }
+      ],
+      "all_eds": [
+        {
+          "ed_name": "Calgary-Acadia",
+          "pop_published": 53346,
+          "pop_2021_from_das": 48707.47604127072,
+          "delta_scaled_pct": -8.695167320378813
+        },
+        {
+          "ed_name": "Calgary-Airdrie",
+          "pop_published": 58820,
+          "pop_2021_from_das": 40531.40219343769,
+          "delta_scaled_pct": -31.09248182006514
+        },
+        {
+          "ed_name": "Calgary-Beddington",
+          "pop_published": 61320,
+          "pop_2021_from_das": 55110.64336603922,
+          "delta_scaled_pct": -10.126152371103684
+        },
+        {
+          "ed_name": "Calgary-Bow-Springbank",
+          "pop_published": 55560,
+          "pop_2021_from_das": 51248.859644916534,
+          "delta_scaled_pct": -7.75943188459947
+        },
+        {
+          "ed_name": "Calgary-Buffalo",
+          "pop_published": 66801,
+          "pop_2021_from_das": 45375.8485883974,
+          "delta_scaled_pct": -32.07309982126406
+        },
+        {
+          "ed_name": "Calgary-Cross",
+          "pop_published": 63064,
+          "pop_2021_from_das": 56405.018858715215,
+          "delta_scaled_pct": -10.559084646208273
+        },
+        {
+          "ed_name": "Calgary-Currie",
+          "pop_published": 60141,
+          "pop_2021_from_das": 51642.31923023271,
+          "delta_scaled_pct": -14.131259489811097
+        },
+        {
+          "ed_name": "Calgary-De Winton",
+          "pop_published": 47732,
+          "pop_2021_from_das": 35899.07291435858,
+          "delta_scaled_pct": -24.790344183443857
+        },
+        {
+          "ed_name": "Calgary-East",
+          "pop_published": 57107,
+          "pop_2021_from_das": 50115.34543818625,
+          "delta_scaled_pct": -12.243078014628248
+        },
+        {
+          "ed_name": "Calgary-Edgemont",
+          "pop_published": 56584,
+          "pop_2021_from_das": 50726.49378933062,
+          "delta_scaled_pct": -10.351877227960873
+        },
+        {
+          "ed_name": "Calgary-Elbow",
+          "pop_published": 59034,
+          "pop_2021_from_das": 49504.99799930689,
+          "delta_scaled_pct": -16.141548939074276
+        },
+        {
+          "ed_name": "Calgary-Falconridge",
+          "pop_published": 63986,
+          "pop_2021_from_das": 54973.00616734144,
+          "delta_scaled_pct": -14.085884150686963
+        },
+        {
+          "ed_name": "Calgary-Fish Creek",
+          "pop_published": 57894,
+          "pop_2021_from_das": 52807.659474621505,
+          "delta_scaled_pct": -8.785609087951247
+        },
+        {
+          "ed_name": "Calgary-Foothills-Airdrie West",
+          "pop_published": 58436,
+          "pop_2021_from_das": 45466.07004057063,
+          "delta_scaled_pct": -22.1951022647501
+        },
+        {
+          "ed_name": "Calgary-Glenmore",
+          "pop_published": 53096,
+          "pop_2021_from_das": 49109.780720562325,
+          "delta_scaled_pct": -7.507569834710101
+        },
+        {
+          "ed_name": "Calgary-Hays",
+          "pop_published": 52395,
+          "pop_2021_from_das": 45131.66199436936,
+          "delta_scaled_pct": -13.862654844223002
+        },
+        {
+          "ed_name": "Calgary-Klein",
+          "pop_published": 61817,
+          "pop_2021_from_das": 54955.1360333368,
+          "delta_scaled_pct": -11.100286275075142
+        },
+        {
+          "ed_name": "Calgary-Lougheed",
+          "pop_published": 56122,
+          "pop_2021_from_das": 48634.69177768205,
+          "delta_scaled_pct": -13.341128652432117
+        },
+        {
+          "ed_name": "Calgary-McCall-Bhullar",
+          "pop_published": 66474,
+          "pop_2021_from_das": 46989.20489027172,
+          "delta_scaled_pct": -29.31190406734705
+        },
+        {
+          "ed_name": "Calgary-Mountain View",
+          "pop_published": 62634,
+          "pop_2021_from_das": 53882.85954838418,
+          "delta_scaled_pct": -13.971869035373475
+        },
+        {
+          "ed_name": "Calgary-Nolan Hill-Cochrane",
+          "pop_published": 56282,
+          "pop_2021_from_das": 48843.71379800943,
+          "delta_scaled_pct": -13.216101421396848
+        },
+        {
+          "ed_name": "Calgary-North",
+          "pop_published": 56981,
+          "pop_2021_from_das": 46365.88419545196,
+          "delta_scaled_pct": -18.62921992339208
+        },
+        {
+          "ed_name": "Calgary-North East",
+          "pop_published": 68145,
+          "pop_2021_from_das": 39579.00800755767,
+          "delta_scaled_pct": -41.91942474494436
+        },
+        {
+          "ed_name": "Calgary-North West-Bearspaw",
+          "pop_published": 57246,
+          "pop_2021_from_das": 52467.40457947546,
+          "delta_scaled_pct": -8.347474793914934
+        },
+        {
+          "ed_name": "Calgary-Peigan-Chestermere",
+          "pop_published": 52639,
+          "pop_2021_from_das": 48850.84797384378,
+          "delta_scaled_pct": -7.196474146842109
+        },
+        {
+          "ed_name": "Calgary-South",
+          "pop_published": 55134,
+          "pop_2021_from_das": 44253.98713686804,
+          "delta_scaled_pct": -19.733762946878443
+        },
+        {
+          "ed_name": "Calgary-South East",
+          "pop_published": 54045,
+          "pop_2021_from_das": 36185.868801855475,
+          "delta_scaled_pct": -33.04492774196415
+        },
+        {
+          "ed_name": "Calgary-Varsity",
+          "pop_published": 64982,
+          "pop_2021_from_das": 57522.03070582792,
+          "delta_scaled_pct": -11.480054929322087
+        },
+        {
+          "ed_name": "Calgary-West-Tsuut'ina",
+          "pop_published": 57827,
+          "pop_2021_from_das": 48279.54521698509,
+          "delta_scaled_pct": -16.51037540079013
+        },
+        {
+          "ed_name": "Edmonton-Beaumont",
+          "pop_published": 55802,
+          "pop_2021_from_das": 42093.336699275605,
+          "delta_scaled_pct": -24.566616430816808
+        },
+        {
+          "ed_name": "Edmonton-Beverly-Clareview",
+          "pop_published": 57481,
+          "pop_2021_from_das": 53293.18037825774,
+          "delta_scaled_pct": -7.2855719659405
+        },
+        {
+          "ed_name": "Edmonton-Castledowns",
+          "pop_published": 59612,
+          "pop_2021_from_das": 50758.423722520805,
+          "delta_scaled_pct": -14.852003417901086
+        },
+        {
+          "ed_name": "Edmonton-City Centre",
+          "pop_published": 57312,
+          "pop_2021_from_das": 49263.121605188084,
+          "delta_scaled_pct": -14.04396704845742
+        },
+        {
+          "ed_name": "Edmonton-Decore",
+          "pop_published": 57959,
+          "pop_2021_from_das": 52785.21415464307,
+          "delta_scaled_pct": -8.926630627438236
+        },
+        {
+          "ed_name": "Edmonton-Ellerslie",
+          "pop_published": 59760,
+          "pop_2021_from_das": 54157.527555765584,
+          "delta_scaled_pct": -9.374953889281151
+        },
+        {
+          "ed_name": "Edmonton-Enoch-Devon",
+          "pop_published": 55043,
+          "pop_2021_from_das": 44528.02474408318,
+          "delta_scaled_pct": -19.103201598598947
+        },
+        {
+          "ed_name": "Edmonton-Glenora-Riverview",
+          "pop_published": 59708,
+          "pop_2021_from_das": 54800.85524363141,
+          "delta_scaled_pct": -8.218571642608339
+        },
+        {
+          "ed_name": "Edmonton-Gold Bar",
+          "pop_published": 54981,
+          "pop_2021_from_das": 51879.32914303478,
+          "delta_scaled_pct": -5.641350388252702
+        },
+        {
+          "ed_name": "Edmonton-Highlands-Norwood",
+          "pop_published": 51806,
+          "pop_2021_from_das": 45173.381990077236,
+          "delta_scaled_pct": -12.802798922755596
+        },
+        {
+          "ed_name": "Edmonton-Manning",
+          "pop_published": 56901,
+          "pop_2021_from_das": 45358.8415614698,
+          "delta_scaled_pct": -20.284631972250395
+        },
+        {
+          "ed_name": "Edmonton-McClung",
+          "pop_published": 61859,
+          "pop_2021_from_das": 57052.19062809926,
+          "delta_scaled_pct": -7.770590167802159
+        },
+        {
+          "ed_name": "Edmonton-Meadows",
+          "pop_published": 56880,
+          "pop_2021_from_das": 39164.53058664011,
+          "delta_scaled_pct": -31.14534003755255
+        },
+        {
+          "ed_name": "Edmonton-Mill Woods",
+          "pop_published": 59673,
+          "pop_2021_from_das": 55548.71635273514,
+          "delta_scaled_pct": -6.911473609948994
+        },
+        {
+          "ed_name": "Edmonton-North West",
+          "pop_published": 61226,
+          "pop_2021_from_das": 54754.29310704947,
+          "delta_scaled_pct": -10.57019386037065
+        },
+        {
+          "ed_name": "Edmonton-Rutherford",
+          "pop_published": 58082,
+          "pop_2021_from_das": 53867.408840721975,
+          "delta_scaled_pct": -7.256277606277376
+        },
+        {
+          "ed_name": "Edmonton-South",
+          "pop_published": 60775,
+          "pop_2021_from_das": 41166.66120869279,
+          "delta_scaled_pct": -32.2638235973792
+        },
+        {
+          "ed_name": "Edmonton-Spruce Grove",
+          "pop_published": 59524,
+          "pop_2021_from_das": 50866.16724119343,
+          "delta_scaled_pct": -14.545112490435075
+        },
+        {
+          "ed_name": "Edmonton-Strathcona",
+          "pop_published": 56165,
+          "pop_2021_from_das": 50433.33425944608,
+          "delta_scaled_pct": -10.205048946058797
+        },
+        {
+          "ed_name": "Edmonton-West Henday",
+          "pop_published": 62510,
+          "pop_2021_from_das": 52145.61737298773,
+          "delta_scaled_pct": -16.58035934572432
+        },
+        {
+          "ed_name": "Edmonton-Whitemud",
+          "pop_published": 60347,
+          "pop_2021_from_das": 55409.04328870995,
+          "delta_scaled_pct": -8.182605119210645
+        },
+        {
+          "ed_name": "Edmonton-Windermere",
+          "pop_published": 56944,
+          "pop_2021_from_das": 36138.08327352771,
+          "delta_scaled_pct": -36.53750478798871
+        },
+        {
+          "ed_name": "Airdrie East",
+          "pop_published": 50797,
+          "pop_2021_from_das": 45217.71000456775,
+          "delta_scaled_pct": -10.983502953781226
+        },
+        {
+          "ed_name": "Barrhead-Westlock-Athabasca",
+          "pop_published": 46892,
+          "pop_2021_from_das": 41441.096125513766,
+          "delta_scaled_pct": -11.624379157396216
+        },
+        {
+          "ed_name": "Camrose",
+          "pop_published": 48536,
+          "pop_2021_from_das": 46201.891463392785,
+          "delta_scaled_pct": -4.8090253350239305
+        },
+        {
+          "ed_name": "Canmore-Kananaskis",
+          "pop_published": 49542,
+          "pop_2021_from_das": 42831.85109455416,
+          "delta_scaled_pct": -13.544364186843168
+        },
+        {
+          "ed_name": "Cold Lake-Bonnyville-St. Paul",
+          "pop_published": 55713,
+          "pop_2021_from_das": 52335.92661388262,
+          "delta_scaled_pct": -6.061553651961623
+        },
+        {
+          "ed_name": "Central Peace-Notley",
+          "pop_published": 30446,
+          "pop_2021_from_das": 28740.138515875275,
+          "delta_scaled_pct": -5.602908375894125
+        },
+        {
+          "ed_name": "Chestermere-Strathmore",
+          "pop_published": 52982,
+          "pop_2021_from_das": 43926.413444162376,
+          "delta_scaled_pct": -17.091817137589416
+        },
+        {
+          "ed_name": "Drumheller-Stettler",
+          "pop_published": 51370,
+          "pop_2021_from_das": 49693.65237544619,
+          "delta_scaled_pct": -3.2632813403811785
+        },
+        {
+          "ed_name": "Fort McMurray-Lac La Biche",
+          "pop_published": 44719,
+          "pop_2021_from_das": 37901.88586694292,
+          "delta_scaled_pct": -15.244334920407617
+        },
+        {
+          "ed_name": "Fort McMurray-Wood Buffalo",
+          "pop_published": 46721,
+          "pop_2021_from_das": 44917.08070748623,
+          "delta_scaled_pct": -3.861045980423725
+        },
+        {
+          "ed_name": "Fort Saskatchewan-Vegreville",
+          "pop_published": 54274,
+          "pop_2021_from_das": 50770.678122588535,
+          "delta_scaled_pct": -6.454880564195499
+        },
+        {
+          "ed_name": "Grande Prairie",
+          "pop_published": 50352,
+          "pop_2021_from_das": 46591.73419967346,
+          "delta_scaled_pct": -7.4679571820911566
+        },
+        {
+          "ed_name": "Grande Prairie-Wapiti",
+          "pop_published": 52041,
+          "pop_2021_from_das": 48541.03351019847,
+          "delta_scaled_pct": -6.7254020672191785
+        },
+        {
+          "ed_name": "Highwood",
+          "pop_published": 54375,
+          "pop_2021_from_das": 50082.06029247228,
+          "delta_scaled_pct": -7.895061531085467
+        },
+        {
+          "ed_name": "Lac Ste. Anne-Parkland",
+          "pop_published": 47017,
+          "pop_2021_from_das": 43998.07003171261,
+          "delta_scaled_pct": -6.4209327866248165
+        },
+        {
+          "ed_name": "Leduc",
+          "pop_published": 52328,
+          "pop_2021_from_das": 46645.160915916735,
+          "delta_scaled_pct": -10.86003494129962
+        },
+        {
+          "ed_name": "Lesser Slave Lake",
+          "pop_published": 30011,
+          "pop_2021_from_das": 29050.187892301536,
+          "delta_scaled_pct": -3.201533130180482
+        },
+        {
+          "ed_name": "Lethbridge-Cardston",
+          "pop_published": 51831,
+          "pop_2021_from_das": 47885.87848154394,
+          "delta_scaled_pct": -7.611509556937078
+        },
+        {
+          "ed_name": "Lethbridge-Fort MacLeod-Crowsnest Pass",
+          "pop_published": 54564,
+          "pop_2021_from_das": 49376.88241865884,
+          "delta_scaled_pct": -9.506483361449236
+        },
+        {
+          "ed_name": "Lethbridge-Little Bow",
+          "pop_published": 56212,
+          "pop_2021_from_das": 51768.64751003886,
+          "delta_scaled_pct": -7.904633334450183
+        },
+        {
+          "ed_name": "Lethbridge-Taber-Warner",
+          "pop_published": 60906,
+          "pop_2021_from_das": 54608.448761605636,
+          "delta_scaled_pct": -10.339787932870923
+        },
+        {
+          "ed_name": "Lloydminster-Wainwright",
+          "pop_published": 49365,
+          "pop_2021_from_das": 46927.55382259691,
+          "delta_scaled_pct": -4.937599873195773
+        },
+        {
+          "ed_name": "Medicine Hat-Brooks",
+          "pop_published": 54898,
+          "pop_2021_from_das": 51556.43050634521,
+          "delta_scaled_pct": -6.086869273297365
+        },
+        {
+          "ed_name": "Medicine Hat-Cypress",
+          "pop_published": 60690,
+          "pop_2021_from_das": 55977.80226638213,
+          "delta_scaled_pct": -7.7643726044123715
+        },
+        {
+          "ed_name": "Olds-Three Hills-Didsbury",
+          "pop_published": 49436,
+          "pop_2021_from_das": 46200.8333577329,
+          "delta_scaled_pct": -6.54415131132595
+        },
+        {
+          "ed_name": "Peace River",
+          "pop_published": 43408,
+          "pop_2021_from_das": 40293.6837149116,
+          "delta_scaled_pct": -7.174521482418901
+        },
+        {
+          "ed_name": "Red Deer-Blackfalds",
+          "pop_published": 52827,
+          "pop_2021_from_das": 45415.56656475971,
+          "delta_scaled_pct": -14.02963150517782
+        },
+        {
+          "ed_name": "Red Deer-Innisfail",
+          "pop_published": 52961,
+          "pop_2021_from_das": 50548.016086747695,
+          "delta_scaled_pct": -4.556152476826919
+        },
+        {
+          "ed_name": "Red Deer-Lacombe",
+          "pop_published": 56180,
+          "pop_2021_from_das": 51330.104010561816,
+          "delta_scaled_pct": -8.632780330078647
+        },
+        {
+          "ed_name": "Red Deer-Sylvan Lake",
+          "pop_published": 52454,
+          "pop_2021_from_das": 46015.42853775454,
+          "delta_scaled_pct": -12.274700618152021
+        },
+        {
+          "ed_name": "Rocky Mountain House-Banff Park",
+          "pop_published": 38298,
+          "pop_2021_from_das": 32818.43560380943,
+          "delta_scaled_pct": -14.307703786596099
+        },
+        {
+          "ed_name": "Sherwood Park",
+          "pop_published": 55311,
+          "pop_2021_from_das": 50313.90291661026,
+          "delta_scaled_pct": -9.034544816383246
+        },
+        {
+          "ed_name": "St. Albert",
+          "pop_published": 54589,
+          "pop_2021_from_das": 51222.4267723332,
+          "delta_scaled_pct": -6.167127493939803
+        },
+        {
+          "ed_name": "St. Albert-Sturgeon",
+          "pop_published": 52334,
+          "pop_2021_from_das": 50013.16821086981,
+          "delta_scaled_pct": -4.434653932682753
+        },
+        {
+          "ed_name": "Stony Plain-Drayton Valley",
+          "pop_published": 48032,
+          "pop_2021_from_das": 46063.48670331105,
+          "delta_scaled_pct": -4.098337143339754
+        },
+        {
+          "ed_name": "Sherwood Park-Strathcona",
+          "pop_published": 51826,
+          "pop_2021_from_das": 50012.05880852289,
+          "delta_scaled_pct": -3.5000601849980932
+        },
+        {
+          "ed_name": "West Yellowhead",
+          "pop_published": 49766,
+          "pop_2021_from_das": 48493.8852601385,
+          "delta_scaled_pct": -2.556192460437848
+        },
+        {
+          "ed_name": "Wetaskawin-Ponoka-Maskwacis",
+          "pop_published": 48775,
+          "pop_2021_from_das": 46634.54033854778,
+          "delta_scaled_pct": -4.388436005027623
+        }
+      ]
+    }
+  },
+  "supersedes": "findings/phase4f_summary.json (v0_5 DPG substrate)"
+}

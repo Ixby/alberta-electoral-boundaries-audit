@@ -1,0 +1,41 @@
+{
+  "test": "Drain Phase B label-shuffle null \u2014 CANONICAL substrate",
+  "salt": "drain-label-shuffle-canonical-2026-06-11",
+  "n_permutations": 10000,
+  "seed": 460508741,
+  "script_commit": "2c3b9ce0f276f10c0749d50b26e09ece2792236a",
+  "per_map": {
+    "majority_2026": {
+      "n_eds": 89,
+      "n_directed_pairs": 502,
+      "observed": 0.00721267189374484,
+      "null_mean": 0.0492567816279953,
+      "null_std": 0.013251181303074592,
+      "z": -3.1728574813549053,
+      "percentile": 0.01,
+      "p_two_tailed": 0.0002
+    },
+    "minority_2026": {
+      "n_eds": 89,
+      "n_directed_pairs": 514,
+      "observed": 0.0005909296087761933,
+      "null_mean": 0.02805675471381984,
+      "null_std": 0.009986845064902663,
+      "z": -2.750200381256375,
+      "percentile": 0.01,
+      "p_two_tailed": 0.0002
+    },
+    "enacted_2019": {
+      "n_eds": 87,
+      "n_directed_pairs": 486,
+      "observed": 0.0015295254480468803,
+      "null_mean": 0.052986678439249,
+      "null_std": 0.014617513166389986,
+      "z": -3.520239893439428,
+      "percentile": 0.0,
+      "p_two_tailed": 0.0
+    }
+  },
+  "prediction_A_confirmed": true,
+  "supersedes": "findings/drain_label_shuffle_null.md (DPG / blended substrate)"
+}

@@ -1,17 +1,20 @@
-> **⚠ STATUS — SUBSTRATE-STALE (banner added 2026-06-11).** The drain_score values
-> reported below (majority 0.000179, minority 0.006176) were computed on a
-> DPG-era / blended-vote substrate. The justify-or-drop validation
-> (`findings/drain_metric_validation.md`, 2026-06-11) re-computed the continuous
-> drain_score on the canonical Elections Alberta shapefiles + canonical VA
-> centroid-in-polygon attribution and found `majority = 0.00721`, `minority =
-> 0.00059` — the *direction* reverses on canonical substrate (majority > minority,
-> matching the coupled-count table in `findings/neighbour_drain_analysis.md`).
-> The "majority z = -2.915 anomalously low" reading below therefore reflects the
-> stale substrate, not the canonical one, and the joint-outlier-score's
-> reliance on it has been retracted in `reports/academic/report_academic.md`
-> §5.3.5. A canonical-substrate Phase B null re-run is queued; until it lands,
-> the numbers below are kept for trail-of-work but should not be cited as
-> evidence.
+> **⚠ SUPERSEDED 2026-06-11 by `findings/drain_label_shuffle_null_canonical.md`.**
+> The drain_score values reported below (majority 0.000179, minority 0.006176,
+> majority z = −2.915 "anomalously low") were computed on a DPG-era / blended-vote
+> substrate. Canonical-substrate Phase B re-run (10,000 label-shuffle permutations
+> on official Elections Alberta shapefiles + canonical VA centroid-in-polygon
+> attribution) has landed:
+>
+> | Map | observed | null mean | z | p (two-tailed) |
+> |---|---:|---:|---:|---:|
+> | 2019 enacted | 0.001530 | 0.052987 | −3.520 | 0.0000 |
+> | Majority 2026 | 0.007213 | 0.049257 | −3.173 | 0.0002 |
+> | Minority 2026 | 0.000591 | 0.028057 | −2.750 | 0.0002 |
+>
+> The direction-of-difference reverses (majority > minority on canonical) and the
+> "majority singularly anomalously low" framing does not survive — all three maps
+> including 2019 enacted are anomalously low against their own canonical null,
+> with 2019 the most anomalous. Numbers below kept for trail-of-work only.
 >
 > **Backward:**
 > - `analysis/scripts/drain_label_shuffle_null.py` — companion script that runs the label-shuffle null
