@@ -103,6 +103,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `burst_symmetry_analysis.md` | Burst-symmetry analysis for MCMC convergence |
 | `drain_label_shuffle_null.md` | Neighbour-drain null distribution: label-shuffle test |
 | `t3_2_majority_rural_isolation.md` | T3.2 counter-test — majority rural-isolation pre-registered scan (verdict: H₀ supported) |
+| `drain_metric_validation.md` | Justify-or-drop validation of the §5.3.5 drain metric: V1 construct validity (PASS), V2 LISA framing (FAIL, retracted), V3 canonical-substrate direction (PASS, identifies substrate-staleness in published Phase B + joint-outlier numbers) |
 
 ---
 

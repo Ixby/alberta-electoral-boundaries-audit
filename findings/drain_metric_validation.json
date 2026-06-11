@@ -1,0 +1,350 @@
+{
+  "test": "drain_metric_validation (justify-or-drop)",
+  "script_commit": "3bfeefa335942064cde342fa49b63b842c1fa277",
+  "salt_string": "drain_metric_validation_2026_06_11",
+  "V1_synthetic_ground_truth": {
+    "neutral": {
+      "drain_score": 0.0,
+      "coupled_chain_count": 0,
+      "n_eds": 9,
+      "vote_pattern": "50/50 with \u00b120-vote jitter"
+    },
+    "pack_and_crack": {
+      "drain_score": 0.00996,
+      "coupled_chain_count": 4,
+      "n_eds": 9,
+      "vote_pattern": "center 90/10 UCP, outer ring 52/48 UCP (NDP packed at center, cracked elsewhere)"
+    },
+    "ratio_packcrack_over_neutral": "inf",
+    "construct_validity": "PASS",
+    "interpretation": "The metric must score the constructed pack-and-crack map materially higher than the neutral map (drain_score \u2265 10\u00d7 and pack-crack score \u2265 0.005). If both fail, the metric does not detect even the simplest constructed gerrymander."
+  },
+  "V2_local_moran_comparator": {
+    "majority": {
+      "n_directed_pairs_scored": 502,
+      "pearson_corr_abs_LISA_vs_drain_intensity": 0.1142,
+      "top5_LISA_hotspot_pairs": [
+        {
+          "X": "Drumheller-Stettler",
+          "Y": "Lloydminster-Wainwright",
+          "z_s_X": 2.228,
+          "z_m_Y_reversed": -1.974,
+          "bivariate_local_moran": -4.398,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Lloydminster-Wainwright",
+          "Y": "Drumheller-Stettler",
+          "z_s_X": 1.9738,
+          "z_m_Y_reversed": -2.2279,
+          "bivariate_local_moran": -4.3975,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Mountain View-Kneehill",
+          "Y": "Drumheller-Stettler",
+          "z_s_X": 1.8329,
+          "z_m_Y_reversed": -2.2279,
+          "bivariate_local_moran": -4.0836,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Drumheller-Stettler",
+          "Y": "Mountain View-Kneehill",
+          "z_s_X": 2.228,
+          "z_m_Y_reversed": -1.8325,
+          "bivariate_local_moran": -4.0828,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Drumheller-Stettler",
+          "Y": "Lacombe-Clearwater",
+          "z_s_X": 2.228,
+          "z_m_Y_reversed": -1.7633,
+          "bivariate_local_moran": -3.9287,
+          "drain_intensity": 0.0,
+          "coupled": true
+        }
+      ],
+      "coupled_pair_count": 390,
+      "coupled_pairs_with_LISA": [
+        {
+          "X": "Airdrie-East",
+          "Y": "Airdrie-West",
+          "z_s_X": 0.5032,
+          "z_m_Y_reversed": 0.0914,
+          "bivariate_local_moran": 0.046,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Calgary-Nose Creek",
+          "z_s_X": 0.5032,
+          "z_m_Y_reversed": 1.1483,
+          "bivariate_local_moran": 0.5778,
+          "drain_intensity": 0.000528,
+          "coupled": true,
+          "drain_fires": true
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Chestermere-Strathmore",
+          "z_s_X": 0.5032,
+          "z_m_Y_reversed": -0.6718,
+          "bivariate_local_moran": -0.3381,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "High River-Vulcan-Siksika",
+          "z_s_X": 0.5032,
+          "z_m_Y_reversed": -1.3603,
+          "bivariate_local_moran": -0.6845,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Mountain View-Kneehill",
+          "z_s_X": 0.5032,
+          "z_m_Y_reversed": -1.8325,
+          "bivariate_local_moran": -0.9222,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-West",
+          "Y": "Calgary-North",
+          "z_s_X": -0.0919,
+          "z_m_Y_reversed": 1.0877,
+          "bivariate_local_moran": -0.0999,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-West",
+          "Y": "Calgary-Nose Creek",
+          "z_s_X": -0.0919,
+          "z_m_Y_reversed": 1.1483,
+          "bivariate_local_moran": -0.1055,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-West",
+          "Y": "Calgary-Symons Valley",
+          "z_s_X": -0.0919,
+          "z_m_Y_reversed": 1.279,
+          "bivariate_local_moran": -0.1175,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-West",
+          "Y": "Cochrane-Springbank",
+          "z_s_X": -0.0919,
+          "z_m_Y_reversed": -0.1794,
+          "bivariate_local_moran": 0.0165,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-West",
+          "Y": "Mountain View-Kneehill",
+          "z_s_X": -0.0919,
+          "z_m_Y_reversed": -1.8325,
+          "bivariate_local_moran": 0.1683,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        }
+      ]
+    },
+    "minority": {
+      "n_directed_pairs_scored": 514,
+      "pearson_corr_abs_LISA_vs_drain_intensity": -0.0021,
+      "top5_LISA_hotspot_pairs": [
+        {
+          "X": "Drumheller-Stettler",
+          "Y": "Lloydminster-Wainwright",
+          "z_s_X": 2.379,
+          "z_m_Y_reversed": -2.1182,
+          "bivariate_local_moran": -5.0392,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Lloydminster-Wainwright",
+          "Y": "Drumheller-Stettler",
+          "z_s_X": 2.118,
+          "z_m_Y_reversed": -2.379,
+          "bivariate_local_moran": -5.0387,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Drumheller-Stettler",
+          "Y": "Olds-Three Hills-Didsbury",
+          "z_s_X": 2.379,
+          "z_m_Y_reversed": -1.9575,
+          "bivariate_local_moran": -4.6569,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Olds-Three Hills-Didsbury",
+          "Y": "Drumheller-Stettler",
+          "z_s_X": 1.9575,
+          "z_m_Y_reversed": -2.379,
+          "bivariate_local_moran": -4.6569,
+          "drain_intensity": 0.0,
+          "coupled": true
+        },
+        {
+          "X": "Grande Prairie-Wapiti",
+          "Y": "Central Peace-Notley",
+          "z_s_X": 1.8912,
+          "z_m_Y_reversed": -2.0495,
+          "bivariate_local_moran": -3.8761,
+          "drain_intensity": 0.0,
+          "coupled": true
+        }
+      ],
+      "coupled_pair_count": 416,
+      "coupled_pairs_with_LISA": [
+        {
+          "X": "Airdrie-East",
+          "Y": "Calgary-Airdrie",
+          "z_s_X": 0.1352,
+          "z_m_Y_reversed": 0.8036,
+          "bivariate_local_moran": 0.1087,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Calgary-Cross",
+          "z_s_X": 0.1352,
+          "z_m_Y_reversed": 1.1274,
+          "bivariate_local_moran": 0.1524,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Calgary-Foothills-Airdrie West",
+          "z_s_X": 0.1352,
+          "z_m_Y_reversed": 0.9606,
+          "bivariate_local_moran": 0.1299,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Chestermere-Strathmore",
+          "z_s_X": 0.1352,
+          "z_m_Y_reversed": -0.7698,
+          "bivariate_local_moran": -0.1041,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Drumheller-Stettler",
+          "z_s_X": 0.1352,
+          "z_m_Y_reversed": -2.379,
+          "bivariate_local_moran": -0.3217,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Airdrie-East",
+          "Y": "Olds-Three Hills-Didsbury",
+          "z_s_X": 0.1352,
+          "z_m_Y_reversed": -1.9575,
+          "bivariate_local_moran": -0.2647,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Barrhead-Westlock-Athabasca",
+          "Y": "Cold Lake-Bonnyville-St. Paul",
+          "z_s_X": 1.4304,
+          "z_m_Y_reversed": -1.4694,
+          "bivariate_local_moran": -2.1018,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Barrhead-Westlock-Athabasca",
+          "Y": "Fort McMurray-Lac La Biche",
+          "z_s_X": 1.4304,
+          "z_m_Y_reversed": -1.5941,
+          "bivariate_local_moran": -2.2803,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Barrhead-Westlock-Athabasca",
+          "Y": "Fort Saskatchewan-Vegreville",
+          "z_s_X": 1.4304,
+          "z_m_Y_reversed": 0.0034,
+          "bivariate_local_moran": 0.0049,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        },
+        {
+          "X": "Barrhead-Westlock-Athabasca",
+          "Y": "Lac Ste Anne-Parkland",
+          "z_s_X": 1.4304,
+          "z_m_Y_reversed": -1.2624,
+          "bivariate_local_moran": -1.8058,
+          "drain_intensity": 0.0,
+          "coupled": true,
+          "drain_fires": false
+        }
+      ]
+    }
+  },
+  "V3_prereg_direction": {
+    "observed_majority_drain_score": 0.007213,
+    "observed_minority_drain_score": 0.000591,
+    "observed_direction": "majority_higher",
+    "prereg_predicted_direction_A": "majority_higher",
+    "prereg_A_confirmed": true,
+    "null_n_trials": 1000,
+    "null_p_majority_higher": 0.912,
+    "null_p_majority_lower": 0.088,
+    "interpretation": "Pre-registered Prediction A (drain(majority) > drain(minority)) CONFIRMS on the canonical EA substrate: majority = 0.007213, minority = 0.000591. The label-shuffle null on the same canonical substrate gives P(majority > minority) = 0.912 \u2014 the observed direction is the expected one under random labeling, so confirming Prediction A is not strong evidence on its own; the strength of the finding rests on the observed magnitudes vs the null distribution. IMPORTANT REVERSAL: the previously published Phase B numbers (majority = 0.000179 < minority = 0.006176) and the joint-outlier \"majority anomalously low (z=-2.915)\" framing were computed on a DPG-era / blended-vote substrate. On the canonical Elections Alberta shapefiles + canonical VA centroid-in-polygon attribution \u2014 the substrate every other audit channel uses \u2014 the direction is reversed. The audit's published \u00a75.3.5 narrative needs to be re-anchored on the canonical numbers; the prior 'majority anomalously clean' reading does not survive substrate refresh."
+  },
+  "verdict": {
+    "verdict": "RETAIN_BUT_DROP_LISA_FRAMING_AND_RESTATE_PUBLISHED_NUMBERS",
+    "narrative": "V1 PASS (construct validity holds); V2 FAIL (LISA framing is not numerically anchored \u2014 correlation 0.11 majority, ~0 minority, well below 0.30 threshold); V3 PASS (Prediction A confirms on canonical substrate). Three actions required: (a) drop the 'directional bivariate Local Moran's I / LISA' language from \u00a75.3.5 \u2014 it is rhetorical, not numerical; (b) re-anchor the \u00a75.3.5 reading on the canonical-substrate numbers (majority = 0.0072, minority = 0.0006) instead of the stale DPG/blended-substrate numbers (majority = 0.000179, minority = 0.006176) currently cited in findings/joint_outlier_score.json and findings/drain_label_shuffle_null.md; (c) retract the joint-outlier 'majority anomalously low (z=-2.915)' framing \u2014 it reflects a substrate that has been superseded for every other audit channel.",
+    "v1_construct_validity": "PASS",
+    "v2_lisa_anchored": "NO",
+    "v3_prereg_A_confirmed": true
+  }
+}

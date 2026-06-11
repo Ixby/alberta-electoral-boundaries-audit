@@ -156,7 +156,8 @@
       "majority_drain_score": 0.000179,
       "minority_p": 0.1342,
       "majority_z": -2.915,
-      "note": "minority within null (p=0.1342); majority anomalously low (p<0.0001). Channel not included in Fisher combination."
+      "note": "minority within null (p=0.1342); majority anomalously low (p<0.0001). Channel not included in Fisher combination.",
+      "SUBSTRATE_STATUS": "SUBSTRATE-STALE 2026-06-11. The drain_score values above were computed on a DPG-era / blended-vote substrate. On canonical EA shapefiles + canonical VA centroid-in-polygon attribution (the substrate every other channel uses) the continuous drain_score gives majority=0.00721, minority=0.00059 — the direction REVERSES (majority > minority, matching the §5.3.5 coupled-count table). The 'majority z=-2.915 anomalously low' claim is therefore substrate-bound and has been RETRACTED in reports/academic/report_academic.md §5.3.5 pending a canonical-substrate Phase B null re-run. See findings/drain_metric_validation.md for the substrate-refresh evidence."
     }
   },
   "caveats": [

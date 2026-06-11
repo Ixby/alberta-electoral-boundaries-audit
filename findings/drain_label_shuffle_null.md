@@ -1,7 +1,23 @@
+> **⚠ STATUS — SUBSTRATE-STALE (banner added 2026-06-11).** The drain_score values
+> reported below (majority 0.000179, minority 0.006176) were computed on a
+> DPG-era / blended-vote substrate. The justify-or-drop validation
+> (`findings/drain_metric_validation.md`, 2026-06-11) re-computed the continuous
+> drain_score on the canonical Elections Alberta shapefiles + canonical VA
+> centroid-in-polygon attribution and found `majority = 0.00721`, `minority =
+> 0.00059` — the *direction* reverses on canonical substrate (majority > minority,
+> matching the coupled-count table in `findings/neighbour_drain_analysis.md`).
+> The "majority z = -2.915 anomalously low" reading below therefore reflects the
+> stale substrate, not the canonical one, and the joint-outlier-score's
+> reliance on it has been retracted in `reports/academic/report_academic.md`
+> §5.3.5. A canonical-substrate Phase B null re-run is queued; until it lands,
+> the numbers below are kept for trail-of-work but should not be cited as
+> evidence.
+>
 > **Backward:**
 > - `analysis/scripts/drain_label_shuffle_null.py` — companion script that runs the label-shuffle null
 > - `analysis/scripts/neighbour_drain_adjacency.py` — produces the adjacency graph used as input
 > - `analysis/methodology/neighbour_drain_design.md` — pre-registered design
+> - `findings/drain_metric_validation.md` — substrate-staleness identified here
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` — incorporates the null results
