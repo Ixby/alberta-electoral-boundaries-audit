@@ -157,7 +157,9 @@ The contradiction was inside `analysis/methodology/plain_language_defense.md` �
 ## Tier 3 — Symmetry completion (the audit's question set is minority-derived).
 
 ### T3.1 — School-division coherence audit on majority hybrids
-**Status: 🟡 READY TO EXECUTE**
+**Status: ✅ CLOSED 2026-06-11**
+
+`analysis/methodology/reference/school_division_coherence_majority.md` written: per-hybrid school-division coherence applied to all 19 majority hybrids using the same classification keys as the minority-hybrid analysis. Result: **majority 68.4 % cross-division (13/19), minority 95.2 % (20/21)**. The asymmetry is real but the minority-specific finding (20/21 cross + invoking "shared schools" where the catchment fails) is *strengthened*, not weakened, by symmetric scrutiny: the majority makes no "shared schools" claim, so its 13 cross-division hybrids are honest about the geometric fact rather than failed rhetorical justifications. The symmetric audit's value is to verify the minority-specific finding is about *claims made*, not about boundaries crossed.
 
 Minority's 21 hybrids got the full school-division treatment; majority's got four bullets. The school doc itself admits the limitation is in the question set. Apply the same school-division coherence check to every majority hybrid.
 
