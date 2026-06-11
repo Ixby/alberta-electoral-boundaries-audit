@@ -73,7 +73,7 @@ METHODOLOGY = ROOT / "analysis" / "methodology"
 OUT_JSON = METHODOLOGY / "audit_dependency_graph.json"
 OUT_DOT = METHODOLOGY / "audit_dependency_graph.dot"
 
-SCHEMA_VERSION = "v0_1"
+SCHEMA_VERSION = "canonical-2026-06-10"
 
 
 # ---------------------------------------------------------------------------
@@ -855,7 +855,7 @@ L2_MANIFEST: List[Dict[str, Any]] = [
     },
     # VA vote substrate
     {
-        "path": "analysis/scripts/v0_1_advance_vote_splat.py",
+        "path": "analysis/scripts/advance_vote_splat.py",
         "name": "Advance-vote splat (apportion Vote-Anywhere to VAs)",
         "role": "Produces full-VA substrate from Election-Day-only.",
     },
@@ -1033,17 +1033,17 @@ L2_MANIFEST: List[Dict[str, Any]] = [
     },
     # 338 integration
     {
-        "path": "analysis/scripts/v0_1_338canada_historical.py",
+        "path": "analysis/scripts/338canada_historical.py",
         "name": "338Canada historical-snapshot reallocation",
         "role": "77-snapshot historical stability probe.",
     },
     {
-        "path": "analysis/scripts/v0_1_338canada_reallocate.py",
+        "path": "analysis/scripts/338canada_reallocate.py",
         "name": "338Canada reallocation (majority + minority)",
         "role": "338 per-riding scores mapped to 2026 EDs.",
     },
     {
-        "path": "analysis/scripts/v0_1_338canada_scraper.py",
+        "path": "analysis/scripts/338canada_scraper.py",
         "name": "338Canada scraper (87-seat per-riding)",
         "role": "Builds 338Canada per-riding frozen CSV.",
     },
@@ -2569,25 +2569,25 @@ def build_nodes_and_edges() -> (
             "produces real-map scores",
         ),
         (
-            "v0_1_advance_vote_splat",
+            "advance_vote_splat",
             "L0:data.2023_statement_of_vote",
             "in",
             "Election-Day + Vote-Anywhere rows",
         ),
         (
-            "v0_1_advance_vote_splat",
+            "advance_vote_splat",
             "L1:constructed.va_substrate_elecday",
             "in",
             "Election-Day substrate input",
         ),
         (
-            "v0_1_advance_vote_splat",
+            "advance_vote_splat",
             "L1:constructed.va_substrate_full",
             "out",
             "produces splatted full-VA substrate",
         ),
         (
-            "v0_1_advance_vote_splat",
+            "advance_vote_splat",
             "L1:constructed.advance_vote_diag",
             "out",
             "diagnostics CSV",

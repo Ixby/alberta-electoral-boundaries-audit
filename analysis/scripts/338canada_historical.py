@@ -1,7 +1,7 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 """
-v0_1_338canada_historical.py
+338canada_historical.py
 Track AA: historical 338Canada Alberta projections — pipeline.
 
 Pulls the full historical time-series embedded in 338Canada's Alberta landing
@@ -20,7 +20,7 @@ Phases:
      mid-2025) via the Wayback Machine if reachable; otherwise document the
      gap.
   4. Run each obtainable per-riding snapshot through the majority and
-     minority hybrid crosswalks (reusing v0_1_338canada_reallocate.py) and
+     minority hybrid crosswalks (reusing 338canada_reallocate.py) and
      record the seat-count asymmetry.
 
 Outputs:
@@ -29,7 +29,7 @@ Outputs:
   data/reference/polling_338_historical/*.html                     (per-riding caches)
 
 Usage:
-  PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_338canada_historical.py
+  PYTHONIOENCODING=utf-8 python analysis/scripts/338canada_historical.py
 
 Backward:
   # REVIEW: verify inputs before publication
@@ -664,7 +664,7 @@ def reallocate_snapshot(
     rural_ucp: float,
     rural_ndp: float,
 ) -> List[Dict]:
-    """Same reallocation logic as v0_1_338canada_reallocate.reallocate_338_v2
+    """Same reallocation logic as 338canada_reallocate.reallocate_338_v2
     but local (avoids circular dependency).
     """
     out = []

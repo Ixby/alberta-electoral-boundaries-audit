@@ -1,7 +1,7 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 """
-v0_1_338canada_reallocate.py
+338canada_reallocate.py
 Track J, Phases 2-3.
 
 Phase 2: cross-validate 338Canada per-riding central projections against the
@@ -15,7 +15,7 @@ ED(s) using the same MAJORITY_2026_MAPPING / MINORITY_2026_MAPPING dicts
 in analysis/scripts/packing_cracking_analysis.py.
 
 Dependencies:
-  data/338canada_per_riding_87seat.csv  (from v0_1_338canada_scraper.py)
+  data/338canada_per_riding_87seat.csv  (from 338canada_scraper.py)
   data/alberta_2023_results.csv         (audit's 2023 baseline)
   data/alberta_2019_populations.csv     (weights for merges)
   analysis/scripts/packing_cracking_analysis.py (mapping dicts + loader)

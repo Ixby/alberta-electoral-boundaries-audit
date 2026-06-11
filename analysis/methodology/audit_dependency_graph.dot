@@ -103,14 +103,20 @@ digraph audit_dependency_graph {
     label="Layer 2 — Measurement scripts";
     style="rounded,filled"; color="#fce4a788"; fillcolor="#fce4a722";
     "L2:derive_boundaries" [label="Shape derivation v7 (minority 89-ED\nderived set)", fillcolor="#fce4a7"];
+    "L2:338canada_historical" [label="338Canada historical-snapshot reallocation", fillcolor="#fce4a7"];
+    "L2:338canada_reallocate" [label="338Canada reallocation (majority +\nminority)", fillcolor="#fce4a7"];
+    "L2:338canada_scraper" [label="338Canada scraper (87-seat per-riding)", fillcolor="#fce4a7"];
     "L2:_fetch_osm_natural" [label="_fetch_osm_natural", fillcolor="#fce4a7"];
     "L2:advance_vote_sensitivity" [label="advance_vote_sensitivity", fillcolor="#fce4a7"];
+    "L2:advance_vote_splat" [label="Advance-vote splat (apportion\nVote-Anywhere to VAs)", fillcolor="#fce4a7"];
     "L2:annotate_ensemble_seats_chart" [label="annotate_ensemble_seats_chart", fillcolor="#fce4a7"];
     "L2:article_figures" [label="article_figures", fillcolor="#fce4a7"];
     "L2:assignment_prep" [label="Phase 4C preparation", fillcolor="#fce4a7"];
     "L2:build_academic_html" [label="Build academic HTML", fillcolor="#fce4a7"];
     "L2:build_academic_pdf" [label="build_academic_pdf", fillcolor="#fce4a7"];
+    "L2:build_canonical_va_votes" [label="build_canonical_va_votes", fillcolor="#fce4a7"];
     "L2:build_cover" [label="Build cover page", fillcolor="#fce4a7"];
+    "L2:build_html_reports" [label="build_html_reports", fillcolor="#fce4a7"];
     "L2:build_pdf" [label="Build PDF", fillcolor="#fce4a7"];
     "L2:check_voice_and_readability" [label="Voice and readability checker", fillcolor="#fce4a7"];
     "L2:chen_rodden_decomposition" [label="chen_rodden_decomposition", fillcolor="#fce4a7"];
@@ -121,7 +127,9 @@ digraph audit_dependency_graph {
     "L2:dependency_query" [label="dependency_query", fillcolor="#fce4a7"];
     "L2:electoral_forensics_population" [label="Electoral forensics — population equality\n(A1/A2/A2b)", fillcolor="#fce4a7"];
     "L2:extended_partisan_metrics" [label="extended_partisan_metrics", fillcolor="#fce4a7"];
-    "L2:historical_eg_baseline" [label="historical_eg_baseline", fillcolor="#fce4a7"];
+    "L2:forest_recom_ensemble" [label="forest_recom_ensemble", fillcolor="#fce4a7"];
+    "L2:generate_report_numbers" [label="generate_report_numbers", fillcolor="#fce4a7"];
+    "L2:inject_eg_into_hover_json" [label="inject_eg_into_hover_json", fillcolor="#fce4a7"];
     "L2:intermap_permutation_test" [label="intermap_permutation_test", fillcolor="#fce4a7"];
     "L2:joint_outlier_score_canonical" [label="joint_outlier_score_canonical", fillcolor="#fce4a7"];
     "L2:mcmc_ensemble" [label="mcmc_ensemble", fillcolor="#fce4a7"];
@@ -130,7 +138,12 @@ digraph audit_dependency_graph {
     "L2:municipal_anchoring_2019_baseline" [label="municipal_anchoring_2019_baseline", fillcolor="#fce4a7"];
     "L2:municipal_splits" [label="municipal_splits", fillcolor="#fce4a7"];
     "L2:packing_cracking_analysis" [label="v0_2 packing/cracking analysis (symmetric\n3-map B2/B3/B4)", fillcolor="#fce4a7"];
+    "L2:palette" [label="palette", fillcolor="#fce4a7"];
     "L2:parse_2015_results" [label="Parse 2015 Statement of Vote", fillcolor="#fce4a7"];
+    "L2:phase4c_canonical_attribution" [label="phase4c_canonical_attribution", fillcolor="#fce4a7"];
+    "L2:replot_mcmc_figures" [label="replot_mcmc_figures", fillcolor="#fce4a7"];
+    "L2:run_structural_battery" [label="run_structural_battery", fillcolor="#fce4a7"];
+    "L2:rural_gap_dissection" [label="rural_gap_dissection", fillcolor="#fce4a7"];
     "L2:score_anchoring" [label="score_anchoring", fillcolor="#fce4a7"];
     "L2:score_hybridization" [label="score_hybridization", fillcolor="#fce4a7"];
     "L2:score_natural_anchoring" [label="score_natural_anchoring", fillcolor="#fce4a7"];
@@ -143,11 +156,7 @@ digraph audit_dependency_graph {
     "L2:szat" [label="szat", fillcolor="#fce4a7"];
     "L2:third_party_sensitivity" [label="third_party_sensitivity", fillcolor="#fce4a7"];
     "L2:v0_1_2015_cross_election" [label="2015 cross-election extension", fillcolor="#fce4a7"];
-    "L2:v0_1_338canada_historical" [label="338Canada historical-snapshot reallocation", fillcolor="#fce4a7"];
-    "L2:v0_1_338canada_reallocate" [label="338Canada reallocation (majority +\nminority)", fillcolor="#fce4a7"];
-    "L2:v0_1_338canada_scraper" [label="338Canada scraper (87-seat per-riding)", fillcolor="#fce4a7"];
     "L2:v0_1_a1_legal_baseline_2021_census" [label="A1 legal-baseline against 2019 EDs + 2021\ncensus", fillcolor="#fce4a7"];
-    "L2:v0_1_advance_vote_splat" [label="Advance-vote splat (apportion\nVote-Anywhere to VAs)", fillcolor="#fce4a7"];
     "L2:v0_1_airdrie_overlap_diagnostic" [label="Airdrie overlap diagnostic", fillcolor="#fce4a7"];
     "L2:v0_1_approximate_shape_analysis" [label="Approximate shape analysis", fillcolor="#fce4a7"];
     "L2:v0_1_assignment_va_attribution" [label="Phase 4C centroid-in-polygon attribution", fillcolor="#fce4a7"];
@@ -206,6 +215,7 @@ digraph audit_dependency_graph {
     "L2:v0_1_topology_cleanup" [label="Topology cleanup (v0_1 → v0_2)", fillcolor="#fce4a7"];
     "L2:v0_1_track_l_drift" [label="Track-L population-drift analysis", fillcolor="#fce4a7"];
     "L2:v0_1_url_archival" [label="URL archival (Wayback + archive.ph)", fillcolor="#fce4a7"];
+    "L2:va_attribution_population_weighted" [label="va_attribution_population_weighted", fillcolor="#fce4a7"];
   }
   subgraph cluster_L3 {
     label="Layer 3 — Findings";
@@ -272,8 +282,8 @@ digraph audit_dependency_graph {
     "L3:finding.c_visual_three_anomalies_minority" [label="§5.8.1/5.8.2\nThree visible spatial\nanomalies on minority\n(Nolan-Hill-Cochrane, RMH-Banff Park,\nOlds-TH-D)", fillcolor="#f2c6c6"];
     "L3:finding.c_majority_calgary_symmetric" [label="§5.8.3\nMajority Calgary hybrids — no\nvisible anomaly (symmetric check)", fillcolor="#f2c6c6"];
     "L3:finding.c4_csd_splits_null_symmetric" [label="§5.8.4\nCSD-level split count — null\nsymmetric across three maps (40-66 splits\neach)", fillcolor="#f2c6c6"];
-    "L3:finding.c5_municipal_anchoring_asymmetry" [label="§5.8.5\nMunicipal-anchoring — majority\n71.0% vs minority 14.5% (4.9× asymmetry)", fillcolor="#f2c6c6"];
-    "L3:finding.c5_da_anchoring_extension" [label="§5.8.5\nDA-anchoring extension — combined\n79.6% majority vs 16.5% minority (5.1×\nasymmetry preserved)", fillcolor="#f2c6c6"];
+    "L3:finding.c5_municipal_anchoring_asymmetry" [label="§5.8.5\nMunicipal-anchoring (§5.8.5) —\nRETRACTED on canonical geometry; DPG-era\n4.9× asymmetry (maj 71.0% / min 14.5%) did\nnot survive (canonical: maj 80.0% / min\n72.0%, both within 70-85% Canadian norm)", fillcolor="#f2c6c6"];
+    "L3:finding.c5_da_anchoring_extension" [label="§5.8.5\nDA-anchoring extension (§5.8.5) —\nSUPERSEDED on canonical geometry; DPG-era\nv0_5 totals (maj 79.6% / min 16.5%, 5.1×\nratio) carried the same DPG substrate as\nthe retracted municipal-anchoring headline\nand did not survive canonical\nrecomputation (canonical municipal-only:\nmaj 80.0% / min 72.0%)", fillcolor="#f2c6c6"];
     "L3:finding.c_shared_schools_refuted" [label="§5.8.5\nShared-schools\ncommunity-of-interest claim refuted (R5 +\nR11); 20 of 21 minority hybrids cross\nschool-division boundaries", fillcolor="#f2c6c6"];
     "L3:finding.c_cochrane_commuter_partial" [label="§5.8.5\nCochrane commuter-tie — partial\nsupport (35.8% commute to Calgary CY;\nsub-neighbourhood not testable)", fillcolor="#f2c6c6"];
     "L3:finding.d_commission_3_2_split" [label="§5.9.1\nCommission tabled divided final\nreport (3-2, chair + opposition-nominated\nmajority)", fillcolor="#f2c6c6"];
@@ -287,6 +297,7 @@ digraph audit_dependency_graph {
   }
   "L2:_fetch_osm_natural" -> "L2:score_natural_anchoring" [style=solid, color="#333333"];
   "L0:doc.frozen_manifest" -> "L2:build_academic_pdf" [style=solid, color="#333333"];
+  "L0:data.2023_va_shapefile" -> "L2:build_canonical_va_votes" [style=solid, color="#333333"];
   "L1:constructed.mcmc_ensemble_100k" -> "L2:chen_rodden_decomposition" [style=solid, color="#333333"];
   "L0:data.2019_ed_shapefile" -> "L2:core_retention" [style=solid, color="#333333"];
   "L0:data.2019_ed_shapefile" -> "L2:cross_election" [style=solid, color="#333333"];
@@ -295,12 +306,14 @@ digraph audit_dependency_graph {
   "L0:data.commission_rationales_text" -> "L2:cross_election" [style=solid, color="#333333"];
   "L0:doc.frozen_manifest" -> "L2:dependency_graph_build" [style=solid, color="#333333"];
   "L1:constructed.mcmc_ensemble_100k" -> "L2:extended_partisan_metrics" [style=solid, color="#333333"];
-  "L0:data.2023_statement_of_vote" -> "L2:historical_eg_baseline" [style=solid, color="#333333"];
-  "L0:data.2015_statement_of_vote" -> "L2:historical_eg_baseline" [style=solid, color="#333333"];
+  "L2:mcmc_ensemble" -> "L2:forest_recom_ensemble" [style=solid, color="#333333"];
   "L1:constructed.va_substrate_elecday" -> "L2:mcmc_ensemble" [style=solid, color="#333333"];
   "L0:data.2019_ed_shapefile" -> "L2:municipal_anchoring_2019_baseline" [style=solid, color="#333333"];
   "L0:data.2021_csds_gpkg" -> "L2:municipal_anchoring_2019_baseline" [style=solid, color="#333333"];
   "L0:data.2021_csds_gpkg" -> "L2:municipal_splits" [style=solid, color="#333333"];
+  "L2:municipal_splits" -> "L2:run_structural_battery" [style=solid, color="#333333"];
+  "L2:score_anchoring" -> "L2:run_structural_battery" [style=solid, color="#333333"];
+  "L0:data.commission_published_populations" -> "L2:rural_gap_dissection" [style=solid, color="#333333"];
   "L2:score_anchoring" -> "L2:score_hybridization" [style=solid, color="#333333"];
   "L2:municipal_anchoring_2019_baseline" -> "L2:score_anchoring" [style=solid, color="#333333"];
   "L0:data.2021_csds_gpkg" -> "L2:score_anchoring" [style=solid, color="#333333"];
@@ -309,6 +322,7 @@ digraph audit_dependency_graph {
   "L0:data.2019_election_results" -> "L2:seats_at_50_50_regional" [style=solid, color="#333333"];
   "L1:constructed.va_substrate_elecday" -> "L2:simulation_multichain_ensemble" [style=solid, color="#333333"];
   "L1:constructed.va_pop_from_das" -> "L2:simulation_multichain_ensemble" [style=solid, color="#333333"];
+  "L0:data.2021_das_gpkg" -> "L2:va_attribution_population_weighted" [style=solid, color="#333333"];
   "L0:data.commission_published_populations" -> "L2:electoral_forensics_population" [style=solid, color="#333333"];
   "L0:data.2023_statement_of_vote" -> "L2:packing_cracking_analysis" [style=solid, color="#333333"];
   "L1:constructed.crosswalk_majority_hybrid" -> "L2:packing_cracking_analysis" [style=solid, color="#333333"];
@@ -326,10 +340,10 @@ digraph audit_dependency_graph {
   "L1:constructed.crosswalk_majority_full" -> "L2:v0_1_mcmc_full_coverage_rescore_100k" [style=solid, color="#333333"];
   "L1:constructed.crosswalk_minority_full" -> "L2:v0_1_mcmc_full_coverage_rescore_100k" [style=solid, color="#333333"];
   "L2:v0_1_mcmc_full_coverage_rescore_100k" -> "L1:constructed.mcmc_real_map_scores" [style=solid, color="#333333"];
-  "L0:data.2023_statement_of_vote" -> "L2:v0_1_advance_vote_splat" [style=solid, color="#333333"];
-  "L1:constructed.va_substrate_elecday" -> "L2:v0_1_advance_vote_splat" [style=solid, color="#333333"];
-  "L2:v0_1_advance_vote_splat" -> "L1:constructed.va_substrate_full" [style=solid, color="#333333"];
-  "L2:v0_1_advance_vote_splat" -> "L1:constructed.advance_vote_diag" [style=solid, color="#333333"];
+  "L0:data.2023_statement_of_vote" -> "L2:advance_vote_splat" [style=solid, color="#333333"];
+  "L1:constructed.va_substrate_elecday" -> "L2:advance_vote_splat" [style=solid, color="#333333"];
+  "L2:advance_vote_splat" -> "L1:constructed.va_substrate_full" [style=solid, color="#333333"];
+  "L2:advance_vote_splat" -> "L1:constructed.advance_vote_diag" [style=solid, color="#333333"];
   "L0:data.2015_statement_of_vote" -> "L2:parse_2015_results" [style=solid, color="#333333"];
   "L2:parse_2015_results" -> "L0:data.2015_election_results" [style=solid, color="#333333"];
   "L0:data.2023_statement_of_vote" -> "L2:v0_1_chen_rodden_alberta" [style=solid, color="#333333"];
@@ -339,12 +353,6 @@ digraph audit_dependency_graph {
   "L0:data.2019_ed_shapefile" -> "L2:v0_1_csd_community_splits" [style=solid, color="#333333"];
   "L1:constructed.dpg_v0_1_canonical" -> "L2:v0_1_csd_community_splits" [style=solid, color="#333333"];
   "L2:v0_1_csd_community_splits" -> "L1:constructed.csd_splits" [style=solid, color="#333333"];
-  "L0:data.338_historical_snapshots_dir" -> "L2:v0_1_338canada_historical" [style=solid, color="#333333"];
-  "L0:data.338canada_snapshots" -> "L2:v0_1_338canada_historical" [style=solid, color="#333333"];
-  "L0:data.338canada_snapshots" -> "L2:v0_1_338canada_reallocate" [style=solid, color="#333333"];
-  "L1:constructed.crosswalk_majority_hybrid" -> "L2:v0_1_338canada_reallocate" [style=solid, color="#333333"];
-  "L1:constructed.crosswalk_minority_hybrid" -> "L2:v0_1_338canada_reallocate" [style=solid, color="#333333"];
-  "L2:v0_1_338canada_reallocate" -> "L1:constructed.338canada_reallocated" [style=solid, color="#333333"];
   "L2:v0_1_canadian_base_rate_compute" -> "L1:constructed.canadian_base_rate" [style=solid, color="#333333"];
   "L2:v0_1_canadian_base_rate_recalibrate" -> "L1:constructed.canadian_base_rate" [style=solid, color="#333333"];
   "L0:data.2023_statement_of_vote" -> "L2:v0_1_marginal_seats_analysis" [style=solid, color="#333333"];
@@ -392,7 +400,6 @@ digraph audit_dependency_graph {
   "L1:constructed.approximate_eds" -> "L2:v0_1_build_composite_shapefiles" [style=solid, color="#333333"];
   "L1:constructed.refined_eds_v6" -> "L2:v0_1_build_composite_shapefiles" [style=solid, color="#333333"];
   "L2:v0_1_build_composite_shapefiles" -> "L1:constructed.composite_eds" [style=solid, color="#333333"];
-  "L2:v0_1_338canada_scraper" -> "L0:data.338canada_snapshots" [style=solid, color="#333333"];
   "L1:constructed.dpg_v0_1_canonical" -> "L2:v0_1_airdrie_overlap_diagnostic" [style=solid, color="#333333"];
   "L2:v0_1_airdrie_overlap_diagnostic" -> "L1:constructed.hybrid_adjacency" [style=solid, color="#333333"];
   "L1:constructed.dpg_v0_1_canonical" -> "L2:v0_1_overlap_zone_diagnostic" [style=solid, color="#333333"];
@@ -497,7 +504,6 @@ digraph audit_dependency_graph {
   "L2:v0_1_2015_cross_election" -> "L3:finding.b2_reversal_2019_votes" [style=solid, color="#333333"];
   "L0:data.338canada_snapshots" -> "L3:finding.b_338_direction_state_dependent" [style=solid, color="#333333"];
   "L0:data.338_historical_snapshots_dir" -> "L3:finding.b_338_direction_state_dependent" [style=solid, color="#333333"];
-  "L2:v0_1_338canada_historical" -> "L3:finding.b_338_direction_state_dependent" [style=solid, color="#333333"];
   "L1:constructed.338canada_reallocated" -> "L3:finding.b_338_direction_state_dependent" [style=solid, color="#333333"];
   "L0:data.byelections_2019_2026" -> "L3:finding.b_byelection_assessment" [style=solid, color="#333333"];
   "L0:data.2023_statement_of_vote" -> "L3:finding.b2_chen_rodden_direction_validated" [style=solid, color="#333333"];

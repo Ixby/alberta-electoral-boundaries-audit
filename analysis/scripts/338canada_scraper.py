@@ -1,7 +1,7 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 """
-v0_1_338canada_scraper.py
+338canada_scraper.py
 Pulls 338Canada per-riding projections for all 87 Alberta ridings.
 
 Track J, Phase 1. Reads data/338canada_ridings_index.csv (code,riding,region),

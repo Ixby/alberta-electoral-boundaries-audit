@@ -1,7 +1,7 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
 """
-v0_1_article_figures.py
+article_figures.py
 
 Generate the inline figures the magazine article embeds:
 
@@ -22,7 +22,7 @@ Style is editorial-print: muted palette, oldstyle numerals via Source
 Sans 3 fallback, ~5×3in print sizing for body inclusion.
 
 Run:
-    PYTHONIOENCODING=utf-8 python alberta_audit/analysis/scripts/v0_1_article_figures.py
+    PYTHONIOENCODING=utf-8 python alberta_audit/analysis/scripts/article_figures.py
 
 Forward:  report_public.md (consumes the PNGs)
 Backward: stdlib + matplotlib + numpy
