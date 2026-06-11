@@ -1,5 +1,5 @@
 > **Backward:**
-> - `data/outputs/sentiment_intensity_scores.csv` — per-submission LLM sentiment scores (920 rows)
+> - `data/outputs/sentiment_intensity_scores.csv` — per-(submission, configuration) LLM sentiment-intensity scoring events (452 rows, 394 unique submission IDs across 7 configurations × 3 scan types)
 > - `data/outputs/intensity_summary_table.csv` — aggregated sentiment by configuration
 > - `analysis/methodology/minority_rationales_validation.md` — R1–R11 rationale verdicts
 >
@@ -9,12 +9,14 @@
 
 # Sentiment Analysis × Minority Rationales Cross-Reference
 
-**Purpose:** Compare public submission sentiment (LLM-scored, 920 rows) against the minority commission's stated justifications and their validation verdicts. Tests whether configurations with stronger rationale support received stronger public support.
+**Purpose:** Compare public submission sentiment (LLM-scored) against the minority commission's stated justifications and their validation verdicts. Tests whether configurations with stronger rationale support received stronger public support.
 
 **Data sources:**
-- Public sentiment: `data/outputs/sentiment_intensity_scores.csv` (920 rows; 559 submissions + 361 Hansard turns)
+- Public sentiment: `data/outputs/sentiment_intensity_scores.csv` — **452 scoring events** across the 7 chair-flagged minority configurations × 3 scan types (full_corpus, hansard_r1, hansard_r2) covering **394 unique source items** (submissions + Hansard speaker-turns).
 - Rationale validation: `analysis/methodology/minority_rationales_validation.md` (R1–R11 verdicts)
 - Aggregated sentiment: `data/outputs/intensity_summary_table.csv`
+
+**Row-count provenance note (added 2026-06-11):** Earlier drafts of this document and the `sentiment_analysis_completion_report.md` cited a "920 rows" figure derived from a pre-deduplication scoring run that double-counted Hansard turns appearing across multiple speakers. The canonical count is the 452 actually present in `sentiment_intensity_scores.csv`. The intensity-weighted aggregates and configuration-level nets reported in §5.9.4.6 of the monograph are computed from the 452-row file; the 920 figure is retired.
 
 ---
 

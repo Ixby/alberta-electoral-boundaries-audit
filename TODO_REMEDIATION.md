@@ -226,9 +226,15 @@ Doc rewritten in place:
 The doc title still reads "validation plan" rather than "validation report" — that's intentional, the document remains a walkthrough for a reviewer who hasn't run any of these tools yet. The R cross-validation specifically WAS executed and its result is in `findings/redist_python_comparison.md`; the doc points there.
 
 ### T4.3 — Sentiment 920 → 452 row reconciliation
-**Status: 🔴 REQUIRES INSPECTION + DECISION**
+**Status: ✅ CLOSED 2026-06-11**
 
-`findings/sentiment_rationale_crossreference.md` is a DRAFT with 920 rows / nets (RMH −29, Red Deer −154); monograph and `report_public.md` use the 452-row deduplicated values (−9, −64). Only the README explains the dedup. The two should reconcile to a single canonical, with the dedup transformation documented and the DRAFT banner either removed or escalated to a SUPERSEDED banner.
+Empirical check against `data/outputs/sentiment_intensity_scores.csv`: the canonical file has **452 rows** representing **394 unique submission IDs** across **7 configurations × 3 scan types** (full_corpus, hansard_r1, hansard_r2). The "920" figure cited in earlier drafts was a pre-deduplication scoring pass that double-counted Hansard turns appearing across multiple speakers.
+
+Updated:
+- `findings/sentiment_rationale_crossreference.md` — header and Data sources block use the 452 figure; row-count provenance note added explaining the 920→452 transition.
+- `findings/sentiment_analysis_completion_report.md` — abstract, methodology details, and source-file pointer all updated to 452.
+
+Monograph §5.9.4.6 numbers (using the 452-row aggregates) are unchanged.
 
 ### T4.4 — Declination convention is consistent
 **Status: ✅ CLOSED 2026-06-10**

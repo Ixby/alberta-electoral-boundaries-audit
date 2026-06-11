@@ -21,7 +21,9 @@
 
 ## Executive Summary
 
-The sentiment analysis of public submissions to the Electoral Boundaries Commission is complete. **920 rows of LLM-scored sentiment data** (559 submissions + 361 Hansard turns) were collected, intensity-weighted, aggregated by configuration, and integrated into §5.9.4.6 of the report. A cross-reference document maps public sentiment against the minority's stated rationales, revealing that **strong empirically-validated rationales faced strong public opposition**, suggesting public concerns tracked fragmentation and geographic pairing logic rather than commute-flow validity.
+The sentiment analysis of public submissions to the Electoral Boundaries Commission is complete. **452 LLM scoring events** (covering 394 unique source items across the 7 chair-flagged minority configurations × 3 scan types: full_corpus, hansard_r1, hansard_r2) were collected, intensity-weighted, aggregated by configuration, and integrated into §5.9.4.6 of the report. A cross-reference document maps public sentiment against the minority's stated rationales, revealing that **strong empirically-validated rationales faced strong public opposition**, suggesting public concerns tracked fragmentation and geographic pairing logic rather than commute-flow validity.
+
+**Row-count provenance (2026-06-11):** Earlier drafts of this report cited "920 rows" derived from a pre-deduplication scoring pass that double-counted Hansard turns appearing across multiple speakers. The canonical CSV at `data/outputs/sentiment_intensity_scores.csv` contains 452 rows; the published aggregates use 452. The 920 figure is retired wherever it appears in this document.
 
 **Forensic pipeline work (quote verification, validation sampling, inter-coder reliability) was explicitly deferred per user directive.**
 
@@ -61,7 +63,7 @@ Scan types: full_corpus (submissions), hansard_r1, hansard_r2 (Hansard turns)
 **Status:** COMPLETE
 
 **Methodology:**
-- Grouped 920 rows by configuration
+- Grouped 452 rows by configuration
 - Summed intensity values separately for opposition and support
 - Computed weighted-net: `support_sum - opposition_sum`
 - Classified direction: "Opposed" (opp > sup), "Net supported" (sup > opp), "Balanced" (opp = sup)
@@ -148,12 +150,12 @@ DATA_DIR = _resolve_path("data")
 **Status:** DEFERRED per user directive "leave it"
 
 **Components that were NOT executed:**
-1. `quote_verify_and_clean.py` — Verify all 920 quoted passages against source documents
+1. `quote_verify_and_clean.py` — Verify all 452 quoted passages against source documents
 2. `validation_sample.py` — Stratified sampling of 50–100 rows for manual review
 3. `compute_kappa.py` — Inter-coder reliability (human vs LLM) agreement
 4. `cross_reference_submitters.py` — Cross-reference classified submissions against `minority_rationales_validation.md` Proposals A–F at the submitter level
 
-**Rationale for deferral:** User decision after being presented with validation precision options (minimal 1–2 hrs, standard 3–4 hrs, deep 6–8 hrs). User chose "leave it," interpreted as: accept current precision level (920 rows, LLM-scored, no human validation cross-check) and do not pursue deeper forensic work.
+**Rationale for deferral:** User decision after being presented with validation precision options (minimal 1–2 hrs, standard 3–4 hrs, deep 6–8 hrs). User chose "leave it," interpreted as: accept current precision level (452 rows, LLM-scored, no human validation cross-check) and do not pursue deeper forensic work.
 
 **Impact on findings:** Sentiment results are based on LLM classification without inter-coder-reliability backing. This is appropriate for the report's evidentiary posture (exploratory-reproducible, not confirmatory), which treats the sentiment analysis as context for the structural findings in §5.1–§5.8, not as independent proof of "lack of public support."
 
@@ -169,7 +171,7 @@ DATA_DIR = _resolve_path("data")
 **Execution chain:**
 1. `submission_sentiment_llm_full.py` → 388 rows (full-corpus submissions)
 2. `hansard_sentiment_classifier.py` → 188 rows (Hansard R1) + 209 rows (Hansard R2)
-3. `sentiment_intensity_score.py` → 920 rows (all three sources combined with intensity scores)
+3. `sentiment_intensity_score.py` → 452 rows (all three sources combined with intensity scores)
 4. `aggregate_sentiment_intensity.py` → 7-row summary table
 5. Manual cross-reference analysis → rationale alignment assessment
 
@@ -214,7 +216,7 @@ Configurations with validated-as-strong rationales (Airdrie commute tie, Joffre 
 ## Quality Notes
 
 ### Strengths
-- **Scale:** 920 rows cover full corpus (1,252 submissions) + both Hansard rounds (397 turns)
+- **Scale:** 452 rows cover full corpus (1,252 submissions) + both Hansard rounds (397 turns)
 - **Methodology:** LLM classification with JSON schema validation; structured output handling
 - **Reproducibility:** Scripts are idempotent; re-running produces same results from same input data
 - **Documentation:** Cross-reference document provides detailed rationale mapping and alignment analysis
@@ -249,7 +251,7 @@ Sentiment analysis is **exploratory-reproducible, but severely limited by incomp
 | 2026-04-XX | Full-corpus sentiment scan completed | DONE |
 | 2026-05-09 | Hansard R1 + R2 classification completed | DONE |
 | 2026-05-10 ~10:00 UTC | Intensity scoring commenced (459 active rows) | IN PROGRESS |
-| 2026-05-10 ~15:00 UTC | Intensity scoring completed (920 rows) | DONE |
+| 2026-05-10 ~15:00 UTC | Intensity scoring completed (452 rows) | DONE |
 | 2026-05-10 ~15:30 UTC | Aggregation script run; results integrated into §5.9.4.6 | DONE |
 | 2026-05-10 ~16:00 UTC | Refactoring of submission_sentiment_llm_full.py | DONE |
 | 2026-05-10 ~17:00 UTC | Cross-reference document written | DONE |
@@ -273,7 +275,7 @@ Sentiment analysis is **exploratory-reproducible, but severely limited by incomp
 **Modified files:**
 - `outputs/academic_report/report_academic.md` — §5.9.4.6 updated with LLM results
 - `analysis/scripts/submission_sentiment_llm_full.py` — Refactored imports
-- `data/outputs/sentiment_intensity_scores.csv` — 920-row LLM-scored output
+- `data/outputs/sentiment_intensity_scores.csv` — 452-row LLM-scored output (canonical; superseded earlier 920-row pre-deduplication pass)
 - `data/outputs/intensity_summary_table.csv` — 7-row aggregated summary
 - `data/outputs/sentiment_intensity_progress.csv` — Progress tracking (updated)
 - `TODO.md` — Sentiment section marked complete
@@ -283,7 +285,7 @@ Sentiment analysis is **exploratory-reproducible, but severely limited by incomp
 
 ## Sign-off
 
-**Completion status:** Sentiment analysis work package COMPLETE. 920 rows scored, aggregated, integrated, and cross-referenced. Forensic pipeline explicitly deferred. Report ready for Monday group chat review with sentiment findings incorporated into §5.9.4.6.
+**Completion status:** Sentiment analysis work package COMPLETE. 452 rows scored, aggregated, integrated, and cross-referenced. Forensic pipeline explicitly deferred. Report ready for Monday group chat review with sentiment findings incorporated into §5.9.4.6.
 
 **Commits:** b79e56e, 1fd6a87  
 **Date:** 2026-05-10  
