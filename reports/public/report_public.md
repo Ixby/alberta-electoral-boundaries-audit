@@ -21,6 +21,18 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 
 *A plain-language look at the 2025–26 Electoral Boundary Commission, the math behind the minority map, and what comes next.*
 
+## How to read this report
+
+This audit asks one question. Alberta's 2025–26 Electoral Boundaries Commission drew two maps. Do they look like maps a fair process would produce? The audit answers on two tracks.
+
+Lane 1 measures the maps against more than a million computer-drawn neutral Alberta maps. The question: does each real map sit inside the normal range, or outside it? Lane 2 measures things you can see in the lines themselves. How are cities split? How evenly is population spread? Do borders follow city limits, school division lines, or census boundaries? The audit set the pass-fail thresholds for these tests before looking at any results. The two lanes ask different questions and use different evidence. Both were locked in before the analysis ran. The finding the audit stands behind is the direction the lanes point. No single test carries the case on its own.
+
+Two tests pointed the wrong way for the audit's main story, and both are reported in full. The first is a Lane 2 test on how often each map's borders follow city limits and other existing lines. The audit's early version showed the minority at 15% — far below the Canadian norm of 70–85%. When the audit re-ran on official Elections Alberta map files, both maps came in inside that range. That earlier finding is marked as retracted in place, not removed. The second is a Lane 1 test called the neighbour-drain test. It looks for a common gerrymander pattern where packed districts sit right next to thin-margin districts. The minority map scored better than the majority on this one. Section 5.3.5 of the academic report explains why. The minority map gets its partisan effect a different way. It mixes urban and rural voters inside single districts rather than between them. The audit's overall finding does not depend on either of these tests. Failed and null tests are part of the record.
+
+The audit measures the maps. It does not try to read the commissioners' minds, and it does not say either map breaks the law. "Gerrymandering" has no legal meaning in Canadian law. A Canadian court would test the maps against two standards. The first is whether they give voters effective representation under section 3 of the *Charter of Rights and Freedoms* — the rule the Supreme Court set in the 1991 *Saskatchewan Reference*. The second is whether the commission followed the rules of Alberta's *Electoral Boundaries Commission Act*. The audit gives evidence that bears on those questions. It does not answer them. The author has disclosed a relevant prior. He donated to the NDP and volunteered for the party. Three findings that ran against his expectation were kept in the report anyway. The audit is designed so anyone running the same scripts on the same data gets the same numbers. The code is public on GitHub. The random seeds came from a public timing source (Cloudflare drand) before the analysis was run. All input data is public.
+
+---
+
 ## Part I: How the Commission Broke
 
 Alberta's Electoral Boundary Commission finished its work on March 23, 2026 and could not agree. Three commissioners produced one map; the other two produced a different one. Both are legal under the *Electoral Boundaries Commission Act*. The governing party is the United Conservative Party (UCP); its main opposition is the New Democratic Party (NDP). This audit measured both maps using the same methods, applied identically. Three findings stand out.

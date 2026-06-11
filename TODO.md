@@ -12,7 +12,7 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 # Alberta Audit — Outstanding Tasks
 
 **Project:** Electoral Boundary Analysis, Phase 1 (minority map)
-**Last updated:** 2026-05-18
+**Last updated:** 2026-05-27
 **Completed work:** see `COMPLETED_LOG.md`
 
 ---
@@ -105,6 +105,14 @@ Outreach sent to Elections Alberta and Duane Bratt on 2026-04-23; replies receiv
    - Recommended send order: Loewen and Nguyen/Moorman simultaneously; Chen after Loewen replies (strengthens credibility signal).
 4. Response turnaround: allow 2–3 weeks before final revision pass.
 
+### CoI Mitigation Outreach
+
+Distinct from peer-review outreach. Targets the structural CoI optics critique that pre-registration alone does not address.
+
+- **Constitutional law scholar outreach** — Flag methodology to Canadian constitutional law scholars likely to engage Charter s.3 questions: Emmett Macfarlane (Waterloo), Carissima Mathen (uOttawa), Andrew Heard (SFU). Goal is methodology visibility for any future s.3 case, not endorsement. ~30 min per email.
+- **Methods paper — Bratt co-author ask** — Approach Bratt for co-authorship on `findings/methods_paper_draft.md` (ensemble-based audit methodology for Canadian boundary commissions). His name on the methods paper materially fixes the solo-undergrad provenance discount on the methodology contribution. Sequence after Bratt's draft-review reply. Stackable with the SSHRC Connection Grant ask if pursued separately.
+- **Independent replication outreach** — Identify a non-NDP-aligned researcher (UCP-leaning political scientist, Fraser Institute affiliate, Calgary School) to re-run the pipeline on the public repo. Methodology portability (drand seeds + open-source pipeline) is the strongest CoI defense; a confirmed independent replication closes the optics critique. Approach options: Loewen reply chain, or via Bratt referral.
+
 ### URL Archival
 
 - 13 priority URLs need Wayback Machine + archive.ph submission (authenticated browser session required)
@@ -164,12 +172,15 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 
 **Target journals (in order):** *Canadian Public Policy*, *Electoral Studies*, *Political Science Research and Methods*
 
+**Methods paper target journals (in order):** *Election Law Journal: Rules, Politics, and Policy* (best fit, cross-border), *Statistics and Public Policy* (open-access, ASA, fast turnaround), *Canadian Journal of Political Science* (highest domestic prestige, slowest). Submit after `findings/methods_paper_draft.md` is co-author-ready and the audit preprint is posted.
+
 ### Media Prep Kit
 
 1. **DONE 2026-05-18 — 1-page non-technical summary**: `docs/FINDINGS_BRIEF.md` (Markdown) and `docs/FINDINGS_BRIEF.html` (print-to-PDF via Chrome). Concept-first, no p-values, no EG acronym; seat-gap and wasted-vote framings; CoI disclosure; what-this-does-not-claim block. GitHub Pages live at `docs/index.html`.
 2. **Visual asset package** — 3–5 key figures export-ready (300 dpi PNG); existing SVGs in `data/maps/mcmc/` are candidates
 3. **FAQ document** — 10 questions a journalist or MLA would ask; pre-drafted answers; include "what this study does NOT claim"
 4. **Contact list** — Bratt + 2 others willing to field media calls; confirmation required before release
+5. **Hostile-quote response document** — Pre-write a ~500-word response for likely out-of-context quoting patterns: (a) the neighbour-drain adjacency test where minority numerically outperforms majority — contextualize as hybridization-by-design per §5.3.5; (b) the retracted anchoring finding — note retraction is the methodologically correct response to canonical-shapefile recomputation; (c) the +0.04% / +3.96% efficiency gap difference framed without Lane 2 context; (d) any single-test cherry-pick. Cache the doc; send proactively to anyone citing the audit out of context.
 
 ### Globe and Mail Data Desk Pitch
 
@@ -191,6 +202,12 @@ Current §5.8.4 notes Enoch Cree Nation (Reserve 135) PP=0.065 and Tsuut'ina com
 ---
 
 ## MEDIUM — Restructure / Hygiene
+
+### Public report editorial pass
+
+- **DONE 2026-05-27 — "How to read this report" preamble added to public report** (`reports/public/report_public.md`, inserted between subtitle and Part I). Four-paragraph framing: Lane 1 / Lane 2 distinction; directional reading; explicit handling of the retracted anchoring finding and the neighbour-drain null; what the audit does not claim; CoI + reproducibility statement.
+- **Academic report — mirror preamble's null/failed-test framing** — The public report's new preamble explicitly contextualizes the neighbour-drain finding as part of the directional reading. The academic report's existing "Executive summary and reading guide" (§48–72) addresses the anchoring retraction explicitly but does not yet address the neighbour-drain finding in the same anti-misquote frame. Consider adding one paragraph mirroring the public preamble's framing.
+- **Symmetric-methodology + third-person framing pass on public report** — Verify the new preamble and Lane 1 / Lane 2 framing flow consistently through the rest of the public report. Consider a pass for first-person → third-person framing where it reads more institutional ("the audit finds" rather than "I find"). Run `analysis/scripts/check_voice_and_readability.py` after.
 
 ### Repository Restructure
 
