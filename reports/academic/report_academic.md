@@ -1725,6 +1725,16 @@ Two new minority-specific cracking-candidate patterns emerge: Lethbridge 4-way (
 
 **Interpretation.** The audit's symmetry-of-test-selection claim is strengthened by the Edmonton counter-test (Calgary zone asymmetry is not a test-selection artefact) and extended by the Lethbridge and Red Deer findings (the cracking pattern identified at Airdrie reproduces elsewhere). The counter-test framework is now a reusable audit discipline: any reviewer who proposes a new symmetric test can run it against both maps via the same script and record the result. Full per-city data at `data/majority_symmetry_counter_test.csv`.
 
+**Counter-test 3 — Majority rural-isolation (T3.2; pre-registered 2026-06-11, salt `t3_2_majority_rural_isolation_counter_test`).** The joint outlier score records a *majority-side* anomaly the audit has reported but never pressure-tested: the majority's neighbour-drain score sits at z = −2.915 against the canonical 1.01M-plan ensemble (p < 0.0001, one-sided low tail), notably more extreme than the minority's drain p = 0.1342 within the central band. Two competing readings — H₀ (Alberta's statutory rural carve-outs naturally produce isolated rural EDs) vs H₁ (the majority engineered elongated rural corridors that minimize urban contact) — were locked into `preregistration/t3_2_majority_rural_isolation_design.md` at commit `5fbd1ca` *before* execution. Three independent rural-isolation metrics were measured on majority 2026, minority 2026, and the 2019 enacted map (geographic control): R1 median Polsby–Popper of rural-anchored EDs (lower = more elongated); R2 mean count of urban-anchored neighbors per rural ED (lower = less urban contact); R3 fraction of rural EDs with zero urban-anchored neighbors (higher = more isolation). Result:
+
+| Map | n rural EDs | R1 median PP | R2 urban-nbrs/rural | R3 frac with 0 urban nbrs |
+|---|---:|---:|---:|---:|
+| Majority 2026 | 28 | 0.347 | 2.143 | 0.107 |
+| Minority 2026 | 23 | 0.397 | 2.478 | 0.043 |
+| 2019 enacted (control) | 31 | 0.387 | 1.774 | 0.258 |
+
+The pre-registered decision rule scores majority rank-1 on only one of three axes (compactness only); the 2019 enacted map — the geographic baseline drawn under the same Alberta s.15(2) carve-outs — is the most rural-isolated map on R2 and R3 and the second-most on R1. **Verdict: H₀ supported.** The majority's anomalously low drain score is consistent with natural Alberta rural geography rather than engineered rural isolation. Notably, the minority is the *least* rural-isolated map on all three metrics — directly consistent with the audit's published reading that the minority's structural anomaly is *hybridization* of urban-rural pairs rather than rural-isolation engineering. Full result at `findings/t3_2_majority_rural_isolation.md`.
+
 ---
 
 <a id="sec-5-7"></a>

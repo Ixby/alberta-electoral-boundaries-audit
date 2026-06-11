@@ -102,6 +102,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `simulation_short_bursts.md` | Short-burst simulation robustness check (10k vs 250k runs) |
 | `burst_symmetry_analysis.md` | Burst-symmetry analysis for MCMC convergence |
 | `drain_label_shuffle_null.md` | Neighbour-drain null distribution: label-shuffle test |
+| `t3_2_majority_rural_isolation.md` | T3.2 counter-test — majority rural-isolation pre-registered scan (verdict: H₀ supported) |
 
 ---
 

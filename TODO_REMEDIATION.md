@@ -166,11 +166,11 @@ Minority's 21 hybrids got the full school-division treatment; majority's got fou
 **Resolution path:** rerun `school_division_coherence` script (verify script name in `analysis/scripts/`) with the majority's hybrid list; produce parallel finding doc.
 
 ### T3.2 — One majority-anomaly counter-test
-**Status: 🟡 READY TO PROPOSE**
+**Status: ✅ CLOSED 2026-06-11**
 
-Edmonton-packing scan or rural-corridor scan, applied symmetrically to whichever majority-anomaly class the audit hasn't pressure-tested. Goal: close the "the audit hypothesis-generated against the minority and pretended to symmetry-audit" critique.
+Pre-registered as a rural-isolation counter-test against the majority's z = −2.915 anomalously-low drain score. Design locked at commit `5fbd1ca` (`preregistration/t3_2_majority_rural_isolation_design.md`, salt `t3_2_majority_rural_isolation_counter_test`) before execution. Three independent metrics (R1 median PP rural, R2 mean urban-nbrs/rural, R3 zero-urban-frac) applied symmetrically to majority 2026, minority 2026, and 2019 enacted as geographic control.
 
-**Resolution path:** propose the test in advance (drand-stamped), pre-commit acceptance criteria, then run.
+**Result: H₀ supported.** Majority is rank-1 on 1 of 3 metrics (compactness only); 2019 enacted is the most rural-isolated map overall. The drain anomaly is consistent with natural Alberta rural geography, not engineered isolation. Full result `findings/t3_2_majority_rural_isolation.md`; added to academic report §5.6 as Counter-test 3.
 
 ### T3.3 — Apply the "commission convention" escape symmetrically
 **Status: ✅ CLOSED 2026-06-10 (documentation)**
