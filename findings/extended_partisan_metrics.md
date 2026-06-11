@@ -1,3 +1,16 @@
+> **⚠ SUBSTRATE-STATUS: v0_7 DPG (substrate-stale; canonical recompute queued, 2026-06-11).**
+> The four extended partisan metrics below (Partisan Bias, Lopsided-t, Partisan Gini,
+> Responsiveness) were computed against v0_7 DPG shapefiles (89 EDs) and a 10,000-sample
+> ReCom MCMC ensemble (seed 42, ±25 %). The audit's substrate-provenance audit
+> (2026-06-11) flagged this file as the last remaining headline-cited finding not yet
+> re-anchored on the canonical Elections Alberta shapefiles + canonical 1,010,000-plan
+> ensemble. The §5.2.9 §1.1 BH-table rows 5–6 (Lopsided Margins t = 3.43 / 3.05)
+> derive from these numbers and are accurate against v0_7 substrate. Canonical
+> recompute is queued in `TODO_REMEDIATION.md` (T4.7). The Lopsided Margins finding
+> is independently disclosed in §5.2.9 as a structural property of Alberta's political
+> geography present in all three maps including the 2019 baseline, so the audit's
+> headline does not depend on the exact v0_7 vs canonical values.
+>
 > **Backward:**
 > - extended-metrics computation script (companion in `analysis/scripts/`)
 > - v0_7 shapefiles (89 EDs)

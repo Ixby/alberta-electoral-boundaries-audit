@@ -61,12 +61,24 @@ Bootstrap p: 0.0024 (24/10000 permutations exceeded observed, full-recompute)
 
 Pre-registered: AsPredicted #289,451. Executed 2026-05-07 on official canonical shapefiles.
 
+> **⚠ SUBSTRATE-STALE (banner added 2026-06-11).** The drain_score values in this
+> section were computed on a DPG-era / blended-vote substrate (the §5.3 blending
+> pipeline that predates Phase 4C). The justify-or-drop validation
+> (`findings/drain_metric_validation.md`, 2026-06-11) re-computed the continuous
+> drain_score on canonical EA shapefiles + canonical VA centroid-in-polygon
+> attribution and got `majority = 0.00721`, `minority = 0.00059` — the direction
+> REVERSES (majority > minority, matching the §5.3.5 coupled-count table in
+> `findings/neighbour_drain_analysis.md`). The "majority z = −2.915 anomalously
+> low" reading below is therefore substrate-bound and has been retracted in
+> `reports/academic/report_academic.md` §5.3.5 pending a canonical-substrate
+> Phase B null re-run. Numbers kept below for trail-of-work only.
+
 | Map | drain_score | Null mean | z-score | p (two-tailed) |
 | --- | --- | --- | --- | --- |
 | Majority 2026 | 0.000179 | 0.032085 | **−2.915** | **0.0000** |
 | Minority 2026 | 0.006176 | 0.016741 | −1.372 | 0.1342 |
 
-**Prediction A** (drain_score(majority) > drain_score(minority)): **NOT CONFIRMED** (0.000179 < 0.006176).
+**Prediction A** (drain_score(majority) > drain_score(minority)): **NOT CONFIRMED** (0.000179 < 0.006176) *on stale substrate; CONFIRMED on canonical substrate, see drain_metric_validation.md*.
 
 **Prediction B** (both within null p > 0.05): **NOT CONFIRMED for majority** (p < 0.0001, outside null). Minority: CONFIRMED (p = 0.1342, within null).
 

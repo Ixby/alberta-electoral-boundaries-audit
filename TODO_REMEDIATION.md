@@ -213,6 +213,20 @@ Per `findings/dpg_legacy_audit.md` §"Cosmetic but worth queuing", sweep these f
 
 The monograph §3.3 hardstop counts ("81 of 86 majority / 87 of 89 minority") derive from the now-bannered `findings/phase4f_summary.json` (v0_5 substrate). Re-run the population-hardstop validation against canonical EA shapefiles to produce a canonical-substrate equivalent. If the script is `analysis/scripts/phase4f_validation.py` (verify), invoke against `data/shapefiles/canonical/ea_*_2026_eds.gpkg` and replace the v0_5 numbers in §3.3 with the canonical equivalents.
 
+### T4.7 — Substrate-provenance sweep (2026-06-11) — canonical Phase B drain null + extended-partisan-metrics canonical recompute
+**Status: 🟡 PARTIALLY CLOSED — banners landed; recomputes queued**
+
+A repo-wide substrate-provenance inventory (2026-06-11) confirmed every headline-cited number except two trace back to canonical inputs (`data/shapefiles/canonical/ea_*_2026_eds.gpkg` + `va_2023_election_day_votes.gpkg` + 1,010,000-plan ReCom ensemble). The two stale remainders, both now bannered:
+
+1. **`findings/drain_label_shuffle_null.md`** — continuous drain_score (majority = 0.000179, minority = 0.006176, z = −2.915) computed on DPG-era blended substrate. Canonical-substrate sanity check in `findings/drain_metric_validation.md` gives majority = 0.00721 > minority = 0.00059 (direction reverses). The §5.3.5 retraction has landed; the canonical-substrate Phase B null re-run (~6h) is queued: re-run `drain_label_shuffle_null.py` after rewiring its vote loader from `_blend` to `score_map_by_spatial_join(va_gpkg, ea_shp, EDName2025)`.
+2. **`findings/extended_partisan_metrics.md`** — Partisan Bias, Lopsided-t, Partisan Gini, Responsiveness on v0_7 DPG shapefiles + 10k ReCom. The Lopsided-t values (3.43 / 3.05) appear in §1.1 BH-table rows 5–6 but the audit's headline does not depend on them (§5.2.9 discloses them as a structural property of Alberta's political geography present on all three maps). Canonical recompute against canonical EA shapefiles + 1.01M-plan ensemble is queued.
+
+Also flagged in the inventory (not yet acted on):
+- `findings/joint_outlier_score.json` `neighbour_drain` block — `SUBSTRATE_STATUS` retraction field added 2026-06-11.
+- `findings/joint_outlier_score_summary.md` §"Channel 3" — substrate-stale banner added 2026-06-11.
+
+Other v0_5 / v0_7 / v0_8 substrate references in the academic report are *transparently disclosed inline* (§5.2.9 header explicitly says "v0_7 geometry"; §5.3.5 v0_8 cross-substrate disagreement reported; §3.3 hardstops banner the v0_5 origin; §1.2 caveats list inheritance-empty EDs). The audit does not silently mix substrates; all remaining stale numbers are either bannered or annotated.
+
 ### T4.2 — Rewrite `external_tool_validation.md` against canonical
 **Status: ✅ CLOSED 2026-06-11**
 
