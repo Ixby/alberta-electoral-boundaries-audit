@@ -322,3 +322,31 @@ Historical v0.1–v0.8 code and data artefacts preserved in `historical/` subdir
 
 **Signed:** Claude (acting as session agent), reviewed by Will Conner  
 **Date:** 2026-06-10
+
+---
+
+### Amendment 9 — November 2026 structural-lane threshold rule: midpoint anchoring (2026-06-11)
+
+**What changed.** `preregistration/november_2026_scoring_spec.md` §3 structural-lane threshold rule changed from "≥ 1.5× majority's baseline" (applied per metric) to *midpoint anchoring*: for each discriminating metric, the candidate's flag fires iff it lands on the minority's side of the midpoint between the two commission maps' battery-measured canonical values. Two structural changes accompany the rule change:
+- **S4 (Polsby-Popper compactness median) is excluded from the flag count.** It is still measured and reported. Median PP is identical on both maps (0.4366) and the tail statistics run the wrong way (majority has more low-PP districts, 16.9 % vs 12.4 % below 0.30, and a lower minimum, 0.149 vs 0.175) — consistent with monograph H3 ("corridors drawn thick enough to make PP look innocent"). Compactness does not discriminate the two commission maps and cannot detect replication.
+- **S6 predicate P6 (St. Albert-Sturgeon) is dropped from the discriminating set.** The majority map has the same-named ED, so the predicate is non-discriminating. P6 is still listed in `patterns_reproduced` when matched, for transparency, but does not count toward the S6 score. S6 is now scored against P1–P5 (max 5).
+
+The verdict threshold remains ≥ 3 (now of 5, since S4 is excluded). The 5 discriminating metrics, their measured canonical anchors, and their midpoints are tabulated in the amended §3 of the spec.
+
+**Why not a goalpost move.** The 1.5× rule was identified as miscalibrated when the full battery was first run end-to-end against the canonical commission maps (2026-06-10). With ≥ 1.5× majority's baseline, the **minority itself failed to classify as "replicated"** — it fired only 1 of 6 flags (S6 alone), because the minority/majority ratios on the other metrics sit at 1.30–1.39× (below 1.5×). The 1.5× rule was therefore demanding a Lunty map *more extreme than the minority on multiple dimensions*, which is incoherent for a test whose stated purpose is to detect a Lunty map that replicates the minority signature. Either the multiplier needed to drop or the anchor needed to move. Midpoint anchoring was chosen over a multiplier change because (a) it removes the free parameter entirely (no future amendment cycle can be accused of multiplier-tuning), (b) it is self-validating against the two commission maps that already exist — the minority classifies "replicated" (5/5) and the majority "not replicated" (0/5) by construction (verified algebraically and against the canonical run of `run_structural_battery.py` — majority empirical = 0/5), and (c) the Lunty map does not yet exist, so the amendment cannot be reverse-engineered for a specific outcome.
+
+**Why an unamended reading is not feasible.** The 1.5× rule's failure to classify the minority as "replicated" is a definitional incoherence, not a result one could choose to live with. Holding the multiplier would commit the audit to a November verdict surface in which "Lunty replicates the minority structural signature" is unreachable for any map that wasn't significantly worse than the minority on multiple structural dimensions — a question the test was never designed to answer. The verdict surface needed to mean what its prose said.
+
+**Effect on the November verdict.** The 2 × 2 combined verdict surface (structural × partisan) is unchanged. The four pre-committed headline strings are unchanged. The 72-hour publication commitment is unchanged. The substrate, drand-pinning, and reproduction commands are unchanged. The only change is the threshold rule for which candidate maps classify as "replicated" vs "not replicated" on the structural lane. Under the amended rule, the minority commission map itself meets the definition of "structural-lane signature replicated" (it serves as the reference for the signature); under the 1.5× rule, it did not. Honest framing under both rules: the **majority** classifies "not replicated" on canonical geometry; the amended rule simply makes the **minority** also classify as expected.
+
+**Pre-publication verification (run at amendment time, 2026-06-11):**
+
+| Map | S1 | S2 | S3 | S5 | S6 | Discriminating flags | Verdict |
+|---|---|---|---|---|---|---:|---|
+| Canonical majority | 2826.89 (False) | 23 (False) | 0.80050 (False) | 0.0072 (False) | 0 (False) | **0/5** | not replicated |
+| Canonical minority | 3938.11 (True) | 30 (True) | 0.71970 (True) | 0.0006 (True) | 5 (True) | **5/5** | replicated |
+
+(Empirical majority run: confirmed 0/5 by `run_structural_battery.py` against canonical EA shapefiles, this commit. Minority is mathematically guaranteed to be 5/5 by the midpoint construction.)
+
+**Signed:** Claude (acting as session agent), reviewed by Will Conner  
+**Date:** 2026-06-11

@@ -39,16 +39,22 @@ The audit applies the same battery used in `reports/academic/report_academic.md`
 
 ### Structural-lane (geometric, no vote model)
 
-| ID | Metric | Threshold | How it's read |
-|---|---|---|---|
-| S1 | Population MAD (per-ED deviation from ideal) | ≥ 1.5× the majority commission proposal's MAD | flag |
-| S2 | Municipal split count | ≥ 1.5× majority's count of municipalities split into 2+ EDs (canonical: 8) | flag |
-| S3 | Anchoring score (% population in EDs anchored to single municipality / county) | within 70–85% Canadian norm = neutral; outside the band = flag | flag if outside |
-| S4 | Polsby–Popper compactness median | < majority's median by 0.10 or more | flag |
-| S5 | Neighbour-drain adjacency pattern score | drain_score > 0.05 AND label-shuffle null p < 0.05 | flag |
-| S6 | Chair-flagged boundary count (per Justice Miller's published anomaly notes) | ≥ 1 of the minority's pre-flagged boundary patterns reproduced | flag |
+**Threshold rule (Amendment 9, 2026-06-11):** midpoint anchoring. For each *discriminating* metric, the flag fires iff the candidate map lands on the **minority's side of the midpoint** between the two commission maps' battery-measured canonical values. No free multiplier. Direction-aware: S1/S2/S6 minority-side is "above" the midpoint; S3/S5 is "below."
 
-**Structural-lane verdict rule (frozen):** ≥ 3 flags fire = "structural-lane signature replicated"; 0–2 flags = "structural-lane signature not replicated."
+| ID | Metric | Majority anchor | Minority anchor | Midpoint | Flag if |
+|---|---|---:|---:|---:|---|
+| S1 | Population MAD (median absolute deviation from median) | 2826.89 | 3938.11 | **3382.50** | candidate > 3382.50 |
+| S2 | Municipalities split into ≥ 2 EDs (CY/T/SM filter) | 23 | 30 | **26.5** | candidate > 26.5 |
+| S3 | Anchoring (% perimeter on CSD boundaries) | 0.80050 | 0.71970 | **0.76010** | candidate < 0.76010 |
+| S4 | Polsby–Popper compactness median | 0.4366 | 0.4366 | — | **non-discriminating, excluded from count** |
+| S5 | Neighbour-drain adjacency score | 0.0072 | 0.0006 | **0.0039** | candidate < 0.0039 |
+| S6 | Chair-flagged hybrid patterns reproduced (P1–P5 only; P6 dropped as non-discriminating) | 0 | 5 | **2.5** | candidate ≥ 3 |
+
+**Why S4 is excluded:** median Polsby-Popper is identical on both maps (0.4366) and the tail statistics run the wrong way (majority has more low-PP districts, 16.9 % vs 12.4 % below 0.30, and a lower minimum, 0.149 vs 0.175) — consistent with monograph H3 ("corridors drawn thick enough to make PP look innocent"). Compactness does not discriminate the two commission maps and cannot detect replication.
+
+**Why P6 is dropped from S6:** the majority has the same-named ED "St. Albert-Sturgeon" (constraint-forced; both factions arrived at the same solution there). The predicate is still listed when matched, for transparency, but does not count toward the S6 score.
+
+**Structural-lane verdict rule (Amendment 9, frozen):** ≥ **3 of 5** discriminating flags fire = "structural-lane signature replicated"; 0–2 = "not replicated." Self-validation under canonical EA shapefiles: minority = 5/5 → replicated; majority = 0/5 → not replicated.
 
 ### Partisan-bias lane (vote model required)
 
