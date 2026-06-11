@@ -211,10 +211,19 @@ Per `findings/dpg_legacy_audit.md` §"Cosmetic but worth queuing", sweep these f
 
 The monograph §3.3 hardstop counts ("81 of 86 majority / 87 of 89 minority") derive from the now-bannered `findings/phase4f_summary.json` (v0_5 substrate). Re-run the population-hardstop validation against canonical EA shapefiles to produce a canonical-substrate equivalent. If the script is `analysis/scripts/phase4f_validation.py` (verify), invoke against `data/shapefiles/canonical/ea_*_2026_eds.gpkg` and replace the v0_5 numbers in §3.3 with the canonical equivalents.
 
-### T4.2 — Rerun `external_tool_validation.md` against canonical
-**Status: 🟡 READY TO EXECUTE**
+### T4.2 — Rewrite `external_tool_validation.md` against canonical
+**Status: ✅ CLOSED 2026-06-11**
 
-Doc currently describes the H1-rejected 2M run with +6.4 % / +9.2 % EGs. Rerun the committed `redist_crossvalidation.R` against canonical and rewrite the doc. Also rename it from "validation" to "validation plan" if it documents intended-but-not-executed procedures.
+Doc rewritten in place:
+- "Python pipeline runs 2,000,000 maps" → "canonical pipeline runs 1,010,000 plans (4 chains × 252,500 steps)"
+- R cross-validation seed `set.seed(88)` → `set.seed(852751799)` with the note about the redistmetrics RNG-consume defect that motivated the explicit seeding order
+- Stale EG numbers (majority +6.4% / minority +9.2%) replaced with canonical Phase 4C values (majority +0.10% / minority +3.96%)
+- DPG-era v0_8 polygon paths (data/shapefiles/derived/v0_8_full_refined_*) replaced with canonical paths (data/shapefiles/canonical/ea_*_2026_eds.gpkg)
+- Phase 2 reframed from "validate the DPG reconstructions against commission images" to "validate the canonical shapefiles against commission images" — the prior framing was moot once the official shapefiles arrived
+- "v0_1_compactness.py" → "polsby_popper.py" + "reock.py" (the actual current scripts)
+- Output doc names (v0_1_qgis_visual_inspection_findings.md, v0_1_maptitude_cross_validation.md) de-versioned
+
+The doc title still reads "validation plan" rather than "validation report" — that's intentional, the document remains a walkthrough for a reviewer who hasn't run any of these tools yet. The R cross-validation specifically WAS executed and its result is in `findings/redist_python_comparison.md`; the doc points there.
 
 ### T4.3 — Sentiment 920 → 452 row reconciliation
 **Status: 🔴 REQUIRES INSPECTION + DECISION**

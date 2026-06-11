@@ -19,7 +19,7 @@ This document walks through cross-validating the audit using three tools the uni
 | Phase | Tool | What it adds | Time | Cost |
 |---|---|---|---|---|
 | **1** | **R + `redist` package** | Independent algorithm in a different language reproduces the headline `seats@50/50` finding | 1 evening setup + ~90 min run | Free |
-| **2** | **QGIS** *or* **ArcGIS Pro via MRU vLab** | Visual inspection of the v0_8 polygon reconstructions against commission map images | 2 hours setup + 1 afternoon inspection | Free; MRU is an Esri campus, ArcGIS Pro is the supported standard via the vLab |
+| **2** | **QGIS** *or* **ArcGIS Pro via MRU vLab** | Visual inspection of the canonical polygons against commission map images | 2 hours setup + 1 afternoon inspection | Free; MRU is an Esri campus, ArcGIS Pro is the supported standard via the vLab |
 | **3** | **ArcGIS Pro** for figures | Polished publication-grade figures for journal submission (optional) | 1 hour setup + 1 day work | Free via MRU vLab (Apporto) |
 
 **Note on Maptitude.** Mount Royal University does not have institutional access to Maptitude for Redistricting (Caliper Corporation), confirmed via the MRU software directory. MRU is an Esri-stack campus: the supported GIS tools through the MRU vLab (powered by Apporto) are ArcGIS Pro and ArcGIS Online, plus ENVI, geoScout, and CS Land for adjacent specialties. **Caliper does offer a 14-day free trial of Maptitude for Redistricting**, which is enough time for a focused measurement-cross-validation pass (Phase 2.5 below). The free trial is the practical way to add Maptitude as a validator without acquiring the licence.
@@ -65,9 +65,9 @@ The audit's input data lives in the GitHub repository. You'll need three files:
 
 - The 2019 enacted Alberta shapefile: `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
 - The voting-area polygons with 2023 votes: `data/shapefiles/derived/va_polygons_with_2023_votes.gpkg`
-- The audit's reconstructed v0_8 minority and majority maps:
-  - `data/shapefiles/derived/v0_8_full_refined_majority_2026_eds.gpkg`
-  - `data/shapefiles/derived/v0_8_full_refined_minority_2026_eds.gpkg`
+- The audit's canonical Elections Alberta minority and majority shapefiles:
+  - `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`
+  - `data/shapefiles/canonical/ea_minority_2026_eds.gpkg`
 
 If you cloned the repo with `git lfs pull`, all four are already on your disk. Open RStudio and set the working directory to the repo root using the menu **Session → Set Working Directory → Choose Directory…** and pick the `alberta_audit` folder.
 
@@ -124,14 +124,21 @@ map <- redist_map(
   pop_col = "pop"
 )
 
-# ----- Step D: Run the ReCom ensemble (this is the slow step) -----
-# The Python pipeline runs 2,000,000 maps. For cross-validation,
-# 50,000 is enough — the percentile placements should agree to
-# within ±0.5pp at this sample size.
+# ----- Step D: Run the SMC ensemble (this is the slow step) -----
+# The Python canonical pipeline runs 1,010,000 plans (4 chains x 252,500
+# steps; data/simulation_checkpoints_canonical/). For algorithm-independent
+# cross-validation, 5,000 SMC plans is the figure the audit's
+# `redist_crossvalidation.R` ran (committed seed 852751799, ESS 1,116).
+# At 5,000 SMC plans the percentile placements agreed within +/-0.5pp of
+# the Python ReCom run; at 50,000 the agreement should be tighter.
 #
-# Wall time on a 4-core laptop: ~30-45 minutes for 50,000 maps.
+# Wall time on a 4-core laptop: ~30-45 minutes for 50,000 plans.
 
-set.seed(88)  # same seed used by the Python pipeline's authoritative run
+# Use the canonical seed (drand-pinned in preregistration/seed_commitments.md).
+# Note: set.seed() must come AFTER library(redistmetrics) loads — that package
+# consumes RNG state on load, which caused the earlier seed-placement defect
+# documented in §5.4.9 of the academic monograph.
+set.seed(852751799)
 ensemble <- redist_smc(
   map,
   nsims = 50000,            # change to 500000 for a tighter check
@@ -216,9 +223,11 @@ If any value fails by more than 0.5pp, **stop** and post the discrepancy as an i
 
 ---
 
-## Phase 2 — QGIS visual inspection
+## Phase 2 — QGIS visual inspection of canonical polygons against commission images
 
-**Goal:** open the audit's reconstructed v0_8 polygons in a GIS viewer alongside the commission's published map images and visually confirm the polygons match the boundaries shown in the images. Catches the kind of error that code-level checks can't detect.
+**Goal:** open the official Elections Alberta canonical polygons (received 2026-05-06) in a GIS viewer alongside the commission's published map images and visually confirm the polygons match the boundaries the commission drew. Catches errors a code-level check can't (e.g. a transcription mismatch between the commission's narrative description and its published shapefile).
+
+The earlier version of Phase 2 validated DPG-era v0_8 polygon *reconstructions* against the commission images. With the official shapefiles in hand that validation is moot; this phase now inspects the canonical shapefiles themselves.
 
 ### Step 2.1 — Install QGIS (one time, ~10 minutes)
 
@@ -230,8 +239,8 @@ If any value fails by more than 0.5pp, **stop** and post the discrepancy as an i
 In QGIS:
 
 1. **Layer → Add Layer → Add Vector Layer…**
-2. Source type: File. Browse to `data/shapefiles/derived/v0_8_full_refined_minority_2026_eds.gpkg`. Click **Add**, then **Close**.
-3. Repeat for `v0_8_full_refined_majority_2026_eds.gpkg`.
+2. Source type: File. Browse to `data/shapefiles/canonical/ea_minority_2026_eds.gpkg`. Click **Add**, then **Close**.
+3. Repeat for `ea_majority_2026_eds.gpkg`.
 4. Both maps now appear in the Layers pane on the left.
 5. Right-click the minority layer → **Properties → Symbology**. Change "Single Symbol" to "Categorized" and choose `name_2026` as the category column. Click **Classify**, then **OK**. Each district gets a different colour.
 
@@ -254,21 +263,21 @@ For each of the audit's six contested EDs, do this:
 
 | ED to inspect | What to check |
 |---|---|
-| Calgary-Airdrie | Does the v0_8 polygon match the commission's published Airdrie boundary? |
+| Calgary-Airdrie | Does the canonical polygon match the commission's published Airdrie boundary? |
 | Calgary-Nolan-Hill-Cochrane | Does the lasso shape connecting Cochrane to NW Calgary match the published image? |
-| Rocky Mountain House-Banff Park | How far into Banff National Park does the published boundary extend? Does v0_8 match? |
-| Olds-Three-Hills-Didsbury | Does the North-Airdrie reach in v0_8 match the published boundary? |
-| Lethbridge-Taber-Warner | Does the Lethbridge city split in v0_8 match the published boundary? |
-| Edmonton-Spruce-Grove | Does the Spruce-Grove inclusion in v0_8 match the published image? |
+| Rocky Mountain House-Banff Park | How far into Banff National Park does the published boundary extend? Does the canonical match? |
+| Olds-Three-Hills-Didsbury | Does the North-Airdrie reach in the canonical polygon match the published boundary? |
+| Lethbridge-Taber-Warner | Does the Lethbridge city split in the canonical polygon match the published boundary? |
+| Edmonton-Spruce-Grove | Does the Spruce-Grove inclusion in the canonical polygon match the published image? |
 
 For each ED:
 
 1. In QGIS, **Layer panel → click the eye icon** to show only the relevant minority polygon and the commission overlay
 2. Zoom in to the ED's boundary at city/town scale
-3. **Visually trace the published boundary** with the cursor; compare to the v0_8 polygon outline
+3. **Visually trace the published boundary** with the cursor; compare to the canonical polygon outline
 4. **Document findings** in a per-ED entry: "Boundary aligns within visual tolerance" / "Boundary deviates 200m at northwest edge" / "Boundary differs significantly — needs investigation"
 
-Save the findings as `analysis/methodology/v0_1_qgis_visual_inspection_findings.md`. Each ED gets a short paragraph; include screenshots cropped from QGIS for any deviation.
+Save the findings as `analysis/methodology/qgis_visual_inspection_findings.md`. Each ED gets a short paragraph; include screenshots cropped from QGIS for any deviation.
 
 ### Step 2.5 — Pass criterion
 
@@ -301,8 +310,8 @@ If 5 or 6 EDs align within tolerance, the visual inspection is a clean pass. If 
 In Maptitude, **File → Open** the GeoPackage files:
 
 - 2019 enacted: `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp`
-- 2026 majority: `data/shapefiles/derived/v0_8_full_refined_majority_2026_eds.gpkg`
-- 2026 minority: `data/shapefiles/derived/v0_8_full_refined_minority_2026_eds.gpkg`
+- 2026 majority: `data/shapefiles/canonical/ea_majority_2026_eds.gpkg`
+- 2026 minority: `data/shapefiles/canonical/ea_minority_2026_eds.gpkg`
 
 Maptitude will treat each one as a separate redistricting plan. Set the population layer to the StatsCan 2021 DA file (`data/shapefiles/reference/alberta_2021_das.gpkg`).
 
@@ -310,13 +319,13 @@ Maptitude will treat each one as a separate redistricting plan. Set the populati
 
 For each plan:
 
-1. **Population deviation report:** Maptitude → Districting → Population Statistics. Compare to the audit's published values (majority within ±7%; minority within ±12.7%).
-2. **Compactness report:** Maptitude → Districting → Compactness Measures. Maptitude reports Polsby-Popper, Reock, Schwartzberg by default. Compare per-district scores against the audit's `analysis/scripts/v0_1_compactness.py` outputs (run that script first if you don't already have the values).
-3. **Partisan-bias report:** Load 2023 vote data via Maptitude's Election Data import. Run the built-in efficiency-gap and seats-votes-curve reports. Compare to the audit's published efficiency gap (majority +6.4%, minority +9.2%).
+1. **Population deviation report:** Maptitude → Districting → Population Statistics. Compare to the audit's published values: majority maximum |deviation| approximately 14.3% (Calgary-Symons Valley), minority maximum |deviation| approximately 24.1% (RMH-Banff). Both within the statutory ±25% band.
+2. **Compactness report:** Maptitude → Districting → Compactness Measures. Maptitude reports Polsby-Popper, Reock, Schwartzberg by default. Compare per-district scores against the audit's `analysis/scripts/polsby_popper.py` and `analysis/scripts/reock.py` outputs (run those first if you don't already have the values).
+3. **Partisan-bias report:** Load 2023 vote data via Maptitude's Election Data import. Run the built-in efficiency-gap and seats-votes-curve reports. Compare to the audit's published canonical Phase 4C efficiency gaps: majority +0.10%, minority +3.96%. Both reported with positive = UCP advantage (Stephanopoulos-McGhee convention).
 
 ### Step 2.5.4 — Pass criterion + write-up
 
-For each metric on each map, the Maptitude value should be within ±0.5pp of the audit's published value. Document the comparison as `analysis/methodology/v0_1_maptitude_cross_validation.md` with:
+For each metric on each map, the Maptitude value should be within ±0.5pp of the audit's published value. Document the comparison as `analysis/methodology/maptitude_cross_validation.md` with:
 
 - Maptitude version and trial period dates
 - Per-metric, per-map comparison table
@@ -343,7 +352,7 @@ If anything materially diverges: the most likely cause is a methodology differen
 
 The verdict quadrant doesn't really need ArcGIS (it's a scatter plot, matplotlib handles it fine). The figures that benefit from ArcGIS treatment are the **map figures** for a journal version.
 
-1. **Add Data → file** → load the v0_8 polygons
+1. **Add Data → file** → load the canonical polygons
 2. **Symbology → Unique Values** by `name_2026`
 3. Apply a journal-grade colour palette (Cynthia Brewer's ColorBrewer 2.0 palettes are standard; ArcGIS has them built in)
 4. Add a north arrow, scale bar, legend, and title
@@ -356,7 +365,7 @@ ArcGIS Pro's "Layout" view is what produces publication figures. Tutorials at <h
 ArcGIS has a built-in "Spatial Join" tool that can do voting-area-centroid → ED-polygon attribution as an independent check on the audit's Python `geopandas.sjoin` output.
 
 1. **Geoprocessing → Spatial Join**
-2. Target features: the v0_8 ED polygons
+2. Target features: the canonical ED polygons
 3. Join features: voting-area centroids
 4. Join operation: One-to-one, sum the `va_ucp` and `va_ndp` fields
 5. Output a new feature class with per-ED vote totals
