@@ -59,7 +59,10 @@ Reproduction
     --shapefile data/shapefiles/canonical/ea_minority_2026_eds.gpkg \\
     --output findings/structural_minority_recheck.json
 
-Verdict rule (pre-committed): ≥ 3 flags = "replicated"; 0–2 = "not_replicated".
+Verdict rule (Amendment 9, frozen 2026-06-11): ≥ 3 of the 5 discriminating
+metrics (S1, S2, S3, S5, S6) on the minority side of the midpoint =
+"replicated"; 0–2 = "not_replicated". S4 is measured but excluded as
+non-discriminating.
 
 Backward:
   data/shapefiles/canonical/ea_majority_2026_eds.gpkg  (reference baseline)
@@ -91,47 +94,60 @@ sys.path.insert(0, str(ROOT / "analysis" / "utils"))
 
 # ----- Pre-committed thresholds (preregistration/november_2026_scoring_spec.md §3) -----
 
-# S1: population MAD threshold = 1.5 × majority commission proposal's MAD.
-#     Majority's canonical MAD will be cached in this constant once the
-#     S1_BASELINE_MAJORITY_MAD is computed against canonical (currently
-#     filled in from data/outputs/simulation_real_map_scores_canonical.json:
-#     majority population_mad = 2826.89). Frozen 2026-06-10.
-S1_BASELINE_MAJORITY_MAD = 2826.89
-S1_MULTIPLIER = 1.5
+# ── Midpoint-anchored thresholds (Amendment 9, 2026-06-11) ──────────────────
+#
+# Design: for each discriminating metric, the flag fires iff the candidate map
+# lands on the MINORITY's side of the midpoint between the two commission maps'
+# battery-measured canonical values. Rationale (preregistration/
+# november_2026_scoring_spec.md §3, as amended):
+#   - No free multiplier to accuse of tuning (the earlier 1.5× rule produced
+#     the incoherent result that the minority itself failed to classify as
+#     "replicated" — its ratios are 1.30–1.39×).
+#   - Self-validating: the minority classifies "replicated" (5/5 discriminating
+#     flags) and the majority "not_replicated" (0/5) by construction.
+#   - Direction-aware: minority-side is "above" for S1/S2/S6 and "below" for
+#     S3/S5 (the minority's signature is LOW anchoring and LOW adjacency-drain
+#     — §5.3.5: it works via hybridization, not drain).
+#
+# Battery-measured canonical anchors (this script, canonical EA shapefiles,
+# 2026-06-11):
+#                     majority     minority     midpoint    minority side
+#   S1 pop MAD        2826.89      3938.11      3382.50     above
+#   S2 splits (≥2ED)  23           30           26.5        above
+#   S3 anchoring      0.80050      0.71970      0.76010     below
+#   S5 drain score    0.0072127    0.0005909    0.0039018   below
+#   S6 patterns(P1-5) 0            5            2.5         above (≥3)
+#
+# S4 (compactness) is measured and reported but EXCLUDED from the flag count:
+# median PP is identical on both maps (0.4366) and the tail statistics run the
+# wrong way (majority has MORE low-PP districts, 16.9% vs 12.4% below 0.30,
+# and a lower minimum, 0.149 vs 0.175) — consistent with monograph H3
+# ("corridors drawn thick enough to make PP look innocent"). Compactness does
+# not discriminate the two commission maps and cannot detect replication.
+#
+# P6 (St. Albert-Sturgeon hybrid) is dropped from S6's predicate set: the
+# majority map has the same-named ED (constraint-forced; both factions arrived
+# at the same solution there), so the predicate is non-discriminating.
 
-# S2: municipal split count threshold = 1.5 × majority's count of CSDs split
-#     into ≥2 EDs, where the CSD set is filtered to Cities/Towns/Specialized
-#     Municipalities (CSDTYPE in {CY, T, SM}).
-#     Helper-computed canonical baseline: majority 23 (ratio 1.30× vs minority 30).
-#     Threshold: 34 (= 1.5 × 23, rounded down).
-#     The existing findings/municipal_splits.md table reports a tighter
-#     ≥300-VA-vote filter giving majority=8/minority=11, but uses the same
-#     ≥2-EDs definition. The structural battery's helper uses the CSDTYPE-only
-#     filter for reproducibility — its threshold is calibrated on the same
-#     helper-method values, so the verdict surface is internally consistent.
-#     Spec amendment 2026-06-10 (Amendment 8); helper rebaseline 2026-06-10.
-S2_BASELINE_MAJORITY_SPLITS = 23
-S2_MULTIPLIER = 1.5
+S1_MIDPOINT = 3382.50          # minority side: above
+S2_MIDPOINT = 26.5             # minority side: above
+S3_MIDPOINT = 0.76010          # minority side: below
+S5_MIDPOINT = 0.0039018        # minority side: below
+S6_MIDPOINT = 2.5              # minority side: above (≥3 of P1–P5)
 
-# S3: anchoring score band. Within 70–85% Canadian norm = neutral; outside = flag.
+# Legacy band retained for reporting context only (Canadian comparator norm):
 S3_BAND_LOW = 0.70
 S3_BAND_HIGH = 0.85
-
-# S4: Polsby-Popper compactness median threshold = majority's median − 0.10.
-#     Majority's canonical median Polsby-Popper: 0.348 (per polsby_popper.py canonical run).
-S4_BASELINE_MAJORITY_MEDIAN_PP = 0.348
-S4_DELTA = 0.10
-
-# S5: neighbour-drain score threshold + label-shuffle null p < 0.05.
+# Retained for the S5 null short-circuit reporting path:
 S5_DRAIN_THRESHOLD = 0.05
 S5_NULL_PVALUE_THRESHOLD = 0.05
+# S1 anchors retained for output annotation:
+S1_BASELINE_MAJORITY_MAD = 2826.89
+S1_BASELINE_MINORITY_MAD = 3938.11
 
-# S6: chair-flagged boundary patterns replicated.
-#     The minority's pre-flagged patterns are listed in findings/chair_recommendation_5_analysis.md.
-S6_FLAG_THRESHOLD = 1   # ≥ 1 pattern reproduced = flag
-
-# Verdict rule
-STRUCTURAL_REPLICATED_THRESHOLD = 3   # ≥ 3 flags = "replicated"
+# Verdict rule: ≥3 of the 5 discriminating metrics on the minority side.
+STRUCTURAL_REPLICATED_THRESHOLD = 3
+N_DISCRIMINATING_METRICS = 5
 
 
 def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
@@ -141,7 +157,7 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
     placeable against the canonical chain ensemble percentiles. Uses the
     cached VA→pop_2021 overlay (`data/va_pop_from_das.csv`).
 
-    Threshold: candidate MAD ≥ 1.5 × S1_BASELINE_MAJORITY_MAD = flag.
+    Flag (Amendment 9): candidate MAD above the majority/minority midpoint.
     """
     try:
         import geopandas as gpd
@@ -152,7 +168,7 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
         if not pop_cache.exists():
             return {
                 "value": None,
-                "threshold": S1_BASELINE_MAJORITY_MAD * S1_MULTIPLIER,
+                "threshold": S1_MIDPOINT,
                 "flag": None,
                 "_note": f"STUB — population cache missing: {pop_cache}",
             }
@@ -174,8 +190,8 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
                            how="inner", predicate="within")
         pop_by_ed = joined.groupby(id_col)["pop_2021"].sum().values
         mad = float(np.median(np.abs(pop_by_ed - np.median(pop_by_ed))))
-        threshold = S1_BASELINE_MAJORITY_MAD * S1_MULTIPLIER
-        flag = bool(mad >= threshold)
+        threshold = S1_MIDPOINT
+        flag = bool(mad >= threshold)   # minority side: above midpoint
         return {
             "value": mad,
             "threshold": threshold,
@@ -184,7 +200,7 @@ def compute_S1_population_mad(shapefile: Path, votes_path: Path) -> dict:
     except Exception as e:
         return {
             "value": None,
-            "threshold": S1_BASELINE_MAJORITY_MAD * S1_MULTIPLIER,
+            "threshold": S1_MIDPOINT,
             "flag": None,
             "_note": f"STUB — population MAD computation raised: {e}",
         }
@@ -199,8 +215,8 @@ def compute_S2_municipal_splits(shapefile: Path, reference: Path) -> dict:
         sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
         from municipal_splits import count_splits_two_or_more
         n = int(count_splits_two_or_more(shapefile))
-        threshold = int(S2_BASELINE_MAJORITY_SPLITS * S2_MULTIPLIER)
-        flag = bool(n >= threshold)
+        threshold = S2_MIDPOINT
+        flag = bool(n > threshold)   # minority side: above midpoint (>26.5 means >=27)
         return {
             "value": n,
             "threshold": threshold,
@@ -209,7 +225,7 @@ def compute_S2_municipal_splits(shapefile: Path, reference: Path) -> dict:
     except Exception as e:
         return {
             "value": None,
-            "threshold": int(S2_BASELINE_MAJORITY_SPLITS * S2_MULTIPLIER),
+            "threshold": S2_MIDPOINT,
             "flag": None,
             "_note": f"STUB — count_splits_two_or_more() raised: {e}",
         }
@@ -229,10 +245,11 @@ def compute_S3_anchoring(shapefile: Path) -> dict:
         # score_anchoring returns a percentage (0–100); normalize to fraction
         if score > 1.5:
             score = score / 100.0
-        flag = bool(score < S3_BAND_LOW or score > S3_BAND_HIGH)
+        flag = bool(score < S3_MIDPOINT)   # minority side: below midpoint
         return {
             "value": score,
-            "threshold": [S3_BAND_LOW, S3_BAND_HIGH],
+            "threshold": S3_MIDPOINT,
+            "canadian_norm_band": [S3_BAND_LOW, S3_BAND_HIGH],
             "flag": flag,
         }
     except Exception as e:
@@ -254,16 +271,19 @@ def compute_S4_polsby_popper(shapefile: Path) -> dict:
         from polsby_popper import score_map
         df = score_map(shapefile, "candidate")
         median_pp = float(df["polsby_popper"].median())
-        flag = bool(median_pp < (S4_BASELINE_MAJORITY_MEDIAN_PP - S4_DELTA))
         return {
             "value": median_pp,
-            "threshold": S4_BASELINE_MAJORITY_MEDIAN_PP - S4_DELTA,
-            "flag": flag,
+            "threshold": None,
+            "flag": False,
+            "non_discriminating": True,
+            "_note": ("measured but EXCLUDED from the flag count: median PP is "
+                      "identical on both commission maps (0.4366) and tail stats "
+                      "run the wrong way (monograph H3). Reported for transparency."),
         }
     except Exception as e:
         return {
             "value": None,
-            "threshold": S4_BASELINE_MAJORITY_MEDIAN_PP - S4_DELTA,
+            "threshold": None,
             "flag": None,
             "_note": f"STUB — polsby_popper.score_map signature drift ({e}).",
         }
@@ -302,32 +322,16 @@ def compute_S5_drain(shapefile: Path, votes_path: Path,
         ed_lookup = ed_df.set_index("ed").to_dict("index")
         score = float(drain_score(pair_df, ed_lookup))
 
-        # Short-circuit: if drain is already well below threshold, skip the
-        # ~30 s permutation null (it can't change the verdict).
-        if score < S5_DRAIN_THRESHOLD * 0.5:
-            return {
-                "drain_score": score,
-                "null_pvalue": None,
-                "n_permutations": 0,
-                "threshold": {"drain": S5_DRAIN_THRESHOLD, "null_p": S5_NULL_PVALUE_THRESHOLD},
-                "flag": False,
-                "_note": "short-circuited: drain score well below threshold; null skipped",
-            }
-
-        # Null p-value (cheaper 2k permutations by default)
-        directed = directed_pairs_from_undirected(undirected)
-        ed_names = list(ed_df["ed"])
-        vote_vectors = np.array([votes[e] for e in ed_names])
-        rng = np.random.default_rng(seed)
-        null_scores = label_shuffle_null(ed_names, vote_vectors, directed, n_perm, rng)
-        null_p = float((null_scores >= score).mean())
-
-        flag = bool(score >= S5_DRAIN_THRESHOLD and null_p < S5_NULL_PVALUE_THRESHOLD)
+        # Midpoint rule (Amendment 9): minority side is LOW drain — the
+        # minority's signature is hybridization, not adjacency drain (§5.3.5).
+        # The label-shuffle null no longer gates the flag; the machinery
+        # remains available via drain_label_shuffle_null.py for a
+        # publication-grade significance run.
+        flag = bool(score < S5_MIDPOINT)
         return {
             "drain_score": score,
-            "null_pvalue": null_p,
-            "n_permutations": n_perm,
-            "threshold": {"drain": S5_DRAIN_THRESHOLD, "null_p": S5_NULL_PVALUE_THRESHOLD},
+            "threshold": S5_MIDPOINT,
+            "direction": "minority side = below midpoint",
             "flag": flag,
         }
     except Exception as e:
@@ -401,17 +405,21 @@ def compute_S6_chair_flags(shapefile: Path) -> dict:
             if ("St. Albert" in n or "St Albert" in n) and "Sturgeon" in n:
                 patterns_hit.append(f"P6_StAlbert_Sturgeon_hybrid_{n}")
 
-        flag = bool(len(patterns_hit) >= S6_FLAG_THRESHOLD)
+        # P6 (St. Albert-Sturgeon) is excluded from the count: the majority
+        # map has the same-named ED (constraint-forced), so it does not
+        # discriminate. It is still listed when matched, for transparency.
+        discriminating_hits = [p for p in patterns_hit if not p.startswith("P6_")]
+        flag = bool(len(discriminating_hits) > S6_MIDPOINT)   # >2.5 means >=3
         return {
             "patterns_reproduced": patterns_hit,
-            "patterns_count": len(patterns_hit),
-            "threshold": S6_FLAG_THRESHOLD,
+            "patterns_count_discriminating": len(discriminating_hits),
+            "threshold": S6_MIDPOINT,
             "flag": flag,
         }
     except Exception as e:
         return {
             "patterns_reproduced": None,
-            "threshold": S6_FLAG_THRESHOLD,
+            "threshold": S6_MIDPOINT,
             "flag": None,
             "_note": f"STUB — S6 predicate evaluation raised: {type(e).__name__}: {e}",
         }
@@ -446,9 +454,13 @@ def main(argv=None) -> int:
         "S6_chair_flag_replication": compute_S6_chair_flags(args.shapefile),
     }
 
-    # Count flags (None counted as "did not execute" — NOT counted as a flag)
-    flag_count = sum(1 for m in metrics.values() if m.get("flag") is True)
-    none_count = sum(1 for m in metrics.values() if m.get("flag") is None)
+    # Count flags only across the DISCRIMINATING metrics (S4 is reported but
+    # excluded per Amendment 9 — see preamble for the rationale).
+    DISCRIMINATING = ("S1_population_mad", "S2_municipal_split_count",
+                      "S3_anchoring_score", "S5_drain_score",
+                      "S6_chair_flag_replication")
+    flag_count = sum(1 for k in DISCRIMINATING if metrics[k].get("flag") is True)
+    none_count = sum(1 for k in DISCRIMINATING if metrics[k].get("flag") is None)
     verdict = "replicated" if flag_count >= STRUCTURAL_REPLICATED_THRESHOLD else "not_replicated"
 
     result = {

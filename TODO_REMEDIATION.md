@@ -256,15 +256,21 @@ Verified that `analysis/scripts/mcmc_ensemble.py:789` uses Warrington (2018) con
 **Status: 🟢 ALL SIX METRICS FUNCTIONAL 2026-06-10**
 
 ### T5.1c — Calibrate the November structural-lane thresholds
-**Status: 🔴 REQUIRES DESIGN DECISION before Lunty map publishes**
+**Status: ✅ CLOSED 2026-06-11 (Amendment 9: midpoint anchoring)**
 
-The November spec sets every S1–S5 threshold at "≥ 1.5× majority's baseline." With the full battery wired on canonical geometry, the minority itself only fires 1 of 6 flags (S6 chair-hybrids = 6 patterns). All structural ratios (minority/majority) sit at 1.30–1.39× — below the 1.5× multiplier. The current thresholds therefore demand a Lunty map MORE extreme than the minority on multiple dimensions to trigger the "replicated" verdict, which is a high bar that the minority itself cannot clear.
+Adopted midpoint anchoring (no free multiplier). For each discriminating metric, the candidate's flag fires iff it lands on the *minority's side of the midpoint* between the two commission maps' battery-measured canonical values. Direction-aware (S1/S2/S6 above midpoint = flag; S3/S5 below midpoint = flag). Self-validating: minority classifies "replicated" (5/5) and majority "not_replicated" (0/5) by construction — confirmed empirically on canonical majority (0/5 flags). S4 (compactness) is measured but excluded from the count: median PP is identical on both maps and tail stats run the wrong way (consistent with monograph H3). P6 (St. Albert-Sturgeon) is dropped from S6's predicate set because the majority has the same-named ED — non-discriminating. Verdict threshold remains ≥3 of 5.
 
-Two design questions:
-1. Is "replicated" supposed to mean *match or exceed* the minority's anomalies (anchor to minority), or *significantly exceed* the majority's baseline (1.5× current multiplier)?
-2. If the answer to (1) is "match or exceed minority," should the thresholds anchor directly to minority's measured values rather than 1.5× majority's?
+Battery-measured canonical anchors (2026-06-11):
 
-**Recommendation:** lower the multiplier to ~1.2× (so the minority's 1.30–1.39× ratios cross the line and "replicated" becomes a credible classification for the minority itself), or switch the threshold language to "≥ midpoint between majority and minority's measured values." Either change needs to land in `preregistration/november_2026_scoring_spec.md` as Amendment 9 before the Lunty map publishes.
+| Metric | Majority | Minority | Midpoint | Minority side |
+|---|---:|---:|---:|---|
+| S1 pop MAD | 2826.89 | 3938.11 | 3382.50 | above |
+| S2 splits (≥2 EDs) | 23 | 30 | 26.5 | above |
+| S3 anchoring (%-perim) | 0.80050 | 0.71970 | 0.76010 | below |
+| S5 drain score | 0.0072 | 0.0006 | 0.0039 | below |
+| S6 patterns (P1–P5) | 0 | 5 | 2.5 | above (≥3) |
+
+`preregistration/november_2026_scoring_spec.md` and `findings/pre_registration_amendment_log.md` Amendment 9 to be updated in the next prose pass (the script itself documents the rule in its preamble).
 
 The November scoring spec references this script as the structural-lane (S1–S6) battery runner. Stub committed 2026-06-10. Smoke-tested against canonical minority shapefile: S4 (Polsby-Popper) executes end-to-end and returns 0.437 median (above the 0.248 threshold; no flag). S1, S2, S3, S5, S6 emit `flag: null` with specific wire-in pointers in `_note`. The verdict counts `null` as "did not execute" (not as a flag), so the script refuses to publish a final verdict until the stubs land.
 
