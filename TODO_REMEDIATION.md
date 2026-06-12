@@ -429,3 +429,60 @@ Partial translations preserved at `viewer/src/lib/i18n/locales/_wip/{crk,so}.ts.
 - ✅ **2026-06-10 — "no precedent in Canada" claim re-scoped** to "without precedent among the Canadian redistribution cycles this audit reviewed" and attributed to Duane Bratt's correspondence with the author, in `report_public.md`, `report_public.html`, and the 12 non-stub locales.
 - ✅ **2026-06-10 — Language dropdown scrollable** (15 languages now in the menu).
 - ✅ **2026-06-10 — Six new locales registered** (hi, vi, ko, ur, pl + the existing 9), Urdu correctly flagged RTL.
+
+---
+
+## Tier D — T1.7 code-side queued items (added 2026-06-12)
+
+The 18-referee adversarial review (T1.7) surfaced a cluster of methodological / technical depth issues requiring code changes or rerun. Documented inline in the report; full text remediation queued here.
+
+### T1.8 — BH → BY adjustment under dependence (Ref #1 / #6 / #16)
+Recompute the §1.1 BH-table under Benjamini-Yekutieli 2001 (q* = p × m × H_m / i, where H_m is the m-th harmonic number) given the table's correlated structure (Mahalanobis is a deterministic function of its four marginals). Likely outcome: rows 1–8 still PASS; rows 9–10 borderline; row 11 still FAIL. Trivial to implement.
+
+### T1.9 — Mahalanobis empirical-tail floor (Ref #1)
+Headline p = 1.40×10⁻⁶ is a parametric χ²₄ tail. The ESS-bounded empirical floor at n_eff ≈ 1,495 is ~6.7×10⁻⁴. The TODO already records that the empirical floor under (b+1)/(B+1) over the full 1.01M chain is ≤ 9.9×10⁻⁷ — so the parametric and empirical bounds agree on extreme tail. Re-state the headline as "parametric χ²₄ p = 1.4×10⁻⁶, supported by empirical 0/1.01M tail (Bonferroni 2.80×10⁻⁶)" to remove the parametric-anchoring concern.
+
+### T1.10 — SZAT block-permutation null (Ref #1)
+`analysis/scripts/szat.py:409-420` flips 2,110 spatially autocorrelated swing VAs i.i.d. Bernoulli(0.5); Moran's I z=12.15 contradicts independence (Lehmann & Romano 2005 ch.15; Legendre 1993). Replace with block-permutation across contiguous VA clusters. Also fix the (b+1)/(B+1) finite-sample correction at `np.mean(...)` line 420. Expected ~30% widening of the SZAT null variance; p = 0.0024 may move modestly but the substantive verdict survives.
+
+### T1.11 — ReCom proposal ε rerun (Ref #2 A13)
+`mcmc_ensemble.py:558` sets `epsilon = pop_deviation / 2.0`. Rerun with `epsilon = pop_deviation` so the proposal samples the documented ±25% legal space. ~8h single-core; 1.01M ensemble regenerated.
+
+### T1.12 — Resume-path corruption + per-chain ESS + burn-in (Ref #2 D4 D5)
+`mcmc_ensemble_canonical.py:146-161` re-seeds with identical chain_seed on resume → replays from step 0. Fix: serialize the final partition per chunk; derive chunk-dependent seeds. Plus compute per-chain ESS via `simulation_multichain_ensemble.py` (Vehtari 2021 split-rank-normalized) and discard ≥5τ burn-in before headline percentiles. Post-processing only on existing CSVs.
+
+### T1.13 — Differential measurement error (Ref #3 D6)
+Ensemble plans are unions of whole VAs (zero attribution error); real maps are scored via centroid sjoin (non-zero error). §5.4.9 percentiles compare an error-bearing real-map statistic against an error-free null. Audit's own pop-weighted check shows centroid EG error ≈ 0.05-0.1 pp, comparable to the p94.4↔p95 gap. Re-score real maps via population-weighted split-VA crosswalk and recompute percentiles.
+
+### T1.14 — Attribution-function unification (Ref #3 D7)
+Three "identical" attribution implementations handle boundary VAs differently:
+- `phase4c_canonical_attribution.py:84-95` — nearest-fallback, no dedupe
+- `mcmc_ensemble.py:334-339` — dropna, dedupe `keep="first"`, no fallback
+- `packing_cracking_analysis.py:297-298` — same as mcmc
+`keep="first"` resolves multi-ED containment by join order (nondeterministic). Unify into one shared attribution function with deterministic largest-overlap tie-break + vote-conservation logging.
+
+### T1.15 — Code-side reproducibility cleanups (Ref #15 D10-D13)
+- D10: `drain_phase_b_canonical.py:209` — replace hardcoded seed 460508741 with `get_canonical_seed(SALT)`; reconcile docstring salt with `SALT` constant.
+- D11: `drain_metric_validation.py:109` — replace stdlib `random.Random(20260611)` with `np.random.default_rng(get_canonical_seed(SALT))`; remove mixed RNG families.
+- D12: refreeze `requirements.txt` to the actually-verified env (Python 3.14 / numpy 2.4.2); fix CI to install from requirements.txt at the pinned Python.
+- D13: Migrate `data/simulation_checkpoints_canonical/chain*_samples.csv` to LFS via `.gitattributes` pattern fix + `git lfs migrate`.
+
+### T1.16 — Sensitivity factorial + ES-13 full-vote (Ref #2 / #17 D27 D28)
+- D27: Population-deviation OAT sweep (`findings/sensitivity_analysis.md`) is scriptless and SUPERSEDED-flagged. Replace with a factorial sweep on canonical geometry with reproducible commands.
+- D28: ES-13 "symmetric exclusion" defense for the 47.2% advance-ballot drop is invalid for tail claims; audit's own full-vote SZAT shows material shifts with a Calgary sign reversal. Run a ≥100k ensemble with the `va_ucp_full` / `va_ndp_full` columns and report both percentile sets.
+
+### T1.17 — Severity audit (Ref #16 D25)
+"Constraint-bound expectation" framing absorbs majority outliers (p100 Reock, p0.85 MM "commission convention") while not absorbing minority outliers. Alternative-dependent auxiliaries → severity failure (Mayo 2018). Either rename the null "ReCom-typical plan" everywhere (including §6.2) or run the constraint-enforcing ensemble queued in TODO_REMEDIATION T1.4 (the existing H6 row).
+
+### T1.18 — Cross-size declination δ̃ (Ref #5 D29)
+2019 (87 EDs) scored against the 89-ED ensemble: Warrington's δ̃ = δ × ln(n)/2 variant exists for cross-size comparison. Numerically negligible at 87↔89 but unacknowledged; add a one-line caveat or apply δ̃.
+
+### T4.9 — Substrate-honest refreshes (Refs #6 #13 #18)
+- T4.9-share: Phase 4F hardstop reframe as per-ED *share-of-province* delta (removes population-universe mismatch); use dwelling-count/building-footprint dasymetric via `va_attribution_population_weighted.py`.
+- T4.9-PB-swing: Extended partisan metrics recompute with the turnout-weighted swing convention used by the ensemble's `seats_at_50_50` column.
+- T4.9-full-vote: Phase 4C EG recomputed with `va_ucp_full` / `va_ndp_full` columns to allow direct 2019↔2026 like-for-like comparison.
+- T4.9-sentiment: Full-corpus sentiment scan on all 1,252 parseable submissions (current canonical 452-row output covers only 182 / 14.5%).
+
+### T4.10 — Anchoring metric + CRS reconciliation (Ref #10 D8 D9 D18)
+- T4.10-anchor: Implement the contiguous-≥1 km filter in `score_anchoring.py` per the report definition. Recompute the 72.0 / 80.0 / 75.2% values + sensitivity sweep at 100 m / 250 m / 500 m snap tolerance.
+- T4.10-CRS: Single declared CRS constant across the pipeline; assert CRS equality inside every sjoin; fix the `canonical_shapefile_log.md` label (now landed in this commit). Compactness scripts using 3401 (k₀=0.9999) vs pipeline default 3400 (k₀=0.9992) reconciled.
