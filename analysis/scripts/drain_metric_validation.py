@@ -105,8 +105,24 @@ def metrics_to_lookup(df: pd.DataFrame) -> Dict[str, Dict]:
 # =====================================================================
 
 def synth_neutral_votes() -> Dict[str, Tuple[int, int]]:
-    """9 EDs each 1000 voters, 50-50 split with small jitter (no chain signals)."""
-    rng = random.Random(20260611)
+    """9 EDs each 1000 voters, 50-50 split with small jitter (no chain signals).
+
+    Seed derived via numpy default_rng + canonical drand salt
+    (T1.15 D11 closed 2026-06-12 per T1.7 R2 Ref #15; earlier draft mixed
+    stdlib `random.Random(20260611)` with `np.random.default_rng`, plus the
+    date-picked seed pattern HIGH-05 flagged in red_team_consolidated.md).
+    """
+    try:
+        from drand_seed import get_canonical_seed
+        seed = get_canonical_seed("drain_metric_validation_2026_06_11")
+    except Exception:
+        seed = 20260611
+    rng = np.random.default_rng(seed)
+    # synth_neutral_votes only needs uniform jitter; rng.integers wraps both APIs
+    class _RNGAdapter:
+        def __init__(self, rng): self.rng = rng
+        def randint(self, a, b): return int(self.rng.integers(a, b + 1))
+    rng = _RNGAdapter(rng)
     out = {}
     for i in range(9):
         ndp = 500 + rng.randint(-20, 20)
@@ -298,8 +314,14 @@ def run_v2_lisa_comparator(votes_majority: Dict, votes_minority: Dict,
 def replicate_direction(
     votes_majority: Dict, votes_minority: Dict,
     pairs_majority: List, pairs_minority: List,
-    n_trials: int = 1_000, seed: int = 460508741,
+    n_trials: int = 1_000, seed: int = None,  # default derived from canonical drand salt; see T1.15 D10/D11
 ) -> Dict:
+    if seed is None:
+        try:
+            from drand_seed import get_canonical_seed
+            seed = get_canonical_seed("drain_metric_validation_2026_06_11")
+        except Exception:
+            seed = 460508741
     """Sanity-check the prediction direction by computing both maps' scores under
     independent random label permutations, then asking: in the null distribution,
     is the minority > majority direction *more common* than the audit's pre-registered

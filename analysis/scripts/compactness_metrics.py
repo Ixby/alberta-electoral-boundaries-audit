@@ -123,7 +123,12 @@ EXPECTED_COUNTS = {
 OUT_CSV = data_loader._resolve_path("findings") / "compactness_metrics.csv"
 OUT_JSON = data_loader._resolve_path("data") / "compactness_summary.json"
 
-# Alberta TM — EPSG:3401 (NAD83 / Alberta 10-TM Forest)
+# Alberta TM — EPSG:3401 (NAD83 / Alberta 10-TM Resource; verified via pyproj 2026-06-12).
+# Round-1 of this docstring labeled 3401 as "Forest" — that was swapped (3400 is Forest,
+# 3401 is Resource). Both projections have k₀=0.9992 and identical scale-factor behaviour;
+# the two CRSs differ only by 500,000 m of false easting, so polygon areas and perimeters
+# computed in either system are identical to within float-precision noise. The hazard is
+# mixing un-reprojected coordinates between 3400 and 3401 in an sjoin (500 km easting shift).
 ALBERTA_CRS = "EPSG:3401"
 
 # Gate: warn if mean PP for any map falls below this

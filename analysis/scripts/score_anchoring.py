@@ -167,16 +167,37 @@ def _measure_ring(
                 snapped = True
         snapped_flags.append(snapped)
 
+    # Per-segment perimeter and "raw anchored" (no contiguity filter)
     perim = 0.0
-    anchored = 0.0
+    anchored_raw = 0.0
+    seg_lengths: list[float] = []
     for i in range(len(coords)):
         x1, y1 = coords[i]
         x2, y2 = coords[(i + 1) % len(coords)]
         seg = float(np.hypot(x2 - x1, y2 - y1))
+        seg_lengths.append(seg)
         perim += seg
         if snapped_flags[i]:
-            anchored += seg
-    return perim, anchored
+            anchored_raw += seg
+
+    # Contiguous-≥1km filter (T4.10-anchor landed 2026-06-12 per T1.7 R2 Ref #10):
+    # the report definition requires anchored runs to be ≥ MIN_RUN_M of contiguous
+    # snapped segments. Accumulate run lengths; only count runs that clear the floor.
+    MIN_RUN_M = 1000.0
+    anchored_filtered = 0.0
+    run = 0.0
+    for flag, seg in zip(snapped_flags, seg_lengths):
+        if flag:
+            run += seg
+        else:
+            if run >= MIN_RUN_M:
+                anchored_filtered += run
+            run = 0.0
+    # Final run check (wraps around the ring; close it)
+    if run >= MIN_RUN_M:
+        anchored_filtered += run
+
+    return perim, anchored_filtered
 
 
 def score_anchoring(shapefile_or_gdf) -> float:

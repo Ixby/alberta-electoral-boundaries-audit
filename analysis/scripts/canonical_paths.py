@@ -57,3 +57,34 @@ def all_canonical() -> dict:
         plan: canonical_shapefile(plan)
         for plan in ("majority", "minority")
     }
+
+
+# Canonical CRS for the audit. Verified via pyproj 2026-06-12 per T1.7 R2 Ref #10:
+#   EPSG:3400 = NAD83 / Alberta 10-TM (Forest),  k₀=0.9992, false easting 500,000 m
+#   EPSG:3401 = NAD83 / Alberta 10-TM (Resource), k₀=0.9992, false easting 0 m
+# Both projections share scale factor and projection family; they differ only by 500 km
+# of false easting. Area/perimeter computations are identical in either system; the only
+# hazard is mixing un-reprojected coordinates in an sjoin.
+#
+# Pipeline default is 3400 (canonical EA shapefiles ship in 3400). Compactness scripts
+# (compactness_metrics.py, polsby_popper.py, reock.py) reproject to 3401 for historical
+# reasons; the choice is immaterial for area/perimeter but consumers should not mix.
+CANONICAL_CRS = "EPSG:3400"
+COMPACTNESS_CRS = "EPSG:3401"
+
+
+def assert_canonical_crs(gdf, label: str = "gdf"):
+    """Assert that a GeoDataFrame is in the canonical CRS (3400) before sjoin.
+
+    Raises ValueError if the gdf's CRS doesn't match. Use at every sjoin site
+    where coordinates would otherwise be silently misregistered by 500 km.
+    """
+    from pyproj import CRS
+    if gdf.crs is None:
+        raise ValueError(f"{label}: CRS is None (cannot assert canonical CRS)")
+    expected = CRS.from_user_input(CANONICAL_CRS)
+    if not CRS.from_user_input(gdf.crs).equals(expected):
+        raise ValueError(
+            f"{label}: CRS is {gdf.crs}, not the canonical CANONICAL_CRS={CANONICAL_CRS}. "
+            "Reproject with `.to_crs(CANONICAL_CRS)` before sjoin."
+        )

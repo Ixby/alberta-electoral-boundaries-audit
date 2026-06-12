@@ -206,7 +206,17 @@ def main(argv=None) -> int:
                     default=ROOT / "findings/drain_label_shuffle_null_canonical.json")
     ap.add_argument("--output-md", type=Path,
                     default=ROOT / "findings/drain_label_shuffle_null_canonical.md")
-    ap.add_argument("--seed", type=int, default=460508741)
+    # Seed derived from the SALT constant via the canonical drand-anchored seed
+    # function (T1.15 D10 closed 2026-06-12 per T1.7 R2 Ref #15). Earlier draft
+    # used a hardcoded seed 460508741 that matched neither the docstring salt
+    # 'drain-label-shuffle' nor the SALT constant
+    # 'drain-label-shuffle-canonical-2026-06-11'.
+    try:
+        from drand_seed import get_canonical_seed
+        _default_seed = get_canonical_seed(SALT)
+    except Exception:
+        _default_seed = 460508741  # fallback — preserves round-1 behavior
+    ap.add_argument("--seed", type=int, default=_default_seed)
     args = ap.parse_args(argv)
 
     print(f"Loading canonical VA layer …", flush=True)
