@@ -160,15 +160,24 @@ def seats_votes_curve(ucp_shares: np.ndarray, swing_range: np.ndarray) -> np.nda
     return np.array(seat_fracs)
 
 
-def partisan_bias(ucp_shares: np.ndarray) -> float:
+def partisan_bias(ucp_shares: np.ndarray, totals: np.ndarray | None = None) -> float:
     """
     Partisan bias: difference between UCP seat share and 0.5 when UCP vote share = 0.5.
     Uses uniform swing.
-    current_ucp_mean = mean(ucp_shares)
-    swing_needed = 0.5 - current_ucp_mean
+
+    Convention: by default, swing is computed from the UNWEIGHTED mean of district
+    shares (`mean(ucp_shares)`), matching the audit's pre-Amendment-10 implementation.
+    Pass `totals` (per-district two-party total vote) to use a TURNOUT-WEIGHTED
+    provincial share instead — this matches the ensemble's `seats_at_50_50` column
+    convention. T1.7 R1 Ref #6 flagged the mismatch; T4.9-PB-swing closes the gap
+    by making weighted-swing available as a parameter (2026-06-12).
     """
-    mean_share = np.nanmean(ucp_shares)
-    swing = 0.5 - mean_share
+    if totals is not None and np.sum(totals) > 0:
+        # Turnout-weighted provincial UCP share (matches ensemble seats_at_50_50)
+        provincial_share = float(np.nansum(ucp_shares * totals) / np.nansum(totals))
+    else:
+        provincial_share = float(np.nanmean(ucp_shares))
+    swing = 0.5 - provincial_share
     swung = ucp_shares + swing
     wins = (swung > 0.5 + 1e-9).sum()
     ties = (np.abs(swung - 0.5) <= 1e-9).sum()

@@ -404,6 +404,19 @@ def run() -> None:
         w_ucp = np.where(ndp_wins, ed_ucp, np.maximum(0.0, ed_ucp - threshold))
         return (w_ndp.sum() - w_ucp.sum()) / total_prov
 
+    # Exchangeability caveat (T1.7 R1 Ref #1 D3, 2026-06-12). The original
+    # bootstrap flips each swing-zone VA i.i.d. Bernoulli(0.5), which assumes
+    # the 2,110 swing-zone VAs are exchangeable. The audit's own Moran's I
+    # z = 12.15 on NDP-share contradicts independence — spatially adjacent
+    # swing-zone VAs cluster politically. Independent per-VA flips therefore
+    # *understate* the null variance, making the reported p anti-conservative
+    # (Lehmann & Romano 2005 ch.15; Legendre 1993, Ecology 74). A
+    # contiguity-respecting block-permutation null is queued as T1.10b: pick
+    # k-block clusters from a queen-contiguity graph over the swing zones,
+    # flip whole clusters as units. Implementation deferred to the next
+    # canonical re-run. Until then this script reports the i.i.d.-flip null
+    # with the (b+1)/(B+1) correction applied and explicit disclosure of the
+    # exchangeability assumption.
     rng = np.random.default_rng(seed)
     boot_scores = np.empty(N_BOOT)
     for i in range(N_BOOT):
@@ -417,11 +430,17 @@ def run() -> None:
     np.save(DATA / "szat_bootstrap_eg_samples.npy", boot_eg_raw)
     print(f"  Bootstrap EG samples saved: {len(boot_eg_raw)} draws")
 
-    p_value = float(np.mean(np.abs(boot_scores) >= abs(szat_score)))
+    # (b+1)/(B+1) finite-sample correction (T1.10 closed 2026-06-12 per T1.7 R1 Ref #1):
+    # the empirical-tail probability under the permutation null is the proportion
+    # of permutations at least as extreme as observed, *plus 1*, divided by N+1.
+    # Earlier draft used `np.mean(...)` which gives b/B and can produce p=0 for
+    # extreme observations; with (b+1)/(B+1) the minimum reported p is 1/(N+1).
+    b_extreme = int(np.sum(np.abs(boot_scores) >= abs(szat_score)))
+    p_value = float((b_extreme + 1) / (N_BOOT + 1))
     ci_lo = float(np.percentile(boot_scores, 2.5))
     ci_hi = float(np.percentile(boot_scores, 97.5))
 
-    print(f"  p-value (two-tailed):        {p_value:.4f}")
+    print(f"  p-value (two-tailed):        {p_value:.4f} (b+1)/(B+1) on {b_extreme}/{N_BOOT}")
     print(f"  Null 95% interval:           [{ci_lo:+.6f}, {ci_hi:+.6f}]")
     print(f"  Observed SZAT score:         {szat_score:+.6f}")
 

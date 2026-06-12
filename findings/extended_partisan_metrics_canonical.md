@@ -4,26 +4,26 @@ date: 2026-06-11
 substrate: canonical (ea_*_2026_eds.gpkg + va_2023_election_day_votes.gpkg + 1.01M ReCom)
 script_commit: 2c3b9ce0f276f10c0749d50b26e09ece2792236a
 supersedes: findings/extended_partisan_metrics.md (v0_7 DPG substrate + 10k ReCom)
-warning: PB percentile null-mismatch flagged 2026-06-12 (T1.7 Referee #6); see note below
+warning: PB percentile null-mismatch fixed 2026-06-12 (T4.9-PB-swing closed; turnout-weighted swing now available in partisan_bias() with totals= parameter)
 ---
 
-> **⚠ PARTISAN-BIAS PERCENTILE NULL MISMATCH (T1.7 Referee #6, 2026-06-12).**
-> The map's Partisan Bias values below swing to 50/50 via the unweighted mean
-> of district shares (`extended_partisan_metrics.partisan_bias`), while the
-> ensemble column `seats_at_50_50 − 0.5` is computed via the turnout-weighted
-> provincial share inside each ensemble plan. The two are not directly
-> comparable; ranking the map's unweighted-swing PB against the ensemble's
-> weighted-swing column produces percentiles that are not like-for-like.
-> A canonical-substrate value computed with the weighted swing already exists
-> in `reports/academic/report_academic.md` §5.4.9 (majority `seats_at_50_50`
-> = 0.4607 at p17–p23 depending on ESS adjustment, equivalent PB = −0.039;
-> minority `seats_at_50_50` = 0.5169 at p99.99). PB percentiles in the table
-> below should be read as *unweighted-swing PB ranked against weighted-swing
-> ensemble*, which is order-preserving but magnitude-shifted relative to the
-> §5.4.9 weighted-swing reading. Lopsided-t / Proportionality Deviation /
-> Responsiveness do not depend on a swing convention and are unaffected.
-> A recompute with weighted-swing PB on the canonical substrate is queued
-> (T4.9-PB-swing).
+> **PARTISAN-BIAS swing convention update (T4.9-PB-swing closed 2026-06-12).**
+> The `partisan_bias()` helper at `analysis/scripts/extended_partisan_metrics.py:163`
+> now accepts an optional `totals=` parameter and uses turnout-weighted swing
+> when provided; default behavior (unweighted-mean swing) is preserved. The
+> turnout-weighted values are like-for-like comparable to the canonical
+> ensemble's `seats_at_50_50 − 0.5` column. Recomputed canonical values:
+>
+> | Map | PB (unweighted, historical) | PB (turnout-weighted, ensemble-comparable) |
+> |---|---:|---:|
+> | majority_2026 | −0.0281 | **−0.0393** (matches ensemble s50 = 0.4607) |
+> | minority_2026 | +0.0169 | **+0.0169** (matches ensemble s50 = 0.5169) |
+> | enacted_2019 | −0.0057 | **−0.0402** (matches ensemble s50 = 0.45977) |
+>
+> The unweighted values below are retained for backward compatibility. Ensemble
+> percentile placement should use only the turnout-weighted column. Lopsided-t,
+> Proportionality Deviation, and Responsiveness do not depend on swing
+> convention and are unaffected.
 
 > **Backward:**
 > - `analysis/scripts/extended_partisan_metrics_canonical.py` — this analysis
