@@ -55,10 +55,10 @@ Covariance matrix Σ estimated from the 1,010,000-plan ensemble.
 |---|---|---|---|---|
 | efficiency_gap | +0.0402 | +0.0010 | +0.0392 | minority > majority (more UCP-favorable) |
 | mean_median | +0.0104 | -0.0362 | +0.0466 | minority > majority (more UCP-favorable) |
-| declination | -0.0770 | +0.0267 | -0.1037 | majority > minority |
+| declination | +0.0770 | -0.0267 | +0.1037 | minority > majority (more UCP-favorable) |
 | seats_at_50_50 | +0.5169 | +0.4607 | +0.0562 | minority > majority (more UCP-favorable) |
 
-3/4 metrics show minority more UCP-favorable.
+4/4 metrics show minority more UCP-favorable.
 
 ---
 

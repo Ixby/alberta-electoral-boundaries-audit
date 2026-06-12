@@ -50,7 +50,7 @@
     "p_one_tailed": 0.0,
     "significant_at_005": true,
     "n_pairs": 10000,
-    "metrics_minority_more_ucp_favorable": 3,
+    "metrics_minority_more_ucp_favorable": 4,
     "metric_deltas": {
       "efficiency_gap": {
         "minority": 0.040194,
@@ -65,10 +65,10 @@
         "minority_more_ucp_favorable": true
       },
       "declination": {
-        "minority": -0.077003,
-        "majority": 0.026675,
-        "delta": -0.103678,
-        "minority_more_ucp_favorable": false
+        "minority": 0.077003,
+        "majority": -0.026675,
+        "delta": 0.103678,
+        "minority_more_ucp_favorable": true
       },
       "seats_at_50_50": {
         "minority": 0.516854,
@@ -77,7 +77,7 @@
         "minority_more_ucp_favorable": true
       }
     },
-    "interpretation": "Observed inter-map Mahalanobis distance = 7.1683. Null 95th percentile = 4.4250. p = 0.0000. 3/4 metrics point minority more UCP-favorable."
+    "interpretation": "Observed inter-map Mahalanobis distance = 7.1683. Null 95th percentile = 4.4250. p = 0.0000. 4/4 metrics point minority more UCP-favorable."
   },
   "context_absolute_positions": {
     "minority_vs_ensemble": {
