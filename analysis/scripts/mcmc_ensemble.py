@@ -212,7 +212,12 @@ def seat_results(
         mean_ucp_in_ndp_won = float(np.mean(ndp_won))
         theta_R = math.atan2(mean_ucp_in_ucp_won - 0.5, R / (2 * n))
         theta_D = math.atan2(0.5 - mean_ucp_in_ndp_won, D / (2 * n))
-        declination = (2.0 / math.pi) * (theta_R - theta_D)
+        # Sign convention: Warrington 2018 defines δ = (2/π)(θ_D − θ_R),
+        # giving positive δ = R-favoured (= UCP-favoured here).
+        # Sign-flip correction landed 2026-06-12 per T1.7 referee #5 finding;
+        # historical chain CSVs use the old (θ_R − θ_D) sign and must be
+        # negated downstream when comparing real-map values to ensemble.
+        declination = (2.0 / math.pi) * (theta_D - theta_R)
 
     # --- Seats at 50/50 (uniform partisan swing) ---
     province_ucp = ucp.sum() / two_party_total.sum()

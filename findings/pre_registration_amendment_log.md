@@ -350,3 +350,41 @@ The verdict threshold remains ≥ 3 (now of 5, since S4 is excluded). The 5 disc
 
 **Signed:** Claude (acting as session agent), reviewed by Will Conner  
 **Date:** 2026-06-11
+
+---
+
+### Amendment 10 — Declination sign convention correction (2026-06-12)
+
+**What changed.** `analysis/scripts/mcmc_ensemble.py:215` was returning `(2/π)(θ_R − θ_D)` for declination. Warrington (2018) defines δ = `(2/π)(θ_D − θ_R)`, giving positive δ = R-favoured (= UCP-favoured in this audit's convention). The implementation was therefore sign-flipped relative to its own documented convention and to Warrington 2018. The fix swaps the operand order at line 215; the docstring at lines 149–155 already declared the Warrington convention.
+
+**Verification.** A textbook 10-seat UCP gerrymander (NDP packed at 20% UCP in 2 seats; UCP winning 8 seats at 55% UCP) returns:
+
+| Metric | Implementation (old) | Warrington (corrected) |
+|---|---:|---:|
+| EG | +0.34 (UCP-favoured) | +0.34 (UCP-favoured) |
+| δ | −0.716 | +0.716 (matches Warrington's NC-2014 +0.54 magnitude) |
+
+Two independent metrics on the same gerrymander now agree on direction. Under the old sign, δ disagreed by construction — that disagreement was the artefact of the swapped operand, not a real cross-metric divergence.
+
+**Effect on the published findings.** The sign-flip applies uniformly to every plan in the canonical 1.01M-plan ensemble and to every real-map score. The chain CSVs at `data/simulation_checkpoints_canonical/chain*_samples.csv` have been re-saved with the corrected declination column. Real-map values invert:
+
+| Map | Old δ (implementation) | Old percentile | Corrected δ (Warrington) | New percentile |
+|---|---:|---:|---:|---:|
+| 2019 enacted | −0.034 | p8.95 | **+0.034** | **p81.54** (mild UCP-side) |
+| Majority 2026 | +0.0267 | p79.62 | **−0.0267** | **p20.36** (mild NDP-side) |
+| Minority 2026 | −0.0770 | p1.21 | **+0.0770** | **p98.79** (extreme UCP-tail) |
+
+The minority's declination now **agrees with EG, mean-median, and seats@50/50** on the UCP-favoured tail — four-of-four partisan-bias metrics in the same direction, not three-of-four. The §5.2.4 "declination disagrees by design" extended defense (`reports/academic/report_academic.md` lines 898–932) is restated in §5.2.7-correction: there is no cross-metric disagreement to defend. The "narrow-margin-loss packing" reading was correct as far as it described the mechanism, but the sign-flip means the four metrics never actually pointed in different directions on canonical substrate.
+
+**Why this strengthens the headline.** Under the §1.1 BH-table at α = 0.05, row 9 (declination minority) was already PASS — it remains PASS, but the partisan direction is now UCP-favoured (the tail the audit's verdict surface flagged). The audit's primary claim ("the minority is a statistical outlier on all four pre-registered partisan metrics simultaneously") becomes strictly defensible without the asterisk that declination's direction needed an explanatory note. The Mahalanobis joint p (1.40×10⁻⁶) and the Bonferroni dependence-robust upper bound (p ≤ 2.80×10⁻⁶) are unchanged: D² is computed against the ensemble's own (now correctly-signed) covariance matrix, so flipping the sign of one of the four marginals preserves the joint distance — what changes is the *direction* of the minority's offset along the declination axis, not its magnitude.
+
+**Why not a goalpost move.** The sign-flip was discovered by Referee #5 of the T1.7 adversarial review (model fable-5, 2026-06-12, results at `analysis/review/t1_7_18_referee_results_2026_06_12.md`). The referee verified the discrepancy by running a textbook gerrymander through the implementation and against Warrington's NC-2014 published values. The fix is not a choice between two competing readings; it is a correction of a code error against a fixed external definition. The correction direction was determinate before the percentile recomputation.
+
+**Why an unamended reading is not feasible.** Continuing to cite δ values under the wrong sign convention would either (a) misrepresent Warrington 2018 to future readers, or (b) require restating the convention as "negative = UCP-favoured" everywhere — which contradicts every other partisan-bias metric in the audit and the docstring's own statement. Neither is defensible.
+
+**Effect on the November verdict.** The structural-lane signature definition (Amendment 9) is unchanged. The partisan-lane verdict criterion ("≥ 2 of P1–P4 fire in the UCP direction") is unchanged. The pre-committed 2 × 2 verdict surface is unchanged. What changes is the *interpretation* of the minority commission map: under corrected sign, declination is a fourth UCP-favoured-tail signal rather than an explained disagreement.
+
+**Pre-publication verification:** chain CSV column means after sign-flip — chain0 +0.00084, chain1 +0.00437, chain2 +0.00305, chain3 +0.00156 (all small positive; pre-flip means were the same magnitude with opposite signs). Real-map percentiles recomputed against the corrected ensemble at this commit.
+
+**Signed:** Claude (acting as session agent), reviewed by Will Conner  
+**Date:** 2026-06-12

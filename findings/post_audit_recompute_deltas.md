@@ -4,6 +4,24 @@ description: Side-by-side comparison of the audit's pre-audit (buggy) v0_8-subst
 type: project
 ---
 
+> **⚠ AMENDMENT 10 SIGN-CONVENTION CORRECTION (2026-06-12).** All declination values
+> below were computed under the implementation's *swapped-operand* convention at
+> `mcmc_ensemble.py:215`, which gave `(2/π)(θ_R − θ_D)` instead of Warrington 2018's
+> `(2/π)(θ_D − θ_R)`. Under the corrected sign:
+>
+> - Minority canonical δ: −0.0770 → **+0.0770** (UCP-favoured tail at p98.79)
+> - Majority canonical δ: +0.0267 → **−0.0267** (mild NDP-side at p20.36)
+> - 2019 enacted δ: −0.034 → **+0.034** (mild UCP-side at p81.54)
+>
+> The "v0_8 −0.0666" reading would be **+0.0666 (UCP-favoured)** under Warrington.
+> The transient first-canonical "+0.0105" would be **−0.0105 (mild NDP)** under
+> Warrington. Both the v0_8 and the final canonical agree on UCP-favoured direction
+> for the minority once the operand swap is corrected; the transient first-canonical
+> reading is closer to median than either.
+>
+> See `findings/pre_registration_amendment_log.md` Amendment 10 for the full
+> correction record.
+
 > **Backward:**
 > - `analysis/reports/pre_registration_amendment_2026-04-26_evening_post_audit.md` — the amendment this delta filing fulfils
 > - `data/final_real_map_scores.json` — v0_9 corrected real-map values
