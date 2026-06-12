@@ -158,13 +158,13 @@ The minority also invokes the statutory §15(2) exception to extend Rocky Mounta
 
 The commission chair flagged more than 3 minority configurations as problematic — specifically naming concerns with boundaries in Airdrie, Calgary, Chestermere, Cochrane, Red Deer, and St. Albert. He called the minority report "substantively unreasonable" and stated it was "likely to offend s. 3 of the Charter." He wrote these words in a public statutory document.
 
-This audit checked the public submission record to see whether citizens supported or opposed each of these flagged configurations. Of the 7 flagged cases:
+This audit checked the public submission record against each of the chair's 7 flagged configurations to test his blanket "no public support" claim. Of the 7:
 
-- **3** had clear public support in the submission record (citizens asked for them)
-- **3** had clear public opposition (citizens argued against them)
-- **1** had a neutral or split record
+- **3** had clear public support in the submission record (citizens asked for them — chair was wrong on these)
+- **3** had clear public opposition (citizens argued against them — chair was right on these)
+- **1** had a neutral or split record (chair's claim is partially wrong here)
 
-The chair's overall concern about the minority map is supported by the record. But the finding is not uniform: some of his flagged configurations had actual public backing, and some did not.
+**This finding cuts against the chair's sweeping statement, not against the minority.** The chair was right on 3 of 7, wrong on 3, and partially wrong on 1; the minority configurations were not uniformly unsupported by the public. The chair's substantive partisan-asymmetry concern about the minority map is separately supported by the Lane 1 and Lane 2 results, but the specific "no public support" rationale is not borne out by the submission record on a majority of his flagged configurations.
 
 ### Other oddities
 
