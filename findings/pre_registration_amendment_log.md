@@ -310,6 +310,26 @@ Historical v0.1–v0.8 code and data artefacts preserved in `historical/` subdir
 
 ---
 
+### Amendments 5, 6, 7 — Numbering reconciliation (added 2026-06-12)
+
+T1.7 Referee #18 (model fable-5) flagged that this log self-describes as the "complete dated chain" but jumps from Amendment 4 (2026-04-27) directly to Amendment 8 (2026-06-10), with Amendments 5, 6, and 7 missing repo-wide. The honest reconciliation:
+
+- **Amendment 5–7 were not omitted; they were never authored.** During the May 2026 canonical-substrate transition the audit chose to write substrate-supersession records as `findings/canonical_shapefile_log.md` entries, `findings/dpg_legacy_audit.md` bannered files, and inline §1.2 caveats rather than amendment-log entries — partly because those changes were substrate-driven (the documented sunset clause's expected behavior) rather than goalpost-moves in any pre-registered test definition. The numbering jumped 4 → 8 because the spec-edit cluster on 2026-06-10 (Amendment 8 onward) was the next event the audit's own discipline classified as a *pre-registration amendment* in the strict sense (changing a frozen scoring rule).
+
+- **The numbering gap is unsatisfactory anyway.** Skipping 5–7 without documentation undermines the log's "complete dated chain" claim. This entry fills the slots with a single dated cross-reference rather than retro-numbering substrate-supersessions, which would be its own kind of re-writing-after-the-fact. Future amendments will start from 11 (the post-Amendment-10 number).
+
+**Substrate-supersession events 2026-04-28 through 2026-06-09 that would have qualified for amendment numbers under a maximally-conservative reading:**
+- 2026-05-06: Official EA shapefiles released; v0_8/v0_9 DPG substrate retired across all numeric findings (would have been Amendment 5)
+- 2026-05-12: Canonical 1.01M-plan ensemble completed; superseded the 250k v0_7 DPG ensemble for all percentile-bearing findings (would have been Amendment 6)
+- 2026-05-23: Canonical Phase 4C attribution + canonical neighbour-drain coupled-count + multiple sigma1.2 caveats (would have been Amendment 7)
+
+The substantive records of these events exist at `findings/canonical_shapefile_log.md`, `findings/dpg_legacy_audit.md`, `findings/post_audit_recompute_deltas.md`, and the relevant §1.2 caveats; they were just never labelled as amendments. This entry retroactively names them but does not re-write them — the underlying substrate transitions are documented at their original locations.
+
+**Signed:** Claude (acting as session agent, T1.7 #18 follow-up), to be reviewed by Will Conner  
+**Date:** 2026-06-12
+
+---
+
 ### Amendment 8 — November 2026 scoring spec S2 metric clarification (2026-06-10)
 
 **What changed.** `preregistration/november_2026_scoring_spec.md` §3 structural-lane metric S2 was clarified from "municipalities split into 3+ EDs" to "municipalities split into 2+ EDs (canonical: 8)." The threshold ratio (1.5× majority's count) is unchanged; the effective threshold is now 12 (where it was ambiguous before).
@@ -348,8 +368,19 @@ The verdict threshold remains ≥ 3 (now of 5, since S4 is excluded). The 5 disc
 
 (Empirical majority run: confirmed 0/5 by `run_structural_battery.py` against canonical EA shapefiles, this commit. Minority is mathematically guaranteed to be 5/5 by the midpoint construction.)
 
+**Addendum 2026-06-12 (T1.7 Referee #18 follow-up): per-flag specificity rate against the canonical 1.01M-plan ensemble.** Referee #18 flagged that the midpoint thresholds in this Amendment were fitted to the same two maps they are then "validated" against (training set = test set), and that the false-positive rate of the "structural-lane signature replicated" verdict was undefined. The audit owns the 1.01M-plan canonical ensemble; the S1 (population MAD) flag can be scored against every plan directly because the column is in the ensemble CSV.
+
+**S1 (population MAD) specificity:**
+- S1 midpoint = 3382.50; flag fires iff plan MAD > midpoint.
+- Ensemble plans firing S1: **259,856 / 1,010,000 = 25.728 %**.
+- So under the midpoint rule, Pr(S1 flag | neutral plan) ≈ 25.7%, **far above** the ≤ 5% specificity floor a flag should clear to be discriminating. S1 alone is not a 95% specificity test.
+
+S2 (municipal splits), S3 (anchoring percent on CSD boundaries), and S5 (neighbour-drain) require per-plan ED-partition geometry which is not stored in the ensemble CSVs; computing them requires a side run of the ensemble that saves per-plan VA→ED assignments (T1.4-spec, queued). S4 was already excluded as non-discriminating.
+
+**Implication.** The "≥ 3 of 5 flags = replicated" verdict's true false-positive rate cannot be stated until S2/S3/S5 ensemble specificity rates are computed; the verdict surface is currently a *training-fitted threshold without specificity validation*. The S1 rate above (25.7%) suggests that the joint Pr(≥3/5 flags | neutral) could be material under naive independence (the flags are not independent, so the actual rate could be lower or higher). The Lunty test as currently specified is therefore **screening + report**, not "discovery + significance"; the November protocol should report the verdict alongside the per-flag specificity rates and the joint replication rate against the ensemble, not as a binary "replicated / not replicated" headline.
+
 **Signed:** Claude (acting as session agent), reviewed by Will Conner  
-**Date:** 2026-06-11
+**Date:** 2026-06-11; specificity addendum 2026-06-12
 
 ---
 

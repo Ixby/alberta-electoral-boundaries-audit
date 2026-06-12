@@ -17,7 +17,7 @@ The audit's published headline verdicts (`reports/academic/report_academic.md`, 
 **Single bright-line question.** Does the Lunty committee's final map exhibit the same structural-lane signature the audit detected on the minority commission proposal — population deviation, municipal split count, anchoring to administrative boundaries, compactness, neighbour-drain pattern, and the chair's anomaly flags — and the same partisan-bias profile against the audit's 1,010,000-plan canonical ReCom ensemble?
 
 **Two outcomes, both publishable.**
-1. The Lunty map matches the minority's tail-profile on three or more structural-lane checks AND lands at p95 or higher on at least one partisan-bias metric in the UCP direction → the audit reports a *replication of the minority-style signature*.
+1. The Lunty map matches the minority's tail-profile on three or more structural-lane checks AND lands at p95 or higher on **at least two of P1–P4 in the UCP direction** (the §3 partisan-bias verdict criterion, brought into §1 alignment per Amendment 11, 2026-06-12 — earlier drafts of this section said "at least one partisan-bias metric," which contradicted §3) → the audit reports a *replication of the minority-style signature*.
 2. The Lunty map matches the majority's neutral profile (within central band on every structural check, no partisan tail above p95) → the audit reports a *break from the minority-style signature* and updates the §6.2 verdict accordingly.
 
 **The audit will publish either outcome.** No private re-running, no waiting, no editorial re-framing. The 72-hour public commitment is binding.
@@ -95,7 +95,7 @@ If the substrate-iteration history of the May 2026 canonical run is any guide, t
 
 ## 6. drand pinning
 
-This document is committed at git hash `[committed]` to be pinned at the next drand round following publication of this document. The drand round and SHA-256 of this file at commit time are recorded in `preregistration/seed_commitments.md` under the entry `november_2026_scoring_spec`.
+This document was first committed at git hash `c12c7c8` (2026-06-10), rewritten under Amendment 9 at `00b0d6c` (2026-06-11), and pinned under Amendment 11 at `d562565` (2026-06-12) with file SHA-256 `34097af2b0b24b2803b344bfccb7c95dc77d1056e0cad50017f45d3519680c9d`. The audit's drand pinning discipline (`preregistration/seed_commitments.md`) was extended with a new entry `november_2026_scoring_spec` at the same commit. Per T1.7 Referee #4, the earlier salt round 5500000 dates to October 2025 and *predates* the salt commits — not a valid future-beacon anchor for the November test. A genuinely future drand round will be pinned for the November confirmatory pass before any Lunty draft circulates; the round and the SHA-256 above will be jointly cited in `seed_commitments.md` and in the OSF refresh queued as T5.3.
 
 Any amendment to this document after the Lunty committee publishes its map is **not permitted** except via a dated, signed entry in `findings/pre_registration_amendment_log.md` explaining (a) what was amended, (b) why the amendment does not move a goalpost in response to a seen result, and (c) why an unamended reading is not feasible.
 

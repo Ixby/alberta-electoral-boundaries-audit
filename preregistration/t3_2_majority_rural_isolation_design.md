@@ -1,11 +1,17 @@
 ---
-title: T3.2 — Majority rural-isolation counter-test (pre-commitment)
-version: 1.0
-date_committed: 2026-06-11
-drand_round_target: round at or after the commit hash recording this file
-status: PRE-COMMITTED — do not amend after execution except via dated, signed entry in `findings/pre_registration_amendment_log.md`
-salt_string: "t3_2_majority_rural_isolation_counter_test"
+title: T3.2 — Majority rural-isolation counter-test (intra-session exploratory)
+version: 1.1
+date_committed: 2026-06-11 (design); reclassified 2026-06-12 (T1.7 Referee #4)
+drand_round_target: not anchored — see §"Status reclassification" below
+status: INTRA-SESSION EXPLORATORY — original "PRE-COMMITTED" label retracted
+salt_string: "t3_2_majority_rural_isolation_counter_test" (declared; never used by the deterministic implementation)
 ---
+
+## Status reclassification (2026-06-12)
+
+T1.7 Referee #4 (model fable-5, 2026-06-12) verified that this document was committed at git hash `5fbd1ca` on 2026-06-11 17:12:56 UTC, and the result file landed at `3bfeefa` on 2026-06-11 17:14:21 UTC — a gap of **85 seconds**. The 347-line analysis script was co-committed with the design document, so the pre-registration could trivially encode known results. The declared `salt_string` is never consumed by the deterministic implementation. By the audit's own §5.3.1 standard, this satisfies "exploratory" not "pre-registered." The `status: PRE-COMMITTED` declaration in the v1.0 header is retracted; this document is reclassified as an intra-session exploratory test. The result (verdict H₀ supported, `findings/t3_2_majority_rural_isolation.md`) stands as exploratory evidence, not as a pre-registered confirmatory test.
+
+A *genuinely* pre-registered version of T3.2 — with a future drand round, classifier amendment, and motivating statistic computed against canonical substrate — is queued for the November pre-Lunty window if any rural-isolation hypothesis is to be advanced confirmatorily.
 
 # T3.2 — Majority rural-isolation counter-test (pre-commitment)
 
@@ -13,11 +19,11 @@ This file freezes — *before* execution — the design, metrics, and decision r
 
 ## 1. Motivating anomaly
 
-`findings/joint_outlier_score.json` records:
+`findings/joint_outlier_score.json` recorded under the (now superseded) DPG/blended substrate:
 
 > "majority drain_score = 0.000179 vs ensemble mean 0.032085, z = −2.915, p < 0.0001 (one-sided, low tail)"
 
-The majority's drain score is **more anomalous against the neutral ensemble than the minority's** (minority p = 0.1342, within the central band). The audit's published headline reads the minority's drain channel as "within null"; the majority's as "anomalously clean, not the partisan direction." The cleanliness has never been pressure-tested for an *engineered* explanation. T3.2 supplies that pressure test.
+Per T1.7 Referee #11 (2026-06-12), this motivating statistic is **substrate-stale**: the canonical-substrate Phase B re-run (`findings/drain_label_shuffle_null_canonical.md`, 2026-06-11) reports majority z = −3.173 against a label-shuffle null (not the 1.01M ensemble; this design doc's original phrasing "against the canonical 1.01M-plan ensemble" was mislabeled — corrected here). And the canonical re-run shows all three maps (2019 enacted z=−3.520, majority z=−3.173, minority z=−2.750) sit anomalously low against their own canonical null, with the 2019 enacted baseline the most anomalous. The "majority singularly anomalous" framing no longer survives. The audit's published headline reads the minority's drain channel as "within null"; the majority's as "anomalously clean, not the partisan direction." The cleanliness has never been pressure-tested for an *engineered* explanation. T3.2 supplies that pressure test.
 
 ## 2. Hypothesis pair (frozen before execution)
 
@@ -32,7 +38,7 @@ The majority's drain score is **more anomalous against the neutral ensemble than
 | Majority map | `data/shapefiles/canonical/ea_majority_2026_eds.gpkg` (89 EDs) |
 | Minority map | `data/shapefiles/canonical/ea_minority_2026_eds.gpkg` (89 EDs) |
 | 2019 enacted (control) | `data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp` (87 EDs) |
-| Rural/urban rule | ED is **rural-anchored** iff its name does not start with one of: `Calgary-`, `Edmonton-`, `Airdrie-`, `Lethbridge-`, `Red Deer-`, `Medicine Hat-`, `St. Albert-`, `Sherwood Park-`, `Fort McMurray-`, `Grande Prairie-`, `Spruce Grove-`. Applied identically to all three maps. |
+| Rural/urban rule | ED is **rural-anchored** iff its name does not start with one of: `Calgary-`, `Edmonton-`, `Airdrie`, `Lethbridge-`, `Red Deer-`, `Medicine Hat-`, `St. Albert-` / `St Albert-`, `Sherwood Park-`, `Fort McMurray-`, `Grande Prairie-`, `Spruce Grove-`. (Amended 2026-06-12 per T1.7 Referee #11: `Airdrie` matches both `Airdrie-East` (majority, hyphen) and `Airdrie East` (minority, space) — the original prefix `Airdrie-` was hyphen-sensitive and would classify `Airdrie East` as rural, producing a producer-naming artifact in the verdict.) Applied identically to all three maps. **Note:** a punctuation-robust classifier is still inferior to a CSD-overlap-based rule; a population-weighted urban-CSD overlap reclassification is queued for the November-window genuinely-pre-registered re-run. |
 | Adjacency | `geopandas` polygonal `intersects`-with-positive-shared-boundary; queen contiguity. Same rule across all three maps. |
 | CRS for area/perimeter | EPSG:3400 (Alberta 10-TM); 2019 file reprojected from EPSG:3401 to EPSG:3400 before measurement. |
 

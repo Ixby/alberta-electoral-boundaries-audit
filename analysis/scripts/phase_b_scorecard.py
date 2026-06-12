@@ -87,7 +87,11 @@ from drand_seed import get_canonical_seed  # noqa: E402
 # Canonical seed for all bootstrap resampling in this script.
 # Derived from drand round 5500000 (Cloudflare League of Entropy).
 # Verify: drand.cloudflare.com/public/5500000
-# Pre-registered: AsPredicted #289452 (Phase 2 Lunty Committee Map Forensic Analysis)
+# Pre-registered: AsPredicted #289,455 (Lunty 91-seat forensic scorecard; OSF qsgy8).
+# Earlier draft cited #289,452 — that was a SUPERSEDED 89-seat-comparison variant
+# (test became unrunnable when the commission produced two incompatible maps).
+# See analysis/methodology/reference/academic_literature_review.md:303-304 for the
+# supersession record. Corrected 2026-06-12 per T1.7 Referee #4.
 BOOTSTRAP_SEED: int = get_canonical_seed("lunty-bootstrap")
 
 VA_VOTES_PATH = (
