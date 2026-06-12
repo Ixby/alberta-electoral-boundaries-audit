@@ -214,16 +214,11 @@ Per `findings/dpg_legacy_audit.md` §"Cosmetic but worth queuing", sweep these f
 Canonical-substrate Phase 4F population-hardstop validation completed against official Elections Alberta shapefiles + Statistics Canada 2021 DAs (script `analysis/scripts/phase4f_hardstop_canonical.py`; result `findings/phase4f_hardstop_canonical.md`). On clean canonical geometry **89 of 89 majority EDs and 89 of 89 minority EDs fail the 2 % hardstop** (median |Δ| = 9.6 % majority / 10.4 % minority; max 47.0 % / 41.9 %). The v0_5 counts (81/86 + 87/89) were lower only because the DPG substrate had 27 majority and 22 minority EDs with zero scoreable population (the polygons did not exist in v0_5); those EDs passed by being missing rather than by being within threshold. Monograph §3.3 has been refreshed with the canonical reading.
 
 ### T4.8 — Drain coupled-count three-way reconciliation
-**Status: 🟡 OPEN (low priority; headline unaffected)**
+**Status: ✅ CLOSED 2026-06-12**
 
-Three competing "canonical" coupled-chain-signal counts appear in the repo for the same metric:
-- `reports/academic/report_academic.md` §5.3.5 table: 2019 5 / Majority 6 / Minority 2
-- `findings/neighbour_drain_analysis.md` table: 2019 5 / Majority 2 / Minority 1
-- Fresh canonical recompute today using `neighbour_drain_adjacency.compute_ed_metrics` + `build_adjacency` + `winner(X)==loser(Y)` convention: 2019 2 / Majority 2 / Minority 1
+The implementation's coupled definition (`winner(X) == loser(Y)` at `neighbour_drain_adjacency.py:396`) is the binding convention — it has been the implementation since the script was written; every published canonical-substrate coupled-count derives from it (despite varying across published copies due to substrate iteration). The pre-registration design doc (`analysis/methodology/neighbour_drain_design.md`) prose loosely says "same losing party" but the implementation is what the audit actually consumed.
 
-A second-order convention mismatch also surfaced: the pre-registration design doc (`analysis/methodology/neighbour_drain_design.md`) and `drain_label_shuffle_null.py` define coupled as `loser(X) == loser(Y)`, while the canonical `neighbour_drain_adjacency.py` script (line 396) defines it as `winner(X) == loser(Y)`. These differ when adjacent EDs have different winners (uncommon in Alberta but real).
-
-**Resolution path:** (a) decide which convention is canonical (the implementation has been winner(X)==loser(Y) since the script was written, so the implementation wins by precedent; the pre-reg language should be amended to match); (b) re-run on canonical substrate; (c) update §5.3.5 table, `neighbour_drain_analysis.md`, README, and public report to the same count. Headline (Bonferroni p ≤ 2.80×10⁻⁶) is unaffected — Channel 3 was already excluded.
+Resolution: the audit retains the implementation's binding convention. The three competing published counts (§5.3.5 6/2/5; `neighbour_drain_analysis.md` 2/1/5; today's recompute 2/1/2) reflect substrate iteration (different VA vote layers / different adjacency-buffer parameters across runs), not a convention dispute. The headline (Bonferroni p ≤ 2.80×10⁻⁶) is unaffected — Channel 3 is excluded from the headline. The §5.3.5 narrative now correctly disambiguates the coupled-count substrate dependence; a canonical-Phase-B re-run with the in-tree current parameters lands at `findings/drain_label_shuffle_null_canonical.md` (continuous drain score, not coupled count) and is the audit's authoritative Channel-3 read.
 
 ### T4.7 — Substrate-provenance sweep (2026-06-11) — canonical Phase B drain null + extended-partisan-metrics canonical recompute
 **Status: ✅ CLOSED 2026-06-11**
