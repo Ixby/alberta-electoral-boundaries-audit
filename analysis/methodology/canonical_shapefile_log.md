@@ -19,12 +19,22 @@ type: reference
 
 Official Elections Alberta shapefiles were received on **2026-05-06** in response to a formal research access request submitted by the author. The package contained:
 
-**CRS provenance correction (2026-06-12 per T1.7 Referee #10):** the original label "Alberta 3TM" was incorrect — EPSG:3400 is *Alberta 10-TM Resource* (NAD83, k₀=0.9992). "Alberta 3TM" refers to EPSG:3775–3777 (the three-zone Modified 3TM projection used for cadastral surveying). The 2019 reference shapefile is in EPSG:3401 (*Alberta 10-TM Forest*, k₀=0.9999) — same 10-TM projection family, different scale factor and false easting/northing. Compactness scripts (`compactness_metrics.py`, `polsby_popper.py`, `reock.py`) currently reproject inputs to 3401 while the pipeline default is 3400; both are 10-TM but the ~0.07–0.14% area/perimeter difference between the two means cross-script compactness comparisons need an explicit CRS reconciliation. A pipeline-wide single-CRS constant + per-sjoin CRS-equality assertion is queued as T4.10-CRS.
+**CRS provenance correction (re-verified 2026-06-12 per T1.7 R2 Ref #10 against pyproj/EPSG registry directly):**
+
+| EPSG | Name (per EPSG/pyproj) | k₀ | False easting | False northing |
+|---|---|---|---|---|
+| 3400 | NAD83 / Alberta 10-TM (**Forest**) | 0.9992 | 500,000 m | 0 m |
+| 3401 | NAD83 / Alberta 10-TM (**Resource**) | 0.9992 | 0 m | 0 m |
+| 3775–3778 | NAD83 / Alberta 3TM (four-zone, ref merid 111° / 114° / 117° / 120° W) | 0.9999 | varies | varies |
+
+Round-1 of this correction (2026-06-12 morning) labeled EPSG:3400 as "Resource" and EPSG:3401 as "Forest" — **the Forest/Resource labels were swapped**. Round-1 also claimed k₀=0.9999 belongs to 3401 — wrong; 3400 and 3401 both have **k₀=0.9992** identically (the 0.9999 belongs to the 3TM family, EPSG:3775–3778). Round-1's "~0.07–0.14% area/perimeter difference between 3400 and 3401" was therefore **fictitious**: because the two CRSs share scale factor and projection family, areas and perimeters computed in either coordinate system are identical to within float-precision noise. The real hazard is a **500 km easting shift if coordinates are ever mixed un-reprojected in an sjoin** (the false easting differs by exactly 500,000 m). Compactness scripts (`compactness_metrics.py`, `polsby_popper.py`, `reock.py`) that reproject to 3401 while the pipeline default is 3400 will get identical area/perimeter, just translated; the sjoin hazard remains the operative concern. A pipeline-wide single-CRS constant + per-sjoin CRS-equality assertion is queued as T4.10-CRS.
+
+Also corrected: `report_academic.md:121` still claims "Alberta 3TM, EPSG:3776" — neither label is in any current script; pipeline default is 3400 (10-TM Forest). To be fixed in the §4.x rewrite under T1.7 R2 sweep.
 
 | File | CRS | Districts | Notes |
 |---|---|---|---|
-| `ea_majority_2026_eds.gpkg` | EPSG:3400 (Alberta 10-TM Resource) | 89 | Commission majority map |
-| `ea_minority_2026_eds.gpkg` | EPSG:3400 (Alberta 10-TM Resource) | 89 | Commission minority map |
+| `ea_majority_2026_eds.gpkg` | EPSG:3400 (Alberta 10-TM Forest) | 89 | Commission majority map |
+| `ea_minority_2026_eds.gpkg` | EPSG:3400 (Alberta 10-TM Forest) | 89 | Commission minority map |
 | `va_2023_election_day_votes.gpkg` | EPSG:3400 | 4,765 VAs | 2023 VA polygons with election-day vote columns |
 
 Files are stored at `data/shapefiles/canonical/`. They are tracked via Git LFS. SHA-256 hashes are recorded in `data/provenance_manifest.json` (relative path keys `outputs/…`; shapefiles not yet hashed in the manifest — add when needed).

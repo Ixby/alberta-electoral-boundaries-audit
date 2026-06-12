@@ -401,7 +401,7 @@ Two independent metrics on the same gerrymander now agree on direction. Under th
 
 | Map | Old δ (implementation) | Old percentile | Corrected δ (Warrington) | New percentile |
 |---|---:|---:|---:|---:|
-| 2019 enacted | −0.034 | p8.95 | **+0.034** | **p81.54** (mild UCP-side) |
+| 2019 enacted | −0.0451 | p8.95 | **+0.0451** | **p91.05** (mild UCP-side) — corrected 2026-06-12 per T1.7 R2 Ref #2; round-1 of this entry spliced the canonical real-map JSON value (−0.0451) with the percentile of a different value (−0.034 sits at old-p18.46 / new-p81.54); the canonical real-map JSON store carries −0.04509, which under Warrington flips to +0.0451 at p91.05. Minority/majority rows below verified exact. |
 | Majority 2026 | +0.0267 | p79.62 | **−0.0267** | **p20.36** (mild NDP-side) |
 | Minority 2026 | −0.0770 | p1.21 | **+0.0770** | **p98.79** (extreme UCP-tail) |
 
