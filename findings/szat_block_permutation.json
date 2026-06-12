@@ -1,0 +1,23 @@
+{
+  "test": "SZAT bootstrap under contiguity-respecting block permutation",
+  "n_swing_va": 2110,
+  "n_blocks": 8,
+  "block_size_median": 2,
+  "block_size_max": 2086,
+  "block_size_p95": 1359,
+  "n_boot": 10000,
+  "seed": 2552140777,
+  "salt": "szat-block-permutation",
+  "szat_score": 0.03921149307863542,
+  "p_value_block_permutation": 0.19468053194680532,
+  "p_value_iid_flip": 0.0034996500349965005,
+  "null_mean_block": 0.020039418738094485,
+  "null_std_block": 0.019421113609355993,
+  "null_std_iid": 0.008069583116866114,
+  "variance_inflation_block_over_iid": 5.792233474873432,
+  "ci_95_block": [
+    0.0,
+    0.039211493078635445
+  ],
+  "wall_clock_seconds": 2.1045150756835938
+}
