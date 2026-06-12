@@ -49,6 +49,19 @@ Area-weighted aggregation of Statistics Canada 2021 dissemination-area (DA) popu
 | Edmonton-South | 60,775 | 41,167 | -32.26 % |
 | Calgary-Buffalo | 66,801 | 45,376 | -32.07 % |
 
+## Share-based recomputation (T4.9-share closed 2026-06-12)
+
+The 2 % hardstop applied to raw census-count-vs-postcensal-estimate deltas conflates net-undercoverage rebasing (~4 pp province-wide) with actual per-ED population drift. The substrate-honest version is a per-ED **share-of-provincial-total** comparison:
+
+| Map | n EDs | warn (>0.5 % share drift) | hardstop (>2 % share drift) | median \|Δshare\| | max \|Δshare\| |
+|---|---:|---:|---:|---:|---:|
+| Majority 2026 | 89 | 84 | **78** | 5.78 % | 39.24 % |
+| Minority 2026 | 89 | 87 | **72** | 5.79 % | 33.39 % |
+
+Top 5 share-drifts on each map are fast-growth Calgary/Edmonton suburbs (Calgary-North East, Edmonton-Windermere, Calgary-Shaw, Calgary-South East, Edmonton-South for majority; Calgary-Buffalo replaces Calgary-Shaw for minority). All extreme drifts are *negative* — DA-derived 2021 share is *lower* than commission-published 2026 share, consistent with these districts absorbing post-2021 subdivisions invisible to the 2021 DA aggregation.
+
+The share-based test still flags most of the province but at a lower rate than the universe-mismatch 89/89, and the failures concentrate in identifiable greenfield-suburb classes rather than spreading uniformly. The v0_5 81/86 and 87/89 counts, the universe-mismatch 89/89, and the share-based 78/72 form a coherent decreasing sequence as substrate quality improves.
+
 ## Interpretation (revised 2026-06-12 per T1.7 Referee #13)
 
 **The 2% hardstop is the wrong test against this universe mismatch.** Every delta in the table compares a 2021 *census-count* universe (Statistics Canada DA populations summing to 4,262,567 province-wide) against a 2026 *commission-projected-estimate* universe (commission-published per-ED populations summing to roughly the Q2-2024 postcensal estimate of 4,888,723). The two universes differ by ~4 pp on net-undercoverage rebasing alone (Alberta has the highest provincial net undercoverage), *before* any 2021-to-2024 growth. The published "89 of 89 majority / 89 of 89 minority fail the 2 % threshold" reading therefore conflates three signals that should be separated: (a) net-undercoverage adjustment, (b) actual 2021-to-2024 growth, and (c) commission's cycle-lag projection method. The "pure cycle-lag growth heterogeneity" framing in the earlier version of this section overclaimed.
