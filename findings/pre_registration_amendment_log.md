@@ -419,3 +419,42 @@ The minority's declination now **agrees with EG, mean-median, and seats@50/50** 
 
 **Signed:** Claude (acting as session agent), reviewed by Will Conner  
 **Date:** 2026-06-12
+
+---
+
+### Amendment 11 — Spec §1 ↔ §3 alignment (2026-06-12)
+
+**What changed.** `preregistration/november_2026_scoring_spec.md` §1 outcome 1 said the structural-lane replication outcome requires "at least one partisan-bias metric in the UCP direction." §3 of the same document says the partisan-lane verdict criterion is "≥ 2 of P1–P4 in the UCP direction." T1.7 R1 Ref #18 flagged the contradiction; T1.7 R2 verified the fix landed at commit d9c3520. §1 outcome 1 was rewritten to align with §3 ("at least two of P1–P4 in the UCP direction").
+
+**Why not a goalpost move.** The §3 verdict criterion was the binding one (it appears in the verdict-rule table and in the script that scores the test); §1's "at least one" was a documentation error in the prose summary, not a separately committed threshold. Aligning §1 to §3 removes a contradiction; it does not change the test's actual binding rule.
+
+**Why an unamended reading is not feasible.** The Lunty test cannot be operationalized with two contradictory partisan criteria in the same spec; one had to bind. §3's rule is the one the script consumes, and §3's rule was the earlier-committed one (it predates the §1 prose).
+
+**Effect on the November verdict.** None. The script consumes §3; §1 prose is now consistent.
+
+**Spec hash:** the spec's SHA-256 after this amendment was *not* recorded inside §6 of the spec (self-invalidating); it is recorded externally in `preregistration/seed_commitments.md` per Amendment 12.
+
+**Signed:** Claude (acting as session agent), reviewed by Will Conner  
+**Date:** 2026-06-12
+
+---
+
+### Amendment 12 — §6 pinning correction; phantom-Amendment-11 entry retired (2026-06-12)
+
+**What changed.** The §6 "drand pinning" paragraph at commit d9c3520 contained four self-inflicted errors flagged by T1.7 R2 (Refs #4 and #18):
+
+1. The SHA-256 fingerprint `34097af2…` was recorded *inside the file being hashed*, then the same file was edited again later in the session (the §1 fix at Amendment 11). The recorded hash matched a stale tree; the current file hashed differently. A self-referential hash can never verify.
+2. §6 claimed a `seed_commitments.md` entry "extended at the same commit" — no such entry was ever written (the file was untouched since 2026-05-08).
+3. §6 cited the spec's commit chain as `c12c7c8 → 00b0d6c → d562565`. `git log --follow` shows the actual chain is `2cd4b21 → 4781c70 → c12c7c8 → d9c3520`. Commit `00b0d6c` did not touch the spec (it touched only the structural-battery script and TODO); commit `d562565` did not touch the spec either (it touched the report and findings).
+4. §6 cited "Amendment 11" as authority for the §1 fix, but no Amendment 11 log entry existed.
+
+**Why not a goalpost move.** Each item is a factual correction of a documentation error, not a substantive change to any pre-registered test definition. The spec's actual binding rules (§3 partisan criterion, §3 structural-lane midpoint thresholds, the §3 ≥3/5 verdict cutoff) are unchanged.
+
+**Why an unamended reading is not feasible.** A self-invalidating hash pin, a fabricated commit chain, and a phantom amendment number are not credible chain-of-custody. The fix is to retire the self-invalidating hash, restate the true commit chain, author the missing Amendment 11 entry, and record the spec's hash *externally* (in `seed_commitments.md`).
+
+**Effect on the November verdict.** None. The verdict rules are unchanged.
+
+**Pre-publication verification:** the spec's SHA-256 at this commit is recorded in `preregistration/seed_commitments.md` under entry `november_2026_scoring_spec`. Verify externally: `sha256sum preregistration/november_2026_scoring_spec.md` against the value in `seed_commitments.md`.
+
+**Signed:** Claude (acting as session agent), reviewed by Will Conner  
+**Date:** 2026-06-12

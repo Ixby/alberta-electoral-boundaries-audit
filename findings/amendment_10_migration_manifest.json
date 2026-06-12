@@ -1,0 +1,227 @@
+{
+  "amendment": 10,
+  "title": "Declination sign-convention correction (Warrington 2018)",
+  "source": "git blobs at fc5aae1 (= c9a9fbd^)",
+  "script": "/home/user/alberta-electoral-boundaries-audit/analysis/scripts/amendment_10_declination_migration.py",
+  "dry_run": false,
+  "force": false,
+  "entries": [
+    {
+      "path": "/home/user/alberta-electoral-boundaries-audit/data/simulation_checkpoints_canonical/chain0_samples.csv",
+      "pre_sha256": "ba36f1e331b9acd5fab47940ed95ce982abe368da9e6780ac285454efb90618d",
+      "post_sha256": "6ecd63cc222a8fa93a9b2ccf0971b512917a468f1d3e64d9ef7c972d6ebbe72d",
+      "pre_declination_mean": -0.0008381354331616323,
+      "post_declination_mean": 0.0008381354331616331,
+      "all_pre_means": {
+        "efficiency_gap": 0.015758001880757905,
+        "mean_median": -0.01814130760235266,
+        "declination": -0.0008381354331616323,
+        "seats_at_50_50": 0.4550247410947991,
+        "ucp_seats": 55.42679207920792,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062996,
+        "step": 2487.1237623762377,
+        "population_mad": 3165.8544872553844,
+        "reock_proxy_median": 0.4542319093896889,
+        "reock_proxy_pct_below_030": 0.07347076362808691,
+        "chain": 0.0,
+        "chunk": 24.376237623762375
+      },
+      "all_post_means": {
+        "efficiency_gap": 0.015758001880757877,
+        "mean_median": -0.018141307602352625,
+        "declination": 0.0008381354331616331,
+        "seats_at_50_50": 0.45502474109479907,
+        "ucp_seats": 55.42679207920792,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062996,
+        "step": 2487.1237623762377,
+        "population_mad": 3165.8544872553844,
+        "reock_proxy_median": 0.4542319093896888,
+        "reock_proxy_pct_below_030": 0.07347076362808685,
+        "chain": 0.0,
+        "chunk": 24.376237623762375
+      },
+      "edited_columns": [
+        "declination"
+      ]
+    },
+    {
+      "path": "/home/user/alberta-electoral-boundaries-audit/data/simulation_checkpoints_canonical/chain1_samples.csv",
+      "pre_sha256": "7aa9aa9c44497ddacdfd0dd566f80cf1e6d695407f1cbb6b35f71353ccf02ea9",
+      "post_sha256": "08bb02942a3b2fa766c195d13823066888e5f92c4491728a4cc8bca95dfa209b",
+      "pre_declination_mean": -0.004371172331269109,
+      "post_declination_mean": 0.004371172331269106,
+      "all_pre_means": {
+        "efficiency_gap": 0.017700309422939688,
+        "mean_median": -0.018434634866080307,
+        "declination": -0.004371172331269109,
+        "seats_at_50_50": 0.4516388300899055,
+        "ucp_seats": 55.52426138613861,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062995,
+        "step": 2487.1237623762377,
+        "population_mad": 3161.205166427416,
+        "reock_proxy_median": 0.4549056752484836,
+        "reock_proxy_pct_below_030": 0.07243664504381468,
+        "chain": 1.0,
+        "chunk": 24.376237623762375
+      },
+      "all_post_means": {
+        "efficiency_gap": 0.01770030942293966,
+        "mean_median": -0.018434634866080275,
+        "declination": 0.004371172331269106,
+        "seats_at_50_50": 0.45163883008990546,
+        "ucp_seats": 55.52426138613861,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062994,
+        "step": 2487.1237623762377,
+        "population_mad": 3161.205166427416,
+        "reock_proxy_median": 0.4549056752484835,
+        "reock_proxy_pct_below_030": 0.07243664504381463,
+        "chain": 1.0,
+        "chunk": 24.376237623762375
+      },
+      "edited_columns": [
+        "declination"
+      ]
+    },
+    {
+      "path": "/home/user/alberta-electoral-boundaries-audit/data/simulation_checkpoints_canonical/chain2_samples.csv",
+      "pre_sha256": "94afecd7af1a45160b5d6334a2ea96aa3e733915551d4778227befdefbb6953f",
+      "post_sha256": "d4b30a95eba089232c083737c8fb3c59be17e29d0eb2f5616852a0b86b97c595",
+      "pre_declination_mean": -0.0030514811287594553,
+      "post_declination_mean": 0.0030514811287594545,
+      "all_pre_means": {
+        "efficiency_gap": 0.0161557651322174,
+        "mean_median": -0.019082212681923203,
+        "declination": -0.0030514811287594553,
+        "seats_at_50_50": 0.4536772960054626,
+        "ucp_seats": 55.54381782178218,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062995,
+        "step": 2487.1237623762377,
+        "population_mad": 3160.112143242634,
+        "reock_proxy_median": 0.4542254900976475,
+        "reock_proxy_pct_below_030": 0.07376478889268231,
+        "chain": 2.0,
+        "chunk": 24.376237623762375
+      },
+      "all_post_means": {
+        "efficiency_gap": 0.01615576513221738,
+        "mean_median": -0.019082212681923172,
+        "declination": 0.0030514811287594545,
+        "seats_at_50_50": 0.4536772960054626,
+        "ucp_seats": 55.54381782178218,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062994,
+        "step": 2487.1237623762377,
+        "population_mad": 3160.112143242634,
+        "reock_proxy_median": 0.4542254900976475,
+        "reock_proxy_pct_below_030": 0.07376478889268229,
+        "chain": 2.0,
+        "chunk": 24.376237623762375
+      },
+      "edited_columns": [
+        "declination"
+      ]
+    },
+    {
+      "path": "/home/user/alberta-electoral-boundaries-audit/data/simulation_checkpoints_canonical/chain3_samples.csv",
+      "pre_sha256": "7747eb893acc87e700a189b4303ac4fe06e8eab90f223b6f40249977ee7854d3",
+      "post_sha256": "cbab3cbc13c7446f4978f7475750b0a4d5eb3a711d425a0ce7823d81092d3f54",
+      "pre_declination_mean": -0.0015645980374248962,
+      "post_declination_mean": 0.0015645980374248962,
+      "all_pre_means": {
+        "efficiency_gap": 0.015842965257892912,
+        "mean_median": -0.018769105071353903,
+        "declination": -0.0015645980374248962,
+        "seats_at_50_50": 0.45273067030841013,
+        "ucp_seats": 55.47501386138614,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062996,
+        "step": 2487.1237623762377,
+        "population_mad": 3165.8705118629728,
+        "reock_proxy_median": 0.45494925002153663,
+        "reock_proxy_pct_below_030": 0.07219396836235342,
+        "chain": 3.0,
+        "chunk": 24.376237623762375
+      },
+      "all_post_means": {
+        "efficiency_gap": 0.015842965257892888,
+        "mean_median": -0.01876910507135387,
+        "declination": 0.0015645980374248962,
+        "seats_at_50_50": 0.45273067030841013,
+        "ucp_seats": 55.47501386138614,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062996,
+        "step": 2487.1237623762377,
+        "population_mad": 3165.8705118629728,
+        "reock_proxy_median": 0.4549492500215366,
+        "reock_proxy_pct_below_030": 0.07219396836235338,
+        "chain": 3.0,
+        "chunk": 24.376237623762375
+      },
+      "edited_columns": [
+        "declination"
+      ]
+    },
+    {
+      "path": "/home/user/alberta-electoral-boundaries-audit/data/outputs/simulated_ensemble_raw_samples_canonical.csv",
+      "pre_sha256": "eef920b85e0238adb74eb6017abca6f0c2a7b67313733d5c263b5f4973746980",
+      "post_sha256": "b3bfe78d55ecd2a63da4f305feb021b09f4b25d3ec806be64170331b49987bcc",
+      "pre_declination_mean": -0.0024563467326537735,
+      "post_declination_mean": 0.002456346732653773,
+      "all_pre_means": {
+        "efficiency_gap": 0.016364260423451973,
+        "mean_median": -0.01860681505542752,
+        "declination": -0.0024563467326537735,
+        "seats_at_50_50": 0.4532678843746444,
+        "ucp_seats": 55.492471287128716,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062996,
+        "step": 2487.1237623762377,
+        "population_mad": 3163.260577197102,
+        "reock_proxy_median": 0.4545780811893392,
+        "reock_proxy_pct_below_030": 0.07296654148173433,
+        "chain": 1.5,
+        "chunk": 24.376237623762375
+      },
+      "all_post_means": {
+        "efficiency_gap": 0.01636426042345195,
+        "mean_median": -0.018606815055427484,
+        "declination": 0.002456346732653773,
+        "seats_at_50_50": 0.4532678843746444,
+        "ucp_seats": 55.492471287128716,
+        "n_districts": 87.0,
+        "ucp_vote_share": 0.5740427639062994,
+        "step": 2487.1237623762377,
+        "population_mad": 3163.260577197102,
+        "reock_proxy_median": 0.45457808118933907,
+        "reock_proxy_pct_below_030": 0.07296654148173427,
+        "chain": 1.5,
+        "chunk": 24.376237623762375
+      },
+      "edited_columns": [
+        "declination"
+      ]
+    },
+    {
+      "path": "/home/user/alberta-electoral-boundaries-audit/data/outputs/simulation_real_map_scores_canonical.json",
+      "pre_sha256": "55c8dee333df82a3e9d1b892647362f9033a69dd7f0105c5741564172c58f183",
+      "post_sha256": "b981e642b9392ed1ecf88586bfec5c4e8306e4d70abfb2fd6344fed438772fde",
+      "edits": [
+        {
+          "key": "majority_2026.declination",
+          "pre": 0.026675251362353544,
+          "post": -0.026675251362353544
+        },
+        {
+          "key": "minority_2026.declination",
+          "pre": -0.07700256493469557,
+          "post": 0.07700256493469557
+        }
+      ]
+    }
+  ]
+}

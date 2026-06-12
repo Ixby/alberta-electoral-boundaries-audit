@@ -214,9 +214,14 @@ def seat_results(
         theta_D = math.atan2(0.5 - mean_ucp_in_ndp_won, D / (2 * n))
         # Sign convention: Warrington 2018 defines δ = (2/π)(θ_D − θ_R),
         # giving positive δ = R-favoured (= UCP-favoured here).
-        # Sign-flip correction landed 2026-06-12 per T1.7 referee #5 finding;
-        # historical chain CSVs use the old (θ_R − θ_D) sign and must be
-        # negated downstream when comparing real-map values to ensemble.
+        # Sign-flip correction landed 2026-06-12 per T1.7 referee #5 finding
+        # (Amendment 10 in findings/pre_registration_amendment_log.md).
+        # The canonical chain CSVs at data/simulation_checkpoints_canonical/
+        # were migrated in place at commit c9a9fbd (and re-migrated at full
+        # %.17g precision via analysis/scripts/amendment_10_declination_migration.py
+        # at HEAD); their declination column is ALREADY in Warrington convention.
+        # Do NOT negate downstream — that would double-flip back to the old sign.
+        # Pre-flip blobs are recoverable as `git show fc5aae1:<csv>` if needed.
         declination = (2.0 / math.pi) * (theta_D - theta_R)
 
     # --- Seats at 50/50 (uniform partisan swing) ---

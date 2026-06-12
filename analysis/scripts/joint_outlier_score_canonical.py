@@ -6,7 +6,7 @@ joint_outlier_score_canonical.py -- Joint Outlier Score (Duck Score), canonical 
 Lane 1 (Statistical), Fisher combination: Mahalanobis D² (Channel 1) + SZAT (Channel 2) -> headline p-value
 Reads Channel 2 p-value from: findings/szat_summary.json
 
-Same methodology as joint_outlier_score.py but uses the canonical 100k ensemble
+Same methodology as joint_outlier_score.py but uses the canonical 1.01M ensemble
 (simulated_ensemble_raw_samples_canonical.csv) and canonical real-map scores
 (simulation_real_map_scores_canonical.json).
 
@@ -89,7 +89,7 @@ MAP_KEYS = {
 # Per simulation_convergence_diagnostics_canonical.json the actual minimum across
 # the 4 partisan metrics is 1428 (mean_median; pooled 1,010k sample run).
 # This fallback is only used when the file is missing or unreadable.
-_N_EFF_FALLBACK = 224
+_N_EFF_FALLBACK = 1428  # conservative minimum across the 4 partisan metrics from the 1,010,000-plan canonical run
 
 
 def _load_n_eff_conservative() -> int:
@@ -171,7 +171,7 @@ def fisher_combine(p_values: list[float]) -> tuple[float, float]:
 def run() -> None:
     t0 = time.time()
     verify_canonical_files()
-    print("Loading canonical 100k ensemble...")
+    print("Loading canonical 1.01M ensemble...")
     ensemble = pd.read_csv(ENSEMBLE_CSV)
     print(f"  Rows: {len(ensemble):,}  Cols: {ensemble.columns.tolist()}")
 
@@ -332,7 +332,7 @@ def run() -> None:
 
     summary = {
         "methodology": "Joint outlier score (joint neutral-draw tail probability), canonical ensemble",
-        "ensemble_source": "simulated_ensemble_raw_samples_canonical.csv (100k plans, 2 chains x 50k)",
+        "ensemble_source": "simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans, 4 chains x 252,500)",
         "interpretation": (
             "P(feature vector | neutral draw). NOT a posterior probability of "
             "gerrymandering — no prior is specified. Low values mean the neutral "
@@ -367,7 +367,8 @@ def run() -> None:
         },
         "structural_pending": structural_notes,
         "caveats": [
-            "Ensemble is 100k plans (canonical shapefiles, 2 chains x 50k); n_eff ~224-326 per metric.",
+            "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1,428-1,682 per metric.",
+            "Declination column re-signed 2026-06-12 per Amendment 10 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
             "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
             "Fisher combination assumes Channel 1 and Channel 2 are independent — approximately true.",
             "Mahalanobis assumes multivariate Gaussian ensemble distribution — informally verified.",
@@ -402,7 +403,7 @@ def run() -> None:
     md = f"""# Joint Outlier Score — Alberta 2026 EBC Maps
 
 **Date:** 2026-05-07
-**Ensemble:** canonical 100k plans (official Elections Alberta shapefiles, 2 chains × 50k)
+**Ensemble:** canonical 1,010,000 plans (official Elections Alberta shapefiles, 4 chains × 252,500, base_seed=1432864451)
 **Question:** How probable is it that a neutral redistricting process produces a map
 whose feature vector looks like the minority 2026 map?
 

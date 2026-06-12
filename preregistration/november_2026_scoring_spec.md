@@ -1,7 +1,7 @@
 ---
 title: November 2026 held-out test — pre-registered scoring specification
-version: 1.0
-date_committed: 2026-06-10
+version: 1.2 (Amendments 8 + 9 + 11 + 12; bumped 2026-06-12 per T1.7 R2 Ref #18)
+date_committed: 2026-06-10; amended 2026-06-12
 drand_round_target: round at or after first publication of the Lunty committee's final map
 status: PRE-COMMITTED — do not amend after the Lunty committee's map is published except via dated, signed amendment log entries
 ---
@@ -95,7 +95,19 @@ If the substrate-iteration history of the May 2026 canonical run is any guide, t
 
 ## 6. drand pinning
 
-This document was first committed at git hash `c12c7c8` (2026-06-10), rewritten under Amendment 9 at `00b0d6c` (2026-06-11), and pinned under Amendment 11 at `d562565` (2026-06-12) with file SHA-256 `34097af2b0b24b2803b344bfccb7c95dc77d1056e0cad50017f45d3519680c9d`. The audit's drand pinning discipline (`preregistration/seed_commitments.md`) was extended with a new entry `november_2026_scoring_spec` at the same commit. Per T1.7 Referee #4, the earlier salt round 5500000 dates to October 2025 and *predates* the salt commits — not a valid future-beacon anchor for the November test. A genuinely future drand round will be pinned for the November confirmatory pass before any Lunty draft circulates; the round and the SHA-256 above will be jointly cited in `seed_commitments.md` and in the OSF refresh queued as T5.3.
+**Commit chain (verified by `git log --follow` 2026-06-12 per T1.7 R2 Refs #4 and #18):**
+
+| Commit | Date | Event |
+|---|---|---|
+| `2cd4b21` | 2026-06-09 | Spec frozen, first committed |
+| `4781c70` | 2026-06-10 | S2 metric clarification (Amendment 8) |
+| `c12c7c8` | 2026-06-10 | Amendment 9 — midpoint-anchored structural thresholds |
+| `d9c3520` | 2026-06-12 | Amendment 11 — §1 partisan criterion aligned to §3; §6 pinning re-stated; T3.2 reclassified |
+| `<next>` | 2026-06-12 | Amendment 12 — §6 corrections (self-invalidating hash retired; commit chain restated; phantom Amendment-11 log entry authored) |
+
+**File SHA-256 is NOT recorded inside this file.** Earlier drafts of §6 attempted to pin the file's SHA-256 inside the file being hashed, which is self-invalidating (any edit changes the hash). The current SHA-256 of this spec is recorded *externally* in `preregistration/seed_commitments.md` under the entry `november_2026_scoring_spec`, alongside a future drand-round anchor for the November confirmatory pass. Any reader can verify: `sha256sum preregistration/november_2026_scoring_spec.md` should match the value in `seed_commitments.md`. If it does not, this spec has been edited after pinning — either an unannounced amendment (look for a follow-on entry in the amendment log) or tampering.
+
+Per T1.7 Referee #4, the earlier salt round 5500000 dates to October 2025 and *predates* the salt commits — not a valid future-beacon anchor for the November test. A genuinely future drand round is pinned for the November confirmatory pass in `seed_commitments.md` before the Lunty draft circulates. The OSF refresh is queued as T5.3.
 
 Any amendment to this document after the Lunty committee publishes its map is **not permitted** except via a dated, signed entry in `findings/pre_registration_amendment_log.md` explaining (a) what was amended, (b) why the amendment does not move a goalpost in response to a seen result, and (c) why an unamended reading is not feasible.
 

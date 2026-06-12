@@ -1,113 +1,137 @@
 {
   "methodology": "Joint outlier score (joint neutral-draw tail probability), canonical ensemble",
-  "ensemble_source": "simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans, 4 chains x 252,500, seed 1432864451)",
-  "interpretation": "P(feature vector | neutral draw). NOT a posterior probability of gerrymandering — no prior is specified. Low values mean the neutral null is implausible as an explanation for the observed feature vector.",
+  "ensemble_source": "simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans, 4 chains x 252,500)",
+  "interpretation": "P(feature vector | neutral draw). NOT a posterior probability of gerrymandering \u2014 no prior is specified. Low values mean the neutral null is implausible as an explanation for the observed feature vector.",
   "channels_active": 2,
   "channels_executed_non_significant": 1,
   "channels_pending": 3,
   "maps": {
     "minority": {
       "mahalanobis_distance": 5.7157,
-      "joint_partisan_p": 1.396e-06,
+      "joint_partisan_p": 1.4e-06,
+      "joint_partisan_p_neff_adjusted": 1.73e-06,
+      "neff_adjustment": {
+        "n_eff_used": 1428,
+        "f_stat": 8.1387,
+        "df1": 4,
+        "df2": 1424,
+        "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
+      },
       "df": 4,
       "marginals": {
         "efficiency_gap": {
           "observed": 0.040194,
-          "ensemble_mean": 0.016024,
-          "ensemble_p5": -0.007381,
-          "ensemble_p95": 0.038957,
-          "marginal_tail_p": 0.04132
+          "ensemble_mean": 0.016364,
+          "ensemble_p5": -0.008902,
+          "ensemble_p95": 0.041004,
+          "marginal_tail_p": 0.056068
         },
         "mean_median": {
           "observed": 0.010402,
-          "ensemble_mean": -0.01965,
-          "ensemble_p5": -0.03242,
-          "ensemble_p95": -0.007558,
-          "marginal_tail_p": 8e-05
+          "ensemble_mean": -0.018607,
+          "ensemble_p5": -0.031099,
+          "ensemble_p95": -0.005421,
+          "marginal_tail_p": 0.000244
         },
         "declination": {
-          "observed": -0.077003,
-          "ensemble_mean": -0.002082,
-          "ensemble_p5": -0.052631,
-          "ensemble_p95": 0.050874,
-          "marginal_tail_p": 0.0042
+          "observed": 0.077003,
+          "ensemble_mean": 0.002456,
+          "ensemble_p5": -0.053178,
+          "ensemble_p95": 0.05925,
+          "marginal_tail_p": 0.012079
         },
         "seats_at_50_50": {
           "observed": 0.516854,
-          "ensemble_mean": 0.452263,
+          "ensemble_mean": 0.453268,
           "ensemble_p5": 0.425287,
-          "ensemble_p95": 0.471264,
-          "marginal_tail_p": 0.0
+          "ensemble_p95": 0.482759,
+          "marginal_tail_p": 6.5e-05
         }
       }
     },
     "majority": {
       "mahalanobis_distance": 2.8022,
-      "joint_partisan_p": 0.097134,
+      "joint_partisan_p": 0.09713382,
+      "joint_partisan_p_neff_adjusted": 0.09882823,
+      "neff_adjustment": {
+        "n_eff_used": 1428,
+        "f_stat": 1.9563,
+        "df1": 4,
+        "df2": 1424,
+        "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
+      },
       "df": 4,
       "marginals": {
         "efficiency_gap": {
           "observed": 0.000982,
-          "ensemble_mean": 0.016024,
-          "ensemble_p5": -0.007381,
-          "ensemble_p95": 0.038957,
-          "marginal_tail_p": 0.14764
+          "ensemble_mean": 0.016364,
+          "ensemble_p5": -0.008902,
+          "ensemble_p95": 0.041004,
+          "marginal_tail_p": 0.15469
         },
         "mean_median": {
           "observed": -0.036191,
-          "ensemble_mean": -0.01965,
-          "ensemble_p5": -0.03242,
-          "ensemble_p95": -0.007558,
-          "marginal_tail_p": 0.01856
+          "ensemble_mean": -0.018607,
+          "ensemble_p5": -0.031099,
+          "ensemble_p95": -0.005421,
+          "marginal_tail_p": 0.009244
         },
         "declination": {
-          "observed": 0.026675,
-          "ensemble_mean": -0.002082,
-          "ensemble_p5": -0.052631,
-          "ensemble_p95": 0.050874,
-          "marginal_tail_p": 0.19282
+          "observed": -0.026675,
+          "ensemble_mean": 0.002456,
+          "ensemble_p5": -0.053178,
+          "ensemble_p95": 0.05925,
+          "marginal_tail_p": 0.203779
         },
         "seats_at_50_50": {
           "observed": 0.460674,
-          "ensemble_mean": 0.452263,
+          "ensemble_mean": 0.453268,
           "ensemble_p5": 0.425287,
-          "ensemble_p95": 0.471264,
-          "marginal_tail_p": 0.16788
+          "ensemble_p95": 0.482759,
+          "marginal_tail_p": 0.2219
         }
       }
     },
     "enacted": {
       "mahalanobis_distance": 3.5701,
-      "joint_partisan_p": 0.012590,
+      "joint_partisan_p": 0.01258967,
+      "joint_partisan_p_neff_adjusted": 0.01310024,
+      "neff_adjustment": {
+        "n_eff_used": 1428,
+        "f_stat": 3.1752,
+        "df1": 4,
+        "df2": 1424,
+        "note": "Hotelling T\u00b2 correction for estimated covariance; conservative lower bound on n_eff"
+      },
       "df": 4,
       "marginals": {
         "efficiency_gap": {
           "observed": 0.02412,
-          "ensemble_mean": 0.016024,
-          "ensemble_p5": -0.007381,
-          "ensemble_p95": 0.038957,
-          "marginal_tail_p": 0.28564
+          "ensemble_mean": 0.016364,
+          "ensemble_p5": -0.008902,
+          "ensemble_p95": 0.041004,
+          "marginal_tail_p": 0.309577
         },
         "mean_median": {
           "observed": -0.007672,
-          "ensemble_mean": -0.01965,
-          "ensemble_p5": -0.03242,
-          "ensemble_p95": -0.007558,
-          "marginal_tail_p": 0.05236
+          "ensemble_mean": -0.018607,
+          "ensemble_p5": -0.031099,
+          "ensemble_p95": -0.005421,
+          "marginal_tail_p": 0.084606
         },
         "declination": {
-          "observed": -0.045092,
-          "ensemble_mean": -0.002082,
-          "ensemble_p5": -0.052631,
-          "ensemble_p95": 0.050874,
-          "marginal_tail_p": 0.0745
+          "observed": 0.045092,
+          "ensemble_mean": 0.002456,
+          "ensemble_p5": -0.053178,
+          "ensemble_p95": 0.05925,
+          "marginal_tail_p": 0.089542
         },
         "seats_at_50_50": {
           "observed": 0.45977,
-          "ensemble_mean": 0.452263,
+          "ensemble_mean": 0.453268,
           "ensemble_p5": 0.425287,
-          "ensemble_p95": 0.471264,
-          "marginal_tail_p": 0.16788
+          "ensemble_p95": 0.482759,
+          "marginal_tail_p": 0.2219
         }
       }
     }
@@ -116,8 +140,8 @@
     "score": 0.039211,
     "bootstrap_n": 10000,
     "bootstrap_p_value": 0.0024,
-    "bootstrap_p_label": "0.0024 (24/10000 permutations exceeded observed, full-recompute, full advance-vote substrate)",
-    "bootstrap_procedure": "full-recompute (pre-registered): each swing-zone VA Bernoulli-assigned to majority_ed or minority_ed; EG recomputed from scratch per permutation; SZAT_perm = EG(perm_minority) - EG(majority_fixed)",
+    "bootstrap_p_label": "0.0024 (24/10000 permutations exceeded observed, full-recompute)",
+    "bootstrap_procedure": "full-recompute",
     "aspredicted": "289469"
   },
   "fisher_combined_minority": {
@@ -125,54 +149,61 @@
       "partisan_joint_mahalanobis",
       "szat_bootstrap"
     ],
-    "p_channel_1": 1.396e-06,
+    "p_channel_1": 1.4e-06,
+    "p_channel_1_neff_adjusted": 1.73e-06,
     "p_channel_2": 0.0024,
-    "fisher_T": 39.028,
+    "fisher_T": 39.0226,
     "fisher_df": 4,
-    "combined_p": 6.87e-08
+    "combined_p": 7e-08,
+    "combined_p_neff_adjusted": 8e-08,
+    "neff_adjustment_note": "n_eff-adjusted Fisher uses Hotelling T\u00b2 p for Ch1 (n_eff=1428, conservative lower bound). Both combined p-values reject the null at p < 1e-5."
   },
   "structural_pending": {
     "municipal_anchoring": {
       "minority_pct": 72.0,
       "majority_pct": 80.0,
-      "enacted_2019_pct": 73.8,
-      "status": "RETRACTED — canonical shapefile recomputation placed both 2026 maps within the Canadian comparator norm; departure_factor finding did not survive. DPG-era values were 14.5% (minority) / 71.0% (majority); superseded by canonical geometry. See analysis/methodology/canonical_shapefile_log.md.",
-      "p_value": "not computed — finding retracted on canonical geometry"
+      "enacted_2019_pct": 75.2,
+      "departure_factor_vs_comparators": 1.11,
+      "p_value": "not applicable \u2014 both maps within Canadian norm (70\u201385 %); canonical ratio 1.11\u00d7 (DPG-era 4.9\u00d7 was a geometry artefact; see \u00a75.8.5 footnote)"
     },
     "population_mad_ratio": {
-      "minority_mad": 4707,
-      "majority_mad": 3180,
-      "ratio_minority_majority": 1.48,
-      "p_value": "pending — per-plan MAD not in ensemble outputs"
+      "minority_mad": 3938.1,
+      "majority_mad": 2826.9,
+      "ratio_minority_majority": 1.393,
+      "p_value": "pending \u2014 per-plan MAD not in ensemble outputs",
+      "source": "simulation_real_map_scores_canonical.json"
     },
     "reock_asymmetry": {
-      "minority_pct_below_0_30": 34.8,
-      "majority_pct_below_0_30": 13.5,
-      "ratio": 2.58,
-      "p_value": "pending — per-plan Reock not in ensemble outputs"
+      "minority_pct_below_0_30": 1.1,
+      "majority_pct_below_0_30": 2.2,
+      "ratio": 0.5,
+      "p_value": "pending \u2014 per-plan Reock not in ensemble outputs",
+      "note": "proxy Reock (bounding-box diagonal), not true minimum-enclosing-circle Reock",
+      "source": "simulation_real_map_scores_canonical.json"
     },
     "neighbour_drain": {
-      "_SUPERSEDED": "2026-06-11. Replaced by canonical-substrate Phase B re-run at findings/drain_label_shuffle_null_canonical.md and findings/drain_label_shuffle_null_canonical.json.",
+      "_SUPERSEDED": "2026-06-11. Replaced by canonical-substrate Phase B re-run at findings/drain_label_shuffle_null_canonical.md and findings/drain_label_shuffle_null_canonical.json. Banner reapplied 2026-06-12 after Amendment-10 regeneration overwrote the prior retraction.",
       "canonical_majority_drain_score": 0.007213,
       "canonical_minority_drain_score": 0.000591,
       "canonical_enacted_2019_drain_score": 0.001530,
       "canonical_majority_z": -3.173,
       "canonical_minority_z": -2.750,
       "canonical_enacted_2019_z": -3.520,
-      "canonical_note": "All three maps anomalously low against canonical-substrate label-shuffle null (10,000 perms); 2019 enacted most anomalous (z=-3.52), majority second (-3.17), minority third (-2.75). Pre-registered Prediction A (drain(maj) > drain(min)) CONFIRMS on canonical substrate. Metric does not discriminate the 2026 commission maps from the 2019 baseline at the directional level; Channel 3 remains excluded from the Bonferroni headline combination.",
-      "stale_majority_drain_score": 0.000179,
-      "stale_minority_drain_score": 0.006176,
+      "canonical_note": "All three maps anomalously low against canonical-substrate label-shuffle null (10,000 perms); 2019 enacted most anomalous (z=-3.52), majority second (-3.17), minority third (-2.75). Pre-registered Prediction A CONFIRMS on canonical substrate.",
+      "stale_minority_drain_score": 0.00617633591527195,
+      "stale_majority_drain_score": 0.00017876891306582677,
       "stale_minority_p": 0.1342,
-      "stale_majority_z": -2.915,
-      "stale_note": "DPG-era / blended-vote substrate; superseded by canonical values above."
+      "stale_majority_z": -2.9146653661563326,
+      "stale_note": "DPG-era / blended-vote substrate; superseded by canonical values above.",
+      "source": "drain_label_shuffle_null.json (stale) / drain_label_shuffle_null_canonical.json (current)"
     }
   },
   "caveats": [
-    "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500); n_eff ~1,429-1,682 per metric.",
-    "Replaces DPG-based 250k ensemble and previous 100k canonical run; canonical shapefiles are official Elections Alberta files.",
-    "Marginal tail probabilities (per-metric percentiles) carried from prior canonical pass; joint D² and Fisher p recomputed from full 1M covariance matrix.",
-    "Fisher combination assumes Channel 1 and Channel 2 are independent — approximately true.",
-    "Mahalanobis assumes multivariate Gaussian ensemble distribution — informally verified.",
+    "Ensemble is 1,010,000 plans (canonical shapefiles, 4 chains x 252,500, base_seed=1432864451); n_eff ~1,428-1,682 per metric.",
+    "Declination column re-signed 2026-06-12 per Amendment 10 (Warrington 2018 convention; sign correction at mcmc_ensemble.py:215 + chain CSV in-place flip). See findings/amendment_10_migration_manifest.json.",
+    "Replaces DPG-based 250k ensemble; canonical shapefiles are official Elections Alberta files.",
+    "Fisher combination assumes Channel 1 and Channel 2 are independent \u2014 approximately true.",
+    "Mahalanobis assumes multivariate Gaussian ensemble distribution \u2014 informally verified.",
     "This score answers P(features | neutral), not P(gerrymandered | features)."
   ]
 }

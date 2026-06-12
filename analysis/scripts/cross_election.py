@@ -129,8 +129,13 @@ OUT_JSON = DATA / "outputs" / "cross_election_per_map.json"
 def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
     """Identical metric definitions to mcmc_ensemble.py:seat_results().
     Sign conventions: positive EG = UCP-favoured; positive MM = UCP-
-    favoured; NEGATIVE declination = UCP-favoured; seats_at_50_50 is
-    UCP fraction of seats under uniform-swing to 50/50.
+    favoured; **POSITIVE declination = UCP-favoured (Warrington 2018)**;
+    seats_at_50_50 is UCP fraction of seats under uniform-swing to 50/50.
+
+    Sign-flip correction landed 2026-06-12 per Amendment 10
+    (T1.7 referee #5). Earlier docstring incorrectly said
+    "NEGATIVE declination = UCP-favoured" — that described a bug, not
+    the convention. Implementation at line 178 also corrected.
     """
     ucp = np.asarray(ucp, dtype=float)
     ndp = np.asarray(ndp, dtype=float)
@@ -175,7 +180,7 @@ def seat_results(ucp: np.ndarray, ndp: np.ndarray) -> dict:
         mean_ucp_in_ndp_won = float(np.mean(ndp_won))
         theta_R = math.atan2(mean_ucp_in_ucp_won - 0.5, R / (2 * n))
         theta_D = math.atan2(0.5 - mean_ucp_in_ndp_won, D / (2 * n))
-        declination = (2.0 / math.pi) * (theta_R - theta_D)
+        declination = (2.0 / math.pi) * (theta_D - theta_R)  # Warrington 2018; sign fixed 2026-06-12 (Amendment 10)
 
     province_ucp = ucp.sum() / two_party_total.sum()
     swing = 0.5 - province_ucp
