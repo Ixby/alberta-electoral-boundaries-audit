@@ -494,7 +494,7 @@ The audit's defense is **not a single test carrying the weight**. It is:
 - **Six independent dimensions** of evidence (§6 Discussion synthesis)
 - **Multiple measurements per dimension** (seven layers for §5.2 alone)
 - **Multiple references per measurement** (three elections + one poll for cross-vote robustness)
-- **Explicit dis-confirming results reported** (2019 vote flips B2 sign; B6 declination disagrees with B2-B4; the §5.2.7 cross-method disagreement is itself reported)
+- **Explicit dis-confirming results reported** (2019 vote flips B2 sign; the §5.2.7 cross-method disagreement is itself reported). The earlier-cited "B6 declination disagrees with B2-B4" reading was a swapped-operand artefact at `mcmc_ensemble.py:215` corrected 2026-06-12 (Amendment 10 in `findings/pre_registration_amendment_log.md`); under the corrected Warrington 2018 convention all four B-metrics agree on direction for the minority map.
 - **Pre-registered falsifiability gates G0–G5** (§4.1.2) — named conditions for retraction
 - **Sunset clause §4.1.4** — binding recompute commitment
 

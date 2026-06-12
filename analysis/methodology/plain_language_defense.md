@@ -501,7 +501,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 ---
 
 **Assertion:** Three of four partisan metrics carry outlier flags: Mean-Median at p99.98, Seats at 50/50 at p99.99, Declination at p1.21 (NDP-tail).
-**Why?** What does "p99.98" mean and why is declination at p1.21 a problem when the others are at p99.98?
+**Why?** What does "p99.98" mean and why is declination at p98.79 (UCP-tail, post-Amendment-10; was p1.21 NDP-tail under pre-Amendment-10 swapped operand) a problem when the others are at p99.98?
 **Answer:** p99.98 means the minority map's mean-median score is higher than 99.98% of the one million randomly drawn neutral maps — extremely high. p99.99 means the minority's seats-at-50/50 score is higher than 99.99% of neutral maps. Both are on the upper tail, indicating UCP advantage. Declination at p1.21 means the minority's declination score is lower than 98.79% of neutral maps — it is on the lower tail, meaning declination reads the opposite direction. This cross-metric disagreement is documented as a known limitation: the efficiency gap and declination disagree because they measure different geometric properties of partisan distribution. The audit notes the disagreement rather than discarding the contradictory metric.
 
 ---

@@ -121,7 +121,7 @@ Headline findings to verify (all against the 1M canonical ensemble):
 
 - The minority map's mean-median difference sits at the **p99.98** of the neutral ensemble.
 - The minority map's `seats@50/50` value (p99.99) — only ~66 of 1,010,000 neutral plans reach this level of UCP seat advantage at an even vote split.
-- The minority map's declination sits at **p1.21** (NDP tail — extreme concentration of NDP votes).
+- The minority map's declination sits at **p98.79** (UCP tail — winning-margin geometry produces tight NDP margins consistent with packing). Sign convention corrected 2026-06-12 per Amendment 10 in `findings/pre_registration_amendment_log.md`; earlier versions of this doc cited p1.21 NDP-tail under the pre-Amendment-10 swapped-operand implementation. A reproducer running `mcmc_ensemble.py` at HEAD will produce values matching the Warrington-2018 convention; reproducers using pre-c9a9fbd code or pre-c9a9fbd chain CSVs need to apply Amendment 10 (negate the declination column or rebase to HEAD).
 - The minority map's efficiency gap sits at **p94.4** — below the individual 95th-percentile flag threshold.
 - The majority map sits within the neutral null on all four metrics.
 
