@@ -12,7 +12,7 @@ Outputs: findings/s15_deviation_compliance.csv
 §15(2) floor:       −50% (absolute statutory minimum even with exception)
 §15(2) trigger:     >25% under quota; requires ≥3 of 5 criteria
 
-§15(2) invocations registered here are from s15_2_reaudit.md (2026-04-23),
+§15(2) invocations registered here are from population_deviation_reaudit.md (2026-04-23),
 with criterion counts corrected against the King's Printer RSA 2000 c. E-3
 consolidation 2024-12-05:
   criterion (a): area >20,000 km² OR surveyed area >15,000 km²
@@ -58,7 +58,7 @@ except ImportError:
 INPUT_CSV = _FINDINGS / "population_consistency.csv"
 OUTPUT_CSV = _FINDINGS / "s15_deviation_compliance.csv"
 
-# §15(2) invocations as registered. Source: s15_2_reaudit.md §4.
+# §15(2) invocations as registered. Source: population_deviation_reaudit.md §4.
 # Keys are (map, ed_name) tuples matching the ed_name column in the input CSV.
 # Values: (criteria_met_of_5, verdicted_by_reaudit)
 S15_INVOCATIONS: dict[tuple[str, str], dict] = {

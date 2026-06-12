@@ -509,7 +509,7 @@ The following numbers shifted by more than the 0.05-pp / 1-seat flag threshold a
 
 - **"1-seat asymmetry" finding**: confirmed. Majority 38 NDP / 51 UCP, Minority 37 NDP / 52 UCP under 2023 votes (regenerated: identical). 338 reallocation gives majority 22 NDP / 67 UCP, minority 23 NDP / 66 UCP under April 2026 polling (regenerated: identical).
 - **"1 to 3 seats" band**: Monte Carlo at 70/30 central produces NDP @ 50/50 asymmetry spanning 1–5 seats with median 1 (B4 majority 44, minority 42 → |44 − 42| = 2; but sensitivity @ 0.60 gives asymmetry 1, @ 0.80 gives asymmetry 5). "1 to 3" remains a defensible band summary; no change.
-- **s15(2) re-audit**: No dedicated script changed in this pass. The re-audit markdown was not re-derived programmatically; ED-by-ED pass counts in `s15_2_reaudit.md` refer to population and area thresholds, which are not affected by any of the fixes in this pass.
+- **s15(2) re-audit**: No dedicated script changed in this pass. The re-audit markdown was not re-derived programmatically; ED-by-ED pass counts in `population_deviation_reaudit.md` refer to population and area thresholds, which are not affected by any of the fixes in this pass.
 
 ### 7.5 Verdict
 

@@ -285,7 +285,7 @@ Replace "**Engineered-boundary signature at Rocky Mountain House-Banff Park unde
 | Cracking-adjacent (Cochrane merged with Calgary) | Pattern present, C3 fails | Not detected | Not applicable |
 | ~~Engineered boundary (RMH-Banff Park s.15(2))~~ | **Retracted** | Not applicable | Not applicable |
 
-Accompanying narrative: replace "Three formal signatures, one borderline pattern, all concentrated in the minority map" with "**Two** formal signatures, one borderline pattern, all concentrated in the minority map (the engineered-boundary signature at RMH-Banff Park was retracted after the §15(2) re-audit against corrected statutory thresholds; see §2.4 re-audit at `analysis/methodology/s15_2_reaudit.md`)."
+Accompanying narrative: replace "Three formal signatures, one borderline pattern, all concentrated in the minority map" with "**Two** formal signatures, one borderline pattern, all concentrated in the minority map (the engineered-boundary signature at RMH-Banff Park was retracted after the §15(2) re-audit against corrected statutory thresholds; see §2.4 re-audit at `analysis/methodology/population_deviation_reaudit.md`)."
 
 ### 6.4 `report_academic.md` §3.11 Pre-registered checklist baseline scoring
 
@@ -293,7 +293,7 @@ The "Strong signals triggered (of 4 scorable)" row for the minority should drop 
 
 ### 6.5 `report_academic.md` Table at line ~728 (3-signature synthesis row)
 
-Change `| §A3 s.15(2) failures engineered via visible boundary| 0 | 0 (Canmore-Banff undetermined) | 1 (RMH-Banff Park) | engineered qualifications |` to `| §A3 s.15(2) invocations | 3 / 3 legitimate | 3 / 3 legitimate | 3 / 3 legitimate | re-audit 2026-04-23 under corrected thresholds |` with a footnote citing `analysis/methodology/s15_2_reaudit.md`.
+Change `| §A3 s.15(2) failures engineered via visible boundary| 0 | 0 (Canmore-Banff undetermined) | 1 (RMH-Banff Park) | engineered qualifications |` to `| §A3 s.15(2) invocations | 3 / 3 legitimate | 3 / 3 legitimate | 3 / 3 legitimate | re-audit 2026-04-23 under corrected thresholds |` with a footnote citing `analysis/methodology/population_deviation_reaudit.md`.
 
 ### 6.6 `report_academic.md` line 452 — Chair-flagged boundaries list
 

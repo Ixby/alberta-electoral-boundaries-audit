@@ -98,7 +98,7 @@ MIN_FILE = DATA / "shapefiles" / "canonical" / "ea_minority_2026_eds.gpkg"
 N_BOOT = 10_000
 
 # EDs whose swing-zone contributions are reported individually in the summary
-# because they motivated this test (s15_2_reaudit.md §1.3).
+# because they motivated this test (population_deviation_reaudit.md §1.3).
 FOCAL_EDS = {
     "Canmore-Banff",
     "Canmore-Kananaskis",

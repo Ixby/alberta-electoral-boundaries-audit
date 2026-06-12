@@ -18,7 +18,7 @@ are removed; this document is the canonical record.*
 **Status:** Implemented. Pre-registered at AsPredicted #289,469 (filed 2026-05-07;
 results known at filing; seed pre-committed at git hash `d2aea42`).
 
-**Cross-ref:** `analysis/methodology/s15_2_reaudit.md`,
+**Cross-ref:** `analysis/methodology/population_deviation_reaudit.md`,
 `analysis/methodology/academic_literature_review.md` §9
 
 ---
@@ -402,7 +402,7 @@ All code in `analysis/scripts/szat.py`.
 ### 6. Any other comments?
 
 This test was motivated by the §15(2) population-deviation re-audit
-(`analysis/methodology/s15_2_reaudit.md`, 2026-04-23), which found that the
+(`analysis/methodology/population_deviation_reaudit.md`, 2026-04-23), which found that the
 minority map's Rocky Mountain House-Banff Park ED is 5.3 percentage points
 outside the normal ±25% population band and invokes the §15(2) exception —
 the smallest margin of any §15(2) invocation in either map.

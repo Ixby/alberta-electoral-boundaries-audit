@@ -2,7 +2,7 @@
 > - `.temp/commission_report.pdf` — EBC Final Report (March 2026)
 > - EBCA RSA 2000 c E-3 §15 statutory text
 > - `findings/terms_of_reference_audit.md` — terms-of-reference baseline
-> - `analysis/methodology/s15_2_reaudit.md` — re-audited §15(2) thresholds
+> - `analysis/methodology/population_deviation_reaudit.md` — re-audited §15(2) thresholds
 >
 > **Forward:**
 > - `reports/academic/report_academic.md` §5.1.5 and §5.3.4 — incorporates the selective-application finding
@@ -12,7 +12,7 @@
 # Finding: §15(2) EBCA — Selective Application Between Majority and Minority Maps
 
 **Status:** SUPPORTED — primary source evidence (EBC Final Report, March 2026)
-**Data sources:** EBC Final Report (`.temp/commission_report.pdf`), EBCA RSA 2000 c E-3 §15, `findings/terms_of_reference_audit.md`, `analysis/methodology/s15_2_reaudit.md`
+**Data sources:** EBC Final Report (`.temp/commission_report.pdf`), EBCA RSA 2000 c E-3 §15, `findings/terms_of_reference_audit.md`, `analysis/methodology/population_deviation_reaudit.md`
 **Grounding standard:** Statutory text and commission report read in session
 **Flagged for:** academic report §5.1.5 (new); §5.3.4 (signatures summary update)
 
@@ -37,7 +37,7 @@ The five criteria are:
 
 ## 2. The 2026 Invocations (Both Maps)
 
-Under the re-audited thresholds documented in `analysis/methodology/s15_2_reaudit.md`, all six §15(2) invocations across both 2026 proposals are statutorily eligible:
+Under the re-audited thresholds documented in `analysis/methodology/population_deviation_reaudit.md`, all six §15(2) invocations across both 2026 proposals are statutorily eligible:
 
 | Riding | Map | Var% | Criteria (of 5) | Verdict |
 |---|---|---|---|---|

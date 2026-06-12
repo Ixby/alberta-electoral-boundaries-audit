@@ -1545,7 +1545,7 @@ The following numbers shifted by more than the 0.05-pp / 1-seat flag threshold a
 
 - **"1-seat asymmetry" finding**: confirmed. Majority 38 NDP / 51 UCP, Minority 37 NDP / 52 UCP under 2023 votes (regenerated: identical). 338 reallocation gives majority 22 NDP / 67 UCP, minority 23 NDP / 66 UCP under April 2026 polling (regenerated: identical).
 - **"1 to 3 seats" band**: Monte Carlo at 70/30 central produces NDP @ 50/50 asymmetry spanning 1–5 seats with median 1 (B4 majority 44, minority 42 → |44 − 42| = 2; but sensitivity @ 0.60 gives asymmetry 1, @ 0.80 gives asymmetry 5). "1 to 3" remains a defensible band summary; no change.
-- **s15(2) re-audit**: No dedicated script changed in this pass. The re-audit markdown was not re-derived programmatically; ED-by-ED pass counts in `s15_2_reaudit.md` refer to population and area thresholds, which are not affected by any of the fixes in this pass.
+- **s15(2) re-audit**: No dedicated script changed in this pass. The re-audit markdown was not re-derived programmatically; ED-by-ED pass counts in `population_deviation_reaudit.md` refer to population and area thresholds, which are not affected by any of the fixes in this pass.
 
 ### 7.5 Verdict
 
@@ -4065,7 +4065,7 @@ That claim is what we can defend with the data and methods currently in the bund
 - **Total flagged claims:** 24
 - **Needs manual verification:** 3 (Hansard-sourced and X-post quotes)
 
-Overall posture: the two reports are substantially reproducible from the checked-in pipeline. The structural findings (MAD, Calgary zone gap, Airdrie 4-way, RMH-Banff extension) hold exactly as stated when the scripts are rerun. The issues are concentrated in three areas: (a) the §3.4 sensitivity-table values in `report_academic.md` do not match the script's current output at two of three weight points; (b) `report_public.md` still attributes "+0.7 of a seat" to the RMH-Banff §15(2) invocation after that attribution was retracted in `analysis/methodology/s15_2_reaudit.md` §5.3; (c) direct-quotation wording is imprecise in several places (Nenshi quote stitched from two places in the source; Notley paraphrase presented as a direct quote).
+Overall posture: the two reports are substantially reproducible from the checked-in pipeline. The structural findings (MAD, Calgary zone gap, Airdrie 4-way, RMH-Banff extension) hold exactly as stated when the scripts are rerun. The issues are concentrated in three areas: (a) the §3.4 sensitivity-table values in `report_academic.md` do not match the script's current output at two of three weight points; (b) `report_public.md` still attributes "+0.7 of a seat" to the RMH-Banff §15(2) invocation after that attribution was retracted in `analysis/methodology/population_deviation_reaudit.md` §5.3; (c) direct-quotation wording is imprecise in several places (Nenshi quote stitched from two places in the source; Notley paraphrase presented as a direct quote).
 
 ---
 
@@ -4090,7 +4090,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 ### CRIT-02. `report_public.md` still attributes "+0.7 of a seat" to RMH-Banff Park after the internal re-audit retracted the attribution
 **Claim (verbatim):** "The extra rural seat at Rocky Mountain House-Banff Park accounts for roughly 0.7 of the one-to-three-seat gap between the two maps." — `report_public.md` line 140
 **Stated value:** +0.7 seat attributable to the RMH-Banff §15(2) invocation.
-**Source of truth:** `analysis/methodology/s15_2_reaudit.md` §5.3, which concludes: *"The +0.7 seat attribution collapses. The rural-seat gap must be re-attributed to other features of the two maps (e.g., Canmore-Banff adding a rural seat the minority does not create, Lesser Slave Lake's specific boundary, or — more likely — the minority's rest-of-province mean being 3.9% lower than the majority's via other EDs)."* The re-audit is explicit that the engineered-boundary-qualification theory that underwrote the attribution is factually wrong (RMH-Banff passes 4/5 §15(2) criteria without the NP extension; the extension is not load-bearing).
+**Source of truth:** `analysis/methodology/population_deviation_reaudit.md` §5.3, which concludes: *"The +0.7 seat attribution collapses. The rural-seat gap must be re-attributed to other features of the two maps (e.g., Canmore-Banff adding a rural seat the minority does not create, Lesser Slave Lake's specific boundary, or — more likely — the minority's rest-of-province mean being 3.9% lower than the majority's via other EDs)."* The re-audit is explicit that the engineered-boundary-qualification theory that underwrote the attribution is factually wrong (RMH-Banff passes 4/5 §15(2) criteria without the NP extension; the extension is not load-bearing).
 **Delta:** The public report retains a number the internal audit says it must drop. The §3.10 academic signatures summary was revised to show RMH-Banff as "retracted under corrected §15(2) thresholds" in §5.2 of the re-audit, but the public report's seat-attribution line was not carried forward.
 **Recommendation:** Either delete the "+0.7" line from `report_public.md`, or reframe as "the rest-of-province average population gap (3.9%) accounts for most of the 1–3 seat gap between the two maps." Noting: `report_public.md` lines 136–138 already reflect the re-audit qualitatively — they acknowledge the test "was tempting to retract" — but the numeric attribution two lines later is stale.
 
@@ -4178,7 +4178,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-04. "five Indian reserves are inside it — Big Horn 144A, O'Chiese, three Stoney reserves, Sunchild"
 **Claim (verbatim):** "Five named Indian reserves are inside it — Big Horn 144A, O'Chiese, three Stoney reserves, Sunchild." — `report_public.md` line 126
-**Verified source:** `analysis/methodology/s15_2_reaudit.md` §3.4 and commission PDF p. 352 list the reserves as: "Big Horn No. 144A, O'Chiese No. 203, Stoney nos. 142, 143, 144, Stoney No. 142B and Sunchild No. 202" — that is **four** Stoney reserves (142, 143, 144, plus 142B), not three.
+**Verified source:** `analysis/methodology/population_deviation_reaudit.md` §3.4 and commission PDF p. 352 list the reserves as: "Big Horn No. 144A, O'Chiese No. 203, Stoney nos. 142, 143, 144, Stoney No. 142B and Sunchild No. 202" — that is **four** Stoney reserves (142, 143, 144, plus 142B), not three.
 **Delta:** The public report says "three Stoney reserves"; the commission and the re-audit both enumerate four. Counting five distinct named reserves (Big Horn, O'Chiese, 142-143-144 as a block, 142B, Sunchild) yields five if 142/143/144 are grouped as "the three numbered Stoney" plus 142B. But the commission's list as written distinguishes "Stoney nos. 142, 143, 144" and "Stoney No. 142B" as separate entries.
 **Recommendation:** Either "four Stoney reserves" or "the numbered Stoney Nakoda reserves" would be accurate.
 
@@ -4211,7 +4211,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 
 ### MED-07. "four of five criteria pass without the park" in `report_public.md` line 126 — audit says (b) is "qualified" pass
 **Claim (verbatim):** "Four of the Act's five criteria pass without the park." — `report_public.md` line 126
-**Verified source:** `analysis/methodology/s15_2_reaudit.md` §3.5 counterfactual: 4/5 pass without NP extension, but criterion (b) is qualified with: *"Rimbey ~143 km from Edmonton (Wikipedia); Rocky Mountain House ~215 km (rome2rio, ViaMichelin). On a 'nearest boundary' conservative reading this is borderline."* §7 open question 1 reiterates: "Criterion (b) for RMH-Banff Park is borderline. Rimbey sits at ~143 km from the Edmonton Legislature by road; the NE corner of Clearwater County may be marginally closer to 150 km."
+**Verified source:** `analysis/methodology/population_deviation_reaudit.md` §3.5 counterfactual: 4/5 pass without NP extension, but criterion (b) is qualified with: *"Rimbey ~143 km from Edmonton (Wikipedia); Rocky Mountain House ~215 km (rome2rio, ViaMichelin). On a 'nearest boundary' conservative reading this is borderline."* §7 open question 1 reiterates: "Criterion (b) for RMH-Banff Park is borderline. Rimbey sits at ~143 km from the Edmonton Legislature by road; the NE corner of Clearwater County may be marginally closer to 150 km."
 **Delta:** The 4/5 pass claim depends on (b) being credited; the internal re-audit flags (b) as "qualified pass" and notes that under a strict reading (b) may fail, in which case without the NP extension the district passes only 3/5. The 3/5 still clears the statutory threshold, but the public report's "four of five" is the upper-bound reading, not the conservative one.
 **Recommendation:** Soften to "four of the Act's five criteria pass without the park (three cleanly, one borderline)" to match the re-audit's own qualifier.
 
@@ -4226,7 +4226,7 @@ Overall posture: the two reports are substantially reproducible from the checked
 **Recommendation:** Preserve source punctuation inside direct quotation marks.
 
 ### LOW-03. Metis settlement spelling — statute uses "Metis" without accent; audit text sometimes uses "Métis"
-**Claim (verbatim):** `report_public.md` line 57 uses "Métis settlements" (with accent); the statute text quoted verbatim in `analysis/methodology/s15_2_reaudit.md` §1 uses "Metis settlement" (no accent).
+**Claim (verbatim):** `report_public.md` line 57 uses "Métis settlements" (with accent); the statute text quoted verbatim in `analysis/methodology/population_deviation_reaudit.md` §1 uses "Metis settlement" (no accent).
 **Delta:** Stylistic. Both are accepted. Match source if quoting verbatim.
 
 ### LOW-04. Seven reserves in RMH enumerated as "five named" — covered in MED-04
@@ -4300,7 +4300,7 @@ The 0.05 pp drift at 0.60 and 0.09 pp at 0.80 (CRIT-01) only appears in the acad
 - 12 of 14 marginal 2023 ridings are in Calgary — verified from `marginal_seats_analysis.py` output (Calgary-Acadia, -Glenmore, -North West, -North, -Foothills, -Edgemont, -Bow, -Beddington, -Elbow, -Cross, -Klein, -East = 12 Calgary + Banff-Kananaskis + Lethbridge-East = 14).
 - Calgary-Acadia 0.05 pp margin in 2023 and Calgary-North West UCP 0.30 pp — verified.
 - 1.5 pp UCP-swing flips 6 (5 Calgary + Banff-Kananaskis); 1.5 pp NDP-swing flips 4 (Calgary-Bow, Calgary-North, Calgary-North West, Lethbridge-East) — verified.
-- RMH-Banff Park §15(2) re-audit: 5/5 as drawn, 4/5 without NP extension; Canmore-Banff 3/5 under corrected thresholds — verified from `s15_2_reaudit.md` against commission PDF pages 212, 236, 248, 341, 345, 352.
+- RMH-Banff Park §15(2) re-audit: 5/5 as drawn, 4/5 without NP extension; Canmore-Banff 3/5 under corrected thresholds — verified from `population_deviation_reaudit.md` against commission PDF pages 212, 236, 248, 341, 345, 352.
 - Shared-schools claims (Rocky View Schools vs CBE for Bow-Springbank; Chinook's Edge vs Red Deer Public for Red Deer-Sylvan Lake) — verified against Alberta Education school-division boundaries.
 - Three intro-promised counterexamples are surfaced: (i) majority's Canmore-Banff flips FAIL→PASS under corrected thresholds (verified); (ii) 2019-vote direction reversal (verified at +0.75 pp, modulo the stale preamble figure); (iii) chair's "no public support" materially wrong on Chestermere + two added configurations (verified, modulo the CRIT-03 scope reframing).
 
@@ -4373,7 +4373,7 @@ The audit's strongest material is §A1 population distribution (structural, elec
 And `report_academic.md:361`:
 > "The E2 criterion was initially framed as a statutory-eligibility test ('without extension, ED would not qualify') and the §15(2) re-audit against corrected thresholds failed that narrow test. On review the test is reformulated to match the signature the audit was actually trying to measure..."
 
-**Evidence:** `analysis/methodology/s15_2_reaudit.md:118` — under corrected thresholds, RMH-Banff Park passes 5/5 *with* the park extension and 4/5 *without* it. The park is not statutorily necessary. The academic paper (`:205`) says flatly: "Engineered-boundary characterization: retracted."
+**Evidence:** `analysis/methodology/population_deviation_reaudit.md:118` — under corrected thresholds, RMH-Banff Park passes 5/5 *with* the park extension and 4/5 *without* it. The park is not statutorily necessary. The academic paper (`:205`) says flatly: "Engineered-boundary characterization: retracted."
 
 **Gap:** The academic paper's §2.4 explicitly **retracts** the engineered-boundary characterization on the narrow statutory test. It then in §3.9 **reinstates** a signature under a reformulated E2 criterion ("chosen over populated alternatives") that was not pre-registered before the re-audit surfaced the retraction. The pre-registration timestamp (`report_academic.md:327`: git commit `5b0bc06` at 2026-04-22 08:32:20) is **2 hours 24 minutes** before the detection runs. The E2 reformulation happened *after* the first signature failed. This is textbook ad-hoc rescue: a hypothesis fails its pre-registered test, the test is re-written to be softer, the hypothesis passes the softened test, and the paper reports it as a detection. The magazine does not even acknowledge the reformulation happened — it frames the test as a resilient finding ("the question underneath it was not").
 
@@ -5242,7 +5242,7 @@ Four rationale themes, of which "historical precedent" is the last. The subseque
 
 **Severity:** CRITICAL because the rhetorical weight of the passage rests on "not community of interest... because-we-did-it-before," and the source text contradicts both halves of that framing.
 
-**Recommendation:** Rewrite the passage to acknowledge the four themes, then argue that (a) the economic-corridor and Clearwater-hub rationales could be served by populated alternatives (Caroline, Nordegg, Mountain View, Bighorn, Sundre) without the NP extension, and (b) the NP extension specifically is justified only by historical precedent. This is closer to the `s15_2_reaudit.md` analysis, which already handles this distinction correctly — the public report has to match the internal analysis.
+**Recommendation:** Rewrite the passage to acknowledge the four themes, then argue that (a) the economic-corridor and Clearwater-hub rationales could be served by populated alternatives (Caroline, Nordegg, Mountain View, Bighorn, Sundre) without the NP extension, and (b) the NP extension specifically is justified only by historical precedent. This is closer to the `population_deviation_reaudit.md` analysis, which already handles this distinction correctly — the public report has to match the internal analysis.
 
 ---
 
@@ -5462,7 +5462,7 @@ Verified by `ls -la analysis/`:
 - `minority_rationales_validation.md` — exists (31,015 bytes)
 - `chair_recommendation_5_analysis.md` — exists (12,725 bytes)
 - `terms_of_reference_audit.md` — exists (31,937 bytes)
-- `s15_2_reaudit.md` — exists (35,951 bytes)
+- `population_deviation_reaudit.md` — exists (35,951 bytes)
 - Plus the scripts and data directories referenced in `report_academic.md`.
 
 The internal cross-references are a closed loop; the audit's forward-reading path resolves without breaks.
@@ -5484,7 +5484,7 @@ The audit's internal grounding is consistent, even where it differs from public 
 7. **Smith "I've been asking every member to look at page 66"** — `report_public.md:39`. Verified verbatim against DiscoverAirdrie April 17, 2026. PASS.
 8. **Pancholi "89 seats that the UCP gave them to work with"** — `report_public.md:(implicit)`. Verified verbatim against DiscoverAirdrie. PASS.
 9. **Miller "substantive unreasonableness... not something that I can condone" with city list (Airdrie, Calgary, Chestermere, Cochrane, Red Deer, St. Albert)** — Verified verbatim p. 67. PASS.
-10. **Electoral Boundaries Commission Act §15(2) five-criterion text** — Verified via CanLII and the commission's own reproduction pp. 15–16, 291–292 against `s15_2_reaudit.md:17–27`. PASS.
+10. **Electoral Boundaries Commission Act §15(2) five-criterion text** — Verified via CanLII and the commission's own reproduction pp. 15–16, 291–292 against `population_deviation_reaudit.md:17–27`. PASS.
 11. **Reference re Provincial Electoral Boundaries (Saskatchewan), [1991] 2 SCR 158 — "effective representation" standard** — Verified via CanLII 1991 SCC 61; McLachlin J's para. 26 and para. 33 are correctly referenced by `report_academic.md:832`. PASS.
 12. **Stephanopoulos & McGhee (2014/2015) efficiency gap** — Verified; the audit cites the concept correctly. The error is only in how the 7% threshold's legal status is characterised (see CRIT-01).
 13. **Chen & Rodden (2013) "Unintentional gerrymandering"** — Verified via DOI `10.1561/100.00012033`. PASS.
