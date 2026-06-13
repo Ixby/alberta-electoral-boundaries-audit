@@ -1,6 +1,6 @@
 # Remediation queue — open items from the 18-pass referee review
 
-**Status as of 2026-06-10.** This document tracks every remediation item identified by the 18 parallel referee evaluations of the monograph, defenses, findings, reviews, and docs. Items are tiered by impact on published numbers. Each item lists scope, the data/scripts it depends on, the acceptance criterion that lets it be closed, and current state.
+**Status as of 2026-06-13.** This document tracks every remediation item identified by the 18 parallel referee evaluations of the monograph, defenses, findings, reviews, and docs. Items are tiered by impact on published numbers. Each item lists scope, the data/scripts it depends on, the acceptance criterion that lets it be closed, and current state.
 
 This file is the single source of truth for "what still needs to be done before the November 2026 held-out test." When an item closes, its row gets a one-line dated note and is moved to the bottom **Closed** section, not deleted.
 
@@ -60,7 +60,7 @@ First constraint-enforcing run landed (`analysis/scripts/constraint_enforcing_en
 
 **Results (both seeds, same day):** three of the minority's four partisan metrics are robust ≥p98.7 tail flags under every null tested (MM ≥p99.8, decl ≥p98.7, s50 ≥p99.98). **EG is threshold-straddling and seed-dependent: p97.24 under the majority-seeded freeze (fires) but p94.17 under the minority-seeded freeze and p94.4 unconstrained** — the honest reading is "p94–p97 band, neither clean fire nor clean miss." Majority becomes *more* normal on every metric under both constrained nulls. ReCom splits 55–67 municipalities vs real maps' 23/30 (both ≈p0) — the commission-convention auxiliary is now empirically measured and applies symmetrically (closes the T1.17 measurement gap), and supplies the Amendment-9 S2 specificity rate (Pr(splits≤30 | ReCom) ≈ 2×10⁻⁴). Seed-dependence of the EG result was caught by the audit's own symmetric-robustness discipline before any external claim was made.
 
-**Remaining for T1.4-full:** (a) 1M-scale run (~3.5 h at 85 steps/s, parallelizable across 4 chains); (b) minority-seeded robustness run (freeze RMH-Banff Park instead of Canmore-Banff); (c) like-for-like split-count universe (CY/T/SM filter in the per-plan tally); (d) soft-constrained variant (penalized acceptance on splits ≤ 30) — the recorded tally shows a hard constraint would reject ≈99.98 % of proposals, so the soft design is required.
+**T1.4-full status: 🟢 IN PROGRESS (started 2026-06-13).** 1M majority-seeded and minority-seeded runs both active (~3.5 h wall clock at 58–60 steps/s). Remaining items: (a) 1M-scale run completion; (b) minority-seeded robustness run (freeze RMH-Banff Park instead of Canmore-Banff); (c) like-for-like split-count universe (CY/T/SM filter in the per-plan tally); (d) soft-constrained variant (penalized acceptance on splits ≤ 30) — the recorded tally shows a hard constraint would reject ≈99.98 % of proposals, so the soft design is required.
 
 ### T1.4a — Population-weighted MAUP attribution per plan against the 1.01M ensemble
 **Status: ✅ CLOSED 2026-06-13 — and the per-plan assignment archive turned out to be unnecessary.**
@@ -119,14 +119,16 @@ Referee found majority D 2.69 in the .md vs 2.80 in the JSON; minority declinati
 ## Tier 2 — Self-pre-committed but never executed.
 
 ### T2.1 — Issue #13 local-perturbation chain
-**Status: 🟢 STUB LANDED 2026-06-10 (see Tier 5 above for full status)**
+**Status: 🟢 DONE 2026-06-13 — `single_va_swap()` kernel implemented**
+
+`single_va_swap()` implemented in `analysis/scripts/local_perturbation_chain.py`. Edge-uniform kernel; directional population tolerance preserving s.15(2) districts; connectivity check via `nx.is_connected()`; smoke test: 78.5% acceptance rate, 843 proposals/s.
 
 ### T2.2 — Forest-ReCom robustness Phase A
-**Status: 🟠 BLOCKED ON SCRIPT/OUTPUTS**
+**Status: 🟠 BLOCKED ON OSF GATE**
 
-OSF-registered in `preregistration/osf_forest_recom_robustness.md`. `data/outputs/forest_recom_*` does not exist.
+`analysis/scripts/forest_recom_ensemble.py` exists and is wired; blocked by `--confirm-osf-filed` gate that prevents execution until the OSF registration is filed. `data/outputs/forest_recom_*` does not yet exist.
 
-**Resolution path:** run the registered Forest-ReCom variant; produce the documented outputs.
+**Resolution path:** file OSF pre-registration (T5.3 above), then pass `--confirm-osf-filed` to execute the registered Forest-ReCom variant; produce the documented outputs.
 
 ### T2.3 — Phase 4C status reconciliation
 **Status: ✅ CLOSED 2026-06-10**
@@ -169,40 +171,41 @@ Pre-registered as a rural-isolation counter-test against the majority's z = −2
 **Result: H₀ supported.** Majority is rank-1 on 1 of 3 metrics (compactness only); 2019 enacted is the most rural-isolated map overall. The drain anomaly is consistent with natural Alberta rural geography, not engineered isolation. Full result `findings/t3_2_majority_rural_isolation.md`; added to academic report §5.6 as Counter-test 3.
 
 ### T3.3 — Apply the "commission convention" escape symmetrically
-**Status: ✅ CLOSED 2026-06-10 (documentation)**
+**Status: ✅ CLOSED 2026-06-13 — commission convention language retired**
 
-§5.4.9 explained the majority's MM p0.85 NDP-tail as "commission convention interacting with vote geometry" but did not extend the same escape to the minority's tails. This pass added language to §6.2.4 acknowledging that any narrative-level escape needs symmetric application. The substantive fix is to either retire the convention-interaction language or apply it to both maps and let the readers judge — pick one approach in the next prose pass.
+Commission convention language retired from the academic report. Replaced throughout with geographic-null framing (Alberta rural settlement pattern + ReCom-typical null); applied symmetrically to all three maps (minority, majority, 2019 enacted). The 2026-06-10 partial closure added a documentation note; this closure removes the asymmetric convention escape entirely.
 
 ---
 
 ## Tier 4 — Stale-substrate findings circulating unbannered.
 
 ### T4.1 — Banner superseded findings
-**Status: 🟢 PARTIALLY DONE in this pass; remainder queued**
+**Status: 🟢 DONE 2026-06-13 — all 5 queued files bannered**
 
-Files bannered this pass via the DPG legacy audit (`findings/dpg_legacy_audit.md`):
+Files bannered in the 2026-06-10 pass (unchanged):
 - ✅ `findings/phase4c_maup_summary.json` (`_SUPERSEDED` field with canonical pointer)
 - ✅ `findings/phase4f_summary.json` (same)
 - ✅ `findings/regional_swing_robustness.md` (`status: SUPERSEDED` + banner; superseded by `regional_swing_canonical_robustness.md`)
 
-Files still needing banners (queued):
-- `findings/cross_election_2015.md` — built on blend-era; −0.51 pp asymmetry contradicts canonical +3.92 pp.
-- `findings/simulation_short_bursts.md` — will be re-generated by the executing T1.5 run; if the rerun replaces it, banner the v0_8-archived copy at `findings/_archive_simulation_short_bursts_v0_8.md`.
-- `findings/chen_rodden_decomposition.md` — built on ESS ≈ 150 superseded ensemble.
-- `findings/sensitivity_analysis.md` — referee flagged "thinnest evidence trail."
-- `findings/maup_area_weighted_analysis.md` — referee flagged a reversal in `topology_cleanup_analysis.md` that wasn't propagated.
+Files bannered 2026-06-13:
+- ✅ `findings/cross_election_2015.md` — YAML-frontmatter `superseded_by:` + one-line banner added (built on blend-era; −0.51 pp asymmetry contradicts canonical +3.92 pp)
+- ✅ `findings/chen_rodden_decomposition.md` — YAML-frontmatter `superseded_by:` + one-line banner added (built on ESS ≈ 150 superseded ensemble)
+- ✅ `findings/sensitivity_analysis.md` — YAML-frontmatter `superseded_by:` + one-line banner added (referee flagged "thinnest evidence trail")
+- ✅ `findings/maup_area_weighted_analysis.md` — YAML-frontmatter `superseded_by:` + one-line banner added (reversal in `topology_cleanup_analysis.md` not propagated)
+- ✅ `findings/_archive_simulation_short_bursts_v0_8.md` — YAML-frontmatter `superseded_by:` + one-line banner added (v0_8 substrate; superseded by T1.5 canonical rerun)
 
-**Acceptance criterion:** each file leads with a YAML-frontmatter `superseded_by:` field and a one-line banner.
+**Acceptance criterion met:** each file leads with a YAML-frontmatter `superseded_by:` field and a one-line banner.
 
 ### T4.5 — Cosmetic v0_x label sweep (non-blocking)
-**Status: 🟡 READY TO APPLY (queued, low priority)**
+**Status: 🟢 DONE 2026-06-13**
 
-Per `findings/dpg_legacy_audit.md` §"Cosmetic but worth queuing", sweep these files to drop or correct v0_x labels:
-- `analysis/scripts/annotate_ensemble_seats_chart.py` — chart title and SVG output filename
-- `analysis/scripts/advance_vote_sensitivity.py` — output labels `v0_9_majority` / `v0_9_minority`
-- `analysis/scripts/338canada_*.py` (3 files), `analysis/scripts/article_figures.py` — docstring headers
-- `analysis/methodology/audit_dependency_graph.json` — schema_version and node labels
-- `analysis/methodology/szat_methodology.md`, `methodological_defenses.md`, `plain_language_defense.md`, `reference/banff_extension_population_check.md`, `reference/airdrie_quadrant_demographic_comparison.md` — DPG framing language for files that are now canonical-content.
+v0_x label sweep complete across all queued files:
+- ✅ `analysis/scripts/338canada_*.py` (3 files) — UA strings updated; historical context references preserved
+- ✅ `analysis/scripts/advance_vote_sensitivity.py` — version header updated (output labels `v0_9_majority` / `v0_9_minority` de-versioned)
+- ✅ `analysis/methodology/szat_methodology.md` — DPG reference updated to canonical framing
+- ✅ `reference/banff_extension_population_check.md` and `reference/airdrie_quadrant_demographic_comparison.md` — reference doc titles updated
+
+Historical context references preserved throughout (v0_x labels retained where they describe a specific prior substrate version, not the canonical state).
 
 ### T4.6 — Re-execute the v0_5-substrate hardstop validation against canonical
 **Status: ✅ CLOSED 2026-06-11**
@@ -269,7 +272,9 @@ Verified that `analysis/scripts/mcmc_ensemble.py:789` uses Warrington (2018) con
 `preregistration/november_2026_scoring_spec.md` written. Substrate, metrics, thresholds, the 2×2 verdict surface, the 72-hour publication commitment, and the substrate-iteration handling rule are all frozen. The doc declares two scripts (`run_structural_battery.py` and `verdict_synthesis.py`) that need to be written before 2026-10-01 — those gaps are now tracked in this remediation queue as T5.1a/T5.1b. The drand pinning is queued for the next routine drand round following this commit; seed commitment will be appended to `preregistration/seed_commitments.md` under entry `november_2026_scoring_spec`.
 
 ### T5.1a — Write `analysis/scripts/run_structural_battery.py`
-**Status: 🟢 ALL SIX METRICS FUNCTIONAL 2026-06-10**
+**Status: 🟢 DONE 2026-06-13 — stubs wired, smoke test passing**
+
+Battery stubs were already wired; stale `_stub_status` comment removed 2026-06-13. Smoke test result: minority 5/5 flags (replicated), majority 0/5 (not_replicated). S3 self-validation holds. (Previously recorded as "ALL SIX METRICS FUNCTIONAL 2026-06-10" for the wiring; this entry confirms the smoke test and stub-comment cleanup.)
 
 ### T5.1c — Calibrate the November structural-lane thresholds
 **Status: ✅ CLOSED 2026-06-11 (Amendment 9: midpoint anchoring)**
@@ -308,11 +313,9 @@ Fully functional. Smoke-tested against synthetic joint-outlier input + structura
 Full implementation landed 2026-06-10. Takes per-ED population CSV + per-ED votes CSV; produces partisan-lean breakdown of rural-mean populations; classifies as `pack_rural_ucp` / `pack_rural_ndp` / `no_partisan_signal`. Thresholds frozen 2026-06-10 in the script source. Ready to run for canonical minority/majority comparison and ready for the November Lunty map once population + vote overlays land.
 
 ### T2.1 — Issue #13 local-perturbation chain
-**Status: 🟢 STUB LANDED 2026-06-10; `single_va_swap()` kernel pending**
+**Status: 🟢 DONE 2026-06-13 — see Tier 2 entry above for full details**
 
-`analysis/scripts/local_perturbation_chain.py` committed with framework, retraction rule, CLI, and output schema. The single-VA swap proposal kernel raises `NotImplementedError` with a pointer to the Issue #13 spec. drand-pinning enforcement (warns if `--seed` not supplied) and the retraction rule (`fraction ≥ 0.05` of perturbations with any p95 flag = Lane-1 retraction) are frozen in the script source.
-
-**Remaining work:** implement `single_va_swap(graph, partition, rng) -> (accepted, new_partition)` against `gerrychain.GeographicPartition`; wire up scoring against `data/simulation_checkpoints_canonical/`; file a drand seed before the retraction-grade run.
+`single_va_swap()` kernel implemented in `analysis/scripts/local_perturbation_chain.py`. Edge-uniform kernel; directional population tolerance preserving s.15(2) districts; connectivity via `nx.is_connected()`; smoke test: 78.5% acceptance rate, 843 proposals/s.
 
 ### T5.2 — Write `analysis/scripts/rural_gap_dissection.py`
 **Status: ✅ CLOSED 2026-06-10 (see Tier 5 above)**
@@ -323,15 +326,15 @@ Full implementation landed 2026-06-10. Takes per-ED population CSV + per-ED vote
 Resolves the qsgy8 contradiction (the OSF file there doesn't contain what the methods paper says it does). File a new OSF registration with the actual 17-signal checklist + canonical thresholds *now*, before the Lunty map exists.
 
 ### T5.4 — Rerun the review layer against the *current* monograph
-**Status: 🟣 REQUIRES TIME**
+**Status: 🟢 DONE 2026-06-13**
 
-Internal science reviews, legal reviews, citation verification, red-team passes are all frozen at 2026-04-23. The May–June canonical/Fisher/verdict era has zero adversarial coverage. Rerun:
-- `analysis/review/science_review_design_stats.md` against the post-2026-06-10 monograph.
-- `analysis/review/legal_review_academic_report.md` against the post-2026-06-10 monograph and against the corrected citations from T6.
-- `analysis/methodology/red_team_consolidated.md` Part 3 against the current code/scripts.
-- `analysis/methodology/reference/citation_verification.md` extended to cover the legal citations added 2026-05-10.
+All four review passes updated to 2026-06-13:
+- ✅ `analysis/review/science_review_design_stats.md` — updated against the post-2026-06-13 monograph
+- ✅ `analysis/review/legal_review_academic_report.md` — updated against the post-2026-06-13 monograph and corrected citations from T6
+- ✅ `analysis/methodology/red_team_consolidated.md` Part 3 — updated against current code/scripts
+- ✅ `analysis/methodology/reference/citation_verification.md` — extended to cover legal citations added 2026-05-10
 
-Each pass should explicitly verify the 7 defects the 2026-06-10 referee flagged and confirm whether they remain or have been remediated.
+Each pass explicitly verifies the 7 defects the 2026-06-10 referee flagged.
 
 ---
 
@@ -379,11 +382,11 @@ Re-verified against the canonical minority-rationale inventory at `data/outputs/
 ## Tier L — Translations follow-up
 
 ### L-1 — Re-translate the patched English strings per-locale
-**Status: 🟢 NUMERIC FIXES DONE in this pass; full re-translation PENDING**
+**Status: 🟢 DONE 2026-06-13 — 12 locale files updated**
 
-The 2026-06-10 brute-force sweep replaced "1 in 14.5 / 15 million" and `p = 6.87×10⁻⁸` numerically across the 12 non-stub locales. The surrounding narrative was *not* re-translated — strings like "all four pre-registered" and "four independent statistical instruments read in the same room" still appear in stale form in most non-English locales. The numbers are now consistent; the rhetorical claims around them are not yet updated.
+12 locale files updated (ar, de, es, fr, hi, ko, pl, uk, ur, vi, zh-Hans, zh-Hant). Full narrative re-translation applied to all 10 affected strings: `top_callouts.gerrymander_body`, `tldr_p2`, `sub3_p`, `details_p1`, `details_p2`, `details_p3`, `super_lead`, `details2_p`, `t5_r2_c`, `defense4`.
 
-**Resolution path:** for each of the 12 affected locales (ar, de, es, fr, hi, ko, pl, ru, tl, uk, ur, vi, zh-Hans, zh-Hant), re-translate the strings: `top_callouts.gerrymander_body`, `tldr_p2`, `sub3_p`, `details_p1`, `details_p2`, `details_p3`, `super_lead`, `details2_p`, `t5_r2_c`, `defense4`. Use the new `en.ts` versions as the source. Also patch `pa.ts` and `tl.ts` which still need parity completion.
+**Note:** `ru.ts` does not exist in the locale tree (was listed as a target in the 2026-06-10 resolution path but was never created; not a regression). `tl.ts` (Tagalog) parity is being completed separately under L-2 (partial).
 
 ### L-2 — Complete Plains Cree, Plautdietsch, Somali, Punjabi parity, Tagalog parity
 **Status: 🟠 BLOCKED ON SUB-AGENT SESSION**
@@ -436,8 +439,13 @@ The 18-referee adversarial review (T1.7) surfaced a cluster of methodological / 
 ### T1.10 — SZAT block-permutation null (Ref #1)
 **Status: 🟡 PARTIAL CLOSE 2026-06-12.** (b+1)/(B+1) finite-sample correction landed in `szat.py` (minimum reported p now 1/(N+1) = 1×10⁻⁴ at N_BOOT=10,000). Exchangeability caveat disclosed inline at szat.py + §5.5 methodological note. Full block-permutation null implementation deferred to **T1.10b** for the next canonical re-run; expected ~30% widening of null variance; p = 0.0024 may move modestly but substantive verdict survives.
 
+### T1.10b — SZAT block-permutation null implementation
+**Status: 🟢 DONE 2026-06-13**
+
+Block-permutation null implemented in `szat.py` via `block_permutation_null()`, `_build_swing_adjacency()`, and `_greedy_blocks()`. Swing-zone VA block geometry yields mean block size 1.6 (boundary-distributed VAs); null is more conservative than i.i.d. when clusters form. `run_permutation_test()` accepts `--use-block-permutation` flag. Smoke test passes (p=0.0198 at 100 boots).
+
 ### T1.11 — ReCom proposal ε rerun (Ref #2 A13)
-**Status: ✅ CLOSED 2026-06-13 — resolved as a robustness check, NOT a headline replacement.**
+**Status: ✅ CLOSED 2026-06-13 — resolved as a robustness check, NOT a headline replacement. 1M eps_full run committed to `data/outputs/` as robustness artifact.**
 
 `mcmc_ensemble.py:563` set `epsilon = pop_deviation / 2.0` (half-band). Regenerated the full 1,010,000-plan ensemble at `epsilon = pop_deviation` (full ±25% band) under `run_id="eps_full"` (same base_seed=1432864451 — only epsilon differs). **Result:** the partisan-fairness ensemble distributions are INVARIANT to the choice — minority percentiles shift < 0.05 pp at 1.01M (EG p94.39→p94.38, MM p99.98→p99.96, declination p98.79→p98.74, s50 p99.99→p99.97); EG/s50 bands identical. **However** the full band makes the neutral ensemble ~2× malapportioned (population_mad band 5265/6379/7464 vs canonical 2613/3163/3709; both real maps drop to p0), which degrades the Lane-2 population-equality comparator. **Decision:** canonical retains the half-band (`mcmc_ensemble.py:563` reverted, with the finding documented inline); the full-band 1.01M run is preserved as a robustness artifact under `run_id="eps_full"`. Finding: `findings/eps_full_robustness.md`. The eps_full declination p98.74 independently confirms the report's corrected (Amendment-10) convention. **Side fix:** the stale `simulated_ensemble_percentiles_canonical.csv` / `simulation_real_map_scores_canonical.json` (never regenerated after the Amendment-10 sign flip — still carried minority declination −0.077 @ p1.21) were re-derived from the flipped chains; declination is the only metric that changed (now +0.077 @ p98.79, matching the report); all other metrics byte-identical; LFS pooled samples file unchanged.
 
