@@ -145,7 +145,7 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 
 - **MCMC-13 — 2019-seeded ensemble** (GitHub Issue #13): Seed ReCom chain from 2019 enacted geometry; single-boundary moves; population-target-preserving swaps. Effort: 2–3 days + ~90 min compute.
 - **COUNTER-14 — Counter-map challenge** (GitHub Issue #14): Retraction condition for §5.8.5 anchoring finding. Produce constraint-legal 89-seat map satisfying minority's stated COI rationales AND achieving majority-comparable municipal-boundary anchoring (CSD/DA edge alignment ≥60%). Status: no counter-map submitted as of 2026-05-10.
-- **338-RETRO — DONE 2026-05-12** (canonical uniform swing): Applied uniform provincial swing from 2023 actual to each of 77 historical 338Canada snapshots (2020-02-23 to 2026-04-12). Results: majority map gives NDP more seats in 74/76 non-tied snapshots; tied in 2 (NDP-lead conditions: NDP>41.8%, UCP<37.6%); no crossover. Mean majority advantage: 5.7 seats; range 0–9. Outputs: `data/outputs/338canada_uniform_swing_seats.csv`, `data/outputs/338canada_crossover_table.csv`. **Note:** reconciliation with old per-riding crosswalk stability analysis (`uniform_swing_stability.csv`, direction reversal at UCP>55%) still required before §5.2.3 can be updated; vote-attribution discrepancy resolved by Phase 4C but 338Canada swing model uses interpolated provincial totals, not Phase 4C per-VA attribution.
+- **338-RETRO — DONE 2026-05-12; §5.2.3 RECONCILED 2026-06-13** (canonical uniform swing): Applied uniform provincial swing from 2023 actual to each of 77 historical 338Canada snapshots (2020-02-23 to 2026-04-12). Results: majority map gives NDP more seats in 74/76 non-tied snapshots; tied in 2 (NDP-lead conditions: NDP>41.8%, UCP<37.6%); no crossover. Mean majority advantage: 5.7 seats; range 0–9. Outputs: `data/outputs/338canada_uniform_swing_seats.csv`, `data/outputs/338canada_crossover_table.csv`. **Reconciliation complete (2026-06-13):** §5.2.3 updated with canonical result and four-paragraph reconciliation explaining the two probes answer different questions (crosswalk-based vs Phase-4C-canonical; direction-reversal in crosswalk probe is a hybrid-ED model artifact not a boundary-geometry property). "≤ 5 seats" claim re-scoped; direction-reversal claim re-scoped to crosswalk probe. DOCUMENTED CORRECTIONS entry C7 added. §1.1 summary updated to distinguish probe-level findings.
 
 ### Data Source Gaps (minority_rationales_validation.md Proposals A–F)
 
@@ -261,17 +261,17 @@ Collapse `analysis/scripts/` from ~87 files into ~15–20 topic modules. Inputs 
 
 # Planning Docs — Flagged for Deletion
 
-After confirming nothing was missed, delete:
+**RESOLVED 2026-06-13:** All 7 files confirmed absent from working tree (repo-wide search returned no results). They were removed in a prior commit (`b50d1e4` refactor: consolidate stale MDs, or `aecc6f0` rename/relocate). No action required. List retained below for audit trail.
 
-| File | Reason |
-| --- | --- |
-| `analysis/methodology/master_plan.md` | All open D/S/G/C items now in COMPLETED_LOG.md |
-| `analysis/methodology/assignment_runbook.md` | Stage 3–7 procedure in Phase 4C section above |
-| `analysis/methodology/assignment_execution_log.md` | Stage status in Phase 4C section above |
-| `analysis/methodology/external_tool_validation_plan.md` | All three phases in External Validation section above |
-| `analysis/red_team/archival_submission_queue.md` | URL archival task in HIGH section above |
-| `analysis/methodology/restructure_inventory.md` | Phase A–D tasks in Restructure section above |
-| `analysis/methodology/editorial_pass_log.md` | Completed log; no outstanding items |
+| File | Reason | Status |
+| --- | --- | --- |
+| `analysis/methodology/master_plan.md` | All open D/S/G/C items now in COMPLETED_LOG.md | Already deleted |
+| `analysis/methodology/assignment_runbook.md` | Stage 3–7 procedure in Phase 4C section above | Already deleted |
+| `analysis/methodology/assignment_execution_log.md` | Stage status in Phase 4C section above | Already deleted |
+| `analysis/methodology/external_tool_validation_plan.md` | All three phases in External Validation section above | Already deleted |
+| `analysis/red_team/archival_submission_queue.md` | URL archival task in HIGH section above | Already deleted |
+| `analysis/methodology/restructure_inventory.md` | Phase A–D tasks in Restructure section above | Already deleted |
+| `analysis/methodology/editorial_pass_log.md` | Completed log; no outstanding items | Already deleted |
 
 **Do NOT delete (content, not plans):**
 
