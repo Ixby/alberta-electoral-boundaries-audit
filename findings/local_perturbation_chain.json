@@ -1,0 +1,9 @@
+{
+  "_mode": "dry-run",
+  "smoke_test_accepted": 157,
+  "smoke_test_attempted": 200,
+  "smoke_test_acceptance_rate": 0.785,
+  "seed": null,
+  "pop_tolerance": 0.25,
+  "executed_at_utc": "2026-06-13T21:49:52Z"
+}
