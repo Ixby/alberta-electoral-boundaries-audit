@@ -154,7 +154,16 @@ def build_queen_weights(gdf: gpd.GeoDataFrame) -> np.ndarray:
 def morans_i_permutation_test(
     values: np.ndarray, W: np.ndarray, n_perm: int = 999, seed: int = 42
 ) -> Dict:
-    """Permutation-based p-value for Moran's I."""
+    """Permutation-based p-value for Moran's I.
+
+    RNG note (HIGH-05 documentation fix, 2026-06-13):
+    Uses np.random.default_rng(seed) — PCG64 generator, stable across
+    numpy >= 1.17.  The Test 2 walk (run_simulation) uses random.Random(42)
+    (stdlib) independently; the two streams do not share state.
+    numpy version pin: 1.24+ (see requirements.txt).  If run under numpy
+    < 1.17, default_rng falls back to MT19937 and the p-value stream will
+    differ; pin numpy to avoid silent divergence near p = 0.05 boundaries.
+    """
     rng = np.random.default_rng(seed)
     I_obs, expected = compute_morans_i(values, W)
     perm_I = np.zeros(n_perm)
@@ -430,6 +439,11 @@ def test2_ensemble_ed_perturbation(n_plans: int = 200) -> List[Dict]:
                     q.append(n)
         return len(seen) == len(members)
 
+    # RNG note (HIGH-05, 2026-06-13): stdlib random.Random(42) drives the
+    # Test 2 random-walk swap selection.  This is independent of the numpy
+    # default_rng used in morans_i_permutation_test (Test 1).  Both streams
+    # use integer seed 42; reproducibility requires Python >= 3.2 (Mersenne
+    # Twister seeding stable across all CPython releases post-2.6).
     rng = random.Random(42)
     plans_metrics = []
     # Each plan = 500 accepted swaps beyond the previous plan state.

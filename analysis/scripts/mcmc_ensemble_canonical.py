@@ -217,6 +217,30 @@ def main(
         shutil.copy2(pop_cache_alternate, pop_cache_expected)
         print(f"  copied va_pop_from_das.csv from outputs/ to data/", flush=True)
 
+    # ── RNG streams — three independent streams, all seeded from the same
+    # canonical drand-derived seed (HIGH-05 documentation fix, 2026-06-13).
+    #
+    # Stream 1 — numpy legacy API: np.random.seed(seed)
+    #   Used by any call to np.random.* that pre-dates np.random.default_rng.
+    #   GerryChain's ReCom internally calls numpy's legacy random functions,
+    #   so this stream drives the walk steps.  Must be set before run_ensemble().
+    #
+    # Stream 2 — stdlib random: random.seed(seed)
+    #   GerryChain also calls Python's stdlib random.shuffle() internally for
+    #   edge ordering in the spanning-tree construction step.  Seeding both
+    #   numpy and stdlib ensures full reproducibility across GerryChain versions
+    #   that mix the two sources.  This is intentional, not a hygiene problem.
+    #
+    # Stream 3 — per-chain seed (derived in _run_chain_chunked):
+    #   chain_seed = (base_seed * 100_000 + chain_idx * 1_000) % (2**32)
+    #   Passed as the `seed` kwarg to run_ensemble(), which wraps it in a
+    #   np.random.default_rng() for any explicit numpy operations inside the
+    #   chain loop.  Deterministic chain-index derivation means each chain is
+    #   independently reproducible and parallel-safe.
+    #
+    # numpy version pin: 1.24+ (PCG64 default generator; stream identical
+    # across numpy 1.17–2.x because the legacy API uses MT19937 regardless
+    # of the default_rng backend).  Pin recorded in requirements.txt.
     np.random.seed(seed)
     import random as _random
     _random.seed(seed)

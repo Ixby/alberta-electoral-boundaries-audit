@@ -192,6 +192,264 @@ def _assign(va_gdf: gpd.GeoDataFrame, ed_gdf: gpd.GeoDataFrame) -> pd.Series:
     return joined["EDName2025"]
 
 
+# ── Block-permutation null ─────────────────────────────────────────────────────
+
+
+def _build_swing_adjacency(va_gdf_swing: gpd.GeoDataFrame) -> dict[int, list[int]]:
+    """Build a queen-contiguity adjacency graph over the swing-zone VA rows.
+
+    Parameters
+    ----------
+    va_gdf_swing : GeoDataFrame
+        Subset of the VA GeoDataFrame corresponding to swing-zone rows only,
+        with a positional integer index (0 … n_swing-1).
+
+    Returns
+    -------
+    adj : dict[int, list[int]]
+        Mapping from positional index i -> list of positional indices j that
+        share a boundary or vertex (queen contiguity).  Self-loops excluded.
+    """
+    n = len(va_gdf_swing)
+    geoms = va_gdf_swing.geometry.values
+    sindex = va_gdf_swing.sindex
+    adj: dict[int, list[int]] = {i: [] for i in range(n)}
+    for i in range(n):
+        candidates = list(sindex.intersection(geoms[i].bounds))
+        for j in candidates:
+            if j <= i:
+                continue
+            try:
+                inter = geoms[i].intersection(geoms[j])
+                if not inter.is_empty:
+                    adj[i].append(j)
+                    adj[j].append(i)
+            except Exception:
+                pass
+    return adj
+
+
+def _greedy_blocks(adj: dict[int, list[int]], n: int, block_size: int,
+                   rng: np.random.Generator) -> list[int]:
+    """Assign each swing-zone VA to a block label using a greedy BFS approach.
+
+    Starting from a random unvisited seed, BFS expands until the block reaches
+    `block_size` members, then a new seed is chosen.  The resulting blocks are
+    geographically compact and of approximately equal size.
+
+    Parameters
+    ----------
+    adj : adjacency dict from _build_swing_adjacency
+    n : total number of swing-zone VAs
+    block_size : target number of VAs per block
+    rng : seeded numpy Generator for reproducibility
+
+    Returns
+    -------
+    block_labels : list[int] of length n — block index for each VA (0-indexed)
+    """
+    order = rng.permutation(n)  # randomise seed order
+    block_labels = [-1] * n
+    block_id = 0
+    visited = [False] * n
+
+    for seed in order:
+        if visited[seed]:
+            continue
+        # BFS from this seed
+        queue = [seed]
+        members: list[int] = []
+        visited[seed] = True
+        head = 0
+        while head < len(queue) and len(members) < block_size:
+            cur = queue[head]
+            head += 1
+            members.append(cur)
+            for nb in adj[cur]:
+                if not visited[nb] and len(members) < block_size:
+                    visited[nb] = True
+                    queue.append(nb)
+        for m in members:
+            block_labels[m] = block_id
+        block_id += 1
+
+    # Any remaining unvisited nodes (isolated, or left over) get their own blocks
+    for i in range(n):
+        if block_labels[i] == -1:
+            block_labels[i] = block_id
+            block_id += 1
+
+    return block_labels
+
+
+def block_permutation_null(
+    va_gdf: gpd.GeoDataFrame,
+    va: pd.DataFrame,
+    swing_mask: np.ndarray,
+    sw_maj_idx: np.ndarray,
+    sw_min_idx: np.ndarray,
+    sw_ndp_arr: np.ndarray,
+    sw_ucp_arr: np.ndarray,
+    nsw_ndp_agg: np.ndarray,
+    nsw_ucp_agg: np.ndarray,
+    n_eds: int,
+    eg_maj_fixed: float,
+    total_prov: float,
+    n_boot: int = 10_000,
+    seed: int = None,
+    block_size: int = 5,
+) -> np.ndarray:
+    """Block-permutation null distribution for the SZAT statistic.
+
+    Addresses spatial non-exchangeability (T1.10b): the 2,110 swing-zone VAs
+    are clustered politically (Moran's I z = 12.15 on NDP-share), so i.i.d.
+    per-VA Bernoulli flips understate null variance.  This function groups
+    adjacent swing-zone VAs into contiguous blocks of `block_size` using BFS
+    over a queen-contiguity graph, then flips each block as a unit (Bernoulli
+    0.5).  All VAs within a flipped block move together from majority_ed to
+    minority_ed (or vice versa), preserving local spatial structure.
+
+    The (b+1)/(B+1) finite-sample correction is applied in the caller
+    (run_permutation_test), matching T1.10 closure convention.
+
+    Parameters
+    ----------
+    va_gdf : GeoDataFrame aligned to the post-dropna `va` DataFrame (same order)
+    va : DataFrame of VA rows (output of the main assignment + swing-zone step)
+    swing_mask : bool array (len = len(va)) — True for swing-zone rows
+    sw_maj_idx, sw_min_idx : integer ED indices for each swing VA
+    sw_ndp_arr, sw_ucp_arr : vote totals for each swing VA
+    nsw_ndp_agg, nsw_ucp_agg : pre-aggregated non-swing contributions (constant)
+    n_eds : total number of EDs in the union
+    eg_maj_fixed : observed EG of majority map (fixed reference)
+    total_prov : provincial two-party total
+    n_boot : number of permutation draws (default 10,000)
+    seed : RNG seed (canonical drand-derived integer)
+    block_size : target VAs per block (default 5)
+
+    Returns
+    -------
+    boot_scores : np.ndarray of shape (n_boot,) — SZAT_perm = EG_perm - eg_maj_fixed
+    """
+    rng = np.random.default_rng(seed)
+
+    # Build adjacency over swing-zone VA geometries only.
+    # va_gdf must be aligned to the same row order as va (post-dropna).
+    swing_indices = np.where(swing_mask)[0]
+    va_gdf_swing = va_gdf.iloc[swing_indices].reset_index(drop=True)
+    adj = _build_swing_adjacency(va_gdf_swing)
+
+    n_swing = len(swing_indices)
+    block_labels = _greedy_blocks(adj, n_swing, block_size, rng)
+    n_blocks = max(block_labels) + 1
+
+    print(
+        f"  [block-permutation] {n_swing} swing VAs -> {n_blocks} blocks "
+        f"(target block_size={block_size}, mean={n_swing/n_blocks:.1f})"
+    )
+
+    def _eg_from_agg(ed_ndp: np.ndarray, ed_ucp: np.ndarray) -> float:
+        ed_total = ed_ndp + ed_ucp
+        threshold = ed_total / 2.0
+        ndp_wins = ed_ndp >= ed_ucp
+        w_ndp = np.where(ndp_wins, np.maximum(0.0, ed_ndp - threshold), ed_ndp)
+        w_ucp = np.where(ndp_wins, ed_ucp, np.maximum(0.0, ed_ucp - threshold))
+        return (w_ndp.sum() - w_ucp.sum()) / total_prov
+
+    block_labels_arr = np.array(block_labels, dtype=np.int32)  # (n_swing,)
+    boot_scores = np.empty(n_boot)
+
+    for i in range(n_boot):
+        # Flip each block independently — Bernoulli(0.5) per block
+        block_flip = rng.random(n_blocks) < 0.5  # True -> use minority_ed
+        va_flip = block_flip[block_labels_arr]   # broadcast to VA level
+        perm_sw_idx = np.where(va_flip, sw_min_idx, sw_maj_idx)
+        ed_ndp = nsw_ndp_agg + np.bincount(perm_sw_idx, weights=sw_ndp_arr, minlength=n_eds)
+        ed_ucp = nsw_ucp_agg + np.bincount(perm_sw_idx, weights=sw_ucp_arr, minlength=n_eds)
+        boot_scores[i] = _eg_from_agg(ed_ndp, ed_ucp) - eg_maj_fixed
+
+    return boot_scores
+
+
+def run_permutation_test(
+    swing_mask: np.ndarray,
+    sw_maj_idx: np.ndarray,
+    sw_min_idx: np.ndarray,
+    sw_ndp_arr: np.ndarray,
+    sw_ucp_arr: np.ndarray,
+    nsw_ndp_agg: np.ndarray,
+    nsw_ucp_agg: np.ndarray,
+    n_eds: int,
+    eg_maj_fixed: float,
+    total_prov: float,
+    szat_score: float,
+    n_boot: int,
+    seed: int,
+    use_block_permutation: bool = False,
+    va_gdf: gpd.GeoDataFrame = None,
+    va: pd.DataFrame = None,
+    block_size: int = 5,
+) -> tuple[np.ndarray, float, float, float]:
+    """Run the SZAT permutation test and return (boot_scores, p_value, ci_lo, ci_hi).
+
+    Supports two null distributions:
+      use_block_permutation=False (default, pre-registered i.i.d. null):
+        Each swing-zone VA is independently flipped Bernoulli(0.5).
+        Anti-conservative when spatial autocorrelation is present (T1.10b).
+      use_block_permutation=True (T1.10b block-permutation null):
+        Swing-zone VAs are grouped into contiguous blocks via queen contiguity;
+        each block is flipped as a unit.  Corrects for spatial clustering.
+
+    The (b+1)/(B+1) finite-sample correction is applied in both paths.
+    """
+    n_swing_boot = int(swing_mask.sum())
+
+    def _eg_from_agg(ed_ndp: np.ndarray, ed_ucp: np.ndarray) -> float:
+        ed_total = ed_ndp + ed_ucp
+        threshold = ed_total / 2.0
+        ndp_wins = ed_ndp >= ed_ucp
+        w_ndp = np.where(ndp_wins, np.maximum(0.0, ed_ndp - threshold), ed_ndp)
+        w_ucp = np.where(ndp_wins, ed_ucp, np.maximum(0.0, ed_ucp - threshold))
+        return (w_ndp.sum() - w_ucp.sum()) / total_prov
+
+    if use_block_permutation:
+        if va_gdf is None or va is None:
+            raise ValueError("va_gdf and va must be provided for block permutation")
+        boot_scores = block_permutation_null(
+            va_gdf=va_gdf,
+            va=va,
+            swing_mask=swing_mask,
+            sw_maj_idx=sw_maj_idx,
+            sw_min_idx=sw_min_idx,
+            sw_ndp_arr=sw_ndp_arr,
+            sw_ucp_arr=sw_ucp_arr,
+            nsw_ndp_agg=nsw_ndp_agg,
+            nsw_ucp_agg=nsw_ucp_agg,
+            n_eds=n_eds,
+            eg_maj_fixed=eg_maj_fixed,
+            total_prov=total_prov,
+            n_boot=n_boot,
+            seed=seed,
+            block_size=block_size,
+        )
+    else:
+        rng = np.random.default_rng(seed)
+        boot_scores = np.empty(n_boot)
+        for i in range(n_boot):
+            flip = rng.random(n_swing_boot) < 0.5
+            perm_sw_idx = np.where(flip, sw_min_idx, sw_maj_idx)
+            ed_ndp = nsw_ndp_agg + np.bincount(perm_sw_idx, weights=sw_ndp_arr, minlength=n_eds)
+            ed_ucp = nsw_ucp_agg + np.bincount(perm_sw_idx, weights=sw_ucp_arr, minlength=n_eds)
+            boot_scores[i] = _eg_from_agg(ed_ndp, ed_ucp) - eg_maj_fixed
+
+    # (b+1)/(B+1) finite-sample correction (T1.10 closure 2026-06-12)
+    b_extreme = int(np.sum(np.abs(boot_scores) >= abs(szat_score)))
+    p_value = float((b_extreme + 1) / (n_boot + 1))
+    ci_lo = float(np.percentile(boot_scores, 2.5))
+    ci_hi = float(np.percentile(boot_scores, 97.5))
+    return boot_scores, p_value, ci_lo, ci_hi
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 
@@ -205,6 +463,22 @@ def run() -> None:
     parser.add_argument(
         "--va-file", type=str, default=None,
         help="Override default VA file path (e.g., canonical va_2023_election_day_votes.gpkg)."
+    )
+    parser.add_argument(
+        "--n-boot", type=int, default=None,
+        help=f"Override number of permutation draws (default: module constant N_BOOT={N_BOOT:,})."
+    )
+    parser.add_argument(
+        "--use-block-permutation", action="store_true",
+        help=(
+            "Use contiguity-block null (T1.10b) instead of i.i.d. per-VA flips. "
+            "Groups adjacent swing-zone VAs into blocks of --block-size and flips "
+            "each block as a unit, correcting for spatial autocorrelation."
+        )
+    )
+    parser.add_argument(
+        "--block-size", type=int, default=5,
+        help="Target VAs per block for --use-block-permutation (default: 5)."
     )
     args = parser.parse_args()
 
@@ -362,8 +636,15 @@ def run() -> None:
     # SZAT_perm = EG(perm_minority) - EG(majority_fixed)
     # Replaces earlier additive-delta approximation (captured only direct swing
     # effects = 54.9% of score; anti-conservative vs the pre-registered null).
+    #
+    # T1.10b (2026-06-13): block-permutation null available via
+    # --use-block-permutation.  Permutes contiguous blocks of swing-zone VAs
+    # (queen-contiguity graph) rather than individual VAs, correcting for the
+    # spatial autocorrelation documented in Moran's I z = 12.15.
 
-    print(f"\nBootstrapping ({N_BOOT:,} permutations, full-recompute)...")
+    n_boot = args.n_boot if args.n_boot is not None else N_BOOT
+    null_label = "block-permutation (T1.10b)" if args.use_block_permutation else "i.i.d. per-VA flip (pre-registered)"
+    print(f"\nBootstrapping ({n_boot:,} permutations, {null_label})...")
 
     sys.path.insert(0, str(ROOT / "analysis" / "scripts"))
     from drand_seed import get_canonical_seed  # fails loudly if missing — no fallback
@@ -393,56 +674,44 @@ def run() -> None:
     nsw_ndp_agg = np.bincount(nsw_idx, weights=nsw_ndp_arr, minlength=n_eds)
     nsw_ucp_agg = np.bincount(nsw_idx, weights=nsw_ucp_arr, minlength=n_eds)
 
-    n_swing_boot = int(swing_mask.sum())
     eg_maj_fixed = eg_maj  # majority map is the fixed reference
 
-    def _eg_from_agg(ed_ndp: np.ndarray, ed_ucp: np.ndarray) -> float:
-        ed_total = ed_ndp + ed_ucp
-        threshold = ed_total / 2.0
-        ndp_wins = ed_ndp >= ed_ucp
-        w_ndp = np.where(ndp_wins, np.maximum(0.0, ed_ndp - threshold), ed_ndp)
-        w_ucp = np.where(ndp_wins, ed_ucp, np.maximum(0.0, ed_ucp - threshold))
-        return (w_ndp.sum() - w_ucp.sum()) / total_prov
+    # Align va_gdf to the post-dropna va index for block permutation geometry access.
+    # va was constructed from va_gdf rows and then dropna'd; track which va_gdf rows
+    # survived so the block-permutation adjacency graph uses the correct geometries.
+    va_gdf_aligned = va_gdf.iloc[va.index].reset_index(drop=True)
+    va_reset = va.reset_index(drop=True)
 
-    # Exchangeability caveat (T1.7 R1 Ref #1 D3, 2026-06-12). The original
-    # bootstrap flips each swing-zone VA i.i.d. Bernoulli(0.5), which assumes
-    # the 2,110 swing-zone VAs are exchangeable. The audit's own Moran's I
-    # z = 12.15 on NDP-share contradicts independence — spatially adjacent
-    # swing-zone VAs cluster politically. Independent per-VA flips therefore
-    # *understate* the null variance, making the reported p anti-conservative
-    # (Lehmann & Romano 2005 ch.15; Legendre 1993, Ecology 74). A
-    # contiguity-respecting block-permutation null is queued as T1.10b: pick
-    # k-block clusters from a queen-contiguity graph over the swing zones,
-    # flip whole clusters as units. Implementation deferred to the next
-    # canonical re-run. Until then this script reports the i.i.d.-flip null
-    # with the (b+1)/(B+1) correction applied and explicit disclosure of the
-    # exchangeability assumption.
-    rng = np.random.default_rng(seed)
-    boot_scores = np.empty(N_BOOT)
-    for i in range(N_BOOT):
-        flip = rng.random(n_swing_boot) < 0.5   # True -> use minority_ed
-        perm_sw_idx = np.where(flip, sw_min_idx, sw_maj_idx)
-        ed_ndp = nsw_ndp_agg + np.bincount(perm_sw_idx, weights=sw_ndp_arr, minlength=n_eds)
-        ed_ucp = nsw_ucp_agg + np.bincount(perm_sw_idx, weights=sw_ucp_arr, minlength=n_eds)
-        boot_scores[i] = _eg_from_agg(ed_ndp, ed_ucp) - eg_maj_fixed
+    boot_scores, p_value, ci_lo, ci_hi = run_permutation_test(
+        swing_mask=va_reset["is_swing"].values.astype(bool),
+        sw_maj_idx=sw_maj_idx,
+        sw_min_idx=sw_min_idx,
+        sw_ndp_arr=sw_ndp_arr,
+        sw_ucp_arr=sw_ucp_arr,
+        nsw_ndp_agg=nsw_ndp_agg,
+        nsw_ucp_agg=nsw_ucp_agg,
+        n_eds=n_eds,
+        eg_maj_fixed=eg_maj_fixed,
+        total_prov=total_prov,
+        szat_score=szat_score,
+        n_boot=n_boot,
+        seed=seed,
+        use_block_permutation=args.use_block_permutation,
+        va_gdf=va_gdf_aligned if args.use_block_permutation else None,
+        va=va_reset if args.use_block_permutation else None,
+        block_size=args.block_size,
+    )
+
+    b_extreme = int(np.sum(np.abs(boot_scores) >= abs(szat_score)))
 
     boot_eg_raw = boot_scores + eg_maj_fixed
     np.save(DATA / "szat_bootstrap_eg_samples.npy", boot_eg_raw)
     print(f"  Bootstrap EG samples saved: {len(boot_eg_raw)} draws")
 
-    # (b+1)/(B+1) finite-sample correction (T1.10 closed 2026-06-12 per T1.7 R1 Ref #1):
-    # the empirical-tail probability under the permutation null is the proportion
-    # of permutations at least as extreme as observed, *plus 1*, divided by N+1.
-    # Earlier draft used `np.mean(...)` which gives b/B and can produce p=0 for
-    # extreme observations; with (b+1)/(B+1) the minimum reported p is 1/(N+1).
-    b_extreme = int(np.sum(np.abs(boot_scores) >= abs(szat_score)))
-    p_value = float((b_extreme + 1) / (N_BOOT + 1))
-    ci_lo = float(np.percentile(boot_scores, 2.5))
-    ci_hi = float(np.percentile(boot_scores, 97.5))
-
-    print(f"  p-value (two-tailed):        {p_value:.4f} (b+1)/(B+1) on {b_extreme}/{N_BOOT}")
+    print(f"  p-value (two-tailed):        {p_value:.4f} (b+1)/(B+1) on {b_extreme}/{n_boot}")
     print(f"  Null 95% interval:           [{ci_lo:+.6f}, {ci_hi:+.6f}]")
     print(f"  Observed SZAT score:         {szat_score:+.6f}")
+    print(f"  Null type:                   {null_label}")
 
     # ── Outputs ────────────────────────────────────────────────────────────────
 
@@ -474,7 +743,9 @@ def run() -> None:
         "total_va_count": int(len(va)),
         "unresolved_count": unresolved,
         "bootstrap_p_value": round(p_value, 4),
-        "bootstrap_n": N_BOOT,
+        "bootstrap_n": n_boot,
+        "bootstrap_null_type": null_label,
+        "bootstrap_block_size": args.block_size if args.use_block_permutation else None,
         "bootstrap_seed": seed,
         "bootstrap_ci_95": [round(ci_lo, 6), round(ci_hi, 6)],
         "regional_breakdown": {k: round(v, 6) for k, v in regional.items()},

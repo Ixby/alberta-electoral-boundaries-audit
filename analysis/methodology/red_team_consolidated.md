@@ -6813,3 +6813,67 @@ Budget may also be insufficient for a complete Stage-3-through-Stage-6 run at 45
 *End of v1.2 prompt red-team.*
 
 ---
+
+## T5.4 Update — 2026-06-13: HIGH-item status re-check (Part 3 code-level findings)
+
+*Pass executed 2026-06-13 against current working tree (branch `master`). Scope: deferred HIGH items from the Part 2 code red-team (§5 of the main fixes log). Four pipeline scripts inspected: `packing_cracking_analysis.py`, `mcmc_ensemble_canonical.py`, `szat.py`, `score_anchoring.py`.*
+
+---
+
+### HIGH-03 — Magic-number bounding boxes
+
+**Status: NOT FOUND in current pipeline scripts.**
+
+The four main pipeline scripts (`packing_cracking_analysis.py`, `mcmc_ensemble_canonical.py`, `szat.py`, `score_anchoring.py`) contain no hardcoded EPSG:3401 coordinate literals or numeric bounding-box expressions. The original finding pointed to `analysis/scripts/shape_refinement_v4.py:555-647` and `shape_refinement_v5.py:930-971`. Neither file exists in the current `analysis/scripts/` directory — they have been removed or never committed to this branch. The magic-number coordinates (e.g., `west_x = 72000`, `notch_w = 1500`, `notch_h = 1200`) were in the v4/v5 shape-refinement pipeline that produced DPG-era geometry.
+
+**Assessment:** No action required in the active pipeline. The canonical shapefiles (EA-issued, not DPG-derived) are the live inputs; v4/v5 scripts are deprecated. The finding remains documented here as resolved-by-deprecation. If v4/v5 scripts are ever resurrected or the shape-refinement pipeline is reactivated, HIGH-03 applies in full.
+
+---
+
+### HIGH-05 — Mixed RNG sources (documentation fix)
+
+**Status: FIXED (documentation added 2026-06-13).**
+
+Two documentation blocks added:
+
+1. **`analysis/scripts/mcmc_ensemble_canonical.py`** (`main()`, lines around `np.random.seed(seed)` / `_random.seed(seed)`): A 20-line comment block now explains all three RNG streams present in the MCMC pipeline — (Stream 1) numpy legacy API seeded from the drand-derived `seed`, used by GerryChain's internal numpy calls; (Stream 2) stdlib `random` seeded from the same `seed`, used by GerryChain's `random.shuffle()` in spanning-tree construction; (Stream 3) per-chain seed derived as `(base_seed * 100_000 + chain_idx * 1_000) % (2**32)`, passed to `run_ensemble()` for numpy default_rng calls. The comment clarifies this is intentional design (GerryChain mixes both sources) and notes the numpy version pin (1.24+, MT19937 legacy stream stable across 1.17–2.x).
+
+2. **`analysis/scripts/chen_rodden_alberta.py`** (original HIGH-05 target): Two comment blocks added — one in `morans_i_permutation_test()` documenting `np.random.default_rng(seed)` (Test 1, PCG64, numpy >= 1.17 stable), and one at the `random.Random(42)` call (Test 2) documenting that the stdlib stream is independent of the numpy stream and why. numpy version pin noted explicitly.
+
+These are documentation-only fixes; no algorithmic changes.
+
+---
+
+### HIGH-06 — 2015 region classification heuristic
+
+**Status: STILL DEFERRED.**
+
+The `cross_election_rural_baseline.py` region classifier uses a string-prefix heuristic (`region_from_name()`) that was not validated against poll-level 2015 ED names. Fixing it requires poll-level re-aggregation of the 2015 results against a confirmed ED-name list, which is out of scope for a code-comment pass. The related MED-D4-CHENRODDEN-NUMPY finding (re-flagged from HIGH-05 in the legal red-team) was partially addressed by the documentation additions above. HIGH-06 itself (error-bounds on the 2015 regional split) remains open pending the full cross-election data review.
+
+---
+
+### HIGH-08 — Chrome `--no-sandbox` hardening
+
+**Status: STILL DEFERRED.**
+
+`build_pdf.py:513-534` and `build_cover.py:420-437` still use `--no-sandbox` and `--virtual-time-budget=15000` without post-hoc PDF validation. The fix (inline Google Fonts as base64 WOFF2, or post-render `pypdf` page-count assert) is a build-pipeline refactor. Re-flagged as HIGH-D4-LIVE-FONT-URL and MED-D4-CHROMESEC in the legal red-team. Deferred to a targeted PDF-build hardening pass.
+
+---
+
+### HIGH-11 — Suppressed-DA uncertainty accumulation
+
+**Status: STILL DEFERRED.**
+
+`a1_legal_baseline_2021_census.py:110-123` still zeroes suppressed DAs without propagating uncertainty into the MAD output. The fix (compute per-ED "suppressed-DA pop share" column, flag EDs > 5%) requires a moderate-scope addition to the baseline script and a corresponding update to Appendix C. Deferred to the next census-baseline update pass.
+
+---
+
+### Summary table
+
+| Finding | Status | Notes |
+|---|---|---|
+| HIGH-03 | Not found in active pipeline | v4/v5 scripts deprecated; magic numbers gone |
+| HIGH-05 | **FIXED** (documentation only) | Comment blocks in `mcmc_ensemble_canonical.py` + `chen_rodden_alberta.py` |
+| HIGH-06 | Deferred | Requires poll-level 2015 re-aggregation |
+| HIGH-08 | Deferred | Build-pipeline refactor; separate pass |
+| HIGH-11 | Deferred | Census-baseline update; separate pass |

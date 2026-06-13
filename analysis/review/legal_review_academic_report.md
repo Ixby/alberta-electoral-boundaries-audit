@@ -11,7 +11,7 @@
 **Standard:** defensible under hostile cross-examination in a court of law.
 **Framework:** `analysis/red_team/legal_red_team_framework.md` (ten dimensions D1–D10).
 **Reference pass:** `analysis/red_team/legal_red_team_report_public.md` (same template).
-**Date:** 2026-04-23
+**Date:** 2026-04-23 (findings); last updated 2026-06-13
 **Scope:** `report_academic.md`, 1,049 lines, draft dated April 2026. Extends —
 does not duplicate — the assertions / references / conclusions / latent-bias /
 code red-team passes already on file. Focus of this pass: legal-standard
@@ -198,6 +198,145 @@ When rate limits reset, four agents run in parallel:
 4. **Analysis-doc consistency** — for each of the ~25 `analysis/v0_1_*.md` files cited by name in the academic paper, spot-check that the file's own headline or findings match what the paper attributes. Produces `analysis/red_team/v0_1_legal_red_team_analysis_docs.md` (framework assignment 3 overlaps).
 
 The conductor consolidation (framework.md L123 "seventh agent") should apply a blocking rule: any CRITICAL across the six findings files blocks release; any HIGH count above an agreed threshold (framework does not specify; suggest 15 aggregate across the six files) triggers a second editing pass before release.
+
+---
+
+## 2026-06-13 update pass
+
+**Reviewer:** automated verification pass against current `report_academic.md` state
+**Scope:** 7 specific legal issues; original 48-finding table above unchanged
+**Method:** Read `§4.5`, `§5.8.4`, `§5.9.3`, `§5.9.5`–`§5.9.7`, `§6.2`, Appendix F, and CoI block against criteria below.
+
+---
+
+### 1. Charter s.3 framing
+
+**Status: SUBSTANTIALLY RESOLVED**
+
+The report frames statistical findings as evidence for a s.3 effective-representation inquiry, not as proof of a legal wrong, across all relevant sections.
+
+- §4.5 (lines 596–599): "does not reach a constitutional conclusion: Appendix F sets out the Saskatchewan Reference [1991] effective-representation framework under which the evidence could be evaluated by counsel and a court, but does not itself render a verdict."
+- §5.9.5 (lines 2199–2215): "this audit does not assess the constitutional question. It provides the evidentiary basis for others to do so." Charter §3 named as operative provision.
+- §6.2 (lines 2446–2564): §6.2.8 explicitly: "Neither summary is a legal finding." Line 2453: "The audit measures the effects; the constitutional question of whether those effects amount to a failure of effective representation is for counsel and a court to assess (Appendix F)."
+- "Gerrymander" used in §6.2 as an academic/opinion term, explicitly defined as "a constellation of measurable effects" per the academic literature, not as a legal conclusion (line 2453). The section is introduced with an explicit departure-from-measurement-voice disclosure (line 2449).
+- Appendix F (line 3082): constitutional framing correctly deferred to counsel.
+
+**Residual concern (not blocking):** The §6.2 heading reads "was either map a gerrymander?" which could mislead a skim reader into treating §6.2 as a legal verdict. The body text is unambiguous. No edit required at this time; recommend monitoring for reviewer feedback.
+
+---
+
+### 2. EBCA statutory compliance
+
+**Status: RESOLVED**
+
+The report correctly distinguishes EBCA s.15(2) statutory compliance from partisan-fairness (EG/efficiency-gap) findings throughout.
+
+- The Option B threshold is defined as "EBCA statutory-proportional" at 5% (distinct from EG metrics).
+- §5.1.4 treats s.15(2) statutory invocations as a separate analytical lane from partisan-bias metrics.
+- The two-lane structure (Lane 1: partisan bias / Lane 2: structural/procedural) preserves this distinction architecturally.
+
+No action required.
+
+---
+
+### 3. Saskatchewan Reference para. 26/33 anachronism (T6.1)
+
+**Status: STILL OUTSTANDING — fix required in this document (ACA-29) and in the report**
+
+**Finding:** The para. 26/33 pinpoints remain in the report at two locations:
+- Lines 318–320 (§2 background): "The Saskatchewan Reference para. 33, delivered by McLachlin J., establishes..."
+- Appendix F, line 3082: "McLachlin J (as she then was) wrote the guarantee of §3 is 'the right to effective representation' (para. 26), with 'relative parity of voting power' to be weighed against other factors 'including geography, community history, community interests and minority representation' (para. 33)."
+
+**Anachronism flag (not present in original ACA-29):** *Reference re Provincial Electoral Boundaries (Saskatchewan)* [1991] 2 SCR 158 was decided before the Supreme Court adopted paragraph-numbering conventions in its published reasons. Pre-1992 SCR decisions were not paragraph-numbered in the original reporter; the paragraph numbers now visible in CanLII and Westlaw are editorial additions by those databases, not from the original [1991] 2 SCR reporter. Citing "para. 26" and "para. 33" in a formal legal document could be challenged as citing to database-added editorial numerals rather than the court's own text.
+
+**Fix required (non-counsel-blocked):**
+1. In `report_academic.md` at lines 318–320 and line 3082: replace "para. 26" and "para. 33" with SCR reporter page citations (e.g., "at p. 183" and "at p. 185" — exact page numbers must be verified against [1991] 2 SCR 158 before editing; do not change without reading the reporter).
+2. Update ACA-29 in this document to note the anachronism issue in addition to the reporter-page recommendation.
+
+**ACA-29 addendum:** The original ACA-29 flagged this as MED and recommended "reporter page number or pin-cite form, not just the paragraph." This update expands that to: the paragraph numbers are not from the original SCR reporter and should not be cited as such in a court-tendered document. Reporter page pin-cites are required. Priority elevated to HIGH for release.
+
+---
+
+### 4. Appendix F cleanup (T6.3)
+
+**Status: PARTIALLY RESOLVED — neutral posture achieved; full removal not confirmed**
+
+**Finding:** White Burgess and Grant v. Torstar are still cited in Appendix F but in a genuinely deferential/neutral posture:
+- Line 3075 (White Burgess): "Admissibility of any expert evidence built on this audit's data is for counsel and a court to assess against the *R v Mohan* [1994] 2 SCR 9 / *White Burgess Langille Inman v Abbott and Haliburton Co.* [2015] 2 SCR 182 framework. The audit does not pre-adjudicate that question."
+- Line 3096 (Grant v. Torstar): "Whether any specific characterisation gives rise to a cause of action — under *Grant v. Torstar Corp.*, 2009 SCC 61, *WIC Radio Ltd. v. Simpson*, 2008 SCC 40, or otherwise — is for counsel and a court to assess on the actual record. The author does not pre-adjudicate that question and does not assert any defence in this monograph."
+
+**Assessment:** If T6.3 required only that the report stop *pre-adjudicating* admissibility and defamation defences, it is resolved — both passages explicitly decline to pre-adjudicate. If T6.3 required complete removal of these citations, it is still outstanding. The current posture is conservative: naming the legal frameworks without asserting a position is defensible and may be preferable to silence (which could appear to ignore foreseeable challenges). No further action recommended unless counsel specifically requests removal.
+
+---
+
+### 5. "Without precedent" re-scoping
+
+**Status: PARTIALLY RESOLVED — comparator-set scoping correct; Bratt attribution absent**
+
+**Finding:**
+- Line 2004: "No Canadian provincial redistribution cycle reviewed in Courtney (2001, chs. 10–11) or subsequent scholarship involves the government both rejecting a completed commission product and reassigning the drafting authority to a legislature-selected body within the same cycle."
+- Line 2215: "April 16 motion as procedurally unprecedented in the Canadian comparator set."
+
+The "without precedent" claim is correctly scoped to reviewed cycles, not asserted as universal across all of Canadian history.
+
+**Residual:** Project memory indicates this claim should be attributed to Bratt correspondence. The report currently attributes it to Courtney (2001) scholarship and the comparator set — not to Bratt. If Bratt (personal correspondence, date to be specified) is the authority for the "unprecedented" characterisation, the citation should be updated to name Bratt explicitly, as personal correspondence is a primary source that survives scrutiny better than an inference from a secondary source's enumerated cycles.
+
+**Fix required (non-counsel-blocked):** If the Bratt correspondence specifically addresses the April 16 motion's procedural precedent (or absence thereof), add: "(personal correspondence, Bratt, [date])" to the attribution at line 2004 or 2215, per citation format for personal communications. Do not add the attribution without confirming Bratt actually stated this; check correspondence before editing.
+
+---
+
+### 6. Indigenous dimension §5.8.4 — s.35 and UNDRIP framing
+
+**Status: STILL OUTSTANDING**
+
+**Finding:** §5.8.4 (lines 1892–1929) discusses First Nations communities (Tsuut'ina, Enoch Cree, Siksika) exclusively in community-of-interest and geographic terms. There is no s.35 framing and no UNDRIP framing anywhere in §5.8.4 or in adjacent sections. Line 1915 flags that the Enoch Cree comparison has not been checked against StatsCan Table 98-10-0459, and the audit does not file §5.8.4 findings as a gerrymander signal.
+
+**Assessment:** The absence of s.35 and UNDRIP framing is a gap. Whether this gap is harmful depends on whether the audit intends to make any claim about Indigenous peoples' electoral rights. At present, §5.8.4 treats First Nations boundary splits as community-of-interest matters, not as constitutional rights claims. That framing is defensively conservative but may understate the legal significance of the findings if a reviewer or litigant later invokes s.35 or UNDRIP.
+
+**Fix required (non-counsel-blocked):** Add a bracketed note in §5.8.4 (after the community-of-interest analysis, before the audit-scope disclaimer at line 1915) to the effect: "The audit does not assess whether boundary decisions affecting First Nations territories engage Aboriginal rights under s.35 of the *Constitution Act, 1982* or principles set out in the *United Nations Declaration on the Rights of Indigenous Peoples* (UNDRIP); those questions are for counsel and courts with standing in those proceedings." This limits the gap without making claims the audit has not grounded.
+
+**Counsel flag:** Any substantive s.35 or UNDRIP analysis — as opposed to a scope disclaimer — requires counsel review before it is added to the report.
+
+---
+
+### 7. CoI disclosure
+
+**Status: PARTIALLY RESOLVED — disclosure present but incomplete against ACA-32 checklist**
+
+**Finding:**
+- Cover page (lines 38–42): "The author has no employment, contractual, or advisory relationship with Elections Alberta, the Electoral Boundaries Commission, or any provincial political party. The author has supported parties on all sides of the political spectrum depending on the election."
+- Appendix F, line 3079: references "donation history across parties."
+- Lines 41–42: symmetric methodology defense is present: "The methodology was pre-registered and applied symmetrically to both maps before results were examined."
+
+**What is present:** Vague disclosure of cross-party support and cross-party donation history; symmetric methodology defense; no employment/contractual relationship with EA or EBC.
+
+**What is absent:**
+- NDP donation is not named explicitly.
+- Volunteering for NDP is not mentioned.
+- The ACA-32 D7 checklist items remain unaddressed: (a) specific party-donation history (not just "across parties"), (b) prior election-administration involvement, (c) any party or commission member consulted during audit, (d) current candidacy status, (e) academic-supervisor affiliation.
+
+**Fix required (non-counsel-blocked):** Expand the CoI block (§1.4 / cover page) to:
+1. Name the NDP donation explicitly (if the donation was to the NDP, say so; vague cross-party language does not satisfy D7 in a hostile-cross scenario).
+2. State whether the author volunteered for any party during the period of the audit.
+3. Work through the ACA-32 D7 checklist items (b)–(e) and confirm or deny each.
+
+The symmetric methodology defense (pre-registration + symmetric application) is present and is the correct methodological shield; the disclosure expansion makes it stronger, not redundant.
+
+---
+
+### Update-pass summary table
+
+| # | Issue | Status | Action |
+|---|---|---|---|
+| 1 | Charter s.3 framing | SUBSTANTIALLY RESOLVED | Monitor §6.2 heading; no edit required |
+| 2 | EBCA statutory compliance | RESOLVED | No action |
+| 3 | Saskatchewan Reference para. 26/33 anachronism | STILL OUTSTANDING | Replace para. numbers with SCR page pins in report; elevate ACA-29 to HIGH |
+| 4 | Appendix F cleanup (T6.3) | PARTIALLY RESOLVED | No action unless counsel requires full removal |
+| 5 | "Without precedent" attribution | PARTIALLY RESOLVED | Add Bratt correspondence citation only after confirming Bratt stated this |
+| 6 | Indigenous dimension §5.8.4 s.35/UNDRIP | STILL OUTSTANDING | Add scope disclaimer in §5.8.4; substantive s.35/UNDRIP analysis requires counsel |
+| 7 | CoI disclosure | PARTIALLY RESOLVED | Name NDP donation + volunteering explicitly; complete ACA-32 D7 checklist |
+
+**Blocking items before court-tendered release:** items 3 and 6 (STILL OUTSTANDING) and items 5 and 7 (PARTIALLY RESOLVED with specific non-counsel-blocked edits). Item 3 (para. pinpoints) requires reporter-page verification before editing.
 
 ---
 
