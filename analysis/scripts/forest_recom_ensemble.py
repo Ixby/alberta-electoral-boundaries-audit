@@ -142,48 +142,114 @@ METRIC_KEYS = [
 
 # ── Spanning-forest proposal method ───────────────────────────────────────────
 
-def _forest_spanning_method(graph, *, allow_pair_reselection: bool = True, **kwargs):
+import random as _random_mod  # module-global RNG; seeded by main() / validation
+
+try:
+    from gerrychain.tree import ReselectException as _ReselectException
+except Exception:  # pragma: no cover - older gerrychain
+    class _ReselectException(Exception):
+        pass
+
+
+def _forest_spanning_method(
+    graph,
+    pop_col: str,
+    pop_target,
+    epsilon: float,
+    node_repeats: int = 1,
+    max_attempts: int = 10000,
+    allow_pair_reselection: bool = True,
+    **kwargs,
+):
     """
-    Forest-ReCom spanning method. Replaces the canonical run's
-    `_bpt_global` (boundary-permutation-tree, spanning-tree weighting).
+    Forest-ReCom spanning method (prereg §6.1, "Method B"). A drop-in
+    replacement for gerrychain's ``bipartition_tree`` that uses
+    spanning-FOREST weighting instead of spanning-TREE weighting.
 
-    Construction:
-      1. Build the two-district joint subgraph at the proposal step.
-      2. Sample a uniform spanning tree of the joint subgraph using
-         networkx's `random_spanning_tree` (Wilson's algorithm).
-      3. Remove a uniformly-random edge from the spanning tree, yielding
-         a spanning forest with exactly two connected components.
-      4. The two components are the proposed new district assignments.
-      5. Reject and resample if population balance is outside tolerance.
+    Construction (multi-root Wilson uniform spanning forest):
+      1. The two-district joint subgraph is passed in by ``recom``.
+      2. Draw two distinct roots r0, r1 uniformly at random.
+      3. Build a uniform spanning forest with exactly two trees by
+         Wilson's loop-erased random walk rooted at the SET {r0, r1}:
+         every other node performs an LERW until it first reaches a node
+         already in the forest, and joins that node's tree. This samples
+         uniformly from spanning forests in which r0 and r1 lie in
+         different trees (Wilson 1996; Marchal 2000).
+      4. The two trees ARE the bipartition — no balance-seeking edge is
+         chosen (that is the spanning-TREE behaviour this check is built
+         to contrast). Return one tree's node set.
+      5. If the population split is outside ±epsilon, draw new roots and
+         a new forest; after ``max_attempts`` failures raise
+         ReselectException so ``recom`` reselects the district pair.
 
-    Step 3 is the spanning-forest weighting: under this construction
-    each (tree, cut) pair is equally likely, rather than each tree being
-    equally likely (the spanning-tree weighting). The resulting
-    stationary distribution shifts away from the compactness bias of
-    standard ReCom.
+    Because each (forest) is equally likely rather than each (tree,
+    balanced-cut) pair, the stationary distribution shifts toward
+    less-compact partitions — the documented direction of the
+    spanning-structure bias the prereg tests for.
 
-    NOTE: This is the Phase A scaffold. A reviewer may legitimately ask
-    for Wilson-loop-erasure-with-multiple-seeds (a more textbook forest
-    sampler) as an alternative; that is a Phase B candidate and is NOT
-    pre-registered here. The Phase A construction is sufficient to
-    detect a directionally important spanning-structure shift if one
-    exists; a Phase A negative is grounds to stop and Phase A positive
-    is grounds to file a separate Phase B prereg.
+    Returns: ``Set`` of nodes forming one balanced part (the ``recom``
+    method contract). Uses the module-global ``_random_mod`` RNG so the
+    drand-anchored seed in ``main()`` governs reproducibility.
     """
-    # The actual gerrychain proposal interface is wired in `main()` via
-    # `functools.partial(recom, method=_forest_spanning_method, ...)`.
-    # This function placeholder documents the construction; the working
-    # implementation will be added in the same commit as the OSF form
-    # filing. The "wired up but not run" gate (`--confirm-osf-filed`)
-    # prevents any chain from executing through this placeholder before
-    # the implementation is reviewed.
-    raise NotImplementedError(
-        "Forest-ReCom spanning method is scaffolded but not implemented. "
-        "Per `preregistration/osf_forest_recom_robustness.md`, the "
-        "implementation is added in the same commit as the OSF form "
-        "filing; the `--confirm-osf-filed` gate is the operational "
-        "checkpoint that gates this swap."
+    nodes = list(graph.nodes)
+    n = len(nodes)
+    if n < 2:
+        raise _ReselectException("Forest-ReCom: subgraph too small to bipartition.")
+    pops = {node: float(graph.nodes[node][pop_col]) for node in nodes}
+    total = sum(pops.values())
+    lo = pop_target * (1.0 - epsilon)
+    hi = pop_target * (1.0 + epsilon)
+    adj = {node: list(graph.neighbors(node)) for node in nodes}
+
+    _forest_spanning_method.stats["calls"] += 1
+    for attempt in range(1, max_attempts + 1):
+        r0, r1 = _random_mod.sample(nodes, 2)
+        component = {r0: 0, r1: 1}  # in-forest set == component.keys()
+        for start in nodes:
+            if start in component:
+                continue
+            path = [start]
+            inpath = {start}
+            cur = start
+            while True:
+                nbrs = adj[cur]
+                if not nbrs:  # isolated node (should not happen on a connected subgraph)
+                    component[start] = 0
+                    break
+                nxt = _random_mod.choice(nbrs)
+                if nxt in component:
+                    comp = component[nxt]
+                    for nd in path:
+                        component[nd] = comp
+                    break
+                if nxt in inpath:  # loop-erase back to nxt
+                    while path[-1] != nxt:
+                        inpath.discard(path.pop())
+                    cur = nxt
+                else:
+                    path.append(nxt)
+                    inpath.add(nxt)
+                    cur = nxt
+        pop_a = sum(p for node, p in pops.items() if component[node] == 0)
+        pop_b = total - pop_a
+        if lo <= pop_a <= hi and lo <= pop_b <= hi:
+            _forest_spanning_method.stats["attempts"] += attempt
+            _forest_spanning_method.stats["accepts"] += 1
+            return {node for node in nodes if component[node] == 0}
+
+    _forest_spanning_method.stats["attempts"] += max_attempts
+    _forest_spanning_method.stats["reselects"] += 1
+    if allow_pair_reselection:
+        raise _ReselectException(
+            f"Forest-ReCom: no balanced 2-root spanning forest after {max_attempts} attempts."
+        )
+    raise RuntimeError(
+        f"Forest-ReCom: no balanced 2-root spanning forest after {max_attempts} attempts."
     )
+
+
+# Lightweight diagnostics, read by the validation harness.
+_forest_spanning_method.stats = {"calls": 0, "accepts": 0, "reselects": 0, "attempts": 0}
 
 
 # ── Pre-flight checks ─────────────────────────────────────────────────────────
