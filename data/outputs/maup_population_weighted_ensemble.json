@@ -1,0 +1,106 @@
+{
+  "test": "T1.4a population-weighted attribution placement vs canonical 1.01M ensemble",
+  "ensemble_n": 1010000,
+  "ensemble_attribution_invariant": true,
+  "note": "Ensemble assigns atomic VAs; a VA never straddles its assigned district, so the ensemble distribution is identical under centroid and population-weighted attribution. Only real-map values can shift.",
+  "max_abs_pctile_shift": 0.9506930693069329,
+  "verdict": "SURVIVES",
+  "results": {
+    "majority_2026": {
+      "metrics": {
+        "efficiency_gap": {
+          "centroid_value": 0.0009823668405000681,
+          "centroid_pctile": 15.4690099009901,
+          "popweighted_value": 0.0004356936501548491,
+          "popweighted_pctile": 14.518316831683167,
+          "value_shift": -0.0005466731903452191,
+          "pctile_shift": -0.9506930693069329
+        },
+        "mean_median": {
+          "centroid_value": -0.036190901059016234,
+          "centroid_pctile": 0.9243564356435644,
+          "popweighted_value": -0.036049555642530096,
+          "popweighted_pctile": 0.9738613861386138,
+          "value_shift": 0.0001413454164861383,
+          "pctile_shift": 0.04950495049504944
+        },
+        "declination": {
+          "centroid_value": -0.026675251362353544,
+          "centroid_pctile": 20.37792079207921,
+          "popweighted_value": -0.026776190684476023,
+          "popweighted_pctile": 20.289801980198018,
+          "value_shift": -0.00010093932212247927,
+          "pctile_shift": -0.0881188118811913
+        },
+        "seats_at_50_50": {
+          "centroid_value": 0.4606741573033708,
+          "centroid_pctile": 77.81,
+          "popweighted_value": 0.4606741573033708,
+          "popweighted_pctile": 77.81,
+          "value_shift": 0.0,
+          "pctile_shift": 0.0
+        }
+      },
+      "attribution_drift": {
+        "in_ucp": 514712.0,
+        "in_ndp": 381932.0,
+        "out_ucp": 514467.1905596413,
+        "out_ndp": 381752.6787252457,
+        "drift_ucp": -244.80944035871653,
+        "drift_ndp": -179.32127475430025,
+        "mean_va_weight_sum": 0.9989492875301834,
+        "n_va_ed_slivers": 6146,
+        "n_da_slivers": 30032,
+        "total_seconds": 19.57766032218933
+      }
+    },
+    "minority_2026": {
+      "metrics": {
+        "efficiency_gap": {
+          "centroid_value": 0.04019385991913548,
+          "centroid_pctile": 94.39316831683169,
+          "popweighted_value": 0.039459576938957054,
+          "popweighted_pctile": 93.82544554455446,
+          "value_shift": -0.0007342829801784273,
+          "pctile_shift": -0.5677227722772358
+        },
+        "mean_median": {
+          "centroid_value": 0.010401768621624785,
+          "centroid_pctile": 99.97564356435643,
+          "popweighted_value": 0.009611756479713462,
+          "popweighted_pctile": 99.95386138613861,
+          "value_shift": -0.0007900121419113226,
+          "pctile_shift": -0.021782178217819137
+        },
+        "declination": {
+          "centroid_value": 0.07700256493469557,
+          "centroid_pctile": 98.79207920792079,
+          "popweighted_value": 0.07753858820204561,
+          "popweighted_pctile": 98.81346534653466,
+          "value_shift": 0.0005360232673500415,
+          "pctile_shift": 0.02138613861386318
+        },
+        "seats_at_50_50": {
+          "centroid_value": 0.5168539325842697,
+          "centroid_pctile": 99.99346534653465,
+          "popweighted_value": 0.5168539325842697,
+          "popweighted_pctile": 99.99346534653465,
+          "value_shift": 0.0,
+          "pctile_shift": 0.0
+        }
+      },
+      "attribution_drift": {
+        "in_ucp": 514712.0,
+        "in_ndp": 381932.0,
+        "out_ucp": 514467.1905596413,
+        "out_ndp": 381752.67872524576,
+        "drift_ucp": -244.80944035871653,
+        "drift_ndp": -179.32127475424204,
+        "mean_va_weight_sum": 0.9989492875301834,
+        "n_va_ed_slivers": 6378,
+        "n_da_slivers": 30700,
+        "total_seconds": 17.30498695373535
+      }
+    }
+  }
+}
