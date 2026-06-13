@@ -1591,7 +1591,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The Saskatchewan Reference ([1991] 2 SCR 158) is the governing Canadian constitutional case.
 **Why?** Why is this a 1991 case and not something more recent?
-**Answer:** The Supreme Court of Canada has not substantially revisited the effective-representation standard since 1991. The Saskatchewan Reference remains the foundational ruling on what the Charter's right to vote requires of electoral boundary commissions. Subsequent federal court cases (Raîche 2004, Cassista 2014) have applied the Saskatchewan Reference standard but have not altered its core holding. Until the Supreme Court revisits the question, the 1991 standard governs.
+**Answer:** The Supreme Court of Canada has not substantially revisited the effective-representation standard since 1991. The Saskatchewan Reference remains the foundational ruling on what the Charter's right to vote requires of electoral boundary commissions. A subsequent federal court case (Raîche 2004) has applied the Saskatchewan Reference standard but has not altered its core holding. (An earlier draft also cited "Cassista 2014"; that citation was withdrawn 2026-06-13 per T6.1 as unlocatable on CanLII/web.) Until the Supreme Court revisits the question, the 1991 standard governs.
 
 ---
 

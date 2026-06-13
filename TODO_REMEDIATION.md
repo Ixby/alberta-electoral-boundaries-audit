@@ -364,9 +364,22 @@ Each pass should explicitly verify the 7 defects the 2026-06-10 referee flagged 
 ## Tier 6 — Legal citation corrections (needs counsel review).
 
 ### T6.1 — Verify and correct flagged citations
-**Status: 🔴 REQUIRES COUNSEL OR CANLII VERIFICATION**
+**Status: 🟢 8 of 9 RESOLVED 2026-06-13 (web/CanLII-verified + deterministic fixes); 2 points flagged inline for final counsel confirmation.**
 
-Items flagged by the citation-verification referee pass:
+Disposition of each flagged item (edits in `reports/academic/report_academic.md` unless noted):
+1. ✅ **Parks Act** → corrected to *Canada National Parks Act* **S.C. 2000, c. 32** (the R.S.C. 1985 c. N-14 version is repealed); matches `banff_extension_population_check.md`.
+2. ✅ **EBRA** → corrected to **R.S.C. 1985, c. E-3 (2nd Supp.)** (was "S.C. 1985, c. E-3.3").
+3. 🟢 **EBCA census basis** → section reference corrected from **s. 14(1)(a)** (the boundary-drawing *factors* section) to **s. 12** (the population provisions; §12(3) census basis, §12(5) supplementation) — harmonized with the report's own §12(3) usage and the consolidated RSA 2000 c E-3 structure. *Counsel point:* whether the Act's term is "decennial census" (a defined term referencing the federal Statistics Act per one source) or "most recent census" (Canada censuses quinquennially) could not be resolved — CanLII and King's Printer both block automated fetch and two web summaries conflict. Left as "census population information available under the Statistics Act (Canada)" with the section corrected; flagged inline for counsel to confirm the exact statutory term.
+4. ✅ **Cassista v. Canada, 2014 FC 398** → **WITHDRAWN** at all four report sites + `analysis/methodology/plain_language_defense.md`. Re-verified 2026-06-13: `2014 FC 398` does not resolve to any electoral-boundaries decision named *Cassista* on CanLII or via web search, and it is absent from Elections Canada's court-cases index — independently corroborating the T1.7 referee's "fabricated citation" finding. Not substituted: the report-suggested *Dixon v. BC (AG)* (1989) is verified real but *struck boundaries down*, so it cannot fill the "boundaries-sustained companion" role; the framework rests on the *Saskatchewan Reference* + Raîche.
+5. ✅ **Saskatchewan Reference pinpoints** → anachronistic "para. 26 / 33" removed (the [1991] 2 SCR 158 report predates neutral-citation paragraph numbering). *Counsel point:* exact SCR **page** pinpoints to be restored from the print report (not asserted here to avoid an unverified pinpoint).
+6. ✅ **Pal & Choudhry "2011"** → reattributed to the **verified 2007 IRPP study** "Is Every Ballot Equal? Visible-Minority Vote Dilution in Canada" (*IRPP Choices* 13(1)). The "*Democratizing the Constitution* (2011), ed. Choudhry" entry was erroneous (that volume is Aucoin, Jarvis & Turnbull) and no such 2011 chapter exists; prose + reference list updated.
+7. ✅ **Cannon et al.** → prose updated **2022 → 2023** (*Methodology and Computing in Applied Probability* 25, art. 36; arXiv:2011.02288 retained as the 2022 preprint). Reference-list entry was already 2023.
+8. ✅ **Katz, King & Rosenblatt 2020** → softened from "explicitly recommend ensemble reporting" to "argue no single metric is dispositive — a critique of single-index partisan-fairness measures grounded in a model-based symmetry standard" at all three in-text sites.
+9. ✅ **Stray asterisks** → 6 instances of `*Saskatchewan Reference**` (double-closing) fixed to `*Saskatchewan Reference*`; the 16 single-asterisk instances were correct italics and left untouched.
+
+Review/referee/red-team files (`analysis/review/*`, `red_team_consolidated.md`, `peer_review_*`) were intentionally **not** edited — they are the audit trail of what reviewers said.
+
+Original flag list (for reference):
 1. **Canada National Parks Act** — cited as R.S.C. 1985, c. N-14 (repealed). Current: S.C. 2000, c. 32. Note: `findings/banff_extension_population_check.md` already cites the correct S.C. 2000, c. 32; reconcile with the monograph reference list.
 2. **EBRA** — cited as "S.C. 1985, c. E-3.3"; correct citation is R.S.C. 1985, 2nd Supp., c. E-3.
 3. **EBCA s.14(1)(a)** — characterized as requiring the "most recent decennial census"; the scheme is quinquennial.
