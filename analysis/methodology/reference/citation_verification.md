@@ -219,6 +219,24 @@ This appears to be Altman and McDonald 2011, "BARD: Better Automated Redistricti
 
 Still not present: Altman and McDonald 2014 HICSS, "Public Participation GIS: The Case of Redistricting," pp. 2063-2072. This only matters if the literature review keeps the HICSS citation specifically. The cleaner fix is to cite BARD 2011 for redistricting software/modeling and describe the audit's 70/30 blend as an audit assumption, not as a literature-derived method.
 
+## Step 12 - T6.1 legal/citation verification pass (2026-06-13)
+
+Web + CanLII verification of the nine citations flagged in `TODO_REMEDIATION.md` T6.1. Edits landed in `reports/academic/report_academic.md` (and `analysis/methodology/plain_language_defense.md` for Cassista).
+
+| Item | Citation | Finding (2026-06-13) | Resolution |
+| --- | --- | --- | --- |
+| 1 | *Canada National Parks Act* | Cited as R.S.C. 1985, c. N-14 (repealed). Current statute is the 2000 Act. | Corrected to **S.C. 2000, c. 32**. |
+| 2 | *Electoral Boundaries Readjustment Act* (federal) | Cited as "S.C. 1985, c. E-3.3" (malformed). | Corrected to **R.S.C. 1985, c. E-3 (2nd Supp.)**. |
+| 3 | Alberta EBCA census basis | Cited as "s. 14(1)(a) ... most recent decennial census." Verified against RSA 2000 c E-3: **s. 14 is the boundary-drawing *factors* section**; the population/census basis is **s. 12**, and **"decennial census" is the Act's own defined term at s. 12(2)** ("the most recent decennial census of population referred to in s. 19(3) of the *Statistics Act* (Canada)"). The referee's "the scheme is quinquennial" note is imprecise — the Act specifically invokes the *decennial* census. | Section corrected **14 → 12**; "decennial census" term retained as accurate. Residual (counsel): whether the 2026 quinquennial census qualifies under the Act's "decennial census" defined term (which points to 2021, next decennial 2031) — a statutory-interpretation nuance; the practical conclusion (use 2021 data) holds either way. |
+| 4 | *Cassista v. Canada (AG)*, 2014 FC 398 | **Could not be located** on CanLII or via web search as any electoral-boundaries decision named *Cassista*; `2014 FC 398` does not resolve to it; absent from Elections Canada's court-cases index. Corroborates the prior T1.7 referee "fabricated citation" finding. | **Withdrawn** at all four report sites + `plain_language_defense.md`. Not substituted: the queued *Dixon v. BC (AG)* (1989) 59 DLR (4th) 247 is verified real but *struck boundaries down*, so it cannot fill the "boundaries-sustained companion" role. Framework rests on the *Saskatchewan Reference* + Raîche. |
+| 5 | *Saskatchewan Reference* pinpoints | "para. 26 / 33" are anachronistic for [1991] 2 SCR 158 (pre-neutral-citation; cited by page). Exact **page** pinpoints could not be verified this pass — CanLII and legal databases block automated fetch. | Anachronistic paragraph pinpoints **removed**; inline note asks counsel to restore exact SCR page pinpoints. **Open (counsel).** |
+| 6 | "Pal & Choudhry 2011" / *Democratizing the Constitution* | Volume misattributed (*Democratizing the Constitution* (2011) is by Aucoin, Jarvis & Turnbull, not a Choudhry-edited OUP volume); no 2011 Pal & Choudhry chapter of that title located. Their **verified** collaboration is the 2007 IRPP study. | Reattributed to **Pal & Choudhry (2007), "Is Every Ballot Equal? Visible-Minority Vote Dilution in Canada," *IRPP Choices* 13(1)** (SSRN/IRPP-verified); prose + reference list updated. |
+| 7 | Cannon et al. | Prose cited 2022 (arXiv preprint year). Published version verified. | Prose updated to **2023, *Methodology and Computing in Applied Probability* 25 (art. 36)**; arXiv:2011.02288 retained as the 2022 preprint. Reference-list entry was already 2023. |
+| 8 | Katz, King & Rosenblatt 2020 | "explicitly recommend ensemble reporting" overstates — the APSR 114(1):164-178 paper is primarily a **critique** of single-index partisan-fairness measures advancing a model-based symmetry standard (consistent with the Step 2 ledger note at line 36). | **Softened** at all three in-text sites to "argue no single metric is dispositive — a critique of single-index measures grounded in a model-based symmetry standard." |
+| 9 | Stray `*Saskatchewan Reference**` asterisks | 6 double-closing-asterisk markdown artefacts; 16 single-asterisk instances were correct italics. | The 6 artefacts **fixed** to `*Saskatchewan Reference*`; correct italics left untouched. |
+
+**Net:** 8 of 9 resolved with web/CanLII verification; only #5 (exact SCR page pinpoints) remains genuinely counsel/SCR-report-dependent. Review/referee/red-team files were not edited (audit trail).
+
 ## Source Ledger
 
 Key external sources used in this verification pass:
@@ -264,3 +282,12 @@ Key external sources used in this verification pass:
 - van 't Veer and Giner-Sorolla 2016: https://www.sciencedirect.com/science/article/pii/S0022103116301925
 - Stark 2010: https://www.usenix.org/conference/evtwote-10/super-simple-simultaneous-single-ballot-risk-limiting-audits
 - drand background: https://www.drand.love/about/
+
+T6.1 pass (2026-06-13):
+- Pal & Choudhry 2007, "Is Every Ballot Equal?" (SSRN): https://papers.ssrn.com/sol3/papers.cfm?abstract_id=958057
+- Pal & Choudhry 2007, IRPP Choices 13(1): https://irpp.org/research-studies/choices-vol13-no1/
+- Cannon et al. 2023, MCAP (Springer): https://link.springer.com/article/10.1007/s11009-023-09994-1
+- Cannon et al. arXiv preprint (2020/2022): https://arxiv.org/abs/2011.02288
+- Dixon v. BC (AG) (1989), 59 DLR (4th) 247 — context: https://en.wikipedia.org/wiki/Reference_re_Provincial_Electoral_Boundaries_(Sask)
+- Alberta EBCA RSA 2000 c E-3 (CanLII; defines "decennial census" at s.12(2)): https://www.canlii.org/en/ab/laws/stat/rsa-2000-c-e-3/latest/rsa-2000-c-e-3.html
+- Cassista v. Canada 2014 FC 398 — verification attempted; not located on CanLII or in Elections Canada's court-cases index: https://www.elections.ca/content.aspx?section=res&dir=loi%2Fcourt&document=index&lang=e
