@@ -30,7 +30,7 @@ Run
   PYTHONIOENCODING=utf-8 python analysis/scripts/v0_1_generate_article_figures.py
 
 Dependencies
-  Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg,
+  Forward  : data/shapefiles/canonical/ea_minority_2026_eds.gpkg,
              data/shapefiles/reference/alberta_2021_csds.gpkg,
              data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   Backward : maps/article/figure_*_v3.svg,

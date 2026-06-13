@@ -193,15 +193,42 @@ Banners verified present 2026-06-13 (added in the interim, marker reconciled):
 
 **Acceptance criterion (met):** each file leads with a YAML-frontmatter `status:`/`superseded_by:` field and a one-line banner. Numeric regeneration of the stale values remains gated on the respective canonical reruns (T1.5 for short-bursts; canonical 1.01M for Chen-Rodden), tracked under those items.
 
-### T4.5 — Cosmetic v0_x label sweep (non-blocking)
-**Status: 🟠 RE-SCOPED 2026-06-13 — most listed targets are NOT stale; remainder is prose-framing-only, deferred low priority.**
+### T4.5 — v0_x → canonical-only sweep (substantive part done)
+**Status: 🟢 SUBSTANTIVE PART DONE 2026-06-13; machine-graph + pure-history references deferred.**
 
-Re-examination 2026-06-13 found the original target list is largely outdated:
-- `annotate_ensemble_seats_chart.py`, `article_figures.py` — **0 v0_x occurrences** (already clean).
-- `advance_vote_sensitivity.py` — the 2 occurrences are **accurate file-path references** (`data/shapefiles/derived/v0_10_topological_*.gpkg`, the real shapefile version), not stale labels; editing them would make the docstring *incorrect*. Leave as-is.
-- `analysis/methodology/audit_dependency_graph.json` — **358 occurrences**, but these are machine-consumed node IDs / `schema_version` read by `dependency_query.py`. This is NOT a safe blind cosmetic sweep; rewriting node IDs without running the dependency-query apparatus end-to-end (needs the full env) risks orphaning the graph. Deferred until it can be regenerated + verified by `dependency_query.py`, not hand-edited.
+**Substantive fix (canonical-only enforcement) — done.** Three compactness
+scripts silently fell back to deprecated DPG geometry (`v0_10_topological` →
+`v0_8_*` → `v0_7_*`) when the canonical shapefiles were absent, and the final
+fallback returned a DPG path with no existence check. In any canonical-less env
+(e.g. LFS not pulled) they would have computed compactness on stale DPG geometry
+and presented it as current — an integrity footgun. Fixed to **canonical-only**:
+- `polsby_popper.py`, `reock.py` — `_pick_gpkg` now returns the canonical path
+  only (no DPG fallback); a `_require` guard at the load site raises a clear
+  "pull canonical shapefiles" error instead of silently using DPG geometry. Made
+  import-safe (no module-level raise) so `tests/test_compactness.py` and
+  `run_structural_battery.py` still import in canonical-less envs.
+- `compactness_metrics.py` — `_pick` canonical-only; existing `[MISSING]` skip in
+  `compute_compactness` now yields *no* 2026 compactness rather than wrong
+  DPG numbers.
+All three `py_compile` clean.
 
-Genuinely remaining (prose framing only, low value): DPG-provisional framing language in `szat_methodology.md` (1), `methodological_defenses.md` (9), `plain_language_defense.md` (16), `reference/banff_extension_population_check.md`, `reference/airdrie_quadrant_demographic_comparison.md`. These are judgment-heavy per-occurrence prose edits with no effect on any number; left as low-priority polish rather than risking inaccurate mass rewrites.
+**Docstring/help-text accuracy — done.** Stale `v0_10_topological` provenance
+references corrected to the canonical paths in `polsby_popper.py`, `reock.py`,
+`compactness_metrics.py`, `advance_vote_sensitivity.py`,
+`seats_at_50_50_regional.py`, `cross_election.py`, `va_attribution_area_weighted.py`,
+`generate_article_figures.py`.
+
+**Deliberately left (correct as-is):** pure-history references that *document* the
+superseded DPG-era reading — report §5.8.5 footnote (`[^anchoring_canonical]`),
+`mcmc_ensemble_canonical.py` ("replaces the v0_10 DPG ensemble"),
+`build_cover.py` provenance chain, `replot_mcmc_figures.py` run_id `250k_v0_10`,
+`provenance/shapefile_audit.md` remediation history.
+
+**Deferred:** `analysis/methodology/audit_dependency_graph.json` (~358 occurrences)
+— machine-consumed node IDs / `schema_version` read by `dependency_query.py`; must
+be regenerated and verified end-to-end, not hand-edited. Low-value DPG-framing
+*prose* in `szat_methodology.md`, `methodological_defenses.md`,
+`plain_language_defense.md`, and two `reference/*.md` files remains as optional polish.
 
 ### T4.6 — Re-execute the v0_5-substrate hardstop validation against canonical
 **Status: ✅ CLOSED 2026-06-11**

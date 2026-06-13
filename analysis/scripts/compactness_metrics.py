@@ -39,9 +39,9 @@ Forward deps:
   - findings/compactness_metrics.csv (consumed by section MD)
   - data/compactness_summary.json (consumed by report_academic.md §5.x)
 
-Backward deps:
-  - data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
-  - data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
+Backward deps (canonical-only as of 2026-06-13; DPG-era derived geometry removed):
+  - data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  - data/shapefiles/canonical/ea_minority_2026_eds.gpkg
   - data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
 
 Backward:
@@ -83,22 +83,16 @@ logger = logging.getLogger(__name__)
 
 
 def _pick(plan: str) -> Path:
-    """Prefer official canonical shapefiles; fall back to derived (deprecated)."""
-    canonical = data_loader._resolve_path(data_loader.CONFIG["data"]["canonical_dir"]) / f"ea_{plan}_2026_eds.gpkg"
-    if canonical.exists():
-        return canonical
-    base = data_loader._resolve_path("data") / "shapefiles" / "derived"
-    for fname in (
-        f"v0_10_topological_{plan}_2026_eds.gpkg",
-        f"v0_8_full_refined_{plan}_2026_eds.gpkg",
-        f"v0_8_refined_{plan}_2026_eds.gpkg",
-        f"v0_8_canonical_{plan}_2026_eds.gpkg",
-        f"v0_7_canonical_{plan}_2026_eds.gpkg",
-    ):
-        p = base / fname
-        if p.exists():
-            return p
-    return base / f"v0_7_canonical_{plan}_2026_eds.gpkg"
+    """Return the official canonical shapefile path for `plan`.
+
+    Canonical-only (2026-06-13): the deprecated DPG-era derived fallbacks
+    (v0_10_topological / v0_8_* / v0_7_*) were removed. The path is returned
+    unconditionally so the module stays importable in canonical-less
+    environments (tests, CI). `compute_compactness` already guards a missing
+    file with a `[MISSING]` skip, so removing the fallback here means a missing
+    canonical map yields *no* 2026 compactness rather than silently-wrong
+    DPG-substrate numbers."""
+    return data_loader._resolve_path(data_loader.CONFIG["data"]["canonical_dir"]) / f"ea_{plan}_2026_eds.gpkg"
 
 
 MAPS = {

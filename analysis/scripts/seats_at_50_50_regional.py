@@ -58,10 +58,10 @@ If --output JSON-PATH is set, writes the same content as JSON.
 Usage
 -----
     PYTHONIOENCODING=utf-8 python analysis/scripts/seats_at_50_50_regional.py \\
-        --shapefile data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
+        --shapefile data/shapefiles/canonical/ea_minority_2026_eds.gpkg
 
     PYTHONIOENCODING=utf-8 python analysis/scripts/seats_at_50_50_regional.py \\
-        --all-three   # runs 2019 enacted, v0_9 majority, v0_9 minority
+        --all-three   # runs 2019 enacted, canonical majority, canonical minority
 
 Dependencies
 ------------
@@ -70,8 +70,8 @@ Backward:
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
   data/alberta_2019_results.csv
   data/alberta_2023_results.csv
-  data/v0_10_topological_majority_2026_eds.gpkg
-  data/v0_10_topological_minority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_minority_2026_eds.gpkg
   data/verification_assignments_raw.npz  (for the ensemble re-rank)
   numpy, pandas, geopandas
 """

@@ -18,10 +18,14 @@ which exposes the GEOS smallest-enclosing-circle routine. Welzl-style
 fallback is included for older Shapely; if neither is reachable the
 script raises rather than silently substituting an inferior heuristic.
 
+Substrate (2026-06-13): canonical Elections Alberta shapefiles only; the
+deprecated DPG-era derived geometry (v0_10_topological / v0_8_*) is no longer an
+accepted input.
+
 Dependencies
-  Forward  : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
-             data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
-  Backward : data/reock_per_district.csv
+  Backward : data/shapefiles/canonical/ea_minority_2026_eds.gpkg
+             data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  Forward  : data/reock_per_district.csv
              findings/reock_verdict.md
 
 Backward:
@@ -56,22 +60,27 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 ROOT = Path(__file__).resolve().parent.parent.parent
 logger = logging.getLogger(__name__)
 _CANONICAL = data_loader._resolve_path(data_loader.CONFIG["data"]["canonical_dir"])
-_DERIVED = data_loader._resolve_path("data") / "shapefiles" / "derived"
 
 
 def _pick_gpkg(plan: str) -> Path:
-    """Prefer official canonical shapefiles; fall back to derived (deprecated)."""
-    c = _CANONICAL / f"ea_{plan}_2026_eds.gpkg"
-    if c.exists():
-        return c
-    for fname in (
-        f"v0_10_topological_{plan}_2026_eds.gpkg",
-        f"v0_8_full_refined_{plan}_2026_eds.gpkg",
-    ):
-        p = _DERIVED / fname
-        if p.exists():
-            return p
-    return _DERIVED / f"v0_10_topological_{plan}_2026_eds.gpkg"
+    """Return the official canonical shapefile path for `plan`.
+
+    Canonical-only (2026-06-13): the deprecated DPG-era derived fallbacks
+    (v0_10_topological / v0_8_*) were removed. The path is returned
+    unconditionally so the module stays importable in canonical-less
+    environments (tests, CI); a friendly existence check is enforced at the load
+    site (`_require`)."""
+    return _CANONICAL / f"ea_{plan}_2026_eds.gpkg"
+
+
+def _require(path: Path) -> Path:
+    """Assert a canonical shapefile is present before reading it."""
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Canonical shapefile not found: {path}. Pull the canonical EA "
+            f"shapefiles (git lfs pull) — DPG-era derived geometry (v0_10/v0_8) "
+            f"is no longer an accepted substrate for compactness metrics.")
+    return path
 
 
 MIN_GPKG = _pick_gpkg("minority")
@@ -230,7 +239,7 @@ def _name_col(gdf: gpd.GeoDataFrame) -> str:
 
 
 def score_map(gpkg_path: Path, label: str) -> pd.DataFrame:
-    gdf = gpd.read_file(gpkg_path)
+    gdf = gpd.read_file(_require(Path(gpkg_path)))
     if gdf.crs is None or gdf.crs.to_string() != TARGET_CRS:
         gdf = gdf.to_crs(TARGET_CRS)
     name_col = _name_col(gdf)

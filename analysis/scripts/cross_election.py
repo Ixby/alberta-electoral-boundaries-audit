@@ -52,8 +52,8 @@ Outputs
 
 Forward:  findings/cross_election_robustness.md
 Backward:
-  data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
-  data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+  data/shapefiles/canonical/ea_minority_2026_eds.gpkg
   data/shapefiles/derived/va_polygons_with_2023_votes.gpkg
   data/shapefiles/reference/alberta_2019_eds/EDS_ENACTED_BILL33_15DEC2017.shp
   data/alberta_2019_results.csv

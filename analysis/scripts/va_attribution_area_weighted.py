@@ -33,8 +33,8 @@ findings/maup_centroid_sensitivity.md  (verdict memo)
 Backward
 --------
 data/shapefiles/derived/va_polygons_with_2023_votes.gpkg  (canonical VA substrate)
-data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
-data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
+data/shapefiles/canonical/ea_majority_2026_eds.gpkg
+data/shapefiles/canonical/ea_minority_2026_eds.gpkg
 analysis/scripts/assignment_va_attribution_maup.py  (prior MAUP work — full-vote variant)
 analysis/scripts/mcmc_ensemble.py:score_exogenous_map  (centroid baseline being tested)
 
@@ -248,7 +248,7 @@ def main():
         "--shapefile",
         required=True,
         type=Path,
-        help="Path to the 2026 ED gpkg (e.g. v0_10_topological_majority_2026_eds.gpkg).",
+        help="Path to the 2026 ED gpkg (e.g. canonical/ea_majority_2026_eds.gpkg).",
     )
     p.add_argument(
         "--va-shapefile",

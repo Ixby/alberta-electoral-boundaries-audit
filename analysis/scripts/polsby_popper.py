@@ -15,9 +15,13 @@ Valley flipped UCP->NDP under v0_1 overlaps, reverted under v0_2 cleanup).
 This re-runs PP on the gapless / overlap-free v0_9 substrate so the lasso
 claim can be evaluated against numbers that survive the v0_9 substrate.
 
+Substrate (2026-06-13): canonical Elections Alberta shapefiles only. The
+deprecated DPG-era derived geometry (v0_10_topological / v0_8_*) is no longer an
+accepted input; the v0_x narrative above is retained as development history.
+
 Dependencies
-  Backward : data/shapefiles/derived/v0_10_topological_minority_2026_eds.gpkg
-             data/shapefiles/derived/v0_10_topological_majority_2026_eds.gpkg
+  Backward : data/shapefiles/canonical/ea_minority_2026_eds.gpkg
+             data/shapefiles/canonical/ea_majority_2026_eds.gpkg
   Forward  : data/polsby_popper_per_district.csv
              findings/polsby_popper_verdict.md
 
@@ -49,22 +53,28 @@ os.environ.setdefault("PYTHONIOENCODING", "utf-8")
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 _CANONICAL = data_loader._resolve_path(data_loader.CONFIG["data"]["canonical_dir"])
-_DERIVED = data_loader._resolve_path("data") / "shapefiles" / "derived"
 
 
 def _pick_gpkg(plan: str) -> Path:
-    """Prefer official canonical shapefiles; fall back to derived (deprecated)."""
-    c = _CANONICAL / f"ea_{plan}_2026_eds.gpkg"
-    if c.exists():
-        return c
-    for fname in (
-        f"v0_10_topological_{plan}_2026_eds.gpkg",
-        f"v0_8_full_refined_{plan}_2026_eds.gpkg",
-    ):
-        p = _DERIVED / fname
-        if p.exists():
-            return p
-    return _DERIVED / f"v0_10_topological_{plan}_2026_eds.gpkg"
+    """Return the official canonical shapefile path for `plan`.
+
+    Canonical-only (2026-06-13): the deprecated DPG-era derived fallbacks
+    (v0_10_topological / v0_8_*) were removed. Silently computing compactness on
+    stale DPG geometry when the canonical files are absent (e.g. LFS not pulled)
+    is an integrity footgun. The path is returned unconditionally so the module
+    stays importable in canonical-less environments (tests, CI); a friendly
+    existence check is enforced at the load site (`_require`)."""
+    return _CANONICAL / f"ea_{plan}_2026_eds.gpkg"
+
+
+def _require(path: Path) -> Path:
+    """Assert a canonical shapefile is present before reading it."""
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Canonical shapefile not found: {path}. Pull the canonical EA "
+            f"shapefiles (git lfs pull) — DPG-era derived geometry (v0_10/v0_8) "
+            f"is no longer an accepted substrate for compactness metrics.")
+    return path
 
 
 MIN_GPKG = _pick_gpkg("minority")
@@ -103,7 +113,7 @@ def _name_col(gdf: gpd.GeoDataFrame) -> str:
 
 
 def score_map(gpkg_path: Path, label: str) -> pd.DataFrame:
-    gdf = gpd.read_file(gpkg_path)
+    gdf = gpd.read_file(_require(Path(gpkg_path)))
     if gdf.crs is None or gdf.crs.to_string() != TARGET_CRS:
         gdf = gdf.to_crs(TARGET_CRS)
     name_col = _name_col(gdf)
