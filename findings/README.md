@@ -29,6 +29,9 @@ Files marked * are directly cited in both the public report and the academic mon
 | `chair_recommendation_5_analysis.md` | * Analysis of Commission Chair Recommendation 5 |
 | `joint_outlier_score_summary.md` | * Joint Mahalanobis D² outlier score summary (dependence-robust Bonferroni + Cauchy/ACAT combination; Fisher retired) |
 | `joint_outlier_score_cauchy.json` | Cauchy/ACAT dependence-robust combination of Ch1 + Ch2 (T1.2, 2026-06-13) |
+| `mahalanobis_chi2_qq_validation.md` | * Ch1 χ²(4) parametric-tail validation: bulk fit excellent, tail mildly heavy; minority beyond empirical max (T1.3, 2026-06-13) |
+| `mahalanobis_chi2_qq_validation.png` | QQ plot — ensemble D² vs χ²(4) (linear + log-log) |
+| `mahalanobis_chi2_qq_validation.json` | QQ-validation diagnostics + verdict |
 
 ---
 

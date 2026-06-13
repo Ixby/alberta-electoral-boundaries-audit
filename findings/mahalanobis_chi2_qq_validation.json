@@ -1,0 +1,50 @@
+{
+  "n_plans": 1010000,
+  "df": 4,
+  "empirical_mean_D2": 3.9999960396040515,
+  "chi2_mean": 4.0,
+  "empirical_var_D2": 8.523511838939676,
+  "chi2_var": 8.0,
+  "empirical_max_D2": 27.73696360302511,
+  "quantiles": {
+    "50": {
+      "empirical": 3.3183977031394707,
+      "chi2": 3.3566939800333224,
+      "emp_minus_chi2": -0.03829627689385173
+    },
+    "90": {
+      "empirical": 7.801034044772,
+      "chi2": 7.779440339734858,
+      "emp_minus_chi2": 0.021593705037141753
+    },
+    "99": {
+      "empirical": 13.925019681408076,
+      "chi2": 13.276704135987622,
+      "emp_minus_chi2": 0.6483155454204539
+    },
+    "99.9": {
+      "empirical": 20.00379216826885,
+      "chi2": 18.466826952903418,
+      "emp_minus_chi2": 1.5369652153654307
+    },
+    "99.99": {
+      "empirical": 24.453022195452366,
+      "chi2": 23.512742444988668,
+      "emp_minus_chi2": 0.9402797504636986
+    }
+  },
+  "minority": {
+    "D2": 32.66921840711402,
+    "D": 5.715699292922435,
+    "chi2_p": 1.3959935577107757e-06,
+    "empirical_exceedances": 0,
+    "empirical_p_point_estimate": 9.900980296059113e-07
+  },
+  "verdict": {
+    "bulk_fit": "Excellent in the bulk: empirical mean D\u00b2 = 4.000 (\u03c7\u00b2(4) = 4.000); median \u0394 = -0.038.",
+    "tail_behaviour": "Mildly HEAVIER than \u03c7\u00b2(4): variance excess +6.5% (empirical var 8.524 vs 8.000); p99.9 quantile 20.00 vs \u03c7\u00b2(4) 18.47 (\u0394 +1.54). \u03c7\u00b2(4) therefore mildly UNDERSTATES p in the p99\u2013p99.99 band (anti-conservative there).",
+    "headline_robustness": "The minority's D\u00b2 = 32.67 exceeds the empirical maximum over all 1,010,000 plans (max D\u00b2 = 27.74); 0 plans reach it. Its outlier status is therefore empirically unambiguous and independent of the \u03c7\u00b2(4) calibration. The published headline already carries two conservative hedges against the heavy tail: the n_eff Hotelling-F p (1.73\u00d710\u207b\u2076) and the Bonferroni 2\u00d7 bound (2.80\u00d710\u207b\u2076); a tail mildly heavier than \u03c7\u00b2(4) is absorbed well within that margin.",
+    "empirical_max_D2": 27.73696360302511,
+    "tail_heavier_than_chi2": true
+  }
+}

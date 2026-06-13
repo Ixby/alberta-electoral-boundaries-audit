@@ -42,11 +42,11 @@ The earlier Fisher figure of p = 6.87×10⁻⁸ assumed Ch1 ⊥ Ch2. Ch1 (Mahala
 **Acceptance criterion (met for Cauchy):** A new section in `findings/joint_outlier_score_summary.md` reporting the Cauchy- or Brown-method joint p alongside the Bonferroni bound. The Cauchy result lands *on* the Bonferroni bound (within 0.1 %), so the audit keeps the Bonferroni headline as the conservative public-facing number and cites the Cauchy result as the dependence-aware corroboration.
 
 ### T1.3 — Mahalanobis tail validation
-**Status: 🟢 DONE in this pass (empirical floor reported)**
+**Status: ✅ CLOSED 2026-06-13 (QQ-validation landed)**
 
 The Mahalanobis joint p of 1.40×10⁻⁶ rested on a χ²(4) tail assumption — i.e., on multivariate normality of (EG, MM, declination, seats@50/50), one of which (seats@50/50) is discrete. The empirical floor from the canonical 1.01M ensemble (computed this pass): no ensemble plan reaches the minority's D² = 32.67. The empirical upper bound on Ch1's p is therefore 1/(1,010,001) = **9.9×10⁻⁷**. The parametric χ² extrapolation (1.40×10⁻⁶) is *larger* than the empirical floor, so the Bonferroni bound the audit now reports remains conservative and the parametric figure is defensible as a tail-extrapolation upper estimate.
 
-**Still to do (optional, low priority):** QQ-plot the ensemble D² against χ²(4) to document the parametric assumption's fit empirically; add as Appendix G.X.
+**QQ-validation — CLOSED 2026-06-13.** `analysis/scripts/mahalanobis_qq_validation.py` computes per-plan D² over all 1.01M plans (μ, Σ, pinv identical to the published Ch1 pipeline; minority reproduces at D² = 32.6692 → χ²(4) p = 1.396×10⁻⁶) and QQ-plots against χ²(4). Finding at `findings/mahalanobis_chi2_qq_validation.md` (+ figure + JSON). **Honest result:** χ²(4) fits the bulk excellently (mean 4.000; median Δ −0.04) but the upper tail is *mildly heavier* (variance +6.5 %; p99.9 quantile +1.5) — χ²(4) is mildly anti-conservative in the p99–p99.99 band, not conservative. The earlier "parametric is larger than the empirical floor → conservative" framing above is **corrected**: the empirical floor is ESS-coarse (T1.9), and the parametric tail is mildly thin. Headline survives anyway because (a) the minority's D² = 32.67 exceeds the empirical max over all 1.01M draws (27.74) — outlier status is empirical, not parametric — and (b) the published hedges (Hotelling-F 1.73×10⁻⁶; Bonferroni 2.80×10⁻⁶) already build in a factor-of-two margin that absorbs the observed thickening. No Appendix G exists; the finding doc is the deliverable.
 
 ### T1.4 — Constraint-enforcing ensemble (ReCom with s.15(2), CoI, anchoring constraints)
 **Status: 🟢 FIRST RUN EXECUTED 2026-06-13 (100k); publication-grade 1M run queued as T1.4-full**
@@ -96,7 +96,7 @@ nohup python analysis/scripts/simulation_short_bursts.py > /tmp/bursts.log 2>&1 
 `targeted_gerrymander_burst.py` is the script referenced by §5.4.8 as the "deliberate non-neutral pathway" test. Verify it exists, then run against canonical. The earlier 52.87% s50 maximum from this script needs replacing with a canonical-substrate value.
 
 ### T1.6 — Inter-map permutation test rescore on the 1.01M ensemble
-**Status: 🟡 READY TO EXECUTE**
+**Status: ✅ CLOSED 2026-06-12 (committed 4e886db; status marker reconciled 2026-06-13).** `findings/intermap_permutation_test_results.json` now carries `ensemble_n: 1010000`; report §5.4.9 Version B cites the canonical rescore (D = 7.17 vs null p95 = 4.43; p = 9.999×10⁻⁵ under (b+1)/(B+1); 4/4 metrics minority-UCP-favoured post-Amendment-10). The acceptance criterion (1.01M ensemble + updated md) is met.
 
 `intermap_permutation_test_results.{md,json}` currently scores against the 250 k v0_9 ensemble mis-labelled "canonical." Cheap rescore against the actual 1.01M canonical chain CSVs.
 
