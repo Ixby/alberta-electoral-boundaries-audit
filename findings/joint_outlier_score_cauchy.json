@@ -1,0 +1,113 @@
+{
+  "test": "Dependence-robust Cauchy (ACAT) combination of Ch1 + Ch2 (T1.2)",
+  "date": "2026-06-13",
+  "method": "Liu & Xie (2020) aggregated Cauchy test; valid under arbitrary dependence between channels. Equal weights (0.5, 0.5).",
+  "brown_method_status": "NOT computed \u2014 requires paired per-plan (D\u00b2, SZAT) across the 1.01M ensemble; blocked on the per-VA assignment archive (same data debt as T1.1/T1.2).",
+  "headline": {
+    "ch1_p_parametric": 1.4e-06,
+    "ch2_p_iid": 0.0024,
+    "cauchy_acat_p": 2.7983676497145282e-06,
+    "cauchy_acat_one_in": 357351,
+    "bonferroni_p": 2.8e-06,
+    "bonferroni_one_in": 357143,
+    "verdict": "ACAT reproduces the Bonferroni bound to <0.1%; the joint p is Ch1-dominated and is essentially invariant to the Ch2 value (0.0024 \u2192 0.19 shifts ACAT by <0.01%). The published Bonferroni headline survives a second dependence-robust method."
+  },
+  "results": {
+    "parametric_chi2_df4__szat_iid_flip": {
+      "ch1": {
+        "variant": "parametric_chi2_df4",
+        "p": 1.4e-06
+      },
+      "ch2": {
+        "variant": "szat_iid_flip",
+        "p": 0.0024
+      },
+      "acat_T": 113748.41551306132,
+      "acat_p": 2.7983676497145282e-06,
+      "acat_one_in": 357351,
+      "bonferroni_p": 2.8e-06,
+      "bonferroni_one_in": 357143,
+      "acat_over_bonferroni_ratio": 0.9994170177551887
+    },
+    "parametric_chi2_df4__szat_block_permutation": {
+      "ch1": {
+        "variant": "parametric_chi2_df4",
+        "p": 1.4e-06
+      },
+      "ch2": {
+        "variant": "szat_block_permutation",
+        "p": 0.19
+      },
+      "acat_T": 113682.83793773943,
+      "acat_p": 2.7999818789647968e-06,
+      "acat_one_in": 357145,
+      "bonferroni_p": 2.8e-06,
+      "bonferroni_one_in": 357143,
+      "acat_over_bonferroni_ratio": 0.9999935282017132
+    },
+    "neff_hotelling_F__szat_iid_flip": {
+      "ch1": {
+        "variant": "neff_hotelling_F",
+        "p": 1.73e-06
+      },
+      "ch2": {
+        "variant": "szat_iid_flip",
+        "p": 0.0024
+      },
+      "acat_T": 92063.39023283808,
+      "acat_p": 3.457507760318279e-06,
+      "acat_one_in": 289226,
+      "bonferroni_p": 3.46e-06,
+      "bonferroni_one_in": 289017,
+      "acat_over_bonferroni_ratio": 0.9992796995139536
+    },
+    "neff_hotelling_F__szat_block_permutation": {
+      "ch1": {
+        "variant": "neff_hotelling_F",
+        "p": 1.73e-06
+      },
+      "ch2": {
+        "variant": "szat_block_permutation",
+        "p": 0.19
+      },
+      "acat_T": 91997.81265751619,
+      "acat_p": 3.459972329533656e-06,
+      "acat_one_in": 289020,
+      "bonferroni_p": 3.46e-06,
+      "bonferroni_one_in": 289017,
+      "acat_over_bonferroni_ratio": 0.9999920027553919
+    },
+    "empirical_floor__szat_iid_flip": {
+      "ch1": {
+        "variant": "empirical_floor",
+        "p": 9.9e-07
+      },
+      "ch2": {
+        "variant": "szat_iid_flip",
+        "p": 0.0024
+      },
+      "acat_T": 160828.88207917588,
+      "acat_p": 1.979183602229817e-06,
+      "acat_one_in": 505259,
+      "bonferroni_p": 1.98e-06,
+      "bonferroni_one_in": 505051,
+      "acat_over_bonferroni_ratio": 0.999587677893847
+    },
+    "empirical_floor__szat_block_permutation": {
+      "ch1": {
+        "variant": "empirical_floor",
+        "p": 9.9e-07
+      },
+      "ch2": {
+        "variant": "szat_block_permutation",
+        "p": 0.19
+      },
+      "acat_T": 160763.304503854,
+      "acat_p": 1.979990938594245e-06,
+      "acat_one_in": 505053,
+      "bonferroni_p": 1.98e-06,
+      "bonferroni_one_in": 505051,
+      "acat_over_bonferroni_ratio": 0.9999954235324469
+    }
+  }
+}

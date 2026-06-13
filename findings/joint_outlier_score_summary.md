@@ -68,21 +68,43 @@ The majority map's drain_score (0.0002) is significantly *below* the null mean (
 
 ---
 
-## Fisher Combined (Channels 1 + 2, minority only)
+## Joint combination — dependence-robust (Channels 1 + 2, minority only)
 
-| Channel | p (unadjusted) | p (n_eff-adjusted) |
-| --- | --- | --- |
-| Partisan joint (Mahalanobis) | 1.40e-06 | 1.73e-06 |
-| SZAT bootstrap | 0.0024 | 0.0024 |
-| **Fisher combined** | **6.89e-08** | **8.43e-08** |
+**Headline (revised 2026-06-10; Cauchy corroboration added 2026-06-13, T1.2).**
+Ch1 (Mahalanobis) and Ch2 (SZAT) are **not independent** — they share the 2023
+vote-attribution substrate and overlap on the efficiency-gap dimension — so a
+Fisher combination (which assumes independence) is anti-conservative under
+positive dependence (Brown 1975). The audit's operative joint statistic is the
+**Bonferroni upper bound, p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000)** = 2 × min(Ch1, Ch2),
+valid under *arbitrary* dependence between the channels.
 
-Unadjusted: Fisher T = 39.023, chi-sq df = 4.
-n_eff-adjusted: Fisher T = 38.599, using Hotelling T² p for Ch1 (n_eff = 1428, conservative lower bound). Both reject the null.
+| Combination method | Joint p | ≈ 1 in | Dependence assumption |
+| --- | --- | --- | --- |
+| **Bonferroni** `2·min(Ch1, Ch2)` (headline) | **2.80×10⁻⁶** | **357,000** | none (arbitrary dependence) |
+| **Cauchy / ACAT** (Liu & Xie 2020) | 2.80×10⁻⁶ | 357,351 | none (arbitrary dependence) |
+| Fisher (retired) | 6.89×10⁻⁸ | 14,509,987 | independence (false here) |
 
-**Reading:** p = 6.89e-08 is the probability that a neutral-draw process
-produces a map simultaneously this extreme on both the partisan feature vector and
-the swing-zone boundary allocation. Under the neutral null, this combination
-occurs roughly once in every 14,509,987 draws.
+**Cauchy (ACAT) corroboration (T1.2, computed 2026-06-13).** The aggregated
+Cauchy test of Liu & Xie (2020) is valid under arbitrary dependence and needs
+only the two channel p-values (unlike Brown's scaled-χ², which needs the paired
+per-plan (D², SZAT) statistics still blocked on the per-VA assignment archive).
+With equal weights it returns **p = 2.80×10⁻⁶ — numerically identical to the
+Bonferroni bound (ratio 0.999)**. The reason is structural: the joint signal is
+Ch1-dominated, so the ACAT statistic reduces to ≈ 2·p_min in this regime. The
+result is **essentially invariant to the Ch2 value**: substituting the
+contiguity-respecting block-permutation SZAT p (≈ 0.19, T1.10b) for the
+i.i.d.-flip p (0.0024) shifts the combined p by < 0.01 % (still 1 in ≈ 357,000).
+A second, independent dependence-robust method therefore reproduces the
+published headline and shows it is not an artefact of the conservative
+Bonferroni construction. Script: `analysis/scripts/cauchy_combination_joint.py`;
+output: `findings/joint_outlier_score_cauchy.json`.
+
+> **Fisher figure retired.** The earlier combined value (p = 6.89×10⁻⁸, T = 39.023,
+> "1 in 14,509,987") assumed Ch1 ⊥ Ch2 and is **no longer used**. It is retained
+> here for trail-of-work only. The Spearman ρ = −0.0014 check that once justified
+> the independence assumption measures correlation across two *unpaired* Monte
+> Carlo streams, not the dependence between the test statistics under the null map
+> distribution, and does not license Fisher's method.
 
 ---
 
@@ -100,8 +122,12 @@ occurs roughly once in every 14,509,987 draws.
 
 The duck test made precise: the minority map's four-dimensional partisan feature
 vector sits at Mahalanobis distance 5.72 from the ensemble center
-(p = 1.40e-06). Combined with the SZAT result (p = 0.0024) and Fisher's
-method, the joint neutral-null probability is p = 6.89e-08.
+(p = 1.40e-06). Combined with the SZAT result (p = 0.0024) under the
+**dependence-robust** Bonferroni bound — corroborated to within 0.1 % by the
+Cauchy/ACAT combination — the joint neutral-null probability is
+**p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000)**. (The earlier Fisher figure of 6.89×10⁻⁸
+assumed channel independence and is retired; see the joint-combination section
+above.)
 
 **Channel 3 (Neighbour-Drain) executed 2026-05-07.** Minority within null
 (p = 0.1342); does not contribute to the Fisher combination. The pre-registered

@@ -27,7 +27,8 @@ Files marked * are directly cited in both the public report and the academic mon
 | `../archive/dpg_era/municipal_anchoring_analysis.md` | * Municipal boundary anchor results — **RETRACTED on canonical geometry** (moved to archive 2026-05-23) |
 | `terms_of_reference_audit.md` | * Audit against Electoral Boundaries Commission Terms of Reference |
 | `chair_recommendation_5_analysis.md` | * Analysis of Commission Chair Recommendation 5 |
-| `joint_outlier_score_summary.md` | * Joint Mahalanobis D² outlier score summary (Fisher-combined p-value) |
+| `joint_outlier_score_summary.md` | * Joint Mahalanobis D² outlier score summary (dependence-robust Bonferroni + Cauchy/ACAT combination; Fisher retired) |
+| `joint_outlier_score_cauchy.json` | Cauchy/ACAT dependence-robust combination of Ch1 + Ch2 (T1.2, 2026-06-13) |
 
 ---
 
