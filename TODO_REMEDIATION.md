@@ -51,19 +51,16 @@ The Mahalanobis joint p of 1.40×10⁻⁶ rested on a χ²(4) tail assumption �
 **Still to do (optional, low priority):** QQ-plot the ensemble D² against χ²(4) to document the parametric assumption's fit empirically; add as Appendix G.X.
 
 ### T1.4 — Constraint-enforcing ensemble (ReCom with s.15(2), CoI, anchoring constraints)
-**Status: 🟣 REQUIRES EXTERNAL RUN, expensive**
+**Status: 🟢 FIRST RUN EXECUTED 2026-06-13 (100k); publication-grade 1M run queued as T1.4-full**
 
-The ReCom ensemble respects population + contiguity but not s.15(2) tiers, community of interest, municipal anchoring, or Indigenous representation. Both real maps sit at p100 on compactness against this null, which proves the reference measure excludes parts of the commission-feasible space. The "your null isn't a null" objection cannot be fully closed without a constraint-aware run.
+First constraint-enforcing run landed (`analysis/scripts/constraint_enforcing_ensemble.py`, 100,000 steps, drand salt `constraint-ensemble-v1`, ~20 min wall clock; finding at `findings/constraint_enforcing_ensemble_100k.md`):
+- **Full ±25% proposal ε** (also closes the T1.11 proposal-epsilon bug for this run)
+- **s.15(2) tier via freeze-from-real-seed** — seeding from the real majority map bypasses the H6 recursive_tree_part infeasibility; freeze set self-identified as 5 districts <75% of ideal on 2021 substrate (3 statutory + 2 cycle-lag Calgary suburbs)
+- **Municipal-split tally** per plan over 170 multi-VA CSDs
 
-**Resolution path:**
-1. Author or import a ReCom variant that enforces the s.15(2) tier (3 hybrid EDs per the Act, properly anchored).
-2. Add a soft constraint on municipal-anchoring share ≥ 70 %, with the constraint penalty calibrated from the 2019 enacted and the four reviewed Canadian commission baselines.
-3. Run 250,000 plans minimum; ideally a second 1M canonical run.
-4. Re-score real maps' Mahalanobis joint and per-metric percentiles against this constrained ensemble; report the deltas.
+**Results:** minority EG crosses p95 under the constrained null (**p97.24**, vs p94.4 unconstrained — the withdrawn EG flag fires); all four minority metrics ≥p95; majority becomes *more* normal on every metric (s50 p78→p57). ReCom splits 55–67 municipalities vs real maps' 23/30 (both ≈p0) — the commission-convention auxiliary is now empirically measured and applies symmetrically (closes the T1.17 measurement gap).
 
-**Acceptance criterion:** `findings/constrained_ensemble_robustness.md` with per-metric and joint percentiles under the constrained null; a sentence stating whether the Lane-1 placements hold.
-
-**Cost estimate:** 6–8 h compute + 1–2 days script work.
+**Remaining for T1.4-full:** (a) 1M-scale run (~3.5 h at 85 steps/s, parallelizable across 4 chains); (b) minority-seeded robustness run (freeze RMH-Banff Park instead of Canmore-Banff); (c) like-for-like split-count universe (CY/T/SM filter in the per-plan tally); (d) soft-constrained variant (penalized acceptance on splits ≤ 30) — the recorded tally shows a hard constraint would reject ≈99.98 % of proposals, so the soft design is required.
 
 ### T1.4a — Population-weighted MAUP attribution per plan against the 1.01M ensemble
 **Status: 🟠 PC QUEUE — needs ~8 h dedicated compute window (parallelizable to ~30–45 min on 16 cores)**
