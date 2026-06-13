@@ -1,3 +1,17 @@
+---
+status: SUPERSEDED — DPG v0_7 / pre-shapefile substrate; canonical rerun pending (TODO_REMEDIATION T1.5)
+superseded_date: 2026-06-13
+note: |
+  The burst-endpoint distribution below was computed on the DPG v0_7 pre-shapefile substrate
+  (seed 42, 500×10 ReCom bursts). The report (§5.4.8 / §5.4.10) preserves these as the
+  historical pre-shapefile analytical record; final percentile placements are the canonical
+  official-shapefile run (§5.4.9). The canonical-substrate short-bursts rerun is queued at
+  T1.5 (script repaired and ready; needs a dedicated compute window). Methodology is sound;
+  only the substrate-specific numerical values are stale.
+---
+
+> [SUPERSEDED 2026-06-13] — DPG v0_7 pre-shapefile substrate; canonical rerun pending (T1.5).
+
 > **Backward:**
 > - `analysis/scripts/simulation_short_bursts.py` — companion script that runs the short-burst MCMC chains
 > - `data/outputs/` ensemble outputs from the burst run
