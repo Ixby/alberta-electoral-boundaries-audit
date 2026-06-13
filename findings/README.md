@@ -108,7 +108,7 @@ Geometry-only findings. Depend only on canonical shapefiles and topology.
 | `extended_partisan_metrics_canonical.md` | Canonical-substrate extended partisan metrics (PB, Lopsided-t, Proportionality Deviation, Responsiveness; canonical EA shapefiles + 1.01M ReCom ensemble) — supersedes `extended_partisan_metrics.md` |
 | `phase4f_hardstop_canonical.md` | Canonical-substrate population-hardstop validation (share-based: 78/89 majority + 72/89 minority fail 2% share-drift; universe-mismatch 89/89 reading superseded) — supersedes `phase4f_summary.json` |
 | `szat_block_permutation.md` | SZAT under contiguity-respecting block permutation: variance inflation 5.79×, p collapses 0.0024 → 0.195 — Channel 2 retired from the headline combination |
-| `constraint_enforcing_ensemble_100k.md` | First constraint-enforcing ReCom run (full ±25% ε + s.15(2) freeze + municipal-split tally): minority EG flag FIRES at p97.24 under the constrained null; 4-of-4 tail flags; commission-convention auxiliary empirically validated symmetrically |
+| `constraint_enforcing_ensemble_100k.md` | First constraint-enforcing ReCom run + seed-dependence check (full ±25% ε + s.15(2) freeze + municipal-split tally): MM/decl/s50 robust ≥p98.7 tail flags under every null; EG threshold-straddling p94–p97 (seed-dependent); commission-convention auxiliary empirically validated symmetrically |
 
 ---
 

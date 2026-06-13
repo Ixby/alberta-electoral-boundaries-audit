@@ -29,7 +29,22 @@ n_steps: 100,000 (single chain; ESS caveat below)
 
 **Frozen districts** (below 75% of ideal on the 2021-DA substrate): Central Peace-Notley (−43.5%), Calgary-North East (−39.7%), Lesser Slave Lake (−38.4%), Canmore-Banff (−33.7%), Calgary-South East (−25.5%). Three are the statutory s.15(2) invocations; the two Calgary suburbs are cycle-lag artifacts (legal under the commission's 2024 estimates, under-populated only on the audit's 2021 substrate — the same districts at the top of the Phase 4F share-drift table). Freezing them prevents ReCom from "fixing" districts that are not actually broken.
 
-## Result 1 — Minority's EG flag FIRES under the constrained null
+## ⚠ Seed-dependence check (minority-seeded robustness run, same day)
+
+The symmetric robustness run (seed = minority map; salt `constraint-ensemble-v1-minority-seed`; summary at `data/outputs/constraint_enforcing_100k_minority_seed_summary.json`) **moderates Result 1**. Under the minority seed only the 3 statutory s.15(2) districts freeze (Central Peace-Notley, Lesser Slave Lake, Rocky Mountain House-Banff Park) — the minority's Calgary configuration does not produce sub-75% cycle-lag suburbs, so Calgary-NE/SE get redrawn rather than frozen. Results across all three nulls:
+
+| Metric (minority map) | Unconstrained 1.01M | Constrained, majority seed (5 frozen) | Constrained, minority seed (3 frozen) | Robust reading |
+|---|---:|---:|---:|---|
+| efficiency_gap | p94.4 | **p97.24** | **p94.17** | **threshold-straddling p94–p97; seed-dependent** |
+| mean_median | p99.98 | p99.99 | p99.83 | ≥p99.8 — robust |
+| declination | p98.79 | p99.64 | p98.75 | ≥p98.7 — robust |
+| seats_at_50_50 | p99.99 | p99.99 | p99.98 | ≥p99.98 — robust |
+
+**The honest headline is therefore "three robust tail flags + EG threshold-straddling," not "4-of-4 fires."** The EG flag fires only when the two cycle-lag Calgary suburbs are also frozen (majority seed); letting ReCom redraw the fast-growth Calgary area (minority seed) widens the EG null just enough to keep the minority at p94.2. Majority-map percentiles are within-band on EG/declination/s50 and MM-NDP-tail under both seeds — the majority-normalizing effect of the constrained null is robust.
+
+This section was added the same day as the initial result, before any external publication of the "EG fires" claim — the seed-dependence was caught by the audit's own symmetric-robustness discipline.
+
+## Result 1 — Minority's EG crosses p95 under the majority-seeded constrained null (seed-dependent; see check above)
 
 | Map | Metric | Value | Unconstrained 1.01M percentile | **Constrained 100k percentile** |
 |---|---|---:|---:|---:|
