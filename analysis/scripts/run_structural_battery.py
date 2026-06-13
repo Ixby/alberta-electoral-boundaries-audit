@@ -473,7 +473,6 @@ def main(argv=None) -> int:
         "structural_lane_unexecuted": none_count,
         "structural_lane_verdict": verdict,
         "thresholds_pre_committed_at": "preregistration/november_2026_scoring_spec.md",
-        "_stub_status": "Stubs in S1, S2, S5, S6 will execute as None until refactor lands.",
     }
 
     args.output.parent.mkdir(parents=True, exist_ok=True)

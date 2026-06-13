@@ -1,0 +1,58 @@
+{
+  "candidate_label": "ea_minority_2026_eds",
+  "candidate_shapefile": "data\\shapefiles\\canonical\\ea_minority_2026_eds.gpkg",
+  "executed_at_utc": "2026-06-13T20:42:02Z",
+  "drand_round_at_execution": null,
+  "metrics": {
+    "S1_population_mad": {
+      "value": 3938.1069235499162,
+      "threshold": 3382.5,
+      "flag": true
+    },
+    "S2_municipal_split_count": {
+      "value": 30,
+      "threshold": 26.5,
+      "flag": true
+    },
+    "S3_anchoring_score": {
+      "value": 0.7178156355694612,
+      "threshold": 0.7601,
+      "canadian_norm_band": [
+        0.7,
+        0.85
+      ],
+      "flag": true
+    },
+    "S4_polsby_popper_median": {
+      "value": 0.4365926963517947,
+      "threshold": null,
+      "flag": false,
+      "non_discriminating": true,
+      "_note": "measured but EXCLUDED from the flag count: median PP is identical on both commission maps (0.4366) and tail stats run the wrong way (monograph H3). Reported for transparency."
+    },
+    "S5_drain_score": {
+      "drain_score": 0.0005909296087761933,
+      "threshold": 0.0039018,
+      "direction": "minority side = below midpoint",
+      "flag": true
+    },
+    "S6_chair_flag_replication": {
+      "patterns_reproduced": [
+        "P1_Airdrie_split_3_ways",
+        "P2_Cochrane_Calgary_hybrid_Calgary-Nolan Hill-Cochrane",
+        "P3_Chestermere_Calgary_hybrid_Calgary-Peigan-Chestermere",
+        "P4_Calgary_RockyView_hybrid_Calgary-North West-Bearspaw",
+        "P5_Red_Deer_split_4_ways",
+        "P6_StAlbert_Sturgeon_hybrid_St Albert-Sturgeon"
+      ],
+      "patterns_count_discriminating": 5,
+      "threshold": 2.5,
+      "flag": true
+    }
+  },
+  "structural_lane_flags": 5,
+  "structural_lane_unexecuted": 0,
+  "structural_lane_verdict": "replicated",
+  "thresholds_pre_committed_at": "preregistration/november_2026_scoring_spec.md",
+  "_stub_status": "Stubs in S1, S2, S5, S6 will execute as None until refactor lands."
+}
