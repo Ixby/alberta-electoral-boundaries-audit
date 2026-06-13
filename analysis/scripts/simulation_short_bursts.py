@@ -114,6 +114,49 @@ def run_bursts(
     rng = np.random.default_rng(seed)
     burst_seeds = rng.integers(0, 2**31 - 1, size=n_bursts).tolist()
 
+    # Generate the tight start seed ONCE, not once per burst. The 2019 enacted
+    # assignment exceeds +/-25% on 2021 population, so passing it raw would make
+    # run_ensemble regenerate a fresh seed via recursive_tree_part on EVERY burst
+    # (~19 s x n_bursts = hours). Regenerating once is both ~n_bursts faster and
+    # more correct: every burst must start from the SAME neutral seed so the
+    # endpoint distribution measures burst_len-step reach from one fixed point.
+    num_dist = len(set(assignment.values()))
+    total_pop = sum(graph.nodes[n]["pop_2021"] for n in graph.nodes())
+    ideal_pop = total_pop / num_dist
+    seed_pops: dict = {}
+    for _node, _dist in assignment.items():
+        seed_pops[_dist] = seed_pops.get(_dist, 0) + graph.nodes[_node]["pop_2021"]
+    max_dev = max(abs(p - ideal_pop) for p in seed_pops.values()) / ideal_pop
+    if max_dev > pop_deviation:
+        from functools import partial as _partial
+        from gerrychain.tree import (
+            recursive_tree_part as _rtp,
+            bipartition_tree as _bpt,
+        )
+        print(
+            f"  2019 seed max dev {max_dev:.2%} > +/-{pop_deviation:.0%}; "
+            f"generating ONE tight start seed via recursive_tree_part...",
+            flush=True,
+        )
+        # Use epsilon=pop_deviation/2.0 for SEED generation (not the full band):
+        # recursive_tree_part is more reliable with the tighter tolerance because
+        # looser early splits leave a remainder that cannot be evenly divided into
+        # the remaining districts (full-band seed gen fails after 50k attempts).
+        # This matches the proven seed-gen in targeted_gerrymander_burst.py. The
+        # per-burst CHAIN still explores under the run_ensemble proposal epsilon.
+        np.random.seed(seed)
+        _random.seed(seed)
+        assignment = _rtp(
+            graph,
+            parts=list(range(num_dist)),
+            pop_target=ideal_pop,
+            pop_col="pop_2021",
+            epsilon=pop_deviation / 2.0,
+            node_repeats=5,
+            method=_partial(_bpt, max_attempts=50000),
+        )
+        print("  tight start seed generated; reused for all bursts.", flush=True)
+
     for i, bs in enumerate(burst_seeds):
         if i % 50 == 0:
             print(f"  burst {i}/{n_bursts}...", flush=True)

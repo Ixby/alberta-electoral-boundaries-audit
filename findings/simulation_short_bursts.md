@@ -1,12 +1,3 @@
-> **Backward:**
-> - `analysis/scripts/simulation_short_bursts.py` — companion script that runs the short-burst MCMC chains
-> - `data/outputs/` ensemble outputs from the burst run
->
-> **Forward:**
-> - `reports/academic/report_academic.md` — incorporates the burst percentile-rank findings
-> - `findings/README.md` — indexes this finding
-> - `findings/burst_symmetry_analysis.md` — related burst-based analysis
-
 # MCMC Short-Burst Analysis — Alberta 2026 Electoral Maps
 
 **Config:** 500 bursts × 10 steps each; pop deviation ±25%; seed 42.
@@ -16,10 +7,10 @@ Starting point: 2019 enacted assignment. Each burst is an independent ReCom chai
 
 | Metric | Mean | p5 | p50 | p95 | Min | Max |
 |---|---|---|---|---|---|---|
-| efficiency_gap | +0.0070 | +0.0009 | +0.0044 | +0.0189 | -0.0125 | +0.0292 |
-| mean_median | -0.0132 | -0.0226 | -0.0125 | -0.0086 | -0.0337 | +0.0003 |
-| declination | +0.0264 | +0.0070 | +0.0321 | +0.0363 | -0.0187 | +0.0587 |
-| seats_at_50_50 | +0.4569 | +0.4477 | +0.4598 | +0.4713 | +0.4253 | +0.4828 |
+| efficiency_gap | +0.0074 | -0.0049 | +0.0048 | +0.0227 | -0.0261 | +0.0385 |
+| mean_median | -0.0134 | -0.0215 | -0.0125 | -0.0089 | -0.0371 | -0.0035 |
+| declination | -0.0254 | -0.0534 | -0.0313 | -0.0025 | -0.0791 | +0.0381 |
+| seats_at_50_50 | +0.4566 | +0.4483 | +0.4598 | +0.4713 | +0.4253 | +0.4713 |
 
 ## Real map percentile ranks within burst distribution
 
@@ -27,17 +18,17 @@ A high rank means the real map score is more extreme than most 10-step neighbour
 
 | Map | Metric | Value | Burst pct rank |
 |---|---|---|---|
-| 2019_enacted | efficiency_gap | +0.0241 | 98.0 |
-| 2019_enacted | mean_median | -0.0077 | 98.2 |
-| 2019_enacted | declination | -0.0451 | 0.0 |
-| 2019_enacted | seats_at_50_50 | +0.4598 | 30.8 |
-| majority_2026_v7 | efficiency_gap | -0.0024 | 3.0 |
-| majority_2026_v7 | mean_median | +0.0080 | 100.0 |
-| majority_2026_v7 | declination | -0.0203 | 0.0 |
-| majority_2026_v7 | seats_at_50_50 | +0.5152 | 100.0 |
-| minority_2026_v7 | efficiency_gap | -0.0102 | 0.8 |
-| minority_2026_v7 | mean_median | -0.0108 | 84.2 |
-| minority_2026_v7 | declination | -0.0941 | 0.0 |
-| minority_2026_v7 | seats_at_50_50 | +0.5493 | 100.0 |
+| 2019_enacted | efficiency_gap | +0.0241 | 95.6 |
+| 2019_enacted | mean_median | -0.0077 | 98.6 |
+| 2019_enacted | declination | +0.0451 | 100.0 |
+| 2019_enacted | seats_at_50_50 | +0.4598 | 33.8 |
+| majority_2026 | efficiency_gap | +0.0010 | 9.6 |
+| majority_2026 | mean_median | -0.0362 | 0.2 |
+| majority_2026 | declination | -0.0267 | 69.4 |
+| majority_2026 | seats_at_50_50 | +0.4607 | 88.4 |
+| minority_2026 | efficiency_gap | +0.0402 | 100.0 |
+| minority_2026 | mean_median | +0.0104 | 100.0 |
+| minority_2026 | declination | +0.0770 | 100.0 |
+| minority_2026 | seats_at_50_50 | +0.5169 | 100.0 |
 
-_Generated 2026-04-25 00:06 — elapsed 4181s_
+_Generated 2026-06-13 03:36 — elapsed 186s_

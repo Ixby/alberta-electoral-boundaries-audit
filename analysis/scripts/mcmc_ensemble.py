@@ -560,6 +560,16 @@ def run_ensemble(
         recom,
         pop_col="pop_2021",
         pop_target=ideal_pop_mcmc,
+        # Proposal epsilon = pop_deviation / 2.0 (half-band). T1.11 / Amendment 11
+        # (2026-06-13) tested the full-band alternative (epsilon = pop_deviation,
+        # Ref #2 A13): at 1.01M the partisan-fairness ensemble distributions are
+        # INVARIANT to this choice (minority percentiles shift < 0.05 pp; EG/s50
+        # bands identical) — see findings/eps_full_robustness.md. But the full band
+        # makes the neutral ensemble ~2x malapportioned (median per-district MAD
+        # ~6400 vs ~3160), which degrades the Lane-2 population-equality comparator
+        # and is an unrealistic "neutral" baseline. The canonical ensemble therefore
+        # retains the half-band; the full-band run is preserved as a robustness
+        # artifact under run_id="eps_full" (data/simulation_checkpoints_eps_full/).
         epsilon=pop_deviation / 2.0,
         node_repeats=2,
         method=_recom_method,

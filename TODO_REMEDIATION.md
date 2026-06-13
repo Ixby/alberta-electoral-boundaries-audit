@@ -77,6 +77,11 @@ The 2026-06-10 MAUP-attribution finding (`findings/maup_attribution_canonical.md
 **Acceptance:** `findings/maup_population_weighted_ensemble.md` reporting placements under (a) centroid-attrib against centroid-built ensemble (current canonical) and (b) pop-weighted-attrib against pop-weighted-built ensemble. If they agree within ±2 percentile points, the audit's percentile claims survive a publication-grade attribution audit.
 
 ### T1.5 — Short-bursts hill-climb rerun on canonical (UCP-objective and NDP-objective)
+**Status: ✅ CLOSED 2026-06-13**
+
+Both burst experiments executed on canonical substrate; result at `findings/burst_pathways_canonical.md`. **Neutral short-bursts (500×10):** the minority map is more extreme than every one of the 500 neutral 10-step walks on all four partisan metrics (burst_pct=100 on EG/MM/declination/s50); neutral s50 ceiling 0.4713 << minority 0.5169. **Targeted hill-climb (T1.5b, 800×50):** deliberate UCP-objective max s50 = 0.5287 = 46/87 (confirms the v0_8 number — it is a discrete seat ceiling, substrate-robust). The minority sits between the neutral ceiling (0.4713) and the deliberate ceiling (0.5287): unreachable by neutral drift, only by partisan optimisation. A per-burst seed-regeneration inefficiency in `simulation_short_bursts.py` (run_ensemble regenerated a tight seed on every burst, ~500×) was fixed to regenerate once — also a correctness fix (all bursts now start from one fixed neutral seed). §5.4.8 prose updated to lead with the canonical numbers.
+
+**(Historical note — original status below; superseded by the closure above.)**
 **Status: 🟡 SCRIPT REPAIRED + READY; full run needs dedicated compute window**
 
 §5.4.8's "empirical proof of the non-neutral pathway" hits 52.87%, matching the v0_8 superseded substrate. This pass: `analysis/scripts/simulation_short_bursts.py` was repaired (a `seed=None` bug in the per-burst seed pass-through to `run_ensemble`) and is now ready to run against canonical EA shapefiles. **Profiling on the canonical 4,765-VA graph shows each ReCom step costs ~10–15 s** (the bipartition_tree generation is heavy at 89 districts × n=4765); a 500-burst × 10-step run is ~60–120 min wall clock. This session attempted a 50-burst preview but did not complete in the available compute window. The script is correct and ready; the run should happen in a session with a 1–2-hour dedicated compute slot.
@@ -93,22 +98,14 @@ nohup python analysis/scripts/simulation_short_bursts.py > /tmp/bursts.log 2>&1 
 **Acceptance criterion (unchanged):** §5.4.8 paragraph rewritten to lead with the canonical-substrate maximum, with the v0_8 number relegated to a "superseded estimate" footnote. Targeted hill-climb (separate script `targeted_gerrymander_burst.py`) still pending — that one is the "deliberate non-neutral pathway" test rather than the neutral-neighbourhood characterisation; queued under T1.5b.
 
 ### T1.5b — Targeted hill-climbing bursts (UCP and NDP objectives)
-**Status: 🟠 BLOCKED ON SCRIPT verification**
+**Status: ✅ CLOSED 2026-06-13 (with T1.5)**
 
-`targeted_gerrymander_burst.py` is the script referenced by §5.4.8 as the "deliberate non-neutral pathway" test. Verify it exists, then run against canonical. The earlier 52.87% s50 maximum from this script needs replacing with a canonical-substrate value.
+`targeted_gerrymander_burst.py` verified present and run against canonical (800×50, seed 137, 14.8 min). Canonical-substrate max s50 = 0.5287 = 46/87 seats — the v0_8 52.87% is confirmed, not replaced, because it is a discrete seat ceiling robust to substrate. See `findings/burst_pathways_canonical.md` and the T1.5 closure above.
 
 ### T1.6 — Inter-map permutation test rescore on the 1.01M ensemble
-**Status: 🟡 READY TO EXECUTE**
+**Status: ✅ CLOSED 2026-06-13**
 
-`intermap_permutation_test_results.{md,json}` currently scores against the 250 k v0_9 ensemble mis-labelled "canonical." Cheap rescore against the actual 1.01M canonical chain CSVs.
-
-**Resolution path:**
-```bash
-python analysis/scripts/intermap_permutation_test.py --ensemble data/simulation_checkpoints_canonical/ --output findings/intermap_permutation_test_results_1m.json
-```
-(May need a flag to point at chain CSVs vs the existing LFS-pointer raw_samples file.)
-
-**Acceptance criterion:** New `findings/intermap_permutation_test_results.json` with `ensemble_size: 1010000` and updated `findings/intermap_permutation_test_results.md`.
+Verified already executed against the canonical 1.01M ensemble. `findings/intermap_permutation_test_results.json` carries `ensemble_n: 1010000` (schema field is `ensemble_n`, not the originally-specified `ensemble_size` — same value, criterion met) and the MD header reads "Ensemble: simulated_ensemble_raw_samples_canonical.csv (1,010,000 plans)". Results: Version A (EG-only) one-tailed p = 0.034; Version B (Mahalanobis joint) D = 7.168, p = 0.0000, **4/4 metrics minority-more-UCP-favorable** (EG +0.0392, MM +0.0466, declination +0.1037, s50 +0.0562). Prose-integrated at academic §5.2.11 ("Inter-map comparison permutation test (Ch1-COMP)"), §5.4.9 contextual framing, and the front-matter integration note. No re-run needed; only this TODO row was stale.
 
 ### T1.7 — `joint_outlier_score_summary.md` ↔ JSON reconciliation
 **Status: ✅ CLOSED 2026-06-10**
@@ -438,7 +435,9 @@ The 18-referee adversarial review (T1.7) surfaced a cluster of methodological / 
 **Status: 🟡 PARTIAL CLOSE 2026-06-12.** (b+1)/(B+1) finite-sample correction landed in `szat.py` (minimum reported p now 1/(N+1) = 1×10⁻⁴ at N_BOOT=10,000). Exchangeability caveat disclosed inline at szat.py + §5.5 methodological note. Full block-permutation null implementation deferred to **T1.10b** for the next canonical re-run; expected ~30% widening of null variance; p = 0.0024 may move modestly but substantive verdict survives.
 
 ### T1.11 — ReCom proposal ε rerun (Ref #2 A13)
-`mcmc_ensemble.py:558` sets `epsilon = pop_deviation / 2.0`. Rerun with `epsilon = pop_deviation` so the proposal samples the documented ±25% legal space. ~8h single-core; 1.01M ensemble regenerated.
+**Status: ✅ CLOSED 2026-06-13 — resolved as a robustness check, NOT a headline replacement.**
+
+`mcmc_ensemble.py:563` set `epsilon = pop_deviation / 2.0` (half-band). Regenerated the full 1,010,000-plan ensemble at `epsilon = pop_deviation` (full ±25% band) under `run_id="eps_full"` (same base_seed=1432864451 — only epsilon differs). **Result:** the partisan-fairness ensemble distributions are INVARIANT to the choice — minority percentiles shift < 0.05 pp at 1.01M (EG p94.39→p94.38, MM p99.98→p99.96, declination p98.79→p98.74, s50 p99.99→p99.97); EG/s50 bands identical. **However** the full band makes the neutral ensemble ~2× malapportioned (population_mad band 5265/6379/7464 vs canonical 2613/3163/3709; both real maps drop to p0), which degrades the Lane-2 population-equality comparator. **Decision:** canonical retains the half-band (`mcmc_ensemble.py:563` reverted, with the finding documented inline); the full-band 1.01M run is preserved as a robustness artifact under `run_id="eps_full"`. Finding: `findings/eps_full_robustness.md`. The eps_full declination p98.74 independently confirms the report's corrected (Amendment-10) convention. **Side fix:** the stale `simulated_ensemble_percentiles_canonical.csv` / `simulation_real_map_scores_canonical.json` (never regenerated after the Amendment-10 sign flip — still carried minority declination −0.077 @ p1.21) were re-derived from the flipped chains; declination is the only metric that changed (now +0.077 @ p98.79, matching the report); all other metrics byte-identical; LFS pooled samples file unchanged.
 
 ### T1.12 — Resume-path corruption + per-chain ESS + burn-in (Ref #2 D4 D5)
 **Status: 🟡 PARTIAL CLOSE 2026-06-12.** Per-chain ESS computed and documented in §5.4 (Geyer initial-monotone-sequence τ; per-chain min 308–597; pooled 1,448–1,814 — matches the published n_eff 1,429–1,682 bracket). 5τ ≈ 4,100-sample burn-in per chain investigated as post-processing: no published percentile shifts by more than 0.02 pp. Resume-path corruption fix (serialize final partition per chunk; chunk-dependent seeds) deferred to next ensemble re-run (T1.11/T1.12-resume); risk is latent — the 1.01M run was uninterrupted.
@@ -472,5 +471,5 @@ The 18-referee adversarial review (T1.7) surfaced a cluster of methodological / 
 - T4.9-sentiment: ✅ CLOSED 2026-06-12 — row-level reconciliation: 1,254 unique submission IDs processed; results CSV has 388 full_corpus + 209 hansard_r1 + 230 hansard_r2 = 827 rows. The "182/14.5%" round-1 correction was itself wrong.
 
 ### T4.10 — Anchoring metric + CRS reconciliation (Ref #10 D8 D9 D18)
-- T4.10-anchor: 🟡 PARTIAL CLOSE 2026-06-12 — contiguous-≥1km filter implemented in `score_anchoring.py:_measure_ring()`. Full-province recompute deferred (slow; needs longer compute window). Sensitivity sweep at 100/250/500m snap tolerance queued.
+- T4.10-anchor: ✅ CLOSED 2026-06-13 — contiguous-≥1km filter in `score_anchoring.py:_measure_ring()`; full-province recompute executed for all three maps at the 500m snap tolerance: **majority 80.0%, minority 71.8%, 2019 enacted 75.1%**. Confirms the Amendment-9 battery anchors (S3 majority 0.80050 / minority 0.71970) — the contiguous filter does not move the asymmetry (majority anchors 80%, minority only 72%). The 100/250m snap-tolerance sensitivity sweep remains an optional follow-up (would require exposing `--snap-tol` on the CLI).
 - T4.10-CRS: ✅ CLOSED 2026-06-12 — `CANONICAL_CRS = "EPSG:3400"` + `COMPACTNESS_CRS = "EPSG:3401"` constants added to `canonical_paths.py` with verified pyproj description (3400 = 10-TM Forest, 3401 = 10-TM Resource; both k₀=0.9992; differ only by 500 km false easting). `assert_canonical_crs()` helper added. `canonical_shapefile_log.md` label corrected. `compactness_metrics.py` docstring corrected (was wrongly labelling 3401 as Forest).
