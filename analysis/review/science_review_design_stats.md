@@ -26,7 +26,7 @@ backward_dependencies:
 
 # Science red-team — design, statistics, and claim calibration
 
-**Date:** 2026-04-23
+**Date:** 2026-04-23 (original) | **Updated:** 2026-06-13 (partial update — 2026-06-10 referee pass verification)
 **Reviewer posture:** methods-paper peer review (candidate venues: *Election Law Journal*, *Statistics and Public Policy*, *PNAS Nexus*). Findings are graded at the severity a careful reviewer would assign in a first-round review.
 **Scope:** S1 (experimental design / pre-registration), S2 (statistical validity), S9 (claim calibration). All three dimensions overlap and the cross-cutting issues (MCMC ESS, multiple-comparison burden, p100 language) are discussed under whichever dimension they bite hardest.
 
@@ -63,6 +63,62 @@ Authoritative current-state view of the findings in this file against the remedi
 | Implicit finding — Chair-claim public-support overclaim | ADDRESSED | d25e659 §5.9.4 softens to "materially overstates the absence of public support." |
 
 Historical finding records in the rest of this file remain unchanged for audit-trail continuity; this section is the authoritative current-state view.
+
+---
+
+## Status update — 2026-06-13 (2026-06-10 referee pass verification)
+
+Verified against `reports/academic/report_academic.md` as of 2026-06-13. All seven defects carried forward from the 2026-06-10 referee pass were checked against the current report text. Evidence is cited by line number.
+
+### Defect verdicts
+
+| Defect | Topic | Verdict | Notes |
+|---|---|---|---|
+| 1 | Bonferroni arithmetic (3.2×10⁻⁷ → 2.80×10⁻⁶) | **REMEDIATED** | The erroneous "3.2×10" figure returns zero hits in the current report. The correct value 2.80×10⁻⁶ appears at §4.3.2 (line 559) with full derivation (2 × 1.40×10⁻⁶) and dependence disclosure. |
+| 2 | Fisher/independence claim | **PARTIALLY REMEDIATED** | Fisher retired as the joint headline in §4.3.2 (line 559) and §4.3.3 BH table (line 522). Ch1–Ch2 dependence disclosed in both locations. However, a stale paragraph at line 1671 (§5.4.9) still reads: "because both tests are effectively one-tailed *against the gerrymandering direction* ... combining them via Fisher's method is methodologically defensible. This is the headline joint-probability figure cited in `report_public.md`." This directly contradicts the §4.3.2 retirement two pages earlier. The contradiction is an internal consistency defect that a referee pass would flag. **Residual action required**: delete or update the line-1671 paragraph so it does not defend a figure the report has retired elsewhere. |
+| 3 | Mahalanobis empirical floor (ESS-bounded ~6.7×10⁻⁴ at 100k ESS≈150) | **REMEDIATED** | At the 100k run (ESS≈150), the empirical floor was ~6.7×10⁻⁴ and the parametric p = 1.40×10⁻⁶ was well below it — a real gap. The 1,010,000-plan canonical run raises ESS to ~1,429–1,682 (line 1660: "At these ESS levels the publication-grade threshold (~1,000–2,000) is met; the ESS caveat is resolved"). The empirical floor at 1.01M plans is ~1/1,010,000 ≈ 10⁻⁶, which converges with the parametric p = 1.40×10⁻⁶. The original defect (parametric p far below an ESS-credible floor) is therefore genuinely resolved by scale, not by re-framing. The parametric figure is no longer making a stronger claim than the empirical record can support. |
+| 4 | Anchoring retraction / declination sign change in §4.1.4 | **REMEDIATED** | Both disclosures appear in §4.1.4 (lines 450–451). The declination sign journey through Amendment 10 is documented with the specific swapped-operand error at `mcmc_ensemble.py:215`. The anchoring retraction is explicit. |
+| 5 | Appendix D.3 convention rewrite (positive = UCP-favoured) | **REMEDIATED** | Appendix D.3 (lines 2949–2982) fully rewritten with explicit ± convention, correction note for Amendment 10 (swapped-operand bug), and a verification unit test. |
+| 6 | Commission convention asymmetry (T3.3) | **REMEDIATED** | Zero hits for "commission convention" in the academic report. The framing does not appear. |
+| 7 | Neighbour-drain Ch3 in preamble | **REMEDIATED** | Line 58 contains a dedicated paragraph in the executive summary. Ch3 exclusion from the headline is explained; the full three-map comparison (2019, majority, minority all at 0th percentile) is present. |
+
+### Summary
+
+Five of seven defects are fully remediated. One is partially remediated with a clearly located residual (Defect 2, line 1671). One is resolved by the scale of the 1.01M canonical run rather than by re-framing (Defect 3).
+
+**Residual action item (Defect 2):** Remove or revise the paragraph at line 1671 of `report_academic.md` (the "Methodological Caveat on Tail Conventions" block). In its current form it defends Fisher combination as "methodologically defensible" and describes Fisher as "the headline joint-probability figure cited in `report_public.md`" — both claims are inconsistent with the §4.3.2 retirement of Fisher (two pages earlier) and with the current Bonferroni-as-preferred-headline framing. The block should be replaced with a note acknowledging that the Fisher result is archived for reference only, not cited as the audit's headline joint statistic.
+
+---
+
+## Post-June-10 additions review
+
+New analytical content that appeared in `report_academic.md` after the original 2026-04-23 review date. Assessed for design issues only; not a replication.
+
+### T1.4 — Constraint-enforcing ensemble (s.15(2) rural-protection)
+
+Disclosed as not yet completed at §5.4.9 (line 1604): "A constraint-enforcing re-run is listed as future work in H6 but was not completed before submission." The canonical ReCom ensemble disables the ±25% s.15(2) rural-protection hard constraint, making reported minority percentiles conservative (lower bounds). The severity-audit note at line 1639 confirms this: "the Bonferroni headline (p ≤ 2.80×10⁻⁶) holds under the ReCom-typical interpretation; under the constraint-enforcing interpretation, the bound is conservative."
+
+**Design note:** The "conservative" characterisation is technically correct — a constraint-enforcing ensemble could only tighten the neutral plans into a smaller map space, making the minority's tail position more extreme. However, the paper currently uses "ReCom-typical plan" framing (line 1639) rather than "neutral commission-typical plan" everywhere in §6.2 verdict text. This is the methodologically disciplined choice (per Mayo severity), and it should be consistent throughout. If any remaining §6.2 or §7 synthesis paragraphs still say "neutral" without the "ReCom-typical" qualifier, those should be updated.
+
+### T2.1 — Local-perturbation kernel
+
+Not found in the current report text. The pre-June-10 referee pass (T2.1) called for a local-perturbation (single-flip) check as a robustness complement to ReCom's global bipartition moves. The current report does not document a local-perturbation sensitivity run. This remains a listed future-work item (implicit in `TODO_REMEDIATION.md`) but is not present as a reported result. No design defect introduced; the absence is noted.
+
+### T2.2 — Forest-ReCom script
+
+Not found as a named script or result in the current report text. The Forest-ReCom variant (Autry et al. 2023) uses a spanning-forest proposal rather than a bipartition cut. It was listed in the June-10 referee pass as a robustness cross-check for the standard ReCom ensemble. The current report does not report a Forest-ReCom run. No design defect introduced; the absence is noted.
+
+### MAUP pop-weighted robustness
+
+Present at §5.4 via `attribution_sensitivity_check.py` and `va_attribution_area_weighted.py` (lines 184, 188 of the script table). The area-weighted MAUP check runs the VA-to-ED attribution using area weighting rather than centroid assignment. The report states direction holds under this alternative attribution. Directional robustness noted; the sensitivity magnitude (how much percentile placements shift under area-weighted attribution) is not summarised in the main text. A referee could ask for the magnitude. No release-blocking defect.
+
+### Proposal-epsilon robustness (Amendment 11, 2026-06-13)
+
+New result present at §5.4.9 (line 1606): the full ±25% proposal-balance band is tested against the canonical half-band (±12.5%). Partisan percentiles shift by less than 0.05 pp across all four metrics. The result is clearly reported with the caveat that the full-band ensemble produces unrealistically malapportioned plans as a baseline. Design is sound: the robustness is narrow-scope (proposal-balance tolerance only, not constraint-enforcing) and correctly distinguished from the T1.4 constraint-enforcing question.
+
+### Burst-pathway canonical runs (chain-hang documentation, line 1602)
+
+The 1,010,000-plan canonical run is documented at §5.4.9. Chain 1 experienced a sampler hang at chunk 12/50 during the run extension; the hang resolved and the chain completed to 252,500 steps. The report acknowledges a latent re-seeding risk on resume paths (T1.11/T1.12 in `TODO_REMEDIATION.md`) but confirms the published ensemble was uninterrupted (no actual corruption). Design note: the latent seed-replay defect should be fixed before any re-run that does use a resume path; it is not a current defect in the published ensemble.
 
 ---
 
