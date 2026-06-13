@@ -1,6 +1,5 @@
 # © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 # Data: Elections Alberta (public domain) | https://ixby.github.io
-# Version: v0.9
 """Advance-vote sensitivity: re-score canonical majority and minority maps
 under (A) Election-Day votes only and (B) Election-Day + smeared advance
 votes (advance_vote_splat output).

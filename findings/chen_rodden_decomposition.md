@@ -1,5 +1,6 @@
 ---
-status: SUPERSEDED — 100k v0_8/v0_9-era ensemble (ESS ~150); canonical 1.01M rerun pending
+status: SUPERSEDED
+superseded_by: findings/burst_pathways_canonical.md
 superseded_date: 2026-06-10
 note: |
   Chen-Rodden decomposition was computed against the 100k v0_8/v0_9 ensemble with ESS ~ 150.
@@ -7,7 +8,7 @@ note: |
   Methodology unchanged; numerical values to be regenerated against canonical.
 ---
 
-> [SUPERSEDED 2026-06-10] - 100k v0_8/v0_9 substrate; canonical 1.01M rerun pending.
+> ⚠️ **SUPERSEDED** — Built on an ESS ≈ 150 superseded ensemble; the canonical 1.01M ensemble is authoritative. See [`findings/burst_pathways_canonical.md`](burst_pathways_canonical.md).
 
 > **Backward:**
 > - `analysis/scripts/chen_rodden_decomposition.py` — companion script

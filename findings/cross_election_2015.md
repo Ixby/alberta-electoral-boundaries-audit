@@ -1,5 +1,6 @@
 ---
-status: SUPERSEDED — blend-substrate era; canonical recomputation pending (TODO_REMEDIATION T4.1)
+status: SUPERSEDED
+superseded_by: findings/extended_partisan_metrics_canonical.md
 superseded_date: 2026-06-10
 note: |
   The headline -0.51 pp asymmetry reported here was computed under the v0_8 blended-crosswalk
@@ -8,7 +9,7 @@ note: |
   methodology in this doc is sound; only the substrate-specific numerical values are stale.
 ---
 
-> [SUPERSEDED 2026-06-10] - blend-substrate values; canonical replacement pending.
+> ⚠️ **SUPERSEDED** — Built on blend-era attribution; its −0.51 pp EG asymmetry directly contradicts the canonical +3.92 pp. See [`findings/extended_partisan_metrics_canonical.md`](extended_partisan_metrics_canonical.md).
 
 > **Backward:**
 > - `.temp/ebc_2017_final.pdf` and `.temp/ebc_2017_text.txt` — 2017 EBC final report (source of crosswalk truth)

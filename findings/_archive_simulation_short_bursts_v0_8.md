@@ -1,3 +1,10 @@
+---
+superseded_by: findings/burst_pathways_canonical.md
+status: SUPERSEDED
+---
+
+> ⚠️ **SUPERSEDED** — v0_8 substrate; the canonical burst run is now the authoritative result. See [`findings/burst_pathways_canonical.md`](burst_pathways_canonical.md).
+
 > **Backward:**
 > - `analysis/scripts/simulation_short_bursts.py` — companion script that runs the short-burst MCMC chains
 > - `data/outputs/` ensemble outputs from the burst run

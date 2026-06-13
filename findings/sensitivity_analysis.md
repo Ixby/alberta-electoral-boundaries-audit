@@ -1,5 +1,6 @@
 ---
-status: PARTIALLY SUPERSEDED — 250k/100k/2M substrate-era; canonical 1.01M now headline
+status: SUPERSEDED
+superseded_by: "(canonical ensemble runs — see findings/ for canonical-substrate analyses)"
 superseded_date: 2026-06-10
 note: |
   Sensitivity values cited here predate the canonical 1.01M run. Per the independent referee
@@ -8,7 +9,7 @@ note: |
   commands, or fold into the monograph appendix.
 ---
 
-> [SUPERSEDED IN PART 2026-06-10] - substrate-era numbers; canonical sweep pending.
+> ⚠️ **SUPERSEDED** — Referee flagged as thinnest evidence trail; pre-canonical substrate. See canonical ensemble runs in `findings/` for canonical-substrate analyses.
 
 > **Backward:**
 > - ReCom ensembles at varied population tolerances and ensemble sizes (250k canonical, 100k and 2M sweeps)

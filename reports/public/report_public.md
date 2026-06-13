@@ -57,7 +57,7 @@ This is very different from the Alberta you see on election night. Most election
 
 The boundary lines drawn over the colour are the minority commission's 89 proposed electoral districts — the map this audit ends up critiquing. The audit's work is to ask what those lines do to the people underneath them.
 
-For me personally, this was the image that made the stakes clear. A province that looks like it votes one way on a standard map is actually a province where most of the people live in areas that vote the other way. Once you can see the population underneath the boundary choices, those choices stop looking random.
+This was the image that made the stakes clear. A province that looks like it votes one way on a standard map is actually a province where most of the people live in areas that vote the other way. Once you can see the population underneath the boundary choices, those choices stop looking random.
 
 ---
 
@@ -161,7 +161,7 @@ The audit also tested the chair's separate, blanket assertion in Appendix C that
 
 The cleanest single question to ask of any electoral map is this: if the province's vote split exactly evenly between the two main parties, what seat count would the map produce? This holds the electorate constant and asks the map alone what it does.
 
-To answer this, the audit generated 1,010,000 computer-simulated, mathematically neutral Alberta maps (4 independent chains × 252,500 steps, base seed from Cloudflare drand beacon, pre-registered at OSF before execution) using the official Elections Alberta shapefiles, holding to the exact same statutory rules and geographic boundaries the commission used. We then placed the commission's two 2026 maps into that distribution to see how normal they are.
+To answer this, the audit generated 1,010,000 computer-simulated, mathematically neutral Alberta maps (4 independent chains × 252,500 steps, base seed from Cloudflare drand beacon, pre-registered at OSF before execution) using the official Elections Alberta shapefiles, holding to the exact same statutory rules and geographic boundaries the commission used. The audit then placed the commission's two 2026 maps into that distribution to see how normal they are.
 
 In Alberta, the neutral answer is not 50/50. *Across 1,010,000 computer-simulated legal Alberta maps, the median map gives the UCP only 44.8% of the seats at 50/50 votes* — a typical Alberta map under neutral votes hands the NDP a small seat majority. This is counterintuitive but mechanical: rural UCP voters win their ridings by 60-40 margins (wasting many "extra" UCP votes), while urban NDP voters win their ridings by tighter 51-49 margins (wasting fewer NDP votes per win). At neutrality, NDP comes out ahead on seat efficiency.
 
@@ -274,7 +274,7 @@ The same verdict in plain summary form, leading with the structural finding beca
 
 > **THE PLAIN READING.** Two electoral maps were drawn in the same room, by five commissioners working from the same rules and the same data. The majority map is the kind of map a neutral procedure routinely produces: clean on every one of the audit's pre-registered structural tests, comfortably inside the simulated partisan-fairness distribution. The minority map is something else. It crosses four of five structural-irregularity tests — chair-flagged lasso corridors (3 confirmed of 7 configurations criticized), the four-way Airdrie split, the national-park extension, and the 48%-wider population spread — and on 1,010,000 computer-simulated neutral maps drawn from the official Elections Alberta shapefiles, its `seats@50/50` value is reached by fewer than 100 neutral maps. *(Municipal anchoring is the fifth pre-registered test; it is retracted — both maps fall within the 70–85% Canadian norm on official shapefiles. See the correction note below.)* All four partisan-fairness measures simultaneously place it in the statistical tail; the joint probability of that combination under a neutral drawing process is at most one in 357,000 (Bonferroni dependence-robust upper bound). The audit tested whether the unusual geometry is the specific mechanism that produces the seat advantage; that claim did not survive the falsification. What does survive: same room, same rules, same data, two very different maps, and only one of them has the structural pattern that researchers flag for further inquiry. Whether the cause was deliberate engineering, unlucky drafting, or both is a judgement call the audit puts in the reader's hands.
 >
-> We measured the effects. We can't read minds.
+> The audit measured the effects. It cannot read minds.
 
 > **RETRACTION CONDITIONS**
 >

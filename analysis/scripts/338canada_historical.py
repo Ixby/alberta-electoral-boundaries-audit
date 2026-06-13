@@ -58,7 +58,7 @@ DATA = os.path.join(AUDIT_ROOT, "data")
 HIST_DIR = os.path.join(DATA, "reference", "polling_338_historical")
 os.makedirs(HIST_DIR, exist_ok=True)
 
-UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"
+UA = "Mozilla/5.0 (research; Alberta boundaries audit)"
 ALBERTA_URL = "https://338canada.com/alberta/"
 
 # Key anchor dates for per-riding reconstruction via Wayback.

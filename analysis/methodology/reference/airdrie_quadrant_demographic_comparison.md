@@ -8,7 +8,7 @@
 > - `findings/airdrie_highway_pretext.md` — companion Airdrie finding
 > - (leaf — reference check on a specific public-report claim)
 
-# v0.1 Airdrie Four-Quadrant Demographic Comparison Check
+# Airdrie Four-Quadrant Demographic Comparison Check
 
 **Date:** 2026-04-26
 **Scope:** Substantiate or revise the public-report claim that the four Airdrie minority quadrants are "within 8% of each other on every demographic measure the commission considers." Verdict: **Unsubstantiated as filed; the audit's own files document a different (and stronger) finding — that the four-way split is unforced by population arithmetic, regardless of demographic homogeneity.**

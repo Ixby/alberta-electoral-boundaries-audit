@@ -44,7 +44,7 @@ INDEX_CSV = os.path.join(AUDIT_ROOT, "data", "reference", "338canada_ridings_ind
 OUT_CSV = os.path.join(AUDIT_ROOT, "data", "reference", "338canada_per_riding_87seat.csv")
 
 URL_TMPL = "https://338canada.com/alberta/{code}e.htm"
-UA = "Mozilla/5.0 (research; Alberta boundaries audit, v0_1)"
+UA = "Mozilla/5.0 (research; Alberta boundaries audit)"
 SNAPSHOT_DATE = "2026-04-12"
 
 

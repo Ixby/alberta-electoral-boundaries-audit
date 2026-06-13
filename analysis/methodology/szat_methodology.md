@@ -71,7 +71,7 @@ used; only the swing zones carry the between-map difference.
 | `data/shapefiles/derived/va_polygons_with_full_2023_votes.gpkg` | VAs with 2023 election-day + full vote attribution |
 
 Note: `data/outputs/assignment_va_to_2026_assignments.csv` was built against
-v0_5 DPG-derived shapefiles and must not be used as SZAT input. SZAT recomputes
+pre-canonical shapefiles and must not be used as SZAT input. SZAT recomputes
 VA assignments from scratch using the Elections Alberta canonical boundaries.
 
 ### 3.2 Spatial Join

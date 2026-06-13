@@ -9,7 +9,7 @@
 > - `reports/academic/report_academic.md` §5.9 — supports R12 rationale assessment
 > - (leaf — reference check on a specific public-report claim)
 
-# v0.1 Rocky Mountain House-Banff Park — National-Park Extension Population & Ranching Check
+# Rocky Mountain House-Banff Park — National-Park Extension Population & Ranching Check
 
 **Date:** 2026-04-26
 **Scope:** Substantiate or qualify the public-report claim that the minority's Banff National Park extension polygon contains "zero year-round residents and zero working ranches." Verdict: **Geographically plausible but quantitatively softer than "zero"; the polygon-clipped DA-population analysis run for this file finds approximately 491 area-weighted residents in the NP/mountain-park slice, drawn entirely from two enormous rural dissemination areas whose actual park-land portion is essentially uninhabited.**
