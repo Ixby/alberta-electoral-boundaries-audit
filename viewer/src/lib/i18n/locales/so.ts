@@ -46,10 +46,8 @@ export default {
 	},
 	top_callouts: {
 		gerrymander_lead: 'Khariidadda laga yar yahay ma waa qaybsi siyaasadeed?',
-		gerrymander_body: 'Khariidadda laga yar yahay ee guddidu waxay kor u soo bixi laheyd nasiib in ka yar 1&nbsp;ka mid ah&nbsp;14.5&nbsp;milyan oo khariidad oo si aan kala sooc lahayn loo sawiray. Khariidadda inta badan waxay si fiican ugu jirtaa kala duwanaanshaha caadiga ah.',
 		tldr_label: 'Soo koobid',
 		tldr_p1: 'Guddida dib-u-qaybinta ee Alberta waxay u kala qaybsantay 3–2 sannadkii 2026 oo waxay soo saartay laba khariidadood oo kala duwan. Dawladda ayaa labadaba dib u dhigtay oo dib-u-qaybintii u gudbisay guddi shan xubnood oo MLA ah (guddiga Lunty), oo la filayo inay warbixintooda soo saaraan Noofembar 2026. Midkoodna khariidadaha guddida ma aha sharci.',
-		tldr_p2: 'Hubintan waxay si isku mid ah u tijaabisay labada khariidadood ee guddida, iyada oo la adeegsanayo 1,010,000 khariidadood oo dhexdhexaad ah oo uu kombuyuutar soo saaray kuwaas oo laga sameeyay shaybaadhka rasmiga ah ee Elections Alberta ahaan tixraac. Soo jeedinta inta badan waxay ku jirtaa kala duwanaanshaha dhexdhexaadka ah ee imtixaan kasta oo horay loo diiwaan-geliyay. Soo jeedinta laga yar yahay waxay ka gudbaysaa afar ka mid ah shanta imtixaan ee qaab-dhismeedka, kala-qaybinta kursiyada caddaaladda xisbiyeed ee codka 50/50 waxa ay gaartaa in ka yar 100 khariidadood oo ka mid ah kuwa dhexdhexaadka ah — itimaal isku jira oo qiyaastii 1 ka mid ah 15 milyan oo ku jira habraac sawir oo dhexdhexaad ah.',
 		tldr_p3: 'Hubinta waxay cabbirtaa natiijooyinka, ma aha niyadda. Marka guddiga Lunty uu sii daayo khariidadiisa, hubintani waxay ku dabaqi doontaa isla imtixaanada.',
 		tldr_footer: 'Shuruudaha been-abuurka ee horay loo diiwaan-geliyay iyo ballamaha laga noqonayo waxay ku jiraan %s.',
 		tldr_footer_link: '§9'
@@ -117,8 +115,6 @@ export default {
 		heading: 'Waxa hubintani ku sheegi karto iyo waxa aysan kuu sheegi karin',
 		can_1:
 			'Joomatariga khariidadda laga yar yahay waxa uu ka gudbaa 4 ka mid ah 5 xadadka qaab-dhismeedka ee horay loo diiwaan-geliyay <em>iyada oo aan la isticmaalin xog doorasho oo kasta</em>. Shanaadka (xajinta) waa dhexdhexaad. Inta badan waxay ka gudubtaa 0 ka mid ah 4-da dhacaya. Imtixaanadaasi waxay cabbiraan sifooyinka khadadka xudduudaha laftooda — qaabka degmada, xajinta dawladda hoose, faafinta dadka — oo waxay gaaraan gunaanadka ka hor inta aan cod la tirin.',
-		can_2:
-			'Si gaar ah, marka xogta doorashada la keeno, khariidadda laga yar yahay waxay ku taal heerka 99.99-aad ee 1.01 milyan khariidadood oo isbarbardhig ah oo si algorithmic ah loo sawiray oo lagu hayo isla shuruucda sharciga. In ka yar 100 oo ka mid ah 1.01 milyan khariidad oo dhexdhexaad ah ayaa gaadhaya isla isle\'egta kursiyada. Calaamadda tirakoobka ee isku darka waa qiyaastii 1 ka mid ah 14.5 milyan oo ku jira habraac sawir oo dhexdhexaad ah. Laba qalab oo madax-bannaan — joomatari iyo tirakoob — ayaa gaara isla gunaanad.',
 		can_3:
 			'Saddex ka mid ah qaababka uu ku jiro soo jeedinta laga yar yahay waxa qoraal ahaan calaamadeeyay Guddoomiyaha Guddida, Garsoore Miller, qaybta §5.8.2 ee warbixinta inta badan iyo Lifaaqa C. Imtixaanada hubintu waxa la sameeyay iyada oo aan la ogeyn calaamadahiisa, waxana ay soo bandhigaan isla aagagga. Qalab saddexaad oo madax-bannaan — garsoorid — ayaa isugu yimaada isla xudduudaha.',
 		cant_1:
@@ -127,8 +123,6 @@ export default {
 			'Hubintu <strong>ma saadaaliso</strong> waxa guddiga Lunty doorto, waxa ay noqonayso doorashada Noofembar 2026, ama sida dadka Alberta uga falcelin doonaan.',
 		cant_3:
 			'Hubintu <strong>ma saadaaliso</strong> sida maxkamadi ugu xukumi laheyd haddii doodda Axdiga lagu soo qaado mid kasta oo soo jeedinta ah.',
-		cant_4:
-			'Hubintu <strong>ma sheegayso</strong> in tirada 1-ka mid ah 14.5-milyan ay tahay itimaalka in qaybsi siyaasadeed dhacay. Tiradaasi waa itimaalka dabada ee joomatariga laga yar yahay oo ku jira mala-awaal algorithmic dhexdhexaad ah. Waa caddayn in mala-awaalka dhexdhexaadka ah uusan macquul ahayn. Ma aha itimaal ka dambeeya oo niyad siyaasadeed — su\'aashaasi waxay u baahan tahay caddayn aan joomatarigu bixin karin.',
 		cant_5:
 			'Hubintu <strong>uma sheegto</strong> codbixiye kasta oo gaar ah qaabka uu qaadan lahaa ama waxa uu xogtan ka qaban lahaa. Doorashada waa adiga.'
 	},
@@ -342,9 +336,7 @@ export default {
 			t3_r3_c: '<strong>99.99-aad centile — in ka yar 100 ka mid ah 1,010,000 tirinta dhexdhexaadka ah ayaa gaadha</strong>',
 			sub2_close: 'In ka yar 100 ka mid ah 1,010,000 khariidadood oo Alberta dhexdhexaad ah oo kombuyuutar soo saaray ayaa soo saaray qiime <code>seats@50/50</code> oo sarreeya sida soo jeedinta laga yar yahay. Iyada oo ku saleysan qaababka codbixinta dhowaan ee dhabta ah, waxay UCP siisaa 60 kursi (marka loo eego 55 soo jeedinta inta badan). Soo jeedinta inta badan waa nooca khariidad ee habraac dhexdhexaad ah caadi ahaan soo saaro. Soo jeedinta laga yar yahay waa nooca khariidad ee waa inaad si gaar ah u doontaa si aad u sawirto.',
 			sub3_h: 'Macnaheedu maxay tahay luuqad cad',
-			sub3_p: 'Shaybaadhka rasmiga ahi waxa ay shaacisaa khariidad tirakoob ahaan aan caadi ahayn oo isla jiho siyaasadeed marka loo eego afarta cabbir isku mar. Itimaalka isku jirka ee habraac sawir dhexdhexaad ahi uu soo saaro khariidad sidan aan caadiga ahayn afarta cabbir isku mar waa qiyaastii hal ka mid ah 15 milyan (p&nbsp;=&nbsp;6.87×10<sup>−8</sup>, <a href="https://osf.io/6pt83" rel="noopener">tijaabada Fisher ee la isku daray oo horay loo diiwaan-geliyay</a>). Tani ma aha khalad isku-celin ama dhibaato cabbir — waa isla jawaabta afar qalab tirakoob oo madax-bannaan oo isla qol lagu akhriyay.',
 			details_summary: 'Macnaha qiimahan p — iyo waxa aanay ka dhignayn',
-			details_p1: 'Qiimaha p wuxuu ka jawaabaa hal su\'aal: haddii khariidadda uu sawiray habraac dhexdhexaad ah, immisa jeer ayaan arki lahayn natiijo sidan aan caadi ahayn ama ka sii aan caadi ahayn? p&nbsp;=&nbsp;6.87×10<sup>−8</sup>, jawaabtu waa qiyaastii hal mar 14.5 milyan oo tijaabo gudaheed.',
 			details_p2: 'Tani waa tijaabo mala-awaal oo frequentist ah, ma aha cabbir niyad. Ma sheegayso in guddidu ay ula jeeday qaybsi siyaasadeed, mana cabbirayso sida khariidaddu aan caddaalad u ahayn macnaha wax-ku-oolka ah. Waxay sheegtaa in qaabka xudduudu yahay tirakoob ahaan aan la jaan-qaadayn habraac sawir dhexdhexaad ah — isla gunaanadka uu gaadhi laha hubin aan kala sooc lahayn iyada oo aan ku xidhnayn cidda khariidadda sawirtay ama sababta.',
 			details_p3: 'Tijaabada waa horay loo diiwaan-geliyay xogta ka hor inta aan la falanqayn (<a href="https://osf.io/w2s8k" rel="noopener">Diiwaan-gelinta OSF w2s8k</a>). Diiwaan-gelinta horeed waxay si hore u sheegtaa mala-awaalka eber, cabbirrada, iyo xadka diidmada, sidaa darteed natiijada lama loogu xil saari karo dooshista xilliya wax dabacan kadib tirooyinkii la arkay.',
 			szat_label: 'TIJAABADA U QAYBINTA AAGA KALA-SOOCIDA (SZAT)',
