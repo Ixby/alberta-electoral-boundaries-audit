@@ -1,4 +1,6 @@
 import en from './locales/en';
+import crk from './locales/crk';
+import pdt from './locales/pdt';
 import fr from './locales/fr';
 import de from './locales/de';
 import es from './locales/es';
@@ -19,6 +21,8 @@ import type { Lang } from './store.svelte';
 
 const dictionaries: Record<Lang, unknown> = {
 	en,
+	crk,
+	pdt,
 	fr,
 	de,
 	es,
