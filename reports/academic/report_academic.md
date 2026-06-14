@@ -762,9 +762,9 @@ An earlier draft of this section used incorrect thresholds at (a), (b), and (c).
 | Canmore-Banff (majority) | −27.2% | 3 | Pass |
 | Central Peace-Notley (minority) | −44.6% | 5 | Pass |
 | Lesser Slave Lake (minority) | −45.4% | 4 | Pass |
-| Rocky Mountain House-Banff Park (minority) | −30.3% | 5 | Pass |
+| Rocky Mountain House-Banff Park (minority) | −30.3% | 4 or 5 (b borderline) | Pass |
 
-All six §15(2) invocations across both maps pass the 3-of-5 statutory threshold under the correct thresholds.
+All six §15(2) invocations across both maps pass the 3-of-5 statutory threshold under the correct thresholds (Rocky Mountain House-Banff Park: 4 or 5 criteria depending on the criterion-(b) reading — see [§5.1.5](#sec-5-1-5)).
 
 - **Canmore-Banff (majority, 3/5).** (a) area likely fails; commission does not claim it. (b) passes (Canmore ~390 km from the Legislature). (c) fails — Canmore 15,990, Banff townsite 8,305 (StatCan 2021 Census). (d) passes — commission places Stoney Nakoda (Morley), Eden Valley 216, and other reserves inside the ED. (e) passes — BC border. Statutorily legitimate at the 3/5 minimum.
 - **Rocky Mountain House-Banff Park (minority, 5/5).** (a) passes — Clearwater County alone is 18,692 km²; the ED adds Mountain View W., Bighorn MD, Rocky View W., and Banff NP north of the Town of Banff. (b) passes — Rocky Mountain House is ~215 km from Edmonton by road. (c) passes — largest town is Rocky Mountain House at 6,765 (StatCan 2021); Banff townsite is not in this ED. (d) passes — commission names five reserves inside (Big Horn 144A, O'Chiese 203, Stoney 142/143/144, Stoney 142B, Sunchild 202). (e) passes — NP extension reaches BC.
@@ -1222,7 +1222,7 @@ Formal engineered-boundary detection applies the E1–E3 criteria (boundary thro
 - **E2 (reformulated — extension chosen over available community-of-interest alternatives):** **Pass.** The minority had multiple ways to draw a west-central-Alberta rural district. It could have extended into Caroline, Nordegg, additional portions of Mountain View County, Bighorn MD territory, or a restored Sundre connection — each a real inhabited rural community with economic and service ties to the Rocky Mountain House area. Under the corrected §15(2) thresholds (see [§5.1.4](#sec-5-1-4) re-audit), the ED qualifies on 4 of 5 criteria on the 2019-predecessor-plus-Clearwater-County footprint alone, without the park extension. Adding populated territory instead of park territory would have satisfied statutory eligibility, increased the district's population toward the ±25% band, and reflected actual communities. The minority chose the park extension; the choice added no community of interest.
 - **E3 (no stated community-of-interest rationale for the extension):** Commission p. 352 cites "the historical precedent of portions of Banff National Park being included in a west central Alberta electoral division." Historical precedent is not a community-of-interest rationale; it is a "because we did it before" rationale. The extension adds approximately 491 area-weighted residents to the district (per `banff_extension_population_check.md`) — a sparse visitor-services population, not a community-of-interest base. **Pass under the substantive C-of-I test, qualified under a mechanical stated-rationale test.**
 
-All three of E1–E3 pass under the reformulated test. The formal engineered-boundary signature is **detected**. The two E2 framings give different verdicts. Both are recorded here so the finding can be evaluated under either standard:
+All three of E1–E3 pass under the reformulated test. The formal engineered-boundary signature is **detected under Reading B** (the reformulated substantive test). Under pre-registered Reading A, E2 does not pass (see below). The two E2 framings give different verdicts. Both are recorded here so the finding can be evaluated under either standard:
 
 **E2 — Reading A (original eligibility-only framing):** E2 as initially specified asked: *"Would the district lose its §15(2) qualification if the NP extension were removed?"* Under corrected §15(2) thresholds documented in [§5.1.4](#sec-5-1-4), RMH-Banff Park satisfies 4 of 5 qualifying criteria on the 2019-predecessor-plus-Clearwater-County footprint without the park extension. Answer: the ED qualifies without the extension. Under Reading A, **E2 does not pass**. The formal signature would be retracted.
 
@@ -1242,9 +1242,9 @@ The audit reports the finding under Reading B for the reasons given in the follo
 | Packing (Calgary Zone A) | Detected | Not detected | Natural-packing context only |
 | Cracking (Airdrie) | Detected | Not detected | Not applicable (Airdrie-Cochrane was one ED) |
 | Cracking-adjacent (Cochrane merged with Calgary) | Pattern present, C3 fails | Not detected | Not applicable |
-| Engineered boundary (RMH-Banff Park, NP extension chosen over populated alternatives) | Detected (E2 reformulated — see [§5.3.3](#sec-5-3-3)) | Not detected | Not applicable |
+| Engineered boundary (RMH-Banff Park, NP extension chosen over populated alternatives) | Detected under Reading B (reformulated E2; Reading A: non-detection — see [§5.3.3](#sec-5-3-3)) | Not detected | Not applicable |
 
-Three formal signatures, one borderline pattern, all concentrated in the minority map. A mid-audit self-correction sharpened the engineered-boundary test: the E2 criterion was reformulated from an eligibility-only "would the ED qualify without the extension" frame to the substantive "what alternatives were available and which was chosen" frame the signature was designed to measure. Under corrected §15(2) thresholds (see [§5.1.4](#sec-5-1-4)), RMH-Banff Park qualifies on 4 of 5 criteria without the park extension — but a boundary meeting the letter of §15(2) still has to meet its purpose. Populated adjacent territory existed (Caroline, Nordegg, Mountain View County, Bighorn MD, Sundre area) and the minority did not take it. The park extension adds no represented community. Under the purposive reading of §15(2) established by *Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 S.C.R. 27, the signature is detected.
+Two formal signatures (packing + cracking) and one detection under reformulated E2 Reading B (see [§5.3.3](#sec-5-3-3)) — plus one borderline pattern — all concentrated in the minority map. A mid-audit self-correction sharpened the engineered-boundary test: the E2 criterion was reformulated from an eligibility-only "would the ED qualify without the extension" frame to the substantive "what alternatives were available and which was chosen" frame the signature was designed to measure. Under corrected §15(2) thresholds (see [§5.1.4](#sec-5-1-4)), RMH-Banff Park qualifies on 4 of 5 criteria without the park extension — but a boundary meeting the letter of §15(2) still has to meet its purpose. Populated adjacent territory existed (Caroline, Nordegg, Mountain View County, Bighorn MD, Sundre area) and the minority did not take it. The park extension adds no represented community. Under the purposive reading of §15(2) established by *Rizzo & Rizzo Shoes Ltd. (Re)*, [1998] 1 S.C.R. 27, the signature is detected under Reading B. A reviewer applying the narrower pre-registered Reading A standard will not detect it.
 
 <a id="sec-5-3-5"></a>
 #### 5.3.5 Packing-cracking coupling via neighbour-drain adjacency (new, 2026-04-24; honest retrospective)
@@ -1895,7 +1895,7 @@ Applied the same anomaly-scan questions (lasso shape, engineered statutory bound
 | Dimension | Majority 2026 | Minority 2026 |
 | ------------------------------------ | -------------------- | -------------------- |
 | Lasso/corridor shapes (visible) | 0 | 1 (Calgary-Nolan Hill-Cochrane) |
-| Engineered statutory boundary | 0 | 1 (RMH-Banff Park extension) |
+| Engineered statutory boundary | 0 | 1 (RMH-Banff Park extension — Reading B only; not detected under pre-registered Reading A) |
 | Community captured under misnamed ED | 0 | 1 (Olds-Three Hills-Didsbury → N Airdrie) |
 | Airdrie split | 2 EDs | 4 EDs |
 | Cochrane | intact | merged into Calgary |
