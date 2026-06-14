@@ -98,7 +98,7 @@ The Parts 1–3 attacks identify real limitations in specific statistical claims
 
 ### Lane 1 (statistical) — canonical status
 
-The 1,010,000-plan canonical ensemble reinstates all four partisan-fairness flags. Against official Elections Alberta shapefiles: EG p94.4 (below the 95th-percentile individual threshold, but contributes to joint test), MM p99.98 (flagged), Declination p1.21 NDP-tail (flagged), seats@50/50 p99.99 (flagged). The Mahalanobis joint test (D = 5.72, p = 1.40×10⁻⁶) captures the joint extremity; the Fisher combination with Ch2 SZAT (p = 0.0024) yields p = 6.87×10⁻⁸.
+The 1,010,000-plan canonical ensemble reinstates all four partisan-fairness flags. Against official Elections Alberta shapefiles: EG p94.4 (below the 95th-percentile individual threshold, but contributes to joint test), MM p99.98 (flagged), Declination p1.21 NDP-tail (flagged), seats@50/50 p99.99 (flagged). The Mahalanobis joint test (D = 5.72, p = 1.40×10⁻⁶) captures the joint extremity; the Fisher combination with Ch2 SZAT (p = 0.0024) yields p = 6.87×10⁻⁸. **[SUPERSEDED 2026-06-10:** the Fisher combination is retired (channel dependence, Brown 1975; SZAT fails a block-permutation null at p ≈ 0.19). Operative joint headline: Ch1 alone p = 1.40×10⁻⁶ / Bonferroni p ≤ 2.80×10⁻⁶. See `reports/academic/report_academic.md` §4.3.3, §5.5.**]**
 
 The "Lane 1 officially demoted" conclusion in §3.1 was written on the pre-canonical DPG-era ensemble, where a regional-swing robustness check collapsed the minority's outlier status. That pre-canonical result does not survive the canonical run. The uniform-swing sensitivity is documented as a disclosed limitation (§5.5 of the academic report) but is not load-bearing against the canonical 1M finding — three metrics individually flag above the 95th percentile without any swing-model assumption. Lane 1 is not demoted; both lanes contribute independently.
 
@@ -117,7 +117,7 @@ The discovery that the minority map dropped Municipal Anchoring from the histori
 
 ### Summary
 
-The Parts 1–3 statistical confounds affect Lane 1 magnitude claims at the margins; they do not reach Lane 1's canonical joint p-value (p = 6.87×10⁻⁸) and they do not reach any Lane 2 finding. Four Lane 2 structural findings survive canonical recomputation: population MAD 48% wider, Airdrie 4-way split, 3 chair-flagged anomalies, and NW Calgary population asymmetry. All four pre-registered tests fire for the minority; none fire for the majority. This structural pattern is not affected by any confound in Parts 1–3.
+The Parts 1–3 statistical confounds affect Lane 1 magnitude claims at the margins; they do not reach Lane 1's joint p-value (operative: Ch1 p = 1.40×10⁻⁶ / Bonferroni p ≤ 2.80×10⁻⁶; the earlier Fisher p = 6.87×10⁻⁸ was retired 2026-06-10) and they do not reach any Lane 2 finding. Four Lane 2 structural findings survive canonical recomputation: population MAD 48% wider, Airdrie 4-way split, 3 chair-flagged anomalies, and NW Calgary population asymmetry. All four pre-registered tests fire for the minority; none fire for the majority. This structural pattern is not affected by any confound in Parts 1–3.
 
 ---
 
