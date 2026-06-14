@@ -34,7 +34,7 @@ Data: Elections Alberta (public domain) | https://ixby.github.io
 
 **Will Conner** · Mount Royal University, BSc Computer Information Systems
 
-*Draft — May 2026 · Non-partisan · [Repository](https://github.com/Ixby/alberta-electoral-boundaries-audit) · Data and scripts linked throughout*
+*Draft — June 2026 · Non-partisan · [Repository](https://github.com/Ixby/alberta-electoral-boundaries-audit) · Data and scripts linked throughout*
 
 > **Funding:** This research received no external funding. All costs were borne by the author.
 > **Competing interests:** The author declares no competing interests.

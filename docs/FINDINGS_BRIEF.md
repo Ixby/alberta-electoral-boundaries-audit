@@ -12,7 +12,7 @@
 
 # Alberta's Two Electoral Maps: A Summary of Findings
 
-**May 2026**
+**June 2026**
 
 ---
 
