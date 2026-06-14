@@ -1154,9 +1154,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** The Fisher combined p = 6.87×10⁻⁸ is the formal statement of convergence between Ch1 and Ch2.
+**Assertion:** The Fisher combined p = 6.87×10⁻⁸ was the earlier formal statement of convergence between Ch1 and Ch2 (retired 2026-06-10).
 **Why?** Is it valid to combine two p-values using Fisher's method?
-**Answer:** Fisher's method is a standard technique from 1932 for combining independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent — when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (partisan direction of contested-boundary assignments) ask different questions using different data structures, so they are treated as independent. The method multiplies the evidence from both tests; a combined p = 6.87×10⁻⁸ means that if there were no real pattern, both tests would simultaneously return results this extreme roughly once in 15 million repetitions.
+**Answer:** Fisher's method is a standard technique from 1932 for combining independent p-values when each test addresses a different aspect of the same hypothesis. It is valid when the two tests are genuinely independent — when the probability of one is not already implied by the probability of the other. Ch1 (ensemble outlier status) and Ch2 (partisan direction of contested-boundary assignments) ask different questions, but they share the same 2023 vote data, so they are not independent the way Fisher's method requires (Brown 1975) — and the boundary-choice test (Ch2/SZAT) does not survive a stricter spatial check. For both reasons the Fisher combination (p = 6.87×10⁻⁸, "once in 15 million") was retired on 2026-06-10. The audit now reports the ensemble test (Ch1) on its own — about one in 714,000 (p = 1.40×10⁻⁶) — with a conservative combined upper bound of about one in 357,000 (p ≤ 2.80×10⁻⁶) that does not rely on independence. See the academic report §4.3.3 and §5.5.
 
 ---
 
@@ -1510,7 +1510,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** The audit's primary finding is directional consistency across structural and statistical dimensions, not a single decisive number.
 **Why?** Is a directional finding strong enough to support any policy response?
-**Answer:** The directional consistency across four independent structural signals — each derived from different data sources, each surviving stress-testing — is stronger evidence than any single statistical test would be alone. The statistical tests (Fisher p = 6.87×10⁻⁸) add quantitative weight to the structural signals. Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether this is strong enough to require legal remedy, administrative revision, or simply public acknowledgment is a policy and legal judgment; the audit provides the empirical input for that judgment.
+**Answer:** The directional consistency across four independent structural signals — each derived from different data sources, each surviving stress-testing — is stronger evidence than any single statistical test would be alone. The statistical tests add quantitative weight to the structural signals (the ensemble test Ch1, p = 1.40×10⁻⁶ — about one in 714,000 — with a dependence-robust combined upper bound p ≤ 2.80×10⁻⁶, about one in 357,000; the earlier Fisher figure p = 6.87×10⁻⁸ was retired 2026-06-10). Together they support the conclusion that the two 2026 maps are not equivalent proposals from an independent commission. Whether this is strong enough to require legal remedy, administrative revision, or simply public acknowledgment is a policy and legal judgment; the audit provides the empirical input for that judgment.
 
 ---
 

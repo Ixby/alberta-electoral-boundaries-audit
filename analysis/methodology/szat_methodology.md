@@ -283,7 +283,7 @@ The Bernoulli(0.5) null is the correct null for the question SZAT is asking. It 
 
 **Response.**
 
-SZAT is presented as one component of a two-channel joint test, not as a standalone finding. The Fisher combination (T = 39.02, p = 6.87×10⁻⁸, `analysis/methodology/fisher_combination_defense.md`) requires both channels to contribute; the headline figure is not derived from SZAT alone.
+SZAT is presented as one component of a two-channel joint test, not as a standalone finding. **[SUPERSEDED 2026-06-10:** the Fisher combination (T = 39.02, p = 6.87×10⁻⁸, `analysis/methodology/fisher_combination_defense.md`) is retired — Ch1 and Ch2 are not independent (shared 2023 vote substrate; Brown 1975) and SZAT does not survive a contiguity-respecting block-permutation null (p ≈ 0.19). The operative headline is Ch1 alone (Mahalanobis p = 1.40×10⁻⁶) with a dependence-robust Bonferroni upper bound p ≤ 2.80×10⁻⁶; see `reports/academic/report_academic.md` §4.3.3, §5.5. The "structurally independent" rationale immediately below is retained as the historical Fisher-era argument.**] The headline figure is not derived from SZAT alone.
 
 The two channels are structurally independent:
 
