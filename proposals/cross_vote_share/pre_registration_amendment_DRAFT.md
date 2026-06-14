@@ -1,6 +1,6 @@
 ---
 name: Pre-registration amendment — cross-vote-share supermajority test (DRAFT)
-description: "DRAFT pre-registration amendment generalizing the existing 48% NDP responsiveness test to a parameterized sweep over UCP vote shares from 45% to 55% in 1% steps, asking at what vote-share range each proposal pushes one party past the 58-of-87 two-thirds supermajority threshold. Commits the audit to publishing the result regardless of direction. Status: NOT SIGNED, NOT LOCKED — this file is read-only methodology documentation until the principal investigator fills in the drand round, drops _DRAFT from the filename, and commits."
+description: "DRAFT pre-registration amendment generalizing the existing 48% NDP responsiveness test to a parameterized sweep over UCP two-party vote shares from 45% to 60% in 1% steps (16 points; 0.60 brackets the April 2026 ~58.3% polling operating point), asking at what vote-share range each proposal pushes one party past the 58-of-87 two-thirds supermajority threshold. Commits the audit to publishing the result regardless of direction. Status: NOT SIGNED, NOT LOCKED — this file is read-only methodology documentation until the principal investigator fills in the drand round, drops _DRAFT from the filename, and commits."
 type: preregistration
 ---
 
@@ -37,15 +37,21 @@ The homepage verdict raises a question the 48% test does not answer: **at what r
 
 This amendment is the minimum widening of the parent test's scope necessary to answer the verdict's question. It does not introduce a new method, a new model, or a new dataset; it sweeps an existing axis.
 
+## Grid-range note (2026-06-14) — why the upper bound is 0.60
+
+An earlier draft of this amendment used the grid `[0.45, 0.55]`, justified as the span of Alberta provincial elections from 2015 forward. That cap reflected past *elections* but excluded the current *polling operating point*: the 2026-04-12 338Canada snapshot puts the UCP at 52.46% / NDP 37.59% multiparty, i.e. **≈ 58.3% UCP two-party share** — above 0.55. Evaluating the maps only up to 0.55 would have answered "is the map extreme at vote shares Alberta last *voted*," not "is the map extreme at the vote environment the maps are being *drawn into*." The upper bound was therefore extended to 0.60 (≈ 1.7 pp of headroom above the operating point) so the supermajority curve runs through today's polling environment rather than truncating at its edge. The lower bound (0.45) is unchanged.
+
+**Why this is not grid-shopping.** Three guards: (1) the test is a *deterministic* transformation of fixed input data — extending the grid cannot move a result toward or away from significance because the change is made before, and independently of, any computation; (2) **no point above 0.55 has been computed** for either proposal or the ensemble (the run plan remains NOT RUN); (3) the publish-regardless commitment in this amendment binds every point on the extended grid, so a result anywhere in 0.55–0.60 cannot be selectively dropped. The extension is recorded here, dated, before the lock — it is part of the pre-registration, not a revision of it after seeing data.
+
 ## What is being committed
 
 The audit commits to the following, regardless of direction of result:
 
-1. **Run the test as specified in `run_plan.md`** — vote-share grid {0.45, 0.46, …, 0.55} (UCP two-party share), three maps (minority, majority, 1.01M-plan canonical ensemble), uniform-swing model identical to the parent test, 58-seat supermajority threshold.
+1. **Run the test as specified in `run_plan.md`** — vote-share grid {0.45, 0.46, …, 0.60} (UCP two-party share; 16 points), three maps (minority, majority, 1.01M-plan canonical ensemble), uniform-swing model identical to the parent test, 58-seat supermajority threshold.
 
 2. **Publish the resulting curve** as `findings/supermajority_threshold_curve.md` and the figure as `reports/figures/supermajority_threshold_curve.svg`, regardless of which of the pre-specified outcomes (finding A, finding B, or null — see `run_plan.md`) the data produces.
 
-3. **Update the homepage verdict** to reflect the result. If a finding: extend Q3 with one sentence naming the vote-share range at which the minority proposal crosses 58 seats. If a null: extend Q3 with one sentence narrowing the verdict to "extreme at 50/50, but symmetric across the 45–55% range." The verdict cannot be left untouched after this test runs.
+3. **Update the homepage verdict** to reflect the result. If a finding: extend Q3 with one sentence naming the vote-share range at which the minority proposal crosses 58 seats. If a null: extend Q3 with one sentence narrowing the verdict to "extreme at 50/50, but symmetric across the 45–60% range." The verdict cannot be left untouched after this test runs.
 
 4. **No additional sweeps, sub-tests, or post-hoc reframings.** If the curve suggests an interesting question outside the pre-committed grid (e.g., 56% UCP, or NDP-side supermajority paths), that question requires its own amendment before any further analysis.
 
@@ -59,7 +65,7 @@ The audit commits to the following, regardless of direction of result:
 
 In addition to the audit-wide retraction conditions in `preregistration/retraction_conditions.md`, this test is retracted if:
 
-- The uniform-swing algorithm is found to misbehave on per-district counts outside the [0.45, 0.55] target range (e.g., excessive clipping in extreme districts that biases seat counts).
+- The uniform-swing algorithm is found to misbehave on per-district counts outside the [0.45, 0.60] target range (e.g., excessive clipping in extreme districts that biases seat counts — a risk that grows toward the 0.60 upper bound, where more districts approach the clip limits; the run-plan must report the per-point clip fraction so this condition can be checked).
 - The per-district vote inputs (`phase4c_per_ed_votes_minority.csv`, `phase4c_per_ed_votes_majority.csv`) are superseded by a corrected version. In that case the test must be rerun and the finding re-published on the corrected inputs.
 - The 58-seat supermajority threshold is found to be procedurally incorrect (e.g., if Standing Order interpretation pins the threshold at 59 strict-greater-than rather than 58 ≥). In that case the test is rerun with the corrected threshold; the curve itself does not change, only the threshold line.
 

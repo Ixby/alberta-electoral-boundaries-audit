@@ -1,6 +1,6 @@
 ---
 name: Cross-vote-share supermajority test — run plan
-description: "Ready-to-execute plan for extending the existing 48% NDP responsiveness test (pre-registered) to a parameterized sweep over provincial vote shares from 45/55 to 55/45 in 1% steps, asking at what vote-share range each proposal pushes one party past the 58-of-87 two-thirds supermajority threshold. Reuses the canonical uniform-swing algorithm and existing per-district vote artifacts; no new ensemble run required. Status PREP COMPLETE — explicit principal-investigator authorization and a signed pre-registration amendment required before running."
+description: "Ready-to-execute plan for extending the existing 48% NDP responsiveness test (pre-registered) to a parameterized sweep over provincial vote shares from 45% to 60% UCP two-party share in 1% steps, asking at what vote-share range each proposal pushes one party past the 58-of-87 two-thirds supermajority threshold. The 0.60 upper bound brackets the April 2026 338Canada polling operating point (UCP ≈ 58.3% two-party). Reuses the canonical uniform-swing algorithm and existing per-district vote artifacts; no new ensemble run required. Status PREP COMPLETE — explicit principal-investigator authorization and a signed pre-registration amendment required before running."
 type: methodology
 ---
 
@@ -34,7 +34,7 @@ The test is also a natural generalization of the pre-registered responsiveness t
 
 A single CSV and a single figure:
 
-- `data/outputs/supermajority_threshold_curve.csv` — for each of the three artifacts (minority, majority, 1.01M ensemble) and each vote share in {0.45, 0.46, …, 0.55}, the expected UCP seat count, NDP seat count, and the indicator `is_supermajority` (1 if max(ucp_seats, ndp_seats) ≥ 58, else 0). For the ensemble: per-draw values plus mean, median, p2.5, p97.5 across draws.
+- `data/outputs/supermajority_threshold_curve.csv` — for each of the three artifacts (minority, majority, 1.01M ensemble) and each vote share in {0.45, 0.46, …, 0.60}, the expected UCP seat count, NDP seat count, and the indicator `is_supermajority` (1 if max(ucp_seats, ndp_seats) ≥ 58, else 0). For the ensemble: per-draw values plus mean, median, p2.5, p97.5 across draws.
 - `reports/figures/supermajority_threshold_curve.svg` — three curves (minority, majority, ensemble band) showing UCP seat count vs. provincial UCP vote share, with the 58-seat threshold drawn as a horizontal line.
 
 No other artifacts. No interactive widgets. No sub-tests. The scope is fixed here to prevent post-hoc expansion.
@@ -44,7 +44,7 @@ No other artifacts. No interactive widgets. No sub-tests. The scope is fixed her
 Reuses the canonical uniform-swing algorithm (`mcmc_ensemble.py::seat_results()` lines 215–222) unchanged. The only change is sweeping the target share rather than hard-coding 0.5.
 
 ```python
-# For each map (per-district arrays: ucp, ndp), for each target share s in 0.45..0.55:
+# For each map (per-district arrays: ucp, ndp), for each target share s in 0.45..0.60:
 province_ucp = ucp.sum() / (ucp.sum() + ndp.sum())
 swing = s - province_ucp
 ucp_share = ucp / (ucp + ndp)
@@ -60,7 +60,7 @@ Identical algorithm to the existing `seats@50/50` and the existing 48% NDP respo
 
 | Parameter | Value | Source / justification |
 |---|---|---|
-| Vote-share grid | `[0.45, 0.46, 0.47, …, 0.55]` (11 points, UCP share) | Bracket centred on 50/50 wide enough to span both proposals' near-equal-vote regimes; matches the range of 2015–2026 Alberta provincial elections |
+| Vote-share grid | `[0.45, 0.46, 0.47, …, 0.60]` (16 points, UCP two-party share) | Lower bound 0.45 = floor of the 2015–2023 Alberta provincial-election range. Upper bound 0.60 brackets the April 2026 338Canada polling operating point (UCP ≈ 58.3% two-party = 52.46/(52.46+37.59) from the 2026-04-12 snapshot) with ~1.7 pp headroom, so the curve runs *through* today's operative vote environment rather than truncating at its edge. Extended from an earlier `[0.45, 0.55]` draft on 2026-06-14, before any run — see the grid-range note in the amendment for the anti-grid-shopping rationale. |
 | Step size | 0.01 (1 percentage point) | Finest resolution that produces a visually distinguishable curve without overstating the precision of the underlying vote model |
 | Maps tested | Minority proposal, Majority proposal, 1.01M-plan canonical ReCom ensemble | The three artifacts the homepage names |
 | Per-district vote data | `phase4c_per_ed_votes_minority.csv`, `phase4c_per_ed_votes_majority.csv`, MCMC chain per-district counts | The same data the existing `seats@50/50` test uses |
@@ -77,8 +77,8 @@ Identical algorithm to the existing `seats@50/50` and the existing 48% NDP respo
 Stated before the run, so the result cannot be reframed:
 
 - **Finding — "minority proposal crosses 58 below 50% UCP vote share":** the minority proposal map, at some target UCP share ≤ 0.50, produces UCP seats ≥ 58 that fewer than 2.5% of ensemble draws produce at the same target share. This would mean the minority proposal hits a supermajority for UCP at a vote share where neutral maps almost never do.
-- **Finding — "majority proposal symmetric":** the majority proposal stays within the ensemble's central 95% band across the full 0.45–0.55 grid for both UCP and NDP supermajority counts.
-- **Null:** at every point on the 0.45–0.55 grid, both proposals' supermajority-crossing behaviour falls within the central 95% band of the ensemble. The verdict would then narrow: the minority proposal is extreme at 50/50 but does not systematically push past the supermajority threshold at adjacent vote shares.
+- **Finding — "majority proposal symmetric":** the majority proposal stays within the ensemble's central 95% band across the full 0.45–0.60 grid for both UCP and NDP supermajority counts.
+- **Null:** at every point on the 0.45–0.60 grid, both proposals' supermajority-crossing behaviour falls within the central 95% band of the ensemble. The verdict would then narrow: the minority proposal is extreme at 50/50 but does not systematically push past the supermajority threshold at adjacent vote shares, including the current ≈58% polling operating point.
 
 Any of the three outcomes is publishable. The pre-registration amendment locks the publish-regardless commitment.
 
@@ -87,7 +87,7 @@ Any of the three outcomes is publishable. The pre-registration amendment locks t
 Stated to prevent scope creep:
 
 - It does not test 2-party share models other than uniform swing.
-- It does not test vote shares outside [0.45, 0.55]. Alberta provincial elections from 2015 forward have all fallen inside this range; extrapolating outside would multiply model error.
+- It does not test vote shares outside [0.45, 0.60]. This bound spans every Alberta provincial election since 2015 (UCP ≈ 0.52–0.55 two-party) and the April 2026 polling operating point (≈ 0.58); extrapolating above 0.60 or below 0.45 would multiply model error beyond any realistic Alberta vote environment.
 - It does not test third parties. The two-party UCP/NDP model is the same one the canonical ensemble uses.
 - It does not test district-level competitiveness, marginal-seat counts, or efficiency-gap variants — those have their own pre-registered tests.
 - It does not produce a single headline number. It produces a curve; reviewers may read it differently, and that is the point.
