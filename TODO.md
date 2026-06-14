@@ -87,7 +87,7 @@ Stage 3 superseded by official shapefiles. Stages 3–7 complete for canonical s
 
 - **IRR BLOCKED — human annotation required:** Fill `human_label` column in `data/outputs/irr_validation_sample.csv` (60 rows, stratified sample); then run `python analysis/scripts/compute_kappa.py`. Acceptable threshold: kappa ≥ 0.60. Forensic pipeline scripts (quote_verify, validation_sample, cross_reference) complete — see COMPLETED_LOG.md.
 - **§5.9 cross-reference integration** — cross_reference_submitters.py results available (R1/R3/R10 CONTRA_COMMISSION); pending integration into §5.9 after IRR gate clears.
-- **Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/`
+- ~~**Refactor:** Update `submission_sentiment_llm_full.py` to import from `analysis/utils/`~~ **DONE** (already uses `sys.path.insert(0, ROOT/"analysis"/"utils")` + `from data_loader import _resolve_path`; no further refactor needed)
 
 ---
 
@@ -157,7 +157,7 @@ Numeric drift 0.05–0.09 pp on sensitivity endpoints from prior rounding correc
 ### Manual Source Verifications
 
 - ~~RMH-Banff attribution — verify against Hansard/X-thread sources before CRIT-B deletion~~ **DONE 2026-05-09** (see COMPLETED_LOG.md)
-- Public-support refutation scope — 3 items need manual cross-check
+- ~~Public-support refutation scope — 3 items need manual cross-check~~ **DONE 2026-06-13** (RMH-Banff: EBC-2025-2-0619 quote explicit; ODH: EBC-2025-2-0209 opposes ODH dissolution = supports minority direction; Chestermere: EBC-2025-2-0785/0787 oppose Calgary merger = supports minority direction; all 3 refutations verified against `data/submission_search_dataset.csv` quotes)
 
 ---
 
@@ -254,7 +254,7 @@ Collapse `analysis/scripts/` from ~87 files into ~15–20 topic modules. Inputs 
 
 # External Blockers
 
-- **OSF pre-registration disclosure gap** — Ch1 (Mahalanobis) and Ch2 (SZAT) are not named in any of the four pre-registered files (w2s8k/r3zm7/qsgy8/6pt83). Registrations cover drain test (Ch3) and DPG v11 methodology only. Paper must disclose this gap in §3.7. Timing record: drand beacon committed 2026-04-27; official EA shapefiles received 09:51 AM 2026-05-06 (9 days after beacon); SZAT results committed 18:11 2026-05-06; OSF SZAT registration (6pt83) written 21:16 (~3 h later); Ch1 ensemble committed 21:51 after `osf_register.py` created at 20:14.
+- **OSF pre-registration disclosure gap** — **DISCLOSED in §4.3.3 (pre-registration record table and "What is and is not pre-registered" paragraph).** Ch1 (Mahalanobis) and Ch2 (SZAT) are not named in any of the four pre-registered files (w2s8k/r3zm7/qsgy8/6pt83); both flagged as "Exploratory" in the §4.3.3 table. The §3.7 reference in this TODO was a stale section number — disclosure now lives in §4.3.3. Timing record retained for provenance: drand beacon committed 2026-04-27; official EA shapefiles received 09:51 AM 2026-05-06 (9 days after beacon); SZAT results committed 18:11 2026-05-06; OSF SZAT registration (6pt83) written 21:16 (~3 h later); Ch1 ensemble committed 21:51 after `osf_register.py` created at 20:14.
 - **November 2026 committee deadline** — drives Phase 2 publication target.
 
 ---

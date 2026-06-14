@@ -1,0 +1,83 @@
+{
+  "test": "Constraint-enforcing ReCom ensemble (T1.4 partial + T1.11)",
+  "adaptations": [
+    "FULL epsilon = 0.25 in proposal (canonical run used epsilon/2 = \u00b112.5%)",
+    "s.15(2) freeze-from-real-seed: ['Central Peace-Notley', 'Lesser Slave Lake', 'Rocky Mountain House-Banff Park'] held at commission boundaries",
+    "municipal-split count tallied per plan (not constrained)"
+  ],
+  "seed_map": "minority",
+  "n_steps": 1000000,
+  "seed": 192903772,
+  "salt": "constraint-ensemble-v1",
+  "frozen_districts": {
+    "Central Peace-Notley": 28227.691631227568,
+    "Lesser Slave Lake": 29500.66820963876,
+    "Rocky Mountain House-Banff Park": 32887.96052167695
+  },
+  "ensemble_stats": {
+    "efficiency_gap": {
+      "mean": 0.015770060361488324,
+      "p5": -0.009836232571398214,
+      "p95": 0.04087966488481637
+    },
+    "mean_median": {
+      "mean": -0.017031364732182787,
+      "p5": -0.029699909293184307,
+      "p95": -0.0027331726942185866
+    },
+    "declination": {
+      "mean": 0.0034475122766965426,
+      "p5": -0.05100333204669445,
+      "p95": 0.0595143569327707
+    },
+    "seats_at_50_50": {
+      "mean": 0.46106753932584277,
+      "p5": 0.43820224719101125,
+      "p95": 0.48314606741573035
+    },
+    "municipal_splits": {
+      "mean": 60.16765,
+      "p5": 55.0,
+      "p95": 66.0
+    }
+  },
+  "real_map_percentiles": {
+    "majority": {
+      "efficiency_gap": {
+        "value": 0.0009823668405000681,
+        "percentile": 17.0603
+      },
+      "mean_median": {
+        "value": -0.036190901059016234,
+        "percentile": 0.5736
+      },
+      "declination": {
+        "value": -0.026675251362353544,
+        "percentile": 18.3671
+      },
+      "seats_at_50_50": {
+        "value": 0.4606741573033708,
+        "percentile": 49.0315
+      }
+    },
+    "minority": {
+      "efficiency_gap": {
+        "value": 0.04019385991913548,
+        "percentile": 94.48145
+      },
+      "mean_median": {
+        "value": 0.010401768621624785,
+        "percentile": 99.96485
+      },
+      "declination": {
+        "value": 0.07700256493469557,
+        "percentile": 98.34765
+      },
+      "seats_at_50_50": {
+        "value": 0.5168539325842697,
+        "percentile": 99.951
+      }
+    }
+  },
+  "wall_clock_seconds": 16514.79364514351
+}
