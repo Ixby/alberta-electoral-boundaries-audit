@@ -1217,7 +1217,7 @@ def main():
         asym_counts[a] = asym_counts.get(a, 0) + 1
     print(
         f"\n  UCP asymmetry distribution across 77 synthetic snapshots "
-        f"(min_UCP − maj_UCP):"
+        f"(min_UCP - maj_UCP):"
     )
     for a in sorted(asym_counts):
         print(f"    {a:+d} UCP : {asym_counts[a]} snapshots")
@@ -1231,7 +1231,7 @@ def main():
             continue
         asym_here = [r["min_minus_maj_ucp"] for r in rows]
         print(
-            f"    UCP tp {lo:>3}–{hi:<3}%: n={len(rows)}  "
+            f"    UCP tp {lo:>3}-{hi:<3}%: n={len(rows)}  "
             f"UCP asym mean={statistics.mean(asym_here):+.2f} "
             f"min={min(asym_here):+d} max={max(asym_here):+d}"
         )
