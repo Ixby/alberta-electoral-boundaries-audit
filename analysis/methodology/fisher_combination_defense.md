@@ -9,6 +9,8 @@
 > - `findings/joint_outlier_score_summary.md` — narrative summary of the combined result
 > - `reports/academic/report_academic.md` §5.5 — incorporates Fisher T and combined p
 
+> **SUPERSEDED DOCUMENT — 2026-06-10.** This document defends the Fisher combination of Ch1 (Mahalanobis) and Ch2 (SZAT), which the audit **retired** on 2026-06-10. Fisher assumed channel independence the two channels do not have (shared 2023 vote substrate; Brown 1975), and Ch2 (SZAT) does not survive a contiguity-respecting block-permutation null (p ≈ 0.19, T1.10b closed 2026-06-12). The operative joint headline is now Ch1 alone (Mahalanobis p = 1.40×10⁻⁶) with a dependence-robust Bonferroni upper bound p ≤ 2.80×10⁻⁶ (≈ 1 in 357,000). Canonical correction: `reports/academic/report_academic.md` §4.3.3 and §5.5. This document is preserved as a historical record of the Fisher-era defense; do not cite it as current methodology. Note also: any declination value shown below as "p1.21" / "NDP-tail" predates Amendment 10 (2026-06-12); the corrected value is p98.79 UCP-tail (report_academic.md §5.4.9).
+
 # Fisher Combination Defense
 
 **Purpose:** Exhaustive anticipation of reviewer objections to the Fisher combination of
