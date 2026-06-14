@@ -239,13 +239,25 @@ def main() -> None:
             N["fisher_p"] = fmt_p(fisher_p)
             N["fisher_p_raw"] = fisher_p
             N["fisher_p_verbal"] = "one in fifteen million" if fisher_p < 1e-7 else "less than one in a million"
+            # Fisher retired 2026-06-10 (channel dependence; SZAT fails block-permutation null).
+            # Operative joint headline: Ch1 alone + Bonferroni upper bound (2 x Ch1, dependence-robust).
+            N["fisher_p_status"] = "RETIRED 2026-06-10 - historical only; do not substitute into reports"
+            N["fisher_p_verbal"] = "retired (historical figure)"
+            bonf = min(2.0 * float(ch1), 1.0)
+            N["bonferroni_bound_raw"] = bonf
+            N["bonferroni_bound"] = fmt_p(bonf)
+            N["joint_headline_verbal"] = "about one in 357,000"
     else:
         # Hardcoded fallbacks from canonical run
         N["ch1_p"] = "1.40×10⁻⁶"
         N["ch1_p_raw"] = 1.40e-6
         N["fisher_p"] = "6.87×10⁻⁸"
         N["fisher_p_raw"] = 6.87e-8
-        N["fisher_p_verbal"] = "one in fifteen million"
+        N["fisher_p_status"] = "RETIRED 2026-06-10 - historical only; do not substitute into reports"
+        N["fisher_p_verbal"] = "retired (historical figure)"
+        N["bonferroni_bound"] = "2.80×10⁻⁶"
+        N["bonferroni_bound_raw"] = 2.80e-6
+        N["joint_headline_verbal"] = "about one in 357,000"
 
     # ── CSD / Municipal anchoring ───────────────────────────────────────────
     csd_path = ROOT / "data" / "outputs" / "csd_anchoring_results.json"
