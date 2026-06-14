@@ -11,7 +11,9 @@ This file exists so a Claude session opened on a fresh machine (PC, web containe
 - Procedural finding on the April 16 cabinet pivot: characterized as without precedent among the Canadian redistribution cycles this audit reviewed (per Duane Bratt correspondence). Stands without statistical inference.
 - Regional-swing recompute on canonical geometry **corroborates** Lane 1: canonical minority's regional-swing s50 = 0.4607 sits above the maximum of the 10,000-plan verification ensemble's regional-swing distribution. The v0_9 "Lane 1 was officially demoted" finding was an artefact of DPG-substrate underestimation.
 
-**Current commit on `master`:** `196e322` (see `git log --oneline -1`). All work is pushed.
+**Current commit on `master`:** see `git log --oneline -1` (the audit moves fast; a pinned hash here goes stale within days). All work is pushed.
+
+**Update 2026-06-14.** Since the 2026-06-10 handoff: T1.4-full 1M constraint runs completed; locale set completed (L-2, 19 files); journey-to-work data extracted; media kit + FAQ + hostile-quote docs produced; structural battery (T5.1a) replicated on the minority map and demonstrated on the majority map (0/5); evaluation-symmetry matrix added. The work ledger was moved off-repo (2026-06-13). The methodology-defense corpus was brought into sync with the 2026-06-10 Fisher retirement.
 
 ## How to pick up
 
@@ -23,13 +25,14 @@ git lfs pull   # ~200 MB; pulls the canonical 1.01M chain CSV + shapefiles
 pip install -r requirements.txt
 cd viewer && npm install && cd ..
 
-# Then start a Claude session in this directory. The single source of truth
-# for what's pending is TODO_REMEDIATION.md.
+# The operational backlog is tracked locally and is NOT in this repo
+# (it was moved off GitHub 2026-06-13). On a fresh clone it will be absent;
+# the maintainer keeps it in a gitignored private working directory.
 ```
 
 ## What's in flight (read these in order)
 
-1. **`TODO_REMEDIATION.md`** — every queued item, status, acceptance criterion, and resolution path. Six tiers; closures marked ✅; in-flight items marked 🟢/🟡/🟠/🔴/🟣. This is the operational backlog.
+1. **Local work ledger (off-repo, gitignored)** — every queued item, status, acceptance criterion, and resolution path. This was moved out of the repository on 2026-06-13; it will not appear in a fresh clone. Ask the maintainer for the current ledger before assuming the backlog is empty.
 2. **`findings/dpg_legacy_audit.md`** — the full DPG-creep scan from 2026-06-10. Confirms no published canonical number is contaminated; flags cosmetic residue queued at T4.5.
 3. **`findings/regional_swing_canonical_robustness.md`** — the substantive Lane-1 corroboration result. Supersedes `findings/regional_swing_robustness.md` (v0_9 era).
 4. **`preregistration/november_2026_scoring_spec.md`** — the frozen November held-out test. Substrate, S1–S6, P1–P4, the 2×2 verdict surface, the 72-hour public commitment.
@@ -54,7 +57,7 @@ All four are committed. Each runs as a smoke test; the parts marked TODO are hon
 | T1.4 Constraint-enforcing ensemble | ~6–8 h compute + script work | Write `mcmc_ensemble_canonical_constrained.py` with s.15(2) tier + anchoring penalties; run 250k–1M plans |
 | T1.5 Short-bursts canonical rerun | Compute window (~60–120 min) | `nohup python analysis/scripts/simulation_short_bursts.py > /tmp/bursts.log 2>&1 &` and wait |
 | T2.4 LLM sentiment IRR | Human labelling | Label 60-item sample, compute κ, re-publish chair-flag breakdown |
-| T6 Legal citations | Counsel review | Pal & Choudhry 2011, Cassista 2014 FC 398, Parks Act citation, Saskatchewan Reference pinpoints, Cannon year, KKR attribution — see TODO_REMEDIATION T6.1 |
+| T6 Legal citations | Counsel review | Pal & Choudhry 2011, Cassista 2014 FC 398, Parks Act citation, Saskatchewan Reference pinpoints, Cannon year, KKR attribution — see T6.1 in the local work ledger |
 
 ## What you should NOT do
 
@@ -67,7 +70,7 @@ All four are committed. Each runs as a smoke test; the parts marked TODO are hon
 
 15 languages live in the dropdown (sorted by Alberta speaker counts): English, Tagalog (partial), Punjabi (partial), French, Spanish, Arabic, Cantonese, Mandarin, German, Hindi, Vietnamese, Korean, Urdu, Polish, Ukrainian. Plains Cree, Plautdietsch, and Somali are stubs in the live `locales/` directory; partial work for Cree and Somali is preserved at `_wip/`. Punjabi and Tagalog are functional but at ~114/115 lines vs en.ts's 800 — they fall back to English for unfinished keys.
 
-Numeric headline updates (1-in-14.5M → 1-in-350K; 6.87×10⁻⁸ → 2.80×10⁻⁶) were swept across all 12 non-stub locales by `/tmp/patch_locales*.py` (deleted after run). The surrounding narrative was not retranslated — locales L-1 in TODO_REMEDIATION captures the per-string re-translation pass.
+Numeric headline updates (1-in-14.5M → 1-in-350K; 6.87×10⁻⁸ → 2.80×10⁻⁶) were swept across all 12 non-stub locales by `/tmp/patch_locales*.py` (deleted after run). The surrounding narrative was not retranslated — locales L-1 in the local work ledger captures the per-string re-translation pass.
 
 ## Reproducibility one-liner
 
@@ -98,6 +101,6 @@ If that one-liner reproduces, the audit's central machinery is intact and the ca
 
 ## Last words
 
-The integrity instincts are good. Where the audit gets in trouble is when the public-facing prose runs ahead of what the math supports. The corrected prose now matches the corrected math; the next analyst's job is to keep them in sync as new results land. `TODO_REMEDIATION.md` is how you do that.
+The integrity instincts are good. Where the audit gets in trouble is when the public-facing prose runs ahead of what the math supports. The corrected prose now matches the corrected math; the next analyst's job is to keep them in sync as new results land. The local work ledger (held off-repo by the maintainer) is how you do that.
 
 — prior session, 2026-06-10
