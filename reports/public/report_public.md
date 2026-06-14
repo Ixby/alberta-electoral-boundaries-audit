@@ -195,8 +195,8 @@ The tipping-point metric is the most intuitive: if the province split exactly 50
 
 | Map | UCP seats at 50/50 votes | Where it sits |
 |---|---|---|
-| 2019 enacted | 46.0% | 83rd percentile — inside the normal range |
-| **Majority 2026** | **46.1%** | **83rd percentile — well within bounds** |
+| 2019 enacted | 46.0% | 78th percentile — inside the normal range |
+| **Majority 2026** | **46.1%** | **78th percentile — well within bounds** |
 | **Minority 2026** | **51.7% (46 seats)** | **99.99th percentile — fewer than 100 of 1,010,000 neutral draws reach this** |
 
 Fewer than 100 of 1,010,000 computer-simulated neutral Alberta maps produced a `seats@50/50` value as high as the minority map's. Based on actual recent voting patterns, it awards the UCP 60 seats (compared to 55 in the majority map). The majority map is the kind of map a neutral procedure routinely generates. The minority map is the kind of map you have to specifically aim to draw.
