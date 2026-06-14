@@ -40,10 +40,12 @@ import geopandas as gpd
 ROOT = Path(__file__).resolve().parent.parent.parent
 
 URBAN_PREFIXES: tuple[str, ...] = (
-    "Calgary-", "Edmonton-", "Airdrie-", "Lethbridge-", "Red Deer-",
+    "Calgary-", "Edmonton-", "Airdrie", "Lethbridge-", "Red Deer-",
     "Medicine Hat-", "St. Albert-", "Sherwood Park-",
     "Fort McMurray-", "Grande Prairie-", "Spruce Grove-",
 )
+# "Airdrie" (no hyphen) matches both "Airdrie-East" (majority, hyphen) and
+# "Airdrie East" (minority, space); amended 2026-06-13 per T1.7 R2 S13.
 
 CANONICAL_CRS = "EPSG:3400"
 

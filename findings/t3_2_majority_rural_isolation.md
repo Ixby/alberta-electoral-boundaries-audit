@@ -7,9 +7,11 @@ verdict: H0_supported
 script_commit: 5fbd1ca113fca2a83f9fdf057e892db000c5eed5
 ---
 
+> **⚠ INTRA-SESSION EXPLORATORY — NOT PRE-REGISTERED.** Design and script were co-committed 85 seconds before this result (see design doc §"Status reclassification" for verification). Read as exploratory evidence, not as a confirmatory pre-registered test. Design doc reclassified 2026-06-12 per T1.7 R2 Ref #4. Also note: the design doc's Airdrie classifier amendment (`"Airdrie"` without hyphen) was NOT reflected in the script at time of original execution — `"Airdrie-"` was used, meaning `Airdrie East` (minority, space-separated) was misclassified as rural. This verdict reflects the hyphen-sensitive run. The corrected classifier is in the script as of 2026-06-13. A re-run with the corrected classifier is queued for the November-window genuinely-pre-registered T3.2.
+
 > **Backward:**
-> - `preregistration/t3_2_majority_rural_isolation_design.md` — pre-committed design
-> - `analysis/scripts/t3_2_majority_rural_isolation.py` — this analysis
+> - `preregistration/t3_2_majority_rural_isolation_design.md` — intra-session exploratory design (reclassified 2026-06-12)
+> - `analysis/scripts/t3_2_majority_rural_isolation.py` — this analysis (Airdrie classifier corrected 2026-06-13)
 > - `findings/joint_outlier_score.json` — source of the majority drain anomaly motivating the test
 >
 > **Forward:**
