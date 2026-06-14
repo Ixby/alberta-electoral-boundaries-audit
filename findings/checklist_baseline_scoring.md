@@ -113,7 +113,7 @@ Scored in S1. Majority 0.36% (near-neutral), Minority 12.20% (large).
 | Map | Keeps Nolan Hill-Cochrane | Commuter-tie rationale holds at CSD resolution | Verdict |
 |---|---|---|---|
 | Majority 2026 | No | N/A | No weak signal triggered |
-| Minority 2026 | Yes | StatsCan 98-10-0459 confirms 35.8% of Cochrane out-commuters go to Calgary; within-Calgary destination not testable; Nolan Hill is residential | Weak signal **triggered** |
+| Minority 2026 | Yes | StatsCan 98-10-0459 confirms 35.8% of all Cochrane resident workers (3,065 of 8,550) commute to Calgary CY; 49.2% work within Cochrane — the within-Cochrane flow is the largest single destination; within-Calgary ward-level breakdown not testable at CSD granularity; Nolan Hill is residential | Weak signal **triggered** |
 
 Source: `analysis/methodology/cochrane_journey_to_work.md`.
 
