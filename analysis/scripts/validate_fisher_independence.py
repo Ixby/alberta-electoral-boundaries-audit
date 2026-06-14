@@ -52,6 +52,22 @@ def _load_ch1_distances(ensemble_path: Path) -> np.ndarray:
 
 
 def main() -> None:
+    # DEPRECATED 2026-06-10: the Fisher combination this script validates was retired
+    # (channel independence does not hold; SZAT does not survive a block-permutation null).
+    # The target doc is now a SUPERSEDED historical record. Re-appending rho results would
+    # re-pollute it. Refuse to run (and write) unless explicitly forced for archival reasons.
+    # Guard sits at the top of the entry point so it fires on every path/platform before any
+    # heavy computation or non-ASCII output.
+    import os
+    if os.environ.get("ALLOW_SUPERSEDED_FISHER_WRITE") != "1":
+        print(
+            "validate_fisher_independence.py is DEPRECATED: Fisher combination retired "
+            "2026-06-10. Not writing to fisher_independence_defense.md (superseded). "
+            "Set ALLOW_SUPERSEDED_FISHER_WRITE=1 to override.",
+            file=sys.stderr,
+        )
+        sys.exit(0)
+
     if not BOOTSTRAP_NPY.exists():
         print(
             f"ERROR: {BOOTSTRAP_NPY} not found.\n"
