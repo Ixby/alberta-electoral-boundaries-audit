@@ -22,7 +22,7 @@ Rationales are tested against the most authoritative public dataset for each typ
 
 ## Commuter-tie rationales
 
-**Authoritative source.** StatsCan 2021 Census Journey-to-Work, table series 98-10-0459 (place-of-work CSD by place-of-residence CSD). Only Cochrane origin-CSD file was downloaded and parsed (`.temp/cochrane_ab.csv`, 5,162 rows filtered to Alberta destinations). For Airdrie, Chestermere, Okotoks, Bearspaw, Tsuut'ina, Red Deer, Innisfail, Lacombe, Sylvan Lake — only aggregate CMA-membership evidence is available without downloading additional origin tables.
+**Authoritative source.** StatsCan 2021 Census Journey-to-Work, table series 98-10-0459 (place-of-work CSD by place-of-residence CSD). Origin-CSD files downloaded and parsed 2026-06-13: Cochrane (DGUID 2021A00054806019), Airdrie (2021A00054806021), Chestermere (2021A00054806017), Red Deer (2021A00054808011), Sylvan Lake (2021A00054808012), Innisfail (2021A00054808008). Output CSVs at `data/outputs/{csd}_journey_to_work.csv`. For Okotoks, Bearspaw, Tsuut'ina, Lacombe — only aggregate CMA-membership evidence remains available.
 
 ### R1. Calgary-Nolan Hill-Cochrane — Cochrane residents "fluidly move" to Calgary
 
@@ -33,21 +33,21 @@ Rationales are tested against the most authoritative public dataset for each typ
 
 ### R2. Calgary-Peigan-Chestermere — "growing social, economic, transportation connections"
 
-- **Test.** CMA membership; Chestermere CSD-origin place-of-work data not on hand in this session.
-- **Finding.** Chestermere (22,163) is part of Calgary CMA; the CMA designation confirms a commuting tie to Calgary above the 50%-flow threshold required for CMA membership. The rationale is **not contradicted** at the city-to-city level.
-- **But.** The specific boundary change — extending Calgary-Peigan east to absorb southern Chestermere — is tested against whether southern Chestermere shares institutions with Greater Forest Lawn. No shared school division (Chestermere is served by Rocky View Schools; Forest Lawn is Calgary Board of Education — different jurisdictions). No shared transit (Chestermere does not participate in Calgary Transit). Different municipal governments. The only "connection" that is measurable is QE2/Glenmore Trail highway access.
-- **Verdict.** **INCONCLUSIVE / LEANS CONTRADICTS.** CMA tie supports a general Chestermere-Calgary commuter relationship, but no test of the *specific* southern-Chestermere–Forest-Lawn pairing yields a community-of-interest match. Red-flag: Chestermere is already paired with Strathmore in the minority's own `Chestermere-Strathmore` district (52,982). Adding a *second* Chestermere-Calgary slice is the object of Test 5 in `justification_tests_findings.md` — CLOSED-FAIL on population math.
+- **Test.** CMA membership + Chestermere CSD-origin place-of-work data (now available: `data/outputs/chestermere_journey_to_work.csv`, downloaded 2026-06-13).
+- **Finding.** Of 6,260 Chestermere resident workers: **1,065 (17.0%) work in Chestermere**, **4,470 (71.4%) to Calgary CY**, 390 (6.2%) to Rocky View County. Of out-commuters (5,195): **Calgary = 86.0%.** Chestermere is an extremely high Calgary-commuter community. CMA membership (confirmed) is consistent with this flow.
+- **But.** The specific boundary change — extending Calgary-Peigan east to absorb southern Chestermere — is tested against whether southern Chestermere shares institutions with Greater Forest Lawn. No shared school division (Chestermere is served by Rocky View Schools; Forest Lawn is Calgary Board of Education — different jurisdictions). No shared transit (Chestermere does not participate in Calgary Transit). Different municipal governments. The commute flow is overwhelmingly to Calgary CY as a whole, not specifically to the Forest Lawn / Calgary-Peigan area (which is SE Calgary). The only "connection" that is measurable to that specific sub-area is QE2/Glenmore Trail highway access.
+- **Verdict.** **LEANS CONTRADICTS** (upgraded from INCONCLUSIVE). Chestermere→Calgary commute at 86.0% of out-commuters strongly confirms the general commuter tie (CMA designation already implied this), but does not support the specific Calgary-Peigan (SE Calgary) pairing — Chestermere's out-commuters are distributed across all of Calgary, not concentrated in SE. Red-flag: Chestermere is already paired with Strathmore in the minority's own `Chestermere-Strathmore` district (52,982). Adding a *second* Chestermere-Calgary slice is the object of Test 5 in `justification_tests_findings.md` — CLOSED-FAIL on population math.
 
 ### R3. Calgary-Airdrie — "strong economic, community, and transportation ties"
 
-- **Test.** CMA membership (yes); projected growth; origin-CSD commute data not downloaded.
-- **Finding.** Airdrie is in Calgary CMA. Airdrie's 2025 population is reported at 90,044 (4.9% annual growth) per City of Airdrie growth report (2024); projected 128,470 by 2033 under current-growth assumptions, adding 50,000 residents. *CMA membership alone already establishes a commuter tie above threshold.*
-- **Verdict.** **SUPPORTS** (at the general commuter-tie level). This is the strongest minority rationale of the inventoried set. However, whether this *requires* a Calgary-Airdrie hybrid rather than two Airdrie-named districts (as the majority draws) is a policy choice, not a data-driven necessity. Population-math side of this claim (4-way split is forced) is CLOSED-FAIL (Test 3).
+- **Test.** CMA membership (yes); projected growth; origin-CSD commute data (`data/outputs/airdrie_journey_to_work.csv`, downloaded 2026-06-13).
+- **Finding.** Of 22,340 Airdrie resident workers: **8,875 (39.7%) work in Airdrie**, **10,260 (45.9%) to Calgary CY**, 1,650 (7.4%) to Rocky View County. Of out-commuters (13,465): **Calgary = 76.2%.** Airdrie has a substantial internal labour market (40%) while also being a major Calgary commuter city.
+- **Verdict.** **SUPPORTS** (at the general commuter-tie level). CSD-level data confirms the minority's strongest rationale. However, whether this *requires* a Calgary-Airdrie hybrid rather than two Airdrie-named districts (as the majority draws) is a policy choice, not a data-driven necessity. Population-math side of this claim (4-way split is forced) is CLOSED-FAIL (Test 3).
 
 ### R4. Calgary-Foothills-Airdrie West — "functional integration of Airdrie and northern Calgary"
 
-- **Test.** Same as R3 (Airdrie origin).
-- **Verdict.** **SUPPORTS** the general commuter-tie premise at the city level. Does not independently justify why Airdrie must be split *four* ways (CLOSED-FAIL on Test 3) rather than two.
+- **Test.** Same as R3 (Airdrie CSD, `data/outputs/airdrie_journey_to_work.csv`).
+- **Verdict.** **SUPPORTS** the general commuter-tie premise at the city level. Same Airdrie→Calgary flow (76.2% of out-commuters) applies. Does not independently justify why Airdrie must be split *four* ways (CLOSED-FAIL on Test 3) rather than two.
 
 ### R5. Calgary-Bow-Springbank — Springbank commute + "educational institutions"
 
@@ -81,8 +81,9 @@ Rationales are tested against the most authoritative public dataset for each typ
 
 ### R11. Red Deer-Sylvan Lake — "urban where they work, go to school"
 
-- **Test.** Sylvan Lake (15,995) residents predominantly work in Red Deer or within Sylvan Lake; Sylvan Lake schools are Chinook's Edge School Division, while Red Deer Public Schools serve the city — *different school divisions.* The "go to school" claim is not supported for K–12 education.
-- **Verdict.** **INCONCLUSIVE / LEANS CONTRADICTS** on schools specifically. Commuter tie likely supports; no origin-CSD data on hand for Sylvan Lake to verify flow.
+- **Test.** Sylvan Lake CSD-origin place-of-work data (`data/outputs/sylvan_lake_journey_to_work.csv`, downloaded 2026-06-13) + school division check.
+- **Finding.** Of 4,625 Sylvan Lake resident workers: **1,830 (39.6%) work in Sylvan Lake**, **1,520 (32.9%) to Red Deer CY**, 330 (7.1%) to Red Deer County. Of out-commuters (2,795): **Red Deer = 54.4%.** Red Deer is by far the dominant out-of-town destination. Schools: Sylvan Lake schools are Chinook's Edge School Division (headquarters Innisfail); Red Deer urban schools are Red Deer Public Schools and Red Deer Catholic — *different school divisions.* K–12 pupils from Sylvan Lake do not attend Red Deer city schools under normal jurisdictional assignment.
+- **Verdict.** **PARTIALLY SUPPORTS** (revised from INCONCLUSIVE). Commuter flow strongly supports the "work in Red Deer" claim (54.4% of Sylvan Lake out-commuters). School claim is **CONTRADICTED** — different divisions. Net verdict: the geographic tie is real; the "go to school" framing is not supported by school-division structure.
 
 ---
 
@@ -198,16 +199,16 @@ Motion terms (no public hearings; 91-seat ceiling; UCP-majority committee; Novem
 | Rationale ID | Type | Verdict | Already-tested? |
 |---|---|---|---|
 | R1 Nolan Hill-Cochrane commute | Commuter-tie | PARTIALLY SUPPORTS | New |
-| R2 Peigan-Chestermere | Commuter + shared-institution | INCONCLUSIVE / LEANS CONTRADICTS | Pop math CLOSED-FAIL |
-| R3 Calgary-Airdrie | Growth + commuter | SUPPORTS | Pop math CLOSED-FAIL |
-| R4 Foothills-Airdrie W | Commuter | SUPPORTS general | Pop math CLOSED-FAIL |
+| R2 Peigan-Chestermere | Commuter + shared-institution | LEANS CONTRADICTS (commute general = SUPPORTS; specific SE pairing = lacks support) | Pop math CLOSED-FAIL |
+| R3 Calgary-Airdrie | Growth + commuter | SUPPORTS (CSD data confirms 76.2% out-commuters to Calgary) | Pop math CLOSED-FAIL |
+| R4 Foothills-Airdrie W | Commuter | SUPPORTS general (same Airdrie data) | Pop math CLOSED-FAIL |
 | R5 Bow-Springbank | Commuter + schools | INCONCLUSIVE | New |
 | R6 NW-Bearspaw | Commuter + economic | SUPPORTS | New |
 | R7 West-Tsuut'ina | Indigenous + commuter | SUPPORTS | New |
 | R8 Red Deer-Blackfalds | Economic + Joffre | SUPPORTS (narrow) | Pop math CLOSED-FAIL |
 | R9 Red Deer-Innisfail | Commuter + hub | SUPPORTS general | Pop math CLOSED-FAIL |
 | R10 Red Deer-Lacombe Hwy 11 | Economic-zone | PARTIALLY SUPPORTS | Pop math CLOSED-FAIL |
-| R11 Red Deer-Sylvan Lake schools | Commuter + schools | INCONCLUSIVE / LEANS CONTRADICTS | Pop math CLOSED-FAIL |
+| R11 Red Deer-Sylvan Lake schools | Commuter + schools | PARTIALLY SUPPORTS (54.4% out-commuters to Red Deer = SUPPORTS; school claim = CONTRADICTS) | Pop math CLOSED-FAIL |
 | R12 RMH-Banff | Area + Indigenous + historical + economic | Area = CLOSED-FAIL; Indigenous = SUPPORTS (Sunchild/O'Chiese); Banff ext = PARTIALLY SUPPORTS historical | Area CLOSED-FAIL |
 | R13 ODH Hwy-2 continuity | Community + historical | PARTIALLY SUPPORTS; Airdrie slice CLOSED-FAIL | Pop math CLOSED-FAIL (Test 1) |
 | R14 Airdrie East | Procedural | n/a — no positive claim |  |
@@ -225,10 +226,13 @@ Motion terms (no public hearings; 91-seat ceiling; UCP-majority committee; Novem
 
 **Verdict breakdown (substantive rationales, excluding pure political-framing and procedural):**
 
-- SUPPORTS: 7 (R3, R6, R7, R15, R16; R8 narrow; R21 growth)
-- PARTIALLY SUPPORTS: 5 (R1, R4, R10, R12 historical/Indigenous, R13, R19)
-- INCONCLUSIVE: 3 (R5, R11, R24)
-- CONTRADICTS / LEANS CONTRADICTS: 2 (R2 specific Chestermere-Forest-Lawn; R5 Bow-Springbank schools; R11 Sylvan Lake schools)
+*Updated 2026-06-13: Airdrie, Chestermere, Sylvan Lake CSD-level commuter data now downloaded and incorporated.*
+
+- SUPPORTS: 7 (R3 with CSD data, R6, R7, R15, R16; R8 narrow; R21 growth)
+- PARTIALLY SUPPORTS: 6 (R1, R4, R10, R11 commuter portion, R12 historical/Indigenous, R13, R19)
+- INCONCLUSIVE: 2 (R5, R24)
+- LEANS CONTRADICTS: 1 (R2 specific Chestermere–Forest-Lawn pairing; commuter general = SUPPORTS but specific SE Calgary tie = lacks evidence)
+- CONTRADICTS (within PARTIALLY SUPPORTS): R11 school claim, R5 school claim
 - CLOSED-FAIL (population/area math, already refuted): 5 (Tests 1–5)
 
 ---
