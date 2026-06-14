@@ -191,13 +191,17 @@ def compute_metrics(districts: List[Dict], label: str, *, verbose: bool = True) 
 
         mean_ndp_won = statistics.mean(ndp_won_shares)
         mean_ucp_won = statistics.mean(ucp_won_shares)
-        # Declination (Warrington 2018): theta_UCP - theta_NDP, normalized by pi/2.
-        # Positive = pro-UCP (UCP wins many seats by small margins while NDP votes
+        # Declination (Warrington 2018): δ = (2/π)(θ_NDP − θ_UCP), normalized to [−1, 1].
+        # Positive = pro-UCP (UCP wins many seats by thin margins while NDP votes
         # are packed into a few high-share districts). Negative = pro-NDP.
-        # Sign convention matches mcmc_ensemble.py line 206 (theta_R - theta_D).
+        # Sign convention matches mcmc_ensemble.py line 225 (theta_D − theta_R):
+        #   theta_ndp here ≡ theta_D there; theta_ucp here ≡ theta_R there.
+        # Amendment 10 (2026-06-12) corrected mcmc_ensemble.py to this convention;
+        # this file's pre-Amendment-10 formula "(theta_ucp − theta_ndp)" was the
+        # wrong sign and is now corrected to "(theta_ndp − theta_ucp)".
         theta_ndp = math.atan2(mean_ndp_won - 0.5, n_ndp_wins / n)
         theta_ucp = math.atan2(0.5 - mean_ucp_won, n_ucp_wins / n)
-        declination = (theta_ucp - theta_ndp) * 2 / math.pi
+        declination = (theta_ndp - theta_ucp) * 2 / math.pi
     else:
         declination = float("nan")  # one party swept
 

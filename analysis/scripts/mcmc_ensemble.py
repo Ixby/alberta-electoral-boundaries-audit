@@ -221,6 +221,8 @@ def seat_results(
         # %.17g precision via analysis/scripts/amendment_10_declination_migration.py
         # at HEAD); their declination column is ALREADY in Warrington convention.
         # Do NOT negate downstream — that would double-flip back to the old sign.
+        # (packing_cracking_analysis.py uses the same θ_D − θ_R convention since
+        # its own Amendment-10 fix; its local variables are theta_ndp / theta_ucp.)
         # Pre-flip blobs are recoverable as `git show fc5aae1:<csv>` if needed.
         declination = (2.0 / math.pi) * (theta_D - theta_R)
 
