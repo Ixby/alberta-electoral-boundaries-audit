@@ -1,0 +1,52 @@
+{
+  "candidate_label": "ea_majority_2026_eds",
+  "candidate_shapefile": "data\\shapefiles\\canonical\\ea_majority_2026_eds.gpkg",
+  "executed_at_utc": "2026-06-14T20:39:46Z",
+  "drand_round_at_execution": null,
+  "metrics": {
+    "S1_population_mad": {
+      "value": 2826.8945263667047,
+      "threshold": 3382.5,
+      "flag": false
+    },
+    "S2_municipal_split_count": {
+      "value": 23,
+      "threshold": 26.5,
+      "flag": false
+    },
+    "S3_anchoring_score": {
+      "value": 0.7996384497064145,
+      "threshold": 0.7601,
+      "canadian_norm_band": [
+        0.7,
+        0.85
+      ],
+      "flag": false
+    },
+    "S4_polsby_popper_median": {
+      "value": 0.43661540248844244,
+      "threshold": null,
+      "flag": false,
+      "non_discriminating": true,
+      "_note": "measured but EXCLUDED from the flag count: median PP is identical on both commission maps (0.4366) and tail stats run the wrong way (monograph H3). Reported for transparency."
+    },
+    "S5_drain_score": {
+      "drain_score": 0.007212671893744839,
+      "threshold": 0.0039018,
+      "direction": "minority side = below midpoint",
+      "flag": false
+    },
+    "S6_chair_flag_replication": {
+      "patterns_reproduced": [
+        "P6_StAlbert_Sturgeon_hybrid_St. Albert-Sturgeon"
+      ],
+      "patterns_count_discriminating": 0,
+      "threshold": 2.5,
+      "flag": false
+    }
+  },
+  "structural_lane_flags": 0,
+  "structural_lane_unexecuted": 0,
+  "structural_lane_verdict": "not_replicated",
+  "thresholds_pre_committed_at": "preregistration/november_2026_scoring_spec.md"
+}
