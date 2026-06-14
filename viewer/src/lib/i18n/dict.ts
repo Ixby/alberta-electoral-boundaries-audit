@@ -13,6 +13,8 @@ import ur from './locales/ur';
 import pl from './locales/pl';
 import zhHans from './locales/zh-Hans';
 import zhHant from './locales/zh-Hant';
+import ru from './locales/ru';
+import so from './locales/so';
 import type { Lang } from './store.svelte';
 
 const dictionaries: Record<Lang, unknown> = {
@@ -30,7 +32,9 @@ const dictionaries: Record<Lang, unknown> = {
 	ur,
 	pl,
 	'zh-Hans': zhHans,
-	'zh-Hant': zhHant
+	'zh-Hant': zhHant,
+	ru,
+	so
 };
 
 function lookup(obj: unknown, keyPath: string): unknown {

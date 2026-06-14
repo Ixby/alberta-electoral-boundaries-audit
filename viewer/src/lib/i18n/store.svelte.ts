@@ -22,7 +22,9 @@ export const SUPPORTED_LANGS = [
 	'ko',
 	'ur',
 	'pl',
-	'uk'
+	'uk',
+	'ru',
+	'so'
 ] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 
@@ -44,7 +46,9 @@ export const LANG_LABELS: Record<
 	ko: { native: '한국어', english: 'Korean', htmlLang: 'ko', dir: 'ltr' },
 	ur: { native: 'اردو', english: 'Urdu', htmlLang: 'ur', dir: 'rtl' },
 	pl: { native: 'Polski', english: 'Polish', htmlLang: 'pl', dir: 'ltr' },
-	uk: { native: 'Українська', english: 'Ukrainian', htmlLang: 'uk', dir: 'ltr' }
+	uk: { native: 'Українська', english: 'Ukrainian', htmlLang: 'uk', dir: 'ltr' },
+	ru: { native: 'Русский', english: 'Russian', htmlLang: 'ru', dir: 'ltr' },
+	so: { native: 'Soomaali', english: 'Somali', htmlLang: 'so', dir: 'ltr' }
 };
 
 const STORAGE_KEY = 'audit_lang';
