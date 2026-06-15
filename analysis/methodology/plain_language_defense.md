@@ -502,6 +502,8 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Three of four partisan metrics carry outlier flags: Mean-Median at p99.98, Seats at 50/50 at p99.99, Declination at p1.21 (NDP-tail).
 **Why?** What does "p99.98" mean and why is declination at p98.79 (UCP-tail, post-Amendment-10; was p1.21 NDP-tail under pre-Amendment-10 swapped operand) a problem when the others are at p99.98?
+**[Corrected — Amendment 10, 2026-06-12.** The "declination disagrees / points the opposite way" reading here is retired. It came from a sign error in the code (`mcmc_ensemble.py:215`, a swapped operand). With the sign fixed, the minority's declination is p98.79 on the UCP-favoured tail — it AGREES with the efficiency gap, mean-median, and seats@50/50, so all four of four metrics point the same way. The explanation of the "disagreement" below is preserved only as a record of the pre-correction reading. See `reports/academic/report_academic.md` §5.4.9.**]**
+
 **Answer:** p99.98 means the minority map's mean-median score is higher than 99.98% of the one million randomly drawn neutral maps — extremely high. p99.99 means the minority's seats-at-50/50 score is higher than 99.99% of neutral maps. Both are on the upper tail, indicating UCP advantage. Declination at p1.21 means the minority's declination score is lower than 98.79% of neutral maps — it is on the lower tail, meaning declination reads the opposite direction. This cross-metric disagreement is documented as a known limitation: the efficiency gap and declination disagree because they measure different geometric properties of partisan distribution. The audit notes the disagreement rather than discarding the contradictory metric.
 
 ---
@@ -694,6 +696,8 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Minority Declination p1.21 — disagrees with EG and MM direction; consistent with narrow-margin-loss packing.
 **Why?** How can a low percentile score indicate a problem when the others show high percentile scores?
+**[Corrected — Amendment 10, 2026-06-12.** The "declination disagrees / points the opposite way" reading here is retired. It came from a sign error in the code (`mcmc_ensemble.py:215`, a swapped operand). With the sign fixed, the minority's declination is p98.79 on the UCP-favoured tail — it AGREES with the efficiency gap, mean-median, and seats@50/50, so all four of four metrics point the same way. The explanation of the "disagreement" below is preserved only as a record of the pre-correction reading. See `reports/academic/report_academic.md` §5.4.9.**]**
+
 **Answer:** The declination formula measures something different from efficiency gap and mean-median. It looks at the slopes of the win-margin curves for each party. A very low declination score (p1.21 means lower than 98.79% of random maps) in the opposite direction from the other metrics is actually consistent with a specific packing pattern: when one party's voters are used to engineer many close losses rather than many blowout wins, declination reads the pattern differently from efficiency gap. The audit documents this cross-metric disagreement as a technical feature, not an error, and notes it does not resolve the overall outlier status — three of four metrics still place the minority map in the extreme tail.
 
 ---
@@ -820,7 +824,7 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 ---
 
-**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,429–1,682. Three partisan-metric outlier flags on minority: MM p99.98, seats@50/50 p99.99, declination p1.21. EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 1.40×10⁻⁶.
+**Assertion:** This is the authoritative MCMC run. Official EA shapefiles (ea_majority_2026_eds.gpkg, ea_minority_2026_eds.gpkg, EPSG:3400) received 2026-05-06. Seed 1432864451 (drand round 5,800,000, pre-registered). 1,010,000 steps (4 chains × 252,500). ESS 1,429–1,682. Three partisan-metric outlier flags on minority: MM p99.98, seats@50/50 p99.99, declination p1.21. **[Amendment 10, 2026-06-12: the declination sign was corrected — it is p98.79 UCP-tail and AGREES with the other three metrics, four of four; see report §5.4.9.]** EG at p94.4 below threshold; EG flag withdrawn. Mahalanobis joint p = 1.40×10⁻⁶.
 **Why?** Why do the canonical results differ from the DPG-era runs documented in §5.4.4–§5.4.8?
 **Answer:** The DPG-era runs used approximate boundary tracings the audit team constructed from commission PDF thumbnails before official shapefiles were available. Where those approximations differed from the actual boundary lines — particularly in rural areas near the fringe of cities — vote attribution to individual EDs changed when the official files arrived. The canonical run is the first analysis using the same shapefiles Elections Alberta actually uses; it is the only run whose results can be verified against the official record. The §4.1.4 sunset clause bound the audit to replace all DPG-era results with canonical results within two weeks of shapefile release; this run fulfills that commitment.
 
