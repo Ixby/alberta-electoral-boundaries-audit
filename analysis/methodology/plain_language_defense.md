@@ -268,6 +268,9 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 
 **Assertion:** Declination metric disagrees with the efficiency gap: by declination, the minority is the least pro-UCP of the three maps.
 **Why?** Why would two different fairness measures point in opposite directions?
+
+**[Corrected — Amendment 10, 2026-06-12.** This Q&A reflects the pre-correction declination sign. With the sign bug fixed (`mcmc_ensemble.py:215`), the minority's declination is p98.79 on the UCP-favoured tail and AGREES with the efficiency gap, mean-median, and seats@50/50 (four of four). The "disagrees / least pro-UCP by declination" reading below is retired, preserved only as a record. The general point that two fairness formulas *can* diverge (Warrington 2019) still stands as methodology; it just does not apply to this dataset after the correction. See `reports/academic/report_academic.md` §5.4.9.**]**
+
 **Answer:** The efficiency gap and declination are two different mathematical formulas designed to capture partisan unfairness, but they capture it differently. The efficiency gap is sensitive to how many votes are "wasted" (lost or excess); declination is sensitive to how the slopes of two trend lines in election-outcome data differ between the two parties. These different sensitivities mean they can give conflicting signals when the map's distortion takes an unusual form. Research by Warrington (2018) documents that this kind of cross-metric disagreement is expected — it is a known feature of how these measures work, not a sign of an error. The audit retains both measures rather than picking the one that tells a cleaner story.
 
 ---
@@ -583,6 +586,8 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 ### §5.2.4 — Cross-metric weighting
 
 ---
+
+**[Corrected — Amendment 10, 2026-06-12 — this Q&A is now inverted.** It was written when a declination sign bug made B6 appear to "point the opposite direction," so the defense was "we do not claim four metrics agree; we honestly note the disagreement." After the sign fix (`mcmc_ensemble.py:215`), the report DOES report **four-of-four agreement** in the UCP-favoured direction (declination p98.79, UCP-tail). The assertion and answer below are retained only as a record of the pre-correction posture; the current honest statement is the reverse — the four metrics do agree, and the audit says so. See `reports/academic/report_academic.md` §5.4.9 and §914.**]**
 
 **Assertion:** B2 (efficiency gap), B3 (mean-median), and B4 (seats at 50/50) all show the minority more UCP-favorable; B6 (declination) points the opposite direction. The disagreement is described as "four metrics describing different faces of the same structural pattern," not "three against one."
 **Why?** Is it not misleading to call this "four metrics agree" when declination disagrees on direction?
@@ -1193,6 +1198,8 @@ Jargon is translated throughout: "efficiency gap" means a measure of how many vo
 **Answer:** Cherry-picking means selecting only the results that support your conclusion and hiding others. This audit is designed to prevent that: pre-registration locked the test definitions before execution, the symmetry counter-test confirmed the majority map does not trigger the same flags, the retracted municipal anchoring finding is documented openly, and the declination metric that disagrees with the other three is retained rather than dropped. The pattern argument is not "these four things all happen to show the same result"; it is "the pre-specified tests, applied symmetrically to both maps, consistently differentiate them."
 
 ---
+
+**[Corrected — Amendment 10, 2026-06-12.** The literature point below — that different fairness metrics *can* disagree (Warrington 2018; Katz, King, Rosenblatt 2020) — is valid and stays. But it no longer applies to THIS dataset: after the declination sign fix, the minority's declination is p98.79 UCP-tail and AGREES with the other three metrics (four of four). The framing below of an *observed* cross-metric disagreement in this audit is retired, preserved as a record. See `reports/academic/report_academic.md` §5.4.9.**]**
 
 **Assertion:** Cross-metric declination disagreement is documented as an expected feature of competing formalizations (Warrington 2018; Katz, King, and Rosenblatt 2020).
 **Why?** How do academic papers from 2018 and 2020 address a disagreement that appears in this 2026 dataset?
