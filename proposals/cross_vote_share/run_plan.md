@@ -1,6 +1,6 @@
 ---
 name: Cross-vote-share supermajority test — run plan
-description: "Ready-to-execute plan for extending the existing 48% NDP responsiveness test (pre-registered) to a parameterized sweep over provincial vote shares from 45% to 60% UCP two-party share in 1% steps, asking at what vote-share range each proposal pushes one party past the 58-of-87 two-thirds supermajority threshold. The 0.60 upper bound brackets the April 2026 338Canada polling operating point (UCP ≈ 58.3% two-party). Reuses the canonical uniform-swing algorithm and existing per-district vote artifacts; no new ensemble run required. Status PREP COMPLETE — explicit principal-investigator authorization and a signed pre-registration amendment required before running."
+description: "Ready-to-execute plan for extending the existing 48% NDP responsiveness test (pre-registered) to a parameterized sweep over provincial vote shares from 45% to 60% UCP two-party share in 1% steps, asking at what vote-share range each proposal pushes one party past the 58-of-87 two-thirds supermajority threshold. The 0.60 upper bound brackets the April 2026 338Canada polling operating point (UCP ≈ 58.3% two-party). Reuses the canonical uniform-swing algorithm and existing per-district vote artifacts. No new ensemble run is required for the two real-map curves; the ensemble comparison band, however, needs per-district-per-plan vote arrays that are not archived (see Feasibility note). Status PREP COMPLETE — explicit principal-investigator authorization and a signed pre-registration amendment required before running."
 type: methodology
 ---
 
@@ -39,6 +39,18 @@ A single CSV and a single figure:
 
 No other artifacts. No interactive widgets. No sub-tests. The scope is fixed here to prevent post-hoc expansion.
 
+## Feasibility note (2026-06-15)
+
+The two **real-map curves** (minority, majority) are computable from archived data now: `phase4c_per_ed_votes_{minority,majority}.csv` hold the per-district 2023 two-party counts the uniform-swing model needs.
+
+The **ensemble comparison band is NOT computable from archived data as written.** Uniform swing on the ensemble requires each neutral plan's per-district vote shares, but the canonical chains (`data/simulation_checkpoints_canonical/chain*_samples.csv`) and the aggregate CSVs (`simulated_ensemble_raw_samples_*.csv`) store only per-plan *aggregate* metrics (`efficiency_gap, mean_median, declination, seats_at_50_50, ucp_seats, …`) — no per-district arrays, and none are archived elsewhere. This is the same per-VA/per-district archive debt that blocks the deeper distribution-conditional re-score (T1.1). So "no new ensemble run required" holds for the real-map curves but **not** for the ensemble band.
+
+Two honest paths for the ensemble band:
+1. **Publish real-maps-only first** — the two curves plus the 58-seat line are publishable now; mark the ensemble band "pending an ensemble re-run that saves per-district outputs." This still answers "where does each *proposal* cross the supermajority line across 0.45–0.60," just without the neutral-baseline comparison at off-50/50 shares.
+2. **Re-run the ensemble once with per-district (or per-VA assignment) outputs saved** — unblocks this band *and* the deeper re-score. Multi-day compute; needs its own pre-registration. One investment, both payoffs.
+
+The choice does not affect the pre-registered grid or thresholds above; it only scopes which of the three artifacts the first published curve includes.
+
 ## Method — pre-committed before run
 
 Reuses the canonical uniform-swing algorithm (`mcmc_ensemble.py::seat_results()` lines 215–222) unchanged. The only change is sweeping the target share rather than hard-coding 0.5.
@@ -63,7 +75,7 @@ Identical algorithm to the existing `seats@50/50` and the existing 48% NDP respo
 | Vote-share grid | `[0.45, 0.46, 0.47, …, 0.60]` (16 points, UCP two-party share) | Lower bound 0.45 = floor of the 2015–2023 Alberta provincial-election range. Upper bound 0.60 brackets the April 2026 338Canada polling operating point (UCP ≈ 58.3% two-party = 52.46/(52.46+37.59) from the 2026-04-12 snapshot) with ~1.7 pp headroom, so the curve runs *through* today's operative vote environment rather than truncating at its edge. Extended from an earlier `[0.45, 0.55]` draft on 2026-06-14, before any run — see the grid-range note in the amendment for the anti-grid-shopping rationale. |
 | Step size | 0.01 (1 percentage point) | Finest resolution that produces a visually distinguishable curve without overstating the precision of the underlying vote model |
 | Maps tested | Minority proposal, Majority proposal, 1.01M-plan canonical ReCom ensemble | The three artifacts the homepage names |
-| Per-district vote data | `phase4c_per_ed_votes_minority.csv`, `phase4c_per_ed_votes_majority.csv`, MCMC chain per-district counts | The same data the existing `seats@50/50` test uses |
+| Per-district vote data | Real maps: `phase4c_per_ed_votes_minority.csv`, `phase4c_per_ed_votes_majority.csv` (archived, present). Ensemble: per-district-per-plan vote arrays — **NOT archived** (see Feasibility note) | The two real-map curves use the same data the existing `seats@50/50` test uses; the ensemble band does not |
 | Swing model | Uniform swing on UCP two-party share | Same model as `mcmc_ensemble.py::seat_results()`; same model as the pre-registered 48% responsiveness test |
 | Supermajority threshold | 58 of 87 seats | Mathematically 2/3 × 87 = 58; matches the threshold cited in the homepage verdict |
 | Tie-break | UCP wins if shifted share > 0.5 + 1e-9; tied seats counted as 0.5 each | Identical to `seat_results()` |
