@@ -569,12 +569,11 @@
 </section>
 
 <section class="editorial-block container" id="what-is-redistricting" aria-labelledby="s1-heading">
-  <h2 id="s1-heading">{t(lang.current, 'editorial_intro.heading')}</h2>
-  <p>{@html t(lang.current, 'editorial_intro.p1')}</p>
-  <p>{@html t(lang.current, 'editorial_intro.p2')}</p>
-  <p>{@html t(lang.current, 'editorial_intro.p3')}</p>
-  <p>{@html t(lang.current, 'editorial_intro.p4')}</p>
-  <p>{t(lang.current, 'editorial_intro.p5')}</p>
+  <h2 id="s1-heading">{t(lang.current, 'why_redrawn.heading')}</h2>
+  <p>{t(lang.current, 'why_redrawn.p1')}</p>
+  <p>{t(lang.current, 'why_redrawn.p2')}</p>
+  <p>{t(lang.current, 'why_redrawn.p3')}</p>
+  <p class="section-punch">{t(lang.current, 'why_redrawn.p4')}</p>
 </section>
 
 <main id="main" class="container" tabindex="-1">
@@ -1810,6 +1809,16 @@
   :global(.boundary-list .can .mark) { color: #2c7a4a; }
   :global(.boundary-list .cant .mark) { color: #a8423b; }
   :global(.boundary-list .text) { color: var(--text); }
+
+  /* Emphasized closing line of a Story section — lighter echo of the verdict pull-quote. */
+  :global(.section-punch) {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--heading-2);
+    margin-block-start: 1.2rem;
+    padding-inline-start: 1rem;
+    border-inline-start: 3px solid var(--nav-accent);
+  }
 
   :global(.editorial-block) {
     padding: 2rem 0 1.6rem;

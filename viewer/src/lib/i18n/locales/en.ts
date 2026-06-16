@@ -22,6 +22,13 @@ export default {
 		law_link: 'Law',
 		methods_link: 'Methods'
 	},
+	why_redrawn: {
+		heading: 'Why this happens — and why it touches you',
+		p1: 'Alberta is divided into 87 ridings. Each one elects a single MLA to the legislature. Your riding decides who that person is, which neighbourhoods get grouped with yours, and whose concerns your MLA hears first.',
+		p2: 'The lines don’t stay fixed. As people move and cities grow, some ridings end up with far more voters than others, so the province redraws the map every few years to keep them roughly even. A panel of commissioners does the drawing, working from rules set out in law: districts have to be close in population, stay in one piece, and keep real communities together where they can.',
+		p3: 'That’s the normal process. This time it broke down. The commissioners couldn’t agree, and split into two camps, each with its own map. Then a committee of MLAs stepped in to choose between them — which is unusual, and part of why this audit exists.',
+		p4: 'So why does a line on a map matter to you? Because it decides whose vote counts for what. A map can group a city’s voters so their choices carry weight, or split them up so they don’t. It can make some races close and lock others in. None of that shows on the surface — it is built into where the lines fall. This site is about reading what is built in.'
+	},
 	disclaimer: {
 		text:
 			'This site has been translated by AI. Some content may still appear in English while translations are in progress. If you notice errors or would like to help translate this project, please %s.',
