@@ -100,6 +100,7 @@
   import { proseWordCount } from '$lib/i18n/wordCount';
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
+  import { focusTrap } from '$lib/a11y/focusTrap';
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -117,26 +118,11 @@
 
   function toggleNavDrawer() {
     navOpen = !navOpen;
-    if (navOpen) {
-      tick().then(() => {
-        const first = document.querySelector<HTMLElement>('#nav-drawer a');
-        first?.focus();
-      });
-    }
   }
   function closeNavDrawer() {
     if (!navOpen) return;
     navOpen = false;
-    tick().then(() => document.getElementById('hamburger')?.focus());
   }
-  $effect(() => {
-    if (!navOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { e.stopPropagation(); closeNavDrawer(); }
-    };
-    window.addEventListener('keydown', onKey, true);
-    return () => window.removeEventListener('keydown', onKey, true);
-  });
   let showSharePanel    = $state(false);
   let shareCode         = $state('');
   let loadInput         = $state('');
@@ -314,9 +300,10 @@
       lbImg.style.transform = `scale(${lbScale})`;
     }
 
-    function openLb(src: string) {
+    function openLb(src: string, altText = '') {
       lbScale = 1; lbImg.style.transform = '';
       lbImg.src = src;
+      lbImg.alt = altText;
       lb.style.display = 'flex';
       lbPrevFocus = document.activeElement;
       lb.focus();
@@ -359,7 +346,7 @@
     lb.addEventListener('dblclick', () => { lbScale = 1; lbApply(); });
 
     document.querySelectorAll('figure img').forEach(img => {
-      (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLImageElement).src));
+      (img as HTMLElement).addEventListener('click', () => openLb((img as HTMLImageElement).src, (img as HTMLImageElement).alt));
     });
     lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
     (document.getElementById('fig-lightbox-close') as HTMLElement)?.addEventListener('click', closeLb);
@@ -476,7 +463,7 @@
     </div>
   </div>
   {#if navOpen}
-  <div id="nav-drawer" aria-label={t(lang.current, 'nav.nav_aria')}>
+  <div id="nav-drawer" role="dialog" aria-modal="true" aria-label={t(lang.current, 'nav.nav_aria')} use:focusTrap={{ onEscape: () => navOpen = false }}>
     <a href="#top" class="drawer-top" onclick={closeNavDrawer}>{t(lang.current, 'nav.drawer_top')}</a>
 
     <h4 class="drawer-group">{t(lang.current, 'nav.group_overview')}</h4>
@@ -1373,7 +1360,7 @@
 <!-- Participation prompt -->
 {#if showParticipation}
 <div id="participation-overlay" role="dialog" aria-modal="true" aria-labelledby="part-heading">
-  <div id="participation-card">
+  <div id="participation-card" use:focusTrap={{ onEscape: () => showParticipation = false }}>
     <h2 id="part-heading">{t(lang.current, 'chrome.participation.heading')}</h2>
     <p>{t(lang.current, 'chrome.participation.body')}</p>
     <p class="part-no-collect">{t(lang.current, 'chrome.participation.no_collect')}</p>
@@ -1446,7 +1433,7 @@
     </button>
     <div class="tb-sep"></div>
     <div id="tb-search-wrap">
-      <input id="tb-search" type="search" placeholder={t(lang.current, 'chrome.map.search_placeholder')} autocomplete="off" spellcheck="false">
+      <input id="tb-search" type="search" aria-label={t(lang.current, 'chrome.map.search_aria')} placeholder={t(lang.current, 'chrome.map.search_placeholder')} autocomplete="off" spellcheck="false">
       <ul id="tb-search-results"></ul>
     </div>
     <div class="tb-sep"></div>
@@ -1589,9 +1576,9 @@
 </footer>
 
 <!-- Map onboarding modal — shown once per session via sessionStorage; logic in mapEngine.ts -->
-<div id="map-intro-modal" style="display:none;">
+<div id="map-intro-modal" role="dialog" aria-modal="true" aria-labelledby="map-intro-heading" style="display:none;">
   <div id="map-intro-inner">
-    <h3>{t(lang.current, 'chrome.map_intro.heading')}</h3>
+    <h3 id="map-intro-heading">{t(lang.current, 'chrome.map_intro.heading')}</h3>
     <ul>
       <li><strong>{t(lang.current, 'chrome.map_intro.click_district')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.click_district_desc')}</li>
       <li><strong>{t(lang.current, 'chrome.map_intro.click_within')}</strong> &mdash; {t(lang.current, 'chrome.map_intro.click_within_desc')}</li>

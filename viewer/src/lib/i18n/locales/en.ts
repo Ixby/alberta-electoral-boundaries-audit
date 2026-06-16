@@ -750,6 +750,7 @@ export default {
 			help_title: 'How to use the map',
 			pin_aria: 'Pin Map',
 			pin_title: 'Pin Map — prevent auto-pan on district click',
+			search_aria: 'Find an electoral district',
 			search_placeholder: 'Find district…',
 			zoom_aria: 'Map zoom',
 			clear_aria: 'Clear district selection',
