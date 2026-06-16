@@ -219,7 +219,7 @@ export default {
 		gerrymander: {
 			term: 'Gerrymander',
 			definition:
-				'A map drawn so one political party wins more seats than its share of the vote would suggest. The word comes from an 1812 Massachusetts district shaped like a salamander. It is not a legal term in Canada, but the concept is widely studied.'
+				'An American nickname for an electoral map drawn to favour one party. It has no legal meaning in Canada — no court or law uses it — so this site never uses it as a verdict.'
 		},
 		cracking: {
 			term: 'Cracking',
@@ -269,7 +269,37 @@ export default {
 		ebca: {
 			term: 'EBCA',
 			definition:
-				'The Alberta Electoral Boundaries Commission Act — the law that governs how electoral boundaries are drawn in the province. It sets up the commission, the public-hearing process, and the rules for when a new map takes effect.'
+				'The Electoral Boundaries Commission Act — the Alberta law that sets the rules a new map must follow, including how far district populations may vary.'
+		},
+		ensemble: {
+			term: 'The 1.01-million-map test',
+			definition:
+				'A computer drew 1.01 million legal Alberta maps at random, all following the same rules. A real map counts as unusual when it falls outside what almost all of these neutral maps produce.'
+		},
+		efficiency_gap: {
+			term: 'Efficiency gap',
+			definition:
+				'A measure of "wasted" votes — votes beyond what a candidate needed to win, plus every vote for a loser — compared between the two parties. A large gap points to a one-sided map.'
+		},
+		mean_median: {
+			term: 'Mean-median gap',
+			definition:
+				'The gap between a party\'s average vote share across districts and its middle (median) one. A large gap suggests its voters are spread in a way that wastes votes.'
+		},
+		declination: {
+			term: 'Declination',
+			definition:
+				'A measure of how lopsidedly each party wins its seats — by blowouts or by squeakers. On the minority map it points the same way as the other measures (toward the governing party) after a June 2026 sign correction.'
+		},
+		seats_5050: {
+			term: 'Seats at a tie',
+			definition:
+				'How many seats each party would win if the province split its vote exactly 50-50. It strips out who actually won and tests the map\'s built-in tilt.'
+		},
+		effective_representation: {
+			term: 'Effective representation',
+			definition:
+				'The standard Canadian courts use under section 3 of the Charter: boundaries must give voters a real, fair voice — not perfectly equal districts, but representation that genuinely works.'
 		},
 		fsa: {
 			term: 'Forward sortation area (FSA)',
