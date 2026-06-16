@@ -7,7 +7,7 @@ export default {
 	verdict: {
 		headline: 'Alberta is redrawing its electoral map.',
 		p_what: 'Every so often the province redraws its ridings — the local areas that each elect one MLA. Where the lines fall decides who you vote with, and who represents you in the legislature.',
-		p_split: 'This time, the panel doing the redraw split. It produced two competing maps, and a committee will pick one later this year.',
+		p_split: 'This time, the panel doing the redraw split. It produced two competing maps — and this audit tests both of them.',
 		p_question: 'We tested both maps for one question: is either one shaped to favour a party — even if no one set out to do that?',
 		p_answer: 'One of the two is. The other looks normal.',
 		p_howfar: 'How far from normal? A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about 1 in 350,000 of them, in the UCP’s favour. The other sits in the normal range.',
@@ -26,8 +26,14 @@ export default {
 		heading: 'Why this happens — and why it touches you',
 		p1: 'Alberta is divided into 87 ridings. Each one elects a single MLA to the legislature. Your riding decides who that person is, which neighbourhoods get grouped with yours, and whose concerns your MLA hears first.',
 		p2: 'The lines don’t stay fixed. As people move and cities grow, some ridings end up with far more voters than others, so the province redraws the map every few years to keep them roughly even. A panel of commissioners does the drawing, working from rules set out in law: districts have to be close in population, stay in one piece, and keep real communities together where they can.',
-		p3: 'That’s the normal process. This time it broke down. The commissioners couldn’t agree, and split into two camps, each with its own map. Then a committee of MLAs stepped in to choose between them — which is unusual, and part of why this audit exists.',
+		p3: 'That’s the normal process. This time it broke down. The commissioners couldn’t agree, and split into two camps, each with its own map. Then a committee of MLAs set both of those maps aside to draw its own, larger one. A committee replacing the commission’s work like that is unusual, and part of why this audit exists.',
 		p4: 'So why does a line on a map matter to you? Because it decides whose vote counts for what. A map can group a city’s voters so their choices carry weight, or split them up so they don’t. It can make some races close and lock others in. None of that shows on the surface — it is built into where the lines fall. This site is about reading what is built in.'
+	},
+	two_maps: {
+		heading: 'Two maps, one choice',
+		p1: 'When the commission split, it didn’t produce one map with a dissent attached. It produced two complete, competing maps. Three commissioners signed one — the majority report; two signed the other — the minority report. Both are legal. Both follow the rules. They simply draw the lines differently.',
+		p2: 'The cover map at the top of this page lets you see the difference yourself. Flip between the two proposals and today’s map, find your own riding, and watch which neighbourhoods get grouped together or split apart. The boundaries move; the people underneath them don’t.',
+		p3: 'A committee of MLAs has since set both maps aside to draw its own, due later in 2026 — a move this site looks at on the Law page. These two remain the audit’s clearest test case, and the same tests will apply to whatever the committee produces.'
 	},
 	disclaimer: {
 		text:

@@ -592,12 +592,10 @@
   </div>
 
   <section id="section-1">
-    <h2>{t(lang.current, 'body.the_map.heading')} <a href="#section-1" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 1">#</a></h2>
-    <p>{t(lang.current, 'body.the_map.p1')}</p>
-    <p>{t(lang.current, 'body.the_map.p2')}</p>
-    <p>{t(lang.current, 'body.the_map.p3')}</p>
-    <p>{t(lang.current, 'body.the_map.p4')}</p>
-    <p>{t(lang.current, 'body.the_map.p5')}</p>
+    <h2>{t(lang.current, 'two_maps.heading')} <a href="#section-1" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 1">#</a></h2>
+    <p>{t(lang.current, 'two_maps.p1')}</p>
+    <p>{t(lang.current, 'two_maps.p2')}</p>
+    <p>{t(lang.current, 'two_maps.p3')}</p>
   </section>
 
   <section id="section-2">
