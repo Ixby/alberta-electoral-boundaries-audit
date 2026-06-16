@@ -2549,7 +2549,7 @@
     color: rgba(255,255,255,0.78);
     font-family: 'Palatino Linotype', Palatino, Georgia, serif;
     font-style: italic; font-size: 1.05rem;
-    text-align: center; pointer-events: none; white-space: nowrap;
+    text-align: center; pointer-events: none; white-space: normal; max-width: 88%;
     text-shadow: 0 0 14px rgba(255,190,0,0.45), 0 0 30px rgba(255,190,0,0.2);
   }
   #zoom-obj {
@@ -2559,13 +2559,15 @@
     position: fixed; top: 1rem; inset-inline-end: 1.4rem; z-index: 9001;
     background: none; border: none;
     color: #fff; font-size: 2.4rem; line-height: 1;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
     cursor: pointer; opacity: 0.7;
     transition: opacity 0.15s;
   }
   #zoom-close:hover { opacity: 1; }
   /* Mobile: smaller close button so it doesn't overlap the BORDERS chip */
   @media (max-width: 600px) {
-    #zoom-close { top: 0.5rem; inset-inline-end: 0.6rem; font-size: 1.6rem; padding: 0 4px; }
+    #zoom-close { top: 0.5rem; inset-inline-end: 0.6rem; font-size: 1.6rem; }
   }
   #zoom-pct { font-weight: 700; color: rgba(255,255,255,0.75); font-variant-numeric: tabular-nums; font-size: 0.72rem; min-width: 3em; text-align: end; }
   #ed-tooltip {
@@ -3110,7 +3112,7 @@
 
   /* ── Participation prompt ─────────────────────────────────────────────── */
   :global(#participation-overlay) {
-    position: fixed; inset: 0; z-index: 9000;
+    position: fixed; inset: 0; z-index: 9100;
     background: rgba(0,0,0,0.55);
     display: flex; align-items: center; justify-content: center;
     padding: 1rem;
