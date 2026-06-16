@@ -1,0 +1,1 @@
+export const env={"PUBLIC_SUPABASE_ANON_KEY":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZjdGh6a2tycml2Z2lhZHJ1emZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk1NjI0NzEsImV4cCI6MjA5NTEzODQ3MX0.hGSvj6_oMgqCxKd9fA12AI4GyRPchzP32Rc3STiwc9s","PUBLIC_SUPABASE_URL":"https://vcthzkkrrivgiadruzfr.supabase.co"}
