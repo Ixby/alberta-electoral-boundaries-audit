@@ -274,7 +274,7 @@
   p:last-child { margin-bottom: 0; }
 
   ul {
-    padding-left: 1.4rem;
+    padding-inline-start: 1.4rem;
     margin-bottom: 0.85rem;
   }
   li { margin-bottom: 0.45rem; }
@@ -293,7 +293,7 @@
   .dashboard-link:hover { background: #5a2a90; }
 
   blockquote {
-    border-left: 3px solid #6B35A7;
+    border-inline-start: 3px solid #6B35A7;
     padding: 0.5rem 1rem;
     margin: 0.9rem 0;
     background: rgba(107,53,167,0.05);

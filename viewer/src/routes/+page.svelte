@@ -590,10 +590,10 @@
 <main id="main" class="container" tabindex="-1">
 
   <div style="padding: 1.5rem 0 0.5rem;">
-    <div class="callout callout-minority" style="border-left-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
+    <div class="callout callout-minority" style="border-inline-start-color:#6B35A7; font-size:1.05rem; padding:0.9rem 1rem; margin-bottom:0.8rem;">
       <p style="margin:0;"><strong>{t(lang.current, 'top_callouts.gerrymander_lead')}</strong> {@html t(lang.current, 'top_callouts.gerrymander_body')}</p>
     </div>
-    <div class="callout callout-tldr" style="border-left-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
+    <div class="callout callout-tldr" style="border-inline-start-color: #1A7A6E; font-size: 1.02rem; line-height: 1.65;">
       <p style="margin:0 0 0.6rem;"><strong>{t(lang.current, 'top_callouts.tldr_label')}</strong></p>
       <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p1')}</p>
       <p style="margin:0 0 0.6rem;">{@html t(lang.current, 'top_callouts.tldr_p2')}</p>
@@ -622,7 +622,7 @@
     <p>{@html t(lang.current, 'body.commission_split.closing')}</p>
   </section>
 
-  <div class="callout callout-info" style="border-left-color:#2B5BA1; margin:0.5rem 0 1rem;">
+  <div class="callout callout-info" style="border-inline-start-color:#2B5BA1; margin:0.5rem 0 1rem;">
     <p style="margin:0 0 0.4rem;"><strong>{t(lang.current, 'body.structural_results.heading')}</strong></p>
     <p style="margin:0;">{@html t(lang.current, 'body.structural_results.body')}</p>
   </div>
@@ -1159,7 +1159,7 @@
   <section id="section-7">
     <h2>{t(lang.current, 'body.november.heading')} <a href="#section-7" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 7">#</a></h2>
 
-    <div class="callout callout-neutral" style="border-left-color:#888; font-size:0.95rem;">
+    <div class="callout callout-neutral" style="border-inline-start-color:#888; font-size:0.95rem;">
       <p style="margin:0;"><strong>{t(lang.current, 'body.november.context_label')}</strong>{t(lang.current, 'body.november.context_body')}</p>
     </div>
 
@@ -1656,14 +1656,14 @@
     font-size: 0.85rem;
     color: var(--text-muted, #666);
     line-height: 1.5;
-    border-left: 2px solid var(--border-subtle);
-    padding-left: 0.7rem;
+    border-inline-start: 2px solid var(--border-subtle);
+    padding-inline-start: 0.7rem;
   }
   :global(.stakes-scorecard) {
     margin: 1.6rem 0 1.4rem;
     padding: 1.1rem 1.2rem 1.2rem;
     border: 1px solid var(--border);
-    border-left: 3px solid var(--nav-accent);
+    border-inline-start: 3px solid var(--nav-accent);
     border-radius: 6px;
     background: var(--bg);
   }
@@ -1695,7 +1695,7 @@
     font-size: 0.82rem;
     line-height: 1.45;
     color: var(--text-muted);
-    text-align: left;
+    text-align: start;
   }
   :global(.stakes-scorecard-close) {
     margin: 0.9rem 0 0 !important;
@@ -1723,7 +1723,7 @@
   .back-link {
     margin-top: 1.4rem;
     font-size: 0.88rem;
-    text-align: right;
+    text-align: end;
     opacity: 0.7;
   }
   .back-link a {
@@ -1821,7 +1821,7 @@
     align-items: baseline;
     padding: 0.5rem 0.8rem;
     background: var(--bg-alt);
-    border-left: 3px solid var(--link);
+    border-inline-start: 3px solid var(--link);
     border-radius: 3px;
     counter-increment: ladder;
   }
@@ -2006,7 +2006,7 @@
 
     .skip-link {
       position: absolute;
-      left: 0.5rem;
+      inset-inline-start: 0.5rem;
       top: 0.5rem;
       background: #0a1e36;
       color: #fff;
@@ -2063,9 +2063,9 @@
       display: flex;
       align-items: center;
       gap: 0.25rem;
-      padding-left: 0.5rem;
-      margin-left: 0.25rem;
-      border-left: 1px solid rgba(255,255,255,0.12);
+      padding-inline-start: 0.5rem;
+      margin-inline-start: 0.25rem;
+      border-inline-start: 1px solid rgba(255,255,255,0.12);
     }
 
     nav a {
@@ -2110,8 +2110,8 @@
     nav a.nav-home {
       color: rgba(255,255,255,0.55);
       padding: 0 0.65rem 0 0.3rem;
-      margin-right: 0.2rem;
-      border-right: 1px solid rgba(255,255,255,0.12);
+      margin-inline-end: 0.2rem;
+      border-inline-end: 1px solid rgba(255,255,255,0.12);
       text-decoration: none;
     }
     nav a.nav-home:hover {
@@ -2187,7 +2187,7 @@
 
     @media (max-width: 720px) {
       .nav-landmarks { display: none; }
-      .nav-tools { border-left: none; padding-left: 0; margin-left: auto; }
+      .nav-tools { border-inline-start: none; padding-inline-start: 0; margin-inline-start: auto; }
     }
 
     .nav-theme-btn {
@@ -2210,7 +2210,7 @@
       color: transparent;
       font-size: 0.72em;
       font-weight: 400;
-      margin-left: 0.4em;
+      margin-inline-start: 0.4em;
       text-decoration: none;
       vertical-align: middle;
       transition: color 0.15s;
@@ -2341,7 +2341,7 @@
       color: #fff;
       font-weight: 600;
       padding: 0.55rem 0.8rem;
-      text-align: left;
+      text-align: start;
     }
 
     td {
@@ -2360,7 +2360,7 @@
     /* Callout box */
     .callout {
       background: var(--callout-bg);
-      border-left: 4px solid var(--link);
+      border-inline-start: 4px solid var(--link);
       padding: 0.9rem 1.1rem;
       border-radius: 0 4px 4px 0;
       margin: 1.1rem 0;
@@ -2369,7 +2369,7 @@
 
     .callout.warning {
       background: var(--callout-warn);
-      border-left-color: #b7950b;
+      border-inline-start-color: #b7950b;
     }
 
     .callout-minority { background: #F0EBF8; }
@@ -2414,7 +2414,7 @@
       border-radius: 3px;
       background: var(--tag-bg);
       color: var(--tag-text);
-      margin-right: 0.4rem;
+      margin-inline-end: 0.4rem;
       vertical-align: middle;
     }
 
@@ -2461,7 +2461,7 @@
     width: 100dvw; height: 100dvh;
   }
   #map-attribution {
-    position: absolute; bottom: 0.6rem; right: 0.8rem;
+    position: absolute; bottom: 0.6rem; inset-inline-end: 0.8rem;
     z-index: 9003; opacity: 0.55; transition: opacity 0.15s;
     display: flex; align-items: center; gap: 0.5rem;
   }
@@ -2477,7 +2477,7 @@
   /* Expandable detail panels — follow visual language */
   :global(details.audit-detail) {
     margin: 0.8rem 0 1rem;
-    border-left: 3px solid rgba(107,53,167,0.55);
+    border-inline-start: 3px solid rgba(107,53,167,0.55);
     background: rgba(107,53,167,0.05);
     border-radius: 0 4px 4px 0;
     padding: 0.45rem 0 0.45rem 0.9rem;
@@ -2497,13 +2497,13 @@
   :global(.vocab-term) {
     border-bottom: 1.5px dashed rgba(107,53,167,0.55);
     cursor: pointer; color: inherit;
-    display: inline; background: none; border-top: none; border-left: none; border-right: none;
-    font: inherit; padding: 0; text-align: left;
+    display: inline; background: none; border-top: none; border-inline-start: none; border-inline-end: none;
+    font: inherit; padding: 0; text-align: start;
   }
   :global(.vocab-term:hover) { border-bottom-color: #6B35A7; }
   :global(.vocab-panel) {
     display: block;
-    background: rgba(107,53,167,0.07); border-left: 3px solid #6B35A7;
+    background: rgba(107,53,167,0.07); border-inline-start: 3px solid #6B35A7;
     border-radius: 0 4px 4px 0; padding: 0.3rem 0.8rem; margin: 0.35rem 0;
     font-size: 0.86rem; line-height: 1.5; color: var(--text);
   }
@@ -2566,7 +2566,7 @@
     position: absolute; display: block; border: 0;
   }
   #zoom-close {
-    position: fixed; top: 1rem; right: 1.4rem; z-index: 9001;
+    position: fixed; top: 1rem; inset-inline-end: 1.4rem; z-index: 9001;
     background: none; border: none;
     color: #fff; font-size: 2.4rem; line-height: 1;
     cursor: pointer; opacity: 0.7;
@@ -2575,9 +2575,9 @@
   #zoom-close:hover { opacity: 1; }
   /* Mobile: smaller close button so it doesn't overlap the BORDERS chip */
   @media (max-width: 600px) {
-    #zoom-close { top: 0.5rem; right: 0.6rem; font-size: 1.6rem; padding: 0 4px; }
+    #zoom-close { top: 0.5rem; inset-inline-end: 0.6rem; font-size: 1.6rem; padding: 0 4px; }
   }
-  #zoom-pct { font-weight: 700; color: rgba(255,255,255,0.75); font-variant-numeric: tabular-nums; font-size: 0.72rem; min-width: 3em; text-align: right; }
+  #zoom-pct { font-weight: 700; color: rgba(255,255,255,0.75); font-variant-numeric: tabular-nums; font-size: 0.72rem; min-width: 3em; text-align: end; }
   #ed-tooltip {
     display: none; position: fixed; z-index: 9002;
     background: rgba(10,10,10,0.88);
@@ -2591,14 +2591,14 @@
   /* ── HUD: stacks top-bar + info-bar as a column ─────────────────────────── */
   #hud {
     position: absolute;
-    top: 10px; left: 10px; right: 52px;
+    top: 10px; inset-inline-start: 10px; inset-inline-end: 52px;
     z-index: 9002;
     display: flex; flex-direction: column; gap: 5px;
     pointer-events: none;
 
     /* Mobile: hug the edges and tighten gaps so the map gets more screen */
     @media (max-width: 600px) {
-      top: 6px; left: 6px; right: 36px;  /* clears the smaller mobile close button */
+      top: 6px; inset-inline-start: 6px; inset-inline-end: 36px;  /* clears the smaller mobile close button */
       gap: 3px;
     }
   }
@@ -2881,7 +2881,7 @@
     line-height: 1.4;
     transition: background 0.12s, border-color 0.12s;
     white-space: nowrap;
-    margin-left: 0.2em;
+    margin-inline-start: 0.2em;
   }
   .ed-trigger:hover {
     background: var(--callout-bg);
@@ -2942,7 +2942,7 @@
     display: none;
     position: absolute;
     top: calc(100% + 5px);
-    left: 0;
+    inset-inline-start: 0;
     min-width: 210px;
     background: #1a1a2e;
     border: 1px solid rgba(255,255,255,0.14);
@@ -2966,7 +2966,7 @@
   #tb-search-results li:hover,
   #tb-search-results li.sr-active { background: rgba(255,255,255,0.18); color: #fff; }
   .sr-map-tag {
-    display: inline-block; margin-left: 0.4em;
+    display: inline-block; margin-inline-start: 0.4em;
     font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
     border-radius: 3px; padding: 0.05rem 0.28rem;
@@ -2993,7 +2993,7 @@
     box-shadow: 0 4px 28px rgba(0,0,0,0.55);
   }
   #map-intro-inner h3 { margin: 0 0 0.8rem; font-size: 1.1rem; color: #fff; }
-  #map-intro-inner ul { margin: 0 0 0.8rem; padding-left: 1.2rem; }
+  #map-intro-inner ul { margin: 0 0 0.8rem; padding-inline-start: 1.2rem; }
   #map-intro-inner li { margin-bottom: 0.4rem; }
   #map-intro-inner p { margin: 0 0 1rem; }
   #map-intro-close {
@@ -3021,7 +3021,7 @@
   }
   #fig-lightbox:focus { outline: none; }
   #fig-lightbox-close {
-    position: absolute; top: 12px; right: 16px;
+    position: absolute; top: 12px; inset-inline-end: 16px;
     background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
     color: #fff; font-size: 1.4rem; line-height: 1;
     width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
@@ -3093,7 +3093,7 @@
 
   /* Persistent CC badge */
   #site-copyright {
-    position: fixed; bottom: 0.45rem; right: 1rem;
+    position: fixed; bottom: 0.45rem; inset-inline-end: 1rem;
     z-index: 300; opacity: 0.45; pointer-events: auto;
     transition: opacity 0.15s;
   }
@@ -3105,7 +3105,7 @@
 
   /* Back-to-top button */
   #back-top {
-    position: fixed; bottom: 1.6rem; right: 1.4rem;
+    position: fixed; bottom: 1.6rem; inset-inline-end: 1.4rem;
     width: 2.6rem; height: 2.6rem;
     background: #6B35A7; color: #fff;
     border-radius: 50%;
@@ -3116,7 +3116,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
   }
   #back-top:hover { opacity: 1; }
-  @media (max-width: 600px) { #back-top { bottom: 1rem; right: 0.8rem; } }
+  @media (max-width: 600px) { #back-top { bottom: 1rem; inset-inline-end: 0.8rem; } }
 
   /* ── Participation prompt ─────────────────────────────────────────────── */
   :global(#participation-overlay) {
@@ -3147,7 +3147,7 @@
   :global(.part-dnt) {
     font-size: 0.82rem !important;
     background: rgba(107,53,167,0.08);
-    border-left: 3px solid #6B35A7;
+    border-inline-start: 3px solid #6B35A7;
     padding: 0.5rem 0.7rem;
     border-radius: 0 4px 4px 0;
   }
@@ -3165,7 +3165,7 @@
   :root[data-theme="dark"] :global(.part-secondary) { background: #3a3b47; color: var(--text); }
   :root[data-theme="dark"] :global(.part-primary)   { background: #8B50D4; color: #fff; }
   :global(.part-policy) {
-    font-size: 0.78rem !important; text-align: right;
+    font-size: 0.78rem !important; text-align: end;
     margin: 0 !important; color: var(--text-muted, #888) !important;
   }
   :global(.part-policy a) { color: inherit; text-decoration: underline; opacity: 0.7; }
@@ -3175,7 +3175,7 @@
     position: fixed; inset: 0; z-index: 7999;
   }
   :global(.share-close) {
-    position: absolute; top: 0.5rem; right: 0.55rem;
+    position: absolute; top: 0.5rem; inset-inline-end: 0.55rem;
     background: none; border: none; cursor: pointer;
     color: rgba(255,255,255,0.45); font-size: 0.95rem; line-height: 1;
     padding: 0.2rem 0.35rem; border-radius: 4px;
@@ -3183,11 +3183,11 @@
   }
   :global(.share-close:hover) { color: rgba(255,255,255,0.85); }
   :global(#tb-share-wrap) {
-    position: absolute; top: 5px; right: 0;
+    position: absolute; top: 5px; inset-inline-end: 0;
     z-index: 200;
   }
   :global(#share-panel) {
-    position: absolute; top: calc(100% + 6px); right: 0;
+    position: absolute; top: calc(100% + 6px); inset-inline-end: 0;
     background: rgba(10,12,18,0.95); border: 1px solid rgba(255,255,255,0.14);
     backdrop-filter: blur(12px);
     border-radius: 8px; padding: 0.85rem; width: 320px;

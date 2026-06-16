@@ -121,7 +121,7 @@
 	.lang-menu {
 		position: absolute;
 		top: calc(100% + 0.35rem);
-		right: 0;
+		inset-inline-end: 0;
 		margin: 0;
 		padding: 0.3rem 0;
 		list-style: none;
@@ -162,7 +162,7 @@
 		background: transparent;
 		border: 0;
 		cursor: pointer;
-		text-align: left;
+		text-align: start;
 		color: inherit;
 		font: inherit;
 		transition: background 0.12s ease;

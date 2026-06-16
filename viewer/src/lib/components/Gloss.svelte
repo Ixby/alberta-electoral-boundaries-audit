@@ -101,7 +101,7 @@
 	}
 	.panel {
 		position: absolute;
-		left: 0;
+		inset-inline-start: 0;
 		top: calc(100% + 0.3rem);
 		max-width: min(22rem, 90vw);
 		padding: 0.7rem 0.9rem;

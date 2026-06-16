@@ -191,7 +191,7 @@
         <p class="muted">No district clicks recorded yet.</p>
       {:else}
       <table>
-        <thead><tr><th>District</th><th style="text-align:right">Clicks</th><th></th></tr></thead>
+        <thead><tr><th>District</th><th style="text-align:end">Clicks</th><th></th></tr></thead>
         <tbody>
           {#each edCounts as r}
           <tr>
@@ -292,11 +292,11 @@
 
   /* ED table */
   table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
-  th { text-align: left; padding: 0 0.5rem 0.5rem 0; color: #aaa; font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid #eee; }
+  th { text-align: start; padding: 0 0.5rem 0.5rem 0; color: #aaa; font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid #eee; }
   td { padding: 0.38rem 0.5rem 0.38rem 0; border-bottom: 1px solid #f2f2f2; vertical-align: middle; }
   .ed-name { font-size: 0.83rem; }
-  .ed-ct   { text-align: right; font-weight: 600; color: #6B35A7; width: 3rem; }
-  .ed-bar  { width: 100px; padding-left: 0.5rem; }
+  .ed-ct   { text-align: end; font-weight: 600; color: #6B35A7; width: 3rem; }
+  .ed-bar  { width: 100px; padding-inline-start: 0.5rem; }
   .bar { height: 7px; background: #6B35A7; border-radius: 2px; min-width: 3px; }
 
   /* Sessions */
@@ -308,11 +308,11 @@
 
   /* Replay */
   .replay-row td { padding: 0; }
-  .replay { padding: 0.75rem 1rem 1rem; background: #f9f5ff; border-left: 3px solid #6B35A7; }
+  .replay { padding: 0.75rem 1rem 1rem; background: #f9f5ff; border-inline-start: 3px solid #6B35A7; }
   .replay-meta { margin: 0 0 0.7rem; font-size: 0.78rem; color: #888; }
   .flight { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.25rem; max-height: 300px; overflow-y: auto; }
   .step { display: flex; align-items: baseline; gap: 0.5rem; font-size: 0.81rem; }
-  .step-i { width: 1.8rem; text-align: right; color: #ccc; font-size: 0.72rem; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+  .step-i { width: 1.8rem; text-align: end; color: #ccc; font-size: 0.72rem; flex-shrink: 0; font-variant-numeric: tabular-nums; }
   .step-ed_focus   .step-lbl { color: #6B35A7; font-weight: 500; }
   .step-map_switch .step-lbl { color: #0a6b3e; }
   .step-layer      .step-lbl { color: #666; }
