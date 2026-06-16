@@ -100,6 +100,7 @@
   import { proseWordCount } from '$lib/i18n/wordCount';
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
+  import Gloss from '$lib/components/Gloss.svelte';
   import { focusTrap } from '$lib/a11y/focusTrap';
 
   // ── Share / participation state ───────────────────────────────────────────
@@ -517,8 +518,13 @@
 </header>
 
 <section class="opener-block container" aria-labelledby="opener-heading">
-  <h2 id="opener-heading">{t(lang.current, 'opener.heading')}</h2>
-  <p>{t(lang.current, 'opener.body')}</p>
+  <h2 id="opener-heading">{t(lang.current, 'verdict.headline')}</h2>
+  <p>{t(lang.current, 'verdict.p_what')}</p>
+  <p>{t(lang.current, 'verdict.p_split')}</p>
+  <p>{t(lang.current, 'verdict.p_question')}</p>
+  <p class="verdict-answer">{t(lang.current, 'verdict.p_answer')}</p>
+  <p>{t(lang.current, 'verdict.p_howfar')}</p>
+  <p class="verdict-aside">{t(lang.current, 'verdict.aside_pre')}<Gloss key="gerrymander">gerrymandered</Gloss>{t(lang.current, 'verdict.aside_post')}<a href="/law">{t(lang.current, 'verdict.law_link')}</a> and <a href="/methods">{t(lang.current, 'verdict.methods_link')}</a>.</p>
 </section>
 
 <section class="stakes-block container" aria-labelledby="stakes-heading">
@@ -552,16 +558,13 @@
 </section>
 
 <section class="boundary-block container" aria-labelledby="boundary-heading">
-  <h2 id="boundary-heading">{t(lang.current, 'boundary.heading')}</h2>
+  <h2 id="boundary-heading">{t(lang.current, 'verdict.box_heading')}</h2>
   <ul class="boundary-list">
-    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_1')}</span></li>
-    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_2')}</span></li>
-    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'boundary.can_3')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_1')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_2')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_3')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_4')}</span></li>
-    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{@html t(lang.current, 'boundary.cant_5')}</span></li>
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_1')}</span></li>
+    <li class="row can"><span class="mark" aria-hidden="true">✓</span><span class="text">{t(lang.current, 'verdict.box_can_2')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_1')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_2')}</span></li>
+    <li class="row cant"><span class="mark" aria-hidden="true">✗</span><span class="text">{t(lang.current, 'verdict.box_cant_3')}</span></li>
   </ul>
 </section>
 
@@ -1619,7 +1622,22 @@
     font-size: 1rem;
     line-height: 1.65;
     color: var(--lead);
-    margin: 0;
+    margin: 0 0 0.75rem;
+  }
+  :global(.opener-block p:last-child) {
+    margin-block-end: 0;
+  }
+  :global(.opener-block) {
+    border-inline-start: 4px solid var(--accent, #1a5276);
+    padding-inline-start: 1.2rem;
+  }
+  :global(.verdict-answer) {
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+  :global(.verdict-aside) {
+    font-size: 0.95rem;
+    color: var(--text-muted);
   }
   :global(.stakes-block) {
     margin-top: 1.5rem;

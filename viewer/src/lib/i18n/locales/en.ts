@@ -4,6 +4,24 @@ export default {
 	selector: {
 		label: 'Choose language'
 	},
+	verdict: {
+		headline: 'Alberta is redrawing its electoral map.',
+		p_what: 'Every so often the province redraws its ridings — the local areas that each elect one MLA. Where the lines fall decides who you vote with, and who represents you in the legislature.',
+		p_split: 'This time, the panel doing the redraw split. It produced two competing maps, and a committee will pick one later this year.',
+		p_question: 'We tested both maps for one question: is either one shaped to favour a party — even if no one set out to do that?',
+		p_answer: 'One of the two is. The other looks normal.',
+		p_howfar: 'How far from normal? A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about 1 in 350,000 of them, in the UCP’s favour. The other sits in the normal range.',
+		aside_pre: 'You might call a map shaped like that ',
+		aside_post: '. That word has no legal meaning in Canada, so we don’t use it as a verdict. We show you what the map does; you judge. For the deeper layers — what the law actually requires, and exactly how we ran the test — see ',
+		box_heading: 'What we can and can’t say',
+		box_can_1: 'The minority map sits outside what 1.01 million neutral maps produce, in the UCP-favoured direction.',
+		box_can_2: 'All four partisan-fairness measures point the same way.',
+		box_cant_1: 'That any commissioner intended this — the audit reads outcomes, not motives.',
+		box_cant_2: 'That the map “is” a gerrymander — that isn’t a category Canadian law recognizes.',
+		box_cant_3: 'How a court would rule, or what the committee will choose.',
+		law_link: 'Law',
+		methods_link: 'Methods'
+	},
 	disclaimer: {
 		text:
 			'This site has been translated by AI. Some content may still appear in English while translations are in progress. If you notice errors or would like to help translate this project, please %s.',
