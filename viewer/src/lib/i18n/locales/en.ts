@@ -30,10 +30,13 @@ export default {
 		p4: 'So why does a line on a map matter to you? Because it decides whose vote counts for what. A map can group a city’s voters so their choices carry weight, or split them up so they don’t. It can make some races close and lock others in. None of that shows on the surface — it is built into where the lines fall. This site is about reading what is built in.'
 	},
 	two_maps: {
-		heading: 'Two maps, one choice',
-		p1: 'When the commission split, it didn’t produce one map with a dissent attached. It produced two complete, competing maps. Three commissioners signed one — the majority report; two signed the other — the minority report. Both are legal. Both follow the rules. They simply draw the lines differently.',
-		p2: 'The cover map at the top of this page lets you see the difference yourself. Flip between the two proposals and today’s map, find your own riding, and watch which neighbourhoods get grouped together or split apart. The boundaries move; the people underneath them don’t.',
-		p3: 'A committee of MLAs has since set both maps aside to draw its own, due later in 2026 — a move this site looks at on the Law page. These two remain the audit’s clearest test case, and the same tests will apply to whatever the committee produces.'
+		heading: 'Two maps — and who drew them',
+		p1: 'When the commission split, it didn’t produce one map with a dissent attached. It produced two complete, competing maps. Both are legal. Both follow the rules. They just draw the lines differently — and who drew which one is worth knowing.',
+		p2: 'A boundary commission has five members. The Chief Justice of Alberta names the chair — the neutral seat, here held by Dallas K. Miller, a former Court of King’s Bench judge. The party in government names two members; the opposition names two. The design is balance, with an independent chair in the middle.',
+		p3: 'This commission divided three to two. The chair and the two opposition-appointed members backed one map — the majority report, because most of the commission signed it. The two government-appointed members backed the other — the minority report.',
+		p4: 'That matters, because the map this audit flags as the more one-sided is the minority report: the one the two government-appointed members drew. The audit doesn’t claim they meant to skew it. It shows what the map does, and leaves you to weigh who drew it.',
+		p5: 'The cover map at the top of this page lets you compare them yourself. Flip between the two proposals and today’s map, find your own riding, and watch which neighbourhoods get grouped together or split apart.',
+		p6: 'A committee of MLAs has since set both maps aside to draw its own, due later in 2026 — a move this site looks at on the Law page. These two remain the audit’s clearest test case, and the same tests will apply to whatever the committee produces.'
 	},
 	disclaimer: {
 		text:

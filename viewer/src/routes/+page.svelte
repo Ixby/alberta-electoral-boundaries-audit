@@ -596,6 +596,9 @@
     <p>{t(lang.current, 'two_maps.p1')}</p>
     <p>{t(lang.current, 'two_maps.p2')}</p>
     <p>{t(lang.current, 'two_maps.p3')}</p>
+    <p>{t(lang.current, 'two_maps.p4')}</p>
+    <p>{t(lang.current, 'two_maps.p5')}</p>
+    <p>{t(lang.current, 'two_maps.p6')}</p>
   </section>
 
   <section id="section-2">
