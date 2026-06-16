@@ -1827,7 +1827,7 @@
   --bg:              #f9f7f2;
   --bg-alt:          #f5f5f5;
   --text:            #1a1a1a;
-  --text-muted:      #555;
+  --text-muted:      #444;
   --text-subtle:     #666;
   --lead:            #333;
   --heading:         #1a2e45;
@@ -1848,7 +1848,7 @@
   --bg:            #1e1f26;
   --bg-alt:        #26272f;
   --text:          #dde2ed;
-  --text-muted:    #8890a4;
+  --text-muted:    #9ea8c0;
   --text-subtle:   #7a8296;
   --lead:          #b8c2d8;
   --heading:       #9eb8d0;
@@ -2856,6 +2856,13 @@
   }
   .anomaly-trigger:hover { background: #ffe0b2; border-color: rgba(200,110,0,0.7); }
   .anomaly-trigger.tb-layer-on { background: #ffe0b2; border-color: rgba(200,110,0,0.7); font-weight: 600; }
+  :global(:root[data-theme="dark"]) .anomaly-trigger {
+    background: rgba(200,110,0,0.18); border-color: rgba(200,130,0,0.5); color: #f0c07a;
+  }
+  :global(:root[data-theme="dark"]) .anomaly-trigger:hover,
+  :global(:root[data-theme="dark"]) .anomaly-trigger.tb-layer-on {
+    background: rgba(200,110,0,0.28); border-color: rgba(200,150,0,0.65);
+  }
 
   /* Inline "show ↗" ED buttons */
   .ed-trigger {
@@ -2906,6 +2913,18 @@
   .anomaly-fill-path {
     will-change: opacity;
     animation: anomaly-fill-pulse 2.4s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skel-province-glow,
+    .skel-province-shine {
+      animation: none !important;
+    }
+    :global(.anomaly-pulse-path),
+    :global(.anomaly-glow-path),
+    :global(.anomaly-fill-path) {
+      animation: none !important;
+    }
   }
 
   /* Cross-map comparison — coloured party values */

@@ -46,8 +46,11 @@ export function showTip(d: EdRec | undefined, x: number, y: number): void {
     (d.votes ? `<br>${_fmt.format(d.votes)}&nbsp;votes&nbsp;(2023)` : '') +
     (d.pop   ? `<br>Pop.&nbsp;${_fmt.format(d.pop)}` : '');
   const pad = 14, tw = 200, th = 60; // fixed estimates — avoids synchronous layout read on pointermove
-  let lx = x + pad, ly = y + pad;
-  if (lx + tw > window.innerWidth)  lx = x - tw - pad;
+  const rtl = typeof document !== 'undefined' && document.documentElement.dir === 'rtl';
+  let lx = rtl ? x - tw - pad : x + pad;
+  let ly = y + pad;
+  if (!rtl && lx + tw > window.innerWidth) lx = x - tw - pad;   // LTR: flip left on right overflow
+  if (rtl && lx < 0) lx = x + pad;                              // RTL: flip right on left overflow
   if (ly + th > window.innerHeight) ly = y - th - pad;
   tip.style.cssText = `display:block;left:${lx}px;top:${ly}px`;
 }
