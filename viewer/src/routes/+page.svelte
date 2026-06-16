@@ -2362,7 +2362,8 @@
       background: var(--callout-bg);
       border-inline-start: 4px solid var(--link);
       padding: 0.9rem 1.1rem;
-      border-radius: 0 4px 4px 0;
+      border-start-start-radius: 0; border-start-end-radius: 4px;
+      border-end-end-radius: 4px; border-end-start-radius: 0;
       margin: 1.1rem 0;
       font-size: 0.94rem;
     }
@@ -2479,8 +2480,10 @@
     margin: 0.8rem 0 1rem;
     border-inline-start: 3px solid rgba(107,53,167,0.55);
     background: rgba(107,53,167,0.05);
-    border-radius: 0 4px 4px 0;
-    padding: 0.45rem 0 0.45rem 0.9rem;
+    border-start-start-radius: 0; border-start-end-radius: 4px;
+    border-end-end-radius: 4px; border-end-start-radius: 0;
+    padding: 0.45rem 0;
+    padding-inline-start: 0.9rem;
   }
   :global(details.audit-detail summary) {
     cursor: pointer; list-style: none; user-select: none;
@@ -2504,7 +2507,7 @@
   :global(.vocab-panel) {
     display: block;
     background: rgba(107,53,167,0.07); border-inline-start: 3px solid #6B35A7;
-    border-radius: 0 4px 4px 0; padding: 0.3rem 0.8rem; margin: 0.35rem 0;
+    border-start-start-radius: 0; border-start-end-radius: 4px; border-end-end-radius: 4px; border-end-start-radius: 0; padding: 0.3rem 0.8rem; margin: 0.35rem 0;
     font-size: 0.86rem; line-height: 1.5; color: var(--text);
   }
   #zoom-stage {
@@ -3149,7 +3152,8 @@
     background: rgba(107,53,167,0.08);
     border-inline-start: 3px solid #6B35A7;
     padding: 0.5rem 0.7rem;
-    border-radius: 0 4px 4px 0;
+    border-start-start-radius: 0; border-start-end-radius: 4px;
+    border-end-end-radius: 4px; border-end-start-radius: 0;
   }
   :global(.part-actions) {
     display: flex; gap: 0.6rem; justify-content: flex-end; margin: 1.2rem 0 0.8rem;

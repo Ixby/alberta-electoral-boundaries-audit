@@ -297,7 +297,8 @@
     padding: 0.5rem 1rem;
     margin: 0.9rem 0;
     background: rgba(107,53,167,0.05);
-    border-radius: 0 4px 4px 0;
+    border-start-start-radius: 0; border-start-end-radius: 4px;
+    border-end-end-radius: 4px; border-end-start-radius: 0;
     font-style: italic;
     color: #333;
   }
