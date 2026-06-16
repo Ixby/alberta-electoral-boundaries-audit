@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { lang } from '$lib/i18n/store.svelte';
 	import { t } from '$lib/i18n/dict';
-	import { GLOSSARY, isGlossaryId } from '$lib/glossary';
+	import { gloss, type GlossKey } from '$lib/i18n/glossary';
 
-	let { id, children } = $props<{
-		id: string;
+	let { key, children } = $props<{
+		key: GlossKey;
 		children: import('svelte').Snippet;
 	}>();
 
@@ -12,8 +12,7 @@
 	let trigger: HTMLButtonElement | null = $state(null);
 	let panel: HTMLDivElement | null = $state(null);
 
-	const entry = $derived(isGlossaryId(id) ? GLOSSARY[id] : null);
-	const definitionKey = $derived(`glossary.${id}.definition`);
+	const entry = $derived(gloss(lang.current, key));
 
 	function toggle(e: MouseEvent) {
 		e.preventDefault();
@@ -47,35 +46,31 @@
 	});
 </script>
 
-{#if entry}
-	<span class="gloss">
-		<button
-			bind:this={trigger}
-			type="button"
-			class="trigger"
-			aria-expanded={open}
-			aria-describedby={open ? `gloss-${id}-panel` : undefined}
-			onclick={toggle}
-		>
-			{@render children()}
-		</button>
-		{#if open}
-			<div bind:this={panel} class="panel" id="gloss-{id}-panel" role="dialog">
-				<div class="definition">
-					{@html t(lang.current, definitionKey)}
-				</div>
-				{#if entry.href}
-					<a class="more" href={entry.href} onclick={() => (open = false)}>
-						{t(lang.current, 'glossary.more_link')}
-					</a>
-				{/if}
+<span class="gloss">
+	<button
+		bind:this={trigger}
+		type="button"
+		class="trigger"
+		aria-expanded={open}
+		aria-describedby={open ? `gloss-${key}-panel` : undefined}
+		onclick={toggle}
+	>
+		{@render children()}
+	</button>
+	{#if open}
+		<div bind:this={panel} class="panel" id="gloss-{key}-panel" role="dialog">
+			<div class="term">{entry.term}</div>
+			<div class="definition">
+				{entry.definition}
 			</div>
-		{/if}
-	</span>
-{:else}
-	<!-- Unknown id — render children unchanged so a typo doesn't blank the page -->
-	{@render children()}
-{/if}
+			{#if entry.href}
+				<a class="more" href={entry.href} onclick={() => (open = false)}>
+					{t(lang.current, 'glossary.more_link')}
+				</a>
+			{/if}
+		</div>
+	{/if}
+</span>
 
 <style>
 	.gloss {
@@ -114,6 +109,10 @@
 		font-size: 0.9rem;
 		line-height: 1.5;
 		cursor: auto;
+	}
+	.term {
+		font-weight: bold;
+		margin-bottom: 0.3rem;
 	}
 	.definition {
 		color: var(--text, inherit);

@@ -12,7 +12,6 @@ export const GLOSS_KEYS = [
 	'mean_median',
 	'declination',
 	'seats_5050',
-	'effective_representation',
 	'ebca'
 ] as const;
 
@@ -27,7 +26,6 @@ export interface GlossEntry {
 // Where each term's long-form explanation lives, once Plans 3–4 fill those routes.
 const HREFS: Partial<Record<GlossKey, string>> = {
 	gerrymander: '/law#why-not-gerrymander',
-	effective_representation: '/law#effective-representation',
 	ebca: '/law#ebca',
 	ensemble: '/methods#ensemble',
 	efficiency_gap: '/methods#efficiency-gap',

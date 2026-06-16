@@ -296,11 +296,6 @@ export default {
 			definition:
 				'How many seats each party would win if the province split its vote exactly 50-50. It strips out who actually won and tests the map\'s built-in tilt.'
 		},
-		effective_representation: {
-			term: 'Effective representation',
-			definition:
-				'The standard Canadian courts use under section 3 of the Charter: boundaries must give voters a real, fair voice — not perfectly equal districts, but representation that genuinely works.'
-		},
 		fsa: {
 			term: 'Forward sortation area (FSA)',
 			definition:
