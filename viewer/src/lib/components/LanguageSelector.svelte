@@ -46,7 +46,7 @@
 		bind:this={triggerEl}
 		type="button"
 		class="lang-trigger"
-		aria-haspopup="listbox"
+		aria-haspopup="menu"
 		aria-expanded={open}
 		aria-label={t(lang.current, 'selector.label')}
 		onclick={() => (open = !open)}
@@ -55,15 +55,15 @@
 		<span aria-hidden="true" class="caret">▾</span>
 	</button>
 	{#if open}
-		<ul bind:this={menuEl} class="lang-menu" role="listbox">
+		<ul bind:this={menuEl} class="lang-menu" role="menu">
 			{#each SUPPORTED_LANGS as code (code)}
-				<li>
+				<li role="none">
 					<button
 						type="button"
 						class="lang-option"
 						class:active={code === lang.current}
-						role="option"
-						aria-selected={code === lang.current}
+						role="menuitemradio"
+						aria-checked={code === lang.current}
 						onclick={() => choose(code)}
 					>
 						<span class="native" lang={LANG_LABELS[code].htmlLang}>{LANG_LABELS[code].native}</span>
