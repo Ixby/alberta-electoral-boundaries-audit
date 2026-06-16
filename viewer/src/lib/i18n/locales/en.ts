@@ -71,6 +71,9 @@ export default {
 		theme_title: 'Toggle dark mode',
 		nav_aria: 'Open table of contents',
 		drawer_top: '↑ Top',
+		route_story: 'Story',
+		route_law: 'Law',
+		route_methods: 'Methods',
 		// Compact landmarks shown on the sticky bar
 		stakes: 'Stakes',
 		findings: 'Findings',
