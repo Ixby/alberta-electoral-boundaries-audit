@@ -1609,35 +1609,63 @@
     white-space: nowrap;
     border: 0;
   }
+  /* Verdict card — the page's most important element. Front-page treatment:
+     an elevated card with a serif headline and the answer set as a pull-quote. */
   :global(.opener-block) {
-    padding: 1.6rem 1rem 0.4rem;
+    margin-top: 1.4rem;
+    background: var(--table-bg, #fff);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 2px 22px rgba(26, 46, 69, 0.07);
+    padding: clamp(1.4rem, 4vw, 2.3rem);
+    position: relative;
+    overflow: hidden;
+  }
+  :global(.opener-block)::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 4px;
+    background: linear-gradient(90deg, var(--heading) 0%, var(--link) 55%, var(--nav-accent) 100%);
   }
   :global(.opener-block h2) {
-    font-size: 1.15rem;
+    font-family: 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.5rem, 4.2vw, 1.95rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
     color: var(--heading);
-    margin: 0 0 0.55rem;
+    margin: 0 0 1rem;
     font-weight: 600;
   }
   :global(.opener-block p) {
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: 1.02rem;
+    line-height: 1.7;
     color: var(--lead);
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.85rem;
+    max-width: 62ch;
   }
   :global(.opener-block p:last-child) {
     margin-block-end: 0;
   }
-  :global(.opener-block) {
-    border-inline-start: 4px solid var(--accent, #1a5276);
-    padding-inline-start: 1.2rem;
-  }
   :global(.verdict-answer) {
+    font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: clamp(1.2rem, 3.4vw, 1.45rem);
     font-weight: 600;
-    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--heading);
+    margin: 1.15rem 0;
+    padding-inline-start: 1rem;
+    border-inline-start: 3px solid var(--link);
+    max-width: 62ch;
   }
   :global(.verdict-aside) {
-    font-size: 0.95rem;
-    color: var(--text-muted);
+    margin-block-start: 1.35rem;
+    padding-block-start: 0.95rem;
+    border-block-start: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-subtle);
   }
   :global(.stakes-block) {
     margin-top: 1.5rem;
