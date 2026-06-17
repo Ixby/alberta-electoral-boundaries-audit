@@ -10,7 +10,7 @@ export default {
 		p_split: 'This time, the panel doing the redraw split. It produced two competing maps — and this audit tests both of them.',
 		p_question: 'We tested both maps for one question: is either one shaped to favour a party — even if no one set out to do that?',
 		p_answer: 'One of the two is. The other looks normal.',
-		p_howfar: 'How far from normal? A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about 1 in 350,000 of them, in the UCP’s favour. The other sits in the normal range.',
+		p_howfar: 'A computer drew 1.01 million legal versions of the map at random. One of the two real maps is more one-sided than all but about 1 in 350,000 of them, in the UCP’s favour. The other sits in the normal range.',
 		aside_pre: 'You might call a map shaped like that ',
 		aside_post: '. That word has no legal meaning in Canada, so we don’t use it as a verdict. We show you what the map does; you judge. For the deeper layers — what the law actually requires, and exactly how we ran the test — see ',
 		box_heading: 'What we can and can’t say',
@@ -26,15 +26,15 @@ export default {
 		heading: 'Why this happens — and why it touches you',
 		p1: 'Alberta is divided into 87 ridings. Each one elects a single MLA to the legislature. Your riding decides who that person is, which neighbourhoods get grouped with yours, and whose concerns your MLA hears first.',
 		p2: 'The lines don’t stay fixed. As people move and cities grow, some ridings end up with far more voters than others, so the province redraws the map every few years to keep them roughly even. A panel of commissioners does the drawing, working from rules set out in law: districts have to be close in population, stay in one piece, and keep real communities together where they can.',
-		p3: 'That’s the normal process. This time it broke down. The commissioners couldn’t agree, and split into two camps, each with its own map. Then a committee of MLAs set both of those maps aside to draw its own, larger one. A committee replacing the commission’s work like that is unusual, and part of why this audit exists.',
-		p4: 'So why does a line on a map matter to you? Because it decides whose vote counts for what. A map can group a city’s voters so their choices carry weight, or split them up so they don’t. It can make some races close and lock others in. None of that shows on the surface — it is built into where the lines fall. This site is about reading what is built in.'
+		p3: 'That’s the normal process. This time it broke down. The commissioners couldn’t agree, and split into two camps, each with its own map. Then a committee of MLAs set both of those maps aside and began drawing its own, larger one. A legislative committee overriding the commission like that is rare.',
+		p4: 'A line on a map decides whose vote counts for what. It can keep a community’s voters together, or scatter them across several districts where their numbers no longer add up to much. It can keep some races close and put others out of reach. None of that shows on the surface; it is set by where the boundaries fall.'
 	},
 	two_maps: {
 		heading: 'Two maps — and who drew them',
-		p1: 'When the commission split, it didn’t produce one map with a dissent attached. It produced two complete, competing maps. Both are legal. Both follow the rules. They just draw the lines differently — and who drew which one is worth knowing.',
-		p2: 'A boundary commission has five members. The Chief Justice of Alberta names the chair — the neutral seat, here held by Dallas K. Miller, a former Court of King’s Bench judge. The party in government names two members; the opposition names two. The design is balance, with an independent chair in the middle.',
+		p1: 'When the commission split, it didn’t produce one map with a dissent attached. It produced two complete, competing maps. Both are legal. They just draw the lines differently.',
+		p2: 'A boundary commission has five members. The Chief Justice of Alberta names the chair — the neutral seat, here held by Dallas K. Miller, a former Court of King’s Bench judge. The party in government names two members; the opposition names two.',
 		p3: 'This commission divided three to two. The chair and the two opposition-appointed members backed one map — the majority report, because most of the commission signed it. The two government-appointed members backed the other — the minority report.',
-		p4: 'That matters, because the map this audit flags as the more one-sided is the minority report: the one the two government-appointed members drew. The audit doesn’t claim they meant to skew it. It shows what the map does, and leaves you to weigh who drew it.',
+		p4: 'The map the audit flags as the more one-sided is the minority report — the one the two government-appointed members drew. The audit can’t show whether they meant to, and doesn’t try. It shows what the map does.',
 		p5: 'The cover map at the top of this page lets you compare them yourself. Flip between the two proposals and today’s map, find your own riding, and watch which neighbourhoods get grouped together or split apart.',
 		p6: 'A committee of MLAs has since set both maps aside to draw its own, due later in 2026 — a move this site looks at on the Law page. These two remain the audit’s clearest test case, and the same tests will apply to whatever the committee produces.'
 	},
