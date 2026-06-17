@@ -49,7 +49,23 @@
 	<link rel="alternate" hreflang="x-default" href="{canonicalBase}/" />
 </svelte:head>
 
-<TranslationDisclaimer />
+<div class="app-shell">
+	<TranslationDisclaimer />
 
-{@render children()}
+	{@render children()}
+</div>
+
+<style>
+	/* Desktop max width: box the whole page (sticky nav, hero band, reading
+	   column) into one centered shell so ultra-wide monitors get margins on
+	   both sides instead of edge-to-edge content. The reading column keeps its
+	   own 720px cap inside this. Fixed overlays — the fullscreen map explorer,
+	   modals, back-to-top — are position:fixed and stay viewport-bound, since
+	   .app-shell sets no transform/filter/contain and so forms no containing
+	   block for them. */
+	.app-shell {
+		max-width: 1200px;
+		margin-inline: auto;
+	}
+</style>
 
