@@ -1643,7 +1643,7 @@
     line-height: 1.7;
     color: var(--lead);
     margin: 0 0 0.85rem;
-    max-width: 62ch;
+    max-width: var(--measure);
   }
   :global(.opener-block p:last-child) {
     margin-block-end: 0;
@@ -1657,7 +1657,7 @@
     margin: 1.15rem 0;
     padding-inline-start: 1rem;
     border-inline-start: 3px solid var(--link);
-    max-width: 62ch;
+    max-width: var(--measure);
   }
   :global(.verdict-aside) {
     margin-block-start: 1.35rem;
@@ -1819,6 +1819,7 @@
     margin-block-start: 1.2rem;
     padding-inline-start: 1rem;
     border-inline-start: 3px solid var(--nav-accent);
+    max-width: var(--measure);
   }
 
   :global(.editorial-block) {
@@ -1846,6 +1847,7 @@
     margin: 0 0 0.9rem;
     line-height: 1.65;
     color: var(--text);
+    max-width: var(--measure);
   }
   :global(.editorial-block p:last-of-type) { margin-bottom: 0; }
   :global(.editorial-block em) { font-style: italic; color: var(--text); }
@@ -1899,6 +1901,10 @@
   --tag-text:        #1a3550;
   --nav-bg:          #1e3552;
   --nav-accent:      #6FD3FB;
+  /* Single reading measure for all running Story prose. Figures, the map
+     explorer, and tables stay full-width; only paragraphs are constrained
+     to a comfortable line length. Change here, not per-block. */
+  --measure:         64ch;
 }
 :root[data-theme="dark"] {
   --bg:            #1e1f26;
@@ -2264,9 +2270,15 @@
       text-decoration: none;
     }
 
+    /* One reading column for ALL prose blocks (opener, stakes, boundary,
+       editorial, and the body sections in <main>). The full-bleed hero and
+       the interactive map explorer live outside .container, so this never
+       touches them. Reverses an earlier "let prose fill the container"
+       direction — the container IS the measure now. */
     .container {
       width: 100%;
-      max-width: 100%;
+      max-width: 720px;
+      margin-inline: auto;
       padding: 0 clamp(1.2rem, 4vw, 3.5rem);
       box-sizing: border-box;
     }
@@ -2317,6 +2329,14 @@
     }
 
     p { margin-bottom: 0.9rem; }
+
+    /* Story narrative sections that render as bare running prose share the
+       one reading measure, matching the opener and editorial blocks. Later
+       body sections (3+) mix cards, tables, and figures and keep their own
+       layout widths; they are addressed in the consolidation pass. */
+    #section-1 p,
+    #section-2 p,
+    #section-2 ol { max-width: var(--measure); }
 
     .lead {
       font-size: 1.08rem;
