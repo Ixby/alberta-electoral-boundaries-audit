@@ -66,6 +66,19 @@
 	.app-shell {
 		max-width: 1200px;
 		margin-inline: auto;
+		box-sizing: border-box;
+		/* Repaint the content background over the darker --shell-outer that
+		   the body paints behind the surround. */
+		background: var(--bg);
+	}
+	/* Only frame the shell once there's an actual surround to frame against
+	   (viewport wider than the shell). Below this, the shell fills the screen
+	   and a border/shadow would just hug the edges. */
+	@media (min-width: 1240px) {
+		.app-shell {
+			border: 1px solid var(--shell-frame);
+			box-shadow: 0 0 60px rgba(15, 23, 42, 0.16);
+		}
 	}
 </style>
 

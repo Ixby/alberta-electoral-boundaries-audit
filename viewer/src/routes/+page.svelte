@@ -1905,9 +1905,15 @@
      explorer, and tables stay full-width; only paragraphs are constrained
      to a comfortable line length. Change here, not per-block. */
   --measure:         64ch;
+  /* Desktop shell: the page sits in a centered 1200px card on a darker,
+     blue-tinted surround (--shell-outer), lifted by a thin frame + shadow. */
+  --shell-outer:     #d0d9e8;
+  --shell-frame:     rgba(26, 46, 69, 0.18);
 }
 :root[data-theme="dark"] {
   --bg:            #1e1f26;
+  --shell-outer:   #0c0f1a;
+  --shell-frame:   rgba(120, 170, 210, 0.14);
   --bg-alt:        #26272f;
   --text:          #dde2ed;
   --text-muted:    #9ea8c0;
@@ -1935,7 +1941,9 @@
       font-size: 17px;
       line-height: 1.65;
       color: var(--text);
-      background: var(--bg);
+      /* Outer surround behind the centered desktop shell. The shell itself
+         repaints var(--bg) over the reading area (see .app-shell in layout). */
+      background: var(--shell-outer);
     }
 
     a { color: var(--link); }
