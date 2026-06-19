@@ -159,8 +159,12 @@ def test_export_geojson_minority(tmp_path, monkeypatch):
     assert set(["name", "ucp_pct", "ndp_pct", "votes", "pop", "va_count"]) <= set(ep)
 
     # Origin shift: coordinates are centred near zero (|x|,|y| < ~400 km), not
-    # raw 3401 magnitudes (~hundreds of km from origin).
-    xy = va["features"][0]["geometry"]["coordinates"][0][0]
+    # raw 3401 magnitudes (~hundreds of km from origin). Most VAs are
+    # MultiPolygons (nested one level deeper than Polygons), so drill to the
+    # first point type-agnostically.
+    xy = va["features"][0]["geometry"]["coordinates"]
+    while isinstance(xy[0], list):
+        xy = xy[0]
     assert abs(xy[0]) < 400_000 and abs(xy[1]) < 400_000
     assert meta["crs"] == "EPSG:3401" and "origin_x" in meta and "origin_y" in meta
     # mm quantization → at most 3 decimal places.

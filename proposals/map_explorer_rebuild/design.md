@@ -75,7 +75,7 @@ Identification-first: when a district is selected, the panel leads with plain id
 - **Empty state** (nothing selected): dock shows a one-line prompt and the active map's name.
 - **Map switch** swaps the active VA+ED layers and refreshes the dock/legend. Each map draws **all** its ED boundaries in that map's single uniform colour; only the **selected** ED glows.
 - **Anomaly highlight** (chair-flagged boundaries) and any layer toggles live as a small control near the legend.
-- **Search** resolves to a district and animates to its bounds (respecting reduced-motion).
+- **Search** is **live / auto-search** — results update incrementally as the user types (no submit step). It matches **district names** and **Canadian postal codes**: a typed postal code resolves to the district that contains it, and the map animates to that district's bounds (respecting reduced-motion). Postal-code support needs a bundled static lookup (e.g. FSA / postal-code centroids → point-in-district); the exact dataset and licence are a **Plan 2 prerequisite** to settle (must be static-hostable on GitHub Pages — no geocoding API). Placeholder: "Find your riding, address, or postal code…".
 
 Visual language matches the editorial site: cream/`--bg` panels, `--heading` navy, serif (Palatino/Georgia) for district names and numbers, system sans for controls, `--nav-accent` for active/selected affordances.
 
