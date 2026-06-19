@@ -61,14 +61,16 @@ def test_export_geojson_minority(tmp_path, monkeypatch):
     ep = ed["features"][0]["properties"]
     assert set(["name", "ucp_pct", "ndp_pct", "votes", "pop", "va_count"]) <= set(ep)
 
-    # Origin shift: coordinates are centred near zero (|x|,|y| < ~400 km), not
-    # raw 3401 magnitudes (~hundreds of km from origin). Feature 0 is a
-    # MultiPolygon (4762/4765 VAs are), so drill to the first point regardless
-    # of Polygon vs MultiPolygon nesting depth.
-    xy = va["features"][0]["geometry"]["coordinates"]
-    while isinstance(xy[0], list):
-        xy = xy[0]
-    assert abs(xy[0]) < 400_000 and abs(xy[1]) < 400_000
+    # Origin shift + mm quantization: walk every coordinate pair of feature 0.
+    def _points(coords):
+        if coords and isinstance(coords[0][0], (int, float)):
+            yield from coords          # a ring: list of [x, y]
+        else:
+            for sub in coords:
+                yield from _points(sub)
+    pts = list(_points(va["features"][0]["geometry"]["coordinates"]))
+    assert pts, "feature 0 has no coordinates"
+    for px, py in pts:
+        assert abs(px) < 400_000 and abs(py) < 400_000      # origin-shifted
+        assert round(px, 3) == px and round(py, 3) == py     # mm-quantized
     assert meta["crs"] == "EPSG:3401" and "origin_x" in meta and "origin_y" in meta
-    # mm quantization → at most 3 decimal places.
-    assert round(xy[0], 3) == xy[0]

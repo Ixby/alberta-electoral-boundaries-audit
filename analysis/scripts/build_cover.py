@@ -396,7 +396,7 @@ def _export_map_geojson(map_key, eds, name_col, va_render, va_ed_map) -> None:
             votes = uc + nd
             ucp_pct = round(uc / votes * 100, 1); ndp_pct = round(nd / votes * 100, 1)
         else:
-            uc = round(ucp_share * va_total); votes = va_total
+            votes = va_total
             ucp_pct = round(ucp_share * 100, 1); ndp_pct = round((1.0 - ucp_share) * 100, 1)
         gtype, coords = _polygon_coords(row.geometry, ox, oy)
         ed_feats.append({
