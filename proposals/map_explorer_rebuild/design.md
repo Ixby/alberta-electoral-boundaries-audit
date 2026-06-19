@@ -30,18 +30,21 @@ A standalone `Deck` instance (`@deck.gl/core` + `@deck.gl/layers`, not the React
 - `OrthographicView` with `COORDINATE_SYSTEM.CARTESIAN`. Source coordinates are **raw EPSG:3401 metres**; deck.gl treats them as flat XY, so the rendered shape is pixel-identical to the current matplotlib output. North-up orientation is fixed at export/view config and verified against the current render. (Known gotcha: deck.gl orthographic Y direction — resolve by negating northing at export or `flipY`, then eyeball-confirm orientation.)
 - Layers per active map:
   - `PolygonLayer` — VA fills. `getFillColor` reads the precomputed `fill` property. `pickable: true`.
-  - `PathLayer` (or `GeoJsonLayer` stroked) — ED boundaries, `getColor` a per-map constant (the existing purple / teal / grey scheme). `pickable: true` for ED selection.
+  - `PathLayer` — ED boundaries. **All EDs of the active map are drawn in one uniform colour** (each of the three maps has its own single boundary colour). Stroke uses `widthUnits: 'pixels'` with `widthMinPixels` so lines stay a crisp constant width at every zoom level. `pickable: true` for ED selection.
+  - **Selected ED** gets a **glow** highlight (e.g. a wider, soft-edged stroke or an additive `PathLayer`/`PolygonLayer` outline) — only the active district glows; all others keep the uniform map colour.
+
+**Deep zoom (up to ~40,000×).** deck.gl rasterizes vector geometry on the GPU at render time, so polygon edges and strokes are resolution-independent — crisp at any zoom, no LOD tiling needed. The only deep-zoom hazard is GPU float32 precision over province-scale coordinates (see §11), handled by shifting coordinates to a local origin.
 - **Lazy-loaded**: deck.gl and the active map's geometry are dynamically `import()`ed only when the explorer opens (`#zoom-trigger`), so the initial page load is unaffected.
 - **WebGL fallback**: if WebGL is unavailable, render the existing per-map `cover_art.png` as a static image with a short "interactive map needs WebGL" note. Graceful degradation, no hard failure.
 
 ### 3.2 Data
 Per map (minority / majority / 2019), two static files under `docs/data/`:
-- `va_<map>.geojson` — 4,765 VA polygons, **raw 3401 coords**, **topology-preserving simplification** so shared edges stay coincident (no inter-polygon gaps — this replaces the SVG micro-stroke gap-fill hack). Each feature carries `{fill, ucp_pct, ndp_pct, in_person_votes, poll_name, ed_name}`.
+- `va_<map>.geojson` — 4,765 VA polygons, **EPSG:3401 coords shifted to a local origin** (§11), **topology-preserving simplification** so shared edges stay coincident (no inter-polygon gaps — this replaces the SVG micro-stroke gap-fill hack). Each feature carries `{fill, ucp_pct, ndp_pct, in_person_votes, poll_name, ed_name}`.
 - `ed_<map>.geojson` — 89/87 ED polygons (boundary + hit), with `{name, ucp_pct, ndp_pct, votes, pop, va_count, region}`.
 
-Size budget: each `va_<map>.geojson` ≤ ~2 MB raw, ≤ ~600 KB gzipped. On explorer open the browser transfers deck.gl (~150–200 KB gz) + one VA file (~600 KB gz) + one tiny ED file — vs. 37 MB today.
+**Crispness over size.** Deep-zoom fidelity (up to ~40,000×) is the priority; the map must look good at maximum zoom. Because GPU vector rendering is resolution-independent, crispness does not depend on simplification — simplification is purely a download-size lever, so it must be **gentle**: remove only redundant (collinear / sub-millimetre) vertices, never real boundary detail. There is **no hard size budget**; the target is the smallest file that loses **zero** visible detail at 40,000×. Expectation: a few MB raw, ~1–3 MB gzipped per VA file — still a ~10× win over 37 MB and irrelevant to GPU smoothness. Coordinates are quantized to millimetre precision (sub-pixel at max zoom) for size with no visible loss.
 
-Simplification uses the **`topojson` Python package** (`Topology(...).toposimplify(tolerance)`) inside the build script — topology-aware, so adjacent VAs don't separate. Tolerance tuned empirically to hit the size budget while staying visually lossless at maximum zoom.
+Simplification uses the **`topojson` Python package** (`Topology(...).toposimplify(tolerance)`) inside the build script — topology-aware, so adjacent VAs don't separate. Tolerance set conservatively low and verified by eye at maximum zoom (a size regression test guards against accidental bloat, but fidelity wins ties).
 
 ## 4. Data pipeline (build script)
 
@@ -70,7 +73,7 @@ Identification-first: when a district is selected, the panel leads with plain id
 - **Click / tap a district** → dock updates to that ED's identity + residents + 2023 vote split. This is the primary selection.
 - **Hover a VA** (desktop) → a lightweight tooltip with the poll name and its UCP/NDP split (preserves VA-level interactivity).
 - **Empty state** (nothing selected): dock shows a one-line prompt and the active map's name.
-- **Map switch** swaps the active VA+ED layers, recolors ED boundaries, and refreshes the dock/legend.
+- **Map switch** swaps the active VA+ED layers and refreshes the dock/legend. Each map draws **all** its ED boundaries in that map's single uniform colour; only the **selected** ED glows.
 - **Anomaly highlight** (chair-flagged boundaries) and any layer toggles live as a small control near the legend.
 - **Search** resolves to a district and animates to its bounds (respecting reduced-motion).
 
@@ -98,8 +101,8 @@ Pan · zoom (wheel / pinch / buttons) · district select → dock · VA hover to
 - **Geometry integrity**: simplified VA layer has no gaps at shared edges (topology check); ED↔VA `ed_name` references resolve.
 - **Render smoke** (viewer): deck.gl initializes, all three maps load, switch works.
 - **Interaction unit tests**: hover returns the correct feature props; click selects the right ED; search resolves to the right district.
-- **Visual regression**: deck.gl render vs current SVG at 2–3 zoom levels (eyeballed locally on the dev server).
-- **Size budget assertion** in CI: each `va_<map>.geojson` under budget.
+- **Visual regression**: deck.gl render vs current SVG at 2–3 zoom levels **including maximum (~40,000×)** — edges crisp, no jitter, no inter-VA gaps (eyeballed locally on the dev server).
+- **Size regression guard** in CI: flags if a `va_<map>.geojson` grows unexpectedly (a guard against accidental bloat, not a hard cap — fidelity wins ties).
 
 ## 10. Rollout / rollback
 
@@ -111,6 +114,7 @@ Build incrementally, old explorer intact until parity:
 ## 11. Open risks
 
 - **deck.gl orthographic orientation/scale** needs a careful first-pass calibration against the current render (Y direction, fit-to-bounds). Mitigated by visual regression early in Phase 2.
-- **Simplification fidelity vs size**: the tolerance that hits 600 KB gz must stay visually clean at max zoom. Mitigated by tuning + eyeball check; fallback is a slightly larger budget.
+- **GPU float32 precision at 40,000× zoom**: raw 3401 eastings/northings are large (~hundreds of thousands of metres); float32 precision there (~cm) becomes multiple pixels at extreme zoom, causing edge jitter. **Mitigation:** shift all coordinates to a local origin near Alberta's centre at export so on-GPU magnitudes are small; if residual jitter remains, enable deck.gl 64-bit (`Fp64`/double-precision) handling. Validate at maximum zoom early in Phase 2 — this is the single most important deep-zoom check.
+- **Simplification fidelity**: tolerance must stay conservative enough that no real boundary detail is lost at 40,000×. Crispness is the priority over size; mitigated by eyeball check at max zoom, with size as a soft guard only.
 - **Bundle size**: deck.gl adds ~150–200 KB gz, but only on explorer open, and it replaces 112 MB of SVG. Net strongly positive.
 - **Feature-parity surface is large** (§6); Phase 2 must enumerate each as a task so nothing silently drops.
