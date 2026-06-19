@@ -757,26 +757,25 @@ def build_cover_art(map_key: str = "minority") -> Path:
     svg_out.parent.mkdir(parents=True, exist_ok=True)
 
     _save_kwargs = dict(bbox_inches="tight", pad_inches=0.02, facecolor="none", transparent=True)
+    # Screen-res PNG (minority only) — still used by the PDF cover + WebGL fallback.
     if map_key == "minority":
         COVER_ART_PNG.parent.mkdir(parents=True, exist_ok=True)
         plt.savefig(COVER_ART_PNG, dpi=200, **_save_kwargs)
         print(f"[build_cover] Wrote screen-res art {COVER_ART_PNG.relative_to(REPO_ROOT)}")
-    plt.rcParams['path.simplify'] = False
-    plt.savefig(str(svg_out), format="svg", **_save_kwargs)
-    plt.rcParams['path.simplify'] = True
-    print(f"[build_cover] [{map_key}] Wrote hi-res SVG {svg_out.relative_to(REPO_ROOT)}")
     plt.close(fig)
 
-    _tag_ed_hover_paths(svg_out, len(eds))
+    # Interactive-explorer data (replaces the 37 MB hi-res SVG).
+    _export_map_geojson(map_key, eds, name_col, va_render, _va_ed_map)
+
+    # Legacy hover JSON kept until the viewer cutover (Plan 3).
     _export_ed_hover_json(eds, name_col, json_out)
     va_json_out = cfg.get("va_json")
     if va_json_out is not None and _va_ed_map is not None:
         _export_va_hover_json(va_render, _va_ed_map, va_json_out)
 
-    # Keep legacy paths in sync so existing embed still works
+    # Keep legacy ed_hover.json in sync so the pre-cutover embed still works (removed in Plan 3).
     if map_key == "minority":
         import shutil
-        shutil.copy2(str(svg_out), str(COVER_ART_HIRES_SVG))
         shutil.copy2(str(json_out), str(REPO_ROOT / "docs" / "data" / "ed_hover.json"))
 
     return COVER_ART_PNG

@@ -74,3 +74,19 @@ def test_export_geojson_minority(tmp_path, monkeypatch):
         assert abs(px) < 400_000 and abs(py) < 400_000      # origin-shifted
         assert round(px, 3) == px and round(py, 3) == py     # mm-quantized
     assert meta["crs"] == "EPSG:3401" and "origin_x" in meta and "origin_y" in meta
+
+
+@requires_data
+def test_build_emits_geojson_not_svg(tmp_path, monkeypatch):
+    import build_cover
+    monkeypatch.setattr(build_cover, "MAP_DATA_DIR", tmp_path)
+    # Point the SVG/json outputs at tmp so the test is hermetic.
+    for k, cfg in build_cover.MAP_VARIANTS.items():
+        cfg["svg"] = tmp_path / f"cover_art_{k}_hires.svg"
+    for key in ("minority", "majority", "2019"):
+        eds, name_col, va_render, va_ed_map = build_cover._prepare_map_data(key)
+        build_cover._export_map_geojson(key, eds, name_col, va_render, va_ed_map)
+        assert (tmp_path / f"va_{key}.geojson").exists()
+        assert (tmp_path / f"ed_{key}.geojson").exists()
+        # The 37 MB hi-res SVG must no longer be produced by the export path.
+        assert not (tmp_path / f"cover_art_{key}_hires.svg").exists()
