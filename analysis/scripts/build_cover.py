@@ -101,6 +101,9 @@ VA_VOTES_PATH = (
 
 _DOCS = REPO_ROOT / "docs"
 
+MAP_DATA_DIR = REPO_ROOT / "docs" / "data"
+COORD_DECIMALS = 3  # millimetre precision; 3401 units are metres
+
 # Per-map output paths and source configs for the interactive viewer.
 MAP_VARIANTS = {
     "minority": {
@@ -317,6 +320,107 @@ def _pick(candidates):
         if p.exists():
             return p
     return None
+
+
+def _load_or_init_origin(bounds) -> tuple[float, float]:
+    """Shared local origin so on-GPU coordinate magnitudes stay small at deep
+    zoom. Persisted once to map_meta.json; every map reuses it so switching
+    maps never shifts the view. bounds = (minx, miny, maxx, maxy)."""
+    import json
+    meta_path = MAP_DATA_DIR / "map_meta.json"
+    if meta_path.exists():
+        m = json.loads(meta_path.read_text(encoding="utf-8"))
+        return float(m["origin_x"]), float(m["origin_y"])
+    ox = round((bounds[0] + bounds[2]) / 2.0, COORD_DECIMALS)
+    oy = round((bounds[1] + bounds[3]) / 2.0, COORD_DECIMALS)
+    MAP_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    meta_path.write_text(
+        json.dumps({"crs": "EPSG:3401", "origin_x": ox, "origin_y": oy}),
+        encoding="utf-8",
+    )
+    return ox, oy
+
+
+def _polygon_coords(geom, ox: float, oy: float):
+    """(Multi)Polygon → GeoJSON coords, origin-shifted and rounded to mm."""
+    def ring(coords):
+        return [[round(x - ox, COORD_DECIMALS), round(y - oy, COORD_DECIMALS)] for x, y in coords]
+
+    def one(poly):
+        return [ring(poly.exterior.coords)] + [ring(i.coords) for i in poly.interiors]
+
+    if geom.geom_type == "Polygon":
+        return "Polygon", one(geom)
+    return "MultiPolygon", [one(g) for g in geom.geoms]
+
+
+def _export_map_geojson(map_key, eds, name_col, va_render, va_ed_map) -> None:
+    """Write va_<map>.geojson + ed_<map>.geojson with embedded per-feature
+    props, EPSG:3401 coords shifted to the shared origin and quantized to mm."""
+    import json
+
+    MAP_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    ox, oy = _load_or_init_origin(tuple(eds.total_bounds))
+
+    # ── VA features ────────────────────────────────────────────────────────
+    va_feats = []
+    for seq_i, (_, row) in enumerate(va_render.iterrows()):
+        r, g, b, _a = row["_fill"]
+        va_ucp = float(row.get("va_ucp", 0) or 0)
+        va_ndp = float(row.get("va_ndp", 0) or 0)
+        va_other = float(row.get("va_other", 0) or 0)
+        two = max(va_ucp + va_ndp, 1.0)
+        ed_name_raw = va_ed_map.get(seq_i)
+        gtype, coords = _polygon_coords(row.geometry, ox, oy)
+        va_feats.append({
+            "type": "Feature",
+            "properties": {
+                "fill": [round(r * 255), round(g * 255), round(b * 255)],
+                "ucp_pct": round(va_ucp / two * 100, 1),
+                "ndp_pct": round(va_ndp / two * 100, 1),
+                "in_person_votes": int(round(va_ucp + va_ndp + va_other)),
+                "poll_name": f"Poll {row.get('VA_NUMBER', '')}",
+                "ed_name": "" if (ed_name_raw is None or ed_name_raw != ed_name_raw) else str(ed_name_raw),
+            },
+            "geometry": {"type": gtype, "coordinates": coords},
+        })
+
+    # ── ED features ────────────────────────────────────────────────────────
+    has_official = "official_ucp" in eds.columns
+    ed_feats = []
+    for i, row in eds.iterrows():
+        ucp_share = float(row.get("ucp_share", 0.5))
+        va_total = int(row.get("total", 0))
+        if has_official and (int(round(row.get("official_ucp", 0))) + int(round(row.get("official_ndp", 0)))) > 0:
+            uc = int(round(row["official_ucp"])); nd = int(round(row["official_ndp"]))
+            votes = uc + nd
+            ucp_pct = round(uc / votes * 100, 1); ndp_pct = round(nd / votes * 100, 1)
+        else:
+            uc = round(ucp_share * va_total); votes = va_total
+            ucp_pct = round(ucp_share * 100, 1); ndp_pct = round((1.0 - ucp_share) * 100, 1)
+        gtype, coords = _polygon_coords(row.geometry, ox, oy)
+        ed_feats.append({
+            "type": "Feature",
+            "properties": {
+                "id": int(i),
+                "name": str(row[name_col]),
+                "ucp_pct": ucp_pct,
+                "ndp_pct": ndp_pct,
+                "votes": int(votes),
+                "pop": int(row.get("pop", 0)),
+                "va_count": int(row.get("va_count", 0)),
+            },
+            "geometry": {"type": gtype, "coordinates": coords},
+        })
+
+    def _fc(feats):
+        return {"type": "FeatureCollection", "crs": "EPSG:3401", "features": feats}
+
+    (MAP_DATA_DIR / f"va_{map_key}.geojson").write_text(
+        json.dumps(_fc(va_feats), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (MAP_DATA_DIR / f"ed_{map_key}.geojson").write_text(
+        json.dumps(_fc(ed_feats), ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"[build_cover] [{map_key}] Wrote GeoJSON: {len(va_feats)} VA + {len(ed_feats)} ED")
 
 
 def _prepare_map_data(map_key: str):
