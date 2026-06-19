@@ -323,7 +323,7 @@ def _prepare_map_data(map_key: str):
     """Load canonical geometry, join 2023 votes, compute per-VA fill colours.
 
     Returns (eds, name_col, va_render, va_ed_map). Pure data prep — no
-    matplotlib. Reused by both the PNG render and the GeoJSON export.
+    matplotlib rendering. Reused by both the PNG render and the GeoJSON export.
     """
     import matplotlib.colors as mcolors
     import numpy as np
@@ -378,7 +378,6 @@ def _prepare_map_data(map_key: str):
         # (election-day + advance + vote-anywhere) to 2026 EDs proportionally
         # by how many VA election-day voters are in each 2026 ED slice.
         if official_2023:
-            import pandas as _pd
             va_ed19_totals = (
                 va.groupby("parent_ed_2019")[["va_ucp", "va_ndp"]]
                 .sum()
@@ -435,8 +434,6 @@ def _prepare_map_data(map_key: str):
     # discloses it.
     crosswalk_path = data_loader._resolve_path("data") / "minority_hybrid_crosswalk.csv"
     if VA_VOTES_PATH.exists() and crosswalk_path.exists():
-        import pandas as pd
-
         cw = pd.read_csv(crosswalk_path)
         # 2026-name -> list of 2019 parents (drop "(NEW)" sentinel rows)
         cw_real = cw[cw["current_2019"].astype(str) != "(NEW)"]
@@ -553,8 +550,6 @@ def _prepare_map_data(map_key: str):
     # with cover-ivory by a lightness weight in [0, 1].
     # weight=0 -> pure ivory (very low density), weight=1 -> full saturated
     # partisan colour (very high density).
-    import numpy as np
-
     log_d = np.log10(density.replace(0, np.nan)).fillna(-12.0)
     d_min, d_max = -8.5, -3.5
     weight = ((log_d - d_min) / (d_max - d_min)).clip(0.0, 1.0)
