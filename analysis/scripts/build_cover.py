@@ -319,12 +319,15 @@ def _pick(candidates):
     return None
 
 
-def build_cover_art(map_key: str = "minority") -> Path:
-    """Render one of three map variants coloured by 2023 two-party vote share.
+def _prepare_map_data(map_key: str):
+    """Load canonical geometry, join 2023 votes, compute per-VA fill colours.
 
-    map_key: "minority" | "majority" | "2019"
+    Returns (eds, name_col, va_render, va_ed_map). Pure data prep — no
+    matplotlib. Reused by both the PNG render and the GeoJSON export.
     """
     import matplotlib.colors as mcolors
+    import numpy as np
+    import pandas as pd
 
     cfg = MAP_VARIANTS[map_key]
     if cfg["shp"]:
@@ -513,28 +516,12 @@ def build_cover_art(map_key: str = "minority") -> Path:
     )
     norm = mcolors.Normalize(vmin=0.35, vmax=0.75, clip=True)
 
-    # 4. Render — VA-level fill with population-density lightness modulation.
-    #    Each VA gets the partisan colour of its assigned 2026 ED (hue), and
-    #    a lightness scaled by VA-local population density (paler = sparse,
-    #    darker = dense). This gives the reader two signals in a single
-    #    image: the partisan-leaning hue (blue/orange) and the population-
-    #    centre heatmap (where within an ED the people actually are). The
-    #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
-    #    the 89-district structure remains visible.
-    fig, ax = plt.subplots(figsize=(6.0, 9), dpi=300)
-    fig.patch.set_facecolor('none')   # transparent background
-    ax.set_facecolor('none')          # transparent axes
-    ax.set_aspect("equal")
-    ax.axis("off")
-
     # Build the per-VA dataframe. Hue is determined by EACH VA's OWN 2023
     # partisan share (not the parent ED's average), so a UCP stronghold
     # inside an NDP-leaning ED renders as a blue cluster on an orange
     # field, and an NDP stronghold inside a UCP ED renders as orange
     # inside the surrounding blue. ED-level partisan lean still emerges
     # naturally because most VAs in an ED tend to lean the same way.
-    import pandas as pd
-
     va_render = va.copy().reset_index(drop=True)
     # to_crs(3401) splits 3 VAs into 2–5 parts, producing more SVG paths than rows.
     # data-va-id is assigned by enumerate over SVG paths, so any split breaks the
@@ -587,6 +574,31 @@ def build_cover_art(map_key: str = "minority") -> Path:
     va_render["_fill"] = [
         _va_fill(s, w) for s, w in zip(va_render["parent_ucp_share"], weight.values)
     ]
+
+    return eds, name_col, va_render, _va_ed_map
+
+
+def build_cover_art(map_key: str = "minority") -> Path:
+    """Render one of three map variants coloured by 2023 two-party vote share.
+
+    map_key: "minority" | "majority" | "2019"
+    """
+    cfg = MAP_VARIANTS[map_key]
+    eds, name_col, va_render, _va_ed_map = _prepare_map_data(map_key)
+
+    # 4. Render — VA-level fill with population-density lightness modulation.
+    #    Each VA gets the partisan colour of its assigned 2026 ED (hue), and
+    #    a lightness scaled by VA-local population density (paler = sparse,
+    #    darker = dense). This gives the reader two signals in a single
+    #    image: the partisan-leaning hue (blue/orange) and the population-
+    #    centre heatmap (where within an ED the people actually are). The
+    #    v0_9 substrate's polygon boundaries are overlaid as thin lines so
+    #    the 89-district structure remains visible.
+    fig, ax = plt.subplots(figsize=(6.0, 9), dpi=300)
+    fig.patch.set_facecolor('none')   # transparent background
+    ax.set_facecolor('none')          # transparent axes
+    ax.set_aspect("equal")
+    ax.axis("off")
 
     # 4a. Province interior fill: white so sparse rural areas (low alpha VAs)
     #     show white rather than the transparent page background. Outside the
