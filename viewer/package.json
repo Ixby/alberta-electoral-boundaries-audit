@@ -32,6 +32,9 @@
 		"vitest": "^4.1.7"
 	},
 	"dependencies": {
+		"@deck.gl/core": "^9.0.36",
+		"@deck.gl/extensions": "^9.0.36",
+		"@deck.gl/layers": "^9.0.36",
 		"@supabase/supabase-js": "^2.106.1"
 	}
 }
