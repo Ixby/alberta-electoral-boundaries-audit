@@ -1,1 +1,0 @@
-import{S as e,V as t,et as n,w as r}from"../chunks/pPhJVxZQ.js";import"../chunks/CT0T0Gak.js";import{t as i}from"../chunks/DXEiyscI.js";var a=r(`<div class="full svelte-1mohq17"><!></div>`);function o(r){var o=a();i(t(o),{base:``}),n(o),e(r,o)}export{o as component};

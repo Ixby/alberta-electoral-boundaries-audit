@@ -119,26 +119,20 @@ export function decodeState(code: string): MapState | null {
 	};
 }
 
-// ── Share origin + optional share metadata ────────────────────────────────────
-// These back the share-code feature only: the origin code threads a loaded share
-// through to saveShare, and the GPS region / language are optional fields attached
-// to a saved share. None of this is tracking — it is written only when the user
-// explicitly generates/saves a share code.
+// ── Share origin ──────────────────────────────────────────────────────────────
+// The origin code threads a loaded share through to saveShare so a re-share keeps
+// its lineage. It is the only metadata attached to a saved share, and only when
+// the user explicitly generates/saves a code.
+//
+// (Removed: the never-called setGpsRegion/setLanguage hooks, which would have
+// attached a lat/lng region + language to saved shares. They were wired to
+// nothing — the site never requests geolocation — so deleting them keeps the
+// privacy policy's "no precise location" guarantee true by construction.)
 
 let _originCode: string | null = null;  // null = default start; code = loaded from share
-let _gpsRegion: { lat: number; lng: number } | null = null;
-let _language: string | null = null;
 
 export function setOrigin(code: string | null): void {
 	_originCode = code;
-}
-
-export function setGpsRegion(lat: number, lng: number): void {
-	_gpsRegion = { lat, lng };
-}
-
-export function setLanguage(lang: string): void {
-	_language = lang;
 }
 
 // ── Supabase persistence ──────────────────────────────────────────────────────
@@ -147,11 +141,8 @@ import { db } from './db';
 
 export function saveShare(code: string, state: MapState): void {
 	if (!code || code === '—') return;
-	const payload: Record<string, unknown> = { ...state };
-	if (_gpsRegion) { payload.region_lat = _gpsRegion.lat; payload.region_lng = _gpsRegion.lng; }
-	if (_language)  payload.language = _language;
 	db.from('shares').upsert(
-		{ code, state_json: payload, origin_code: _originCode },
+		{ code, state_json: { ...state }, origin_code: _originCode },
 		{ onConflict: 'code', ignoreDuplicates: true },
 	).then(undefined, () => {});
 }

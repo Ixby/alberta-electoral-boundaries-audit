@@ -17,7 +17,10 @@
 //   scroll_depth    { pct_bucket }                   + path
 //   section_view    { section_id }
 //   poi_open        { id }
-//   report_map_link { poi }
+//   report_map_link { poi }   RESERVED — allow-listed in the collector but not yet
+//                             fired by any client code (no report→map POI links
+//                             exist today). Kept in sync with the collector so the
+//                             feature can be wired later without a redeploy.
 //   explorer_open   { }
 //   map_toggle      { map }
 //   zoom_depth      { bucket }

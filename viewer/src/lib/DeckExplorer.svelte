@@ -89,6 +89,11 @@
 	let searchActive = $state(-1); // highlighted dropdown index (keyboard nav)
 	let searchOpen = $state(false);
 
+	// Control panel collapse. Defaults collapsed on touch/coarse-pointer devices
+	// (set on mount) so the panel doesn't bury the map on phones; expanded on
+	// desktop. Toggleable everywhere via the panel header.
+	let panelCollapsed = $state(false);
+
 	// DOM refs
 	let mapEl: HTMLDivElement;
 	let canvasEl: HTMLCanvasElement;
@@ -716,6 +721,11 @@
 			zoomMax = +(M.maxZoom - Math.log2(M.side / 256)).toFixed(2);
 			zoomVal = initial.zoom as number;
 
+			// Touch devices: start with the control panel collapsed so it doesn't
+			// bury the map on a phone screen (the screenshot problem). Desktop stays
+			// expanded. Either way the user can toggle from the panel header.
+			panelCollapsed = window.matchMedia?.('(pointer: coarse)').matches === true;
+
 			// Explicit, sized canvas (defensive — set canvas/width/height and keep in sync).
 			canvasEl.width = window.innerWidth;
 			canvasEl.height = window.innerHeight;
@@ -912,7 +922,19 @@
 		<canvas bind:this={canvasEl}></canvas>
 	</div>
 
-	<div class="mapsw">
+	<div class="mapsw" class:collapsed={panelCollapsed}>
+		<button
+			type="button"
+			class="mapsw-toggle"
+			aria-expanded={!panelCollapsed}
+			aria-controls="mapsw-body"
+			onclick={() => (panelCollapsed = !panelCollapsed)}
+		>
+			<span class="mapsw-title">Map controls</span>
+			<span class="chev" aria-hidden="true">{panelCollapsed ? '▾' : '▴'}</span>
+		</button>
+
+		<div class="mapsw-body" id="mapsw-body">
 		<div class="search">
 			<input
 				class="search-input"
@@ -1010,6 +1032,7 @@
 			Lines follow the edges of polling areas; where two maps agree they sit on the same line, where
 			they split apart the proposals genuinely disagree.
 		</div>
+		</div>
 	</div>
 
 	<div class="tip" bind:this={tipEl}></div>
@@ -1024,7 +1047,9 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		background: #0c0f1a;
+		/* Warm near-black behind the map (deck.gl clears transparent, so this shows
+		   through around the province silhouette). Replaces the cold navy #0c0f1a. */
+		background: #1a1511;
 		font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
 	}
 	.map {
@@ -1043,11 +1068,47 @@
 		z-index: 6;
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
-		background: rgba(12, 15, 26, 0.82);
+		gap: 6px;
+		background: rgba(18, 16, 13, 0.84);
 		padding: 7px 7px 6px;
 		border-radius: 10px;
-		border: 1px solid #2a3550;
+		border: 1px solid #3a342a;
+		max-height: calc(100% - 20px);
+		overflow-y: auto;
+	}
+	/* Collapsed: only the header toggle remains; the panel shrinks to a pill. */
+	.mapsw.collapsed {
+		overflow: visible;
+	}
+	.mapsw.collapsed .mapsw-body {
+		display: none;
+	}
+	.mapsw-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		width: 100%;
+		background: none;
+		border: none;
+		padding: 1px 2px;
+		cursor: pointer;
+		color: #cbb89c;
+	}
+	.mapsw-title {
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+	}
+	.mapsw-toggle .chev {
+		font-size: 11px;
+		line-height: 1;
+		color: #8a7d66;
+	}
+	.mapsw-body {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
 	}
 	.mapsw .hdr {
 		font-size: 11px;
@@ -1292,15 +1353,34 @@
 		.tip :global(.note) {
 			font-size: 14px;
 		}
+		/* Phones: keep the panel compact instead of enlarging it. Cap its width,
+		   shrink the map-version buttons, and tighten the verbose copy so the
+		   expanded panel never dominates the map. */
+		.mapsw {
+			max-width: 76vw;
+			gap: 5px;
+		}
 		.mapsw .hdr {
-			font-size: 13px;
+			font-size: 11px;
 		}
 		.mapsw .hdr span {
-			font-size: 12px;
+			font-size: 10px;
+		}
+		.mapsw .btns {
+			gap: 4px;
 		}
 		.mapsw button {
-			font-size: 15px;
-			padding: 9px 15px;
+			font-size: 12px;
+			padding: 6px 8px;
+			flex: 1;
+		}
+		.mapsw .lines-note {
+			font-size: 10.5px;
+			line-height: 1.4;
+			max-width: none;
+		}
+		.mapsw-title {
+			font-size: 12px;
 		}
 	}
 </style>
