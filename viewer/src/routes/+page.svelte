@@ -319,7 +319,10 @@
     // from cache. Browser-only, deck-path only, fire-and-forget; never blocks the
     // critical path and swallows all errors. Specifiers are byte-identical to
     // DeckExplorer's dynamic imports so Vite serves the same cached chunk.
-    if (useDeck) {
+    // PROD-ONLY: in dev, importing deck.gl early makes Vite re-optimize deps and
+    // full-reload the page (bouncing the user to root). Prod has a pre-built chunk,
+    // so the warm is harmless there and pointless to attempt in dev.
+    if (useDeck && import.meta.env.PROD) {
       const warmDeck = () => {
         Promise.all([
           import('@deck.gl/core'),
