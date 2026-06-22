@@ -158,6 +158,11 @@
   import DeckExplorer from '$lib/DeckExplorer.svelte';
   import { hasWebGL } from '$lib/deckExplorer/webglSupport';
   import { FLAGS } from '$lib/deckExplorer/pois';
+  import { pageview, initEngagement, observeSections } from '$lib/analytics';
+
+  // Cleanups for the cookieless analytics instrumentation (engaged-time + scroll
+  // listeners, and the section-view IntersectionObserver). Detached on destroy.
+  let _analyticsCleanups: Array<() => void> = [];
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -289,9 +294,39 @@
   onDestroy(() => {
     clearInterval(_telemetryInterval);
     if (typeof window !== 'undefined') window.removeEventListener('beforeunload', flushTelemetry);
+    for (const fn of _analyticsCleanups) fn();
+    _analyticsCleanups = [];
   });
 
   onMount(async () => {
+
+    // ── Cookieless analytics ────────────────────────────────────────────────
+    // Fire the pageview, set up engaged-time + scroll-depth reporting, and
+    // observe the major finding sections for section_view. All browser-only and
+    // fire-and-forget (the SDK no-ops in SSR); no consent gate — see analytics.ts.
+    // Section ids tracked: the report's stake/finding anchors. Kept best-effort —
+    // ids that don't exist are simply skipped by observeSections.
+    pageview();
+    _analyticsCleanups.push(initEngagement(location.pathname));
+    _analyticsCleanups.push(
+      observeSections([
+        'stakes-heading',        // the stakes block (why this matters)
+        'what-is-redistricting', // why boundaries are redrawn
+        'section-1',             // the two committee maps
+        'section-2',             // the commission split
+        'section-3',             // the litmus / structural scorecard
+        'section-4',             // packing / cracking / draining
+        'what-this-means',       // editorial: what this means for you
+        'section-5',             // partisan impact tests
+        'section-6',             // the neutral-ensemble litmus
+        'history-of-gerrymandering',
+        'canada-is-different',
+        'section-7',             // the Lunty committee map
+        'section-8',             // suggested reforms
+        'retractions',           // documented corrections
+        'references'             // apparatus
+      ])
+    );
 
     // Pick the map renderer once, in the browser: deck.gl when WebGL is
     // available and ?nowebgl=1 is absent; otherwise the inline-SVG engine.

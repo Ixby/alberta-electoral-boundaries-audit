@@ -39,7 +39,7 @@
 	} from '$lib/deckExplorer/layers';
 	import { FLAGS } from '$lib/deckExplorer/pois';
 	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
-	import { logEvent, evtOverlayOpen, evtDistrictSelect, evtPoiClick } from '$lib/deckExplorer/telemetry';
+	import { track, zoomBucket } from '$lib/analytics';
 
 	// ── Props ────────────────────────────────────────────────────────────────
 	// base: SvelteKit base path (pass `base` from $app/paths at the call site so
@@ -133,8 +133,9 @@
 		searchActive = -1;
 		searchOpen = false;
 		edSelector(rec);
-		// Fire-and-forget telemetry: which district, on which (primary) map.
-		logEvent(evtDistrictSelect(rec.name, activeMaps.length ? activeMaps[0] : 'minority'));
+		// Fire-and-forget analytics: which district was selected (name only — the
+		// collector's allow-list for district_select is { name }).
+		track('district_select', { name: rec.name });
 		if (searchInputEl) searchInputEl.blur();
 	}
 	function onSearchKeydown(e: KeyboardEvent) {
@@ -181,8 +182,8 @@
 			let tAssets = 0;
 			let tDeck = 0;
 
-			// Telemetry: the explorer overlay is now live (fire-and-forget, consent-gated).
-			logEvent(evtOverlayOpen());
+			// Analytics: the explorer overlay is now live (fire-and-forget).
+			track('explorer_open');
 
 			const deckClasses = {
 				PolygonLayer,
@@ -227,6 +228,10 @@
 			// Currently selected district (from search) — drives the boundary glow.
 			let selectedEd: EdRec | null = null;
 			let curLevel = 0;
+			// Last zoom_depth bucket reported to analytics. The tile level L is the
+			// discrete zoom signal computed each paint; we only emit when its bucket
+			// changes (so the event fires on settle / level change, not every frame).
+			let lastZoomBucket: string | null = null;
 			let draggingZoom = false;
 			let paintScheduled = false;
 			const lazyTriggered = new Set<string>();
@@ -559,6 +564,12 @@
 				if (!vp) return;
 				const L = tileLevelForZoom(lastVS.zoom as number, M.side, M.minZoom, M.maxZoom);
 				curLevel = L;
+				// Analytics: emit zoom_depth only when the zoom bucket changes (throttle).
+				const zb = zoomBucket(L);
+				if (zb !== lastZoomBucket) {
+					lastZoomBucket = zb;
+					track('zoom_depth', { bucket: zb });
+				}
 				maybeLoadLevels(L);
 				maybeAutoLayers(L);
 				syncZoomUI(L);
@@ -643,6 +654,8 @@
 			mapToggler = (mk: string) => {
 				if (isActive(mk)) activeMaps = activeMaps.filter((m) => m !== mk);
 				else activeMaps = MAPS.filter((m) => m === mk || isActive(m));
+				// Analytics: which map version was toggled (on or off).
+				track('map_toggle', { map: mk });
 				schedulePaint();
 			};
 			// Filter checkbox handlers (lazy-load data on manual enable).
@@ -650,6 +663,10 @@
 				filters[which] = val;
 				if (which === 'hwy' && val) loadHwyData();
 				if (which === 'water' && val) loadWaterData();
+				// Analytics: user-driven layer toggle. (The zoom auto-enable in
+				// maybeAutoLayers flips these programmatically and is intentionally
+				// NOT logged — only genuine user toggles count.)
+				track('layer_toggle', { layer: which, on: val });
 				schedulePaint();
 			};
 			// Search → fly to the chosen district and glow it. Clamp the fit-zoom to
@@ -784,8 +801,8 @@
 				},
 				onClick: (info: any) => {
 					if (info.layer && info.layer.id === 'flags' && info.object) {
-						// Telemetry: a POI pin was clicked (fire-and-forget, consent-gated).
-						logEvent(evtPoiClick(String(info.object.id)));
+						// Analytics: a POI pin was clicked (fire-and-forget).
+						track('poi_open', { id: String(info.object.id) });
 						const tz = 6 - Math.log2(M.side / 256); // level 6
 						update({
 							...lastVS!,
