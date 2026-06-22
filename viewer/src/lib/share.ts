@@ -1,4 +1,4 @@
-// Alberta Electoral Boundary Audit — share encoding · participation · flight path · telemetry
+// Alberta Electoral Boundary Audit — share-code encoding/decoding + share persistence
 // © Will Conner 2026 | GNU GPL v3.0 <https://www.gnu.org/licenses/gpl-3.0.html>
 
 // ── Word lists (27 × 27 × 27 = 19,683 codes; 19,200 valid) ──────────────────
@@ -38,7 +38,7 @@ const MAP_KEYS = ['minority', 'majority', '2019'] as const;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
-import type { MapEngineEvent, MapKey, LayerKey } from './mapEngine/types';
+import type { MapKey, LayerKey } from './mapEngine/types';
 
 export type MapState = {
 	primary:  MapKey;
@@ -46,10 +46,6 @@ export type MapState = {
 	layers:   Record<LayerKey, boolean>;
 	viewport: { cx_norm: number; cy_norm: number; zoom: number };
 };
-
-// Re-exported from mapEngine/types.ts so external callers (share-link UI)
-// don't have to reach into the engine namespace.
-export type FlightEvent = MapEngineEvent;
 
 // ── Encode ────────────────────────────────────────────────────────────────────
 
@@ -123,38 +119,18 @@ export function decodeState(code: string): MapState | null {
 	};
 }
 
-// ── Participation + flight path ───────────────────────────────────────────────
+// ── Share origin + optional share metadata ────────────────────────────────────
+// These back the share-code feature only: the origin code threads a loaded share
+// through to saveShare, and the GPS region / language are optional fields attached
+// to a saved share. None of this is tracking — it is written only when the user
+// explicitly generates/saves a share code.
 
-const _sessionId: string = crypto.randomUUID();  // unique per page-load; never transmitted in share code
-
-let _participates  = false;
-let _flightPath: FlightEvent[] = [];
 let _originCode: string | null = null;  // null = default start; code = loaded from share
 let _gpsRegion: { lat: number; lng: number } | null = null;
 let _language: string | null = null;
 
-export function getSessionId(): string { return _sessionId; }
-
-export function isDNT(): boolean {
-	return navigator.doNotTrack === '1';
-}
-
-export function setParticipation(yes: boolean): void {
-	_participates = yes;
-	_flightPath   = [];
-	_originCode   = null;
-}
-
 export function setOrigin(code: string | null): void {
 	_originCode = code;
-}
-
-export function getOrigin(): string | null {
-	return _originCode;
-}
-
-export function participates(): boolean {
-	return _participates;
 }
 
 export function setGpsRegion(lat: number, lng: number): void {
@@ -163,15 +139,6 @@ export function setGpsRegion(lat: number, lng: number): void {
 
 export function setLanguage(lang: string): void {
 	_language = lang;
-}
-
-export function recordEvent(event: FlightEvent): void {
-	if (!_participates) return;
-	_flightPath.push(event);
-}
-
-export function getFlightPath(): FlightEvent[] {
-	return [..._flightPath];
 }
 
 // ── Supabase persistence ──────────────────────────────────────────────────────
@@ -187,16 +154,4 @@ export function saveShare(code: string, state: MapState): void {
 		{ code, state_json: payload, origin_code: _originCode },
 		{ onConflict: 'code', ignoreDuplicates: true },
 	).then(undefined, () => {});
-}
-
-export function flushTelemetry(): void {
-	if (!_participates || _flightPath.length === 0) return;
-	const rows = _flightPath.map(event => ({
-		session_id: _sessionId,
-		origin_code: _originCode,
-		event_type:  event.type,
-		payload:     event,
-	}));
-	_flightPath = [];
-	db.from('telemetry').insert(rows).then(undefined, () => {});
 }

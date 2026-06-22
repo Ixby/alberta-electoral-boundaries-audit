@@ -57,7 +57,7 @@
         _ME.init(base);
         const obj = document.getElementById('zoom-obj') as HTMLObjectElement;
         if (obj) obj.data = `${base}/images/cover_art_2019_hires.svg`;
-        _ME.onEvent((event: FlightEvent) => { recordEvent(event); _scheduleCodeRefresh(); });
+        _ME.onEvent(() => { _scheduleCodeRefresh(); });
         if (_pendingState) {
           _ME.applyState(_pendingState.primary, _pendingState.mapOn, _pendingState.layers);
           _pendingState = null;
@@ -147,8 +147,8 @@
     if (idx < 0) return { pre: raw, label, post: '' };
     return { pre: raw.slice(0, idx), label, post: raw.slice(idx + 2) };
   });
-  import { isDNT, setParticipation, recordEvent, encodeState, decodeState, setOrigin, saveShare, flushTelemetry, setGpsRegion, setLanguage, type FlightEvent, type MapState } from '$lib/share';
-  import { getStoredConsent, storeConsent, getStoredTheme, storeTheme, getLastCode, storeLastCode, getStoredGps, storeGps, getStoredLanguage, storeLanguage } from '$lib/prefs';
+  import { encodeState, decodeState, setOrigin, saveShare, type MapState } from '$lib/share';
+  import { getStoredTheme, storeTheme, getLastCode, storeLastCode } from '$lib/prefs';
   import { lang } from '$lib/i18n/store.svelte';
   import { proseWordCount } from '$lib/i18n/wordCount';
   import { t } from '$lib/i18n/dict';
@@ -164,12 +164,10 @@
   // listeners, and the section-view IntersectionObserver). Detached on destroy.
   let _analyticsCleanups: Array<() => void> = [];
 
-  // ── Share / participation state ───────────────────────────────────────────
+  // ── Share state ───────────────────────────────────────────────────────────
   let navOpen           = $state(false);
   let navScrolled       = $state(false);
   let activeLandmark    = $state<string>('');
-  let showParticipation = $state(false);
-  let dntActive         = $state(false);
   let darkMode          = $state(false);
 
   function toggleTheme() {
@@ -290,10 +288,7 @@
     }, 200);
   }
 
-  let _telemetryInterval: ReturnType<typeof setInterval>;
   onDestroy(() => {
-    clearInterval(_telemetryInterval);
-    if (typeof window !== 'undefined') window.removeEventListener('beforeunload', flushTelemetry);
     for (const fn of _analyticsCleanups) fn();
     _analyticsCleanups = [];
   });
@@ -369,44 +364,11 @@
       else setTimeout(warmDeck, 1200);
     }
 
-    window.addEventListener('beforeunload', flushTelemetry);
-    _telemetryInterval = setInterval(flushTelemetry, 30_000);
-
-    dntActive = isDNT();
-    const storedConsent = await getStoredConsent();
-    if (storedConsent !== null) {
-      setParticipation(storedConsent === 'yes');
-    } else {
-      setTimeout(() => { showParticipation = true; }, 900);
-    }
-
     // ── Session resume ────────────────────────────────────────────────────────
     const lastCode = await getLastCode();
     if (lastCode) {
       const lastState = decodeState(lastCode);
       if (lastState) { _pendingState = { primary: lastState.primary, mapOn: lastState.mapOn, layers: lastState.layers }; setOrigin(lastCode); }
-    }
-
-    // ── GPS + language (returning consented users) ────────────────────────────
-    if (storedConsent === 'yes') {
-      const storedLang = await getStoredLanguage();
-      if (storedLang) { setLanguage(storedLang); }
-      else { await storeLanguage(navigator.language); setLanguage(navigator.language); }
-
-      const storedGps = await getStoredGps();
-      if (storedGps) {
-        setGpsRegion(storedGps.lat, storedGps.lng);
-      } else if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          async (pos) => {
-            const lat = Math.round(pos.coords.latitude  * 10) / 10;
-            const lng = Math.round(pos.coords.longitude * 10) / 10;
-            await storeGps(lat, lng);
-            setGpsRegion(lat, lng);
-          },
-          () => {},
-        );
-      }
     }
 
     // ── Skeleton phrase cycling ───────────────────────────────────────────────
@@ -1492,44 +1454,6 @@
   <img id="fig-lightbox-img" alt="">
 </div>
 
-<!-- Participation prompt -->
-{#if showParticipation}
-<div id="participation-overlay" role="dialog" aria-modal="true" aria-labelledby="part-heading">
-  <div id="participation-card" use:focusTrap={{ onEscape: () => showParticipation = false }}>
-    <h2 id="part-heading">{t(lang.current, 'chrome.participation.heading')}</h2>
-    <p>{t(lang.current, 'chrome.participation.body')}</p>
-    <p class="part-no-collect">{t(lang.current, 'chrome.participation.no_collect')}</p>
-    {#if dntActive}
-    <p class="part-dnt">{t(lang.current, 'chrome.participation.dnt')}</p>
-    {/if}
-    <div class="part-actions">
-      <button class="part-btn" class:part-primary={dntActive} class:part-secondary={!dntActive}
-        onclick={() => { storeConsent(false); setParticipation(false); showParticipation = false; }}>{t(lang.current, 'chrome.participation.no_thanks')}</button>
-      <button class="part-btn" class:part-primary={!dntActive} class:part-secondary={dntActive}
-        onclick={async () => {
-          await storeConsent(true);
-          setParticipation(true);
-          showParticipation = false;
-          await storeLanguage(navigator.language);
-          setLanguage(navigator.language);
-          if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition(
-              async (pos) => {
-                const lat = Math.round(pos.coords.latitude  * 10) / 10;
-                const lng = Math.round(pos.coords.longitude * 10) / 10;
-                await storeGps(lat, lng);
-                setGpsRegion(lat, lng);
-              },
-              () => {},
-            );
-          }
-        }}>{t(lang.current, 'chrome.participation.yes_help')}</button>
-    </div>
-    <p class="part-policy"><a href="{base}/privacy-policy" target="_blank" rel="noopener noreferrer">{t(lang.current, 'chrome.participation.privacy_policy')}</a></p>
-  </div>
-</div>
-{/if}
-
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label={t(lang.current, 'chrome.lightbox.map_aria')} style="display:none;">
   <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')} onclick={() => { if (useDeck) closeDeck(); }}>&times;</button>
@@ -2489,7 +2413,6 @@
       margin-bottom: 0.55rem;
       opacity: 0.85;
     }
-    #participation-card h2::before { display: none; }
 
     h3 {
       font-size: 1rem;
@@ -3374,59 +3297,6 @@
   }
   #back-top:hover { opacity: 1; }
   @media (max-width: 600px) { #back-top { bottom: 1rem; inset-inline-end: 0.8rem; } }
-
-  /* ── Participation prompt ─────────────────────────────────────────────── */
-  :global(#participation-overlay) {
-    position: fixed; inset: 0; z-index: 9100;
-    background: rgba(0,0,0,0.55);
-    display: flex; align-items: center; justify-content: center;
-    padding: 1rem;
-  }
-  :global(#participation-card) {
-    background: var(--bg, #fff);
-    color: var(--text, #111);
-    border-radius: 10px;
-    padding: 2rem 2.2rem;
-    max-width: 480px; width: 100%;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
-  }
-  :global(#participation-card h2) {
-    margin: 0 0 1rem; font-size: 1.15rem; font-weight: 600; line-height: 1.3;
-  }
-  :global(#participation-card p) {
-    margin: 0 0 0.9rem; font-size: 0.88rem; line-height: 1.55; color: var(--text-muted, #444);
-  }
-  :global(.part-no-collect) {
-    font-size: 0.82rem !important;
-    color: var(--text-muted, #666) !important;
-    opacity: 0.85;
-  }
-  :global(.part-dnt) {
-    font-size: 0.82rem !important;
-    background: rgba(107,53,167,0.08);
-    border-inline-start: 3px solid #6B35A7;
-    padding: 0.5rem 0.7rem;
-    border-start-start-radius: 0; border-start-end-radius: 4px;
-    border-end-end-radius: 4px; border-end-start-radius: 0;
-  }
-  :global(.part-actions) {
-    display: flex; gap: 0.6rem; justify-content: flex-end; margin: 1.2rem 0 0.8rem;
-  }
-  :global(.part-btn) {
-    padding: 0.5rem 1.2rem; border-radius: 6px;
-    border: none; cursor: pointer; font-size: 0.88rem; font-weight: 500;
-    transition: opacity 0.15s;
-  }
-  :global(.part-btn:hover) { opacity: 0.82; }
-  :global(.part-secondary) { background: var(--btn-muted, #e8e8e8); color: var(--text, #111); }
-  :global(.part-primary)   { background: #6B35A7; color: #fff; }
-  :root[data-theme="dark"] :global(.part-secondary) { background: #3a3b47; color: var(--text); }
-  :root[data-theme="dark"] :global(.part-primary)   { background: #8B50D4; color: #fff; }
-  :global(.part-policy) {
-    font-size: 0.78rem !important; text-align: end;
-    margin: 0 !important; color: var(--text-muted, #888) !important;
-  }
-  :global(.part-policy a) { color: inherit; text-decoration: underline; opacity: 0.7; }
 
   /* ── Share panel ─────────────────────────────────────────────────────── */
   :global(.share-backdrop) {

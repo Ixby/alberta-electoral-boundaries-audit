@@ -3,9 +3,9 @@
 //
 // Cookie: ab_audit_prefs (1 week, SameSite=Strict, Secure, path=/)
 // Value:  AES-256-GCM ciphertext — base64(iv).base64(ciphertext)
-// Plaintext format: pipe-separated key=value pairs, e.g. c=yes|t=dark|i=1|s=alpine-badger-banff
-// Keys:   c (consent: yes/no)         t (theme: dark/light)
-//         i (intro seen: 1)           s (last share code: word-word-word)
+// Plaintext format: pipe-separated key=value pairs, e.g. t=dark|i=1|s=alpine-badger-banff
+// Keys:   t (theme: dark/light)       i (intro seen: 1)
+//         s (last share code: word-word-word)
 //         g (GPS region: lat,lng)     l (browser language: e.g. en-CA)
 //
 // Theme is also mirrored to localStorage['ab_pref_t'] so app.html can prevent
@@ -83,16 +83,6 @@ async function _set(key: string, value: string | null): Promise<void> {
 
 async function _get(key: string): Promise<string | null> {
 	return (await _parse())[key] ?? null;
-}
-
-// ── Analytics consent ─────────────────────────────────────────────────────────
-export async function getStoredConsent(): Promise<'yes' | 'no' | null> {
-	const v = await _get('c');
-	return v === 'yes' || v === 'no' ? v : null;
-}
-
-export async function storeConsent(yes: boolean): Promise<void> {
-	await _set('c', yes ? 'yes' : 'no');
 }
 
 // ── Theme ─────────────────────────────────────────────────────────────────────

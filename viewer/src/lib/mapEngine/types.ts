@@ -10,8 +10,7 @@ export type MapKey = 'minority' | 'majority' | '2019';
 export type LayerKey = 'vote' | 'ed-fill' | 'ed-lines' | 'eg';
 
 // Events emitted by the engine to outside subscribers (currently: share-link
-// auto-generation). Keep this union as the single source of truth; share.ts
-// re-exports it as FlightEvent.
+// auto-generation). Keep this union as the single source of truth.
 export type MapEngineEvent =
   | { type: 'map_switch'; primary: MapKey; mapOn: Record<MapKey, boolean> }
   | { type: 'layer';      key: LayerKey;   on: boolean }

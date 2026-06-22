@@ -17,7 +17,7 @@
     <div class="header-text">
       <div class="site-label">Alberta Electoral Boundary Audit</div>
       <h1>Privacy &amp; Data Retention Policy</h1>
-      <p class="meta">Effective: 2026-05-24 · Maintained by Will Conner</p>
+      <p class="meta">Effective: 2026-06-22 · Maintained by Will Conner</p>
     </div>
   </div>
 </header>
@@ -27,131 +27,70 @@
 
     <section>
       <h2>Overview</h2>
-      <p>This tool is a public-interest audit of Alberta's 2023 electoral boundary commission process. It is not a commercial product and runs no advertisements. This page explains what data is collected, why, what is never collected, and how you can opt out.</p>
+      <p>This tool is a public-interest audit of Alberta's 2023 electoral boundary commission process. It is not a commercial product and runs no advertisements. This page explains what is measured, what is never collected, and why none of it can be tied back to you.</p>
+      <p>The short version: the site uses cookieless, aggregate analytics. There is no tracking cookie, no advertising, no cross-site profiling, and no identifier that follows you. Because nothing personal is stored, there is no consent banner to click through — the privacy protection is built into how the measurement works, not bolted on as a prompt.</p>
     </section>
 
     <section>
-      <h2>The principle</h2>
-      <p>Citizens should be able to understand how their government works without worrying that someone is watching over their shoulder. Every design choice in this tool follows from that.</p>
+      <h2>How the analytics work</h2>
+      <p>When a page loads or you interact with the map, the site sends a small, anonymous event to a counting service we run. Each event is just the name of what happened — for example, "page viewed" or "district selected" — plus a few coarse details about the action. The event carries no name, no email, no account, and no identifier stored on your device.</p>
+      <p>To count how many distinct people visited on a given day without identifying anyone, the counting service combines your network address and browser type and runs them through a one-way cryptographic hash together with a secret that changes every day. The result is a short code that lets us tell two visits apart <em>within</em> a single day, and nothing more. The original address is never stored — only the hash is. Because the secret rotates daily, the same visitor produces a different code tomorrow, so there is no way to follow anyone across days or to work backwards from a code to a person.</p>
+      <p>We are interested in the picture that visitors paint as a group — which findings get read, which maps get opened, which districts draw attention. We are not interested in you specifically, and the measurement is built so that "you specifically" is not something the data can express.</p>
+    </section>
 
-      <h3>Nothing leaves your browser without your consent</h3>
-      <p>All data is assembled in your browser first. Nothing is sent to our database unless you clicked <strong>Yes, I'll help</strong> at the prompt when you first opened MapExplorer. If you clicked <strong>No thanks</strong>, nothing is recorded — not even if you later share a map view.</p>
+    <section>
+      <h2>What is measured</h2>
+      <p>The analytics record aggregate, anonymous events such as:</p>
+      <ul>
+        <li>Page views</li>
+        <li>How far down a page people scroll, in coarse bands (25%, 50%, 75%, 100%)</li>
+        <li>Roughly how long the page was actively on screen, in coarse time buckets</li>
+        <li>Which finding sections come into view as people read</li>
+        <li>Which maps are opened in the explorer, and which districts are selected</li>
+        <li>Which map layers are turned on or off, and roughly how far in people zoom</li>
+        <li>Which points of interest or report links are opened</li>
+      </ul>
+      <p>Every one of these is stored only in aggregate. There is no per-person profile, no session replay, and no record of an individual's path through the site. We see totals and distributions, not people.</p>
+    </section>
 
-      <h3>We couldn't identify you even if we tried</h3>
-      <p>The data is deliberately blurry. Your map position is rounded to one of 25 large regions before it leaves your browser — each region is roughly the size of a major Alberta city. Zoom level is one of four coarse buckets. We record the sequence of what you looked at, but not how long you spent on anything. No browser fingerprint. No precise coordinates.</p>
-      <p>We are interested in the stories that groups tell — which parts of the map draw attention, which proposals people compare, where the audit lands when people find it worth sharing. We are not interested in you specifically. The design makes "you specifically" technically unreachable, not merely against our policy.</p>
-      <p>If we were ordered by a court to identify a specific person from our data, we could not do it. That is not a promise. It is a structural fact.</p>
-
-      <h3>See what we see</h3>
-      <p>The analytics dashboard shows the actual data we have collected — which districts people clicked, which maps they explored, and the full sequence of each session. Nothing is hidden or summarized away from it.</p>
-      <p><a href="{base}/dashboard" class="dashboard-link">Open the analytics dashboard →</a></p>
+    <section>
+      <h2>What is never collected</h2>
+      <p>No name. No email. No account. No advertising identifier. No stored IP address — your network address is hashed with a daily-rotating secret and immediately discarded; only the short-lived daily code is kept. No raw browser fingerprint. No cross-day or cross-site identifier. No precise location. No cookie or browser-storage identifier that marks you as a returning visitor for analytics purposes.</p>
     </section>
 
     <section>
       <h2>What GitHub Pages collects</h2>
-      <p>This site is hosted on GitHub Pages. GitHub's servers automatically log basic request details when any page loads — your IP address, browser type, referring page, and timestamp. We do not receive or control these logs; they are governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a>. We have no relationship with GitHub beyond hosting.</p>
-    </section>
-
-    <section>
-      <h2>Participation</h2>
-      <p>When you open MapExplorer, you see one prompt:</p>
-      <blockquote>Help us refine MapExplorer</blockquote>
-      <p>If your browser has Do Not Track turned on, <strong>No thanks</strong> is pre-selected and the reason is shown. You can still switch to <strong>Yes, I'll help</strong> if you want.</p>
-      <p>If you choose <strong>No thanks</strong>, that is the end of it. Nothing is recorded for your session.</p>
-      <p>If you choose <strong>Yes, I'll help</strong>, we begin collecting your exploration path from that moment. Your answer is saved in a cookie so the prompt does not appear again on future visits.</p>
-    </section>
-
-    <section>
-      <h2>Do Not Track</h2>
-      <p>If your browser sends a Do Not Track signal, <strong>No thanks</strong> is pre-selected when you open MapExplorer. You can override it by choosing <strong>Yes, I'll help</strong> — your explicit choice wins.</p>
-      <p>We take Do Not Track seriously at the database level too. If the code that handles this signal is ever changed without a corresponding update to our audit trail, our database automatically stops accepting new data until a human reviews the discrepancy. There is no way for this check to fail silently.</p>
-    </section>
-
-    <section>
-      <h2>What we collect</h2>
-      <p>Only collected if you chose <strong>Yes, I'll help</strong>.</p>
-
-      <p>As you explore MapExplorer, we periodically record your exploration path — roughly every 30 seconds. Each step is one of:</p>
-      <ul>
-        <li>Which electoral district you clicked</li>
-        <li>Which map you switched to</li>
-        <li>Which data layer you turned on or off</li>
-      </ul>
-      <p>We record what you looked at, in order — not how long you spent on each thing.</p>
-
-      <p>If you click <strong>Share</strong>, we also save your ending map view (which map is active, which overlays are on, roughly where your viewport is). This goes into a separate table with no link back to your exploration path — so no one can look up a share code and find out how you got there.</p>
-
-      <h3>What we record when you share</h3>
-      <ul>
-        <li>Which map was active and which others were visible</li>
-        <li>Which data layers were on</li>
-        <li>Which district (if any) was highlighted</li>
-        <li>Roughly where you were on the map and how zoomed in</li>
-        <li>Roughly how long you had been on the page (one of five buckets: under 1 min, 1–3, 3–10, 10–30, 30+)</li>
-        <li>Browser family (e.g. Chrome, Safari) — raw browser string is discarded</li>
-        <li>Screen size, rounded to the nearest 100 pixels</li>
-        <li>Device type: phone, tablet, or desktop</li>
-        <li>Time zone and language (e.g. America/Edmonton, en-CA)</li>
-        <li>Full date and time of the share</li>
-        <li>If you loaded someone else's share code first, that code is noted as your starting point</li>
-        <li>Your approximate region (10 km grid), if you allowed GPS access when you consented to analytics</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Optional: approximate region</h2>
-      <p>When you choose <strong>Yes, I'll help</strong>, your browser asks for GPS permission as part of consent. This is entirely optional — you can accept analytics and deny GPS, and that's fine.</p>
-      <p>If you allow location access, your browser reads your GPS coordinates and we immediately round them to the nearest tenth of a degree of latitude and longitude — a grid cell roughly 10 km across. The precise coordinates are discarded right there in the browser and never leave your device. What we receive is a broad region like "Calgary area" or "Peace Country."</p>
-      <p>If you've already consented but haven't granted GPS, the request may appear silently in the background on your next visit. Denying it has no effect on your participation in analytics.</p>
-      <p>Your approximate region is stored in your cookie and included with share events so we can understand which parts of Alberta find the audit most useful.</p>
-    </section>
-
-    <section>
-      <h2>What we never collect</h2>
-      <p>No name. No email. No IP address. No precise location. No raw browser fingerprint. No cross-session identifier — each page load gets a temporary ID that exists only in memory and disappears when you close the tab.</p>
-      <p>Everything is rounded or bucketed in your browser before anything is sent. The server never sees a precise value.</p>
+      <p>This site is hosted on GitHub Pages. GitHub's servers automatically log basic request details when any page loads — your IP address, browser type, referring page, and timestamp. We do not receive or control these logs; they are governed by <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a>. We have no relationship with GitHub beyond hosting. The analytics described above run separately and never receive your IP address.</p>
     </section>
 
     <section>
       <h2>Share codes</h2>
-      <p>Your cookie always holds a code for your current map view — it is updated continuously as you explore, every few hundred milliseconds. Clicking <strong>Share</strong> reveals that code so you can copy it. Nothing new is generated at that moment; the code was already there.</p>
-      <p>Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To load someone's shared view, the recipient types the code directly into the site.</p>
-
-      <h3>There are only 19,200 possible codes</h3>
-      <p>Share codes represent map configurations, not people. There are exactly 19,200 valid combinations of map, overlays, layers, and viewport region — so two people exploring independently can easily arrive at the same code. This is expected and intentional. When it happens, we record two arrivals at the same map state, which is exactly the signal we're looking for: it tells us that configuration is genuinely interesting, not just a one-off. No two sessions are merged or linked because of a shared code.</p>
-
-      <h3>What can and cannot be linked</h3>
-      <p>Share codes and flight paths are impossible to link. They are stored in separate database tables with no shared key — not a privacy policy restriction, an architectural one. There is no query that connects them.</p>
-      <p>Web server logs work the same way. When your browser loads this page, GitHub's servers record your IP address. When your flight-path events reach our database, they carry a session identifier — a random string that exists only in your browser's memory for that page load. Your IP address is never stored in our database. The session identifier is never sent to GitHub's servers. The two pieces of information were never associated, so there is nothing to link.</p>
+      <p>The map explorer has a Share feature. It turns your current map view — which map is active, which overlays and layers are on, roughly where your viewport sits — into a short three-word code you can copy and send to someone. There are exactly 19,200 valid codes, because a code represents a map configuration, not a person. Two people who arrive at the same view independently get the same code; that is expected and carries no link between them.</p>
+      <p>Share codes appear on screen and go to your clipboard only when you click Copy. They are never embedded in a URL, so they don't appear in browser history, server logs, or referrer headers. To open someone's shared view, the recipient types the code directly into the site.</p>
+      <p>When you generate a share code, the map configuration it encodes is saved to our database so the link keeps working. That saved record is a map state — not a person, not a path, and not joined to the analytics. It contains no identifier for you.</p>
     </section>
 
     <section>
-      <h2>Cookies</h2>
-      <p>This site sets one cookie that stores six things:</p>
+      <h2>Cookies and browser storage</h2>
+      <p>The analytics use no cookie and no browser-storage identifier. Nothing about the measurement marks you as a returning visitor.</p>
+      <p>The site does set one small <strong>functional</strong> cookie to remember your own preferences between visits. It is not used for analytics or tracking, and it never leaves your browser in readable form. It stores:</p>
       <ul>
-        <li><strong>Your consent choice</strong> — yes or no</li>
         <li><strong>Colour theme</strong> — dark or light, if you changed it</li>
         <li><strong>Intro dismissed</strong> — so the map introduction doesn't repeat</li>
-        <li><strong>Current map view</strong> — updated continuously as you explore, so your view is restored on your next visit</li>
-        <li><strong>Approximate region</strong> — your 10 km GPS grid cell, if you allowed location access</li>
-        <li><strong>Browser language</strong> — e.g. en-CA, to understand which language communities find the audit</li>
+        <li><strong>Current map view</strong> — so your last view is restored on your next visit</li>
+        <li><strong>Browser language</strong> — so the site can show your preferred language</li>
       </ul>
-      <p>The cookie is encrypted in your browser before it is written — the server never sees the contents. It is only sent over HTTPS and is never shared with other sites. It expires after one year. You can remove it by clearing your cookies.</p>
-      <p>The map view and location data are encrypted because they encode where you were — which proposal you were looking at, which layers were on, where your viewport was. That is your business, not anyone else's.</p>
+      <p>This cookie is encrypted in your browser before it is written — the server never sees its contents. It is only sent over HTTPS, is never shared with other sites, and you can remove it at any time by clearing your cookies. Your colour theme is also mirrored to your browser's local storage so the correct theme can be applied instantly on load, before anything flickers; that value too is purely functional and never sent anywhere.</p>
     </section>
 
     <section>
       <h2>Data retention</h2>
-      <p>All stored records are anonymized before they reach our database. The database is hosted in Canada (ca-central-1). We keep records indefinitely as research data. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.</p>
+      <p>The analytics records are aggregate and anonymous by construction, with no identifier to retain. They are stored on infrastructure hosted in Canada (ca-central-1) and kept as research data. Saved share-code configurations are kept so shared links continue to resolve. If we ever found that a record contained identifying information — which the design is built to prevent — we would delete it within 30 days.</p>
     </section>
 
     <section>
-      <h2>Your rights</h2>
-      <p>You have the right not to be remembered.</p>
-      <ul>
-        <li><strong>Choose No thanks</strong> at the prompt and nothing is recorded.</li>
-        <li><strong>Turn on Do Not Track</strong> in your browser and No thanks is pre-selected for you.</li>
-      </ul>
+      <h2>Your choices</h2>
+      <p>Because nothing personal is collected, there is nothing to opt out of and no consent prompt to manage. If you would still prefer to send no analytics events at all, a content blocker or a browser that blocks the request to the counting service will stop them, and the site will work exactly the same. You can also clear the functional preferences cookie at any time through your browser.</p>
     </section>
 
     <section>
@@ -262,14 +201,6 @@
   }
   :global(:root[data-theme="dark"]) h2 { color: #a8c4e0; }
 
-  h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #243b53;
-    margin: 1.2rem 0 0.5rem;
-  }
-  :global(:root[data-theme="dark"]) h3 { color: #8890a4; }
-
   p { margin-bottom: 0.85rem; }
   p:last-child { margin-bottom: 0; }
 
@@ -279,46 +210,7 @@
   }
   li { margin-bottom: 0.45rem; }
 
-  .dashboard-link {
-    display: inline-block;
-    margin-top: 0.3rem;
-    background: #6B35A7;
-    color: #fff !important;
-    text-decoration: none;
-    padding: 0.5rem 1.1rem;
-    border-radius: 5px;
-    font-size: 0.92rem;
-    font-weight: 500;
-  }
-  .dashboard-link:hover { background: #5a2a90; }
-
-  blockquote {
-    border-inline-start: 3px solid #6B35A7;
-    padding: 0.5rem 1rem;
-    margin: 0.9rem 0;
-    background: rgba(107,53,167,0.05);
-    border-start-start-radius: 0; border-start-end-radius: 4px;
-    border-end-end-radius: 4px; border-end-start-radius: 0;
-    font-style: italic;
-    color: #333;
-  }
-  :global(:root[data-theme="dark"]) blockquote {
-    background: rgba(107,53,167,0.12);
-    color: #c4b8d8;
-  }
-
-  code {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-    font-size: 0.85em;
-    background: rgba(0,0,0,0.06);
-    padding: 0.1em 0.4em;
-    border-radius: 3px;
-    color: #1a2e45;
-  }
-  :global(:root[data-theme="dark"]) code {
-    background: rgba(255,255,255,0.08);
-    color: #a8c4e0;
-  }
+  em { font-style: italic; }
 
   a { color: #1a5276; }
   a:hover { text-decoration: underline; }
