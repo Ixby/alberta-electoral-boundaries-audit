@@ -677,11 +677,14 @@
 			const [minx, miny, maxx, maxy] = M.bbox;
 			const cx = (minx + maxx) / 2;
 			const cy = (miny + maxy) / 2;
-			const z = 1 - Math.log2(M.side / 256); // level 1 overview floor
+			const z = 1 - Math.log2(M.side / 256); // level 1 — the default opening overview
+			// Floor the camera at the coarsest tile level (z0) rather than level 1, so the province
+			// can be pulled back for breathing room — and the z0 tiles stop being dead weight.
+			const zFloor = M.minZoom - Math.log2(M.side / 256);
 			const initial: Record<string, number | number[]> = {
 				target: [cx, cy, 0],
 				zoom: z,
-				minZoom: z,
+				minZoom: zFloor,
 				maxZoom: z + 22
 			};
 			// Deep link: open focused on the named pin at ~level 6.
@@ -691,8 +694,8 @@
 				initial.zoom = Math.min(initial.maxZoom as number, 6 - Math.log2(M.side / 256));
 			}
 
-			// Slider bounds: level 1 (coarsest) → maxZoom (finest data scale).
-			zoomMin = +(1 - Math.log2(M.side / 256)).toFixed(2);
+			// Slider bounds: z0 (fully pulled-back overview) → maxZoom (finest data scale).
+			zoomMin = +zFloor.toFixed(2);
 			zoomMax = +(M.maxZoom - Math.log2(M.side / 256)).toFixed(2);
 			zoomVal = initial.zoom as number;
 
