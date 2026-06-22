@@ -34,6 +34,7 @@
 	} from '$lib/deckExplorer/layers';
 	import { FLAGS } from '$lib/deckExplorer/pois';
 	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
+	import { logEvent, evtOverlayOpen, evtDistrictSelect, evtPoiClick } from '$lib/deckExplorer/telemetry';
 
 	// ── Props ────────────────────────────────────────────────────────────────
 	// base: SvelteKit base path (pass `base` from $app/paths at the call site so
@@ -103,6 +104,8 @@
 		searchActive = -1;
 		searchOpen = false;
 		edSelector(rec);
+		// Fire-and-forget telemetry: which district, on which (primary) map.
+		logEvent(evtDistrictSelect(rec.name, activeMaps.length ? activeMaps[0] : 'minority'));
 		if (searchInputEl) searchInputEl.blur();
 	}
 	function onSearchKeydown(e: KeyboardEvent) {
@@ -141,6 +144,9 @@
 			const { PolygonLayer, PathLayer, ScatterplotLayer } = await import('@deck.gl/layers');
 			const { PathStyleExtension } = await import('@deck.gl/extensions');
 			if (disposed) return;
+
+			// Telemetry: the explorer overlay is now live (fire-and-forget, consent-gated).
+			logEvent(evtOverlayOpen());
 
 			const deckClasses = {
 				PolygonLayer,
@@ -631,6 +637,8 @@
 				},
 				onClick: (info: any) => {
 					if (info.layer && info.layer.id === 'flags' && info.object) {
+						// Telemetry: a POI pin was clicked (fire-and-forget, consent-gated).
+						logEvent(evtPoiClick(String(info.object.id)));
 						const tz = 6 - Math.log2(M.side / 256); // level 6
 						update({
 							...lastVS!,
