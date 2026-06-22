@@ -5,6 +5,7 @@
 -->
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import { base } from '$app/paths';
 	import { lang, LANG_LABELS } from '$lib/i18n/store.svelte';
 	import TranslationDisclaimer from '$lib/components/TranslationDisclaimer.svelte';
 
@@ -24,29 +25,33 @@
 
 	// Canonical origin for hreflang annotations. Set VITE_CANONICAL_URL at build
 	// time (e.g. "https://ixby.github.io/alberta-electoral-boundaries-audit") so
-	// search engines see absolute alternates. Falls back to relative URLs.
+	// search engines see absolute alternates.
 	const canonicalBase: string = import.meta.env.VITE_CANONICAL_URL ?? '';
+	// hreflang href base: prefer the absolute canonical origin; otherwise fall
+	// back to the app's base path so the strict prerender never sees a base-less
+	// absolute URL (a bare "/" fails "does not begin with base").
+	const altBase: string = canonicalBase || base;
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<!-- Tell search engines which language variant each query-param URL serves -->
-	<link rel="alternate" hreflang="en" href="{canonicalBase}/?lang=en" />
-	<link rel="alternate" hreflang="fr-CA" href="{canonicalBase}/?lang=fr" />
-	<link rel="alternate" hreflang="es" href="{canonicalBase}/?lang=es" />
-	<link rel="alternate" hreflang="ar" href="{canonicalBase}/?lang=ar" />
-	<link rel="alternate" hreflang="de" href="{canonicalBase}/?lang=de" />
-	<link rel="alternate" hreflang="uk" href="{canonicalBase}/?lang=uk" />
-	<link rel="alternate" hreflang="tl" href="{canonicalBase}/?lang=tl" />
-	<link rel="alternate" hreflang="pa" href="{canonicalBase}/?lang=pa" />
-	<link rel="alternate" hreflang="zh-Hans" href="{canonicalBase}/?lang=zh-Hans" />
-	<link rel="alternate" hreflang="zh-Hant" href="{canonicalBase}/?lang=zh-Hant" />
-	<link rel="alternate" hreflang="hi" href="{canonicalBase}/?lang=hi" />
-	<link rel="alternate" hreflang="vi" href="{canonicalBase}/?lang=vi" />
-	<link rel="alternate" hreflang="ko" href="{canonicalBase}/?lang=ko" />
-	<link rel="alternate" hreflang="ur" href="{canonicalBase}/?lang=ur" />
-	<link rel="alternate" hreflang="pl" href="{canonicalBase}/?lang=pl" />
-	<link rel="alternate" hreflang="x-default" href="{canonicalBase}/" />
+	<link rel="alternate" hreflang="en" href="{altBase}/?lang=en" />
+	<link rel="alternate" hreflang="fr-CA" href="{altBase}/?lang=fr" />
+	<link rel="alternate" hreflang="es" href="{altBase}/?lang=es" />
+	<link rel="alternate" hreflang="ar" href="{altBase}/?lang=ar" />
+	<link rel="alternate" hreflang="de" href="{altBase}/?lang=de" />
+	<link rel="alternate" hreflang="uk" href="{altBase}/?lang=uk" />
+	<link rel="alternate" hreflang="tl" href="{altBase}/?lang=tl" />
+	<link rel="alternate" hreflang="pa" href="{altBase}/?lang=pa" />
+	<link rel="alternate" hreflang="zh-Hans" href="{altBase}/?lang=zh-Hans" />
+	<link rel="alternate" hreflang="zh-Hant" href="{altBase}/?lang=zh-Hant" />
+	<link rel="alternate" hreflang="hi" href="{altBase}/?lang=hi" />
+	<link rel="alternate" hreflang="vi" href="{altBase}/?lang=vi" />
+	<link rel="alternate" hreflang="ko" href="{altBase}/?lang=ko" />
+	<link rel="alternate" hreflang="ur" href="{altBase}/?lang=ur" />
+	<link rel="alternate" hreflang="pl" href="{altBase}/?lang=pl" />
+	<link rel="alternate" hreflang="x-default" href="{altBase}/" />
 </svelte:head>
 
 <div class="app-shell">

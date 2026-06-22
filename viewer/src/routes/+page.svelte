@@ -618,7 +618,7 @@
   <p>{t(lang.current, 'verdict.p_question')}</p>
   <p class="verdict-answer">{t(lang.current, 'verdict.p_answer')}</p>
   <p>{t(lang.current, 'verdict.p_howfar')}</p>
-  <p class="verdict-aside">{t(lang.current, 'verdict.aside_pre')}<Gloss key="gerrymander">gerrymandered</Gloss>{t(lang.current, 'verdict.aside_post')}<a href="/law">{t(lang.current, 'verdict.law_link')}</a> and <a href="/methods">{t(lang.current, 'verdict.methods_link')}</a>.</p>
+  <p class="verdict-aside">{t(lang.current, 'verdict.aside_pre')}<Gloss key="gerrymander">gerrymandered</Gloss>{t(lang.current, 'verdict.aside_post')}<a href="{base}/law">{t(lang.current, 'verdict.law_link')}</a> and <a href="{base}/methods">{t(lang.current, 'verdict.methods_link')}</a>.</p>
 </section>
 
 <section class="stakes-block container" aria-labelledby="stakes-heading">
