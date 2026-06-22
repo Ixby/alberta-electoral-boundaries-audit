@@ -229,6 +229,52 @@ def build_ed_edges(topo_dict, label_arrays, ox, oy):
     return {"edges": edges, "outline": []}
 
 
+def build_ed_index():
+    """Per-map ED location index for the deck.gl explorer's name search.
+
+    For every district in each map, emit {name, cx, cy, zoom} where (cx, cy) is the
+    origin-shifted (EPSG:3401 minus map_meta origin) centroid and `zoom` is a fit-zoom
+    that frames the district's bounding box:  zoom = 1 - log2(max(w, h) / 256)  — the
+    same formula the viewer uses for the overview floor (DeckExplorer.svelte computes
+    the overview as `1 - log2(side / 256)`), applied to the district's own side.
+
+    FAST: loads only the canonical ED polygons per map (the same _prepare_map_data the
+    tiler uses) and computes centroids/bounds — NO tiling, no topology. Output:
+    viewer/static/mapdata/ed_index_<map>.json. Run via `--ed-index` or build_ed_index().
+    """
+    meta = json.loads((REPO / "docs" / "data" / "map_meta.json").read_text())
+    ox, oy = meta["origin_x"], meta["origin_y"]
+    OUT.mkdir(parents=True, exist_ok=True)
+    for mk in MAPS:
+        eds, name_col, _vr, _vem = build_cover._prepare_map_data(mk)
+        eds = eds.to_crs(3401)
+        # One entry per distinct district name: union the (possibly multi-row /
+        # multipolygon) geometry so centroid + bbox describe the whole district.
+        index = []
+        for nm, grp in eds.groupby(name_col):
+            if nm is None or nm != nm or not str(nm).strip():
+                continue
+            geom = unary_union(list(grp.geometry))
+            if geom.is_empty:
+                continue
+            c = geom.centroid
+            minx, miny, maxx, maxy = geom.bounds
+            w = max(maxx - minx, 1.0)
+            h = max(maxy - miny, 1.0)
+            zoom = 1.0 - float(np.log2(max(w, h) / TILE_PX))
+            index.append({
+                "name": str(nm),
+                "cx": round(c.x - ox, 2),
+                "cy": round(c.y - oy, 2),
+                "zoom": round(zoom, 4),
+            })
+        index.sort(key=lambda r: r["name"])
+        (OUT / f"ed_index_{mk}.json").write_text(
+            json.dumps(index, separators=(",", ":")), encoding="utf-8"
+        )
+        print(f"  ed_index_{mk}.json: {len(index)} EDs")
+
+
 def main():
     t0 = time.time()
     shutil.rmtree(OUT / "va", ignore_errors=True)   # drop old loose tiles
@@ -457,4 +503,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # `--ed-index` rebuilds ONLY the per-map ED search index (fast, no retile).
+    if "--ed-index" in sys.argv:
+        build_ed_index()
+    else:
+        main()
+        build_ed_index()   # keep the search index in step with a full retile

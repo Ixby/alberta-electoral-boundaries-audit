@@ -33,6 +33,7 @@
 		type Edge
 	} from '$lib/deckExplorer/layers';
 	import { FLAGS } from '$lib/deckExplorer/pois';
+	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
 
 	// ── Props ────────────────────────────────────────────────────────────────
 	// base: SvelteKit base path (pass `base` from $app/paths at the call site so
@@ -52,16 +53,27 @@
 	let zoomMax = $state(1);
 	let resText = $state('—'); // "1 pixel ≈ X" readout body
 
+	// ── Search state (district-name autocomplete) ────────────────────────────────
+	let searchQuery = $state('');
+	let searchResults = $state<EdRec[]>([]);
+	let searchActive = $state(-1); // highlighted dropdown index (keyboard nav)
+	let searchOpen = $state(false);
+
 	// DOM refs
 	let mapEl: HTMLDivElement;
 	let canvasEl: HTMLCanvasElement;
 	let tipEl: HTMLDivElement;
+	let searchInputEl: HTMLInputElement;
 
 	// Bridges from the onMount closure to template event handlers (assigned in onMount).
 	let zoomSetter: (z: number) => void = () => {};
 	let dragSetter: (v: boolean) => void = () => {};
 	let mapToggler: (mk: string) => void = () => {};
 	let filterSetter: (which: 'hwy' | 'water' | 'pois', val: boolean) => void = () => {};
+	let edSelector: (rec: EdRec) => void = () => {};
+
+	// Non-reactive search index (built once ed_index loads in onMount).
+	let nameIndex: NameIndex | null = null;
 
 	const isActive = (mk: string) => activeMaps.includes(mk);
 	const rgbCss = (mk: string) => {
@@ -77,6 +89,46 @@
 		return isActive(mk)
 			? `border-color:${rgb};background:${rgb};color:${dark}`
 			: `border-color:${rgb};background:transparent;color:${rgb}`;
+	}
+
+	// ── Search handlers (reactive UI side; the fly-to lives in onMount) ──────────
+	function runSearch() {
+		searchResults = nameIndex ? matchNames(nameIndex, searchQuery) : [];
+		searchActive = -1;
+		searchOpen = searchResults.length > 0;
+	}
+	function chooseResult(rec: EdRec) {
+		searchQuery = rec.name;
+		searchResults = [];
+		searchActive = -1;
+		searchOpen = false;
+		edSelector(rec);
+		if (searchInputEl) searchInputEl.blur();
+	}
+	function onSearchKeydown(e: KeyboardEvent) {
+		if (e.key === 'ArrowDown') {
+			e.preventDefault();
+			if (!searchOpen || !searchResults.length) return;
+			searchActive = searchActive < 0 ? 0 : Math.min(searchResults.length - 1, searchActive + 1);
+		} else if (e.key === 'ArrowUp') {
+			e.preventDefault();
+			if (!searchOpen || !searchResults.length) return;
+			searchActive = searchActive <= 0 ? 0 : searchActive - 1;
+		} else if (e.key === 'Enter') {
+			e.preventDefault();
+			const target =
+				searchActive >= 0
+					? searchResults[searchActive]
+					: searchResults.length === 1
+						? searchResults[0]
+						: null;
+			if (target) chooseResult(target);
+		} else if (e.key === 'Escape') {
+			searchQuery = '';
+			searchResults = [];
+			searchActive = -1;
+			searchOpen = false;
+		}
 	}
 
 	onMount(() => {
@@ -124,6 +176,8 @@
 			let trunkData: { path: number[][] }[] | null = null;
 
 			let deckgl: InstanceType<typeof Deck> | null = null;
+			// Currently selected district (from search) — drives the boundary glow.
+			let selectedEd: EdRec | null = null;
 			let curLevel = 0;
 			let draggingZoom = false;
 			let paintScheduled = false;
@@ -305,9 +359,94 @@
 				);
 				// ED boundary overlays (instant toggle — current active maps).
 				layers.push(...buildEdLayers(deckClasses, activeMaps, edEdges, edAlpha(L), edWidth(L)));
+				// Selected-district glow (search result) — drawn under the pins, over the
+				// boundary overlays so the highlighted district reads clearly.
+				layers.push(...buildSelectedGlow());
 				// Annotation pins on top.
 				layers.push(...buildPois(deckClasses, FLAGS, filters.pois));
 				return layers;
+			}
+
+			// ── Selected-ED glow ───────────────────────────────────────────────────
+			// The ed_edges geometry is keyed by which maps share each arc, not by
+			// district name, so there is no clean per-district boundary to trace by
+			// name. Instead we draw a boundary glow assembled from the ed_edges arcs
+			// that fall inside the selected district's bbox AND belong to the primary
+			// active map, plus a ring marker at the centroid as a reliable anchor (the
+			// ring always shows even when the bbox catches no arcs, e.g. very small or
+			// edge-of-province districts). The bbox half-side is recovered from the
+			// fit-zoom the index stored: zoom = 1 - log2(side / 256)  →  side = 256·2^(1−zoom).
+			/* eslint-disable @typescript-eslint/no-explicit-any */
+			function buildSelectedGlow(): any[] {
+				if (!selectedEd) return [];
+				const sel = selectedEd;
+				const side = 256 * 2 ** (1 - sel.zoom);
+				const half = side / 2;
+				const x0 = sel.cx - half,
+					x1 = sel.cx + half,
+					y0 = sel.cy - half,
+					y1 = sel.cy + half;
+				const primary = activeMaps.length ? activeMaps[0] : 'minority';
+				const bit = (MAPS as readonly string[]).indexOf(primary);
+				// The boundary glow is assembled by bbox proximity, which only reads as
+				// "this district" for compact (urban / suburban) shapes. For large rural
+				// districts the square reaches far enough to catch unrelated arcs, so above
+				// a side threshold we skip the path glow and let the ring marker carry it.
+				const GLOW_MAX_SIDE = 60000; // m (~60 km) — Calgary/Edmonton EDs are well under this
+				const near: { g: number[][] }[] = [];
+				if (bit >= 0 && side <= GLOW_MAX_SIDE) {
+					for (const e of edEdges) {
+						if (!e.m[bit]) continue;
+						// Keep an arc if any vertex lands inside the district bbox.
+						let hit = false;
+						for (const p of e.g) {
+							if (p[0] >= x0 && p[0] <= x1 && p[1] >= y0 && p[1] <= y1) {
+								hit = true;
+								break;
+							}
+						}
+						if (hit) near.push({ g: e.g });
+					}
+				}
+				const out: any[] = [];
+				if (near.length) {
+					out.push(
+						new PathLayer({
+							id: 'ed-glow',
+							data: near,
+							getPath: (d: { g: number[][] }) => d.g as any,
+							getColor: [255, 226, 120, 235],
+							widthUnits: 'pixels',
+							getWidth: 5,
+							widthMinPixels: 3,
+							capRounded: true,
+							jointRounded: true,
+							parameters: { depthTest: false },
+							coordinateSystem: CART
+						})
+					);
+				}
+				// Centroid ring marker — sized to the district (in meters), with a pixel
+				// floor so it stays visible at the overview.
+				out.push(
+					new ScatterplotLayer({
+						id: 'ed-glow-ring',
+						data: [sel],
+						getPosition: (d: EdRec) => [d.cx, d.cy, 0],
+						getRadius: half * 0.9,
+						radiusUnits: 'meters',
+						radiusMinPixels: 10,
+						filled: false,
+						stroked: true,
+						getLineColor: [255, 214, 80, 235],
+						getLineWidth: 3,
+						lineWidthUnits: 'pixels',
+						lineWidthMinPixels: 2,
+						parameters: { depthTest: false },
+						coordinateSystem: CART
+					})
+				);
+				return out;
 			}
 
 			function paint() {
@@ -366,6 +505,17 @@
 				if (which === 'hwy' && val) loadHwyData();
 				if (which === 'water' && val) loadWaterData();
 				schedulePaint();
+			};
+			// Search → fly to the chosen district and glow it. Clamp the fit-zoom to
+			// the deck view's min/max so an off-range index value can't desync the UI.
+			edSelector = (rec: EdRec) => {
+				selectedEd = rec;
+				if (!lastVS) return;
+				const z = Math.max(
+					lastVS.minZoom as number,
+					Math.min(lastVS.maxZoom as number, rec.zoom)
+				);
+				update({ ...lastVS, target: [rec.cx, rec.cy, 0], zoom: z });
 			};
 
 			// ── Critical path load ─────────────────────────────────────────────────
@@ -519,6 +669,13 @@
 				vaLines = await fetchJSON<number[][][]>('va_lines.json');
 				schedulePaint();
 			}
+			// District-name search index for the primary (first active) map. The names
+			// shown in search come from this map; selecting flies to its centroid.
+			async function loadEdIndex() {
+				const primary = activeMaps.length ? activeMaps[0] : 'minority';
+				const recs = await fetchJSON<EdRec[]>('ed_index_' + primary + '.json');
+				nameIndex = buildNameIndex(recs);
+			}
 
 			// View-first load: gate first paint on the bundle covering the initial level.
 			let L0 = tileLevelForZoom(initial.zoom as number, M.side, M.minZoom, M.maxZoom);
@@ -529,6 +686,7 @@
 			update(initial);
 			await loadEd();
 			await loadLabels();
+			await loadEdIndex();
 			if (poiFlag) {
 				// Surface the focused pin's note on arrival (deep link).
 				const vp = new OrthographicView({ flipY: false }).makeViewport({
@@ -565,6 +723,43 @@
 	</div>
 
 	<div class="mapsw">
+		<div class="search">
+			<input
+				class="search-input"
+				type="text"
+				placeholder="Search a district…"
+				autocomplete="off"
+				bind:this={searchInputEl}
+				bind:value={searchQuery}
+				oninput={runSearch}
+				onkeydown={onSearchKeydown}
+				onfocus={() => {
+					if (searchResults.length) searchOpen = true;
+				}}
+				onblur={() => {
+					searchOpen = false;
+				}}
+			/>
+			{#if searchOpen && searchResults.length}
+				<ul class="search-results" role="listbox">
+					{#each searchResults as r, i (r.name)}
+						<li
+							role="option"
+							aria-selected={i === searchActive}
+							class:sr-active={i === searchActive}
+							onmousedown={(e) => {
+								e.preventDefault();
+								chooseResult(r);
+							}}
+							onmouseenter={() => (searchActive = i)}
+						>
+							{r.name}
+						</li>
+					{/each}
+				</ul>
+			{/if}
+		</div>
+
 		<div class="hdr">Map version <span>· click to toggle</span></div>
 		<div class="btns">
 			{#each MAPS as mk (mk)}
@@ -670,6 +865,56 @@
 		font-weight: 400;
 		font-size: 10px;
 		color: #6b7d99;
+	}
+	.mapsw .search {
+		position: relative;
+	}
+	.mapsw .search-input {
+		width: 100%;
+		box-sizing: border-box;
+		background: #11182a;
+		border: 1px solid #2a3550;
+		border-radius: 7px;
+		color: #e6eefb;
+		font: 400 13px -apple-system, 'Segoe UI', sans-serif;
+		padding: 7px 9px;
+		outline: none;
+	}
+	.mapsw .search-input:focus {
+		border-color: #6fd3fb;
+	}
+	.mapsw .search-input::placeholder {
+		color: #6b7d99;
+	}
+	.mapsw .search-results {
+		position: absolute;
+		top: calc(100% + 3px);
+		left: 0;
+		right: 0;
+		z-index: 8;
+		margin: 0;
+		padding: 4px;
+		list-style: none;
+		max-height: 240px;
+		overflow-y: auto;
+		background: rgba(12, 15, 26, 0.97);
+		border: 1px solid #2a3550;
+		border-radius: 8px;
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+	}
+	.mapsw .search-results li {
+		padding: 6px 8px;
+		border-radius: 5px;
+		font-size: 12.5px;
+		color: #cfe0f5;
+		cursor: pointer;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.mapsw .search-results li.sr-active {
+		background: #1f6feb;
+		color: #fff;
 	}
 	.mapsw .btns {
 		display: flex;
