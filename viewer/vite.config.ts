@@ -48,6 +48,12 @@ function serveDocsAssets(): import('vite').Plugin {
 
 export default defineConfig({
 	plugins: [sveltekit(), serveDocsAssets()],
+	server: {
+		// Never watch the adapter-static build output. It contains the multi-MB tile
+		// `.bin` files (e.g. build/mapdata/va_10_10.bin ~38MB); vite's file watcher
+		// crashes the dev server with EBUSY when one is locked mid-/post-build.
+		watch: { ignored: ['**/build/**'] }
+	},
 	build: {
 		// docs/images/ (~108MB SVGs) must survive every build — never wipe docs/
 		emptyOutDir: false

@@ -1197,7 +1197,11 @@
 		line-height: 1.55;
 		border: 1px solid #2a3550;
 		min-width: 230px;
-		pointer-events: none;
+		/* Selectable so the diagnostics can be highlighted + copied (e.g. to paste timings). */
+		pointer-events: auto;
+		user-select: text;
+		-webkit-user-select: text;
+		cursor: text;
 	}
 	.hud :global(b) {
 		color: #6fd3fb;
