@@ -14,6 +14,7 @@
 -->
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 	import {
 		loadBundle,
 		tileLevelForZoom,
@@ -41,6 +42,15 @@
 	//   all asset fetches are base-path-safe under a non-root deployment).
 	// initialPoi: a FLAGS id to open focused on (deep link from the report).
 	let { base = '', initialPoi = null }: { base?: string; initialPoi?: string | null } = $props();
+
+	// ── Diagnostic HUD (debug-only) ────────────────────────────────────────────
+	// A perf HUD ported from the prototype, shown ONLY at ?debug=1. `browser`
+	// short-circuits so `location` is never read during SSR / prerender (the deck
+	// component is prerendered in node). The HUD is written imperatively via
+	// hudEl.innerHTML inside the paint loop — no reactive state on the hot path.
+	const APP_VERSION = 'v1'; // viewer component version (bump on meaningful changes)
+	const DEBUG = browser && new URLSearchParams(location.search).has('debug');
+	let hudEl = $state<HTMLDivElement | undefined>(undefined);
 
 	// ── Reactive UI state ──────────────────────────────────────────────────────
 	let activeMaps = $state<string[]>(['minority', 'majority', '2019']);
@@ -145,6 +155,13 @@
 			const { PathStyleExtension } = await import('@deck.gl/extensions');
 			if (disposed) return;
 
+			// First-paint timing markers (debug HUD). performance.now() is ms from
+			// timeOrigin (≈ navigation), the same basis as the prototype's number.
+			// tLib: deck.gl dynamic import resolved; tAssets/tDeck set further down.
+			const tLib = DEBUG ? performance.now() : 0;
+			let tAssets = 0;
+			let tDeck = 0;
+
 			// Telemetry: the explorer overlay is now live (fire-and-forget, consent-gated).
 			logEvent(evtOverlayOpen());
 
@@ -167,6 +184,9 @@
 				bbox: [number, number, number, number];
 				maps: string[];
 				bundles: (BundleRef & { lo: number; hi: number })[];
+				// Debug HUD only: per-level byte totals and tile counts (keyed by level).
+				levelBytes?: Record<string, number>;
+				tileCounts?: Record<string, number>;
 			}
 			let M: Manifest;
 			let lastVS: Record<string, number | number[]> | null = null;
@@ -188,6 +208,14 @@
 			let draggingZoom = false;
 			let paintScheduled = false;
 			const lazyTriggered = new Set<string>();
+
+			// ── Debug HUD counters (only mutated/read when DEBUG) ──────────────────
+			let firstPaintMs = 0; // ms from navigation to first map paint
+			let lastPaintMs = 0; // duration of the most recent paint() layer build + submit
+			let bundlesLoaded = 0;
+			let bundleTotal = 0;
+			let archiveBytes = 0;
+			let lastPolyCount = 0; // visible feature count, stashed by buildLayers
 
 			const dataUrl = (f: string) => `${base}/mapdata/${f}`;
 			async function fetchJSON<T>(f: string): Promise<T> {
@@ -247,7 +275,13 @@
 				for (const b of M.bundles) {
 					if (keep.has(b.lo) && !lazyTriggered.has(b.file)) {
 						lazyTriggered.add(b.file);
-						loadBundle(`${base}/mapdata`, b, archive).then(() => schedulePaint());
+						loadBundle(`${base}/mapdata`, b, archive).then((n) => {
+							if (DEBUG) {
+								archiveBytes += n;
+								bundlesLoaded++;
+							}
+							schedulePaint();
+						});
 					}
 				}
 			}
@@ -314,6 +348,7 @@
 			// ── Paint loop ─────────────────────────────────────────────────────────
 			function buildLayers(L: number, keys: [number, number, number][]) {
 				const feats = featsForView(keys);
+				if (DEBUG) lastPolyCount = feats.length; // visible feature count for the HUD
 				// deck.gl layer instances are opaque here (builders are deck-free / DI); the array is
 				// handed straight to deckgl.setProps, which validates them at runtime.
 				/* eslint-disable @typescript-eslint/no-explicit-any */
@@ -468,7 +503,53 @@
 				maybeLoadLevels(L);
 				maybeAutoLayers(L);
 				syncZoomUI(L);
+				const t0 = DEBUG ? performance.now() : 0;
 				deckgl.setProps({ layers: buildLayers(L, visibleTiles(vp, L)) });
+				if (DEBUG) {
+					lastPaintMs = Math.round((performance.now() - t0) * 10) / 10;
+					renderHud(L);
+				}
+			}
+
+			// ── Debug HUD (only built/written when DEBUG) ──────────────────────────
+			// Imperative innerHTML write each paint — mirrors the prototype, keeps the
+			// hot path free of reactive state. Injected markup is not scoped by Svelte,
+			// so the HUD CSS below uses :global() selectors.
+			function renderHud(L: number) {
+				if (!hudEl || !M) return;
+				const br =
+					firstPaintMs && tDeck
+						? ` <span style="color:#8aa0c2">[lib ${(tLib - 0) | 0} · assets ${(tAssets - tLib) | 0} · deckctor ${(tDeck - tAssets) | 0} · head+gpu ${(firstPaintMs - tDeck) | 0}]</span>`
+						: '';
+				// Per-level byte / tile table (from manifest levelBytes + tileCounts).
+				let table = '';
+				if (M.levelBytes && M.tileCounts) {
+					let cum = 0;
+					let rows = '';
+					for (let z = M.minZoom; z <= M.maxZoom; z++) {
+						const tol = M.side / 2 ** z / 256;
+						const mb = (M.levelBytes[z] || 0) / 1e6;
+						cum += mb;
+						const tolS = tol >= 1000 ? (tol / 1000).toFixed(1) + 'km' : Math.round(tol) + 'm';
+						const cls = 'lv' + (z === L ? ' cur' : '');
+						rows +=
+							`<span class="${cls}">z${z} ${tolS.padStart(6)} ` +
+							`${String(M.tileCounts[z] || 0).padStart(6)}t ${mb.toFixed(2)}MB Σ${cum.toFixed(1)}</span>`;
+					}
+					table = `<div class="lvt">${rows}</div>`;
+				}
+				const heap =
+					typeof performance !== 'undefined' &&
+					(performance as unknown as { memory?: { usedJSHeapSize: number } }).memory
+						? ` · heap <b>${((performance as unknown as { memory: { usedJSHeapSize: number } }).memory.usedJSHeapSize / 1e6) | 0}MB</b>`
+						: '';
+				hudEl.innerHTML =
+					`<b>deck.gl · EPSG:3401</b> &nbsp; <b>${activeMaps.join('+') || 'fills only'}</b> &nbsp; ` +
+					`<span style="color:#8aa0c2">data <b>${M.version || '?'}</b> · app <b>${APP_VERSION}</b></span><br>` +
+					`level <b>${L}</b>/${M.maxZoom} &nbsp; polys <b>${lastPolyCount}</b> &nbsp; ` +
+					`loaded <b>${bundlesLoaded}/${bundleTotal}</b> · <b>${(archiveBytes / 1e6).toFixed(1)}MB</b>${heap}<br>` +
+					`first paint <b>${firstPaintMs ? firstPaintMs + 'ms' : '…'}</b>${br} &nbsp; last paint <b>${lastPaintMs}ms</b>` +
+					table;
 			}
 			function schedulePaint() {
 				if (paintScheduled) return;
@@ -529,6 +610,10 @@
 			provinceData = await fetchJSON<number[][][]>('province.json');
 			vaProps = await fetchJSON('va_props.json');
 			if (disposed) return;
+			if (DEBUG) {
+				bundleTotal = M.bundles.length;
+				tAssets = performance.now();
+			}
 
 			const [minx, miny, maxx, maxy] = M.bbox;
 			const cx = (minx + maxx) / 2;
@@ -653,6 +738,7 @@
 				layers: []
 			});
 			deckgl.setProps({ width: window.innerWidth, height: window.innerHeight });
+			if (DEBUG) tDeck = performance.now();
 
 			// Keep deck sized to the viewport (mobile address bars resize it).
 			const onResize = () => {
@@ -689,9 +775,23 @@
 			let L0 = tileLevelForZoom(initial.zoom as number, M.side, M.minZoom, M.maxZoom);
 			const head = M.bundles.find((b) => b.lo <= L0 && L0 <= b.hi) || M.bundles[0];
 			lazyTriggered.add(head.file);
-			await loadBundle(`${base}/mapdata`, head, archive);
+			const headBytes = await loadBundle(`${base}/mapdata`, head, archive);
+			if (DEBUG) {
+				archiveBytes += headBytes;
+				bundlesLoaded++;
+			}
 			if (disposed) return;
 			update(initial);
+			// Capture first paint with an idle main thread, BEFORE any further loading.
+			if (DEBUG) {
+				await new Promise<void>((r) =>
+					requestAnimationFrame(() => {
+						firstPaintMs = Math.round(performance.now());
+						schedulePaint();
+						r();
+					})
+				);
+			}
 			await loadEd();
 			await loadLabels();
 			await loadEdIndex();
@@ -831,6 +931,10 @@
 	</div>
 
 	<div class="tip" bind:this={tipEl}></div>
+
+	{#if DEBUG}
+		<div class="hud" bind:this={hudEl}>loading…</div>
+	{/if}
 </div>
 
 <style>
@@ -1048,6 +1152,46 @@
 		margin-top: 6px;
 		font-weight: 600;
 	}
+	/* Debug-only diagnostic HUD (?debug=1). Ported from the prototype's #hud.
+	   Contents are injected via innerHTML, so child selectors use :global(). */
+	.hud {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 5;
+		background: rgba(12, 15, 26, 0.82);
+		color: #cfe0f5;
+		padding: 10px 13px;
+		border-radius: 9px;
+		font-size: 12.5px;
+		line-height: 1.55;
+		border: 1px solid #2a3550;
+		min-width: 230px;
+		pointer-events: none;
+	}
+	.hud :global(b) {
+		color: #6fd3fb;
+	}
+	.hud :global(.lvt) {
+		font-family: ui-monospace, Consolas, monospace;
+		font-size: 11px;
+		line-height: 1.5;
+		margin: 6px 0 0;
+		padding: 5px 0 0;
+		border-top: 1px solid #2a3550;
+	}
+	.hud :global(.lv) {
+		display: block;
+		color: #9fb4d4;
+		padding: 0 4px;
+		border-radius: 3px;
+		white-space: pre;
+	}
+	.hud :global(.lv.cur) {
+		color: #eaf2ff;
+		font-weight: 600;
+	}
+
 	@media (pointer: coarse) {
 		.tip {
 			font-size: 16px;
