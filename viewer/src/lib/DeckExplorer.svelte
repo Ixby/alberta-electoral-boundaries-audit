@@ -52,6 +52,21 @@
 	const DEBUG = browser && new URLSearchParams(location.search).has('debug');
 	let hudEl = $state<HTMLDivElement | undefined>(undefined);
 
+	// ── Agreement-dash presets ─────────────────────────────────────────────────
+	// Where 2+ maps share a boundary the line is drawn as an alternating-colour
+	// dash (one solid sub-segment per agreeing map, cycling). `px` is the target
+	// dash length in SCREEN pixels (converted to world units per-paint from the
+	// view scale); `gap` is the skipped fraction after each dash (0 = continuous
+	// barber-pole, >0 = dash-with-gap). Switch via `?dash=<name>` (default medium).
+	const DASH_PRESETS: Record<string, { px: number; gap: number }> = {
+		tight: { px: 6, gap: 0 },
+		medium: { px: 9, gap: 0 },
+		long: { px: 14, gap: 0 },
+		dashdot: { px: 9, gap: 0.5 }
+	};
+	const dashParam = browser ? new URLSearchParams(location.search).get('dash') : null;
+	const DASH = DASH_PRESETS[dashParam ?? ''] ?? DASH_PRESETS.medium;
+
 	// ── Reactive UI state ──────────────────────────────────────────────────────
 	let activeMaps = $state<string[]>(['minority', 'majority', '2019']);
 	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean }>({
@@ -398,8 +413,23 @@
 						L
 					)
 				);
-				// ED boundary overlays (instant toggle — current active maps).
-				layers.push(...buildEdLayers(deckClasses, activeMaps, edEdges, edAlpha(L), edWidth(L)));
+				// ED boundary overlays (instant toggle — current active maps). Agreement
+				// strokes (2+ maps) render as an alternating-colour dash; the dash length
+				// is kept ~constant in screen pixels by converting DASH.px to world units
+				// via the current OrthographicView scale (2**zoom).
+				const scale = 2 ** ((lastVS?.zoom as number) ?? 0);
+				const dashWorldLen = DASH.px / scale;
+				layers.push(
+					...buildEdLayers(
+						deckClasses,
+						activeMaps,
+						edEdges,
+						edAlpha(L),
+						edWidth(L),
+						dashWorldLen,
+						DASH.gap
+					)
+				);
 				// Selected-district glow (search result) — drawn under the pins, over the
 				// boundary overlays so the highlighted district reads clearly.
 				layers.push(...buildSelectedGlow());
