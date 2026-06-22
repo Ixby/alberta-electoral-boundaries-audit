@@ -48,6 +48,13 @@ function serveDocsAssets(): import('vite').Plugin {
 
 export default defineConfig({
 	plugins: [sveltekit(), serveDocsAssets()],
+	// Pre-bundle deck.gl at server start so the explorer's dynamic import is instant.
+	// Otherwise Vite optimizes these large deps on the FIRST import (the multi-second
+	// "lib" time in the explorer's first-paint HUD; production is unaffected — it's a
+	// pre-built chunk there).
+	optimizeDeps: {
+		include: ['@deck.gl/core', '@deck.gl/layers', '@deck.gl/extensions']
+	},
 	server: {
 		// Never watch the adapter-static build output. It contains the multi-MB tile
 		// `.bin` files (e.g. build/mapdata/va_10_10.bin ~38MB); vite's file watcher
