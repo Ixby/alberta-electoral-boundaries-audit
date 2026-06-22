@@ -1,0 +1,823 @@
+<!--
+  DeckExplorer — the production deck.gl map explorer for the boundary audit.
+
+  Ports the validated prototype (viewer/static/spike/index.html) into a Svelte 5
+  component, MINUS all dev/debug chrome (no HUD, no ?debug instrumentation, no
+  JS-error-to-HUD handlers). The framework-free data + layer logic lives in
+  $lib/deckExplorer/{loader,layers,pois}; this component wires them into a live
+  deck.gl map: critical-path data load, lazy LOD tile streaming, the paint loop,
+  the map-version toggles, the zoom slider + resolution readout, the three layer
+  filters with zoom auto-enable, the hover tooltip, and POI pin click / deep-link.
+
+  deck.gl is imported DYNAMICALLY in onMount so adapter-static prerender (which
+  runs in node, no WebGL) never imports it. All browser-only work is in onMount.
+-->
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import {
+		loadBundle,
+		tileLevelForZoom,
+		levelsToKeep,
+		type TileArchive,
+		type TileFeature,
+		type BundleRef
+	} from '$lib/deckExplorer/loader';
+	import {
+		MAPS,
+		MAP_RGB,
+		buildEdLayers,
+		buildVaLayer,
+		buildHairlines,
+		buildBasemap,
+		buildPois,
+		type Edge
+	} from '$lib/deckExplorer/layers';
+	import { FLAGS } from '$lib/deckExplorer/pois';
+
+	// ── Props ────────────────────────────────────────────────────────────────
+	// base: SvelteKit base path (pass `base` from $app/paths at the call site so
+	//   all asset fetches are base-path-safe under a non-root deployment).
+	// initialPoi: a FLAGS id to open focused on (deep link from the report).
+	let { base = '', initialPoi = null }: { base?: string; initialPoi?: string | null } = $props();
+
+	// ── Reactive UI state ──────────────────────────────────────────────────────
+	let activeMaps = $state<string[]>(['minority', 'majority', '2019']);
+	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean }>({
+		hwy: false,
+		water: false,
+		pois: true
+	});
+	let zoomVal = $state(0); // slider value (== viewState.zoom)
+	let zoomMin = $state(0);
+	let zoomMax = $state(1);
+	let resText = $state('—'); // "1 pixel ≈ X" readout body
+
+	// DOM refs
+	let mapEl: HTMLDivElement;
+	let canvasEl: HTMLCanvasElement;
+	let tipEl: HTMLDivElement;
+
+	// Bridges from the onMount closure to template event handlers (assigned in onMount).
+	let zoomSetter: (z: number) => void = () => {};
+	let dragSetter: (v: boolean) => void = () => {};
+	let mapToggler: (mk: string) => void = () => {};
+	let filterSetter: (which: 'hwy' | 'water' | 'pois', val: boolean) => void = () => {};
+
+	const isActive = (mk: string) => activeMaps.includes(mk);
+	const rgbCss = (mk: string) => {
+		const c = MAP_RGB[mk];
+		return c ? `rgb(${c[0]},${c[1]},${c[2]})` : '#9fb4d4';
+	};
+	// Button styling: filled when on, outlined when off (a live legend).
+	function btnStyle(mk: string): string {
+		const c = MAP_RGB[mk];
+		if (!c) return '';
+		const rgb = `rgb(${c[0]},${c[1]},${c[2]})`;
+		const dark = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2] > 150 ? '#1a2230' : '#fff';
+		return isActive(mk)
+			? `border-color:${rgb};background:${rgb};color:${dark}`
+			: `border-color:${rgb};background:transparent;color:${rgb}`;
+	}
+
+	onMount(() => {
+		let cleanup: (() => void) | null = null;
+		let disposed = false;
+
+		(async () => {
+			// Dynamic, browser-only deck.gl import (keeps prerender working).
+			const { Deck, OrthographicView, COORDINATE_SYSTEM } = await import('@deck.gl/core');
+			const { PolygonLayer, PathLayer, ScatterplotLayer } = await import('@deck.gl/layers');
+			const { PathStyleExtension } = await import('@deck.gl/extensions');
+			if (disposed) return;
+
+			const deckClasses = {
+				PolygonLayer,
+				PathLayer,
+				ScatterplotLayer,
+				PathStyleExtension,
+				COORDINATE_SYSTEM
+			};
+			const CART = COORDINATE_SYSTEM.CARTESIAN;
+			const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+
+			// ── Module-local (non-reactive) data state ─────────────────────────────
+			interface Manifest {
+				version?: string;
+				side: number;
+				minZoom: number;
+				maxZoom: number;
+				bbox: [number, number, number, number];
+				maps: string[];
+				bundles: (BundleRef & { lo: number; hi: number })[];
+			}
+			let M: Manifest;
+			let lastVS: Record<string, number | number[]> | null = null;
+			let provinceData: number[][][] = [];
+			let vaProps: { fill?: [number, number, number]; [k: string]: unknown }[] = [];
+			const archive: TileArchive = {};
+			let edEdges: Edge[] = [];
+			let vaLines: number[][][] = [];
+			const labels: Record<string, Record<number, string>> = {};
+			let waterData: { path: number[][] }[] | null = null;
+			let highwaysData: { path: number[][]; major?: boolean }[] | null = null;
+			let secondaryData: { path: number[][] }[] | null = null;
+			let trunkData: { path: number[][] }[] | null = null;
+
+			let deckgl: InstanceType<typeof Deck> | null = null;
+			let curLevel = 0;
+			let draggingZoom = false;
+			let paintScheduled = false;
+			const lazyTriggered = new Set<string>();
+
+			const dataUrl = (f: string) => `${base}/mapdata/${f}`;
+			async function fetchJSON<T>(f: string): Promise<T> {
+				const r = await fetch(dataUrl(f), { cache: 'no-store' });
+				if (!r.ok) throw new Error('fetch ' + f);
+				return r.json() as Promise<T>;
+			}
+			const tileData = (k: string): TileFeature[] | null => archive[k] || null;
+			const edNameFor = (mk: string, id: number) => (labels[mk] && labels[mk][id]) || '';
+
+			// ── Visible-tile + best-available-feature selection (inline in prototype) ──
+			const PAD = 2; // extra tile ring so edges stay covered during pan / mobile resize
+			function visibleTiles(vp: { getBounds: () => number[] }, L: number): [number, number, number][] {
+				const n = 2 ** L;
+				const tsize = M.side / n;
+				const [minx, miny] = M.bbox;
+				const b = vp.getBounds();
+				const x0 = Math.max(0, Math.floor((b[0] - minx) / tsize) - PAD);
+				const x1 = Math.min(n - 1, Math.floor((b[2] - minx) / tsize) + PAD);
+				const y0 = Math.max(0, Math.floor((b[1] - miny) / tsize) - PAD);
+				const y1 = Math.min(n - 1, Math.floor((b[3] - miny) / tsize) + PAD);
+				const out: [number, number, number][] = [];
+				for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) out.push([L, x, y]);
+				return out;
+			}
+			// Best-available: current-level tile if present, else nearest loaded ancestor.
+			function featsForView(keys: [number, number, number][]): TileFeature[] {
+				const used = new Set<string>();
+				let feats: TileFeature[] = [];
+				for (let [z, x, y] of keys) {
+					while (z >= M.minZoom) {
+						const k = `${z}/${x}/${y}`;
+						const t = tileData(k);
+						if (t) {
+							if (!used.has(k)) {
+								used.add(k);
+								feats = feats.concat(t);
+							}
+							break;
+						}
+						z--;
+						x = Math.floor(x / 2);
+						y = Math.floor(y / 2);
+					}
+				}
+				return feats;
+			}
+
+			// ── ED stroke alpha/width by level (ported) ────────────────────────────
+			const edAlpha = (L: number) => (L <= 1 ? 50 : L <= 2 ? 110 : L <= 3 ? 180 : 255);
+			const edWidth = (L: number) => (L <= 1 ? 1.2 : L <= 2 ? 1.9 : L <= 3 ? 2.5 : 3.2);
+
+			// ── Lazy LOD: keep levels 0..L+1 loaded, fetch deeper bins only on approach ──
+			function maybeLoadLevels(L: number) {
+				if (!M) return;
+				const keep = new Set(levelsToKeep(L, M.minZoom));
+				for (const b of M.bundles) {
+					if (keep.has(b.lo) && !lazyTriggered.has(b.file)) {
+						lazyTriggered.add(b.file);
+						loadBundle(`${base}/mapdata`, b, archive).then(() => schedulePaint());
+					}
+				}
+			}
+
+			// ── Lazy detail data (highways / water) ────────────────────────────────
+			let hwyLoaded = false;
+			function loadHwyData() {
+				if (hwyLoaded) return;
+				hwyLoaded = true;
+				fetchJSON<{ path: number[][] }[]>('trunk.json').then((d) => {
+					trunkData = d;
+					schedulePaint();
+				});
+				fetchJSON<{ path: number[][] }[]>('secondary.json').then((d) => {
+					secondaryData = d;
+					schedulePaint();
+				});
+				fetchJSON<{ path: number[][]; major?: boolean }[]>('highways.json').then((d) => {
+					highwaysData = d;
+					schedulePaint();
+				});
+			}
+			let waterLoaded = false;
+			function loadWaterData() {
+				if (waterLoaded) return;
+				waterLoaded = true;
+				fetchJSON<{ path: number[][] }[]>('water.json').then((d) => {
+					waterData = d;
+					schedulePaint();
+				});
+			}
+			// Auto-enable detail layers as the user zooms: highways at level 3, water at 4.
+			let hwyAuto = false;
+			let waterAuto = false;
+			function maybeAutoLayers(L: number) {
+				if (L >= 3 && !hwyAuto) {
+					hwyAuto = true;
+					filters.hwy = true;
+					loadHwyData();
+					schedulePaint();
+				}
+				if (L >= 4 && !waterAuto) {
+					waterAuto = true;
+					filters.water = true;
+					loadWaterData();
+					schedulePaint();
+				}
+			}
+
+			// ── Tooltip (ported HTML/markup) ───────────────────────────────────────
+			function voteBar(P: { votes?: number; ucp?: number; ndp?: number }): string {
+				const u = P.ucp || 0;
+				const n = P.ndp || 0;
+				return (
+					`<div class="vs"><b>${(P.votes || 0).toLocaleString()}</b> in-person votes</div>` +
+					`<div class="bar"><span style="width:${u}%;background:#142e94"></span><span style="width:${n}%;background:#e86310"></span></div>` +
+					`<div class="barlbl"><span style="color:#142e94">UCP ${u}%</span><span style="color:#c2540e">NDP ${n}%</span></div>`
+				);
+			}
+			function hideTip() {
+				if (tipEl) tipEl.style.display = 'none';
+			}
+
+			// ── Paint loop ─────────────────────────────────────────────────────────
+			function buildLayers(L: number, keys: [number, number, number][]) {
+				const feats = featsForView(keys);
+				// deck.gl layer instances are opaque here (builders are deck-free / DI); the array is
+				// handed straight to deckgl.setProps, which validates them at runtime.
+				/* eslint-disable @typescript-eslint/no-explicit-any */
+				const layers: any[] = [];
+				// Province fill (paper-grey base under the VA polys).
+				layers.push(
+					new PolygonLayer({
+						id: 'province-fill',
+						data: provinceData,
+						getPolygon: (d: number[][]) => d,
+						pickable: true,
+						getFillColor: [232, 230, 224],
+						stroked: false,
+						filled: true,
+						coordinateSystem: CART
+					})
+				);
+				// VA fills.
+				layers.push(buildVaLayer(deckClasses, feats, vaProps));
+				// VA hairline outlines (level >= 3).
+				layers.push(...buildHairlines(deckClasses, vaLines, L));
+				// Water as filled polygons (handled here — the basemap builder skips water).
+				if (filters.water && waterData) {
+					layers.push(
+						new PolygonLayer({
+							id: 'water',
+							data: waterData,
+							getPolygon: (d: { path: number[][] }) => d.path,
+							positionFormat: 'XY',
+							filled: true,
+							getFillColor: [20, 92, 156, 150],
+							stroked: true,
+							getLineColor: [8, 64, 124, 235],
+							getLineWidth: 0.7,
+							lineWidthUnits: 'pixels',
+							lineWidthMinPixels: 0.5,
+							coordinateSystem: CART
+						})
+					);
+				}
+				// Road basemap (highways / secondary / trunk) under filters.hwy + level gating.
+				layers.push(
+					...buildBasemap(
+						deckClasses,
+						{ highways: highwaysData, secondary: secondaryData, trunk: trunkData },
+						filters,
+						L
+					)
+				);
+				// ED boundary overlays (instant toggle — current active maps).
+				layers.push(...buildEdLayers(deckClasses, activeMaps, edEdges, edAlpha(L), edWidth(L)));
+				// Annotation pins on top.
+				layers.push(...buildPois(deckClasses, FLAGS, filters.pois));
+				return layers;
+			}
+
+			function paint() {
+				if (!deckgl || !lastVS || !M) return;
+				const vp = new OrthographicView({ flipY: false }).makeViewport({
+					width: window.innerWidth,
+					height: window.innerHeight,
+					viewState: lastVS
+				});
+				if (!vp) return;
+				const L = tileLevelForZoom(lastVS.zoom as number, M.side, M.minZoom, M.maxZoom);
+				curLevel = L;
+				maybeLoadLevels(L);
+				maybeAutoLayers(L);
+				syncZoomUI(L);
+				deckgl.setProps({ layers: buildLayers(L, visibleTiles(vp, L)) });
+			}
+			function schedulePaint() {
+				if (paintScheduled) return;
+				paintScheduled = true;
+				requestAnimationFrame(() => {
+					paintScheduled = false;
+					paint();
+				});
+			}
+			function syncZoomUI(L: number) {
+				if (!M || !lastVS) return;
+				if (!draggingZoom) zoomVal = lastVS.zoom as number;
+				const tol = M.side / 2 ** L / 256;
+				resText = tol >= 1000 ? (tol / 1000).toFixed(1) + ' km' : Math.round(tol) + ' m';
+			}
+			function update(vs: Record<string, number | number[]>) {
+				lastVS = vs;
+				if (deckgl) deckgl.setProps({ viewState: vs });
+				paint();
+			}
+			function setZoom(z: number) {
+				if (!lastVS) return;
+				z = Math.max(lastVS.minZoom as number, Math.min(lastVS.maxZoom as number, z));
+				update({ ...lastVS, zoom: z });
+			}
+			// Expose for slider handlers in the template.
+			zoomSetter = setZoom;
+			dragSetter = (v: boolean) => {
+				draggingZoom = v;
+			};
+			// Map-version toggle: instant switch (no crossfade), kept in MAPS order.
+			mapToggler = (mk: string) => {
+				if (isActive(mk)) activeMaps = activeMaps.filter((m) => m !== mk);
+				else activeMaps = MAPS.filter((m) => m === mk || isActive(m));
+				schedulePaint();
+			};
+			// Filter checkbox handlers (lazy-load data on manual enable).
+			filterSetter = (which: 'hwy' | 'water' | 'pois', val: boolean) => {
+				filters[which] = val;
+				if (which === 'hwy' && val) loadHwyData();
+				if (which === 'water' && val) loadWaterData();
+				schedulePaint();
+			};
+
+			// ── Critical path load ─────────────────────────────────────────────────
+			M = await fetchJSON<Manifest>('manifest.json');
+			provinceData = await fetchJSON<number[][][]>('province.json');
+			vaProps = await fetchJSON('va_props.json');
+			if (disposed) return;
+
+			const [minx, miny, maxx, maxy] = M.bbox;
+			const cx = (minx + maxx) / 2;
+			const cy = (miny + maxy) / 2;
+			const z = 1 - Math.log2(M.side / 256); // level 1 overview floor
+			const initial: Record<string, number | number[]> = {
+				target: [cx, cy, 0],
+				zoom: z,
+				minZoom: z,
+				maxZoom: z + 22
+			};
+			// Deep link: open focused on the named pin at ~level 6.
+			const poiFlag = initialPoi ? FLAGS.find((f) => f.id === initialPoi) : null;
+			if (poiFlag) {
+				initial.target = [poiFlag.x, poiFlag.y, 0];
+				initial.zoom = Math.min(initial.maxZoom as number, 6 - Math.log2(M.side / 256));
+			}
+
+			// Slider bounds: level 1 (coarsest) → maxZoom (finest data scale).
+			zoomMin = +(1 - Math.log2(M.side / 256)).toFixed(2);
+			zoomMax = +(M.maxZoom - Math.log2(M.side / 256)).toFixed(2);
+			zoomVal = initial.zoom as number;
+
+			// Explicit, sized canvas (defensive — set canvas/width/height and keep in sync).
+			canvasEl.width = window.innerWidth;
+			canvasEl.height = window.innerHeight;
+
+			lastVS = initial;
+			deckgl = new Deck({
+				canvas: canvasEl,
+				width: window.innerWidth,
+				height: window.innerHeight,
+				views: new OrthographicView({ flipY: false }),
+				viewState: initial, // controlled, so the zoom slider can drive it
+				controller: { scrollZoom: { smooth: true } },
+				useDevicePixels: DPR,
+				// deck.gl picking callbacks: typed loosely (deck's PickingInfo is runtime-imported).
+				onHover: (info: any) => {
+					const o = info.object as
+						| { id?: number; title?: string; body?: string }
+						| undefined;
+					if (!o) {
+						hideTip();
+						return;
+					}
+					tipEl.style.display = 'block';
+					tipEl.style.left = info.x + 12 + 'px';
+					tipEl.style.top = info.y + 12 + 'px';
+					if (info.layer && info.layer.id === 'flags') {
+						tipEl.innerHTML =
+							`<div class="n">${o.title}</div><div class="flagbody">${o.body}</div>` +
+							`<div class="flaglink">Click to zoom in</div>`;
+						return;
+					}
+					if (info.layer && info.layer.id === 'va') {
+						const P = (vaProps[o.id as number] || {}) as {
+							name?: string;
+							community?: string;
+							cin?: boolean;
+							fill?: [number, number, number];
+							ucp?: number;
+							ndp?: number;
+							votes?: number;
+						};
+						const shown = activeMaps.length ? activeMaps : ['minority'];
+						const names = shown.map((mk) => edNameFor(mk, o.id as number) || '(unassigned)');
+						const agree = names.every((n) => n === names[0]);
+						const ed = names[0];
+						const distCmp = agree
+							? ''
+							: `<div class="vs">` +
+								shown
+									.map(
+										(mk, i) =>
+											`<span style="color:${rgbCss(mk)}">■</span> ${names[i]}`
+									)
+									.join('<br>') +
+								`</div>`;
+						const title = agree ? ed : P.name;
+						const where = P.community
+							? `${P.name == title ? '' : P.name + ' · '}${P.cin ? 'in' : 'near'} ${P.community}`
+							: P.name == title
+								? ''
+								: P.name;
+						const pale = P.fill && P.fill[0] + P.fill[1] + P.fill[2] >= 666;
+						if (pale) {
+							const some = (P.ucp || 0) + (P.ndp || 0) > 0;
+							tipEl.innerHTML =
+								`<div class="n">${title}</div>${where}${distCmp}` +
+								(some ? voteBar(P) : ``) +
+								`<div class="note">${
+									some
+										? "A sparsely populated area — with few votes cast here, the colour stays close to the map's neutral baseline."
+										: "No votes were recorded here, so this area shows the map's neutral baseline tone."
+								}</div>`;
+						} else {
+							tipEl.innerHTML = `<div class="n">${title}</div>${where}${distCmp}` + voteBar(P);
+						}
+					} else {
+						tipEl.innerHTML =
+							`<div class="n">No one votes here</div>No polling division covers this spot — nobody is recorded living or voting here, so it stays the map's neutral tone.`;
+					}
+				},
+				onViewStateChange: ({ viewState }: any) => {
+					update(viewState);
+				},
+				onClick: (info: any) => {
+					if (info.layer && info.layer.id === 'flags' && info.object) {
+						const tz = 6 - Math.log2(M.side / 256); // level 6
+						update({
+							...lastVS!,
+							target: [info.object.x, info.object.y, 0],
+							zoom: Math.min(
+								lastVS!.maxZoom as number,
+								Math.max(lastVS!.minZoom as number, tz)
+							)
+						});
+					}
+				},
+				layers: []
+			});
+			deckgl.setProps({ width: window.innerWidth, height: window.innerHeight });
+
+			// Keep deck sized to the viewport (mobile address bars resize it).
+			const onResize = () => {
+				canvasEl.width = window.innerWidth;
+				canvasEl.height = window.innerHeight;
+				deckgl!.setProps({ width: window.innerWidth, height: window.innerHeight });
+				schedulePaint();
+			};
+			window.addEventListener('resize', onResize);
+			if (window.visualViewport) window.visualViewport.addEventListener('resize', onResize);
+
+			// ── Post-paint layer data (value-ordered) ──────────────────────────────
+			async function loadEd() {
+				const ee = await fetchJSON<{ edges: Edge[]; outline: number[][] }>('ed_edges.json');
+				edEdges = ee.edges;
+				schedulePaint();
+			}
+			async function loadLabels() {
+				for (const mk of M.maps) labels[mk] = await fetchJSON('valabels_' + mk + '.json');
+			}
+			async function loadVaLines() {
+				vaLines = await fetchJSON<number[][][]>('va_lines.json');
+				schedulePaint();
+			}
+
+			// View-first load: gate first paint on the bundle covering the initial level.
+			let L0 = tileLevelForZoom(initial.zoom as number, M.side, M.minZoom, M.maxZoom);
+			const head = M.bundles.find((b) => b.lo <= L0 && L0 <= b.hi) || M.bundles[0];
+			lazyTriggered.add(head.file);
+			await loadBundle(`${base}/mapdata`, head, archive);
+			if (disposed) return;
+			update(initial);
+			await loadEd();
+			await loadLabels();
+			if (poiFlag) {
+				// Surface the focused pin's note on arrival (deep link).
+				const vp = new OrthographicView({ flipY: false }).makeViewport({
+					width: window.innerWidth,
+					height: window.innerHeight,
+					viewState: lastVS!
+				});
+				const [sx, sy] = vp ? vp.project([poiFlag.x, poiFlag.y]) : [0, 0];
+				tipEl.style.display = 'block';
+				tipEl.style.left = sx + 14 + 'px';
+				tipEl.style.top = sy + 14 + 'px';
+				tipEl.innerHTML = `<div class="n">${poiFlag.title}</div><div class="flagbody">${poiFlag.body}</div>`;
+			}
+			maybeLoadLevels(L0); // backfill coarse + one level lookahead
+			await loadVaLines();
+
+			cleanup = () => {
+				window.removeEventListener('resize', onResize);
+				if (window.visualViewport) window.visualViewport.removeEventListener('resize', onResize);
+				if (deckgl) deckgl.finalize();
+			};
+		})();
+
+		return () => {
+			disposed = true;
+			if (cleanup) cleanup();
+		};
+	});
+</script>
+
+<div class="explorer">
+	<div class="map" bind:this={mapEl}>
+		<canvas bind:this={canvasEl}></canvas>
+	</div>
+
+	<div class="mapsw">
+		<div class="hdr">Map version <span>· click to toggle</span></div>
+		<div class="btns">
+			{#each MAPS as mk (mk)}
+				<button
+					data-m={mk}
+					style={btnStyle(mk)}
+					title="Toggle this map on/off"
+					onclick={() => mapToggler(mk)}
+				>
+					{mk === '2019' ? '2019' : mk === 'minority' ? 'Minority' : 'Majority'}
+				</button>
+			{/each}
+		</div>
+
+		<input
+			class="zoom"
+			type="range"
+			min={zoomMin}
+			max={zoomMax}
+			step="0.01"
+			bind:value={zoomVal}
+			oninput={() => {
+				dragSetter(true);
+				zoomSetter(zoomVal);
+			}}
+			onchange={() => dragSetter(false)}
+		/>
+		<div class="res">1 pixel ≈ <b>{resText}</b></div>
+
+		<div class="filters">
+			<div class="fhdr">Geographic filters</div>
+			<label>
+				<input
+					type="checkbox"
+					checked={filters.hwy}
+					onchange={(e) => filterSetter('hwy', e.currentTarget.checked)}
+				/> Highways
+			</label>
+			<label>
+				<input
+					type="checkbox"
+					checked={filters.water}
+					onchange={(e) => filterSetter('water', e.currentTarget.checked)}
+				/> Rivers &amp; lakes
+			</label>
+			<label>
+				<input
+					type="checkbox"
+					checked={filters.pois}
+					onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
+				/> Annotations
+			</label>
+		</div>
+
+		<div class="lines-note">
+			<b>Reading the lines</b><br />
+			Every odd shape or split line is a <b>deliberate choice by the committee</b> — not a data error.
+			Lines follow the edges of polling areas; where two maps agree they sit on the same line, where
+			they split apart the proposals genuinely disagree.
+		</div>
+	</div>
+
+	<div class="tip" bind:this={tipEl}></div>
+</div>
+
+<style>
+	.explorer {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background: #0c0f1a;
+		font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
+	}
+	.map {
+		position: absolute;
+		inset: 0;
+	}
+	.map canvas {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+	.mapsw {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 6;
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		background: rgba(12, 15, 26, 0.82);
+		padding: 7px 7px 6px;
+		border-radius: 10px;
+		border: 1px solid #2a3550;
+	}
+	.mapsw .hdr {
+		font-size: 11px;
+		font-weight: 600;
+		color: #9fb4d4;
+		padding: 0 2px;
+	}
+	.mapsw .hdr span {
+		font-weight: 400;
+		font-size: 10px;
+		color: #6b7d99;
+	}
+	.mapsw .btns {
+		display: flex;
+		gap: 5px;
+	}
+	.mapsw button {
+		border: 1px solid transparent;
+		background: none;
+		color: #9fb4d4;
+		font: 600 13px -apple-system, 'Segoe UI', sans-serif;
+		padding: 6px 12px;
+		border-radius: 7px;
+		cursor: pointer;
+	}
+	.mapsw .zoom {
+		width: 100%;
+		margin: 6px 0 2px;
+		accent-color: #6fd3fb;
+		cursor: pointer;
+	}
+	.mapsw .res {
+		font-size: 11px;
+		color: #9fb4d4;
+		text-align: center;
+	}
+	.mapsw .res b {
+		color: #6fd3fb;
+	}
+	.mapsw .lines-note {
+		font-size: 11px;
+		color: #9fb4d4;
+		line-height: 1.5;
+		margin-top: 7px;
+		padding-top: 7px;
+		border-top: 1px solid #2a3550;
+		max-width: 228px;
+	}
+	.mapsw .lines-note b {
+		color: #cfe0f5;
+	}
+	.mapsw .filters {
+		margin-top: 7px;
+		padding-top: 6px;
+		border-top: 1px solid #2a3550;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+	.mapsw .filters .fhdr {
+		font-size: 11px;
+		font-weight: 600;
+		color: #9fb4d4;
+	}
+	.mapsw .filters label {
+		font-size: 12px;
+		color: #cfe0f5;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		cursor: pointer;
+	}
+	.mapsw .filters input {
+		accent-color: #6fd3fb;
+		cursor: pointer;
+	}
+	.tip {
+		position: absolute;
+		z-index: 6;
+		pointer-events: none;
+		background: #f9f7f2;
+		color: #1a2e45;
+		padding: 9px 12px;
+		border-radius: 8px;
+		font-size: 13.5px;
+		line-height: 1.45;
+		box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+		display: none;
+		max-width: 250px;
+	}
+	.tip :global(.n) {
+		font-weight: 600;
+		font-family: Palatino, Georgia, serif;
+		font-size: 15px;
+		margin-bottom: 3px;
+	}
+	.tip :global(.vs) {
+		white-space: nowrap;
+		margin-top: 7px;
+		padding-top: 6px;
+		border-top: 1px solid #e6e0d2;
+	}
+	.tip :global(.bar) {
+		display: flex;
+		height: 9px;
+		border-radius: 5px;
+		overflow: hidden;
+		margin-top: 7px;
+		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+	}
+	.tip :global(.barlbl) {
+		display: flex;
+		justify-content: space-between;
+		font-size: 12.5px;
+		font-weight: 600;
+		margin-top: 4px;
+	}
+	.tip :global(.note) {
+		font-size: 12px;
+		color: #6b7280;
+		margin-top: 7px;
+		line-height: 1.4;
+	}
+	.tip :global(.flagbody) {
+		font-size: 12.5px;
+		color: #3a4658;
+		margin-top: 5px;
+		line-height: 1.5;
+		max-width: 260px;
+	}
+	.tip :global(.flaglink) {
+		font-size: 11.5px;
+		color: #1763c8;
+		margin-top: 6px;
+		font-weight: 600;
+	}
+	@media (pointer: coarse) {
+		.tip {
+			font-size: 16px;
+			max-width: 80vw;
+		}
+		.tip :global(.n) {
+			font-size: 18px;
+		}
+		.tip :global(.barlbl) {
+			font-size: 14px;
+		}
+		.tip :global(.note) {
+			font-size: 14px;
+		}
+		.mapsw .hdr {
+			font-size: 13px;
+		}
+		.mapsw .hdr span {
+			font-size: 12px;
+		}
+		.mapsw button {
+			font-size: 15px;
+			padding: 9px 15px;
+		}
+	}
+</style>
