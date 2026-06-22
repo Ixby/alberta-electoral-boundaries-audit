@@ -73,6 +73,7 @@
   // the deck.gl path never runs at build time. ?nowebgl=1 forces the SVG path.
   let useDeck      = $state(false);   // true → render DeckExplorer in the stage
   let deckOverlayOpen = $state(false); // true → DeckExplorer is mounted + visible
+  let deckInitialPoi = $state<string | null>(null); // FLAGS id to focus when the deck mounts (?poi deep link)
   let _deckTrapCleanup: (() => void) | null = null;
 
   // Open the existing #zoom-overlay shell for the deck path. mapEngine.init()
@@ -104,7 +105,9 @@
     e.preventDefault();
     if (useDeck) {
       // WebGL path: deck.gl explorer in the shared shell. Do NOT load/open the
-      // SVG engine in this branch.
+      // SVG engine in this branch. A hero-button open is not a deep link, so
+      // clear any ?poi focus left from an earlier auto-open.
+      deckInitialPoi = null;
       openDeck();
       return;
     }
@@ -144,6 +147,7 @@
   import { focusTrap, createFocusTrap } from '$lib/a11y/focusTrap';
   import DeckExplorer from '$lib/DeckExplorer.svelte';
   import { hasWebGL } from '$lib/deckExplorer/webglSupport';
+  import { FLAGS } from '$lib/deckExplorer/pois';
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -283,6 +287,18 @@
     // available and ?nowebgl=1 is absent; otherwise the inline-SVG engine.
     // (Decided on mount so prerender always emits the SVG markup.)
     useDeck = hasWebGL(new URLSearchParams(location.search).has('nowebgl'));
+
+    // ── Deep link: ?poi=<id> auto-opens the explorer focused on that pin ───────
+    // Only the deck path supports POI focus. When WebGL is available and the id
+    // matches a known FLAGS pin, open the overlay with that pin set as the deck's
+    // initialPoi. On the SVG fallback we leave the page as-is (no error) — the
+    // inline-SVG engine has no POI concept, so the deep link simply lands on the
+    // page without opening the overlay.
+    const poiParam = new URLSearchParams(location.search).get('poi');
+    if (poiParam && useDeck && FLAGS.some((f) => f.id === poiParam)) {
+      deckInitialPoi = poiParam;
+      openDeck();
+    }
 
     window.addEventListener('beforeunload', flushTelemetry);
     _telemetryInterval = setInterval(flushTelemetry, 30_000);
@@ -1587,7 +1603,7 @@
   <div id="zoom-stage">
     {#if useDeck}
       {#if deckOverlayOpen}
-        <DeckExplorer base={base} initialPoi={null} />
+        <DeckExplorer base={base} initialPoi={deckInitialPoi} />
       {/if}
     {:else}
     <div id="zoom-skeleton" aria-hidden="true">
