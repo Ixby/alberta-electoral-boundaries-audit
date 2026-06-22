@@ -16,6 +16,7 @@ import {
 	edgeBbox,
 	bboxIntersects,
 	padBbox,
+	clipPathToBounds,
 	MAPS,
 	type Edge,
 	type Bbox
@@ -233,6 +234,82 @@ describe('padBbox', () => {
 		const win: Bbox = [0, 0, 100, 40];
 		expect(bboxIntersects(edge, win)).toBe(false);
 		expect(bboxIntersects(edge, padBbox(win, 0.25))).toBe(true);
+	});
+});
+
+// clipPathToBounds trims a polyline to the parts inside a window, returning one
+// sub-path per contiguous in-window run. This is what lets a long agreement edge
+// dash FULLY along its visible span at deep zoom: the off-window remainder is
+// dropped in O(segments), so chunkPath only ever runs on short in-window pieces
+// and the per-edge cap can't "retreat" the dash inside the visible window.
+describe('clipPathToBounds', () => {
+	it('keeps only the in-window portion of a long line far from its start', () => {
+		// A 400 km horizontal edge; the window sits far along it. Pre-fix, chunking
+		// from path[0] would exhaust the cap off-screen and dump one solid segment
+		// across the window. Clipping first yields a short sub-path AT the window.
+		const line: [number, number][] = [
+			[0, 0],
+			[400000, 0]
+		];
+		const win: Bbox = [350000, -50, 351000, 50];
+		const subs = clipPathToBounds(line, win);
+		expect(subs.length).toBe(1);
+		const s = subs[0];
+		// The clipped sub-path spans the window x-range, not the whole line.
+		expect(s[0][0]).toBeCloseTo(350000, 4);
+		expect(s[s.length - 1][0]).toBeCloseTo(351000, 4);
+		// Chunking the clipped sub-path dashes its full visible length, bounded.
+		const chunks = chunkPath(s, 9, 0, 4000);
+		expect(chunks.length).toBeGreaterThan(50); // ~111 dashes, fully dashed
+		expect(chunks.length).toBeLessThanOrEqual(4000);
+		const covered = chunks.reduce((sum, c) => sum + segLen(c.coords), 0);
+		expect(covered).toBeCloseTo(1000, 2); // entire 1 km visible span covered
+	});
+
+	it('a segment fully inside the window is returned whole', () => {
+		const path: [number, number][] = [
+			[2, 2],
+			[8, 8]
+		];
+		expect(clipPathToBounds(path, [0, 0, 10, 10])).toEqual([
+			[
+				[2, 2],
+				[8, 8]
+			]
+		]);
+	});
+
+	it('a segment fully outside the window yields no sub-paths', () => {
+		const path: [number, number][] = [
+			[20, 20],
+			[30, 30]
+		];
+		expect(clipPathToBounds(path, [0, 0, 10, 10])).toEqual([]);
+	});
+
+	it('splits into multiple sub-paths when the line exits and re-enters', () => {
+		// Horizontal line crossing a window, leaving, then crossing a SECOND window
+		// region is one window here; to get two runs, dip out the middle vertically.
+		// Path: in → out (up) → in. Window is the unit strip y∈[-1,1].
+		const path: [number, number][] = [
+			[0, 0],
+			[2, 0], // inside
+			[3, 5], // goes far above the window (out)
+			[4, 0], // back inside
+			[6, 0]
+		];
+		const subs = clipPathToBounds(path, [-1, -1, 10, 1]);
+		// Two contiguous in-window runs (before the excursion, and after).
+		expect(subs.length).toBe(2);
+		// First run starts at the path start (already inside).
+		expect(subs[0][0]).toEqual([0, 0]);
+		// Each returned sub-path has at least 2 points (a drawable segment).
+		for (const s of subs) expect(s.length).toBeGreaterThanOrEqual(2);
+	});
+
+	it('returns [] for degenerate input', () => {
+		expect(clipPathToBounds([], [0, 0, 10, 10])).toEqual([]);
+		expect(clipPathToBounds([[5, 5]], [0, 0, 10, 10])).toEqual([]);
 	});
 });
 

@@ -231,6 +231,89 @@ export function padBbox(b: Bbox, frac: number): Bbox {
 	return [b[0] - mx, b[1] - my, b[2] + mx, b[3] + my];
 }
 
+/**
+ * Clip a polyline to a rectangular window, returning one sub-polyline per
+ * contiguous in-window run (Liang–Barsky per segment). Off-window geometry is
+ * dropped in O(segments) — never stepped at dash granularity — so a long edge
+ * that merely clips the viewport yields only the short visible piece(s). The
+ * caller then chunks each short sub-path, so the alternating dash covers the
+ * FULL visible span at any zoom (no cap "retreat" inside the window) while
+ * remaining bounded. Phase is irrelevant: each sub-path is dashed from colour 0
+ * (an alternating barber-pole reads identically regardless of start colour).
+ *
+ * Pure: no deck.gl, no globals. Returns [] for degenerate input (fewer than 2
+ * points) or a path entirely outside the window.
+ */
+export function clipPathToBounds(path: [number, number][], b: Bbox): [number, number][][] {
+	if (!path || path.length < 2) return [];
+	const [minx, miny, maxx, maxy] = b;
+	const out: [number, number][][] = [];
+	let cur: [number, number][] = []; // the in-window run being accumulated
+
+	for (let i = 1; i < path.length; i++) {
+		const [x0, y0] = path[i - 1];
+		const [x1, y1] = path[i];
+		const dx = x1 - x0;
+		const dy = y1 - y0;
+		// Liang–Barsky: solve for the [t0,t1] sub-interval of this segment inside
+		// the window. p/q encode the four window edges (left, right, bottom, top).
+		let t0 = 0,
+			t1 = 1;
+		const p = [-dx, dx, -dy, dy];
+		const q = [x0 - minx, maxx - x0, y0 - miny, maxy - y0];
+		let visible = true;
+		for (let k = 0; k < 4; k++) {
+			if (p[k] === 0) {
+				// Segment parallel to this edge: outside the window if q < 0.
+				if (q[k] < 0) {
+					visible = false;
+					break;
+				}
+			} else {
+				const r = q[k] / p[k];
+				if (p[k] < 0) {
+					if (r > t1) {
+						visible = false;
+						break;
+					}
+					if (r > t0) t0 = r;
+				} else {
+					if (r < t0) {
+						visible = false;
+						break;
+					}
+					if (r < t1) t1 = r;
+				}
+			}
+		}
+		if (!visible) {
+			// Whole segment outside → end the current in-window run.
+			if (cur.length >= 2) out.push(cur);
+			cur = [];
+			continue;
+		}
+		const a: [number, number] = [x0 + dx * t0, y0 + dy * t0];
+		const c: [number, number] = [x0 + dx * t1, y0 + dy * t1];
+		if (t0 > 0) {
+			// Segment ENTERS the window partway: previous run (if any) ended; start
+			// a fresh run at the entry point.
+			if (cur.length >= 2) out.push(cur);
+			cur = [a];
+		} else if (cur.length === 0) {
+			// Run starts at the original vertex (segment begins inside the window).
+			cur = [a];
+		}
+		cur.push(c);
+		if (t1 < 1) {
+			// Segment EXITS the window before its end: close this run here.
+			if (cur.length >= 2) out.push(cur);
+			cur = [];
+		}
+	}
+	if (cur.length >= 2) out.push(cur);
+	return out;
+}
+
 /** A group of boundary segments shared by exactly the same subset of active
  *  maps. `mks` is that subset (in the order maps were passed), `key` is
  *  `mks.join('+')`, and `list` is the edges in the group. */
@@ -317,23 +400,25 @@ function edPath(
  * current view scale (DASH_PX / 2**zoom) so dashes stay ~constant in screen pixels.
  * `gapFrac > 0` skips a gap of `dashLen * gapFrac` after each chunk (dash-with-gap).
  *
- * Perf guard — TWO independent bounds keep deep zoom from exploding the GPU:
+ * Perf guard — THREE bounds keep deep zoom from exploding the GPU AND make the
+ * dash cover the full visible span at every zoom:
  *   1. The CALLER viewport-culls `edEdges` to the visible bounds before calling
  *      this, so the number of edges chunked is tiny at deep zoom (few edges on
  *      screen). See `edgeBbox` / `bboxIntersects` and the cull in DeckExplorer.
- *   2. `MAX_CHUNKS_PER_EDGE` still caps chunks PER EDGE. Culling bounds the edge
- *      COUNT but NOT per-edge work: `chunkPath` walks an edge's full polyline
- *      regardless of viewport, so a single long rural arc (some run >300 km) that
- *      merely clips the visible window would, at deep zoom where `dashLen` is
- *      microscopic, generate billions of chunks WITHOUT this cap. Both bounds are
- *      required; neither alone prevents the crash.
- *
- * The cap is raised from the old freeze-era 120 to 4000: high enough that a normal
- * line's VISIBLE span (~screen-width / DASH.px ≈ ~100–200 dashes) dashes fully —
- * fixing the "dash retreats" artifact — while still bounding the pathological long
- * edge. Residual retreat only reappears if a view straddles chunk #4000 of a very
- * long edge (a known, rare limitation; a full fix would clip each edge to bounds
- * before chunking).
+ *   2. Each agreement edge is CLIPPED to the visible window (`clipBounds`, via
+ *      `clipPathToBounds`) BEFORE chunking. Culling bounds the edge COUNT but not
+ *      per-edge work: `chunkPath` walks an edge's full polyline, so a long rural
+ *      arc (512 agreement edges exceed 1 km; the longest ~344 km) that merely
+ *      clips the window would, chunking from its OFF-SCREEN start, exhaust the cap
+ *      before reaching the visible part and dump the visible span as one solid
+ *      segment ("the dash retreats"). Clipping drops the off-window geometry in
+ *      O(segments) so chunking runs only on the short visible piece(s) and the
+ *      dash covers the full visible length. This is the fix for symptom 2.
+ *   3. `MAX_CHUNKS_PER_EDGE` caps chunks per (clipped) sub-path as a BACKSTOP. It
+ *      no longer "retreats" inside the window — a visible sub-path is at most a
+ *      screenful (~screen-width / DASH.px ≈ a few hundred dashes), far under 4000.
+ *      Raised from the old freeze-era 120 so the cap can never clip a real on-
+ *      screen line.
  */
 const MAX_CHUNKS_PER_EDGE = 4000;
 
@@ -344,7 +429,8 @@ export function buildEdLayers(
 	alpha: number,
 	width: number,
 	dashLen: number,
-	gapFrac = 0
+	gapFrac = 0,
+	clipBounds: Bbox | null = null
 ): LayerInstance[] {
 	const { PathLayer, COORDINATE_SYSTEM } = deps;
 	if (!edEdges.length) return [];
@@ -378,8 +464,18 @@ export function buildEdLayers(
 		for (const e of grp.list) {
 			const path = e.g as [number, number][];
 			if (useDash) {
-				const chunks = chunkPath(path, dashLen, gapFrac, MAX_CHUNKS_PER_EDGE);
-				for (const ch of chunks) buckets[ch.colorIdx % n].push(ch.coords);
+				// Clip the edge to the visible window FIRST (O(segments)), then chunk
+				// each short in-window sub-path. This is what makes the dash cover the
+				// full visible span at deep zoom: without clipping, a long edge's
+				// off-screen start consumes the per-edge chunk cap and the visible
+				// remainder collapses into one solid dump ("the dash retreats"). With
+				// clipping, chunkPath only runs on the visible piece(s), so the cap
+				// never bites inside the window. The cap stays as a backstop.
+				const subPaths = clipBounds ? clipPathToBounds(path, clipBounds) : [path];
+				for (const sp of subPaths) {
+					const chunks = chunkPath(sp, dashLen, gapFrac, MAX_CHUNKS_PER_EDGE);
+					for (const ch of chunks) buckets[ch.colorIdx % n].push(ch.coords);
+				}
 			} else {
 				// Degenerate (non-positive dashLen): fall back to solid whole-path in
 				// the first map's colour so the line never vanishes.

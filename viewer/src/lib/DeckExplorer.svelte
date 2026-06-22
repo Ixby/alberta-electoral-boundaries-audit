@@ -452,7 +452,11 @@
 						edAlpha(L),
 						edWidth(L),
 						dashWorldLen,
-						DASH.gap
+						DASH.gap,
+						// Clip each agreement edge to the same padded window we culled with,
+						// so its dash covers the FULL visible span at deep zoom instead of
+						// the per-edge cap "retreating" partway along a long off-screen edge.
+						padded
 					)
 				);
 				// Selected-district glow (search result) — drawn under the pins, over the
