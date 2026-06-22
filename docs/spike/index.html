@@ -1,0 +1,643 @@
+<!doctype html>
+<!--
+  ════════════════════════════════════════════════════════════════════════════
+  As a source of pride — the load-time arc of this spike.
+
+  We started at  z5–8 whole-payload  ·  net 5007 ms  ·  31.8 MB  ·  level 6/8.
+  We finished at  level-1 lazy load   ·  first paint 164 ms ·  0.9 MB  ·  z0–10,
+  with the heavy z9/z10 bins (11 MB + 38 MB) deferred until the camera approaches.
+
+  ~38 viewer iterations (app v1 → v38). Across them we:
+    · replaced the dump-the-whole-payload model with per-level binary bins, fetched
+      lazily (level L±1 only) — the single biggest win, ~5000 ms → ~200 ms;
+    · packed tiles as typed arrays (uint32 ring counts + float32 XY) for zero-copy
+      Float32Array views in the viewer, no JSON parse on the hot path;
+    · version-checked IndexedDB cache so warm refresh skips the network entirely;
+    · fixed real bugs along the way — Banff/Lake Louise false rings, Okotoks/High
+      River 3-way line artifacts, ED lines cutting across polling stations, tiles
+      dropping off the mobile viewport on address-bar resize, inter-map drift;
+    · added features without paying for them up front — VA-derived gap-free ED
+      edges, agreement-aware dashed/dotted overlays, crossfade map toggles, the
+      partisan pill-bar tooltip, the zoom slider with a live "1 px ≈ Xm" readout,
+      geographic filters, and the deliberate-choices explainer card.
+
+  Net: ~35× on bytes (31.8 MB → 0.9 MB at first paint) and ~30× on load
+  (5007 ms → 164 ms warm), while the data scale went *deeper* (z8 → z10), not
+  shallower. Driving down first paint was the through-line of every iteration.
+  ════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en"><head><meta charset="utf-8"><title>Map Explorer</title>
+<script>window.__t0 = performance.now();</script>
+<script src="https://unpkg.com/deck.gl@9.0.36/dist.min.js"></script>
+<script>window.__tLib = performance.now();</script>
+<style>
+  html,body{margin:0;height:100%;background:#0c0f1a;font-family:-apple-system,Segoe UI,Roboto,sans-serif}
+  #map{position:absolute;inset:0}
+  #hud{position:absolute;top:10px;left:10px;z-index:5;background:rgba(12,15,26,.82);color:#cfe0f5;
+       padding:10px 13px;border-radius:9px;font-size:12.5px;line-height:1.55;border:1px solid #2a3550;min-width:230px}
+  #hud b{color:#6FD3FB}
+  #hud .lvt{font-family:ui-monospace,Consolas,monospace;font-size:11px;line-height:1.5;margin:6px 0;padding:5px 0;border-top:1px solid #2a3550;border-bottom:1px solid #2a3550}
+  #hud .lv{display:block;cursor:pointer;color:#9fb4d4;padding:0 4px;border-radius:3px;white-space:pre}
+  #hud .lv:hover{background:#1c2942}
+  #hud .lv.cur{color:#eaf2ff;font-weight:600}
+  #hud .lv.cap{background:#6FD3FB;color:#0a1722}
+  #hud .lv.rst{display:inline;color:#6FD3FB;padding:0 4px}
+  #mapsw{position:absolute;top:10px;right:10px;z-index:6;display:flex;flex-direction:column;gap:5px;
+         background:rgba(12,15,26,.82);padding:7px 7px 6px;border-radius:10px;border:1px solid #2a3550}
+  #mapsw .hdr{font-size:11px;font-weight:600;color:#9fb4d4;padding:0 2px}
+  #mapsw .hdr span{font-weight:400;font-size:10px;color:#6b7d99}
+  #mapsw .btns{display:flex;gap:5px}
+  #mapsw button{border:1px solid transparent;background:none;color:#9fb4d4;font:600 13px -apple-system,Segoe UI,sans-serif;
+                padding:6px 12px;border-radius:7px;cursor:pointer}
+  #mapsw #zoom{width:100%;margin:6px 0 2px;accent-color:#6FD3FB;cursor:pointer}
+  #mapsw .res{font-size:11px;color:#9fb4d4;text-align:center}
+  #mapsw .res b{color:#6FD3FB}
+  #mapsw .lines-note{font-size:11px;color:#9fb4d4;line-height:1.5;margin-top:7px;padding-top:7px;border-top:1px solid #2a3550;max-width:228px}
+  #mapsw .lines-note b{color:#cfe0f5}
+  #mapsw .filters{margin-top:7px;padding-top:6px;border-top:1px solid #2a3550;display:flex;flex-direction:column;gap:4px}
+  #mapsw .filters .fhdr{font-size:11px;font-weight:600;color:#9fb4d4}
+  #mapsw .filters label{font-size:12px;color:#cfe0f5;display:flex;align-items:center;gap:6px;cursor:pointer}
+  #mapsw .filters input{accent-color:#6FD3FB;cursor:pointer}
+  #tip{position:absolute;z-index:6;pointer-events:none;background:#f9f7f2;color:#1a2e45;padding:9px 12px;border-radius:8px;
+       font-size:13.5px;line-height:1.45;box-shadow:0 4px 18px rgba(0,0,0,.45);display:none;max-width:250px}
+  #tip .n{font-weight:600;font-family:Palatino,Georgia,serif;font-size:15px;margin-bottom:3px}
+  #tip .vs{white-space:nowrap;margin-top:7px;padding-top:6px;border-top:1px solid #e6e0d2}
+  #tip .bar{display:flex;height:9px;border-radius:5px;overflow:hidden;margin-top:7px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+  #tip .barlbl{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;margin-top:4px}
+  #tip .note{font-size:12px;color:#6b7280;margin-top:7px;line-height:1.4}
+  #tip .flagbody{font-size:12.5px;color:#3a4658;margin-top:5px;line-height:1.5;max-width:260px}
+  #tip .flaglink{font-size:11.5px;color:#1763c8;margin-top:6px;font-weight:600}
+  @media (pointer: coarse){
+    #tip{font-size:16px;max-width:80vw} #tip .n{font-size:18px} #tip .barlbl{font-size:14px} #tip .note{font-size:14px}
+    #mapsw .hdr{font-size:13px} #mapsw .hdr span{font-size:12px}
+    #mapsw button{font-size:15px;padding:9px 15px} #hud{font-size:13px}
+  }
+</style></head>
+<body>
+<div id="map"></div>
+<div id="hud">loading…</div>
+<div id="mapsw">
+  <div class="hdr">Map version <span>· click to toggle</span></div>
+  <div class="btns">
+    <button data-m="minority" class="on">Minority</button>
+    <button data-m="majority" class="on">Majority</button>
+    <button data-m="2019" class="on">2019</button>
+  </div>
+  <input id="zoom" type="range" min="0" max="1" step="0.01">
+  <div class="res">1 pixel ≈ <b id="resval">—</b></div>
+  <div class="filters">
+    <div class="fhdr">Geographic filters</div>
+    <label><input type="checkbox" id="f-hwy" checked> Highways</label>
+    <label><input type="checkbox" id="f-water"> Rivers &amp; lakes</label>
+    <label><input type="checkbox" id="f-pois" checked> Annotations</label>
+  </div>
+  <div class="lines-note">
+    <b>Reading the lines</b><br>
+    Every odd shape or split line is a <b>deliberate choice by the committee</b> — not a data error.
+    Lines follow the edges of polling areas; where two maps agree they sit on the same line, where
+    they split apart the proposals genuinely disagree.
+  </div>
+</div>
+<div id="tip"></div>
+<script>
+const {Deck, OrthographicView, PolygonLayer, PathLayer, ScatterplotLayer} = deck;
+
+// Annotation pins — places where the map looks wrong but is faithful. Hover for the why.
+const FLAGS = [{
+  id: 'banff-town',
+  x: -57871.8, y: -374910.0,
+  title: 'Banff — the town carved out of the park',
+  body: "Banff sits inside a federal national park, as a small municipal island. The minority groups the townsite with Canmore — the next town down the Bow Valley — in “Canmore-Kananaskis,” and leaves the uninhabited park as the riding that carries Banff's name. The boundary hugs the town because it's the only populated spot for miles. It looks like a mistake, but it follows real geography.",}, {
+  id: 'banff-park',
+  x: -55271.8, y: -369910.0,
+  title: 'North of Banff — “Rocky Mountain House–Banff Park”',
+  body: "“Rocky Mountain House–Banff Park” is one of the minority's proposed ridings, made up largely of uninhabited national park; the town of Banff sits in a neighbouring riding to the south. The minority applied the Electoral Boundaries Commission Act's smaller-population provision to this riding — a choice the commission's chair addressed in the final report.",}, {
+  id: 'airdrie-split',
+  x: 50734.9, y: -361975.1,
+  title: 'Airdrie — split four ways',
+  body: "Airdrie's growth and its commute to Calgary (about 76% of out-commuters) could have anchored a single new Airdrie-area seat — the kind the data supports. The minority instead splits the city across four ridings; the population math doesn't require it, and no submission proposed it.",}, {
+  id: 'nolan-hill-cochrane',
+  x: 19244.3, y: -373751.5,
+  title: 'Calgary-Nolan Hill–Cochrane',
+  body: "Cochrane's commute to Calgary could have justified pairing it with the city — but the 2021 journey-to-work data spreads that flow city-wide (about a third of workers; half work within Cochrane) and doesn't point to Nolan Hill. The minority's narrow corridor to the Nolan Hill ward — the shape the chair called a lasso — reaches further than the data, and no submission proposed it.",}, {
+  id: 'olds-airdrie-reach',
+  x: 50979.2, y: -359414.6,
+  title: 'Olds–Three Hills–Didsbury — the Airdrie reach',
+  body: "A rural riding keeping the Highway 2 towns — Olds, Didsbury, Three Hills — together is well supported; Beiseker-area residents wrote in favour of it. It could have stayed within those communities. The minority's version instead reaches south into the northern edge of Airdrie, an extension the population math doesn't require.",}, {
+  id: 'chestermere',
+  x: 64493.7, y: -389679.5,
+  title: 'Chestermere — split between two ridings',
+  body: "Chestermere's heavy commute to Calgary (86% of out-commuters) could have supported keeping it whole and near the city — which residents who opposed a Calgary merger also wanted. The minority instead slices a southern piece into a specific Calgary district it shares no schools or transit with, and that slice fails the population test.",}, {
+  id: 'red-deer',
+  x: 63114.3, y: -253265.0,
+  title: 'Red Deer — the hybrid ridings',
+  body: "Red Deer's regional ties to Blackfalds, Sylvan Lake, Lacombe and Innisfail could have grouped those towns together — a city councillor and residents proposed similar hybrids. The minority's version instead folds parts of the city itself into town-led ridings, thinning urban Red Deer's vote; its “shared schools” rationale also doesn't hold (different school divisions).",}, {
+  id: 'st-albert',
+  x: 72695.3, y: -101273.3,
+  title: 'St. Albert — competing configurations',
+  body: "Either map's version of St. Albert could rest on a reasonable basis. The audit simply found no submission backing the minority's specific alternative — and since citizens rarely name a commission's exact boundaries, it treats the evidence here as thin, not clearly for or against.",}];
+window.addEventListener('error', e => { hud.innerHTML = '<b style="color:#f88">JS ERROR</b><br>'+e.message; });
+window.addEventListener('unhandledrejection', e => { hud.innerHTML = '<b style="color:#f88">REJECT</b><br>'+(e.reason&&e.reason.message||e.reason); });
+const Q = new URLSearchParams(location.search);
+const HWY = Q.get('hwy') === '1';
+const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+const SLOW = +(Q.get('slow') || 0);   // artificial per-bundle delay (ms) to feel staged load on fast links
+const DEBUG = Q.get('debug') === '1'; // ?debug=1 → full instrumentation (timings, level table)
+const POI = Q.get('poi');             // ?poi=banff-park → open focused on that flag, tooltip shown
+const APP_VERSION = 'v58';            // viewer code version (bump on every index.html change)
+let firstPaintMs = 0;                 // ms from navigation to first map paint
+let lastPaintMs = 0;                  // duration of the most recent paint() (JS layer build + submit)
+let lvlMax = 0, lvlSum = 0, lvlN = 0; // deepest + average level the user reaches (zoom targeting)
+const layerFilters = { hwy: false, water: false, pois: true };   // hwy/water auto-enable by zoom; pois on
+let waterData = null, waterLoading = false;   // rivers + lake outlines (NE 10m, lazy-loaded on first toggle)
+const bundleTimes = [];               // {lo, z, src, ms, mb} per payload
+let levelCap = null;                  // clamp render LOD regardless of zoom (null = auto)
+function setCap(z){ levelCap = (z === null || levelCap === z) ? null : z; schedulePaint(); }
+
+let M, lastVS = null, curLevel = 0, curRawLevel = 0, lastPick = '—';
+let provinceData = null, trunkData = null, hwData = null, secondaryData = null;
+let vaProps = [];                    // per-VA props, indexed by id (loaded once)
+const archive = {};                  // "z/x/y" -> [{id, coords:Float32Array}], merged from bundles
+let bundlesLoaded = 0, bundleTotal = 0, archiveBytes = 0;
+const MAPS = ['minority', 'majority', '2019'];
+const mapIdx = mk => MAPS.indexOf(mk);
+let edEdges = [], edOutline = [];    // shared VA-edges {g,m:[min,maj,2019]} + province perimeter
+let vaLines = [];                    // every VA boundary arc → faint hairline outline
+const labels = {};                   // map -> [va_id -> district name]
+let activeMaps = ['minority', 'majority', '2019'];   // ED layers shown — any subset, kept in MAPS order
+const isActive = mk => activeMaps.includes(mk);
+
+const hud = document.getElementById('hud');
+const tip = document.getElementById('tip');
+const zoomSld = document.getElementById('zoom'), resval = document.getElementById('resval');
+async function fetchJSON(u){ const r = await fetch(u, {cache:'no-store'}); if(!r.ok) throw new Error('fetch '+u); return r.json(); }
+const tileData = k => archive[k] || null;
+const edNameFor = (mk, id) => (labels[mk] && labels[mk][id]) || '';
+
+// ── IndexedDB: persist bundles. ONE connection, opened once at parse time and warmed
+// in the background, so the first bundle read doesn't pay the open cost on the critical path.
+const DBN = 'spikeArchive';
+let _dbP;
+function dbConn(){
+  if(!_dbP) _dbP = new Promise(res=>{ const r=indexedDB.open(DBN,1);
+    r.onupgradeneeded=()=>{ if(!r.result.objectStoreNames.contains('t')) r.result.createObjectStore('t'); };
+    r.onsuccess=()=>res(r.result); r.onerror=()=>res(null); });
+  return _dbP;
+}
+dbConn();   // warm the connection now (off the first-paint critical path)
+const CACHE_TTL = 30 * 864e5;         // 30-day hygiene backstop; version mismatch invalidates instantly
+const idbGet = (k,ver) => dbConn().then(db => !db ? null : new Promise(res=>{
+  const q=db.transaction('t').objectStore('t').get(k);
+  q.onsuccess=()=>{ const r=q.result; res((r && r.v!==undefined && r.ver===ver && Date.now()-r.t < CACHE_TTL) ? r.v : null); };
+  q.onerror=()=>res(null); }));
+const idbSet = (k,ver,v) => dbConn().then(db => !db ? false : new Promise(res=>{
+  db.transaction('t','readwrite').objectStore('t').put({t:Date.now(), ver, v}, k); res(true); }));
+
+function pickLevel(zoom){ return Math.max(M.minZoom, Math.min(M.maxZoom, Math.round(zoom + Math.log2(M.side/256)))); }
+
+const PAD = 2;   // extra tile ring so edges stay covered during pan / mobile viewport shifts
+function visibleTiles(vp, L){
+  const n = 2**L, tsize = M.side/n;
+  const [minx,miny] = M.bbox;
+  const b = vp.getBounds();
+  const x0 = Math.max(0, Math.floor((b[0]-minx)/tsize)-PAD), x1 = Math.min(n-1, Math.floor((b[2]-minx)/tsize)+PAD);
+  const y0 = Math.max(0, Math.floor((b[1]-miny)/tsize)-PAD), y1 = Math.min(n-1, Math.floor((b[3]-miny)/tsize)+PAD);
+  const out = []; for(let x=x0;x<=x1;x++) for(let y=y0;y<=y1;y++) out.push([L,x,y]); return out;
+}
+// Best-available: current-level tile if present, else nearest loaded ancestor
+// (covers deep zoom while the z5-8 bundle is still streaming in).
+function featsForView(L, keys){
+  const used = new Set(); let feats = [];
+  for(let [z,x,y] of keys){
+    while(z >= M.minZoom){
+      const k = `${z}/${x}/${y}`, t = tileData(k);
+      if(t){ if(!used.has(k)){ used.add(k); feats = feats.concat(t); } break; }
+      z--; x = Math.floor(x/2); y = Math.floor(y/2);
+    }
+  }
+  return feats;
+}
+// Per-map canonical boundary colours (from the website: constants.ts).
+// Saturated, with width (not lightness) carrying visibility (yellow is fixed: EA canonical).
+const MAP_RGB = { minority:[124,58,196], majority:[58,208,190], '2019':[245,197,24] };  // deep purple / bright teal / Elections Alberta yellow
+// Canonical party colours (viewer/+page.svelte): UCP blue, NDP orange.
+function voteBar(P){
+  const u = P.ucp || 0, n = P.ndp || 0;
+  return `<div class="vs"><b>${(P.votes||0).toLocaleString()}</b> in-person votes</div>`
+    + `<div class="bar"><span style="width:${u}%;background:#142e94"></span><span style="width:${n}%;background:#e86310"></span></div>`
+    + `<div class="barlbl"><span style="color:#142e94">UCP ${u}%</span><span style="color:#c2540e">NDP ${n}%</span></div>`;
+}
+const edAlpha = L => (L<=1 ? 50 : L<=2 ? 110 : L<=3 ? 180 : 255);
+const edWidth = L => (L<=1 ? 1.2 : L<=2 ? 1.9 : L<=3 ? 2.5 : 3.2);
+const DURATION = 600;                 // crossfade between ED groupings on toggle
+const easeInOut = t => t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t+2, 2)/2;
+const DASH = (typeof deck !== 'undefined' && deck.PathStyleExtension) ? new deck.PathStyleExtension({dash:true}) : null;
+const blend = mks => { let r=0,g=0,b=0; for(const mk of mks){const c=MAP_RGB[mk]; r+=c[0];g+=c[1];b+=c[2];} const n=mks.length; return [r/n|0,g/n|0,b/n|0]; };
+function pathL(id, data, getPath, rgb, alpha, width){
+  return new PathLayer({
+    id, data, getPath, getColor:[rgb[0], rgb[1], rgb[2], Math.round(alpha)],
+    widthUnits:'pixels', getWidth: width, widthMinPixels:0.4, capRounded:true, jointRounded:true,
+    updateTriggers:{ getColor:`${rgb.join(',')}:${Math.round(alpha)}`, getWidth: width },
+    coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+  });
+}
+// A "group" = the set of boundary segments shared by exactly the same subset of active maps.
+// Single-map groups render solid in that map's colour; agreement groups (2+ maps) render in the
+// BLEND of those colours, dashed. Toggling crossfades old groups → new groups: boundaries that
+// leave entirely (unique to the turned-off map) fade to nothing; shared ones recolour; unchanged
+// ones overlap old+new and hold steady.
+let edGroups = [], prevGroups = [], transT0 = 0, curOutCol = null, prevOutCol = null, animOn = false;
+function groupsFor(maps){
+  const g = {};
+  for(const e of edEdges){
+    const mks = maps.filter(mk => e.m[mapIdx(mk)]);
+    if(!mks.length) continue;
+    const key = mks.join('+');
+    (g[key] || (g[key] = {mks, key, list:[]})).list.push(e);
+  }
+  return Object.values(g);
+}
+function setGroups(animate){
+  prevGroups = animate ? edGroups : [];
+  prevOutCol = animate ? curOutCol : null;
+  edGroups = groupsFor(activeMaps);
+  curOutCol = activeMaps.length ? blend(activeMaps) : null;   // perimeter = blend of all active
+  transT0 = animate ? performance.now() : 0;
+}
+function edPath(id, list, getPath, rgb, alpha, width, dash){
+  const p = { id, data:list, getPath, getColor:[rgb[0],rgb[1],rgb[2],Math.round(alpha)],
+    widthUnits:'pixels', getWidth:width, widthMinPixels:0.4, capRounded:true, jointRounded:true,
+    updateTriggers:{ getColor:`${rgb}:${Math.round(alpha)}`, getWidth:width }, coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN };
+  if(dash && DASH){ p.extensions=[DASH]; p.getDashArray=dash; p.dashJustified=true; }
+  return new PathLayer(p);
+}
+// Agreement renders as overlaid strokes with distinct patterns per map so each colour shows:
+// 1st map solid · 2nd map dashed · 3rd map dotted.
+const OVERLAY = [null, [11,8], [2,7]];
+function emitGroups(layers, pre, groups, alpha, w){
+  for(const grp of groups){
+    const mks = grp.mks;
+    for(let i=0;i<mks.length;i++)
+      layers.push(edPath(pre+grp.key+i, grp.list, d=>d.g, MAP_RGB[mks[i]], alpha, w, OVERLAY[i] || null));
+  }
+}
+function edLayersFor(L){
+  if(!edEdges.length) return [];
+  const a = edAlpha(L), w = edWidth(L);
+  const p = transT0 ? easeInOut(Math.min(1, (performance.now()-transT0)/DURATION)) : 1;
+  const layers = [];
+  if(prevOutCol) layers.push(pathL('ed-out-old', edOutline, d=>d, prevOutCol, a*(1-p), w));
+  if(curOutCol)  layers.push(pathL('ed-out-new', edOutline, d=>d, curOutCol, a*p, w));
+  emitGroups(layers, 'old-', prevGroups, a*(1-p), w);
+  emitGroups(layers, 'new-', edGroups, a*p, w);
+  return layers;
+}
+function animLoop(){
+  animOn = true;
+  const done = (performance.now() - transT0) >= DURATION;
+  paint();
+  if(!done) requestAnimationFrame(animLoop);
+  else { prevGroups = []; prevOutCol = null; animOn = false; paint(); }
+}
+function buildLayers(L, keys){
+  const feats = featsForView(L, keys);
+  // Default HUD is lean; ?debug=1 brings back the full instrumentation (timings, level table, etc).
+  let dbg = '';
+  if(DEBUG){
+    const W = window, br = (firstPaintMs && W.__tDeck)
+      ? ` <span style="color:#8aa0c2">[lib ${(W.__tLib-W.__t0)|0} · assets ${(W.__tAssets-W.__tLib)|0} · deckctor ${(W.__tDeck-W.__tAssets)|0} · head+gpu ${(firstPaintMs-W.__tDeck)|0}]</span>` : '';
+    const ptimes = bundleTimes.slice().sort((a,b)=>a.lo-b.lo)
+      .map(t=>`${t.z} ${t.src} <b>${t.ms}ms</b> ${t.mb.toFixed(1)}MB`).join(' &nbsp; ') || '…';
+    const heap = performance.memory ? ` · heap <b>${performance.memory.usedJSHeapSize/1e6|0}MB</b>` : '';
+    let cum = 0, rows = '';
+    for(let z=M.minZoom; z<=M.maxZoom; z++){
+      const tol = M.side/(2**z)/256, mb = (M.levelBytes && M.levelBytes[z] || 0)/1e6; cum += mb;
+      const tolS = tol>=1000 ? (tol/1000).toFixed(1)+'km' : Math.round(tol)+'m';
+      const cls = 'lv' + (z===L?' cur':'') + (levelCap===z?' cap':'');
+      rows += `<span class="${cls}" onclick="setCap(${z})">z${z}`+
+        ` ${tolS.padStart(6)} ${String(M.tileCounts[z]||0).padStart(6)}t ${mb.toFixed(2)}MB Σ${cum.toFixed(1)}</span>`;
+    }
+    const capHdr = `cap <b>${levelCap==null?'auto':'z'+levelCap}</b> <span class="lv rst" onclick="setCap(null)">[auto]</span>`;
+    dbg = `tiles <b>${keys.length}</b> · dpr <b>${DPR}</b>/${window.devicePixelRatio||1}${heap}`+
+      `<br>first paint detail${br}<br>${ptimes}<br><div class="lvt">${capHdr}${rows}</div>`;
+  }
+  hud.innerHTML = `<b>deck.gl · EPSG:3401</b> &nbsp; <b>${activeMaps.join('+')||'fills only'}</b> &nbsp; <span style="color:#8aa0c2">data <b>${M.version||'?'}</b> · app <b>${APP_VERSION}</b></span><br>`+
+    `level <b>${curRawLevel}</b>${curRawLevel>M.maxZoom?` <span style="color:#8aa0c2">(z${curLevel} tiles)</span>`:'/'+M.maxZoom}${levelCap!=null?' <span style="color:#6FD3FB">capped</span>':''} &nbsp; max <b>${lvlMax}</b> &nbsp; avg <b>${(lvlN?lvlSum/lvlN:0).toFixed(1)}</b> &nbsp; polys <b>${feats.length}</b> &nbsp; loaded <b>${bundlesLoaded}/${bundleTotal}</b> · <b>${(archiveBytes/1e6).toFixed(1)}MB</b><br>`+
+    `first paint <b>${firstPaintMs ? firstPaintMs+'ms' : '…'}</b> &nbsp; last paint <b>${lastPaintMs}ms</b><br>`+
+    dbg+
+    `last: <b>${lastPick}</b>`;
+  return [
+    new PolygonLayer({
+      id:'province-fill', data:provinceData||[], getPolygon:d=>d, pickable:true,
+      getFillColor:[232,230,224], stroked:false, filled:true,
+      coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    }),
+    new PolygonLayer({
+      id:'va', data:feats, pickable:true,
+      getPolygon:d=>d.coords, positionFormat:'XY',
+      getFillColor:d=>(vaProps[d.id] ? vaProps[d.id].fill : [232,230,224]), stroked:false, filled:true,
+      coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    }),
+    // Faint hairline around every VA so abutting same-colour polls are distinguishable (zoomed in).
+    ...(vaLines.length && L >= 3 ? [new PathLayer({
+      id:'va-outline', data:vaLines, getPath:d=>d,
+      getColor:[205,210,222, L<=3 ? 45 : L<=4 ? 80 : 120], widthUnits:'pixels', getWidth:0.6, widthMinPixels:0.3,
+      updateTriggers:{ getColor:L }, coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    })] : []),
+    // Water as FILLED polygons (OSM river banks + NE lakes), clipped to province. The bank stroke
+    // is real shoreline geometry, so where an ED boundary follows water the two lines coincide —
+    // a community-of-interest reference, not decoration.
+    ...((layerFilters.water && waterData) ? [new PolygonLayer({
+      id:'water', data:waterData, getPolygon:d=>d.path, positionFormat:'XY',
+      filled:true, getFillColor:[20,92,156,150], stroked:true, getLineColor:[8,64,124,235],
+      getLineWidth:0.7, lineWidthUnits:'pixels', lineWidthMinPixels:0.5,
+      coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    })] : []),
+    ...(HWY && hwData ? [new PathLayer({
+      id:'hwy', data:hwData.filter(d => d.major || L >= 5), getPath:d=>d.path,
+      getColor:d=>d.major ? [198,52,40,245] : [208,112,98,195],
+      widthUnits:'pixels', getWidth:d=>d.major ? 1.4 : 0.8, widthMinPixels:0.5, capRounded:true, jointRounded:true,
+      coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    })] : []),
+    // Secondary highways (OSM) under the same Highways toggle — drawn UNDER the trunk in a
+    // desaturated navy (~50% saturation) so the primary corridors stay dominant. Revealed from
+    // level 3 in: at province scale the 23k segments are just noise.
+    ...((secondaryData && secondaryData.length && layerFilters.hwy && L >= 3) ? [new PathLayer({
+      id:'secondary', data:secondaryData, getPath:d=>d.path,
+      getColor:[96, 108, 158, 200],   // navy at ~50% saturation
+      widthUnits:'pixels', getWidth: L <= 4 ? 0.6 : 0.8, widthMinPixels:0.3, capRounded:true, jointRounded:true,
+      updateTriggers: { getWidth: L },
+      coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    })] : []),
+    // Skip empty PathLayers at first paint — defers PathLayer shader compile off the critical frame.
+    ...((trunkData && trunkData.length && layerFilters.hwy) ? [new PathLayer({
+      id:'trunk', data:trunkData, getPath:d=>d.path,
+      getColor:[22, 32, 90, 200],   // navy
+      widthUnits:'pixels', getWidth: L <= 2 ? 1.0 : 1.2, widthMinPixels:0.5, capRounded:true, jointRounded:true,
+      updateTriggers: { getWidth: L },
+      coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    })] : []),
+    ...edLayersFor(L),
+    // Annotation pins on top — "looks wrong, is faithful" markers. Hover for the explanation.
+    ...((FLAGS.length && layerFilters.pois) ? [new ScatterplotLayer({
+      id:'flags', data:FLAGS, pickable:true, getPosition:d=>[d.x, d.y, 0],
+      getRadius:7, radiusUnits:'pixels', radiusMinPixels:5,
+      getFillColor:[210,173,108,255], stroked:true, getLineColor:[88,72,40,255], lineWidthMinPixels:1.4,
+      coordinateSystem: deck.COORDINATE_SYSTEM.CARTESIAN,
+    })] : []),
+  ];
+}
+const lazyTriggered = new Set();
+function maybeLoadLevels(L){            // keep levels 0..L+1 loaded; deeper bins fetch only on approach
+  if(!M) return;
+  for(const b of M.bundles)
+    if(b.lo <= L + 1 && !lazyTriggered.has(b.file)){ lazyTriggered.add(b.file); loadBundle(b); }
+}
+// Detail layers stream in by zoom — highways at level 3, water at level 4 — so the province overview
+// stays clean and first paint loads nothing extra. Each fetches once; the toggle ticks to reflect it,
+// after which it's a normal manual control.
+function loadHwyData(){ if(loadHwyData.done) return; loadHwyData.done = true;
+  fetchJSON('/mapdata/trunk.json').then(d => { trunkData = d; schedulePaint(); });
+  fetchJSON('/mapdata/secondary.json').then(d => { secondaryData = d; schedulePaint(); });
+  if(HWY) fetchJSON('/mapdata/highways.json').then(d => { hwData = d; schedulePaint(); });
+}
+function loadWaterData(){ if(loadWaterData.done) return; loadWaterData.done = true;
+  fetchJSON('/mapdata/water.json').then(d => { waterData = d; schedulePaint(); });
+}
+function maybeAutoLayers(L){
+  if(L >= 3 && !layerFilters._hwyAuto){ layerFilters._hwyAuto = true; layerFilters.hwy = true;
+    const fh = document.getElementById('f-hwy'); if(fh) fh.checked = true; loadHwyData(); schedulePaint(); }
+  if(L >= 4 && !layerFilters._waterAuto){ layerFilters._waterAuto = true; layerFilters.water = true;
+    const fw = document.getElementById('f-water'); if(fw) fw.checked = true; loadWaterData(); schedulePaint(); }
+}
+function paint(){
+  if(!deckgl || !lastVS) return;
+  const vp = new OrthographicView({flipY:false}).makeViewport({width:innerWidth,height:innerHeight,viewState:lastVS});
+  const raw = Math.round(lastVS.zoom + Math.log2(M.side/256));   // uncapped target level — runs as deep as you zoom
+  let L = Math.max(M.minZoom, Math.min(M.maxZoom, raw));          // tile level: data caps at maxZoom (z8 upscales beyond)
+  if(levelCap != null) L = Math.min(L, levelCap);   // visual A/B: what if max level were N
+  curLevel = L; curRawLevel = raw;
+  lvlMax = Math.max(lvlMax, raw); lvlSum += raw; lvlN++;   // track targeted level (deepest + average)
+  maybeLoadLevels(L);
+  maybeAutoLayers(L);
+  syncZoomUI(L);
+  const t0 = performance.now();
+  deckgl.setProps({layers: buildLayers(L, visibleTiles(vp, L))});
+  lastPaintMs = Math.round((performance.now() - t0) * 10) / 10;
+}
+// Slider ↔ view sync + resolution (the simplification tolerance at the rendered level).
+let draggingZoom = false;
+function syncZoomUI(L){
+  if(!M) return;
+  if(!draggingZoom) zoomSld.value = lastVS.zoom;
+  const tol = M.side / (2 ** L) / 256;
+  resval.textContent = tol >= 1000 ? (tol/1000).toFixed(1)+' km' : Math.round(tol)+' m';
+}
+function setZoom(z){
+  if(!lastVS) return;
+  z = Math.max(lastVS.minZoom, Math.min(lastVS.maxZoom, z));
+  update({...lastVS, zoom: z});
+}
+let paintScheduled = false;
+function schedulePaint(){ if(paintScheduled) return; paintScheduled = true; requestAnimationFrame(()=>{ paintScheduled=false; paint(); }); }
+function update(vs){ lastVS = vs; if(deckgl) deckgl.setProps({viewState: vs}); paint(); }
+
+async function loadBundle(b){
+  const t0 = performance.now();
+  const key = b.file;
+  let buf = await idbGet(key, b.ver), src = 'cache';
+  if(!buf){ if(SLOW) await new Promise(r=>setTimeout(r, SLOW)); const r = await fetch('/mapdata/'+b.file); buf = await r.arrayBuffer(); idbSet(key, b.ver, buf); src = 'net'; }
+  decodeBundle(buf);
+  archiveBytes += buf.byteLength;
+  bundlesLoaded++;
+  bundleTimes.push({ lo:b.lo, z:`z${b.lo}-${b.hi}`, src, ms:Math.round(performance.now()-t0), mb:buf.byteLength/1e6 });
+  schedulePaint();
+}
+// Binary bundle → archive tiles of {id, coords:Float32Array(XY)} (zero-copy views into buf).
+function decodeBundle(buf){
+  const dv = new DataView(buf);
+  const hlen = dv.getUint32(0, true);
+  const header = JSON.parse(new TextDecoder().decode(new Uint8Array(buf, 4, hlen)));
+  const bodyOff = 4 + hlen + ((-(4 + hlen)) % 4 + 4) % 4;   // body is 4-byte aligned
+  for(const k in header) archive[k] = decodeTile(buf, dv, bodyOff + header[k][0]);
+}
+function decodeTile(buf, dv, off){
+  const nRings = dv.getUint32(off, true); off += 4;
+  const feats = new Array(nRings);
+  for(let i=0;i<nRings;i++){
+    const vid = dv.getUint16(off, true), nPts = dv.getUint16(off+2, true); off += 4;
+    feats[i] = { id: vid, coords: new Float32Array(buf, off, nPts*2) };
+    off += nPts*2*4;
+  }
+  return feats;
+}
+// Colour-code each button to its map's line colour: filled when on, outlined when off (a legend).
+function styleButtons(){
+  document.querySelectorAll('#mapsw button').forEach(btn => {
+    const c = MAP_RGB[btn.dataset.m], rgb = `rgb(${c.join(',')})`;
+    const dark = (0.2126*c[0] + 0.7152*c[1] + 0.0722*c[2]) > 150 ? '#1a2230' : '#fff';
+    btn.style.borderColor = rgb;
+    if(isActive(btn.dataset.m)){ btn.style.background = rgb; btn.style.color = dark; }
+    else { btn.style.background = 'transparent'; btn.style.color = rgb; }
+  });
+}
+// Each button is an independent toggle — any combination of the three can be on (or none).
+function toggleMap(mk){
+  if(isActive(mk)) activeMaps = activeMaps.filter(m => m !== mk);
+  else activeMaps = MAPS.filter(m => m === mk || isActive(m));
+  // Instant switch (no crossfade): the crossfade emitted the OLD and NEW groupings — and their
+  // dashed agreement overlays — simultaneously in one frame, which froze the tab on toggle once the
+  // boundaries became dense multi-hot canonical lines. Agreement still renders; only the 600ms
+  // animated transition is dropped.
+  setGroups(false);
+  styleButtons();
+  schedulePaint();
+}
+document.querySelectorAll('#mapsw button').forEach(btn => {
+  btn.title = 'Toggle this map on/off';
+  btn.onclick = () => toggleMap(btn.dataset.m);
+});
+styleButtons();
+{ const fh = document.getElementById('f-hwy'), fw = document.getElementById('f-water');
+  // Checkboxes reflect layer state (both start off; they auto-tick when zoom enables them). Manual
+  // check loads the data on demand.
+  if(fh){ fh.checked = layerFilters.hwy; fh.onchange = e => { layerFilters.hwy = e.target.checked;
+    if(e.target.checked) loadHwyData(); schedulePaint(); }; }
+  if(fw){ fw.checked = layerFilters.water; fw.onchange = e => { layerFilters.water = e.target.checked;
+    if(e.target.checked) loadWaterData(); schedulePaint(); }; }
+  const fp = document.getElementById('f-pois');
+  if(fp){ fp.checked = layerFilters.pois; fp.onchange = e => { layerFilters.pois = e.target.checked; schedulePaint(); }; } }
+
+let deckgl;
+(async function(){
+  // Critical path: manifest + province fill + per-VA props (needed to colour the head).
+  M = await fetchJSON('/mapdata/manifest.json');
+  provinceData = await fetchJSON('/mapdata/province.json');
+  vaProps = await fetchJSON('/mapdata/va_props.json');
+  window.__tAssets = performance.now();
+  bundleTotal = M.bundles.length;
+
+  const [minx,miny,maxx,maxy] = M.bbox;
+  const cx=(minx+maxx)/2, cy=(miny+maxy)/2;
+  const z = 1 - Math.log2(M.side/256);   // level 1 on every device (consistent overview, centred)
+  const initial = {target:[cx,cy,0], zoom:z, minZoom:z, maxZoom:z+22};   // level 1 floor; free-zoom past z10 (data caps at z10, pixels keep magnifying)
+  // Deep link: ?poi=<id> opens focused on that pin (e.g. linked from the report) at ~level 8.
+  const poiFlag = POI && FLAGS.find(f => f.id === POI);
+  if(poiFlag){
+    initial.target = [poiFlag.x, poiFlag.y, 0];
+    initial.zoom = Math.min(initial.maxZoom, 6 - Math.log2(M.side/256));
+  }
+
+  const cv = document.createElement('canvas');
+  cv.style.width='100%'; cv.style.height='100%'; cv.style.display='block';
+  cv.width = innerWidth; cv.height = innerHeight;
+  document.getElementById('map').appendChild(cv);
+
+  lastVS = initial;
+  deckgl = new Deck({
+    canvas: cv, width: innerWidth, height: innerHeight,
+    views: new OrthographicView({flipY:false}),
+    viewState: initial,   // controlled, so the zoom slider can drive it
+    controller: {scrollZoom: {smooth: true}},
+    useDevicePixels: DPR,
+    onHover: (info) => {
+      const o = info.object;
+      if(!o){ tip.style.display='none'; return; }
+      tip.style.display='block'; tip.style.left=(info.x+12)+'px'; tip.style.top=(info.y+12)+'px';
+      if(info.layer && info.layer.id === 'flags'){
+        tip.innerHTML = `<div class="n">${o.title}</div><div class="flagbody">${o.body}</div>`
+          + `<div class="flaglink">Click to zoom in</div>`;
+        lastPick = o.title; return;
+      }
+      if(info.layer && info.layer.id === 'va'){
+        const P = vaProps[o.id] || {};
+        const shown = activeMaps.length ? activeMaps : ['minority'];
+        const names = shown.map(mk => edNameFor(mk, o.id) || '(unassigned)');
+        const agree = names.every(n => n === names[0]);   // all active maps put this poll in the same district
+        const ed = names[0];
+        // Agree → district shown once. Differ (a proposed rename) → each map's district in its colour.
+        const distCmp = agree ? '' :
+          `<div class="vs">` + shown.map((mk,i) =>
+            `<span style="color:rgb(${MAP_RGB[mk].join(',')})">■</span> ${names[i]}`).join('<br>') + `</div>`;
+        const title = agree ? ed : P.name;
+        const where = P.community ? `${P.name==title?'':P.name+' · '}${P.cin ? 'in' : 'near'} ${P.community}` : (P.name==title?'':P.name);
+        const pale = P.fill && (P.fill[0]+P.fill[1]+P.fill[2]) >= 666;
+        if(pale){
+          const some = (P.ucp + P.ndp) > 0;
+          tip.innerHTML = `<div class="n">${title}</div>${where}${distCmp}`
+            + (some ? voteBar(P) : ``)
+            + `<div class="note">${some
+                ? "A sparsely populated area — with few votes cast here, the colour stays close to the map's neutral baseline."
+                : "No votes were recorded here, so this area shows the map's neutral baseline tone."}</div>`;
+          lastPick = `${P.name} → ${ed} (~empty)`;
+        } else {
+          tip.innerHTML = `<div class="n">${title}</div>${where}${distCmp}` + voteBar(P);
+          lastPick = `${P.name} → ${ed}`;
+        }
+      } else {
+        tip.innerHTML = `<div class="n">No one votes here</div>No polling division covers this spot — nobody is recorded living or voting here, so it stays the map's neutral tone.`;
+        lastPick = '(no voting area)';
+      }
+    },
+    onViewStateChange: ({viewState}) => { update(viewState); },   // free pan/zoom at every level
+    onClick: (info) => {                       // clicking an annotation pin zooms in and centres on it
+      if(info.layer && info.layer.id === 'flags' && info.object){
+        const tz = 6 - Math.log2(M.side/256);  // level 6
+        update({...lastVS, target:[info.object.x, info.object.y, 0],
+          zoom: Math.min(lastVS.maxZoom, Math.max(lastVS.minZoom, tz))});
+      }
+    },
+    layers: [],
+  });
+  deckgl.setProps({width: innerWidth, height: innerHeight});
+  window.__deck = deckgl; window.__M = M; window.__tDeck = performance.now();
+
+  // Keep deck sized to the viewport — mobile address bars resize it, which otherwise drops
+  // tiles off the bottom/right edge.
+  const onResize = () => { cv.width = innerWidth; cv.height = innerHeight;
+    deckgl.setProps({width: innerWidth, height: innerHeight}); schedulePaint(); };
+  addEventListener('resize', onResize);
+  if(window.visualViewport) visualViewport.addEventListener('resize', onResize);
+
+  // Zoom slider: left = whole province (coarse), right = deepest level. Drives the view, reads back.
+  zoomSld.min = (1 - Math.log2(M.side/256)).toFixed(2);            // level 1 (1 px ≈ 2.4 km) — coarsest scale
+  zoomSld.max = (M.maxZoom - Math.log2(M.side/256)).toFixed(2);    // level 10 (1 px ≈ 4.8 m) — finest data scale (camera free-zooms past, slider stops here)
+  zoomSld.value = initial.zoom;
+  zoomSld.oninput = () => { draggingZoom = true; setZoom(+zoomSld.value); };
+  zoomSld.onchange = () => { draggingZoom = false; };
+
+  // Post-paint layers (loaded one at a time, value-ordered).
+  async function loadEd(){
+    const ee = await fetchJSON('/mapdata/ed_edges.json');   // district boundaries — highest value
+    edEdges = ee.edges; edOutline = ee.outline;
+    setGroups(false);   // initial grouping for the currently-active maps (no animation)
+    schedulePaint();
+  }
+  async function loadLabels(){ for(const mk of M.maps) labels[mk] = await fetchJSON('/mapdata/valabels_'+mk+'.json'); }
+  async function loadVaLines(){ vaLines = await fetchJSON('/mapdata/va_lines.json'); schedulePaint(); }
+
+  // Load view-first: the bundle covering the INITIAL level gates first paint (sharp, no
+  // coarse-fallback flash), then nearest levels stream in — finer for zoom-in, coarser for
+  // zoom-out. Sequential (parse-bound) to avoid main-thread storms.
+  (async function loadAll(){
+    let L0 = pickLevel(initial.zoom); if(levelCap != null) L0 = Math.min(L0, levelCap);
+    const head = M.bundles.find(b => b.lo <= L0 && L0 <= b.hi) || M.bundles[0];
+    lazyTriggered.add(head.file);
+    await loadBundle(head);           // the bin for the initial level — gates first paint
+    update(initial);
+    // Capture first paint with an idle main thread, BEFORE any further loading.
+    await new Promise(r => requestAnimationFrame(()=>{ firstPaintMs = Math.round(performance.now()); schedulePaint(); r(); }));
+    await loadEd();                   // district lines
+    await loadLabels();               // tooltips work
+    if(poiFlag){                      // deep link: surface the focused pin's note on arrival
+      const vp = new OrthographicView({flipY:false}).makeViewport({width:innerWidth,height:innerHeight,viewState:lastVS});
+      const [sx,sy] = vp.project([poiFlag.x, poiFlag.y]);
+      tip.style.display='block'; tip.style.left=(sx+14)+'px'; tip.style.top=(sy+14)+'px';
+      tip.innerHTML = `<div class="n">${poiFlag.title}</div><div class="flagbody">${poiFlag.body}</div>`;
+    }
+    maybeLoadLevels(L0);              // backfill coarse + one level of lookahead (more on zoom-in)
+    await loadVaLines();              // VA hairline outline — lowest priority, last
+  })();
+})();
+</script>
+</body></html>
