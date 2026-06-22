@@ -1,9 +1,8 @@
 // Framework-free data layer for the deck.gl map explorer.
 //
 // Pure TypeScript: NO Svelte, NO `$app/paths` — kept unit-testable in node.
-// Ported from the validated prototype at viewer/static/spike/index.html and the
-// integration spine viewer/src/lib/DeckSpike.svelte (which has a correct
-// `decodeBundle`). Two concerns:
+// Ported from the validated prototype at viewer/static/spike/index.html (whose
+// `decodeBundle` this mirrors). Two concerns:
 //
 //   1. decodeBundle / decodeTile — parse the binary tile bundle into a map of
 //      { id, coords } features, keyed by tile key, with zero-copy Float32Array

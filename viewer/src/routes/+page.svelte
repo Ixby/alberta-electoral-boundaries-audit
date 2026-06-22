@@ -73,6 +73,12 @@
   // the deck.gl path never runs at build time. ?nowebgl=1 forces the SVG path.
   let useDeck      = $state(false);   // true → render DeckExplorer in the stage
   let deckOverlayOpen = $state(false); // true → DeckExplorer is mounted + visible
+  // Gates the hero launch button. Stays false through SSR and the hydration gap
+  // so the first click can never land on an unbound handler (the "double-click to
+  // open" bug). Flipped true in onMount the instant the renderer choice is known —
+  // BEFORE any preference-loading awaits, so a slow/rejecting await can never leave
+  // the button stuck disabled.
+  let explorerReady = $state(false);
   let deckInitialPoi = $state<string | null>(null); // FLAGS id to focus when the deck mounts (?poi deep link)
   let _deckTrapCleanup: (() => void) | null = null;
 
@@ -103,6 +109,10 @@
 
   async function handleZoomTrigger(e: Event): Promise<void> {
     e.preventDefault();
+    // Guard: until the page has hydrated and the renderer choice is known, the
+    // button is presented as busy (aria-disabled) and clicks are ignored — so a
+    // click can never land on a not-yet-wired handler (the double-click bug).
+    if (!explorerReady) return;
     if (useDeck) {
       // WebGL path: deck.gl explorer in the shared shell. Do NOT load/open the
       // SVG engine in this branch. A hero-button open is not a deep link, so
@@ -298,6 +308,27 @@
     if (poiParam && useDeck && FLAGS.some((f) => f.id === poiParam)) {
       deckInitialPoi = poiParam;
       openDeck();
+    }
+
+    // Renderer choice is now known and both open paths (deck / SVG fallback) are
+    // wired. Enable the launch button. Done here — before the preference awaits
+    // below — so a slow or rejecting await can never leave the button disabled.
+    explorerReady = true;
+
+    // Idle-prefetch the deck.gl chunk so the eventual overlay-open import resolves
+    // from cache. Browser-only, deck-path only, fire-and-forget; never blocks the
+    // critical path and swallows all errors. Specifiers are byte-identical to
+    // DeckExplorer's dynamic imports so Vite serves the same cached chunk.
+    if (useDeck) {
+      const warmDeck = () => {
+        Promise.all([
+          import('@deck.gl/core'),
+          import('@deck.gl/layers'),
+          import('@deck.gl/extensions')
+        ]).catch(() => {});
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(warmDeck);
+      else setTimeout(warmDeck, 1200);
     }
 
     window.addEventListener('beforeunload', flushTelemetry);
@@ -567,7 +598,7 @@
       <span class="badge">{t(lang.current, 'hero.badge')}</span>
       <p class="cover-note">{t(lang.current, 'hero.cover_note')}</p>
     </div>
-    <button id="zoom-trigger" class="hero-map-btn" title={t(lang.current, 'hero.btn_title')} aria-label={t(lang.current, 'hero.btn_aria')} onclick={handleZoomTrigger}>
+    <button id="zoom-trigger" class="hero-map-btn" class:is-loading={!explorerReady} title={t(lang.current, 'hero.btn_title')} aria-label={t(lang.current, 'hero.btn_aria')} aria-disabled={!explorerReady} aria-busy={!explorerReady} onclick={handleZoomTrigger}>
       <div class="hero-map-wrap">
         <picture>
           <source type="image/webp" srcset="images/cover_art.webp 680w" sizes="(min-width: 600px) 339px, 90vw">
@@ -2076,6 +2107,28 @@
       background: none; border: none; padding: 0;
       flex-shrink: 0; cursor: zoom-in;
       display: block;
+    }
+    /* Hydration gap: the renderer choice is not yet known, so the launch button
+       is busy. Subtle affordance only — the cover art stays at full opacity; the
+       map hint dims and shows a small spinner, and the cursor reads "wait". */
+    .hero-map-btn.is-loading { cursor: wait; }
+    .hero-map-btn.is-loading .hero-map-hint {
+      opacity: 0.7;
+    }
+    .hero-map-btn.is-loading .hero-map-hint::before {
+      content: "";
+      display: inline-block;
+      width: 0.7em; height: 0.7em;
+      margin-inline-end: 0.45em;
+      vertical-align: -0.08em;
+      border: 2px solid rgba(255,255,255,0.45);
+      border-top-color: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      animation: hero-map-spin 0.7s linear infinite;
+    }
+    @keyframes hero-map-spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-map-btn.is-loading .hero-map-hint::before { animation: none; }
     }
     .hero-map-wrap {
       position: relative;
