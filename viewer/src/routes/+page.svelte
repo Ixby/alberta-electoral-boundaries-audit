@@ -67,8 +67,48 @@
     return _mePromise;
   }
 
+  // ── Renderer selection (deck.gl vs SVG fallback) ──────────────────────────
+  // useDeck is decided ONCE in onMount (browser only). During SSR/prerender it
+  // stays false, so the SVG markup (#zoom-obj + skeleton) is what gets emitted —
+  // the deck.gl path never runs at build time. ?nowebgl=1 forces the SVG path.
+  let useDeck      = $state(false);   // true → render DeckExplorer in the stage
+  let deckOverlayOpen = $state(false); // true → DeckExplorer is mounted + visible
+  let _deckTrapCleanup: (() => void) | null = null;
+
+  // Open the existing #zoom-overlay shell for the deck path. mapEngine.init()
+  // (which wires close/Esc/focus-trap for the SVG path) is intentionally NOT
+  // called here, so we replicate the shell behaviour ourselves: show the
+  // dialog, lock body scroll, mount DeckExplorer via the {#if}, and install a
+  // focus trap whose Escape handler closes the deck path.
+  function openDeck(): void {
+    const overlay = document.getElementById('zoom-overlay');
+    if (!overlay) return;
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    deckOverlayOpen = true;
+    // Trap focus inside the overlay; Escape closes the deck path.
+    // (Imperative, not the use:focusTrap action — keeps it deck-only so it can
+    //  never collide with overlay.ts's own Tab trap on the SVG path.)
+    _deckTrapCleanup = createFocusTrap(overlay as HTMLElement, closeDeck);
+  }
+
+  function closeDeck(): void {
+    if (_deckTrapCleanup) { _deckTrapCleanup(); _deckTrapCleanup = null; }
+    const overlay = document.getElementById('zoom-overlay');
+    if (overlay) overlay.style.display = 'none';
+    document.body.style.overflow = '';
+    deckOverlayOpen = false; // unmounts DeckExplorer → its onMount cleanup runs deckgl.finalize()
+  }
+
   async function handleZoomTrigger(e: Event): Promise<void> {
     e.preventDefault();
+    if (useDeck) {
+      // WebGL path: deck.gl explorer in the shared shell. Do NOT load/open the
+      // SVG engine in this branch.
+      openDeck();
+      return;
+    }
+    // Fallback path (no WebGL or ?nowebgl=1): the production inline-SVG engine.
     await ensureMapLoaded();
     _ME?.openOverlay();
   }
@@ -101,7 +141,9 @@
   import { t } from '$lib/i18n/dict';
   import LanguageSelector from '$lib/components/LanguageSelector.svelte';
   import Gloss from '$lib/components/Gloss.svelte';
-  import { focusTrap } from '$lib/a11y/focusTrap';
+  import { focusTrap, createFocusTrap } from '$lib/a11y/focusTrap';
+  import DeckExplorer from '$lib/DeckExplorer.svelte';
+  import { hasWebGL } from '$lib/deckExplorer/webglSupport';
 
   // ── Share / participation state ───────────────────────────────────────────
   let navOpen           = $state(false);
@@ -236,6 +278,11 @@
   });
 
   onMount(async () => {
+
+    // Pick the map renderer once, in the browser: deck.gl when WebGL is
+    // available and ?nowebgl=1 is absent; otherwise the inline-SVG engine.
+    // (Decided on mount so prerender always emits the SVG markup.)
+    useDeck = hasWebGL(new URLSearchParams(location.search).has('nowebgl'));
 
     window.addEventListener('beforeunload', flushTelemetry);
     _telemetryInterval = setInterval(flushTelemetry, 30_000);
@@ -1400,7 +1447,8 @@
 
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label={t(lang.current, 'chrome.lightbox.map_aria')} style="display:none;">
-  <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')}>&times;</button>
+  <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')} onclick={() => { if (useDeck) closeDeck(); }}>&times;</button>
+  {#if !useDeck}
   <div id="hud">
   {#if !devNoticeDismissed}
     <div id="map-dev-notice" role="note">
@@ -1534,8 +1582,14 @@
   </div>
   <div id="map-load-error" style="display:none;"></div>
   </div><!-- /#hud -->
+  {/if}
   <div id="sr-announce" role="status" aria-live="polite" class="sr-only"></div>
   <div id="zoom-stage">
+    {#if useDeck}
+      {#if deckOverlayOpen}
+        <DeckExplorer base={base} initialPoi={null} />
+      {/if}
+    {:else}
     <div id="zoom-skeleton" aria-hidden="true">
       <!-- Alberta province outline — 31-pt RDP simplification, perimeter ≈ 1872 SVG units -->
       <div class="skel-inner">
@@ -1555,6 +1609,7 @@
     </div>
     <object id="zoom-obj" type="image/svg+xml" data=""
       title={t(lang.current, 'chrome.map.object_title')}></object>
+    {/if}
   </div>
   <div id="ed-tooltip"></div>
   <div id="map-attribution">
