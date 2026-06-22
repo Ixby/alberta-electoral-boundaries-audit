@@ -1,0 +1,29 @@
+# Stable local dev server for the viewer, in a Linux container — avoids the
+# Windows Vite file-watch/EBUSY crashes and the host background-process flakiness.
+#
+#   docker compose -f docker-compose.dev.yml up --build      # foreground (Ctrl-C to stop)
+#   docker compose -f docker-compose.dev.yml up -d --build    # background
+#   docker compose -f docker-compose.dev.yml logs -f          # follow logs
+#   docker compose -f docker-compose.dev.yml down             # stop
+#
+# Then open http://localhost:5180/
+services:
+  viewer-dev:
+    build:
+      context: ./viewer
+      dockerfile: Dockerfile.dev
+    working_dir: /app/viewer
+    command: npm run dev -- --host 0.0.0.0 --port 5180
+    ports:
+      - '5180:5180'
+    volumes:
+      # Repo root -> /app, so the dev asset plugin's `../docs` (one level above
+      # viewer/) resolves inside the container.
+      - ./:/app
+      # Anonymous volume: keep the image's Linux node_modules, don't let the
+      # host's (Windows) node_modules shadow it through the bind mount above.
+      - /app/viewer/node_modules
+    environment:
+      # Reliable HMR across the Windows -> Linux bind mount (native fs events
+      # don't propagate, so chokidar must poll).
+      - CHOKIDAR_USEPOLLING=true

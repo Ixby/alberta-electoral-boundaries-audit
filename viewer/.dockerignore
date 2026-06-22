@@ -1,0 +1,11 @@
+# The dev image only needs package.json + package-lock.json (deps baked for
+# caching); everything else is bind-mounted at runtime. Keep the build context tiny.
+node_modules
+build
+.svelte-kit
+static
+src
+tests
+scripts
+*.md
+.env*
