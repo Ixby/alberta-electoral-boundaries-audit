@@ -10,7 +10,16 @@
 // restricts the include glob to tests/**/*.test.ts — same as loader.test.ts.
 
 import { describe, it, expect } from 'vitest';
-import { groupsFor, chunkPath, MAPS, type Edge } from '../../src/lib/deckExplorer/layers';
+import {
+	groupsFor,
+	chunkPath,
+	edgeBbox,
+	bboxIntersects,
+	padBbox,
+	MAPS,
+	type Edge,
+	type Bbox
+} from '../../src/lib/deckExplorer/layers';
 
 // MAPS order is ['minority','majority','2019']; `m` is one-hot/multi-hot over
 // that index. Edge 4 (2019-only) is present to exercise the "no active map" drop.
@@ -166,6 +175,64 @@ describe('chunkPath', () => {
 				0
 			)
 		).toEqual([]);
+	});
+});
+
+// The viewport cull: edgeBbox precomputes each edge's world bbox ONCE on load;
+// bboxIntersects / padBbox decide which edges are chunked per paint. Together with
+// chunkPath's MAX_CHUNKS cap they bound deep-zoom geometry so the map can't crash.
+describe('edgeBbox', () => {
+	it('computes the tight axis-aligned bbox of an edge polyline', () => {
+		const e: Edge = {
+			g: [
+				[10, 5],
+				[-3, 40],
+				[22, -8]
+			],
+			m: [1, 1, 0]
+		};
+		expect(edgeBbox(e)).toEqual([-3, -8, 22, 40]);
+	});
+
+	it('handles a single-vertex edge (degenerate point box)', () => {
+		expect(edgeBbox({ g: [[7, 9]], m: [1, 0, 0] })).toEqual([7, 9, 7, 9]);
+	});
+
+	it('returns a zero box for empty geometry', () => {
+		expect(edgeBbox({ g: [], m: [1, 0, 0] })).toEqual([0, 0, 0, 0]);
+	});
+});
+
+describe('bboxIntersects', () => {
+	const a: Bbox = [0, 0, 10, 10];
+	it('overlapping boxes intersect', () => {
+		expect(bboxIntersects(a, [5, 5, 15, 15])).toBe(true);
+	});
+	it('a box fully inside intersects', () => {
+		expect(bboxIntersects(a, [2, 2, 4, 4])).toBe(true);
+	});
+	it('touching edges count as intersecting', () => {
+		expect(bboxIntersects(a, [10, 0, 20, 10])).toBe(true);
+	});
+	it('disjoint boxes (to the right) do not intersect', () => {
+		expect(bboxIntersects(a, [11, 0, 20, 10])).toBe(false);
+	});
+	it('disjoint boxes (below) do not intersect', () => {
+		expect(bboxIntersects(a, [0, -20, 10, -1])).toBe(false);
+	});
+});
+
+describe('padBbox', () => {
+	it('expands by frac of width/height on each side', () => {
+		// width 100, height 40; 25% → ±25 in x, ±10 in y.
+		expect(padBbox([0, 0, 100, 40], 0.25)).toEqual([-25, -10, 125, 50]);
+	});
+	it('a culled edge becomes visible once the bounds are padded out to it', () => {
+		// Edge bbox just outside the raw window but inside the 25%-padded window.
+		const edge: Bbox = [104, 20, 106, 22];
+		const win: Bbox = [0, 0, 100, 40];
+		expect(bboxIntersects(edge, win)).toBe(false);
+		expect(bboxIntersects(edge, padBbox(win, 0.25))).toBe(true);
 	});
 });
 

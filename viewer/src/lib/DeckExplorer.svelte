@@ -31,7 +31,11 @@
 		buildHairlines,
 		buildBasemap,
 		buildPois,
-		type Edge
+		edgeBbox,
+		bboxIntersects,
+		padBbox,
+		type Edge,
+		type Bbox
 	} from '$lib/deckExplorer/layers';
 	import { FLAGS } from '$lib/deckExplorer/pois';
 	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
@@ -209,6 +213,9 @@
 			let vaProps: { fill?: [number, number, number]; [k: string]: unknown }[] = [];
 			const archive: TileArchive = {};
 			let edEdges: Edge[] = [];
+			// Per-edge world bbox, parallel-indexed to `edEdges`. Precomputed ONCE when
+			// ed_edges.json loads so the per-paint viewport cull is a cheap box test.
+			let edBboxes: Bbox[] = [];
 			let vaLines: number[][][] = [];
 			const labels: Record<string, Record<number, string>> = {};
 			let waterData: { path: number[][] }[] | null = null;
@@ -361,7 +368,11 @@
 			}
 
 			// ── Paint loop ─────────────────────────────────────────────────────────
-			function buildLayers(L: number, keys: [number, number, number][]) {
+			function buildLayers(
+				L: number,
+				keys: [number, number, number][],
+				vp: { getBounds: () => number[] }
+			) {
 				const feats = featsForView(keys);
 				if (DEBUG) lastPolyCount = feats.length; // visible feature count for the HUD
 				// deck.gl layer instances are opaque here (builders are deck-free / DI); the array is
@@ -419,11 +430,25 @@
 				// via the current OrthographicView scale (2**zoom).
 				const scale = 2 ** ((lastVS?.zoom as number) ?? 0);
 				const dashWorldLen = DASH.px / scale;
+				// Viewport-cull the agreement edges BEFORE chunking. `getBounds()` returns
+				// the visible world bounds in the same EPSG:3401 space as the edge geometry
+				// (it is the exact source `visibleTiles` already trusts). Pad 25% so edges
+				// stay covered through small pans between paints. At deep zoom only a handful
+				// of edges' bboxes intersect the tiny window → bounded chunk geometry → no
+				// GPU blowup (the per-edge MAX_CHUNKS cap in chunkPath bounds the long-edge
+				// case). Each ed_edges.json edge already carries its world path, so an edge
+				// whose bbox overlaps the window is chunked fully along its visible length.
+				const vb = vp.getBounds() as Bbox;
+				const padded = padBbox(vb, 0.25);
+				const visibleEdges =
+					edBboxes.length === edEdges.length
+						? edEdges.filter((_, i) => bboxIntersects(edBboxes[i], padded))
+						: edEdges;
 				layers.push(
 					...buildEdLayers(
 						deckClasses,
 						activeMaps,
-						edEdges,
+						visibleEdges,
 						edAlpha(L),
 						edWidth(L),
 						dashWorldLen,
@@ -534,7 +559,7 @@
 				maybeAutoLayers(L);
 				syncZoomUI(L);
 				const t0 = DEBUG ? performance.now() : 0;
-				deckgl.setProps({ layers: buildLayers(L, visibleTiles(vp, L)) });
+				deckgl.setProps({ layers: buildLayers(L, visibleTiles(vp, L), vp) });
 				if (DEBUG) {
 					lastPaintMs = Math.round((performance.now() - t0) * 10) / 10;
 					renderHud(L);
@@ -784,6 +809,9 @@
 			async function loadEd() {
 				const ee = await fetchJSON<{ edges: Edge[]; outline: number[][] }>('ed_edges.json');
 				edEdges = ee.edges;
+				// Precompute each edge's world bbox once (parallel array) for the per-paint
+				// viewport cull. ~2790 edges → a one-time O(vertices) pass, never per frame.
+				edBboxes = edEdges.map(edgeBbox);
 				schedulePaint();
 			}
 			async function loadLabels() {

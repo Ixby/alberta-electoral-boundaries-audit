@@ -189,6 +189,48 @@ export interface Edge {
 	m: number[];
 }
 
+/** An axis-aligned bounding box `[minx, miny, maxx, maxy]` in world units. */
+export type Bbox = [number, number, number, number];
+
+/**
+ * Axis-aligned bounding box of an edge's polyline, in world units. Computed ONCE
+ * when `ed_edges.json` loads (a parallel array indexed like `edEdges`), never per
+ * paint frame, so the viewport cull is a cheap box-overlap test on the hot path.
+ * Returns a degenerate box at the origin for empty geometry.
+ */
+export function edgeBbox(edge: Edge): Bbox {
+	const g = edge.g;
+	if (!g || !g.length) return [0, 0, 0, 0];
+	let minx = g[0][0],
+		miny = g[0][1],
+		maxx = g[0][0],
+		maxy = g[0][1];
+	for (let i = 1; i < g.length; i++) {
+		const x = g[i][0],
+			y = g[i][1];
+		if (x < minx) minx = x;
+		else if (x > maxx) maxx = x;
+		if (y < miny) miny = y;
+		else if (y > maxy) maxy = y;
+	}
+	return [minx, miny, maxx, maxy];
+}
+
+/** True if two axis-aligned bounding boxes overlap (touching counts). Used to
+ *  cull edges whose bbox does not intersect the (padded) visible world bounds. */
+export function bboxIntersects(a: Bbox, b: Bbox): boolean {
+	return !(a[2] < b[0] || a[0] > b[2] || a[3] < b[1] || a[1] > b[3]);
+}
+
+/** Expand a world bounds box outward by `frac` of its width/height on each side.
+ *  A ~25% margin keeps edges covered through small pans / mobile address-bar
+ *  resizes between paints (mirrors the tile `PAD` ring idea for edge geometry). */
+export function padBbox(b: Bbox, frac: number): Bbox {
+	const mx = (b[2] - b[0]) * frac;
+	const my = (b[3] - b[1]) * frac;
+	return [b[0] - mx, b[1] - my, b[2] + mx, b[3] + my];
+}
+
 /** A group of boundary segments shared by exactly the same subset of active
  *  maps. `mks` is that subset (in the order maps were passed), `key` is
  *  `mks.join('+')`, and `list` is the edges in the group. */
@@ -275,11 +317,25 @@ function edPath(
  * current view scale (DASH_PX / 2**zoom) so dashes stay ~constant in screen pixels.
  * `gapFrac > 0` skips a gap of `dashLen * gapFrac` after each chunk (dash-with-gap).
  *
- * Perf guard: chunking runs on the paint/rebuild path, and `edEdges` is the full
- * province set (no viewport cull here). At deep zoom `dashLen` shrinks, so we cap
- * chunks-per-edge via `chunkPath`'s `maxChunks` to keep allocation bounded.
+ * Perf guard — TWO independent bounds keep deep zoom from exploding the GPU:
+ *   1. The CALLER viewport-culls `edEdges` to the visible bounds before calling
+ *      this, so the number of edges chunked is tiny at deep zoom (few edges on
+ *      screen). See `edgeBbox` / `bboxIntersects` and the cull in DeckExplorer.
+ *   2. `MAX_CHUNKS_PER_EDGE` still caps chunks PER EDGE. Culling bounds the edge
+ *      COUNT but NOT per-edge work: `chunkPath` walks an edge's full polyline
+ *      regardless of viewport, so a single long rural arc (some run >300 km) that
+ *      merely clips the visible window would, at deep zoom where `dashLen` is
+ *      microscopic, generate billions of chunks WITHOUT this cap. Both bounds are
+ *      required; neither alone prevents the crash.
+ *
+ * The cap is raised from the old freeze-era 120 to 4000: high enough that a normal
+ * line's VISIBLE span (~screen-width / DASH.px ≈ ~100–200 dashes) dashes fully —
+ * fixing the "dash retreats" artifact — while still bounding the pathological long
+ * edge. Residual retreat only reappears if a view straddles chunk #4000 of a very
+ * long edge (a known, rare limitation; a full fix would clip each edge to bounds
+ * before chunking).
  */
-const MAX_CHUNKS_PER_EDGE = 120;
+const MAX_CHUNKS_PER_EDGE = 4000;
 
 export function buildEdLayers(
 	deps: { PathLayer: LayerClass; PathStyleExtension: ExtensionClass; COORDINATE_SYSTEM: CoordinateSystem },
