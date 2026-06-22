@@ -45,7 +45,7 @@ const mapIdx = (mk: string): number => MAPS.indexOf(mk as (typeof MAPS)[number])
  *  / bright teal / Elections Alberta yellow. Saturated; width carries visibility. */
 export const MAP_RGB: Record<string, [number, number, number]> = {
 	minority: [124, 58, 196],
-	majority: [58, 208, 190],
+	majority: [88, 230, 212],
 	'2019': [245, 197, 24]
 };
 
