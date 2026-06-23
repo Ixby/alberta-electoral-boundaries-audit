@@ -73,6 +73,7 @@
   // the deck.gl path never runs at build time. ?nowebgl=1 forces the SVG path.
   let useDeck      = $state(false);   // true → render DeckExplorer in the stage
   let deckOverlayOpen = $state(false); // true → DeckExplorer is mounted + visible
+  let coarsePtr    = $state(false);   // true → touch device; deck explorer owns its own close button
   // Gates the hero launch button. Stays false through SSR and the hydration gap
   // so the first click can never land on an unbound handler (the "double-click to
   // open" bug). Flipped true in onMount the instant the renderer choice is known —
@@ -327,6 +328,9 @@
     // available and ?nowebgl=1 is absent; otherwise the inline-SVG engine.
     // (Decided on mount so prerender always emits the SVG markup.)
     useDeck = hasWebGL(new URLSearchParams(location.search).has('nowebgl'));
+    // On touch the deck explorer carries its own close button in its toolbar, so
+    // the overlay's floating corner × is suppressed there (avoids the duplicate).
+    coarsePtr = window.matchMedia?.('(pointer: coarse)').matches === true;
 
     // ── Deep link: ?poi=<id> auto-opens the explorer focused on that pin ───────
     // Only the deck path supports POI focus. When WebGL is available and the id
@@ -1456,7 +1460,9 @@
 
 <!-- Zoom overlay -->
 <div id="zoom-overlay" aria-modal="true" role="dialog" aria-label={t(lang.current, 'chrome.lightbox.map_aria')} style="display:none;">
-  <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')} onclick={() => { if (useDeck) closeDeck(); }}>&times;</button>
+  {#if !(useDeck && coarsePtr)}
+    <button id="zoom-close" aria-label={t(lang.current, 'chrome.lightbox.map_close_aria')} title={t(lang.current, 'chrome.lightbox.close_title')} onclick={() => { if (useDeck) closeDeck(); }}>&times;</button>
+  {/if}
   {#if !useDeck}
   <div id="hud">
   {#if !devNoticeDismissed}
@@ -1596,7 +1602,7 @@
   <div id="zoom-stage">
     {#if useDeck}
       {#if deckOverlayOpen}
-        <DeckExplorer base={base} initialPoi={deckInitialPoi} />
+        <DeckExplorer base={base} initialPoi={deckInitialPoi} onClose={closeDeck} />
       {/if}
     {:else}
     <div id="zoom-skeleton" aria-hidden="true">

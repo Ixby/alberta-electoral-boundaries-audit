@@ -45,7 +45,11 @@
 	// base: SvelteKit base path (pass `base` from $app/paths at the call site so
 	//   all asset fetches are base-path-safe under a non-root deployment).
 	// initialPoi: a FLAGS id to open focused on (deep link from the report).
-	let { base = '', initialPoi = null }: { base?: string; initialPoi?: string | null } = $props();
+	let {
+		base = '',
+		initialPoi = null,
+		onClose
+	}: { base?: string; initialPoi?: string | null; onClose?: () => void } = $props();
 
 	// ── Diagnostic HUD (debug-only) ────────────────────────────────────────────
 	// A perf HUD ported from the prototype, shown ONLY at ?debug=1. `browser`
@@ -1000,6 +1004,12 @@
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2" /><line x1="12" y1="11" x2="12" y2="16.5" /><circle cx="12" cy="7.6" r="0.4" fill="currentColor" stroke="none" /></svg>
 				</button>
+				{#if onClose}
+					<span class="ic-div" aria-hidden="true"></span>
+					<button class="ic ic-close" aria-label="Close map" onclick={() => onClose?.()}>
+						<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg>
+					</button>
+				{/if}
 			</div>
 
 			<!-- Zoom pill, upper-right (under the bar) — always visible -->
@@ -1537,9 +1547,9 @@
 	/* ── Compact mobile control UI (rendered only on coarse-pointer devices) ──── */
 	.msw-m {
 		position: absolute;
-		/* Below the overlay's fixed top-right close (×) button (44px @ top 8px),
-		   so the bar's info icon no longer collides with it. */
-		top: 56px;
+		/* The close (×) lives in the bar itself (the overlay's corner × is hidden
+		   on touch), so the bar reclaims the top-right corner. */
+		top: 8px;
 		right: 8px;
 		z-index: 6;
 		display: flex;
@@ -1589,6 +1599,17 @@
 		background: #6fd3fb;
 		border-color: #6fd3fb;
 		color: #0c0f1a;
+	}
+	.msw-m .ic-div {
+		width: 1px;
+		align-self: stretch;
+		margin: 3px 1px;
+		background: #3a342a;
+	}
+	.msw-m .ic-close {
+		color: #d8a99a;
+		border-color: #4a3a34;
+		background: #241813;
 	}
 	.msw-m .ic svg {
 		width: 18px;
