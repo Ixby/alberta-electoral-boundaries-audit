@@ -89,10 +89,22 @@
 	let searchActive = $state(-1); // highlighted dropdown index (keyboard nav)
 	let searchOpen = $state(false);
 
-	// Control panel collapse. Defaults collapsed on touch/coarse-pointer devices
-	// (set on mount) so the panel doesn't bury the map on phones; expanded on
-	// desktop. Toggleable everywhere via the panel header.
+	// Desktop control-panel collapse (toggled from the panel header).
 	let panelCollapsed = $state(false);
+	// Touch devices get a re-imagined compact UI instead of the desktop panel:
+	// a slim corner bar (segmented map toggle + search/layers/info icon popovers)
+	// plus a bottom zoom pill. `coarse` is decided once on mount; `mobilePanel`
+	// tracks which icon popover is open ('none' = just the bar).
+	let coarse = $state(false);
+	let mobilePanel = $state<'none' | 'search' | 'layers' | 'info'>('none');
+
+	function toggleMobilePanel(p: 'search' | 'layers' | 'info'): void {
+		mobilePanel = mobilePanel === p ? 'none' : p;
+	}
+	// Focus a node as soon as it mounts (brings up the keyboard for mobile search).
+	function focusOnMount(node: HTMLElement) {
+		node.focus();
+	}
 
 	// DOM refs
 	let mapEl: HTMLDivElement;
@@ -741,10 +753,9 @@
 			zoomMax = +(M.maxZoom - Math.log2(M.side / 256)).toFixed(2);
 			zoomVal = initial.zoom as number;
 
-			// Touch devices: start with the control panel collapsed so it doesn't
-			// bury the map on a phone screen (the screenshot problem). Desktop stays
-			// expanded. Either way the user can toggle from the panel header.
-			panelCollapsed = window.matchMedia?.('(pointer: coarse)').matches === true;
+			// Touch devices render the compact mobile control UI instead of the
+			// desktop panel (decided once here; pointer type rarely changes mid-session).
+			coarse = window.matchMedia?.('(pointer: coarse)').matches === true;
 
 			// Explicit, sized canvas (defensive — set canvas/width/height and keep in sync).
 			canvasEl.width = window.innerWidth;
@@ -940,6 +951,139 @@
 		<canvas bind:this={canvasEl}></canvas>
 	</div>
 
+	{#if coarse}
+		<!-- ── Compact mobile control bar (top-right) ─────────────────────────── -->
+		<div class="msw-m">
+			<div class="msw-m-bar">
+				<div class="seg" role="group" aria-label="Map version">
+					{#each MAPS as mk (mk)}
+						<button
+							class="seg-btn"
+							class:on={activeMaps.includes(mk)}
+							style={btnStyle(mk)}
+							title="Toggle this map on/off"
+							onclick={() => mapToggler(mk)}
+						>{mk === '2019' ? "’19" : mk === 'minority' ? 'Min' : 'Maj'}</button>
+					{/each}
+				</div>
+				<button
+					class="ic"
+					class:on={mobilePanel === 'search'}
+					aria-label="Search districts"
+					aria-pressed={mobilePanel === 'search'}
+					onclick={() => toggleMobilePanel('search')}
+				>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" /></svg>
+				</button>
+				<button
+					class="ic"
+					class:on={mobilePanel === 'layers'}
+					aria-label="Map layers"
+					aria-pressed={mobilePanel === 'layers'}
+					onclick={() => toggleMobilePanel('layers')}
+				>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 3 22 8.5 12 14 2 8.5" /><polyline points="2 15 12 20.5 22 15" /></svg>
+				</button>
+				<button
+					class="ic"
+					class:on={mobilePanel === 'info'}
+					aria-label="About the boundary lines"
+					aria-pressed={mobilePanel === 'info'}
+					onclick={() => toggleMobilePanel('info')}
+				>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2" /><line x1="12" y1="11" x2="12" y2="16.5" /><circle cx="12" cy="7.6" r="0.4" fill="currentColor" stroke="none" /></svg>
+				</button>
+			</div>
+
+			{#if mobilePanel === 'search'}
+				<div class="msw-m-pop">
+					<input
+						class="search-input"
+						type="text"
+						placeholder="Search a district…"
+						autocomplete="off"
+						bind:this={searchInputEl}
+						bind:value={searchQuery}
+						use:focusOnMount
+						oninput={runSearch}
+						onkeydown={onSearchKeydown}
+						onfocus={() => {
+							if (searchResults.length) searchOpen = true;
+						}}
+					/>
+					{#if searchOpen && searchResults.length}
+						<ul class="search-results" role="listbox">
+							{#each searchResults as r, i (r.name)}
+								<li
+									role="option"
+									aria-selected={i === searchActive}
+									class:sr-active={i === searchActive}
+									onmousedown={(e) => {
+										e.preventDefault();
+										chooseResult(r);
+										mobilePanel = 'none';
+									}}
+									onmouseenter={() => (searchActive = i)}
+								>
+									{r.name}
+								</li>
+							{/each}
+						</ul>
+					{/if}
+				</div>
+			{:else if mobilePanel === 'layers'}
+				<div class="msw-m-pop">
+					<label>
+						<input
+							type="checkbox"
+							checked={filters.hwy}
+							onchange={(e) => filterSetter('hwy', e.currentTarget.checked)}
+						/> Highways
+					</label>
+					<label>
+						<input
+							type="checkbox"
+							checked={filters.water}
+							onchange={(e) => filterSetter('water', e.currentTarget.checked)}
+						/> Rivers &amp; lakes
+					</label>
+					<label>
+						<input
+							type="checkbox"
+							checked={filters.pois}
+							onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
+						/> Annotations
+					</label>
+				</div>
+			{:else if mobilePanel === 'info'}
+				<div class="msw-m-pop note">
+					<b>Reading the lines</b><br />
+					Every odd shape or split line is a <b>deliberate choice by the committee</b> — not a
+					data error. Lines follow the edges of polling areas; where two maps agree they sit on the
+					same line, where they split apart the proposals genuinely disagree.
+				</div>
+			{/if}
+		</div>
+
+		<!-- Slim zoom pill, bottom-centre -->
+		<div class="zoom-m">
+			<input
+				class="zoom"
+				type="range"
+				min={zoomMin}
+				max={zoomMax}
+				step="0.01"
+				aria-label="Zoom"
+				bind:value={zoomVal}
+				oninput={() => {
+					dragSetter(true);
+					zoomSetter(zoomVal);
+				}}
+				onchange={() => dragSetter(false)}
+			/>
+			<span class="res-m">1px ≈ <b>{resText}</b></span>
+		</div>
+	{:else}
 	<div class="mapsw" class:collapsed={panelCollapsed}>
 		<button
 			type="button"
@@ -1052,6 +1196,7 @@
 		</div>
 		</div>
 	</div>
+	{/if}
 
 	<div class="tip" bind:this={tipEl}></div>
 
@@ -1142,7 +1287,8 @@
 	.mapsw .search {
 		position: relative;
 	}
-	.mapsw .search-input {
+	.mapsw .search-input,
+	.msw-m-pop .search-input {
 		width: 100%;
 		box-sizing: border-box;
 		background: #11182a;
@@ -1153,11 +1299,35 @@
 		padding: 7px 9px;
 		outline: none;
 	}
-	.mapsw .search-input:focus {
+	.mapsw .search-input:focus,
+	.msw-m-pop .search-input:focus {
 		border-color: #6fd3fb;
 	}
-	.mapsw .search-input::placeholder {
+	.mapsw .search-input::placeholder,
+	.msw-m-pop .search-input::placeholder {
 		color: #6b7d99;
+	}
+	/* Mobile popover: results flow in-card below the input (not absolute). */
+	.msw-m-pop .search-results {
+		list-style: none;
+		margin: 2px 0 0;
+		padding: 0;
+		max-height: 44vh;
+		overflow-y: auto;
+	}
+	.msw-m-pop .search-results li {
+		padding: 9px 8px;
+		border-radius: 5px;
+		font-size: 13.5px;
+		color: #cfe0f5;
+		cursor: pointer;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.msw-m-pop .search-results li.sr-active {
+		background: #1f6feb;
+		color: #fff;
 	}
 	.mapsw .search-results {
 		position: absolute;
@@ -1357,6 +1527,141 @@
 		font-weight: 600;
 	}
 
+	/* ── Compact mobile control UI (rendered only on coarse-pointer devices) ──── */
+	.msw-m {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+		z-index: 6;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 6px;
+		max-width: calc(100% - 16px);
+	}
+	.msw-m-bar {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		background: rgba(18, 16, 13, 0.9);
+		border: 1px solid #3a342a;
+		border-radius: 11px;
+		padding: 4px;
+		-webkit-backdrop-filter: blur(7px);
+		backdrop-filter: blur(7px);
+		box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+	}
+	.msw-m .seg {
+		display: flex;
+		gap: 2px;
+	}
+	.msw-m .seg-btn {
+		border: 1px solid transparent;
+		font: 600 12px -apple-system, 'Segoe UI', sans-serif;
+		padding: 6px 9px;
+		border-radius: 7px;
+		cursor: pointer;
+		min-width: 38px;
+		text-align: center;
+	}
+	.msw-m .ic {
+		display: grid;
+		place-items: center;
+		width: 34px;
+		height: 34px;
+		padding: 0;
+		border: 1px solid #3a342a;
+		background: #1d1812;
+		border-radius: 8px;
+		color: #cbb89c;
+		cursor: pointer;
+	}
+	.msw-m .ic.on {
+		background: #6fd3fb;
+		border-color: #6fd3fb;
+		color: #0c0f1a;
+	}
+	.msw-m .ic svg {
+		width: 18px;
+		height: 18px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+	.msw-m-pop {
+		width: min(80vw, 290px);
+		box-sizing: border-box;
+		background: rgba(18, 16, 13, 0.95);
+		border: 1px solid #3a342a;
+		border-radius: 11px;
+		padding: 10px;
+		-webkit-backdrop-filter: blur(7px);
+		backdrop-filter: blur(7px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.msw-m-pop label {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-size: 14px;
+		color: #cfe0f5;
+		cursor: pointer;
+	}
+	.msw-m-pop label input {
+		width: 18px;
+		height: 18px;
+		accent-color: #6fd3fb;
+		cursor: pointer;
+	}
+	.msw-m-pop.note {
+		font-size: 12.5px;
+		line-height: 1.55;
+		color: #9fb4d4;
+		display: block;
+	}
+	.msw-m-pop.note b {
+		color: #cfe0f5;
+	}
+	.zoom-m {
+		position: absolute;
+		left: 50%;
+		bottom: 14px;
+		transform: translateX(-50%);
+		z-index: 6;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		width: min(82vw, 340px);
+		box-sizing: border-box;
+		background: rgba(18, 16, 13, 0.9);
+		border: 1px solid #3a342a;
+		border-radius: 999px;
+		padding: 7px 16px;
+		-webkit-backdrop-filter: blur(7px);
+		backdrop-filter: blur(7px);
+		box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+	}
+	.zoom-m .zoom {
+		flex: 1;
+		min-width: 0;
+		margin: 0;
+		accent-color: #6fd3fb;
+		cursor: pointer;
+	}
+	.zoom-m .res-m {
+		font-size: 11px;
+		color: #9fb4d4;
+		white-space: nowrap;
+	}
+	.zoom-m .res-m b {
+		color: #6fd3fb;
+	}
+
 	@media (pointer: coarse) {
 		.tip {
 			font-size: 16px;
@@ -1370,35 +1675,6 @@
 		}
 		.tip :global(.note) {
 			font-size: 14px;
-		}
-		/* Phones: keep the panel compact instead of enlarging it. Cap its width,
-		   shrink the map-version buttons, and tighten the verbose copy so the
-		   expanded panel never dominates the map. */
-		.mapsw {
-			max-width: 76vw;
-			gap: 5px;
-		}
-		.mapsw .hdr {
-			font-size: 11px;
-		}
-		.mapsw .hdr span {
-			font-size: 10px;
-		}
-		.mapsw .btns {
-			gap: 4px;
-		}
-		.mapsw button {
-			font-size: 12px;
-			padding: 6px 8px;
-			flex: 1;
-		}
-		.mapsw .lines-note {
-			font-size: 10.5px;
-			line-height: 1.4;
-			max-width: none;
-		}
-		.mapsw-title {
-			font-size: 12px;
 		}
 	}
 </style>
