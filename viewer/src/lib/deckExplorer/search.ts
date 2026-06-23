@@ -13,6 +13,9 @@ export interface EdRec {
 	cx: number;
 	cy: number;
 	zoom: number;
+	// Set only on community/municipality entries: the 2019 electoral district the
+	// place sits in (used for the dropdown subtitle). Absent on district entries.
+	ed?: string;
 }
 
 export interface NameIndex {

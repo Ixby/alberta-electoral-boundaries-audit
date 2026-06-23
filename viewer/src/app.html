@@ -5,6 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg">
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/favicon.svg">
+		<!-- Self-hosted expedition display face for the map-explorer watermark. -->
+		<link rel="preload" as="font" type="font/woff2" href="%sveltekit.assets%/fonts/cinzel-700.woff2" crossorigin>
+		<style>
+			@font-face {
+				font-family: 'Cinzel';
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url('%sveltekit.assets%/fonts/cinzel-700.woff2') format('woff2');
+			}
+		</style>
 		<script>
 			(function(){
 				var theme=localStorage.getItem('ab_pref_t');

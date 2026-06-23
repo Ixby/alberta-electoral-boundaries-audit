@@ -903,12 +903,22 @@
 				vaLines = await fetchJSON<number[][][]>('va_lines.json');
 				schedulePaint();
 			}
-			// District-name search index for the primary (first active) map. The names
-			// shown in search come from this map; selecting flies to its centroid.
+			// Search index: the primary (first active) map's districts, PLUS every
+			// community / municipality keyed to its 2019 electoral district. The 2019
+			// map is the fixed cross-reference for orientation — a community entry
+			// flies to (and glows) the ED that contains it; the other proposals shift
+			// around that anchor. Community entries carry the 2019 ED's centroid/zoom,
+			// so the name-agnostic glow highlights that district automatically.
 			async function loadEdIndex() {
 				const primary = activeMaps.length ? activeMaps[0] : 'minority';
 				const recs = await fetchJSON<EdRec[]>('ed_index_' + primary + '.json');
-				nameIndex = buildNameIndex(recs);
+				let communities: EdRec[] = [];
+				try {
+					communities = await fetchJSON<EdRec[]>('community_index_2019.json');
+				} catch {
+					communities = []; // search still works on districts alone if absent
+				}
+				nameIndex = buildNameIndex(recs.concat(communities));
 			}
 
 			// View-first load: gate first paint on the bundle covering the initial level.
@@ -966,6 +976,20 @@
 </script>
 
 <div class="explorer">
+	<svg class="watermark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+		<defs>
+			<pattern
+				id="wm-pat"
+				width="240"
+				height="120"
+				patternUnits="userSpaceOnUse"
+				patternTransform="rotate(-45)"
+			>
+				<text x="0" y="20" class="wm-text">MAP EXPLORER</text>
+			</pattern>
+		</defs>
+		<rect width="100%" height="100%" fill="url(#wm-pat)" />
+	</svg>
 	<div class="map" bind:this={mapEl}>
 		<canvas bind:this={canvasEl}></canvas>
 	</div>
@@ -1071,7 +1095,7 @@
 									}}
 									onmouseenter={() => (searchActive = i)}
 								>
-									{r.name}
+									<span class="sr-name">{r.name}</span>{#if r.ed}<span class="sr-ed">in {r.ed}</span>{/if}
 								</li>
 							{/each}
 						</ul>
@@ -1154,7 +1178,7 @@
 							}}
 							onmouseenter={() => (searchActive = i)}
 						>
-							{r.name}
+							<span class="sr-name">{r.name}</span>{#if r.ed}<span class="sr-ed">in {r.ed}</span>{/if}
 						</li>
 					{/each}
 				</ul>
@@ -1238,13 +1262,29 @@
 		width: 100%;
 		height: 100%;
 		/* Warm near-black behind the map (deck.gl clears transparent, so this shows
-		   through around the province silhouette), with a dense tiled diagonal
-		   "MAP EXPLORER" watermark in bold Copperplate — an engraved, expedition /
-		   old-map feel (falls back to bold serif off Apple devices). */
+		   through around the province silhouette). The diagonal "MAP EXPLORER"
+		   watermark is a separate inline-SVG layer (.watermark) so it can use the
+		   self-hosted Cinzel webfont — a CSS background data-URI can't. */
 		background-color: #1a1511;
-		background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='210'%20height='152'%3E%3Ctext%20x='105'%20y='82'%20fill='%23f0e6d6'%20fill-opacity='0.08'%20font-family='Copperplate,Trajan,Georgia,serif'%20font-weight='bold'%20font-size='17'%20letter-spacing='2'%20text-anchor='middle'%20transform='rotate(-45%20105%2082)'%3EMAP%20EXPLORER%3C/text%3E%3C/svg%3E");
-		background-repeat: repeat;
 		font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
+	}
+	/* Tiled diagonal expedition-style watermark, behind the (transparent-cleared)
+	   map canvas. Shows in the margin around the province silhouette. */
+	.watermark {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		pointer-events: none;
+	}
+	.watermark .wm-text {
+		font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
+		font-weight: 700;
+		font-size: 15px;
+		letter-spacing: 3px;
+		fill: #f0e6d6;
+		fill-opacity: 0.08;
 	}
 	.map {
 		position: absolute;
@@ -1389,6 +1429,28 @@
 	.mapsw .search-results li.sr-active {
 		background: #1f6feb;
 		color: #fff;
+	}
+	/* Result rows: name on top, the resolving 2019 district as a muted subtitle. */
+	.sr-name {
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.sr-ed {
+		display: block;
+		font-size: 11px;
+		color: #8090a8;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-top: 1px;
+	}
+	.sr-active .sr-ed {
+		color: #cdd9ee;
+	}
+	.msw-m-pop .sr-ed {
+		font-size: 12px;
 	}
 	.mapsw .btns {
 		display: flex;

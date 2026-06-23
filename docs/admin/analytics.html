@@ -5,6 +5,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 		<link rel="apple-touch-icon" href="../favicon.svg">
+		<!-- Self-hosted expedition display face for the map-explorer watermark. -->
+		<link rel="preload" as="font" type="font/woff2" href="../fonts/cinzel-700.woff2" crossorigin>
+		<style>
+			@font-face {
+				font-family: 'Cinzel';
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url('../fonts/cinzel-700.woff2') format('woff2');
+			}
+		</style>
 		<script>
 			(function(){
 				var theme=localStorage.getItem('ab_pref_t');
@@ -13,13 +24,13 @@
 				}
 			})();
 		</script>
-		<link href="../_app/immutable/entry/start.C7v13Hpt.js" rel="modulepreload">
-		<link href="../_app/immutable/chunks/6jgLYEW4.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/start.BAj3fRYA.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/C9-Vrzdi.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/hjBWT0bG.js" rel="modulepreload">
-		<link href="../_app/immutable/entry/app.Dd21HSmu.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/app.C0LH_dGG.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/B0BvW1x3.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/Cfug8aQt.js" rel="modulepreload">
-		<link href="../_app/immutable/nodes/0.qk4h-IeC.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/0.Cdy-iKp-.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/02XW_G6D.js" rel="modulepreload">
 		<link href="../_app/immutable/chunks/BOru-76E.js" rel="modulepreload">
 		<link href="../_app/immutable/nodes/3.Ban8yjMn.js" rel="modulepreload">
@@ -33,7 +44,7 @@
 			
 			<script>
 				{
-					__sveltekit_mgxurb = {
+					__sveltekit_1lgvs59 = {
 						base: new URL("..", location).pathname.slice(0, -1),
 						assets: "/alberta-electoral-boundaries-audit"
 					};
@@ -41,8 +52,8 @@
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../_app/immutable/entry/start.C7v13Hpt.js"),
-						import("../_app/immutable/entry/app.Dd21HSmu.js")
+						import("../_app/immutable/entry/start.BAj3fRYA.js"),
+						import("../_app/immutable/entry/app.C0LH_dGG.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
