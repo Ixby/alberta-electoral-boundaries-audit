@@ -973,6 +973,7 @@
 	{#if coarse}
 		<!-- ── Compact mobile control bar (top-right) ─────────────────────────── -->
 		<div class="msw-m">
+			<div class="msw-m-head">
 			<div class="msw-m-bar">
 				<div class="seg" role="group" aria-label="Map version">
 					{#each MAPS as mk (mk)}
@@ -1037,6 +1038,7 @@
 					onchange={() => dragSetter(false)}
 				/>
 				<span class="res-m">1px ≈ <b>{resText}</b></span>
+			</div>
 			</div>
 
 			{#if mobilePanel === 'search'}
@@ -1665,12 +1667,19 @@
 	.msw-m-pop.note b {
 		color: #cfe0f5;
 	}
-	/* Zoom pill — sits in the right-side stack under the bar (upper-right). */
+	/* Bar + zoom as one attached unit: the zoom stretches to the bar's width and
+	   sits flush right under it. */
+	.msw-m-head {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 5px;
+	}
+	/* Zoom pill — sits in the right-side stack flush under the bar (upper-right). */
 	.zoom-m {
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		width: min(72vw, 250px);
 		box-sizing: border-box;
 		background: rgba(18, 16, 13, 0.9);
 		border: 1px solid #3a342a;
