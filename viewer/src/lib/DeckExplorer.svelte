@@ -1238,8 +1238,11 @@
 		width: 100%;
 		height: 100%;
 		/* Warm near-black behind the map (deck.gl clears transparent, so this shows
-		   through around the province silhouette). Replaces the cold navy #0c0f1a. */
-		background: #1a1511;
+		   through around the province silhouette), with a tiled diagonal
+		   "Map Explorer" watermark in an elegant italic serif. */
+		background-color: #1a1511;
+		background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='360'%20height='260'%3E%3Ctext%20x='180'%20y='132'%20fill='%23f0e6d6'%20fill-opacity='0.05'%20font-family='Georgia,Palatino,serif'%20font-style='italic'%20font-size='30'%20letter-spacing='4'%20text-anchor='middle'%20transform='rotate(-45%20180%20132)'%3EMap%20Explorer%3C/text%3E%3C/svg%3E");
+		background-repeat: repeat;
 		font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
 	}
 	.map {
