@@ -394,11 +394,18 @@
 			// Must run AFTER the tip's innerHTML is set so offsetWidth/Height are real.
 			function placeTip(x: number, y: number) {
 				if (!tipEl) return;
-				const m = 8; // min gap from each viewport edge
 				const w = tipEl.offsetWidth;
 				const h = tipEl.offsetHeight;
 				const vw = window.innerWidth;
 				const vh = window.innerHeight;
+				// Mobile: anchor the tip to the bottom-centre rather than the tap
+				// point — a finger-following tip covers exactly what you're inspecting.
+				if (coarse) {
+					tipEl.style.left = Math.round((vw - w) / 2) + 'px';
+					tipEl.style.top = vh - h - 16 + 'px';
+					return;
+				}
+				const m = 8; // min gap from each viewport edge
 				let left = x + 12;
 				if (left + w + m > vw) left = x - 12 - w;
 				left = Math.min(Math.max(m, left), Math.max(m, vw - w - m));
@@ -995,6 +1002,25 @@
 				</button>
 			</div>
 
+			<!-- Zoom pill, upper-right (under the bar) — always visible -->
+			<div class="zoom-m">
+				<input
+					class="zoom"
+					type="range"
+					min={zoomMin}
+					max={zoomMax}
+					step="0.01"
+					aria-label="Zoom"
+					bind:value={zoomVal}
+					oninput={() => {
+						dragSetter(true);
+						zoomSetter(zoomVal);
+					}}
+					onchange={() => dragSetter(false)}
+				/>
+				<span class="res-m">1px ≈ <b>{resText}</b></span>
+			</div>
+
 			{#if mobilePanel === 'search'}
 				<div class="msw-m-pop">
 					<input
@@ -1063,25 +1089,6 @@
 					same line, where they split apart the proposals genuinely disagree.
 				</div>
 			{/if}
-		</div>
-
-		<!-- Slim zoom pill, bottom-centre -->
-		<div class="zoom-m">
-			<input
-				class="zoom"
-				type="range"
-				min={zoomMin}
-				max={zoomMax}
-				step="0.01"
-				aria-label="Zoom"
-				bind:value={zoomVal}
-				oninput={() => {
-					dragSetter(true);
-					zoomSetter(zoomVal);
-				}}
-				onchange={() => dragSetter(false)}
-			/>
-			<span class="res-m">1px ≈ <b>{resText}</b></span>
 		</div>
 	{:else}
 	<div class="mapsw" class:collapsed={panelCollapsed}>
@@ -1530,7 +1537,9 @@
 	/* ── Compact mobile control UI (rendered only on coarse-pointer devices) ──── */
 	.msw-m {
 		position: absolute;
-		top: 8px;
+		/* Below the overlay's fixed top-right close (×) button (44px @ top 8px),
+		   so the bar's info icon no longer collides with it. */
+		top: 56px;
 		right: 8px;
 		z-index: 6;
 		display: flex;
@@ -1627,21 +1636,17 @@
 	.msw-m-pop.note b {
 		color: #cfe0f5;
 	}
+	/* Zoom pill — sits in the right-side stack under the bar (upper-right). */
 	.zoom-m {
-		position: absolute;
-		left: 50%;
-		bottom: 14px;
-		transform: translateX(-50%);
-		z-index: 6;
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		width: min(82vw, 340px);
+		width: min(72vw, 250px);
 		box-sizing: border-box;
 		background: rgba(18, 16, 13, 0.9);
 		border: 1px solid #3a342a;
 		border-radius: 999px;
-		padding: 7px 16px;
+		padding: 6px 14px;
 		-webkit-backdrop-filter: blur(7px);
 		backdrop-filter: blur(7px);
 		box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
