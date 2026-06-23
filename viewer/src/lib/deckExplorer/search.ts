@@ -16,6 +16,12 @@ export interface EdRec {
 	// Set only on community/municipality entries: the 2019 electoral district the
 	// place sits in (used for the dropdown subtitle). Absent on district entries.
 	ed?: string;
+	// Also community-only: the place's OWN centroid (ccx, ccy) and radius in
+	// metres (crad), for the distinct community marker. cx/cy/zoom still fly to the
+	// containing district; these pinpoint the community within it.
+	ccx?: number;
+	ccy?: number;
+	crad?: number;
 }
 
 export interface NameIndex {

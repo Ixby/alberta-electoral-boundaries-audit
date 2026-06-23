@@ -59,3 +59,41 @@ OUT.write_text(json.dumps(muni))
 print(f"Wrote {OUT}")
 print(f"  Calgary={muni.count('Calgary')} Edmonton={muni.count('Edmonton')} "
       f"other={sum(1 for m in muni if m and m not in ('Calgary', 'Edmonton'))} blank={muni.count('')}")
+
+# ── Per-place geometry: centroid + radius, for the distinct community marker ──
+# Keyed by (community, municipality) — the same distinct-place key the JS index
+# builder uses — so each community search hit can draw a center point and a ring
+# scaled to the place's extent (not the whole ED). Origin-shifted to the deck
+# coordinate space; radius is half the bbox max dimension, in metres.
+va_props = json.loads((REPO / "viewer" / "static" / "mapdata" / "va_props.json").read_text())
+community = [str(p.get("community", "")).strip() for p in va_props]
+meta = json.loads((REPO / "docs" / "data" / "map_meta.json").read_text())
+ox, oy = meta["origin_x"], meta["origin_y"]
+cx_arr = list(cent.geometry.x)
+cy_arr = list(cent.geometry.y)
+bounds = va_render.geometry.bounds  # DataFrame: minx, miny, maxx, maxy
+groups = {}
+for i in range(n):
+    c = community[i] if i < len(community) else ""
+    if not c:
+        continue
+    key = c + "|" + muni[i]
+    b = bounds.iloc[i]
+    g = groups.get(key)
+    if g is None:
+        g = {"sx": 0.0, "sy": 0.0, "k": 0, "minx": b.minx, "miny": b.miny, "maxx": b.maxx, "maxy": b.maxy}
+        groups[key] = g
+    g["sx"] += cx_arr[i]
+    g["sy"] += cy_arr[i]
+    g["k"] += 1
+    g["minx"] = min(g["minx"], b.minx); g["miny"] = min(g["miny"], b.miny)
+    g["maxx"] = max(g["maxx"], b.maxx); g["maxy"] = max(g["maxy"], b.maxy)
+geom = {}
+for key, g in groups.items():
+    ccx = round(g["sx"] / g["k"] - ox, 2)
+    ccy = round(g["sy"] / g["k"] - oy, 2)
+    crad = round(max(g["maxx"] - g["minx"], g["maxy"] - g["miny"]) / 2, 1)
+    geom[key] = [ccx, ccy, crad]
+GEOM_OUT = REPO / "viewer" / "static" / "mapdata" / "community_geom_2019.json"
+GEOM_OUT.write_text(json.dumps(geom, separators=(",", ":")))
+print(f"Wrote {GEOM_OUT}: {len(geom)} places")

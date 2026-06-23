@@ -159,6 +159,13 @@
 		track('district_select', { name: rec.name });
 		if (searchInputEl) searchInputEl.blur();
 	}
+	function clearSearch() {
+		searchQuery = '';
+		searchResults = [];
+		searchActive = -1;
+		searchOpen = false;
+		searchInputEl?.focus();
+	}
 	function onSearchKeydown(e: KeyboardEvent) {
 		if (e.key === 'ArrowDown') {
 			e.preventDefault();
@@ -541,6 +548,51 @@
 			function buildSelectedGlow(): any[] {
 				if (!selectedEd) return [];
 				const sel = selectedEd;
+
+				// Community / municipality hit (sel.ed set, with its own centroid):
+				// a DISTINCT magenta marker — a center point plus a ring scaled to the
+				// community's extent — to set it apart from the gold ED glow and pinpoint
+				// the place within the district it sits in.
+				if (sel.ed && sel.ccx != null && sel.ccy != null) {
+					const cc: [number, number, number] = [sel.ccx, sel.ccy, 0];
+					const PINK = [255, 64, 150];
+					return [
+						new ScatterplotLayer({
+							id: 'comm-ring',
+							data: [sel],
+							getPosition: () => cc,
+							getRadius: sel.crad ?? 800,
+							radiusUnits: 'meters',
+							radiusMinPixels: 16,
+							filled: true,
+							stroked: true,
+							getFillColor: [...PINK, 26],
+							getLineColor: [...PINK, 240],
+							getLineWidth: 3,
+							lineWidthUnits: 'pixels',
+							lineWidthMinPixels: 2,
+							parameters: { depthTest: false },
+							coordinateSystem: CART
+						}),
+						new ScatterplotLayer({
+							id: 'comm-center',
+							data: [sel],
+							getPosition: () => cc,
+							getRadius: 5,
+							radiusUnits: 'pixels',
+							radiusMinPixels: 4,
+							filled: true,
+							stroked: true,
+							getFillColor: [...PINK, 255],
+							getLineColor: [255, 255, 255, 235],
+							getLineWidth: 1.5,
+							lineWidthUnits: 'pixels',
+							parameters: { depthTest: false },
+							coordinateSystem: CART
+						})
+					];
+				}
+
 				const side = 256 * 2 ** (1 - sel.zoom);
 				const half = side / 2;
 				const x0 = sel.cx - half,
@@ -1067,6 +1119,7 @@
 
 			{#if mobilePanel === 'search'}
 				<div class="msw-m-pop">
+					<div class="search">
 					<input
 						class="search-input"
 						type="text"
@@ -1081,6 +1134,17 @@
 							if (searchResults.length) searchOpen = true;
 						}}
 					/>
+					{#if searchQuery}
+						<button
+							class="search-clear"
+							type="button"
+							aria-label="Clear search"
+							onmousedown={(e) => {
+								e.preventDefault();
+								clearSearch();
+							}}>×</button>
+					{/if}
+					</div>
 					{#if searchOpen && searchResults.length}
 						<ul class="search-results" role="listbox">
 							{#each searchResults as r, i (r.name)}
@@ -1136,16 +1200,25 @@
 		</div>
 	{:else}
 	<div class="mapsw" class:collapsed={panelCollapsed}>
-		<button
-			type="button"
-			class="mapsw-toggle"
-			aria-expanded={!panelCollapsed}
-			aria-controls="mapsw-body"
-			onclick={() => (panelCollapsed = !panelCollapsed)}
-		>
-			<span class="mapsw-title">Map controls</span>
-			<span class="chev" aria-hidden="true">{panelCollapsed ? '▾' : '▴'}</span>
-		</button>
+		<div class="mapsw-head">
+			<button
+				type="button"
+				class="mapsw-toggle"
+				aria-expanded={!panelCollapsed}
+				aria-controls="mapsw-body"
+				onclick={() => (panelCollapsed = !panelCollapsed)}
+			>
+				<span class="mapsw-title">Map controls</span>
+				<span class="chev" aria-hidden="true">{panelCollapsed ? '▾' : '▴'}</span>
+			</button>
+			{#if onClose}
+				<button
+					type="button"
+					class="mapsw-close"
+					aria-label="Close map"
+					onclick={() => onClose?.()}>×</button>
+			{/if}
+		</div>
 
 		<div class="mapsw-body" id="mapsw-body">
 		<div class="search">
@@ -1165,6 +1238,16 @@
 					searchOpen = false;
 				}}
 			/>
+			{#if searchQuery}
+				<button
+					class="search-clear"
+					type="button"
+					aria-label="Clear search"
+					onmousedown={(e) => {
+						e.preventDefault();
+						clearSearch();
+					}}>×</button>
+			{/if}
 			{#if searchOpen && searchResults.length}
 				<ul class="search-results" role="listbox">
 					{#each searchResults as r, i (r.name)}
@@ -1339,6 +1422,63 @@
 		line-height: 1;
 		color: #8a7d66;
 	}
+	/* Panel header row: collapse toggle (fills) + a close button (folds the map's
+	   close into the panel so the overlay's floating corner × no longer overlaps
+	   these controls on desktop). */
+	.mapsw-head {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+	.mapsw-head .mapsw-toggle {
+		flex: 1;
+		width: auto;
+	}
+	.mapsw-close {
+		flex: none;
+		display: grid;
+		place-items: center;
+		width: 22px;
+		height: 22px;
+		padding: 0;
+		border: none;
+		background: none;
+		border-radius: 5px;
+		color: #b89a8a;
+		font-size: 18px;
+		line-height: 1;
+		cursor: pointer;
+	}
+	.mapsw-close:hover {
+		color: #e7d6c4;
+		background: rgba(255, 255, 255, 0.07);
+	}
+	/* Clear-text button inside the search field (both desktop + mobile). */
+	.search {
+		position: relative;
+	}
+	.search-clear {
+		position: absolute;
+		top: 50%;
+		right: 6px;
+		transform: translateY(-50%);
+		width: 22px;
+		height: 22px;
+		display: grid;
+		place-items: center;
+		padding: 0;
+		border: none;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.06);
+		color: #9fb4d4;
+		font-size: 16px;
+		line-height: 1;
+		cursor: pointer;
+	}
+	.search-clear:hover {
+		background: rgba(255, 255, 255, 0.15);
+		color: #e6eefb;
+	}
 	.mapsw-body {
 		display: flex;
 		flex-direction: column;
@@ -1367,7 +1507,7 @@
 		border-radius: 7px;
 		color: #e6eefb;
 		font: 400 13px -apple-system, 'Segoe UI', sans-serif;
-		padding: 7px 9px;
+		padding: 7px 32px 7px 9px;
 		outline: none;
 	}
 	.mapsw .search-input:focus,
