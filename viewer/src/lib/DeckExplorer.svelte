@@ -1238,10 +1238,11 @@
 		width: 100%;
 		height: 100%;
 		/* Warm near-black behind the map (deck.gl clears transparent, so this shows
-		   through around the province silhouette), with a tiled diagonal
-		   "Map Explorer" watermark in an elegant italic serif. */
+		   through around the province silhouette), with a dense tiled diagonal
+		   "MAP EXPLORER" watermark in bold Copperplate — an engraved, expedition /
+		   old-map feel (falls back to bold serif off Apple devices). */
 		background-color: #1a1511;
-		background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='360'%20height='260'%3E%3Ctext%20x='180'%20y='132'%20fill='%23f0e6d6'%20fill-opacity='0.05'%20font-family='Georgia,Palatino,serif'%20font-style='italic'%20font-size='30'%20letter-spacing='4'%20text-anchor='middle'%20transform='rotate(-45%20180%20132)'%3EMap%20Explorer%3C/text%3E%3C/svg%3E");
+		background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='210'%20height='152'%3E%3Ctext%20x='105'%20y='82'%20fill='%23f0e6d6'%20fill-opacity='0.08'%20font-family='Copperplate,Trajan,Georgia,serif'%20font-weight='bold'%20font-size='17'%20letter-spacing='2'%20text-anchor='middle'%20transform='rotate(-45%20105%2082)'%3EMAP%20EXPLORER%3C/text%3E%3C/svg%3E");
 		background-repeat: repeat;
 		font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
 	}
