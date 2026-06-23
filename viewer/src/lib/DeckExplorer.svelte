@@ -402,11 +402,19 @@
 				const h = tipEl.offsetHeight;
 				const vw = window.innerWidth;
 				const vh = window.innerHeight;
-				// Mobile: anchor the tip to the bottom-centre rather than the tap
-				// point — a finger-following tip covers exactly what you're inspecting.
+				// Mobile: anchor the tip to a fixed edge rather than the tap point —
+				// a finger-following tip covers exactly what you're inspecting.
 				if (coarse) {
-					tipEl.style.left = Math.round((vw - w) / 2) + 'px';
-					tipEl.style.top = vh - h - 16 + 'px';
+					if (vw > vh) {
+						// Landscape: short on height, controls sit top-right → anchor to
+						// the left edge, vertically centred (the free zone).
+						tipEl.style.left = '8px';
+						tipEl.style.top = Math.max(8, Math.round((vh - h) / 2)) + 'px';
+					} else {
+						// Portrait: anchor bottom-centre.
+						tipEl.style.left = Math.round((vw - w) / 2) + 'px';
+						tipEl.style.top = vh - h - 16 + 'px';
+					}
 					return;
 				}
 				const m = 8; // min gap from each viewport edge
