@@ -376,6 +376,26 @@
 			function hideTip() {
 				if (tipEl) tipEl.style.display = 'none';
 			}
+			// Position the hover tip near (x, y) but always fully inside the viewport.
+			// Defaults to below-right of the cursor; flips to the opposite side when
+			// that would overflow, then clamps so it never spills past an edge.
+			// Must run AFTER the tip's innerHTML is set so offsetWidth/Height are real.
+			function placeTip(x: number, y: number) {
+				if (!tipEl) return;
+				const m = 8; // min gap from each viewport edge
+				const w = tipEl.offsetWidth;
+				const h = tipEl.offsetHeight;
+				const vw = window.innerWidth;
+				const vh = window.innerHeight;
+				let left = x + 12;
+				if (left + w + m > vw) left = x - 12 - w;
+				left = Math.min(Math.max(m, left), Math.max(m, vw - w - m));
+				let top = y + 12;
+				if (top + h + m > vh) top = y - 12 - h;
+				top = Math.min(Math.max(m, top), Math.max(m, vh - h - m));
+				tipEl.style.left = left + 'px';
+				tipEl.style.top = top + 'px';
+			}
 
 			// ── Paint loop ─────────────────────────────────────────────────────────
 			function buildLayers(
@@ -749,15 +769,11 @@
 						return;
 					}
 					tipEl.style.display = 'block';
-					tipEl.style.left = info.x + 12 + 'px';
-					tipEl.style.top = info.y + 12 + 'px';
 					if (info.layer && info.layer.id === 'flags') {
 						tipEl.innerHTML =
 							`<div class="n">${o.title}</div><div class="flagbody">${o.body}</div>` +
 							`<div class="flaglink">Click to zoom in</div>`;
-						return;
-					}
-					if (info.layer && info.layer.id === 'va') {
+					} else if (info.layer && info.layer.id === 'va') {
 						const P = (vaProps[o.id as number] || {}) as {
 							name?: string;
 							community?: string;
@@ -805,6 +821,8 @@
 						tipEl.innerHTML =
 							`<div class="n">No one votes here</div>No polling division covers this spot — nobody is recorded living or voting here, so it stays the map's neutral tone.`;
 					}
+					// Content is set; now place the tip clamped to the viewport.
+					placeTip(info.x, info.y);
 				},
 				onViewStateChange: ({ viewState }: any) => {
 					update(viewState);
