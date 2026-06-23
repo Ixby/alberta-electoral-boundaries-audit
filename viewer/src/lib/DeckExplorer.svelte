@@ -1037,7 +1037,7 @@
 					}}
 					onchange={() => dragSetter(false)}
 				/>
-				<span class="res-m">1px ≈ <b>{resText}</b></span>
+				<span class="res-m"><b>{resText}</b></span>
 			</div>
 			</div>
 
@@ -1667,37 +1667,41 @@
 	.msw-m-pop.note b {
 		color: #cfe0f5;
 	}
-	/* Bar + zoom as one attached unit: the zoom stretches to the bar's width and
-	   sits flush right under it. */
+	/* Bar + zoom grouped; the vertical zoom sits right-aligned under the bar. */
 	.msw-m-head {
 		display: flex;
 		flex-direction: column;
-		align-items: stretch;
+		align-items: flex-end;
 		gap: 5px;
 	}
-	/* Zoom pill — sits in the right-side stack flush under the bar (upper-right). */
+	/* Vertical zoom capsule — tall slider + scale readout, under the bar. */
 	.zoom-m {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		gap: 10px;
+		gap: 7px;
 		box-sizing: border-box;
+		padding: 12px 7px 9px;
 		background: rgba(18, 16, 13, 0.9);
 		border: 1px solid #3a342a;
 		border-radius: 999px;
-		padding: 6px 14px;
 		-webkit-backdrop-filter: blur(7px);
 		backdrop-filter: blur(7px);
 		box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
 	}
 	.zoom-m .zoom {
-		flex: 1;
-		min-width: 0;
+		/* Render the range input vertically. direction:rtl puts the max (zoomed
+		   in) at the top, matching the conventional map zoom control. */
+		writing-mode: vertical-lr;
+		direction: rtl;
+		width: 22px;
+		height: 130px;
 		margin: 0;
 		accent-color: #6fd3fb;
 		cursor: pointer;
 	}
 	.zoom-m .res-m {
-		font-size: 11px;
+		font-size: 10px;
 		color: #9fb4d4;
 		white-space: nowrap;
 	}
