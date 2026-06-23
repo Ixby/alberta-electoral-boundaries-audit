@@ -122,6 +122,7 @@
 	let mapToggler: (mk: string) => void = () => {};
 	let filterSetter: (which: 'hwy' | 'water' | 'pois', val: boolean) => void = () => {};
 	let edSelector: (rec: EdRec) => void = () => {};
+	let clearSelection: () => void = () => {};
 
 	// Non-reactive search index (built once ed_index loads in onMount).
 	let nameIndex: NameIndex | null = null;
@@ -164,6 +165,7 @@
 		searchResults = [];
 		searchActive = -1;
 		searchOpen = false;
+		clearSelection(); // also drop the district ring / community marker + tip
 		searchInputEl?.focus();
 	}
 	function onSearchKeydown(e: KeyboardEvent) {
@@ -787,6 +789,13 @@
 					Math.min(lastVS.maxZoom as number, rec.zoom)
 				);
 				update({ ...lastVS, target: [rec.cx, rec.cy, 0], zoom: z });
+			};
+			// Clear the current selection: drop the district ring / community marker
+			// and any open tip, and repaint. Bound to the search clear-× button.
+			clearSelection = () => {
+				selectedEd = null;
+				hideTip();
+				schedulePaint();
 			};
 
 			// ── Critical path load ─────────────────────────────────────────────────
