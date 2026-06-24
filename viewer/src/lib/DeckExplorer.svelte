@@ -1894,7 +1894,9 @@
 	   Contents are injected via innerHTML, so child selectors use :global(). */
 	.hud {
 		position: absolute;
-		top: 10px;
+		/* Anchored to the bottom-left so the debug overlay sits below the map UI
+		   (controls live top-right / top-left); it grows upward as rows are added. */
+		bottom: 10px;
 		left: 10px;
 		z-index: 5;
 		background: rgba(12, 15, 26, 0.82);

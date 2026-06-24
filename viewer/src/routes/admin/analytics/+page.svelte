@@ -35,6 +35,9 @@
     zoom_depth: Record<string, number>;
     top_districts: DistrictRow[];
     layer_toggle: Record<string, number>;
+    viewport?: Record<string, number>;
+    device?: Record<string, number>;
+    browser?: Record<string, number>;
     perf?: PerfBlock;
   };
 
@@ -152,6 +155,19 @@
   function heapSteps(o: Record<string, number> | undefined): string[] {
     return Object.keys(o ?? {}).sort((a, b) => Number(a) - Number(b));
   }
+  // Client-setup dimensions (from pageview props). Fixed display orders + labels.
+  const VIEWPORT_ORDER = ['xs', 'sm', 'md', 'lg', 'xl'];
+  const VIEWPORT_LABEL: Record<string, string> = {
+    xs: 'XS · <480', sm: 'SM · <768', md: 'MD · <1024', lg: 'LG · <1440', xl: 'XL · ≥1440',
+  };
+  const DEVICE_ORDER = ['mobile', 'tablet', 'desktop'];
+  const DEVICE_LABEL: Record<string, string> = {
+    mobile: 'Mobile', tablet: 'Tablet', desktop: 'Desktop',
+  };
+  const BROWSER_LABEL: Record<string, string> = {
+    chrome: 'Chrome', safari: 'Safari', firefox: 'Firefox',
+    edge: 'Edge', opera: 'Opera', samsung: 'Samsung', other: 'Other',
+  };
 
   function vmax(vals: number[]): number {
     return Math.max(...vals, 1);
@@ -491,6 +507,69 @@
             {/each}
           </div>
           <p class="muted unit">MB used (50 MB bands)</p>
+        {/if}
+      </section>
+
+      <!-- Device -->
+      <section class="card">
+        <h2>Device</h2>
+        {#if !hasData(data.device)}
+          <p class="muted">No data yet</p>
+        {:else}
+          {@const dev = data.device ?? {}}
+          {@const dvMax = objMax(dev)}
+          <div class="hbars">
+            {#each DEVICE_ORDER.filter((k) => (dev[k] ?? 0) > 0) as k}
+              {@const v = dev[k] ?? 0}
+              <div class="hrow">
+                <span class="hlabel">{DEVICE_LABEL[k] ?? k}</span>
+                <div class="htrack"><div class="hbar" style="width:{pct(v, dvMax)}%"></div></div>
+                <span class="hval">{v}</span>
+              </div>
+            {/each}
+          </div>
+        {/if}
+      </section>
+
+      <!-- Screen size -->
+      <section class="card">
+        <h2>Screen size</h2>
+        {#if !hasData(data.viewport)}
+          <p class="muted">No data yet</p>
+        {:else}
+          {@const vp = data.viewport ?? {}}
+          {@const vpMax = objMax(vp)}
+          <div class="hbars">
+            {#each VIEWPORT_ORDER.filter((k) => (vp[k] ?? 0) > 0) as k}
+              {@const v = vp[k] ?? 0}
+              <div class="hrow">
+                <span class="hlabel">{VIEWPORT_LABEL[k] ?? k}</span>
+                <div class="htrack"><div class="hbar" style="width:{pct(v, vpMax)}%"></div></div>
+                <span class="hval">{v}</span>
+              </div>
+            {/each}
+          </div>
+          <p class="muted unit">Viewport width band (px)</p>
+        {/if}
+      </section>
+
+      <!-- Browser -->
+      <section class="card">
+        <h2>Browser</h2>
+        {#if !hasData(data.browser)}
+          <p class="muted">No data yet</p>
+        {:else}
+          {@const br = data.browser ?? {}}
+          {@const brMax = objMax(br)}
+          <div class="hbars">
+            {#each Object.entries(br).sort((a, b) => b[1] - a[1]) as [k, v]}
+              <div class="hrow">
+                <span class="hlabel">{BROWSER_LABEL[k] ?? k}</span>
+                <div class="htrack"><div class="hbar" style="width:{pct(v, brMax)}%"></div></div>
+                <span class="hval">{v}</span>
+              </div>
+            {/each}
+          </div>
         {/if}
       </section>
     </div>
