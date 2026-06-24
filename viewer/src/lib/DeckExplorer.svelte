@@ -81,11 +81,11 @@
 	// is no Lunty map yet, so this isn't a tiled map — toggling it overlays the
 	// approximate restoration zone the chair named in Addendum Rec 5 (Clearwater +
 	// W. Mountain View County). It sits alongside the three real maps, not in them.
-	let luntyOn = $state(false);
-	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean }>({
+	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean; miller: boolean }>({
 		hwy: false,
 		water: false,
-		pois: true
+		pois: true,
+		miller: false
 	});
 	let zoomVal = $state(0); // slider value (== viewState.zoom)
 	let zoomMin = $state(0);
@@ -132,11 +132,11 @@
 	let zoomSetter: (z: number) => void = () => {};
 	let dragSetter: (v: boolean) => void = () => {};
 	let mapToggler: (mk: string) => void = () => {};
-	let filterSetter: (which: 'hwy' | 'water' | 'pois', val: boolean) => void = () => {};
+	let filterSetter: (which: 'hwy' | 'water' | 'pois' | 'miller', val: boolean) => void = () => {};
 	let edSelector: (rec: EdRec) => void = () => {};
 	let clearSelection: () => void = () => {};
-	let luntySetter: (on: boolean) => void = () => {};
-	// Lunty restoration-zone polygons (loaded once in onMount); non-reactive.
+	// Miller restoration-zone polygons (loaded lazily when the Miller layer toggle
+	// is first enabled); non-reactive.
 	let luntyBounds: { zones: { name: string; note?: string; rings: number[][][] }[] } | null = null;
 
 	// Non-reactive search index (built once ed_index loads in onMount).
@@ -557,7 +557,7 @@
 				// Lunty scaffold: the chair's Rec-5 restoration zone (approximate),
 				// in dark grey, shown only while the Lunty toggle is on — plus a single
 				// explanatory point at the zone's centroid (hover to read what it is).
-				if (luntyOn && luntyBounds) {
+				if (filters.miller && luntyBounds) {
 					const TERRA = [224, 142, 96];
 					for (const z of luntyBounds.zones) {
 						layers.push(
@@ -565,10 +565,9 @@
 								id: 'lunty-' + z.name,
 								data: z.rings,
 								getPolygon: (r: number[][]) => r as any,
-								filled: true,
+								filled: false,
 								stroked: true,
-								getFillColor: [...TERRA, 44],
-								getLineColor: [...TERRA, 240],
+								getLineColor: [...TERRA, 255],
 								getLineWidth: 2,
 								lineWidthUnits: 'pixels',
 								lineWidthMinPixels: 2,
@@ -591,14 +590,14 @@
 									{
 										x: sx / ring.length,
 										y: sy / ring.length,
-										title: 'Lunty scaffold — Miller’s restored rural seat',
-										body: 'This area is on the map because of Justice Dallas Miller, the commission’s chair. In an addendum to the final report, he wrote that if the Legislature would not accept cutting two rural ridings, it should instead add two seats — going from 89 to 91 — and restore them. He pointed to this spot, around Clearwater and western Mountain View counties west of Red Deer, as where one of those rural seats should go. It’s sketched from county lines as a placeholder, not an official boundary, until the 2026 Lunty committee draws the real map.'
+										title: 'Miller — a restored rural seat',
+										body: 'This area is on the map because of Justice Dallas Miller, the commission’s chair. In an addendum to the final report, he wrote that if the Legislature would not accept cutting two rural ridings, it should instead add two seats — going from 89 to 91 — and restore them. He pointed to this spot, around Clearwater and western Mountain View counties west of Red Deer, as where one of those rural seats should go. It’s sketched from county lines as a placeholder, not an official boundary, until the next commission redraws the map.'
 									}
 								],
 								getPosition: (d: any) => [d.x, d.y, 0],
-								getRadius: 0,
+								getRadius: 8,
 								radiusUnits: 'pixels',
-								radiusMinPixels: 0,
+								radiusMinPixels: 6,
 								filled: true,
 								stroked: true,
 								getFillColor: [210, 210, 210, 255],
@@ -608,7 +607,7 @@
 								// Pickable on desktop (hover tip). On touch it is NON-pickable so it
 								// can't intercept the two-finger pinch-zoom gesture; the explanation
 								// is shown in the mobile info (ⓘ) popover instead.
-								pickable: false,
+								pickable: true,
 								parameters: { depthTest: false },
 								coordinateSystem: CART
 							})
@@ -855,10 +854,18 @@
 				schedulePaint();
 			};
 			// Filter checkbox handlers (lazy-load data on manual enable).
-			filterSetter = (which: 'hwy' | 'water' | 'pois', val: boolean) => {
+			filterSetter = (which: 'hwy' | 'water' | 'pois' | 'miller', val: boolean) => {
 				filters[which] = val;
 				if (which === 'hwy' && val) loadHwyData();
 				if (which === 'water' && val) loadWaterData();
+				if (which === 'miller' && val && !luntyBounds) {
+					fetchJSON('lunty_bounds.json')
+						.then((d) => {
+							luntyBounds = d as any;
+							schedulePaint();
+						})
+						.catch(() => {});
+				}
 				// Analytics: user-driven layer toggle. (The zoom auto-enable in
 				// maybeAutoLayers flips these programmatically and is intentionally
 				// NOT logged — only genuine user toggles count.)
@@ -881,30 +888,6 @@
 			clearSelection = () => {
 				selectedEd = null;
 				hideTip();
-				schedulePaint();
-			};
-			// Toggle the Lunty restoration-zone scaffold overlay (lazy-load the bounds).
-			luntySetter = async (on: boolean) => {
-				luntyOn = on;
-				if (on && !luntyBounds) {
-					try {
-						luntyBounds = await fetchJSON('lunty_bounds.json');
-					} catch {
-						luntyBounds = null;
-					}
-				}
-				if (coarse && tipEl) {
-						if (on) {
-							tipEl.style.display = 'block';
-							tipEl.innerHTML =
-								'<div class="n">Lunty scaffold — Miller’s restored rural seat</div>' +
-								'<div class="flagbody">The terracotta zone is roughly where the commission’s chair, Justice Dallas Miller, wrote in an addendum that one of two restored rural seats should go — Clearwater and western Mountain View counties, west of Red Deer. Sketched from county lines as a placeholder, not an official boundary, until the 2026 Lunty committee draws the real map.</div>';
-							placeTip(0, 0);
-						} else {
-							hideTip();
-						}
-					}
-					track('layer_toggle', { layer: 'lunty', on });
 				schedulePaint();
 			};
 
@@ -958,7 +941,7 @@
 				height: window.innerHeight,
 				views: new OrthographicView({ flipY: false }),
 				viewState: initial, // controlled, so the zoom slider can drive it
-				controller: { scrollZoom: { smooth: true }, doubleClickZoom: false },
+				controller: { scrollZoom: { smooth: true }, doubleClickZoom: true },
 				useDevicePixels: DPR,
 				// deck.gl picking callbacks: typed loosely (deck's PickingInfo is runtime-imported).
 				onHover: (info: any) => {
@@ -1031,36 +1014,9 @@
 					update(viewState);
 				},
 				onClick: (info: any) => {
-					// Double-tap / double-click → jump one zoom level in, centred on the
-					// clicked point (deck gives us its world coordinate).
-					const nowMs = performance.now();
-					const isDouble = nowMs - lastTapMs < 300;
-					lastTapMs = nowMs;
-					if (isDouble && Array.isArray(info.coordinate) && lastVS) {
-						const nz = Math.min(
-							lastVS.maxZoom as number,
-							(lastVS.zoom as number) + 1
-						);
-						update({ ...lastVS, target: [info.coordinate[0], info.coordinate[1], 0], zoom: nz });
-						schedulePaint();
-						return;
-					}
-					const fid =
-						info.layer && info.layer.id === 'flags' && info.object ? info.object.id : null;
-					// The Miller pin reveals its proposed-zone polygon; any other click
-					// (another pin, or empty map) hides it again.
-					luntyOn = fid === 'miller-restored-seat';
-					if (luntyOn && !luntyBounds) {
-						fetchJSON('lunty_bounds.json')
-							.then((d) => {
-								luntyBounds = d as any;
-								schedulePaint();
-							})
-							.catch(() => {});
-					}
-					if (fid) {
+					if (info.layer && info.layer.id === 'flags' && info.object) {
 						// Analytics: a POI pin was clicked (fire-and-forget).
-						track('poi_open', { id: String(fid) });
+						track('poi_open', { id: String(info.object.id) });
 						// Zoom in to fill the view on the pin, then nudge the camera so the
 						// pin lands LEFT of the right-side controls (panel on desktop, the
 						// compact bar on mobile) instead of being hidden beneath them.
@@ -1077,7 +1033,6 @@
 							zoom: z
 						});
 					}
-					schedulePaint();
 				},
 				layers: []
 			});
@@ -1345,6 +1300,13 @@
 							onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
 						/> Annotations
 					</label>
+					<label>
+						<input
+							type="checkbox"
+							checked={filters.miller}
+							onchange={(e) => filterSetter('miller', e.currentTarget.checked)}
+						/> Miller's seat
+					</label>
 				</div>
 			{:else if mobilePanel === 'info'}
 				<div class="msw-m-pop note">
@@ -1476,6 +1438,13 @@
 					checked={filters.pois}
 					onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
 				/> Annotations
+			</label>
+			<label>
+				<input
+					type="checkbox"
+					checked={filters.miller}
+					onchange={(e) => filterSetter('miller', e.currentTarget.checked)}
+				/> Miller's proposed seat
 			</label>
 		</div>
 
