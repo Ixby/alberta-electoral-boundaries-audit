@@ -76,7 +76,7 @@
 	const DASH = DASH_PRESETS[dashParam ?? ''] ?? DASH_PRESETS.medium;
 
 	// ── Reactive UI state ──────────────────────────────────────────────────────
-	let activeMaps = $state<string[]>(['minority', 'majority', '2019']);
+	let activeMaps = $state<string[]>(['minority']);
 	// 4th map version: a SCAFFOLD for the Nov 2026 Lunty (91-seat) committee. There
 	// is no Lunty map yet, so this isn't a tiled map — toggling it overlays the
 	// approximate restoration zone the chair named in Addendum Rec 5 (Clearwater +
