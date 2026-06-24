@@ -256,6 +256,10 @@
         <span class="n">{data.totals.explorer_opens.toLocaleString('en-CA')}</span>
         <span class="l">Explorer opens</span>
       </div>
+      <div class="stat">
+        <span class="n">{data.perf && data.perf.samples > 0 ? fmtMs(data.perf.fp_p50) : '—'}</span>
+        <span class="l">Median first paint</span>
+      </div>
     </section>
 
     <div class="grid">
@@ -569,7 +573,7 @@
   /* ── Totals ── */
   .totals {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     margin-bottom: 1.25rem;
   }
@@ -647,8 +651,10 @@
   .vbar-val { font-size: 0.78rem; color: #aab2c2; font-variant-numeric: tabular-nums; }
   .vbar-lbl { font-size: 0.72rem; color: #6c7385; }
 
+  @media (max-width: 960px) {
+    .totals { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 720px) {
-    .totals { grid-template-columns: 1fr; }
     .grid { grid-template-columns: 1fr; }
     .span2 { grid-column: auto; }
   }
