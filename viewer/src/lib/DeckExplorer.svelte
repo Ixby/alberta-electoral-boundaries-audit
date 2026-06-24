@@ -294,6 +294,10 @@
 			let bundleTotal = 0;
 			let archiveBytes = 0;
 			let lastPolyCount = 0; // visible feature count, stashed by buildLayers
+			// The exact perf payload transmitted at first paint. The HUD renders THIS
+			// (not a live recompute) so its "→ analytics" line matches what was sent,
+			// instead of drifting as bundles lazy-load and the user zooms.
+			let perfSent: Record<string, string | number> | null = null;
 
 			const dataUrl = (f: string) => `${base}/mapdata/${f}`;
 			async function fetchJSON<T>(f: string): Promise<T> {
@@ -830,11 +834,13 @@
 					(performance as unknown as { memory?: { usedJSHeapSize: number } }).memory
 						? ` · heap <b>${((performance as unknown as { memory: { usedJSHeapSize: number } }).memory.usedJSHeapSize / 1e6) | 0}MB</b>`
 						: '';
-				// The exact payload the analytics `perf` event carries (HUD mirrors send).
-				const sent = perfPayload(L);
-				const sentLine = Object.keys(sent)
-					.map((k) => `${k} <b>${sent[k]}</b>`)
-					.join(' · ');
+				// The exact payload the analytics `perf` event carried, captured once at
+				// first paint (not recomputed live) so the HUD mirrors what was sent.
+				const sentLine = perfSent
+					? Object.keys(perfSent)
+							.map((k) => `${k} <b>${perfSent![k]}</b>`)
+							.join(' · ')
+					: '…';
 				hudEl.innerHTML =
 					`<b>deck.gl · EPSG:3401</b> &nbsp; <b>${activeMaps.join('+') || 'fills only'}</b> &nbsp; ` +
 					`<span style="color:#8aa0c2">data <b>${M.version || '?'}</b> · app <b>${APP_VERSION}</b></span><br>` +
@@ -1130,7 +1136,8 @@
 			await new Promise<void>((r) =>
 				requestAnimationFrame(() => {
 					firstPaintMs = Math.round(performance.now());
-					track('perf', perfPayload(L0));
+					perfSent = perfPayload(L0);
+					track('perf', perfSent);
 					schedulePaint();
 					r();
 				})
