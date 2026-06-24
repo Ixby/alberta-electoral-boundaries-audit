@@ -112,6 +112,9 @@
 
 	function toggleMobilePanel(p: 'search' | 'layers' | 'info'): void {
 		mobilePanel = mobilePanel === p ? 'none' : p;
+		// The community/district target lives with the search: leaving the search
+		// popover (closing it or switching panels) drops the target marker.
+		if (mobilePanel !== 'search') clearSelection();
 	}
 	// Focus a node as soon as it mounts (brings up the keyboard for mobile search).
 	function focusOnMount(node: HTMLElement) {
@@ -1282,7 +1285,7 @@
 									onmousedown={(e) => {
 										e.preventDefault();
 										chooseResult(r);
-										mobilePanel = 'none';
+										// keep the search popover open while the target marker is up
 									}}
 									onmouseenter={() => (searchActive = i)}
 								>
