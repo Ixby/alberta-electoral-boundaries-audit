@@ -13,6 +13,15 @@
   type DailyRow = { day: string; pageviews: number; visitors: number };
   type SectionRow = { id: string; views: number };
   type DistrictRow = { name: string; selects: number };
+  type PerfBlock = {
+    samples: number;
+    fp: Record<string, number>;
+    heap: Record<string, number>;
+    fp_p50: number | null;
+    fp_p90: number | null;
+    heap_p50: number | null;
+    loaded_mb_avg: number | null;
+  };
   type Dashboard = {
     range_days: number;
     generated_at: string;
@@ -26,6 +35,7 @@
     zoom_depth: Record<string, number>;
     top_districts: DistrictRow[];
     layer_toggle: Record<string, number>;
+    perf?: PerfBlock;
   };
 
   // ── State ─────────────────────────────────────────────────────────────────
@@ -126,6 +136,22 @@
     '5': '5s', '15': '15s', '30': '30s', '60': '1m', '120': '2m', '300': '5m',
   };
   const ZOOM_ORDER = ['province', 'region', 'city', 'district', 'street'];
+  // First-paint bands (must match firstPaintBand() in analytics.ts). Each key is
+  // the band's lower-bound ms; labels read as the lower bound in seconds.
+  const FP_BANDS = ['0', '250', '500', '750', '1000', '1500', '2000', '3000', '5000'];
+  const FP_LABEL: Record<string, string> = {
+    '0': '<¼s', '250': '¼s', '500': '½s', '750': '¾s',
+    '1000': '1s', '1500': '1½s', '2000': '2s', '3000': '3s', '5000': '5s+',
+  };
+  // ms → short seconds label (e.g. 750 → "0.75s") for the perf headline figures.
+  function fmtMs(ms: number | null | undefined): string {
+    if (ms == null) return '—';
+    return ms < 1000 ? `${Math.round(ms)}ms` : `${(ms / 1000).toFixed(2).replace(/\.?0+$/, '')}s`;
+  }
+  // Heap step keys present in the data, ordered numerically (0, 50, 100, …).
+  function heapSteps(o: Record<string, number> | undefined): string[] {
+    return Object.keys(o ?? {}).sort((a, b) => Number(a) - Number(b));
+  }
 
   function vmax(vals: number[]): number {
     return Math.max(...vals, 1);
@@ -412,6 +438,57 @@
           </div>
         {/if}
       </section>
+
+      <!-- Load performance (first-paint snapshot) -->
+      <section class="card span2">
+        <h2>Load performance</h2>
+        {#if !data.perf || data.perf.samples === 0}
+          <p class="muted">No data yet</p>
+        {:else}
+          <div class="perf-head">
+            <div class="pstat"><span class="pn">{fmtMs(data.perf.fp_p50)}</span><span class="pl">Median first paint</span></div>
+            <div class="pstat"><span class="pn">{fmtMs(data.perf.fp_p90)}</span><span class="pl">p90 first paint</span></div>
+            <div class="pstat"><span class="pn">{data.perf.heap_p50 != null ? data.perf.heap_p50 + ' MB' : '—'}</span><span class="pl">Median heap</span></div>
+            <div class="pstat"><span class="pn">{data.perf.loaded_mb_avg != null ? data.perf.loaded_mb_avg + ' MB' : '—'}</span><span class="pl">Avg first payload</span></div>
+            <div class="pstat"><span class="pn">{data.perf.samples.toLocaleString('en-CA')}</span><span class="pl">Samples</span></div>
+          </div>
+          {#if hasData(data.perf.fp)}
+            {@const fMax = objMax(data.perf.fp)}
+            <h3 class="sub-h">First-paint distribution</h3>
+            <div class="vbars">
+              {#each FP_BANDS as b}
+                {@const v = data.perf.fp[b] ?? 0}
+                <div class="vbar-wrap">
+                  <span class="vbar-val">{v}</span>
+                  <div class="vbar perf" style="height:{pct(v, fMax)}%"></div>
+                  <span class="vbar-lbl">{FP_LABEL[b] ?? b}</span>
+                </div>
+              {/each}
+            </div>
+          {/if}
+        {/if}
+      </section>
+
+      <!-- Memory (heap) -->
+      <section class="card">
+        <h2>Memory (heap)</h2>
+        {#if !data.perf || !hasData(data.perf.heap)}
+          <p class="muted">No data yet</p>
+        {:else}
+          {@const hMax = objMax(data.perf.heap)}
+          <div class="vbars">
+            {#each heapSteps(data.perf.heap) as step}
+              {@const v = data.perf.heap[step] ?? 0}
+              <div class="vbar-wrap">
+                <span class="vbar-val">{v}</span>
+                <div class="vbar heap" style="height:{pct(v, hMax)}%"></div>
+                <span class="vbar-lbl">{step}</span>
+              </div>
+            {/each}
+          </div>
+          <p class="muted unit">MB used (50 MB bands)</p>
+        {/if}
+      </section>
     </div>
   {/if}
 </main>
@@ -553,6 +630,20 @@
   .vbar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; gap: 0.3rem; }
   .vbar { width: 100%; max-width: 38px; background: #58e0d4; border-radius: 4px 4px 0 0; min-height: 2px; transition: height 0.3s ease; }
   .vbar.zoom { background: #7c3ac4; }
+  .vbar.perf { background: #f5c518; }
+  .vbar.heap { background: #f08e60; }
+
+  /* ── Perf headline ── */
+  .perf-head {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    margin-bottom: 1.1rem; padding-bottom: 1rem;
+    border-bottom: 1px solid #222836;
+  }
+  .pstat { display: flex; flex-direction: column; gap: 0.15rem; }
+  .pstat .pn { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .pstat .pl { font-size: 0.74rem; color: #8b93a3; text-transform: uppercase; letter-spacing: 0.04em; }
+  .sub-h { font-size: 0.74rem; margin: 0 0 0.7rem; font-weight: 600; color: #8b93a3; text-transform: uppercase; letter-spacing: 0.04em; }
+  .unit { text-align: center; margin-top: 0.5rem; }
   .vbar-val { font-size: 0.78rem; color: #aab2c2; font-variant-numeric: tabular-nums; }
   .vbar-lbl { font-size: 0.72rem; color: #6c7385; }
 
