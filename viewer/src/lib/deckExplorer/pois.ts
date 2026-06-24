@@ -79,5 +79,12 @@ export const FLAGS: Flag[] = [
 		y: -380000.0,
 		title: 'Calgary north & east — a packing signature',
 		body: "The commission chair didn't flag this one — the audit's own math does. Across Calgary's north and east (the audit's “Zone A,” north and east of the Bow River), the minority map's districts run about 11.5% larger than the provincial average, against 2.8% on the majority map. Packing means concentrating one side's voters into fewer, larger districts, so each of their ballots weighs a little less; Zone A is NDP-competitive, and 13 of its 17 districts were NDP-won in 2023. The audit measures the structural effect, not intent. (Academic §5.3.1.)"
+	},
+	{
+		id: 'miller-restored-seat',
+		x: -69241.8,
+		y: -259328.2,
+		title: 'Miller — a restored rural seat',
+		body: "This is where the commission's chair, Justice Dallas Miller, said a cut rural seat should be restored. In an addendum to the final report, he wrote that if the Legislature would not accept removing two rural ridings, it should add two seats — going from 89 to 91 — and restore them, with one around here: Clearwater and western Mountain View counties, west of Red Deer. It's only a rough location, not an official boundary; the 2026 committee that redraws the map will set the real lines."
 	}
 ];

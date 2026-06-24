@@ -515,6 +515,9 @@ export function buildVaLayer(
 		id: 'va',
 		data: feats,
 		pickable: true,
+		// Light up the active poll (the one under the cursor / finger).
+		autoHighlight: true,
+		highlightColor: [255, 255, 255, 90],
 		getPolygon: (d: { coords: Float32Array }) => d.coords,
 		positionFormat: 'XY',
 		getFillColor: (d: { id: number }) => (vaProps[d.id] ? vaProps[d.id].fill : [232, 230, 224]),

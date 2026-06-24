@@ -94,6 +94,7 @@
 	// Visible viewport height (shrinks when the mobile keyboard opens). Used to cap
 	// the mobile search-results list so it never hides behind the keyboard.
 	let vvH = $state(0);
+	let lastTapMs = 0; // last click/tap time, for double-tap/double-click zoom
 
 	// ── Search state (district-name autocomplete) ────────────────────────────────
 	let searchQuery = $state('');
@@ -437,12 +438,16 @@
 					if (vw > vh) {
 						// Landscape: short on height, controls sit top-right → anchor to
 						// the left edge, vertically centred (the free zone).
+						tipEl.style.right = 'auto';
+						tipEl.style.bottom = 'auto';
 						tipEl.style.left = '8px';
 						tipEl.style.top = Math.max(8, Math.round((vh - h) / 2)) + 'px';
 					} else {
 						// Portrait: anchor bottom-centre.
-						tipEl.style.left = Math.round((vw - w) / 2) + 'px';
-						tipEl.style.top = vh - h - 16 + 'px';
+						tipEl.style.top = 'auto';
+						tipEl.style.left = '8px';
+						tipEl.style.right = '8px';
+						tipEl.style.bottom = '10px';
 					}
 					return;
 				}
@@ -591,9 +596,9 @@
 									}
 								],
 								getPosition: (d: any) => [d.x, d.y, 0],
-								getRadius: 7,
+								getRadius: 0,
 								radiusUnits: 'pixels',
-								radiusMinPixels: 6,
+								radiusMinPixels: 0,
 								filled: true,
 								stroked: true,
 								getFillColor: [210, 210, 210, 255],
@@ -603,7 +608,7 @@
 								// Pickable on desktop (hover tip). On touch it is NON-pickable so it
 								// can't intercept the two-finger pinch-zoom gesture; the explanation
 								// is shown in the mobile info (ⓘ) popover instead.
-								pickable: !coarse,
+								pickable: false,
 								parameters: { depthTest: false },
 								coordinateSystem: CART
 							})
@@ -953,7 +958,7 @@
 				height: window.innerHeight,
 				views: new OrthographicView({ flipY: false }),
 				viewState: initial, // controlled, so the zoom slider can drive it
-				controller: { scrollZoom: { smooth: true } },
+				controller: { scrollZoom: { smooth: true }, doubleClickZoom: false },
 				useDevicePixels: DPR,
 				// deck.gl picking callbacks: typed loosely (deck's PickingInfo is runtime-imported).
 				onHover: (info: any) => {
@@ -1026,9 +1031,36 @@
 					update(viewState);
 				},
 				onClick: (info: any) => {
-					if (info.layer && info.layer.id === 'flags' && info.object) {
+					// Double-tap / double-click → jump one zoom level in, centred on the
+					// clicked point (deck gives us its world coordinate).
+					const nowMs = performance.now();
+					const isDouble = nowMs - lastTapMs < 300;
+					lastTapMs = nowMs;
+					if (isDouble && Array.isArray(info.coordinate) && lastVS) {
+						const nz = Math.min(
+							lastVS.maxZoom as number,
+							(lastVS.zoom as number) + 1
+						);
+						update({ ...lastVS, target: [info.coordinate[0], info.coordinate[1], 0], zoom: nz });
+						schedulePaint();
+						return;
+					}
+					const fid =
+						info.layer && info.layer.id === 'flags' && info.object ? info.object.id : null;
+					// The Miller pin reveals its proposed-zone polygon; any other click
+					// (another pin, or empty map) hides it again.
+					luntyOn = fid === 'miller-restored-seat';
+					if (luntyOn && !luntyBounds) {
+						fetchJSON('lunty_bounds.json')
+							.then((d) => {
+								luntyBounds = d as any;
+								schedulePaint();
+							})
+							.catch(() => {});
+					}
+					if (fid) {
 						// Analytics: a POI pin was clicked (fire-and-forget).
-						track('poi_open', { id: String(info.object.id) });
+						track('poi_open', { id: String(fid) });
 						// Zoom in to fill the view on the pin, then nudge the camera so the
 						// pin lands LEFT of the right-side controls (panel on desktop, the
 						// compact bar on mobile) instead of being hidden beneath them.
@@ -1045,6 +1077,7 @@
 							zoom: z
 						});
 					}
+					schedulePaint();
 				},
 				layers: []
 			});
@@ -1185,12 +1218,6 @@
 							onclick={() => mapToggler(mk)}
 						>{mk === '2019' ? "’19" : mk === 'minority' ? 'Min' : 'Maj'}</button>
 					{/each}
-					<button
-						class="seg-btn lunty-seg"
-						class:on={luntyOn}
-						title="Lunty scaffold — chair's Rec-5 restoration zone (approximate)"
-						onclick={() => luntySetter(!luntyOn)}
-					>Lun</button>
 				</div>
 				<button
 					class="ic"
@@ -1410,21 +1437,7 @@
 					{mk === '2019' ? '2019' : mk === 'minority' ? 'Minority' : 'Majority'}
 				</button>
 			{/each}
-			<button
-				class="lunty-btn"
-				class:on={luntyOn}
-				title="Lunty scaffold — chair's Rec-5 restoration zone (approximate)"
-				onclick={() => luntySetter(!luntyOn)}
-			>Lunty</button>
 		</div>
-		{#if luntyOn}
-			<div class="lunty-note">
-				<b>Miller's restored rural seat.</b> The shaded zone is roughly where the commission's
-				chair, Justice Dallas Miller, wrote in an addendum that one of two restored rural seats
-				should go: Clearwater and western Mountain View County. Sketched from county lines as a
-				placeholder, not an official boundary; hover the dot for the full story.
-			</div>
-		{/if}
 
 		<input
 			class="zoom"
@@ -1744,7 +1757,7 @@
 	/* Balanced 2×2 grid: Minority / Majority / 2019 / Lunty, equal cells. */
 	.mapsw .btns {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 		gap: 5px;
 	}
 	.mapsw button {
@@ -1756,39 +1769,6 @@
 		border-radius: 7px;
 		cursor: pointer;
 		text-align: center;
-	}
-	/* Lunty scaffold — warm terracotta (proposed future map), set apart from the 3 maps. */
-	.mapsw .lunty-btn {
-		border-color: #e08e60;
-		color: #e8a784;
-	}
-	.mapsw .lunty-btn.on {
-		background: #e08e60;
-		border-color: #e08e60;
-		color: #1a1208;
-	}
-	.mapsw .lunty-note {
-		font-size: 11px;
-		line-height: 1.5;
-		color: #e0c3ad;
-		margin-top: 2px;
-		padding: 7px 8px;
-		border: 1px solid #6b4a35;
-		border-radius: 7px;
-		background: rgba(224, 142, 96, 0.1);
-		max-width: 228px;
-	}
-	.mapsw .lunty-note b {
-		color: #f0d8c5;
-	}
-	.msw-m .lunty-seg {
-		border-color: #e08e60;
-		color: #e8a784;
-	}
-	.msw-m .lunty-seg.on {
-		background: #e08e60;
-		border-color: #e08e60;
-		color: #1a1208;
 	}
 	.mapsw .zoom {
 		width: 100%;
@@ -2122,6 +2102,15 @@
 		}
 		.tip :global(.note) {
 			font-size: 14px;
+		}
+	}
+	/* Portrait phones: the tip becomes a full-width bottom sheet (placeTip pins it
+	   left/right/bottom), so it reads as part of the UI rather than a floating card. */
+	@media (pointer: coarse) and (orientation: portrait) {
+		.tip {
+			max-width: none;
+			border-radius: 12px;
+			box-shadow: 0 -3px 18px rgba(0, 0, 0, 0.45);
 		}
 	}
 </style>
