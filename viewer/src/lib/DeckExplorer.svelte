@@ -597,7 +597,10 @@
 								getLineColor: [30, 30, 30, 235],
 								getLineWidth: 1.5,
 								lineWidthUnits: 'pixels',
-								pickable: true,
+								// Pickable on desktop (hover tip). On touch it is NON-pickable so it
+								// can't intercept the two-finger pinch-zoom gesture; the explanation
+								// is shown in the mobile info (ⓘ) popover instead.
+								pickable: !coarse,
 								parameters: { depthTest: false },
 								coordinateSystem: CART
 							})
@@ -882,7 +885,18 @@
 						luntyBounds = null;
 					}
 				}
-				track('layer_toggle', { layer: 'lunty', on });
+				if (coarse && tipEl) {
+						if (on) {
+							tipEl.style.display = 'block';
+							tipEl.innerHTML =
+								'<div class="n">Lunty scaffold — Miller’s restored rural seat</div>' +
+								'<div class="flagbody">The terracotta zone is roughly where the commission’s chair, Justice Dallas Miller, wrote in an addendum that one of two restored rural seats should go — Clearwater and western Mountain View counties, west of Red Deer. Sketched from county lines as a placeholder, not an official boundary, until the 2026 Lunty committee draws the real map.</div>';
+							placeTip(0, 0);
+						} else {
+							hideTip();
+						}
+					}
+					track('layer_toggle', { layer: 'lunty', on });
 				schedulePaint();
 			};
 
