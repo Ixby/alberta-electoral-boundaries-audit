@@ -17,7 +17,7 @@
     <div class="header-text">
       <div class="site-label">Alberta Electoral Boundary Audit</div>
       <h1>Privacy &amp; Data Retention Policy</h1>
-      <p class="meta">Effective: 2026-06-22 · Maintained by Will Conner</p>
+      <p class="meta">Effective: 2026-06-24 · Maintained by Will Conner</p>
     </div>
   </div>
 </header>
@@ -50,6 +50,7 @@
         <li>Which map layers are turned on or off, and roughly how far in people zoom</li>
         <li>Which points of interest or report links are opened</li>
         <li>A coarse picture of your setup — screen-size band (such as phone, tablet, or desktop), form factor, and browser family (such as Chrome, Safari, or Firefox). We never store your exact screen dimensions or full browser identification string.</li>
+        <li>A one-time snapshot of how the map explorer performed when it first drew — for example, the load time in coarse bands and a rounded memory figure. This helps us tell whether the explorer is fast enough on real devices. The numbers are deliberately banded, not exact, so they describe a device class rather than a device.</li>
       </ul>
       <p>Every one of these is stored only in aggregate. There is no per-person profile, no session replay, and no record of an individual's path through the site. We see totals and distributions, not people.</p>
     </section>

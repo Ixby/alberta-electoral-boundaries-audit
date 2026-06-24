@@ -26,6 +26,11 @@
 //   zoom_depth      { bucket }
 //   district_select { name }
 //   layer_toggle    { layer, on }
+//   perf            { fp, heap_mb, loaded_mb, polys, level, maps, data_ver, app_ver }
+//                   A one-time first-paint snapshot of the same telemetry the debug
+//                   HUD shows, coarsened for privacy: `fp` is a load-time band (ms
+//                   floor), `heap_mb` a 50 MB step. The high-resolution paint
+//                   breakdown (lib/assets/deck/gpu) stays HUD-only and is never sent.
 //
 // Everything here is browser-only and never throws: during SSR / prerender
 // `track` no-ops, and every network failure is swallowed. There is no consent
@@ -133,6 +138,25 @@ export function secondsBucket(s: number): number {
 		else break;
 	}
 	return bucket;
+}
+
+// First-paint time → coarse load-time band (ms floor). Floors to the largest
+// threshold not exceeding `ms`. Keeps the perf signal useful for spotting slow
+// loads in aggregate without retaining a fingerprintable high-resolution timing.
+const PAINT_THRESHOLDS = [250, 500, 750, 1000, 1500, 2000, 3000, 5000] as const;
+export function firstPaintBand(ms: number): number {
+	let band = 0;
+	for (const t of PAINT_THRESHOLDS) {
+		if (ms >= t) band = t;
+		else break;
+	}
+	return band;
+}
+
+// JS heap (MB) → coarse 50 MB step, so memory pressure is visible in aggregate
+// without the exact heap size becoming a per-device fingerprint.
+export function heapBand(mb: number): number {
+	return Math.floor(mb / 50) * 50;
 }
 
 // Tile level (0–10) → small human label for the zoom-depth distribution. The

@@ -39,7 +39,7 @@
 	} from '$lib/deckExplorer/layers';
 	import { FLAGS } from '$lib/deckExplorer/pois';
 	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
-	import { track, zoomBucket } from '$lib/analytics';
+	import { track, zoomBucket, firstPaintBand, heapBand } from '$lib/analytics';
 
 	// ── Props ────────────────────────────────────────────────────────────────
 	// base: SvelteKit base path (pass `base` from $app/paths at the call site so
@@ -469,7 +469,7 @@
 				vp: { getBounds: () => number[] }
 			) {
 				const feats = featsForView(keys);
-				if (DEBUG) lastPolyCount = feats.length; // visible feature count for the HUD
+				lastPolyCount = feats.length; // visible feature count (HUD + perf snapshot)
 				// deck.gl layer instances are opaque here (builders are deck-free / DI); the array is
 				// handed straight to deckgl.setProps, which validates them at runtime.
 				/* eslint-disable @typescript-eslint/no-explicit-any */
@@ -776,6 +776,28 @@
 				}
 			}
 
+			// ── Shared perf telemetry ──────────────────────────────────────────────
+			// The single source of truth for both the analytics `perf` event and the
+			// debug HUD's "→ analytics" line — so the HUD shows exactly what is sent.
+			// Flat scalars only (the collector drops non-scalar props), coarsened for
+			// privacy: `fp` is a load-time band, `heap_mb` a 50 MB step. The high-res
+			// paint breakdown (lib/assets/deck/gpu) is intentionally NOT included here —
+			// it stays HUD-only because a 4-way timing vector is fingerprint-adjacent.
+			function perfPayload(L: number): Record<string, string | number> {
+				const mem = (performance as unknown as { memory?: { usedJSHeapSize: number } }).memory;
+				const p: Record<string, string | number> = {
+					fp: firstPaintBand(firstPaintMs),
+					loaded_mb: Math.round(archiveBytes / 1e5) / 10,
+					polys: lastPolyCount,
+					level: L,
+					maps: activeMaps.join('+') || 'fills',
+					data_ver: (M && M.version) || '?',
+					app_ver: APP_VERSION
+				};
+				if (mem) p.heap_mb = heapBand(mem.usedJSHeapSize / 1e6);
+				return p;
+			}
+
 			// ── Debug HUD (only built/written when DEBUG) ──────────────────────────
 			// Imperative innerHTML write each paint — mirrors the prototype, keeps the
 			// hot path free of reactive state. Injected markup is not scoped by Svelte,
@@ -808,12 +830,18 @@
 					(performance as unknown as { memory?: { usedJSHeapSize: number } }).memory
 						? ` · heap <b>${((performance as unknown as { memory: { usedJSHeapSize: number } }).memory.usedJSHeapSize / 1e6) | 0}MB</b>`
 						: '';
+				// The exact payload the analytics `perf` event carries (HUD mirrors send).
+				const sent = perfPayload(L);
+				const sentLine = Object.keys(sent)
+					.map((k) => `${k} <b>${sent[k]}</b>`)
+					.join(' · ');
 				hudEl.innerHTML =
 					`<b>deck.gl · EPSG:3401</b> &nbsp; <b>${activeMaps.join('+') || 'fills only'}</b> &nbsp; ` +
 					`<span style="color:#8aa0c2">data <b>${M.version || '?'}</b> · app <b>${APP_VERSION}</b></span><br>` +
 					`level <b>${L}</b>/${M.maxZoom} &nbsp; polys <b>${lastPolyCount}</b> &nbsp; ` +
 					`loaded <b>${bundlesLoaded}/${bundleTotal}</b> · <b>${(archiveBytes / 1e6).toFixed(1)}MB</b>${heap}<br>` +
-					`first paint <b>${firstPaintMs ? firstPaintMs + 'ms' : '…'}</b>${br} &nbsp; last paint <b>${lastPaintMs}ms</b>` +
+					`first paint <b>${firstPaintMs ? firstPaintMs + 'ms' : '…'}</b>${br} &nbsp; last paint <b>${lastPaintMs}ms</b><br>` +
+					`<span style="color:#9fb380">→ analytics perf:</span> ${sentLine}` +
 					table;
 			}
 			function schedulePaint() {
@@ -1090,22 +1118,23 @@
 			const head = M.bundles.find((b) => b.lo <= L0 && L0 <= b.hi) || M.bundles[0];
 			lazyTriggered.add(head.file);
 			const headBytes = await loadBundle(`${base}/mapdata`, head, archive);
-			if (DEBUG) {
-				archiveBytes += headBytes;
-				bundlesLoaded++;
-			}
+			// Counted for all visitors (not just DEBUG): the perf snapshot reports
+			// loaded_mb, and at first paint only the head bundle has arrived.
+			archiveBytes += headBytes;
+			bundlesLoaded++;
 			if (disposed) return;
 			update(initial);
 			// Capture first paint with an idle main thread, BEFORE any further loading.
-			if (DEBUG) {
-				await new Promise<void>((r) =>
-					requestAnimationFrame(() => {
-						firstPaintMs = Math.round(performance.now());
-						schedulePaint();
-						r();
-					})
-				);
-			}
+			// Runs for every visitor now: the perf snapshot is sent here (one event,
+			// first paint), and the debug HUD — when shown — renders the same numbers.
+			await new Promise<void>((r) =>
+				requestAnimationFrame(() => {
+					firstPaintMs = Math.round(performance.now());
+					track('perf', perfPayload(L0));
+					schedulePaint();
+					r();
+				})
+			);
 			await loadEd();
 			await loadLabels();
 			await loadEdIndex();
