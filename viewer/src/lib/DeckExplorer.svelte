@@ -538,9 +538,10 @@
 					)
 				);
 				// Lunty scaffold: the chair's Rec-5 restoration zone (approximate),
-				// shown only while the Lunty toggle is on.
+				// in dark grey, shown only while the Lunty toggle is on — plus a single
+				// explanatory point at the zone's centroid (hover to read what it is).
 				if (luntyOn && luntyBounds) {
-					const PURPLE = [170, 120, 255];
+					const GREY = [120, 120, 120];
 					for (const z of luntyBounds.zones) {
 						layers.push(
 							new PolygonLayer({
@@ -549,11 +550,45 @@
 								getPolygon: (r: number[][]) => r as any,
 								filled: true,
 								stroked: true,
-								getFillColor: [...PURPLE, 38],
-								getLineColor: [...PURPLE, 235],
+								getFillColor: [...GREY, 40],
+								getLineColor: [170, 170, 170, 235],
 								getLineWidth: 2,
 								lineWidthUnits: 'pixels',
 								lineWidthMinPixels: 2,
+								parameters: { depthTest: false },
+								coordinateSystem: CART
+							})
+						);
+						// Centroid of the largest ring → the explanatory point.
+						const ring = z.rings.reduce((a, b) => (b.length > a.length ? b : a), z.rings[0]);
+						let sx = 0;
+						let sy = 0;
+						for (const p of ring) {
+							sx += p[0];
+							sy += p[1];
+						}
+						layers.push(
+							new ScatterplotLayer({
+								id: 'lunty-point',
+								data: [
+									{
+										x: sx / ring.length,
+										y: sy / ring.length,
+										title: 'Lunty scaffold — restoration zone',
+										body: 'Where the commission chair’s Addendum (Recommendation 5) said one of two restored rural seats should go: Clearwater + western Mountain View County, with s.15(2) status. Approximate from county lines — not the chair’s exact boundary. The Nov 2026 Lunty committee draws the actual 91-seat map.'
+									}
+								],
+								getPosition: (d: any) => [d.x, d.y, 0],
+								getRadius: 7,
+								radiusUnits: 'pixels',
+								radiusMinPixels: 6,
+								filled: true,
+								stroked: true,
+								getFillColor: [210, 210, 210, 255],
+								getLineColor: [30, 30, 30, 235],
+								getLineWidth: 1.5,
+								lineWidthUnits: 'pixels',
+								pickable: true,
 								parameters: { depthTest: false },
 								coordinateSystem: CART
 							})
@@ -908,6 +943,8 @@
 						tipEl.innerHTML =
 							`<div class="n">${o.title}</div><div class="flagbody">${o.body}</div>` +
 							`<div class="flaglink">Click to zoom in</div>`;
+					} else if (info.layer && info.layer.id === 'lunty-point') {
+						tipEl.innerHTML = `<div class="n">${o.title}</div><div class="flagbody">${o.body}</div>`;
 					} else if (info.layer && info.layer.id === 'va') {
 						const P = (vaProps[o.id as number] || {}) as {
 							name?: string;
@@ -1678,36 +1715,36 @@
 		border-radius: 7px;
 		cursor: pointer;
 	}
-	/* Lunty scaffold toggle + note — a distinct violet, set apart from the 3 maps. */
+	/* Lunty scaffold toggle + note — dark grey, set apart from the 3 maps. */
 	.mapsw .lunty-btn {
-		border-color: #a878ff;
-		color: #c3a8ff;
+		border-color: #8a8a8a;
+		color: #b8b8b8;
 	}
 	.mapsw .lunty-btn.on {
-		background: #a878ff;
+		background: #8a8a8a;
 		color: #14110d;
 	}
 	.mapsw .lunty-note {
 		font-size: 11px;
 		line-height: 1.5;
-		color: #c3b0e8;
+		color: #c4c4c4;
 		margin-top: 7px;
 		padding: 7px 8px;
-		border: 1px solid #4a3a6e;
+		border: 1px solid #555;
 		border-radius: 7px;
-		background: rgba(120, 80, 200, 0.1);
+		background: rgba(140, 140, 140, 0.1);
 		max-width: 228px;
 	}
 	.mapsw .lunty-note b {
-		color: #ded2f7;
+		color: #e4e4e4;
 	}
 	.msw-m .lunty-seg {
-		border-color: #a878ff;
-		color: #c3a8ff;
+		border-color: #8a8a8a;
+		color: #b8b8b8;
 	}
 	.msw-m .lunty-seg.on {
-		background: #a878ff;
-		border-color: #a878ff;
+		background: #8a8a8a;
+		border-color: #8a8a8a;
 		color: #14110d;
 	}
 	.mapsw .zoom {
