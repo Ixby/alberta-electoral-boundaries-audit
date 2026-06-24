@@ -91,6 +91,9 @@
 	let zoomMin = $state(0);
 	let zoomMax = $state(1);
 	let resText = $state('—'); // "1 pixel ≈ X" readout body
+	// Visible viewport height (shrinks when the mobile keyboard opens). Used to cap
+	// the mobile search-results list so it never hides behind the keyboard.
+	let vvH = $state(0);
 
 	// ── Search state (district-name autocomplete) ────────────────────────────────
 	let searchQuery = $state('');
@@ -201,6 +204,12 @@
 			searchOpen = false;
 		}
 	}
+
+	// Expose the visible viewport height as a CSS var so the mobile search results
+	// can stay above the on-screen keyboard (which shrinks visualViewport).
+	$effect(() => {
+		if (vvH > 0) document.documentElement.style.setProperty('--vvh', vvH + 'px');
+	});
 
 	onMount(() => {
 		let cleanup: (() => void) | null = null;
@@ -541,7 +550,7 @@
 				// in dark grey, shown only while the Lunty toggle is on — plus a single
 				// explanatory point at the zone's centroid (hover to read what it is).
 				if (luntyOn && luntyBounds) {
-					const GREY = [120, 120, 120];
+					const TERRA = [224, 142, 96];
 					for (const z of luntyBounds.zones) {
 						layers.push(
 							new PolygonLayer({
@@ -550,8 +559,8 @@
 								getPolygon: (r: number[][]) => r as any,
 								filled: true,
 								stroked: true,
-								getFillColor: [...GREY, 40],
-								getLineColor: [170, 170, 170, 235],
+								getFillColor: [...TERRA, 44],
+								getLineColor: [...TERRA, 240],
 								getLineWidth: 2,
 								lineWidthUnits: 'pixels',
 								lineWidthMinPixels: 2,
@@ -574,8 +583,8 @@
 									{
 										x: sx / ring.length,
 										y: sy / ring.length,
-										title: 'Lunty scaffold — restoration zone',
-										body: 'Where the commission chair’s Addendum (Recommendation 5) said one of two restored rural seats should go: Clearwater + western Mountain View County, with s.15(2) status. Approximate from county lines — not the chair’s exact boundary. The Nov 2026 Lunty committee draws the actual 91-seat map.'
+										title: 'Lunty scaffold — a future map',
+										body: 'A rough sketch of where Alberta’s next map (due from the Lunty committee in late 2026) could add back a rural seat — around Clearwater and Mountain View counties, west of Red Deer. Drawn from county lines, so it’s an approximation, not an official boundary. It’s a placeholder until the real map is published.'
 									}
 								],
 								getPosition: (d: any) => [d.x, d.y, 0],
@@ -1003,14 +1012,20 @@
 					if (info.layer && info.layer.id === 'flags' && info.object) {
 						// Analytics: a POI pin was clicked (fire-and-forget).
 						track('poi_open', { id: String(info.object.id) });
-						const tz = 6 - Math.log2(M.side / 256); // level 6
+						// Zoom in to fill the view on the pin, then nudge the camera so the
+						// pin lands LEFT of the right-side controls (panel on desktop, the
+						// compact bar on mobile) instead of being hidden beneath them.
+						const tz = 6.3 - Math.log2(M.side / 256);
+						const z = Math.min(
+							lastVS!.maxZoom as number,
+							Math.max(lastVS!.minZoom as number, tz)
+						);
+						const mpp = 2 ** -z; // metres per pixel at z
+						const dxPx = coarse ? 64 : 150; // shift pin left, clearing the controls
 						update({
 							...lastVS!,
-							target: [info.object.x, info.object.y, 0],
-							zoom: Math.min(
-								lastVS!.maxZoom as number,
-								Math.max(lastVS!.minZoom as number, tz)
-							)
+							target: [info.object.x + dxPx * mpp, info.object.y, 0],
+							zoom: z
 						});
 					}
 				},
@@ -1024,8 +1039,10 @@
 				canvasEl.width = window.innerWidth;
 				canvasEl.height = window.innerHeight;
 				deckgl!.setProps({ width: window.innerWidth, height: window.innerHeight });
+				vvH = window.visualViewport?.height ?? window.innerHeight;
 				schedulePaint();
 			};
+			vvH = window.visualViewport?.height ?? window.innerHeight;
 			window.addEventListener('resize', onResize);
 			if (window.visualViewport) window.visualViewport.addEventListener('resize', onResize);
 
@@ -1592,18 +1609,21 @@
 	.mapsw-body {
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
+		gap: 11px;
 	}
-	.mapsw .hdr {
-		font-size: 11px;
-		font-weight: 600;
-		color: #9fb4d4;
-		padding: 0 2px;
+	/* Section labels (Map version / Geographic filters): small warm uppercase. */
+	.mapsw .hdr,
+	.mapsw .fhdr {
+		font-size: 9.5px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: #9a8c72;
+		padding: 0 1px;
+		margin-bottom: 1px;
 	}
 	.mapsw .hdr span {
-		font-weight: 400;
-		font-size: 10px;
-		color: #6b7d99;
+		display: none;
 	}
 	.mapsw .search {
 		position: relative;
@@ -1628,12 +1648,14 @@
 	.msw-m-pop .search-input::placeholder {
 		color: #6b7d99;
 	}
-	/* Mobile popover: results flow in-card below the input (not absolute). */
+	/* Mobile popover: results flow in-card below the input (not absolute), capped
+	   to the visible viewport (var --vvh shrinks when the keyboard opens) so the
+	   list never hides behind the on-screen keyboard. */
 	.msw-m-pop .search-results {
 		list-style: none;
 		margin: 2px 0 0;
 		padding: 0;
-		max-height: 44vh;
+		max-height: min(44vh, calc(var(--vvh, 100vh) - 120px));
 		overflow-y: auto;
 	}
 	.msw-m-pop .search-results li {
@@ -1702,50 +1724,54 @@
 	.msw-m-pop .sr-ed {
 		font-size: 12px;
 	}
+	/* Balanced 2×2 grid: Minority / Majority / 2019 / Lunty, equal cells. */
 	.mapsw .btns {
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		gap: 5px;
 	}
 	.mapsw button {
 		border: 1px solid transparent;
 		background: none;
 		color: #9fb4d4;
-		font: 600 13px -apple-system, 'Segoe UI', sans-serif;
-		padding: 6px 12px;
+		font: 600 12.5px -apple-system, 'Segoe UI', sans-serif;
+		padding: 7px 8px;
 		border-radius: 7px;
 		cursor: pointer;
+		text-align: center;
 	}
-	/* Lunty scaffold toggle + note — dark grey, set apart from the 3 maps. */
+	/* Lunty scaffold — warm terracotta (proposed future map), set apart from the 3 maps. */
 	.mapsw .lunty-btn {
-		border-color: #8a8a8a;
-		color: #b8b8b8;
+		border-color: #e08e60;
+		color: #e8a784;
 	}
 	.mapsw .lunty-btn.on {
-		background: #8a8a8a;
-		color: #14110d;
+		background: #e08e60;
+		border-color: #e08e60;
+		color: #1a1208;
 	}
 	.mapsw .lunty-note {
 		font-size: 11px;
 		line-height: 1.5;
-		color: #c4c4c4;
-		margin-top: 7px;
+		color: #e0c3ad;
+		margin-top: 2px;
 		padding: 7px 8px;
-		border: 1px solid #555;
+		border: 1px solid #6b4a35;
 		border-radius: 7px;
-		background: rgba(140, 140, 140, 0.1);
+		background: rgba(224, 142, 96, 0.1);
 		max-width: 228px;
 	}
 	.mapsw .lunty-note b {
-		color: #e4e4e4;
+		color: #f0d8c5;
 	}
 	.msw-m .lunty-seg {
-		border-color: #8a8a8a;
-		color: #b8b8b8;
+		border-color: #e08e60;
+		color: #e8a784;
 	}
 	.msw-m .lunty-seg.on {
-		background: #8a8a8a;
-		border-color: #8a8a8a;
-		color: #14110d;
+		background: #e08e60;
+		border-color: #e08e60;
+		color: #1a1208;
 	}
 	.mapsw .zoom {
 		width: 100%;
@@ -2016,11 +2042,20 @@
 		color: #cfe0f5;
 	}
 	/* Bar + zoom grouped; the vertical zoom sits right-aligned under the bar. */
+	/* Flatten the bar+zoom group into the .msw-m flex column (display:contents) so
+	   an open popover (e.g. the layers card) can nest BETWEEN the bar and the zoom
+	   via flex order, rather than below the zoom. */
 	.msw-m-head {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 5px;
+		display: contents;
+	}
+	.msw-m .msw-m-bar {
+		order: 0;
+	}
+	.msw-m .msw-m-pop {
+		order: 1;
+	}
+	.msw-m .zoom-m {
+		order: 2;
 	}
 	/* Vertical zoom capsule — tall slider + scale readout, under the bar. */
 	.zoom-m {
