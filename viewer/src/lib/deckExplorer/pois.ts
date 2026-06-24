@@ -1,6 +1,8 @@
-// Annotation pins for the deck.gl explorer — places where the map looks wrong
-// but is faithful. Each pin carries the "why" shown on hover. Ported verbatim
-// from the FLAGS array in the validated prototype (viewer/static/spike/index.html).
+// Annotation pins for the deck.gl explorer. Two kinds:
+//   1. "Looks wrong, is faithful" — geography that reads oddly but follows the record.
+//   2. Audit-detected packing/cracking signatures — flagged on the strength of the
+//      audit's own math (§5.3.1–§5.3.5), independent of what the commission chair
+//      flagged. Each carries the grounded "why" and a §-reference shown on hover.
 //
 // Coordinates are in the explorer's Cartesian projection (EPSG:3401), matching
 // the VA/ED geometry.
@@ -70,5 +72,12 @@ export const FLAGS: Flag[] = [
 		y: -101273.3,
 		title: 'St. Albert — competing configurations',
 		body: "Either map's version of St. Albert could rest on a reasonable basis. The audit simply found no submission backing the minority's specific alternative — and since citizens rarely name a commission's exact boundaries, it treats the evidence here as thin, not clearly for or against."
+	},
+	{
+		id: 'calgary-zone-a-packing',
+		x: 45500.0,
+		y: -380000.0,
+		title: 'Calgary north & east — a packing signature',
+		body: "The commission chair didn't flag this one — the audit's own math does. Across Calgary's north and east (the audit's “Zone A,” north and east of the Bow River), the minority map's districts run about 11.5% larger than the provincial average, against 2.8% on the majority map. Packing means concentrating one side's voters into fewer, larger districts, so each of their ballots weighs a little less; Zone A is NDP-competitive, and 13 of its 17 districts were NDP-won in 2023. The audit measures the structural effect, not intent. (Academic §5.3.1.)"
 	}
 ];
