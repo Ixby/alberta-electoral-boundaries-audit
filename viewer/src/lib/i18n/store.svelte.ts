@@ -107,6 +107,62 @@ function detectInitialLang(): Lang {
 	return 'en';
 }
 
+// ── Lazy locale loading ──────────────────────────────────────────────────────
+// Only `en` ships in the initial bundle (the prerender default + sync fallback in
+// dict.ts). Every other locale is its own chunk, fetched on demand — this keeps
+// ~700 KB of translations off the first load. Each loader is the ONLY reference to
+// its locale module, so Rollup code-splits them into separate chunks.
+const loaders: Partial<Record<Lang, () => Promise<{ default: unknown }>>> = {
+	tl: () => import('./locales/tl'),
+	pa: () => import('./locales/pa'),
+	fr: () => import('./locales/fr'),
+	es: () => import('./locales/es'),
+	ar: () => import('./locales/ar'),
+	'zh-Hant': () => import('./locales/zh-Hant'),
+	'zh-Hans': () => import('./locales/zh-Hans'),
+	de: () => import('./locales/de'),
+	hi: () => import('./locales/hi'),
+	vi: () => import('./locales/vi'),
+	ko: () => import('./locales/ko'),
+	ur: () => import('./locales/ur'),
+	pl: () => import('./locales/pl'),
+	uk: () => import('./locales/uk'),
+	ru: () => import('./locales/ru'),
+	so: () => import('./locales/so'),
+	crk: () => import('./locales/crk'),
+	pdt: () => import('./locales/pdt')
+};
+
+const _loaded: Partial<Record<Lang, unknown>> = {};
+let _dictVersion = $state(0);
+
+/** Reactive version — read it inside t()/hasTranslation so consumers re-render
+ *  when a locale chunk arrives (the en→target swap). */
+export function dictVersion(): number {
+	return _dictVersion;
+}
+
+/** The loaded dictionary for a locale, or undefined if its chunk isn't here yet
+ *  (en is handled directly in dict.ts and is never stored here). */
+export function loadedDict(l: Lang): unknown {
+	return _loaded[l];
+}
+
+/** Fetch a locale's chunk on demand. No-op for en / already-loaded. Bumps
+ *  dictVersion on arrival so the active view re-renders into the new language. */
+export async function loadLang(l: Lang): Promise<void> {
+	if (l === 'en' || _loaded[l]) return;
+	const loader = loaders[l];
+	if (!loader) return;
+	try {
+		const mod = await loader();
+		_loaded[l] = mod.default;
+		_dictVersion++;
+	} catch {
+		// chunk fetch failed (e.g. offline) — t() keeps using the en fallback
+	}
+}
+
 let _lang = $state<Lang>('en');
 
 if (browser) {
@@ -116,6 +172,9 @@ if (browser) {
 	// any future readers of `_lang` on this branch).
 	const initial = detectInitialLang();
 	_lang = initial;
+	// Kick off the active locale's chunk immediately (no-op for en). The view
+	// renders with the en fallback until it arrives, then swaps.
+	void loadLang(initial);
 	const url = new URL(window.location.href);
 	if (url.searchParams.get(URL_PARAM) !== initial) {
 		url.searchParams.set(URL_PARAM, initial);
@@ -126,6 +185,8 @@ if (browser) {
 export function setLang(next: Lang): void {
 	if (!isSupported(next)) return;
 	_lang = next;
+	// Fetch the chosen locale's chunk; t() uses the en fallback until it lands.
+	void loadLang(next);
 	if (!browser) return;
 	try {
 		localStorage.setItem(STORAGE_KEY, next);
