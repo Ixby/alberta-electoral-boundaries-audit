@@ -506,7 +506,7 @@
               </div>
             {/each}
           </div>
-          <p class="muted unit">MB used (50 MB bands)</p>
+          <p class="muted unit">MB used (25 MB bands)</p>
         {/if}
       </section>
 

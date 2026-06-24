@@ -618,8 +618,8 @@
 								radiusMinPixels: 6,
 								filled: true,
 								stroked: true,
-								getFillColor: [210, 210, 210, 255],
-								getLineColor: [30, 30, 30, 235],
+								getFillColor: [37, 140, 255, 255], // bright blue
+								getLineColor: [255, 255, 255, 235],
 								getLineWidth: 1.5,
 								lineWidthUnits: 'pixels',
 								// Pickable on desktop (hover tip). On touch it is NON-pickable so it

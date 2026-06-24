@@ -29,7 +29,7 @@
 //   perf            { fp, heap_mb, loaded_mb, polys, level, maps, data_ver, app_ver }
 //                   A one-time first-paint snapshot of the same telemetry the debug
 //                   HUD shows, coarsened for privacy: `fp` is a load-time band (ms
-//                   floor), `heap_mb` a 50 MB step. The high-resolution paint
+//                   floor), `heap_mb` a 25 MB step. The high-resolution paint
 //                   breakdown (lib/assets/deck/gpu) stays HUD-only and is never sent.
 //
 // Everything here is browser-only and never throws: during SSR / prerender
@@ -153,10 +153,13 @@ export function firstPaintBand(ms: number): number {
 	return band;
 }
 
-// JS heap (MB) → coarse 50 MB step, so memory pressure is visible in aggregate
-// without the exact heap size becoming a per-device fingerprint.
+// JS heap (MB) → coarse 25 MB step (rounded to nearest), so memory pressure is
+// visible in aggregate without the exact heap size becoming a per-device
+// fingerprint. Rounding (not flooring) keeps a typical ~45 MB heap from
+// collapsing to 0; 25 MB granularity still buckets real heaps (30–80 MB)
+// meaningfully where 50 MB steps flattened everything to 0 or 50.
 export function heapBand(mb: number): number {
-	return Math.floor(mb / 50) * 50;
+	return Math.round(mb / 25) * 25;
 }
 
 // Tile level (0–10) → small human label for the zoom-depth distribution. The
