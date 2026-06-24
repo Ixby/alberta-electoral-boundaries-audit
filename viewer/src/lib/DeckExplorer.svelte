@@ -77,6 +77,11 @@
 
 	// ── Reactive UI state ──────────────────────────────────────────────────────
 	let activeMaps = $state<string[]>(['minority', 'majority', '2019']);
+	// 4th map version: a SCAFFOLD for the Nov 2026 Lunty (91-seat) committee. There
+	// is no Lunty map yet, so this isn't a tiled map — toggling it overlays the
+	// approximate restoration zone the chair named in Addendum Rec 5 (Clearwater +
+	// W. Mountain View County). It sits alongside the three real maps, not in them.
+	let luntyOn = $state(false);
 	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean }>({
 		hwy: false,
 		water: false,
@@ -123,6 +128,9 @@
 	let filterSetter: (which: 'hwy' | 'water' | 'pois', val: boolean) => void = () => {};
 	let edSelector: (rec: EdRec) => void = () => {};
 	let clearSelection: () => void = () => {};
+	let luntySetter: (on: boolean) => void = () => {};
+	// Lunty restoration-zone polygons (loaded once in onMount); non-reactive.
+	let luntyBounds: { zones: { name: string; note?: string; rings: number[][][] }[] } | null = null;
 
 	// Non-reactive search index (built once ed_index loads in onMount).
 	let nameIndex: NameIndex | null = null;
@@ -529,6 +537,29 @@
 						padded
 					)
 				);
+				// Lunty scaffold: the chair's Rec-5 restoration zone (approximate),
+				// shown only while the Lunty toggle is on.
+				if (luntyOn && luntyBounds) {
+					const PURPLE = [170, 120, 255];
+					for (const z of luntyBounds.zones) {
+						layers.push(
+							new PolygonLayer({
+								id: 'lunty-' + z.name,
+								data: z.rings,
+								getPolygon: (r: number[][]) => r as any,
+								filled: true,
+								stroked: true,
+								getFillColor: [...PURPLE, 38],
+								getLineColor: [...PURPLE, 235],
+								getLineWidth: 2,
+								lineWidthUnits: 'pixels',
+								lineWidthMinPixels: 2,
+								parameters: { depthTest: false },
+								coordinateSystem: CART
+							})
+						);
+					}
+				}
 				// Selected-district glow (search result) — drawn under the pins, over the
 				// boundary overlays so the highlighted district reads clearly.
 				layers.push(...buildSelectedGlow());
@@ -795,6 +826,19 @@
 			clearSelection = () => {
 				selectedEd = null;
 				hideTip();
+				schedulePaint();
+			};
+			// Toggle the Lunty restoration-zone scaffold overlay (lazy-load the bounds).
+			luntySetter = async (on: boolean) => {
+				luntyOn = on;
+				if (on && !luntyBounds) {
+					try {
+						luntyBounds = await fetchJSON('lunty_bounds.json');
+					} catch {
+						luntyBounds = null;
+					}
+				}
+				track('layer_toggle', { layer: 'lunty', on });
 				schedulePaint();
 			};
 
@@ -1070,6 +1114,12 @@
 							onclick={() => mapToggler(mk)}
 						>{mk === '2019' ? "’19" : mk === 'minority' ? 'Min' : 'Maj'}</button>
 					{/each}
+					<button
+						class="seg-btn lunty-seg"
+						class:on={luntyOn}
+						title="Lunty scaffold — chair's Rec-5 restoration zone (approximate)"
+						onclick={() => luntySetter(!luntyOn)}
+					>Lun</button>
 				</div>
 				<button
 					class="ic"
@@ -1289,7 +1339,21 @@
 					{mk === '2019' ? '2019' : mk === 'minority' ? 'Minority' : 'Majority'}
 				</button>
 			{/each}
+			<button
+				class="lunty-btn"
+				class:on={luntyOn}
+				title="Lunty scaffold — chair's Rec-5 restoration zone (approximate)"
+				onclick={() => luntySetter(!luntyOn)}
+			>Lunty</button>
 		</div>
+		{#if luntyOn}
+			<div class="lunty-note">
+				<b>Lunty scaffold (Nov 2026, 91 seats).</b> The shaded zone is approximately where the
+				chair's Addendum (Rec 5) said one restored rural seat should go — Clearwater + western
+				Mountain View County. Approximate from county lines, not the chair's exact boundary; the
+				second restored seat's bounds aren't specified in the addendum.
+			</div>
+		{/if}
 
 		<input
 			class="zoom"
@@ -1613,6 +1677,38 @@
 		padding: 6px 12px;
 		border-radius: 7px;
 		cursor: pointer;
+	}
+	/* Lunty scaffold toggle + note — a distinct violet, set apart from the 3 maps. */
+	.mapsw .lunty-btn {
+		border-color: #a878ff;
+		color: #c3a8ff;
+	}
+	.mapsw .lunty-btn.on {
+		background: #a878ff;
+		color: #14110d;
+	}
+	.mapsw .lunty-note {
+		font-size: 11px;
+		line-height: 1.5;
+		color: #c3b0e8;
+		margin-top: 7px;
+		padding: 7px 8px;
+		border: 1px solid #4a3a6e;
+		border-radius: 7px;
+		background: rgba(120, 80, 200, 0.1);
+		max-width: 228px;
+	}
+	.mapsw .lunty-note b {
+		color: #ded2f7;
+	}
+	.msw-m .lunty-seg {
+		border-color: #a878ff;
+		color: #c3a8ff;
+	}
+	.msw-m .lunty-seg.on {
+		background: #a878ff;
+		border-color: #a878ff;
+		color: #14110d;
 	}
 	.mapsw .zoom {
 		width: 100%;
