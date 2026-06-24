@@ -583,8 +583,8 @@
 									{
 										x: sx / ring.length,
 										y: sy / ring.length,
-										title: 'Lunty scaffold — a future map',
-										body: 'A rough sketch of where Alberta’s next map (due from the Lunty committee in late 2026) could add back a rural seat — around Clearwater and Mountain View counties, west of Red Deer. Drawn from county lines, so it’s an approximation, not an official boundary. It’s a placeholder until the real map is published.'
+										title: 'Lunty scaffold — Miller’s restored rural seat',
+										body: 'This area is on the map because of Justice Dallas Miller, the commission’s chair. In an addendum to the final report, he wrote that if the Legislature would not accept cutting two rural ridings, it should instead add two seats — going from 89 to 91 — and restore them. He pointed to this spot, around Clearwater and western Mountain View counties west of Red Deer, as where one of those rural seats should go. It’s sketched from county lines as a placeholder, not an official boundary, until the 2026 Lunty committee draws the real map.'
 									}
 								],
 								getPosition: (d: any) => [d.x, d.y, 0],
@@ -1402,10 +1402,10 @@
 		</div>
 		{#if luntyOn}
 			<div class="lunty-note">
-				<b>Lunty scaffold (Nov 2026, 91 seats).</b> The shaded zone is approximately where the
-				chair's Addendum (Rec 5) said one restored rural seat should go — Clearwater + western
-				Mountain View County. Approximate from county lines, not the chair's exact boundary; the
-				second restored seat's bounds aren't specified in the addendum.
+				<b>Miller's restored rural seat.</b> The shaded zone is roughly where the commission's
+				chair, Justice Dallas Miller, wrote in an addendum that one of two restored rural seats
+				should go: Clearwater and western Mountain View County. Sketched from county lines as a
+				placeholder, not an official boundary; hover the dot for the full story.
 			</div>
 		{/if}
 
