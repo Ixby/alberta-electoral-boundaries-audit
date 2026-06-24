@@ -91,6 +91,11 @@
 	let zoomMin = $state(0);
 	let zoomMax = $state(1);
 	let resText = $state('—'); // "1 pixel ≈ X" readout body
+	// Zoom-slider accent: yellow at overview, flips to blue once the resolution
+	// crosses 38 m/pixel (i.e. zoomed into detail). Drives --zoom-accent.
+	const ZOOM_ACCENT_COARSE = '#f5c518'; // yellow (overview)
+	const ZOOM_ACCENT_DETAIL = '#6fd3fb'; // blue (past 38 m)
+	let zoomAccent = $state(ZOOM_ACCENT_COARSE);
 	// Visible viewport height (shrinks when the mobile keyboard opens). Used to cap
 	// the mobile search-results list so it never hides behind the keyboard.
 	let vvH = $state(0);
@@ -863,6 +868,10 @@
 				if (!draggingZoom) zoomVal = lastVS.zoom as number;
 				const tol = M.side / 2 ** L / 256;
 				resText = tol >= 1000 ? (tol / 1000).toFixed(1) + ' km' : Math.round(tol) + ' m';
+				// Continuous metres/pixel (2^-zoom in EPSG:3401 metres) drives the slider
+				// accent: yellow until it passes 38 m, blue once zoomed in past that.
+				const mpp = 2 ** -(lastVS.zoom as number);
+				zoomAccent = mpp < 38 ? ZOOM_ACCENT_DETAIL : ZOOM_ACCENT_COARSE;
 			}
 			function update(vs: Record<string, number | number[]>) {
 				lastVS = vs;
@@ -1175,7 +1184,7 @@
 	});
 </script>
 
-<div class="explorer">
+<div class="explorer" style="--zoom-accent: {zoomAccent}">
 	<svg class="watermark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
 		<defs>
 			<pattern
@@ -1782,7 +1791,7 @@
 	.mapsw .zoom {
 		width: 100%;
 		margin: 6px 0 2px;
-		accent-color: #6fd3fb;
+		accent-color: var(--zoom-accent, #6fd3fb);
 		cursor: pointer;
 	}
 	.mapsw .res {
@@ -2088,7 +2097,7 @@
 		width: 22px;
 		height: 130px;
 		margin: 0;
-		accent-color: #6fd3fb;
+		accent-color: var(--zoom-accent, #6fd3fb);
 		cursor: pointer;
 	}
 	.zoom-m .res-m {
