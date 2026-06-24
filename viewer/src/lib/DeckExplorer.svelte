@@ -1211,20 +1211,16 @@
 </script>
 
 <div class="explorer" style="--zoom-accent: {zoomAccent}">
-	<svg class="watermark" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-		<defs>
-			<pattern
-				id="wm-pat"
-				width="240"
-				height="120"
-				patternUnits="userSpaceOnUse"
-				patternTransform="rotate(-45)"
-			>
-				<text x="0" y="20" class="wm-text">MAP EXPLORER</text>
-			</pattern>
-		</defs>
-		<rect width="100%" height="100%" fill="url(#wm-pat)" />
-	</svg>
+	<!-- Diagonal "MAP EXPLORER" watermark as a pre-rasterized Cinzel tile (baked by
+	     scripts/gen-watermark.mjs). A repeating GPU-composited background image — far
+	     cheaper to paint than the old live inline-SVG <pattern>, and a raster can
+	     carry the self-hosted Cinzel font that a CSS-background SVG cannot. The layer
+	     is oversized and rotated -45° so the axis-aligned tile covers the viewport. -->
+	<div
+		class="watermark"
+		aria-hidden="true"
+		style="background-image: url({base}/images/watermark-tile.png)"
+	></div>
 	<div class="map" bind:this={mapEl}>
 		<canvas bind:this={canvasEl}></canvas>
 	</div>
@@ -1549,22 +1545,21 @@
 		font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
 	}
 	/* Tiled diagonal expedition-style watermark, behind the (transparent-cleared)
-	   map canvas. Shows in the margin around the province silhouette. */
+	   map canvas. A repeating raster tile (Cinzel baked in) rotated -45°; the layer
+	   is oversized (200%, offset -50%) so the rotated axis-aligned tiling still
+	   covers the viewport corners. Layer opacity gives the faint 0.08 wash. */
 	.watermark {
 		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
 		z-index: 0;
 		pointer-events: none;
-	}
-	.watermark .wm-text {
-		font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
-		font-weight: 700;
-		font-size: 15px;
-		letter-spacing: 3px;
-		fill: #f0e6d6;
-		fill-opacity: 0.08;
+		background-repeat: repeat;
+		background-size: 240px 120px;
+		transform: rotate(-45deg);
+		opacity: 0.08;
 	}
 	.map {
 		position: absolute;
