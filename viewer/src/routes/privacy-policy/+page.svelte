@@ -49,6 +49,7 @@
         <li>Which maps are opened in the explorer, and which districts are selected</li>
         <li>Which map layers are turned on or off, and roughly how far in people zoom</li>
         <li>Which points of interest or report links are opened</li>
+        <li>A coarse picture of your setup — screen-size band (such as phone, tablet, or desktop), form factor, and browser family (such as Chrome, Safari, or Firefox). We never store your exact screen dimensions or full browser identification string.</li>
       </ul>
       <p>Every one of these is stored only in aggregate. There is no per-person profile, no session replay, and no record of an individual's path through the site. We see totals and distributions, not people.</p>
     </section>

@@ -12,7 +12,7 @@
 //   { event_name, path?, props? }
 // where `path` is the TOP-LEVEL envelope field (the collector reads body.path,
 // never props.path) and `props` carries the per-event dimensions:
-//   pageview        { }                              + path
+//   pageview        { viewport, device, browser }    + path
 //   engaged         { seconds_bucket }               + path
 //   scroll_depth    { pct_bucket }                   + path
 //   section_view    { section_id }
@@ -69,7 +69,46 @@ export function track(event_name: string, props?: Record<string, unknown>, path?
 // ── Convenience ──────────────────────────────────────────────────────────────
 
 export function pageview(path: string = browser ? location.pathname : '/'): void {
-	track('pageview', undefined, path);
+	const props = browser
+		? {
+				viewport: viewportBucket(window.innerWidth),
+				device: deviceClass(),
+				browser: browserFamily(navigator.userAgent)
+			}
+		: undefined;
+	track('pageview', props, path);
+}
+
+// ── Coarse client buckets (privacy-safe; no exact dimensions / UA stored) ─────
+
+// Viewport width → a named breakpoint, so usage can be split by screen size
+// without retaining a fingerprintable pixel value.
+export function viewportBucket(w: number): string {
+	if (w < 480) return 'xs';
+	if (w < 768) return 'sm';
+	if (w < 1024) return 'md';
+	if (w < 1440) return 'lg';
+	return 'xl';
+}
+
+// Coarse form factor from pointer type + width.
+function deviceClass(): string {
+	const coarse =
+		typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+	if (coarse) return browser && window.innerWidth >= 768 ? 'tablet' : 'mobile';
+	return 'desktop';
+}
+
+// Browser FAMILY only (never the full UA string). Order matters: Edge/Opera UAs
+// also contain "Chrome", and Chrome UAs also contain "Safari".
+export function browserFamily(ua: string): string {
+	if (/\bEdg\//i.test(ua)) return 'edge';
+	if (/\bOPR\/|Opera/i.test(ua)) return 'opera';
+	if (/SamsungBrowser/i.test(ua)) return 'samsung';
+	if (/Chrome|CriOS/i.test(ua)) return 'chrome';
+	if (/Firefox|FxiOS/i.test(ua)) return 'firefox';
+	if (/Safari/i.test(ua)) return 'safari';
+	return 'other';
 }
 
 // ── Pure bucketing helpers (unit-tested) ─────────────────────────────────────
