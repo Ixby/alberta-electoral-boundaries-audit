@@ -1498,11 +1498,15 @@
 	.map {
 		position: absolute;
 		inset: 0;
+		/* Let deck.gl own all touch gestures — stop the browser from claiming the
+		   first finger as a scroll, which breaks pinch when fingers land in sequence. */
+		touch-action: none;
 	}
 	.map canvas {
 		width: 100%;
 		height: 100%;
 		display: block;
+		touch-action: none;
 	}
 	.mapsw {
 		position: absolute;
