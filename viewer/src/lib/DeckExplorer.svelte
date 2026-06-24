@@ -14,7 +14,7 @@
 -->
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
+	import { browser, version as APP_VERSION } from '$app/environment';
 	import {
 		loadBundle,
 		tileLevelForZoom,
@@ -56,7 +56,8 @@
 	// short-circuits so `location` is never read during SSR / prerender (the deck
 	// component is prerendered in node). The HUD is written imperatively via
 	// hudEl.innerHTML inside the paint loop — no reactive state on the hot path.
-	const APP_VERSION = 'v1'; // viewer component version (bump on meaningful changes)
+	// APP_VERSION is the git short-hash of the build (kit.version in svelte.config.js),
+	// imported above as `version` — a real, verifiable build id, not a hand-bumped tag.
 	const DEBUG = browser && new URLSearchParams(location.search).has('debug');
 	let hudEl = $state<HTMLDivElement | undefined>(undefined);
 
