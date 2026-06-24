@@ -508,19 +508,35 @@ export function buildEdLayers(
 export function buildVaLayer(
 	deps: { PolygonLayer: LayerClass; COORDINATE_SYSTEM: CoordinateSystem },
 	feats: { id: number; coords: Float32Array }[],
-	vaProps: { fill?: [number, number, number] }[]
+	vaProps: { fill?: [number, number, number] }[],
+	hoveredId: number | null = null
 ): LayerInstance {
 	const { PolygonLayer, COORDINATE_SYSTEM } = deps;
+	const baseFill = (id: number): [number, number, number] =>
+		(vaProps[id] && vaProps[id].fill) || [232, 230, 224];
 	return new PolygonLayer({
 		id: 'va',
 		data: feats,
 		pickable: true,
-		// Light up the active poll (the one under the cursor / finger).
-		autoHighlight: true,
-		highlightColor: [255, 255, 255, 90],
 		getPolygon: (d: { coords: Float32Array }) => d.coords,
 		positionFormat: 'XY',
-		getFillColor: (d: { id: number }) => (vaProps[d.id] ? vaProps[d.id].fill : [232, 230, 224]),
+		// Highlight the WHOLE poll under the cursor. A VA split across quadtree tiles
+		// appears as several features sharing one `id`; deck's autoHighlight can only
+		// light the single picked feature, so it would highlight just the hovered
+		// tile-piece. Instead we light every feature whose id matches `hoveredId`,
+		// blending its fill ~35% toward white (mimics the old [255,255,255,90] overlay).
+		getFillColor: (d: { id: number }) => {
+			const c = baseFill(d.id);
+			if (hoveredId !== null && d.id === hoveredId) {
+				return [
+					(c[0] * 0.65 + 255 * 0.35) | 0,
+					(c[1] * 0.65 + 255 * 0.35) | 0,
+					(c[2] * 0.65 + 255 * 0.35) | 0
+				];
+			}
+			return c;
+		},
+		updateTriggers: { getFillColor: hoveredId },
 		stroked: false,
 		filled: true,
 		coordinateSystem: COORDINATE_SYSTEM.CARTESIAN

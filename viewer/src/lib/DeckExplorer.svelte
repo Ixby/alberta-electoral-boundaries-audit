@@ -292,6 +292,9 @@
 			let deckgl: InstanceType<typeof Deck> | null = null;
 			// Currently selected district (from search) — drives the boundary glow.
 			let selectedEd: EdRec | null = null;
+			// VA id under the cursor. A poll split across quadtree tiles shares one id,
+			// so highlighting by id lights the whole poll, not just the hovered tile.
+			let hoveredVaId: number | null = null;
 			let curLevel = 0;
 			// Last zoom_depth bucket reported to analytics. The tile level L is the
 			// discrete zoom signal computed each paint; we only emit when its bucket
@@ -506,7 +509,7 @@
 					})
 				);
 				// VA fills.
-				layers.push(buildVaLayer(deckClasses, feats, vaProps));
+				layers.push(buildVaLayer(deckClasses, feats, vaProps, hoveredVaId));
 				// VA hairline outlines (level >= 3).
 				layers.push(...buildHairlines(deckClasses, vaLines, L));
 				// Water as filled polygons (handled here — the basemap builder skips water).
@@ -604,6 +607,9 @@
 						layers.push(
 							new ScatterplotLayer({
 								id: 'lunty-point',
+								// The pin is an annotation, so the annotations (POIs) toggle hides
+								// it too. The Miller zone outline stays under the Miller toggle alone.
+								visible: filters.pois,
 								data: [
 									{
 										x: sx / ring.length,
@@ -613,14 +619,14 @@
 									}
 								],
 								getPosition: (d: any) => [d.x, d.y, 0],
-								getRadius: 8,
+								getRadius: 7,
 								radiusUnits: 'pixels',
-								radiusMinPixels: 6,
+								radiusMinPixels: 5,
 								filled: true,
 								stroked: true,
-								getFillColor: [37, 140, 255, 255], // bright blue
-								getLineColor: [255, 255, 255, 235],
-								getLineWidth: 1.5,
+								getFillColor: [210, 173, 108, 255], // match the other annotation pins
+								getLineColor: [88, 72, 40, 255],
+								getLineWidth: 1.4,
 								lineWidthUnits: 'pixels',
 								// Pickable on desktop (hover tip). On touch it is NON-pickable so it
 								// can't intercept the two-finger pinch-zoom gesture; the explanation
@@ -1000,6 +1006,17 @@
 					const o = info.object as
 						| { id?: number; title?: string; body?: string }
 						| undefined;
+					// Merged poll highlight: a VA split across tiles shares one id, so track
+					// the hovered VA id and light every piece of it (see buildVaLayer), not
+					// just the tile under the cursor. Repaint only when the id changes.
+					const nextHover =
+						info.layer && info.layer.id === 'va' && o && typeof o.id === 'number'
+							? (o.id as number)
+							: null;
+					if (nextHover !== hoveredVaId) {
+						hoveredVaId = nextHover;
+						schedulePaint();
+					}
 					if (!o) {
 						hideTip();
 						return;
