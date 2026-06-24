@@ -39,7 +39,15 @@
 	} from '$lib/deckExplorer/layers';
 	import { FLAGS } from '$lib/deckExplorer/pois';
 	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
-	import { track, zoomBucket, firstPaintBand, heapBand } from '$lib/analytics';
+	import {
+		track,
+		zoomBucket,
+		firstPaintBand,
+		heapBand,
+		viewportBucket,
+		deviceClass,
+		browserFamily
+	} from '$lib/analytics';
 
 	// ── Props ────────────────────────────────────────────────────────────────
 	// base: SvelteKit base path (pass `base` from $app/paths at the call site so
@@ -853,7 +861,7 @@
 					`level <b>${L}</b>/${M.maxZoom} &nbsp; polys <b>${lastPolyCount}</b> &nbsp; ` +
 					`loaded <b>${bundlesLoaded}/${bundleTotal}</b> · <b>${(archiveBytes / 1e6).toFixed(1)}MB</b>${heap}<br>` +
 					`first paint <b>${firstPaintMs ? firstPaintMs + 'ms' : '…'}</b>${br} &nbsp; last paint <b>${lastPaintMs}ms</b><br>` +
-					`<span style="color:#9fb380">→ analytics perf:</span> ${sentLine}` +
+					`<span style="color:#9fb380">→ analytics perf:</span> ${sentLine}<br><span style="color:#9fb380">→ analytics pageview:</span> device <b>${deviceClass()}</b> · viewport <b>${viewportBucket(window.innerWidth)}</b> · browser <b>${browserFamily(navigator.userAgent)}</b>` +
 					table;
 			}
 			function schedulePaint() {

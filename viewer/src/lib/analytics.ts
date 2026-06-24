@@ -97,7 +97,7 @@ export function viewportBucket(w: number): string {
 }
 
 // Coarse form factor from pointer type + width.
-function deviceClass(): string {
+export function deviceClass(): string {
 	const coarse =
 		typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
 	if (coarse) return browser && window.innerWidth >= 768 ? 'tablet' : 'mobile';
