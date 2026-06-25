@@ -1,4 +1,4 @@
-import{it as e,nt as t}from"./CTzHgocM.js";import{a as n,c as r,d as i,f as a,g as o,h as s,i as c,l,m as u,n as d,s as f,u as p}from"./Dh3zzBqD.js";var m=`#if (defined(SHADER_TYPE_FRAGMENT) && defined(LIGHTING_FRAGMENT)) || (defined(SHADER_TYPE_VERTEX) && defined(LIGHTING_VERTEX))
+import{it as e,nt as t}from"./CTzHgocM.js";import{a as n,c as r,d as i,f as a,g as o,h as s,i as c,l,m as u,n as d,s as f,u as p}from"./D3oFEOKJ.js";var m=`#if (defined(SHADER_TYPE_FRAGMENT) && defined(LIGHTING_FRAGMENT)) || (defined(SHADER_TYPE_VERTEX) && defined(LIGHTING_VERTEX))
 struct AmbientLight {
 vec3 color;
 };

@@ -235,7 +235,9 @@
 
 		(async () => {
 			// Dynamic, browser-only deck.gl import (keeps prerender working).
-			const { Deck, OrthographicView, COORDINATE_SYSTEM } = await import('@deck.gl/core');
+			const { Deck, OrthographicView, COORDINATE_SYSTEM, LinearInterpolator } = await import(
+				'@deck.gl/core'
+			);
 			const { PolygonLayer, PathLayer, ScatterplotLayer } = await import('@deck.gl/layers');
 			const { PathStyleExtension } = await import('@deck.gl/extensions');
 			if (disposed) return;
@@ -898,6 +900,24 @@
 				z = Math.max(lastVS.minZoom as number, Math.min(lastVS.maxZoom as number, z));
 				update({ ...lastVS, zoom: z });
 			}
+			// Eased camera move for DISCRETE jumps (search fly-to, POI click-to-zoom) so
+			// navigating between districts glides instead of teleporting. Continuous
+			// gestures (scroll/pinch/double-click) are animated by deck's controller and
+			// keep using the instant update() — they must not carry a transition.
+			const flyInterp = new LinearInterpolator(['target', 'zoom']);
+			function flyTo(vs: Record<string, number | number[]>, ms = 550) {
+				// Keep lastVS clean (no transition props); deck strips them from the
+				// per-frame onViewStateChange, so lastVS settles on the plain target.
+				lastVS = vs;
+				if (deckgl)
+					deckgl.setProps({
+						viewState: { ...vs, transitionDuration: ms, transitionInterpolator: flyInterp } as Record<
+							string,
+							unknown
+						>
+					});
+				paint();
+			}
 			// Expose for slider handlers in the template.
 			zoomSetter = setZoom;
 			dragSetter = (v: boolean) => {
@@ -939,7 +959,7 @@
 					lastVS.minZoom as number,
 					Math.min(lastVS.maxZoom as number, rec.zoom)
 				);
-				update({ ...lastVS, target: [rec.cx, rec.cy, 0], zoom: z });
+				flyTo({ ...lastVS, target: [rec.cx, rec.cy, 0], zoom: z });
 			};
 			// Clear the current selection: drop the district ring / community marker
 			// and any open tip, and repaint. Bound to the search clear-× button.
@@ -1096,7 +1116,7 @@
 						);
 						const mpp = 2 ** -z; // metres per pixel at z
 						const dxPx = coarse ? 64 : 150; // shift pin left, clearing the controls
-						update({
+						flyTo({
 							...lastVS!,
 							target: [info.object.x + dxPx * mpp, info.object.y, 0],
 							zoom: z
