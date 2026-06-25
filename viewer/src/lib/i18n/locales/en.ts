@@ -898,6 +898,9 @@ export default {
 			mobile_info_aria: 'About the boundary lines',
 			mobile_share_aria: 'Share this view',
 			mobile_close_aria: 'Close map',
+			// Language switcher (integrated into the map control bar / panel)
+			lang_aria: 'Change language',
+			lang_hdr: 'Language',
 			// "Reading the lines" note (desktop + mobile info popover)
 			lines_note_title: 'Reading the lines',
 			lines_note_lead: 'Every odd shape or split line is a',

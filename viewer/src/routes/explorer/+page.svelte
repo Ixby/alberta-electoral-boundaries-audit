@@ -15,7 +15,6 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import DeckExplorer from '$lib/DeckExplorer.svelte';
-  import LanguageSelector from '$lib/components/LanguageSelector.svelte';
   import { hasWebGL } from '$lib/deckExplorer/webglSupport';
   import { FLAGS } from '$lib/deckExplorer/pois';
   import { pageview } from '$lib/analytics';
@@ -45,10 +44,10 @@
 <div class="explorer-root">
   {#if webgl}
     {#if ready}
-      <DeckExplorer base={base} initialPoi={poi} onClose={goHome} />
       <!-- Only the locales whose explorer interface is fully translated are offered
-           (English + French for now); add more as their explorer.* keys land. -->
-      <div class="lang-corner"><LanguageSelector only={['en', 'fr']} /></div>
+           (English + French for now); add more as their explorer.* keys land. The
+           language switcher is integrated into DeckExplorer's control bar/panel. -->
+      <DeckExplorer base={base} initialPoi={poi} onClose={goHome} langs={['en', 'fr']} />
     {/if}
   {:else}
     <div class="nowebgl">
@@ -72,14 +71,6 @@
     inset: 0;
     z-index: 9000;
     background: #0d1a26;
-  }
-  /* Language selector pinned top-left (map controls are top-right, the debug HUD
-     is bottom-left), above the deck canvas. */
-  .lang-corner {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 9100;
   }
   .nowebgl {
     position: absolute;

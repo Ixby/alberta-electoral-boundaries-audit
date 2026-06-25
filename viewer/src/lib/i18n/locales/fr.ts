@@ -896,6 +896,9 @@ export default {
 			mobile_info_aria: 'À propos des limites tracées',
 			mobile_share_aria: 'Partager cette vue',
 			mobile_close_aria: 'Fermer la carte',
+			// Language switcher (integrated into the map control bar / panel)
+			lang_aria: 'Changer de langue',
+			lang_hdr: 'Langue',
 			// "Reading the lines" note (desktop + mobile info popover)
 			lines_note_title: 'Lire les limites',
 			lines_note_lead: 'Chaque forme inhabituelle ou ligne de division est un',

@@ -15,7 +15,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { browser, version as APP_VERSION } from '$app/environment';
-	import { lang } from '$lib/i18n/store.svelte';
+	import { lang, setLang, LANG_LABELS, type Lang } from '$lib/i18n/store.svelte';
 	import { t } from '$lib/i18n/dict';
 	import {
 		loadBundle,
@@ -60,8 +60,14 @@
 	let {
 		base = '',
 		initialPoi = null,
-		onClose
-	}: { base?: string; initialPoi?: string | null; onClose?: () => void } = $props();
+		onClose,
+		langs = []
+	}: {
+		base?: string;
+		initialPoi?: string | null;
+		onClose?: () => void;
+		langs?: readonly string[];
+	} = $props();
 
 	// ── Diagnostic HUD (debug-only) ────────────────────────────────────────────
 	// A perf HUD ported from the prototype, shown ONLY at ?debug=1. `browser`
@@ -126,9 +132,9 @@
 	// plus a bottom zoom pill. `coarse` is decided once on mount; `mobilePanel`
 	// tracks which icon popover is open ('none' = just the bar).
 	let coarse = $state(false);
-	let mobilePanel = $state<'none' | 'search' | 'layers' | 'info' | 'share'>('none');
+	let mobilePanel = $state<'none' | 'search' | 'layers' | 'info' | 'share' | 'lang'>('none');
 
-	function toggleMobilePanel(p: 'search' | 'layers' | 'info' | 'share'): void {
+	function toggleMobilePanel(p: 'search' | 'layers' | 'info' | 'share' | 'lang'): void {
 		mobilePanel = mobilePanel === p ? 'none' : p;
 		// The community/district target lives with the search: leaving the search
 		// popover (closing it or switching panels) drops the target marker.
@@ -1531,6 +1537,17 @@
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6" /><circle cx="6" cy="12" r="2.6" /><circle cx="18" cy="19" r="2.6" /><line x1="8.2" y1="10.8" x2="15.8" y2="6.2" /><line x1="8.2" y1="13.2" x2="15.8" y2="17.8" /></svg>
 				</button>
+				{#if langs && langs.length}
+					<button
+						class="ic"
+						class:on={mobilePanel === 'lang'}
+						aria-label={t(lang.current, 'explorer.controls.lang_aria')}
+						aria-pressed={mobilePanel === 'lang'}
+						onclick={() => toggleMobilePanel('lang')}
+					>
+						<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2" /><ellipse cx="12" cy="12" rx="4" ry="9.2" /><line x1="2.8" y1="12" x2="21.2" y2="12" /></svg>
+					</button>
+				{/if}
 				{#if onClose}
 					<span class="ic-div" aria-hidden="true"></span>
 					<button class="ic ic-close" aria-label={t(lang.current, 'explorer.controls.mobile_close_aria')} onclick={() => onClose?.()}>
@@ -1662,6 +1679,21 @@
 						<button type="button" class="share-load" onclick={loadShare}>{t(lang.current, 'explorer.share.open_btn')}</button>
 					</div>
 					{#if loadError}<div class="share-err">{loadError}</div>{/if}
+				</div>
+			{:else if mobilePanel === 'lang'}
+				<div class="msw-m-pop lang-pop">
+					{#each langs as code (code)}
+						<button
+							type="button"
+							class="lang-opt"
+							class:on={code === lang.current}
+							aria-pressed={code === lang.current}
+							onclick={() => {
+								setLang(code as Lang);
+								mobilePanel = 'none';
+							}}
+						>{LANG_LABELS[code as Lang].native}</button>
+					{/each}
 				</div>
 			{/if}
 		</div>
@@ -1824,6 +1856,23 @@
 					<button type="button" class="share-load" onclick={loadShare}>{t(lang.current, 'explorer.share.open_btn')}</button>
 				</div>
 				{#if loadError}<div class="share-err">{loadError}</div>{/if}
+			</div>
+		{/if}
+
+		{#if langs && langs.length}
+			<div class="lang-row">
+				<div class="fhdr">{t(lang.current, 'explorer.controls.lang_hdr')}</div>
+				<div class="lang-btns" role="group" aria-label={t(lang.current, 'explorer.controls.lang_aria')}>
+					{#each langs as code (code)}
+						<button
+							type="button"
+							class="lang-opt"
+							class:on={code === lang.current}
+							aria-pressed={code === lang.current}
+							onclick={() => setLang(code as Lang)}
+						>{LANG_LABELS[code as Lang].native}</button>
+					{/each}
+				</div>
 			</div>
 		{/if}
 
@@ -2170,6 +2219,47 @@
 		accent-color: #6fd3fb;
 		cursor: pointer;
 	}
+	/* Language control — labelled row of inline native-name buttons, mirroring the
+	   filters/overlays section divider and the map-version button look. */
+	.mapsw .lang-row {
+		margin-top: 7px;
+		padding-top: 6px;
+		border-top: 1px solid #2a3550;
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+	.mapsw .lang-row .fhdr {
+		font-size: 11px;
+		font-weight: 600;
+		color: #9fb4d4;
+	}
+	.mapsw .lang-btns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+	}
+	.mapsw .lang-opt {
+		flex: 1 1 0;
+		box-sizing: border-box;
+		background: #11182a;
+		border: 1px solid #2a3550;
+		border-radius: 7px;
+		color: #cfe0f5;
+		font: 600 12px -apple-system, 'Segoe UI', sans-serif;
+		padding: 7px 8px;
+		cursor: pointer;
+		text-align: center;
+	}
+	.mapsw .lang-opt:hover {
+		border-color: #6fd3fb;
+		color: #eaf2ff;
+	}
+	.mapsw .lang-opt.on {
+		border-color: #6fd3fb;
+		color: #0c0f1a;
+		background: #6fd3fb;
+	}
 	/* ── Share panel (desktop popover + shared with the mobile .msw-m-pop) ──────── */
 	.share-row {
 		margin-top: 7px;
@@ -2509,6 +2599,26 @@
 	}
 	.msw-m-pop.note b {
 		color: #cfe0f5;
+	}
+	/* Language popover — one native-name button per offered locale, styled like the
+	   other popover option rows; active locale highlighted. */
+	.msw-m-pop .lang-opt {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		text-align: left;
+		background: #11182a;
+		border: 1px solid #2a3550;
+		border-radius: 7px;
+		color: #cfe0f5;
+		font: 600 14px -apple-system, 'Segoe UI', sans-serif;
+		padding: 10px 12px;
+		cursor: pointer;
+	}
+	.msw-m-pop .lang-opt.on {
+		border-color: #6fd3fb;
+		color: #0c0f1a;
+		background: #6fd3fb;
 	}
 	/* Bar + zoom grouped; the vertical zoom sits right-aligned under the bar. */
 	/* Flatten the bar+zoom group into the .msw-m flex column (display:contents) so
