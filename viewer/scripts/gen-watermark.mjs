@@ -32,10 +32,11 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:${W}px;height:${H}px;background:transparent;overflow:hidden}
 .cell{position:absolute;left:0;top:0;width:${W}px;height:${H}px}
-.cell span{position:absolute;left:0;top:0;width:${W}px;height:${H}px;
-  font-family:'Cinzel',serif;font-weight:700;font-size:30px;letter-spacing:6px;
-  color:#f0e6d6;white-space:nowrap;line-height:80px;text-indent:0}
-</style></head><body><div class="cell"><span>MAP&nbsp;EXPLORER</span></div></body></html>`;
+.cell span{position:absolute;left:0;width:${W}px;font-family:'Cinzel',serif;
+  font-weight:700;color:#f0e6d6;white-space:nowrap;text-indent:0}
+.cell .t1{top:0;font-size:30px;letter-spacing:6px;line-height:70px}
+.cell .t2{top:54px;font-size:18px;letter-spacing:18px;line-height:34px}
+</style></head><body><div class="cell"><span class="t1">MAP&nbsp;EXPLORER</span><span class="t2">BETA</span></div></body></html>`;
 
 const htmlPath = join(tmpdir(), 'wm.html');
 writeFileSync(htmlPath, html);
