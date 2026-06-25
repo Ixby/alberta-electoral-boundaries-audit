@@ -39,14 +39,7 @@
 	} from '$lib/deckExplorer/layers';
 	import { FLAGS } from '$lib/deckExplorer/pois';
 	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
-	import {
-		encodeState,
-		decodeState,
-		saveShare,
-		setOrigin,
-		type MapState,
-		type MapKey
-	} from '$lib/share';
+	import { serializeState, parseState, type MapState, type MapKey } from '$lib/share';
 	import { getLastCode, storeLastCode } from '$lib/prefs';
 	import {
 		track,
@@ -99,11 +92,10 @@
 	// is no Lunty map yet, so this isn't a tiled map — toggling it overlays the
 	// approximate restoration zone the chair named in Addendum Rec 5 (Clearwater +
 	// W. Mountain View County). It sits alongside the three real maps, not in them.
-	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean; miller: boolean }>({
+	let filters = $state<{ hwy: boolean; water: boolean; pois: boolean }>({
 		hwy: false,
 		water: false,
-		pois: true,
-		miller: false
+		pois: true
 	});
 	let zoomVal = $state(0); // slider value (== viewState.zoom)
 	let zoomMin = $state(0);
@@ -155,11 +147,7 @@
 	let zoomSetter: (z: number) => void = () => {};
 	let dragSetter: (v: boolean) => void = () => {};
 	let mapToggler: (mk: string) => void = () => {};
-	let filterSetter: (
-		which: 'hwy' | 'water' | 'pois' | 'miller',
-		val: boolean,
-		silent?: boolean
-	) => void = () => {};
+	let filterSetter: (which: 'hwy' | 'water' | 'pois', val: boolean, silent?: boolean) => void = () => {};
 	let edSelector: (rec: EdRec) => void = () => {};
 	let clearSelection: () => void = () => {};
 	// Share bridges: build a MapState from the live view, and apply a decoded one.
@@ -247,61 +235,70 @@
 		if (vvH > 0) document.documentElement.style.setProperty('--vvh', vvH + 'px');
 	});
 
-	// ── Share panel (3-word view codes) ──────────────────────────────────────────
-	// Desktop opens a popover; mobile reuses the existing icon-popover mechanism
-	// via mobilePanel === 'share'. Both call the same build/apply bridges.
+	// ── Share panel (live-updating share link) ───────────────────────────────────
+	// The map's full state lives in the URL (?m=…&f=…&cx=…&cy=…&z=…), kept in sync
+	// as the user navigates. The panel offers a "Copy link" button (copies the live
+	// location.href) and a paste-a-link input to restore a shared view. Desktop
+	// opens a popover; mobile reuses the icon-popover via mobilePanel === 'share'.
+	// `syncUrl` is assigned inside the IIFE (where shareBuild / storeLastCode run).
 	let showShare = $state(false);
-	let shareCode = $state('');
-	let copyLabel = $state('Copy');
+	let copyLabel = $state('Copy link');
 	let loadInput = $state('');
 	let loadError = $state('');
+	// Bridge: rewrite location with the live state and persist the query (assigned
+	// in the IIFE). Called from the share panel "Load" path after a successful apply.
+	let syncUrl: () => void = () => {};
 
 	function openShare(): void {
-		const st = shareBuild();
-		shareCode = st ? (encodeState(st) ?? '—') : '—';
-		if (st && shareCode !== '—') {
-			saveShare(shareCode, st);
-			storeLastCode(shareCode);
-		}
+		// Force the URL current before the panel opens so "Copy link" copies the
+		// live view even mid-debounce (the paint()-tail sync is ~400ms behind).
+		syncUrl();
 		loadError = '';
-		copyLabel = 'Copy';
+		copyLabel = 'Copy link';
 		showShare = true;
 	}
 	function copyShare(): void {
+		if (!browser) return;
 		navigator.clipboard
-			?.writeText(shareCode)
+			?.writeText(location.href)
 			.then(() => {
 				copyLabel = 'Copied';
-				setTimeout(() => (copyLabel = 'Copy'), 1500);
+				setTimeout(() => (copyLabel = 'Copy link'), 1500);
 			})
 			.catch(() => {});
 	}
 	function loadShare(): void {
-		const st = decodeState(loadInput.trim());
-		if (!st) {
-			loadError = 'Not a valid code';
+		const raw = loadInput.trim();
+		if (!raw) {
+			loadError = 'Paste a share link';
 			return;
 		}
-		setOrigin(loadInput.trim());
+		let params: URLSearchParams | null = null;
+		try {
+			params = new URL(raw, location.origin).searchParams;
+		} catch {
+			params = new URLSearchParams(raw);
+		}
+		const st = parseState(params);
+		if (!st) {
+			loadError = 'Not a valid share link';
+			return;
+		}
 		shareApply(st);
+		syncUrl();
 		showShare = false;
 		mobilePanel = 'none';
 		loadInput = '';
 		loadError = '';
 	}
-	// Mobile share popover: regenerate the code each time the panel is opened.
+	// Mobile share popover: same panel, toggled via the icon bar.
 	function openMobileShare(): void {
 		const wasOpen = mobilePanel === 'share';
 		toggleMobilePanel('share');
 		if (!wasOpen) {
-			const st = shareBuild();
-			shareCode = st ? (encodeState(st) ?? '—') : '—';
-			if (st && shareCode !== '—') {
-				saveShare(shareCode, st);
-				storeLastCode(shareCode);
-			}
+			syncUrl(); // make the URL current before "Copy link" is offered
 			loadError = '';
-			copyLabel = 'Copy';
+			copyLabel = 'Copy link';
 		}
 	}
 
@@ -490,6 +487,19 @@
 					schedulePaint();
 				});
 			}
+			// Miller restoration-zone geometry — loaded lazily when annotations (pois)
+			// turn on, so the zone outline is ready alongside the flag pins.
+			let luntyLoaded = false;
+			function loadLuntyData() {
+				if (luntyLoaded) return;
+				luntyLoaded = true;
+				fetchJSON('lunty_bounds.json')
+					.then((d) => {
+						luntyBounds = d as any;
+						schedulePaint();
+					})
+					.catch(() => {});
+			}
 			// Auto-enable detail layers as the user zooms: highways at level 3, water at 4.
 			let hwyAuto = false;
 			let waterAuto = false;
@@ -661,9 +671,10 @@
 					)
 				);
 				// Lunty scaffold: the chair's Rec-5 restoration zone (approximate),
-				// in dark grey, shown only while the Lunty toggle is on — plus a single
-				// explanatory point at the zone's centroid (hover to read what it is).
-				if (filters.miller && luntyBounds) {
+				// in dark grey — now part of the EBC '26 annotations, so it draws with
+				// the flag pins under filters.pois — plus a single explanatory point at
+				// the zone's centroid (hover to read what it is).
+				if (filters.pois && luntyBounds) {
 					const TERRA = [224, 142, 96];
 					for (const z of luntyBounds.zones) {
 						layers.push(
@@ -692,8 +703,8 @@
 						layers.push(
 							new ScatterplotLayer({
 								id: 'lunty-point',
-								// The pin is an annotation, so the annotations (POIs) toggle hides
-								// it too. The Miller zone outline stays under the Miller toggle alone.
+								// Redundant under the outer filters.pois gate, kept explicit so the
+								// pin's visibility reads alongside the flag annotations.
 								visible: filters.pois,
 								data: [
 									{
@@ -858,7 +869,37 @@
 				return out;
 			}
 
-			function paint() {
+				// ── Live URL sync ──────────────────────────────────────────────────────
+				// Mirror the live map state into the URL query (and the prefs last-view
+				// cookie) so the address bar always captures the current view and a bare
+				// return to /explorer restores it. Preserves the active ?lang param and
+				// drops any stale ?poi. Debounced (~400ms) so a pan/zoom gesture or a burst
+				// of repaints rewrites the URL once it settles, not every frame.
+				let urlSyncTimer: ReturnType<typeof setTimeout> | null = null;
+				function withLang(query: string): string {
+					const lang = new URLSearchParams(location.search).get('lang');
+					if (!lang) return query;
+					const p = new URLSearchParams(query);
+					p.set('lang', lang);
+					return p.toString();
+				}
+				function writeUrl() {
+					if (!browser) return;
+					const st = shareBuild();
+					if (!st) return;
+					const query = withLang(serializeState(st));
+					history.replaceState(null, '', location.pathname + '?' + query);
+					storeLastCode(query);
+				}
+				// Exposed bridge: an immediate write (used by the share-panel Load path).
+				syncUrl = writeUrl;
+				function scheduleUrlSync() {
+					if (!browser) return;
+					if (urlSyncTimer) clearTimeout(urlSyncTimer);
+					urlSyncTimer = setTimeout(writeUrl, 400);
+				}
+
+				function paint() {
 				if (!deckgl || !lastVS || !M) return;
 				const vp = new OrthographicView({ flipY: false }).makeViewport({
 					width: window.innerWidth,
@@ -883,6 +924,9 @@
 					lastPaintMs = Math.round((performance.now() - t0) * 10) / 10;
 					renderHud(L);
 				}
+				// Keep the URL (and last-view cookie) in sync with the settled view.
+				// Downstream of every map/filter/viewport change (all route through paint()).
+				scheduleUrlSync();
 			}
 
 			// ── Shared perf telemetry ──────────────────────────────────────────────
@@ -1015,18 +1059,13 @@
 				schedulePaint();
 			};
 			// Filter checkbox handlers (lazy-load data on manual enable).
-			filterSetter = (which: 'hwy' | 'water' | 'pois' | 'miller', val: boolean, silent = false) => {
+			filterSetter = (which: 'hwy' | 'water' | 'pois', val: boolean, silent = false) => {
 				filters[which] = val;
 				if (which === 'hwy' && val) loadHwyData();
 				if (which === 'water' && val) loadWaterData();
-				if (which === 'miller' && val && !luntyBounds) {
-					fetchJSON('lunty_bounds.json')
-						.then((d) => {
-							luntyBounds = d as any;
-							schedulePaint();
-						})
-						.catch(() => {});
-				}
+				// Annotations carry the Miller restoration zone — load its geometry when
+				// pois turns on so the zone outline is ready alongside the flag pins.
+				if (which === 'pois' && val) loadLuntyData();
 				// Analytics: only GENUINE user toggles count. `silent` skips logging for
 				// programmatic applies (share-code load, session resume, zoom auto-enable),
 				// matching maybeAutoLayers which is also intentionally NOT logged.
@@ -1076,8 +1115,7 @@
 					layers: {
 						hwy: filters.hwy,
 						water: filters.water,
-						pois: filters.pois,
-						miller: filters.miller
+						pois: filters.pois
 					},
 					viewport: { cx_norm, cy_norm, zoom: zoom01 }
 				};
@@ -1092,7 +1130,6 @@
 				filterSetter('hwy', s.layers.hwy, true);
 				filterSetter('water', s.layers.water, true);
 				filterSetter('pois', s.layers.pois, true);
-				filterSetter('miller', s.layers.miller, true);
 				if (lastVS && M) {
 					const [minx, miny, maxx, maxy] = M.bbox;
 					const tx = minx + s.viewport.cx_norm * (maxx - minx);
@@ -1120,6 +1157,13 @@
 			// Floor the camera at the coarsest tile level (z0) rather than level 1, so the province
 			// can be pulled back for breathing room — and the z0 tiles stop being dead weight.
 			const zFloor = M.minZoom - Math.log2(M.side / 256);
+
+			// Slider bounds computed BEFORE the initial viewState so a restored
+			// URL / last-view state can denormalise its zoom against the same
+			// [zoomMin, zoomMax] range that shareBuild normalises into.
+			zoomMin = +zFloor.toFixed(2);
+			zoomMax = +(M.maxZoom - Math.log2(M.side / 256)).toFixed(2);
+
 			const initial: Record<string, number | number[]> = {
 				target: [cx, cy, 0],
 				zoom: z,
@@ -1133,9 +1177,38 @@
 				initial.zoom = Math.min(initial.maxZoom as number, 6 - Math.log2(M.side / 256));
 			}
 
-			// Slider bounds: z0 (fully pulled-back overview) → maxZoom (finest data scale).
-			zoomMin = +zFloor.toFixed(2);
-			zoomMax = +(M.maxZoom - Math.log2(M.side / 256)).toFixed(2);
+			// ── Restore from URL / last-view ───────────────────────────────────────
+			// A POI deep link wins (it set target/zoom above). Otherwise prefer the URL
+			// query (?m=…&f=…&cx/cy/z), then the stored last view (a saved query string),
+			// applying maps + filters and denormalising the viewport into `initial`.
+			if (!poiFlag) {
+				let restore = parseState(new URLSearchParams(location.search));
+				if (!restore) {
+					const last = await getLastCode();
+					if (last) restore = parseState(new URLSearchParams(last));
+				}
+				if (restore) {
+					const ms2: MapKey[] = ['minority', 'majority', '2019'];
+					activeMaps = [restore.primary, ...ms2.filter((k) => k !== restore!.primary && restore!.mapOn[k])];
+					filters.hwy = restore.layers.hwy;
+					filters.water = restore.layers.water;
+					filters.pois = restore.layers.pois;
+					if (filters.hwy) loadHwyData();
+					if (filters.water) loadWaterData();
+					const rz = zoomMin + restore.viewport.zoom * (zoomMax - zoomMin);
+					initial.target = [
+						minx + restore.viewport.cx_norm * (maxx - minx),
+						miny + restore.viewport.cy_norm * (maxy - miny),
+						0
+					];
+					initial.zoom = Math.max(zFloor, Math.min(initial.maxZoom as number, rz));
+				}
+			}
+
+			// Annotations default on; the Miller zone geometry must be loaded even when
+			// no restore ran (filterSetter is not called on the initial filter state).
+			if (filters.pois) loadLuntyData();
+
 			zoomVal = initial.zoom as number;
 
 			// Touch devices render the compact mobile control UI instead of the
@@ -1353,21 +1426,11 @@
 			maybeLoadLevels(L0); // backfill coarse + one level lookahead
 			await loadVaLines();
 
-			// ── Session resume ─────────────────────────────────────────────────────
-			// If the visitor isn't deep-linked to a POI, restore their last shared
-			// view from the prefs cookie. Runs after lastVS / M exist and after the
-			// search index is built, so flyTo + filterSetter behave normally and the
-			// restore doesn't fight the deep-link POI focus above.
-			if (!initialPoi) {
-				const last = await getLastCode();
-				if (last) {
-					const st = decodeState(last);
-					if (st) {
-						setOrigin(last);
-						shareApply(st);
-					}
-				}
-			}
+			// (Session resume now runs in the critical-path init above, before the
+			// initial viewState is built — the URL query, then the stored last view,
+			// are parsed there and denormalised straight into `initial`, so there is
+			// no post-load fly-to flash. The paint()-tail syncUrl then keeps the live
+			// URL canonical as the user navigates.)
 
 			cleanup = () => {
 				window.removeEventListener('resize', onResize);
@@ -1547,14 +1610,7 @@
 							type="checkbox"
 							checked={filters.pois}
 							onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
-						/> Annotations
-					</label>
-					<label>
-						<input
-							type="checkbox"
-							checked={filters.miller}
-							onchange={(e) => filterSetter('miller', e.currentTarget.checked)}
-						/> Miller's seat
+						/> EBC '26 Annotations
 					</label>
 				</div>
 			{:else if mobilePanel === 'info'}
@@ -1568,16 +1624,16 @@
 				<div class="msw-m-pop">
 					<div class="share-lbl">Share this view</div>
 					<div class="share-code-row">
-						<code class="share-code">{shareCode}</code>
 						<button type="button" class="share-copy" onclick={copyShare}>{copyLabel}</button>
 					</div>
+					<div class="share-help">This link captures your current map, overlays, and view.</div>
 					<div class="share-div"></div>
-					<div class="share-lbl">Load a code</div>
+					<div class="share-lbl">Open a shared link</div>
 					<div class="share-load-row">
 						<input
 							class="share-input"
 							type="text"
-							placeholder="word-word-word"
+							placeholder="Paste a share link…"
 							autocomplete="off"
 							bind:value={loadInput}
 							onkeydown={(e) => {
@@ -1587,7 +1643,7 @@
 								}
 							}}
 						/>
-						<button type="button" class="share-load" onclick={loadShare}>Load</button>
+						<button type="button" class="share-load" onclick={loadShare}>Open</button>
 					</div>
 					{#if loadError}<div class="share-err">{loadError}</div>{/if}
 				</div>
@@ -1713,14 +1769,7 @@
 					type="checkbox"
 					checked={filters.pois}
 					onchange={(e) => filterSetter('pois', e.currentTarget.checked)}
-				/> Annotations
-			</label>
-			<label>
-				<input
-					type="checkbox"
-					checked={filters.miller}
-					onchange={(e) => filterSetter('miller', e.currentTarget.checked)}
-				/> Miller's proposed seat
+				/> EBC '26 Annotations
 			</label>
 		</div>
 
@@ -1737,16 +1786,16 @@
 			<div class="share-panel">
 				<div class="share-lbl">Share this view</div>
 				<div class="share-code-row">
-					<code class="share-code">{shareCode}</code>
 					<button type="button" class="share-copy" onclick={copyShare}>{copyLabel}</button>
 				</div>
+				<div class="share-help">This link captures your current map, overlays, and view.</div>
 				<div class="share-div"></div>
-				<div class="share-lbl">Load a code</div>
+				<div class="share-lbl">Open a shared link</div>
 				<div class="share-load-row">
 					<input
 						class="share-input"
 						type="text"
-						placeholder="word-word-word"
+						placeholder="Paste a share link…"
 						autocomplete="off"
 						bind:value={loadInput}
 						onkeydown={(e) => {
@@ -1756,7 +1805,7 @@
 							}
 						}}
 					/>
-					<button type="button" class="share-load" onclick={loadShare}>Load</button>
+					<button type="button" class="share-load" onclick={loadShare}>Open</button>
 				</div>
 				{#if loadError}<div class="share-err">{loadError}</div>{/if}
 			</div>
@@ -2151,27 +2200,20 @@
 		letter-spacing: 0.08em;
 		color: #9a8c72;
 	}
+	.share-help {
+		font-size: 10.5px;
+		line-height: 1.35;
+		color: #9a8c72;
+		margin-top: 5px;
+	}
 	.share-code-row,
 	.share-load-row {
 		display: flex;
 		gap: 6px;
 		align-items: stretch;
 	}
-	.share-code {
+	.share-code-row .share-copy {
 		flex: 1;
-		min-width: 0;
-		box-sizing: border-box;
-		background: #11182a;
-		border: 1px solid #2a3550;
-		border-radius: 6px;
-		color: #6fd3fb;
-		font: 600 12.5px ui-monospace, Consolas, monospace;
-		padding: 6px 8px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: flex;
-		align-items: center;
 	}
 	.share-copy,
 	.share-load {
@@ -2216,9 +2258,6 @@
 		color: #ff8f8f;
 	}
 	/* Mobile share popover: the bar's dark warm theme — match .msw-m-pop tone. */
-	.msw-m-pop .share-code {
-		font-size: 14px;
-	}
 	.msw-m-pop .share-input {
 		font-size: 15px;
 	}

@@ -3,9 +3,9 @@
 //
 // Cookie: ab_audit_prefs (1 week, SameSite=Strict, Secure, path=/)
 // Value:  AES-256-GCM ciphertext — base64(iv).base64(ciphertext)
-// Plaintext format: pipe-separated key=value pairs, e.g. t=dark|i=1|s=alpine-badger-banff
+// Plaintext format: pipe-separated key=value pairs, e.g. t=dark|i=1|s=m=minority&cx=0.5&…
 // Keys:   t (theme: dark/light)       i (intro seen: 1)
-//         s (last share code: word-word-word)
+//         s (last share view: a serialized URL query string, e.g. m=minority&f=pois&cx=…)
 //         g (GPS region: lat,lng)     l (browser language: e.g. en-CA)
 //
 // Theme is also mirrored to localStorage['ab_pref_t'] so app.html can prevent
@@ -105,7 +105,8 @@ export async function markIntroSeen(): Promise<void> {
 	await _set('i', '1');
 }
 
-// ── Last share code (session resume) ─────────────────────────────────────────
+// ── Last share view (session resume) ─────────────────────────────────────────
+// Stored as a serialized URL query string (see share.ts serializeState).
 export async function getLastCode(): Promise<string | null> {
 	return (await _get('s')) || null;
 }

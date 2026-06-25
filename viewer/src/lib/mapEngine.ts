@@ -183,7 +183,7 @@ export function init(basePath: string): void {
             // getState/applyState). The MapState.layers shape now belongs to the
             // deck explorer ({hwy,water,pois,miller}); this engine has no such
             // layers, so return an inert placeholder purely to type-check.
-            layers:  { hwy: false, water: false, pois: false, miller: false },
+            layers:  { hwy: false, water: false, pois: false },
             viewport: ctx.svgEl && ctx.natVB && ctx.curVB ? {
               cx_norm: Math.max(0, Math.min(1, (ctx.curVB.x + ctx.curVB.w / 2 - ctx.natVB.x) / ctx.natVB.w)),
               cy_norm: Math.max(0, Math.min(1, (ctx.curVB.y + ctx.curVB.h / 2 - ctx.natVB.y) / ctx.natVB.h)),
