@@ -3,6 +3,40 @@ export default {
 	selector: {
 		label: 'Wybierz język'
 	},
+	verdict: {
+		headline: 'Alberta na nowo wytycza swoją mapę wyborczą.',
+		p_what: 'Co jakiś czas prowincja na nowo wytycza swoje okręgi — lokalne obszary, z których każdy wybiera jednego MLA. To, gdzie padają linie, decyduje o tym, z kim głosujesz i kto reprezentuje cię w legislaturze.',
+		p_split: 'Tym razem panel dokonujący przerysowania podzielił się. Wyprodukował dwie konkurencyjne mapy — a ten audyt testuje obie z nich.',
+		p_question: 'Przetestowaliśmy obie mapy pod kątem jednego pytania: czy któraś z nich jest ukształtowana tak, by sprzyjać partii — nawet jeśli nikt nie zamierzał tego zrobić?',
+		p_answer: 'Jedna z dwóch jest. Druga wygląda normalnie.',
+		p_howfar: 'Komputer narysował losowo 1,01 miliona legalnych wersji mapy. Jedna z dwóch rzeczywistych map jest bardziej jednostronna niż wszystkie z wyjątkiem mniej więcej 1 na 350 000 z nich, na korzyść UCP. Druga mieści się w normalnym zakresie.',
+		aside_pre: 'Mapę o takim kształcie można by nazwać ',
+		aside_post: '. To słowo nie ma znaczenia prawnego w Kanadzie, więc nie używamy go jako werdyktu. Pokazujemy ci, co robi mapa; ty oceniasz. Aby poznać głębsze warstwy — co prawo faktycznie wymaga i dokładnie jak przeprowadziliśmy test — zobacz ',
+		box_heading: 'Co możemy, a czego nie możemy powiedzieć',
+		box_can_1: 'Mapa mniejszościowa znajduje się poza tym, co produkuje 1,01 miliona neutralnych map, w kierunku korzystnym dla UCP.',
+		box_can_2: 'Wszystkie cztery miary sprawiedliwości partyjnej wskazują w tym samym kierunku.',
+		box_cant_1: 'Że jakikolwiek komisarz to zamierzał — audyt odczytuje wyniki, nie motywy.',
+		box_cant_2: 'Że mapa „jest” gerrymanderem — to nie jest kategoria, którą uznaje prawo kanadyjskie.',
+		box_cant_3: 'Jak orzekłby sąd ani co wybierze komitet.',
+		law_link: 'Prawo',
+		methods_link: 'Metody'
+	},
+	why_redrawn: {
+		heading: 'Dlaczego tak się dzieje — i dlaczego dotyczy to ciebie',
+		p1: 'Alberta jest podzielona na 87 okręgów. Każdy z nich wybiera jednego MLA do legislatury. Twój okręg decyduje, kim jest ta osoba, które dzielnice są grupowane razem z twoją i czyje sprawy twój MLA słyszy jako pierwsze.',
+		p2: 'Linie nie pozostają stałe. W miarę jak ludzie się przeprowadzają, a miasta rosną, niektóre okręgi mają znacznie więcej wyborców niż inne, więc prowincja na nowo wytycza mapę co kilka lat, aby utrzymać je z grubsza równe. Rysowania dokonuje panel komisarzy, pracując według zasad określonych w prawie: okręgi muszą mieć zbliżoną populację, pozostawać w jednym kawałku i utrzymywać razem prawdziwe społeczności tam, gdzie to możliwe.',
+		p3: 'To jest normalny proces. Tym razem się załamał. Komisarze nie mogli dojść do porozumienia i podzielili się na dwa obozy, każdy z własną mapą. Następnie komitet MLA odłożył obie te mapy na bok i zaczął rysować własną, większą. To, że komitet legislacyjny w ten sposób uchyla komisję, jest rzadkością.',
+		p4: 'Linia na mapie decyduje, czyj głos liczy się za co. Może utrzymać wyborców społeczności razem albo rozproszyć ich po kilku okręgach, gdzie ich liczba nie sumuje się już do wiele. Może utrzymać niektóre wyścigi blisko, a inne uczynić poza zasięgiem. Nic z tego nie widać na powierzchni; ustala to miejsce, w którym padają granice.'
+	},
+	two_maps: {
+		heading: 'Dwie mapy — i kto je narysował',
+		p1: 'Gdy komisja się podzieliła, nie wyprodukowała jednej mapy z dołączonym zdaniem odrębnym. Wyprodukowała dwie kompletne, konkurencyjne mapy. Obie są legalne. Po prostu rysują linie inaczej.',
+		p2: 'Komisja ds. granic ma pięciu członków. Główny Sędzia Alberty mianuje przewodniczącego — neutralne miejsce, tutaj zajmowane przez Dallasa K. Millera, byłego sędziego Court of King’s Bench. Partia rządząca mianuje dwóch członków; opozycja mianuje dwóch.',
+		p3: 'Ta komisja podzieliła się trzy do dwóch. Przewodniczący i dwaj członkowie mianowani przez opozycję poparli jedną mapę — raport większościowy, ponieważ podpisała go większość komisji. Dwaj członkowie mianowani przez rząd poparli drugą — raport mniejszościowy.',
+		p4: 'Mapa, którą audyt oznacza jako bardziej jednostronną, to raport mniejszościowy — ten, który narysowali dwaj członkowie mianowani przez rząd. Audyt nie może pokazać, czy zamierzali to zrobić, i nie próbuje. Pokazuje, co robi mapa.',
+		p5: 'Mapa okładkowa u góry tej strony pozwala ci samodzielnie je porównać. Przełączaj między dwiema propozycjami a dzisiejszą mapą, znajdź swój własny okręg i obserwuj, które dzielnice są grupowane razem lub rozdzielane.',
+		p6: 'Komitet MLA odłożył od tego czasu obie mapy na bok, aby narysować własną, której termin przypada później w 2026 roku — posunięcie, któremu ta strona przygląda się na stronie Prawo. Te dwie pozostają najbardziej klarownym przypadkiem testowym audytu, a te same testy będą miały zastosowanie do tego, co wyprodukuje komitet.'
+	},
 	disclaimer: {
 		text:
 			'Ta strona została przetłumaczona przez SI. Część treści może nadal pojawiać się w języku angielskim, ponieważ tłumaczenia są w toku. Jeśli zauważą Państwo błędy lub chcieliby pomóc w tłumaczeniu tego projektu, prosimy o %s.',
@@ -30,7 +64,7 @@ export default {
 		q3: {
 			heading: 'O co toczy się gra dla mieszkańców Alberty?',
 			body:
-				'Przy 50/50 prowincjonalnym wyniku głosowania pomiary audytu plasują propozycję mniejszościową w strukturalnej skrajności: mniej niż 100 z 1,01 miliona neutralnych map porównawczych daje tego samego rodzaju nierównowagę mandatów. Ta nierównowaga ma znaczenie, ponieważ przy 58 z 87 mandatów (większość dwóch trzecich) partia rządząca odblokowuje nadzwyczajne uprawnienia proceduralne. Może uchylać standardowe terminy zawiadomień i przeprowadzać projekty ustaw publicznych przez wiele etapów legislacyjnych w ciągu jednego dnia, omijając mechanizmy deliberatywne, na których legislatura normalnie polega. Czy odchylenie propozycji mniejszościowej jest wystarczająco duże, by przekroczyć próg 58 mandatów przy udziałach głosów <em>innych</em> niż 50/50, to pytanie, którego audyt jeszcze nie zbadał. Czy ta nierównowaga jest akceptowalna, to pytanie dla mieszkańców Alberty, a nie dla tego audytu.'
+				'Przy 50/50 prowincjonalnym wyniku głosowania pomiary audytu plasują propozycję mniejszościową w strukturalnej skrajności: mniej niż 100 z 1,01 miliona neutralnych map porównawczych daje tego samego rodzaju nierównowagę mandatów. Ta nierównowaga ma znaczenie, ponieważ przy 60 z 89 mandatów (większość dwóch trzecich) partia rządząca odblokowuje nadzwyczajne uprawnienia proceduralne. Może uchylać standardowe terminy zawiadomień i przeprowadzać projekty ustaw publicznych przez wiele etapów legislacyjnych w ciągu jednego dnia, omijając mechanizmy deliberatywne, na których legislatura normalnie polega. Czy odchylenie propozycji mniejszościowej jest wystarczająco duże, by przekroczyć próg 60 mandatów przy udziałach głosów <em>innych</em> niż 50/50, to pytanie, którego audyt jeszcze nie zbadał. Czy ta nierównowaga jest akceptowalna, to pytanie dla mieszkańców Alberty, a nie dla tego audytu.'
 		},
 		cta_law: 'Przeczytaj kontekst prawny →',
 		cta_methods: 'Zobacz, jak testowaliśmy →',
@@ -46,7 +80,7 @@ export default {
 	},
 	top_callouts: {
 		gerrymander_lead: 'Czy mapa mniejszościowa to gerrymander?',
-		gerrymander_body: 'W połączonym wyniku stronniczości partyjnej audytu mapa mniejszościowa komisji znajduje się w ekstremalnym ogonie 1 010 000 algorytmicznie losowanych neutralnych map porównawczych — około 66 z nich osiąga jej wartość progową seats@50/50, przy odpornej na zależności wspólnej górnej granicy wynoszącej mniej więcej 1 na 350 000 w tej rozkładzie odniesienia. Mapa większościowa mieści się dobrze w zakresie normalnym.',
+		gerrymander_body: 'W połączonym wyniku stronniczości partyjnej audytu mapa mniejszościowa komisji znajduje się w ekstremalnym ogonie 1 010 000 algorytmicznie losowanych neutralnych map porównawczych — około 66 z nich osiąga jej wartość progową seats@50/50, przy odpornej na zależności wspólnej górnej granicy wynoszącej mniej więcej 1 na 350 000 w tym rozkładzie odniesienia. Mapa większościowa mieści się dobrze w zakresie normalnym.',
 		tldr_label: 'W skrócie',
 		tldr_p1: 'Komisja ds. reorganizacji okręgów Alberty podzieliła się 3&ndash;2 w 2026 roku i wyprodukowała dwie różne proponowane mapy. Rząd odłożył obie na bok i przydzielił reorganizację okręgów pięcioosobowemu komitetowi MLA (komitetowi Lunty\'ego), który ma złożyć sprawozdanie w listopadzie 2026 roku. Żadna z map komisji nie jest prawem.',
 		tldr_p2: 'Ten audyt przetestował obie mapy komisji w ten sam sposób, używając 1 010 000 neutralnych map wygenerowanych komputerowo na podstawie oficjalnych plików shapefile Elections Alberta jako punktu odniesienia. Propozycja większościowa mieści się w zakresie neutralnym w każdym pre-rejestrowanym teście. Propozycja mniejszościowa przekracza cztery z pięciu testów strukturalnych, a jej podział mandatów według sprawiedliwości partyjnej przy głosowaniu 50/50 osiąga około 66 z tych neutralnych map — odporna na zależności górna granica wynosi mniej więcej 1 na 350 000 przy neutralnym procesie losowania.',
@@ -66,6 +100,9 @@ export default {
 		theme_title: 'Przełącz tryb ciemny',
 		nav_aria: 'Otwórz spis treści',
 		drawer_top: '↑ Góra',
+		route_story: 'Opowieść',
+		route_law: 'Prawo',
+		route_methods: 'Metody',
 		// Compact landmarks shown on the sticky bar
 		stakes: 'Stawka',
 		findings: 'Ustalenia',
@@ -100,6 +137,7 @@ export default {
 	},
 	hero: {
 		h1: 'Audyt Granic Okręgów Wyborczych Alberty',
+		draft: '(NIEOPUBLIKOWANY SZKIC — recenzenci mile widziani)',
 		subtitle:
 			'Komisja Alberty wyprodukowała dwie mapy okręgów w 2026 roku. Ten audyt porównał je — używając tych samych testów stosowanych jednakowo do obu — aby zapytać, czy traktują wyborców w ten sam sposób.',
 		badge: 'Oficjalne mapy Elections Alberta — opublikowane w maju 2026 roku',
@@ -121,7 +159,7 @@ export default {
 		can_1:
 			'Geometria mapy mniejszościowej przekracza 4 z 5 pre-rejestrowanych progów strukturalnych <em>bez użycia jakichkolwiek danych wyborczych</em>. Piąty (zakotwiczenie) jest neutralny. Większościowa przekracza 0 z 4 uruchamiających się. Te testy mierzą właściwości samych linii granicznych — kształt okręgu, zakotwiczenie miejskie, rozkład populacji — i prowadzą do wniosku przed policzeniem jakiegokolwiek głosu.',
 		can_2:
-			'Oddzielnie, gdy wprowadzone zostają dane wyborcze, mapa mniejszościowa znajduje się na 99,99 percentylu 1,01 miliona algorytmicznie wylosowanych map porównawczych podlegających tym samym zasadom ustawowym. Mniej niż 100 z tych 1,01 miliona neutralnych map osiąga tę samą nierównowagę mandatów. Połączony sygnał statystyczny to około 1 na 350 000 przy neutralnym procesie losowania. Dwa niezależne instrumenty — geometryczny i statystyczny — prowadzą do tego samego wniosku.',
+			'Oddzielnie, gdy wprowadzone zostają dane wyborcze, mapa mniejszościowa znajduje się na 99,99 percentylu 1,01 miliona algorytmicznie wylosowanych map porównawczych podlegających tym samym zasadom ustawowym. Mniej więcej 66 z tych 1,01 miliona neutralnych map osiąga tę samą wartość seats@50/50. Odporna na zależności wspólna górna granica w obu kanałach analitycznych wynosi około 1 na 350 000 w tym rozkładzie odniesienia (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Dwa instrumenty analityczne — geometryczny i statystyczny — prowadzą do tego samego wniosku w tym samym kierunku; wspólna granica jest świadomym zależności podsumowaniem tej zbieżności, a nie czterema niezależnymi testami odczytującymi w zgodzie.',
 		can_3:
 			'Trzy konfiguracje zawarte w propozycji mniejszościowej zostały na piśmie zaznaczone przez Przewodniczącego Komisji Sędziego Millera w §5.8.2 raportu większościowego i Załączniku C. Testy audytu zostały przeprowadzone bez wiedzy o jego zastrzeżeniach i wskazały te same regiony. Trzeci niezależny instrument — sądowy — zbiega się na tych samych granicach.',
 		cant_1:
@@ -131,7 +169,7 @@ export default {
 		cant_3:
 			'Audyt <strong>nie</strong> przewiduje, jak sąd orzekłby, gdyby któraś z propozycji została zaskarżona w trybie Karty.',
 		cant_4:
-			'Audyt <strong>nie</strong> twierdzi, że liczba 1 na 350 000 jest prawdopodobieństwem, że doszło do gerrymanderingu. Ta liczba to prawdopodobieństwo ogonowe geometrii mniejszościowej w warunkach neutralnej hipotezy zerowej algorytmicznej. Jest to dowód, że neutralna hipoteza zerowa jest nieprawdopodobna. Nie jest to a posteriori prawdopodobieństwo intencji partyjnej — pytanie to wymaga dowodów, których geometria nie może dostarczyć.',
+			'Audyt <strong>nie</strong> twierdzi, że odporna na zależności granica wynosząca około 1 na 350 000 (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>) jest prawdopodobieństwem, że doszło do gerrymanderingu. Ta liczba to prawdopodobieństwo ogonowe geometrii mniejszościowej w warunkach neutralnej hipotezy zerowej algorytmicznej. Jest to dowód, że neutralna hipoteza zerowa jest nieprawdopodobna. Nie jest to a posteriori prawdopodobieństwo intencji partyjnej — pytanie to wymaga dowodów, których geometria nie może dostarczyć.',
 		cant_5:
 			'Audyt <strong>nie</strong> mówi żadnemu pojedynczemu wyborcy, jakie zająć stanowisko ani co zrobić z tą informacją. Wybór należy do Ciebie.'
 	},
@@ -173,7 +211,7 @@ export default {
 			'Audyt nie proponuje odebrania mandatów wiejskiej Albercie. Pyta, czy linie szanują wiejskie społeczności, które te mandaty mają reprezentować, czy też wiejska geografia jest używana jako balast, aby wchłonąć miejskie głosy do okręgów, których centrum znajduje się gdzie indziej. Jeśli mieszkasz w jednym z tych wiejskich ogonów, kwestia tego, która mapa zostanie uchwalona, decyduje o tym, czy Twój MLA reprezentuje wiejską społeczność, w której rzeczywiście mieszkasz, czy też miejski okręg, którego linie przypadkiem obejmują Twoją ziemię.',
 		province_h: 'Twoja prowincja.',
 		province_p:
-			'Legislatura to to, co otrzymujesz, gdy zsumujesz odpowiedzi każdego okręgu na powyższe trzy pytania. Jeśli większość okręgów jest zakotwiczona w społecznościach, w których ich MLA rzeczywiście mieszkają, legislatura reprezentuje te społeczności. Jeśli większość okręgów ma wiejskie ogony dołączone do miejskich głów, legislatura reprezentuje głowy — a ogony otrzymują tę uwagę, jaka pozostanie. Pytanie partyjne — która partia wygrywa większość — jest podrzędne wobec tego. Pytanie o supermajority — czy jedna partia przekracza 58 z 87 mandatów i odblokowuje skróty proceduralne, takie jak uchylanie terminów zawiadomień lub przyspieszanie projektów ustaw przez wiele etapów w ciągu jednego dnia — jest podrzędne wobec <em>tego</em>. Przy hipotetycznym prowincjonalnym podziale 50/50 pomiary audytu plasują propozycję mniejszościową w strukturalnej skrajności: mniej niż 100 z 1,01 miliona neutralnych map porównawczych daje tego samego rodzaju nierównowagę mandatów. Czy ta nierównowaga popycha partię poza 58 mandatów przy udziałach głosów, które mieszkańcy Alberty faktycznie dostarczą, to pytanie, którego ten audyt jeszcze bezpośrednio nie zbadał; pytania otwierające na górze tej strony są szczere co do tej luki. Czy odpowiedź na którekolwiek z tych pytań ma znaczenie wystarczające, by działać, to znów pytanie do Ciebie.'
+			'Legislatura to to, co otrzymujesz, gdy zsumujesz odpowiedzi każdego okręgu na powyższe trzy pytania. Jeśli większość okręgów jest zakotwiczona w społecznościach, w których ich MLA rzeczywiście mieszkają, legislatura reprezentuje te społeczności. Jeśli większość okręgów ma wiejskie ogony dołączone do miejskich głów, legislatura reprezentuje głowy — a ogony otrzymują tę uwagę, jaka pozostanie. Pytanie partyjne — która partia wygrywa większość — jest podrzędne wobec tego. Pytanie o supermajority — czy jedna partia przekracza 60 z 89 mandatów i odblokowuje skróty proceduralne, takie jak uchylanie terminów zawiadomień lub przyspieszanie projektów ustaw przez wiele etapów w ciągu jednego dnia — jest podrzędne wobec <em>tego</em>. Przy hipotetycznym prowincjonalnym podziale 50/50 pomiary audytu plasują propozycję mniejszościową w strukturalnej skrajności: mniej niż 100 z 1,01 miliona neutralnych map porównawczych daje tego samego rodzaju nierównowagę mandatów. Czy ta nierównowaga popycha partię poza 60 mandatów przy udziałach głosów, które mieszkańcy Alberty faktycznie dostarczą, to pytanie, którego ten audyt jeszcze bezpośrednio nie zbadał; pytania otwierające na górze tej strony są szczere co do tej luki. Czy odpowiedź na którekolwiek z tych pytań ma znaczenie wystarczające, by działać, to znów pytanie do Ciebie.'
 	},
 	editorial_history: {
 		heading: 'Kontekst: Krótka historia gerrymanderingu',
@@ -214,7 +252,7 @@ export default {
 		gerrymander: {
 			term: 'Gerrymander',
 			definition:
-				'Mapa narysowana tak, aby jedna partia polityczna zdobyła więcej mandatów, niż sugerowałby jej udział w głosowaniu. Słowo pochodzi z okręgu Massachusetts z 1812 roku w kształcie salamandry. Nie jest to termin prawny w Kanadzie, ale koncepcja jest szeroko badana.'
+				'Amerykańskie określenie mapy wyborczej narysowanej tak, by sprzyjać jednej partii. Nie ma znaczenia prawnego w Kanadzie — żaden sąd ani ustawa go nie używa — więc ta strona nigdy nie używa go jako werdyktu.'
 		},
 		cracking: {
 			term: 'Rozdrabnianie',
@@ -266,6 +304,31 @@ export default {
 			definition:
 				'Alberta Electoral Boundaries Commission Act — ustawa regulująca sposób wytyczania granic wyborczych w prowincji. Powołuje komisję, proces przesłuchań publicznych oraz zasady wejścia w życie nowej mapy.'
 		},
+		ensemble: {
+			term: 'Test 1,01 miliona map',
+			definition:
+				'Komputer narysował losowo 1,01 miliona legalnych map Alberty, wszystkie podążające za tymi samymi zasadami. Rzeczywista mapa liczy się jako niezwykła, gdy wypada poza tym, co produkuje prawie wszystkie z tych neutralnych map.'
+		},
+		efficiency_gap: {
+			term: 'Luka efektywności',
+			definition:
+				'Miara „zmarnowanych” głosów — głosów ponad to, czego kandydat potrzebował do wygranej, plus każdy głos na przegranego — porównana między dwiema partiami. Duża luka wskazuje na jednostronną mapę.'
+		},
+		mean_median: {
+			term: 'Luka średnia-mediana',
+			definition:
+				'Luka między średnim udziałem głosów partii w okręgach a jej środkowym (medianowym). Duża luka sugeruje, że jej wyborcy są rozproszeni w sposób marnujący głosy.'
+		},
+		declination: {
+			term: 'Deklinacja',
+			definition:
+				'Miara tego, jak nierówno każda partia wygrywa swoje mandaty — przez miażdżące zwycięstwa czy przez wygrane o włos. Na mapie mniejszościowej wskazuje w tym samym kierunku co pozostałe miary (ku partii rządzącej) po korekcie znaku z czerwca 2026 roku.'
+		},
+		seats_5050: {
+			term: 'Mandaty przy remisie',
+			definition:
+				'Ile mandatów wygrałaby każda partia, gdyby prowincja podzieliła swój głos dokładnie 50-50. Pomija to, kto faktycznie wygrał, i testuje wbudowane nachylenie mapy.'
+		},
 		fsa: {
 			term: 'Strefa pierwszego sortowania (FSA)',
 			definition:
@@ -316,7 +379,7 @@ export default {
 			t2_col_a: 'Mapa',
 			t2_col_b: 'Luka efektywności',
 			t2_col_c: 'Średnia-mediana',
-			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Deklinacja mierzy różnicę kątową między krzywą głosy-mandaty dla każdej partii. Wartości ujemne sprzyjają UCP; dodatnie sprzyjają NDP.">Deklinacja</a>',
+			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Deklinacja mierzy różnicę kątową między krzywą głosy-mandaty dla każdej partii. Wartości ujemne sprzyjają NDP; dodatnie sprzyjają UCP.">Deklinacja</a>',
 			t2_col_e: 'Mandaty przy 50/50',
 			t2_r1_a: 'Większościowa 2026',
 			t2_r1_b: '+0,1% (p15,5)',
@@ -328,7 +391,7 @@ export default {
 			t2_r2_c: '<strong>+1,0% (p99,98)</strong>',
 			t2_r2_d: '<strong>+0,077 (p98,8)</strong>',
 			t2_r2_e: '<strong>51,7% (p99,99)</strong>',
-			sub1_close: 'Mapa większościowa siedzi komfortowo wewnątrz normalnego zakresu na trzech z czterech metryk. Jej średnia-mediana siedzi na p2 w kierunku sprzyjającym NDP — to nietypowy wynik, ale wskazujący w niewłaściwą stronę, aby pomóc UCP. Bliskie trzymanie się przez mapę większościową granic miejskich umieszcza miejskie rdzenie z dużą liczbą wyborców NDP w ich własnych zwartych okręgach, gdzie głosy NDP wygrywają wydajnymi marginesami, podczas gdy wiejskie zwycięstwa UCP zwykle są większymi marginesami; ta łagodna strukturalna przewaga efektywności NDP pojawia się w mierze średnia-mediana. Mapa mniejszościowa jest w ogonie na wszystkich czterech, każdy wskazując w tym samym kierunku partyjnym.',
+			sub1_close: 'Mapa większościowa siedzi komfortowo wewnątrz normalnego zakresu na trzech z czterech metryk. Jej średnia-mediana siedzi na p1 (= p0,92) w kierunku sprzyjającym NDP — to nietypowy wynik, ale wskazujący w niewłaściwą stronę, aby pomóc UCP. Bliskie trzymanie się przez mapę większościową granic miejskich umieszcza miejskie rdzenie z dużą liczbą wyborców NDP w ich własnych zwartych okręgach, gdzie głosy NDP wygrywają wydajnymi marginesami, podczas gdy wiejskie zwycięstwa UCP zwykle są większymi marginesami; ta łagodna strukturalna przewaga efektywności NDP pojawia się w mierze średnia-mediana. Mapa mniejszościowa jest w ogonie na wszystkich czterech, każdy wskazując w tym samym kierunku partyjnym.',
 			sub2_h: 'Punkt przełomowy 50/50: mniej niż 100 z 1 010 000 neutralnych map go osiąga',
 			sub2_p: 'Metryka punktu przełomowego wprowadzona powyżej — mandaty UCP przy prowincjonalnym głosowaniu 50/50 — jest najbardziej intuicyjnym sposobem porównania trzech map.',
 			t3_col_a: 'Mapa',
@@ -345,16 +408,18 @@ export default {
 			t3_r3_c: '<strong>99,99. percentyl — mniej niż 100 z 1 010 000 neutralnych losowań osiąga tę wartość</strong>',
 			sub2_close: 'Mniej niż 100 z 1 010 000 symulowanych komputerowo neutralnych map Alberty wyprodukowało wartość <code>seats@50/50</code> tak wysoką jak propozycja mniejszościowa. Na podstawie rzeczywistych ostatnich wzorców głosowania przyznałaby ona UCP 60 mandatów (w porównaniu z 55 w propozycji większościowej). Propozycja większościowa to rodzaj mapy, jaką procedura neutralna rutynowo generuje. Propozycja mniejszościowa to rodzaj mapy, którą trzeba specjalnie celowo narysować.',
 			sub3_h: 'Co to oznacza w prostym języku',
-			sub3_p: 'Oficjalne pliki shapefile ujawniają mapę statystycznie ekstremalną w tym samym kierunku partyjnym na trzech z czterech miar naraz. Dwa kanały analizy stronniczości partyjnej dzielą wspólne bazowe dane luki efektywności i nie są statystycznie niezależne; łączenie ich metodą Fishera przeszacowałoby łączną istotność. Odporna na zależności wspólna górna granica wynosi około jeden na 350 000 (Bonferroni; p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Kanały stronniczości partyjnej są klasyfikowane jako „eksploracyjne" w rozumieniu §4.3.1 audytu: udokumentowane w repozytorium, ale nie pre-rejestrowane przed danymi.',
+			sub3_p: 'Propozycja mniejszościowa znajduje się w skrajnym ogonie zespołu 1 010 000 planów na trzech z czterech miar sprawiedliwości partyjnej, przy czym czwarta (luka efektywności, +4,0%) na 94. percentylu — <em>blisko, ale poniżej</em> pre-rejestrowanego, skalibrowanego dla Alberty progu audytu na poziomie 95. Dwa kanały testu łącznego dzielą wspólne bazowe dane luki efektywności i nie są statystycznie niezależne, więc łączenie ich wartości p metodą Fishera przeszacowuje istotność. Możliwa do obrony górna granica z odpornej na zależności kombinacji wynosi około <strong>jeden na 350 000</strong> (Bonferroni; p&nbsp;≤&nbsp;2,8×10<sup>−6</sup>). Pozostaje to wynikiem ekstremalnym, daleko poza konwencjonalnymi progami istotności — ale jest zgłaszane jako granica, a nie jako cztery niezależne instrumenty odczytujące w zgodzie.',
 			details_summary: 'Co oznacza ta wartość p — i czego nie oznacza',
 			details_p1: 'Wartość p odpowiada na jedno pytanie: gdyby mapa została narysowana przez proces neutralny, jak często widzielibyśmy wynik tak ekstremalny lub bardziej ekstremalny? Przy odpornej na zależności granicy p&nbsp;≤&nbsp;2,80×10<sup>−6</sup> odpowiedź brzmi: co najwyżej mniej więcej raz na 350 000 prób.',
-			details_p2: 'Jest to częstotliwościowy test hipotez, a nie pomiar intencji. Nie mówi, że komisja zamierzała przeprowadzić gerrymandering, ani nie określa ilościowo, jak niesprawiedliwa jest mapa w kategoriach praktycznych. Mówi, że wzorzec granic jest statystycznie niespójny z neutralnym procesem losowania — taki sam wniosek, do jakiego doszedłby zrandomizowany audyt niezależnie od tego, kto narysował mapę i dlaczego. Rozkład odniesienia obejmuje 1 010 000 neutralnych map wygenerowanych przez algorytm ReCom, który nie egzekwuje wszystkich kryteriów ustawowych, pod którymi pracowała komisja (poziomy art. 15(2) i ograniczenia społeczności interesu) — co czyni go silną weryfikacją zewnętrzną, a nie dowodem, że żadna prawnie zgodna mapa Alberty nie mogłaby osiągnąć tej liczby mandatów.',
-			details_p3: 'Bateria testów strukturalnych — populacja, podziały, zakotwiczenie, zwartość, podpisy — została zarejestrowana ze znacznikami czasu przed kanoniczną rekalkulacją (<a href="https://osf.io/w2s8k" rel="noopener">rejestracja OSF w2s8k</a>). Kanały stronniczości partyjnej (wspólny Mahalanobis, SZAT, kombinacja Bonferroniego) są klasyfikowane jako „eksploracyjne" w rozumieniu §4.3.1 audytu: udokumentowane w repozytorium, ale nie pre-rejestrowane przed danymi.',
+			details_p2: 'Jest to częstotliwościowy test hipotez, a nie pomiar intencji. Nie mówi, że komisja zamierzała przeprowadzić gerrymandering, ani nie określa ilościowo, jak niesprawiedliwa jest mapa w kategoriach praktycznych. Mówi, że wzorzec granic jest statystycznie niespójny z neutralnym rozkładem odniesienia losowania ReCom — silna weryfikacja zewnętrzna, ale nie doskonała (nie egzekwuje każdego ustawowego kryterium, pod którym pracowała komisja, np. poziomów art. 15(2) i ograniczeń społeczności interesu).',
+			details_p3: 'Bateria testów strukturalnych (populacja, podziały, zakotwiczenie, zwartość, sygnatury) została zarejestrowana ze znacznikami czasu przed kanoniczną rekalkulacją. Kanały stronniczości partyjnej (wspólny Mahalanobis, SZAT, kombinacja Fishera/Bonferroniego) są oznaczone jako „eksploracyjne" w rozumieniu własnego §4.3.1 audytu: udokumentowane w repozytorium, ale nie pre-rejestrowane przed danymi. Audyt zgłasza każdy kanał osobno i łączy je pod odporną na zależności granicą, zamiast przedstawiać je jako w pełni niezależne testy potwierdzające.',
 			szat_label: 'TEST ALOKACJI STREFY WAHAŃ (SZAT)',
-			super_lead: 'To wyjaśnia, dlaczego propozycja mniejszościowa plasuje się w reżimie, w którym supermajority UCP staje się statystycznie osiągalne na geografii Alberty z 2023 roku — ale zerowy zbiór nie egzekwuje wszystkich kryteriów ustawowych, pod którymi pracowała komisja, co czyni go silną weryfikacją zewnętrzną, a nie dowodem, że żadna prawnie zgodna mapa Alberty nie mogłaby osiągnąć tej liczby mandatów.',
+			szat_body: 'SZAT został zaprojektowany jako drugi kanał analityczny: zamiast pytać „czy ta mapa jest ogólnie ekstremalna?”, pyta „czy konkretne wybory linii są partyjnie neutralne?”. Działa, izolując tylko te Obszary Głosowania, w których mapa mniejszości różni się od mapy większości — sporne ponowne wytyczenia — i testując, czy te konkretne wybory, wzięte razem, przesuwają efektywność głosów w kierunku jednej partii. Ponieważ porównuje tylko punkty odejścia, automatycznie kontroluje wszystko, co obie mapy mają wspólnego: tę samą geografię, cele populacyjne i zasady ustawowe. W standardowym teście permutacyjnym SZAT zwrócił p=0,0024; w ramach zerowej permutacji blokowej, która koryguje autokorelację przestrzenną między sąsiednimi Obszarami Głosowania, zwrócił p≈0,19 — nieistotne. SZAT jest zachowany jako kontekst eksploracyjny, ale nie przetrwał jako kanał potwierdzający. Główny wynik opiera się na samej symulacji. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Szczegóły techniczne →</a>',
+			two_q: '<strong>Wynik SZAT.</strong> Symulacja 1 010 000 map pyta: <em>czy ta mapa jest ekstremalna w porównaniu z neutralnymi mapami narysowanymi na tej samej geografii Alberty?</em> Drugi test — <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Test Alokacji Strefy Wahań</a> — zadał inne pytanie: <em>czy konkretne linie na mapie są partyjnie neutralne?</em> Działa, patrząc tylko na Obszary Głosowania, w których mniejszość rysowała inaczej niż większość, i pytając, czy te konkretne wybory, wzięte razem, przesunęły efektywność głosów w kierunku jednej partii. W standardowej permutacji zwrócił p=0,0024. W ramach zerowej permutacji blokowej — która koryguje autokorelację przestrzenną między sąsiednimi Obszarami Głosowania — zwrócił p≈0,19. Wynik permutacji blokowej nie osiąga istotności. Audyt zgłasza zatem wynik samej symulacji jako główny: odporna na zależności górna granica <strong>1 na 350 000</strong> (p&nbsp;≤&nbsp;2,8×10<sup>−6</sup>), a nie kombinacja Fishera dwóch niezależnych kanałów.',
+			super_lead: 'W 89-mandatowej legislaturze większość dwóch trzecich wymaga dokładnie 60 mandatów. Wartość seats@50/50 propozycji mniejszościowej wynosząca 51,7% (p99,99 wobec zespołu 1 010 000 planów) plasuje się w reżimie, w którym supermajority UCP staje się statystycznie osiągalne na geografii Alberty z 2023 roku — ale zerowy zbiór nie egzekwuje wszystkich kryteriów ustawowych, pod którymi pracowała komisja, więc jest to silna weryfikacja zewnętrzna, a nie dowód, że żadna prawnie zgodna mapa Alberty nie mogłaby osiągnąć tej liczby mandatów. Dowody z toru strukturalnego w Ustaleniach 1, 2 i 4 (które w ogóle nie zależą od tego zbioru zerowego) niosą większość ciężaru; pozycja w ogonie seats@50/50 stanowi wspierający kontekst.',
 			super_label: 'DLACZEGO SUPERMAJORITY MA ZNACZENIE',
 			super_body: 'W kanadyjskim westminsterskim systemie parlamentarnym zwykła większość (45 mandatów) wystarcza do uchwalania rutynowych ustaw i budżetów. Większość dwóch trzecich (60 mandatów) robi więcej. Pozwala partii rządzącej zastosować „zamknięcie" w celu zakończenia debaty, przepisać zasady proceduralne bez zgody opozycji oraz kontrolować skład każdej komisji legislacyjnej. Izoluje także rząd od wewnętrznego sprzeciwu: nawet jeśli pół tuzina backbencherów przejdzie na drugą stronę, rząd nadal utrzymuje funkcjonującą większość. Zwykła większość pozwala prowadzić samochód; supermajority 60 mandatów pozwala przepisać przepisy ruchu drogowego.',
-			super_close: 'Strategicznie rozcieńczając miejskich wyborców w otaczających okręgach wiejsko-skrajnych (wzorzec „hybrydyzacji miejskiej" zidentyfikowany w Torze 2), propozycja mniejszościowa konstruuje dokładną strukturalną zaporę ogniową potrzebną do zabezpieczenia tych 60 mandatów. Ustalenie strukturalne Toru 2 i ustalenie statystyczne Toru 1 zbiegają się na tej samej propozycji, w tym samym kierunku i w tych samych społecznościach.',
+			super_close: 'Wzorzec hybrydyzacji miejskiej zidentyfikowany w Torze 2 — miejscy wyborcy rozprowadzeni do otaczających okręgów wiejsko-skrajnych — jest strukturalnym mechanizmem zgodnym z wynikiem 60 mandatów. Ustalenie strukturalne Toru 2 i ustalenie statystyczne Toru 1 zbiegają się na tej samej propozycji, w tym samym kierunku i w tych samych społecznościach.',
 			sub4_h: 'Potwierdzenie z testu procedury ukierunkowanej',
 			sub4_p: 'Aby upewnić się, że nie jest to dziwactwo znanej preferencji zwartości neutralnej symulacji, audyt przeprowadził ukierunkowaną procedurę wspinaczki górskiej (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon et al. 2022 — cytowani i opisani w raporcie technicznym</a>) w obu kierunkach: maksymalizując mandaty UCP i maksymalizując mandaty NDP. Ta sama liczba kroków (40 000) w każdym kierunku, te same ograniczenia ustawowe, ta sama geometria prowincjonalna.',
 			t4_col_a: 'Procedura',
@@ -375,11 +440,11 @@ export default {
 			sub4_close: 'Wartość 51,7% mapy mniejszościowej siedzi bliżej ukierunkowanego pułapu UCP (52,9%) niż neutralnej mediany (44,8%). Wartość 46,1% mapy większościowej siedzi przy neutralnej medianie. Zarówno mapa uchwalona w 2019 roku, jak i większościowa z 2026 roku spadają komfortowo w to, co procedura neutralna rutynowo produkuje — różne udziały głosów, ta sama strefa nieuderzających wyników. Większościowa kontynuuje praktykę Alberty z 2019 roku na osi sprawiedliwości partyjnej w taki sam sposób, jak kontynuuje praktykę z 2019 roku na zakotwiczeniu miejskim (80,0% w porównaniu z 75,2% z 2019 roku). Dwie mapy narysowane pod tymi samymi zasadami Alberty, przez tych samych pięciu komisarzy, w tym samym pomieszczeniu: jedna ląduje tam, gdzie procedury neutralne rutynowo produkują, druga ląduje tam, gdzie trzeba specjalnie celować, by wylądować.',
 			sub4_quote: '<em>Taki</em> jest kształt ustalenia, i jest to także ujęcie, które sąd faktycznie by zastosował.',
 			sub5_h: 'Wykluczenie alternatywnych wyjaśnień',
-			sub5_p: 'W obliczu statystycznego odstępstwa tej skali rygorystyczny audyt musi wykluczyć niewinne wyjaśnienia, zanim przypisze te wzorce celowemu projektowi. Dane strukturalne (Tor 2) systematycznie demontują standardowe alternatywne obrony:',
+			sub5_p: 'W obliczu statystycznego odstępstwa tej skali rygorystyczny audyt musi przetestować standardowe niewinne wyjaśnienia, zanim potraktuje wzorzec jako niewyjaśniony. Dane strukturalne (Tor 2) przeważają przeciwko każdemu ze standardowych alternatywnych wyjaśnień:',
 			defense1: '<strong>Obrona „naturalnej geografii politycznej":</strong> <em>(„Miejscy wyborcy są naturalnie upchnięci; mapa po prostu odzwierciedla geografię Alberty".)</em> 1 010 000 symulacji już uwzględnia naturalną geografię Alberty. Symulacja dowodzi: chociaż geografia daje UCP wyjściową przewagę efektywności, naturalnie ma sufit około 83. do 90. percentyla. Mapa mniejszościowa siedzi na 99,99. percentylu — ekstremalne odstępstwo <em>nawet w porównaniu z naturalnie skośną linią bazową Alberty</em>.',
 			defense2: '<strong>Obrona „społeczności interesu":</strong> <em>(„Dziwne kształty zostały narysowane, aby utrzymać konkretne społeczności razem".)</em> Jeśli próbujesz utrzymać społeczności razem, podążasz za granicami miejskimi. Mapa większościowa podążała za istniejącymi limitami miast w 80% przypadków. Mapa mniejszościowa podążała za nimi w 72% — obie w kanadyjskiej normie 70–85%. Tym, co mapa mniejszościowa robi, jest aktywne dzielenie zjednoczonego miasta Airdrie na cztery oddzielne części oraz umieszczenie trzech jej decyzji granicznych dokładnie w strefach miejsko-skrajnych, które przewodniczący komisji zaznaczył jako geometrycznie anomalne — wybory niewyjaśnialne logiką społeczności interesu.',
 			defense3: '<strong>Obrona „równości populacji":</strong> <em>(„Musieli rysować dziwne granice, aby upewnić się, że każdy okręg ma dokładnie tę samą populację".)</em> Mapa mniejszościowa jest faktycznie znacznie <em>gorsza</em> w równości populacji. Jej Średnie Bezwzględne Odchylenie Populacji (MAD) wyniosło 4 707 — 48% szersze niż 3 180 mapy większościowej — umieszczając ją na 99. percentylu kanonicznego zespołu (tylko 1 na 100 neutralnych map produkuje gorszy rozkład). Poświęciła równość populacji, aby osiągnąć swój kształt.',
-			defense4: '<strong>Obrona „niekompetencji lub pecha":</strong> <em>(„Po prostu narysowali niedbałą mapę i mieli pecha z liczbami".)</em> Trafienie w dokładnie 60 mandatów dla supermajorities, jednocześnie dzieląc Airdrie na cztery części i umieszczając trzy granice w dokładnie tych strefach, które przewodniczący samej komisji zaznaczył jako anomalne, wymaga chirurgicznej precyzji. Odporna na zależności wspólna górna granica prawdopodobieństwa przypadkowego narysowania mapy tak ekstremalnej na obu kanałach analitycznych w ramach neutralnego rozkładu odniesienia ReCom wynosi około <strong>1 na 350 000</strong> (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Nie można potknąć się do 99,99. percentyla.',
+			defense4: '<strong>Obrona „niekompetencji lub pecha":</strong> <em>(„Po prostu narysowali niedbałą mapę i mieli pecha z liczbami".)</em> Trafienie w konfigurację supermajorities 60 mandatów, jednocześnie dzieląc Airdrie na cztery części i umieszczając trzy granice w dokładnie tych strefach, które przewodniczący samej komisji zaznaczył jako anomalne, wymaga precyzji. Odporna na zależności wspólna górna granica prawdopodobieństwa przypadkowego narysowania mapy tak ekstremalnej na obu kanałach analitycznych w ramach neutralnego rozkładu odniesienia ReCom wynosi około <strong>1 na 350 000</strong> (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Ta granica jest nadal ekstremalna — daleko poza konwencjonalną istotnością — ale jest zgłaszana jako granica, a nie jako precyzyjne pojedyncze prawdopodobieństwo.',
 			sub5_close: 'Dane pokazują, że propozycja mniejszościowa pogorszyła zarówno parytet populacji, jak i spójność społeczności w stosunku do tego, co tych samych pięciu komisarzy wyprodukowało jednocześnie pod identycznymi zasadami ustawowymi. Audyt nie określa, co zamierzali komisarze mniejszościowi — geometria granic nie może ujawnić intencji — ale strukturalne odejście zarówno od neutralnego zespołu, jak i od wyjścia propozycji większościowej, pozostaje niezależnie od intencji.',
 			sub6_h: 'Uwaga o walidacji krzyżowej R',
 			sub6_p1: 'Wcześniejsza wersja tego audytu (używająca przybliżonych, a nie oficjalnych plików shapefile) walidowała krzyżowo zespół Python ReCom z próbnikiem Sekwencyjnego Monte Carlo pakietu R <code>redist</code>. Sprawdzenie krzyżowe dało niestabilne wyniki: w trzech uruchomieniach z tym samym nominalnym ziarnem ułamek planów osiągających starą wartość mniejszościową (48,3% na przybliżonej geometrii) wynosił 5,6%, potem 28%, potem 58% — niepowodzenie zbieżności próbnika, a nie odkrycie. Pełny opis znajduje się pod adresem <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.',
@@ -402,6 +467,7 @@ export default {
 			t5_r2_b: '<strong>przekracza 4 z 5 progów strukturalnych</strong> szerokim marginesem (zakotwiczenie neutralne — obie mapy w kanadyjskiej normie)',
 			t5_r2_c: 'pozycja w ogonie na trzech z czterech miar sprawiedliwości partyjnej — <code>seats@50/50</code> 51,7% (p99,99, około 66 z 1 010 000 to osiąga); luka efektywności +4,0% (p94,4, blisko ale poniżej progu); odporna na zależności wspólna granica p&nbsp;≤&nbsp;2,80×10<sup>−6</sup> (≈ 1 na 350 000)',
 			details2_summary: 'Dlaczego Tor 2 niesie sprawę — szczegóły techniczne',
+			details2_p: 'Audyt pre-rejestrował pięć testów nieregularności strukturalnej 24 kwietnia 2026 roku, zanim skompilowano ostateczne wyniki symulacji. Zakotwiczenie jest neutralne dla obu map; na pozostałych czterech testach mniejszość przekracza każdy, a większość nie przekracza żadnego. Te pomiary są geometryczne — nie zależą od żadnego próbnika statystycznego ani od żadnej atrybucji głosów. <strong>To jest centralne ustalenie.</strong> Tor 1 (liczby sprawiedliwości partyjnej) potwierdza Tor 2 na kanonicznych oficjalnych plikach shapefile: mniejszość siedzi w ogonie zespołu 1 010 000 planów na trzech z czterech pre-rejestrowanych miar, z luką efektywności na p94,4 (<em>blisko, ale poniżej</em> pre-rejestrowanego progu 95. percentyla), pod odporną na zależności wspólną górną granicą p&nbsp;≤&nbsp;2,8×10<sup>−6</sup> (≈ 1 na 350 000; zastępuje wcześniejszą liczbę z kombinacji Fishera, która przeszacowała łączną istotność, traktując dwa kanały z nakładającymi się danymi jako niezależne). Pytanie, czy niezwykła geometria Toru 2 jest konkretnym <em>mechanizmem</em> stojącym za liczbami Toru 1, zostało przetestowane, a odpowiedź brzmi: nie — zobacz <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. Test Alokacji Strefy Wahań został przeprowadzony na spornych wyborach granicznych; w standardowej permutacji zwrócił p=0,0024, ale w permutacji blokowej (korygującej autokorelację przestrzenną między sąsiednimi Obszarami Głosowania) zwrócił p≈0,19 — nieistotne. SZAT jest zachowany tylko jako kontekst eksploracyjny. Osobno przetestowano kwestię mechanizmu: czy same kształty granic — korytarz lasso, rozszerzenie parku — są bezpośrednią przyczyną przesunięcia mandatów; nie są. Efekt mandatowy pochodzi z tego, jak przerysowane przypisania Obszarów Głosowania przesuwają efektywność głosów między okręgami, a nie z samych kształtów. Oba tory oznaczają mapę mniejszościową; docierają do niej za pomocą niezależnych instrumentów. Tor 2 niesie sprawę. Tor 1 potwierdza, nie niosąc.',
 		},
 		impact: {
 			heading: '5: Wpływ na reprezentację',
@@ -717,6 +783,7 @@ export default {
 			help_title: 'Jak używać mapy',
 			pin_aria: 'Przypnij mapę',
 			pin_title: 'Przypnij mapę — zapobiega automatycznemu przesuwaniu po kliknięciu okręgu',
+			search_aria: 'Znajdź okręg wyborczy',
 			search_placeholder: 'Znajdź okręg…',
 			zoom_aria: 'Powiększenie mapy',
 			clear_aria: 'Wyczyść wybór okręgu',
@@ -786,6 +853,126 @@ export default {
 			code_label: 'Kod:',
 			translation_label: 'Tłumaczenia:',
 			translation_credit: 'Anthropic Fable 5 (AI) — oczekuje na recenzję rodzimego użytkownika języka'
+		}
+	},
+	// deck.gl Map Explorer (DeckExplorer.svelte + deckExplorer/pois.ts). This is a
+	// separate component from the framework-free engine under body.map / body.share.
+	explorer: {
+		controls: {
+			// Desktop control panel header
+			panel_title: 'Sterowanie mapą',
+			close_aria: 'Zamknij mapę',
+			// Map-version buttons
+			map_version_hdr: 'Wersja mapy',
+			map_version_hint: '· kliknij, aby przełączyć',
+			map_toggle_title: 'Włącz/wyłącz tę mapę',
+			map_minority: 'Mniejszość',
+			map_majority: 'Większość',
+			map_2019: '2019',
+			// Mobile segmented-button short labels
+			map_minority_short: 'Mn',
+			map_majority_short: 'Wk',
+			map_2019_short: '’19',
+			// Search
+			search_placeholder: 'Wyszukaj okręg…',
+			search_aria: 'Wyszukaj okręgi',
+			search_clear_aria: 'Wyczyść wyszukiwanie',
+			search_in: 'w {ed}',
+			// Zoom / resolution readout
+			zoom_aria: 'Powiększenie',
+			res_prefix: '1 piksel ≈',
+			// Overlays / layer toggles
+			overlays_hdr: 'Nakładki społeczności interesu',
+			layer_highways: 'Autostrady',
+			layer_water: 'Rzeki i jeziora',
+			layer_annotations: "Adnotacje EBC '26",
+			// Mobile icon-bar aria labels
+			mobile_map_version_aria: 'Wersja mapy',
+			mobile_search_aria: 'Wyszukaj okręgi',
+			mobile_layers_aria: 'Warstwy mapy',
+			mobile_info_aria: 'O liniach granicznych',
+			mobile_share_aria: 'Udostępnij ten widok',
+			mobile_close_aria: 'Zamknij mapę',
+			// Language switcher (integrated into the map control bar / panel)
+			lang_aria: 'Zmień język',
+			lang_hdr: 'Język',
+			// "Reading the lines" note (desktop + mobile info popover)
+			lines_note_title: 'Odczytywanie linii',
+			lines_note_lead: 'Każdy dziwny kształt lub linia podziału to',
+			lines_note_emphasis: 'celowy wybór komitetu',
+			lines_note_tail:
+				'— nie błąd danych. Linie podążają za krawędziami obszarów głosowania; tam, gdzie dwie mapy się zgadzają, leżą na tej samej linii, a tam, gdzie się rozdzielają, propozycje rzeczywiście się różnią.'
+		},
+		share: {
+			button: 'Udostępnij ten widok',
+			heading: 'Udostępnij ten widok',
+			copy: 'Kopiuj link',
+			copied: 'Skopiowano',
+			help: 'Ten link rejestruje twoją obecną mapę, nakładki i widok.',
+			open_heading: 'Otwórz udostępniony link',
+			open_placeholder: 'Wklej udostępniony link…',
+			open_btn: 'Otwórz',
+			err_empty: 'Wklej udostępniony link',
+			err_invalid: 'Nieprawidłowy udostępniony link'
+		},
+		tip: {
+			total_votes: 'głosów łącznie',
+			poll: 'Lokal #{id} · głosy osobiste',
+			ucp_pct: 'UCP {u}%',
+			ndp_pct: 'NDP {n}%',
+			unassigned: '(nieprzypisane)',
+			where_in: 'w {community}',
+			where_near: 'w pobliżu {community}',
+			note_sparse:
+				'Słabo zaludniony obszar — przy niewielu oddanych tu głosach kolor pozostaje bliski neutralnej linii bazowej mapy.',
+			note_no_votes:
+				'Nie odnotowano tu żadnych głosów, więc ten obszar pokazuje neutralny ton bazowy mapy.',
+			no_one_title: 'Nikt tu nie głosuje',
+			no_one_body:
+				'Żaden okręg wyborczy nie obejmuje tego miejsca — nikt nie jest odnotowany jako tu mieszkający lub głosujący, więc pozostaje w neutralnym tonie mapy.',
+			flag_link: 'Kliknij, aby powiększyć'
+		},
+		miller: {
+			title: 'Miller — przywrócony mandat wiejski',
+			body: 'Ten obszar znajduje się na mapie dzięki Sędziemu Dallasowi Millerowi, przewodniczącemu komisji. W aneksie do końcowego raportu napisał, że jeśli Legislatura nie zgodzi się na likwidację dwóch wiejskich okręgów, powinna zamiast tego dodać dwa mandaty — z 89 do 91 — i je przywrócić. Wskazał na to miejsce, w okolicach hrabstw Clearwater i zachodniego Mountain View na zachód od Red Deer, jako miejsce, w którym powinien znaleźć się jeden z tych wiejskich mandatów. Jest naszkicowany z linii hrabstw jako element zastępczy, a nie oficjalna granica, dopóki następna komisja nie przerysuje mapy.'
+		},
+		flags: {
+			'banff-town': {
+				title: 'Banff — miasto wykrojone z parku',
+				body: 'Banff leży wewnątrz federalnego parku narodowego, jako mała wyspa miejska. Mniejszość grupuje obszar miejski z Canmore — następnym miastem w dół doliny Bow — w „Canmore-Kananaskis”, a niezamieszkany park pozostawia jako okręg noszący nazwę Banff. Granica przylega do miasta, ponieważ jest to jedyne zaludnione miejsce na wiele kilometrów. Wygląda jak błąd, ale podąża za rzeczywistą geografią.'
+			},
+			'banff-park': {
+				title: 'Na północ od Banff — „Rocky Mountain House–Banff Park”',
+				body: '„Rocky Mountain House–Banff Park” to jeden z proponowanych przez mniejszość okręgów, składający się w dużej mierze z niezamieszkanego parku narodowego; miasto Banff leży w sąsiednim okręgu na południu. Mniejszość zastosowała do tego okręgu postanowienie o mniejszej populacji z Electoral Boundaries Commission Act — wybór, którym przewodniczący komisji zajął się w końcowym raporcie.'
+			},
+			'airdrie-split': {
+				title: 'Airdrie — podzielone na cztery',
+				body: 'Wzrost Airdrie i jego dojazdy do Calgary (około 76% wyjeżdżających) mogły zakotwiczyć pojedynczy nowy mandat w okolicy Airdrie — taki, jaki wspierają dane. Mniejszość zamiast tego dzieli miasto na cztery okręgi; matematyka populacji tego nie wymaga i żadne zgłoszenie tego nie proponowało. W teście sygnatury rozdrabniania audytu ten czterostronny podział spełnia każde kryterium — mieszkańcy Airdrie kończą jako mniejszość we wszystkich czterech okręgach, bez mandatu kontrolowanego przez miasto — podczas gdy dwustronny podział większości nie wykazuje żadnego. To jest podział społeczności, niewidoczny dla testów sprawiedliwości partyjnej; audyt mierzy efekt strukturalny, a nie intencję. (Akademicki §5.3.2.)'
+			},
+			'nolan-hill-cochrane': {
+				title: 'Calgary-Nolan Hill–Cochrane',
+				body: 'Dojazdy Cochrane do Calgary mogły uzasadnić sparowanie go z miastem — ale dane o dojazdach do pracy z 2021 roku rozprowadzają ten przepływ na całe miasto (około jedna trzecia pracowników; połowa pracuje w samym Cochrane) i nie wskazują na Nolan Hill. Wąski korytarz mniejszości do okręgu Nolan Hill — kształt, który przewodniczący nazwał lassem — sięga dalej niż dane, i żadne zgłoszenie tego nie proponowało. Audyt odczytuje to jako bliskie rozdrabnianiu: rozcieńcza głos Cochrane, ale Cochrane (około 34 000) jest zbyt małe na własny mandat, więc zatrzymuje się przed formalną sygnaturą rozdrabniania. (Akademicki §5.3.2.)'
+			},
+			'olds-airdrie-reach': {
+				title: 'Olds–Three Hills–Didsbury — zasięg do Airdrie',
+				body: 'Wiejski okręg utrzymujący razem miasta przy autostradzie 2 — Olds, Didsbury, Three Hills — jest dobrze wspierany; mieszkańcy okolic Beiseker pisali na jego korzyść. Mógł pozostać w obrębie tych społeczności. Wersja mniejszości zamiast tego sięga na południe do północnej krawędzi Airdrie, rozszerzenie, którego matematyka populacji nie wymaga. Ten zasięg jest częścią tego, jak działa czterostronny podział Airdrie — każdy kawałek Airdrie wchłonięty do większego wiejskiego mandatu — co audyt odczytuje jako część wzorca rozdrabniania. (Akademicki §5.3.2.)'
+			},
+			chestermere: {
+				title: 'Chestermere — podzielone między dwa okręgi',
+				body: 'Intensywne dojazdy Chestermere do Calgary (86% wyjeżdżających) mogły wspierać utrzymanie go w całości i blisko miasta — czego chcieli również mieszkańcy sprzeciwiający się fuzji z Calgary. Mniejszość zamiast tego odcina południowy kawałek do konkretnego okręgu Calgary, z którym nie dzieli żadnych szkół ani transportu, a ten kawałek nie zdaje testu populacji. Audyt odczytuje przeniknięcie do okręgu Calgary jako bliskie rozdrabnianiu — podział społeczności interesu, który rozcieńcza głos Chestermere, nie osiągając formalnej sygnatury rozdrabniania. (Akademicki §5.3.2, §5.8.4.)'
+			},
+			'red-deer': {
+				title: 'Red Deer — okręgi hybrydowe',
+				body: 'Regionalne więzi Red Deer z Blackfalds, Sylvan Lake, Lacombe i Innisfail mogły zgrupować te miasta razem — radny miejski i mieszkańcy proponowali podobne hybrydy. Wersja mniejszości zamiast tego włącza części samego miasta do okręgów kierowanych przez miasta, rozcieńczając głos miejskiego Red Deer; jej uzasadnienie „wspólnych szkół” również się nie utrzymuje (różne okręgi szkolne). Włączanie miasta do okręgów kierowanych przez miasta to wzorzec, który audyt nazywa hybrydyzacją — zgodny z rozdrabnianiem, osiągający efekt partyjny wewnątrz okręgów hybrydowych, a nie między nimi. (Akademicki §5.3.5.)'
+			},
+			'st-albert': {
+				title: 'St. Albert — konkurencyjne konfiguracje',
+				body: 'Wersja St. Albert na każdej z map mogłaby opierać się na rozsądnej podstawie. Audyt po prostu nie znalazł żadnego zgłoszenia popierającego konkretną alternatywę mniejszości — a ponieważ obywatele rzadko nazywają dokładne granice komisji, traktuje dowody tutaj jako wątłe, niewyraźnie za ani przeciw.'
+			},
+			'calgary-zone-a-packing': {
+				title: 'Calgary północ i wschód — sygnatura upychania',
+				body: 'Przewodniczący komisji nie zaznaczył tego — robi to własna matematyka audytu. W całej północy i wschodzie Calgary (audytowa „Strefa A”, na północ i wschód od rzeki Bow) okręgi mapy mniejszościowej są o około 11,5% większe niż średnia prowincjonalna, wobec 2,8% na mapie większościowej. Upychanie oznacza koncentrowanie wyborców jednej strony w mniejszej liczbie większych okręgów, tak aby każda z ich kart ważyła nieco mniej; Strefa A jest konkurencyjna dla NDP, a 13 z jej 17 okręgów zostało wygranych przez NDP w 2023 roku. Audyt mierzy efekt strukturalny, a nie intencję. (Akademicki §5.3.1.)'
+			}
 		}
 	}
 } as const;

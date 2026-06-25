@@ -3,6 +3,40 @@ export default {
 	selector: {
 		label: 'Dooro luuqadda'
 	},
+	verdict: {
+		headline: 'Alberta waxay dib u sawiraysaa khariidaddeeda doorashada.',
+		p_what: 'Mar mar gobolku wuxuu dib u sawiraa riding-yadiisa — aagagga maxalliga ah ee mid kastaa doorto hal MLA. Halka khadadku ku dhacaan ayaa go\'aamiya cidda aad la codeyso, iyo cidda kaaga matala golaha sharci dejinta.',
+		p_split: 'Markan, guddida dib-u-sawirka samaynaysay way kala qaybsantay. Waxay soo saartay laba khariidadood oo iska tartamaya — hubintaniyuna labadaba way tijaabinaysaa.',
+		p_question: 'Labada khariidadood waxaynu u tijaabinnay hal su\'aal: mid kasta ma loo qaabeeyey si xisbi loo doorbido — xitaa haddii aanay qofna ula jeedin inuu sidaas sameeyo?',
+		p_answer: 'Labada midkood waa. Kan kale wuxuu u eg yahay mid caadi ah.',
+		p_howfar: 'Kombuyuutar ayaa si bakhtiyaanasiib ah u sawiray 1.01 milyan oo nooc sharci ah oo khariidadda ah. Labada khariidadood ee dhabta ah midkood wuu ka sii jihaysan yahay dhammaan ku dhowaad 1 oo 350,000 kasta, jihada UCP loo doorbidayo. Kan kale wuxuu ku jiraa kala-duwanaanta caadiga ah.',
+		aside_pre: 'Waxaad odhan kartaa khariidad sidaas u eg ',
+		aside_post: '. Ereygaasi macno sharci ma laha Kanada, sidaa darteed uma isticmaalno sidii gunaanad. Waxaynu ku tusaynaa waxa khariidaddu sameyso; adiga ayaa xukma. Lakabyada qoto dheer — waxa sharcigu dhab ahaan rabo, iyo si sax ah sida aan tijaabada u sameynay — eeg ',
+		box_heading: 'Waxa aan dhihi karno iyo waxa aan dhihi karin',
+		box_can_1: 'Khariidadda laga yar yahay waxay ka baxsan tahay waxa 1.01 milyan oo khariidadood oo dhexdhexaad ah soo saaraan, jihada UCP loo doorbidayo.',
+		box_can_2: 'Afarta cabbir ee caddaaladda xisbiyeed oo dhammu waxay tilmaamayaan isla jihada.',
+		box_cant_1: 'In la-taliye kasta tan ula jeeday — hubintu waxay akhrida natiijooyinka, ma aha niyada.',
+		box_cant_2: 'In khariidaddu "tahay" qaybsi siyaasadeed — taasi maaha qayb uu sharciga Kanada aqoonsado.',
+		box_cant_3: 'Sida maxkamadi u xukumi laheyd, ama waxa guddidu dooran doonto.',
+		law_link: 'Sharci',
+		methods_link: 'Hababka'
+	},
+	why_redrawn: {
+		heading: 'Sababta tani u dhacdo — iyo sababta ay kuu taabato',
+		p1: 'Alberta waxa loo qaybiyey 87 riding. Mid kastaa wuxuu doortaa hal MLA oo aada golaha sharci dejinta. Riding-kaagu wuxuu go\'aamiyaa cidda qofkaasi yahay, xaafadaha lagugu daro, iyo cidda welwelkooda MLA-gaagu marka hore maqlo.',
+		p2: 'Khadadku ma joogto. Markii ay dadku guuraan oo magaalooyinku koraan, riding-yada qaarkood waxay ku dhammaadaan codbixiyayaal aad uga badan kuwa kale, sidaa darteed gobolku wuxuu khariidadda dib u sawiraa dhowr sano kasta si uu u sii haysto inay si dhow u sinnaadaan. Guddi la-taliyeyaal ah ayaa sawira, oo ka shaqeeya shuruuc sharci lagu dejiyay: degmooyinku waa inay dadnimo u dhow yihiin, mid noqdaan, oo bulshooyinka dhabta ah si wadajir ah u hayaan markii ay awoodi karaan.',
+		p3: 'Kaasi waa habraaca caadiga ah. Markan wuu jabay. La-taliyayaashu ma heshiin karin, waxayna u kala qaybsameen laba kooxood, mid kastaa wuxuu lahaa khariidaddiisa. Markaas guddi MLA-yo ah ayaa labadaba khariidadood dib u dhigay oo bilaabay inay sawiraan mid u gaar ah, oo ka sii weyn. In guddi sharci dejineed uu sidaas guddida uga gudbo waa wax naadir ah.',
+		p4: 'Khad ku yaal khariidad wuxuu go\'aamiyaa cidda codkeedu wax u taro. Wuxuu codbixiyayaasha bulsho wadajir u hayn karaa, ama ku kala firdhin karaa dhowr degmo halka tiradoodu aanay wax badan ku darin. Wuxuu tartan qaar dhow ka dhigi karaa qaar kalena ka fogeyn karaa gacanta. Midna kuma muuqato dusha sare; waxa go\'aamiya halka xudduuduhu ku dhacaan.'
+	},
+	two_maps: {
+		heading: 'Laba khariidadood — iyo cidda sawiratay',
+		p1: 'Markii guddidu kala qaybsantay, ma aysan soo saarin hal khariidad oo lagu lifaaqay diidmo. Waxay soo saartay laba khariidadood oo dhammaystiran oo iska tartamaya. Labaduba waa sharci. Kaliya waxay khadadka si kala duwan u sawiraan.',
+		p2: 'Guddida xudduuduhu wuxuu leeyahay shan xubnood. Garsoore Madaxa ah ee Alberta wuxuu magacaabaa guddoomiyaha — kursiga dhexdhexaadka ah, oo halkan uu hayo Dallas K. Miller, garsoore hore oo Court of King\'s Bench. Xisbiga xukunka hayaa wuxuu magacaabaa laba xubnood; mucaaridkuna wuxuu magacaabaa laba.',
+		p3: 'Guddidan waxay u kala qaybsantay saddex iyo laba. Guddoomiyaha iyo labada xubnood ee mucaaridku magacaabay ayaa taageeray hal khariidad — warbixinta inta badan, maxaa yeelay inta badan guddidu way saxiixday. Labada xubnood ee dawladdu magacaabay ayaa taageeray kan kale — warbixinta laga yar yahay.',
+		p4: 'Khariidadda hubintu calaamadeyso inay tahay tan ugu sii jihaysan waa warbixinta laga yar yahay — tan ay sawireen labada xubnood ee dawladdu magacaabay. Hubintu ma muujin karto inay sidaas ula jeedeen, mana isku daydo. Waxay muujisaa waxa khariidaddu sameyso.',
+		p5: 'Khariidadda jaldiga ee bogga sare waxay kuu oggolaanaysaa inaad adiga is barbar dhigto. Iska beddel labada soo jeedin iyo khariidadda maanta, hel riding-kaaga, oo daawo xaafadaha la isugu daro ama la kala qaybiyo.',
+		p6: 'Guddi MLA-yo ah ayaa tan iyo markaas labada khariidadood dib u dhigay si ay u sawiraan mid u gaar ah, oo la filayo dabayaaqada 2026 — dhaqdhaqaaq uu bogganu ka eego bogga Sharciga. Labadan waxay sii ahaanayaan kiiska tijaabada ee ugu cad ee hubinta, isla tijaabooyinkana waxay ku dabaqi doonaan wax kasta oo guddidu soo saarto.'
+	},
 	disclaimer: {
 		text:
 			'Bogga waxa turjumay AI. Qaar ka mid ah waxa ku jira ayaa weli ku soo bixi kara Ingiriisi inta turjumaadda lagu jiro. Haddii aad aragto khaladaad ama aad rabto inaad ka caawiso turjumaadda mashruucan, fadlan %s.',
@@ -30,7 +64,7 @@ export default {
 		q3: {
 			heading: 'Maxaa khatar ah ee ku saabsan dadka Alberta?',
 			body:
-				'Marka codka gobolka uu yahay 50/50, cabbirrada hubinta waxay <em>soo jeedinta laga yar yahay</em> meeleeyaan meel ka baxsan caadiga qaab-dhismeedka: in ka yar 100 khariidad oo ka mid ah 1.01 milyan khariidad oo dhexdhexaad ah oo isbarbardhig loo isticmaalo ayaa keena nooca isle\'egta kursiyada. Isle\'egtaasi waxay muhiim u tahay maxaa yeelay 58 kursi 87ka (saddex meelood laba oo aqlabiyad weyn ah) xisbiga xukunka qabsaday wuxuu furaa awood habraac oo aan caadi ahayn. Wuxuu joojin karaa muddooyinka ogeysiiska caadiga ah oo uu sharciyo dadweyne ku riixaa marxalado kala duwan oo sharci dejineed hal maalin gudaheed, isaga oo iska dhaafaya hubinta tixgalinta oo golahu sida caadiga ah ku tiirsado. In jiidashada soo jeedinta laga yar yahay ay weyn tahay si ay xisbi gaadhsiiso heerka 58 kursi oo qaybinta codka aan ahayn 50/50 waa su\'aal aanay hubintani imtixaamin weli. In isle\'egtaasi macquul tahay waa su\'aalo loogu talagalay dadka Alberta, ma aha hubintan.'
+				'Marka codka gobolka uu yahay 50/50, cabbirrada hubinta waxay soo jeedinta laga yar yahay meeleeyaan meel ka baxsan caadiga qaab-dhismeedka: in ka yar 100 khariidad oo ka mid ah 1.01 milyan khariidad oo dhexdhexaad ah oo isbarbardhig loo isticmaalo ayaa keena nooca isle\'egta kursiyada. Isle\'egtaasi waxay muhiim u tahay maxaa yeelay marka la gaadho 60 kursi oo 89ka ah (saddex meelood laba oo aqlabiyad weyn ah) xisbiga xukunka qabsaday wuxuu furaa awood habraac oo aan caadi ahayn. Wuxuu joojin karaa muddooyinka ogeysiiska caadiga ah oo uu sharciyo dadweyne ku riixaa marxalado kala duwan oo sharci dejineed hal maalin gudaheed, isaga oo iska dhaafaya hubinta tixgalinta oo golahu sida caadiga ah ku tiirsado. In jiidashada soo jeedinta laga yar yahay ay weyn tahay si ay xisbi gaadhsiiso heerka 60 kursi oo qaybinta codka <em>aan ahayn</em> 50/50 waa su\'aal aanay hubintani imtixaamin weli. In isle\'egtaasi macquul tahay waa su\'aalo loogu talagalay dadka Alberta, ma aha hubintan.'
 		},
 		cta_law: 'Akhri macnaha sharciga →',
 		cta_methods: 'Eeg sida aan u tijaabinnay →',
@@ -46,8 +80,10 @@ export default {
 	},
 	top_callouts: {
 		gerrymander_lead: 'Khariidadda laga yar yahay ma waa qaybsi siyaasadeed?',
+		gerrymander_body: 'Buundada wadareed ee eexda xisbiyeed ee hubinta, khariidadda laga yar yahay ee guddidu waxay ku jirtaa dabada xad-dhaafka ah ee 1,010,000 khariidadood oo dhexdhexaad ah oo algorithm ku sawiray — qiyaastii 66 ka mid ah ayaa gaadha qiimaha seats@50/50 ee heerka rogaalka, oo leh xad sare wadareed oo isku-xidhnaanta-xasil oo qiyaastii ah 1 ka&nbsp;mid&nbsp;ah 350,000 hoosta qaybinta tixraacaas. Khariidadda inta badan waxay si fiican ugu jirtaa kala-duwanaanta caadiga ah.',
 		tldr_label: 'Soo koobid',
-		tldr_p1: 'Guddida dib-u-qaybinta ee Alberta waxay u kala qaybsantay 3–2 sannadkii 2026 oo waxay soo saartay laba khariidadood oo kala duwan. Dawladda ayaa labadaba dib u dhigtay oo dib-u-qaybintii u gudbisay guddi shan xubnood oo MLA ah (guddiga Lunty), oo la filayo inay warbixintooda soo saaraan Noofembar 2026. Midkoodna khariidadaha guddida ma aha sharci.',
+		tldr_p1: 'Guddida dib-u-qaybinta ee Alberta waxay u kala qaybsantay 3&ndash;2 sannadkii 2026 oo waxay soo saartay laba khariidadood oo kala duwan. Dawladda ayaa labadaba dib u dhigtay oo dib-u-qaybintii u gudbisay guddi shan xubnood oo MLA ah (guddiga Lunty), oo la filayo inay warbixintooda soo saaraan Noofembar 2026. Midkoodna khariidadaha guddida ma aha sharci.',
+		tldr_p2: 'Hubintani waxay labada khariidadood ee guddida si isku mid ah u tijaabisay, iyada oo isticmaalaysa 1,010,000 khariidadood oo dhexdhexaad ah oo kombuyuutar sawiray oo laga dhisay shaybaadhka rasmiga ah ee Elections Alberta sida tixraac. Soo jeedinta inta badan waxay ku jirtaa kala-duwanaanta dhexdhexaadka ah imtixaan kasta oo horay loo diiwaan-geliyay. Soo jeedinta laga yar yahay waxay ka gudubtaa afar ka mid ah shanta imtixaan ee qaab-dhismeed, kala-qaybinta kursi ee caddaaladda xisbiyeed ee cod 50/50-na waxaa gaadha qiyaastii 66 ka mid ah 1,010,000 khariidadood oo dhexdhexaad ah — xad sare wadareed oo isku-xidhnaanta-xasil oo qiyaastii ah 1 ka mid ah 350,000 hoosta qaybinta tixraacaas. Cabbirka farqiga-waxtarka ee hubinta ee inta yar wuxuu ku yaal 94-aad centile — <em>u dhow, laakiin ka hooseeya</em>, xadka 95-aad centile ee hubinta lafteeda.',
 		tldr_p3: 'Hubinta waxay cabbirtaa natiijooyinka, ma aha niyadda. Marka guddiga Lunty uu sii daayo khariidadiisa, hubintani waxay ku dabaqi doontaa isla imtixaanada.',
 		tldr_footer: 'Shuruudaha been-abuurka ee horay loo diiwaan-geliyay iyo ballamaha laga noqonayo waxay ku jiraan %s.',
 		tldr_footer_link: '§9'
@@ -64,6 +100,9 @@ export default {
 		theme_title: 'Beddel qaabka madow',
 		nav_aria: 'Fur tusmada',
 		drawer_top: '↑ Sare',
+		route_story: 'Sheeko',
+		route_law: 'Sharci',
+		route_methods: 'Hababka',
 		stakes: 'Khataraha',
 		findings: 'Natiijooyinka',
 		history: 'Taariikhda',
@@ -95,6 +134,7 @@ export default {
 	},
 	hero: {
 		h1: 'Hubinta Xudduudaha Doorashada Alberta',
+		draft: '(QABYO-QORAAL AAN LA DAABACIN — dib-u-eegayaal waa lagu soo dhoweynayaa)',
 		subtitle:
 			'Guddida Alberta waxay soo saartay laba khariidadood oo degmooyin ah sannadkii 2026. Hubintani way isbarbar-dhigtay — iyada oo isticmaaleysa isla imtixaano, oo si siman loogu dabaqay labadaba — si ay u waydiiso in ay codbixiyayaasha si isku mid ah ula dhaqmaan.',
 		badge: 'Khariidadaha rasmiga ah ee Elections Alberta — La daabacay May 2026',
@@ -115,6 +155,8 @@ export default {
 		heading: 'Waxa hubintani ku sheegi karto iyo waxa aysan kuu sheegi karin',
 		can_1:
 			'Joomatariga khariidadda laga yar yahay waxa uu ka gudbaa 4 ka mid ah 5 xadadka qaab-dhismeedka ee horay loo diiwaan-geliyay <em>iyada oo aan la isticmaalin xog doorasho oo kasta</em>. Shanaadka (xajinta) waa dhexdhexaad. Inta badan waxay ka gudubtaa 0 ka mid ah 4-da dhacaya. Imtixaanadaasi waxay cabbiraan sifooyinka khadadka xudduudaha laftooda — qaabka degmada, xajinta dawladda hoose, faafinta dadka — oo waxay gaaraan gunaanadka ka hor inta aan cod la tirin.',
+		can_2:
+			'Si gooni ah, marka xogta doorashada la keeno, khariidadda laga yar yahay waxay ku taal 99.99-aad centile ee 1.01 milyan oo khariidadood oo isbarbardhig ah oo algorithm ku sawiray oo lagu hayo isla shuruucda sharciga. Qiyaastii 66 ka mid ah 1.01 milyan oo khariidadood oo dhexdhexaad ah ayaa gaadha isla qiimaha seats@50/50. Xadka sare ee wadareed ee isku-xidhnaanta-xasil ee labada kanaal falanqeyn waa qiyaastii 1 ka mid ah 350,000 hoosta qaybinta tixraacaas (p&nbsp;≤&nbsp;2.80×10<sup>−6</sup>). Laba qalab oo falanqeyn — joomatari iyo tirakoob — ayaa gaadha isla gunaanad jiho isku mid ah; xadka wadareedku waa soo koobida ka-warhaynta-isku-xidhnaanta ee isuduwiddaas, ma aha afar tijaabo oo madax-bannaan oo isku raacaya.',
 		can_3:
 			'Saddex ka mid ah qaababka uu ku jiro soo jeedinta laga yar yahay waxa qoraal ahaan calaamadeeyay Guddoomiyaha Guddida, Garsoore Miller, qaybta §5.8.2 ee warbixinta inta badan iyo Lifaaqa C. Imtixaanada hubintu waxa la sameeyay iyada oo aan la ogeyn calaamadahiisa, waxana ay soo bandhigaan isla aagagga. Qalab saddexaad oo madax-bannaan — garsoorid — ayaa isugu yimaada isla xudduudaha.',
 		cant_1:
@@ -123,6 +165,8 @@ export default {
 			'Hubintu <strong>ma saadaaliso</strong> waxa guddiga Lunty doorto, waxa ay noqonayso doorashada Noofembar 2026, ama sida dadka Alberta uga falcelin doonaan.',
 		cant_3:
 			'Hubintu <strong>ma saadaaliso</strong> sida maxkamadi ugu xukumi laheyd haddii doodda Axdiga lagu soo qaado mid kasta oo soo jeedinta ah.',
+		cant_4:
+			'Hubintu <strong>ma</strong> sheegeyso in xadka isku-xidhnaanta-xasil ee qiyaastii 1 ka mid ah 350,000 (p&nbsp;≤&nbsp;2.80×10<sup>−6</sup>) uu yahay itimaalka in qaybsi siyaasadeed dhacay. Tiradaasi waa itimaalka dabada ee joomatariga inta yar hoosta eber algorithm oo dhexdhexaad ah. Waa caddayn ah in eberka dhexdhexaadku aanu macquul ahayn. Ma aha itimaal dambe oo niyad xisbiyeed — su\'aashaasi waxay u baahan tahay caddayn aanu joomatarigu bixin karin.',
 		cant_5:
 			'Hubintu <strong>uma sheegto</strong> codbixiye kasta oo gaar ah qaabka uu qaadan lahaa ama waxa uu xogtan ka qaban lahaa. Doorashada waa adiga.'
 	},
@@ -164,13 +208,13 @@ export default {
 			'Hubintu ma soo jeedinayso in laga qaado kursiyo Alberta miyiga ah. Waxay weydiisaa in khadaduhu ay ixtiraamaan bulshooyinka miyiga ah ee kursiyadaasi loogu talagalay inay matalaan, mise juquraafiga miyigu waxa loo isticmaalayaa culayska codadka magaalada lagu nuuji lahaa degmooyin bartamuhu meel kale joogo. Haddii aad ku nooshahay mid ka mid ah dabaha miyiga, su\'aasha ah midee khariidadood ah ayaa la dhaqan-geliyay waxay go\'aamisaa in MLA-gaagu uu matalo bulshada miyiga ee aad dhab ahaan ku nooshahay, ama degmo magaaleed oo khadkeedu ay ku jirto dhulkaaga.',
 		province_h: 'Gobolkaaga.',
 		province_p:
-			'Golaha sharci dejintu waa waxa aad heshid marka aad isugu darto jawaabaha degmo kasta ee saddexda su\'aalood ee kor ku xusan. Haddii degmooyinka inta badani ay ku xidhan yihiin bulshooyin MLA-yadooda dhab ahaan ku nool yihiin, golaha sharci dejintu wuxuu matalayaa bulshooyinkaas. Haddii degmooyinka inta badani ay leeyihiin dabaha miyiga oo ku xidhan madaxa magaaleed, golaha sharci dejintu wuxuu matalayaa madaxa — dabaha waxay heli doonaan dareenka soo haray. Su\'aasha xisbiyeed — xisbiga ku guulaysta aqlabiyadda — waa midda ka hooseysa. Su\'aasha aqlabiyadda weyn — in xisbi ka gudbo 58 ee 87 kursi oo uu furo gaagaaban habraac sida la-iska-dhaafida muddooyinka ogeysiiska ama dardar-gelinta sharciyada marxalado kala duwan hal maalin gudaheed — waa midda ka <em>hoosaysa</em> taas. Marka la qaato cod gobol oo mala-awaal ah oo 50/50, cabbirrada hubinta waxay soo jeedinta laga yar yahay ka dhigaan heer qaab-dhismeed daran: in ka yar 100 oo ka mid ah 1.01 milyan oo khariidadood oo dhexdhexaad ah oo isbarbardhig ah ayaa keena nooca isle\'egta kursiyada. In isle\'egtaasi ay xisbi gaadhsiiso 58 kursi qaybinta codka ay Albertans dhab ahaan keenaan waa su\'aal aanay hubintani si toos ah u tijaabin weli; su\'aalaha furitaanka ee bogga sare way runtii xukumayaan farqigaas. In jawaabta su\'aal kasta oo kuwaas ka mid ah ay ku filan tahay in laga qabto, mar kale, waa su\'aal kuu socota.'
+			'Golaha sharci dejintu waa waxa aad heshid marka aad isugu darto jawaabaha degmo kasta ee saddexda su\'aalood ee kor ku xusan. Haddii degmooyinka inta badani ay ku xidhan yihiin bulshooyin MLA-yadooda dhab ahaan ku nool yihiin, golaha sharci dejintu wuxuu matalayaa bulshooyinkaas. Haddii degmooyinka inta badani ay leeyihiin dabaha miyiga oo ku xidhan madaxa magaaleed, golaha sharci dejintu wuxuu matalayaa madaxa — dabaha waxay heli doonaan dareenka soo haray. Su\'aasha xisbiyeed — xisbiga ku guulaysta aqlabiyadda — waa midda ka hooseysa. Su\'aasha aqlabiyadda weyn — in xisbi ka gudbo 60 ee 89 kursi oo uu furo gaagaaban habraac sida la-iska-dhaafida muddooyinka ogeysiiska ama dardar-gelinta sharciyada marxalado kala duwan hal maalin gudaheed — waa midda ka <em>hoosaysa</em> taas. Marka la qaato cod gobol oo mala-awaal ah oo 50/50, cabbirrada hubinta waxay soo jeedinta laga yar yahay ka dhigaan heer qaab-dhismeed daran: in ka yar 100 oo ka mid ah 1.01 milyan oo khariidadood oo dhexdhexaad ah oo isbarbardhig ah ayaa keena nooca isle\'egta kursiyada. In isle\'egtaasi ay xisbi gaadhsiiso 60 kursi qaybinta codka ay Albertans dhab ahaan keenaan waa su\'aal aanay hubintani si toos ah u tijaabin weli; su\'aalaha furitaanka ee bogga sare way runtii xukumayaan farqigaas. In jawaabta su\'aal kasta oo kuwaas ka mid ah ay ku filan tahay in laga qabto, mar kale, waa su\'aal kuu socota.'
 	},
 	editorial_history: {
 		heading: 'Macnaha: Taariikh kooban oo ku saabsan qaybsiga siyaasadeed',
 		p1: 'Ereygu waxa uu ka yimid 1812. Guddoomiyaha Massachusetts Elbridge Gerry waxa uu saxeexay khariidad gole-gobol oo degmooyinkeedu ay aad u qalloocayeen si u dhaxasho xisbigiisa oo ay sawir-yaqaan reer Boston mid ka mid ah u sawiray qaab balanbaaliska bahallada — baalal, qoolal, carrabkii kala godan. Sawirka jeesjeesintiisa, <em>Gerry-mander</em>, ayaa hadhay. Qaabkuna wuu hadhay: laba qarni kadib, ereygu wuxuu weli ka dhigan yahay sawiritaanka khadadka doorashada si loo abuuro natiijo xisbiyeed.',
 		p2: 'Ereygu wuu jiraa maxaa yeelay dhibaatadu way jirtaa. Meel kasta oo codbixiyayaashu ka soo doortaan matalayaal degmooyin juquraafi ah, qof baa khadadka sawirta, khadadkana waxa lagu sawiri karaa siyaalo badan. Dalal kala duwan ayaa gaaray jawaabo kala duwan oo ku saabsan cidda sawiri lahayd iyo waxa xaddidi laha.',
-		p3: '<strong>Mareykanka</strong> waxay u arkaan qaybsiga siyaasadeed dhibaato aysan maxkamadaha federaalku inta badan xallin karin. <em>Rucho v. Common Cause</em> (2019), Maxkamadda Sare ee Mareykanku waxa ay xukuntay in qaybsiga siyaasadeed ay yihiin "su\'aalo siyaasadeed" oo ka baxsan xukunkeeda. Gobolada qaar (California, Michigan) waxa ay ka jawaabeen iyaga oo sameeyay guddiyo madaniyad madax-bannaan si ay khadadkooda u sawiraan; kuwo kale (Texas, North Carolina) waxa ay sii wadeen sawiritaanka khariidadood si cad ugu eexday xisbi, oo ay difaaceen iyaga oo ku saleysan in <em>Rucho> u oggolaaday.',
+		p3: '<strong>Mareykanka</strong> waxay u arkaan qaybsiga siyaasadeed dhibaato aysan maxkamadaha federaalku inta badan xallin karin. <em>Rucho v. Common Cause</em> (2019), Maxkamadda Sare ee Mareykanku waxa ay xukuntay in qaybsiga siyaasadeed ay yihiin "su\'aalo siyaasadeed" oo ka baxsan xukunkeeda. Gobolada qaar (California, Michigan) waxa ay ka jawaabeen iyaga oo sameeyay guddiyo madaniyad madax-bannaan si ay khadadkooda u sawiraan; kuwo kale (Texas, North Carolina) waxa ay sii wadeen sawiritaanka khariidadood si cad ugu eexday xisbi, oo ay difaaceen iyaga oo ku saleysan in <em>Rucho</em> uu oggolaado.',
 		p4: '<strong>Boqortooyada Midowday</strong> waxay isticmaashaa afar Guddiyo Xudduudo oo joogto ah — mid kasta England, Scotland, Wales, iyo Northern Ireland — oo ka kooban garsoorayaal iyo shaqaalaha sare ee dawladda. Waxa ay dib u sawiraan khadadka qiyaastii sideed sano kasta iyaga oo ku saleysan shuruucda go\'an (sinaanta dadka, isku xidhnaanta juquraafi, ixtiraamka xudduudaha dawladda hoose). Baarlamaanku aragti ahaan wuu diidi karaa talooyinka guddiyada, laakiin ficil ahaan wuxuu marna sidaas yeel. Caado ahaan, garsoorka guddiyadu wuu istaagaa.',
 		p5: '<strong>Australiya</strong> waxay shaqada u dirtaa Guddida Doorashada Australia, hay\'ad federaal madax-bannaan oo leh awood buuxda labadaba maamulka doorashooyinka iyo xudduudaha. Dib-u-qaybin si toos ah ayuu u dhaca marka tirada kursiyada gobol uu isbeddesho ama todobo sano la soo dhaafay laga bilaabo midkii ugu dambeeyay. Go\'aanada La-taliyayaasha waa dib loo eegi karaa sababo habraaceed laakiin sababo xisbiyeed maaha. Sida Boqortooyada Midowday, qaybsiga siyaasadeed sida ay Mareykankii ay yaqaaneen wax la maqlay ma aha.',
 		p6: 'Saddexdan kiis waxay calaamadeeyaan iskala-duwanaanshaha: maxkamadaha aan dhex galin (Mareykanka), guddiyo madax-bannaan oo leh ixtiraam baarlamaanka oo xooggan (Boqortooyada Midowday), iyo hay\'ad madax-bannaan oo joogto ah oo leh awood buuxda (Australiya). Kanada waxay ku taallaa meel kale oo kala duwan — taas oo qaybta xigta wax ka qabaneyso.'
@@ -205,7 +249,7 @@ export default {
 		gerrymander: {
 			term: 'Gerrymander (qaybsi siyaasadeed)',
 			definition:
-				'Khariidad loo sawiray si xisbi siyaasadeed uu u guulaysto kursiyo ka badan inta uu qaybtiisa codka ku jiro u soo jeedinayso. Ereygu waxa uu ka yimid degmo Massachusetts ah oo 1812 oo qaab balanbaalisku ahayd. Ma aha erey sharci oo Kanada, laakiin macnaha si weyn ayaa loo bartay.'
+				'Naanays Maraykan ah oo loogu talagalay khariidad doorasho oo loo sawiray si hal xisbi loo doorbido. Macno sharci ma laha Kanada — maxkamad ama sharci midna ma isticmaalo — sidaa darteed boggani marna uma isticmaalo sidii gunaanad.'
 		},
 		cracking: {
 			term: 'Jeexitaan (cracking)',
@@ -257,6 +301,31 @@ export default {
 			definition:
 				'Alberta Electoral Boundaries Commission Act (Sharciga Guddida Xudduudaha Doorashada Alberta) — sharciga maamula sida xudduudaha doorashada loogu sawiro gobolka. Wuxuu dejiyaa guddida, habraaca dhageysiga dadweynaha, iyo shuruucda marka khariidad cusub ay shaqo galayso.'
 		},
+		ensemble: {
+			term: 'Tijaabada 1.01-milyan-khariidadood',
+			definition:
+				'Kombuyuutar ayaa si bakhtiyaanasiib ah u sawiray 1.01 milyan oo khariidadood oo Alberta sharci ah, dhammaantood oo raacaya isla shuruucda. Khariidad dhab ah waxay u tirsan tahay mid aan caadi ahayn marka ay ka baxsan tahay waxa ku dhowaad dhammaan khariidadahan dhexdhexaadka ah soo saaraan.'
+		},
+		efficiency_gap: {
+			term: 'Farqiga waxtarka',
+			definition:
+				'Cabbir ah codadka "la khasaariyay" — codad ka badan inta uu musharaxu u baahnaa inuu ku guulaysto, oo lagu daro cod kasta oo loo dhiibtay mid guuldarraystay — oo la isbarbar dhigo labada xisbi. Farqi weyn wuxuu tilmaamaa khariidad hal jiho leh.'
+		},
+		mean_median: {
+			term: 'Farqiga dhexe-dhexdhexaadka',
+			definition:
+				'Farqiga u dhexeeya qaybtaarka codka celceliska ah ee xisbi degmooyinka oo dhan iyo midkiisa dhexe (dhexdhexaadka). Farqi weyn wuxuu soo jeedinayaa in codbixiyayaashiisa loo faafiyay si codad lagu khasaariyo.'
+		},
+		declination: {
+			term: 'Declination',
+			definition:
+				'Cabbir ah sida si aan dheelitirnayn xisbi kasta ugu guulaysto kursiyadiisa — guulo waaweyn ama kuwo ku dhow. Khariidadda laga yar yahay waxay tilmaamaysaa isla jihada cabbirrada kale (xisbiga xukunka hayo) ka dib sax calaamadeed bishii Juun 2026.'
+		},
+		seats_5050: {
+			term: 'Kursiyo barbar ah',
+			definition:
+				'Immisa kursi ayaa xisbi kastaa ku guulaysan lahaa haddii gobolku codkiisa si sax ah u kala qaybiyo 50-50. Waxay ka saartaa cidda dhab ahaan ku guulaysatay waxayna tijaabisaa eexda khariidadda ku dhisan.'
+		},
 		fsa: {
 			term: 'Aagga kala-soocida hore (FSA)',
 			definition:
@@ -307,7 +376,7 @@ export default {
 			t2_col_a: 'Khariidad',
 			t2_col_b: 'Farqiga waxtarka',
 			t2_col_c: 'Dhexe-dhexdhexaad',
-			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Declination waxay cabbirtaa farqiga zaawiyad ee qalooca kursi-codka ee xisbi kasta. Qiimaha taban wuxuu ku doorbidayaa UCP; kuwa togan waxay doorbidayaan NDP.">Declination</a>',
+			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Declination waxay cabbirtaa farqiga zaawiyad ee qalooca kursi-codka ee xisbi kasta. Qiimaha taban wuxuu ku doorbidayaa NDP; kuwa togan waxay doorbidayaan UCP.">Declination</a>',
 			t2_col_e: 'Kursiyo 50/50',
 			t2_r1_a: 'Inta badan 2026',
 			t2_r1_b: '+0.1% (p15.5)',
@@ -319,7 +388,7 @@ export default {
 			t2_r2_c: '<strong>+1.0% (p99.98)</strong>',
 			t2_r2_d: '<strong>+0.077 (p98.8)</strong>',
 			t2_r2_e: '<strong>51.7% (p99.99)</strong>',
-			sub1_close: 'Khariidadda inta badan waxay si raaxo leh ugu jirtaa kala-duwanaanta caadiga ah ee saddex ka mid ah afarta cabbir. Dhexe-dhexdhexaadkeeda wuxuu ku yaal p2 oo jihada NDP loo doorbidayo — natiijo aan caadi ahayn laakiin tilmaamaysa jihada qaldan si ay UCP u caawiso. Khariidadda inta badan oo si dhow u raacaysa xudduudaha dawladda hoose waxay dhigtaa xudunta magaalada ee NDP-ga badan degmooyinkeeda gaarka ah oo iskugu jira, halkaas oo codadka NDP ay ku guulaystaan kala-soocyo waxtar leh halka guulaha UCP ee miyiga ay caadi ahaan yihiin kala-soocyo waaweyn; faa\'iidada qaab-dhismeed ee yar ee NDP waa waxa ka muuqda cabbirka dhexe-dhexdhexaadka. Khariidadda laga yar yahay waxay ku jirtaa dabada afarta, mid kastaa wuxuu tilmaamayaa isla jihada xisbiyeed.',
+			sub1_close: 'Khariidadda inta badan waxay si raaxo leh ugu jirtaa kala-duwanaanta caadiga ah ee saddex ka mid ah afarta cabbir. Dhexe-dhexdhexaadkeeda wuxuu ku yaal p1 (= p0.92) oo jihada NDP loo doorbidayo — natiijo aan caadi ahayn laakiin tilmaamaysa jihada qaldan si ay UCP u caawiso. Khariidadda inta badan oo si dhow u raacaysa xudduudaha dawladda hoose waxay dhigtaa xudunta magaalada ee NDP-ga badan degmooyinkeeda gaarka ah oo iskugu jira, halkaas oo codadka NDP ay ku guulaystaan kala-soocyo waxtar leh halka guulaha UCP ee miyiga ay caadi ahaan yihiin kala-soocyo waaweyn; faa\'iidada qaab-dhismeed ee yar ee NDP waa waxa ka muuqda cabbirka dhexe-dhexdhexaadka. Khariidadda laga yar yahay waxay ku jirtaa dabada afarta, mid kastaa wuxuu tilmaamayaa isla jihada xisbiyeed.',
 			sub2_h: 'Heerka kala-soocida 50/50: in ka yar 100 ka mid ah 1,010,000 khariidadood oo dhexdhexaad ah ayaa gaadha',
 			sub2_p: 'Cabbirka heerka kala-soocida ee kor lagu soo bandhigay — kursiyo UCP ee codka gobol ee 50/50 — waa habka ugu fudud ee loo barbar dhigi karo saddexda khariidadood.',
 			t3_col_a: 'Khariidad',
@@ -336,14 +405,18 @@ export default {
 			t3_r3_c: '<strong>99.99-aad centile — in ka yar 100 ka mid ah 1,010,000 tirinta dhexdhexaadka ah ayaa gaadha</strong>',
 			sub2_close: 'In ka yar 100 ka mid ah 1,010,000 khariidadood oo Alberta dhexdhexaad ah oo kombuyuutar soo saaray ayaa soo saaray qiime <code>seats@50/50</code> oo sarreeya sida soo jeedinta laga yar yahay. Iyada oo ku saleysan qaababka codbixinta dhowaan ee dhabta ah, waxay UCP siisaa 60 kursi (marka loo eego 55 soo jeedinta inta badan). Soo jeedinta inta badan waa nooca khariidad ee habraac dhexdhexaad ah caadi ahaan soo saaro. Soo jeedinta laga yar yahay waa nooca khariidad ee waa inaad si gaar ah u doontaa si aad u sawirto.',
 			sub3_h: 'Macnaheedu maxay tahay luuqad cad',
+			sub3_p: 'Soo jeedinta laga yar yahay waxay ku jirtaa dabada xad-dhaafka ah ee guddiga 1,010,000-qorshe saddex ka mid ah afarta cabbir ee caddaaladda xisbiyeed, afaraadka (farqiga waxtarka, +4.0%) wuxuu ku yaal 94-aad centile — <em>u dhow, laakiin ka hooseeya</em>, xadka hubinta ee horay loo diiwaan-geliyay ee Alberta-loo-calibrate-gareeyay ee 95-aad. Labada kanaal ee tijaabada wadareed waxay wadaagaan xogta hoose ee farqiga-waxtarka, mana aha kuwo tirakoob ahaan madax-bannaan, sidaa darteed isku-darka qiimayaashooda p hoosta habka Fisher wuxuu kor u qaadaa muhiimadda. Xadka sare ee la difaaci karo ee isku-darka isku-xidhnaanta-xasil waa qiyaastii <strong>mid ka mid ah 350,000</strong> (Bonferroni; p&nbsp;≤&nbsp;2.8×10<sup>−6</sup>). Taasi waxay sii tahay natiijo aad u daran, si fiican uga gudubta xadadka muhiimadda caadiga ah — laakiin waxa loo soo sheegaa xad, ma aha afar qalab oo madax-bannaan oo isku raacaya.',
 			details_summary: 'Macnaha qiimahan p — iyo waxa aanay ka dhignayn',
-			details_p2: 'Tani waa tijaabo mala-awaal oo frequentist ah, ma aha cabbir niyad. Ma sheegayso in guddidu ay ula jeeday qaybsi siyaasadeed, mana cabbirayso sida khariidaddu aan caddaalad u ahayn macnaha wax-ku-oolka ah. Waxay sheegtaa in qaabka xudduudu yahay tirakoob ahaan aan la jaan-qaadayn habraac sawir dhexdhexaad ah — isla gunaanadka uu gaadhi laha hubin aan kala sooc lahayn iyada oo aan ku xidhnayn cidda khariidadda sawirtay ama sababta.',
-			details_p3: 'Tijaabada waa horay loo diiwaan-geliyay xogta ka hor inta aan la falanqayn (<a href="https://osf.io/w2s8k" rel="noopener">Diiwaan-gelinta OSF w2s8k</a>). Diiwaan-gelinta horeed waxay si hore u sheegtaa mala-awaalka eber, cabbirrada, iyo xadka diidmada, sidaa darteed natiijada lama loogu xil saari karo dooshista xilliya wax dabacan kadib tirooyinkii la arkay.',
+			details_p1: 'Qiimaha p wuxuu ka jawaabaa hal su\'aal: haddii khariidadda uu sawiray habraac dhexdhexaad ah, intee jeer ayaynu arki lahayn natiijo sidan u daran ama ka sii daran? Xadka isku-xidhnaanta-xasil ee p&nbsp;≤&nbsp;2.8×10<sup>−6</sup>, jawaabtu waxay ugu badnaan tahay qiyaastii hal mar 350,000 tijaabo kasta.',
+			details_p2: 'Tani waa tijaabo mala-awaal oo frequentist ah, ma aha cabbir niyad. Ma sheegayso in guddidu ay ula jeeday qaybsi siyaasadeed, mana cabbirayso sida khariidaddu aan caddaalad u ahayn macnaha wax-ku-oolka ah. Waxay sheegtaa in qaabka xudduudu yahay tirakoob ahaan aan la jaan-qaadayn qaybinta tixraaca ee sawir-dhexdhexaadka ah ee ReCom — hubin dibadeed oo xooggan, laakiin aan kaamil ahayn (ma dhaqan-geliyo shuruud kasta oo sharci oo guddidu ku hoos shaqaynaysay, tusaale, heerarka s.15(2) iyo xaddidaadaha danta bulsho).',
+			details_p3: 'Guutada tijaabada qaab-dhismeed (dadka, kala-qaybinta, xajinta, isku-cufnaanta, saxeexyada) ayaa lagu diiwaan-geliyay calaamado wakhti ah ka hor dib-u-xisaabinta canonical-ka ah. Kanaalada eexda xisbiyeed (Mahalanobis isku-jirka ah, SZAT, isku-darka Fisher/Bonferroni) waxa loo calaamadeeyay "sahmin" macnaha hubinta lafteeda ee §4.3.1: oo lagu qoray kaydka, laakiin aan ahayn xog-ka-hor. Hubintu waxay kanaal kasta si gooni ah u soo sheegtaa waxayna isugu darsaa hoosta xadka isku-xidhnaanta-xasil halkii ay u soo bandhigi lahayd inay yihiin tijaabooyin xaqiijin oo si buuxda madax-bannaan.',
 			szat_label: 'TIJAABADA U QAYBINTA AAGA KALA-SOOCIDA (SZAT)',
-			super_lead: 'Tani waxay sharaxaysaa sababta soo jeedinta laga yar yahay ay tahay inay noqoto qiime aan caadi ahayn oo tirakoob oo ka baxsan (p99.99) marka loo eego 1,010,000 soo-jeedin dhexdhexaad ah. Gole sharci dejineed oo 89 kursi ah, aqlabiyad weyn oo saddex meelood laba ah waxay u baahan tahay 60 kursi sax ah. Habraacyada dhexdhexaadka ahi ma soo saaraan natiijooyinka 60-kursi juquraafiga Alberta codad dhexdhexaad ah; in la gaadho heerka waxay u baahan tahay doorashooyin xuduud oo ula kac ah oo ka leexanaya saldhigga dhexdhexaadka ah.',
+			szat_body: 'SZAT waxa loo naqshadeeyay kanaal falanqeyn oo labaad: halkii la weydiin lahaa "khariidaddani guud ahaan ma aad bay u daran tahay?" waxay weydiisaa "doorashooyinka khadadka gaarka ah ma yihiin kuwo xisbi-dhexdhexaad ah?" Waxay u shaqeysaa iyada oo gooni u soocaysa kaliya Aagagga Codbixinta halka khariidadda inta yar ay ka duwan tahay tan inta badan — dib-u-sawirka la murmay — oo tijaabinaysa in doorashooyinkaas gaarka ah, marka la isugu daro, ay waxtarka codka jiho hal xisbi ah ugu wareejiyaan. Maxaa yeelay waxay isbarbar dhigtaa kaliya barbaraha kala-tagga, waxay si toos ah u xakameysaa wax kasta oo labada khariidadood wadaagaan: isla juquraafiga, bartilmaameedyada dadnimada, iyo shuruucda sharciga. Hoosta tijaabo permutation caadi ah SZAT waxay soo celisay p=0.0024; hoosta eber block-permutation oo sax ka qabta autocorrelation aagga ee Aagagga Codbixinta isku xiga, waxay soo celisay p≈0.19 — ma muhiim aha. SZAT waxa loo hayaa macno sahmin ah laakiin kuma badbaado kanaal xaqiijin ah. Cinwaanku wuxuu ku tiirsan yahay soo-jeedinta kaliya. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Faahfaahin farsamo →</a>',
+			two_q: '<strong>Natiijada SZAT.</strong> Soo-jeedinta 1,010,000-khariidadood waxay weydiisaa: <em>khariidaddani ma aad bay u daran tahay marka loo eego khariidadaha dhexdhexaadka ah ee laga sawiray isla juquraafiga Alberta?</em> Tijaabo labaad — <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Tijaabada U Qaybinta Aaga Kala-soocida</a> — waxay weydiisay su\'aal kale: <em>khadadka gaarka ah ee khariidadda ma yihiin kuwo xisbi-dhexdhexaad ah?</em> Waxay u shaqeysaa iyada oo eegaysa kaliya Aagagga Codbixinta halka inta yar ay si ka duwan inta badan u sawirtay oo weydiinaysa in doorashooyinkaas gaarka ah, marka la isugu daro, ay waxtarka codka jiho hal xisbi ah ugu wareejiyeen. Hoosta permutation caadi ah waxay soo celisay p=0.0024. Hoosta eber block-permutation — oo sax ka qabta autocorrelation aagga ee Aagagga Codbixinta isku xiga — waxay soo celisay p≈0.19. Natiijada block-permutation ma gaadho muhiimad. Hubintu sidaa darteed waxay soo sheegtaa natiijada soo-jeedinta kaliya sida cinwaan: xad sare oo isku-xidhnaanta-xasil oo ah <strong>1 ka mid ah 350,000</strong> (p&nbsp;≤&nbsp;2.8×10<sup>−6</sup>), ma aha isku-darka Fisher ee laba kanaal oo madax-bannaan.',
+			super_lead: 'Gole sharci dejineed oo 89 kursi ah, aqlabiyad weyn oo saddex meelood laba ah waxay si sax ah u baahan tahay 60 kursi. Qiimaha seats@50/50 ee soo jeedinta laga yar yahay oo ah 51.7% (p99.99 marka loo eego guddiga 1,010,000-qorshe) wuxuu ku jiraa heerka uu aqlabiyadda weyn ee UCP tirakoob ahaan ku gaadhi karto juquraafiga 2023 ee Alberta — laakiin eberka guddigu ma dhaqan-geliyo shuruud kasta oo sharci ah oo guddidu ku shaqaynaysay, sidaa darteed tani waa hubin dibadeed oo xooggan, ma aha caddayn ah inaan khariidad Alberta ah oo sharci u hoggaansan ay gaadhi karin tirada kursiyadan. Caddaynta waddada qaab-dhismeed ee Natiijooyinka 1, 2 iyo 4 (oo aan gabi ahaanba ku xidhnayn eberkan) ayaa xambaarsan culayska ugu badan; booska dabada ee seats@50/50 waa macnaha taageerada.',
 			super_label: 'SABABTA AQLABIYAD WEYN AY MUHIIM U TAHAY',
 			super_body: 'Hoos nidaamka baarlamaaniga ah ee Westminster ee Kanada, aqlabiyad fudud (45 kursi) waa ku filan in la ansixiyo shuruucda iyo miisaaniyada caadiga ah. Aqlabiyad weyn oo saddex meelood laba ah (60 kursi) waxa ay sameysaa wax dheeraad ah. Waxay u oggolaataa xisbiga xukunka in uu "xidhitaan" u soo qaado si uu u joojiyo dooda, dib u qoraan shuruucda habraacooyinka iyada oo aan la helin oggolaanshaha mucaaridka, oo uu xakameeyo isku darka guddi kasta oo sharci dejineed. Waxa kaloo ay ka go\'doomisaa dawladda is khilaafka gudaha: xitaa marka lix xubnood oo ka soo jeeda dabada ay sagxadda ka soo gudbaan, dawladdu waxay weli hayaa aqlabiyad shaqo. Aqlabiyad fudud waxay kuu oggolaaneysaa inaad gaariga u kaxayso; aqlabiyad 60-kursi ah waxay kuu oggolaaneysaa inaad dib u qorto shuruucda taraafikada.',
-			super_close: 'Iyada oo si istiraatiiji ah loo dhex dhuumaaleeyo codbixiyayaasha magaalada ee degmooyinka miyiga-cidhifka u dhow (qaabka "hybridization-ka magaalada" lagu aqoonsaday Waddada 2), soo jeedinta laga yar yahay waxay si ula kac ah u abuurtaa firewall-ka qaab-dhismeed ee saxda ah ee loo baahan yahay si loo sugo 60-ta kursi. Natiijada qaab-dhismeed ee Waddada 2 iyo natiijada tirakoob ee Waddada 1 waxay isuduwaan isla soo jeedinta, isla jihada, iyo isla bulshooyinka.',
+			super_close: 'Qaabka magaalo-hybridization-ka ah ee lagu aqoonsaday Waddada 2 — codbixiyayaasha magaalada oo loo qaybiyo degmooyinka miyiga-cidhifka u dhow — waa habka qaab-dhismeed ee la jaan-qaadaya natiijada 60-kursi. Natiijada qaab-dhismeed ee Waddada 2 iyo natiijada tirakoob ee Waddada 1 waxay isuduwaan isla soo jeedinta, isla jihada, iyo isla bulshooyinka.',
 			sub4_h: 'Xaqiijinta tijaabada habraaca la beegsaday',
 			sub4_p: 'Si loo hubiyo in tani aanay ahayn waxweyn ee soo-jeedinta dhexdhexaadka ah ee soo-doorbida la yaqaano ee compactness, hubintu waxay socodsiisay habraac la beegsaday oo fuulista buurta ah (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon iyo kuwa kale 2022 — la tixraacay oo lagu sharaxay warbixinta farsamada</a>) labada jiho: kor u qaadista kursiyada UCP iyo kor u qaadista kursiyada NDP. Isla tirada tallaabooyinka (40,000) jiho kasta, isla xaddidaadaha sharciga, isla joomatariga gobolka.',
 			t4_col_a: 'Habraac',
@@ -368,7 +441,7 @@ export default {
 			defense1: '<strong>Difaaca "Juquraafiga Siyaasadeed ee Dabiiciga ah":</strong> <em>("Codbixiyayaasha magaaladu si dabiici ah ayay u urursan yihiin; khariidaddu kaliya waxay tarjumeysaa juquraafiga Alberta.")</em> 1,010,000 soo-jeedin ayaa horay u tixgalin juquraafiga dabiiciga ah ee Alberta. Soo-jeedintu waxay caddaynaysaa: in juquraafigu siiyo UCP faa\'iido aasaasi ah oo waxtar, si dabiici ah waxay ku xidhantaa qiyaastii 83-aad ilaa 90-aad centile. Khariidadda laga yar yahay waxay ku taal 99.99-aad centile — qiime aan caadi ahayn oo aad u sarreeya <em>xitaa marka loo eego saldhigga si dabiici ah u eexday ee Alberta</em>.',
 			defense2: '<strong>Difaaca "Bulshooyinka Danta Iska Leh":</strong> <em>("Qaababka cajiibka ah waxa loo sawiray si loo mideeyo bulshooyin gaar ah.")</em> Haddii aad isku dayeyso inaad bulshooyin mid keenis, waxaad raacaysaa xudduudaha dawladda hoose. Khariidadda inta badan waxay raacday xadadka magaalada ee jira 80% wakhtiga. Khariidadda laga yar yahay waxay raacday 72% wakhtiga — labadaba ku jira caadiga Kanada ee 70–85%. Waxa khariidadda laga yar yahay sameyso si firfircoon waa kala-qaybinta magaalada Airdrie afar qaybood oo gooni ah, iyo dejinta saddex ka mid ah go\'aamadeeda xudduud sax ahaan aagagga magaalo-cidhif ee guddidu calaamadeeyey inay yihiin kuwo joomatari ahaan aan caadi ahayn — doorashooyin aan lagu sharixi karin caqliga bulshooyinka danta iska leh.',
 			defense3: '<strong>Difaaca "Sinaanta Dadka":</strong> <em>("Waa inay sawiraan xudduudo cajiib ah si ay u hubiyaan in degmo kasta uu leeyahay isla tirada dadka.")</em> Khariidadda laga yar yahay dhab ahaan waxay aad u <em>liidataa</em> sinaanta dadka. Mean Absolute Deviation (MAD) ee dadkeedu wuxuu ahaa 4,707 — 48% ka ballaadhan 3,180 ee khariidadda inta badan — taas oo dhigaysa 99-aad centile ee guddiga canonical-ka ah (kaliya 1 ka mid ah 100 khariidad oo dhexdhexaad ah ayaa soo saara kala-duwanaansho ka sii daran). Waxay hurtay sinaanta dadka si ay u gaadho qaabkeeda.',
-			defense4: '<strong>Difaaca "Karti-darro ama Nasiib Xun":</strong> <em>("Kaliya waxay sawireen khariidad foosheed waxayna ku nasiib xumaadeen tirooyinka.")</em> In la gaadho sax 60 kursi oo loogu talagalay aqlabiyad weyn iyada oo la kala qaybinayo Airdrie afar qaybood oo la dhigayo saddex xuduud sax ahaan aagagga uu guddoomiyaha guddidu lafteedu calaamadeeyay inay yihiin kuwo aan caadi ahayn waxay u baahan tahay saxnaan qalliin leh. Xadka sare ee isku-xidhnaanta-xasil ah ee ah itimaalka in si lama filaan ah loo sawiro khariidad sidaas u daran labada kanaal falanqeyn ee hoosta qaybinta tixraaca ee ReCom-ka dhexdhexaadka ah waa qiyaastii <strong>1 ka mid ah 350,000</strong> (p&nbsp;≤&nbsp;2.80×10<sup>−6</sup>). Lama gaadhi karo 99.99-aad centile khalad.',
+			defense4: '<strong>Difaaca "Karti-darro ama Nasiib Xun":</strong> <em>("Kaliya waxay sawireen khariidad foosheed waxayna ku nasiib xumaadeen tirooyinka.")</em> In la gaadho sax 60 kursi oo loogu talagalay aqlabiyad weyn iyada oo la kala qaybinayo Airdrie afar qaybood oo la dhigayo saddex xuduud sax ahaan aagagga uu guddoomiyaha guddidu lafteedu calaamadeeyay inay yihiin kuwo aan caadi ahayn waxay u baahan tahay saxnaan qalliin leh. Xadka sare ee isku-xidhnaanta-xasil ah ee ah itimaalka in si lama filaan ah loo sawiro khariidad sidaas u daran labada kanaal falanqeyn ee hoosta qaybinta tixraaca ee ReCom-ka dhexdhexaadka ah waa qiyaastii <strong>1 ka mid ah 350,000</strong> (p&nbsp;≤&nbsp;2.80×10<sup>−6</sup>). Xadkaasi weli waa mid aad u daran — si fiican uga gudba xadadka caadiga ah ee macnaha — laakiin waxa loo soo sheegaa xad, ma aha hal itimaal oo qudha oo sax ah.',
 			sub5_close: 'Waxa xogtu muujineyso waa in soo jeedinta laga yar yahay ay sii xumeysay labada sinaanta dadka iyo isku xidhnaanta bulshada marka loo eego waxa isla shanta la-taliye ay isku mar soo saareen hoos shuruucda sharciga oo isku mid ah. Hubintu ma go\'aaminayso waxa la-taliyayaasha laga yar yahay ay ula jeedeen — joomatariga xuduudu ma muujin karo niyad — laakiin ka leexitaanka qaab-dhismeed ee guddi dhexdhexaadka ah iyo soo-saarka soo jeedinta inta badan wuu sii jiraa iyada oo aan loo eegin niyada.',
 			sub6_h: 'Ogeysiis ku saabsan xaqiijinta is-tixraaca ah ee R',
 			sub6_p1: 'Nooca hore ee hubintan (oo isticmaalay shaybaadhka qiyaaska ah halkii uu adeegsan lahaa kuwa rasmiga ah) ayaa is-tixraac ku sameeyay guddiga Python ReCom marka loo eego qaadaha Sequential Monte Carlo ee package-ka R <code>redist</code>. Xaqiijintu waxa ay soo saartay natiijooyin aan deggenayn: saddex socodsiin oo isla iniin ah, qaybta qorshayaasha gaadhaya qiimaha hore ee laga yar yahay (48.3% joomatariga qiyaaska) waxay ahaayeen 5.6%, kadibna 28%, kadibna 58% — guuldarro isugu yimaadka qaadaha, ma aha helitaan. Qoraalka oo dhammaystiran wuxuu ku yaal <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.',
@@ -389,8 +462,9 @@ export default {
 			t5_r1_c: 'gudaha kala-duwanaanta caadiga ah cabbir kasta (<code>seats@50/50</code> 46.1% — p78; farqiga waxtarka +0.1%)',
 			t5_r2_a: '<strong>Inta yar 2026</strong>',
 			t5_r2_b: '<strong>waxay ka gudbaysaa 4 ka mid ah 5 xadadka qaab-dhismeed</strong> kala sooc weyn (xajinta dhexdhexaad — labada khariidadood ku jira caadiga Kanada)',
-			t5_r2_c: 'qiime aan caadi ahayn oo tirakoob isku mar afarta cabbir caddaaladda xisbiyeed — <code>seats@50/50</code> 51.7% (p99.99, in ka yar 100 ka mid ah 1,010,000 ayaa gaara); farqiga waxtarka +4.0% (p94.4); afartaba horay loo diiwaan-geliyay; xad sare isku-xidhnaanta-xasil p&nbsp;≤&nbsp;2.80×10<sup>−6</sup>',
+			t5_r2_c: 'booska dabada saddex ka mid ah afarta cabbir ee caddaaladda xisbiyeed — <code>seats@50/50</code> 51.7% (p99.99, qiyaastii 66 ka mid ah 1,010,000 ayaa gaadha); dhexe-dhexdhexaad p99.98; declination p98.8 (dabada UCP); farqiga waxtarka +4.0% (p94.4, <em>u dhow laakiin ka hooseeya</em> xadka 95-aad centile ee horay loo diiwaan-geliyay); xad isku-jirka ah oo isku-xidhnaanta-xasil p&nbsp;≤&nbsp;2.8×10<sup>−6</sup> (≈ 1 ka mid ah 350,000)',
 			details2_summary: 'Sababta Waddada 2 ay xambaaraysay dacwadda — faahfaahin farsamo',
+			details2_p: 'Hubintu waxay horay u diiwaan-gelisay shan tijaabo oo aan-caadi-ahaan-qaab-dhismeed ah Abriil 24, 2026 ka hor inta aan natiijooyinka soo-jeedinta kama-dambaysta ah la isu keenin. Xajintu waa dhexdhexaad labada khariidadood; afarta tijaabo ee hadhay inta yar way ka gudubtaa mid kasta inta badanna midna ma gudbiso. Cabbirradaasi waa joomatari — kuma xidhna qaade tirakoob oo kasta ama u-qaybin cod oo kasta. <strong>Tani waa natiijada udub-dhexaadka ah.</strong> Waddada 1 (tirooyinka caddaaladda xisbiyeed) waxay xaqiijisaa Waddada 2 hoosta shaybaadhka rasmiga ah ee canonical-ka ah: inta yar waxay ku taal dabada guddiga 1,010,000-qorshe saddex ka mid ah afarta cabbir ee horay loo diiwaan-geliyay, farqiga waxtarka oo ku yaal p94.4 (<em>u dhow, laakiin ka hooseeya</em>, xadka 95-aad centile ee horay loo diiwaan-geliyay), hoosta xad sare wadareed oo isku-xidhnaanta-xasil oo p&nbsp;≤&nbsp;2.8×10<sup>−6</sup> (≈ 1 ka mid ah 350,000; wuxuu beddelaa tiro hore oo Fisher-isku-darsan oo kor u qaaday muhiimadda wadareed iyada oo u tixgelisay laba kanaal oo xog isku dhaftay inay madax-bannaan yihiin). Su\'aasha ah in joomatariga aan caadiga ahayn ee Waddada 2 uu yahay <em>habka</em> gaarka ah ee ka dambeeya tirooyinka Waddada 1 waa la tijaabiyay jawaabtuna waa maya — eeg <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. Tijaabada U Qaybinta Aaga Kala-soocida waxa lagu socodsiiyay doorashooyinka xudduud ee la murmay; hoosta permutation caadi ah waxay soo celisay p=0.0024, laakiin hoosta block permutation (oo sax ka qabaysa autocorrelation aagga ee Aagagga Codbixinta isku xiga) waxay soo celisay p≈0.19 — ma muhiim aha. SZAT waxa loo hayaa macno sahmin ah oo keliya. Si gooni ah, su\'aasha habka waa la tijaabiyay: in qaababka xudduudaha laftoodu — corridor-ka lasso-ga, balaadhinta beeyada — ay yihiin sababta tooska ah ee rogga kursiga; maaha. Saamaynta kursigu waxay ka timaadaa sida u-qoondaynta Aagga Codbixin ee dib loo sawiray ay waxtarka codka ugu wareejiso degmooyinka, ma aha qaababka laftooda. Labada waddooyinba waxay calaamadeeyaan khariidadda inta yar; waxay ku gaadhaan qalab madax-bannaan. Waddada 2 ayaa dacwadda xambaarsan. Waddada 1 way xaqiijisaa iyada oo aan xambaarin.',
 		},
 		impact: {
 			heading: '5: Saamaynta Matalaadda',
@@ -452,7 +526,7 @@ export default {
 			anchoring_p: '<strong>Halka ay ka leexato khadadka dawladda hoose, waxay ka leexataa meelo istiraatiiji ahaan muhiim ah.</strong> Marka khariidadaha doorashadu ay raacaan cidhifka magaalo ama tuulo, codbixiyayaashu waxay garan karaan halka qaybtoodu bilaabato oo dhammaato — xariiqda canshuurta hantida, xariiqda qaybinta iskuulka, xariiqda waad-ka ee doorashada hoose, iyo xariiqda doorashada gobolku waxay wada isku yimaadaan. Statistics Canada waxay daabacdaa xudduudahan bilaash. Shaybaadhka rasmiga ah ee Elections Alberta, labada khariidadood waxay raacaan khadadka dawladda hoose heerar guud ahaan la mid ah: inta badan 80%, inta yar 72%, labadaba caadiga Kanada ee 70–85% (Quebec: 78%, Ontario: 82%, BC: 71%; guddiyada isbarbardhigga oo lagu xusay monograafkii). (Falanqayntii hore ee hubinta waxay muujisay xajinta laga yar yahay 15% kaliya; tiradu kuma badbaadin dib-u-xisaabin shaybaadhka rasmiga ah — eeg qoraalka saxitaanka hoose.) Indho-indhayntu cajiibka ah ma aha heerka guud laakiin halka leexitaanada laga yar yahay ay ku urursan yihiin: saddexda xuduud ee guddoomiyaha guddidu lafteedu calaamadeeyey inay yihiin kuwo aan caadi ahayn — balaadhinta Rocky Mountain House–Banff Park <button class="ed-trigger" data-ed-name="Rocky Mountain House-Banff Park">tus ↗</button> ee dhul beeyahaaneed oo aan la deganayn ee qaranka, corridor-ka lasso-ga Nolan Hill–Cochrane <button class="ed-trigger" data-ed-name="Calgary-Nolan Hill-Cochrane">tus ↗</button>, iyo balaadhinta Olds–North Airdrie <button class="ed-trigger" data-ed-name="Olds-Three Hills-Didsbury">tus ↗</button> — mid kastaa waa leexitaan ka muuqaal juquraafiga madaniga ah ee horey u jiray aagagga magaalo-cidhif ee saxda ah halka isku-darka codbixiyayaasha magaalada iyo miyiga ay si toos ah saamaynayaan xisbiga ku guulaysta kursiga.',
 			anchoring_followup: 'La-taliyayaasha laga yar yahay waxay siiyeen sababo saddexda xuduud ee la calaamadeeyay mid kasta. Rocky Mountain House–Banff Park, waxay sheegeen cabbirka juquraafiga, corridor-ka Wadada 22, iyo dhowaanshaha kayd-tirooyinka Qabaa\'ilka Hore ee Rocky Mountain House; guddoomiyaha guddidu wuxuu balaadhinta dhulka beeyahaaneed ee aan la deganayn ku qeexay "iskuday been ah" si loo buuxiyo cabbirka cabbirka, jumlada waxay ku jirtaa warbixintii rasmiga ah ee ugu dambeysay ee guddida. Nolan Hill–Cochrane, waxay sheegeen xidhiidho gaadiid iyo shaqaale oo la wadaago oo udhexeeya woqooyi-galbeed Calgary iyo Cochrane; xogta Statistics Canada ee safarka-shaqada waxay muujinayaa kaliya 35.8% shaqaalaha Cochrane ayaa Calgary tagaayey, inta badan oo Cochrane laftiisa ka shaqeeya. Balaadhinta Olds–North Airdrie, waxay sheegeen isku xidhnaanta corridor-ka Wadada 2; hubintu waxay heshay in balaadhinta gaarka ah ee Airdrie ay ku dhacday sababo dadnimo. Hubinta madax-bannaani waxay heshay shan ka mid ah lixda sabab-hoosaad ee inta yar daabacday inay dhaceen ama kaliya qaybahaan u taagnaadeen marka loo eego xogta aasaasiga ah.',
 			packing_p: '<strong>Aagga Calgary waxa loo gooyay si loogu urursho codbixiyayaasha NDP qaybo ka ballaadhan celceliska.</strong> Aragga woqooyi-galbeed Calgary <button class="ed-trigger" data-ed-name="Calgary-North West-Bearspaw">tus ↗</button>, qaybaha khariidadda laga yar yahay celcelis ahaan waxay leeyihiin 11.5% ka sarreeyaan dadka gobolka — marka loo eego 2.8% ee inta badan. Isla aagga juquraafi, oo ay sawirtay isla guddida hoos isla xaddidaadaha, waxay soo saartaa degmooyin qaarta ka ballaadhan hal khariidad halkii ay ka soo bixi lahayd kale. Tan waxay la jaan qaadeysaa farra-saxeexa qaab-dhismeed ee <em>urursiga</em>: ku urursashada codbixiyayaasha hal xisbi degmooyin yar laakiin ballaadhan si kaadi kastaa ay yar u culus tahay. Urursiga iyo <em>jeexitaanka</em> (u qaybinta codbixiyayaasha xisbi si khafiif ah degmooyin ay ku khasaaraan kala sooc yar) waa labada dhaqdhaqaaq oo qaybsiga siyaasadeed ee caanka ah; labada way yaraynayaan tirada kursiyada xisbi marka loo eego qaybtiisa codka.',
-			chair_p: 'Guddoomiyaha guddida — oo lagu magacaabay isla Sharcigan, oo ka shaqaynaya isla soo gudbinnada — wuxuu calaamadeeyay saddex xuduud oo khariidadda laga yar yahay sida juquraafi ahaan aan caadi ahayn: balaadhinta Rocky Mountain House–Banff Park ee dhulka beeyahaaneed oo aan la deganayn ee qaranka; corridor-ka qaabka lasso-ga ee Calgary-Nolan Hill–Cochrane; balaadhinta Olds–Three Hills–Didsbury ee woqooyi Airdrie. Inta badan way heshay eber calaamado oo isla guddoomiye. (Naqdinta daabacaadda ee guddoomiyaha waxay daboolaa toddoba qaabab xudduudo oo wadar — afar calaamado joomatari ah warbixinta ugu weyn iyo saddex Lifaaqa C. Hubintani waxay si madax-bannaan u xaqiijisay joomatari aan caadi ahayn saddexda ka mid ah afarta calaamadood ee joomatari; afaraadka, Calgary-Foothills-Airdrie West <button class="ed-trigger" data-ed-name="Calgary-Foothills-Airdrie West">tus ↗</button>, ma gaadhin heerka xaqiijinta hubinta.)'
+			chair_p: 'Guddoomiyaha guddida — oo lagu magacaabay isla Sharcigan, oo ka shaqaynaya isla soo gudbinnada — wuxuu calaamadeeyay saddex xuduud oo khariidadda laga yar yahay sida juquraafi ahaan aan caadi ahayn: balaadhinta Rocky Mountain House–Banff Park ee dhulka beeyahaaneed oo aan la deganayn ee qaranka; corridor-ka qaabka lasso-ga ee Calgary-Nolan Hill–Cochrane; balaadhinta Olds–Three Hills–Didsbury ee woqooyi Airdrie. Inta badan way heshay eber calaamado oo isla guddoomiye. (Naqdinta daabacaadda ee guddoomiyaha waxay daboolaa toddoba qaabab xudduudo oo wadar — afar calaamado joomatari ah warbixinta ugu weyn iyo saddex Lifaaqa C. Hubintani waxay si madax-bannaan u xaqiijisay joomatari aan caadi ahayn saddexda ka mid ah afarta calaamadood ee joomatari; afaraadka, Calgary-Foothills-Airdrie West <button class="ed-trigger" data-ed-name="Calgary-Foothills-Airdrie West">tus ↗</button>, ma gaadhin heerka xaqiijinta hubinta.) Ka sokow calaamadaha joomatari ee guddoomiyaha, tijaabada saxeexa-jeexitaanka ee hubinta lafteeda (acadeemig §5.3.2) waxay calaamadeysaa kala-qaybinta afarta-jaho ee Airdrie shuruud kasta — kala-qaybin bulsho oo dadka Airdrie ka dhigaysa tiro yar afarta riding oo dhan, halka kala-qaybinta laba-jaho ee inta badan aanay midna muujin; Cochrane iyo Chestermere waxay u soo baxaan kuwo jeexitaan u dhow. Qaar ka mid ah waxa xisaabta hubintu calaamadeyso, guddoomiyuhu ma uusan calaamadayn. Hubintu waxay cabbirtaa saamaynta qaab-dhismeed, ma aha niyada.'
 		},
 		litmus: {
 			heading: '3: Imtixaanka Caddaynta ee 1,010,000-Khariidad',
@@ -578,7 +652,7 @@ export default {
 		},
 		retractions: {
 			heading: '9: Ka Noqoshooyinka iyo Saxitaannada',
-			heading_aria: 'Xiriiriye §9',
+			heading_aria: 'Xiriiriye ka-noqoshooyinka',
 			conditions_label: 'SHURUUDAHA KA NOQOSHO',
 			conditions_intro:
 				'Natiijo kasta waxaa horay loo go\'aamiyay shuruud been-abuur ah oo gaar ah. Haddii shuruud kasta oo hoose soo baxdo, natiijada ay magacaabto waxaa si calan ah laga noqda 30 maalmood gudahoodba. Gunaanadka jiho-guud ee oo dhan — in khariidadda laga yar yahay ay ku taallo meel ka baxsan kala-duwanaanta dhexdhexaadka tijaabooyin badan oo madax-bannaan — waxaa laga noqda oo keliya haddii ugu yaraan saddex ka mid ah shanta tijaabood ay guuldareystaan.',
@@ -606,7 +680,7 @@ export default {
 			corr_intro:
 				"Natiijadii hore ee soo socota ma badbaadin dib-u-falanqaynta marka loo eego shaybaadhka rasmiga ah ee Elections Alberta (la helay 2026-05-06). Waxaa halkan lagu hayaa siyaasadda horay loo go'aamiyay ee hubinta ee ah in abid la tirtirsan natiijooyin guuldareystay.",
 			corr_municipal:
-				"<strong>Xajinta maamulka (laga noqday).</strong> Falanqaynta hore iyada oo la isticmaalayay xudduudaha khariidadda ee ku meel-gaarka ah waxay muujisay khariidadda laga yar yahay waxay ku xajinaayeen khadadka maamulka oo keliya 15% wakhtiga — 4.9&times; hooseysa caadiga Kanada ee 70–85%. Tiradhani waxay ahayd artefact dib-u-dhismeedyada xudduudaha ku-meel-gaarka ah (DPG-da). Shaybaadhka rasmiga ah ee Elections Alberta ee canonical-ka ah, labada khariidadood waxay ku xajinaayaan gudaha caadiga Kanada: inta badan 80%, inta yar 72%. Kala-duwanaanshaha xajinta maamulka ee u dhexeeya labada khariidadood ma aha calaamad badbaadisa dib-u-xisaabinta canonical-ka ah. Saddexda anomaly-xudduud ee guddoomiyaha guddidu lafteedu calaamadeeyay (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) waxay sii jiraan mana saameeyaan saxitaankaan."
+				"<strong>Xajinta maamulka (laga noqday).</strong> Falanqaynta hore iyada oo la isticmaalayay xudduudaha khariidadda ee ku meel-gaarka ah waxay muujisay khariidadda laga yar yahay waxay ku xajinaayeen khadadka maamulka oo keliya 15% wakhtiga — 4.9&times; hooseysa caadiga Kanada ee 70–85%. Tiradhani waxay ahayd artefact dib-u-dhismeedyada xudduudaha ku-meel-gaarka ah (DPG-da). Shaybaadhka rasmiga ah ee Elections Alberta ee canonical-ka ah, labada khariidadood waxay ku xajinaayaan gudaha caadiga Kanada: inta badan 80%, inta yar 72%. <em>Kala-duwanaanshaha</em> xajinta maamulka ee u dhexeeya labada khariidadood ma aha calaamad badbaadisa dib-u-xisaabinta canonical-ka ah. Saddexda anomaly-xudduud ee guddoomiyaha guddidu lafteedu calaamadeeyay (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie) waxay sii jiraan mana saameeyaan saxitaankaan."
 		},
 		suggestions: {
 			heading: '8: Soo Jeedinno',
@@ -620,12 +694,12 @@ export default {
 			lesser_slave_p1:
 				'Waxaa jira ugu yaraan hal bulsho oo waqooyiga Alberta ah oo xogtan ku jirta dhibaato buuxda. Qaybta waqooyiga ee qaybta Lesser Slave Lake <button class="ed-trigger" data-ed-name="Lesser Slave Lake">tus ↗</button>, waxaa jira Aag Codbixin oo daboola 4,832 km&#178; — ka weyn Jasiiradda Prince Edward — halka cod kasta oo 2023 lagu tuuray loo wareejiyay kooxda polling-ka guuraysa ee Elections Alberta. Doorashooyinka 844 degganeyaasha waa la tirsadaa wadarta qaybaha laakiin ma la dhejin karo goob khariidadda. Bulshadaadu si buuxda waxay u maqantahay natiijooyin doorashada daabacaadda.',
 			lesser_slave_p2:
-				'Marka guddidu marka hore tixgalisay in la baabbi\'iyo qaybta Lesser Slave Lake oo lala biiriyo riding-ka weyn, waxay ku shaqaynaysay iyada oo aan lahayn xog cod juquraafi ah bulshooyinkaasiyo. Guddidu ugu dambeyntii waxay ilaaliyay qaybta — kadib 80+ soo gudbin dadweyne, oo badan ka timid bulshooyinka Ahlulbaytiga ee qaybta waqooyiga ee riding-ka — iyaga oo ku tiirsanaaya sharciga gobolka oo u oggolaada riding-yada ay joogaan Beelaha Hore iyo degmooyinka Métis inay leeyihiin dadnimo ka yar celceliska gobolka. Waxay soo gaareen. Laakiin xogtay la shaqaynayeen ma aysan muujin cidda cod ku tuureysa bulshooyinka ay go\'aansan karaan in la ilaaliyo.',
+				'Marka guddidu marka hore tixgalisay in la baabbi\'iyo qaybta Lesser Slave Lake oo lala biiriyo riding-ka weyn, waxay ku shaqaynaysay iyada oo aan lahayn xog cod juquraafi ah bulshooyinkaasiyo. Guddidu ugu dambeyntii waxay ilaaliyay qaybta — kadib 80+ soo gudbin dadweyne, oo badan ka timid bulshooyinka Ahlulbaytiga ee qaybta waqooyiga ee riding-ka — iyaga oo ku tiirsanaaya sharciga gobolka oo u oggolaada riding-yada ay joogaan Beelaha Hore iyo degmooyinka M&#233;tis inay leeyihiin dadnimo ka yar celceliska gobolka. Waxay soo gaareen. Laakiin xogtay la shaqaynayeen ma aysan muujin cidda cod ku tuureysa bulshooyinka ay go\'aansan karaan in la ilaaliyo.',
 			ebca_label: 'QAYBTA 15(2) EBCA',
 			ebca_body:
 				"Qaybta 15(2) ee <em>Sharciga Guddida Xudduudaha Doorashada</em> ee Alberta waa xukun ikhtiyaari ah oo u oggolaada guddiyada inay ilaaliyaan riding-yada yaryar — kuwa ka yar 25% hooseysa celceliska dadnimada gobolka — marka riding-ku buuxiyo ugu yaraan saddex ka mid ah shanta shuruudood ee gaar ah: (a) aag juquraafi oo ka badan 20,000 km², (b) masaafo ka badan 150 km Dhismaha Golaha Sharci dejinta ee wadada tooska ah ee ugu dhow, (c) manaaqiyad magaalo kasta oo ka badan 8,000 deggan, (d) joogitaanka kayd Hindiya ama dejin Métis, iyo (e) in riding-ku uu la guuriyo xuduud gobolka Alberta. Xukunku ma aha toos; guddidu waa in ay u xukumto in shuruudaha la buuxinayo. Lesser Slave Lake si madax-bannaan wuxuu buuxinayaa afarta ka mid ah shanta.",
 			rationale_p1:
-				"Sababta ku meel-gaarka ah ee baabbi'inta riding-ka waxay ahayd dadnimada: qiyaastii 27,000 deggan, Lesser Slave Lake wuxuu ku taallaa qiyaastii 45% hooseysa celceliska gobolka, oo u dhowaaday dabaqada sharciga. Kani waxay u muuqataa codsi toos ah oo xeerarka. Ma aha. Sharciga Alberta wuxuu siiyaa guddiyada ikhtiyaar cad si ay u ilaaliyaan riding-yada yaryar marka ugu yaraan saddex ka mid ah shanta shuruudood ee gaar ah ay dabaqmaan, Lesser Slave Lake-na wuxuu buuxinayaa afar si madax-bannaan. Aaggiisa waa 69,566 km² (shuruudda a, xadka 20,000 km²). Xuduudiisa ugu dhow waa ka badan 150 km Golaha Sharci dejinta wadada toosan (shuruudda b). Magaalo riding-ka ku jirta ma lahan dadnimo ka badan 8,000 (shuruudda c). Riding-kuna wuxuu ku jiraa afar iyo toban kayd Hindiya iyo degmooyin Métis oo bulshooyinkoodu wadaagaan juquraafi waqooyiga ah oo caadi ah, ku tiirsanaanta polling-ka guuraysa si ay u codeyaan, iyo danaha wadajirka ah ee la leenahay wakiil si ugu horreyso waqooyiga Alberta (shuruudda d).",
+				"Sababta ku meel-gaarka ah ee baabbi'inta riding-ka waxay ahayd dadnimada: qiyaastii 27,000 deggan, Lesser Slave Lake wuxuu ku taallaa qiyaastii 45% hooseysa celceliska gobolka, oo u dhowaaday dabaqada sharciga. Kani waxay u muuqataa codsi toos ah oo xeerarka. Ma aha. Sharciga Alberta wuxuu siiyaa guddiyada ikhtiyaar cad si ay u ilaaliyaan riding-yada yaryar marka ugu yaraan saddex ka mid ah shanta shuruudood ee gaar ah ay dabaqmaan, Lesser Slave Lake-na wuxuu buuxinayaa afar si madax-bannaan. Aaggiisa waa 69,566 km² (shuruudda a, xadka 20,000 km²). Xuduudiisa ugu dhow waa ka badan 150 km Golaha Sharci dejinta wadada toosan (shuruudda b). Magaalo riding-ka ku jirta ma lahan dadnimo ka badan 8,000 (shuruudda c). Riding-kuna wuxuu ku jiraa afar iyo toban kayd Hindiya iyo degmooyin M&#233;tis oo bulshooyinkoodu wadaagaan juquraafi waqooyiga ah oo caadi ah, ku tiirsanaanta polling-ka guuraysa si ay u codeyaan, iyo danaha wadajirka ah ee la leenahay wakiil si ugu horreyso waqooyiga Alberta (shuruudda d).",
 			rationale_p2:
 				"Hoos wadaagista Mackenzie ee la soo jeediyay, codka wadajirku si joogto ah wuxuu ku nuugi lahaa riding ka halka xisbiga kale uu ku guulaysto in ka badan laba meel saddex ah, ma aha maxaa yeelay bulshooyinkaas wax beddeli jiray balse maxaa yeelay khadadka ku hareereysan wax beddeli jireen. Mid kasta oo afarta shuruudood kaas ka mid ah waa xaqiiq shay ah oo ku saabsan juquraafiga riding-ka, ma aha xukum ah. Wadajirku waxay sharaxayaan bulsho oo xukunkii looga qoray si loo ilaaliyo: fog, weyn, yar dadnimadeed, oo ku jira bulshooyinka danaha matalaadda aanay ku qoran karin tirooyinka dadnimada caadiiga ah. Waxaad u baahan tahay saddex si aad u qalmo; Lesser Slave Lake wuxuu leeyahay afar. Dhagaynta yaraanshaha dadnimada sidii ay ku qasbaysay baabbi'inta waxay khalad ku akhrin kartaa xeerka. Ka noqoshada guddidu waxay ahayd codsi saxda ah ee sharciga, ma aha midho siyaasadeed.",
 			banff_p:
@@ -706,6 +780,7 @@ export default {
 			help_title: 'Sida loo isticmaalo khariidadda',
 			pin_aria: 'Xidh Khariidadda',
 			pin_title: 'Xidh Khariidadda — ka hortag auto-pan marka la gujin degmada',
+			search_aria: 'Hel degmo doorasho',
 			search_placeholder: 'Raadi degmo…',
 			zoom_aria: 'Zooming khariidadda',
 			clear_aria: 'Nadiifi xulashada degmada',
@@ -775,6 +850,115 @@ export default {
 			code_label: 'Kood:',
 			translation_label: 'Turjumaadaha:',
 			translation_credit: 'Anthropic Fable 5 (AI) — sugeysa dib-u-eegis qof af-hoosiis ah'
+		}
+	},
+	explorer: {
+		controls: {
+			panel_title: 'Xakamayaha khariidadda',
+			close_aria: 'Xidh khariidadda',
+			map_version_hdr: 'Nooca khariidadda',
+			map_version_hint: '· guji si aad u beddesho',
+			map_toggle_title: 'Beddel khariidaddan dami/shidid',
+			map_minority: 'Inta yar',
+			map_majority: 'Inta badan',
+			map_2019: '2019',
+			map_minority_short: 'Yar',
+			map_majority_short: 'Badan',
+			map_2019_short: '’19',
+			search_placeholder: 'Raadi degmo…',
+			search_aria: 'Raadi degmooyinka',
+			search_clear_aria: 'Nadiifi raadinta',
+			search_in: 'gudaha {ed}',
+			zoom_aria: 'Zooming',
+			res_prefix: '1 pixel ≈',
+			overlays_hdr: 'Dul-saarrada Danta Bulshada',
+			layer_highways: 'Waddooyinka waaweyn',
+			layer_water: 'Webiyada & harooyinka',
+			layer_annotations: "EBC '26 Annotations",
+			mobile_map_version_aria: 'Nooca khariidadda',
+			mobile_search_aria: 'Raadi degmooyinka',
+			mobile_layers_aria: 'Lakabyada khariidadda',
+			mobile_info_aria: 'Ku saabsan khadadka xudduudaha',
+			mobile_share_aria: 'La wadaag aragtidan',
+			mobile_close_aria: 'Xidh khariidadda',
+			lang_aria: 'Beddel luuqadda',
+			lang_hdr: 'Luuqad',
+			lines_note_title: 'Akhrinta khadadka',
+			lines_note_lead: 'Qaab kasta oo cajiib ah ama khad kala-qaybin ah waa',
+			lines_note_emphasis: 'doorasho ula kac ah oo guddidu',
+			lines_note_tail:
+				'— ma aha khalad xog. Khadadku waxay raacaan cidhifyada aagagga codbixinta; halka laba khariidadood isku raacaan waxay ku saaran yihiin isla khadka, halka ay kala tagaanna soo jeedimuhu dhab ahaan way kala duwan yihiin.'
+		},
+		share: {
+			button: 'La wadaag aragtidan',
+			heading: 'La wadaag aragtidan',
+			copy: 'Koobi link-ga',
+			copied: 'La koobiyay',
+			help: 'Link-gani wuxuu qabsadaa khariidaddaada hadda, dul-saarrada, iyo aragtida.',
+			open_heading: 'Fur link la wadaagay',
+			open_placeholder: 'Ku dhaji link la wadaagay…',
+			open_btn: 'Fur',
+			err_empty: 'Ku dhaji link la wadaagay',
+			err_invalid: 'Ma aha link la wadaagay oo sax ah'
+		},
+		tip: {
+			total_votes: 'wadarta codadka',
+			poll: 'Goob #{id} · codad qof-ahaaneed',
+			ucp_pct: 'UCP {u}%',
+			ndp_pct: 'NDP {n}%',
+			unassigned: '(aan loo qoondayn)',
+			where_in: 'gudaha {community}',
+			where_near: 'agagaarka {community}',
+			note_sparse:
+				'Aag dad yar ku nool — codad yar oo halkan laga dhiibtay awgood, midabku wuxuu u dhowaadaa saldhigga dhexdhexaadka ah ee khariidadda.',
+			note_no_votes:
+				'Cod lama diiwaan-gelin halkan, sidaa darteed aaggani wuxuu muujiyaa midabka dhexdhexaadka ah ee khariidadda.',
+			no_one_title: 'Halkan qofna kuma codeeyo',
+			no_one_body:
+				'Qaybin codbixin ma daboosho meeshan — qofna lama diiwaan-gelin inuu halkan ku nool yahay ama ku codeeyo, sidaa darteed waxay sii ahaanaysaa midabka dhexdhexaadka ah ee khariidadda.',
+			flag_link: 'Guji si aad u soo dhoweyso'
+		},
+		miller: {
+			title: 'Miller — kursi miyi oo dib loo soo celiyay',
+			body: 'Aaggani wuxuu khariidadda ku jiraa Garsoore Dallas Miller awgiis, guddoomiyaha guddida. Lifaaq uu ku daray warbixinta kama-dambaysta ah, wuxuu qoray in haddii Golaha Sharci dejintu uusan aqbali doonin gooyitaanka laba riding oo miyi ah, ay tahay inuu beddel ku daro laba kursi — oo uu ka tago 89 ilaa 91 — oo dib u soo celiyo. Wuxuu tilmaamay meeshan, agagaarka degmooyinka Clearwater iyo galbeedka Mountain View ee galbeedka Red Deer, inay tahay halka mid ka mid ah kursiyadaas miyiga ah uu aadi lahaa. Waxa laga sawiray khadadka degmada sida meel-ku-meel ah, ma aha xuduud rasmi ah, ilaa guddida xigta ay dib u sawirto khariidadda.'
+		},
+		flags: {
+			'banff-town': {
+				title: 'Banff — magaalada laga gooyay beeyada',
+				body: 'Banff waxay ku taal beey qaran federaal ah, sida jasiirad magaalo yar. Inta yar waxay magaalada la kooxeysaa Canmore — magaalada xigta ee Bow Valley — ee "Canmore-Kananaskis," waxayna ka tagaa beeyada aan la deganayn sida riding-ka qaada magaca Banff. Xuduudku wuxuu duubaa magaalada maxaa yeelay waa meesha kaliya ee dad ku nool yihiin mayl badan. Waxay u eg tahay khalad, laakiin waxay raacdaa juquraafi dhab ah.'
+			},
+			'banff-park': {
+				title: 'Waqooyiga Banff — "Rocky Mountain House–Banff Park"',
+				body: '"Rocky Mountain House–Banff Park" waa mid ka mid ah riding-yada la soo jeediyay ee inta yar, oo inta badan ka kooban beey qaran oo aan la deganayn; magaalada Banff waxay ku taal riding deris ah oo koonfur ah. Inta yar waxay ku dabaqday xukunka dadnimo-yar ee Sharciga Guddida Xudduudaha Doorashada riding-kan — doorasho uu guddoomiyaha guddidu kaga hadlay warbixinta kama-dambaysta ah.'
+			},
+			'airdrie-split': {
+				title: 'Airdrie — afar jeexan',
+				body: 'Korriinka Airdrie iyo safarkeeda Calgary (qiyaastii 76% ka mid ah kuwa dibadda u shaqeeya) waxay xidhi karaan hal kursi cusub oo Airdrie-agagaareed — nooca xogtu taageerto. Inta yar waxay taas beddelkeeda magaalada ku kala qaybisaa afar riding; xisaabta dadnimadu uma baahna, soo gudbinna ma soo jeedin. Tijaabada saxeexa-jeexitaanka ee hubinta kala-qaybintan afarta-jaho waxay buuxisaa shuruud kasta — dadka Airdrie waxay ku dhammaadaan tiro yar afarta riding oo dhan, oo aan jirin kursi ay magaaladu xakameyso — halka kala-qaybinta laba-jaho ee inta badan aanay midna muujin. Tani waa kala-qaybin bulsho, oo aan u muuqan tijaabooyinka caddaaladda xisbiyeed; hubintu waxay cabbirtaa saamaynta qaab-dhismeed, ma aha niyada. (Acadeemig §5.3.2.)'
+			},
+			'nolan-hill-cochrane': {
+				title: 'Calgary-Nolan Hill–Cochrane',
+				body: 'Safarka Cochrane ee Calgary wuxuu xaqiijin karayey in lala xidho magaalada — laakiin xogta safar-shaqo ee 2021 waxay flow-kaas ku faafisaa magaalada oo dhan (qiyaastii saddex-meelood codbixiyayaasha; kalabar gudaha Cochrane ayaa shaqeeya) mana tilmaamayso Nolan Hill. Corridor-ka cidhiidhsan ee inta yar ee ku aada ward-ka Nolan Hill — qaabka uu guddoomiyuhu ugu yeedhay lasso — wuxuu gaadhaa ka fog xogta, soo gudbinna ma soo jeedin. Hubintu waxay tan u akhrida jeexitaan-u-dhow: waxay nuugtaa codka Cochrane, laakiin Cochrane (qiyaastii 34,000) aad bay u yar tahay kursi u gaar ah, sidaa darteed way ka joogsataa calaamad jeexitaan rasmi ah. (Acadeemig §5.3.2.)'
+			},
+			'olds-airdrie-reach': {
+				title: 'Olds–Three Hills–Didsbury — gaadhitaanka Airdrie',
+				body: 'Riding miyi ah oo haya magaalooyinka Waddada 2 — Olds, Didsbury, Three Hills — wadajir si fiican ayaa loo taageeray; dadka Beiseker-agagaareed ayaa qoray taageero. Waxay ku sii jiri kartay bulshooyinkaas gudahooda. Nooca inta yar wuxuu taas beddelkeeda koonfur u gaadhaa cidhifka woqooyi ee Airdrie, balaadhin aan xisaabta dadnimadu u baahnayn. Gaadhitaanku waa qayb ka mid ah sida kala-qaybinta afarta-jaho ee Airdrie u shaqeyso — qayb kasta oo Airdrie ah oo lagu daro kursi miyi oo ka weyn — taas oo hubintu u akhrido qayb ka mid ah qaabka jeexitaanka. (Acadeemig §5.3.2.)'
+			},
+			chestermere: {
+				title: 'Chestermere — u kala qaybsan laba riding',
+				body: 'Safarka culus ee Chestermere ee Calgary (86% ka mid ah kuwa dibadda u shaqeeya) wuxuu taageeri karayey in la sii hayo oo magaalada loo dhoweeyo — taas oo dadka ka soo horjeeday ku-biiritaanka Calgary ay sidoo kale rabeen. Inta yar waxay taas beddelkeeda qayb koonfureed ku jeexaysaa degmo Calgary gaar ah oo aanay wadaagin iskuul ama gaadiid, jeexitaankaasna wuxuu ku dhacaa tijaabada dadnimada. Hubintu waxay daadiska degmo Calgary u akhrida jeexitaan-u-dhow — kala-qaybin danta-bulsho oo nuugta codka Chestermere iyada oo aan gaadhin calaamad jeexitaan rasmi ah. (Acadeemig §5.3.2, §5.8.4.)'
+			},
+			'red-deer': {
+				title: 'Red Deer — riding-yada hybrid-ka ah',
+				body: 'Xidhiidhka gobolka ee Red Deer ee Blackfalds, Sylvan Lake, Lacombe iyo Innisfail wuxuu kooxeyn karayey magaalooyinkaas wadajir — xubin golaha magaalada iyo deganeyaal ayaa soo jeediyay hybrid la mid ah. Nooca inta yar wuxuu taas beddelkeeda qaybo magaalada lafteeda ku laabaa riding-yo magaalo-yar ay hoggaaminayaan, oo nuugaya codka Red Deer magaaleed; sababtiisa "iskuulada la wadaago" sidoo kale ma taagna (qaybinta iskuul oo kala duwan). Laabista magaalo riding-yo magaalo-yar ay hoggaaminayaan waa qaabka hubintu u tilmaanto hybridization — oo la jaan-qaadaya jeexitaan, oo gaadha saamaynta xisbiyeed gudaha riding-yada hybrid-ka ah halkii ay ka dhex gaadhi lahayd. (Acadeemig §5.3.5.)'
+			},
+			'st-albert': {
+				title: 'St. Albert — qaabab iska tartamaya',
+				body: 'Nooca khariidad kasta ee St. Albert wuxuu ku saleysnaan karaa aasaas macquul ah. Hubintu si fudud waxay heshay soo gudbin aan taageereyn beddelka gaarka ah ee inta yar — maadaama muwaadiniinta naadiroobto ay magacaabaan xudduudaha saxda ah ee guddida, waxay caddaynta halkan u akhrida mid khafiif ah, oo aan si cad u taageereyn ama ka soo horjeeneyn.'
+			},
+			'calgary-zone-a-packing': {
+				title: 'Waqooyi & bari Calgary — calaamad urursi',
+				body: 'Guddoomiyaha guddidu midkan ma uusan calaamadayn — xisaabta hubinta lafteeda ayaa sameysa. Waqooyi iyo bari Calgary (hubinta "Zone A," waqooyi iyo bari Webiga Bow), degmooyinka khariidadda inta yar waxay ka weyn yihiin celceliska gobolka qiyaastii 11.5%, marka loo eego 2.8% khariidadda inta badan. Urursi macnaheedu waa ku urursida codbixiyayaasha hal dhinac degmooyin yar oo ka weyn, sidaa darteed kaadi kastoodu wax yar bay miisaamaan; Zone A waa NDP-tartan, 13 ka mid ah 17 degmo waxaa ku guulaystay NDP 2023. Hubintu waxay cabbirtaa saamaynta qaab-dhismeed, ma aha niyada. (Acadeemig §5.3.1.)'
+			}
 		}
 	}
 } as const;

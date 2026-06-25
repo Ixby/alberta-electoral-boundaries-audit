@@ -18,6 +18,7 @@
   import { hasWebGL } from '$lib/deckExplorer/webglSupport';
   import { FLAGS } from '$lib/deckExplorer/pois';
   import { pageview } from '$lib/analytics';
+  import { SUPPORTED_LANGS } from '$lib/i18n/store.svelte';
 
   let ready = $state(false);
   let webgl = $state(true);
@@ -44,10 +45,10 @@
 <div class="explorer-root">
   {#if webgl}
     {#if ready}
-      <!-- Only the locales whose explorer interface is fully translated are offered
-           (English + French for now); add more as their explorer.* keys land. The
-           language switcher is integrated into DeckExplorer's control bar/panel. -->
-      <DeckExplorer base={base} initialPoi={poi} onClose={goHome} langs={['en', 'fr']} />
+      <!-- All supported locales are offered — every explorer.* key is translated
+           across the full locale set. The language switcher is integrated into
+           DeckExplorer's control bar/panel. -->
+      <DeckExplorer base={base} initialPoi={poi} onClose={goHome} langs={SUPPORTED_LANGS} />
     {/if}
   {:else}
     <div class="nowebgl">

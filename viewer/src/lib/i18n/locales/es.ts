@@ -8,6 +8,40 @@ export default {
 	selector: {
 		label: 'Elegir idioma'
 	},
+	verdict: {
+		headline: 'Alberta está redibujando su mapa electoral.',
+		p_what: 'De vez en cuando la provincia redibuja sus distritos — las zonas locales que eligen cada una a un MLA. Dónde caen las líneas decide con quién vota usted, y quién lo representa en la Legislatura.',
+		p_split: 'Esta vez, el panel encargado del retrazado se dividió. Produjo dos mapas rivales — y esta auditoría pone a prueba ambos.',
+		p_question: 'Probamos ambos mapas con una sola pregunta: ¿está alguno de los dos diseñado para favorecer a un partido — aunque nadie se haya propuesto hacerlo?',
+		p_answer: 'Uno de los dos lo está. El otro luce normal.',
+		p_howfar: 'Una computadora trazó 1.01 millones de versiones legales del mapa al azar. Uno de los dos mapas reales es más unilateral que todos salvo aproximadamente 1 de cada 350,000 de ellos, a favor del UCP. El otro se sitúa en el rango normal.',
+		aside_pre: 'A un mapa con esa forma usted podría llamarlo un ',
+		aside_post: '. Esa palabra no tiene significado legal en Canadá, así que no la usamos como veredicto. Le mostramos lo que el mapa hace; usted juzga. Para las capas más profundas — qué exige realmente la ley, y exactamente cómo ejecutamos la prueba — vea ',
+		box_heading: 'Lo que podemos y no podemos decir',
+		box_can_1: 'El mapa minoritario queda fuera de lo que producen 1.01 millones de mapas neutrales, en la dirección favorable al UCP.',
+		box_can_2: 'Las cuatro medidas de equidad partidista apuntan en el mismo sentido.',
+		box_cant_1: 'Que algún comisionado lo haya pretendido — la auditoría lee resultados, no motivos.',
+		box_cant_2: 'Que el mapa “sea” un gerrymander — esa no es una categoría que el derecho canadiense reconozca.',
+		box_cant_3: 'Cómo fallaría un tribunal, ni qué elegirá el comité.',
+		law_link: 'Derecho',
+		methods_link: 'Métodos'
+	},
+	why_redrawn: {
+		heading: 'Por qué ocurre esto — y por qué le concierne a usted',
+		p1: 'Alberta está dividida en 87 distritos. Cada uno elige a un solo MLA para la Legislatura. Su distrito decide quién es esa persona, qué vecindarios se agrupan con el suyo, y de quién escucha primero las preocupaciones su MLA.',
+		p2: 'Las líneas no permanecen fijas. A medida que la gente se muda y las ciudades crecen, algunos distritos terminan con muchos más votantes que otros, así que la provincia redibuja el mapa cada pocos años para mantenerlos aproximadamente parejos. Un panel de comisionados hace el trazado, trabajando a partir de reglas establecidas en la ley: los distritos tienen que ser cercanos en población, mantenerse en una sola pieza y conservar juntas a las comunidades reales donde se pueda.',
+		p3: 'Ese es el proceso normal. Esta vez se quebró. Los comisionados no pudieron ponerse de acuerdo, y se dividieron en dos bandos, cada uno con su propio mapa. Luego un comité de MLA dejó de lado ambos mapas y empezó a trazar el suyo, más grande. Que un comité legislativo anule así a la comisión es algo raro.',
+		p4: 'Una línea en un mapa decide de qué cuenta el voto de cada quien. Puede mantener juntos a los votantes de una comunidad, o dispersarlos entre varios distritos donde sus números ya no suman gran cosa. Puede mantener algunas contiendas reñidas y poner otras fuera de alcance. Nada de eso se ve en la superficie; lo fija el lugar por donde caen los límites.'
+	},
+	two_maps: {
+		heading: 'Dos mapas — y quién los trazó',
+		p1: 'Cuando la comisión se dividió, no produjo un mapa con un voto disidente adjunto. Produjo dos mapas completos y rivales. Ambos son legales. Simplemente trazan las líneas de manera distinta.',
+		p2: 'Una comisión de límites tiene cinco miembros. El Presidente del Tribunal de Alberta nombra al presidente — el asiento neutral, ocupado aquí por Dallas K. Miller, exjuez del Tribunal del Banco del Rey. El partido en el gobierno nombra a dos miembros; la oposición nombra a dos.',
+		p3: 'Esta comisión se dividió tres contra dos. El presidente y los dos miembros nombrados por la oposición respaldaron un mapa — el informe mayoritario, porque la mayoría de la comisión lo firmó. Los dos miembros nombrados por el gobierno respaldaron el otro — el informe minoritario.',
+		p4: 'El mapa que la auditoría señala como el más unilateral es el informe minoritario — el que trazaron los dos miembros nombrados por el gobierno. La auditoría no puede mostrar si lo pretendían, y no lo intenta. Muestra lo que el mapa hace.',
+		p5: 'El mapa de portada en la parte superior de esta página le permite compararlos usted mismo. Alterne entre las dos propuestas y el mapa actual, encuentre su propio distrito, y observe qué vecindarios se agrupan o se separan.',
+		p6: 'Un comité de MLA ha dejado desde entonces ambos mapas de lado para trazar el suyo, previsto para más adelante en 2026 — un movimiento que este sitio examina en la página de Derecho. Estos dos siguen siendo el caso de prueba más claro de la auditoría, y las mismas pruebas se aplicarán a lo que el comité produzca.'
+	},
 	disclaimer: {
 		text:
 			'Este sitio ha sido traducido por IA. Es posible que parte del contenido todavía aparezca en inglés mientras las traducciones están en curso. Si nota errores o quisiera ayudar a traducir este proyecto, por favor %s.',
@@ -39,7 +73,7 @@ export default {
 		q3: {
 			heading: '¿Qué está en juego para los albertanos?',
 			body:
-				'Con un voto provincial de 50/50, las mediciones de la auditoría sitúan la propuesta minoritaria en un extremo estructural: menos de 100 de los 1.01 millones de mapas neutrales de comparación producen el mismo tipo de desequilibrio de escaños. Ese desequilibrio importa porque con 58 de 87 escaños (una supermayoría de dos tercios) el partido gobernante desbloquea poderes procedimentales extraordinarios. Puede dispensar los plazos de aviso estándar e impulsar proyectos de ley públicos a través de múltiples etapas legislativas en un solo día, eludiendo los controles deliberativos en los que la Legislatura normalmente se apoya. Si la inclinación de la propuesta minoritaria es lo bastante grande como para empujar a un partido más allá de ese umbral de 58 escaños con porcentajes de voto <em>distintos</em> de 50/50 es una pregunta que esta auditoría aún no ha puesto a prueba. Si ese desequilibrio es aceptable es una pregunta para los albertanos, no para esta auditoría.'
+				'Con un voto provincial de 50/50, las mediciones de la auditoría sitúan la propuesta minoritaria en un extremo estructural: menos de 100 de los 1.01 millones de mapas neutrales de comparación producen el mismo tipo de desequilibrio de escaños. Ese desequilibrio importa porque con 60 de 89 escaños (una supermayoría de dos tercios) el partido gobernante desbloquea poderes procedimentales extraordinarios. Puede dispensar los plazos de aviso estándar e impulsar proyectos de ley públicos a través de múltiples etapas legislativas en un solo día, eludiendo los controles deliberativos en los que la Legislatura normalmente se apoya. Si la inclinación de la propuesta minoritaria es lo bastante grande como para empujar a un partido más allá de ese umbral de 60 escaños con porcentajes de voto <em>distintos</em> de 50/50 es una pregunta que esta auditoría aún no ha puesto a prueba. Si ese desequilibrio es aceptable es una pregunta para los albertanos, no para esta auditoría.'
 		},
 		cta_law: 'Lea el contexto legal →',
 		cta_methods: 'Vea cómo lo probamos →',
@@ -75,6 +109,9 @@ export default {
 		theme_title: 'Alternar modo oscuro',
 		nav_aria: 'Abrir tabla de contenidos',
 		drawer_top: '↑ Arriba',
+		route_story: 'Relato',
+		route_law: 'Derecho',
+		route_methods: 'Métodos',
 		// Compact landmarks shown on the sticky bar
 		stakes: 'En juego',
 		findings: 'Hallazgos',
@@ -109,6 +146,7 @@ export default {
 	},
 	hero: {
 		h1: 'Auditoría de los Límites Electorales de Alberta',
+		draft: '(BORRADOR NO PUBLICADO — se agradecen revisores)',
 		subtitle:
 			'La comisión de Alberta produjo dos mapas de distritos en 2026. Esta auditoría los comparó — con las mismas pruebas, aplicadas por igual a ambos — para preguntar si tratan a los votantes de la misma manera.',
 		badge: 'Mapas oficiales de Elections Alberta — publicados en mayo de 2026',
@@ -182,7 +220,7 @@ export default {
 			'La auditoría no propone quitarle escaños a la Alberta rural. Pregunta si las líneas respetan a las comunidades rurales que esos escaños deben representar, o si la geografía rural está siendo usada como lastre para absorber votos urbanos en distritos cuyo centro está en otra parte. Si usted vive en una de esas colas rurales, la pregunta de qué mapa se promulga decide si su MLA representa a la comunidad rural en la que usted realmente vive, o a un distrito urbano cuyas líneas casualmente incluyen su tierra.',
 		province_h: 'Su provincia.',
 		province_p:
-			'La Legislatura es lo que se obtiene al sumar las respuestas de cada distrito a las tres preguntas de arriba. Si la mayoría de los distritos están anclados a comunidades en las que sus MLA realmente viven, la Legislatura representa a esas comunidades. Si la mayoría de los distritos tienen colas rurales adjuntas a cabezas urbanas, la Legislatura representa a las cabezas — y las colas reciben la atención que sobra. La pregunta partidista — qué partido gana la mayoría — está aguas abajo de eso. La pregunta de la supermayoría — si un partido cruza 58 de 87 escaños y desbloquea atajos procedimentales como dispensar plazos de aviso o acelerar proyectos de ley a través de múltiples etapas en un solo día — está aguas abajo de <em>eso</em>. Con una división provincial hipotética de 50/50, las mediciones de la auditoría sitúan la propuesta minoritaria en un extremo estructural: menos de 100 de los 1.01 millones de mapas neutrales de comparación producen el mismo tipo de desequilibrio de escaños. Si ese desequilibrio empuja a un partido más allá de los 58 escaños con los porcentajes de voto que los albertanos realmente entregan es una pregunta que esta auditoría aún no ha probado directamente; las preguntas iniciales en la parte superior de esta página son honestas sobre esa brecha. Si la respuesta a cualquiera de estas preguntas importa lo suficiente como para actuar es, de nuevo, una pregunta para usted.'
+			'La Legislatura es lo que se obtiene al sumar las respuestas de cada distrito a las tres preguntas de arriba. Si la mayoría de los distritos están anclados a comunidades en las que sus MLA realmente viven, la Legislatura representa a esas comunidades. Si la mayoría de los distritos tienen colas rurales adjuntas a cabezas urbanas, la Legislatura representa a las cabezas — y las colas reciben la atención que sobra. La pregunta partidista — qué partido gana la mayoría — está aguas abajo de eso. La pregunta de la supermayoría — si un partido cruza 60 de 89 escaños y desbloquea atajos procedimentales como dispensar plazos de aviso o acelerar proyectos de ley a través de múltiples etapas en un solo día — está aguas abajo de <em>eso</em>. Con una división provincial hipotética de 50/50, las mediciones de la auditoría sitúan la propuesta minoritaria en un extremo estructural: menos de 100 de los 1.01 millones de mapas neutrales de comparación producen el mismo tipo de desequilibrio de escaños. Si ese desequilibrio empuja a un partido más allá de los 60 escaños con los porcentajes de voto que los albertanos realmente entregan es una pregunta que esta auditoría aún no ha probado directamente; las preguntas iniciales en la parte superior de esta página son honestas sobre esa brecha. Si la respuesta a cualquiera de estas preguntas importa lo suficiente como para actuar es, de nuevo, una pregunta para usted.'
 	},
 	editorial_history: {
 		heading: 'Contexto: una breve historia del gerrymandering',
@@ -223,7 +261,7 @@ export default {
 		gerrymander: {
 			term: 'Gerrymander',
 			definition:
-				'Un mapa trazado para que un partido político gane más escaños de los que su proporción del voto sugeriría. La palabra viene de un distrito de Massachusetts de 1812 con forma de salamandra. No es un término legal en Canadá, pero el concepto se estudia ampliamente.'
+				'Un apodo estadounidense para un mapa electoral trazado para favorecer a un partido. No tiene significado legal en Canadá — ningún tribunal ni ley lo usa — así que este sitio nunca lo usa como veredicto.'
 		},
 		cracking: {
 			term: 'Fragmentación (cracking)',
@@ -273,7 +311,32 @@ export default {
 		ebca: {
 			term: 'EBCA',
 			definition:
-				'La Alberta Electoral Boundaries Commission Act (Ley de la Comisión de Límites Electorales de Alberta) — la ley que rige cómo se trazan los límites electorales en la provincia. Establece la comisión, el proceso de audiencias públicas y las reglas sobre cuándo entra en vigor un nuevo mapa.'
+				'La Electoral Boundaries Commission Act (Ley de la Comisión de Límites Electorales) — la ley de Alberta que fija las reglas que un nuevo mapa debe seguir, incluyendo cuánto pueden variar las poblaciones de los distritos.'
+		},
+		ensemble: {
+			term: 'La prueba de 1.01 millones de mapas',
+			definition:
+				'Una computadora trazó 1.01 millones de mapas legales de Alberta al azar, todos siguiendo las mismas reglas. Un mapa real cuenta como inusual cuando queda fuera de lo que producen casi todos estos mapas neutrales.'
+		},
+		efficiency_gap: {
+			term: 'Brecha de eficiencia',
+			definition:
+				'Una medida de los votos "desperdiciados" — los votos que exceden lo que un candidato necesitaba para ganar, más cada voto por un perdedor — comparada entre los dos partidos. Una brecha grande apunta a un mapa unilateral.'
+		},
+		mean_median: {
+			term: 'Brecha media-mediana',
+			definition:
+				'La brecha entre la proporción de voto promedio de un partido a través de los distritos y su distrito intermedio (mediano). Una brecha grande sugiere que sus votantes están repartidos de una manera que desperdicia votos.'
+		},
+		declination: {
+			term: 'Declinación',
+			definition:
+				'Una medida de qué tan desigualmente gana cada partido sus escaños — por palizas o por apuros. En el mapa minoritario apunta en el mismo sentido que las demás medidas (hacia el partido gobernante) tras una corrección de signo de junio de 2026.'
+		},
+		seats_5050: {
+			term: 'Escaños en empate',
+			definition:
+				'Cuántos escaños ganaría cada partido si la provincia dividiera su voto exactamente 50-50. Descarta quién ganó realmente y prueba la inclinación incorporada del mapa.'
 		},
 		fsa: {
 			term: 'Área de clasificación postal (FSA)',
@@ -325,7 +388,7 @@ export default {
 			t2_col_a: 'Mapa',
 			t2_col_b: 'Brecha de eficiencia',
 			t2_col_c: 'Media-mediana',
-			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="La declinación mide la diferencia angular entre la curva escaños-votos de cada partido. Los valores negativos favorecen al UCP; los positivos favorecen al NDP.">Declinación</a>',
+			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="La declinación mide la diferencia angular entre la curva escaños-votos de cada partido. Los valores negativos favorecen al NDP; los positivos favorecen al UCP.">Declinación</a>',
 			t2_col_e: 'Escaños al 50/50',
 			t2_r1_a: 'Mayoritario 2026',
 			t2_r1_b: '+0.1% (p15.5)',
@@ -337,7 +400,7 @@ export default {
 			t2_r2_c: '<strong>+1.0% (p99.98)</strong>',
 			t2_r2_d: '<strong>+0.077 (p98.8)</strong>',
 			t2_r2_e: '<strong>51.7% (p99.99)</strong>',
-			sub1_close: 'El mapa mayoritario se sitúa cómodamente dentro del rango normal en tres de las cuatro métricas. Su media-mediana se sitúa en p2 en la dirección favorable al NDP — un resultado inusual pero que apunta en el sentido equivocado para ayudar al UCP. La estrecha adhesión del mapa mayoritario a los límites municipales coloca los núcleos urbanos con fuerte voto NDP en sus propios distritos compactos, donde los votos NDP ganan por márgenes eficientes mientras que las victorias rurales del UCP tienden a ser por márgenes mayores; esa leve ventaja estructural de eficiencia del NDP es lo que aparece en la medida media-mediana. El mapa minoritario está en la cola en las cuatro, cada una apuntando en la misma dirección partidista.',
+			sub1_close: 'El mapa mayoritario se sitúa cómodamente dentro del rango normal en tres de las cuatro métricas. Su media-mediana se sitúa en p1 (= p0.92) en la dirección favorable al NDP — un resultado inusual pero que apunta en el sentido equivocado para ayudar al UCP. La estrecha adhesión del mapa mayoritario a los límites municipales coloca los núcleos urbanos con fuerte voto NDP en sus propios distritos compactos, donde los votos NDP ganan por márgenes eficientes mientras que las victorias rurales del UCP tienden a ser por márgenes mayores; esa leve ventaja estructural de eficiencia del NDP es lo que aparece en la medida media-mediana. El mapa minoritario está en la cola en las cuatro, cada una apuntando en la misma dirección partidista.',
 			sub2_h: 'El punto de inflexión al 50/50: menos de 100 de 1,010,000 mapas neutrales lo alcanzan',
 			sub2_p: 'La métrica del punto de inflexión presentada arriba — escaños UCP con un voto provincial de 50/50 — es la manera más intuitiva de comparar los tres mapas.',
 			t3_col_a: 'Mapa',
@@ -354,16 +417,18 @@ export default {
 			t3_r3_c: '<strong>Percentil 99.99 — menos de 100 de 1,010,000 extracciones neutrales lo alcanzan</strong>',
 			sub2_close: 'Menos de 100 de 1,010,000 mapas neutrales de Alberta simulados por computadora produjeron un valor de <code>seats@50/50</code> tan alto como el de la propuesta minoritaria. Con base en patrones de voto recientes reales, le otorgaría al UCP 60 escaños (frente a 55 en la propuesta mayoritaria). La propuesta mayoritaria es el tipo de mapa que un procedimiento neutral genera de forma rutinaria. La propuesta minoritaria es el tipo de mapa que hay que proponerse dibujar específicamente.',
 			sub3_h: 'Qué significa esto en lenguaje llano',
-			sub3_p: 'Los shapefiles oficiales revelan un mapa estadísticamente extremo en la misma dirección partidista en tres de las cuatro medidas a la vez. Los dos canales de análisis de equidad partidista comparten datos subyacentes comunes de brecha de eficiencia y no son estadísticamente independientes; combinarlos bajo el método de Fisher sobreestimaría la significancia conjunta. La cota superior conjunta robusta a la dependencia es de aproximadamente uno en 350.000 (Bonferroni; p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Los canales de equidad partidista se clasifican como "exploratorios" en el sentido del §4.3.1 de la auditoría: documentados en el repositorio, pero no preregistrados antes de los datos.',
+			sub3_p: 'La propuesta minoritaria se sitúa en la cola extrema del conjunto de 1,010,000 planes en tres de las cuatro métricas de equidad partidista, con la cuarta (la brecha de eficiencia, +4.0%) en el percentil 94 — <em>cerca, pero por debajo</em>, del umbral preregistrado y calibrado para Alberta del percentil 95. Los dos canales de la prueba conjunta comparten datos subyacentes de brecha de eficiencia y no son estadísticamente independientes, de modo que combinar sus valores p bajo el método de Fisher sobreestima la significancia. La cota superior defendible de una combinación robusta a la dependencia es de aproximadamente <strong>uno en 350,000</strong> (Bonferroni; p&nbsp;≤&nbsp;2.8×10<sup>−6</sup>). Eso sigue siendo un resultado extremo, muy por encima de los umbrales convencionales de significancia — pero se reporta como una cota, no como cuatro instrumentos independientes que coinciden.',
 			details_summary: 'Qué significa este valor p — y qué no',
 			details_p1: 'Un valor p responde una sola pregunta: si el mapa hubiera sido trazado por un proceso neutral, ¿con qué frecuencia veríamos un resultado así de extremo o más? Con la cota robusta a la dependencia p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>, la respuesta es como máximo aproximadamente una vez en 350.000 intentos.',
-			details_p2: 'Esta es una prueba de hipótesis frecuentista, no una medición de intención. No dice que la comisión tuviera la intención de hacer un gerrymander, y no cuantifica qué tan injusto es el mapa en términos prácticos. Dice que el patrón de los límites es estadísticamente inconsistente con un proceso de trazado neutral — la misma conclusión a la que llegaría una auditoría aleatorizada sin importar quién trazó el mapa ni por qué. La distribución de referencia es de 1.010.000 mapas neutrales generados por el algoritmo ReCom, que no impone todos los criterios estatutarios bajo los que trabajó la comisión (niveles del art. 15(2) y restricciones de comunidades de interés) — lo que lo convierte en una sólida verificación externa, no en una prueba de que ningún mapa legalmente conforme de Alberta pudiera alcanzar este número de escaños.',
-			details_p3: 'La batería de pruebas estructurales — población, divisiones, anclaje, compacidad, firmas — fue registrada con marcas de tiempo antes de la recomputación canónica (<a href="https://osf.io/w2s8k" rel="noopener">registro OSF w2s8k</a>). Los canales de equidad partidista (Mahalanobis conjunto, SZAT, combinación Bonferroni) se clasifican como "exploratorios" en el sentido del §4.3.1 de la auditoría: documentados en el repositorio, pero no preregistrados antes de los datos.',
+			details_p2: 'Esta es una prueba de hipótesis frecuentista, no una medición de intención. No dice que la comisión tuviera la intención de hacer un gerrymander, y no cuantifica qué tan injusto es el mapa en términos prácticos. Dice que el patrón de los límites es estadísticamente inconsistente con la distribución de referencia de trazado neutral de ReCom — una sólida verificación externa, pero no perfecta (no impone todos los criterios estatutarios bajo los que trabajó la comisión, p. ej., los niveles del art. 15(2) y las restricciones de comunidades de interés).',
+			details_p3: 'La batería de pruebas estructurales (población, divisiones, anclaje, compacidad, firmas) fue registrada con marcas de tiempo antes de la recomputación canónica. Los canales de sesgo partidista (Mahalanobis conjunto, SZAT, combinación Fisher/Bonferroni) se clasifican como "exploratorios" en el sentido del §4.3.1 de la propia auditoría: documentados en el repositorio, pero no preregistrados antes de los datos. La auditoría reporta cada canal por separado y los combina bajo la cota robusta a la dependencia en lugar de presentarlos como pruebas confirmatorias plenamente independientes.',
 			szat_label: 'PRUEBA DE ASIGNACIÓN DE ZONAS OSCILANTES (SZAT)',
-			super_lead: 'Esto explica por qué la propuesta minoritaria se sitúa en el régimen donde una supermayoría del UCP se vuelve estadísticamente alcanzable en la geografía de Alberta de 2023 — pero el nulo del conjunto no impone todos los criterios estatutarios bajo los que trabajó la comisión, lo que lo convierte en una sólida verificación externa, no en una prueba de que ningún mapa legalmente conforme de Alberta pudiera alcanzar este número de escaños.',
+			szat_body: 'La SZAT se diseñó como un segundo canal analítico: en lugar de preguntar "¿es este mapa extremo en conjunto?", pregunta "¿son las decisiones específicas de las líneas partidistamente neutrales?". Funciona aislando solo las Áreas de Votación donde el mapa de la minoría difiere del de la mayoría — los retrazados en disputa — y probando si esas decisiones particulares, tomadas en conjunto, desplazan la eficiencia del voto en la dirección de un partido. Como compara solo los puntos de divergencia, controla automáticamente todo lo que los dos mapas comparten: la misma geografía, los mismos objetivos de población y las mismas reglas estatutarias. Bajo una prueba de permutación estándar la SZAT devolvió p=0.0024; bajo un nulo de permutación por bloques que corrige la autocorrelación espacial entre Áreas de Votación adyacentes, devolvió p≈0.19 — no significativo. La SZAT se conserva como contexto exploratorio pero no sobrevive como canal confirmatorio. El titular descansa solo en la simulación. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Detalles técnicos →</a>',
+			two_q: '<strong>El resultado de la SZAT.</strong> La simulación de 1,010,000 mapas pregunta: <em>¿es este mapa extremo comparado con mapas neutrales trazados sobre la misma geografía de Alberta?</em> Una segunda prueba — la <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Prueba de Asignación de Zonas Oscilantes</a> — hizo una pregunta distinta: <em>¿son las líneas específicas del mapa partidistamente neutrales?</em> Funciona mirando solo las Áreas de Votación donde la minoría trazó de forma distinta a la mayoría y preguntando si esas decisiones particulares, tomadas en conjunto, desplazaron la eficiencia del voto en la dirección de un partido. Bajo permutación estándar devolvió p=0.0024. Bajo un nulo de permutación por bloques — que corrige la autocorrelación espacial entre Áreas de Votación adyacentes — devolvió p≈0.19. El resultado de permutación por bloques no alcanza la significancia. Por lo tanto, la auditoría reporta solo el resultado de la simulación como titular: una cota superior robusta a la dependencia de <strong>1 en 350,000</strong> (p&nbsp;≤&nbsp;2.8×10<sup>−6</sup>), no una combinación de Fisher de dos canales independientes.',
+			super_lead: 'En una Legislatura de 89 escaños, una supermayoría de dos tercios requiere exactamente 60 escaños. El seats@50/50 de 51.7% de la propuesta minoritaria (p99.99 frente al conjunto de 1,010,000 planes) se sitúa en el régimen donde una supermayoría del UCP se vuelve estadísticamente alcanzable en la geografía de Alberta de 2023 — pero el nulo del conjunto no impone todos los criterios estatutarios bajo los que trabajó la comisión, así que esto es una sólida verificación externa, no una prueba de que ningún mapa legalmente conforme de Alberta pudiera alcanzar este número de escaños. La evidencia de la vía estructural en los Hallazgos 1, 2 y 4 (que no depende en absoluto de este nulo) lleva la mayor parte del peso; la posición en la cola del seats@50/50 es el contexto de apoyo.',
 			super_label: 'POR QUÉ IMPORTA UNA SUPERMAYORÍA',
 			super_body: 'Bajo el sistema parlamentario de Westminster de Canadá, una mayoría simple (45 escaños) basta para aprobar leyes y presupuestos de rutina. Una supermayoría de dos tercios (60 escaños) hace más. Le permite al partido gobernante invocar la "clausura" para cerrar el debate, reescribir las reglas de procedimiento sin el consentimiento de la oposición y controlar la composición de cada comité legislativo. También aísla al gobierno de la disidencia interna: incluso con media docena de diputados cruzando al otro lado, el gobierno conserva una mayoría operativa. Una mayoría simple le permite conducir el auto; una supermayoría de 60 escaños le permite reescribir las leyes de tránsito.',
-			super_close: 'Al diluir estratégicamente a los votantes urbanos en los distritos circundantes del borde rural (el patrón de "hibridación urbana" identificado en la Vía 2), la propuesta minoritaria fabrica exactamente el cortafuegos estructural necesario para asegurar esos 60 escaños. El hallazgo estructural de la Vía 2 y el hallazgo estadístico de la Vía 1 convergen en la misma propuesta, la misma dirección y las mismas comunidades.',
+			super_close: 'El patrón de hibridación urbana identificado en la Vía 2 — votantes urbanos distribuidos hacia los distritos circundantes del borde rural — es el mecanismo estructural consistente con el resultado de 60 escaños. El hallazgo estructural de la Vía 2 y el hallazgo estadístico de la Vía 1 convergen en la misma propuesta, la misma dirección y las mismas comunidades.',
 			sub4_h: 'Confirmación desde la prueba de procedimiento dirigido',
 			sub4_p: 'Para asegurarse de que esto no sea una peculiaridad de la conocida preferencia por la compacidad de la simulación neutral, la auditoría ejecutó un procedimiento dirigido de ascenso de colinas (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon et al. 2022 — citado y descrito en el informe técnico</a>) en ambas direcciones: maximizando escaños UCP y maximizando escaños NDP. El mismo número de pasos (40,000) en cada dirección, las mismas restricciones estatutarias, la misma geometría provincial.',
 			t4_col_a: 'Procedimiento',
@@ -384,11 +449,11 @@ export default {
 			sub4_close: 'El 51.7% del mapa minoritario se sitúa más cerca del techo dirigido pro-UCP (52.9%) que de la mediana neutral (44.8%). El 46.1% del mapa mayoritario se sitúa en la mediana neutral. Tanto el mapa promulgado en 2019 como el mayoritario de 2026 caen cómodamente dentro de lo que el procedimiento neutral produce de forma rutinaria — distintas proporciones de voto, la misma zona de resultados sin nada de particular. El mayoritario continúa la práctica albertana de 2019 en el eje de equidad partidista de la misma manera que continúa la práctica de 2019 en anclaje municipal (80.0% frente al 75.2% de 2019). Dos mapas trazados bajo las mismas reglas de Alberta, por los mismos cinco comisionados, en la misma sala: uno aterriza donde los procedimientos neutrales producen rutinariamente, el otro aterriza donde hay que apuntar específicamente para aterrizar.',
 			sub4_quote: '<em>Esta</em> es la forma del hallazgo, y es también el encuadre que un tribunal aplicaría en la práctica.',
 			sub5_h: 'Descartando explicaciones alternativas',
-			sub5_p: 'Ante un valor atípico estadístico de esta magnitud, una auditoría rigurosa debe descartar explicaciones inocentes antes de atribuir estos patrones a un diseño deliberado. Los datos estructurales (Vía 2) desmontan sistemáticamente las defensas alternativas habituales:',
+			sub5_p: 'Ante un valor atípico estadístico de esta magnitud, una auditoría rigurosa debe poner a prueba las explicaciones inocentes habituales antes de tratar el patrón como inexplicado. Los datos estructurales (Vía 2) pesan en contra de cada una de las explicaciones alternativas habituales:',
 			defense1: '<strong>La defensa de la "geografía política natural":</strong> <em>("Los votantes urbanos están naturalmente empaquetados; el mapa solo refleja la geografía de Alberta.")</em> Las 1,010,000 simulaciones ya toman en cuenta la geografía natural de Alberta. La simulación demuestra: aunque la geografía le da al UCP una ventaja de eficiencia de base, esta se topa naturalmente con un techo alrededor del percentil 83 al 90. El mapa minoritario se sitúa en el percentil 99.99 — un valor atípico extremo <em>incluso comparado con la línea de base naturalmente sesgada de Alberta</em>.',
 			defense2: '<strong>La defensa de las "comunidades de interés":</strong> <em>("Las formas extrañas se trazaron para mantener juntas a comunidades específicas.")</em> Si usted intenta mantener juntas a las comunidades, sigue los límites municipales. El mapa mayoritario siguió los límites de ciudad existentes el 80% del tiempo. El minoritario los siguió el 72% del tiempo — ambos dentro de la norma canadiense de 70–85%. Lo que el mapa minoritario sí hace es dividir activamente la ciudad unificada de Airdrie en cuatro piezas separadas, y colocar tres de sus decisiones de límites precisamente en las zonas del borde urbano que el presidente de la comisión señaló como geométricamente anómalas — decisiones que la lógica de comunidad de interés no explica.',
 			defense3: '<strong>La defensa de la "igualdad poblacional":</strong> <em>("Tuvieron que trazar límites raros para asegurar que cada distrito tuviera exactamente la misma población.")</em> El mapa minoritario es en realidad mucho <em>peor</em> en igualdad poblacional. Su desviación media absoluta (MAD) de población fue 4,707 — 48% más amplia que la del mapa mayoritario (3,180) — situándolo en el percentil 99 del conjunto canónico (solo 1 de cada 100 mapas neutrales produce una dispersión peor). Sacrificó la igualdad poblacional para lograr su forma.',
-			defense4: '<strong>La defensa de la "incompetencia o mala suerte":</strong> <em>("Solo trazaron un mapa descuidado y tuvieron mala suerte con los números.")</em> Acertar exactamente 60 escaños para una supermayoría mientras además se divide Airdrie en cuatro piezas y se colocan tres límites en las zonas exactas que el propio presidente de la comisión señaló como anómalas requiere precisión quirúrgica. La cota superior conjunta robusta a la dependencia sobre la probabilidad de trazar accidentalmente un mapa así de extremo en ambos canales analíticos bajo la distribución de referencia neutral de ReCom es de aproximadamente <strong>1 en 350.000</strong> (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). No se llega al percentil 99.99 por torpeza.',
+			defense4: '<strong>La defensa de la "incompetencia o mala suerte":</strong> <em>("Solo trazaron un mapa descuidado y tuvieron mala suerte con los números.")</em> Acertar exactamente 60 escaños para una supermayoría mientras además se divide Airdrie en cuatro piezas y se colocan tres límites en las zonas exactas que el propio presidente de la comisión señaló como anómalas requiere precisión quirúrgica. La cota superior conjunta robusta a la dependencia sobre la probabilidad de trazar accidentalmente un mapa así de extremo en ambos canales analíticos bajo la distribución de referencia neutral de ReCom es de aproximadamente <strong>1 en 350,000</strong> (p&nbsp;≤&nbsp;2.80×10<sup>−6</sup>). Esa cota sigue siendo extrema — muy por encima de la significancia convencional — pero se reporta como una cota, no como una probabilidad única precisa.',
 			sub5_close: 'Lo que muestran los datos es que la propuesta minoritaria empeoró tanto la paridad poblacional como la coherencia comunitaria en relación con lo que los mismos cinco comisionados produjeron simultáneamente bajo reglas estatutarias idénticas. La auditoría no determina qué pretendían los comisionados de la minoría — la geometría de los límites no puede revelar la intención — pero la desviación estructural tanto del conjunto neutral como del producto de la propuesta mayoritaria se sostiene con independencia de la intención.',
 			sub6_h: 'Una nota sobre la validación cruzada en R',
 			sub6_p1: 'Una versión anterior de esta auditoría (que usaba shapefiles aproximados en lugar de oficiales) validó de forma cruzada el conjunto ReCom de Python contra el muestreador Sequential Monte Carlo del paquete <code>redist</code> de R. La verificación cruzada produjo resultados inestables: en tres corridas con la misma semilla nominal, la fracción de planes que alcanzaba el antiguo valor minoritario (48.3% en la geometría aproximada) fue 5.6%, luego 28%, luego 58% — una falla de convergencia del muestreador, no un descubrimiento. El informe completo está en <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.',
@@ -411,6 +476,7 @@ export default {
 			t5_r2_b: '<strong>cruza 4 de 5 umbrales estructurales</strong> por un margen amplio (anclaje neutral — ambos mapas dentro de la norma canadiense)',
 			t5_r2_c: 'posición en la cola en tres de las cuatro medidas de equidad partidista — <code>seats@50/50</code> 51.7% (p99.99, aproximadamente 66 de 1,010,000 lo alcanzan); brecha de eficiencia +4.0% (p94.4, cerca pero bajo el umbral); cota conjunta robusta a la dependencia p&nbsp;≤&nbsp;2,80×10<sup>−6</sup> (≈ 1 en 350.000)',
 			details2_summary: 'Por qué la Vía 2 sostiene el caso — detalle técnico',
+			details2_p: 'La auditoría preregistró cinco pruebas de irregularidad estructural el 24 de abril de 2026, antes de que se compilaran los resultados finales de la simulación. El anclaje es neutral para ambos mapas; en las cuatro pruebas restantes la minoría cruza cada una y la mayoría no cruza ninguna. Esas mediciones son geométricas — no dependen de ningún muestreador estadístico ni de ninguna atribución de votos. <strong>Este es el hallazgo central.</strong> La Vía 1 (las cifras de equidad partidista) corrobora la Vía 2 bajo los shapefiles oficiales canónicos: la minoría se sitúa en la cola del conjunto de 1,010,000 planes en tres de cuatro métricas preregistradas, con la brecha de eficiencia en p94.4 (<em>cerca, pero por debajo</em>, del umbral preregistrado del percentil 95), bajo una cota superior conjunta robusta a la dependencia de p&nbsp;≤&nbsp;2.8×10<sup>−6</sup> (≈ 1 en 350,000; reemplaza una cifra anterior combinada con Fisher que sobreestimaba la significancia conjunta al tratar dos canales con datos superpuestos como independientes). La pregunta de si la geometría inusual de la Vía 2 es el <em>mecanismo</em> específico detrás de las cifras de la Vía 1 se puso a prueba y la respuesta es no — vea <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. La Prueba de Asignación de Zonas Oscilantes se ejecutó sobre las decisiones de límites en disputa; bajo permutación estándar devolvió p=0.0024, pero bajo permutación por bloques (que corrige la autocorrelación espacial entre Áreas de Votación adyacentes) devolvió p≈0.19 — no significativo. La SZAT se conserva solo como contexto exploratorio. Por separado, se puso a prueba la cuestión del mecanismo: si las formas de los límites en sí — el corredor del lazo, la extensión hacia el parque — son la causa directa del cambio de escaños; no lo son. El efecto sobre los escaños proviene de cómo las asignaciones redibujadas de las Áreas de Votación desplazan la eficiencia del voto entre distritos, no de las formas en sí. Ambas vías señalan el mapa minoritario; llegan a él a través de instrumentos independientes. La Vía 2 sostiene el caso. La Vía 1 corrobora sin sostenerlo.'
 		},
 		impact: {
 			heading: '5: Efectos sobre la representación',
@@ -726,6 +792,7 @@ export default {
 			help_title: 'Cómo usar el mapa',
 			pin_aria: 'Fijar el mapa',
 			pin_title: 'Fijar el mapa — evita el desplazamiento automático al hacer clic en un distrito',
+			search_aria: 'Encontrar un distrito electoral',
 			search_placeholder: 'Buscar distrito…',
 			zoom_aria: 'Zoom del mapa',
 			clear_aria: 'Borrar la selección de distrito',
@@ -755,6 +822,10 @@ export default {
 			tag_min: 'Min',
 			tag_maj: 'May',
 			tag_2019: '2019',
+			dev_notice:
+				'El Explorador de Mapas está en desarrollo continuo en vivo y a veces puede fallar. Si algo se ve mal, vuelva en unos días — es probable que el problema ya esté resuelto. Las sugerencias son bienvenidas: %s.',
+			dev_notice_email_label: 'escríbame',
+			dev_notice_dismiss: 'Descartar el aviso de desarrollo',
 			skel_1: 'Cargando el Explorador de Mapas…',
 			skel_2: 'dibujando Alberta…',
 			skel_3: 'procesando los números…',
@@ -791,6 +862,126 @@ export default {
 			code_label: 'Código:',
 			translation_label: 'Traducciones:',
 			translation_credit: 'Anthropic Fable 5 (IA) — a la espera de revisión por hablantes nativos'
+		}
+	},
+	// deck.gl Map Explorer (DeckExplorer.svelte + deckExplorer/pois.ts). This is a
+	// separate component from the framework-free engine under body.map / body.share.
+	explorer: {
+		controls: {
+			// Desktop control panel header
+			panel_title: 'Controles del mapa',
+			close_aria: 'Cerrar el mapa',
+			// Map-version buttons
+			map_version_hdr: 'Versión del mapa',
+			map_version_hint: '· clic para alternar',
+			map_toggle_title: 'Activar/desactivar este mapa',
+			map_minority: 'Minoritario',
+			map_majority: 'Mayoritario',
+			map_2019: '2019',
+			// Mobile segmented-button short labels
+			map_minority_short: 'Min',
+			map_majority_short: 'May',
+			map_2019_short: '’19',
+			// Search
+			search_placeholder: 'Buscar un distrito…',
+			search_aria: 'Buscar distritos',
+			search_clear_aria: 'Borrar búsqueda',
+			search_in: 'en {ed}',
+			// Zoom / resolution readout
+			zoom_aria: 'Zoom',
+			res_prefix: '1 píxel ≈',
+			// Overlays / layer toggles
+			overlays_hdr: 'Capas de comunidades de interés',
+			layer_highways: 'Carreteras',
+			layer_water: 'Ríos y lagos',
+			layer_annotations: "Anotaciones EBC '26",
+			// Mobile icon-bar aria labels
+			mobile_map_version_aria: 'Versión del mapa',
+			mobile_search_aria: 'Buscar distritos',
+			mobile_layers_aria: 'Capas del mapa',
+			mobile_info_aria: 'Sobre las líneas de los límites',
+			mobile_share_aria: 'Compartir esta vista',
+			mobile_close_aria: 'Cerrar el mapa',
+			// Language switcher (integrated into the map control bar / panel)
+			lang_aria: 'Cambiar de idioma',
+			lang_hdr: 'Idioma',
+			// "Reading the lines" note (desktop + mobile info popover)
+			lines_note_title: 'Cómo leer las líneas',
+			lines_note_lead: 'Toda forma extraña o línea divisoria es una',
+			lines_note_emphasis: 'decisión deliberada del comité',
+			lines_note_tail:
+				'— no un error de datos. Las líneas siguen los bordes de las áreas de votación; donde dos mapas coinciden se asientan sobre la misma línea, donde se separan las propuestas genuinamente discrepan.'
+		},
+		share: {
+			button: 'Compartir esta vista',
+			heading: 'Compartir esta vista',
+			copy: 'Copiar enlace',
+			copied: 'Copiado',
+			help: 'Este enlace captura su mapa, capas y vista actuales.',
+			open_heading: 'Abrir un enlace compartido',
+			open_placeholder: 'Pegue un enlace compartido…',
+			open_btn: 'Abrir',
+			err_empty: 'Pegue un enlace compartido',
+			err_invalid: 'No es un enlace compartido válido'
+		},
+		tip: {
+			total_votes: 'votos totales',
+			poll: 'Mesa #{id} · votos presenciales',
+			ucp_pct: 'UCP {u}%',
+			ndp_pct: 'NDP {n}%',
+			unassigned: '(sin asignar)',
+			where_in: 'en {community}',
+			where_near: 'cerca de {community}',
+			note_sparse:
+				'Una zona escasamente poblada — con pocos votos emitidos aquí, el color se mantiene cerca de la línea de base neutral del mapa.',
+			note_no_votes:
+				'Aquí no se registraron votos, así que esta zona muestra el tono de línea de base neutral del mapa.',
+			no_one_title: 'Aquí no vota nadie',
+			no_one_body:
+				'Ninguna división electoral cubre este punto — no consta que nadie viva ni vote aquí, así que se mantiene el tono neutral del mapa.',
+			flag_link: 'Haga clic para acercar'
+		},
+		miller: {
+			title: 'Miller — un escaño rural restituido',
+			body: 'Esta zona aparece en el mapa por el juez Dallas Miller, presidente de la comisión. En un anexo al informe final, escribió que si la Legislatura no aceptaba recortar dos distritos rurales, debía en cambio agregar dos escaños — pasando de 89 a 91 — y restituirlos. Señaló este punto, alrededor de los condados de Clearwater y el oeste de Mountain View, al oeste de Red Deer, como el lugar donde debía ir uno de esos escaños rurales. Está esbozado a partir de las líneas de los condados como marcador provisional, no como un límite oficial, hasta que la próxima comisión redibuje el mapa.'
+		},
+		flags: {
+			'banff-town': {
+				title: 'Banff — el pueblo recortado del parque',
+				body: 'Banff se encuentra dentro de un parque nacional federal, como una pequeña isla municipal. La minoría agrupa el casco urbano con Canmore — el siguiente pueblo Bow Valley abajo — en “Canmore-Kananaskis”, y deja el parque deshabitado como el distrito que lleva el nombre de Banff. El límite ciñe el pueblo porque es el único punto poblado en kilómetros a la redonda. Parece un error, pero sigue la geografía real.'
+			},
+			'banff-park': {
+				title: 'Al norte de Banff — “Rocky Mountain House–Banff Park”',
+				body: '“Rocky Mountain House–Banff Park” es uno de los distritos propuestos por la minoría, compuesto en su mayor parte por parque nacional deshabitado; el pueblo de Banff queda en un distrito vecino al sur. La minoría aplicó a este distrito la disposición de menor población de la Electoral Boundaries Commission Act — una decisión que el presidente de la comisión abordó en el informe final.'
+			},
+			'airdrie-split': {
+				title: 'Airdrie — dividida en cuatro',
+				body: 'El crecimiento de Airdrie y su desplazamiento al trabajo hacia Calgary (cerca del 76% de quienes salen a trabajar) podrían haber anclado un solo escaño nuevo de la zona de Airdrie — del tipo que los datos respaldan. La minoría en cambio divide la ciudad entre cuatro distritos; las cuentas de población no lo exigen, y ninguna presentación lo propuso. En la prueba de firma de fragmentación de la auditoría esta división en cuatro cumple cada criterio — los residentes de Airdrie terminan en minoría en los cuatro distritos, sin ningún escaño que la ciudad controle — mientras que la división en dos de la mayoría no muestra ninguno. Esta es una división de comunidad, invisible para las pruebas de equidad partidista; la auditoría mide el efecto estructural, no la intención. (Académico §5.3.2.)'
+			},
+			'nolan-hill-cochrane': {
+				title: 'Calgary-Nolan Hill–Cochrane',
+				body: 'El desplazamiento al trabajo de Cochrane hacia Calgary podría haber justificado emparejarla con la ciudad — pero los datos de viaje al trabajo de 2021 reparten ese flujo por toda la ciudad (cerca de un tercio de los trabajadores; la mitad trabaja dentro de Cochrane) y no apuntan a Nolan Hill. El estrecho corredor de la minoría hacia el barrio de Nolan Hill — la forma que el presidente llamó un lazo — llega más lejos de lo que los datos respaldan, y ninguna presentación lo propuso. La auditoría lee esto como adyacente a la fragmentación: adelgaza la voz de Cochrane, pero Cochrane (unos 34,000) es demasiado pequeña para un escaño propio, así que se queda corta de una señal formal de fragmentación. (Académico §5.3.2.)'
+			},
+			'olds-airdrie-reach': {
+				title: 'Olds–Three Hills–Didsbury — el alcance hacia Airdrie',
+				body: 'Un distrito rural que mantenga juntos a los pueblos de la Highway 2 — Olds, Didsbury, Three Hills — está bien respaldado; residentes de la zona de Beiseker escribieron a favor. Podría haberse quedado dentro de esas comunidades. La versión de la minoría en cambio se extiende al sur hacia el borde norte de Airdrie, una extensión que las cuentas de población no exigen. El alcance es parte de cómo funciona la división en cuatro de Airdrie — cada pieza de Airdrie absorbida por un escaño rural más grande — lo que la auditoría lee como parte del patrón de fragmentación. (Académico §5.3.2.)'
+			},
+			chestermere: {
+				title: 'Chestermere — dividida entre dos distritos',
+				body: 'El intenso desplazamiento al trabajo de Chestermere hacia Calgary (86% de quienes salen a trabajar) podría haber respaldado mantenerla entera y cerca de la ciudad — lo que también querían los residentes que se oponían a una fusión con Calgary. La minoría en cambio rebana una pieza del sur hacia un distrito específico de Calgary con el que no comparte escuelas ni transporte, y esa rebanada no pasa la prueba de población. La auditoría lee el sangrado hacia un distrito de Calgary como adyacente a la fragmentación — una división de comunidad de interés que adelgaza la voz de Chestermere sin llegar a una firma formal de fragmentación. (Académico §5.3.2, §5.8.4.)'
+			},
+			'red-deer': {
+				title: 'Red Deer — los distritos híbridos',
+				body: 'Los lazos regionales de Red Deer con Blackfalds, Sylvan Lake, Lacombe e Innisfail podrían haber agrupado a esos pueblos — un concejal municipal y residentes propusieron híbridos similares. La versión de la minoría en cambio pliega partes de la propia ciudad hacia distritos liderados por pueblos, adelgazando el voto urbano de Red Deer; su justificación de “escuelas compartidas” tampoco se sostiene (divisiones escolares distintas). Plegar una ciudad hacia distritos liderados por pueblos es el patrón que la auditoría llama hibridación — consistente con la fragmentación, logrando el efecto partidista dentro de los distritos híbridos en lugar de entre ellos. (Académico §5.3.5.)'
+			},
+			'st-albert': {
+				title: 'St. Albert — configuraciones rivales',
+				body: 'La versión de St. Albert de cualquiera de los dos mapas podría descansar sobre una base razonable. La auditoría simplemente no encontró ninguna presentación que respaldara la alternativa específica de la minoría — y como los ciudadanos rara vez nombran los límites exactos de una comisión, trata la evidencia aquí como endeble, ni claramente a favor ni en contra.'
+			},
+			'calgary-zone-a-packing': {
+				title: 'Norte y este de Calgary — una firma de empaquetamiento',
+				body: 'El presidente de la comisión no señaló esta — lo hacen las propias cuentas de la auditoría. A lo largo del norte y el este de Calgary (la “Zona A” de la auditoría, al norte y al este del río Bow), los distritos del mapa minoritario corren alrededor de 11.5% por encima del promedio provincial, frente a 2.8% en el mapa mayoritario. Empaquetar significa concentrar a los votantes de un lado en distritos más pocos y grandes, de modo que cada una de sus boletas pese un poco menos; la Zona A es competitiva para el NDP, y 13 de sus 17 distritos fueron ganados por el NDP en 2023. La auditoría mide el efecto estructural, no la intención. (Académico §5.3.1.)'
+			}
 		}
 	}
 } as const;

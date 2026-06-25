@@ -3,6 +3,24 @@ export default {
 	selector: {
 		label: 'Chọn ngôn ngữ'
 	},
+	verdict: {
+		headline: 'Alberta đang vẽ lại bản đồ bầu cử của mình.',
+		p_what: 'Thỉnh thoảng tỉnh lại vẽ lại các khu vực bầu cử — những vùng địa phương mà mỗi vùng bầu một MLA. Nơi các đường ranh giới rơi vào quyết định bạn bỏ phiếu cùng ai, và ai đại diện cho bạn trong cơ quan lập pháp.',
+		p_split: 'Lần này, ban hội thẩm thực hiện việc vẽ lại đã chia rẽ. Nó tạo ra hai bản đồ cạnh tranh — và cuộc kiểm toán này kiểm tra cả hai.',
+		p_question: 'Chúng tôi đã kiểm tra cả hai bản đồ cho một câu hỏi: liệu một trong hai có được định hình để có lợi cho một đảng hay không — ngay cả khi không ai cố ý làm điều đó?',
+		p_answer: 'Một trong hai là vậy. Cái còn lại trông bình thường.',
+		p_howfar: 'Một máy tính đã vẽ ngẫu nhiên 1,01 triệu phiên bản hợp pháp của bản đồ. Một trong hai bản đồ thực một chiều hơn tất cả trừ khoảng 1 trong 350.000 bản đồ đó, theo hướng có lợi cho UCP. Cái còn lại nằm trong phạm vi bình thường.',
+		aside_pre: 'Bạn có thể gọi một bản đồ có hình dạng như vậy là ',
+		aside_post: '. Từ đó không có ý nghĩa pháp lý ở Canada, vì vậy chúng tôi không dùng nó như một phán quyết. Chúng tôi cho bạn thấy bản đồ làm gì; bạn phán xét. Để hiểu các lớp sâu hơn — luật thực sự yêu cầu gì, và chính xác cách chúng tôi tiến hành kiểm tra — hãy xem ',
+		box_heading: 'Những gì chúng tôi có thể và không thể nói',
+		box_can_1: 'Bản đồ thiểu số nằm ngoài những gì 1,01 triệu bản đồ trung lập tạo ra, theo hướng có lợi cho UCP.',
+		box_can_2: 'Cả bốn phép đo công bằng đảng phái đều chỉ theo cùng một hướng.',
+		box_cant_1: 'Rằng bất kỳ ủy viên nào đã có ý định này — cuộc kiểm toán đọc kết quả, không phải động cơ.',
+		box_cant_2: 'Rằng bản đồ “là” một sự phân chia thiên vị — đó không phải là một phạm trù mà luật Canada công nhận.',
+		box_cant_3: 'Một tòa án sẽ phán quyết như thế nào, hoặc ủy ban sẽ chọn gì.',
+		law_link: 'Luật',
+		methods_link: 'Phương pháp'
+	},
 	disclaimer: {
 		text:
 			'Trang web này đã được dịch bằng AI. Một số nội dung có thể vẫn hiển thị bằng tiếng Anh trong khi việc dịch thuật đang được tiến hành. Nếu bạn nhận thấy lỗi hoặc muốn giúp dịch dự án này, vui lòng %s.',
@@ -13,6 +31,22 @@ export default {
 		heading: 'Trang này dành cho ai?',
 		body:
 			'Cho chúng ta. Cho tất cả chúng ta. Người nông thôn, người thành thị, người tò mò, người am hiểu chính trị, nhà báo, luật sư, học giả, chính trị gia — tất cả chúng ta. Bởi vì nó ảnh hưởng đến tất cả chúng ta. Dù bạn có thích đảng cầm quyền hay không, những gì ủy ban phân chia đã tạo ra chưa từng xảy ra trước đây. Và điều đó cho chúng ta cơ hội nhìn vào bên trong cỗ máy theo những cách chưa từng có. Bây giờ chúng ta có thể thiết lập một chuẩn mực — một loạt các bài kiểm tra, và mọi thứ diễn ra sau đó có thể được đánh giá dựa trên chuẩn mực đó. Hãy để tôi cho bạn thấy những gì tôi đã tìm thấy.'
+	},
+	why_redrawn: {
+		heading: 'Tại sao điều này xảy ra — và tại sao nó liên quan đến bạn',
+		p1: 'Alberta được chia thành 87 khu vực bầu cử. Mỗi khu vực bầu một MLA duy nhất vào cơ quan lập pháp. Khu vực của bạn quyết định người đó là ai, những khu phố nào được nhóm với khu phố của bạn, và mối quan tâm của ai mà MLA của bạn lắng nghe trước.',
+		p2: 'Các đường ranh giới không cố định. Khi mọi người di chuyển và các thành phố phát triển, một số khu vực rốt cuộc có nhiều cử tri hơn nhiều so với các khu vực khác, vì vậy tỉnh vẽ lại bản đồ vài năm một lần để giữ chúng đại khái ngang nhau. Một ban hội thẩm gồm các ủy viên thực hiện việc vẽ, làm việc theo các quy tắc được quy định trong luật: các khu vực phải gần nhau về dân số, ở trong một khối, và giữ các cộng đồng thực cùng nhau khi có thể.',
+		p3: 'Đó là quy trình bình thường. Lần này nó đổ vỡ. Các ủy viên không thể đồng ý, và chia thành hai phe, mỗi phe có bản đồ riêng của mình. Sau đó một ủy ban gồm các MLA đã gác cả hai bản đồ đó sang một bên và bắt đầu vẽ bản đồ riêng, lớn hơn của họ. Một ủy ban lập pháp ghi đè ủy ban theo cách đó là hiếm.',
+		p4: 'Một đường trên bản đồ quyết định phiếu bầu của ai có giá trị cho điều gì. Nó có thể giữ cử tri của một cộng đồng cùng nhau, hoặc rải họ qua nhiều khu vực nơi số lượng của họ không còn cộng lại thành nhiều. Nó có thể giữ một số cuộc đua sát nút và đặt những cuộc đua khác ngoài tầm với. Không có gì trong số đó hiện ra trên bề mặt; nó được quyết định bởi nơi các ranh giới rơi vào.'
+	},
+	two_maps: {
+		heading: 'Hai bản đồ — và ai đã vẽ chúng',
+		p1: 'Khi ủy ban chia rẽ, nó không tạo ra một bản đồ với một bản bất đồng đính kèm. Nó tạo ra hai bản đồ hoàn chỉnh, cạnh tranh. Cả hai đều hợp pháp. Chúng chỉ vẽ các đường khác nhau.',
+		p2: 'Một ủy ban ranh giới có năm thành viên. Chánh án Alberta chỉ định chủ tọa — ghế trung lập, ở đây do Dallas K. Miller, một cựu thẩm phán Tòa án King’s Bench, nắm giữ. Đảng cầm quyền chỉ định hai thành viên; phe đối lập chỉ định hai.',
+		p3: 'Ủy ban này chia ba trên hai. Chủ tọa và hai thành viên do phe đối lập bổ nhiệm ủng hộ một bản đồ — báo cáo đa số, vì hầu hết ủy ban đã ký vào nó. Hai thành viên do chính phủ bổ nhiệm ủng hộ bản đồ kia — báo cáo thiểu số.',
+		p4: 'Bản đồ mà cuộc kiểm toán gắn cờ là một chiều hơn là báo cáo thiểu số — bản đồ mà hai thành viên do chính phủ bổ nhiệm đã vẽ. Cuộc kiểm toán không thể cho thấy liệu họ có cố ý hay không, và không cố làm vậy. Nó cho thấy bản đồ làm gì.',
+		p5: 'Bản đồ trang bìa ở đầu trang này cho phép bạn tự so sánh chúng. Lật giữa hai đề xuất và bản đồ hiện nay, tìm khu vực bầu cử của riêng bạn, và quan sát những khu phố nào được nhóm lại với nhau hoặc tách rời.',
+		p6: 'Một ủy ban gồm các MLA kể từ đó đã gác cả hai bản đồ sang một bên để vẽ bản đồ riêng của mình, dự kiến muộn hơn trong năm 2026 — một động thái mà trang web này xem xét trên trang Luật. Hai bản đồ này vẫn là trường hợp thử nghiệm rõ ràng nhất của cuộc kiểm toán, và cùng các bài kiểm tra sẽ áp dụng cho bất cứ điều gì ủy ban tạo ra.'
 	},
 	stakes: {
 		q1: {
@@ -30,7 +64,7 @@ export default {
 		q3: {
 			heading: 'Người dân Alberta đang đứng trước điều gì?',
 			body:
-				'Với một cuộc bỏ phiếu cấp tỉnh 50/50, các phép đo của cuộc kiểm toán đặt đề xuất thiểu số vào một cực cấu trúc: ít hơn 100 trong số 1,01 triệu bản đồ so sánh trung lập tạo ra cùng loại mất cân bằng ghế. Sự mất cân bằng đó quan trọng vì ở 58 trên 87 ghế (đa số hai phần ba siêu việt), đảng cầm quyền mở khóa những quyền lực thủ tục đặc biệt. Đảng đó có thể bỏ qua các giai đoạn thông báo tiêu chuẩn và đẩy các dự luật công qua nhiều giai đoạn lập pháp trong một ngày, vượt qua các kiểm tra cân nhắc mà cơ quan lập pháp thường dựa vào. Liệu độ nghiêng của đề xuất thiểu số có đủ lớn để đẩy một đảng vượt qua ngưỡng 58 ghế ở các tỷ lệ phiếu bầu <em>khác</em> ngoài 50/50 hay không là một câu hỏi mà cuộc kiểm toán này chưa kiểm tra. Liệu sự mất cân bằng đó có chấp nhận được hay không là câu hỏi dành cho người Alberta, không phải cho cuộc kiểm toán này.'
+				'Với một cuộc bỏ phiếu cấp tỉnh 50/50, các phép đo của cuộc kiểm toán đặt đề xuất thiểu số vào một cực cấu trúc: ít hơn 100 trong số 1,01 triệu bản đồ so sánh trung lập tạo ra cùng loại mất cân bằng ghế. Sự mất cân bằng đó quan trọng vì ở 60 trên 89 ghế (đa số hai phần ba siêu việt), đảng cầm quyền mở khóa những quyền lực thủ tục đặc biệt. Đảng đó có thể bỏ qua các giai đoạn thông báo tiêu chuẩn và đẩy các dự luật công qua nhiều giai đoạn lập pháp trong một ngày, vượt qua các kiểm tra cân nhắc mà cơ quan lập pháp thường dựa vào. Liệu độ nghiêng của đề xuất thiểu số có đủ lớn để đẩy một đảng vượt qua ngưỡng 60 ghế ở các tỷ lệ phiếu bầu <em>khác</em> ngoài 50/50 hay không là một câu hỏi mà cuộc kiểm toán này chưa kiểm tra. Liệu sự mất cân bằng đó có chấp nhận được hay không là câu hỏi dành cho người Alberta, không phải cho cuộc kiểm toán này.'
 		},
 		cta_law: 'Đọc bối cảnh pháp lý →',
 		cta_methods: 'Xem cách chúng tôi kiểm tra →',
@@ -49,7 +83,7 @@ export default {
 		gerrymander_body: 'Trên điểm số thiên vị đảng phái kết hợp của cuộc kiểm toán, bản đồ thiểu số của ủy ban nằm trong đuôi cực đoan của 1.010.000 bản đồ so sánh trung lập được vẽ theo thuật toán — khoảng 66 trong số đó đạt giá trị seats@50/50 điểm tới hạn, với giới hạn trên kết hợp bền vững với sự phụ thuộc khoảng 1 trên 350.000 trong phân phối tham chiếu đó. Bản đồ đa số nằm hoàn toàn trong phạm vi bình thường.',
 		tldr_label: 'Tóm tắt',
 		tldr_p1: 'Ủy ban phân chia lại của Alberta đã chia 3–2 vào năm 2026 và tạo ra hai bản đồ đề xuất khác nhau. Chính phủ đã gác cả hai sang một bên và giao việc phân định lại ranh giới cho một ủy ban năm thành viên gồm các MLA (ủy ban Lunty), dự kiến báo cáo vào tháng 11 năm 2026. Không bản đồ ủy ban nào là luật.',
-		tldr_p2: 'Cuộc kiểm toán này đã kiểm tra cả hai bản đồ ủy ban theo cùng một cách, sử dụng 1.010.000 bản đồ trung lập do máy tính vẽ được xây dựng từ các tập tin shapefile chính thức của Elections Alberta làm điểm tham chiếu. Đề xuất đa số nằm trong phạm vi trung lập trên mọi bài kiểm tra đã đăng ký trước. Đề xuất thiểu số vượt qua bốn trong năm bài kiểm tra cấu trúc, và sự phân chia ghế công bằng đảng phái của nó ở mức bỏ phiếu 50/50 chỉ đạt được bởi khoảng 66 trong số các bản đồ trung lập đó — một giới hạn trên bền vững với sự phụ thuộc khoảng 1 trên 350.000 theo quá trình vẽ trung lập. (Cách diễn đạt trước đây là "1 trên 15 triệu" đã kết hợp hai kênh chia sẻ dữ liệu cơ bản chung và phóng đại mức ý nghĩa chung; con số trên là giới hạn đã được điều chỉnh và có thể bảo vệ được.)',
+		tldr_p2: 'Cuộc kiểm toán này đã kiểm tra cả hai bản đồ ủy ban theo cùng một cách, sử dụng 1.010.000 bản đồ trung lập do máy tính vẽ được xây dựng từ các tập tin shapefile chính thức của Elections Alberta làm điểm tham chiếu. Đề xuất đa số nằm trong phạm vi trung lập trên mọi bài kiểm tra đã đăng ký trước. Đề xuất thiểu số vượt qua bốn trong năm bài kiểm tra cấu trúc, và sự phân chia ghế công bằng đảng phái của nó ở mức bỏ phiếu 50/50 chỉ đạt được bởi khoảng 66 trong số 1.010.000 bản đồ trung lập đó — một giới hạn trên kết hợp bền vững với sự phụ thuộc khoảng 1 trên 350.000 theo phân phối tham chiếu đó. Phép đo khoảng cách hiệu quả của cuộc kiểm toán đối với thiểu số nằm ở phân vị thứ 94 — <em>gần, nhưng dưới</em>, ngưỡng phân vị thứ 95 của chính cuộc kiểm toán.',
 		tldr_p3: 'Cuộc kiểm toán đo lường kết quả, không phải ý định. Khi ủy ban Lunty công bố bản đồ của mình, cuộc kiểm toán này sẽ áp dụng các bài kiểm tra tương tự cho nó.',
 		tldr_footer: 'Các điều kiện làm sai lệch đã đăng ký trước và các cam kết rút lại có trong %s.',
 		tldr_footer_link: '§9'
@@ -66,6 +100,9 @@ export default {
 		theme_title: 'Chuyển đổi chế độ tối',
 		nav_aria: 'Mở mục lục',
 		drawer_top: '↑ Đầu trang',
+		route_story: 'Câu chuyện',
+		route_law: 'Luật',
+		route_methods: 'Phương pháp',
 		stakes: 'Vấn đề',
 		findings: 'Kết quả',
 		history: 'Lịch sử',
@@ -97,6 +134,7 @@ export default {
 	},
 	hero: {
 		h1: 'Kiểm toán Ranh giới Bầu cử Alberta',
+		draft: '(BẢN NHÁP CHƯA CÔNG BỐ — hoan nghênh người phản biện)',
 		subtitle:
 			'Ủy ban Alberta đã đưa ra hai bản đồ khu vực bầu cử vào năm 2026. Cuộc kiểm toán này đã so sánh chúng — sử dụng cùng các bài kiểm tra, áp dụng đồng đều cho cả hai — để đặt câu hỏi liệu chúng có đối xử với cử tri theo cùng một cách hay không.',
 		badge: 'Bản đồ chính thức của Elections Alberta — Công bố tháng 5 năm 2026',
@@ -118,7 +156,7 @@ export default {
 		can_1:
 			'Hình học của bản đồ thiểu số vượt qua 4 trong 5 ngưỡng cấu trúc đã đăng ký trước <em>mà không sử dụng bất kỳ dữ liệu bầu cử nào</em>. Bài thứ năm (neo bám) là trung lập. Bản đồ đa số vượt qua 0 trong số 4 bài kích hoạt. Các bài kiểm tra này đo lường các thuộc tính của các đường ranh giới — hình dạng khu vực, neo bám đô thị, sự phân bố dân số — và đi đến kết luận trước khi bất kỳ phiếu bầu nào được đếm.',
 		can_2:
-			'Riêng biệt, khi dữ liệu bầu cử được đưa vào, bản đồ thiểu số nằm ở phân vị thứ 99,99 của 1,01 triệu bản đồ so sánh được vẽ bằng thuật toán theo cùng các quy tắc luật định. Ít hơn 100 trong số 1,01 triệu bản đồ trung lập đó đạt được cùng mức mất cân bằng ghế. Tín hiệu thống kê kết hợp xấp xỉ 1 trên 350.000 theo quá trình vẽ trung lập. Hai công cụ độc lập — hình học và thống kê — đi đến cùng một kết luận.',
+			'Riêng biệt, khi dữ liệu bầu cử được đưa vào, bản đồ thiểu số nằm ở phân vị thứ 99,99 của 1,01 triệu bản đồ so sánh được vẽ bằng thuật toán theo cùng các quy tắc luật định. Khoảng 66 trong số 1,01 triệu bản đồ trung lập đó đạt được cùng giá trị seats@50/50. Giới hạn trên kết hợp bền vững với sự phụ thuộc qua hai kênh phân tích là khoảng 1 trên 350.000 theo phân phối tham chiếu đó (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Hai công cụ phân tích — hình học và thống kê — đi đến cùng một kết luận theo cùng một hướng; giới hạn kết hợp là bản tóm tắt nhận biết sự phụ thuộc của sự hội tụ đó, không phải bốn bài kiểm tra độc lập đọc theo cùng một hướng.',
 		can_3:
 			'Ba trong số các cấu hình mà đề xuất thiểu số chứa đã được Chủ tịch Ủy ban Thẩm phán Miller gắn cờ bằng văn bản trong §5.8.2 của báo cáo đa số và Phụ lục C. Các bài kiểm tra của cuộc kiểm toán đã được tiến hành mà không biết đến các cờ của ông và phát hiện ra cùng các khu vực đó. Một công cụ độc lập thứ ba — tư pháp — hội tụ vào cùng các ranh giới đó.',
 		cant_1:
@@ -128,7 +166,7 @@ export default {
 		cant_3:
 			'Cuộc kiểm toán <strong>không</strong> dự đoán tòa án sẽ phán quyết như thế nào nếu một thách thức Hiến chương được đưa ra chống lại một trong hai đề xuất.',
 		cant_4:
-			'Cuộc kiểm toán <strong>không</strong> tuyên bố con số 1 trên 350.000 là xác suất xảy ra sự phân chia thiên vị. Con số đó là xác suất đuôi của hình học thiểu số theo một giả thuyết không trung lập thuật toán. Đó là bằng chứng cho thấy giả thuyết không trung lập là khó tin. Đó không phải là xác suất hậu nghiệm về ý định đảng phái — câu hỏi đó đòi hỏi bằng chứng mà hình học không thể cung cấp.',
+			'Cuộc kiểm toán <strong>không</strong> tuyên bố giới hạn bền vững với sự phụ thuộc khoảng 1 trên 350.000 (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>) là xác suất xảy ra sự phân chia thiên vị. Con số đó là xác suất đuôi của hình học thiểu số theo một giả thuyết không trung lập thuật toán. Đó là bằng chứng cho thấy giả thuyết không trung lập là khó tin. Đó không phải là xác suất hậu nghiệm về ý định đảng phái — câu hỏi đó đòi hỏi bằng chứng mà hình học không thể cung cấp.',
 		cant_5:
 			'Cuộc kiểm toán <strong>không</strong> nói cho bất kỳ cử tri cá nhân nào nên có quan điểm nào hay phải làm gì với thông tin này. Sự lựa chọn là của bạn.'
 	},
@@ -170,7 +208,7 @@ export default {
 			'Cuộc kiểm toán không đề xuất lấy đi ghế từ Alberta nông thôn. Nó đặt câu hỏi liệu các đường ranh giới có tôn trọng các cộng đồng nông thôn mà các ghế đó được dùng để đại diện hay không, hoặc liệu địa lý nông thôn có đang được sử dụng làm vật dằn để hấp thụ phiếu bầu đô thị vào các khu vực có trung tâm ở nơi khác hay không. Nếu bạn sống trong một trong những phần đuôi nông thôn đó, câu hỏi bản đồ nào được ban hành sẽ quyết định liệu MLA của bạn đại diện cho cộng đồng nông thôn mà bạn thực sự sống, hay một khu vực đô thị mà các đường ranh giới của nó tình cờ bao gồm cả mảnh đất của bạn.',
 		province_h: 'Tỉnh của bạn.',
 		province_p:
-			'Cơ quan lập pháp là những gì bạn nhận được khi cộng tổng các câu trả lời của mỗi khu vực cho ba câu hỏi trên. Nếu hầu hết các khu vực được neo vào các cộng đồng mà MLA của họ thực sự sống ở đó, cơ quan lập pháp đại diện cho các cộng đồng đó. Nếu hầu hết các khu vực có phần đuôi nông thôn gắn với phần đầu đô thị, cơ quan lập pháp đại diện cho phần đầu — và phần đuôi nhận được sự chú ý còn lại. Câu hỏi đảng phái — đảng nào giành đa số — là xuôi dòng từ đó. Câu hỏi siêu đa số — liệu một đảng có vượt qua 58 trên 87 ghế và mở khóa các phím tắt thủ tục như miễn các giai đoạn thông báo hoặc đẩy nhanh các dự luật qua nhiều giai đoạn trong một ngày — là xuôi dòng từ <em>điều đó</em>. Ở một sự phân chia tỉnh giả định 50/50, các phép đo của cuộc kiểm toán đặt đề xuất thiểu số ở một cực cấu trúc: ít hơn 100 trong số 1,01 triệu bản đồ so sánh trung lập tạo ra cùng loại mất cân bằng ghế. Liệu sự mất cân bằng đó đẩy một đảng vượt qua 58 ghế ở tỷ lệ phiếu mà người Alberta thực sự đem lại hay không là một câu hỏi mà cuộc kiểm toán này chưa trực tiếp kiểm tra; các câu hỏi mở đầu ở đầu trang này thành thật về khoảng cách đó. Liệu câu trả lời cho bất kỳ câu hỏi nào trong số này có đủ quan trọng để hành động hay không, một lần nữa, là câu hỏi dành cho bạn.'
+			'Cơ quan lập pháp là những gì bạn nhận được khi cộng tổng các câu trả lời của mỗi khu vực cho ba câu hỏi trên. Nếu hầu hết các khu vực được neo vào các cộng đồng mà MLA của họ thực sự sống ở đó, cơ quan lập pháp đại diện cho các cộng đồng đó. Nếu hầu hết các khu vực có phần đuôi nông thôn gắn với phần đầu đô thị, cơ quan lập pháp đại diện cho phần đầu — và phần đuôi nhận được sự chú ý còn lại. Câu hỏi đảng phái — đảng nào giành đa số — là xuôi dòng từ đó. Câu hỏi siêu đa số — liệu một đảng có vượt qua 60 trên 89 ghế và mở khóa các phím tắt thủ tục như miễn các giai đoạn thông báo hoặc đẩy nhanh các dự luật qua nhiều giai đoạn trong một ngày — là xuôi dòng từ <em>điều đó</em>. Ở một sự phân chia tỉnh giả định 50/50, các phép đo của cuộc kiểm toán đặt đề xuất thiểu số ở một cực cấu trúc: ít hơn 100 trong số 1,01 triệu bản đồ so sánh trung lập tạo ra cùng loại mất cân bằng ghế. Liệu sự mất cân bằng đó đẩy một đảng vượt qua 60 ghế ở tỷ lệ phiếu mà người Alberta thực sự đem lại hay không là một câu hỏi mà cuộc kiểm toán này chưa trực tiếp kiểm tra; các câu hỏi mở đầu ở đầu trang này thành thật về khoảng cách đó. Liệu câu trả lời cho bất kỳ câu hỏi nào trong số này có đủ quan trọng để hành động hay không, một lần nữa, là câu hỏi dành cho bạn.'
 	},
 	editorial_history: {
 		heading: 'Bối cảnh: Một lịch sử ngắn về phân chia thiên vị',
@@ -211,7 +249,7 @@ export default {
 		gerrymander: {
 			term: 'Gerrymander (Phân chia thiên vị)',
 			definition:
-				'Một bản đồ được vẽ sao cho một đảng chính trị giành được nhiều ghế hơn so với tỷ lệ phiếu bầu của mình. Từ này xuất phát từ một khu vực Massachusetts năm 1812 có hình dạng giống con kỳ giông. Đây không phải là thuật ngữ pháp lý ở Canada, nhưng khái niệm này được nghiên cứu rộng rãi.'
+				'Một biệt danh của người Mỹ cho một bản đồ bầu cử được vẽ để có lợi cho một đảng. Nó không có ý nghĩa pháp lý ở Canada — không tòa án hay luật nào sử dụng nó — vì vậy trang web này không bao giờ dùng nó như một phán quyết.'
 		},
 		cracking: {
 			term: 'Phá vỡ (Cracking)',
@@ -261,7 +299,32 @@ export default {
 		ebca: {
 			term: 'EBCA',
 			definition:
-				'Alberta Electoral Boundaries Commission Act (Luật Ủy ban Ranh giới Bầu cử Alberta) — luật điều chỉnh cách vẽ các ranh giới bầu cử trong tỉnh. Luật này thành lập ủy ban, quy trình điều trần công khai và các quy tắc khi nào bản đồ mới có hiệu lực.'
+				'Electoral Boundaries Commission Act (Luật Ủy ban Ranh giới Bầu cử) — luật Alberta đặt ra các quy tắc mà một bản đồ mới phải tuân theo, bao gồm cả mức độ dân số khu vực có thể thay đổi.'
+		},
+		ensemble: {
+			term: 'Bài kiểm tra 1,01 triệu bản đồ',
+			definition:
+				'Một máy tính đã vẽ ngẫu nhiên 1,01 triệu bản đồ Alberta hợp pháp, tất cả tuân theo cùng các quy tắc. Một bản đồ thực được coi là bất thường khi nó nằm ngoài những gì gần như tất cả các bản đồ trung lập này tạo ra.'
+		},
+		efficiency_gap: {
+			term: 'Khoảng cách hiệu quả',
+			definition:
+				'Một phép đo phiếu bầu "bị lãng phí" — phiếu bầu vượt quá những gì một ứng cử viên cần để thắng, cộng với mọi phiếu bầu cho người thua — được so sánh giữa hai đảng. Một khoảng cách lớn cho thấy một bản đồ một chiều.'
+		},
+		mean_median: {
+			term: 'Khoảng cách trung bình-trung vị',
+			definition:
+				'Khoảng cách giữa tỷ lệ phiếu bầu trung bình của một đảng trên các khu vực và tỷ lệ ở giữa (trung vị) của nó. Một khoảng cách lớn cho thấy cử tri của đảng được trải theo cách lãng phí phiếu bầu.'
+		},
+		declination: {
+			term: 'Độ nghiêng',
+			definition:
+				'Một phép đo mức độ không cân xứng mà mỗi đảng giành các ghế của mình — bằng những chiến thắng áp đảo hay bằng những chiến thắng sít sao. Trên bản đồ thiểu số, nó chỉ theo cùng hướng với các phép đo khác (về phía đảng cầm quyền) sau một sự sửa dấu vào tháng 6 năm 2026.'
+		},
+		seats_5050: {
+			term: 'Ghế khi hòa',
+			definition:
+				'Mỗi đảng sẽ giành được bao nhiêu ghế nếu tỉnh chia phiếu bầu của mình chính xác 50-50. Nó loại bỏ ai thực sự đã thắng và kiểm tra độ nghiêng có sẵn của bản đồ.'
 		},
 		fsa: {
 			term: 'Khu vực phân loại chuyển tiếp (FSA)',
@@ -313,7 +376,7 @@ export default {
 			t2_col_a: 'Bản đồ',
 			t2_col_b: 'Khoảng cách hiệu quả',
 			t2_col_c: 'Trung bình-trung vị',
-			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Độ nghiêng đo lường sự khác biệt góc giữa đường cong ghế-phiếu cho mỗi đảng. Giá trị âm có lợi cho UCP; giá trị dương có lợi cho NDP.">Độ nghiêng</a>',
+			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Độ nghiêng đo lường sự khác biệt góc giữa đường cong ghế-phiếu cho mỗi đảng. Giá trị âm có lợi cho NDP; giá trị dương có lợi cho UCP.">Độ nghiêng</a>',
 			t2_col_e: 'Ghế ở 50/50',
 			t2_r1_a: 'Đa số 2026',
 			t2_r1_b: '+0,1% (p15,5)',
@@ -325,7 +388,7 @@ export default {
 			t2_r2_c: '<strong>+1,0% (p99,98)</strong>',
 			t2_r2_d: '<strong>+0,077 (p98,8)</strong>',
 			t2_r2_e: '<strong>51,7% (p99,99)</strong>',
-			sub1_close: 'Bản đồ đa số nằm thoải mái trong phạm vi bình thường trên ba trong bốn chỉ số. Trung bình-trung vị của nó nằm ở p2 theo hướng có lợi cho NDP — một kết quả bất thường nhưng hướng sai cách để giúp UCP. Sự bám sát chặt chẽ của bản đồ đa số với các ranh giới đô thị đặt các lõi đô thị có nhiều NDP vào các khu vực gọn của riêng chúng, nơi phiếu NDP thắng với biên độ hiệu quả trong khi các chiến thắng UCP nông thôn có xu hướng đạt được với biên độ lớn hơn; lợi thế hiệu quả NDP nhẹ về mặt cấu trúc này là những gì xuất hiện trong phép đo trung bình-trung vị. Bản đồ thiểu số nằm ở đuôi trên cả bốn, mỗi cái đều chỉ theo cùng một hướng đảng phái.',
+			sub1_close: 'Bản đồ đa số nằm thoải mái trong phạm vi bình thường trên ba trong bốn chỉ số. Trung bình-trung vị của nó nằm ở p1 (= p0,92) theo hướng có lợi cho NDP — một kết quả bất thường nhưng hướng sai cách để giúp UCP. Sự bám sát chặt chẽ của bản đồ đa số với các ranh giới đô thị đặt các lõi đô thị có nhiều NDP vào các khu vực gọn của riêng chúng, nơi phiếu NDP thắng với biên độ hiệu quả trong khi các chiến thắng UCP nông thôn có xu hướng đạt được với biên độ lớn hơn; lợi thế hiệu quả NDP nhẹ về mặt cấu trúc này là những gì xuất hiện trong phép đo trung bình-trung vị. Bản đồ thiểu số nằm ở đuôi trên cả bốn, mỗi cái đều chỉ theo cùng một hướng đảng phái.',
 			sub2_h: 'Điểm lật 50/50: ít hơn 100 trong số 1.010.000 bản đồ trung lập đạt được',
 			sub2_p: 'Chỉ số điểm lật được giới thiệu ở trên — số ghế UCP ở mức bỏ phiếu tỉnh 50/50 — là cách trực quan nhất để so sánh ba bản đồ.',
 			t3_col_a: 'Bản đồ',
@@ -342,16 +405,18 @@ export default {
 			t3_r3_c: '<strong>Phân vị thứ 99,99 — ít hơn 100 trong số 1.010.000 lần rút trung lập đạt được</strong>',
 			sub2_close: 'Ít hơn 100 trong số 1.010.000 bản đồ Alberta trung lập được mô phỏng bằng máy tính tạo ra giá trị <code>seats@50/50</code> cao như đề xuất thiểu số. Dựa trên các mẫu bỏ phiếu thực tế gần đây, nó sẽ trao cho UCP 60 ghế (so với 55 trong đề xuất đa số). Đề xuất đa số là loại bản đồ mà một quy trình trung lập thường tạo ra. Đề xuất thiểu số là loại bản đồ mà bạn phải nhắm mục tiêu cụ thể để vẽ.',
 			sub3_h: 'Điều này có nghĩa là gì bằng ngôn ngữ đơn giản',
-			sub3_p: 'Các tập tin shapefile chính thức cho thấy một bản đồ cực đoan thống kê theo cùng hướng đảng phái trên ba trong bốn phép đo cùng một lúc. Hai kênh phân tích thiên vị đảng phái chia sẻ dữ liệu cơ bản chung về khoảng cách hiệu quả và không độc lập về mặt thống kê; kết hợp chúng theo phương pháp Fisher sẽ phóng đại mức ý nghĩa chung. Giới hạn trên kết hợp bền vững với sự phụ thuộc là khoảng một trên 350.000 (Bonferroni; p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Các kênh thiên vị đảng phái được phân loại là "khám phá" theo nghĩa §4.3.1 của cuộc kiểm toán: được ghi lại trong kho lưu trữ, nhưng không đăng ký trước dữ liệu.',
+			sub3_p: 'Đề xuất thiểu số nằm trong đuôi cực đoan của tập hợp 1.010.000 kế hoạch trên ba trong bốn phép đo công bằng đảng phái, với cái thứ tư (khoảng cách hiệu quả, +4,0%) ở phân vị thứ 94 — <em>gần, nhưng dưới</em>, ngưỡng được hiệu chỉnh theo Alberta đã đăng ký trước của cuộc kiểm toán ở mức phân vị thứ 95. Hai kênh kiểm tra kết hợp chia sẻ dữ liệu khoảng cách hiệu quả cơ bản chung và không độc lập về mặt thống kê, vì vậy kết hợp các giá trị p của chúng theo phương pháp Fisher sẽ phóng đại mức ý nghĩa. Giới hạn trên có thể bảo vệ được từ một sự kết hợp bền vững với sự phụ thuộc là khoảng <strong>một trên 350.000</strong> (Bonferroni; p&nbsp;≤&nbsp;2,8×10<sup>−6</sup>). Đó vẫn là một kết quả cực đoan, vượt xa các ngưỡng ý nghĩa thông thường — nhưng nó được báo cáo như một giới hạn, không phải như bốn công cụ độc lập đọc theo cùng một hướng.',
 			details_summary: 'Giá trị p này có nghĩa là gì — và không có nghĩa là gì',
 			details_p1: 'Một giá trị p trả lời một câu hỏi: nếu bản đồ được vẽ bởi một quy trình trung lập, chúng ta sẽ thấy một kết quả cực đoan như vậy hoặc cực đoan hơn bao nhiêu lần? Với giới hạn bền vững với sự phụ thuộc p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>, câu trả lời là nhiều nhất khoảng một lần trong 350.000 thử nghiệm.',
-			details_p2: 'Đây là một kiểm tra giả thuyết theo trường phái tần suất, không phải là phép đo ý định. Nó không nói rằng ủy ban có ý định phân chia thiên vị, và nó không định lượng mức độ bất công của bản đồ về mặt thực tế. Nó nói rằng mẫu ranh giới không nhất quán về mặt thống kê với một quy trình vẽ trung lập — cùng kết luận mà một cuộc kiểm toán ngẫu nhiên sẽ đạt được bất kể ai vẽ bản đồ hay tại sao. Phân phối tham chiếu là 1.010.000 bản đồ trung lập được tạo ra bởi thuật toán ReCom, không áp đặt tất cả các tiêu chí luật định mà ủy ban làm việc theo (các cấp độ s.15(2) và các ràng buộc cộng đồng lợi ích) — làm cho đây là một kiểm tra bên ngoài mạnh mẽ, không phải bằng chứng rằng không có bản đồ tuân thủ pháp lý nào của Alberta có thể đạt số ghế này.',
-			details_p3: 'Bộ kiểm tra cấu trúc — dân số, phân chia, neo bám, tính gọn, chữ ký — đã được đăng ký có dấu thời gian trước khi tính toán lại chính thức (<a href="https://osf.io/w2s8k" rel="noopener">đăng ký OSF w2s8k</a>). Các kênh thiên vị đảng phái (Mahalanobis kết hợp, SZAT, tổ hợp Bonferroni) được gắn nhãn là "khám phá" theo nghĩa §4.3.1 của cuộc kiểm toán: được ghi lại trong kho lưu trữ, nhưng không đăng ký trước dữ liệu.',
+			details_p2: 'Đây là một kiểm tra giả thuyết theo trường phái tần suất, không phải là phép đo ý định. Nó không nói rằng ủy ban có ý định phân chia thiên vị, và nó không định lượng mức độ bất công của bản đồ về mặt thực tế. Nó nói rằng mẫu ranh giới không nhất quán về mặt thống kê với phân phối tham chiếu vẽ trung lập ReCom — một kiểm tra bên ngoài mạnh mẽ, nhưng không hoàn hảo (nó không áp đặt mọi tiêu chí luật định mà ủy ban làm việc theo, ví dụ, các cấp độ s.15(2) và các ràng buộc cộng đồng lợi ích).',
+			details_p3: 'Bộ kiểm tra cấu trúc (dân số, phân chia, neo bám, tính gọn, chữ ký) đã được đăng ký có dấu thời gian trước khi tính toán lại chính thức. Các kênh thiên vị đảng phái (Mahalanobis kết hợp, SZAT, tổ hợp Fisher/Bonferroni) được gắn nhãn là "khám phá" theo nghĩa §4.3.1 của chính cuộc kiểm toán: được ghi lại trong kho lưu trữ, nhưng không có trước dữ liệu. Cuộc kiểm toán báo cáo từng kênh riêng biệt và kết hợp chúng theo giới hạn bền vững với sự phụ thuộc thay vì trình bày chúng như các kiểm tra xác nhận hoàn toàn độc lập.',
 			szat_label: 'BÀI KIỂM TRA PHÂN BỔ VÙNG DAO ĐỘNG (SZAT)',
-			super_lead: 'Điều này giải thích tại sao đề xuất thiểu số nằm trong chế độ mà siêu đa số UCP trở nên có thể đạt được về mặt thống kê trên địa lý Alberta năm 2023 — nhưng tập hợp không áp đặt tất cả các tiêu chí luật định mà ủy ban làm việc theo, vì vậy đây là một kiểm tra bên ngoài mạnh mẽ, không phải bằng chứng rằng không có bản đồ tuân thủ pháp lý nào của Alberta có thể đạt số ghế này.',
+			szat_body: 'SZAT được thiết kế như một kênh phân tích thứ hai: thay vì hỏi "bản đồ này có cực đoan về tổng thể không?" nó hỏi "các lựa chọn đường cụ thể có trung lập về đảng phái không?" Nó hoạt động bằng cách cô lập chỉ các Khu vực Bỏ phiếu nơi bản đồ của thiểu số khác với bản đồ của đa số — các lần vẽ lại gây tranh cãi — và kiểm tra liệu những lựa chọn cụ thể đó, gộp lại, có làm dịch chuyển hiệu quả phiếu bầu theo hướng của một đảng hay không. Vì nó chỉ so sánh các điểm khởi hành, nó tự động kiểm soát mọi thứ mà hai bản đồ chia sẻ: cùng địa lý, mục tiêu dân số và các quy tắc luật định. Theo một kiểm tra hoán vị tiêu chuẩn, SZAT trả về p=0,0024; theo một giả thuyết không hoán vị khối hiệu chỉnh cho tự tương quan không gian qua các Khu vực Bỏ phiếu liền kề, nó trả về p≈0,19 — không có ý nghĩa. SZAT được giữ lại như bối cảnh khám phá nhưng không tồn tại như một kênh xác nhận. Kết luận chính dựa vào mô phỏng đơn lẻ. <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Chi tiết kỹ thuật →</a>',
+			two_q: '<strong>Kết quả SZAT.</strong> Mô phỏng 1.010.000 bản đồ hỏi: <em>bản đồ này có cực đoan so với các bản đồ trung lập được vẽ trên cùng địa lý Alberta hay không?</em> Một bài kiểm tra thứ hai — <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/szat_summary.json" rel="noopener">Bài kiểm tra Phân bổ Vùng Dao động</a> — đã hỏi một câu hỏi khác: <em>các đường cụ thể trên bản đồ có trung lập về đảng phái không?</em> Nó hoạt động bằng cách chỉ xem các Khu vực Bỏ phiếu nơi thiểu số vẽ khác với đa số và hỏi liệu những lựa chọn cụ thể đó, gộp lại, có làm dịch chuyển hiệu quả phiếu bầu theo hướng của một đảng hay không. Theo hoán vị tiêu chuẩn, nó trả về p=0,0024. Theo một giả thuyết không hoán vị khối — hiệu chỉnh cho tự tương quan không gian giữa các Khu vực Bỏ phiếu liền kề — nó trả về p≈0,19. Kết quả hoán vị khối không đạt ý nghĩa. Do đó cuộc kiểm toán báo cáo kết quả mô phỏng đơn lẻ làm kết luận chính: một giới hạn trên bền vững với sự phụ thuộc là <strong>1 trên 350.000</strong> (p&nbsp;≤&nbsp;2,8×10<sup>−6</sup>), không phải một sự kết hợp Fisher của hai kênh độc lập.',
+			super_lead: 'Trong một cơ quan lập pháp 89 ghế, đa số hai phần ba siêu việt đòi hỏi chính xác 60 ghế. seats@50/50 của đề xuất thiểu số là 51,7% (p99,99 so với tập hợp 1.010.000 kế hoạch) nằm trong chế độ mà một siêu đa số UCP trở nên có thể đạt được về mặt thống kê trên địa lý Alberta năm 2023 — nhưng giả thuyết không tập hợp không áp đặt mọi tiêu chí luật định mà ủy ban làm việc theo, vì vậy đây là một kiểm tra bên ngoài mạnh mẽ, không phải bằng chứng rằng không có bản đồ tuân thủ pháp lý nào của Alberta có thể đạt số ghế này. Bằng chứng làn cấu trúc trong Phát hiện 1, 2 và 4 (vốn không phụ thuộc vào giả thuyết không này chút nào) gánh phần lớn trọng lượng; vị trí đuôi seats@50/50 là bối cảnh hỗ trợ.',
 			super_label: 'TẠI SAO SIÊU ĐA SỐ LẠI QUAN TRỌNG',
 			super_body: 'Theo hệ thống nghị viện Westminster của Canada, đa số đơn giản (45 ghế) đủ để thông qua các luật thường xuyên và ngân sách. Đa số hai phần ba siêu việt (60 ghế) làm nhiều hơn. Nó cho phép đảng cầm quyền viện dẫn "đóng cửa" để chấm dứt tranh luận, viết lại các quy tắc thủ tục mà không có sự đồng ý của phe đối lập, và kiểm soát thành phần của mọi ủy ban lập pháp. Nó cũng cách ly chính phủ khỏi sự bất đồng nội bộ: ngay cả khi nửa tá nghị sĩ bậc thấp vượt qua sàn, chính phủ vẫn giữ đa số làm việc. Đa số đơn giản cho bạn lái xe; đa số siêu việt 60 ghế cho bạn viết lại luật giao thông.',
-			super_close: 'Bằng cách pha loãng cử tri đô thị vào các khu vực rìa nông thôn xung quanh một cách chiến lược (mẫu "lai hóa đô thị" được xác định trong Làn 2), đề xuất thiểu số thiết kế chính bức tường lửa cấu trúc cần thiết để đảm bảo 60 ghế đó. Phát hiện cấu trúc Làn 2 và phát hiện thống kê Làn 1 hội tụ vào cùng một đề xuất, cùng một hướng và cùng các cộng đồng.',
+			super_close: 'Mẫu lai hóa đô thị được xác định trong Làn 2 — cử tri đô thị được phân bổ vào các khu vực rìa nông thôn xung quanh — là cơ chế cấu trúc nhất quán với kết quả 60 ghế. Phát hiện cấu trúc Làn 2 và phát hiện thống kê Làn 1 hội tụ vào cùng một đề xuất, cùng một hướng và cùng các cộng đồng.',
 			sub4_h: 'Xác nhận từ bài kiểm tra quy trình nhắm mục tiêu',
 			sub4_p: 'Để chắc chắn rằng đây không phải là sự đặc biệt của sự ưa thích về tính nhỏ gọn đã biết của mô phỏng trung lập, cuộc kiểm toán đã chạy một quy trình leo đồi nhắm mục tiêu (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon và cộng sự 2022 — được trích dẫn và mô tả trong báo cáo kỹ thuật</a>) theo cả hai hướng: tối đa hóa ghế UCP và tối đa hóa ghế NDP. Cùng số bước (40.000) theo mỗi hướng, cùng các ràng buộc luật định, cùng hình học tỉnh.',
 			t4_col_a: 'Quy trình',
@@ -372,11 +437,11 @@ export default {
 			sub4_close: '51,7% của bản đồ thiểu số nằm gần trần nhắm mục tiêu UCP (52,9%) hơn là trung vị trung lập (44,8%). 46,1% của bản đồ đa số nằm ở trung vị trung lập. Cả bản đồ được ban hành năm 2019 và đa số 2026 đều rơi thoải mái trong những gì quy trình trung lập thường tạo ra — các tỷ lệ phiếu khác nhau, cùng vùng kết quả không đáng chú ý. Đa số tiếp tục thực hành Alberta 2019 trên trục công bằng đảng phái giống như cách nó tiếp tục thực hành 2019 trên neo bám đô thị (80,0% so với 75,2% của năm 2019). Hai bản đồ được vẽ theo cùng các quy tắc Alberta, bởi cùng năm ủy viên, trong cùng một phòng: một rơi vào nơi các quy trình trung lập thường tạo ra, cái còn lại rơi vào nơi bạn phải nhắm mục tiêu cụ thể để rơi vào.',
 			sub4_quote: '<em>Đây</em> là hình dạng của phát hiện, và đó cũng là cách đóng khung mà một tòa án thực sự sẽ áp dụng.',
 			sub5_h: 'Loại trừ các giải thích thay thế',
-			sub5_p: 'Khi được trình bày với một ngoại lệ thống kê có mức độ lớn như vậy, một cuộc kiểm toán nghiêm ngặt phải loại trừ các giải thích vô tội trước khi quy các mẫu này cho thiết kế có chủ ý. Dữ liệu cấu trúc (Làn 2) một cách có hệ thống tháo dỡ các phòng thủ thay thế tiêu chuẩn:',
+			sub5_p: 'Khi được trình bày với một ngoại lệ thống kê có mức độ lớn như vậy, một cuộc kiểm toán nghiêm ngặt phải kiểm tra các giải thích vô tội tiêu chuẩn trước khi coi mẫu này là chưa được giải thích. Dữ liệu cấu trúc (Làn 2) đối nghịch với mỗi giải thích thay thế tiêu chuẩn:',
 			defense1: '<strong>Phòng thủ "Địa lý Chính trị Tự nhiên":</strong> <em>("Cử tri đô thị tự nhiên bị nhồi nhét; bản đồ chỉ phản ánh địa lý Alberta.")</em> 1.010.000 mô phỏng đã tính đến địa lý tự nhiên của Alberta. Mô phỏng chứng minh: trong khi địa lý mang lại cho UCP một lợi thế hiệu quả cơ sở, nó tự nhiên có trần khoảng phân vị 83 đến 90. Bản đồ thiểu số nằm ở phân vị 99,99 — một ngoại lệ cực đoan <em>ngay cả khi so sánh với đường cơ sở vốn đã lệch tự nhiên của Alberta</em>.',
 			defense2: '<strong>Phòng thủ "Cộng đồng Lợi ích":</strong> <em>("Các hình dạng kỳ lạ được vẽ để giữ các cộng đồng cụ thể cùng nhau.")</em> Nếu bạn đang cố giữ các cộng đồng cùng nhau, bạn tuân theo các ranh giới đô thị. Bản đồ đa số tuân theo các giới hạn thành phố hiện có 80% thời gian. Bản đồ thiểu số tuân theo chúng 72% thời gian — cả hai đều trong tiêu chuẩn Canada 70–85%. Những gì bản đồ thiểu số làm là tích cực chia thành phố Airdrie thống nhất thành bốn mảnh riêng biệt, và đặt ba trong số các quyết định ranh giới của nó chính xác trong các vùng rìa đô thị mà chủ tịch ủy ban gắn cờ là bất thường về mặt hình học — các lựa chọn không thể giải thích bằng logic cộng đồng-lợi-ích.',
 			defense3: '<strong>Phòng thủ "Bình đẳng Dân số":</strong> <em>("Họ phải vẽ ranh giới kỳ quặc để đảm bảo mọi khu vực có dân số chính xác như nhau.")</em> Bản đồ thiểu số thực sự <em>tệ hơn nhiều</em> về bình đẳng dân số. Độ lệch tuyệt đối trung bình (MAD) dân số của nó là 4.707 — rộng hơn 48% so với 3.180 của bản đồ đa số — đặt nó ở phân vị thứ 99 của tập hợp chính thức (chỉ 1 trong 100 bản đồ trung lập tạo ra sự phân bố tệ hơn). Nó đã hy sinh sự bình đẳng dân số để đạt được hình dạng của nó.',
-			defense4: '<strong>Phòng thủ "Bất tài hoặc Không May":</strong> <em>("Họ chỉ vẽ một bản đồ cẩu thả và không may với các con số.")</em> Đạt chính xác 60 ghế cho một siêu đa số trong khi cũng chia Airdrie thành bốn mảnh và đặt ba ranh giới chính xác trong các vùng mà chủ tịch ủy ban đã gắn cờ là bất thường đòi hỏi độ chính xác phẫu thuật. Giới hạn trên kết hợp bền vững với sự phụ thuộc về xác suất vô tình vẽ một bản đồ cực đoan như vậy trên cả hai kênh phân tích theo phân phối tham chiếu ReCom trung lập là khoảng <strong>1 trên 350.000</strong> (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Cách diễn đạt trước đây là "1 trên 15 triệu" đã giả định sự độc lập kênh mà hai kênh không có. Bạn không thể vụng về đi vào phân vị thứ 99,99.',
+			defense4: '<strong>Phòng thủ "Bất tài hoặc Không May":</strong> <em>("Họ chỉ vẽ một bản đồ cẩu thả và không may với các con số.")</em> Đạt một cấu hình siêu đa số 60 ghế trong khi cũng chia Airdrie thành bốn mảnh và đặt ba ranh giới chính xác trong các vùng mà chính chủ tịch ủy ban đã gắn cờ là bất thường đòi hỏi độ chính xác. Giới hạn trên kết hợp bền vững với sự phụ thuộc về xác suất vô tình vẽ một bản đồ cực đoan như vậy trên cả hai kênh phân tích theo phân phối tham chiếu ReCom trung lập là khoảng <strong>1 trên 350.000</strong> (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Giới hạn đó vẫn cực đoan — vượt xa ý nghĩa thông thường — nhưng nó được báo cáo như một giới hạn, không phải như một xác suất đơn lẻ chính xác.',
 			sub5_close: 'Điều dữ liệu cho thấy là đề xuất thiểu số đã làm xấu đi cả sự ngang bằng dân số và sự gắn kết cộng đồng so với những gì cùng năm ủy viên sản xuất đồng thời theo các quy tắc luật định giống hệt nhau. Cuộc kiểm toán không xác định những gì các ủy viên thiểu số dự định — hình học ranh giới không thể tiết lộ ý định — nhưng sự khởi hành cấu trúc khỏi cả tập hợp trung lập và đầu ra của đề xuất đa số vẫn đứng vững bất kể ý định.',
 			sub6_h: 'Một ghi chú về xác thực chéo R',
 			sub6_p1: 'Một phiên bản trước của cuộc kiểm toán này (sử dụng các tập tin shapefile xấp xỉ thay vì chính thức) đã xác thực chéo tập hợp ReCom Python với bộ lấy mẫu Monte Carlo Tuần tự của gói R <code>redist</code>. Việc kiểm tra chéo đã tạo ra các kết quả không ổn định: trên ba lần chạy với cùng một hạt giống danh nghĩa, tỷ lệ kế hoạch đạt giá trị thiểu số cũ (48,3% trên hình học xấp xỉ) là 5,6%, sau đó 28%, sau đó 58% — một lỗi hội tụ bộ lấy mẫu, không phải là một khám phá. Bài viết đầy đủ tại <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.',
@@ -399,6 +464,7 @@ export default {
 			t5_r2_b: '<strong>vượt qua 4 trong 5 ngưỡng cấu trúc</strong> với biên độ rộng (neo bám trung lập — cả hai bản đồ trong tiêu chuẩn Canada)',
 			t5_r2_c: 'vị trí đuôi trên ba trong bốn phép đo công bằng đảng phái — <code>seats@50/50</code> 51,7% (p99,99, khoảng 66 trong số 1.010.000 đạt được); khoảng cách hiệu quả +4,0% (p94,4, gần nhưng dưới ngưỡng); giới hạn kết hợp bền vững với sự phụ thuộc p&nbsp;≤&nbsp;2,80×10<sup>−6</sup> (≈ 1 trên 350.000)',
 			details2_summary: 'Tại sao Làn 2 mang vụ kiện — chi tiết kỹ thuật',
+			details2_p: 'Cuộc kiểm toán đã đăng ký trước năm bài kiểm tra bất thường cấu trúc vào ngày 24 tháng 4 năm 2026 trước khi các kết quả mô phỏng cuối cùng được biên soạn. Neo bám trung lập cho cả hai bản đồ; trên bốn bài kiểm tra còn lại, thiểu số vượt qua mọi cái và đa số vượt qua không có cái nào. Những phép đo đó là hình học — chúng không phụ thuộc vào bất kỳ bộ lấy mẫu thống kê nào hay bất kỳ sự phân bổ phiếu bầu nào. <strong>Đây là phát hiện trung tâm.</strong> Làn 1 (các con số công bằng đảng phái) chứng thực Làn 2 dưới các tập tin shapefile chính thức: thiểu số nằm trong đuôi của tập hợp 1.010.000 kế hoạch trên ba trong bốn phép đo đã đăng ký trước, với khoảng cách hiệu quả ở p94,4 (<em>gần, nhưng dưới</em>, ngưỡng phân vị thứ 95 đã đăng ký trước), theo một giới hạn trên kết hợp bền vững với sự phụ thuộc p&nbsp;≤&nbsp;2,8×10<sup>−6</sup> (≈ 1 trên 350.000; thay thế một con số kết hợp Fisher trước đó đã phóng đại mức ý nghĩa chung bằng cách coi hai kênh có dữ liệu chồng lấp là độc lập). Câu hỏi liệu hình học bất thường của Làn 2 có phải là <em>cơ chế</em> cụ thể đằng sau các con số của Làn 1 hay không đã được kiểm tra và câu trả lời là không — xem <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>. Bài kiểm tra Phân bổ Vùng Dao động đã được chạy trên các lựa chọn ranh giới gây tranh cãi; theo hoán vị tiêu chuẩn nó trả về p=0,0024, nhưng theo hoán vị khối (hiệu chỉnh cho tự tương quan không gian qua các Khu vực Bỏ phiếu liền kề) nó trả về p≈0,19 — không có ý nghĩa. SZAT được giữ lại chỉ như bối cảnh khám phá. Riêng biệt, câu hỏi cơ chế đã được kiểm tra: liệu chính các hình dạng ranh giới — hành lang lasso, phần mở rộng công viên — có phải là nguyên nhân trực tiếp của sự dịch chuyển ghế hay không; chúng không phải. Hiệu ứng ghế đến từ cách các phân công Khu vực Bỏ phiếu được vẽ lại làm dịch chuyển hiệu quả phiếu bầu qua các khu vực, không phải từ bản thân các hình dạng. Cả hai làn đều gắn cờ bản đồ thiểu số; chúng đạt được điều đó thông qua các công cụ độc lập. Làn 2 mang vụ kiện. Làn 1 chứng thực mà không gánh.'
 		},
 		impact: {
 			heading: '5: Tác động đến Đại diện',
@@ -714,6 +780,7 @@ export default {
 			help_title: 'Cách sử dụng bản đồ',
 			pin_aria: 'Ghim bản đồ',
 			pin_title: 'Ghim bản đồ — ngăn tự động pan khi nhấp vào khu vực',
+			search_aria: 'Tìm một khu vực bầu cử',
 			search_placeholder: 'Tìm khu vực…',
 			zoom_aria: 'Thu phóng bản đồ',
 			clear_aria: 'Xóa lựa chọn khu vực',
@@ -780,6 +847,115 @@ export default {
 			code_label: 'Mã:',
 			translation_label: 'Bản dịch:',
 			translation_credit: 'Anthropic Fable 5 (AI) — đang chờ đánh giá của người bản xứ'
+		}
+	},
+	explorer: {
+		controls: {
+			panel_title: 'Điều khiển bản đồ',
+			close_aria: 'Đóng bản đồ',
+			map_version_hdr: 'Phiên bản bản đồ',
+			map_version_hint: '· nhấp để bật/tắt',
+			map_toggle_title: 'Bật/tắt bản đồ này',
+			map_minority: 'Thiểu số',
+			map_majority: 'Đa số',
+			map_2019: '2019',
+			map_minority_short: 'Th.s',
+			map_majority_short: 'Đa',
+			map_2019_short: '’19',
+			search_placeholder: 'Tìm một khu vực…',
+			search_aria: 'Tìm các khu vực',
+			search_clear_aria: 'Xóa tìm kiếm',
+			search_in: 'trong {ed}',
+			zoom_aria: 'Thu phóng',
+			res_prefix: '1 pixel ≈',
+			overlays_hdr: 'Lớp phủ Lợi ích Cộng đồng',
+			layer_highways: 'Đường cao tốc',
+			layer_water: 'Sông & hồ',
+			layer_annotations: "EBC '26 Annotations",
+			mobile_map_version_aria: 'Phiên bản bản đồ',
+			mobile_search_aria: 'Tìm các khu vực',
+			mobile_layers_aria: 'Các lớp bản đồ',
+			mobile_info_aria: 'Về các đường ranh giới',
+			mobile_share_aria: 'Chia sẻ góc nhìn này',
+			mobile_close_aria: 'Đóng bản đồ',
+			lang_aria: 'Đổi ngôn ngữ',
+			lang_hdr: 'Ngôn ngữ',
+			lines_note_title: 'Đọc các đường',
+			lines_note_lead: 'Mọi hình dạng kỳ lạ hay đường chia là một',
+			lines_note_emphasis: 'lựa chọn có chủ ý của ủy ban',
+			lines_note_tail:
+				'— không phải lỗi dữ liệu. Các đường tuân theo các cạnh của khu vực bỏ phiếu; nơi hai bản đồ đồng ý chúng nằm trên cùng một đường, nơi chúng tách rời các đề xuất thực sự bất đồng.'
+		},
+		share: {
+			button: 'Chia sẻ góc nhìn này',
+			heading: 'Chia sẻ góc nhìn này',
+			copy: 'Sao chép liên kết',
+			copied: 'Đã sao chép',
+			help: 'Liên kết này nắm bắt bản đồ, lớp phủ và góc nhìn hiện tại của bạn.',
+			open_heading: 'Mở một liên kết được chia sẻ',
+			open_placeholder: 'Dán một liên kết chia sẻ…',
+			open_btn: 'Mở',
+			err_empty: 'Dán một liên kết chia sẻ',
+			err_invalid: 'Không phải là một liên kết chia sẻ hợp lệ'
+		},
+		tip: {
+			total_votes: 'tổng số phiếu',
+			poll: 'Điểm bỏ phiếu #{id} · phiếu bầu trực tiếp',
+			ucp_pct: 'UCP {u}%',
+			ndp_pct: 'NDP {n}%',
+			unassigned: '(chưa phân công)',
+			where_in: 'tại {community}',
+			where_near: 'gần {community}',
+			note_sparse:
+				'Một khu vực dân cư thưa thớt — với ít phiếu được bỏ ở đây, màu sắc vẫn gần với tông trung lập cơ sở của bản đồ.',
+			note_no_votes:
+				'Không có phiếu nào được ghi nhận ở đây, vì vậy khu vực này hiển thị tông trung lập cơ sở của bản đồ.',
+			no_one_title: 'Không ai bỏ phiếu ở đây',
+			no_one_body:
+				'Không có đơn vị bỏ phiếu nào bao phủ điểm này — không ai được ghi nhận sống hay bỏ phiếu ở đây, vì vậy nó giữ tông trung lập của bản đồ.',
+			flag_link: 'Nhấp để phóng to'
+		},
+		miller: {
+			title: 'Miller — một ghế nông thôn được khôi phục',
+			body: 'Khu vực này nằm trên bản đồ là nhờ Thẩm phán Dallas Miller, chủ tịch của ủy ban. Trong một phụ lục cho báo cáo cuối cùng, ông viết rằng nếu Cơ quan Lập pháp sẽ không chấp nhận cắt bỏ hai khu vực nông thôn, thì thay vào đó nên thêm hai ghế — đi từ 89 lên 91 — và khôi phục chúng. Ông chỉ vào điểm này, quanh các hạt Clearwater và phía tây Mountain View phía tây Red Deer, là nơi một trong những ghế nông thôn đó nên đi. Nó được phác từ các đường hạt như một chỗ giữ chỗ, không phải là một ranh giới chính thức, cho đến khi ủy ban tiếp theo vẽ lại bản đồ.'
+		},
+		flags: {
+			'banff-town': {
+				title: 'Banff — thị trấn được tách ra khỏi công viên',
+				body: 'Banff nằm bên trong một công viên quốc gia liên bang, như một hòn đảo đô thị nhỏ. Thiểu số nhóm khu thị trấn với Canmore — thị trấn tiếp theo xuôi xuống Thung lũng Bow — trong “Canmore-Kananaskis,” và để công viên không có người ở làm khu vực mang tên Banff. Ranh giới ôm sát thị trấn vì đó là điểm có người ở duy nhất trong nhiều dặm. Nó trông giống như một lỗi, nhưng nó tuân theo địa lý thực.'
+			},
+			'banff-park': {
+				title: 'Bắc Banff — “Rocky Mountain House–Banff Park”',
+				body: '“Rocky Mountain House–Banff Park” là một trong những khu vực bầu cử được đề xuất của thiểu số, phần lớn gồm công viên quốc gia không có người ở; thị trấn Banff nằm trong một khu vực bầu cử lân cận về phía nam. Thiểu số đã áp dụng điều khoản dân số nhỏ hơn của Luật Ủy ban Ranh giới Bầu cử cho khu vực này — một lựa chọn mà chủ tịch ủy ban đã đề cập trong báo cáo cuối cùng.'
+			},
+			'airdrie-split': {
+				title: 'Airdrie — chia thành bốn',
+				body: 'Sự tăng trưởng của Airdrie và việc đi lại đến Calgary (khoảng 76% người đi làm ra ngoài) lẽ ra có thể neo một ghế khu vực Airdrie mới duy nhất — loại mà dữ liệu hỗ trợ. Thiểu số thay vào đó chia thành phố qua bốn khu vực bầu cử; phép toán dân số không yêu cầu điều đó, và không có bài nộp nào đề xuất nó. Trên bài kiểm tra chữ ký phá vỡ của cuộc kiểm toán, sự chia bốn chiều này đáp ứng mọi tiêu chí — cư dân Airdrie rốt cuộc là thiểu số trong cả bốn khu vực bầu cử, không có ghế nào mà thành phố kiểm soát — trong khi sự chia hai chiều của đa số không cho thấy cái nào. Đây là một sự chia cộng đồng, vô hình đối với các bài kiểm tra công bằng đảng phái; cuộc kiểm toán đo lường hiệu ứng cấu trúc, không phải ý định. (Học thuật §5.3.2.)'
+			},
+			'nolan-hill-cochrane': {
+				title: 'Calgary-Nolan Hill–Cochrane',
+				body: 'Việc đi lại của Cochrane đến Calgary lẽ ra có thể biện minh cho việc ghép nó với thành phố — nhưng dữ liệu hành trình-đến-nơi-làm-việc năm 2021 trải luồng đó ra toàn thành phố (khoảng một phần ba công nhân; một nửa làm việc trong Cochrane) và không chỉ về Nolan Hill. Hành lang hẹp của thiểu số đến phường Nolan Hill — hình dạng mà chủ tịch gọi là lasso — vươn xa hơn dữ liệu, và không có bài nộp nào đề xuất nó. Cuộc kiểm toán đọc điều này là cận-phá-vỡ: nó làm mỏng tiếng nói của Cochrane, nhưng Cochrane (khoảng 34.000) quá nhỏ cho một ghế riêng, vì vậy nó dừng lại trước một dấu hiệu phá vỡ chính thức. (Học thuật §5.3.2.)'
+			},
+			'olds-airdrie-reach': {
+				title: 'Olds–Three Hills–Didsbury — phần với Airdrie',
+				body: 'Một khu vực bầu cử nông thôn giữ các thị trấn Highway 2 — Olds, Didsbury, Three Hills — cùng nhau được ủng hộ tốt; cư dân khu vực Beiseker đã viết ủng hộ nó. Nó lẽ ra có thể ở trong những cộng đồng đó. Phiên bản của thiểu số thay vào đó vươn về phía nam vào rìa bắc của Airdrie, một phần mở rộng mà phép toán dân số không yêu cầu. Phần với này là một phần của cách sự chia bốn chiều Airdrie hoạt động — mỗi mảnh của Airdrie bị hấp thụ vào một ghế nông thôn lớn hơn — mà cuộc kiểm toán đọc là một phần của mẫu phá vỡ. (Học thuật §5.3.2.)'
+			},
+			chestermere: {
+				title: 'Chestermere — chia giữa hai khu vực bầu cử',
+				body: 'Việc đi lại nặng nề của Chestermere đến Calgary (86% người đi làm ra ngoài) lẽ ra có thể hỗ trợ giữ nó toàn vẹn và gần thành phố — điều mà cư dân phản đối sự sáp nhập Calgary cũng muốn. Thiểu số thay vào đó cắt một mảnh phía nam vào một khu vực Calgary cụ thể mà nó không chia sẻ trường học hay giao thông, và mảnh đó trượt bài kiểm tra dân số. Cuộc kiểm toán đọc sự chảy máu vào một khu vực Calgary là cận-phá-vỡ — một sự chia cộng đồng-lợi-ích làm mỏng tiếng nói của Chestermere mà không lên đến một chữ ký phá vỡ chính thức. (Học thuật §5.3.2, §5.8.4.)'
+			},
+			'red-deer': {
+				title: 'Red Deer — các khu vực bầu cử lai',
+				body: 'Các mối liên kết khu vực của Red Deer với Blackfalds, Sylvan Lake, Lacombe và Innisfail lẽ ra có thể nhóm những thị trấn đó cùng nhau — một ủy viên hội đồng thành phố và cư dân đã đề xuất các bản lai tương tự. Phiên bản của thiểu số thay vào đó gập các phần của chính thành phố vào các khu vực bầu cử do thị trấn dẫn dắt, làm mỏng phiếu bầu của Red Deer đô thị; lý do “trường học chung” của nó cũng không đứng vững (các bộ phận giáo dục khác nhau). Gập một thành phố vào các khu vực bầu cử do thị trấn dẫn dắt là mẫu mà cuộc kiểm toán gọi là lai hóa — nhất quán với phá vỡ, đạt được hiệu ứng đảng phái bên trong các khu vực bầu cử lai chứ không phải qua chúng. (Học thuật §5.3.5.)'
+			},
+			'st-albert': {
+				title: 'St. Albert — các cấu hình cạnh tranh',
+				body: 'Phiên bản St. Albert của một trong hai bản đồ có thể dựa trên một cơ sở hợp lý. Cuộc kiểm toán đơn giản không tìm thấy bài nộp nào ủng hộ phương án thay thế cụ thể của thiểu số — và vì công dân hiếm khi nêu tên ranh giới chính xác của một ủy ban, nó coi bằng chứng ở đây là mỏng, không rõ ràng ủng hộ hay chống lại.'
+			},
+			'calgary-zone-a-packing': {
+				title: 'Bắc & đông Calgary — một chữ ký nhồi nhét',
+				body: 'Chủ tịch ủy ban không gắn cờ cái này — chính phép toán của cuộc kiểm toán làm vậy. Trên khắp bắc và đông Calgary (“Vùng A” của cuộc kiểm toán, bắc và đông sông Bow), các khu vực của bản đồ thiểu số lớn hơn khoảng 11,5% so với mức trung bình tỉnh, so với 2,8% trên bản đồ đa số. Nhồi nhét có nghĩa là tập trung cử tri của một bên vào ít hơn, các khu vực lớn hơn, để mỗi lá phiếu của họ có trọng lượng ít hơn một chút; Vùng A có tính cạnh tranh NDP, và 13 trong số 17 khu vực của nó do NDP thắng vào năm 2023. Cuộc kiểm toán đo lường hiệu ứng cấu trúc, không phải ý định. (Học thuật §5.3.1.)'
+			}
 		}
 	}
 } as const;

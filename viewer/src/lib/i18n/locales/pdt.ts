@@ -3,6 +3,40 @@ export default {
 	selector: {
 		label: 'Kjies Schproake'
 	},
+	verdict: {
+		headline: 'Alberta teidcht siene Wahlkoat nij.',
+		p_what: 'Aune un too teidcht dee Provinz ähre Wahlkreise nij — dee lokale Jebeedscha, dee jiedres een MLA wäle. Wua dee Linie fale, entschitt, met wäm jie stemme, un wäa jüch im Laanddach vadreett.',
+		p_split: 'Disses Mol haft daut Panel, daut dee Nijzeiknung deit, sech jespalt. Daut haft twee konkurriirende Koate voadjebrocht — un dise Pruewunk prooft beide.',
+		p_question: 'Wie ha beide Koate fea een Froag jeprooft: es een von daen jefuarmt, om en Partei to befördre — sooja wann kjeen Mensch sech daut väajenome haft?',
+		p_answer: 'Een von dee twee es daut. Dee aundre utsieet normaul.',
+		p_howfar: 'En Computer haft 1,01 Milljon jesetlije Versione von dee Koat zufällijch jeteidchnet. Een von dee twee wiakliche Koate es mea eensijtijch aus aule bett op omtrent 1 in 350.000 von daen, in dee UCP ähre Gonst. Dee aundre sett innen normalen Bereich.',
+		aside_pre: 'Man kunn en Koat, dee soo jefuarmt es, en ',
+		aside_post: ' nenne. Daut Wuat haft kjeen jesetslijen Senn in Kanada, also jebruk wie daut nich aus Urteelt. Wie wiese jüch, waut dee Koat deit; jie urteele. Fea dee deepre Schichte — waut daut Jesats wiaklich erfordert, un jienaujt woo wie dee Proow jeläpt ha — seet ',
+		box_heading: 'Waut wie sauje kjenne un waut nich',
+		box_can_1: 'Dee Minoritäts-Koat sett buttehaulf von waut 1,01 Milljon neutrale Koate väadere, in dee UCP-befördade Richtunk.',
+		box_can_2: 'Aule vea partisan-Jerechtichjkjeit-Mäatunge wiese dieselwe Richtunk.',
+		box_cant_1: 'Daut aunjend Kommissjoonsmitjliet daut beobsiechtigte — dee Pruewunk läst Resultote, nich Motiwe.',
+		box_cant_2: 'Daut dee Koat en Gerrymander "es" — daut es kjeen Kategorie, dee daut Kanadische Jesats anerkennt.',
+		box_cant_3: 'Woo en Jerecht entschide wäad, oda waut daut Komitee wäle weat.',
+		law_link: 'Jesats',
+		methods_link: 'Methode'
+	},
+	why_redrawn: {
+		heading: 'Wuaromm daut jeschitt — un wuaromm daut jüch aunjeht',
+		p1: 'Alberta es in 87 Wahlkreise jedält. Jiedres wält een einzelnen MLA in den Laanddach. Jüa Wahlkrais entschitt, wäa dee Persoon es, wäl Näjeboarschaften met jüarem jejruppt woare, un wässe Aunlieje jüa MLA eascht heert.',
+		p2: 'Dee Linie bliewe nich fest. Aus Mensche trecke un Städte wachse, enje eenje Wahlkreise met viell mea Wähla aus aundre, also teidcht dee Provinz dee Koat aule poor Joah nij, om see grof jlikj to haulde. En Panel von Kommissjoonsleijde deit dee Zeiknung, joarbidend von Reejle, dee im Jesats festjelajcht senn: Wahlkreise mosse noh aun Beavälkarunk senne, in een Stück bliewe, un wiakliche Jemeeende beisamme haulde, wua see kjenne.',
+		p3: 'Daut es dee normale Prozes. Disses Mol es daut tobroke. Dee Kommissjoonsleijde kunne sech nich eenijen un ha sech in twee Laaja jespalt, jedda met siene eejne Koat. Dann haft en Komitee von MLAs beide Koate Sied jelacht un aunjefange, ähre eejne, grössere to teidchne. Daut en jesatjefendet Komitee dee Kommissjon soo äwarrennt, es selden.',
+		p4: 'En Linie aun enra Koat entschitt, wässe Stem fea waut zält. Daut kjann en Jemeend ähre Wähla beisamme haulde, oda see äwa mehrere Wahlkreise vestreie, wua ähre Zahle nich mea viell aufmoake. Daut kjann eenje Rennen noh haulde un aundre buttehaulf von Reichwiete bringe. Nüscht doavon wiest sech aun dee Owerfläch; daut es jesatt, derjch wua dee Grenzen fale.'
+	},
+	two_maps: {
+		heading: 'Twee Koate — un wäa see jeteidchnet haft',
+		p1: 'Aus dee Kommissjon sech jespalt haft, haft see nich een Koat met enrem aunjeheften Wedaspruch voadjebrocht. See haft twee vollständije, konkurriirende Koate voadjebrocht. Beide senn jesetlij. See teidchne dee Linie blooss unjerschedlich.',
+		p2: 'En Grenzkommissjon haft fief Jliede. Dee Oberchefjustizia von Alberta benennt den Vorsetza — den neutralen Sitz, hia jehaulde von Dallas K. Miller, en frihere Court of King\'s Bench-Richta. Dee Partei aun dee Rajjeerunk benennt twee Jliede; dee Oppositsjoon benennt twee.',
+		p3: 'Dise Kommissjon haft sech dree to twee jedält. Dee Vorsetza un dee twee Oppositsjoon-aunjestallten Jliede ha een Koat unjastütt — den Mehrheitsbericht, weil de measchte von dee Kommissjon daut unjerschriewe ha. Dee twee Rajjerunks-aunjestallten Jliede ha dee aundre unjastütt — den Minoritätsbericht.',
+		p4: 'Dee Koat, dee dee Pruewunk als dee mea eensijtije flemmt, es dee Minoritätsbericht — dee, dee dee twee Rajjerunks-aunjestallten Jliede jeteidchnet ha. Dee Pruewunk kjann nich wiese, aub see daut meende, un proowt daut nich. See wiest, waut dee Koat deit.',
+		p5: 'Dee Deckblattkoat baowe aun dise Sied lett jüch see selfst vejlikje. Schault tweschen dee twee Vüaschläj un dee heutje Koat, fijnt jüaren eejnen Wahlkrais, un kik, wäl Näjeboarschaften beisamme jejruppt oda auseenanderjespalt woare.',
+		p6: 'En Komitee von MLAs haft seatdem beide Koate Sied jelacht, om ähre eejne to teidchne, fällijch späta im 2026 — en Biewejunk, dee dise Sied aun dee Jesats-Sied bekikt. Dise twee bliewe dee Pruewunk ähre klooarste Proowfaul, un dieselwe Proowe woare aun aules aunjewande, waut daut Komitee voadbringt.'
+	},
 	disclaimer: {
 		text:
 			'Dise Sied es derjch KI äwasazt woare. Eenje Inhault kjann noch auf Englasch erschiene, wiel dee Äwasattsunk noch in Prozes es. Wann jie Fähla bemärke oda helpe welle dise Projakt äwasatle, bitte %s.',
@@ -31,7 +65,7 @@ export default {
 		q3: {
 			heading: "Waut es fea Albertana aun dee Spil?",
 			body:
-				"Aun enre 50/50 provinziellen Stem, stalt dee Pruewunk dee Mäatunge fest, daut dee Minorität-Vüaschlag aun enre strukturellen Grenzstell es: winnjacha aus 100 von dee 1,01 Milljon Neutral-Vejlikjskoate väadere dee selfde Sort von Sitz-Unjtlikhiet. Dee Unjtlikhiet es von Bedeitsumkeit, wiel aun 58 von 87 Sitz (en Swejedrittel-Supermajoretät) de Rajjerungspartei onjewehnliche prozedurale Mochte fraschaltet. Se kjann normale Bekanntmachungsperioden vaziechte un öffentliche Jesatze derjch mehrere jestzetjefende Stupe in een einzjen Daach dringe, dee deliberatieve Kontrallen äwajehend, aun dee dee Laanddach sonscht aunkaamt. Aub dee Unjtlikhiet von dee Minorität-Vüaschlag groot jenunk es, om een Partei äwa dee 58-Sitz-Schwäll to dringe aun unjerschedlichen Stemmanteile <em>aunjenda</em> aus 50/50 es en Froag, dee dise Pruewunk noch nich direklt jeprooft haft. Aub dee Unjtlikhiet aunnehmboa es, es en Froag fea Albertana, nich fea dise Pruewunk."
+				"Aun enre 50/50 provinziellen Stem, stalt dee Pruewunk dee Mäatunge fest, daut dee Minorität-Vüaschlag aun enre strukturellen Grenzstell es: winnjacha aus 100 von dee 1,01 Milljon Neutral-Vejlikjskoate väadere dee selfde Sort von Sitz-Unjtlikhiet. Dee Unjtlikhiet es von Bedeitsumkeit, wiel aun 60 von 89 Sitz (en Swejedrittel-Supermajoretät) de Rajjerungspartei onjewehnliche prozedurale Mochte fraschaltet. Se kjann normale Bekanntmachungsperioden vaziechte un öffentliche Jesatze derjch mehrere jestzetjefende Stupe in een einzjen Daach dringe, dee deliberatieve Kontrallen äwajehend, aun dee dee Laanddach sonscht aunkaamt. Aub dee Unjtlikhiet von dee Minorität-Vüaschlag groot jenunk es, om een Partei äwa dee 60-Sitz-Schwäll to dringe aun unjerschedlichen Stemmanteile <em>aunjenda</em> aus 50/50 es en Froag, dee dise Pruewunk noch nich direklt jeprooft haft. Aub dee Unjtlikhiet aunnehmboa es, es en Froag fea Albertana, nich fea dise Pruewunk."
 		},
 		cta_law: 'Läs dee jesetslijen Zusammenhang →',
 		cta_methods: 'Soo wie wie jeprooft ha →',
@@ -50,7 +84,7 @@ export default {
 		gerrymander_body: 'Aun dee Pruewunk sienem jesamte partisan-Bias-Score sett dee Kommissjon ährn Minorität-Koat im extremen Schwaunz von 1.010.000 algorithmisch-jeteidchten neutralen Vejlikjskoate — omtrent 66 von daen jeleijde daut Tipping-Point-<code>seats@50/50</code>-Weat, met enrem abhänkichkeitsrobustem jesamten Owerejrenz von omtrent 1&nbsp;in&nbsp;350.000 unjda dee Referenzdistributsjoon. Dee Mehrheit-Koat falt jemütlich innen normalen Bereich.',
 		tldr_label: 'TL;DR',
 		tldr_p1: 'Dee Redistribusjoonskkommissjon von Alberta haft sech 3&ndash;2 im 2026 jespalt un twee verschiedene voajeschlaune Koate voadjebrocht. Dee Rajjeerunk haft beide Sied jelacht un dee Nijzeiknung eenem fief-Jlieda-Komitee von MLAs äwajejowe (daut Lunty-Komitee), waut em November 2026 beriechte soll. Kjeen Kommissjonskoat es Jesats.',
-		tldr_p2: 'Dise Pruewunk haft beide Kommissjonskoate aup dieselde Wiess jeprooft, unjda Jebrukt von 1.010.000 computajjenerierde neutrale Koate, jebout aus den offiziellen Elections Alberta Shapefiles aus Referenzbunkt. Dee Mehrheits-Vüaschlag lajt innen neutralen Bereich aun jeda voorrjistrierte Proow. Dee Minoritäts-Vüaschlag äwajeit vea von fief strukturelle Proowe, un sien partisan-Jerechtichjkjeit-Sitz-Spaltunk aun enrem 50/50-Stem weat derjch omtrent 66 von dee 1.010.000 neutrale Koate jeläicht — en abhänkichkeitsrobuster jesamter Owerejrenz von omtrent 1 in 350.000 unjda dee Referenzdistributsjoon. (Dee frihere Formuliarunk von "1 in 15 Milljon" haft twee Kanäle kombiniert, dee jejaenseitije Dote teele, un haft dee jesamte Bedeutsaumkeit äwaschätzt; dee Zahl baowe es dee korrijierte, verdeiditchboore Schranke.) Dee efficiency gap (Stemmverlustaofstaut)-Metrik von dee Pruewunk fea dee Minorität sett aum 94-sten Prezentielrang — <em>noh, oba unjahaulb</em>, dee Pruewunk sienem eejnem 95-sten-Prezentielrang-Schwäll.',
+		tldr_p2: 'Dise Pruewunk haft beide Kommissjonskoate aup dieselde Wiess jeprooft, unjda Jebrukt von 1.010.000 computajjenerierde neutrale Koate, jebout aus den offiziellen Elections Alberta Shapefiles aus Referenzbunkt. Dee Mehrheits-Vüaschlag lajt innen neutralen Bereich aun jeda voorrjistrierte Proow. Dee Minoritäts-Vüaschlag äwajeit vea von fief strukturelle Proowe, un sien partisan-Jerechtichjkjeit-Sitz-Spaltunk aun enrem 50/50-Stem weat derjch omtrent 66 von dee 1.010.000 neutrale Koate jeläicht — en abhänkichkeitsrobuster jesamter Owerejrenz von omtrent 1 in 350.000 unjda dee Referenzdistributsjoon. Dee efficiency gap (Stemmverlustaofstaut)-Metrik von dee Pruewunk fea dee Minorität sett aum 94-sten Prezentielrang — <em>noh, oba unjahaulb</em>, dee Pruewunk sienem eejnem 95-sten-Prezentielrang-Schwäll.',
 		tldr_p3: 'Dee Pruewunk mett Resultote, nich Avsecht. Wann daut Lunty-Komitee siene Koat publiziaret, weat dise Pruewunk dee selfde Proowe doaraun aunwende.',
 		tldr_footer: 'Voorrjistrierde Falsifikazjoonskondizjone un Ricknahmebindunge senn in %s.',
 		tldr_footer_link: '§9'
@@ -67,6 +101,9 @@ export default {
 		theme_title: 'Donkel Modus omschaulde',
 		nav_aria: 'Inhaultsvazejchnis öffne',
 		drawer_top: '↑ Baowe',
+		route_story: 'Jeschicht',
+		route_law: 'Jesats',
+		route_methods: 'Methode',
 		// Compact landmarks shown on the sticky bar
 		stakes: 'Waut aun dee Spil es',
 		findings: 'Aunfindunge',
@@ -101,6 +138,7 @@ export default {
 	},
 	hero: {
 		h1: 'Alberta Wahlkrais-Grenz-Pruewunk',
+		draft: '(ONPUBLIZIIRTA ENTWURF — Äwaprüfa willjekome)',
 		subtitle:
 			"Albertas Kommissjon haft twee Wahlkraiskoate im 2026 voadjebrocht. Dise Pruewunk haft see vejlike — unjda dieselwe Proowe, jlikjmässijch aun beide aunjawaunt — om to froage aub see Wähla aup dieselwe Wiss behandle.",
 		badge: 'Offizielle Elections Alberta Koate — Publiziert Mei 2026',
@@ -174,7 +212,7 @@ export default {
 			"Dee Pruewunk schläjt nich vüa, ländlichem Alberta Sitze wegtoneeme. Se froagt, aub dee Linie dee ländlichen Jemeeende respektiire, fea dee dee Sitze gedacht senn, oda aub ländliche Jeografie aus Ballast jebrukt weat, om städtische Stemme in Wahlkreise auftosorbiire, deare Zentrum woanders es. Wann jie in einem von dee ländlichen Schwänze laewt, dann entschitt dee Froag, wäl Koat angenomme weat, aub jüa MLA dee ländliche Jemeend vadreett, wua jie wiaklich laewt, oda en städtischen Wahlkraus, deare Grenzen jüa Launt zufällijcherweis einschliessen.",
 		province_h: 'Jüare Provinz.',
 		province_p:
-			"Dee Laanddach es, waut jie jriee, wann jie jiedren Wahlkraus siene Auntwuate aun dee dree Froage baowe sumiire. Wann de measchte Wahlkreise aun Jemeeende aungejoat senn, deare MLAs wiaklich in daen wauhne, dann vadreett dee Laanddach dee Jemeeende. Wann de measchte Wahlkreise ländliche Schwänze aun städtische Kjep aungehinkt ha, dann vadreett dee Laanddach dee Kjep — un dee Schwänze jriee, wäl Opmarksaumkeit äwrijch blifft. Dee partidische Froag — wäl Partei en Mehrheit jiennt — es von daut noh unne. Dee Supermajoretät-Froag — aub een Partei 58 von 87 Sitze äwarschrijdt un prozedurale Kjürtzings woo Bekanntmachungsperioden vajinge oda Jesatzjefunge derjch mehrere Stufen in een einzjen Daach beschleinijcht — es von <em>daut</em> noh unne. Aun enrer hypothetischen 50/50-Spaltunk stalt dee Pruewunk fest, daut dee Minoritäts-Vüaschlag aun enre strukturellen Grenzstell es: winnijcha aus 100 von dee 1,01 Milljon neutrale Vejlikjskoate bringt dieselde Sort von Sitz-Unjtlikhiet vüa. Aub dee Unjtlikhiet een Partei äwa 58 Sitze aun den Stemmaunteele drinjt, dee Albertana wiaklich lefre, es en Froag, dee dise Pruewunk noch nich direklt jeprooft haft; dee upfendende Froage baowe aun diser Sied senn ihriich äwa dee Lücke. Aub dee Auntwuat aun irgendwelchen von dise Froage bedütsaum jenunk es, om doaraun to haulde, es, noch ens, en Froag fea jüch."
+			"Dee Laanddach es, waut jie jriee, wann jie jiedren Wahlkraus siene Auntwuate aun dee dree Froage baowe sumiire. Wann de measchte Wahlkreise aun Jemeeende aungejoat senn, deare MLAs wiaklich in daen wauhne, dann vadreett dee Laanddach dee Jemeeende. Wann de measchte Wahlkreise ländliche Schwänze aun städtische Kjep aungehinkt ha, dann vadreett dee Laanddach dee Kjep — un dee Schwänze jriee, wäl Opmarksaumkeit äwrijch blifft. Dee partidische Froag — wäl Partei en Mehrheit jiennt — es von daut noh unne. Dee Supermajoretät-Froag — aub een Partei 60 von 89 Sitze äwarschrijdt un prozedurale Kjürtzings woo Bekanntmachungsperioden vajinge oda Jesatzjefunge derjch mehrere Stufen in een einzjen Daach beschleinijcht — es von <em>daut</em> noh unne. Aun enrer hypothetischen 50/50-Spaltunk stalt dee Pruewunk fest, daut dee Minoritäts-Vüaschlag aun enre strukturellen Grenzstell es: winnijcha aus 100 von dee 1,01 Milljon neutrale Vejlikjskoate bringt dieselde Sort von Sitz-Unjtlikhiet vüa. Aub dee Unjtlikhiet een Partei äwa 60 Sitze aun den Stemmaunteele drinjt, dee Albertana wiaklich lefre, es en Froag, dee dise Pruewunk noch nich direklt jeprooft haft; dee upfendende Froage baowe aun diser Sied senn ihriich äwa dee Lücke. Aub dee Auntwuat aun irgendwelchen von dise Froage bedütsaum jenunk es, om doaraun to haulde, es, noch ens, en Froag fea jüch."
 	},
 	editorial_history: {
 		heading: 'Zusammenhang: En kjurze Jeschichte von Gerrymandering (waunn Wahlkranskjes tweewäajich jezeidcht woare)',
@@ -267,6 +305,31 @@ export default {
 			definition:
 				'Dee Alberta Electoral Boundaries Commission Act — daut Jesats, daut reejelt, woo Wahlgrenzen in dee Provinz jezeiknet woare. Daut stalt dee Kommissjon aup, den öffentlichen Hörprozes, un dee Reejle, wann en niee Koat in Kraft treet.'
 		},
+		ensemble: {
+			term: 'Dee 1,01-Milljon-Koat-Proow',
+			definition:
+				'En Computer haft 1,01 Milljon jesetlije Alberta-Koate zufällijch jeteidchnet, aule met dieselwe Reejle. En wiakliche Koat zält aus onjewehnlich, wann dee buttehaulf von waut fast aule von dise neutrale Koate väadere falt.'
+		},
+		efficiency_gap: {
+			term: 'Efficiency gap',
+			definition:
+				'En Maas von "verschwendete" Stemme — Stemme äwa waut en Kandidaut to jenne brüjcht, plus jiedde Stem fea en Vleara — vejlikje tweschen dee twee Parteie. En groota Loch wiest aun en eensijtije Koat.'
+		},
+		mean_median: {
+			term: 'Meen-Median-Loch',
+			definition:
+				'Daut Loch tweschen en Partei ähren durchschnittlijchen Stemmaunteel äwa Wahlkreise un ähren midde (medianen) eenen. En groota Loch deit vamoode, daut ähre Wähla aup en Wajch vespreit senn, dee Stemme verschwendt.'
+		},
+		declination: {
+			term: 'Declination',
+			definition:
+				'En Maas, woo eensijtijch jiedde Partei ähre Sitze jiennt — derjch Erdrutschseje oda derjch knaupe Seje. Aum Minoritätskoat wiest daut dieselwe Richtunk aus dee aundre Mäatunge (noh dee rajeeritjde Partei) noh enra Juni-2026-Zeichenkorrektsjoon.'
+		},
+		seats_5050: {
+			term: 'Sitze aun enrem Jlikjstaund',
+			definition:
+				'Wooviell Sitze jiedde Partei jenne wäad, wann dee Provinz ähre Stem jienaujt 50-50 spalt. Daut nemmt rut, wäa wiaklich jewonne haft, un prooft dee Koat ähre injebaute Neijunk.'
+		},
 		fsa: {
 			term: 'Vorwäatssorteerijunksbereich (FSA)',
 			definition:
@@ -317,7 +380,7 @@ export default {
 			t2_col_a: 'Koat',
 			t2_col_b: 'Efficiency gap',
 			t2_col_c: 'Meen-Median',
-			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Declination measures the angular difference between the seats-votes curve for each party. Negative values favour the UCP; positive favour the NDP.">Declination</a>',
+			t2_col_d: '<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener" title="Declination measures the angular difference between the seats-votes curve for each party. Negative values favour the NDP; positive favour the UCP.">Declination</a>',
 			t2_col_e: 'Sitze aun 50/50',
 			t2_r1_a: 'Mehrheit 2026',
 			t2_r1_b: '+0.1% (p15.5)',
@@ -346,7 +409,7 @@ export default {
 			t3_r3_c: '<strong>99,99sten Prezentiel — winnijcha aus 100 von 1.010.000 neutralen Züge jeleijde dat</strong>',
 			sub2_close: "Winnijcha aus 100 von 1.010.000 computarsimulierte neutrale Alberta-Koate haft en <code>seats@50/50</code>-Weat soo hüach woo dee Minoritäts-Vüaschlag siene. Jebaust aun wiakliche jungste Stemmuste, wäad daut dee UCP 60 Sitze jewähre (vejlikje met 55 im Mehrheits-Vüaschlag). Dee Mehrheits-Vüaschlag es dee Sort von Koat, dee en neutrale Prozeduure routinemässijch erzeugt. Dee Minoritäts-Vüaschlag es dee Sort von Koat, dee man spezifisch aunstrave mott, om to zeikne.",
 			sub3_h: 'Waut daut aun klooarem Plautdietsch bedüt',
-			sub3_p: 'Dee Minoritäts-Vüaschlag sett im extremen Schwaunz von dee 1.010.000-Ploan-Ensemble aun dree von vea partisan-Jerechtichjkjeit-Metrijen, met dem vierde (efficiency gap, +4,0%) aum 94sten Prezentiel — <em>noh, oba unjahaulb</em>, dee Pruewunk ähre voarrijistrijde Alberta-kalibrierde Schwäll von 95sten. Dee ihriiche jesamte Läsunk es nich een einzelne 1-in-fünfzehn-Milljon-Zahl: dee twee jesamten-Test-Kanäle teele jrunntleijende efficiency-gap-Dote un senn statetisch nich onaufjenklich, also äwerschätzt dee Verbindung von ähre p-Wete unjda Fishers Methode dee Bedeutsaumkjeit. Dee verdeiditjchboore owere Schranke von enre abhänkichkeitarobuste Verbindunk es omtrent <strong>eens in 350.000</strong> (Bonferroni; p&nbsp;≤&nbsp;2,8×10<sup>−6</sup>). Daut blift en extremes Resultoat, wiet äwa konventjonelle Bedeutsaumkjeitsschwälle — oba daut es als Schranke berechtiird, nich als vea onaufjenkliche Instrumente dee überäinstimme.',
+			sub3_p: 'Dee Minoritäts-Vüaschlag sett im extremen Schwaunz von dee 1.010.000-Ploan-Ensemble aun dree von vea partisan-Jerechtichjkjeit-Metrijen, met dem vierde (efficiency gap, +4,0%) aum 94sten Prezentiel — <em>noh, oba unjahaulb</em>, dee Pruewunk ähre voarrijistrijde Alberta-kalibrierde Schwäll von 95sten. Dee twee jesamten-Test-Kanäle teele jrunntleijende efficiency-gap-Dote un senn statetisch nich onaufjenklich, also äwerschätzt dee Verbindung von ähre p-Wete unjda Fishers Methode dee Bedeutsaumkjeit. Dee verdeiditjchboore owere Schranke von enre abhänkichkeitarobuste Verbindunk es omtrent <strong>eens in 350.000</strong> (Bonferroni; p&nbsp;≤&nbsp;2,8×10<sup>−6</sup>). Daut blift en extremes Resultoat, wiet äwa konventjonelle Bedeutsaumkjeitsschwälle — oba daut es als Schranke berechtiird, nich als vea onaufjenkliche Instrumente dee überäinstimme.',
 			details_summary: "Waut dise p-Weat bedüt — un waut daut nich deit",
 			details_p1: 'En p-Weat buntwoat een Froag: wann dee Koat von enre neutralen Prozeduure jeteidchnet wea, woo oft wäare wie en Resultoat soo extrem oda extrema seene? Aum abhänkichkeitsrobuste Schranke p&nbsp;≤&nbsp;2,8×10<sup>−6</sup>, es dee Auntwuat hüajstens omtrent eensmol in 350.000 Versüche.',
 			details_p2: 'Daut es en frequentistijcher Hypothesetest, kjeen Mäatunk von Aobsiecht. Daut sajt nich, dee Kommissjon haft aobsiechtsvet gerrymandert, un daut quantifiziert nich, woo unjeerecht dee Koat in praktijchen Bejreff es. Daut sajt, daut daut Grenzenmusta statistijch onkonsistent met dee ReCom neutrale Zeikne-Referenzdistributsjoon es — en stoakja äusserer Check, oba kjeener perfekter (daut erzwingt nich jedden jesatsmässijen Kritarijum, unna dem dee Kommissjon joabeidt haft, z.B. s.15(2)-Tiere un Gemeinschaftsinteressen-Beschränkunge).',
@@ -357,7 +420,7 @@ export default {
 			super_lead: "In enrem 89-Sitz-Laanddach erfordert en Swejedrittel-Supermajoretät jienaujt 60 Sitze. Dee Minoritäts-Vüaschlag sien seats@50/50 von 51,7% (p99.99 jäjen dee 1.010.000-Ploan-Ensemble) sett im Bereich, wua en UCP-Supermajoretät statistijch erreichboa weat aun Albertas 2023-Jeografie — oba daut Ensemble-Nil erzwingt nich jedden jesatsmässijen Kritarijum, unna dem dee Kommissjon joabeidt haft, also es daut en stoakjer äusserer Check, kjeen Beweis, daut kjeen jesetsmässijch konformate Alberta-Koat dese Sitzzahl erreijchen kjann. Dee strukturelle-Spur-Bewiese in Aunfindunge 1, 2 un 4 (dee von disem Nil goa nicht aunhenkt) draje daut measchte Jewicht; dee seats@50/50-Schwaunzstellung es dee unjastüttjende Zusammenhang.",
 			super_label: 'WUAROMM EN SUPERMAJORETÄT WIECHITIJCH ES',
 			super_body: "Unjda Kanadas Westminster-Parlamentssystem reicht en einfache Majoarität (45 Sitze) aus, om Routinejesatze un Haushaulte to bestale. En Swejedrittel-Supermajoretät (60 Sitze) deit mea. Daut erlaubt dee rajeeritjde Partei, 'Closure' to invoziire, om Debatte to beenden, prozedurale Reejle ohne Oppositsjoonszustimmunk umtoschriewe, un dee Zusammensetzunk von jeddem jesetjefenden Ausschuss to kontrollire. Daut isoliert uk dee Rajjeerunk von enjener Unzufriedenheit: sooja wann halw en Dutzend Hinterbänkla dee Sied wechsle, haft dee Rajjeerunk noch en joabeitsfoahije Majoarität. En einfache Majoarität lässt jüch daut Auto fahre; en 60-Sitz-Supermajoretät lässt jüch dee Verkehrsjesatze umschriewe.",
-			super_close: 'Derjch stratigisch städtische Wähla in umjewende ländliche Randbezirke to vedinne (daut "städtische Hybridisiarungsmustal" enjentified in Spur 2), konstruiirt dee Minoritäts-Vüaschlag dee jienaujt strukturelle Brandmauer, dee brüjcht weat, om dee 60 Sitze to sichre. Dee Spur-2-strukturelle Aunfindunk un dee Spur-1-statistijche Aunfindunk vejlikje sech aum selfde Vorschloach, in dieselwe Richtunk, un aun dieselde Jemeeende.',
+			super_close: 'Daut städtische-Hybridisaarungsmusta, enjentifiziert in Spur 2 — städtische Wähla verdeilt in umjewende ländliche-Rand-Wahlkreise — es daut strukturelle Mechanismus, daut konsistent met daut 60-Sitz-Resultoat es. Dee Spur-2-strukturelle Aunfindunk un dee Spur-1-statistijche Aunfindunk vejlikje sech aum selfde Vorschloach, in dieselwe Richtunk, un aun dieselde Jemeeende.',
 			sub4_h: 'Bestätijunk vom zieljerichteten-Prozeduure-Test',
 			sub4_p: 'Om sichre to senne, daut daut kjeen Quirk von dee neutrale Simulatsjoon ähre bekannte Kompaktheitsvoaliebe es, haft dee Pruewunk en zieljerichtete Hüjelklettern-Prozeduure (<a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">Cannon et al. 2022 — zitiert un beschriewe im technijchen Bericht</a>) in beide Richtunge jestäpt: UCP-Sitze maximisiire un NDP-Sitze maximisiire. Dieselwe Aunzahl von Schritte (40.000) in jedde Richtunk, dieselwe jesatsmässijen Beschränkunge, dieselwe provinzielle Jeografie.',
 			t4_col_a: 'Prozeduure',
@@ -382,7 +445,7 @@ export default {
 			defense1: '<strong>Dee "Natürliche Politijche Jeografie"-Verteidijunk:</strong> <em>("Städtische Wähla senn natürlijch jepackt; dee Koat reflektiert blooss Albertas Jeografie.")</em> Dee 1.010.000 Simulatsjoone berücksichtijen scho Albertas natürliche Jeografie. Dee Simulatsjoon beweist: weil Jeografie dee UCP en Grundlajje-Effizienzvoateel jifft, deckt daut natürlijch omtrent daut 83ste bis 90ste Prezentiel aun. Dee Minoritäts-Koat sett aum 99,99sten Prezentiel — en extremer Ausreutsa <em>sooja wann vejlikje met Albertas natürlijch schiefem Grundlajje</em>.',
 			defense2: '<strong>Dee "Interessenjemeinschaft"-Verteidijunk:</strong> <em>("Dee onjewehnlichen Fuarme woare jeteidchnet, om spezifische Jemeeende beisamme to haulde.")</em> Wann man Jemeeende beisamme haulde well, folgt man städtischen Grenzen. Dee Mehrheits-Koat haft bestehende Stadtgrenzen 80% von dee Tied befolgt. Dee Minoritäts-Koat haft see 72% von dee Tied befolgt — beide innen 70–85% Kanadijchen Norm. Waut dee Minoritäts-Koat deit, es dee eenheitlijke Staut Airdrie aktiv in vea sepauriirde Stücke to spalte, un dree von ähre Grenzentscheidunge jienaujt in dee städtischen Randzoone to platse, dee dee Kommissjoonsvorsetza als geometrisch anomaulijch jeflemmt haft — Wähle, dee sich nijcht durch Interessenjemeinschaftslogik erklären lassen.',
 			defense3: '<strong>Dee "Beavälkarungsjikhiet"-Verteidijunk:</strong> <em>("See mossten onjewehnliche Grenzen zeikne, om sichre to stale, daut jedda Wahlkraus jienaujt dieselwe Beavälkarunk haft.")</em> Dee Minoritäts-Koat es wiaklich viell <em>schlächter</em> aun Beavälkarungsjikhiet. Sien Beavälkarunks-Meen-Absolutter-Auwejichunk (MAD) wea 4.707 — 48% braida aus dee Mehrheits-Koat siene 3.180 — dee aum 99sten Prezentiel von daut kanonijche Ensemble platsend (blooss 1 in 100 neutrale Koate erzeugt en schlächteren Veadeel). Daut haft Beavälkarungsjikhiet aupjeoffert, om siene Fuarm to errejchen.',
-			defense4: '<strong>Dee "Unkompetenz oda Pech"-Verteidijunk:</strong> <em>("See ha blooss en schlampijche Koat jeteidchnet un senn pechvoll met dee Zahle jewast.")</em> En 60-Sitz-Supermajoretätskonfiguratsjon to triefe, wiel Airdrie in vea Stücke jespalt weat un dree Grenzen jienaujt in dee Zoone jeplatscht woare, dee dee Kommissjon ähre eejene Vorsetza als anomaulijch jeflemmt haft, erfordert Präzisjon. Dee jesamte abhänkichkeitsrobuste owere Schranke aun dee Woaschienlichkjeit, zufällijch en Koat soo extrem aun beiden analytijchen Kanälen unjda dee ReCom-neutrale Referenzdistributsjoon to zeikne, es omtrent <strong>1 in 350.000</strong> (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Dee frühere Framminj von "1 in 15 Milljon" haft Kanalunaufjenklichkeit aunjenomme, dee dee twee Kanäle nich ha; dee korrigierte Schranke es noch extrem — wiet äwa konventjonelle Bedeutsaumkjeitsschwälle — oba daut es als Schranke berichtiirt, nich als en präzise einzelne Woaschienlichkjeit.',
+			defense4: '<strong>Dee "Unkompetenz oda Pech"-Verteidijunk:</strong> <em>("See ha blooss en schlampijche Koat jeteidchnet un senn pechvoll met dee Zahle jewast.")</em> En 60-Sitz-Supermajoretätskonfiguratsjon to triefe, wiel Airdrie in vea Stücke jespalt weat un dree Grenzen jienaujt in dee Zoone jeplatscht woare, dee dee Kommissjon ähre eejene Vorsetza als anomaulijch jeflemmt haft, erfordert Präzisjon. Dee jesamte abhänkichkeitsrobuste owere Schranke aun dee Woaschienlichkjeit, zufällijch en Koat soo extrem aun beiden analytijchen Kanälen unjda dee ReCom-neutrale Referenzdistributsjoon to zeikne, es omtrent <strong>1 in 350.000</strong> (p&nbsp;≤&nbsp;2,80×10<sup>−6</sup>). Dee Schranke es noch extrem — wiet äwa konventjonelle Bedeutsaumkjeit — oba daut es als Schranke berichtiirt, nich als en präzise einzelne Woaschienlichkjeit.',
 			sub5_close: "Waut dee Doten wiese, es daut dee Minoritäts-Vüaschlag sowohl Beavälkarungsparität als uk Gemeinschaftskohäsjon veschlechtert haft, vejlikje met dem, waut dieselwe fief Kommissjoonsleijden jlikjeizeitijch unjda identijchen gesatsmässijen Reejle erzeugt ha. Dee Pruewunk stalt nich fest, waut dee Minoritäts-Kommissjoonsleijden beobsiechtigte — Grenzgeometrie kjann Aobsiecht nich offenboore — oba dee strukturelle Abrückunk von sowohl dem neutralen Ensemble als uk dem Mehrheits-Vüaschlag siene Output steht unaufjenklich von Aobsiecht.",
 			sub6_h: 'En Aunmäakunk äwa dee R-Quervalidiarunk',
 			sub6_p1: 'En frühere Version von dise Pruewunk (met aunjenäherten anstott offiziellen Shapefiles) haft daut Python-ReCom-Ensemble jäjen daut R <code>redist</code>-Packet sien Sequential Monte Carlo-Sampler quervalidairt. Dee Querprüfunk haft unstabile Resultote erzeugt: äwa dree Läufe met disselwen nominellen Samen, wea dee Bruchteel von Pläne dee aum aule Minoritätsweat (48,3% aun dee aunjenäherte Jeografie) omtrent 5,6%, dann 28%, dann 58% — en Sampler-Konverjenz-Versajan, kjeen Aunfindunk. Dee volle Opschrievunk es bei <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/findings/redist_python_comparison.md" rel="noopener">findings/redist_python_comparison.md</a>.',
@@ -526,5 +589,378 @@ export default {
 			finding3: "<strong>Daut Prozes, daut dee Minoritätskoat nu fördert, es ohne Precedenz äwa dee Kanadijchen Redistribusjoonszukle, dee dise Pruewunk überprüft haft — en Einschätzunk, dee dee Politijkwissenschafla Duane Bratt (Mount Royal University) in Korrepsondenz met dem Autoua jetejlt haft.</strong> Kjeen von dee überprüften Provinze lässt en Kabinett Redistribusjoon aun en Komitee, waut siene eejne Partei kontrolliirt, inmitten eenem Redistributsjoonszyklus äwajeiwe. De measchte Provinze erfordern entwäder, daut dee Laanddach dee Kommissjon ähre Koat eascht debattiirt, oda jiwe dee Kommissjon ähre Koat automatische Wirkunk, es sei denn, äwaschriewe. Alberta deit keines. Aum April 16 haft dee Rajjeerunk beide Kommissjoonskoate Sied jelacht un dee Oabeid enrem MLA-Komitee aunjawiese, von wäl een Mehrheit dee Jliede von dee rajeeritjden United Conservative Party (UCP) senn; dee volle Zusammensetzunk un Aufgoaw von dee Komitee senn in §7 opjelietet. Albertas <em>Electoral Boundaries Commission Act</em> erfordert, daut dee Laanddach en sepauriirden Electoral Districts Act bestalen mott, om enrem Kommissjoonsberichtt gesatslije Wirkunk to jiwe — daut Kommissjoonsberichtt selfst ändat nijchts. De measchte aunjedren Provinze moaken en Kommissjon ähren Berichtt gesatslij wirksaum, es sei denn, dee Laanddach stimmjt aktiv äwa; Albertas Standaard kjeert daut um, bedeitend, dee rajeeritjde Partei kontrolliirt, aub irgendjene Kommissjoonskoat jedesmol Jesats weat. Dee Rajjeerunk ähre erklärte Rechtfertijunk wea, Kommissjoonsvorsetza Richta Miller siene Empfehlung 5 umtosatze. Oba Miller haft dee Empfehlung spezifijch jeschriewe, om dee Laanddach von dee Minoritätskoat annäjme optoschrecke, un siene Mehrheitskolleijden haft daut nijch unjastütt. Empfehlung 5 wea uk jeografijch spezifijch: een zusatzmässijchea ländlicher Sitz südlich von Edmonton, un een in Clearwater County un westlichem Mountain View County — beide weit von dee schnell-wachsenden Calgary un Edmonton städtijchen Randjemeeende, wua dee Kommissjon wiaklich gespalten wea. Daut wea kjeen Einladunk, dee bestritijchenen Grenzen to nijzeichne. Dee Rajjeerunk haft dee Sitzzahl anjenomme, wiel en Komitee, daut daut kontrolliirt, Autoretät äwa jienaujt dee Linje, wua dee Kommissjon unjenijch wea, äwajeiwe weat.",
 			closing: '<strong>Daut Prozes es siene eejne Aunfindunk, sepauriert von dee Koate.</strong>'
 		},
+		november: {
+			heading: '7: Daut Lunty-Komitee',
+			context_label: 'ZUSAMMENHANG',
+			context_body: ' — Dise Aufsats beschriewt den Prozes, dee dee Kommissjon ersatzt haft, un den jesetslijen Rohme, dee doaraun gilt. Daut es kjeen Deel von dee statistijchen Aunfindunge. Dee Aunfindunge senn in §3–§6 baowe.',
+			intro: "Kjeen Kommissjoonskoat es in Kraft. Aum April 16, 2026 haft dee Jesatjefende Varsammlung Motsjoon 19 jeschot, dee beide Sied jelacht haft un dee Nijzeiknung enrem Spezial-Sonderausschuss von fief MLAs äwawiese haft — dree UCP, twee NDP — veasitte von Brandon Lunty (UCP, Leduc-Beaumont). Daut Komitee selfst teidcht dee Koat nich. Daut äwaseet en sepaurotes Onaufjenkliches Beirootjremjum, konstituiert unjda Rajjerungsmotsjoon 37 (jeschot April 21, 2026), dee dee Aufgoaw haft, en 91-Sitz-Grenzenvüaschlag voadtostale. Motsjoon 37 haft fief Premjumsjliede voarjeseene — en amtierende oda pensioniirden Richta aus Vorsetza, twee Jliede vom Premier nomenieert, un twee vom Oppositsjoonsführa — oba Albertas amtierende Oberchefjustizia haft ableent, en Richta tom Vorsetza to nomenieere, un daut Premjum joarbeidt nu met dee vea Aunjestallte, dee daut Komitee bestätiijt haft: dee Hon. Monte Solberg un Darwin Durnie (Premiersnominierte) un Dr. Gerard Kennedy un Brent Robinson (Oppositsjoonsnominierte). Daut Komitee mott sienen Bericht aum Laanddach bes November 2, 2026 lefre. Aundatst aus dee ürsprünkliche Kommissjon es weda daut Komitee noch daut Premjum vepflicht, öffentliche Hörunge to haulde; daut Premjum stützt sech aun Einreichunge, dee dee ürsprünkliche Kommissjon jesammelt haft. Wann daut Komitee siene Koat veröffentlicht, weat dise Pruewunk dieselwe Methodologi aunwende, om daut to beoarteele.",
+			h_anomalous: 'Wuaromm daut Komitee anomaulijch es',
+			anomalous_p1:
+				"Kanadische Nijzeiknungspraxis haft sech, seit dee 1960a, aun een einzelnet Modell jesatt: en onaufjenkliche Kommissjon, isoliirt von Rajjerunksleidunk, väadert Grenzenempfehlunge; dee Laanddach kjann see debattiire, oba kjann see nich licht äwarrenne ohne en formelle jesatjefende Stem. Albertas jesatslijen Prozes unjda dee <em>Electoral Boundaries Commission Act</em> folgt dise Vorlag — oba met eenem strukturellen Unjerscheed von de measchte Provinze: Albertas Kommissjoonsbericht haft kjeen automautische jesetslije Wirkunk. Unjda dem Jesats mott en sepauriirden Electoral Districts Act von dee Laanddach jeschot woare, om enra Kommissjoonskoat Kraft von Jesats to jiwe. Daut bedüt, daut dee Rajjeerunk von den Daach kontrolliirt, nich blooss aub dee Kommissjoonskoat debattiirt weat, oba aub se jedesmol Jesats weat. Aundre Kanadische Jerejchskrise nehme den umjekjeerden Standaard: dee Kommissjon ähre Empfehlunge treere in Kraft, es sei denn, dee Laanddach stimmjt aktiv äwa.",
+			anomalous_p2:
+				"Waut dee Rajjeerunk im April 2026 jedone haft, haft kjeen opjeschrewenet Precedenz in post-Konfederatsjoon-Nijzeiknung: se haft enrem foadijen, veröffentlichten Kommissjoonsprozes erlaubt to schliessen — sowohl Mehrheits- aus uk Minoritätsberichte injerejcht — un haft dann dee Nijzeiknungsaufgoaw enrem fief-Jlieda-Komitee von MLAs äwawiese, von wäl Mehrheit (dree von fief) von dee rajeeritjde Partei jehaulde weat, ohne irjendeenen Kommissjoonsbericht aun en Stem to bringe. Daut Lunty-Komitee es kjeen Kommissjon. Daut haft kjeen jesetslije Onaufjenklichkeit von dee Rajjeerunk ähre jesatjefende Leidunk. Siene dree-Jlieda-UCP-Mehrheit spiejelt dee Rajjeerunk ähre Kontroll äwa dem Laanddach. Kjeen aundre Kanadische Provinz haft Nijzeiknungsautoretät, midde-Zyklus, enrem rajeerunkskontrolliirten jesatjefende Komitee äwadrade, nohdem en onaufjenkliche Kommissjon ähre Oabeid foadij hat.",
+			h_framework: 'Daut Konstitutsjonelle Rohmwerk',
+			framework_p1:
+				'Aufsats 3 von dee <em>Charter of Rights and Freedoms</em> — "Jiedra Büarja von Kanada haft daut Recht, in enra Wahl von Jliede vom House of Commons oda enra jesatjefende Varsammlung to stemme" — es vom Oberster Jerechtsheif von Kanada ausjelacht woare, om nich blooss daut Auwende von enrem Stemmzettel to garantiire, oba <em>effektieve Vadreetunk</em>. Dee leitende Autoretät es <em>Reference re Provincial Electoral Boundaries (Saskatchewan)</em> [1991] 2 SCR 158, in dee McLachlin J. (woo see daun wea) fea dee Mehrheit jeschriewe haft, daut dee Zwakj von s.3 "nich Jlikjheit von Stemmacht aun sech es, oba daut Recht aun effektieve Vadreetunk." Beavälkarunksparität es dee easchte Äwaläjunk; Abrückunge senn erlaubt, wann derjch Intressenjemeinschaft, Jeografie, Jeschicht, oda Minderheitsvadreetsunksziele jerechtfertijcht.',
+			framework_p2:
+				"Daut Saskatchewan-Rohmwerk vebütt nich kategorisch partidische Äwaläjunge in Nijzeiknung. Waut daut festlajcht, es daut Grenzkoate, im Jansen, den Wähla effektieve Vadreetunk lefre mosse — un daut systematische Beeinträchtijunk von einer enjentifizierboaren Jrupp ähre Fähijkjet, proportsjonale Vadreetunk to wäle, daut Musta es, daut s.3-Aunfeechtunge zieele. Dee Pruewunk ähre statistjche un strukturelle Aunfindunge — dee Minoritätskoat ähre Stellung aum 99,99sten Prezentiel von 1,01 Milljon neutrale Züge, ähr Äwajank von vea von fief strukturelle Schwälle (dee Fiefte, Vaunkjank, es neutral fea beide Koate), dee enjentifizierte affiziirte Jemeeende — senn dee Bewiese-Datensatz, dee en s.3-Aunsoocha samelen müsste. Aun dee Intressenjemeinschaft-Sied von daut Datensatz es dee Bundesjerecht siene Entscheiding in <em>Raîche v. Canada</em> (2004 FC 679) dee leitende Kanadische Autoretät: daut Jerecht haft doa dee Bundes-Wahlkrausgrenzenkommissjon erfordert, Grenzen to äwarbekike, dee Akadijche Intressenjemeinschaft in New Brunswick ignoriirt haten. Dee Pruewunk ähre städtische-Vaunkjank-Mäatunge un ähre spezifische Jemeinschaftsaunfindunge — Airdrie in vea Wahlkreise jespalt, dee Vorsetza-jeflemmte städtische-Rand-Anomalien in Nordwest-Calgary — senn dieselwe Sort von Bewiese, dee daut Bundesjerecht aus jesetslij erkennboa behandelt haft. Aub daut Datensatz dee konstitutsjonelle Schwäll trefft, es en jesetslije Froag, dee dise Pruewunk nich entschitt; dee Pruewunk berichtet dee Mäatunk.",
+			framework_p3:
+				"Daut Komitee siene Jesetslijkjet aus Prozes es en sepauriirde Froag. Albertas <em>Electoral Boundaries Commission Act</em> vebütt nich ausdrücklich, daut dee Laanddach en parallelet Nijzeiknungskörper konstituiirt, weil daut Jesats voarseet, daut dee Laanddach dee finale Grenzen derjch jewehnlije Jesatjefunk jedesfaul jesatlij moake weat. Aub dee Komiteeprozes, wann daut en Koat met dem strukturellen un statistijchen Profil von dee Minoritäts-Vüaschlag väadert, en s.3-Charta-Aunfeechtunk äwarläwe kunn, henjt dovon aun, aub effektieve Vadreetunk unjda dee resultiirenden Grenzen erreichboa es — dieselwe Proow, dee aun aunje kommissjoonsväaderte Koat aunjewande wäad.",
+			h_quebec: 'Dee Quebec-Kontrast',
+			quebec_p1:
+				"Quebec lefrt den Vejlikj, dee fea Albertas Situatsjoon am relevantesten es. Quebecs Commission de la représentation électorale (CRE) es en permanentet, onaufjenklichet Wahlgrenzenkörper, kjeen ad-hoc-Kommissjon, konstituiirt pro Nijzeiknungszyklus. Dee CRE joarbeidt kontinuierlich un kjann nich derjch Kabinettsaktsjoon opjeläst oda umjange woare. Unjda Quebecs <em>Loi électorale</em> mott dee National Assembly dee CRE ähre Empfehlunge annehme, es sei denn, se stimmjt to auwiejen — un Auwiejunge erfordere en Swejedrittel-Mehrheit von aule Jliede von dee Versammlung, kjeen kaule jesatjefende Mehrheit. Dee praktische Effekt es, daut en rajeeritjde Partei nich, allein met ähre eejne Mehrheit joarbidend, ähre bevorzeijde Koat fea dee Kommissjon ähre substituiire kjann. Krüzpartei-Eenijunk es konstitutsjonell erfordert, om daut onaufjenkliche Körper sien Urteelt to äwarrenne.",
+			quebec_p2:
+				"Quebecs Modell es teilweis aus Leare entstanden, äwa waut jeschitt, wann Nijzeiknung nich von partidischer Kontroll isoliirt es. Dee Kontrast met Albertas aktuellem Prozes — wua en mehrheitskontrolliirtet Komitee dee Kommissjon ähre Oabeid ersatzt haft, bevoa dee Laanddach äwa irjendeenen Kommissjoonsbericht jestemmt haft — illustriirt den strukturellen Unjerscheed tweschen Nijzeiknungssysteme, dee partidischen Druck aunnehme un doajäjen designe, jäjen Systeme, wua dee Druck en klooaren Wajch tom Resultoat haft.",
+			closing:
+				"Dee Pruewunk weat dieselwe Proowe aun daut Lunty-Komitee siene Koat aunwende, wann se veröffentlicht es. Dee konstitutsjonelle un vejlikjende Beobachtunge baowe senn kontekstuell; dee Methodologi ändat sech nich."
+		},
+		references: {
+			heading: '10: Quälle un Methodologi',
+			heading_aria: 'Link to Quälle',
+			intro:
+				'Dee jrunntleijende Methodologi stützt sech aun festjelajchte Politijkwissenschaft, Statistjk, un jesetslije Litratoar. Volle Zitate folge dem American Political Science Association (APSA)-Stiel; Jerejchtsfäl folge Kanadijcher jesetslijer Konventsjoon. Dee vollständije Quällenlist erschient im <a href="https://github.com/Ixby/alberta-electoral-boundaries-audit/blob/master/reports/academic/report_academic.md" rel="noopener">technijchen Bericht</a>. Schlüsselquälle senn hia opjelietet.',
+			h_academic: 'Akademijche Litratoar',
+			h_cases: 'Jerejchtsfäl',
+			h_statutes: 'Jesatze'
+		},
+		resources: {
+			heading: '11: Technijcha Aunhunk',
+			heading_aria: 'Link to technijch',
+			tag_plain: 'Klooare Sproak',
+			plain_label: 'Vollständija öffentlicha Bericht',
+			plain_desc: 'Lankjfuarm, met Koate, fea allgemejne Läsa',
+			tag_summary: 'Zusammenfassunk',
+			summary_label: 'Zusammenfassunk von Aunfindunge',
+			summary_desc: 'Klooarsproakje Äwasiecht, erklärt jiedet Konzept von Grund auf',
+			tag_academic: 'Akademijch',
+			academic_label: 'Technijcha Bericht',
+			academic_desc: 'Volle Methode un Zitate fea Forscha',
+			tag_notebook: 'Notebook',
+			notebook_label: 'Interaktivet Notebook',
+			notebook_desc: 'Läp dee Diagramme selfst in dienem Browser, kjeen Installatsjoon needijch',
+			tag_code: 'Code'
+		},
+		about_me: {
+			heading: 'Äwa mie',
+			p1: "Ekj sie en Student aun Mount Royal University. Ekj ha dise Forschunk aun mien eejne jedone — daut wea nich aus Schoolwoakj toopjedeelt un dee Universität haft daut nich in Auftrag jejiwe. Miene Aunsichte senn miene eejne un vadreete nich dee Universität. Ekj ha kjeen Verbindunk to Elections Alberta, dee Kommissjon, oda aunjend politijche Partei.",
+			p2: "Ekj ha fea verschiedene Parteie in verschiedene Wahle jestemmt, äwa daut politijche Spektrum. Ekj saj jüch daut, weil miene politijche Jeschicht beeinflusse kunn, woo ekj dise Sach aunkike. Dee Haup-Schutz doajäjen es dee Methode: ekj ha beide Koate dieselwe Wiess jeprooft, miene Voarrhsajunge opjeschriewe, bevoa ekj dee Resultote bekjikt ha, un aules online jestalt, soo daut jeda mien Oabeid prüfe kjann. Ekj ha dise Forschunk selfst betoolt. Wann jie waut fijnde, daut ekj falsch jekreaje ha, well ekj daut wiaklich weete.",
+			p3: 'Voarrijistriaarungs-Datensätze (jeschriewe, bevoa Resultote bekjikt woare): <a href="https://osf.io/6pt83" rel="noopener">OSF:6pt83</a>, AsPredicted:#289,469, AsPredicted:#289,451.',
+			p4: 'Froage oda Korrektsjoone: <a href="mailto:wconn161@mtroyal.ca">wconn161@mtroyal.ca</a>'
+		},
+		translation_about: {
+			heading: 'Äwa dise Äwasattsunk',
+			p1: 'Jie läse en KI-Äwasattsunk, väadert von Anthropics Fable 5-Modell un wachtend aun Mudaschproakja-Äwarprüfunk. Dee Englische Version es dee maussjeeblijende Text: wann irjendwaut in dise Äwasattsunk onklooar es oda falsch utsieet, gilt daut Englische Original.',
+			p2: 'Äwasattsunksquaulität es hia wichtijch aup en Wajch, woo se daut aun de measchte Websieden nich es — dise Pruewunk mett statistjche Aunsprüche äwa Wahljerechtichjkjeit, un en falsch äwasaztet Zahl oda en falsch-jehedjet Saz fiehrt in Weaje em, dee fea en Läsa schwoa to entdekje senn. Maschiene-Äwasattsunk von büarjerlich-statistjcher Proze es wiaklich schwoa, un Fähla senn woaschienlich.',
+			p3: 'Wann jie en Mudaschproakja senn un jie en Fähla seene — oda jie wulle en Aufsats richtijch äwarprüfe — bitte %s. Toom Äwasiecht: dee Englische Proze läft omtrent {count} Weat. Jie send willjekome, aul doavon oda blooss en Deel auftonehme, un in de measchte Fäl es dee Oabeid, kjliene Fähla von dee Maschien to vabeetre, anstott von Grund auf to äwasatle — sooja een einzelnen Aufsats to äwarprüfe halpt.',
+			p3_link: 'in Kontakt kome'
+		},
+		retractions: {
+			heading: '9: Ricknohme un Korrektsjoone',
+			heading_aria: 'Link to Ricknohme',
+			conditions_label: 'RICKNOHME-BEDINGUNGE',
+			conditions_intro:
+				'Jiedde Aunfindunk es vorvepflicht aun en spezifische Falsifikatsjoonsbedingunk. Wann irjendeene Bedingunk unnich sech voadbringt, weat dee Aunfindunk, dee se nennt, öffentlich innen 30 Doag torüjchjenome. Dee jesamte direktjonelle Schluss — daut dee Minoritätskoat buttehaulf von dem neutralen Bereich aun mehrere onaufjenkliche Proowe sett — weat blooss torüjchjenome, wann mindastens dree von dee fief Proowe versajje.',
+			c1_title: 'Bedingunk 1 — En Jäjenkoat bestoot',
+			c1_what: "<em>Waut torüjchjenome weat:</em> Dee strukturelle Aunfindunk, daut dee Airdrie-vea-Wäje-Spaltunk un dee dree Vorsetza-jeflemmte Grenzen nich derjch dee Minorität ähre jenannte Intressenjemeinschaft-Rationale erklärt woare kjenne.",
+			c1_cond:
+				"Bedingunk: jemand väadert en jesetlije Alberta-Koat, dee dee Minorität ähre eejne jenannte Gründe erfüllt — Airdrie, Cochrane, Nolan Hill, Rocky Mountain House–Banff Park — un vaunkjankt aun städtischen Linie aun mehrheits-vejlikjboaren Raten. Offne Aunfeechtunk bei <a href=\"https://github.com/Ixby/alberta-electoral-boundaries-audit/issues/14\" rel=\"noopener\">Issue #14</a>.",
+			c2_title: 'Bedingunk 2 — Dee Noabaarschafts-Aufleete voarrijistrijde Bestee weat omjekjeert',
+			c2_what: '<em>Waut torüjchjenome weat:</em> Dee Aufsats-3-Tabellen-Indrach, dee dee Minoritätskoat aus en voarrijistrijdes BESTEE aum Noabaarschafts-Aufleete-Benauboadrungstest opzeechent.',
+			c2_cond:
+				'Bedingunk: dee v2 kontinuierliche Aufleete-Score falt im extremen oweren Schwaunz (p &lt; 0.05) von zufällije Permutatsjoone äwa dem festen Verbindungsgraf, bedeitend, dee Bestee wea en Mäatunksartefakt von dee v1-binäre Score-Methode anstott en echtet Nullresultoat.',
+			c3_title: 'Bedingunk 3 — En vor-2026-Kommissjoonsdokument kummt op',
+			c3_what: "<em>Waut torüjchjenome weat:</em> Dee Folgerunk, daut dee Minorität ähre Grenzwähle Entwurfsentscheidunge weare anstott Auntwuate aun dokumentiirde Jemeinschaftseinreichunge.",
+			c3_cond:
+				"Bedingunk: en internet Kommissjoonsdokument, datiirt vor dee Minorität ähre finale Grenzwähle, wiest, daut dee Wähle ausdrücklich von Jemeinschaftseinreichunge jefiehrt woare, dee dee Pruewunk nich jeseene haft — nich von dee ses veröffentlichte Sub-Rationale, dee dee Pruewunk jeprooft haft.",
+			c4_title: 'Bedingunk 4 — Daut 2027-Wahlresultoat wedaspröckt dee Simulatsjoon',
+			c4_what: "<em>Waut torüjchjenome weat:</em> Dee Spur-1-Aunfindunk — daut dee Minoritätskoat ähr seats@50/50-Score aum 99,99sten Prezentiel von 1.010.000 neutrale Züge sett.",
+			c4_cond:
+				'Bedingunk: wann dee 2027-provinzielle Wahl aun entwäder Kommissjoonskoat jefochten weat un dee wiakliche partidische Sitzspaltunk dee direktjonelle Projektsjoon von 2023-Stemme wedaspröckt, woare dee Spur-1-Prezentiel-Aunfindunge jäjen wiakliche Resultote äwarbekjikt.',
+			c5_title: 'Bedingunk 5 — En Alberta-Jerecht unjerscheidet daut Quebec-SCC-Urteelt',
+			c5_what: '<em>Waut torüjchjenome weat:</em> Dee Aufsats-7-prozedurale Aujement, daut dee April-16-Motsjoon, om dee Kommissjon met daut Lunty-Komitee to ersatze, in derselwen konstitutsjonellen Klass aus Quebecs 2024-Nijzeiknungsfräad sett.',
+			c5_cond:
+				"Hinterjrund: aum April 22, 2026 — ses Doag noh Albertas April-16-Motsjoon — haft dee Oberster Jerechtsheif von Kanada, 7–2 un von dee Bank, en Quebec Court of Appeal-Urteelt bestätiijt, daut dee Legault-Rajjeerunk ähre jesatjefende Fräad aun ähre Nijzeiknungskommissjon dee Charta ähre s.3-demokratische-Vadreetunks-Garantie velatzt haft. Bedingunk: en Jerecht, daut dee Alberta-Motsjoon äwarbekikt, fijnt se konstitutsjonell unjerschedlich — toom Beispiel, weil dee Äwadrachunk von dee Oabeid aun en MLA-Komitee sech strukturell von enrem jesatjefende Fräad unjerscheidet, oda weil Albertas effektieve-Vadreetunks-Aunaulyse unjda s.3 unjerschedlich aus Quebecs ruskummt."
+			,
+			corr_label: 'DOKUMENTIIRDE KORREKTSJOONE (kanonijche Neubäreknung, 2026-05-11)',
+			corr_intro:
+				"Dee folijende fruje Aunfindunk haft dee Reaunaulyse jäjen offizielle Elections Alberta Shapefiles (kjräaje 2026-05-06) nich äwarläwt. Daut weat hia behoulde, noh dee Pruewunk ähre vorvepflichte Politik, faulde Aunfindunge nie to lesche.",
+			corr_municipal:
+				"<strong>Städtische Vaunkjank (torüjchjenome).</strong> Fruje Aunaulyse, dee voarläufije Koatgrenzen jebrukte, haft jewiese, daut dee Minoritätskoat städtischen Linie blooss 15% von dee Tied vaunkjankte — 4,9&times; unjahaulb dee 70–85% Kanadijche Norm. Dise Zahl wea en Artefakt von dee voarläufije (DPG-era) Grenzrekonstruktsjoone. Aun offiziellen Elections Alberta kanonijchen Shapefiles vaunkjanke beide Koate innen Kanadijcher Norm: Mehrheit 80%, Minorität 72%. Dee städtische-Vaunkjank-<em>Auwiejunk</em> tweschen dee twee Koate es kjeen Sijchnal, daut kanonijche Neubäreknung äwarläwt. Dee dree Grenzanomalien, jeflemmt vom Kommissjoonsvorsetza (Rocky Mountain House–Banff Park, Nolan Hill–Cochrane, Olds–North Airdrie), bliewe un senn von dise Korrektsjoon nich affiziirt."
+		},
+		suggestions: {
+			heading: '8: Vüaschlaj',
+			heading_aria: 'Link to Aufsats 8',
+			intro:
+				"Dise Pruewunk es aun twee Doteproblemen jeloope, dee nüscht met dee Kommissjon ähre Oabeid to done ha un aules doamet, woo Albertas Wahlsystem designt es. Beide senn fixboa.",
+			advance_p1:
+				"<strong>Omtrent halw aule Alberta-Stemme kome nu vor dem Wahldaach aun</strong> — Voarhwahle, Mobilwahle, Spezialstemmzettel. Elections Alberta berichtet dise Resultote aus Totale fea jiedden Wahlbezirk, nich noh spezifischem Stemmjebeet. Daut bedüt, daut omtrent 395.000 NDP- un UCP-Stemme, jewuarpen im 2023, aun kjeen Näjeboarschaft aun enra Koat jepinnt woare kjenne. See woare jezält; see kjenne blooss nich lokaliziert woare. Jiedra Voarhwähla weat jäjen en Wählalist jeprooft, bevoa dee sienen Stemmzettel kjrijcht, un dee List vebindt jiedden Wähla aun sien spezifischet Stemmjebeet. Stemmjebeet-Nivauj-Voarhwahltotale to veröffentliche wäad kjeen Ändrunk aun dem Wahlprozes erfordre — blooss aun waut EA berichtet.",
+			advance_p2:
+				"Daut affiziirt dee Kommissjoonsleijde uk, nich blooss butterje Aunaulysere. Wann en Kommissjon entschitt, aub se Airdrie ganz hält oda spalt, aub en Korridoor tweschen twee Jemeeende Senn moakt, aub en voajeschlaune Grenz en natürlije Wählaschaft deelt — daut senn Urteele, dee dovon aunhenje, to weete, wua Wähla laewe. Kommissjoonsleijde joarbeide von demselwen veröffentlichten Datensatz aus jeda aundra. Halw daut jeografische Sijchnal äwa dee Jemeeende, om dee see Grenzen teidchne, es fea see uk fehlend.",
+			lesser_slave_p1:
+				'Daut jifft mindastens een Jemeend in nordijchem Alberta, wua dise Lücke total es. Im nordijchen Deel von dee Lesser Slave Lake <button class="ed-trigger" data-ed-name="Lesser Slave Lake">wiese ↗</button> Wahlbezirk jifft daut en Stemmjebeet, daut 4.832 km&#178; deckt — grösser aus Prince Edward Island — wua jiedde einzelne Stem im 2023 derjch Elections Alberta ähr Mobilwahlteam jewuarpen wea. Dise 844 Bewohna ähre Wähle senn im Bezirkstotal jezält, oba kjenne aun kjeen Ort aun enra Koat jepinnt woare. Dee Jemeend es janz onsichtboa in dee veröffentlichten Wahlresultote.',
+			lesser_slave_p2:
+				'Aus dee Kommissjon eascht äwaläjcht, dee Lesser Slave Lake-Bezirk to eliminiire un em in en grössren Wahlkrais to fusioniire, joarbeidt se ohne jeografische Stemmdoten von dee Jemeeende. Dee Kommissjon haft dee Bezirk schliesslich behoulde — noh 80+ öffentlichen Einreichunge, viell von dee Indigene Jemeeende im nordijchen Deel von dem Wahlkrais — derjch Auwendunk von enrem provinziellen Jesats, daut Wahlkreise met First Nations- un M&#233;tis-Jemeeende erlaubt, kjlienre Beavälkarunge aus den provinziellen Durchschnitt to ha. See kjräaje doahan. Oba dee Doten, met dee see joarbeide, wiese daen nich, wäa in dee Jemeeende stemmde, dee see beschlosse to beschütze.',
+			ebca_label: 'AUFSATS 15(2) EBCA',
+			ebca_body:
+				"Aufsats 15(2) von Albertas <em>Electoral Boundaries Commission Act</em> es en diskretsjonelle Bestimmunk, dee Kommissjoone erlaubt, ünnergroote Wahlkreise to beschütze — dee, dee mea aus 25% unjahaulb dem provinziellen Beavälkarungsdurchschnitt senn — wann dee Wahlkrais mindastens dree von fief spezifischen Kritarije trefft: (a) jeografische Jebeet äwa 20.000 km², (b) Distanz mea aus 150 km vom Legislature Building op dem direktesten Highwayrout, (c) Auwasenheit von anjem Ort met mea aus 8.000 Bewohna, (d) Aunwaesenheit von en Indian Reserve oda en Métis-Settlement, un (e) aub dee Wahlkrais koterminös met enra Grenz von dee Provinz Alberta es. Dee Bestimmunk es nich automautisch; dee Kommissjon mott urteele, aub dee Kritarije jetroffen senn. Lesser Slave Lake trefft onaufjenklich vea von dee fief.",
+			rationale_p1:
+				"Dee tweschenzeitije Rationale, om den Wahlkrais to eliminiire, wea Beavälkarunk: aun omtrent 27.000 Bewohna sett Lesser Slave Lake omtrent 45% unjahaulb dem provinziellen Durchschnitt, nähernd aun dem jesetslijen Bodem. Daut läst sech aus en jradlinije Auwendunk von dee Reejle. Daut es daut nich. Albertas Jesats jifft Kommissjoone ausdrückliche Diskretsjoon, om ünnergroote Wahlkreise to beschütze, wann mindastens dree von fief spezifischen Kritarije jelte, un Lesser Slave Lake trefft vea von daen onaufjenklich. Sien Jebeet es 69.566 km² (Kritarijum a, Schwäll 20.000 km²). Siene nächste Grenz es mea aus 150 km vom Legislature op Highway (Kritarijum b). Kjeen Ort im Wahlkrais haft en Beavälkarunk äwa 8.000 (Kritarijum c). Un dee Wahlkrais enthält viehtien Indian Reserves un M&#233;tis-Settlements, deare Jemeeende en jemeensame nordije Jeografie teele, en jemeensame Aunhenkijkjet aun Mobilwahl, om äwhaupt to stemme, un en kollektivet Intresse, en Vadreeta to ha, dee hauptsächlich aun nordijchem Alberta vauntwoatlich es (Kritarijum d).",
+			rationale_p2:
+				"Unjda dee voajeschlaune Mackenzie-Fusion wäad dee kollektive Stimm permanent in en Wahlkrais auftsorbiirt, wua dee aundre Partei om mea aus twee to een jiennt, nich weil dee Jemeeende sech undade oba weil dee Linie om daen sech undade. Jiedet von dee vea Kritarije es en objektivet Fakt äwa dem Wahlkrais siene Jeografie, kjeen Urteelsfroag. Tosaume beschriewe see en Wählaschaft, dee dee Bestimmunk jeschriewe wea to beschütze: aufjelaeje, groot, dünn beavälkat, un Jemeeende enthaultend, deare Vadreetunksintresse nich aus rohe Beavälkarungszahle jeläse woare kjann. Man brüjcht dree, om to qualifiziire; Lesser Slave Lake haft vea. Dee Beavälkarungsmankel to behandle, aus wann daut Eliminatsjoon erzwung, läst daut Jesats falsch. Dee Kommissjon ähre Umkjeerunk wea dee richtije Auwendunk von dem Jesats, kjeen Konzessjoon aun politijchen Druck.",
+			banff_p:
+				'Hia es dee aundre Sied von dee Jeschicht: wiel dee Indigene Jemeeende in Lesser Slave Lake fochten, om jezält to woare, schloage dee wedaspröckende Kommissjoonsleijde vüa, en aundren Wahlkrais to beschütze, derjch siene Grenz derjch Banff National Park to teidchne, wua kjeen Mensch laewt. Dee Kommissjon ähre eejene Vorsetza haft daut "en schlechtje Treu-Versuch" jenoamt, om dem jesetslijen Schutz to aunsproke. Dee Fraz es im Kommissjon ährem offiziellen Finalbericht. Dee Schutz, designt fea aufjelaeje Jemeeende met Indigene Beavälkarunge, wea, in dee Minorität ähre Koat, jebrukt, om en Grenz derjch onbewohnde Wildnis to vertejdje. Dee Jemeeende, fea dee daut designt wea, mosste doafea derjch öffentliche Einreichunge fechte. Daut Lunty-Komitee weat dieselwe §&#x2009;15(2)-Entscheiding im November jäjenstoon — ohne jesetslije Erfordernis, öffentliche Hörunge to haulde, un kjeen Garantie, daut dee 80 Einreichunge, dee dee Kommissjon ähre tweschenzeitije Positsjoon omjekjeert ha, daut tweede Mol daut selwe Jewicht drage woare.',
+			census_p1:
+				"<strong>Alberta sull aun den 2026-Zensus wachte, bevoa daut dee nächste Koat teidcht.</strong> Kanada zält siene Beavälkarunk aule tien Joah. Dee 2026-Zensus-Aufzeichnunk jeschitt im Friejoah 2026; Statistics Canada lefrt brukboare ünner-provinzielle Doten omtrent twee Joah späta, im 2027 oda 2028. Dee Kommissjon, dee dee Koate in dise Pruewunk beoarteelt jeteidchnet haft, mosste den 2021-Zensus jebruke — schoon vea Joah oolt, aus dee Koate jeteidchnet woare, un mäjlich viehtien Joah oolt bes dee Tied, dee Grenzen retiire. Schnell-wachsende Städte woo Airdrie un Chestermere woare sech om 40% oda mea äwa daut Fenster undre. Ländliche Jemeeende woare schrinke. Dee Koat weat falsch von dem Daach aun, daut se jebrukt weat. En jradlinije Ändrunk aun dee <em>Electoral Boundaries Commission Act</em> kunn erfordre, daut anje niee Kommissjon blooss aunjestallt weat, nohdem Statistics Canada dee aktuellsten Verbreitunksjebeet-Doten von dem voarhjehenden Zensus lefrt. Daut Resultoat: Koate, dee weda spiejele, wua Albertana wiaklich laewe, nich wua see vea en Joahteent laewde.",
+			census_p2:
+				'Daut Lunty-Komitee joarbeidt unjda dem bestehenden Jesats, daut kjeen Zensus-Tiedanforderung sett, un kjann nich eensietijch äwa siene November-2026-Deadlien verzöje. Dise Empfehlunk gilt fea en tokünftje Ändrunk aun dee <em>Electoral Boundaries Commission Act</em>, nich fea den aktuellen Prozes. Dee Spaununk es wiaklich: en Komitee, daut en Koat bes November lefre mott, joarbeidt von Doten, dee bes daun schoon fief Joah oolt senn — dee Beschränkunk to benenne es brukboara, aus to doone, daut se nich bestoot.',
+			closing:
+				"Kjeen von dise es en Aunfindunk äwa dee aktuelle Kommissjon ähre Koate. Daut senn Beobachtunge äwa en System, daut akkurate Wahlaunaulyse schwoara moakt, aus daut senne mott. See woare hia aus praktische Vüaschlaj jebode, kjeen Schlüsse. Beide senn wiaklich fixboa, un see to fixe wäad jiedde tokünftje Kommissjon — un jiedde tokünftje Pruewunk — von bäarem Grund joarbeide lote."
+		},
 	},
+	editorial_canada: {
+		heading: 'Zusammenhang: Kanada es anders — un jliek',
+		p1: 'Kanada jeheert aun dieselwe Famielje aus dee US, daut UK, un Australien. Wie wäle einzelne Jliede aus jeografische Wahlkreise unjda first-past-the-post. Wie teidchne dee Linie periodisch nij — federal noh jeddem zehnjeerijen Zensus, provinziell aun jestaffelten Tiedplänen. Wie ha dee jrunntleijende Maschinerie von dieselwe Westminster-Wuatel jeerwt. Bes hia, kjeen Äwarraschunge.',
+		p2: 'Waut Kanada auseenderzaet, es dee Proow, dee dee Linie bestoon mosse.',
+		p3: 'Im Amerikanischen konstitutsjonellen Jesats es dee bindende Reejel <em>eene Person, een Stem</em> — Wahlkreise mosse Beavälkarunge soo noh jlikj woo praktikabel ha, un groote Abrückunge erfordre strikte Rechtfertijunk. Im Kanadischen konstitutsjonellen Jesats es dee bindende Reejel anders. Aufsats 3 von dee <em>Canadian Charter of Rights and Freedoms</em> garantiirt jiedem Büarja daut Recht to stemme. In <em>Reference re Provincial Electoral Boundaries (Sask.)</em> — daut 1991 Saskatchewan Reference, dee leitende Faul — haft dee Oberster Jerechtsheif von Kanada daut Recht aus en Recht aun <em>effektieve Vadreetunk</em> ausjelacht, kjeen Recht aun mathematische Jlikjheit von Wahlkrausbeavälkarunge.',
+		p4: "Dise Unjerscheed mett. Effektieve Vadreetunk erlaubt, daut Wahlkrausbeavälkarunge sech undre, mauchmol wesentlich, wann doa goode Gründe senn: jroote ländliche Jeografien, dee een MLA nich vernünftijch aun Standard-Beavälkarungsdichte deene kjann, Intressenjemeinschaften, dee beisamme jehaulde woare sulle, Minderheitsvadreetsunk, dee mathematische Jlikjheit vedünne wäad. Daut Saskatchewan Reference haft dee Flexibilität konstitutsjonell jemoakt. Dee EBCA ähre 25%-Beavälkarungsvariance — dee Reejel, dee ländliche Alberta-Sitze beschützt — fljit direklt doavon.",
+		p5: 'Dee Hoake es, daut Flexibilität in beide Richtunge schnijdt. Wann en Kommissjon legitim von Beavälkarungsjlikjheit fea dee richtije Gründe abrücke kjann, kjann se uk von Beavälkarungsjlikjheit fea dee verkjehrde abrücke. Kanadisches Jesats haft kjeen Amerikanisch-Stiel mathematischen Bodem to torüjchfaule. Daut haft dee effektieve-Vadreetunks-Proow, aunjewande von Richtan, noh dem Fakt, in Litigatsjoon. De measchte Jerejchskrise wache jäjen dee verkjehrde Gründe met strukturelle Schütze: federale Nijzeiknungskommissjoone senn derjch Jesats isoliirt un ähre Empfehlunge treere automautisch in Kraft, wann daut Parlament nich innen enra Deadlien doaraun haundelt. Quebec jebrukt en permanentet onaufjenklichet Kommissjon, deare Oabeid dee National Assembly blooss met enra Swejedrittel-Supermajoretät äwarrenne kjann. British Columbia joarbeidt unjda enra jlikjen Standard-annehme-Reejel.',
+		p6: 'Alberta es dee Ausnoam. Unjda dee <em>Electoral Boundaries Commission Act</em> es dee Kommissjon ähr Bericht blooss en Empfehlunk — dee Laanddach mott stemme, om daut to bestale. Jenehmijunk es normalerwies en Formalität. Im 2026-Zyklus haft dee Kommissjon sech 3–2 jespalt un twee konkurriirende Vüaschläj voadjebrocht; dee Laanddach haft en sepauriirden MLA-Komitee jeschot, veasitte von enrem Premier-aunjestallten MLA, om tweschen daen to wäle. Nüscht im Kanadischen konstitutsjonellen Jesats haft daut Komitee erfordert to bestoone. Nüscht erfordert siene Wahl, dee Kommissjon ähren Prozes to folge. Daut es dee strukturelle Lücke, dee dise Pruewunk äwarbekikt.',
+		p7: 'Also wann Kanadische Jerechtsheiw sauje, "Gerrymander" es nich ähre jesetslije Vokabular, sauje se nich, daut daut jrunntleijende Konzept hia nich gilt. See sauje, dee Proow es anders — effektieve Vadreetunk, nich mathematische Jlikjheit. Aub dee Minoritäts-Vüaschlag dee Proow trefft, es jienaujt dee Froag, dee dise Pruewunk dee Geometrie jäjen jemätet haft, un jienaujt dee Froag, dee blooss en Richta endgültijch buntwoate kjann. Dee <em>Saskatchewan Reference</em>-Reasoning im Vollen, dee Kontrast met aundre Provinze, dee Stehnsfroag, un dee vafüagboare Reformweaje woare in <a href="#references">dee Quällen-Aufsats unnich</a> behandelt.'
+	},
+	chrome: {
+		back_to_top: 'Trigj noh baowe',
+		license_title: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0',
+		license_alt: 'CC BY-NC-SA 4.0',
+		license_aria: 'Creative Commons BY-NC-SA 4.0',
+		back_to_stakes: '↑ Trigj noh Waut aun dee Spil es',
+		lightbox: {
+			fig_aria: 'Figuur vejrösserde Aussicht',
+			fig_close_aria: 'Vejrösserde Figuur schliesse (Esc)',
+			map_aria: 'Koat-Zoom-Bekika',
+			map_close_aria: 'Koat-Bekika schliesse',
+			close_title: 'Schliesse (Esc)'
+		},
+		participation: {
+			heading: 'Halp ons, MapExplorer to vabeetre',
+			body:
+				"Aus jie erforsche, voljche wie, wäl Koate un Wahlkreise jie besäkje, un schicke periodisch dee Doten aun ons Forschunksdatensatz. En Aussicht to teele sport uk, wua jie endede. Daut Ziel: vestoon, waut brukboa es, un daut Hülfsmiddel bäta moake.",
+			no_collect:
+				"Wie sammelt nie jüaren Nome, IP-Adress, oda jenaue Lokatsjoon. Aules weat in jüarem Browser anonymiziert, bevoa daut em vlat. Wie kunne jüch von dee Doten nich enjentifiziire, sooja wann ons daut bevohle wäad.",
+			dnt:
+				'Jüa Browser haft Do Not Track aunjeschaultet. Nee es voarrhjewählt fea jüch. Jie kjenne noch Joa wäle.',
+			no_thanks: 'Nee dankj',
+			yes_help: "Joa, ekj well halpe",
+			privacy_policy: 'Privatheitspolitik'
+		},
+		share: {
+			button: 'Teele',
+			button_title: 'En Koatkonfiguratsjoon teele oda lode',
+			dialog_aria: 'Koatkonfiguratsjoon teele',
+			close_aria: 'Teel-Panel schliesse',
+			share_label: 'Dise Konfiguratsjoon teele',
+			share_hint:
+				'Tipp dise Code in anjen Browser, dee dee Pruewunk läpt, om dise Konfiguratsjoon to lode. Dee Code weat nie in en URL jestalt.',
+			load_label: 'En Konfiguratsjoon lode',
+			load_btn: 'Lode',
+			load_placeholder: 'alpine-eagle-banff',
+			copy: 'Kopiire',
+			copied: 'Kopiirt!',
+			copy_failed: 'Versajt',
+			unrecognised: 'Onerkannte Code — prüf dee Schrievunk.'
+		},
+		map: {
+			minority: 'Minorität',
+			majority: 'Mehrheit',
+			current: 'Aktuell',
+			wasted: 'Verschwendt',
+			wasted_title: 'Efficiency-gap-Beidrag pro Wahlkraus',
+			partisan: 'Partidisch',
+			partisan_title:
+				'Färw jiedden Wahlkrais noh partidischem Resultoat (UCP blau / NDP oransch)',
+			borders: 'Grenzen',
+			flagged: 'Jeflemmt',
+			flagged_title:
+				'Aule 7 Konfiguratsjoone, jeflemmt vom Kommissjoonsvorsetza Richta Miller — schault automautisch noh dee Minoritätskoat',
+			help_aria: 'Koathülp',
+			help_title: 'Woo dee Koat to jebruke',
+			pin_aria: 'Koat Pinne',
+			pin_title: 'Koat Pinne — verhindre auto-Pan aum Wahlkrausklik',
+			search_aria: 'En Wahlkrais fijnde',
+			search_placeholder: 'Wahlkrais fijnde…',
+			zoom_aria: 'Koat-Zoom',
+			clear_aria: 'Wahlkraususwaul leddijch moake',
+			clear_title: 'Uswaul leddijch moake',
+			va_hint: 'Klik innen dise Wahlkrais, om Wahlstatsjoonsresultote to seene',
+			va_close_aria: 'Wahlstatsjoonsdetail schliesse',
+			va_close_title: 'Schliesse',
+			object_title: 'Alberta Wahlkraiskoat — volle Auflösunk',
+			ea_credit: 'Koatdoten:',
+			cc_title: 'Textinhault: CC BY-NC-SA 4.0',
+			cc_alt: 'Creative Commons BY-NC-SA 4.0',
+			votes_suffix: 'Stemme',
+			total_votes_suffix: 'Stemme jesamt',
+			pop_prefix: 'Bev.',
+			voting_areas_suffix: 'Stemmjebeedscha',
+			other_maps: 'Aundre Koate',
+			unique_boundary: 'Grenz eensich fea dise Koat',
+			in_person_votes: 'Stemme persöönlich (oone Vote Anywhere)',
+			load_error_generic: 'Kunn dee Grenzkoat nich lode. Proow, dee Sied nij to lode.',
+			load_error_map: 'Kunn dee {key}-Koat nich lode — prüf diene Verbindunk.',
+			context_minority: '2026 Minoritäts-Vüaschlag · 2023 Wahlresultote',
+			context_majority: '2026 Mehrheits-Vüaschlag · 2023 Wahlresultote',
+			context_2019: '2019 umjesatzte Grenzen · 2023 Wahlresultote',
+			tag_min: 'Min',
+			tag_maj: 'Mehr',
+			tag_2019: '2019',
+			dev_notice:
+				'Map Explorer es unjda kontinuierlicher live-Entwekklunk un kjann sech mauchmol brekje. Wann waut falsch utsieet, kom in en poor Doag torüjch — daut Problem weat woaschienlich jeläst. Vüaschlaj senn willjekome: %s.',
+			dev_notice_email_label: 'mie emailen',
+			dev_notice_dismiss: 'Entwekklunksmerkung wechschuwe',
+			skel_1: 'Map Explorer lodt…',
+			skel_2: 'teidchne Alberta…',
+			skel_3: 'rääkne dee Zahle…',
+			skel_4: 'zähle jiedde Stem…',
+			skel_5: 'plotte dee Grenzen…',
+			skel_6: 'fast doa…'
+		},
+		map_intro: {
+			heading: 'Woo dee Koat to jebruke',
+			click_district: 'Klik anjen Wahlkrais',
+			click_district_desc: 'seet 2023 Wahlresultote un schnap doaraun',
+			click_within: 'Klik innen enrem jewählten Wahlkrais',
+			click_within_desc:
+				'seet einzelne Wahlstatsjoonsresultote (Fauf = Stemmspaltunk)',
+			dblclick: 'Dobbelklik anjen Wahlkrais',
+			dblclick_desc:
+				'zoom om dem Schierm to fülle; dobbelklik leddijen Plauz om uttozoome',
+			layers_primary: 'Minorität / Mehrheit / Aktuell',
+			layers_primary_desc: 'schault dee aktive Grenzkoat',
+			layers_data: 'Partidisch / Verschwendt / Grenzen',
+			layers_data_desc: 'schault Doteschichte',
+			search: 'Wahlkrais fijnde',
+			search_desc: 'spring noh Nome; Pielsleutle panne, + / − zoome',
+			escape: 'Escape',
+			escape_desc: 'dise Bekika schliesse',
+			s4_tip:
+				'In §4, klik <em>Jefleemte Wahlkreise aum Koat wiese</em>, om dee Airdrie-Spaltunk un NW-Calgary-Zone hervortoheewe.',
+			got_it: 'Vestoon'
+		},
+		footer: {
+			title: 'Alberta Wahlkrais-Grenz-Pruewunk — Mei 2026',
+			copyright: '© Will Conner 2026 —',
+			text_label: 'Text:',
+			code_label: 'Code:',
+			translation_label: 'Äwasattsunge:',
+			translation_credit: 'Anthropic Fable 5 (KI) — wachtend aun Mudaschproakja-Äwarprüfunk'
+		}
+	},
+	explorer: {
+		controls: {
+			panel_title: 'Koatkontrollen',
+			close_aria: 'Koat schliesse',
+			map_version_hdr: 'Koatversion',
+			map_version_hint: '· klik om omtoschaule',
+			map_toggle_title: 'Dise Koat aun/aus schaule',
+			map_minority: 'Minorität',
+			map_majority: 'Mehrheit',
+			map_2019: '2019',
+			map_minority_short: 'Min',
+			map_majority_short: 'Mehr',
+			map_2019_short: '’19',
+			search_placeholder: 'En Wahlkrais säkje…',
+			search_aria: 'Wahlkreise säkje',
+			search_clear_aria: 'Soocht leddijch moake',
+			search_in: 'in {ed}',
+			zoom_aria: 'Zoom',
+			res_prefix: '1 Pixel ≈',
+			overlays_hdr: 'Jemeinschaftsintresse-Äwaschichte',
+			layer_highways: 'Highways',
+			layer_water: 'Riewa & Seea',
+			layer_annotations: "EBC '26 Aunmäakunge",
+			mobile_map_version_aria: 'Koatversion',
+			mobile_search_aria: 'Wahlkreise säkje',
+			mobile_layers_aria: 'Koatschichte',
+			mobile_info_aria: 'Äwa dee Grenzlinie',
+			mobile_share_aria: 'Dise Aussicht teele',
+			mobile_close_aria: 'Koat schliesse',
+			lang_aria: 'Schproak undre',
+			lang_hdr: 'Schproak',
+			lines_note_title: 'Dee Linie läse',
+			lines_note_lead: 'Jiedde onjewehnliche Fuarm oda Spaltlinje es en',
+			lines_note_emphasis: 'aobsiechtlije Wahl vom Komitee',
+			lines_note_tail:
+				'— kjeen Dotefähla. Linie folge dee Kjaunte von Stemmjebeedscha; wua twee Koate äwareenstimme, sette se aun dieselwe Linje, wua se auseenanderspalte, senn dee Vüaschläj wiaklich unjenijch.'
+		},
+		share: {
+			button: 'Dise Aussicht teele',
+			heading: 'Dise Aussicht teele',
+			copy: 'Link kopiire',
+			copied: 'Kopiirt',
+			help: 'Dise Link fangt jüare aktuelle Koat, Äwaschichte, un Aussicht.',
+			open_heading: 'En jeteelte Link öffne',
+			open_placeholder: 'En Teel-Link inplakje…',
+			open_btn: 'Öffne',
+			err_empty: 'En Teel-Link inplakje',
+			err_invalid: 'Kjeen gültije Teel-Link'
+		},
+		tip: {
+			total_votes: 'Stemme jesamt',
+			poll: 'Wahl #{id} · Stemme persöönlich',
+			ucp_pct: 'UCP {u}%',
+			ndp_pct: 'NDP {n}%',
+			unassigned: '(ontoojedeelt)',
+			where_in: 'in {community}',
+			where_near: 'noh {community}',
+			note_sparse:
+				"En dünn beavälkat Jebeet — met winnijch Stemme hia jewuarpen, blifft dee Fauf noh dee Koat ähre neutrale Grundlinje.",
+			note_no_votes:
+				"Kjeen Stemme woare hia opjezeechent, also wiest dise Jebeet dee Koat ähre neutrale Grundlinjentoon.",
+			no_one_title: 'Kjeen Mensch stemmt hia',
+			no_one_body:
+				"Kjeen Wahlbezirk deckt dise Spot — kjeen Mensch es opjezeechent, hia to laewe oda to stemme, also blifft daut dee Koat ähre neutrale Toon.",
+			flag_link: 'Klik om rintozoome'
+		},
+		miller: {
+			title: 'Miller — en wedahejestaulda ländlicha Sitz',
+			body: 'Dise Jebeet es aun dee Koat wäjen Richta Dallas Miller, dee Kommissjon ähre Vorsetza. In enrem Aunhunk tom Finalbericht haft dee jeschriewe, daut wann dee Laanddach nich annehme wull, twee ländliche Wahlkreise to schnijde, daut sull stattdes twee Sitze toofije — von 89 noh 91 jehnd — un see wedahejestaule. Dee haft aun dise Spot jewiese, om Clearwater un westlijet Mountain View County west von Red Deer, aus wua een von daen ländliche Sitze jehne sull. Daut es von County-Linie jeschetscht aus en Plotzhoula, kjeen offizielle Grenz, bes dee nächste Kommissjon dee Koat nij teidcht.'
+		},
+		flags: {
+			'banff-town': {
+				title: 'Banff — daut Städtje, ute dem Park jeschnede',
+				body: "Banff sett binnen enrem federalen National Park, aus en kjlien städtischen Eilaunt. Dee Minorität jruppt daut Städtje met Canmore — daut nächste Städtje runda daut Bow Valley — in “Canmore-Kananaskis,” un lett dem onbewohnden Park aus den Wahlkrais, dee Banff sienen Nome drät. Dee Grenz schmiejt sech aun daut Städtje, weil daut dee einzelne beavälkate Spot fea Mielen es. Daut utsieet woo en Fähla, oba daut folgt wiakliche Jeografie."
+			},
+			'banff-park': {
+				title: 'Noade von Banff — “Rocky Mountain House–Banff Park”',
+				body: "“Rocky Mountain House–Banff Park” es een von dee Minorität ähre voajeschlaune Wahlkreise, jrösstenteels ute onbewohndem National Park jemoakt; daut Städtje Banff sett in enrem benauboadren Wahlkrais im Süde. Dee Minorität haft dee Electoral Boundaries Commission Act ähre kjlienre-Beavälkarungs-Bestimmunk aun dise Wahlkrais aunjewande — en Wahl, dee dee Kommissjon ähre Vorsetza im Finalbericht aunjesproke haft."
+			},
+			'airdrie-split': {
+				title: 'Airdrie — vea Wäje jespalt',
+				body: "Airdrie sien Wausdom un sien Pendel noh Calgary (omtrent 76% von dee Utpendla) kunn een einzelnen niee Airdrie-Bereich-Sitz vaunkjankt ha — dee Sort, dee dee Doten unjastütte. Dee Minorität spalt stattdes dee Staut äwa vea Wahlkreise; dee Beavälkarungsmath erfordert daut nich, un kjeen Einreichunk haft daut voajeschlaune. Aun dee Pruewunk ähre Opsprenjunks-Signatuur-Proow trefft dise vea-Wäje-Spaltunk jiedet Kritarijum — Airdrie ähre Bewohna enje aus Minderheit in aule vea Wahlkreise, met kjeen Sitz, den dee Staut kontrolliirt — wua dee Mehrheit ähre twee-Wäje-Spaltunk kjeen wiese. Daut es en Jemeinschaftsspaltunk, onsichtboa fea dee partisan-Jerechtichjkjeit-Proowe; dee Pruewunk mett dem strukturellen Effekt, nich Aobsiecht. (Akademijch §5.3.2.)"
+			},
+			'nolan-hill-cochrane': {
+				title: 'Calgary-Nolan Hill–Cochrane',
+				body: "Cochrane sien Pendel noh Calgary kunn dee Paarunk met dee Staut jerechtfertijcht ha — oba dee 2021 Beruf-Pendeldoten vespreie dem Fluss stautbreet (omtrent en Drittel von Joababeitre; halw joarbeide innen Cochrane) un wiese nich noh Nolan Hill. Dee Minorität ähr schmoala Korridoor tom Nolan Hill-Ward — dee Fuarm, dee dee Vorsetza en Lasso jenoamt haft — reckt wieda aus dee Doten, un kjeen Einreichunk haft daut voajeschlaune. Dee Pruewunk läst daut aus Opsprenjunks-aunbiejend: daut dünnt Cochrane ähre Stimm, oba Cochrane (omtrent 34.000) es too kjlien fea sienen eejnen Sitz, also stoppt daut korz vor enem formellen Opsprenjunks-Sijchnal. (Akademijch §5.3.2.)"
+			},
+			'olds-airdrie-reach': {
+				title: 'Olds–Three Hills–Didsbury — dee Airdrie-Reichunk',
+				body: "En ländlicha Wahlkrais, dee dee Highway 2-Städtje — Olds, Didsbury, Three Hills — beisamme hält, es goot unjastütt; Beiseker-Bereich-Bewohna schreewe doafea. Daut kunn innen dee Jemeeende jeblewe ha. Dee Minorität ähre Version reckt stattdes süde in dem nordijchen Rand von Airdrie, en Erweiterunk, dee dee Beavälkarungsmath nich erfordert. Dee Reichunk es Deel doavon, woo dee vea-Wäje-Airdrie-Spaltunk faunktsjoniert — jiedet Stück von Airdrie in en grössren ländlichen Sitz auftsorbiirt — waut dee Pruewunk aus Deel von dem Opsprenjunksmusta läst. (Akademijch §5.3.2.)"
+			},
+			chestermere: {
+				title: 'Chestermere — tweschen twee Wahlkreise jespalt',
+				body: "Chestermere sien schwoaret Pendel noh Calgary (86% von dee Utpendla) kunn unjastütt ha, daut ganz un noh dee Staut to haulde — waut Bewohna, dee en Calgary-Fusion jäjenstande, uk wulle. Dee Minorität schnijdt stattdes en südijet Stück in en spezifischen Calgary-Bezirk, met dem daut kjeen Scholle oda Transit teelt, un daut Stück versajt dee Beavälkarungsproow. Dee Pruewunk läst dem Blädunk in en Calgary-Bezirk aus Opsprenjunks-aunbiejend — en Intressenjemeinschaftsspaltunk, dee Chestermere ähre Stimm dünnt, ohne aun en formelle Opsprenjunks-Signatuur to stiege. (Akademijch §5.3.2, §5.8.4.)"
+			},
+			'red-deer': {
+				title: 'Red Deer — dee Hybrid-Wahlkreise',
+				body: "Red Deer ähre rejjonale Verbindunge to Blackfalds, Sylvan Lake, Lacombe un Innisfail kunne dise Städtje toopjejruppt ha — en Stauträt un Bewohna ha jlikje Hybrids voajeschlaune. Dee Minorität ähre Version folt stattdes Deele von dee Staut selfst in städtje-jefiehrde Wahlkreise, dünnend städtischet Red Deer siene Stem; ähr “jedeelte Scholle”-Rationale haault uk nich (verschiedene Scholbezirke). En Staut in städtje-jefiehrde Wahlkreise to folde es daut Musta, daut dee Pruewunk Hybridisaarunk nennt — konsistent met Opsprenjunk, dee partidijchen Effekt innen dee Hybrid-Wahlkreise errejchend anstott äwa daen. (Akademijch §5.3.5.)"
+			},
+			'st-albert': {
+				title: 'St. Albert — konkurriirende Konfiguratsjoone',
+				body: "Entwäder Koat ähre Version von St. Albert kunn aun enra vernünftijchen Grundlag ruhe. Dee Pruewunk fonk eenfach kjeen Einreichunk, dee dee Minorität ähr spezifischet Olternativ unjastütt — un weil Büarja selden en Kommissjon ähre jenaue Grenzen benenne, behandelt daut dee Bewiese hia aus dünn, nich klooar fea oda jäjen."
+			},
+			'calgary-zone-a-packing': {
+				title: 'Calgary Noade & Oost — en Stoppe-Signatuur',
+				body: "Dee Kommissjon ähre Vorsetza haft dise nich jeflemmt — dee Pruewunk ähre eejene Math deit. Äwa Calgary ähre Noade un Oost (dee Pruewunk ähre “Zone A,” noade un oost von dem Bow River) loope dee Minoritätskoat ähre Bezirke omtrent 11,5% grösser aus dee provinzielle Durchschnitt, jäjen 2,8% aum Mehrheitskoat. Stoppe bedüt, een Sied ähre Wähla in winnijcha, grössere Bezirke to konzentriire, soo daut jiedda von ähren Stemmzettle en bät winnijcha wejt; Zone A es NDP-konkurrenzfähich, un 13 von ähre 17 Bezirke woare NDP-jewonne im 2023. Dee Pruewunk mett dem strukturellen Effekt, nich Aobsiecht. (Akademijch §5.3.1.)"
+			}
+		}
+	}
 } as const;
