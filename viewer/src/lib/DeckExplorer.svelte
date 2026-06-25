@@ -1792,6 +1792,7 @@
 			min={zoomMin}
 			max={zoomMax}
 			step="0.01"
+			aria-label={t(lang.current, 'explorer.controls.zoom_aria')}
 			bind:value={zoomVal}
 			oninput={() => {
 				dragSetter(true);
@@ -2225,12 +2226,24 @@
 		color: #cfe0f5;
 		display: flex;
 		align-items: center;
-		gap: 6px;
+		gap: 7px;
+		/* ≥24px tall so each toggle is a comfortable, well-spaced pointer target
+		   (was a bare ~13px checkbox — flagged by the target-size a11y audit). */
+		min-height: 24px;
 		cursor: pointer;
 	}
 	.mapsw .filters input {
+		width: 16px;
+		height: 16px;
 		accent-color: #6fd3fb;
 		cursor: pointer;
+	}
+	/* Consistent keyboard focus ring across every panel control. */
+	.mapsw button:focus-visible,
+	.mapsw .filters input:focus-visible,
+	.mapsw .zoom:focus-visible {
+		outline: 2px solid #6fd3fb;
+		outline-offset: 2px;
 	}
 	/* Language control — a single native <select> dropdown. With 19 locales an
 	   inline button grid was unusably crowded; a dropdown keeps the panel compact
