@@ -130,9 +130,11 @@
 		margin: 0;
 		padding: 0.3rem 0;
 		list-style: none;
-		background: var(--bg-alt, var(--bg, white));
-		color: var(--text, inherit);
-		border: 1px solid var(--border, currentColor);
+		/* Fallbacks (after the comma) apply where the report theme vars don't reach —
+		   e.g. the map explorer route: warm paper bg + dark ink, matching the prose. */
+		background: var(--bg-alt, #f9f7f2);
+		color: var(--text, #1a1a1a);
+		border: 1px solid var(--border, #d8d2c4);
 		border-radius: 6px;
 		min-width: 13rem;
 		max-height: min(70vh, 26rem);
@@ -185,11 +187,14 @@
 		background: rgba(127, 127, 127, 0.08);
 	}
 	.native {
-		font-size: 0.95rem;
+		font-size: 0.98rem;
+		/* Serif to echo the report's prose/headline type (Latin scripts; non-Latin
+		   native names fall back to their own system fonts). */
+		font-family: 'Palatino Linotype', Palatino, Georgia, serif;
 	}
 	.english {
 		font-size: 0.72rem;
-		opacity: 0.65;
+		opacity: 0.62;
 		margin-top: 0.1rem;
 	}
 </style>
