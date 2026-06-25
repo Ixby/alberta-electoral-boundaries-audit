@@ -1689,7 +1689,7 @@
 		<div class="res">1 pixel ≈ <b>{resText}</b></div>
 
 		<div class="filters">
-			<div class="fhdr">Geographic filters</div>
+			<div class="fhdr">Community Interest Overlays</div>
 			<label>
 				<input
 					type="checkbox"
