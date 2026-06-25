@@ -461,6 +461,25 @@
 				return feats;
 			}
 
+			// Memoize the assembled feature set by the visible-tile key set. paint() runs
+			// on every onViewStateChange (every pan/scroll frame); without this, featsForView
+			// rebuilds a fresh array each frame and deck.gl re-uploads ALL VA geometry — the
+			// source of drag/zoom jank. The key set changes only when the rendered level or
+			// the visible tiles change (effL is encoded in each key, and effL only holds
+			// steady once its bundle is fully loaded, so the cache is never stale). Within a
+			// pan the SAME array reference is returned and deck skips re-tessellation,
+			// transforming the existing layers on the GPU instead.
+			let featsKey = ' ';
+			let featsMemo: TileFeature[] = [];
+			function featsForViewMemo(keys: [number, number, number][]): TileFeature[] {
+				let key = '';
+				for (const k of keys) key += k[0] + '/' + k[1] + '/' + k[2] + ',';
+				if (key === featsKey) return featsMemo;
+				featsKey = key;
+				featsMemo = featsForView(keys);
+				return featsMemo;
+			}
+
 			// ── ED stroke alpha/width by level (ported) ────────────────────────────
 			const edAlpha = (L: number) => (L <= 1 ? 50 : L <= 2 ? 110 : L <= 3 ? 180 : 255);
 			const edWidth = (L: number) => (L <= 1 ? 1.2 : L <= 2 ? 1.9 : L <= 3 ? 2.5 : 3.2);
@@ -610,7 +629,7 @@
 				keys: [number, number, number][],
 				vp: { getBounds: () => number[] }
 			) {
-				const feats = featsForView(keys);
+				const feats = featsForViewMemo(keys);
 				lastPolyCount = feats.length; // visible feature count (HUD + perf snapshot)
 				// deck.gl layer instances are opaque here (builders are deck-free / DI); the array is
 				// handed straight to deckgl.setProps, which validates them at runtime.
