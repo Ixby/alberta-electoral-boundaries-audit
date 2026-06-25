@@ -1597,7 +1597,7 @@
 					}}
 					onchange={() => dragSetter(false)}
 				/>
-				<span class="res-m"><b>{resText}</b> <span class="tier" style="color:{zoomAccent}">{t(lang.current, zoomDetail ? 'explorer.controls.zoom_computed' : 'explorer.controls.zoom_official')}</span></span>
+				<span class="res-m"><b>{resText}</b></span>
 			</div>
 			</div>
 
@@ -2321,10 +2321,11 @@
 		color: #9fb4d4;
 		pointer-events: none;
 	}
-	/* Provenance tag beside the resolution readout — colour set inline to track
-	   the live zoom accent (yellow = official, blue = computed). */
-	.mapsw .res .tier,
-	.zoom-m .res-m .tier {
+	/* Provenance tag beside the desktop resolution readout — colour set inline to
+	   track the live zoom accent (yellow = official, blue = computed). Omitted on
+	   the mobile zoom pill, where "(Official)" would widen the compact capsule;
+	   there the slider's accent colour carries the same signal. */
+	.mapsw .res .tier {
 		font-weight: 700;
 		white-space: nowrap;
 	}
