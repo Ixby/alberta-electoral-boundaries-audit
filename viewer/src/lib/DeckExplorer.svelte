@@ -390,6 +390,17 @@
 			let draggingZoom = false;
 			let paintScheduled = false;
 			const lazyTriggered = new Set<string>();
+			// Levels whose bundle has fully loaded+decoded into `archive`. Each paint
+			// renders at ONE uniform level (the deepest loaded level <= the zoom target)
+			// so the populated interior never shows a coarse/fine patchwork while the big
+			// deep-level bundle streams in. Mutated outside any DEBUG guard — it drives
+			// production rendering, not just the HUD.
+			const loadedLevels = new Set<number>();
+			function deepestLoadedAtOrBelow(L: number): number {
+				if (!M) return L;
+				for (let z = L; z >= M.minZoom; z--) if (loadedLevels.has(z)) return z;
+				return L; // nothing loaded yet — featsForView's per-tile fallback covers it
+			}
 
 			// ── Debug HUD counters (only mutated/read when DEBUG) ──────────────────
 			let firstPaintMs = 0; // ms from navigation to first map paint
@@ -462,6 +473,7 @@
 					if (keep.has(b.lo) && !lazyTriggered.has(b.file)) {
 						lazyTriggered.add(b.file);
 						loadBundle(`${base}/mapdata`, b, archive).then((n) => {
+							for (let z = b.lo; z <= b.hi; z++) loadedLevels.add(z);
 							if (DEBUG) {
 								archiveBytes += n;
 								bundlesLoaded++;
@@ -923,7 +935,14 @@
 				});
 				if (!vp) return;
 				const L = tileLevelForZoom(lastVS.zoom as number, M.side, M.minZoom, M.maxZoom);
-				curLevel = L;
+				// Render the whole frame at ONE uniform level — the deepest level whose
+				// bundle is fully loaded (<= the zoom target). Until the heavy deep-level
+				// bundle finishes, this holds a clean coarser frame instead of a per-tile
+				// coarse/fine patchwork; once it lands, the next paint pops to uniform L.
+				// Intent/loading signals (analytics bucket, lazy-load, auto-layers) stay on
+				// the target L; only what's RENDERED and the resolution readout use effL.
+				const effL = deepestLoadedAtOrBelow(L);
+				curLevel = effL;
 				// Analytics: emit zoom_depth only when the zoom bucket changes (throttle).
 				const zb = zoomBucket(L);
 				if (zb !== lastZoomBucket) {
@@ -932,12 +951,12 @@
 				}
 				maybeLoadLevels(L);
 				maybeAutoLayers(L);
-				syncZoomUI(L);
+				syncZoomUI(effL);
 				const t0 = DEBUG ? performance.now() : 0;
-				deckgl.setProps({ layers: buildLayers(L, visibleTiles(vp, L), vp) });
+				deckgl.setProps({ layers: buildLayers(effL, visibleTiles(vp, effL), vp) });
 				if (DEBUG) {
 					lastPaintMs = Math.round((performance.now() - t0) * 10) / 10;
-					renderHud(L);
+					renderHud(effL);
 				}
 				// Keep the URL (and last-view cookie) in sync with the settled view.
 				// Downstream of every map/filter/viewport change (all route through paint()).
@@ -1416,6 +1435,7 @@
 			const head = M.bundles.find((b) => b.lo <= L0 && L0 <= b.hi) || M.bundles[0];
 			lazyTriggered.add(head.file);
 			const headBytes = await loadBundle(`${base}/mapdata`, head, archive);
+			for (let z = head.lo; z <= head.hi; z++) loadedLevels.add(z);
 			// Counted for all visitors (not just DEBUG): the perf snapshot reports
 			// loaded_mb, and at first paint only the head bundle has arrived.
 			archiveBytes += headBytes;
