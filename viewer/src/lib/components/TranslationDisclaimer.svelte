@@ -7,7 +7,9 @@
 	// Split here so the link is a real <a>, not raw HTML, and so the surrounding
 	// text remains a translatable single string per locale.
 	let parts = $derived.by(() => {
-		if (lang.current === 'en') return null;
+		// English is the source; French has had a native-speaker review, so neither
+		// shows the "AI-translated, pending review" notice.
+		if (lang.current === 'en' || lang.current === 'fr') return null;
 		const raw = t(lang.current, 'disclaimer.text');
 		const label = t(lang.current, 'disclaimer.link_label');
 		const scale = t(lang.current, 'disclaimer.word_count').replace(

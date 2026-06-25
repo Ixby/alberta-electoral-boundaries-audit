@@ -1175,10 +1175,11 @@
     </p>
   </section>
 
-  {#if lang.current !== 'en'}
-    <!-- Rendered only on translated versions — sits under About me so the
+  {#if lang.current !== 'en' && lang.current !== 'fr'}
+    <!-- Rendered only on machine-translated versions — sits under About me so the
          translation provenance reads as part of the audit's transparency
-         apparatus, alongside the author's own disclosure. -->
+         apparatus, alongside the author's own disclosure. English is the source;
+         French has had a native-speaker review, so neither shows this notice. -->
     <section id="about-translation">
       <h2>{t(lang.current, 'body.translation_about.heading')}</h2>
       <p style="font-size:0.9rem; color:var(--text-muted);">
