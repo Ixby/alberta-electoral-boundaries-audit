@@ -20,6 +20,12 @@
   import { base } from '$app/paths';
   import { goto } from '$app/navigation';
 
+  // Lane 1 (statistical / neutral-ensemble) test results are suppressed on the
+  // public site while that review is ongoing — §3 (litmus) and §6 (clean
+  // gerrymanders) show a "[Statistical Review Ongoing]" placeholder instead of
+  // the tables/percentiles. The prose stays in the locale files (just unrendered).
+  const LANE1_SUPPRESSED = true;
+
   // "About this translation" help sentence: split the %s link placeholder
   // and inject the live prose word count, mirroring the top disclaimer.
   const translationHelpParts = $derived.by(() => {
@@ -448,6 +454,7 @@
   <section id="section-3">
     <h2>{t(lang.current, 'body.litmus.heading')} <a href="#section-3" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 3">#</a></h2>
 
+    {#if LANE1_SUPPRESSED}<p class="review-ongoing">[Statistical Review Ongoing]</p>{:else}
     <figure style="margin:1.2rem 0;text-align:center;">
       <img src="images/lane1_dotplot.svg" alt={t(lang.current, 'body.litmus.fig_alt')} class="chart-img" style="max-width: 100%;" width="463" height="247" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{@html t(lang.current, 'body.litmus.fig_caption')}</figcaption>
@@ -531,6 +538,7 @@
     <p>{t(lang.current, 'body.litmus.closing_p2')}</p>
 
     <p class="back-link"><a href="#stakes-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
+    {/if}
   </section>
 
   <section id="section-4">
@@ -707,6 +715,7 @@
   <section id="section-6">
     <h2>{t(lang.current, 'body.clean.heading')} <a href="#section-6" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 6">#</a></h2>
 
+    {#if LANE1_SUPPRESSED}<p class="review-ongoing">[Statistical Review Ongoing]</p>{:else}
     <div class="callout">
       <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
       <p>{@html t(lang.current, 'body.clean.legal_body')}</p>
@@ -972,6 +981,7 @@
       <summary>{t(lang.current, 'body.clean.details2_summary')}</summary>
       <p style="margin:0.7rem 0 0;">{@html t(lang.current, 'body.clean.details2_p')}</p>
     </details>
+    {/if}
   </section>
 
   <section id="section-7">
@@ -1509,7 +1519,7 @@
   /* Single reading measure for all running Story prose. Figures, the map
      explorer, and tables stay full-width; only paragraphs are constrained
      to a comfortable line length. Change here, not per-block. */
-  --measure:         64ch;
+  --measure:         78ch;
   /* Desktop shell: the page sits in a centered 1200px card on a darker,
      blue-tinted surround (--shell-outer), lifted by a thin frame + shadow. */
   --shell-outer:     #d0d9e8;
@@ -1921,7 +1931,7 @@
        direction — the container IS the measure now. */
     .container {
       width: 100%;
-      max-width: 720px;
+      max-width: 860px;
       margin-inline: auto;
       padding: 0 clamp(1.2rem, 4vw, 3.5rem);
       box-sizing: border-box;
@@ -1929,6 +1939,20 @@
 
     section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid var(--border); scroll-margin-top: 72px; }
     section:last-of-type { border-bottom: none; }
+
+    /* Placeholder shown in place of suppressed Lane 1 (statistical) test content. */
+    .review-ongoing {
+      margin: 1.4rem 0;
+      padding: 1.1rem 1.25rem;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      background: var(--bg-alt);
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.95rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
 
     /* The stakes and boundary blocks anchor on a visually-hidden h2 inside the
        section, not on the section itself, so the section rule's scroll-margin
