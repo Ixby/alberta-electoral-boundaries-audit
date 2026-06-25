@@ -350,6 +350,11 @@ export default {
 			p4: "The boundary lines drawn over the colour are the minority commission's 89 proposed electoral districts — the map this audit ends up critiquing. The audit's work is to ask what those lines do to the people underneath them.",
 			p5: 'This image is what makes the stakes plain. A province that looks like it votes one way on a standard map is actually a province where most of the people live in areas that vote the other way. Once the population is visible underneath the boundary choices, those choices stop looking random.'
 		},
+		preliminary: {
+			badge: 'PRELIMINARY',
+			heading: 'Preliminary findings — pending independent expert review',
+			body: 'The statistical tests in this section are being reviewed by independent subject-matter experts before final publication. The full results are shown below for that scrutiny.'
+		},
 		structural_results: {
 			heading: 'Structural audit results — before any statistics:',
 			body: 'The majority map crosses <strong>zero of five</strong> pre-registered structural thresholds. The minority map crosses <strong>four of the five</strong>; the fifth (anchoring) is neutral — both maps fall within the 70–85% Canadian norm. These are geometric measurements — population spread, <button class="vocab-term" data-def="how closely a district\'s borders follow pre-existing city and municipal limits, rather than cutting through them" aria-expanded="false">municipal anchoring</button>, Airdrie split count, NW Calgary population excess, and the seven boundary configurations Commission Chair Justice Miller himself flagged in writing (§5.8.2 of the majority report and Appendix C) — requiring no election data and no statistical sampler. The next section tests both maps against 1,010,000 computer-generated neutral maps and reaches the same conclusion through a completely different instrument. Three independent instruments — geometric, judicial, and statistical — converge.'

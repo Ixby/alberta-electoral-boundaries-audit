@@ -348,6 +348,11 @@ export default {
 			p4: "Les lignes de limites tracées sur la couleur sont les 89 circonscriptions électorales proposées par la commission minoritaire — la carte que cet audit finit par critiquer. Le travail de l'audit est de demander ce que ces lignes font aux personnes en dessous.",
 			p5: "Cette image est ce qui rend les enjeux clairs. Une province qui semble voter d'une certaine façon sur une carte standard est en réalité une province où la plupart des gens vivent dans des zones qui votent autrement. Une fois la population visible sous les choix de limites, ces choix cessent de paraître aléatoires."
 		},
+		preliminary: {
+			badge: 'PRÉLIMINAIRE',
+			heading: 'Résultats préliminaires — en attente d’un examen indépendant par des experts',
+			body: 'Les tests statistiques de cette section font l’objet d’un examen par des experts indépendants du domaine avant leur publication définitive. Les résultats complets sont présentés ci-dessous aux fins de cet examen.'
+		},
 		structural_results: {
 			heading: "Résultats de l'audit structurel — avant toute statistique :",
 			body: "La carte majoritaire franchit <strong>zéro des cinq</strong> seuils structurels pré-enregistrés. La carte minoritaire en franchit <strong>quatre sur cinq</strong> ; le cinquième (l'ancrage) est neutre — les deux cartes se situent dans la norme canadienne de 70 à 85 %. Ce sont des mesures géométriques — étalement de la population, <button class=\"vocab-term\" data-def=\"à quel point les frontières d'une circonscription suivent les limites municipales préexistantes, plutôt que de les traverser\" aria-expanded=\"false\">ancrage municipal</button>, nombre de divisions d'Airdrie, excédent de population du nord-ouest de Calgary, et les sept configurations de limites que le président de la Commission, le juge Miller, a lui-même signalées par écrit (§5.8.2 du rapport majoritaire et annexe C) — qui ne nécessitent aucune donnée électorale ni aucun échantillonneur statistique. La prochaine section teste les deux cartes contre 1 010 000 cartes neutres générées par ordinateur et aboutit à la même conclusion par un instrument complètement différent. Trois instruments indépendants — géométrique, judiciaire et statistique — convergent."

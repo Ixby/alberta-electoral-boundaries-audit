@@ -20,12 +20,6 @@
   import { base } from '$app/paths';
   import { goto } from '$app/navigation';
 
-  // Lane 1 (statistical / neutral-ensemble) test results are suppressed on the
-  // public site while that review is ongoing — §3 (litmus) and §6 (clean
-  // gerrymanders) show a "[Statistical Review Ongoing]" placeholder instead of
-  // the tables/percentiles. The prose stays in the locale files (just unrendered).
-  const LANE1_SUPPRESSED = true;
-
   // "About this translation" help sentence: split the %s link placeholder
   // and inject the live prose word count, mirroring the top disclaimer.
   const translationHelpParts = $derived.by(() => {
@@ -264,6 +258,25 @@
   });
 </script>
 
+<!-- Lane 1 (statistical / neutral-ensemble) sections — §3 (litmus) and §6 (clean
+     gerrymanders) — are shown in full but framed as preliminary pending an
+     independent expert review. The banner frames review *status* only; it makes
+     no claim about the findings and is distinct from the hero's draft notice. -->
+{#snippet preliminaryBanner()}
+  <aside class="prelim-banner" role="note" aria-label={t(lang.current, 'body.preliminary.heading')}>
+    <svg class="prelim-ico" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="10.5" cy="10.5" r="6.4" />
+      <line x1="15.2" y1="15.2" x2="20.5" y2="20.5" />
+      <polyline points="7.8,10.6 9.7,12.5 13.4,8.4" />
+    </svg>
+    <div class="prelim-text">
+      <span class="prelim-badge">{t(lang.current, 'body.preliminary.badge')}</span>
+      <p class="prelim-heading">{t(lang.current, 'body.preliminary.heading')}</p>
+      <p class="prelim-body">{t(lang.current, 'body.preliminary.body')}</p>
+    </div>
+  </aside>
+{/snippet}
+
 <a class="skip-link" href="#main">{t(lang.current, 'nav.skip_to_content')}</a>
 
 <nav aria-label="Page sections" class:scrolled={navScrolled}>
@@ -454,7 +467,7 @@
   <section id="section-3">
     <h2>{t(lang.current, 'body.litmus.heading')} <a href="#section-3" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 3">#</a></h2>
 
-    {#if LANE1_SUPPRESSED}<p class="review-ongoing">[Statistical Review Ongoing]</p>{:else}
+    {@render preliminaryBanner()}
     <figure style="margin:1.2rem 0;text-align:center;">
       <img src="images/lane1_dotplot.svg" alt={t(lang.current, 'body.litmus.fig_alt')} class="chart-img" style="max-width: 100%;" width="463" height="247" loading="lazy">
       <figcaption style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem;">{@html t(lang.current, 'body.litmus.fig_caption')}</figcaption>
@@ -538,7 +551,6 @@
     <p>{t(lang.current, 'body.litmus.closing_p2')}</p>
 
     <p class="back-link"><a href="#stakes-heading">{t(lang.current, 'chrome.back_to_stakes')}</a></p>
-    {/if}
   </section>
 
   <section id="section-4">
@@ -715,7 +727,7 @@
   <section id="section-6">
     <h2>{t(lang.current, 'body.clean.heading')} <a href="#section-6" class="section-link" aria-label="{t(lang.current, 'body.section_link_aria')} 6">#</a></h2>
 
-    {#if LANE1_SUPPRESSED}<p class="review-ongoing">[Statistical Review Ongoing]</p>{:else}
+    {@render preliminaryBanner()}
     <div class="callout">
       <p><strong>{t(lang.current, 'body.clean.legal_label')}</strong></p>
       <p>{@html t(lang.current, 'body.clean.legal_body')}</p>
@@ -981,7 +993,6 @@
       <summary>{t(lang.current, 'body.clean.details2_summary')}</summary>
       <p style="margin:0.7rem 0 0;">{@html t(lang.current, 'body.clean.details2_p')}</p>
     </details>
-    {/if}
   </section>
 
   <section id="section-7">
@@ -1940,19 +1951,68 @@
     section { padding: 2.2rem 0 1.8rem; border-bottom: 1px solid var(--border); scroll-margin-top: 72px; }
     section:last-of-type { border-bottom: none; }
 
-    /* Placeholder shown in place of suppressed Lane 1 (statistical) test content. */
-    .review-ongoing {
-      margin: 1.4rem 0;
-      padding: 1.1rem 1.25rem;
-      border: 1px dashed var(--border);
-      border-radius: 6px;
-      background: var(--bg-alt);
-      color: var(--text-muted);
-      font-style: italic;
-      font-size: 0.95rem;
-      text-align: center;
-      letter-spacing: 0.02em;
+    /* "Preliminary findings — pending expert review" banner at the head of the
+       two Lane 1 (statistical) sections. Amber, deliberately distinct from the
+       blue info callouts; frames review status only, never the findings. */
+    .prelim-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.95rem;
+      margin: 0.4rem 0 1.6rem;
+      padding: 1.05rem 1.2rem 1.1rem;
+      border: 1px solid #e3c78a;
+      border-inline-start: 5px solid #b7791f;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fdf4dd 0%, #fbedc8 100%);
+      box-shadow: 0 1px 3px rgba(120, 84, 12, 0.12);
     }
+    .prelim-ico {
+      flex: none;
+      width: 30px;
+      height: 30px;
+      margin-top: 0.1rem;
+      fill: none;
+      stroke: #b7791f;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .prelim-text { min-width: 0; }
+    .prelim-badge {
+      display: inline-block;
+      margin-bottom: 0.4rem;
+      padding: 0.16rem 0.55rem;
+      border-radius: 3px;
+      background: #b7791f;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .prelim-heading {
+      margin: 0 0 0.3rem;
+      font-weight: 700;
+      font-size: 1.02rem;
+      line-height: 1.3;
+      color: #7a530f;
+    }
+    .prelim-body {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #6b4e1c;
+    }
+    :root[data-theme="dark"] .prelim-banner {
+      border-color: #5a4717;
+      border-inline-start-color: #d6a93b;
+      background: linear-gradient(180deg, #2a2410 0%, #221d0c 100%);
+      box-shadow: none;
+    }
+    :root[data-theme="dark"] .prelim-ico { stroke: #e2b84e; }
+    :root[data-theme="dark"] .prelim-badge { background: #d6a93b; color: #201a0a; }
+    :root[data-theme="dark"] .prelim-heading { color: #f0d28a; }
+    :root[data-theme="dark"] .prelim-body { color: #d8c79c; }
 
     /* The stakes and boundary blocks anchor on a visually-hidden h2 inside the
        section, not on the section itself, so the section rule's scroll-margin
