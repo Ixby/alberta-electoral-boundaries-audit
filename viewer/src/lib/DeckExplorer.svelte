@@ -40,6 +40,15 @@
 	import { FLAGS } from '$lib/deckExplorer/pois';
 	import { buildNameIndex, matchNames, type NameIndex, type EdRec } from '$lib/deckExplorer/search';
 	import {
+		encodeState,
+		decodeState,
+		saveShare,
+		setOrigin,
+		type MapState,
+		type MapKey
+	} from '$lib/share';
+	import { getLastCode, storeLastCode } from '$lib/prefs';
+	import {
 		track,
 		zoomBucket,
 		firstPaintBand,
@@ -123,9 +132,9 @@
 	// plus a bottom zoom pill. `coarse` is decided once on mount; `mobilePanel`
 	// tracks which icon popover is open ('none' = just the bar).
 	let coarse = $state(false);
-	let mobilePanel = $state<'none' | 'search' | 'layers' | 'info'>('none');
+	let mobilePanel = $state<'none' | 'search' | 'layers' | 'info' | 'share'>('none');
 
-	function toggleMobilePanel(p: 'search' | 'layers' | 'info'): void {
+	function toggleMobilePanel(p: 'search' | 'layers' | 'info' | 'share'): void {
 		mobilePanel = mobilePanel === p ? 'none' : p;
 		// The community/district target lives with the search: leaving the search
 		// popover (closing it or switching panels) drops the target marker.
@@ -149,6 +158,11 @@
 	let filterSetter: (which: 'hwy' | 'water' | 'pois' | 'miller', val: boolean) => void = () => {};
 	let edSelector: (rec: EdRec) => void = () => {};
 	let clearSelection: () => void = () => {};
+	// Share bridges: build a MapState from the live view, and apply a decoded one.
+	// Assigned inside the IIFE where M / lastVS / flyTo / filterSetter / schedulePaint
+	// are in scope (mirrors the setter pattern above).
+	let shareBuild: () => MapState | null = () => null;
+	let shareApply: (s: MapState) => void = () => {};
 	// Miller restoration-zone polygons (loaded lazily when the Miller layer toggle
 	// is first enabled); non-reactive.
 	let luntyBounds: { zones: { name: string; note?: string; rings: number[][][] }[] } | null = null;
@@ -228,6 +242,64 @@
 	$effect(() => {
 		if (vvH > 0) document.documentElement.style.setProperty('--vvh', vvH + 'px');
 	});
+
+	// ── Share panel (3-word view codes) ──────────────────────────────────────────
+	// Desktop opens a popover; mobile reuses the existing icon-popover mechanism
+	// via mobilePanel === 'share'. Both call the same build/apply bridges.
+	let showShare = $state(false);
+	let shareCode = $state('');
+	let copyLabel = $state('Copy');
+	let loadInput = $state('');
+	let loadError = $state('');
+
+	function openShare(): void {
+		const st = shareBuild();
+		shareCode = st ? (encodeState(st) ?? '—') : '—';
+		if (st && shareCode !== '—') {
+			saveShare(shareCode, st);
+			storeLastCode(shareCode);
+		}
+		loadError = '';
+		copyLabel = 'Copy';
+		showShare = true;
+	}
+	function copyShare(): void {
+		navigator.clipboard
+			?.writeText(shareCode)
+			.then(() => {
+				copyLabel = 'Copied';
+				setTimeout(() => (copyLabel = 'Copy'), 1500);
+			})
+			.catch(() => {});
+	}
+	function loadShare(): void {
+		const st = decodeState(loadInput.trim());
+		if (!st) {
+			loadError = 'Not a valid code';
+			return;
+		}
+		setOrigin(loadInput.trim());
+		shareApply(st);
+		showShare = false;
+		mobilePanel = 'none';
+		loadInput = '';
+		loadError = '';
+	}
+	// Mobile share popover: regenerate the code each time the panel is opened.
+	function openMobileShare(): void {
+		const wasOpen = mobilePanel === 'share';
+		toggleMobilePanel('share');
+		if (!wasOpen) {
+			const st = shareBuild();
+			shareCode = st ? (encodeState(st) ?? '—') : '—';
+			if (st && shareCode !== '—') {
+				saveShare(shareCode, st);
+				storeLastCode(shareCode);
+			}
+			loadError = '';
+			copyLabel = 'Copy';
+		}
+	}
 
 	onMount(() => {
 		let cleanup: (() => void) | null = null;
@@ -969,6 +1041,57 @@
 				schedulePaint();
 			};
 
+			// ── Share bridges ──────────────────────────────────────────────────────
+			// Build a MapState from the live view (null until the manifest + first
+			// view exist). Viewport target is normalised against M.bbox; zoom is
+			// normalised 0..1 over the slider's [zoomMin, zoomMax] range.
+			shareBuild = () => {
+				if (!lastVS || !M) return null;
+				const [minx, miny, maxx, maxy] = M.bbox;
+				const tx = (lastVS.target as number[])[0];
+				const ty = (lastVS.target as number[])[1];
+				const cx_norm = Math.min(1, Math.max(0, (tx - minx) / (maxx - minx)));
+				const cy_norm = Math.min(1, Math.max(0, (ty - miny) / (maxy - miny)));
+				const zr = zoomMax - zoomMin || 1;
+				const zoom01 = Math.min(1, Math.max(0, ((lastVS.zoom as number) - zoomMin) / zr));
+				const primary = (activeMaps[0] as MapKey) || 'minority';
+				return {
+					primary,
+					mapOn: {
+						minority: activeMaps.includes('minority'),
+						majority: activeMaps.includes('majority'),
+						'2019': activeMaps.includes('2019')
+					},
+					layers: {
+						hwy: filters.hwy,
+						water: filters.water,
+						pois: filters.pois,
+						miller: filters.miller
+					},
+					viewport: { cx_norm, cy_norm, zoom: zoom01 }
+				};
+			};
+			// Apply a decoded MapState: primary first, then any other on-maps in the
+			// canonical MAPS order (mirrors how mapToggler keeps activeMaps ordered),
+			// filters via filterSetter so side-effects (lazy data loads) run, then
+			// denormalise the viewport and glide there.
+			shareApply = (s: MapState) => {
+				const ms2: MapKey[] = ['minority', 'majority', '2019'];
+				activeMaps = [s.primary, ...ms2.filter((k) => k !== s.primary && s.mapOn[k])];
+				filterSetter('hwy', s.layers.hwy);
+				filterSetter('water', s.layers.water);
+				filterSetter('pois', s.layers.pois);
+				filterSetter('miller', s.layers.miller);
+				if (lastVS && M) {
+					const [minx, miny, maxx, maxy] = M.bbox;
+					const tx = minx + s.viewport.cx_norm * (maxx - minx);
+					const ty = miny + s.viewport.cy_norm * (maxy - miny);
+					const z = zoomMin + s.viewport.zoom * (zoomMax - zoomMin);
+					flyTo({ ...lastVS, target: [tx, ty, 0], zoom: z });
+				}
+				schedulePaint();
+			};
+
 			// ── Critical path load ─────────────────────────────────────────────────
 			M = await fetchJSON<Manifest>('manifest.json');
 			provinceData = await fetchJSON<number[][][]>('province.json');
@@ -1216,6 +1339,22 @@
 			maybeLoadLevels(L0); // backfill coarse + one level lookahead
 			await loadVaLines();
 
+			// ── Session resume ─────────────────────────────────────────────────────
+			// If the visitor isn't deep-linked to a POI, restore their last shared
+			// view from the prefs cookie. Runs after lastVS / M exist and after the
+			// search index is built, so flyTo + filterSetter behave normally and the
+			// restore doesn't fight the deep-link POI focus above.
+			if (!initialPoi) {
+				const last = await getLastCode();
+				if (last) {
+					const st = decodeState(last);
+					if (st) {
+						setOrigin(last);
+						shareApply(st);
+					}
+				}
+			}
+
 			cleanup = () => {
 				window.removeEventListener('resize', onResize);
 				if (window.visualViewport) window.visualViewport.removeEventListener('resize', onResize);
@@ -1287,6 +1426,15 @@
 					onclick={() => toggleMobilePanel('info')}
 				>
 					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2" /><line x1="12" y1="11" x2="12" y2="16.5" /><circle cx="12" cy="7.6" r="0.4" fill="currentColor" stroke="none" /></svg>
+				</button>
+				<button
+					class="ic"
+					class:on={mobilePanel === 'share'}
+					aria-label="Share this view"
+					aria-pressed={mobilePanel === 'share'}
+					onclick={openMobileShare}
+				>
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6" /><circle cx="6" cy="12" r="2.6" /><circle cx="18" cy="19" r="2.6" /><line x1="8.2" y1="10.8" x2="15.8" y2="6.2" /><line x1="8.2" y1="13.2" x2="15.8" y2="17.8" /></svg>
 				</button>
 				{#if onClose}
 					<span class="ic-div" aria-hidden="true"></span>
@@ -1401,6 +1549,33 @@
 					Every odd shape or split line is a <b>deliberate choice by the committee</b> — not a
 					data error. Lines follow the edges of polling areas; where two maps agree they sit on the
 					same line, where they split apart the proposals genuinely disagree.
+				</div>
+			{:else if mobilePanel === 'share'}
+				<div class="msw-m-pop">
+					<div class="share-lbl">Share this view</div>
+					<div class="share-code-row">
+						<code class="share-code">{shareCode}</code>
+						<button type="button" class="share-copy" onclick={copyShare}>{copyLabel}</button>
+					</div>
+					<div class="share-div"></div>
+					<div class="share-lbl">Load a code</div>
+					<div class="share-load-row">
+						<input
+							class="share-input"
+							type="text"
+							placeholder="word-word-word"
+							autocomplete="off"
+							bind:value={loadInput}
+							onkeydown={(e) => {
+								if (e.key === 'Enter') {
+									e.preventDefault();
+									loadShare();
+								}
+							}}
+						/>
+						<button type="button" class="share-load" onclick={loadShare}>Load</button>
+					</div>
+					{#if loadError}<div class="share-err">{loadError}</div>{/if}
 				</div>
 			{/if}
 		</div>
@@ -1534,6 +1709,44 @@
 				/> Miller's proposed seat
 			</label>
 		</div>
+
+		<div class="share-row">
+			<button
+				type="button"
+				class="share-btn"
+				class:on={showShare}
+				aria-expanded={showShare}
+				onclick={() => (showShare ? (showShare = false) : openShare())}>Share this view</button>
+
+		</div>
+		{#if showShare}
+			<div class="share-panel">
+				<div class="share-lbl">Share this view</div>
+				<div class="share-code-row">
+					<code class="share-code">{shareCode}</code>
+					<button type="button" class="share-copy" onclick={copyShare}>{copyLabel}</button>
+				</div>
+				<div class="share-div"></div>
+				<div class="share-lbl">Load a code</div>
+				<div class="share-load-row">
+					<input
+						class="share-input"
+						type="text"
+						placeholder="word-word-word"
+						autocomplete="off"
+						bind:value={loadInput}
+						onkeydown={(e) => {
+							if (e.key === 'Enter') {
+								e.preventDefault();
+								loadShare();
+							}
+						}}
+					/>
+					<button type="button" class="share-load" onclick={loadShare}>Load</button>
+				</div>
+				{#if loadError}<div class="share-err">{loadError}</div>{/if}
+			</div>
+		{/if}
 
 		<div class="lines-note">
 			<b>Reading the lines</b><br />
@@ -1880,6 +2093,122 @@
 		accent-color: #6fd3fb;
 		cursor: pointer;
 	}
+	/* ── Share panel (desktop popover + shared with the mobile .msw-m-pop) ──────── */
+	.share-row {
+		margin-top: 7px;
+		padding-top: 6px;
+		border-top: 1px solid #2a3550;
+	}
+	.share-btn {
+		width: 100%;
+		box-sizing: border-box;
+		background: #11182a;
+		border: 1px solid #2a3550;
+		border-radius: 7px;
+		color: #cfe0f5;
+		font: 600 12px -apple-system, 'Segoe UI', sans-serif;
+		padding: 7px 8px;
+		cursor: pointer;
+		text-align: center;
+	}
+	.share-btn:hover {
+		border-color: #6fd3fb;
+		color: #eaf2ff;
+	}
+	.share-btn.on {
+		border-color: #6fd3fb;
+		color: #eaf2ff;
+		background: #18233c;
+	}
+	.share-panel {
+		margin-top: 7px;
+		padding: 9px;
+		background: rgba(12, 15, 26, 0.97);
+		border: 1px solid #2a3550;
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		gap: 7px;
+	}
+	.share-lbl {
+		font-size: 9.5px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: #9a8c72;
+	}
+	.share-code-row,
+	.share-load-row {
+		display: flex;
+		gap: 6px;
+		align-items: stretch;
+	}
+	.share-code {
+		flex: 1;
+		min-width: 0;
+		box-sizing: border-box;
+		background: #11182a;
+		border: 1px solid #2a3550;
+		border-radius: 6px;
+		color: #6fd3fb;
+		font: 600 12.5px ui-monospace, Consolas, monospace;
+		padding: 6px 8px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: flex;
+		align-items: center;
+	}
+	.share-copy,
+	.share-load {
+		flex: none;
+		background: #1f6feb;
+		border: 1px solid #1f6feb;
+		border-radius: 6px;
+		color: #fff;
+		font: 600 12px -apple-system, 'Segoe UI', sans-serif;
+		padding: 6px 11px;
+		cursor: pointer;
+	}
+	.share-copy:hover,
+	.share-load:hover {
+		background: #2f7ffb;
+	}
+	.share-div {
+		height: 1px;
+		background: #2a3550;
+		margin: 1px 0;
+	}
+	.share-input {
+		flex: 1;
+		min-width: 0;
+		box-sizing: border-box;
+		background: #11182a;
+		border: 1px solid #2a3550;
+		border-radius: 6px;
+		color: #e6eefb;
+		font: 400 13px -apple-system, 'Segoe UI', sans-serif;
+		padding: 6px 9px;
+		outline: none;
+	}
+	.share-input:focus {
+		border-color: #6fd3fb;
+	}
+	.share-input::placeholder {
+		color: #6b7d99;
+	}
+	.share-err {
+		font-size: 11.5px;
+		color: #ff8f8f;
+	}
+	/* Mobile share popover: the bar's dark warm theme — match .msw-m-pop tone. */
+	.msw-m-pop .share-code {
+		font-size: 14px;
+	}
+	.msw-m-pop .share-input {
+		font-size: 15px;
+	}
+
 	.tip {
 		position: absolute;
 		z-index: 6;

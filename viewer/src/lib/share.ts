@@ -37,14 +37,18 @@ const MAX_N   = 19_200;
 const MAP_KEYS = ['minority', 'majority', '2019'] as const;
 
 // ── Types ─────────────────────────────────────────────────────────────────────
+// Deck-explorer state model (the SVG engine this once encoded was retired). The
+// 19,200-code space is unchanged; the four layer bits now carry the deck's four
+// layer filters, and viewport.zoom is normalised to 0..1 over the deck's zoom
+// range (bucketed into 4 on encode). primary + mapOn map to the deck's activeMaps.
 
-import type { MapKey, LayerKey } from './mapEngine/types';
+export type MapKey = 'minority' | 'majority' | '2019';
 
 export type MapState = {
 	primary:  MapKey;
 	mapOn:    Record<MapKey, boolean>;
-	layers:   Record<LayerKey, boolean>;
-	viewport: { cx_norm: number; cy_norm: number; zoom: number };
+	layers:   { hwy: boolean; water: boolean; pois: boolean; miller: boolean };
+	viewport: { cx_norm: number; cy_norm: number; zoom: number }; // zoom: 0..1 normalised
 };
 
 // ── Encode ────────────────────────────────────────────────────────────────────
@@ -57,15 +61,15 @@ export function encodeState(state: MapState): string | null {
 	const oBits  = (state.mapOn[others[0]] ? 1 : 0) | (state.mapOn[others[1]] ? 2 : 0);
 
 	const lBits =
-		(state.layers['vote']     ? 1 : 0) |
-		(state.layers['ed-fill']  ? 2 : 0) |
-		(state.layers['ed-lines'] ? 4 : 0) |
-		(state.layers['eg']       ? 8 : 0);
+		(state.layers.hwy    ? 1 : 0) |
+		(state.layers.water  ? 2 : 0) |
+		(state.layers.pois   ? 4 : 0) |
+		(state.layers.miller ? 8 : 0);
 
 	const col  = Math.min(4, Math.max(0, Math.floor(state.viewport.cx_norm * 5)));
 	const row  = Math.min(4, Math.max(0, Math.floor(state.viewport.cy_norm * 5)));
-	const zoom = state.viewport.zoom;
-	const zT   = zoom >= 0.5 ? 0 : zoom >= 0.2 ? 1 : zoom >= 0.08 ? 2 : 3;
+	// viewport.zoom is normalised 0..1 over the deck zoom range → 4 even buckets.
+	const zT   = Math.min(3, Math.max(0, Math.floor(state.viewport.zoom * 4)));
 
 	const n = pIdx + 3 * (oBits + 4 * (lBits + 16 * (col + 5 * (row + 5 * zT))));
 	if (n >= MAX_N) return null;
@@ -106,15 +110,15 @@ export function decodeState(code: string): MapState | null {
 		primary,
 		mapOn,
 		layers: {
-			'vote':     !!(lBits & 1),
-			'ed-fill':  !!(lBits & 2),
-			'ed-lines': !!(lBits & 4),
-			'eg':       !!(lBits & 8),
+			hwy:    !!(lBits & 1),
+			water:  !!(lBits & 2),
+			pois:   !!(lBits & 4),
+			miller: !!(lBits & 8),
 		},
 		viewport: {
 			cx_norm: (col + 0.5) / 5,
 			cy_norm: (row + 0.5) / 5,
-			zoom:    [0.7, 0.35, 0.14, 0.05][zT],
+			zoom:    (zT + 0.5) / 4, // normalised bucket centre, 0..1
 		},
 	};
 }

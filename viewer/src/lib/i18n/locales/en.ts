@@ -142,6 +142,7 @@ export default {
 	},
 	hero: {
 		h1: 'Alberta Electoral Boundary Audit',
+		draft: '(UNPUBLISHED DRAFT — reviewers welcome)',
 		subtitle:
 			"Alberta's commission produced two riding maps in 2026. This audit compared them — using the same tests, applied equally to both — to ask whether they treat voters the same way.",
 		badge: 'Official Elections Alberta maps — Published May 2026',
