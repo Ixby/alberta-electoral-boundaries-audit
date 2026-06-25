@@ -1875,7 +1875,7 @@
 						onchange={(e) => setLang(e.currentTarget.value as Lang)}
 					>
 						{#each langs as code (code)}
-							<option value={code}>{LANG_LABELS[code as Lang].native}</option>
+							<option value={code}>{LANG_LABELS[code as Lang].native} — {LANG_LABELS[code as Lang].english.replace(/\s*\([^)]*\)/, '')}</option>
 						{/each}
 					</select>
 					<span class="lang-caret" aria-hidden="true">▾</span>
