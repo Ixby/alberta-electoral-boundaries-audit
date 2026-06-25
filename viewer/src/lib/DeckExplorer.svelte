@@ -155,7 +155,11 @@
 	let zoomSetter: (z: number) => void = () => {};
 	let dragSetter: (v: boolean) => void = () => {};
 	let mapToggler: (mk: string) => void = () => {};
-	let filterSetter: (which: 'hwy' | 'water' | 'pois' | 'miller', val: boolean) => void = () => {};
+	let filterSetter: (
+		which: 'hwy' | 'water' | 'pois' | 'miller',
+		val: boolean,
+		silent?: boolean
+	) => void = () => {};
 	let edSelector: (rec: EdRec) => void = () => {};
 	let clearSelection: () => void = () => {};
 	// Share bridges: build a MapState from the live view, and apply a decoded one.
@@ -1011,7 +1015,7 @@
 				schedulePaint();
 			};
 			// Filter checkbox handlers (lazy-load data on manual enable).
-			filterSetter = (which: 'hwy' | 'water' | 'pois' | 'miller', val: boolean) => {
+			filterSetter = (which: 'hwy' | 'water' | 'pois' | 'miller', val: boolean, silent = false) => {
 				filters[which] = val;
 				if (which === 'hwy' && val) loadHwyData();
 				if (which === 'water' && val) loadWaterData();
@@ -1023,10 +1027,10 @@
 						})
 						.catch(() => {});
 				}
-				// Analytics: user-driven layer toggle. (The zoom auto-enable in
-				// maybeAutoLayers flips these programmatically and is intentionally
-				// NOT logged — only genuine user toggles count.)
-				track('layer_toggle', { layer: which, on: val });
+				// Analytics: only GENUINE user toggles count. `silent` skips logging for
+				// programmatic applies (share-code load, session resume, zoom auto-enable),
+				// matching maybeAutoLayers which is also intentionally NOT logged.
+				if (!silent) track('layer_toggle', { layer: which, on: val });
 				schedulePaint();
 			};
 			// Search → fly to the chosen district and glow it. Clamp the fit-zoom to
@@ -1085,10 +1089,10 @@
 			shareApply = (s: MapState) => {
 				const ms2: MapKey[] = ['minority', 'majority', '2019'];
 				activeMaps = [s.primary, ...ms2.filter((k) => k !== s.primary && s.mapOn[k])];
-				filterSetter('hwy', s.layers.hwy);
-				filterSetter('water', s.layers.water);
-				filterSetter('pois', s.layers.pois);
-				filterSetter('miller', s.layers.miller);
+				filterSetter('hwy', s.layers.hwy, true);
+				filterSetter('water', s.layers.water, true);
+				filterSetter('pois', s.layers.pois, true);
+				filterSetter('miller', s.layers.miller, true);
 				if (lastVS && M) {
 					const [minx, miny, maxx, maxy] = M.bbox;
 					const tx = minx + s.viewport.cx_norm * (maxx - minx);
